@@ -39,7 +39,7 @@ export function AccessibilityToolbar() {
   };
 
   return (
-    <div className="fixed bottom-24 right-3 z-50 flex max-w-[calc(100vw-1.5rem)] items-center gap-2 rounded-2xl border-2 border-foreground/15 bg-card/95 p-2 shadow-xl backdrop-blur">
+    <div className="mx-auto mb-4 mt-4 flex w-fit max-w-[calc(100vw-1.5rem)] items-center gap-2 rounded-2xl border-2 border-foreground/15 bg-card/95 p-2 shadow-xl backdrop-blur sm:fixed sm:bottom-3 sm:right-3 sm:z-50 sm:mx-0 sm:mb-0 sm:mt-0">
       <button
         type="button"
         onClick={cycleSize}

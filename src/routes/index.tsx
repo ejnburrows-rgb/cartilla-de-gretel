@@ -1,86 +1,133 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { BookOpen, GraduationCap, MousePointerClick } from "lucide-react";
-import { assetPath } from "@/lib/assets";
+import { BookOpen, GraduationCap, ListChecks, PencilLine, Users } from "lucide-react";
+import { CoverInspiredPanel } from "@/components/CoverInspiredPanel";
 
 export const Route = createFileRoute("/")({
   component: Landing,
   head: () => ({
     meta: [
-      { title: "La Cartilla de Gretel - Lector y Cartilla digital" },
+      { title: "La Cartilla de Gretel - Plataforma escolar" },
       {
         name: "description",
         content:
-          "Lee el libro original o usa la cartilla digital interactiva con lecciones, ejercicios y evaluaciones.",
+          "Plataforma digital escolar de La Cartilla de Gretel para lectura, lecciones, practica y seguimiento docente.",
       },
     ],
   }),
 });
 
+const primaryActions = [
+  {
+    to: "/book" as const,
+    icon: BookOpen,
+    label: "Leer libro",
+    desc: "PDF oficial",
+    color: "bg-[hsl(197,41%,22%)]",
+  },
+  {
+    to: "/cartilla/lecciones" as const,
+    icon: Users,
+    label: "Estudiantes",
+    desc: "Lecciones",
+    color: "bg-vowel-i",
+  },
+  {
+    to: "/cartilla/teacher" as const,
+    icon: GraduationCap,
+    label: "Docentes",
+    desc: "Panel de clase",
+    color: "bg-vowel-o",
+  },
+  {
+    to: "/cartilla/practica" as const,
+    icon: PencilLine,
+    label: "Practica",
+    desc: "60 segundos",
+    color: "bg-vowel-a",
+  },
+];
+
 function Landing() {
   return (
-    <main className="min-h-screen bg-background px-4 py-8 text-foreground">
-      <header className="mx-auto grid max-w-5xl items-center gap-8 py-4 md:grid-cols-[0.75fr_1fr]">
-        <div className="mx-auto w-full max-w-[260px] overflow-hidden rounded-3xl border-4 border-white bg-card shadow-2xl shadow-primary/15 md:max-w-[320px]">
-          <img
-            src={assetPath("cartilla/images/cover.png")}
-            alt="Portada de La Cartilla de Gretel"
-            className="h-full w-full object-cover"
-          />
+    <main className="min-h-screen bg-background px-4 py-6 text-foreground">
+      <nav className="mx-auto flex max-w-6xl flex-col gap-3 rounded-3xl border border-foreground/10 bg-white/90 p-3 shadow-xl shadow-primary/10 backdrop-blur md:flex-row md:items-center md:justify-between">
+        <div className="px-2">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-foreground/55">
+            Plataforma escolar
+          </p>
+          <p className="text-lg font-black text-[hsl(197,41%,22%)]">La Cartilla de Gretel</p>
         </div>
-        <div className="text-center md:text-left">
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-primary">
-            Double R Publishing
+        <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
+          {primaryActions.map((action) => (
+            <Link
+              key={action.to}
+              to={action.to}
+              className="group grid min-h-20 grid-cols-[44px_1fr] items-center gap-3 rounded-2xl border border-foreground/10 bg-card p-3 text-left shadow-sm transition hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-lg focus-visible:outline-primary"
+            >
+              <span
+                className={`${action.color} flex h-11 w-11 items-center justify-center rounded-xl text-white shadow-md shadow-black/10`}
+              >
+                <action.icon className="h-5 w-5" />
+              </span>
+              <span>
+                <span className="block text-base font-black leading-tight">{action.label}</span>
+                <span className="block text-sm font-semibold text-foreground/60">
+                  {action.desc}
+                </span>
+              </span>
+            </Link>
+          ))}
+        </div>
+      </nav>
+
+      <header className="mx-auto grid max-w-6xl items-center gap-8 py-10 lg:grid-cols-[0.9fr_1.1fr]">
+        <CoverInspiredPanel />
+        <div className="text-center lg:text-left">
+          <p className="text-sm font-bold uppercase tracking-[0.22em] text-vowel-a">
+            Lectura inicial en espanol
           </p>
-          <h1 className="mt-3 text-4xl font-bold leading-tight sm:text-6xl">
-            La Cartilla de Gretel
+          <h1 className="mt-4 text-4xl font-black leading-tight text-[hsl(197,41%,22%)] sm:text-6xl">
+            Una entrada clara para estudiantes y docentes.
           </h1>
-          <p className="mt-4 text-xl text-foreground/75">
-            Un acceso claro para maestras, estudiantes y lectura del libro oficial.
+          <p className="mt-5 text-xl leading-relaxed text-foreground/75">
+            Acceso rapido al libro, a las 24 lecciones, a la practica guiada y al panel de clase
+            desde una pantalla sencilla y de alto contraste.
           </p>
-          <div className="mt-5 inline-flex items-center gap-2 rounded-2xl bg-secondary px-4 py-3 text-sm font-bold text-secondary-foreground">
-            <MousePointerClick className="h-5 w-5" />
-            Elige una opción para comenzar
+          <div className="mt-7 grid gap-3 sm:grid-cols-2">
+            <Link
+              to="/cartilla/lecciones"
+              className="tap-target inline-flex items-center justify-center gap-3 rounded-2xl bg-[hsl(197,41%,22%)] px-6 py-4 text-lg font-black text-white shadow-lg shadow-[hsl(197,41%,22%)]/25"
+            >
+              <ListChecks className="h-5 w-5" /> Comenzar lecciones
+            </Link>
+            <Link
+              to="/book"
+              className="tap-target inline-flex items-center justify-center gap-3 rounded-2xl border-2 border-[hsl(197,41%,22%)] bg-card px-6 py-4 text-lg font-black text-[hsl(197,41%,22%)] shadow-lg shadow-primary/10"
+            >
+              <BookOpen className="h-5 w-5" /> Abrir libro
+            </Link>
           </div>
         </div>
       </header>
 
-      <section className="mx-auto grid w-full max-w-5xl gap-6 sm:grid-cols-2">
-        <Link
-          to="/book"
-          className="kid-card group flex flex-col items-start gap-5 p-8 transition hover:-translate-y-1"
-        >
-          <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
-            <BookOpen className="h-8 w-8" />
+      <section className="mx-auto grid w-full max-w-6xl gap-4 pb-12 md:grid-cols-3">
+        {[
+          ["Para estudiantes", "Botones grandes, lecciones ordenadas y practica rapida."],
+          ["Para docentes", "Panel de clase, codigos de alumnos y seguimiento de progreso."],
+          [
+            "Para lectura",
+            "Lector PDF separado para consultar el libro oficial sin distracciones.",
+          ],
+        ].map(([title, copy]) => (
+          <div key={title} className="kid-card p-6">
+            <h2 className="text-xl font-black text-[hsl(197,41%,22%)]">{title}</h2>
+            <p className="mt-2 text-base leading-relaxed text-foreground/70">{copy}</p>
           </div>
-          <h2 className="text-2xl font-bold">Lector del libro</h2>
-          <p className="text-lg text-foreground/75">
-            PDF oficial de <em>La Cartilla de Gretel</em> con progreso por página.
-          </p>
-          <span className="tap-target mt-auto inline-flex items-center rounded-2xl bg-primary px-5 py-3 text-base font-bold text-primary-foreground">
-            Abrir lector
-          </span>
-        </Link>
-
-        <Link
-          to="/cartilla"
-          className="kid-card group flex flex-col items-start gap-5 p-8 transition hover:-translate-y-1"
-        >
-          <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-vowel-i text-white">
-            <GraduationCap className="h-8 w-8" />
-          </div>
-          <h2 className="text-2xl font-bold">Cartilla digital</h2>
-          <p className="text-lg text-foreground/75">
-            24 lecciones interactivas, ejercicios adaptativos, prueba FAST y panel de maestro.
-          </p>
-          <span className="tap-target mt-auto inline-flex items-center rounded-2xl bg-vowel-i px-5 py-3 text-base font-bold text-white">
-            Abrir cartilla
-          </span>
-        </Link>
+        ))}
       </section>
 
-      <footer className="mt-14 space-y-1 text-center text-sm text-foreground/55">
-        <p>© {new Date().getFullYear()} Double R Publishing · Leonor Lopetegui</p>
-        <p>ISBN 978-1-7368420-7-2</p>
+      <footer className="pb-8 text-center text-sm font-semibold text-foreground/55">
+        <p>La Cartilla de Gretel · Leonor Lopetegui</p>
       </footer>
     </main>
   );

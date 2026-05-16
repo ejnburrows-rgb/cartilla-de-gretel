@@ -5,13 +5,13 @@ import {
   BookOpen,
   GraduationCap,
   ListOrdered,
-  MousePointerClick,
+  PencilLine,
   Sparkles,
   User,
   Zap,
 } from "lucide-react";
+import { CoverInspiredPanel } from "@/components/CoverInspiredPanel";
 import { useStudentSession } from "@/lib/student-session";
-import { assetPath } from "@/lib/assets";
 
 export const Route = createFileRoute("/cartilla/")({
   component: CartillaHome,
@@ -21,13 +21,12 @@ export const Route = createFileRoute("/cartilla/")({
       {
         name: "description",
         content:
-          "Cartilla digital interactiva: 24 lecciones, ejercicios, evaluaciones, prueba FAST y panel de maestro.",
+          "Cartilla digital interactiva: 24 lecciones, ejercicios, evaluaciones y panel de maestro.",
       },
-      { property: "og:title", content: "La Cartilla de Gretel - Edición digital interactiva" },
+      { property: "og:title", content: "La Cartilla de Gretel - Edicion digital escolar" },
       {
         property: "og:description",
-        content:
-          "Método fonético K-2 con 24 lecciones, ejercicios interactivos y panel de maestro.",
+        content: "Metodo fonetico K-2 con 24 lecciones, ejercicios interactivos y panel docente.",
       },
     ],
   }),
@@ -35,20 +34,51 @@ export const Route = createFileRoute("/cartilla/")({
 
 function CartillaHome() {
   const session = useStudentSession();
+  const roleActions = [
+    {
+      to: "/book" as const,
+      icon: BookOpen,
+      label: "Leer libro",
+      desc: "PDF oficial",
+      color: "bg-[hsl(197,41%,22%)]",
+    },
+    {
+      to: session ? ("/cartilla/mi-progreso" as const) : ("/cartilla/unirse" as const),
+      icon: User,
+      label: "Estudiantes",
+      desc: session ? "Mi progreso" : "Unirse a clase",
+      color: "bg-vowel-i",
+    },
+    {
+      to: "/cartilla/teacher" as const,
+      icon: GraduationCap,
+      label: "Docentes",
+      desc: "Panel de clase",
+      color: "bg-vowel-o",
+    },
+    {
+      to: "/cartilla/practica" as const,
+      icon: PencilLine,
+      label: "Practica",
+      desc: "60 segundos",
+      color: "bg-vowel-a",
+    },
+  ];
+
   const cards = [
     {
       to: "/cartilla/lecciones" as const,
       icon: ListOrdered,
       title: "Las 24 lecciones",
-      desc: "Aprende paso a paso, vocal por vocal y consonante por consonante.",
-      color: "bg-primary",
+      desc: "Ruta ordenada para trabajar vocales, consonantes, silabas y palabras.",
+      color: "bg-[hsl(197,41%,22%)]",
     },
     {
       to: "/cartilla/practica" as const,
       icon: Zap,
-      title: "Práctica rápida",
-      desc: "Drill de 60 segundos: identifica sílabas a toda velocidad.",
-      color: "bg-vowel-o",
+      title: "Practica rapida",
+      desc: "Ejercicios cortos para reforzar reconocimiento de silabas.",
+      color: "bg-vowel-a",
     },
     ...(session
       ? [
@@ -57,13 +87,13 @@ function CartillaHome() {
             icon: BarChart3,
             title: "Mi progreso",
             desc: `Hola ${session.studentName} - revisa tus lecciones, aciertos e insignias.`,
-            color: "bg-vowel-a",
+            color: "bg-vowel-i",
           },
           {
             to: "/cartilla/repaso" as const,
             icon: Sparkles,
             title: "Modo repaso",
-            desc: "Practica las lecciones donde fallaste y refuerza lo pendiente.",
+            desc: "Practica las lecciones donde necesitas mas apoyo.",
             color: "bg-vowel-e",
           },
         ]
@@ -72,76 +102,95 @@ function CartillaHome() {
             to: "/cartilla/unirse" as const,
             icon: User,
             title: "Soy estudiante",
-            desc: "Únete a tu clase con el código que te dio tu maestra o maestro.",
+            desc: "Entra con el codigo de clase y tu codigo personal.",
             color: "bg-vowel-i",
           },
         ]),
     {
       to: "/cartilla/teacher" as const,
       icon: GraduationCap,
-      title: "Panel de Maestro",
-      desc: "Crea clases, agrega alumnos y revisa el progreso real.",
+      title: "Panel docente",
+      desc: "Crea clases, agrega alumnos y revisa el progreso.",
       color: "bg-vowel-o",
     },
     {
       to: "/cartilla/autora" as const,
       icon: User,
       title: "La autora",
-      desc: "Conoce a Leonor Lopetegui, autora del método.",
+      desc: "Conoce a Leonor Lopetegui y el enfoque de la cartilla.",
       color: "bg-vowel-u",
     },
   ];
 
   return (
-    <main className="mx-auto min-h-screen max-w-5xl bg-background px-4 py-8">
-      <Link
-        to="/"
-        className="inline-flex items-center gap-2 rounded-2xl bg-card px-4 py-3 text-sm font-bold text-foreground/70 shadow-sm hover:text-foreground"
-      >
-        <ArrowLeft className="h-4 w-4" /> Inicio
-      </Link>
-      <header className="mt-6 grid items-center gap-6 rounded-3xl bg-card/85 p-5 shadow-xl shadow-primary/10 md:grid-cols-[180px_1fr]">
-        <img
-          src={assetPath("cartilla/images/cover.png")}
-          alt="Portada de La Cartilla de Gretel"
-          className="mx-auto w-36 rounded-2xl border-4 border-white shadow-lg md:w-44"
-        />
-        <div className="text-center md:text-left">
-          <h1 className="text-4xl font-bold text-primary sm:text-5xl">La Cartilla de Gretel</h1>
-          <p className="mt-3 text-xl text-foreground/75">
-            Edición digital interactiva - método fonético K-2.
-          </p>
-          <div className="mt-4 inline-flex items-center gap-2 rounded-2xl bg-secondary px-4 py-3 text-sm font-bold">
-            <MousePointerClick className="h-5 w-5" />
-            Botones grandes para escoger la actividad
-          </div>
-        </div>
-      </header>
-      <section className="mt-10 grid gap-4 sm:grid-cols-2">
-        {cards.map((c) => (
+    <main className="min-h-screen bg-background px-4 py-6 text-foreground">
+      <div className="mx-auto max-w-6xl">
+        <nav className="flex flex-col gap-3 rounded-3xl border border-foreground/10 bg-white/90 p-3 shadow-xl shadow-primary/10 backdrop-blur md:flex-row md:items-center md:justify-between">
           <Link
-            key={c.to}
-            to={c.to}
-            className="kid-card group flex items-start gap-4 p-6 transition duration-300 hover:-translate-y-1"
+            to="/"
+            className="inline-flex min-h-14 items-center gap-2 rounded-2xl px-3 text-sm font-black text-foreground/70 hover:bg-muted hover:text-foreground"
           >
-            <div
-              className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl ${c.color} text-white transition duration-300 group-hover:scale-105`}
-            >
-              <c.icon className="h-8 w-8" />
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold">{c.title}</h2>
-              <p className="mt-1 text-base text-foreground/75">{c.desc}</p>
-            </div>
+            <ArrowLeft className="h-4 w-4" /> Inicio
           </Link>
-        ))}
-      </section>
-      <p className="mt-12 text-center text-sm text-foreground/60">
-        ¿Prefieres leer el libro?{" "}
-        <Link to="/book" className="inline-flex items-center gap-1 font-bold underline">
-          <BookOpen className="h-4 w-4" /> Abrir lector
-        </Link>
-      </p>
+          <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
+            {roleActions.map((action) => (
+              <Link
+                key={action.to}
+                to={action.to}
+                className="group grid min-h-20 grid-cols-[44px_1fr] items-center gap-3 rounded-2xl border border-foreground/10 bg-card p-3 text-left shadow-sm transition hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-lg"
+              >
+                <span
+                  className={`${action.color} flex h-11 w-11 items-center justify-center rounded-xl text-white shadow-md shadow-black/10`}
+                >
+                  <action.icon className="h-5 w-5" />
+                </span>
+                <span>
+                  <span className="block text-base font-black leading-tight">{action.label}</span>
+                  <span className="block text-sm font-semibold text-foreground/60">
+                    {action.desc}
+                  </span>
+                </span>
+              </Link>
+            ))}
+          </div>
+        </nav>
+
+        <header className="mt-8 grid items-center gap-8 lg:grid-cols-[0.75fr_1.25fr]">
+          <CoverInspiredPanel compact />
+          <div className="text-center lg:text-left">
+            <p className="text-sm font-bold uppercase tracking-[0.22em] text-vowel-a">
+              Plataforma de aula
+            </p>
+            <h1 className="mt-3 text-4xl font-black leading-tight text-[hsl(197,41%,22%)] sm:text-6xl">
+              Lecciones, practica y progreso en un solo lugar.
+            </h1>
+            <p className="mt-4 text-xl leading-relaxed text-foreground/75">
+              Una experiencia clara para estudiantes y docentes, con botones grandes y rutas
+              directas para el trabajo diario.
+            </p>
+          </div>
+        </header>
+
+        <section className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {cards.map((c) => (
+            <Link
+              key={c.to}
+              to={c.to}
+              className="kid-card group grid min-h-40 grid-cols-[64px_1fr] items-start gap-4 p-6 transition duration-300 hover:-translate-y-1"
+            >
+              <div
+                className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl ${c.color} text-white transition duration-300 group-hover:scale-105`}
+              >
+                <c.icon className="h-8 w-8" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-black text-[hsl(197,41%,22%)]">{c.title}</h2>
+                <p className="mt-2 text-base leading-relaxed text-foreground/75">{c.desc}</p>
+              </div>
+            </Link>
+          ))}
+        </section>
+      </div>
     </main>
   );
 }

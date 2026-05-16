@@ -1,14 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, Award, BookOpen, Mail, ExternalLink } from "lucide-react";
+import { ArrowLeft, Award } from "lucide-react";
 import portrait from "@/assets/autora-portrait.png";
 
 export const Route = createFileRoute("/cartilla/autora")({
   component: Autora,
   head: () => ({ meta: [{ title: "Leonor Lopetegui — La autora" }] }),
 });
-
-const PURCHASE_URL = "https://doublermuybien-com.3dcartstores.com/";
-const CONTACT_EMAIL = "info@doublerpublishing.com";
 
 function Autora() {
   return (
@@ -25,14 +22,8 @@ function Autora() {
             className="hidden md:block text-[11px] tracking-[0.45em] uppercase text-[hsl(25,25%,35%)]"
             style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
           >
-            Double R Publishing · est. 2004
+            La Cartilla de Gretel
           </p>
-          <a
-            href={`mailto:${CONTACT_EMAIL}`}
-            className="hidden sm:inline-flex items-center gap-2 text-[12px] tracking-[0.2em] uppercase text-[hsl(25,25%,30%)] hover:text-[hsl(25,25%,10%)]"
-          >
-            <Mail className="w-4 h-4" /> Contacto
-          </a>
         </div>
       </header>
 
@@ -53,20 +44,10 @@ function Autora() {
             className="text-lg md:text-xl leading-relaxed text-[hsl(25,25%,28%)] max-w-prose"
             style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
           >
-            Casi cincuenta años enseñando español en las aulas del Condado de Miami-Dade. Fundadora
-            de Double R Publishing y autora de La Cartilla de Gretel, un método propio —fonético,
-            visual y entrañable— que ha acompañado a miles de familias.
+            Casi cincuenta años enseñando español en las aulas del Condado de Miami-Dade. Autora de
+            La Cartilla de Gretel, un método propio —fonético, visual y entrañable— que ha
+            acompañado a miles de familias.
           </p>
-          <div className="mt-10 flex flex-wrap gap-3">
-            <a
-              href={PURCHASE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-[hsl(15,55%,32%)] text-[hsl(40,40%,97%)] tracking-[0.2em] uppercase text-[11px] hover:bg-[hsl(15,55%,24%)] transition"
-            >
-              <BookOpen className="w-4 h-4" /> Comprar la cartilla
-            </a>
-          </div>
         </div>
         <div className="md:col-span-5 order-1 md:order-2 relative">
           <img
@@ -142,12 +123,9 @@ function Autora() {
           >
             Para escuelas y familias
           </h2>
-          <a
-            href={`mailto:${CONTACT_EMAIL}`}
-            className="inline-flex items-center gap-3 px-9 py-4 bg-[hsl(40,40%,94%)] text-[hsl(25,25%,12%)] tracking-[0.25em] uppercase text-[11px] hover:bg-white transition"
-          >
-            <Mail className="w-4 h-4" /> {CONTACT_EMAIL}
-          </a>
+          <p className="text-sm uppercase tracking-[0.25em] text-[hsl(40,40%,78%)]">
+            Lectura inicial · practica · seguimiento
+          </p>
         </div>
       </section>
     </main>
