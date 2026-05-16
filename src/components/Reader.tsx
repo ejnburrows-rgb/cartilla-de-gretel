@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useMemo, useState, lazy } from "react";
+import { Suspense, useCallback, useEffect, useMemo, useState, lazy } from "react";
 import { motion } from "framer-motion";
 import { ProgressBar } from "./ProgressBar";
 import { LessonTimer, type TimerMode } from "./LessonTimer";
@@ -57,6 +57,14 @@ export function Reader() {
   };
 
   const unitKey = useMemo(() => `pdf:${unit}`, [unit]);
+  const handleUnitChange = useCallback((nextUnit: string) => {
+    setUnit((current) => (current === nextUnit ? current : nextUnit));
+  }, []);
+  const handleProgress = useCallback((current: number, total: number) => {
+    setProgress((previous) =>
+      previous.current === current && previous.total === total ? previous : { current, total },
+    );
+  }, []);
 
   if (bookReady === null) {
     return (
@@ -154,8 +162,8 @@ export function Reader() {
             <div className="h-full overflow-auto">
               <PdfViewer
                 url={PDF_URL}
-                onUnitChange={setUnit}
-                onProgress={(current, total) => setProgress({ current, total })}
+                onUnitChange={handleUnitChange}
+                onProgress={handleProgress}
                 advanceSignal={advanceSignal}
               />
             </div>

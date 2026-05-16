@@ -5,7 +5,7 @@ import "react-pdf/dist/Page/TextLayer.css";
 import { storage } from "@/lib/storage";
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-  "pdfjs-dist/build/pdf.worker.min.mjs",
+  "react-pdf/node_modules/pdfjs-dist/build/pdf.worker.min.mjs",
   import.meta.url,
 ).toString();
 

@@ -1,12 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  BookOpen,
-  GraduationCap,
-  User,
-  ListOrdered,
   ArrowLeft,
   BarChart3,
+  BookOpen,
+  GraduationCap,
+  ListOrdered,
+  MousePointerClick,
   Sparkles,
+  User,
   Zap,
 } from "lucide-react";
 import { useStudentSession } from "@/lib/student-session";
@@ -15,13 +16,13 @@ export const Route = createFileRoute("/cartilla/")({
   component: CartillaHome,
   head: () => ({
     meta: [
-      { title: "Cartilla digital — La Cartilla de Gretel" },
+      { title: "Cartilla digital - La Cartilla de Gretel" },
       {
         name: "description",
         content:
           "Cartilla digital interactiva: 24 lecciones, ejercicios, evaluaciones, prueba FAST y panel de maestro.",
       },
-      { property: "og:title", content: "La Cartilla de Gretel — Edición digital interactiva" },
+      { property: "og:title", content: "La Cartilla de Gretel - Edición digital interactiva" },
       {
         property: "og:description",
         content:
@@ -54,7 +55,7 @@ function CartillaHome() {
             to: "/cartilla/mi-progreso" as const,
             icon: BarChart3,
             title: "Mi progreso",
-            desc: `Hola ${session.studentName} — revisa tus lecciones, aciertos e insignias.`,
+            desc: `Hola ${session.studentName} - revisa tus lecciones, aciertos e insignias.`,
             color: "bg-vowel-a",
           },
           {
@@ -89,45 +90,55 @@ function CartillaHome() {
       color: "bg-vowel-u",
     },
   ];
+
   return (
-    <main className="min-h-screen bg-background px-4 py-8 max-w-4xl mx-auto">
+    <main className="mx-auto min-h-screen max-w-5xl bg-background px-4 py-8">
       <Link
         to="/"
-        className="inline-flex items-center gap-2 text-sm font-bold text-foreground/60 hover:text-foreground"
+        className="inline-flex items-center gap-2 rounded-2xl bg-card px-4 py-3 text-sm font-bold text-foreground/70 shadow-sm hover:text-foreground"
       >
-        <ArrowLeft className="w-4 h-4" /> Inicio
+        <ArrowLeft className="h-4 w-4" /> Inicio
       </Link>
-      <header className="mt-6 text-center">
-        <h1 className="float-soft text-4xl sm:text-5xl font-bold bg-gradient-to-br from-primary via-vowel-i to-vowel-o bg-clip-text text-transparent">
-          La Cartilla de Gretel
-        </h1>
-        <p className="mt-3 text-foreground/70">
-          Edición digital interactiva — método fonético K-2.
-        </p>
+      <header className="mt-6 grid items-center gap-6 rounded-3xl bg-card/85 p-5 shadow-xl shadow-primary/10 md:grid-cols-[180px_1fr]">
+        <img
+          src="/cartilla/images/cover.png"
+          alt="Portada de La Cartilla de Gretel"
+          className="mx-auto w-36 rounded-2xl border-4 border-white shadow-lg md:w-44"
+        />
+        <div className="text-center md:text-left">
+          <h1 className="text-4xl font-bold text-primary sm:text-5xl">La Cartilla de Gretel</h1>
+          <p className="mt-3 text-xl text-foreground/75">
+            Edición digital interactiva - método fonético K-2.
+          </p>
+          <div className="mt-4 inline-flex items-center gap-2 rounded-2xl bg-secondary px-4 py-3 text-sm font-bold">
+            <MousePointerClick className="h-5 w-5" />
+            Botones grandes para escoger la actividad
+          </div>
+        </div>
       </header>
-      <section className="mt-10 grid sm:grid-cols-2 gap-4">
+      <section className="mt-10 grid gap-4 sm:grid-cols-2">
         {cards.map((c) => (
           <Link
             key={c.to}
             to={c.to}
-            className="kid-card group p-6 flex items-start gap-4 hover:-translate-y-1 transition duration-300"
+            className="kid-card group flex items-start gap-4 p-6 transition duration-300 hover:-translate-y-1"
           >
             <div
-              className={`shrink-0 w-12 h-12 rounded-2xl ${c.color} text-white flex items-center justify-center transition duration-300 group-hover:scale-110 group-hover:rotate-3`}
+              className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl ${c.color} text-white transition duration-300 group-hover:scale-105`}
             >
-              <c.icon className="w-6 h-6" />
+              <c.icon className="h-8 w-8" />
             </div>
             <div>
-              <h2 className="text-lg font-bold">{c.title}</h2>
-              <p className="text-sm text-foreground/70 mt-1">{c.desc}</p>
+              <h2 className="text-2xl font-bold">{c.title}</h2>
+              <p className="mt-1 text-base text-foreground/75">{c.desc}</p>
             </div>
           </Link>
         ))}
       </section>
-      <p className="mt-12 text-center text-xs text-foreground/50">
+      <p className="mt-12 text-center text-sm text-foreground/60">
         ¿Prefieres leer el libro?{" "}
-        <Link to="/book" className="underline font-bold inline-flex items-center gap-1">
-          <BookOpen className="w-3 h-3" /> Abrir lector
+        <Link to="/book" className="inline-flex items-center gap-1 font-bold underline">
+          <BookOpen className="h-4 w-4" /> Abrir lector
         </Link>
       </p>
     </main>

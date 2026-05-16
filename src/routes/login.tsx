@@ -1,11 +1,11 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { GraduationCap, ArrowLeft, Loader2 } from "lucide-react";
+import { ArrowLeft, GraduationCap, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/login")({
   component: LoginPage,
-  head: () => ({ meta: [{ title: "Acceso del maestro — La Cartilla de Gretel" }] }),
+  head: () => ({ meta: [{ title: "Acceso del maestro - La Cartilla de Gretel" }] }),
 });
 
 function LoginPage() {
@@ -51,64 +51,77 @@ function LoginPage() {
   };
 
   return (
-    <main className="min-h-screen bg-background px-4 py-8 max-w-md mx-auto">
+    <main className="mx-auto min-h-screen max-w-lg bg-background px-4 py-8">
       <Link
         to="/cartilla"
-        className="inline-flex items-center gap-2 text-sm font-bold text-foreground/60 hover:text-foreground"
+        className="inline-flex items-center gap-2 rounded-2xl bg-card px-4 py-3 text-sm font-bold text-foreground/70 shadow-sm hover:text-foreground"
       >
-        <ArrowLeft className="w-4 h-4" /> Cartilla
+        <ArrowLeft className="h-4 w-4" /> Cartilla
       </Link>
-      <header className="mt-8 text-center">
-        <div className="mx-auto w-14 h-14 rounded-2xl bg-primary text-primary-foreground flex items-center justify-center">
-          <GraduationCap className="w-7 h-7" />
+
+      <header className="mt-8 rounded-3xl bg-card/85 p-6 text-center shadow-xl shadow-primary/10">
+        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
+          <GraduationCap className="h-8 w-8" />
         </div>
-        <h1 className="mt-4 text-3xl font-bold">
+        <h1 className="mt-4 text-4xl font-bold">
           {mode === "login" ? "Acceso del maestro" : "Crear cuenta de maestro"}
         </h1>
-        <p className="text-sm text-foreground/60 mt-1">
+        <p className="mt-2 text-lg text-foreground/70">
           {mode === "login"
             ? "Entra para gestionar tus clases y alumnos."
             : "Crea tu cuenta para empezar a organizar clases."}
         </p>
       </header>
 
-      <form onSubmit={submit} className="mt-8 space-y-3">
+      <form
+        onSubmit={submit}
+        className="mt-6 space-y-4 rounded-3xl bg-card/85 p-5 shadow-xl shadow-primary/10"
+      >
         {mode === "signup" && (
+          <label className="block text-base font-bold">
+            Nombre completo
+            <input
+              type="text"
+              value={fullName}
+              onChange={(e) => setFullName(e.target.value)}
+              placeholder="Nombre completo"
+              className="mt-2 w-full rounded-2xl border-2 border-foreground/15 bg-background px-4 py-4 text-lg outline-none focus:border-primary"
+              required
+            />
+          </label>
+        )}
+        <label className="block text-base font-bold">
+          Correo electrónico
           <input
-            type="text"
-            value={fullName}
-            onChange={(e) => setFullName(e.target.value)}
-            placeholder="Nombre completo"
-            className="w-full px-4 py-3 rounded-xl border-2 border-foreground/10 bg-card focus:border-primary outline-none"
+            type="email"
+            autoComplete="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="correo@escuela.com"
+            className="mt-2 w-full rounded-2xl border-2 border-foreground/15 bg-background px-4 py-4 text-lg outline-none focus:border-primary"
             required
           />
-        )}
-        <input
-          type="email"
-          autoComplete="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="correo@escuela.com"
-          className="w-full px-4 py-3 rounded-xl border-2 border-foreground/10 bg-card focus:border-primary outline-none"
-          required
-        />
-        <input
-          type="password"
-          autoComplete={mode === "login" ? "current-password" : "new-password"}
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Contraseña"
-          minLength={6}
-          className="w-full px-4 py-3 rounded-xl border-2 border-foreground/10 bg-card focus:border-primary outline-none"
-          required
-        />
-        {error && <div className="text-sm text-destructive font-bold">{error}</div>}
+        </label>
+        <label className="block text-base font-bold">
+          Contraseña
+          <input
+            type="password"
+            autoComplete={mode === "login" ? "current-password" : "new-password"}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Contraseña"
+            minLength={6}
+            className="mt-2 w-full rounded-2xl border-2 border-foreground/15 bg-background px-4 py-4 text-lg outline-none focus:border-primary"
+            required
+          />
+        </label>
+        {error && <div className="text-sm font-bold text-destructive">{error}</div>}
         <button
           type="submit"
           disabled={busy}
-          className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-bold disabled:opacity-50 inline-flex items-center justify-center gap-2"
+          className="tap-target inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-primary py-4 text-lg font-bold text-primary-foreground disabled:opacity-50"
         >
-          {busy && <Loader2 className="w-4 h-4 animate-spin" />}
+          {busy && <Loader2 className="h-4 w-4 animate-spin" />}
           {mode === "login" ? "Entrar" : "Crear cuenta"}
         </button>
       </form>
@@ -118,14 +131,14 @@ function LoginPage() {
           setError(null);
           setMode((m) => (m === "login" ? "signup" : "login"));
         }}
-        className="mt-4 w-full text-sm text-foreground/60 hover:text-primary"
+        className="tap-target mt-4 w-full rounded-2xl bg-secondary px-4 py-3 text-base font-bold text-secondary-foreground hover:text-primary"
       >
         {mode === "login" ? "¿No tienes cuenta? Crear una" : "¿Ya tienes cuenta? Entrar"}
       </button>
 
-      <p className="mt-8 text-center text-xs text-foreground/50">
+      <p className="mt-8 text-center text-sm text-foreground/60">
         ¿Eres estudiante?{" "}
-        <Link to="/cartilla/unirse" className="underline font-bold">
+        <Link to="/cartilla/unirse" className="font-bold underline">
           Únete a una clase
         </Link>
       </p>
