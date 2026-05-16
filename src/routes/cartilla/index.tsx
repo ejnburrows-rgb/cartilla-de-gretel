@@ -11,6 +11,7 @@ import {
   Zap,
 } from "lucide-react";
 import { useStudentSession } from "@/lib/student-session";
+import { assetPath } from "@/lib/assets";
 
 export const Route = createFileRoute("/cartilla/")({
   component: CartillaHome,
@@ -101,7 +102,7 @@ function CartillaHome() {
       </Link>
       <header className="mt-6 grid items-center gap-6 rounded-3xl bg-card/85 p-5 shadow-xl shadow-primary/10 md:grid-cols-[180px_1fr]">
         <img
-          src="/cartilla/images/cover.png"
+          src={assetPath("cartilla/images/cover.png")}
           alt="Portada de La Cartilla de Gretel"
           className="mx-auto w-36 rounded-2xl border-4 border-white shadow-lg md:w-44"
         />

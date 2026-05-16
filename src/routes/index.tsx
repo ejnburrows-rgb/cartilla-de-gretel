@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { BookOpen, GraduationCap, MousePointerClick } from "lucide-react";
+import { assetPath } from "@/lib/assets";
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -21,7 +22,7 @@ function Landing() {
       <header className="mx-auto grid max-w-5xl items-center gap-8 py-4 md:grid-cols-[0.75fr_1fr]">
         <div className="mx-auto w-full max-w-[260px] overflow-hidden rounded-3xl border-4 border-white bg-card shadow-2xl shadow-primary/15 md:max-w-[320px]">
           <img
-            src="/cartilla/images/cover.png"
+            src={assetPath("cartilla/images/cover.png")}
             alt="Portada de La Cartilla de Gretel"
             className="h-full w-full object-cover"
           />

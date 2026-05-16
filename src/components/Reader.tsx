@@ -5,10 +5,11 @@ import { LessonTimer, type TimerMode } from "./LessonTimer";
 import { storage } from "@/lib/storage";
 import { ThemeToggle } from "./ThemeToggle";
 import { Downloads } from "./Downloads";
+import { assetPath } from "@/lib/assets";
 
 const PdfViewer = lazy(() => import("./PdfViewer").then((m) => ({ default: m.PdfViewer })));
 
-const PDF_URL = "/book/book.pdf";
+const PDF_URL = assetPath("book/book.pdf");
 
 async function exists(url: string) {
   try {

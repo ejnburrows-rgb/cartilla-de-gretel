@@ -2,6 +2,7 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowLeft, GraduationCap, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { routePath } from "@/lib/assets";
 
 export const Route = createFileRoute("/login")({
   component: LoginPage,
@@ -33,7 +34,7 @@ function LoginPage() {
           email,
           password,
           options: {
-            emailRedirectTo: `${window.location.origin}/cartilla/teacher`,
+            emailRedirectTo: new URL(routePath("/cartilla/teacher"), window.location.origin).href,
             data: { full_name: fullName },
           },
         });

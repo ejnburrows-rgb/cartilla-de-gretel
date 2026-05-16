@@ -6,6 +6,7 @@ import tsConfigPaths from "vite-tsconfig-paths";
 import { fileURLToPath, URL } from "node:url";
 
 export default defineConfig({
+  base: process.env.GITHUB_PAGES === "true" ? "/cartilla-de-gretel/" : "/",
   plugins: [
     TanStackRouterVite({
       target: "react",

@@ -1,6 +1,8 @@
+import { assetPath } from "@/lib/assets";
+
 const FILES = [
   {
-    href: "/book/book.pdf",
+    href: assetPath("book/book.pdf"),
     name: "La_cartilla_de_Gretel.pdf",
     label: "PDF",
     desc: "Libro del alumno completo, listo para leer o descargar",

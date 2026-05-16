@@ -4,6 +4,7 @@ import { Outlet, Link, createRootRouteWithContext, useRouter } from "@tanstack/r
 
 import { ServiceWorkerRegister } from "@/components/ServiceWorkerRegister";
 import { AccessibilityToolbar } from "@/components/AccessibilityToolbar";
+import { assetPath } from "@/lib/assets";
 
 function NotFoundComponent() {
   return (
@@ -79,7 +80,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
-    links: [{ rel: "manifest", href: "/manifest.webmanifest" }],
+    links: [{ rel: "manifest", href: assetPath("manifest.webmanifest") }],
   }),
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
