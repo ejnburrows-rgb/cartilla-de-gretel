@@ -1,0 +1,32 @@
+[
+  {
+    "q": "¿Cuál es la vocal con la que empieza \"mariposa\"?",
+    "options": ["a", "e", "i", "o", "u"],
+    "correct": "a",
+    "best_standard": "ELA.K.F.1.3"
+  },
+  {
+    "q": "¿Cuál es la vocal con la que empieza \"escuela\"?",
+    "options": ["a", "e", "i", "o", "u"],
+    "correct": "e",
+    "best_standard": "ELA.K.F.1.3"
+  },
+  {
+    "q": "¿Cuál es la vocal con la que empieza \"isla\"?",
+    "options": ["a", "e", "i", "o", "u"],
+    "correct": "i",
+    "best_standard": "ELA.K.F.1.3"
+  },
+  {
+    "q": "¿Cuál es la vocal con la que empieza \"océano\"?",
+    "options": ["a", "e", "i", "o", "u"],
+    "correct": "o",
+    "best_standard": "ELA.K.F.1.3"
+  },
+  {
+    "q": "¿Cuál es la vocal con la que empieza \"universidad\"?",
+    "options": ["a", "e", "i", "o", "u"],
+    "correct": "u",
+    "best_standard": "ELA.K.F.1.3"
+  }
+]

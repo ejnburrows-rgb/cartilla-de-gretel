@@ -1,0 +1,308 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Hybrid design system:
+ * - Tokens stored as HSL triplets ("H S% L%") so legacy code that uses
+ *   `hsl(var(--primary))` keeps working (the Cartilla port relies on this).
+ * - @theme inline wraps each token with hsl() so Tailwind v4 utilities
+ *   (`bg-primary`, `text-foreground`, etc.) resolve correctly.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-success: hsl(var(--success));
+  --color-success-foreground: hsl(var(--success-foreground));
+  --color-warning: hsl(var(--warning));
+  --color-warning-foreground: hsl(var(--warning-foreground));
+  --color-vowel-a: hsl(var(--vowel-a));
+  --color-vowel-e: hsl(var(--vowel-e));
+  --color-vowel-i: hsl(var(--vowel-i));
+  --color-vowel-o: hsl(var(--vowel-o));
+  --color-vowel-u: hsl(var(--vowel-u));
+  --color-sidebar: hsl(var(--sidebar-background));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+}
+
+:root {
+  --radius: 0.625rem;
+
+  /* Cartilla — kid-first, Spanish literacy K-3 (HSL triplets) */
+  --background: 48 100% 97%;
+  --foreground: 230 35% 18%;
+  --card: 0 0% 100%;
+  --card-foreground: 230 35% 18%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 230 35% 18%;
+  --primary: 230 75% 58%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 48 95% 88%;
+  --secondary-foreground: 230 35% 18%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 222.2 84% 4.9%;
+
+  --success: 145 65% 42%;
+  --success-foreground: 0 0% 100%;
+  --warning: 38 92% 50%;
+  --warning-foreground: 230 35% 18%;
+
+  --vowel-a: 354 78% 56%;
+  --vowel-e: 28 87% 60%;
+  --vowel-i: 198 78% 50%;
+  --vowel-o: 145 60% 45%;
+  --vowel-u: 280 65% 58%;
+
+  --sidebar-background: 0 0% 98%;
+  --sidebar-foreground: 240 5.3% 26.1%;
+  --sidebar-primary: 240 5.9% 10%;
+  --sidebar-primary-foreground: 0 0% 98%;
+  --sidebar-accent: 240 4.8% 95.9%;
+  --sidebar-accent-foreground: 240 5.9% 10%;
+  --sidebar-border: 220 13% 91%;
+  --sidebar-ring: 217.2 91.2% 59.8%;
+}
+
+.dark {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 210 40% 98%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 212.7 26.8% 83.9%;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: ui-sans-serif, system-ui, sans-serif;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .tap-target {
+    min-height: 56px;
+    min-width: 56px;
+  }
+  .kid-card {
+    border-radius: 1.5rem;
+    border-width: 2px;
+    background-color: var(--color-card);
+    box-shadow: 0 6px 0 hsl(var(--foreground) / 0.08);
+  }
+}
+
+/* ─── Accessibility modes ─────────────────────────────────────────── */
+html.a11y-large {
+  font-size: 18px;
+}
+html.a11y-xlarge {
+  font-size: 21px;
+}
+
+html.a11y-dyslexia,
+html.a11y-dyslexia body,
+html.a11y-dyslexia button,
+html.a11y-dyslexia input,
+html.a11y-dyslexia textarea,
+html.a11y-dyslexia h1,
+html.a11y-dyslexia h2,
+html.a11y-dyslexia h3 {
+  font-family:
+    "OpenDyslexic", "Atkinson Hyperlegible", "Comic Sans MS", "Verdana", sans-serif !important;
+  letter-spacing: 0.02em;
+  word-spacing: 0.08em;
+}
+
+html.a11y-contrast {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 0%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 0%;
+  --primary: 230 100% 35%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 60 100% 80%;
+  --secondary-foreground: 0 0% 0%;
+  --muted: 0 0% 92%;
+  --muted-foreground: 0 0% 12%;
+  --border: 0 0% 0%;
+  --ring: 0 0% 0%;
+}
+html.a11y-contrast .kid-card {
+  border-color: hsl(0 0% 0%);
+  box-shadow: 0 4px 0 hsl(0 0% 0%);
+}
+
+/* ─── Premium classroom polish ───────────────────────────────────── */
+@layer base {
+  body {
+    min-height: 100vh;
+    background:
+      radial-gradient(circle at 15% 10%, hsl(var(--vowel-i) / 0.18), transparent 28rem),
+      radial-gradient(circle at 85% 5%, hsl(var(--vowel-e) / 0.16), transparent 26rem),
+      linear-gradient(180deg, hsl(var(--background)), hsl(var(--secondary) / 0.18));
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 3px solid hsl(var(--primary) / 0.45);
+    outline-offset: 3px;
+  }
+}
+
+@layer utilities {
+  .kid-card {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg, hsl(var(--card) / 0.98), hsl(var(--card) / 0.92));
+    border-color: hsl(var(--foreground) / 0.08);
+    box-shadow:
+      0 8px 0 hsl(var(--foreground) / 0.06),
+      0 18px 40px hsl(var(--primary) / 0.08);
+    backdrop-filter: blur(10px);
+    transition:
+      transform 220ms ease,
+      box-shadow 220ms ease,
+      border-color 220ms ease,
+      background-color 220ms ease;
+  }
+
+  .kid-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(120deg, transparent 0%, hsl(0 0% 100% / 0.22) 45%, transparent 72%);
+    transform: translateX(-120%);
+    transition: transform 650ms ease;
+  }
+
+  .kid-card:hover {
+    transform: translateY(-3px);
+    border-color: hsl(var(--primary) / 0.25);
+    box-shadow:
+      0 10px 0 hsl(var(--foreground) / 0.07),
+      0 24px 50px hsl(var(--primary) / 0.14);
+  }
+
+  .kid-card:hover::before {
+    transform: translateX(120%);
+  }
+
+  .premium-glass {
+    border: 1px solid hsl(var(--primary) / 0.16);
+    background: hsl(var(--card) / 0.82);
+    box-shadow: 0 24px 80px hsl(var(--primary) / 0.12);
+    backdrop-filter: blur(18px);
+  }
+
+  .float-soft {
+    animation: cartilla-float 5s ease-in-out infinite;
+  }
+
+  .pulse-soft {
+    animation: cartilla-pulse 2.8s ease-in-out infinite;
+  }
+}
+
+@keyframes cartilla-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes cartilla-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 hsl(var(--primary) / 0.18);
+  }
+  50% {
+    box-shadow: 0 0 0 12px hsl(var(--primary) / 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}

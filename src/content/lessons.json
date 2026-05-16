@@ -1,0 +1,132 @@
+[
+  {
+    "id": "vowel-a",
+    "vowel": "a",
+    "color": "#E63946",
+    "colorLight": "#FEF2F2",
+    "colorGradient": "from-rose-500 to-red-600",
+    "characterName": "La Abeja Cantora",
+    "characterDesc": "Una abeja que siempre canta \"aaaaa\" cuando vuela de flor en flor recolectando néctar.",
+    "vocab": [
+      { "word": "árbol", "emoji": "🌳" },
+      { "word": "avión", "emoji": "✈️" },
+      { "word": "abeja", "emoji": "🐝" },
+      { "word": "ala", "emoji": "🪽" }
+    ],
+    "matchPairs": [
+      { "left": "a", "right": "🌳 árbol", "pairId": 0 },
+      { "left": "a", "right": "✈️ avión", "pairId": 1 },
+      { "left": "a", "right": "🐝 abeja", "pairId": 2 }
+    ],
+    "checkboxItems": [
+      { "word": "árbol", "emoji": "🌳", "startsWithVowel": true },
+      { "word": "avión", "emoji": "✈️", "startsWithVowel": true },
+      { "word": "elefante", "emoji": "🐘", "startsWithVowel": false },
+      { "word": "escoba", "emoji": "🧹", "startsWithVowel": false }
+    ]
+  },
+  {
+    "id": "vowel-e",
+    "vowel": "e",
+    "color": "#F4A261",
+    "colorLight": "#FFF8F0",
+    "colorGradient": "from-amber-500 to-orange-500",
+    "characterName": "La Niña que no Oye Bien",
+    "characterDesc": "Una niña con dificultad para oír; cuando no escucha, dice \"eeeee\" para pedir que le repitan.",
+    "vocab": [
+      { "word": "elefante", "emoji": "🐘" },
+      { "word": "escoba", "emoji": "🧹" },
+      { "word": "espejo", "emoji": "🪞" },
+      { "word": "estrella", "emoji": "⭐" }
+    ],
+    "matchPairs": [
+      { "left": "e", "right": "🐘 elefante", "pairId": 0 },
+      { "left": "e", "right": "🧹 escoba", "pairId": 1 },
+      { "left": "e", "right": "🪞 espejo", "pairId": 2 }
+    ],
+    "checkboxItems": [
+      { "word": "elefante", "emoji": "🐘", "startsWithVowel": true },
+      { "word": "escoba", "emoji": "🧹", "startsWithVowel": true },
+      { "word": "árbol", "emoji": "🌳", "startsWithVowel": false },
+      { "word": "avión", "emoji": "✈️", "startsWithVowel": false }
+    ]
+  },
+  {
+    "id": "vowel-i",
+    "vowel": "i",
+    "color": "#2A9D8F",
+    "colorLight": "#F0FDFA",
+    "colorGradient": "from-teal-500 to-emerald-600",
+    "characterName": "El Explorador del Iglú",
+    "characterDesc": "Un explorador valiente que vive en el iglú y siempre dice \"iiiii\" de emoción al descubrir cosas nuevas.",
+    "vocab": [
+      { "word": "iglú", "emoji": "🛖" },
+      { "word": "isla", "emoji": "🏝️" },
+      { "word": "iguana", "emoji": "🦎" },
+      { "word": "imán", "emoji": "🧲" }
+    ],
+    "matchPairs": [
+      { "left": "i", "right": "🛖 iglú", "pairId": 0 },
+      { "left": "i", "right": "🏝️ isla", "pairId": 1 },
+      { "left": "i", "right": "🦎 iguana", "pairId": 2 }
+    ],
+    "checkboxItems": [
+      { "word": "iglú", "emoji": "🛖", "startsWithVowel": true },
+      { "word": "isla", "emoji": "🏝️", "startsWithVowel": true },
+      { "word": "árbol", "emoji": "🌳", "startsWithVowel": false },
+      { "word": "avión", "emoji": "✈️", "startsWithVowel": false }
+    ]
+  },
+  {
+    "id": "vowel-o",
+    "vowel": "o",
+    "color": "#264653",
+    "colorLight": "#F1F5F9",
+    "colorGradient": "from-slate-700 to-cyan-800",
+    "characterName": "El Oso Dormilón",
+    "characterDesc": "Un oso grande y cariñoso que siempre está sorprendido y dice \"oooo\" cuando ve algo interesante.",
+    "vocab": [
+      { "word": "oso", "emoji": "🐻" },
+      { "word": "ojo", "emoji": "👁️" },
+      { "word": "ola", "emoji": "🌊" },
+      { "word": "olla", "emoji": "🍲" }
+    ],
+    "matchPairs": [
+      { "left": "o", "right": "🐻 oso", "pairId": 0 },
+      { "left": "o", "right": "👁️ ojo", "pairId": 1 },
+      { "left": "o", "right": "🌊 ola", "pairId": 2 }
+    ],
+    "checkboxItems": [
+      { "word": "oso", "emoji": "🐻", "startsWithVowel": true },
+      { "word": "ojo", "emoji": "👁️", "startsWithVowel": true },
+      { "word": "árbol", "emoji": "🌳", "startsWithVowel": false },
+      { "word": "avión", "emoji": "✈️", "startsWithVowel": false }
+    ]
+  },
+  {
+    "id": "vowel-u",
+    "vowel": "u",
+    "color": "#8338EC",
+    "colorLight": "#FAF5FF",
+    "colorGradient": "from-violet-500 to-purple-600",
+    "characterName": "La Única Unicornia",
+    "characterDesc": "Una unicornia mágica y brillante que dice \"uuuu\" de maravilla cada vez que usa su magia.",
+    "vocab": [
+      { "word": "uvas", "emoji": "🍇" },
+      { "word": "uña", "emoji": "💅" },
+      { "word": "uno", "emoji": "1️⃣" },
+      { "word": "urna", "emoji": "🏺" }
+    ],
+    "matchPairs": [
+      { "left": "u", "right": "🍇 uvas", "pairId": 0 },
+      { "left": "u", "right": "💅 uña", "pairId": 1 },
+      { "left": "u", "right": "1️⃣ uno", "pairId": 2 }
+    ],
+    "checkboxItems": [
+      { "word": "uvas", "emoji": "🍇", "startsWithVowel": true },
+      { "word": "uña", "emoji": "💅", "startsWithVowel": true },
+      { "word": "árbol", "emoji": "🌳", "startsWithVowel": false },
+      { "word": "avión", "emoji": "✈️", "startsWithVowel": false }
+    ]
+  }
+]

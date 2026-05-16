@@ -1,0 +1,272 @@
+[
+  {
+    "letter": "m",
+    "lesson": 7,
+    "pages": "19-22",
+    "color": "#E63946",
+    "syllables": ["ma", "me", "mi", "mo", "mu"],
+    "examples": {
+      "ma": ["mamá", "mapa", "maleta", "mago", "marisco"],
+      "me": ["mesa", "miel", "mecha", "menudo", "Memo"],
+      "mi": ["mimo", "mira", "mina", "Mimi", "mira"],
+      "mo": ["mono", "moto", "moda", "momia", "modo"],
+      "mu": ["mulo", "muleta", "muro", "mudo", "mujer"]
+    },
+    "sentences": ["Mi mamá me mima.", "Mamá ama a Memo."]
+  },
+  {
+    "letter": "p",
+    "lesson": 8,
+    "pages": "23-26",
+    "color": "#F4A261",
+    "syllables": ["pa", "pe", "pi", "po", "pu"],
+    "examples": {
+      "pa": ["papá", "pala", "pasa", "patata", "Pamela"],
+      "pe": ["pelo", "pera", "pez", "Pepe", "peso"],
+      "pi": ["pino", "pisa", "pipa", "Pipo", "pista"],
+      "po": ["pomo", "poma", "popa", "poco", "polo"],
+      "pu": ["puma", "pupa", "Pupi", "pulpo", "púa"]
+    },
+    "sentences": ["Mi papá ama a Pupi.", "Papá y mamá me aman."]
+  },
+  {
+    "letter": "s",
+    "lesson": 9,
+    "pages": "27-30",
+    "color": "#2A9D8F",
+    "syllables": ["sa", "se", "si", "so", "su"],
+    "examples": {
+      "sa": ["sapo", "sala", "sano", "Sandi", "salida"],
+      "se": ["seda", "señal", "sed", "Sela", "semana"],
+      "si": ["sino", "sima", "Simón", "silla", "sitio"],
+      "so": ["sopa", "sol", "soga", "soso", "Soto"],
+      "su": ["suyo", "suma", "Susi", "supo", "sube"]
+    },
+    "sentences": ["Pepe puso un sapo en la mesa.", "Susi suma sopa."]
+  },
+  {
+    "letter": "t",
+    "lesson": 10,
+    "pages": "31-34",
+    "color": "#264653",
+    "syllables": ["ta", "te", "ti", "to", "tu"],
+    "examples": {
+      "ta": ["tapa", "tasa", "Tati", "tarima", "tarea"],
+      "te": ["teme", "tela", "tetera", "Teté", "techo"],
+      "ti": ["tipo", "tina", "Tito", "tina", "tirita"],
+      "to": ["topo", "tomate", "Toño", "toldo", "todo"],
+      "tu": ["tupe", "tubo", "tulipán", "tuna", "Matute"]
+    },
+    "sentences": ["¡No Tito, no, no tapes el pomo!", "Papá tapa la sopa."]
+  },
+  {
+    "letter": "d",
+    "lesson": 11,
+    "pages": "35-38",
+    "color": "#8338EC",
+    "syllables": ["da", "de", "di", "do", "du"],
+    "examples": {
+      "da": ["dado", "dama", "Dani", "dama", "danza"],
+      "de": ["dedo", "delfín", "demora", "Dela", "Delia"],
+      "di": ["dime", "Dina", "Diego", "dieta", "diadema"],
+      "do": ["dona", "doce", "domo", "Dora", "dormido"],
+      "du": ["Duma", "duro", "duda", "durazno", "ducha"]
+    },
+    "sentences": ["El pomo de Dunia está en la mesa.", "—Ada, ¿dónde está Dunia?"]
+  },
+  {
+    "letter": "l",
+    "lesson": 12,
+    "pages": "39-42",
+    "color": "#E63946",
+    "syllables": ["la", "le", "li", "lo", "lu"],
+    "examples": {
+      "la": ["lata", "lana", "Lalo", "lago", "lazo"],
+      "le": ["lema", "leña", "Lela", "lente", "letra"],
+      "li": ["lima", "lila", "Lili", "litro", "lista"],
+      "lo": ["lobo", "loma", "Lolo", "loro", "lodo"],
+      "lu": ["lupa", "pelusa", "Luli", "luna", "Lupe"]
+    },
+    "sentences": ["Polo toma su maleta de tela.", "Lalo tiene una maleta de tela también."]
+  },
+  {
+    "letter": "n",
+    "lesson": 13,
+    "pages": "43-46",
+    "color": "#F4A261",
+    "syllables": ["na", "ne", "ni", "no", "nu"],
+    "examples": {
+      "na": ["nata", "nariz", "tina", "nada", "Napi"],
+      "ne": ["Nena", "negro", "Nela", "tenedor", "negar"],
+      "ni": ["nido", "niño", "poni", "sonido", "anida"],
+      "no": ["mono", "Nora", "pino", "Nono", "noche"],
+      "nu": ["nudo", "menudo", "nulo", "Anuca", "nube"]
+    },
+    "sentences": ["Nina ata el nudo.", "Nono mira la nube."]
+  },
+  {
+    "letter": "ñ",
+    "lesson": 14,
+    "pages": "47-50",
+    "color": "#2A9D8F",
+    "syllables": ["ña", "ñe", "ñi", "ño", "ñu"],
+    "examples": {
+      "ña": ["caña", "araña", "leña", "España", "piña"],
+      "ñe": ["ñeque", "muñeca", "ñero", "ñesa", "ordeñe"],
+      "ñi": ["ñiquiñaque", "muñido", "ceñido", "moñito", "puñito"],
+      "ño": ["niño", "moño", "puño", "sueño", "cariño"],
+      "ñu": ["ñu", "ñudo", "ñublado", "añublo", "ñutu"]
+    },
+    "sentences": ["El niño tiene un moño.", "La piña es dulce."]
+  },
+  {
+    "letter": "b",
+    "lesson": 15,
+    "pages": "51-54",
+    "color": "#264653",
+    "syllables": ["ba", "be", "bi", "bo", "bu"],
+    "examples": {
+      "ba": ["bata", "Bambi", "balde", "banda", "barco"],
+      "be": ["bebé", "beso", "Beto", "bestia", "Bela"],
+      "bi": ["bici", "biberón", "Bibi", "binario", "bingo"],
+      "bo": ["bota", "boca", "bola", "Bobo", "bonito"],
+      "bu": ["buho", "buque", "Bubu", "burro", "bufanda"]
+    },
+    "sentences": ["El bebé bebe.", "Beto besa a la abuela."]
+  },
+  {
+    "letter": "v",
+    "lesson": 16,
+    "pages": "55-58",
+    "color": "#8338EC",
+    "syllables": ["va", "ve", "vi", "vo", "vu"],
+    "examples": {
+      "va": ["vaca", "vaso", "Valeria", "vapor", "vainilla"],
+      "ve": ["vela", "verde", "Vero", "vestido", "ventana"],
+      "vi": ["vino", "vida", "Vivi", "viento", "violeta"],
+      "vo": ["voto", "volcán", "vómito", "voz", "voltaje"],
+      "vu": ["vudú", "vulgar", "vuelo", "vuelta", "vuestra"]
+    },
+    "sentences": ["La vaca ve a Vero.", "Vivi viene en el vuelo."]
+  },
+  {
+    "letter": "r",
+    "lesson": 17,
+    "pages": "59-62",
+    "color": "#E63946",
+    "syllables": ["ra", "re", "ri", "ro", "ru"],
+    "examples": {
+      "ra": ["cara", "rama", "Rafa", "rana", "rato"],
+      "re": ["pera", "reto", "Rena", "remo", "redondo"],
+      "ri": ["pira", "risa", "Ricki", "rico", "ritmo"],
+      "ro": ["loro", "rosa", "Romina", "rojo", "rosado"],
+      "ru": ["puro", "ruta", "Rubi", "rubio", "rueda"]
+    },
+    "sentences": ["La rana ríe.", "Rosa toma una pera."]
+  },
+  {
+    "letter": "rr",
+    "lesson": 18,
+    "pages": "63-66",
+    "color": "#F4A261",
+    "syllables": ["rra", "rre", "rri", "rro", "rru"],
+    "examples": {
+      "rra": ["barra", "tierra", "guitarra", "carretera", "agarra"],
+      "rre": ["perro", "torre", "carrera", "correo", "corre"],
+      "rri": ["arriba", "carrito", "barrio", "burrito", "horrible"],
+      "rro": ["carro", "burro", "morro", "cigarro", "hierro"],
+      "rru": ["arruga", "borrumba", "arrullo", "arruina", "arrullo"]
+    },
+    "sentences": ["El perro corre por la torre.", "El carro va por la carretera."]
+  },
+  {
+    "letter": "g",
+    "lesson": 19,
+    "pages": "67-70",
+    "color": "#2A9D8F",
+    "syllables": ["ga", "gue", "gui", "go", "gu"],
+    "examples": {
+      "ga": ["gato", "gana", "Gabi", "ganso", "galleta"],
+      "gue": ["guerra", "guepardo", "Miguel", "guía", "manguera"],
+      "gui": ["guitarra", "guiño", "águila", "guisante", "Guille"],
+      "go": ["gota", "gola", "Goyo", "golfo", "gorrión"],
+      "gu": ["gusto", "gula", "Gus", "gusano", "guardia"]
+    },
+    "sentences": ["El gato toca la guitarra.", "Miguel juega con su gato."]
+  },
+  {
+    "letter": "f",
+    "lesson": 20,
+    "pages": "71-74",
+    "color": "#264653",
+    "syllables": ["fa", "fe", "fi", "fo", "fu"],
+    "examples": {
+      "fa": ["fama", "faro", "Fabi", "falda", "familia"],
+      "fe": ["feo", "fecha", "Felipe", "feria", "fenómeno"],
+      "fi": ["fila", "fino", "Fifi", "fiera", "fiesta"],
+      "fo": ["foca", "foto", "Foco", "forma", "fondo"],
+      "fu": ["fuma", "fuente", "Fufu", "futuro", "fuerza"]
+    },
+    "sentences": ["La foca está en la fila.", "Felipe toma una foto."]
+  },
+  {
+    "letter": "j",
+    "lesson": 21,
+    "pages": "75-78",
+    "color": "#8338EC",
+    "syllables": ["ja", "je", "ji", "jo", "ju"],
+    "examples": {
+      "ja": ["jabón", "jaula", "Javi", "jamón", "jarra"],
+      "je": ["jefe", "jeringa", "Jenny", "jerga", "jersey"],
+      "ji": ["jirafa", "jinete", "Jimena", "Jimmy", "jícara"],
+      "jo": ["jota", "joven", "Jorge", "joya", "jorobado"],
+      "ju": ["jugo", "junto", "Julia", "juguete", "Juan"]
+    },
+    "sentences": ["Julia juega con la jirafa.", "Jorge toma jugo."]
+  },
+  {
+    "letter": "c",
+    "lesson": 22,
+    "pages": "79-82",
+    "color": "#E63946",
+    "syllables": ["ca", "que", "qui", "co", "cu"],
+    "examples": {
+      "ca": ["casa", "cama", "Cami", "carro", "calle"],
+      "que": ["queso", "queja", "Quique", "querer", "queremos"],
+      "qui": ["quita", "quince", "Quirino", "química", "quiosco"],
+      "co": ["coco", "cosa", "Coco", "comida", "color"],
+      "cu": ["cuna", "cuento", "Cuca", "cuchara", "cuerpo"]
+    },
+    "sentences": ["Cami come queso en la casa.", "Quique quiere una cuchara."]
+  },
+  {
+    "letter": "y",
+    "lesson": 23,
+    "pages": "83-86",
+    "color": "#F4A261",
+    "syllables": ["ya", "ye", "yi", "yo", "yu"],
+    "examples": {
+      "ya": ["yate", "yarda", "Yamila", "yantar", "rayar"],
+      "ye": ["yegua", "yeso", "Yeni", "yerno", "ayer"],
+      "yi": ["yip", "yiddish", "yiyo", "yiteo", "yindi"],
+      "yo": ["yoyo", "yodo", "yoga", "Yoli", "yogur"],
+      "yu": ["yuca", "yugo", "Yuli", "yunque", "ayuda"]
+    },
+    "sentences": ["Yo tomo yogur.", "Yoli juega con el yoyo."]
+  },
+  {
+    "letter": "z",
+    "lesson": 24,
+    "pages": "87-90",
+    "color": "#2A9D8F",
+    "syllables": ["za", "ce", "ci", "zo", "zu"],
+    "examples": {
+      "za": ["zapato", "zanahoria", "Zaida", "zapallo", "zarpa"],
+      "ce": ["cesta", "cero", "Cecilia", "celda", "ceniza"],
+      "ci": ["cine", "circo", "Cintia", "ciruela", "cima"],
+      "zo": ["zorro", "zona", "Zoraida", "zorrito", "buzo"],
+      "zu": ["zumo", "zumba", "Zulema", "azúcar", "zurdo"]
+    },
+    "sentences": ["El zorro come zanahoria.", "Cecilia toma zumo."]
+  }
+]

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Marcador de posición para la vocal e">
+  <circle cx="200" cy="200" r="180" fill="#F4A261" opacity="0.18"/>
+  <circle cx="200" cy="200" r="180" fill="none" stroke="#cc0000" stroke-width="3" stroke-dasharray="8 6"/>
+  <text x="200" y="260" font-size="240" font-family="Georgia, serif" text-anchor="middle" fill="#F4A261">e</text>
+  <circle cx="160" cy="160" r="12" fill="#222"/>
+  <circle cx="240" cy="160" r="12" fill="#222"/>
+  <text x="200" y="380" font-size="14" font-family="sans-serif" text-anchor="middle" fill="#cc0000">TODO: replace with author character</text>
+</svg>
