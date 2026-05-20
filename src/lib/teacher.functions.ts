@@ -1,5 +1,16 @@
 import { z } from "zod";
-import { supabase } from "@/integrations/supabase/client";
+import { isSupabaseConfigured, supabase } from "@/integrations/supabase/client";
+import {
+  addDemoStudents,
+  createDemoClass,
+  deleteDemoClass,
+  deleteDemoStudent,
+  findDemoStudentsByName,
+  getDemoClass,
+  getDemoClassProgress,
+  getDemoTeacherStudentProgress,
+  listDemoClasses,
+} from "@/lib/demo-data";
 
 const ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
 
@@ -86,6 +97,7 @@ function exerciseName(e: { meta?: unknown }) {
 }
 
 export async function listClasses(): Promise<TeacherClassWithCount[]> {
+  if (!isSupabaseConfigured) return listDemoClasses();
   const { userId } = await requireTeacher();
   const { data, error } = await supabase
     .from("classes")
@@ -111,6 +123,7 @@ export async function listClasses(): Promise<TeacherClassWithCount[]> {
 
 export async function createClass(input: Call<{ name: string }>) {
   const data = z.object({ name: z.string().trim().min(1).max(80) }).parse(input.data);
+  if (!isSupabaseConfigured) return createDemoClass(data.name);
   const { userId } = await requireTeacher();
   for (let i = 0; i < 5; i++) {
     const code = makeCode(6);
@@ -126,7 +139,8 @@ export async function createClass(input: Call<{ name: string }>) {
 }
 
 export async function deleteClass(input: Call<{ id: string }>) {
-  const data = z.object({ id: z.string().uuid() }).parse(input.data);
+  const data = z.object({ id: z.string().min(1) }).parse(input.data);
+  if (!isSupabaseConfigured) return deleteDemoClass(data.id);
   const { userId } = await requireTeacher();
   await ensureTeacherOwnsClass(data.id);
   const { error } = await supabase
@@ -141,7 +155,8 @@ export async function deleteClass(input: Call<{ id: string }>) {
 export async function getClass(
   input: Call<{ id: string }>,
 ): Promise<{ class: TeacherClass; students: TeacherStudentWithStats[] }> {
-  const data = z.object({ id: z.string().uuid() }).parse(input.data);
+  const data = z.object({ id: z.string().min(1) }).parse(input.data);
+  if (!isSupabaseConfigured) return getDemoClass(data.id);
   const cls = await ensureTeacherOwnsClass(data.id);
 
   const { data: students, error: e2 } = await supabase
@@ -189,10 +204,11 @@ export async function getClass(
 export async function addStudents(input: Call<{ classId: string; names: string[] }>) {
   const data = z
     .object({
-      classId: z.string().uuid(),
+      classId: z.string().min(1),
       names: z.array(z.string().trim().min(1).max(60)).min(1).max(50),
     })
     .parse(input.data);
+  if (!isSupabaseConfigured) return addDemoStudents(data.classId, data.names);
   await ensureTeacherOwnsClass(data.classId);
   const rows = data.names.map((n) => ({
     class_id: data.classId,
@@ -205,7 +221,8 @@ export async function addStudents(input: Call<{ classId: string; names: string[]
 }
 
 export async function deleteStudent(input: Call<{ id: string }>) {
-  const data = z.object({ id: z.string().uuid() }).parse(input.data);
+  const data = z.object({ id: z.string().min(1) }).parse(input.data);
+  if (!isSupabaseConfigured) return deleteDemoStudent(data.id);
   await ensureTeacherOwnsStudent(data.id);
   const { error } = await supabase.from("students").delete().eq("id", data.id);
   if (error) throw new Error(error.message);
@@ -213,7 +230,8 @@ export async function deleteStudent(input: Call<{ id: string }>) {
 }
 
 export async function getStudentProgress(input: Call<{ id: string }>) {
-  const data = z.object({ id: z.string().uuid() }).parse(input.data);
+  const data = z.object({ id: z.string().min(1) }).parse(input.data);
+  if (!isSupabaseConfigured) return getDemoTeacherStudentProgress(data.id);
   const student = await ensureTeacherOwnsStudent(data.id);
   const cls = Array.isArray(student.classes) ? student.classes[0] : student.classes;
 
@@ -239,7 +257,8 @@ export async function getStudentProgress(input: Call<{ id: string }>) {
 
 /** Aggregated progress for a whole class — for the teacher class chart. */
 export async function getClassProgress(input: Call<{ id: string }>) {
-  const data = z.object({ id: z.string().uuid() }).parse(input.data);
+  const data = z.object({ id: z.string().min(1) }).parse(input.data);
+  if (!isSupabaseConfigured) return getDemoClassProgress(data.id);
   await ensureTeacherOwnsClass(data.id);
   const { data: students, error: sErr } = await supabase
     .from("students")
@@ -374,8 +393,9 @@ export async function getClassProgress(input: Call<{ id: string }>) {
 /** Search students by name within the teacher's classes — for "código olvidado". */
 export async function findStudentsByName(input: Call<{ q: string; classId?: string }>) {
   const data = z
-    .object({ q: z.string().trim().min(1).max(60), classId: z.string().uuid().optional() })
+    .object({ q: z.string().trim().min(1).max(60), classId: z.string().min(1).optional() })
     .parse(input.data);
+  if (!isSupabaseConfigured) return findDemoStudentsByName(data.q, data.classId);
   const { userId } = await requireTeacher();
   let q = supabase
     .from("students")

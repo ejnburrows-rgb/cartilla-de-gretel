@@ -1,8 +1,9 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowLeft, GraduationCap, Loader2 } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
+import { isSupabaseConfigured, supabase } from "@/integrations/supabase/client";
 import { routePath } from "@/lib/assets";
+import { DEMO_TEACHERS, signInDemoTeacher } from "@/lib/demo-data";
 
 export const Route = createFileRoute("/login")({
   component: LoginPage,
@@ -19,6 +20,7 @@ function LoginPage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    if (!isSupabaseConfigured) return;
     supabase.auth.getSession().then(({ data }) => {
       if (data.session) navigate({ to: "/cartilla/teacher" });
     });
@@ -30,6 +32,7 @@ function LoginPage() {
     setError(null);
     try {
       if (mode === "signup") {
+        if (!isSupabaseConfigured) throw new Error("Las cuentas nuevas requieren Supabase.");
         const { error: err } = await supabase.auth.signUp({
           email,
           password,
@@ -40,8 +43,12 @@ function LoginPage() {
         });
         if (err) throw err;
       } else {
-        const { error: err } = await supabase.auth.signInWithPassword({ email, password });
-        if (err) throw err;
+        if (!isSupabaseConfigured) {
+          signInDemoTeacher(email, password);
+        } else {
+          const { error: err } = await supabase.auth.signInWithPassword({ email, password });
+          if (err) throw err;
+        }
       }
       navigate({ to: "/cartilla/teacher" });
     } catch (err) {
@@ -92,9 +99,9 @@ function LoginPage() {
           </label>
         )}
         <label className="block text-base font-bold">
-          Correo electrónico
+          {isSupabaseConfigured ? "Correo electrónico" : "Correo o usuario demo"}
           <input
-            type="email"
+            type={isSupabaseConfigured ? "email" : "text"}
             autoComplete="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -126,6 +133,34 @@ function LoginPage() {
           {mode === "login" ? "Entrar" : "Crear cuenta"}
         </button>
       </form>
+
+      {!isSupabaseConfigured && (
+        <section className="mt-4 rounded-3xl border-2 border-primary/20 bg-primary/5 p-4">
+          <h2 className="text-base font-bold text-primary">Cuentas demo listas</h2>
+          <p className="mt-1 text-sm text-foreground/70">
+            Usa cualquiera para presentar el panel docente sin configurar Supabase.
+          </p>
+          <div className="mt-3 space-y-2 text-sm">
+            {DEMO_TEACHERS.map((teacher) => (
+              <button
+                key={teacher.id}
+                type="button"
+                onClick={() => {
+                  setMode("login");
+                  setEmail(teacher.username);
+                  setPassword(teacher.password);
+                }}
+                className="w-full rounded-2xl border border-foreground/10 bg-card p-3 text-left hover:border-primary"
+              >
+                <span className="block font-bold">{teacher.name}</span>
+                <span className="block font-mono text-xs text-foreground/70">
+                  {teacher.username} / {teacher.password}
+                </span>
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
 
       <button
         onClick={() => {

@@ -2,7 +2,8 @@ import { createFileRoute, Outlet, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import type { Session } from "@supabase/supabase-js";
 import { Loader2 } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
+import { isSupabaseConfigured, supabase } from "@/integrations/supabase/client";
+import { getDemoTeacher } from "@/lib/demo-data";
 
 export const Route = createFileRoute("/_authenticated")({
   component: AuthenticatedLayout,
@@ -14,6 +15,15 @@ function AuthenticatedLayout() {
 
   useEffect(() => {
     let mounted = true;
+    if (!isSupabaseConfigured) {
+      setSession(getDemoTeacher() ? ({} as Session) : null);
+      const update = () => mounted && setSession(getDemoTeacher() ? ({} as Session) : null);
+      window.addEventListener("cartilla:demo-auth", update);
+      return () => {
+        mounted = false;
+        window.removeEventListener("cartilla:demo-auth", update);
+      };
+    }
     supabase.auth.getSession().then(({ data }) => {
       if (mounted) setSession(data.session);
     });

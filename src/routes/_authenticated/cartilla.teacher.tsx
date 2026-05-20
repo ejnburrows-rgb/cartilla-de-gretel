@@ -4,7 +4,8 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useServerFn } from "@/lib/useServerFn";
 import { ArrowLeft, Plus, GraduationCap, LogOut, Users, Trash2, Copy, Loader2 } from "lucide-react";
 import { listClasses, createClass, deleteClass } from "@/lib/teacher.functions";
-import { supabase } from "@/integrations/supabase/client";
+import { isSupabaseConfigured, supabase } from "@/integrations/supabase/client";
+import { getDemoTeacher, signOutDemoTeacher } from "@/lib/demo-data";
 
 export const Route = createFileRoute("/_authenticated/cartilla/teacher")({
   component: TeacherRouteShell,
@@ -27,6 +28,11 @@ function TeacherDashboard() {
   const [teacherEmail, setTeacherEmail] = useState<string>("");
 
   useEffect(() => {
+    if (!isSupabaseConfigured) {
+      const teacher = getDemoTeacher();
+      setTeacherEmail(teacher ? `${teacher.name} · ${teacher.email}` : "");
+      return;
+    }
     supabase.auth.getUser().then(({ data }) => setTeacherEmail(data.user?.email ?? ""));
   }, []);
 
@@ -49,7 +55,8 @@ function TeacherDashboard() {
   });
 
   const signOut = async () => {
-    await supabase.auth.signOut();
+    if (!isSupabaseConfigured) signOutDemoTeacher();
+    else await supabase.auth.signOut();
     navigate({ to: "/" });
   };
 

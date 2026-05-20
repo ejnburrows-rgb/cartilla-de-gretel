@@ -107,7 +107,8 @@ function Practica() {
 
   const start = () => {
     if (pool.length < 4) return;
-    setCards(buildCards(pool, 200));
+    const nextCards = buildCards(pool, 200);
+    setCards(nextCards);
     setIdx(0);
     setHits(0);
     setMisses(0);
@@ -115,8 +116,7 @@ function Practica() {
     setFeedback(null);
     startedAt.current = Date.now();
     setPhase("playing");
-    // pre-speak first
-    setTimeout(() => speak(pool[0]), 100);
+    speak(nextCards[0].syllable);
   };
 
   const choose = (option: string) => {

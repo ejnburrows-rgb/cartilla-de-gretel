@@ -61,9 +61,14 @@ function ensureVoices(): Promise<void> {
       synth.removeEventListener("voiceschanged", once);
       resolve();
     });
-    setTimeout(() => resolve(), 1500);
+    setTimeout(() => resolve(), 350);
   });
   return voicesReady;
+}
+
+function wakeSpeechEngine() {
+  const synth = window.speechSynthesis;
+  if (synth.paused) synth.resume();
 }
 
 export async function speak(text: string) {
@@ -71,6 +76,7 @@ export async function speak(text: string) {
   try {
     await ensureVoices();
     const synth = window.speechSynthesis;
+    wakeSpeechEngine();
     synth.cancel();
     const u = new SpeechSynthesisUtterance(text);
     const voice = cachedVoice ?? pickBestVoice();
@@ -95,6 +101,7 @@ export async function speakVowel(v: string) {
   try {
     await ensureVoices();
     const synth = window.speechSynthesis;
+    wakeSpeechEngine();
     synth.cancel();
     const u = new SpeechSynthesisUtterance(lower.repeat(5));
     const voice = cachedVoice ?? pickBestVoice();
