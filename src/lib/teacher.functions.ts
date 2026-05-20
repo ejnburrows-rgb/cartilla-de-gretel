@@ -5,7 +5,7 @@ import {
   createDemoClass,
   deleteDemoClass,
   deleteDemoStudent,
-  findDemoStudentsByName,
+  DEMO_STUDENT_ACCESS,
   getDemoClass,
   getDemoClassProgress,
   getDemoTeacherStudentProgress,
@@ -59,7 +59,7 @@ function makeCode(len: number) {
 async function requireTeacher(): Promise<TeacherCtx> {
   const { data, error } = await supabase.auth.getUser();
   if (error) throw new Error(error.message);
-  if (!data.user) throw new Error("Debes iniciar sesión como maestro.");
+  if (!data.user) throw new Error("Debes iniciar sesion como maestro.");
   return { userId: data.user.id };
 }
 
@@ -94,6 +94,27 @@ async function ensureTeacherOwnsStudent(studentId: string) {
 function exerciseName(e: { meta?: unknown }) {
   const meta = (e.meta ?? {}) as Record<string, unknown>;
   return typeof meta.exercise === "string" ? meta.exercise : "exercise";
+}
+
+function findDemoStudentsByName(q: string, classId?: string) {
+  const needle = q.trim().toLowerCase();
+  const joinCodeForClass = classId === "demo-class-emilio" ? "NOVO26" : classId === "demo-class-leonor" ? "GRETEL" : null;
+  return DEMO_STUDENT_ACCESS.filter((student) => {
+    if (joinCodeForClass && student.joinCode !== joinCodeForClass) return false;
+    return student.name.toLowerCase().includes(needle);
+  })
+    .slice(0, 20)
+    .map((student) => ({
+      id: `demo-search-${student.joinCode}-${student.studentCode}`,
+      display_name: student.name,
+      student_code: student.studentCode,
+      class_id: student.joinCode === "NOVO26" ? "demo-class-emilio" : "demo-class-leonor",
+      classes: {
+        id: student.joinCode === "NOVO26" ? "demo-class-emilio" : "demo-class-leonor",
+        name: student.joinCode === "NOVO26" ? "Clase demo - Emilio" : "Clase demo - Leonor",
+        join_code: student.joinCode,
+      },
+    }));
 }
 
 export async function listClasses(): Promise<TeacherClassWithCount[]> {
@@ -135,7 +156,7 @@ export async function createClass(input: Call<{ name: string }>) {
     if (!error) return row;
     if (!String(error.message).toLowerCase().includes("join_code")) throw new Error(error.message);
   }
-  throw new Error("No se pudo generar un código único, intenta otra vez.");
+  throw new Error("No se pudo generar un codigo unico, intenta otra vez.");
 }
 
 export async function deleteClass(input: Call<{ id: string }>) {
@@ -255,7 +276,6 @@ export async function getStudentProgress(input: Call<{ id: string }>) {
   };
 }
 
-/** Aggregated progress for a whole class — for the teacher class chart. */
 export async function getClassProgress(input: Call<{ id: string }>) {
   const data = z.object({ id: z.string().min(1) }).parse(input.data);
   if (!isSupabaseConfigured) return getDemoClassProgress(data.id);
@@ -390,7 +410,6 @@ export async function getClassProgress(input: Call<{ id: string }>) {
   };
 }
 
-/** Search students by name within the teacher's classes — for "código olvidado". */
 export async function findStudentsByName(input: Call<{ q: string; classId?: string }>) {
   const data = z
     .object({ q: z.string().trim().min(1).max(60), classId: z.string().min(1).optional() })
