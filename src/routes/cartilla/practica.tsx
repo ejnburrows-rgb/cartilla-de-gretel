@@ -2,7 +2,7 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowLeft, Volume2, Zap, RotateCcw, Trophy } from "lucide-react";
 import { CATALOG } from "@/lib/lesson-catalog";
-import { speak } from "@/lib/speak";
+import { speakNow } from "@/lib/speak";
 import { useLessonProgress } from "@/lib/lesson-progress";
 import { recordEvent } from "@/lib/student-session";
 
@@ -13,7 +13,7 @@ export const Route = createFileRoute("/cartilla/practica")({
       { title: "Práctica rápida — La Cartilla de Gretel" },
       {
         name: "description",
-        content: "Drill de 60 segundos: identifica sílabas a toda velocidad.",
+        content: "Drill de 60 segundos: identifica letras y sonidos a toda velocidad.",
       },
     ],
   }),
@@ -39,7 +39,6 @@ function buildPool(useUnlockedOnly: boolean, isUnlocked: (n: number) => boolean)
     if (useUnlockedOnly && !isUnlocked(e.n)) return;
     e.data.syllables.forEach((s) => pool.push(s));
   });
-  // also include vowels
   ["a", "e", "i", "o", "u"].forEach((v) => pool.push(v));
   return Array.from(new Set(pool));
 }
@@ -48,7 +47,6 @@ function buildCards(pool: string[], n: number): Card[] {
   const cards: Card[] = [];
   for (let i = 0; i < n; i++) {
     const syllable = pool[Math.floor(Math.random() * pool.length)];
-    // 3 distractors
     const distractors = shuffle(pool.filter((s) => s !== syllable)).slice(0, 3);
     const options = shuffle([syllable, ...distractors]);
     const fromCatalog = CATALOG.find((e) =>
@@ -116,7 +114,11 @@ function Practica() {
     setFeedback(null);
     startedAt.current = Date.now();
     setPhase("playing");
-    speak(nextCards[0].syllable);
+    speakNow(nextCards[0].syllable);
+  };
+
+  const speakCurrent = () => {
+    if (current) speakNow(current.syllable);
   };
 
   const choose = (option: string) => {
@@ -128,7 +130,7 @@ function Practica() {
         setFeedback(null);
         const next = idx + 1;
         setIdx(next);
-        if (cards[next]) speak(cards[next].syllable);
+        if (cards[next]) speakNow(cards[next].syllable);
       }, 350);
     } else {
       setMisses((m) => m + 1);
@@ -137,7 +139,7 @@ function Practica() {
         setFeedback(null);
         const next = idx + 1;
         setIdx(next);
-        if (cards[next]) speak(cards[next].syllable);
+        if (cards[next]) speakNow(cards[next].syllable);
       }, 700);
     }
   };
@@ -158,9 +160,9 @@ function Practica() {
         <div className="inline-flex items-center gap-2 text-sm font-bold text-vowel-o bg-vowel-o/10 px-3 py-1 rounded-full">
           <Zap className="w-4 h-4" /> Práctica Rápida
         </div>
-        <h1 className="text-3xl sm:text-4xl font-bold mt-3">Drill de sílabas</h1>
+        <h1 className="text-3xl sm:text-4xl font-bold mt-3">Drill de letras</h1>
         <p className="text-foreground/70 mt-1">
-          Escucha la sílaba y toca la respuesta correcta antes de que se acabe el tiempo.
+          Escucha el sonido y toca la letra correcta antes de que se acabe el tiempo.
         </p>
       </header>
 
@@ -208,14 +210,14 @@ function Practica() {
                 Todas las lecciones
               </button>
             </div>
-            <p className="text-[11px] text-foreground/50 mt-2">{pool.length} sílabas en el pool.</p>
+            <p className="text-[11px] text-foreground/50 mt-2">{pool.length} letras y sonidos en el pool.</p>
           </div>
           <button
             onClick={start}
             disabled={pool.length < 4}
             className="w-full py-4 rounded-2xl bg-primary text-primary-foreground font-bold text-lg disabled:opacity-50 inline-flex items-center justify-center gap-2"
           >
-            <Zap className="w-5 h-5" /> Empezar
+            <Zap className="w-5 h-5" /> Empezar con audio
           </button>
         </section>
       )}
@@ -250,14 +252,14 @@ function Practica() {
             }`}
           >
             <button
-              onClick={() => speak(current.syllable)}
+              onClick={speakCurrent}
               aria-label="Reescuchar"
               className="mb-4 inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-primary font-bold"
             >
-              <Volume2 className="w-4 h-4" /> Reescuchar
+              <Volume2 className="w-4 h-4" /> Reescuchar sonido
             </button>
             <div className="text-xs text-foreground/50 font-bold uppercase tracking-wide">
-              Toca la sílaba que escuchas
+              Toca la letra que escuchas
             </div>
             <div className="grid grid-cols-2 gap-3 mt-5">
               {current.options.map((opt) => (
