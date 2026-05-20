@@ -7,6 +7,8 @@ import { setStudentSession, useStudentSession } from "@/lib/student-session";
 import { isSupabaseConfigured } from "@/integrations/supabase/client";
 import { DEMO_STUDENT_ACCESS } from "@/lib/demo-data";
 
+const DEFAULT_DEMO_STUDENT = DEMO_STUDENT_ACCESS[0];
+
 export const Route = createFileRoute("/cartilla/unirse")({
   component: JoinPage,
   head: () => ({ meta: [{ title: "Únete a una clase — La Cartilla de Gretel" }] }),
@@ -16,8 +18,12 @@ function JoinPage() {
   const navigate = useNavigate();
   const join = useServerFn(joinClass);
   const session = useStudentSession();
-  const [joinCode, setJoinCode] = useState("");
-  const [studentCode, setStudentCode] = useState("");
+  const [joinCode, setJoinCode] = useState(() =>
+    isSupabaseConfigured ? "" : DEFAULT_DEMO_STUDENT.joinCode,
+  );
+  const [studentCode, setStudentCode] = useState(() =>
+    isSupabaseConfigured ? "" : DEFAULT_DEMO_STUDENT.studentCode,
+  );
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -79,6 +85,11 @@ function JoinPage() {
       ) : (
         <>
           <form onSubmit={submit} className="mt-8 space-y-3">
+            {!isSupabaseConfigured && (
+              <div className="rounded-2xl border-2 border-vowel-i/20 bg-vowel-i/5 px-4 py-3 text-sm font-bold text-vowel-i">
+                Demo prellenado: {DEFAULT_DEMO_STUDENT.name}. Pulsa Entrar para comenzar las lecciones.
+              </div>
+            )}
             <div>
               <label className="text-xs font-bold text-foreground/60 uppercase tracking-wide">
                 Código de la clase
@@ -86,7 +97,7 @@ function JoinPage() {
               <input
                 value={joinCode}
                 onChange={(e) => setJoinCode(e.target.value.toUpperCase())}
-                placeholder="ABC123"
+                placeholder={isSupabaseConfigured ? "ABC123" : DEFAULT_DEMO_STUDENT.joinCode}
                 maxLength={10}
                 className="w-full mt-1 px-4 py-3 rounded-xl border-2 border-foreground/10 bg-card focus:border-primary outline-none font-mono text-lg tracking-widest text-center"
                 required
@@ -99,7 +110,7 @@ function JoinPage() {
               <input
                 value={studentCode}
                 onChange={(e) => setStudentCode(e.target.value.toUpperCase())}
-                placeholder="X9YZ2"
+                placeholder={isSupabaseConfigured ? "X9YZ2" : DEFAULT_DEMO_STUDENT.studentCode}
                 maxLength={10}
                 className="w-full mt-1 px-4 py-3 rounded-xl border-2 border-foreground/10 bg-card focus:border-primary outline-none font-mono text-lg tracking-widest text-center"
                 required
@@ -121,7 +132,7 @@ function JoinPage() {
               <div className="mt-3 space-y-2 text-sm">
                 {DEMO_STUDENT_ACCESS.map((student) => (
                   <button
-                    key={student.studentCode}
+                    key={`${student.joinCode}-${student.studentCode}`}
                     type="button"
                     onClick={() => {
                       setJoinCode(student.joinCode);
@@ -131,7 +142,7 @@ function JoinPage() {
                   >
                     <span className="block font-bold">{student.name}</span>
                     <span className="block font-mono text-xs text-foreground/70">
-                      Clase {student.joinCode} / Codigo {student.studentCode}
+                      Clase {student.joinCode} / Código {student.studentCode}
                     </span>
                   </button>
                 ))}
