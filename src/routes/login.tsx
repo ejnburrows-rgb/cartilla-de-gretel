@@ -5,7 +5,7 @@ import { isSupabaseConfigured, supabase } from "@/integrations/supabase/client";
 import { routePath } from "@/lib/assets";
 import { DEMO_TEACHERS, signInDemoTeacher } from "@/lib/demo-data";
 
-const DEFAULT_DEMO_TEACHER = DEMO_TEACHERS[0];
+const DEFAULT_TEACHER = DEMO_TEACHERS[0];
 
 export const Route = createFileRoute("/login")({
   component: LoginPage,
@@ -16,10 +16,10 @@ function LoginPage() {
   const navigate = useNavigate();
   const [mode, setMode] = useState<"login" | "signup">("login");
   const [email, setEmail] = useState(() =>
-    isSupabaseConfigured ? "" : DEFAULT_DEMO_TEACHER.username,
+    isSupabaseConfigured ? "" : DEFAULT_TEACHER.username,
   );
   const [password, setPassword] = useState(() =>
-    isSupabaseConfigured ? "" : DEFAULT_DEMO_TEACHER.password,
+    isSupabaseConfigured ? "" : DEFAULT_TEACHER.password,
   );
   const [fullName, setFullName] = useState("");
   const [busy, setBusy] = useState(false);
@@ -93,7 +93,7 @@ function LoginPage() {
       >
         {!isSupabaseConfigured && mode === "login" && (
           <div className="rounded-2xl border-2 border-primary/20 bg-primary/5 px-4 py-3 text-sm font-bold text-primary">
-            Demo prellenado: {DEFAULT_DEMO_TEACHER.name}. Pulsa Entrar para abrir el panel docente.
+            Cuenta prellenada: {DEFAULT_TEACHER.name}. Pulsa Entrar para abrir el panel docente.
           </div>
         )}
         {mode === "signup" && (
@@ -110,13 +110,13 @@ function LoginPage() {
           </label>
         )}
         <label className="block text-base font-bold">
-          {isSupabaseConfigured ? "Correo electrónico" : "Correo o usuario demo"}
+          {isSupabaseConfigured ? "Correo electrónico" : "Usuario"}
           <input
             type={isSupabaseConfigured ? "email" : "text"}
             autoComplete="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder={isSupabaseConfigured ? "correo@escuela.com" : DEFAULT_DEMO_TEACHER.username}
+            placeholder={isSupabaseConfigured ? "correo@escuela.com" : DEFAULT_TEACHER.username}
             className="mt-2 w-full rounded-2xl border-2 border-foreground/15 bg-background px-4 py-4 text-lg outline-none focus:border-primary"
             required
           />
@@ -128,8 +128,8 @@ function LoginPage() {
             autoComplete={mode === "login" ? "current-password" : "new-password"}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder={isSupabaseConfigured ? "Contraseña" : DEFAULT_DEMO_TEACHER.password}
-            minLength={6}
+            placeholder="Contraseña"
+            minLength={4}
             className="mt-2 w-full rounded-2xl border-2 border-foreground/15 bg-background px-4 py-4 text-lg outline-none focus:border-primary"
             required
           />
@@ -147,9 +147,9 @@ function LoginPage() {
 
       {!isSupabaseConfigured && (
         <section className="mt-4 rounded-3xl border-2 border-primary/20 bg-primary/5 p-4">
-          <h2 className="text-base font-bold text-primary">Cuentas demo listas</h2>
+          <h2 className="text-base font-bold text-primary">Cuentas listas</h2>
           <p className="mt-1 text-sm text-foreground/70">
-            Usa cualquiera para presentar el panel docente sin configurar Supabase.
+            Selecciona una cuenta docente para entrar al panel.
           </p>
           <div className="mt-3 space-y-2 text-sm">
             {DEMO_TEACHERS.map((teacher) => (
@@ -186,7 +186,7 @@ function LoginPage() {
       <p className="mt-8 text-center text-sm text-foreground/60">
         ¿Eres estudiante?{" "}
         <Link to="/cartilla/unirse" className="font-bold underline">
-          Únete a una clase
+          Entra a tu clase
         </Link>
       </p>
     </main>
