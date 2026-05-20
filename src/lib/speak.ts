@@ -1,6 +1,7 @@
 // Free Spanish TTS using the browser's SpeechSynthesis API.
 let cachedVoice: SpeechSynthesisVoice | null = null;
 let voicesReady: Promise<void> | null = null;
+let silentWarmupDone = false;
 
 const PREFERRED_NAMES = [
   "Google español",
@@ -26,8 +27,9 @@ function scoreVoice(v: SpeechSynthesisVoice): number {
   if (/natural|neural|online|premium|enhanced/i.test(name)) score += 200;
   if (/google/i.test(name)) score += 150;
   if (/microsoft/i.test(name)) score += 100;
-  if (/(sabina|dalia|elvira|ximena|helena|paulina|mónica|monica|lucia|laura|sara)/i.test(name))
+  if (/(sabina|dalia|elvira|ximena|helena|paulina|mónica|monica|lucia|laura|sara)/i.test(name)) {
     score += 50;
+  }
   if (lang === "es-mx") score += 30;
   else if (lang === "es-us") score += 25;
   else if (lang === "es-es") score += 20;
@@ -61,7 +63,7 @@ function ensureVoices(): Promise<void> {
       synth.removeEventListener("voiceschanged", once);
       resolve();
     });
-    setTimeout(() => resolve(), 350);
+    setTimeout(() => resolve(), 500);
   });
   return voicesReady;
 }
@@ -69,6 +71,31 @@ function ensureVoices(): Promise<void> {
 function wakeSpeechEngine() {
   const synth = window.speechSynthesis;
   if (synth.paused) synth.resume();
+
+  // Chrome/Safari can stall after page load or route changes until the engine is warmed.
+  if (!silentWarmupDone) {
+    silentWarmupDone = true;
+    const warm = new SpeechSynthesisUtterance(" ");
+    warm.volume = 0;
+    synth.speak(warm);
+    synth.cancel();
+    if (synth.paused) synth.resume();
+  }
+}
+
+function buildUtterance(text: string, options?: { rate?: number; pitch?: number }) {
+  const u = new SpeechSynthesisUtterance(text);
+  const voice = cachedVoice ?? pickBestVoice();
+  if (voice) {
+    u.voice = voice;
+    u.lang = voice.lang;
+  } else {
+    u.lang = "es-ES";
+  }
+  u.rate = options?.rate ?? 0.82;
+  u.pitch = options?.pitch ?? 1.05;
+  u.volume = 1;
+  return u;
 }
 
 export async function speak(text: string) {
@@ -78,18 +105,28 @@ export async function speak(text: string) {
     const synth = window.speechSynthesis;
     wakeSpeechEngine();
     synth.cancel();
-    const u = new SpeechSynthesisUtterance(text);
-    const voice = cachedVoice ?? pickBestVoice();
-    if (voice) {
-      u.voice = voice;
-      u.lang = voice.lang;
-    } else {
-      u.lang = "es-ES";
-    }
-    u.rate = 0.88;
-    u.pitch = 1.05;
-    u.volume = 1;
-    synth.speak(u);
+    await new Promise((resolve) => setTimeout(resolve, 30));
+    wakeSpeechEngine();
+    synth.speak(buildUtterance(text));
+  } catch {
+    /* noop */
+  }
+}
+
+export function speakNow(text: string) {
+  if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
+  try {
+    void ensureVoices();
+    const synth = window.speechSynthesis;
+    wakeSpeechEngine();
+    synth.cancel();
+    synth.speak(buildUtterance(text));
+    setTimeout(() => {
+      if (!synth.speaking && !synth.pending) {
+        wakeSpeechEngine();
+        synth.speak(buildUtterance(text));
+      }
+    }, 120);
   } catch {
     /* noop */
   }
@@ -103,18 +140,9 @@ export async function speakVowel(v: string) {
     const synth = window.speechSynthesis;
     wakeSpeechEngine();
     synth.cancel();
-    const u = new SpeechSynthesisUtterance(lower.repeat(5));
-    const voice = cachedVoice ?? pickBestVoice();
-    if (voice) {
-      u.voice = voice;
-      u.lang = voice.lang;
-    } else {
-      u.lang = "es-ES";
-    }
-    u.rate = 0.7;
-    u.pitch = 1.1;
-    u.volume = 1;
-    synth.speak(u);
+    await new Promise((resolve) => setTimeout(resolve, 30));
+    wakeSpeechEngine();
+    synth.speak(buildUtterance(lower.repeat(5), { rate: 0.7, pitch: 1.1 }));
   } catch {
     /* noop */
   }
