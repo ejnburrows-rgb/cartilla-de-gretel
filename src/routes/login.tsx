@@ -5,6 +5,8 @@ import { isSupabaseConfigured, supabase } from "@/integrations/supabase/client";
 import { routePath } from "@/lib/assets";
 import { DEMO_TEACHERS, signInDemoTeacher } from "@/lib/demo-data";
 
+const DEFAULT_DEMO_TEACHER = DEMO_TEACHERS[0];
+
 export const Route = createFileRoute("/login")({
   component: LoginPage,
   head: () => ({ meta: [{ title: "Acceso del maestro - La Cartilla de Gretel" }] }),
@@ -13,8 +15,12 @@ export const Route = createFileRoute("/login")({
 function LoginPage() {
   const navigate = useNavigate();
   const [mode, setMode] = useState<"login" | "signup">("login");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState(() =>
+    isSupabaseConfigured ? "" : DEFAULT_DEMO_TEACHER.username,
+  );
+  const [password, setPassword] = useState(() =>
+    isSupabaseConfigured ? "" : DEFAULT_DEMO_TEACHER.password,
+  );
   const [fullName, setFullName] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -85,6 +91,11 @@ function LoginPage() {
         onSubmit={submit}
         className="mt-6 space-y-4 rounded-3xl bg-card/85 p-5 shadow-xl shadow-primary/10"
       >
+        {!isSupabaseConfigured && mode === "login" && (
+          <div className="rounded-2xl border-2 border-primary/20 bg-primary/5 px-4 py-3 text-sm font-bold text-primary">
+            Demo prellenado: {DEFAULT_DEMO_TEACHER.name}. Pulsa Entrar para abrir el panel docente.
+          </div>
+        )}
         {mode === "signup" && (
           <label className="block text-base font-bold">
             Nombre completo
@@ -105,7 +116,7 @@ function LoginPage() {
             autoComplete="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="correo@escuela.com"
+            placeholder={isSupabaseConfigured ? "correo@escuela.com" : DEFAULT_DEMO_TEACHER.username}
             className="mt-2 w-full rounded-2xl border-2 border-foreground/15 bg-background px-4 py-4 text-lg outline-none focus:border-primary"
             required
           />
@@ -117,7 +128,7 @@ function LoginPage() {
             autoComplete={mode === "login" ? "current-password" : "new-password"}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="Contraseña"
+            placeholder={isSupabaseConfigured ? "Contraseña" : DEFAULT_DEMO_TEACHER.password}
             minLength={6}
             className="mt-2 w-full rounded-2xl border-2 border-foreground/15 bg-background px-4 py-4 text-lg outline-none focus:border-primary"
             required
