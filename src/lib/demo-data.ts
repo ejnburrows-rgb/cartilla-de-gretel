@@ -3,7 +3,7 @@ import { TOTAL_LESSONS } from "@/lib/lesson-catalog";
 export const DEMO_TEACHERS = [
   {
     id: "demo-teacher-leonor",
-    name: "Leonore Lupitegi",
+    name: "Leonor Lopetegui",
     username: "leonore",
     email: "leonore@cartilla.demo",
     password: "Cartilla2026!",
@@ -20,6 +20,8 @@ export const DEMO_TEACHERS = [
 export const DEMO_STUDENT_ACCESS = [
   { name: "Erick Novo", joinCode: "GRETEL", studentCode: "NOVO" },
   { name: "Sofia Morejon", joinCode: "GRETEL", studentCode: "SOFIA" },
+  { name: "Erick Novo", joinCode: "NOVO26", studentCode: "NOVO" },
+  { name: "Sofia Morejon", joinCode: "NOVO26", studentCode: "SOFIA" },
 ] as const;
 
 const AUTH_KEY = "cartilla.demo.teacher.v1";
@@ -70,7 +72,7 @@ function initialState(): DemoState {
     {
       id: "demo-class-leonor",
       teacher_id: "demo-teacher-leonor",
-      name: "Clase demo - Leonore",
+      name: "Clase demo - Leonor",
       join_code: "GRETEL",
       created_at: nowIso(),
     },
@@ -398,14 +400,6 @@ export function getDemoClassProgress(classId: string) {
         },
       ]),
     ),
-    assignments: [],
     totalLessons: TOTAL_LESSONS,
   };
-}
-
-export function findDemoStudentsByName(q: string, classId?: string) {
-  const needle = q.toLowerCase();
-  return readState().students.filter(
-    (s) => (!classId || s.class_id === classId) && s.display_name.toLowerCase().includes(needle),
-  );
 }
