@@ -1,17 +1,14 @@
-name: Import book PDF
+name: Import Cartilla PDF from Notion
 
 on:
-  workflow_dispatch:
-    inputs:
-      pdf_url:
-        description: 'Public URL to the Cartilla PDF (Notion share link, Google Drive direct-download link, Dropbox raw link, transfer.sh, etc.)'
-        required: true
-        type: string
-      target_path:
-        description: 'Repo path to write the PDF to'
-        required: false
-        type: string
-        default: 'public/book/book.pdf'
+  push:
+    branches: [main]
+    paths:
+      - '.cartilla-import/notion-url.txt'
+      - 'scripts/notion-pdf-fetch.mjs'
+      - 'scripts/package.json'
+      - '.github/workflows/import-book-pdf.yml'
+  workflow_dispatch: {}
 
 permissions:
   contents: write
@@ -19,51 +16,84 @@ permissions:
 jobs:
   import:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
-      - name: Checkout repo
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Ensure target directory exists
-        run: mkdir -p "$(dirname '$ inputs.target_path ')"
+      - name: Setup Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
-      - name: Download PDF from URL
+      - name: Read config
         run: |
           set -euo pipefail
-          echo "Downloading from: $ inputs.pdf_url "
-          curl -L --fail --retry 3 --max-time 600 \
-            -A 'Mozilla/5.0 (compatible; cartilla-import-bot)' \
-            -o "$ inputs.target_path " \
-            "$ inputs.pdf_url "
-          ls -lh "$ inputs.target_path "
+          if [ ! -f .cartilla-import/notion-url.txt ]; then
+            echo "::error::Config file .cartilla-import/notion-url.txt is missing."
+            exit 1
+          fi
+          URL="$(sed -n '1p' .cartilla-import/notion-url.txt | tr -d '[:space:]')"
+          OUT="$(sed -n '2p' .cartilla-import/notion-url.txt | tr -d '[:space:]')"
+          if [ -z "$OUT" ]; then OUT="public/book/book.pdf"; fi
+          if [ -z "$URL" ]; then
+            echo "::error::First line of .cartilla-import/notion-url.txt must be a Notion public URL."
+            exit 1
+          fi
+          echo "NOTION_URL=$URL" >> "$GITHUB_ENV"
+          echo "TARGET_PATH=$OUT" >> "$GITHUB_ENV"
+          echo "Notion URL:  $URL"
+          echo "Target path: $OUT"
+
+      - name: Install Playwright + Chromium
+        working-directory: scripts
+        run: |
+          set -euo pipefail
+          npm install --no-audit --no-fund
+          npx playwright install --with-deps chromium
+
+      - name: Fetch PDF from public Notion page
+        run: |
+          set -euo pipefail
+          mkdir -p "$(dirname "$TARGET_PATH")"
+          node scripts/notion-pdf-fetch.mjs "$NOTION_URL" "$TARGET_PATH"
 
       - name: Verify file is a real PDF
         run: |
           set -euo pipefail
-          file "$ inputs.target_path "
-          if ! file --brief --mime-type "$ inputs.target_path " | grep -qi 'application/pdf'; then
-            echo "::error::Downloaded file is not a PDF. The URL may be an HTML preview page instead of a direct download. For Google Drive, use 'https://drive.google.com/uc?export=download&id=FILE_ID'. For Dropbox, append '?dl=1'. For Notion shared files, use the 'Download' link, not the page link."
-            head -c 256 "$ inputs.target_path " | xxd | head -20
+          ls -lh "$TARGET_PATH"
+          file "$TARGET_PATH"
+          if ! file --brief --mime-type "$TARGET_PATH" | grep -qi 'application/pdf'; then
+            echo "::error::Downloaded file is not a PDF."
+            head -c 256 "$TARGET_PATH" | xxd | head -20
             exit 1
           fi
-          echo "File size: $(stat -c%s "$ inputs.target_path ") bytes"
+          echo "Size: $(stat -c%s "$TARGET_PATH") bytes"
 
-      - name: Commit and push to main
+      - name: Commit and push
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "$ inputs.target_path "
+          git add "$TARGET_PATH"
           if git diff --cached --quiet; then
-            echo "No changes to commit — file is identical to existing."
+            echo "No changes to commit."
             exit 0
           fi
-          git commit -m "chore(book): import PDF into $ inputs.target_path  via Actions"
+          git commit -m "chore(book): import Cartilla PDF from Notion via Actions"
           git push
 
       - name: Summary
+        if: always()
         run: |
-          echo "### ✅ PDF imported" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "- Target: \`$ inputs.target_path \`" >> $GITHUB_STEP_SUMMARY
-          echo "- Size: \`$(stat -c%s "$ inputs.target_path ") bytes\`" >> $GITHUB_STEP_SUMMARY
-          echo "- Vercel will redeploy automatically on the push commit." >> $GITHUB_STEP_SUMMARY
+          {
+            echo "### Cartilla PDF importer"
+            echo ""
+            echo "- Source: \`$NOTION_URL\`"
+            echo "- Target: \`$TARGET_PATH\`"
+            if [ -f "$TARGET_PATH" ]; then
+              echo "- Size:   \`$(stat -c%s "$TARGET_PATH") bytes\`"
+            fi
+            echo ""
+            echo "Vercel will redeploy on the resulting commit."
+          } >> "$GITHUB_STEP_SUMMARY"

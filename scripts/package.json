@@ -1,0 +1,10 @@
+{
+  "name": "cartilla-scripts",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Helper scripts run by GitHub Actions. Not part of the Vite app.",
+  "dependencies": {
+    "playwright": "^1.49.0"
+  }
+}
