@@ -1,4 +1,4 @@
-import { lazy, Suspense, useState } from "react";
+import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { BookOpen, ChevronLeft, ChevronRight, Home } from "lucide-react";
@@ -6,12 +6,16 @@ import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
 import { DragBuildWord } from "./DragBuildWord";
 import { assetPath } from "@/lib/assets";
 
-const PdfViewer = lazy(() =>
-  import("@/components/PdfViewer").then((m) => ({ default: m.PdfViewer })),
-);
-
-const PDF_URL = assetPath("book/book.pdf");
 const COVER_SRC = assetPath("cartilla/images/cover.png");
+
+const REAL_KIT_PHOTOS: Array<{ src: string; label: string }> = [
+  { src: assetPath("cartilla/images/original/cover.jpg"), label: "Portada del libro" },
+  { src: assetPath("cartilla/images/original/student-book.jpg"), label: "Libro del alumno" },
+  { src: assetPath("cartilla/images/original/flipchart.jpg"), label: "Flipchart 17\u00d722" },
+  { src: assetPath("cartilla/images/original/syllabic-charts.jpg"), label: "Carteles sil\u00e1bicos" },
+  { src: assetPath("cartilla/images/original/homework.jpg"), label: "Tareas reproducibles" },
+  { src: assetPath("cartilla/images/original/evaluations.jpg"), label: "Evaluaciones" },
+];
 
 const PAGE_BG: React.CSSProperties = {
   background:
@@ -49,25 +53,40 @@ export function BookReader() {
         </div>
       </header>
 
-      <main className="flex-1 flex flex-col items-center px-2 py-4 gap-5">
-        <div className="w-full max-w-3xl">
-          <Suspense
-            fallback={
-              <div className="text-center text-emerald-900/60 py-10 font-bold">
-                Cargando libro…
-              </div>
-            }
-          >
-            <PdfViewer url={PDF_URL} />
-          </Suspense>
-        </div>
+      <main className="flex-1 flex flex-col items-center px-3 py-5 gap-6">
+        <section className="w-full max-w-3xl flex flex-col items-center gap-3">
+          <div className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-emerald-900/60">
+            La Cartilla de Gretel · Leónor Lopetegui
+          </div>
+          <img
+            src={COVER_SRC}
+            alt="Portada — La Cartilla de Gretel"
+            className="w-48 sm:w-64 rounded-2xl shadow-2xl border-4 border-white object-contain bg-white"
+          />
+        </section>
 
-        <div className="w-full max-w-3xl bg-white/85 backdrop-blur rounded-3xl shadow-xl border-4 border-amber-200 p-4 sm:p-6">
+        <section className="w-full max-w-3xl">
+          <div className="text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-2 text-emerald-900/70">
+            Materiales originales
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            {REAL_KIT_PHOTOS.map((p) => (
+              <figure key={p.src} className="bg-white rounded-xl shadow border border-emerald-900/10 overflow-hidden flex flex-col">
+                <img src={p.src} alt={p.label} className="w-full h-32 sm:h-36 object-cover" loading="lazy" />
+                <figcaption className="px-2 py-1.5 text-[11px] font-bold text-emerald-900/80 text-center truncate">
+                  {p.label}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+
+        <section className="w-full max-w-3xl bg-white/85 backdrop-blur rounded-3xl shadow-xl border-4 border-amber-200 p-4 sm:p-6">
           <div className="text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-3 text-emerald-900/70 text-center">
             Ejercicio · {entry.title}
           </div>
           <DragBuildWord entry={entry} accent={entry.color || "#059669"} />
-        </div>
+        </section>
       </main>
 
       <nav className="sticky bottom-0 z-20 bg-white/95 backdrop-blur border-t border-emerald-900/10 px-3 py-3 flex items-center justify-between gap-3">
