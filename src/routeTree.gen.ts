@@ -18,6 +18,7 @@ import { Route as CartillaUnirseRouteImport } from './routes/cartilla/unirse'
 import { Route as CartillaRepasoRouteImport } from './routes/cartilla/repaso'
 import { Route as CartillaPracticaRouteImport } from './routes/cartilla/practica'
 import { Route as CartillaMiProgresoRouteImport } from './routes/cartilla/mi-progreso'
+import { Route as CartillaLibroRouteImport } from './routes/cartilla/libro'
 import { Route as CartillaLeccionesRouteImport } from './routes/cartilla/lecciones'
 import { Route as CartillaAutoraRouteImport } from './routes/cartilla/autora'
 import { Route as CartillaLeccionNRouteImport } from './routes/cartilla/leccion.$n'
@@ -70,6 +71,11 @@ const CartillaMiProgresoRoute = CartillaMiProgresoRouteImport.update({
   path: '/cartilla/mi-progreso',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CartillaLibroRoute = CartillaLibroRouteImport.update({
+  id: '/cartilla/libro',
+  path: '/cartilla/libro',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CartillaLeccionesRoute = CartillaLeccionesRouteImport.update({
   id: '/cartilla/lecciones',
   path: '/cartilla/lecciones',
@@ -116,6 +122,7 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/cartilla/autora': typeof CartillaAutoraRoute
   '/cartilla/lecciones': typeof CartillaLeccionesRoute
+  '/cartilla/libro': typeof CartillaLibroRoute
   '/cartilla/mi-progreso': typeof CartillaMiProgresoRoute
   '/cartilla/practica': typeof CartillaPracticaRoute
   '/cartilla/repaso': typeof CartillaRepasoRoute
@@ -133,6 +140,7 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/cartilla/autora': typeof CartillaAutoraRoute
   '/cartilla/lecciones': typeof CartillaLeccionesRoute
+  '/cartilla/libro': typeof CartillaLibroRoute
   '/cartilla/mi-progreso': typeof CartillaMiProgresoRoute
   '/cartilla/practica': typeof CartillaPracticaRoute
   '/cartilla/repaso': typeof CartillaRepasoRoute
@@ -152,6 +160,7 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/cartilla/autora': typeof CartillaAutoraRoute
   '/cartilla/lecciones': typeof CartillaLeccionesRoute
+  '/cartilla/libro': typeof CartillaLibroRoute
   '/cartilla/mi-progreso': typeof CartillaMiProgresoRoute
   '/cartilla/practica': typeof CartillaPracticaRoute
   '/cartilla/repaso': typeof CartillaRepasoRoute
@@ -171,6 +180,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/cartilla/autora'
     | '/cartilla/lecciones'
+    | '/cartilla/libro'
     | '/cartilla/mi-progreso'
     | '/cartilla/practica'
     | '/cartilla/repaso'
@@ -188,6 +198,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/cartilla/autora'
     | '/cartilla/lecciones'
+    | '/cartilla/libro'
     | '/cartilla/mi-progreso'
     | '/cartilla/practica'
     | '/cartilla/repaso'
@@ -206,6 +217,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/cartilla/autora'
     | '/cartilla/lecciones'
+    | '/cartilla/libro'
     | '/cartilla/mi-progreso'
     | '/cartilla/practica'
     | '/cartilla/repaso'
@@ -225,6 +237,7 @@ export interface RootRouteChildren {
   LoginRoute: typeof LoginRoute
   CartillaAutoraRoute: typeof CartillaAutoraRoute
   CartillaLeccionesRoute: typeof CartillaLeccionesRoute
+  CartillaLibroRoute: typeof CartillaLibroRoute
   CartillaMiProgresoRoute: typeof CartillaMiProgresoRoute
   CartillaPracticaRoute: typeof CartillaPracticaRoute
   CartillaRepasoRoute: typeof CartillaRepasoRoute
@@ -296,6 +309,13 @@ declare module '@tanstack/react-router' {
       path: '/cartilla/mi-progreso'
       fullPath: '/cartilla/mi-progreso'
       preLoaderRoute: typeof CartillaMiProgresoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cartilla/libro': {
+      id: '/cartilla/libro'
+      path: '/cartilla/libro'
+      fullPath: '/cartilla/libro'
+      preLoaderRoute: typeof CartillaLibroRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cartilla/lecciones': {
@@ -391,6 +411,7 @@ const rootRouteChildren: RootRouteChildren = {
   LoginRoute: LoginRoute,
   CartillaAutoraRoute: CartillaAutoraRoute,
   CartillaLeccionesRoute: CartillaLeccionesRoute,
+  CartillaLibroRoute: CartillaLibroRoute,
   CartillaMiProgresoRoute: CartillaMiProgresoRoute,
   CartillaPracticaRoute: CartillaPracticaRoute,
   CartillaRepasoRoute: CartillaRepasoRoute,
