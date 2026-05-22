@@ -13,19 +13,21 @@ const PdfViewer = lazy(() =>
 const PDF_URL = assetPath("book/book.pdf");
 const COVER_SRC = assetPath("cartilla/images/cover.png");
 
+const PAGE_BG: React.CSSProperties = {
+  background:
+    "linear-gradient(180deg, #fef3c7 0%, #ecfccb 45%, #e0f2fe 100%)",
+};
+
+const BOB_ANIMATE = { y: [0, -6, 0] };
+const BOB_TRANSITION = { duration: 3, repeat: Infinity, ease: "easeInOut" as const };
+
 export function BookReader() {
   const [lessonIndex, setLessonIndex] = useState(0);
   const total = Math.min(TOTAL_LESSONS, CATALOG.length);
   const entry = CATALOG[lessonIndex] ?? CATALOG[0];
 
   return (
-    <div
-      className="min-h-screen flex flex-col"
-      style=
-        background:
-          "linear-gradient(180deg, #fef3c7 0%, #ecfccb 45%, #e0f2fe 100%)",
-      
-    >
+    <div className="min-h-screen flex flex-col" style={PAGE_BG}>
       <header className="sticky top-0 z-20 w-full bg-white/90 backdrop-blur border-b border-emerald-900/10 px-3 py-2 flex items-center justify-between gap-2">
         <Link
           to="/cartilla"
@@ -91,8 +93,8 @@ export function BookReader() {
         src={COVER_SRC}
         alt="Gretel"
         className="fixed bottom-20 right-3 sm:bottom-24 sm:right-6 w-16 sm:w-20 pointer-events-none z-30 rounded-2xl shadow-2xl border-4 border-white bg-white object-contain"
-        animate= y: [0, -6, 0] 
-        transition= duration: 3, repeat: Infinity, ease: "easeInOut" 
+        animate={BOB_ANIMATE}
+        transition={BOB_TRANSITION}
       />
     </div>
   );
