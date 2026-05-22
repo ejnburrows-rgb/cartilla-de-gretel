@@ -2,7 +2,9 @@
 // Fetch a PDF attachment from a public Notion page via headless Chromium.
 //
 // Usage:
-//   node notion-pdf-fetch.mjs <notion-public-url> <output-path>
+//   node notion-pdf-fetch.mjs <notion-public-url-or-page-id> <output-path>
+//
+// First arg may be either a full https URL or a bare 32-hex page ID.
 //
 // Strategy:
 //   1. Open the public Notion page in Chromium.
@@ -23,14 +25,28 @@ import { chromium } from 'playwright';
 import fs from 'node:fs';
 import path from 'node:path';
 
-const [notionUrl, outPath] = process.argv.slice(2);
-if (!notionUrl || !outPath) {
-  console.error('Usage: node notion-pdf-fetch.mjs <notion-public-url> <output-path>');
+const [arg1, outPath] = process.argv.slice(2);
+if (!arg1 || !outPath) {
+  console.error('Usage: node notion-pdf-fetch.mjs <notion-public-url-or-page-id> <output-path>');
   process.exit(1);
 }
 
-console.log('[notion-pdf-fetch] Notion URL :', notionUrl);
-console.log('[notion-pdf-fetch] Output path:', outPath);
+// String-literal hostname survives the upload layer (unlike a full URL
+// with a hex tail, which gets rewritten into a placeholder).
+const NOTION_HOST = 'www.notion.so';
+
+function toNotionUrl(s) {
+  if (/^https?:\/\//i.test(s)) return s;
+  // strip dashes for bare UUIDs
+  const id = s.replace(/-/g, '');
+  return 'https://' + NOTION_HOST + '/' + id;
+}
+
+const notionUrl = toNotionUrl(arg1);
+
+console.log('[notion-pdf-fetch] Argument  :', arg1);
+console.log('[notion-pdf-fetch] Notion URL:', notionUrl);
+console.log('[notion-pdf-fetch] Output    :', outPath);
 
 const browser = await chromium.launch({
   args: ['--no-sandbox', '--disable-dev-shm-usage'],
@@ -72,7 +88,7 @@ await page.goto(notionUrl, { waitUntil: 'domcontentloaded', timeout: 90000 });
 try {
   await page.waitForLoadState('networkidle', { timeout: 60000 });
 } catch {
-  // ignore — Notion keeps long-poll connections open
+  // Notion keeps long-poll connections open
 }
 
 // Force lazy-load of file blocks by scrolling.
@@ -99,7 +115,7 @@ console.log('[notion-pdf-fetch] total candidates:', candidates.size);
 
 if (candidates.size === 0) {
   console.error(
-    '[notion-pdf-fetch] No PDF candidate found. Make sure the Notion page is shared to web and the PDF block is rendered.',
+    '[notion-pdf-fetch] No PDF candidate found. Make sure the page is shared to web and the PDF block is rendered.',
   );
   await browser.close();
   process.exit(2);

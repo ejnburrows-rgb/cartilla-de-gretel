@@ -26,32 +26,24 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Read config and resolve URL
+      - name: Read config
         run: |
           set -euo pipefail
           if [ ! -f .cartilla-import/notion-url.txt ]; then
             echo "::error::Config file .cartilla-import/notion-url.txt is missing."
             exit 1
           fi
-          RAW="$(sed -n '1p' .cartilla-import/notion-url.txt | tr -d '[:space:]')"
+          ARG="$(sed -n '1p' .cartilla-import/notion-url.txt | tr -d '[:space:]')"
           OUT="$(sed -n '2p' .cartilla-import/notion-url.txt | tr -d '[:space:]')"
           if [ -z "$OUT" ]; then OUT="public/book/book.pdf"; fi
-          if [ -z "$RAW" ]; then
+          if [ -z "$ARG" ]; then
             echo "::error::Line 1 of .cartilla-import/notion-url.txt must be a page URL or bare page ID."
             exit 1
           fi
-          # Host is base64-decoded so the literal hostname never appears in this file.
-          # echo -n 'www.notion.so' | base64  ==  d3d3Lm5vdGlvbi5zbw==
-          HOST="$(printf '%s' 'd3d3Lm5vdGlvbi5zbw==' | base64 -d)"
-          case "$RAW" in
-            http://*|https://*) URL="$RAW" ;;
-            *) URL="https://${HOST}/${RAW}" ;;
-          esac
-          echo "NOTION_URL=$URL" >> "$GITHUB_ENV"
+          echo "NOTION_ARG=$ARG" >> "$GITHUB_ENV"
           echo "TARGET_PATH=$OUT" >> "$GITHUB_ENV"
-          echo "Resolved host : $HOST"
-          echo "Resolved URL  : $URL"
-          echo "Target path   : $OUT"
+          echo "Argument   : $ARG"
+          echo "Target path: $OUT"
 
       - name: Install Playwright + Chromium
         working-directory: scripts
@@ -64,7 +56,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p "$(dirname "$TARGET_PATH")"
-          node scripts/notion-pdf-fetch.mjs "$NOTION_URL" "$TARGET_PATH"
+          node scripts/notion-pdf-fetch.mjs "$NOTION_ARG" "$TARGET_PATH"
 
       - name: Verify file is a real PDF
         run: |
@@ -97,7 +89,7 @@ jobs:
           {
             echo "### Cartilla PDF importer"
             echo ""
-            echo "- Source: \`$NOTION_URL\`"
+            echo "- Arg:    \`$NOTION_ARG\`"
             echo "- Target: \`$TARGET_PATH\`"
             if [ -f "$TARGET_PATH" ]; then
               echo "- Size:   \`$(stat -c%s "$TARGET_PATH") bytes\`"
