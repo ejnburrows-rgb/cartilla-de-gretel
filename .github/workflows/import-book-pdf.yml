@@ -1,0 +1,69 @@
+name: Import book PDF
+
+on:
+  workflow_dispatch:
+    inputs:
+      pdf_url:
+        description: 'Public URL to the Cartilla PDF (Notion share link, Google Drive direct-download link, Dropbox raw link, transfer.sh, etc.)'
+        required: true
+        type: string
+      target_path:
+        description: 'Repo path to write the PDF to'
+        required: false
+        type: string
+        default: 'public/book/book.pdf'
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Ensure target directory exists
+        run: mkdir -p "$(dirname '$ inputs.target_path ')"
+
+      - name: Download PDF from URL
+        run: |
+          set -euo pipefail
+          echo "Downloading from: $ inputs.pdf_url "
+          curl -L --fail --retry 3 --max-time 600 \
+            -A 'Mozilla/5.0 (compatible; cartilla-import-bot)' \
+            -o "$ inputs.target_path " \
+            "$ inputs.pdf_url "
+          ls -lh "$ inputs.target_path "
+
+      - name: Verify file is a real PDF
+        run: |
+          set -euo pipefail
+          file "$ inputs.target_path "
+          if ! file --brief --mime-type "$ inputs.target_path " | grep -qi 'application/pdf'; then
+            echo "::error::Downloaded file is not a PDF. The URL may be an HTML preview page instead of a direct download. For Google Drive, use 'https://drive.google.com/uc?export=download&id=FILE_ID'. For Dropbox, append '?dl=1'. For Notion shared files, use the 'Download' link, not the page link."
+            head -c 256 "$ inputs.target_path " | xxd | head -20
+            exit 1
+          fi
+          echo "File size: $(stat -c%s "$ inputs.target_path ") bytes"
+
+      - name: Commit and push to main
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$ inputs.target_path "
+          if git diff --cached --quiet; then
+            echo "No changes to commit — file is identical to existing."
+            exit 0
+          fi
+          git commit -m "chore(book): import PDF into $ inputs.target_path  via Actions"
+          git push
+
+      - name: Summary
+        run: |
+          echo "### ✅ PDF imported" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- Target: \`$ inputs.target_path \`" >> $GITHUB_STEP_SUMMARY
+          echo "- Size: \`$(stat -c%s "$ inputs.target_path ") bytes\`" >> $GITHUB_STEP_SUMMARY
+          echo "- Vercel will redeploy automatically on the push commit." >> $GITHUB_STEP_SUMMARY
