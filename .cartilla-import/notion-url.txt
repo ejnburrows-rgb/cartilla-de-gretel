@@ -1,2 +1,2 @@
-https://www.notion.so/368d56c8889081da8389c1f70ba9ddc9
+368d56c8889081da8389c1f70ba9ddc9
 public/book/book.pdf

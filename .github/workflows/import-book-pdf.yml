@@ -33,13 +33,17 @@ jobs:
             echo "::error::Config file .cartilla-import/notion-url.txt is missing."
             exit 1
           fi
-          URL="$(sed -n '1p' .cartilla-import/notion-url.txt | tr -d '[:space:]')"
+          RAW="$(sed -n '1p' .cartilla-import/notion-url.txt | tr -d '[:space:]')"
           OUT="$(sed -n '2p' .cartilla-import/notion-url.txt | tr -d '[:space:]')"
           if [ -z "$OUT" ]; then OUT="public/book/book.pdf"; fi
-          if [ -z "$URL" ]; then
-            echo "::error::First line of .cartilla-import/notion-url.txt must be a Notion public URL."
+          if [ -z "$RAW" ]; then
+            echo "::error::Line 1 of .cartilla-import/notion-url.txt must be a Notion page URL or bare page ID."
             exit 1
           fi
+          case "$RAW" in
+            http://*|https://*) URL="$RAW" ;;
+            *) URL="https://www.notion.so/$RAW" ;;
+          esac
           echo "NOTION_URL=$URL" >> "$GITHUB_ENV"
           echo "TARGET_PATH=$OUT" >> "$GITHUB_ENV"
           echo "Notion URL:  $URL"
