@@ -1,4 +1,5 @@
-import { lessons as vowelLessons, type VowelLesson } from "@/lib/cartilla-content";
+import { lessons as vowelLessons } from "@/lib/cartilla-content";
+import type { VowelLesson } from "@/types/cartilla";
 import consonantsData from "@/content/consonants.json";
 
 export type ConsonantLessonData = {

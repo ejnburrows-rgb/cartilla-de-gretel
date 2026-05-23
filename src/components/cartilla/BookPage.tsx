@@ -1,4 +1,4 @@
-import type { CatalogEntry } from "@/lib/lesson-catalog";
+import type { CatalogEntry } from "@/types/cartilla";
 import { DragBuildWord } from "./DragBuildWord";
 
 interface BookPageProps {

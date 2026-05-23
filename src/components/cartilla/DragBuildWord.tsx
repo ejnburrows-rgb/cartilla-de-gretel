@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import type { CatalogEntry } from "@/lib/lesson-catalog";
+import type { CatalogEntry } from "@/types/cartilla";
 import { GretelFeedback } from "./GretelFeedback";
 
 interface DragBuildWordProps {

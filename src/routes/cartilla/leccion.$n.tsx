@@ -3,7 +3,8 @@ import { createFileRoute, Link, useNavigate, redirect } from "@tanstack/react-ro
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@/lib/useServerFn";
 import { ArrowLeft, ArrowRight, Check, Volume2, ClipboardList } from "lucide-react";
-import { CATALOG, TOTAL_LESSONS, type CatalogEntry } from "@/lib/lesson-catalog";
+import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
+import type { CatalogEntry } from "@/types/cartilla";
 import { useLessonProgress, isLessonUnlocked, markLessonCompleted } from "@/lib/lesson-progress";
 import { speak, speakVowel } from "@/lib/speak";
 import { cn } from "@/lib/utils";
