@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acceso restringido</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f5f0e8;
+      font-family: Georgia, serif;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 2.5rem 2rem;
+      width: 100%;
+      max-width: 360px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      text-align: center;
+    }
+    h1 {
+      font-size: 1.4rem;
+      color: #2c2c2c;
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.02em;
+    }
+    p {
+      color: #888;
+      font-size: 0.9rem;
+      margin-bottom: 1.8rem;
+    }
+    input[type=password] {
+      width: 100%;
+      padding: 0.7rem 1rem;
+      border: 1.5px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      outline: none;
+      margin-bottom: 1rem;
+      transition: border-color 0.2s;
+    }
+    input[type=password]:focus { border-color: #7c6a4e; }
+    button {
+      width: 100%;
+      padding: 0.75rem;
+      background: #7c6a4e;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover { background: #5e4f3a; }
+    .error {
+      color: #c0392b;
+      font-size: 0.85rem;
+      margin-bottom: 0.8rem;
+      display: none;
+    }
+    .error.show { display: block; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>La Cartilla de Gretel</h1>
+    <p>Ingresa la contrasena para continuar.</p>
+    <form method="POST" action="/api/login" id="loginForm">
+      <input type="hidden" name="redirect" id="redirectInput" value="/" />
+      <p class="error" id="errorMsg">Contrasena incorrecta. Intenta de nuevo.</p>
+      <input type="password" name="password" placeholder="Contrasena" autofocus autocomplete="current-password" />
+      <button type="submit">Entrar</button>
+    </form>
+  </div>
+  <script>
+    // Show error if ?error=1
+    if (new URLSearchParams(location.search).get('error') === '1') {
+      document.getElementById('errorMsg').classList.add('show');
+    }
+    // Pass redirect param to form
+    const redir = new URLSearchParams(location.search).get('redirect') || '/';
+    document.getElementById('redirectInput').value = redir;
+    document.getElementById('loginForm').action = '/api/login?redirect=' + encodeURIComponent(redir);
+  </script>
+</body>
+</html>
