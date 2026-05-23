@@ -27,10 +27,11 @@ function write(set: Set<number>) {
 export function isLessonCompleted(n: number): boolean {
   return read().has(n);
 }
+
 export function isLessonUnlocked(n: number): boolean {
-  if (n <= 1) return true;
-  return read().has(n - 1);
+  return Number.isFinite(n) && n >= 1 && n <= 24;
 }
+
 export function hydrateLessonProgress(completedLessons: number[]) {
   write(new Set(completedLessons.filter((n) => Number.isFinite(n) && n > 0)));
 }
