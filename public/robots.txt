@@ -2,4 +2,17 @@
 User-agent: *
 Allow: /
 
-# build-marker: 87ef019e+next 2026-05-23T03:01Z pinned-filter+filename+widened
+# === Prebuild diagnostic ===
+# startedAt: 2026-05-23T18:24:41.579Z
+# finishedAt: 2026-05-23T18:24:42.480Z
+# commit: unknown
+# branch: unknown
+#
+# target: Workbook -> public/book/book.pdf
+#   filterBlockUuid: 933c702e-2d19-442b-9056-7665142fdbdf
+#   filterFileName: null
+#   htmlStatus: 200, htmlBytes: 1033750
+#   chunkStatus: 200, chunkBlocks: 4
+#   candidates: 0, filtered: 0
+#   WROTE: nothing
+
