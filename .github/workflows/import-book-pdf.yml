@@ -6,6 +6,7 @@ on:
     paths:
       - '.cartilla-import/notion-url.txt'
       - 'scripts/notion-pdf-fetch.mjs'
+      - 'scripts/notion-pdf-curl.mjs'
       - 'scripts/package.json'
       - '.github/workflows/import-book-pdf.yml'
   workflow_dispatch: {}
@@ -43,13 +44,6 @@ jobs:
           echo "NOTION_ARG=$ARG" >> "$GITHUB_ENV"
           echo "TARGET_PATH=$OUT" >> "$GITHUB_ENV"
 
-      - name: Install Playwright + Chromium
-        working-directory: scripts
-        run: |
-          set -euxo pipefail
-          npm install --no-audit --no-fund
-          npx playwright install --with-deps chromium
-
       - name: Prepare debug dir
         run: |
           set -euxo pipefail
@@ -58,18 +52,56 @@ jobs:
           mkdir -p "$(dirname "$TARGET_PATH")"
           echo fail > .cartilla-import/debug/_status
 
-      - name: Fetch PDF
+      - name: Strategy A - curl (fast, ~10s)
         env:
           DEBUG_DIR: .cartilla-import/debug
         run: |
           set -o pipefail
           rc=0
-          node scripts/notion-pdf-fetch.mjs "$NOTION_ARG" "$TARGET_PATH" 2>&1 | tee .cartilla-import/debug/run.log || rc=$?
-          echo "$rc" > .cartilla-import/debug/_exit_code
-          if [ "$rc" = "0" ]; then
-            echo success > .cartilla-import/debug/_status
-          else
-            echo fail > .cartilla-import/debug/_status
+          node scripts/notion-pdf-curl.mjs "$NOTION_ARG" "$TARGET_PATH" 2>&1 \
+            | tee .cartilla-import/debug/curl-run.log || rc=$?
+          echo "$rc" > .cartilla-import/debug/_curl_exit
+          if [ "$rc" = "0" ] && [ -f "$TARGET_PATH" ]; then
+            HDR="$(head -c 5 "$TARGET_PATH" || true)"
+            if [ "$HDR" = "%PDF-" ]; then
+              echo success > .cartilla-import/debug/_status
+              echo "Strategy A succeeded."
+            fi
+          fi
+
+      - name: Install Playwright (only if Strategy A failed)
+        if: success()
+        working-directory: scripts
+        run: |
+          set -euxo pipefail
+          STATUS="$(cat ../.cartilla-import/debug/_status)"
+          if [ "$STATUS" = "success" ]; then
+            echo "Strategy A succeeded; skipping Playwright install."
+            exit 0
+          fi
+          npm install --no-audit --no-fund
+          npx playwright install --with-deps chromium
+
+      - name: Strategy B - Playwright (fallback)
+        env:
+          DEBUG_DIR: .cartilla-import/debug
+        run: |
+          set -o pipefail
+          STATUS="$(cat .cartilla-import/debug/_status)"
+          if [ "$STATUS" = "success" ]; then
+            echo "Strategy A succeeded; skipping Playwright."
+            exit 0
+          fi
+          rc=0
+          node scripts/notion-pdf-fetch.mjs "$NOTION_ARG" "$TARGET_PATH" 2>&1 \
+            | tee .cartilla-import/debug/playwright-run.log || rc=$?
+          echo "$rc" > .cartilla-import/debug/_playwright_exit
+          if [ "$rc" = "0" ] && [ -f "$TARGET_PATH" ]; then
+            HDR="$(head -c 5 "$TARGET_PATH" || true)"
+            if [ "$HDR" = "%PDF-" ]; then
+              echo success > .cartilla-import/debug/_status
+              echo "Strategy B succeeded."
+            fi
           fi
 
       - name: Verify PDF
@@ -77,14 +109,13 @@ jobs:
           set -euxo pipefail
           STATUS="$(cat .cartilla-import/debug/_status)"
           if [ "$STATUS" != "success" ]; then
-            echo "Fetch did not succeed (status=$STATUS); skipping verify."
+            echo "Both strategies failed; skipping verify."
             exit 0
           fi
           ls -lh "$TARGET_PATH"
           file "$TARGET_PATH"
           if ! file --brief --mime-type "$TARGET_PATH" | grep -qi 'application/pdf'; then
-            echo "::error::Downloaded file is not a PDF."
-            head -c 256 "$TARGET_PATH" | xxd | head -20
+            echo "::error::Output is not a PDF."
             echo fail > .cartilla-import/debug/_status
             exit 1
           fi
@@ -108,31 +139,16 @@ jobs:
           if [ "$STATUS" = "success" ]; then
             git commit -m "chore(book): import Cartilla PDF + debug artifacts"
           else
-            git commit -m "chore(import): commit debug artifacts (fetch failed)"
+            git commit -m "chore(import): commit debug artifacts (both strategies failed)"
           fi
           git push
 
-      - name: Fail job if fetch failed
+      - name: Fail job if both strategies failed
         if: always()
         run: |
           STATUS="$(cat .cartilla-import/debug/_status 2>/dev/null || echo fail)"
           if [ "$STATUS" != "success" ]; then
-            echo "::error::Fetch failed. Debug artifacts committed to .cartilla-import/debug/"
+            echo "::error::Both A (curl) and B (Playwright) failed. Debug in .cartilla-import/debug/"
             exit 1
           fi
-          echo "Fetch succeeded."
-
-      - name: Summary
-        if: always()
-        run: |
-          STATUS="$(cat .cartilla-import/debug/_status 2>/dev/null || echo fail)"
-          {
-            echo "### Cartilla PDF importer"
-            echo ""
-            echo "- Argument: \`$NOTION_ARG\`"
-            echo "- Target  : \`$TARGET_PATH\`"
-            echo "- Fetch   : \`$STATUS\`"
-            if [ -f "$TARGET_PATH" ] && [ "$STATUS" = "success" ]; then
-              echo "- Size    : \`$(stat -c%s "$TARGET_PATH") bytes\`"
-            fi
-          } >> "$GITHUB_STEP_SUMMARY"
+          echo "Done."
