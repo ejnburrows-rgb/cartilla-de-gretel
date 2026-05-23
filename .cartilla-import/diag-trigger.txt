@@ -1,0 +1,5 @@
+trigger 2026-05-23T02:25:00Z
+Probe to verify that GitHub Actions can write back to the repo with the
+default GITHUB_TOKEN. If a github-actions[bot] commit appears on main
+shortly after this push, the prior PDF-import failures are due to the
+import scripts, not Actions permissions.

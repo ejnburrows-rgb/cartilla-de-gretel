@@ -1,0 +1,45 @@
+name: Diag Pushback
+
+on:
+  push:
+    paths:
+      - '.cartilla-import/diag-trigger.txt'
+      - '.github/workflows/diag-pushback.yml'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Write tracer
+        run: |
+          set -euxo pipefail
+          mkdir -p .cartilla-import/debug
+          date -u +'%Y-%m-%dT%H:%M:%SZ' > .cartilla-import/debug/diag-timestamp.txt
+          echo "the workflow can write files and push back" > .cartilla-import/debug/diag-marker.txt
+          uname -a >> .cartilla-import/debug/diag-marker.txt
+          ls -la .cartilla-import/debug
+
+      - name: Configure git
+        run: |
+          set -euxo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+      - name: Commit and push
+        run: |
+          set -euxo pipefail
+          git add .cartilla-import/debug
+          git status --short
+          git commit -m 'diag: pushback probe (workflow reached commit step)'
+          git push origin HEAD:main
+          echo 'pushed.'
