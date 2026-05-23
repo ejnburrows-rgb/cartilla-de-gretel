@@ -5,6 +5,7 @@ import { CATALOG } from "@/lib/lesson-catalog";
 import {
   getBookFaithfulLesson,
   getSightWordsForLesson,
+  getWorkbookTranscriptionSummary,
   lessonHasEmptyPalabras,
   lessonHasMiniStory,
 } from "@/lib/book-faithful";
@@ -46,6 +47,13 @@ function TeacherPresentation() {
           const sightWords = getSightWordsForLesson(entry.n);
           const hasMiniStory = lessonHasMiniStory(entry.n);
           const hasEmptyPalabras = lessonHasEmptyPalabras(entry.n);
+          const transcription = getWorkbookTranscriptionSummary(entry.n);
+          const transcriptionLabel =
+            transcription.status === "verified"
+              ? "Transcripción verificada"
+              : transcription.status === "partial"
+                ? "Transcripción parcial"
+                : "Transcripción pendiente";
 
           return (
             <article
@@ -86,6 +94,17 @@ function TeacherPresentation() {
                     Palabras pendientes
                   </span>
                 )}
+                <span
+                  className={
+                    transcription.status === "verified"
+                      ? "rounded-full bg-emerald-100 px-3 py-1 text-emerald-900"
+                      : transcription.status === "partial"
+                        ? "rounded-full bg-yellow-100 px-3 py-1 text-yellow-900"
+                        : "rounded-full bg-stone-100 px-3 py-1 text-stone-700"
+                  }
+                >
+                  {transcriptionLabel}: {transcription.verified}/{transcription.total} páginas
+                </span>
               </div>
               <div className="mt-4 flex flex-wrap gap-2">
                 <Link

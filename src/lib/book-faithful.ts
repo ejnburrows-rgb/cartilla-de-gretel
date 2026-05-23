@@ -1,4 +1,6 @@
 import lessonsData from "@/data/lessons.json";
+import { getBookSectionForLesson, getLessonPageNumbers } from "@/lib/cartilla-crm-theme";
+import { CATALOG } from "@/lib/lesson-catalog";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -38,6 +40,22 @@ export type BookMeta = {
 	length: { pages: number; lessons: number };
 };
 
+export type WorkbookTranscriptionStatus = "verified" | "missing" | "partial";
+
+export type WorkbookPageRole = "intro" | "vowels" | "consonants";
+
+export type WorkbookPageContent = {
+	pageNumber: number;
+	lessonNumber: number;
+	pageRole: WorkbookPageRole;
+	pageType: "workbook-page";
+	verifiedTextBlocks: string[];
+	imageScanReference: string | null;
+	sourceScaffoldPosition: number | null;
+	sourceRawLabel: string | null;
+	transcriptionStatus: WorkbookTranscriptionStatus;
+};
+
 // ---------------------------------------------------------------------------
 // Raw data (narrowed)
 // ---------------------------------------------------------------------------
@@ -52,6 +70,17 @@ type Raw = {
 	sightWordIndex: Record<string, SightWordEntry>;
 	miniStoryLessons: number[];
 	emptyPalabrasLessons: number[];
+	lessons: RawPageScaffold[];
+};
+
+type RawPageScaffold = {
+	position: number;
+	rawLabel: string;
+	textBlocks?: unknown[];
+	sourcePages?: unknown[];
+	originalImages?: unknown[];
+	remasteredImages?: unknown[];
+	bookFaithfulLesson: number;
 };
 
 const raw = lessonsData as unknown as Raw;
@@ -127,4 +156,83 @@ export function getEditorialNotesForLesson(
 export function getSightWordOrigin(word: string): number | null {
 	const entry = raw.sightWordIndex[word];
 	return entry ? entry.introducedInLesson : null;
+}
+
+function stringifyTextBlocks(blocks: unknown[] | undefined): string[] {
+	if (!Array.isArray(blocks)) return [];
+	return blocks
+		.map((block) => {
+			if (typeof block === "string") return block.trim();
+			if (block && typeof block === "object" && "text" in block) {
+				const text = (block as { text?: unknown }).text;
+				return typeof text === "string" ? text.trim() : "";
+			}
+			return "";
+		})
+		.filter((text) => text.length > 0);
+}
+
+function firstReference(...groups: Array<unknown[] | undefined>) {
+	for (const group of groups) {
+		if (!Array.isArray(group)) continue;
+		const value = group.find((item) => typeof item === "string" && item.trim().length > 0);
+		if (typeof value === "string") return value;
+	}
+	return null;
+}
+
+function statusForTextBlocks(textBlocks: string[], scaffold: RawPageScaffold | undefined) {
+	if (textBlocks.length > 0) return "verified" satisfies WorkbookTranscriptionStatus;
+	const hasSourceRef = Boolean(
+		scaffold &&
+			((scaffold.sourcePages?.length ?? 0) > 0 ||
+				(scaffold.originalImages?.length ?? 0) > 0 ||
+				(scaffold.remasteredImages?.length ?? 0) > 0),
+	);
+	return hasSourceRef ? "partial" : ("missing" satisfies WorkbookTranscriptionStatus);
+}
+
+export function getWorkbookPagesForLesson(lessonNumber: number): WorkbookPageContent[] {
+	const entry = CATALOG.find((item) => item.n === lessonNumber);
+	if (!entry) return [];
+	const scaffolds = raw.lessons.filter((page) => page.bookFaithfulLesson === lessonNumber);
+	const pageNumbers = getLessonPageNumbers(entry.pages);
+	const pageRole = getBookSectionForLesson(lessonNumber);
+
+	return pageNumbers.map((pageNumber, index) => {
+		const scaffold = scaffolds[index];
+		const verifiedTextBlocks = stringifyTextBlocks(scaffold?.textBlocks);
+		return {
+			pageNumber,
+			lessonNumber,
+			pageRole,
+			pageType: "workbook-page",
+			verifiedTextBlocks,
+			imageScanReference: scaffold
+				? firstReference(scaffold.remasteredImages, scaffold.originalImages, scaffold.sourcePages)
+				: null,
+			sourceScaffoldPosition: scaffold?.position ?? null,
+			sourceRawLabel: scaffold?.rawLabel ?? null,
+			transcriptionStatus: statusForTextBlocks(verifiedTextBlocks, scaffold),
+		};
+	});
+}
+
+export function getWorkbookTranscriptionSummary(lessonNumber: number) {
+	const pages = getWorkbookPagesForLesson(lessonNumber);
+	const verified = pages.filter((page) => page.transcriptionStatus === "verified").length;
+	const partial = pages.filter((page) => page.transcriptionStatus === "partial").length;
+	const missing = pages.filter((page) => page.transcriptionStatus === "missing").length;
+	return {
+		total: pages.length,
+		verified,
+		partial,
+		missing,
+		status:
+			verified === pages.length && pages.length > 0
+				? ("verified" as const)
+				: verified > 0 || partial > 0
+					? ("partial" as const)
+					: ("missing" as const),
+	};
 }

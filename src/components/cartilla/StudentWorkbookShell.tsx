@@ -2,6 +2,8 @@ import { Link } from "@tanstack/react-router";
 import type { CSSProperties, ReactNode } from "react";
 import { BookOpen } from "lucide-react";
 import { getCartillaCrmCssVars, getLessonPageNumbers } from "@/lib/cartilla-crm-theme";
+import { VerifiedWorkbookPages } from "@/components/cartilla/VerifiedWorkbookPages";
+import type { WorkbookPageContent } from "@/lib/book-faithful";
 
 type StudentWorkbookShellProps = {
   lessonNumber: number;
@@ -9,6 +11,7 @@ type StudentWorkbookShellProps = {
   title: string;
   subtitle?: string;
   accent?: string;
+  workbookPages?: WorkbookPageContent[];
   children: ReactNode;
 };
 
@@ -18,6 +21,7 @@ export function StudentWorkbookShell({
   title,
   subtitle,
   accent,
+  workbookPages = [],
   children,
 }: StudentWorkbookShellProps) {
   const pageNumbers = getLessonPageNumbers(pages);
@@ -68,7 +72,10 @@ export function StudentWorkbookShell({
               </div>
             )}
           </header>
-          <div className="pb-24 pt-5 sm:pb-28">{children}</div>
+          <div className="pb-24 pt-5 sm:pb-28">
+            {children}
+            <VerifiedWorkbookPages pages={workbookPages} />
+          </div>
         </article>
       </div>
     </div>

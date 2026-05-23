@@ -15,6 +15,7 @@ import { LessonTimer } from "@/components/cartilla/LessonTimer";
 import { BookFaithfulOverlay } from "@/components/cartilla/BookFaithfulOverlay";
 import { listMyAssignments } from "@/lib/assignments.functions";
 import { StudentWorkbookShell } from "@/components/cartilla/StudentWorkbookShell";
+import { getWorkbookPagesForLesson } from "@/lib/book-faithful";
 
 export const Route = createFileRoute("/cartilla/leccion/$n")({
   component: Leccion,
@@ -33,6 +34,7 @@ function Leccion() {
   const { isCompleted } = useLessonProgress();
   const session = useStudentSession();
   const entry = useMemo<CatalogEntry | undefined>(() => CATALOG.find((e) => e.n === n), [n]);
+  const workbookPages = useMemo(() => getWorkbookPagesForLesson(n), [n]);
 
   const fetchAssignments = useServerFn(listMyAssignments);
   const { data: assignments } = useQuery({
@@ -84,6 +86,7 @@ function Leccion() {
       title={entry.title}
       subtitle={entry.subtitle}
       accent={entry.color}
+      workbookPages={workbookPages}
     >
       <header>
         <div className="flex items-center justify-between gap-3 mb-3">
