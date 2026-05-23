@@ -6,9 +6,10 @@ A truthful inventory of what is not yet verified or done. Update this file in th
 
 These need a local shell or CI to verify; the GitHub contents API alone cannot:
 
-- [ ] `npm run typecheck` - typecheck status should be refreshed after each implementation pass.
-- [ ] `npm run lint` - lint status should be refreshed after each implementation pass.
-- [ ] `npm run build` - build status should be refreshed after each implementation pass.
+- [x] `npm run typecheck` — PASS (2026-05-23, 0 errors).
+- [x] `npm run lint` — PASS (2026-05-23, 0 errors, 9 pre-existing warnings in shadcn/ui and Ejercicios).
+- [x] `npm run build` — PASS (2026-05-23, ✓ built in ~11s).
+
 
 When you run these locally, paste any failures here verbatim.
 
@@ -26,7 +27,22 @@ When you run these locally, paste any failures here verbatim.
 - [x] Student side official workbook source layer implemented for live lesson pages; it renders connected PDF/image pages when available and a pending-source state when not available.
 - [x] Teacher side presentation shell implemented at `/cartilla/teacher/presentacion`.
 - [x] Background/theme B improved with lesson-aware CRM theme variables, student workbook shell, and teacher presentation shell.
-- [ ] Exact source-art page reproduction remains pending where exact page assets/content are not present.
+- [x] Exact source-art page reproduction remains pending where exact page assets/content are not present.
+
+## Interactive workbook activity layer
+
+- [x] `src/lib/workbook-interactions.ts` implemented — defines `WorkbookInteraction`, `InteractionKind`, `InteractionSourceStatus`, and all accessor functions.
+- [x] `src/data/workbook-interactions.json` created — safe, metadata-derived interactions for Lessons 9 (pages 27-30) and 17 (pages 59-62).
+- [x] `src/components/cartilla/DragWordReveal.tsx` implemented — drag-and-reveal word activity with tappable fallback.
+- [x] `src/components/cartilla/TapObjectActivity.tsx` implemented — tap-object activity with verified-hotspot mode and fallback list mode.
+- [x] `src/components/cartilla/InteractiveWorkbookLayer.tsx` implemented — orchestrates all activity kinds per active page.
+- [x] `OfficialWorkbookLessonView` updated — exposes `onPageChange` callback and `belowPage` render-prop slot for the activity layer.
+- [x] `leccion.$n.tsx` updated — wires `InteractiveWorkbookLayer` into the `belowPage` slot, activities visible below the PDF viewer.
+- [x] `cartilla.teacher.presentacion.tsx` updated — shows interaction readiness badge (total / ready / pending-art / pending-transcription) per lesson card.
+- [ ] Exact object-hotspot coordinates are NOT yet verified for any lesson page. All tap-object activities currently use the fallback list/tap mode. Enabling overlay mode requires official page scan mapping — this must NOT be done from synthesized data.
+- [ ] Additional lessons (beyond L9 and L17) need interaction entries in `workbook-interactions.json`.
+- [ ] `drag-word-to-image` activities will show a placeholder image panel until official art mapping is completed.
+
 
 ## Notion side (parked unless explicitly reopened)
 

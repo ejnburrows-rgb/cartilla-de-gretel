@@ -17,6 +17,8 @@ import { listMyAssignments } from "@/lib/assignments.functions";
 import { StudentWorkbookShell } from "@/components/cartilla/StudentWorkbookShell";
 import { getWorkbookPagesForLesson } from "@/lib/book-faithful";
 import { OfficialWorkbookLessonView } from "@/components/cartilla/OfficialWorkbookLessonView";
+import { InteractiveWorkbookLayer } from "@/components/cartilla/InteractiveWorkbookLayer";
+import { getLessonPageNumbers } from "@/lib/cartilla-crm-theme";
 
 export const Route = createFileRoute("/cartilla/leccion/$n")({
   component: Leccion,
@@ -138,6 +140,14 @@ function Leccion() {
           pages={entry.pages}
           title={entry.title}
           accent={entry.color}
+          belowPage={(activePage) => (
+            <InteractiveWorkbookLayer
+              lessonNumber={n}
+              pageNumbers={getLessonPageNumbers(entry.pages)}
+              activePageNumber={activePage}
+              accent={entry.color}
+            />
+          )}
         />
         <BookFaithfulOverlay n={n} />
         {entry.kind === "intro" && <IntroBody lessonId={String(n)} />}

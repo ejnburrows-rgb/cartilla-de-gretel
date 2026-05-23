@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, BookOpen, Eye, FileText, LibraryBig } from "lucide-react";
+import { ArrowLeft, BookOpen, Eye, FileText, LibraryBig, Layers } from "lucide-react";
 import { TeacherPresentationShell } from "@/components/cartilla/TeacherPresentationShell";
 import { CATALOG } from "@/lib/lesson-catalog";
 import {
@@ -9,8 +9,10 @@ import {
   lessonHasEmptyPalabras,
   lessonHasMiniStory,
 } from "@/lib/book-faithful";
-import { getBookSectionForLesson } from "@/lib/cartilla-crm-theme";
+import { getBookSectionForLesson, getLessonPageNumbers } from "@/lib/cartilla-crm-theme";
 import { getWorkbookPageSourcesForLesson } from "@/lib/workbook-source";
+import { getInteractionReadinessForLesson } from "@/lib/workbook-interactions";
+import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/_authenticated/cartilla/teacher/presentacion")({
   component: TeacherPresentation,
@@ -50,12 +52,14 @@ function TeacherPresentation() {
           const hasEmptyPalabras = lessonHasEmptyPalabras(entry.n);
           const transcription = getWorkbookTranscriptionSummary(entry.n);
           const source = getWorkbookPageSourcesForLesson(entry.n, entry.pages);
+          const pageNumbers = getLessonPageNumbers(entry.pages);
           const needsSourceMapping = source.connectedSourceCount === 0;
           const interactionReady = Boolean(
             entry.kind === "intro" ||
               entry.kind === "vowel" ||
               (entry.kind === "consonant" && entry.data.syllables.length > 0),
           );
+          const interactions = getInteractionReadinessForLesson(entry.n, pageNumbers);
           const transcriptionLabel =
             transcription.status === "verified"
               ? "Transcripción verificada"
@@ -129,6 +133,40 @@ function TeacherPresentation() {
                 <span className="rounded-full bg-indigo-100 px-3 py-1 text-indigo-900">
                   Interaccion {interactionReady ? "lista" : "pendiente"}
                 </span>
+                {interactions.totalInteractions > 0 ? (
+                  <>
+                    <span
+                      className={cn(
+                        "inline-flex items-center gap-1 rounded-full px-3 py-1",
+                        interactions.readyCount === interactions.totalInteractions
+                          ? "bg-emerald-100 text-emerald-900"
+                          : "bg-indigo-100 text-indigo-900",
+                      )}
+                    >
+                      <Layers className="h-3 w-3" />
+                      Actividades {interactions.readyCount}/{interactions.totalInteractions}
+                    </span>
+                    {interactions.pendingArtMappingCount > 0 && (
+                      <span className="rounded-full bg-orange-100 px-3 py-1 text-orange-900">
+                        {interactions.pendingArtMappingCount} sin mapeo
+                      </span>
+                    )}
+                    {interactions.pendingTranscriptionCount > 0 && (
+                      <span className="rounded-full bg-amber-100 px-3 py-1 text-amber-900">
+                        {interactions.pendingTranscriptionCount} sin transcripción
+                      </span>
+                    )}
+                    {interactions.hasAnyVerifiedHotspots && (
+                      <span className="rounded-full bg-emerald-100 px-3 py-1 text-emerald-900">
+                        Hotspots verificados
+                      </span>
+                    )}
+                  </>
+                ) : (
+                  <span className="rounded-full bg-stone-100 px-3 py-1 text-stone-700">
+                    Sin actividades
+                  </span>
+                )}
               </div>
               <div className="mt-4 flex flex-wrap gap-2">
                 <Link

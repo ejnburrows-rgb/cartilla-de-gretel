@@ -32,6 +32,11 @@ Expected:
 - If `/book/book.pdf` is not connected, it shows `Pagina pendiente de conexion al cuaderno oficial` without invented page content.
 - Sight-word chips are visible: `es`, `de`, `un`, `está`, `en`, `la`, `el`.
 - The DOM includes `aria-label="Palabra de vista: es"`.
+- **New:** Below the PDF viewer, `Actividades interactivas del cuaderno` section is visible.
+- **New:** Syllable tap buttons `sa, se, si, so, su` are rendered.
+- **New:** Listen-and-tap row shows sight-word buttons.
+- **New:** Art-pending activities show student-facing status string (not developer jargon).
+
 
 ## Lesson 17 check
 
@@ -48,15 +53,22 @@ Expected:
 - It shows the official Cuaderno layer before the interactive exercises.
 - If `/book/book.pdf` is not connected, it shows `Pagina pendiente de conexion al cuaderno oficial` without invented page content.
 - The banner `Esta lección tiene un mini-cuento.` is visible.
+- **New:** Below the PDF viewer, `Actividades interactivas del cuaderno` section is visible.
+- **New:** Syllable tap buttons `ra, re, ri, ro, ru` are rendered.
+- **New:** Mini-cuento marker shows `Texto del cuento pendiente de transcripción verificada`.
+
 
 ## Last verified production result
 
-2026-05-23:
+2026-05-23 (interactive activity layer):
 
-- Commit served: `3901508f61e620c8b22b9d9683a629168302eea0`.
-- Lesson 9: PASS.
-- Lesson 17: PASS.
-- Console errors: none detected.
+- Commit to be deployed: interactive workbook activity layer.
+- typecheck: PASS (0 errors).
+- lint: PASS (0 errors).
+- build: PASS (✓ ~11s).
+- Previous lesson 9 and 17 smoke tests: PASS (inherited from prior session).
+- Console errors: none detected in prior session.
+
 
 ## CRM shell checks
 

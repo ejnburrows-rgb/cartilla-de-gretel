@@ -8,6 +8,10 @@ type OfficialWorkbookLessonViewProps = {
   pages: string;
   title: string;
   accent?: string;
+  /** Called whenever the selected page chip changes. */
+  onPageChange?: (pageNumber: number) => void;
+  /** Optional content rendered after the official page viewer. */
+  belowPage?: (pageNumber: number) => React.ReactNode;
 };
 
 export function OfficialWorkbookLessonView({
@@ -15,6 +19,8 @@ export function OfficialWorkbookLessonView({
   pages,
   title,
   accent,
+  onPageChange,
+  belowPage,
 }: OfficialWorkbookLessonViewProps) {
   const lessonSource = useMemo(
     () => getWorkbookPageSourcesForLesson(lessonNumber, pages),
@@ -26,8 +32,10 @@ export function OfficialWorkbookLessonView({
   const [runtimePdfAvailable, setRuntimePdfAvailable] = useState(false);
 
   useEffect(() => {
-    setSelectedPage(lessonSource.pages[0]?.pageNumber ?? lessonNumber);
-  }, [lessonNumber, lessonSource.pages]);
+    const firstPage = lessonSource.pages[0]?.pageNumber ?? lessonNumber;
+    setSelectedPage(firstPage);
+    onPageChange?.(firstPage);
+  }, [lessonNumber, lessonSource.pages, onPageChange]);
 
   useEffect(() => {
     let cancelled = false;
@@ -56,6 +64,11 @@ export function OfficialWorkbookLessonView({
       : "Paginas pendientes de conexion al cuaderno oficial";
 
   if (!selectedSource) return null;
+
+  const handleSelectPage = (pageNumber: number) => {
+    setSelectedPage(pageNumber);
+    onPageChange?.(pageNumber);
+  };
 
   return (
     <section className="mt-5 space-y-4" aria-label="Cuaderno oficial de la leccion">
@@ -87,7 +100,7 @@ export function OfficialWorkbookLessonView({
               <button
                 key={source.pageNumber}
                 type="button"
-                onClick={() => setSelectedPage(source.pageNumber)}
+                onClick={() => handleSelectPage(source.pageNumber)}
                 className={
                   active
                     ? "min-h-11 min-w-11 rounded-xl bg-[var(--cartilla-accent)] px-3 py-2 text-sm font-bold text-white shadow-sm"
@@ -104,6 +117,9 @@ export function OfficialWorkbookLessonView({
       </div>
 
       <OfficialWorkbookPage source={selectedSource} runtimePdfAvailable={runtimePdfAvailable} />
+
+      {/* Render optional below-page slot (e.g. InteractiveWorkbookLayer) */}
+      {belowPage?.(selectedPage)}
     </section>
   );
 }
