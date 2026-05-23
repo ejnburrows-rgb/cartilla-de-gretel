@@ -9,15 +9,10 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).send('Method Not Allowed');
   }
 
-  let body = '';
-  if (typeof req.body === 'string') {
-    body = req.body;
-  } else if (req.body && typeof req.body === 'object') {
-    body = new URLSearchParams(req.body as Record<string, string>).toString();
-  }
-
-  const params = new URLSearchParams(body);
-  const password = params.get('password') || (req.body as Record<string, string>)?.password;
+  const redirect = (req.query.redirect as string) || '/';
+  const password =
+    (req.body as Record<string, string>)?.password ||
+    new URLSearchParams(typeof req.body === 'string' ? req.body : '').get('password');
 
   if (password === PASSWORD) {
     const maxAge = 60 * 60 * 24 * 30; // 30 days
@@ -25,9 +20,8 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
       'Set-Cookie',
       `${COOKIE_NAME}=${COOKIE_VALUE}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${maxAge}; Secure`
     );
-    const redirect = (req.query.redirect as string) || '/';
     return res.redirect(302, redirect);
   } else {
-    return res.redirect(302, '/login?error=1');
+    return res.redirect(302, `/login.html?error=1&redirect=${encodeURIComponent(redirect)}`);
   }
 }
