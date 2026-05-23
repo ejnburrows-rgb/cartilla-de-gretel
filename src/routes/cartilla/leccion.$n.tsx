@@ -11,6 +11,7 @@ import { SyllableTap, WordMatch, TeacherAnswerKey } from "@/components/cartilla/
 import { OrderedExercises } from "@/components/cartilla/OrderedExercises";
 import { recordEvent, useStudentSession } from "@/lib/student-session";
 import { LessonTimer } from "@/components/cartilla/LessonTimer";
+import { BookFaithfulOverlay } from "@/components/cartilla/BookFaithfulOverlay";
 import { listMyAssignments } from "@/lib/assignments.functions";
 
 export const Route = createFileRoute("/cartilla/leccion/$n")({
@@ -125,6 +126,7 @@ function Leccion() {
         >
           {entry.title}
         </h1>
+        <BookFaithfulOverlay n={n} />
         {entry.kind === "intro" && <IntroBody lessonId={String(n)} />}
         {entry.kind === "vowel" && <VowelBody entry={entry} lessonId={String(n)} />}
         {entry.kind === "consonant" && <ConsonantBody entry={entry} lessonId={String(n)} />}
