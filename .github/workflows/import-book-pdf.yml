@@ -16,7 +16,7 @@ permissions:
 jobs:
   import:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -28,7 +28,7 @@ jobs:
 
       - name: Read config
         run: |
-          set -euo pipefail
+          set -euxo pipefail
           if [ ! -f .cartilla-import/notion-url.txt ]; then
             echo "::error::Config file .cartilla-import/notion-url.txt is missing."
             exit 1
@@ -37,30 +37,41 @@ jobs:
           OUT="$(sed -n '2p' .cartilla-import/notion-url.txt | tr -d '[:space:]')"
           if [ -z "$OUT" ]; then OUT="public/book/book.pdf"; fi
           if [ -z "$ARG" ]; then
-            echo "::error::Line 1 of .cartilla-import/notion-url.txt must be a page URL or bare page ID."
+            echo "::error::Line 1 missing."
             exit 1
           fi
           echo "NOTION_ARG=$ARG" >> "$GITHUB_ENV"
           echo "TARGET_PATH=$OUT" >> "$GITHUB_ENV"
-          echo "Argument   : $ARG"
-          echo "Target path: $OUT"
 
       - name: Install Playwright + Chromium
         working-directory: scripts
         run: |
-          set -euo pipefail
+          set -euxo pipefail
           npm install --no-audit --no-fund
           npx playwright install --with-deps chromium
 
-      - name: Fetch PDF from public page
+      - name: Prepare debug dir
         run: |
-          set -euo pipefail
+          set -euxo pipefail
+          rm -rf .cartilla-import/debug
+          mkdir -p .cartilla-import/debug
           mkdir -p "$(dirname "$TARGET_PATH")"
-          node scripts/notion-pdf-fetch.mjs "$NOTION_ARG" "$TARGET_PATH"
 
-      - name: Verify file is a real PDF
+      - name: Fetch PDF (with full diagnostics)
+        id: fetch
+        continue-on-error: true
+        env:
+          DEBUG_DIR: .cartilla-import/debug
         run: |
-          set -euo pipefail
+          set -o pipefail
+          node scripts/notion-pdf-fetch.mjs "$NOTION_ARG" "$TARGET_PATH" 2>&1 | tee .cartilla-import/debug/run.log
+          echo "exit_code=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
+          exit "${PIPESTATUS[0]}"
+
+      - name: Verify PDF (only if fetch succeeded)
+        if: steps.fetch.outcome == 'success'
+        run: |
+          set -euxo pipefail
           ls -lh "$TARGET_PATH"
           file "$TARGET_PATH"
           if ! file --brief --mime-type "$TARGET_PATH" | grep -qi 'application/pdf'; then
@@ -68,20 +79,34 @@ jobs:
             head -c 256 "$TARGET_PATH" | xxd | head -20
             exit 1
           fi
-          echo "Size: $(stat -c%s "$TARGET_PATH") bytes"
+          stat -c%s "$TARGET_PATH" > .cartilla-import/debug/pdf-size.txt
 
-      - name: Commit and push
+      - name: Commit debug artifacts (always)
+        if: always()
         run: |
-          set -euo pipefail
+          set -euxo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "$TARGET_PATH"
+          git add .cartilla-import/debug
+          if [ "$ steps.fetch.outcome " = "success" ]; then
+            git add "$TARGET_PATH"
+          fi
           if git diff --cached --quiet; then
-            echo "No changes to commit."
+            echo "Nothing new to commit."
             exit 0
           fi
-          git commit -m "chore(book): import Cartilla PDF via Actions"
+          if [ "$ steps.fetch.outcome " = "success" ]; then
+            git commit -m "chore(book): import Cartilla PDF + debug artifacts"
+          else
+            git commit -m "chore(import): commit debug artifacts (fetch failed)"
+          fi
           git push
+
+      - name: Fail job if fetch failed
+        if: steps.fetch.outcome != 'success'
+        run: |
+          echo "::error::Fetch step failed; debug artifacts committed to .cartilla-import/debug/"
+          exit 1
 
       - name: Summary
         if: always()
@@ -89,11 +114,10 @@ jobs:
           {
             echo "### Cartilla PDF importer"
             echo ""
-            echo "- Arg:    \`$NOTION_ARG\`"
-            echo "- Target: \`$TARGET_PATH\`"
-            if [ -f "$TARGET_PATH" ]; then
-              echo "- Size:   \`$(stat -c%s "$TARGET_PATH") bytes\`"
+            echo "- Argument: \`$NOTION_ARG\`"
+            echo "- Target  : \`$TARGET_PATH\`"
+            echo "- Fetch   : \`$ steps.fetch.outcome \`"
+            if [ -f "$TARGET_PATH" ] && [ "$ steps.fetch.outcome " = "success" ]; then
+              echo "- Size    : \`$(stat -c%s "$TARGET_PATH") bytes\`"
             fi
-            echo ""
-            echo "Vercel will redeploy on the resulting commit."
           } >> "$GITHUB_STEP_SUMMARY"
