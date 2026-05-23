@@ -9,17 +9,17 @@ function getCookie(cookieHeader: string, name: string): string | undefined {
   return match ? match.slice(name.length + 1) : undefined;
 }
 
-export default async function middleware(request: Request): Promise<Response> {
+export default async function middleware(request: Request): Promise<Response | undefined> {
   const url = new URL(request.url);
   const pathname = url.pathname;
 
-  // Always allow the login page (both /login and /login.html) and login API
+  // Always allow the login page and login API — return undefined to pass through
   if (
     pathname === '/login' ||
     pathname === '/login.html' ||
     pathname.startsWith('/api/login')
   ) {
-    return fetch(request);
+    return undefined;
   }
 
   // Always allow static assets
@@ -31,7 +31,7 @@ export default async function middleware(request: Request): Promise<Response> {
     pathname === '/manifest.webmanifest' ||
     pathname === '/sw.js'
   ) {
-    return fetch(request);
+    return undefined;
   }
 
   // Check auth cookie
@@ -39,10 +39,10 @@ export default async function middleware(request: Request): Promise<Response> {
   const auth = getCookie(cookieHeader, COOKIE_NAME);
 
   if (auth === COOKIE_VALUE) {
-    return fetch(request);
+    return undefined;
   }
 
-  // Redirect unauthenticated visitors directly to /login.html
+  // Redirect unauthenticated visitors to /login.html
   const loginUrl = new URL('/login.html', request.url);
   loginUrl.searchParams.set('redirect', pathname);
   return Response.redirect(loginUrl.toString(), 302);
