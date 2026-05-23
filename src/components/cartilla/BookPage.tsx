@@ -43,27 +43,27 @@ export function BookPage({ entry }: BookPageProps) {
   return (
     <div
       className="relative w-full h-full rounded-2xl overflow-hidden"
-      style=
+      style={{
         background: tone.bg,
         boxShadow:
           "0 30px 60px rgba(0,0,0,0.18), inset 0 0 0 4px rgba(120,53,15,0.12)",
-      
+      }}
     >
       <div
         className="absolute inset-0 pointer-events-none"
-        style=
+        style={{
           backgroundImage:
             "radial-gradient(circle at 1px 1px, rgba(120,80,40,0.13) 1px, transparent 0)",
           backgroundSize: "4px 4px",
           opacity: 0.4,
-        
+        }}
       />
       <div
         className="absolute top-0 bottom-0 left-1/2 w-px pointer-events-none"
-        style=
+        style={{
           background:
             "linear-gradient(180deg, transparent 0%, rgba(120,53,15,0.10) 50%, transparent 100%)",
-        
+        }}
       />
       <div
         className="absolute -top-12 -right-12 w-48 h-48 rounded-full opacity-30 pointer-events-none"
@@ -72,25 +72,25 @@ export function BookPage({ entry }: BookPageProps) {
 
       <div
         className="relative h-full flex flex-col p-6 sm:p-10"
-        style= color: tone.textColor 
+        style={{ color: tone.textColor }}
       >
         <div
           className="text-[10px] sm:text-xs font-bold uppercase tracking-widest"
-          style= color: tone.accentSoft 
+          style={{ color: tone.accentSoft }}
         >
           Lección {entry.n} · {tone.label}
         </div>
         <h1
           className="text-5xl sm:text-7xl font-bold mt-1 leading-none"
-          style=
+          style={{
             color: accent,
             fontFamily: "'Fredoka', ui-rounded, system-ui, sans-serif",
-          
+          }}
         >
           {entry.title}
         </h1>
         {entry.pages && (
-          <p className="mt-1 text-xs sm:text-sm" style= color: tone.accentSoft >
+          <p className="mt-1 text-xs sm:text-sm" style={{ color: tone.accentSoft }}>
             Páginas {entry.pages}
           </p>
         )}
@@ -101,7 +101,7 @@ export function BookPage({ entry }: BookPageProps) {
 
         <footer
           className="mt-3 pt-2 border-t-2 border-dashed flex items-center justify-between text-[10px]"
-          style= color: tone.accentSoft, borderColor: "rgba(120,53,15,0.15)" 
+          style={{ color: tone.accentSoft, borderColor: "rgba(120,53,15,0.15)" }}
         >
           <span>La Cartilla de Gretel · Leonor Lopetegui</span>
           <span>Lanny Books</span>
