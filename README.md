@@ -2,6 +2,14 @@
 
 Digital edition of *La Cartilla de Gretel*, a 92-page, 24-lesson Spanish reading primer by Leonor Lopetegui. Contributors: Aída Fernández and Silvia Diez. Illustrator: Estela de Armas Plasencia. Imprint: Lanny Books (LANY BOOKS LLC). ISBN 0-971-8696-8-5.
 
+This repository is also the classroom CRM for the book:
+
+- Student side: official-workbook-oriented lesson experience with lesson colors, page ranges, and a book/page shell.
+- Teacher side: class CRM for teachers, student rosters, progress, assignments, and branding controls.
+- Teacher presentation side: `/cartilla/teacher/presentacion` provides a projection-friendly book-structure view for all 24 lessons.
+
+Exact page-by-page workbook transcription is still incomplete where source text is not present. Do not claim full workbook text fidelity until that content is verified.
+
 ## Current state
 
 - Production URL: https://cartilla-de-gretel.vercel.app
@@ -98,3 +106,5 @@ Apply migrations in `supabase/migrations/` before using the teacher/student clou
 ## Known issues
 
 See `KNOWN_ISSUES.md` at repo root for the current inventory of verified status, open gaps, and parked work.
+
+The PDF mirror is not claimed as fixed by the CRM shell work unless separately verified in the same deployment pass.

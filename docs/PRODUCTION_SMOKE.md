@@ -53,3 +53,21 @@ Expected:
 - Lesson 9: PASS.
 - Lesson 17: PASS.
 - Console errors: none detected.
+
+## CRM shell checks
+
+Open:
+
+```text
+https://cartilla-de-gretel.vercel.app/cartilla/unirse
+https://cartilla-de-gretel.vercel.app/cartilla/leccion/9
+https://cartilla-de-gretel.vercel.app/cartilla/leccion/17
+https://cartilla-de-gretel.vercel.app/cartilla/teacher/presentacion
+```
+
+Expected:
+
+- `/cartilla/unirse` loads the student sign-in side.
+- `/cartilla/leccion/9` has the workbook shell/background and `aria-label="Palabra de vista: es"`.
+- `/cartilla/leccion/17` has the workbook shell/background and the mini-cuento banner.
+- `/cartilla/teacher/presentacion` exists behind auth or redirects appropriately if unauthenticated.

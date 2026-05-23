@@ -2,7 +2,17 @@ import { createFileRoute, Link, Outlet, useNavigate, useRouterState } from "@tan
 import { useEffect, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useServerFn } from "@/lib/useServerFn";
-import { ArrowLeft, Plus, GraduationCap, LogOut, Users, Trash2, Copy, Loader2 } from "lucide-react";
+import {
+  ArrowLeft,
+  Plus,
+  GraduationCap,
+  LogOut,
+  Users,
+  Trash2,
+  Copy,
+  Loader2,
+  MonitorPlay,
+} from "lucide-react";
 import { listClasses, createClass, deleteClass } from "@/lib/teacher.functions";
 import { isSupabaseConfigured, supabase } from "@/integrations/supabase/client";
 import { getDemoTeacher, signOutDemoTeacher } from "@/lib/demo-data";
@@ -93,6 +103,25 @@ function TeacherDashboard() {
           Marca y textos
         </Link>
       </header>
+
+      <section className="mt-6 kid-card p-4">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <h2 className="inline-flex items-center gap-2 text-lg font-bold">
+              <MonitorPlay className="h-5 w-5 text-primary" /> Presentación docente
+            </h2>
+            <p className="mt-1 text-sm text-foreground/60">
+              Vista de presentación basada en la estructura verificada del libro.
+            </p>
+          </div>
+          <Link
+            to="/cartilla/teacher/presentacion"
+            className="inline-flex min-h-11 items-center justify-center rounded-xl bg-primary px-4 py-2 text-sm font-bold text-primary-foreground hover:opacity-90"
+          >
+            Abrir presentación
+          </Link>
+        </div>
+      </section>
 
       <section className="mt-6 kid-card p-4">
         <h2 className="font-bold mb-2">Crear nueva clase</h2>

@@ -22,6 +22,10 @@ When you run these locally, paste any failures here verbatim.
 ## Live lesson route integration
 
 - [x] `BookFaithfulOverlay` is wired into `src/routes/cartilla/leccion.$n.tsx` and production smoke tests confirm the book-faithful overlay renders on direct lesson routes.
+- [x] Student side workbook shell implemented for live lesson pages.
+- [x] Teacher side presentation shell implemented at `/cartilla/teacher/presentacion`.
+- [x] Background/theme B improved with lesson-aware CRM theme variables, student workbook shell, and teacher presentation shell.
+- [ ] Exact source-art page reproduction remains pending where exact page assets/content are not present.
 
 ## Notion side (parked unless explicitly reopened)
 
@@ -32,6 +36,8 @@ When you run these locally, paste any failures here verbatim.
 ## Content gaps (will not be auto-invented)
 
 - [ ] `src/data/lessons.json` `lessons[]` page scaffolding has empty `textBlocks[]` for every page. Filling these requires a paginated transcription pass over the real workbook. Do not synthesize.
+- [ ] Exact page text transcription is still pending where verified workbook text is not available.
+- [ ] PDF mirror is still pending unless separately verified; this pass does not modify the PDF mirror.
 - [ ] No per-lesson hero illustrations in `public/cartilla/images/` (only grouped scans). Will not be auto-generated.
 - [x] `src/data/teacher-guide.json` exists as a 24-lesson TODO skeleton. The actual teacher-guide content is not transcribed and must not be invented.
 - [x] `.env.example` exists with Supabase public environment variable placeholders.

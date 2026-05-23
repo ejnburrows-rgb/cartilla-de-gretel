@@ -5,7 +5,7 @@ import { useServerFn } from "@/lib/useServerFn";
 import { ArrowLeft, ArrowRight, Check, Volume2, ClipboardList } from "lucide-react";
 import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
 import type { CatalogEntry } from "@/types/cartilla";
-import { useLessonProgress, isLessonUnlocked, markLessonCompleted } from "@/lib/lesson-progress";
+import { useLessonProgress, markLessonCompleted } from "@/lib/lesson-progress";
 import { speak, speakVowel } from "@/lib/speak";
 import { cn } from "@/lib/utils";
 import { SyllableTap, WordMatch, TeacherAnswerKey } from "@/components/cartilla/Ejercicios";
@@ -14,6 +14,7 @@ import { recordEvent, useStudentSession } from "@/lib/student-session";
 import { LessonTimer } from "@/components/cartilla/LessonTimer";
 import { BookFaithfulOverlay } from "@/components/cartilla/BookFaithfulOverlay";
 import { listMyAssignments } from "@/lib/assignments.functions";
+import { StudentWorkbookShell } from "@/components/cartilla/StudentWorkbookShell";
 
 export const Route = createFileRoute("/cartilla/leccion/$n")({
   component: Leccion,
@@ -53,12 +54,7 @@ function Leccion() {
     [assignments, n],
   );
 
-  const unlocked = typeof window === "undefined" || isLessonUnlocked(n);
   const startedAt = useRef<number>(Date.now());
-
-  useEffect(() => {
-    if (entry && !unlocked) navigate({ to: "/cartilla/lecciones" });
-  }, [entry, navigate, unlocked]);
 
   useEffect(() => {
     startedAt.current = Date.now();
@@ -68,7 +64,7 @@ function Leccion() {
     };
   }, [n]);
 
-  if (!entry || !unlocked) return null;
+  if (!entry) return null;
 
   const done = isCompleted(n);
   const isLast = n >= TOTAL_LESSONS;
@@ -82,8 +78,14 @@ function Leccion() {
   };
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
-      <header className="px-4 pt-4 max-w-3xl w-full mx-auto">
+    <StudentWorkbookShell
+      lessonNumber={n}
+      pages={entry.pages}
+      title={entry.title}
+      subtitle={entry.subtitle}
+      accent={entry.color}
+    >
+      <header>
         <div className="flex items-center justify-between gap-3 mb-3">
           <Link
             to="/cartilla/lecciones"
@@ -117,7 +119,7 @@ function Leccion() {
           </div>
         )}
       </header>
-      <main className="flex-1 px-4 pt-6 pb-28 max-w-3xl w-full mx-auto">
+      <main>
         <div className="text-xs font-bold uppercase tracking-wide text-foreground/50">
           Lección {n} · páginas {entry.pages}
         </div>
@@ -127,10 +129,10 @@ function Leccion() {
         >
           {entry.title}
         </h1>
-        <BookFaithfulOverlay n={n} />
         {entry.kind === "intro" && <IntroBody lessonId={String(n)} />}
         {entry.kind === "vowel" && <VowelBody entry={entry} lessonId={String(n)} />}
         {entry.kind === "consonant" && <ConsonantBody entry={entry} lessonId={String(n)} />}
+        <BookFaithfulOverlay n={n} />
         {done && (
           <div className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-success">
             <Check className="w-4 h-4" /> Ya completaste esta lección
@@ -165,7 +167,7 @@ function Leccion() {
           </button>
         </div>
       </nav>
-    </div>
+    </StudentWorkbookShell>
   );
 }
 

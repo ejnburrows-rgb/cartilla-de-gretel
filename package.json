@@ -7,9 +7,9 @@
     "dev": "vite dev",
     "prebuild": "node scripts/prebuild-fetch-pdfs.mjs",
     "build": "vite build",
-    "preview": "vite preview --host 127.0.0.1",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint .",
+    "preview": "vite preview --host 127.0.0.1",
+    "lint": "eslint src vite.config.ts eslint.config.js",
     "verify": "npm run typecheck && npm run lint && npm run build",
     "format": "prettier --write ."
   },

@@ -23,6 +23,7 @@ import { Route as CartillaLeccionesRouteImport } from './routes/cartilla/leccion
 import { Route as CartillaAutoraRouteImport } from './routes/cartilla/autora'
 import { Route as CartillaLeccionNRouteImport } from './routes/cartilla/leccion.$n'
 import { Route as AuthenticatedCartillaTeacherRouteImport } from './routes/_authenticated/cartilla.teacher'
+import { Route as AuthenticatedCartillaTeacherPresentacionRouteImport } from './routes/_authenticated/cartilla.teacher.presentacion'
 import { Route as AuthenticatedCartillaTeacherBrandingRouteImport } from './routes/_authenticated/cartilla.teacher.branding'
 import { Route as AuthenticatedCartillaTeacherClaseIdRouteImport } from './routes/_authenticated/cartilla.teacher.clase.$id'
 import { Route as AuthenticatedCartillaTeacherAlumnoIdRouteImport } from './routes/_authenticated/cartilla.teacher.alumno.$id'
@@ -97,6 +98,12 @@ const AuthenticatedCartillaTeacherRoute =
     path: '/cartilla/teacher',
     getParentRoute: () => AuthenticatedRoute,
   } as any)
+const AuthenticatedCartillaTeacherPresentacionRoute =
+  AuthenticatedCartillaTeacherPresentacionRouteImport.update({
+    id: '/presentacion',
+    path: '/presentacion',
+    getParentRoute: () => AuthenticatedCartillaTeacherRoute,
+  } as any)
 const AuthenticatedCartillaTeacherBrandingRoute =
   AuthenticatedCartillaTeacherBrandingRouteImport.update({
     id: '/branding',
@@ -131,6 +138,7 @@ export interface FileRoutesByFullPath {
   '/cartilla/teacher': typeof AuthenticatedCartillaTeacherRouteWithChildren
   '/cartilla/leccion/$n': typeof CartillaLeccionNRoute
   '/cartilla/teacher/branding': typeof AuthenticatedCartillaTeacherBrandingRoute
+  '/cartilla/teacher/presentacion': typeof AuthenticatedCartillaTeacherPresentacionRoute
   '/cartilla/teacher/alumno/$id': typeof AuthenticatedCartillaTeacherAlumnoIdRoute
   '/cartilla/teacher/clase/$id': typeof AuthenticatedCartillaTeacherClaseIdRoute
 }
@@ -149,6 +157,7 @@ export interface FileRoutesByTo {
   '/cartilla/teacher': typeof AuthenticatedCartillaTeacherRouteWithChildren
   '/cartilla/leccion/$n': typeof CartillaLeccionNRoute
   '/cartilla/teacher/branding': typeof AuthenticatedCartillaTeacherBrandingRoute
+  '/cartilla/teacher/presentacion': typeof AuthenticatedCartillaTeacherPresentacionRoute
   '/cartilla/teacher/alumno/$id': typeof AuthenticatedCartillaTeacherAlumnoIdRoute
   '/cartilla/teacher/clase/$id': typeof AuthenticatedCartillaTeacherClaseIdRoute
 }
@@ -169,6 +178,7 @@ export interface FileRoutesById {
   '/_authenticated/cartilla/teacher': typeof AuthenticatedCartillaTeacherRouteWithChildren
   '/cartilla/leccion/$n': typeof CartillaLeccionNRoute
   '/_authenticated/cartilla/teacher/branding': typeof AuthenticatedCartillaTeacherBrandingRoute
+  '/_authenticated/cartilla/teacher/presentacion': typeof AuthenticatedCartillaTeacherPresentacionRoute
   '/_authenticated/cartilla/teacher/alumno/$id': typeof AuthenticatedCartillaTeacherAlumnoIdRoute
   '/_authenticated/cartilla/teacher/clase/$id': typeof AuthenticatedCartillaTeacherClaseIdRoute
 }
@@ -189,6 +199,7 @@ export interface FileRouteTypes {
     | '/cartilla/teacher'
     | '/cartilla/leccion/$n'
     | '/cartilla/teacher/branding'
+    | '/cartilla/teacher/presentacion'
     | '/cartilla/teacher/alumno/$id'
     | '/cartilla/teacher/clase/$id'
   fileRoutesByTo: FileRoutesByTo
@@ -207,6 +218,7 @@ export interface FileRouteTypes {
     | '/cartilla/teacher'
     | '/cartilla/leccion/$n'
     | '/cartilla/teacher/branding'
+    | '/cartilla/teacher/presentacion'
     | '/cartilla/teacher/alumno/$id'
     | '/cartilla/teacher/clase/$id'
   id:
@@ -226,6 +238,7 @@ export interface FileRouteTypes {
     | '/_authenticated/cartilla/teacher'
     | '/cartilla/leccion/$n'
     | '/_authenticated/cartilla/teacher/branding'
+    | '/_authenticated/cartilla/teacher/presentacion'
     | '/_authenticated/cartilla/teacher/alumno/$id'
     | '/_authenticated/cartilla/teacher/clase/$id'
   fileRoutesById: FileRoutesById
@@ -346,6 +359,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedCartillaTeacherRouteImport
       parentRoute: typeof AuthenticatedRoute
     }
+    '/_authenticated/cartilla/teacher/presentacion': {
+      id: '/_authenticated/cartilla/teacher/presentacion'
+      path: '/presentacion'
+      fullPath: '/cartilla/teacher/presentacion'
+      preLoaderRoute: typeof AuthenticatedCartillaTeacherPresentacionRouteImport
+      parentRoute: typeof AuthenticatedCartillaTeacherRoute
+    }
     '/_authenticated/cartilla/teacher/branding': {
       id: '/_authenticated/cartilla/teacher/branding'
       path: '/branding'
@@ -372,6 +392,7 @@ declare module '@tanstack/react-router' {
 
 interface AuthenticatedCartillaTeacherRouteChildren {
   AuthenticatedCartillaTeacherBrandingRoute: typeof AuthenticatedCartillaTeacherBrandingRoute
+  AuthenticatedCartillaTeacherPresentacionRoute: typeof AuthenticatedCartillaTeacherPresentacionRoute
   AuthenticatedCartillaTeacherAlumnoIdRoute: typeof AuthenticatedCartillaTeacherAlumnoIdRoute
   AuthenticatedCartillaTeacherClaseIdRoute: typeof AuthenticatedCartillaTeacherClaseIdRoute
 }
@@ -380,6 +401,8 @@ const AuthenticatedCartillaTeacherRouteChildren: AuthenticatedCartillaTeacherRou
   {
     AuthenticatedCartillaTeacherBrandingRoute:
       AuthenticatedCartillaTeacherBrandingRoute,
+    AuthenticatedCartillaTeacherPresentacionRoute:
+      AuthenticatedCartillaTeacherPresentacionRoute,
     AuthenticatedCartillaTeacherAlumnoIdRoute:
       AuthenticatedCartillaTeacherAlumnoIdRoute,
     AuthenticatedCartillaTeacherClaseIdRoute:
