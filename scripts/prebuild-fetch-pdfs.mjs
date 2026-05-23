@@ -1,26 +1,40 @@
 #!/usr/bin/env node
-// Vercel build-time PDF fetcher.
+// Vercel build-time PDF fetcher with self-diagnostic.
 //
-// Runs as `npm run prebuild` before `vite build`. Reads target
-// configuration from .cartilla-import/targets.json (preferred) or the
-// legacy .cartilla-import/notion-url.txt (id\noutPath pairs).
+// Runs as `npm run prebuild` before `vite build`. Reads targets from
+// .cartilla-import/targets.json (preferred) or the legacy
+// .cartilla-import/notion-url.txt.
 //
-// For each target:
-//   { pageId, outPath, fileBlockUuid?, fileNameContains? }
+// Each target: { pageId, outPath, fileBlockUuid?, fileNameContains? }
 //
-// the fetcher walks Notion's public loadPageChunk endpoint AND scrapes
-// the public page HTML for candidate file URLs, then filters to URLs
-// that match the configured signal(s). The first candidate that
-// downloads and starts with the %PDF- magic header wins.
+// Strategy: walk Notion's public loadPageChunk endpoint AND scrape the
+// HTML, collect candidate file URLs (with their block-id when known),
+// filter by configured signals, download the first match whose body
+// starts with %PDF-, write it.
 //
-// Hard rule: NEVER fail the build. If a fetch fails, log it and
-// exit 0 so the site still deploys.
+// At end of run, write a diagnostic summary into public/robots.txt so
+// the deployed /robots.txt is a live build-info probe.
+//
+// HARD rule: NEVER fail the build. exit(0) always.
 
 import fs from 'node:fs';
 import path from 'node:path';
 
 const JSON_CONFIG = '.cartilla-import/targets.json';
 const TXT_CONFIG = '.cartilla-import/notion-url.txt';
+const ROBOTS_PATH = 'public/robots.txt';
+
+const diagStartedAt = new Date().toISOString();
+const diagCommit =
+  process.env.VERCEL_GIT_COMMIT_SHA ||
+  process.env.GITHUB_SHA ||
+  process.env.COMMIT_SHA ||
+  'unknown';
+const diagBranch =
+  process.env.VERCEL_GIT_COMMIT_REF ||
+  process.env.GITHUB_REF_NAME ||
+  'unknown';
+const diagTargets = [];
 
 function readTargets() {
   if (fs.existsSync(JSON_CONFIG)) {
@@ -44,12 +58,6 @@ function readTargets() {
     return out;
   }
   return [];
-}
-
-const targets = readTargets();
-if (targets.length === 0) {
-  console.log('[prebuild] no targets configured, skipping');
-  process.exit(0);
 }
 
 const NOTION_HOST = 'www.notion.so';
@@ -83,29 +91,27 @@ function normalizeUuid(s) {
   return (s || '').toLowerCase().replace(/-/g, '');
 }
 
-async function htmlCandidates(idNoDash) {
+async function htmlCandidates(idNoDash, diag) {
   try {
     const res = await fetch('https://' + NOTION_HOST + '/' + idNoDash, {
       headers: { 'User-Agent': UA, Accept: 'text/html,application/xhtml+xml' },
       redirect: 'follow',
     });
-    if (!res.ok) {
-      console.log('[prebuild]   html status', res.status);
-      return [];
-    }
+    diag.htmlStatus = res.status;
+    if (!res.ok) return [];
     const html = await res.text();
+    diag.htmlBytes = html.length;
     const re =
       /https:\/\/(?:prod-files-secure[^"\s\\<>]+|[^"\s\\<>]+\.pdf[^"\s\\<>]*|file\.notion\.so[^"\s\\<>]+|www\.notion\.so\/signed[^"\s\\<>]+)/gi;
-    return [...new Set([...html.matchAll(re)].map((m) => m[0]))].map(
-      (url) => ({ url, blockId: null, source: 'html' }),
-    );
+    const urls = [...new Set([...html.matchAll(re)].map((m) => m[0]))];
+    return urls.map((url) => ({ url, blockId: null, source: 'html' }));
   } catch (e) {
-    console.log('[prebuild]   html scrape error:', e.message);
+    diag.htmlError = e.message;
     return [];
   }
 }
 
-async function chunkCandidates(idDashed) {
+async function chunkCandidates(idDashed, diag) {
   try {
     const res = await fetch(
       'https://' + NOTION_HOST + '/api/v3/loadPageChunk',
@@ -125,11 +131,12 @@ async function chunkCandidates(idDashed) {
         }),
       },
     );
-    if (!res.ok) {
-      console.log('[prebuild]   loadPageChunk status', res.status);
-      return [];
-    }
+    diag.chunkStatus = res.status;
+    if (!res.ok) return [];
     const data = await res.json();
+    diag.chunkBlockCount = Object.keys(
+      (data && data.recordMap && data.recordMap.block) || {},
+    ).length;
     const out = [];
     const blocks =
       (data && data.recordMap && data.recordMap.block) || {};
@@ -158,30 +165,8 @@ async function chunkCandidates(idDashed) {
     }
     return out;
   } catch (e) {
-    console.log('[prebuild]   loadPageChunk error:', e.message);
+    diag.chunkError = e.message;
     return [];
-  }
-}
-
-async function trySignFor(url, blockId) {
-  try {
-    const res = await fetch(
-      'https://' + NOTION_HOST + '/api/v3/getSignedFileUrls',
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'User-Agent': UA },
-        body: JSON.stringify({
-          urls: [
-            { url, permissionRecord: { table: 'block', id: blockId } },
-          ],
-        }),
-      },
-    );
-    if (!res.ok) return null;
-    const data = await res.json();
-    return (data && data.signedUrls && data.signedUrls[0]) || null;
-  } catch {
-    return null;
   }
 }
 
@@ -191,35 +176,17 @@ async function downloadAndWrite(url, outPath) {
       headers: { 'User-Agent': UA },
       redirect: 'follow',
     });
-    if (!res.ok) {
-      console.log('[prebuild]     http', res.status);
-      return false;
-    }
+    if (!res.ok) return { ok: false, why: 'http ' + res.status };
     const buf = Buffer.from(await res.arrayBuffer());
-    if (buf.length < 4096) {
-      console.log('[prebuild]     too small:', buf.length);
-      return false;
-    }
+    if (buf.length < 4096) return { ok: false, why: 'too small ' + buf.length };
     const hdr = buf.slice(0, 5).toString('ascii');
-    if (!hdr.startsWith('%PDF-')) {
-      console.log(
-        '[prebuild]     not a PDF, header was',
-        JSON.stringify(hdr),
-      );
-      return false;
-    }
+    if (!hdr.startsWith('%PDF-'))
+      return { ok: false, why: 'not pdf: ' + JSON.stringify(hdr) };
     fs.mkdirSync(path.dirname(outPath), { recursive: true });
     fs.writeFileSync(outPath, buf);
-    console.log(
-      '[prebuild]     wrote',
-      buf.length,
-      'bytes to',
-      outPath,
-    );
-    return true;
+    return { ok: true, bytes: buf.length };
   } catch (e) {
-    console.log('[prebuild]     download error:', e.message);
-    return false;
+    return { ok: false, why: 'err ' + e.message };
   }
 }
 
@@ -229,7 +196,6 @@ function urlContainsName(url, needle) {
   const want = needle.toLowerCase();
   return (
     hay.includes(want) ||
-    hay.includes(encodeURIComponent(want)) ||
     hay.includes(encodeURIComponent(want).toLowerCase())
   );
 }
@@ -249,62 +215,124 @@ function matchesFilter(cand, target) {
 }
 
 async function fetchOne(target) {
-  const { pageId, outPath, fileBlockUuid, fileNameContains, label } = target;
-  const { idNoDash, idDashed } = normalizeId(pageId);
-  console.log(
-    '[prebuild] target',
-    label || idNoDash,
-    '->',
-    outPath,
-    fileBlockUuid ? '(block ' + fileBlockUuid + ')' : '',
-    fileNameContains ? '(name~ ' + fileNameContains + ')' : '',
-  );
+  const diag = {
+    label: target.label || target.pageId,
+    pageId: target.pageId,
+    outPath: target.outPath,
+    fileBlockUuid: target.fileBlockUuid || null,
+    fileNameContains: target.fileNameContains || null,
+  };
+  diagTargets.push(diag);
 
+  const { idNoDash, idDashed } = normalizeId(target.pageId);
   const seen = new Map();
-  for (const c of await htmlCandidates(idNoDash)) {
+  for (const c of await htmlCandidates(idNoDash, diag)) {
     if (!seen.has(c.url)) seen.set(c.url, c);
   }
-  for (const c of await chunkCandidates(idDashed)) {
+  for (const c of await chunkCandidates(idDashed, diag)) {
     if (!seen.has(c.url)) seen.set(c.url, c);
   }
   const all = [...seen.values()];
-  console.log('[prebuild]   ' + all.length + ' total candidate URL(s)');
-  for (const c of all) {
-    console.log(
-      '[prebuild]     candidate:',
-      c.source,
-      c.blockId || '(no-block)',
-      c.url.slice(0, 96),
-    );
-  }
+  diag.candidateCount = all.length;
 
   const filtered = all.filter((c) => matchesFilter(c, target));
-  console.log(
-    '[prebuild]   ' + filtered.length + ' candidate(s) after filter',
-  );
+  diag.filteredCount = filtered.length;
 
-  const useFilter = !!(fileBlockUuid || fileNameContains);
+  // Save up to 20 candidates for the diagnostic, with whether each
+  // matched the filter.
+  const wantedNorm = normalizeUuid(target.fileBlockUuid || '');
+  diag.candidates = all.slice(0, 20).map((c) => ({
+    url: c.url.slice(0, 140),
+    blockId: c.blockId || null,
+    source: c.source,
+    matched: matchesFilter(c, target),
+    urlContainsUuid: !!(
+      wantedNorm && normalizeUuid(c.url).includes(wantedNorm)
+    ),
+  }));
+
+  const useFilter = !!(target.fileBlockUuid || target.fileNameContains);
   const ordered = useFilter ? filtered : all;
 
   for (const cand of ordered) {
-    console.log(
-      '[prebuild]   trying',
-      cand.source,
-      cand.url.slice(0, 96),
+    const result = await downloadAndWrite(cand.url, target.outPath);
+    if (result.ok) {
+      diag.wrote = { url: cand.url.slice(0, 140), bytes: result.bytes };
+      return true;
+    }
+    diag.lastFailure = result.why + ' on ' + cand.url.slice(0, 80);
+  }
+  diag.wrote = null;
+  return false;
+}
+
+function writeDiagnostic() {
+  const lines = [
+    '# La Cartilla de Gretel',
+    'User-agent: *',
+    'Allow: /',
+    '',
+    '# === Prebuild diagnostic ===',
+    '# startedAt: ' + diagStartedAt,
+    '# finishedAt: ' + new Date().toISOString(),
+    '# commit: ' + diagCommit,
+    '# branch: ' + diagBranch,
+  ];
+  for (const t of diagTargets) {
+    lines.push('#');
+    lines.push('# target: ' + t.label + ' -> ' + t.outPath);
+    lines.push('#   filterBlockUuid: ' + t.fileBlockUuid);
+    lines.push('#   filterFileName: ' + t.fileNameContains);
+    lines.push('#   htmlStatus: ' + t.htmlStatus + ', htmlBytes: ' + t.htmlBytes);
+    lines.push(
+      '#   chunkStatus: ' +
+        t.chunkStatus +
+        ', chunkBlocks: ' +
+        t.chunkBlockCount,
     );
-    if (await downloadAndWrite(cand.url, outPath)) return true;
-    const m = cand.url.match(
-      /\/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\//,
+    if (t.htmlError) lines.push('#   htmlError: ' + t.htmlError);
+    if (t.chunkError) lines.push('#   chunkError: ' + t.chunkError);
+    lines.push(
+      '#   candidates: ' +
+        t.candidateCount +
+        ', filtered: ' +
+        t.filteredCount,
     );
-    if (m) {
-      const signed = await trySignFor(cand.url, m[1]);
-      if (signed) {
-        console.log('[prebuild]     signed retry');
-        if (await downloadAndWrite(signed, outPath)) return true;
-      }
+    if (t.wrote)
+      lines.push(
+        '#   WROTE: ' + t.wrote.bytes + ' bytes from ' + t.wrote.url,
+      );
+    else lines.push('#   WROTE: nothing');
+    if (t.lastFailure) lines.push('#   lastFailure: ' + t.lastFailure);
+    for (const c of t.candidates || []) {
+      lines.push(
+        '#   - [' +
+          (c.matched ? 'MATCH' : '     ') +
+          '] block=' +
+          (c.blockId ? c.blockId.slice(0, 8) : 'none    ') +
+          ' uuidInUrl=' +
+          (c.urlContainsUuid ? 'Y' : 'N') +
+          ' src=' +
+          c.source +
+          ' :: ' +
+          c.url,
+      );
     }
   }
-  return false;
+  lines.push('');
+  try {
+    fs.writeFileSync(ROBOTS_PATH, lines.join('\n') + '\n');
+    console.log('[prebuild] wrote diagnostic to', ROBOTS_PATH);
+  } catch (e) {
+    console.log('[prebuild] failed to write diagnostic:', e.message);
+  }
+}
+
+const targets = readTargets();
+if (targets.length === 0) {
+  console.log('[prebuild] no targets configured');
+  writeDiagnostic();
+  process.exit(0);
 }
 
 let anySuccess = false;
@@ -317,7 +345,6 @@ for (const target of targets) {
   }
 }
 
-if (!anySuccess) {
-  console.log('[prebuild] no PDFs fetched \u2014 continuing build anyway');
-}
+writeDiagnostic();
+if (!anySuccess) console.log('[prebuild] no PDFs fetched');
 process.exit(0);

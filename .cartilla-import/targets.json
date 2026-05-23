@@ -3,7 +3,6 @@
     "label": "Workbook",
     "pageId": "368d56c8889081da8389c1f70ba9ddc9",
     "outPath": "public/book/book.pdf",
-    "fileBlockUuid": "933c702e-2d19-442b-9056-7665142fdbdf",
-    "fileNameContains": "Workbook"
+    "fileBlockUuid": "933c702e-2d19-442b-9056-7665142fdbdf"
   }
 ]
