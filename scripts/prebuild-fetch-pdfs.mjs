@@ -6,11 +6,11 @@
 // legacy .cartilla-import/notion-url.txt (id\noutPath pairs).
 //
 // For each target:
-//   { pageId, outPath, fileBlockUuid? }
+//   { pageId, outPath, fileBlockUuid?, fileNameContains? }
 //
 // the fetcher walks Notion's public loadPageChunk endpoint AND scrapes
 // the public page HTML for candidate file URLs, then filters to URLs
-// belonging to fileBlockUuid (if given). The first candidate that
+// that match the configured signal(s). The first candidate that
 // downloads and starts with the %PDF- magic header wins.
 //
 // Hard rule: NEVER fail the build. If a fetch fails, log it and
@@ -223,16 +223,33 @@ async function downloadAndWrite(url, outPath) {
   }
 }
 
-function matchesBlockFilter(cand, fileBlockUuid) {
-  if (!fileBlockUuid) return true;
-  const wanted = normalizeUuid(fileBlockUuid);
-  if (cand.blockId && normalizeUuid(cand.blockId) === wanted) return true;
-  if (cand.url && normalizeUuid(cand.url).includes(wanted)) return true;
+function urlContainsName(url, needle) {
+  if (!needle) return false;
+  const hay = (url || '').toLowerCase();
+  const want = needle.toLowerCase();
+  return (
+    hay.includes(want) ||
+    hay.includes(encodeURIComponent(want)) ||
+    hay.includes(encodeURIComponent(want).toLowerCase())
+  );
+}
+
+function matchesFilter(cand, target) {
+  const { fileBlockUuid, fileNameContains } = target;
+  if (!fileBlockUuid && !fileNameContains) return true;
+  if (fileBlockUuid) {
+    const wanted = normalizeUuid(fileBlockUuid);
+    if (cand.blockId && normalizeUuid(cand.blockId) === wanted) return true;
+    if (cand.url && normalizeUuid(cand.url).includes(wanted)) return true;
+  }
+  if (fileNameContains && urlContainsName(cand.url, fileNameContains)) {
+    return true;
+  }
   return false;
 }
 
 async function fetchOne(target) {
-  const { pageId, outPath, fileBlockUuid, label } = target;
+  const { pageId, outPath, fileBlockUuid, fileNameContains, label } = target;
   const { idNoDash, idDashed } = normalizeId(pageId);
   console.log(
     '[prebuild] target',
@@ -240,6 +257,7 @@ async function fetchOne(target) {
     '->',
     outPath,
     fileBlockUuid ? '(block ' + fileBlockUuid + ')' : '',
+    fileNameContains ? '(name~ ' + fileNameContains + ')' : '',
   );
 
   const seen = new Map();
@@ -251,18 +269,22 @@ async function fetchOne(target) {
   }
   const all = [...seen.values()];
   console.log('[prebuild]   ' + all.length + ' total candidate URL(s)');
+  for (const c of all) {
+    console.log(
+      '[prebuild]     candidate:',
+      c.source,
+      c.blockId || '(no-block)',
+      c.url.slice(0, 96),
+    );
+  }
 
-  const filtered = all.filter((c) => matchesBlockFilter(c, fileBlockUuid));
+  const filtered = all.filter((c) => matchesFilter(c, target));
   console.log(
-    '[prebuild]   ' +
-      filtered.length +
-      ' candidate(s) after block-uuid filter',
+    '[prebuild]   ' + filtered.length + ' candidate(s) after filter',
   );
 
-  // Try filtered first. If filter is configured but yields zero, do NOT
-  // fall back to other candidates: that's how we picked up the wrong PDF
-  // last time.
-  const ordered = fileBlockUuid ? filtered : all;
+  const useFilter = !!(fileBlockUuid || fileNameContains);
+  const ordered = useFilter ? filtered : all;
 
   for (const cand of ordered) {
     console.log(
