@@ -1,0 +1,115 @@
+name: Build Probe (commit log + PDF back)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-probe
+  cancel-in-progress: false
+
+jobs:
+  probe:
+    # Avoid recursion on the bot's own commits.
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Setup Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install deps
+        run: npm ci --no-audit --no-fund
+
+      - name: Run build with logging
+        id: build
+        env:
+          GITHUB_PAGES: 'true'
+        run: |
+          set +e
+          mkdir -p .cartilla-import/debug
+          {
+            echo "=== build-probe ==="
+            echo "started_at: $(date -u +%FT%TZ)"
+            echo "commit:     $GITHUB_SHA"
+            echo "ref:        $GITHUB_REF"
+            echo "node:       $(node -v)"
+            echo "npm:        $(npm -v)"
+            echo
+          } > .cartilla-import/debug/build-log.txt
+          npm run build 2>&1 | tee -a .cartilla-import/debug/build-log.txt
+          RC=${PIPESTATUS[0]}
+          {
+            echo
+            echo "--- post-build ---"
+            echo "build_exit_code: $RC"
+            echo "public/book contents:"
+            ls -la public/book/ 2>&1 || true
+            if [ -f public/book/book.pdf ]; then
+              echo "pdf_size: $(stat -c%s public/book/book.pdf) bytes"
+              echo "pdf_header: $(head -c 5 public/book/book.pdf)"
+            else
+              echo "pdf_status: MISSING"
+            fi
+            echo "dist/book contents:"
+            ls -la dist/book/ 2>&1 || true
+            echo "--- robots.txt (prebuild diagnostic if any) ---"
+            cat public/robots.txt 2>&1 || true
+          } >> .cartilla-import/debug/build-log.txt
+          if [ "$RC" = "0" ]; then
+            echo success > .cartilla-import/debug/build-status.txt
+          else
+            echo "fail rc=$RC" > .cartilla-import/debug/build-status.txt
+          fi
+          # Trim log so commit stays small.
+          tail -n 300 .cartilla-import/debug/build-log.txt > .cartilla-import/debug/.t
+          mv .cartilla-import/debug/.t .cartilla-import/debug/build-log.txt
+          exit 0
+
+      - name: Commit results back to main
+        if: always()
+        run: |
+          set -euxo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add .cartilla-import/debug/build-log.txt .cartilla-import/debug/build-status.txt || true
+          # Commit the freshly built PDF if it is valid.
+          if [ -f public/book/book.pdf ]; then
+            HDR="$(head -c 5 public/book/book.pdf || true)"
+            if [ "$HDR" = "%PDF-" ]; then
+              git add -f public/book/book.pdf
+              echo "adding pdf to commit."
+            else
+              echo "pdf header is not %PDF-, skipping commit of pdf."
+            fi
+          fi
+          if git diff --cached --quiet; then
+            echo "nothing to commit."
+            exit 0
+          fi
+          # [skip ci] prevents the bot's commit from re-triggering workflows.
+          git commit -m "chore(ci): build-probe results [skip ci]"
+          # Retry once on race with concurrent pushes.
+          for i in 1 2 3; do
+            if git push origin HEAD:main; then
+              echo "pushed on try $i"
+              exit 0
+            fi
+            echo "push failed try $i, pulling rebase and retrying..."
+            git pull --rebase origin main || true
+            sleep 2
+          done
+          echo "push failed after retries."
+          exit 1
