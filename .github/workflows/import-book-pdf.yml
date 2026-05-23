@@ -56,46 +56,56 @@ jobs:
           rm -rf .cartilla-import/debug
           mkdir -p .cartilla-import/debug
           mkdir -p "$(dirname "$TARGET_PATH")"
+          echo fail > .cartilla-import/debug/_status
 
-      - name: Fetch PDF (with full diagnostics)
-        id: fetch
-        continue-on-error: true
+      - name: Fetch PDF
         env:
           DEBUG_DIR: .cartilla-import/debug
         run: |
           set -o pipefail
-          node scripts/notion-pdf-fetch.mjs "$NOTION_ARG" "$TARGET_PATH" 2>&1 | tee .cartilla-import/debug/run.log
-          echo "exit_code=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
-          exit "${PIPESTATUS[0]}"
+          rc=0
+          node scripts/notion-pdf-fetch.mjs "$NOTION_ARG" "$TARGET_PATH" 2>&1 | tee .cartilla-import/debug/run.log || rc=$?
+          echo "$rc" > .cartilla-import/debug/_exit_code
+          if [ "$rc" = "0" ]; then
+            echo success > .cartilla-import/debug/_status
+          else
+            echo fail > .cartilla-import/debug/_status
+          fi
 
-      - name: Verify PDF (only if fetch succeeded)
-        if: steps.fetch.outcome == 'success'
+      - name: Verify PDF
         run: |
           set -euxo pipefail
+          STATUS="$(cat .cartilla-import/debug/_status)"
+          if [ "$STATUS" != "success" ]; then
+            echo "Fetch did not succeed (status=$STATUS); skipping verify."
+            exit 0
+          fi
           ls -lh "$TARGET_PATH"
           file "$TARGET_PATH"
           if ! file --brief --mime-type "$TARGET_PATH" | grep -qi 'application/pdf'; then
             echo "::error::Downloaded file is not a PDF."
             head -c 256 "$TARGET_PATH" | xxd | head -20
+            echo fail > .cartilla-import/debug/_status
             exit 1
           fi
           stat -c%s "$TARGET_PATH" > .cartilla-import/debug/pdf-size.txt
 
-      - name: Commit debug artifacts (always)
+      - name: Commit results (always)
         if: always()
         run: |
           set -euxo pipefail
+          STATUS="$(cat .cartilla-import/debug/_status 2>/dev/null || echo fail)"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add .cartilla-import/debug
-          if [ "$ steps.fetch.outcome " = "success" ]; then
+          if [ "$STATUS" = "success" ]; then
             git add "$TARGET_PATH"
           fi
           if git diff --cached --quiet; then
             echo "Nothing new to commit."
             exit 0
           fi
-          if [ "$ steps.fetch.outcome " = "success" ]; then
+          if [ "$STATUS" = "success" ]; then
             git commit -m "chore(book): import Cartilla PDF + debug artifacts"
           else
             git commit -m "chore(import): commit debug artifacts (fetch failed)"
@@ -103,21 +113,26 @@ jobs:
           git push
 
       - name: Fail job if fetch failed
-        if: steps.fetch.outcome != 'success'
+        if: always()
         run: |
-          echo "::error::Fetch step failed; debug artifacts committed to .cartilla-import/debug/"
-          exit 1
+          STATUS="$(cat .cartilla-import/debug/_status 2>/dev/null || echo fail)"
+          if [ "$STATUS" != "success" ]; then
+            echo "::error::Fetch failed. Debug artifacts committed to .cartilla-import/debug/"
+            exit 1
+          fi
+          echo "Fetch succeeded."
 
       - name: Summary
         if: always()
         run: |
+          STATUS="$(cat .cartilla-import/debug/_status 2>/dev/null || echo fail)"
           {
             echo "### Cartilla PDF importer"
             echo ""
             echo "- Argument: \`$NOTION_ARG\`"
             echo "- Target  : \`$TARGET_PATH\`"
-            echo "- Fetch   : \`$ steps.fetch.outcome \`"
-            if [ -f "$TARGET_PATH" ] && [ "$ steps.fetch.outcome " = "success" ]; then
+            echo "- Fetch   : \`$STATUS\`"
+            if [ -f "$TARGET_PATH" ] && [ "$STATUS" = "success" ]; then
               echo "- Size    : \`$(stat -c%s "$TARGET_PATH") bytes\`"
             fi
           } >> "$GITHUB_STEP_SUMMARY"
