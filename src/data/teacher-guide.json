@@ -1,0 +1,200 @@
+{
+  "$schema": "./teacher-guide.schema.json",
+  "version": "0.1.0-skeleton",
+  "generatedAt": "2026-05-23",
+  "source": "Guía del maestro — pending verbatim transcription",
+  "lessons": [
+    {
+      "lesson": 1,
+      "title": "Las hermanitas vocales",
+      "objectives": "TODO: transcribe from teacher's guide PDF",
+      "vocabulary": "TODO: transcribe from teacher's guide PDF",
+      "procedures": "TODO: transcribe from teacher's guide PDF",
+      "assessment": "TODO: transcribe from teacher's guide PDF"
+    },
+    {
+      "lesson": 2,
+      "title": "Oo",
+      "objectives": "TODO: transcribe from teacher's guide PDF",
+      "vocabulary": "TODO: transcribe from teacher's guide PDF",
+      "procedures": "TODO: transcribe from teacher's guide PDF",
+      "assessment": "TODO: transcribe from teacher's guide PDF"
+    },
+    {
+      "lesson": 3,
+      "title": "Aa",
+      "objectives": "TODO: transcribe from teacher's guide PDF",
+      "vocabulary": "TODO: transcribe from teacher's guide PDF",
+      "procedures": "TODO: transcribe from teacher's guide PDF",
+      "assessment": "TODO: transcribe from teacher's guide PDF"
+    },
+    {
+      "lesson": 4,
+      "title": "Ee",
+      "objectives": "TODO: transcribe from teacher's guide PDF",
+      "vocabulary": "TODO: transcribe from teacher's guide PDF",
+      "procedures": "TODO: transcribe from teacher's guide PDF",
+      "assessment": "TODO: transcribe from teacher's guide PDF"
+    },
+    {
+      "lesson": 5,
+      "title": "Ii",
+      "objectives": "TODO: transcribe from teacher's guide PDF",
+      "vocabulary": "TODO: transcribe from teacher's guide PDF",
+      "procedures": "TODO: transcribe from teacher's guide PDF",
+      "assessment": "TODO: transcribe from teacher's guide PDF"
+    },
+    {
+      "lesson": 6,
+      "title": "Uu",
+      "objectives": "TODO: transcribe from teacher's guide PDF",
+      "vocabulary": "TODO: transcribe from teacher's guide PDF",
+      "procedures": "TODO: transcribe from teacher's guide PDF",
+      "assessment": "TODO: transcribe from teacher's guide PDF"
+    },
+    {
+      "lesson": 7,
+      "title": "Mm",
+      "objectives": "TODO: transcribe from teacher's guide PDF",
+      "vocabulary": "TODO: transcribe from teacher's guide PDF",
+      "procedures": "TODO: transcribe from teacher's guide PDF",
+      "assessment": "TODO: transcribe from teacher's guide PDF"
+    },
+    {
+      "lesson": 8,
+      "title": "Pp",
+      "objectives": "TODO: transcribe from teacher's guide PDF",
+      "vocabulary": "TODO: transcribe from teacher's guide PDF",
+      "procedures": "TODO: transcribe from teacher's guide PDF",
+      "assessment": "TODO: transcribe from teacher's guide PDF"
+    },
+    {
+      "lesson": 9,
+      "title": "Ss",
+      "objectives": "TODO: transcribe from teacher's guide PDF",
+      "vocabulary": "TODO: transcribe from teacher's guide PDF",
+      "procedures": "TODO: transcribe from teacher's guide PDF",
+      "assessment": "TODO: transcribe from teacher's guide PDF"
+    },
+    {
+      "lesson": 10,
+      "title": "Tt",
+      "objectives": "TODO: transcribe from teacher's guide PDF",
+      "vocabulary": "TODO: transcribe from teacher's guide PDF",
+      "procedures": "TODO: transcribe from teacher's guide PDF",
+      "assessment": "TODO: transcribe from teacher's guide PDF"
+    },
+    {
+      "lesson": 11,
+      "title": "Dd",
+      "objectives": "TODO: transcribe from teacher's guide PDF",
+      "vocabulary": "TODO: transcribe from teacher's guide PDF",
+      "procedures": "TODO: transcribe from teacher's guide PDF",
+      "assessment": "TODO: transcribe from teacher's guide PDF"
+    },
+    {
+      "lesson": 12,
+      "title": "Ll",
+      "objectives": "TODO: transcribe from teacher's guide PDF",
+      "vocabulary": "TODO: transcribe from teacher's guide PDF",
+      "procedures": "TODO: transcribe from teacher's guide PDF",
+      "assessment": "TODO: transcribe from teacher's guide PDF"
+    },
+    {
+      "lesson": 13,
+      "title": "Nn",
+      "objectives": "TODO: transcribe from teacher's guide PDF",
+      "vocabulary": "TODO: transcribe from teacher's guide PDF",
+      "procedures": "TODO: transcribe from teacher's guide PDF",
+      "assessment": "TODO: transcribe from teacher's guide PDF"
+    },
+    {
+      "lesson": 14,
+      "title": "Ññ",
+      "objectives": "TODO: transcribe from teacher's guide PDF",
+      "vocabulary": "TODO: transcribe from teacher's guide PDF",
+      "procedures": "TODO: transcribe from teacher's guide PDF",
+      "assessment": "TODO: transcribe from teacher's guide PDF"
+    },
+    {
+      "lesson": 15,
+      "title": "Bb",
+      "objectives": "TODO: transcribe from teacher's guide PDF",
+      "vocabulary": "TODO: transcribe from teacher's guide PDF",
+      "procedures": "TODO: transcribe from teacher's guide PDF",
+      "assessment": "TODO: transcribe from teacher's guide PDF"
+    },
+    {
+      "lesson": 16,
+      "title": "Vv",
+      "objectives": "TODO: transcribe from teacher's guide PDF",
+      "vocabulary": "TODO: transcribe from teacher's guide PDF",
+      "procedures": "TODO: transcribe from teacher's guide PDF",
+      "assessment": "TODO: transcribe from teacher's guide PDF"
+    },
+    {
+      "lesson": 17,
+      "title": "R inicial",
+      "objectives": "TODO: transcribe from teacher's guide PDF",
+      "vocabulary": "TODO: transcribe from teacher's guide PDF",
+      "procedures": "TODO: transcribe from teacher's guide PDF",
+      "assessment": "TODO: transcribe from teacher's guide PDF"
+    },
+    {
+      "lesson": 18,
+      "title": "rr",
+      "objectives": "TODO: transcribe from teacher's guide PDF",
+      "vocabulary": "TODO: transcribe from teacher's guide PDF",
+      "procedures": "TODO: transcribe from teacher's guide PDF",
+      "assessment": "TODO: transcribe from teacher's guide PDF"
+    },
+    {
+      "lesson": 19,
+      "title": "Gg",
+      "objectives": "TODO: transcribe from teacher's guide PDF",
+      "vocabulary": "TODO: transcribe from teacher's guide PDF",
+      "procedures": "TODO: transcribe from teacher's guide PDF",
+      "assessment": "TODO: transcribe from teacher's guide PDF"
+    },
+    {
+      "lesson": 20,
+      "title": "Ff",
+      "objectives": "TODO: transcribe from teacher's guide PDF",
+      "vocabulary": "TODO: transcribe from teacher's guide PDF",
+      "procedures": "TODO: transcribe from teacher's guide PDF",
+      "assessment": "TODO: transcribe from teacher's guide PDF"
+    },
+    {
+      "lesson": 21,
+      "title": "Jj",
+      "objectives": "TODO: transcribe from teacher's guide PDF",
+      "vocabulary": "TODO: transcribe from teacher's guide PDF",
+      "procedures": "TODO: transcribe from teacher's guide PDF",
+      "assessment": "TODO: transcribe from teacher's guide PDF"
+    },
+    {
+      "lesson": 22,
+      "title": "Cc",
+      "objectives": "TODO: transcribe from teacher's guide PDF",
+      "vocabulary": "TODO: transcribe from teacher's guide PDF",
+      "procedures": "TODO: transcribe from teacher's guide PDF",
+      "assessment": "TODO: transcribe from teacher's guide PDF"
+    },
+    {
+      "lesson": 23,
+      "title": "Yy",
+      "objectives": "TODO: transcribe from teacher's guide PDF",
+      "vocabulary": "TODO: transcribe from teacher's guide PDF",
+      "procedures": "TODO: transcribe from teacher's guide PDF",
+      "assessment": "TODO: transcribe from teacher's guide PDF"
+    },
+    {
+      "lesson": 24,
+      "title": "Zz",
+      "objectives": "TODO: transcribe from teacher's guide PDF",
+      "vocabulary": "TODO: transcribe from teacher's guide PDF",
+      "procedures": "TODO: transcribe from teacher's guide PDF",
+      "assessment": "TODO: transcribe from teacher's guide PDF"
+    }
+  ]
+}
