@@ -4,6 +4,10 @@
   "framework": "vite",
   "rewrites": [
     {
+      "source": "/login",
+      "destination": "/login.html"
+    },
+    {
       "source": "/((?!assets/|book/book.pdf|manifest.webmanifest|sw.js|favicon.ico|robots.txt).*)",
       "destination": "/index.html"
     }
