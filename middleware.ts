@@ -13,9 +13,13 @@ export default async function middleware(request: Request): Promise<Response> {
   const url = new URL(request.url);
   const pathname = url.pathname;
 
-  // Always allow the login page and login API
-  if (pathname === '/login' || pathname.startsWith('/api/login')) {
-    return new Response(null, { status: 200 });
+  // Always allow the login page (both /login and /login.html) and login API
+  if (
+    pathname === '/login' ||
+    pathname === '/login.html' ||
+    pathname.startsWith('/api/login')
+  ) {
+    return fetch(request);
   }
 
   // Always allow static assets
@@ -27,7 +31,7 @@ export default async function middleware(request: Request): Promise<Response> {
     pathname === '/manifest.webmanifest' ||
     pathname === '/sw.js'
   ) {
-    return new Response(null, { status: 200 });
+    return fetch(request);
   }
 
   // Check auth cookie
@@ -35,11 +39,11 @@ export default async function middleware(request: Request): Promise<Response> {
   const auth = getCookie(cookieHeader, COOKIE_NAME);
 
   if (auth === COOKIE_VALUE) {
-    return new Response(null, { status: 200 });
+    return fetch(request);
   }
 
-  // Redirect unauthenticated visitors to /login
-  const loginUrl = new URL('/login', request.url);
+  // Redirect unauthenticated visitors directly to /login.html
+  const loginUrl = new URL('/login.html', request.url);
   loginUrl.searchParams.set('redirect', pathname);
   return Response.redirect(loginUrl.toString(), 302);
 }
