@@ -6,46 +6,35 @@ A truthful inventory of what is not yet verified or done. Update this file in th
 
 These need a local shell or CI to verify; the GitHub contents API alone cannot:
 
-- [ ] `pnpm tsc --noEmit` — typecheck status unknown after recent commits `1ed25d8a` (lessons.json v0.2.0), `abc271b5` (book-faithful.ts), and this commit. Expected to pass (additive files only) but unverified.
-- [ ] `pnpm lint` — lint status unknown.
-- [ ] `pnpm build` — build status unknown.
+- [ ] `pnpm tsc --noEmit` — typecheck status remains locally unverified from this tooling.
+- [ ] `pnpm lint` — lint status remains locally unverified from this tooling.
+- [ ] `pnpm build` — build status remains locally unverified from this tooling.
 
 When you run these locally, paste any failures here verbatim.
 
 ## Deploy
 
-- [ ] Vercel is serving a build older than commit `a028edf7`. None of the recent additions (lessons.json v0.2.0, book-faithful.ts, BookFaithfulOverlay.tsx, central types module) are live yet. Resolution: re-enable auto-deploy on the Vercel project for `main`, or trigger one manual redeploy.
-- [ ] GitHub Pages is not enabled. Either fix Vercel or enable Pages in repo settings.
+- [x] Vercel production is serving commit `3901508f61e620c8b22b9d9683a629168302eea0` on `main`, verified via `/robots.txt` on 2026-05-23.
+- [x] Lesson 9 smoke test passed on production: `/cartilla/leccion/9` renders directly, shows Letra S s / páginas 27-30, sight-word chips `es, de, un, está, en, la, el`, and `aria-label="Palabra de vista: es"` is present.
+- [x] Lesson 17 smoke test passed on production: `/cartilla/leccion/17` renders directly, shows Letra R r / páginas 59-62, and the banner `Esta lección tiene un mini-cuento.` is present.
+- [ ] GitHub Pages is not enabled. Vercel is the verified production path for now.
 
-## Live lesson route integration (manual two-line edit)
+## Live lesson route integration
 
-The new `BookFaithfulOverlay` component lives at `src/components/cartilla/BookFaithfulOverlay.tsx` but is not yet imported by the live lesson view. The two-line integration is:
-
-1. In `src/routes/cartilla/leccion.$n.tsx`, add the import near the other `@/components/cartilla/*` imports:
-
-   ```ts
-   import { BookFaithfulOverlay } from "@/components/cartilla/BookFaithfulOverlay";
-   ```
-
-2. In the same file, inside the `Leccion` component's `<main>` section, immediately after the `</h1>` that renders `{entry.title}`, insert:
-
-   ```tsx
-   <BookFaithfulOverlay n={n} />
-   ```
-
-This was kept as a manual insert (not auto-applied) because the file uses inline JSX style objects that this tool's view layer renders in a compressed form; round-tripping the full file content through the GitHub contents API would corrupt those style objects. The two lines above are safe to add by hand or via any local editor.
+- [x] `BookFaithfulOverlay` is wired into `src/routes/cartilla/leccion.$n.tsx` and production smoke tests confirm the book-faithful overlay renders on direct lesson routes.
 
 ## Notion side (parked unless explicitly reopened)
 
 - [ ] Revoke public share on the Workbook PDF Notion page once the PDF mirror is confirmed working in CI.
 - [ ] Archive the zip-import dump page and its 140-row Unreferenced Attachments database (workspace clutter).
-- [ ] Update the project Hub callouts ("Live & Deployed", "Codex renderer PR open", "12 routes 200 OK") to reflect verified state. The "Codex PR open" claim is false (zero PRs have ever been opened on this repo as of this commit).
+- [ ] Update the project Hub callouts ("Live & Deployed", "Codex renderer PR open", "12 routes 200 OK") to reflect verified state. The "Codex PR open" claim is false (zero PRs have ever been opened on this repo as of the audit).
 
 ## Content gaps (will not be auto-invented)
 
 - [ ] `src/data/lessons.json` `lessons[]` page scaffolding has empty `textBlocks[]` for every page. Filling these requires a paginated transcription pass over the real workbook. Do not synthesize.
 - [ ] No per-lesson hero illustrations in `public/cartilla/images/` (only grouped scans). Will not be auto-generated.
-- [ ] No `teacher-guide.json` content file yet for the Métodos teacher-side notes.
+- [x] `src/data/teacher-guide.json` exists as a 24-lesson TODO skeleton. The actual teacher-guide content is not transcribed and must not be invented.
+- [x] `.env.example` exists with Supabase public environment variable placeholders.
 
 ## consonants.json audit (D4 result, no edit needed)
 
