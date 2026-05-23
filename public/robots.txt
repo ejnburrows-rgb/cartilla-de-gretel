@@ -1,0 +1,5 @@
+# La Cartilla de Gretel
+User-agent: *
+Allow: /
+
+# build-marker: 87ef019e+next 2026-05-23T03:01Z pinned-filter+filename+widened
