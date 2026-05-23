@@ -6,7 +6,7 @@ type VerifiedWorkbookPagesProps = {
 };
 
 function statusLabel(status: WorkbookPageContent["transcriptionStatus"]) {
-  if (status === "verified") return "Transcripción verificada";
+  if (status === "verified") return "Texto verificado";
   if (status === "partial") return "Parcial";
   return "Pendiente";
 }
@@ -14,37 +14,41 @@ function statusLabel(status: WorkbookPageContent["transcriptionStatus"]) {
 export function VerifiedWorkbookPages({ pages }: VerifiedWorkbookPagesProps) {
   if (pages.length === 0) return null;
 
+  const verifiedCount = pages.filter((page) => page.transcriptionStatus === "verified").length;
+  const imageCount = pages.filter((page) => Boolean(page.imageScanReference)).length;
+
   return (
-    <section className="mt-6 space-y-3" aria-label="Contenido verificado por página">
+    <section
+      className="mt-5 rounded-2xl border border-[var(--cartilla-accent)]/18 bg-white/58 p-3"
+      aria-label="Estado de contenido verificado por pagina"
+    >
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <h2 className="inline-flex items-center gap-2 text-lg font-bold text-[var(--cartilla-title-ink)]">
+        <h2 className="inline-flex items-center gap-2 text-sm font-bold text-[var(--cartilla-title-ink)]">
           <ShieldCheck className="h-5 w-5 text-[var(--cartilla-accent)]" />
-          Contenido fuente por página
+          Estado del cuaderno
         </h2>
-        <span className="rounded-full bg-foreground/8 px-3 py-1 text-xs font-bold text-foreground/60">
-          Solo texto verificado
-        </span>
+        <div className="flex flex-wrap gap-1.5 text-xs font-bold text-foreground/62">
+          <span className="rounded-full bg-foreground/7 px-2.5 py-1">
+            Texto {verifiedCount}/{pages.length}
+          </span>
+          <span className="rounded-full bg-foreground/7 px-2.5 py-1">
+            Imagen {imageCount}/{pages.length}
+          </span>
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+      <div className="mt-3 flex flex-wrap gap-2">
         {pages.map((page) => (
-          <article
+          <details
             key={page.pageNumber}
-            className="rounded-2xl border-2 border-[var(--cartilla-accent)]/20 bg-white/72 p-4"
+            className="group rounded-xl border border-foreground/10 bg-white/72 px-3 py-2 text-sm"
           >
-            <div className="flex flex-wrap items-center justify-between gap-2">
-              <div>
-                <div className="text-xs font-bold uppercase tracking-wide text-foreground/55">
-                  Página {page.pageNumber}
-                </div>
-                <div className="text-sm font-bold text-[var(--cartilla-title-ink)]">
-                  {statusLabel(page.transcriptionStatus)}
-                </div>
-              </div>
-              <span className="rounded-full border border-foreground/10 bg-white/80 px-3 py-1 text-xs font-bold text-foreground/65">
-                {page.pageRole}
+            <summary className="flex cursor-pointer list-none flex-wrap items-center gap-2 font-bold text-[var(--cartilla-title-ink)]">
+              <span>Pagina {page.pageNumber}</span>
+              <span className="rounded-full bg-foreground/7 px-2 py-0.5 text-xs text-foreground/62">
+                {statusLabel(page.transcriptionStatus)}
               </span>
-            </div>
+            </summary>
 
             {page.verifiedTextBlocks.length > 0 ? (
               <div className="mt-3 space-y-2">
@@ -55,8 +59,8 @@ export function VerifiedWorkbookPages({ pages }: VerifiedWorkbookPagesProps) {
                 ))}
               </div>
             ) : (
-              <div className="mt-3 rounded-xl border border-dashed border-foreground/18 bg-foreground/[0.03] p-3 text-sm font-semibold text-foreground/58">
-                Contenido pendiente de transcripción verificada.
+              <div className="mt-3 rounded-xl border border-dashed border-foreground/16 bg-foreground/[0.03] p-3 text-sm font-semibold text-foreground/58">
+                Contenido pendiente de transcripcion verificada.
               </div>
             )}
 
@@ -74,7 +78,7 @@ export function VerifiedWorkbookPages({ pages }: VerifiedWorkbookPagesProps) {
                 </span>
               )}
             </div>
-          </article>
+          </details>
         ))}
       </div>
     </section>

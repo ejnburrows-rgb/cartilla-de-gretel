@@ -6,9 +6,9 @@ A truthful inventory of what is not yet verified or done. Update this file in th
 
 These need a local shell or CI to verify; the GitHub contents API alone cannot:
 
-- [ ] `pnpm tsc --noEmit` — typecheck status remains locally unverified from this tooling.
-- [ ] `pnpm lint` — lint status remains locally unverified from this tooling.
-- [ ] `pnpm build` — build status remains locally unverified from this tooling.
+- [ ] `npm run typecheck` - typecheck status should be refreshed after each implementation pass.
+- [ ] `npm run lint` - lint status should be refreshed after each implementation pass.
+- [ ] `npm run build` - build status should be refreshed after each implementation pass.
 
 When you run these locally, paste any failures here verbatim.
 
@@ -23,6 +23,7 @@ When you run these locally, paste any failures here verbatim.
 
 - [x] `BookFaithfulOverlay` is wired into `src/routes/cartilla/leccion.$n.tsx` and production smoke tests confirm the book-faithful overlay renders on direct lesson routes.
 - [x] Student side workbook shell implemented for live lesson pages.
+- [x] Student side official workbook source layer implemented for live lesson pages; it renders connected PDF/image pages when available and a pending-source state when not available.
 - [x] Teacher side presentation shell implemented at `/cartilla/teacher/presentacion`.
 - [x] Background/theme B improved with lesson-aware CRM theme variables, student workbook shell, and teacher presentation shell.
 - [ ] Exact source-art page reproduction remains pending where exact page assets/content are not present.
@@ -37,6 +38,7 @@ When you run these locally, paste any failures here verbatim.
 
 - [ ] `src/data/lessons.json` `lessons[]` page scaffolding has empty `textBlocks[]` for every page. Filling these requires a paginated transcription pass over the real workbook. Do not synthesize.
 - [ ] Exact page text transcription is still pending where verified workbook text is not available.
+- [ ] Exact source-art/object hotspot mapping is still pending; interactive overlays are not yet aligned to official page objects.
 - [ ] PDF mirror is still pending unless separately verified; this pass does not modify the PDF mirror.
 - [ ] No per-lesson hero illustrations in `public/cartilla/images/` (only grouped scans). Will not be auto-generated.
 - [x] `src/data/teacher-guide.json` exists as a 24-lesson TODO skeleton. The actual teacher-guide content is not transcribed and must not be invented.

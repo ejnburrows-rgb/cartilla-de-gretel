@@ -16,6 +16,7 @@ import { BookFaithfulOverlay } from "@/components/cartilla/BookFaithfulOverlay";
 import { listMyAssignments } from "@/lib/assignments.functions";
 import { StudentWorkbookShell } from "@/components/cartilla/StudentWorkbookShell";
 import { getWorkbookPagesForLesson } from "@/lib/book-faithful";
+import { OfficialWorkbookLessonView } from "@/components/cartilla/OfficialWorkbookLessonView";
 
 export const Route = createFileRoute("/cartilla/leccion/$n")({
   component: Leccion,
@@ -132,10 +133,16 @@ function Leccion() {
         >
           {entry.title}
         </h1>
+        <OfficialWorkbookLessonView
+          lessonNumber={n}
+          pages={entry.pages}
+          title={entry.title}
+          accent={entry.color}
+        />
+        <BookFaithfulOverlay n={n} />
         {entry.kind === "intro" && <IntroBody lessonId={String(n)} />}
         {entry.kind === "vowel" && <VowelBody entry={entry} lessonId={String(n)} />}
         {entry.kind === "consonant" && <ConsonantBody entry={entry} lessonId={String(n)} />}
-        <BookFaithfulOverlay n={n} />
         {done && (
           <div className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-success">
             <Check className="w-4 h-4" /> Ya completaste esta lección

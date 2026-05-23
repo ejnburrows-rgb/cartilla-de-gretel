@@ -10,6 +10,7 @@ import {
   lessonHasMiniStory,
 } from "@/lib/book-faithful";
 import { getBookSectionForLesson } from "@/lib/cartilla-crm-theme";
+import { getWorkbookPageSourcesForLesson } from "@/lib/workbook-source";
 
 export const Route = createFileRoute("/_authenticated/cartilla/teacher/presentacion")({
   component: TeacherPresentation,
@@ -48,6 +49,13 @@ function TeacherPresentation() {
           const hasMiniStory = lessonHasMiniStory(entry.n);
           const hasEmptyPalabras = lessonHasEmptyPalabras(entry.n);
           const transcription = getWorkbookTranscriptionSummary(entry.n);
+          const source = getWorkbookPageSourcesForLesson(entry.n, entry.pages);
+          const needsSourceMapping = source.connectedSourceCount === 0;
+          const interactionReady = Boolean(
+            entry.kind === "intro" ||
+              entry.kind === "vowel" ||
+              (entry.kind === "consonant" && entry.data.syllables.length > 0),
+          );
           const transcriptionLabel =
             transcription.status === "verified"
               ? "Transcripción verificada"
@@ -104,6 +112,22 @@ function TeacherPresentation() {
                   }
                 >
                   {transcriptionLabel}: {transcription.verified}/{transcription.total} páginas
+                </span>
+                <span
+                  className={
+                    needsSourceMapping
+                      ? "rounded-full bg-rose-100 px-3 py-1 text-rose-900"
+                      : "rounded-full bg-emerald-100 px-3 py-1 text-emerald-900"
+                  }
+                >
+                  {needsSourceMapping ? "Necesita mapeo de fuente" : "Fuente conectada"}:{" "}
+                  {source.connectedSourceCount}/{source.pages.length}
+                </span>
+                <span className="rounded-full bg-sky-100 px-3 py-1 text-sky-900">
+                  Imagen/fuente: {source.verifiedImageCount}/{source.pages.length}
+                </span>
+                <span className="rounded-full bg-indigo-100 px-3 py-1 text-indigo-900">
+                  Interaccion {interactionReady ? "lista" : "pendiente"}
                 </span>
               </div>
               <div className="mt-4 flex flex-wrap gap-2">

@@ -4,11 +4,11 @@ Digital edition of *La Cartilla de Gretel*, a 92-page, 24-lesson Spanish reading
 
 This repository is also the classroom CRM for the book:
 
-- Student side: official-workbook-oriented lesson experience with lesson colors, page ranges, and a book/page shell.
+- Student side: official-workbook-oriented lesson experience with lesson colors, page ranges, a book/page shell, and an official workbook source layer for PDF/image pages when a verified source is connected.
 - Teacher side: class CRM for teachers, student rosters, progress, assignments, and branding controls.
 - Teacher presentation side: `/cartilla/teacher/presentacion` provides a projection-friendly book-structure view for all 24 lessons.
 
-Exact page-by-page workbook transcription is still incomplete where source text is not present. Do not claim full workbook text fidelity until that content is verified.
+Exact page-by-page workbook transcription is still incomplete where source text is not present. When the official PDF/image source is missing, student pages show a pending-source state instead of invented workbook content. Do not claim full workbook text fidelity or full source-art reproduction until that content is verified.
 
 ## Current state
 
@@ -17,6 +17,7 @@ Exact page-by-page workbook transcription is still incomplete where source text 
 - Current `main` includes the verified production smoke-test documentation plus repo-health workflow updates.
 - Live lesson route: `src/routes/cartilla/leccion.$n.tsx`.
 - `BookFaithfulOverlay` is wired into the live lesson route and verified in production for lessons 9 and 17.
+- `OfficialWorkbookLessonView` is wired into the live lesson route as the primary student Cuaderno layer. It can render a connected PDF/image source and otherwise shows an honest pending-source state.
 - `src/data/teacher-guide.json` exists as a 24-lesson TODO skeleton only. Teacher-guide prose has not been transcribed and must not be invented.
 - `.env.example` exists with Supabase public environment placeholders.
 - The wrong-edition workbook PDF was deleted at commit `36496b9c`. Do not re-add a PDF binary at `public/book/book.pdf`; the prebuild fetcher at `scripts/prebuild-fetch-pdfs.mjs` pulls the real one from Notion at build time via `.cartilla-import/targets.json`.
@@ -68,6 +69,8 @@ npm run verify
 | `src/content/consonants.json` | Consonant-lesson content (syllables, examples, sentences) |
 | `src/content/miami-dade.json` | Miami-Dade aligned standards Q&A bank |
 | `src/components/cartilla/BookFaithfulOverlay.tsx` | Drop-in: sight-word chips, mini-story banner, empty-palabras banner, editorial notes |
+| `src/lib/workbook-source.ts` | Typed source-readiness layer for official workbook pages |
+| `src/components/cartilla/OfficialWorkbookLessonView.tsx` | Student Cuaderno source viewer for PDF/image pages |
 | `src/types/cartilla.ts` | Central re-export module for cartilla domain types |
 | `src/data/teacher-guide.json` | Teacher-guide skeleton with TODO placeholders only |
 
