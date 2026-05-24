@@ -24,6 +24,7 @@ import { Route as CartillaAutoraRouteImport } from './routes/cartilla/autora'
 import { Route as CartillaLeccionNRouteImport } from './routes/cartilla/leccion.$n'
 import { Route as AuthenticatedCartillaTeacherRouteImport } from './routes/_authenticated/cartilla.teacher'
 import { Route as AuthenticatedCartillaTeacherPresentacionRouteImport } from './routes/_authenticated/cartilla.teacher.presentacion'
+import { Route as AuthenticatedCartillaTeacherFlipchartRouteImport } from './routes/_authenticated/cartilla.teacher.flipchart'
 import { Route as AuthenticatedCartillaTeacherBrandingRouteImport } from './routes/_authenticated/cartilla.teacher.branding'
 import { Route as AuthenticatedCartillaTeacherClaseIdRouteImport } from './routes/_authenticated/cartilla.teacher.clase.$id'
 import { Route as AuthenticatedCartillaTeacherAlumnoIdRouteImport } from './routes/_authenticated/cartilla.teacher.alumno.$id'
@@ -104,6 +105,12 @@ const AuthenticatedCartillaTeacherPresentacionRoute =
     path: '/presentacion',
     getParentRoute: () => AuthenticatedCartillaTeacherRoute,
   } as any)
+const AuthenticatedCartillaTeacherFlipchartRoute =
+  AuthenticatedCartillaTeacherFlipchartRouteImport.update({
+    id: '/flipchart',
+    path: '/flipchart',
+    getParentRoute: () => AuthenticatedCartillaTeacherRoute,
+  } as any)
 const AuthenticatedCartillaTeacherBrandingRoute =
   AuthenticatedCartillaTeacherBrandingRouteImport.update({
     id: '/branding',
@@ -138,6 +145,7 @@ export interface FileRoutesByFullPath {
   '/cartilla/teacher': typeof AuthenticatedCartillaTeacherRouteWithChildren
   '/cartilla/leccion/$n': typeof CartillaLeccionNRoute
   '/cartilla/teacher/branding': typeof AuthenticatedCartillaTeacherBrandingRoute
+  '/cartilla/teacher/flipchart': typeof AuthenticatedCartillaTeacherFlipchartRoute
   '/cartilla/teacher/presentacion': typeof AuthenticatedCartillaTeacherPresentacionRoute
   '/cartilla/teacher/alumno/$id': typeof AuthenticatedCartillaTeacherAlumnoIdRoute
   '/cartilla/teacher/clase/$id': typeof AuthenticatedCartillaTeacherClaseIdRoute
@@ -157,6 +165,7 @@ export interface FileRoutesByTo {
   '/cartilla/teacher': typeof AuthenticatedCartillaTeacherRouteWithChildren
   '/cartilla/leccion/$n': typeof CartillaLeccionNRoute
   '/cartilla/teacher/branding': typeof AuthenticatedCartillaTeacherBrandingRoute
+  '/cartilla/teacher/flipchart': typeof AuthenticatedCartillaTeacherFlipchartRoute
   '/cartilla/teacher/presentacion': typeof AuthenticatedCartillaTeacherPresentacionRoute
   '/cartilla/teacher/alumno/$id': typeof AuthenticatedCartillaTeacherAlumnoIdRoute
   '/cartilla/teacher/clase/$id': typeof AuthenticatedCartillaTeacherClaseIdRoute
@@ -178,6 +187,7 @@ export interface FileRoutesById {
   '/_authenticated/cartilla/teacher': typeof AuthenticatedCartillaTeacherRouteWithChildren
   '/cartilla/leccion/$n': typeof CartillaLeccionNRoute
   '/_authenticated/cartilla/teacher/branding': typeof AuthenticatedCartillaTeacherBrandingRoute
+  '/_authenticated/cartilla/teacher/flipchart': typeof AuthenticatedCartillaTeacherFlipchartRoute
   '/_authenticated/cartilla/teacher/presentacion': typeof AuthenticatedCartillaTeacherPresentacionRoute
   '/_authenticated/cartilla/teacher/alumno/$id': typeof AuthenticatedCartillaTeacherAlumnoIdRoute
   '/_authenticated/cartilla/teacher/clase/$id': typeof AuthenticatedCartillaTeacherClaseIdRoute
@@ -199,6 +209,7 @@ export interface FileRouteTypes {
     | '/cartilla/teacher'
     | '/cartilla/leccion/$n'
     | '/cartilla/teacher/branding'
+    | '/cartilla/teacher/flipchart'
     | '/cartilla/teacher/presentacion'
     | '/cartilla/teacher/alumno/$id'
     | '/cartilla/teacher/clase/$id'
@@ -218,6 +229,7 @@ export interface FileRouteTypes {
     | '/cartilla/teacher'
     | '/cartilla/leccion/$n'
     | '/cartilla/teacher/branding'
+    | '/cartilla/teacher/flipchart'
     | '/cartilla/teacher/presentacion'
     | '/cartilla/teacher/alumno/$id'
     | '/cartilla/teacher/clase/$id'
@@ -238,6 +250,7 @@ export interface FileRouteTypes {
     | '/_authenticated/cartilla/teacher'
     | '/cartilla/leccion/$n'
     | '/_authenticated/cartilla/teacher/branding'
+    | '/_authenticated/cartilla/teacher/flipchart'
     | '/_authenticated/cartilla/teacher/presentacion'
     | '/_authenticated/cartilla/teacher/alumno/$id'
     | '/_authenticated/cartilla/teacher/clase/$id'
@@ -366,6 +379,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedCartillaTeacherPresentacionRouteImport
       parentRoute: typeof AuthenticatedCartillaTeacherRoute
     }
+    '/_authenticated/cartilla/teacher/flipchart': {
+      id: '/_authenticated/cartilla/teacher/flipchart'
+      path: '/flipchart'
+      fullPath: '/cartilla/teacher/flipchart'
+      preLoaderRoute: typeof AuthenticatedCartillaTeacherFlipchartRouteImport
+      parentRoute: typeof AuthenticatedCartillaTeacherRoute
+    }
     '/_authenticated/cartilla/teacher/branding': {
       id: '/_authenticated/cartilla/teacher/branding'
       path: '/branding'
@@ -392,6 +412,7 @@ declare module '@tanstack/react-router' {
 
 interface AuthenticatedCartillaTeacherRouteChildren {
   AuthenticatedCartillaTeacherBrandingRoute: typeof AuthenticatedCartillaTeacherBrandingRoute
+  AuthenticatedCartillaTeacherFlipchartRoute: typeof AuthenticatedCartillaTeacherFlipchartRoute
   AuthenticatedCartillaTeacherPresentacionRoute: typeof AuthenticatedCartillaTeacherPresentacionRoute
   AuthenticatedCartillaTeacherAlumnoIdRoute: typeof AuthenticatedCartillaTeacherAlumnoIdRoute
   AuthenticatedCartillaTeacherClaseIdRoute: typeof AuthenticatedCartillaTeacherClaseIdRoute
@@ -401,6 +422,8 @@ const AuthenticatedCartillaTeacherRouteChildren: AuthenticatedCartillaTeacherRou
   {
     AuthenticatedCartillaTeacherBrandingRoute:
       AuthenticatedCartillaTeacherBrandingRoute,
+    AuthenticatedCartillaTeacherFlipchartRoute:
+      AuthenticatedCartillaTeacherFlipchartRoute,
     AuthenticatedCartillaTeacherPresentacionRoute:
       AuthenticatedCartillaTeacherPresentacionRoute,
     AuthenticatedCartillaTeacherAlumnoIdRoute:

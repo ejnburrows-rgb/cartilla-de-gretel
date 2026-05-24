@@ -32,12 +32,20 @@ function TeacherPresentation() {
       subtitle="Presentación docente basada en la estructura verificada del libro."
     >
       <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
-        <Link
-          to="/cartilla/teacher"
-          className="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/20 bg-white/12 px-4 py-2 text-sm font-bold text-white hover:bg-white/18"
-        >
-          <ArrowLeft className="h-4 w-4" /> Panel CRM
-        </Link>
+        <div className="flex flex-wrap items-center gap-3">
+          <Link
+            to="/cartilla/teacher"
+            className="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/20 bg-white/12 px-4 py-2 text-sm font-bold text-white hover:bg-white/18"
+          >
+            <ArrowLeft className="h-4 w-4" /> Panel CRM
+          </Link>
+          <Link
+            to="/cartilla/teacher/flipchart"
+            className="inline-flex min-h-11 items-center gap-2 rounded-full border border-[var(--cartilla-accent)] bg-[var(--cartilla-accent)] px-4 py-2 text-sm font-bold text-white hover:opacity-90 shadow-lg shadow-[var(--cartilla-accent)]/20"
+          >
+            <BookOpen className="h-4 w-4" /> Abrir Flipchart (Proyector)
+          </Link>
+        </div>
         <div className="inline-flex items-center gap-2 rounded-full bg-white/12 px-4 py-2 text-sm font-bold text-white/80">
           <LibraryBig className="h-4 w-4" /> 24 lecciones
         </div>

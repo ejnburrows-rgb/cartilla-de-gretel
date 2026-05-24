@@ -1,0 +1,439 @@
+{
+  "version": "1.0",
+  "pages": [
+    {
+      "flipchartPage": 1,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-01.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 2,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-02.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 3,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-03.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 4,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-04.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 5,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-05.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 6,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-06.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 7,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-07.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 8,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-08.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 9,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-09.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 10,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-10.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 11,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-11.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 12,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-12.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 13,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-13.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 14,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-14.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 15,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-15.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 16,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-16.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 17,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-17.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 18,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-18.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 19,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-19.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 20,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-20.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 21,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-21.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 22,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-22.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 23,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-23.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 24,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-24.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 25,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-25.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 26,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-26.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 27,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-27.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 28,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-28.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 29,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-29.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 30,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-30.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 31,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-31.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 32,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-32.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 33,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-33.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 34,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-34.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 35,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-35.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 36,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-36.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 37,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-37.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 38,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-38.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 39,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-39.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 40,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-40.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 41,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-41.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 42,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-42.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 43,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-43.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 44,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-44.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 45,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-45.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 46,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-46.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 47,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-47.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 48,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-48.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 49,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-49.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 50,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-50.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 51,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-51.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 52,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-52.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 53,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-53.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 54,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-54.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 55,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-55.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 56,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-56.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 57,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-57.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 58,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-58.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 59,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-59.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 60,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-60.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 61,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-61.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    },
+    {
+      "flipchartPage": 62,
+      "path": "/cartilla/images/teacher-flipchart/teacher-page-62.jpg",
+      "type": "flipchart",
+      "status": "original source connected",
+      "remasterStatus": "original only"
+    }
+  ]
+}
