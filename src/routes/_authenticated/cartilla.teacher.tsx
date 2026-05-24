@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 import { listClasses, createClass, deleteClass } from "@/lib/teacher.functions";
 import { isSupabaseConfigured, supabase } from "@/integrations/supabase/client";
-import { getDemoTeacher, signOutDemoTeacher } from "@/lib/demo-data";
+import { getDemoTeacher, signOutDemoTeacher, exportDemoStateRaw, importDemoStateRaw, resetDemoStateRaw } from "@/lib/demo-data";
 
 export const Route = createFileRoute("/_authenticated/cartilla/teacher")({
   component: TeacherRouteShell,
@@ -161,6 +161,69 @@ function TeacherDashboard() {
           <p className="text-sm text-destructive mt-2">{(createMut.error as Error).message}</p>
         )}
       </section>
+
+      {!isSupabaseConfigured && (
+        <section className="mt-6 kid-card p-4 border border-warning/20 bg-warning/5">
+          <h2 className="font-bold mb-2 text-warning flex items-center gap-2">
+            Control de datos Demo Local
+          </h2>
+          <p className="text-xs text-foreground/60 mb-3">
+            Dado que estás en modo demo, puedes exportar, importar o restablecer el estado completo de las clases y el progreso.
+          </p>
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={() => {
+                const data = exportDemoStateRaw();
+                const blob = new Blob([data], { type: "application/json" });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = `cartilla-demo-state-${Date.now()}.json`;
+                a.click();
+                URL.revokeObjectURL(url);
+              }}
+              className="px-3 py-1.5 rounded-xl border border-foreground/15 hover:bg-secondary text-xs font-bold text-foreground"
+            >
+              Exportar estado (JSON)
+            </button>
+            <label className="px-3 py-1.5 rounded-xl border border-foreground/15 hover:bg-secondary text-xs font-bold text-foreground cursor-pointer">
+              Importar estado
+              <input
+                type="file"
+                accept=".json"
+                className="hidden"
+                onChange={(e) => {
+                  const file = e.target.files?.[0];
+                  if (!file) return;
+                  const reader = new FileReader();
+                  reader.onload = (evt) => {
+                    const str = evt.target?.result as string;
+                    if (importDemoStateRaw(str)) {
+                      alert("¡Estado demo importado con éxito!");
+                      qc.invalidateQueries({ queryKey: ["teacher", "classes"] });
+                    } else {
+                      alert("Error al importar el archivo JSON.");
+                    }
+                  };
+                  reader.readAsText(file);
+                }}
+              />
+            </label>
+            <button
+              onClick={() => {
+                if (confirm("¿Estás seguro de restablecer el estado demo? Se borrarán todas las clases y progresos creados.")) {
+                  resetDemoStateRaw();
+                  qc.invalidateQueries({ queryKey: ["teacher", "classes"] });
+                  alert("Estado restablecido al demo inicial.");
+                }
+              }}
+              className="px-3 py-1.5 rounded-xl border border-destructive/20 hover:bg-destructive/10 text-xs font-bold text-destructive"
+            >
+              Restablecer demo inicial
+            </button>
+          </div>
+        </section>
+      )}
 
       <section className="mt-6 space-y-3">
         {isLoading && <div className="text-foreground/60 text-sm">Cargando…</div>}

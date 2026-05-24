@@ -532,3 +532,30 @@ export function getDemoClassProgress(classId: string) {
     totalLessons: TOTAL_LESSONS,
   };
 }
+
+export function exportDemoStateRaw(): string {
+  if (typeof window === "undefined") return "{}";
+  return localStorage.getItem(STATE_KEY) || JSON.stringify(initialState());
+}
+
+export function importDemoStateRaw(jsonStr: string): boolean {
+  if (typeof window === "undefined") return false;
+  try {
+    const parsed = JSON.parse(jsonStr);
+    if (parsed && typeof parsed === "object" && Array.isArray(parsed.classes)) {
+      localStorage.setItem(STATE_KEY, jsonStr);
+      window.dispatchEvent(new Event("cartilla:demo-data"));
+      return true;
+    }
+  } catch (e) {
+    console.error(e);
+  }
+  return false;
+}
+
+export function resetDemoStateRaw() {
+  if (typeof window === "undefined") return;
+  localStorage.removeItem(STATE_KEY);
+  window.dispatchEvent(new Event("cartilla:demo-data"));
+}
+
