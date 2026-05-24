@@ -166,11 +166,17 @@
     {
       "originalSourcePath": "/cartilla/images/source/j/j-page-49.jpg",
       "remasteredPath": "/cartilla/images/remastered/student-workbook/j-page-49.jpg",
-      "cleanupStatus": "cleaned",
+      "cleanupStatus": "needs review",
       "artifactFixed": true,
       "remasterType": "scan cleanup (programmatic white-point & contrast)",
       "approvalStatus": "pending",
-      "type": "student-workbook"
+      "type": "student-workbook",
+      "remasteredPathV2": "/cartilla/images/remastered/student-workbook/student-l21-page-75-remaster-v2.jpg",
+      "remasterVersion": "v2",
+      "artifactLineFixAttempted": true,
+      "approvedForStudent": false,
+      "approvedForTeacher": false,
+      "notes": "V2 stronger cleanup sample for visual approval"
     },
     {
       "originalSourcePath": "/cartilla/images/source/j/j-page-50.jpg",
@@ -310,11 +316,17 @@
     {
       "originalSourcePath": "/cartilla/images/source/r/r-page-37.jpg",
       "remasteredPath": "/cartilla/images/remastered/student-workbook/r-page-37.jpg",
-      "cleanupStatus": "pending",
+      "cleanupStatus": "needs review",
       "artifactFixed": false,
       "remasterType": "scan cleanup",
       "approvalStatus": "pending",
-      "type": "student-workbook"
+      "type": "student-workbook",
+      "remasteredPathV2": "/cartilla/images/remastered/student-workbook/student-l17-page-59-remaster-v2.jpg",
+      "remasterVersion": "v2",
+      "artifactLineFixAttempted": true,
+      "approvedForStudent": false,
+      "approvedForTeacher": false,
+      "notes": "V2 stronger cleanup sample for visual approval"
     },
     {
       "originalSourcePath": "/cartilla/images/source/r/r-page-38.jpg",
@@ -481,11 +493,17 @@
     {
       "originalSourcePath": "/cartilla/images/source/z/z-page-58.jpg",
       "remasteredPath": "/cartilla/images/remastered/student-workbook/z-page-58.jpg",
-      "cleanupStatus": "cleaned",
+      "cleanupStatus": "needs review",
       "artifactFixed": true,
       "remasterType": "scan cleanup (programmatic white-point & contrast)",
       "approvalStatus": "pending",
-      "type": "student-workbook"
+      "type": "student-workbook",
+      "remasteredPathV2": "/cartilla/images/remastered/student-workbook/student-l24-page-87-remaster-v2.jpg",
+      "remasterVersion": "v2",
+      "artifactLineFixAttempted": true,
+      "approvedForStudent": false,
+      "approvedForTeacher": false,
+      "notes": "V2 stronger cleanup sample for visual approval"
     },
     {
       "originalSourcePath": "/cartilla/images/source/z/z-page-59.jpg",
@@ -508,11 +526,17 @@
     {
       "originalSourcePath": "/cartilla/images/source/ñ/ñ-page-28.jpg",
       "remasteredPath": "/cartilla/images/remastered/student-workbook/ñ-page-28.jpg",
-      "cleanupStatus": "cleaned",
+      "cleanupStatus": "needs review",
       "artifactFixed": true,
       "remasterType": "scan cleanup (programmatic white-point & contrast)",
       "approvalStatus": "pending",
-      "type": "student-workbook"
+      "type": "student-workbook",
+      "remasteredPathV2": "/cartilla/images/remastered/student-workbook/student-l14-page-47-remaster-v2.jpg",
+      "remasterVersion": "v2",
+      "artifactLineFixAttempted": true,
+      "approvedForStudent": false,
+      "approvedForTeacher": false,
+      "notes": "V2 stronger cleanup sample for visual approval"
     },
     {
       "originalSourcePath": "/cartilla/images/source/ñ/ñ-page-29.jpg",
@@ -535,20 +559,32 @@
     {
       "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-01.jpg",
       "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-01.jpg",
-      "cleanupStatus": "cleaned",
+      "cleanupStatus": "needs review",
       "artifactFixed": true,
       "remasterType": "scan cleanup (programmatic white-point & contrast)",
       "approvalStatus": "pending",
-      "type": "teacher-flipchart"
+      "type": "teacher-flipchart",
+      "remasteredPathV2": "/cartilla/images/remastered/teacher-flipchart/teacher-page-001-remaster-v2.jpg",
+      "remasterVersion": "v2",
+      "artifactLineFixAttempted": true,
+      "approvedForStudent": false,
+      "approvedForTeacher": false,
+      "notes": "V2 stronger cleanup sample for visual approval"
     },
     {
       "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-02.jpg",
       "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-02.jpg",
-      "cleanupStatus": "cleaned",
+      "cleanupStatus": "needs review",
       "artifactFixed": true,
       "remasterType": "scan cleanup (programmatic white-point & contrast)",
       "approvalStatus": "pending",
-      "type": "teacher-flipchart"
+      "type": "teacher-flipchart",
+      "remasteredPathV2": "/cartilla/images/remastered/teacher-flipchart/teacher-page-002-remaster-v2.jpg",
+      "remasterVersion": "v2",
+      "artifactLineFixAttempted": true,
+      "approvedForStudent": false,
+      "approvedForTeacher": false,
+      "notes": "V2 stronger cleanup sample for visual approval"
     },
     {
       "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-03.jpg",

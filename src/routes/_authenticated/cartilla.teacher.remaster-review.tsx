@@ -1,17 +1,21 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useMemo } from "react";
-import { ArrowLeft, CheckCircle2, Clock, Eye, AlertCircle, Sparkles, Filter, Search } from "lucide-react";
+import { ArrowLeft, CheckCircle2, Clock, Eye, AlertCircle, Sparkles, Filter, Search, ShieldAlert, Award } from "lucide-react";
 import { cn } from "@/lib/utils";
 import remasterInventory from "@/data/remaster-inventory.json";
 
 interface RemasterAsset {
   originalSourcePath: string;
   remasteredPath: string;
+  remasteredPathV2?: string;
   cleanupStatus: "pending" | "cleaned" | "needs review" | "approved";
   artifactFixed: boolean;
   remasterType: string;
   approvalStatus: "approved" | "rejected" | "pending";
   type: "student-workbook" | "teacher-flipchart";
+  remasterVersion?: string;
+  artifactLineFixAttempted?: boolean;
+  notes?: string;
 }
 
 export const Route = createFileRoute("/_authenticated/cartilla/teacher/remaster-review")({
@@ -22,14 +26,14 @@ export const Route = createFileRoute("/_authenticated/cartilla/teacher/remaster-
 function RemasterReview() {
   const assets = useMemo(() => remasterInventory.assets as RemasterAsset[], []);
   const [selectedAssetIndex, setSelectedAssetIndex] = useState(() => {
-    // Default to the first "cleaned" asset if possible
-    const cleanedIdx = assets.findIndex(a => a.cleanupStatus === "cleaned");
-    return cleanedIdx !== -1 ? cleanedIdx : 0;
+    // Default to the first "needs review" (V2) asset if possible
+    const reviewIdx = assets.findIndex(a => a.cleanupStatus === "needs review");
+    return reviewIdx !== -1 ? reviewIdx : 0;
   });
   
   const [searchQuery, setSearchQuery] = useState("");
   const [filterType, setFilterType] = useState<"all" | "student" | "teacher">("all");
-  const [filterStatus, setFilterStatus] = useState<"all" | "cleaned" | "pending">("all");
+  const [filterStatus, setFilterStatus] = useState<"all" | "needs review" | "cleaned" | "pending">("all");
 
   const selectedAsset = assets[selectedAssetIndex];
 
@@ -37,9 +41,10 @@ function RemasterReview() {
   const stats = useMemo(() => {
     const total = assets.length;
     const cleaned = assets.filter(a => a.cleanupStatus === "cleaned").length;
+    const review = assets.filter(a => a.cleanupStatus === "needs review").length;
     const pending = assets.filter(a => a.cleanupStatus === "pending").length;
     const approved = assets.filter(a => a.approvalStatus === "approved").length;
-    return { total, cleaned, pending, approved };
+    return { total, cleaned, review, pending, approved };
   }, [assets]);
 
   // Filtering assets for list
@@ -54,6 +59,7 @@ function RemasterReview() {
           (filterType === "teacher" && asset.type === "teacher-flipchart");
         const matchesStatus =
           filterStatus === "all" ||
+          (filterStatus === "needs review" && asset.cleanupStatus === "needs review") ||
           (filterStatus === "cleaned" && asset.cleanupStatus === "cleaned") ||
           (filterStatus === "pending" && asset.cleanupStatus === "pending");
         return matchesSearch && matchesType && matchesStatus;
@@ -66,28 +72,31 @@ function RemasterReview() {
       <header className="flex items-center justify-between px-6 py-4 bg-neutral-950 border-b border-neutral-800">
         <div className="flex items-center gap-4">
           <Link
-            to="/cartilla/teacher"
+            to="/cartilla/teacher/presentacion"
             className="inline-flex items-center gap-2 rounded-full bg-neutral-800 px-4 py-2 text-sm font-bold text-neutral-200 hover:bg-neutral-700 transition-colors"
           >
-            <ArrowLeft className="h-4 w-4" /> Panel
+            <ArrowLeft className="h-4 w-4" /> Presentación
           </Link>
           <div className="flex flex-col">
             <h1 className="font-bold text-lg flex items-center gap-2">
-              <Sparkles className="h-5 w-5 text-indigo-400" /> Aprobación de Remasterización
+              <Sparkles className="h-5 w-5 text-indigo-400" /> Aprobación de Remasterización V2
             </h1>
-            <p className="text-xs text-neutral-400">Revisión honesta y comparación side-by-side de scans oficiales</p>
+            <p className="text-xs text-neutral-400">Comparación triple de scans oficiales: Original vs V1 vs V2</p>
           </div>
         </div>
 
         {/* Dynamic Stats Row */}
-        <div className="flex items-center gap-4 text-xs font-semibold">
-          <div className="px-3 py-1.5 rounded-full bg-neutral-800 border border-neutral-700">
-            Total páginas: <span className="text-indigo-400 font-bold">{stats.total}</span>
+        <div className="flex items-center gap-3 text-[11px] font-semibold flex-wrap">
+          <div className="px-2.5 py-1 rounded-full bg-neutral-800 border border-neutral-700 text-neutral-300">
+            Total: <span className="text-white font-bold">{stats.total}</span>
           </div>
-          <div className="px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-            Limpias: <span className="font-bold">{stats.cleaned}</span>
+          <div className="px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+            V2 en revisión: <span className="font-bold">{stats.review}</span>
           </div>
-          <div className="px-3 py-1.5 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">
+          <div className="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+            V1 limpias: <span className="font-bold">{stats.cleaned}</span>
+          </div>
+          <div className="px-2.5 py-1 rounded-full bg-neutral-800 text-neutral-400 border border-neutral-700">
             Pendientes: <span className="font-bold">{stats.pending}</span>
           </div>
         </div>
@@ -131,13 +140,19 @@ function RemasterReview() {
               </button>
             </div>
 
-            <div className="flex items-center gap-1.5 text-xs text-neutral-400">
-              <Filter className="h-3 w-3" />
+            <div className="flex flex-wrap items-center gap-1 text-[10px] text-neutral-400">
+              <span className="mr-1"><Filter className="h-3 w-3 inline" /> Filtro:</span>
+              <button
+                onClick={() => setFilterStatus(filterStatus === "needs review" ? "all" : "needs review")}
+                className={cn("px-2 py-0.5 rounded border border-neutral-800 font-semibold", filterStatus === "needs review" ? "bg-indigo-500/20 text-indigo-300 border-indigo-500/30" : "hover:bg-neutral-800")}
+              >
+                V2 en revisión
+              </button>
               <button
                 onClick={() => setFilterStatus(filterStatus === "cleaned" ? "all" : "cleaned")}
-                className={cn("px-2 py-0.5 rounded border border-neutral-800 text-[10px] font-semibold", filterStatus === "cleaned" ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20" : "hover:bg-neutral-800")}
+                className={cn("px-2 py-0.5 rounded border border-neutral-800 font-semibold", filterStatus === "cleaned" ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20" : "hover:bg-neutral-800")}
               >
-                Solo limpiadas
+                V1 limpias
               </button>
             </div>
           </div>
@@ -149,7 +164,8 @@ function RemasterReview() {
             ) : (
               filteredAssets.map(({ asset, originalIndex }) => {
                 const isSelected = originalIndex === selectedAssetIndex;
-                const isCleaned = asset.cleanupStatus === "cleaned";
+                const isV2 = asset.cleanupStatus === "needs review";
+                const isV1 = asset.cleanupStatus === "cleaned";
                 return (
                   <button
                     key={asset.originalSourcePath}
@@ -169,10 +185,12 @@ function RemasterReview() {
                         {asset.type === "student-workbook" ? "Cuaderno Alumno" : "Flipchart Maestro"}
                       </span>
                     </div>
-                    {isCleaned ? (
-                      <span className="h-2 w-2 rounded-full bg-emerald-500 shadow-sm shrink-0" title="Limpieza completada" />
+                    {isV2 ? (
+                      <span className="px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 text-[9px] font-bold uppercase tracking-wider scale-90 shrink-0">V2</span>
+                    ) : isV1 ? (
+                      <span className="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 text-[9px] font-bold uppercase tracking-wider scale-90 shrink-0">V1</span>
                     ) : (
-                      <span className="h-2 w-2 rounded-full bg-neutral-700 shrink-0" title="Pendiente" />
+                      <span className="h-2 w-2 rounded-full bg-neutral-700 shrink-0" />
                     )}
                   </button>
                 );
@@ -192,8 +210,8 @@ function RemasterReview() {
                 </h2>
                 <div className="mt-1 flex items-center gap-3 text-xs text-neutral-400">
                   <span>Tipo: <strong className="text-neutral-200">{selectedAsset.type === "student-workbook" ? "Student Cuaderno" : "Teacher Flipchart"}</strong></span>
-                  {selectedAsset.remasterType && (
-                    <span>Técnica: <strong className="text-neutral-200">{selectedAsset.remasterType}</strong></span>
+                  {selectedAsset.notes && (
+                    <span>Estado: <strong className="text-indigo-400">{selectedAsset.notes}</strong></span>
                   )}
                 </div>
               </div>
@@ -202,31 +220,42 @@ function RemasterReview() {
               <div className="flex items-center gap-3">
                 <span className={cn(
                   "flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border",
-                  selectedAsset.cleanupStatus === "cleaned" 
-                    ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20" 
-                    : "bg-neutral-800 text-neutral-400 border-neutral-700"
+                  selectedAsset.cleanupStatus === "needs review"
+                    ? "bg-indigo-500/10 text-indigo-400 border-indigo-500/20"
+                    : selectedAsset.cleanupStatus === "cleaned" 
+                      ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20" 
+                      : "bg-neutral-800 text-neutral-400 border-neutral-700"
                 )}>
-                  {selectedAsset.cleanupStatus === "cleaned" ? <CheckCircle2 className="h-3.5 w-3.5" /> : <Clock className="h-3.5 w-3.5" />}
-                  {selectedAsset.cleanupStatus === "cleaned" ? "Limpieza completada" : "Remaster pendiente"}
+                  {selectedAsset.cleanupStatus === "needs review" || selectedAsset.cleanupStatus === "cleaned" ? (
+                    <CheckCircle2 className="h-3.5 w-3.5" />
+                  ) : (
+                    <Clock className="h-3.5 w-3.5" />
+                  )}
+                  {selectedAsset.cleanupStatus === "needs review" 
+                    ? "Remaster V2 - En revisión" 
+                    : selectedAsset.cleanupStatus === "cleaned" 
+                      ? "Limpieza V1 completada" 
+                      : "Remaster pendiente"}
                 </span>
 
                 <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20">
-                  <AlertCircle className="h-3.5 w-3.5 animate-pulse" /> Pendiente de Aprobación (No en prod)
+                  <AlertCircle className="h-3.5 w-3.5" /> No aprobado (No se usa en producción)
                 </span>
               </div>
             </div>
 
-            {/* Side-by-side view */}
-            <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4 p-6 overflow-hidden">
-              {/* Left Column: Original Scan */}
+            {/* Triple comparison columns */}
+            <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-3 p-4 overflow-hidden bg-neutral-900">
+              
+              {/* Column 1: Original Scan */}
               <div className="flex flex-col bg-neutral-950 rounded-xl border border-neutral-800 overflow-hidden relative group">
                 <div className="px-4 py-2 bg-neutral-950 border-b border-neutral-800 flex items-center justify-between text-xs font-bold text-neutral-400 z-10 shrink-0">
-                  <span className="flex items-center gap-1.5"><Eye className="h-3.5 w-3.5" /> Original Scan (Honest Source)</span>
-                  <span className="font-mono text-[10px] bg-neutral-900 px-2 py-0.5 rounded border border-neutral-800">
-                    No Alterado
+                  <span className="flex items-center gap-1.5"><Eye className="h-3.5 w-3.5" /> Original Scan</span>
+                  <span className="font-mono text-[9px] bg-neutral-900 px-2 py-0.5 rounded border border-neutral-800 text-neutral-500">
+                    Fuente Honesta
                   </span>
                 </div>
-                <div className="flex-1 relative flex items-center justify-center p-4 min-h-0 bg-neutral-950 overflow-hidden">
+                <div className="flex-1 relative flex items-center justify-center p-3 min-h-0 bg-neutral-950 overflow-hidden">
                   <img
                     src={selectedAsset.originalSourcePath}
                     alt="Original Scan"
@@ -235,32 +264,55 @@ function RemasterReview() {
                 </div>
               </div>
 
-              {/* Right Column: Remaster Preview */}
+              {/* Column 2: Remaster V1 */}
               <div className="flex flex-col bg-neutral-950 rounded-xl border border-neutral-800 overflow-hidden relative group">
                 <div className="px-4 py-2 bg-neutral-950 border-b border-neutral-800 flex items-center justify-between text-xs font-bold text-emerald-400 z-10 shrink-0">
-                  <span className="flex items-center gap-1.5"><Sparkles className="h-3.5 w-3.5" /> Remaster Preview (Cleaned)</span>
-                  <span className="font-mono text-[10px] bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20 text-emerald-400">
-                    Deterministico
+                  <span className="flex items-center gap-1.5"><CheckCircle2 className="h-3.5 w-3.5" /> Remaster V1</span>
+                  <span className="font-mono text-[9px] bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20 text-emerald-400">
+                    Limpieza Básica
                   </span>
                 </div>
-                <div className="flex-1 relative flex items-center justify-center p-4 min-h-0 bg-neutral-950 overflow-hidden">
-                  {selectedAsset.cleanupStatus === "cleaned" ? (
+                <div className="flex-1 relative flex items-center justify-center p-3 min-h-0 bg-neutral-950 overflow-hidden">
+                  {selectedAsset.cleanupStatus === "cleaned" || selectedAsset.cleanupStatus === "needs review" ? (
                     <img
                       src={selectedAsset.remasteredPath}
-                      alt="Remaster Preview"
+                      alt="Remaster V1"
                       className="max-h-full max-w-full object-contain drop-shadow-lg rounded-sm"
                     />
                   ) : (
-                    <div className="text-center text-xs text-neutral-500 flex flex-col items-center gap-3">
-                      <Clock className="h-10 w-10 text-neutral-700 animate-pulse" />
-                      <div className="space-y-1">
-                        <p className="font-bold">Vista previa no disponible</p>
-                        <p className="text-[10px] text-neutral-600 max-w-[200px]">La limpieza de esta página oficial está pendiente de procesamiento</p>
-                      </div>
+                    <div className="text-center text-xs text-neutral-600 flex flex-col items-center gap-2">
+                      <Clock className="h-8 w-8 text-neutral-800" />
+                      <p>V1 no procesado</p>
                     </div>
                   )}
                 </div>
               </div>
+
+              {/* Column 3: Remaster V2 - Stronger Cleanup */}
+              <div className="flex flex-col bg-neutral-950 rounded-xl border border-indigo-900/60 overflow-hidden relative group">
+                <div className="px-4 py-2 bg-neutral-950 border-b border-indigo-900/40 flex items-center justify-between text-xs font-bold text-indigo-400 z-10 shrink-0">
+                  <span className="flex items-center gap-1.5"><Sparkles className="h-3.5 w-3.5 animate-pulse" /> Remaster V2</span>
+                  <span className="font-mono text-[9px] bg-indigo-500/20 px-2 py-0.5 rounded border border-indigo-500/30 text-indigo-300">
+                    Vivid Projection
+                  </span>
+                </div>
+                <div className="flex-1 relative flex items-center justify-center p-3 min-h-0 bg-neutral-950 overflow-hidden">
+                  {selectedAsset.cleanupStatus === "needs review" && selectedAsset.remasteredPathV2 ? (
+                    <img
+                      src={selectedAsset.remasteredPathV2}
+                      alt="Remaster V2"
+                      className="max-h-full max-w-full object-contain drop-shadow-lg rounded-sm border-2 border-indigo-500/20 shadow-indigo-500/5"
+                    />
+                  ) : (
+                    <div className="text-center text-xs text-neutral-600 flex flex-col items-center gap-2">
+                      <Clock className="h-8 w-8 text-neutral-800" />
+                      <p className="font-semibold">V2 en revisión no disponible</p>
+                      <p className="text-[10px] text-neutral-700 max-w-[180px]">Página no seleccionada en el Sprint V2 de aprobación visual</p>
+                    </div>
+                  )}
+                </div>
+              </div>
+
             </div>
           </main>
         ) : (

@@ -3,15 +3,15 @@ User-agent: *
 Allow: /
 
 # === Prebuild diagnostic ===
-# startedAt: 2026-05-24T18:04:27.367Z
-# finishedAt: 2026-05-24T18:04:28.362Z
+# startedAt: 2026-05-24T18:38:39.951Z
+# finishedAt: 2026-05-24T18:38:40.857Z
 # commit: unknown
 # branch: unknown
 #
 # target: Workbook -> public/book/book.pdf
 #   filterBlockUuid: 933c702e-2d19-442b-9056-7665142fdbdf
 #   filterFileName: null
-#   htmlStatus: 200, htmlBytes: 1033935
+#   htmlStatus: 200, htmlBytes: 1034001
 #   chunkStatus: 200, chunkBlocks: 4
 #   candidates: 0, filtered: 0
 #   WROTE: nothing

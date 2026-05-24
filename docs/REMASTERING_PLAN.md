@@ -37,3 +37,14 @@ To achieve the remaster vision without compromising the honest source material, 
 4. **Line Sharpening**: Darken and sharpen structural lines and text borders for legibility.
 5. **Manual/Visual Approval**: Every remastered page MUST be manually compared against the original source scan to verify that no fake art or incorrect text was introduced.
 
+## 7. Visual Target & V2 Remaster Sprint
+The connected scans are a vital milestone, but are **not the final visual quality**. We are establishing a premium, sharp, professional classroom projection standard.
+
+### Core Guidelines for V2 Candidates:
+- **Pristine Paper Cast**: The gray/yellow paper haze must be dynamically normalized. Projector-friendly screens should have a pure, bright white background.
+- **Strict Identity Preservation**: Keep the exact composition, characters, styles, and fonts. Do not invent missing details, do not add fake art, and do not introduce generic AI cartoon aesthetics.
+- **Enhanced Edge Definition**: Illustrations must look crisp, clear, and dimensional, with text contrast boosted to prevent rear-of-classroom legibility fatigue.
+- **Scan line removal**: Perform column-wise profile balancing to cleanly erase scanning seams, vertical stripes, or binder shadows.
+- **No Auto-Approvals**: V2 preview assets require explicit manual human review via the comparison dashboard before V2 production flags are safely set.
+
+
