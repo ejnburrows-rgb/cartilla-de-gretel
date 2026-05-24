@@ -4,12 +4,13 @@ This file intentionally triggers a Vercel deployment from the repository owner a
 
 Includes prior changes through commit:
 
-`9414e7a77a001db95e3b5523279edbd724719fd0`
+`5c8776ea8da3bd02534ca35cf38f15a981c81264`
 
 Expected production behavior after deployment:
 
-- Book-style page-turn controls are present.
-- Source-art readiness labels are precise.
+- Verified Ss and R page scans are available in the student Cuaderno.
+- Lesson 9 and Lesson 17 page-scan mappings are included.
+- Object-level cutouts and exact hotspots remain pending and should not be overclaimed.
 - The protected site still requires the project password.
 
-Created: 2026-05-24T00:46:00Z
+Created: 2026-05-24T02:33:30Z
