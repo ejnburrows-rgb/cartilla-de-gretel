@@ -4,18 +4,15 @@ This file intentionally triggers a Vercel deployment from the repository owner a
 
 Includes prior changes through commit:
 
-`5c8776ea8da3bd02534ca35cf38f15a981c81264`
-
-Includes this additional fix:
-
-- Student landing cover now uses `/cartilla/images/original/cover.jpg` instead of a stylized/generated cover panel.
+`53d2ccd3004d3aa09c390fab33ee80cdf137e73c`
 
 Expected production behavior after deployment:
 
-- Student landing page shows the original workbook cover image.
-- Book-style page-turn controls are present.
-- Verified Ss and R page scans are available in the student Cuaderno.
+- Student workbook uses the original cover.
+- Student workbook page flip uses the new BookPageFlip component.
+- Student workbook shell/background has physical paper/book styling.
+- Teacher and student workbook experiences remain separated.
+- Student-facing emoji/fake-art hints are removed where updated.
 - Object-level cutouts and exact hotspots remain pending and should not be overclaimed.
-- The protected site still requires the project password.
 
-Created: 2026-05-24T02:43:00Z
+Created: 2026-05-24T03:12:00Z
