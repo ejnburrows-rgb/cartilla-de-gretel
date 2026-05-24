@@ -5,41 +5,319 @@
   "book": {
     "title": "La Cartilla de Gretel",
     "author": "Leonor Lopetegui",
-    "contributors": ["Aída Fernández", "Silvia Diez"],
+    "contributors": [
+      "Aída Fernández",
+      "Silvia Diez"
+    ],
     "illustrator": "Estela de Armas Plasencia",
     "adaptationCredit": "Digital Adaptation of the First Printed Edition / Prepared by Emilio José Novo",
     "imprint": "LANY Books LLC",
     "isbn": "0-971-8696-8-5",
     "copyright": "© 2004 / 2008 printing",
-    "length": { "pages": 92, "lessons": 24 }
+    "length": {
+      "pages": 92,
+      "lessons": 24
+    }
   },
-  "vowelOrder": ["O", "A", "E", "I", "U"],
-  "consonantOrder": ["M", "P", "S", "T", "D", "L", "N", "Ñ", "B", "V", "R", "rr", "G", "F", "J", "C", "Y", "Z"],
+  "vowelOrder": [
+    "O",
+    "A",
+    "E",
+    "I",
+    "U"
+  ],
+  "consonantOrder": [
+    "M",
+    "P",
+    "S",
+    "T",
+    "D",
+    "L",
+    "N",
+    "Ñ",
+    "B",
+    "V",
+    "R",
+    "rr",
+    "G",
+    "F",
+    "J",
+    "C",
+    "Y",
+    "Z"
+  ],
   "bookFaithfulLessons": [
-    { "lesson": 1,  "title": "Las hermanitas vocales", "focus": "vowels-intro", "sightWords": [],                                                          "palabrasSection": false, "miniStory": false, "closing": "rima",  "notes": "Opening rima that introduces the five vowels as sisters; sets the O→A→E→I→U order used throughout the book." },
-    { "lesson": 2,  "title": "Oo",                     "focus": "O",            "sightWords": [],                                                          "palabrasSection": true,  "miniStory": false, "closing": "poema", "notes": null },
-    { "lesson": 3,  "title": "Aa",                     "focus": "A",            "sightWords": [],                                                          "palabrasSection": true,  "miniStory": false, "closing": "poema", "notes": null },
-    { "lesson": 4,  "title": "Ee",                     "focus": "E",            "sightWords": [],                                                          "palabrasSection": true,  "miniStory": false, "closing": "poema", "notes": null },
-    { "lesson": 5,  "title": "Ii",                     "focus": "I",            "sightWords": [],                                                          "palabrasSection": true,  "miniStory": false, "closing": "poema", "notes": null },
-    { "lesson": 6,  "title": "Uu",                     "focus": "U",            "sightWords": [],                                                          "palabrasSection": true,  "miniStory": false, "closing": "poema", "notes": null },
-    { "lesson": 7,  "title": "Mm",                     "focus": "M",            "sightWords": ["y"],                                                       "palabrasSection": true,  "miniStory": false, "closing": "poema", "notes": "First conjunction introduced: 'y' (and). Sample sentences like 'Ema y mamá' / 'mamá y papá'." },
-    { "lesson": 8,  "title": "Pp",                     "focus": "P",            "sightWords": ["yo"],                                                      "palabrasSection": true,  "miniStory": false, "closing": "poema", "notes": "First personal pronoun introduced: 'yo' (I)." },
-    { "lesson": 9,  "title": "Ss",                     "focus": "S",            "sightWords": ["es", "de", "un", "está", "en", "la", "el"],                  "palabrasSection": true,  "miniStory": false, "closing": "poema", "notes": "Densest sight-word lesson: 7 high-frequency words unlock simple full sentences. Watch printer typo on physical page 30." },
-    { "lesson": 10, "title": "Tt",                     "focus": "T",            "sightWords": ["tiene", "patio", "no"],                                     "palabrasSection": true,  "miniStory": false, "closing": "poema", "notes": null },
-    { "lesson": 11, "title": "Dd",                     "focus": "D",            "sightWords": ["son", "están"],                                            "palabrasSection": true,  "miniStory": false, "closing": "poema", "notes": "Plural forms of ser/estar." },
-    { "lesson": 12, "title": "Ll",                     "focus": "L",            "sightWords": ["también"],                                                 "palabrasSection": true,  "miniStory": false, "closing": "poema", "notes": null },
-    { "lesson": 13, "title": "Nn",                     "focus": "N",            "sightWords": [],                                                          "palabrasSection": true,  "miniStory": false, "closing": "poema", "notes": null },
-    { "lesson": 14, "title": "Ññ",                    "focus": "Ñ",            "sightWords": ["del"],                                                     "palabrasSection": true,  "miniStory": false, "closing": "poema", "notes": "Contraction de+el → del." },
-    { "lesson": 15, "title": "Bb",                     "focus": "B",            "sightWords": ["alto", "con", "bueno"],                                    "palabrasSection": true,  "miniStory": false, "closing": "poema", "notes": null },
-    { "lesson": 16, "title": "Vv",                     "focus": "V",            "sightWords": [],                                                          "palabrasSection": false, "miniStory": false, "closing": "poema", "notes": "No palabras section — exercises only." },
-    { "lesson": 17, "title": "R inicial",              "focus": "R",            "sightWords": ["bien"],                                                    "palabrasSection": true,  "miniStory": true,  "closing": "poema", "notes": "Heading is 'R inicial' (not 'Rr'). First lesson with a mini-story (lectura)." },
-    { "lesson": 18, "title": "rr",                     "focus": "rr",           "sightWords": [],                                                          "palabrasSection": false, "miniStory": false, "closing": "poema", "notes": "Intervocalic rr (double r); no palabras section." },
-    { "lesson": 19, "title": "Gg",                     "focus": "G",            "sightWords": [],                                                          "palabrasSection": false, "miniStory": true,  "closing": "poema", "notes": "Mini-story replaces palabras section." },
-    { "lesson": 20, "title": "Ff",                     "focus": "F",            "sightWords": ["hay"],                                                     "palabrasSection": true,  "miniStory": false, "closing": "poema", "notes": null },
-    { "lesson": 21, "title": "Jj",                     "focus": "J",            "sightWords": [],                                                          "palabrasSection": false, "miniStory": true,  "closing": "poema", "notes": "Mini-story replaces palabras section." },
-    { "lesson": 22, "title": "Cc",                     "focus": "C",            "sightWords": [],                                                          "palabrasSection": false, "miniStory": true,  "closing": "poema", "notes": "Mini-story replaces palabras section." },
-    { "lesson": 23, "title": "Yy",                     "focus": "Y",            "sightWords": [],                                                          "palabrasSection": false, "miniStory": true,  "closing": "poema", "notes": "Mini-story replaces palabras section." },
-    { "lesson": 24, "title": "Zz",                     "focus": "Z",            "sightWords": [],                                                          "palabrasSection": false, "miniStory": true,  "closing": "poema", "notes": "Final lesson; mini-story closes the book." }
+    {
+      "lesson": 1,
+      "title": "Las hermanitas vocales",
+      "focus": "vowels-intro",
+      "sightWords": [],
+      "palabrasSection": false,
+      "miniStory": false,
+      "closing": "rima",
+      "notes": "Opening rima that introduces the five vowels as sisters; sets the O→A→E→I→U order used throughout the book."
+    },
+    {
+      "lesson": 2,
+      "title": "Oo",
+      "focus": "O",
+      "sightWords": [],
+      "palabrasSection": true,
+      "miniStory": false,
+      "closing": "poema",
+      "notes": null
+    },
+    {
+      "lesson": 3,
+      "title": "Aa",
+      "focus": "A",
+      "sightWords": [],
+      "palabrasSection": true,
+      "miniStory": false,
+      "closing": "poema",
+      "notes": null
+    },
+    {
+      "lesson": 4,
+      "title": "Ee",
+      "focus": "E",
+      "sightWords": [],
+      "palabrasSection": true,
+      "miniStory": false,
+      "closing": "poema",
+      "notes": null
+    },
+    {
+      "lesson": 5,
+      "title": "Ii",
+      "focus": "I",
+      "sightWords": [],
+      "palabrasSection": true,
+      "miniStory": false,
+      "closing": "poema",
+      "notes": null
+    },
+    {
+      "lesson": 6,
+      "title": "Uu",
+      "focus": "U",
+      "sightWords": [],
+      "palabrasSection": true,
+      "miniStory": false,
+      "closing": "poema",
+      "notes": null
+    },
+    {
+      "lesson": 7,
+      "title": "Mm",
+      "focus": "M",
+      "sightWords": [
+        "y"
+      ],
+      "palabrasSection": true,
+      "miniStory": false,
+      "closing": "poema",
+      "notes": "First conjunction introduced: 'y' (and). Sample sentences like 'Ema y mamá' / 'mamá y papá'."
+    },
+    {
+      "lesson": 8,
+      "title": "Pp",
+      "focus": "P",
+      "sightWords": [
+        "yo"
+      ],
+      "palabrasSection": true,
+      "miniStory": false,
+      "closing": "poema",
+      "notes": "First personal pronoun introduced: 'yo' (I)."
+    },
+    {
+      "lesson": 9,
+      "title": "Ss",
+      "focus": "S",
+      "sightWords": [
+        "es",
+        "de",
+        "un",
+        "está",
+        "en",
+        "la",
+        "el"
+      ],
+      "palabrasSection": true,
+      "miniStory": false,
+      "closing": "poema",
+      "notes": "Densest sight-word lesson: 7 high-frequency words unlock simple full sentences. Watch printer typo on physical page 30."
+    },
+    {
+      "lesson": 10,
+      "title": "Tt",
+      "focus": "T",
+      "sightWords": [
+        "tiene",
+        "patio",
+        "no"
+      ],
+      "palabrasSection": true,
+      "miniStory": false,
+      "closing": "poema",
+      "notes": null
+    },
+    {
+      "lesson": 11,
+      "title": "Dd",
+      "focus": "D",
+      "sightWords": [
+        "son",
+        "están"
+      ],
+      "palabrasSection": true,
+      "miniStory": false,
+      "closing": "poema",
+      "notes": "Plural forms of ser/estar."
+    },
+    {
+      "lesson": 12,
+      "title": "Ll",
+      "focus": "L",
+      "sightWords": [
+        "también"
+      ],
+      "palabrasSection": true,
+      "miniStory": false,
+      "closing": "poema",
+      "notes": null
+    },
+    {
+      "lesson": 13,
+      "title": "Nn",
+      "focus": "N",
+      "sightWords": [],
+      "palabrasSection": true,
+      "miniStory": false,
+      "closing": "poema",
+      "notes": null
+    },
+    {
+      "lesson": 14,
+      "title": "Ññ",
+      "focus": "Ñ",
+      "sightWords": [
+        "del"
+      ],
+      "palabrasSection": true,
+      "miniStory": false,
+      "closing": "poema",
+      "notes": "Contraction de+el → del."
+    },
+    {
+      "lesson": 15,
+      "title": "Bb",
+      "focus": "B",
+      "sightWords": [
+        "alto",
+        "con",
+        "bueno"
+      ],
+      "palabrasSection": true,
+      "miniStory": false,
+      "closing": "poema",
+      "notes": null
+    },
+    {
+      "lesson": 16,
+      "title": "Vv",
+      "focus": "V",
+      "sightWords": [],
+      "palabrasSection": false,
+      "miniStory": false,
+      "closing": "poema",
+      "notes": "No palabras section — exercises only."
+    },
+    {
+      "lesson": 17,
+      "title": "R inicial",
+      "focus": "R",
+      "sightWords": [
+        "bien"
+      ],
+      "palabrasSection": true,
+      "miniStory": true,
+      "closing": "poema",
+      "notes": "Heading is 'R inicial' (not 'Rr'). First lesson with a mini-story (lectura)."
+    },
+    {
+      "lesson": 18,
+      "title": "rr",
+      "focus": "rr",
+      "sightWords": [],
+      "palabrasSection": false,
+      "miniStory": false,
+      "closing": "poema",
+      "notes": "Intervocalic rr (double r); no palabras section."
+    },
+    {
+      "lesson": 19,
+      "title": "Gg",
+      "focus": "G",
+      "sightWords": [],
+      "palabrasSection": false,
+      "miniStory": true,
+      "closing": "poema",
+      "notes": "Mini-story replaces palabras section."
+    },
+    {
+      "lesson": 20,
+      "title": "Ff",
+      "focus": "F",
+      "sightWords": [
+        "hay"
+      ],
+      "palabrasSection": true,
+      "miniStory": false,
+      "closing": "poema",
+      "notes": null
+    },
+    {
+      "lesson": 21,
+      "title": "Jj",
+      "focus": "J",
+      "sightWords": [],
+      "palabrasSection": false,
+      "miniStory": true,
+      "closing": "poema",
+      "notes": "Mini-story replaces palabras section."
+    },
+    {
+      "lesson": 22,
+      "title": "Cc",
+      "focus": "C",
+      "sightWords": [],
+      "palabrasSection": false,
+      "miniStory": true,
+      "closing": "poema",
+      "notes": "Mini-story replaces palabras section."
+    },
+    {
+      "lesson": 23,
+      "title": "Yy",
+      "focus": "Y",
+      "sightWords": [],
+      "palabrasSection": false,
+      "miniStory": true,
+      "closing": "poema",
+      "notes": "Mini-story replaces palabras section."
+    },
+    {
+      "lesson": 24,
+      "title": "Zz",
+      "focus": "Z",
+      "sightWords": [],
+      "palabrasSection": false,
+      "miniStory": true,
+      "closing": "poema",
+      "notes": "Final lesson; mini-story closes the book."
+    }
   ],
   "editorialNotes": [
     {
@@ -50,32 +328,1253 @@
     }
   ],
   "sightWordIndex": {
-    "y":        { "introducedInLesson": 7  },
-    "yo":       { "introducedInLesson": 8  },
-    "es":       { "introducedInLesson": 9  },
-    "de":       { "introducedInLesson": 9  },
-    "un":       { "introducedInLesson": 9  },
-    "está":     { "introducedInLesson": 9  },
-    "en":       { "introducedInLesson": 9  },
-    "la":       { "introducedInLesson": 9  },
-    "el":       { "introducedInLesson": 9  },
-    "tiene":    { "introducedInLesson": 10 },
-    "patio":    { "introducedInLesson": 10 },
-    "no":       { "introducedInLesson": 10 },
-    "son":      { "introducedInLesson": 11 },
-    "están":    { "introducedInLesson": 11 },
-    "también":  { "introducedInLesson": 12 },
-    "del":      { "introducedInLesson": 14 },
-    "alto":     { "introducedInLesson": 15 },
-    "con":      { "introducedInLesson": 15 },
-    "bueno":    { "introducedInLesson": 15 },
-    "bien":     { "introducedInLesson": 17 },
-    "hay":      { "introducedInLesson": 20 }
+    "y": {
+      "introducedInLesson": 7
+    },
+    "yo": {
+      "introducedInLesson": 8
+    },
+    "es": {
+      "introducedInLesson": 9
+    },
+    "de": {
+      "introducedInLesson": 9
+    },
+    "un": {
+      "introducedInLesson": 9
+    },
+    "está": {
+      "introducedInLesson": 9
+    },
+    "en": {
+      "introducedInLesson": 9
+    },
+    "la": {
+      "introducedInLesson": 9
+    },
+    "el": {
+      "introducedInLesson": 9
+    },
+    "tiene": {
+      "introducedInLesson": 10
+    },
+    "patio": {
+      "introducedInLesson": 10
+    },
+    "no": {
+      "introducedInLesson": 10
+    },
+    "son": {
+      "introducedInLesson": 11
+    },
+    "están": {
+      "introducedInLesson": 11
+    },
+    "también": {
+      "introducedInLesson": 12
+    },
+    "del": {
+      "introducedInLesson": 14
+    },
+    "alto": {
+      "introducedInLesson": 15
+    },
+    "con": {
+      "introducedInLesson": 15
+    },
+    "bueno": {
+      "introducedInLesson": 15
+    },
+    "bien": {
+      "introducedInLesson": 17
+    },
+    "hay": {
+      "introducedInLesson": 20
+    }
   },
-  "miniStoryLessons": [17, 19, 21, 22, 23, 24],
-  "emptyPalabrasLessons": [16, 18, 19, 21, 22, 23, 24],
-  "lessons": [{"position":2,"letter":"Rima","rawLabel":"2 Las hermanitas vocales Rima","title":"Las hermanitas vocales","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Complete","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":null,"bookFaithfulLesson":1},{"position":3,"letter":"Vowels","rawLabel":"3-Oo","title":"Oo","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Missing","art":"Image-only","audio":"Not recorded","estelaCredit":false},"auditNotes":"Image-only page — needs text scaffolding","bookFaithfulLesson":2},{"position":4,"letter":"Vowels","rawLabel":"4-Aa","title":"Aa","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Complete","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":null,"bookFaithfulLesson":3},{"position":5,"letter":"Vowels","rawLabel":"5-Ee","title":"Ee","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Complete","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":null,"bookFaithfulLesson":4},{"position":6,"letter":"Vowels","rawLabel":"6-Ii","title":"Ii","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Complete","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":null,"bookFaithfulLesson":5},{"position":7,"letter":"Vowels","rawLabel":"7-Uu","title":"Uu","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Missing","art":"Image-only","audio":"Not recorded","estelaCredit":false},"auditNotes":"Image-only page — needs text scaffolding","bookFaithfulLesson":6},{"position":8,"letter":"M","rawLabel":"8-Mm","title":"Mm","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Missing","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":"OCR-fragmented intro flagged in audit — review needed","bookFaithfulLesson":7},{"position":9,"letter":"M","rawLabel":"9-Mm","title":"Mm","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Missing","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":"Fixed May 21: 'y' converted to sight-word callout","bookFaithfulLesson":7},{"position":10,"letter":"M","rawLabel":"10-Mm","title":"Mm","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Missing","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":null,"bookFaithfulLesson":7},{"position":11,"letter":"P","rawLabel":"11-Pp","title":"Pp","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Missing","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":"OCR-fragmented intro flagged in audit — review needed","bookFaithfulLesson":8},{"position":12,"letter":"P","rawLabel":"12-Pp","title":"Pp","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Missing","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":"Fixed May 21: 'yo' converted to sight-word callout","bookFaithfulLesson":8},{"position":13,"letter":"P","rawLabel":"13-Pp","title":"Pp","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Missing","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":null,"bookFaithfulLesson":8},{"position":14,"letter":"S","rawLabel":"14-Ss","title":"Ss","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Missing","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":"Fixed May 21: 'SU' casing -> 'su', removed empty heading. OCR-fragmented intro still flagged.","bookFaithfulLesson":9},{"position":15,"letter":"S","rawLabel":"15-Ss","title":"Ss","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Missing","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":null,"bookFaithfulLesson":9},{"position":16,"letter":"S","rawLabel":"16-Ss","title":"Ss","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Missing","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":null,"bookFaithfulLesson":9},{"position":17,"letter":"T","rawLabel":"17-Tt","title":"Tt","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Missing","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":"Resolved May 21: cleaner 4-col copy kept; duplicate trashed","bookFaithfulLesson":10},{"position":18,"letter":"T","rawLabel":"18-Tt","title":"Tt","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Missing","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":null,"bookFaithfulLesson":10},{"position":19,"letter":"D","rawLabel":"19-Dd","title":"Dd","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Missing","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":null,"bookFaithfulLesson":11},{"position":20,"letter":"D","rawLabel":"20-Dd","title":"Dd","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Missing","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":null,"bookFaithfulLesson":11},{"position":21,"letter":"D","rawLabel":"21-Dd","title":"Dd","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Missing","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":null,"bookFaithfulLesson":11},{"position":22,"letter":"L","rawLabel":"22-Ll","title":"Ll","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Missing","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":null,"bookFaithfulLesson":12},{"position":23,"letter":"L","rawLabel":"23-Ll","title":"Ll","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Missing","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":null,"bookFaithfulLesson":12},{"position":24,"letter":"L","rawLabel":"24-Ll","title":"Ll","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Complete","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":null,"bookFaithfulLesson":12},{"position":25,"letter":"N","rawLabel":"25-Nn","title":"Nn","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Missing","art":"Image-only","audio":"Not recorded","estelaCredit":false},"auditNotes":"Image-only page — needs text scaffolding","bookFaithfulLesson":13},{"position":26,"letter":"N","rawLabel":"26-Nn","title":"Nn","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Missing","art":"Image-only","audio":"Not recorded","estelaCredit":false},"auditNotes":"Image-only page — needs text scaffolding","bookFaithfulLesson":13},{"position":27,"letter":"N","rawLabel":"27-Nn","title":"Nn","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Complete","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":null,"bookFaithfulLesson":13},{"position":28,"letter":"Ñ","rawLabel":"28-ñ","title":"Ññ","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Missing","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":null,"bookFaithfulLesson":14},{"position":29,"letter":"Ñ","rawLabel":"29-ñ","title":"Ññ","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Missing","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":"Fixed May 21: LaTeX title -> Ññ, n̄e -> ñe, 'del' -> sight-word callout","bookFaithfulLesson":14},{"position":30,"letter":"Ñ","rawLabel":"30-ñ","title":"Ññ","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Complete","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":"Fixed May 21: heading Ñn -> Ññ","bookFaithfulLesson":14},{"position":31,"letter":"B","rawLabel":"31-Bb","title":"Bb","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Missing","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":null,"bookFaithfulLesson":15},{"position":32,"letter":"B","rawLabel":"32-Bb","title":"Bb","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Missing","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":"Fixed May 21: LaTeX header artifact -> 'Bb'","bookFaithfulLesson":15},{"position":33,"letter":"B","rawLabel":"33-Bb","title":"Bb","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Complete","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":null,"bookFaithfulLesson":15},{"position":34,"letter":"V","rawLabel":"34-Vv","title":"Vv","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Missing","art":"Image-only","audio":"Not recorded","estelaCredit":false},"auditNotes":"Image-only page — needs text scaffolding","bookFaithfulLesson":16},{"position":35,"letter":"V","rawLabel":"35-Vv","title":"Vv","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Missing","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":null,"bookFaithfulLesson":16},{"position":36,"letter":"V","rawLabel":"36-Vv","title":"Vv","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Missing","art":"Image-only","audio":"Not recorded","estelaCredit":false},"auditNotes":"Image-only page — needs text scaffolding","bookFaithfulLesson":16},{"position":37,"letter":"R","rawLabel":"37-Rr","title":"Rr","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Missing","art":"Image-only","audio":"Not recorded","estelaCredit":false},"auditNotes":"Image-only page — needs text scaffolding","bookFaithfulLesson":17},{"position":38,"letter":"R","rawLabel":"38-R inicial","title":"R inicial","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Missing","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":"Fixed May 21: heading 'Rr' -> 'R inicial', 'bien' -> sight-word callout","bookFaithfulLesson":17},{"position":39,"letter":"R","rawLabel":"39-Rr","title":"Rr","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Missing","art":"Image-only","audio":"Not recorded","estelaCredit":false},"auditNotes":"Image-only page — needs text scaffolding","bookFaithfulLesson":17},{"position":40,"letter":"rr","rawLabel":"40-rr","title":"rr","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Missing","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":null,"bookFaithfulLesson":18},{"position":41,"letter":"rr","rawLabel":"41-rr","title":"rr","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Missing","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":null,"bookFaithfulLesson":18},{"position":42,"letter":"rr","rawLabel":"42-rr","title":"rr","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Complete","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":null,"bookFaithfulLesson":18},{"position":43,"letter":"G","rawLabel":"43-Gg","title":"Gg","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Missing","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":null,"bookFaithfulLesson":19},{"position":44,"letter":"G","rawLabel":"44-Gg","title":"Gg","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Missing","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":null,"bookFaithfulLesson":19},{"position":45,"letter":"G","rawLabel":"45-Gg","title":"Gg","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Complete","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":null,"bookFaithfulLesson":19},{"position":46,"letter":"F","rawLabel":"46-Ff","title":"Ff","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Missing","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":null,"bookFaithfulLesson":20},{"position":47,"letter":"F","rawLabel":"47-Ff","title":"Ff","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Missing","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":"Fixed May 21: 'hay' converted to sight-word callout","bookFaithfulLesson":20},{"position":48,"letter":"F","rawLabel":"48-Ff","title":"Ff","pageRange":null,"colors":null,"sourcePages":[],"originalImages":[],"remasteredImages":[],"textBlocks":[],"workbookExercises":[],"teacherGuideNotes":[],"audioTargets":[],"status":{"rima":"Complete","art":"Has scaffolding","audio":"Not recorded","estelaCredit":false},"auditNotes":null,"bookFaithfulLesson":20}],
-  "summary": { "totalLessons": 24, "totalPageScaffolds": 47, "rimaComplete": 11, "rimaMissing": 36, "artHasScaffolding": 36, "artImageOnly": 11, "audioRecorded": 0, "estelaCreditAttached": 0, "miniStoryLessons": 6, "emptyPalabrasLessons": 7 },
-  "placeholderFields": ["pageRange", "colors", "sourcePages", "originalImages", "remasteredImages", "textBlocks", "workbookExercises", "teacherGuideNotes", "audioTargets"],
+  "miniStoryLessons": [
+    17,
+    19,
+    21,
+    22,
+    23,
+    24
+  ],
+  "emptyPalabrasLessons": [
+    16,
+    18,
+    19,
+    21,
+    22,
+    23,
+    24
+  ],
+  "lessons": [
+    {
+      "position": 2,
+      "letter": "Rima",
+      "rawLabel": "2 Las hermanitas vocales Rima",
+      "title": "Las hermanitas vocales",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Complete",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": null,
+      "bookFaithfulLesson": 1
+    },
+    {
+      "position": 3,
+      "letter": "Vowels",
+      "rawLabel": "3-Oo",
+      "title": "Oo",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Image-only",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": "Image-only page — needs text scaffolding",
+      "bookFaithfulLesson": 2
+    },
+    {
+      "position": 4,
+      "letter": "Vowels",
+      "rawLabel": "4-Aa",
+      "title": "Aa",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Complete",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": null,
+      "bookFaithfulLesson": 3
+    },
+    {
+      "position": 5,
+      "letter": "Vowels",
+      "rawLabel": "5-Ee",
+      "title": "Ee",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Complete",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": null,
+      "bookFaithfulLesson": 4
+    },
+    {
+      "position": 6,
+      "letter": "Vowels",
+      "rawLabel": "6-Ii",
+      "title": "Ii",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Complete",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": null,
+      "bookFaithfulLesson": 5
+    },
+    {
+      "position": 7,
+      "letter": "Vowels",
+      "rawLabel": "7-Uu",
+      "title": "Uu",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Image-only",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": "Image-only page — needs text scaffolding",
+      "bookFaithfulLesson": 6
+    },
+    {
+      "position": 8,
+      "letter": "M",
+      "rawLabel": "8-Mm",
+      "title": "Mm",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": "OCR-fragmented intro flagged in audit — review needed",
+      "bookFaithfulLesson": 7
+    },
+    {
+      "position": 9,
+      "letter": "M",
+      "rawLabel": "9-Mm",
+      "title": "Mm",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": "Fixed May 21: 'y' converted to sight-word callout",
+      "bookFaithfulLesson": 7
+    },
+    {
+      "position": 10,
+      "letter": "M",
+      "rawLabel": "10-Mm",
+      "title": "Mm",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": null,
+      "bookFaithfulLesson": 7
+    },
+    {
+      "position": 11,
+      "letter": "P",
+      "rawLabel": "11-Pp",
+      "title": "Pp",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": "OCR-fragmented intro flagged in audit — review needed",
+      "bookFaithfulLesson": 8
+    },
+    {
+      "position": 12,
+      "letter": "P",
+      "rawLabel": "12-Pp",
+      "title": "Pp",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": "Fixed May 21: 'yo' converted to sight-word callout",
+      "bookFaithfulLesson": 8
+    },
+    {
+      "position": 13,
+      "letter": "P",
+      "rawLabel": "13-Pp",
+      "title": "Pp",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": null,
+      "bookFaithfulLesson": 8
+    },
+    {
+      "position": 14,
+      "letter": "S",
+      "rawLabel": "14-Ss",
+      "title": "Ss",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [
+        "/cartilla/images/source/ss/ss-page-14.jpg"
+      ],
+      "textBlocks": [
+        "Sesi",
+        "sopa",
+        "sapo",
+        "pisa",
+        "Susi"
+      ],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": "Fixed May 21: 'SU' casing -> 'su', removed empty heading. OCR-fragmented intro still flagged.",
+      "bookFaithfulLesson": 9
+    },
+    {
+      "position": 15,
+      "letter": "S",
+      "rawLabel": "15-Ss",
+      "title": "Ss",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [
+        "/cartilla/images/source/ss/ss-page-15.jpg"
+      ],
+      "textBlocks": [
+        "masa, sapo, así, puso, Sisi",
+        "mesa, seso, sopa, supo, ese",
+        "suma, Susi, paso, supe, esa",
+        "es de un está en la el",
+        "La mesa es de Susi.",
+        "La sopa está en la mesa.",
+        "Papá pasa la sopa a Susi.",
+        "Sisi pasa la sopa a mamá.",
+        "Ese sapo es de Sisi. Es el sapo Samapo.",
+        "Sisi pasa el sapo a Pepe.",
+        "Pepe puso un sapo en la mesa."
+      ],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": null,
+      "bookFaithfulLesson": 9
+    },
+    {
+      "position": 16,
+      "letter": "S",
+      "rawLabel": "16-Ss",
+      "title": "Ss",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [
+        "/cartilla/images/source/ss/ss-page-16.jpg"
+      ],
+      "textBlocks": [
+        "Sapo Samapo",
+        "Sapo Samapo",
+        "en la mesa está",
+        "sapo Samapo",
+        "sa-po-mi-pa."
+      ],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": null,
+      "bookFaithfulLesson": 9
+    },
+    {
+      "position": 17,
+      "letter": "T",
+      "rawLabel": "17-Tt",
+      "title": "Tt",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": "Resolved May 21: cleaner 4-col copy kept; duplicate trashed",
+      "bookFaithfulLesson": 10
+    },
+    {
+      "position": 18,
+      "letter": "T",
+      "rawLabel": "18-Tt",
+      "title": "Tt",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": null,
+      "bookFaithfulLesson": 10
+    },
+    {
+      "position": 19,
+      "letter": "D",
+      "rawLabel": "19-Dd",
+      "title": "Dd",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": null,
+      "bookFaithfulLesson": 11
+    },
+    {
+      "position": 20,
+      "letter": "D",
+      "rawLabel": "20-Dd",
+      "title": "Dd",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": null,
+      "bookFaithfulLesson": 11
+    },
+    {
+      "position": 21,
+      "letter": "D",
+      "rawLabel": "21-Dd",
+      "title": "Dd",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": null,
+      "bookFaithfulLesson": 11
+    },
+    {
+      "position": 22,
+      "letter": "L",
+      "rawLabel": "22-Ll",
+      "title": "Ll",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": null,
+      "bookFaithfulLesson": 12
+    },
+    {
+      "position": 23,
+      "letter": "L",
+      "rawLabel": "23-Ll",
+      "title": "Ll",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": null,
+      "bookFaithfulLesson": 12
+    },
+    {
+      "position": 24,
+      "letter": "L",
+      "rawLabel": "24-Ll",
+      "title": "Ll",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Complete",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": null,
+      "bookFaithfulLesson": 12
+    },
+    {
+      "position": 25,
+      "letter": "N",
+      "rawLabel": "25-Nn",
+      "title": "Nn",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Image-only",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": "Image-only page — needs text scaffolding",
+      "bookFaithfulLesson": 13
+    },
+    {
+      "position": 26,
+      "letter": "N",
+      "rawLabel": "26-Nn",
+      "title": "Nn",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Image-only",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": "Image-only page — needs text scaffolding",
+      "bookFaithfulLesson": 13
+    },
+    {
+      "position": 27,
+      "letter": "N",
+      "rawLabel": "27-Nn",
+      "title": "Nn",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Complete",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": null,
+      "bookFaithfulLesson": 13
+    },
+    {
+      "position": 28,
+      "letter": "Ñ",
+      "rawLabel": "28-ñ",
+      "title": "Ññ",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": null,
+      "bookFaithfulLesson": 14
+    },
+    {
+      "position": 29,
+      "letter": "Ñ",
+      "rawLabel": "29-ñ",
+      "title": "Ññ",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": "Fixed May 21: LaTeX title -> Ññ, n̄e -> ñe, 'del' -> sight-word callout",
+      "bookFaithfulLesson": 14
+    },
+    {
+      "position": 30,
+      "letter": "Ñ",
+      "rawLabel": "30-ñ",
+      "title": "Ññ",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Complete",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": "Fixed May 21: heading Ñn -> Ññ",
+      "bookFaithfulLesson": 14
+    },
+    {
+      "position": 31,
+      "letter": "B",
+      "rawLabel": "31-Bb",
+      "title": "Bb",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": null,
+      "bookFaithfulLesson": 15
+    },
+    {
+      "position": 32,
+      "letter": "B",
+      "rawLabel": "32-Bb",
+      "title": "Bb",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": "Fixed May 21: LaTeX header artifact -> 'Bb'",
+      "bookFaithfulLesson": 15
+    },
+    {
+      "position": 33,
+      "letter": "B",
+      "rawLabel": "33-Bb",
+      "title": "Bb",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Complete",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": null,
+      "bookFaithfulLesson": 15
+    },
+    {
+      "position": 34,
+      "letter": "V",
+      "rawLabel": "34-Vv",
+      "title": "Vv",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Image-only",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": "Image-only page — needs text scaffolding",
+      "bookFaithfulLesson": 16
+    },
+    {
+      "position": 35,
+      "letter": "V",
+      "rawLabel": "35-Vv",
+      "title": "Vv",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": null,
+      "bookFaithfulLesson": 16
+    },
+    {
+      "position": 36,
+      "letter": "V",
+      "rawLabel": "36-Vv",
+      "title": "Vv",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Image-only",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": "Image-only page — needs text scaffolding",
+      "bookFaithfulLesson": 16
+    },
+    {
+      "position": 37,
+      "letter": "R",
+      "rawLabel": "37-Rr",
+      "title": "Rr",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [
+        "/cartilla/images/source/r/r-page-37.jpg"
+      ],
+      "textBlocks": [
+        "rana",
+        "remo",
+        "Rita",
+        "rosa",
+        "rueda"
+      ],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Image-only",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": "Image-only page — needs text scaffolding",
+      "bookFaithfulLesson": 17
+    },
+    {
+      "position": 38,
+      "letter": "R",
+      "rawLabel": "38-R inicial",
+      "title": "R inicial",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [
+        "/cartilla/images/source/r/r-page-38.jpg"
+      ],
+      "textBlocks": [
+        "ramo, remo, ropa",
+        "rosa, rana, rosado",
+        "risa, ruta, rulo",
+        "rata, Rita, Rolo",
+        "roto, Roma, rebaño",
+        "bien",
+        "La bola de Roberto rueda bien. Rolo patea la bola. La bola rueda y le da a un bolo. El bolo se rompe y Roberto se ríe. Rolo se ríe también.",
+        "Rita le da al bolo. Rita se ríe.",
+        "Rolo y Roberto se ríen también."
+      ],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": "Fixed May 21: heading 'Rr' -> 'R inicial', 'bien' -> sight-word callout",
+      "bookFaithfulLesson": 17
+    },
+    {
+      "position": 39,
+      "letter": "R",
+      "rawLabel": "39-Rr",
+      "title": "Rr",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [
+        "/cartilla/images/source/r/r-page-39.jpg"
+      ],
+      "textBlocks": [
+        "La r para la rama",
+        "para el roer del ratón",
+        "y para el rabo del mono",
+        "risueño y remolón.",
+        "Para la rueda redonda",
+        "la risa de tío Rolo",
+        "la rana, el remo, la rosa",
+        "y la rosca de Manolo."
+      ],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Image-only",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": "Image-only page — needs text scaffolding",
+      "bookFaithfulLesson": 17
+    },
+    {
+      "position": 40,
+      "letter": "rr",
+      "rawLabel": "40-rr",
+      "title": "rr",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": null,
+      "bookFaithfulLesson": 18
+    },
+    {
+      "position": 41,
+      "letter": "rr",
+      "rawLabel": "41-rr",
+      "title": "rr",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": null,
+      "bookFaithfulLesson": 18
+    },
+    {
+      "position": 42,
+      "letter": "rr",
+      "rawLabel": "42-rr",
+      "title": "rr",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Complete",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": null,
+      "bookFaithfulLesson": 18
+    },
+    {
+      "position": 43,
+      "letter": "G",
+      "rawLabel": "43-Gg",
+      "title": "Gg",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": null,
+      "bookFaithfulLesson": 19
+    },
+    {
+      "position": 44,
+      "letter": "G",
+      "rawLabel": "44-Gg",
+      "title": "Gg",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": null,
+      "bookFaithfulLesson": 19
+    },
+    {
+      "position": 45,
+      "letter": "G",
+      "rawLabel": "45-Gg",
+      "title": "Gg",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Complete",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": null,
+      "bookFaithfulLesson": 19
+    },
+    {
+      "position": 46,
+      "letter": "F",
+      "rawLabel": "46-Ff",
+      "title": "Ff",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": null,
+      "bookFaithfulLesson": 20
+    },
+    {
+      "position": 47,
+      "letter": "F",
+      "rawLabel": "47-Ff",
+      "title": "Ff",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": "Fixed May 21: 'hay' converted to sight-word callout",
+      "bookFaithfulLesson": 20
+    },
+    {
+      "position": 48,
+      "letter": "F",
+      "rawLabel": "48-Ff",
+      "title": "Ff",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Complete",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": null,
+      "bookFaithfulLesson": 20
+    }
+  ],
+  "summary": {
+    "totalLessons": 24,
+    "totalPageScaffolds": 47,
+    "rimaComplete": 11,
+    "rimaMissing": 36,
+    "artHasScaffolding": 36,
+    "artImageOnly": 11,
+    "audioRecorded": 0,
+    "estelaCreditAttached": 0,
+    "miniStoryLessons": 6,
+    "emptyPalabrasLessons": 7
+  },
+  "placeholderFields": [
+    "pageRange",
+    "colors",
+    "sourcePages",
+    "originalImages",
+    "remasteredImages",
+    "textBlocks",
+    "workbookExercises",
+    "teacherGuideNotes",
+    "audioTargets"
+  ],
   "placeholderRationale": "Per-page fields (textBlocks, workbookExercises, teacherGuideNotes, audioTargets) require the printed-book scan pipeline (P5) and the Métodos teacher-guide ingestion (P4). The new bookFaithfulLessons + sightWordIndex blocks unblock the renderer (P3) to show real lesson skeletons immediately, treating empty per-page arrays as 'render scaffolding mode'."
 }

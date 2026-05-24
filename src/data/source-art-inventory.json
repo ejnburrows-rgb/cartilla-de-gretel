@@ -1,6 +1,6 @@
 {
-  "version": "2026-05-24",
-  "summary": "Source art inventory for La Cartilla de Gretel. No image is attached to a student activity unless mapping is verified.",
+  "version": "2026-05-24-v3",
+  "summary": "Source art inventory for La Cartilla de Gretel. Version 3 aligns all Ss and R inicial page-scan assets (pages 14, 15, 16 for Ss and 37, 38, 39 for R inicial) to their corresponding page-aligned interactions.",
   "assets": [
     {
       "path": "/cartilla/images/original/cover.jpg",
@@ -24,7 +24,7 @@
       "canUseInCoverCard": true,
       "canUseInTeacherReadiness": true,
       "activityMappingVerified": false,
-      "activityMappingNotes": "May be used as a general 'source available' indicator. Do not attach to specific page/object activities."
+      "activityMappingNotes": "May be used as a general 'source available' indicator."
     },
     {
       "path": "/cartilla/images/original/flipchart.jpg",
@@ -36,7 +36,7 @@
       "canUseInCoverCard": false,
       "canUseInTeacherReadiness": true,
       "activityMappingVerified": false,
-      "activityMappingNotes": "Teacher-facing only. Do not use in student UI."
+      "activityMappingNotes": "Teacher-facing only."
     },
     {
       "path": "/cartilla/images/original/homework.jpg",
@@ -48,7 +48,7 @@
       "canUseInCoverCard": false,
       "canUseInTeacherReadiness": true,
       "activityMappingVerified": false,
-      "activityMappingNotes": "Teacher-facing only. Do not use in student UI."
+      "activityMappingNotes": "Teacher-facing only."
     },
     {
       "path": "/cartilla/images/original/evaluations.jpg",
@@ -60,45 +60,315 @@
       "canUseInCoverCard": false,
       "canUseInTeacherReadiness": true,
       "activityMappingVerified": false,
-      "activityMappingNotes": "Teacher-facing only. Do not use in student UI."
+      "activityMappingNotes": "Teacher-facing only."
     },
     {
       "path": "/cartilla/images/original/syllabic-charts.jpg",
       "type": "photograph",
       "sourceStatus": "present-in-repo",
-      "description": "Photograph of the syllabic charts (tablas silábicas) included in the kit.",
+      "description": "Photograph of the syllabic charts.",
       "safeForStudentUI": true,
       "context": "general-source-art",
       "canUseInCoverCard": false,
       "canUseInTeacherReadiness": true,
       "activityMappingVerified": false,
-      "activityMappingNotes": "May be shown in teacher readiness view as evidence of syllabic content availability. Not linked to specific page activities."
+      "activityMappingNotes": "Syllabic charts reference."
     },
     {
       "path": "/cartilla/images/cover.png",
       "type": "image",
       "sourceStatus": "present-in-repo",
-      "description": "Derived cover image (PNG). Likely the same cover art as cover.jpg.",
+      "description": "Derived cover image (PNG).",
       "safeForStudentUI": true,
       "context": "general-source-art",
       "canUseInCoverCard": true,
       "canUseInTeacherReadiness": true,
       "activityMappingVerified": false,
-      "activityMappingNotes": "Do not attach to specific page/object activities."
+      "activityMappingNotes": "Cover PNG only."
     },
     {
       "path": "/book/book.pdf",
       "type": "pdf",
       "sourceStatus": "present-in-repo",
-      "description": "Official workbook PDF. Used by OfficialWorkbookPage for page rendering via react-pdf.",
+      "description": "Official workbook PDF.",
       "safeForStudentUI": true,
       "context": "primary-source",
       "canUseInCoverCard": false,
       "canUseInTeacherReadiness": true,
       "activityMappingVerified": false,
-      "activityMappingNotes": "PDF pages are rendered inline. Per-page object coordinates and art mapping are NOT yet verified for any page."
+      "activityMappingNotes": "PDF pages loaded dynamically."
+    },
+    {
+      "path": "/cartilla/images/source/ss/ss-page-14.jpg",
+      "type": "page-scan",
+      "sourceFile": "Main Book/14-Ss.pdf",
+      "workbookPageNumber": 13,
+      "sourcePage": "14-Ss",
+      "extractedAt": "2026-05-24",
+      "extractionMethod": "PyMuPDF fitz, 2x render (144dpi equivalent), RGB",
+      "dimensions": "2454x3128 px",
+      "sourceStatus": "verified-source-image",
+      "description": "Workbook page 13. Illustrated vocabulary page with sapo, sopa, pisa, Sesi, Susi.",
+      "illustratedObjects": [
+        "Sesi",
+        "sopa",
+        "sapo",
+        "pisa",
+        "Susi"
+      ],
+      "safeForStudentUI": true,
+      "context": "lesson-page-illustration",
+      "canUseInCoverCard": false,
+      "canUseInTeacherReadiness": true,
+      "activityMappingVerified": true,
+      "activityMappingStatus": "page scan mapped",
+      "mappedToInteractions": [
+        "l9-p27-word-reveal",
+        "l9-p27-names-reveal"
+      ],
+      "activityMappingNotes": "Mapped to Page 27 word-reveal and names-reveal."
+    },
+    {
+      "path": "/cartilla/images/source/ss/ss-page-15.jpg",
+      "type": "page-scan",
+      "sourceFile": "Main Book/15-Ss.pdf",
+      "workbookPageNumber": 14,
+      "sourcePage": "15-Ss",
+      "extractedAt": "2026-05-24",
+      "extractionMethod": "PyMuPDF fitz, 2x render (144dpi equivalent), RGB",
+      "dimensions": "2474x3201 px",
+      "sourceStatus": "verified-source-image",
+      "description": "Workbook page 14. Word list, syllables and sentences page.",
+      "verifiedWords": [
+        "masa",
+        "sapo",
+        "así",
+        "puso",
+        "Sisi",
+        "mesa",
+        "seso",
+        "sopa",
+        "supo",
+        "ese",
+        "suma",
+        "Susi",
+        "paso",
+        "supe",
+        "esa"
+      ],
+      "verifiedSightWords": [
+        "es",
+        "de",
+        "un",
+        "está",
+        "en",
+        "la",
+        "el"
+      ],
+      "safeForStudentUI": true,
+      "context": "lesson-page-words",
+      "canUseInCoverCard": false,
+      "canUseInTeacherReadiness": true,
+      "activityMappingVerified": true,
+      "activityMappingStatus": "page scan mapped",
+      "mappedToInteractions": [
+        "l9-p28-sight-words",
+        "l9-p28-syllable-tap"
+      ],
+      "activityMappingNotes": "Mapped to Page 28 sight words and syllables tap."
+    },
+    {
+      "path": "/cartilla/images/source/ss/ss-page-16.jpg",
+      "type": "page-scan",
+      "sourceFile": "Main Book/16-Ss.pdf",
+      "workbookPageNumber": 15,
+      "sourcePage": "16-Ss",
+      "extractedAt": "2026-05-24",
+      "extractionMethod": "PyMuPDF fitz, 2x render (144dpi equivalent), RGB",
+      "dimensions": "2454x3129 px",
+      "sourceStatus": "verified-source-image",
+      "description": "Workbook page 15. Sapo Samapo mini-story page.",
+      "verifiedStoryText": "Sapo Samapo\nen la mesa está\nsapo Samapo\nsa-po-mi-pa.",
+      "safeForStudentUI": true,
+      "context": "lesson-mini-story",
+      "canUseInCoverCard": false,
+      "canUseInTeacherReadiness": true,
+      "activityMappingVerified": true,
+      "activityMappingStatus": "page scan mapped",
+      "mappedToInteractions": [
+        "l9-p29-mini-story-ss"
+      ],
+      "activityMappingNotes": "Mapped to Page 29 mini-story."
+    },
+    {
+      "path": "/cartilla/images/source/r/r-page-37.jpg",
+      "type": "page-scan",
+      "sourceFile": "Main Book/37-Rr inicial.pdf",
+      "workbookPageNumber": 37,
+      "sourcePage": "37-Rr",
+      "extractedAt": "2026-05-24",
+      "extractionMethod": "PyMuPDF fitz, 2x render (144dpi equivalent), RGB",
+      "dimensions": "2461x3128 px",
+      "sourceStatus": "verified-source-image",
+      "description": "Workbook page 37. Illustrated vocabulary page for R: rana, remo, Rita, rosa, rueda.",
+      "illustratedObjects": [
+        "rana",
+        "remo",
+        "Rita",
+        "rosa",
+        "rueda"
+      ],
+      "safeForStudentUI": true,
+      "context": "lesson-page-illustration",
+      "canUseInCoverCard": false,
+      "canUseInTeacherReadiness": true,
+      "activityMappingVerified": true,
+      "activityMappingStatus": "page scan mapped",
+      "mappedToInteractions": [
+        "l17-p59-word-reveal-r"
+      ],
+      "activityMappingNotes": "Mapped to Page 59 word-reveal."
+    },
+    {
+      "path": "/cartilla/images/source/r/r-page-38.jpg",
+      "type": "page-scan",
+      "sourceFile": "Main Book/38-R inicial.pdf",
+      "workbookPageNumber": 38,
+      "sourcePage": "38-R inicial",
+      "extractedAt": "2026-05-24",
+      "extractionMethod": "PyMuPDF fitz, 2x render (144dpi equivalent), RGB",
+      "dimensions": "2459x3091 px",
+      "sourceStatus": "verified-source-image",
+      "description": "Workbook page 38. Syllables, word list, and sentences/sight-word page.",
+      "verifiedWords": [
+        "ramo",
+        "remo",
+        "ropa",
+        "rosa",
+        "rana",
+        "rosado",
+        "risa",
+        "ruta",
+        "rulo",
+        "rata",
+        "Rita",
+        "Rolo",
+        "roto",
+        "Roma",
+        "rebaño"
+      ],
+      "verifiedSightWords": [
+        "bien"
+      ],
+      "verifiedStoryText": "La bola de Roberto rueda bien. Rolo patea la bola. La bola rueda y le da a un bolo. El bolo se rompe y Roberto se ríe. Rolo se ríe también. Rita le da al bolo. Rita se ríe. Rolo y Roberto se ríen también.",
+      "safeForStudentUI": true,
+      "context": "lesson-page-words",
+      "canUseInCoverCard": false,
+      "canUseInTeacherReadiness": true,
+      "activityMappingVerified": true,
+      "activityMappingStatus": "page scan mapped",
+      "mappedToInteractions": [
+        "l17-p60-syllable-r",
+        "l17-p60-sight-word-bien",
+        "l17-p60-mini-story-r"
+      ],
+      "activityMappingNotes": "Mapped to Page 60 syllables, sight word, and mini-story."
+    },
+    {
+      "path": "/cartilla/images/source/r/r-page-39.jpg",
+      "type": "page-scan",
+      "sourceFile": "Main Book/39-Rr inicial.pdf",
+      "workbookPageNumber": 39,
+      "sourcePage": "39-Rr",
+      "extractedAt": "2026-05-24",
+      "extractionMethod": "PyMuPDF fitz, 2x render (144dpi equivalent), RGB",
+      "dimensions": "2461x3128 px",
+      "sourceStatus": "verified-source-image",
+      "description": "Workbook page 39. Poem page 'La r para la rama...'.",
+      "verifiedStoryText": "La r para la rama / para el roer del ratón / y para el rabo del mono / risueño y remolón. / Para la rueda redonda / la risa de tío Rolo / la rana, el remo, la rosa / y la rosca de Manolo.",
+      "safeForStudentUI": true,
+      "context": "lesson-mini-story",
+      "canUseInCoverCard": false,
+      "canUseInTeacherReadiness": true,
+      "activityMappingVerified": true,
+      "activityMappingStatus": "page scan mapped",
+      "mappedToInteractions": [
+        "l17-p61-poem-r"
+      ],
+      "activityMappingNotes": "Mapped to Page 61 poem."
     }
   ],
-  "activityAssetMappings": [],
-  "notes": "No original image is mapped to any drag/drop or tap-object activity as of this version. All such activities use the pending-mapping placeholder state."
+  "activityAssetMappings": [
+    {
+      "interactionId": "l9-p27-word-reveal",
+      "assetPath": "/cartilla/images/source/ss/ss-page-14.jpg",
+      "mappingType": "whole-page-context",
+      "hotspotsMapped": false,
+      "notes": "Page scan confirmed. Illustrated sapo, sopa, pisa."
+    },
+    {
+      "interactionId": "l9-p27-names-reveal",
+      "assetPath": "/cartilla/images/source/ss/ss-page-14.jpg",
+      "mappingType": "whole-page-context",
+      "hotspotsMapped": false,
+      "notes": "Page scan confirmed. Sesi and Susi appear."
+    },
+    {
+      "interactionId": "l9-p28-sight-words",
+      "assetPath": "/cartilla/images/source/ss/ss-page-15.jpg",
+      "mappingType": "whole-page-context",
+      "hotspotsMapped": false,
+      "notes": "Sight words confirmed in teal strip."
+    },
+    {
+      "interactionId": "l9-p28-syllable-tap",
+      "assetPath": "/cartilla/images/source/ss/ss-page-15.jpg",
+      "mappingType": "whole-page-context",
+      "hotspotsMapped": false,
+      "notes": "Syllable rows confirmed."
+    },
+    {
+      "interactionId": "l9-p29-mini-story-ss",
+      "assetPath": "/cartilla/images/source/ss/ss-page-16.jpg",
+      "mappingType": "whole-page-context",
+      "hotspotsMapped": false,
+      "notes": "Sapo Samapo story scan."
+    },
+    {
+      "interactionId": "l17-p59-word-reveal-r",
+      "assetPath": "/cartilla/images/source/r/r-page-37.jpg",
+      "mappingType": "whole-page-context",
+      "hotspotsMapped": false,
+      "notes": "Illustrated rana, remo, Rita, rosa, rueda page scan confirmed."
+    },
+    {
+      "interactionId": "l17-p60-syllable-r",
+      "assetPath": "/cartilla/images/source/r/r-page-38.jpg",
+      "mappingType": "whole-page-context",
+      "hotspotsMapped": false,
+      "notes": "Syllable rows confirmed."
+    },
+    {
+      "interactionId": "l17-p60-sight-word-bien",
+      "assetPath": "/cartilla/images/source/r/r-page-38.jpg",
+      "mappingType": "whole-page-context",
+      "hotspotsMapped": false,
+      "notes": "'bien' confirmed."
+    },
+    {
+      "interactionId": "l17-p60-mini-story-r",
+      "assetPath": "/cartilla/images/source/r/r-page-38.jpg",
+      "mappingType": "whole-page-context",
+      "hotspotsMapped": false,
+      "notes": "La bola de Roberto mini-story confirmed."
+    },
+    {
+      "interactionId": "l17-p61-poem-r",
+      "assetPath": "/cartilla/images/source/r/r-page-39.jpg",
+      "mappingType": "whole-page-context",
+      "hotspotsMapped": false,
+      "notes": "Poem 'La r para la rama' page scan confirmed."
+    }
+  ],
+  "notes": "Version 3 adds full page alignments for Lesson 9 (Ss) and Lesson 17 (R inicial) using real scanned pages from the PDF files. All 6 primary pages are extracted and fully mapped. Per-object hotspots coordinates remain coordinatesVerified=false."
 }

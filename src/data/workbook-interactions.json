@@ -1,40 +1,157 @@
 {
   "interactions": [
     {
-      "id": "l9-p27-sight-words",
+      "id": "l9-p27-word-reveal",
+      "lessonNumber": 9,
+      "pageNumber": 27,
+      "kind": "drag-word-to-image",
+      "title": "Palabras del cuaderno — Página Ss",
+      "prompt": "Toca cada palabra para descubrirla. Búscala en la página ilustrada del cuaderno.",
+      "assetRef": "/cartilla/images/source/ss/ss-page-14.jpg",
+      "assetRefSourcePage": "14-Ss (workbook page 13)",
+      "assetRefVerified": true,
+      "items": [
+        {
+          "id": "w-sopa",
+          "label": "sopa"
+        },
+        {
+          "id": "w-sapo",
+          "label": "sapo"
+        },
+        {
+          "id": "w-pisa",
+          "label": "pisa"
+        }
+      ],
+      "targets": [
+        {
+          "id": "zone-sopa",
+          "label": "sopa",
+          "coordinatesVerified": false,
+          "acceptsItemId": "w-sopa"
+        },
+        {
+          "id": "zone-sapo",
+          "label": "sapo",
+          "coordinatesVerified": false,
+          "acceptsItemId": "w-sapo"
+        },
+        {
+          "id": "zone-pisa",
+          "label": "pisa",
+          "coordinatesVerified": false,
+          "acceptsItemId": "w-pisa"
+        }
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "transcription verified from source page",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "sopa, sapo, pisa confirmed with illustrations on source page 14-Ss (workbook page 13). assetRef points to full page scan. page scan mapped; hotspot pending (per-object hotspots not mapped)."
+    },
+    {
+      "id": "l9-p27-names-reveal",
       "lessonNumber": 9,
       "pageNumber": 27,
       "kind": "listen-and-tap",
-      "title": "Palabras a simple vista",
-      "prompt": "Escucha y toca cada palabra cuando la oigas.",
+      "title": "Nombres con S",
+      "prompt": "Toca cada nombre cuando lo escuches. Los dos aparecen en la página del cuaderno.",
+      "assetRef": "/cartilla/images/source/ss/ss-page-14.jpg",
+      "assetRefSourcePage": "14-Ss (workbook page 13)",
+      "assetRefVerified": true,
       "items": [
-        { "id": "sw-es", "label": "es" },
-        { "id": "sw-de", "label": "de" },
-        { "id": "sw-un", "label": "un" },
-        { "id": "sw-esta", "label": "está" },
-        { "id": "sw-en", "label": "en" },
-        { "id": "sw-la", "label": "la" },
-        { "id": "sw-el", "label": "el" }
+        {
+          "id": "name-sesi",
+          "label": "Sesi"
+        },
+        {
+          "id": "name-susi",
+          "label": "Susi"
+        }
       ],
       "targets": [],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "verified",
-      "studentFacingStatus": "Actividad lista",
-      "teacherNotes": "Sight words introduced in Lesson 9 per verified book spine."
+      "transcriptionStatus": "transcription verified from source page",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Sesi and Susi are illustrated characters on source page 14-Ss (workbook page 13). Both appear with labeled artwork. This is a listen-and-tap activity."
     },
     {
-      "id": "l9-p27-syllable-tap",
+      "id": "l9-p28-sight-words",
       "lessonNumber": 9,
-      "pageNumber": 27,
+      "pageNumber": 28,
+      "kind": "listen-and-tap",
+      "title": "Palabras a simple vista",
+      "prompt": "Escucha y toca cada palabra cuando la oigas.",
+      "assetRef": "/cartilla/images/source/ss/ss-page-15.jpg",
+      "assetRefSourcePage": "15-Ss (workbook page 14)",
+      "assetRefVerified": true,
+      "items": [
+        {
+          "id": "sw-es",
+          "label": "es"
+        },
+        {
+          "id": "sw-de",
+          "label": "de"
+        },
+        {
+          "id": "sw-un",
+          "label": "un"
+        },
+        {
+          "id": "sw-esta",
+          "label": "está"
+        },
+        {
+          "id": "sw-en",
+          "label": "en"
+        },
+        {
+          "id": "sw-la",
+          "label": "la"
+        },
+        {
+          "id": "sw-el",
+          "label": "el"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "transcription verified from source page",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Sight words confirmed on source page 15-Ss (workbook page 14): es, de, un, está, en, la, el appear in the pink sight-word strip. Verified from page scan."
+    },
+    {
+      "id": "l9-p28-syllable-tap",
+      "lessonNumber": 9,
+      "pageNumber": 28,
       "kind": "drag-syllable-to-slot",
       "title": "Sílabas con S",
       "prompt": "Arrastra cada sílaba a su casilla o tócala para escucharla.",
+      "assetRef": "/cartilla/images/source/ss/ss-page-15.jpg",
+      "assetRefSourcePage": "15-Ss (workbook page 14)",
+      "assetRefVerified": true,
       "items": [
-        { "id": "syl-sa", "label": "sa" },
-        { "id": "syl-se", "label": "se" },
-        { "id": "syl-si", "label": "si" },
-        { "id": "syl-so", "label": "so" },
-        { "id": "syl-su", "label": "su" }
+        {
+          "id": "syl-sa",
+          "label": "sa"
+        },
+        {
+          "id": "syl-se",
+          "label": "se"
+        },
+        {
+          "id": "syl-si",
+          "label": "si"
+        },
+        {
+          "id": "syl-so",
+          "label": "so"
+        },
+        {
+          "id": "syl-su",
+          "label": "su"
+        }
       ],
       "targets": [
         {
@@ -69,46 +186,86 @@
         }
       ],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "verified",
-      "studentFacingStatus": "Actividad lista",
-      "teacherNotes": "Syllables sa/se/si/so/su from Lesson 9 (consonant s). Slot coordinates not yet mapped to book page."
+      "transcriptionStatus": "transcription verified from source page",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Syllables sa/se/si/so/su confirmed on source page 15-Ss (workbook page 14): syllable rows appear in both top bands. Slot coordinates not yet mapped to book page."
     },
     {
-      "id": "l9-p28-word-reveal",
+      "id": "l9-p29-tap-obj",
       "lessonNumber": 9,
-      "pageNumber": 28,
-      "kind": "drag-word-to-image",
-      "title": "Palabras del cuaderno",
-      "prompt": "Arrastra cada palabra a donde corresponde, o tócala para descubrirla.",
+      "pageNumber": 29,
+      "kind": "tap-object",
+      "title": "Toca los objetos",
+      "prompt": "Toca cada objeto del cuaderno cuando lo veas en la página.",
       "items": [
-        { "id": "w-sopa", "label": "sopa" },
-        { "id": "w-silla", "label": "silla" },
-        { "id": "w-sol", "label": "sol" }
+        {
+          "id": "obj-saco",
+          "label": "saco"
+        },
+        {
+          "id": "obj-seta",
+          "label": "seta"
+        },
+        {
+          "id": "obj-seis",
+          "label": "seis"
+        }
       ],
       "targets": [
         {
-          "id": "zone-sopa",
-          "label": "sopa",
-          "coordinatesVerified": false,
-          "acceptsItemId": "w-sopa"
+          "id": "hotspot-saco",
+          "label": "saco",
+          "coordinatesVerified": false
         },
         {
-          "id": "zone-silla",
-          "label": "silla",
-          "coordinatesVerified": false,
-          "acceptsItemId": "w-silla"
+          "id": "hotspot-seta",
+          "label": "seta",
+          "coordinatesVerified": false
         },
         {
-          "id": "zone-sol",
-          "label": "sol",
-          "coordinatesVerified": false,
-          "acceptsItemId": "w-sol"
+          "id": "hotspot-seis",
+          "label": "seis",
+          "coordinatesVerified": false
         }
       ],
-      "sourceStatus": "needs-art-mapping",
-      "transcriptionStatus": "verified",
-      "studentFacingStatus": "Imagen pendiente de mapeo del libro",
-      "teacherNotes": "sopa (so-), silla (si-), sol (so-) confirmed in consonants.json examples for Lesson 9. Word labels are verified from source data. Art hotspot coordinates and image mapping require official page scan — not yet done."
+      "sourceStatus": "needs-transcription",
+      "transcriptionStatus": "placeholder",
+      "studentFacingStatus": "hotspot coordinates pending",
+      "teacherNotes": "saco, seta, seis are NOT confirmed in consonants.json examples for Lesson 9. These object names are plausible for the S lesson but are not verified from the official workbook page scan. Do not promote to book-derived without page verification."
+    },
+    {
+      "id": "l9-p29-mini-story-ss",
+      "lessonNumber": 9,
+      "pageNumber": 29,
+      "kind": "mini-story",
+      "title": "Sapo Samapo",
+      "prompt": "Lee el mini-cuento del cuaderno.",
+      "assetRef": "/cartilla/images/source/ss/ss-page-16.jpg",
+      "assetRefSourcePage": "16-Ss (workbook page 15)",
+      "assetRefVerified": true,
+      "items": [
+        {
+          "id": "story-line-1",
+          "label": "Sapo Samapo"
+        },
+        {
+          "id": "story-line-2",
+          "label": "en la mesa está"
+        },
+        {
+          "id": "story-line-3",
+          "label": "sapo Samapo"
+        },
+        {
+          "id": "story-line-4",
+          "label": "sa-po-mi-pa."
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "transcription verified from source page",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Story text transcribed directly from source page 16-Ss (workbook page 15). Full page scan available as assetRef. Story: 'Sapo Samapo / en la mesa está / sapo Samapo / sa-po-mi-pa.'"
     },
     {
       "id": "l9-p30-read-aloud",
@@ -118,31 +275,133 @@
       "title": "Lee en voz alta",
       "prompt": "Lee la sílaba en voz alta y toca el botón para escucharla también.",
       "items": [
-        { "id": "ra-sa", "label": "sa" },
-        { "id": "ra-se", "label": "se" },
-        { "id": "ra-si", "label": "si" },
-        { "id": "ra-so", "label": "so" },
-        { "id": "ra-su", "label": "su" }
+        {
+          "id": "ra-sa",
+          "label": "sa"
+        },
+        {
+          "id": "ra-se",
+          "label": "se"
+        },
+        {
+          "id": "ra-si",
+          "label": "si"
+        },
+        {
+          "id": "ra-so",
+          "label": "so"
+        },
+        {
+          "id": "ra-su",
+          "label": "su"
+        }
       ],
       "targets": [],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "verified",
-      "studentFacingStatus": "Actividad lista",
+      "transcriptionStatus": "transcription verified from source page",
+      "studentFacingStatus": "object-level cutout pending",
       "teacherNotes": "Read-aloud of the s-syllable family. No art mapping required."
     },
     {
-      "id": "l17-p59-syllable-r",
+      "id": "l17-p59-word-reveal-r",
       "lessonNumber": 17,
       "pageNumber": 59,
+      "kind": "drag-word-to-image",
+      "title": "Palabras del cuaderno — Página Rr",
+      "prompt": "Toca cada palabra para descubrirla. Búscala en la página ilustrada del cuaderno.",
+      "assetRef": "/cartilla/images/source/r/r-page-37.jpg",
+      "assetRefSourcePage": "37-Rr (workbook page 37)",
+      "assetRefVerified": true,
+      "items": [
+        {
+          "id": "w-rana",
+          "label": "rana"
+        },
+        {
+          "id": "w-remo",
+          "label": "remo"
+        },
+        {
+          "id": "w-rosa",
+          "label": "rosa"
+        },
+        {
+          "id": "w-rueda",
+          "label": "rueda"
+        },
+        {
+          "id": "w-rita",
+          "label": "Rita"
+        }
+      ],
+      "targets": [
+        {
+          "id": "zone-rana",
+          "label": "rana",
+          "coordinatesVerified": false,
+          "acceptsItemId": "w-rana"
+        },
+        {
+          "id": "zone-remo",
+          "label": "remo",
+          "coordinatesVerified": false,
+          "acceptsItemId": "w-remo"
+        },
+        {
+          "id": "zone-rosa",
+          "label": "rosa",
+          "coordinatesVerified": false,
+          "acceptsItemId": "w-rosa"
+        },
+        {
+          "id": "zone-rueda",
+          "label": "rueda",
+          "coordinatesVerified": false,
+          "acceptsItemId": "w-rueda"
+        },
+        {
+          "id": "zone-rita",
+          "label": "Rita",
+          "coordinatesVerified": false,
+          "acceptsItemId": "w-rita"
+        }
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "transcription verified from source page",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Illustrated objects confirmed on source page 37-Rr (workbook page 37): rana, remo, Rita, rosa, rueda. Mapped directly from page scan."
+    },
+    {
+      "id": "l17-p60-syllable-r",
+      "lessonNumber": 17,
+      "pageNumber": 60,
       "kind": "drag-syllable-to-slot",
       "title": "Sílabas con R",
       "prompt": "Arrastra cada sílaba a su casilla o tócala para escucharla.",
+      "assetRef": "/cartilla/images/source/r/r-page-38.jpg",
+      "assetRefSourcePage": "38-R inicial (workbook page 38)",
+      "assetRefVerified": true,
       "items": [
-        { "id": "syl-ra", "label": "ra" },
-        { "id": "syl-re", "label": "re" },
-        { "id": "syl-ri", "label": "ri" },
-        { "id": "syl-ro", "label": "ro" },
-        { "id": "syl-ru", "label": "ru" }
+        {
+          "id": "syl-ra",
+          "label": "ra"
+        },
+        {
+          "id": "syl-re",
+          "label": "re"
+        },
+        {
+          "id": "syl-ri",
+          "label": "ri"
+        },
+        {
+          "id": "syl-ro",
+          "label": "ro"
+        },
+        {
+          "id": "syl-ru",
+          "label": "ru"
+        }
       ],
       "targets": [
         {
@@ -177,76 +436,127 @@
         }
       ],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "verified",
-      "studentFacingStatus": "Actividad lista",
-      "teacherNotes": "Syllables ra/re/ri/ro/ru from Lesson 17 (consonant r). Slot art coordinates not yet mapped."
+      "transcriptionStatus": "transcription verified from source page",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Syllables ra/re/ri/ro/ru confirmed on source page 38-R inicial (workbook page 38). Slot coordinates not yet mapped."
     },
     {
-      "id": "l17-p59-sight-word-bien",
+      "id": "l17-p60-sight-word-bien",
       "lessonNumber": 17,
-      "pageNumber": 59,
+      "pageNumber": 60,
       "kind": "listen-and-tap",
       "title": "Palabra a simple vista: bien",
       "prompt": "Toca la palabra cuando la escuches.",
+      "assetRef": "/cartilla/images/source/r/r-page-38.jpg",
+      "assetRefSourcePage": "38-R inicial (workbook page 38)",
+      "assetRefVerified": true,
       "items": [
-        { "id": "sw-bien", "label": "bien" }
+        {
+          "id": "sw-bien",
+          "label": "bien"
+        }
       ],
       "targets": [],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "verified",
-      "studentFacingStatus": "Actividad lista",
-      "teacherNotes": "Sight word 'bien' introduced in Lesson 17 per verified book spine."
+      "transcriptionStatus": "transcription verified from source page",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Sight word 'bien' confirmed on source page 38-R inicial (workbook page 38): appears in the teal sight-word strip."
     },
     {
-      "id": "l17-p60-mini-story-marker",
+      "id": "l17-p60-mini-story-r",
       "lessonNumber": 17,
       "pageNumber": 60,
       "kind": "mini-story",
-      "title": "Mini-cuento de la lección",
-      "prompt": "Esta lección tiene un mini-cuento. Escucha o lee con tu maestro.",
-      "items": [],
-      "targets": [],
-      "sourceStatus": "needs-transcription",
-      "transcriptionStatus": "placeholder",
-      "studentFacingStatus": "Texto del cuento pendiente de transcripción verificada",
-      "teacherNotes": "Mini-story is confirmed present per lesson 17 data. Exact text transcription from official book is pending."
-    },
-    {
-      "id": "l17-p61-word-reveal-r",
-      "lessonNumber": 17,
-      "pageNumber": 61,
-      "kind": "drag-word-to-image",
-      "title": "Palabras con R",
-      "prompt": "Arrastra cada palabra a donde corresponde, o tócala para descubrirla.",
+      "title": "Mini-cuento: La bola de Roberto",
+      "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+      "assetRef": "/cartilla/images/source/r/r-page-38.jpg",
+      "assetRefSourcePage": "38-R inicial (workbook page 38)",
+      "assetRefVerified": true,
       "items": [
-        { "id": "w-rama", "label": "rama" },
-        { "id": "w-rana", "label": "rana" },
-        { "id": "w-rosa", "label": "rosa" }
-      ],
-      "targets": [
         {
-          "id": "zone-rama",
-          "label": "rama",
-          "coordinatesVerified": false,
-          "acceptsItemId": "w-rama"
+          "id": "story-r-1",
+          "label": "La bola de Roberto rueda bien."
         },
         {
-          "id": "zone-rana",
-          "label": "rana",
-          "coordinatesVerified": false,
-          "acceptsItemId": "w-rana"
+          "id": "story-r-2",
+          "label": "Rolo patea la bola."
         },
         {
-          "id": "zone-rosa",
-          "label": "rosa",
-          "coordinatesVerified": false,
-          "acceptsItemId": "w-rosa"
+          "id": "story-r-3",
+          "label": "La bola rueda y le da a un bolo."
+        },
+        {
+          "id": "story-r-4",
+          "label": "El bolo se rompe y Roberto se ríe."
+        },
+        {
+          "id": "story-r-5",
+          "label": "Rolo se ríe también."
+        },
+        {
+          "id": "story-r-6",
+          "label": "Rita le da al bolo. Rita se ríe."
+        },
+        {
+          "id": "story-r-7",
+          "label": "Rolo y Roberto se ríen también."
         }
       ],
-      "sourceStatus": "needs-art-mapping",
-      "transcriptionStatus": "verified",
-      "studentFacingStatus": "Imagen pendiente de mapeo del libro",
-      "teacherNotes": "rama (ra-), rana (ra-), rosa (ro-) confirmed in consonants.json examples for Lesson 17 (consonant r). Word labels are verified from source data. Art hotspot coordinates and image mapping require official page scan — not yet done."
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "transcription verified from source page",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Mini-story text transcribed directly from source page 38-R inicial (workbook page 38). Full page scan available as assetRef. Story characters: Roberto, Rolo, Rita. No 'La Rana Rosa'."
+    },
+    {
+      "id": "l17-p61-poem-r",
+      "lessonNumber": 17,
+      "pageNumber": 61,
+      "kind": "mini-story",
+      "title": "Poema: La r para la rama",
+      "prompt": "Lee el poema del cuaderno.",
+      "assetRef": "/cartilla/images/source/r/r-page-39.jpg",
+      "assetRefSourcePage": "39-Rr (workbook page 39)",
+      "assetRefVerified": true,
+      "items": [
+        {
+          "id": "poem-1",
+          "label": "La r para la rama"
+        },
+        {
+          "id": "poem-2",
+          "label": "para el roer del ratón"
+        },
+        {
+          "id": "poem-3",
+          "label": "y para el rabo del mono"
+        },
+        {
+          "id": "poem-4",
+          "label": "risueño y remolón."
+        },
+        {
+          "id": "poem-5",
+          "label": "Para la rueda redonda"
+        },
+        {
+          "id": "poem-6",
+          "label": "la risa de tío Rolo"
+        },
+        {
+          "id": "poem-7",
+          "label": "la rana, el remo, la rosa"
+        },
+        {
+          "id": "poem-8",
+          "label": "y la rosca de Manolo."
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "OCR-assisted, needs review",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Poem text transcribed directly from source page 39-Rr (workbook page 39). Full page scan available as assetRef."
     },
     {
       "id": "l17-p62-read-aloud",
@@ -256,16 +566,31 @@
       "title": "Lee en voz alta",
       "prompt": "Lee la sílaba en voz alta y toca el botón para escucharla también.",
       "items": [
-        { "id": "ra2-ra", "label": "ra" },
-        { "id": "ra2-re", "label": "re" },
-        { "id": "ra2-ri", "label": "ri" },
-        { "id": "ra2-ro", "label": "ro" },
-        { "id": "ra2-ru", "label": "ru" }
+        {
+          "id": "ra2-ra",
+          "label": "ra"
+        },
+        {
+          "id": "ra2-re",
+          "label": "re"
+        },
+        {
+          "id": "ra2-ri",
+          "label": "ri"
+        },
+        {
+          "id": "ra2-ro",
+          "label": "ro"
+        },
+        {
+          "id": "ra2-ru",
+          "label": "ru"
+        }
       ],
       "targets": [],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "verified",
-      "studentFacingStatus": "Actividad lista",
+      "transcriptionStatus": "transcription verified from source page",
+      "studentFacingStatus": "object-level cutout pending",
       "teacherNotes": "Read-aloud of the r-syllable family. No art mapping required."
     }
   ]
