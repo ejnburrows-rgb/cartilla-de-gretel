@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import { BookOpenCheck, ChevronLeft, ChevronRight, FileText } from "lucide-react";
 import { OfficialWorkbookPage } from "@/components/cartilla/OfficialWorkbookPage";
+import { BookPageFlip } from "@/components/cartilla/BookPageFlip";
 import { getWorkbookPageSourcesForLesson } from "@/lib/workbook-source";
 
 type OfficialWorkbookLessonViewProps = {
@@ -94,24 +94,7 @@ export function OfficialWorkbookLessonView({
 
   if (!selectedSource) return null;
 
-  // Page-turn animation variants using framer-motion for a realistic 3D physical book page flip
-  const variants = {
-    enter: (dir: number) => ({
-      rotateY: dir > 0 ? 165 : -165,
-      opacity: 0,
-      z: -30,
-    }),
-    center: {
-      rotateY: 0,
-      opacity: 1,
-      z: 0,
-    },
-    exit: (dir: number) => ({
-      rotateY: dir > 0 ? -165 : 165,
-      opacity: 0,
-      z: -30,
-    }),
-  };
+
 
   return (
     <section className="mt-5 space-y-4" aria-label="Cuaderno oficial de la lección">
@@ -167,58 +150,9 @@ export function OfficialWorkbookLessonView({
         </div>
       </div>
 
-      {/* ── Page viewer with turn animation ────────────────────── */}
-      <div
-        className="relative overflow-visible rounded-2xl p-0.5"
-        style={{ perspective: "1800px", transformStyle: "preserve-3d" }}
-        aria-live="polite"
-        aria-atomic="true"
-        aria-label={`Página ${selectedPage} de ${totalPages > 0 ? lessonSource.pages[totalPages - 1].pageNumber : selectedPage}`}
-      >
-        <AnimatePresence
-          mode="wait"
-          custom={directionRef.current}
-          initial={false}
-        >
-          <motion.div
-            key={selectedPage}
-            custom={directionRef.current}
-            variants={variants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{
-              duration: 0.85,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className="relative w-full"
-            style={{
-              transformOrigin: "left center",
-              transformStyle: "preserve-3d",
-              backfaceVisibility: "hidden",
-              WebkitBackfaceVisibility: "hidden",
-            }}
-          >
-            {/* Subtle paper shadow overlay that darkens as page curls */}
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-black/18 via-transparent to-black/8 pointer-events-none z-10 rounded-2xl"
-              initial={{ opacity: 0.25 }}
-              animate={{ opacity: 0 }}
-              exit={{ opacity: 0.4 }}
-              transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-            />
-            {/* Highlight glare overlay to simulate physical light reflection */}
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-white/12 via-white/5 to-transparent pointer-events-none z-10 rounded-2xl"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.12 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-            />
-            <OfficialWorkbookPage source={selectedSource} runtimePdfAvailable={runtimePdfAvailable} />
-          </motion.div>
-        </AnimatePresence>
-      </div>
+      <BookPageFlip pageKey={selectedPage} direction={directionRef.current}>
+        <OfficialWorkbookPage source={selectedSource} runtimePdfAvailable={runtimePdfAvailable} />
+      </BookPageFlip>
 
       {/* ── Page-turn controls ─────────────────────────────────── */}
       <div
