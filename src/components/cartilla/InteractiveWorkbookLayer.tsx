@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BookOpen, Volume2, CheckCircle2, Hourglass } from "lucide-react";
+import { BookOpen, Volume2, CheckCircle2, Hourglass, BookOpenCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { speak } from "@/lib/speak";
 import {
@@ -18,10 +18,10 @@ type Props = {
 };
 
 // ---------------------------------------------------------------------------
-// Shared mini components
+// SyllablePractice — large, child-friendly syllable tap/read-aloud
 // ---------------------------------------------------------------------------
 
-function ListenAndTap({
+function SyllablePractice({
   interaction,
   accent,
   onComplete,
@@ -42,45 +42,139 @@ function ListenAndTap({
     });
   };
 
+  const allDone = tapped.size >= interaction.items.length;
+
   return (
-    <div className="rounded-2xl border border-foreground/10 bg-card p-4 space-y-3">
-      <div className="flex items-start gap-3">
-        <div className="w-2 min-h-[2rem] rounded-full shrink-0" style={{ backgroundColor: accent }} />
-        <div>
-          <h3 className="font-bold text-base text-foreground/90">{interaction.title}</h3>
-          <p className="text-sm text-foreground/60 mt-0.5">{interaction.prompt}</p>
+    <div className="rounded-2xl border border-foreground/10 bg-white/90 shadow-sm overflow-hidden">
+      {/* Header bar */}
+      <div
+        className="px-4 py-3 flex items-center gap-3"
+        style={{ backgroundColor: accent + "18" }}
+      >
+        <div className="w-1.5 self-stretch rounded-full shrink-0" style={{ backgroundColor: accent }} />
+        <div className="flex-1 min-w-0">
+          <h3 className="font-bold text-base text-foreground/90 leading-tight">{interaction.title}</h3>
+          <p className="text-sm text-foreground/55 mt-0.5 leading-snug">{interaction.prompt}</p>
         </div>
+        {allDone && (
+          <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" aria-label="Completado" />
+        )}
       </div>
-      <div className="flex flex-wrap gap-2">
-        {interaction.items.map((item) => {
-          const done = tapped.has(item.id);
-          return (
-            <button
-              key={item.id}
-              type="button"
-              aria-label={`Escuchar y tocar: ${item.label}${done ? ". Tocado." : ""}`}
-              onClick={() => handleTap(item.id, item.label)}
-              className={cn(
-                "inline-flex items-center gap-1.5 px-4 py-2 rounded-xl font-bold text-base border-2 transition-all",
-                done
-                  ? "border-emerald-400 bg-emerald-50 text-emerald-800"
-                  : "border-foreground/15 bg-background hover:scale-105 active:scale-95",
-              )}
-              style={{ borderColor: done ? undefined : accent + "40" }}
-            >
-              {done ? (
-                <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-              ) : (
-                <Volume2 className="w-4 h-4 text-foreground/40" />
-              )}
-              {item.label}
-            </button>
-          );
-        })}
+
+      {/* Syllable buttons — large, workbook-style grid */}
+      <div className="px-4 py-4">
+        <div className="flex flex-wrap gap-3 justify-center">
+          {interaction.items.map((item) => {
+            const done = tapped.has(item.id);
+            return (
+              <button
+                key={item.id}
+                type="button"
+                aria-label={`Sílaba ${item.label}${done ? ". Leída." : ""}`}
+                onClick={() => handleTap(item.id, item.label)}
+                className={cn(
+                  "min-w-[4.5rem] min-h-[4.5rem] rounded-2xl border-2 font-extrabold text-2xl transition-all flex flex-col items-center justify-center gap-1 shadow-sm active:scale-95",
+                  done
+                    ? "border-emerald-400 bg-emerald-50 text-emerald-800"
+                    : "border-foreground/15 bg-white hover:scale-105 text-foreground",
+                )}
+                style={!done ? { borderColor: accent + "60", color: accent } : undefined}
+              >
+                {item.label}
+                <Volume2
+                  aria-hidden
+                  className={cn(
+                    "w-3.5 h-3.5",
+                    done ? "text-emerald-400" : "text-foreground/25",
+                  )}
+                />
+              </button>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
 }
+
+// ---------------------------------------------------------------------------
+// WordTap — large, tapable word chips
+// ---------------------------------------------------------------------------
+
+function WordTap({
+  interaction,
+  accent,
+  onComplete,
+}: {
+  interaction: WorkbookInteraction;
+  accent: string;
+  onComplete?: (id: string) => void;
+}) {
+  const [tapped, setTapped] = useState<Set<string>>(new Set());
+
+  const handleTap = (id: string, label: string) => {
+    speak(label);
+    setTapped((prev) => {
+      const next = new Set(prev);
+      next.add(id);
+      if (next.size >= interaction.items.length && onComplete) onComplete(interaction.id);
+      return next;
+    });
+  };
+
+  const allDone = tapped.size >= interaction.items.length;
+
+  return (
+    <div className="rounded-2xl border border-foreground/10 bg-white/90 shadow-sm overflow-hidden">
+      <div
+        className="px-4 py-3 flex items-center gap-3"
+        style={{ backgroundColor: accent + "18" }}
+      >
+        <div className="w-1.5 self-stretch rounded-full shrink-0" style={{ backgroundColor: accent }} />
+        <div className="flex-1 min-w-0">
+          <h3 className="font-bold text-base text-foreground/90 leading-tight">{interaction.title}</h3>
+          <p className="text-sm text-foreground/55 mt-0.5 leading-snug">{interaction.prompt}</p>
+        </div>
+        {allDone && (
+          <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" aria-label="Completado" />
+        )}
+      </div>
+      <div className="px-4 py-4">
+        <div className="flex flex-wrap gap-2.5">
+          {interaction.items.map((item) => {
+            const done = tapped.has(item.id);
+            return (
+              <button
+                key={item.id}
+                type="button"
+                aria-label={`Palabra ${item.label}${done ? ". Escuchada." : ""}`}
+                onClick={() => handleTap(item.id, item.label)}
+                className={cn(
+                  "inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border-2 font-bold text-lg transition-all active:scale-95",
+                  done
+                    ? "border-emerald-400 bg-emerald-50 text-emerald-800"
+                    : "border-foreground/15 bg-white hover:scale-105 text-foreground",
+                )}
+                style={!done ? { borderColor: accent + "60", color: accent } : undefined}
+              >
+                {done ? (
+                  <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" aria-hidden />
+                ) : (
+                  <Volume2 className="w-4 h-4 text-foreground/35 shrink-0" aria-hidden />
+                )}
+                {item.label}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// ReadAloud — for sentences and multi-word read-aloud
+// ---------------------------------------------------------------------------
 
 function ReadAloud({
   interaction,
@@ -103,125 +197,105 @@ function ReadAloud({
     });
   };
 
+  const isSentences = interaction.items.some((i) => i.label.length > 10);
+  const allDone = tapped.size >= interaction.items.length;
+
   return (
-    <div className="rounded-2xl border border-foreground/10 bg-card p-4 space-y-3">
-      <div className="flex items-start gap-3">
-        <div className="w-2 min-h-[2rem] rounded-full shrink-0" style={{ backgroundColor: accent }} />
-        <div>
-          <h3 className="font-bold text-base text-foreground/90">{interaction.title}</h3>
-          <p className="text-sm text-foreground/60 mt-0.5">{interaction.prompt}</p>
+    <div className="rounded-2xl border border-foreground/10 bg-white/90 shadow-sm overflow-hidden">
+      <div
+        className="px-4 py-3 flex items-center gap-3"
+        style={{ backgroundColor: accent + "18" }}
+      >
+        <div className="w-1.5 self-stretch rounded-full shrink-0" style={{ backgroundColor: accent }} />
+        <div className="flex-1 min-w-0">
+          <h3 className="font-bold text-base text-foreground/90 leading-tight">{interaction.title}</h3>
+          <p className="text-sm text-foreground/55 mt-0.5 leading-snug">{interaction.prompt}</p>
         </div>
+        {allDone && <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" aria-label="Completado" />}
       </div>
-      <div className="flex flex-wrap gap-2">
-        {interaction.items.map((item) => {
-          const done = tapped.has(item.id);
-          return (
-            <button
-              key={item.id}
-              type="button"
-              aria-label={`Escuchar ${item.label}${done ? ". Escuchado." : ""}`}
-              onClick={() => handleTap(item.id, item.label)}
-              className={cn(
-                "px-5 py-3 rounded-2xl font-extrabold text-xl border-2 transition-all",
-                done
-                  ? "border-emerald-300 bg-emerald-50 text-emerald-700"
-                  : "border-foreground/12 bg-background text-foreground hover:scale-105 active:scale-95",
-              )}
-              style={{ color: done ? undefined : accent }}
-            >
-              {item.label}
-            </button>
-          );
-        })}
+      <div className="px-4 py-4">
+        <div className={cn("flex gap-2.5", isSentences ? "flex-col" : "flex-wrap")}>
+          {interaction.items.map((item) => {
+            const done = tapped.has(item.id);
+            return (
+              <button
+                key={item.id}
+                type="button"
+                aria-label={`Escuchar: ${item.label}${done ? ". Escuchado." : ""}`}
+                onClick={() => handleTap(item.id, item.label)}
+                className={cn(
+                  "flex items-center gap-2.5 rounded-xl border-2 font-semibold transition-all active:scale-[0.98] text-left",
+                  isSentences
+                    ? "px-4 py-3 text-base leading-snug"
+                    : "px-4 py-2.5 text-xl font-extrabold",
+                  done
+                    ? "border-emerald-300 bg-emerald-50 text-emerald-800"
+                    : "border-foreground/12 bg-white hover:bg-foreground/4 text-foreground",
+                )}
+                style={!done ? { color: accent } : undefined}
+              >
+                {done ? (
+                  <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" aria-hidden />
+                ) : (
+                  <Volume2 className="w-4 h-4 shrink-0 text-foreground/30" aria-hidden />
+                )}
+                <span>{item.label}</span>
+              </button>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
 }
 
-function MiniStoryMarker({
+// ---------------------------------------------------------------------------
+// MiniStoryCard — clean, book-inspired design
+// ---------------------------------------------------------------------------
+
+function MiniStoryCard({
   interaction,
   accent,
 }: {
   interaction: WorkbookInteraction;
   accent: string;
 }) {
+  const hasText = interaction.items.length > 0;
+  const [revealed, setRevealed] = useState(false);
+
   return (
     <div
-      className="rounded-2xl border-l-4 bg-amber-50 border border-amber-200 p-4 space-y-2"
-      style={{ borderLeftColor: accent }}
+      className="rounded-2xl border border-amber-200/70 bg-amber-50/80 shadow-sm overflow-hidden"
       role="complementary"
-      aria-label="Marcador de mini-cuento"
+      aria-label="Mini-cuento del cuaderno"
     >
-      <div className="flex items-center gap-2">
-        <BookOpen className="w-5 h-5 text-amber-700 shrink-0" />
-        <h3 className="font-bold text-base text-amber-900">{interaction.title}</h3>
-      </div>
-      <p className="text-sm text-amber-800 leading-relaxed">{interaction.prompt}</p>
-      {interaction.sourceStatus === "needs-transcription" && (
-        <p className="text-xs font-bold text-amber-600 flex items-center gap-1">
-          <Hourglass className="w-3 h-3" />
-          {interaction.studentFacingStatus}
-        </p>
-      )}
-    </div>
-  );
-}
-
-// ---------------------------------------------------------------------------
-// Slot drag-syllable fallback
-// ---------------------------------------------------------------------------
-
-function SyllableSlots({
-  interaction,
-  accent,
-  onComplete,
-}: {
-  interaction: WorkbookInteraction;
-  accent: string;
-  onComplete?: (id: string) => void;
-}) {
-  const [filled, setFilled] = useState<Set<string>>(new Set());
-
-  const handleTap = (id: string, label: string) => {
-    speak(label);
-    setFilled((prev) => {
-      const next = new Set(prev);
-      next.add(id);
-      if (next.size >= interaction.items.length && onComplete) onComplete(interaction.id);
-      return next;
-    });
-  };
-
-  return (
-    <div className="rounded-2xl border border-foreground/10 bg-card p-4 space-y-3">
-      <div className="flex items-start gap-3">
-        <div className="w-2 min-h-[2rem] rounded-full shrink-0" style={{ backgroundColor: accent }} />
-        <div>
-          <h3 className="font-bold text-base text-foreground/90">{interaction.title}</h3>
-          <p className="text-sm text-foreground/60 mt-0.5">{interaction.prompt}</p>
+      <div className="px-4 py-3 flex items-center gap-3 bg-amber-100/60 border-b border-amber-200/50">
+        <BookOpen className="w-5 h-5 text-amber-700 shrink-0" aria-hidden />
+        <div className="flex-1 min-w-0">
+          <h3 className="font-bold text-base text-amber-900 leading-tight">{interaction.title}</h3>
+          <p className="text-sm text-amber-700/80 mt-0.5 leading-snug">{interaction.prompt}</p>
         </div>
       </div>
-      <div className="flex flex-wrap gap-2">
-        {interaction.items.map((item) => {
-          const done = filled.has(item.id);
-          return (
-            <button
-              key={item.id}
-              type="button"
-              aria-label={`Sílaba ${item.label}${done ? ". Escuchada." : ""}`}
-              onClick={() => handleTap(item.id, item.label)}
-              className={cn(
-                "px-4 py-2 rounded-xl border-2 font-bold text-lg transition-all",
-                done
-                  ? "border-emerald-400 bg-emerald-50 text-emerald-700"
-                  : "border-foreground/15 bg-background hover:scale-105 active:scale-95 text-foreground",
-              )}
-              style={{ borderColor: done ? undefined : accent }}
-            >
-              {item.label}
-            </button>
-          );
-        })}
+      <div className="px-4 py-4">
+        {hasText ? (
+          <div className="space-y-2">
+            {interaction.items.map((item) => (
+              <p
+                key={item.id}
+                className="text-base leading-relaxed text-amber-950 font-medium"
+              >
+                {item.label}
+              </p>
+            ))}
+          </div>
+        ) : (
+          <div className="flex items-start gap-2 text-sm text-amber-800/80">
+            <Hourglass className="w-4 h-4 mt-0.5 shrink-0 text-amber-500" aria-hidden />
+            <span className="leading-snug font-medium">
+              {interaction.studentFacingStatus}
+            </span>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -251,18 +325,18 @@ function ActivityCard({
       );
     case "drag-syllable-to-slot":
       return (
-        <SyllableSlots interaction={interaction} accent={accent} onComplete={onComplete} />
+        <SyllablePractice interaction={interaction} accent={accent} onComplete={onComplete} />
       );
     case "listen-and-tap":
       return (
-        <ListenAndTap interaction={interaction} accent={accent} onComplete={onComplete} />
+        <WordTap interaction={interaction} accent={accent} onComplete={onComplete} />
       );
     case "read-aloud":
       return (
         <ReadAloud interaction={interaction} accent={accent} onComplete={onComplete} />
       );
     case "mini-story":
-      return <MiniStoryMarker interaction={interaction} accent={accent} />;
+      return <MiniStoryCard interaction={interaction} accent={accent} />;
     default:
       return null;
   }
@@ -280,117 +354,96 @@ export function InteractiveWorkbookLayer({
 }: Props) {
   const [completedIds, setCompletedIds] = useState<Set<string>>(new Set());
 
-  const activePage =
-    activePageNumber ?? pageNumbers[0];
+  const activePage = activePageNumber ?? pageNumbers[0];
 
-  const { interactions, pendingArtCount, pendingTranscriptionCount } = getPageInteractionSet(
-    lessonNumber,
-    activePage,
-  );
+  const { interactions } = getPageInteractionSet(lessonNumber, activePage);
 
+  // Only show ready (book-derived/verified) interactions to students.
+  // Pending items are tracked in teacher-facing data only.
   const ready = interactions.filter(
     (i) => i.sourceStatus === "verified" || i.sourceStatus === "book-derived",
   );
 
-  const pendingArt = interactions.filter((i) => i.sourceStatus === "needs-art-mapping");
-  const pendingTranscription = interactions.filter(
-    (i) => i.sourceStatus === "needs-transcription",
+  // Also include mini-stories even if transcription is pending — they show the
+  // student-facing placeholder message and the page scan is connected.
+  const storyPlaceholders = interactions.filter(
+    (i) => i.kind === "mini-story" && i.sourceStatus === "needs-transcription",
   );
 
-  // Verify activePage is even covered
+  // Verify activePage is even covered in this lesson
   const allInteractionsForLesson = pageNumbers.flatMap((pn) =>
     getInteractionsForPage(lessonNumber, pn),
   );
 
   if (allInteractionsForLesson.length === 0) return null;
 
+  const visibleInteractions = [...ready, ...storyPlaceholders];
+
   const handleComplete = (id: string) => {
     setCompletedIds((prev) => new Set([...prev, id]));
   };
 
+  const completedCount = visibleInteractions.filter((i) => completedIds.has(i.id)).length;
+  const totalVisible = visibleInteractions.length;
+
   return (
     <section
-      className="mt-6 space-y-4"
+      className="mt-6 space-y-3"
       aria-label="Actividades interactivas del cuaderno"
     >
-      <div className="flex items-center gap-2">
+      {/* Section header */}
+      <div className="flex items-center gap-3">
         <div
-          className="flex-1 h-px"
-          style={{ background: `linear-gradient(to right, ${accent}40, transparent)` }}
+          className="h-px flex-1"
+          style={{ background: `linear-gradient(to right, ${accent}50, transparent)` }}
         />
-        <h2 className="text-sm font-extrabold uppercase tracking-widest text-foreground/55 px-2">
-          Actividades interactivas del cuaderno
-        </h2>
+        <div className="flex items-center gap-2 px-1">
+          <BookOpenCheck className="w-4 h-4" style={{ color: accent }} aria-hidden />
+          <h2 className="text-xs font-extrabold uppercase tracking-widest text-foreground/50">
+            Actividades del cuaderno
+          </h2>
+        </div>
         <div
-          className="flex-1 h-px"
-          style={{ background: `linear-gradient(to left, ${accent}40, transparent)` }}
+          className="h-px flex-1"
+          style={{ background: `linear-gradient(to left, ${accent}50, transparent)` }}
         />
       </div>
 
-      {interactions.length === 0 ? (
-        <div className="rounded-2xl border border-dashed border-foreground/15 bg-secondary/20 px-5 py-6 text-center text-sm text-foreground/50 font-semibold">
-          Actividades de esta página en preparación.
+      {visibleInteractions.length === 0 ? (
+        <div className="rounded-2xl border border-dashed border-foreground/12 bg-white/50 px-5 py-5 text-center">
+          <p className="text-sm font-semibold text-foreground/45 leading-relaxed">
+            Las actividades de esta página están en preparación.
+          </p>
         </div>
       ) : (
-        <>
-          {/* Ready interactions */}
-          {ready.length > 0 && (
-            <div className="space-y-3">
-              {ready.map((interaction) => (
-                <ActivityCard
-                  key={interaction.id}
-                  interaction={interaction}
-                  accent={accent}
-                  onComplete={handleComplete}
+        <div className="space-y-3">
+          {visibleInteractions.map((interaction) => (
+            <ActivityCard
+              key={interaction.id}
+              interaction={interaction}
+              accent={accent}
+              onComplete={handleComplete}
+            />
+          ))}
+
+          {/* Progress indicator — only when multiple activities */}
+          {totalVisible > 1 && completedCount > 0 && (
+            <div className="flex items-center gap-2 justify-end pt-1">
+              <div className="h-1.5 flex-1 max-w-24 bg-foreground/8 rounded-full overflow-hidden">
+                <div
+                  className="h-full rounded-full transition-all"
+                  style={{
+                    width: `${(completedCount / totalVisible) * 100}%`,
+                    backgroundColor: accent,
+                  }}
                 />
-              ))}
+              </div>
+              <span className="text-[10px] font-bold text-foreground/35 tabular-nums">
+                {completedCount}/{totalVisible}
+              </span>
             </div>
           )}
-
-          {/* Pending art mapping */}
-          {pendingArt.length > 0 && (
-            <div className="space-y-3">
-              <p className="text-xs font-bold text-foreground/40 uppercase tracking-wide">
-                Imágenes pendientes de mapeo
-              </p>
-              {pendingArt.map((interaction) => (
-                <ActivityCard
-                  key={interaction.id}
-                  interaction={interaction}
-                  accent={accent}
-                  onComplete={handleComplete}
-                />
-              ))}
-            </div>
-          )}
-
-          {/* Pending transcription */}
-          {pendingTranscription.length > 0 && (
-            <div className="space-y-3">
-              <p className="text-xs font-bold text-foreground/40 uppercase tracking-wide">
-                Contenido pendiente de transcripción
-              </p>
-              {pendingTranscription.map((interaction) => (
-                <ActivityCard
-                  key={interaction.id}
-                  interaction={interaction}
-                  accent={accent}
-                  onComplete={handleComplete}
-                />
-              ))}
-            </div>
-          )}
-
-          {/* Summary counters for teacher context */}
-          {(pendingArtCount > 0 || pendingTranscriptionCount > 0) && (
-            <p className="text-[10px] font-bold text-foreground/30 text-right">
-              {pendingArtCount > 0 && `${pendingArtCount} pendiente${pendingArtCount !== 1 ? "s" : ""} de mapeo de arte`}
-              {pendingArtCount > 0 && pendingTranscriptionCount > 0 && " · "}
-              {pendingTranscriptionCount > 0 &&
-                `${pendingTranscriptionCount} pendiente${pendingTranscriptionCount !== 1 ? "s" : ""} de transcripción`}
-            </p>
-          )}
-        </>
+        </div>
       )}
     </section>
   );
