@@ -1633,11 +1633,311 @@
       },
       "auditNotes": null,
       "bookFaithfulLesson": 20
+    },
+    {
+      "position": 49,
+      "letter": "J",
+      "rawLabel": "49-Jj",
+      "title": "Jj",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [
+        "/cartilla/images/source/j/j-page-49.jpg"
+      ],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": "Source scan mapped from 49-Jj.pdf at 2x resolution. Text pending manual verification.",
+      "bookFaithfulLesson": 21
+    },
+    {
+      "position": 50,
+      "letter": "J",
+      "rawLabel": "50-Jj",
+      "title": "Jj",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [
+        "/cartilla/images/source/j/j-page-50.jpg"
+      ],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": "Source scan mapped from 50-Jj (.pdf at 2x resolution. Text pending manual verification.",
+      "bookFaithfulLesson": 21
+    },
+    {
+      "position": 51,
+      "letter": "J",
+      "rawLabel": "51-Jj",
+      "title": "Jj",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [
+        "/cartilla/images/source/j/j-page-51.jpg"
+      ],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": "Source scan mapped from 51-Jj.pdf at 2x resolution. Text pending manual verification.",
+      "bookFaithfulLesson": 21
+    },
+    {
+      "position": 52,
+      "letter": "C",
+      "rawLabel": "52-Cc",
+      "title": "Cc",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [
+        "/cartilla/images/source/c/c-page-52.jpg"
+      ],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": "Source scan mapped from 52-Cc.pdf at 2x resolution. Text pending manual verification.",
+      "bookFaithfulLesson": 22
+    },
+    {
+      "position": 53,
+      "letter": "C",
+      "rawLabel": "53-Cc",
+      "title": "Cc",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [
+        "/cartilla/images/source/c/c-page-53.jpg"
+      ],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": "Source scan mapped from 53-Cc.pdf at 2x resolution. Text pending manual verification.",
+      "bookFaithfulLesson": 22
+    },
+    {
+      "position": 54,
+      "letter": "C",
+      "rawLabel": "54-Cc",
+      "title": "Cc",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [
+        "/cartilla/images/source/c/c-page-54.jpg"
+      ],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": "Source scan mapped from 54-Cc.pdf at 2x resolution. Text pending manual verification.",
+      "bookFaithfulLesson": 22
+    },
+    {
+      "position": 55,
+      "letter": "Y",
+      "rawLabel": "55-Yy",
+      "title": "Yy",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [
+        "/cartilla/images/source/y/y-page-55.jpg"
+      ],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": "Source scan mapped from 55-Yy.pdf at 2x resolution. Text pending manual verification.",
+      "bookFaithfulLesson": 23
+    },
+    {
+      "position": 56,
+      "letter": "Y",
+      "rawLabel": "56-Yy",
+      "title": "Yy",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [
+        "/cartilla/images/source/y/y-page-56.jpg"
+      ],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": "Source scan mapped from 56-Yy.pdf at 2x resolution. Text pending manual verification.",
+      "bookFaithfulLesson": 23
+    },
+    {
+      "position": 57,
+      "letter": "Y",
+      "rawLabel": "57-Yy",
+      "title": "Yy",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [
+        "/cartilla/images/source/y/y-page-57.jpg"
+      ],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": "Source scan mapped from 57-Yy.pdf at 2x resolution. Text pending manual verification.",
+      "bookFaithfulLesson": 23
+    },
+    {
+      "position": 58,
+      "letter": "Z",
+      "rawLabel": "58-Zz",
+      "title": "Zz",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [
+        "/cartilla/images/source/z/z-page-58.jpg"
+      ],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": "Source scan mapped from 58-Zz.pdf at 2x resolution. Text pending manual verification.",
+      "bookFaithfulLesson": 24
+    },
+    {
+      "position": 59,
+      "letter": "Z",
+      "rawLabel": "59-Zz",
+      "title": "Zz",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [
+        "/cartilla/images/source/z/z-page-59.jpg"
+      ],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": "Source scan mapped from 59-Zz.pdf at 2x resolution. Text pending manual verification.",
+      "bookFaithfulLesson": 24
+    },
+    {
+      "position": 60,
+      "letter": "Z",
+      "rawLabel": "60-Zz",
+      "title": "Zz",
+      "pageRange": null,
+      "colors": null,
+      "sourcePages": [],
+      "originalImages": [],
+      "remasteredImages": [
+        "/cartilla/images/source/z/z-page-60.jpg"
+      ],
+      "textBlocks": [],
+      "workbookExercises": [],
+      "teacherGuideNotes": [],
+      "audioTargets": [],
+      "status": {
+        "rima": "Missing",
+        "art": "Has scaffolding",
+        "audio": "Not recorded",
+        "estelaCredit": false
+      },
+      "auditNotes": "Source scan mapped from 60-Zz.pdf at 2x resolution. Text pending manual verification.",
+      "bookFaithfulLesson": 24
     }
   ],
   "summary": {
     "totalLessons": 24,
-    "totalPageScaffolds": 47,
+    "totalPageScaffolds": 59,
     "rimaComplete": 11,
     "rimaMissing": 36,
     "artHasScaffolding": 36,
