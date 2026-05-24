@@ -87,7 +87,8 @@ function JoinPage() {
           <form onSubmit={submit} className="mt-8 space-y-3">
             {!isSupabaseConfigured && (
               <div className="rounded-2xl border-2 border-vowel-i/20 bg-vowel-i/5 px-4 py-3 text-sm font-bold text-vowel-i">
-                Demo prellenado: {DEFAULT_DEMO_STUDENT.name}. Pulsa Entrar para comenzar las lecciones.
+                Modo demo local: Supabase no estÃ¡ configurado. La sesiÃ³n y el progreso se guardan
+                en este navegador. Demo prellenado: {DEFAULT_DEMO_STUDENT.name}.
               </div>
             )}
             <div>

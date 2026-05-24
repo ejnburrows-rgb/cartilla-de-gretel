@@ -57,10 +57,21 @@ type DemoClass = {
   created_at: string;
 };
 
+type DemoAssignment = {
+  id: string;
+  class_id: string;
+  lesson_id: string;
+  title: string | null;
+  due_at: string | null;
+  time_limit_seconds: number | null;
+  created_at: string;
+};
+
 type DemoState = {
   classes: DemoClass[];
   students: DemoStudent[];
   events: DemoEvent[];
+  assignments: DemoAssignment[];
 };
 
 function nowIso() {
@@ -114,7 +125,22 @@ function initialState(): DemoState {
       created_at: nowIso(),
     },
   ];
-  return { classes, students, events: seedEvents() };
+  return {
+    classes,
+    students,
+    events: seedEvents(),
+    assignments: [
+      {
+        id: "demo-assignment-leonor-l1",
+        class_id: "demo-class-leonor",
+        lesson_id: "1",
+        title: "Primer repaso",
+        due_at: null,
+        time_limit_seconds: null,
+        created_at: nowIso(),
+      },
+    ],
+  };
 }
 
 function seedEvents(): DemoEvent[] {
@@ -163,7 +189,15 @@ function readState(): DemoState {
   if (typeof window === "undefined") return initialState();
   try {
     const raw = localStorage.getItem(STATE_KEY);
-    if (raw) return JSON.parse(raw) as DemoState;
+    if (raw) {
+      const parsed = JSON.parse(raw) as Partial<DemoState>;
+      return {
+        classes: parsed.classes ?? [],
+        students: parsed.students ?? [],
+        events: parsed.events ?? [],
+        assignments: parsed.assignments ?? [],
+      };
+    }
   } catch {
     /* reset below */
   }
@@ -241,6 +275,7 @@ export function deleteDemoClass(id: string) {
   state.classes = state.classes.filter((c) => c.id !== id);
   state.students = state.students.filter((s) => s.class_id !== id);
   state.events = state.events.filter((e) => !studentIds.includes(e.student_id));
+  state.assignments = state.assignments.filter((a) => a.class_id !== id);
   writeState(state);
   return { ok: true };
 }
@@ -331,6 +366,75 @@ export function logDemoProgress(input: {
   return { ok: true };
 }
 
+export function listDemoAssignments(classId: string) {
+  const teacher = getDemoTeacher();
+  if (!teacher) throw new Error("Debes iniciar sesion como maestro demo.");
+  const state = readState();
+  const cls = state.classes.find((c) => c.id === classId && c.teacher_id === teacher.id);
+  if (!cls) throw new Error("Clase demo no encontrada.");
+  return state.assignments
+    .filter((a) => a.class_id === classId)
+    .sort((a, b) => b.created_at.localeCompare(a.created_at));
+}
+
+export function createDemoAssignment(input: {
+  classId: string;
+  lessonId: string;
+  title?: string;
+  dueAt?: string | null;
+  timeLimitSeconds?: number | null;
+}) {
+  const teacher = getDemoTeacher();
+  if (!teacher) throw new Error("Debes iniciar sesion como maestro demo.");
+  const state = readState();
+  const cls = state.classes.find((c) => c.id === input.classId && c.teacher_id === teacher.id);
+  if (!cls) throw new Error("Clase demo no encontrada.");
+  const row: DemoAssignment = {
+    id: `demo-assignment-${crypto.randomUUID()}`,
+    class_id: input.classId,
+    lesson_id: input.lessonId,
+    title: input.title || null,
+    due_at: input.dueAt || null,
+    time_limit_seconds: input.timeLimitSeconds || null,
+    created_at: nowIso(),
+  };
+  state.assignments.unshift(row);
+  writeState(state);
+  return row;
+}
+
+export function deleteDemoAssignment(id: string) {
+  const teacher = getDemoTeacher();
+  if (!teacher) throw new Error("Debes iniciar sesion como maestro demo.");
+  const state = readState();
+  const assignment = state.assignments.find((a) => a.id === id);
+  const cls = assignment
+    ? state.classes.find((c) => c.id === assignment.class_id && c.teacher_id === teacher.id)
+    : null;
+  if (!assignment || !cls) throw new Error("Tarea demo no encontrada.");
+  state.assignments = state.assignments.filter((a) => a.id !== id);
+  writeState(state);
+  return { ok: true };
+}
+
+export function listDemoStudentAssignments(input: {
+  classId: string;
+  studentId: string;
+  studentCode: string;
+}) {
+  const state = readState();
+  const student = state.students.find(
+    (s) =>
+      s.id === input.studentId &&
+      s.class_id === input.classId &&
+      s.student_code.toUpperCase() === input.studentCode.toUpperCase(),
+  );
+  if (!student) throw new Error("Alumno demo no encontrado.");
+  return state.assignments
+    .filter((a) => a.class_id === input.classId)
+    .sort((a, b) => b.created_at.localeCompare(a.created_at));
+}
+
 export function getDemoStudentProgress(studentId: string) {
   const state = readState();
   const student = state.students.find((s) => s.id === studentId);
@@ -377,6 +481,7 @@ export function getDemoClassProgress(classId: string) {
       row.total += e.total ?? 0;
     }
   });
+  const assignments = state.assignments.filter((a) => a.class_id === classId);
   return {
     perStudent: state.students
       .filter((s) => s.class_id === classId)
@@ -400,6 +505,30 @@ export function getDemoClassProgress(classId: string) {
         },
       ]),
     ),
+    assignments: assignments.map((assignment) => {
+      const lessonEvents = events.filter((e) => e.lesson_id === assignment.lesson_id);
+      const completedIds = new Set(
+        lessonEvents
+          .filter((e) => e.event_kind === "lesson_completed")
+          .map((e) => e.student_id),
+      );
+      const exerciseRows = lessonEvents.filter(
+        (e) => e.event_kind === "exercise" && e.score != null && e.total != null,
+      );
+      const score = exerciseRows.reduce((sum, e) => sum + (e.score ?? 0), 0);
+      const total = exerciseRows.reduce((sum, e) => sum + (e.total ?? 0), 0);
+      return {
+        id: assignment.id,
+        lessonId: assignment.lesson_id,
+        title: assignment.title,
+        dueAt: assignment.due_at,
+        completed: completedIds.size,
+        late: 0,
+        assigned: studentIds.length,
+        averageTimeSeconds: null,
+        accuracy: total > 0 ? score / total : null,
+      };
+    }),
     totalLessons: TOTAL_LESSONS,
   };
 }

@@ -1,11 +1,17 @@
 import { useEffect, useState } from "react";
+import { getStudentSession } from "@/lib/student-session";
 
 const KEY = "cartilla.lesson-progress.v1";
+
+function activeKey() {
+  const session = getStudentSession();
+  return session ? `${KEY}.${session.classId}.${session.studentId}` : KEY;
+}
 
 function read(): Set<number> {
   if (typeof window === "undefined") return new Set();
   try {
-    const raw = localStorage.getItem(KEY);
+    const raw = localStorage.getItem(activeKey());
     if (!raw) return new Set();
     const arr = JSON.parse(raw) as number[];
     return new Set(arr.filter((n) => Number.isFinite(n)));
@@ -17,7 +23,7 @@ function read(): Set<number> {
 function write(set: Set<number>) {
   if (typeof window === "undefined") return;
   try {
-    localStorage.setItem(KEY, JSON.stringify([...set].sort((a, b) => a - b)));
+    localStorage.setItem(activeKey(), JSON.stringify([...set].sort((a, b) => a - b)));
     window.dispatchEvent(new Event("cartilla:lesson-progress"));
   } catch {
     /* ignore */
@@ -51,9 +57,11 @@ export function useLessonProgress() {
     const h = () => setTick((t) => t + 1);
     window.addEventListener("storage", h);
     window.addEventListener("cartilla:lesson-progress", h);
+    window.addEventListener("cartilla:student-session", h);
     return () => {
       window.removeEventListener("storage", h);
       window.removeEventListener("cartilla:lesson-progress", h);
+      window.removeEventListener("cartilla:student-session", h);
     };
   }, []);
   return {

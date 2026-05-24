@@ -93,7 +93,8 @@ function LoginPage() {
       >
         {!isSupabaseConfigured && mode === "login" && (
           <div className="rounded-2xl border-2 border-primary/20 bg-primary/5 px-4 py-3 text-sm font-bold text-primary">
-            Cuenta prellenada: {DEFAULT_TEACHER.name}. Pulsa Entrar para abrir el panel docente.
+            Modo demo local: Supabase no estÃ¡ configurado. Cuenta prellenada:{" "}
+            {DEFAULT_TEACHER.name}. Los datos se guardan en este navegador.
           </div>
         )}
         {mode === "signup" && (

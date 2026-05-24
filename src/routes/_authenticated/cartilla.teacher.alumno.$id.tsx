@@ -5,6 +5,7 @@ import { useServerFn } from "@/lib/useServerFn";
 import { ArrowLeft, Loader2, BookOpen, Award, Clock, Target, Activity } from "lucide-react";
 import { getStudentProgress } from "@/lib/teacher.functions";
 import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
+import { isSupabaseConfigured } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/_authenticated/cartilla/teacher/alumno/$id")({
   component: StudentDetail,
@@ -95,6 +96,11 @@ function StudentDetail() {
         <p className="text-sm text-foreground/60 mt-1">
           Código personal: <span className="font-mono font-bold">{data.student.student_code}</span>
         </p>
+        {!isSupabaseConfigured && (
+          <div className="mt-3 inline-flex rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-bold text-primary">
+            Modo demo local: progreso leÃ­do desde este navegador.
+          </div>
+        )}
       </header>
 
       <section className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">

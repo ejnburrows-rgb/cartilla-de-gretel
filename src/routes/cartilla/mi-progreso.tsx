@@ -6,6 +6,7 @@ import { getStudentSession } from "@/lib/student-session";
 import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
 import { SimpleBarChart } from "@/components/cartilla/SimpleBarChart";
 import { downloadCSV, toCSV } from "@/lib/csv";
+import { isSupabaseConfigured } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/cartilla/mi-progreso")({
   component: MyProgress,
@@ -147,6 +148,11 @@ function MyProgress() {
             Clase: <strong>{data.class?.name ?? "—"}</strong> · Tu código:{" "}
             <span className="font-mono font-bold">{data.student.student_code}</span>
           </p>
+          {!isSupabaseConfigured && (
+            <div className="mt-3 inline-flex rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-bold text-primary">
+              Modo demo local: estos datos viven en este navegador.
+            </div>
+          )}
         </div>
         <button
           onClick={exportCSV}

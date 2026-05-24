@@ -1,5 +1,11 @@
 import { z } from "zod";
 import { isSupabaseConfigured, supabase } from "@/integrations/supabase/client";
+import {
+  createDemoAssignment,
+  deleteDemoAssignment,
+  listDemoAssignments,
+  listDemoStudentAssignments,
+} from "@/lib/demo-data";
 
 type Call<T> = { data: T };
 type AssignmentRow = {
@@ -34,7 +40,7 @@ async function ensureTeacherOwnsClass(classId: string) {
 /** Teacher: list assignments for a class they own. */
 export async function listAssignments(input: Call<{ classId: string }>) {
   const data = z.object({ classId: z.string().min(1) }).parse(input.data);
-  if (!isSupabaseConfigured) return [] as AssignmentRow[];
+  if (!isSupabaseConfigured) return listDemoAssignments(data.classId) as AssignmentRow[];
   await ensureTeacherOwnsClass(data.classId);
   const { data: rows, error } = await supabase
     .from("assignments")
@@ -65,17 +71,14 @@ export async function createAssignment(
     })
     .parse(input.data);
 
-  if (!isSupabaseConfigured) {
-    return {
-      id: `demo-assignment-${crypto.randomUUID()}`,
-      class_id: data.classId,
-      lesson_id: data.lessonId,
-      title: data.title || null,
-      due_at: data.dueAt || null,
-      time_limit_seconds: data.timeLimitSeconds || null,
-      created_at: new Date().toISOString(),
-    };
-  }
+  if (!isSupabaseConfigured)
+    return createDemoAssignment({
+      classId: data.classId,
+      lessonId: data.lessonId,
+      title: data.title,
+      dueAt: data.dueAt,
+      timeLimitSeconds: data.timeLimitSeconds,
+    });
 
   await ensureTeacherOwnsClass(data.classId);
   const { data: row, error } = await supabase
@@ -96,7 +99,7 @@ export async function createAssignment(
 /** Teacher: delete assignment. */
 export async function deleteAssignment(input: Call<{ id: string }>) {
   const data = z.object({ id: z.string().min(1) }).parse(input.data);
-  if (!isSupabaseConfigured) return { ok: true };
+  if (!isSupabaseConfigured) return deleteDemoAssignment(data.id);
   const { data: assignment, error: readErr } = await supabase
     .from("assignments")
     .select("id, class_id")
@@ -122,7 +125,12 @@ export async function listMyAssignments(
     })
     .parse(input.data);
 
-  if (!isSupabaseConfigured) return [];
+  if (!isSupabaseConfigured)
+    return listDemoStudentAssignments({
+      classId: data.classId,
+      studentId: data.studentId,
+      studentCode: data.studentCode,
+    });
 
   const { data: rows, error } = await supabase.rpc("get_student_assignments", {
     p_class_id: data.classId,

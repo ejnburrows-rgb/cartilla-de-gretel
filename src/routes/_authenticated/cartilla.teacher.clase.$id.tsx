@@ -27,6 +27,7 @@ import { listAssignments, createAssignment, deleteAssignment } from "@/lib/assig
 import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
 import { SimpleBarChart } from "@/components/cartilla/SimpleBarChart";
 import { downloadCSV, toCSV } from "@/lib/csv";
+import { isSupabaseConfigured } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/_authenticated/cartilla/teacher/clase/$id")({
   component: ClassDetail,
@@ -72,6 +73,7 @@ function ClassDetail() {
       setBulkNames("");
       qc.invalidateQueries({ queryKey: ["teacher", "class", id] });
       qc.invalidateQueries({ queryKey: ["teacher", "classes"] });
+      qc.invalidateQueries({ queryKey: ["teacher", "class", id, "progress"] });
     },
   });
 
@@ -80,6 +82,7 @@ function ClassDetail() {
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ["teacher", "class", id] });
       qc.invalidateQueries({ queryKey: ["teacher", "classes"] });
+      qc.invalidateQueries({ queryKey: ["teacher", "class", id, "progress"] });
     },
   });
 
@@ -104,12 +107,16 @@ function ClassDetail() {
       setAssDue("");
       setAssLimit("");
       qc.invalidateQueries({ queryKey: ["teacher", "class", id, "assignments"] });
+      qc.invalidateQueries({ queryKey: ["teacher", "class", id, "progress"] });
     },
   });
 
   const delAssMut = useMutation({
     mutationFn: (aid: string) => delAss({ data: { id: aid } }),
-    onSuccess: () => qc.invalidateQueries({ queryKey: ["teacher", "class", id, "assignments"] }),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ["teacher", "class", id, "assignments"] });
+      qc.invalidateQueries({ queryKey: ["teacher", "class", id, "progress"] });
+    },
   });
 
   const submitAdd = (e: React.FormEvent) => {
@@ -149,7 +156,7 @@ function ClassDetail() {
 
   const lessonChart = useMemo(() => {
     if (!classProgress) return [];
-    return CATALOG.slice(0, 12).map((entry) => {
+    return CATALOG.map((entry) => {
       const pl = (
         classProgress.perLesson as Record<string, { completedBy: number; accuracy: number | null }>
       )[String(entry.n)];
@@ -199,6 +206,11 @@ function ClassDetail() {
           Comparte el código con tus alumnos. Ellos lo introducen en{" "}
           <span className="font-bold">/cartilla/unirse</span> junto con su código personal.
         </p>
+        {!isSupabaseConfigured && (
+          <div className="mt-3 inline-flex rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-bold text-primary">
+            Modo demo local: los cambios de esta clase no salen de este navegador.
+          </div>
+        )}
       </header>
 
       <div className="mt-4 flex flex-wrap gap-2">
@@ -213,7 +225,7 @@ function ClassDetail() {
       {classProgress && lessonChart.length > 0 && (
         <section className="mt-6 kid-card p-4">
           <h2 className="font-bold mb-3 inline-flex items-center gap-2">
-            <BarChart3 className="w-4 h-4" /> Alumnos que completaron cada lección (1–12)
+            <BarChart3 className="w-4 h-4" /> Alumnos que completaron cada lección
           </h2>
           <SimpleBarChart bars={lessonChart} max={data.students.length || 1} />
           <p className="text-[11px] text-foreground/50 mt-2">

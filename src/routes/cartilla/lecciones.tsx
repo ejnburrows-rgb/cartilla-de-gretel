@@ -6,6 +6,7 @@ import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
 import { hydrateLessonProgress, useLessonProgress } from "@/lib/lesson-progress";
 import { getMyProgress } from "@/lib/student.functions";
 import { useStudentSession } from "@/lib/student-session";
+import { isSupabaseConfigured } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/cartilla/lecciones")({
   component: Lecciones,
@@ -81,6 +82,11 @@ function Lecciones() {
         <p className="text-foreground/70 mt-1">
           Aprende paso a paso, de la lección 1 a la 24. Completa una para desbloquear la siguiente.
         </p>
+        {!isSupabaseConfigured && session && (
+          <div className="mt-3 inline-flex rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-bold text-primary">
+            Modo demo local: progreso guardado en este navegador para {session.studentName}.
+          </div>
+        )}
         <div className="mt-5">
           <div className="flex items-baseline justify-between text-sm font-bold">
             <span className="text-foreground/80">

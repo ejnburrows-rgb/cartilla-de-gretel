@@ -95,6 +95,11 @@ function TeacherDashboard() {
           </div>
           <h1 className="text-3xl sm:text-4xl font-bold mt-1">Mis clases</h1>
           {teacherEmail && <p className="text-sm text-foreground/60 mt-1">{teacherEmail}</p>}
+          {!isSupabaseConfigured && (
+            <div className="mt-3 inline-flex rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-bold text-primary">
+              Modo demo local: clases, alumnos y progreso se guardan en este navegador.
+            </div>
+          )}
         </div>
         <Link
           to="/cartilla/teacher/branding"
