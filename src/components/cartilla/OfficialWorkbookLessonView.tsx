@@ -94,22 +94,22 @@ export function OfficialWorkbookLessonView({
 
   if (!selectedSource) return null;
 
-  // Page-turn animation variants using framer-motion
+  // Page-turn animation variants using framer-motion for a realistic 3D physical book page flip
   const variants = {
     enter: (dir: number) => ({
-      x: dir > 0 ? "60%" : "-60%",
+      rotateY: dir > 0 ? 165 : -165,
       opacity: 0,
-      rotateY: dir > 0 ? 8 : -8,
+      z: -30,
     }),
     center: {
-      x: 0,
-      opacity: 1,
       rotateY: 0,
+      opacity: 1,
+      z: 0,
     },
     exit: (dir: number) => ({
-      x: dir > 0 ? "-40%" : "40%",
+      rotateY: dir > 0 ? -165 : 165,
       opacity: 0,
-      rotateY: dir > 0 ? -6 : 6,
+      z: -30,
     }),
   };
 
@@ -169,8 +169,8 @@ export function OfficialWorkbookLessonView({
 
       {/* ── Page viewer with turn animation ────────────────────── */}
       <div
-        className="relative overflow-hidden rounded-2xl"
-        style={{ perspective: "1200px" }}
+        className="relative overflow-visible rounded-2xl p-0.5"
+        style={{ perspective: "1800px", transformStyle: "preserve-3d" }}
         aria-live="polite"
         aria-atomic="true"
         aria-label={`Página ${selectedPage} de ${totalPages > 0 ? lessonSource.pages[totalPages - 1].pageNumber : selectedPage}`}
@@ -188,11 +188,33 @@ export function OfficialWorkbookLessonView({
             animate="center"
             exit="exit"
             transition={{
-              duration: 0.32,
-              ease: [0.25, 0.46, 0.45, 0.94],
+              duration: 0.85,
+              ease: [0.22, 1, 0.36, 1],
             }}
-            style={{ transformOrigin: directionRef.current > 0 ? "left center" : "right center" }}
+            className="relative w-full"
+            style={{
+              transformOrigin: "left center",
+              transformStyle: "preserve-3d",
+              backfaceVisibility: "hidden",
+              WebkitBackfaceVisibility: "hidden",
+            }}
           >
+            {/* Subtle paper shadow overlay that darkens as page curls */}
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-black/18 via-transparent to-black/8 pointer-events-none z-10 rounded-2xl"
+              initial={{ opacity: 0.25 }}
+              animate={{ opacity: 0 }}
+              exit={{ opacity: 0.4 }}
+              transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+            />
+            {/* Highlight glare overlay to simulate physical light reflection */}
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-white/12 via-white/5 to-transparent pointer-events-none z-10 rounded-2xl"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.12 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+            />
             <OfficialWorkbookPage source={selectedSource} runtimePdfAvailable={runtimePdfAvailable} />
           </motion.div>
         </AnimatePresence>

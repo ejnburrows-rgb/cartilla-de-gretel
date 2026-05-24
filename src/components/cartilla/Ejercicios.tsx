@@ -165,7 +165,7 @@ export function SyllableTap({
   );
 }
 
-/** Match emoji to word */
+/** Match word to its syllable structure */
 export function WordMatch({
   words,
   color,
@@ -175,7 +175,31 @@ export function WordMatch({
   color: string;
   lessonId?: string;
 }) {
-  const items = useMemo(() => words.filter((w) => w.emoji).slice(0, 4), [words]);
+  const SYLLABLE_MAP: Record<string, string> = useMemo(() => ({
+    ala: "a-la",
+    elefante: "e-le-fan-te",
+    iglú: "i-glú",
+    oso: "o-so",
+    uva: "u-va",
+    uvas: "u-vas",
+    ojo: "o-jo",
+    ola: "o-la",
+    olla: "o-lla",
+    árbol: "ár-bol",
+    avión: "a-vión",
+    abeja: "a-be-ja",
+    escoba: "es-co-ba",
+    espejo: "es-pe-jo",
+    estrella: "es-tre-lla",
+    isla: "is-la",
+    iguana: "i-gua-na",
+    imán: "i-mán",
+    uña: "u-ña",
+    uno: "u-no",
+    urna: "ur-na",
+  }), []);
+
+  const items = useMemo(() => words.slice(0, 4), [words]);
   const [picked, setPicked] = useState<string | null>(null);
   const [matched, setMatched] = useState<Set<string>>(new Set());
   const [attempts, setAttempts] = useState(0);
@@ -183,8 +207,8 @@ export function WordMatch({
   const [feedback, setFeedback] = useState<{
     kind: "ok" | "no";
     word: string;
-    emoji?: string;
-    correctEmoji?: string;
+    syllables: string;
+    correctSyllables?: string;
   } | null>(null);
   const loggedRound = useRef(false);
   const shuffled = useMemo(() => shuffle(items), [items]);
@@ -196,11 +220,12 @@ export function WordMatch({
     setPicked(w);
     setFeedback(null);
   };
-  const onEmoji = (target: string) => {
+
+  const onSyllable = (target: string) => {
     if (!picked) return;
     setAttempts((a) => a + 1);
-    const pickedItem = items.find((i) => i.word === picked);
-    const targetItem = items.find((i) => i.word === target);
+    const pickedSyllable = SYLLABLE_MAP[picked.toLowerCase()] || picked;
+    const targetSyllable = SYLLABLE_MAP[target.toLowerCase()] || target;
     if (picked === target) {
       setHits((h) => h + 1);
       setMatched((m) => {
@@ -217,7 +242,7 @@ export function WordMatch({
         }
         return next;
       });
-      setFeedback({ kind: "ok", word: picked, emoji: pickedItem?.emoji });
+      setFeedback({ kind: "ok", word: picked, syllables: pickedSyllable });
       speak(target);
       setPicked(null);
       setTimeout(
@@ -228,12 +253,13 @@ export function WordMatch({
       setFeedback({
         kind: "no",
         word: picked,
-        emoji: targetItem?.emoji,
-        correctEmoji: pickedItem?.emoji,
+        syllables: targetSyllable,
+        correctSyllables: pickedSyllable,
       });
       setPicked(null);
     }
   };
+
   const reset = () => {
     if (lessonId && attempts > 0 && !loggedRound.current) {
       recordEvent({
@@ -251,13 +277,14 @@ export function WordMatch({
     setFeedback(null);
     loggedRound.current = false;
   };
+
   const allDone = matched.size === items.length;
   const acc = attempts > 0 ? Math.round((hits / attempts) * 100) : null;
 
   return (
     <div className="rounded-2xl border-2 border-foreground/10 bg-card p-4">
       <div className="flex items-center justify-between mb-3">
-        <h3 className="font-bold">Une la palabra con su dibujo</h3>
+        <h3 className="font-bold">Une la palabra con sus sílabas</h3>
         <div className="flex items-center gap-3">
           {acc !== null && (
             <span className="text-xs font-bold text-foreground/60">
@@ -294,21 +321,24 @@ export function WordMatch({
           ))}
         </div>
         <div className="space-y-2">
-          {shuffled.map((w) => (
-            <button
-              key={w.word}
-              disabled={matched.has(w.word)}
-              onClick={() => onEmoji(w.word)}
-              className={cn(
-                "w-full text-3xl py-2 rounded-xl border-2 transition",
-                matched.has(w.word)
-                  ? "opacity-40"
-                  : "border-foreground/10 hover:bg-secondary active:scale-95",
-              )}
-            >
-              {w.emoji}
-            </button>
-          ))}
+          {shuffled.map((w) => {
+            const syllableText = SYLLABLE_MAP[w.word.toLowerCase()] || w.word;
+            return (
+              <button
+                key={w.word}
+                disabled={matched.has(w.word)}
+                onClick={() => onSyllable(w.word)}
+                className={cn(
+                  "w-full text-lg py-2 font-bold rounded-xl border-2 transition",
+                  matched.has(w.word)
+                    ? "opacity-40"
+                    : "border-foreground/10 hover:bg-secondary active:scale-95 text-foreground/80",
+                )}
+              >
+                {syllableText}
+              </button>
+            );
+          })}
         </div>
       </div>
       {feedback?.kind === "ok" && (
@@ -317,9 +347,7 @@ export function WordMatch({
             <Check className="w-4 h-4" /> ¡Correcto!
           </div>
           <p className="text-sm text-foreground/80 mt-1">
-            <strong>«{feedback.word}»</strong>{" "}
-            {feedback.emoji && <span className="text-lg align-middle">{feedback.emoji}</span>} —
-            uniste bien la palabra con su dibujo.
+            <strong>«{feedback.word}»</strong> se divide en sílabas como <strong>«{feedback.syllables}»</strong>. ¡Buen trabajo!
           </p>
         </div>
       )}
@@ -329,12 +357,8 @@ export function WordMatch({
             <X className="w-4 h-4" /> No coinciden
           </div>
           <p className="text-sm text-foreground/80 mt-1">
-            <strong>«{feedback.word}»</strong>{" "}
-            {feedback.correctEmoji && (
-              <span className="text-lg align-middle">{feedback.correctEmoji}</span>
-            )}{" "}
-            no es ese dibujo. Lee la palabra otra vez, separa sus sílabas y busca el dibujo que la
-            representa.
+            La palabra <strong>«{feedback.word}»</strong> no se divide como <strong>«{feedback.syllables}»</strong>.
+            Su división correcta es <strong>«{feedback.correctSyllables}»</strong>. Inténtalo de nuevo.
           </p>
           <button
             onClick={() => speak(feedback.word)}
@@ -350,7 +374,7 @@ export function WordMatch({
             <Check className="w-4 h-4" /> ¡Ronda completa!
           </div>
           <p className="text-sm text-foreground/80 mt-1">
-            Uniste todas las palabras. Resultado final:{" "}
+            Uniste todas las palabras con su división silábica. Resultado final:{" "}
             <strong>
               {hits} de {attempts} intentos
             </strong>{" "}

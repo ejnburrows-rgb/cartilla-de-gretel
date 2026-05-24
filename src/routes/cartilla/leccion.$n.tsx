@@ -194,11 +194,11 @@ function Leccion() {
 function IntroBody({ lessonId }: { lessonId: string }) {
   const vowels = ["a", "e", "i", "o", "u"];
   const vowelWords = [
-    { word: "ala", emoji: "🦋" },
-    { word: "elefante", emoji: "🐘" },
-    { word: "iglú", emoji: "🏠" },
-    { word: "oso", emoji: "🐻" },
-    { word: "uva", emoji: "🍇" },
+    { word: "ala" },
+    { word: "elefante" },
+    { word: "iglú" },
+    { word: "oso" },
+    { word: "uva" },
   ];
   return (
     <section className="mt-5 space-y-5">
@@ -276,10 +276,9 @@ function VowelBody({
           {l.vocab.map((v) => (
             <li
               key={v.word}
-              className="rounded-2xl border-2 border-foreground/10 bg-card p-3 text-center hover:-translate-y-0.5 transition"
+              className="rounded-2xl border-2 border-foreground/10 bg-card p-3 text-center hover:-translate-y-0.5 transition flex flex-col justify-center items-center min-h-[5.5rem]"
             >
-              <div className="text-3xl">{v.emoji}</div>
-              <div className="font-bold mt-1">{v.word}</div>
+              <div className="font-bold text-xl text-[var(--cartilla-title-ink)]">{v.word}</div>
               <button
                 onClick={() => speak(v.word)}
                 aria-label={`Escuchar ${v.word}`}

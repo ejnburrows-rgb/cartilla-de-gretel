@@ -109,7 +109,7 @@
   --cartilla-page-paper: #fff8e7;
   --cartilla-title-ink: #17313b;
   --cartilla-bg-radial: radial-gradient(circle at 20% 10%, rgb(233 247 243), transparent 28rem);
-  --cartilla-student-backdrop: linear-gradient(180deg, #e9f7f3 0%, #fff9eb 44%, #f9efd2 100%);
+  --cartilla-student-backdrop: radial-gradient(circle at 50% 0%, #fcfbf7 0%, #f7ebd3 50%, #e0ceb4 100%);
   --cartilla-teacher-backdrop: linear-gradient(135deg, #081d25 0%, #12323b 52%, #0f2730 100%);
 }
 

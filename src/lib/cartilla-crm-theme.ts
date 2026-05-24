@@ -88,7 +88,7 @@ export function getCartillaCrmTheme(lessonNumber: number): CartillaCrmTheme {
     border: BORDER,
     titleInk: INK,
     teacherBackdrop: `linear-gradient(135deg, #081d25 0%, ${accentDark} 52%, #12323b 100%)`,
-    studentBackdrop: `linear-gradient(180deg, ${accentSoft} 0%, #fff9eb 44%, #f9efd2 100%)`,
+    studentBackdrop: `radial-gradient(circle at 50% 0%, #fcfbf7 0%, #f7ebd3 50%, #e0ceb4 100%)`,
   };
 }
 
