@@ -108,7 +108,7 @@
       "sourceStatus": "needs-art-mapping",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Imagen pendiente de mapeo del libro",
-      "teacherNotes": "Words are book-derived. Art hotspot coordinates require official page scan mapping."
+      "teacherNotes": "sopa (so-), silla (si-), sol (so-) confirmed in consonants.json examples for Lesson 9. Word labels are verified from source data. Art hotspot coordinates and image mapping require official page scan — not yet done."
     },
     {
       "id": "l9-p29-tap-obj",
@@ -139,10 +139,10 @@
           "coordinatesVerified": false
         }
       ],
-      "sourceStatus": "needs-art-mapping",
+      "sourceStatus": "needs-transcription",
       "transcriptionStatus": "placeholder",
-      "studentFacingStatus": "Mapeo de objetos en preparación",
-      "teacherNotes": "Object names are plausible for lesson 9 but exact page art positions are not verified."
+      "studentFacingStatus": "Objetos pendientes de verificación en el libro",
+      "teacherNotes": "saco, seta, seis are NOT confirmed in consonants.json examples for Lesson 9. These object names are plausible for the S lesson but are not verified from the official workbook page scan. Do not promote to book-derived without page verification."
     },
     {
       "id": "l9-p30-read-aloud",
@@ -280,7 +280,7 @@
       "sourceStatus": "needs-art-mapping",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Imagen pendiente de mapeo del libro",
-      "teacherNotes": "Words are book-derived for lesson 17 (consonant r). Art hotspot coordinates require official page scan mapping."
+      "teacherNotes": "rama (ra-), rana (ra-), rosa (ro-) confirmed in consonants.json examples for Lesson 17 (consonant r). Word labels are verified from source data. Art hotspot coordinates and image mapping require official page scan — not yet done."
     },
     {
       "id": "l17-p62-read-aloud",

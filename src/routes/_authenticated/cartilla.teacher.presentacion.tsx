@@ -54,11 +54,6 @@ function TeacherPresentation() {
           const source = getWorkbookPageSourcesForLesson(entry.n, entry.pages);
           const pageNumbers = getLessonPageNumbers(entry.pages);
           const needsSourceMapping = source.connectedSourceCount === 0;
-          const interactionReady = Boolean(
-            entry.kind === "intro" ||
-              entry.kind === "vowel" ||
-              (entry.kind === "consonant" && entry.data.syllables.length > 0),
-          );
           const interactions = getInteractionReadinessForLesson(entry.n, pageNumbers);
           const transcriptionLabel =
             transcription.status === "verified"
@@ -130,35 +125,38 @@ function TeacherPresentation() {
                 <span className="rounded-full bg-sky-100 px-3 py-1 text-sky-900">
                   Imagen/fuente: {source.verifiedImageCount}/{source.pages.length}
                 </span>
-                <span className="rounded-full bg-indigo-100 px-3 py-1 text-indigo-900">
-                  Interaccion {interactionReady ? "lista" : "pendiente"}
-                </span>
                 {interactions.totalInteractions > 0 ? (
                   <>
-                    <span
-                      className={cn(
-                        "inline-flex items-center gap-1 rounded-full px-3 py-1",
-                        interactions.readyCount === interactions.totalInteractions
-                          ? "bg-emerald-100 text-emerald-900"
-                          : "bg-indigo-100 text-indigo-900",
-                      )}
-                    >
-                      <Layers className="h-3 w-3" />
-                      Actividades {interactions.readyCount}/{interactions.totalInteractions}
-                    </span>
+                    {/* Actividad base lista only if at least one book-derived activity exists */}
+                    {interactions.readyCount > 0 ? (
+                      <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-3 py-1 text-emerald-900">
+                        <Layers className="h-3 w-3" />
+                        Actividad base lista ({interactions.readyCount})
+                      </span>
+                    ) : (
+                      <span className="inline-flex items-center gap-1 rounded-full bg-stone-100 px-3 py-1 text-stone-700">
+                        <Layers className="h-3 w-3" />
+                        Sin actividad base
+                      </span>
+                    )}
                     {interactions.pendingArtMappingCount > 0 && (
                       <span className="rounded-full bg-orange-100 px-3 py-1 text-orange-900">
-                        {interactions.pendingArtMappingCount} sin mapeo
+                        Imagen pendiente ({interactions.pendingArtMappingCount})
                       </span>
                     )}
                     {interactions.pendingTranscriptionCount > 0 && (
                       <span className="rounded-full bg-amber-100 px-3 py-1 text-amber-900">
-                        {interactions.pendingTranscriptionCount} sin transcripción
+                        Texto pendiente ({interactions.pendingTranscriptionCount})
+                      </span>
+                    )}
+                    {!interactions.hasAnyVerifiedHotspots && (
+                      <span className="rounded-full bg-rose-50 px-3 py-1 text-rose-800">
+                        Hotspots pendientes
                       </span>
                     )}
                     {interactions.hasAnyVerifiedHotspots && (
                       <span className="rounded-full bg-emerald-100 px-3 py-1 text-emerald-900">
-                        Hotspots verificados
+                        Imagen oficial mapeada
                       </span>
                     )}
                   </>
@@ -167,6 +165,7 @@ function TeacherPresentation() {
                     Sin actividades
                   </span>
                 )}
+
               </div>
               <div className="mt-4 flex flex-wrap gap-2">
                 <Link

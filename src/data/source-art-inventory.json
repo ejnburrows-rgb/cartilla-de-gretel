@@ -1,0 +1,104 @@
+{
+  "version": "2026-05-24",
+  "summary": "Source art inventory for La Cartilla de Gretel. No image is attached to a student activity unless mapping is verified.",
+  "assets": [
+    {
+      "path": "/cartilla/images/original/cover.jpg",
+      "type": "photograph",
+      "sourceStatus": "present-in-repo",
+      "description": "Official cover photograph of the La Cartilla de Gretel workbook set.",
+      "safeForStudentUI": true,
+      "context": "general-source-art",
+      "canUseInCoverCard": true,
+      "canUseInTeacherReadiness": true,
+      "activityMappingVerified": false,
+      "activityMappingNotes": "Do not attach to any drag/drop or tap-object activity. Cover art only."
+    },
+    {
+      "path": "/cartilla/images/original/student-book.jpg",
+      "type": "photograph",
+      "sourceStatus": "present-in-repo",
+      "description": "Photograph of the student workbook (Cuaderno del estudiante) exterior.",
+      "safeForStudentUI": true,
+      "context": "general-source-art",
+      "canUseInCoverCard": true,
+      "canUseInTeacherReadiness": true,
+      "activityMappingVerified": false,
+      "activityMappingNotes": "May be used as a general 'source available' indicator. Do not attach to specific page/object activities."
+    },
+    {
+      "path": "/cartilla/images/original/flipchart.jpg",
+      "type": "photograph",
+      "sourceStatus": "present-in-repo",
+      "description": "Photograph of the teacher flipchart material.",
+      "safeForStudentUI": false,
+      "context": "teacher-material",
+      "canUseInCoverCard": false,
+      "canUseInTeacherReadiness": true,
+      "activityMappingVerified": false,
+      "activityMappingNotes": "Teacher-facing only. Do not use in student UI."
+    },
+    {
+      "path": "/cartilla/images/original/homework.jpg",
+      "type": "photograph",
+      "sourceStatus": "present-in-repo",
+      "description": "Photograph of the homework/tarea sheet.",
+      "safeForStudentUI": false,
+      "context": "teacher-material",
+      "canUseInCoverCard": false,
+      "canUseInTeacherReadiness": true,
+      "activityMappingVerified": false,
+      "activityMappingNotes": "Teacher-facing only. Do not use in student UI."
+    },
+    {
+      "path": "/cartilla/images/original/evaluations.jpg",
+      "type": "photograph",
+      "sourceStatus": "present-in-repo",
+      "description": "Photograph of evaluation/assessment materials.",
+      "safeForStudentUI": false,
+      "context": "teacher-material",
+      "canUseInCoverCard": false,
+      "canUseInTeacherReadiness": true,
+      "activityMappingVerified": false,
+      "activityMappingNotes": "Teacher-facing only. Do not use in student UI."
+    },
+    {
+      "path": "/cartilla/images/original/syllabic-charts.jpg",
+      "type": "photograph",
+      "sourceStatus": "present-in-repo",
+      "description": "Photograph of the syllabic charts (tablas silábicas) included in the kit.",
+      "safeForStudentUI": true,
+      "context": "general-source-art",
+      "canUseInCoverCard": false,
+      "canUseInTeacherReadiness": true,
+      "activityMappingVerified": false,
+      "activityMappingNotes": "May be shown in teacher readiness view as evidence of syllabic content availability. Not linked to specific page activities."
+    },
+    {
+      "path": "/cartilla/images/cover.png",
+      "type": "image",
+      "sourceStatus": "present-in-repo",
+      "description": "Derived cover image (PNG). Likely the same cover art as cover.jpg.",
+      "safeForStudentUI": true,
+      "context": "general-source-art",
+      "canUseInCoverCard": true,
+      "canUseInTeacherReadiness": true,
+      "activityMappingVerified": false,
+      "activityMappingNotes": "Do not attach to specific page/object activities."
+    },
+    {
+      "path": "/book/book.pdf",
+      "type": "pdf",
+      "sourceStatus": "present-in-repo",
+      "description": "Official workbook PDF. Used by OfficialWorkbookPage for page rendering via react-pdf.",
+      "safeForStudentUI": true,
+      "context": "primary-source",
+      "canUseInCoverCard": false,
+      "canUseInTeacherReadiness": true,
+      "activityMappingVerified": false,
+      "activityMappingNotes": "PDF pages are rendered inline. Per-page object coordinates and art mapping are NOT yet verified for any page."
+    }
+  ],
+  "activityAssetMappings": [],
+  "notes": "No original image is mapped to any drag/drop or tap-object activity as of this version. All such activities use the pending-mapping placeholder state."
+}
