@@ -45,6 +45,12 @@ function TeacherPresentation() {
           >
             <BookOpen className="h-4 w-4" /> Abrir Flipchart (Proyector)
           </Link>
+          <Link
+            to="/cartilla/teacher/remaster-review"
+            className="inline-flex min-h-11 items-center gap-2 rounded-full border border-indigo-500 bg-indigo-600/30 px-4 py-2 text-sm font-bold text-indigo-200 hover:bg-indigo-600/50 transition-colors"
+          >
+            <Layers className="h-4 w-4 text-indigo-400" /> Revisar Remasterizaciones
+          </Link>
         </div>
         <div className="inline-flex items-center gap-2 rounded-full bg-white/12 px-4 py-2 text-sm font-bold text-white/80">
           <LibraryBig className="h-4 w-4" /> 24 lecciones

@@ -23,6 +23,7 @@ import { Route as CartillaLeccionesRouteImport } from './routes/cartilla/leccion
 import { Route as CartillaAutoraRouteImport } from './routes/cartilla/autora'
 import { Route as CartillaLeccionNRouteImport } from './routes/cartilla/leccion.$n'
 import { Route as AuthenticatedCartillaTeacherRouteImport } from './routes/_authenticated/cartilla.teacher'
+import { Route as AuthenticatedCartillaTeacherRemasterReviewRouteImport } from './routes/_authenticated/cartilla.teacher.remaster-review'
 import { Route as AuthenticatedCartillaTeacherPresentacionRouteImport } from './routes/_authenticated/cartilla.teacher.presentacion'
 import { Route as AuthenticatedCartillaTeacherFlipchartRouteImport } from './routes/_authenticated/cartilla.teacher.flipchart'
 import { Route as AuthenticatedCartillaTeacherBrandingRouteImport } from './routes/_authenticated/cartilla.teacher.branding'
@@ -99,6 +100,12 @@ const AuthenticatedCartillaTeacherRoute =
     path: '/cartilla/teacher',
     getParentRoute: () => AuthenticatedRoute,
   } as any)
+const AuthenticatedCartillaTeacherRemasterReviewRoute =
+  AuthenticatedCartillaTeacherRemasterReviewRouteImport.update({
+    id: '/remaster-review',
+    path: '/remaster-review',
+    getParentRoute: () => AuthenticatedCartillaTeacherRoute,
+  } as any)
 const AuthenticatedCartillaTeacherPresentacionRoute =
   AuthenticatedCartillaTeacherPresentacionRouteImport.update({
     id: '/presentacion',
@@ -147,6 +154,7 @@ export interface FileRoutesByFullPath {
   '/cartilla/teacher/branding': typeof AuthenticatedCartillaTeacherBrandingRoute
   '/cartilla/teacher/flipchart': typeof AuthenticatedCartillaTeacherFlipchartRoute
   '/cartilla/teacher/presentacion': typeof AuthenticatedCartillaTeacherPresentacionRoute
+  '/cartilla/teacher/remaster-review': typeof AuthenticatedCartillaTeacherRemasterReviewRoute
   '/cartilla/teacher/alumno/$id': typeof AuthenticatedCartillaTeacherAlumnoIdRoute
   '/cartilla/teacher/clase/$id': typeof AuthenticatedCartillaTeacherClaseIdRoute
 }
@@ -167,6 +175,7 @@ export interface FileRoutesByTo {
   '/cartilla/teacher/branding': typeof AuthenticatedCartillaTeacherBrandingRoute
   '/cartilla/teacher/flipchart': typeof AuthenticatedCartillaTeacherFlipchartRoute
   '/cartilla/teacher/presentacion': typeof AuthenticatedCartillaTeacherPresentacionRoute
+  '/cartilla/teacher/remaster-review': typeof AuthenticatedCartillaTeacherRemasterReviewRoute
   '/cartilla/teacher/alumno/$id': typeof AuthenticatedCartillaTeacherAlumnoIdRoute
   '/cartilla/teacher/clase/$id': typeof AuthenticatedCartillaTeacherClaseIdRoute
 }
@@ -189,6 +198,7 @@ export interface FileRoutesById {
   '/_authenticated/cartilla/teacher/branding': typeof AuthenticatedCartillaTeacherBrandingRoute
   '/_authenticated/cartilla/teacher/flipchart': typeof AuthenticatedCartillaTeacherFlipchartRoute
   '/_authenticated/cartilla/teacher/presentacion': typeof AuthenticatedCartillaTeacherPresentacionRoute
+  '/_authenticated/cartilla/teacher/remaster-review': typeof AuthenticatedCartillaTeacherRemasterReviewRoute
   '/_authenticated/cartilla/teacher/alumno/$id': typeof AuthenticatedCartillaTeacherAlumnoIdRoute
   '/_authenticated/cartilla/teacher/clase/$id': typeof AuthenticatedCartillaTeacherClaseIdRoute
 }
@@ -211,6 +221,7 @@ export interface FileRouteTypes {
     | '/cartilla/teacher/branding'
     | '/cartilla/teacher/flipchart'
     | '/cartilla/teacher/presentacion'
+    | '/cartilla/teacher/remaster-review'
     | '/cartilla/teacher/alumno/$id'
     | '/cartilla/teacher/clase/$id'
   fileRoutesByTo: FileRoutesByTo
@@ -231,6 +242,7 @@ export interface FileRouteTypes {
     | '/cartilla/teacher/branding'
     | '/cartilla/teacher/flipchart'
     | '/cartilla/teacher/presentacion'
+    | '/cartilla/teacher/remaster-review'
     | '/cartilla/teacher/alumno/$id'
     | '/cartilla/teacher/clase/$id'
   id:
@@ -252,6 +264,7 @@ export interface FileRouteTypes {
     | '/_authenticated/cartilla/teacher/branding'
     | '/_authenticated/cartilla/teacher/flipchart'
     | '/_authenticated/cartilla/teacher/presentacion'
+    | '/_authenticated/cartilla/teacher/remaster-review'
     | '/_authenticated/cartilla/teacher/alumno/$id'
     | '/_authenticated/cartilla/teacher/clase/$id'
   fileRoutesById: FileRoutesById
@@ -372,6 +385,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedCartillaTeacherRouteImport
       parentRoute: typeof AuthenticatedRoute
     }
+    '/_authenticated/cartilla/teacher/remaster-review': {
+      id: '/_authenticated/cartilla/teacher/remaster-review'
+      path: '/remaster-review'
+      fullPath: '/cartilla/teacher/remaster-review'
+      preLoaderRoute: typeof AuthenticatedCartillaTeacherRemasterReviewRouteImport
+      parentRoute: typeof AuthenticatedCartillaTeacherRoute
+    }
     '/_authenticated/cartilla/teacher/presentacion': {
       id: '/_authenticated/cartilla/teacher/presentacion'
       path: '/presentacion'
@@ -414,6 +434,7 @@ interface AuthenticatedCartillaTeacherRouteChildren {
   AuthenticatedCartillaTeacherBrandingRoute: typeof AuthenticatedCartillaTeacherBrandingRoute
   AuthenticatedCartillaTeacherFlipchartRoute: typeof AuthenticatedCartillaTeacherFlipchartRoute
   AuthenticatedCartillaTeacherPresentacionRoute: typeof AuthenticatedCartillaTeacherPresentacionRoute
+  AuthenticatedCartillaTeacherRemasterReviewRoute: typeof AuthenticatedCartillaTeacherRemasterReviewRoute
   AuthenticatedCartillaTeacherAlumnoIdRoute: typeof AuthenticatedCartillaTeacherAlumnoIdRoute
   AuthenticatedCartillaTeacherClaseIdRoute: typeof AuthenticatedCartillaTeacherClaseIdRoute
 }
@@ -426,6 +447,8 @@ const AuthenticatedCartillaTeacherRouteChildren: AuthenticatedCartillaTeacherRou
       AuthenticatedCartillaTeacherFlipchartRoute,
     AuthenticatedCartillaTeacherPresentacionRoute:
       AuthenticatedCartillaTeacherPresentacionRoute,
+    AuthenticatedCartillaTeacherRemasterReviewRoute:
+      AuthenticatedCartillaTeacherRemasterReviewRoute,
     AuthenticatedCartillaTeacherAlumnoIdRoute:
       AuthenticatedCartillaTeacherAlumnoIdRoute,
     AuthenticatedCartillaTeacherClaseIdRoute:
