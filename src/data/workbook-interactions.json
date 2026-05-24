@@ -111,40 +111,6 @@
       "teacherNotes": "sopa (so-), silla (si-), sol (so-) confirmed in consonants.json examples for Lesson 9. Word labels are verified from source data. Art hotspot coordinates and image mapping require official page scan — not yet done."
     },
     {
-      "id": "l9-p29-tap-obj",
-      "lessonNumber": 9,
-      "pageNumber": 29,
-      "kind": "tap-object",
-      "title": "Toca los objetos",
-      "prompt": "Toca cada objeto del cuaderno cuando lo veas en la página.",
-      "items": [
-        { "id": "obj-saco", "label": "saco" },
-        { "id": "obj-seta", "label": "seta" },
-        { "id": "obj-seis", "label": "seis" }
-      ],
-      "targets": [
-        {
-          "id": "hotspot-saco",
-          "label": "saco",
-          "coordinatesVerified": false
-        },
-        {
-          "id": "hotspot-seta",
-          "label": "seta",
-          "coordinatesVerified": false
-        },
-        {
-          "id": "hotspot-seis",
-          "label": "seis",
-          "coordinatesVerified": false
-        }
-      ],
-      "sourceStatus": "needs-transcription",
-      "transcriptionStatus": "placeholder",
-      "studentFacingStatus": "Objetos pendientes de verificación en el libro",
-      "teacherNotes": "saco, seta, seis are NOT confirmed in consonants.json examples for Lesson 9. These object names are plausible for the S lesson but are not verified from the official workbook page scan. Do not promote to book-derived without page verification."
-    },
-    {
       "id": "l9-p30-read-aloud",
       "lessonNumber": 9,
       "pageNumber": 30,
