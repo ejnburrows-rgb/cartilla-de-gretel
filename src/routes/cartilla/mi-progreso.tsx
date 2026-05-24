@@ -40,10 +40,20 @@ function MyProgress() {
 
   useEffect(() => {
     const s = getStudentSession();
-    if (!s) return;
+    if (!s) {
+      setError("No hay una sesion de alumno activa. Vuelve a unirte a tu clase.");
+      setLoading(false);
+      return;
+    }
     getMyProgress({ data: { studentId: s.studentId, studentCode: s.studentCode } })
       .then((r) => setData(r as never))
-      .catch((e) => setError(e instanceof Error ? e.message : "Error"))
+      .catch((e) =>
+        setError(
+          e instanceof Error
+            ? e.message
+            : "No se pudo cargar el progreso. Sync no disponible en este momento.",
+        ),
+      )
       .finally(() => setLoading(false));
   }, []);
 
@@ -150,7 +160,7 @@ function MyProgress() {
           </p>
           {!isSupabaseConfigured && (
             <div className="mt-3 inline-flex rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-bold text-primary">
-              Modo demo local: estos datos viven en este navegador.
+              Modo demo local: estos datos viven en este navegador. Sync no disponible sin Supabase.
             </div>
           )}
         </div>

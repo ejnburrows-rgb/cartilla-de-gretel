@@ -53,3 +53,14 @@ When configured:
 4. Create class cohorts, add students, and copy class join codes.
 5. Create, track, or delete assignments.
 6. Manage local demo states (Export/Import/Reset) cleanly from the dashboard console.
+
+---
+
+## Reliability States Added
+
+- Student progress save now emits a visible state: saving, synced, saved locally, or sync unavailable.
+- Local demo mode explicitly says progress is browser-local and cannot sync without Supabase.
+- Student progress view exits loading with a clear message if the student session disappears.
+- Teacher dashboard surfaces class load failures instead of leaving the page ambiguous.
+- Teacher class pages show progress-summary, assignment-load, empty-assignment, and no-students states.
+- Teacher student detail pages show a clear error state if progress cannot be loaded.

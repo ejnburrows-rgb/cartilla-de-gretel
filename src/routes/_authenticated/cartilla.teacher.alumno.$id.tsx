@@ -14,7 +14,7 @@ export const Route = createFileRoute("/_authenticated/cartilla/teacher/alumno/$i
 function StudentDetail() {
   const { id } = Route.useParams();
   const fetchProgress = useServerFn(getStudentProgress);
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, error } = useQuery({
     queryKey: ["teacher", "student", id],
     queryFn: () => fetchProgress({ data: { id } }),
   });
@@ -74,6 +74,21 @@ function StudentDetail() {
     return (
       <main className="min-h-screen flex items-center justify-center">
         <Loader2 className="w-6 h-6 animate-spin text-foreground/40" />
+      </main>
+    );
+  }
+  if (error) {
+    return (
+      <main className="min-h-screen bg-background px-4 py-6 max-w-4xl mx-auto">
+        <Link
+          to="/cartilla/teacher"
+          className="inline-flex items-center gap-2 text-sm font-bold text-foreground/60 hover:text-foreground"
+        >
+          <ArrowLeft className="w-4 h-4" /> Mis clases
+        </Link>
+        <div className="kid-card mt-6 border-destructive/20 bg-destructive/5 p-6 text-sm font-bold text-destructive">
+          No se pudo cargar el progreso del alumno. Revisa la sesion del maestro o la conexion.
+        </div>
       </main>
     );
   }

@@ -57,12 +57,12 @@ function ClassDetail() {
   const [assDue, setAssDue] = useState("");
   const [assLimit, setAssLimit] = useState<string>("");
 
-  const { data: classProgress } = useQuery({
+  const { data: classProgress, error: classProgressError } = useQuery({
     queryKey: ["teacher", "class", id, "progress"],
     queryFn: () => fetchProgress({ data: { id } }),
   });
 
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, error: classError } = useQuery({
     queryKey: ["teacher", "class", id],
     queryFn: () => fetchClass({ data: { id } }),
   });
@@ -86,7 +86,7 @@ function ClassDetail() {
     },
   });
 
-  const { data: assignments } = useQuery({
+  const { data: assignments, error: assignmentsError } = useQuery({
     queryKey: ["teacher", "class", id, "assignments"],
     queryFn: () => fetchAssignments({ data: { classId: id } }),
   });
@@ -177,6 +177,22 @@ function ClassDetail() {
     );
   }
 
+  if (classError) {
+    return (
+      <main className="min-h-screen bg-background px-4 py-6 max-w-4xl mx-auto">
+        <Link
+          to="/cartilla/teacher"
+          className="inline-flex items-center gap-2 text-sm font-bold text-foreground/60 hover:text-foreground"
+        >
+          <ArrowLeft className="w-4 h-4" /> Mis clases
+        </Link>
+        <div className="kid-card mt-6 border-destructive/20 bg-destructive/5 p-6 text-sm font-bold text-destructive">
+          No se pudo cargar esta clase. Revisa la sesion del maestro o vuelve al panel.
+        </div>
+      </main>
+    );
+  }
+
   if (!data) return null;
 
   return (
@@ -231,6 +247,11 @@ function ClassDetail() {
           <p className="text-[11px] text-foreground/50 mt-2">
             El subtítulo bajo cada barra es el % promedio de aciertos de la clase en esa lección.
           </p>
+        </section>
+      )}
+      {classProgressError && (
+        <section className="mt-6 kid-card border-warning/20 bg-warning/5 p-4 text-sm font-bold text-warning">
+          No se pudo cargar el resumen de progreso. La lista de alumnos sigue disponible.
         </section>
       )}
 
@@ -302,6 +323,11 @@ function ClassDetail() {
         </form>
         {createAssMut.error && (
           <p className="text-xs text-destructive mt-2">{(createAssMut.error as Error).message}</p>
+        )}
+        {assignmentsError && (
+          <p className="text-xs text-destructive mt-2">
+            No se pudieron cargar las tareas. Sync no disponible para esta vista.
+          </p>
         )}
 
         {assignments && assignments.length > 0 && (
@@ -425,6 +451,11 @@ function ClassDetail() {
               </li>
             ))}
           </ul>
+        )}
+        {assignments && assignments.length === 0 && (
+          <div className="mt-4 rounded-xl border border-foreground/10 bg-secondary/30 px-3 py-2 text-xs font-bold text-foreground/60">
+            Aun no hay tareas asignadas para esta clase.
+          </div>
         )}
       </section>
 

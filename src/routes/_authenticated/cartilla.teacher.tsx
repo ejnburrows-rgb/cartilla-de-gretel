@@ -46,7 +46,7 @@ function TeacherDashboard() {
     supabase.auth.getUser().then(({ data }) => setTeacherEmail(data.user?.email ?? ""));
   }, []);
 
-  const { data: classes, isLoading } = useQuery({
+  const { data: classes, isLoading, error: classesError } = useQuery({
     queryKey: ["teacher", "classes"],
     queryFn: () => list(),
   });
@@ -227,6 +227,14 @@ function TeacherDashboard() {
 
       <section className="mt-6 space-y-3">
         {isLoading && <div className="text-foreground/60 text-sm">Cargando…</div>}
+        {classesError && (
+          <div className="kid-card border-destructive/20 bg-destructive/5 p-4 text-sm font-bold text-destructive">
+            No se pudieron cargar las clases.{" "}
+            {!isSupabaseConfigured
+              ? "Modo demo local no disponible en este navegador."
+              : "Revisa la sesion de maestro o la conexion a Supabase."}
+          </div>
+        )}
         {classes?.length === 0 && (
           <div className="kid-card p-6 text-center text-foreground/60">
             Aún no tienes clases. Crea una para empezar.

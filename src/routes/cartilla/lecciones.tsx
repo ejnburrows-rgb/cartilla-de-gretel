@@ -5,7 +5,7 @@ import { ArrowLeft, BookOpen, Check, Lock, RotateCcw, Sparkles, Zap } from "luci
 import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
 import { hydrateLessonProgress, useLessonProgress } from "@/lib/lesson-progress";
 import { getMyProgress } from "@/lib/student.functions";
-import { useStudentSession } from "@/lib/student-session";
+import { useProgressSyncStatus, useStudentSession } from "@/lib/student-session";
 import { isSupabaseConfigured } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/cartilla/lecciones")({
@@ -15,6 +15,7 @@ export const Route = createFileRoute("/cartilla/lecciones")({
 
 function Lecciones() {
   const session = useStudentSession();
+  const syncStatus = useProgressSyncStatus();
   const fetchMyProgress = useServerFn(getMyProgress);
   const { isCompleted, isUnlocked, completed, reset } = useLessonProgress();
 
@@ -85,6 +86,17 @@ function Lecciones() {
         {!isSupabaseConfigured && session && (
           <div className="mt-3 inline-flex rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-bold text-primary">
             Modo demo local: progreso guardado en este navegador para {session.studentName}.
+          </div>
+        )}
+        {session && syncStatus.state !== "idle" && (
+          <div
+            className={`mt-2 inline-flex rounded-full border px-3 py-1 text-xs font-bold ${
+              syncStatus.state === "error"
+                ? "border-destructive/25 bg-destructive/5 text-destructive"
+                : "border-success/25 bg-success/5 text-success"
+            }`}
+          >
+            {syncStatus.message}
           </div>
         )}
         <div className="mt-5">

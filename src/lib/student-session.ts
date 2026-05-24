@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { logProgress } from "@/lib/student.functions";
 import { recordExerciseStat } from "@/lib/exercise-stats";
+import { isSupabaseConfigured } from "@/integrations/supabase/client";
 
 export type StudentSession = {
   studentId: string;
@@ -11,6 +12,40 @@ export type StudentSession = {
 };
 
 const KEY = "cartilla.student-session.v1";
+const PROGRESS_SYNC_EVENT = "cartilla:progress-sync";
+
+export type ProgressSyncStatus = {
+  state: "idle" | "saving" | "saved" | "local" | "error";
+  message: string;
+  at: number | null;
+};
+
+let progressSyncStatus: ProgressSyncStatus = {
+  state: "idle",
+  message: "",
+  at: null,
+};
+
+function setProgressSyncStatus(next: ProgressSyncStatus) {
+  progressSyncStatus = next;
+  if (typeof window !== "undefined") {
+    window.dispatchEvent(new Event(PROGRESS_SYNC_EVENT));
+  }
+}
+
+export function getProgressSyncStatus() {
+  return progressSyncStatus;
+}
+
+export function useProgressSyncStatus() {
+  const [status, setStatus] = useState(progressSyncStatus);
+  useEffect(() => {
+    const h = () => setStatus(getProgressSyncStatus());
+    window.addEventListener(PROGRESS_SYNC_EVENT, h);
+    return () => window.removeEventListener(PROGRESS_SYNC_EVENT, h);
+  }, []);
+  return status;
+}
 
 export function getStudentSession(): StudentSession | null {
   if (typeof window === "undefined") return null;
@@ -70,12 +105,41 @@ export function recordEvent(input: LogInput) {
     }
   }
   const s = getStudentSession();
-  if (!s) return;
+  if (!s) {
+    setProgressSyncStatus({
+      state: "error",
+      message: "Sin sesion de alumno: la sincronizacion de progreso no esta disponible.",
+      at: Date.now(),
+    });
+    return;
+  }
+  setProgressSyncStatus({
+    state: "saving",
+    message: isSupabaseConfigured ? "Guardando progreso..." : "Guardando progreso local...",
+    at: Date.now(),
+  });
   logProgress({
     data: {
       studentId: s.studentId,
       studentCode: s.studentCode,
       ...input,
     },
-  }).catch((err) => console.warn("recordEvent failed", err));
+  })
+    .then(() =>
+      setProgressSyncStatus({
+        state: isSupabaseConfigured ? "saved" : "local",
+        message: isSupabaseConfigured
+          ? "Progreso sincronizado."
+          : "Progreso guardado localmente. Sync no disponible sin Supabase.",
+        at: Date.now(),
+      }),
+    )
+    .catch((err) => {
+      console.warn("recordEvent failed", err);
+      setProgressSyncStatus({
+        state: "error",
+        message: "No se pudo sincronizar el progreso. Revisa la conexion o la sesion.",
+        at: Date.now(),
+      });
+    });
 }

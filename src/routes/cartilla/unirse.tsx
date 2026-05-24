@@ -87,7 +87,7 @@ function JoinPage() {
           <form onSubmit={submit} className="mt-8 space-y-3">
             {!isSupabaseConfigured && (
               <div className="rounded-2xl border-2 border-vowel-i/20 bg-vowel-i/5 px-4 py-3 text-sm font-bold text-vowel-i">
-                Modo demo local: Supabase no estÃ¡ configurado. La sesiÃ³n y el progreso se guardan
+                Modo demo local: Supabase no esta configurado. La sesion y el progreso se guardan
                 en este navegador. Demo prellenado: {DEFAULT_DEMO_STUDENT.name}.
               </div>
             )}
@@ -124,7 +124,7 @@ function JoinPage() {
               className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-bold disabled:opacity-50 inline-flex items-center justify-center gap-2"
             >
               {busy && <Loader2 className="w-4 h-4 animate-spin" />}
-              Entrar
+              {busy ? "Validando codigos..." : "Entrar"}
             </button>
           </form>
           {!isSupabaseConfigured && (
