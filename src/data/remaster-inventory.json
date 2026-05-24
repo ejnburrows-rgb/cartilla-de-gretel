@@ -1,0 +1,1094 @@
+{
+  "version": "1.0",
+  "assets": [
+    {
+      "originalSourcePath": "/cartilla/images/source/a/a-page-4.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/a-page-4.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/b/b-page-31.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/b-page-31.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/b/b-page-32.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/b-page-32.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/b/b-page-33.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/b-page-33.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/c/c-page-52.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/c-page-52.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/c/c-page-53.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/c-page-53.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/c/c-page-54.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/c-page-54.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/d/d-page-19.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/d-page-19.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/d/d-page-20.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/d-page-20.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/d/d-page-21.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/d-page-21.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/e/e-page-5.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/e-page-5.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/f/f-page-46.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/f-page-46.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/f/f-page-47.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/f-page-47.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/f/f-page-48.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/f-page-48.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/g/g-page-43.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/g-page-43.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/g/g-page-44.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/g-page-44.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/g/g-page-45.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/g-page-45.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/i/i-page-6.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/i-page-6.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/j/j-page-49.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/j-page-49.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/j/j-page-50.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/j-page-50.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/j/j-page-51.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/j-page-51.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/l/l-page-22.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/l-page-22.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/l/l-page-23.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/l-page-23.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/l/l-page-24.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/l-page-24.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/m/m-page-10.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/m-page-10.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/m/m-page-8.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/m-page-8.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/m/m-page-9.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/m-page-9.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/n/n-page-25.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/n-page-25.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/n/n-page-26.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/n-page-26.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/n/n-page-27.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/n-page-27.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/o/o-page-3.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/o-page-3.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/p/p-page-11.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/p-page-11.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/p/p-page-12.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/p-page-12.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/p/p-page-13.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/p-page-13.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/r/r-page-37.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/r-page-37.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/r/r-page-38.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/r-page-38.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/r/r-page-39.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/r-page-39.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/rima/rima-page-2.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/rima-page-2.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/rr/rr-page-40.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/rr-page-40.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/rr/rr-page-41.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/rr-page-41.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/rr/rr-page-42.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/rr-page-42.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/ss/ss-page-14.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/ss-page-14.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/ss/ss-page-15.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/ss-page-15.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/ss/ss-page-16.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/ss-page-16.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/t/t-page-17.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/t-page-17.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/t/t-page-18.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/t-page-18.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/u/u-page-7.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/u-page-7.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/v/v-page-34.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/v-page-34.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/v/v-page-35.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/v-page-35.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/v/v-page-36.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/v-page-36.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/y/y-page-55.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/y-page-55.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/y/y-page-56.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/y-page-56.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/y/y-page-57.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/y-page-57.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/z/z-page-58.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/z-page-58.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/z/z-page-59.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/z-page-59.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/z/z-page-60.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/z-page-60.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/ñ/ñ-page-28.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/ñ-page-28.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/ñ/ñ-page-29.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/ñ-page-29.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/source/ñ/ñ-page-30.jpg",
+      "remasteredPath": "/cartilla/images/remastered/student-workbook/ñ-page-30.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "student-workbook"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-01.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-01.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-02.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-02.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-03.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-03.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-04.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-04.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-05.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-05.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-06.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-06.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-07.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-07.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-08.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-08.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-09.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-09.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-10.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-10.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-11.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-11.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-12.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-12.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-13.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-13.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-14.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-14.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-15.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-15.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-16.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-16.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-17.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-17.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-18.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-18.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-19.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-19.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-20.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-20.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-21.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-21.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-22.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-22.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-23.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-23.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-24.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-24.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-25.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-25.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-26.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-26.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-27.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-27.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-28.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-28.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-29.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-29.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-30.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-30.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-31.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-31.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-32.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-32.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-33.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-33.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-34.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-34.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-35.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-35.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-36.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-36.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-37.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-37.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-38.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-38.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-39.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-39.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-40.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-40.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-41.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-41.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-42.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-42.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-43.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-43.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-44.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-44.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-45.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-45.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-46.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-46.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-47.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-47.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-48.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-48.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-49.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-49.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-50.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-50.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-51.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-51.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-52.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-52.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-53.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-53.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-54.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-54.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-55.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-55.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-56.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-56.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-57.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-57.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-58.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-58.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-59.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-59.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-60.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-60.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-61.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-61.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    },
+    {
+      "originalSourcePath": "/cartilla/images/teacher-flipchart/teacher-page-62.jpg",
+      "remasteredPath": "/cartilla/images/remastered/teacher-flipchart/teacher-page-62.jpg",
+      "cleanupStatus": "pending",
+      "artifactFixed": false,
+      "remasterType": "scan cleanup",
+      "approvalStatus": "pending",
+      "type": "teacher-flipchart"
+    }
+  ]
+}

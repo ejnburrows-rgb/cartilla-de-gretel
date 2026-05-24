@@ -1,6 +1,8 @@
 import { getWorkbookPagesForLesson } from "@/lib/book-faithful";
 import { getLessonPageNumbers } from "@/lib/cartilla-crm-theme";
 
+import remasterInventory from "@/data/remaster-inventory.json";
+
 export const WORKBOOK_PDF_PATH = "/book/book.pdf";
 
 export type WorkbookSourceStatus =
@@ -24,6 +26,8 @@ export type WorkbookPageSource = {
   hasVerifiedImage: boolean;
   hasVerifiedText: boolean;
   status: WorkbookSourceStatus;
+  remasterStatus?: "pending" | "cleaned" | "needs review" | "approved" | "original only";
+  remasteredPath?: string;
 };
 
 export type WorkbookLessonSource = {
@@ -58,7 +62,26 @@ export function getWorkbookPageSourcesForLesson(
 
   const sources = pageNumbers.map((pageNumber) => {
     const verifiedPage = verifiedPages.find((page) => page.pageNumber === pageNumber);
-    const imageRef = verifiedPage?.imageScanReference ?? undefined;
+    const originalRef = verifiedPage?.imageScanReference ?? undefined;
+    
+    // Resolve remastered path and status from remaster-inventory
+    let imageRef = originalRef;
+    let remasterStatus: "pending" | "cleaned" | "needs review" | "approved" | "original only" = "original only";
+    let remasteredPath: string | undefined = undefined;
+
+    if (originalRef) {
+      const remasterAsset = remasterInventory.assets.find(
+        (asset) => asset.originalSourcePath === originalRef
+      );
+      if (remasterAsset) {
+        remasterStatus = remasterAsset.cleanupStatus as "pending" | "cleaned" | "needs review" | "approved" | "original only";
+        remasteredPath = remasterAsset.remasteredPath;
+        if (remasterAsset.approvalStatus === "approved") {
+          imageRef = remasterAsset.remasteredPath;
+        }
+      }
+    }
+
     const hasVerifiedImage = Boolean(imageRef);
     const hasVerifiedText = Boolean(verifiedPage?.verifiedTextBlocks.length);
     const baseStatus: WorkbookSourceStatus = hasVerifiedImage
@@ -77,6 +100,8 @@ export function getWorkbookPageSourcesForLesson(
       hasVerifiedImage,
       hasVerifiedText,
       status,
+      remasterStatus,
+      remasteredPath,
     };
   });
 

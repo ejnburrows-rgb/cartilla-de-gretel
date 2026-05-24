@@ -3,11 +3,22 @@ import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Presentation, ArrowLeft, Maximize, Minimize, CheckCircle2, Clock } from "lucide-react";
 import { cn } from "@/lib/utils";
 import teacherFlipchartData from "@/data/teacher-flipchart.json";
+import remasterInventory from "@/data/remaster-inventory.json";
 
 export const Route = createFileRoute("/_authenticated/cartilla/teacher/flipchart")({
   component: TeacherFlipchart,
   head: () => ({ meta: [{ title: "Flipchart de Clase — La Cartilla de Gretel" }] }),
 });
+
+interface RemasterAsset {
+  originalSourcePath: string;
+  remasteredPath: string;
+  cleanupStatus: string;
+  artifactFixed: boolean;
+  remasterType: string;
+  approvalStatus: string;
+  type: string;
+}
 
 function TeacherFlipchart() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -59,6 +70,33 @@ function TeacherFlipchart() {
 
   if (!currentData) return <div>Cargando...</div>;
 
+  const originalPath = currentData.path;
+  
+  // Find remaster asset matching original path
+  const remasterAsset = (remasterInventory.assets as RemasterAsset[]).find(
+    (asset) => asset.originalSourcePath === originalPath
+  );
+
+  let displayPath = originalPath;
+  let remasterStatusLabel = "Remaster pendiente";
+  let remasterBadgeStyle = "bg-amber-500/10 text-amber-400 border border-amber-500/20";
+  let isApproved = false;
+
+  if (remasterAsset) {
+    if (remasterAsset.approvalStatus === "approved") {
+      displayPath = remasterAsset.remasteredPath;
+      remasterStatusLabel = "Remaster listo";
+      remasterBadgeStyle = "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20";
+      isApproved = true;
+    } else if (remasterAsset.cleanupStatus === "needs review") {
+      remasterStatusLabel = "En revisión";
+      remasterBadgeStyle = "bg-blue-500/10 text-blue-400 border border-blue-500/20";
+    } else if (remasterAsset.cleanupStatus === "cleaned") {
+      remasterStatusLabel = "Limpieza completada";
+      remasterBadgeStyle = "bg-sky-500/10 text-sky-400 border border-sky-500/20";
+    }
+  }
+
   return (
     <div className={cn(
       "flex flex-col min-h-screen",
@@ -83,15 +121,10 @@ function TeacherFlipchart() {
           <div className="flex items-center gap-4">
              {/* Honest status indicator */}
              <div className="flex items-center gap-2 text-xs font-semibold">
-                {currentData.remasterStatus === "original only" ? (
-                  <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">
-                    <Clock className="h-3.5 w-3.5" /> Remaster pendiente
-                  </span>
-                ) : (
-                   <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                    <CheckCircle2 className="h-3.5 w-3.5" /> Remaster listo
-                  </span>
-                )}
+                <span className={cn("flex items-center gap-1.5 px-3 py-1.5 rounded-full font-semibold", remasterBadgeStyle)}>
+                  {isApproved ? <CheckCircle2 className="h-3.5 w-3.5" /> : <Clock className="h-3.5 w-3.5" />}
+                  {remasterStatusLabel}
+                </span>
                 <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">
                   Fuente conectada
                 </span>
@@ -133,7 +166,7 @@ function TeacherFlipchart() {
         {/* The Flipchart Page */}
         <div className="relative h-full w-full flex items-center justify-center">
           <img 
-            src={currentData.path} 
+            src={displayPath} 
             alt={`Página ${currentData.flipchartPage} del flipchart`}
             className="max-h-full max-w-full object-contain drop-shadow-2xl rounded-sm"
           />
