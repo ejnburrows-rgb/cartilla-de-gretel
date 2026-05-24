@@ -230,8 +230,10 @@
       ],
       "sourceStatus": "needs-transcription",
       "transcriptionStatus": "placeholder",
-      "studentFacingStatus": "hotspot coordinates pending",
-      "teacherNotes": "saco, seta, seis are NOT confirmed in consonants.json examples for Lesson 9. These object names are plausible for the S lesson but are not verified from the official workbook page scan. Do not promote to book-derived without page verification."
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "saco, seta, seis are NOT confirmed in consonants.json examples for Lesson 9. These object names are plausible for the S lesson but are not verified from the official workbook page scan. Do not promote to book-derived without page verification.",
+      "assetRef": "/cartilla/images/source/ss/ss-page-16.jpg",
+      "assetRefVerified": true
     },
     {
       "id": "l9-p29-mini-story-ss",
