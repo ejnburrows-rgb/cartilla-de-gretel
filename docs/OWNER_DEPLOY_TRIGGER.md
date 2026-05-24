@@ -2,18 +2,21 @@
 
 This file intentionally triggers a Vercel deployment from the repository owner account so the latest `main` tree can deploy on the Vercel Hobby plan.
 
-Includes prior changes through commit:
+Includes prior changes through commits:
 
-`aaf8c9fa3a8af9e8a05a0f49040e8d4e9873b2f4`
+- CRM progress flows: `8ee51742307ec233f58b9f83eda87d67674f01d4`
+- Student workbook interactions: `49cbc2d279079e56a71631872575ddbed1d16ee6`
+- Teacher flipchart presentation lane: `3126ba18e532c41c4c8d6e21e06fb7f41109a873`
+- Remaster inventory lane: `69de210abd762f5d4e36c3a41608fb7312e459cf`
 
 Expected production behavior after deployment:
 
-- Lessons 21–24 official student workbook page scans are available in the student Cuaderno.
-- Lessons 1–20 expanded scan coverage remains intact.
-- Student workbook physical shell and BookPageFlip behavior remain intact.
-- Original cover remains in place.
-- Teacher and student workbook experiences remain separated.
+- Remaster inventory/fallback lane is available for student workbook and teacher flipchart.
+- Original scans remain the fallback until remastered images are approved.
+- Teacher flipchart route and metadata remain available.
+- Classroom CRM progress flows remain available.
+- Student workbook source-backed interactions remain available.
 - No fake art, emojis, or invented text are introduced.
-- Object-level cutouts and exact hotspots remain pending and should not be overclaimed.
+- Remaster status remains honest: pending/cleaned/needs review/approved only when supported by metadata.
 
-Created: 2026-05-24T15:50:00Z
+Created: 2026-05-24T17:56:00Z
