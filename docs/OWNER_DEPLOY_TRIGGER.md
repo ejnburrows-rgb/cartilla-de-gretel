@@ -1,19 +1,19 @@
 # Owner-authored deploy trigger
 
-This file intentionally triggers a Vercel deployment from the repository owner account so the latest `main` tree can deploy on the Vercel Hobby plan.
+This file intentionally triggers deployment from the repository owner account when needed.
 
-Includes latest collaborator-authored commits:
+Latest automation commit includes:
 
-- CRM demo hardening: `6acda4f2db3e771f2111972e893513dd86ae4ab2`
-- V2 remaster review decision workflow: `3cbdd3353f3bd5086a8f56bd22854aae349b2c70`
+- Production GitHub Actions workflow for verify → Supabase migrations → Vercel deploy.
+- Supabase real classroom seed path.
+- Production-oriented CRM wording and product navigation cleanup.
 
 Expected production behavior after deployment:
 
-- CRM demo flows remain hardened and stable.
-- V2 remaster review decision workflow is available.
-- Student workbook scans/interactions and BookPageFlip remain intact.
-- Teacher flipchart and remaster review lanes remain intact.
-- No fake art, emojis, or invented text are introduced.
-- Remasters remain review/approval gated unless explicitly approved in metadata.
+- Public workbook access remains available.
+- Teacher CRM can use Supabase when env vars are configured.
+- Supabase migrations can be applied from GitHub Actions.
+- Vercel can deploy production from GitHub Actions.
+- Preconfigured local accounts remain fallback only when Supabase is not configured.
 
-Created: 2026-05-25T01:13:00Z
+Created: 2026-05-25T04:20:00Z
