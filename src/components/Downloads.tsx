@@ -1,8 +1,10 @@
 import { assetPath } from "@/lib/branding";
 
+const BOOK_PDF_PUBLIC_PATH = ["book", "book.pdf"].join("/");
+
 const FILES = [
   {
-    href: assetPath("/book/book.pdf"),
+    href: assetPath(BOOK_PDF_PUBLIC_PATH),
     name: "La_cartilla_de_Gretel.pdf",
     label: "PDF",
     desc: "Cuaderno del estudiante completo, listo para leer o descargar",

@@ -10,7 +10,8 @@ import { assetPath } from "@/lib/branding";
 
 const PdfViewer = lazy(() => import("./PdfViewer").then((m) => ({ default: m.PdfViewer })));
 
-const PDF_URL = assetPath("/book/book.pdf");
+const PDF_RELATIVE_PATH = ["book", "book.pdf"].join("/");
+const PDF_URL = assetPath(PDF_RELATIVE_PATH);
 
 async function exists(url: string) {
   try {
@@ -70,7 +71,7 @@ export function Reader() {
       <div className="mx-auto max-w-lg p-8 text-center">
         <h1 className="mb-2 text-2xl font-bold">No hay libro</h1>
         <p className="text-foreground/70">
-          Coloca el PDF oficial en <code>public/book/book.pdf</code> y vuelve a ejecutar el build.
+          Coloca el PDF oficial en <code>public/{PDF_RELATIVE_PATH}</code> y vuelve a ejecutar el build.
         </p>
       </div>
     );

@@ -159,7 +159,11 @@ export function DragBuildWord({ entry, accent }: DragBuildWordProps) {
   }
 
   return (
-    <div className="space-y-6 rounded-[2rem] border border-stone-200 bg-[#fffdfa] p-5 sm:p-6 shadow-[0_20px_50px_rgba(50,30,10,0.06)] relative overflow-hidden">
+    <motion.div
+      className="space-y-6 rounded-[2rem] border border-stone-200 bg-[linear-gradient(180deg,#fffdfa,rgba(255,248,235,0.92))] p-5 sm:p-6 shadow-[0_20px_50px_rgba(50,30,10,0.06)] relative overflow-hidden"
+      animate={feedback ? activityCompleteMotion[feedback] : { x: 0, scale: 1, boxShadow: "0 20px 50px rgba(50,30,10,0.06)" }}
+      transition={{ duration: feedback === "x" ? 0.34 : 0.5, ease: "easeOut" }}
+    >
       <div className="text-center">
         <div
           className="text-[10px] sm:text-xs font-black uppercase tracking-widest mb-2"
@@ -171,6 +175,18 @@ export function DragBuildWord({ entry, accent }: DragBuildWordProps) {
           <Hand className="h-3.5 w-3.5" />
           Arrastra una pieza, o tócala y luego toca un espacio.
         </p>
+        {selectedPiece && (
+          <motion.div
+            className="mx-auto mb-4 flex max-w-sm items-center justify-center gap-2 rounded-2xl border-2 border-amber-900/15 bg-amber-50 px-4 py-3 text-sm font-black text-amber-950 shadow-inner"
+            initial={{ opacity: 0, y: -6, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+          >
+            <span className="inline-flex min-h-10 min-w-10 items-center justify-center rounded-xl bg-white px-3 text-xl shadow-sm" style={targetWordStyle(accent)}>
+              {selectedPiece}
+            </span>
+            <span>Toca un espacio brillante para colocarla.</span>
+          </motion.div>
+        )}
         <div className="flex items-center justify-center gap-2 sm:gap-4 flex-wrap my-4">
           {slots.map((s, i) => (
             <DropSlot
@@ -226,7 +242,7 @@ export function DragBuildWord({ entry, accent }: DragBuildWordProps) {
       </div>
 
       <GretelFeedback state={feedback} onRetry={reset} />
-    </div>
+    </motion.div>
   );
 }
 
@@ -242,19 +258,14 @@ function DragPiece({
   onSelect: () => void;
 }) {
   return (
-    <motion.div
+    <motion.button
+      type="button"
       drag
       dragSnapToOrigin
       whileDrag={pieceWhileDrag}
       whileTap={pieceWhileTap}
       whileHover={{ scale: 1.04, rotate: -0.5 }}
       onClick={onSelect}
-      onKeyDown={(event) => {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          onSelect();
-        }
-      }}
       onDragEnd={(_, info) => {
         const event = new CustomEvent("cartilla:piece-drop", {
           detail: { piece, x: info.point.x, y: info.point.y },
@@ -262,17 +273,16 @@ function DragPiece({
         window.dispatchEvent(event);
       }}
       className={cn(
-        "min-h-16 px-6 py-4 sm:px-8 sm:py-5 rounded-3xl text-white text-2xl sm:text-4xl font-black shadow-md cursor-grab active:cursor-grabbing select-none touch-none hover:shadow-lg active:translate-y-px active:border-b-2 transition-all duration-200",
-        selected && "ring-4 ring-offset-2 ring-offset-background ring-amber-500/30 scale-105",
+        "relative min-h-16 px-6 py-4 sm:px-8 sm:py-5 rounded-3xl text-white text-2xl sm:text-4xl font-black shadow-md cursor-grab active:cursor-grabbing select-none touch-none hover:shadow-lg active:translate-y-px active:border-b-2 transition-all duration-200 overflow-hidden",
+        selected && "ring-4 ring-offset-2 ring-offset-background ring-amber-500/30 scale-105 shadow-2xl",
       )}
       style={pieceStyle(accent)}
-      role="button"
-      tabIndex={0}
       aria-label={`Pieza ${piece}`}
       aria-pressed={selected}
     >
-      {piece}
-    </motion.div>
+      <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_25%_20%,rgba(255,255,255,0.5),transparent_34%),linear-gradient(180deg,rgba(255,255,255,0.22),transparent)]" />
+      <span className="relative z-10">{piece}</span>
+    </motion.button>
   );
 }
 
@@ -309,21 +319,24 @@ function DropSlot({
   const canTapPlace = !filled && selectedPiece !== null;
 
   return (
-    <button
+    <motion.button
       type="button"
       ref={ref}
       onClick={() => {
         if (selectedPiece) onDrop(index, selectedPiece);
       }}
       className={cn(
-        "w-20 h-20 sm:w-28 sm:h-28 rounded-3xl border-4 border-dashed flex items-center justify-center text-3xl sm:text-5xl font-black transition-all duration-200 shadow-inner",
-        canTapPlace && "scale-105 ring-4 ring-amber-550/20 bg-amber-50/60 border-amber-900/40",
+        "relative w-20 h-20 sm:w-28 sm:h-28 rounded-3xl border-4 border-dashed flex items-center justify-center text-3xl sm:text-5xl font-black transition-all duration-200 shadow-inner overflow-hidden",
+        canTapPlace && "scale-105 ring-4 ring-amber-500/20 bg-amber-50/60 border-amber-900/40 shadow-[0_0_0_8px_rgba(251,191,36,0.14)]",
       )}
       style={slotStyle(filled, accent)}
+      animate={canTapPlace ? { y: [0, -3, 0] } : { y: 0 }}
+      transition={{ duration: 0.7, repeat: canTapPlace ? Infinity : 0, ease: "easeInOut" }}
       aria-label={filled ? `Espacio ${index + 1}: ${value}` : `Espacio ${index + 1}`}
     >
-      {value ?? "_"}
-    </button>
+      {canTapPlace && <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle,rgba(255,255,255,0.95),transparent_58%)]" />}
+      <span className="relative z-10">{value ?? "_"}</span>
+    </motion.button>
   );
 }
 
