@@ -72,8 +72,8 @@ export function BookPageFlip({ pageKey, direction, children }: BookPageFlipProps
       className="relative overflow-visible rounded-[2rem] p-1 [perspective:1900px]"
       style={stageStyle}
     >
-      <div className="pointer-events-none absolute -inset-x-6 bottom-1 z-0 h-16 rounded-[50%] bg-black/20 blur-2xl" />
-      <div className="pointer-events-none absolute inset-y-6 left-1/2 z-20 w-10 -translate-x-1/2 rounded-full bg-gradient-to-r from-black/14 via-black/6 to-transparent blur-md" />
+      <div className="pointer-events-none absolute -inset-x-6 bottom-1 z-0 h-16 rounded-[50%] bg-[#2c1e16]/25 blur-2xl" />
+      <div className="pointer-events-none absolute inset-y-6 left-1/2 z-20 w-12 -translate-x-1/2 rounded-full bg-gradient-to-r from-[#3a281e]/15 via-[#3a281e]/5 to-transparent blur-[10px]" />
       <AnimatePresence mode="wait" custom={direction} initial={false}>
         <motion.div
           key={pageKey}
@@ -87,14 +87,14 @@ export function BookPageFlip({ pageKey, direction, children }: BookPageFlipProps
           style={pageStyle}
         >
           <motion.div
-            className="pointer-events-none absolute inset-0 z-30 rounded-[1.75rem] bg-gradient-to-r from-black/18 via-transparent to-white/10 mix-blend-multiply"
+            className="pointer-events-none absolute inset-0 z-30 rounded-[1.75rem] bg-gradient-to-r from-[#4a3424]/20 via-transparent to-[#fffdf5]/30 mix-blend-multiply"
             initial={shadeInitial}
             animate={shadeCenter}
             exit={shadeExit}
             transition={overlayTransition}
           />
           <motion.div
-            className="pointer-events-none absolute inset-0 z-30 rounded-[1.75rem] bg-[radial-gradient(circle_at_15%_18%,rgba(255,255,255,0.55),transparent_34%),linear-gradient(115deg,transparent,rgba(255,255,255,0.22),transparent)]"
+            className="pointer-events-none absolute inset-0 z-30 rounded-[1.75rem] bg-[radial-gradient(circle_at_15%_18%,rgba(255,255,245,0.65),transparent_34%),linear-gradient(115deg,transparent,rgba(255,255,245,0.25),transparent)]"
             initial={glareInitial(direction)}
             animate={glareCenter}
             exit={glareExit(direction)}

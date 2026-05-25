@@ -110,7 +110,7 @@ export function DragWordReveal({ interaction, accent = "hsl(var(--primary))", on
               onDragEnd={handleDragEnd}
               onClick={() => handleReveal(item.id)}
               className={cn(
-                "inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl font-bold text-sm border-2 cursor-grab active:cursor-grabbing transition-all select-none",
+                "inline-flex items-center gap-2 px-5 py-3 sm:px-6 sm:py-4 rounded-2xl font-extrabold text-base sm:text-xl border-[3px] shadow-sm cursor-grab active:cursor-grabbing transition-all select-none",
                 isDone
                   ? "border-emerald-400 bg-emerald-50 text-emerald-800 opacity-70"
                   : draggedId === item.id
@@ -139,7 +139,7 @@ export function DragWordReveal({ interaction, accent = "hsl(var(--primary))", on
                 onDrop={(e) => handleDrop(e, target.id)}
                 onDragOver={handleDragOver}
                 className={cn(
-                  "min-w-[80px] min-h-[48px] flex items-center justify-center px-3 py-2 rounded-xl border-2 border-dashed font-bold text-sm transition-all",
+                  "min-w-[120px] min-h-[64px] sm:min-h-[80px] flex items-center justify-center px-4 py-3 sm:px-5 sm:py-4 rounded-2xl border-[3px] border-dashed font-extrabold text-base sm:text-xl transition-all shadow-inner",
                   accepted
                     ? "border-emerald-400 bg-emerald-50 text-emerald-800"
                     : "border-foreground/20 bg-secondary/30 text-foreground/50",

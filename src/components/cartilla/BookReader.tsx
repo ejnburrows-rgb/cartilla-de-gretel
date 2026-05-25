@@ -90,22 +90,22 @@ export function BookReader() {
         </section>
       </main>
 
-      <nav className="sticky bottom-0 z-20 bg-white/95 backdrop-blur border-t border-emerald-900/10 px-3 py-3 flex items-center justify-between gap-3">
+      <nav className="sticky bottom-0 z-20 bg-white/95 backdrop-blur border-t border-emerald-900/10 px-3 py-3 sm:py-4 flex items-center justify-between gap-3 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
         <button
           type="button"
           onClick={() => setLessonIndex((i) => Math.max(0, i - 1))}
           disabled={lessonIndex === 0}
-          className="inline-flex items-center gap-1 px-4 py-2 rounded-xl border-2 border-emerald-900/15 bg-white font-bold text-emerald-900 disabled:opacity-30 hover:-translate-y-px transition"
+          className="inline-flex items-center gap-1 px-4 py-3 sm:px-6 sm:py-4 rounded-2xl border-2 border-emerald-900/15 bg-white font-extrabold text-sm sm:text-lg text-emerald-900 disabled:opacity-30 active:scale-95 transition shadow-sm"
         >
-          <ChevronLeft className="w-5 h-5" /> Lección anterior
+          <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" /> <span className="hidden sm:inline">Lección anterior</span><span className="inline sm:hidden">Anterior</span>
         </button>
         <button
           type="button"
           onClick={() => setLessonIndex((i) => Math.min(total - 1, i + 1))}
           disabled={lessonIndex >= total - 1}
-          className="inline-flex items-center gap-1 px-5 py-2 rounded-xl bg-emerald-600 text-white font-bold shadow-md disabled:opacity-30 hover:-translate-y-px transition"
+          className="inline-flex items-center gap-1 px-5 py-3 sm:px-8 sm:py-4 rounded-2xl bg-emerald-600 text-white font-extrabold text-sm sm:text-lg shadow-md disabled:opacity-30 active:scale-95 transition"
         >
-          Siguiente lección <ChevronRight className="w-5 h-5" />
+          <span className="hidden sm:inline">Siguiente lección</span><span className="inline sm:hidden">Siguiente</span> <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
         </button>
       </nav>
 

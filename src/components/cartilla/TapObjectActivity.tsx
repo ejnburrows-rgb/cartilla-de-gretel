@@ -109,7 +109,7 @@ export function TapObjectActivity({ interaction, accent = "hsl(var(--primary))",
                 aria-label={`Toca ${target.label}${isTapped ? ". Tocado." : ""}`}
                 onClick={() => handleTap(target)}
                 className={cn(
-                  "flex items-center gap-3 w-full text-left rounded-xl border-2 px-4 py-3 font-bold text-sm transition-all",
+                  "flex items-center gap-4 w-full text-left rounded-2xl border-[3px] px-5 py-4 sm:px-6 sm:py-5 font-extrabold text-base sm:text-xl transition-all shadow-sm",
                   isTapped
                     ? "border-emerald-400 bg-emerald-50 text-emerald-800"
                     : "border-foreground/12 bg-background hover:border-primary/40 hover:bg-primary/5 active:scale-[0.98]",
@@ -117,13 +117,13 @@ export function TapObjectActivity({ interaction, accent = "hsl(var(--primary))",
                 style={isTapped ? undefined : listButtonStyle(accent)}
               >
                 <span
-                  className="w-8 h-8 rounded-full flex items-center justify-center text-white shrink-0"
+                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center text-white shrink-0"
                   style={circleStyle(isTapped ? "#10b981" : accent)}
                 >
                   {isTapped ? (
-                    <CheckCircle2 className="w-4 h-4" aria-hidden />
+                    <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6" aria-hidden />
                   ) : (
-                    <Volume2 className="w-4 h-4" aria-hidden />
+                    <Volume2 className="w-5 h-5 sm:w-6 sm:h-6" aria-hidden />
                   )}
                 </span>
                 <span className={isTapped ? "line-through opacity-60" : ""}>{target.label}</span>

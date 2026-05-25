@@ -15,21 +15,21 @@ function sectionTone(kind: CatalogEntry["kind"]): {
   switch (kind) {
     case "intro":
       return {
-        bg: "linear-gradient(135deg, #fef3c7 0%, #fef9c3 45%, #fde68a 100%)",
+        bg: "linear-gradient(135deg, #fff8e7 0%, #fef3c7 45%, #fde68a 100%)",
         textColor: "#78350f",
         accentSoft: "rgba(120,53,15,0.6)",
         label: "Las hermanitas vocales",
       };
     case "vowel":
       return {
-        bg: "linear-gradient(135deg, #e0f2fe 0%, #ecfccb 50%, #fef3c7 100%)",
+        bg: "linear-gradient(135deg, #fffcf0 0%, #fef6e0 50%, #fdf0c5 100%)",
         textColor: "#064e3b",
         accentSoft: "rgba(6,78,59,0.6)",
         label: "Vocal",
       };
     case "consonant":
       return {
-        bg: "linear-gradient(135deg, #ecfccb 0%, #fef3c7 50%, #e0f2fe 100%)",
+        bg: "linear-gradient(135deg, #fef6e0 0%, #fffcf0 50%, #fef3c7 100%)",
         textColor: "#064e3b",
         accentSoft: "rgba(6,78,59,0.6)",
         label: "Consonante",
@@ -44,7 +44,7 @@ function pageStyle(background: string): CSSProperties {
 function paperTextureStyle(): CSSProperties {
   return {
     background:
-      "radial-gradient(circle at 20% 15%, rgba(255,255,255,0.72), transparent 24%), radial-gradient(circle at 80% 85%, rgba(255,255,255,0.45), transparent 28%)",
+      "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAiLz4KPHBhdGggZD0iTTAgMEg0VjRIMEowIiBmaWxsPSIjMDAwIiBmaWxsLW9wYWNpdHk9IjAuMDIiLz4KPC9zdmc+') repeat, radial-gradient(circle at 20% 15%, rgba(255,255,245,0.8), transparent 24%), radial-gradient(circle at 80% 85%, rgba(255,255,245,0.65), transparent 28%)",
   };
 }
 

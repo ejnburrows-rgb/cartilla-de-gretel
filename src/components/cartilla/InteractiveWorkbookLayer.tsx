@@ -91,7 +91,7 @@ function SyllablePractice({
                 aria-label={`Sílaba ${item.label}${done ? ". Leída." : ""}`}
                 onClick={() => handleTap(item.id, item.label)}
                 className={cn(
-                  "min-w-[4.5rem] min-h-[4.5rem] rounded-2xl border-2 font-extrabold text-2xl transition-all flex flex-col items-center justify-center gap-1 shadow-sm active:scale-95",
+                  "min-w-[5.5rem] min-h-[5.5rem] sm:min-w-[7rem] sm:min-h-[7rem] rounded-3xl border-[3px] font-black text-3xl sm:text-4xl transition-all flex flex-col items-center justify-center gap-2 shadow-md active:scale-95",
                   done
                     ? "border-emerald-400 bg-emerald-50 text-emerald-800"
                     : "border-foreground/15 bg-white hover:scale-105 text-foreground",
@@ -151,7 +151,7 @@ function WordTap({
                 aria-label={`Palabra ${item.label}${done ? ". Escuchada." : ""}`}
                 onClick={() => handleTap(item.id, item.label)}
                 className={cn(
-                  "inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border-2 font-bold text-lg transition-all active:scale-95",
+                  "inline-flex items-center gap-3 px-6 py-4 sm:px-8 sm:py-5 rounded-2xl border-[3px] font-extrabold text-xl sm:text-2xl transition-all active:scale-95 shadow-sm",
                   done
                     ? "border-emerald-400 bg-emerald-50 text-emerald-800"
                     : "border-foreground/15 bg-white hover:scale-105 text-foreground",
@@ -212,8 +212,8 @@ function ReadAloud({
                 aria-label={`Escuchar: ${item.label}${done ? ". Escuchado." : ""}`}
                 onClick={() => handleTap(item.id, item.label)}
                 className={cn(
-                  "flex items-center gap-2.5 rounded-xl border-2 font-semibold transition-all active:scale-[0.98] text-left",
-                  isSentences ? "px-4 py-3 text-base leading-snug" : "px-4 py-2.5 text-xl font-extrabold",
+                  "flex items-center gap-3 rounded-2xl border-[3px] font-bold transition-all active:scale-[0.98] text-left shadow-sm",
+                  isSentences ? "px-5 py-4 sm:px-6 sm:py-5 text-lg sm:text-xl leading-snug" : "px-6 py-4 sm:px-8 sm:py-5 text-2xl sm:text-3xl font-extrabold",
                   done
                     ? "border-emerald-300 bg-emerald-50 text-emerald-800"
                     : "border-foreground/12 bg-white hover:bg-foreground/4 text-foreground",

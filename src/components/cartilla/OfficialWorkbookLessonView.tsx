@@ -21,6 +21,7 @@ export type OfficialWorkbookLessonViewProps = {
   title: string;
   accent?: string;
   belowPage?: (activePageNumber: number) => ReactNode;
+  mode?: "student" | "teacher";
 };
 
 // Styling helper functions
@@ -45,6 +46,7 @@ export function OfficialWorkbookLessonView({
   title,
   accent = "hsl(var(--primary))",
   belowPage,
+  mode = "student",
 }: OfficialWorkbookLessonViewProps) {
   const lessonSource = getWorkbookPageSourcesForLesson(lessonNumber, pages);
   const sources = lessonSource.pages;
@@ -123,15 +125,15 @@ export function OfficialWorkbookLessonView({
       {/* Top Controls Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 rounded-3xl bg-card border-2 border-foreground/5 shadow-sm premium-glass">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-2xl bg-secondary flex items-center justify-center text-primary border border-foreground/5">
-            <BookOpen className="w-5 h-5" style={getAccentTextStyle(accent)} />
+          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-secondary flex items-center justify-center text-primary border border-foreground/5 shrink-0">
+            <BookOpen className="w-5 h-5 sm:w-6 sm:h-6" style={getAccentTextStyle(accent)} />
           </div>
           <div>
-            <h3 className="font-extrabold text-sm text-foreground/80 leading-none">
-              Presentación del maestro
+            <h3 className="font-extrabold text-sm sm:text-base text-foreground/80 leading-none">
+              {mode === "teacher" ? "Presentación del maestro" : "Cuaderno Oficial"}
             </h3>
-            <span className="text-[11px] font-bold text-foreground/50 mt-1 block">
-              Libro proyectable en clase de alta resolución
+            <span className="text-[11px] sm:text-xs font-bold text-foreground/50 mt-1 block">
+              {mode === "teacher" ? "Libro proyectable en clase de alta resolución" : "Sigue la lección en tu libro impreso"}
             </span>
           </div>
         </div>
@@ -203,7 +205,7 @@ export function OfficialWorkbookLessonView({
           )}>
             
             {/* LEFT PAGE (or unique page) */}
-            <div className="relative flex flex-col justify-between bg-background/50 rounded-2xl p-4 md:p-6 border border-foreground/5 shadow-inner">
+            <div className="relative flex flex-col justify-between bg-[#fffff8] rounded-2xl p-3 sm:p-4 md:p-6 border border-foreground/5 shadow-inner">
               
               {/* Binder Spiral down the right edge of left page on desktop */}
               {isDoublePage && (
@@ -221,7 +223,7 @@ export function OfficialWorkbookLessonView({
 
             {/* RIGHT PAGE (only visible on side-by-side mode) */}
             {isDoublePage && (
-              <div className="relative flex flex-col justify-between bg-background/50 rounded-2xl p-4 md:p-6 border border-foreground/5 shadow-inner">
+              <div className="relative flex flex-col justify-between bg-[#fffff8] rounded-2xl p-3 sm:p-4 md:p-6 border border-foreground/5 shadow-inner">
                 {rightSource ? (
                   <div className="flex-1">
                     <OfficialWorkbookPage source={rightSource} />
@@ -243,15 +245,15 @@ export function OfficialWorkbookLessonView({
           </div>
 
           {/* Quick Page Turning Affordance Indicators */}
-          <div className="flex items-center justify-between mt-4 px-2">
+          <div className="flex items-center justify-between mt-4 px-1 sm:px-2">
             <button
               type="button"
               onClick={handlePrev}
               disabled={selectedIdx === 0}
-              className="inline-flex items-center gap-1 px-3 py-2 rounded-xl border border-foreground/10 text-xs font-bold text-foreground/60 hover:bg-secondary/40 disabled:opacity-30 disabled:hover:bg-transparent transition cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-4 py-3 sm:px-5 sm:py-3.5 rounded-2xl border border-foreground/10 text-sm font-extrabold text-foreground/70 bg-card hover:bg-secondary/60 disabled:opacity-30 disabled:hover:bg-card shadow-sm active:scale-95 transition cursor-pointer"
             >
-              <ChevronLeft className="w-4 h-4" />
-              <span>Pág. Anterior</span>
+              <ChevronLeft className="w-5 h-5" />
+              <span className="hidden sm:inline">Anterior</span>
             </button>
 
             {/* Verified badge status */}
@@ -264,10 +266,10 @@ export function OfficialWorkbookLessonView({
               type="button"
               onClick={handleNext}
               disabled={isDoublePage ? (selectedIdx + 2 >= sources.length) : (selectedIdx + 1 >= sources.length)}
-              className="inline-flex items-center gap-1 px-3 py-2 rounded-xl border border-foreground/10 text-xs font-bold text-foreground/60 hover:bg-secondary/40 disabled:opacity-30 disabled:hover:bg-transparent transition cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-4 py-3 sm:px-5 sm:py-3.5 rounded-2xl border border-foreground/10 text-sm font-extrabold text-foreground/70 bg-card hover:bg-secondary/60 disabled:opacity-30 disabled:hover:bg-card shadow-sm active:scale-95 transition cursor-pointer"
             >
-              <span>Pág. Siguiente</span>
-              <ChevronRight className="w-4 h-4" />
+              <span className="hidden sm:inline">Siguiente</span>
+              <ChevronRight className="w-5 h-5" />
             </button>
           </div>
         </div>

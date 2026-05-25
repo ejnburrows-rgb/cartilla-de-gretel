@@ -193,7 +193,7 @@ function DragPiece({ piece, accent }: { piece: string; accent: string }) {
         });
         window.dispatchEvent(event);
       }}
-      className="px-4 py-3 sm:px-5 sm:py-3 rounded-2xl text-white text-xl sm:text-2xl font-bold shadow-md cursor-grab active:cursor-grabbing select-none touch-none"
+      className="px-6 py-4 sm:px-8 sm:py-5 rounded-3xl text-white text-2xl sm:text-4xl font-extrabold shadow-lg cursor-grab active:cursor-grabbing select-none touch-none hover:scale-105 active:scale-95 transition-transform"
       style={pieceStyle(accent)}
       role="button"
       aria-label={`Pieza ${piece}`}
@@ -235,7 +235,7 @@ function DropSlot({
   return (
     <div
       ref={ref}
-      className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl border-4 border-dashed flex items-center justify-center text-2xl sm:text-3xl font-bold transition-colors"
+      className="w-20 h-20 sm:w-28 sm:h-28 rounded-3xl border-[5px] border-dashed flex items-center justify-center text-3xl sm:text-5xl font-extrabold transition-colors shadow-inner"
       style={slotStyle(filled, accent)}
     >
       {value ?? "_"}
