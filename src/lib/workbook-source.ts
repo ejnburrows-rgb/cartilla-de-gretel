@@ -1,7 +1,6 @@
 import { getWorkbookPagesForLesson } from "@/lib/book-faithful";
 import { getLessonPageNumbers } from "@/lib/cartilla-crm-theme";
-
-import remasterInventory from "@/data/remaster-inventory.json";
+import { getBestDisplayPath, getQualityLabel, getRemasterAssetByOriginal } from "@/lib/remaster-assets";
 
 export const WORKBOOK_PDF_PATH = "/book/book.pdf";
 
@@ -23,11 +22,14 @@ export type WorkbookPageSource = {
   lessonNumber: number;
   pdfPath: string;
   imageRef?: string;
+  originalImageRef?: string;
   hasVerifiedImage: boolean;
   hasVerifiedText: boolean;
   status: WorkbookSourceStatus;
   remasterStatus?: "pending" | "cleaned" | "needs review" | "approved" | "original only";
   remasteredPath?: string;
+  remasteredPathV2?: string;
+  qualityLabel?: string;
 };
 
 export type WorkbookLessonSource = {
@@ -63,25 +65,11 @@ export function getWorkbookPageSourcesForLesson(
   const sources = pageNumbers.map((pageNumber) => {
     const verifiedPage = verifiedPages.find((page) => page.pageNumber === pageNumber);
     const originalRef = verifiedPage?.imageScanReference ?? undefined;
-    
-    // Resolve remastered path and status from remaster-inventory
-    let imageRef = originalRef;
-    let remasterStatus: "pending" | "cleaned" | "needs review" | "approved" | "original only" = "original only";
-    let remasteredPath: string | undefined = undefined;
-
-    if (originalRef) {
-      const remasterAsset = remasterInventory.assets.find(
-        (asset) => asset.originalSourcePath === originalRef
-      );
-      if (remasterAsset) {
-        remasterStatus = remasterAsset.cleanupStatus as "pending" | "cleaned" | "needs review" | "approved" | "original only";
-        remasteredPath = remasterAsset.remasteredPath;
-        if (remasterAsset.approvalStatus === "approved") {
-          imageRef = remasterAsset.remasteredPath;
-        }
-      }
-    }
-
+    const remasterAsset = getRemasterAssetByOriginal(originalRef);
+    const imageRef = getBestDisplayPath(originalRef, "projection") ?? originalRef;
+    const remasterStatus = remasterAsset?.cleanupStatus ?? "original only";
+    const remasteredPath = remasterAsset?.remasteredPath;
+    const remasteredPathV2 = remasterAsset?.remasteredPathV2;
     const hasVerifiedImage = Boolean(imageRef);
     const hasVerifiedText = Boolean(verifiedPage?.verifiedTextBlocks.length);
     const baseStatus: WorkbookSourceStatus = hasVerifiedImage
@@ -97,11 +85,14 @@ export function getWorkbookPageSourcesForLesson(
       lessonNumber,
       pdfPath: pdfStatus.pdfPath,
       imageRef,
+      originalImageRef: originalRef,
       hasVerifiedImage,
       hasVerifiedText,
       status,
       remasterStatus,
       remasteredPath,
+      remasteredPathV2,
+      qualityLabel: getQualityLabel(originalRef, "projection"),
     };
   });
 

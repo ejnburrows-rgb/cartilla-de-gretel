@@ -10,27 +10,34 @@ type BookPageFlipProps = {
 export function BookPageFlip({ pageKey, direction, children }: BookPageFlipProps) {
   const variants = {
     enter: (dir: number) => ({
-      rotateY: dir > 0 ? 165 : -165,
+      rotateY: dir > 0 ? 74 : -74,
       opacity: 0,
-      z: -30,
+      scale: 0.985,
+      x: dir > 0 ? 22 : -22,
+      filter: "drop-shadow(0 28px 32px rgba(0,0,0,0.24))",
     }),
     center: {
       rotateY: 0,
       opacity: 1,
-      z: 0,
+      scale: 1,
+      x: 0,
+      filter: "drop-shadow(0 18px 28px rgba(0,0,0,0.16))",
     },
     exit: (dir: number) => ({
-      rotateY: dir > 0 ? -165 : 165,
+      rotateY: dir > 0 ? -74 : 74,
       opacity: 0,
-      z: -30,
+      scale: 0.985,
+      x: dir > 0 ? -22 : 22,
+      filter: "drop-shadow(0 28px 32px rgba(0,0,0,0.24))",
     }),
   };
 
   return (
     <div
-      className="relative overflow-visible rounded-2xl p-0.5"
-      style={{ perspective: "1800px", transformStyle: "preserve-3d" }}
+      className="relative overflow-visible rounded-[2rem] p-1 [perspective:1800px]"
+      style= transformStyle: "preserve-3d" 
     >
+      <div className="pointer-events-none absolute inset-y-6 left-1/2 z-20 w-10 -translate-x-1/2 rounded-full bg-gradient-to-r from-black/14 via-black/6 to-transparent blur-md" />
       <AnimatePresence mode="wait" custom={direction} initial={false}>
         <motion.div
           key={pageKey}
@@ -39,33 +46,23 @@ export function BookPageFlip({ pageKey, direction, children }: BookPageFlipProps
           initial="enter"
           animate="center"
           exit="exit"
-          transition={{
-            duration: 0.85,
-            ease: [0.22, 1, 0.36, 1],
-          }}
-          className="relative w-full"
-          style={{
-            transformOrigin: "left center",
-            transformStyle: "preserve-3d",
-            backfaceVisibility: "hidden",
-            WebkitBackfaceVisibility: "hidden",
-          }}
+          transition= type: "spring", stiffness: 210, damping: 26, mass: 0.82 
+          className="relative w-full origin-left will-change-transform"
+          style= transformStyle: "preserve-3d", backfaceVisibility: "hidden" 
         >
-          {/* Subtle paper shadow overlay that darkens as page curls */}
           <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-black/18 via-transparent to-black/8 pointer-events-none z-10 rounded-2xl"
-            initial={{ opacity: 0.25 }}
-            animate={{ opacity: 0 }}
-            exit={{ opacity: 0.4 }}
-            transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+            className="pointer-events-none absolute inset-0 z-30 rounded-[1.75rem] bg-gradient-to-r from-black/18 via-transparent to-white/10 mix-blend-multiply"
+            initial= opacity: 0.55 
+            animate= opacity: 0.1 
+            exit= opacity: 0.5 
+            transition= duration: 0.22 
           />
-          {/* Highlight glare overlay to simulate physical light reflection */}
           <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-white/12 via-white/5 to-transparent pointer-events-none z-10 rounded-2xl"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.12 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+            className="pointer-events-none absolute inset-0 z-30 rounded-[1.75rem] bg-[radial-gradient(circle_at_15%_18%,rgba(255,255,255,0.55),transparent_34%),linear-gradient(115deg,transparent,rgba(255,255,255,0.22),transparent)]"
+            initial= opacity: 0.35 
+            animate= opacity: 0.08 
+            exit= opacity: 0.3 
+            transition= duration: 0.22 
           />
           {children}
         </motion.div>

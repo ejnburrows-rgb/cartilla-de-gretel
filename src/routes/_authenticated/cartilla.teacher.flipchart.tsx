@@ -1,31 +1,43 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Presentation, ArrowLeft, Maximize, Minimize, CheckCircle2, Clock } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import {
+  ArrowLeft,
+  CheckCircle2,
+  ChevronLeft,
+  ChevronRight,
+  Clock,
+  Maximize,
+  Minimize,
+  Presentation,
+  Sparkles,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 import teacherFlipchartData from "@/data/teacher-flipchart.json";
-import remasterInventory from "@/data/remaster-inventory.json";
+import { getBestDisplayPath, getQualityLabel, getRemasterAssetByOriginal } from "@/lib/remaster-assets";
 
 export const Route = createFileRoute("/_authenticated/cartilla/teacher/flipchart")({
   component: TeacherFlipchart,
   head: () => ({ meta: [{ title: "Flipchart de Clase — La Cartilla de Gretel" }] }),
 });
 
-interface RemasterAsset {
-  originalSourcePath: string;
-  remasteredPath: string;
-  cleanupStatus: string;
-  artifactFixed: boolean;
-  remasterType: string;
-  approvalStatus: string;
-  type: string;
-}
-
 function TeacherFlipchart() {
   const [currentPage, setCurrentPage] = useState(1);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [qualityMode, setQualityMode] = useState<"source" | "projection">("projection");
+  const [fallbackPath, setFallbackPath] = useState<string | null>(null);
 
   const totalPages = teacherFlipchartData.pages.length;
   const currentData = teacherFlipchartData.pages[currentPage - 1];
+  const originalPath = currentData?.path ?? "";
+  const remasterAsset = useMemo(() => getRemasterAssetByOriginal(originalPath), [originalPath]);
+  const computedDisplayPath = getBestDisplayPath(originalPath, qualityMode === "source" ? "source" : "projection") ?? originalPath;
+  const displayPath = fallbackPath ?? computedDisplayPath;
+  const qualityLabel = getQualityLabel(originalPath, qualityMode === "source" ? "source" : "projection");
+  const isEnhanced = displayPath !== originalPath;
+
+  useEffect(() => {
+    setFallbackPath(null);
+  }, [computedDisplayPath]);
 
   const goNext = () => {
     if (currentPage < totalPages) setCurrentPage((p) => p + 1);
@@ -37,102 +49,84 @@ function TeacherFlipchart() {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "ArrowRight" || e.key === "Space") {
-        if (currentPage < totalPages) setCurrentPage((p) => p + 1);
-      }
-      if (e.key === "ArrowLeft") {
-        if (currentPage > 1) setCurrentPage((p) => p - 1);
+      if (e.key === "ArrowRight" || e.key === " ") goNext();
+      if (e.key === "ArrowLeft") goPrev();
+      if (e.key.toLowerCase() === "q") {
+        setQualityMode((mode) => (mode === "projection" ? "source" : "projection"));
       }
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [currentPage, totalPages]);
+  });
 
   const toggleFullscreen = () => {
     if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen().catch(err => {
-        console.error(`Error attempting to enable full-screen mode: ${err.message}`);
+      document.documentElement.requestFullscreen().catch((error) => {
+        console.error(`Error attempting to enable full-screen mode: ${error.message}`);
       });
-    } else {
-      if (document.exitFullscreen) {
-        document.exitFullscreen();
-      }
+    } else if (document.exitFullscreen) {
+      document.exitFullscreen();
     }
   };
 
   useEffect(() => {
-    const handleFullscreenChange = () => {
-      setIsFullscreen(!!document.fullscreenElement);
-    };
+    const handleFullscreenChange = () => setIsFullscreen(Boolean(document.fullscreenElement));
     document.addEventListener("fullscreenchange", handleFullscreenChange);
     return () => document.removeEventListener("fullscreenchange", handleFullscreenChange);
   }, []);
 
   if (!currentData) return <div>Cargando...</div>;
 
-  const originalPath = currentData.path;
-  
-  // Find remaster asset matching original path
-  const remasterAsset = (remasterInventory.assets as RemasterAsset[]).find(
-    (asset) => asset.originalSourcePath === originalPath
-  );
-
-  let displayPath = originalPath;
-  let remasterStatusLabel = "Remaster pendiente";
-  let remasterBadgeStyle = "bg-amber-500/10 text-amber-400 border border-amber-500/20";
+  let remasterStatusLabel = "Escaneo conectado";
+  let remasterBadgeStyle = "bg-amber-500/10 text-amber-300 border border-amber-500/20";
   let isApproved = false;
 
   if (remasterAsset) {
     if (remasterAsset.approvalStatus === "approved") {
-      displayPath = remasterAsset.remasteredPath;
-      remasterStatusLabel = "Remaster listo";
-      remasterBadgeStyle = "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20";
+      remasterStatusLabel = "Remaster aprobado";
+      remasterBadgeStyle = "bg-emerald-500/10 text-emerald-300 border border-emerald-500/20";
       isApproved = true;
-    } else if (remasterAsset.cleanupStatus === "needs review") {
-      remasterStatusLabel = "En revisión";
-      remasterBadgeStyle = "bg-blue-500/10 text-blue-400 border border-blue-500/20";
+    } else if (isEnhanced) {
+      remasterStatusLabel = qualityLabel;
+      remasterBadgeStyle = "bg-indigo-500/10 text-indigo-300 border border-indigo-500/20";
     } else if (remasterAsset.cleanupStatus === "cleaned") {
       remasterStatusLabel = "Limpieza completada";
-      remasterBadgeStyle = "bg-sky-500/10 text-sky-400 border border-sky-500/20";
+      remasterBadgeStyle = "bg-sky-500/10 text-sky-300 border border-sky-500/20";
     }
   }
 
   return (
-    <div className={cn(
-      "flex flex-col min-h-screen",
-      isFullscreen ? "bg-black" : "bg-neutral-900"
-    )}>
-      {/* Top Navigation Bar - Hidden in true fullscreen to maximize projection space */}
+    <div className={cn("flex min-h-screen flex-col", isFullscreen ? "bg-black" : "bg-neutral-900")}>
       {!isFullscreen && (
-        <header className="flex items-center justify-between px-6 py-4 bg-neutral-950 border-b border-neutral-800 text-neutral-100">
+        <header className="flex flex-wrap items-center justify-between gap-4 border-b border-neutral-800 bg-neutral-950 px-6 py-4 text-neutral-100">
           <div className="flex items-center gap-4">
             <Link
               to="/cartilla/teacher/presentacion"
-              className="inline-flex items-center gap-2 rounded-full bg-neutral-800 px-4 py-2 text-sm font-bold text-neutral-200 hover:bg-neutral-700 transition-colors"
+              className="inline-flex items-center gap-2 rounded-full bg-neutral-800 px-4 py-2 text-sm font-bold text-neutral-200 transition-colors hover:bg-neutral-700"
             >
               <ArrowLeft className="h-4 w-4" /> Volver
             </Link>
             <div className="flex items-center gap-2">
               <Presentation className="h-5 w-5 text-indigo-400" />
-              <h1 className="font-bold text-lg">Flipchart de Clase</h1>
+              <h1 className="text-lg font-bold">Flipchart de Clase</h1>
             </div>
           </div>
 
-          <div className="flex items-center gap-4">
-             {/* Honest status indicator */}
-             <div className="flex items-center gap-2 text-xs font-semibold">
-                <span className={cn("flex items-center gap-1.5 px-3 py-1.5 rounded-full font-semibold", remasterBadgeStyle)}>
-                  {isApproved ? <CheckCircle2 className="h-3.5 w-3.5" /> : <Clock className="h-3.5 w-3.5" />}
-                  {remasterStatusLabel}
-                </span>
-                <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">
-                  Fuente conectada
-                </span>
-             </div>
-
+          <div className="flex flex-wrap items-center gap-3">
+            <span className={cn("flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold", remasterBadgeStyle)}>
+              {isApproved ? <CheckCircle2 className="h-3.5 w-3.5" /> : <Sparkles className="h-3.5 w-3.5" />}
+              {remasterStatusLabel}
+            </span>
+            <button
+              type="button"
+              onClick={() => setQualityMode((mode) => (mode === "projection" ? "source" : "projection"))}
+              className="inline-flex items-center gap-2 rounded-full bg-indigo-600 px-4 py-2 text-sm font-black text-white transition hover:bg-indigo-500"
+            >
+              {qualityMode === "projection" ? "Modo proyección" : "Ver original"}
+            </button>
             <button
               onClick={toggleFullscreen}
-              className="inline-flex items-center gap-2 rounded-full bg-neutral-800 px-4 py-2 text-sm font-bold text-neutral-200 hover:bg-neutral-700 transition-colors"
+              className="inline-flex items-center gap-2 rounded-full bg-neutral-800 px-4 py-2 text-sm font-bold text-neutral-200 transition-colors hover:bg-neutral-700"
             >
               {isFullscreen ? <Minimize className="h-4 w-4" /> : <Maximize className="h-4 w-4" />}
               {isFullscreen ? "Salir" : "Proyectar"}
@@ -141,40 +135,45 @@ function TeacherFlipchart() {
         </header>
       )}
 
-      {/* Main Presentation Area */}
-      <main className="flex-1 relative flex items-center justify-center p-4 md:p-8 overflow-hidden group">
-        
-        {/* Navigation Overlays */}
-        <button 
+      <main className="group relative flex flex-1 items-center justify-center overflow-hidden bg-[radial-gradient(circle_at_center,rgba(79,70,229,0.18),transparent_42%),linear-gradient(135deg,#050505,#171717)] p-3 md:p-8">
+        <button
           onClick={goPrev}
           disabled={currentPage === 1}
-          className="absolute left-4 top-1/2 -translate-y-1/2 w-16 h-16 flex items-center justify-center rounded-full bg-black/40 text-white opacity-0 group-hover:opacity-100 disabled:opacity-0 transition-opacity hover:bg-black/60 z-10"
+          className="absolute left-4 top-1/2 z-20 flex h-16 w-16 -translate-y-1/2 items-center justify-center rounded-full bg-black/45 text-white opacity-0 transition-opacity hover:bg-black/65 disabled:opacity-0 group-hover:opacity-100"
           aria-label="Página anterior"
         >
-          <ChevronLeft className="w-10 h-10" />
+          <ChevronLeft className="h-10 w-10" />
         </button>
 
-        <button 
+        <button
           onClick={goNext}
           disabled={currentPage === totalPages}
-          className="absolute right-4 top-1/2 -translate-y-1/2 w-16 h-16 flex items-center justify-center rounded-full bg-black/40 text-white opacity-0 group-hover:opacity-100 disabled:opacity-0 transition-opacity hover:bg-black/60 z-10"
+          className="absolute right-4 top-1/2 z-20 flex h-16 w-16 -translate-y-1/2 items-center justify-center rounded-full bg-black/45 text-white opacity-0 transition-opacity hover:bg-black/65 disabled:opacity-0 group-hover:opacity-100"
           aria-label="Página siguiente"
         >
-          <ChevronRight className="w-10 h-10" />
+          <ChevronRight className="h-10 w-10" />
         </button>
 
-        {/* The Flipchart Page */}
-        <div className="relative h-full w-full flex items-center justify-center">
-          <img 
-            src={displayPath} 
+        <div className="relative flex h-full w-full items-center justify-center [perspective:1800px]">
+          <div className="absolute inset-x-[12%] bottom-4 h-12 rounded-full bg-black/50 blur-3xl" />
+          <img
+            src={displayPath}
             alt={`Página ${currentData.flipchartPage} del flipchart`}
-            className="max-h-full max-w-full object-contain drop-shadow-2xl rounded-sm"
+            className="relative max-h-full max-w-full rounded-md object-contain shadow-[0_32px_90px_rgba(0,0,0,0.55)] ring-1 ring-white/10 [transform:translateZ(0)]"
+            decoding="async"
+            loading="eager"
+            fetchPriority="high"
+            onError={() => {
+              if (displayPath !== originalPath) setFallbackPath(originalPath);
+            }}
           />
         </div>
 
-        {/* Floating Page Indicator */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-black/50 text-white text-sm font-bold tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
-          {currentPage} / {totalPages}
+        <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 items-center gap-3 rounded-full bg-black/55 px-4 py-2 text-sm font-bold tracking-widest text-white opacity-0 transition-opacity group-hover:opacity-100">
+          <span>{currentPage} / {totalPages}</span>
+          <span className="inline-flex items-center gap-1 rounded-full bg-white/12 px-2 py-0.5 text-[10px] tracking-normal">
+            <Clock className="h-3 w-3" /> Q cambia calidad
+          </span>
         </div>
       </main>
     </div>
