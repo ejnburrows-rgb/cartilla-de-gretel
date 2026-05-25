@@ -1,10 +1,31 @@
 import { AnimatePresence, motion } from "framer-motion";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 
 type BookPageFlipProps = {
   pageKey: string | number;
   direction: 1 | -1;
   children: ReactNode;
+};
+
+const stageStyle: CSSProperties = {
+  transformStyle: "preserve-3d",
+};
+
+const pageStyle: CSSProperties = {
+  transformStyle: "preserve-3d",
+  backfaceVisibility: "hidden",
+};
+
+const springTransition = {
+  type: "spring" as const,
+  stiffness: 190,
+  damping: 24,
+  mass: 0.8,
+};
+
+const overlayTransition = {
+  duration: 0.28,
+  ease: "easeOut" as const,
 };
 
 export function BookPageFlip({ pageKey, direction, children }: BookPageFlipProps) {
@@ -32,10 +53,17 @@ export function BookPageFlip({ pageKey, direction, children }: BookPageFlipProps
     }),
   };
 
+  const shadeInitial = { opacity: 0.46 };
+  const shadeCenter = { opacity: 0.12 };
+  const shadeExit = { opacity: 0.38 };
+  const glareInitial = { opacity: 0.58, x: direction > 0 ? -80 : 80 };
+  const glareCenter = { opacity: 0.18, x: 0 };
+  const glareExit = { opacity: 0.46, x: direction > 0 ? 80 : -80 };
+
   return (
     <div
       className="relative overflow-visible rounded-[2rem] p-1 [perspective:1800px]"
-      style= transformStyle: "preserve-3d" 
+      style={stageStyle}
     >
       <div className="pointer-events-none absolute inset-y-6 left-1/2 z-20 w-10 -translate-x-1/2 rounded-full bg-gradient-to-r from-black/14 via-black/6 to-transparent blur-md" />
       <AnimatePresence mode="wait" custom={direction} initial={false}>
@@ -46,23 +74,23 @@ export function BookPageFlip({ pageKey, direction, children }: BookPageFlipProps
           initial="enter"
           animate="center"
           exit="exit"
-          transition= type: "spring", stiffness: 210, damping: 26, mass: 0.82 
+          transition={springTransition}
           className="relative w-full origin-left will-change-transform"
-          style= transformStyle: "preserve-3d", backfaceVisibility: "hidden" 
+          style={pageStyle}
         >
           <motion.div
             className="pointer-events-none absolute inset-0 z-30 rounded-[1.75rem] bg-gradient-to-r from-black/18 via-transparent to-white/10 mix-blend-multiply"
-            initial= opacity: 0.55 
-            animate= opacity: 0.1 
-            exit= opacity: 0.5 
-            transition= duration: 0.22 
+            initial={shadeInitial}
+            animate={shadeCenter}
+            exit={shadeExit}
+            transition={overlayTransition}
           />
           <motion.div
             className="pointer-events-none absolute inset-0 z-30 rounded-[1.75rem] bg-[radial-gradient(circle_at_15%_18%,rgba(255,255,255,0.55),transparent_34%),linear-gradient(115deg,transparent,rgba(255,255,255,0.22),transparent)]"
-            initial= opacity: 0.35 
-            animate= opacity: 0.08 
-            exit= opacity: 0.3 
-            transition= duration: 0.22 
+            initial={glareInitial}
+            animate={glareCenter}
+            exit={glareExit}
+            transition={overlayTransition}
           />
           {children}
         </motion.div>
