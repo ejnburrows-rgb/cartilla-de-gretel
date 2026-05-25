@@ -11,6 +11,10 @@ const PdfViewer = lazy(() => import("./PdfViewer").then((m) => ({ default: m.Pdf
 
 const PDF_URL = assetPath("book/book.pdf");
 
+const readerInitial = { opacity: 0, y: 8 };
+const readerAnimate = { opacity: 1, y: 0 };
+const readerTransition = { duration: 0.25 };
+
 async function exists(url: string) {
   try {
     const response = await fetch(url, { method: "HEAD" });
@@ -148,9 +152,9 @@ export function Reader() {
 
       <main className="relative h-[calc(100vh-180px)] min-h-[420px] overflow-hidden">
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.2 }}
+          initial={readerInitial}
+          animate={readerAnimate}
+          transition={readerTransition}
           className="absolute inset-0"
         >
           <Suspense
