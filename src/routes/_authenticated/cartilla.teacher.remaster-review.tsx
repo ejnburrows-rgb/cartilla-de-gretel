@@ -395,10 +395,10 @@ function RemasterReview() {
           <div className="min-w-0">
             <h1 className="font-bold text-base flex items-center gap-2 truncate">
               <Sparkles className="h-5 w-5 text-indigo-400 shrink-0" />
-              Revisión de Remasterización V2
+              Revisión de imágenes y remaster
             </h1>
             <p className="text-[11px] text-neutral-400 truncate">
-              Aprobación visual — Original vs V1 vs V2. Decisiones guardadas en
+              Original scan, cleaned image, projection candidate, and inventory approvals. Decisiones guardadas en
               el navegador.
             </p>
           </div>
