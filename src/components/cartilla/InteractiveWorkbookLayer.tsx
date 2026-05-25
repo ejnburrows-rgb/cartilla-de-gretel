@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { useMemo, useState } from "react";
 import { BookOpen, Volume2, CheckCircle2, Hourglass, BookOpenCheck, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -31,6 +32,22 @@ function normalizeFallbackItems(blocks: string[]) {
   }));
 }
 
+function borderStyle(accent: string): CSSProperties {
+  return { borderLeft: `6px solid ${accent}` };
+}
+
+function gradientRight(accent: string): CSSProperties {
+  return { background: `linear-gradient(to right, ${accent}50, transparent)` };
+}
+
+function gradientLeft(accent: string): CSSProperties {
+  return { background: `linear-gradient(to left, ${accent}50, transparent)` };
+}
+
+function progressStyle(width: number, accent: string): CSSProperties {
+  return { width: `${width}%`, backgroundColor: accent };
+}
+
 function SyllablePractice({
   interaction,
   accent,
@@ -56,7 +73,7 @@ function SyllablePractice({
 
   return (
     <div className="rounded-2xl border border-foreground/10 bg-white/90 shadow-sm overflow-hidden">
-      <div className="px-4 py-3 flex items-center gap-3" style={{ borderLeft: `6px solid ${accent}` }}>
+      <div className="px-4 py-3 flex items-center gap-3" style={borderStyle(accent)}>
         <div className="flex-1 min-w-0">
           <h3 className="font-bold text-base text-foreground/90 leading-tight">{interaction.title}</h3>
           <p className="text-sm text-foreground/55 mt-0.5 leading-snug">{interaction.prompt}</p>
@@ -79,7 +96,6 @@ function SyllablePractice({
                     ? "border-emerald-400 bg-emerald-50 text-emerald-800"
                     : "border-foreground/15 bg-white hover:scale-105 text-foreground",
                 )}
-                style={!done ? { borderColor: accent + "60", color: accent } : undefined}
               >
                 {item.label}
                 <Volume2 aria-hidden className={cn("w-3.5 h-3.5", done ? "text-emerald-400" : "text-foreground/25")} />
@@ -117,7 +133,7 @@ function WordTap({
 
   return (
     <div className="rounded-2xl border border-foreground/10 bg-white/90 shadow-sm overflow-hidden">
-      <div className="px-4 py-3 flex items-center gap-3" style={{ borderLeft: `6px solid ${accent}` }}>
+      <div className="px-4 py-3 flex items-center gap-3" style={borderStyle(accent)}>
         <div className="flex-1 min-w-0">
           <h3 className="font-bold text-base text-foreground/90 leading-tight">{interaction.title}</h3>
           <p className="text-sm text-foreground/55 mt-0.5 leading-snug">{interaction.prompt}</p>
@@ -140,7 +156,6 @@ function WordTap({
                     ? "border-emerald-400 bg-emerald-50 text-emerald-800"
                     : "border-foreground/15 bg-white hover:scale-105 text-foreground",
                 )}
-                style={!done ? { borderColor: accent + "60", color: accent } : undefined}
               >
                 {done ? <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" aria-hidden /> : <Volume2 className="w-4 h-4 text-foreground/35 shrink-0" aria-hidden />}
                 {item.label}
@@ -179,7 +194,7 @@ function ReadAloud({
 
   return (
     <div className="rounded-2xl border border-foreground/10 bg-white/90 shadow-sm overflow-hidden">
-      <div className="px-4 py-3 flex items-center gap-3" style={{ borderLeft: `6px solid ${accent}` }}>
+      <div className="px-4 py-3 flex items-center gap-3" style={borderStyle(accent)}>
         <div className="flex-1 min-w-0">
           <h3 className="font-bold text-base text-foreground/90 leading-tight">{interaction.title}</h3>
           <p className="text-sm text-foreground/55 mt-0.5 leading-snug">{interaction.prompt}</p>
@@ -203,7 +218,6 @@ function ReadAloud({
                     ? "border-emerald-300 bg-emerald-50 text-emerald-800"
                     : "border-foreground/12 bg-white hover:bg-foreground/4 text-foreground",
                 )}
-                style={!done ? { color: accent } : undefined}
               >
                 {done ? <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" aria-hidden /> : <Volume2 className="w-4 h-4 shrink-0 text-foreground/30" aria-hidden />}
                 <span>{item.label}</span>
@@ -261,7 +275,7 @@ function AutoScanActivity({
 
   return (
     <div className="rounded-2xl border border-indigo-200 bg-indigo-50/80 shadow-sm overflow-hidden">
-      <div className="px-4 py-3 flex items-center gap-3 bg-white/70" style={{ borderLeft: `6px solid ${accent}` }}>
+      <div className="px-4 py-3 flex items-center gap-3 bg-white/70" style={borderStyle(accent)}>
         <Sparkles className="h-5 w-5 text-indigo-600" />
         <div>
           <h3 className="font-black text-indigo-950">{title}</h3>
@@ -346,12 +360,12 @@ export function InteractiveWorkbookLayer({
   return (
     <section className="mt-6 space-y-3" aria-label="Actividades interactivas del cuaderno">
       <div className="flex items-center gap-3">
-        <div className="h-px flex-1" style={{ background: `linear-gradient(to right, ${accent}50, transparent)` }} />
+        <div className="h-px flex-1" style={gradientRight(accent)} />
         <div className="flex items-center gap-2 px-1">
-          <BookOpenCheck className="w-4 h-4" style= color: accent  aria-hidden />
+          <BookOpenCheck className="w-4 h-4 text-primary" aria-hidden />
           <h2 className="text-xs font-extrabold uppercase tracking-widest text-foreground/50">Actividades del cuaderno</h2>
         </div>
-        <div className="h-px flex-1" style={{ background: `linear-gradient(to left, ${accent}50, transparent)` }} />
+        <div className="h-px flex-1" style={gradientLeft(accent)} />
       </div>
 
       {visibleInteractions.length === 0 ? (
@@ -364,7 +378,7 @@ export function InteractiveWorkbookLayer({
           {totalVisible > 1 && completedCount > 0 && (
             <div className="flex items-center gap-2 justify-end pt-1">
               <div className="h-1.5 flex-1 max-w-24 bg-foreground/8 rounded-full overflow-hidden">
-                <div className="h-full rounded-full transition-all" style={{ width: `${(completedCount / totalVisible) * 100}%`, backgroundColor: accent }} />
+                <div className="h-full rounded-full transition-all" style={progressStyle((completedCount / totalVisible) * 100, accent)} />
               </div>
               <span className="text-[10px] font-bold text-foreground/35 tabular-nums">{completedCount}/{totalVisible}</span>
             </div>

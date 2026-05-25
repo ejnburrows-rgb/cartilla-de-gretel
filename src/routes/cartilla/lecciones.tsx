@@ -92,11 +92,7 @@ function Lecciones() {
         )}
         {session && syncStatus.state !== "idle" && (
           <div
-            className={`mt-2 inline-flex rounded-full border px-3 py-1 text-xs font-bold ${
-              syncStatus.state === "error"
-                ? "border-destructive/25 bg-destructive/5 text-destructive"
-                : "border-success/25 bg-success/5 text-success"
-            }`}
+            className={syncStatus.state === "error" ? "mt-2 inline-flex rounded-full border border-destructive/25 bg-destructive/5 px-3 py-1 text-xs font-bold text-destructive" : "mt-2 inline-flex rounded-full border border-success/25 bg-success/5 px-3 py-1 text-xs font-bold text-success"}
           >
             {syncStatus.message}
           </div>
@@ -109,7 +105,7 @@ function Lecciones() {
             <span className="text-foreground/60">{pct}%</span>
           </div>
           <div className="mt-1.5 h-3 bg-secondary rounded-full overflow-hidden border border-foreground/10">
-            <div className="h-full bg-primary transition-all" style={{ width: `${pct}%` }} />
+            <div className="h-full bg-primary transition-all" style={progressStyle(pct)} />
           </div>
         </div>
       </header>
@@ -118,7 +114,6 @@ function Lecciones() {
           {CATALOG.map((entry) => {
             const done = isCompleted(entry.n);
             const summary = getWorkbookTranscriptionSummary(entry.n);
-            const cls = "block rounded-2xl border-2 p-4 h-full transition shadow-sm bg-card border-foreground/10 hover:shadow-md hover:-translate-y-0.5 cursor-pointer";
             const statusCopy = summary.verified > 0
               ? `${summary.verified}/${summary.total} páginas con texto verificado`
               : summary.partial > 0
@@ -126,11 +121,9 @@ function Lecciones() {
                 : `${summary.total} páginas por verificar`;
             return (
               <li key={entry.n} className="list-none">
-                <Link
-                  to="/cartilla/leccion/$n"
-                  params= n: String(entry.n) 
-                  className={cls}
-                  style= color: entry.color 
+                <a
+                  href={`/cartilla/leccion/${entry.n}`}
+                  className="block rounded-2xl border-2 p-4 h-full transition shadow-sm bg-card border-foreground/10 hover:shadow-md hover:-translate-y-0.5 cursor-pointer"
                 >
                   <div className="flex items-start justify-between gap-2 mb-2">
                     <span className="text-xs font-bold uppercase tracking-wide text-foreground/50">
@@ -146,7 +139,7 @@ function Lecciones() {
                       </span>
                     )}
                   </div>
-                  <h2 className="text-lg font-bold leading-tight" style= color: entry.color >
+                  <h2 className="text-lg font-bold leading-tight text-[var(--cartilla-title-ink)]">
                     {entry.title}
                   </h2>
                   <p className="text-sm text-foreground/70 mt-1 line-clamp-2">{entry.subtitle}</p>
@@ -158,7 +151,7 @@ function Lecciones() {
                       <Image className="h-3 w-3" /> {statusCopy}
                     </span>
                   </div>
-                </Link>
+                </a>
               </li>
             );
           })}
@@ -166,4 +159,8 @@ function Lecciones() {
       </main>
     </div>
   );
+}
+
+function progressStyle(pct: number) {
+  return { width: `${pct}%` };
 }
