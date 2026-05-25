@@ -1,4 +1,17 @@
+import type { CSSProperties } from "react";
+
 type Bar = { label: string; value: number; color?: string; sub?: string };
+
+function chartStyle(height: number): CSSProperties {
+  return { height };
+}
+
+function barStyle(height: number, color?: string): CSSProperties {
+  return {
+    height,
+    backgroundColor: color ?? "hsl(var(--primary))",
+  };
+}
 
 export function SimpleBarChart({
   bars,
@@ -14,7 +27,7 @@ export function SimpleBarChart({
   const top = Math.max(max ?? 0, ...bars.map((b) => b.value), 1);
   return (
     <div className="w-full">
-      <div className="flex items-end gap-1.5" style={{ height }}>
+      <div className="flex items-end gap-1.5" style={chartStyle(height)}>
         {bars.map((b, i) => {
           const h = Math.max(2, Math.round((b.value / top) * height));
           return (
@@ -28,7 +41,7 @@ export function SimpleBarChart({
               </span>
               <div
                 className="w-full rounded-t-md transition-all"
-                style={{ height: h, backgroundColor: b.color ?? "hsl(var(--primary))" }}
+                style={barStyle(h, b.color)}
               />
             </div>
           );
