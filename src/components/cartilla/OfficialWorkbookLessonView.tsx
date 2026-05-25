@@ -1,4 +1,4 @@
-import { useState, type CSSProperties, type ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import { getWorkbookPageSourcesForLesson } from "@/lib/workbook-source";
 import { OfficialWorkbookPage } from "./OfficialWorkbookPage";
 import { BookOpen, Maximize2, Minimize2, ChevronLeft, ChevronRight, Columns, Square } from "lucide-react";
@@ -30,7 +30,6 @@ export function OfficialWorkbookLessonView({
   lessonNumber,
   pages,
   title,
-  accent = "hsl(var(--primary))",
   belowPage,
   mode = "student",
 }: OfficialWorkbookLessonViewProps) {
@@ -43,8 +42,6 @@ export function OfficialWorkbookLessonView({
 
   if (sources.length === 0) return null;
 
-  const iconStyle: CSSProperties = { color: accent };
-  const scaleStyle: CSSProperties = { transform: `scale(${zoomLevel})` };
   const isDoublePage = twoPageMode && sources.length > 1 && !isFullscreen;
   const leftSource = sources[selectedIdx] ?? sources[0];
   const rightSource = selectedIdx + 1 < sources.length ? sources[selectedIdx + 1] : null;
@@ -59,13 +56,15 @@ export function OfficialWorkbookLessonView({
     setZoomLevel(1);
   };
 
+  const zoomPercent = Math.round(zoomLevel * 100);
+
   return (
     <motion.div className="my-6 space-y-4" initial={BOOK_ANIMATION.initial} animate={BOOK_ANIMATION.animate} transition={BOOK_ANIMATION.transition}>
       <div className="rounded-[2rem] border border-white/65 bg-white/72 p-4 shadow-[0_18px_54px_rgba(50,30,10,0.10)] backdrop-blur-xl">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3">
             <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-[#ffe7a8] to-[#ffb7c5] text-[#3A281E] shadow-sm">
-              <BookOpen className="h-5 w-5" style={iconStyle} />
+              <BookOpen className="h-5 w-5 text-[#3A281E]" />
             </div>
             <div>
               <h3 className="text-sm font-black leading-none text-[#3A281E] sm:text-base">
@@ -140,7 +139,7 @@ export function OfficialWorkbookLessonView({
               </div>
               <div className="flex items-center gap-2">
                 <button onClick={() => setZoomLevel((z) => Math.max(0.7, z - 0.15))} className="rounded-lg bg-white px-2 py-1 text-xs font-bold shadow-sm">A-</button>
-                <span className="rounded-lg bg-white px-2 py-1 text-xs font-bold shadow-sm">{Math.round(zoomLevel * 100)}%</span>
+                <span className="rounded-lg bg-white px-2 py-1 text-xs font-bold shadow-sm">{zoomPercent}%</span>
                 <button onClick={() => setZoomLevel((z) => Math.min(2, z + 0.15))} className="rounded-lg bg-white px-2 py-1 text-xs font-bold shadow-sm">A+</button>
                 <button onClick={handleToggleFullscreen} className="inline-flex items-center gap-1.5 rounded-xl bg-[#3A281E] px-3 py-1.5 text-xs font-bold text-white">
                   <Minimize2 className="h-3.5 w-3.5" /> Salir
@@ -148,7 +147,7 @@ export function OfficialWorkbookLessonView({
               </div>
             </div>
             <div className="flex flex-1 items-center justify-center overflow-auto rounded-[2rem] bg-white/38 p-4 shadow-inner backdrop-blur-sm">
-              <div className="w-full max-w-5xl origin-center transition-transform duration-200" style={scaleStyle}>
+              <div className="w-full max-w-5xl origin-center transition-transform duration-200">
                 <OfficialWorkbookPage source={sources[selectedIdx] ?? sources[0]} />
               </div>
             </div>
