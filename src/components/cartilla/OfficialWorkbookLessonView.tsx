@@ -1,17 +1,16 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { BookOpenCheck, ChevronLeft, ChevronRight, FileText } from "lucide-react";
+import { BookOpenCheck, ChevronLeft, ChevronRight, FileText, Sparkles } from "lucide-react";
 import { OfficialWorkbookPage } from "@/components/cartilla/OfficialWorkbookPage";
 import { BookPageFlip } from "@/components/cartilla/BookPageFlip";
 import { getWorkbookPageSourcesForLesson } from "@/lib/workbook-source";
+import type { QualityMode } from "@/lib/remaster-assets";
 
 type OfficialWorkbookLessonViewProps = {
   lessonNumber: number;
   pages: string;
   title: string;
   accent?: string;
-  /** Called whenever the selected page chip changes. */
   onPageChange?: (pageNumber: number) => void;
-  /** Optional content rendered after the official page viewer. */
   belowPage?: (pageNumber: number) => React.ReactNode;
 };
 
@@ -23,17 +22,16 @@ export function OfficialWorkbookLessonView({
   onPageChange,
   belowPage,
 }: OfficialWorkbookLessonViewProps) {
+  const [qualityMode, setQualityMode] = useState<QualityMode>("projection");
   const lessonSource = useMemo(
-    () => getWorkbookPageSourcesForLesson(lessonNumber, pages),
-    [lessonNumber, pages],
+    () => getWorkbookPageSourcesForLesson(lessonNumber, pages, qualityMode),
+    [lessonNumber, pages, qualityMode],
   );
 
   const [selectedPage, setSelectedPage] = useState(
     lessonSource.pages[0]?.pageNumber ?? lessonNumber,
   );
   const [runtimePdfAvailable, setRuntimePdfAvailable] = useState(false);
-
-  // Track direction for slide animation: 1 = forward (next page), -1 = backward (prev page)
   const directionRef = useRef<1 | -1>(1);
 
   useEffect(() => {
@@ -61,16 +59,33 @@ export function OfficialWorkbookLessonView({
 
   const currentIndex = lessonSource.pages.findIndex((s) => s.pageNumber === selectedPage);
   const totalPages = lessonSource.pages.length;
+  const selectedSource = lessonSource.pages[currentIndex] ?? lessonSource.pages[0];
+  const connectedCount = lessonSource.connectedSourceCount || (runtimePdfAvailable ? lessonSource.pages.length : 0);
+  const sourceStatus = connectedCount > 0 ? "Página oficial conectada" : "Páginas pendientes de conexión";
 
-  const selectedSource =
-    lessonSource.pages[currentIndex] ?? lessonSource.pages[0];
+  const preloadSources = useMemo(
+    () => lessonSource.pages
+      .filter((source) => source.pageNumber !== selectedPage)
+      .map((source) => source.imageRef)
+      .filter((value): value is string => Boolean(value))
+      .slice(0, 4),
+    [lessonSource.pages, selectedPage],
+  );
 
-  const connectedCount =
-    lessonSource.connectedSourceCount || (runtimePdfAvailable ? lessonSource.pages.length : 0);
-  const sourceStatus =
-    connectedCount > 0
-      ? "Página oficial conectada"
-      : "Páginas pendientes de conexión";
+  useEffect(() => {
+    const images = preloadSources.map((src) => {
+      const image = new window.Image();
+      image.decoding = "async";
+      image.src = src;
+      return image;
+    });
+    return () => {
+      images.forEach((image) => {
+        image.onload = null;
+        image.onerror = null;
+      });
+    };
+  }, [preloadSources]);
 
   const handleSelectPage = (pageNumber: number) => {
     const newIndex = lessonSource.pages.findIndex((s) => s.pageNumber === pageNumber);
@@ -89,16 +104,14 @@ export function OfficialWorkbookLessonView({
     handleSelectPage(lessonSource.pages[currentIndex + 1].pageNumber);
   };
 
-  const hasPrev = currentIndex > 0;
-  const hasNext = currentIndex < totalPages - 1;
-
   if (!selectedSource) return null;
 
-
+  const hasPrev = currentIndex > 0;
+  const hasNext = currentIndex < totalPages - 1;
+  const qualityCopy = qualityMode === "projection" ? "Modo proyección" : "Escaneo original";
 
   return (
     <section className="mt-5 space-y-4" aria-label="Cuaderno oficial de la lección">
-      {/* ── Header card ───────────────────────────────────────────── */}
       <div className="rounded-[1.75rem] border-2 border-[var(--cartilla-accent)]/20 bg-white/75 p-4 shadow-sm">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div className="min-w-0">
@@ -112,20 +125,24 @@ export function OfficialWorkbookLessonView({
               Revisa la página del cuaderno y practica con las actividades.
             </p>
           </div>
-          <div className="rounded-2xl border border-foreground/10 bg-white px-3 py-2 text-xs font-bold text-foreground/65">
-            <div className="inline-flex items-center gap-1">
-              <FileText className="h-3.5 w-3.5" />
-              {sourceStatus}
+          <div className="flex flex-wrap items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setQualityMode((mode) => (mode === "projection" ? "source" : "projection"))}
+              className="inline-flex items-center gap-1.5 rounded-2xl border border-indigo-200 bg-indigo-50 px-3 py-2 text-xs font-black text-indigo-700 shadow-sm transition hover:bg-indigo-100"
+            >
+              <Sparkles className="h-3.5 w-3.5" /> {qualityCopy}
+            </button>
+            <div className="rounded-2xl border border-foreground/10 bg-white px-3 py-2 text-xs font-bold text-foreground/65">
+              <div className="inline-flex items-center gap-1">
+                <FileText className="h-3.5 w-3.5" />
+                {sourceStatus}
+              </div>
             </div>
           </div>
         </div>
 
-        {/* ── Page chips ─────────────────────────────────────────── */}
-        <div
-          className="mt-4 flex flex-wrap items-center gap-2"
-          role="group"
-          aria-label="Páginas de esta lección"
-        >
+        <div className="mt-4 flex flex-wrap items-center gap-2" role="group" aria-label="Páginas de esta lección">
           {lessonSource.pages.map((source, idx) => {
             const active = source.pageNumber === selectedPage;
             return (
@@ -150,16 +167,11 @@ export function OfficialWorkbookLessonView({
         </div>
       </div>
 
-      <BookPageFlip pageKey={selectedPage} direction={directionRef.current}>
+      <BookPageFlip pageKey={`${selectedPage}-${qualityMode}`} direction={directionRef.current}>
         <OfficialWorkbookPage source={selectedSource} runtimePdfAvailable={runtimePdfAvailable} />
       </BookPageFlip>
 
-      {/* ── Page-turn controls ─────────────────────────────────── */}
-      <div
-        className="flex items-center justify-between gap-3 px-1"
-        role="navigation"
-        aria-label="Controles de página"
-      >
+      <div className="flex items-center justify-between gap-3 px-1" role="navigation" aria-label="Controles de página">
         <button
           type="button"
           id="workbook-prev-page"
@@ -172,10 +184,7 @@ export function OfficialWorkbookLessonView({
           Anterior
         </button>
 
-        <div
-          className="flex flex-col items-center gap-0.5"
-          aria-label={`Página ${currentIndex + 1} de ${totalPages}`}
-        >
+        <div className="flex flex-col items-center gap-0.5" aria-label={`Página ${currentIndex + 1} de ${totalPages}`}>
           <span className="text-xs font-bold text-foreground/50 tabular-nums">
             Página {selectedPage}
           </span>
@@ -197,7 +206,6 @@ export function OfficialWorkbookLessonView({
         </button>
       </div>
 
-      {/* ── Interactive layer slot ─────────────────────────────── */}
       {belowPage?.(selectedPage)}
     </section>
   );

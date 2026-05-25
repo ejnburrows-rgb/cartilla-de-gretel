@@ -1,6 +1,6 @@
 import { getWorkbookPagesForLesson } from "@/lib/book-faithful";
 import { getLessonPageNumbers } from "@/lib/cartilla-crm-theme";
-import { getBestDisplayPath, getQualityLabel, getRemasterAssetByOriginal } from "@/lib/remaster-assets";
+import { getBestDisplayPath, getQualityLabel, getRemasterAssetByOriginal, type QualityMode } from "@/lib/remaster-assets";
 
 export const WORKBOOK_PDF_PATH = "/book/book.pdf";
 
@@ -57,6 +57,7 @@ export function getWorkbookPdfStatus(): WorkbookPdfStatus {
 export function getWorkbookPageSourcesForLesson(
   lessonNumber: number,
   pages: string,
+  qualityMode: QualityMode = "projection",
 ): WorkbookLessonSource {
   const pageNumbers = parsePageRange(pages);
   const verifiedPages = getWorkbookPagesForLesson(lessonNumber);
@@ -66,7 +67,7 @@ export function getWorkbookPageSourcesForLesson(
     const verifiedPage = verifiedPages.find((page) => page.pageNumber === pageNumber);
     const originalRef = verifiedPage?.imageScanReference ?? undefined;
     const remasterAsset = getRemasterAssetByOriginal(originalRef);
-    const imageRef = getBestDisplayPath(originalRef, "projection") ?? originalRef;
+    const imageRef = getBestDisplayPath(originalRef, qualityMode) ?? originalRef;
     const remasterStatus = remasterAsset?.cleanupStatus ?? "original only";
     const remasteredPath = remasterAsset?.remasteredPath;
     const remasteredPathV2 = remasterAsset?.remasteredPathV2;
@@ -92,7 +93,7 @@ export function getWorkbookPageSourcesForLesson(
       remasterStatus,
       remasteredPath,
       remasteredPathV2,
-      qualityLabel: getQualityLabel(originalRef, "projection"),
+      qualityLabel: getQualityLabel(originalRef, qualityMode),
     };
   });
 
