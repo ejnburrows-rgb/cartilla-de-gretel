@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { useState } from "react";
 import { MapPin, CheckCircle2, Volume2, BookOpen } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -10,6 +11,28 @@ type Props = {
   accent?: string;
   onComplete?: (interactionId: string) => void;
 };
+
+function accentBarStyle(accent: string): CSSProperties {
+  return { backgroundColor: accent };
+}
+
+function listButtonStyle(accent: string): CSSProperties {
+  return { borderColor: `${accent}33` };
+}
+
+function circleStyle(accent: string): CSSProperties {
+  return { backgroundColor: accent };
+}
+
+function hotspotStyle(target: InteractionTarget): CSSProperties {
+  return {
+    position: "absolute",
+    left: `${target.xPercent ?? 0}%`,
+    top: `${target.yPercent ?? 0}%`,
+    width: `${target.widthPercent ?? 10}%`,
+    height: `${target.heightPercent ?? 8}%`,
+  };
+}
 
 /**
  * If coordinates ARE verified for the target, we render a hotspot overlay
@@ -34,11 +57,10 @@ export function TapObjectActivity({ interaction, accent = "hsl(var(--primary))",
 
   return (
     <div className="rounded-2xl border border-foreground/10 bg-card p-4 space-y-4">
-      {/* Header */}
       <div className="flex items-start gap-3">
         <div
           className="w-2 h-full min-h-[2rem] rounded-full shrink-0"
-          style={{ backgroundColor: accent }}
+          style={accentBarStyle(accent)}
         />
         <div>
           <h3 className="font-bold text-base text-foreground/90">{interaction.title}</h3>
@@ -47,13 +69,12 @@ export function TapObjectActivity({ interaction, accent = "hsl(var(--primary))",
       </div>
 
       {verified ? (
-        /* --- HOTSPOT MODE: render absolutely positioned hit-areas over a page preview --- */
         <div className="relative w-full aspect-[4/3] rounded-xl bg-stone-100 border border-foreground/10 overflow-hidden"
           role="region"
           aria-label="Área de la página con objetos para tocar"
         >
           <span className="absolute inset-0 flex items-center justify-center text-sm text-foreground/40 font-semibold select-none">
-            Vista de página (coordenadas verificadas)
+            Vista de página con coordenadas verificadas
           </span>
           {interaction.targets.map((target) => {
             const isTapped = tapped.has(target.id);
@@ -63,13 +84,7 @@ export function TapObjectActivity({ interaction, accent = "hsl(var(--primary))",
                 type="button"
                 aria-label={`Toca ${target.label}${isTapped ? ". Tocado." : ""}`}
                 onClick={() => handleTap(target)}
-                style={{
-                  position: "absolute",
-                  left: `${target.xPercent ?? 0}%`,
-                  top: `${target.yPercent ?? 0}%`,
-                  width: `${target.widthPercent ?? 10}%`,
-                  height: `${target.heightPercent ?? 8}%`,
-                }}
+                style={hotspotStyle(target)}
                 className={cn(
                   "flex items-center justify-center rounded-lg border-2 text-xs font-bold transition-all",
                   isTapped
@@ -83,7 +98,6 @@ export function TapObjectActivity({ interaction, accent = "hsl(var(--primary))",
           })}
         </div>
       ) : (
-        /* --- LIST/TAP MODE: no fake coordinates — render book-style tap list --- */
         <div role="list" aria-label="Objetos para tocar" className="flex flex-col gap-2">
           {interaction.targets.map((target) => {
             const isTapped = tapped.has(target.id);
@@ -100,11 +114,11 @@ export function TapObjectActivity({ interaction, accent = "hsl(var(--primary))",
                     ? "border-emerald-400 bg-emerald-50 text-emerald-800"
                     : "border-foreground/12 bg-background hover:border-primary/40 hover:bg-primary/5 active:scale-[0.98]",
                 )}
-                style={{ borderColor: isTapped ? undefined : undefined }}
+                style={isTapped ? undefined : listButtonStyle(accent)}
               >
                 <span
                   className="w-8 h-8 rounded-full flex items-center justify-center text-white shrink-0"
-                  style={{ backgroundColor: isTapped ? "#22c55e" : accent }}
+                  style={circleStyle(isTapped ? "#10b981" : accent)}
                 >
                   {isTapped ? (
                     <CheckCircle2 className="w-4 h-4" aria-hidden />
@@ -119,7 +133,6 @@ export function TapObjectActivity({ interaction, accent = "hsl(var(--primary))",
         </div>
       )}
 
-      {/* Status footer when coordinates are pending */}
       {!verified && interaction.sourceStatus === "needs-art-mapping" && (
         <p className="text-xs font-bold text-foreground/40 flex items-center gap-1.5">
           <BookOpen className="w-3 h-3 shrink-0" />
@@ -128,7 +141,6 @@ export function TapObjectActivity({ interaction, accent = "hsl(var(--primary))",
         </p>
       )}
 
-      {/* Completion notice */}
       {tapped.size >= interaction.targets.length && interaction.targets.length > 0 && (
         <div
           className="rounded-xl border-2 border-emerald-400 bg-emerald-50 px-4 py-3 flex items-center gap-2 text-sm font-bold text-emerald-800 animate-in fade-in"

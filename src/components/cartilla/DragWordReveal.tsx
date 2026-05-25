@@ -1,7 +1,9 @@
+import type { CSSProperties } from "react";
 import { useState, useCallback } from "react";
 import { Volume2, CheckCircle2, BookOpen } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { speak } from "@/lib/speak";
+import { assetPath } from "@/lib/assets";
 import type { WorkbookInteraction } from "@/lib/workbook-interactions";
 
 type Props = {
@@ -15,6 +17,22 @@ type RevealState = {
   isCorrect: boolean;
 } | null;
 
+function accentBarStyle(accent: string): CSSProperties {
+  return { backgroundColor: accent };
+}
+
+function activeChipStyle(accent: string): CSSProperties {
+  return { borderColor: `${accent}66` };
+}
+
+function revealPanelStyle(accent: string): CSSProperties {
+  return { borderColor: `${accent}55` };
+}
+
+function revealWordStyle(accent: string): CSSProperties {
+  return { color: accent };
+}
+
 export function DragWordReveal({ interaction, accent = "hsl(var(--primary))", onComplete }: Props) {
   const [draggedId, setDraggedId] = useState<string | null>(null);
   const [revealed, setReveal] = useState<RevealState>(null);
@@ -25,9 +43,8 @@ export function DragWordReveal({ interaction, accent = "hsl(var(--primary))", on
       const item = interaction.items.find((i) => i.id === itemId);
       if (!item) return;
 
-      // Find matching target
       const target = interaction.targets.find((t) => t.acceptsItemId === itemId);
-      const isCorrect = Boolean(target);
+      const isCorrect = Boolean(target) || interaction.targets.length === 0;
 
       setReveal({ itemId, isCorrect });
       speak(item.label);
@@ -36,13 +53,10 @@ export function DragWordReveal({ interaction, accent = "hsl(var(--primary))", on
         setCompleted((prev) => {
           const next = new Set(prev);
           next.add(itemId);
-          // If all items with targets are completed, fire onComplete
           const totalWithTargets = interaction.items.filter((i) =>
-            interaction.targets.some((t) => t.acceptsItemId === i.id),
+            interaction.targets.length === 0 || interaction.targets.some((t) => t.acceptsItemId === i.id),
           ).length;
-          if (next.size >= totalWithTargets && onComplete) {
-            onComplete(interaction.id);
-          }
+          if (next.size >= totalWithTargets && onComplete) onComplete(interaction.id);
           return next;
         });
       }
@@ -62,20 +76,19 @@ export function DragWordReveal({ interaction, accent = "hsl(var(--primary))", on
     const droppedItemId = e.dataTransfer.getData("text/plain");
     const target = interaction.targets.find((t) => t.id === targetId);
     if (!target) return;
-
-    // Reveal whichever item was dropped
     handleReveal(droppedItemId);
   };
 
   const handleDragOver = (e: React.DragEvent) => e.preventDefault();
+  const revealedItem = revealed ? interaction.items.find((i) => i.id === revealed.itemId) : undefined;
+  const imageSrc = interaction.assetRef ? assetPath(interaction.assetRef) : undefined;
 
   return (
     <div className="rounded-2xl border border-foreground/10 bg-card p-4 space-y-4">
-      {/* Header */}
       <div className="flex items-start gap-3">
         <div
           className="w-2 h-full min-h-[2rem] rounded-full shrink-0"
-          style={{ backgroundColor: accent }}
+          style={accentBarStyle(accent)}
         />
         <div>
           <h3 className="font-bold text-base text-foreground/90">{interaction.title}</h3>
@@ -83,7 +96,6 @@ export function DragWordReveal({ interaction, accent = "hsl(var(--primary))", on
         </div>
       </div>
 
-      {/* Word Chips */}
       <div className="flex flex-wrap gap-2" role="list" aria-label="Palabras para arrastrar">
         {interaction.items.map((item) => {
           const isDone = completed.has(item.id);
@@ -105,7 +117,7 @@ export function DragWordReveal({ interaction, accent = "hsl(var(--primary))", on
                     ? "opacity-40 scale-95"
                     : "border-foreground/15 bg-background text-foreground hover:scale-105 hover:border-primary/40 active:scale-95",
               )}
-              style={{ borderColor: draggedId === item.id ? accent : undefined }}
+              style={isDone ? undefined : activeChipStyle(accent)}
             >
               {isDone && <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />}
               {item.label}
@@ -115,7 +127,6 @@ export function DragWordReveal({ interaction, accent = "hsl(var(--primary))", on
         })}
       </div>
 
-      {/* Drop Zones */}
       {interaction.targets.length > 0 && (
         <div className="flex flex-wrap gap-2" role="list" aria-label="Zonas de destino">
           {interaction.targets.map((target) => {
@@ -148,28 +159,27 @@ export function DragWordReveal({ interaction, accent = "hsl(var(--primary))", on
         </div>
       )}
 
-      {/* Reveal Panel */}
       {revealed && (
         <div
           className="rounded-2xl border-2 bg-background p-4 text-center space-y-2 animate-in fade-in slide-in-from-bottom-2"
-          style={{ borderColor: accent }}
+          style={revealPanelStyle(accent)}
           role="status"
           aria-live="polite"
         >
-          {interaction.assetRef ? (
+          {imageSrc ? (
             <img
-              src={interaction.assetRef}
-              alt={interaction.items.find((i) => i.id === revealed.itemId)?.label ?? ""}
-              className="mx-auto max-h-48 rounded-xl object-contain"
+              src={imageSrc}
+              alt={revealedItem?.label ?? "Página del cuaderno"}
+              className="mx-auto max-h-64 rounded-xl object-contain shadow-sm"
             />
           ) : (
             <div className="mx-auto flex flex-col items-center gap-2 py-4">
               <div
                 className="text-5xl font-extrabold tracking-wide"
-                style={{ color: accent }}
-                aria-label={`Palabra: ${interaction.items.find((i) => i.id === revealed.itemId)?.label}`}
+                style={revealWordStyle(accent)}
+                aria-label={`Palabra: ${revealedItem?.label}`}
               >
-                {interaction.items.find((i) => i.id === revealed.itemId)?.label}
+                {revealedItem?.label}
               </div>
               <span className="inline-flex items-center gap-1.5 text-xs font-bold text-foreground/50 bg-secondary/60 px-2.5 py-1 rounded-full">
                 <BookOpen className="w-3 h-3" />
@@ -187,7 +197,6 @@ export function DragWordReveal({ interaction, accent = "hsl(var(--primary))", on
         </div>
       )}
 
-      {/* Source status footer */}
       {interaction.sourceStatus === "needs-art-mapping" && (
         <p className="text-xs font-bold text-foreground/40 flex items-center gap-1">
           <BookOpen className="w-3 h-3" />
