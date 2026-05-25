@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Check, RotateCcw, Eye, EyeOff, Volume2, X } from "lucide-react";
 import { speak } from "@/lib/speak";
@@ -14,6 +15,18 @@ function shuffle<T>(arr: T[]): T[] {
     [a[i], a[j]] = [a[j], a[i]];
   }
   return a;
+}
+
+function primaryButtonStyle(color: string): CSSProperties {
+  return { backgroundColor: color };
+}
+
+function neutralChoiceStyle(color: string): CSSProperties {
+  return { borderColor: `${color}44` };
+}
+
+function selectedChoiceStyle(color: string): CSSProperties {
+  return { borderColor: color, color };
 }
 
 /** Tap-the-correct-syllable game */
@@ -98,7 +111,7 @@ export function SyllableTap({
       <button
         onClick={() => speak(target)}
         className="mb-3 inline-flex items-center gap-2 px-4 py-2 rounded-xl text-white font-bold"
-        style={{ backgroundColor: color }}
+        style={primaryButtonStyle(color)}
       >
         <Volume2 className="w-4 h-4" /> Escuchar
       </button>
@@ -117,10 +130,7 @@ export function SyllableTap({
                 s === target &&
                 "bg-success/10 border-success text-success",
             )}
-            style={{
-              borderColor: !feedback ? color : undefined,
-              color: !feedback ? color : undefined,
-            }}
+            style={feedback ? undefined : neutralChoiceStyle(color)}
           >
             {s}
           </button>
@@ -314,7 +324,7 @@ export function WordMatch({
                     ? "scale-[1.02]"
                     : "hover:bg-secondary",
               )}
-              style={{ borderColor: color, color: matched.has(w.word) ? undefined : color }}
+              style={picked === w.word ? selectedChoiceStyle(color) : undefined}
             >
               {w.word}
             </button>
