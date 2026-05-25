@@ -1,66 +1,100 @@
 # Classroom CRM Status
 
-Date: 2026-05-24
+Date: 2026-05-25
 
-## What Works
+## Current framing
 
-- **Teacher Roster & Class Management**: Teachers can sign in, create classes, add students in bulk (split by line/comma), copy class join codes, view class rosters, delete students/classes, and export class rosters directly to CSV.
-- **Dynamic Teacher Dashboard**: Teacher class detail pages show aggregated progress across all 24 lessons, per-student completed lesson counts, event counts, last active timestamps, assignments tracking, and comprehensive per-student progress pages.
-- **Student Workbook Connection**: Alumnos can join instantly with a class join code and their personal student code. Browser sessions are persistent across refreshes and tabs.
-- **Shared Progress Event Pipeline**: Student lesson completions, exercise attempts (score/total), study time, badges, and level-up events are recorded in real-time.
-- **Curriculum Assignments**: Teachers can assign specific lessons, due dates, and time limits. Students see these assignments prominently at the top of their active lesson page, and progress updates dynamically.
+This is the CRM layer for the real La Cartilla de Gretel classroom platform. It should not be treated as a throwaway demo.
 
----
+The system has two modes:
 
-## Local Demo Mode (Hardened)
+1. **Production mode** — Supabase is configured and classroom data syncs to the cloud.
+2. **Local mode** — Supabase is not configured and progress is saved on this device/browser only.
 
-When Supabase environment variables (`VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY`) are missing, the CRM runs in a robust, hardened Local Demo Mode:
+## What works
 
-- **Auth Fallbacks**: Teacher login instantly matches standard built-in accounts (`leonore@cartilla.demo` or `emilio@cartilla.demo`).
-- **Reactive Local Storage State**: Classes, students, assignments, and progress events are stored under the demo CRM namespace. Changes trigger reactive events across open browser components.
-- **Isolated Progress Scopes**: Lesson completions are cleanly scoped by `classId` and `studentId` in local storage, preventing different demo students from overwriting each other's work in the same browser.
-- **Data Management Console**: We built a teacher-facing local data panel to:
-  - **Export State**: Download the entire local CRM database (classes, students, events, assignments) as a portable JSON file.
-  - **Import State**: Restore/upload a previously exported JSON state to reconstruct the roster/progress.
-  - **Reset State**: Wipe local storage changes and reset the state back to the original initial seed data (containing pre-seeded classes and progress events).
+- **Teacher roster and class management**: teachers can create classes, add students, copy class join codes, view class rosters, delete students/classes, and export rosters to CSV.
+- **Teacher dashboard**: class detail pages show progress across lessons, per-student completed lesson counts, event counts, last active timestamps, assignments, and student progress pages.
+- **Student join flow**: students can join with a class join code and personal student code when a teacher provides them.
+- **Public workbook browsing**: the student workbook can be explored without a class code. A class code is optional for progress tracking.
+- **Progress event pipeline**: lesson completions, exercise attempts, study time, badges, and level-up events can be recorded.
+- **Curriculum assignments**: teachers can assign lessons, due dates, and time limits. Students with a session see assignments in the lesson page.
 
 ---
 
-## Supabase Mode
+## Local mode
+
+When Supabase environment variables (`VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY`) are missing, the CRM runs in local mode:
+
+- Sessions and progress are stored in the current browser.
+- Progress does not sync across devices.
+- Teacher local data can be exported/imported/reset where the dashboard supports it.
+- The UI should clearly say that progress is saved on this device only.
+
+Use this wording:
+
+> Local mode — progress is saved on this device only.
+
+---
+
+## Supabase production mode
 
 When configured:
 
-- **Secure Auth**: Uses Supabase GoTrue Auth.
-- **Persisted CRM Tables**: Queries and updates live records inside `classes` and `students`.
-- **RPC Event Loggers**: Joins and progress submissions trigger pg-RPCs (`join_class`, `log_student_progress`, `get_student_progress`).
-- **Assignment Progress sync**: RPCs automatically populate progress summaries showing started/completed ratios, average completion time, and exercise accuracy.
+- Supabase handles authentication/data access paths used by the CRM layer.
+- CRM records persist in cloud tables.
+- Student progress can sync beyond one browser/device.
+- Production use still requires reviewing schema, migrations, RLS/security policies, and real account setup.
+
+Required environment variables:
+
+```text
+VITE_SUPABASE_URL
+VITE_SUPABASE_PUBLISHABLE_KEY
+```
 
 ---
 
-## Hardened User Flows
+## Student flow
 
-### Student Flow
-1. Open `/cartilla/unirse`.
-2. Under Local Demo Mode, select a pre-configured student or enter a custom join/student code.
-3. Persistent session is established.
-4. Work through the student workbook at `/cartilla/lecciones`. Completed lessons and exercise scores are auto-recorded via `recordEvent()`.
-5. Open `/cartilla/mi-progreso` to review personal stats (time spent, lessons completed, accuracy chart) and export private CSV.
+1. Open `/cartilla` or `/cartilla/lecciones` to browse the workbook publicly.
+2. Optional: open `/cartilla/unirse` if a teacher provided a class code and student code.
+3. Persistent session is established after joining.
+4. Work through `/cartilla/lecciones` and lesson pages.
+5. Open `/cartilla/mi-progreso` to review personal progress.
 
-### Teacher Flow
-1. Open `/login`.
-2. Sign in with standard teacher account or demo credentials.
-3. Open `/cartilla/teacher`.
-4. Create class cohorts, add students, and copy class join codes.
-5. Create, track, or delete assignments.
-6. Manage local demo states (Export/Import/Reset) cleanly from the dashboard console.
+## Teacher flow
+
+1. Open `/login` if teacher access requires it.
+2. Open `/cartilla/teacher`.
+3. Create/manage classes and students.
+4. Assign lessons and track progress.
+5. Use `/cartilla/teacher/flipchart` for class presentation.
+6. Use `/cartilla/teacher/remaster-review` for internal visual approval only.
 
 ---
 
-## Reliability States Added
+## Reliability states
 
-- Student progress save now emits a visible state: saving, synced, saved locally, or sync unavailable.
-- Local demo mode explicitly says progress is browser-local and cannot sync without Supabase.
-- Student progress view exits loading with a clear message if the student session disappears.
-- Teacher dashboard surfaces class load failures instead of leaving the page ambiguous.
-- Teacher class pages show progress-summary, assignment-load, empty-assignment, and no-students states.
-- Teacher student detail pages show a clear error state if progress cannot be loaded.
+The UI should surface clear states for:
+
+- loading
+- no students yet
+- no progress yet
+- local mode
+- Supabase not configured
+- progress saved locally
+- sync unavailable
+- progress synced
+- load failure
+
+## Production blockers
+
+Before real classroom use:
+
+- Confirm the live Supabase schema.
+- Confirm migrations/RLS policies.
+- Seed real teacher account(s).
+- Confirm privacy process for students.
+- Confirm student progress sync works in production mode.
+- Confirm remastered images are reviewed before approval.

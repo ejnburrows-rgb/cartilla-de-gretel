@@ -5,10 +5,8 @@ import {
   BookOpen,
   GraduationCap,
   ListOrdered,
-  PencilLine,
-  Sparkles,
-  User,
-  Zap,
+  Presentation,
+  UserPlus,
 } from "lucide-react";
 import { CoverInspiredPanel } from "@/components/CoverInspiredPanel";
 import { useStudentSession } from "@/lib/student-session";
@@ -17,16 +15,17 @@ export const Route = createFileRoute("/cartilla/")({
   component: CartillaHome,
   head: () => ({
     meta: [
-      { title: "Cartilla digital - La Cartilla de Gretel" },
+      { title: "La Cartilla de Gretel - plataforma de aula" },
       {
         name: "description",
         content:
-          "Cartilla digital interactiva: 24 lecciones, ejercicios, evaluaciones y panel de maestro.",
+          "Plataforma de aula para La Cartilla de Gretel: cuaderno del estudiante, panel docente y presentación del maestro.",
       },
-      { property: "og:title", content: "La Cartilla de Gretel - Edicion digital escolar" },
+      { property: "og:title", content: "La Cartilla de Gretel - plataforma de aula" },
       {
         property: "og:description",
-        content: "Metodo fonetico K-2 con 24 lecciones, ejercicios interactivos y panel docente.",
+        content:
+          "Cuaderno del estudiante, panel docente y presentación del maestro en un solo sistema.",
       },
     ],
   }),
@@ -34,91 +33,47 @@ export const Route = createFileRoute("/cartilla/")({
 
 function CartillaHome() {
   const session = useStudentSession();
-  const roleActions = [
-    {
-      to: "/book" as const,
-      icon: BookOpen,
-      label: "Leer libro",
-      desc: "PDF oficial",
-      color: "bg-[hsl(197,41%,22%)]",
-    },
-    {
-      to: session ? ("/cartilla/mi-progreso" as const) : ("/cartilla/unirse" as const),
-      icon: User,
-      label: "Estudiantes",
-      desc: session ? "Mi progreso" : "Unirse a clase",
-      color: "bg-vowel-i",
-    },
-    {
-      to: "/cartilla/teacher" as const,
-      icon: GraduationCap,
-      label: "Docentes",
-      desc: "Panel de clase",
-      color: "bg-vowel-o",
-    },
-    {
-      to: "/cartilla/practica" as const,
-      icon: PencilLine,
-      label: "Practica",
-      desc: "60 segundos",
-      color: "bg-vowel-a",
-    },
-  ];
 
-  const cards = [
+  const primaryCards = [
     {
       to: "/cartilla/lecciones" as const,
-      icon: ListOrdered,
-      title: "Las 24 lecciones",
-      desc: "Ruta ordenada para trabajar vocales, consonantes, silabas y palabras.",
+      icon: BookOpen,
+      title: "Cuaderno del estudiante",
+      desc: "Abrir las 24 lecciones del cuaderno. Puedes explorar sin iniciar sesión.",
       color: "bg-[hsl(197,41%,22%)]",
     },
-    {
-      to: "/cartilla/practica" as const,
-      icon: Zap,
-      title: "Practica rapida",
-      desc: "Ejercicios cortos para reforzar reconocimiento de silabas.",
-      color: "bg-vowel-a",
-    },
-    ...(session
-      ? [
-          {
-            to: "/cartilla/mi-progreso" as const,
-            icon: BarChart3,
-            title: "Mi progreso",
-            desc: `Hola ${session.studentName} - revisa tus lecciones, aciertos e insignias.`,
-            color: "bg-vowel-i",
-          },
-          {
-            to: "/cartilla/repaso" as const,
-            icon: Sparkles,
-            title: "Modo repaso",
-            desc: "Practica las lecciones donde necesitas mas apoyo.",
-            color: "bg-vowel-e",
-          },
-        ]
-      : [
-          {
-            to: "/cartilla/unirse" as const,
-            icon: User,
-            title: "Soy estudiante",
-            desc: "Entra con el codigo de clase y tu codigo personal.",
-            color: "bg-vowel-i",
-          },
-        ]),
     {
       to: "/cartilla/teacher" as const,
       icon: GraduationCap,
       title: "Panel docente",
-      desc: "Crea clases, agrega alumnos y revisa el progreso.",
+      desc: "Gestionar clases, alumnos, asignaciones y progreso.",
       color: "bg-vowel-o",
     },
     {
-      to: "/cartilla/autora" as const,
-      icon: User,
-      title: "La autora",
-      desc: "Conoce a Leonor Lopetegui y el enfoque de la cartilla.",
-      color: "bg-vowel-u",
+      to: "/cartilla/teacher/flipchart" as const,
+      icon: Presentation,
+      title: "Presentación del maestro",
+      desc: "Abrir el flipchart para seguir la clase en pantalla.",
+      color: "bg-vowel-a",
+    },
+  ];
+
+  const secondaryCards = [
+    {
+      to: session ? ("/cartilla/mi-progreso" as const) : ("/cartilla/unirse" as const),
+      icon: session ? BarChart3 : UserPlus,
+      title: session ? "Mi progreso" : "Unirse a una clase",
+      desc: session
+        ? `Hola ${session.studentName}. Revisa tu progreso guardado.`
+        : "Opcional: usa un código de clase si tu maestro te lo dio.",
+      color: "bg-vowel-i",
+    },
+    {
+      to: "/book" as const,
+      icon: ListOrdered,
+      title: "PDF oficial",
+      desc: "Consultar el PDF del libro cuando haga falta.",
+      color: "bg-[hsl(197,41%,22%)]",
     },
   ];
 
@@ -132,26 +87,25 @@ function CartillaHome() {
           >
             <ArrowLeft className="h-4 w-4" /> Inicio
           </Link>
-          <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
-            {roleActions.map((action) => (
-              <Link
-                key={action.to}
-                to={action.to}
-                className="group grid min-h-20 grid-cols-[44px_1fr] items-center gap-3 rounded-2xl border border-foreground/10 bg-card p-3 text-left shadow-sm transition hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-lg"
-              >
-                <span
-                  className={`${action.color} flex h-11 w-11 items-center justify-center rounded-xl text-white shadow-md shadow-black/10`}
-                >
-                  <action.icon className="h-5 w-5" />
-                </span>
-                <span>
-                  <span className="block text-base font-black leading-tight">{action.label}</span>
-                  <span className="block text-sm font-semibold text-foreground/60">
-                    {action.desc}
-                  </span>
-                </span>
-              </Link>
-            ))}
+          <div className="flex flex-wrap gap-2">
+            <Link
+              to="/cartilla/lecciones"
+              className="rounded-2xl bg-[hsl(197,41%,22%)] px-4 py-3 text-sm font-black text-white shadow-sm"
+            >
+              Cuaderno
+            </Link>
+            <Link
+              to="/cartilla/teacher"
+              className="rounded-2xl border border-foreground/10 bg-card px-4 py-3 text-sm font-black text-foreground/75 shadow-sm"
+            >
+              Docentes
+            </Link>
+            <Link
+              to="/cartilla/teacher/flipchart"
+              className="rounded-2xl border border-foreground/10 bg-card px-4 py-3 text-sm font-black text-foreground/75 shadow-sm"
+            >
+              Flipchart
+            </Link>
           </div>
         </nav>
 
@@ -162,30 +116,50 @@ function CartillaHome() {
               Plataforma de aula
             </p>
             <h1 className="mt-3 text-4xl font-black leading-tight text-[hsl(197,41%,22%)] sm:text-6xl">
-              Lecciones, practica y progreso en un solo lugar.
+              Cuaderno, panel docente y presentación en un solo sistema.
             </h1>
             <p className="mt-4 text-xl leading-relaxed text-foreground/75">
-              Una experiencia clara para estudiantes y docentes, con botones grandes y rutas
-              directas para el trabajo diario.
+              Explora el cuaderno sin iniciar sesión. Únete a una clase solo si tu maestro
+              te dio un código para guardar progreso y recibir asignaciones.
             </p>
           </div>
         </header>
 
-        <section className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {cards.map((c) => (
+        <section className="mt-10 grid gap-4 lg:grid-cols-3">
+          {primaryCards.map((c) => (
             <Link
               key={c.to}
               to={c.to}
-              className="kid-card group grid min-h-40 grid-cols-[64px_1fr] items-start gap-4 p-6 transition duration-300 hover:-translate-y-1"
+              className="kid-card group grid min-h-48 grid-cols-[72px_1fr] items-start gap-4 p-6 transition duration-300 hover:-translate-y-1"
             >
               <div
-                className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl ${c.color} text-white transition duration-300 group-hover:scale-105`}
+                className={`flex h-18 w-18 shrink-0 items-center justify-center rounded-2xl ${c.color} text-white transition duration-300 group-hover:scale-105`}
               >
-                <c.icon className="h-8 w-8" />
+                <c.icon className="h-9 w-9" />
               </div>
               <div>
                 <h2 className="text-2xl font-black text-[hsl(197,41%,22%)]">{c.title}</h2>
                 <p className="mt-2 text-base leading-relaxed text-foreground/75">{c.desc}</p>
+              </div>
+            </Link>
+          ))}
+        </section>
+
+        <section className="mt-6 grid gap-4 md:grid-cols-2">
+          {secondaryCards.map((c) => (
+            <Link
+              key={c.to}
+              to={c.to}
+              className="rounded-3xl border border-foreground/10 bg-white/85 p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg"
+            >
+              <div className="flex items-start gap-4">
+                <div className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl ${c.color} text-white`}>
+                  <c.icon className="h-7 w-7" />
+                </div>
+                <div>
+                  <h2 className="text-xl font-black text-[hsl(197,41%,22%)]">{c.title}</h2>
+                  <p className="mt-1 text-sm leading-relaxed text-foreground/70">{c.desc}</p>
+                </div>
               </div>
             </Link>
           ))}

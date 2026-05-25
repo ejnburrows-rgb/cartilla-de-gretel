@@ -55,9 +55,9 @@ function JoinPage() {
         <div className="mx-auto w-14 h-14 rounded-2xl bg-vowel-i text-white flex items-center justify-center">
           <LogIn className="w-7 h-7" />
         </div>
-        <h1 className="mt-4 text-3xl font-bold">Únete a tu clase</h1>
+        <h1 className="mt-4 text-3xl font-bold">Únete a una clase</h1>
         <p className="text-sm text-foreground/60 mt-1">
-          Pídele a tu maestra o maestro los dos códigos.
+          Este paso es opcional. Solo úsalo si tu maestra o maestro te dio códigos para guardar progreso de aula.
         </p>
       </header>
 
@@ -87,8 +87,8 @@ function JoinPage() {
           <form onSubmit={submit} className="mt-8 space-y-3">
             {!isSupabaseConfigured && (
               <div className="rounded-2xl border-2 border-vowel-i/20 bg-vowel-i/5 px-4 py-3 text-sm font-bold text-vowel-i">
-                Modo demo local: Supabase no esta configurado. La sesion y el progreso se guardan
-                en este navegador. Demo prellenado: {DEFAULT_DEMO_STUDENT.name}.
+                Modo local: Supabase no está configurado. La sesión y el progreso de clase se guardan
+                en este navegador. Acceso de prueba prellenado: {DEFAULT_DEMO_STUDENT.name}.
               </div>
             )}
             <div>
@@ -124,12 +124,18 @@ function JoinPage() {
               className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-bold disabled:opacity-50 inline-flex items-center justify-center gap-2"
             >
               {busy && <Loader2 className="w-4 h-4 animate-spin" />}
-              {busy ? "Validando codigos..." : "Entrar"}
+              {busy ? "Validando códigos..." : "Entrar a mi clase"}
             </button>
           </form>
+          <Link
+            to="/cartilla/lecciones"
+            className="mt-4 flex w-full items-center justify-center rounded-xl border-2 border-foreground/10 bg-white px-4 py-3 text-sm font-black text-foreground/70 hover:bg-muted"
+          >
+            Explorar el cuaderno sin código
+          </Link>
           {!isSupabaseConfigured && (
             <section className="mt-4 rounded-3xl border-2 border-vowel-i/20 bg-vowel-i/5 p-4">
-              <h2 className="text-base font-bold text-vowel-i">Alumnos demo listos</h2>
+              <h2 className="text-base font-bold text-vowel-i">Accesos de prueba locales</h2>
               <div className="mt-3 space-y-2 text-sm">
                 {DEMO_STUDENT_ACCESS.map((student) => (
                   <button

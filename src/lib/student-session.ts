@@ -89,9 +89,9 @@ type LogInput = {
   meta?: Record<string, unknown>;
 };
 
-/** Fire-and-forget: only logs if a student session exists. */
+/** Fire-and-forget progress recording. Public workbook browsing never requires a student session. */
 export function recordEvent(input: LogInput) {
-  // Always mirror exercise results to local stats (works for anonymous users too).
+  // Always mirror exercise results to local stats (works for anonymous/public users too).
   if (input.kind === "exercise" && input.lessonId && typeof input.total === "number") {
     const meta = (input.meta ?? {}) as { exercise?: string; completed?: boolean };
     if (meta.exercise) {
@@ -107,8 +107,9 @@ export function recordEvent(input: LogInput) {
   const s = getStudentSession();
   if (!s) {
     setProgressSyncStatus({
-      state: "error",
-      message: "Sin sesion de alumno: la sincronizacion de progreso no esta disponible.",
+      state: "local",
+      message:
+        "Explorando sin clase: el cuaderno abre libremente. Únete a una clase solo si quieres sincronizar progreso de aula.",
       at: Date.now(),
     });
     return;
@@ -130,7 +131,7 @@ export function recordEvent(input: LogInput) {
         state: isSupabaseConfigured ? "saved" : "local",
         message: isSupabaseConfigured
           ? "Progreso sincronizado."
-          : "Progreso guardado localmente. Sync no disponible sin Supabase.",
+          : "Progreso guardado en este dispositivo. Sincronización en la nube no disponible sin Supabase.",
         at: Date.now(),
       }),
     )
