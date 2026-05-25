@@ -1,5 +1,5 @@
-import { useState, useMemo, CSSProperties } from "react";
-import { getWorkbookPageSourcesForLesson, getWorkbookPdfStatus } from "@/lib/workbook-source";
+import { useState, type CSSProperties, type ReactNode } from "react";
+import { getWorkbookPageSourcesForLesson } from "@/lib/workbook-source";
 import { OfficialWorkbookPage } from "./OfficialWorkbookPage";
 import { 
   BookOpen, 
@@ -9,7 +9,6 @@ import {
   ChevronRight, 
   Columns, 
   Square,
-  Sparkles,
   Info,
   CheckCircle
 } from "lucide-react";
@@ -21,15 +20,12 @@ export type OfficialWorkbookLessonViewProps = {
   pages: string;
   title: string;
   accent?: string;
+  belowPage?: (activePageNumber: number) => ReactNode;
 };
 
 // Styling helper functions
 function getAccentBgStyle(accent: string): CSSProperties {
   return { backgroundColor: accent };
-}
-
-function getAccentBorderStyle(accent: string): CSSProperties {
-  return { borderColor: accent };
 }
 
 function getAccentTextStyle(accent: string): CSSProperties {
@@ -40,14 +36,7 @@ function getAccentTextStyle(accent: string): CSSProperties {
 const BOOK_ANIMATION = {
   initial: { opacity: 0, scale: 0.97, y: 10 },
   animate: { opacity: 1, scale: 1, y: 0 },
-  transition: { duration: 0.4, ease: "easeOut" }
-};
-
-const PAGE_ANIMATION = {
-  initial: { opacity: 0, x: 20 },
-  animate: { opacity: 1, x: 0 },
-  exit: { opacity: 0, x: -20 },
-  transition: { duration: 0.3 }
+  transition: { duration: 0.4, ease: "easeOut" as const }
 };
 
 export function OfficialWorkbookLessonView({
@@ -55,14 +44,14 @@ export function OfficialWorkbookLessonView({
   pages,
   title,
   accent = "hsl(var(--primary))",
+  belowPage,
 }: OfficialWorkbookLessonViewProps) {
-  const sources = getWorkbookPageSourcesForLesson(lessonNumber, pages);
+  const lessonSource = getWorkbookPageSourcesForLesson(lessonNumber, pages);
+  const sources = lessonSource.pages;
   const [selectedIdx, setSelectedIdx] = useState(0);
   const [twoPageMode, setTwoPageMode] = useState(true);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [zoomLevel, setZoomLevel] = useState(1);
-
-  const pdfAvailable = getWorkbookPdfStatus();
 
   // If no source pages, don't crash
   if (sources.length === 0) {
@@ -226,6 +215,7 @@ export function OfficialWorkbookLessonView({
               {/* Page content */}
               <div className="flex-1">
                 <OfficialWorkbookPage source={leftSource} />
+                {belowPage?.(leftSource.pageNumber)}
               </div>
             </div>
 
@@ -235,6 +225,7 @@ export function OfficialWorkbookLessonView({
                 {rightSource ? (
                   <div className="flex-1">
                     <OfficialWorkbookPage source={rightSource} />
+                    {belowPage?.(rightSource.pageNumber)}
                   </div>
                 ) : (
                   <div className="flex-1 flex flex-col items-center justify-center min-h-[300px] border-2 border-dashed border-foreground/10 rounded-2xl p-6">
@@ -353,6 +344,7 @@ export function OfficialWorkbookLessonView({
                 {/* Current Page */}
                 <div className="w-full max-w-2xl bg-card border-2 border-foreground/10 rounded-[2.5rem] shadow-2xl p-4 overflow-hidden">
                   <OfficialWorkbookPage source={sources[selectedIdx] ?? sources[0]} />
+                  {belowPage?.((sources[selectedIdx] ?? sources[0]).pageNumber)}
                 </div>
               </div>
             </div>

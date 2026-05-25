@@ -76,49 +76,49 @@ function TeacherFlipchart() {
   if (!currentData) return <div>Cargando...</div>;
 
   let remasterStatusLabel = "Escaneo conectado";
-  let remasterBadgeStyle = "bg-amber-500/10 text-amber-200 border border-amber-500/20";
+  let remasterBadgeStyle = "bg-amber-100 text-amber-800 border border-amber-200";
   let isApproved = false;
 
   if (remasterAsset) {
     if (remasterAsset.approvalStatus === "approved") {
       remasterStatusLabel = "Remaster aprobado";
-      remasterBadgeStyle = "bg-emerald-500/10 text-emerald-200 border border-emerald-500/20";
+      remasterBadgeStyle = "bg-emerald-100 text-emerald-800 border border-emerald-200";
       isApproved = true;
     } else if (isEnhanced) {
       remasterStatusLabel = qualityLabel;
-      remasterBadgeStyle = "bg-indigo-500/10 text-indigo-200 border border-indigo-500/20";
+      remasterBadgeStyle = "bg-indigo-100 text-indigo-800 border border-indigo-200";
     } else if (remasterAsset.cleanupStatus === "cleaned") {
       remasterStatusLabel = "Limpieza completada";
-      remasterBadgeStyle = "bg-sky-500/10 text-sky-200 border border-sky-500/20";
+      remasterBadgeStyle = "bg-sky-100 text-sky-800 border border-sky-200";
     }
   }
 
   return (
-    <div className={cn("flex min-h-screen flex-col", isFullscreen ? "bg-black" : "bg-neutral-950")}>
+    <div className={cn("flex min-h-screen flex-col", isFullscreen ? "bg-stone-900" : "bg-stone-100")}>
       {!isFullscreen && (
-        <header className="flex flex-wrap items-center justify-between gap-4 border-b border-neutral-800 bg-neutral-950 px-6 py-4 text-neutral-100">
+        <header className="flex flex-wrap items-center justify-between gap-4 border-b border-stone-200 bg-white px-6 py-4 shadow-sm">
           <div className="flex items-center gap-4">
-            <Link to="/cartilla/teacher/presentacion" className="inline-flex items-center gap-2 rounded-full bg-neutral-800 px-4 py-2 text-sm font-black text-neutral-200 transition-colors hover:bg-neutral-700">
+            <Link to="/cartilla/teacher/presentacion" className="inline-flex items-center gap-2 rounded-full bg-stone-100 px-4 py-2 text-sm font-black text-stone-700 transition-colors hover:bg-stone-200">
               <ArrowLeft className="h-4 w-4" /> Presentación
             </Link>
             <div>
               <div className="flex items-center gap-2">
-                <Presentation className="h-5 w-5 text-indigo-400" />
-                <h1 className="text-lg font-black">Flipchart de clase</h1>
+                <Presentation className="h-5 w-5 text-[var(--cartilla-accent)]" />
+                <h1 className="text-lg font-black text-stone-900">Libro del Maestro</h1>
               </div>
-              <p className="text-xs font-semibold text-neutral-400">Presentación del maestro como libro proyectable</p>
+              <p className="text-xs font-semibold text-stone-500">Presentación de clase como libro proyectable</p>
             </div>
           </div>
 
           <div className="flex flex-wrap items-center gap-3">
-            <span className={cn("flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-black", remasterBadgeStyle)}>
+            <span className={cn("flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-black shadow-sm", remasterBadgeStyle)}>
               {isApproved ? <CheckCircle2 className="h-3.5 w-3.5" /> : <Sparkles className="h-3.5 w-3.5" />}
               {remasterStatusLabel}
             </span>
-            <button type="button" onClick={() => setQualityMode((mode) => (mode === "projection" ? "source" : "projection"))} className="inline-flex items-center gap-2 rounded-full bg-indigo-600 px-4 py-2 text-sm font-black text-white transition hover:bg-indigo-500">
+            <button type="button" onClick={() => setQualityMode((mode) => (mode === "projection" ? "source" : "projection"))} className="inline-flex items-center gap-2 rounded-full bg-[var(--cartilla-accent)] px-4 py-2 text-sm font-black text-white shadow-md transition hover:opacity-90">
               {qualityMode === "projection" ? "Modo proyección" : "Escaneo original"}
             </button>
-            <button onClick={toggleFullscreen} className="inline-flex items-center gap-2 rounded-full bg-neutral-800 px-4 py-2 text-sm font-black text-neutral-200 transition-colors hover:bg-neutral-700">
+            <button onClick={toggleFullscreen} className="inline-flex items-center gap-2 rounded-full bg-stone-800 px-4 py-2 text-sm font-black text-white shadow-md transition-colors hover:bg-stone-700">
               {isFullscreen ? <Minimize className="h-4 w-4" /> : <Maximize className="h-4 w-4" />}
               {isFullscreen ? "Salir" : "Proyectar"}
             </button>
@@ -126,38 +126,69 @@ function TeacherFlipchart() {
         </header>
       )}
 
-      <main className="group relative flex flex-1 items-center justify-center overflow-hidden bg-[radial-gradient(circle_at_center,rgba(79,70,229,0.20),transparent_40%),linear-gradient(135deg,#030303,#171717_55%,#050505)] p-3 md:p-8">
-        <button onClick={goPrev} disabled={currentPage === 1} className="absolute left-4 top-1/2 z-20 flex h-16 w-16 -translate-y-1/2 items-center justify-center rounded-full bg-black/45 text-white opacity-0 transition-opacity hover:bg-black/65 disabled:opacity-0 group-hover:opacity-100" aria-label="Página anterior">
-          <ChevronLeft className="h-10 w-10" />
+      <main className="group relative flex flex-1 items-center justify-center overflow-hidden p-2 sm:p-6">
+        <button onClick={goPrev} disabled={currentPage === 1} className="absolute left-2 sm:left-6 top-1/2 z-20 flex h-14 w-14 sm:h-16 sm:w-16 -translate-y-1/2 items-center justify-center rounded-full bg-stone-900/60 text-white opacity-0 shadow-lg backdrop-blur-sm transition-opacity hover:bg-stone-900/80 disabled:opacity-0 group-hover:opacity-100" aria-label="Página anterior">
+          <ChevronLeft className="h-8 w-8 sm:h-10 sm:w-10" />
         </button>
 
-        <button onClick={goNext} disabled={currentPage === totalPages} className="absolute right-4 top-1/2 z-20 flex h-16 w-16 -translate-y-1/2 items-center justify-center rounded-full bg-black/45 text-white opacity-0 transition-opacity hover:bg-black/65 disabled:opacity-0 group-hover:opacity-100" aria-label="Página siguiente">
-          <ChevronRight className="h-10 w-10" />
+        <button onClick={goNext} disabled={currentPage === totalPages} className="absolute right-2 sm:right-6 top-1/2 z-20 flex h-14 w-14 sm:h-16 sm:w-16 -translate-y-1/2 items-center justify-center rounded-full bg-stone-900/60 text-white opacity-0 shadow-lg backdrop-blur-sm transition-opacity hover:bg-stone-900/80 disabled:opacity-0 group-hover:opacity-100" aria-label="Página siguiente">
+          <ChevronRight className="h-8 w-8 sm:h-10 sm:w-10" />
         </button>
 
-        <div className="relative flex h-full w-full items-center justify-center [perspective:1900px]">
-          <div className="absolute inset-x-[10%] bottom-4 h-12 rounded-full bg-black/60 blur-3xl" />
-          <div className="pointer-events-none absolute inset-y-[7%] left-1/2 z-10 w-14 -translate-x-1/2 rounded-full bg-gradient-to-r from-black/25 via-black/10 to-transparent blur-lg" />
-          <img
-            src={displayPath}
-            alt={`Página ${currentData.flipchartPage} del flipchart`}
-            className="relative max-h-full max-w-full rounded-xl object-contain shadow-[0_36px_110px_rgba(0,0,0,0.62),0_8px_18px_rgba(0,0,0,0.35)] ring-1 ring-white/12 [transform:translateZ(0)]"
-            decoding="async"
-            loading="eager"
-            fetchPriority="high"
-            onError={() => {
-              if (displayPath !== originalPublicPath) setFallbackPath(originalPublicPath);
-            }}
-          />
+        {/* Projected Book Frame */}
+        <div className={cn(
+          "relative flex flex-col w-full h-full max-w-6xl mx-auto rounded-[2rem] bg-white border border-stone-200 shadow-2xl overflow-hidden transition-all duration-300",
+          isFullscreen ? "rounded-none border-none max-w-none" : ""
+        )}>
+          {/* Identity Header */}
+          <div className="flex items-center justify-between px-6 py-3 bg-stone-50 border-b border-stone-100 shrink-0">
+             <div className="flex items-center gap-3">
+               <div className="w-8 h-8 rounded-full bg-[var(--cartilla-accent)] flex items-center justify-center text-white shadow-inner">
+                 <Presentation className="w-4 h-4" />
+               </div>
+               <div>
+                 <h2 className="font-extrabold text-sm text-stone-700">Libro del Maestro</h2>
+                 <span className="text-[10px] font-bold text-stone-400 uppercase tracking-wider">La Cartilla de Gretel</span>
+               </div>
+             </div>
+             <div className="flex flex-col items-end">
+               <div className="text-xs font-black text-stone-600 bg-white px-3 py-1 rounded-full shadow-sm border border-stone-200">
+                 Página {currentData.flipchartPage} / {totalPages}
+               </div>
+             </div>
+          </div>
+          
+          {/* Book Image Content */}
+          <div className="flex-1 w-full flex items-center justify-center bg-stone-100/50 p-2 sm:p-6 overflow-hidden relative">
+            {/* Subtle shadow behind the page to make it pop like paper */}
+            <div className="absolute inset-8 bg-stone-200/50 blur-xl rounded-full -z-10" />
+            
+            <img
+              src={displayPath}
+              alt={`Página ${currentData.flipchartPage} del libro del maestro`}
+              className="relative max-h-full max-w-full rounded-sm object-contain drop-shadow-xl ring-1 ring-stone-900/5 bg-white"
+              decoding="async"
+              loading="eager"
+              fetchPriority="high"
+              onError={() => {
+                if (displayPath !== originalPublicPath) setFallbackPath(originalPublicPath);
+              }}
+            />
+          </div>
         </div>
 
-        <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 items-center gap-3 rounded-full bg-black/60 px-4 py-2 text-sm font-black tracking-widest text-white opacity-0 shadow-xl transition-opacity group-hover:opacity-100">
-          <span>{currentPage} / {totalPages}</span>
-          <span className="inline-flex items-center gap-1 rounded-full bg-white/12 px-2 py-0.5 text-[10px] tracking-normal">
-            <Clock className="h-3 w-3" /> Q cambia calidad
+        {/* Quick controls overlay at the bottom */}
+        <div className="absolute bottom-4 sm:bottom-8 left-1/2 flex -translate-x-1/2 items-center gap-4 rounded-full bg-stone-900/80 backdrop-blur px-5 py-2.5 text-sm font-black tracking-widest text-white opacity-0 shadow-2xl transition-opacity group-hover:opacity-100">
+          <span className="flex items-center gap-2">
+            <span className="bg-white/20 px-2 py-0.5 rounded-md">{currentPage}</span> / {totalPages}
+          </span>
+          <div className="w-px h-4 bg-white/20" />
+          <span className="inline-flex items-center gap-1.5 text-[11px] tracking-normal opacity-80">
+            <Clock className="h-3.5 w-3.5" /> Q: Calidad
           </span>
         </div>
       </main>
     </div>
   );
 }
+
