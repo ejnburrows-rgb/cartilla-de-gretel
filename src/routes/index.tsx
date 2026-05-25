@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { BookOpen, GraduationCap, Layers3, Presentation, Sparkles, Users } from "lucide-react";
 import { CoverInspiredPanel } from "@/components/CoverInspiredPanel";
+import { routePath } from "@/lib/assets";
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -50,7 +51,7 @@ function Landing() {
         </div>
         <div className="grid grid-cols-3 gap-2">
           {primaryActions.map((action) => (
-            <a key={action.href} href={action.href} className="group grid min-h-20 grid-cols-[44px_1fr] items-center gap-3 rounded-2xl border border-foreground/10 bg-card p-3 text-left shadow-sm transition hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-lg focus-visible:outline-primary">
+            <a key={action.href} href={routePath(action.href)} className="group grid min-h-20 grid-cols-[44px_1fr] items-center gap-3 rounded-2xl border border-foreground/10 bg-card p-3 text-left shadow-sm transition hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-lg focus-visible:outline-primary">
               <span className={`${action.color} flex h-11 w-11 items-center justify-center rounded-xl text-white shadow-md shadow-black/10`}>
                 <action.icon className="h-5 w-5" />
               </span>
@@ -74,13 +75,13 @@ function Landing() {
             The student side follows the official workbook page by page. The teacher side tracks the class like a CRM. The flipchart side presents the teacher book for the classroom. This is the heart of the product.
           </p>
           <div className="mt-7 grid gap-3 sm:grid-cols-3">
-            <a href="/cartilla/lecciones" className="tap-target inline-flex items-center justify-center gap-3 rounded-2xl bg-[hsl(197,41%,22%)] px-5 py-4 text-base font-black text-white shadow-lg shadow-[hsl(197,41%,22%)]/25">
+            <a href={routePath("/cartilla/lecciones")} className="tap-target inline-flex items-center justify-center gap-3 rounded-2xl bg-[hsl(197,41%,22%)] px-5 py-4 text-base font-black text-white shadow-lg shadow-[hsl(197,41%,22%)]/25">
               <BookOpen className="h-5 w-5" /> See workbook
             </a>
-            <a href="/cartilla/teacher" className="tap-target inline-flex items-center justify-center gap-3 rounded-2xl bg-vowel-o px-5 py-4 text-base font-black text-white shadow-lg shadow-vowel-o/25">
+            <a href={routePath("/cartilla/teacher")} className="tap-target inline-flex items-center justify-center gap-3 rounded-2xl bg-vowel-o px-5 py-4 text-base font-black text-white shadow-lg shadow-vowel-o/25">
               <Users className="h-5 w-5" /> See CRM
             </a>
-            <a href="/cartilla/teacher/flipchart" className="tap-target inline-flex items-center justify-center gap-3 rounded-2xl border-2 border-vowel-a/30 bg-card px-5 py-4 text-base font-black text-vowel-a shadow-lg shadow-primary/10">
+            <a href={routePath("/cartilla/teacher/flipchart")} className="tap-target inline-flex items-center justify-center gap-3 rounded-2xl border-2 border-vowel-a/30 bg-card px-5 py-4 text-base font-black text-vowel-a shadow-lg shadow-primary/10">
               <Presentation className="h-5 w-5" /> See flipchart
             </a>
           </div>
@@ -89,7 +90,7 @@ function Landing() {
 
       <section className="mx-auto grid w-full max-w-7xl gap-4 pb-12 md:grid-cols-3">
         {primaryActions.map((action) => (
-          <a key={action.href} href={action.href} className="kid-card group flex min-h-56 flex-col justify-between p-6 transition hover:-translate-y-1 hover:shadow-2xl">
+          <a key={action.href} href={routePath(action.href)} className="kid-card group flex min-h-56 flex-col justify-between p-6 transition hover:-translate-y-1 hover:shadow-2xl">
             <div>
               <div className={`${action.color} flex h-14 w-14 items-center justify-center rounded-2xl text-white`}>
                 <action.icon className="h-7 w-7" />

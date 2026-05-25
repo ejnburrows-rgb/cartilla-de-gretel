@@ -1,8 +1,9 @@
 import { getWorkbookPagesForLesson } from "@/lib/book-faithful";
 import { getLessonPageNumbers } from "@/lib/cartilla-crm-theme";
+import { assetPath } from "@/lib/assets";
 import { getBestDisplayPath, getQualityLabel, getRemasterAssetByOriginal, type QualityMode } from "@/lib/remaster-assets";
 
-export const WORKBOOK_PDF_PATH = "/book/book.pdf";
+export const WORKBOOK_PDF_PATH = assetPath("book/book.pdf");
 
 export type WorkbookSourceStatus =
   | "pdf-available"
@@ -68,9 +69,10 @@ export function getWorkbookPageSourcesForLesson(
     const originalRef = verifiedPage?.imageScanReference ?? undefined;
     const remasterAsset = getRemasterAssetByOriginal(originalRef);
     const imageRef = getBestDisplayPath(originalRef, qualityMode) ?? originalRef;
+    const originalImageRef = originalRef ? assetPath(originalRef) : undefined;
     const remasterStatus = remasterAsset?.cleanupStatus ?? "original only";
-    const remasteredPath = remasterAsset?.remasteredPath;
-    const remasteredPathV2 = remasterAsset?.remasteredPathV2;
+    const remasteredPath = remasterAsset?.remasteredPath ? assetPath(remasterAsset.remasteredPath) : undefined;
+    const remasteredPathV2 = remasterAsset?.remasteredPathV2 ? assetPath(remasterAsset.remasteredPathV2) : undefined;
     const hasVerifiedImage = Boolean(imageRef);
     const hasVerifiedText = Boolean(verifiedPage?.verifiedTextBlocks.length);
     const baseStatus: WorkbookSourceStatus = hasVerifiedImage
@@ -86,7 +88,7 @@ export function getWorkbookPageSourcesForLesson(
       lessonNumber,
       pdfPath: pdfStatus.pdfPath,
       imageRef,
-      originalImageRef: originalRef,
+      originalImageRef,
       hasVerifiedImage,
       hasVerifiedText,
       status,

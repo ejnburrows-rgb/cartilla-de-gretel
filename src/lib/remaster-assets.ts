@@ -1,4 +1,5 @@
 import remasterInventory from "@/data/remaster-inventory.json";
+import { assetPath } from "@/lib/assets";
 
 export type RemasterAsset = {
   originalSourcePath: string;
@@ -20,6 +21,12 @@ export type QualityMode = "source" | "enhanced" | "projection";
 
 const assets = remasterInventory.assets as RemasterAsset[];
 
+function publicAsset(path?: string | null) {
+  if (!path) return undefined;
+  if (/^https?:\/\//.test(path)) return path;
+  return assetPath(path);
+}
+
 export function getRemasterAssetByOriginal(path?: string | null) {
   if (!path) return undefined;
   return assets.find((asset) => asset.originalSourcePath === path);
@@ -27,16 +34,16 @@ export function getRemasterAssetByOriginal(path?: string | null) {
 
 export function getBestDisplayPath(originalPath?: string | null, mode: QualityMode = "projection") {
   if (!originalPath) return undefined;
-  if (mode === "source") return originalPath;
+  if (mode === "source") return publicAsset(originalPath);
 
   const asset = getRemasterAssetByOriginal(originalPath);
-  if (!asset) return originalPath;
+  if (!asset) return publicAsset(originalPath);
 
-  if (mode === "projection" && asset.remasteredPathV2) return asset.remasteredPathV2;
-  if (asset.approvalStatus === "approved") return asset.remasteredPath;
-  if (asset.cleanupStatus === "cleaned" || asset.cleanupStatus === "needs review") return asset.remasteredPathV2 ?? asset.remasteredPath;
+  if (mode === "projection" && asset.remasteredPathV2) return publicAsset(asset.remasteredPathV2);
+  if (asset.approvalStatus === "approved") return publicAsset(asset.remasteredPath);
+  if (asset.cleanupStatus === "cleaned" || asset.cleanupStatus === "needs review") return publicAsset(asset.remasteredPathV2 ?? asset.remasteredPath);
 
-  return originalPath;
+  return publicAsset(originalPath);
 }
 
 export function getQualityLabel(originalPath?: string | null, mode: QualityMode = "projection") {
