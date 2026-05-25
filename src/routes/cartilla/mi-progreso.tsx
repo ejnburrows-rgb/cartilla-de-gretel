@@ -1,6 +1,6 @@
 import { createFileRoute, Link, redirect } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { ArrowLeft, Award, BookOpen, Clock, Download, Sparkles, Target } from "lucide-react";
+import { ArrowLeft, Award, BookOpen, Clock, Download, Sparkles, Target, ClipboardList } from "lucide-react";
 import { getMyProgress } from "@/lib/student.functions";
 import { getStudentSession } from "@/lib/student-session";
 import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
@@ -8,6 +8,7 @@ import { SimpleBarChart } from "@/components/cartilla/SimpleBarChart";
 import { downloadCSV, toCSV } from "@/lib/csv";
 import { isSupabaseConfigured } from "@/integrations/supabase/client";
 import { routePath } from "@/lib/assets";
+import { listMyAssignments } from "@/lib/assignments.functions";
 
 export const Route = createFileRoute("/cartilla/mi-progreso")({
   component: MyProgress,
@@ -30,6 +31,20 @@ type Event = {
   created_at: string;
 };
 
+type AssignmentStatus = "pending" | "in_progress" | "completed" | "late";
+
+function getAssignmentStatus(lessonId: string, completedSet: Set<string>, exerciseStats: Record<string, unknown>, dueAt?: string | null): { status: AssignmentStatus; label: string; colorClass: string } {
+  const isDone = completedSet.has(lessonId);
+  const hasStarted = !!exerciseStats[lessonId];
+  const now = new Date();
+  const isLate = dueAt && new Date(dueAt) < now && !isDone;
+
+  if (isDone) return { status: "completed", label: "Completada", colorClass: "text-success bg-success/10 border-success/20" };
+  if (isLate) return { status: "late", label: "Atrasada", colorClass: "text-destructive bg-destructive/10 border-destructive/20" };
+  if (hasStarted) return { status: "in_progress", label: "En progreso", colorClass: "text-amber-600 bg-amber-50 border-amber-200" };
+  return { status: "pending", label: "Pendiente", colorClass: "text-foreground/60 bg-secondary/50 border-foreground/10" };
+}
+
 function lessonAccentStyle(color: string) {
   return { borderColor: color, color };
 }
@@ -44,6 +59,7 @@ function MyProgress() {
     class: { name: string } | null;
     events: Event[];
   } | null>(null);
+  const [assignments, setAssignments] = useState<Array<{ id: string; lesson_id: string; title: string | null; due_at: string | null }>>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -54,8 +70,15 @@ function MyProgress() {
       setLoading(false);
       return;
     }
-    getMyProgress({ data: { studentId: s.studentId, studentCode: s.studentCode } })
-      .then((r) => setData(r as never))
+    
+    Promise.all([
+      getMyProgress({ data: { studentId: s.studentId, studentCode: s.studentCode } }),
+      listMyAssignments({ data: { classId: s.classId, studentId: s.studentId, studentCode: s.studentCode } }).catch(() => [])
+    ])
+      .then(([r, a]) => {
+        setData(r as never);
+        setAssignments(a);
+      })
       .catch((e) =>
         setError(
           e instanceof Error
@@ -195,6 +218,48 @@ function MyProgress() {
         <Stat icon={Clock} label="Tiempo" value={fmtMin(summary.timeTotal)} />
         <Stat icon={Award} label="Insignias" value={String(summary.badges.length)} />
       </section>
+      
+      {assignments && assignments.length > 0 && (
+        <section className="mt-8 kid-card p-4 sm:p-6 bg-gradient-to-br from-indigo-50/50 to-background border-indigo-100">
+          <h2 className="font-extrabold text-lg mb-4 text-indigo-900 inline-flex items-center gap-2">
+            <ClipboardList className="w-5 h-5 text-indigo-600" />
+            Mis Tareas
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {assignments.map(a => {
+              const entry = CATALOG.find(c => String(c.n) === a.lesson_id);
+              if (!entry) return null;
+              const status = getAssignmentStatus(a.lesson_id, summary.completed, summary.exByLesson, a.due_at);
+              
+              return (
+                <a
+                  key={a.id}
+                  href={routePath(`/cartilla/leccion/${a.lesson_id}`)}
+                  className="bg-white border-2 border-foreground/5 hover:border-[var(--cartilla-accent)] rounded-2xl p-4 transition-all hover:shadow-md group flex flex-col justify-between"
+                  style={{"--cartilla-accent": entry.color} as React.CSSProperties}
+                >
+                  <div>
+                    <div className="flex justify-between items-start gap-2 mb-2">
+                      <span className="text-xs font-bold text-foreground/50 uppercase tracking-wider">Lección {entry.n}</span>
+                      <span className={`text-[10px] font-black uppercase tracking-wider px-2 py-1 rounded-md border ${status.colorClass}`}>
+                        {status.label}
+                      </span>
+                    </div>
+                    <h3 className="font-bold text-[var(--cartilla-title-ink)] leading-tight">{a.title || entry.title}</h3>
+                  </div>
+                  
+                  {a.due_at && (
+                    <div className="mt-3 text-xs font-semibold text-foreground/60 flex items-center gap-1.5">
+                      <Clock className="w-3.5 h-3.5" />
+                      Vence: {new Date(a.due_at).toLocaleDateString()}
+                    </div>
+                  )}
+                </a>
+              );
+            })}
+          </div>
+        </section>
+      )}
 
       {summary.weak.length > 0 && (
         <section className="mt-6 rounded-2xl border-2 border-warning/30 bg-warning/5 p-4">

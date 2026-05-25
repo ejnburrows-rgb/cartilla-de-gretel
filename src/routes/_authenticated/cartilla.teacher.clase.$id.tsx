@@ -104,7 +104,45 @@ function ClassDetail() {
         </form>
         {createAssMut.error && <p className="text-xs text-destructive mt-2">{(createAssMut.error as Error).message}</p>}
         {assignmentsError && <p className="text-xs text-destructive mt-2">No se pudieron cargar las tareas. Sync no disponible para esta vista.</p>}
-        {assignments && assignments.length > 0 && <ul className="mt-4 space-y-2">{assignments.map((a) => <li key={a.id} className="flex items-start justify-between gap-2 px-3 py-2 rounded-lg bg-secondary/40 text-sm"><div className="min-w-0 flex-1"><div className="font-bold truncate">L{a.lesson_id} · {CATALOG.find((c) => String(c.n) === a.lesson_id)?.title ?? "Lección"}</div>{a.title && <div className="text-xs text-foreground/70">{a.title}</div>}</div><button onClick={() => { if (confirm("¿Eliminar esta tarea?")) delAssMut.mutate(a.id); }} className="p-1.5 rounded hover:bg-destructive/10 text-destructive" aria-label="Eliminar tarea"><Trash2 className="w-4 h-4" /></button></li>)}</ul>}
+        {assignments && assignments.length > 0 && (
+          <ul className="mt-4 space-y-3">
+            {assignments.map((a) => {
+              const prog = classProgress?.assignments?.find((pa: { id: string; completed: number; assigned: number; late: number }) => pa.id === a.id);
+              const completed = prog ? prog.completed : 0;
+              const assigned = prog ? prog.assigned : data.students.length;
+              const late = prog ? prog.late : 0;
+              const isDue = a.due_at && new Date(a.due_at) < new Date();
+              
+              return (
+                <li key={a.id} className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 px-4 py-3 rounded-xl bg-secondary/30 border border-foreground/5 text-sm">
+                  <div className="min-w-0 flex-1">
+                    <div className="font-bold truncate text-base">L{a.lesson_id} · {CATALOG.find((c) => String(c.n) === a.lesson_id)?.title ?? "Lección"}</div>
+                    <div className="text-xs text-foreground/70 mt-1 flex flex-wrap gap-x-3 gap-y-1">
+                      {a.title && <span>{a.title}</span>}
+                      {a.due_at && (
+                        <span className={isDue ? "text-destructive font-bold" : ""}>
+                          Vence: {new Date(a.due_at).toLocaleDateString()}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="text-right">
+                      <div className="text-xs font-bold uppercase tracking-wider text-foreground/50">Progreso</div>
+                      <div className="font-bold">
+                        <span className="text-success">{completed}</span> / {assigned}
+                      </div>
+                      {late > 0 && <div className="text-[10px] text-destructive">{late} atrasadas</div>}
+                    </div>
+                    <button onClick={() => { if (confirm("¿Eliminar esta tarea?")) delAssMut.mutate(a.id); }} className="p-2 rounded-lg bg-white border shadow-sm hover:bg-destructive/10 hover:text-destructive hover:border-destructive/30 transition-colors" aria-label="Eliminar tarea" title="Eliminar tarea">
+                      <Trash2 className="w-4 h-4" />
+                    </button>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        )}
       </section>
 
       <section className="mt-6 kid-card p-4">

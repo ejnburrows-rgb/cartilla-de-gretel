@@ -2,20 +2,43 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@/lib/useServerFn";
-import { ArrowLeft, Loader2, BookOpen, Award, Clock, Target, Activity } from "lucide-react";
+import { ArrowLeft, Loader2, BookOpen, Award, Clock, Target, Activity, ClipboardList } from "lucide-react";
 import { getStudentProgress } from "@/lib/teacher.functions";
+import { listAssignments } from "@/lib/assignments.functions";
 import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
 import { isSupabaseConfigured } from "@/integrations/supabase/client";
 import { routePath } from "@/lib/assets";
 
 export const Route = createFileRoute("/_authenticated/cartilla/teacher/alumno/$id")({ component: StudentDetail });
 
+type AssignmentStatus = "pending" | "in_progress" | "completed" | "late";
+
+function getAssignmentStatus(lessonId: string, completedSet: Set<string>, exerciseStats: Record<string, unknown>, dueAt?: string | null): { status: AssignmentStatus; label: string; colorClass: string } {
+  const isDone = completedSet.has(lessonId);
+  const hasStarted = !!exerciseStats[lessonId];
+  const now = new Date();
+  const isLate = dueAt && new Date(dueAt) < now && !isDone;
+
+  if (isDone) return { status: "completed", label: "Completada", colorClass: "text-success bg-success/10 border-success/20" };
+  if (isLate) return { status: "late", label: "Atrasada", colorClass: "text-destructive bg-destructive/10 border-destructive/20" };
+  if (hasStarted) return { status: "in_progress", label: "En progreso", colorClass: "text-amber-600 bg-amber-50 border-amber-200" };
+  return { status: "pending", label: "Pendiente", colorClass: "text-foreground/60 bg-secondary/50 border-foreground/10" };
+}
+
 function StudentDetail() {
   const { id } = Route.useParams();
   const fetchProgress = useServerFn(getStudentProgress);
+  const fetchAssignments = useServerFn(listAssignments);
+  
   const { data, isLoading, error } = useQuery({
     queryKey: ["teacher", "student", id],
     queryFn: () => fetchProgress({ data: { id } }),
+  });
+
+  const { data: assignments } = useQuery({
+    queryKey: ["teacher", "class", data?.class?.id, "assignments"],
+    queryFn: () => data?.class?.id ? fetchAssignments({ data: { classId: data.class.id } }) : Promise.resolve([]),
+    enabled: !!data?.class?.id,
   });
 
   const summary = useMemo(() => {
@@ -82,6 +105,47 @@ function StudentDetail() {
       </section>
 
       {summary.level && <section className="mt-4 kid-card p-4 inline-flex items-center gap-3"><Activity className="w-5 h-5 text-primary" /><div><div className="text-xs uppercase tracking-wide text-foreground/60">Nivel adaptativo actual</div><div className="font-bold text-lg">{summary.level.value}</div></div></section>}
+
+      {assignments && assignments.length > 0 && (
+        <section className="mt-8 kid-card p-4 sm:p-6 bg-gradient-to-br from-indigo-50/50 to-background border-indigo-100">
+          <h2 className="font-extrabold text-lg mb-4 text-indigo-900 inline-flex items-center gap-2">
+            <ClipboardList className="w-5 h-5 text-indigo-600" />
+            Tareas del alumno
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {assignments.map(a => {
+              const entry = CATALOG.find(c => String(c.n) === a.lesson_id);
+              if (!entry) return null;
+              const status = getAssignmentStatus(a.lesson_id, summary.completedSet, summary.exerciseStats, a.due_at);
+              
+              return (
+                <div
+                  key={a.id}
+                  className="bg-white border-2 border-foreground/5 rounded-2xl p-4 flex flex-col justify-between"
+                  style={{ borderLeftColor: entry.color, borderLeftWidth: 4 }}
+                >
+                  <div>
+                    <div className="flex justify-between items-start gap-2 mb-2">
+                      <span className="text-xs font-bold text-foreground/50 uppercase tracking-wider">L{entry.n}</span>
+                      <span className={`text-[10px] font-black uppercase tracking-wider px-2 py-1 rounded-md border ${status.colorClass}`}>
+                        {status.label}
+                      </span>
+                    </div>
+                    <h3 className="font-bold text-foreground leading-tight">{a.title || entry.title}</h3>
+                  </div>
+                  
+                  {a.due_at && (
+                    <div className="mt-3 text-xs font-semibold text-foreground/60 flex items-center gap-1.5">
+                      <Clock className="w-3.5 h-3.5" />
+                      Vence: {new Date(a.due_at).toLocaleDateString()}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      )}
 
       <section className="mt-8">
         <h2 className="font-bold mb-3 text-lg">Progreso por lección</h2>

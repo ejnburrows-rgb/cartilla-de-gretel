@@ -32,13 +32,12 @@ export function copyrightLine(): string {
 }
 
 export function assetPath(path: string): string {
-  const base = "";
-  const cleanPath = path.startsWith("/") ? path : `/${path}`;
-  return `${base}${cleanPath}`;
+  const base = import.meta.env.BASE_URL;
+  return `${base}${path.replace(/^\/+/, "")}`;
 }
 
 export function routePath(path: string): string {
-  const base = "";
+  const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   const cleanPath = path.startsWith("/") ? path : `/${path}`;
   return `${base}${cleanPath}`;
 }
