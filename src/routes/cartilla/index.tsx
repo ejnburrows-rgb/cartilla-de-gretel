@@ -18,6 +18,7 @@ import { CoverInspiredPanel } from "@/components/CoverInspiredPanel";
 import { useStudentSession } from "@/lib/student-session";
 import { isSupabaseConfigured } from "@/integrations/supabase/client";
 import { getRemasterProgress } from "@/lib/remaster-assets";
+import { getDeadlineRemasterQueue, getDeadlineRemasterSummary } from "@/lib/remaster-batches";
 
 export const Route = createFileRoute("/cartilla/")({
   component: CartillaHome,
@@ -42,6 +43,8 @@ export const Route = createFileRoute("/cartilla/")({
 function CartillaHome() {
   const session = useStudentSession();
   const remaster = getRemasterProgress();
+  const deadlineSummary = getDeadlineRemasterSummary();
+  const deadlineQueue = getDeadlineRemasterQueue(6);
 
   const primaryCards = [
     {
@@ -201,6 +204,38 @@ function CartillaHome() {
                 <item.icon className="h-6 w-6 text-primary" />
                 <h3 className="mt-3 text-base font-black text-[hsl(197,41%,22%)]">{item.title}</h3>
                 <p className="mt-1 text-sm leading-relaxed text-foreground/70">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="mt-6 rounded-[2rem] border border-foreground/10 bg-[hsl(197,41%,22%)] p-5 text-white shadow-xl shadow-primary/10">
+          <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+            <div>
+              <p className="text-xs font-black uppercase tracking-[0.22em] text-white/60">Cola de deadline</p>
+              <h2 className="mt-2 text-3xl font-black">Siguiente lote de remasterización</h2>
+              <p className="mt-2 max-w-3xl text-sm leading-relaxed text-white/75">
+                {deadlineSummary.usableNow} imágenes ya tienen corrección/V2 utilizable. Quedan {deadlineSummary.studentPending} del cuaderno y {deadlineSummary.teacherPending} del flipchart en cola.
+              </p>
+            </div>
+            <Link to="/cartilla/teacher/remaster-review" className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-white px-5 py-3 text-sm font-black text-[hsl(197,41%,22%)] shadow-lg">
+              Revisar calidad
+            </Link>
+          </div>
+
+          <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+            {deadlineQueue.map((asset) => (
+              <div key={asset.originalSourcePath} className="rounded-3xl border border-white/10 bg-white/10 p-4 backdrop-blur">
+                <div className="flex items-center justify-between gap-3">
+                  <span className="rounded-full bg-white/15 px-2.5 py-1 text-[10px] font-black uppercase tracking-wide text-white/80">
+                    {asset.label}
+                  </span>
+                  <span className="text-[10px] font-bold uppercase text-white/50">
+                    {asset.type === "student-workbook" ? "Cuaderno" : "Maestro"}
+                  </span>
+                </div>
+                <p className="mt-3 truncate font-mono text-xs text-white/85">{asset.originalSourcePath}</p>
+                <p className="mt-1 truncate font-mono text-[10px] text-white/50">→ {asset.remasteredPathV2 ?? asset.remasteredPath}</p>
               </div>
             ))}
           </div>
