@@ -10,7 +10,6 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as LoginRouteImport } from './routes/login'
-import { Route as BookRouteImport } from './routes/book'
 import { Route as AuthenticatedRouteImport } from './routes/_authenticated'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CartillaIndexRouteImport } from './routes/cartilla/index'
@@ -35,11 +34,6 @@ import { Route as AuthenticatedCartillaTeacherAlumnoIdRouteImport } from './rout
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BookRoute = BookRouteImport.update({
-  id: '/book',
-  path: '/book',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthenticatedRoute = AuthenticatedRouteImport.update({
@@ -152,7 +146,6 @@ const AuthenticatedCartillaTeacherAlumnoIdRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/book': typeof BookRoute
   '/login': typeof LoginRoute
   '/cartilla/autora': typeof CartillaAutoraRoute
   '/cartilla/lecciones': typeof CartillaLeccionesRoute
@@ -175,7 +168,6 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/book': typeof BookRoute
   '/login': typeof LoginRoute
   '/cartilla/autora': typeof CartillaAutoraRoute
   '/cartilla/lecciones': typeof CartillaLeccionesRoute
@@ -199,7 +191,6 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteWithChildren
-  '/book': typeof BookRoute
   '/login': typeof LoginRoute
   '/cartilla/autora': typeof CartillaAutoraRoute
   '/cartilla/lecciones': typeof CartillaLeccionesRoute
@@ -224,7 +215,6 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/book'
     | '/login'
     | '/cartilla/autora'
     | '/cartilla/lecciones'
@@ -247,7 +237,6 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/book'
     | '/login'
     | '/cartilla/autora'
     | '/cartilla/lecciones'
@@ -270,7 +259,6 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/_authenticated'
-    | '/book'
     | '/login'
     | '/cartilla/autora'
     | '/cartilla/lecciones'
@@ -295,7 +283,6 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRoute: typeof AuthenticatedRouteWithChildren
-  BookRoute: typeof BookRoute
   LoginRoute: typeof LoginRoute
   CartillaAutoraRoute: typeof CartillaAutoraRoute
   CartillaLeccionesRoute: typeof CartillaLeccionesRoute
@@ -317,13 +304,6 @@ declare module '@tanstack/react-router' {
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof LoginRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/book': {
-      id: '/book'
-      path: '/book'
-      fullPath: '/book'
-      preLoaderRoute: typeof BookRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_authenticated': {
@@ -526,7 +506,6 @@ const CartillaTeacherFlipchartRouteWithChildren =
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRoute: AuthenticatedRouteWithChildren,
-  BookRoute: BookRoute,
   LoginRoute: LoginRoute,
   CartillaAutoraRoute: CartillaAutoraRoute,
   CartillaLeccionesRoute: CartillaLeccionesRoute,
