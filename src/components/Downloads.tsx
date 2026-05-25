@@ -1,8 +1,8 @@
-import { assetPath } from "@/lib/assets";
+import { assetPath } from "@/lib/branding";
 
 const FILES = [
   {
-    href: assetPath("book/book.pdf"),
+    href: assetPath("/book/book.pdf"),
     name: "La_cartilla_de_Gretel.pdf",
     label: "PDF",
     desc: "Cuaderno del estudiante completo, listo para leer o descargar",
@@ -20,10 +20,7 @@ export function Downloads() {
                 Descargar el libro
               </h2>
               <p className="mt-1 text-sm text-foreground/65">
-                Acceso rapido al PDF oficial de la cartilla.
-              </p>
-              <p className="mt-2 text-xs leading-relaxed text-foreground/55">
-                Libro: La Cartilla de Gretel, por Leonor Lopetegui. Plataforma digital: Emilio Novo.
+                Acceso rápido al PDF oficial de la cartilla.
               </p>
             </div>
             <div className="grid gap-3 sm:min-w-72">
@@ -39,7 +36,7 @@ export function Downloads() {
                     <div className="mt-0.5 text-xs text-foreground/60">{f.desc}</div>
                   </div>
                   <span className="shrink-0 rounded-xl bg-primary px-3 py-2 text-xs font-bold text-primary-foreground transition group-hover:scale-105">
-                    Descargar
+                    ↓ Descargar
                   </span>
                 </a>
               ))}

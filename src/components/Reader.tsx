@@ -1,19 +1,16 @@
-import { Suspense, useCallback, useEffect, useMemo, useState, lazy } from "react";
+import { Suspense, useEffect, useMemo, useState, lazy } from "react";
 import { motion } from "framer-motion";
 import { ProgressBar } from "./ProgressBar";
 import { LessonTimer, type TimerMode } from "./LessonTimer";
 import { storage } from "@/lib/storage";
 import { ThemeToggle } from "./ThemeToggle";
 import { Downloads } from "./Downloads";
-import { assetPath } from "@/lib/assets";
+
+import { assetPath } from "@/lib/branding";
 
 const PdfViewer = lazy(() => import("./PdfViewer").then((m) => ({ default: m.PdfViewer })));
 
-const PDF_URL = assetPath("book/book.pdf");
-
-const readerInitial = { opacity: 0, y: 8 };
-const readerAnimate = { opacity: 1, y: 0 };
-const readerTransition = { duration: 0.25 };
+const PDF_URL = assetPath("/book/book.pdf");
 
 async function exists(url: string) {
   try {
@@ -62,14 +59,6 @@ export function Reader() {
   };
 
   const unitKey = useMemo(() => `pdf:${unit}`, [unit]);
-  const handleUnitChange = useCallback((nextUnit: string) => {
-    setUnit((current) => (current === nextUnit ? current : nextUnit));
-  }, []);
-  const handleProgress = useCallback((current: number, total: number) => {
-    setProgress((previous) =>
-      previous.current === current && previous.total === total ? previous : { current, total },
-    );
-  }, []);
 
   if (bookReady === null) {
     return (
@@ -81,7 +70,7 @@ export function Reader() {
       <div className="mx-auto max-w-lg p-8 text-center">
         <h1 className="mb-2 text-2xl font-bold">No hay libro</h1>
         <p className="text-foreground/70">
-          Coloca el PDF oficial en la ruta pública configurada y vuelve a ejecutar el build.
+          Coloca el PDF oficial en <code>public/book/book.pdf</code> y vuelve a ejecutar el build.
         </p>
       </div>
     );
@@ -152,9 +141,9 @@ export function Reader() {
 
       <main className="relative h-[calc(100vh-180px)] min-h-[420px] overflow-hidden">
         <motion.div
-          initial={readerInitial}
-          animate={readerAnimate}
-          transition={readerTransition}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.2 }}
           className="absolute inset-0"
         >
           <Suspense
@@ -167,8 +156,8 @@ export function Reader() {
             <div className="h-full overflow-auto">
               <PdfViewer
                 url={PDF_URL}
-                onUnitChange={handleUnitChange}
-                onProgress={handleProgress}
+                onUnitChange={setUnit}
+                onProgress={(current, total) => setProgress({ current, total })}
                 advanceSignal={advanceSignal}
               />
             </div>
