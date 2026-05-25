@@ -61,8 +61,6 @@
 
 :root {
   --radius: 0.625rem;
-
-  /* Cartilla — kid-first, Spanish literacy K-3 (HSL triplets) */
   --background: 48 100% 97%;
   --foreground: 230 35% 18%;
   --card: 0 0% 100%;
@@ -82,18 +80,15 @@
   --border: 214.3 31.8% 91.4%;
   --input: 214.3 31.8% 91.4%;
   --ring: 222.2 84% 4.9%;
-
   --success: 145 65% 42%;
   --success-foreground: 0 0% 100%;
   --warning: 38 92% 50%;
   --warning-foreground: 230 35% 18%;
-
   --vowel-a: 354 78% 56%;
   --vowel-e: 28 87% 60%;
   --vowel-i: 198 78% 50%;
   --vowel-o: 145 60% 45%;
   --vowel-u: 280 65% 58%;
-
   --sidebar-background: 0 0% 98%;
   --sidebar-foreground: 240 5.3% 26.1%;
   --sidebar-primary: 240 5.9% 10%;
@@ -102,14 +97,13 @@
   --sidebar-accent-foreground: 240 5.9% 10%;
   --sidebar-border: 220 13% 91%;
   --sidebar-ring: 217.2 91.2% 59.8%;
-
   --cartilla-accent: #2a9d8f;
   --cartilla-accent-dark: #12323b;
   --cartilla-accent-soft: #e9f7f3;
   --cartilla-page-paper: #fff8e7;
   --cartilla-title-ink: #17313b;
-  --cartilla-bg-radial: radial-gradient(circle at 20% 10%, rgb(233 247 243), transparent 28rem);
-  --cartilla-student-backdrop: radial-gradient(circle at 50% 0%, #fcfbf7 0%, #f7ebd3 50%, #e0ceb4 100%);
+  --cartilla-bg-radial: radial-gradient(circle at 18% 12%, rgb(255 244 178 / 0.95), transparent 24rem), radial-gradient(circle at 82% 8%, rgb(186 235 255 / 0.85), transparent 26rem), radial-gradient(circle at 74% 82%, rgb(255 194 214 / 0.75), transparent 26rem);
+  --cartilla-student-backdrop: linear-gradient(135deg, #fff8d7 0%, #ffe1ec 42%, #d8f2ff 74%, #e9f7d7 100%);
   --cartilla-teacher-backdrop: linear-gradient(135deg, #081d25 0%, #12323b 52%, #0f2730 100%);
 }
 
@@ -136,56 +130,197 @@
 }
 
 @layer base {
-  * {
-    border-color: var(--color-border);
-  }
+  * { border-color: var(--color-border); }
   body {
+    min-height: 100vh;
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: ui-sans-serif, system-ui, sans-serif;
+    background:
+      radial-gradient(circle at 15% 10%, hsl(var(--vowel-i) / 0.18), transparent 28rem),
+      radial-gradient(circle at 85% 5%, hsl(var(--vowel-e) / 0.16), transparent 26rem),
+      linear-gradient(180deg, hsl(var(--background)), hsl(var(--secondary) / 0.18));
   }
-  h1,
-  h2,
-  h3 {
-    font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
+  h1, h2, h3 { font-family: "Fredoka", ui-rounded, system-ui, sans-serif; }
+  button, a { -webkit-tap-highlight-color: transparent; }
+  button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+    outline: 3px solid hsl(var(--primary) / 0.45);
+    outline-offset: 3px;
   }
 }
 
 @layer utilities {
-  .tap-target {
-    min-height: 56px;
-    min-width: 56px;
-  }
+  .tap-target { min-height: 56px; min-width: 56px; }
   .kid-card {
+    position: relative;
+    overflow: hidden;
     border-radius: 1.5rem;
     border-width: 2px;
-    background-color: var(--color-card);
-    box-shadow: 0 6px 0 hsl(var(--foreground) / 0.08);
+    background: linear-gradient(180deg, hsl(var(--card) / 0.98), hsl(var(--card) / 0.92));
+    border-color: hsl(var(--foreground) / 0.08);
+    box-shadow: 0 8px 0 hsl(var(--foreground) / 0.06), 0 18px 40px hsl(var(--primary) / 0.08);
+    backdrop-filter: blur(10px);
+    transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, background-color 220ms ease;
   }
+  .kid-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(120deg, transparent 0%, hsl(0 0% 100% / 0.22) 45%, transparent 72%);
+    transform: translateX(-120%);
+    transition: transform 650ms ease;
+  }
+  .kid-card:hover { transform: translateY(-3px); border-color: hsl(var(--primary) / 0.25); box-shadow: 0 10px 0 hsl(var(--foreground) / 0.07), 0 24px 50px hsl(var(--primary) / 0.14); }
+  .kid-card:hover::before { transform: translateX(120%); }
+  .premium-glass { border: 1px solid hsl(var(--primary) / 0.16); background: hsl(var(--card) / 0.82); box-shadow: 0 24px 80px hsl(var(--primary) / 0.12); backdrop-filter: blur(18px); }
+  .float-soft { animation: cartilla-float 5s ease-in-out infinite; }
+  .pulse-soft { animation: cartilla-pulse 2.8s ease-in-out infinite; }
+  .cartilla-theme-transition { transition: background 260ms ease, border-color 260ms ease, color 260ms ease, box-shadow 260ms ease; }
+  .cartilla-crm-bg { background: var(--cartilla-bg-radial), var(--cartilla-student-backdrop); }
+  .cartilla-book-paper {
+    color: var(--cartilla-title-ink);
+    background: linear-gradient(90deg, rgb(255 255 255 / 0.62), transparent 18%, transparent 82%, rgb(255 255 255 / 0.45)), var(--cartilla-page-paper);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05), 4px 8px 0 -2px #fdfcf7, 4px 8px 12px -2px rgba(0, 0, 0, 0.06), 8px 14px 0 -4px #faf7f0, 8px 14px 16px -4px rgba(0, 0, 0, 0.08), 12px 24px 45px rgba(10, 31, 39, 0.18);
+    border: 1px solid rgba(23, 49, 59, 0.08);
+  }
+  .cartilla-page-frame { position: relative; overflow: hidden; border: 1px solid rgb(255 255 255 / 0.55); border-radius: 1.25rem; }
+  .cartilla-page-frame::before { content: none; }
+  .cartilla-presentation-frame { background: var(--cartilla-bg-radial), var(--cartilla-teacher-backdrop); }
 }
 
-/* ─── Accessibility modes ─────────────────────────────────────────── */
-html.a11y-large {
-  font-size: 18px;
-}
-html.a11y-xlarge {
-  font-size: 21px;
+.student-workbook-shell {
+  background:
+    radial-gradient(circle at 10% 8%, rgba(255, 246, 162, 0.95), transparent 24rem),
+    radial-gradient(circle at 82% 12%, rgba(162, 225, 255, 0.85), transparent 28rem),
+    radial-gradient(circle at 78% 84%, rgba(255, 178, 211, 0.70), transparent 26rem),
+    linear-gradient(135deg, #fff7ce 0%, #ffe2ef 42%, #d7f1ff 72%, #e7f8d7 100%);
 }
 
-html.a11y-dyslexia,
-html.a11y-dyslexia body,
-html.a11y-dyslexia button,
-html.a11y-dyslexia input,
-html.a11y-dyslexia textarea,
-html.a11y-dyslexia h1,
-html.a11y-dyslexia h2,
-html.a11y-dyslexia h3 {
-  font-family:
-    "OpenDyslexic", "Atkinson Hyperlegible", "Comic Sans MS", "Verdana", sans-serif !important;
+.official-workbook-canvas {
+  position: relative;
+  margin-inline: auto;
+  width: 100%;
+  max-width: 1180px;
+  border-radius: 2.25rem;
+  padding: clamp(0.8rem, 2vw, 1.35rem);
+  background:
+    radial-gradient(circle at 12% 8%, rgba(255,255,255,0.74), transparent 22rem),
+    linear-gradient(135deg, rgba(255, 245, 177, 0.88), rgba(255, 214, 231, 0.72) 48%, rgba(212, 239, 255, 0.82));
+  border: 1px solid rgba(255,255,255,0.74);
+  box-shadow: 0 34px 90px rgba(89, 58, 29, 0.20), inset 0 1px 0 rgba(255,255,255,0.8);
+}
+
+.official-workbook-canvas::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    linear-gradient(120deg, rgba(255,255,255,0.34), transparent 28%, transparent 72%, rgba(255,255,255,0.24)),
+    radial-gradient(circle at 50% 100%, rgba(125, 80, 35, 0.14), transparent 24rem);
+}
+
+.official-workbook-spread {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: clamp(0.9rem, 2vw, 1.25rem);
+  align-items: start;
+}
+
+.official-workbook-slot {
+  border-radius: 1.8rem;
+  background: rgba(255,255,255,0.58);
+  padding: clamp(0.45rem, 1.5vw, 0.8rem);
+  box-shadow: 0 18px 44px rgba(63, 38, 19, 0.14);
+}
+
+.official-workbook-page-shell {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 1.35rem;
+  background: #fffefa;
+  box-shadow: 0 22px 54px rgba(35, 24, 12, 0.18);
+}
+
+.official-workbook-page-stage,
+.official-workbook-page-imageWrap,
+.official-workbook-page-pdfWrap {
+  width: 100%;
+  background: #fffefa;
+}
+
+.official-workbook-page-imageWrap {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.official-workbook-page-image {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  background: #fffefa;
+  image-rendering: auto;
+  transform: scale(1.012);
+  transform-origin: center center;
+  filter: saturate(1.14) contrast(1.045) brightness(1.035);
+}
+
+.official-workbook-page-pdf,
+.official-workbook-page-pdf canvas {
+  margin-inline: auto !important;
+  background: #fffefa !important;
+}
+
+.official-workbook-page-loading,
+.official-workbook-page-error,
+.official-workbook-page-missing {
+  min-height: 420px;
+  display: grid;
+  place-items: center;
+  gap: 0.75rem;
+  padding: 2.5rem;
+  text-align: center;
+  color: var(--cartilla-title-ink);
+}
+
+.official-workbook-page-error button {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--cartilla-accent);
+  text-decoration: underline;
+}
+
+.official-workbook-page-missing h4 {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.official-workbook-page-missing p {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 650;
+  line-height: 1.65;
+  opacity: 0.72;
+}
+
+@keyframes cartilla-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes cartilla-pulse { 0%, 100% { box-shadow: 0 0 0 0 hsl(var(--primary) / 0.18); } 50% { box-shadow: 0 0 0 12px hsl(var(--primary) / 0); } }
+
+html.a11y-large { font-size: 18px; }
+html.a11y-xlarge { font-size: 21px; }
+html.a11y-dyslexia, html.a11y-dyslexia body, html.a11y-dyslexia button, html.a11y-dyslexia input, html.a11y-dyslexia textarea, html.a11y-dyslexia h1, html.a11y-dyslexia h2, html.a11y-dyslexia h3 {
+  font-family: "OpenDyslexic", "Atkinson Hyperlegible", "Comic Sans MS", "Verdana", sans-serif !important;
   letter-spacing: 0.02em;
   word-spacing: 0.08em;
 }
-
 html.a11y-contrast {
   --background: 0 0% 100%;
   --foreground: 0 0% 0%;
@@ -200,174 +335,8 @@ html.a11y-contrast {
   --border: 0 0% 0%;
   --ring: 0 0% 0%;
 }
-html.a11y-contrast .kid-card {
-  border-color: hsl(0 0% 0%);
-  box-shadow: 0 4px 0 hsl(0 0% 0%);
-}
-
-/* ─── Premium classroom polish ───────────────────────────────────── */
-@layer base {
-  body {
-    min-height: 100vh;
-    background:
-      radial-gradient(circle at 15% 10%, hsl(var(--vowel-i) / 0.18), transparent 28rem),
-      radial-gradient(circle at 85% 5%, hsl(var(--vowel-e) / 0.16), transparent 26rem),
-      linear-gradient(180deg, hsl(var(--background)), hsl(var(--secondary) / 0.18));
-  }
-
-  button,
-  a {
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  button:focus-visible,
-  a:focus-visible,
-  input:focus-visible,
-  select:focus-visible,
-  textarea:focus-visible {
-    outline: 3px solid hsl(var(--primary) / 0.45);
-    outline-offset: 3px;
-  }
-}
-
-@layer utilities {
-  .kid-card {
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(180deg, hsl(var(--card) / 0.98), hsl(var(--card) / 0.92));
-    border-color: hsl(var(--foreground) / 0.08);
-    box-shadow:
-      0 8px 0 hsl(var(--foreground) / 0.06),
-      0 18px 40px hsl(var(--primary) / 0.08);
-    backdrop-filter: blur(10px);
-    transition:
-      transform 220ms ease,
-      box-shadow 220ms ease,
-      border-color 220ms ease,
-      background-color 220ms ease;
-  }
-
-  .kid-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: linear-gradient(120deg, transparent 0%, hsl(0 0% 100% / 0.22) 45%, transparent 72%);
-    transform: translateX(-120%);
-    transition: transform 650ms ease;
-  }
-
-  .kid-card:hover {
-    transform: translateY(-3px);
-    border-color: hsl(var(--primary) / 0.25);
-    box-shadow:
-      0 10px 0 hsl(var(--foreground) / 0.07),
-      0 24px 50px hsl(var(--primary) / 0.14);
-  }
-
-  .kid-card:hover::before {
-    transform: translateX(120%);
-  }
-
-  .premium-glass {
-    border: 1px solid hsl(var(--primary) / 0.16);
-    background: hsl(var(--card) / 0.82);
-    box-shadow: 0 24px 80px hsl(var(--primary) / 0.12);
-    backdrop-filter: blur(18px);
-  }
-
-  .float-soft {
-    animation: cartilla-float 5s ease-in-out infinite;
-  }
-
-  .pulse-soft {
-    animation: cartilla-pulse 2.8s ease-in-out infinite;
-  }
-
-  .cartilla-theme-transition {
-    transition:
-      background 260ms ease,
-      border-color 260ms ease,
-      color 260ms ease,
-      box-shadow 260ms ease;
-  }
-
-  .cartilla-crm-bg {
-    background:
-      var(--cartilla-bg-radial),
-      var(--cartilla-student-backdrop);
-  }
-
-  .cartilla-book-paper {
-    color: var(--cartilla-title-ink);
-    background:
-      linear-gradient(90deg, rgb(255 255 255 / 0.6), transparent 15%, transparent 85%, rgb(255 255 255 / 0.4)),
-      var(--cartilla-page-paper);
-    box-shadow:
-      /* Page 1 (top sheet) */
-      0 4px 10px rgba(0, 0, 0, 0.05),
-      /* Page 2 (middle sheet) */
-      4px 8px 0 -2px #fdfcf7,
-      4px 8px 12px -2px rgba(0, 0, 0, 0.06),
-      /* Page 3 (bottom sheet) */
-      8px 14px 0 -4px #faf7f0,
-      8px 14px 16px -4px rgba(0, 0, 0, 0.08),
-      /* Desk contact shadow */
-      12px 24px 45px rgba(10, 31, 39, 0.18);
-    border: 1px solid rgba(23, 49, 59, 0.08);
-  }
-
-  .cartilla-page-frame {
-    position: relative;
-    overflow: hidden;
-    border: 2px solid color-mix(in srgb, var(--cartilla-accent) 28%, transparent);
-    border-radius: 1.25rem;
-  }
-
-  .cartilla-page-frame::before {
-    content: "";
-    position: absolute;
-    inset: 0 auto 0 0;
-    width: 0.65rem;
-    background: linear-gradient(90deg, var(--cartilla-accent-dark) 0%, var(--cartilla-accent) 40%, var(--cartilla-accent-dark) 100%);
-    opacity: 0.95;
-    box-shadow: 1px 0 3px rgba(0, 0, 0, 0.15);
-  }
-
-  .cartilla-presentation-frame {
-    background:
-      var(--cartilla-bg-radial),
-      var(--cartilla-teacher-backdrop);
-  }
-}
-
-@keyframes cartilla-float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-}
-
-@keyframes cartilla-pulse {
-  0%,
-  100% {
-    box-shadow: 0 0 0 0 hsl(var(--primary) / 0.18);
-  }
-  50% {
-    box-shadow: 0 0 0 12px hsl(var(--primary) / 0);
-  }
-}
+html.a11y-contrast .kid-card { border-color: hsl(0 0% 0%); box-shadow: 0 4px 0 hsl(0 0% 0%); }
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-    transition-duration: 0.001ms !important;
-  }
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.001ms !important; }
 }
