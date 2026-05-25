@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import { ArrowLeft, GraduationCap, Loader2 } from "lucide-react";
 import { isSupabaseConfigured, supabase } from "@/integrations/supabase/client";
 import { routePath } from "@/lib/assets";
-import { DEMO_TEACHERS, signInDemoTeacher } from "@/lib/demo-data";
+import { SEED_TEACHERS, signInSeedTeacher } from "@/lib/seed-data";
 
-const DEFAULT_TEACHER = DEMO_TEACHERS[0];
+const DEFAULT_TEACHER = SEED_TEACHERS[0];
 
 export const Route = createFileRoute("/login")({
   component: LoginPage,
@@ -50,7 +50,7 @@ function LoginPage() {
         if (err) throw err;
       } else {
         if (!isSupabaseConfigured) {
-          signInDemoTeacher(email, password);
+          signInSeedTeacher(email, password);
         } else {
           const { error: err } = await supabase.auth.signInWithPassword({ email, password });
           if (err) throw err;
@@ -153,7 +153,7 @@ function LoginPage() {
             Estas cuentas cargan clases y alumnos existentes en modo local. En producción deben existir en Supabase.
           </p>
           <div className="mt-3 space-y-2 text-sm">
-            {DEMO_TEACHERS.map((teacher) => (
+            {SEED_TEACHERS.map((teacher) => (
               <button
                 key={teacher.id}
                 type="button"

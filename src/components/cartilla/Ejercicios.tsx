@@ -201,7 +201,7 @@ export function WordMatch({
     escoba: "es-co-ba",
     espejo: "es-pe-jo",
     estrella: "es-tre-lla",
-    isla: "is-la",
+    iglesia: "i-gle-sia",
     iguana: "i-gua-na",
     imán: "i-mán",
     uña: "u-ña",

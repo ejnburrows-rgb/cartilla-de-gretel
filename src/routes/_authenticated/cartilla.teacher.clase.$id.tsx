@@ -85,7 +85,7 @@ function ClassDetail() {
         <h1 className="text-3xl sm:text-4xl font-bold">{data.class.name}</h1>
         <div className="mt-2 flex flex-wrap items-center gap-3 text-sm"><span className="text-foreground/60">Código de unión:</span><span className="font-mono text-lg font-bold tracking-wider px-3 py-1 rounded-lg bg-secondary">{data.class.join_code}</span><button onClick={() => navigator.clipboard?.writeText(data.class.join_code)} className="inline-flex items-center gap-1 text-foreground/60 hover:text-primary"><Copy className="w-4 h-4" /> Copiar</button></div>
         <p className="text-xs text-foreground/50 mt-2">Comparte el código con tus alumnos. Ellos lo introducen en <span className="font-bold">/cartilla/unirse</span> junto con su código personal.</p>
-        {!isSupabaseConfigured && <div className="mt-3 inline-flex rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-bold text-primary">Modo demo local: los cambios de esta clase no salen de este navegador.</div>}
+        {!isSupabaseConfigured && <div className="mt-3 inline-flex rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-bold text-primary">Modo local: los cambios de esta clase no salen de este navegador.</div>}
       </header>
       <div className="mt-4 flex flex-wrap gap-2"><button onClick={exportClassCSV} className="inline-flex items-center gap-1.5 text-sm px-3 py-2 rounded-xl border-2 border-foreground/10 hover:bg-secondary font-bold"><Download className="w-4 h-4" /> Exportar CSV</button></div>
 

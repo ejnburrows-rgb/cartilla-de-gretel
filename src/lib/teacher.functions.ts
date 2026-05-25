@@ -1,16 +1,16 @@
 import { z } from "zod";
 import { isSupabaseConfigured, supabase } from "@/integrations/supabase/client";
 import {
-  addDemoStudents,
-  createDemoClass,
-  deleteDemoClass,
-  deleteDemoStudent,
-  DEMO_STUDENT_ACCESS,
-  getDemoClass,
-  getDemoClassProgress,
-  getDemoTeacherStudentProgress,
-  listDemoClasses,
-} from "@/lib/demo-data";
+  addSeedStudents,
+  createSeedClass,
+  deleteSeedClass,
+  deleteSeedStudent,
+  SEED_STUDENT_ACCESS,
+  getSeedClass,
+  getSeedClassProgress,
+  getSeedTeacherStudentProgress,
+  listSeedClasses,
+} from "@/lib/seed-data";
 
 const ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
 
@@ -96,29 +96,29 @@ function exerciseName(e: { meta?: unknown }) {
   return typeof meta.exercise === "string" ? meta.exercise : "exercise";
 }
 
-function findDemoStudentsByName(q: string, classId?: string) {
+function findSeedStudentsByName(q: string, classId?: string) {
   const needle = q.trim().toLowerCase();
-  const joinCodeForClass = classId === "demo-class-emilio" ? "NOVO26" : classId === "demo-class-leonor" ? "GRETEL" : null;
-  return DEMO_STUDENT_ACCESS.filter((student) => {
+  const joinCodeForClass = classId === "seed-class-emilio" ? "NOVO26" : classId === "seed-class-leonor" ? "GRETEL" : null;
+  return SEED_STUDENT_ACCESS.filter((student) => {
     if (joinCodeForClass && student.joinCode !== joinCodeForClass) return false;
     return student.name.toLowerCase().includes(needle);
   })
     .slice(0, 20)
     .map((student) => ({
-      id: `demo-search-${student.joinCode}-${student.studentCode}`,
+      id: `seed-search-${student.joinCode}-${student.studentCode}`,
       display_name: student.name,
       student_code: student.studentCode,
-      class_id: student.joinCode === "NOVO26" ? "demo-class-emilio" : "demo-class-leonor",
+      class_id: student.joinCode === "NOVO26" ? "seed-class-emilio" : "seed-class-leonor",
       classes: {
-        id: student.joinCode === "NOVO26" ? "demo-class-emilio" : "demo-class-leonor",
-        name: student.joinCode === "NOVO26" ? "Clase demo - Emilio" : "Clase demo - Leonor",
+        id: student.joinCode === "NOVO26" ? "seed-class-emilio" : "seed-class-leonor",
+        name: student.joinCode === "NOVO26" ? "Clase local - Emilio" : "Clase local - Leonor",
         join_code: student.joinCode,
       },
     }));
 }
 
 export async function listClasses(): Promise<TeacherClassWithCount[]> {
-  if (!isSupabaseConfigured) return listDemoClasses();
+  if (!isSupabaseConfigured) return listSeedClasses();
   const { userId } = await requireTeacher();
   const { data, error } = await supabase
     .from("classes")
@@ -144,7 +144,7 @@ export async function listClasses(): Promise<TeacherClassWithCount[]> {
 
 export async function createClass(input: Call<{ name: string }>) {
   const data = z.object({ name: z.string().trim().min(1).max(80) }).parse(input.data);
-  if (!isSupabaseConfigured) return createDemoClass(data.name);
+  if (!isSupabaseConfigured) return createSeedClass(data.name);
   const { userId } = await requireTeacher();
   for (let i = 0; i < 5; i++) {
     const code = makeCode(6);
@@ -161,7 +161,7 @@ export async function createClass(input: Call<{ name: string }>) {
 
 export async function deleteClass(input: Call<{ id: string }>) {
   const data = z.object({ id: z.string().min(1) }).parse(input.data);
-  if (!isSupabaseConfigured) return deleteDemoClass(data.id);
+  if (!isSupabaseConfigured) return deleteSeedClass(data.id);
   const { userId } = await requireTeacher();
   await ensureTeacherOwnsClass(data.id);
   const { error } = await supabase
@@ -177,7 +177,7 @@ export async function getClass(
   input: Call<{ id: string }>,
 ): Promise<{ class: TeacherClass; students: TeacherStudentWithStats[] }> {
   const data = z.object({ id: z.string().min(1) }).parse(input.data);
-  if (!isSupabaseConfigured) return getDemoClass(data.id);
+  if (!isSupabaseConfigured) return getSeedClass(data.id);
   const cls = await ensureTeacherOwnsClass(data.id);
 
   const { data: students, error: e2 } = await supabase
@@ -229,7 +229,7 @@ export async function addStudents(input: Call<{ classId: string; names: string[]
       names: z.array(z.string().trim().min(1).max(60)).min(1).max(50),
     })
     .parse(input.data);
-  if (!isSupabaseConfigured) return addDemoStudents(data.classId, data.names);
+  if (!isSupabaseConfigured) return addSeedStudents(data.classId, data.names);
   await ensureTeacherOwnsClass(data.classId);
   const rows = data.names.map((n) => ({
     class_id: data.classId,
@@ -243,7 +243,7 @@ export async function addStudents(input: Call<{ classId: string; names: string[]
 
 export async function deleteStudent(input: Call<{ id: string }>) {
   const data = z.object({ id: z.string().min(1) }).parse(input.data);
-  if (!isSupabaseConfigured) return deleteDemoStudent(data.id);
+  if (!isSupabaseConfigured) return deleteSeedStudent(data.id);
   await ensureTeacherOwnsStudent(data.id);
   const { error } = await supabase.from("students").delete().eq("id", data.id);
   if (error) throw new Error(error.message);
@@ -252,7 +252,7 @@ export async function deleteStudent(input: Call<{ id: string }>) {
 
 export async function getStudentProgress(input: Call<{ id: string }>) {
   const data = z.object({ id: z.string().min(1) }).parse(input.data);
-  if (!isSupabaseConfigured) return getDemoTeacherStudentProgress(data.id);
+  if (!isSupabaseConfigured) return getSeedTeacherStudentProgress(data.id);
   const student = await ensureTeacherOwnsStudent(data.id);
   const cls = Array.isArray(student.classes) ? student.classes[0] : student.classes;
 
@@ -278,7 +278,7 @@ export async function getStudentProgress(input: Call<{ id: string }>) {
 
 export async function getClassProgress(input: Call<{ id: string }>) {
   const data = z.object({ id: z.string().min(1) }).parse(input.data);
-  if (!isSupabaseConfigured) return getDemoClassProgress(data.id);
+  if (!isSupabaseConfigured) return getSeedClassProgress(data.id);
   await ensureTeacherOwnsClass(data.id);
   const { data: students, error: sErr } = await supabase
     .from("students")
@@ -414,7 +414,7 @@ export async function findStudentsByName(input: Call<{ q: string; classId?: stri
   const data = z
     .object({ q: z.string().trim().min(1).max(60), classId: z.string().min(1).optional() })
     .parse(input.data);
-  if (!isSupabaseConfigured) return findDemoStudentsByName(data.q, data.classId);
+  if (!isSupabaseConfigured) return findSeedStudentsByName(data.q, data.classId);
   const { userId } = await requireTeacher();
   let q = supabase
     .from("students")

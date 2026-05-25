@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { isSupabaseConfigured, supabase } from "@/integrations/supabase/client";
 import type { Json } from "@/integrations/supabase/types";
-import { getDemoStudentProgress, joinDemoClass, logDemoProgress } from "@/lib/demo-data";
+import { getSeedStudentProgress, joinSeedClass, logSeedProgress } from "@/lib/seed-data";
 
 type Call<T> = { data: T };
 const joinSchema = z.object({
@@ -27,7 +27,7 @@ const myProgressSchema = z.object({
 
 export async function joinClass(input: Call<z.infer<typeof joinSchema>>) {
   const data = joinSchema.parse(input.data);
-  if (!isSupabaseConfigured) return joinDemoClass(data.joinCode, data.studentCode);
+  if (!isSupabaseConfigured) return joinSeedClass(data.joinCode, data.studentCode);
   const { data: row, error } = await supabase
     .rpc("join_class", {
       p_join_code: data.joinCode.toUpperCase(),
@@ -58,7 +58,7 @@ export async function joinClass(input: Call<z.infer<typeof joinSchema>>) {
 export async function logProgress(input: Call<z.infer<typeof progressSchema>>) {
   const data = progressSchema.parse(input.data);
   if (!isSupabaseConfigured) {
-    return logDemoProgress({
+    return logSeedProgress({
       studentId: data.studentId,
       lessonId: data.lessonId,
       kind: data.kind,
@@ -85,7 +85,7 @@ export async function logProgress(input: Call<z.infer<typeof progressSchema>>) {
 /** Student fetches their own progress using their session credentials. */
 export async function getMyProgress(input: Call<z.infer<typeof myProgressSchema>>) {
   const data = myProgressSchema.parse(input.data);
-  if (!isSupabaseConfigured) return getDemoStudentProgress(data.studentId);
+  if (!isSupabaseConfigured) return getSeedStudentProgress(data.studentId);
   const { data: payload, error } = await supabase.rpc("get_student_progress", {
     p_student_id: data.studentId,
     p_student_code: data.studentCode.toUpperCase(),

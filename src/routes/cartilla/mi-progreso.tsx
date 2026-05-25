@@ -169,7 +169,7 @@ function MyProgress() {
           </p>
           {!isSupabaseConfigured && (
             <div className="mt-3 inline-flex rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-bold text-primary">
-              Modo demo local: estos datos viven en este navegador. Sync no disponible sin Supabase.
+              Modo local: estos datos viven en este navegador. Sync no disponible sin Supabase.
             </div>
           )}
         </div>

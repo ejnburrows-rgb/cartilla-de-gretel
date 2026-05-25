@@ -3,7 +3,7 @@
   "summary": "Source art inventory for La Cartilla de Gretel. Version 3 aligns all Ss and R inicial page-scan assets (pages 14, 15, 16 for Ss and 37, 38, 39 for R inicial) to their corresponding page-aligned interactions.",
   "assets": [
     {
-      "path": "/cartilla/images/original/cover.jpg",
+      "path": "cartilla/images/original/cover.jpg",
       "type": "photograph",
       "sourceStatus": "present-in-repo",
       "description": "Official cover photograph of the La Cartilla de Gretel workbook set.",
@@ -15,7 +15,7 @@
       "activityMappingNotes": "Do not attach to any drag/drop or tap-object activity. Cover art only."
     },
     {
-      "path": "/cartilla/images/original/student-book.jpg",
+      "path": "cartilla/images/original/student-book.jpg",
       "type": "photograph",
       "sourceStatus": "present-in-repo",
       "description": "Photograph of the student workbook (Cuaderno del estudiante) exterior.",
@@ -27,7 +27,7 @@
       "activityMappingNotes": "May be used as a general 'source available' indicator."
     },
     {
-      "path": "/cartilla/images/original/flipchart.jpg",
+      "path": "cartilla/images/original/flipchart.jpg",
       "type": "photograph",
       "sourceStatus": "present-in-repo",
       "description": "Photograph of the teacher flipchart material.",
@@ -39,7 +39,7 @@
       "activityMappingNotes": "Teacher-facing only."
     },
     {
-      "path": "/cartilla/images/original/homework.jpg",
+      "path": "cartilla/images/original/homework.jpg",
       "type": "photograph",
       "sourceStatus": "present-in-repo",
       "description": "Photograph of the homework/tarea sheet.",
@@ -51,7 +51,7 @@
       "activityMappingNotes": "Teacher-facing only."
     },
     {
-      "path": "/cartilla/images/original/evaluations.jpg",
+      "path": "cartilla/images/original/evaluations.jpg",
       "type": "photograph",
       "sourceStatus": "present-in-repo",
       "description": "Photograph of evaluation/assessment materials.",
@@ -63,7 +63,7 @@
       "activityMappingNotes": "Teacher-facing only."
     },
     {
-      "path": "/cartilla/images/original/syllabic-charts.jpg",
+      "path": "cartilla/images/original/syllabic-charts.jpg",
       "type": "photograph",
       "sourceStatus": "present-in-repo",
       "description": "Photograph of the syllabic charts.",
@@ -75,7 +75,7 @@
       "activityMappingNotes": "Syllabic charts reference."
     },
     {
-      "path": "/cartilla/images/cover.png",
+      "path": "cartilla/images/cover.png",
       "type": "image",
       "sourceStatus": "present-in-repo",
       "description": "Derived cover image (PNG).",
@@ -87,7 +87,7 @@
       "activityMappingNotes": "Cover PNG only."
     },
     {
-      "path": "/book/book.pdf",
+      "path": "book/book.pdf",
       "type": "pdf",
       "sourceStatus": "present-in-repo",
       "description": "Official workbook PDF.",
@@ -99,7 +99,7 @@
       "activityMappingNotes": "PDF pages loaded dynamically."
     },
     {
-      "path": "/cartilla/images/source/ss/ss-page-14.jpg",
+      "path": "cartilla/images/source/ss/ss-page-14.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/14-Ss.pdf",
       "workbookPageNumber": 13,
@@ -129,7 +129,7 @@
       "activityMappingNotes": "Mapped to Page 27 word-reveal and names-reveal."
     },
     {
-      "path": "/cartilla/images/source/ss/ss-page-15.jpg",
+      "path": "cartilla/images/source/ss/ss-page-15.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/15-Ss.pdf",
       "workbookPageNumber": 14,
@@ -178,7 +178,7 @@
       "activityMappingNotes": "Mapped to Page 28 sight words and syllables tap."
     },
     {
-      "path": "/cartilla/images/source/ss/ss-page-16.jpg",
+      "path": "cartilla/images/source/ss/ss-page-16.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/16-Ss.pdf",
       "workbookPageNumber": 15,
@@ -201,7 +201,7 @@
       "activityMappingNotes": "Mapped to Page 29 mini-story."
     },
     {
-      "path": "/cartilla/images/source/r/r-page-37.jpg",
+      "path": "cartilla/images/source/r/r-page-37.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/37-Rr inicial.pdf",
       "workbookPageNumber": 37,
@@ -230,7 +230,7 @@
       "activityMappingNotes": "Mapped to Page 59 word-reveal."
     },
     {
-      "path": "/cartilla/images/source/r/r-page-38.jpg",
+      "path": "cartilla/images/source/r/r-page-38.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/38-R inicial.pdf",
       "workbookPageNumber": 38,
@@ -275,7 +275,7 @@
       "activityMappingNotes": "Mapped to Page 60 syllables, sight word, and mini-story."
     },
     {
-      "path": "/cartilla/images/source/r/r-page-39.jpg",
+      "path": "cartilla/images/source/r/r-page-39.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/39-Rr inicial.pdf",
       "workbookPageNumber": 39,
@@ -298,7 +298,7 @@
       "activityMappingNotes": "Mapped to Page 61 poem."
     },
     {
-      "path": "/cartilla/images/source/rima/rima-page-2.jpg",
+      "path": "cartilla/images/source/rima/rima-page-2.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/2-Las hermanitas vocales Rima.pdf",
       "workbookPageNumber": 1,
@@ -318,7 +318,7 @@
       "activityMappingNotes": "Mapped to 2 Las hermanitas vocales Rima."
     },
     {
-      "path": "/cartilla/images/source/o/o-page-3.jpg",
+      "path": "cartilla/images/source/o/o-page-3.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/3-Oo.pdf",
       "workbookPageNumber": 4,
@@ -338,7 +338,7 @@
       "activityMappingNotes": "Mapped to 3-Oo."
     },
     {
-      "path": "/cartilla/images/source/a/a-page-4.jpg",
+      "path": "cartilla/images/source/a/a-page-4.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/4-Aa.pdf",
       "workbookPageNumber": 7,
@@ -358,7 +358,7 @@
       "activityMappingNotes": "Mapped to 4-Aa."
     },
     {
-      "path": "/cartilla/images/source/e/e-page-5.jpg",
+      "path": "cartilla/images/source/e/e-page-5.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/5-Ee.pdf",
       "workbookPageNumber": 10,
@@ -378,7 +378,7 @@
       "activityMappingNotes": "Mapped to 5-Ee."
     },
     {
-      "path": "/cartilla/images/source/i/i-page-6.jpg",
+      "path": "cartilla/images/source/i/i-page-6.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/6-Ii.pdf",
       "workbookPageNumber": 13,
@@ -398,7 +398,7 @@
       "activityMappingNotes": "Mapped to 6-Ii."
     },
     {
-      "path": "/cartilla/images/source/u/u-page-7.jpg",
+      "path": "cartilla/images/source/u/u-page-7.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/7-Uu.pdf",
       "workbookPageNumber": 16,
@@ -418,7 +418,7 @@
       "activityMappingNotes": "Mapped to 7-Uu."
     },
     {
-      "path": "/cartilla/images/source/m/m-page-8.jpg",
+      "path": "cartilla/images/source/m/m-page-8.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/8-Mm.pdf",
       "workbookPageNumber": 19,
@@ -438,7 +438,7 @@
       "activityMappingNotes": "Mapped to 8-Mm."
     },
     {
-      "path": "/cartilla/images/source/m/m-page-9.jpg",
+      "path": "cartilla/images/source/m/m-page-9.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/9-Mm.pdf",
       "workbookPageNumber": 20,
@@ -458,7 +458,7 @@
       "activityMappingNotes": "Mapped to 9-Mm."
     },
     {
-      "path": "/cartilla/images/source/m/m-page-10.jpg",
+      "path": "cartilla/images/source/m/m-page-10.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/10-Mm.pdf",
       "workbookPageNumber": 21,
@@ -478,7 +478,7 @@
       "activityMappingNotes": "Mapped to 10-Mm."
     },
     {
-      "path": "/cartilla/images/source/p/p-page-11.jpg",
+      "path": "cartilla/images/source/p/p-page-11.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/11-Pp.pdf",
       "workbookPageNumber": 22,
@@ -498,7 +498,7 @@
       "activityMappingNotes": "Mapped to 11-Pp."
     },
     {
-      "path": "/cartilla/images/source/p/p-page-12.jpg",
+      "path": "cartilla/images/source/p/p-page-12.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/12-Pp.pdf",
       "workbookPageNumber": 23,
@@ -518,7 +518,7 @@
       "activityMappingNotes": "Mapped to 12-Pp."
     },
     {
-      "path": "/cartilla/images/source/p/p-page-13.jpg",
+      "path": "cartilla/images/source/p/p-page-13.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/13-Pp.pdf",
       "workbookPageNumber": 24,
@@ -538,7 +538,7 @@
       "activityMappingNotes": "Mapped to 13-Pp."
     },
     {
-      "path": "/cartilla/images/source/t/t-page-17.jpg",
+      "path": "cartilla/images/source/t/t-page-17.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/17-Tt.pdf",
       "workbookPageNumber": 28,
@@ -558,7 +558,7 @@
       "activityMappingNotes": "Mapped to 17-Tt."
     },
     {
-      "path": "/cartilla/images/source/t/t-page-18.jpg",
+      "path": "cartilla/images/source/t/t-page-18.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/18-Tt.pdf",
       "workbookPageNumber": 29,
@@ -578,7 +578,7 @@
       "activityMappingNotes": "Mapped to 18-Tt."
     },
     {
-      "path": "/cartilla/images/source/d/d-page-19.jpg",
+      "path": "cartilla/images/source/d/d-page-19.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/19-Dd.pdf",
       "workbookPageNumber": 31,
@@ -598,7 +598,7 @@
       "activityMappingNotes": "Mapped to 19-Dd."
     },
     {
-      "path": "/cartilla/images/source/d/d-page-20.jpg",
+      "path": "cartilla/images/source/d/d-page-20.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/20-Dd.pdf",
       "workbookPageNumber": 32,
@@ -618,7 +618,7 @@
       "activityMappingNotes": "Mapped to 20-Dd."
     },
     {
-      "path": "/cartilla/images/source/d/d-page-21.jpg",
+      "path": "cartilla/images/source/d/d-page-21.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/21-Dd.pdf",
       "workbookPageNumber": 33,
@@ -638,7 +638,7 @@
       "activityMappingNotes": "Mapped to 21-Dd."
     },
     {
-      "path": "/cartilla/images/source/l/l-page-22.jpg",
+      "path": "cartilla/images/source/l/l-page-22.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/22-Ll.pdf",
       "workbookPageNumber": 34,
@@ -658,7 +658,7 @@
       "activityMappingNotes": "Mapped to 22-Ll."
     },
     {
-      "path": "/cartilla/images/source/l/l-page-23.jpg",
+      "path": "cartilla/images/source/l/l-page-23.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/23-Ll.pdf",
       "workbookPageNumber": 35,
@@ -678,7 +678,7 @@
       "activityMappingNotes": "Mapped to 23-Ll."
     },
     {
-      "path": "/cartilla/images/source/l/l-page-24.jpg",
+      "path": "cartilla/images/source/l/l-page-24.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/24-Ll.pdf",
       "workbookPageNumber": 36,
@@ -698,7 +698,7 @@
       "activityMappingNotes": "Mapped to 24-Ll."
     },
     {
-      "path": "/cartilla/images/source/n/n-page-25.jpg",
+      "path": "cartilla/images/source/n/n-page-25.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/25-Nn.pdf",
       "workbookPageNumber": 37,
@@ -718,7 +718,7 @@
       "activityMappingNotes": "Mapped to 25-Nn."
     },
     {
-      "path": "/cartilla/images/source/n/n-page-26.jpg",
+      "path": "cartilla/images/source/n/n-page-26.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/26-Nn.pdf",
       "workbookPageNumber": 38,
@@ -738,7 +738,7 @@
       "activityMappingNotes": "Mapped to 26-Nn."
     },
     {
-      "path": "/cartilla/images/source/n/n-page-27.jpg",
+      "path": "cartilla/images/source/n/n-page-27.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/27-Nn.pdf",
       "workbookPageNumber": 39,
@@ -758,7 +758,7 @@
       "activityMappingNotes": "Mapped to 27-Nn."
     },
     {
-      "path": "/cartilla/images/source/ñ/ñ-page-28.jpg",
+      "path": "cartilla/images/source/ñ/ñ-page-28.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/28-ñ.pdf",
       "workbookPageNumber": 40,
@@ -778,7 +778,7 @@
       "activityMappingNotes": "Mapped to 28-ñ."
     },
     {
-      "path": "/cartilla/images/source/ñ/ñ-page-29.jpg",
+      "path": "cartilla/images/source/ñ/ñ-page-29.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/29-ñ.pdf",
       "workbookPageNumber": 41,
@@ -798,7 +798,7 @@
       "activityMappingNotes": "Mapped to 29-ñ."
     },
     {
-      "path": "/cartilla/images/source/ñ/ñ-page-30.jpg",
+      "path": "cartilla/images/source/ñ/ñ-page-30.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/30-ñ.pdf",
       "workbookPageNumber": 42,
@@ -818,7 +818,7 @@
       "activityMappingNotes": "Mapped to 30-ñ."
     },
     {
-      "path": "/cartilla/images/source/b/b-page-31.jpg",
+      "path": "cartilla/images/source/b/b-page-31.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/31-Bb.pdf",
       "workbookPageNumber": 43,
@@ -838,7 +838,7 @@
       "activityMappingNotes": "Mapped to 31-Bb."
     },
     {
-      "path": "/cartilla/images/source/b/b-page-32.jpg",
+      "path": "cartilla/images/source/b/b-page-32.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/32-Bb.pdf",
       "workbookPageNumber": 44,
@@ -858,7 +858,7 @@
       "activityMappingNotes": "Mapped to 32-Bb."
     },
     {
-      "path": "/cartilla/images/source/b/b-page-33.jpg",
+      "path": "cartilla/images/source/b/b-page-33.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/33-Bb.pdf",
       "workbookPageNumber": 45,
@@ -878,7 +878,7 @@
       "activityMappingNotes": "Mapped to 33-Bb."
     },
     {
-      "path": "/cartilla/images/source/v/v-page-34.jpg",
+      "path": "cartilla/images/source/v/v-page-34.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/34-Vv.pdf",
       "workbookPageNumber": 46,
@@ -898,7 +898,7 @@
       "activityMappingNotes": "Mapped to 34-Vv."
     },
     {
-      "path": "/cartilla/images/source/v/v-page-35.jpg",
+      "path": "cartilla/images/source/v/v-page-35.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/35-Vv.pdf",
       "workbookPageNumber": 47,
@@ -918,7 +918,7 @@
       "activityMappingNotes": "Mapped to 35-Vv."
     },
     {
-      "path": "/cartilla/images/source/v/v-page-36.jpg",
+      "path": "cartilla/images/source/v/v-page-36.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/36-Vv.pdf",
       "workbookPageNumber": 48,
@@ -938,7 +938,7 @@
       "activityMappingNotes": "Mapped to 36-Vv."
     },
     {
-      "path": "/cartilla/images/source/rr/rr-page-40.jpg",
+      "path": "cartilla/images/source/rr/rr-page-40.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/40-rr.pdf",
       "workbookPageNumber": 62,
@@ -958,7 +958,7 @@
       "activityMappingNotes": "Mapped to 40-rr."
     },
     {
-      "path": "/cartilla/images/source/rr/rr-page-41.jpg",
+      "path": "cartilla/images/source/rr/rr-page-41.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/41-rr.pdf",
       "workbookPageNumber": 63,
@@ -978,7 +978,7 @@
       "activityMappingNotes": "Mapped to 41-rr."
     },
     {
-      "path": "/cartilla/images/source/rr/rr-page-42.jpg",
+      "path": "cartilla/images/source/rr/rr-page-42.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/42-rr.pdf",
       "workbookPageNumber": 64,
@@ -998,7 +998,7 @@
       "activityMappingNotes": "Mapped to 42-rr."
     },
     {
-      "path": "/cartilla/images/source/g/g-page-43.jpg",
+      "path": "cartilla/images/source/g/g-page-43.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/43-Gg.pdf",
       "workbookPageNumber": 65,
@@ -1018,7 +1018,7 @@
       "activityMappingNotes": "Mapped to 43-Gg."
     },
     {
-      "path": "/cartilla/images/source/g/g-page-44.jpg",
+      "path": "cartilla/images/source/g/g-page-44.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/44-Gg.pdf",
       "workbookPageNumber": 66,
@@ -1038,7 +1038,7 @@
       "activityMappingNotes": "Mapped to 44-Gg."
     },
     {
-      "path": "/cartilla/images/source/g/g-page-45.jpg",
+      "path": "cartilla/images/source/g/g-page-45.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/45-Gg.pdf",
       "workbookPageNumber": 67,
@@ -1058,7 +1058,7 @@
       "activityMappingNotes": "Mapped to 45-Gg."
     },
     {
-      "path": "/cartilla/images/source/f/f-page-46.jpg",
+      "path": "cartilla/images/source/f/f-page-46.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/46-Ff.pdf",
       "workbookPageNumber": 68,
@@ -1078,7 +1078,7 @@
       "activityMappingNotes": "Mapped to 46-Ff."
     },
     {
-      "path": "/cartilla/images/source/f/f-page-47.jpg",
+      "path": "cartilla/images/source/f/f-page-47.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/47-Ff.pdf",
       "workbookPageNumber": 69,
@@ -1098,7 +1098,7 @@
       "activityMappingNotes": "Mapped to 47-Ff."
     },
     {
-      "path": "/cartilla/images/source/f/f-page-48.jpg",
+      "path": "cartilla/images/source/f/f-page-48.jpg",
       "type": "page-scan",
       "sourceFile": "Main Book/48-Ff.pdf",
       "workbookPageNumber": 70,
@@ -1123,7 +1123,7 @@
       "lessonTitle": "Jj",
       "letter": "J",
       "sourcePageNumber": 49,
-      "path": "/cartilla/images/source/j/j-page-49.jpg",
+      "path": "cartilla/images/source/j/j-page-49.jpg",
       "sourcePDF": "49-Jj.pdf",
       "sourceFolder": "Main Book",
       "dimensions": {
@@ -1148,7 +1148,7 @@
       "lessonTitle": "Jj",
       "letter": "J",
       "sourcePageNumber": 50,
-      "path": "/cartilla/images/source/j/j-page-50.jpg",
+      "path": "cartilla/images/source/j/j-page-50.jpg",
       "sourcePDF": "50-Jj (.pdf",
       "sourceFolder": "Main Book",
       "dimensions": {
@@ -1173,7 +1173,7 @@
       "lessonTitle": "Jj",
       "letter": "J",
       "sourcePageNumber": 51,
-      "path": "/cartilla/images/source/j/j-page-51.jpg",
+      "path": "cartilla/images/source/j/j-page-51.jpg",
       "sourcePDF": "51-Jj.pdf",
       "sourceFolder": "Main Book",
       "dimensions": {
@@ -1198,7 +1198,7 @@
       "lessonTitle": "Cc",
       "letter": "C",
       "sourcePageNumber": 52,
-      "path": "/cartilla/images/source/c/c-page-52.jpg",
+      "path": "cartilla/images/source/c/c-page-52.jpg",
       "sourcePDF": "52-Cc.pdf",
       "sourceFolder": "Main Book",
       "dimensions": {
@@ -1223,7 +1223,7 @@
       "lessonTitle": "Cc",
       "letter": "C",
       "sourcePageNumber": 53,
-      "path": "/cartilla/images/source/c/c-page-53.jpg",
+      "path": "cartilla/images/source/c/c-page-53.jpg",
       "sourcePDF": "53-Cc.pdf",
       "sourceFolder": "Main Book",
       "dimensions": {
@@ -1248,7 +1248,7 @@
       "lessonTitle": "Cc",
       "letter": "C",
       "sourcePageNumber": 54,
-      "path": "/cartilla/images/source/c/c-page-54.jpg",
+      "path": "cartilla/images/source/c/c-page-54.jpg",
       "sourcePDF": "54-Cc.pdf",
       "sourceFolder": "Main Book",
       "dimensions": {
@@ -1273,7 +1273,7 @@
       "lessonTitle": "Yy",
       "letter": "Y",
       "sourcePageNumber": 55,
-      "path": "/cartilla/images/source/y/y-page-55.jpg",
+      "path": "cartilla/images/source/y/y-page-55.jpg",
       "sourcePDF": "55-Yy.pdf",
       "sourceFolder": "Main Book",
       "dimensions": {
@@ -1298,7 +1298,7 @@
       "lessonTitle": "Yy",
       "letter": "Y",
       "sourcePageNumber": 56,
-      "path": "/cartilla/images/source/y/y-page-56.jpg",
+      "path": "cartilla/images/source/y/y-page-56.jpg",
       "sourcePDF": "56-Yy.pdf",
       "sourceFolder": "Main Book",
       "dimensions": {
@@ -1323,7 +1323,7 @@
       "lessonTitle": "Yy",
       "letter": "Y",
       "sourcePageNumber": 57,
-      "path": "/cartilla/images/source/y/y-page-57.jpg",
+      "path": "cartilla/images/source/y/y-page-57.jpg",
       "sourcePDF": "57-Yy.pdf",
       "sourceFolder": "Main Book",
       "dimensions": {
@@ -1348,7 +1348,7 @@
       "lessonTitle": "Zz",
       "letter": "Z",
       "sourcePageNumber": 58,
-      "path": "/cartilla/images/source/z/z-page-58.jpg",
+      "path": "cartilla/images/source/z/z-page-58.jpg",
       "sourcePDF": "58-Zz.pdf",
       "sourceFolder": "Main Book",
       "dimensions": {
@@ -1373,7 +1373,7 @@
       "lessonTitle": "Zz",
       "letter": "Z",
       "sourcePageNumber": 59,
-      "path": "/cartilla/images/source/z/z-page-59.jpg",
+      "path": "cartilla/images/source/z/z-page-59.jpg",
       "sourcePDF": "59-Zz.pdf",
       "sourceFolder": "Main Book",
       "dimensions": {
@@ -1398,7 +1398,7 @@
       "lessonTitle": "Zz",
       "letter": "Z",
       "sourcePageNumber": 60,
-      "path": "/cartilla/images/source/z/z-page-60.jpg",
+      "path": "cartilla/images/source/z/z-page-60.jpg",
       "sourcePDF": "60-Zz.pdf",
       "sourceFolder": "Main Book",
       "dimensions": {
@@ -1421,70 +1421,70 @@
   "activityAssetMappings": [
     {
       "interactionId": "l9-p27-word-reveal",
-      "assetPath": "/cartilla/images/source/ss/ss-page-14.jpg",
+      "assetPath": "cartilla/images/source/ss/ss-page-14.jpg",
       "mappingType": "whole-page-context",
       "hotspotsMapped": false,
       "notes": "Page scan confirmed. Illustrated sapo, sopa, pisa."
     },
     {
       "interactionId": "l9-p27-names-reveal",
-      "assetPath": "/cartilla/images/source/ss/ss-page-14.jpg",
+      "assetPath": "cartilla/images/source/ss/ss-page-14.jpg",
       "mappingType": "whole-page-context",
       "hotspotsMapped": false,
       "notes": "Page scan confirmed. Sesi and Susi appear."
     },
     {
       "interactionId": "l9-p28-sight-words",
-      "assetPath": "/cartilla/images/source/ss/ss-page-15.jpg",
+      "assetPath": "cartilla/images/source/ss/ss-page-15.jpg",
       "mappingType": "whole-page-context",
       "hotspotsMapped": false,
       "notes": "Sight words confirmed in teal strip."
     },
     {
       "interactionId": "l9-p28-syllable-tap",
-      "assetPath": "/cartilla/images/source/ss/ss-page-15.jpg",
+      "assetPath": "cartilla/images/source/ss/ss-page-15.jpg",
       "mappingType": "whole-page-context",
       "hotspotsMapped": false,
       "notes": "Syllable rows confirmed."
     },
     {
       "interactionId": "l9-p29-mini-story-ss",
-      "assetPath": "/cartilla/images/source/ss/ss-page-16.jpg",
+      "assetPath": "cartilla/images/source/ss/ss-page-16.jpg",
       "mappingType": "whole-page-context",
       "hotspotsMapped": false,
       "notes": "Sapo Samapo story scan."
     },
     {
       "interactionId": "l17-p59-word-reveal-r",
-      "assetPath": "/cartilla/images/source/r/r-page-37.jpg",
+      "assetPath": "cartilla/images/source/r/r-page-37.jpg",
       "mappingType": "whole-page-context",
       "hotspotsMapped": false,
       "notes": "Illustrated rana, remo, Rita, rosa, rueda page scan confirmed."
     },
     {
       "interactionId": "l17-p60-syllable-r",
-      "assetPath": "/cartilla/images/source/r/r-page-38.jpg",
+      "assetPath": "cartilla/images/source/r/r-page-38.jpg",
       "mappingType": "whole-page-context",
       "hotspotsMapped": false,
       "notes": "Syllable rows confirmed."
     },
     {
       "interactionId": "l17-p60-sight-word-bien",
-      "assetPath": "/cartilla/images/source/r/r-page-38.jpg",
+      "assetPath": "cartilla/images/source/r/r-page-38.jpg",
       "mappingType": "whole-page-context",
       "hotspotsMapped": false,
       "notes": "'bien' confirmed."
     },
     {
       "interactionId": "l17-p60-mini-story-r",
-      "assetPath": "/cartilla/images/source/r/r-page-38.jpg",
+      "assetPath": "cartilla/images/source/r/r-page-38.jpg",
       "mappingType": "whole-page-context",
       "hotspotsMapped": false,
       "notes": "La bola de Roberto mini-story confirmed."
     },
     {
       "interactionId": "l17-p61-poem-r",
-      "assetPath": "/cartilla/images/source/r/r-page-39.jpg",
+      "assetPath": "cartilla/images/source/r/r-page-39.jpg",
       "mappingType": "whole-page-context",
       "hotspotsMapped": false,
       "notes": "Poem 'La r para la rama' page scan confirmed."

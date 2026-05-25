@@ -61,18 +61,18 @@
     "characterDesc": "Un explorador valiente que vive en el iglú y siempre dice \"iiiii\" de emoción al descubrir cosas nuevas.",
     "vocab": [
       { "word": "iglú", "emoji": "🛖" },
-      { "word": "isla", "emoji": "🏝️" },
+      { "word": "iglesia", "emoji": "⛪" },
       { "word": "iguana", "emoji": "🦎" },
       { "word": "imán", "emoji": "🧲" }
     ],
     "matchPairs": [
       { "left": "i", "right": "🛖 iglú", "pairId": 0 },
-      { "left": "i", "right": "🏝️ isla", "pairId": 1 },
+      { "left": "i", "right": "⛪ iglesia", "pairId": 1 },
       { "left": "i", "right": "🦎 iguana", "pairId": 2 }
     ],
     "checkboxItems": [
       { "word": "iglú", "emoji": "🛖", "startsWithVowel": true },
-      { "word": "isla", "emoji": "🏝️", "startsWithVowel": true },
+      { "word": "iglesia", "emoji": "⛪", "startsWithVowel": true },
       { "word": "árbol", "emoji": "🌳", "startsWithVowel": false },
       { "word": "avión", "emoji": "✈️", "startsWithVowel": false }
     ]

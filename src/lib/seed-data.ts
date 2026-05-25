@@ -1,6 +1,6 @@
 import { TOTAL_LESSONS } from "@/lib/lesson-catalog";
 
-export const DEMO_TEACHERS = [
+export const SEED_TEACHERS = [
   {
     id: "seed-teacher-leonor",
     name: "Leonor Lopetegui",
@@ -17,7 +17,7 @@ export const DEMO_TEACHERS = [
   },
 ] as const;
 
-export const DEMO_STUDENT_ACCESS = [
+export const SEED_STUDENT_ACCESS = [
   { name: "Erick Novo", joinCode: "GRETEL", studentCode: "NOVO" },
   { name: "Sofia Morejon", joinCode: "GRETEL", studentCode: "SOFIA" },
   { name: "Erick Novo", joinCode: "NOVO26", studentCode: "NOVO" },
@@ -27,9 +27,9 @@ export const DEMO_STUDENT_ACCESS = [
 const AUTH_KEY = "cartilla.seed.teacher.v1";
 const STATE_KEY = "cartilla.seed.state.v1";
 
-type SeedTeacherId = (typeof DEMO_TEACHERS)[number]["id"];
+type SeedTeacherId = (typeof SEED_TEACHERS)[number]["id"];
 
-type DemoEvent = {
+type SeedEvent = {
   id: string;
   student_id: string;
   lesson_id: string;
@@ -41,7 +41,7 @@ type DemoEvent = {
   created_at: string;
 };
 
-type DemoStudent = {
+type SeedStudent = {
   id: string;
   class_id: string;
   display_name: string;
@@ -49,7 +49,7 @@ type DemoStudent = {
   created_at: string;
 };
 
-type DemoClass = {
+type SeedClass = {
   id: string;
   teacher_id: SeedTeacherId;
   name: string;
@@ -57,7 +57,7 @@ type DemoClass = {
   created_at: string;
 };
 
-type DemoAssignment = {
+type SeedAssignment = {
   id: string;
   class_id: string;
   lesson_id: string;
@@ -67,19 +67,19 @@ type DemoAssignment = {
   created_at: string;
 };
 
-type DemoState = {
-  classes: DemoClass[];
-  students: DemoStudent[];
-  events: DemoEvent[];
-  assignments: DemoAssignment[];
+type SeedState = {
+  classes: SeedClass[];
+  students: SeedStudent[];
+  events: SeedEvent[];
+  assignments: SeedAssignment[];
 };
 
 function nowIso() {
   return new Date().toISOString();
 }
 
-function initialState(): DemoState {
-  const classes: DemoClass[] = [
+function initialState(): SeedState {
+  const classes: SeedClass[] = [
     {
       id: "seed-class-leonor",
       teacher_id: "seed-teacher-leonor",
@@ -95,7 +95,7 @@ function initialState(): DemoState {
       created_at: nowIso(),
     },
   ];
-  const students: DemoStudent[] = [
+  const students: SeedStudent[] = [
     {
       id: "seed-student-erick-leonor",
       class_id: "seed-class-leonor",
@@ -143,7 +143,7 @@ function initialState(): DemoState {
   };
 }
 
-function seedEvents(): DemoEvent[] {
+function seedEvents(): SeedEvent[] {
   const base = Date.now() - 1000 * 60 * 60 * 24;
   return [
     event("seed-student-erick-leonor", "1", "lesson_completed", null, null, null, { seeded: true }, base),
@@ -171,7 +171,7 @@ function event(
   timeSeconds: number | null,
   meta: Record<string, unknown> | null,
   time: number,
-): DemoEvent {
+): SeedEvent {
   return {
     id: `seed-event-${studentId}-${lessonId}-${kind}-${time}`,
     student_id: studentId,
@@ -185,12 +185,12 @@ function event(
   };
 }
 
-function readState(): DemoState {
+function readState(): SeedState {
   if (typeof window === "undefined") return initialState();
   try {
     const raw = localStorage.getItem(STATE_KEY);
     if (raw) {
-      const parsed = JSON.parse(raw) as Partial<DemoState>;
+      const parsed = JSON.parse(raw) as Partial<SeedState>;
       return {
         classes: parsed.classes ?? [],
         students: parsed.students ?? [],
@@ -206,15 +206,15 @@ function readState(): DemoState {
   return state;
 }
 
-function writeState(state: DemoState) {
+function writeState(state: SeedState) {
   if (typeof window === "undefined") return;
   localStorage.setItem(STATE_KEY, JSON.stringify(state));
   window.dispatchEvent(new Event("cartilla:seed-data"));
-  window.dispatchEvent(new Event("cartilla:demo-data"));
+  window.dispatchEvent(new Event("cartilla:seed-data"));
 }
 
-export function signInDemoTeacher(email: string, password: string) {
-  const teacher = DEMO_TEACHERS.find(
+export function signInSeedTeacher(email: string, password: string) {
+  const teacher = SEED_TEACHERS.find(
     (t) =>
       (t.email.toLowerCase() === email.toLowerCase() ||
         t.username.toLowerCase() === email.toLowerCase()) &&
@@ -223,25 +223,25 @@ export function signInDemoTeacher(email: string, password: string) {
   if (!teacher) throw new Error("Credenciales invalidas.");
   localStorage.setItem(AUTH_KEY, teacher.id);
   window.dispatchEvent(new Event("cartilla:seed-auth"));
-  window.dispatchEvent(new Event("cartilla:demo-auth"));
+  window.dispatchEvent(new Event("cartilla:seed-auth"));
   return teacher;
 }
 
-export function getDemoTeacher() {
+export function getSeedTeacher() {
   if (typeof window === "undefined") return null;
   const id = localStorage.getItem(AUTH_KEY);
-  return DEMO_TEACHERS.find((t) => t.id === id) ?? null;
+  return SEED_TEACHERS.find((t) => t.id === id) ?? null;
 }
 
-export function signOutDemoTeacher() {
+export function signOutSeedTeacher() {
   if (typeof window === "undefined") return;
   localStorage.removeItem(AUTH_KEY);
   window.dispatchEvent(new Event("cartilla:seed-auth"));
-  window.dispatchEvent(new Event("cartilla:demo-auth"));
+  window.dispatchEvent(new Event("cartilla:seed-auth"));
 }
 
-export function listDemoClasses() {
-  const teacher = getDemoTeacher();
+export function listSeedClasses() {
+  const teacher = getSeedTeacher();
   if (!teacher) throw new Error("Debes iniciar sesion como maestro.");
   const state = readState();
   return state.classes
@@ -252,11 +252,11 @@ export function listDemoClasses() {
     }));
 }
 
-export function createDemoClass(name: string) {
-  const teacher = getDemoTeacher();
+export function createSeedClass(name: string) {
+  const teacher = getSeedTeacher();
   if (!teacher) throw new Error("Debes iniciar sesion como maestro.");
   const state = readState();
-  const row: DemoClass = {
+  const row: SeedClass = {
     id: `seed-class-${crypto.randomUUID()}`,
     teacher_id: teacher.id,
     name,
@@ -268,8 +268,8 @@ export function createDemoClass(name: string) {
   return row;
 }
 
-export function deleteDemoClass(id: string) {
-  const teacher = getDemoTeacher();
+export function deleteSeedClass(id: string) {
+  const teacher = getSeedTeacher();
   if (!teacher) throw new Error("Debes iniciar sesion como maestro.");
   const state = readState();
   const cls = state.classes.find((c) => c.id === id && c.teacher_id === teacher.id);
@@ -283,8 +283,8 @@ export function deleteDemoClass(id: string) {
   return { ok: true };
 }
 
-export function getDemoClass(id: string) {
-  const teacher = getDemoTeacher();
+export function getSeedClass(id: string) {
+  const teacher = getSeedTeacher();
   if (!teacher) throw new Error("Debes iniciar sesion como maestro.");
   const state = readState();
   const cls = state.classes.find((c) => c.id === id && c.teacher_id === teacher.id);
@@ -305,7 +305,7 @@ export function getDemoClass(id: string) {
   return { class: cls, students };
 }
 
-export function addDemoStudents(classId: string, names: string[]) {
+export function addSeedStudents(classId: string, names: string[]) {
   const state = readState();
   const rows = names.map((name) => ({
     id: `seed-student-${crypto.randomUUID()}`,
@@ -319,7 +319,7 @@ export function addDemoStudents(classId: string, names: string[]) {
   return rows;
 }
 
-export function deleteDemoStudent(id: string) {
+export function deleteSeedStudent(id: string) {
   const state = readState();
   state.students = state.students.filter((s) => s.id !== id);
   state.events = state.events.filter((e) => e.student_id !== id);
@@ -327,7 +327,7 @@ export function deleteDemoStudent(id: string) {
   return { ok: true };
 }
 
-export function joinDemoClass(joinCode: string, studentCode: string) {
+export function joinSeedClass(joinCode: string, studentCode: string) {
   const state = readState();
   const cls = state.classes.find((c) => c.join_code.toUpperCase() === joinCode.toUpperCase());
   if (!cls) throw new Error("Codigo de clase invalido.");
@@ -344,7 +344,7 @@ export function joinDemoClass(joinCode: string, studentCode: string) {
   };
 }
 
-export function logDemoProgress(input: {
+export function logSeedProgress(input: {
   studentId: string;
   lessonId: string;
   kind: string;
@@ -369,8 +369,8 @@ export function logDemoProgress(input: {
   return { ok: true };
 }
 
-export function listDemoAssignments(classId: string) {
-  const teacher = getDemoTeacher();
+export function listSeedAssignments(classId: string) {
+  const teacher = getSeedTeacher();
   if (!teacher) throw new Error("Debes iniciar sesion como maestro.");
   const state = readState();
   const cls = state.classes.find((c) => c.id === classId && c.teacher_id === teacher.id);
@@ -380,19 +380,19 @@ export function listDemoAssignments(classId: string) {
     .sort((a, b) => b.created_at.localeCompare(a.created_at));
 }
 
-export function createDemoAssignment(input: {
+export function createSeedAssignment(input: {
   classId: string;
   lessonId: string;
   title?: string;
   dueAt?: string | null;
   timeLimitSeconds?: number | null;
 }) {
-  const teacher = getDemoTeacher();
+  const teacher = getSeedTeacher();
   if (!teacher) throw new Error("Debes iniciar sesion como maestro.");
   const state = readState();
   const cls = state.classes.find((c) => c.id === input.classId && c.teacher_id === teacher.id);
   if (!cls) throw new Error("Clase no encontrada.");
-  const row: DemoAssignment = {
+  const row: SeedAssignment = {
     id: `seed-assignment-${crypto.randomUUID()}`,
     class_id: input.classId,
     lesson_id: input.lessonId,
@@ -406,8 +406,8 @@ export function createDemoAssignment(input: {
   return row;
 }
 
-export function deleteDemoAssignment(id: string) {
-  const teacher = getDemoTeacher();
+export function deleteSeedAssignment(id: string) {
+  const teacher = getSeedTeacher();
   if (!teacher) throw new Error("Debes iniciar sesion como maestro.");
   const state = readState();
   const assignment = state.assignments.find((a) => a.id === id);
@@ -420,7 +420,7 @@ export function deleteDemoAssignment(id: string) {
   return { ok: true };
 }
 
-export function listDemoStudentAssignments(input: {
+export function listSeedStudentAssignments(input: {
   classId: string;
   studentId: string;
   studentCode: string;
@@ -438,7 +438,7 @@ export function listDemoStudentAssignments(input: {
     .sort((a, b) => b.created_at.localeCompare(a.created_at));
 }
 
-export function getDemoStudentProgress(studentId: string) {
+export function getSeedStudentProgress(studentId: string) {
   const state = readState();
   const student = state.students.find((s) => s.id === studentId);
   if (!student) throw new Error("Alumno no encontrado.");
@@ -454,7 +454,7 @@ export function getDemoStudentProgress(studentId: string) {
   };
 }
 
-export function getDemoTeacherStudentProgress(id: string) {
+export function getSeedTeacherStudentProgress(id: string) {
   const state = readState();
   const student = state.students.find((s) => s.id === id);
   if (!student) throw new Error("Alumno no encontrado.");
@@ -471,7 +471,7 @@ export function getDemoTeacherStudentProgress(id: string) {
   };
 }
 
-export function getDemoClassProgress(classId: string) {
+export function getSeedClassProgress(classId: string) {
   const state = readState();
   const studentIds = state.students.filter((s) => s.class_id === classId).map((s) => s.id);
   const events = state.events.filter((e) => studentIds.includes(e.student_id));
@@ -536,19 +536,19 @@ export function getDemoClassProgress(classId: string) {
   };
 }
 
-export function exportDemoStateRaw(): string {
+export function exportSeedStateRaw(): string {
   if (typeof window === "undefined") return "{}";
   return localStorage.getItem(STATE_KEY) || JSON.stringify(initialState());
 }
 
-export function importDemoStateRaw(jsonStr: string): boolean {
+export function importSeedStateRaw(jsonStr: string): boolean {
   if (typeof window === "undefined") return false;
   try {
     const parsed = JSON.parse(jsonStr);
     if (parsed && typeof parsed === "object" && Array.isArray(parsed.classes)) {
       localStorage.setItem(STATE_KEY, jsonStr);
       window.dispatchEvent(new Event("cartilla:seed-data"));
-      window.dispatchEvent(new Event("cartilla:demo-data"));
+      window.dispatchEvent(new Event("cartilla:seed-data"));
       return true;
     }
   } catch (e) {
@@ -557,10 +557,10 @@ export function importDemoStateRaw(jsonStr: string): boolean {
   return false;
 }
 
-export function resetDemoStateRaw() {
+export function resetSeedStateRaw() {
   if (typeof window === "undefined") return;
   localStorage.removeItem(STATE_KEY);
   window.dispatchEvent(new Event("cartilla:seed-data"));
-  window.dispatchEvent(new Event("cartilla:demo-data"));
+  window.dispatchEvent(new Event("cartilla:seed-data"));
 }
 

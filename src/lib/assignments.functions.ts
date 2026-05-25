@@ -1,11 +1,11 @@
 import { z } from "zod";
 import { isSupabaseConfigured, supabase } from "@/integrations/supabase/client";
 import {
-  createDemoAssignment,
-  deleteDemoAssignment,
-  listDemoAssignments,
-  listDemoStudentAssignments,
-} from "@/lib/demo-data";
+  createSeedAssignment,
+  deleteSeedAssignment,
+  listSeedAssignments,
+  listSeedStudentAssignments,
+} from "@/lib/seed-data";
 
 type Call<T> = { data: T };
 type AssignmentRow = {
@@ -40,7 +40,7 @@ async function ensureTeacherOwnsClass(classId: string) {
 /** Teacher: list assignments for a class they own. */
 export async function listAssignments(input: Call<{ classId: string }>) {
   const data = z.object({ classId: z.string().min(1) }).parse(input.data);
-  if (!isSupabaseConfigured) return listDemoAssignments(data.classId) as AssignmentRow[];
+  if (!isSupabaseConfigured) return listSeedAssignments(data.classId) as AssignmentRow[];
   await ensureTeacherOwnsClass(data.classId);
   const { data: rows, error } = await supabase
     .from("assignments")
@@ -72,7 +72,7 @@ export async function createAssignment(
     .parse(input.data);
 
   if (!isSupabaseConfigured)
-    return createDemoAssignment({
+    return createSeedAssignment({
       classId: data.classId,
       lessonId: data.lessonId,
       title: data.title,
@@ -99,7 +99,7 @@ export async function createAssignment(
 /** Teacher: delete assignment. */
 export async function deleteAssignment(input: Call<{ id: string }>) {
   const data = z.object({ id: z.string().min(1) }).parse(input.data);
-  if (!isSupabaseConfigured) return deleteDemoAssignment(data.id);
+  if (!isSupabaseConfigured) return deleteSeedAssignment(data.id);
   const { data: assignment, error: readErr } = await supabase
     .from("assignments")
     .select("id, class_id")
@@ -126,7 +126,7 @@ export async function listMyAssignments(
     .parse(input.data);
 
   if (!isSupabaseConfigured)
-    return listDemoStudentAssignments({
+    return listSeedStudentAssignments({
       classId: data.classId,
       studentId: data.studentId,
       studentCode: data.studentCode,

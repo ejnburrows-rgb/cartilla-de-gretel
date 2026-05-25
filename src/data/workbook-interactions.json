@@ -7,7 +7,7 @@
       "kind": "drag-word-to-image",
       "title": "Palabras del cuaderno — Página Ss",
       "prompt": "Toca cada palabra para descubrirla. Búscala en la página ilustrada del cuaderno.",
-      "assetRef": "/cartilla/images/source/ss/ss-page-14.jpg",
+      "assetRef": "cartilla/images/source/ss/ss-page-14.jpg",
       "assetRefSourcePage": "14-Ss (workbook page 13)",
       "assetRefVerified": true,
       "items": [
@@ -56,7 +56,7 @@
       "kind": "listen-and-tap",
       "title": "Nombres con S",
       "prompt": "Toca cada nombre cuando lo escuches. Los dos aparecen en la página del cuaderno.",
-      "assetRef": "/cartilla/images/source/ss/ss-page-14.jpg",
+      "assetRef": "cartilla/images/source/ss/ss-page-14.jpg",
       "assetRefSourcePage": "14-Ss (workbook page 13)",
       "assetRefVerified": true,
       "items": [
@@ -82,7 +82,7 @@
       "kind": "listen-and-tap",
       "title": "Palabras a simple vista",
       "prompt": "Escucha y toca cada palabra cuando la oigas.",
-      "assetRef": "/cartilla/images/source/ss/ss-page-15.jpg",
+      "assetRef": "cartilla/images/source/ss/ss-page-15.jpg",
       "assetRefSourcePage": "15-Ss (workbook page 14)",
       "assetRefVerified": true,
       "items": [
@@ -128,7 +128,7 @@
       "kind": "drag-syllable-to-slot",
       "title": "Sílabas con S",
       "prompt": "Arrastra cada sílaba a su casilla o tócala para escucharla.",
-      "assetRef": "/cartilla/images/source/ss/ss-page-15.jpg",
+      "assetRef": "cartilla/images/source/ss/ss-page-15.jpg",
       "assetRefSourcePage": "15-Ss (workbook page 14)",
       "assetRefVerified": true,
       "items": [
@@ -232,7 +232,7 @@
       "transcriptionStatus": "placeholder",
       "studentFacingStatus": "source page image connected",
       "teacherNotes": "saco, seta, seis are NOT confirmed in consonants.json examples for Lesson 9. These object names are plausible for the S lesson but are not verified from the official workbook page scan. Do not promote to book-derived without page verification.",
-      "assetRef": "/cartilla/images/source/ss/ss-page-16.jpg",
+      "assetRef": "cartilla/images/source/ss/ss-page-16.jpg",
       "assetRefVerified": true
     },
     {
@@ -242,7 +242,7 @@
       "kind": "mini-story",
       "title": "Sapo Samapo",
       "prompt": "Lee el mini-cuento del cuaderno.",
-      "assetRef": "/cartilla/images/source/ss/ss-page-16.jpg",
+      "assetRef": "cartilla/images/source/ss/ss-page-16.jpg",
       "assetRefSourcePage": "16-Ss (workbook page 15)",
       "assetRefVerified": true,
       "items": [
@@ -311,7 +311,7 @@
       "kind": "drag-word-to-image",
       "title": "Palabras del cuaderno — Página Rr",
       "prompt": "Toca cada palabra para descubrirla. Búscala en la página ilustrada del cuaderno.",
-      "assetRef": "/cartilla/images/source/r/r-page-37.jpg",
+      "assetRef": "cartilla/images/source/r/r-page-37.jpg",
       "assetRefSourcePage": "37-Rr (workbook page 37)",
       "assetRefVerified": true,
       "items": [
@@ -380,7 +380,7 @@
       "kind": "drag-syllable-to-slot",
       "title": "Sílabas con R",
       "prompt": "Arrastra cada sílaba a su casilla o tócala para escucharla.",
-      "assetRef": "/cartilla/images/source/r/r-page-38.jpg",
+      "assetRef": "cartilla/images/source/r/r-page-38.jpg",
       "assetRefSourcePage": "38-R inicial (workbook page 38)",
       "assetRefVerified": true,
       "items": [
@@ -449,7 +449,7 @@
       "kind": "listen-and-tap",
       "title": "Palabra a simple vista: bien",
       "prompt": "Toca la palabra cuando la escuches.",
-      "assetRef": "/cartilla/images/source/r/r-page-38.jpg",
+      "assetRef": "cartilla/images/source/r/r-page-38.jpg",
       "assetRefSourcePage": "38-R inicial (workbook page 38)",
       "assetRefVerified": true,
       "items": [
@@ -471,7 +471,7 @@
       "kind": "mini-story",
       "title": "Mini-cuento: La bola de Roberto",
       "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
-      "assetRef": "/cartilla/images/source/r/r-page-38.jpg",
+      "assetRef": "cartilla/images/source/r/r-page-38.jpg",
       "assetRefSourcePage": "38-R inicial (workbook page 38)",
       "assetRefVerified": true,
       "items": [
@@ -517,7 +517,7 @@
       "kind": "mini-story",
       "title": "Poema: La r para la rama",
       "prompt": "Lee el poema del cuaderno.",
-      "assetRef": "/cartilla/images/source/r/r-page-39.jpg",
+      "assetRef": "cartilla/images/source/r/r-page-39.jpg",
       "assetRefSourcePage": "39-Rr (workbook page 39)",
       "assetRefVerified": true,
       "items": [
@@ -602,7 +602,7 @@
       "kind": "drag-syllable-to-slot",
       "title": "Sílabas con Ñ",
       "prompt": "Toca cada sílaba para escucharla. Repite en voz alta.",
-      "assetRef": "/cartilla/images/source/ñ/ñ-page-28.jpg",
+      "assetRef": "cartilla/images/source/ñ/ñ-page-28.jpg",
       "assetRefSourcePage": "28-Ññ (workbook page 28)",
       "assetRefVerified": true,
       "items": [
@@ -671,7 +671,7 @@
       "kind": "listen-and-tap",
       "title": "Palabras con Ñ",
       "prompt": "Toca cada palabra para escucharla.",
-      "assetRef": "/cartilla/images/source/ñ/ñ-page-29.jpg",
+      "assetRef": "cartilla/images/source/ñ/ñ-page-29.jpg",
       "assetRefSourcePage": "29-Ññ (workbook page 29)",
       "assetRefVerified": true,
       "items": [
@@ -709,7 +709,7 @@
       "kind": "listen-and-tap",
       "title": "Palabras a simple vista",
       "prompt": "Escucha y toca cada palabra.",
-      "assetRef": "/cartilla/images/source/ñ/ñ-page-29.jpg",
+      "assetRef": "cartilla/images/source/ñ/ñ-page-29.jpg",
       "assetRefSourcePage": "29-Ññ (workbook page 29)",
       "assetRefVerified": true,
       "items": [
@@ -731,7 +731,7 @@
       "kind": "read-aloud",
       "title": "Lee en voz alta — sílabas con Ñ",
       "prompt": "Toca cada sílaba y léela en voz alta.",
-      "assetRef": "/cartilla/images/source/ñ/ñ-page-29.jpg",
+      "assetRef": "cartilla/images/source/ñ/ñ-page-29.jpg",
       "assetRefSourcePage": "29-Ññ (workbook page 29)",
       "assetRefVerified": true,
       "items": [
@@ -769,7 +769,7 @@
       "kind": "mini-story",
       "title": "Cuento con Ñ",
       "prompt": "Lee el cuento del cuaderno con tu maestro.",
-      "assetRef": "/cartilla/images/source/ñ/ñ-page-30.jpg",
+      "assetRef": "cartilla/images/source/ñ/ñ-page-30.jpg",
       "assetRefSourcePage": "30-Ññ (workbook page 30)",
       "assetRefVerified": true,
       "items": [],
@@ -786,7 +786,7 @@
       "kind": "drag-syllable-to-slot",
       "title": "Sílabas con J",
       "prompt": "Toca cada sílaba para escucharla. Repite en voz alta.",
-      "assetRef": "/cartilla/images/source/j/j-page-49.jpg",
+      "assetRef": "cartilla/images/source/j/j-page-49.jpg",
       "assetRefSourcePage": "49-Jj (workbook page 49)",
       "assetRefVerified": true,
       "items": [
@@ -855,7 +855,7 @@
       "kind": "listen-and-tap",
       "title": "Palabras con J",
       "prompt": "Toca cada palabra para escucharla.",
-      "assetRef": "/cartilla/images/source/j/j-page-50.jpg",
+      "assetRef": "cartilla/images/source/j/j-page-50.jpg",
       "assetRefSourcePage": "50-Jj (workbook page 50)",
       "assetRefVerified": true,
       "items": [
@@ -893,7 +893,7 @@
       "kind": "read-aloud",
       "title": "Lee en voz alta — sílabas con J",
       "prompt": "Toca cada sílaba y léela en voz alta.",
-      "assetRef": "/cartilla/images/source/j/j-page-50.jpg",
+      "assetRef": "cartilla/images/source/j/j-page-50.jpg",
       "assetRefSourcePage": "50-Jj (workbook page 50)",
       "assetRefVerified": true,
       "items": [
@@ -931,7 +931,7 @@
       "kind": "mini-story",
       "title": "Mini-cuento con J",
       "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
-      "assetRef": "/cartilla/images/source/j/j-page-51.jpg",
+      "assetRef": "cartilla/images/source/j/j-page-51.jpg",
       "assetRefSourcePage": "51-Jj (workbook page 51)",
       "assetRefVerified": true,
       "items": [],
@@ -948,7 +948,7 @@
       "kind": "read-aloud",
       "title": "Frases con J",
       "prompt": "Toca cada frase para escucharla. Repite en voz alta.",
-      "assetRef": "/cartilla/images/source/j/j-page-51.jpg",
+      "assetRef": "cartilla/images/source/j/j-page-51.jpg",
       "assetRefSourcePage": "51-Jj (workbook page 51)",
       "assetRefVerified": true,
       "items": [
@@ -974,7 +974,7 @@
       "kind": "drag-syllable-to-slot",
       "title": "Sílabas con C",
       "prompt": "Toca cada sílaba para escucharla. Repite en voz alta.",
-      "assetRef": "/cartilla/images/source/c/c-page-52.jpg",
+      "assetRef": "cartilla/images/source/c/c-page-52.jpg",
       "assetRefSourcePage": "52-Cc (workbook page 52)",
       "assetRefVerified": true,
       "items": [
@@ -1043,7 +1043,7 @@
       "kind": "listen-and-tap",
       "title": "Palabras con C",
       "prompt": "Toca cada palabra para escucharla.",
-      "assetRef": "/cartilla/images/source/c/c-page-53.jpg",
+      "assetRef": "cartilla/images/source/c/c-page-53.jpg",
       "assetRefSourcePage": "53-Cc (workbook page 53)",
       "assetRefVerified": true,
       "items": [
@@ -1081,7 +1081,7 @@
       "kind": "read-aloud",
       "title": "Lee en voz alta — sílabas con C",
       "prompt": "Toca cada sílaba y léela en voz alta.",
-      "assetRef": "/cartilla/images/source/c/c-page-53.jpg",
+      "assetRef": "cartilla/images/source/c/c-page-53.jpg",
       "assetRefSourcePage": "53-Cc (workbook page 53)",
       "assetRefVerified": true,
       "items": [
@@ -1119,7 +1119,7 @@
       "kind": "mini-story",
       "title": "Mini-cuento con C",
       "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
-      "assetRef": "/cartilla/images/source/c/c-page-53.jpg",
+      "assetRef": "cartilla/images/source/c/c-page-53.jpg",
       "assetRefSourcePage": "53-Cc (workbook page 53)",
       "assetRefVerified": true,
       "items": [],
@@ -1136,7 +1136,7 @@
       "kind": "read-aloud",
       "title": "Frases con C",
       "prompt": "Toca cada frase para escucharla. Repite en voz alta.",
-      "assetRef": "/cartilla/images/source/c/c-page-54.jpg",
+      "assetRef": "cartilla/images/source/c/c-page-54.jpg",
       "assetRefSourcePage": "54-Cc (workbook page 54)",
       "assetRefVerified": true,
       "items": [
@@ -1162,7 +1162,7 @@
       "kind": "drag-syllable-to-slot",
       "title": "Sílabas con Y",
       "prompt": "Toca cada sílaba para escucharla. Repite en voz alta.",
-      "assetRef": "/cartilla/images/source/y/y-page-55.jpg",
+      "assetRef": "cartilla/images/source/y/y-page-55.jpg",
       "assetRefSourcePage": "55-Yy (workbook page 55)",
       "assetRefVerified": true,
       "items": [
@@ -1231,7 +1231,7 @@
       "kind": "listen-and-tap",
       "title": "Palabras con Y",
       "prompt": "Toca cada palabra para escucharla.",
-      "assetRef": "/cartilla/images/source/y/y-page-56.jpg",
+      "assetRef": "cartilla/images/source/y/y-page-56.jpg",
       "assetRefSourcePage": "56-Yy (workbook page 56)",
       "assetRefVerified": true,
       "items": [
@@ -1261,7 +1261,7 @@
       "kind": "read-aloud",
       "title": "Lee en voz alta — sílabas con Y",
       "prompt": "Toca cada sílaba y léela en voz alta.",
-      "assetRef": "/cartilla/images/source/y/y-page-56.jpg",
+      "assetRef": "cartilla/images/source/y/y-page-56.jpg",
       "assetRefSourcePage": "56-Yy (workbook page 56)",
       "assetRefVerified": true,
       "items": [
@@ -1299,7 +1299,7 @@
       "kind": "mini-story",
       "title": "Mini-cuento con Y",
       "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
-      "assetRef": "/cartilla/images/source/y/y-page-56.jpg",
+      "assetRef": "cartilla/images/source/y/y-page-56.jpg",
       "assetRefSourcePage": "56-Yy (workbook page 56)",
       "assetRefVerified": true,
       "items": [],
@@ -1316,7 +1316,7 @@
       "kind": "read-aloud",
       "title": "Frases con Y",
       "prompt": "Toca cada frase para escucharla. Repite en voz alta.",
-      "assetRef": "/cartilla/images/source/y/y-page-57.jpg",
+      "assetRef": "cartilla/images/source/y/y-page-57.jpg",
       "assetRefSourcePage": "57-Yy (workbook page 57)",
       "assetRefVerified": true,
       "items": [
@@ -1342,7 +1342,7 @@
       "kind": "drag-syllable-to-slot",
       "title": "Sílabas con Z",
       "prompt": "Toca cada sílaba para escucharla. Repite en voz alta.",
-      "assetRef": "/cartilla/images/source/z/z-page-58.jpg",
+      "assetRef": "cartilla/images/source/z/z-page-58.jpg",
       "assetRefSourcePage": "58-Zz (workbook page 58)",
       "assetRefVerified": true,
       "items": [
@@ -1411,7 +1411,7 @@
       "kind": "listen-and-tap",
       "title": "Palabras con Z",
       "prompt": "Toca cada palabra para escucharla.",
-      "assetRef": "/cartilla/images/source/z/z-page-59.jpg",
+      "assetRef": "cartilla/images/source/z/z-page-59.jpg",
       "assetRefSourcePage": "59-Zz (workbook page 59)",
       "assetRefVerified": true,
       "items": [
@@ -1445,7 +1445,7 @@
       "kind": "read-aloud",
       "title": "Lee en voz alta — sílabas con Z",
       "prompt": "Toca cada sílaba y léela en voz alta.",
-      "assetRef": "/cartilla/images/source/z/z-page-59.jpg",
+      "assetRef": "cartilla/images/source/z/z-page-59.jpg",
       "assetRefSourcePage": "59-Zz (workbook page 59)",
       "assetRefVerified": true,
       "items": [
@@ -1483,7 +1483,7 @@
       "kind": "mini-story",
       "title": "Mini-cuento con Z — cierre del libro",
       "prompt": "Lee el mini-cuento final del cuaderno con tu maestro.",
-      "assetRef": "/cartilla/images/source/z/z-page-59.jpg",
+      "assetRef": "cartilla/images/source/z/z-page-59.jpg",
       "assetRefSourcePage": "59-Zz (workbook page 59)",
       "assetRefVerified": true,
       "items": [],
@@ -1500,7 +1500,7 @@
       "kind": "read-aloud",
       "title": "Frases con Z — lección final",
       "prompt": "Toca cada frase para escucharla. Repite en voz alta.",
-      "assetRef": "/cartilla/images/source/z/z-page-60.jpg",
+      "assetRef": "cartilla/images/source/z/z-page-60.jpg",
       "assetRefSourcePage": "60-Zz (workbook page 60)",
       "assetRefVerified": true,
       "items": [

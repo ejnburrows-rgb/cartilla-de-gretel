@@ -81,7 +81,7 @@ export function Reader() {
       <div className="mx-auto max-w-lg p-8 text-center">
         <h1 className="mb-2 text-2xl font-bold">No hay libro</h1>
         <p className="text-foreground/70">
-          Coloca el PDF oficial en <code>public/book/book.pdf</code> y vuelve a ejecutar el build.
+          Coloca el PDF oficial en la ruta pública configurada y vuelve a ejecutar el build.
         </p>
       </div>
     );

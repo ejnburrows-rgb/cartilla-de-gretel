@@ -71,7 +71,7 @@ function StudentDetail() {
       <header className="mt-6">
         <h1 className="text-3xl sm:text-4xl font-bold">{data.student.display_name}</h1>
         <p className="text-sm text-foreground/60 mt-1">Código personal: <span className="font-mono font-bold">{data.student.student_code}</span></p>
-        {!isSupabaseConfigured && <div className="mt-3 inline-flex rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-bold text-primary">Modo demo local: progreso leído desde este navegador.</div>}
+        {!isSupabaseConfigured && <div className="mt-3 inline-flex rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-bold text-primary">Modo local: progreso leído desde este navegador.</div>}
       </header>
 
       <section className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">

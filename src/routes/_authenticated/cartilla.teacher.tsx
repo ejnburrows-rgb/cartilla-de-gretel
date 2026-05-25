@@ -5,7 +5,7 @@ import { useServerFn } from "@/lib/useServerFn";
 import { ArrowLeft, Plus, GraduationCap, LogOut, Users, Trash2, Copy, Loader2, MonitorPlay } from "lucide-react";
 import { listClasses, createClass, deleteClass } from "@/lib/teacher.functions";
 import { isSupabaseConfigured, supabase } from "@/integrations/supabase/client";
-import { getDemoTeacher, signOutDemoTeacher, exportDemoStateRaw, importDemoStateRaw, resetDemoStateRaw } from "@/lib/demo-data";
+import { getSeedTeacher, signOutSeedTeacher, exportSeedStateRaw, importSeedStateRaw, resetSeedStateRaw } from "@/lib/seed-data";
 import { routePath } from "@/lib/assets";
 
 export const Route = createFileRoute("/_authenticated/cartilla/teacher")({
@@ -30,7 +30,7 @@ function TeacherDashboard() {
 
   useEffect(() => {
     if (!isSupabaseConfigured) {
-      const teacher = getDemoTeacher();
+      const teacher = getSeedTeacher();
       setTeacherEmail(teacher ? `${teacher.name} · ${teacher.email}` : "");
       return;
     }
@@ -56,7 +56,7 @@ function TeacherDashboard() {
   });
 
   const signOut = async () => {
-    if (!isSupabaseConfigured) signOutDemoTeacher();
+    if (!isSupabaseConfigured) signOutSeedTeacher();
     else await supabase.auth.signOut();
     navigate({ to: "/" });
   };
@@ -82,7 +82,7 @@ function TeacherDashboard() {
           {teacherEmail && <p className="text-sm text-foreground/60 mt-1">{teacherEmail}</p>}
           {!isSupabaseConfigured && (
             <div className="mt-3 inline-flex rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-bold text-primary">
-              Modo demo local: clases, alumnos y progreso se guardan en este navegador.
+              Modo local: clases, alumnos y progreso se guardan en este navegador.
             </div>
           )}
         </div>
@@ -130,17 +130,17 @@ function TeacherDashboard() {
 
       {!isSupabaseConfigured && (
         <section className="mt-6 kid-card p-4 border border-warning/20 bg-warning/5">
-          <h2 className="font-bold mb-2 text-warning">Control de datos Demo Local</h2>
+          <h2 className="font-bold mb-2 text-warning">Control de datos locales</h2>
           <p className="text-xs text-foreground/60 mb-3">Puedes exportar, importar o restablecer el estado completo de clases y progreso.</p>
           <div className="flex flex-wrap gap-2">
             <button
               onClick={() => {
-                const data = exportDemoStateRaw();
+                const data = exportSeedStateRaw();
                 const blob = new Blob([data], { type: "application/json" });
                 const url = URL.createObjectURL(blob);
                 const a = document.createElement("a");
                 a.href = url;
-                a.download = `cartilla-demo-state-${Date.now()}.json`;
+                a.download = `cartilla-local-state-${Date.now()}.json`;
                 a.click();
                 URL.revokeObjectURL(url);
               }}
@@ -160,8 +160,8 @@ function TeacherDashboard() {
                   const reader = new FileReader();
                   reader.onload = (evt) => {
                     const str = evt.target?.result as string;
-                    if (importDemoStateRaw(str)) {
-                      alert("Estado demo importado con éxito.");
+                    if (importSeedStateRaw(str)) {
+                      alert("Estado local importado con éxito.");
                       qc.invalidateQueries({ queryKey: ["teacher", "classes"] });
                     } else alert("Error al importar el archivo JSON.");
                   };
@@ -171,8 +171,8 @@ function TeacherDashboard() {
             </label>
             <button
               onClick={() => {
-                if (confirm("¿Restablecer el estado demo?")) {
-                  resetDemoStateRaw();
+                if (confirm("¿Restablecer el estado local?")) {
+                  resetSeedStateRaw();
                   qc.invalidateQueries({ queryKey: ["teacher", "classes"] });
                 }
               }}

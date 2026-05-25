@@ -92,7 +92,7 @@ function CartillaHome() {
     },
     {
       icon: CheckCircle2,
-      title: "Sin demo como meta",
+      title: "Del libro fisico al CRM de aula",
       desc: "La navegación empuja al cuaderno, CRM docente y flipchart: el producto real, no una maqueta suelta.",
     },
   ];
@@ -162,7 +162,7 @@ function CartillaHome() {
                 La ruta principal ya está centrada en libro + CRM + flipchart.
               </h2>
               <p className="mt-2 max-w-4xl text-base font-semibold leading-relaxed text-foreground/70">
-                Lo importante no es un demo: es que el material viejo de papel se convierta en una herramienta usable para clase, con lectura, seguimiento, asignaciones, proyección y mejora visual constante.
+                Lo importante no es una meta separada: es que el material viejo de papel se convierta en una herramienta usable para clase, con lectura, seguimiento, asignaciones, proyección y mejora visual constante.
               </p>
             </div>
             <a href={routePath("/cartilla/unirse")} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-primary px-5 py-3 text-sm font-black text-primary-foreground shadow-lg shadow-primary/20">
