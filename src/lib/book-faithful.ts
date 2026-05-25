@@ -1,4 +1,5 @@
 import lessonsData from "@/data/lessons.json";
+import sourceArtInventory from "@/data/source-art-inventory.json";
 import { getBookSectionForLesson, getLessonPageNumbers } from "@/lib/cartilla-crm-theme";
 import { CATALOG } from "@/lib/lesson-catalog";
 
@@ -83,7 +84,30 @@ type RawPageScaffold = {
 	bookFaithfulLesson: number;
 };
 
+type SourceArtAsset = {
+	path?: string;
+	verifiedWords?: string[];
+	verifiedSightWords?: string[];
+	verifiedStoryText?: string;
+	illustratedObjects?: string[];
+	description?: string;
+	context?: string;
+	sourceStatus?: string;
+	verificationStatus?: string;
+	transcriptionStatus?: string;
+};
+
+type SourceArtInventory = {
+	assets?: SourceArtAsset[];
+};
+
 const raw = lessonsData as unknown as Raw;
+const sourceInventory = sourceArtInventory as SourceArtInventory;
+const sourceAssetByPath = new Map(
+	(sourceInventory.assets ?? [])
+		.filter((asset): asset is SourceArtAsset & { path: string } => Boolean(asset.path))
+		.map((asset) => [asset.path, asset]),
+);
 
 // ---------------------------------------------------------------------------
 // Constants
@@ -181,15 +205,46 @@ function firstReference(...groups: Array<unknown[] | undefined>) {
 	return null;
 }
 
-function statusForTextBlocks(textBlocks: string[], scaffold: RawPageScaffold | undefined) {
+function sourceTextBlocksForImage(imageRef: string | null): string[] {
+	if (!imageRef) return [];
+	const source = sourceAssetByPath.get(imageRef);
+	if (!source) return [];
+
+	const blocks: string[] = [];
+	if (source.illustratedObjects?.length) {
+		blocks.push(source.illustratedObjects.join(", "));
+	}
+	if (source.verifiedWords?.length) {
+		blocks.push(source.verifiedWords.join(", "));
+	}
+	if (source.verifiedSightWords?.length) {
+		blocks.push(source.verifiedSightWords.join(" · "));
+	}
+	if (source.verifiedStoryText) {
+		blocks.push(...source.verifiedStoryText.split("\n").map((line) => line.trim()).filter(Boolean));
+	}
+
+	return Array.from(new Set(blocks.filter((line) => line.length > 0)));
+}
+
+function statusForTextBlocks(
+	textBlocks: string[],
+	scaffold: RawPageScaffold | undefined,
+	imageRef: string | null,
+) {
 	if (textBlocks.length > 0) return "verified" satisfies WorkbookTranscriptionStatus;
+	const sourceAsset = imageRef ? sourceAssetByPath.get(imageRef) : undefined;
 	const hasSourceRef = Boolean(
 		scaffold &&
 			((scaffold.sourcePages?.length ?? 0) > 0 ||
 				(scaffold.originalImages?.length ?? 0) > 0 ||
 				(scaffold.remasteredImages?.length ?? 0) > 0),
 	);
-	return hasSourceRef ? "partial" : ("missing" satisfies WorkbookTranscriptionStatus);
+	const hasInventoryScan = Boolean(
+		sourceAsset?.sourceStatus === "verified-source-image" ||
+			sourceAsset?.verificationStatus === "source page scan connected",
+	);
+	return hasSourceRef || hasInventoryScan ? "partial" : ("missing" satisfies WorkbookTranscriptionStatus);
 }
 
 export function getWorkbookPagesForLesson(lessonNumber: number): WorkbookPageContent[] {
@@ -201,19 +256,22 @@ export function getWorkbookPagesForLesson(lessonNumber: number): WorkbookPageCon
 
 	return pageNumbers.map((pageNumber, index) => {
 		const scaffold = scaffolds[index];
-		const verifiedTextBlocks = stringifyTextBlocks(scaffold?.textBlocks);
+		const imageScanReference = scaffold
+			? firstReference(scaffold.remasteredImages, scaffold.originalImages, scaffold.sourcePages)
+			: null;
+		const explicitTextBlocks = stringifyTextBlocks(scaffold?.textBlocks);
+		const inventoryTextBlocks = sourceTextBlocksForImage(imageScanReference);
+		const verifiedTextBlocks = explicitTextBlocks.length > 0 ? explicitTextBlocks : inventoryTextBlocks;
 		return {
 			pageNumber,
 			lessonNumber,
 			pageRole,
 			pageType: "workbook-page",
 			verifiedTextBlocks,
-			imageScanReference: scaffold
-				? firstReference(scaffold.remasteredImages, scaffold.originalImages, scaffold.sourcePages)
-				: null,
+			imageScanReference,
 			sourceScaffoldPosition: scaffold?.position ?? null,
 			sourceRawLabel: scaffold?.rawLabel ?? null,
-			transcriptionStatus: statusForTextBlocks(verifiedTextBlocks, scaffold),
+			transcriptionStatus: statusForTextBlocks(verifiedTextBlocks, scaffold, imageScanReference),
 		};
 	});
 }
