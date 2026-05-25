@@ -2,11 +2,15 @@
 User-agent: *
 Allow: /
 
+# === Owner deploy trigger ===
+# commit: owner-trigger-after-901ebf5
+# reason: Vercel Hobby blocks private-repo deployments from non-owner commit authors.
+
 # === Prebuild diagnostic ===
 # startedAt: 2026-05-25T17:49:29.049Z
 # finishedAt: 2026-05-25T17:49:29.679Z
-# commit: unknown
-# branch: unknown
+# commit: 901ebf5639f1f75e73259dc41ee483695803ab68
+# branch: main
 #
 # target: Workbook -> public/book/book.pdf
 #   filterBlockUuid: 933c702e-2d19-442b-9056-7665142fdbdf
