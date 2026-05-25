@@ -6,6 +6,7 @@ import { ArrowLeft, Plus, GraduationCap, LogOut, Users, Trash2, Copy, Loader2, M
 import { listClasses, createClass, deleteClass } from "@/lib/teacher.functions";
 import { isSupabaseConfigured, supabase } from "@/integrations/supabase/client";
 import { getDemoTeacher, signOutDemoTeacher, exportDemoStateRaw, importDemoStateRaw, resetDemoStateRaw } from "@/lib/demo-data";
+import { routePath } from "@/lib/assets";
 
 export const Route = createFileRoute("/_authenticated/cartilla/teacher")({
   component: TeacherRouteShell,
@@ -193,7 +194,7 @@ function TeacherDashboard() {
         {classes?.length === 0 && <div className="kid-card p-6 text-center text-foreground/60">Aún no tienes clases. Crea una para empezar.</div>}
         {classes?.map((c) => (
           <div key={c.id} className="kid-card p-4 flex items-center justify-between gap-3 flex-wrap">
-            <a href={`/cartilla/teacher/clase/${c.id}`} className="flex-1 min-w-0">
+            <a href={routePath(`/cartilla/teacher/clase/${c.id}`)} className="flex-1 min-w-0">
               <div className="font-bold text-lg truncate">{c.name}</div>
               <div className="text-xs text-foreground/60 mt-0.5 inline-flex items-center gap-3">
                 <span className="inline-flex items-center gap-1"><Users className="w-3 h-3" /> {c.student_count} alumnos</span>

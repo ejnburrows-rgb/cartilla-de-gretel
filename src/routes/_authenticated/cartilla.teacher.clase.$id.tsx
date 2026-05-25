@@ -9,6 +9,7 @@ import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
 import { SimpleBarChart } from "@/components/cartilla/SimpleBarChart";
 import { downloadCSV, toCSV } from "@/lib/csv";
 import { isSupabaseConfigured } from "@/integrations/supabase/client";
+import { routePath } from "@/lib/assets";
 
 export const Route = createFileRoute("/_authenticated/cartilla/teacher/clase/$id")({ component: ClassDetail });
 
@@ -117,7 +118,7 @@ function ClassDetail() {
 
       <section className="mt-6">
         <h2 className="font-bold mb-3 text-lg">Alumnos ({data.students.length})</h2>
-        {data.students.length === 0 ? <div className="kid-card p-6 text-center text-foreground/60">Aún no hay alumnos. Agrega algunos arriba.</div> : <div className="space-y-2">{data.students.map((s) => <div key={s.id} className="kid-card p-3 flex items-center justify-between gap-3"><a href={`/cartilla/teacher/alumno/${s.id}`} className="flex-1 min-w-0"><div className="font-bold truncate">{s.display_name}</div><div className="text-xs text-foreground/60 mt-0.5 flex flex-wrap gap-x-3"><span>Código: <span className="font-mono font-bold">{s.student_code}</span></span><span className="inline-flex items-center gap-1"><BookOpen className="w-3 h-3" /> {s.lessons}/{TOTAL_LESSONS} lecciones</span><span>{s.events} eventos</span>{s.lastSeen && <span>· última actividad {new Date(s.lastSeen).toLocaleDateString()}</span>}</div></a><button onClick={() => navigator.clipboard?.writeText(s.student_code)} className="p-2 rounded-lg hover:bg-secondary text-foreground/60" aria-label="Copiar código" title="Copiar código"><Copy className="w-4 h-4" /></button><button onClick={() => { if (confirm(`¿Eliminar a ${s.display_name}? Se borrará su progreso.`)) delMut.mutate(s.id); }} className="p-2 rounded-lg hover:bg-destructive/10 text-destructive" aria-label="Eliminar alumno"><Trash2 className="w-4 h-4" /></button></div>)}</div>}
+        {data.students.length === 0 ? <div className="kid-card p-6 text-center text-foreground/60">Aún no hay alumnos. Agrega algunos arriba.</div> : <div className="space-y-2">{data.students.map((s) => <div key={s.id} className="kid-card p-3 flex items-center justify-between gap-3"><a href={routePath(`/cartilla/teacher/alumno/${s.id}`)} className="flex-1 min-w-0"><div className="font-bold truncate">{s.display_name}</div><div className="text-xs text-foreground/60 mt-0.5 flex flex-wrap gap-x-3"><span>Código: <span className="font-mono font-bold">{s.student_code}</span></span><span className="inline-flex items-center gap-1"><BookOpen className="w-3 h-3" /> {s.lessons}/{TOTAL_LESSONS} lecciones</span><span>{s.events} eventos</span>{s.lastSeen && <span>· última actividad {new Date(s.lastSeen).toLocaleDateString()}</span>}</div></a><button onClick={() => navigator.clipboard?.writeText(s.student_code)} className="p-2 rounded-lg hover:bg-secondary text-foreground/60" aria-label="Copiar código" title="Copiar código"><Copy className="w-4 h-4" /></button><button onClick={() => { if (confirm(`¿Eliminar a ${s.display_name}? Se borrará su progreso.`)) delMut.mutate(s.id); }} className="p-2 rounded-lg hover:bg-destructive/10 text-destructive" aria-label="Eliminar alumno"><Trash2 className="w-4 h-4" /></button></div>)}</div>}
       </section>
     </main>
   );

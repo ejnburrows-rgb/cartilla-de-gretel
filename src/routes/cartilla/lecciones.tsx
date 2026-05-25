@@ -8,6 +8,7 @@ import { hydrateLessonProgress, useLessonProgress } from "@/lib/lesson-progress"
 import { getMyProgress } from "@/lib/student.functions";
 import { useProgressSyncStatus, useStudentSession } from "@/lib/student-session";
 import { isSupabaseConfigured } from "@/integrations/supabase/client";
+import { routePath } from "@/lib/assets";
 
 export const Route = createFileRoute("/cartilla/lecciones")({
   component: Lecciones,
@@ -122,7 +123,7 @@ function Lecciones() {
             return (
               <li key={entry.n} className="list-none">
                 <a
-                  href={`/cartilla/leccion/${entry.n}`}
+                  href={routePath(`/cartilla/leccion/${entry.n}`)}
                   className="block rounded-2xl border-2 p-4 h-full transition shadow-sm bg-card border-foreground/10 hover:shadow-md hover:-translate-y-0.5 cursor-pointer"
                 >
                   <div className="flex items-start justify-between gap-2 mb-2">

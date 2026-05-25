@@ -6,6 +6,7 @@ import { ArrowLeft, Loader2, BookOpen, Award, Clock, Target, Activity } from "lu
 import { getStudentProgress } from "@/lib/teacher.functions";
 import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
 import { isSupabaseConfigured } from "@/integrations/supabase/client";
+import { routePath } from "@/lib/assets";
 
 export const Route = createFileRoute("/_authenticated/cartilla/teacher/alumno/$id")({ component: StudentDetail });
 
@@ -63,7 +64,7 @@ function StudentDetail() {
 
   return (
     <main className="min-h-screen bg-background px-4 py-6 max-w-4xl mx-auto">
-      <a href={`/cartilla/teacher/clase/${data.class?.id ?? ""}`} className="inline-flex items-center gap-2 text-sm font-bold text-foreground/60 hover:text-foreground">
+      <a href={routePath(`/cartilla/teacher/clase/${data.class?.id ?? ""}`)} className="inline-flex items-center gap-2 text-sm font-bold text-foreground/60 hover:text-foreground">
         <ArrowLeft className="w-4 h-4" /> {data.class?.name ?? "Clase"}
       </a>
 
