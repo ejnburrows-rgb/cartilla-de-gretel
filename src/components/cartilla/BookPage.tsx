@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import type { CatalogEntry } from "@/types/cartilla";
 import { DragBuildWord } from "./DragBuildWord";
 
@@ -36,6 +37,43 @@ function sectionTone(kind: CatalogEntry["kind"]): {
   }
 }
 
+function pageStyle(background: string): CSSProperties {
+  return { background };
+}
+
+function paperTextureStyle(): CSSProperties {
+  return {
+    background:
+      "radial-gradient(circle at 20% 15%, rgba(255,255,255,0.72), transparent 24%), radial-gradient(circle at 80% 85%, rgba(255,255,255,0.45), transparent 28%)",
+  };
+}
+
+function centerFoldStyle(accentSoft: string): CSSProperties {
+  return {
+    background: `linear-gradient(to bottom, transparent, ${accentSoft}, transparent)`,
+  };
+}
+
+function glowStyle(accent: string): CSSProperties {
+  return { background: `radial-gradient(circle, ${accent}33 0%, transparent 70%)` };
+}
+
+function contentStyle(color: string): CSSProperties {
+  return { color };
+}
+
+function mutedStyle(color: string): CSSProperties {
+  return { color: `${color}99` };
+}
+
+function titleStyle(color: string): CSSProperties {
+  return { color };
+}
+
+function footerStyle(accentSoft: string): CSSProperties {
+  return { borderColor: accentSoft };
+}
+
 export function BookPage({ entry }: BookPageProps) {
   const tone = sectionTone(entry.kind);
   const accent = entry.color || tone.textColor;
@@ -43,54 +81,39 @@ export function BookPage({ entry }: BookPageProps) {
   return (
     <div
       className="relative w-full h-full rounded-2xl overflow-hidden"
-      style={{
-        background: tone.bg,
-        boxShadow:
-          "0 30px 60px rgba(0,0,0,0.18), inset 0 0 0 4px rgba(120,53,15,0.12)",
-      }}
+      style={pageStyle(tone.bg)}
     >
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 1px 1px, rgba(120,80,40,0.13) 1px, transparent 0)",
-          backgroundSize: "4px 4px",
-          opacity: 0.4,
-        }}
+        style={paperTextureStyle()}
       />
       <div
         className="absolute top-0 bottom-0 left-1/2 w-px pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(180deg, transparent 0%, rgba(120,53,15,0.10) 50%, transparent 100%)",
-        }}
+        style={centerFoldStyle(tone.accentSoft)}
       />
       <div
         className="absolute -top-12 -right-12 w-48 h-48 rounded-full opacity-30 pointer-events-none"
-        style={{ background: `radial-gradient(circle, ${accent}33 0%, transparent 70%)` }}
+        style={glowStyle(accent)}
       />
 
       <div
         className="relative h-full flex flex-col p-6 sm:p-10"
-        style={{ color: tone.textColor }}
+        style={contentStyle(tone.textColor)}
       >
         <div
           className="text-[10px] sm:text-xs font-bold uppercase tracking-widest"
-          style={{ color: tone.accentSoft }}
+          style={mutedStyle(tone.textColor)}
         >
           Lección {entry.n} · {tone.label}
         </div>
         <h1
           className="text-5xl sm:text-7xl font-bold mt-1 leading-none"
-          style={{
-            color: accent,
-            fontFamily: "'Fredoka', ui-rounded, system-ui, sans-serif",
-          }}
+          style={titleStyle(accent)}
         >
           {entry.title}
         </h1>
         {entry.pages && (
-          <p className="mt-1 text-xs sm:text-sm" style={{ color: tone.accentSoft }}>
+          <p className="mt-1 text-xs sm:text-sm" style={mutedStyle(tone.textColor)}>
             Páginas {entry.pages}
           </p>
         )}
@@ -101,7 +124,7 @@ export function BookPage({ entry }: BookPageProps) {
 
         <footer
           className="mt-3 pt-2 border-t-2 border-dashed flex items-center justify-between text-[10px]"
-          style={{ color: tone.accentSoft, borderColor: "rgba(120,53,15,0.15)" }}
+          style={footerStyle(tone.accentSoft)}
         >
           <span>La Cartilla de Gretel · Leonor Lopetegui</span>
           <span>Lanny Books</span>
