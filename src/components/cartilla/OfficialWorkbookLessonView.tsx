@@ -40,6 +40,9 @@ const BOOK_ANIMATION = {
   transition: { duration: 0.4, ease: "easeOut" as const }
 };
 
+const PAGE_PAPER_TEXTURE =
+  "before:pointer-events-none before:absolute before:inset-0 before:rounded-[1.75rem] before:bg-[radial-gradient(circle_at_18%_14%,rgba(255,255,255,0.72),transparent_24%),radial-gradient(circle_at_76%_84%,rgba(120,53,15,0.08),transparent_22%),linear-gradient(90deg,rgba(120,53,15,0.08),transparent_9%,transparent_91%,rgba(120,53,15,0.07))] before:mix-blend-multiply before:opacity-70 before:z-0";
+
 export function OfficialWorkbookLessonView({
   lessonNumber,
   pages,
@@ -189,22 +192,26 @@ export function OfficialWorkbookLessonView({
       <div className="relative w-full max-w-5xl mx-auto flex flex-col select-none">
         
         {/* Shadow sheet page effect behind */}
-        <div className="absolute inset-x-2 -bottom-2 h-full rounded-[2.5rem] bg-[#fffdf9]/60 border border-stone-300/40 shadow-sm -z-10" />
-        <div className="absolute inset-x-4 -bottom-4 h-full rounded-[2.5rem] bg-[#fffdf9]/45 border border-stone-300/30 shadow-xs -z-20" />
+        <div className="absolute inset-x-2 -bottom-2 h-full rounded-[2.5rem] bg-[#fffdf9]/70 border border-stone-300/50 shadow-sm -z-10" />
+        <div className="absolute inset-x-5 -bottom-4 h-full rounded-[2.5rem] bg-[#efe0c1]/70 border border-amber-950/10 shadow-xs -z-20" />
+        <div className="absolute inset-x-10 -bottom-6 h-full rounded-[2.5rem] bg-[#d9bd8b]/35 border border-amber-950/10 -z-30" />
+        <div className="pointer-events-none absolute -inset-x-8 bottom-[-1.25rem] h-20 rounded-[50%] bg-[#2c1e16]/24 blur-2xl -z-40" />
 
         {/* Active open workbook layout with heavy binder cover styling */}
-        <div className="relative rounded-[2.5rem] bg-[#f4ead4] border-4 border-[#3A281E]/20 shadow-[0_30px_70px_rgba(50,30,10,0.22)] p-2 sm:p-4 overflow-hidden">
+        <div className="relative rounded-[2.5rem] bg-[linear-gradient(135deg,#ead7af,#f6ecd7_38%,#d9bc83)] border-4 border-[#3A281E]/20 shadow-[0_34px_80px_rgba(50,30,10,0.28),inset_0_1px_0_rgba(255,255,255,0.65)] p-2 sm:p-4 overflow-hidden">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_12%,rgba(255,255,255,0.42),transparent_26%),radial-gradient(circle_at_86%_86%,rgba(76,44,18,0.16),transparent_34%)]" />
           
           {/* Subtle center fold shadow overlay for realism */}
-          <div className="absolute inset-y-0 left-1/2 w-10 -ml-5 bg-gradient-to-r from-transparent via-[#2C1E16]/15 to-transparent pointer-events-none z-15" />
+          <div className="absolute inset-y-0 left-1/2 w-16 -ml-8 bg-gradient-to-r from-transparent via-[#2C1E16]/20 to-transparent pointer-events-none z-15" />
+          <div className="absolute inset-y-7 left-1/2 w-1 -ml-px rounded-full bg-[#fff8e8]/70 shadow-[0_0_18px_rgba(50,30,10,0.28)] pointer-events-none z-20" />
 
           <div className={cn(
-            "grid gap-4 items-stretch",
+            "relative z-10 grid gap-4 items-stretch",
             isDoublePage ? "md:grid-cols-2" : "grid-cols-1"
           )}>
             
             {/* LEFT PAGE (or unique page) */}
-            <div className="relative flex flex-col justify-between bg-[#fffdf9] rounded-[1.75rem] p-4 sm:p-6 border border-stone-200 shadow-[inset_0_2px_4px_rgba(255,255,255,0.8),0_4px_10px_rgba(0,0,0,0.06),4px_6px_0_-2px_#fffcf8,8px_10px_0_-4px_#faf7ef]">
+            <div className={cn("relative flex flex-col justify-between bg-[#fffdf9] rounded-[1.75rem] p-4 sm:p-6 border border-stone-200 shadow-[inset_0_2px_4px_rgba(255,255,255,0.8),0_8px_18px_rgba(55,35,18,0.10),4px_6px_0_-2px_#fffcf8,8px_10px_0_-4px_#faf7ef,12px_14px_0_-7px_#efe4d0]", PAGE_PAPER_TEXTURE)}>
               
               {/* Binder Spiral down the right edge of left page on desktop */}
               {isDoublePage && (
@@ -214,7 +221,7 @@ export function OfficialWorkbookLessonView({
               )}
 
               {/* Page content */}
-              <div className="flex-1">
+              <div className="relative z-10 flex-1">
                 <OfficialWorkbookPage source={leftSource} />
                 {belowPage?.(leftSource.pageNumber)}
               </div>
@@ -222,9 +229,9 @@ export function OfficialWorkbookLessonView({
 
             {/* RIGHT PAGE (only visible on side-by-side mode) */}
             {isDoublePage && (
-              <div className="relative flex flex-col justify-between bg-[#fffdf9] rounded-[1.75rem] p-4 sm:p-6 border border-stone-200 shadow-[inset_0_2px_4px_rgba(255,255,255,0.8),0_4px_10px_rgba(0,0,0,0.06),4px_6px_0_-2px_#fffcf8,8px_10px_0_-4px_#faf7ef]">
+              <div className={cn("relative flex flex-col justify-between bg-[#fffdf9] rounded-[1.75rem] p-4 sm:p-6 border border-stone-200 shadow-[inset_0_2px_4px_rgba(255,255,255,0.8),0_8px_18px_rgba(55,35,18,0.10),4px_6px_0_-2px_#fffcf8,8px_10px_0_-4px_#faf7ef,12px_14px_0_-7px_#efe4d0]", PAGE_PAPER_TEXTURE)}>
                 {rightSource ? (
-                  <div className="flex-1">
+                  <div className="relative z-10 flex-1">
                     <OfficialWorkbookPage source={rightSource} />
                     {belowPage?.(rightSource.pageNumber)}
                   </div>
