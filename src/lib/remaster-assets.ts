@@ -19,6 +19,22 @@ export type RemasterAsset = {
 
 export type QualityMode = "source" | "enhanced" | "projection";
 
+export type RemasterPresentationStatus =
+  | "original-scan"
+  | "cleaned-image"
+  | "projection-candidate"
+  | "approved-student"
+  | "approved-teacher"
+  | "needs-correction";
+
+export type RemasterPresentation = {
+  status: RemasterPresentationStatus;
+  label: string;
+  description: string;
+  bestPath?: string;
+  bestSource: "original" | "cleaned" | "projection";
+};
+
 const assets = remasterInventory.assets as RemasterAsset[];
 
 function publicAsset(path?: string | null) {
@@ -46,12 +62,82 @@ export function getBestDisplayPath(originalPath?: string | null, mode: QualityMo
   return publicAsset(originalPath);
 }
 
+export function getRemasterPresentation(asset?: RemasterAsset | null): RemasterPresentation {
+  if (!asset) {
+    return {
+      status: "original-scan",
+      label: "Original scan",
+      description: "No remaster record is connected; use the source scan.",
+      bestSource: "original",
+    };
+  }
+
+  if (asset.approvedForStudent) {
+    return {
+      status: "approved-student",
+      label: "Approved for student",
+      description: "Inventory marks this image approved for student-facing use.",
+      bestPath: publicAsset(asset.remasteredPathV2 ?? asset.remasteredPath),
+      bestSource: asset.remasteredPathV2 ? "projection" : "cleaned",
+    };
+  }
+
+  if (asset.approvedForTeacher) {
+    return {
+      status: "approved-teacher",
+      label: "Approved for teacher",
+      description: "Inventory marks this image approved for teacher projection use.",
+      bestPath: publicAsset(asset.remasteredPathV2 ?? asset.remasteredPath),
+      bestSource: asset.remasteredPathV2 ? "projection" : "cleaned",
+    };
+  }
+
+  if (asset.approvalStatus === "rejected") {
+    return {
+      status: "needs-correction",
+      label: "Needs correction",
+      description: "Inventory marks the remaster rejected; keep the source scan visible for reference.",
+      bestPath: publicAsset(asset.originalSourcePath),
+      bestSource: "original",
+    };
+  }
+
+  if (asset.remasteredPathV2 || asset.cleanupStatus === "needs review") {
+    return {
+      status: "projection-candidate",
+      label: "Projection candidate",
+      description: "Candidate image is ready for visual review, not approved.",
+      bestPath: publicAsset(asset.remasteredPathV2 ?? asset.remasteredPath),
+      bestSource: asset.remasteredPathV2 ? "projection" : "cleaned",
+    };
+  }
+
+  if (asset.cleanupStatus === "cleaned" || asset.cleanupStatus === "approved" || asset.approvalStatus === "approved") {
+    return {
+      status: "cleaned-image",
+      label: "Cleaned image",
+      description: "Basic cleaned image is available, but student/teacher approval must come from inventory flags.",
+      bestPath: publicAsset(asset.remasteredPath),
+      bestSource: "cleaned",
+    };
+  }
+
+  return {
+    status: "original-scan",
+    label: "Original scan",
+    description: "Only the raw source scan is available in the inventory.",
+    bestPath: publicAsset(asset.originalSourcePath),
+    bestSource: "original",
+  };
+}
+
 export function getQualityLabel(originalPath?: string | null, mode: QualityMode = "projection") {
   const asset = getRemasterAssetByOriginal(originalPath);
-  if (!asset || mode === "source") return "Escaneo original";
-  if (mode === "projection" && asset.remasteredPathV2) return "V2 proyección";
-  if (asset.cleanupStatus === "cleaned" || asset.approvalStatus === "approved") return "Imagen corregida";
-  return "Escaneo conectado";
+  if (!asset || mode === "source") return "Original scan";
+  const presentation = getRemasterPresentation(asset);
+  if (mode === "projection") return presentation.label;
+  if (asset.cleanupStatus === "cleaned" || asset.approvalStatus === "approved") return "Cleaned image";
+  return "Original scan";
 }
 
 export function getRemasterProgress() {

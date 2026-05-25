@@ -34,21 +34,21 @@ const pageVariants = {
     opacity: 0,
     scale: 0.985,
     x: dir > 0 ? 22 : -22,
-    filter: "drop-shadow(0 28px 32px rgba(0,0,0,0.24))",
+    filter: "drop-shadow(0 32px 48px rgba(44,30,22,0.32))",
   }),
   center: {
     rotateY: 0,
     opacity: 1,
     scale: 1,
     x: 0,
-    filter: "drop-shadow(0 18px 28px rgba(0,0,0,0.16))",
+    filter: "drop-shadow(0 24px 36px rgba(44,30,22,0.22))",
   },
   exit: (dir: number) => ({
     rotateY: dir > 0 ? -74 : 74,
     opacity: 0,
     scale: 0.985,
     x: dir > 0 ? -22 : 22,
-    filter: "drop-shadow(0 28px 32px rgba(0,0,0,0.24))",
+    filter: "drop-shadow(0 32px 48px rgba(44,30,22,0.32))",
   }),
 };
 

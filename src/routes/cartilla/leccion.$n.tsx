@@ -150,15 +150,19 @@ function Leccion() {
         {entry.kind === "consonant" && <ConsonantBody entry={entry} lessonId={String(n)} />}
         {done && <div className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-success"><Check className="w-4 h-4" /> Ya completaste esta lección</div>}
       </main>
-      <nav className="fixed bottom-0 inset-x-0 p-3 bg-background/95 backdrop-blur border-t-2 border-foreground/10">
+      <nav className="fixed bottom-0 inset-x-0 p-3.5 bg-[#FAF7F0]/95 backdrop-blur border-t border-amber-900/15 shadow-[0_-8px_30px_rgba(50,30,10,0.08)]">
         <div className="max-w-3xl mx-auto flex items-center justify-between gap-3">
           <button
             onClick={() => n > 1 ? navigate({ to: "/cartilla/leccion/$n", params: { n: String(n - 1) } }) : navigate({ to: "/cartilla/lecciones" })}
-            className="px-5 py-3 rounded-2xl border-2 border-foreground/15 font-bold hover:bg-secondary"
+            className="px-5 py-3 sm:px-6 sm:py-3.5 rounded-2xl border border-amber-900/20 bg-white font-extrabold text-sm sm:text-base text-amber-950 shadow-xs hover:bg-stone-50 disabled:opacity-35 active:scale-[0.98] transition cursor-pointer"
           >
             <ArrowLeft className="w-5 h-5 inline mr-1" /> {n > 1 ? "Anterior" : "Índice"}
           </button>
-          <button onClick={goNext} disabled={isLast && done} className="px-6 py-3 rounded-2xl bg-primary text-primary-foreground font-bold text-lg disabled:opacity-40 hover:translate-y-px">
+          <button 
+            onClick={goNext} 
+            disabled={isLast && done} 
+            className="px-6 py-3 sm:px-8 sm:py-3.5 rounded-2xl bg-amber-800 hover:bg-amber-900 text-[#fffdf9] font-extrabold text-base sm:text-lg shadow-sm disabled:opacity-35 active:scale-[0.98] transition cursor-pointer"
+          >
             {isLast ? done ? "Terminado" : "Marcar y terminar" : done ? "Siguiente" : "Marcar y siguiente"} <ArrowRight className="w-5 h-5 inline ml-1" />
           </button>
         </div>

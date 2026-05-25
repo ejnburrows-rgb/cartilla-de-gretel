@@ -123,16 +123,16 @@ export function OfficialWorkbookLessonView({
       transition={BOOK_ANIMATION.transition}
     >
       {/* Top Controls Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 rounded-3xl bg-card border-2 border-foreground/5 shadow-sm premium-glass">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 rounded-3xl bg-[#fffdf9] border-2 border-amber-950/10 shadow-[0_10px_30px_rgba(50,30,10,0.05)]">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-secondary flex items-center justify-center text-primary border border-foreground/5 shrink-0">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-amber-950/5 flex items-center justify-center text-amber-800 border border-amber-950/5 shrink-0">
             <BookOpen className="w-5 h-5 sm:w-6 sm:h-6" style={getAccentTextStyle(accent)} />
           </div>
           <div>
-            <h3 className="font-extrabold text-sm sm:text-base text-foreground/80 leading-none">
+            <h3 className="font-black text-sm sm:text-base text-[#3A281E] leading-none">
               {mode === "teacher" ? "Presentación del maestro" : "Cuaderno Oficial"}
             </h3>
-            <span className="text-[11px] sm:text-xs font-bold text-foreground/50 mt-1 block">
+            <span className="text-[11px] sm:text-xs font-bold text-stone-500 mt-1 block">
               {mode === "teacher" ? "Libro proyectable en clase de alta resolución" : "Sigue la lección en tu libro impreso"}
             </span>
           </div>
@@ -141,19 +141,19 @@ export function OfficialWorkbookLessonView({
         {/* Interface Switcher & Views */}
         <div className="flex items-center gap-2 flex-wrap sm:justify-end">
           {/* Pages count indicator */}
-          <div className="text-xs font-extrabold text-foreground/60 mr-2 bg-secondary/40 px-3 py-1.5 rounded-xl border border-foreground/5">
+          <div className="text-xs font-extrabold text-amber-950/80 bg-amber-950/5 px-3 py-1.5 rounded-xl border border-amber-950/10">
             Pág. {pages}
           </div>
 
           {/* Mode Toggles */}
           {sources.length > 1 && (
-            <div className="flex rounded-2xl border border-foreground/10 bg-background/50 p-1">
+            <div className="flex rounded-2xl border border-stone-200 bg-[#FAF7F0] p-1">
               <button
                 type="button"
                 onClick={() => setTwoPageMode(false)}
                 className={cn(
                   "p-1.5 rounded-xl transition cursor-pointer",
-                  !twoPageMode ? "bg-card shadow-sm text-primary" : "text-foreground/50 hover:text-foreground"
+                  !twoPageMode ? "bg-[#fffdfa] shadow-xs text-amber-800" : "text-stone-400 hover:text-stone-700"
                 )}
                 title="Vista página única"
               >
@@ -164,7 +164,7 @@ export function OfficialWorkbookLessonView({
                 onClick={() => setTwoPageMode(true)}
                 className={cn(
                   "p-1.5 rounded-xl transition cursor-pointer",
-                  twoPageMode ? "bg-card shadow-sm text-primary" : "text-foreground/50 hover:text-foreground"
+                  twoPageMode ? "bg-[#fffdfa] shadow-xs text-amber-800" : "text-stone-400 hover:text-stone-700"
                 )}
                 title="Vista doble página"
               >
@@ -177,8 +177,7 @@ export function OfficialWorkbookLessonView({
           <button
             type="button"
             onClick={handleToggleFullscreen}
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-2xl bg-primary text-primary-foreground text-xs font-bold shadow-md hover:scale-[1.02] active:scale-[0.98] transition cursor-pointer"
-            style={getAccentBgStyle(accent)}
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-2xl bg-amber-800 hover:bg-amber-900 text-[#fffdf9] text-xs font-black shadow-md hover:scale-[1.02] active:scale-[0.98] transition cursor-pointer"
           >
             <Maximize2 className="w-3.5 h-3.5" />
             <span>Pantalla Completa</span>
@@ -190,14 +189,14 @@ export function OfficialWorkbookLessonView({
       <div className="relative w-full max-w-5xl mx-auto flex flex-col select-none">
         
         {/* Shadow sheet page effect behind */}
-        <div className="absolute inset-x-2 -bottom-2 h-full rounded-[2.5rem] bg-card/60 border border-foreground/5 shadow-md -z-10" />
-        <div className="absolute inset-x-4 -bottom-4 h-full rounded-[2.5rem] bg-card/45 border border-foreground/5 shadow-md -z-20" />
+        <div className="absolute inset-x-2 -bottom-2 h-full rounded-[2.5rem] bg-[#fffdf9]/60 border border-stone-300/40 shadow-sm -z-10" />
+        <div className="absolute inset-x-4 -bottom-4 h-full rounded-[2.5rem] bg-[#fffdf9]/45 border border-stone-300/30 shadow-xs -z-20" />
 
-        {/* Active open workbook layout */}
-        <div className="relative rounded-[2rem] bg-card/95 border-2 border-foreground/10 shadow-2xl p-2 sm:p-4 overflow-hidden">
+        {/* Active open workbook layout with heavy binder cover styling */}
+        <div className="relative rounded-[2.5rem] bg-[#f4ead4] border-4 border-[#3A281E]/20 shadow-[0_30px_70px_rgba(50,30,10,0.22)] p-2 sm:p-4 overflow-hidden">
           
           {/* Subtle center fold shadow overlay for realism */}
-          <div className="absolute inset-y-0 left-1/2 w-8 -ml-4 bg-gradient-to-r from-transparent via-foreground/[0.04] to-transparent pointer-events-none z-10" />
+          <div className="absolute inset-y-0 left-1/2 w-10 -ml-5 bg-gradient-to-r from-transparent via-[#2C1E16]/15 to-transparent pointer-events-none z-15" />
 
           <div className={cn(
             "grid gap-4 items-stretch",
@@ -205,7 +204,7 @@ export function OfficialWorkbookLessonView({
           )}>
             
             {/* LEFT PAGE (or unique page) */}
-            <div className="relative flex flex-col justify-between bg-[#fffff8] rounded-2xl p-3 sm:p-4 md:p-6 border border-foreground/5 shadow-inner">
+            <div className="relative flex flex-col justify-between bg-[#fffdf9] rounded-[1.75rem] p-4 sm:p-6 border border-stone-200 shadow-[inset_0_2px_4px_rgba(255,255,255,0.8),0_4px_10px_rgba(0,0,0,0.06),4px_6px_0_-2px_#fffcf8,8px_10px_0_-4px_#faf7ef]">
               
               {/* Binder Spiral down the right edge of left page on desktop */}
               {isDoublePage && (
@@ -223,19 +222,19 @@ export function OfficialWorkbookLessonView({
 
             {/* RIGHT PAGE (only visible on side-by-side mode) */}
             {isDoublePage && (
-              <div className="relative flex flex-col justify-between bg-[#fffff8] rounded-2xl p-3 sm:p-4 md:p-6 border border-foreground/5 shadow-inner">
+              <div className="relative flex flex-col justify-between bg-[#fffdf9] rounded-[1.75rem] p-4 sm:p-6 border border-stone-200 shadow-[inset_0_2px_4px_rgba(255,255,255,0.8),0_4px_10px_rgba(0,0,0,0.06),4px_6px_0_-2px_#fffcf8,8px_10px_0_-4px_#faf7ef]">
                 {rightSource ? (
                   <div className="flex-1">
                     <OfficialWorkbookPage source={rightSource} />
                     {belowPage?.(rightSource.pageNumber)}
                   </div>
                 ) : (
-                  <div className="flex-1 flex flex-col items-center justify-center min-h-[300px] border-2 border-dashed border-foreground/10 rounded-2xl p-6">
-                    <Info className="w-10 h-10 text-foreground/30 mb-2" />
-                    <h4 className="font-extrabold text-foreground/60 text-center text-sm">
+                  <div className="flex-1 flex flex-col items-center justify-center min-h-[300px] border-2 border-dashed border-stone-250 bg-stone-50/50 rounded-[1.5rem] p-6">
+                    <Info className="w-10 h-10 text-stone-300 mb-2" />
+                    <h4 className="font-extrabold text-stone-600 text-center text-sm">
                       Fin del segmento
                     </h4>
-                    <p className="text-xs text-foreground/40 text-center max-w-[200px] mt-1">
+                    <p className="text-xs text-stone-400 text-center max-w-[200px] mt-1 font-medium leading-relaxed">
                       Esta lección no tiene más páginas oficiales en el cuaderno.
                     </p>
                   </div>
@@ -245,30 +244,30 @@ export function OfficialWorkbookLessonView({
           </div>
 
           {/* Quick Page Turning Affordance Indicators */}
-          <div className="flex items-center justify-between mt-4 px-1 sm:px-2">
+          <div className="flex items-center justify-between mt-5 px-1 sm:px-2 relative z-10">
             <button
               type="button"
               onClick={handlePrev}
               disabled={selectedIdx === 0}
-              className="inline-flex items-center gap-1.5 px-4 py-3 sm:px-5 sm:py-3.5 rounded-2xl border border-foreground/10 text-sm font-extrabold text-foreground/70 bg-card hover:bg-secondary/60 disabled:opacity-30 disabled:hover:bg-card shadow-sm active:scale-95 transition cursor-pointer"
+              className="inline-flex items-center gap-2 px-5 py-3 sm:px-6 sm:py-3.5 rounded-2xl border border-amber-900/15 text-sm font-extrabold text-[#3A281E] bg-white hover:bg-stone-50 disabled:opacity-30 disabled:hover:bg-white shadow-xs active:scale-[0.98] transition cursor-pointer"
             >
               <ChevronLeft className="w-5 h-5" />
-              <span className="hidden sm:inline">Anterior</span>
+              <span>Anterior</span>
             </button>
 
             {/* Verified badge status */}
-            <div className="hidden sm:flex items-center gap-1.5 text-xs text-foreground/50">
-              <CheckCircle className="w-4 h-4 text-success" />
-              <span className="font-bold">Ilustración original remasterizada</span>
+            <div className="hidden sm:flex items-center gap-1.5 text-xs text-amber-950/60 bg-[#fffdf9]/90 border border-stone-200/80 px-4 py-2 rounded-full shadow-xs">
+              <CheckCircle className="w-4 h-4 text-emerald-600" />
+              <span className="font-extrabold">Ilustración original remasterizada</span>
             </div>
 
             <button
               type="button"
               onClick={handleNext}
               disabled={isDoublePage ? (selectedIdx + 2 >= sources.length) : (selectedIdx + 1 >= sources.length)}
-              className="inline-flex items-center gap-1.5 px-4 py-3 sm:px-5 sm:py-3.5 rounded-2xl border border-foreground/10 text-sm font-extrabold text-foreground/70 bg-card hover:bg-secondary/60 disabled:opacity-30 disabled:hover:bg-card shadow-sm active:scale-95 transition cursor-pointer"
+              className="inline-flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-3.5 rounded-2xl bg-amber-800 text-white font-extrabold text-sm sm:text-base shadow-sm hover:bg-amber-900 disabled:opacity-30 active:scale-[0.98] transition cursor-pointer"
             >
-              <span className="hidden sm:inline">Siguiente</span>
+              <span>Siguiente</span>
               <ChevronRight className="w-5 h-5" />
             </button>
           </div>

@@ -4,7 +4,6 @@ import {
   ArrowLeft,
   CheckCircle2,
   Clock,
-  Eye,
   AlertCircle,
   Sparkles,
   Filter,
@@ -16,24 +15,12 @@ import {
   ChevronLeft,
   ChevronRight,
   Info,
+  Image,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { assetPath } from "@/lib/assets";
+import { getRemasterPresentation, type RemasterAsset, type RemasterPresentation } from "@/lib/remaster-assets";
 import remasterInventory from "@/data/remaster-inventory.json";
-
-interface RemasterAsset {
-  originalSourcePath: string;
-  remasteredPath: string;
-  remasteredPathV2?: string;
-  cleanupStatus: "pending" | "cleaned" | "needs review" | "approved";
-  artifactFixed: boolean;
-  remasterType: string;
-  approvalStatus: "approved" | "rejected" | "pending";
-  type: "student-workbook" | "teacher-flipchart";
-  remasterVersion?: string;
-  artifactLineFixAttempted?: boolean;
-  notes?: string;
-}
 
 type Decision = "approve" | "reject" | "tune" | null;
 
@@ -66,6 +53,73 @@ function publicAsset(path?: string) {
   return path ? assetPath(path) : "";
 }
 
+function filename(path: string) {
+  return path.split("/").pop() ?? path;
+}
+
+function statusBadgeStyle(presentation: RemasterPresentation) {
+  if (presentation.status === "approved-student") return "bg-emerald-500/15 text-emerald-300 border-emerald-500/30";
+  if (presentation.status === "approved-teacher") return "bg-teal-500/15 text-teal-300 border-teal-500/30";
+  if (presentation.status === "projection-candidate") return "bg-indigo-500/15 text-indigo-300 border-indigo-500/30";
+  if (presentation.status === "cleaned-image") return "bg-sky-500/15 text-sky-300 border-sky-500/30";
+  if (presentation.status === "needs-correction") return "bg-red-500/15 text-red-300 border-red-500/30";
+  return "bg-neutral-800 text-neutral-400 border-neutral-700";
+}
+
+function queueGroupLabel(asset: RemasterAsset) {
+  const presentation = getRemasterPresentation(asset);
+  if (presentation.status === "needs-correction") return "Needs correction";
+  if (presentation.status === "projection-candidate") return "Projection candidates";
+  if (presentation.status === "cleaned-image") return "Cleaned images";
+  if (presentation.status === "approved-student") return "Approved for student";
+  if (presentation.status === "approved-teacher") return "Approved for teacher";
+  return "Original scans";
+}
+
+function ReviewImagePanel({
+  title,
+  badge,
+  src,
+  emptyText,
+  tone = "neutral",
+}: {
+  title: string;
+  badge: string;
+  src?: string;
+  emptyText: string;
+  tone?: "neutral" | "cleaned" | "projection" | "approved" | "correction";
+}) {
+  const toneClasses = {
+    neutral: "border-neutral-800 text-neutral-400",
+    cleaned: "border-sky-800/70 text-sky-300",
+    projection: "border-indigo-800/70 text-indigo-300",
+    approved: "border-emerald-800/70 text-emerald-300",
+    correction: "border-red-800/70 text-red-300",
+  }[tone];
+
+  return (
+    <section className={cn("flex min-h-0 flex-col overflow-hidden rounded-xl border bg-neutral-950", toneClasses)}>
+      <div className={cn("flex shrink-0 items-center justify-between border-b border-current/20 px-3 py-2 text-[11px] font-bold", toneClasses)}>
+        <span className="flex items-center gap-1.5">
+          <Image className="h-3.5 w-3.5" />
+          {title}
+        </span>
+        <span className="rounded border border-current/20 bg-current/10 px-2 py-0.5 text-[9px] font-mono">{badge}</span>
+      </div>
+      <div className="flex min-h-0 flex-1 items-center justify-center overflow-hidden bg-neutral-950 p-2">
+        {src ? (
+          <img src={src} alt={title} className="max-h-full max-w-full rounded-sm object-contain drop-shadow-lg" />
+        ) : (
+          <div className="flex flex-col items-center gap-2 text-center text-[11px] text-neutral-600">
+            <Clock className="h-6 w-6 text-neutral-800" />
+            <p className="font-semibold">{emptyText}</p>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
 function isTypingTarget(target: EventTarget | null) {
   return (
     target instanceof HTMLInputElement ||
@@ -96,7 +150,9 @@ function RemasterReview() {
         .filter(
           ({ asset }) =>
             asset.cleanupStatus === "needs review" ||
-            asset.cleanupStatus === "cleaned"
+            asset.cleanupStatus === "cleaned" ||
+            asset.cleanupStatus === "approved" ||
+            asset.approvalStatus !== "pending"
         ),
     [assets]
   );
@@ -164,11 +220,17 @@ function RemasterReview() {
   const selectedDecision = selectedAsset
     ? getDecision(selectedAsset.originalSourcePath)
     : null;
+  const selectedPresentation = selectedAsset
+    ? getRemasterPresentation(selectedAsset)
+    : null;
 
   const stats = useMemo(() => {
     const total = assets.length;
-    const v2 = assets.filter((a) => a.cleanupStatus === "needs review").length;
-    const v1 = assets.filter((a) => a.cleanupStatus === "cleaned").length;
+    const projection = assets.filter((a) => getRemasterPresentation(a).status === "projection-candidate").length;
+    const cleaned = assets.filter((a) => getRemasterPresentation(a).status === "cleaned-image").length;
+    const approvedStudent = assets.filter((a) => a.approvedForStudent).length;
+    const approvedTeacher = assets.filter((a) => a.approvedForTeacher).length;
+    const needsCorrection = assets.filter((a) => getRemasterPresentation(a).status === "needs-correction").length;
     const pending = assets.filter((a) => a.cleanupStatus === "pending").length;
     const decided = Object.values(decisions).filter(
       (d) => d.decision !== null
@@ -182,13 +244,14 @@ function RemasterReview() {
     const tuning = Object.values(decisions).filter(
       (d) => d.decision === "tune"
     ).length;
-    return { total, v2, v1, pending, decided, approved, rejected, tuning };
+    return { total, projection, cleaned, approvedStudent, approvedTeacher, needsCorrection, pending, decided, approved, rejected, tuning };
   }, [assets, decisions]);
 
   const filteredAssets = useMemo(() => {
     return reviewableAssets.filter(({ asset }) => {
-      const filename = asset.originalSourcePath.split("/").pop() ?? "";
-      const matchesSearch = filename
+      const file = filename(asset.originalSourcePath);
+      const presentation = getRemasterPresentation(asset);
+      const matchesSearch = `${file} ${presentation.label} ${queueGroupLabel(asset)}`
         .toLowerCase()
         .includes(searchQuery.toLowerCase());
       const matchesType =
@@ -205,6 +268,17 @@ function RemasterReview() {
       return matchesSearch && matchesType && matchesDecision;
     });
   }, [reviewableAssets, searchQuery, filterType, filterDecision, getDecision]);
+
+  const groupedFilteredAssets = useMemo(() => {
+    const groups: Array<{ label: string; items: typeof filteredAssets }> = [];
+    for (const item of filteredAssets) {
+      const label = queueGroupLabel(item.asset);
+      const group = groups.find((g) => g.label === label);
+      if (group) group.items.push(item);
+      else groups.push({ label, items: [item] });
+    }
+    return groups;
+  }, [filteredAssets]);
 
   const currentFilteredIdx = filteredAssets.findIndex(
     (x) => x.originalIndex === selectedAssetIndex
@@ -335,13 +409,19 @@ function RemasterReview() {
             Total: <span className="text-white font-bold">{stats.total}</span>
           </span>
           <span className="px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
-            V2: <span className="font-bold">{stats.v2}</span>
+            Projection candidates: <span className="font-bold">{stats.projection}</span>
+          </span>
+          <span className="px-2.5 py-1 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20">
+            Cleaned: <span className="font-bold">{stats.cleaned}</span>
           </span>
           <span className="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-            Aprobados: <span className="font-bold">{stats.approved}</span>
+            Student OK: <span className="font-bold">{stats.approvedStudent}</span>
+          </span>
+          <span className="px-2.5 py-1 rounded-full bg-teal-500/10 text-teal-400 border border-teal-500/20">
+            Teacher OK: <span className="font-bold">{stats.approvedTeacher}</span>
           </span>
           <span className="px-2.5 py-1 rounded-full bg-red-500/10 text-red-400 border border-red-500/20">
-            Rechazados: <span className="font-bold">{stats.rejected}</span>
+            Needs correction: <span className="font-bold">{stats.needsCorrection}</span>
           </span>
           <span className="px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">
             Ajustar: <span className="font-bold">{stats.tuning}</span>
@@ -474,57 +554,65 @@ function RemasterReview() {
                 Sin coincidencias
               </div>
             ) : (
-              filteredAssets.map(({ asset, originalIndex }) => {
-                const isSelected = originalIndex === selectedAssetIndex;
-                const isV2 = asset.cleanupStatus === "needs review";
-                const d = getDecision(asset.originalSourcePath).decision;
-                const filename =
-                  asset.originalSourcePath.split("/").pop() ?? "";
-                return (
-                  <button
-                    key={asset.originalSourcePath}
-                    onClick={() => setSelectedAssetIndex(originalIndex)}
-                    className={cn(
-                      "w-full text-left p-2.5 rounded-lg flex items-center justify-between gap-2 text-xs border transition-all",
-                      isSelected
-                        ? "bg-indigo-600/10 border-indigo-500/30 text-white font-bold"
-                        : "border-transparent bg-neutral-900/40 hover:bg-neutral-900 hover:border-neutral-800 text-neutral-400 hover:text-neutral-200"
-                    )}
-                  >
-                    <div className="min-w-0 flex-1">
-                      <span className="block truncate text-[10px] font-mono tracking-tight">
-                        {filename}
-                      </span>
-                      <span className="block text-[9px] text-neutral-600 mt-0.5">
-                        {asset.type === "student-workbook"
-                          ? "Cuaderno Alumno"
-                          : "Flipchart Maestro"}
-                      </span>
-                    </div>
-                    <div className="flex flex-col items-end gap-1 shrink-0">
-                      {isV2 && (
-                        <span className="px-1.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 text-[8px] font-bold uppercase tracking-wider">
-                          V2
-                        </span>
-                      )}
-                      {d !== null && (
-                        <span
-                          className={cn(
-                            "px-1.5 py-0.5 rounded-full text-[8px] font-bold uppercase tracking-wider border",
-                            decisionBadge(d)
+              groupedFilteredAssets.map((group) => (
+                <div key={group.label} className="space-y-1">
+                  <div className="px-2 pt-2 text-[9px] font-black uppercase tracking-wider text-neutral-600">
+                    {group.label} ({group.items.length})
+                  </div>
+                  {group.items.map(({ asset, originalIndex }) => {
+                    const isSelected = originalIndex === selectedAssetIndex;
+                    const d = getDecision(asset.originalSourcePath).decision;
+                    const presentation = getRemasterPresentation(asset);
+                    return (
+                      <button
+                        key={asset.originalSourcePath}
+                        onClick={() => setSelectedAssetIndex(originalIndex)}
+                        className={cn(
+                          "w-full text-left p-2.5 rounded-lg flex items-center justify-between gap-2 text-xs border transition-all",
+                          isSelected
+                            ? "bg-indigo-600/10 border-indigo-500/30 text-white font-bold"
+                            : "border-transparent bg-neutral-900/40 hover:bg-neutral-900 hover:border-neutral-800 text-neutral-400 hover:text-neutral-200"
+                        )}
+                      >
+                        <div className="min-w-0 flex-1">
+                          <span className="block truncate text-[10px] font-mono tracking-tight">
+                            {filename(asset.originalSourcePath)}
+                          </span>
+                          <span className="block text-[9px] text-neutral-600 mt-0.5">
+                            {asset.type === "student-workbook"
+                              ? "Student workbook"
+                              : "Teacher flipchart"}
+                          </span>
+                        </div>
+                        <div className="flex flex-col items-end gap-1 shrink-0">
+                          <span
+                            className={cn(
+                              "px-1.5 py-0.5 rounded-full text-[8px] font-bold uppercase tracking-wider border",
+                              statusBadgeStyle(presentation)
+                            )}
+                          >
+                            {presentation.label}
+                          </span>
+                          {d !== null && (
+                            <span
+                              className={cn(
+                                "px-1.5 py-0.5 rounded-full text-[8px] font-bold uppercase tracking-wider border",
+                                decisionBadge(d)
+                              )}
+                            >
+                              {d === "approve"
+                                ? "OK"
+                                : d === "reject"
+                                ? "NO"
+                                : "Tune"}
+                            </span>
                           )}
-                        >
-                          {d === "approve"
-                            ? "OK"
-                            : d === "reject"
-                            ? "NO"
-                            : "Tune"}
-                        </span>
-                      )}
-                    </div>
-                  </button>
-                );
-              })
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              ))
             )}
           </div>
         </aside>
@@ -541,7 +629,10 @@ function RemasterReview() {
                     Tipo: <strong className="text-neutral-200">{selectedAsset.type === "student-workbook" ? "Cuaderno Alumno" : "Flipchart Maestro"}</strong>
                   </span>
                   <span>
-                    Estado cleanup: <strong className="text-indigo-300">{selectedAsset.cleanupStatus}</strong>
+                    Inventory status: <strong className="text-indigo-300">{selectedPresentation?.label}</strong>
+                  </span>
+                  <span>
+                    Best available: <strong className="text-neutral-200">{selectedPresentation?.bestSource}</strong>
                   </span>
                   {selectedAsset.notes && (
                     <span>
@@ -570,42 +661,54 @@ function RemasterReview() {
               </span>
             </div>
 
-            <div className="grid grid-cols-3 gap-2 p-3 flex-[3] min-h-0 overflow-hidden">
-              <div className="flex flex-col bg-neutral-950 rounded-xl border border-neutral-800 overflow-hidden">
-                <div className="px-3 py-1.5 border-b border-neutral-800 flex items-center justify-between text-[11px] font-bold text-neutral-400 shrink-0">
-                  <span className="flex items-center gap-1.5"><Eye className="h-3 w-3" /> Original</span>
-                  <span className="font-mono text-[9px] bg-neutral-900 px-2 py-0.5 rounded border border-neutral-800 text-neutral-500">Fuente Honesta</span>
-                </div>
-                <div className="flex-1 flex items-center justify-center p-2 min-h-0 bg-neutral-950 overflow-hidden">
-                  <img src={publicAsset(selectedAsset.originalSourcePath)} alt="Original Scan" className="max-h-full max-w-full object-contain drop-shadow-lg rounded-sm" />
-                </div>
-              </div>
-
-              <div className="flex flex-col bg-neutral-950 rounded-xl border border-neutral-800 overflow-hidden">
-                <div className="px-3 py-1.5 border-b border-neutral-800 flex items-center justify-between text-[11px] font-bold text-emerald-400 shrink-0">
-                  <span className="flex items-center gap-1.5"><CheckCircle2 className="h-3 w-3" /> Remaster V1</span>
-                  <span className="font-mono text-[9px] bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20 text-emerald-400">Limpieza Básica</span>
-                </div>
-                <div className="flex-1 flex items-center justify-center p-2 min-h-0 bg-neutral-950 overflow-hidden">
-                  {selectedAsset.cleanupStatus === "cleaned" || selectedAsset.cleanupStatus === "needs review" ? (
-                    <img src={publicAsset(selectedAsset.remasteredPath)} alt="Remaster V1" className="max-h-full max-w-full object-contain drop-shadow-lg rounded-sm" />
-                  ) : (
-                    <div className="text-center text-[11px] text-neutral-600 flex flex-col items-center gap-2"><Clock className="h-6 w-6 text-neutral-800" /><p>V1 no procesado</p></div>
-                  )}
-                </div>
-              </div>
-
-              <div className="flex flex-col bg-neutral-950 rounded-xl border border-indigo-900/60 overflow-hidden">
-                <div className="px-3 py-1.5 border-b border-indigo-900/40 flex items-center justify-between text-[11px] font-bold text-indigo-400 shrink-0">
-                  <span className="flex items-center gap-1.5"><Sparkles className="h-3 w-3 animate-pulse" /> Remaster V2</span>
-                  <span className="font-mono text-[9px] bg-indigo-500/20 px-2 py-0.5 rounded border border-indigo-500/30 text-indigo-300">Vivid Projection</span>
-                </div>
-                <div className="flex-1 flex items-center justify-center p-2 min-h-0 bg-neutral-950 overflow-hidden">
-                  {selectedAsset.cleanupStatus === "needs review" && selectedAsset.remasteredPathV2 ? (
-                    <img src={publicAsset(selectedAsset.remasteredPathV2)} alt="Remaster V2" className="max-h-full max-w-full object-contain drop-shadow-lg rounded-sm border-2 border-indigo-500/20" />
-                  ) : (
-                    <div className="text-center text-[11px] text-neutral-600 flex flex-col items-center gap-2"><Clock className="h-6 w-6 text-neutral-800" /><p className="font-semibold">V2 no disponible</p><p className="text-[9px] text-neutral-700 max-w-[160px]">Solo los samples del Sprint V2 tienen imagen V2.</p></div>
-                  )}
+            <div className="grid grid-cols-1 gap-3 p-3 flex-[3] min-h-0 overflow-hidden xl:grid-cols-[1fr_1fr_1fr]">
+              <ReviewImagePanel
+                title="Original scan"
+                badge="source"
+                src={publicAsset(selectedAsset.originalSourcePath)}
+                emptyText="Original scan missing"
+              />
+              <ReviewImagePanel
+                title="Cleaned image"
+                badge={selectedAsset.cleanupStatus === "cleaned" || selectedAsset.cleanupStatus === "needs review" || selectedAsset.cleanupStatus === "approved" ? "cleaned" : "not processed"}
+                src={
+                  selectedAsset.cleanupStatus === "cleaned" ||
+                  selectedAsset.cleanupStatus === "needs review" ||
+                  selectedAsset.cleanupStatus === "approved"
+                    ? publicAsset(selectedAsset.remasteredPath)
+                    : undefined
+                }
+                emptyText="Cleaned image not processed"
+                tone="cleaned"
+              />
+              <ReviewImagePanel
+                title={selectedPresentation?.label ?? "Projection candidate"}
+                badge={selectedAsset.remasteredPathV2 ? "candidate" : "no candidate"}
+                src={selectedAsset.remasteredPathV2 ? publicAsset(selectedAsset.remasteredPathV2) : undefined}
+                emptyText="Projection candidate not available"
+                tone={
+                  selectedPresentation?.status === "needs-correction"
+                    ? "correction"
+                    : selectedPresentation?.status === "approved-student" || selectedPresentation?.status === "approved-teacher"
+                    ? "approved"
+                    : "projection"
+                }
+              />
+              <div className="rounded-xl border border-neutral-800 bg-neutral-950 px-4 py-3 xl:col-span-3">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <div>
+                    <div className={cn("inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-black", selectedPresentation ? statusBadgeStyle(selectedPresentation) : "border-neutral-700 text-neutral-400")}>
+                      <CheckCircle2 className="h-3.5 w-3.5" />
+                      {selectedPresentation?.label}
+                    </div>
+                    <p className="mt-2 text-xs font-semibold text-neutral-400">
+                      {selectedPresentation?.description}
+                    </p>
+                  </div>
+                  <div className="text-right text-[10px] text-neutral-500">
+                    <div>Approved for student: <strong className={selectedAsset.approvedForStudent ? "text-emerald-300" : "text-neutral-300"}>{selectedAsset.approvedForStudent ? "yes" : "no"}</strong></div>
+                    <div>Approved for teacher: <strong className={selectedAsset.approvedForTeacher ? "text-teal-300" : "text-neutral-300"}>{selectedAsset.approvedForTeacher ? "yes" : "no"}</strong></div>
+                  </div>
                 </div>
               </div>
             </div>

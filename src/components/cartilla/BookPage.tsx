@@ -80,7 +80,7 @@ export function BookPage({ entry }: BookPageProps) {
 
   return (
     <div
-      className="relative w-full h-full rounded-2xl overflow-hidden"
+      className="relative w-full h-full rounded-3xl overflow-hidden border border-stone-200 shadow-[0_16px_36px_rgba(50,30,10,0.08),0_4px_12px_rgba(0,0,0,0.04),4px_6px_0_-2px_#fffcf8,8px_10px_0_-4px_#faf7ef]"
       style={pageStyle(tone.bg)}
     >
       <div
@@ -92,16 +92,20 @@ export function BookPage({ entry }: BookPageProps) {
         style={centerFoldStyle(tone.accentSoft)}
       />
       <div
+        className="absolute top-0 bottom-0 left-5 sm:left-[34px] w-px bg-red-400/25 pointer-events-none"
+        style={{ content: '""' }}
+      />
+      <div
         className="absolute -top-12 -right-12 w-48 h-48 rounded-full opacity-30 pointer-events-none"
         style={glowStyle(accent)}
       />
 
       <div
-        className="relative h-full flex flex-col p-6 sm:p-10"
+        className="relative h-full flex flex-col pl-9 pr-6 sm:pl-14 sm:pr-10 py-6 sm:py-10"
         style={contentStyle(tone.textColor)}
       >
         <div
-          className="text-[10px] sm:text-xs font-bold uppercase tracking-widest"
+          className="text-[10px] sm:text-xs font-black uppercase tracking-widest"
           style={mutedStyle(tone.textColor)}
         >
           Lección {entry.n} · {tone.label}
