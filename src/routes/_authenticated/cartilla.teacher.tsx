@@ -2,17 +2,7 @@ import { createFileRoute, Link, Outlet, useNavigate, useRouterState } from "@tan
 import { useEffect, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useServerFn } from "@/lib/useServerFn";
-import {
-  ArrowLeft,
-  Plus,
-  GraduationCap,
-  LogOut,
-  Users,
-  Trash2,
-  Copy,
-  Loader2,
-  MonitorPlay,
-} from "lucide-react";
+import { ArrowLeft, Plus, GraduationCap, LogOut, Users, Trash2, Copy, Loader2, MonitorPlay } from "lucide-react";
 import { listClasses, createClass, deleteClass } from "@/lib/teacher.functions";
 import { isSupabaseConfigured, supabase } from "@/integrations/supabase/client";
 import { getDemoTeacher, signOutDemoTeacher, exportDemoStateRaw, importDemoStateRaw, resetDemoStateRaw } from "@/lib/demo-data";
@@ -73,16 +63,10 @@ function TeacherDashboard() {
   return (
     <main className="min-h-screen bg-background px-4 py-6 max-w-4xl mx-auto">
       <div className="flex items-center justify-between gap-3">
-        <Link
-          to="/cartilla"
-          className="inline-flex items-center gap-2 text-sm font-bold text-foreground/60 hover:text-foreground"
-        >
+        <Link to="/cartilla" className="inline-flex items-center gap-2 text-sm font-bold text-foreground/60 hover:text-foreground">
           <ArrowLeft className="w-4 h-4" /> Cartilla
         </Link>
-        <button
-          onClick={signOut}
-          className="text-sm inline-flex items-center gap-1 text-foreground/60 hover:text-destructive"
-        >
+        <button onClick={signOut} className="text-sm inline-flex items-center gap-1 text-foreground/60 hover:text-destructive">
           <LogOut className="w-4 h-4" /> Salir
         </button>
       </div>
@@ -101,10 +85,7 @@ function TeacherDashboard() {
             </div>
           )}
         </div>
-        <Link
-          to="/cartilla/teacher/branding"
-          className="text-xs font-bold text-foreground/60 hover:text-primary underline whitespace-nowrap"
-        >
+        <Link to="/cartilla/teacher/branding" className="text-xs font-bold text-foreground/60 hover:text-primary underline whitespace-nowrap">
           Marca y textos
         </Link>
       </header>
@@ -115,16 +96,16 @@ function TeacherDashboard() {
             <h2 className="inline-flex items-center gap-2 text-lg font-bold">
               <MonitorPlay className="h-5 w-5 text-primary" /> Presentación docente
             </h2>
-            <p className="mt-1 text-sm text-foreground/60">
-              Vista de presentación basada en la estructura verificada del libro.
-            </p>
+            <p className="mt-1 text-sm text-foreground/60">Vista de presentación basada en la estructura verificada del libro.</p>
           </div>
-          <Link
-            to="/cartilla/teacher/presentacion"
-            className="inline-flex min-h-11 items-center justify-center rounded-xl bg-primary px-4 py-2 text-sm font-bold text-primary-foreground hover:opacity-90"
-          >
-            Abrir presentación
-          </Link>
+          <div className="flex flex-wrap gap-2">
+            <Link to="/cartilla/teacher/presentacion" className="inline-flex min-h-11 items-center justify-center rounded-xl bg-primary px-4 py-2 text-sm font-bold text-primary-foreground hover:opacity-90">
+              Abrir presentación
+            </Link>
+            <Link to="/cartilla/teacher/flipchart" className="inline-flex min-h-11 items-center justify-center rounded-xl border border-foreground/10 bg-white px-4 py-2 text-sm font-bold text-foreground/75 hover:bg-secondary">
+              Flipchart
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -137,39 +118,19 @@ function TeacherDashboard() {
           }}
           className="flex gap-2 flex-wrap"
         >
-          <input
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Ej: Kinder A 2026"
-            maxLength={80}
-            className="flex-1 min-w-0 px-4 py-2.5 rounded-xl border-2 border-foreground/10 bg-background focus:border-primary outline-none"
-          />
-          <button
-            type="submit"
-            disabled={createMut.isPending || !name.trim()}
-            className="px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold inline-flex items-center gap-2 disabled:opacity-50"
-          >
-            {createMut.isPending ? (
-              <Loader2 className="w-4 h-4 animate-spin" />
-            ) : (
-              <Plus className="w-4 h-4" />
-            )}
+          <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Ej: Kinder A 2026" maxLength={80} className="flex-1 min-w-0 px-4 py-2.5 rounded-xl border-2 border-foreground/10 bg-background focus:border-primary outline-none" />
+          <button type="submit" disabled={createMut.isPending || !name.trim()} className="px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold inline-flex items-center gap-2 disabled:opacity-50">
+            {createMut.isPending ? <Loader2 className="w-4 h-4 animate-spin" /> : <Plus className="w-4 h-4" />}
             Crear
           </button>
         </form>
-        {createMut.error && (
-          <p className="text-sm text-destructive mt-2">{(createMut.error as Error).message}</p>
-        )}
+        {createMut.error && <p className="text-sm text-destructive mt-2">{(createMut.error as Error).message}</p>}
       </section>
 
       {!isSupabaseConfigured && (
         <section className="mt-6 kid-card p-4 border border-warning/20 bg-warning/5">
-          <h2 className="font-bold mb-2 text-warning flex items-center gap-2">
-            Control de datos Demo Local
-          </h2>
-          <p className="text-xs text-foreground/60 mb-3">
-            Dado que estás en modo demo, puedes exportar, importar o restablecer el estado completo de las clases y el progreso.
-          </p>
+          <h2 className="font-bold mb-2 text-warning">Control de datos Demo Local</h2>
+          <p className="text-xs text-foreground/60 mb-3">Puedes exportar, importar o restablecer el estado completo de clases y progreso.</p>
           <div className="flex flex-wrap gap-2">
             <button
               onClick={() => {
@@ -184,7 +145,7 @@ function TeacherDashboard() {
               }}
               className="px-3 py-1.5 rounded-xl border border-foreground/15 hover:bg-secondary text-xs font-bold text-foreground"
             >
-              Exportar estado (JSON)
+              Exportar estado
             </button>
             <label className="px-3 py-1.5 rounded-xl border border-foreground/15 hover:bg-secondary text-xs font-bold text-foreground cursor-pointer">
               Importar estado
@@ -199,11 +160,9 @@ function TeacherDashboard() {
                   reader.onload = (evt) => {
                     const str = evt.target?.result as string;
                     if (importDemoStateRaw(str)) {
-                      alert("¡Estado demo importado con éxito!");
+                      alert("Estado demo importado con éxito.");
                       qc.invalidateQueries({ queryKey: ["teacher", "classes"] });
-                    } else {
-                      alert("Error al importar el archivo JSON.");
-                    }
+                    } else alert("Error al importar el archivo JSON.");
                   };
                   reader.readAsText(file);
                 }}
@@ -211,15 +170,14 @@ function TeacherDashboard() {
             </label>
             <button
               onClick={() => {
-                if (confirm("¿Estás seguro de restablecer el estado demo? Se borrarán todas las clases y progresos creados.")) {
+                if (confirm("¿Restablecer el estado demo?")) {
                   resetDemoStateRaw();
                   qc.invalidateQueries({ queryKey: ["teacher", "classes"] });
-                  alert("Estado restablecido al demo inicial.");
                 }
               }}
               className="px-3 py-1.5 rounded-xl border border-destructive/20 hover:bg-destructive/10 text-xs font-bold text-destructive"
             >
-              Restablecer demo inicial
+              Restablecer
             </button>
           </div>
         </section>
@@ -229,46 +187,26 @@ function TeacherDashboard() {
         {isLoading && <div className="text-foreground/60 text-sm">Cargando…</div>}
         {classesError && (
           <div className="kid-card border-destructive/20 bg-destructive/5 p-4 text-sm font-bold text-destructive">
-            No se pudieron cargar las clases.{" "}
-            {!isSupabaseConfigured
-              ? "Modo demo local no disponible en este navegador."
-              : "Revisa la sesion de maestro o la conexion a Supabase."}
+            No se pudieron cargar las clases. Revisa la sesión de maestro o la conexión.
           </div>
         )}
-        {classes?.length === 0 && (
-          <div className="kid-card p-6 text-center text-foreground/60">
-            Aún no tienes clases. Crea una para empezar.
-          </div>
-        )}
+        {classes?.length === 0 && <div className="kid-card p-6 text-center text-foreground/60">Aún no tienes clases. Crea una para empezar.</div>}
         {classes?.map((c) => (
-          <div
-            key={c.id}
-            className="kid-card p-4 flex items-center justify-between gap-3 flex-wrap"
-          >
-            <Link to="/cartilla/teacher/clase/$id" params= id: c.id  className="flex-1 min-w-0">
+          <div key={c.id} className="kid-card p-4 flex items-center justify-between gap-3 flex-wrap">
+            <a href={`/cartilla/teacher/clase/${c.id}`} className="flex-1 min-w-0">
               <div className="font-bold text-lg truncate">{c.name}</div>
               <div className="text-xs text-foreground/60 mt-0.5 inline-flex items-center gap-3">
-                <span className="inline-flex items-center gap-1">
-                  <Users className="w-3 h-3" /> {c.student_count} alumnos
-                </span>
-                <span>
-                  Código: <span className="font-mono font-bold tracking-wider">{c.join_code}</span>
-                </span>
+                <span className="inline-flex items-center gap-1"><Users className="w-3 h-3" /> {c.student_count} alumnos</span>
+                <span>Código: <span className="font-mono font-bold tracking-wider">{c.join_code}</span></span>
               </div>
-            </Link>
+            </a>
             <div className="flex gap-1.5">
-              <button
-                onClick={() => navigator.clipboard?.writeText(c.join_code)}
-                className="p-2 rounded-lg hover:bg-secondary text-foreground/60"
-                aria-label="Copiar código"
-                title="Copiar código"
-              >
+              <button onClick={() => navigator.clipboard?.writeText(c.join_code)} className="p-2 rounded-lg hover:bg-secondary text-foreground/60" aria-label="Copiar código" title="Copiar código">
                 <Copy className="w-4 h-4" />
               </button>
               <button
                 onClick={() => {
-                  if (confirm(`¿Eliminar la clase "${c.name}" y todos sus alumnos?`))
-                    delMut.mutate(c.id);
+                  if (confirm(`¿Eliminar la clase "${c.name}" y todos sus alumnos?`)) delMut.mutate(c.id);
                 }}
                 className="p-2 rounded-lg hover:bg-destructive/10 text-destructive"
                 aria-label="Eliminar clase"
