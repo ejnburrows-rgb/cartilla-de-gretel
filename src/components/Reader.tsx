@@ -22,7 +22,13 @@ async function exists(url: string) {
   }
 }
 
-export function Reader() {
+export function Reader({
+  startPage,
+  endPage,
+}: {
+  startPage?: number;
+  endPage?: number;
+} = {}) {
   const [bookReady, setBookReady] = useState<boolean | null>(null);
   const [unit, setUnit] = useState<string>("Inicio");
   const [progress, setProgress] = useState({ current: 0, total: 0 });
@@ -157,6 +163,8 @@ export function Reader() {
             <div className="h-full overflow-auto">
               <PdfViewer
                 url={PDF_URL}
+                startPage={startPage}
+                endPage={endPage}
                 onUnitChange={setUnit}
                 onProgress={(current, total) => setProgress({ current, total })}
                 advanceSignal={advanceSignal}
