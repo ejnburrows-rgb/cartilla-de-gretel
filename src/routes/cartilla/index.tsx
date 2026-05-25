@@ -17,6 +17,7 @@ import { useStudentSession } from "@/lib/student-session";
 import { isSupabaseConfigured } from "@/integrations/supabase/client";
 import { getRemasterProgress } from "@/lib/remaster-assets";
 import { getDeadlineRemasterQueue, getDeadlineRemasterSummary } from "@/lib/remaster-batches";
+import { routePath } from "@/lib/assets";
 
 export const Route = createFileRoute("/cartilla/")({
   component: CartillaHome,
@@ -104,9 +105,9 @@ function CartillaHome() {
             <ArrowLeft className="h-4 w-4" /> Inicio
           </Link>
           <div className="flex flex-wrap gap-2">
-            <a href="/cartilla/lecciones" className="rounded-2xl bg-[hsl(197,41%,22%)] px-4 py-3 text-sm font-black text-white shadow-sm">Cuaderno</a>
-            <a href="/cartilla/teacher" className="rounded-2xl border border-foreground/10 bg-card px-4 py-3 text-sm font-black text-foreground/75 shadow-sm">CRM docente</a>
-            <a href="/cartilla/teacher/flipchart" className="rounded-2xl border border-foreground/10 bg-card px-4 py-3 text-sm font-black text-foreground/75 shadow-sm">Flipchart</a>
+            <a href={routePath("/cartilla/lecciones")} className="rounded-2xl bg-[hsl(197,41%,22%)] px-4 py-3 text-sm font-black text-white shadow-sm">Cuaderno</a>
+            <a href={routePath("/cartilla/teacher")} className="rounded-2xl border border-foreground/10 bg-card px-4 py-3 text-sm font-black text-foreground/75 shadow-sm">CRM docente</a>
+            <a href={routePath("/cartilla/teacher/flipchart")} className="rounded-2xl border border-foreground/10 bg-card px-4 py-3 text-sm font-black text-foreground/75 shadow-sm">Flipchart</a>
           </div>
         </nav>
 
@@ -121,15 +122,15 @@ function CartillaHome() {
               El corazón del proyecto es claro: el estudiante ve el cuaderno como libro, el maestro proyecta la presentación como libro, y el progreso se guarda en un CRM docente.
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
-              <a href="/cartilla/lecciones" className="inline-flex min-h-14 items-center justify-center rounded-2xl bg-[hsl(197,41%,22%)] px-6 py-4 text-base font-black text-white shadow-xl shadow-primary/20">
+              <a href={routePath("/cartilla/lecciones")} className="inline-flex min-h-14 items-center justify-center rounded-2xl bg-[hsl(197,41%,22%)] px-6 py-4 text-base font-black text-white shadow-xl shadow-primary/20">
                 Ver el cuaderno ahora
               </a>
-              <a href="/cartilla/teacher/flipchart" className="inline-flex min-h-14 items-center justify-center rounded-2xl border-2 border-vowel-a/30 bg-white px-6 py-4 text-base font-black text-vowel-a shadow-sm">
+              <a href={routePath("/cartilla/teacher/flipchart")} className="inline-flex min-h-14 items-center justify-center rounded-2xl border-2 border-vowel-a/30 bg-white px-6 py-4 text-base font-black text-vowel-a shadow-sm">
                 Ver presentación maestro
               </a>
             </div>
             {session && (
-              <a href="/cartilla/mi-progreso" className="mt-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-2 text-sm font-black text-primary">
+              <a href={routePath("/cartilla/mi-progreso")} className="mt-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-2 text-sm font-black text-primary">
                 <BarChart3 className="h-4 w-4" /> Continuar progreso de {session.studentName}
               </a>
             )}
@@ -138,7 +139,7 @@ function CartillaHome() {
 
         <section className="mt-10 grid gap-4 lg:grid-cols-3">
           {primaryCards.map((card) => (
-            <a key={card.href} href={card.href} className="kid-card group flex min-h-72 flex-col justify-between p-6 transition duration-300 hover:-translate-y-1 hover:shadow-2xl">
+            <a key={card.href} href={routePath(card.href)} className="kid-card group flex min-h-72 flex-col justify-between p-6 transition duration-300 hover:-translate-y-1 hover:shadow-2xl">
               <div>
                 <div className={`flex h-18 w-18 shrink-0 items-center justify-center rounded-2xl ${card.tone} text-white transition duration-300 group-hover:scale-105`}>
                   <card.icon className="h-9 w-9" />
@@ -164,7 +165,7 @@ function CartillaHome() {
                 Lo importante no es un demo: es que el material viejo de papel se convierta en una herramienta usable para clase, con lectura, seguimiento, asignaciones, proyección y mejora visual constante.
               </p>
             </div>
-            <a href="/cartilla/unirse" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-primary px-5 py-3 text-sm font-black text-primary-foreground shadow-lg shadow-primary/20">
+            <a href={routePath("/cartilla/unirse")} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-primary px-5 py-3 text-sm font-black text-primary-foreground shadow-lg shadow-primary/20">
               <UserPlus className="h-4 w-4" /> Unirse a clase
             </a>
           </div>
@@ -189,7 +190,7 @@ function CartillaHome() {
                 {deadlineSummary.usableNow} imágenes ya tienen corrección/V2 utilizable. Quedan {deadlineSummary.studentPending} del cuaderno y {deadlineSummary.teacherPending} del flipchart pendientes en cola.
               </p>
             </div>
-            <a href="/cartilla/teacher/remaster-review" className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-white px-5 py-3 text-sm font-black text-[hsl(197,41%,22%)] shadow-lg">
+            <a href={routePath("/cartilla/teacher/remaster-review")} className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-white px-5 py-3 text-sm font-black text-[hsl(197,41%,22%)] shadow-lg">
               Revisar calidad
             </a>
           </div>

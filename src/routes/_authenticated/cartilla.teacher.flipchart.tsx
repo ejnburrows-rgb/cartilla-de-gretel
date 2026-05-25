@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import teacherFlipchartData from "@/data/teacher-flipchart.json";
+import { assetPath } from "@/lib/assets";
 import { getBestDisplayPath, getQualityLabel, getRemasterAssetByOriginal } from "@/lib/remaster-assets";
 
 export const Route = createFileRoute("/_authenticated/cartilla/teacher/flipchart")({
@@ -29,11 +30,12 @@ function TeacherFlipchart() {
   const totalPages = teacherFlipchartData.pages.length;
   const currentData = teacherFlipchartData.pages[currentPage - 1];
   const originalPath = currentData?.path ?? "";
+  const originalPublicPath = originalPath ? assetPath(originalPath) : "";
   const remasterAsset = useMemo(() => getRemasterAssetByOriginal(originalPath), [originalPath]);
-  const computedDisplayPath = getBestDisplayPath(originalPath, qualityMode === "source" ? "source" : "projection") ?? originalPath;
+  const computedDisplayPath = getBestDisplayPath(originalPath, qualityMode === "source" ? "source" : "projection") ?? originalPublicPath;
   const displayPath = fallbackPath ?? computedDisplayPath;
   const qualityLabel = getQualityLabel(originalPath, qualityMode === "source" ? "source" : "projection");
-  const isEnhanced = displayPath !== originalPath;
+  const isEnhanced = displayPath !== originalPublicPath;
 
   useEffect(() => {
     setFallbackPath(null);
@@ -144,7 +146,7 @@ function TeacherFlipchart() {
             loading="eager"
             fetchPriority="high"
             onError={() => {
-              if (displayPath !== originalPath) setFallbackPath(originalPath);
+              if (displayPath !== originalPublicPath) setFallbackPath(originalPublicPath);
             }}
           />
         </div>
