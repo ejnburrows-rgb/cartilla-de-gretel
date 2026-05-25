@@ -3,13 +3,19 @@ import {
   ArrowLeft,
   BarChart3,
   BookOpen,
+  CheckCircle2,
+  Cloud,
+  Database,
   GraduationCap,
   ListOrdered,
   Presentation,
+  Rocket,
+  ShieldCheck,
   UserPlus,
 } from "lucide-react";
 import { CoverInspiredPanel } from "@/components/CoverInspiredPanel";
 import { useStudentSession } from "@/lib/student-session";
+import { isSupabaseConfigured } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/cartilla/")({
   component: CartillaHome,
@@ -74,6 +80,31 @@ function CartillaHome() {
       title: "PDF oficial",
       desc: "Consultar el PDF del libro cuando haga falta.",
       color: "bg-[hsl(197,41%,22%)]",
+    },
+  ];
+
+  const launchItems = [
+    {
+      icon: CheckCircle2,
+      title: "Sitio en producción",
+      desc: "Vercel ya está sirviendo el último commit de GitHub.",
+    },
+    {
+      icon: Cloud,
+      title: "Automatización activada",
+      desc: "GitHub Actions ahora puede verificar, migrar Supabase y desplegar Vercel.",
+    },
+    {
+      icon: Database,
+      title: isSupabaseConfigured ? "Supabase conectado" : "Supabase listo para conectar",
+      desc: isSupabaseConfigured
+        ? "El sitio está leyendo las variables de Supabase en producción."
+        : "El sistema conserva modo local hasta que Vercel tenga las variables Supabase.",
+    },
+    {
+      icon: ShieldCheck,
+      title: "Cuentas reales preparadas",
+      desc: "La ruta de seed crea clases, alumnos y códigos reales en Supabase.",
     },
   ];
 
@@ -153,7 +184,9 @@ function CartillaHome() {
               className="rounded-3xl border border-foreground/10 bg-white/85 p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg"
             >
               <div className="flex items-start gap-4">
-                <div className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl ${c.color} text-white`}>
+                <div
+                  className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl ${c.color} text-white`}
+                >
                   <c.icon className="h-7 w-7" />
                 </div>
                 <div>
@@ -163,6 +196,39 @@ function CartillaHome() {
               </div>
             </Link>
           ))}
+        </section>
+
+        <section className="mt-8 rounded-[2rem] border-2 border-[hsl(197,41%,22%)]/15 bg-white/90 p-5 shadow-xl shadow-primary/10">
+          <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+            <div>
+              <p className="inline-flex items-center gap-2 rounded-full bg-vowel-a/10 px-3 py-1 text-xs font-black uppercase tracking-wide text-vowel-a">
+                <Rocket className="h-4 w-4" /> Centro de lanzamiento
+              </p>
+              <h2 className="mt-3 text-3xl font-black text-[hsl(197,41%,22%)]">
+                Producción lista para el siguiente salto.
+              </h2>
+              <p className="mt-2 max-w-3xl text-base leading-relaxed text-foreground/70">
+                El proyecto ya está organizado como plataforma: cuaderno público, CRM docente,
+                flipchart de maestro, remasterización revisable y automatización de despliegue.
+              </p>
+            </div>
+            <Link
+              to="/cartilla/teacher"
+              className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-primary px-5 py-3 text-sm font-black text-primary-foreground shadow-lg shadow-primary/20"
+            >
+              Abrir panel docente
+            </Link>
+          </div>
+
+          <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+            {launchItems.map((item) => (
+              <div key={item.title} className="rounded-3xl border border-foreground/10 bg-card p-4">
+                <item.icon className="h-6 w-6 text-primary" />
+                <h3 className="mt-3 text-base font-black text-[hsl(197,41%,22%)]">{item.title}</h3>
+                <p className="mt-1 text-sm leading-relaxed text-foreground/70">{item.desc}</p>
+              </div>
+            ))}
+          </div>
         </section>
       </div>
     </main>
