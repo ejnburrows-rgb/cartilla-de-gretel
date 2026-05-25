@@ -1,8 +1,9 @@
 import type { CSSProperties } from "react";
 import { useMemo, useState } from "react";
-import { BookOpen, Volume2, CheckCircle2, Hourglass, BookOpenCheck, Sparkles } from "lucide-react";
+import { BookOpen, Volume2, CheckCircle2, Hourglass, BookOpenCheck, Sparkles, Image as ImageIcon, Trophy } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { speak } from "@/lib/speak";
+import { assetPath } from "@/lib/assets";
 import { getWorkbookPagesForLesson } from "@/lib/book-faithful";
 import {
   getInteractionsForPage,
@@ -48,6 +49,25 @@ function progressStyle(width: number, accent: string): CSSProperties {
   return { width: `${width}%`, backgroundColor: accent };
 }
 
+function SourceImageCard({ assetRef }: { assetRef?: string }) {
+  if (!assetRef) return null;
+
+  return (
+    <div className="rounded-3xl border border-foreground/10 bg-[hsl(42,48%,97%)] p-3 shadow-inner">
+      <div className="mb-2 flex items-center gap-2 text-xs font-black uppercase tracking-wide text-foreground/45">
+        <ImageIcon className="h-4 w-4" />
+        Página fuente
+      </div>
+      <img
+        src={assetPath(assetRef)}
+        alt="Página fuente del cuaderno"
+        className="mx-auto max-h-72 w-full rounded-2xl object-contain shadow-md ring-1 ring-foreground/10"
+        loading="lazy"
+      />
+    </div>
+  );
+}
+
 function SyllablePractice({
   interaction,
   accent,
@@ -72,16 +92,17 @@ function SyllablePractice({
   const allDone = tapped.size >= interaction.items.length;
 
   return (
-    <div className="rounded-2xl border border-foreground/10 bg-white/90 shadow-sm overflow-hidden">
+    <div className="rounded-[1.75rem] border-2 border-foreground/10 bg-white/90 shadow-xl shadow-primary/5 overflow-hidden">
       <div className="px-4 py-3 flex items-center gap-3" style={borderStyle(accent)}>
         <div className="flex-1 min-w-0">
-          <h3 className="font-bold text-base text-foreground/90 leading-tight">{interaction.title}</h3>
-          <p className="text-sm text-foreground/55 mt-0.5 leading-snug">{interaction.prompt}</p>
+          <h3 className="font-black text-lg text-foreground/90 leading-tight">{interaction.title}</h3>
+          <p className="text-sm font-semibold text-foreground/55 mt-1 leading-snug">{interaction.prompt}</p>
         </div>
         {allDone && <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" aria-label="Completado" />}
       </div>
       <div className="px-4 py-4">
-        <div className="flex flex-wrap gap-3 justify-center">
+        <SourceImageCard assetRef={interaction.assetRef} />
+        <div className="mt-4 flex flex-wrap gap-3 justify-center">
           {interaction.items.map((item) => {
             const done = tapped.has(item.id);
             return (
@@ -103,6 +124,11 @@ function SyllablePractice({
             );
           })}
         </div>
+        {allDone && (
+          <div className="mt-4 rounded-3xl border-2 border-emerald-300 bg-emerald-50 px-4 py-3 text-center text-sm font-black text-emerald-800">
+            ¡Gran trabajo! Leíste todas las sílabas.
+          </div>
+        )}
       </div>
     </div>
   );
@@ -132,18 +158,20 @@ function WordTap({
   const allDone = tapped.size >= interaction.items.length;
 
   return (
-    <div className="rounded-2xl border border-foreground/10 bg-white/90 shadow-sm overflow-hidden">
+    <div className="rounded-[1.75rem] border-2 border-foreground/10 bg-white/90 shadow-xl shadow-primary/5 overflow-hidden">
       <div className="px-4 py-3 flex items-center gap-3" style={borderStyle(accent)}>
         <div className="flex-1 min-w-0">
-          <h3 className="font-bold text-base text-foreground/90 leading-tight">{interaction.title}</h3>
-          <p className="text-sm text-foreground/55 mt-0.5 leading-snug">{interaction.prompt}</p>
+          <h3 className="font-black text-lg text-foreground/90 leading-tight">{interaction.title}</h3>
+          <p className="text-sm font-semibold text-foreground/55 mt-1 leading-snug">{interaction.prompt}</p>
         </div>
         {allDone && <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" aria-label="Completado" />}
       </div>
       <div className="px-4 py-4">
-        <div className="flex flex-wrap gap-2.5">
+        <SourceImageCard assetRef={interaction.assetRef} />
+        <div className="mt-4 flex flex-wrap gap-3">
           {interaction.items.map((item) => {
             const done = tapped.has(item.id);
+            const itemImageSrc = item.assetRef ? assetPath(item.assetRef) : undefined;
             return (
               <button
                 key={item.id}
@@ -158,11 +186,17 @@ function WordTap({
                 )}
               >
                 {done ? <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" aria-hidden /> : <Volume2 className="w-4 h-4 text-foreground/35 shrink-0" aria-hidden />}
+                {itemImageSrc && <img src={itemImageSrc} alt="" className="h-10 w-10 rounded-xl object-cover ring-1 ring-foreground/10" loading="lazy" />}
                 {item.label}
               </button>
             );
           })}
         </div>
+        {allDone && (
+          <div className="mt-4 rounded-3xl border-2 border-emerald-300 bg-emerald-50 px-4 py-3 text-center text-sm font-black text-emerald-800">
+            ¡Muy bien! Escuchaste todas las palabras.
+          </div>
+        )}
       </div>
     </div>
   );
@@ -193,16 +227,17 @@ function ReadAloud({
   const allDone = tapped.size >= interaction.items.length;
 
   return (
-    <div className="rounded-2xl border border-foreground/10 bg-white/90 shadow-sm overflow-hidden">
+    <div className="rounded-[1.75rem] border-2 border-foreground/10 bg-white/90 shadow-xl shadow-primary/5 overflow-hidden">
       <div className="px-4 py-3 flex items-center gap-3" style={borderStyle(accent)}>
         <div className="flex-1 min-w-0">
-          <h3 className="font-bold text-base text-foreground/90 leading-tight">{interaction.title}</h3>
-          <p className="text-sm text-foreground/55 mt-0.5 leading-snug">{interaction.prompt}</p>
+          <h3 className="font-black text-lg text-foreground/90 leading-tight">{interaction.title}</h3>
+          <p className="text-sm font-semibold text-foreground/55 mt-1 leading-snug">{interaction.prompt}</p>
         </div>
         {allDone && <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" aria-label="Completado" />}
       </div>
       <div className="px-4 py-4">
-        <div className={cn("flex gap-2.5", isSentences ? "flex-col" : "flex-wrap")}>
+        <SourceImageCard assetRef={interaction.assetRef} />
+        <div className={cn("mt-4 flex gap-3", isSentences ? "flex-col" : "flex-wrap")}>
           {interaction.items.map((item) => {
             const done = tapped.has(item.id);
             return (
@@ -225,6 +260,11 @@ function ReadAloud({
             );
           })}
         </div>
+        {allDone && (
+          <div className="mt-4 rounded-3xl border-2 border-emerald-300 bg-emerald-50 px-4 py-3 text-center text-sm font-black text-emerald-800">
+            ¡Excelente lectura! Ya escuchaste todo.
+          </div>
+        )}
       </div>
     </div>
   );
@@ -234,7 +274,7 @@ function MiniStoryCard({ interaction }: { interaction: WorkbookInteraction; acce
   const hasText = interaction.items.length > 0;
 
   return (
-    <div className="rounded-2xl border border-amber-200/70 bg-amber-50/80 shadow-sm overflow-hidden" role="complementary" aria-label="Mini-cuento del cuaderno">
+    <div className="rounded-[1.75rem] border-2 border-amber-200/70 bg-amber-50/80 shadow-xl shadow-amber-500/5 overflow-hidden" role="complementary" aria-label="Mini-cuento del cuaderno">
       <div className="px-4 py-3 flex items-center gap-3 bg-amber-100/60 border-b border-amber-200/50">
         <BookOpen className="w-5 h-5 text-amber-700 shrink-0" aria-hidden />
         <div className="flex-1 min-w-0">
@@ -243,8 +283,9 @@ function MiniStoryCard({ interaction }: { interaction: WorkbookInteraction; acce
         </div>
       </div>
       <div className="px-4 py-4">
+        <SourceImageCard assetRef={interaction.assetRef} />
         {hasText ? (
-          <div className="space-y-2">
+          <div className="mt-4 space-y-2">
             {interaction.items.map((item) => (
               <p key={item.id} className="text-base leading-relaxed text-amber-950 font-medium">
                 {item.label}
@@ -274,7 +315,7 @@ function AutoScanActivity({
   if (items.length === 0) return null;
 
   return (
-    <div className="rounded-2xl border border-indigo-200 bg-indigo-50/80 shadow-sm overflow-hidden">
+    <div className="rounded-[1.75rem] border-2 border-indigo-200 bg-indigo-50/80 shadow-xl shadow-indigo-500/5 overflow-hidden">
       <div className="px-4 py-3 flex items-center gap-3 bg-white/70" style={borderStyle(accent)}>
         <Sparkles className="h-5 w-5 text-indigo-600" />
         <div>
@@ -282,13 +323,13 @@ function AutoScanActivity({
           <p className="text-sm font-semibold text-indigo-800/70">Actividad generada desde texto verificado o escaneo conectado.</p>
         </div>
       </div>
-      <div className="px-4 py-4 flex flex-wrap gap-2.5">
+      <div className="px-4 py-4 flex flex-wrap gap-3">
         {items.map((item) => (
           <button
             key={item.id}
             type="button"
             onClick={() => speak(item.label)}
-            className="inline-flex items-center gap-2 rounded-xl border-2 border-indigo-200 bg-white px-4 py-2.5 text-base font-black text-indigo-900 shadow-sm transition hover:-translate-y-0.5 hover:border-indigo-300"
+            className="inline-flex min-h-14 items-center gap-2 rounded-2xl border-2 border-indigo-200 bg-white px-5 py-3 text-lg font-black text-indigo-900 shadow-sm transition hover:-translate-y-0.5 hover:border-indigo-300 active:scale-95"
           >
             <Volume2 className="h-4 w-4 text-indigo-500" /> {item.label}
           </button>
@@ -358,7 +399,7 @@ export function InteractiveWorkbookLayer({
   const totalVisible = visibleInteractions.length;
 
   return (
-    <section className="mt-6 space-y-3" aria-label="Actividades interactivas del cuaderno">
+    <section className="mt-6 space-y-4" aria-label="Actividades interactivas del cuaderno">
       <div className="flex items-center gap-3">
         <div className="h-px flex-1" style={gradientRight(accent)} />
         <div className="flex items-center gap-2 px-1">
@@ -376,11 +417,18 @@ export function InteractiveWorkbookLayer({
             <ActivityCard key={interaction.id} interaction={interaction} accent={accent} onComplete={handleComplete} />
           ))}
           {totalVisible > 1 && completedCount > 0 && (
-            <div className="flex items-center gap-2 justify-end pt-1">
+            <div className="flex items-center gap-3 justify-end rounded-full bg-white/70 px-3 py-2 shadow-sm">
               <div className="h-1.5 flex-1 max-w-24 bg-foreground/8 rounded-full overflow-hidden">
                 <div className="h-full rounded-full transition-all" style={progressStyle((completedCount / totalVisible) * 100, accent)} />
               </div>
               <span className="text-[10px] font-bold text-foreground/35 tabular-nums">{completedCount}/{totalVisible}</span>
+            </div>
+          )}
+          {totalVisible > 1 && completedCount === totalVisible && (
+            <div className="rounded-[1.75rem] border-2 border-emerald-300 bg-emerald-50 px-4 py-4 text-center text-emerald-800 shadow-lg shadow-emerald-500/10">
+              <Trophy className="mx-auto mb-1 h-6 w-6" />
+              <div className="text-base font-black">¡Gran trabajo!</div>
+              <p className="text-sm font-semibold text-emerald-700/80">Terminaste las actividades de esta página.</p>
             </div>
           )}
         </div>

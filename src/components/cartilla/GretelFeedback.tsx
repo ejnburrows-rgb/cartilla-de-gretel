@@ -63,7 +63,7 @@ export function GretelFeedback({
           className="fixed inset-x-0 bottom-0 sm:inset-0 z-50 flex items-end sm:items-center justify-center pointer-events-none px-4 pb-6 sm:pb-0"
         >
           <div
-            className="pointer-events-auto rounded-3xl border-4 px-5 py-4 shadow-2xl max-w-md w-full flex items-center gap-4 backdrop-blur"
+            className="pointer-events-auto rounded-[2rem] border-4 px-5 py-4 shadow-2xl max-w-md w-full flex items-center gap-4 backdrop-blur"
             style={panelStyle(state)}
           >
             <GretelAvatar mood={state} />
@@ -75,21 +75,21 @@ export function GretelFeedback({
                 {state === "ok" ? "¡Muy bien!" : "Intenta otra vez"}
               </div>
               <div
-                className="text-xs sm:text-sm mt-0.5"
+                className="text-sm sm:text-base mt-0.5 font-semibold"
                 style={bodyStyle(state)}
               >
                 {state === "ok"
-                  ? "Formaste la palabra correctamente."
-                  : "Vuelve a arrastrar las piezas a su lugar."}
+                  ? "Lo hiciste con cuidado. Sigue con la siguiente."
+                  : "No pasa nada. Limpia los espacios y prueba otra vez."}
               </div>
             </div>
             <button
               type="button"
               onClick={onRetry}
-              className="shrink-0 inline-flex items-center gap-1.5 px-3 py-2 rounded-xl font-bold text-sm text-white shadow-sm hover:-translate-y-px transition"
+              className="shrink-0 inline-flex min-h-12 items-center gap-1.5 px-4 py-2 rounded-2xl font-black text-sm text-white shadow-sm hover:-translate-y-px transition"
               style={retryButtonStyle(state)}
             >
-              <RefreshCw className="w-4 h-4" /> Otra
+              <RefreshCw className="w-4 h-4" /> {state === "ok" ? "Otra" : "Intentar"}
             </button>
           </div>
         </motion.div>
@@ -98,11 +98,6 @@ export function GretelFeedback({
   );
 }
 
-/**
- * Placeholder Gretel avatar. To be swapped with Estela's original drawings
- * (happy and sad expressions) once the art crops are wired in from
- * Notion: Teacher Presentation Book — Images.
- */
 function GretelAvatar({ mood }: { mood: "ok" | "x" }) {
   return (
     <div

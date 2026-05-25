@@ -101,27 +101,27 @@ export function SyllableTap({
   };
 
   return (
-    <div className="rounded-2xl border-2 border-foreground/10 bg-card p-4">
-      <div className="flex items-center justify-between mb-3">
-        <h3 className="font-bold">Toca la sílaba que escuches</h3>
-        <span className="text-xs font-bold text-foreground/60">
+    <div className="rounded-[1.75rem] border-2 border-foreground/10 bg-card p-4 sm:p-5 shadow-xl shadow-primary/5">
+      <div className="flex items-center justify-between gap-3 mb-3">
+        <h3 className="font-black text-lg leading-tight">Toca la sílaba que escuches</h3>
+        <span className="rounded-full bg-secondary px-3 py-1 text-xs font-black text-foreground/60">
           {score} / {tries}
         </span>
       </div>
       <button
         onClick={() => speak(target)}
-        className="mb-3 inline-flex items-center gap-2 px-4 py-2 rounded-xl text-white font-bold"
+        className="mb-4 inline-flex min-h-12 items-center gap-2 px-5 py-3 rounded-2xl text-white font-black shadow-md active:scale-95"
         style={primaryButtonStyle(color)}
       >
         <Volume2 className="w-4 h-4" /> Escuchar
       </button>
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-3">
         {choices.map((s) => (
           <button
             key={s}
             onClick={() => pick(s)}
             className={cn(
-              "min-w-14 px-4 py-3 rounded-xl text-lg font-bold border-2 transition active:scale-95",
+              "min-w-20 min-h-16 px-5 py-4 rounded-3xl text-2xl sm:text-3xl font-black border-[3px] transition active:scale-95 shadow-sm",
               feedback?.kind === "ok" && s === target && "bg-success text-white border-success",
               feedback?.kind === "no" &&
                 s === feedback.picked &&
@@ -137,7 +137,7 @@ export function SyllableTap({
         ))}
       </div>
       {feedback?.kind === "no" && (
-        <div className="mt-3 rounded-xl border-2 border-destructive/30 bg-destructive/5 p-3">
+        <div className="mt-4 rounded-3xl border-2 border-destructive/30 bg-destructive/5 p-4 animate-in fade-in slide-in-from-bottom-2">
           <div className="text-sm font-bold text-destructive inline-flex items-center gap-1.5">
             <X className="w-4 h-4" /> Incorrecto
           </div>
@@ -148,13 +148,13 @@ export function SyllableTap({
           <div className="mt-2 flex gap-2">
             <button
               onClick={() => speak(feedback.target)}
-              className="inline-flex items-center gap-1 text-xs font-bold text-primary"
+              className="inline-flex min-h-10 items-center gap-1 rounded-full bg-primary/10 px-3 py-2 text-xs font-black text-primary"
             >
               <Volume2 className="w-3.5 h-3.5" /> Escuchar «{feedback.target}»
             </button>
             <button
               onClick={next}
-              className="text-xs font-bold text-foreground/60 hover:text-foreground"
+              className="min-h-10 rounded-full bg-secondary px-3 py-2 text-xs font-black text-foreground/60 hover:text-foreground"
             >
               Siguiente →
             </button>
@@ -162,12 +162,12 @@ export function SyllableTap({
         </div>
       )}
       {feedback?.kind === "ok" && (
-        <div className="mt-3 rounded-xl border-2 border-success/30 bg-success/5 p-3">
+        <div className="mt-4 rounded-3xl border-2 border-success/30 bg-success/5 p-4 animate-in fade-in slide-in-from-bottom-2">
           <div className="text-sm font-bold text-success inline-flex items-center gap-1.5">
             <Check className="w-4 h-4" /> ¡Correcto!
           </div>
           <p className="text-sm text-foreground/80 mt-1">
-            <strong>«{feedback.target}»</strong> es la sílaba que sonaba. ¡Buen oído!
+            <strong>«{feedback.target}»</strong> es la sílaba que sonaba. ¡Gran trabajo!
           </p>
         </div>
       )}
@@ -292,9 +292,9 @@ export function WordMatch({
   const acc = attempts > 0 ? Math.round((hits / attempts) * 100) : null;
 
   return (
-    <div className="rounded-2xl border-2 border-foreground/10 bg-card p-4">
-      <div className="flex items-center justify-between mb-3">
-        <h3 className="font-bold">Une la palabra con sus sílabas</h3>
+    <div className="rounded-[1.75rem] border-2 border-foreground/10 bg-card p-4 sm:p-5 shadow-xl shadow-primary/5">
+      <div className="flex items-center justify-between gap-3 mb-4">
+        <h3 className="font-black text-lg leading-tight">Une la palabra con sus sílabas</h3>
         <div className="flex items-center gap-3">
           {acc !== null && (
             <span className="text-xs font-bold text-foreground/60">
@@ -303,21 +303,21 @@ export function WordMatch({
           )}
           <button
             onClick={reset}
-            className="text-xs inline-flex items-center gap-1 text-foreground/60 hover:text-primary"
+            className="min-h-10 rounded-full bg-secondary px-3 py-2 text-xs inline-flex items-center gap-1 font-black text-foreground/60 hover:text-primary"
           >
             <RotateCcw className="w-3.5 h-3.5" /> Reiniciar
           </button>
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-3">
-        <div className="space-y-2">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <div className="space-y-3">
           {items.map((w) => (
             <button
               key={w.word}
               disabled={matched.has(w.word)}
               onClick={() => onWord(w.word)}
               className={cn(
-                "w-full px-3 py-2 rounded-xl border-2 font-bold text-left transition",
+                "w-full min-h-14 px-4 py-3 rounded-2xl border-[3px] font-black text-lg text-left transition shadow-sm",
                 matched.has(w.word)
                   ? "opacity-40 line-through"
                   : picked === w.word
@@ -330,7 +330,7 @@ export function WordMatch({
             </button>
           ))}
         </div>
-        <div className="space-y-2">
+        <div className="space-y-3">
           {shuffled.map((w) => {
             const syllableText = SYLLABLE_MAP[w.word.toLowerCase()] || w.word;
             return (
@@ -339,7 +339,7 @@ export function WordMatch({
                 disabled={matched.has(w.word)}
                 onClick={() => onSyllable(w.word)}
                 className={cn(
-                  "w-full text-lg py-2 font-bold rounded-xl border-2 transition",
+                  "w-full min-h-14 text-lg sm:text-xl px-4 py-3 font-black rounded-2xl border-[3px] transition shadow-sm",
                   matched.has(w.word)
                     ? "opacity-40"
                     : "border-foreground/10 hover:bg-secondary active:scale-95 text-foreground/80",
@@ -352,17 +352,17 @@ export function WordMatch({
         </div>
       </div>
       {feedback?.kind === "ok" && (
-        <div className="mt-3 rounded-xl border-2 border-success/30 bg-success/5 p-3">
+        <div className="mt-4 rounded-3xl border-2 border-success/30 bg-success/5 p-4 animate-in fade-in slide-in-from-bottom-2">
           <div className="text-sm font-bold text-success inline-flex items-center gap-1.5">
             <Check className="w-4 h-4" /> ¡Correcto!
           </div>
           <p className="text-sm text-foreground/80 mt-1">
-            <strong>«{feedback.word}»</strong> se divide en sílabas como <strong>«{feedback.syllables}»</strong>. ¡Buen trabajo!
+            <strong>«{feedback.word}»</strong> se divide en sílabas como <strong>«{feedback.syllables}»</strong>. ¡Gran trabajo!
           </p>
         </div>
       )}
       {feedback?.kind === "no" && (
-        <div className="mt-3 rounded-xl border-2 border-destructive/30 bg-destructive/5 p-3">
+        <div className="mt-4 rounded-3xl border-2 border-destructive/30 bg-destructive/5 p-4 animate-in fade-in slide-in-from-bottom-2">
           <div className="text-sm font-bold text-destructive inline-flex items-center gap-1.5">
             <X className="w-4 h-4" /> No coinciden
           </div>
@@ -372,14 +372,14 @@ export function WordMatch({
           </p>
           <button
             onClick={() => speak(feedback.word)}
-            className="mt-2 inline-flex items-center gap-1 text-xs font-bold text-primary"
+            className="mt-3 inline-flex min-h-10 items-center gap-1 rounded-full bg-primary/10 px-3 py-2 text-xs font-black text-primary"
           >
             <Volume2 className="w-3.5 h-3.5" /> Escuchar «{feedback.word}»
           </button>
         </div>
       )}
       {allDone && (
-        <div className="mt-3 rounded-xl border-2 border-success/40 bg-success/10 p-3">
+        <div className="mt-4 rounded-3xl border-2 border-success/40 bg-success/10 p-4 animate-in fade-in slide-in-from-bottom-2">
           <div className="text-success font-bold inline-flex items-center gap-1.5">
             <Check className="w-4 h-4" /> ¡Ronda completa!
           </div>
