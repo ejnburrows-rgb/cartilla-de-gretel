@@ -66,6 +66,14 @@ function publicAsset(path?: string) {
   return path ? assetPath(path) : "";
 }
 
+function isTypingTarget(target: EventTarget | null) {
+  return (
+    target instanceof HTMLInputElement ||
+    target instanceof HTMLTextAreaElement ||
+    target instanceof HTMLSelectElement
+  );
+}
+
 export const Route = createFileRoute(
   "/_authenticated/cartilla/teacher/remaster-review"
 )({
@@ -198,20 +206,54 @@ function RemasterReview() {
     });
   }, [reviewableAssets, searchQuery, filterType, filterDecision, getDecision]);
 
+  const currentFilteredIdx = filteredAssets.findIndex(
+    (x) => x.originalIndex === selectedAssetIndex
+  );
+
+  const pendingFilteredAssets = useMemo(
+    () =>
+      filteredAssets.filter(
+        ({ asset }) => getDecision(asset.originalSourcePath).decision === null
+      ),
+    [filteredAssets, getDecision]
+  );
+
+  const goToFilteredAsset = useCallback(
+    (direction: "next" | "prev") => {
+      const offset = direction === "next" ? 1 : -1;
+      const next = filteredAssets[currentFilteredIdx + offset];
+      if (next) setSelectedAssetIndex(next.originalIndex);
+    },
+    [currentFilteredIdx, filteredAssets]
+  );
+
+  const goToNextPending = useCallback(() => {
+    if (pendingFilteredAssets.length === 0) return;
+
+    const next =
+      pendingFilteredAssets.find(
+        ({ originalIndex }) => originalIndex > selectedAssetIndex
+      ) ?? pendingFilteredAssets[0];
+    setSelectedAssetIndex(next.originalIndex);
+  }, [pendingFilteredAssets, selectedAssetIndex]);
+
+  useEffect(() => {
+    if (filteredAssets.length === 0 || currentFilteredIdx !== -1) return;
+    setSelectedAssetIndex(filteredAssets[0].originalIndex);
+  }, [currentFilteredIdx, filteredAssets]);
+
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
-      if (e.target instanceof HTMLTextAreaElement) return;
-      const currentFilteredIdx = filteredAssets.findIndex(
-        (x) => x.originalIndex === selectedAssetIndex
-      );
+      if (isTypingTarget(e.target)) return;
       if (e.key === "ArrowDown" || e.key === "ArrowRight") {
         e.preventDefault();
-        const next = filteredAssets[currentFilteredIdx + 1];
-        if (next) setSelectedAssetIndex(next.originalIndex);
+        goToFilteredAsset("next");
       } else if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
         e.preventDefault();
-        const prev = filteredAssets[currentFilteredIdx - 1];
-        if (prev) setSelectedAssetIndex(prev.originalIndex);
+        goToFilteredAsset("prev");
+      } else if (e.key.toLowerCase() === "n") {
+        e.preventDefault();
+        goToNextPending();
       } else if (e.key === "1" && selectedAsset) {
         setDecision(selectedAsset.originalSourcePath, "approve");
       } else if (e.key === "2" && selectedAsset) {
@@ -222,7 +264,7 @@ function RemasterReview() {
     };
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
-  }, [filteredAssets, selectedAssetIndex, selectedAsset, setDecision]);
+  }, [goToFilteredAsset, goToNextPending, selectedAsset, setDecision]);
 
   const handleExport = () => {
     const exportData = {
@@ -263,9 +305,8 @@ function RemasterReview() {
     return "Sin decisión";
   };
 
-  const currentFilteredIdx = filteredAssets.findIndex(
-    (x) => x.originalIndex === selectedAssetIndex
-  );
+  const currentFilteredPosition =
+    currentFilteredIdx === -1 ? 0 : currentFilteredIdx + 1;
 
   return (
     <div className="flex flex-col min-h-screen bg-neutral-900 text-neutral-100 font-sans">
@@ -305,6 +346,19 @@ function RemasterReview() {
           <span className="px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">
             Ajustar: <span className="font-bold">{stats.tuning}</span>
           </span>
+          <span className="px-2.5 py-1 rounded-full bg-neutral-800 border border-neutral-700 text-neutral-300">
+            Pendientes visibles:{" "}
+            <span className="text-white font-bold">
+              {pendingFilteredAssets.length}
+            </span>
+          </span>
+          <button
+            onClick={goToNextPending}
+            disabled={pendingFilteredAssets.length === 0}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-neutral-800 hover:bg-neutral-700 text-neutral-200 text-[11px] font-bold transition-colors disabled:cursor-not-allowed disabled:opacity-40"
+          >
+            <Clock className="h-3.5 w-3.5" /> Siguiente pendiente
+          </button>
           <button
             onClick={handleExport}
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white text-[11px] font-bold transition-colors"
@@ -317,7 +371,7 @@ function RemasterReview() {
       <div className="px-6 py-1.5 bg-neutral-950 border-b border-neutral-800/50 flex items-center gap-2 text-[10px] text-neutral-600">
         <Info className="h-3 w-3 text-neutral-700" />
         <span>
-          Teclas: <kbd className="px-1 bg-neutral-800 rounded text-neutral-400">1</kbd> Aprobar <kbd className="px-1 bg-neutral-800 rounded text-neutral-400">2</kbd> Rechazar <kbd className="px-1 bg-neutral-800 rounded text-neutral-400">3</kbd> Ajustar <kbd className="px-1 bg-neutral-800 rounded text-neutral-400">ArrowUp/Down</kbd> Navegar
+          Teclas: <kbd className="px-1 bg-neutral-800 rounded text-neutral-400">1</kbd> Aprobar <kbd className="px-1 bg-neutral-800 rounded text-neutral-400">2</kbd> Rechazar <kbd className="px-1 bg-neutral-800 rounded text-neutral-400">3</kbd> Ajustar <kbd className="px-1 bg-neutral-800 rounded text-neutral-400">N</kbd> Siguiente pendiente <kbd className="px-1 bg-neutral-800 rounded text-neutral-400">ArrowUp/Down</kbd> Navegar
         </span>
       </div>
 
@@ -393,23 +447,20 @@ function RemasterReview() {
             <div className="flex items-center justify-between px-3 py-1.5 border-b border-neutral-800 text-[10px] text-neutral-500">
               <button
                 disabled={currentFilteredIdx <= 0}
-                onClick={() => {
-                  const prev = filteredAssets[currentFilteredIdx - 1];
-                  if (prev) setSelectedAssetIndex(prev.originalIndex);
-                }}
+                onClick={() => goToFilteredAsset("prev")}
                 className="p-1 rounded hover:bg-neutral-800 disabled:opacity-30 transition-colors"
               >
                 <ChevronLeft className="h-3.5 w-3.5" />
               </button>
               <span>
-                {currentFilteredIdx + 1} / {filteredAssets.length}
+                {currentFilteredPosition} / {filteredAssets.length}
               </span>
               <button
-                disabled={currentFilteredIdx >= filteredAssets.length - 1}
-                onClick={() => {
-                  const next = filteredAssets[currentFilteredIdx + 1];
-                  if (next) setSelectedAssetIndex(next.originalIndex);
-                }}
+                disabled={
+                  currentFilteredIdx === -1 ||
+                  currentFilteredIdx >= filteredAssets.length - 1
+                }
+                onClick={() => goToFilteredAsset("next")}
                 className="p-1 rounded hover:bg-neutral-800 disabled:opacity-30 transition-colors"
               >
                 <ChevronRight className="h-3.5 w-3.5" />
