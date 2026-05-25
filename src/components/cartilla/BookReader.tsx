@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
@@ -9,15 +10,15 @@ import { assetPath } from "@/lib/assets";
 const COVER_SRC = assetPath("cartilla/images/cover.png");
 
 const REAL_KIT_PHOTOS: Array<{ src: string; label: string }> = [
-  { src: assetPath("cartilla/images/original/cover.jpg"), label: "Portada del libro" },
-  { src: assetPath("cartilla/images/original/student-book.jpg"), label: "Libro del alumno" },
+  { src: assetPath("cartilla/images/original/cover.jpg"), label: "Portada original" },
+  { src: assetPath("cartilla/images/original/student-book.jpg"), label: "Cuaderno del estudiante" },
   { src: assetPath("cartilla/images/original/flipchart.jpg"), label: "Flipchart 17\u00d722" },
   { src: assetPath("cartilla/images/original/syllabic-charts.jpg"), label: "Carteles sil\u00e1bicos" },
   { src: assetPath("cartilla/images/original/homework.jpg"), label: "Tareas reproducibles" },
   { src: assetPath("cartilla/images/original/evaluations.jpg"), label: "Evaluaciones" },
 ];
 
-const PAGE_BG: React.CSSProperties = {
+const PAGE_BG: CSSProperties = {
   background:
     "linear-gradient(180deg, #fef3c7 0%, #ecfccb 45%, #e0f2fe 100%)",
 };
@@ -56,7 +57,7 @@ export function BookReader() {
       <main className="flex-1 flex flex-col items-center px-3 py-5 gap-6">
         <section className="w-full max-w-3xl flex flex-col items-center gap-3">
           <div className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-emerald-900/60">
-            La Cartilla de Gretel · Leónor Lopetegui
+            La Cartilla de Gretel · Leonor Lopetegui
           </div>
           <img
             src={COVER_SRC}
@@ -67,7 +68,7 @@ export function BookReader() {
 
         <section className="w-full max-w-3xl">
           <div className="text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-2 text-emerald-900/70">
-            Materiales originales
+            Materiales originales convertidos en CRM de aula
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
             {REAL_KIT_PHOTOS.map((p) => (
@@ -83,7 +84,7 @@ export function BookReader() {
 
         <section className="w-full max-w-3xl bg-white/85 backdrop-blur rounded-3xl shadow-xl border-4 border-amber-200 p-4 sm:p-6">
           <div className="text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-3 text-emerald-900/70 text-center">
-            Ejercicio · {entry.title}
+            Práctica de lectura · {entry.title}
           </div>
           <DragBuildWord entry={entry} accent={entry.color || "#059669"} />
         </section>
