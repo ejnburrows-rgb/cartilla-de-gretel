@@ -2,17 +2,17 @@ import { TOTAL_LESSONS } from "@/lib/lesson-catalog";
 
 export const DEMO_TEACHERS = [
   {
-    id: "demo-teacher-leonor",
+    id: "seed-teacher-leonor",
     name: "Leonor Lopetegui",
     username: "leonore",
-    email: "leonore@cartilla.demo",
+    email: "leonore@cartilla.local",
     password: "Cartilla2026!",
   },
   {
-    id: "demo-teacher-emilio",
+    id: "seed-teacher-emilio",
     name: "Emilio Novo",
     username: "emilio",
-    email: "emilio@cartilla.demo",
+    email: "emilio@cartilla.local",
     password: "Novo2026!",
   },
 ] as const;
@@ -24,10 +24,10 @@ export const DEMO_STUDENT_ACCESS = [
   { name: "Sofia Morejon", joinCode: "NOVO26", studentCode: "SOFIA" },
 ] as const;
 
-const AUTH_KEY = "cartilla.demo.teacher.v1";
-const STATE_KEY = "cartilla.demo.state.v1";
+const AUTH_KEY = "cartilla.seed.teacher.v1";
+const STATE_KEY = "cartilla.seed.state.v1";
 
-type DemoTeacherId = (typeof DEMO_TEACHERS)[number]["id"];
+type SeedTeacherId = (typeof DEMO_TEACHERS)[number]["id"];
 
 type DemoEvent = {
   id: string;
@@ -51,7 +51,7 @@ type DemoStudent = {
 
 type DemoClass = {
   id: string;
-  teacher_id: DemoTeacherId;
+  teacher_id: SeedTeacherId;
   name: string;
   join_code: string;
   created_at: string;
@@ -81,45 +81,45 @@ function nowIso() {
 function initialState(): DemoState {
   const classes: DemoClass[] = [
     {
-      id: "demo-class-leonor",
-      teacher_id: "demo-teacher-leonor",
-      name: "Clase demo - Leonor",
+      id: "seed-class-leonor",
+      teacher_id: "seed-teacher-leonor",
+      name: "Clase Leonor",
       join_code: "GRETEL",
       created_at: nowIso(),
     },
     {
-      id: "demo-class-emilio",
-      teacher_id: "demo-teacher-emilio",
-      name: "Clase demo - Emilio",
+      id: "seed-class-emilio",
+      teacher_id: "seed-teacher-emilio",
+      name: "Clase Emilio",
       join_code: "NOVO26",
       created_at: nowIso(),
     },
   ];
   const students: DemoStudent[] = [
     {
-      id: "demo-student-erick",
-      class_id: "demo-class-leonor",
+      id: "seed-student-erick-leonor",
+      class_id: "seed-class-leonor",
       display_name: "Erick Novo",
       student_code: "NOVO",
       created_at: nowIso(),
     },
     {
-      id: "demo-student-sofia",
-      class_id: "demo-class-leonor",
+      id: "seed-student-sofia-leonor",
+      class_id: "seed-class-leonor",
       display_name: "Sofia Morejon",
       student_code: "SOFIA",
       created_at: nowIso(),
     },
     {
-      id: "demo-student-erick-emilio",
-      class_id: "demo-class-emilio",
+      id: "seed-student-erick-emilio",
+      class_id: "seed-class-emilio",
       display_name: "Erick Novo",
       student_code: "NOVO",
       created_at: nowIso(),
     },
     {
-      id: "demo-student-sofia-emilio",
-      class_id: "demo-class-emilio",
+      id: "seed-student-sofia-emilio",
+      class_id: "seed-class-emilio",
       display_name: "Sofia Morejon",
       student_code: "SOFIA",
       created_at: nowIso(),
@@ -131,8 +131,8 @@ function initialState(): DemoState {
     events: seedEvents(),
     assignments: [
       {
-        id: "demo-assignment-leonor-l1",
-        class_id: "demo-class-leonor",
+        id: "seed-assignment-leonor-l1",
+        class_id: "seed-class-leonor",
         lesson_id: "1",
         title: "Primer repaso",
         due_at: null,
@@ -146,10 +146,10 @@ function initialState(): DemoState {
 function seedEvents(): DemoEvent[] {
   const base = Date.now() - 1000 * 60 * 60 * 24;
   return [
-    event("demo-student-erick", "1", "lesson_completed", null, null, null, { seeded: true }, base),
-    event("demo-student-erick", "1", "exercise", 4, 5, 180, { exercise: "syllable_tap" }, base),
+    event("seed-student-erick-leonor", "1", "lesson_completed", null, null, null, { seeded: true }, base),
+    event("seed-student-erick-leonor", "1", "exercise", 4, 5, 180, { exercise: "syllable_tap" }, base),
     event(
-      "demo-student-sofia",
+      "seed-student-sofia-leonor",
       "1",
       "lesson_completed",
       null,
@@ -158,7 +158,7 @@ function seedEvents(): DemoEvent[] {
       { seeded: true },
       base + 5000,
     ),
-    event("demo-student-sofia", "1", "exercise", 5, 5, 155, { exercise: "word_match" }, base),
+    event("seed-student-sofia-leonor", "1", "exercise", 5, 5, 155, { exercise: "word_match" }, base),
   ];
 }
 
@@ -173,7 +173,7 @@ function event(
   time: number,
 ): DemoEvent {
   return {
-    id: `demo-event-${studentId}-${lessonId}-${kind}-${time}`,
+    id: `seed-event-${studentId}-${lessonId}-${kind}-${time}`,
     student_id: studentId,
     lesson_id: lessonId,
     event_kind: kind,
@@ -209,6 +209,7 @@ function readState(): DemoState {
 function writeState(state: DemoState) {
   if (typeof window === "undefined") return;
   localStorage.setItem(STATE_KEY, JSON.stringify(state));
+  window.dispatchEvent(new Event("cartilla:seed-data"));
   window.dispatchEvent(new Event("cartilla:demo-data"));
 }
 
@@ -219,8 +220,9 @@ export function signInDemoTeacher(email: string, password: string) {
         t.username.toLowerCase() === email.toLowerCase()) &&
       t.password === password,
   );
-  if (!teacher) throw new Error("Credenciales demo invalidas.");
+  if (!teacher) throw new Error("Credenciales invalidas.");
   localStorage.setItem(AUTH_KEY, teacher.id);
+  window.dispatchEvent(new Event("cartilla:seed-auth"));
   window.dispatchEvent(new Event("cartilla:demo-auth"));
   return teacher;
 }
@@ -234,12 +236,13 @@ export function getDemoTeacher() {
 export function signOutDemoTeacher() {
   if (typeof window === "undefined") return;
   localStorage.removeItem(AUTH_KEY);
+  window.dispatchEvent(new Event("cartilla:seed-auth"));
   window.dispatchEvent(new Event("cartilla:demo-auth"));
 }
 
 export function listDemoClasses() {
   const teacher = getDemoTeacher();
-  if (!teacher) throw new Error("Debes iniciar sesion como maestro demo.");
+  if (!teacher) throw new Error("Debes iniciar sesion como maestro.");
   const state = readState();
   return state.classes
     .filter((c) => c.teacher_id === teacher.id)
@@ -251,10 +254,10 @@ export function listDemoClasses() {
 
 export function createDemoClass(name: string) {
   const teacher = getDemoTeacher();
-  if (!teacher) throw new Error("Debes iniciar sesion como maestro demo.");
+  if (!teacher) throw new Error("Debes iniciar sesion como maestro.");
   const state = readState();
   const row: DemoClass = {
-    id: `demo-class-${crypto.randomUUID()}`,
+    id: `seed-class-${crypto.randomUUID()}`,
     teacher_id: teacher.id,
     name,
     join_code: Math.random().toString(36).slice(2, 8).toUpperCase(),
@@ -267,10 +270,10 @@ export function createDemoClass(name: string) {
 
 export function deleteDemoClass(id: string) {
   const teacher = getDemoTeacher();
-  if (!teacher) throw new Error("Debes iniciar sesion como maestro demo.");
+  if (!teacher) throw new Error("Debes iniciar sesion como maestro.");
   const state = readState();
   const cls = state.classes.find((c) => c.id === id && c.teacher_id === teacher.id);
-  if (!cls) throw new Error("Clase demo no encontrada.");
+  if (!cls) throw new Error("Clase no encontrada.");
   const studentIds = state.students.filter((s) => s.class_id === id).map((s) => s.id);
   state.classes = state.classes.filter((c) => c.id !== id);
   state.students = state.students.filter((s) => s.class_id !== id);
@@ -282,10 +285,10 @@ export function deleteDemoClass(id: string) {
 
 export function getDemoClass(id: string) {
   const teacher = getDemoTeacher();
-  if (!teacher) throw new Error("Debes iniciar sesion como maestro demo.");
+  if (!teacher) throw new Error("Debes iniciar sesion como maestro.");
   const state = readState();
   const cls = state.classes.find((c) => c.id === id && c.teacher_id === teacher.id);
-  if (!cls) throw new Error("Clase demo no encontrada.");
+  if (!cls) throw new Error("Clase no encontrada.");
   const students = state.students
     .filter((s) => s.class_id === id)
     .map((s) => {
@@ -305,7 +308,7 @@ export function getDemoClass(id: string) {
 export function addDemoStudents(classId: string, names: string[]) {
   const state = readState();
   const rows = names.map((name) => ({
-    id: `demo-student-${crypto.randomUUID()}`,
+    id: `seed-student-${crypto.randomUUID()}`,
     class_id: classId,
     display_name: name,
     student_code: name.split(/\s+/)[0]?.slice(0, 5).toUpperCase() || "CODE",
@@ -327,11 +330,11 @@ export function deleteDemoStudent(id: string) {
 export function joinDemoClass(joinCode: string, studentCode: string) {
   const state = readState();
   const cls = state.classes.find((c) => c.join_code.toUpperCase() === joinCode.toUpperCase());
-  if (!cls) throw new Error("Codigo de clase demo invalido.");
+  if (!cls) throw new Error("Codigo de clase invalido.");
   const student = state.students.find(
     (s) => s.class_id === cls.id && s.student_code.toUpperCase() === studentCode.toUpperCase(),
   );
-  if (!student) throw new Error("Codigo de estudiante demo invalido.");
+  if (!student) throw new Error("Codigo de estudiante invalido.");
   return {
     studentId: student.id,
     studentName: student.display_name,
@@ -352,7 +355,7 @@ export function logDemoProgress(input: {
 }) {
   const state = readState();
   state.events.unshift({
-    id: `demo-event-${crypto.randomUUID()}`,
+    id: `seed-event-${crypto.randomUUID()}`,
     student_id: input.studentId,
     lesson_id: input.lessonId,
     event_kind: input.kind,
@@ -368,10 +371,10 @@ export function logDemoProgress(input: {
 
 export function listDemoAssignments(classId: string) {
   const teacher = getDemoTeacher();
-  if (!teacher) throw new Error("Debes iniciar sesion como maestro demo.");
+  if (!teacher) throw new Error("Debes iniciar sesion como maestro.");
   const state = readState();
   const cls = state.classes.find((c) => c.id === classId && c.teacher_id === teacher.id);
-  if (!cls) throw new Error("Clase demo no encontrada.");
+  if (!cls) throw new Error("Clase no encontrada.");
   return state.assignments
     .filter((a) => a.class_id === classId)
     .sort((a, b) => b.created_at.localeCompare(a.created_at));
@@ -385,12 +388,12 @@ export function createDemoAssignment(input: {
   timeLimitSeconds?: number | null;
 }) {
   const teacher = getDemoTeacher();
-  if (!teacher) throw new Error("Debes iniciar sesion como maestro demo.");
+  if (!teacher) throw new Error("Debes iniciar sesion como maestro.");
   const state = readState();
   const cls = state.classes.find((c) => c.id === input.classId && c.teacher_id === teacher.id);
-  if (!cls) throw new Error("Clase demo no encontrada.");
+  if (!cls) throw new Error("Clase no encontrada.");
   const row: DemoAssignment = {
-    id: `demo-assignment-${crypto.randomUUID()}`,
+    id: `seed-assignment-${crypto.randomUUID()}`,
     class_id: input.classId,
     lesson_id: input.lessonId,
     title: input.title || null,
@@ -405,13 +408,13 @@ export function createDemoAssignment(input: {
 
 export function deleteDemoAssignment(id: string) {
   const teacher = getDemoTeacher();
-  if (!teacher) throw new Error("Debes iniciar sesion como maestro demo.");
+  if (!teacher) throw new Error("Debes iniciar sesion como maestro.");
   const state = readState();
   const assignment = state.assignments.find((a) => a.id === id);
   const cls = assignment
     ? state.classes.find((c) => c.id === assignment.class_id && c.teacher_id === teacher.id)
     : null;
-  if (!assignment || !cls) throw new Error("Tarea demo no encontrada.");
+  if (!assignment || !cls) throw new Error("Tarea no encontrada.");
   state.assignments = state.assignments.filter((a) => a.id !== id);
   writeState(state);
   return { ok: true };
@@ -429,7 +432,7 @@ export function listDemoStudentAssignments(input: {
       s.class_id === input.classId &&
       s.student_code.toUpperCase() === input.studentCode.toUpperCase(),
   );
-  if (!student) throw new Error("Alumno demo no encontrado.");
+  if (!student) throw new Error("Alumno no encontrado.");
   return state.assignments
     .filter((a) => a.class_id === input.classId)
     .sort((a, b) => b.created_at.localeCompare(a.created_at));
@@ -438,7 +441,7 @@ export function listDemoStudentAssignments(input: {
 export function getDemoStudentProgress(studentId: string) {
   const state = readState();
   const student = state.students.find((s) => s.id === studentId);
-  if (!student) throw new Error("Alumno demo no encontrado.");
+  if (!student) throw new Error("Alumno no encontrado.");
   const cls = state.classes.find((c) => c.id === student.class_id) ?? null;
   const events = state.events.filter((e) => e.student_id === studentId);
   return {
@@ -454,7 +457,7 @@ export function getDemoStudentProgress(studentId: string) {
 export function getDemoTeacherStudentProgress(id: string) {
   const state = readState();
   const student = state.students.find((s) => s.id === id);
-  if (!student) throw new Error("Alumno demo no encontrado.");
+  if (!student) throw new Error("Alumno no encontrado.");
   const cls = state.classes.find((c) => c.id === student.class_id) ?? null;
   return {
     student: {
@@ -544,6 +547,7 @@ export function importDemoStateRaw(jsonStr: string): boolean {
     const parsed = JSON.parse(jsonStr);
     if (parsed && typeof parsed === "object" && Array.isArray(parsed.classes)) {
       localStorage.setItem(STATE_KEY, jsonStr);
+      window.dispatchEvent(new Event("cartilla:seed-data"));
       window.dispatchEvent(new Event("cartilla:demo-data"));
       return true;
     }
@@ -556,6 +560,7 @@ export function importDemoStateRaw(jsonStr: string): boolean {
 export function resetDemoStateRaw() {
   if (typeof window === "undefined") return;
   localStorage.removeItem(STATE_KEY);
+  window.dispatchEvent(new Event("cartilla:seed-data"));
   window.dispatchEvent(new Event("cartilla:demo-data"));
 }
 

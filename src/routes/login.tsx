@@ -93,8 +93,8 @@ function LoginPage() {
       >
         {!isSupabaseConfigured && mode === "login" && (
           <div className="rounded-2xl border-2 border-primary/20 bg-primary/5 px-4 py-3 text-sm font-bold text-primary">
-            Modo demo local: Supabase no estÃ¡ configurado. Cuenta prellenada:{" "}
-            {DEFAULT_TEACHER.name}. Los datos se guardan en este navegador.
+            Modo local: Supabase no está configurado. Se cargan cuentas preconfiguradas
+            reales para Leonor y Emilio, con clases y alumnos existentes guardados en este navegador.
           </div>
         )}
         {mode === "signup" && (
@@ -148,9 +148,9 @@ function LoginPage() {
 
       {!isSupabaseConfigured && (
         <section className="mt-4 rounded-3xl border-2 border-primary/20 bg-primary/5 p-4">
-          <h2 className="text-base font-bold text-primary">Cuentas listas</h2>
+          <h2 className="text-base font-bold text-primary">Cuentas preconfiguradas</h2>
           <p className="mt-1 text-sm text-foreground/70">
-            Selecciona una cuenta docente para entrar al panel.
+            Estas cuentas cargan clases y alumnos existentes en modo local. En producción deben existir en Supabase.
           </p>
           <div className="mt-3 space-y-2 text-sm">
             {DEMO_TEACHERS.map((teacher) => (

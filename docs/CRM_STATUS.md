@@ -9,7 +9,7 @@ This is the CRM layer for the real La Cartilla de Gretel classroom platform. It 
 The system has two modes:
 
 1. **Production mode** — Supabase is configured and classroom data syncs to the cloud.
-2. **Local mode** — Supabase is not configured and progress is saved on this device/browser only.
+2. **Local mode** — Supabase is not configured and the preconfigured teacher/student accounts are stored in this device/browser.
 
 ## What works
 
@@ -19,6 +19,26 @@ The system has two modes:
 - **Public workbook browsing**: the student workbook can be explored without a class code. A class code is optional for progress tracking.
 - **Progress event pipeline**: lesson completions, exercise attempts, study time, badges, and level-up events can be recorded.
 - **Curriculum assignments**: teachers can assign lessons, due dates, and time limits. Students with a session see assignments in the lesson page.
+
+---
+
+## Preconfigured local accounts
+
+When Supabase is missing, the app loads preconfigured classroom records for real review/use on the device:
+
+Teacher accounts:
+
+- Leonor Lopetegui — username `leonore`
+- Emilio Novo — username `emilio`
+
+Student/class access:
+
+- Erick Novo — class `GRETEL`, code `NOVO`
+- Sofia Morejon — class `GRETEL`, code `SOFIA`
+- Erick Novo — class `NOVO26`, code `NOVO`
+- Sofia Morejon — class `NOVO26`, code `SOFIA`
+
+These records should be seeded into Supabase for real cloud-backed production. See `docs/SUPABASE_REAL_ACCOUNTS.md`.
 
 ---
 
@@ -94,7 +114,7 @@ Before real classroom use:
 
 - Confirm the live Supabase schema.
 - Confirm migrations/RLS policies.
-- Seed real teacher account(s).
+- Seed real teacher account(s), classes, students, and initial assignments in Supabase.
 - Confirm privacy process for students.
 - Confirm student progress sync works in production mode.
 - Confirm remastered images are reviewed before approval.

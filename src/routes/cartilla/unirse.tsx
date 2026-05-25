@@ -87,8 +87,7 @@ function JoinPage() {
           <form onSubmit={submit} className="mt-8 space-y-3">
             {!isSupabaseConfigured && (
               <div className="rounded-2xl border-2 border-vowel-i/20 bg-vowel-i/5 px-4 py-3 text-sm font-bold text-vowel-i">
-                Modo local: Supabase no está configurado. La sesión y el progreso de clase se guardan
-                en este navegador. Acceso de prueba prellenado: {DEFAULT_DEMO_STUDENT.name}.
+                Modo local: Supabase no está configurado. Estas cuentas preconfiguradas pertenecen a clases y alumnos existentes guardados en este navegador.
               </div>
             )}
             <div>
@@ -135,7 +134,7 @@ function JoinPage() {
           </Link>
           {!isSupabaseConfigured && (
             <section className="mt-4 rounded-3xl border-2 border-vowel-i/20 bg-vowel-i/5 p-4">
-              <h2 className="text-base font-bold text-vowel-i">Accesos de prueba locales</h2>
+              <h2 className="text-base font-bold text-vowel-i">Alumnos preconfigurados</h2>
               <div className="mt-3 space-y-2 text-sm">
                 {DEMO_STUDENT_ACCESS.map((student) => (
                   <button
