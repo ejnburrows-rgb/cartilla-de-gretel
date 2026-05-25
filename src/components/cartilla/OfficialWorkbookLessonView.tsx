@@ -119,7 +119,12 @@ export function OfficialWorkbookLessonView({
 
       <AnimatePresence>
         {isFullscreen && (
-          <motion.div className="fixed inset-0 z-50 flex flex-col overflow-hidden bg-[radial-gradient(circle_at_15%_10%,#fff3b0,transparent_30%),radial-gradient(circle_at_85%_8%,#b9f3ff,transparent_32%),linear-gradient(135deg,#fff8de,#ffd6e3_48%,#d9efff)] p-4" initial= opacity: 0  animate= opacity: 1  exit= opacity: 0 >
+          <motion.div
+            className="fixed inset-0 z-50 flex flex-col overflow-hidden bg-[radial-gradient(circle_at_15%_10%,#fff3b0,transparent_30%),radial-gradient(circle_at_85%_8%,#b9f3ff,transparent_32%),linear-gradient(135deg,#fff8de,#ffd6e3_48%,#d9efff)] p-4"
+            initial= opacity: 0 
+            animate= opacity: 1 
+            exit= opacity: 0 
+          >
             <div className="mb-4 flex shrink-0 items-center justify-between rounded-2xl bg-white/70 p-3 shadow-sm backdrop-blur">
               <div>
                 <h2 className="text-sm font-extrabold leading-none text-[#3A281E] md:text-base">{title} · página {sources[selectedIdx]?.pageNumber ?? leftSource.pageNumber}</h2>
