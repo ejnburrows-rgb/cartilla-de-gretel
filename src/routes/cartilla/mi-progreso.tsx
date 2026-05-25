@@ -7,6 +7,7 @@ import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
 import { SimpleBarChart } from "@/components/cartilla/SimpleBarChart";
 import { downloadCSV, toCSV } from "@/lib/csv";
 import { isSupabaseConfigured } from "@/integrations/supabase/client";
+import { routePath } from "@/lib/assets";
 
 export const Route = createFileRoute("/cartilla/mi-progreso")({
   component: MyProgress,
@@ -29,6 +30,14 @@ type Event = {
   created_at: string;
 };
 
+function lessonAccentStyle(color: string) {
+  return { borderColor: color, color };
+}
+
+function lessonCardStyle(color: string) {
+  return { borderLeft: `5px solid ${color}` };
+}
+
 function MyProgress() {
   const [data, setData] = useState<{
     student: { display_name: string; student_code: string };
@@ -41,7 +50,7 @@ function MyProgress() {
   useEffect(() => {
     const s = getStudentSession();
     if (!s) {
-      setError("No hay una sesion de alumno activa. Vuelve a unirte a tu clase.");
+      setError("No hay una sesión de alumno activa. Vuelve a unirte a tu clase.");
       setLoading(false);
       return;
     }
@@ -196,19 +205,18 @@ function MyProgress() {
             Tuviste varios errores en estas lecciones. ¡Vuelve a intentarlo!
           </p>
           <div className="mt-3 flex flex-wrap gap-2">
-            {summary.weak.map((n) => {
-              const entry = CATALOG.find((e) => String(e.n) === n);
+            {summary.weak.map((lessonId) => {
+              const entry = CATALOG.find((e) => String(e.n) === lessonId);
               if (!entry) return null;
               return (
-                <Link
-                  key={n}
-                  to="/cartilla/leccion/$n"
-                  params={{ n }}
+                <a
+                  key={lessonId}
+                  href={routePath(`/cartilla/leccion/${entry.n}`)}
                   className="px-3 py-1.5 rounded-full text-xs font-bold border-2"
-                  style={{ borderColor: entry.color, color: entry.color }}
+                  style={lessonAccentStyle(entry.color)}
                 >
                   L{entry.n} — {entry.title}
-                </Link>
+                </a>
               );
             })}
           </div>
@@ -234,12 +242,11 @@ function MyProgress() {
             const ex = summary.exByLesson[String(entry.n)];
             const pct = ex && ex.total > 0 ? Math.round((ex.score / ex.total) * 100) : null;
             return (
-              <Link
-                to="/cartilla/leccion/$n"
-                params={{ n: String(entry.n) }}
+              <a
+                href={routePath(`/cartilla/leccion/${entry.n}`)}
                 key={entry.n}
                 className="kid-card p-3 flex items-center gap-3 hover:-translate-y-0.5 transition"
-                style={{ borderLeftWidth: 4, borderLeftColor: entry.color }}
+                style={lessonCardStyle(entry.color)}
               >
                 <div className="text-xs font-bold w-8 text-foreground/50">{entry.n}</div>
                 <div className="flex-1 min-w-0">
@@ -253,7 +260,7 @@ function MyProgress() {
                     {pct !== null && <span className="ml-2">· {pct}% acierto</span>}
                   </div>
                 </div>
-              </Link>
+              </a>
             );
           })}
         </div>

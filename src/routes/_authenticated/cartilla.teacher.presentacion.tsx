@@ -6,6 +6,7 @@ import { getBookFaithfulLesson, getSightWordsForLesson, getWorkbookTranscription
 import { getBookSectionForLesson, getLessonPageNumbers } from "@/lib/cartilla-crm-theme";
 import { getWorkbookPageSourcesForLesson } from "@/lib/workbook-source";
 import { getInteractionReadinessForLesson } from "@/lib/workbook-interactions";
+import { routePath } from "@/lib/assets";
 
 export const Route = createFileRoute("/_authenticated/cartilla/teacher/presentacion")({
   component: TeacherPresentation,
@@ -81,7 +82,7 @@ function TeacherPresentation() {
                 {interactions.readyCount > 0 ? <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-3 py-1 text-emerald-900"><Layers className="h-3 w-3" /> Actividad lista ({interactions.readyCount})</span> : <span className="rounded-full bg-stone-100 px-3 py-1 text-stone-700">Actividad generada/pendiente</span>}
               </div>
               <div className="mt-4 flex flex-wrap gap-2">
-                <a href={`/cartilla/leccion/${entry.n}`} className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-xl bg-[var(--cartilla-accent)] px-3 py-2 text-sm font-bold text-white hover:opacity-90">
+                <a href={routePath(`/cartilla/leccion/${entry.n}`)} className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-xl bg-[var(--cartilla-accent)] px-3 py-2 text-sm font-bold text-white hover:opacity-90">
                   <Eye className="h-4 w-4" /> Abrir lección
                 </a>
                 <Link to="/cartilla/lecciones" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-foreground/12 px-3 py-2 text-sm font-bold text-foreground/70 hover:bg-foreground/5">
