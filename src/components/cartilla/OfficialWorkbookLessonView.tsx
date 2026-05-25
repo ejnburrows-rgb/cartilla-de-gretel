@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import type { CSSProperties } from "react";
 import { BookOpenCheck, ChevronLeft, ChevronRight, FileText, Sparkles } from "lucide-react";
 import { OfficialWorkbookPage } from "@/components/cartilla/OfficialWorkbookPage";
 import { BookPageFlip } from "@/components/cartilla/BookPageFlip";
@@ -13,6 +14,20 @@ type OfficialWorkbookLessonViewProps = {
   onPageChange?: (pageNumber: number) => void;
   belowPage?: (pageNumber: number) => React.ReactNode;
 };
+
+const projectionModes: Array<{ mode: QualityMode; label: string }> = [
+  { mode: "projection", label: "Proyección" },
+  { mode: "source", label: "Original" },
+];
+
+function activePageChipStyle(active: boolean, accent?: string): CSSProperties | undefined {
+  if (!active || !accent) return undefined;
+  return { backgroundColor: accent };
+}
+
+function progressStyle(percent: number): CSSProperties {
+  return { width: `${percent}%` };
+}
 
 export function OfficialWorkbookLessonView({
   lessonNumber,
@@ -62,6 +77,9 @@ export function OfficialWorkbookLessonView({
   const selectedSource = lessonSource.pages[currentIndex] ?? lessonSource.pages[0];
   const connectedCount = lessonSource.connectedSourceCount || (runtimePdfAvailable ? lessonSource.pages.length : 0);
   const sourceStatus = connectedCount > 0 ? "Página oficial conectada" : "Páginas pendientes de conexión";
+  const verifiedText = lessonSource.verifiedTextCount;
+  const verifiedImages = lessonSource.verifiedImageCount;
+  const progressPercent = totalPages > 0 ? Math.round(((currentIndex + 1) / totalPages) * 100) : 0;
 
   const preloadSources = useMemo(
     () => lessonSource.pages
@@ -108,31 +126,40 @@ export function OfficialWorkbookLessonView({
 
   const hasPrev = currentIndex > 0;
   const hasNext = currentIndex < totalPages - 1;
-  const qualityCopy = qualityMode === "projection" ? "Modo proyección" : "Escaneo original";
+  const qualityCopy = qualityMode === "projection" ? "high-resolution classroom projection quality" : "Escaneo original";
 
   return (
     <section className="mt-5 space-y-4" aria-label="Cuaderno oficial de la lección">
-      <div className="rounded-[1.75rem] border-2 border-[var(--cartilla-accent)]/20 bg-white/75 p-4 shadow-sm">
+      <div className="rounded-[1.75rem] border-2 border-[var(--cartilla-accent)]/20 bg-white/80 p-4 shadow-sm backdrop-blur">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div className="min-w-0">
             <div className="inline-flex items-center gap-2 rounded-full bg-[var(--cartilla-accent)] px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
-              <BookOpenCheck className="h-3.5 w-3.5" /> Cuaderno oficial
+              <BookOpenCheck className="h-3.5 w-3.5" /> Cuaderno del estudiante
             </div>
             <h2 className="mt-2 text-2xl font-bold leading-tight text-[var(--cartilla-title-ink)]">
               {title}
             </h2>
             <p className="mt-1 text-sm font-semibold text-foreground/62">
-              Revisa la página del cuaderno y practica con las actividades.
+              Secuencia fiel al libro real: fuente escaneada, estado verificado y práctica alineada por página.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-2">
-            <button
-              type="button"
-              onClick={() => setQualityMode((mode) => (mode === "projection" ? "source" : "projection"))}
-              className="inline-flex items-center gap-1.5 rounded-2xl border border-indigo-200 bg-indigo-50 px-3 py-2 text-xs font-black text-indigo-700 shadow-sm transition hover:bg-indigo-100"
-            >
-              <Sparkles className="h-3.5 w-3.5" /> {qualityCopy}
-            </button>
+            <div className="inline-flex rounded-2xl border border-indigo-200 bg-white p-1 shadow-sm" aria-label="Calidad de página">
+              {projectionModes.map((item) => (
+                <button
+                  key={item.mode}
+                  type="button"
+                  onClick={() => setQualityMode(item.mode)}
+                  className={
+                    qualityMode === item.mode
+                      ? "inline-flex min-h-9 items-center gap-1.5 rounded-xl bg-indigo-600 px-3 py-1.5 text-xs font-black text-white"
+                      : "inline-flex min-h-9 items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-black text-indigo-700 hover:bg-indigo-50"
+                  }
+                >
+                  <Sparkles className="h-3.5 w-3.5" /> {item.label}
+                </button>
+              ))}
+            </div>
             <div className="rounded-2xl border border-foreground/10 bg-white px-3 py-2 text-xs font-bold text-foreground/65">
               <div className="inline-flex items-center gap-1">
                 <FileText className="h-3.5 w-3.5" />
@@ -140,6 +167,29 @@ export function OfficialWorkbookLessonView({
               </div>
             </div>
           </div>
+        </div>
+
+        <div className="mt-4 grid gap-3 rounded-2xl border border-foreground/10 bg-white/70 p-3 sm:grid-cols-4">
+          <div className="rounded-xl bg-stone-50 px-3 py-2">
+            <div className="text-[10px] font-black uppercase tracking-wide text-foreground/45">Fuente</div>
+            <div className="mt-0.5 text-sm font-black text-[var(--cartilla-title-ink)]">{connectedCount}/{totalPages} páginas</div>
+          </div>
+          <div className="rounded-xl bg-stone-50 px-3 py-2">
+            <div className="text-[10px] font-black uppercase tracking-wide text-foreground/45">Imágenes</div>
+            <div className="mt-0.5 text-sm font-black text-[var(--cartilla-title-ink)]">{verifiedImages} verificadas</div>
+          </div>
+          <div className="rounded-xl bg-stone-50 px-3 py-2">
+            <div className="text-[10px] font-black uppercase tracking-wide text-foreground/45">Texto</div>
+            <div className="mt-0.5 text-sm font-black text-[var(--cartilla-title-ink)]">{verifiedText} transcritas</div>
+          </div>
+          <div className="rounded-xl bg-stone-50 px-3 py-2">
+            <div className="text-[10px] font-black uppercase tracking-wide text-foreground/45">Vista</div>
+            <div className="mt-0.5 truncate text-sm font-black text-[var(--cartilla-title-ink)]">{qualityCopy}</div>
+          </div>
+        </div>
+
+        <div className="mt-4 h-2 overflow-hidden rounded-full bg-foreground/10" aria-hidden="true">
+          <div className="h-full rounded-full bg-[var(--cartilla-accent)] transition-all" style={progressStyle(progressPercent)} />
         </div>
 
         <div className="mt-4 flex flex-wrap items-center gap-2" role="group" aria-label="Páginas de esta lección">
@@ -156,11 +206,14 @@ export function OfficialWorkbookLessonView({
                     ? "min-h-11 min-w-11 rounded-xl bg-[var(--cartilla-accent)] px-3 py-2 text-sm font-bold text-white shadow-sm transition-all"
                     : "min-h-11 min-w-11 rounded-xl border border-foreground/12 bg-white px-3 py-2 text-sm font-bold text-[var(--cartilla-title-ink)] transition-all hover:bg-foreground/5"
                 }
-                style={active && accent ? { backgroundColor: accent } : undefined}
+                style={activePageChipStyle(active, accent)}
                 aria-pressed={active}
                 aria-label={`Página ${source.pageNumber}${active ? ", activa" : ""}${idx === 0 ? ", primera página" : ""}${idx === totalPages - 1 ? ", última página" : ""}`}
               >
-                {source.pageNumber}
+                <span className="block leading-none">{source.pageNumber}</span>
+                <span className={active ? "mt-1 block text-[9px] leading-none text-white/78" : "mt-1 block text-[9px] leading-none text-foreground/45"}>
+                  {source.hasVerifiedImage ? "scan" : "pend."}
+                </span>
               </button>
             );
           })}
