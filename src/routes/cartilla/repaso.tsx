@@ -1,13 +1,23 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import type { CSSProperties } from "react";
 import { ArrowLeft, AlertTriangle, BookOpen, Sparkles, RotateCcw } from "lucide-react";
 import { CATALOG } from "@/lib/lesson-catalog";
 import { useLessonProgress } from "@/lib/lesson-progress";
 import { useExerciseStats, isLessonWeak, lessonAccuracy, resetStats } from "@/lib/exercise-stats";
+import { routePath } from "@/lib/assets";
 
 export const Route = createFileRoute("/cartilla/repaso")({
   component: Repaso,
   head: () => ({ meta: [{ title: "Modo Repaso — La Cartilla de Gretel" }] }),
 });
+
+function lessonCardStyle(color: string): CSSProperties {
+  return { borderColor: color };
+}
+
+function lessonTitleStyle(color: string): CSSProperties {
+  return { color };
+}
 
 function Repaso() {
   const { isCompleted, isUnlocked } = useLessonProgress();
@@ -109,11 +119,10 @@ function Section({
             const acc = lessonAccuracy(String(entry.n), stats);
             return (
               <li key={entry.n} className="list-none">
-                <Link
-                  to="/cartilla/leccion/$n"
-                  params={{ n: String(entry.n) }}
+                <a
+                  href={routePath(`/cartilla/leccion/${entry.n}`)}
                   className="block rounded-2xl border-2 border-foreground/10 bg-card p-4 h-full shadow-sm hover:shadow-md hover:-translate-y-0.5 transition"
-                  style={{ borderLeftColor: entry.color, borderLeftWidth: 6 }}
+                  style={lessonCardStyle(entry.color)}
                 >
                   <div className="flex items-center justify-between gap-2 mb-2">
                     <span className="text-xs font-bold uppercase tracking-wide text-foreground/50">
@@ -125,11 +134,11 @@ function Section({
                       </span>
                     )}
                   </div>
-                  <h3 className="text-lg font-bold leading-tight" style={{ color: entry.color }}>
+                  <h3 className="text-lg font-bold leading-tight" style={lessonTitleStyle(entry.color)}>
                     {entry.title}
                   </h3>
                   <p className="text-sm text-foreground/70 mt-1 line-clamp-2">{entry.subtitle}</p>
-                </Link>
+                </a>
               </li>
             );
           })}

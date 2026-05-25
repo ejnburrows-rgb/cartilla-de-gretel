@@ -1,4 +1,5 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import type { CSSProperties } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowLeft, Volume2, Zap, RotateCcw, Trophy } from "lucide-react";
 import { CATALOG } from "@/lib/lesson-catalog";
@@ -31,6 +32,14 @@ function shuffle<T>(arr: T[]): T[] {
 }
 
 const DURATIONS = [60, 90, 120] as const;
+
+function optionStyle(color: string): CSSProperties {
+  return { backgroundColor: color };
+}
+
+function timerStyle(secondsLeft: number, duration: number): CSSProperties {
+  return { width: `${(secondsLeft / duration) * 100}%` };
+}
 
 function buildPool(useUnlockedOnly: boolean, isUnlocked: (n: number) => boolean): string[] {
   const pool: string[] = [];
@@ -238,7 +247,7 @@ function Practica() {
           <div className="h-2 bg-secondary rounded-full overflow-hidden border border-foreground/10 mb-6">
             <div
               className="h-full bg-primary transition-all"
-              style={{ width: `${(secondsLeft / duration) * 100}%` }}
+              style={timerStyle(secondsLeft, duration)}
             />
           </div>
 
@@ -267,7 +276,7 @@ function Practica() {
                   key={opt}
                   onClick={() => choose(opt)}
                   className="py-6 rounded-2xl text-3xl font-bold text-white shadow-md hover:scale-105 active:scale-95 transition disabled:opacity-50"
-                  style={{ backgroundColor: current.color }}
+                  style={optionStyle(current.color)}
                   disabled={!!feedback}
                 >
                   {opt}
