@@ -1,8 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { useServerFn } from "@/lib/useServerFn";
-import { ArrowLeft, BookOpen, Check, Lock, RotateCcw, Sparkles, Zap } from "lucide-react";
+import { ArrowLeft, BookOpen, Check, Image, RotateCcw, Sparkles, Zap } from "lucide-react";
 import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
+import { getWorkbookTranscriptionSummary } from "@/lib/book-faithful";
 import { hydrateLessonProgress, useLessonProgress } from "@/lib/lesson-progress";
 import { getMyProgress } from "@/lib/student.functions";
 import { useProgressSyncStatus, useStudentSession } from "@/lib/student-session";
@@ -17,7 +18,7 @@ function Lecciones() {
   const session = useStudentSession();
   const syncStatus = useProgressSyncStatus();
   const fetchMyProgress = useServerFn(getMyProgress);
-  const { isCompleted, isUnlocked, completed, reset } = useLessonProgress();
+  const { isCompleted, completed, reset } = useLessonProgress();
 
   useEffect(() => {
     if (!session) return;
@@ -40,6 +41,7 @@ function Lecciones() {
       })
       .catch(() => undefined);
   }, [fetchMyProgress, session]);
+
   const doneCount = [...completed].filter((n) => n >= 1 && n <= TOTAL_LESSONS).length;
   const pct = Math.round((doneCount / TOTAL_LESSONS) * 100);
 
@@ -53,7 +55,7 @@ function Lecciones() {
           >
             <ArrowLeft className="w-4 h-4" /> Cartilla
           </Link>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             <Link
               to="/cartilla/practica"
               className="inline-flex items-center gap-1.5 text-xs font-bold text-vowel-o hover:underline"
@@ -81,11 +83,11 @@ function Lecciones() {
           Las 24 lecciones de <em>La Cartilla de Gretel</em>
         </h1>
         <p className="text-foreground/70 mt-1">
-          Aprende paso a paso, de la lección 1 a la 24. Completa una para desbloquear la siguiente.
+          Todas las lecciones están abiertas para avanzar rápido. El progreso se guarda cuando hay sesión de alumno.
         </p>
         {!isSupabaseConfigured && session && (
           <div className="mt-3 inline-flex rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-bold text-primary">
-            Modo demo local: progreso guardado en este navegador para {session.studentName}.
+            Modo local: progreso guardado en este navegador para {session.studentName}.
           </div>
         )}
         {session && syncStatus.state !== "idle" && (
@@ -115,54 +117,48 @@ function Lecciones() {
         <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-4">
           {CATALOG.map((entry) => {
             const done = isCompleted(entry.n);
-            const unlocked = isUnlocked(entry.n);
-            const cls = `block rounded-2xl border-2 p-4 h-full transition shadow-sm ${unlocked ? "bg-card border-foreground/10 hover:shadow-md hover:-translate-y-0.5 cursor-pointer" : "bg-muted/40 border-foreground/5 cursor-not-allowed opacity-60"}`;
-            const inner = (
-              <>
-                <div className="flex items-start justify-between gap-2 mb-2">
-                  <span className="text-xs font-bold uppercase tracking-wide text-foreground/50">
-                    Lección {entry.n}
-                  </span>
-                  {done ? (
-                    <span className="inline-flex items-center gap-1 text-[11px] font-bold text-success">
-                      <Check className="w-3.5 h-3.5" /> Completada
-                    </span>
-                  ) : !unlocked ? (
-                    <span className="inline-flex items-center gap-1 text-[11px] font-bold text-foreground/40">
-                      <Lock className="w-3.5 h-3.5" /> Bloqueada
-                    </span>
-                  ) : (
-                    <span className="inline-flex items-center gap-1 text-[11px] font-bold text-primary">
-                      <BookOpen className="w-3.5 h-3.5" /> Disponible
-                    </span>
-                  )}
-                </div>
-                <h2
-                  className="text-lg font-bold leading-tight"
-                  style={{ color: unlocked ? entry.color : undefined }}
-                >
-                  {entry.title}
-                </h2>
-                <p className="text-sm text-foreground/70 mt-1 line-clamp-2">{entry.subtitle}</p>
-                <div className="text-[11px] text-foreground/50 mt-2">Páginas {entry.pages}</div>
-              </>
-            );
+            const summary = getWorkbookTranscriptionSummary(entry.n);
+            const cls = "block rounded-2xl border-2 p-4 h-full transition shadow-sm bg-card border-foreground/10 hover:shadow-md hover:-translate-y-0.5 cursor-pointer";
+            const statusCopy = summary.verified > 0
+              ? `${summary.verified}/${summary.total} páginas con texto verificado`
+              : summary.partial > 0
+                ? `${summary.partial}/${summary.total} escaneos conectados`
+                : `${summary.total} páginas por verificar`;
             return (
               <li key={entry.n} className="list-none">
-                {unlocked ? (
-                  <Link
-                    to="/cartilla/leccion/$n"
-                    params={{ n: String(entry.n) }}
-                    className={cls}
-                    style={{ borderLeftColor: entry.color, borderLeftWidth: 6 }}
-                  >
-                    {inner}
-                  </Link>
-                ) : (
-                  <div aria-disabled className={cls}>
-                    {inner}
+                <Link
+                  to="/cartilla/leccion/$n"
+                  params= n: String(entry.n) 
+                  className={cls}
+                  style= color: entry.color 
+                >
+                  <div className="flex items-start justify-between gap-2 mb-2">
+                    <span className="text-xs font-bold uppercase tracking-wide text-foreground/50">
+                      Lección {entry.n}
+                    </span>
+                    {done ? (
+                      <span className="inline-flex items-center gap-1 text-[11px] font-bold text-success">
+                        <Check className="w-3.5 h-3.5" /> Completada
+                      </span>
+                    ) : (
+                      <span className="inline-flex items-center gap-1 text-[11px] font-bold text-primary">
+                        <BookOpen className="w-3.5 h-3.5" /> Abierta
+                      </span>
+                    )}
                   </div>
-                )}
+                  <h2 className="text-lg font-bold leading-tight" style= color: entry.color >
+                    {entry.title}
+                  </h2>
+                  <p className="text-sm text-foreground/70 mt-1 line-clamp-2">{entry.subtitle}</p>
+                  <div className="mt-3 flex flex-wrap gap-1.5">
+                    <span className="rounded-full border border-foreground/10 bg-background/70 px-2 py-1 text-[11px] font-bold text-foreground/50">
+                      Páginas {entry.pages}
+                    </span>
+                    <span className="inline-flex items-center gap-1 rounded-full border border-foreground/10 bg-background/70 px-2 py-1 text-[11px] font-bold text-foreground/50">
+                      <Image className="h-3 w-3" /> {statusCopy}
+                    </span>
+                  </div>
+                </Link>
               </li>
             );
           })}
