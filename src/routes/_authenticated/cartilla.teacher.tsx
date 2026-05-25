@@ -245,7 +245,7 @@ function TeacherDashboard() {
             key={c.id}
             className="kid-card p-4 flex items-center justify-between gap-3 flex-wrap"
           >
-            <Link to="/cartilla/teacher/clase/$id" params={{ id: c.id }} className="flex-1 min-w-0">
+            <Link to="/cartilla/teacher/clase/$id" params= id: c.id  className="flex-1 min-w-0">
               <div className="font-bold text-lg truncate">{c.name}</div>
               <div className="text-xs text-foreground/60 mt-0.5 inline-flex items-center gap-3">
                 <span className="inline-flex items-center gap-1">
