@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import type { CatalogEntry } from "@/types/cartilla";
@@ -11,6 +12,36 @@ interface DragBuildWordProps {
 interface BuildTarget {
   word: string;
   pieces: string[];
+}
+
+const pieceWhileDrag = { scale: 1.15, zIndex: 10 };
+const pieceWhileTap = { scale: 0.96 };
+
+function labelStyle(accent: string): CSSProperties {
+  return { color: accent, opacity: 0.7 };
+}
+
+function targetWordStyle(accent: string): CSSProperties {
+  return {
+    color: accent,
+    fontFamily: "'Fredoka', ui-rounded, system-ui, sans-serif",
+  };
+}
+
+function pieceStyle(accent: string): CSSProperties {
+  return {
+    backgroundColor: accent,
+    fontFamily: "'Fredoka', ui-rounded, system-ui, sans-serif",
+  };
+}
+
+function slotStyle(filled: boolean, accent: string): CSSProperties {
+  return {
+    borderColor: filled ? accent : "rgba(120,53,15,0.3)",
+    backgroundColor: filled ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.5)",
+    color: filled ? accent : "rgba(120,53,15,0.3)",
+    fontFamily: "'Fredoka', ui-rounded, system-ui, sans-serif",
+  };
 }
 
 function buildTarget(entry: CatalogEntry): BuildTarget | null {
@@ -121,7 +152,7 @@ export function DragBuildWord({ entry, accent }: DragBuildWordProps) {
       <div className="text-center">
         <div
           className="text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-3"
-          style={ { color: accent, opacity: 0.7 } }
+          style={labelStyle(accent)}
         >
           Arrastra las piezas para formar la palabra
         </div>
@@ -132,10 +163,7 @@ export function DragBuildWord({ entry, accent }: DragBuildWordProps) {
         </div>
         <div
           className="text-xl sm:text-2xl font-bold mt-3 opacity-30"
-          style={ {
-            color: accent,
-            fontFamily: "'Fredoka', ui-rounded, system-ui, sans-serif",
-          } }
+          style={targetWordStyle(accent)}
         >
           → {target.word}
         </div>
@@ -157,8 +185,8 @@ function DragPiece({ piece, accent }: { piece: string; accent: string }) {
     <motion.div
       drag
       dragSnapToOrigin
-      whileDrag={ { scale: 1.15, zIndex: 10 } }
-      whileTap={ { scale: 0.96 } }
+      whileDrag={pieceWhileDrag}
+      whileTap={pieceWhileTap}
       onDragEnd={(_, info) => {
         const event = new CustomEvent("cartilla:piece-drop", {
           detail: { piece, x: info.point.x, y: info.point.y },
@@ -166,10 +194,7 @@ function DragPiece({ piece, accent }: { piece: string; accent: string }) {
         window.dispatchEvent(event);
       }}
       className="px-4 py-3 sm:px-5 sm:py-3 rounded-2xl text-white text-xl sm:text-2xl font-bold shadow-md cursor-grab active:cursor-grabbing select-none touch-none"
-      style={ {
-        backgroundColor: accent,
-        fontFamily: "'Fredoka', ui-rounded, system-ui, sans-serif",
-      } }
+      style={pieceStyle(accent)}
       role="button"
       aria-label={`Pieza ${piece}`}
     >
@@ -211,12 +236,7 @@ function DropSlot({
     <div
       ref={ref}
       className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl border-4 border-dashed flex items-center justify-center text-2xl sm:text-3xl font-bold transition-colors"
-      style={ {
-        borderColor: filled ? accent : "rgba(120,53,15,0.3)",
-        backgroundColor: filled ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.5)",
-        color: filled ? accent : "rgba(120,53,15,0.3)",
-        fontFamily: "'Fredoka', ui-rounded, system-ui, sans-serif",
-      } }
+      style={slotStyle(filled, accent)}
     >
       {value ?? "_"}
     </div>
