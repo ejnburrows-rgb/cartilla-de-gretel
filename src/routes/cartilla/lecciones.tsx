@@ -48,7 +48,7 @@ function Lecciones() {
   const sourceAudit = getSourceAudit();
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_50%_0%,#fcfbf7_0%,#f7ebd3_50%,#e0ceb4_100%)] text-[var(--cartilla-title-ink)] py-2">
+    <div className="min-h-screen cartilla-crm-bg text-[var(--cartilla-title-ink)] py-2">
       <header className="px-4 pt-5 pb-4 max-w-6xl mx-auto">
         <div className="flex items-center justify-between gap-3 mb-4">
           <Link
@@ -152,7 +152,7 @@ function Lecciones() {
               <li key={entry.n} className="list-none">
                 <a
                   href={routePath(`/cartilla/leccion/${entry.n}`)}
-                  className="group relative block h-full overflow-hidden rounded-[1.65rem] border border-stone-300/60 bg-[#fffdf9] p-5 shadow-[0_10px_25px_rgba(120,53,15,0.06),4px_6px_0_-2px_#fffcf8,4px_6px_10px_-2px_rgba(0,0,0,0.04),8px_10px_0_-4px_#faf7ef,8px_10px_12px_-4px_rgba(0,0,0,0.05)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_rgba(120,53,15,0.12),4px_8px_0_-2px_#fffcf8,8px_12px_0_-4px_#faf7ef]"
+                  className="group relative block h-full overflow-hidden rounded-[1.65rem] border border-stone-300/60 cartilla-book-paper p-5 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_rgba(120,53,15,0.12),4px_8px_0_-2px_#fffcf8,8px_12px_0_-4px_#faf7ef]"
                 >
                   {/* Spine effect / Binder margin */}
                   <div className="absolute inset-y-0 left-0 w-3 bg-[#E5D3B3]/40 border-r border-[#D2B48C]/40" aria-hidden />

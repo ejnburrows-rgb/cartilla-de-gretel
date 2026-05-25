@@ -19,10 +19,7 @@ const REAL_KIT_PHOTOS: Array<{ src: string; label: string }> = [
   { src: assetPath("cartilla/images/original/evaluations.jpg"), label: "Evaluaciones" },
 ];
 
-const PAGE_BG: CSSProperties = {
-  background:
-    "radial-gradient(circle at 50% 0%, #fcfbf7 0%, #f7ebd3 50%, #e0ceb4 100%)",
-};
+const PAGE_BG: CSSProperties = {}; // Now using cartilla-crm-bg class
 
 const BOB_ANIMATE = { y: [0, -6, 0] };
 const BOB_TRANSITION = { duration: 3, repeat: Infinity, ease: "easeInOut" as const };
@@ -33,7 +30,7 @@ export function BookReader() {
   const entry = CATALOG[lessonIndex] ?? CATALOG[0];
 
   return (
-    <div className="min-h-screen flex flex-col text-[var(--cartilla-title-ink)]" style={PAGE_BG}>
+    <div className="min-h-screen flex flex-col text-[var(--cartilla-title-ink)] cartilla-crm-bg">
       <header className="sticky top-0 z-20 w-full bg-[#FAF7F0]/95 backdrop-blur border-b border-amber-900/15 px-4 py-3 flex items-center justify-between gap-2 shadow-xs">
         <Link
           to="/cartilla"
@@ -95,7 +92,7 @@ export function BookReader() {
         </section>
 
         {/* 3D Warm Book Page reader layout */}
-        <section className="w-full bg-[#fffdf9] rounded-[2rem] shadow-[0_20px_50px_rgba(50,30,10,0.14),4px_6px_0_-2px_#fffcf8,8px_10px_0_-4px_#faf7ef] border border-stone-200/80 p-5 sm:p-8 relative overflow-hidden">
+        <section className="w-full cartilla-book-paper rounded-[2rem] p-5 sm:p-8 relative overflow-hidden">
           {/* Spine fold line inside the workbook reader page */}
           <div className="absolute inset-y-0 left-1/2 w-6 -ml-3 bg-gradient-to-r from-transparent via-[#3A281E]/[0.05] to-transparent pointer-events-none" />
           

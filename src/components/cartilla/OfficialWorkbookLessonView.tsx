@@ -211,7 +211,7 @@ export function OfficialWorkbookLessonView({
           )}>
             
             {/* LEFT PAGE (or unique page) */}
-            <div className={cn("relative flex flex-col justify-between bg-[#fffdf9] rounded-[1.75rem] p-4 sm:p-6 border border-stone-200 shadow-[inset_0_2px_4px_rgba(255,255,255,0.8),0_8px_18px_rgba(55,35,18,0.10),4px_6px_0_-2px_#fffcf8,8px_10px_0_-4px_#faf7ef,12px_14px_0_-7px_#efe4d0]", PAGE_PAPER_TEXTURE)}>
+            <div className={cn("relative flex flex-col justify-between cartilla-book-paper rounded-[1.75rem] p-4 sm:p-6 shadow-[inset_0_2px_4px_rgba(255,255,255,0.8),0_8px_18px_rgba(55,35,18,0.10),4px_6px_0_-2px_#fffcf8,8px_10px_0_-4px_#faf7ef,12px_14px_0_-7px_#efe4d0]")}>
               
               {/* Binder Spiral down the right edge of left page on desktop */}
               {isDoublePage && (
@@ -229,7 +229,7 @@ export function OfficialWorkbookLessonView({
 
             {/* RIGHT PAGE (only visible on side-by-side mode) */}
             {isDoublePage && (
-              <div className={cn("relative flex flex-col justify-between bg-[#fffdf9] rounded-[1.75rem] p-4 sm:p-6 border border-stone-200 shadow-[inset_0_2px_4px_rgba(255,255,255,0.8),0_8px_18px_rgba(55,35,18,0.10),4px_6px_0_-2px_#fffcf8,8px_10px_0_-4px_#faf7ef,12px_14px_0_-7px_#efe4d0]", PAGE_PAPER_TEXTURE)}>
+              <div className={cn("relative flex flex-col justify-between cartilla-book-paper rounded-[1.75rem] p-4 sm:p-6 shadow-[inset_0_2px_4px_rgba(255,255,255,0.8),0_8px_18px_rgba(55,35,18,0.10),4px_6px_0_-2px_#fffcf8,8px_10px_0_-4px_#faf7ef,12px_14px_0_-7px_#efe4d0]")}>
                 {rightSource ? (
                   <div className="relative z-10 flex-1">
                     <OfficialWorkbookPage source={rightSource} />
