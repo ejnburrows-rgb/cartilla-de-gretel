@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from "react";
+import { useState, type CSSProperties, type ReactNode } from "react";
 import { getWorkbookPageSourcesForLesson } from "@/lib/workbook-source";
 import { OfficialWorkbookPage } from "./OfficialWorkbookPage";
 import { BookOpen, Maximize2, Minimize2, ChevronLeft, ChevronRight, Columns, Square } from "lucide-react";
@@ -20,6 +20,12 @@ const BOOK_ANIMATION = {
   transition: { duration: 0.32, ease: "easeOut" as const },
 };
 
+const FULLSCREEN_MOTION = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+};
+
 export function OfficialWorkbookLessonView({
   lessonNumber,
   pages,
@@ -37,6 +43,8 @@ export function OfficialWorkbookLessonView({
 
   if (sources.length === 0) return null;
 
+  const iconStyle: CSSProperties = { color: accent };
+  const scaleStyle: CSSProperties = { transform: `scale(${zoomLevel})` };
   const isDoublePage = twoPageMode && sources.length > 1 && !isFullscreen;
   const leftSource = sources[selectedIdx] ?? sources[0];
   const rightSource = selectedIdx + 1 < sources.length ? sources[selectedIdx + 1] : null;
@@ -57,7 +65,7 @@ export function OfficialWorkbookLessonView({
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3">
             <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-[#ffe7a8] to-[#ffb7c5] text-[#3A281E] shadow-sm">
-              <BookOpen className="h-5 w-5" style= color: accent  />
+              <BookOpen className="h-5 w-5" style={iconStyle} />
             </div>
             <div>
               <h3 className="text-sm font-black leading-none text-[#3A281E] sm:text-base">
@@ -121,9 +129,9 @@ export function OfficialWorkbookLessonView({
         {isFullscreen && (
           <motion.div
             className="fixed inset-0 z-50 flex flex-col overflow-hidden bg-[radial-gradient(circle_at_15%_10%,#fff3b0,transparent_30%),radial-gradient(circle_at_85%_8%,#b9f3ff,transparent_32%),linear-gradient(135deg,#fff8de,#ffd6e3_48%,#d9efff)] p-4"
-            initial= opacity: 0 
-            animate= opacity: 1 
-            exit= opacity: 0 
+            initial={FULLSCREEN_MOTION.initial}
+            animate={FULLSCREEN_MOTION.animate}
+            exit={FULLSCREEN_MOTION.exit}
           >
             <div className="mb-4 flex shrink-0 items-center justify-between rounded-2xl bg-white/70 p-3 shadow-sm backdrop-blur">
               <div>
@@ -140,7 +148,7 @@ export function OfficialWorkbookLessonView({
               </div>
             </div>
             <div className="flex flex-1 items-center justify-center overflow-auto rounded-[2rem] bg-white/38 p-4 shadow-inner backdrop-blur-sm">
-              <div className="w-full max-w-5xl origin-center transition-transform duration-200" style={{ transform: `scale(${zoomLevel})` }}>
+              <div className="w-full max-w-5xl origin-center transition-transform duration-200" style={scaleStyle}>
                 <OfficialWorkbookPage source={sources[selectedIdx] ?? sources[0]} />
               </div>
             </div>
