@@ -34,6 +34,7 @@ Students:
 In production Supabase mode, these should become actual Supabase records:
 
 - teacher auth users
+- teacher roles
 - classes
 - students
 - assignments
@@ -48,6 +49,55 @@ VITE_SUPABASE_URL
 VITE_SUPABASE_PUBLISHABLE_KEY
 ```
 
-## Next required production step
+## Migration added
 
-Create or confirm Supabase tables and seed these same accounts/classes/students as real database records. Do not rely on browser local storage for real classroom operation.
+A production seed helper has been added:
+
+```text
+supabase/migrations/20260525033000_seed_cartilla_real_classroom_accounts.sql
+```
+
+It creates this SQL function:
+
+```sql
+public.seed_cartilla_classroom_for_teacher(p_teacher_email text, p_profile text)
+```
+
+It also changes student-code uniqueness from global to per-class, so the same student code can exist in different classes.
+
+## Production setup steps
+
+1. Create the teacher auth users in Supabase Auth.
+2. Apply all migrations.
+3. Run the seed helper for each real teacher account.
+
+Example:
+
+```sql
+select public.seed_cartilla_classroom_for_teacher('leonor@example.com', 'leonor');
+select public.seed_cartilla_classroom_for_teacher('emilio@example.com', 'emilio');
+```
+
+Replace the emails with the actual Supabase Auth emails.
+
+## What the seed helper creates
+
+For `leonor`:
+
+- teacher role for the auth user
+- class: `Clase Leonor`
+- join code: `GRETEL`
+- students: Erick Novo / Sofia Morejon
+- assignment: `Primer repaso`
+
+For `emilio`:
+
+- teacher role for the auth user
+- class: `Clase Emilio`
+- join code: `NOVO26`
+- students: Erick Novo / Sofia Morejon
+- assignment: `Primer repaso`
+
+## Important
+
+The migration does not create Supabase Auth users. Those must be created in Supabase Auth first, because passwords and identity belong to Supabase Auth, not ordinary public database tables.

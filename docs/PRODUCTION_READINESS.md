@@ -20,6 +20,7 @@ The goal is the real classroom platform, not a temporary demo:
 - Teacher flipchart lane exists.
 - Remaster review workflow exists.
 - Local mode works when Supabase is not configured.
+- A Supabase seed helper exists for creating the real classroom records once teacher auth users exist.
 
 ## Public workbook access
 
@@ -35,6 +36,7 @@ A class code is optional and only needed for classroom progress tracking.
 
 When Supabase environment variables are missing, the app runs in local mode:
 
+- Preconfigured teacher/student/class records load in this browser.
 - Progress and sessions are saved in the browser/device.
 - Data is not synced to the cloud.
 - The UI should say this honestly.
@@ -54,13 +56,15 @@ VITE_SUPABASE_URL
 VITE_SUPABASE_PUBLISHABLE_KEY
 ```
 
-Before real classrooms, verify:
+Required setup:
 
-- Supabase project exists.
-- Tables/migrations are applied.
-- Teacher/class/student/progress records persist in Supabase.
-- RLS/security policies are reviewed.
-- No student email is required.
+1. Create Supabase project.
+2. Apply all migrations in `supabase/migrations/`.
+3. Create real teacher auth users in Supabase Auth.
+4. Run the seed helper from `docs/SUPABASE_REAL_ACCOUNTS.md` to create classes/students.
+5. Add the Vercel environment variables.
+6. Redeploy.
+7. Verify teacher login, class roster, student join, and progress sync.
 
 ## Core CRM objects
 
@@ -73,8 +77,10 @@ Before real classrooms, verify:
 
 ## Current blockers before real classroom use
 
-- Confirm Supabase schema and migrations in the live Supabase project.
-- Seed real teacher account(s).
+- Confirm Supabase project and migrations are applied.
+- Create/confirm real teacher accounts.
+- Seed real classes/students/assignments in Supabase.
+- Confirm RLS/security policies are reviewed.
 - Confirm student privacy flow and parental/guardian process.
 - Verify teacher can create classes and students in production mode.
 - Verify student progress syncs across devices when Supabase is configured.
@@ -91,10 +97,12 @@ These should remain teacher/internal-facing:
 
 ## Next production milestone
 
-Make the platform feel like one clean classroom system:
+Make the platform operate from Supabase-backed classroom records:
 
-- Public workbook access is simple.
+- Teacher accounts exist in Supabase Auth.
+- Classes and student codes exist in Supabase tables.
+- Student progress syncs to Supabase.
+- Public workbook access remains simple.
 - Teacher CRM is clear.
 - Teacher flipchart is separate from student workbook.
 - Remaster workflow is approval-gated.
-- Local mode is honest but not the final production target.
