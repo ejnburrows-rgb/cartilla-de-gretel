@@ -1,6 +1,6 @@
 import { useState, type ReactNode } from "react";
 import { getWorkbookPageSourcesForLesson } from "@/lib/workbook-source";
-import { PdfPage } from "./PdfPage";
+import { PolishedPage } from "./PolishedPage";
 import { BookOpen, Maximize2, Minimize2, ChevronLeft, ChevronRight, Columns, Square } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
@@ -101,12 +101,12 @@ export function OfficialWorkbookLessonView({
       <div className="official-workbook-canvas">
         <div className={cn("official-workbook-spread", isDoublePage ? "md:grid-cols-2" : "grid-cols-1")}>
           <section className="official-workbook-slot">
-            <PdfPage pageNumber={leftSource.pageNumber} />
+            <PolishedPage pageNumber={leftSource.pageNumber} lessonN={lessonNumber} />
             {belowPage?.(leftSource.pageNumber)}
           </section>
           {isDoublePage && rightSource && (
             <section className="official-workbook-slot">
-              <PdfPage pageNumber={rightSource.pageNumber} />
+              <PolishedPage pageNumber={rightSource.pageNumber} lessonN={lessonNumber} />
               {belowPage?.(rightSource.pageNumber)}
             </section>
           )}
@@ -148,7 +148,7 @@ export function OfficialWorkbookLessonView({
             </div>
             <div className="flex flex-1 items-center justify-center overflow-auto rounded-[2rem] bg-white/38 p-4 shadow-inner backdrop-blur-sm">
               <div className="w-full max-w-5xl origin-center transition-transform duration-200">
-                <PdfPage pageNumber={sources[selectedIdx]?.pageNumber ?? leftSource.pageNumber} />
+                <PolishedPage pageNumber={sources[selectedIdx]?.pageNumber ?? leftSource.pageNumber} lessonN={lessonNumber} />
               </div>
             </div>
             <div className="mt-4 flex shrink-0 items-center justify-between rounded-2xl bg-white/70 p-3 shadow-sm backdrop-blur">
