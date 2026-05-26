@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import type { CSSProperties } from "react";
 import { Link, createFileRoute, useNavigate, redirect } from "@tanstack/react-router";
 import { ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
 import { getWorkbookPagesForLesson } from "@/lib/book-faithful";
@@ -20,17 +21,56 @@ function LeccionScanRoute() {
   const { n: nParam } = Route.useParams();
   const navigate = useNavigate();
   const n = Number(nParam);
-  
+
   const entry = CATALOG.find((e) => e.n === n);
   const pages = getWorkbookPagesForLesson(n);
   const { markCompleted } = useLessonProgress();
-  
+
   const [pageIndex, setPageIndex] = useState(0);
 
   // Reset page index when lesson changes
   useEffect(() => {
     setPageIndex(0);
   }, [n]);
+
+  const cssVars = getCartillaCrmCssVars(n);
+  const theme = getCartillaCrmTheme(n);
+
+  const rootStyle: CSSProperties = {
+    ...cssVars,
+    background: theme.studentBackdrop,
+    color: theme.titleInk,
+  };
+  const headerStyle: CSSProperties = {
+    backgroundColor: theme.pagePaper,
+    borderBottom: `3px solid ${theme.accent}`,
+  };
+  const inkStyle: CSSProperties = { color: theme.titleInk };
+  const accentStyle: CSSProperties = {
+    backgroundColor: theme.accent,
+    color: "#ffffff",
+  };
+  const selectStyle: CSSProperties = {
+    borderColor: theme.border,
+    color: theme.titleInk,
+  };
+  const paperCardStyle: CSSProperties = {
+    backgroundColor: theme.pagePaper,
+    border: `1px solid ${theme.border}`,
+  };
+  const dashedPlaceholderStyle: CSSProperties = {
+    borderColor: theme.border,
+    color: theme.titleInk,
+  };
+  const navStyle: CSSProperties = {
+    backgroundColor: theme.pagePaper,
+    borderTopColor: theme.border,
+    color: theme.titleInk,
+  };
+  const secondaryButtonStyle: CSSProperties = {
+    backgroundColor: theme.accentSoft,
+    color: theme.titleInk,
+  };
 
   if (!entry) return null;
 
@@ -62,53 +102,56 @@ function LeccionScanRoute() {
     }
   };
 
-  const cssVars = getCartillaCrmCssVars(n);
-
   return (
-    <div 
-      className="flex flex-col min-h-screen" 
-      style={{ ...cssVars, background: "var(--cartilla-student-backdrop)" }}
-    >
+    <div className="flex flex-col min-h-screen" style={rootStyle}>
       {/* Top bar */}
-      <header className="flex-none p-4 shadow-sm" style={{ borderBottom: `4px solid var(--cartilla-accent)`, backgroundColor: "white" }}>
+      <header className="flex-none p-4 shadow-sm" style={headerStyle}>
         <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-4">
-            <Link 
+            <Link
               to="/cartilla/lecciones"
               className="flex items-center gap-1 text-sm font-bold opacity-70 hover:opacity-100 transition"
-              style={{ color: "var(--cartilla-title-ink)" }}
+              style={inkStyle}
             >
               <ArrowLeft className="w-4 h-4" /> Índice
             </Link>
             <div>
-              <h1 className="text-xl font-black leading-none" style={{ color: "var(--cartilla-title-ink)" }}>
+              <h1 className="text-xl font-black leading-none" style={inkStyle}>
                 {entry.title}
               </h1>
               {entry.subtitle && (
-                <p className="text-sm font-semibold opacity-70 mt-1" style={{ color: "var(--cartilla-title-ink)" }}>
+                <p className="text-sm font-semibold opacity-70 mt-1" style={inkStyle}>
                   {entry.subtitle}
                 </p>
               )}
             </div>
           </div>
-          <div className="px-3 py-1.5 rounded-full text-sm font-bold text-white shadow-sm" style={{ backgroundColor: "var(--cartilla-accent)" }}>
+          <div
+            className="px-3 py-1.5 rounded-full text-sm font-bold shadow-sm"
+            style={accentStyle}
+          >
             Lección {n} de {TOTAL_LESSONS}
           </div>
         </div>
       </header>
-      
+
       {/* Main content */}
       <main className="flex-1 w-full max-w-6xl mx-auto p-4 sm:p-8 flex flex-col items-center">
         {/* Jump to lesson select */}
         <div className="mb-6 self-start sm:self-center">
-          <select 
-            value={n} 
-            onChange={(e) => navigate({ to: "/cartilla/leccion/$n", params: { n: e.target.value } })}
+          <select
+            value={n}
+            onChange={(e) =>
+              navigate({ to: "/cartilla/leccion/$n", params: { n: e.target.value } })
+            }
             className="bg-white border rounded-md px-3 py-1.5 text-sm font-bold shadow-sm focus:outline-none focus:ring-2"
-            style={{ color: "var(--cartilla-title-ink)", borderColor: "var(--cartilla-accent)" }}
+            style={selectStyle}
+            aria-label="Saltar a otra lección"
           >
             {CATALOG.map((item) => (
-              <option key={item.n} value={item.n}>Lección {item.n}: {item.title}</option>
+              <option key={item.n} value={item.n}>
+                Lección {item.n}: {item.title}
+              </option>
             ))}
           </select>
         </div>
@@ -116,19 +159,26 @@ function LeccionScanRoute() {
         {/* Active Page Card */}
         <div className="w-full flex-1 flex flex-col items-center justify-center min-h-[50vh]">
           {activePage ? (
-            <div className="w-full max-w-[860px] mx-auto rounded-[2rem] p-4 sm:p-8 shadow-2xl flex flex-col items-center gap-6" style={{ backgroundColor: "var(--cartilla-page-paper)" }}>
+            <div
+              className="w-full max-w-[860px] mx-auto rounded-[2rem] p-4 sm:p-8 shadow-2xl flex flex-col items-center gap-6"
+              style={paperCardStyle}
+            >
               {activePage.imageScanReference ? (
                 <div className="w-full flex flex-col items-center">
-                  <img 
-                    src={"/" + activePage.imageScanReference} 
-                    loading="lazy" 
+                  <img
+                    src={"/" + activePage.imageScanReference}
+                    loading="lazy"
                     alt={`Página ${activePage.pageNumber}`}
                     className="max-w-full max-h-[70vh] object-contain rounded-md shadow-md ring-1 ring-black/5"
                   />
                   {activePage.verifiedTextBlocks.length > 0 && (
                     <div className="mt-6 w-full text-center max-w-2xl">
                       {activePage.verifiedTextBlocks.map((block, i) => (
-                        <p key={i} className="text-sm sm:text-base font-medium opacity-60 mb-2 leading-relaxed" style={{ color: "var(--cartilla-title-ink)" }}>
+                        <p
+                          key={i}
+                          className="text-sm sm:text-base font-medium opacity-60 mb-2 leading-relaxed"
+                          style={inkStyle}
+                        >
                           {block}
                         </p>
                       ))}
@@ -136,43 +186,52 @@ function LeccionScanRoute() {
                   )}
                 </div>
               ) : (
-                <div className="py-24 px-8 text-center border-2 border-dashed rounded-2xl" style={{ borderColor: "var(--cartilla-accent)" }}>
-                  <h2 className="text-xl font-bold opacity-50" style={{ color: "var(--cartilla-title-ink)" }}>
+                <div
+                  className="py-24 px-8 text-center border-2 border-dashed rounded-2xl"
+                  style={dashedPlaceholderStyle}
+                >
+                  <h2 className="text-xl font-bold opacity-50" style={inkStyle}>
                     Página {activePage.pageNumber} · escaneo pendiente
                   </h2>
                 </div>
               )}
             </div>
           ) : (
-             <div className="text-center opacity-50 font-bold" style={{ color: "var(--cartilla-title-ink)" }}>
-               No hay páginas para esta lección.
-             </div>
+            <div className="text-center opacity-50 font-bold" style={inkStyle}>
+              No hay páginas para esta lección.
+            </div>
           )}
         </div>
       </main>
 
       {/* Sticky Bottom Nav */}
-      <nav className="sticky bottom-0 w-full p-4 border-t shadow-[0_-4px_20px_rgba(0,0,0,0.05)] backdrop-blur-md" style={{ backgroundColor: "rgba(255, 255, 255, 0.85)", borderColor: "var(--cartilla-accent)" }}>
+      <nav
+        className="sticky bottom-0 w-full p-4 border-t shadow-[0_-4px_20px_rgba(0,0,0,0.05)] backdrop-blur-md"
+        style={navStyle}
+      >
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <button
             onClick={goPrev}
             className="flex items-center gap-2 px-5 py-3 rounded-xl font-bold shadow-sm transition-transform active:scale-95"
-            style={{ backgroundColor: "var(--cartilla-page-paper)", color: "var(--cartilla-title-ink)" }}
+            style={secondaryButtonStyle}
           >
-            <ChevronLeft className="w-5 h-5" /> 
+            <ChevronLeft className="w-5 h-5" />
             {pageIndex === 0 ? (n > 1 ? "← Lección anterior" : "← Índice") : "Página anterior"}
           </button>
 
-          <div className="hidden sm:block text-sm font-black opacity-60 uppercase tracking-widest" style={{ color: "var(--cartilla-title-ink)" }}>
+          <div
+            className="hidden sm:block text-sm font-black opacity-60 uppercase tracking-widest"
+            style={inkStyle}
+          >
             {totalPages > 0 ? `Página ${pageIndex + 1} de ${totalPages}` : ""}
           </div>
 
           <button
             onClick={goNext}
-            className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-white shadow-md hover:opacity-90 transition-transform active:scale-95"
-            style={{ backgroundColor: "var(--cartilla-accent)" }}
+            className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold shadow-md hover:opacity-90 transition-transform active:scale-95"
+            style={accentStyle}
           >
-            {pageIndex === totalPages - 1 ? "Siguiente lección →" : "Página siguiente"} 
+            {pageIndex === totalPages - 1 ? "Siguiente lección →" : "Página siguiente"}
             <ChevronRight className="w-5 h-5" />
           </button>
         </div>
