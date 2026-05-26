@@ -2,26 +2,26 @@ import type { CSSProperties } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Check, RefreshCw, Sparkles, X } from "lucide-react";
 
-const feedbackInitial = { opacity: 0, y: 32, scale: 0.96 };
-const feedbackExit = { opacity: 0, y: 24, scale: 0.96 };
+const feedbackInitial = { opacity: 0, y: 28, scale: 0.97 };
+const feedbackExit = { opacity: 0, y: 18, scale: 0.97 };
 const feedbackTransition = { duration: 0.22, ease: "easeOut" as const };
 const okPanelAnimate = { opacity: 1, y: 0, scale: 1 };
 const retryPanelAnimate = {
   opacity: 1,
   y: 0,
   scale: 1,
-  x: [0, -8, 7, -4, 0],
+  x: [0, -7, 6, -3, 0],
 };
 
 function panelStyle(state: "ok" | "x"): CSSProperties {
   return state === "ok"
     ? {
-        backgroundColor: "rgba(240,253,244,0.94)",
+        background: "linear-gradient(135deg, rgba(240,253,244,0.98), rgba(209,250,229,0.94))",
         borderColor: "#34d399",
         color: "#064e3b",
       }
     : {
-        backgroundColor: "rgba(255,241,242,0.94)",
+        background: "linear-gradient(135deg, rgba(255,241,242,0.98), rgba(254,226,226,0.94))",
         borderColor: "#fb7185",
         color: "#881337",
       };
@@ -66,41 +66,35 @@ export function GretelFeedback({
           animate={state === "ok" ? okPanelAnimate : retryPanelAnimate}
           exit={feedbackExit}
           transition={state === "ok" ? { type: "spring", stiffness: 260, damping: 20 } : { ...feedbackTransition, x: { duration: 0.34 } }}
-          className="fixed inset-x-0 bottom-0 sm:inset-0 z-50 flex items-end sm:items-center justify-center pointer-events-none px-4 pb-6 sm:pb-0"
+          className="fixed inset-x-0 bottom-0 z-50 flex items-end justify-center px-4 pb-5 pointer-events-none sm:inset-0 sm:items-center sm:pb-0"
         >
           <motion.div
-            className="pointer-events-auto relative overflow-hidden rounded-[2rem] border-4 px-5 py-4 shadow-2xl max-w-md w-full flex items-center gap-4 backdrop-blur"
+            className="pointer-events-auto relative flex w-full max-w-md items-center gap-4 overflow-hidden rounded-[1.5rem] border-4 px-4 py-4 shadow-2xl backdrop-blur sm:px-5"
             style={panelStyle(state)}
-            initial={{ rotate: state === "ok" ? -1.2 : 0 }}
+            initial={{ rotate: state === "ok" ? -1 : 0 }}
             animate={{ rotate: 0 }}
             transition={{ type: "spring", stiffness: 220, damping: 18 }}
+            role="status"
+            aria-live="polite"
           >
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,rgba(255,255,255,0.78),transparent_27%),linear-gradient(135deg,rgba(255,255,255,0.46),transparent_45%)]" />
             {state === "ok" && <CelebrationBurst />}
             <GretelAvatar mood={state} />
-            <div className="relative z-10 flex-1 min-w-0">
-              <div
-                className="font-bold text-xl sm:text-2xl leading-tight"
-                style={titleStyle(state)}
-              >
-                {state === "ok" ? "¡Muy bien!" : "Intenta otra vez"}
+            <div className="relative z-10 min-w-0 flex-1">
+              <div className="text-xl font-black leading-tight sm:text-2xl" style={titleStyle(state)}>
+                {state === "ok" ? "Muy bien" : "Intenta otra vez"}
               </div>
-              <div
-                className="text-sm sm:text-base mt-0.5 font-semibold"
-                style={bodyStyle(state)}
-              >
-                {state === "ok"
-                  ? "Lo hiciste con cuidado. Sigue con la siguiente."
-                  : "No pasa nada. Limpia los espacios y prueba otra vez."}
+              <div className="mt-0.5 text-sm font-semibold leading-snug sm:text-base" style={bodyStyle(state)}>
+                {state === "ok" ? "Lo hiciste con cuidado. Sigue con la siguiente." : "No pasa nada. Limpia los espacios y prueba otra vez."}
               </div>
             </div>
             <button
               type="button"
               onClick={onRetry}
-              className="relative z-10 shrink-0 inline-flex min-h-12 items-center gap-1.5 px-4 py-2 rounded-2xl font-black text-sm text-white shadow-sm hover:-translate-y-px active:scale-95 transition"
+              className="relative z-10 inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-xl px-3 py-2 text-sm font-black text-white shadow-sm transition hover:-translate-y-px active:scale-95 sm:min-h-12 sm:px-4"
               style={retryButtonStyle(state)}
             >
-              <RefreshCw className="w-4 h-4" /> {state === "ok" ? "Otra" : "Intentar"}
+              <RefreshCw className="h-4 w-4" /> {state === "ok" ? "Otra" : "Intentar"}
             </button>
           </motion.div>
         </motion.div>
@@ -112,7 +106,7 @@ export function GretelFeedback({
 function GretelAvatar({ mood }: { mood: "ok" | "x" }) {
   return (
     <motion.div
-      className="relative z-10 w-14 h-14 sm:w-16 sm:h-16 rounded-full border-4 flex items-center justify-center shrink-0 shadow-[0_10px_24px_rgba(0,0,0,0.12)]"
+      className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-4 shadow-[0_10px_24px_rgba(0,0,0,0.12)] sm:h-16 sm:w-16"
       style={avatarStyle(mood)}
       aria-hidden
       initial={{ scale: 0.7, rotate: mood === "ok" ? -8 : 8 }}
@@ -128,9 +122,9 @@ function GretelAvatar({ mood }: { mood: "ok" | "x" }) {
         transition={{ duration: 0.72, ease: "easeOut" }}
       />
       {mood === "ok" ? (
-        <Check className="w-7 h-7 sm:w-8 sm:h-8" style={avatarIconStyle(mood)} strokeWidth={3} />
+        <Check className="h-7 w-7 sm:h-8 sm:w-8" style={avatarIconStyle(mood)} strokeWidth={3} />
       ) : (
-        <X className="w-7 h-7 sm:w-8 sm:h-8" style={avatarIconStyle(mood)} strokeWidth={3} />
+        <X className="h-7 w-7 sm:h-8 sm:w-8" style={avatarIconStyle(mood)} strokeWidth={3} />
       )}
     </motion.div>
   );
@@ -143,10 +137,7 @@ function CelebrationBurst() {
         <motion.span
           key={i}
           className="absolute text-emerald-500/70"
-          style={{
-            left: `${18 + i * 17}%`,
-            top: `${18 + (i % 2) * 48}%`,
-          }}
+          style={{ left: `${18 + i * 17}%`, top: `${18 + (i % 2) * 48}%` }}
           initial={{ opacity: 0, scale: 0.4, y: 12, rotate: -20 }}
           animate={{ opacity: [0, 1, 0], scale: [0.45, 1, 0.82], y: [12, -10, -20], rotate: 18 }}
           transition={{ duration: 0.9, delay: i * 0.06, ease: "easeOut" }}
