@@ -155,6 +155,7 @@ function TeacherReportsRoute() {
   const totalTimeSeconds = classRows.reduce((sum, row) => sum + row.timeSeconds, 0);
   const selectedClassName = classData?.class.name ?? classes.find((item) => item.id === selectedClassId)?.name ?? "Clase";
   const selectedStudentName = studentProgress?.student.display_name ?? "Alumno";
+  const selectedStudentClassName = studentProgress?.class?.name ?? selectedClassName;
   const selectedRosterStudent = classData?.students.find((student) => student.id === selectedStudentId) ?? null;
   const touchedPageCount = Object.keys(pageStates).length;
 
@@ -183,7 +184,7 @@ function TeacherReportsRoute() {
     const csv = toCSV(
       studentProgress.events.map((event) => ({
         alumno: studentProgress.student.display_name,
-        clase: studentProgress.class.name,
+        clase: selectedStudentClassName,
         leccion: event.lesson_id,
         tipo: event.event_kind,
         puntaje: event.score ?? "",
@@ -324,7 +325,7 @@ function TeacherReportsRoute() {
             <ReportCard
               title="Alumno seleccionado"
               value={selectedStudentName}
-              subtitle={studentProgress ? `${studentProgress.class.name} · ${studentProgress.student.student_code}` : "Selecciona un alumno"}
+              subtitle={studentProgress ? `${selectedStudentClassName} · ${studentProgress.student.student_code}` : "Selecciona un alumno"}
               tone="blue"
               actions={
                 <button
@@ -352,7 +353,7 @@ function TeacherReportsRoute() {
                 </div>
                 <div className="rounded-lg bg-white/70 p-3">
                   <dt className="font-bold text-slate-500">Maestro/clase</dt>
-                  <dd className="text-sm font-black text-slate-950">{studentProgress?.class.name ?? selectedClassName}</dd>
+                  <dd className="text-sm font-black text-slate-950">{selectedStudentClassName}</dd>
                 </div>
               </dl>
             </ReportCard>
