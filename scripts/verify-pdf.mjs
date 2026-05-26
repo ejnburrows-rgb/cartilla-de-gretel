@@ -1,69 +1,39 @@
 #!/usr/bin/env node
-// verify-pdf.mjs
-// Validates the fetched workbook PDF header and writes a status JSON for
-// downstream pipeline steps. Always exits 0 so the build never aborts on a
-// missing or malformed PDF; the frontend degrades gracefully via
-// BookArtFigure placeholders.
+// verify-pdf.mjs — fail the build if the workbook PDF did not land.
+// Runs after prebuild-fetch-pdfs.mjs. Non-zero exit blocks the deploy so a
+// broken site cannot ship silently.
 
-import {
-  readFileSync,
-  existsSync,
-  statSync,
-  mkdirSync,
-  writeFileSync,
-} from "node:fs";
-import { join, dirname } from "node:path";
+import fs from "node:fs";
+import path from "node:path";
+import url from "node:url";
 
-const ROOT = process.cwd();
-const PDF_PATH = join(ROOT, "public", "book", "book.pdf");
-const STATUS_PATH = join(
-  ROOT,
-  "public",
-  "cartilla",
-  "art",
-  "_pdf-status.json"
-);
-const start = Date.now();
+const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
+const ROOT = path.resolve(__dirname, "..");
 
-function writeStatus(status) {
-  try {
-    mkdirSync(dirname(STATUS_PATH), { recursive: true });
-    writeFileSync(
-      STATUS_PATH,
-      JSON.stringify(
-        { ...status, checkedAt: new Date().toISOString() },
-        null,
-        2
-      )
-    );
-  } catch (e) {
-    console.warn("[verify-pdf] could not write status:", e?.message ?? e);
-  }
+const PDF_PATH = path.join(ROOT, "public/book/book.pdf");
+const MIN_BYTES = 50_000; // anything smaller is almost certainly an error page
+
+function fail(msg) {
+	console.error("\u274c  PDF verify failed: " + msg);
+	process.exit(1);
 }
 
-if (!existsSync(PDF_PATH)) {
-  console.warn(
-    `[verify-pdf] missing ${PDF_PATH}; continuing without verification.`
-  );
-  writeStatus({ ok: false, reason: "missing", path: PDF_PATH });
-  process.exit(0);
+if (!fs.existsSync(PDF_PATH)) {
+	fail(`public/book/book.pdf is missing. Prebuild fetcher must run before this script.`);
 }
 
-try {
-  const stat = statSync(PDF_PATH);
-  const buf = readFileSync(PDF_PATH);
-  const head = buf.subarray(0, 8).toString("latin1");
-  const ok = head.startsWith("%PDF-");
-  console.log(
-    `[verify-pdf] size=${stat.size}B header="${head}" ok=${ok} elapsed=${Date.now() - start}ms`
-  );
-  writeStatus({ ok, size: stat.size, header: head });
-} catch (e) {
-  console.warn("[verify-pdf] read failed:", e?.message ?? e);
-  writeStatus({
-    ok: false,
-    reason: "read-failed",
-    error: String(e?.message ?? e),
-  });
-}
+const stat = fs.statSync(PDF_PATH);
+if (!stat.isFile()) fail(`public/book/book.pdf is not a regular file.`);
+if (stat.size < MIN_BYTES) fail(`public/book/book.pdf is only ${stat.size} bytes (< ${MIN_BYTES}). Likely an HTML error response.`);
+
+// Sniff the file header for %PDF-
+const fd = fs.openSync(PDF_PATH, "r");
+const buf = Buffer.alloc(8);
+fs.readSync(fd, buf, 0, 8, 0);
+fs.closeSync(fd);
+const header = buf.toString("utf8", 0, 5);
+if (header !== "%PDF-") fail(`public/book/book.pdf does not start with %PDF- (got "${header}"). File is corrupted or HTML.`);
+
+const sizeKb = Math.round(stat.size / 1024);
+console.log(`\u2705  PDF verified: public/book/book.pdf (${sizeKb} KB, header %PDF-)`);
 process.exit(0);
