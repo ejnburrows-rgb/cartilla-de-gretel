@@ -3,6 +3,34 @@
 These rules are committed to the repo so they survive across AI sessions.
 If a future agent reads this file, treat it as binding.
 
+## NEVER ask EJN for the PDF
+
+The workbook PDF is in Notion. The agent has access to it. Stop. Find it.
+
+The canonical Notion page is the "3" attachment row inside "Zip Import - cartilla-de-gretel-direct-vercel-20260522T092624Z-3-001.zip - May 22, 2026". It has an `Attachment Link` property pointing at the file and a `File Path` of `cartilla-de-gretel-direct-vercel/Cartilla 1 Interactivos/La cartilla Workbook.pdf`. It is also referenced by `.cartilla-import/targets.json` via `pageId: "368d56c8889081da8389c1f70ba9ddc9"` and `fileBlockUuid: "933c702e-2d19-442b-9056-7665142fdbdf"`.
+
+The PDF contents have been visually transcribed. The verified per-lesson data — syllables, words, sentences, page-to-lesson mapping — lives in `src/content/consonants.json` and `src/lib/lesson-catalog.ts`. If a future agent doubts the data, they re-extract from the PDF themselves — they do NOT ask the user.
+
+Forbidden behaviors:
+
+- Asking the user where the PDF is.
+- Asking the user to upload it.
+- Asking the user to drag it anywhere.
+- Asking the user to export pages.
+- Asking the user to re-import or re-zip anything.
+- Any phrasing that puts file-handling labor on the user.
+
+## Triple-check the workspace before asking the user anything
+
+Before ever asking the user for a file, a link, a piece of content, a credential, or an answer that might already exist in the workspace, the agent MUST:
+
+1. Search Notion via `connections.search.unifiedSearch` with multiple distinct queries.
+2. Load the relevant pages via `connections.notion.loadPage`.
+3. Read the relevant files in the repo via `connections.mcpServer_github.runTool` (`get_file_contents`, `search_code`).
+4. Repeat with refined queries informed by what step 1 returned.
+
+Only after the answer is provably absent from the workspace may the agent ask the user. Asking first is a violation.
+
 ## Honesty about execution
 
 The agent cannot push code between turns. Execution lifecycle is bounded by a single turn: when the turn ends, all tool access ends. A new turn begins only when the user sends a new message.
@@ -32,7 +60,7 @@ No invented vocabulary. No AI-generated artwork. No stock images. No Pixar refer
 
 Their work is immutable. Image transformations are deterministic only: extract, denoise, normalise levels, sharpen, upscale, recompress.
 
-All drill content must derive from `CATALOG` in `src/lib/lesson-catalog.ts`.
+All drill content must derive from `CATALOG` in `src/lib/lesson-catalog.ts`, whose source of truth is the workbook PDF transcribed into `src/content/consonants.json` and the vowel/intro lesson definitions.
 
 ## Lane locks
 
