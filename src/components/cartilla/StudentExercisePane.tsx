@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import type { CatalogEntry } from "@/types/cartilla";
 import { SyllableTap, WordMatch } from "./Ejercicios";
 import { DragBuildWord } from "./DragBuildWord";
@@ -81,16 +82,18 @@ export function StudentExercisePane({ entry }: Props) {
 }
 
 function SectionHeader({ color }: { color: string }) {
+  const dotStyle: CSSProperties = { backgroundColor: color };
+  const titleStyle: CSSProperties = { color };
   return (
     <div className="flex items-center gap-3">
       <span
         className="inline-block h-3 w-3 rounded-full"
-        style= backgroundColor: color 
+        style={dotStyle}
         aria-hidden
       />
       <h2
         className="text-sm font-black uppercase tracking-[0.18em]"
-        style= color 
+        style={titleStyle}
       >
         Practica
       </h2>
