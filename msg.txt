@@ -1,1 +1,1 @@
-fix(student): render workbook from official page scans, drop wrong PDF
+feat(student): single continuous workbook reader replaces card index

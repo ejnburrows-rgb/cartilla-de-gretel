@@ -294,3 +294,23 @@ export function getWorkbookTranscriptionSummary(lessonNumber: number) {
 					: ("missing" as const),
 	};
 }
+
+export function getFullWorkbookPages(): Array<{ page: number; lesson: number; imageScanReference: string | null; section: "Introducción" | "Vocales" | "Consonantes" }> {
+	const out = [];
+	for (const entry of CATALOG) {
+		const lessonPages = getWorkbookPagesForLesson(entry.n);
+		const sectionRaw = getBookSectionForLesson(entry.n);
+		const section = (sectionRaw === "intro" ? "Introducción" : sectionRaw === "vowels" ? "Vocales" : "Consonantes") as "Introducción" | "Vocales" | "Consonantes";
+		
+		for (const page of lessonPages) {
+			out.push({
+				page: page.pageNumber,
+				lesson: entry.n,
+				imageScanReference: page.imageScanReference,
+				section
+			});
+		}
+	}
+	return out;
+}
+
