@@ -1,5 +1,3 @@
-import { getReadyCloneUrlForLine, normalizeLineId } from "@/lib/audio-clone-jobs";
-
 // Free Spanish TTS using the browser's SpeechSynthesis API.
 let cachedVoice: SpeechSynthesisVoice | null = null;
 let voicesReady: Promise<void> | null = null;
@@ -7,7 +5,6 @@ let silentWarmupDone = false;
 let configuredRate = 0.82;
 let configuredVoiceURI: string | null = null;
 let lastUtteranceText = "";
-let currentCloneAudio: HTMLAudioElement | null = null;
 
 const PREFERRED_NAMES = [
   "Google español",
@@ -104,16 +101,6 @@ function buildUtterance(text: string, options?: { rate?: number; pitch?: number 
   return u;
 }
 
-async function playReadyClone(text: string): Promise<boolean> {
-  if (typeof window === "undefined") return false;
-  const clonedUrl = await getReadyCloneUrlForLine(normalizeLineId(text));
-  if (!clonedUrl) return false;
-  currentCloneAudio?.pause();
-  currentCloneAudio = new Audio(clonedUrl);
-  await currentCloneAudio.play();
-  return true;
-}
-
 export function configure(options: { rate?: number; voiceURI?: string | null }) {
   if (typeof options.rate === "number") configuredRate = options.rate;
   configuredVoiceURI = options.voiceURI ?? null;
@@ -129,7 +116,6 @@ export async function speak(text: string) {
   if (typeof window === "undefined") return;
   try {
     lastUtteranceText = text;
-    if (await playReadyClone(text)) return;
     if (!("speechSynthesis" in window)) return;
     await ensureVoices();
     const synth = window.speechSynthesis;
@@ -146,24 +132,22 @@ export async function speak(text: string) {
 export function speakNow(text: string) {
   if (typeof window === "undefined") return;
   lastUtteranceText = text;
-  void playReadyClone(text).then((played) => {
-    if (played || !("speechSynthesis" in window)) return;
-    try {
-      void ensureVoices();
-      const synth = window.speechSynthesis;
-      wakeSpeechEngine();
-      synth.cancel();
-      synth.speak(buildUtterance(text));
-      setTimeout(() => {
-        if (!synth.speaking && !synth.pending) {
-          wakeSpeechEngine();
-          synth.speak(buildUtterance(text));
-        }
-      }, 120);
-    } catch {
-      /* noop */
-    }
-  });
+  if (!("speechSynthesis" in window)) return;
+  try {
+    void ensureVoices();
+    const synth = window.speechSynthesis;
+    wakeSpeechEngine();
+    synth.cancel();
+    synth.speak(buildUtterance(text));
+    setTimeout(() => {
+      if (!synth.speaking && !synth.pending) {
+        wakeSpeechEngine();
+        synth.speak(buildUtterance(text));
+      }
+    }, 120);
+  } catch {
+    /* noop */
+  }
 }
 
 export async function speakVowel(v: string) {
