@@ -124,12 +124,7 @@ function CartillaHome() {
           </Link>
         ))}
       </section>
-      <p className="mt-12 text-center text-xs text-foreground/50">
-        ¿Prefieres leer el libro?{" "}
-        <Link to="/book" className="underline font-bold inline-flex items-center gap-1">
-          <BookOpen className="w-3 h-3" /> Abrir lector
-        </Link>
-      </p>
+
     </main>
   );
 }
