@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { ArrowLeft, Printer } from "lucide-react";
 import { getWorkbookPagesForLesson } from "@/lib/book-faithful";
@@ -34,7 +35,7 @@ function PrintableBinderRoute() {
       </div>
 
       <div className="student-print-stack">
-        <section className="student-print-cover" style={{ "--lesson-accent": "#2a9d8f" } as React.CSSProperties}>
+        <section className="student-print-cover" style={{ "--lesson-accent": "#2a9d8f" } as CSSProperties}>
           <p>La Cartilla de Gretel</p>
           <h1>Libro completo del estudiante</h1>
           <p>24 lecciones · paginas originales del cuaderno · listo para carpeta imprimible</p>
@@ -43,8 +44,8 @@ function PrintableBinderRoute() {
         {lessons.map((entry) => {
           const theme = getCartillaCrmTheme(entry.n);
           const pages = getWorkbookPagesForLesson(entry.n);
-          const cssVars = getCartillaCrmCssVars(entry.n) as React.CSSProperties;
-          const style = { ...cssVars, "--lesson-accent": theme.accent } as React.CSSProperties;
+          const cssVars = getCartillaCrmCssVars(entry.n) as CSSProperties;
+          const style = { ...cssVars, "--lesson-accent": theme.accent } as CSSProperties;
 
           return (
             <section key={entry.n} className="student-print-lesson" style={style}>
