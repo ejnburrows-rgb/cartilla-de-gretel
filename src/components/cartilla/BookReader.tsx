@@ -1,66 +1,121 @@
-import { useState } from "react";
-import { Link } from "@tanstack/react-router";
-import { BookOpen, ChevronLeft, ChevronRight, Home } from "lucide-react";
+import { useMemo, useState } from "react";
+import type { CSSProperties } from "react";
+import { getWorkbookPagesForLesson } from "@/lib/book-faithful";
+import { getCartillaCrmCssVars, getCartillaCrmTheme } from "@/lib/cartilla-crm-theme";
 import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
-import { OfficialWorkbookLessonView } from "./OfficialWorkbookLessonView";
+import { BookPageFlip } from "./BookPageFlip";
+import { PageExercisePane } from "./PageExercisePane";
+import { PolishedPage } from "./PolishedPage";
+import { StudentBookToolbar } from "./StudentBookToolbar";
+import "@/styles/student-print.css";
 
-export function BookReader() {
-  const [lessonIndex, setLessonIndex] = useState(0);
-  const total = Math.min(TOTAL_LESSONS, CATALOG.length);
-  const entry = CATALOG[lessonIndex] ?? CATALOG[0];
+type BookReaderProps = {
+  initialLesson?: number;
+  showExercises?: boolean;
+};
+
+function clampIndex(value: number, max: number) {
+  return Math.min(Math.max(value, 0), Math.max(max, 0));
+}
+
+export function BookReader({ initialLesson = 1, showExercises = true }: BookReaderProps) {
+  const lessons = CATALOG.slice(0, TOTAL_LESSONS);
+  const initialIndex = clampIndex(lessons.findIndex((entry) => entry.n === initialLesson), lessons.length - 1);
+  const [lessonIndex, setLessonIndex] = useState(initialIndex < 0 ? 0 : initialIndex);
+  const [pageIndex, setPageIndex] = useState(0);
+  const [direction, setDirection] = useState<1 | -1>(1);
+
+  const entry = lessons[lessonIndex] ?? lessons[0];
+  const theme = getCartillaCrmTheme(entry.n);
+  const cssVars = getCartillaCrmCssVars(entry.n) as CSSProperties;
+  const pages = useMemo(() => getWorkbookPagesForLesson(entry.n), [entry.n]);
+  const activePage = pages[clampIndex(pageIndex, pages.length - 1)] ?? pages[0];
+
+  const canPrev = lessonIndex > 0 || pageIndex > 0;
+  const canNext = lessonIndex < lessons.length - 1 || pageIndex < pages.length - 1;
+
+  const goToLesson = (lessonNumber: number) => {
+    const next = lessons.findIndex((lesson) => lesson.n === lessonNumber);
+    if (next < 0) return;
+    setDirection(next >= lessonIndex ? 1 : -1);
+    setLessonIndex(next);
+    setPageIndex(0);
+  };
+
+  const goPrev = () => {
+    if (!canPrev) return;
+    setDirection(-1);
+    if (pageIndex > 0) {
+      setPageIndex((current) => current - 1);
+      return;
+    }
+    const nextLessonIndex = Math.max(0, lessonIndex - 1);
+    const nextPages = getWorkbookPagesForLesson(lessons[nextLessonIndex]?.n ?? 1);
+    setLessonIndex(nextLessonIndex);
+    setPageIndex(Math.max(0, nextPages.length - 1));
+  };
+
+  const goNext = () => {
+    if (!canNext) return;
+    setDirection(1);
+    if (pageIndex < pages.length - 1) {
+      setPageIndex((current) => current + 1);
+      return;
+    }
+    setLessonIndex((current) => Math.min(lessons.length - 1, current + 1));
+    setPageIndex(0);
+  };
 
   return (
-    <div className="min-h-screen flex flex-col text-[var(--cartilla-title-ink)] cartilla-crm-bg">
-      <header className="sticky top-0 z-20 w-full bg-[#FAF7F0]/95 backdrop-blur border-b border-amber-900/15 px-4 py-3 flex items-center justify-between gap-2 shadow-xs">
-        <Link
-          to="/cartilla"
-          className="inline-flex items-center gap-2 text-sm font-black text-amber-950/80 hover:text-amber-950 px-3 py-2 rounded-xl border border-amber-900/15 bg-white/60 hover:bg-white transition"
-        >
-          <Home className="w-4 h-4" />
-          <span className="hidden sm:inline">Cartilla</span>
-        </Link>
-        <div className="flex-1 min-w-0 text-center font-black text-amber-950 truncate text-sm sm:text-base">
-          {entry.title}
-          {entry.pages ? (
-            <span className="ml-2 text-amber-900/60 font-bold text-xs bg-amber-950/5 px-2 py-0.5 rounded-md">
-              pág. {entry.pages}
-            </span>
+    <div className="student-book-shell" style={cssVars}>
+      <StudentBookToolbar
+        entry={entry}
+        theme={theme}
+        lessonIndex={lessonIndex}
+        totalLessons={lessons.length}
+        pageIndex={pageIndex}
+        totalPages={pages.length}
+        canPrev={canPrev}
+        canNext={canNext}
+        onPrev={goPrev}
+        onNext={goNext}
+        onLessonChange={goToLesson}
+        lessons={lessons}
+      />
+
+      <main className="student-book-stage" aria-live="polite">
+        <section className="student-book-vertical">
+          <div className="student-book-lesson-ribbon" style={{ borderColor: theme.border }}>
+            <div>
+              <h2 style={{ color: theme.titleInk }}>{entry.title}</h2>
+              {entry.subtitle ? <p>{entry.subtitle}</p> : null}
+            </div>
+            <div className="rounded-full px-4 py-2 text-sm font-black text-white shadow-sm" style={{ backgroundColor: theme.accent }}>
+              Paginas {entry.pages}
+            </div>
+          </div>
+
+          {activePage ? (
+            <BookPageFlip pageKey={`${entry.n}-${activePage.pageNumber}`} direction={direction}>
+              <article className="student-book-page-card" style={{ borderColor: theme.border }}>
+                <div className="student-book-page-inner">
+                  <PolishedPage pageNumber={activePage.pageNumber} lessonN={entry.n} />
+                </div>
+              </article>
+            </BookPageFlip>
+          ) : (
+            <div className="student-book-page-card p-10 text-center font-black" style={{ color: theme.titleInk }}>
+              No hay paginas para esta leccion.
+            </div>
+          )}
+
+          {showExercises && activePage ? (
+            <div className="student-book-exercise-card" style={{ borderColor: theme.border }}>
+              <PageExercisePane pageNumber={activePage.pageNumber} />
+            </div>
           ) : null}
-        </div>
-        <div className="inline-flex items-center gap-2 text-xs font-black text-amber-950/80 px-3 py-2 rounded-xl border border-amber-900/15 bg-white/60">
-          <BookOpen className="w-4 h-4 text-amber-850" /> {lessonIndex + 1}/{total}
-        </div>
-      </header>
-
-      <main className="flex-1 w-full max-w-6xl mx-auto px-3 py-4 sm:px-5 sm:py-6">
-        <OfficialWorkbookLessonView
-          lessonNumber={entry.n}
-          pages={entry.pages}
-          title={entry.title}
-          accent={entry.color}
-        />
+        </section>
       </main>
-
-      <nav className="sticky bottom-0 z-20 bg-[#FAF7F0]/95 backdrop-blur border-t border-amber-900/15 px-4 py-3.5 flex items-center justify-between gap-3 shadow-[0_-8px_30px_rgba(50,30,10,0.08)]">
-        <button
-          type="button"
-          onClick={() => setLessonIndex((i) => Math.max(0, i - 1))}
-          disabled={lessonIndex === 0}
-          className="inline-flex items-center gap-2 px-5 py-3 sm:px-6 sm:py-3.5 rounded-2xl border border-amber-900/20 bg-white font-extrabold text-sm sm:text-base text-amber-950 shadow-xs hover:bg-stone-50 disabled:opacity-35 active:scale-[0.98] transition cursor-pointer"
-        >
-          <ChevronLeft className="w-5 h-5" />
-          <span>Anterior</span>
-        </button>
-        <button
-          type="button"
-          onClick={() => setLessonIndex((i) => Math.min(total - 1, i + 1))}
-          disabled={lessonIndex >= total - 1}
-          className="inline-flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-3.5 rounded-2xl bg-amber-800 text-white font-extrabold text-sm sm:text-base shadow-sm hover:bg-amber-900 disabled:opacity-35 active:scale-[0.98] transition cursor-pointer"
-        >
-          <span>Siguiente</span>
-          <ChevronRight className="w-5 h-5" />
-        </button>
-      </nav>
     </div>
   );
 }
