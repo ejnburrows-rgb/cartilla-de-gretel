@@ -6,8 +6,8 @@ import { getWorkbookPagesForLesson } from "@/lib/book-faithful";
 import { getCartillaCrmCssVars, getCartillaCrmTheme } from "@/lib/cartilla-crm-theme";
 import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
 import { useLessonProgress } from "@/lib/lesson-progress";
-import { PdfPage } from "@/components/cartilla/PdfPage";
-import { StudentExercisePane } from "@/components/cartilla/StudentExercisePane";
+import { PolishedPage } from "@/components/cartilla/PolishedPage";
+import { PageExercisePane } from "@/components/cartilla/PageExercisePane";
 
 export const Route = createFileRoute("/cartilla/leccion/$n")({
   component: LeccionScanRoute,
@@ -148,15 +148,14 @@ function LeccionScanRoute() {
                 isFlipping ? "opacity-0 scale-[0.985]" : "opacity-100 scale-100"
               }`}
             >
-              <PdfPage pageNumber={activePage.pageNumber} />
+              <PolishedPage pageNumber={activePage.pageNumber} lessonN={n} />
+              <PageExercisePane pageNumber={activePage.pageNumber} />
             </div>
           ) : (
             <div className="text-center opacity-50 font-bold" style={inkStyle}>
               No hay páginas para esta lección.
             </div>
           )}
-
-          <StudentExercisePane entry={entry} />
         </div>
       </main>
 
