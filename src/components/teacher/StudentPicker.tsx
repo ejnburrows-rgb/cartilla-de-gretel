@@ -30,6 +30,13 @@ export function StudentPicker({ classId, selectedStudentId, onSelect }: StudentP
     let cancelled = false;
 
     async function loadStudents() {
+      if (effectiveQuery.length === 0) {
+        setStudents([]);
+        setError(null);
+        setIsLoading(false);
+        return;
+      }
+
       setIsLoading(true);
       setError(null);
       try {
@@ -63,14 +70,17 @@ export function StudentPicker({ classId, selectedStudentId, onSelect }: StudentP
           className="min-w-0 flex-1 border-0 bg-transparent text-sm font-semibold text-slate-900 outline-none"
           value={query}
           onChange={(event) => setQuery(event.target.value)}
-          placeholder="Nombre, codigo o clase"
+          placeholder="Nombre o codigo"
         />
       </div>
 
       <div className="mt-3 max-h-72 overflow-auto rounded-lg border border-slate-200">
         {isLoading && <p className="p-3 text-sm font-semibold text-slate-500">Cargando alumnos...</p>}
         {error && <p className="p-3 text-sm font-semibold text-rose-700">{error}</p>}
-        {!isLoading && !error && students.length === 0 && (
+        {!isLoading && !error && effectiveQuery.length === 0 && (
+          <p className="p-3 text-sm font-semibold text-slate-500">Escribe para buscar alumnos.</p>
+        )}
+        {!isLoading && !error && effectiveQuery.length > 0 && students.length === 0 && (
           <p className="p-3 text-sm font-semibold text-slate-500">No hay alumnos para mostrar.</p>
         )}
         {!isLoading &&
