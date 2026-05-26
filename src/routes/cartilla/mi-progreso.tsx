@@ -1,357 +1,201 @@
-import { createFileRoute, Link, redirect } from "@tanstack/react-router";
-import { useEffect, useMemo, useState } from "react";
-import { ArrowLeft, Award, BookOpen, Clock, Download, Sparkles, Target, ClipboardList } from "lucide-react";
-import { getMyProgress } from "@/lib/student.functions";
-import { getStudentSession } from "@/lib/student-session";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import type { CSSProperties } from "react";
+import { ArrowLeft, RotateCcw } from "lucide-react";
 import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
-import { SimpleBarChart } from "@/components/cartilla/SimpleBarChart";
-import { downloadCSV, toCSV } from "@/lib/csv";
-import { isSupabaseConfigured } from "@/integrations/supabase/client";
-import { routePath } from "@/lib/assets";
-import { listMyAssignments } from "@/lib/assignments.functions";
+import {
+  getLessonStatus,
+  getStreakDays,
+  resetSession,
+  useSessionEvents,
+  useStudentSession,
+} from "@/lib/student-session";
+import { AudioControls } from "@/components/cartilla/AudioControls";
+import { AccessibilityPanel } from "@/components/cartilla/AccessibilityPanel";
 
 export const Route = createFileRoute("/cartilla/mi-progreso")({
   component: MyProgress,
-  head: () => ({ meta: [{ title: "Mi progreso — La Cartilla de Gretel" }] }),
-  beforeLoad: () => {
-    if (typeof window !== "undefined" && !getStudentSession()) {
-      throw redirect({ to: "/cartilla/unirse" });
-    }
-  },
+  head: () => ({ meta: [{ title: "Mi progreso - La Cartilla de Gretel" }] }),
 });
 
-type Event = {
-  id: string;
-  lesson_id: string;
-  event_kind: string;
-  score: number | null;
-  total: number | null;
-  time_seconds: number | null;
-  meta: Record<string, unknown> | null;
-  created_at: string;
+const DASHBOARD_SURFACE_STYLE: CSSProperties = {
+  background:
+    "radial-gradient(circle at 12% 10%, #fff3b0, transparent 30%), radial-gradient(circle at 88% 12%, #b9f3ff, transparent 30%), linear-gradient(135deg, #fff8de, #ffd6e3 48%, #d9efff)",
 };
 
-type AssignmentStatus = "pending" | "in_progress" | "completed" | "late";
+const SPARKLINE_COLOR = "#c98c4f";
+const EMPTY_SPARKLINE_POINTS = "0,56 280,56";
 
-function getAssignmentStatus(lessonId: string, completedSet: Set<string>, exerciseStats: Record<string, unknown>, dueAt?: string | null): { status: AssignmentStatus; label: string; colorClass: string } {
-  const isDone = completedSet.has(lessonId);
-  const hasStarted = !!exerciseStats[lessonId];
-  const now = new Date();
-  const isLate = dueAt && new Date(dueAt) < now && !isDone;
-
-  if (isDone) return { status: "completed", label: "Completada", colorClass: "text-success bg-success/10 border-success/20" };
-  if (isLate) return { status: "late", label: "Atrasada", colorClass: "text-destructive bg-destructive/10 border-destructive/20" };
-  if (hasStarted) return { status: "in_progress", label: "En progreso", colorClass: "text-amber-600 bg-amber-50 border-amber-200" };
-  return { status: "pending", label: "Pendiente", colorClass: "text-foreground/60 bg-secondary/50 border-foreground/10" };
-}
-
-function lessonAccentStyle(color: string) {
+function lessonRingStyle(color: string): CSSProperties {
   return { borderColor: color, color };
 }
 
-function lessonCardStyle(color: string) {
-  return { borderLeft: `5px solid ${color}` };
+function completedTileStyle(color: string): CSSProperties {
+  return { backgroundColor: color, borderColor: color };
+}
+
+function progressTileStyle(color: string): CSSProperties {
+  return { borderColor: color };
+}
+
+function dayKey(date: Date) {
+  return date.toISOString().slice(0, 10);
+}
+
+function lastFourteenDays() {
+  return Array.from({ length: 14 }, (_, index) => {
+    const date = new Date();
+    date.setDate(date.getDate() - (13 - index));
+    return dayKey(date);
+  });
+}
+
+function countSessionsByDay(events: ReturnType<typeof useSessionEvents>) {
+  const days = lastFourteenDays();
+  return days.map((day) => ({
+    day,
+    count: events.filter((event) => event.type === "practica:start" && dayKey(new Date(event.createdAt)) === day).length,
+  }));
+}
+
+function sparklinePoints(counts: Array<{ day: string; count: number }>) {
+  const max = Math.max(1, ...counts.map((item) => item.count));
+  return counts
+    .map((item, index) => {
+      const x = Math.round((index / Math.max(1, counts.length - 1)) * 280);
+      const y = Math.round(56 - (item.count / max) * 48);
+      return `${x},${y}`;
+    })
+    .join(" ");
+}
+
+function weekSessionCount(events: ReturnType<typeof useSessionEvents>) {
+  const cutoff = Date.now() - 7 * 86_400_000;
+  return events.filter((event) => event.type === "practica:start" && Date.parse(event.createdAt) >= cutoff).length;
+}
+
+function lessonMark(entry: (typeof CATALOG)[number]) {
+  if (entry.kind === "intro") return "1";
+  if (entry.kind === "vowel") return entry.vowel.toUpperCase();
+  return entry.letter.toUpperCase();
+}
+
+function TileStateLabel({ status }: { status: ReturnType<typeof getLessonStatus> }) {
+  if (status === "completa") return <span>completa</span>;
+  if (status === "en-progreso") return <span>en progreso</span>;
+  return <span>no visitada</span>;
 }
 
 function MyProgress() {
-  const [data, setData] = useState<{
-    student: { display_name: string; student_code: string };
-    class: { name: string } | null;
-    events: Event[];
-  } | null>(null);
-  const [assignments, setAssignments] = useState<Array<{ id: string; lesson_id: string; title: string | null; due_at: string | null }>>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const session = useStudentSession();
+  const events = useSessionEvents();
+  const counts = countSessionsByDay(events);
+  const points = events.length > 0 ? sparklinePoints(counts) : EMPTY_SPARKLINE_POINTS;
+  const completedCount = CATALOG.filter((entry) => getLessonStatus(entry.n) === "completa").length;
+  const sessionsThisWeek = weekSessionCount(events);
+  const streak = getStreakDays();
+  const name = session?.studentName || "lector(a)";
 
-  useEffect(() => {
-    const s = getStudentSession();
-    if (!s) {
-      setError("No hay una sesión de alumno activa. Vuelve a unirte a tu clase.");
-      setLoading(false);
-      return;
-    }
-    
-    Promise.all([
-      getMyProgress({ data: { studentId: s.studentId, studentCode: s.studentCode } }),
-      listMyAssignments({ data: { classId: s.classId, studentId: s.studentId, studentCode: s.studentCode } }).catch(() => [])
-    ])
-      .then(([r, a]) => {
-        setData(r as never);
-        setAssignments(a);
-      })
-      .catch((e) =>
-        setError(
-          e instanceof Error
-            ? e.message
-            : "No se pudo cargar el progreso. Sync no disponible en este momento.",
-        ),
-      )
-      .finally(() => setLoading(false));
-  }, []);
-
-  const summary = useMemo(() => {
-    if (!data) return null;
-    const completed = new Set<string>();
-    const exByLesson: Record<string, { score: number; total: number; runs: number }> = {};
-    const latestExerciseKeys = new Set<string>();
-    let timeTotal = 0;
-    const badges: string[] = [];
-    let level: string | null = null;
-    for (const e of data.events) {
-      if (e.event_kind === "lesson_completed") completed.add(e.lesson_id);
-      if (
-        e.event_kind === "exercise" &&
-        typeof e.score === "number" &&
-        typeof e.total === "number"
-      ) {
-        const meta = (e.meta ?? {}) as Record<string, unknown>;
-        const exercise = typeof meta.exercise === "string" ? meta.exercise : "exercise";
-        const key = `${e.lesson_id}:${exercise}`;
-        if (!latestExerciseKeys.has(key)) {
-          latestExerciseKeys.add(key);
-          const stat = (exByLesson[e.lesson_id] ??= { score: 0, total: 0, runs: 0 });
-          stat.score += e.score;
-          stat.total += e.total;
-          stat.runs += 1;
-        }
-      }
-      if (e.event_kind === "time") timeTotal += e.time_seconds ?? 0;
-      if (e.event_kind === "badge") badges.push(String((e.meta ?? {}).name ?? "Insignia"));
-      if (e.event_kind === "level" && !level) level = String((e.meta ?? {}).level ?? "—");
-    }
-    const dbCompleted = (
-      (data as { lessonProgress?: Array<{ lesson_id: string; status: string }> }).lessonProgress ??
-      []
-    )
-      .filter((row) => row.status === "completed")
-      .map((row) => row.lesson_id);
-    dbCompleted.forEach((lessonId) => completed.add(lessonId));
-    const weak = Object.entries(exByLesson)
-      .filter(([, s]) => s.total >= 3 && s.score / s.total < 0.7)
-      .map(([lesson]) => lesson);
-    return { completed, exByLesson, timeTotal, badges, level, weak };
-  }, [data]);
-
-  const exportCSV = () => {
-    if (!data || !summary) return;
-    const rows = CATALOG.map((entry) => {
-      const ex = summary.exByLesson[String(entry.n)];
-      return {
-        leccion: entry.n,
-        titulo: entry.title,
-        completada: summary.completed.has(String(entry.n)) ? "sí" : "no",
-        ejercicios: ex?.runs ?? 0,
-        aciertos: ex?.score ?? 0,
-        intentos: ex?.total ?? 0,
-        porcentaje: ex && ex.total > 0 ? Math.round((ex.score / ex.total) * 100) + "%" : "",
-      };
-    });
-    downloadCSV(`mi-progreso-${data.student.student_code}.csv`, toCSV(rows));
+  const clearProgress = () => {
+    if (!window.confirm("Esta accion restablece el progreso guardado en este navegador. Desea continuar?")) return;
+    resetSession();
   };
 
-  if (loading)
-    return (
-      <main className="min-h-screen flex items-center justify-center text-foreground/50">
-        Cargando…
-      </main>
-    );
-  if (error)
-    return (
-      <main className="min-h-screen flex items-center justify-center text-destructive p-6 text-center">
-        {error}
-      </main>
-    );
-  if (!data || !summary) return null;
-
-  const fmtMin = (s: number) => `${Math.floor(s / 60)} min ${s % 60} s`;
-  const chartBars = CATALOG.slice(0, 12).map((entry) => {
-    const ex = summary.exByLesson[String(entry.n)];
-    return {
-      label: `L${entry.n}`,
-      value: ex && ex.total > 0 ? Math.round((ex.score / ex.total) * 100) : 0,
-      color: entry.color,
-      sub: summary.completed.has(String(entry.n)) ? "✓" : "",
-    };
-  });
-
   return (
-    <main className="min-h-screen bg-background px-4 py-6 max-w-4xl mx-auto">
-      <Link
-        to="/cartilla"
-        className="inline-flex items-center gap-2 text-sm font-bold text-foreground/60 hover:text-foreground"
-      >
-        <ArrowLeft className="w-4 h-4" /> Cartilla
-      </Link>
-
-      <header className="mt-6 flex items-start justify-between gap-3 flex-wrap">
-        <div>
-          <h1 className="text-3xl sm:text-4xl font-bold">Hola, {data.student.display_name}</h1>
-          <p className="text-sm text-foreground/60 mt-1">
-            Clase: <strong>{data.class?.name ?? "—"}</strong> · Tu código:{" "}
-            <span className="font-mono font-bold">{data.student.student_code}</span>
-          </p>
-          {!isSupabaseConfigured && (
-            <div className="mt-3 inline-flex rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-bold text-primary">
-              Modo local: estos datos viven en este navegador. Sync no disponible sin Supabase.
-            </div>
-          )}
-        </div>
-        <button
-          onClick={exportCSV}
-          className="inline-flex items-center gap-1.5 text-sm px-3 py-2 rounded-xl border-2 border-foreground/10 hover:bg-secondary font-bold"
+    <main className="cartilla-student-surface min-h-screen px-4 py-6 text-[#3A281E]" style={DASHBOARD_SURFACE_STYLE}>
+      <div className="mx-auto max-w-5xl pb-32">
+        <Link
+          to="/cartilla/lecciones"
+          aria-label="Volver a lecciones"
+          className="cartilla-focus-ring inline-flex min-h-11 items-center gap-2 rounded-full border border-white/70 bg-white/75 px-4 py-2 text-sm font-black shadow-sm backdrop-blur"
         >
-          <Download className="w-4 h-4" /> CSV
-        </button>
-      </header>
+          <ArrowLeft className="h-4 w-4" />
+          Lecciones
+        </Link>
 
-      <section className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
-        <Stat
-          icon={BookOpen}
-          label="Lecciones"
-          value={`${summary.completed.size}/${TOTAL_LESSONS}`}
-        />
-        <Stat
-          icon={Target}
-          label="Ejercicios"
-          value={String(Object.values(summary.exByLesson).reduce((a, s) => a + s.runs, 0))}
-        />
-        <Stat icon={Clock} label="Tiempo" value={fmtMin(summary.timeTotal)} />
-        <Stat icon={Award} label="Insignias" value={String(summary.badges.length)} />
-      </section>
-      
-      {assignments && assignments.length > 0 && (
-        <section className="mt-8 kid-card p-4 sm:p-6 bg-gradient-to-br from-indigo-50/50 to-background border-indigo-100">
-          <h2 className="font-extrabold text-lg mb-4 text-indigo-900 inline-flex items-center gap-2">
-            <ClipboardList className="w-5 h-5 text-indigo-600" />
-            Mis Tareas
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {assignments.map(a => {
-              const entry = CATALOG.find(c => String(c.n) === a.lesson_id);
-              if (!entry) return null;
-              const status = getAssignmentStatus(a.lesson_id, summary.completed, summary.exByLesson, a.due_at);
-              
+        <header className="cartilla-student-card mt-5 rounded-[2rem] border border-white/70 bg-white/82 p-5 shadow-2xl backdrop-blur">
+          <p className="text-xs font-black uppercase tracking-wide text-amber-800">Mi progreso</p>
+          <h1 className="mt-1 text-3xl font-black leading-tight sm:text-4xl">Hola, {name}</h1>
+          <p className="mt-2 text-sm font-bold text-[#3A281E]/68">Revise sus lecciones, sesiones y racha de practica.</p>
+        </header>
+
+        <section className="mt-6">
+          <h2 className="mb-3 text-lg font-black">Cuadricula de lecciones</h2>
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-4 xl:grid-cols-6">
+            {CATALOG.map((entry) => {
+              const status = getLessonStatus(entry.n);
+              const isComplete = status === "completa";
+              const isProgress = status === "en-progreso";
               return (
-                <a
-                  key={a.id}
-                  href={routePath(`/cartilla/leccion/${a.lesson_id}`)}
-                  className="bg-white border-2 border-foreground/5 hover:border-[var(--cartilla-accent)] rounded-2xl p-4 transition-all hover:shadow-md group flex flex-col justify-between"
-                  style={{"--cartilla-accent": entry.color} as React.CSSProperties}
+                <article
+                  key={entry.n}
+                  className="cartilla-student-card rounded-2xl border-2 bg-white/86 p-3 shadow-sm"
+                  style={isComplete ? completedTileStyle(entry.color) : isProgress ? progressTileStyle(entry.color) : undefined}
                 >
-                  <div>
-                    <div className="flex justify-between items-start gap-2 mb-2">
-                      <span className="text-xs font-bold text-foreground/50 uppercase tracking-wider">Lección {entry.n}</span>
-                      <span className={`text-[10px] font-black uppercase tracking-wider px-2 py-1 rounded-md border ${status.colorClass}`}>
-                        {status.label}
-                      </span>
-                    </div>
-                    <h3 className="font-bold text-[var(--cartilla-title-ink)] leading-tight">{a.title || entry.title}</h3>
+                  <div
+                    className="grid h-12 w-12 place-items-center rounded-full border-4 bg-white text-xl font-black"
+                    style={lessonRingStyle(entry.color)}
+                  >
+                    {lessonMark(entry)}
                   </div>
-                  
-                  {a.due_at && (
-                    <div className="mt-3 text-xs font-semibold text-foreground/60 flex items-center gap-1.5">
-                      <Clock className="w-3.5 h-3.5" />
-                      Vence: {new Date(a.due_at).toLocaleDateString()}
-                    </div>
-                  )}
-                </a>
+                  <div className={isComplete ? "mt-3 text-sm font-black text-white" : "mt-3 text-sm font-black text-[#3A281E]"}>
+                    Leccion {entry.n}
+                  </div>
+                  <div className={isComplete ? "text-xs font-bold text-white/88" : "text-xs font-bold text-[#3A281E]/62"}>
+                    <TileStateLabel status={status} />
+                  </div>
+                </article>
               );
             })}
           </div>
         </section>
-      )}
 
-      {summary.weak.length > 0 && (
-        <section className="mt-6 rounded-2xl border-2 border-warning/30 bg-warning/5 p-4">
-          <h2 className="font-bold inline-flex items-center gap-2 text-warning">
-            <Sparkles className="w-4 h-4" /> Te conviene repasar
-          </h2>
-          <p className="text-sm text-foreground/70 mt-1">
-            Tuviste varios errores en estas lecciones. ¡Vuelve a intentarlo!
+        <section className="cartilla-student-card mt-6 rounded-[2rem] border border-white/70 bg-white/82 p-5 shadow-xl backdrop-blur">
+          <h2 className="text-lg font-black">Linea de tiempo</h2>
+          <svg viewBox="0 0 280 64" role="img" aria-label="Sesiones de practica en los ultimos 14 dias" className="mt-3 h-16 w-full">
+            <path d="M0 56 H280" stroke="#ead7bf" strokeWidth="4" strokeLinecap="round" />
+            <polyline points={points} fill="none" stroke={SPARKLINE_COLOR} strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
+            {counts.map((item, index) => {
+              const x = Math.round((index / Math.max(1, counts.length - 1)) * 280);
+              const max = Math.max(1, ...counts.map((count) => count.count));
+              const y = Math.round(56 - (item.count / max) * 48);
+              return <circle key={item.day} cx={x} cy={y} r="3" fill={SPARKLINE_COLOR} />;
+            })}
+          </svg>
+        </section>
+
+        <section className="mt-6 grid gap-3 sm:grid-cols-3">
+          <StatTile label="Lecciones completadas" value={`${completedCount}/${TOTAL_LESSONS}`} />
+          <StatTile label="Sesiones esta semana" value={String(sessionsThisWeek)} />
+          <StatTile label="Racha actual" value={`${streak} dias`} />
+        </section>
+
+        <section className="cartilla-student-card mt-6 rounded-[2rem] border border-rose-200 bg-white/86 p-5 shadow-xl backdrop-blur">
+          <h2 className="text-lg font-black text-rose-800">Restablecer progreso</h2>
+          <p className="mt-1 text-sm font-bold text-[#3A281E]/68">
+            Esta accion borra el historial local de practica y las estadisticas de este navegador.
           </p>
-          <div className="mt-3 flex flex-wrap gap-2">
-            {summary.weak.map((lessonId) => {
-              const entry = CATALOG.find((e) => String(e.n) === lessonId);
-              if (!entry) return null;
-              return (
-                <a
-                  key={lessonId}
-                  href={routePath(`/cartilla/leccion/${entry.n}`)}
-                  className="px-3 py-1.5 rounded-full text-xs font-bold border-2"
-                  style={lessonAccentStyle(entry.color)}
-                >
-                  L{entry.n} — {entry.title}
-                </a>
-              );
-            })}
-          </div>
-          <Link
-            to="/cartilla/repaso"
-            className="mt-3 inline-flex items-center gap-1 text-sm font-bold text-primary hover:underline"
+          <button
+            type="button"
+            aria-label="Restablecer progreso"
+            onClick={clearProgress}
+            className="cartilla-focus-ring mt-4 inline-flex min-h-12 items-center gap-2 rounded-2xl bg-rose-700 px-5 py-3 text-sm font-black text-white"
           >
-            Ir al modo repaso →
-          </Link>
+            <RotateCcw className="h-4 w-4" />
+            Restablecer progreso
+          </button>
         </section>
-      )}
-
-      <section className="mt-6 kid-card p-4">
-        <h2 className="font-bold mb-3">Aciertos por lección (primeras 12)</h2>
-        <SimpleBarChart bars={chartBars} max={100} formatValue={(v) => `${v}%`} />
-      </section>
-
-      <section className="mt-6">
-        <h2 className="font-bold mb-3 text-lg">Tus 24 lecciones</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-          {CATALOG.map((entry) => {
-            const isDone = summary.completed.has(String(entry.n));
-            const ex = summary.exByLesson[String(entry.n)];
-            const pct = ex && ex.total > 0 ? Math.round((ex.score / ex.total) * 100) : null;
-            return (
-              <a
-                href={routePath(`/cartilla/leccion/${entry.n}`)}
-                key={entry.n}
-                className="kid-card p-3 flex items-center gap-3 hover:-translate-y-0.5 transition"
-                style={lessonCardStyle(entry.color)}
-              >
-                <div className="text-xs font-bold w-8 text-foreground/50">{entry.n}</div>
-                <div className="flex-1 min-w-0">
-                  <div className="font-bold text-sm truncate">{entry.title}</div>
-                  <div className="text-xs text-foreground/60 mt-0.5">
-                    {isDone ? (
-                      <span className="text-success font-bold">✓ completada</span>
-                    ) : (
-                      <span>pendiente</span>
-                    )}
-                    {pct !== null && <span className="ml-2">· {pct}% acierto</span>}
-                  </div>
-                </div>
-              </a>
-            );
-          })}
-        </div>
-      </section>
+      </div>
+      <AccessibilityPanel />
+      <AudioControls />
     </main>
   );
 }
 
-function Stat({
-  icon: Icon,
-  label,
-  value,
-}: {
-  icon: typeof BookOpen;
-  label: string;
-  value: string;
-}) {
+function StatTile({ label, value }: { label: string; value: string }) {
   return (
-    <div className="kid-card p-3 flex items-center gap-3">
-      <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
-        <Icon className="w-5 h-5" />
-      </div>
-      <div className="min-w-0">
-        <div className="text-xs text-foreground/60">{label}</div>
-        <div className="font-bold truncate">{value}</div>
-      </div>
+    <div className="cartilla-student-card rounded-[1.5rem] border border-white/70 bg-white/86 p-5 shadow-xl backdrop-blur">
+      <div className="text-3xl font-black text-amber-800">{value}</div>
+      <div className="mt-1 text-sm font-bold text-[#3A281E]/65">{label}</div>
     </div>
   );
 }
