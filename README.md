@@ -1,5 +1,12 @@
 # La Cartilla de Gretel
 
+[![Production deploy](https://github.com/ejnburrows-rgb/cartilla-de-gretel/actions/workflows/production-deploy.yml/badge.svg)](https://github.com/ejnburrows-rgb/cartilla-de-gretel/actions/workflows/production-deploy.yml)
+[![Verify](https://github.com/ejnburrows-rgb/cartilla-de-gretel/actions/workflows/verify.yml/badge.svg)](https://github.com/ejnburrows-rgb/cartilla-de-gretel/actions/workflows/verify.yml)
+[![Extract art](https://github.com/ejnburrows-rgb/cartilla-de-gretel/actions/workflows/extract-art.yml/badge.svg)](https://github.com/ejnburrows-rgb/cartilla-de-gretel/actions/workflows/extract-art.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+
+> Hero screenshot pending. See `/cartilla/leccion/9` and `/cartilla/leccion/17` on https://cartilla-de-gretel.vercel.app for the current live workbook view.
+
 Digital edition of *La Cartilla de Gretel*, a 92-page, 24-lesson Spanish reading primer by Leonor Lopetegui. Contributors: Aída Fernández and Silvia Diez. Illustrator: Estela de Armas Plasencia. Imprint: Lanny Books (LANY BOOKS LLC). ISBN 0-971-8696-8-5.
 
 This repository is also the classroom CRM for the book:
@@ -58,6 +65,36 @@ npm run lint
 npm run verify
 ```
 
+## Folder structure
+
+```text
+.
+├── .cartilla-import/      Targets for the prebuild Notion PDF fetcher
+├── .github/workflows/     CI: verify, build-probe, deploy, import-book-pdf, extract-art
+├── public/                Static assets served at /
+│   ├── cartilla/          Extracted and polished workbook art outputs
+│   ├── login.html         Site password gate
+│   ├── manifest.webmanifest
+│   ├── robots.txt
+│   └── sw.js              Service worker
+├── scripts/               Build-time Node scripts (PDF fetch, extract, polish, manifest, verify)
+├── src/
+│   ├── assets/            Static imported assets
+│   ├── components/        UI components (cartilla, teacher, student shells, exercises)
+│   ├── content/           Vowel and consonant lesson content
+│   ├── data/              Book-faithful spine, lesson catalog, teacher-guide skeleton
+│   ├── features/          Feature-specific modules
+│   ├── hooks/             React hooks
+│   ├── integrations/      Supabase and external integrations
+│   ├── lib/               speak.ts, book-faithful.ts, lesson-catalog.ts, workbook-source.ts
+│   ├── routes/            TanStack Router routes
+│   ├── styles/            Shared styles
+│   ├── types/             Central re-exported domain types
+│   ├── main.tsx
+│   └── router.tsx
+└── supabase/migrations/   SQL migrations for the teacher/student cloud platform
+```
+
 ## Where the data lives
 
 | Path | Purpose |
@@ -111,3 +148,23 @@ Apply migrations in `supabase/migrations/` before using the teacher/student clou
 See `KNOWN_ISSUES.md` at repo root for the current inventory of verified status, open gaps, and parked work.
 
 The PDF mirror is not claimed as fixed by the CRM shell work unless separately verified in the same deployment pass.
+
+## Contributing
+
+See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for accepted and rejected change types and the local verify workflow.
+
+## Changelog
+
+See [`CHANGELOG.md`](./CHANGELOG.md).
+
+## License
+
+Released under the [MIT License](./LICENSE).
+
+## Credits
+
+- Author: Leonor Lopetegui
+- Contributors: Aída Fernández, Silvia Diez
+- Illustrator: Estela de Armas Plasencia
+- Imprint: Lanny Books (LANY BOOKS LLC), ISBN 0-971-8696-8-5
+- Digital edition and classroom CRM: EJN

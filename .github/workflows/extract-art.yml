@@ -1,0 +1,61 @@
+name: Extract and polish workbook art
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/extract-art.mjs'
+      - 'scripts/polish-art.mjs'
+      - 'scripts/build-art-manifest.mjs'
+      - 'scripts/prebuild-fetch-pdfs.mjs'
+      - '.cartilla-import/targets.json'
+      - '.github/workflows/extract-art.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Fetch source PDF from Notion
+        run: node scripts/prebuild-fetch-pdfs.mjs
+
+      - name: Extract raw page images
+        run: node scripts/extract-art.mjs
+
+      - name: Polish extracted images
+        run: node scripts/polish-art.mjs
+
+      - name: Build art manifest
+        run: node scripts/build-art-manifest.mjs
+
+      - name: Verify outputs exist
+        run: |
+          test -d public/cartilla/art/polished
+          test -f public/cartilla/art/manifest.json
+          echo "Polished files: $(find public/cartilla/art/polished -type f | wc -l)"
+
+      - name: Commit refreshed art outputs
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore(art): refresh extracted and polished workbook art'
+          file_pattern: 'public/cartilla/art/**'
+          commit_user_name: 'github-actions[bot]'
+          commit_user_email: '41898282+github-actions[bot]@users.noreply.github.com'
+          skip_dirty_check: false
