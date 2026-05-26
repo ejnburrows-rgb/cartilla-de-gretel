@@ -52,7 +52,7 @@ const PAGE_TO_LESSON: Map<number, number> = (() => {
   try {
     for (const entry of CATALOG) {
       const pages = getWorkbookPagesForLesson(entry.n);
-      for (const p of pages) m.set(p, entry.n);
+      for (const p of pages) m.set(p.pageNumber, entry.n);
     }
   } catch {
     // If catalog wiring fails at import time, fall back to live PDF render.
@@ -77,7 +77,7 @@ export function PolishedPage({
     if (!preferPolished || !resolvedLesson || !lesson.ready) return null;
     if (!lesson.pages || lesson.pages.length === 0) return null;
     const pages = getWorkbookPagesForLesson(resolvedLesson);
-    const idx = pages.indexOf(pageNumber);
+    const idx = pages.findIndex((page) => page.pageNumber === pageNumber);
     if (idx < 0) return null;
     return lesson.pages[idx] ?? null;
   }, [preferPolished, resolvedLesson, lesson.ready, lesson.pages, pageNumber]);

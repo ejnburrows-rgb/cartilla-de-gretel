@@ -126,13 +126,13 @@ function PrintRoute() {
           Imprimir
         </button>
       </div>
-      {pages.map((pageNumber) => (
+      {pages.map((page) => (
         <section
-          key={pageNumber}
+          key={page.pageNumber}
           className="cartilla-print-page"
           style={PAGE_STYLE}
         >
-          <PdfPage pageNumber={pageNumber} hideBadge />
+          <PdfPage pageNumber={page.pageNumber} hideBadge />
         </section>
       ))}
       {pages.length === 0 ? (
