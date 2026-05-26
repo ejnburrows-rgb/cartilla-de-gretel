@@ -176,7 +176,7 @@ function TeacherReportsRoute() {
         minutos: minutes(row.timeSeconds),
       })),
     );
-    downloadCSV(csv, `reporte-clase-${selectedClassName}-${csvDate()}.csv`);
+    downloadCSV(`reporte-clase-${selectedClassName}-${csvDate()}.csv`, csv);
   }
 
   function exportStudentCsv() {
@@ -193,7 +193,7 @@ function TeacherReportsRoute() {
         fecha: event.created_at,
       })),
     );
-    downloadCSV(csv, `reporte-alumno-${studentProgress.student.display_name}-${csvDate()}.csv`);
+    downloadCSV(`reporte-alumno-${studentProgress.student.display_name}-${csvDate()}.csv`, csv);
   }
 
   return (
