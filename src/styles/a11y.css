@@ -1,0 +1,39 @@
+.cartilla-reduce-motion *,
+.cartilla-reduce-motion *::before,
+.cartilla-reduce-motion *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  scroll-behavior: auto !important;
+  transition-duration: 0.001ms !important;
+}
+
+.cartilla-high-contrast body,
+.cartilla-high-contrast .cartilla-student-surface {
+  background: #fff !important;
+  color: #0d0a06 !important;
+}
+
+.cartilla-high-contrast .cartilla-student-card,
+.cartilla-high-contrast .cartilla-floating-control {
+  background: #fff !important;
+  border-color: #0d0a06 !important;
+  color: #0d0a06 !important;
+}
+
+.cartilla-text-lg {
+  font-size: 112.5%;
+}
+
+.cartilla-text-xl {
+  font-size: 125%;
+}
+
+.cartilla-focus-ring:focus-visible {
+  outline: 3px solid var(--cartilla-focus, #c98c4f);
+  outline-offset: 3px;
+}
+
+.cartilla-floating-stack {
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  right: max(1rem, env(safe-area-inset-right));
+}
