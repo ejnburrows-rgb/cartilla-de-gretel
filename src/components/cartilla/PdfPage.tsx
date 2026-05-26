@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState, useCallback, type CSSProperties } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
@@ -10,12 +10,14 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 
 const PDF_FILE = "/book/book.pdf";
 
+const CONTAINER_STYLE: CSSProperties = { width: "100%", position: "relative" };
+
 interface PdfPageProps {
   pageNumber: number;
   /** Optional fixed width in CSS pixels. If omitted, fills the container width responsively. */
   width?: number;
   className?: string;
-  /** If true, hides the page number badge in the corner (used inside spreads). */
+  /** If true, hides the page-number badge in the corner (used inside spreads). */
   hideBadge?: boolean;
 }
 
@@ -25,11 +27,10 @@ interface PdfPageProps {
  * scripts/prebuild-fetch-pdfs.mjs).
  *
  * When `width` is not provided, the component measures its container with a
- * ResizeObserver and renders the PDF page at that width, so the same
- * component scales correctly inside both single-page and side-by-side spreads.
+ * ResizeObserver and renders the PDF page at that width.
  *
- * If the PDF fails to load (e.g. build-time fetch failed), an actionable
- * fallback is rendered with a retry button and a link to the build diagnostic.
+ * If the PDF fails to load, an actionable fallback is rendered with a retry
+ * button and a link to the build diagnostic.
  */
 export function PdfPage({ pageNumber, width, className, hideBadge }: PdfPageProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -66,11 +67,7 @@ export function PdfPage({ pageNumber, width, className, hideBadge }: PdfPageProp
     : Math.max(1, pageNumber);
 
   return (
-    <div
-      ref={containerRef}
-      className={className}
-      style= width: "100%", position: "relative" 
-    >
+    <div ref={containerRef} className={className} style={CONTAINER_STYLE}>
       {loadError ? (
         <div
           role="alert"
