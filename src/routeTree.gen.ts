@@ -20,6 +20,7 @@ import { Route as CartillaMiProgresoRouteImport } from './routes/cartilla/mi-pro
 import { Route as CartillaLibroRouteImport } from './routes/cartilla/libro'
 import { Route as CartillaLeccionesRouteImport } from './routes/cartilla/lecciones'
 import { Route as CartillaAutoraRouteImport } from './routes/cartilla/autora'
+import { Route as CartillaTeacherReportesRouteImport } from './routes/cartilla/teacher/reportes'
 import { Route as CartillaTeacherIndexRouteImport } from './routes/cartilla/teacher/index'
 import { Route as CartillaTeacherFlipchartRouteImport } from './routes/cartilla/teacher/flipchart'
 import { Route as CartillaLeccionNRouteImport } from './routes/cartilla/leccion.$n'
@@ -83,6 +84,11 @@ const CartillaLeccionesRoute = CartillaLeccionesRouteImport.update({
 const CartillaAutoraRoute = CartillaAutoraRouteImport.update({
   id: '/cartilla/autora',
   path: '/cartilla/autora',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CartillaTeacherReportesRoute = CartillaTeacherReportesRouteImport.update({
+  id: '/cartilla/teacher/reportes',
+  path: '/cartilla/teacher/reportes',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CartillaTeacherIndexRoute = CartillaTeacherIndexRouteImport.update({
@@ -155,6 +161,7 @@ export interface FileRoutesByFullPath {
   '/cartilla/repaso': typeof CartillaRepasoRoute
   '/cartilla/unirse': typeof CartillaUnirseRoute
   '/cartilla/': typeof CartillaIndexRoute
+  '/cartilla/teacher/reportes': typeof CartillaTeacherReportesRoute
   '/cartilla/teacher': typeof AuthenticatedCartillaTeacherRouteWithChildren
   '/cartilla/leccion/$n': typeof CartillaLeccionNRoute
   '/cartilla/teacher/flipchart': typeof CartillaTeacherFlipchartRouteWithChildren
@@ -177,6 +184,7 @@ export interface FileRoutesByTo {
   '/cartilla/repaso': typeof CartillaRepasoRoute
   '/cartilla/unirse': typeof CartillaUnirseRoute
   '/cartilla': typeof CartillaIndexRoute
+  '/cartilla/teacher/reportes': typeof CartillaTeacherReportesRoute
   '/cartilla/teacher': typeof CartillaTeacherIndexRoute
   '/cartilla/leccion/$n': typeof CartillaLeccionNRoute
   '/cartilla/teacher/flipchart': typeof CartillaTeacherFlipchartRouteWithChildren
@@ -200,6 +208,7 @@ export interface FileRoutesById {
   '/cartilla/repaso': typeof CartillaRepasoRoute
   '/cartilla/unirse': typeof CartillaUnirseRoute
   '/cartilla/': typeof CartillaIndexRoute
+  '/cartilla/teacher/reportes': typeof CartillaTeacherReportesRoute
   '/_authenticated/cartilla/teacher': typeof AuthenticatedCartillaTeacherRouteWithChildren
   '/cartilla/leccion/$n': typeof CartillaLeccionNRoute
   '/cartilla/teacher/flipchart': typeof CartillaTeacherFlipchartRouteWithChildren
@@ -224,6 +233,7 @@ export interface FileRouteTypes {
     | '/cartilla/repaso'
     | '/cartilla/unirse'
     | '/cartilla/'
+    | '/cartilla/teacher/reportes'
     | '/cartilla/teacher'
     | '/cartilla/leccion/$n'
     | '/cartilla/teacher/flipchart'
@@ -246,6 +256,7 @@ export interface FileRouteTypes {
     | '/cartilla/repaso'
     | '/cartilla/unirse'
     | '/cartilla'
+    | '/cartilla/teacher/reportes'
     | '/cartilla/teacher'
     | '/cartilla/leccion/$n'
     | '/cartilla/teacher/flipchart'
@@ -268,6 +279,7 @@ export interface FileRouteTypes {
     | '/cartilla/repaso'
     | '/cartilla/unirse'
     | '/cartilla/'
+    | '/cartilla/teacher/reportes'
     | '/_authenticated/cartilla/teacher'
     | '/cartilla/leccion/$n'
     | '/cartilla/teacher/flipchart'
@@ -292,6 +304,7 @@ export interface RootRouteChildren {
   CartillaRepasoRoute: typeof CartillaRepasoRoute
   CartillaUnirseRoute: typeof CartillaUnirseRoute
   CartillaIndexRoute: typeof CartillaIndexRoute
+  CartillaTeacherReportesRoute: typeof CartillaTeacherReportesRoute
   CartillaLeccionNRoute: typeof CartillaLeccionNRoute
   CartillaTeacherFlipchartRoute: typeof CartillaTeacherFlipchartRouteWithChildren
   CartillaTeacherIndexRoute: typeof CartillaTeacherIndexRoute
@@ -374,6 +387,13 @@ declare module '@tanstack/react-router' {
       path: '/cartilla/autora'
       fullPath: '/cartilla/autora'
       preLoaderRoute: typeof CartillaAutoraRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cartilla/teacher/reportes': {
+      id: '/cartilla/teacher/reportes'
+      path: '/cartilla/teacher/reportes'
+      fullPath: '/cartilla/teacher/reportes'
+      preLoaderRoute: typeof CartillaTeacherReportesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cartilla/teacher/': {
@@ -515,6 +535,7 @@ const rootRouteChildren: RootRouteChildren = {
   CartillaRepasoRoute: CartillaRepasoRoute,
   CartillaUnirseRoute: CartillaUnirseRoute,
   CartillaIndexRoute: CartillaIndexRoute,
+  CartillaTeacherReportesRoute: CartillaTeacherReportesRoute,
   CartillaLeccionNRoute: CartillaLeccionNRoute,
   CartillaTeacherFlipchartRoute: CartillaTeacherFlipchartRouteWithChildren,
   CartillaTeacherIndexRoute: CartillaTeacherIndexRoute,
