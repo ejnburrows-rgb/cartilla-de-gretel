@@ -42,7 +42,6 @@ export function TeacherCrmShell() {
                 </Link>
                 <Link
                   to="/cartilla/teacher/reportes"
-                  search={{ print: "class" }}
                   className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-black text-slate-800 hover:border-sky-300"
                 >
                   <Printer className="h-4 w-4" /> PDF
