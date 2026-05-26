@@ -2,6 +2,9 @@
 let cachedVoice: SpeechSynthesisVoice | null = null;
 let voicesReady: Promise<void> | null = null;
 let silentWarmupDone = false;
+let configuredRate = 0.82;
+let configuredVoiceURI: string | null = null;
+let lastUtteranceText = "";
 
 const PREFERRED_NAMES = [
   "Google español",
@@ -40,6 +43,10 @@ function scoreVoice(v: SpeechSynthesisVoice): number {
 function pickBestVoice(): SpeechSynthesisVoice | null {
   const voices = window.speechSynthesis.getVoices();
   if (!voices.length) return null;
+  if (configuredVoiceURI) {
+    const configured = voices.find((voice) => voice.voiceURI === configuredVoiceURI);
+    if (configured?.lang.toLowerCase().startsWith("es")) return configured;
+  }
   const ranked = voices
     .map((v) => ({ v, s: scoreVoice(v) }))
     .filter((x) => x.s >= 0)
@@ -92,15 +99,29 @@ function buildUtterance(text: string, options?: { rate?: number; pitch?: number 
   } else {
     u.lang = "es-ES";
   }
-  u.rate = options?.rate ?? 0.82;
+  u.rate = options?.rate ?? configuredRate;
   u.pitch = options?.pitch ?? 1.05;
   u.volume = 1;
   return u;
 }
 
+export function configure(options: { rate?: number; voiceURI?: string | null }) {
+  if (typeof options.rate === "number") configuredRate = options.rate;
+  configuredVoiceURI = options.voiceURI ?? null;
+  cachedVoice = null;
+  if (typeof window !== "undefined" && "speechSynthesis" in window) {
+    cachedVoice = pickBestVoice();
+  }
+}
+
+export function getLastUtterance() {
+  return lastUtteranceText;
+}
+
 export async function speak(text: string) {
   if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
   try {
+    lastUtteranceText = text;
     await ensureVoices();
     const synth = window.speechSynthesis;
     wakeSpeechEngine();
@@ -116,6 +137,7 @@ export async function speak(text: string) {
 export function speakNow(text: string) {
   if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
   try {
+    lastUtteranceText = text;
     void ensureVoices();
     const synth = window.speechSynthesis;
     wakeSpeechEngine();
@@ -136,6 +158,7 @@ export async function speakVowel(v: string) {
   const lower = v.toLowerCase();
   if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
   try {
+    lastUtteranceText = lower;
     await ensureVoices();
     const synth = window.speechSynthesis;
     wakeSpeechEngine();
@@ -146,4 +169,8 @@ export async function speakVowel(v: string) {
   } catch {
     /* noop */
   }
+}
+
+export function replayLastUtterance() {
+  if (lastUtteranceText) speakNow(lastUtteranceText);
 }
