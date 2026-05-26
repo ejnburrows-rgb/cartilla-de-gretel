@@ -7,6 +7,7 @@ import { getFullWorkbookPages } from "@/lib/book-faithful";
 import { getCartillaCrmCssVars, getCartillaCrmTheme } from "@/lib/cartilla-crm-theme";
 import { useStudentSession } from "@/lib/student-session";
 import { supabase, isSupabaseConfigured } from "@/integrations/supabase/client";
+import { PdfPage } from "@/components/cartilla/PdfPage";
 
 export const Route = createFileRoute("/cartilla/lecciones")({
   component: ContinuousWorkbookReader,
@@ -21,7 +22,6 @@ function ContinuousWorkbookReader() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isFlipping, setIsFlipping] = useState(false);
 
-  // Hydrate last-page from localStorage
   useEffect(() => {
     let initialPage = 0;
     const localLast = localStorage.getItem("cartilla:workbook:lastPage");
@@ -33,7 +33,6 @@ function ContinuousWorkbookReader() {
     setIsLoaded(true);
   }, [totalPages]);
 
-  // Persist page on change
   useEffect(() => {
     if (!isLoaded) return;
     localStorage.setItem("cartilla:workbook:lastPage", pageIndex.toString());
@@ -46,17 +45,6 @@ function ContinuousWorkbookReader() {
     }
   }, [pageIndex, session, isLoaded]);
 
-  // Preload next 2 scans for snappy flipping
-  useEffect(() => {
-    for (let i = 1; i <= 2; i++) {
-      const nextRef = pages[pageIndex + i]?.imageScanReference;
-      if (nextRef) {
-        const img = new Image();
-        img.src = "/" + nextRef;
-      }
-    }
-  }, [pageIndex, pages]);
-
   if (!isLoaded) return null;
 
   const activePage = pages[pageIndex];
@@ -68,7 +56,6 @@ function ContinuousWorkbookReader() {
   const rootStyle: CSSProperties = { ...cssVars, color: theme.titleInk };
   const inkStyle: CSSProperties = { color: theme.titleInk };
   const accentStyle: CSSProperties = { backgroundColor: theme.accent, color: "#ffffff" };
-  const dashedPlaceholderStyle: CSSProperties = { borderColor: theme.border, color: theme.titleInk };
   const secondaryButtonStyle: CSSProperties = {
     backgroundColor: theme.accentSoft,
     color: theme.titleInk,
@@ -143,27 +130,11 @@ function ContinuousWorkbookReader() {
       <main className="flex-1 w-full max-w-6xl mx-auto p-4 sm:p-8 flex flex-col items-center">
         <div className="w-full max-w-[760px] flex-1 flex flex-col items-center justify-center min-h-[50vh]">
           <div
-            className={`cartilla-scan-frame w-full ${
+            className={`w-full transition-opacity duration-150 ${
               isFlipping ? "opacity-0 scale-[0.985]" : "opacity-100 scale-100"
             }`}
           >
-            {activePage.imageScanReference ? (
-              <img
-                src={"/" + activePage.imageScanReference}
-                loading="eager"
-                alt={`Página ${activePage.page}`}
-                className="cartilla-scan-clean"
-              />
-            ) : (
-              <div
-                className="py-24 px-8 text-center border-2 border-dashed rounded-2xl w-full"
-                style={dashedPlaceholderStyle}
-              >
-                <h2 className="text-xl font-bold opacity-60" style={inkStyle}>
-                  Página {activePage.page} · escaneo pendiente
-                </h2>
-              </div>
-            )}
+            <PdfPage pageNumber={activePage.page} width={760} />
           </div>
         </div>
       </main>

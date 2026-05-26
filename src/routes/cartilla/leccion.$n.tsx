@@ -6,6 +6,7 @@ import { getWorkbookPagesForLesson } from "@/lib/book-faithful";
 import { getCartillaCrmCssVars, getCartillaCrmTheme } from "@/lib/cartilla-crm-theme";
 import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
 import { useLessonProgress } from "@/lib/lesson-progress";
+import { PdfPage } from "@/components/cartilla/PdfPage";
 
 export const Route = createFileRoute("/cartilla/leccion/$n")({
   component: LeccionScanRoute,
@@ -46,7 +47,6 @@ function LeccionScanRoute() {
   const inkStyle: CSSProperties = { color: theme.titleInk };
   const accentStyle: CSSProperties = { backgroundColor: theme.accent, color: "#ffffff" };
   const selectStyle: CSSProperties = { borderColor: theme.border, color: theme.titleInk };
-  const dashedPlaceholderStyle: CSSProperties = { borderColor: theme.border, color: theme.titleInk };
   const navStyle: CSSProperties = {
     backgroundColor: "rgba(255, 250, 232, 0.92)",
     borderTopColor: theme.border,
@@ -143,42 +143,11 @@ function LeccionScanRoute() {
         <div className="w-full flex-1 flex flex-col items-center justify-center min-h-[50vh]">
           {activePage ? (
             <div
-              className={`cartilla-scan-frame w-full max-w-[820px] ${
+              className={`w-full max-w-[820px] transition-opacity duration-150 ${
                 isFlipping ? "opacity-0 scale-[0.985]" : "opacity-100 scale-100"
               }`}
             >
-              {activePage.imageScanReference ? (
-                <>
-                  <img
-                    src={"/" + activePage.imageScanReference}
-                    loading="eager"
-                    alt={`Página ${activePage.pageNumber}`}
-                    className="cartilla-scan-clean"
-                  />
-                  {activePage.verifiedTextBlocks.length > 0 && (
-                    <div className="mt-6 w-full text-center max-w-2xl mx-auto">
-                      {activePage.verifiedTextBlocks.map((block, i) => (
-                        <p
-                          key={i}
-                          className="text-sm sm:text-base font-medium opacity-60 mb-2 leading-relaxed"
-                          style={inkStyle}
-                        >
-                          {block}
-                        </p>
-                      ))}
-                    </div>
-                  )}
-                </>
-              ) : (
-                <div
-                  className="py-24 px-8 text-center border-2 border-dashed rounded-2xl"
-                  style={dashedPlaceholderStyle}
-                >
-                  <h2 className="text-xl font-bold opacity-50" style={inkStyle}>
-                    Página {activePage.pageNumber} · escaneo pendiente
-                  </h2>
-                </div>
-              )}
+              <PdfPage pageNumber={activePage.pageNumber} width={820} />
             </div>
           ) : (
             <div className="text-center opacity-50 font-bold" style={inkStyle}>
