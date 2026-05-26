@@ -1,56 +1,29 @@
 import type { CSSProperties } from "react";
 import type { CatalogEntry } from "@/types/cartilla";
+import { getCartillaCrmTheme } from "@/lib/cartilla-crm-theme";
 import { DragBuildWord } from "./DragBuildWord";
 
 interface BookPageProps {
   entry: CatalogEntry;
 }
 
-function sectionTone(kind: CatalogEntry["kind"]): {
-  bg: string;
-  textColor: string;
-  accentSoft: string;
-  label: string;
-} {
+function sectionLabel(kind: CatalogEntry["kind"]): string {
   switch (kind) {
     case "intro":
-      return {
-        bg: "linear-gradient(135deg, #fff8e7 0%, #fef3c7 45%, #fde68a 100%)",
-        textColor: "#78350f",
-        accentSoft: "rgba(120,53,15,0.6)",
-        label: "Las hermanitas vocales",
-      };
+      return "Las hermanitas vocales";
     case "vowel":
-      return {
-        bg: "linear-gradient(135deg, #fffcf0 0%, #fef6e0 50%, #fdf0c5 100%)",
-        textColor: "#064e3b",
-        accentSoft: "rgba(6,78,59,0.6)",
-        label: "Vocal",
-      };
+      return "Vocal";
     case "consonant":
-      return {
-        bg: "linear-gradient(135deg, #fef6e0 0%, #fffcf0 50%, #fef3c7 100%)",
-        textColor: "#064e3b",
-        accentSoft: "rgba(6,78,59,0.6)",
-        label: "Consonante",
-      };
+      return "Consonante";
   }
 }
 
-function pageStyle(background: string): CSSProperties {
-  return { background };
-}
-
-function paperTextureStyle(): CSSProperties {
+function pageStyle(entry: CatalogEntry): CSSProperties {
+  const theme = getCartillaCrmTheme(entry.n);
   return {
-    background:
-      "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAiLz4KPHBhdGggZD0iTTAgMEg0VjRIMEowIiBmaWxsPSIjMDAwIiBmaWxsLW9wYWNpdHk9IjAuMDIiLz4KPC9zdmc+') repeat, radial-gradient(circle at 20% 15%, rgba(255,255,245,0.8), transparent 24%), radial-gradient(circle at 80% 85%, rgba(255,255,245,0.65), transparent 28%)",
-  };
-}
-
-function centerFoldStyle(accentSoft: string): CSSProperties {
-  return {
-    background: `linear-gradient(to bottom, transparent, ${accentSoft}, transparent)`,
+    background: `radial-gradient(circle at 16% 12%, ${theme.accentSoft}, transparent 22rem), linear-gradient(135deg, #fffdf4 0%, ${theme.pagePaper} 58%, ${theme.accentSoft} 100%)`,
+    color: theme.titleInk,
+    borderColor: theme.border,
   };
 }
 
@@ -58,78 +31,33 @@ function glowStyle(accent: string): CSSProperties {
   return { background: `radial-gradient(circle, ${accent}33 0%, transparent 70%)` };
 }
 
-function contentStyle(color: string): CSSProperties {
-  return { color };
-}
-
-function mutedStyle(color: string): CSSProperties {
-  return { color: `${color}99` };
-}
-
-function titleStyle(color: string): CSSProperties {
-  return { color };
-}
-
-function footerStyle(accentSoft: string): CSSProperties {
-  return { borderColor: accentSoft };
-}
-
 export function BookPage({ entry }: BookPageProps) {
-  const tone = sectionTone(entry.kind);
-  const accent = entry.color || tone.textColor;
+  const theme = getCartillaCrmTheme(entry.n);
+  const accent = theme.accent;
 
   return (
     <div
-      className="relative w-full h-full rounded-3xl overflow-hidden border border-stone-200 shadow-[0_16px_36px_rgba(50,30,10,0.08),0_4px_12px_rgba(0,0,0,0.04),4px_6px_0_-2px_#fffcf8,8px_10px_0_-4px_#faf7ef]"
-      style={pageStyle(tone.bg)}
+      className="relative h-full w-full overflow-hidden rounded-[1.6rem] border shadow-[0_18px_46px_rgba(50,30,10,0.10),4px_7px_0_-2px_#fffcf8,8px_12px_0_-4px_#faf7ef]"
+      style={pageStyle(entry)}
     >
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={paperTextureStyle()}
-      />
-      <div
-        className="absolute top-0 bottom-0 left-1/2 w-px pointer-events-none"
-        style={centerFoldStyle(tone.accentSoft)}
-      />
-      <div
-        className="absolute top-0 bottom-0 left-5 sm:left-[34px] w-px bg-red-400/25 pointer-events-none"
-        style={{ content: '""' }}
-      />
-      <div
-        className="absolute -top-12 -right-12 w-48 h-48 rounded-full opacity-30 pointer-events-none"
-        style={glowStyle(accent)}
-      />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_15%,rgba(255,255,245,0.72),transparent_24%),radial-gradient(circle_at_80%_85%,rgba(255,255,245,0.58),transparent_28%)]" />
+      <div className="pointer-events-none absolute bottom-0 left-5 top-0 w-px bg-red-400/20 sm:left-9" />
+      <div className="pointer-events-none absolute -right-12 -top-12 h-48 w-48 rounded-full opacity-35" style={glowStyle(accent)} />
 
-      <div
-        className="relative h-full flex flex-col pl-9 pr-6 sm:pl-14 sm:pr-10 py-6 sm:py-10"
-        style={contentStyle(tone.textColor)}
-      >
-        <div
-          className="text-[10px] sm:text-xs font-black uppercase tracking-widest"
-          style={mutedStyle(tone.textColor)}
-        >
-          Lección {entry.n} · {tone.label}
+      <div className="relative flex h-full flex-col px-7 py-7 sm:px-10 sm:py-9">
+        <div className="text-[10px] font-black uppercase tracking-widest opacity-65 sm:text-xs">
+          Leccion {entry.n} · {sectionLabel(entry.kind)}
         </div>
-        <h1
-          className="text-5xl sm:text-7xl font-bold mt-1 leading-none"
-          style={titleStyle(accent)}
-        >
+        <h1 className="mt-1 text-4xl font-black leading-none sm:text-6xl" style={{ color: accent }}>
           {entry.title}
         </h1>
-        {entry.pages && (
-          <p className="mt-1 text-xs sm:text-sm" style={mutedStyle(tone.textColor)}>
-            Páginas {entry.pages}
-          </p>
-        )}
+        {entry.pages ? <p className="mt-1 text-xs font-bold opacity-65 sm:text-sm">Paginas {entry.pages}</p> : null}
 
-        <div className="mt-5 flex-1 overflow-y-auto pr-1">
+        <div className="mt-5 min-h-0 flex-1 overflow-y-auto pr-1">
           <DragBuildWord entry={entry} accent={accent} />
         </div>
 
-        <footer
-          className="mt-3 pt-2 border-t-2 border-dashed flex items-center justify-between text-[10px]"
-          style={footerStyle(tone.accentSoft)}
-        >
+        <footer className="mt-4 flex items-center justify-between border-t-2 border-dashed pt-2 text-[10px] font-bold opacity-70" style={{ borderColor: theme.border }}>
           <span>La Cartilla de Gretel · Leonor Lopetegui</span>
           <span>Lanny Books</span>
         </footer>
