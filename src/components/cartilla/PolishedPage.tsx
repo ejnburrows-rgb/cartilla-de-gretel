@@ -45,6 +45,27 @@ const BADGE_STYLE: CSSProperties = {
   pointerEvents: "none",
 };
 
+// Express-polish: when the build-time art pipeline hasn't yet produced a
+// polished webp for this page, we still wrap the live PDF render in a tinted
+// accent frame and apply a CSS filter chain that lifts contrast, brightness,
+// and saturation. This makes raw scans look intentionally designed without any
+// dependency on the prebuild art pipeline.
+const EXPRESS_FRAME_BASE_STYLE: CSSProperties = {
+  position: "relative",
+  borderRadius: "1rem",
+  padding: 6,
+  width: "100%",
+  boxSizing: "border-box",
+};
+
+const EXPRESS_FILTER_WRAP_STYLE: CSSProperties = {
+  // CSS filter chain. No reliance on art pipeline.
+  filter: "contrast(1.08) brightness(1.04) saturate(1.10)",
+  borderRadius: "0.75rem",
+  overflow: "hidden",
+  background: "white",
+};
+
 // Static reverse index built at module load. CATALOG and consonants.json are
 // both deterministic at import time, so this never throws under normal builds.
 const PAGE_TO_LESSON: Map<number, number> = (() => {
@@ -59,6 +80,12 @@ const PAGE_TO_LESSON: Map<number, number> = (() => {
   }
   return m;
 })();
+
+function accentForLesson(n: number | undefined): string {
+  if (typeof n !== "number") return "#c98c4f";
+  const entry = CATALOG.find((e) => e.n === n);
+  return entry?.color ?? "#c98c4f";
+}
 
 export function PolishedPage({
   pageNumber,
@@ -82,6 +109,8 @@ export function PolishedPage({
     return lesson.pages[idx] ?? null;
   }, [preferPolished, resolvedLesson, lesson.ready, lesson.pages, pageNumber]);
 
+  const accent = accentForLesson(resolvedLesson);
+
   if (polishedSrc) {
     return (
       <figure
@@ -101,12 +130,24 @@ export function PolishedPage({
     );
   }
 
+  // Express-polish fallback: CSS filter + accent frame, no pipeline dependency.
+  const frameStyle: CSSProperties = {
+    ...EXPRESS_FRAME_BASE_STYLE,
+    background: `linear-gradient(135deg, ${accent}22 0%, ${accent}0a 100%)`,
+    border: `1px solid ${accent}33`,
+  };
+
   return (
-    <PdfPage
-      pageNumber={pageNumber}
-      hideBadge={hideBadge}
+    <figure
       className={className}
-    />
+      style={frameStyle}
+      aria-label={`Página ${pageNumber}`}
+    >
+      <div style={EXPRESS_FILTER_WRAP_STYLE}>
+        <PdfPage pageNumber={pageNumber} hideBadge={hideBadge} />
+      </div>
+      {hideBadge ? null : <span style={BADGE_STYLE}>p. {pageNumber}</span>}
+    </figure>
   );
 }
 

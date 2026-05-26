@@ -1,0 +1,83 @@
+name: Polish PDF and commit
+
+on:
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: "Reason for re-running polish (free text)"
+        required: false
+        default: "manual refresh"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: polish-pdf
+  cancel-in-progress: false
+
+jobs:
+  polish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: $ secrets.GITHUB_TOKEN 
+          fetch-depth: 1
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci --no-audit --no-fund || npm install --no-audit --no-fund
+          else
+            npm install --no-audit --no-fund
+          fi
+
+      - name: Ensure PDF exists
+        run: |
+          if [ ! -f public/book/book.pdf ]; then
+            echo "::warning::No PDF at public/book/book.pdf. Attempting prebuild fetch."
+            node scripts/prebuild-fetch-pdfs.mjs || true
+          fi
+          ls -la public/book || true
+
+      - name: Verify PDF header
+        run: node scripts/verify-pdf.mjs
+
+      - name: Extract pages
+        run: node scripts/extract-art.mjs
+
+      - name: Polish pages
+        run: node scripts/polish-art.mjs
+
+      - name: Build manifest
+        run: node scripts/build-art-manifest.mjs
+
+      - name: Show pipeline output
+        run: |
+          echo "=== public/cartilla/art ==="
+          ls -la public/cartilla/art || true
+          echo "=== public/cartilla/art/polished (first 20) ==="
+          ls -la public/cartilla/art/polished 2>/dev/null | head -n 20 || true
+          echo "=== manifest ==="
+          cat public/cartilla/art/manifest.json 2>/dev/null | head -c 2000 || true
+
+      - name: Commit polished art
+        env:
+          REASON: $ github.event.inputs.reason 
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/cartilla/art || true
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore(art): regenerate polished webp bundle [skip ci]\n\nReason: $REASON"
+            git push
+          fi
