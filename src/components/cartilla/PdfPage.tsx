@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
@@ -12,18 +12,48 @@ const PDF_FILE = "/book/book.pdf";
 
 interface PdfPageProps {
   pageNumber: number;
+  /** Optional fixed width in CSS pixels. If omitted, fills the container width responsively. */
   width?: number;
   className?: string;
 }
 
-export function PdfPage({ pageNumber, width = 820, className }: PdfPageProps) {
+/**
+ * Renders a single page from the canonical student workbook PDF
+ * (public/book/book.pdf, fetched from Notion at build time by
+ * scripts/prebuild-fetch-pdfs.mjs).
+ *
+ * When `width` is not provided, the component measures its container with a
+ * ResizeObserver and renders the PDF page at that width, so the same
+ * component scales correctly inside both single-page and side-by-side spreads.
+ */
+export function PdfPage({ pageNumber, width, className }: PdfPageProps) {
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const [numPages, setNumPages] = useState<number | null>(null);
+  const [measuredWidth, setMeasuredWidth] = useState<number | undefined>(width);
+
+  useEffect(() => {
+    if (typeof width === "number") {
+      setMeasuredWidth(width);
+      return;
+    }
+    const el = containerRef.current;
+    if (!el) return;
+    const update = () => {
+      const w = el.clientWidth;
+      if (w > 0) setMeasuredWidth(Math.floor(w));
+    };
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [width]);
+
   const safePage = numPages
     ? Math.min(Math.max(1, pageNumber), numPages)
     : Math.max(1, pageNumber);
 
   return (
-    <div className={className}>
+    <div ref={containerRef} className={className} style= width: "100%" >
       <Document
         file={PDF_FILE}
         onLoadSuccess={(doc) => setNumPages(doc.numPages)}
@@ -38,17 +68,19 @@ export function PdfPage({ pageNumber, width = 820, className }: PdfPageProps) {
           </div>
         }
       >
-        <Page
-          pageNumber={safePage}
-          width={width}
-          renderTextLayer={false}
-          renderAnnotationLayer={false}
-          loading={
-            <div className="py-24 text-center font-bold opacity-50">
-              Cargando página…
-            </div>
-          }
-        />
+        {measuredWidth ? (
+          <Page
+            pageNumber={safePage}
+            width={measuredWidth}
+            renderTextLayer={false}
+            renderAnnotationLayer={false}
+            loading={
+              <div className="py-24 text-center font-bold opacity-50">
+                Cargando página…
+              </div>
+            }
+          />
+        ) : null}
       </Document>
     </div>
   );

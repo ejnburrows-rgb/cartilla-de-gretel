@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import type { CSSProperties } from "react";
 import { ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
 import { CATALOG } from "@/lib/lesson-catalog";
@@ -8,6 +8,7 @@ import { getCartillaCrmCssVars, getCartillaCrmTheme } from "@/lib/cartilla-crm-t
 import { useStudentSession } from "@/lib/student-session";
 import { supabase, isSupabaseConfigured } from "@/integrations/supabase/client";
 import { PdfPage } from "@/components/cartilla/PdfPage";
+import { StudentExercisePane } from "@/components/cartilla/StudentExercisePane";
 
 export const Route = createFileRoute("/cartilla/lecciones")({
   component: ContinuousWorkbookReader,
@@ -45,9 +46,13 @@ function ContinuousWorkbookReader() {
     }
   }, [pageIndex, session, isLoaded]);
 
-  if (!isLoaded) return null;
-
   const activePage = pages[pageIndex];
+  const lessonEntry = useMemo(
+    () => (activePage ? CATALOG.find((c) => c.n === activePage.lesson) : undefined),
+    [activePage],
+  );
+
+  if (!isLoaded) return null;
   if (!activePage) return null;
 
   const cssVars = getCartillaCrmCssVars(activePage.lesson);
@@ -127,15 +132,19 @@ function ContinuousWorkbookReader() {
         </div>
       </header>
 
-      <main className="flex-1 w-full max-w-6xl mx-auto p-4 sm:p-8 flex flex-col items-center">
-        <div className="w-full max-w-[760px] flex-1 flex flex-col items-center justify-center min-h-[50vh]">
+      <main className="flex-1 w-full max-w-3xl mx-auto p-4 sm:p-8 flex flex-col items-stretch">
+        <div className="w-full">
           <div
             className={`w-full transition-opacity duration-150 ${
               isFlipping ? "opacity-0 scale-[0.985]" : "opacity-100 scale-100"
             }`}
           >
-            <PdfPage pageNumber={activePage.page} width={760} />
+            <PdfPage pageNumber={activePage.page} />
           </div>
+
+          {lessonEntry ? (
+            <StudentExercisePane key={lessonEntry.n} entry={lessonEntry} />
+          ) : null}
         </div>
       </main>
 

@@ -7,6 +7,7 @@ import { getCartillaCrmCssVars, getCartillaCrmTheme } from "@/lib/cartilla-crm-t
 import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
 import { useLessonProgress } from "@/lib/lesson-progress";
 import { PdfPage } from "@/components/cartilla/PdfPage";
+import { StudentExercisePane } from "@/components/cartilla/StudentExercisePane";
 
 export const Route = createFileRoute("/cartilla/leccion/$n")({
   component: LeccionScanRoute,
@@ -121,7 +122,7 @@ function LeccionScanRoute() {
         </div>
       </header>
 
-      <main className="flex-1 w-full max-w-6xl mx-auto p-4 sm:p-8 flex flex-col items-center">
+      <main className="flex-1 w-full max-w-3xl mx-auto p-4 sm:p-8 flex flex-col items-stretch">
         <div className="mb-6 self-start sm:self-center">
           <select
             value={n}
@@ -140,20 +141,22 @@ function LeccionScanRoute() {
           </select>
         </div>
 
-        <div className="w-full flex-1 flex flex-col items-center justify-center min-h-[50vh]">
+        <div className="w-full flex flex-col items-stretch">
           {activePage ? (
             <div
-              className={`w-full max-w-[820px] transition-opacity duration-150 ${
+              className={`w-full transition-opacity duration-150 ${
                 isFlipping ? "opacity-0 scale-[0.985]" : "opacity-100 scale-100"
               }`}
             >
-              <PdfPage pageNumber={activePage.pageNumber} width={820} />
+              <PdfPage pageNumber={activePage.pageNumber} />
             </div>
           ) : (
             <div className="text-center opacity-50 font-bold" style={inkStyle}>
               No hay páginas para esta lección.
             </div>
           )}
+
+          <StudentExercisePane entry={entry} />
         </div>
       </main>
 

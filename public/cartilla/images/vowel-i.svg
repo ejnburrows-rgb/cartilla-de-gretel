@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Marcador de posición para la vocal i">
-  <circle cx="200" cy="200" r="180" fill="#2A9D8F" opacity="0.18"/>
-  <circle cx="200" cy="200" r="180" fill="none" stroke="#cc0000" stroke-width="3" stroke-dasharray="8 6"/>
-  <text x="200" y="260" font-size="240" font-family="Georgia, serif" text-anchor="middle" fill="#2A9D8F">i</text>
-  <circle cx="160" cy="160" r="12" fill="#222"/>
-  <circle cx="240" cy="160" r="12" fill="#222"/>
-  <text x="200" y="380" font-size="14" font-family="sans-serif" text-anchor="middle" fill="#cc0000">TODO: replace with author character</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Vocal i">
+  <defs>
+    <radialGradient id="i-bg" cx="50%" cy="42%" r="62%">
+      <stop offset="0%" stop-color="#7be0d0"/>
+      <stop offset="60%" stop-color="#2a9d8f"/>
+      <stop offset="100%" stop-color="#106258"/>
+    </radialGradient>
+  </defs>
+  <circle cx="200" cy="200" r="180" fill="url(#i-bg)"/>
+  <circle cx="200" cy="200" r="180" fill="none" stroke="#fff" stroke-width="8" opacity="0.85"/>
+  <text x="200" y="282" font-size="260" font-family="Georgia, 'Times New Roman', serif" font-weight="700" text-anchor="middle" fill="#fff">i</text>
 </svg>
