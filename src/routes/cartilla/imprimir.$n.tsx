@@ -1,4 +1,4 @@
-import { useEffect, type CSSProperties } from "react";
+import { useEffect, useMemo, type CSSProperties } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { CATALOG } from "@/lib/lesson-catalog";
 import { getWorkbookPagesForLesson } from "@/lib/book-faithful";
@@ -87,6 +87,7 @@ function PrintRoute() {
   const n = Number(params.n);
   const entry = CATALOG.find((e) => e.n === n);
   const pages = entry ? getWorkbookPagesForLesson(n) : [];
+  const backParams = useMemo(() => ({ n: String(n) }), [n]);
 
   useEffect(() => {
     document.title = entry
@@ -113,7 +114,7 @@ function PrintRoute() {
       <div className="cartilla-no-print" style={HEADER_STYLE}>
         <Link
           to="/cartilla/leccion/$n"
-          params= n: String(n) 
+          params={backParams}
           style={LINK_STYLE}
         >
           ← Volver a la lección
