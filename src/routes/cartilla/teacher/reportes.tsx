@@ -12,7 +12,7 @@ import { useEffect, useMemo, useState } from "react";
 import { ClassRoster } from "@/components/teacher/ClassRoster";
 import { ReportCard } from "@/components/teacher/ReportCard";
 import { StudentPicker } from "@/components/teacher/StudentPicker";
-import { toCSV, downloadCSV } from "@/lib/csv";
+import { downloadCSV, toCSV } from "@/lib/csv";
 import { useLessonProgress } from "@/lib/lesson-progress";
 import { getAllPageStates, getLastVisitedPage, getTotalMinutesToday } from "@/lib/page-progress";
 import {
@@ -45,7 +45,7 @@ function formatDate(value?: string | null) {
 
 function percent(value?: number | null) {
   if (value === null || value === undefined || Number.isNaN(value)) return "--";
-  return `${Math.round(value)}%`;
+  return `${Math.round(value * 100)}%`;
 }
 
 function minutes(seconds?: number | null) {
@@ -147,15 +147,16 @@ function TeacherReportsRoute() {
   }, [selectedStudentId]);
 
   const classRows = classProgress?.perStudent ?? [];
-  const classAccuracy = classRows.length
-    ? classRows.reduce((sum, row) => sum + (row.accuracy ?? 0), 0) / classRows.length
+  const scoredRows = classRows.filter((row) => typeof row.accuracy === "number");
+  const classAccuracy = scoredRows.length
+    ? scoredRows.reduce((sum, row) => sum + (row.accuracy ?? 0), 0) / scoredRows.length
     : null;
-  const totalCompletedLessons = classRows.reduce((sum, row) => sum + (row.completedLessons ?? 0), 0);
-  const totalTimeSeconds = classRows.reduce((sum, row) => sum + (row.timeSeconds ?? 0), 0);
+  const totalCompletedLessons = classRows.reduce((sum, row) => sum + row.lessonsCount, 0);
+  const totalTimeSeconds = classRows.reduce((sum, row) => sum + row.timeSeconds, 0);
   const selectedClassName = classData?.class.name ?? classes.find((item) => item.id === selectedClassId)?.name ?? "Clase";
   const selectedStudentName = studentProgress?.student.display_name ?? "Alumno";
-
   const selectedRosterStudent = classData?.students.find((student) => student.id === selectedStudentId) ?? null;
+  const touchedPageCount = Object.keys(pageStates).length;
 
   function selectRosterStudent(student: RosterStudent) {
     setSelectedStudentId(student.id);
@@ -169,9 +170,8 @@ function TeacherReportsRoute() {
     const csv = toCSV(
       classRows.map((row) => ({
         alumno: row.name,
-        codigo: row.code,
-        lecciones_completadas: row.completedLessons,
-        precision: row.accuracy,
+        lecciones_completadas: row.lessonsCount,
+        precision: percent(row.accuracy),
         minutos: minutes(row.timeSeconds),
       })),
     );
@@ -307,9 +307,9 @@ function TeacherReportsRoute() {
                   </thead>
                   <tbody>
                     {classRows.map((row) => (
-                      <tr key={row.studentId}>
+                      <tr key={row.id}>
                         <td className="font-black text-slate-950">{row.name}</td>
-                        <td>{row.completedLessons}</td>
+                        <td>{row.lessonsCount}</td>
                         <td>{percent(row.accuracy)}</td>
                         <td>{minutes(row.timeSeconds)}</td>
                       </tr>
@@ -365,14 +365,14 @@ function TeacherReportsRoute() {
                 </div>
                 <div className="flex items-center justify-between rounded-lg bg-white/70 p-3 font-bold">
                   <span className="inline-flex items-center gap-2 text-slate-600"><BarChart3 className="h-4 w-4" /> Paginas tocadas</span>
-                  <span>{pageStates.length}</span>
+                  <span>{touchedPageCount}</span>
                 </div>
                 <div className="flex items-center justify-between rounded-lg bg-white/70 p-3 font-bold">
                   <span className="inline-flex items-center gap-2 text-slate-600"><UsersRound className="h-4 w-4" /> Minutos hoy</span>
                   <span>{minutesToday}</span>
                 </div>
                 <div className="rounded-lg bg-white/70 p-3 text-sm font-bold text-slate-600">
-                  Ultima pagina: {lastVisitedPage ? `${lastVisitedPage.lessonId} / ${lastVisitedPage.pageId}` : "Sin visitas"}
+                  Ultima pagina: {lastVisitedPage ?? "Sin visitas"}
                 </div>
               </div>
             </ReportCard>
