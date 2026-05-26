@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, type Transition } from "framer-motion";
 import { CheckCircle2, Hand, RotateCcw } from "lucide-react";
 import type { CatalogEntry } from "@/types/cartilla";
 import { GretelFeedback } from "./GretelFeedback";
@@ -16,12 +16,22 @@ interface BuildTarget {
   pieces: string[];
 }
 
+// Motion presets hoisted to module scope (avoids any inline double-brace JSX
+// expressions that previously got mangled by template substitution).
 const pieceWhileDrag = { scale: 1.12, zIndex: 10, rotate: -2 };
 const pieceWhileTap = { scale: 0.95 };
+const pieceWhileHover = { scale: 1.05, y: -2 };
 const activityCompleteMotion = {
   ok: { scale: [1, 1.015, 1], boxShadow: "0 22px 42px rgba(5,150,105,0.18)" },
   x: { x: [0, -6, 6, -3, 0], boxShadow: "0 22px 42px rgba(225,29,72,0.14)" },
 };
+const activityIdle = { x: 0, scale: 1, boxShadow: "0 20px 50px rgba(50,30,10,0.06)" };
+const activityTransition: Transition = { duration: 0.42, ease: "easeOut" };
+const selectedPillInitial = { opacity: 0, y: -4 };
+const selectedPillAnimate = { opacity: 1, y: 0 };
+const slotBobAnimate = { y: [0, -3, 0] };
+const slotIdleAnimate = { y: 0 };
+const slotBobTransition: Transition = { repeat: Infinity, duration: 1.2, ease: "easeInOut" };
 
 function labelStyle(accent: string): CSSProperties {
   return { color: accent, opacity: 0.75 };
@@ -158,11 +168,13 @@ export function DragBuildWord({ entry, accent }: DragBuildWordProps) {
     );
   }
 
+  const containerAnimate = feedback ? activityCompleteMotion[feedback] : activityIdle;
+
   return (
     <motion.div
       className="space-y-6 rounded-[2rem] border border-stone-200 bg-[linear-gradient(180deg,#fffdfa,rgba(255,248,235,0.92))] p-5 sm:p-6 shadow-[0_20px_50px_rgba(50,30,10,0.06)] relative overflow-hidden"
-      animate={feedback ? activityCompleteMotion[feedback] : { x: 0, scale: 1, boxShadow: "0 20px 50px rgba(50,30,10,0.06)" }}
-      transition={{ duration: feedback === "x" ? 0.34 : 0.5, ease: "easeOut" }}
+      animate={containerAnimate}
+      transition={activityTransition}
     >
       <div className="text-center">
         <div
@@ -178,10 +190,13 @@ export function DragBuildWord({ entry, accent }: DragBuildWordProps) {
         {selectedPiece && (
           <motion.div
             className="mx-auto mb-4 flex max-w-sm items-center justify-center gap-2 rounded-2xl border-2 border-amber-900/15 bg-amber-50 px-4 py-3 text-sm font-black text-amber-950 shadow-inner"
-            initial={{ opacity: 0, y: -6, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
+            initial={selectedPillInitial}
+            animate={selectedPillAnimate}
           >
-            <span className="inline-flex min-h-10 min-w-10 items-center justify-center rounded-xl bg-white px-3 text-xl shadow-sm" style={targetWordStyle(accent)}>
+            <span
+              className="inline-flex min-h-10 min-w-10 items-center justify-center rounded-xl bg-white px-3 text-xl shadow-sm"
+              style={targetWordStyle(accent)}
+            >
               {selectedPiece}
             </span>
             <span>Toca un espacio brillante para colocarla.</span>
@@ -214,7 +229,9 @@ export function DragBuildWord({ entry, accent }: DragBuildWordProps) {
             piece={piece}
             accent={accent}
             selected={selectedPiece === piece}
-            onSelect={() => setSelectedPiece((current) => (current === piece ? null : piece))}
+            onSelect={() =>
+              setSelectedPiece((current) => (current === piece ? null : piece))
+            }
           />
         ))}
       </div>
@@ -225,7 +242,7 @@ export function DragBuildWord({ entry, accent }: DragBuildWordProps) {
         </div>
       )}
       {isComplete && feedback === "ok" && (
-        <div className="rounded-3xl border border-emerald-250 bg-emerald-50/80 px-4 py-3 text-center text-sm font-black text-emerald-800">
+        <div className="rounded-3xl border border-emerald-200 bg-emerald-50/80 px-4 py-3 text-center text-sm font-black text-emerald-800">
           <CheckCircle2 className="mr-1 inline h-4 w-4 text-emerald-600" />
           ¡Gran trabajo! Formaste {target.word}.
         </div>
@@ -264,7 +281,7 @@ function DragPiece({
       dragSnapToOrigin
       whileDrag={pieceWhileDrag}
       whileTap={pieceWhileTap}
-      whileHover={{ scale: 1.04, rotate: -0.5 }}
+      whileHover={pieceWhileHover}
       onClick={onSelect}
       onDragEnd={(_, info) => {
         const event = new CustomEvent("cartilla:piece-drop", {
@@ -274,7 +291,8 @@ function DragPiece({
       }}
       className={cn(
         "relative min-h-16 px-6 py-4 sm:px-8 sm:py-5 rounded-3xl text-white text-2xl sm:text-4xl font-black shadow-md cursor-grab active:cursor-grabbing select-none touch-none hover:shadow-lg active:translate-y-px active:border-b-2 transition-all duration-200 overflow-hidden",
-        selected && "ring-4 ring-offset-2 ring-offset-background ring-amber-500/30 scale-105 shadow-2xl",
+        selected &&
+          "ring-4 ring-offset-2 ring-offset-background ring-amber-500/30 scale-105 shadow-2xl",
       )}
       style={pieceStyle(accent)}
       aria-label={`Pieza ${piece}`}
@@ -307,7 +325,12 @@ function DropSlot({
       const ce = e as CustomEvent<{ piece: string; x: number; y: number }>;
       const rect = ref.current.getBoundingClientRect();
       const { x, y, piece } = ce.detail;
-      if (x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom) {
+      if (
+        x >= rect.left &&
+        x <= rect.right &&
+        y >= rect.top &&
+        y <= rect.bottom
+      ) {
         onDrop(index, piece);
       }
     }
@@ -317,6 +340,7 @@ function DropSlot({
 
   const filled = value !== null;
   const canTapPlace = !filled && selectedPiece !== null;
+  const slotAnimate = canTapPlace ? slotBobAnimate : slotIdleAnimate;
 
   return (
     <motion.button
@@ -327,14 +351,19 @@ function DropSlot({
       }}
       className={cn(
         "relative w-20 h-20 sm:w-28 sm:h-28 rounded-3xl border-4 border-dashed flex items-center justify-center text-3xl sm:text-5xl font-black transition-all duration-200 shadow-inner overflow-hidden",
-        canTapPlace && "scale-105 ring-4 ring-amber-500/20 bg-amber-50/60 border-amber-900/40 shadow-[0_0_0_8px_rgba(251,191,36,0.14)]",
+        canTapPlace &&
+          "scale-105 ring-4 ring-amber-500/20 bg-amber-50/60 border-amber-900/40 shadow-[0_0_0_8px_rgba(251,191,36,0.14)]",
       )}
       style={slotStyle(filled, accent)}
-      animate={canTapPlace ? { y: [0, -3, 0] } : { y: 0 }}
-      transition={{ duration: 0.7, repeat: canTapPlace ? Infinity : 0, ease: "easeInOut" }}
-      aria-label={filled ? `Espacio ${index + 1}: ${value}` : `Espacio ${index + 1}`}
+      animate={slotAnimate}
+      transition={slotBobTransition}
+      aria-label={
+        filled ? `Espacio ${index + 1}: ${value}` : `Espacio ${index + 1}`
+      }
     >
-      {canTapPlace && <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle,rgba(255,255,255,0.95),transparent_58%)]" />}
+      {canTapPlace && (
+        <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle,rgba(255,255,255,0.95),transparent_58%)]" />
+      )}
       <span className="relative z-10">{value ?? "_"}</span>
     </motion.button>
   );
