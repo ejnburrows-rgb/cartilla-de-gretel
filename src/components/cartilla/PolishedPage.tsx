@@ -1,14 +1,13 @@
 import { useMemo, type CSSProperties } from "react";
 import { useBookArt } from "@/hooks/useBookArt";
 import { CATALOG } from "@/lib/lesson-catalog";
+import { getCartillaCrmTheme } from "@/lib/cartilla-crm-theme";
 import { getWorkbookPagesForLesson } from "@/lib/book-faithful";
 import { PdfPage } from "@/components/cartilla/PdfPage";
 
 type Props = {
   pageNumber: number;
-  /** Optional lesson hint; if omitted, derived from the page-to-lesson index. */
   lessonN?: number;
-  /** Default true. Set false to force live PDF rendering. */
   preferPolished?: boolean;
   hideBadge?: boolean;
   className?: string;
@@ -16,75 +15,64 @@ type Props = {
 
 const FIGURE_STYLE: CSSProperties = {
   position: "relative",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
+  display: "block",
   width: "100%",
-  height: "100%",
+  margin: 0,
 };
 
 const IMG_STYLE: CSSProperties = {
   width: "100%",
   height: "auto",
   display: "block",
-  borderRadius: "0.75rem",
-  boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+  borderRadius: "0.85rem",
+  background: "#fffefa",
+  boxShadow: "inset 0 0 0 1px rgba(23,49,59,0.08)",
 };
 
 const BADGE_STYLE: CSSProperties = {
   position: "absolute",
-  top: 8,
-  right: 8,
-  padding: "2px 8px",
+  top: 10,
+  right: 10,
+  padding: "3px 9px",
   borderRadius: 999,
-  background: "rgba(13,10,6,0.72)",
+  background: "rgba(13,10,6,0.68)",
   color: "white",
   fontSize: 11,
-  fontWeight: 700,
+  fontWeight: 800,
   letterSpacing: "0.04em",
   pointerEvents: "none",
 };
 
-// Express-polish: when the build-time art pipeline hasn't yet produced a
-// polished webp for this page, we still wrap the live PDF render in a tinted
-// accent frame and apply a CSS filter chain that lifts contrast, brightness,
-// and saturation. This makes raw scans look intentionally designed without any
-// dependency on the prebuild art pipeline.
-const EXPRESS_FRAME_BASE_STYLE: CSSProperties = {
-  position: "relative",
-  borderRadius: "1rem",
-  padding: 6,
-  width: "100%",
-  boxSizing: "border-box",
-};
-
 const EXPRESS_FILTER_WRAP_STYLE: CSSProperties = {
-  // CSS filter chain. No reliance on art pipeline.
-  filter: "contrast(1.08) brightness(1.04) saturate(1.10)",
-  borderRadius: "0.75rem",
+  filter: "contrast(1.08) brightness(1.045) saturate(1.12)",
+  borderRadius: "0.85rem",
   overflow: "hidden",
-  background: "white",
+  background: "#fffefa",
+  boxShadow: "inset 0 0 0 1px rgba(23,49,59,0.08)",
 };
 
-// Static reverse index built at module load. CATALOG and consonants.json are
-// both deterministic at import time, so this never throws under normal builds.
 const PAGE_TO_LESSON: Map<number, number> = (() => {
   const m = new Map<number, number>();
   try {
     for (const entry of CATALOG) {
       const pages = getWorkbookPagesForLesson(entry.n);
-      for (const p of pages) m.set(p, entry.n);
+      for (const p of pages) m.set(p.pageNumber, entry.n);
     }
   } catch {
-    // If catalog wiring fails at import time, fall back to live PDF render.
+    // Keep module import safe if generated data is unavailable during tooling.
   }
   return m;
 })();
 
-function accentForLesson(n: number | undefined): string {
-  if (typeof n !== "number") return "#c98c4f";
-  const entry = CATALOG.find((e) => e.n === n);
-  return entry?.color ?? "#c98c4f";
+function frameStyle(accent: string): CSSProperties {
+  return {
+    ...FIGURE_STYLE,
+    padding: 6,
+    borderRadius: "1.1rem",
+    background: `linear-gradient(135deg, ${accent}24 0%, rgba(255,255,255,0.72) 42%, ${accent}10 100%)`,
+    border: `1px solid ${accent}33`,
+    boxSizing: "border-box",
+  };
 }
 
 export function PolishedPage({
@@ -96,7 +84,7 @@ export function PolishedPage({
 }: Props) {
   const resolvedLesson = useMemo(
     () => lessonN ?? PAGE_TO_LESSON.get(pageNumber),
-    [lessonN, pageNumber]
+    [lessonN, pageNumber],
   );
   const lesson = useBookArt(resolvedLesson);
 
@@ -104,45 +92,26 @@ export function PolishedPage({
     if (!preferPolished || !resolvedLesson || !lesson.ready) return null;
     if (!lesson.pages || lesson.pages.length === 0) return null;
     const pages = getWorkbookPagesForLesson(resolvedLesson);
-    const idx = pages.indexOf(pageNumber);
+    const idx = pages.findIndex((page) => page.pageNumber === pageNumber);
     if (idx < 0) return null;
     return lesson.pages[idx] ?? null;
   }, [preferPolished, resolvedLesson, lesson.ready, lesson.pages, pageNumber]);
 
-  const accent = accentForLesson(resolvedLesson);
+  const theme = resolvedLesson ? getCartillaCrmTheme(resolvedLesson) : null;
+  const accent = theme?.accent ?? "#c98c4f";
+  const shellStyle = frameStyle(accent);
 
   if (polishedSrc) {
     return (
-      <figure
-        className={className}
-        style={FIGURE_STYLE}
-        aria-label={`Página ${pageNumber}`}
-      >
-        <img
-          src={polishedSrc}
-          alt={`Página ${pageNumber} de la cartilla`}
-          loading="lazy"
-          decoding="async"
-          style={IMG_STYLE}
-        />
+      <figure className={className} style={shellStyle} aria-label={`Pagina ${pageNumber}`}>
+        <img src={polishedSrc} alt={`Pagina ${pageNumber} de la cartilla`} loading="lazy" decoding="async" style={IMG_STYLE} />
         {hideBadge ? null : <span style={BADGE_STYLE}>p. {pageNumber}</span>}
       </figure>
     );
   }
 
-  // Express-polish fallback: CSS filter + accent frame, no pipeline dependency.
-  const frameStyle: CSSProperties = {
-    ...EXPRESS_FRAME_BASE_STYLE,
-    background: `linear-gradient(135deg, ${accent}22 0%, ${accent}0a 100%)`,
-    border: `1px solid ${accent}33`,
-  };
-
   return (
-    <figure
-      className={className}
-      style={frameStyle}
-      aria-label={`Página ${pageNumber}`}
-    >
+    <figure className={className} style={shellStyle} aria-label={`Pagina ${pageNumber}`}>
       <div style={EXPRESS_FILTER_WRAP_STYLE}>
         <PdfPage pageNumber={pageNumber} hideBadge={hideBadge} />
       </div>
