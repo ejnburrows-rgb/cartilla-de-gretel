@@ -7,7 +7,7 @@ import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
 import { PolishedPage } from "@/components/cartilla/PolishedPage";
 import "@/styles/student-print.css";
 
-export const Route = createFileRoute("/cartilla/imprimir/all")({
+export const Route = createFileRoute("/cartilla/imprimir/all" as never)({
   component: PrintableBinderRoute,
   head: () => ({
     meta: [
