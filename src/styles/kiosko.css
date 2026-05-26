@@ -1,0 +1,567 @@
+.kiosko-shell {
+  --kiosko-ink: #fffdf7;
+  --kiosko-muted: rgba(255, 253, 247, 0.76);
+  --kiosko-panel: rgba(7, 22, 30, 0.86);
+  --kiosko-panel-strong: rgba(255, 255, 255, 0.12);
+  --kiosko-line: rgba(255, 255, 255, 0.24);
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: hidden;
+  color: var(--kiosko-ink);
+  background:
+    radial-gradient(circle at 12% 12%, color-mix(in srgb, var(--cartilla-accent) 54%, transparent), transparent 30rem),
+    radial-gradient(circle at 88% 16%, rgba(255, 231, 138, 0.34), transparent 28rem),
+    linear-gradient(135deg, #06151d 0%, #102c36 52%, #071820 100%);
+}
+
+.kiosko-topbar,
+.kiosko-controls {
+  position: fixed;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 1.6vw, 1.25rem);
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.kiosko-topbar {
+  inset: 0 0 auto;
+  min-height: clamp(5.75rem, 11vh, 8.25rem);
+  padding: clamp(0.8rem, 1.6vw, 1.35rem) clamp(1rem, 2.6vw, 2rem);
+  background: linear-gradient(180deg, rgba(2, 10, 14, 0.88), rgba(2, 10, 14, 0.32), transparent);
+}
+
+.kiosko-topbar--idle {
+  opacity: 0.12;
+  transform: translateY(-32%);
+}
+
+.kiosko-home-link,
+.kiosko-icon-button,
+.kiosko-nav-button,
+.kiosko-start-button,
+.kiosko-lesson-card,
+.teacher-presentation-fullscreen {
+  min-width: 3.5rem;
+  min-height: 3.5rem;
+  border: 1px solid var(--kiosko-line);
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--kiosko-ink);
+  font-weight: 900;
+  line-height: 1;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.18);
+  transition:
+    transform 140ms ease,
+    background-color 140ms ease,
+    border-color 140ms ease;
+}
+
+.kiosko-home-link:hover,
+.kiosko-icon-button:hover,
+.kiosko-nav-button:hover,
+.kiosko-start-button:hover,
+.kiosko-lesson-card:hover,
+.teacher-presentation-fullscreen:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.42);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.kiosko-home-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0 1rem;
+  text-decoration: none;
+}
+
+.kiosko-icon,
+.kiosko-icon-button svg,
+.kiosko-nav-button svg,
+.kiosko-start-button svg,
+.kiosko-lesson-card svg,
+.teacher-presentation-fullscreen svg {
+  width: 1.55rem;
+  height: 1.55rem;
+  flex: 0 0 auto;
+}
+
+.kiosko-title-block {
+  min-width: 0;
+  flex: 1;
+}
+
+.kiosko-eyebrow,
+.kiosko-hero-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--kiosko-muted);
+  font-size: clamp(0.85rem, 1.4vw, 1.15rem);
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.kiosko-eyebrow span:not(:first-of-type) {
+  border-left: 2px solid rgba(255, 255, 255, 0.24);
+  padding-left: 0.5rem;
+}
+
+.kiosko-title-block h1,
+.teacher-presentation-heading h1 {
+  margin: 0.2rem 0 0;
+  max-width: 16ch;
+  font-size: clamp(2.2rem, 5.4vw, 5.75rem);
+  font-weight: 950;
+  line-height: 0.95;
+  letter-spacing: 0;
+}
+
+.kiosko-title-block p,
+.teacher-presentation-heading p {
+  margin: 0.35rem 0 0;
+  max-width: 68rem;
+  color: var(--kiosko-muted);
+  font-size: clamp(1.05rem, 2.1vw, 2rem);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.kiosko-icon-button,
+.teacher-presentation-fullscreen {
+  display: inline-grid;
+  place-items: center;
+  padding: 0;
+  text-decoration: none;
+}
+
+.kiosko-progress {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 25;
+  height: 0.42rem;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.kiosko-progress span {
+  display: block;
+  height: 100%;
+  background: var(--cartilla-accent);
+  transition: width 220ms ease;
+}
+
+.kiosko-stage {
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: clamp(6.5rem, 13vh, 9rem) clamp(1rem, 2.5vw, 2rem) clamp(5.75rem, 11vh, 8rem);
+}
+
+.kiosko-controls {
+  inset: auto clamp(1rem, 2.5vw, 2rem) clamp(1rem, 2vw, 1.5rem);
+  justify-content: space-between;
+}
+
+.kiosko-controls--idle {
+  opacity: 0.12;
+  transform: translateY(38%);
+}
+
+.kiosko-nav-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.95rem 1.35rem;
+  background: var(--cartilla-accent);
+  font-size: clamp(1rem, 1.7vw, 1.55rem);
+}
+
+.kiosko-nav-button--secondary {
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.kiosko-nav-button:disabled {
+  opacity: 0.35;
+  transform: none;
+}
+
+.kiosko-overview {
+  display: grid;
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.kiosko-hero-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(1rem, 2vw, 1.5rem);
+  align-items: end;
+  width: min(100%, 92rem);
+  margin-inline: auto;
+  padding: clamp(1.25rem, 2.8vw, 2.5rem);
+  border: 1px solid var(--kiosko-line);
+  border-radius: 0.75rem;
+  background: var(--kiosko-panel);
+}
+
+.kiosko-hero-panel h2 {
+  max-width: 15ch;
+  margin: 0.35rem 0 0;
+  font-size: clamp(2.4rem, 6vw, 6.5rem);
+  font-weight: 950;
+  line-height: 0.95;
+  letter-spacing: 0;
+}
+
+.kiosko-hero-panel p {
+  max-width: 58rem;
+  margin: 0.8rem 0 0;
+  color: var(--kiosko-muted);
+  font-size: clamp(1.1rem, 2.1vw, 2rem);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.kiosko-start-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 1.05rem 1.3rem;
+  background: var(--cartilla-accent);
+  font-size: clamp(1rem, 1.7vw, 1.45rem);
+}
+
+.kiosko-lesson-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13.5rem, 1fr));
+  gap: 0.75rem;
+  width: min(100%, 92rem);
+  margin-inline: auto;
+}
+
+.kiosko-lesson-card {
+  --lesson-accent: var(--cartilla-accent);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 5.5rem;
+  padding: 0.75rem;
+  text-align: left;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--lesson-accent) 32%, #07161d), rgba(255, 255, 255, 0.1));
+}
+
+.kiosko-lesson-number {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.18);
+  font-size: 1.35rem;
+  font-weight: 950;
+}
+
+.kiosko-lesson-copy {
+  min-width: 0;
+}
+
+.kiosko-lesson-copy strong,
+.kiosko-lesson-copy small {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.kiosko-lesson-copy strong {
+  font-size: 1.05rem;
+  line-height: 1.1;
+}
+
+.kiosko-lesson-copy small {
+  margin-top: 0.25rem;
+  color: var(--kiosko-muted);
+  font-size: 0.78rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.kiosko-lesson-stage {
+  display: grid;
+  grid-template-columns: minmax(14rem, 18vw) minmax(0, 1fr);
+  gap: clamp(1rem, 2vw, 1.5rem);
+  width: min(100%, 96rem);
+  height: min(72vh, calc(100vh - 13rem));
+  min-height: 34rem;
+  margin-inline: auto;
+}
+
+.kiosko-lesson-sidebar {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 0.8rem;
+  min-width: 0;
+}
+
+.kiosko-lesson-badge,
+.kiosko-slide-count,
+.kiosko-teacher-cue,
+.kiosko-complete-cue {
+  border: 1px solid var(--kiosko-line);
+  border-radius: 0.75rem;
+  background: var(--kiosko-panel);
+  padding: 1rem;
+}
+
+.kiosko-lesson-badge span,
+.kiosko-slide-count span {
+  display: block;
+  color: var(--kiosko-muted);
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.kiosko-lesson-badge strong,
+.kiosko-slide-count strong {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: clamp(3.6rem, 7vw, 7rem);
+  font-weight: 950;
+  line-height: 0.9;
+}
+
+.kiosko-slide-count strong {
+  font-size: clamp(2.2rem, 4vw, 4rem);
+}
+
+.kiosko-teacher-cue,
+.kiosko-complete-cue {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  color: var(--kiosko-muted);
+  font-size: clamp(1rem, 1.5vw, 1.35rem);
+  font-weight: 850;
+  line-height: 1.2;
+}
+
+.kiosko-teacher-cue svg,
+.kiosko-complete-cue svg {
+  width: 1.55rem;
+  height: 1.55rem;
+  color: var(--cartilla-accent);
+}
+
+.kiosko-slide {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 28%);
+  gap: clamp(0.8rem, 1.5vw, 1.2rem);
+  min-width: 0;
+  min-height: 0;
+}
+
+.kiosko-page-frame,
+.kiosko-exercise-pane,
+.kiosko-empty-slide {
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  border: 1px solid var(--kiosko-line);
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.92);
+  color: #17313b;
+}
+
+.kiosko-page-frame {
+  display: grid;
+  place-items: center;
+  padding: clamp(0.35rem, 1vw, 0.85rem);
+}
+
+.kiosko-polished-page {
+  max-height: 100%;
+}
+
+.kiosko-exercise-pane {
+  padding: clamp(0.8rem, 1.4vw, 1.2rem);
+  font-size: clamp(1rem, 1.35vw, 1.25rem);
+}
+
+.kiosko-exercise-pane button {
+  min-height: 3.25rem;
+}
+
+.kiosko-empty-slide {
+  grid-column: 1 / -1;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+.teacher-presentation-shell {
+  --kiosko-ink: #fffdf7;
+  --kiosko-muted: rgba(255, 253, 247, 0.76);
+  --kiosko-line: rgba(255, 255, 255, 0.24);
+  padding: clamp(1rem, 2vw, 1.75rem);
+  background: var(--cartilla-bg-radial), var(--cartilla-teacher-backdrop);
+}
+
+.teacher-presentation-layout {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: clamp(1rem, 2vw, 1.5rem);
+  width: min(100%, 94rem);
+  min-height: calc(100vh - clamp(2rem, 4vw, 3.5rem));
+  margin-inline: auto;
+}
+
+.teacher-presentation-header {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 0.75rem;
+  background: rgba(5, 22, 29, 0.78);
+  padding: clamp(1rem, 2vw, 1.8rem);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.22);
+}
+
+.teacher-presentation-meta,
+.teacher-presentation-meta span {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.teacher-presentation-meta {
+  color: rgba(255, 255, 255, 0.76);
+  font-size: clamp(0.9rem, 1.5vw, 1.25rem);
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.teacher-presentation-meta span:not(:first-child) {
+  border-left: 2px solid rgba(255, 255, 255, 0.2);
+  padding-left: 0.55rem;
+}
+
+.teacher-presentation-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: end;
+  margin-top: 0.4rem;
+}
+
+.teacher-presentation-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  justify-content: flex-end;
+}
+
+.teacher-presentation-content {
+  min-width: 0;
+  min-height: 0;
+}
+
+@media (max-aspect-ratio: 4/3) {
+  .kiosko-stage {
+    padding-top: clamp(7rem, 11vh, 8.25rem);
+  }
+
+  .kiosko-lesson-stage {
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: 0;
+  }
+
+  .kiosko-lesson-sidebar {
+    grid-template-columns: auto auto 1fr;
+    grid-template-rows: auto;
+  }
+
+  .kiosko-complete-cue {
+    display: none;
+  }
+
+  .kiosko-slide {
+    grid-template-columns: 1fr;
+  }
+
+  .kiosko-page-frame {
+    max-height: 58vh;
+  }
+}
+
+@media (max-width: 760px) {
+  .kiosko-shell {
+    overflow: auto;
+  }
+
+  .kiosko-topbar,
+  .kiosko-controls {
+    position: sticky;
+  }
+
+  .kiosko-topbar {
+    top: 0;
+    flex-wrap: wrap;
+    min-height: 0;
+    background: rgba(3, 14, 19, 0.94);
+  }
+
+  .kiosko-topbar--idle,
+  .kiosko-controls--idle {
+    opacity: 1;
+    transform: none;
+  }
+
+  .kiosko-stage {
+    min-height: 0;
+    padding: 1rem;
+  }
+
+  .kiosko-controls {
+    bottom: 0;
+    inset-inline: 0;
+    padding: 0.75rem 1rem;
+    background: rgba(3, 14, 19, 0.94);
+  }
+
+  .kiosko-nav-button {
+    min-width: 0;
+    padding: 0.8rem 0.9rem;
+    font-size: 0.95rem;
+  }
+
+  .kiosko-hero-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .kiosko-lesson-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .teacher-presentation-heading {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kiosko-topbar,
+  .kiosko-controls,
+  .kiosko-progress span,
+  .kiosko-home-link,
+  .kiosko-icon-button,
+  .kiosko-nav-button,
+  .kiosko-start-button,
+  .kiosko-lesson-card {
+    transition-duration: 0.001ms !important;
+  }
+}
