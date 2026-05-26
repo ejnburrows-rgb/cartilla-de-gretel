@@ -1,326 +1,289 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import type { CSSProperties } from "react";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { ArrowLeft, Volume2, Zap, RotateCcw, Trophy } from "lucide-react";
+import type { CSSProperties, ReactNode } from "react";
+import { ArrowLeft, RotateCcw, Trophy } from "lucide-react";
 import { CATALOG } from "@/lib/lesson-catalog";
-import { speakNow } from "@/lib/speak";
+import type { CatalogEntry } from "@/lib/lesson-catalog";
 import { useLessonProgress } from "@/lib/lesson-progress";
-import { recordEvent } from "@/lib/student-session";
+import { getSessionEvents, recordEvent } from "@/lib/student-session";
+import { SyllableTap, WordMatch } from "@/components/cartilla/Ejercicios";
+import { DragBuildWord } from "@/components/cartilla/DragBuildWord";
+import { AudioControls } from "@/components/cartilla/AudioControls";
+import { AccessibilityPanel } from "@/components/cartilla/AccessibilityPanel";
+import { StudentProgressBar } from "@/components/cartilla/StudentProgressBar";
 
 export const Route = createFileRoute("/cartilla/practica")({
   component: Practica,
   head: () => ({
     meta: [
-      { title: "Práctica rápida — La Cartilla de Gretel" },
+      { title: "Practica - La Cartilla de Gretel" },
       {
         name: "description",
-        content: "Drill de 60 segundos: identifica letras y sonidos a toda velocidad.",
+        content: "Practica adaptativa con ejercicios del cuaderno.",
       },
     ],
   }),
 });
 
-type Card = { syllable: string; options: string[]; lessonN: number; color: string };
+type DrillKind = "syllable" | "word" | "drag";
+type Word = { word: string; emoji?: string };
+type DrillItem = {
+  key: string;
+  kind: DrillKind;
+  entry: CatalogEntry;
+  syllables: string[];
+  words: Word[];
+};
 
-function shuffle<T>(arr: T[]): T[] {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
+const INTRO_VOWELS = ["a", "e", "i", "o", "u"];
+const TOTAL_ITEMS = 10;
+const ADVANCE_DELAY_MS = 600;
+const SURFACE_STYLE: CSSProperties = {
+  background:
+    "radial-gradient(circle at 10% 8%, #fff3b0, transparent 28%), radial-gradient(circle at 88% 12%, #b9f3ff, transparent 30%), linear-gradient(135deg, #fff8de, #ffd6e3 48%, #d9efff)",
+};
+
+function accentStyle(color: string): CSSProperties {
+  return { color };
 }
 
-const DURATIONS = [60, 90, 120] as const;
-
-function optionStyle(color: string): CSSProperties {
+function accentBackgroundStyle(color: string): CSSProperties {
   return { backgroundColor: color };
 }
 
-function timerStyle(secondsLeft: number, duration: number): CSSProperties {
-  return { width: `${(secondsLeft / duration) * 100}%` };
+function accentBorderStyle(color: string): CSSProperties {
+  return { borderColor: color };
 }
 
-function buildPool(useUnlockedOnly: boolean, isUnlocked: (n: number) => boolean): string[] {
-  const pool: string[] = [];
-  CATALOG.forEach((e) => {
-    if (e.kind !== "consonant") return;
-    if (useUnlockedOnly && !isUnlocked(e.n)) return;
-    e.data.syllables.forEach((s) => pool.push(s));
-  });
-  ["a", "e", "i", "o", "u"].forEach((v) => pool.push(v));
-  return Array.from(new Set(pool));
+function getRecentLessonN() {
+  const latest = [...getSessionEvents()]
+    .filter((event) => event.type === "practica:start")
+    .sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt))[0];
+  return latest?.lessonN ?? 1;
 }
 
-function buildCards(pool: string[], n: number): Card[] {
-  const cards: Card[] = [];
-  for (let i = 0; i < n; i++) {
-    const syllable = pool[Math.floor(Math.random() * pool.length)];
-    const distractors = shuffle(pool.filter((s) => s !== syllable)).slice(0, 3);
-    const options = shuffle([syllable, ...distractors]);
-    const fromCatalog = CATALOG.find((e) =>
-      e.kind === "consonant" ? e.data.syllables.includes(syllable) : false,
-    );
-    cards.push({
-      syllable,
-      options,
-      lessonN: fromCatalog?.n ?? 1,
-      color: fromCatalog?.color ?? "hsl(var(--primary))",
-    });
+function wordListForEntry(entry: CatalogEntry): Word[] {
+  if (entry.kind === "vowel") return entry.lesson.vocab;
+  if (entry.kind === "consonant") {
+    return Object.values(entry.data.examples)
+      .flat()
+      .filter(Boolean)
+      .map((word) => ({ word }));
   }
-  return cards;
+  return INTRO_VOWELS.map((word) => ({ word }));
+}
+
+function syllablesForEntry(entry: CatalogEntry): string[] {
+  if (entry.kind === "intro") return INTRO_VOWELS;
+  if (entry.kind === "vowel") {
+    return Array.from(new Set([entry.vowel, ...entry.lesson.vocab.map((item) => item.word)]));
+  }
+  return entry.data.syllables;
+}
+
+function makeItem(entry: CatalogEntry, kind: DrillKind, index: number): DrillItem {
+  return {
+    key: `${entry.n}-${kind}-${index}`,
+    kind,
+    entry,
+    syllables: syllablesForEntry(entry),
+    words: wordListForEntry(entry),
+  };
+}
+
+function buildPracticeItems(entry: CatalogEntry): DrillItem[] {
+  if (entry.kind === "intro") {
+    return Array.from({ length: TOTAL_ITEMS }, (_, index) => makeItem(entry, "syllable", index));
+  }
+  if (entry.kind === "vowel") {
+    return [
+      ...Array.from({ length: 6 }, (_, index) => makeItem(entry, "syllable", index)),
+      ...Array.from({ length: 4 }, (_, index) => makeItem(entry, "word", index + 6)),
+    ];
+  }
+  return [
+    ...Array.from({ length: 4 }, (_, index) => makeItem(entry, "syllable", index)),
+    ...Array.from({ length: 4 }, (_, index) => makeItem(entry, "word", index + 4)),
+    ...Array.from({ length: 2 }, (_, index) => makeItem(entry, "drag", index + 8)),
+  ];
+}
+
+function isCompletionText(text: string, kind: DrillKind) {
+  if (kind === "syllable") return text.includes("Correcto");
+  if (kind === "word") return text.includes("Ronda completa");
+  return text.includes("Gran trabajo") || text.includes("Muy bien");
+}
+
+function DrillWatcher({
+  item,
+  lessonId,
+  onComplete,
+  children,
+}: {
+  item: DrillItem;
+  lessonId: number;
+  onComplete: () => void;
+  children: ReactNode;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const completed = useRef(false);
+
+  useEffect(() => {
+    completed.current = false;
+    const node = ref.current;
+    if (!node) return;
+    const check = () => {
+      if (completed.current) return;
+      if (!isCompletionText(node.textContent ?? "", item.kind)) return;
+      completed.current = true;
+      recordEvent({ type: "practica:item-complete", lessonN: lessonId, item: Number(item.key.split("-").at(-1) ?? 0) + 1 });
+      window.setTimeout(onComplete, ADVANCE_DELAY_MS);
+    };
+    const observer = new MutationObserver(check);
+    observer.observe(node, { childList: true, subtree: true, characterData: true });
+    check();
+    return () => observer.disconnect();
+  }, [item.key, item.kind, lessonId, onComplete]);
+
+  return <div ref={ref}>{children}</div>;
+}
+
+function renderItem(item: DrillItem) {
+  if (item.kind === "syllable") {
+    return <SyllableTap syllables={item.syllables} color={item.entry.color} lessonId={String(item.entry.n)} />;
+  }
+  if (item.kind === "word") {
+    return <WordMatch words={item.words} color={item.entry.color} lessonId={String(item.entry.n)} />;
+  }
+  return <DragBuildWord entry={item.entry} accent={item.entry.color} />;
 }
 
 function Practica() {
-  const navigate = useNavigate();
   const { isUnlocked } = useLessonProgress();
-  const [duration, setDuration] = useState<(typeof DURATIONS)[number]>(60);
-  const [scope, setScope] = useState<"unlocked" | "all">("unlocked");
-  const [phase, setPhase] = useState<"setup" | "playing" | "done">("setup");
-  const [secondsLeft, setSecondsLeft] = useState<number>(duration);
-  const [hits, setHits] = useState(0);
-  const [misses, setMisses] = useState(0);
-  const [cards, setCards] = useState<Card[]>([]);
-  const [idx, setIdx] = useState(0);
-  const [feedback, setFeedback] = useState<"ok" | "no" | null>(null);
-  const startedAt = useRef<number>(0);
-
-  const current = cards[idx];
-  const pool = useMemo(() => buildPool(scope === "unlocked", isUnlocked), [scope, isUnlocked]);
+  const [selectedN, setSelectedN] = useState(getRecentLessonN);
+  const [started, setStarted] = useState(false);
+  const [index, setIndex] = useState(0);
+  const entry = CATALOG.find((item) => item.n === selectedN) ?? CATALOG[0];
+  const items = useMemo(() => buildPracticeItems(entry), [entry]);
+  const current = items[index];
+  const complete = index >= items.length;
+  const unlocked = CATALOG.filter((item) => isUnlocked(item.n));
 
   useEffect(() => {
-    if (phase !== "playing") return;
-    if (secondsLeft <= 0) {
-      setPhase("done");
-      return;
-    }
-    const t = setTimeout(() => setSecondsLeft((s) => s - 1), 1000);
-    return () => clearTimeout(t);
-  }, [phase, secondsLeft]);
+    if (!started) return;
+    recordEvent({ type: "practica:start", lessonN: entry.n });
+  }, [entry.n, started]);
 
   useEffect(() => {
-    if (phase !== "done") return;
-    const total = hits + misses;
-    if (total === 0) return;
-    recordEvent({
-      lessonId: "practica",
-      kind: "exercise",
-      score: hits,
-      total,
-      timeSeconds: duration,
-      meta: { exercise: "practica_rapida", duration, completed: true },
-    });
-  }, [phase, hits, misses, duration]);
+    if (!started || !complete) return;
+    recordEvent({ type: "practica:complete", lessonN: entry.n });
+  }, [complete, entry.n, started]);
 
-  const start = () => {
-    if (pool.length < 4) return;
-    const nextCards = buildCards(pool, 200);
-    setCards(nextCards);
-    setIdx(0);
-    setHits(0);
-    setMisses(0);
-    setSecondsLeft(duration);
-    setFeedback(null);
-    startedAt.current = Date.now();
-    setPhase("playing");
-    speakNow(nextCards[0].syllable);
+  const reset = () => {
+    setIndex(0);
+    setStarted(true);
   };
 
-  const speakCurrent = () => {
-    if (current) speakNow(current.syllable);
+  const next = () => {
+    setIndex((currentIndex) => Math.min(currentIndex + 1, items.length));
   };
-
-  const choose = (option: string) => {
-    if (!current || feedback) return;
-    if (option === current.syllable) {
-      setHits((h) => h + 1);
-      setFeedback("ok");
-      setTimeout(() => {
-        setFeedback(null);
-        const next = idx + 1;
-        setIdx(next);
-        if (cards[next]) speakNow(cards[next].syllable);
-      }, 350);
-    } else {
-      setMisses((m) => m + 1);
-      setFeedback("no");
-      setTimeout(() => {
-        setFeedback(null);
-        const next = idx + 1;
-        setIdx(next);
-        if (cards[next]) speakNow(cards[next].syllable);
-      }, 700);
-    }
-  };
-
-  const total = hits + misses;
-  const accuracy = total > 0 ? Math.round((hits / total) * 100) : 0;
 
   return (
-    <main className="min-h-screen bg-background px-4 py-6 max-w-2xl mx-auto">
-      <Link
-        to="/cartilla"
-        className="inline-flex items-center gap-2 text-sm font-bold text-foreground/60 hover:text-foreground"
-      >
-        <ArrowLeft className="w-4 h-4" /> Cartilla
-      </Link>
-
-      <header className="mt-6 text-center">
-        <div className="inline-flex items-center gap-2 text-sm font-bold text-vowel-o bg-vowel-o/10 px-3 py-1 rounded-full">
-          <Zap className="w-4 h-4" /> Práctica Rápida
+    <main className="cartilla-student-surface min-h-screen px-4 py-6 text-[#3A281E]" style={SURFACE_STYLE}>
+      <div className="mx-auto max-w-[720px] pb-32">
+        <div className="mb-5 flex items-center justify-between gap-3">
+          <Link
+            to="/cartilla/lecciones"
+            aria-label="Salir a lecciones"
+            className="cartilla-focus-ring inline-flex min-h-11 items-center gap-2 rounded-full border border-white/70 bg-white/75 px-4 py-2 text-sm font-black shadow-sm backdrop-blur"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Salir
+          </Link>
+          <select
+            aria-label="Elegir leccion desbloqueada"
+            value={entry.n}
+            onChange={(event) => {
+              setSelectedN(Number(event.currentTarget.value));
+              setStarted(false);
+              setIndex(0);
+            }}
+            className="cartilla-focus-ring min-h-11 rounded-full border border-white/70 bg-white/80 px-4 py-2 text-sm font-black shadow-sm"
+          >
+            {unlocked.map((lesson) => (
+              <option key={lesson.n} value={lesson.n}>
+                Leccion {lesson.n}: {lesson.title}
+              </option>
+            ))}
+          </select>
         </div>
-        <h1 className="text-3xl sm:text-4xl font-bold mt-3">Drill de letras</h1>
-        <p className="text-foreground/70 mt-1">
-          Escucha el sonido y toca la letra correcta antes de que se acabe el tiempo.
-        </p>
-      </header>
 
-      {phase === "setup" && (
-        <section className="mt-8 kid-card p-5 space-y-4">
-          <div>
-            <div className="text-sm font-bold mb-2">Duración</div>
-            <div className="flex gap-2">
-              {DURATIONS.map((d) => (
-                <button
-                  key={d}
-                  onClick={() => setDuration(d)}
-                  className={`flex-1 py-3 rounded-xl border-2 font-bold ${
-                    duration === d
-                      ? "border-primary bg-primary/10 text-primary"
-                      : "border-foreground/10 hover:bg-secondary"
-                  }`}
-                >
-                  {d}s
-                </button>
-              ))}
-            </div>
+        <section className="cartilla-student-card rounded-[2rem] border border-white/70 bg-white/80 p-5 shadow-2xl backdrop-blur">
+          <p className="text-xs font-black uppercase tracking-wide" style={accentStyle(entry.color)}>
+            Practica adaptativa
+          </p>
+          <h1 className="mt-1 text-3xl font-black leading-tight sm:text-4xl">{entry.title}</h1>
+          <div className="mt-4">
+            <StudentProgressBar current={Math.min(index, TOTAL_ITEMS)} total={TOTAL_ITEMS} accent={entry.color} />
           </div>
-          <div>
-            <div className="text-sm font-bold mb-2">Alcance</div>
-            <div className="flex gap-2">
+        </section>
+
+        {!started && (
+          <section className="cartilla-student-card mt-5 rounded-[2rem] border border-white/70 bg-white/82 p-5 text-center shadow-xl backdrop-blur">
+            <p className="text-sm font-bold text-[#3A281E]/70">
+              Va a practicar 10 ejercicios tomados de esta leccion.
+            </p>
+            <button
+              type="button"
+              aria-label="Empezar practica"
+              onClick={reset}
+              className="cartilla-focus-ring mt-5 min-h-12 rounded-2xl px-6 py-3 text-base font-black text-white shadow-lg"
+              style={accentBackgroundStyle(entry.color)}
+            >
+              Empezar
+            </button>
+          </section>
+        )}
+
+        {started && current && !complete && (
+          <section className="mt-5 rounded-[2rem] border-4 bg-white/78 p-3 shadow-2xl backdrop-blur" style={accentBorderStyle(entry.color)}>
+            <DrillWatcher key={current.key} item={current} lessonId={entry.n} onComplete={next}>
+              {renderItem(current)}
+            </DrillWatcher>
+          </section>
+        )}
+
+        {started && complete && (
+          <section className="cartilla-student-card mt-5 rounded-[2rem] border border-white/70 bg-white/86 p-6 text-center shadow-2xl backdrop-blur">
+            <Trophy className="mx-auto h-12 w-12" style={accentStyle(entry.color)} />
+            <h2 className="mt-3 text-2xl font-black">Excelente practica</h2>
+            {entry.kind === "vowel" && (
+              <p className="mt-2 text-sm font-bold text-[#3A281E]/70">{entry.lesson.characterName}</p>
+            )}
+            <div className="mt-5 flex flex-col gap-2 sm:flex-row sm:justify-center">
               <button
-                onClick={() => setScope("unlocked")}
-                className={`flex-1 py-3 rounded-xl border-2 font-bold text-sm ${
-                  scope === "unlocked"
-                    ? "border-primary bg-primary/10 text-primary"
-                    : "border-foreground/10 hover:bg-secondary"
-                }`}
+                type="button"
+                aria-label="Repetir practica"
+                onClick={reset}
+                className="cartilla-focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl border border-amber-900/15 bg-white px-5 py-3 text-sm font-black"
               >
-                Solo desbloqueadas
+                <RotateCcw className="h-4 w-4" />
+                Repetir
               </button>
-              <button
-                onClick={() => setScope("all")}
-                className={`flex-1 py-3 rounded-xl border-2 font-bold text-sm ${
-                  scope === "all"
-                    ? "border-primary bg-primary/10 text-primary"
-                    : "border-foreground/10 hover:bg-secondary"
-                }`}
+              <Link
+                to="/cartilla/lecciones"
+                aria-label="Volver a lecciones"
+                className="cartilla-focus-ring inline-flex min-h-12 items-center justify-center rounded-2xl px-5 py-3 text-sm font-black text-white"
+                style={accentBackgroundStyle(entry.color)}
               >
-                Todas las lecciones
-              </button>
+                Volver a lecciones
+              </Link>
             </div>
-            <p className="text-[11px] text-foreground/50 mt-2">{pool.length} letras y sonidos en el pool.</p>
-          </div>
-          <button
-            onClick={start}
-            disabled={pool.length < 4}
-            className="w-full py-4 rounded-2xl bg-primary text-primary-foreground font-bold text-lg disabled:opacity-50 inline-flex items-center justify-center gap-2"
-          >
-            <Zap className="w-5 h-5" /> Empezar con audio
-          </button>
-        </section>
-      )}
-
-      {phase === "playing" && current && (
-        <section className="mt-6">
-          <div className="flex items-center justify-between mb-3 text-sm font-bold">
-            <span className="text-foreground/60">Tiempo</span>
-            <span
-              className={`text-2xl font-bold ${secondsLeft <= 10 ? "text-destructive animate-pulse" : ""}`}
-            >
-              {secondsLeft}s
-            </span>
-            <span className="text-success">
-              ✓ {hits} <span className="text-destructive ml-2">✗ {misses}</span>
-            </span>
-          </div>
-          <div className="h-2 bg-secondary rounded-full overflow-hidden border border-foreground/10 mb-6">
-            <div
-              className="h-full bg-primary transition-all"
-              style={timerStyle(secondsLeft, duration)}
-            />
-          </div>
-
-          <div
-            className={`kid-card p-8 text-center transition ${
-              feedback === "ok"
-                ? "ring-4 ring-success/40"
-                : feedback === "no"
-                  ? "ring-4 ring-destructive/40"
-                  : ""
-            }`}
-          >
-            <button
-              onClick={speakCurrent}
-              aria-label="Reescuchar"
-              className="mb-4 inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-primary font-bold"
-            >
-              <Volume2 className="w-4 h-4" /> Reescuchar sonido
-            </button>
-            <div className="text-xs text-foreground/50 font-bold uppercase tracking-wide">
-              Toca la letra que escuchas
-            </div>
-            <div className="grid grid-cols-2 gap-3 mt-5">
-              {current.options.map((opt) => (
-                <button
-                  key={opt}
-                  onClick={() => choose(opt)}
-                  className="py-6 rounded-2xl text-3xl font-bold text-white shadow-md hover:scale-105 active:scale-95 transition disabled:opacity-50"
-                  style={optionStyle(current.color)}
-                  disabled={!!feedback}
-                >
-                  {opt}
-                </button>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {phase === "done" && (
-        <section className="mt-8 kid-card p-6 text-center space-y-4">
-          <Trophy className="w-12 h-12 mx-auto text-vowel-o" />
-          <h2 className="text-2xl font-bold">¡Tiempo!</h2>
-          <div className="grid grid-cols-3 gap-3 text-sm">
-            <div className="rounded-xl bg-secondary p-3">
-              <div className="text-2xl font-bold text-success">{hits}</div>
-              <div className="text-xs text-foreground/60">Aciertos</div>
-            </div>
-            <div className="rounded-xl bg-secondary p-3">
-              <div className="text-2xl font-bold text-destructive">{misses}</div>
-              <div className="text-xs text-foreground/60">Errores</div>
-            </div>
-            <div className="rounded-xl bg-secondary p-3">
-              <div className="text-2xl font-bold text-primary">{accuracy}%</div>
-              <div className="text-xs text-foreground/60">Precisión</div>
-            </div>
-          </div>
-          <div className="flex gap-2 pt-2">
-            <button
-              onClick={() => setPhase("setup")}
-              className="flex-1 py-3 rounded-xl border-2 border-foreground/10 font-bold inline-flex items-center justify-center gap-2 hover:bg-secondary"
-            >
-              <RotateCcw className="w-4 h-4" /> Otra vez
-            </button>
-            <button
-              onClick={() => navigate({ to: "/cartilla" })}
-              className="flex-1 py-3 rounded-xl bg-primary text-primary-foreground font-bold"
-            >
-              Volver
-            </button>
-          </div>
-        </section>
-      )}
+          </section>
+        )}
+      </div>
+      <AccessibilityPanel />
+      <AudioControls />
     </main>
   );
 }
