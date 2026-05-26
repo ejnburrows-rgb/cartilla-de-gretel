@@ -27,8 +27,8 @@ function LeccionScanRoute() {
   const { markCompleted } = useLessonProgress();
 
   const [pageIndex, setPageIndex] = useState(0);
+  const [isFlipping, setIsFlipping] = useState(false);
 
-  // Reset page index when lesson changes
   useEffect(() => {
     setPageIndex(0);
   }, [n]);
@@ -36,36 +36,23 @@ function LeccionScanRoute() {
   const cssVars = getCartillaCrmCssVars(n);
   const theme = getCartillaCrmTheme(n);
 
-  const rootStyle: CSSProperties = {
-    ...cssVars,
-    background: theme.studentBackdrop,
-    color: theme.titleInk,
-  };
+  const rootStyle: CSSProperties = { ...cssVars, color: theme.titleInk };
   const headerStyle: CSSProperties = {
-    backgroundColor: theme.pagePaper,
-    borderBottom: `3px solid ${theme.accent}`,
+    backgroundColor: "rgba(255, 250, 232, 0.85)",
+    borderBottom: `4px solid ${theme.accent}`,
+    backdropFilter: "blur(10px)",
+    WebkitBackdropFilter: "blur(10px)",
   };
   const inkStyle: CSSProperties = { color: theme.titleInk };
-  const accentStyle: CSSProperties = {
-    backgroundColor: theme.accent,
-    color: "#ffffff",
-  };
-  const selectStyle: CSSProperties = {
-    borderColor: theme.border,
-    color: theme.titleInk,
-  };
-  const paperCardStyle: CSSProperties = {
-    backgroundColor: theme.pagePaper,
-    border: `1px solid ${theme.border}`,
-  };
-  const dashedPlaceholderStyle: CSSProperties = {
-    borderColor: theme.border,
-    color: theme.titleInk,
-  };
+  const accentStyle: CSSProperties = { backgroundColor: theme.accent, color: "#ffffff" };
+  const selectStyle: CSSProperties = { borderColor: theme.border, color: theme.titleInk };
+  const dashedPlaceholderStyle: CSSProperties = { borderColor: theme.border, color: theme.titleInk };
   const navStyle: CSSProperties = {
-    backgroundColor: theme.pagePaper,
+    backgroundColor: "rgba(255, 250, 232, 0.92)",
     borderTopColor: theme.border,
     color: theme.titleInk,
+    backdropFilter: "blur(10px)",
+    WebkitBackdropFilter: "blur(10px)",
   };
   const secondaryButtonStyle: CSSProperties = {
     backgroundColor: theme.accentSoft,
@@ -77,34 +64,36 @@ function LeccionScanRoute() {
   const totalPages = pages.length;
   const activePage = pages[pageIndex];
 
-  const goNext = () => {
-    if (pageIndex < totalPages - 1) {
-      setPageIndex((p) => p + 1);
-    } else {
-      markCompleted(n);
-      if (n < TOTAL_LESSONS) {
-        navigate({ to: "/cartilla/leccion/$n", params: { n: String(n + 1) } });
+  const flip = (direction: "next" | "prev") => {
+    if (isFlipping) return;
+    setIsFlipping(true);
+    window.setTimeout(() => {
+      if (direction === "next") {
+        if (pageIndex < totalPages - 1) {
+          setPageIndex((p) => p + 1);
+        } else {
+          markCompleted(n);
+          if (n < TOTAL_LESSONS) {
+            navigate({ to: "/cartilla/leccion/$n", params: { n: String(n + 1) } });
+          } else {
+            navigate({ to: "/cartilla/lecciones" });
+          }
+        }
       } else {
-        navigate({ to: "/cartilla/lecciones" });
+        if (pageIndex > 0) {
+          setPageIndex((p) => p - 1);
+        } else if (n > 1) {
+          navigate({ to: "/cartilla/leccion/$n", params: { n: String(n - 1) } });
+        } else {
+          navigate({ to: "/cartilla/lecciones" });
+        }
       }
-    }
-  };
-
-  const goPrev = () => {
-    if (pageIndex > 0) {
-      setPageIndex((p) => p - 1);
-    } else {
-      if (n > 1) {
-        navigate({ to: "/cartilla/leccion/$n", params: { n: String(n - 1) } });
-      } else {
-        navigate({ to: "/cartilla/lecciones" });
-      }
-    }
+      window.setTimeout(() => setIsFlipping(false), 50);
+    }, 160);
   };
 
   return (
-    <div className="flex flex-col min-h-screen" style={rootStyle}>
-      {/* Top bar */}
+    <div className="flex flex-col min-h-screen cartilla-student-shell" style={rootStyle}>
       <header className="flex-none p-4 shadow-sm" style={headerStyle}>
         <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-4">
@@ -126,18 +115,13 @@ function LeccionScanRoute() {
               )}
             </div>
           </div>
-          <div
-            className="px-3 py-1.5 rounded-full text-sm font-bold shadow-sm"
-            style={accentStyle}
-          >
+          <div className="px-3 py-1.5 rounded-full text-sm font-bold shadow-sm" style={accentStyle}>
             Lección {n} de {TOTAL_LESSONS}
           </div>
         </div>
       </header>
 
-      {/* Main content */}
       <main className="flex-1 w-full max-w-6xl mx-auto p-4 sm:p-8 flex flex-col items-center">
-        {/* Jump to lesson select */}
         <div className="mb-6 self-start sm:self-center">
           <select
             value={n}
@@ -156,23 +140,23 @@ function LeccionScanRoute() {
           </select>
         </div>
 
-        {/* Active Page Card */}
         <div className="w-full flex-1 flex flex-col items-center justify-center min-h-[50vh]">
           {activePage ? (
             <div
-              className="w-full max-w-[860px] mx-auto rounded-[2rem] p-4 sm:p-8 shadow-2xl flex flex-col items-center gap-6"
-              style={paperCardStyle}
+              className={`cartilla-scan-frame w-full max-w-[820px] ${
+                isFlipping ? "opacity-0 scale-[0.985]" : "opacity-100 scale-100"
+              }`}
             >
               {activePage.imageScanReference ? (
-                <div className="w-full flex flex-col items-center">
+                <>
                   <img
                     src={"/" + activePage.imageScanReference}
-                    loading="lazy"
+                    loading="eager"
                     alt={`Página ${activePage.pageNumber}`}
-                    className="max-w-full max-h-[70vh] object-contain rounded-md shadow-md ring-1 ring-black/5"
+                    className="cartilla-scan-clean"
                   />
                   {activePage.verifiedTextBlocks.length > 0 && (
-                    <div className="mt-6 w-full text-center max-w-2xl">
+                    <div className="mt-6 w-full text-center max-w-2xl mx-auto">
                       {activePage.verifiedTextBlocks.map((block, i) => (
                         <p
                           key={i}
@@ -184,7 +168,7 @@ function LeccionScanRoute() {
                       ))}
                     </div>
                   )}
-                </div>
+                </>
               ) : (
                 <div
                   className="py-24 px-8 text-center border-2 border-dashed rounded-2xl"
@@ -204,14 +188,13 @@ function LeccionScanRoute() {
         </div>
       </main>
 
-      {/* Sticky Bottom Nav */}
       <nav
-        className="sticky bottom-0 w-full p-4 border-t shadow-[0_-4px_20px_rgba(0,0,0,0.05)] backdrop-blur-md"
+        className="sticky bottom-0 w-full p-4 border-t shadow-[0_-4px_20px_rgba(0,0,0,0.05)]"
         style={navStyle}
       >
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <button
-            onClick={goPrev}
+            onClick={() => flip("prev")}
             className="flex items-center gap-2 px-5 py-3 rounded-xl font-bold shadow-sm transition-transform active:scale-95"
             style={secondaryButtonStyle}
           >
@@ -227,7 +210,7 @@ function LeccionScanRoute() {
           </div>
 
           <button
-            onClick={goNext}
+            onClick={() => flip("next")}
             className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold shadow-md hover:opacity-90 transition-transform active:scale-95"
             style={accentStyle}
           >

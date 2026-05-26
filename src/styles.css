@@ -311,6 +311,71 @@
   opacity: 0.72;
 }
 
+/* ---------- Student workbook scan polish (added 2026-05-26) ---------- */
+/* Full-page warm cartilla backdrop the student lessons sit on */
+.cartilla-student-shell {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 10% 8%, rgba(255, 246, 162, 0.95), transparent 28rem),
+    radial-gradient(circle at 82% 12%, rgba(162, 225, 255, 0.85), transparent 30rem),
+    radial-gradient(circle at 78% 84%, rgba(255, 178, 211, 0.78), transparent 28rem),
+    radial-gradient(circle at 20% 95%, rgba(195, 240, 200, 0.70), transparent 26rem),
+    linear-gradient(135deg, #fff7ce 0%, #ffe2ef 38%, #d7f1ff 70%, #e7f8d7 100%);
+}
+
+/* Real book-page frame the scan sits in (warm cream paper + stacked page shadow) */
+.cartilla-scan-frame {
+  position: relative;
+  margin-inline: auto;
+  border-radius: 1.5rem;
+  padding: clamp(1rem, 3vw, 2rem);
+  background:
+    radial-gradient(circle at 14% 12%, rgba(255, 248, 200, 0.95), transparent 60%),
+    radial-gradient(circle at 86% 90%, rgba(255, 220, 232, 0.85), transparent 65%),
+    linear-gradient(180deg, #fffaee 0%, #fff4d8 100%);
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.06),
+    4px 8px 0 -2px #fdfcf7,
+    4px 8px 12px -2px rgba(0, 0, 0, 0.06),
+    8px 14px 0 -4px #faf7f0,
+    8px 14px 16px -4px rgba(0, 0, 0, 0.08),
+    12px 24px 45px rgba(10, 31, 39, 0.18);
+  border: 1px solid rgba(23, 49, 59, 0.10);
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+.cartilla-scan-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,0.045), transparent 7%, transparent 93%, rgba(0,0,0,0.045)),
+    linear-gradient(180deg, rgba(255,255,255,0.55), transparent 22%);
+}
+.cartilla-scan-frame > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Scan image polish: lift ink, saturate colors, sit on cream paper instead of harsh white */
+.cartilla-scan-clean {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 0.875rem;
+  background: #fffefa;
+  filter: contrast(1.11) brightness(1.06) saturate(1.22);
+  box-shadow:
+    0 1px 0 rgba(0,0,0,0.04),
+    0 12px 28px rgba(63, 38, 19, 0.16),
+    inset 0 0 0 1px rgba(125, 80, 35, 0.06);
+  image-rendering: auto;
+  transform: translateZ(0);
+}
+
 @keyframes cartilla-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 @keyframes cartilla-pulse { 0%, 100% { box-shadow: 0 0 0 0 hsl(var(--primary) / 0.18); } 50% { box-shadow: 0 0 0 12px hsl(var(--primary) / 0); } }
 
