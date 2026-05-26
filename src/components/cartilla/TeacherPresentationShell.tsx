@@ -1,7 +1,8 @@
 import type { ReactNode } from "react";
-import { Link } from "@tanstack/react-router";
-import { BarChart3, Home, MonitorPlay } from "lucide-react";
+import { useEffect, useState } from "react";
+import { BarChart3, Expand, Home, MonitorPlay, Shrink } from "lucide-react";
 import { getCartillaCrmCssVars } from "@/lib/cartilla-crm-theme";
+import "@/styles/kiosko.css";
 
 type TeacherPresentationShellProps = {
   lessonNumber?: number;
@@ -18,50 +19,72 @@ export function TeacherPresentationShell({
   pages,
   children,
 }: TeacherPresentationShellProps) {
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  useEffect(() => {
+    const handleFullscreen = () => setIsFullscreen(Boolean(document.fullscreenElement));
+    document.addEventListener("fullscreenchange", handleFullscreen);
+    return () => document.removeEventListener("fullscreenchange", handleFullscreen);
+  }, []);
+
+  const toggleFullscreen = async () => {
+    if (!document.fullscreenElement) {
+      await document.documentElement.requestFullscreen?.();
+    } else {
+      await document.exitFullscreen?.();
+    }
+  };
+
   return (
     <section
-      className="cartilla-presentation-frame cartilla-theme-transition min-h-screen px-4 py-6 text-white sm:px-6"
+      className="teacher-presentation-shell cartilla-presentation-frame cartilla-theme-transition min-h-screen text-white"
       style={getCartillaCrmCssVars(lessonNumber)}
     >
-      <div className="mx-auto max-w-6xl">
-        <header className="rounded-2xl border border-white/16 bg-white/10 p-5 shadow-2xl backdrop-blur sm:p-7">
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <div className="flex flex-wrap items-center gap-2 text-white/80">
-              <span className="inline-flex items-center gap-2 rounded-full bg-white/16 px-4 py-2 text-xs font-bold uppercase tracking-wide">
-                <MonitorPlay className="h-4 w-4" /> Vista docente
-              </span>
-              {pages && (
-                <span className="rounded-full bg-[var(--cartilla-accent)] px-4 py-2 text-xs font-bold text-white">
-                  Paginas {pages}
-                </span>
-              )}
-              {lessonNumber && (
-                <span className="rounded-full border border-white/20 px-4 py-2 text-xs font-bold">
-                  Leccion {lessonNumber}
-                </span>
-              )}
+      <div className="teacher-presentation-layout">
+        <header className="teacher-presentation-header">
+          <div className="teacher-presentation-meta">
+            <span>
+              <MonitorPlay className="h-5 w-5" aria-hidden />
+              Vista docente
+            </span>
+            {pages ? <span>Paginas {pages}</span> : null}
+            {lessonNumber ? <span>Leccion {lessonNumber}</span> : null}
+          </div>
+          <div className="teacher-presentation-heading">
+            <div>
+              <h1>{title}</h1>
+              {subtitle ? <p>{subtitle}</p> : null}
             </div>
-            <nav className="flex flex-wrap gap-2">
-              <Link
-                to="/cartilla/teacher"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/18 bg-white/12 text-white hover:bg-white/20"
+            <nav className="teacher-presentation-actions" aria-label="Acciones docentes">
+              <a
+                href="/cartilla/teacher"
+                className="teacher-presentation-fullscreen"
                 aria-label="Volver al CRM docente"
+                title="Volver al CRM docente"
               >
-                <Home className="h-4 w-4" />
-              </Link>
-              <Link
-                to="/cartilla/teacher/reportes"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/18 bg-white/12 text-white hover:bg-white/20"
+                <Home aria-hidden />
+              </a>
+              <a
+                href="/cartilla/teacher/reportes"
+                className="teacher-presentation-fullscreen"
                 aria-label="Abrir reportes docentes"
+                title="Abrir reportes docentes"
               >
-                <BarChart3 className="h-4 w-4" />
-              </Link>
+                <BarChart3 aria-hidden />
+              </a>
+              <button
+                type="button"
+                className="teacher-presentation-fullscreen"
+                onClick={() => void toggleFullscreen()}
+                aria-label={isFullscreen ? "Salir de pantalla completa" : "Pantalla completa"}
+                title={isFullscreen ? "Salir de pantalla completa" : "Pantalla completa"}
+              >
+                {isFullscreen ? <Shrink aria-hidden /> : <Expand aria-hidden />}
+              </button>
             </nav>
           </div>
-          <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-6xl">{title}</h1>
-          {subtitle && <p className="mt-2 max-w-3xl text-lg font-semibold text-white/76">{subtitle}</p>}
         </header>
-        <div className="mt-5">{children}</div>
+        <div className="teacher-presentation-content">{children}</div>
       </div>
     </section>
   );
