@@ -72,6 +72,14 @@ export default defineConfig({
           if (id.includes("node_modules/react") || id.includes("node_modules/react-dom")) {
             return "react-vendor";
           }
+          if (
+            id.includes("node_modules/@tanstack/react-router") ||
+            id.includes("node_modules/@tanstack/router-core") ||
+            id.includes("node_modules/@tanstack/history") ||
+            id.includes("node_modules/@tanstack/store")
+          ) {
+            return "tanstack-router";
+          }
           if (id.includes("routes/cartilla/maestro") || id.includes("components/maestro")) {
             if (id.includes("analitica")) return "route-analitica";
             if (id.includes("autoria")) return "route-autoria";
