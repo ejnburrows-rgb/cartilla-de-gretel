@@ -24,6 +24,33 @@
         } catch (e) {}
       })();
     </script>
+    <script>
+      // DIAGNOSTIC: paint module-init errors into #root so they are visible without DevTools.
+      (function () {
+        function paint(title, body) {
+          var root = document.getElementById("root");
+          if (!root) return;
+          if (root.firstChild && root.getAttribute("data-diag") !== "1") return;
+          root.setAttribute("data-diag", "1");
+          root.innerHTML =
+            '<div style="padding:24px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#7c1d1d;background:#fff;max-width:960px;margin:32px auto;border:2px solid #7c1d1d;border-radius:12px;white-space:pre-wrap;line-height:1.5;font-size:13px;">' +
+            '<h2 style="margin:0 0 12px 0;font-size:16px;">' + title + '</h2>' + body +
+            '</div>';
+        }
+        function esc(s) { return String(s == null ? "" : s).replace(/[&<>]/g, function (c) { return ({"&":"&amp;","<":"&lt;",">":"&gt;"})[c]; }); }
+        window.addEventListener("error", function (e) {
+          paint("Runtime error (diagnostic)",
+            '<div><b>Message:</b> ' + esc(e.message) + '</div>' +
+            '<div><b>Source:</b> ' + esc(e.filename) + ':' + esc(e.lineno) + ':' + esc(e.colno) + '</div>' +
+            '<div style="margin-top:8px;"><b>Stack:</b></div><div>' + esc(e.error && e.error.stack ? e.error.stack : "(no stack)") + '</div>');
+        });
+        window.addEventListener("unhandledrejection", function (e) {
+          var r = e.reason;
+          paint("Unhandled promise rejection (diagnostic)",
+            '<div>' + esc(r && r.stack ? r.stack : (r && r.message ? r.message : String(r))) + '</div>');
+        });
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
