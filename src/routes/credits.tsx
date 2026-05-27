@@ -18,8 +18,8 @@ export const Route = createFileRoute("/credits")({
 const credits = [
   ["Autora", "Leonor Lopetegui"],
   ["Ilustraciones", "Estela de Armas Plasencia"],
-  ["Desarrollador", "Emilio Jose Novo"],
-  ["Editorial", "Double R Publishing / LANY BOOKS LLC"],
+  ["Desarrollador", "Emilio José Novo"],
+  ["Editorial", "LANY Books LLC"],
   ["ISBN del libro", "978-1-7368420-7-2"],
   ["ISBN de la carpeta", "0-971-8696-8-5"],
 ] as const;
