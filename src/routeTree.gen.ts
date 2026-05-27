@@ -19,6 +19,8 @@ import { Route as PrintBinderRouteImport } from './routes/print/binder'
 import { Route as PrintLessonIdRouteImport } from './routes/print/$lessonId'
 import { Route as CartillaUnirseRouteImport } from './routes/cartilla/unirse'
 import { Route as CartillaSesionesRouteImport } from './routes/cartilla/sesiones'
+import { Route as CartillaLibroRouteImport } from './routes/cartilla/libro'
+import { Route as CartillaLeccionesRouteImport } from './routes/cartilla/lecciones'
 import { Route as CartillaBinderRouteImport } from './routes/cartilla/binder'
 import { Route as CartillaAutoraRouteImport } from './routes/cartilla/autora'
 import { Route as CartillaTeacherRouteRouteImport } from './routes/cartilla/teacher/route'
@@ -35,6 +37,7 @@ import { Route as CartillaStudentLibroRouteImport } from './routes/cartilla/stud
 import { Route as CartillaStudentLeccionesRouteImport } from './routes/cartilla/student/lecciones'
 import { Route as CartillaSesionNRouteImport } from './routes/cartilla/sesion.$n'
 import { Route as CartillaPresentarNRouteImport } from './routes/cartilla/presentar.$n'
+import { Route as CartillaLeccionNRouteImport } from './routes/cartilla/leccion.$n'
 import { Route as CartillaImprimirAllRouteImport } from './routes/cartilla/imprimir.all'
 import { Route as CartillaImprimirNRouteImport } from './routes/cartilla/imprimir.$n'
 import { Route as CartillaBinderLessonRouteImport } from './routes/cartilla/binder/$lesson'
@@ -94,6 +97,16 @@ const CartillaUnirseRoute = CartillaUnirseRouteImport.update({
 const CartillaSesionesRoute = CartillaSesionesRouteImport.update({
   id: '/cartilla/sesiones',
   path: '/cartilla/sesiones',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CartillaLibroRoute = CartillaLibroRouteImport.update({
+  id: '/cartilla/libro',
+  path: '/cartilla/libro',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CartillaLeccionesRoute = CartillaLeccionesRouteImport.update({
+  id: '/cartilla/lecciones',
+  path: '/cartilla/lecciones',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CartillaBinderRoute = CartillaBinderRouteImport.update({
@@ -179,6 +192,11 @@ const CartillaPresentarNRoute = CartillaPresentarNRouteImport.update({
   path: '/cartilla/presentar/$n',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CartillaLeccionNRoute = CartillaLeccionNRouteImport.update({
+  id: '/cartilla/leccion/$n',
+  path: '/cartilla/leccion/$n',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CartillaImprimirAllRoute = CartillaImprimirAllRouteImport.update({
   id: '/cartilla/imprimir/all',
   path: '/cartilla/imprimir/all',
@@ -251,6 +269,8 @@ export interface FileRoutesByFullPath {
   '/cartilla/teacher': typeof CartillaTeacherRouteRouteWithChildren
   '/cartilla/autora': typeof CartillaAutoraRoute
   '/cartilla/binder': typeof CartillaBinderRouteWithChildren
+  '/cartilla/lecciones': typeof CartillaLeccionesRoute
+  '/cartilla/libro': typeof CartillaLibroRoute
   '/cartilla/sesiones': typeof CartillaSesionesRoute
   '/cartilla/unirse': typeof CartillaUnirseRoute
   '/print/$lessonId': typeof PrintLessonIdRoute
@@ -259,6 +279,7 @@ export interface FileRoutesByFullPath {
   '/cartilla/binder/$lesson': typeof CartillaBinderLessonRoute
   '/cartilla/imprimir/$n': typeof CartillaImprimirNRoute
   '/cartilla/imprimir/all': typeof CartillaImprimirAllRoute
+  '/cartilla/leccion/$n': typeof CartillaLeccionNRoute
   '/cartilla/presentar/$n': typeof CartillaPresentarNRoute
   '/cartilla/sesion/$n': typeof CartillaSesionNRoute
   '/cartilla/student/lecciones': typeof CartillaStudentLeccionesRoute
@@ -288,6 +309,8 @@ export interface FileRoutesByTo {
   '/cartilla/student': typeof CartillaStudentRouteRouteWithChildren
   '/cartilla/autora': typeof CartillaAutoraRoute
   '/cartilla/binder': typeof CartillaBinderRouteWithChildren
+  '/cartilla/lecciones': typeof CartillaLeccionesRoute
+  '/cartilla/libro': typeof CartillaLibroRoute
   '/cartilla/sesiones': typeof CartillaSesionesRoute
   '/cartilla/unirse': typeof CartillaUnirseRoute
   '/print/$lessonId': typeof PrintLessonIdRoute
@@ -296,6 +319,7 @@ export interface FileRoutesByTo {
   '/cartilla/binder/$lesson': typeof CartillaBinderLessonRoute
   '/cartilla/imprimir/$n': typeof CartillaImprimirNRoute
   '/cartilla/imprimir/all': typeof CartillaImprimirAllRoute
+  '/cartilla/leccion/$n': typeof CartillaLeccionNRoute
   '/cartilla/presentar/$n': typeof CartillaPresentarNRoute
   '/cartilla/sesion/$n': typeof CartillaSesionNRoute
   '/cartilla/student/lecciones': typeof CartillaStudentLeccionesRoute
@@ -328,6 +352,8 @@ export interface FileRoutesById {
   '/cartilla/teacher': typeof CartillaTeacherRouteRouteWithChildren
   '/cartilla/autora': typeof CartillaAutoraRoute
   '/cartilla/binder': typeof CartillaBinderRouteWithChildren
+  '/cartilla/lecciones': typeof CartillaLeccionesRoute
+  '/cartilla/libro': typeof CartillaLibroRoute
   '/cartilla/sesiones': typeof CartillaSesionesRoute
   '/cartilla/unirse': typeof CartillaUnirseRoute
   '/print/$lessonId': typeof PrintLessonIdRoute
@@ -336,6 +362,7 @@ export interface FileRoutesById {
   '/cartilla/binder/$lesson': typeof CartillaBinderLessonRoute
   '/cartilla/imprimir/$n': typeof CartillaImprimirNRoute
   '/cartilla/imprimir/all': typeof CartillaImprimirAllRoute
+  '/cartilla/leccion/$n': typeof CartillaLeccionNRoute
   '/cartilla/presentar/$n': typeof CartillaPresentarNRoute
   '/cartilla/sesion/$n': typeof CartillaSesionNRoute
   '/cartilla/student/lecciones': typeof CartillaStudentLeccionesRoute
@@ -368,6 +395,8 @@ export interface FileRouteTypes {
     | '/cartilla/teacher'
     | '/cartilla/autora'
     | '/cartilla/binder'
+    | '/cartilla/lecciones'
+    | '/cartilla/libro'
     | '/cartilla/sesiones'
     | '/cartilla/unirse'
     | '/print/$lessonId'
@@ -376,6 +405,7 @@ export interface FileRouteTypes {
     | '/cartilla/binder/$lesson'
     | '/cartilla/imprimir/$n'
     | '/cartilla/imprimir/all'
+    | '/cartilla/leccion/$n'
     | '/cartilla/presentar/$n'
     | '/cartilla/sesion/$n'
     | '/cartilla/student/lecciones'
@@ -405,6 +435,8 @@ export interface FileRouteTypes {
     | '/cartilla/student'
     | '/cartilla/autora'
     | '/cartilla/binder'
+    | '/cartilla/lecciones'
+    | '/cartilla/libro'
     | '/cartilla/sesiones'
     | '/cartilla/unirse'
     | '/print/$lessonId'
@@ -413,6 +445,7 @@ export interface FileRouteTypes {
     | '/cartilla/binder/$lesson'
     | '/cartilla/imprimir/$n'
     | '/cartilla/imprimir/all'
+    | '/cartilla/leccion/$n'
     | '/cartilla/presentar/$n'
     | '/cartilla/sesion/$n'
     | '/cartilla/student/lecciones'
@@ -444,6 +477,8 @@ export interface FileRouteTypes {
     | '/cartilla/teacher'
     | '/cartilla/autora'
     | '/cartilla/binder'
+    | '/cartilla/lecciones'
+    | '/cartilla/libro'
     | '/cartilla/sesiones'
     | '/cartilla/unirse'
     | '/print/$lessonId'
@@ -452,6 +487,7 @@ export interface FileRouteTypes {
     | '/cartilla/binder/$lesson'
     | '/cartilla/imprimir/$n'
     | '/cartilla/imprimir/all'
+    | '/cartilla/leccion/$n'
     | '/cartilla/presentar/$n'
     | '/cartilla/sesion/$n'
     | '/cartilla/student/lecciones'
@@ -484,6 +520,8 @@ export interface RootRouteChildren {
   CartillaTeacherRouteRoute: typeof CartillaTeacherRouteRouteWithChildren
   CartillaAutoraRoute: typeof CartillaAutoraRoute
   CartillaBinderRoute: typeof CartillaBinderRouteWithChildren
+  CartillaLeccionesRoute: typeof CartillaLeccionesRoute
+  CartillaLibroRoute: typeof CartillaLibroRoute
   CartillaSesionesRoute: typeof CartillaSesionesRoute
   CartillaUnirseRoute: typeof CartillaUnirseRoute
   PrintLessonIdRoute: typeof PrintLessonIdRoute
@@ -491,6 +529,7 @@ export interface RootRouteChildren {
   CartillaIndexRoute: typeof CartillaIndexRoute
   CartillaImprimirNRoute: typeof CartillaImprimirNRoute
   CartillaImprimirAllRoute: typeof CartillaImprimirAllRoute
+  CartillaLeccionNRoute: typeof CartillaLeccionNRoute
   CartillaPresentarNRoute: typeof CartillaPresentarNRoute
   CartillaSesionNRoute: typeof CartillaSesionNRoute
 }
@@ -565,6 +604,20 @@ declare module '@tanstack/react-router' {
       path: '/cartilla/sesiones'
       fullPath: '/cartilla/sesiones'
       preLoaderRoute: typeof CartillaSesionesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cartilla/libro': {
+      id: '/cartilla/libro'
+      path: '/cartilla/libro'
+      fullPath: '/cartilla/libro'
+      preLoaderRoute: typeof CartillaLibroRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cartilla/lecciones': {
+      id: '/cartilla/lecciones'
+      path: '/cartilla/lecciones'
+      fullPath: '/cartilla/lecciones'
+      preLoaderRoute: typeof CartillaLeccionesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cartilla/binder': {
@@ -677,6 +730,13 @@ declare module '@tanstack/react-router' {
       path: '/cartilla/presentar/$n'
       fullPath: '/cartilla/presentar/$n'
       preLoaderRoute: typeof CartillaPresentarNRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cartilla/leccion/$n': {
+      id: '/cartilla/leccion/$n'
+      path: '/cartilla/leccion/$n'
+      fullPath: '/cartilla/leccion/$n'
+      preLoaderRoute: typeof CartillaLeccionNRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cartilla/imprimir/all': {
@@ -862,6 +922,8 @@ const rootRouteChildren: RootRouteChildren = {
   CartillaTeacherRouteRoute: CartillaTeacherRouteRouteWithChildren,
   CartillaAutoraRoute: CartillaAutoraRoute,
   CartillaBinderRoute: CartillaBinderRouteWithChildren,
+  CartillaLeccionesRoute: CartillaLeccionesRoute,
+  CartillaLibroRoute: CartillaLibroRoute,
   CartillaSesionesRoute: CartillaSesionesRoute,
   CartillaUnirseRoute: CartillaUnirseRoute,
   PrintLessonIdRoute: PrintLessonIdRoute,
@@ -869,6 +931,7 @@ const rootRouteChildren: RootRouteChildren = {
   CartillaIndexRoute: CartillaIndexRoute,
   CartillaImprimirNRoute: CartillaImprimirNRoute,
   CartillaImprimirAllRoute: CartillaImprimirAllRoute,
+  CartillaLeccionNRoute: CartillaLeccionNRoute,
   CartillaPresentarNRoute: CartillaPresentarNRoute,
   CartillaSesionNRoute: CartillaSesionNRoute,
 }
