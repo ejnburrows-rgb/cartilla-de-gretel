@@ -10,7 +10,7 @@ export interface TutorialStepType {
 export const TUTORIAL_STEPS: TutorialStepType[] = [
   {
     targetSelector: ".pdf-page-wrapper",
-    title: "¡Te doy la bienvenida!",
+    title: "¡Te doy la bienvenida a la Cartilla de Gretel!",
     description: "Esta es tu Cartilla interactiva. Aquí leeremos juntos historias increíbles y aprenderemos sílabas divertidas.",
     position: "bottom",
   },
