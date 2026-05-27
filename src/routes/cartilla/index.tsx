@@ -145,7 +145,7 @@ function CartillaHome() {
           </p>
           <div className="mt-5 flex flex-wrap gap-3 justify-center sm:justify-start">
             <Link
-              to="/cartilla/lecciones"
+              to="/cartilla/student/lecciones"
               className="px-6 py-3 rounded-full bg-primary text-primary-foreground font-bold text-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 active:scale-95 flex items-center gap-2"
               aria-label="Empezar las lecciones"
             >
@@ -206,7 +206,7 @@ function CartillaHome() {
             return (
               <li key={entry.n} className="list-none">
                 <Link
-                  to="/cartilla/leccion/$n"
+                  to="/cartilla/student/leccion/$n"
                   params={{ n: String(entry.n) }}
                   className="lesson-tile"
                   aria-label={`Lección ${entry.n}: ${entry.title}${done ? " — completada" : ""}`}

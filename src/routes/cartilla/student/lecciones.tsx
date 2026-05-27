@@ -31,7 +31,7 @@ import "@/styles/cartilla-student.css";
 // Search param validation without zod
 type LeccionesSearch = { p?: number };
 
-export const Route = createFileRoute("/cartilla/lecciones")({
+export const Route = createFileRoute("/cartilla/student/lecciones")({
   component: Lecciones,
   validateSearch: (search: Record<string, unknown>): LeccionesSearch => {
     const p = Number(search.p);
@@ -146,14 +146,14 @@ function Lecciones() {
           </Link>
           <div className="flex items-center gap-2">
             <Link
-              to="/cartilla/practica"
+              to="/cartilla/student/practica"
               className="inline-flex items-center gap-1.5 text-xs font-bold text-vowel-o hover:underline"
               aria-label="Ir a práctica rápida"
             >
               <Zap className="w-3.5 h-3.5" aria-hidden /> Práctica rápida
             </Link>
             <Link
-              to="/cartilla/repaso"
+              to="/cartilla/student/repaso"
               className="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline"
               aria-label="Ir a modo repaso"
             >
@@ -243,7 +243,7 @@ function Lecciones() {
           </div>
           {isUnlocked(activeLesson.n) && (
             <Link
-              to="/cartilla/leccion/$n"
+              to="/cartilla/student/leccion/$n"
               params={{ n: String(activeLesson.n) }}
               className="inline-flex items-center gap-1.5 text-sm font-bold px-3 py-2 rounded-xl text-white"
               style={activeLessonBgStyle}

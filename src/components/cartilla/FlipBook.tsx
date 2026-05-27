@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useRef, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import type { CatalogEntry } from "@/lib/lesson-catalog";
 import { PdfPage } from "@/components/cartilla/PdfPage";
-import { usePageFlip } from "@/hooks/usePageFlip";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-// Hoisted Styles for double-brace JSX styling ban compliance
 const flipBookContainerStyle: React.CSSProperties = {
   position: "relative",
   width: "100%",
@@ -14,6 +13,8 @@ const flipBookContainerStyle: React.CSSProperties = {
   overflow: "hidden",
   userSelect: "none",
   touchAction: "pan-y",
+  backgroundColor: "#fdfbf7",
+  boxShadow: "inset 0 0 20px rgba(0,0,0,0.03)",
 };
 
 const navigationOverlayStyle: React.CSSProperties = {
@@ -56,31 +57,52 @@ export function FlipBook({ entry, initialPageNumber }: FlipBookProps) {
   const to = parts[1] || from;
 
   const [activePage, setActivePage] = useState(initialPageNumber);
-  const [peekPage, setPeekPage] = useState(initialPageNumber);
+  const [prevPage, setPrevPage] = useState(initialPageNumber);
+  const [isFlipping, setIsFlipping] = useState(false);
 
-  const { flip, isFlipping, direction, handleTransitionEnd } = usePageFlip(520);
+  // Direction: 1 = next page (flips to left), -1 = prev page (flips from left to right)
+  const direction = activePage > prevPage ? 1 : -1;
 
-  // Sync with initial page changes
   useEffect(() => {
     setActivePage(initialPageNumber);
+    setPrevPage(initialPageNumber);
   }, [initialPageNumber]);
 
   const triggerNext = () => {
     if (isFlipping || activePage >= to) return;
-    const nextPage = activePage + 1;
-    setPeekPage(nextPage);
-    flip("next", () => {
-      setActivePage(nextPage);
-    });
+    setPrevPage(activePage);
+    setActivePage((p) => p + 1);
+    setIsFlipping(true);
   };
 
   const triggerPrev = () => {
     if (isFlipping || activePage <= from) return;
-    const prevPage = activePage - 1;
-    setPeekPage(prevPage);
-    flip("prev", () => {
-      setActivePage(prevPage);
-    });
+    setPrevPage(activePage);
+    setActivePage((p) => p - 1);
+    setIsFlipping(true);
+  };
+
+  const onAnimationComplete = () => {
+    setIsFlipping(false);
+  };
+
+  // Horizontal Side-to-Side Flip Variants
+  const variants = {
+    enter: (direction: number) => ({
+      rotateY: direction > 0 ? 0 : -90,
+      opacity: direction > 0 ? 0.5 : 0,
+      zIndex: direction > 0 ? 0 : 10,
+    }),
+    center: {
+      rotateY: 0,
+      opacity: 1,
+      zIndex: 5,
+    },
+    exit: (direction: number) => ({
+      rotateY: direction > 0 ? -90 : 0,
+      opacity: direction > 0 ? 0 : 0.5,
+      zIndex: direction > 0 ? 10 : 0,
+    }),
   };
 
   // Touch handlers for lightweight swiping gestures
@@ -99,7 +121,6 @@ export function FlipBook({ entry, initialPageNumber }: FlipBookProps) {
     const diffX = touchStartX.current - endX;
     const diffY = touchStartY.current - endY;
 
-    // Horizontal swipe threshold: 80px
     if (Math.abs(diffX) > Math.abs(diffY)) {
       if (diffX > 80) {
         triggerNext();
@@ -121,32 +142,37 @@ export function FlipBook({ entry, initialPageNumber }: FlipBookProps) {
       style={flipBookContainerStyle}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
-      className="select-none relative bg-stone-100"
+      className="select-none perspective-[1500px]"
     >
-      <div className="cartilla-flip-book w-full h-full relative">
-        {/* 1. Underlying Peek Page */}
-        {isFlipping && (
-          <div className="cartilla-flip-underlay absolute inset-0">
+      <div className="w-full h-full relative flex items-center justify-center">
+        <AnimatePresence custom={direction} mode="popLayout" initial={false} onExitComplete={onAnimationComplete}>
+          <motion.div
+            key={activePage}
+            custom={direction}
+            variants={variants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ type: "spring", stiffness: 100, damping: 20, mass: 0.8 }}
+            style={{
+              transformOrigin: "center left",
+              backfaceVisibility: "hidden",
+              position: "absolute",
+              width: "100%",
+              height: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center"
+            }}
+          >
             <PdfPage
-              pageNumber={peekPage}
-              className="rounded-xl overflow-hidden object-contain max-h-[60vh] shadow-sm"
+              pageNumber={activePage}
+              className="rounded-xl overflow-hidden object-contain max-h-[60vh] drop-shadow-md bg-transparent"
             />
-          </div>
-        )}
-
-        {/* 2. Top Active Page that rotates */}
-        <div
-          className={`cartilla-flip-book-page absolute inset-0 ${isFlipping ? "flipped" : ""}`}
-          onTransitionEnd={handleTransitionEnd}
-        >
-          <PdfPage
-            pageNumber={isFlipping ? activePage : activePage}
-            className="rounded-xl overflow-hidden object-contain max-h-[60vh]"
-          />
-        </div>
+          </motion.div>
+        </AnimatePresence>
       </div>
 
-      {/* 3. Screen overlays for book navigation */}
       <div style={navigationOverlayStyle} className="no-print">
         <button
           onClick={triggerPrev}

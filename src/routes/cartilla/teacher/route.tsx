@@ -35,7 +35,7 @@ function TeacherLayout() {
             {/* Progress can just be a placeholder pointing to reports or missing for now if not explicitly requested, but we will add the link */}
             <NavLink to="/cartilla/teacher/progreso" icon={<BarChart3 className="w-4 h-4" />} label="Progress" active={location.pathname.includes("/progreso")} />
             <NavLink to="/cartilla/teacher/reportes" icon={<FileSpreadsheet className="w-4 h-4" />} label="Reports" active={location.pathname.includes("/reportes")} />
-            <NavLink to="/cartilla/lecciones" icon={<MonitorPlay className="w-4 h-4" />} label="Present" active={false} />
+            <NavLink to="/cartilla/student/lecciones" icon={<MonitorPlay className="w-4 h-4" />} label="Present" active={false} />
           </nav>
         </div>
       </header>

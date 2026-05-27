@@ -111,7 +111,7 @@ export function KioskoLanding() {
             </p>
           </div>
 
-          <Link to="/cartilla/lecciones" style={backLinkStyle} className="hover:bg-red-500/25">
+          <Link to="/cartilla/student/lecciones" style={backLinkStyle} className="hover:bg-red-500/25">
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Salir de Kiosko</span>
           </Link>

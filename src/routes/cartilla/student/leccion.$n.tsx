@@ -34,7 +34,7 @@ import { PageBackground } from "@/components/art/PageBackground";
 import { SparkleField } from "@/components/art/SparkleField";
 import "@/styles/cartilla-student.css";
 
-export const Route = createFileRoute("/cartilla/leccion/$n")({
+export const Route = createFileRoute("/cartilla/student/leccion/$n")({
   component: Leccion,
   head: ({ params }) => ({
     meta: [
@@ -131,7 +131,7 @@ function Leccion() {
       <header className="no-print px-4 pt-4 max-w-3xl w-full mx-auto relative z-10">
         <div className="flex items-center justify-between gap-3 mb-3">
           <Link
-            to="/cartilla/lecciones"
+            to="/cartilla/student/lecciones"
             className="lesson-focus-ring inline-flex items-center gap-2 text-sm font-bold text-foreground/70 hover:text-foreground"
             aria-label="Volver al índice de lecciones"
           >

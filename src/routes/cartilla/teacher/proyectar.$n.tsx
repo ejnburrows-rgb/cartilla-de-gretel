@@ -10,9 +10,9 @@ import { useKeyboardShortcuts } from "@/hooks/useKeyboardShortcuts";
 import { useFullscreen } from "@/hooks/useFullscreen";
 import { useSwipeNav } from "@/hooks/useSwipeNav";
 
-// Lazy load PdfPage for performance
-const LazyPdfPage = React.lazy(() =>
-  import("@/components/cartilla/PdfPage").then((module) => ({ default: module.PdfPage }))
+// Lazy load Flipbook for performance
+const LazyFlipbookViewer = React.lazy(() =>
+  import("@/components/cartilla/FlipbookVerticalViewer").then((module) => ({ default: module.FlipbookVerticalViewer }))
 );
 
 export const Route = createFileRoute("/cartilla/teacher/proyectar/$n")({
@@ -146,7 +146,7 @@ function ProyectarLesson() {
       >
         <div className="flex items-center gap-3">
           <Link
-            to="/cartilla/leccion/$n"
+            to="/cartilla/student/leccion/$n"
             params={{ n: String(initialLessonN) }}
             className="p-2 rounded-xl border border-white/10 hover:bg-white/5 text-white/80 transition"
             aria-label="Salir del modo proyección"
@@ -206,7 +206,7 @@ function ProyectarLesson() {
       </header>
 
       {/* Centered PDF Viewer Section */}
-      <main className="w-full max-w-3xl px-6 flex items-center justify-center">
+      <main className="w-full h-full max-w-4xl px-6 py-24 flex items-center justify-center">
         <Suspense
           fallback={
             <div className="text-white/60 font-bold text-sm" aria-busy="true">
@@ -214,7 +214,7 @@ function ProyectarLesson() {
             </div>
           }
         >
-          <LazyPdfPage pageNumber={page} className="shadow-2xl border border-white/5 rounded-2xl overflow-hidden" />
+          <LazyFlipbookViewer pageNumber={page} className="w-full h-[85vh]" />
         </Suspense>
       </main>
 

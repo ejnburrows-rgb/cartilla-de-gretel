@@ -4,6 +4,15 @@
  * Import order: after styles.css (already imports tailwindcss)
  */
 
+/* ── Pastel Book Theme Variables ─────────────────────────────────── */
+.cartilla-student-theme {
+  --paper-bg: #fcf9f2;
+  --pastel-border: #e6d8c3;
+  --pastel-text: #594a3d;
+  color: var(--pastel-text);
+}
+
+
 /* ── BookArtFigure ───────────────────────────────────────────────── */
 .book-art-figure {
   display: flex;

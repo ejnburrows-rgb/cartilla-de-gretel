@@ -18,29 +18,30 @@ import { Route as PrintBinderRouteImport } from './routes/print/binder'
 import { Route as PrintLessonIdRouteImport } from './routes/print/$lessonId'
 import { Route as CartillaUnirseRouteImport } from './routes/cartilla/unirse'
 import { Route as CartillaSesionesRouteImport } from './routes/cartilla/sesiones'
-import { Route as CartillaRepasoRouteImport } from './routes/cartilla/repaso'
-import { Route as CartillaPracticaRouteImport } from './routes/cartilla/practica'
-import { Route as CartillaMiProgresoRouteImport } from './routes/cartilla/mi-progreso'
-import { Route as CartillaLibroRouteImport } from './routes/cartilla/libro'
-import { Route as CartillaLeccionesRouteImport } from './routes/cartilla/lecciones'
 import { Route as CartillaKioskoRouteImport } from './routes/cartilla/kiosko'
 import { Route as CartillaBinderRouteImport } from './routes/cartilla/binder'
 import { Route as CartillaAutoraRouteImport } from './routes/cartilla/autora'
 import { Route as CartillaTeacherRouteRouteImport } from './routes/cartilla/teacher/route'
+import { Route as CartillaStudentRouteRouteImport } from './routes/cartilla/student/route'
 import { Route as CartillaTeacherIndexRouteImport } from './routes/cartilla/teacher/index'
 import { Route as CartillaTeacherRosterRouteImport } from './routes/cartilla/teacher/roster'
 import { Route as CartillaTeacherReportesRouteImport } from './routes/cartilla/teacher/reportes'
 import { Route as CartillaTeacherProgresoRouteImport } from './routes/cartilla/teacher/progreso'
 import { Route as CartillaTeacherFlipchartRouteImport } from './routes/cartilla/teacher/flipchart'
+import { Route as CartillaStudentRepasoRouteImport } from './routes/cartilla/student/repaso'
+import { Route as CartillaStudentPracticaRouteImport } from './routes/cartilla/student/practica'
+import { Route as CartillaStudentMiProgresoRouteImport } from './routes/cartilla/student/mi-progreso'
+import { Route as CartillaStudentLibroRouteImport } from './routes/cartilla/student/libro'
+import { Route as CartillaStudentLeccionesRouteImport } from './routes/cartilla/student/lecciones'
 import { Route as CartillaSesionNRouteImport } from './routes/cartilla/sesion.$n'
 import { Route as CartillaPresentarNRouteImport } from './routes/cartilla/presentar.$n'
-import { Route as CartillaLeccionNRouteImport } from './routes/cartilla/leccion.$n'
 import { Route as CartillaKioskoNRouteImport } from './routes/cartilla/kiosko/$n'
 import { Route as CartillaImprimirAllRouteImport } from './routes/cartilla/imprimir.all'
 import { Route as CartillaImprimirNRouteImport } from './routes/cartilla/imprimir.$n'
 import { Route as CartillaBinderLessonRouteImport } from './routes/cartilla/binder/$lesson'
 import { Route as CartillaTeacherProyectarNRouteImport } from './routes/cartilla/teacher/proyectar.$n'
 import { Route as CartillaTeacherFlipchartNRouteImport } from './routes/cartilla/teacher/flipchart.$n'
+import { Route as CartillaStudentLeccionNRouteImport } from './routes/cartilla/student/leccion.$n'
 import { Route as AuthenticatedCartillaTeacherRemasterReviewRouteImport } from './routes/_authenticated/cartilla.teacher.remaster-review'
 import { Route as AuthenticatedCartillaTeacherPresentacionRouteImport } from './routes/_authenticated/cartilla.teacher.presentacion'
 import { Route as AuthenticatedCartillaTeacherBrandingRouteImport } from './routes/_authenticated/cartilla.teacher.branding'
@@ -91,31 +92,6 @@ const CartillaSesionesRoute = CartillaSesionesRouteImport.update({
   path: '/cartilla/sesiones',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CartillaRepasoRoute = CartillaRepasoRouteImport.update({
-  id: '/cartilla/repaso',
-  path: '/cartilla/repaso',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CartillaPracticaRoute = CartillaPracticaRouteImport.update({
-  id: '/cartilla/practica',
-  path: '/cartilla/practica',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CartillaMiProgresoRoute = CartillaMiProgresoRouteImport.update({
-  id: '/cartilla/mi-progreso',
-  path: '/cartilla/mi-progreso',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CartillaLibroRoute = CartillaLibroRouteImport.update({
-  id: '/cartilla/libro',
-  path: '/cartilla/libro',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CartillaLeccionesRoute = CartillaLeccionesRouteImport.update({
-  id: '/cartilla/lecciones',
-  path: '/cartilla/lecciones',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const CartillaKioskoRoute = CartillaKioskoRouteImport.update({
   id: '/cartilla/kiosko',
   path: '/cartilla/kiosko',
@@ -134,6 +110,11 @@ const CartillaAutoraRoute = CartillaAutoraRouteImport.update({
 const CartillaTeacherRouteRoute = CartillaTeacherRouteRouteImport.update({
   id: '/cartilla/teacher',
   path: '/cartilla/teacher',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CartillaStudentRouteRoute = CartillaStudentRouteRouteImport.update({
+  id: '/cartilla/student',
+  path: '/cartilla/student',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CartillaTeacherIndexRoute = CartillaTeacherIndexRouteImport.update({
@@ -162,6 +143,33 @@ const CartillaTeacherFlipchartRoute =
     path: '/flipchart',
     getParentRoute: () => CartillaTeacherRouteRoute,
   } as any)
+const CartillaStudentRepasoRoute = CartillaStudentRepasoRouteImport.update({
+  id: '/repaso',
+  path: '/repaso',
+  getParentRoute: () => CartillaStudentRouteRoute,
+} as any)
+const CartillaStudentPracticaRoute = CartillaStudentPracticaRouteImport.update({
+  id: '/practica',
+  path: '/practica',
+  getParentRoute: () => CartillaStudentRouteRoute,
+} as any)
+const CartillaStudentMiProgresoRoute =
+  CartillaStudentMiProgresoRouteImport.update({
+    id: '/mi-progreso',
+    path: '/mi-progreso',
+    getParentRoute: () => CartillaStudentRouteRoute,
+  } as any)
+const CartillaStudentLibroRoute = CartillaStudentLibroRouteImport.update({
+  id: '/libro',
+  path: '/libro',
+  getParentRoute: () => CartillaStudentRouteRoute,
+} as any)
+const CartillaStudentLeccionesRoute =
+  CartillaStudentLeccionesRouteImport.update({
+    id: '/lecciones',
+    path: '/lecciones',
+    getParentRoute: () => CartillaStudentRouteRoute,
+  } as any)
 const CartillaSesionNRoute = CartillaSesionNRouteImport.update({
   id: '/cartilla/sesion/$n',
   path: '/cartilla/sesion/$n',
@@ -170,11 +178,6 @@ const CartillaSesionNRoute = CartillaSesionNRouteImport.update({
 const CartillaPresentarNRoute = CartillaPresentarNRouteImport.update({
   id: '/cartilla/presentar/$n',
   path: '/cartilla/presentar/$n',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CartillaLeccionNRoute = CartillaLeccionNRouteImport.update({
-  id: '/cartilla/leccion/$n',
-  path: '/cartilla/leccion/$n',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CartillaKioskoNRoute = CartillaKioskoNRouteImport.update({
@@ -209,6 +212,11 @@ const CartillaTeacherFlipchartNRoute =
     path: '/$n',
     getParentRoute: () => CartillaTeacherFlipchartRoute,
   } as any)
+const CartillaStudentLeccionNRoute = CartillaStudentLeccionNRouteImport.update({
+  id: '/leccion/$n',
+  path: '/leccion/$n',
+  getParentRoute: () => CartillaStudentRouteRoute,
+} as any)
 const AuthenticatedCartillaTeacherRemasterReviewRoute =
   AuthenticatedCartillaTeacherRemasterReviewRouteImport.update({
     id: '/cartilla/teacher/remaster-review',
@@ -244,15 +252,11 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/book': typeof BookRoute
   '/login': typeof LoginRoute
+  '/cartilla/student': typeof CartillaStudentRouteRouteWithChildren
   '/cartilla/teacher': typeof CartillaTeacherRouteRouteWithChildren
   '/cartilla/autora': typeof CartillaAutoraRoute
   '/cartilla/binder': typeof CartillaBinderRouteWithChildren
   '/cartilla/kiosko': typeof CartillaKioskoRouteWithChildren
-  '/cartilla/lecciones': typeof CartillaLeccionesRoute
-  '/cartilla/libro': typeof CartillaLibroRoute
-  '/cartilla/mi-progreso': typeof CartillaMiProgresoRoute
-  '/cartilla/practica': typeof CartillaPracticaRoute
-  '/cartilla/repaso': typeof CartillaRepasoRoute
   '/cartilla/sesiones': typeof CartillaSesionesRoute
   '/cartilla/unirse': typeof CartillaUnirseRoute
   '/print/$lessonId': typeof PrintLessonIdRoute
@@ -262,9 +266,13 @@ export interface FileRoutesByFullPath {
   '/cartilla/imprimir/$n': typeof CartillaImprimirNRoute
   '/cartilla/imprimir/all': typeof CartillaImprimirAllRoute
   '/cartilla/kiosko/$n': typeof CartillaKioskoNRoute
-  '/cartilla/leccion/$n': typeof CartillaLeccionNRoute
   '/cartilla/presentar/$n': typeof CartillaPresentarNRoute
   '/cartilla/sesion/$n': typeof CartillaSesionNRoute
+  '/cartilla/student/lecciones': typeof CartillaStudentLeccionesRoute
+  '/cartilla/student/libro': typeof CartillaStudentLibroRoute
+  '/cartilla/student/mi-progreso': typeof CartillaStudentMiProgresoRoute
+  '/cartilla/student/practica': typeof CartillaStudentPracticaRoute
+  '/cartilla/student/repaso': typeof CartillaStudentRepasoRoute
   '/cartilla/teacher/flipchart': typeof CartillaTeacherFlipchartRouteWithChildren
   '/cartilla/teacher/progreso': typeof CartillaTeacherProgresoRoute
   '/cartilla/teacher/reportes': typeof CartillaTeacherReportesRoute
@@ -273,6 +281,7 @@ export interface FileRoutesByFullPath {
   '/cartilla/teacher/branding': typeof AuthenticatedCartillaTeacherBrandingRoute
   '/cartilla/teacher/presentacion': typeof AuthenticatedCartillaTeacherPresentacionRoute
   '/cartilla/teacher/remaster-review': typeof AuthenticatedCartillaTeacherRemasterReviewRoute
+  '/cartilla/student/leccion/$n': typeof CartillaStudentLeccionNRoute
   '/cartilla/teacher/flipchart/$n': typeof CartillaTeacherFlipchartNRoute
   '/cartilla/teacher/proyectar/$n': typeof CartillaTeacherProyectarNRoute
   '/cartilla/teacher/alumno/$id': typeof AuthenticatedCartillaTeacherAlumnoIdRoute
@@ -282,14 +291,10 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/book': typeof BookRoute
   '/login': typeof LoginRoute
+  '/cartilla/student': typeof CartillaStudentRouteRouteWithChildren
   '/cartilla/autora': typeof CartillaAutoraRoute
   '/cartilla/binder': typeof CartillaBinderRouteWithChildren
   '/cartilla/kiosko': typeof CartillaKioskoRouteWithChildren
-  '/cartilla/lecciones': typeof CartillaLeccionesRoute
-  '/cartilla/libro': typeof CartillaLibroRoute
-  '/cartilla/mi-progreso': typeof CartillaMiProgresoRoute
-  '/cartilla/practica': typeof CartillaPracticaRoute
-  '/cartilla/repaso': typeof CartillaRepasoRoute
   '/cartilla/sesiones': typeof CartillaSesionesRoute
   '/cartilla/unirse': typeof CartillaUnirseRoute
   '/print/$lessonId': typeof PrintLessonIdRoute
@@ -299,9 +304,13 @@ export interface FileRoutesByTo {
   '/cartilla/imprimir/$n': typeof CartillaImprimirNRoute
   '/cartilla/imprimir/all': typeof CartillaImprimirAllRoute
   '/cartilla/kiosko/$n': typeof CartillaKioskoNRoute
-  '/cartilla/leccion/$n': typeof CartillaLeccionNRoute
   '/cartilla/presentar/$n': typeof CartillaPresentarNRoute
   '/cartilla/sesion/$n': typeof CartillaSesionNRoute
+  '/cartilla/student/lecciones': typeof CartillaStudentLeccionesRoute
+  '/cartilla/student/libro': typeof CartillaStudentLibroRoute
+  '/cartilla/student/mi-progreso': typeof CartillaStudentMiProgresoRoute
+  '/cartilla/student/practica': typeof CartillaStudentPracticaRoute
+  '/cartilla/student/repaso': typeof CartillaStudentRepasoRoute
   '/cartilla/teacher/flipchart': typeof CartillaTeacherFlipchartRouteWithChildren
   '/cartilla/teacher/progreso': typeof CartillaTeacherProgresoRoute
   '/cartilla/teacher/reportes': typeof CartillaTeacherReportesRoute
@@ -310,6 +319,7 @@ export interface FileRoutesByTo {
   '/cartilla/teacher/branding': typeof AuthenticatedCartillaTeacherBrandingRoute
   '/cartilla/teacher/presentacion': typeof AuthenticatedCartillaTeacherPresentacionRoute
   '/cartilla/teacher/remaster-review': typeof AuthenticatedCartillaTeacherRemasterReviewRoute
+  '/cartilla/student/leccion/$n': typeof CartillaStudentLeccionNRoute
   '/cartilla/teacher/flipchart/$n': typeof CartillaTeacherFlipchartNRoute
   '/cartilla/teacher/proyectar/$n': typeof CartillaTeacherProyectarNRoute
   '/cartilla/teacher/alumno/$id': typeof AuthenticatedCartillaTeacherAlumnoIdRoute
@@ -321,15 +331,11 @@ export interface FileRoutesById {
   '/_authenticated': typeof AuthenticatedRouteWithChildren
   '/book': typeof BookRoute
   '/login': typeof LoginRoute
+  '/cartilla/student': typeof CartillaStudentRouteRouteWithChildren
   '/cartilla/teacher': typeof CartillaTeacherRouteRouteWithChildren
   '/cartilla/autora': typeof CartillaAutoraRoute
   '/cartilla/binder': typeof CartillaBinderRouteWithChildren
   '/cartilla/kiosko': typeof CartillaKioskoRouteWithChildren
-  '/cartilla/lecciones': typeof CartillaLeccionesRoute
-  '/cartilla/libro': typeof CartillaLibroRoute
-  '/cartilla/mi-progreso': typeof CartillaMiProgresoRoute
-  '/cartilla/practica': typeof CartillaPracticaRoute
-  '/cartilla/repaso': typeof CartillaRepasoRoute
   '/cartilla/sesiones': typeof CartillaSesionesRoute
   '/cartilla/unirse': typeof CartillaUnirseRoute
   '/print/$lessonId': typeof PrintLessonIdRoute
@@ -339,9 +345,13 @@ export interface FileRoutesById {
   '/cartilla/imprimir/$n': typeof CartillaImprimirNRoute
   '/cartilla/imprimir/all': typeof CartillaImprimirAllRoute
   '/cartilla/kiosko/$n': typeof CartillaKioskoNRoute
-  '/cartilla/leccion/$n': typeof CartillaLeccionNRoute
   '/cartilla/presentar/$n': typeof CartillaPresentarNRoute
   '/cartilla/sesion/$n': typeof CartillaSesionNRoute
+  '/cartilla/student/lecciones': typeof CartillaStudentLeccionesRoute
+  '/cartilla/student/libro': typeof CartillaStudentLibroRoute
+  '/cartilla/student/mi-progreso': typeof CartillaStudentMiProgresoRoute
+  '/cartilla/student/practica': typeof CartillaStudentPracticaRoute
+  '/cartilla/student/repaso': typeof CartillaStudentRepasoRoute
   '/cartilla/teacher/flipchart': typeof CartillaTeacherFlipchartRouteWithChildren
   '/cartilla/teacher/progreso': typeof CartillaTeacherProgresoRoute
   '/cartilla/teacher/reportes': typeof CartillaTeacherReportesRoute
@@ -350,6 +360,7 @@ export interface FileRoutesById {
   '/_authenticated/cartilla/teacher/branding': typeof AuthenticatedCartillaTeacherBrandingRoute
   '/_authenticated/cartilla/teacher/presentacion': typeof AuthenticatedCartillaTeacherPresentacionRoute
   '/_authenticated/cartilla/teacher/remaster-review': typeof AuthenticatedCartillaTeacherRemasterReviewRoute
+  '/cartilla/student/leccion/$n': typeof CartillaStudentLeccionNRoute
   '/cartilla/teacher/flipchart/$n': typeof CartillaTeacherFlipchartNRoute
   '/cartilla/teacher/proyectar/$n': typeof CartillaTeacherProyectarNRoute
   '/_authenticated/cartilla/teacher/alumno/$id': typeof AuthenticatedCartillaTeacherAlumnoIdRoute
@@ -361,15 +372,11 @@ export interface FileRouteTypes {
     | '/'
     | '/book'
     | '/login'
+    | '/cartilla/student'
     | '/cartilla/teacher'
     | '/cartilla/autora'
     | '/cartilla/binder'
     | '/cartilla/kiosko'
-    | '/cartilla/lecciones'
-    | '/cartilla/libro'
-    | '/cartilla/mi-progreso'
-    | '/cartilla/practica'
-    | '/cartilla/repaso'
     | '/cartilla/sesiones'
     | '/cartilla/unirse'
     | '/print/$lessonId'
@@ -379,9 +386,13 @@ export interface FileRouteTypes {
     | '/cartilla/imprimir/$n'
     | '/cartilla/imprimir/all'
     | '/cartilla/kiosko/$n'
-    | '/cartilla/leccion/$n'
     | '/cartilla/presentar/$n'
     | '/cartilla/sesion/$n'
+    | '/cartilla/student/lecciones'
+    | '/cartilla/student/libro'
+    | '/cartilla/student/mi-progreso'
+    | '/cartilla/student/practica'
+    | '/cartilla/student/repaso'
     | '/cartilla/teacher/flipchart'
     | '/cartilla/teacher/progreso'
     | '/cartilla/teacher/reportes'
@@ -390,6 +401,7 @@ export interface FileRouteTypes {
     | '/cartilla/teacher/branding'
     | '/cartilla/teacher/presentacion'
     | '/cartilla/teacher/remaster-review'
+    | '/cartilla/student/leccion/$n'
     | '/cartilla/teacher/flipchart/$n'
     | '/cartilla/teacher/proyectar/$n'
     | '/cartilla/teacher/alumno/$id'
@@ -399,14 +411,10 @@ export interface FileRouteTypes {
     | '/'
     | '/book'
     | '/login'
+    | '/cartilla/student'
     | '/cartilla/autora'
     | '/cartilla/binder'
     | '/cartilla/kiosko'
-    | '/cartilla/lecciones'
-    | '/cartilla/libro'
-    | '/cartilla/mi-progreso'
-    | '/cartilla/practica'
-    | '/cartilla/repaso'
     | '/cartilla/sesiones'
     | '/cartilla/unirse'
     | '/print/$lessonId'
@@ -416,9 +424,13 @@ export interface FileRouteTypes {
     | '/cartilla/imprimir/$n'
     | '/cartilla/imprimir/all'
     | '/cartilla/kiosko/$n'
-    | '/cartilla/leccion/$n'
     | '/cartilla/presentar/$n'
     | '/cartilla/sesion/$n'
+    | '/cartilla/student/lecciones'
+    | '/cartilla/student/libro'
+    | '/cartilla/student/mi-progreso'
+    | '/cartilla/student/practica'
+    | '/cartilla/student/repaso'
     | '/cartilla/teacher/flipchart'
     | '/cartilla/teacher/progreso'
     | '/cartilla/teacher/reportes'
@@ -427,6 +439,7 @@ export interface FileRouteTypes {
     | '/cartilla/teacher/branding'
     | '/cartilla/teacher/presentacion'
     | '/cartilla/teacher/remaster-review'
+    | '/cartilla/student/leccion/$n'
     | '/cartilla/teacher/flipchart/$n'
     | '/cartilla/teacher/proyectar/$n'
     | '/cartilla/teacher/alumno/$id'
@@ -437,15 +450,11 @@ export interface FileRouteTypes {
     | '/_authenticated'
     | '/book'
     | '/login'
+    | '/cartilla/student'
     | '/cartilla/teacher'
     | '/cartilla/autora'
     | '/cartilla/binder'
     | '/cartilla/kiosko'
-    | '/cartilla/lecciones'
-    | '/cartilla/libro'
-    | '/cartilla/mi-progreso'
-    | '/cartilla/practica'
-    | '/cartilla/repaso'
     | '/cartilla/sesiones'
     | '/cartilla/unirse'
     | '/print/$lessonId'
@@ -455,9 +464,13 @@ export interface FileRouteTypes {
     | '/cartilla/imprimir/$n'
     | '/cartilla/imprimir/all'
     | '/cartilla/kiosko/$n'
-    | '/cartilla/leccion/$n'
     | '/cartilla/presentar/$n'
     | '/cartilla/sesion/$n'
+    | '/cartilla/student/lecciones'
+    | '/cartilla/student/libro'
+    | '/cartilla/student/mi-progreso'
+    | '/cartilla/student/practica'
+    | '/cartilla/student/repaso'
     | '/cartilla/teacher/flipchart'
     | '/cartilla/teacher/progreso'
     | '/cartilla/teacher/reportes'
@@ -466,6 +479,7 @@ export interface FileRouteTypes {
     | '/_authenticated/cartilla/teacher/branding'
     | '/_authenticated/cartilla/teacher/presentacion'
     | '/_authenticated/cartilla/teacher/remaster-review'
+    | '/cartilla/student/leccion/$n'
     | '/cartilla/teacher/flipchart/$n'
     | '/cartilla/teacher/proyectar/$n'
     | '/_authenticated/cartilla/teacher/alumno/$id'
@@ -477,15 +491,11 @@ export interface RootRouteChildren {
   AuthenticatedRoute: typeof AuthenticatedRouteWithChildren
   BookRoute: typeof BookRoute
   LoginRoute: typeof LoginRoute
+  CartillaStudentRouteRoute: typeof CartillaStudentRouteRouteWithChildren
   CartillaTeacherRouteRoute: typeof CartillaTeacherRouteRouteWithChildren
   CartillaAutoraRoute: typeof CartillaAutoraRoute
   CartillaBinderRoute: typeof CartillaBinderRouteWithChildren
   CartillaKioskoRoute: typeof CartillaKioskoRouteWithChildren
-  CartillaLeccionesRoute: typeof CartillaLeccionesRoute
-  CartillaLibroRoute: typeof CartillaLibroRoute
-  CartillaMiProgresoRoute: typeof CartillaMiProgresoRoute
-  CartillaPracticaRoute: typeof CartillaPracticaRoute
-  CartillaRepasoRoute: typeof CartillaRepasoRoute
   CartillaSesionesRoute: typeof CartillaSesionesRoute
   CartillaUnirseRoute: typeof CartillaUnirseRoute
   PrintLessonIdRoute: typeof PrintLessonIdRoute
@@ -493,7 +503,6 @@ export interface RootRouteChildren {
   CartillaIndexRoute: typeof CartillaIndexRoute
   CartillaImprimirNRoute: typeof CartillaImprimirNRoute
   CartillaImprimirAllRoute: typeof CartillaImprimirAllRoute
-  CartillaLeccionNRoute: typeof CartillaLeccionNRoute
   CartillaPresentarNRoute: typeof CartillaPresentarNRoute
   CartillaSesionNRoute: typeof CartillaSesionNRoute
 }
@@ -563,41 +572,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CartillaSesionesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/cartilla/repaso': {
-      id: '/cartilla/repaso'
-      path: '/cartilla/repaso'
-      fullPath: '/cartilla/repaso'
-      preLoaderRoute: typeof CartillaRepasoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/cartilla/practica': {
-      id: '/cartilla/practica'
-      path: '/cartilla/practica'
-      fullPath: '/cartilla/practica'
-      preLoaderRoute: typeof CartillaPracticaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/cartilla/mi-progreso': {
-      id: '/cartilla/mi-progreso'
-      path: '/cartilla/mi-progreso'
-      fullPath: '/cartilla/mi-progreso'
-      preLoaderRoute: typeof CartillaMiProgresoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/cartilla/libro': {
-      id: '/cartilla/libro'
-      path: '/cartilla/libro'
-      fullPath: '/cartilla/libro'
-      preLoaderRoute: typeof CartillaLibroRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/cartilla/lecciones': {
-      id: '/cartilla/lecciones'
-      path: '/cartilla/lecciones'
-      fullPath: '/cartilla/lecciones'
-      preLoaderRoute: typeof CartillaLeccionesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/cartilla/kiosko': {
       id: '/cartilla/kiosko'
       path: '/cartilla/kiosko'
@@ -624,6 +598,13 @@ declare module '@tanstack/react-router' {
       path: '/cartilla/teacher'
       fullPath: '/cartilla/teacher'
       preLoaderRoute: typeof CartillaTeacherRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cartilla/student': {
+      id: '/cartilla/student'
+      path: '/cartilla/student'
+      fullPath: '/cartilla/student'
+      preLoaderRoute: typeof CartillaStudentRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cartilla/teacher/': {
@@ -661,6 +642,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CartillaTeacherFlipchartRouteImport
       parentRoute: typeof CartillaTeacherRouteRoute
     }
+    '/cartilla/student/repaso': {
+      id: '/cartilla/student/repaso'
+      path: '/repaso'
+      fullPath: '/cartilla/student/repaso'
+      preLoaderRoute: typeof CartillaStudentRepasoRouteImport
+      parentRoute: typeof CartillaStudentRouteRoute
+    }
+    '/cartilla/student/practica': {
+      id: '/cartilla/student/practica'
+      path: '/practica'
+      fullPath: '/cartilla/student/practica'
+      preLoaderRoute: typeof CartillaStudentPracticaRouteImport
+      parentRoute: typeof CartillaStudentRouteRoute
+    }
+    '/cartilla/student/mi-progreso': {
+      id: '/cartilla/student/mi-progreso'
+      path: '/mi-progreso'
+      fullPath: '/cartilla/student/mi-progreso'
+      preLoaderRoute: typeof CartillaStudentMiProgresoRouteImport
+      parentRoute: typeof CartillaStudentRouteRoute
+    }
+    '/cartilla/student/libro': {
+      id: '/cartilla/student/libro'
+      path: '/libro'
+      fullPath: '/cartilla/student/libro'
+      preLoaderRoute: typeof CartillaStudentLibroRouteImport
+      parentRoute: typeof CartillaStudentRouteRoute
+    }
+    '/cartilla/student/lecciones': {
+      id: '/cartilla/student/lecciones'
+      path: '/lecciones'
+      fullPath: '/cartilla/student/lecciones'
+      preLoaderRoute: typeof CartillaStudentLeccionesRouteImport
+      parentRoute: typeof CartillaStudentRouteRoute
+    }
     '/cartilla/sesion/$n': {
       id: '/cartilla/sesion/$n'
       path: '/cartilla/sesion/$n'
@@ -673,13 +689,6 @@ declare module '@tanstack/react-router' {
       path: '/cartilla/presentar/$n'
       fullPath: '/cartilla/presentar/$n'
       preLoaderRoute: typeof CartillaPresentarNRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/cartilla/leccion/$n': {
-      id: '/cartilla/leccion/$n'
-      path: '/cartilla/leccion/$n'
-      fullPath: '/cartilla/leccion/$n'
-      preLoaderRoute: typeof CartillaLeccionNRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cartilla/kiosko/$n': {
@@ -723,6 +732,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/cartilla/teacher/flipchart/$n'
       preLoaderRoute: typeof CartillaTeacherFlipchartNRouteImport
       parentRoute: typeof CartillaTeacherFlipchartRoute
+    }
+    '/cartilla/student/leccion/$n': {
+      id: '/cartilla/student/leccion/$n'
+      path: '/leccion/$n'
+      fullPath: '/cartilla/student/leccion/$n'
+      preLoaderRoute: typeof CartillaStudentLeccionNRouteImport
+      parentRoute: typeof CartillaStudentRouteRoute
     }
     '/_authenticated/cartilla/teacher/remaster-review': {
       id: '/_authenticated/cartilla/teacher/remaster-review'
@@ -786,6 +802,27 @@ const AuthenticatedRouteChildren: AuthenticatedRouteChildren = {
 const AuthenticatedRouteWithChildren = AuthenticatedRoute._addFileChildren(
   AuthenticatedRouteChildren,
 )
+
+interface CartillaStudentRouteRouteChildren {
+  CartillaStudentLeccionesRoute: typeof CartillaStudentLeccionesRoute
+  CartillaStudentLibroRoute: typeof CartillaStudentLibroRoute
+  CartillaStudentMiProgresoRoute: typeof CartillaStudentMiProgresoRoute
+  CartillaStudentPracticaRoute: typeof CartillaStudentPracticaRoute
+  CartillaStudentRepasoRoute: typeof CartillaStudentRepasoRoute
+  CartillaStudentLeccionNRoute: typeof CartillaStudentLeccionNRoute
+}
+
+const CartillaStudentRouteRouteChildren: CartillaStudentRouteRouteChildren = {
+  CartillaStudentLeccionesRoute: CartillaStudentLeccionesRoute,
+  CartillaStudentLibroRoute: CartillaStudentLibroRoute,
+  CartillaStudentMiProgresoRoute: CartillaStudentMiProgresoRoute,
+  CartillaStudentPracticaRoute: CartillaStudentPracticaRoute,
+  CartillaStudentRepasoRoute: CartillaStudentRepasoRoute,
+  CartillaStudentLeccionNRoute: CartillaStudentLeccionNRoute,
+}
+
+const CartillaStudentRouteRouteWithChildren =
+  CartillaStudentRouteRoute._addFileChildren(CartillaStudentRouteRouteChildren)
 
 interface CartillaTeacherFlipchartRouteChildren {
   CartillaTeacherFlipchartNRoute: typeof CartillaTeacherFlipchartNRoute
@@ -851,15 +888,11 @@ const rootRouteChildren: RootRouteChildren = {
   AuthenticatedRoute: AuthenticatedRouteWithChildren,
   BookRoute: BookRoute,
   LoginRoute: LoginRoute,
+  CartillaStudentRouteRoute: CartillaStudentRouteRouteWithChildren,
   CartillaTeacherRouteRoute: CartillaTeacherRouteRouteWithChildren,
   CartillaAutoraRoute: CartillaAutoraRoute,
   CartillaBinderRoute: CartillaBinderRouteWithChildren,
   CartillaKioskoRoute: CartillaKioskoRouteWithChildren,
-  CartillaLeccionesRoute: CartillaLeccionesRoute,
-  CartillaLibroRoute: CartillaLibroRoute,
-  CartillaMiProgresoRoute: CartillaMiProgresoRoute,
-  CartillaPracticaRoute: CartillaPracticaRoute,
-  CartillaRepasoRoute: CartillaRepasoRoute,
   CartillaSesionesRoute: CartillaSesionesRoute,
   CartillaUnirseRoute: CartillaUnirseRoute,
   PrintLessonIdRoute: PrintLessonIdRoute,
@@ -867,7 +900,6 @@ const rootRouteChildren: RootRouteChildren = {
   CartillaIndexRoute: CartillaIndexRoute,
   CartillaImprimirNRoute: CartillaImprimirNRoute,
   CartillaImprimirAllRoute: CartillaImprimirAllRoute,
-  CartillaLeccionNRoute: CartillaLeccionNRoute,
   CartillaPresentarNRoute: CartillaPresentarNRoute,
   CartillaSesionNRoute: CartillaSesionNRoute,
 }

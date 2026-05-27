@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { BookReader } from "@/components/cartilla/BookReader";
 
-export const Route = createFileRoute("/cartilla/libro")({
+export const Route = createFileRoute("/cartilla/student/libro")({
   component: LibroReaderPage,
   head: () => ({
     meta: [

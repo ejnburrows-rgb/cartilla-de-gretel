@@ -60,7 +60,7 @@ function ImprimirPage() {
       {/* ── Screen chrome — hidden on print ── */}
       <div className="no-print px-4 py-4 max-w-3xl mx-auto flex items-center justify-between">
         <Link
-          to="/cartilla/leccion/$n"
+          to="/cartilla/student/leccion/$n"
           params={{ n: String(n) }}
           className="inline-flex items-center gap-2 text-sm font-bold text-foreground/70 hover:text-foreground"
           aria-label={`Volver a la lección ${n}`}

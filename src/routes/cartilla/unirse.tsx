@@ -61,7 +61,7 @@ function JoinPage() {
           </p>
           <div className="mt-4 flex flex-col gap-2">
             <Link
-              to="/cartilla/lecciones"
+              to="/cartilla/student/lecciones"
               className="px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold"
             >
               Continuar a las lecciones

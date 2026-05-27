@@ -13,7 +13,7 @@ import { speak } from "@/lib/speak";
 import { useLessonProgress } from "@/lib/lesson-progress";
 import { recordEvent } from "@/lib/student-session";
 
-export const Route = createFileRoute("/cartilla/practica")({
+export const Route = createFileRoute("/cartilla/student/practica")({
   component: Practica,
   head: () => ({
     meta: [

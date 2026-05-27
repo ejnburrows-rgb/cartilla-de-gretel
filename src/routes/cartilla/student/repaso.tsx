@@ -26,7 +26,7 @@ import {
 import { BookArtFigure } from "@/components/cartilla/BookArtFigure";
 import "@/styles/cartilla-student.css";
 
-export const Route = createFileRoute("/cartilla/repaso")({
+export const Route = createFileRoute("/cartilla/student/repaso")({
   component: Repaso,
   head: () => ({ meta: [{ title: "Modo Repaso — La Cartilla de Gretel" }] }),
 });
@@ -63,7 +63,7 @@ function Repaso() {
       <header className="px-4 pt-5 pb-4 max-w-5xl mx-auto">
         <div className="flex items-center justify-between gap-3 mb-4">
           <Link
-            to="/cartilla/lecciones"
+            to="/cartilla/student/lecciones"
             className="inline-flex items-center gap-2 text-sm font-bold text-foreground/70 hover:text-foreground"
             aria-label="Volver al índice de lecciones"
           >
@@ -203,7 +203,7 @@ function Section({
                     </h3>
                     <p className="text-sm text-foreground/70 line-clamp-2">{entry.subtitle}</p>
                     <Link
-                      to="/cartilla/leccion/$n"
+                      to="/cartilla/student/leccion/$n"
                       params={{ n: String(entry.n) }}
                       className="mt-auto inline-flex items-center justify-center gap-1.5 py-2.5 px-4 rounded-xl text-sm font-bold text-white transition hover:-translate-y-0.5"
                       style={{ backgroundColor: entry.color }}
