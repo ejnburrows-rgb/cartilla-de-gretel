@@ -1,2 +1,2 @@
-2026-05-27T11:27:00Z
-rebuild: restore main HEAD with disabled auth middleware
+2026-05-27T11:30:00Z
+rebuild: trigger Vercel build from verified GitHub author to clear deploy@cartilla.local block
