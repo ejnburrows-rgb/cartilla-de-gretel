@@ -161,7 +161,7 @@ export function StudentExercisePane({
                 style={{ backgroundColor: accent }}
                 onClick={() => markDone("reading_sentences")}
               >
-                Ya le\u00ed \u2713
+                Ya leí ✓
               </button>
             </section>
           )
@@ -176,7 +176,7 @@ export function StudentExercisePane({
               style={{ backgroundColor: accent }}
               onClick={() => markDone("reading_sentences")}
             >
-              Listo \u2713
+              Listo ✓
             </button>
           )
         },
