@@ -11,21 +11,65 @@
     "characterName": "La Abeja Cantora",
     "characterDesc": "Una abeja que siempre canta aaaaa cuando vuela de flor en flor recolectando néctar.",
     "vocab": [
-      { "word": "árbol", "emoji": "🌳" },
-      { "word": "avión", "emoji": "✈️" },
-      { "word": "abeja", "emoji": "🐝" },
-      { "word": "ala", "emoji": "🪽" }
+      {
+        "word": "árbol",
+        "emoji": ""
+      },
+      {
+        "word": "avión",
+        "emoji": ""
+      },
+      {
+        "word": "abeja",
+        "emoji": ""
+      },
+      {
+        "word": "ala",
+        "emoji": ""
+      }
     ],
     "matchPairs": [
-      { "left": "a", "right": "🌳 árbol", "pairId": 0 },
-      { "left": "a", "right": "✈️ avión", "pairId": 1 },
-      { "left": "a", "right": "🐝 abeja", "pairId": 2 }
+      {
+        "left": "a",
+        "right": "árbol",
+        "pairId": 0
+      },
+      {
+        "left": "a",
+        "right": "avión",
+        "pairId": 1
+      },
+      {
+        "left": "a",
+        "right": "abeja",
+        "pairId": 2
+      }
     ],
     "checkboxItems": [
-      { "word": "árbol", "emoji": "🌳", "startsWithVowel": true, "startsWithLetter": true },
-      { "word": "avión", "emoji": "✈️", "startsWithVowel": true, "startsWithLetter": true },
-      { "word": "elefante", "emoji": "🐘", "startsWithVowel": true, "startsWithLetter": false },
-      { "word": "escoba", "emoji": "🧹", "startsWithVowel": true, "startsWithLetter": false }
+      {
+        "word": "árbol",
+        "emoji": "",
+        "startsWithVowel": true,
+        "startsWithLetter": true
+      },
+      {
+        "word": "avión",
+        "emoji": "",
+        "startsWithVowel": true,
+        "startsWithLetter": true
+      },
+      {
+        "word": "elefante",
+        "emoji": "",
+        "startsWithVowel": true,
+        "startsWithLetter": false
+      },
+      {
+        "word": "escoba",
+        "emoji": "",
+        "startsWithVowel": true,
+        "startsWithLetter": false
+      }
     ]
   },
   {
@@ -40,21 +84,65 @@
     "characterName": "La Niña que no Oye Bien",
     "characterDesc": "Una niña con dificultad para oír; cuando no escucha, dice eeeee para pedir que le repitan.",
     "vocab": [
-      { "word": "elefante", "emoji": "🐘" },
-      { "word": "escoba", "emoji": "🧹" },
-      { "word": "espejo", "emoji": "🪞" },
-      { "word": "estrella", "emoji": "⭐" }
+      {
+        "word": "elefante",
+        "emoji": ""
+      },
+      {
+        "word": "escoba",
+        "emoji": ""
+      },
+      {
+        "word": "espejo",
+        "emoji": ""
+      },
+      {
+        "word": "estrella",
+        "emoji": ""
+      }
     ],
     "matchPairs": [
-      { "left": "e", "right": "🐘 elefante", "pairId": 0 },
-      { "left": "e", "right": "🧹 escoba", "pairId": 1 },
-      { "left": "e", "right": "🪞 espejo", "pairId": 2 }
+      {
+        "left": "e",
+        "right": "elefante",
+        "pairId": 0
+      },
+      {
+        "left": "e",
+        "right": "escoba",
+        "pairId": 1
+      },
+      {
+        "left": "e",
+        "right": "espejo",
+        "pairId": 2
+      }
     ],
     "checkboxItems": [
-      { "word": "elefante", "emoji": "🐘", "startsWithVowel": true, "startsWithLetter": true },
-      { "word": "escoba", "emoji": "🧹", "startsWithVowel": true, "startsWithLetter": true },
-      { "word": "árbol", "emoji": "🌳", "startsWithVowel": true, "startsWithLetter": false },
-      { "word": "avión", "emoji": "✈️", "startsWithVowel": true, "startsWithLetter": false }
+      {
+        "word": "elefante",
+        "emoji": "",
+        "startsWithVowel": true,
+        "startsWithLetter": true
+      },
+      {
+        "word": "escoba",
+        "emoji": "",
+        "startsWithVowel": true,
+        "startsWithLetter": true
+      },
+      {
+        "word": "árbol",
+        "emoji": "",
+        "startsWithVowel": true,
+        "startsWithLetter": false
+      },
+      {
+        "word": "avión",
+        "emoji": "",
+        "startsWithVowel": true,
+        "startsWithLetter": false
+      }
     ]
   },
   {
@@ -69,21 +157,65 @@
     "characterName": "El Explorador del Iglú",
     "characterDesc": "Un explorador valiente que vive en el iglú y siempre dice iiiii de emoción al descubrir cosas nuevas.",
     "vocab": [
-      { "word": "iglú", "emoji": "🛖" },
-      { "word": "iglesia", "emoji": "⛪" },
-      { "word": "iguana", "emoji": "🦎" },
-      { "word": "imán", "emoji": "🧲" }
+      {
+        "word": "iglú",
+        "emoji": ""
+      },
+      {
+        "word": "iglesia",
+        "emoji": ""
+      },
+      {
+        "word": "iguana",
+        "emoji": ""
+      },
+      {
+        "word": "imán",
+        "emoji": ""
+      }
     ],
     "matchPairs": [
-      { "left": "i", "right": "🛖 iglú", "pairId": 0 },
-      { "left": "i", "right": "⛪ iglesia", "pairId": 1 },
-      { "left": "i", "right": "🦎 iguana", "pairId": 2 }
+      {
+        "left": "i",
+        "right": "iglú",
+        "pairId": 0
+      },
+      {
+        "left": "i",
+        "right": "iglesia",
+        "pairId": 1
+      },
+      {
+        "left": "i",
+        "right": "iguana",
+        "pairId": 2
+      }
     ],
     "checkboxItems": [
-      { "word": "iglú", "emoji": "🛖", "startsWithVowel": true, "startsWithLetter": true },
-      { "word": "iglesia", "emoji": "⛪", "startsWithVowel": true, "startsWithLetter": true },
-      { "word": "árbol", "emoji": "🌳", "startsWithVowel": true, "startsWithLetter": false },
-      { "word": "avión", "emoji": "✈️", "startsWithVowel": true, "startsWithLetter": false }
+      {
+        "word": "iglú",
+        "emoji": "",
+        "startsWithVowel": true,
+        "startsWithLetter": true
+      },
+      {
+        "word": "iglesia",
+        "emoji": "",
+        "startsWithVowel": true,
+        "startsWithLetter": true
+      },
+      {
+        "word": "árbol",
+        "emoji": "",
+        "startsWithVowel": true,
+        "startsWithLetter": false
+      },
+      {
+        "word": "avión",
+        "emoji": "",
+        "startsWithVowel": true,
+        "startsWithLetter": false
+      }
     ]
   },
   {
@@ -98,21 +230,65 @@
     "characterName": "El Oso Dormilón",
     "characterDesc": "Un oso grande y cariñoso que siempre está sorprendido y dice oooo cuando ve algo interesante.",
     "vocab": [
-      { "word": "oso", "emoji": "🐻" },
-      { "word": "ojo", "emoji": "👁️" },
-      { "word": "ola", "emoji": "🌊" },
-      { "word": "olla", "emoji": "🍲" }
+      {
+        "word": "oso",
+        "emoji": ""
+      },
+      {
+        "word": "ojo",
+        "emoji": ""
+      },
+      {
+        "word": "ola",
+        "emoji": ""
+      },
+      {
+        "word": "olla",
+        "emoji": ""
+      }
     ],
     "matchPairs": [
-      { "left": "o", "right": "🐻 oso", "pairId": 0 },
-      { "left": "o", "right": "👁️ ojo", "pairId": 1 },
-      { "left": "o", "right": "🌊 ola", "pairId": 2 }
+      {
+        "left": "o",
+        "right": "oso",
+        "pairId": 0
+      },
+      {
+        "left": "o",
+        "right": "ojo",
+        "pairId": 1
+      },
+      {
+        "left": "o",
+        "right": "ola",
+        "pairId": 2
+      }
     ],
     "checkboxItems": [
-      { "word": "oso", "emoji": "🐻", "startsWithVowel": true, "startsWithLetter": true },
-      { "word": "ojo", "emoji": "👁️", "startsWithVowel": true, "startsWithLetter": true },
-      { "word": "árbol", "emoji": "🌳", "startsWithVowel": true, "startsWithLetter": false },
-      { "word": "avión", "emoji": "✈️", "startsWithVowel": true, "startsWithLetter": false }
+      {
+        "word": "oso",
+        "emoji": "",
+        "startsWithVowel": true,
+        "startsWithLetter": true
+      },
+      {
+        "word": "ojo",
+        "emoji": "",
+        "startsWithVowel": true,
+        "startsWithLetter": true
+      },
+      {
+        "word": "árbol",
+        "emoji": "",
+        "startsWithVowel": true,
+        "startsWithLetter": false
+      },
+      {
+        "word": "avión",
+        "emoji": "",
+        "startsWithVowel": true,
+        "startsWithLetter": false
+      }
     ]
   },
   {
@@ -127,21 +303,65 @@
     "characterName": "La Única Unicornia",
     "characterDesc": "Una unicornia mágica y brillante que dice uuuu de maravilla cada vez que usa su magia.",
     "vocab": [
-      { "word": "uvas", "emoji": "🍇" },
-      { "word": "uña", "emoji": "💅" },
-      { "word": "uno", "emoji": "1️⃣" },
-      { "word": "urna", "emoji": "🏺" }
+      {
+        "word": "uvas",
+        "emoji": ""
+      },
+      {
+        "word": "uña",
+        "emoji": ""
+      },
+      {
+        "word": "uno",
+        "emoji": ""
+      },
+      {
+        "word": "urna",
+        "emoji": ""
+      }
     ],
     "matchPairs": [
-      { "left": "u", "right": "🍇 uvas", "pairId": 0 },
-      { "left": "u", "right": "💅 uña", "pairId": 1 },
-      { "left": "u", "right": "1️⃣ uno", "pairId": 2 }
+      {
+        "left": "u",
+        "right": "uvas",
+        "pairId": 0
+      },
+      {
+        "left": "u",
+        "right": "uña",
+        "pairId": 1
+      },
+      {
+        "left": "u",
+        "right": "uno",
+        "pairId": 2
+      }
     ],
     "checkboxItems": [
-      { "word": "uvas", "emoji": "🍇", "startsWithVowel": true, "startsWithLetter": true },
-      { "word": "uña", "emoji": "💅", "startsWithVowel": true, "startsWithLetter": true },
-      { "word": "árbol", "emoji": "🌳", "startsWithVowel": true, "startsWithLetter": false },
-      { "word": "avión", "emoji": "✈️", "startsWithVowel": true, "startsWithLetter": false }
+      {
+        "word": "uvas",
+        "emoji": "",
+        "startsWithVowel": true,
+        "startsWithLetter": true
+      },
+      {
+        "word": "uña",
+        "emoji": "",
+        "startsWithVowel": true,
+        "startsWithLetter": true
+      },
+      {
+        "word": "árbol",
+        "emoji": "",
+        "startsWithVowel": true,
+        "startsWithLetter": false
+      },
+      {
+        "word": "avión",
+        "emoji": "",
+        "startsWithVowel": true,
+        "startsWithLetter": false
+      }
     ]
   },
   {
@@ -155,24 +375,79 @@
     "characterName": "Repaso de Vocales",
     "characterDesc": "Hoy juntamos a la abeja, la niña, el explorador, el oso y la unicornia para repasar a-e-i-o-u.",
     "vocab": [
-      { "word": "abeja", "emoji": "🐝" },
-      { "word": "elefante", "emoji": "🐘" },
-      { "word": "iglú", "emoji": "🛖" },
-      { "word": "oso", "emoji": "🐻" },
-      { "word": "uvas", "emoji": "🍇" }
+      {
+        "word": "abeja",
+        "emoji": ""
+      },
+      {
+        "word": "elefante",
+        "emoji": ""
+      },
+      {
+        "word": "iglú",
+        "emoji": ""
+      },
+      {
+        "word": "oso",
+        "emoji": ""
+      },
+      {
+        "word": "uvas",
+        "emoji": ""
+      }
     ],
     "matchPairs": [
-      { "left": "a", "right": "🐝 abeja", "pairId": 0 },
-      { "left": "e", "right": "🐘 elefante", "pairId": 1 },
-      { "left": "i", "right": "🛖 iglú", "pairId": 2 },
-      { "left": "o", "right": "🐻 oso", "pairId": 3 },
-      { "left": "u", "right": "🍇 uvas", "pairId": 4 }
+      {
+        "left": "a",
+        "right": "abeja",
+        "pairId": 0
+      },
+      {
+        "left": "e",
+        "right": "elefante",
+        "pairId": 1
+      },
+      {
+        "left": "i",
+        "right": "iglú",
+        "pairId": 2
+      },
+      {
+        "left": "o",
+        "right": "oso",
+        "pairId": 3
+      },
+      {
+        "left": "u",
+        "right": "uvas",
+        "pairId": 4
+      }
     ],
     "checkboxItems": [
-      { "word": "abeja", "emoji": "🐝", "startsWithVowel": true, "startsWithLetter": true },
-      { "word": "oso", "emoji": "🐻", "startsWithVowel": true, "startsWithLetter": true },
-      { "word": "mesa", "emoji": "🪑", "startsWithVowel": false, "startsWithLetter": false },
-      { "word": "sapo", "emoji": "🐸", "startsWithVowel": false, "startsWithLetter": false }
+      {
+        "word": "abeja",
+        "emoji": "",
+        "startsWithVowel": true,
+        "startsWithLetter": true
+      },
+      {
+        "word": "oso",
+        "emoji": "",
+        "startsWithVowel": true,
+        "startsWithLetter": true
+      },
+      {
+        "word": "mesa",
+        "emoji": "",
+        "startsWithVowel": false,
+        "startsWithLetter": false
+      },
+      {
+        "word": "sapo",
+        "emoji": "",
+        "startsWithVowel": false,
+        "startsWithLetter": false
+      }
     ]
   },
   {
@@ -185,25 +460,114 @@
     "colorGradient": "from-rose-500 to-red-600",
     "characterName": "La M de Mamá",
     "characterDesc": "La M es la primera letra que aprenden los niños porque siempre dicen mamá.",
-    "syllables": ["ma","me","mi","mo","mu"],
-    "examples": { "ma": ["mamá","mami","mapa","ama","Manolo"], "me": ["mesa","Meme","Memo","me","meta"], "mi": ["Mimí","mío","mima","mira","misa"], "mo": ["Mimo","mono","moto","moneda","amo"], "mu": ["Mumi","mula","mulo","mudo","mujer"] },
-    "sentences": ["Mi mamá me ama.","Amo a mami. Mamá mía.","Mamá ama a Meme y a Mimí.","Memo ama a Mumi.","Mamá mía ámame. Mímame a mí.","Mi mamá me mima."],
+    "syllables": [
+      "ma",
+      "me",
+      "mi",
+      "mo",
+      "mu"
+    ],
+    "examples": {
+      "ma": [
+        "mamá",
+        "mami",
+        "mapa",
+        "ama",
+        "Manolo"
+      ],
+      "me": [
+        "mesa",
+        "Meme",
+        "Memo",
+        "me",
+        "meta"
+      ],
+      "mi": [
+        "Mimí",
+        "mío",
+        "mima",
+        "mira",
+        "misa"
+      ],
+      "mo": [
+        "Mimo",
+        "mono",
+        "moto",
+        "moneda",
+        "amo"
+      ],
+      "mu": [
+        "Mumi",
+        "mula",
+        "mulo",
+        "mudo",
+        "mujer"
+      ]
+    },
+    "sentences": [
+      "Mi mamá me ama.",
+      "Amo a mami. Mamá mía.",
+      "Mamá ama a Meme y a Mimí.",
+      "Memo ama a Mumi.",
+      "Mamá mía ámame. Mímame a mí.",
+      "Mi mamá me mima."
+    ],
     "vocab": [
-      { "word": "mamá", "emoji": "👩" },
-      { "word": "mesa", "emoji": "🪑" },
-      { "word": "mono", "emoji": "🐵" },
-      { "word": "moto", "emoji": "🛵" }
+      {
+        "word": "mamá",
+        "emoji": ""
+      },
+      {
+        "word": "mesa",
+        "emoji": ""
+      },
+      {
+        "word": "mono",
+        "emoji": ""
+      },
+      {
+        "word": "moto",
+        "emoji": ""
+      }
     ],
     "matchPairs": [
-      { "left": "ma", "right": "👩 mamá", "pairId": 0 },
-      { "left": "me", "right": "🪑 mesa", "pairId": 1 },
-      { "left": "mo", "right": "🐵 mono", "pairId": 2 }
+      {
+        "left": "ma",
+        "right": "mamá",
+        "pairId": 0
+      },
+      {
+        "left": "me",
+        "right": "mesa",
+        "pairId": 1
+      },
+      {
+        "left": "mo",
+        "right": "mono",
+        "pairId": 2
+      }
     ],
     "checkboxItems": [
-      { "word": "mamá", "emoji": "👩", "startsWithLetter": true },
-      { "word": "mesa", "emoji": "🪑", "startsWithLetter": true },
-      { "word": "papá", "emoji": "👨", "startsWithLetter": false },
-      { "word": "sapo", "emoji": "🐸", "startsWithLetter": false }
+      {
+        "word": "mamá",
+        "emoji": "",
+        "startsWithLetter": true
+      },
+      {
+        "word": "mesa",
+        "emoji": "",
+        "startsWithLetter": true
+      },
+      {
+        "word": "papá",
+        "emoji": "",
+        "startsWithLetter": false
+      },
+      {
+        "word": "sapo",
+        "emoji": "",
+        "startsWithLetter": false
+      }
     ]
   },
   {
@@ -216,25 +580,113 @@
     "colorGradient": "from-amber-500 to-orange-500",
     "characterName": "El Papá de Pepe",
     "characterDesc": "Pepe quiere mucho a su papá. Juntos juegan con Pupi.",
-    "syllables": ["pa","pe","pi","po","pu"],
-    "examples": { "pa": ["papá","papi","mapa","pala","Papo"], "pe": ["Pepe","pelo","pesa","Pepo","tapete"], "pi": ["pipo","Pupi","Mapi","Mupi","pie"], "po": ["pomo","polo","sapo","mapo","Pepo"], "pu": ["puma","púa","Pupi","upa","apura"] },
-    "sentences": ["Papá y Pepe aman a mamá.","Pupi ama a papá.","Yo amo a mamá y a papá.","Mi papá ama a Pupi.","Papá y mamá me aman."],
+    "syllables": [
+      "pa",
+      "pe",
+      "pi",
+      "po",
+      "pu"
+    ],
+    "examples": {
+      "pa": [
+        "papá",
+        "papi",
+        "mapa",
+        "pala",
+        "Papo"
+      ],
+      "pe": [
+        "Pepe",
+        "pelo",
+        "pesa",
+        "Pepo",
+        "tapete"
+      ],
+      "pi": [
+        "pipo",
+        "Pupi",
+        "Mapi",
+        "Mupi",
+        "pie"
+      ],
+      "po": [
+        "pomo",
+        "polo",
+        "sapo",
+        "mapo",
+        "Pepo"
+      ],
+      "pu": [
+        "puma",
+        "púa",
+        "Pupi",
+        "upa",
+        "apura"
+      ]
+    },
+    "sentences": [
+      "Papá y Pepe aman a mamá.",
+      "Pupi ama a papá.",
+      "Yo amo a mamá y a papá.",
+      "Mi papá ama a Pupi.",
+      "Papá y mamá me aman."
+    ],
     "vocab": [
-      { "word": "papá", "emoji": "👨" },
-      { "word": "pelo", "emoji": "💇" },
-      { "word": "polo", "emoji": "👕" },
-      { "word": "puma", "emoji": "🐆" }
+      {
+        "word": "papá",
+        "emoji": ""
+      },
+      {
+        "word": "pelo",
+        "emoji": ""
+      },
+      {
+        "word": "polo",
+        "emoji": ""
+      },
+      {
+        "word": "puma",
+        "emoji": ""
+      }
     ],
     "matchPairs": [
-      { "left": "pa", "right": "👨 papá", "pairId": 0 },
-      { "left": "pe", "right": "💇 pelo", "pairId": 1 },
-      { "left": "po", "right": "👕 polo", "pairId": 2 }
+      {
+        "left": "pa",
+        "right": "papá",
+        "pairId": 0
+      },
+      {
+        "left": "pe",
+        "right": "pelo",
+        "pairId": 1
+      },
+      {
+        "left": "po",
+        "right": "polo",
+        "pairId": 2
+      }
     ],
     "checkboxItems": [
-      { "word": "papá", "emoji": "👨", "startsWithLetter": true },
-      { "word": "puma", "emoji": "🐆", "startsWithLetter": true },
-      { "word": "mamá", "emoji": "👩", "startsWithLetter": false },
-      { "word": "sapo", "emoji": "🐸", "startsWithLetter": false }
+      {
+        "word": "papá",
+        "emoji": "",
+        "startsWithLetter": true
+      },
+      {
+        "word": "puma",
+        "emoji": "",
+        "startsWithLetter": true
+      },
+      {
+        "word": "mamá",
+        "emoji": "",
+        "startsWithLetter": false
+      },
+      {
+        "word": "sapo",
+        "emoji": "",
+        "startsWithLetter": false
+      }
     ]
   },
   {
@@ -247,25 +699,115 @@
     "colorGradient": "from-teal-500 to-emerald-600",
     "characterName": "El Sapo Samapo",
     "characterDesc": "Susi y Sisi tienen a Samapo, un sapo travieso que vive en la sopa.",
-    "syllables": ["sa","se","si","so","su"],
-    "examples": { "sa": ["sapo","sala","masa","casa","mesa"], "se": ["sello","seca","semilla","seso","ese"], "si": ["Sisi","silla","sitio","así","casita"], "so": ["sopa","soga","oso","paso","puso"], "su": ["Susi","suma","suyo","sube","supo"] },
-    "sentences": ["La mesa es de Susi.","La sopa está en la mesa.","Papá pasa la sopa a Susi.","Sisi pasa la sopa a mamá.","Ese sapo es de Sisi. Es el sapo Samapo.","Sisi pasa el sapo a Pepe.","Pepe puso un sapo en la mesa."],
+    "syllables": [
+      "sa",
+      "se",
+      "si",
+      "so",
+      "su"
+    ],
+    "examples": {
+      "sa": [
+        "sapo",
+        "sala",
+        "masa",
+        "casa",
+        "mesa"
+      ],
+      "se": [
+        "sello",
+        "seca",
+        "semilla",
+        "seso",
+        "ese"
+      ],
+      "si": [
+        "Sisi",
+        "silla",
+        "sitio",
+        "así",
+        "casita"
+      ],
+      "so": [
+        "sopa",
+        "soga",
+        "oso",
+        "paso",
+        "puso"
+      ],
+      "su": [
+        "Susi",
+        "suma",
+        "suyo",
+        "sube",
+        "supo"
+      ]
+    },
+    "sentences": [
+      "La mesa es de Susi.",
+      "La sopa está en la mesa.",
+      "Papá pasa la sopa a Susi.",
+      "Sisi pasa la sopa a mamá.",
+      "Ese sapo es de Sisi. Es el sapo Samapo.",
+      "Sisi pasa el sapo a Pepe.",
+      "Pepe puso un sapo en la mesa."
+    ],
     "vocab": [
-      { "word": "sapo", "emoji": "🐸" },
-      { "word": "sopa", "emoji": "🍲" },
-      { "word": "silla", "emoji": "🪑" },
-      { "word": "sol", "emoji": "☀️" }
+      {
+        "word": "sapo",
+        "emoji": ""
+      },
+      {
+        "word": "sopa",
+        "emoji": ""
+      },
+      {
+        "word": "silla",
+        "emoji": ""
+      },
+      {
+        "word": "sol",
+        "emoji": ""
+      }
     ],
     "matchPairs": [
-      { "left": "sa", "right": "🐸 sapo", "pairId": 0 },
-      { "left": "so", "right": "🍲 sopa", "pairId": 1 },
-      { "left": "si", "right": "🪑 silla", "pairId": 2 }
+      {
+        "left": "sa",
+        "right": "sapo",
+        "pairId": 0
+      },
+      {
+        "left": "so",
+        "right": "sopa",
+        "pairId": 1
+      },
+      {
+        "left": "si",
+        "right": "silla",
+        "pairId": 2
+      }
     ],
     "checkboxItems": [
-      { "word": "sapo", "emoji": "🐸", "startsWithLetter": true },
-      { "word": "sopa", "emoji": "🍲", "startsWithLetter": true },
-      { "word": "mamá", "emoji": "👩", "startsWithLetter": false },
-      { "word": "papá", "emoji": "👨", "startsWithLetter": false }
+      {
+        "word": "sapo",
+        "emoji": "",
+        "startsWithLetter": true
+      },
+      {
+        "word": "sopa",
+        "emoji": "",
+        "startsWithLetter": true
+      },
+      {
+        "word": "mamá",
+        "emoji": "",
+        "startsWithLetter": false
+      },
+      {
+        "word": "papá",
+        "emoji": "",
+        "startsWithLetter": false
+      }
     ]
   },
   {
@@ -278,25 +820,115 @@
     "colorGradient": "from-slate-700 to-cyan-800",
     "characterName": "Tito y el Tomate",
     "characterDesc": "Tito siempre tapa el pomo de sopa y mete un tomate adentro.",
-    "syllables": ["ta","te","ti","to","tu"],
-    "examples": { "ta": ["tapa","Tota","Mota","pata","seta"], "te": ["tema","teme","Teté","tomate","tapete"], "ti": ["Tito","Piti","Poti","tina","tipi"], "to": ["topo","moto","tomate","toma","sapito"], "tu": ["tupe","tubo","tulipán","tuna","Matute"] },
-    "sentences": ["La mesa tiene un tapete.","El pomo está en la mesa.","La mesa está en el patio.","El pomo tiene sopa. El pomo tiene tapa.","Tito tapa el pomo.","—¡No Tito, no, no tapes el pomo!","Papá tapa la sopa."],
+    "syllables": [
+      "ta",
+      "te",
+      "ti",
+      "to",
+      "tu"
+    ],
+    "examples": {
+      "ta": [
+        "tapa",
+        "Tota",
+        "Mota",
+        "pata",
+        "seta"
+      ],
+      "te": [
+        "tema",
+        "teme",
+        "Teté",
+        "tomate",
+        "tapete"
+      ],
+      "ti": [
+        "Tito",
+        "Piti",
+        "Poti",
+        "tina",
+        "tipi"
+      ],
+      "to": [
+        "topo",
+        "moto",
+        "tomate",
+        "toma",
+        "sapito"
+      ],
+      "tu": [
+        "tupe",
+        "tubo",
+        "tulipán",
+        "tuna",
+        "Matute"
+      ]
+    },
+    "sentences": [
+      "La mesa tiene un tapete.",
+      "El pomo está en la mesa.",
+      "La mesa está en el patio.",
+      "El pomo tiene sopa. El pomo tiene tapa.",
+      "Tito tapa el pomo.",
+      "—¡No Tito, no, no tapes el pomo!",
+      "Papá tapa la sopa."
+    ],
     "vocab": [
-      { "word": "tomate", "emoji": "🍅" },
-      { "word": "tina", "emoji": "🛁" },
-      { "word": "topo", "emoji": "🐀" },
-      { "word": "tubo", "emoji": "🚰" }
+      {
+        "word": "tomate",
+        "emoji": ""
+      },
+      {
+        "word": "tina",
+        "emoji": ""
+      },
+      {
+        "word": "topo",
+        "emoji": ""
+      },
+      {
+        "word": "tubo",
+        "emoji": ""
+      }
     ],
     "matchPairs": [
-      { "left": "to", "right": "🍅 tomate", "pairId": 0 },
-      { "left": "ti", "right": "🛁 tina", "pairId": 1 },
-      { "left": "tu", "right": "🚰 tubo", "pairId": 2 }
+      {
+        "left": "to",
+        "right": "tomate",
+        "pairId": 0
+      },
+      {
+        "left": "ti",
+        "right": "tina",
+        "pairId": 1
+      },
+      {
+        "left": "tu",
+        "right": "tubo",
+        "pairId": 2
+      }
     ],
     "checkboxItems": [
-      { "word": "tomate", "emoji": "🍅", "startsWithLetter": true },
-      { "word": "tina", "emoji": "🛁", "startsWithLetter": true },
-      { "word": "sapo", "emoji": "🐸", "startsWithLetter": false },
-      { "word": "mesa", "emoji": "🪑", "startsWithLetter": false }
+      {
+        "word": "tomate",
+        "emoji": "",
+        "startsWithLetter": true
+      },
+      {
+        "word": "tina",
+        "emoji": "",
+        "startsWithLetter": true
+      },
+      {
+        "word": "sapo",
+        "emoji": "",
+        "startsWithLetter": false
+      },
+      {
+        "word": "mesa",
+        "emoji": "",
+        "startsWithLetter": false
+      }
     ]
   },
   {
@@ -309,25 +941,115 @@
     "colorGradient": "from-violet-500 to-purple-600",
     "characterName": "Dunia y los Dados",
     "characterDesc": "Dunia tiene unos dados de colores y juega con Ada todos los días.",
-    "syllables": ["da","de","di","do","du"],
-    "examples": { "da": ["dame","dado","Ada","duda","poda"], "de": ["dedo","deme","además","debajo","pide"], "di": ["dime","día","dice","dinero","Didi"], "do": ["dado","doce","modo","mudo","Dunia"], "du": ["Duma","duda","duro","durazno","ducha"] },
-    "sentences": ["Dime si Ada tiene dados.","Los dados son de Dunia.","—¿Dónde están los dados?","Dunia pone los dados en el pomo.","—Dunia dame el pomo.","El pomo de Dunia está en la mesa.","—Ada, ¿Dónde está Dunia?"],
+    "syllables": [
+      "da",
+      "de",
+      "di",
+      "do",
+      "du"
+    ],
+    "examples": {
+      "da": [
+        "dame",
+        "dado",
+        "Ada",
+        "duda",
+        "poda"
+      ],
+      "de": [
+        "dedo",
+        "deme",
+        "además",
+        "debajo",
+        "pide"
+      ],
+      "di": [
+        "dime",
+        "día",
+        "dice",
+        "dinero",
+        "Didi"
+      ],
+      "do": [
+        "dado",
+        "doce",
+        "modo",
+        "mudo",
+        "Dunia"
+      ],
+      "du": [
+        "Duma",
+        "duda",
+        "duro",
+        "durazno",
+        "ducha"
+      ]
+    },
+    "sentences": [
+      "Dime si Ada tiene dados.",
+      "Los dados son de Dunia.",
+      "—¿Dónde están los dados?",
+      "Dunia pone los dados en el pomo.",
+      "—Dunia dame el pomo.",
+      "El pomo de Dunia está en la mesa.",
+      "—Ada, ¿Dónde está Dunia?"
+    ],
     "vocab": [
-      { "word": "dado", "emoji": "🎲" },
-      { "word": "dedo", "emoji": "☝️" },
-      { "word": "día", "emoji": "🌞" },
-      { "word": "ducha", "emoji": "🚿" }
+      {
+        "word": "dado",
+        "emoji": ""
+      },
+      {
+        "word": "dedo",
+        "emoji": ""
+      },
+      {
+        "word": "día",
+        "emoji": ""
+      },
+      {
+        "word": "ducha",
+        "emoji": ""
+      }
     ],
     "matchPairs": [
-      { "left": "da", "right": "🎲 dado", "pairId": 0 },
-      { "left": "de", "right": "☝️ dedo", "pairId": 1 },
-      { "left": "di", "right": "🌞 día", "pairId": 2 }
+      {
+        "left": "da",
+        "right": "dado",
+        "pairId": 0
+      },
+      {
+        "left": "de",
+        "right": "dedo",
+        "pairId": 1
+      },
+      {
+        "left": "di",
+        "right": "día",
+        "pairId": 2
+      }
     ],
     "checkboxItems": [
-      { "word": "dado", "emoji": "🎲", "startsWithLetter": true },
-      { "word": "dedo", "emoji": "☝️", "startsWithLetter": true },
-      { "word": "papá", "emoji": "👨", "startsWithLetter": false },
-      { "word": "sopa", "emoji": "🍲", "startsWithLetter": false }
+      {
+        "word": "dado",
+        "emoji": "",
+        "startsWithLetter": true
+      },
+      {
+        "word": "dedo",
+        "emoji": "",
+        "startsWithLetter": true
+      },
+      {
+        "word": "papá",
+        "emoji": "",
+        "startsWithLetter": false
+      },
+      {
+        "word": "sopa",
+        "emoji": "",
+        "startsWithLetter": false
+      }
     ]
   },
   {
@@ -340,25 +1062,114 @@
     "colorGradient": "from-rose-500 to-red-600",
     "characterName": "Lola y la Luna",
     "characterDesc": "Lola mira la luna con su lupa y come limas con Luli.",
-    "syllables": ["la","le","li","lo","lu"],
-    "examples": { "la": ["lata","pala","mala","Lamas","pila"], "le": ["Leo","maleta","paleta","aleta","sale"], "li": ["lima","Lila","Lilo","limón","palito"], "lo": ["Lola","Lolo","Polo","palo","paloma"], "lu": ["lupa","luna","Luli","Lupe","pelusa"] },
-    "sentences": ["La maleta de Luli está en la mesa.","La tela de la maleta tiene pelusas.","La maleta de Polo es de tela.","Mamá le da la maleta a Polo.","Polo toma su maleta de tela.","Lalo tiene una maleta de tela también."],
+    "syllables": [
+      "la",
+      "le",
+      "li",
+      "lo",
+      "lu"
+    ],
+    "examples": {
+      "la": [
+        "lata",
+        "pala",
+        "mala",
+        "Lamas",
+        "pila"
+      ],
+      "le": [
+        "Leo",
+        "maleta",
+        "paleta",
+        "aleta",
+        "sale"
+      ],
+      "li": [
+        "lima",
+        "Lila",
+        "Lilo",
+        "limón",
+        "palito"
+      ],
+      "lo": [
+        "Lola",
+        "Lolo",
+        "Polo",
+        "palo",
+        "paloma"
+      ],
+      "lu": [
+        "lupa",
+        "luna",
+        "Luli",
+        "Lupe",
+        "pelusa"
+      ]
+    },
+    "sentences": [
+      "La maleta de Luli está en la mesa.",
+      "La tela de la maleta tiene pelusas.",
+      "La maleta de Polo es de tela.",
+      "Mamá le da la maleta a Polo.",
+      "Polo toma su maleta de tela.",
+      "Lalo tiene una maleta de tela también."
+    ],
     "vocab": [
-      { "word": "lupa", "emoji": "🔍" },
-      { "word": "luna", "emoji": "🌙" },
-      { "word": "lima", "emoji": "🍋" },
-      { "word": "Lola", "emoji": "👧" }
+      {
+        "word": "lupa",
+        "emoji": ""
+      },
+      {
+        "word": "luna",
+        "emoji": ""
+      },
+      {
+        "word": "lima",
+        "emoji": ""
+      },
+      {
+        "word": "Lola",
+        "emoji": ""
+      }
     ],
     "matchPairs": [
-      { "left": "lu", "right": "🔍 lupa", "pairId": 0 },
-      { "left": "lo", "right": "👧 Lola", "pairId": 1 },
-      { "left": "li", "right": "🍋 lima", "pairId": 2 }
+      {
+        "left": "lu",
+        "right": "lupa",
+        "pairId": 0
+      },
+      {
+        "left": "lo",
+        "right": "Lola",
+        "pairId": 1
+      },
+      {
+        "left": "li",
+        "right": "lima",
+        "pairId": 2
+      }
     ],
     "checkboxItems": [
-      { "word": "lupa", "emoji": "🔍", "startsWithLetter": true },
-      { "word": "luna", "emoji": "🌙", "startsWithLetter": true },
-      { "word": "mesa", "emoji": "🪑", "startsWithLetter": false },
-      { "word": "sapo", "emoji": "🐸", "startsWithLetter": false }
+      {
+        "word": "lupa",
+        "emoji": "",
+        "startsWithLetter": true
+      },
+      {
+        "word": "luna",
+        "emoji": "",
+        "startsWithLetter": true
+      },
+      {
+        "word": "mesa",
+        "emoji": "",
+        "startsWithLetter": false
+      },
+      {
+        "word": "sapo",
+        "emoji": "",
+        "startsWithLetter": false
+      }
     ]
   },
   {
@@ -371,25 +1182,114 @@
     "colorGradient": "from-amber-500 to-orange-500",
     "characterName": "Napi y Nono",
     "characterDesc": "Napi es un poni cariñoso. Tono y Alina lo aman mucho.",
-    "syllables": ["na","ne","ni","no","nu"],
-    "examples": { "na": ["Napi","nada","nata","nariz","lana"], "ne": ["Nena","Nela","Neli","nené","negro"], "ni": ["nido","niño","Nino","poni","sonido"], "no": ["Nono","Nora","Tono","mono","noche"], "nu": ["nudo","nube","nulo","Anuca","menudo"] },
-    "sentences": ["Tomás dame esa tina. La tina es de Napi.","Tono y Alina aman a Napi.","Napi tiene pelo.","Tono le pone la tina a Napi en el piso.","Nono no le pone nada a esa tina.","Esa tina no tiene nada."],
+    "syllables": [
+      "na",
+      "ne",
+      "ni",
+      "no",
+      "nu"
+    ],
+    "examples": {
+      "na": [
+        "Napi",
+        "nada",
+        "nata",
+        "nariz",
+        "lana"
+      ],
+      "ne": [
+        "Nena",
+        "Nela",
+        "Neli",
+        "nené",
+        "negro"
+      ],
+      "ni": [
+        "nido",
+        "niño",
+        "Nino",
+        "poni",
+        "sonido"
+      ],
+      "no": [
+        "Nono",
+        "Nora",
+        "Tono",
+        "mono",
+        "noche"
+      ],
+      "nu": [
+        "nudo",
+        "nube",
+        "nulo",
+        "Anuca",
+        "menudo"
+      ]
+    },
+    "sentences": [
+      "Tomás dame esa tina. La tina es de Napi.",
+      "Tono y Alina aman a Napi.",
+      "Napi tiene pelo.",
+      "Tono le pone la tina a Napi en el piso.",
+      "Nono no le pone nada a esa tina.",
+      "Esa tina no tiene nada."
+    ],
     "vocab": [
-      { "word": "nido", "emoji": "🪺" },
-      { "word": "niño", "emoji": "🧒" },
-      { "word": "nube", "emoji": "☁️" },
-      { "word": "nariz", "emoji": "👃" }
+      {
+        "word": "nido",
+        "emoji": ""
+      },
+      {
+        "word": "niño",
+        "emoji": ""
+      },
+      {
+        "word": "nube",
+        "emoji": ""
+      },
+      {
+        "word": "nariz",
+        "emoji": ""
+      }
     ],
     "matchPairs": [
-      { "left": "ni", "right": "🪺 nido", "pairId": 0 },
-      { "left": "nu", "right": "☁️ nube", "pairId": 1 },
-      { "left": "na", "right": "👃 nariz", "pairId": 2 }
+      {
+        "left": "ni",
+        "right": "🪺 nido",
+        "pairId": 0
+      },
+      {
+        "left": "nu",
+        "right": "nube",
+        "pairId": 1
+      },
+      {
+        "left": "na",
+        "right": "nariz",
+        "pairId": 2
+      }
     ],
     "checkboxItems": [
-      { "word": "nido", "emoji": "🪺", "startsWithLetter": true },
-      { "word": "nube", "emoji": "☁️", "startsWithLetter": true },
-      { "word": "sapo", "emoji": "🐸", "startsWithLetter": false },
-      { "word": "mamá", "emoji": "👩", "startsWithLetter": false }
+      {
+        "word": "nido",
+        "emoji": "",
+        "startsWithLetter": true
+      },
+      {
+        "word": "nube",
+        "emoji": "",
+        "startsWithLetter": true
+      },
+      {
+        "word": "sapo",
+        "emoji": "",
+        "startsWithLetter": false
+      },
+      {
+        "word": "mamá",
+        "emoji": "",
+        "startsWithLetter": false
+      }
     ]
   },
   {
@@ -402,25 +1302,114 @@
     "colorGradient": "from-teal-500 to-emerald-600",
     "characterName": "La Piñata de Meñe",
     "characterDesc": "Meñe tiene una piñata grande en el patio. Noña le pone el pañal a su niña.",
-    "syllables": ["ña","ñe","ñi","ño","ñu"],
-    "examples": { "ña": ["ñame","caña","araña","piña","montaña"], "ñe": ["Meñe","añejo","sueñe","apañe","adueñe"], "ñi": ["niñito","pañito","cañita","arañita","añitos"], "ño": ["moño","niño","sueño","año","Ñoña"], "ñu": ["puño","pañuelo","moñudo","cañuto","Ñuto"] },
-    "sentences": ["Meñe es dueña de esa piñata.","La piñata es del año pasado.","La piñata está en el patio.","Noña tiene una niña.","La niña tiene sueño.","Noña le pone el pañal a la niña."],
+    "syllables": [
+      "ña",
+      "ñe",
+      "ñi",
+      "ño",
+      "ñu"
+    ],
+    "examples": {
+      "ña": [
+        "ñame",
+        "caña",
+        "araña",
+        "piña",
+        "montaña"
+      ],
+      "ñe": [
+        "Meñe",
+        "añejo",
+        "sueñe",
+        "apañe",
+        "adueñe"
+      ],
+      "ñi": [
+        "niñito",
+        "pañito",
+        "cañita",
+        "arañita",
+        "añitos"
+      ],
+      "ño": [
+        "moño",
+        "niño",
+        "sueño",
+        "año",
+        "Ñoña"
+      ],
+      "ñu": [
+        "puño",
+        "pañuelo",
+        "moñudo",
+        "cañuto",
+        "Ñuto"
+      ]
+    },
+    "sentences": [
+      "Meñe es dueña de esa piñata.",
+      "La piñata es del año pasado.",
+      "La piñata está en el patio.",
+      "Noña tiene una niña.",
+      "La niña tiene sueño.",
+      "Noña le pone el pañal a la niña."
+    ],
     "vocab": [
-      { "word": "piñata", "emoji": "🪅" },
-      { "word": "araña", "emoji": "🕷️" },
-      { "word": "moño", "emoji": "🎀" },
-      { "word": "piña", "emoji": "🍍" }
+      {
+        "word": "piñata",
+        "emoji": ""
+      },
+      {
+        "word": "araña",
+        "emoji": ""
+      },
+      {
+        "word": "moño",
+        "emoji": ""
+      },
+      {
+        "word": "piña",
+        "emoji": ""
+      }
     ],
     "matchPairs": [
-      { "left": "ña", "right": "🕷️ araña", "pairId": 0 },
-      { "left": "ño", "right": "🎀 moño", "pairId": 1 },
-      { "left": "ña", "right": "🍍 piña", "pairId": 2 }
+      {
+        "left": "ña",
+        "right": "araña",
+        "pairId": 0
+      },
+      {
+        "left": "ño",
+        "right": "moño",
+        "pairId": 1
+      },
+      {
+        "left": "ña",
+        "right": "piña",
+        "pairId": 2
+      }
     ],
     "checkboxItems": [
-      { "word": "piñata", "emoji": "🪅", "startsWithLetter": true },
-      { "word": "araña", "emoji": "🕷️", "startsWithLetter": true },
-      { "word": "mesa", "emoji": "🪑", "startsWithLetter": false },
-      { "word": "sapo", "emoji": "🐸", "startsWithLetter": false }
+      {
+        "word": "piñata",
+        "emoji": "",
+        "startsWithLetter": true
+      },
+      {
+        "word": "araña",
+        "emoji": "",
+        "startsWithLetter": true
+      },
+      {
+        "word": "mesa",
+        "emoji": "",
+        "startsWithLetter": false
+      },
+      {
+        "word": "sapo",
+        "emoji": "",
+        "startsWithLetter": false
+      }
     ]
   },
   {
@@ -433,25 +1422,115 @@
     "colorGradient": "from-slate-700 to-cyan-800",
     "characterName": "Bebo y el Bebé",
     "characterDesc": "Bebo batea la bola alto, alto. La bola sube y sube hasta la nube.",
-    "syllables": ["ba","be","bi","bo","bu"],
-    "examples": { "ba": ["baño","bala","bate","batea","abanico"], "be": ["bebé","Bebo","sube","nube","cubeta"], "bi": ["bicicleta","bisonte","bisagra","cubito","bebida"], "bo": ["bola","bota","bote","lobo","bodega"], "bu": ["bueno","burro","bulla","buche","aburrido"] },
-    "sentences": ["La nube sube y sube. Es una nube bonita.","Bebo, batea la bola de Pepito.","La bola sube y sube alto.","La bola sube a la nube.","Pepito batea la bola con el bate.","La bola sube y sube alto también.","Pepito es bueno en la pelota."],
+    "syllables": [
+      "ba",
+      "be",
+      "bi",
+      "bo",
+      "bu"
+    ],
+    "examples": {
+      "ba": [
+        "baño",
+        "bala",
+        "bate",
+        "batea",
+        "abanico"
+      ],
+      "be": [
+        "bebé",
+        "Bebo",
+        "sube",
+        "nube",
+        "cubeta"
+      ],
+      "bi": [
+        "bicicleta",
+        "bisonte",
+        "bisagra",
+        "cubito",
+        "bebida"
+      ],
+      "bo": [
+        "bola",
+        "bota",
+        "bote",
+        "lobo",
+        "bodega"
+      ],
+      "bu": [
+        "bueno",
+        "burro",
+        "bulla",
+        "buche",
+        "aburrido"
+      ]
+    },
+    "sentences": [
+      "La nube sube y sube. Es una nube bonita.",
+      "Bebo, batea la bola de Pepito.",
+      "La bola sube y sube alto.",
+      "La bola sube a la nube.",
+      "Pepito batea la bola con el bate.",
+      "La bola sube y sube alto también.",
+      "Pepito es bueno en la pelota."
+    ],
     "vocab": [
-      { "word": "bebé", "emoji": "👶" },
-      { "word": "bola", "emoji": "⚽" },
-      { "word": "bota", "emoji": "👢" },
-      { "word": "burro", "emoji": "🫏" }
+      {
+        "word": "bebé",
+        "emoji": ""
+      },
+      {
+        "word": "bola",
+        "emoji": ""
+      },
+      {
+        "word": "bota",
+        "emoji": ""
+      },
+      {
+        "word": "burro",
+        "emoji": ""
+      }
     ],
     "matchPairs": [
-      { "left": "be", "right": "👶 bebé", "pairId": 0 },
-      { "left": "bo", "right": "⚽ bola", "pairId": 1 },
-      { "left": "bu", "right": "🫏 burro", "pairId": 2 }
+      {
+        "left": "be",
+        "right": "bebé",
+        "pairId": 0
+      },
+      {
+        "left": "bo",
+        "right": "bola",
+        "pairId": 1
+      },
+      {
+        "left": "bu",
+        "right": "🫏 burro",
+        "pairId": 2
+      }
     ],
     "checkboxItems": [
-      { "word": "bebé", "emoji": "👶", "startsWithLetter": true },
-      { "word": "bola", "emoji": "⚽", "startsWithLetter": true },
-      { "word": "mamá", "emoji": "👩", "startsWithLetter": false },
-      { "word": "sapo", "emoji": "🐸", "startsWithLetter": false }
+      {
+        "word": "bebé",
+        "emoji": "",
+        "startsWithLetter": true
+      },
+      {
+        "word": "bola",
+        "emoji": "",
+        "startsWithLetter": true
+      },
+      {
+        "word": "mamá",
+        "emoji": "",
+        "startsWithLetter": false
+      },
+      {
+        "word": "sapo",
+        "emoji": "",
+        "startsWithLetter": false
+      }
     ]
   },
   {
@@ -464,25 +1543,113 @@
     "colorGradient": "from-violet-500 to-purple-600",
     "characterName": "Vita y la Vela",
     "characterDesc": "Vita se lava las manos. El papalote de Valentín vuela y vuela alto.",
-    "syllables": ["va","ve","vi","vo","vu"],
-    "examples": { "va": ["vaso","lava","avena","lavamanos","vámonos"], "ve": ["vela","vale","ven","ventana","venado"], "vi": ["vino","vive","vivo","vine","vitamina"], "vo": ["pavo","clavo","lavo","Tavo","vivo"], "vu": ["vuela","vuelo","vuelta","Vuli","revuelo"] },
-    "sentences": ["La nieve se va. Vita se lava las manos en el lavamanos.","Mamá lava las mesas del patio.","Mamá pone unos manteles nuevos.","El viento mueve los manteles de mamá y mueve el papalote de Valentín.","El papalote vuela y vuela."],
+    "syllables": [
+      "va",
+      "ve",
+      "vi",
+      "vo",
+      "vu"
+    ],
+    "examples": {
+      "va": [
+        "vaso",
+        "lava",
+        "avena",
+        "lavamanos",
+        "vámonos"
+      ],
+      "ve": [
+        "vela",
+        "vale",
+        "ven",
+        "ventana",
+        "venado"
+      ],
+      "vi": [
+        "vino",
+        "vive",
+        "vivo",
+        "vine",
+        "vitamina"
+      ],
+      "vo": [
+        "pavo",
+        "clavo",
+        "lavo",
+        "Tavo",
+        "vivo"
+      ],
+      "vu": [
+        "vuela",
+        "vuelo",
+        "vuelta",
+        "Vuli",
+        "revuelo"
+      ]
+    },
+    "sentences": [
+      "La nieve se va. Vita se lava las manos en el lavamanos.",
+      "Mamá lava las mesas del patio.",
+      "Mamá pone unos manteles nuevos.",
+      "El viento mueve los manteles de mamá y mueve el papalote de Valentín.",
+      "El papalote vuela y vuela."
+    ],
     "vocab": [
-      { "word": "vela", "emoji": "🕯️" },
-      { "word": "vaso", "emoji": "🥛" },
-      { "word": "vino", "emoji": "🍷" },
-      { "word": "ventana", "emoji": "🪟" }
+      {
+        "word": "vela",
+        "emoji": ""
+      },
+      {
+        "word": "vaso",
+        "emoji": ""
+      },
+      {
+        "word": "vino",
+        "emoji": ""
+      },
+      {
+        "word": "ventana",
+        "emoji": ""
+      }
     ],
     "matchPairs": [
-      { "left": "ve", "right": "🕯️ vela", "pairId": 0 },
-      { "left": "va", "right": "🥛 vaso", "pairId": 1 },
-      { "left": "vi", "right": "🍷 vino", "pairId": 2 }
+      {
+        "left": "ve",
+        "right": "vela",
+        "pairId": 0
+      },
+      {
+        "left": "va",
+        "right": "vaso",
+        "pairId": 1
+      },
+      {
+        "left": "vi",
+        "right": "vino",
+        "pairId": 2
+      }
     ],
     "checkboxItems": [
-      { "word": "vela", "emoji": "🕯️", "startsWithLetter": true },
-      { "word": "vaso", "emoji": "🥛", "startsWithLetter": true },
-      { "word": "papá", "emoji": "👨", "startsWithLetter": false },
-      { "word": "sopa", "emoji": "🍲", "startsWithLetter": false }
+      {
+        "word": "vela",
+        "emoji": "",
+        "startsWithLetter": true
+      },
+      {
+        "word": "vaso",
+        "emoji": "",
+        "startsWithLetter": true
+      },
+      {
+        "word": "papá",
+        "emoji": "",
+        "startsWithLetter": false
+      },
+      {
+        "word": "sopa",
+        "emoji": "",
+        "startsWithLetter": false
+      }
     ]
   },
   {
@@ -495,25 +1662,113 @@
     "colorGradient": "from-rose-500 to-red-600",
     "characterName": "Rita y la Rana",
     "characterDesc": "Rolo, Roberto y Rita ríen mientras juegan con la bola y los bolos.",
-    "syllables": ["ra","re","ri","ro","ru"],
-    "examples": { "ra": ["rana","rama","ratón","rata","ramo"], "re": ["remo","rema","reloj","rezo","rebaño"], "ri": ["Rita","risa","rima","rizo","rimamos"], "ro": ["rosa","Rolo","Roma","Roberto","ropa"], "ru": ["ruta","rubio","Rufino","rulo","rudo"] },
-    "sentences": ["La bola de Roberto rueda bien.","Rolo patea la bola. La bola rueda y le da a un bolo.","El bolo se rompe y Roberto se ríe. Rolo se ríe también.","Rita le da al bolo. Rita se ríe.","Rolo y Roberto se ríen también."],
+    "syllables": [
+      "ra",
+      "re",
+      "ri",
+      "ro",
+      "ru"
+    ],
+    "examples": {
+      "ra": [
+        "rana",
+        "rama",
+        "ratón",
+        "rata",
+        "ramo"
+      ],
+      "re": [
+        "remo",
+        "rema",
+        "reloj",
+        "rezo",
+        "rebaño"
+      ],
+      "ri": [
+        "Rita",
+        "risa",
+        "rima",
+        "rizo",
+        "rimamos"
+      ],
+      "ro": [
+        "rosa",
+        "Rolo",
+        "Roma",
+        "Roberto",
+        "ropa"
+      ],
+      "ru": [
+        "ruta",
+        "rubio",
+        "Rufino",
+        "rulo",
+        "rudo"
+      ]
+    },
+    "sentences": [
+      "La bola de Roberto rueda bien.",
+      "Rolo patea la bola. La bola rueda y le da a un bolo.",
+      "El bolo se rompe y Roberto se ríe. Rolo se ríe también.",
+      "Rita le da al bolo. Rita se ríe.",
+      "Rolo y Roberto se ríen también."
+    ],
     "vocab": [
-      { "word": "rana", "emoji": "🐸" },
-      { "word": "rosa", "emoji": "🌹" },
-      { "word": "reloj", "emoji": "⏰" },
-      { "word": "ratón", "emoji": "🐭" }
+      {
+        "word": "rana",
+        "emoji": ""
+      },
+      {
+        "word": "rosa",
+        "emoji": ""
+      },
+      {
+        "word": "reloj",
+        "emoji": ""
+      },
+      {
+        "word": "ratón",
+        "emoji": ""
+      }
     ],
     "matchPairs": [
-      { "left": "ra", "right": "🐸 rana", "pairId": 0 },
-      { "left": "ro", "right": "🌹 rosa", "pairId": 1 },
-      { "left": "re", "right": "⏰ reloj", "pairId": 2 }
+      {
+        "left": "ra",
+        "right": "rana",
+        "pairId": 0
+      },
+      {
+        "left": "ro",
+        "right": "rosa",
+        "pairId": 1
+      },
+      {
+        "left": "re",
+        "right": "reloj",
+        "pairId": 2
+      }
     ],
     "checkboxItems": [
-      { "word": "rana", "emoji": "🐸", "startsWithLetter": true },
-      { "word": "rosa", "emoji": "🌹", "startsWithLetter": true },
-      { "word": "mamá", "emoji": "👩", "startsWithLetter": false },
-      { "word": "sapo", "emoji": "🐸", "startsWithLetter": false }
+      {
+        "word": "rana",
+        "emoji": "",
+        "startsWithLetter": true
+      },
+      {
+        "word": "rosa",
+        "emoji": "",
+        "startsWithLetter": true
+      },
+      {
+        "word": "mamá",
+        "emoji": "",
+        "startsWithLetter": false
+      },
+      {
+        "word": "sapo",
+        "emoji": "",
+        "startsWithLetter": false
+      }
     ]
   },
   {
@@ -526,25 +1781,114 @@
     "colorGradient": "from-amber-500 to-orange-500",
     "characterName": "El Perro de Rode",
     "characterDesc": "Tito es un perro alemán que mueve el rabo, pero le gusta arruinar el carro de rosas.",
-    "syllables": ["rra","rre","rri","rro","rru"],
-    "examples": { "rra": ["barra","amarra","pizarra","perra","tierra"], "rre": ["torre","barre","amarre","arrebato","arrepiente"], "rri": ["arriba","perrita","carrito","burrito","barril"], "rro": ["carro","perro","burro","tarro","barro"], "rru": ["arruga","arrullo","arrullar","arruina","verruga"] },
-    "sentences": ["Rode tiene un perro. Es un perro alemán.","El perro de Rode tiene una tina de barro.","La tina de barro está en el piso.","Rosi amarra el perro en la mata.","El perro no muerde. El perro Tito mueve el rabo.","Tito arruinó el carro de rosas."],
+    "syllables": [
+      "rra",
+      "rre",
+      "rri",
+      "rro",
+      "rru"
+    ],
+    "examples": {
+      "rra": [
+        "barra",
+        "amarra",
+        "pizarra",
+        "perra",
+        "tierra"
+      ],
+      "rre": [
+        "torre",
+        "barre",
+        "amarre",
+        "arrebato",
+        "arrepiente"
+      ],
+      "rri": [
+        "arriba",
+        "perrita",
+        "carrito",
+        "burrito",
+        "barril"
+      ],
+      "rro": [
+        "carro",
+        "perro",
+        "burro",
+        "tarro",
+        "barro"
+      ],
+      "rru": [
+        "arruga",
+        "arrullo",
+        "arrullar",
+        "arruina",
+        "verruga"
+      ]
+    },
+    "sentences": [
+      "Rode tiene un perro. Es un perro alemán.",
+      "El perro de Rode tiene una tina de barro.",
+      "La tina de barro está en el piso.",
+      "Rosi amarra el perro en la mata.",
+      "El perro no muerde. El perro Tito mueve el rabo.",
+      "Tito arruinó el carro de rosas."
+    ],
     "vocab": [
-      { "word": "perro", "emoji": "🐶" },
-      { "word": "carro", "emoji": "🚗" },
-      { "word": "torre", "emoji": "🗼" },
-      { "word": "burro", "emoji": "🫏" }
+      {
+        "word": "perro",
+        "emoji": ""
+      },
+      {
+        "word": "carro",
+        "emoji": ""
+      },
+      {
+        "word": "torre",
+        "emoji": ""
+      },
+      {
+        "word": "burro",
+        "emoji": ""
+      }
     ],
     "matchPairs": [
-      { "left": "rro", "right": "🐶 perro", "pairId": 0 },
-      { "left": "rre", "right": "🗼 torre", "pairId": 1 },
-      { "left": "rro", "right": "🚗 carro", "pairId": 2 }
+      {
+        "left": "rro",
+        "right": "perro",
+        "pairId": 0
+      },
+      {
+        "left": "rre",
+        "right": "torre",
+        "pairId": 1
+      },
+      {
+        "left": "rro",
+        "right": "carro",
+        "pairId": 2
+      }
     ],
     "checkboxItems": [
-      { "word": "perro", "emoji": "🐶", "startsWithLetter": true },
-      { "word": "carro", "emoji": "🚗", "startsWithLetter": true },
-      { "word": "mesa", "emoji": "🪑", "startsWithLetter": false },
-      { "word": "sopa", "emoji": "🍲", "startsWithLetter": false }
+      {
+        "word": "perro",
+        "emoji": "",
+        "startsWithLetter": true
+      },
+      {
+        "word": "carro",
+        "emoji": "",
+        "startsWithLetter": true
+      },
+      {
+        "word": "mesa",
+        "emoji": "",
+        "startsWithLetter": false
+      },
+      {
+        "word": "sopa",
+        "emoji": "",
+        "startsWithLetter": false
+      }
     ]
   },
   {
@@ -557,25 +1901,99 @@
     "colorGradient": "from-teal-500 to-emerald-600",
     "characterName": "Goloso el Gato",
     "characterDesc": "Goloso es el gato de Magali. Él y Musulunga van a la laguna con un gusanito rosadito.",
-    "syllables": ["ga","go","gu"],
-    "examples": { "ga": ["gato","Magali","ganas","maga","gasolina"], "go": ["goma","lago","mago","gorra","góndola"], "gu": ["gusano","agua","laguna","Gustavo","aguja"] },
-    "sentences": ["El gato de Magali bebe agua en el lago.","Magali le pone una gorra a su gato Goloso.","Goloso ve a Musulunga, la gata gordita.","Magali y Gustavo van al lago. En el lago ven el agua.","A Magali le gusta el agua.","Goloso y Musulunga van a la laguna.","Goloso le regala un gusanito rosadito a Musulunga."],
+    "syllables": [
+      "ga",
+      "go",
+      "gu"
+    ],
+    "examples": {
+      "ga": [
+        "gato",
+        "Magali",
+        "ganas",
+        "maga",
+        "gasolina"
+      ],
+      "go": [
+        "goma",
+        "lago",
+        "mago",
+        "gorra",
+        "góndola"
+      ],
+      "gu": [
+        "gusano",
+        "agua",
+        "laguna",
+        "Gustavo",
+        "aguja"
+      ]
+    },
+    "sentences": [
+      "El gato de Magali bebe agua en el lago.",
+      "Magali le pone una gorra a su gato Goloso.",
+      "Goloso ve a Musulunga, la gata gordita.",
+      "Magali y Gustavo van al lago. En el lago ven el agua.",
+      "A Magali le gusta el agua.",
+      "Goloso y Musulunga van a la laguna.",
+      "Goloso le regala un gusanito rosadito a Musulunga."
+    ],
     "vocab": [
-      { "word": "gato", "emoji": "🐈" },
-      { "word": "goma", "emoji": "🧽" },
-      { "word": "gusano", "emoji": "🪱" },
-      { "word": "gorra", "emoji": "🧢" }
+      {
+        "word": "gato",
+        "emoji": ""
+      },
+      {
+        "word": "goma",
+        "emoji": ""
+      },
+      {
+        "word": "gusano",
+        "emoji": ""
+      },
+      {
+        "word": "gorra",
+        "emoji": ""
+      }
     ],
     "matchPairs": [
-      { "left": "ga", "right": "🐈 gato", "pairId": 0 },
-      { "left": "go", "right": "🧽 goma", "pairId": 1 },
-      { "left": "gu", "right": "🪱 gusano", "pairId": 2 }
+      {
+        "left": "ga",
+        "right": "gato",
+        "pairId": 0
+      },
+      {
+        "left": "go",
+        "right": "goma",
+        "pairId": 1
+      },
+      {
+        "left": "gu",
+        "right": "gusano",
+        "pairId": 2
+      }
     ],
     "checkboxItems": [
-      { "word": "gato", "emoji": "🐈", "startsWithLetter": true },
-      { "word": "goma", "emoji": "🧽", "startsWithLetter": true },
-      { "word": "mamá", "emoji": "👩", "startsWithLetter": false },
-      { "word": "papá", "emoji": "👨", "startsWithLetter": false }
+      {
+        "word": "gato",
+        "emoji": "",
+        "startsWithLetter": true
+      },
+      {
+        "word": "goma",
+        "emoji": "",
+        "startsWithLetter": true
+      },
+      {
+        "word": "mamá",
+        "emoji": "",
+        "startsWithLetter": false
+      },
+      {
+        "word": "papá",
+        "emoji": "",
+        "startsWithLetter": false
+      }
     ]
   },
   {
@@ -588,25 +2006,114 @@
     "colorGradient": "from-slate-700 to-cyan-800",
     "characterName": "Felo y la Foca",
     "characterDesc": "La familia de Ofelia visita la finca de Felo, donde hay aves y ganado de fama.",
-    "syllables": ["fa","fe","fi","fo","fu"],
-    "examples": { "fa": ["fama","familia","faro","famoso","afanado"], "fe": ["Felo","feo","feliz","fecha","Felicia"], "fi": ["fila","fino","Fígaro","afina","afilar"], "fo": ["foca","foto","fosa","foso","teléfono"], "fu": ["fusta","fortuna","fumiga","furia","perfume"] },
-    "sentences": ["La familia de Ofelia va a la finca de Felo.","En la finca de Felo hay aves y ganado.","Felo arrea el ganado con una fusta.","El ganado vale una fortuna.","Es un ganado de fama.","Felo pone todo el ganado en fila."],
+    "syllables": [
+      "fa",
+      "fe",
+      "fi",
+      "fo",
+      "fu"
+    ],
+    "examples": {
+      "fa": [
+        "fama",
+        "familia",
+        "faro",
+        "famoso",
+        "afanado"
+      ],
+      "fe": [
+        "Felo",
+        "feo",
+        "feliz",
+        "fecha",
+        "Felicia"
+      ],
+      "fi": [
+        "fila",
+        "fino",
+        "Fígaro",
+        "afina",
+        "afilar"
+      ],
+      "fo": [
+        "foca",
+        "foto",
+        "fosa",
+        "foso",
+        "teléfono"
+      ],
+      "fu": [
+        "fusta",
+        "fortuna",
+        "fumiga",
+        "furia",
+        "perfume"
+      ]
+    },
+    "sentences": [
+      "La familia de Ofelia va a la finca de Felo.",
+      "En la finca de Felo hay aves y ganado.",
+      "Felo arrea el ganado con una fusta.",
+      "El ganado vale una fortuna.",
+      "Es un ganado de fama.",
+      "Felo pone todo el ganado en fila."
+    ],
     "vocab": [
-      { "word": "foca", "emoji": "🦭" },
-      { "word": "faro", "emoji": "🚨" },
-      { "word": "foto", "emoji": "📸" },
-      { "word": "familia", "emoji": "👨‍👩‍👧" }
+      {
+        "word": "foca",
+        "emoji": ""
+      },
+      {
+        "word": "faro",
+        "emoji": ""
+      },
+      {
+        "word": "foto",
+        "emoji": ""
+      },
+      {
+        "word": "familia",
+        "emoji": ""
+      }
     ],
     "matchPairs": [
-      { "left": "fo", "right": "🦭 foca", "pairId": 0 },
-      { "left": "fa", "right": "🚨 faro", "pairId": 1 },
-      { "left": "fo", "right": "📸 foto", "pairId": 2 }
+      {
+        "left": "fo",
+        "right": "foca",
+        "pairId": 0
+      },
+      {
+        "left": "fa",
+        "right": "faro",
+        "pairId": 1
+      },
+      {
+        "left": "fo",
+        "right": "foto",
+        "pairId": 2
+      }
     ],
     "checkboxItems": [
-      { "word": "foca", "emoji": "🦭", "startsWithLetter": true },
-      { "word": "faro", "emoji": "🚨", "startsWithLetter": true },
-      { "word": "sapo", "emoji": "🐸", "startsWithLetter": false },
-      { "word": "mesa", "emoji": "🪑", "startsWithLetter": false }
+      {
+        "word": "foca",
+        "emoji": "",
+        "startsWithLetter": true
+      },
+      {
+        "word": "faro",
+        "emoji": "",
+        "startsWithLetter": true
+      },
+      {
+        "word": "sapo",
+        "emoji": "",
+        "startsWithLetter": false
+      },
+      {
+        "word": "mesa",
+        "emoji": "",
+        "startsWithLetter": false
+      }
     ]
   },
   {
@@ -619,25 +2126,115 @@
     "colorGradient": "from-violet-500 to-purple-600",
     "characterName": "Juan y Jabela",
     "characterDesc": "Jabela es una jicotea que juega en la laguna pero odia la espuma del jabón.",
-    "syllables": ["ja","je","ji","jo","ju"],
-    "examples": { "ja": ["jaba","jabón","jamón","jarra","baja"], "je": ["Jesús","jefe","jerez","ajeno","jefatura"], "ji": ["jirafa","jinete","jicotea","ají","jíbaro"], "jo": ["José","jobo","joven","joya","jorobado"], "ju": ["Julia","jugo","jugar","jutía","juventud"] },
-    "sentences": ["Jesús y Julia son amigos.","A José le gusta el jamón y a Julia le gusta el jugo de tomate.","Juan tiene una jutía y la baña con jabón.","José y Josefa juegan en la laguna.","Jabela es una jicotea.","A Jabela le gusta la laguna.","A Jabela no le gusta la espuma de jabón."],
+    "syllables": [
+      "ja",
+      "je",
+      "ji",
+      "jo",
+      "ju"
+    ],
+    "examples": {
+      "ja": [
+        "jaba",
+        "jabón",
+        "jamón",
+        "jarra",
+        "baja"
+      ],
+      "je": [
+        "Jesús",
+        "jefe",
+        "jerez",
+        "ajeno",
+        "jefatura"
+      ],
+      "ji": [
+        "jirafa",
+        "jinete",
+        "jicotea",
+        "ají",
+        "jíbaro"
+      ],
+      "jo": [
+        "José",
+        "jobo",
+        "joven",
+        "joya",
+        "jorobado"
+      ],
+      "ju": [
+        "Julia",
+        "jugo",
+        "jugar",
+        "jutía",
+        "juventud"
+      ]
+    },
+    "sentences": [
+      "Jesús y Julia son amigos.",
+      "A José le gusta el jamón y a Julia le gusta el jugo de tomate.",
+      "Juan tiene una jutía y la baña con jabón.",
+      "José y Josefa juegan en la laguna.",
+      "Jabela es una jicotea.",
+      "A Jabela le gusta la laguna.",
+      "A Jabela no le gusta la espuma de jabón."
+    ],
     "vocab": [
-      { "word": "jirafa", "emoji": "🦒" },
-      { "word": "jugo", "emoji": "🧃" },
-      { "word": "jamón", "emoji": "🥓" },
-      { "word": "joya", "emoji": "💎" }
+      {
+        "word": "jirafa",
+        "emoji": ""
+      },
+      {
+        "word": "jugo",
+        "emoji": ""
+      },
+      {
+        "word": "jamón",
+        "emoji": ""
+      },
+      {
+        "word": "joya",
+        "emoji": ""
+      }
     ],
     "matchPairs": [
-      { "left": "ji", "right": "🦒 jirafa", "pairId": 0 },
-      { "left": "ju", "right": "🧃 jugo", "pairId": 1 },
-      { "left": "ja", "right": "🥓 jamón", "pairId": 2 }
+      {
+        "left": "ji",
+        "right": "jirafa",
+        "pairId": 0
+      },
+      {
+        "left": "ju",
+        "right": "jugo",
+        "pairId": 1
+      },
+      {
+        "left": "ja",
+        "right": "jamón",
+        "pairId": 2
+      }
     ],
     "checkboxItems": [
-      { "word": "jirafa", "emoji": "🦒", "startsWithLetter": true },
-      { "word": "jugo", "emoji": "🧃", "startsWithLetter": true },
-      { "word": "mamá", "emoji": "👩", "startsWithLetter": false },
-      { "word": "sopa", "emoji": "🍲", "startsWithLetter": false }
+      {
+        "word": "jirafa",
+        "emoji": "",
+        "startsWithLetter": true
+      },
+      {
+        "word": "jugo",
+        "emoji": "",
+        "startsWithLetter": true
+      },
+      {
+        "word": "mamá",
+        "emoji": "",
+        "startsWithLetter": false
+      },
+      {
+        "word": "sopa",
+        "emoji": "",
+        "startsWithLetter": false
+      }
     ]
   },
   {
@@ -650,25 +2247,97 @@
     "colorGradient": "from-rose-500 to-red-600",
     "characterName": "Cuco Casanova",
     "characterDesc": "Cuco Casanova es un buen amigo cubano de la familia de Paco. Cuida a los niños en el campo.",
-    "syllables": ["ca","co","cu"],
-    "examples": { "ca": ["casa","cama","camisa","carro","cana"], "co": ["coco","cosa","cola","copa","poco"], "cu": ["Cuba","cuna","Cuco","cubo","cumbia"] },
-    "sentences": ["Cuco Casanova es un buen amigo del papá y de la mamá de Paco.","El señor Casanova es cubano.","El vive en el campo, vive con Doña María, su mamá.","Cuco Casanova juega con los niños y los cuida también.","Todos en la casa de Paco aman a Cuco."],
+    "syllables": [
+      "ca",
+      "co",
+      "cu"
+    ],
+    "examples": {
+      "ca": [
+        "casa",
+        "cama",
+        "camisa",
+        "carro",
+        "cana"
+      ],
+      "co": [
+        "coco",
+        "cosa",
+        "cola",
+        "copa",
+        "poco"
+      ],
+      "cu": [
+        "Cuba",
+        "cuna",
+        "Cuco",
+        "cubo",
+        "cumbia"
+      ]
+    },
+    "sentences": [
+      "Cuco Casanova es un buen amigo del papá y de la mamá de Paco.",
+      "El señor Casanova es cubano.",
+      "El vive en el campo, vive con Doña María, su mamá.",
+      "Cuco Casanova juega con los niños y los cuida también.",
+      "Todos en la casa de Paco aman a Cuco."
+    ],
     "vocab": [
-      { "word": "casa", "emoji": "🏠" },
-      { "word": "cama", "emoji": "🛏️" },
-      { "word": "coco", "emoji": "🥥" },
-      { "word": "cubo", "emoji": "🪣" }
+      {
+        "word": "casa",
+        "emoji": ""
+      },
+      {
+        "word": "cama",
+        "emoji": ""
+      },
+      {
+        "word": "coco",
+        "emoji": ""
+      },
+      {
+        "word": "cubo",
+        "emoji": ""
+      }
     ],
     "matchPairs": [
-      { "left": "ca", "right": "🏠 casa", "pairId": 0 },
-      { "left": "co", "right": "🥥 coco", "pairId": 1 },
-      { "left": "cu", "right": "🪣 cubo", "pairId": 2 }
+      {
+        "left": "ca",
+        "right": "casa",
+        "pairId": 0
+      },
+      {
+        "left": "co",
+        "right": "coco",
+        "pairId": 1
+      },
+      {
+        "left": "cu",
+        "right": "cubo",
+        "pairId": 2
+      }
     ],
     "checkboxItems": [
-      { "word": "casa", "emoji": "🏠", "startsWithLetter": true },
-      { "word": "coco", "emoji": "🥥", "startsWithLetter": true },
-      { "word": "papá", "emoji": "👨", "startsWithLetter": false },
-      { "word": "mesa", "emoji": "🪑", "startsWithLetter": false }
+      {
+        "word": "casa",
+        "emoji": "",
+        "startsWithLetter": true
+      },
+      {
+        "word": "coco",
+        "emoji": "",
+        "startsWithLetter": true
+      },
+      {
+        "word": "papá",
+        "emoji": "",
+        "startsWithLetter": false
+      },
+      {
+        "word": "mesa",
+        "emoji": "",
+        "startsWithLetter": false
+      }
     ]
   },
   {
@@ -681,25 +2350,115 @@
     "colorGradient": "from-amber-500 to-orange-500",
     "characterName": "Yayo y el Yate",
     "characterDesc": "Yayo va a los cayos en su yate con amigas yucatecas a comer yuca y arroz con yemas.",
-    "syllables": ["ya","ye","yi","yo","yu"],
-    "examples": { "ya": ["yate","Yara","yagua","payaso","maya"], "ye": ["yema","yegua","yeso","Yesenia","ayer"], "yi": ["Mayito","Yayita","Yayi","Yigüiro","Yoyita"], "yo": ["yoyo","Yayo","cayo","rayo","coyote"], "yu": ["yuca","yute","Yucatán","Cayuco","desayuno"] },
-    "sentences": ["El yate de Yayo está en Yateras.","Yayo fue a los cayos a pescar con sus amigas yucatecas.","Yayo tiene una soga de yute para amarrar su yate.","Yayo comió yuca y guacamole.","A Yayo le gusta el arroz con yemas de huevos también.","Su mamá le dio el arroz con yemas de huevos ayer.","Yayo se lo comió todo."],
+    "syllables": [
+      "ya",
+      "ye",
+      "yi",
+      "yo",
+      "yu"
+    ],
+    "examples": {
+      "ya": [
+        "yate",
+        "Yara",
+        "yagua",
+        "payaso",
+        "maya"
+      ],
+      "ye": [
+        "yema",
+        "yegua",
+        "yeso",
+        "Yesenia",
+        "ayer"
+      ],
+      "yi": [
+        "Mayito",
+        "Yayita",
+        "Yayi",
+        "Yigüiro",
+        "Yoyita"
+      ],
+      "yo": [
+        "yoyo",
+        "Yayo",
+        "cayo",
+        "rayo",
+        "coyote"
+      ],
+      "yu": [
+        "yuca",
+        "yute",
+        "Yucatán",
+        "Cayuco",
+        "desayuno"
+      ]
+    },
+    "sentences": [
+      "El yate de Yayo está en Yateras.",
+      "Yayo fue a los cayos a pescar con sus amigas yucatecas.",
+      "Yayo tiene una soga de yute para amarrar su yate.",
+      "Yayo comió yuca y guacamole.",
+      "A Yayo le gusta el arroz con yemas de huevos también.",
+      "Su mamá le dio el arroz con yemas de huevos ayer.",
+      "Yayo se lo comió todo."
+    ],
     "vocab": [
-      { "word": "yate", "emoji": "⛵" },
-      { "word": "yoyo", "emoji": "🪀" },
-      { "word": "yegua", "emoji": "🐎" },
-      { "word": "yuca", "emoji": "🥔" }
+      {
+        "word": "yate",
+        "emoji": ""
+      },
+      {
+        "word": "yoyo",
+        "emoji": ""
+      },
+      {
+        "word": "yegua",
+        "emoji": ""
+      },
+      {
+        "word": "yuca",
+        "emoji": ""
+      }
     ],
     "matchPairs": [
-      { "left": "ya", "right": "⛵ yate", "pairId": 0 },
-      { "left": "yo", "right": "🪀 yoyo", "pairId": 1 },
-      { "left": "ye", "right": "🐎 yegua", "pairId": 2 }
+      {
+        "left": "ya",
+        "right": "yate",
+        "pairId": 0
+      },
+      {
+        "left": "yo",
+        "right": "yoyo",
+        "pairId": 1
+      },
+      {
+        "left": "ye",
+        "right": "yegua",
+        "pairId": 2
+      }
     ],
     "checkboxItems": [
-      { "word": "yate", "emoji": "⛵", "startsWithLetter": true },
-      { "word": "yoyo", "emoji": "🪀", "startsWithLetter": true },
-      { "word": "sapo", "emoji": "🐸", "startsWithLetter": false },
-      { "word": "mesa", "emoji": "🪑", "startsWithLetter": false }
+      {
+        "word": "yate",
+        "emoji": "",
+        "startsWithLetter": true
+      },
+      {
+        "word": "yoyo",
+        "emoji": "",
+        "startsWithLetter": true
+      },
+      {
+        "word": "sapo",
+        "emoji": "",
+        "startsWithLetter": false
+      },
+      {
+        "word": "mesa",
+        "emoji": "",
+        "startsWithLetter": false
+      }
     ]
   },
   {
@@ -712,25 +2471,112 @@
     "colorGradient": "from-teal-500 to-emerald-600",
     "characterName": "Zulema y los Zapatos Azules",
     "characterDesc": "Zulema toma zumo de melón con azúcar y se pone sus zapatos azules para ir con Zila.",
-    "syllables": ["za","ze","zi","zo","zu"],
-    "examples": { "za": ["zapato","zapote","taza","plaza","calabaza"], "ze": ["zeta","zepelín","zebra","Zenaida","Zema"], "zi": ["Zila","Zita","Zimba","zig-zag","Zegrí"], "zo": ["zorro","lazo","zopilote","portazo","azotes"], "zu": ["Zulema","zumo","azúcar","azules","azucarado"] },
-    "sentences": ["Zulema toma zumo de melón.","A Zulema le gusta el zumo con azúcar.","Ella se bebe el zumo y se pone sus zapatos azules.","Zila va con Zulema, van en un carro con ruedas de calabazas."],
+    "syllables": [
+      "za",
+      "ze",
+      "zi",
+      "zo",
+      "zu"
+    ],
+    "examples": {
+      "za": [
+        "zapato",
+        "zapote",
+        "taza",
+        "plaza",
+        "calabaza"
+      ],
+      "ze": [
+        "zeta",
+        "zepelín",
+        "zebra",
+        "Zenaida",
+        "Zema"
+      ],
+      "zi": [
+        "Zila",
+        "Zita",
+        "Zimba",
+        "zig-zag",
+        "Zegrí"
+      ],
+      "zo": [
+        "zorro",
+        "lazo",
+        "zopilote",
+        "portazo",
+        "azotes"
+      ],
+      "zu": [
+        "Zulema",
+        "zumo",
+        "azúcar",
+        "azules",
+        "azucarado"
+      ]
+    },
+    "sentences": [
+      "Zulema toma zumo de melón.",
+      "A Zulema le gusta el zumo con azúcar.",
+      "Ella se bebe el zumo y se pone sus zapatos azules.",
+      "Zila va con Zulema, van en un carro con ruedas de calabazas."
+    ],
     "vocab": [
-      { "word": "zapato", "emoji": "👟" },
-      { "word": "zorro", "emoji": "🦊" },
-      { "word": "zumo", "emoji": "🧃" },
-      { "word": "taza", "emoji": "🍵" }
+      {
+        "word": "zapato",
+        "emoji": ""
+      },
+      {
+        "word": "zorro",
+        "emoji": ""
+      },
+      {
+        "word": "zumo",
+        "emoji": ""
+      },
+      {
+        "word": "taza",
+        "emoji": ""
+      }
     ],
     "matchPairs": [
-      { "left": "za", "right": "👟 zapato", "pairId": 0 },
-      { "left": "zo", "right": "🦊 zorro", "pairId": 1 },
-      { "left": "zu", "right": "🧃 zumo", "pairId": 2 }
+      {
+        "left": "za",
+        "right": "zapato",
+        "pairId": 0
+      },
+      {
+        "left": "zo",
+        "right": "zorro",
+        "pairId": 1
+      },
+      {
+        "left": "zu",
+        "right": "zumo",
+        "pairId": 2
+      }
     ],
     "checkboxItems": [
-      { "word": "zapato", "emoji": "👟", "startsWithLetter": true },
-      { "word": "zorro", "emoji": "🦊", "startsWithLetter": true },
-      { "word": "mamá", "emoji": "👩", "startsWithLetter": false },
-      { "word": "papá", "emoji": "👨", "startsWithLetter": false }
+      {
+        "word": "zapato",
+        "emoji": "",
+        "startsWithLetter": true
+      },
+      {
+        "word": "zorro",
+        "emoji": "",
+        "startsWithLetter": true
+      },
+      {
+        "word": "mamá",
+        "emoji": "",
+        "startsWithLetter": false
+      },
+      {
+        "word": "papá",
+        "emoji": "",
+        "startsWithLetter": false
+      }
     ]
   }
 ]
