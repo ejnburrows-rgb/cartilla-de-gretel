@@ -10,14 +10,18 @@ export const Route = createFileRoute("/cartilla/kiosko")({
   head: () => ({
     meta: [
       { title: "Terminal Kiosko Smartboard — La Cartilla de Gretel" },
-      { name: "description", content: "Presentador táctil interactivo en pantalla completa para pizarras digitales." },
+      {
+        name: "description",
+        content: "Presentador táctil interactivo en pantalla completa para pizarras digitales.",
+      },
     ],
   }),
 });
 
 export function KioskoLayout() {
   const location = useLocation();
-  const isIndex = location.pathname === "/cartilla/kiosko" || location.pathname === "/cartilla/kiosko/";
+  const isIndex =
+    location.pathname === "/cartilla/kiosko" || location.pathname === "/cartilla/kiosko/";
 
   if (!isIndex) {
     return <Outlet />;
@@ -89,6 +93,10 @@ const gridContainerStyle: React.CSSProperties = {
   flex: 1,
 };
 
+const lessonIconStyle = (color: string): React.CSSProperties => ({
+  color,
+});
+
 export function KioskoLanding() {
   const navigate = useNavigate();
 
@@ -111,7 +119,11 @@ export function KioskoLanding() {
             </p>
           </div>
 
-          <Link to="/cartilla/student/lecciones" style={backLinkStyle} className="hover:bg-red-500/25">
+          <Link
+            to="/cartilla/student/lecciones"
+            style={backLinkStyle}
+            className="hover:bg-red-500/25"
+          >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Salir de Kiosko</span>
           </Link>
@@ -120,11 +132,13 @@ export function KioskoLanding() {
         {/* Picker grid */}
         <main style={gridContainerStyle} className="kiosko-picker-grid">
           {CATALOG.map((entry) => {
-            const subtitleText = entry.kind === "consonant"
-              ? `Letra ${entry.letter}`
-              : entry.kind === "vowel"
-                ? `Vocal ${entry.vowel}`
-                : "Vocales";
+            const subtitleText =
+              entry.kind === "consonant"
+                ? `Letra ${entry.letter}`
+                : entry.kind === "vowel"
+                  ? `Vocal ${entry.vowel}`
+                  : "Vocales";
+            const iconStyle = lessonIconStyle(entry.color);
 
             return (
               <KioskoBigButton
@@ -132,7 +146,7 @@ export function KioskoLanding() {
                 label={`Lección ${entry.n}`}
                 sublabel={`${subtitleText}`}
                 color={entry.color}
-                icon={<BookOpen className="w-5 h-5" style={{ color: entry.color }} />}
+                icon={<BookOpen className="w-5 h-5" style={iconStyle} />}
                 onClick={() => handlePickLesson(entry.n)}
               />
             );
