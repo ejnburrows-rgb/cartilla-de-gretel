@@ -2,12 +2,6 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
-  "rewrites": [
-    {
-      "source": "/((?!assets/|book/|cartilla/|manifest.webmanifest|sw.js|favicon.ico|robots.txt).*)",
-      "destination": "/index.html"
-    }
-  ],
   "headers": [
     {
       "source": "/book/book.pdf",
