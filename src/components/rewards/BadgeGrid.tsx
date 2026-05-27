@@ -1,48 +1,87 @@
-import { Trophy } from "lucide-react";
-import { BADGES, useRewards } from "@/lib/rewards";
-import { cn } from "@/lib/utils";
+import { BADGES, type Badge } from "@/lib/rewards";
+import { Lock, Award } from "lucide-react";
+import { feelBus } from "@/lib/feel-bus";
 
-export function BadgeGrid() {
-  const { earnedBadgeIds } = useRewards();
+interface BadgeGridProps {
+  earnedIds: string[];
+}
+
+export function BadgeGrid({ earnedIds }: BadgeGridProps) {
+  const handleBadgeClick = (badge: Badge, isEarned: boolean) => {
+    if (isEarned) {
+      feelBus.emit("chime");
+      if ("speechSynthesis" in window) {
+        const utterance = new SpeechSynthesisUtterance(`¡Insignia ${badge.name}! ${badge.description}`);
+        utterance.lang = "es-ES";
+        utterance.rate = 1.0;
+        window.speechSynthesis.cancel();
+        window.speechSynthesis.speak(utterance);
+      }
+    } else {
+      feelBus.emit("tap");
+    }
+  };
 
   return (
-    <section
-      className="rounded-[2rem] border border-stone-200 bg-white p-4 sm:p-5 shadow-[0_18px_42px_rgba(50,30,10,0.06)]"
-      aria-label="Insignias ganadas"
-    >
-      <div className="mb-4 flex items-center gap-2 text-amber-950">
-        <Trophy className="h-5 w-5 text-amber-500" />
-        <h2 className="text-base font-black sm:text-lg">Insignias</h2>
+    <div className="w-full py-6 px-4 rounded-3xl bg-card border-2 border-foreground/10 shadow-sm">
+      <div className="flex items-center gap-2 mb-6">
+        <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+          <Award className="w-4 h-4" />
+        </div>
+        <h3 className="font-bold text-lg text-foreground font-fredoka">Insignias y Logros ({earnedIds.length} / 7)</h3>
       </div>
 
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4" role="list">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {BADGES.map((badge) => {
-          const earned = earnedBadgeIds.has(badge.id);
+          const isEarned = earnedIds.includes(badge.id);
           return (
             <div
               key={badge.id}
-              role="listitem"
-              className={cn(
-                "min-h-36 rounded-3xl border-2 p-3 text-center transition duration-300",
-                earned
-                  ? "border-amber-200 bg-amber-50/70 shadow-md hover:-translate-y-1"
-                  : "border-dashed border-stone-200 bg-stone-50/70 opacity-70",
-              )}
-              aria-label={`${badge.label}${earned ? ". Ganada." : ". Bloqueada."}`}
+              onClick={() => handleBadgeClick(badge, isEarned)}
+              className={`relative flex flex-col items-center p-4 rounded-2xl border-2 transition-all duration-300 cursor-pointer ${
+                isEarned
+                  ? "bg-gradient-to-br from-white/90 to-white/50 dark:from-white/10 dark:to-white/5 shadow-md hover:shadow-lg hover:-translate-y-1 active:scale-95"
+                  : "bg-secondary/30 border-dashed border-foreground/10 opacity-60"
+              }`}
+              style={{
+                borderColor: isEarned ? badge.color : "transparent"
+              }}
             >
-              <div
-                className="mx-auto grid h-16 w-16 place-items-center rounded-3xl text-xl font-black shadow-inner"
-                style={{ backgroundColor: earned ? badge.color : "#e7e5e4", color: earned ? "#3a281e" : "#78716c" }}
-                aria-hidden
+              {/* Badge Circular Emblem */}
+              <div 
+                className={`w-16 h-16 rounded-full flex items-center justify-center border-4 relative mb-3 overflow-hidden shadow-inner ${
+                  isEarned
+                    ? "bg-white scale-100 rotate-0 hover:rotate-6 duration-200"
+                    : "bg-black/10 border-gray-300"
+                }`}
+                style={{
+                  borderColor: isEarned ? badge.color : "rgb(209, 213, 219)"
+                }}
               >
-                {earned ? badge.symbol : "--"}
+                {/* Glossy overlay effect for premium look */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-white/40 pointer-events-none"></div>
+
+                {isEarned ? (
+                  <span className="text-3.5xl filter drop-shadow-[0_2px_3px_rgba(0,0,0,0.15)] select-none">
+                    {badge.emoji}
+                  </span>
+                ) : (
+                  <Lock className="w-6 h-6 text-foreground/40" />
+                )}
               </div>
-              <h3 className="mt-3 text-sm font-black text-amber-950">{badge.label}</h3>
-              <p className="mt-1 text-xs font-semibold leading-snug text-stone-500">{badge.description}</p>
+
+              {/* Title & Description */}
+              <h4 className="font-bold text-sm text-foreground text-center font-fredoka line-clamp-1">
+                {badge.name}
+              </h4>
+              <p className="text-[11px] text-foreground/60 text-center mt-1 leading-snug line-clamp-2 px-1">
+                {isEarned ? badge.description : badge.condition}
+              </p>
             </div>
           );
         })}
       </div>
-    </section>
+    </div>
   );
 }
+export default BadgeGrid;

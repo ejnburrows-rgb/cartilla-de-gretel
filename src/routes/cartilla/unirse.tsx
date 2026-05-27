@@ -4,10 +4,6 @@ import { useServerFn } from "@/lib/useServerFn";
 import { ArrowLeft, LogIn, Loader2, LogOut } from "lucide-react";
 import { joinClass } from "@/lib/student.functions";
 import { setStudentSession, useStudentSession } from "@/lib/student-session";
-import { isSupabaseConfigured } from "@/integrations/supabase/client";
-import { SEED_STUDENT_ACCESS } from "@/lib/seed-data";
-
-const DEFAULT_SEED_STUDENT = SEED_STUDENT_ACCESS[0];
 
 export const Route = createFileRoute("/cartilla/unirse")({
   component: JoinPage,
@@ -18,12 +14,8 @@ function JoinPage() {
   const navigate = useNavigate();
   const join = useServerFn(joinClass);
   const session = useStudentSession();
-  const [joinCode, setJoinCode] = useState(() =>
-    isSupabaseConfigured ? "" : DEFAULT_SEED_STUDENT.joinCode,
-  );
-  const [studentCode, setStudentCode] = useState(() =>
-    isSupabaseConfigured ? "" : DEFAULT_SEED_STUDENT.studentCode,
-  );
+  const [joinCode, setJoinCode] = useState("");
+  const [studentCode, setStudentCode] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -55,9 +47,9 @@ function JoinPage() {
         <div className="mx-auto w-14 h-14 rounded-2xl bg-vowel-i text-white flex items-center justify-center">
           <LogIn className="w-7 h-7" />
         </div>
-        <h1 className="mt-4 text-3xl font-bold">Únete a una clase</h1>
+        <h1 className="mt-4 text-3xl font-bold">Únete a tu clase</h1>
         <p className="text-sm text-foreground/60 mt-1">
-          Este paso es opcional. Solo úsalo si tu maestra o maestro te dio códigos para guardar progreso de aula.
+          Pídele a tu maestra o maestro los dos códigos.
         </p>
       </header>
 
@@ -83,79 +75,43 @@ function JoinPage() {
           </div>
         </div>
       ) : (
-        <>
-          <form onSubmit={submit} className="mt-8 space-y-3">
-            {!isSupabaseConfigured && (
-              <div className="rounded-2xl border-2 border-vowel-i/20 bg-vowel-i/5 px-4 py-3 text-sm font-bold text-vowel-i">
-                Modo local: Supabase no está configurado. Estas cuentas preconfiguradas pertenecen a clases y alumnos existentes guardados en este navegador.
-              </div>
-            )}
-            <div>
-              <label className="text-xs font-bold text-foreground/60 uppercase tracking-wide">
-                Código de la clase
-              </label>
-              <input
-                value={joinCode}
-                onChange={(e) => setJoinCode(e.target.value.toUpperCase())}
-                placeholder={isSupabaseConfigured ? "ABC123" : DEFAULT_SEED_STUDENT.joinCode}
-                maxLength={10}
-                className="w-full mt-1 px-4 py-3 rounded-xl border-2 border-foreground/10 bg-card focus:border-primary outline-none font-mono text-lg tracking-widest text-center"
-                required
-              />
-            </div>
-            <div>
-              <label className="text-xs font-bold text-foreground/60 uppercase tracking-wide">
-                Tu código personal
-              </label>
-              <input
-                value={studentCode}
-                onChange={(e) => setStudentCode(e.target.value.toUpperCase())}
-                placeholder={isSupabaseConfigured ? "X9YZ2" : DEFAULT_SEED_STUDENT.studentCode}
-                maxLength={10}
-                className="w-full mt-1 px-4 py-3 rounded-xl border-2 border-foreground/10 bg-card focus:border-primary outline-none font-mono text-lg tracking-widest text-center"
-                required
-              />
-            </div>
-            {error && <div className="text-sm text-destructive font-bold">{error}</div>}
-            <button
-              type="submit"
-              disabled={busy || !joinCode || !studentCode}
-              className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-bold disabled:opacity-50 inline-flex items-center justify-center gap-2"
-            >
-              {busy && <Loader2 className="w-4 h-4 animate-spin" />}
-              {busy ? "Validando códigos..." : "Entrar a mi clase"}
-            </button>
-          </form>
-          <Link
-            to="/cartilla/lecciones"
-            className="mt-4 flex w-full items-center justify-center rounded-xl border-2 border-foreground/10 bg-white px-4 py-3 text-sm font-black text-foreground/70 hover:bg-muted"
+        <form onSubmit={submit} className="mt-8 space-y-3">
+          <div>
+            <label className="text-xs font-bold text-foreground/60 uppercase tracking-wide">
+              Código de la clase
+            </label>
+            <input
+              value={joinCode}
+              onChange={(e) => setJoinCode(e.target.value.toUpperCase())}
+              placeholder="ABC123"
+              maxLength={10}
+              className="w-full mt-1 px-4 py-3 rounded-xl border-2 border-foreground/10 bg-card focus:border-primary outline-none font-mono text-lg tracking-widest text-center"
+              required
+            />
+          </div>
+          <div>
+            <label className="text-xs font-bold text-foreground/60 uppercase tracking-wide">
+              Tu código personal
+            </label>
+            <input
+              value={studentCode}
+              onChange={(e) => setStudentCode(e.target.value.toUpperCase())}
+              placeholder="X9YZ2"
+              maxLength={10}
+              className="w-full mt-1 px-4 py-3 rounded-xl border-2 border-foreground/10 bg-card focus:border-primary outline-none font-mono text-lg tracking-widest text-center"
+              required
+            />
+          </div>
+          {error && <div className="text-sm text-destructive font-bold">{error}</div>}
+          <button
+            type="submit"
+            disabled={busy || !joinCode || !studentCode}
+            className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-bold disabled:opacity-50 inline-flex items-center justify-center gap-2"
           >
-            Explorar el cuaderno sin código
-          </Link>
-          {!isSupabaseConfigured && (
-            <section className="mt-4 rounded-3xl border-2 border-vowel-i/20 bg-vowel-i/5 p-4">
-              <h2 className="text-base font-bold text-vowel-i">Alumnos preconfigurados</h2>
-              <div className="mt-3 space-y-2 text-sm">
-                {SEED_STUDENT_ACCESS.map((student) => (
-                  <button
-                    key={`${student.joinCode}-${student.studentCode}`}
-                    type="button"
-                    onClick={() => {
-                      setJoinCode(student.joinCode);
-                      setStudentCode(student.studentCode);
-                    }}
-                    className="w-full rounded-2xl border border-foreground/10 bg-card p-3 text-left hover:border-vowel-i"
-                  >
-                    <span className="block font-bold">{student.name}</span>
-                    <span className="block font-mono text-xs text-foreground/70">
-                      Clase {student.joinCode} / Código {student.studentCode}
-                    </span>
-                  </button>
-                ))}
-              </div>
-            </section>
-          )}
-        </>
+            {busy && <Loader2 className="w-4 h-4 animate-spin" />}
+            Entrar
+          </button>
+        </form>
       )}
     </main>
   );

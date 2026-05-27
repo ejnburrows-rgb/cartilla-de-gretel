@@ -1,20 +1,21 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { BookReader } from "@/components/cartilla/BookReader";
-import "@/styles/student-print.css";
 
 export const Route = createFileRoute("/cartilla/libro")({
-  component: LibroPage,
+  component: LibroReaderPage,
   head: () => ({
     meta: [
-      { title: "Libro del estudiante - La Cartilla de Gretel" },
-      {
-        name: "description",
-        content: "Flipbook vertical del cuaderno completo de La Cartilla de Gretel con paginas pulidas por leccion.",
-      },
+      { title: "Libro de Lectura Completo — La Cartilla de Gretel" },
+      { name: "description", content: "Visualizador oficial del libro de lectura de Gretel." },
     ],
   }),
 });
 
-function LibroPage() {
-  return <BookReader initialLesson={1} showExercises />;
+function LibroReaderPage() {
+  return (
+    <div className="min-h-screen bg-[#faf8f5] dark:bg-[#120f0d] text-stone-850 flex flex-col">
+      <BookReader initialPage={1} />
+    </div>
+  );
 }
+export default LibroReaderPage;

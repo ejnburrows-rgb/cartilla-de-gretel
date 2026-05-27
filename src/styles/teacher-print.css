@@ -1,84 +1,75 @@
-.teacher-report-page {
-  background: #f8fafc;
-  color: #0f172a;
-}
-
-.teacher-report-card {
-  break-inside: avoid;
-}
-
-.teacher-report-print-only {
-  display: none;
-}
-
-.teacher-report-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.teacher-report-table th,
-.teacher-report-table td {
-  border-bottom: 1px solid #e2e8f0;
-  padding: 0.625rem;
-  text-align: left;
-}
+/* Teacher Print Stylesheet — La Cartilla de Gretel CRM */
 
 @media print {
-  @page {
-    size: letter;
-    margin: 0.45in;
-  }
-
-  html,
-  body,
-  #root {
-    background: white !important;
-    color: #0f172a !important;
-  }
-
-  body {
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-
-  .teacher-report-page {
-    background: white !important;
-    min-height: auto !important;
-    padding: 0 !important;
-  }
-
-  .teacher-report-no-print,
+  /* Hide all non-printable components */
+  .no-print,
+  header.no-print,
+  footer.no-print,
   nav,
   button,
-  input,
-  select {
+  .teacher-controls,
+  .student-picker-container,
+  .tabs-container {
     display: none !important;
   }
 
-  .teacher-report-print-only {
-    display: block !important;
+  /* Reset layout for perfect printing */
+  html,
+  body {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 11pt !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
   }
 
-  .teacher-report-card,
-  .teacher-report-page section {
-    box-shadow: none !important;
+  .print-page {
+    page-break-after: always !important;
+    break-after: page !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    position: relative !important;
   }
 
-  .teacher-report-card {
-    border: 1px solid #cbd5e1 !important;
-    background: white !important;
-    page-break-inside: avoid;
+  /* Ensure CRM Cards print their borders */
+  .bg-white {
+    background-color: #ffffff !important;
+  }
+  
+  .border {
+    border: 1px solid #e5e5e5 !important;
+  }
+  
+  .shadow-sm {
+    box-shadow: none !important; /* Shadows look bad on print */
   }
 
-  .teacher-report-print-break {
-    break-before: page;
-    page-break-before: always;
+  /* Clean tables for printing */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin-top: 1rem !important;
   }
 
-  .teacher-report-table th,
-  .teacher-report-table td,
-  table th,
-  table td {
-    border-color: #cbd5e1 !important;
+  th, td {
+    border: 1px solid #e5e5e5 !important;
+    padding: 10px !important;
+    text-align: left !important;
   }
+
+  th {
+    background-color: #f5f5f5 !important;
+    color: #333 !important;
+    font-weight: bold !important;
+  }
+}
+
+@page {
+  size: Letter;
+  margin: 0.5in;
 }

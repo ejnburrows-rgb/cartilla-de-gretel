@@ -1,28 +1,34 @@
-import type { CSSProperties } from "react";
-
-type StudentProgressBarProps = {
-  current: number;
-  total: number;
-  accent: string;
-};
-
-function progressStyle(current: number, total: number, accent: string): CSSProperties {
-  const pct = total > 0 ? Math.min(100, Math.round((current / total) * 100)) : 0;
-  return { width: `${pct}%`, backgroundColor: accent };
+/**
+ * StudentProgressBar.tsx  — Lane A
+ * Thin progress bar component that accepts 0–100 value and an accent colour.
+ */
+interface StudentProgressBarProps {
+  value: number;        // 0–100
+  color?: string;
+  className?: string;
+  label?: string;
 }
 
-export function StudentProgressBar({ current, total, accent }: StudentProgressBarProps) {
+export function StudentProgressBar({
+  value,
+  color,
+  className = "",
+  label,
+}: StudentProgressBarProps) {
+  const pct = Math.min(100, Math.max(0, value));
   return (
-    <div>
-      <div className="mb-2 flex items-center justify-between text-sm font-black text-[#3A281E]/70">
-        <span>Progreso</span>
-        <span>
-          {current} / {total}
-        </span>
-      </div>
-      <div className="h-3 overflow-hidden rounded-full border border-amber-900/15 bg-white/70">
-        <div className="h-full transition-all duration-300" style={progressStyle(current, total, accent)} />
-      </div>
+    <div
+      className={`student-progress-bar ${className}`}
+      role="progressbar"
+      aria-valuenow={pct}
+      aria-valuemin={0}
+      aria-valuemax={100}
+      aria-label={label ?? `Progreso: ${pct}%`}
+    >
+      <div
+        className="student-progress-bar__fill"
+        style={{ width: `${pct}%`, backgroundColor: color ?? "hsl(var(--primary))" }}
+      />
     </div>
   );
 }

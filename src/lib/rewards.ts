@@ -1,207 +1,236 @@
 import { useEffect, useState } from "react";
-import { getStudentSession } from "@/lib/student-session";
 
-export type RewardKind = "sticker" | "badge";
-
-export type Reward = {
+export interface Sticker {
+  lessonId: number;
   id: string;
-  kind: RewardKind;
-  label: string;
-  description: string;
-  symbol: string;
-  lessonNumber?: number;
+  name: string;
+  emoji: string;
   color: string;
-};
-
-export type EarnedReward = Reward & {
-  earnedAt: string;
-};
-
-const KEY = "cartilla.rewards.v1";
-const EVENT = "cartilla:rewards";
-
-const STICKER_COLORS = [
-  "#f9a8d4",
-  "#fdba74",
-  "#fde68a",
-  "#86efac",
-  "#93c5fd",
-  "#c4b5fd",
-];
-
-const STICKER_SYMBOLS = [
-  "sol",
-  "flor",
-  "luna",
-  "estrella",
-  "corazon",
-  "nube",
-  "libro",
-  "lapiz",
-  "casa",
-  "campana",
-  "diamante",
-  "regalo",
-];
-
-const STICKER_GLYPHS = [
-  "☀",
-  "✿",
-  "☾",
-  "★",
-  "♡",
-  "☁",
-  "▣",
-  "✎",
-  "⌂",
-  "◌",
-  "◆",
-  "◇",
-];
-
-export const LESSON_STICKERS: Reward[] = Array.from({ length: 24 }, (_, index) => {
-  const lessonNumber = index + 1;
-  const symbolIndex = index % STICKER_SYMBOLS.length;
-  return {
-    id: `lesson-${lessonNumber}`,
-    kind: "sticker",
-    lessonNumber,
-    label: `Leccion ${lessonNumber}`,
-    description: `Completaste la leccion ${lessonNumber}.`,
-    symbol: STICKER_GLYPHS[symbolIndex],
-    color: STICKER_COLORS[index % STICKER_COLORS.length],
-  };
-});
-
-export const BADGES: Reward[] = [
-  {
-    id: "badge-first-step",
-    kind: "badge",
-    label: "Primer paso",
-    description: "Completa tu primera leccion.",
-    symbol: "1",
-    color: "#93c5fd",
-  },
-  {
-    id: "badge-vowels",
-    kind: "badge",
-    label: "Vocales listas",
-    description: "Completa las lecciones 1 a 6.",
-    symbol: "AEI",
-    color: "#fcd34d",
-  },
-  {
-    id: "badge-half-book",
-    kind: "badge",
-    label: "Medio camino",
-    description: "Completa 12 lecciones.",
-    symbol: "12",
-    color: "#86efac",
-  },
-  {
-    id: "badge-reader",
-    kind: "badge",
-    label: "Cartilla completa",
-    description: "Completa las 24 lecciones.",
-    symbol: "24",
-    color: "#c4b5fd",
-  },
-];
-
-function activeKey() {
-  const session = getStudentSession();
-  return session ? `${KEY}.${session.classId}.${session.studentId}` : KEY;
+  description: string;
 }
 
-function read(): EarnedReward[] {
+export interface Badge {
+  id: string;
+  name: string;
+  emoji: string;
+  color: string;
+  description: string;
+  condition: string;
+  isUnlocked: (completedIds: number[], stats: any) => boolean;
+}
+
+// 24 beautifully designed themed stickers (one per lesson)
+export const STICKERS: Sticker[] = [
+  { lessonId: 1, id: "butterfly", name: "Mariposa Mágica", emoji: "🦋", color: "hsl(280, 85%, 65%)", description: "¡Volando alto en el inicio de tu lectura!" },
+  { lessonId: 2, id: "bear", name: "Oso Curioso", emoji: "🐻", color: "hsl(35, 75%, 50%)", description: "¡Abrazo peludo por dominar la vocal O!" },
+  { lessonId: 3, id: "bee", name: "Abeja Alegre", emoji: "🐝", color: "hsl(50, 95%, 55%)", description: "¡Zumbando de felicidad con la vocal A!" },
+  { lessonId: 4, id: "star", name: "Estrella Brillante", emoji: "⭐", color: "hsl(45, 100%, 60%)", description: "¡Tu lectura brilla con la vocal E!" },
+  { lessonId: 5, id: "iguana", name: "Iguana Inteligente", emoji: "🦎", color: "hsl(100, 75%, 45%)", description: "¡Deslizándote genial por la vocal I!" },
+  { lessonId: 6, id: "unicorn", name: "Unicornio Soñador", emoji: "🦄", color: "hsl(300, 80%, 70%)", description: "¡Magia pura lograda en la vocal U!" },
+  { lessonId: 7, id: "monkey", name: "Mono Saltarín", emoji: "🐒", color: "hsl(25, 70%, 55%)", description: "¡Saltos de alegría aprendiendo la letra M!" },
+  { lessonId: 8, id: "puppy", name: "Perrito Juguetón", emoji: "🐶", color: "hsl(30, 80%, 60%)", description: "¡Guau, increíble avance con la letra P!" },
+  { lessonId: 9, id: "frog", name: "Ranita Cantarina", emoji: "🐸", color: "hsl(120, 70%, 45%)", description: "¡Saltando a la fama con la letra S!" },
+  { lessonId: 10, id: "turtle", name: "Tortuga Veloz", emoji: "🐢", color: "hsl(110, 60%, 50%)", description: "¡Paso a paso ganas con la letra T!" },
+  { lessonId: 11, id: "dolphin", name: "Delfín Sonriente", emoji: "🐬", color: "hsl(190, 85%, 55%)", description: "¡Navegando feliz en la letra D!" },
+  { lessonId: 12, id: "lion", name: "León Valiente", emoji: "🦁", color: "hsl(40, 85%, 55%)", description: "¡Ruge con fuerza leyendo la letra L!" },
+  { lessonId: 13, id: "koala", name: "Koala Lector", emoji: "🐨", color: "hsl(200, 15%, 65%)", description: "¡Abrazando los libros de la letra N!" },
+  { lessonId: 14, id: "bunny", name: "Conejo Saltarín", emoji: "🐰", color: "hsl(320, 60%, 80%)", description: "¡Orejas arriba por dominar la letra B!" },
+  { lessonId: 15, id: "fox", name: "Zorrito Veloz", emoji: "🦊", color: "hsl(20, 90%, 55%)", description: "¡Astucia pura leyendo la letra V!" },
+  { lessonId: 16, id: "dino", name: "Dinosaurio Fuerte", emoji: "🦖", color: "hsl(130, 65%, 45%)", description: "¡Lectura gigante con la letra R!" },
+  { lessonId: 17, id: "cat", name: "Gatito Artista", emoji: "🐱", color: "hsl(35, 80%, 65%)", description: "¡Miau, espectacular con la letra F!" },
+  { lessonId: 18, id: "chick", name: "Pollito Lector", emoji: "🐥", color: "hsl(55, 90%, 60%)", description: "¡Pío pío de orgullo con la letra G!" },
+  { lessonId: 19, id: "octopus", name: "Pulpo de Ideas", emoji: "🐙", color: "hsl(340, 80%, 65%)", description: "¡Ocho brazos para aplaudir la letra J!" },
+  { lessonId: 20, id: "owl", name: "Búho Sabio", emoji: "🦉", color: "hsl(28, 50%, 45%)", description: "¡Sabiduría total al conquistar la letra C!" },
+  { lessonId: 21, id: "panda", name: "Panda Cariñoso", emoji: "🐼", color: "hsl(0, 0%, 20%)", description: "¡Súper tranquilo leyendo la letra Y!" },
+  { lessonId: 22, id: "zebra", name: "Cebra Elegante", emoji: "🦓", color: "hsl(0, 0%, 40%)", description: "¡Rayas de victoria con la letra Z!" },
+  { lessonId: 23, id: "penguin", name: "Pingüino Feliz", emoji: "🐧", color: "hsl(200, 80%, 40%)", description: "¡Deslizándote al éxito en el repaso final!" },
+  { lessonId: 24, id: "dragon", name: "Dragón Dorado", emoji: "🐉", color: "hsl(45, 90%, 50%)", description: "¡Fuego sagrado de la lectura! ¡Cartilla completada!" },
+];
+
+// Milestone badges
+export const BADGES: Badge[] = [
+  {
+    id: "first_step",
+    name: "Primer Paso",
+    emoji: "🎈",
+    color: "hsl(350, 85%, 65%)",
+    description: "¡Completaste tu primera lección interactiva!",
+    condition: "1 lección completada",
+    isUnlocked: (completed) => completed.length >= 1,
+  },
+  {
+    id: "syllable_explorer",
+    name: "Explorador de Sílabas",
+    emoji: "📚",
+    color: "hsl(150, 75%, 45%)",
+    description: "¡Cinco lecciones dominadas con orgullo!",
+    condition: "5 lecciones completadas",
+    isUnlocked: (completed) => completed.length >= 5,
+  },
+  {
+    id: "super_champion",
+    name: "Súper Campeón",
+    emoji: "🏆",
+    color: "hsl(48, 95%, 55%)",
+    description: "¡Llegaste a 10 lecciones! ¡Eres genial!",
+    condition: "10 lecciones completadas",
+    isUnlocked: (completed) => completed.length >= 10,
+  },
+  {
+    id: "cartilla_sage",
+    name: "Sabio de la Cartilla",
+    emoji: "🦉",
+    color: "hsl(28, 70%, 50%)",
+    description: "¡15 lecciones completas! ¡Cuánto sabes!",
+    condition: "15 lecciones completadas",
+    isUnlocked: (completed) => completed.length >= 15,
+  },
+  {
+    id: "grand_master",
+    name: "Corona de Oro",
+    emoji: "👑",
+    color: "hsl(43, 100%, 50%)",
+    description: "¡Conquistaste las 24 lecciones! ¡Eres un lector maestro!",
+    condition: "Las 24 lecciones completadas",
+    isUnlocked: (completed) => completed.length >= 24,
+  },
+  {
+    id: "perfect_score",
+    name: "Estrella Perfecta",
+    emoji: "✨",
+    color: "hsl(190, 95%, 60%)",
+    description: "¡Lograste un 100% de acierto en cualquier ejercicio!",
+    condition: "Acierto perfecto en algún ejercicio",
+    isUnlocked: (_, stats) => {
+      if (!stats) return false;
+      return Object.values(stats).some((lesson: any) =>
+        Object.values(lesson).some((ex: any) => ex.attempts > 0 && ex.hits === ex.attempts)
+      );
+    },
+  },
+  {
+    id: "active_streak",
+    name: "Racha Ardiente",
+    emoji: "🔥",
+    color: "hsl(15, 95%, 55%)",
+    description: "¡Mantuviste tu racha de lectura activa!",
+    condition: "Racha activa",
+    isUnlocked: (_, stats) => {
+      // In the absence of a complete streak tracker, we can unlock this if they have done exercises in at least 2 distinct runs/sessions.
+      if (!stats) return false;
+      const count = Object.values(stats).reduce((acc: number, lesson: any) => {
+        return acc + Object.values(lesson).reduce((acc2: number, ex: any) => acc2 + (ex.completedRounds || 0), 0);
+      }, 0);
+      return count >= 2;
+    },
+  },
+];
+
+// Local persist functions
+const STICKERS_KEY = "cartilla.rewards.stickers.v1";
+const BADGES_KEY = "cartilla.rewards.badges.v1";
+
+export function getEarnedStickers(): number[] {
   if (typeof window === "undefined") return [];
   try {
-    const raw = localStorage.getItem(activeKey());
-    if (!raw) return [];
-    const parsed = JSON.parse(raw) as EarnedReward[];
-    return Array.isArray(parsed) ? parsed.filter((reward) => typeof reward.id === "string") : [];
+    const raw = localStorage.getItem(STICKERS_KEY);
+    return raw ? JSON.parse(raw) : [];
   } catch {
     return [];
   }
 }
 
-function write(rewards: EarnedReward[]) {
+export function saveEarnedSticker(lessonId: number) {
   if (typeof window === "undefined") return;
   try {
-    localStorage.setItem(activeKey(), JSON.stringify(rewards));
-    window.dispatchEvent(new Event(EVENT));
+    const current = getEarnedStickers();
+    if (!current.includes(lessonId)) {
+      const next = [...current, lessonId].sort((a, b) => a - b);
+      localStorage.setItem(STICKERS_KEY, JSON.stringify(next));
+      window.dispatchEvent(new Event("cartilla:rewards-changed"));
+    }
   } catch {
-    /* ignore local persistence failures */
+    /* ignore */
   }
 }
 
-function award(reward: Reward, current = read()): EarnedReward[] {
-  if (current.some((earned) => earned.id === reward.id)) return current;
-  return [...current, { ...reward, earnedAt: new Date().toISOString() }];
+export function getEarnedBadges(): string[] {
+  if (typeof window === "undefined") return [];
+  try {
+    const raw = localStorage.getItem(BADGES_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch {
+    return [];
+  }
 }
 
-function badgesForCompletedLessons(completedLessons: number[]): Reward[] {
-  const unique = new Set(completedLessons.filter((n) => Number.isFinite(n) && n > 0));
-  const badges: Reward[] = [];
-  if (unique.size >= 1) badges.push(BADGES[0]);
-  if ([1, 2, 3, 4, 5, 6].every((n) => unique.has(n))) badges.push(BADGES[1]);
-  if (unique.size >= 12) badges.push(BADGES[2]);
-  if (unique.size >= 24) badges.push(BADGES[3]);
-  return badges;
+export function saveEarnedBadge(badgeId: string) {
+  if (typeof window === "undefined") return;
+  try {
+    const current = getEarnedBadges();
+    if (!current.includes(badgeId)) {
+      const next = [...current, badgeId];
+      localStorage.setItem(BADGES_KEY, JSON.stringify(next));
+      window.dispatchEvent(new Event("cartilla:rewards-changed"));
+    }
+  } catch {
+    /* ignore */
+  }
 }
 
-export function getEarnedRewards(): EarnedReward[] {
-  return read();
+// Aliases used by mi-progreso.tsx (and any other consumer expecting this naming)
+export const getUnlockedStickers = getEarnedStickers;
+export const getUnlockedBadges = getEarnedBadges;
+
+export function checkAndAwardRewards(completedLessons: number[], localStats: any) {
+  // 1. Award stickers for completed lessons
+  completedLessons.forEach((id) => {
+    saveEarnedSticker(id);
+  });
+
+  // 2. Award badges based on conditions
+  BADGES.forEach((badge) => {
+    if (badge.isUnlocked(completedLessons, localStats)) {
+      saveEarnedBadge(badge.id);
+    }
+  });
 }
 
-export function getEarnedStickerIds(): Set<string> {
-  return new Set(read().filter((reward) => reward.kind === "sticker").map((reward) => reward.id));
-}
+// React Hook
+export function useRewards(completedLessons: number[] = [], localStats: any = null) {
+  const [stickers, setStickers] = useState<number[]>([]);
+  const [badges, setBadges] = useState<string[]>([]);
 
-export function getEarnedBadgeIds(): Set<string> {
-  return new Set(read().filter((reward) => reward.kind === "badge").map((reward) => reward.id));
-}
-
-export function earnReward(reward: Reward): EarnedReward[] {
-  const next = award(reward);
-  write(next);
-  return next;
-}
-
-export function earnLessonReward(lessonNumber: number, completedLessons: number[] = [lessonNumber]) {
-  const sticker = LESSON_STICKERS.find((item) => item.lessonNumber === lessonNumber);
-  if (!sticker) return read();
-  const completed = Array.from(new Set([...completedLessons, lessonNumber]));
-  const next = badgesForCompletedLessons(completed).reduce(
-    (acc, badge) => award(badge, acc),
-    award(sticker),
-  );
-  write(next);
-  return next;
-}
-
-export function clearEarnedRewards() {
-  write([]);
-}
-
-export function useRewards() {
-  const [, setTick] = useState(0);
   useEffect(() => {
-    const h = () => setTick((tick) => tick + 1);
-    window.addEventListener(EVENT, h);
-    window.addEventListener("storage", h);
-    window.addEventListener("cartilla:student-session", h);
-    return () => {
-      window.removeEventListener(EVENT, h);
-      window.removeEventListener("storage", h);
-      window.removeEventListener("cartilla:student-session", h);
-    };
-  }, []);
+    // Run an initial check and award cycle
+    checkAndAwardRewards(completedLessons, localStats);
 
-  const earned = read();
+    const load = () => {
+      setStickers(getEarnedStickers());
+      setBadges(getEarnedBadges());
+    };
+
+    load();
+
+    const h = () => {
+      load();
+    };
+
+    window.addEventListener("storage", h);
+    window.addEventListener("cartilla:rewards-changed", h);
+
+    return () => {
+      window.removeEventListener("storage", h);
+      window.removeEventListener("cartilla:rewards-changed", h);
+    };
+  }, [completedLessons.length, JSON.stringify(localStats)]);
+
   return {
-    earned,
-    earnedStickerIds: new Set(earned.filter((reward) => reward.kind === "sticker").map((reward) => reward.id)),
-    earnedBadgeIds: new Set(earned.filter((reward) => reward.kind === "badge").map((reward) => reward.id)),
+    stickers,
+    badges,
+    allStickers: STICKERS,
+    allBadges: BADGES,
+    claimSticker: saveEarnedSticker,
+    claimBadge: saveEarnedBadge,
   };
 }

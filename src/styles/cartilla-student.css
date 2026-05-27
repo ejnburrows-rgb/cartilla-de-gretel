@@ -1,0 +1,443 @@
+/*
+ * cartilla-student.css
+ * Lane A — student experience styles
+ * Import order: after styles.css (already imports tailwindcss)
+ */
+
+/* ── BookArtFigure ───────────────────────────────────────────────── */
+.book-art-figure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background: hsl(var(--secondary) / 0.5);
+  border: 2px solid hsl(var(--foreground) / 0.07);
+}
+
+.book-art-figure img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.book-art-skeleton {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    hsl(var(--secondary) / 0.6) 0%,
+    hsl(var(--secondary)) 50%,
+    hsl(var(--secondary) / 0.6) 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-sweep 1.6s ease-in-out infinite;
+  border-radius: 1rem;
+}
+
+@keyframes skeleton-sweep {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ── Student Exercise Pane ───────────────────────────────────────── */
+.student-exercise-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding-bottom: 5rem; /* room for sticky bar */
+}
+
+/* ── DragBuildWord ───────────────────────────────────────────────── */
+.drag-build-word {
+  border-radius: 1.5rem;
+  border: 2px solid hsl(var(--foreground) / 0.10);
+  background: hsl(var(--card));
+  padding: 1rem;
+}
+
+.drag-build-word__slots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  min-height: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.drag-build-word__slot {
+  width: 3.5rem;
+  height: 3.75rem;
+  border-radius: 1rem;
+  border: 3px dashed hsl(var(--foreground) / 0.25);
+  background: hsl(var(--secondary) / 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  transition: background 200ms ease, border-color 200ms ease, transform 200ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+  font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
+}
+
+.drag-build-word__slot[data-filled="true"] {
+  border-style: solid;
+  background: hsl(var(--card));
+}
+
+.drag-build-word__slot[data-over="true"] {
+  background: hsl(var(--primary) / 0.12);
+  border-color: hsl(var(--primary) / 0.5);
+  transform: scale(1.06);
+}
+
+.drag-build-word__slot[data-correct="true"] {
+  background: hsl(var(--success) / 0.10);
+  border-color: hsl(var(--success) / 0.5);
+  border-style: solid;
+}
+
+.drag-build-word__slot[data-wrong="true"] {
+  animation: slot-shake 320ms ease;
+}
+
+@keyframes slot-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-5px); }
+  60% { transform: translateX(5px); }
+  80% { transform: translateX(-3px); }
+}
+
+.drag-build-word__tray {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  min-height: 3rem;
+}
+
+.drag-build-word__letter {
+  width: 3.5rem;
+  height: 3.75rem;
+  border-radius: 1rem;
+  border: 3px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  transition: transform 200ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 140ms ease, box-shadow 140ms ease;
+  box-shadow: 0 4px 0 hsl(var(--foreground) / 0.12);
+  font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
+}
+
+.drag-build-word__letter:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 5px 0 hsl(var(--foreground) / 0.12);
+}
+
+.drag-build-word__letter:active {
+  cursor: grabbing;
+}
+
+.drag-build-word__letter[data-dragging="true"] {
+  opacity: 0.35;
+  transform: scale(0.9);
+}
+
+.drag-build-word__letter[data-used="true"] {
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+/* ── Progress Dots ───────────────────────────────────────────────── */
+.progress-dots {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.progress-dot {
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 50%;
+  background: hsl(var(--foreground) / 0.15);
+  border: 1.5px solid hsl(var(--foreground) / 0.2);
+  transition: background 300ms ease, transform 300ms ease;
+}
+
+.progress-dot[data-done="true"] {
+  background: var(--dot-color, hsl(var(--primary)));
+  border-color: var(--dot-color, hsl(var(--primary)));
+  transform: scale(1.2);
+}
+
+.progress-dot[data-active="true"] {
+  border-color: var(--dot-color, hsl(var(--primary)));
+  animation: dot-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes dot-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.35); }
+}
+
+/* ── Sticky lesson footer ────────────────────────────────────────── */
+.lesson-sticky-bar {
+  position: sticky;
+  bottom: 0;
+  z-index: 30;
+  background: hsl(var(--background) / 0.92);
+  backdrop-filter: blur(12px);
+  border-top: 2px solid hsl(var(--foreground) / 0.08);
+  padding: 0.625rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+/* ── Celebration ─────────────────────────────────────────────────── */
+.celebration-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.celebration-burst {
+  font-size: 3rem;
+  animation: burst-in 600ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes burst-in {
+  0% { transform: scale(0) rotate(-15deg); opacity: 0; }
+  70% { transform: scale(1.15) rotate(5deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 2px;
+  animation: confetti-fall 1.2s ease-out forwards;
+}
+
+@keyframes confetti-fall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(200px) rotate(540deg); opacity: 0; }
+}
+
+/* ── StudentProgressBar ──────────────────────────────────────────── */
+.student-progress-bar {
+  height: 0.625rem;
+  background: hsl(var(--secondary));
+  border-radius: 9999px;
+  overflow: hidden;
+  border: 1.5px solid hsl(var(--foreground) / 0.08);
+}
+
+.student-progress-bar__fill {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 400ms ease;
+}
+
+/* ── PdfPage responsive wrapper ──────────────────────────────────── */
+.pdf-page-wrapper {
+  width: 100%;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  border: 2px solid hsl(var(--foreground) / 0.08);
+  background: hsl(var(--card));
+  box-shadow: 0 8px 32px hsl(var(--primary) / 0.08);
+}
+
+/* ── Lecciones horizontal swipe spread ──────────────────────────── */
+.lecciones-spread {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--primary) / 0.3) transparent;
+}
+
+.lecciones-spread::-webkit-scrollbar {
+  height: 4px;
+}
+
+.lecciones-spread::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.3);
+  border-radius: 9999px;
+}
+
+.lecciones-spread__page {
+  scroll-snap-align: center;
+  flex-shrink: 0;
+  width: min(88vw, 400px);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  border: 2px solid hsl(var(--foreground) / 0.08);
+  background: hsl(var(--card));
+  cursor: pointer;
+  transition: border-color 200ms ease, transform 200ms ease;
+}
+
+.lecciones-spread__page[data-active="true"] {
+  border-color: hsl(var(--primary) / 0.5);
+  transform: scale(1.02);
+}
+
+/* ── Lesson tile (landing grid) ──────────────────────────────────── */
+.lesson-tile {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1.5rem;
+  border: 2px solid hsl(var(--foreground) / 0.08);
+  background: hsl(var(--card));
+  overflow: hidden;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+  box-shadow: 0 4px 0 hsl(var(--foreground) / 0.06);
+  text-decoration: none;
+  color: inherit;
+}
+
+.lesson-tile:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 0 hsl(var(--foreground) / 0.07), 0 20px 40px hsl(var(--primary) / 0.1);
+}
+
+.lesson-tile__art {
+  width: 100%;
+  aspect-ratio: 1;
+  background: hsl(var(--secondary) / 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lesson-tile__body {
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.lesson-tile__letter {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
+}
+
+.lesson-tile__caption {
+  font-size: 0.8125rem;
+  color: hsl(var(--foreground) / 0.65);
+  line-height: 1.3;
+}
+
+/* ── mi-progreso CSS-only bar chart ──────────────────────────────── */
+.css-bar-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.375rem;
+  height: 8rem;
+  padding: 0.25rem 0 0.25rem;
+}
+
+.css-bar-chart__col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.css-bar-chart__bar {
+  width: 100%;
+  min-height: 2px;
+  border-radius: 0.375rem 0.375rem 0 0;
+  transition: height 500ms ease;
+}
+
+.css-bar-chart__label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: hsl(var(--foreground) / 0.5);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 2.5rem;
+  text-align: center;
+}
+
+/* ── Print route ─────────────────────────────────────────────────── */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  .pdf-page-wrapper {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+
+  .lesson-sticky-bar {
+    display: none !important;
+  }
+
+  nav, header.no-print {
+    display: none !important;
+  }
+}
+
+.print-only {
+  display: none;
+}
+
+@page {
+  size: letter;
+  margin: 1.5cm;
+}
+
+/* ── Focus rings — use lesson accent color via CSS var ───────────── */
+.lesson-focus-ring:focus-visible {
+  outline: 3px solid var(--lesson-accent, hsl(var(--primary)));
+  outline-offset: 3px;
+}
+
+/* ── Reduced motion overrides (belt-and-suspenders) ─────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .book-art-skeleton,
+  .confetti-piece,
+  .celebration-burst,
+  .progress-dot[data-active="true"],
+  .drag-build-word__slot[data-wrong="true"] {
+    animation: none !important;
+    transition: none !important;
+  }
+}

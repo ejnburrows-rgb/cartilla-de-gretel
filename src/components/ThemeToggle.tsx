@@ -14,6 +14,11 @@ export function useTheme() {
   const [theme, setTheme] = useState<Theme>(() => {
     const saved = storage.get<Theme | null>(KEY, null);
     if (saved) return saved;
+    if (
+      typeof window !== "undefined" &&
+      window.matchMedia?.("(prefers-color-scheme: dark)").matches
+    )
+      return "dark";
     return "light";
   });
 

@@ -3,7 +3,7 @@ export type Profile = { id: string; name: string; emoji: string };
 const PROFILES_KEY = "cartilla.profiles.v1";
 const ACTIVE_KEY = "cartilla.profile.active.v1";
 
-export const DEFAULT_PROFILE: Profile = { id: "seed", name: "Local", emoji: "🌟" };
+export const DEFAULT_PROFILE: Profile = { id: "demo", name: "Demo", emoji: "🌟" };
 
 export function loadProfiles(): Profile[] {
   if (typeof window === "undefined") return [DEFAULT_PROFILE];

@@ -1,0 +1,125 @@
+/* Custom CSS Keyframes & Animations — La Cartilla de Gretel */
+
+@keyframes feel-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes feel-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes feel-float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes feel-wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-3deg); }
+  75% { transform: rotate(3deg); }
+}
+
+@keyframes feel-pop {
+  0% { transform: scale(0.9); opacity: 0; }
+  70% { transform: scale(1.08); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes feel-glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(201, 140, 79, 0.2); }
+  50% { box-shadow: 0 0 20px rgba(201, 140, 79, 0.6); }
+}
+
+@keyframes feel-sparkle {
+  0% { transform: scale(0) rotate(0deg); opacity: 0; }
+  50% { transform: scale(1.2) rotate(180deg); opacity: 1; }
+  100% { transform: scale(0) rotate(360deg); opacity: 0; }
+}
+
+@keyframes feel-slide-up {
+  0% { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes feel-slide-down {
+  0% { transform: translateY(-20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes feel-fade-up {
+  0% { transform: translateY(10px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes feel-fade-down {
+  0% { transform: translateY(-10px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes feel-ripple {
+  0% { transform: scale(0); opacity: 0.5; }
+  100% { transform: scale(1); opacity: 0; }
+}
+
+/* Base utility animation classes */
+.feel-anim-pulse { animation: feel-pulse 2s infinite ease-in-out; }
+.feel-anim-shimmer {
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background-size: 200% 100%;
+  animation: feel-shimmer 1.6s infinite linear;
+}
+.dark .feel-anim-shimmer {
+  background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%);
+  background-size: 200% 100%;
+  animation: feel-shimmer 1.6s infinite linear;
+}
+.feel-anim-float { animation: feel-float 3s infinite ease-in-out; }
+.feel-anim-wiggle { animation: feel-wiggle 0.5s ease-in-out; }
+.feel-anim-pop { animation: feel-pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+.feel-anim-glow { animation: feel-glow 2s infinite ease-in-out; }
+.feel-anim-slide-up { animation: feel-slide-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.feel-anim-slide-down { animation: feel-slide-down 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.feel-anim-fade-up { animation: feel-fade-up 0.3s ease-out forwards; }
+.feel-anim-fade-down { animation: feel-fade-down 0.3s ease-out forwards; }
+
+/* prefers-reduced-motion overrides */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+  
+  @keyframes feel-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .feel-anim-pulse,
+  .feel-anim-float,
+  .feel-anim-wiggle,
+  .feel-anim-pop,
+  .feel-anim-glow,
+  .feel-anim-slide-up,
+  .feel-anim-slide-down,
+  .feel-anim-fade-up,
+  .feel-anim-fade-down {
+    animation: feel-fade-in 0.2s ease-out forwards !important;
+  }
+
+  .feel-anim-shimmer {
+    animation: none !important;
+    background: #e5e7eb !important;
+  }
+  .dark .feel-anim-shimmer {
+    background: #334155 !important;
+  }
+}

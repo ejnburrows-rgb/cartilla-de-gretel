@@ -1,0 +1,205 @@
+import React from "react";
+
+interface GretelIdleProps extends React.SVGProps<SVGSVGElement> {
+  animated?: boolean;
+}
+
+export function GretelIdle({ animated = false, ...props }: GretelIdleProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 200 300"
+      preserveAspectRatio="xMidYMid meet"
+      role="img"
+      aria-label="Gretel standing relaxed"
+      {...props}
+    >
+      <defs>
+        {/* Soft shadow filter */}
+        <filter id="idle-shadow" x="-10%" y="-10%" width="120%" height="120%">
+          <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#00000020" />
+        </filter>
+        {/* Hair gradient */}
+        <linearGradient id="idle-hair" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#9B6E4A" />
+          <stop offset="100%" stopColor="#8B5E3C" />
+        </linearGradient>
+        {/* Tunic gradient */}
+        <linearGradient id="idle-tunic" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#faf3e8" />
+          <stop offset="100%" stopColor="#f5eadb" />
+        </linearGradient>
+      </defs>
+
+      {/* === SHOES === */}
+      <ellipse cx="82" cy="280" rx="14" ry="8" fill="#7a5230" />
+      <ellipse cx="118" cy="280" rx="14" ry="8" fill="#7a5230" />
+      <ellipse cx="82" cy="278" rx="12" ry="6" fill="#8B6640" />
+      <ellipse cx="118" cy="278" rx="12" ry="6" fill="#8B6640" />
+
+      {/* === LEGS === */}
+      <rect x="78" y="248" width="12" height="34" rx="6" fill="#f5d0a9" />
+      <rect x="110" y="248" width="12" height="34" rx="6" fill="#f5d0a9" />
+
+      {/* === BODY / TUNIC === */}
+      <path
+        d="M70 148 Q68 160 66 200 Q65 230 72 252 L128 252 Q135 230 134 200 Q132 160 130 148 Z"
+        fill="url(#idle-tunic)"
+        stroke="var(--art-primary, #c98c4f)"
+        strokeWidth="1.5"
+        filter="url(#idle-shadow)"
+      />
+      {/* Collar trim */}
+      <path
+        d="M82 148 Q100 158 118 148"
+        fill="none"
+        stroke="var(--art-primary, #c98c4f)"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+      {/* Hem trim */}
+      <path
+        d="M72 250 Q100 256 128 250"
+        fill="none"
+        stroke="var(--art-primary, #c98c4f)"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+      {/* Center seam detail */}
+      <line x1="100" y1="158" x2="100" y2="245" stroke="var(--art-primary, #c98c4f)" strokeWidth="0.8" opacity="0.4" />
+
+      {/* === ARMS (at sides) === */}
+      {/* Left arm */}
+      <path
+        d="M70 155 Q58 185 56 215 Q55 225 58 228"
+        fill="none"
+        stroke="#f5d0a9"
+        strokeWidth="12"
+        strokeLinecap="round"
+      />
+      {/* Left hand */}
+      <circle cx="58" cy="228" r="8" fill="#f5d0a9" />
+      {/* Right arm */}
+      <path
+        d="M130 155 Q142 185 144 215 Q145 225 142 228"
+        fill="none"
+        stroke="#f5d0a9"
+        strokeWidth="12"
+        strokeLinecap="round"
+      />
+      {/* Right hand */}
+      <circle cx="142" cy="228" r="8" fill="#f5d0a9" />
+
+      {/* === NECK === */}
+      <rect x="92" y="130" width="16" height="20" rx="8" fill="#f5d0a9" />
+
+      {/* === HAIR BACK (behind head) === */}
+      <ellipse cx="100" cy="75" rx="42" ry="40" fill="url(#idle-hair)" />
+
+      {/* === PIGTAILS === */}
+      {/* Left pigtail */}
+      <path
+        d="M60 70 Q40 75 35 95 Q32 110 38 125 Q42 132 50 130 Q55 125 52 110 Q50 95 55 80"
+        fill="#8B5E3C"
+        stroke="#7A4E2E"
+        strokeWidth="1"
+      />
+      {/* Right pigtail */}
+      <path
+        d="M140 70 Q160 75 165 95 Q168 110 162 125 Q158 132 150 130 Q145 125 148 110 Q150 95 145 80"
+        fill="#8B5E3C"
+        stroke="#7A4E2E"
+        strokeWidth="1"
+      />
+      {/* Left ribbon bow */}
+      <path d="M55 72 Q45 62 50 55 Q55 60 60 68 Z" fill="var(--art-primary, #c98c4f)" />
+      <path d="M55 72 Q45 82 50 88 Q55 82 60 75 Z" fill="var(--art-primary, #c98c4f)" />
+      <circle cx="56" cy="72" r="3" fill="var(--art-accent, #d4a76a)" />
+      {/* Right ribbon bow */}
+      <path d="M145 72 Q155 62 150 55 Q145 60 140 68 Z" fill="var(--art-primary, #c98c4f)" />
+      <path d="M145 72 Q155 82 150 88 Q145 82 140 75 Z" fill="var(--art-primary, #c98c4f)" />
+      <circle cx="144" cy="72" r="3" fill="var(--art-accent, #d4a76a)" />
+
+      {/* === HEAD === */}
+      <ellipse cx="100" cy="90" rx="38" ry="42" fill="#f5d0a9" filter="url(#idle-shadow)" />
+
+      {/* === HAIR BANGS === */}
+      <path
+        d="M62 72 Q70 50 100 45 Q130 50 138 72 Q130 62 100 58 Q70 62 62 72 Z"
+        fill="url(#idle-hair)"
+      />
+      {/* Side hair wisps */}
+      <path d="M64 75 Q60 85 63 95" fill="none" stroke="#8B5E3C" strokeWidth="4" strokeLinecap="round" />
+      <path d="M136 75 Q140 85 137 95" fill="none" stroke="#8B5E3C" strokeWidth="4" strokeLinecap="round" />
+
+      {/* === EYES === */}
+      {/* Left eye - sclera */}
+      <ellipse cx="84" cy="88" rx="9" ry="10" fill="white" />
+      {/* Left eye - iris */}
+      <circle cx="84" cy="89" r="6" fill="#5c3d2e" />
+      {/* Left eye - pupil */}
+      <circle cx="84" cy="89" r="3" fill="#2d1f17" />
+      {/* Left eye - highlight */}
+      <circle cx="86" cy="87" r="2" fill="white" opacity="0.9" />
+      {/* Left eye - lashes */}
+      <path d="M75 82 Q80 78 84 79 Q88 78 93 82" fill="none" stroke="#5c3d2e" strokeWidth="2" strokeLinecap="round" />
+
+      {/* Right eye - sclera */}
+      <ellipse cx="116" cy="88" rx="9" ry="10" fill="white" />
+      {/* Right eye - iris */}
+      <circle cx="116" cy="89" r="6" fill="#5c3d2e" />
+      {/* Right eye - pupil */}
+      <circle cx="116" cy="89" r="3" fill="#2d1f17" />
+      {/* Right eye - highlight */}
+      <circle cx="118" cy="87" r="2" fill="white" opacity="0.9" />
+      {/* Right eye - lashes */}
+      <path d="M107 82 Q112 78 116 79 Q120 78 125 82" fill="none" stroke="#5c3d2e" strokeWidth="2" strokeLinecap="round" />
+
+      {/* === EYEBROWS === */}
+      <path d="M76 76 Q84 72 92 75" fill="none" stroke="#7A4E2E" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M108 75 Q116 72 124 76" fill="none" stroke="#7A4E2E" strokeWidth="1.8" strokeLinecap="round" />
+
+      {/* === NOSE === */}
+      <ellipse cx="100" cy="100" rx="3" ry="2.5" fill="#e8bf94" />
+
+      {/* === FRECKLES === */}
+      <circle cx="78" cy="98" r="1.2" fill="#d4a076" opacity="0.6" />
+      <circle cx="82" cy="101" r="1" fill="#d4a076" opacity="0.5" />
+      <circle cx="75" cy="101" r="1.1" fill="#d4a076" opacity="0.55" />
+      <circle cx="122" cy="98" r="1.2" fill="#d4a076" opacity="0.6" />
+      <circle cx="118" cy="101" r="1" fill="#d4a076" opacity="0.5" />
+      <circle cx="125" cy="101" r="1.1" fill="#d4a076" opacity="0.55" />
+
+      {/* === ROSY CHEEKS === */}
+      <ellipse cx="74" cy="100" rx="8" ry="5" fill="#f0b4b4" opacity="0.35" />
+      <ellipse cx="126" cy="100" rx="8" ry="5" fill="#f0b4b4" opacity="0.35" />
+
+      {/* === MOUTH - gentle smile === */}
+      <path
+        d="M92 108 Q100 116 108 108"
+        fill="none"
+        stroke="#c17c5a"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+
+      {/* === EARS === */}
+      <ellipse cx="62" cy="90" rx="5" ry="7" fill="#f5d0a9" />
+      <ellipse cx="62" cy="90" rx="3" ry="4.5" fill="#e8bf94" />
+      <ellipse cx="138" cy="90" rx="5" ry="7" fill="#f5d0a9" />
+      <ellipse cx="138" cy="90" rx="3" ry="4.5" fill="#e8bf94" />
+
+      {/* === IDLE BREATHING ANIMATION === */}
+      {animated && (
+        <animateTransform
+          attributeName="transform"
+          attributeType="XML"
+          type="translate"
+          values="0,0;0,-1;0,0"
+          dur="3s"
+          repeatCount="indefinite"
+        />
+      )}
+    </svg>
+  );
+}

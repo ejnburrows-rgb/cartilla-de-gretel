@@ -1,8 +1,6 @@
-import type { CSSProperties } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, Award, BookOpen, Mail } from "lucide-react";
+import { ArrowLeft, Award, BookOpen, Mail, ExternalLink } from "lucide-react";
 import portrait from "@/assets/autora-portrait.png";
-import { BRANDING } from "@/lib/branding";
 
 export const Route = createFileRoute("/cartilla/autora")({
   component: Autora,
@@ -10,12 +8,7 @@ export const Route = createFileRoute("/cartilla/autora")({
 });
 
 const PURCHASE_URL = "https://doublermuybien-com.3dcartstores.com/";
-const CONTACT_EMAIL = BRANDING.supportEmail;
-
-const serifStyle: CSSProperties = {
-  fontFamily:
-    '"Cormorant Garamond", "Playfair Display", Georgia, "Times New Roman", serif',
-};
+const CONTACT_EMAIL = "info@doublerpublishing.com";
 
 function Autora() {
   return (
@@ -30,9 +23,9 @@ function Autora() {
           </Link>
           <p
             className="hidden md:block text-[11px] tracking-[0.45em] uppercase text-[hsl(25,25%,35%)]"
-            style={serifStyle}
+            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
           >
-            {BRANDING.publisher} · est. {BRANDING.publisherEstablished}
+            Double R Publishing · est. 2004
           </p>
           <a
             href={`mailto:${CONTACT_EMAIL}`}
@@ -50,7 +43,7 @@ function Autora() {
           </p>
           <h1
             className="text-5xl md:text-7xl leading-[1.02] tracking-tight mb-8 text-[hsl(25,25%,12%)]"
-            style={serifStyle}
+            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
           >
             Leonor
             <br />
@@ -58,10 +51,10 @@ function Autora() {
           </h1>
           <p
             className="text-lg md:text-xl leading-relaxed text-[hsl(25,25%,28%)] max-w-prose"
-            style={serifStyle}
+            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
           >
             Casi cincuenta años enseñando español en las aulas del Condado de Miami-Dade. Fundadora
-            de {BRANDING.publisher} y autora de La Cartilla de Gretel, un método propio —fonético,
+            de Double R Publishing y autora de La Cartilla de Gretel, un método propio —fonético,
             visual y entrañable— que ha acompañado a miles de familias.
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
@@ -95,7 +88,7 @@ function Autora() {
             <div key={l} className="text-center md:text-left">
               <p
                 className="text-3xl md:text-4xl mb-1 text-[hsl(40,40%,96%)]"
-                style={serifStyle}
+                style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
               >
                 {n}
               </p>
@@ -109,13 +102,13 @@ function Autora() {
         <div className="max-w-3xl mx-auto px-6 py-24 text-center">
           <p
             className="text-6xl leading-none mb-4 text-[hsl(15,55%,38%)]"
-            style={serifStyle}
+            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
           >
             “
           </p>
           <blockquote
             className="italic text-2xl md:text-[28px] leading-snug text-[hsl(25,25%,18%)]"
-            style={serifStyle}
+            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
           >
             Enseñar a leer en la lengua materna es regalarle al niño la llave de su propio mundo.
           </blockquote>
@@ -145,7 +138,7 @@ function Autora() {
         <div className="max-w-3xl mx-auto px-6 py-24 text-center">
           <h2
             className="text-4xl md:text-5xl mb-6 tracking-tight"
-            style={serifStyle}
+            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
           >
             Para escuelas y familias
           </h2>

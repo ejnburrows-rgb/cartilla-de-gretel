@@ -1,0 +1,87 @@
+/* Tutorial Overlay Styles — La Cartilla de Gretel */
+
+.tutorial-overlay-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99990;
+  pointer-events: auto;
+  overflow: hidden;
+  background-color: rgba(12, 10, 8, 0.65);
+  backdrop-filter: blur(2px);
+  transition: opacity 0.3s ease;
+}
+
+/* Spotlight cutout clip-path or absolute overlay mask */
+.tutorial-spotlight-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 99991;
+  mix-blend-mode: multiply;
+  background-color: #0c0a08;
+}
+
+.tutorial-spotlight-cutout {
+  position: absolute;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 0 0 9999px rgba(12, 10, 8, 0.7);
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border: 4px solid var(--primary-color, #c98c4f);
+  pointer-events: none;
+}
+
+/* Pulsating pointing hand traveling between spots */
+.tutorial-hand {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  z-index: 99995;
+  pointer-events: none;
+  transition: all 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+  animation: hand-bounce 1s infinite alternate ease-in-out;
+}
+
+/* Step Dialog Card */
+.tutorial-step-card {
+  position: fixed;
+  background-color: var(--bg-color, #ffffff);
+  border: 3.5px solid var(--primary-color, #c98c4f);
+  color: var(--text-color, #1c1917);
+  border-radius: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 0 20px var(--accent-glow);
+  z-index: 99996;
+  width: 90%;
+  max-width: 380px;
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-sizing: border-box;
+}
+
+/* Keyframes */
+@keyframes hand-bounce {
+  0% {
+    transform: translate(-50%, -50%) translateY(0) scale(1);
+  }
+  100% {
+    transform: translate(-50%, -50%) translateY(-12px) scale(1.08);
+  }
+}
+
+/* prefers-reduced-motion compliance */
+@media (prefers-reduced-motion: reduce) {
+  .tutorial-hand {
+    animation: none;
+  }
+  .tutorial-spotlight-cutout, .tutorial-step-card, .tutorial-hand {
+    transition: none;
+  }
+}

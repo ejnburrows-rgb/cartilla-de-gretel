@@ -1,202 +1,254 @@
-import type { CSSProperties } from "react";
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { MapPin, CheckCircle2, Volume2, BookOpen, Image as ImageIcon, Sparkles } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { useState, useEffect, useMemo } from "react";
+import { Volume2, RotateCcw, Check, Sparkles } from "lucide-react";
 import { speak } from "@/lib/speak";
-import { hasVerifiedHotspots } from "@/lib/workbook-interactions";
-import type { WorkbookInteraction, InteractionTarget } from "@/lib/workbook-interactions";
-import { assetPath } from "@/lib/assets";
+import { feelBus } from "@/lib/feel-bus";
+import { recordEvent } from "@/lib/student-session";
+import type { CatalogEntry } from "@/lib/lesson-catalog";
+import { cn } from "@/lib/utils";
 
-type Props = {
-  interaction: WorkbookInteraction;
-  accent?: string;
-  onComplete?: (interactionId: string) => void;
+interface TapObjectActivityProps {
+  entry: CatalogEntry;
+  accent: string;
+  lessonId?: string;
+  onComplete?: () => void;
+}
+
+type Bubble = {
+  id: number;
+  text: string;
+  isTarget: boolean;
+  x: number; // percentage
+  y: number; // percentage
+  speedX: number;
+  speedY: number;
+  color: string;
 };
 
-const panelPop = { scale: [1, 1.01, 1], y: [0, -2, 0] };
-const completePop = { opacity: 1, y: 0, scale: 1 };
-const completeInitial = { opacity: 0, y: 8, scale: 0.98 };
+export function TapObjectActivity({ entry, accent, lessonId, onComplete }: TapObjectActivityProps) {
+  // Derive syllables based on current lesson
+  const syllables: string[] = useMemo(() => {
+    if (entry.kind === "consonant") return entry.data.syllables;
+    if (entry.kind === "vowel") return [entry.vowel, "a", "e", "i", "o", "u"].filter((v, i, self) => self.indexOf(v) === i);
+    return ["a", "e", "i", "o", "u"];
+  }, [entry]);
 
-function accentBarStyle(accent: string): CSSProperties {
-  return { backgroundColor: accent };
-}
+  const targetSyllable = syllables[0] ?? "ma";
 
-function listButtonStyle(accent: string): CSSProperties {
-  return { borderColor: `${accent}33` };
-}
+  // Generate targets and distractors
+  const bubbleData = useMemo(() => {
+    const targets = [
+      targetSyllable,
+      targetSyllable.toUpperCase(),
+      `${targetSyllable}no`, // e.g. mano
+      `${targetSyllable}pa`, // e.g. mapa
+    ].slice(0, 3);
 
-function circleStyle(accent: string): CSSProperties {
-  return { backgroundColor: accent };
-}
+    const distractors = [
+      "pe",
+      "sapo",
+      "lo",
+      "tu",
+    ].slice(0, 3);
 
-function hotspotStyle(target: InteractionTarget): CSSProperties {
-  return {
-    position: "absolute",
-    left: `${target.xPercent ?? 0}%`,
-    top: `${target.yPercent ?? 0}%`,
-    width: `${target.widthPercent ?? 10}%`,
-    height: `${target.heightPercent ?? 8}%`,
-  };
-}
+    const merged = [
+      ...targets.map((t) => ({ text: t, isTarget: true })),
+      ...distractors.map((d) => ({ text: d, isTarget: false })),
+    ];
 
-/**
- * If coordinates ARE verified for the target, we render a hotspot overlay
- * (position: absolute, %).
- * If coordinates are NOT verified, we render a list/tap activity instead.
- */
-export function TapObjectActivity({ interaction, accent = "hsl(var(--primary))", onComplete }: Props) {
-  const [tapped, setTapped] = useState<Set<string>>(new Set());
-  const verified = hasVerifiedHotspots(interaction);
-  const imageSrc = interaction.assetRef ? assetPath(interaction.assetRef) : undefined;
-  const complete = tapped.size >= interaction.targets.length && interaction.targets.length > 0;
+    // Shuffle and assign float positions
+    return merged.map((b, idx) => ({
+      id: idx,
+      text: b.text,
+      isTarget: b.isTarget,
+      x: 10 + Math.random() * 70, // 10% to 80%
+      y: 15 + Math.random() * 60, // 15% to 75%
+      speedX: (Math.random() - 0.5) * 0.4,
+      speedY: (Math.random() - 0.5) * 0.4,
+      color: b.isTarget
+        ? `hsl(${200 + idx * 25}, 80%, 75%)` // beautiful pastel blues/purples
+        : `hsl(${10 + idx * 25}, 85%, 80%)`, // beautiful pastel warm tones
+    }));
+  }, [targetSyllable]);
 
-  const handleTap = (target: InteractionTarget) => {
-    speak(target.label);
-    setTapped((prev) => {
-      if (prev.has(target.id)) return prev;
-      const next = new Set(prev);
-      next.add(target.id);
-      if (next.size >= interaction.targets.length && onComplete) {
-        onComplete(interaction.id);
+  const [bubbles, setBubbles] = useState<Bubble[]>([]);
+  const [poppedCount, setPoppedCount] = useState(0);
+  const [attempts, setAttempts] = useState(0);
+  const [wrongId, setWrongId] = useState<number | null>(null);
+  const [success, setSuccess] = useState(false);
+
+  // Initialize bubbles
+  useEffect(() => {
+    setBubbles(bubbleData);
+    setPoppedCount(0);
+    setAttempts(0);
+    setWrongId(null);
+    setSuccess(false);
+  }, [bubbleData]);
+
+  // Handle slow drift floating physics animation loop
+  useEffect(() => {
+    if (success) return;
+
+    let frameId: number;
+
+    const updatePositions = () => {
+      setBubbles((prev) =>
+        prev.map((b) => {
+          let nextX = b.x + b.speedX;
+          let nextY = b.y + b.speedY;
+
+          // Bounce off container walls
+          let nextSpeedX = b.speedX;
+          let nextSpeedY = b.speedY;
+
+          if (nextX <= 5 || nextX >= 90) {
+            nextSpeedX = -b.speedX;
+            nextX = Math.max(5, Math.min(90, nextX));
+          }
+          if (nextY <= 5 || nextY >= 85) {
+            nextSpeedY = -b.speedY;
+            nextY = Math.max(5, Math.min(85, nextY));
+          }
+
+          return {
+            ...b,
+            x: nextX,
+            y: nextY,
+            speedX: nextSpeedX,
+            speedY: nextSpeedY,
+          };
+        })
+      );
+      frameId = requestAnimationFrame(updatePositions);
+    };
+
+    frameId = requestAnimationFrame(updatePositions);
+    return () => cancelAnimationFrame(frameId);
+  }, [success]);
+
+  const handleBubbleClick = (b: Bubble) => {
+    if (success) return;
+    setAttempts((a) => a + 1);
+
+    if (b.isTarget) {
+      speak(b.text);
+      feelBus.emit("sparkle"); // bubble pop sound
+
+      setBubbles((prev) => prev.filter((x) => x.id !== b.id));
+      const nextPopped = poppedCount + 1;
+      setPoppedCount(nextPopped);
+
+      // Check if all correct targets are popped
+      const remainingTargets = bubbles.filter((x) => x.isTarget && x.id !== b.id);
+      if (remainingTargets.length === 0) {
+        setSuccess(true);
+        feelBus.emit("success");
+
+        if (lessonId) {
+          recordEvent({
+            lessonId,
+            kind: "exercise",
+            score: 3,
+            total: attempts + 1,
+            meta: { exercise: "tap_object_activity", targetSyllable, completed: true },
+          });
+        }
+
+        if (onComplete) {
+          setTimeout(onComplete, 1600);
+        }
       }
-      return next;
-    });
+    } else {
+      setWrongId(b.id);
+      feelBus.emit("error");
+      setTimeout(() => setWrongId(null), 600);
+    }
+  };
+
+  const handleReset = () => {
+    setBubbles(bubbleData);
+    setPoppedCount(0);
+    setAttempts(0);
+    setWrongId(null);
+    setSuccess(false);
+    feelBus.emit("tap");
   };
 
   return (
-    <motion.div
-      className="rounded-[2rem] border border-stone-200 bg-[linear-gradient(180deg,#fffdfa,#fff7ed)] p-5 sm:p-6 space-y-5 shadow-[0_20px_50px_rgba(50,30,10,0.07)]"
-      animate={complete ? panelPop : undefined}
-      transition={{ duration: 0.5, ease: "easeOut" }}
+    <div
+      className="p-5 rounded-3xl border-2 border-foreground/10 bg-card select-none relative overflow-hidden"
+      style={{ "--accent-color": accent } as React.CSSProperties}
     >
-      <div className="flex items-start gap-3">
-        <div
-          className="w-2 h-full min-h-[2.75rem] rounded-full shrink-0"
-          style={accentBarStyle(accent)}
-        />
-        <div className="flex-1 min-w-0">
-          <h3 className="font-black text-lg text-[#3A281E] leading-tight">{interaction.title}</h3>
-          <p className="text-sm font-semibold text-stone-600 mt-1 leading-snug">{interaction.prompt}</p>
-          <p className="mt-2 inline-flex min-h-9 items-center gap-1.5 rounded-full bg-white px-3 py-1 text-[11px] font-black text-amber-900/70 shadow-sm ring-1 ring-amber-900/10">
-            <Sparkles className="h-3.5 w-3.5 text-amber-500" />
-            Toca cada respuesta. Puedes escucharla otra vez.
-          </p>
+      <div className="flex items-center justify-between mb-4">
+        <h3 className="font-bold text-base text-foreground font-fredoka flex items-center gap-1.5">
+          <Sparkles className="w-4 h-4 text-amber-500 animate-pulse" /> Burbujas de Sílabas
+        </h3>
+        <div className="flex gap-2">
+          <button
+            onClick={() => speak(targetSyllable)}
+            aria-label="Escuchar sílaba"
+            className="p-1.5 rounded-xl border-2 border-foreground/10 hover:bg-secondary transition active:scale-95 animate-bounce"
+          >
+            <Volume2 className="w-4 h-4" />
+          </button>
+          <button
+            onClick={handleReset}
+            aria-label="Reiniciar actividad"
+            className="p-1.5 rounded-xl border-2 border-foreground/10 hover:bg-secondary transition active:scale-95"
+          >
+            <RotateCcw className="w-4 h-4" />
+          </button>
         </div>
       </div>
 
-      {verified ? (
-        <div
-          className="relative w-full aspect-[4/3] rounded-3xl bg-stone-100 border border-stone-200 overflow-hidden shadow-inner"
-          role="region"
-          aria-label="Area de la pagina con objetos para tocar"
-        >
-          {imageSrc ? (
-            <img
-              src={imageSrc}
-              alt="Pagina fuente del cuaderno"
-              className="absolute inset-0 h-full w-full object-contain"
-              loading="lazy"
-            />
-          ) : (
-            <span className="absolute inset-0 flex items-center justify-center text-sm text-stone-400 font-semibold select-none">
-              Vista de pagina con coordenadas verificadas
-            </span>
-          )}
-          {interaction.targets.map((target) => {
-            const isTapped = tapped.has(target.id);
-            return (
-              <button
-                key={target.id}
-                type="button"
-                aria-label={`Toca ${target.label}${isTapped ? ". Tocado." : ""}`}
-                onClick={() => handleTap(target)}
-                style={hotspotStyle(target)}
-                className={cn(
-                  "flex min-h-12 min-w-12 items-center justify-center rounded-2xl border-[3px] text-xs font-black transition-all shadow-lg backdrop-blur active:scale-95",
-                  isTapped
-                    ? "border-emerald-300 bg-emerald-100/90 text-emerald-800 ring-4 ring-emerald-200/50"
-                    : "border-amber-300 bg-white/80 text-amber-900 hover:bg-amber-100/80 hover:scale-105 ring-4 ring-white/50",
-                )}
-              >
-                {isTapped ? <CheckCircle2 className="w-5 h-5" /> : <MapPin className="w-5 h-5" />}
-              </button>
-            );
-          })}
-        </div>
-      ) : (
-        <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(220px,0.8fr)]">
-          {imageSrc && (
-            <div className="rounded-3xl border border-stone-200 bg-[#fffdfa] p-3 shadow-inner">
-              <div className="mb-2 flex items-center gap-2 text-xs font-black uppercase tracking-wide text-stone-500/80">
-                <ImageIcon className="h-4 w-4" />
-                Pagina fuente
-              </div>
-              <img
-                src={imageSrc}
-                alt="Pagina fuente del cuaderno"
-                className="mx-auto max-h-80 w-full rounded-2xl object-contain shadow-md ring-1 ring-stone-200"
-                loading="lazy"
-              />
-            </div>
-          )}
-          <div role="list" aria-label="Objetos para tocar" className="flex flex-col gap-3">
-            {interaction.targets.map((target) => {
-              const isTapped = tapped.has(target.id);
-              return (
-                <button
-                  key={target.id}
-                  type="button"
-                  role="listitem"
-                  aria-label={`Toca ${target.label}${isTapped ? ". Tocado." : ""}`}
-                  onClick={() => handleTap(target)}
-                  className={cn(
-                    "flex min-h-24 items-center gap-4 w-full text-left rounded-3xl border-[3px] px-5 py-4 sm:px-6 sm:py-5 font-black text-lg sm:text-2xl transition-all shadow-md active:scale-[0.98]",
-                    isTapped
-                      ? "border-emerald-300 bg-emerald-50 text-emerald-800 ring-4 ring-emerald-100"
-                      : "border-stone-200 bg-white text-[#3A281E] hover:border-amber-300 hover:bg-amber-50/70 hover:-translate-y-0.5",
-                  )}
-                  style={isTapped ? undefined : listButtonStyle(accent)}
-                >
-                  <span
-                    className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center text-white shrink-0 shadow-sm"
-                    style={circleStyle(isTapped ? "#10b981" : accent)}
-                  >
-                    {isTapped ? (
-                      <CheckCircle2 className="w-7 h-7" aria-hidden />
-                    ) : (
-                      <Volume2 className="w-7 h-7" aria-hidden />
-                    )}
-                  </span>
-                  <span className={isTapped ? "line-through opacity-60" : ""}>{target.label}</span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      )}
-
-      {!verified && interaction.sourceStatus === "needs-art-mapping" && (
-        <p className="text-xs font-bold text-stone-400 flex items-center gap-1.5">
-          <BookOpen className="w-3 h-3 shrink-0" />
-          Mapeo de objetos en preparacion. La actividad de tocar objetos en la pagina se habilitara
-          cuando se verifiquen las coordenadas del libro.
+      <div className="bg-amber-50/70 dark:bg-amber-950/20 p-3 rounded-2xl border border-amber-200/50 mb-4">
+        <p className="text-sm font-bold text-amber-950 dark:text-amber-300 text-center font-fredoka">
+          🎈 ¡Toca todos los globos que contengan o empiecen con la sílaba:{" "}
+          <span className="text-lg text-primary underline font-extrabold">{targetSyllable}</span>!
         </p>
-      )}
+      </div>
 
-      {complete && (
-        <motion.div
-          className="rounded-3xl border-2 border-emerald-200 bg-emerald-50 px-4 py-4 flex items-center gap-3 text-base font-black text-emerald-800 shadow-lg shadow-emerald-500/10"
-          role="status"
-          aria-live="polite"
-          initial={completeInitial}
-          animate={completePop}
-          transition={{ duration: 0.32, ease: "easeOut" }}
-        >
-          <CheckCircle2 className="w-6 h-6 shrink-0 text-emerald-600" />
-          Excelente. Tocaste todas las respuestas de esta actividad.
-        </motion.div>
-      )}
-    </motion.div>
+      {/* Floating Game Arena */}
+      <div className="relative h-64 w-full rounded-2xl bg-gradient-to-b from-sky-50 to-blue-50/50 dark:from-neutral-900 dark:to-neutral-950 border border-blue-100 overflow-hidden shadow-inner">
+        {bubbles.map((b) => {
+          const isWrong = wrongId === b.id;
+
+          return (
+            <button
+              key={b.id}
+              onClick={() => handleBubbleClick(b)}
+              disabled={success}
+              className={cn(
+                "absolute px-4 py-3 rounded-full font-fredoka font-bold text-base border-2 shadow-md flex items-center justify-center transition-all active:scale-95 duration-100 hover:brightness-105 select-none",
+                isWrong && "border-destructive bg-destructive text-white animate-shake"
+              )}
+              style={{
+                left: `${b.x}%`,
+                top: `${b.y}%`,
+                backgroundColor: isWrong ? undefined : b.color,
+                borderColor: isWrong ? undefined : "white",
+                color: isWrong ? undefined : "hsl(215, 60%, 25%)",
+              }}
+            >
+              {b.text}
+            </button>
+          );
+        })}
+
+        {success && (
+          <div className="absolute inset-0 bg-white/70 dark:bg-black/75 flex flex-col items-center justify-center p-4 animate-fade-in z-10">
+            <div className="w-12 h-12 rounded-full bg-success/20 flex items-center justify-center text-success mb-2">
+              <Check className="w-6 h-6" />
+            </div>
+            <h4 className="font-bold text-lg text-success font-fredoka text-center">
+              ¡Maravilloso! Explotaste todas las burbujas correctas.
+            </h4>
+            <p className="text-xs text-foreground/60 text-center mt-1">
+              Aciertos totales: {poppedCount} de {attempts} intentos.
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
   );
 }

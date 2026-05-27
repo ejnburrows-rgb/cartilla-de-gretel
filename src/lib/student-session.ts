@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { logProgress } from "@/lib/student.functions";
 import { recordExerciseStat } from "@/lib/exercise-stats";
-import { isSupabaseConfigured } from "@/integrations/supabase/client";
 
 export type StudentSession = {
   studentId: string;
@@ -12,40 +11,6 @@ export type StudentSession = {
 };
 
 const KEY = "cartilla.student-session.v1";
-const PROGRESS_SYNC_EVENT = "cartilla:progress-sync";
-
-export type ProgressSyncStatus = {
-  state: "idle" | "saving" | "saved" | "local" | "error";
-  message: string;
-  at: number | null;
-};
-
-let progressSyncStatus: ProgressSyncStatus = {
-  state: "idle",
-  message: "",
-  at: null,
-};
-
-function setProgressSyncStatus(next: ProgressSyncStatus) {
-  progressSyncStatus = next;
-  if (typeof window !== "undefined") {
-    window.dispatchEvent(new Event(PROGRESS_SYNC_EVENT));
-  }
-}
-
-export function getProgressSyncStatus() {
-  return progressSyncStatus;
-}
-
-export function useProgressSyncStatus() {
-  const [status, setStatus] = useState(progressSyncStatus);
-  useEffect(() => {
-    const h = () => setStatus(getProgressSyncStatus());
-    window.addEventListener(PROGRESS_SYNC_EVENT, h);
-    return () => window.removeEventListener(PROGRESS_SYNC_EVENT, h);
-  }, []);
-  return status;
-}
 
 export function getStudentSession(): StudentSession | null {
   if (typeof window === "undefined") return null;
@@ -89,9 +54,9 @@ type LogInput = {
   meta?: Record<string, unknown>;
 };
 
-/** Fire-and-forget progress recording. Public workbook browsing never requires a student session. */
+/** Fire-and-forget: only logs if a student session exists. */
 export function recordEvent(input: LogInput) {
-  // Always mirror exercise results to local stats (works for anonymous/public users too).
+  // Always mirror exercise results to local stats (works for anonymous users too).
   if (input.kind === "exercise" && input.lessonId && typeof input.total === "number") {
     const meta = (input.meta ?? {}) as { exercise?: string; completed?: boolean };
     if (meta.exercise) {
@@ -105,42 +70,12 @@ export function recordEvent(input: LogInput) {
     }
   }
   const s = getStudentSession();
-  if (!s) {
-    setProgressSyncStatus({
-      state: "local",
-      message:
-        "Explorando sin clase: el cuaderno abre libremente. Únete a una clase solo si quieres sincronizar progreso de aula.",
-      at: Date.now(),
-    });
-    return;
-  }
-  setProgressSyncStatus({
-    state: "saving",
-    message: isSupabaseConfigured ? "Guardando progreso..." : "Guardando progreso local...",
-    at: Date.now(),
-  });
+  if (!s) return;
   logProgress({
     data: {
       studentId: s.studentId,
       studentCode: s.studentCode,
       ...input,
     },
-  })
-    .then(() =>
-      setProgressSyncStatus({
-        state: isSupabaseConfigured ? "saved" : "local",
-        message: isSupabaseConfigured
-          ? "Progreso sincronizado."
-          : "Progreso guardado en este dispositivo. Sincronización en la nube no disponible sin Supabase.",
-        at: Date.now(),
-      }),
-    )
-    .catch((err) => {
-      console.warn("recordEvent failed", err);
-      setProgressSyncStatus({
-        state: "error",
-        message: "No se pudo sincronizar el progreso. Revisa la conexion o la sesion.",
-        at: Date.now(),
-      });
-    });
+  }).catch((err) => console.warn("recordEvent failed", err));
 }

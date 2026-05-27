@@ -1,11 +1,5 @@
 import { z } from "zod";
-import { isSupabaseConfigured, supabase } from "@/integrations/supabase/client";
-import {
-  createSeedAssignment,
-  deleteSeedAssignment,
-  listSeedAssignments,
-  listSeedStudentAssignments,
-} from "@/lib/seed-data";
+import { supabase } from "@/integrations/supabase/client";
 
 type Call<T> = { data: T };
 type AssignmentRow = {
@@ -39,8 +33,7 @@ async function ensureTeacherOwnsClass(classId: string) {
 
 /** Teacher: list assignments for a class they own. */
 export async function listAssignments(input: Call<{ classId: string }>) {
-  const data = z.object({ classId: z.string().min(1) }).parse(input.data);
-  if (!isSupabaseConfigured) return listSeedAssignments(data.classId) as AssignmentRow[];
+  const data = z.object({ classId: z.string().uuid() }).parse(input.data);
   await ensureTeacherOwnsClass(data.classId);
   const { data: rows, error } = await supabase
     .from("assignments")
@@ -63,22 +56,13 @@ export async function createAssignment(
 ) {
   const data = z
     .object({
-      classId: z.string().min(1),
+      classId: z.string().uuid(),
       lessonId: z.string().min(1).max(50),
       title: z.string().trim().max(120).optional(),
       dueAt: z.string().datetime().optional().nullable(),
       timeLimitSeconds: z.number().int().min(30).max(3600).optional().nullable(),
     })
     .parse(input.data);
-
-  if (!isSupabaseConfigured)
-    return createSeedAssignment({
-      classId: data.classId,
-      lessonId: data.lessonId,
-      title: data.title,
-      dueAt: data.dueAt,
-      timeLimitSeconds: data.timeLimitSeconds,
-    });
 
   await ensureTeacherOwnsClass(data.classId);
   const { data: row, error } = await supabase
@@ -98,8 +82,7 @@ export async function createAssignment(
 
 /** Teacher: delete assignment. */
 export async function deleteAssignment(input: Call<{ id: string }>) {
-  const data = z.object({ id: z.string().min(1) }).parse(input.data);
-  if (!isSupabaseConfigured) return deleteSeedAssignment(data.id);
+  const data = z.object({ id: z.string().uuid() }).parse(input.data);
   const { data: assignment, error: readErr } = await supabase
     .from("assignments")
     .select("id, class_id")
@@ -119,18 +102,11 @@ export async function listMyAssignments(
 ) {
   const data = z
     .object({
-      classId: z.string().min(1),
-      studentId: z.string().min(1),
+      classId: z.string().uuid(),
+      studentId: z.string().uuid(),
       studentCode: z.string().trim().min(4).max(10),
     })
     .parse(input.data);
-
-  if (!isSupabaseConfigured)
-    return listSeedStudentAssignments({
-      classId: data.classId,
-      studentId: data.studentId,
-      studentCode: data.studentCode,
-    });
 
   const { data: rows, error } = await supabase.rpc("get_student_assignments", {
     p_class_id: data.classId,

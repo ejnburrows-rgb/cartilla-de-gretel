@@ -69,7 +69,7 @@ function createDisabledSupabaseClient() {
 
 function createSupabaseClient() {
   if (!isSupabaseConfigured) {
-    console.warn("[Supabase] Missing env vars. Running in public/local mode.");
+    console.warn("[Supabase] Missing env vars. Running in public/demo mode.");
     return createDisabledSupabaseClient();
   }
 

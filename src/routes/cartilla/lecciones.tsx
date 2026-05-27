@@ -1,198 +1,337 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState, useEffect, useMemo } from "react";
-import type { CSSProperties } from "react";
-import { ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
-import { CATALOG } from "@/lib/lesson-catalog";
-import { getFullWorkbookPages } from "@/lib/book-faithful";
-import { getCartillaCrmCssVars, getCartillaCrmTheme } from "@/lib/cartilla-crm-theme";
+/**
+ * lecciones.tsx  — Lane A
+ *
+ * Horizontal swipeable PDF spread of all 92 pages.
+ * Practica pane below syncs to the active lesson.
+ * State resets per lesson via key={lesson.n}.
+ * Deep-link: ?p=23 → scrolls to page 23 on mount.
+ */
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
+import { ArrowLeft, BookOpen, Check, Lock, RotateCcw, Sparkles, Zap } from "lucide-react";
+import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
+import { hydrateLessonProgress, useLessonProgress } from "@/lib/lesson-progress";
+import { getMyProgress } from "@/lib/student.functions";
 import { useStudentSession } from "@/lib/student-session";
-import { supabase, isSupabaseConfigured } from "@/integrations/supabase/client";
+import { useServerFn } from "@/lib/useServerFn";
 import { PdfPage } from "@/components/cartilla/PdfPage";
 import { StudentExercisePane } from "@/components/cartilla/StudentExercisePane";
+import { BookArtFigure } from "@/components/cartilla/BookArtFigure";
+import { InstallPrompt } from "@/components/cartilla/InstallPrompt";
+import { PageBackground } from "@/components/art/PageBackground";
+import { SparkleField } from "@/components/art/SparkleField";
+import "@/styles/cartilla-student.css";
+
+// Search param validation without zod
+type LeccionesSearch = { p?: number };
 
 export const Route = createFileRoute("/cartilla/lecciones")({
-  component: ContinuousWorkbookReader,
+  component: Lecciones,
+  validateSearch: (search: Record<string, unknown>): LeccionesSearch => {
+    const p = Number(search.p);
+    return { p: Number.isFinite(p) && p >= 1 ? Math.floor(p) : undefined };
+  },
+  head: () => ({ meta: [{ title: "24 Lecciones — La Cartilla de Gretel" }] }),
 });
 
-function ContinuousWorkbookReader() {
+const TOTAL_PDF_PAGES = 92;
+
+/** Map page number → lesson entry (first lesson whose page range contains that page) */
+function pageToLesson(page: number) {
+  for (const entry of CATALOG) {
+    const parts = entry.pages.split("-").map(Number);
+    const from = parts[0] ?? page;
+    const to = parts[1] ?? from;
+    if (page >= from && page <= to) return entry;
+  }
+  return CATALOG[0]!;
+}
+
+function Lecciones() {
+  const { p: deepPage } = Route.useSearch();
+  const navigate = useNavigate({ from: "/cartilla/lecciones" });
   const session = useStudentSession();
-  const pages = getFullWorkbookPages();
-  const totalPages = pages.length;
+  const fetchMyProgress = useServerFn(getMyProgress);
+  const { isCompleted, isUnlocked, completed, reset } = useLessonProgress();
 
-  const [pageIndex, setPageIndex] = useState<number>(0);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [isFlipping, setIsFlipping] = useState(false);
-
+  // Sync cloud progress
   useEffect(() => {
-    let initialPage = 0;
-    const localLast = localStorage.getItem("cartilla:workbook:lastPage");
-    if (localLast) {
-      const p = parseInt(localLast, 10);
-      if (!isNaN(p) && p >= 0 && p < totalPages) initialPage = p;
-    }
-    setPageIndex(initialPage);
-    setIsLoaded(true);
-  }, [totalPages]);
+    if (!session) return;
+    fetchMyProgress({ data: { studentId: session.studentId, studentCode: session.studentCode } })
+      .then((data) => {
+        const fromRows = (
+          (data as { lessonProgress?: Array<{ lesson_id: string; status: string }> })
+            .lessonProgress ?? []
+        )
+          .filter((row) => row.status === "completed")
+          .map((row) => Number(row.lesson_id))
+          .filter((n) => Number.isFinite(n));
+        const fromEvents = (
+          (data as { events?: Array<{ lesson_id: string; event_kind: string }> }).events ?? []
+        )
+          .filter((event) => event.event_kind === "lesson_completed")
+          .map((event) => Number(event.lesson_id))
+          .filter((n) => Number.isFinite(n));
+        hydrateLessonProgress(Array.from(new Set([...fromRows, ...fromEvents])));
+      })
+      .catch(() => undefined);
+  }, [fetchMyProgress, session]);
 
+  const doneCount = [...completed].filter((n) => n >= 1 && n <= TOTAL_LESSONS).length;
+  const pct = Math.round((doneCount / TOTAL_LESSONS) * 100);
+
+  // Active page / lesson state
+  const [activePage, setActivePage] = useState<number>(deepPage ?? 1);
+  const activeLesson = useMemo(() => pageToLesson(activePage), [activePage]);
+  const spreadRef = useRef<HTMLDivElement>(null);
+
+  // Keyboard navigation
   useEffect(() => {
-    if (!isLoaded) return;
-    localStorage.setItem("cartilla:workbook:lastPage", pageIndex.toString());
-    if (session && isSupabaseConfigured) {
-      supabase
-        .from("students")
-        // @ts-expect-error - cartilla_workbook_page column may not exist yet; localStorage is the source of truth
-        .update({ cartilla_workbook_page: pageIndex })
-        .eq("id", session.studentId);
-    }
-  }, [pageIndex, session, isLoaded]);
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") setActivePage((p) => Math.min(TOTAL_PDF_PAGES, p + 1));
+      if (e.key === "ArrowLeft") setActivePage((p) => Math.max(1, p - 1));
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
 
-  const activePage = pages[pageIndex];
-  const lessonEntry = useMemo(
-    () => (activePage ? CATALOG.find((c) => c.n === activePage.lesson) : undefined),
-    [activePage],
+  // Scroll active page into view when activePage changes
+  const scrollToPage = useCallback(
+    (page: number) => {
+      const el = spreadRef.current?.querySelector<HTMLElement>(
+        `[data-page="${page}"]`,
+      );
+      el?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+    },
+    [],
   );
 
-  if (!isLoaded) return null;
-  if (!activePage) return null;
+  useEffect(() => {
+    scrollToPage(activePage);
+  }, [activePage, scrollToPage]);
 
-  const cssVars = getCartillaCrmCssVars(activePage.lesson);
-  const theme = getCartillaCrmTheme(activePage.lesson);
+  // Update URL search param
+  useEffect(() => {
+    navigate({ search: { p: activePage }, replace: true }).catch(() => undefined);
+  }, [activePage, navigate]);
 
-  const rootStyle: CSSProperties = { ...cssVars, color: theme.titleInk };
-  const inkStyle: CSSProperties = { color: theme.titleInk };
-  const accentStyle: CSSProperties = { backgroundColor: theme.accent, color: "#ffffff" };
-  const secondaryButtonStyle: CSSProperties = {
-    backgroundColor: theme.accentSoft,
-    color: theme.titleInk,
-  };
-  const navStyle: CSSProperties = {
-    backgroundColor: "rgba(255, 250, 232, 0.92)",
-    borderTopColor: theme.border,
-    color: theme.titleInk,
-    backdropFilter: "blur(10px)",
-    WebkitBackdropFilter: "blur(10px)",
-  };
-  const headerStyle: CSSProperties = {
-    backgroundColor: "rgba(255, 250, 232, 0.85)",
-    borderBottom: `4px solid ${theme.accent}`,
-    backdropFilter: "blur(10px)",
-    WebkitBackdropFilter: "blur(10px)",
-  };
-  const progressBarStyle: CSSProperties = {
-    width: `${Math.round(((pageIndex + 1) / totalPages) * 100)}%`,
-    backgroundColor: theme.accent,
-  };
+  const progressStyle = { width: `${pct}%` };
+  const activeLessonColorStyle = { color: activeLesson.color };
+  const activeLessonBgStyle = { backgroundColor: activeLesson.color };
 
-  const flip = (direction: "next" | "prev") => {
-    if (isFlipping) return;
-    if (direction === "next" && pageIndex >= totalPages - 1) return;
-    if (direction === "prev" && pageIndex <= 0) return;
-    setIsFlipping(true);
-    window.setTimeout(() => {
-      setPageIndex((p) => p + (direction === "next" ? 1 : -1));
-      window.setTimeout(() => setIsFlipping(false), 50);
-    }, 160);
-  };
-
-  const handleLessonJump = (lessonStr: string) => {
-    const l = Number(lessonStr);
-    const idx = pages.findIndex((p) => p.lesson === l);
-    if (idx !== -1) setPageIndex(idx);
-  };
+  const activeLetter = activeLesson.kind === "consonant" ? activeLesson.letter : activeLesson.kind === "vowel" ? activeLesson.vowel : "a";
 
   return (
-    <div
-      className="flex flex-col min-h-screen cartilla-student-shell transition-colors duration-500"
-      style={rootStyle}
-    >
-      <header className="flex-none p-4 shadow-sm" style={headerStyle}>
-        <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-4">
+    <div className="min-h-screen relative flex flex-col overflow-hidden">
+      <PageBackground letter={activeLetter} className="fixed inset-0 -z-10 w-full h-full opacity-60 mix-blend-multiply transition-opacity duration-1000" />
+      <div className="fixed inset-0 -z-10 pointer-events-none">
+        <SparkleField animated={true} className="w-full h-full opacity-50" />
+      </div>
+
+      {/* ── Header ── */}
+      <header className="px-4 pt-5 pb-3 max-w-5xl mx-auto w-full relative z-10">
+        <div className="flex items-center justify-between gap-3 mb-3">
           <Link
             to="/cartilla"
-            className="flex items-center gap-1 text-sm font-bold opacity-70 hover:opacity-100 transition"
-            style={inkStyle}
+            className="inline-flex items-center gap-2 text-sm font-bold text-foreground/70 hover:text-foreground"
+            aria-label="Volver a la página principal de la Cartilla"
           >
-            <ArrowLeft className="w-4 h-4" /> Inicio
+            <ArrowLeft className="w-4 h-4" aria-hidden /> Cartilla
           </Link>
-          <div className="flex items-center gap-4">
-            <select
-              value={activePage.lesson}
-              onChange={(e) => handleLessonJump(e.target.value)}
-              className="border-0 rounded-full px-4 py-1.5 text-sm font-bold shadow-sm focus:outline-none focus:ring-2 appearance-none cursor-pointer"
-              style={accentStyle}
-              aria-label="Salta a la lección"
+          <div className="flex items-center gap-2">
+            <Link
+              to="/cartilla/practica"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-vowel-o hover:underline"
+              aria-label="Ir a práctica rápida"
             >
-              {CATALOG.map((c) => (
-                <option key={c.n} value={c.n}>
-                  Lección {c.n} — {c.title}
-                </option>
-              ))}
-            </select>
+              <Zap className="w-3.5 h-3.5" aria-hidden /> Práctica rápida
+            </Link>
+            <Link
+              to="/cartilla/repaso"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline"
+              aria-label="Ir a modo repaso"
+            >
+              <Sparkles className="w-3.5 h-3.5" aria-hidden /> Modo repaso
+            </Link>
+            <button
+              type="button"
+              onClick={() => {
+                if (window.confirm("¿Reiniciar tu progreso de las 24 lecciones?")) reset();
+              }}
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-foreground/60 hover:text-destructive"
+              aria-label="Reiniciar progreso de lecciones"
+            >
+              <RotateCcw className="w-3.5 h-3.5" aria-hidden /> Reiniciar
+            </button>
+          </div>
+        </div>
+        <h1 className="text-3xl sm:text-4xl font-bold leading-tight">
+          Las 24 lecciones de <em>La Cartilla de Gretel</em>
+        </h1>
+        <p className="text-foreground/70 mt-1 text-sm">
+          Desliza para explorar las {TOTAL_PDF_PAGES} páginas · página activa{" "}
+          <strong>{activePage}</strong> · lección <strong>{activeLesson.n}</strong>
+        </p>
+        {/* Overall progress */}
+        <div className="mt-4">
+          <div className="flex items-baseline justify-between text-sm font-bold mb-1.5">
+            <span className="text-foreground/80">
+              Progreso: {doneCount} / {TOTAL_LESSONS}
+            </span>
+            <span className="text-foreground/60">{pct}%</span>
+          </div>
+          <div className="h-2.5 bg-secondary rounded-full overflow-hidden border border-foreground/10">
+            <div className="h-full bg-primary transition-all" style={progressStyle} />
           </div>
         </div>
       </header>
 
-      <main className="flex-1 w-full max-w-3xl mx-auto p-4 sm:p-8 flex flex-col items-stretch">
-        <div className="w-full">
-          <div
-            className={`w-full transition-opacity duration-150 ${
-              isFlipping ? "opacity-0 scale-[0.985]" : "opacity-100 scale-100"
-            }`}
-          >
-            <PdfPage pageNumber={activePage.page} />
-          </div>
-
-          {lessonEntry ? (
-            <StudentExercisePane key={lessonEntry.n} entry={lessonEntry} />
-          ) : null}
-        </div>
-      </main>
-
-      <nav
-        className="sticky bottom-0 w-full p-4 border-t shadow-[0_-4px_20px_rgba(0,0,0,0.05)]"
-        style={navStyle}
+      {/* ── Horizontal PDF spread ── */}
+      <section
+        ref={spreadRef}
+        className="lecciones-spread"
+        aria-label="Páginas del libro"
+        role="region"
       >
-        <div className="max-w-[760px] mx-auto">
-          <div className="flex justify-between items-center mb-3">
-            <span
-              className="text-xs font-black uppercase tracking-widest opacity-60"
-              style={inkStyle}
-            >
-              Página {pageIndex + 1} de {totalPages}
-            </span>
-            <span
-              className="text-xs font-black uppercase tracking-widest opacity-60"
-              style={inkStyle}
-            >
-              {activePage.section}
-            </span>
-          </div>
-          <div className="w-full h-1.5 bg-black/5 rounded-full overflow-hidden mb-4">
-            <div className="h-full transition-all duration-300" style={progressBarStyle} />
-          </div>
-          <div className="flex items-center justify-between">
+        {Array.from({ length: TOTAL_PDF_PAGES }, (_, i) => i + 1).map((page) => {
+          const lesson = pageToLesson(page);
+          const isActive = page === activePage;
+          const pageStyle = isActive ? { borderColor: activeLesson.color } : undefined;
+          const labelStyle = { color: lesson.color };
+          return (
             <button
-              onClick={() => flip("prev")}
-              disabled={pageIndex === 0}
-              className="flex items-center gap-2 px-5 py-3 rounded-xl font-bold shadow-sm transition-transform active:scale-95 disabled:opacity-30 disabled:pointer-events-none"
-              style={secondaryButtonStyle}
+              key={page}
+              data-page={page}
+              className="lecciones-spread__page"
+              data-active={isActive ? "true" : "false"}
+              onClick={() => setActivePage(page)}
+              aria-label={`Página ${page}, lección ${lesson.n}: ${lesson.title}`}
+              aria-pressed={isActive}
+              style={pageStyle}
             >
-              <ChevronLeft className="w-5 h-5" />
-              Anterior
+              <PdfPage pageNumber={page} />
+              <div
+                className="px-2 py-1 text-[11px] font-bold truncate"
+                style={labelStyle}
+              >
+                L{lesson.n} · pág. {page}
+              </div>
             </button>
+          );
+        })}
+      </section>
 
-            <button
-              onClick={() => flip("next")}
-              disabled={pageIndex === totalPages - 1}
-              className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold shadow-md hover:opacity-90 transition-transform active:scale-95 disabled:opacity-30 disabled:pointer-events-none"
-              style={accentStyle}
+      {/* ── Per-lesson exercise pane, key resets on lesson change ── */}
+      <section className="px-4 pt-4 pb-28 max-w-3xl w-full mx-auto relative z-10">
+        <div className="flex items-center justify-between mb-4">
+          <div>
+            <div className="text-xs font-bold uppercase tracking-wide text-foreground/50">
+              Lección {activeLesson.n} · páginas {activeLesson.pages}
+            </div>
+            <h2
+              className="text-2xl font-bold"
+              style={activeLessonColorStyle}
             >
-              Siguiente
-              <ChevronRight className="w-5 h-5" />
-            </button>
+              {activeLesson.title}
+            </h2>
           </div>
+          {isUnlocked(activeLesson.n) && (
+            <Link
+              to="/cartilla/leccion/$n"
+              params={{ n: String(activeLesson.n) }}
+              className="inline-flex items-center gap-1.5 text-sm font-bold px-3 py-2 rounded-xl text-white"
+              style={activeLessonBgStyle}
+              aria-label={`Abrir lección ${activeLesson.n} completa`}
+            >
+              <BookOpen className="w-4 h-4" aria-hidden /> Abrir lección
+            </Link>
+          )}
         </div>
-      </nav>
+
+        {isUnlocked(activeLesson.n) ? (
+          <StudentExercisePane
+            key={activeLesson.n}
+            entry={activeLesson}
+            lessonId={String(activeLesson.n)}
+          />
+        ) : (
+          <div className="kid-card p-6 text-center">
+            <Lock className="w-10 h-10 mx-auto text-foreground/30 mb-3" aria-hidden />
+            <p className="text-foreground/60 font-bold">
+              Completa la lección anterior para desbloquear esta.
+            </p>
+          </div>
+        )}
+      </section>
+
+      {/* ── Lesson grid ── */}
+      <section className="px-4 pb-10 max-w-5xl mx-auto w-full relative z-10">
+        <h2 className="text-lg font-bold mb-3">Todas las lecciones</h2>
+        <ol className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+          {CATALOG.map((entry) => {
+            const done = isCompleted(entry.n);
+            const unlocked = isUnlocked(entry.n);
+            const active = entry.n === activeLesson.n;
+            const itemStyle = {
+              borderLeftWidth: 5,
+              borderLeftColor: entry.color,
+              borderColor: active ? entry.color : undefined,
+            };
+            const entryBgStyle = { backgroundColor: `${entry.color}18` };
+            const entryColorStyle = { color: unlocked ? entry.color : undefined };
+            return (
+              <li key={entry.n} className="list-none">
+                <button
+                  className={`w-full text-left rounded-2xl border-2 p-3 transition ${
+                    active
+                      ? "shadow-md"
+                      : unlocked
+                        ? "hover:shadow-md hover:-translate-y-0.5 cursor-pointer"
+                        : "opacity-50 cursor-not-allowed"
+                  }`}
+                  style={itemStyle}
+                  onClick={() => {
+                    const firstP = parseInt(entry.pages.split("-")[0] ?? "1", 10) || 1;
+                    setActivePage(firstP);
+                    spreadRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+                  }}
+                  disabled={!unlocked}
+                  aria-pressed={active}
+                  aria-label={`Lección ${entry.n}: ${entry.title}${done ? " — completada" : !unlocked ? " — bloqueada" : ""}`}
+                >
+                  <div className="flex items-center justify-between gap-1 mb-2">
+                    <span className="text-[10px] font-bold uppercase tracking-wide text-foreground/50">
+                      L{entry.n}
+                    </span>
+                    {done ? (
+                      <Check className="w-3.5 h-3.5 text-success" aria-hidden />
+                    ) : !unlocked ? (
+                      <Lock className="w-3.5 h-3.5 text-foreground/30" aria-hidden />
+                    ) : null}
+                  </div>
+                  {/* Aspect-ratio preserving container with rounded corners */}
+                  <div className="aspect-square w-full rounded-xl overflow-hidden mb-2 relative flex items-center justify-center" style={entryBgStyle}>
+                    <BookArtFigure lesson={entry.n} role="character" className="w-full h-full object-contain p-2" />
+                  </div>
+                  <div
+                    className="text-sm font-bold leading-tight line-clamp-2"
+                    style={entryColorStyle}
+                  >
+                    {entry.title}
+                  </div>
+                </button>
+              </li>
+            );
+          })}
+        </ol>
+      </section>
+      <InstallPrompt />
     </div>
   );
 }

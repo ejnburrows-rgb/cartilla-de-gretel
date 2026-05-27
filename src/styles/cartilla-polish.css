@@ -1,134 +1,89 @@
-/*
- * cartilla-polish.css — premium 2026 visual spine.
- * Pure additive styles. No layout changes. Safe to import from anywhere.
- * Owned by Rusty lane. Antigravity wires the import in main.tsx as part of #5.
- */
+/* Cartilla Polish Styles — Animations and Page Flips */
 
-/* ============ pastel per-lesson backgrounds (student side) ============ */
-.cartilla-lesson-bg-1   { background: linear-gradient(180deg, #fff8e1 0%, #fff3c7 100%); }
-.cartilla-lesson-bg-2   { background: linear-gradient(180deg, #e3f2fd 0%, #c5e4fb 100%); } /* O */
-.cartilla-lesson-bg-3   { background: linear-gradient(180deg, #ffebee 0%, #fcd0d6 100%); } /* A */
-.cartilla-lesson-bg-4   { background: linear-gradient(180deg, #fff3e0 0%, #ffd9b3 100%); } /* E */
-.cartilla-lesson-bg-5   { background: linear-gradient(180deg, #e0f7f4 0%, #b8ece4 100%); } /* I */
-.cartilla-lesson-bg-6   { background: linear-gradient(180deg, #f3e5f5 0%, #e1bee7 100%); } /* U */
-.cartilla-lesson-bg-7   { background: linear-gradient(180deg, #ffebee 0%, #ffcdd2 100%); } /* M */
-.cartilla-lesson-bg-8   { background: linear-gradient(180deg, #fff3e0 0%, #ffd6a5 100%); } /* P */
-.cartilla-lesson-bg-9   { background: linear-gradient(180deg, #e0f2f1 0%, #b2dfdb 100%); } /* S */
-.cartilla-lesson-bg-10  { background: linear-gradient(180deg, #e8eaf6 0%, #c5cae9 100%); } /* T */
-.cartilla-lesson-bg-11  { background: linear-gradient(180deg, #f3e5f5 0%, #d1c4e9 100%); } /* D */
-.cartilla-lesson-bg-12  { background: linear-gradient(180deg, #ffebee 0%, #ffcdd2 100%); } /* L */
-.cartilla-lesson-bg-13  { background: linear-gradient(180deg, #fff3e0 0%, #ffd6a5 100%); } /* N */
-.cartilla-lesson-bg-14  { background: linear-gradient(180deg, #e0f2f1 0%, #b2dfdb 100%); } /* Ñ */
-.cartilla-lesson-bg-15  { background: linear-gradient(180deg, #e8eaf6 0%, #c5cae9 100%); } /* B */
-.cartilla-lesson-bg-16  { background: linear-gradient(180deg, #f3e5f5 0%, #d1c4e9 100%); } /* V */
-.cartilla-lesson-bg-17  { background: linear-gradient(180deg, #ffebee 0%, #ffcdd2 100%); } /* R */
-.cartilla-lesson-bg-18  { background: linear-gradient(180deg, #fff3e0 0%, #ffd6a5 100%); } /* rr */
-.cartilla-lesson-bg-19  { background: linear-gradient(180deg, #e0f2f1 0%, #b2dfdb 100%); } /* G */
-.cartilla-lesson-bg-20  { background: linear-gradient(180deg, #e8eaf6 0%, #c5cae9 100%); } /* F */
-.cartilla-lesson-bg-21  { background: linear-gradient(180deg, #f3e5f5 0%, #d1c4e9 100%); } /* J */
-.cartilla-lesson-bg-22  { background: linear-gradient(180deg, #ffebee 0%, #ffcdd2 100%); } /* C */
-.cartilla-lesson-bg-23  { background: linear-gradient(180deg, #fff3e0 0%, #ffd6a5 100%); } /* Y */
-.cartilla-lesson-bg-24  { background: linear-gradient(180deg, #e0f2f1 0%, #b2dfdb 100%); } /* Z */
-
-/* ============ teacher side: vibrant dynamic kids-book backgrounds ============ */
-.cartilla-teacher-bg-2  { background: radial-gradient(circle at 20% 30%, #4FC3F7 0%, #1976D2 80%); } /* O */
-.cartilla-teacher-bg-3  { background: radial-gradient(circle at 20% 30%, #FF8A80 0%, #C62828 80%); } /* A */
-.cartilla-teacher-bg-4  { background: radial-gradient(circle at 20% 30%, #FFB74D 0%, #E65100 80%); } /* E */
-.cartilla-teacher-bg-5  { background: radial-gradient(circle at 20% 30%, #4DB6AC 0%, #00695C 80%); } /* I */
-.cartilla-teacher-bg-6  { background: radial-gradient(circle at 20% 30%, #BA68C8 0%, #6A1B9A 80%); } /* U */
-.cartilla-teacher-bg-7  { background: radial-gradient(circle at 20% 30%, #FF5252 0%, #B71C1C 80%); } /* M */
-.cartilla-teacher-bg-8  { background: radial-gradient(circle at 20% 30%, #FFB74D 0%, #E65100 80%); } /* P */
-.cartilla-teacher-bg-9  { background: radial-gradient(circle at 20% 30%, #4DB6AC 0%, #00695C 80%); } /* S */
-.cartilla-teacher-bg-10 { background: radial-gradient(circle at 20% 30%, #7986CB 0%, #283593 80%); } /* T */
-.cartilla-teacher-bg-11 { background: radial-gradient(circle at 20% 30%, #9575CD 0%, #4527A0 80%); } /* D */
-.cartilla-teacher-bg-12 { background: radial-gradient(circle at 20% 30%, #FF5252 0%, #B71C1C 80%); } /* L */
-.cartilla-teacher-bg-13 { background: radial-gradient(circle at 20% 30%, #FFB74D 0%, #E65100 80%); } /* N */
-.cartilla-teacher-bg-14 { background: radial-gradient(circle at 20% 30%, #4DB6AC 0%, #00695C 80%); } /* Ñ */
-.cartilla-teacher-bg-15 { background: radial-gradient(circle at 20% 30%, #7986CB 0%, #283593 80%); } /* B */
-.cartilla-teacher-bg-16 { background: radial-gradient(circle at 20% 30%, #9575CD 0%, #4527A0 80%); } /* V */
-.cartilla-teacher-bg-17 { background: radial-gradient(circle at 20% 30%, #FF5252 0%, #B71C1C 80%); } /* R */
-.cartilla-teacher-bg-18 { background: radial-gradient(circle at 20% 30%, #FFB74D 0%, #E65100 80%); } /* rr */
-.cartilla-teacher-bg-19 { background: radial-gradient(circle at 20% 30%, #4DB6AC 0%, #00695C 80%); } /* G */
-.cartilla-teacher-bg-20 { background: radial-gradient(circle at 20% 30%, #7986CB 0%, #283593 80%); } /* F */
-.cartilla-teacher-bg-21 { background: radial-gradient(circle at 20% 30%, #9575CD 0%, #4527A0 80%); } /* J */
-.cartilla-teacher-bg-22 { background: radial-gradient(circle at 20% 30%, #FF5252 0%, #B71C1C 80%); } /* C */
-.cartilla-teacher-bg-23 { background: radial-gradient(circle at 20% 30%, #FFB74D 0%, #E65100 80%); } /* Y */
-.cartilla-teacher-bg-24 { background: radial-gradient(circle at 20% 30%, #4DB6AC 0%, #00695C 80%); } /* Z */
-
-/* ============ premium polish frame (applied to every page) ============ */
-.cartilla-page-premium {
-	border-radius: 14px;
-	box-shadow:
-		0 1px 0 rgba(255, 255, 255, 0.7) inset,
-		0 8px 22px -10px rgba(58, 40, 30, 0.28),
-		0 30px 60px -32px rgba(58, 40, 30, 0.22);
-	background: #ffffff;
-	overflow: hidden;
-	position: relative;
-	transition: transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-.cartilla-page-premium::after {
-	content: "";
-	position: absolute;
-	inset: 0;
-	pointer-events: none;
-	background:
-		radial-gradient(120% 60% at 50% 0%, rgba(255, 255, 255, 0.65) 0%, transparent 60%),
-		linear-gradient(180deg, rgba(58, 40, 30, 0) 70%, rgba(58, 40, 30, 0.04) 100%);
-}
-.cartilla-page-premium:hover { transform: translateY(-1px); }
-
-/* ============ vertical page-flip (teacher) ============ */
-.cartilla-flip-vertical {
-	perspective: 2000px;
-	transform-style: preserve-3d;
-}
-.cartilla-flip-vertical-page {
-	transform-origin: top center;
-	transition: transform 600ms cubic-bezier(0.65, 0, 0.35, 1);
-	backface-visibility: hidden;
-	will-change: transform;
-}
-.cartilla-flip-vertical-page.is-flipping {
-	transform: rotateX(-178deg);
-}
-
-/* ============ horizontal book-flip (student) ============ */
+/* 1. Student Horizontal FlipBook */
 .cartilla-flip-book {
-	perspective: 2400px;
-	transform-style: preserve-3d;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  perspective: 2000px;
+  transform-style: preserve-3d;
 }
+
 .cartilla-flip-book-page {
-	transform-origin: left center;
-	transition: transform 520ms cubic-bezier(0.65, 0, 0.35, 1);
-	backface-visibility: hidden;
-	will-change: transform;
-	box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-}
-.cartilla-flip-book-page.is-flipping {
-	transform: rotateY(-168deg);
-	box-shadow: -22px 22px 60px -30px rgba(0, 0, 0, 0.35);
-}
-
-/* ============ premium polish image filter ============ */
-.cartilla-img-premium {
-	filter: contrast(1.08) brightness(1.04) saturate(1.12);
-	image-rendering: -webkit-optimize-contrast;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: left center;
+  transition: transform 520ms cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 520ms ease;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  background-color: #ffffff;
+  z-index: 2;
 }
 
-/* ============ subtle reveal animation ============ */
-@keyframes cartilla-fade-in {
-	from { opacity: 0; transform: translateY(6px); }
-	to   { opacity: 1; transform: translateY(0); }
-}
-.cartilla-reveal {
-	animation: cartilla-fade-in 380ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+/* Page peel shadow effect */
+.cartilla-flip-book-page::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.0) 92%, rgba(0, 0, 0, 0.08) 100%);
+  pointer-events: none;
+  border-radius: 1rem;
+  transition: opacity 520ms ease;
+  z-index: 10;
 }
 
-/* ============ accessibility-respecting motion ============ */
-@media (prefers-reduced-motion: reduce) {
-	.cartilla-flip-vertical-page,
-	.cartilla-flip-book-page,
-	.cartilla-reveal,
-	.cartilla-page-premium { transition: none !important; animation: none !important; }
+.cartilla-flip-book-page.flipped {
+  transform: rotateY(-168deg);
+  box-shadow: -15px 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.cartilla-flip-book-page.flipped::after {
+  opacity: 0;
+}
+
+/* 2. Teacher Vertical FlipBoard (Down-to-Up flip) */
+.cartilla-flip-vertical {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  perspective: 1800px;
+  transform-style: preserve-3d;
+}
+
+.cartilla-flip-vertical-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: top center;
+  transition: transform 600ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  backface-visibility: hidden;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  border-radius: 1.5rem;
+  background-color: #ffffff;
+}
+
+.cartilla-flip-vertical-page.flipped {
+  transform: rotateX(180deg);
+  box-shadow: 0 -15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Underlay / Peek page container styles */
+.cartilla-flip-underlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  border-radius: 1rem;
 }

@@ -24,7 +24,7 @@ function BrandingPage() {
     ["Autora", BRANDING.author],
     ["Editorial", BRANDING.publisher],
     ["Año de fundación", String(BRANDING.publisherEstablished)],
-    ["Correo de soporte", BRANDING.supportEmail || "No publicado", true],
+    ["Correo de soporte", BRANDING.supportEmail, true],
     ["Color principal", BRANDING.themeColor, true],
     ["Descripción larga", BRANDING.description],
     ["Línea de copyright", copyrightLine()],

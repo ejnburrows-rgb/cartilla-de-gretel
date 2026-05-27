@@ -5,7 +5,7 @@ import "react-pdf/dist/Page/TextLayer.css";
 import { storage } from "@/lib/storage";
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-  "react-pdf/node_modules/pdfjs-dist/build/pdf.worker.min.mjs",
+  "pdfjs-dist/build/pdf.worker.min.mjs",
   import.meta.url,
 ).toString();
 
@@ -16,18 +16,14 @@ export function PdfViewer({
   onUnitChange,
   onProgress,
   advanceSignal = 0,
-  startPage,
-  endPage,
 }: {
   url: string;
   onUnitChange?: (label: string) => void;
   onProgress?: (current: number, total: number) => void;
   advanceSignal?: number;
-  startPage?: number;
-  endPage?: number;
 }) {
   const [numPages, setNumPages] = useState(0);
-  const [page, setPage] = useState<number>(startPage ?? storage.get(KEY, 1));
+  const [page, setPage] = useState<number>(storage.get(KEY, 1));
   const [width, setWidth] = useState<number>(800);
   const [loadError, setLoadError] = useState<string | null>(null);
   const shellRef = useRef<HTMLDivElement | null>(null);
@@ -43,35 +39,22 @@ export function PdfViewer({
   }, []);
 
   useEffect(() => {
-    if (startPage && page < startPage) setPage(startPage);
-  }, [startPage, page]);
-
-  useEffect(() => {
     storage.set(KEY, page);
   }, [page]);
   useEffect(() => {
     if (numPages > 0) {
-      const safeStart = startPage ?? 1;
-      const safeEnd = endPage ? Math.min(numPages, endPage) : numPages;
-      const safePage = Math.min(Math.max(safeStart, page), safeEnd);
+      const safePage = Math.min(Math.max(1, page), numPages);
       if (safePage !== page) setPage(safePage);
       onProgress?.(safePage, numPages);
       onUnitChange?.(`Página ${safePage}`);
     }
-  }, [page, numPages, onProgress, onUnitChange, startPage, endPage]);
+  }, [page, numPages, onProgress, onUnitChange]);
 
   useEffect(() => {
-    if (advanceSignal > 0) {
-      const safeEnd = endPage ? Math.min(numPages, endPage) : numPages;
-      setPage((p) => (numPages ? Math.min(safeEnd, p + 1) : p));
-    }
-  }, [advanceSignal, numPages, endPage]);
+    if (advanceSignal > 0) setPage((p) => (numPages ? Math.min(numPages, p + 1) : p));
+  }, [advanceSignal, numPages]);
 
-  const goTo = (next: number) => {
-    const safeStart = startPage ?? 1;
-    const safeEnd = endPage ? Math.min(numPages, endPage) : numPages;
-    setPage(() => Math.min(Math.max(safeStart, next), Math.max(safeEnd, 1)));
-  };
+  const goTo = (next: number) => setPage(() => Math.min(Math.max(1, next), Math.max(numPages, 1)));
 
   return (
     <div ref={shellRef} className="flex min-h-full flex-col items-center gap-4 p-4 sm:p-6">
@@ -111,17 +94,17 @@ export function PdfViewer({
         <button
           onClick={() => goTo(page - 1)}
           className="rounded-xl border border-border px-3 py-2 font-bold transition hover:bg-secondary disabled:opacity-40"
-          disabled={page <= (startPage ?? 1)}
+          disabled={page <= 1}
         >
           ←
         </button>
         <span className="min-w-24 text-center text-sm font-bold tabular-nums text-foreground/75">
-          {page} / {endPage ? Math.min(numPages || endPage, endPage) : (numPages || "—")}
+          {page} / {numPages || "—"}
         </span>
         <button
           onClick={() => goTo(page + 1)}
           className="rounded-xl border border-border px-3 py-2 font-bold transition hover:bg-secondary disabled:opacity-40"
-          disabled={numPages > 0 && page >= (endPage ? Math.min(numPages, endPage) : numPages)}
+          disabled={numPages > 0 && page >= numPages}
         >
           →
         </button>

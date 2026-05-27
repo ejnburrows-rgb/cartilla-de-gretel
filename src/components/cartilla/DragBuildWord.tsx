@@ -1,404 +1,387 @@
-import type { CSSProperties } from "react";
-import { useEffect, useMemo, useRef, useState } from "react";
-import { motion, type Transition } from "framer-motion";
-import { CheckCircle2, Hand, RotateCcw } from "lucide-react";
-import type { CatalogEntry } from "@/types/cartilla";
-import { GretelFeedback } from "./GretelFeedback";
-import { cn } from "@/lib/utils";
+/**
+ * DragBuildWord.tsx  — Lane A
+ *
+ * Drag (pointer-events API) letter tiles from a tray onto word slots.
+ * Wrong drops snap back with shake animation.
+ * Correct drops lock in place.
+ * On full word completion, plays a celebration tone via AudioContext.
+ * Full keyboard navigation: Tab moves between tiles, Enter/Space drops.
+ * Respects prefers-reduced-motion for celebration.
+ */
+import { useCallback, useEffect, useMemo, useReducer, useRef, useState } from "react";
+import { Check, RotateCcw, Volume2 } from "lucide-react";
+import { speak } from "@/lib/speak";
+import { recordEvent } from "@/lib/student-session";
+import type { CatalogEntry } from "@/lib/lesson-catalog";
+import { GretelFeedback } from "@/components/gretel/GretelFeedback";
+import { feelBus } from "@/lib/feel-bus";
 
+// ── Audio ──────────────────────────────────────────────────────────
+function playCelebrationTone() {
+  try {
+    const ctx = new AudioContext();
+    const notes = [523.25, 659.25, 783.99, 1046.5]; // C5 E5 G5 C6
+    notes.forEach((freq, i) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.type = "sine";
+      osc.frequency.value = freq;
+      gain.gain.setValueAtTime(0, ctx.currentTime + i * 0.12);
+      gain.gain.linearRampToValueAtTime(0.25, ctx.currentTime + i * 0.12 + 0.04);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + i * 0.12 + 0.28);
+      osc.start(ctx.currentTime + i * 0.12);
+      osc.stop(ctx.currentTime + i * 0.12 + 0.3);
+    });
+    setTimeout(() => ctx.close(), 2000);
+  } catch {
+    /* no AudioContext support */
+  }
+}
+
+function shuffle<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// ── Types ──────────────────────────────────────────────────────────
+type SlotState = string | null; // null = empty, string = letter placed
+
+interface DragBuildWordState {
+  target: string;
+  slots: SlotState[];
+  tray: string[]; // shuffled letters (with duplicates preserved)
+  usedTrayIdx: Set<number>;
+  wrongSlot: number | null;
+  completed: boolean;
+  attempts: number;
+}
+
+type Action =
+  | { type: "DROP"; slotIdx: number; trayIdx: number }
+  | { type: "CLEAR_WRONG" }
+  | { type: "RESET" }
+  | { type: "NEXT_WORD"; word: string };
+
+function buildTray(word: string): string[] {
+  // Add 1–3 distractor letters
+  const alpha = "aeioumsptdlnbvrfgjcyz";
+  const extras = shuffle(
+    alpha.split("").filter((c) => !word.includes(c)),
+  ).slice(0, Math.min(3, Math.max(1, 4 - word.length)));
+  return shuffle([...word.split(""), ...extras]);
+}
+
+function initState(word: string): DragBuildWordState {
+  return {
+    target: word,
+    slots: Array<SlotState>(word.length).fill(null),
+    tray: buildTray(word),
+    usedTrayIdx: new Set(),
+    wrongSlot: null,
+    completed: false,
+    attempts: 0,
+  };
+}
+
+function reducer(state: DragBuildWordState, action: Action): DragBuildWordState {
+  switch (action.type) {
+    case "DROP": {
+      const { slotIdx, trayIdx } = action;
+      if (state.slots[slotIdx] !== null || state.usedTrayIdx.has(trayIdx)) return state;
+      const letter = state.tray[trayIdx];
+      const correct = letter === state.target[slotIdx];
+      const newSlots = [...state.slots];
+      if (correct) {
+        newSlots[slotIdx] = letter;
+      }
+      const newUsed = new Set(state.usedTrayIdx);
+      if (correct) newUsed.add(trayIdx);
+      const completed = correct && newSlots.every((s) => s !== null);
+      return {
+        ...state,
+        slots: newSlots,
+        usedTrayIdx: newUsed,
+        wrongSlot: correct ? null : slotIdx,
+        completed,
+        attempts: state.attempts + 1,
+      };
+    }
+    case "CLEAR_WRONG":
+      return { ...state, wrongSlot: null };
+    case "RESET":
+      return initState(state.target);
+    case "NEXT_WORD":
+      return initState(action.word);
+    default:
+      return state;
+  }
+}
+
+// ── Component ──────────────────────────────────────────────────────
 interface DragBuildWordProps {
   entry: CatalogEntry;
   accent: string;
+  lessonId?: string;
+  onComplete?: () => void;
 }
 
-interface BuildTarget {
-  word: string;
-  pieces: string[];
-}
-
-// Motion presets hoisted to module scope (avoids any inline double-brace JSX
-// expressions that previously got mangled by template substitution).
-const pieceWhileDrag = { scale: 1.12, zIndex: 10, rotate: -2 };
-const pieceWhileTap = { scale: 0.95 };
-const pieceWhileHover = { scale: 1.05, y: -2 };
-const activityCompleteMotion = {
-  ok: { scale: [1, 1.015, 1], boxShadow: "0 22px 42px rgba(5,150,105,0.18)" },
-  x: { x: [0, -6, 6, -3, 0], boxShadow: "0 22px 42px rgba(225,29,72,0.14)" },
-};
-const activityIdle = { x: 0, scale: 1, boxShadow: "0 20px 50px rgba(50,30,10,0.06)" };
-const activityTransition: Transition = { duration: 0.42, ease: "easeOut" };
-const selectedPillInitial = { opacity: 0, y: -4 };
-const selectedPillAnimate = { opacity: 1, y: 0 };
-const slotBobAnimate = { y: [0, -3, 0] };
-const slotIdleAnimate = { y: 0 };
-const slotBobTransition: Transition = { repeat: Infinity, duration: 1.2, ease: "easeInOut" };
-
-function labelStyle(accent: string): CSSProperties {
-  return { color: accent, opacity: 0.75 };
-}
-
-function targetWordStyle(accent: string): CSSProperties {
-  return {
-    color: accent,
-    fontFamily: "'Fredoka', ui-rounded, system-ui, sans-serif",
-  };
-}
-
-function pieceStyle(accent: string): CSSProperties {
-  return {
-    backgroundColor: accent,
-    borderBottom: "4px solid rgba(0,0,0,0.24)",
-    fontFamily: "'Fredoka', ui-rounded, system-ui, sans-serif",
-  };
-}
-
-function slotStyle(filled: boolean, accent: string): CSSProperties {
-  return {
-    borderColor: filled ? accent : "rgba(120,53,15,0.22)",
-    backgroundColor: filled ? "#fffdfa" : "#faf5e8",
-    color: filled ? accent : "rgba(120,53,15,0.25)",
-    boxShadow: filled ? "none" : "inset 0 4px 8px rgba(44,30,22,0.12)",
-    fontFamily: "'Fredoka', ui-rounded, system-ui, sans-serif",
-  };
-}
-
-function buildTarget(entry: CatalogEntry): BuildTarget | null {
-  if (entry.kind === "vowel") {
-    const lesson = (entry as { lesson?: { vocab?: Array<{ word: string }> } }).lesson;
-    const word = lesson?.vocab?.[0]?.word;
-    if (!word) return null;
-    return { word, pieces: word.toLowerCase().split("") };
-  }
-  if (entry.kind === "consonant") {
-    const data = (entry as { data?: { syllables?: string[] } }).data;
-    const syllables = data?.syllables ?? [];
-    if (syllables.length === 0) return null;
-    const first = syllables[0];
-    const known: Record<string, string> = {
-      ma: "mamá",
-      pa: "papá",
-      sa: "sapo",
-      ta: "taza",
-      da: "dado",
-      la: "lana",
-      na: "nada",
-      ba: "bata",
-      va: "vaca",
-      ra: "rata",
-      ga: "gato",
-      fa: "fama",
-      ja: "jaca",
-      ca: "casa",
-      ya: "yate",
-      za: "zapato",
-    };
-    if (known[first]) {
-      const w = known[first];
-      const mid = Math.ceil(w.length / 2);
-      return { word: w, pieces: [w.slice(0, mid), w.slice(mid)] };
+export function DragBuildWord({ entry, accent, lessonId, onComplete }: DragBuildWordProps) {
+  // Pick a target word from the lesson's data
+  const words = useMemo<string[]>(() => {
+    if (entry.kind === "consonant") {
+      const examples = Object.values(entry.data.examples).flat();
+      return examples.filter((w) => w.length >= 2 && w.length <= 7);
     }
-    if (syllables.length >= 2) {
-      return { word: syllables[0] + syllables[1], pieces: [syllables[0], syllables[1]] };
+    if (entry.kind === "vowel") {
+      return entry.lesson.vocab.map((v) => v.word).filter((w) => w.length >= 2 && w.length <= 7);
     }
-    return { word: first + first, pieces: [first, first] };
-  }
-  return { word: "oa", pieces: ["o", "a"] };
-}
+    return ["ala", "oso", "uva", "ojo", "era"];
+  }, [entry]);
 
-export function DragBuildWord({ entry, accent }: DragBuildWordProps) {
-  const target = useMemo(() => buildTarget(entry), [entry]);
-  const [slots, setSlots] = useState<Array<string | null>>([]);
-  const [selectedPiece, setSelectedPiece] = useState<string | null>(null);
-  const [feedback, setFeedback] = useState<"ok" | "x" | null>(null);
-  const [round, setRound] = useState(0);
+  const [wordIdx, setWordIdx] = useState(0);
+  const currentWord = words[wordIdx % words.length] ?? "ola";
 
+  const [state, dispatch] = useReducer(reducer, currentWord, initState);
+
+  // Keyboard drag state
+  const [selectedTray, setSelectedTray] = useState<number | null>(null);
+
+  // Clear wrong animation after 400ms
   useEffect(() => {
-    if (target) {
-      setSlots(new Array(target.pieces.length).fill(null));
-      setSelectedPiece(null);
-      setFeedback(null);
+    if (state.wrongSlot !== null) {
+      const t = setTimeout(() => dispatch({ type: "CLEAR_WRONG" }), 400);
+      return () => clearTimeout(t);
     }
-  }, [target, round]);
+  }, [state.wrongSlot]);
 
-  const palette = useMemo(() => {
-    if (!target) return [];
-    const all = [...target.pieces];
-    const pool = ["la", "lo", "su", "ti", "po", "mu"];
-    const distractors = pool.filter((d) => !all.includes(d)).slice(0, 2);
-    const combined = [...all, ...distractors];
-    return combined
-      .map((v, i) => ({ v, k: (i + round * 7) % combined.length }))
-      .sort((a, b) => a.k - b.k)
-      .map((x) => x.v);
-  }, [target, round]);
-
-  const filledCount = slots.filter((s) => s !== null).length;
-  const isComplete = !!target && filledCount === target.pieces.length;
-  const isCorrect =
-    isComplete && !!target && slots.every((s, i) => s === target.pieces[i]);
-
+  // On completion
+  const hasCalledComplete = useRef(false);
   useEffect(() => {
-    if (!isComplete) return;
-    if (isCorrect) {
-      setFeedback("ok");
-      playSound("ok");
-    } else {
-      setFeedback("x");
-      playSound("x");
+    if (state.completed && !hasCalledComplete.current) {
+      hasCalledComplete.current = true;
+      speak(state.target);
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!reduced) playCelebrationTone();
+      if (lessonId) {
+        recordEvent({
+          lessonId,
+          kind: "exercise",
+          score: 1,
+          total: state.attempts,
+          meta: { exercise: "drag_build_word", word: state.target, completed: true },
+        });
+      }
+      onComplete?.();
     }
-  }, [isComplete, isCorrect]);
+  }, [state.completed, state.target, state.attempts, lessonId, onComplete]);
 
-  const handleDrop = (slotIndex: number, piece: string) => {
-    setSlots((prev) => {
-      if (prev[slotIndex] !== null) return prev;
-      const next = [...prev];
-      next[slotIndex] = piece;
-      return next;
-    });
-    setSelectedPiece(null);
+  const handleDrop = useCallback(
+    (slotIdx: number, trayIdx: number) => {
+      const letter = state.tray[trayIdx];
+      const correct = letter === state.target[slotIdx];
+      if (correct) {
+        feelBus.emit("success");
+      } else {
+        feelBus.emit("error");
+      }
+      dispatch({ type: "DROP", slotIdx, trayIdx });
+    },
+    [state.tray, state.target],
+  );
+
+  const nextWord = () => {
+    hasCalledComplete.current = false;
+    const next = (wordIdx + 1) % words.length;
+    setWordIdx(next);
+    dispatch({ type: "NEXT_WORD", word: words[next] ?? "ola" });
+    setSelectedTray(null);
   };
 
-  const reset = () => setRound((r) => r + 1);
+  const reset = () => {
+    hasCalledComplete.current = false;
+    dispatch({ type: "RESET" });
+    setSelectedTray(null);
+  };
 
-  if (!target) {
-    return (
-      <div className="rounded-2xl bg-white/60 border-2 border-dashed border-amber-900/20 p-6 text-center text-amber-900/60 italic">
-        Ejercicio próximamente para esta lección.
-      </div>
-    );
-  }
+  // ── Pointer drag (desktop + touch) ──────────────────────────────
+  const draggingRef = useRef<{ trayIdx: number; el: HTMLElement } | null>(null);
+  const ghostRef = useRef<HTMLElement | null>(null);
 
-  const containerAnimate = feedback ? activityCompleteMotion[feedback] : activityIdle;
+  const onPointerDown = (e: React.PointerEvent, trayIdx: number) => {
+    if (state.usedTrayIdx.has(trayIdx) || state.completed) return;
+    feelBus.emit("drag-pick");
+    const el = e.currentTarget as HTMLElement;
+    el.setPointerCapture(e.pointerId);
+    draggingRef.current = { trayIdx, el };
+    const ghost = el.cloneNode(true) as HTMLElement;
+    ghost.style.cssText = `position:fixed;pointer-events:none;z-index:9999;opacity:0.85;transform:scale(1.1);top:${e.clientY - 24}px;left:${e.clientX - 24}px;width:3rem;height:3.25rem;`;
+    document.body.appendChild(ghost);
+    ghostRef.current = ghost;
+    el.dataset.dragging = "true";
+  };
+
+  const onPointerMove = (e: React.PointerEvent) => {
+    if (!ghostRef.current) return;
+    ghostRef.current.style.top = `${e.clientY - 24}px`;
+    ghostRef.current.style.left = `${e.clientX - 24}px`;
+  };
+
+  const onPointerUp = (e: React.PointerEvent) => {
+    if (!draggingRef.current) return;
+    feelBus.emit("drag-drop");
+    const { trayIdx, el } = draggingRef.current;
+    el.removeAttribute("data-dragging");
+    ghostRef.current?.remove();
+    ghostRef.current = null;
+    draggingRef.current = null;
+
+    // Hit test: find slot under pointer
+    const target = document.elementFromPoint(e.clientX, e.clientY);
+    const slotEl = target?.closest<HTMLElement>("[data-slot-idx]");
+    if (slotEl) {
+      const slotIdx = Number(slotEl.dataset.slotIdx);
+      handleDrop(slotIdx, trayIdx);
+    }
+  };
+
+  // ── Keyboard ─────────────────────────────────────────────────────
+  const onTrayKeyDown = (e: React.KeyboardEvent, trayIdx: number) => {
+    if (e.key === " " || e.key === "Enter") {
+      e.preventDefault();
+      setSelectedTray(trayIdx === selectedTray ? null : trayIdx);
+    }
+  };
+
+  const onSlotKeyDown = (e: React.KeyboardEvent, slotIdx: number) => {
+    if ((e.key === " " || e.key === "Enter") && selectedTray !== null) {
+      e.preventDefault();
+      handleDrop(slotIdx, selectedTray);
+      setSelectedTray(null);
+    }
+  };
 
   return (
-    <motion.div
-      className="space-y-6 rounded-[2rem] border border-stone-200 bg-[linear-gradient(180deg,#fffdfa,rgba(255,248,235,0.92))] p-5 sm:p-6 shadow-[0_20px_50px_rgba(50,30,10,0.06)] relative overflow-hidden"
-      animate={containerAnimate}
-      transition={activityTransition}
+    <div
+      className="drag-build-word"
+      style={{ "--lesson-accent": accent } as React.CSSProperties}
+      aria-label="Arrastra las letras para formar la palabra"
     >
-      <div className="text-center">
-        <div
-          className="text-[10px] sm:text-xs font-black uppercase tracking-widest mb-2"
-          style={labelStyle(accent)}
-        >
-          Forma la palabra
-        </div>
-        <p className="mx-auto mb-4 inline-flex items-center gap-1.5 rounded-full bg-amber-950/5 px-3.5 py-1 text-[11px] font-black text-amber-900/70">
-          <Hand className="h-3.5 w-3.5" />
-          Arrastra una pieza, o tócala y luego toca un espacio.
-        </p>
-        {selectedPiece && (
-          <motion.div
-            className="mx-auto mb-4 flex max-w-sm items-center justify-center gap-2 rounded-2xl border-2 border-amber-900/15 bg-amber-50 px-4 py-3 text-sm font-black text-amber-950 shadow-inner"
-            initial={selectedPillInitial}
-            animate={selectedPillAnimate}
+      <div className="flex items-center justify-between mb-3">
+        <h3 className="font-bold">Forma la palabra</h3>
+        <div className="flex gap-2">
+          <button
+            onClick={() => speak(state.target)}
+            aria-label={`Escuchar "${state.target}"`}
+            className="lesson-focus-ring inline-flex items-center gap-1 text-xs font-bold px-2 py-1 rounded-lg border border-foreground/10 hover:bg-secondary"
           >
-            <span
-              className="inline-flex min-h-10 min-w-10 items-center justify-center rounded-xl bg-white px-3 text-xl shadow-sm"
-              style={targetWordStyle(accent)}
-            >
-              {selectedPiece}
-            </span>
-            <span>Toca un espacio brillante para colocarla.</span>
-          </motion.div>
-        )}
-        <div className="flex items-center justify-center gap-2 sm:gap-4 flex-wrap my-4">
-          {slots.map((s, i) => (
-            <DropSlot
-              key={i}
-              index={i}
-              value={s}
-              accent={accent}
-              selectedPiece={selectedPiece}
-              onDrop={handleDrop}
-            />
-          ))}
-        </div>
-        <div
-          className="text-xl sm:text-2xl font-bold mt-4 opacity-40 select-none"
-          style={targetWordStyle(accent)}
-        >
-          → {target.word}
+            <Volume2 className="w-3.5 h-3.5" /> Escuchar
+          </button>
+          <button
+            onClick={reset}
+            aria-label="Reiniciar palabra"
+            className="lesson-focus-ring inline-flex items-center gap-1 text-xs font-bold px-2 py-1 rounded-lg border border-foreground/10 hover:bg-secondary"
+          >
+            <RotateCcw className="w-3.5 h-3.5" />
+          </button>
         </div>
       </div>
 
-      <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-2">
-        {palette.map((piece, i) => (
-          <DragPiece
-            key={`${piece}-${i}-${round}`}
-            piece={piece}
-            accent={accent}
-            selected={selectedPiece === piece}
-            onSelect={() =>
-              setSelectedPiece((current) => (current === piece ? null : piece))
+      {/* Slots */}
+      <div
+        className="drag-build-word__slots"
+        role="group"
+        aria-label="Casillas de la palabra"
+      >
+        {state.slots.map((filled, slotIdx) => (
+          <div
+            key={slotIdx}
+            data-slot-idx={slotIdx}
+            data-filled={filled !== null ? "true" : "false"}
+            data-over="false"
+            data-correct={filled !== null ? "true" : "false"}
+            data-wrong={state.wrongSlot === slotIdx ? "true" : "false"}
+            className="drag-build-word__slot lesson-focus-ring"
+            style={{ color: accent, borderColor: filled ? accent : undefined }}
+            tabIndex={selectedTray !== null && filled === null ? 0 : -1}
+            onKeyDown={(e) => onSlotKeyDown(e, slotIdx)}
+            aria-label={
+              filled
+                ? `Casilla ${slotIdx + 1}: ${filled}`
+                : `Casilla ${slotIdx + 1}: vacía`
             }
-          />
+            onPointerEnter={(e) => {
+              (e.currentTarget as HTMLElement).dataset.over = "true";
+            }}
+            onPointerLeave={(e) => {
+              (e.currentTarget as HTMLElement).dataset.over = "false";
+            }}
+          >
+            {filled ?? <span className="text-foreground/20 text-sm">_</span>}
+          </div>
         ))}
       </div>
 
-      {isComplete && feedback === "x" && (
-        <div className="rounded-3xl border border-rose-200 bg-rose-50/80 px-4 py-3 text-center text-sm font-black text-rose-800 animate-bounce">
-          Casi. Revisa el orden de las piezas y prueba otra vez.
-        </div>
-      )}
-      {isComplete && feedback === "ok" && (
-        <div className="rounded-3xl border border-emerald-200 bg-emerald-50/80 px-4 py-3 text-center text-sm font-black text-emerald-800">
-          <CheckCircle2 className="mr-1 inline h-4 w-4 text-emerald-600" />
-          ¡Gran trabajo! Formaste {target.word}.
-        </div>
-      )}
-      <div className="flex justify-center pt-2">
-        <button
-          type="button"
-          onClick={reset}
-          className="inline-flex min-h-11 items-center gap-2 rounded-full border border-amber-900/15 bg-white px-5 py-2 text-sm font-black text-amber-950 transition hover:bg-stone-50 active:scale-95"
+      {/* Completion */}
+      {state.completed && (
+        <GretelFeedback
+          isCorrect={true}
+          message={
+            <p>
+              ¡<span style={{ color: accent, fontWeight: "bold" }}>{state.target}</span> — ¡Muy bien! Formaste la palabra correctamente.
+            </p>
+          }
         >
-          <RotateCcw className="h-4 w-4 text-amber-900" />
-          Intentar de nuevo
-        </button>
+          {words.length > 1 && (
+            <button
+              onClick={nextWord}
+              className="lesson-focus-ring text-xs font-bold px-3 py-1.5 rounded-xl text-white"
+              style={{ backgroundColor: accent }}
+            >
+              Siguiente →
+            </button>
+          )}
+        </GretelFeedback>
+      )}
+
+      {/* Tray */}
+      <div
+        className="drag-build-word__tray"
+        role="group"
+        aria-label="Letras disponibles"
+        onPointerMove={onPointerMove}
+        onPointerUp={onPointerUp}
+      >
+        {state.tray.map((letter, trayIdx) => (
+          <div
+            key={trayIdx}
+            data-used={state.usedTrayIdx.has(trayIdx) ? "true" : "false"}
+            data-dragging="false"
+            className="drag-build-word__letter lesson-focus-ring"
+            style={{ color: accent, borderColor: accent, backgroundColor: `${accent}12` }}
+            tabIndex={state.usedTrayIdx.has(trayIdx) || state.completed ? -1 : 0}
+            role="button"
+            aria-label={`Letra ${letter}${selectedTray === trayIdx ? " (seleccionada)" : ""}`}
+            aria-pressed={selectedTray === trayIdx}
+            onPointerDown={(e) => onPointerDown(e, trayIdx)}
+            onKeyDown={(e) => onTrayKeyDown(e, trayIdx)}
+            aria-disabled={state.usedTrayIdx.has(trayIdx)}
+          >
+            {letter}
+          </div>
+        ))}
       </div>
 
-      <GretelFeedback state={feedback} onRetry={reset} />
-    </motion.div>
-  );
-}
-
-function DragPiece({
-  piece,
-  accent,
-  selected,
-  onSelect,
-}: {
-  piece: string;
-  accent: string;
-  selected: boolean;
-  onSelect: () => void;
-}) {
-  return (
-    <motion.button
-      type="button"
-      drag
-      dragSnapToOrigin
-      whileDrag={pieceWhileDrag}
-      whileTap={pieceWhileTap}
-      whileHover={pieceWhileHover}
-      onClick={onSelect}
-      onDragEnd={(_, info) => {
-        const event = new CustomEvent("cartilla:piece-drop", {
-          detail: { piece, x: info.point.x, y: info.point.y },
-        });
-        window.dispatchEvent(event);
-      }}
-      className={cn(
-        "relative min-h-16 px-6 py-4 sm:px-8 sm:py-5 rounded-3xl text-white text-2xl sm:text-4xl font-black shadow-md cursor-grab active:cursor-grabbing select-none touch-none hover:shadow-lg active:translate-y-px active:border-b-2 transition-all duration-200 overflow-hidden",
-        selected &&
-          "ring-4 ring-offset-2 ring-offset-background ring-amber-500/30 scale-105 shadow-2xl",
+      {selectedTray !== null && (
+        <p className="mt-2 text-xs text-foreground/50" aria-live="polite">
+          Letra «{state.tray[selectedTray]}» seleccionada — pulsa Enter/Espacio en una casilla
+        </p>
       )}
-      style={pieceStyle(accent)}
-      aria-label={`Pieza ${piece}`}
-      aria-pressed={selected}
-    >
-      <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_25%_20%,rgba(255,255,255,0.5),transparent_34%),linear-gradient(180deg,rgba(255,255,255,0.22),transparent)]" />
-      <span className="relative z-10">{piece}</span>
-    </motion.button>
+    </div>
   );
-}
-
-function DropSlot({
-  index,
-  value,
-  accent,
-  selectedPiece,
-  onDrop,
-}: {
-  index: number;
-  value: string | null;
-  accent: string;
-  selectedPiece: string | null;
-  onDrop: (index: number, piece: string) => void;
-}) {
-  const ref = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    function handler(e: Event) {
-      if (!ref.current || value !== null) return;
-      const ce = e as CustomEvent<{ piece: string; x: number; y: number }>;
-      const rect = ref.current.getBoundingClientRect();
-      const { x, y, piece } = ce.detail;
-      if (
-        x >= rect.left &&
-        x <= rect.right &&
-        y >= rect.top &&
-        y <= rect.bottom
-      ) {
-        onDrop(index, piece);
-      }
-    }
-    window.addEventListener("cartilla:piece-drop", handler);
-    return () => window.removeEventListener("cartilla:piece-drop", handler);
-  }, [index, value, onDrop]);
-
-  const filled = value !== null;
-  const canTapPlace = !filled && selectedPiece !== null;
-  const slotAnimate = canTapPlace ? slotBobAnimate : slotIdleAnimate;
-
-  return (
-    <motion.button
-      type="button"
-      ref={ref}
-      onClick={() => {
-        if (selectedPiece) onDrop(index, selectedPiece);
-      }}
-      className={cn(
-        "relative w-20 h-20 sm:w-28 sm:h-28 rounded-3xl border-4 border-dashed flex items-center justify-center text-3xl sm:text-5xl font-black transition-all duration-200 shadow-inner overflow-hidden",
-        canTapPlace &&
-          "scale-105 ring-4 ring-amber-500/20 bg-amber-50/60 border-amber-900/40 shadow-[0_0_0_8px_rgba(251,191,36,0.14)]",
-      )}
-      style={slotStyle(filled, accent)}
-      animate={slotAnimate}
-      transition={slotBobTransition}
-      aria-label={
-        filled ? `Espacio ${index + 1}: ${value}` : `Espacio ${index + 1}`
-      }
-    >
-      {canTapPlace && (
-        <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle,rgba(255,255,255,0.95),transparent_58%)]" />
-      )}
-      <span className="relative z-10">{value ?? "_"}</span>
-    </motion.button>
-  );
-}
-
-function playSound(kind: "ok" | "x") {
-  try {
-    const AudioCtx =
-      (window as unknown as { AudioContext?: typeof AudioContext }).AudioContext ||
-      (window as unknown as { webkitAudioContext?: typeof AudioContext })
-        .webkitAudioContext;
-    if (!AudioCtx) return;
-    const ctx = new AudioCtx();
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-    osc.type = "sine";
-    gain.gain.setValueAtTime(0.0001, ctx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.18, ctx.currentTime + 0.02);
-    if (kind === "ok") {
-      osc.frequency.setValueAtTime(523.25, ctx.currentTime);
-      osc.frequency.setValueAtTime(659.25, ctx.currentTime + 0.12);
-      osc.frequency.setValueAtTime(783.99, ctx.currentTime + 0.24);
-      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.55);
-      osc.start();
-      osc.stop(ctx.currentTime + 0.6);
-    } else {
-      osc.frequency.setValueAtTime(329.63, ctx.currentTime);
-      osc.frequency.setValueAtTime(261.63, ctx.currentTime + 0.18);
-      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.42);
-      osc.start();
-      osc.stop(ctx.currentTime + 0.45);
-    }
-  } catch {
-    // no-op
-  }
 }

@@ -1,9 +1,15 @@
+/**
+ * practica.tsx  — Lane A
+ *
+ * Randomized 10-exercise mix across all consonants + vowels the student
+ * has touched (unlocked). Scoring tracked in useStudentSession / recordEvent.
+ * Audio via speak() on every interaction.
+ */
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import type { CSSProperties } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowLeft, Volume2, Zap, RotateCcw, Trophy } from "lucide-react";
 import { CATALOG } from "@/lib/lesson-catalog";
-import { speakNow } from "@/lib/speak";
+import { speak } from "@/lib/speak";
 import { useLessonProgress } from "@/lib/lesson-progress";
 import { recordEvent } from "@/lib/student-session";
 
@@ -14,7 +20,7 @@ export const Route = createFileRoute("/cartilla/practica")({
       { title: "Práctica rápida — La Cartilla de Gretel" },
       {
         name: "description",
-        content: "Drill de 60 segundos: identifica letras y sonidos a toda velocidad.",
+        content: "Drill de 60 segundos: identifica sílabas a toda velocidad.",
       },
     ],
   }),
@@ -32,14 +38,7 @@ function shuffle<T>(arr: T[]): T[] {
 }
 
 const DURATIONS = [60, 90, 120] as const;
-
-function optionStyle(color: string): CSSProperties {
-  return { backgroundColor: color };
-}
-
-function timerStyle(secondsLeft: number, duration: number): CSSProperties {
-  return { width: `${(secondsLeft / duration) * 100}%` };
-}
+const TARGET_EXERCISES = 10;
 
 function buildPool(useUnlockedOnly: boolean, isUnlocked: (n: number) => boolean): string[] {
   const pool: string[] = [];
@@ -114,8 +113,8 @@ function Practica() {
 
   const start = () => {
     if (pool.length < 4) return;
-    const nextCards = buildCards(pool, 200);
-    setCards(nextCards);
+    const built = buildCards(pool, TARGET_EXERCISES * 20); // build large pool, iterate first 10
+    setCards(built);
     setIdx(0);
     setHits(0);
     setMisses(0);
@@ -123,23 +122,24 @@ function Practica() {
     setFeedback(null);
     startedAt.current = Date.now();
     setPhase("playing");
-    speakNow(nextCards[0].syllable);
-  };
-
-  const speakCurrent = () => {
-    if (current) speakNow(current.syllable);
+    setTimeout(() => speak(built[0]?.syllable ?? ""), 100);
   };
 
   const choose = (option: string) => {
     if (!current || feedback) return;
+    speak(option);
     if (option === current.syllable) {
       setHits((h) => h + 1);
       setFeedback("ok");
       setTimeout(() => {
         setFeedback(null);
         const next = idx + 1;
+        if (next >= TARGET_EXERCISES) {
+          setPhase("done");
+          return;
+        }
         setIdx(next);
-        if (cards[next]) speakNow(cards[next].syllable);
+        if (cards[next]) speak(cards[next].syllable);
       }, 350);
     } else {
       setMisses((m) => m + 1);
@@ -147,12 +147,17 @@ function Practica() {
       setTimeout(() => {
         setFeedback(null);
         const next = idx + 1;
+        if (next >= TARGET_EXERCISES) {
+          setPhase("done");
+          return;
+        }
         setIdx(next);
-        if (cards[next]) speakNow(cards[next].syllable);
+        if (cards[next]) speak(cards[next].syllable);
       }, 700);
     }
   };
 
+  const exerciseNum = Math.min(idx + 1, TARGET_EXERCISES);
   const total = hits + misses;
   const accuracy = total > 0 ? Math.round((hits / total) * 100) : 0;
 
@@ -161,34 +166,45 @@ function Practica() {
       <Link
         to="/cartilla"
         className="inline-flex items-center gap-2 text-sm font-bold text-foreground/60 hover:text-foreground"
+        aria-label="Volver a la Cartilla"
       >
-        <ArrowLeft className="w-4 h-4" /> Cartilla
+        <ArrowLeft className="w-4 h-4" aria-hidden /> Cartilla
       </Link>
 
       <header className="mt-6 text-center">
         <div className="inline-flex items-center gap-2 text-sm font-bold text-vowel-o bg-vowel-o/10 px-3 py-1 rounded-full">
-          <Zap className="w-4 h-4" /> Práctica Rápida
+          <Zap className="w-4 h-4" aria-hidden /> Práctica Rápida
         </div>
-        <h1 className="text-3xl sm:text-4xl font-bold mt-3">Drill de letras</h1>
+        <h1 className="text-3xl sm:text-4xl font-bold mt-3">
+          {phase === "playing"
+            ? `Ejercicio ${exerciseNum} de ${TARGET_EXERCISES}`
+            : "Drill de sílabas"}
+        </h1>
         <p className="text-foreground/70 mt-1">
-          Escucha el sonido y toca la letra correcta antes de que se acabe el tiempo.
+          {phase === "setup"
+            ? "Escucha la sílaba y toca la respuesta correcta."
+            : phase === "playing"
+              ? "¿Cuál sílaba escuchas?"
+              : "¡Terminaste los 10 ejercicios!"}
         </p>
       </header>
 
+      {/* ── Setup ── */}
       {phase === "setup" && (
-        <section className="mt-8 kid-card p-5 space-y-4">
+        <section className="mt-8 kid-card p-5 space-y-4" aria-label="Configuración de práctica">
           <div>
-            <div className="text-sm font-bold mb-2">Duración</div>
-            <div className="flex gap-2">
+            <div className="text-sm font-bold mb-2" id="duration-label">Duración máxima</div>
+            <div className="flex gap-2" role="group" aria-labelledby="duration-label">
               {DURATIONS.map((d) => (
                 <button
                   key={d}
                   onClick={() => setDuration(d)}
-                  className={`flex-1 py-3 rounded-xl border-2 font-bold ${
+                  className={`flex-1 py-3 rounded-xl border-2 font-bold transition ${
                     duration === d
                       ? "border-primary bg-primary/10 text-primary"
                       : "border-foreground/10 hover:bg-secondary"
                   }`}
+                  aria-pressed={duration === d}
                 >
                   {d}s
                 </button>
@@ -196,59 +212,84 @@ function Practica() {
             </div>
           </div>
           <div>
-            <div className="text-sm font-bold mb-2">Alcance</div>
-            <div className="flex gap-2">
+            <div className="text-sm font-bold mb-2" id="scope-label">Alcance</div>
+            <div className="flex gap-2" role="group" aria-labelledby="scope-label">
               <button
                 onClick={() => setScope("unlocked")}
-                className={`flex-1 py-3 rounded-xl border-2 font-bold text-sm ${
+                className={`flex-1 py-3 rounded-xl border-2 font-bold text-sm transition ${
                   scope === "unlocked"
                     ? "border-primary bg-primary/10 text-primary"
                     : "border-foreground/10 hover:bg-secondary"
                 }`}
+                aria-pressed={scope === "unlocked"}
               >
                 Solo desbloqueadas
               </button>
               <button
                 onClick={() => setScope("all")}
-                className={`flex-1 py-3 rounded-xl border-2 font-bold text-sm ${
+                className={`flex-1 py-3 rounded-xl border-2 font-bold text-sm transition ${
                   scope === "all"
                     ? "border-primary bg-primary/10 text-primary"
                     : "border-foreground/10 hover:bg-secondary"
                 }`}
+                aria-pressed={scope === "all"}
               >
                 Todas las lecciones
               </button>
             </div>
-            <p className="text-[11px] text-foreground/50 mt-2">{pool.length} letras y sonidos en el pool.</p>
+            <p className="text-[11px] text-foreground/50 mt-2">{pool.length} sílabas en el pool.</p>
           </div>
           <button
             onClick={start}
             disabled={pool.length < 4}
-            className="w-full py-4 rounded-2xl bg-primary text-primary-foreground font-bold text-lg disabled:opacity-50 inline-flex items-center justify-center gap-2"
+            className="w-full py-4 rounded-2xl bg-primary text-primary-foreground font-bold text-lg disabled:opacity-50 inline-flex items-center justify-center gap-2 hover:-translate-y-0.5 transition"
+            aria-label="Empezar práctica rápida"
           >
-            <Zap className="w-5 h-5" /> Empezar con audio
+            <Zap className="w-5 h-5" aria-hidden /> Empezar ({TARGET_EXERCISES} ejercicios)
           </button>
         </section>
       )}
 
+      {/* ── Playing ── */}
       {phase === "playing" && current && (
-        <section className="mt-6">
+        <section className="mt-6" aria-label="Ejercicio activo">
           <div className="flex items-center justify-between mb-3 text-sm font-bold">
             <span className="text-foreground/60">Tiempo</span>
             <span
               className={`text-2xl font-bold ${secondsLeft <= 10 ? "text-destructive animate-pulse" : ""}`}
+              aria-live="polite"
+              aria-label={`${secondsLeft} segundos restantes`}
             >
               {secondsLeft}s
             </span>
-            <span className="text-success">
-              ✓ {hits} <span className="text-destructive ml-2">✗ {misses}</span>
+            <span className="text-success" aria-live="polite">
+              ✓ {hits}{" "}
+              <span className="text-destructive ml-2">✗ {misses}</span>
             </span>
           </div>
-          <div className="h-2 bg-secondary rounded-full overflow-hidden border border-foreground/10 mb-6">
+          <div className="h-2 bg-secondary rounded-full overflow-hidden border border-foreground/10 mb-2">
             <div
               className="h-full bg-primary transition-all"
-              style={timerStyle(secondsLeft, duration)}
+              style={{ width: `${(secondsLeft / duration) * 100}%` }}
             />
+          </div>
+          {/* Exercise progress */}
+          <div className="flex gap-1 mb-5">
+            {Array.from({ length: TARGET_EXERCISES }, (_, i) => (
+              <div
+                key={i}
+                className="flex-1 h-1.5 rounded-full"
+                style={{
+                  backgroundColor:
+                    i < idx
+                      ? "hsl(var(--success))"
+                      : i === idx
+                        ? current.color
+                        : "hsl(var(--foreground)/0.12)",
+                }}
+                aria-hidden
+              />
+            ))}
           </div>
 
           <div
@@ -259,16 +300,18 @@ function Practica() {
                   ? "ring-4 ring-destructive/40"
                   : ""
             }`}
+            role="group"
+            aria-label={`Toca la sílaba que escuchas: ${current.syllable}`}
           >
             <button
-              onClick={speakCurrent}
-              aria-label="Reescuchar"
+              onClick={() => speak(current.syllable)}
+              aria-label="Volver a escuchar"
               className="mb-4 inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-primary font-bold"
             >
-              <Volume2 className="w-4 h-4" /> Reescuchar sonido
+              <Volume2 className="w-4 h-4" aria-hidden /> Reescuchar
             </button>
             <div className="text-xs text-foreground/50 font-bold uppercase tracking-wide">
-              Toca la letra que escuchas
+              Toca la sílaba que escuchas
             </div>
             <div className="grid grid-cols-2 gap-3 mt-5">
               {current.options.map((opt) => (
@@ -276,8 +319,9 @@ function Practica() {
                   key={opt}
                   onClick={() => choose(opt)}
                   className="py-6 rounded-2xl text-3xl font-bold text-white shadow-md hover:scale-105 active:scale-95 transition disabled:opacity-50"
-                  style={optionStyle(current.color)}
+                  style={{ backgroundColor: current.color }}
                   disabled={!!feedback}
+                  aria-label={`Respuesta: ${opt}`}
                 >
                   {opt}
                 </button>
@@ -287,21 +331,27 @@ function Practica() {
         </section>
       )}
 
+      {/* ── Done ── */}
       {phase === "done" && (
-        <section className="mt-8 kid-card p-6 text-center space-y-4">
-          <Trophy className="w-12 h-12 mx-auto text-vowel-o" />
-          <h2 className="text-2xl font-bold">¡Tiempo!</h2>
+        <section
+          className="mt-8 kid-card p-6 text-center space-y-4"
+          aria-label="Resultados de la práctica"
+        >
+          <Trophy className="w-12 h-12 mx-auto text-vowel-o" aria-hidden />
+          <h2 className="text-2xl font-bold">
+            {hits === TARGET_EXERCISES ? "¡Perfecto!" : "¡Tiempo!"}
+          </h2>
           <div className="grid grid-cols-3 gap-3 text-sm">
             <div className="rounded-xl bg-secondary p-3">
-              <div className="text-2xl font-bold text-success">{hits}</div>
+              <div className="text-2xl font-bold text-success" aria-label={`${hits} aciertos`}>{hits}</div>
               <div className="text-xs text-foreground/60">Aciertos</div>
             </div>
             <div className="rounded-xl bg-secondary p-3">
-              <div className="text-2xl font-bold text-destructive">{misses}</div>
+              <div className="text-2xl font-bold text-destructive" aria-label={`${misses} errores`}>{misses}</div>
               <div className="text-xs text-foreground/60">Errores</div>
             </div>
             <div className="rounded-xl bg-secondary p-3">
-              <div className="text-2xl font-bold text-primary">{accuracy}%</div>
+              <div className="text-2xl font-bold text-primary" aria-label={`${accuracy}% precisión`}>{accuracy}%</div>
               <div className="text-xs text-foreground/60">Precisión</div>
             </div>
           </div>
@@ -309,12 +359,14 @@ function Practica() {
             <button
               onClick={() => setPhase("setup")}
               className="flex-1 py-3 rounded-xl border-2 border-foreground/10 font-bold inline-flex items-center justify-center gap-2 hover:bg-secondary"
+              aria-label="Volver a configurar la práctica"
             >
-              <RotateCcw className="w-4 h-4" /> Otra vez
+              <RotateCcw className="w-4 h-4" aria-hidden /> Otra vez
             </button>
             <button
               onClick={() => navigate({ to: "/cartilla" })}
               className="flex-1 py-3 rounded-xl bg-primary text-primary-foreground font-bold"
+              aria-label="Volver a la Cartilla"
             >
               Volver
             </button>

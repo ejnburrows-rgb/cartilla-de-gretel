@@ -1,15 +1,9 @@
 import { useEffect, useState, type ReactNode } from "react";
-import { motion, type Variants } from "framer-motion";
 import { ArrowDown, ArrowUp, Settings2, RotateCcw } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 export type ExerciseBlock = { id: string; label: string; node: ReactNode };
 
 const KEY = (lessonId: string) => `cartilla.exercise-order.v1.${lessonId}`;
-const blockVariants: Variants = {
-  rest: { y: 0, scale: 1 },
-  editing: { y: [0, -2, 0], scale: 1.005 },
-};
 
 function loadOrder(lessonId: string): string[] | null {
   if (typeof window === "undefined") return null;
@@ -75,65 +69,49 @@ export function OrderedExercises({
 
   return (
     <div className="space-y-5">
-      <div className="flex flex-wrap items-center justify-end gap-2 rounded-[1.5rem] bg-amber-50/55 px-3 py-2 ring-1 ring-amber-900/10">
+      <div className="flex items-center justify-end gap-2">
         {editing && (
           <button
-            type="button"
             onClick={reset}
-            className="inline-flex min-h-11 items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-black text-amber-900 shadow-sm ring-1 ring-amber-900/10 transition hover:-translate-y-0.5 hover:bg-amber-50 active:scale-95"
+            className="inline-flex items-center gap-1 text-xs font-bold text-foreground/60 hover:text-primary"
           >
-            <RotateCcw className="h-4 w-4" /> Restablecer orden
+            <RotateCcw className="w-3.5 h-3.5" /> Restablecer orden
           </button>
         )}
         <button
-          type="button"
           onClick={() => setEditing((e) => !e)}
-          className={cn(
-            "inline-flex min-h-11 items-center gap-2 rounded-full border-2 px-4 py-2 text-xs font-black shadow-sm transition hover:-translate-y-0.5 active:scale-95",
-            editing
-              ? "border-emerald-200 bg-emerald-50 text-emerald-800"
-              : "border-amber-900/15 bg-white text-amber-950 hover:bg-amber-50",
-          )}
+          className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-xl border-2 border-foreground/15 hover:bg-secondary"
         >
-          <Settings2 className="h-4 w-4" /> {editing ? "Listo" : "Reordenar ejercicios"}
+          <Settings2 className="w-3.5 h-3.5" /> {editing ? "Listo" : "Reordenar ejercicios"}
         </button>
       </div>
       {ordered.map((b, i) => (
-        <motion.div
-          key={b.id}
-          className="relative"
-          variants={blockVariants}
-          animate={editing ? "editing" : "rest"}
-          transition={{ duration: 0.55, repeat: editing ? Infinity : 0, repeatDelay: 1.4 }}
-          layout
-        >
+        <div key={b.id} className="relative">
           {editing && (
-            <div className="absolute -top-4 left-3 z-10 inline-flex items-center gap-1 rounded-2xl border-2 border-amber-900/15 bg-white px-2 py-1 shadow-md">
-              <span className="mr-1 max-w-32 truncate px-1 text-[10px] font-black uppercase tracking-wide text-amber-900/70">
+            <div className="absolute -top-3 left-3 z-10 inline-flex items-center gap-1 bg-background border-2 border-foreground/15 rounded-xl px-2 py-1 shadow-sm">
+              <span className="text-[10px] font-bold uppercase tracking-wide text-foreground/60 mr-1">
                 {b.label}
               </span>
               <button
-                type="button"
                 onClick={() => move(i, -1)}
                 disabled={i === 0}
-                className="grid min-h-10 min-w-10 place-items-center rounded-xl text-amber-950 transition hover:bg-amber-50 active:scale-95 disabled:opacity-30"
+                className="p-1 rounded-md hover:bg-secondary disabled:opacity-30"
                 aria-label={`Subir ${b.label}`}
               >
-                <ArrowUp className="h-4 w-4" />
+                <ArrowUp className="w-3.5 h-3.5" />
               </button>
               <button
-                type="button"
                 onClick={() => move(i, 1)}
                 disabled={i === ordered.length - 1}
-                className="grid min-h-10 min-w-10 place-items-center rounded-xl text-amber-950 transition hover:bg-amber-50 active:scale-95 disabled:opacity-30"
+                className="p-1 rounded-md hover:bg-secondary disabled:opacity-30"
                 aria-label={`Bajar ${b.label}`}
               >
-                <ArrowDown className="h-4 w-4" />
+                <ArrowDown className="w-3.5 h-3.5" />
               </button>
             </div>
           )}
           {b.node}
-        </motion.div>
+        </div>
       ))}
     </div>
   );

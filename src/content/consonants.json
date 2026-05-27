@@ -6,20 +6,13 @@
     "color": "#E63946",
     "syllables": ["ma", "me", "mi", "mo", "mu"],
     "examples": {
-      "ma": ["mamá", "mami", "mapa", "ama", "Manolo"],
-      "me": ["mesa", "Meme", "Memo", "me", "meta"],
-      "mi": ["Mimí", "mío", "mima", "mira", "misa"],
-      "mo": ["Mimo", "mono", "moto", "moneda", "amo"],
-      "mu": ["Mumi", "mula", "mulo", "mudo", "mujer"]
+      "ma": ["mamá", "mapa", "maleta", "mago", "marisco"],
+      "me": ["mesa", "miel", "mecha", "menudo", "Memo"],
+      "mi": ["mimo", "mira", "mina", "Mimi", "mira"],
+      "mo": ["mono", "moto", "moda", "momia", "modo"],
+      "mu": ["mulo", "muleta", "muro", "mudo", "mujer"]
     },
-    "sentences": [
-      "Mi mamá me ama.",
-      "Amo a mami. Mamá mía.",
-      "Mamá ama a Meme y a Mimí.",
-      "Memo ama a Mumi.",
-      "Mamá mía ámame. Mímame a mí.",
-      "Mi mamá me mima."
-    ]
+    "sentences": ["Mi mamá me mima.", "Mamá ama a Memo."]
   },
   {
     "letter": "p",
@@ -28,19 +21,13 @@
     "color": "#F4A261",
     "syllables": ["pa", "pe", "pi", "po", "pu"],
     "examples": {
-      "pa": ["papá", "papi", "mapa", "pala", "Papo"],
-      "pe": ["Pepe", "pelo", "pesa", "Pepo", "tapete"],
-      "pi": ["pipo", "Pupi", "Mapi", "Mupi", "pie"],
-      "po": ["pomo", "polo", "sapo", "mapo", "Pepo"],
-      "pu": ["puma", "púa", "Pupi", "¡upa!", "apura"]
+      "pa": ["papá", "pala", "pasa", "patata", "Pamela"],
+      "pe": ["pelo", "pera", "pez", "Pepe", "peso"],
+      "pi": ["pino", "pisa", "pipa", "Pipo", "pista"],
+      "po": ["pomo", "poma", "popa", "poco", "polo"],
+      "pu": ["puma", "pupa", "Pupi", "pulpo", "púa"]
     },
-    "sentences": [
-      "Papá y Pepe aman a mamá.",
-      "Pupi ama a papá.",
-      "Yo amo a mamá y a papá.",
-      "Mi papá ama a Pupi.",
-      "Papá y mamá me aman."
-    ]
+    "sentences": ["Mi papá ama a Pupi.", "Papá y mamá me aman."]
   },
   {
     "letter": "s",
@@ -49,21 +36,13 @@
     "color": "#2A9D8F",
     "syllables": ["sa", "se", "si", "so", "su"],
     "examples": {
-      "sa": ["sapo", "sala", "masa", "casa", "mesa"],
-      "se": ["sello", "seca", "semilla", "seso", "ese"],
-      "si": ["Sisi", "silla", "sitio", "así", "casita"],
-      "so": ["sopa", "soga", "oso", "paso", "puso"],
-      "su": ["Susi", "suma", "suyo", "sube", "supo"]
+      "sa": ["sapo", "sala", "sano", "Sandi", "salida"],
+      "se": ["seda", "señal", "sed", "Sela", "semana"],
+      "si": ["sino", "sima", "Simón", "silla", "sitio"],
+      "so": ["sopa", "sol", "soga", "soso", "Soto"],
+      "su": ["suyo", "suma", "Susi", "supo", "sube"]
     },
-    "sentences": [
-      "La mesa es de Susi.",
-      "La sopa está en la mesa.",
-      "Papá pasa la sopa a Susi.",
-      "Sisi pasa la sopa a mamá.",
-      "Ese sapo es de Sisi. Es el sapo Samapo.",
-      "Sisi pasa el sapo a Pepe.",
-      "Pepe puso un sapo en la mesa."
-    ]
+    "sentences": ["Pepe puso un sapo en la mesa.", "Susi suma sopa."]
   },
   {
     "letter": "t",
@@ -72,21 +51,13 @@
     "color": "#264653",
     "syllables": ["ta", "te", "ti", "to", "tu"],
     "examples": {
-      "ta": ["tapa", "Tota", "Mota", "pata", "seta"],
-      "te": ["tema", "teme", "Teté", "tomate", "tapete"],
-      "ti": ["Tito", "Piti", "Poti", "tina", "tipi"],
-      "to": ["topo", "moto", "tomate", "toma", "sapito"],
+      "ta": ["tapa", "tasa", "Tati", "tarima", "tarea"],
+      "te": ["teme", "tela", "tetera", "Teté", "techo"],
+      "ti": ["tipo", "tina", "Tito", "tina", "tirita"],
+      "to": ["topo", "tomate", "Toño", "toldo", "todo"],
       "tu": ["tupe", "tubo", "tulipán", "tuna", "Matute"]
     },
-    "sentences": [
-      "La mesa tiene un tapete.",
-      "El pomo está en la mesa.",
-      "La mesa está en el patio.",
-      "El pomo tiene sopa. El pomo tiene tapa.",
-      "Tito tapa el pomo.",
-      "—¡No Tito, no, no tapes el pomo!",
-      "Papá tapa la sopa."
-    ]
+    "sentences": ["¡No Tito, no, no tapes el pomo!", "Papá tapa la sopa."]
   },
   {
     "letter": "d",
@@ -95,21 +66,13 @@
     "color": "#8338EC",
     "syllables": ["da", "de", "di", "do", "du"],
     "examples": {
-      "da": ["dame", "dado", "Ada", "duda", "poda"],
-      "de": ["dedo", "deme", "además", "debajo", "pide"],
-      "di": ["dime", "día", "dice", "dinero", "Didi"],
-      "do": ["dado", "doce", "modo", "mudo", "Dunia"],
-      "du": ["Duma", "duda", "duro", "durazno", "ducha"]
+      "da": ["dado", "dama", "Dani", "dama", "danza"],
+      "de": ["dedo", "delfín", "demora", "Dela", "Delia"],
+      "di": ["dime", "Dina", "Diego", "dieta", "diadema"],
+      "do": ["dona", "doce", "domo", "Dora", "dormido"],
+      "du": ["Duma", "duro", "duda", "durazno", "ducha"]
     },
-    "sentences": [
-      "Dime si Ada tiene dados.",
-      "Los dados son de Dunia.",
-      "—¿Dónde están los dados?",
-      "Dunia pone los dados en el pomo.",
-      "—Dunia dame el pomo.",
-      "El pomo de Dunia está en la mesa.",
-      "—Ada, ¿Dónde está Dunia?"
-    ]
+    "sentences": ["El pomo de Dunia está en la mesa.", "—Ada, ¿dónde está Dunia?"]
   },
   {
     "letter": "l",
@@ -118,20 +81,13 @@
     "color": "#E63946",
     "syllables": ["la", "le", "li", "lo", "lu"],
     "examples": {
-      "la": ["lata", "pala", "mala", "Lamas", "pila"],
-      "le": ["Leo", "maleta", "paleta", "aleta", "sale"],
-      "li": ["lima", "Lila", "Lilo", "limón", "palito"],
-      "lo": ["Lola", "Lolo", "Polo", "palo", "paloma"],
-      "lu": ["lupa", "luna", "Luli", "Lupe", "pelusa"]
+      "la": ["lata", "lana", "Lalo", "lago", "lazo"],
+      "le": ["lema", "leña", "Lela", "lente", "letra"],
+      "li": ["lima", "lila", "Lili", "litro", "lista"],
+      "lo": ["lobo", "loma", "Lolo", "loro", "lodo"],
+      "lu": ["lupa", "pelusa", "Luli", "luna", "Lupe"]
     },
-    "sentences": [
-      "La maleta de Luli está en la mesa.",
-      "La tela de la maleta tiene pelusas.",
-      "La maleta de Polo es de tela.",
-      "Mamá le da la maleta a Polo.",
-      "Polo toma su maleta de tela.",
-      "Lalo tiene una maleta de tela también."
-    ]
+    "sentences": ["Polo toma su maleta de tela.", "Lalo tiene una maleta de tela también."]
   },
   {
     "letter": "n",
@@ -140,20 +96,13 @@
     "color": "#F4A261",
     "syllables": ["na", "ne", "ni", "no", "nu"],
     "examples": {
-      "na": ["Napi", "nada", "nata", "nariz", "lana"],
-      "ne": ["Nena", "Nela", "Neli", "nené", "negro"],
-      "ni": ["nido", "niño", "Nino", "poni", "sonido"],
-      "no": ["Nono", "Nora", "Tono", "mono", "noche"],
-      "nu": ["nudo", "nube", "nulo", "Anuca", "menudo"]
+      "na": ["nata", "nariz", "tina", "nada", "Napi"],
+      "ne": ["Nena", "negro", "Nela", "tenedor", "negar"],
+      "ni": ["nido", "niño", "poni", "sonido", "anida"],
+      "no": ["mono", "Nora", "pino", "Nono", "noche"],
+      "nu": ["nudo", "menudo", "nulo", "Anuca", "nube"]
     },
-    "sentences": [
-      "Tomás dame esa tina. La tina es de Napi.",
-      "Tono y Alina aman a Napi.",
-      "Napi tiene pelo.",
-      "Tono le pone la tina a Napi en el piso.",
-      "Nono no le pone nada a esa tina.",
-      "Esa tina no tiene nada."
-    ]
+    "sentences": ["Nina ata el nudo.", "Nono mira la nube."]
   },
   {
     "letter": "ñ",
@@ -162,20 +111,13 @@
     "color": "#2A9D8F",
     "syllables": ["ña", "ñe", "ñi", "ño", "ñu"],
     "examples": {
-      "ña": ["ñame", "caña", "araña", "piña", "montaña"],
-      "ñe": ["Meñe", "añejo", "sueñe", "apañe", "adueñe"],
-      "ñi": ["niñito", "pañito", "cañita", "arañita", "añitos"],
-      "ño": ["moño", "niño", "sueño", "año", "Ñoña"],
-      "ñu": ["puño", "pañuelo", "moñudo", "cañuto", "Ñuto"]
+      "ña": ["caña", "araña", "leña", "España", "piña"],
+      "ñe": ["ñeque", "muñeca", "ñero", "ñesa", "ordeñe"],
+      "ñi": ["ñiquiñaque", "muñido", "ceñido", "moñito", "puñito"],
+      "ño": ["niño", "moño", "puño", "sueño", "cariño"],
+      "ñu": ["ñu", "ñudo", "ñublado", "añublo", "ñutu"]
     },
-    "sentences": [
-      "Meñe es dueña de esa piñata.",
-      "La piñata es del año pasado.",
-      "La piñata está en el patio.",
-      "Noña tiene una niña.",
-      "La niña tiene sueño.",
-      "Noña le pone el pañal a la niña."
-    ]
+    "sentences": ["El niño tiene un moño.", "La piña es dulce."]
   },
   {
     "letter": "b",
@@ -184,21 +126,13 @@
     "color": "#264653",
     "syllables": ["ba", "be", "bi", "bo", "bu"],
     "examples": {
-      "ba": ["baño", "bala", "bate", "batea", "abanico"],
-      "be": ["bebé", "Bebo", "sube", "nube", "cubeta"],
-      "bi": ["bicicleta", "bisonte", "bisagra", "cubito", "bebida"],
-      "bo": ["bola", "bota", "bote", "lobo", "bodega"],
-      "bu": ["bueno", "burro", "bulla", "buche", "aburrido"]
+      "ba": ["bata", "Bambi", "balde", "banda", "barco"],
+      "be": ["bebé", "beso", "Beto", "bestia", "Bela"],
+      "bi": ["bici", "biberón", "Bibi", "binario", "bingo"],
+      "bo": ["bota", "boca", "bola", "Bobo", "bonito"],
+      "bu": ["buho", "buque", "Bubu", "burro", "bufanda"]
     },
-    "sentences": [
-      "La nube sube y sube. Es una nube bonita.",
-      "Bebo, batea la bola de Pepito.",
-      "La bola sube y sube alto.",
-      "La bola sube a la nube.",
-      "Pepito batea la bola con el bate.",
-      "La bola sube y sube alto también.",
-      "Pepito es bueno en la pelota."
-    ]
+    "sentences": ["El bebé bebe.", "Beto besa a la abuela."]
   },
   {
     "letter": "v",
@@ -207,19 +141,13 @@
     "color": "#8338EC",
     "syllables": ["va", "ve", "vi", "vo", "vu"],
     "examples": {
-      "va": ["vaso", "lava", "avena", "lavamanos", "vámonos"],
-      "ve": ["vela", "vale", "ven", "ventana", "venado"],
-      "vi": ["vino", "vive", "vivo", "vine", "vitamina"],
-      "vo": ["pavo", "clavo", "lavo", "Tavo", "vivo"],
-      "vu": ["vuela", "vuelo", "vuelta", "Vuli", "revuelo"]
+      "va": ["vaca", "vaso", "Valeria", "vapor", "vainilla"],
+      "ve": ["vela", "verde", "Vero", "vestido", "ventana"],
+      "vi": ["vino", "vida", "Vivi", "viento", "violeta"],
+      "vo": ["voto", "volcán", "vómito", "voz", "voltaje"],
+      "vu": ["vudú", "vulgar", "vuelo", "vuelta", "vuestra"]
     },
-    "sentences": [
-      "La nieve se va. Vita se lava las manos en el lavamanos.",
-      "Mamá lava las mesas del patio.",
-      "Mamá pone unos manteles nuevos.",
-      "El viento mueve los manteles de mamá y mueve el papalote de Valentín.",
-      "El papalote vuela y vuela."
-    ]
+    "sentences": ["La vaca ve a Vero.", "Vivi viene en el vuelo."]
   },
   {
     "letter": "r",
@@ -228,19 +156,13 @@
     "color": "#E63946",
     "syllables": ["ra", "re", "ri", "ro", "ru"],
     "examples": {
-      "ra": ["rana", "rama", "ratón", "rata", "ramo"],
-      "re": ["remo", "rema", "reloj", "rezo", "rebaño"],
-      "ri": ["Rita", "risa", "rima", "rizo", "rimamos"],
-      "ro": ["rosa", "Rolo", "Roma", "Roberto", "ropa"],
-      "ru": ["ruta", "rubio", "Rufino", "rulo", "rudo"]
+      "ra": ["cara", "rama", "Rafa", "rana", "rato"],
+      "re": ["pera", "reto", "Rena", "remo", "redondo"],
+      "ri": ["pira", "risa", "Ricki", "rico", "ritmo"],
+      "ro": ["loro", "rosa", "Romina", "rojo", "rosado"],
+      "ru": ["puro", "ruta", "Rubi", "rubio", "rueda"]
     },
-    "sentences": [
-      "La bola de Roberto rueda bien.",
-      "Rolo patea la bola. La bola rueda y le da a un bolo.",
-      "El bolo se rompe y Roberto se ríe. Rolo se ríe también.",
-      "Rita le da al bolo. Rita se ríe.",
-      "Rolo y Roberto se ríen también."
-    ]
+    "sentences": ["La rana ríe.", "Rosa toma una pera."]
   },
   {
     "letter": "rr",
@@ -249,41 +171,28 @@
     "color": "#F4A261",
     "syllables": ["rra", "rre", "rri", "rro", "rru"],
     "examples": {
-      "rra": ["barra", "amarra", "pizarra", "perra", "tierra"],
-      "rre": ["torre", "barre", "amarre", "arrebato", "arrepiente"],
-      "rri": ["arriba", "perrita", "carrito", "burrito", "barril"],
-      "rro": ["carro", "perro", "burro", "tarro", "barro"],
-      "rru": ["arruga", "arrullo", "arrullar", "arruina", "verruga"]
+      "rra": ["barra", "tierra", "guitarra", "carretera", "agarra"],
+      "rre": ["perro", "torre", "carrera", "correo", "corre"],
+      "rri": ["arriba", "carrito", "barrio", "burrito", "horrible"],
+      "rro": ["carro", "burro", "morro", "cigarro", "hierro"],
+      "rru": ["arruga", "borrumba", "arrullo", "arruina", "arrullo"]
     },
-    "sentences": [
-      "Rode tiene un perro. Es un perro alemán.",
-      "El perro de Rode tiene una tina de barro.",
-      "La tina de barro está en el piso.",
-      "Rosi amarra el perro en la mata.",
-      "El perro no muerde. El perro Tito mueve el rabo.",
-      "Tito arruinó el carro de rosas."
-    ]
+    "sentences": ["El perro corre por la torre.", "El carro va por la carretera."]
   },
   {
     "letter": "g",
     "lesson": 19,
     "pages": "67-70",
     "color": "#2A9D8F",
-    "syllables": ["ga", "go", "gu"],
+    "syllables": ["ga", "gue", "gui", "go", "gu"],
     "examples": {
-      "ga": ["gato", "Magali", "ganas", "maga", "gasolina"],
-      "go": ["goma", "lago", "mago", "gorra", "góndola"],
-      "gu": ["gusano", "agua", "laguna", "Gustavo", "aguja"]
+      "ga": ["gato", "gana", "Gabi", "ganso", "galleta"],
+      "gue": ["guerra", "guepardo", "Miguel", "guía", "manguera"],
+      "gui": ["guitarra", "guiño", "águila", "guisante", "Guille"],
+      "go": ["gota", "gola", "Goyo", "golfo", "gorrión"],
+      "gu": ["gusto", "gula", "Gus", "gusano", "guardia"]
     },
-    "sentences": [
-      "El gato de Magali bebe agua en el lago.",
-      "Magali le pone una gorra a su gato Goloso.",
-      "Goloso ve a Musulunga, la gata gordita.",
-      "Magali y Gustavo van al lago. En el lago ven el agua.",
-      "A Magali le gusta el agua.",
-      "Goloso y Musulunga van a la laguna.",
-      "Goloso le regala un gusanito rosadito a Musulunga."
-    ]
+    "sentences": ["El gato toca la guitarra.", "Miguel juega con su gato."]
   },
   {
     "letter": "f",
@@ -292,20 +201,13 @@
     "color": "#264653",
     "syllables": ["fa", "fe", "fi", "fo", "fu"],
     "examples": {
-      "fa": ["fama", "familia", "faro", "famoso", "afanado"],
-      "fe": ["Felo", "feo", "feliz", "fecha", "Felicia"],
-      "fi": ["fila", "fino", "Fígaro", "afina", "afilar"],
-      "fo": ["foca", "foto", "fosa", "foso", "teléfono"],
-      "fu": ["fusta", "fortuna", "fumiga", "furia", "perfume"]
+      "fa": ["fama", "faro", "Fabi", "falda", "familia"],
+      "fe": ["feo", "fecha", "Felipe", "feria", "fenómeno"],
+      "fi": ["fila", "fino", "Fifi", "fiera", "fiesta"],
+      "fo": ["foca", "foto", "Foco", "forma", "fondo"],
+      "fu": ["fuma", "fuente", "Fufu", "futuro", "fuerza"]
     },
-    "sentences": [
-      "La familia de Ofelia va a la finca de Felo.",
-      "En la finca de Felo hay aves y ganado.",
-      "Felo arrea el ganado con una fusta.",
-      "El ganado vale una fortuna.",
-      "Es un ganado de fama.",
-      "Felo pone todo el ganado en fila."
-    ]
+    "sentences": ["La foca está en la fila.", "Felipe toma una foto."]
   },
   {
     "letter": "j",
@@ -314,40 +216,28 @@
     "color": "#8338EC",
     "syllables": ["ja", "je", "ji", "jo", "ju"],
     "examples": {
-      "ja": ["jaba", "jabón", "jamón", "jarra", "baja"],
-      "je": ["Jesús", "jefe", "jerez", "ajeno", "jefatura"],
-      "ji": ["jirafa", "jinete", "jicotea", "ají", "jíbaro"],
-      "jo": ["José", "jobo", "joven", "joya", "jorobado"],
-      "ju": ["Julia", "jugo", "jugar", "jutía", "juventud"]
+      "ja": ["jabón", "jaula", "Javi", "jamón", "jarra"],
+      "je": ["jefe", "jeringa", "Jenny", "jerga", "jersey"],
+      "ji": ["jirafa", "jinete", "Jimena", "Jimmy", "jícara"],
+      "jo": ["jota", "joven", "Jorge", "joya", "jorobado"],
+      "ju": ["jugo", "junto", "Julia", "juguete", "Juan"]
     },
-    "sentences": [
-      "Jesús y Julia son amigos.",
-      "A José le gusta el jamón y a Julia le gusta el jugo de tomate.",
-      "Juan tiene una jutía y la baña con jabón.",
-      "José y Josefa juegan en la laguna.",
-      "Jabela es una jicotea.",
-      "A Jabela le gusta la laguna.",
-      "A Jabela no le gusta la espuma de jabón."
-    ]
+    "sentences": ["Julia juega con la jirafa.", "Jorge toma jugo."]
   },
   {
     "letter": "c",
     "lesson": 22,
     "pages": "79-82",
     "color": "#E63946",
-    "syllables": ["ca", "co", "cu"],
+    "syllables": ["ca", "que", "qui", "co", "cu"],
     "examples": {
-      "ca": ["casa", "cama", "camisa", "carro", "cana"],
-      "co": ["coco", "cosa", "cola", "copa", "poco"],
-      "cu": ["Cuba", "cuna", "Cuco", "cubo", "cumbia"]
+      "ca": ["casa", "cama", "Cami", "carro", "calle"],
+      "que": ["queso", "queja", "Quique", "querer", "queremos"],
+      "qui": ["quita", "quince", "Quirino", "química", "quiosco"],
+      "co": ["coco", "cosa", "Coco", "comida", "color"],
+      "cu": ["cuna", "cuento", "Cuca", "cuchara", "cuerpo"]
     },
-    "sentences": [
-      "Cuco Casanova es un buen amigo del papá y de la mamá de Paco.",
-      "El señor Casanova es cubano.",
-      "El vive en el campo, vive con Doña María, su mamá.",
-      "Cuco Casanova juega con los niños y los cuida también.",
-      "Todos en la casa de Paco aman a Cuco."
-    ]
+    "sentences": ["Cami come queso en la casa.", "Quique quiere una cuchara."]
   },
   {
     "letter": "y",
@@ -356,40 +246,27 @@
     "color": "#F4A261",
     "syllables": ["ya", "ye", "yi", "yo", "yu"],
     "examples": {
-      "ya": ["yate", "Yara", "yagua", "payaso", "maya"],
-      "ye": ["yema", "yegua", "yeso", "Yesenia", "ayer"],
-      "yi": ["Mayito", "Yayita", "Yayi", "Yigüiro", "Yoyita"],
-      "yo": ["yoyo", "Yayo", "cayo", "rayo", "coyote"],
-      "yu": ["yuca", "yute", "Yucatán", "Cayuco", "desayuno"]
+      "ya": ["yate", "yarda", "Yamila", "yantar", "rayar"],
+      "ye": ["yegua", "yeso", "Yeni", "yerno", "ayer"],
+      "yi": ["yip", "yiddish", "yiyo", "yiteo", "yindi"],
+      "yo": ["yoyo", "yodo", "yoga", "Yoli", "yogur"],
+      "yu": ["yuca", "yugo", "Yuli", "yunque", "ayuda"]
     },
-    "sentences": [
-      "El yate de Yayo está en Yateras.",
-      "Yayo fue a los cayos a pescar con sus amigas yucatecas.",
-      "Yayo tiene una soga de yute para amarrar su yate.",
-      "Yayo comió yuca y guacamole.",
-      "A Yayo le gusta el arroz con yemas de huevos también.",
-      "Su mamá le dio el arroz con yemas de huevos ayer.",
-      "Yayo se lo comió todo."
-    ]
+    "sentences": ["Yo tomo yogur.", "Yoli juega con el yoyo."]
   },
   {
     "letter": "z",
     "lesson": 24,
     "pages": "87-90",
     "color": "#2A9D8F",
-    "syllables": ["za", "ze", "zi", "zo", "zu"],
+    "syllables": ["za", "ce", "ci", "zo", "zu"],
     "examples": {
-      "za": ["zapato", "zapote", "taza", "plaza", "calabaza"],
-      "ze": ["zeta", "zepelín", "zebra", "Zenaida", "Zema"],
-      "zi": ["Zila", "Zita", "Zimba", "zig-zag", "Zegrí"],
-      "zo": ["zorro", "lazo", "zopilote", "portazo", "azotes"],
-      "zu": ["Zulema", "zumo", "azúcar", "azules", "azucarado"]
+      "za": ["zapato", "zanahoria", "Zaida", "zapallo", "zarpa"],
+      "ce": ["cesta", "cero", "Cecilia", "celda", "ceniza"],
+      "ci": ["cine", "circo", "Cintia", "ciruela", "cima"],
+      "zo": ["zorro", "zona", "Zoraida", "zorrito", "buzo"],
+      "zu": ["zumo", "zumba", "Zulema", "azúcar", "zurdo"]
     },
-    "sentences": [
-      "Zulema toma zumo de melón.",
-      "A Zulema le gusta el zumo con azúcar.",
-      "Ella se bebe el zumo y se pone sus zapatos azules.",
-      "Zila va con Zulema, van en un carro con ruedas de calabazas."
-    ]
+    "sentences": ["El zorro come zanahoria.", "Cecilia toma zumo."]
   }
 ]

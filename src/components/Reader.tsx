@@ -6,12 +6,9 @@ import { storage } from "@/lib/storage";
 import { ThemeToggle } from "./ThemeToggle";
 import { Downloads } from "./Downloads";
 
-import { assetPath } from "@/lib/branding";
-
 const PdfViewer = lazy(() => import("./PdfViewer").then((m) => ({ default: m.PdfViewer })));
 
-const PDF_RELATIVE_PATH = ["book", "book.pdf"].join("/");
-const PDF_URL = assetPath(PDF_RELATIVE_PATH);
+const PDF_URL = "/book/book.pdf";
 
 async function exists(url: string) {
   try {
@@ -22,13 +19,7 @@ async function exists(url: string) {
   }
 }
 
-export function Reader({
-  startPage,
-  endPage,
-}: {
-  startPage?: number;
-  endPage?: number;
-} = {}) {
+export function Reader() {
   const [bookReady, setBookReady] = useState<boolean | null>(null);
   const [unit, setUnit] = useState<string>("Inicio");
   const [progress, setProgress] = useState({ current: 0, total: 0 });
@@ -77,7 +68,7 @@ export function Reader({
       <div className="mx-auto max-w-lg p-8 text-center">
         <h1 className="mb-2 text-2xl font-bold">No hay libro</h1>
         <p className="text-foreground/70">
-          Coloca el PDF oficial en <code>public/{PDF_RELATIVE_PATH}</code> y vuelve a ejecutar el build.
+          Coloca el PDF oficial en <code>public/book/book.pdf</code> y vuelve a ejecutar el build.
         </p>
       </div>
     );
@@ -163,8 +154,6 @@ export function Reader({
             <div className="h-full overflow-auto">
               <PdfViewer
                 url={PDF_URL}
-                startPage={startPage}
-                endPage={endPage}
                 onUnitChange={setUnit}
                 onProgress={(current, total) => setProgress({ current, total })}
                 advanceSignal={advanceSignal}

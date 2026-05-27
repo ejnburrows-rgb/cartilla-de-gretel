@@ -1,287 +1,328 @@
-import type { CSSProperties } from "react";
-import { useState, useCallback } from "react";
-import { Volume2, CheckCircle2, BookOpen, Hand, Image as ImageIcon, RotateCcw, XCircle } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { useState, useRef, useEffect, useMemo } from "react";
+import { Volume2, RotateCcw, Search, Check, X } from "lucide-react";
 import { speak } from "@/lib/speak";
-import { assetPath } from "@/lib/assets";
-import type { WorkbookInteraction } from "@/lib/workbook-interactions";
+import { feelBus } from "@/lib/feel-bus";
+import { recordEvent } from "@/lib/student-session";
+import type { CatalogEntry } from "@/lib/lesson-catalog";
+import { cn } from "@/lib/utils";
 
-type Props = {
-  interaction: WorkbookInteraction;
-  accent?: string;
-  onComplete?: (interactionId: string) => void;
+interface DragWordRevealProps {
+  entry: CatalogEntry;
+  accent: string;
+  lessonId?: string;
+  onComplete?: () => void;
+}
+
+type RevealWord = {
+  word: string;
+  emoji: string;
+  distractors: string[];
 };
 
-type RevealState = {
-  itemId: string;
-  isCorrect: boolean;
-  targetId?: string;
-} | null;
+export function DragWordReveal({ entry, accent, lessonId, onComplete }: DragWordRevealProps) {
+  // Generate vocabulary words based on current lesson
+  const gameWords = useMemo<RevealWord[]>(() => {
+    if (entry.kind === "vowel") {
+      const v = entry.vowel.toLowerCase();
+      if (v === "a") {
+        return [
+          { word: "ala", emoji: "🦅", distractors: ["🐻", "🐱"] },
+          { word: "árbol", emoji: "🌳", distractors: ["🐢", "🐬"] }
+        ];
+      }
+      if (v === "o") {
+        return [
+          { word: "oso", emoji: "🐻", distractors: ["🦅", "🦊"] },
+          { word: "ojo", emoji: "👁️", distractors: ["🦎", "🐸"] }
+        ];
+      }
+      if (v === "e") {
+        return [
+          { word: "elefante", emoji: "🐘", distractors: ["🦁", "🐠"] },
+          { word: "estrella", emoji: "⭐", distractors: ["🌙", "☀️"] }
+        ];
+      }
+      if (v === "i") {
+        return [
+          { word: "isla", emoji: "🏝️", distractors: ["🏔️", "🏜️"] },
+          { word: "iguana", emoji: "🦎", distractors: ["🦖", "🐒"] }
+        ];
+      }
+      if (v === "u") {
+        return [
+          { word: "uva", emoji: "🍇", distractors: ["🍎", "🍌"] },
+          { word: "unicornio", emoji: "🦄", distractors: ["🐴", "🐐"] }
+        ];
+      }
+    }
+    if (entry.kind === "consonant") {
+      const examples = Object.values(entry.data.examples).flat();
+      const first = examples[0] ?? "sol";
+      const second = examples[1] ?? "sal";
+      return [
+        { word: first, emoji: "✨", distractors: ["🍎", "🐻"] },
+        { word: second, emoji: "🌟", distractors: ["🐱", "🐸"] }
+      ];
+    }
+    return [
+      { word: "ala", emoji: "🦅", distractors: ["🐻", "🐱"] },
+      { word: "oso", emoji: "🐻", distractors: ["🦅", "🐱"] }
+    ];
+  }, [entry]);
 
-function accentBarStyle(accent: string): CSSProperties {
-  return { backgroundColor: accent };
-}
+  const [wordIdx, setWordIdx] = useState(0);
+  const currentItem = gameWords[wordIdx % gameWords.length] ?? gameWords[0];
 
-function activeChipStyle(accent: string): CSSProperties {
-  return {
-    borderColor: `${accent}35`,
-    borderBottomColor: `${accent}a0`,
-    borderBottomWidth: "5px",
+  const [revealed, setRevealed] = useState<boolean[]>(() =>
+    Array(currentItem.word.length).fill(false)
+  );
+  const [selectedEmoji, setSelectedEmoji] = useState<string | null>(null);
+  const [wrongSelection, setWrongSelection] = useState<string | null>(null);
+  const [isLensDragging, setIsLensDragging] = useState(false);
+  const [lensPos, setLensPos] = useState({ x: 0, y: 0 });
+  const [attempts, setAttempts] = useState(0);
+  const [success, setSuccess] = useState(false);
+
+  const containerRef = useRef<HTMLDivElement>(null);
+  const letterRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  // Re-initialize state when moving to a new word
+  useEffect(() => {
+    setRevealed(Array(currentItem.word.length).fill(false));
+    setSelectedEmoji(null);
+    setWrongSelection(null);
+    setSuccess(false);
+    setAttempts(0);
+  }, [currentItem]);
+
+  // Merge target emoji and distractors in shuffled order
+  const emojiChoices = useMemo(() => {
+    const list = [currentItem.emoji, ...currentItem.distractors];
+    // Simple deterministically shuffled or pseudo-randomized
+    return list.sort();
+  }, [currentItem]);
+
+  const isWordFullyRevealed = revealed.every((r) => r);
+
+  // Drag handlers for magnifying glass
+  const handlePointerDown = (e: React.PointerEvent) => {
+    e.preventDefault();
+    setIsLensDragging(true);
+    feelBus.emit("drag-pick");
+    updateLensPosition(e);
   };
-}
 
-function revealPanelStyle(accent: string): CSSProperties {
-  return { borderColor: `${accent}44` };
-}
+  const handlePointerMove = (e: React.PointerEvent) => {
+    if (!isLensDragging) return;
+    updateLensPosition(e);
+    checkLetterCollisions(e.clientX, e.clientY);
+  };
 
-function revealWordStyle(accent: string): CSSProperties {
-  return { color: accent };
-}
+  const handlePointerUp = () => {
+    if (isLensDragging) {
+      setIsLensDragging(false);
+      feelBus.emit("drag-drop");
+    }
+  };
 
-export function DragWordReveal({ interaction, accent = "hsl(var(--primary))", onComplete }: Props) {
-  const [draggedId, setDraggedId] = useState<string | null>(null);
-  const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [revealed, setReveal] = useState<RevealState>(null);
-  const [completed, setCompleted] = useState<Set<string>>(new Set());
+  const updateLensPosition = (e: React.PointerEvent) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    setLensPos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
 
-  const handleReveal = useCallback(
-    (itemId: string, targetId?: string) => {
-      const item = interaction.items.find((i) => i.id === itemId);
-      if (!item) return;
-
-      const target = targetId
-        ? interaction.targets.find((t) => t.id === targetId)
-        : interaction.targets.find((t) => t.acceptsItemId === itemId);
-      const isCorrect =
-        interaction.targets.length === 0 ||
-        Boolean(target && (!target.acceptsItemId || target.acceptsItemId === itemId));
-
-      setReveal({ itemId, isCorrect, targetId });
-      speak(item.label);
-
-      if (isCorrect) {
-        setCompleted((prev) => {
-          const next = new Set(prev);
-          next.add(itemId);
-          const totalWithTargets = interaction.items.filter((i) =>
-            interaction.targets.length === 0 || interaction.targets.some((t) => t.acceptsItemId === i.id),
-          ).length;
-          if (next.size >= totalWithTargets && onComplete) onComplete(interaction.id);
+  const checkLetterCollisions = (pointerX: number, pointerY: number) => {
+    letterRefs.current.forEach((ref, idx) => {
+      if (!ref || revealed[idx]) return;
+      const rect = ref.getBoundingClientRect();
+      const padding = 20; // larger scan radius
+      if (
+        pointerX >= rect.left - padding &&
+        pointerX <= rect.right + padding &&
+        pointerY >= rect.top - padding &&
+        pointerY <= rect.bottom + padding
+      ) {
+        setRevealed((prev) => {
+          const next = [...prev];
+          next[idx] = true;
           return next;
         });
+        feelBus.emit("tap"); // light click as letters reveal
       }
-      setSelectedId(null);
-    },
-    [interaction, onComplete],
-  );
-
-  const handleDragStart = (e: React.DragEvent, itemId: string) => {
-    e.dataTransfer.setData("text/plain", itemId);
-    setDraggedId(itemId);
+    });
   };
 
-  const handleDragEnd = () => setDraggedId(null);
+  const handleEmojiClick = (emoji: string) => {
+    if (!isWordFullyRevealed || success) return;
+    setAttempts((a) => a + 1);
 
-  const handleDrop = (e: React.DragEvent, targetId: string) => {
-    e.preventDefault();
-    const droppedItemId = e.dataTransfer.getData("text/plain");
-    if (!droppedItemId) return;
-    handleReveal(droppedItemId, targetId);
+    if (emoji === currentItem.emoji) {
+      setSelectedEmoji(emoji);
+      setSuccess(true);
+      speak(currentItem.word);
+      feelBus.emit("success");
+
+      if (lessonId) {
+        recordEvent({
+          lessonId,
+          kind: "exercise",
+          score: 1,
+          total: attempts + 1,
+          meta: { exercise: "drag_word_reveal", word: currentItem.word, completed: true },
+        });
+      }
+
+      if (wordIdx === gameWords.length - 1 && onComplete) {
+        setTimeout(onComplete, 1600);
+      }
+    } else {
+      setWrongSelection(emoji);
+      feelBus.emit("error");
+      setTimeout(() => setWrongSelection(null), 800);
+    }
   };
 
-  const handleDragOver = (e: React.DragEvent) => e.preventDefault();
-  const handleTargetClick = (targetId: string) => {
-    if (!selectedId) return;
-    handleReveal(selectedId, targetId);
+  const handleNextWord = () => {
+    setWordIdx((prev) => (prev + 1) % gameWords.length);
   };
-  const resetActivity = () => {
-    setSelectedId(null);
-    setReveal(null);
-    setCompleted(new Set());
+
+  const handleReset = () => {
+    setRevealed(Array(currentItem.word.length).fill(false));
+    setSelectedEmoji(null);
+    setWrongSelection(null);
+    setSuccess(false);
+    setAttempts(0);
+    feelBus.emit("tap");
   };
-  const revealedItem = revealed ? interaction.items.find((i) => i.id === revealed.itemId) : undefined;
-  const revealedTarget = revealed?.targetId ? interaction.targets.find((t) => t.id === revealed.targetId) : undefined;
-  const imageSrc = interaction.assetRef ? assetPath(interaction.assetRef) : undefined;
 
   return (
-    <div className="rounded-[2rem] border border-stone-200 bg-[#fffdfa] p-5 sm:p-6 space-y-5 shadow-[0_20px_50px_rgba(50,30,10,0.06)] relative overflow-hidden">
-      <div className="flex items-start gap-3">
-        <div
-          className="w-2 h-10 rounded-full shrink-0"
-          style={accentBarStyle(accent)}
-        />
-        <div className="flex-1 min-w-0">
-          <h3 className="font-black text-lg text-[#3A281E] leading-tight">{interaction.title}</h3>
-          <p className="text-sm font-semibold text-stone-600 mt-1 leading-snug">{interaction.prompt}</p>
-          {interaction.targets.length > 0 && (
-            <p className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-amber-950/5 px-3 py-1 text-[11px] font-black text-amber-900/70">
-              <Hand className="h-3.5 w-3.5" />
-              Arrastra, o toca una palabra y luego su cuadro.
-            </p>
-          )}
-        </div>
-        {(completed.size > 0 || revealed) && (
+    <div
+      ref={containerRef}
+      className="p-5 rounded-3xl border-2 border-foreground/10 bg-card select-none relative overflow-hidden"
+      onPointerMove={handlePointerMove}
+      onPointerUp={handlePointerUp}
+      onPointerLeave={handlePointerUp}
+      style={{ "--accent-color": accent } as React.CSSProperties}
+    >
+      <div className="flex items-center justify-between mb-4">
+        <h3 className="font-bold text-base text-foreground font-fredoka flex items-center gap-1.5">
+          <Search className="w-4 h-4 text-primary" /> Lupa Mágica: ¡Revela la palabra!
+        </h3>
+        <div className="flex gap-2">
           <button
-            type="button"
-            onClick={resetActivity}
-            className="inline-flex min-h-10 items-center gap-1.5 rounded-full border border-stone-200 bg-white px-3 py-2 text-xs font-black text-stone-600 transition hover:bg-stone-50 active:scale-95 shadow-2xs"
+            onClick={() => speak(currentItem.word)}
+            aria-label="Escuchar palabra"
+            className="p-1.5 rounded-xl border-2 border-foreground/10 hover:bg-secondary transition active:scale-95"
           >
-            <RotateCcw className="h-3.5 w-3.5 text-stone-500" /> Reiniciar
+            <Volume2 className="w-4 h-4" />
           </button>
-        )}
+          <button
+            onClick={handleReset}
+            aria-label="Reiniciar palabra"
+            className="p-1.5 rounded-xl border-2 border-foreground/10 hover:bg-secondary transition active:scale-95"
+          >
+            <RotateCcw className="w-4 h-4" />
+          </button>
+        </div>
       </div>
 
-      {imageSrc && (
-        <div className="rounded-3xl border border-stone-200 bg-[#FAF7F0]/40 p-4 shadow-[inset_0_4px_12px_rgba(44,30,22,0.06)]">
-          <div className="mb-2.5 flex items-center gap-2 text-xs font-black uppercase tracking-wide text-stone-500/80">
-            <ImageIcon className="h-4 w-4 text-stone-400" />
-            Busca la palabra en la página
+      <p className="text-xs text-foreground/60 mb-6 text-center">
+        Arraste la lupa sobre las casillas para revelar las letras mágicas, luego escoge el dibujo.
+      </p>
+
+      {/* Target Word Letters Grid */}
+      <div className="flex justify-center gap-3 mb-8">
+        {currentItem.word.split("").map((letter, idx) => (
+          <div
+            key={idx}
+            ref={(el) => {
+              letterRefs.current[idx] = el;
+            }}
+            className={cn(
+              "w-12 h-14 rounded-2xl flex items-center justify-center font-bold text-2xl border-3 transition-all duration-300",
+              revealed[idx]
+                ? "bg-white dark:bg-neutral-800 scale-100 shadow-md"
+                : "bg-secondary/40 border-dashed border-foreground/20 text-transparent"
+            )}
+            style={{
+              borderColor: revealed[idx] ? accent : "transparent",
+              color: revealed[idx] ? accent : undefined,
+            }}
+          >
+            {revealed[idx] ? letter : "?"}
           </div>
-          <img
-            src={imageSrc}
-            alt="Página fuente del cuaderno"
-            className="mx-auto max-h-72 w-auto rounded-2xl object-contain shadow-lg border border-stone-200 bg-white"
-            loading="lazy"
-          />
-        </div>
-      )}
-
-      <div className="flex flex-wrap gap-3" role="list" aria-label="Palabras para arrastrar">
-        {interaction.items.map((item) => {
-          const isDone = completed.has(item.id);
-          const isSelected = selectedId === item.id;
-          const itemImageSrc = item.assetRef ? assetPath(item.assetRef) : undefined;
-          return (
-            <button
-              key={item.id}
-              type="button"
-              role="listitem"
-              aria-label={`Palabra: ${item.label}${isDone ? ". Completada." : ""}`}
-              draggable={!isDone}
-              onDragStart={(e) => handleDragStart(e, item.id)}
-              onDragEnd={handleDragEnd}
-              onClick={() =>
-                !isDone && (interaction.targets.length > 0
-                  ? setSelectedId((current) => (current === item.id ? null : item.id))
-                  : handleReveal(item.id))
-              }
-              className={cn(
-                "inline-flex min-h-16 items-center gap-3 px-5 py-3 sm:px-6 sm:py-4 rounded-3xl font-black text-lg sm:text-2xl border-2 shadow-sm cursor-grab active:cursor-grabbing transition-all select-none duration-200",
-                isDone
-                  ? "border-emerald-250 bg-emerald-50/80 text-emerald-800 opacity-65 border-b-4"
-                  : draggedId === item.id
-                    ? "opacity-30 scale-95"
-                    : isSelected
-                      ? "border-amber-600 bg-amber-50/80 text-[#3A281E] scale-[1.03] ring-4 ring-amber-500/20"
-                      : "border-stone-200 bg-white text-[#3A281E] hover:scale-104 hover:shadow-md active:translate-y-px active:border-b-2",
-              )}
-              style={isDone ? undefined : activeChipStyle(accent)}
-            >
-              {isDone && <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />}
-              {itemImageSrc && (
-                <img
-                  src={itemImageSrc}
-                  alt=""
-                  className="h-10 w-10 rounded-xl object-cover ring-1 ring-stone-200"
-                  loading="lazy"
-                />
-              )}
-              <span>{item.label}</span>
-              <Volume2 className="w-3.5 h-3.5 text-stone-400 shrink-0" aria-hidden />
-            </button>
-          );
-        })}
+        ))}
       </div>
 
-      {interaction.targets.length > 0 && (
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3" role="list" aria-label="Zonas de destino">
-          {interaction.targets.map((target) => {
-            const accepted = completed.has(target.acceptsItemId ?? "");
-            const isSelectedTarget =
-              selectedId !== null && target.acceptsItemId === selectedId && !accepted;
-            return (
-              <button
-                key={target.id}
-                type="button"
-                role="listitem"
-                aria-label={`Zona: ${target.label}${accepted ? ". Completada." : ""}`}
-                onDrop={(e) => handleDrop(e, target.id)}
-                onDragOver={handleDragOver}
-                onClick={() => handleTargetClick(target.id)}
-                className={cn(
-                  "min-h-20 sm:min-h-24 flex items-center justify-center px-4 py-4 rounded-3xl border-3 border-dashed font-black text-lg sm:text-2xl transition-all duration-200 shadow-inner",
-                  accepted
-                    ? "border-emerald-250 bg-emerald-50/80 text-emerald-800 border-b-4"
-                    : isSelectedTarget
-                      ? "border-amber-600 bg-amber-50/60 text-amber-950 ring-4 ring-amber-500/20"
-                      : "border-amber-900/20 bg-[#faf5e8]/80 text-[#3A281E]/40 hover:border-amber-800/40 hover:bg-[#fffdf9]",
-                )}
-              >
-                {accepted ? (
-                  <span className="flex items-center gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
-                    {target.label}
-                  </span>
-                ) : (
-                  <span>{target.label}</span>
-                )}
-              </button>
-            );
-          })}
-        </div>
-      )}
-
-      {revealed && (
+      {/* Interactive Magnifying Glass Lens */}
+      {!isWordFullyRevealed && (
         <div
-          className={cn(
-            "rounded-3xl border-2 bg-white p-5 text-center space-y-4 animate-in fade-in slide-in-from-bottom-2",
-            revealed.isCorrect ? "shadow-lg shadow-emerald-500/10" : "shadow-lg shadow-rose-500/10",
-          )}
-          style={revealPanelStyle(accent)}
-          role="status"
-          aria-live="polite"
+          onPointerDown={handlePointerDown}
+          className="absolute cursor-grab active:cursor-grabbing w-16 h-16 rounded-full border-4 flex items-center justify-center bg-white/20 backdrop-blur-sm z-20 shadow-lg active:scale-105 transition-transform"
+          style={{
+            borderColor: accent,
+            left: isLensDragging ? `${lensPos.x - 32}px` : "calc(50% - 32px)",
+            top: isLensDragging ? `${lensPos.y - 32}px` : "160px",
+          }}
         >
-          <div className="mx-auto flex flex-col items-center gap-2.5 py-2">
-            <div
-              className="text-5xl font-black tracking-wide"
-              style={revealWordStyle(accent)}
-              aria-label={`Palabra: ${revealedItem?.label}`}
-            >
-              {revealedItem?.label}
-            </div>
-            {revealed.isCorrect ? (
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3.5 py-1.5 text-sm font-black text-emerald-800 border border-emerald-200">
-                <CheckCircle2 className="h-4 w-4 text-emerald-600" />
-                ¡Gran trabajo! {revealedTarget ? "Sí coincide." : "Lee y busca esta palabra."}
-              </span>
-            ) : (
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-rose-50 px-3.5 py-1.5 text-sm font-black text-rose-800 border border-rose-200">
-                <XCircle className="h-4 w-4 text-rose-600" />
-                Intenta otra vez. Busca el cuadro que dice {revealedItem?.label}.
-              </span>
-            )}
-            {!imageSrc && (
-              <span className="inline-flex items-center gap-1.5 text-xs font-bold text-stone-400 bg-stone-100 px-2.5 py-1 rounded-full">
-                <BookOpen className="w-3.5 h-3.5" />
-                Imagen pendiente de mapeo del libro
-              </span>
-            )}
+          <div className="w-10 h-10 rounded-full bg-white/40 border border-white/50 flex items-center justify-center">
+            <Search className="w-5 h-5 text-foreground/80" />
           </div>
-          <button
-            type="button"
-            onClick={() => setReveal(null)}
-            className="min-h-11 rounded-full bg-stone-900 px-6 py-2.5 text-sm font-black text-white transition hover:bg-stone-850 active:scale-95 cursor-pointer"
-          >
-            Continuar
-          </button>
         </div>
       )}
 
-      {interaction.sourceStatus === "needs-art-mapping" && (
-        <p className="text-xs font-bold text-stone-400 flex items-center gap-1">
-          <BookOpen className="w-3.5 h-3.5 text-stone-300" />
-          {interaction.studentFacingStatus}
-        </p>
+      {/* Emoji Match Panel */}
+      {isWordFullyRevealed && (
+        <div className="flex flex-col items-center gap-4 animate-fade-in">
+          <div className="text-center font-bold text-success text-sm flex items-center gap-1 mb-2">
+            <Check className="w-4 h-4" /> ¡Palabra revelada! Lee y elige su dibujo:
+          </div>
+
+          <div className="flex justify-center gap-4">
+            {emojiChoices.map((emoji, idx) => {
+              const isWrong = wrongSelection === emoji;
+              const isSelected = selectedEmoji === emoji;
+
+              return (
+                <button
+                  key={idx}
+                  onClick={() => handleEmojiClick(emoji)}
+                  disabled={success}
+                  className={cn(
+                    "w-20 h-20 text-4xl rounded-2xl flex items-center justify-center border-4 bg-secondary/20 hover:bg-secondary/40 transition active:scale-95 duration-200",
+                    isWrong && "border-destructive bg-destructive/10 animate-shake",
+                    isSelected && "border-success bg-success/10 scale-105"
+                  )}
+                  style={{
+                    borderColor: isSelected ? "var(--success)" : isWrong ? "var(--destructive)" : undefined,
+                  }}
+                >
+                  {emoji}
+                </button>
+              );
+            })}
+          </div>
+
+          {success && (
+            <div className="mt-4 flex flex-col items-center">
+              <div className="text-base font-bold text-success flex items-center gap-1.5">
+                🌟 ¡Fantástico! Es <strong>«{currentItem.word}»</strong>.
+              </div>
+              {wordIdx < gameWords.length - 1 && (
+                <button
+                  onClick={handleNextWord}
+                  className="mt-3 px-5 py-2.5 rounded-2xl font-bold text-sm text-white transition hover:-translate-y-0.5 active:scale-95"
+                  style={{ backgroundColor: accent }}
+                >
+                  Siguiente Palabra →
+                </button>
+              )}
+            </div>
+          )}
+        </div>
       )}
     </div>
   );

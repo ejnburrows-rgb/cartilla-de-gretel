@@ -1,0 +1,113 @@
+/* Kiosko smartboard styles — La Cartilla de Gretel */
+
+.kiosko-fullscreen-shell {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #1e1b18 0%, #0d0a06 100%);
+  color: #fff8de;
+  overflow: hidden;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Landscape grid layouts for lesson selectors */
+.kiosko-picker-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1.25rem;
+  padding: 1.5rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Oversized touch buttons for smartboard ease */
+.kiosko-big-button {
+  min-height: 100px;
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 950;
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 3px solid transparent;
+  text-align: center;
+  padding: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.kiosko-big-button:active {
+  transform: scale(0.92);
+}
+
+.kiosko-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2rem;
+  border-bottom: 2px solid rgba(236, 218, 195, 0.15);
+  background-color: rgba(13, 10, 6, 0.6);
+  backdrop-filter: blur(8px);
+}
+
+/* Big Navigation Buttons Overlay */
+.kiosko-nav-overlay {
+  position: absolute;
+  top: 50%;
+  left: 1.5rem;
+  right: 1.5rem;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  z-index: 50;
+}
+
+.kiosko-huge-arrow {
+  width: 90px;
+  height: 90px;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.12);
+  border: 3.5px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: all 0.15s ease;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.kiosko-huge-arrow:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+}
+
+.kiosko-huge-arrow:active {
+  transform: scale(0.92);
+}
+
+/* Aspect-ratio aware layout adaptations for Smartboards */
+@media (min-aspect-ratio: 16/9) {
+  .kiosko-picker-grid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-aspect-ratio: 4/3) {
+  .kiosko-picker-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}

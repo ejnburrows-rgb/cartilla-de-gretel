@@ -1,0 +1,177 @@
+/* Gretel Character Animating Styles — La Cartilla de Gretel */
+
+/* 1. Character stage floating & micro-animations */
+.gretel-stage {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+  z-index: 10000;
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .gretel-stage {
+    left: 1.5rem;
+    right: auto;
+    align-items: flex-start;
+    bottom: 1rem;
+  }
+}
+
+.gretel-avatar-container {
+  width: 90px;
+  height: 90px;
+  position: relative;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.gretel-avatar-container:hover {
+  transform: scale(1.08) translateY(-4px);
+}
+
+.gretel-avatar-container:active {
+  transform: scale(0.95);
+}
+
+/* 2. Transition fades */
+.gretel-fade-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+.gretel-fade-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+.gretel-fade-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+.gretel-fade-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+/* 3. Speech Bubble premium visuals */
+.gretel-speech-bubble {
+  position: relative;
+  background-color: var(--bg-color, #ffffff);
+  border: 3.5px solid var(--primary-color, #c98c4f);
+  color: var(--text-color, #1c1917);
+  padding: 0.85rem 1.1rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08), 0 0 15px var(--accent-glow);
+  max-width: 260px;
+  pointer-events: auto;
+  cursor: pointer;
+  animation: bubble-bounce 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  transform-origin: bottom right;
+}
+
+@media (max-width: 640px) {
+  .gretel-speech-bubble {
+    transform-origin: bottom left;
+  }
+}
+
+/* Speech bubble tail pointing directly to Gretel */
+.gretel-speech-bubble::after, .gretel-speech-bubble::before {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  right: 25px;
+  border-width: 15px 15px 0;
+  border-style: solid;
+  border-color: var(--primary-color, #c98c4f) transparent;
+  display: block;
+  width: 0;
+}
+
+.gretel-speech-bubble::after {
+  bottom: -10px;
+  right: 25px;
+  border-width: 13px 13px 0;
+  border-color: var(--bg-color, #ffffff) transparent;
+}
+
+@media (max-width: 640px) {
+  .gretel-speech-bubble::after, .gretel-speech-bubble::before {
+    right: auto;
+    left: 25px;
+  }
+}
+
+/* 4. Confetti & Sparkles - Pure CSS animations */
+.gretel-sparkles {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.sparkle-particle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: sparkle-explode 1s cubic-bezier(0.1, 0.8, 0.1, 1) forwards;
+}
+
+/* Color palettes for sparkles */
+.sparkle-1 { background-color: #ffd43b; }
+.sparkle-2 { background-color: #ffd43b; }
+.sparkle-3 { background-color: #40c057; }
+.sparkle-4 { background-color: #228be6; }
+.sparkle-5 { background-color: #e64980; }
+.sparkle-6 { background-color: #ffd43b; }
+
+/* 5. Keyframes */
+@keyframes bubble-bounce {
+  0% {
+    opacity: 0;
+    transform: scale(0.65) translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes sparkle-explode {
+  0% {
+    opacity: 1;
+    width: 4px;
+    height: 4px;
+    transform: translate(-50%, -50%) rotate(0deg) translate(0, 0);
+  }
+  100% {
+    opacity: 0;
+    width: 8px;
+    height: 8px;
+    transform: translate(-50%, -50%) rotate(360deg) translate(var(--dx), var(--dy));
+  }
+}
+
+/* Respect user prefers-reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .gretel-avatar-container:hover {
+    transform: none;
+  }
+  .gretel-speech-bubble {
+    animation: none;
+  }
+  .sparkle-particle {
+    animation: none;
+    opacity: 0;
+  }
+}

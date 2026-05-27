@@ -1,0 +1,214 @@
+/* ================================================================= */
+/*  art.css — Styles for all inline SVG art components                */
+/*  La Cartilla de Gretel                                             */
+/* ================================================================= */
+
+/* ── CSS Custom Properties (art layer) ─────────────────────────── */
+:root {
+  --art-primary: #c98c4f;
+  --art-accent: #d4a76a;
+  --art-bg: #fdfcfa;
+  --art-skin: #f5d0a9;
+  --art-eyes: #5c3d2e;
+  --art-hair: #8b5e3c;
+  --art-star-gold: #d4a76a;
+  --art-star-empty: #b0b0b0;
+}
+
+/* ── Common SVG base ───────────────────────────────────────────── */
+.art-svg-base {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* ── PageBackground ────────────────────────────────────────────── */
+.art-page-background {
+  display: block;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ── LetterMonogram ────────────────────────────────────────────── */
+.art-letter-monogram {
+  display: block;
+  max-width: 200px;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* ── SyllableTile ──────────────────────────────────────────────── */
+.art-syllable-tile {
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.15s ease, filter 0.15s ease;
+  max-width: 140px;
+}
+
+.art-syllable-tile:focus-visible {
+  outline: 3px solid var(--art-primary);
+  outline-offset: 2px;
+  border-radius: 14px;
+}
+
+.art-syllable-tile:hover {
+  transform: scale(1.04);
+}
+
+.art-syllable-tile:active {
+  transform: scale(0.97);
+}
+
+.art-syllable-tile--active {
+  transform: scale(1.06);
+  filter: drop-shadow(0 0 6px rgba(201, 140, 79, 0.45));
+}
+
+/* ── StarBadge ─────────────────────────────────────────────────── */
+.art-star-badge {
+  display: inline-block;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.art-star-badge--filled {
+  opacity: 1;
+}
+
+.art-star-badge--empty {
+  opacity: 0.55;
+}
+
+.art-star-badge--filled:hover {
+  transform: scale(1.15);
+}
+
+/* ── SparkleField ──────────────────────────────────────────────── */
+.art-sparkle-field {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+/* Floating animation for individual sparkle particles */
+@keyframes art-sparkle-float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-6px) scale(1.2);
+    opacity: 1;
+  }
+}
+
+.art-sparkle-field--animated .art-sparkle-particle {
+  animation: art-sparkle-float 3s ease-in-out infinite;
+  animation-delay: var(--sparkle-delay, 0s);
+}
+
+/* ── CelebrationBurst ──────────────────────────────────────────── */
+.art-celebration-burst {
+  display: block;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes art-burst-expand {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--burst-tx, 0), var(--burst-ty, 0)) scale(0.4);
+    opacity: 0;
+  }
+}
+
+.art-celebration-burst--active .art-burst-particle {
+  animation: art-burst-expand 1s cubic-bezier(0.1, 0.8, 0.1, 1) forwards;
+}
+
+/* ── PictureScene ──────────────────────────────────────────────── */
+.art-picture-scene {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* ================================================================= */
+/*  prefers-reduced-motion overrides                                  */
+/* ================================================================= */
+@media (prefers-reduced-motion: reduce) {
+  .art-syllable-tile,
+  .art-star-badge {
+    transition: none;
+  }
+
+  .art-syllable-tile:hover,
+  .art-syllable-tile:active,
+  .art-syllable-tile--active {
+    transform: none;
+    filter: none;
+  }
+
+  .art-star-badge--filled:hover {
+    transform: none;
+  }
+
+  .art-sparkle-field--animated .art-sparkle-particle {
+    animation: none;
+  }
+
+  .art-celebration-burst--active .art-burst-particle {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+/* ================================================================= */
+/*  High-contrast theme overrides                                     */
+/* ================================================================= */
+.theme-high-contrast {
+  --art-primary: #ffff00;
+  --art-accent: #ffff00;
+  --art-bg: #000000;
+  --art-star-gold: #ffff00;
+  --art-star-empty: #666666;
+}
+
+.theme-high-contrast .art-syllable-tile rect {
+  stroke-width: 3;
+}
+
+.theme-high-contrast .art-letter-monogram text {
+  stroke: var(--art-primary);
+  stroke-width: 1;
+}
+
+.theme-high-contrast .art-star-badge--empty path {
+  stroke-width: 3.5;
+  stroke: var(--art-star-empty);
+}
+
+.theme-high-contrast .art-page-background {
+  opacity: 0.6;
+}
+
+.theme-high-contrast .art-sparkle-field path {
+  fill: var(--art-accent);
+}

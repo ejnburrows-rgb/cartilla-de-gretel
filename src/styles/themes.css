@@ -1,0 +1,95 @@
+/* Themes System — La Cartilla de Gretel */
+
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('/fonts/OpenDyslexic.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --bg-color: #fdfcfa;
+  --text-color: #1c1917;
+  --primary-color: #c98c4f;
+  --primary-fg: #ffffff;
+  --border-color: #ecdac3;
+  --muted-color: #78716c;
+  --muted-fg: #a8a29e;
+  --accent-glow: rgba(201, 140, 79, 0.15);
+  
+  --font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+  --letter-spacing: normal;
+  --line-height: 1.5;
+}
+
+/* 1. Dark Theme — Ink & Paper Premium Feel */
+.theme-dark {
+  --bg-color: #0f172a;
+  --text-color: #f8fafc;
+  --primary-color: #d97706; /* Vibrant warm amber */
+  --primary-fg: #ffffff;
+  --border-color: #334155;
+  --muted-color: #94a3b8;
+  --muted-fg: #475569;
+  --accent-glow: rgba(217, 119, 6, 0.25);
+}
+
+/* 2. High Contrast Theme — WCAG AAA compliance */
+.theme-high-contrast {
+  --bg-color: #000000;
+  --text-color: #ffff00; /* Yellow */
+  --primary-color: #ffff00;
+  --primary-fg: #000000;
+  --border-color: #ffff00;
+  --muted-color: #ffff00;
+  --muted-fg: #000000;
+  --accent-glow: rgba(255, 255, 0, 0.3);
+}
+
+/* 3. Dyslexia-Friendly Theme — OpenDyslexic Font + Spacious Layouts */
+.theme-dyslexia {
+  --font-family: 'OpenDyslexic', 'Outfit', sans-serif;
+  --letter-spacing: 0.15em;
+  --line-height: 1.9;
+}
+
+/* 4. Pastel CRM Theme — Teacher Dashboard */
+.cartilla-crm-theme {
+  --bg-color: #faf9f7; /* Very soft warm stone */
+  --text-color: #44403c; /* Stone 700 */
+  --primary-color: #fca5a5; /* Pastel Red/Orange */
+  --primary-fg: #7f1d1d; /* Red 900 for contrast */
+  --border-color: #e7e5e4; /* Stone 200 */
+  --muted-color: #fed7aa; /* Pastel Orange */
+  --muted-fg: #9a3412; /* Orange 800 */
+  --accent-glow: rgba(252, 165, 165, 0.2);
+}
+
+/* Apply CSS Variables Globally */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  letter-spacing: var(--letter-spacing);
+  line-height: var(--line-height);
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+/* Global utility classes to use these theme variables */
+.theme-bg {
+  background-color: var(--bg-color);
+}
+
+.theme-text {
+  color: var(--text-color);
+}
+
+.theme-border {
+  border-color: var(--border-color);
+}
+
+.theme-btn-primary {
+  background-color: var(--primary-color);
+  color: var(--primary-fg);
+}

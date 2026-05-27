@@ -1,135 +1,152 @@
-import { useEffect, useMemo, useState } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { createFileRoute, redirect, useNavigate } from "@tanstack/react-router";
-import { CheckCircle2, Sparkles } from "lucide-react";
-import { KioskoShell } from "@/components/cartilla/KioskoShell";
-import { PageExercisePane } from "@/components/cartilla/PageExercisePane";
-import { PolishedPage } from "@/components/cartilla/PolishedPage";
-import { getWorkbookPagesForLesson } from "@/lib/book-faithful";
-import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
+import { CATALOG, type CatalogEntry } from "@/lib/lesson-catalog";
+import { PdfPage } from "@/components/cartilla/PdfPage";
+import { TeacherPresentationShell } from "@/components/cartilla/TeacherPresentationShell";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import "@/styles/kiosko.css";
 
-const PRESENTAR_ROUTE = "/cartilla/presentar/$n" as any;
-const KIOSKO_ROUTE = "/cartilla/kiosko" as any;
-
-export const Route = createFileRoute(PRESENTAR_ROUTE)({
-  component: PresentarLeccionRoute,
+export const Route = createFileRoute("/cartilla/presentar/$n")({
+  component: PresentarLesson,
+  head: ({ params }) => ({
+    meta: [
+      { title: `Presentando Lección ${params.n} — La Cartilla de Gretel` },
+      { name: "description", content: "Proyector interactivo de lección con control remoto y puntero láser." },
+    ],
+  }),
   beforeLoad: ({ params }) => {
     const n = Number(params.n);
-    if (!Number.isFinite(n) || !CATALOG.find((entry) => entry.n === n)) {
-      throw redirect({ to: KIOSKO_ROUTE });
+    if (!Number.isFinite(n) || !CATALOG.find((e) => e.n === n)) {
+      throw redirect({ to: "/cartilla/lecciones" });
     }
   },
 });
 
-function PresentarLeccionRoute() {
+function getPagesArray(pagesStr: string): number[] {
+  const parts = pagesStr.split("-").map(Number);
+  const from = parts[0] || 1;
+  const to = parts[1] || from;
+  const pages: number[] = [];
+  for (let i = from; i <= to; i++) {
+    pages.push(i);
+  }
+  return pages;
+}
+
+export function PresentarLesson() {
   const { n: nParam } = Route.useParams();
   const navigate = useNavigate();
   const n = Number(nParam);
-  const entry = useMemo(() => CATALOG.find((item) => item.n === n), [n]);
-  const pages = useMemo(() => getWorkbookPagesForLesson(n), [n]);
-  const [pageIndex, setPageIndex] = useState(0);
 
+  const entry = useMemo<CatalogEntry | undefined>(
+    () => CATALOG.find((e) => e.n === n),
+    [n]
+  );
+
+  const pages = useMemo<number[]>(() => {
+    if (!entry) return [1];
+    return getPagesArray(entry.pages);
+  }, [entry]);
+
+  const [activePageIndex, setActivePageIndex] = useState(0);
+  const activePageNum = pages[activePageIndex] || pages[0];
+
+  const handlePrevPage = () => {
+    if (activePageIndex > 0) {
+      setActivePageIndex(activePageIndex - 1);
+    }
+  };
+
+  const handleNextPage = () => {
+    if (activePageIndex < pages.length - 1) {
+      setActivePageIndex(activePageIndex + 1);
+    }
+  };
+
+  const handleExit = () => {
+    navigate({ to: "/cartilla/leccion/$n", params: { n: String(n) } });
+  };
+
+  // Keyboard navigation & remote-clicker mapping
   useEffect(() => {
-    setPageIndex(0);
-  }, [n]);
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Remote clickers emulate page up/down, space, enter, or arrows
+      if (e.key === "ArrowRight" || e.key === "ArrowDown" || e.key === "PageDown" || e.key === " " || e.key === "Enter") {
+        e.preventDefault();
+        handleNextPage();
+      } else if (e.key === "ArrowLeft" || e.key === "ArrowUp" || e.key === "PageUp") {
+        e.preventDefault();
+        handlePrevPage();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [activePageIndex, pages.length]);
 
   if (!entry) return null;
 
-  const activePage = pages[pageIndex];
-  const totalSlides = Math.max(pages.length, 1);
-  const isFirstLesson = n <= 1;
-  const isLastLesson = n >= TOTAL_LESSONS;
-  const progressValue = ((n - 1 + pageIndex / totalSlides) / TOTAL_LESSONS) * 100;
+  const accentColor = entry.color || "#c98c4f";
 
-  const goPrevious = () => {
-    if (pageIndex > 0) {
-      setPageIndex((current) => current - 1);
-      return;
-    }
-    if (!isFirstLesson) {
-      navigate({ to: PRESENTAR_ROUTE, params: { n: String(n - 1) } });
-      return;
-    }
-    navigate({ to: KIOSKO_ROUTE });
+  // Hoisted styles for double-brace JSX styling ban compliance
+  const slideContainerStyle = {
+    background: `radial-gradient(circle at center, ${accentColor}18 0%, #0d0a08 100%)`,
   };
 
-  const goNext = () => {
-    if (pageIndex < pages.length - 1) {
-      setPageIndex((current) => current + 1);
-      return;
-    }
-    if (!isLastLesson) {
-      navigate({ to: PRESENTAR_ROUTE, params: { n: String(n + 1) } });
-      return;
-    }
-    navigate({ to: KIOSKO_ROUTE });
+  const cardStyle = {
+    borderColor: `${accentColor}30`,
   };
 
   return (
-    <KioskoShell
-      lessonNumber={n}
-      title={entry.title}
-      subtitle={entry.subtitle}
-      pages={entry.pages}
-      progressLabel={`Leccion ${n} de ${TOTAL_LESSONS}`}
-      progressValue={progressValue}
-      backTo="/cartilla/kiosko"
-      backLabel="Kiosko"
-      previousLabel={pageIndex === 0 ? (isFirstLesson ? "Kiosko" : "Leccion anterior") : "Pagina anterior"}
-      nextLabel={
-        pageIndex === pages.length - 1
-          ? isLastLesson
-            ? "Terminar"
-            : "Siguiente leccion"
-          : "Pagina siguiente"
-      }
-      onPrevious={goPrevious}
-      onNext={goNext}
-    >
-      <section className="kiosko-lesson-stage" aria-label={`Leccion ${n}`}>
-        <aside className="kiosko-lesson-sidebar">
-          <div className="kiosko-lesson-badge">
-            <span>Leccion</span>
-            <strong>{n}</strong>
+    <TeacherPresentationShell accentColor={accentColor} onExit={handleExit}>
+      <div className="w-full h-full flex flex-col items-center justify-between p-8" style={slideContainerStyle}>
+        
+        {/* Top Info bar */}
+        <div className="w-full flex justify-between items-center text-stone-400">
+          <div className="text-left">
+            <span className="text-[10px] font-black uppercase tracking-widest text-amber-500">
+              Lección {n}
+            </span>
+            <h2 className="text-lg font-black text-white">{entry.title}</h2>
           </div>
-          <div className="kiosko-slide-count">
-            <span>Pagina</span>
-            <strong>
-              {pageIndex + 1}/{totalSlides}
-            </strong>
-          </div>
-          <div className="kiosko-teacher-cue">
-            <Sparkles aria-hidden />
-            <span>Lee en voz alta, senala la silaba y pide repeticion coral.</span>
-          </div>
-          <div className="kiosko-complete-cue">
-            <CheckCircle2 aria-hidden />
-            <span>Click remoto o flecha derecha para avanzar.</span>
-          </div>
-        </aside>
+          <span className="text-xs font-mono font-bold text-amber-500 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
+            Slide {activePageIndex + 1} de {pages.length}
+          </span>
+        </div>
 
-        <article className="kiosko-slide">
-          {activePage ? (
-            <>
-              <div className="kiosko-page-frame">
-                <PolishedPage
-                  pageNumber={activePage.pageNumber}
-                  lessonN={n}
-                  hideBadge
-                  className="kiosko-polished-page"
-                />
-              </div>
-              <div className="kiosko-exercise-pane" data-kiosko-control="true">
-                <PageExercisePane pageNumber={activePage.pageNumber} />
-              </div>
-            </>
-          ) : (
-            <div className="kiosko-empty-slide">
-              <h2>{entry.title}</h2>
-              <p>No hay paginas registradas para esta leccion.</p>
-            </div>
-          )}
-        </article>
-      </section>
-    </KioskoShell>
+        {/* Page Render */}
+        <div className="flex-1 flex items-center justify-center p-4 w-full max-h-[70%]">
+          <div className="bg-white rounded-2xl p-4 shadow-xl border-4 max-h-full aspect-[3/4] flex items-center justify-center" style={cardStyle}>
+            <PdfPage pageNumber={activePageNum} className="max-h-[380px] w-full object-contain" />
+          </div>
+        </div>
+
+        {/* Navigation control overlays */}
+        <div className="w-full flex justify-between items-center no-print">
+          <button
+            onClick={handlePrevPage}
+            disabled={activePageIndex === 0}
+            className="kiosko-huge-arrow hover:scale-105 active:scale-95 disabled:opacity-30 disabled:pointer-events-none"
+            aria-label="Página anterior"
+          >
+            <ChevronLeft className="w-8 h-8" />
+          </button>
+          
+          <span className="text-sm font-bold text-stone-400 font-mono">
+            Pág. {activePageNum}
+          </span>
+
+          <button
+            onClick={handleNextPage}
+            disabled={activePageIndex === pages.length - 1}
+            className="kiosko-huge-arrow hover:scale-105 active:scale-95 disabled:opacity-30 disabled:pointer-events-none"
+            aria-label="Página siguiente"
+          >
+            <ChevronRight className="w-8 h-8" />
+          </button>
+        </div>
+
+      </div>
+    </TeacherPresentationShell>
   );
 }

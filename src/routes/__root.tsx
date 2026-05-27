@@ -2,7 +2,7 @@ import * as React from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Outlet, Link, createRootRouteWithContext, useRouter } from "@tanstack/react-router";
 
-import { AccessibilityToolbar } from "@/components/AccessibilityToolbar";
+import { ServiceWorkerRegister } from "@/components/ServiceWorkerRegister";
 
 function NotFoundComponent() {
   return (
@@ -72,12 +72,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "Edición digital interactiva de La Cartilla de Gretel — método fonético K-2 con 24 lecciones, ejercicios y panel de maestro.",
       },
-      { name: "author", content: "Leonor Lopetegui" },
+      { name: "author", content: "Leonor Lopetegui — Double R Publishing" },
       { property: "og:title", content: "La Cartilla de Gretel" },
       { property: "og:description", content: "Edición digital interactiva — método fonético K-2." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
+    links: [{ rel: "manifest", href: "/manifest.webmanifest" }],
   }),
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
@@ -103,8 +104,8 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <ServiceWorkerRegister />
       <Outlet />
-      <AccessibilityToolbar />
     </QueryClientProvider>
   );
 }

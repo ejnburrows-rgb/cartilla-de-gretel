@@ -1,121 +1,119 @@
-import { useMemo, useState } from "react";
-import type { CSSProperties } from "react";
-import { getWorkbookPagesForLesson } from "@/lib/book-faithful";
-import { getCartillaCrmCssVars, getCartillaCrmTheme } from "@/lib/cartilla-crm-theme";
-import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
+import { useState, useMemo } from "react";
+import { CATALOG } from "@/lib/lesson-catalog";
 import { BookPageFlip } from "./BookPageFlip";
-import { PageExercisePane } from "./PageExercisePane";
 import { PolishedPage } from "./PolishedPage";
 import { StudentBookToolbar } from "./StudentBookToolbar";
-import "@/styles/student-print.css";
+import { BookOpen, Tv } from "lucide-react";
+import { speak } from "@/lib/speak";
+import { GretelMascot } from "./GretelMascot";
 
-type BookReaderProps = {
-  initialLesson?: number;
-  showExercises?: boolean;
-};
-
-function clampIndex(value: number, max: number) {
-  return Math.min(Math.max(value, 0), Math.max(max, 0));
+interface BookReaderProps {
+  initialPage?: number;
 }
 
-export function BookReader({ initialLesson = 1, showExercises = true }: BookReaderProps) {
-  const lessons = CATALOG.slice(0, TOTAL_LESSONS);
-  const initialIndex = clampIndex(lessons.findIndex((entry) => entry.n === initialLesson), lessons.length - 1);
-  const [lessonIndex, setLessonIndex] = useState(initialIndex < 0 ? 0 : initialIndex);
-  const [pageIndex, setPageIndex] = useState(0);
-  const [direction, setDirection] = useState<1 | -1>(1);
+export function BookReader({ initialPage = 1 }: BookReaderProps) {
+  const [currentPage, setCurrentPage] = useState<number>(initialPage);
+  const [layoutMode, setLayoutMode] = useState<"horizontal" | "vertical">("vertical");
 
-  const entry = lessons[lessonIndex] ?? lessons[0];
-  const theme = getCartillaCrmTheme(entry.n);
-  const cssVars = getCartillaCrmCssVars(entry.n) as CSSProperties;
-  const pages = useMemo(() => getWorkbookPagesForLesson(entry.n), [entry.n]);
-  const activePage = pages[clampIndex(pageIndex, pages.length - 1)] ?? pages[0];
+  // Determine total pages from catalog
+  const totalPages = useMemo(() => {
+    return Math.max(
+      ...CATALOG.map((entry) => {
+        const parts = entry.pages.split("-").map(Number);
+        return parts[1] || parts[0] || 1;
+      })
+    );
+  }, []);
 
-  const canPrev = lessonIndex > 0 || pageIndex > 0;
-  const canNext = lessonIndex < lessons.length - 1 || pageIndex < pages.length - 1;
+  const allPages = useMemo(() => {
+    const list = [];
+    for (let i = 1; i <= totalPages; i++) {
+      list.push(i);
+    }
+    return list;
+  }, [totalPages]);
 
-  const goToLesson = (lessonNumber: number) => {
-    const next = lessons.findIndex((lesson) => lesson.n === lessonNumber);
-    if (next < 0) return;
-    setDirection(next >= lessonIndex ? 1 : -1);
-    setLessonIndex(next);
-    setPageIndex(0);
+  const handlePrint = () => {
+    window.open("/cartilla/imprimir/all", "_blank");
   };
 
-  const goPrev = () => {
-    if (!canPrev) return;
-    setDirection(-1);
-    if (pageIndex > 0) {
-      setPageIndex((current) => current - 1);
-      return;
-    }
-    const nextLessonIndex = Math.max(0, lessonIndex - 1);
-    const nextPages = getWorkbookPagesForLesson(lessons[nextLessonIndex]?.n ?? 1);
-    setLessonIndex(nextLessonIndex);
-    setPageIndex(Math.max(0, nextPages.length - 1));
-  };
-
-  const goNext = () => {
-    if (!canNext) return;
-    setDirection(1);
-    if (pageIndex < pages.length - 1) {
-      setPageIndex((current) => current + 1);
-      return;
-    }
-    setLessonIndex((current) => Math.min(lessons.length - 1, current + 1));
-    setPageIndex(0);
+  const handleAudio = () => {
+    speak(`Página ${currentPage}`);
   };
 
   return (
-    <div className="student-book-shell" style={cssVars}>
+    <div className="w-full flex flex-col min-h-screen">
+      {/* Student Book Toolbar */}
       <StudentBookToolbar
-        entry={entry}
-        theme={theme}
-        lessonIndex={lessonIndex}
-        totalLessons={lessons.length}
-        pageIndex={pageIndex}
-        totalPages={pages.length}
-        canPrev={canPrev}
-        canNext={canNext}
-        onPrev={goPrev}
-        onNext={goNext}
-        onLessonChange={goToLesson}
-        lessons={lessons}
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={setCurrentPage}
+        onPrint={handlePrint}
+        onAudio={handleAudio}
       />
 
-      <main className="student-book-stage" aria-live="polite">
-        <section className="student-book-vertical">
-          <div className="student-book-lesson-ribbon" style={{ borderColor: theme.border }}>
-            <div>
-              <h2 style={{ color: theme.titleInk }}>{entry.title}</h2>
-              {entry.subtitle ? <p>{entry.subtitle}</p> : null}
-            </div>
-            <div className="rounded-full px-4 py-2 text-sm font-black text-white shadow-sm" style={{ backgroundColor: theme.accent }}>
-              Paginas {entry.pages}
-            </div>
+      {/* Layout Mode Toggles */}
+      <div className="no-print max-w-2xl w-full mx-auto px-4 py-3 flex justify-between items-center bg-white/40 backdrop-blur rounded-2xl border border-stone-200/50 mt-4">
+        <div className="flex gap-2">
+          <button
+            onClick={() => setLayoutMode("horizontal")}
+            className={`px-3 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1.5 border transition ${
+              layoutMode === "horizontal"
+                ? "bg-amber-900 border-amber-900 text-white shadow-sm"
+                : "bg-white border-stone-200 text-stone-600 hover:bg-stone-50"
+            }`}
+            aria-label="Vista de libro clásica (horizontal)"
+          >
+            <BookOpen className="w-3.5 h-3.5" />
+            Horizontal
+          </button>
+          <button
+            onClick={() => setLayoutMode("vertical")}
+            className={`px-3 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1.5 border transition ${
+              layoutMode === "vertical"
+                ? "bg-amber-900 border-amber-900 text-white shadow-sm"
+                : "bg-white border-stone-200 text-stone-600 hover:bg-stone-50"
+            }`}
+            aria-label="Vista vertical continua"
+          >
+            <Tv className="w-3.5 h-3.5" />
+            Vertical (Flipbook)
+          </button>
+        </div>
+        <span className="text-[10px] font-black uppercase text-stone-500 tracking-wider">
+          Modo Lectura
+        </span>
+      </div>
+
+      {/* Main Page Layout Container */}
+      <main className="flex-1 w-full max-w-2xl mx-auto px-4 py-8 flex flex-col items-center justify-center">
+        {layoutMode === "horizontal" ? (
+          <BookPageFlip
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={setCurrentPage}
+          />
+        ) : (
+          <div className="w-full space-y-8 pb-24">
+            {allPages.map((pageNum) => (
+              <div
+                key={pageNum}
+                className={`transition-all duration-300 w-full flex justify-center ${
+                  pageNum === currentPage ? "scale-[1.01] opacity-100" : "opacity-80"
+                }`}
+                onClick={() => setCurrentPage(pageNum)}
+              >
+                <PolishedPage pageNumber={pageNum} />
+              </div>
+            ))}
           </div>
-
-          {activePage ? (
-            <BookPageFlip pageKey={`${entry.n}-${activePage.pageNumber}`} direction={direction}>
-              <article className="student-book-page-card" style={{ borderColor: theme.border }}>
-                <div className="student-book-page-inner">
-                  <PolishedPage pageNumber={activePage.pageNumber} lessonN={entry.n} />
-                </div>
-              </article>
-            </BookPageFlip>
-          ) : (
-            <div className="student-book-page-card p-10 text-center font-black" style={{ color: theme.titleInk }}>
-              No hay paginas para esta leccion.
-            </div>
-          )}
-
-          {showExercises && activePage ? (
-            <div className="student-book-exercise-card" style={{ borderColor: theme.border }}>
-              <PageExercisePane pageNumber={activePage.pageNumber} />
-            </div>
-          ) : null}
-        </section>
+        )}
       </main>
+
+      {/* Mascot Integration */}
+      <div className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50">
+        <GretelMascot state="idle" />
+      </div>
     </div>
   );
 }

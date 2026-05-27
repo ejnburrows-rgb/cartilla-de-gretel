@@ -1,0 +1,23 @@
+[
+  {
+    "path": "/*",
+    "budgets": [
+      {
+        "metric": "performance",
+        "budget": 95
+      },
+      {
+        "metric": "accessibility",
+        "budget": 100
+      },
+      {
+        "metric": "best-practices",
+        "budget": 95
+      },
+      {
+        "metric": "seo",
+        "budget": 95
+      }
+    ]
+  }
+]

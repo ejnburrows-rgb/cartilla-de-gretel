@@ -1,373 +1,87 @@
-@media screen {
-  .student-book-shell {
-    min-height: 100vh;
-    background: var(--cartilla-bg-radial), var(--cartilla-student-backdrop);
-    color: var(--cartilla-title-ink);
-  }
-
-  .student-book-toolbar {
-    position: sticky;
-    top: 0;
-    z-index: 30;
-    display: grid;
-    gap: 0.85rem;
-    padding: 0.85rem clamp(0.9rem, 3vw, 1.5rem);
-    border-bottom: 1px solid;
-    background: rgba(255, 251, 239, 0.88);
-    box-shadow: 0 12px 34px rgba(42, 31, 18, 0.09);
-    backdrop-filter: blur(18px);
-  }
-
-  .student-book-toolbar__top,
-  .student-book-toolbar__controls {
-    margin-inline: auto;
-    width: min(1180px, 100%);
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .student-book-toolbar__title {
-    min-width: 0;
-    flex: 1;
-    text-align: center;
-  }
-
-  .student-book-toolbar__title h1 {
-    margin: 0.15rem 0 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-size: clamp(1rem, 2.4vw, 1.55rem);
-    font-weight: 950;
-    line-height: 1.1;
-  }
-
-  .student-book-toolbar__eyebrow,
-  .student-book-toolbar__status,
-  .student-book-toolbar__selectWrap,
-  .student-book-icon-button,
-  .student-book-nav-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.45rem;
-    font-weight: 900;
-  }
-
-  .student-book-toolbar__eyebrow {
-    font-size: 0.72rem;
-    text-transform: uppercase;
-  }
-
-  .student-book-icon-button,
-  .student-book-nav-button,
-  .student-book-toolbar__selectWrap,
-  .student-book-toolbar__status {
-    min-height: 2.75rem;
-    border: 1px solid;
-    border-radius: 0.95rem;
-    box-shadow: 0 8px 18px rgba(42, 31, 18, 0.08);
-  }
-
-  .student-book-icon-button {
-    width: 2.75rem;
-  }
-
-  .student-book-nav-button {
-    padding: 0 1rem;
-    transition: transform 160ms ease, opacity 160ms ease;
-  }
-
-  .student-book-nav-button:active,
-  .student-book-icon-button:active {
-    transform: scale(0.98);
-  }
-
-  .student-book-nav-button:disabled {
-    cursor: not-allowed;
-    opacity: 0.38;
-  }
-
-  .student-book-toolbar__controls {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .student-book-toolbar__status {
-    padding: 0 0.95rem;
-    background: rgba(255, 255, 255, 0.72);
-    color: var(--cartilla-title-ink);
-    font-size: 0.82rem;
-  }
-
-  .student-book-toolbar__dot {
-    width: 0.28rem;
-    height: 0.28rem;
-    border-radius: 999px;
-    background: currentColor;
-    opacity: 0.45;
-  }
-
-  .student-book-toolbar__selectWrap {
-    padding: 0 0.7rem;
-    background: rgba(255, 255, 255, 0.72);
-  }
-
-  .student-book-toolbar__selectWrap select {
-    max-width: min(48vw, 24rem);
-    border: 0;
-    background: transparent;
-    color: var(--cartilla-title-ink);
-    font-weight: 850;
-    outline: 0;
-  }
-
-  .student-book-stage {
-    width: min(1080px, 100%);
-    margin-inline: auto;
-    padding: clamp(1rem, 3vw, 2rem) clamp(0.75rem, 2vw, 1.25rem) 7rem;
-  }
-
-  .student-book-vertical {
-    display: grid;
-    gap: 1.15rem;
-  }
-
-  .student-book-lesson-ribbon,
-  .student-book-page-card,
-  .student-book-exercise-card {
-    border: 1px solid rgba(23, 49, 59, 0.14);
-    background: rgba(255, 255, 255, 0.74);
-    box-shadow: 0 22px 62px rgba(45, 31, 18, 0.12);
-    backdrop-filter: blur(14px);
-  }
-
-  .student-book-lesson-ribbon {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.85rem;
-    border-radius: 1.4rem;
-    padding: 0.9rem 1rem;
-  }
-
-  .student-book-lesson-ribbon h2 {
-    margin: 0;
-    font-size: clamp(1.1rem, 3vw, 1.85rem);
-    font-weight: 950;
-    line-height: 1.05;
-  }
-
-  .student-book-lesson-ribbon p {
-    margin: 0.22rem 0 0;
-    font-size: 0.9rem;
-    font-weight: 750;
-    opacity: 0.72;
-  }
-
-  .student-book-page-card {
-    position: relative;
-    overflow: visible;
-    border-radius: 1.6rem;
-    padding: clamp(0.55rem, 1.8vw, 1rem);
-  }
-
-  .student-book-page-card::before {
-    content: "";
-    position: absolute;
-    inset: 0.45rem 0.2rem auto;
-    height: 34%;
-    border-radius: inherit;
-    background: linear-gradient(180deg, rgba(255,255,255,0.62), transparent);
-    pointer-events: none;
-  }
-
-  .student-book-page-inner {
-    position: relative;
-    overflow: hidden;
-    border-radius: 1.05rem;
-    background: #fffefa;
-  }
-
-  .student-book-exercise-card {
-    border-radius: 1.35rem;
-    padding: clamp(0.9rem, 2.2vw, 1.35rem);
-  }
-
-  .student-print-binder {
-    background: #f8efe0;
-    color: #17313b;
-  }
-
-  .student-print-actions {
-    position: sticky;
-    top: 0;
-    z-index: 20;
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 1rem clamp(1rem, 3vw, 2rem);
-    border-bottom: 1px solid rgba(23, 49, 59, 0.14);
-    background: rgba(255, 251, 239, 0.9);
-    backdrop-filter: blur(16px);
-  }
-
-  .student-print-actions a,
-  .student-print-actions button {
-    border-radius: 0.9rem;
-    padding: 0.75rem 1rem;
-    font-weight: 900;
-    background: #17313b;
-    color: white;
-  }
-
-  .student-print-stack {
-    margin-inline: auto;
-    width: min(960px, 100%);
-    padding: 1.5rem clamp(0.75rem, 2vw, 1rem) 4rem;
-  }
-}
-
-.student-print-lesson {
-  --lesson-accent: #2a9d8f;
-  break-before: page;
-  page-break-before: always;
-}
-
-.student-print-lesson:first-of-type {
-  break-before: auto;
-  page-break-before: auto;
-}
-
-.student-print-cover,
-.student-print-page {
-  margin: 0 auto 1.25rem;
-  width: min(8.5in, 100%);
-  background: #fffefa;
-  border: 1px solid rgba(23, 49, 59, 0.16);
-  box-shadow: 0 18px 48px rgba(42, 31, 18, 0.14);
-}
-
-.student-print-cover {
-  min-height: 10.35in;
-  display: grid;
-  align-content: center;
-  gap: 1rem;
-  padding: 0.75in;
-  border-top: 0.18in solid var(--lesson-accent);
-}
-
-.student-print-cover h1 {
-  margin: 0;
-  color: #17313b;
-  font-size: 2.4rem;
-  line-height: 1.04;
-}
-
-.student-print-cover p {
-  margin: 0;
-  font-weight: 800;
-  color: rgba(23, 49, 59, 0.72);
-}
-
-.student-print-page {
-  padding: 0.18in;
-  break-inside: avoid;
-  page-break-inside: avoid;
-}
+/* Student Worksheets Print Stylesheet — La Cartilla de Gretel */
 
 @media print {
-  @page {
-    size: letter portrait;
-    margin: 0.32in;
-  }
-
-  html,
-  body,
-  #root {
-    background: white !important;
-  }
-
-  .student-book-toolbar,
-  .student-print-actions,
-  .student-book-exercise-card,
-  .student-book-lesson-ribbon {
+  /* Hide interactive/screen-only chrome */
+  .no-print,
+  header.no-print,
+  footer.no-print,
+  nav,
+  button,
+  .student-toolbar,
+  .audio-player,
+  .drag-handle {
     display: none !important;
   }
 
-  .student-book-shell,
-  .student-print-binder,
-  .student-print-stack {
-    min-height: auto !important;
-    padding: 0 !important;
-    background: white !important;
-  }
-
-  .student-book-stage,
-  .student-book-vertical {
-    display: block !important;
-    width: auto !important;
-    padding: 0 !important;
-  }
-
-  .student-book-page-card,
-  .student-print-page,
-  .student-print-cover {
-    width: 100% !important;
+  /* Reset document for clean letter page printing */
+  html,
+  body {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    color: #000000 !important;
     margin: 0 !important;
-    border: 0 !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    background: white !important;
-  }
-
-  .student-book-page-card {
-    break-after: page;
-    page-break-after: always;
     padding: 0 !important;
+    width: 8.5in !important;
+    height: 11in !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 
-  .student-print-page {
-    break-after: page;
-    page-break-after: always;
-    padding: 0 !important;
+  /* Enforce clean page breaks after every lesson sheet */
+  .polished-page,
+  .worksheet-page {
+    page-break-after: always !important;
+    break-after: page !important;
+    box-sizing: border-box !important;
+    width: 8.5in !important;
+    height: 11in !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    overflow: hidden !important;
+    position: relative !important;
+    padding: 0.5in !important;
   }
 
-  .student-print-cover {
-    min-height: 9.7in;
-    break-after: page;
-    page-break-after: always;
+  /* Crop marks at corners for physical book binding prep */
+  .polished-page::before,
+  .polished-page::after,
+  .worksheet-page::before,
+  .worksheet-page::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  /* Top crop marks */
+  .polished-page::before,
+  .worksheet-page::before {
+    top: 0;
+    left: 0;
+    background: 
+      linear-gradient(to right, black 4mm, transparent 4mm) 0 0 / 100% 0.25pt no-repeat,
+      linear-gradient(to bottom, black 4mm, transparent 4mm) 0 0 / 0.25pt 100% no-repeat,
+      linear-gradient(to left, black 4mm, transparent 4mm) 100% 0 / 100% 0.25pt no-repeat,
+      linear-gradient(to bottom, black 4mm, transparent 4mm) 100% 0 / 0.25pt 100% no-repeat;
+  }
+
+  /* Bottom crop marks */
+  .polished-page::after,
+  .worksheet-page::after {
+    bottom: 0;
+    left: 0;
+    background: 
+      linear-gradient(to right, black 4mm, transparent 4mm) 0 100% / 100% 0.25pt no-repeat,
+      linear-gradient(to top, black 4mm, transparent 4mm) 0 100% / 0.25pt 100% no-repeat,
+      linear-gradient(to left, black 4mm, transparent 4mm) 100% 100% / 100% 0.25pt no-repeat,
+      linear-gradient(to top, black 4mm, transparent 4mm) 100% 100% / 0.25pt 100% no-repeat;
   }
 }
 
-@media (max-width: 720px) {
-  .student-book-toolbar__top {
-    align-items: flex-start;
-  }
-
-  .student-book-toolbar__title {
-    text-align: left;
-  }
-
-  .student-book-toolbar__title h1 {
-    white-space: normal;
-  }
-
-  .student-book-toolbar__controls {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .student-book-toolbar__status,
-  .student-book-toolbar__selectWrap {
-    grid-column: 1 / -1;
-    width: 100%;
-  }
-
-  .student-book-toolbar__selectWrap select {
-    width: 100%;
-    max-width: none;
-  }
+@page {
+  size: 8.5in 11in;
+  margin: 0.5in;
 }

@@ -1,76 +1,95 @@
+/**
+ * useBookArt.ts  (Lane A fallback stub — Lane C owns the real hook)
+ *
+ * If Lane C has already shipped this file from @/hooks/useBookArt, the real
+ * version will be used instead. This file is only used when that hook is
+ * missing at first clone.
+ *
+ * ArtManifest shape: { cover: string; lessons: Record<number,
+ *   { character?: string; pageThumb?: string; pages?: string[] }> }
+ */
 import { useEffect, useState } from "react";
 
-/**
- * Manifest written by `scripts/build-art-manifest.mjs` (Lane B).
- * Lives at `/cartilla/art/manifest.json` once the art bundle is built.
- */
 export type ArtManifest = {
   builtAt?: string;
-  cover?: string;
-  lessons: Record<string, {
-    character?: string;
-    pageThumb?: string;
-    pages?: string[];
-  }>;
-};
-
-export type BookArtLessonAssets = {
-  character?: string;
-  cover?: string;
-  pageThumb?: string;
-  pages?: string[];
-  ready: boolean;
+  cover: string;
+  lessons: Record<
+    string,
+    { character?: string; pageThumb?: string; pages?: string[] }
+  >;
 };
 
 const MANIFEST_URL = "/cartilla/art/manifest.json";
 
-let cachedPromise: Promise<ArtManifest | null> | null = null;
+let _cache: ArtManifest | null = null;
+let _isFetching = false;
+const listeners = new Set<(m: ArtManifest | null) => void>();
 
-function loadManifest(): Promise<ArtManifest | null> {
-  if (!cachedPromise) {
-    cachedPromise = fetch(MANIFEST_URL, { cache: "force-cache" })
-      .then((r) => (r.ok ? (r.json() as Promise<ArtManifest>) : null))
-      .catch(() => null);
+function notify(m: ArtManifest | null) {
+  for (const cb of listeners) {
+    cb(m);
   }
-  return cachedPromise;
 }
 
-/**
- * Returns the polished, PDF-extracted art for a lesson.
- * Falls back to an empty object (ready=false) until the manifest is fetched.
- * Safe to call before Lane B has shipped the art bundle.
- */
-export function useBookArt(lessonN: number | undefined): BookArtLessonAssets {
-  const [manifest, setManifest] = useState<ArtManifest | null>(null);
-  const [ready, setReady] = useState(false);
+function fetchManifestBackground() {
+  if (_isFetching) return;
+  _isFetching = true;
+  fetch(MANIFEST_URL)
+    .then((r) => {
+      if (!r.ok) throw new Error("Network response was not ok");
+      return r.json() as Promise<ArtManifest>;
+    })
+    .then((m) => {
+      _isFetching = false;
+      const changed = !_cache || JSON.stringify(_cache) !== JSON.stringify(m);
+      if (changed) {
+        _cache = m;
+        notify(m);
+      }
+    })
+    .catch(() => {
+      _isFetching = false;
+    });
+}
+
+export type BookArtResult = {
+  character?: string;
+  cover?: string;
+  pageThumb?: string;
+  pages?: string[];
+  loading: boolean;
+};
+
+export function useBookArt(lessonN: number): BookArtResult {
+  const [manifest, setManifest] = useState<ArtManifest | null>(_cache);
 
   useEffect(() => {
-    let mounted = true;
-    loadManifest().then((m) => {
-      if (!mounted) return;
+    const handleUpdate = (m: ArtManifest | null) => {
       setManifest(m);
-      setReady(true);
-    });
+    };
+    listeners.add(handleUpdate);
+    fetchManifestBackground();
     return () => {
-      mounted = false;
+      listeners.delete(handleUpdate);
     };
   }, []);
 
-  if (!manifest) return { ready };
-  const lesson = lessonN != null ? manifest.lessons?.[String(lessonN)] : undefined;
+  const loading = !manifest;
+
+  if (!manifest) return { loading };
+
+  const entry = manifest.lessons[String(lessonN)];
   return {
+    character: entry?.character,
     cover: manifest.cover,
-    character: lesson?.character,
-    pageThumb: lesson?.pageThumb,
-    pages: lesson?.pages,
-    ready,
+    pageThumb: entry?.pageThumb,
+    pages: entry?.pages,
+    loading,
   };
 }
 
-/**
- * Returns the cover image for the book, if present in the manifest.
- */
-export function useBookCover(): { cover?: string; ready: boolean } {
-  const { cover, ready } = useBookArt(undefined);
-  return { cover, ready };
+/** Non-hook version for static use (e.g. lesson grid) */
+export function getManifestSync(): ArtManifest | null {
+  return _cache;
 }
+

@@ -1,70 +1,180 @@
-import type { CSSProperties } from "react";
-import { Link, createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useMemo } from "react";
 import { ArrowLeft, Printer } from "lucide-react";
-import { getWorkbookPagesForLesson } from "@/lib/book-faithful";
-import { getCartillaCrmCssVars, getCartillaCrmTheme } from "@/lib/cartilla-crm-theme";
-import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
-import { PolishedPage } from "@/components/cartilla/PolishedPage";
+import { CATALOG, type CatalogEntry } from "@/lib/lesson-catalog";
+import { PdfPage } from "@/components/cartilla/PdfPage";
 import "@/styles/student-print.css";
 
-export const Route = createFileRoute("/cartilla/imprimir/all" as never)({
-  component: PrintableBinderRoute,
+export const Route = createFileRoute("/cartilla/imprimir/all")({
+  component: ImprimirAllPage,
   head: () => ({
-    meta: [
-      { title: "Imprimir libro completo - La Cartilla de Gretel" },
-      {
-        name: "description",
-        content: "Binder imprimible con las 24 lecciones completas de La Cartilla de Gretel.",
-      },
-    ],
+    meta: [{ title: "Cuaderno Completo Para Imprimir (24 Lecciones) — La Cartilla de Gretel" }],
   }),
 });
 
-function PrintableBinderRoute() {
-  const lessons = CATALOG.slice(0, TOTAL_LESSONS);
-
+function ImprimirAllPage() {
   return (
-    <main className="student-print-binder">
-      <div className="student-print-actions">
-        <Link to="/cartilla/libro" className="inline-flex items-center gap-2">
-          <ArrowLeft className="h-4 w-4" /> Libro
+    <div className="min-h-screen bg-white">
+      {/* Screen action bar */}
+      <div className="no-print px-4 py-4 max-w-3xl mx-auto flex items-center justify-between border-b border-stone-255 mb-6">
+        <Link
+          to="/cartilla/lecciones"
+          className="inline-flex items-center gap-2 text-sm font-bold text-foreground/70 hover:text-foreground"
+          aria-label="Volver al índice de lecciones"
+        >
+          <ArrowLeft className="w-4 h-4" /> Índice
         </Link>
-        <button type="button" className="inline-flex items-center gap-2" onClick={() => window.print()}>
-          <Printer className="h-4 w-4" /> Imprimir binder
+        <button
+          onClick={() => window.print()}
+          className="inline-flex items-center gap-2 px-5 py-2.5 bg-amber-900 hover:bg-amber-850 text-white font-bold text-sm rounded-xl shadow transition"
+          aria-label="Imprimir cuaderno completo"
+        >
+          <Printer className="w-4 h-4" /> Imprimir 24 Lecciones
         </button>
       </div>
 
-      <div className="student-print-stack">
-        <section className="student-print-cover" style={{ "--lesson-accent": "#2a9d8f" } as CSSProperties}>
-          <p>La Cartilla de Gretel</p>
-          <h1>Libro completo del estudiante</h1>
-          <p>24 lecciones · paginas originales del cuaderno · listo para carpeta imprimible</p>
-        </section>
+      <main className="max-w-3xl mx-auto space-y-12">
+        {CATALOG.map((entry) => (
+          <LessonWorksheet key={entry.n} entry={entry} />
+        ))}
+      </main>
+    </div>
+  );
+}
 
-        {lessons.map((entry) => {
-          const theme = getCartillaCrmTheme(entry.n);
-          const pages = getWorkbookPagesForLesson(entry.n);
-          const cssVars = getCartillaCrmCssVars(entry.n) as CSSProperties;
-          const style = { ...cssVars, "--lesson-accent": theme.accent } as CSSProperties;
+function LessonWorksheet({ entry }: { entry: CatalogEntry }) {
+  const n = entry.n;
+  const firstPage = parseInt(entry.pages.split("-")[0] ?? "1", 10) || 1;
 
-          return (
-            <section key={entry.n} className="student-print-lesson" style={style}>
-              <div className="student-print-cover">
-                <p>Leccion {entry.n} de {TOTAL_LESSONS}</p>
-                <h1>{entry.title}</h1>
-                {entry.subtitle ? <p>{entry.subtitle}</p> : null}
-                <p>Paginas {entry.pages}</p>
-              </div>
+  const syllables: string[] = useMemo(() => {
+    return entry.kind === "consonant"
+      ? entry.data.syllables
+      : entry.kind === "vowel"
+        ? [entry.vowel, ...["a", "e", "i", "o", "u"].filter((v) => v !== entry.vowel)]
+        : ["a", "e", "i", "o", "u"];
+  }, [entry]);
 
-              {pages.map((page) => (
-                <article key={`${entry.n}-${page.pageNumber}`} className="student-print-page">
-                  <PolishedPage pageNumber={page.pageNumber} lessonN={entry.n} hideBadge />
-                </article>
-              ))}
-            </section>
-          );
-        })}
+  const words: string[] = useMemo(() => {
+    return entry.kind === "consonant"
+      ? Object.values(entry.data.examples).flat().slice(0, 6)
+      : entry.kind === "vowel"
+        ? entry.lesson.vocab.slice(0, 6).map((v) => v.word)
+        : ["ala", "oso", "uva", "isla", "era"];
+  }, [entry]);
+
+  const dragWord: string = useMemo(() => {
+    return entry.kind === "consonant"
+      ? Object.values(entry.data.examples).flat()[0] ?? "sol"
+      : entry.kind === "vowel"
+        ? entry.lesson.vocab[0]?.word ?? "ola"
+        : "ala";
+  }, [entry]);
+
+  const borderStyle = { borderColor: `${entry.color}40` };
+  const titleStyle = { color: entry.color };
+  const badgeStyle = { borderColor: `${entry.color}60`, color: entry.color };
+  const dashedStyle = { borderColor: `${entry.color}50` };
+  const shuffledStyle = { borderColor: entry.color, color: entry.color, backgroundColor: `${entry.color}12` };
+
+  return (
+    <div className="worksheet-page border-b-2 border-dashed border-stone-200 pb-12 print:border-none print:pb-0">
+      {/* Title Header */}
+      <header className="pb-3 border-b-2 mb-6" style={{ borderColor: entry.color }}>
+        <div className="text-[10px] font-bold text-stone-500 uppercase tracking-widest">
+          La Cartilla de Gretel · Lección {n} · Páginas {entry.pages}
+        </div>
+        <h2 className="text-2xl font-black" style={titleStyle}>
+          {entry.title}
+        </h2>
+        <p className="text-xs text-stone-600 font-bold">{entry.subtitle}</p>
+      </header>
+
+      {/* PDF original page copy */}
+      <div className="mb-6 flex justify-center">
+        <PdfPage pageNumber={firstPage} className="w-full max-w-[500px]" />
       </div>
-    </main>
+
+      {/* Worksheets */}
+      <div className="border-2 rounded-3xl p-6 space-y-6" style={borderStyle}>
+        
+        {/* A. Rodea la sílaba */}
+        <div>
+          <h3 className="font-bold text-base mb-2" style={titleStyle}>
+            A. Rodea la sílaba que escuches
+          </h3>
+          <div className="flex flex-wrap gap-2.5">
+            {syllables.map((s) => (
+              <div
+                key={s}
+                className="w-12 h-12 rounded-xl border-2 flex items-center justify-center text-lg font-bold"
+                style={badgeStyle}
+              >
+                {s}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* B. Une la palabra */}
+        <div>
+          <h3 className="font-bold text-base mb-2" style={titleStyle}>
+            B. Une la palabra con su sílaba inicial
+          </h3>
+          <div className="grid grid-cols-2 gap-x-6 gap-y-2">
+            {words.slice(0, 4).map((w) => (
+              <div key={w} className="flex items-center gap-2">
+                <span className="font-bold text-sm text-stone-700">{w}</span>
+                <div className="h-px border-t-2 border-dashed flex-1" style={dashedStyle} />
+                <div className="w-10 h-8 rounded-lg border-2" style={badgeStyle} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* C. Arma la palabra */}
+        <div>
+          <h3 className="font-bold text-base mb-2" style={titleStyle}>
+            C. Ordena las letras y forma la palabra
+          </h3>
+          <div className="flex flex-col gap-4">
+            {[dragWord, ...(words[1] ? [words[1]] : [])].map((targetWord, idx) => {
+              // Deterministic shuffle for printing consistency
+              const shuffled = [...targetWord.split("")].sort((a, b) => a.charCodeAt(0) - b.charCodeAt(0));
+              return (
+                <div key={`${targetWord}-${idx}`} className="flex flex-col sm:flex-row sm:items-center gap-3">
+                  <div className="flex gap-1.5">
+                    {shuffled.map((letter, i) => (
+                      <div
+                        key={i}
+                        className="w-10 h-10 rounded-lg border-2 flex items-center justify-center text-sm font-bold"
+                        style={shuffledStyle}
+                      >
+                        {letter}
+                      </div>
+                    ))}
+                  </div>
+                  <div className="hidden sm:block text-stone-400 font-bold">➡️</div>
+                  <div className="flex gap-1.5">
+                    {targetWord.split("").map((_, i) => (
+                      <div
+                        key={i}
+                        className="w-10 h-10 rounded-lg border-2 border-dashed"
+                        style={dashedStyle}
+                      />
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+      </div>
+
+      {/* Sheet Footer */}
+      <footer className="text-center text-[10px] text-stone-400 font-bold pt-4">
+        La Cartilla de Gretel · Leonor Lopetegui · LANY BOOKS LLC
+      </footer>
+    </div>
   );
 }
