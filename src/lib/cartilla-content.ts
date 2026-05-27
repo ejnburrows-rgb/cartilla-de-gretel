@@ -31,7 +31,19 @@ function loadOverride<T>(key: string, fallback: T): T {
   try {
     const raw = localStorage.getItem(key);
     if (!raw) return fallback;
-    return JSON.parse(raw) as T;
+    const parsed = JSON.parse(raw);
+    
+    // Safety check: if it's the lessons override, ensure the first item has a 'vowel' property.
+    // If it's an old schema from a previous deployment, fallback to the default to prevent crashes.
+    if (key === LESSONS_OVERRIDE_KEY && Array.isArray(parsed) && parsed.length > 0) {
+      if (!parsed[0].vowel) {
+        console.warn("Discarding outdated lessons override from localStorage");
+        localStorage.removeItem(key);
+        return fallback;
+      }
+    }
+    
+    return parsed as T;
   } catch {
     return fallback;
   }
