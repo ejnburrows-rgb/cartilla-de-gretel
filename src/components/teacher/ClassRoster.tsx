@@ -13,11 +13,51 @@ interface Student {
 
 // Mock Data
 const MOCK_STUDENTS: Student[] = [
-  { id: "1", name: "Ana Maria Lopez", code: "AML-01", lastActive: "Hoy, 10:30 AM", accuracy: 92, lessonsCompleted: 14, status: "active" },
-  { id: "2", name: "Carlos Perez", code: "CPE-02", lastActive: "Ayer", accuracy: 85, lessonsCompleted: 10, status: "active" },
-  { id: "3", name: "Sofia Ramirez", code: "SRA-03", lastActive: "Hace 3 días", accuracy: 65, lessonsCompleted: 4, status: "needs_help" },
-  { id: "4", name: "Diego Fernandez", code: "DFE-04", lastActive: "Hace 1 semana", accuracy: 88, lessonsCompleted: 12, status: "inactive" },
-  { id: "5", name: "Lucia Gomez", code: "LGO-05", lastActive: "Hoy, 09:15 AM", accuracy: 98, lessonsCompleted: 15, status: "active" },
+  {
+    id: "1",
+    name: "Ana Maria Lopez",
+    code: "AML-01",
+    lastActive: "Hoy, 10:30 AM",
+    accuracy: 92,
+    lessonsCompleted: 14,
+    status: "active",
+  },
+  {
+    id: "2",
+    name: "Carlos Perez",
+    code: "CPE-02",
+    lastActive: "Ayer",
+    accuracy: 85,
+    lessonsCompleted: 10,
+    status: "active",
+  },
+  {
+    id: "3",
+    name: "Sofía Ramírez",
+    code: "SRA-03",
+    lastActive: "Hace 3 días",
+    accuracy: 65,
+    lessonsCompleted: 4,
+    status: "needs_help",
+  },
+  {
+    id: "4",
+    name: "Diego Fernandez",
+    code: "DFE-04",
+    lastActive: "Hace 1 semana",
+    accuracy: 88,
+    lessonsCompleted: 12,
+    status: "inactive",
+  },
+  {
+    id: "5",
+    name: "Lucia Gomez",
+    code: "LGO-05",
+    lastActive: "Hoy, 09:15 AM",
+    accuracy: 98,
+    lessonsCompleted: 15,
+    status: "active",
+  },
 ];
 
 export function ClassRoster() {
@@ -28,7 +68,9 @@ export function ClassRoster() {
       <div className="p-6 border-b border-stone-200 flex flex-col sm:flex-row items-center justify-between gap-4 bg-stone-50/50">
         <div>
           <h2 className="text-xl font-black text-stone-800">Miembros de la Clase</h2>
-          <p className="text-sm font-bold text-stone-500 mt-1">Gestión de alumnos y estado general.</p>
+          <p className="text-sm font-bold text-stone-500 mt-1">
+            Gestión de alumnos y estado general.
+          </p>
         </div>
         <button className="px-4 py-2 bg-stone-800 hover:bg-stone-900 text-white text-sm font-bold rounded-xl shadow-sm transition">
           + Añadir Alumno
@@ -56,7 +98,9 @@ export function ClassRoster() {
                     </div>
                     <div>
                       <div className="font-bold text-stone-800">{s.name}</div>
-                      <div className="text-xs font-mono text-stone-500 bg-stone-100 px-1.5 py-0.5 rounded mt-0.5 inline-block">{s.code}</div>
+                      <div className="text-xs font-mono text-stone-500 bg-stone-100 px-1.5 py-0.5 rounded mt-0.5 inline-block">
+                        {s.code}
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -66,13 +110,14 @@ export function ClassRoster() {
                       <Award className="w-4 h-4 text-emerald-500" /> {s.lessonsCompleted} lecciones
                     </div>
                     <div className="w-24 h-1.5 bg-stone-100 rounded-full overflow-hidden">
-                      <div className="h-full bg-orange-400 rounded-full" style={{ width: `${s.accuracy}%` }} />
+                      <div
+                        className="h-full bg-orange-400 rounded-full"
+                        style={{ width: `${s.accuracy}%` }}
+                      />
                     </div>
                   </div>
                 </td>
-                <td className="p-4 text-stone-600 font-medium text-xs">
-                  {s.lastActive}
-                </td>
+                <td className="p-4 text-stone-600 font-medium text-xs">{s.lastActive}</td>
                 <td className="p-4">
                   {s.status === "active" && (
                     <span className="inline-flex items-center gap-1 px-2 py-1 bg-emerald-50 text-emerald-700 text-[10px] font-black uppercase tracking-wider rounded-md border border-emerald-100">

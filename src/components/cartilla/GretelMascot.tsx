@@ -1,4 +1,4 @@
-import { motion, Variants } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 
 export type GretelState = "idle" | "pointing" | "cheering";
 
@@ -36,22 +36,25 @@ const variants: Variants = {
   },
 };
 
+const imageByState: Record<GretelState, string> = {
+  idle: "/gretel/idle-1.webp",
+  pointing: "/gretel/encouraging.webp",
+  cheering: "/gretel/cheer.webp",
+};
+
 export function GretelMascot({ state = "idle", className = "" }: GretelMascotProps) {
   return (
     <div className={`pointer-events-none z-50 ${className}`}>
       <motion.div
         animate={state}
         variants={variants}
-        className="relative w-32 h-32 md:w-48 md:h-48 drop-shadow-2xl origin-bottom"
+        className="relative h-32 w-32 origin-bottom drop-shadow-2xl md:h-48 md:w-48"
       >
         <img
-          src="/cartilla/art/gretel-hd.png"
+          src={imageByState[state]}
           alt="Gretel"
-          className="w-full h-full object-contain"
-          onError={(e) => {
-            const target = e.target as HTMLImageElement;
-            target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%236366f1' opacity='0.2'/%3E%3Ctext x='50' y='55' font-size='12' text-anchor='middle' fill='%234f46e5' font-family='sans-serif'%3EGretel%3C/text%3E%3C/svg%3E";
-          }}
+          className="h-full w-full object-contain"
+          draggable={false}
         />
       </motion.div>
     </div>

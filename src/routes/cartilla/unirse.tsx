@@ -4,11 +4,14 @@ import { useServerFn } from "@/lib/useServerFn";
 import { ArrowLeft, LogIn, Loader2, LogOut } from "lucide-react";
 import { joinClass } from "@/lib/student.functions";
 import { setStudentSession, useStudentSession } from "@/lib/student-session";
+import { SEED_STUDENT_ACCESS } from "@/lib/seed-data";
 
 export const Route = createFileRoute("/cartilla/unirse")({
   component: JoinPage,
   head: () => ({ meta: [{ title: "Únete a una clase — La Cartilla de Gretel" }] }),
 });
+
+const quickStudentAccess = SEED_STUDENT_ACCESS.slice(0, 2);
 
 function JoinPage() {
   const navigate = useNavigate();
@@ -26,7 +29,23 @@ function JoinPage() {
     try {
       const res = await join({ data: { joinCode, studentCode } });
       setStudentSession(res);
-      navigate({ to: "/cartilla/lecciones" });
+      navigate({ to: "/cartilla/student/lecciones" });
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Error desconocido");
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const enterWithQuickStudent = async (access: (typeof SEED_STUDENT_ACCESS)[number]) => {
+    setBusy(true);
+    setError(null);
+    try {
+      const res = await join({
+        data: { joinCode: access.joinCode, studentCode: access.studentCode },
+      });
+      setStudentSession(res);
+      navigate({ to: "/cartilla/student/lecciones" });
     } catch (err) {
       setError(err instanceof Error ? err.message : "Error desconocido");
     } finally {
@@ -75,43 +94,65 @@ function JoinPage() {
           </div>
         </div>
       ) : (
-        <form onSubmit={submit} className="mt-8 space-y-3">
-          <div>
-            <label className="text-xs font-bold text-foreground/60 uppercase tracking-wide">
-              Código de la clase
-            </label>
-            <input
-              value={joinCode}
-              onChange={(e) => setJoinCode(e.target.value.toUpperCase())}
-              placeholder="ABC123"
-              maxLength={10}
-              className="w-full mt-1 px-4 py-3 rounded-xl border-2 border-foreground/10 bg-card focus:border-primary outline-none font-mono text-lg tracking-widest text-center"
-              required
-            />
-          </div>
-          <div>
-            <label className="text-xs font-bold text-foreground/60 uppercase tracking-wide">
-              Tu código personal
-            </label>
-            <input
-              value={studentCode}
-              onChange={(e) => setStudentCode(e.target.value.toUpperCase())}
-              placeholder="X9YZ2"
-              maxLength={10}
-              className="w-full mt-1 px-4 py-3 rounded-xl border-2 border-foreground/10 bg-card focus:border-primary outline-none font-mono text-lg tracking-widest text-center"
-              required
-            />
-          </div>
-          {error && <div className="text-sm text-destructive font-bold">{error}</div>}
-          <button
-            type="submit"
-            disabled={busy || !joinCode || !studentCode}
-            className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-bold disabled:opacity-50 inline-flex items-center justify-center gap-2"
-          >
-            {busy && <Loader2 className="w-4 h-4 animate-spin" />}
-            Entrar
-          </button>
-        </form>
+        <div className="mt-8 space-y-5">
+          <section className="kid-card p-4">
+            <h2 className="text-sm font-black uppercase tracking-wide text-foreground/60">
+              Acceso rápido
+            </h2>
+            <div className="mt-3 grid grid-cols-2 gap-3">
+              {quickStudentAccess.map((access) => (
+                <button
+                  key={`${access.joinCode}-${access.studentCode}`}
+                  type="button"
+                  onClick={() => enterWithQuickStudent(access)}
+                  disabled={busy}
+                  className="rounded-2xl border-2 border-foreground/10 bg-white/80 px-3 py-4 text-center font-black shadow-sm transition hover:-translate-y-0.5 hover:border-primary/40 disabled:opacity-50"
+                  aria-label={`Entrar como ${access.name}`}
+                >
+                  {access.name}
+                </button>
+              ))}
+            </div>
+          </section>
+
+          <form onSubmit={submit} className="space-y-3">
+            <div>
+              <label className="text-xs font-bold text-foreground/60 uppercase tracking-wide">
+                Código de la clase
+              </label>
+              <input
+                value={joinCode}
+                onChange={(e) => setJoinCode(e.target.value.toUpperCase())}
+                placeholder="ABC123"
+                maxLength={10}
+                className="w-full mt-1 px-4 py-3 rounded-xl border-2 border-foreground/10 bg-card focus:border-primary outline-none font-mono text-lg tracking-widest text-center"
+                required
+              />
+            </div>
+            <div>
+              <label className="text-xs font-bold text-foreground/60 uppercase tracking-wide">
+                Tu código personal
+              </label>
+              <input
+                value={studentCode}
+                onChange={(e) => setStudentCode(e.target.value.toUpperCase())}
+                placeholder="X9YZ2"
+                maxLength={10}
+                className="w-full mt-1 px-4 py-3 rounded-xl border-2 border-foreground/10 bg-card focus:border-primary outline-none font-mono text-lg tracking-widest text-center"
+                required
+              />
+            </div>
+            {error && <div className="text-sm text-destructive font-bold">{error}</div>}
+            <button
+              type="submit"
+              disabled={busy || !joinCode || !studentCode}
+              className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-bold disabled:opacity-50 inline-flex items-center justify-center gap-2"
+            >
+              {busy && <Loader2 className="w-4 h-4 animate-spin" />}
+              Entrar
+            </button>
+          </form>
+        </div>
       )}
     </main>
   );

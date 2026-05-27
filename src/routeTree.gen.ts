@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as CreditsRouteImport } from './routes/credits'
 import { Route as BookRouteImport } from './routes/book'
 import { Route as AuthenticatedRouteImport } from './routes/_authenticated'
 import { Route as IndexRouteImport } from './routes/index'
@@ -18,7 +19,6 @@ import { Route as PrintBinderRouteImport } from './routes/print/binder'
 import { Route as PrintLessonIdRouteImport } from './routes/print/$lessonId'
 import { Route as CartillaUnirseRouteImport } from './routes/cartilla/unirse'
 import { Route as CartillaSesionesRouteImport } from './routes/cartilla/sesiones'
-import { Route as CartillaKioskoRouteImport } from './routes/cartilla/kiosko'
 import { Route as CartillaBinderRouteImport } from './routes/cartilla/binder'
 import { Route as CartillaAutoraRouteImport } from './routes/cartilla/autora'
 import { Route as CartillaTeacherRouteRouteImport } from './routes/cartilla/teacher/route'
@@ -35,7 +35,6 @@ import { Route as CartillaStudentLibroRouteImport } from './routes/cartilla/stud
 import { Route as CartillaStudentLeccionesRouteImport } from './routes/cartilla/student/lecciones'
 import { Route as CartillaSesionNRouteImport } from './routes/cartilla/sesion.$n'
 import { Route as CartillaPresentarNRouteImport } from './routes/cartilla/presentar.$n'
-import { Route as CartillaKioskoNRouteImport } from './routes/cartilla/kiosko/$n'
 import { Route as CartillaImprimirAllRouteImport } from './routes/cartilla/imprimir.all'
 import { Route as CartillaImprimirNRouteImport } from './routes/cartilla/imprimir.$n'
 import { Route as CartillaBinderLessonRouteImport } from './routes/cartilla/binder/$lesson'
@@ -51,6 +50,11 @@ import { Route as AuthenticatedCartillaTeacherAlumnoIdRouteImport } from './rout
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CreditsRoute = CreditsRouteImport.update({
+  id: '/credits',
+  path: '/credits',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BookRoute = BookRouteImport.update({
@@ -90,11 +94,6 @@ const CartillaUnirseRoute = CartillaUnirseRouteImport.update({
 const CartillaSesionesRoute = CartillaSesionesRouteImport.update({
   id: '/cartilla/sesiones',
   path: '/cartilla/sesiones',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CartillaKioskoRoute = CartillaKioskoRouteImport.update({
-  id: '/cartilla/kiosko',
-  path: '/cartilla/kiosko',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CartillaBinderRoute = CartillaBinderRouteImport.update({
@@ -180,11 +179,6 @@ const CartillaPresentarNRoute = CartillaPresentarNRouteImport.update({
   path: '/cartilla/presentar/$n',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CartillaKioskoNRoute = CartillaKioskoNRouteImport.update({
-  id: '/$n',
-  path: '/$n',
-  getParentRoute: () => CartillaKioskoRoute,
-} as any)
 const CartillaImprimirAllRoute = CartillaImprimirAllRouteImport.update({
   id: '/cartilla/imprimir/all',
   path: '/cartilla/imprimir/all',
@@ -251,12 +245,12 @@ const AuthenticatedCartillaTeacherAlumnoIdRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/book': typeof BookRoute
+  '/credits': typeof CreditsRoute
   '/login': typeof LoginRoute
   '/cartilla/student': typeof CartillaStudentRouteRouteWithChildren
   '/cartilla/teacher': typeof CartillaTeacherRouteRouteWithChildren
   '/cartilla/autora': typeof CartillaAutoraRoute
   '/cartilla/binder': typeof CartillaBinderRouteWithChildren
-  '/cartilla/kiosko': typeof CartillaKioskoRouteWithChildren
   '/cartilla/sesiones': typeof CartillaSesionesRoute
   '/cartilla/unirse': typeof CartillaUnirseRoute
   '/print/$lessonId': typeof PrintLessonIdRoute
@@ -265,7 +259,6 @@ export interface FileRoutesByFullPath {
   '/cartilla/binder/$lesson': typeof CartillaBinderLessonRoute
   '/cartilla/imprimir/$n': typeof CartillaImprimirNRoute
   '/cartilla/imprimir/all': typeof CartillaImprimirAllRoute
-  '/cartilla/kiosko/$n': typeof CartillaKioskoNRoute
   '/cartilla/presentar/$n': typeof CartillaPresentarNRoute
   '/cartilla/sesion/$n': typeof CartillaSesionNRoute
   '/cartilla/student/lecciones': typeof CartillaStudentLeccionesRoute
@@ -290,11 +283,11 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/book': typeof BookRoute
+  '/credits': typeof CreditsRoute
   '/login': typeof LoginRoute
   '/cartilla/student': typeof CartillaStudentRouteRouteWithChildren
   '/cartilla/autora': typeof CartillaAutoraRoute
   '/cartilla/binder': typeof CartillaBinderRouteWithChildren
-  '/cartilla/kiosko': typeof CartillaKioskoRouteWithChildren
   '/cartilla/sesiones': typeof CartillaSesionesRoute
   '/cartilla/unirse': typeof CartillaUnirseRoute
   '/print/$lessonId': typeof PrintLessonIdRoute
@@ -303,7 +296,6 @@ export interface FileRoutesByTo {
   '/cartilla/binder/$lesson': typeof CartillaBinderLessonRoute
   '/cartilla/imprimir/$n': typeof CartillaImprimirNRoute
   '/cartilla/imprimir/all': typeof CartillaImprimirAllRoute
-  '/cartilla/kiosko/$n': typeof CartillaKioskoNRoute
   '/cartilla/presentar/$n': typeof CartillaPresentarNRoute
   '/cartilla/sesion/$n': typeof CartillaSesionNRoute
   '/cartilla/student/lecciones': typeof CartillaStudentLeccionesRoute
@@ -330,12 +322,12 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteWithChildren
   '/book': typeof BookRoute
+  '/credits': typeof CreditsRoute
   '/login': typeof LoginRoute
   '/cartilla/student': typeof CartillaStudentRouteRouteWithChildren
   '/cartilla/teacher': typeof CartillaTeacherRouteRouteWithChildren
   '/cartilla/autora': typeof CartillaAutoraRoute
   '/cartilla/binder': typeof CartillaBinderRouteWithChildren
-  '/cartilla/kiosko': typeof CartillaKioskoRouteWithChildren
   '/cartilla/sesiones': typeof CartillaSesionesRoute
   '/cartilla/unirse': typeof CartillaUnirseRoute
   '/print/$lessonId': typeof PrintLessonIdRoute
@@ -344,7 +336,6 @@ export interface FileRoutesById {
   '/cartilla/binder/$lesson': typeof CartillaBinderLessonRoute
   '/cartilla/imprimir/$n': typeof CartillaImprimirNRoute
   '/cartilla/imprimir/all': typeof CartillaImprimirAllRoute
-  '/cartilla/kiosko/$n': typeof CartillaKioskoNRoute
   '/cartilla/presentar/$n': typeof CartillaPresentarNRoute
   '/cartilla/sesion/$n': typeof CartillaSesionNRoute
   '/cartilla/student/lecciones': typeof CartillaStudentLeccionesRoute
@@ -371,12 +362,12 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/book'
+    | '/credits'
     | '/login'
     | '/cartilla/student'
     | '/cartilla/teacher'
     | '/cartilla/autora'
     | '/cartilla/binder'
-    | '/cartilla/kiosko'
     | '/cartilla/sesiones'
     | '/cartilla/unirse'
     | '/print/$lessonId'
@@ -385,7 +376,6 @@ export interface FileRouteTypes {
     | '/cartilla/binder/$lesson'
     | '/cartilla/imprimir/$n'
     | '/cartilla/imprimir/all'
-    | '/cartilla/kiosko/$n'
     | '/cartilla/presentar/$n'
     | '/cartilla/sesion/$n'
     | '/cartilla/student/lecciones'
@@ -410,11 +400,11 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/book'
+    | '/credits'
     | '/login'
     | '/cartilla/student'
     | '/cartilla/autora'
     | '/cartilla/binder'
-    | '/cartilla/kiosko'
     | '/cartilla/sesiones'
     | '/cartilla/unirse'
     | '/print/$lessonId'
@@ -423,7 +413,6 @@ export interface FileRouteTypes {
     | '/cartilla/binder/$lesson'
     | '/cartilla/imprimir/$n'
     | '/cartilla/imprimir/all'
-    | '/cartilla/kiosko/$n'
     | '/cartilla/presentar/$n'
     | '/cartilla/sesion/$n'
     | '/cartilla/student/lecciones'
@@ -449,12 +438,12 @@ export interface FileRouteTypes {
     | '/'
     | '/_authenticated'
     | '/book'
+    | '/credits'
     | '/login'
     | '/cartilla/student'
     | '/cartilla/teacher'
     | '/cartilla/autora'
     | '/cartilla/binder'
-    | '/cartilla/kiosko'
     | '/cartilla/sesiones'
     | '/cartilla/unirse'
     | '/print/$lessonId'
@@ -463,7 +452,6 @@ export interface FileRouteTypes {
     | '/cartilla/binder/$lesson'
     | '/cartilla/imprimir/$n'
     | '/cartilla/imprimir/all'
-    | '/cartilla/kiosko/$n'
     | '/cartilla/presentar/$n'
     | '/cartilla/sesion/$n'
     | '/cartilla/student/lecciones'
@@ -490,12 +478,12 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRoute: typeof AuthenticatedRouteWithChildren
   BookRoute: typeof BookRoute
+  CreditsRoute: typeof CreditsRoute
   LoginRoute: typeof LoginRoute
   CartillaStudentRouteRoute: typeof CartillaStudentRouteRouteWithChildren
   CartillaTeacherRouteRoute: typeof CartillaTeacherRouteRouteWithChildren
   CartillaAutoraRoute: typeof CartillaAutoraRoute
   CartillaBinderRoute: typeof CartillaBinderRouteWithChildren
-  CartillaKioskoRoute: typeof CartillaKioskoRouteWithChildren
   CartillaSesionesRoute: typeof CartillaSesionesRoute
   CartillaUnirseRoute: typeof CartillaUnirseRoute
   PrintLessonIdRoute: typeof PrintLessonIdRoute
@@ -514,6 +502,13 @@ declare module '@tanstack/react-router' {
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/credits': {
+      id: '/credits'
+      path: '/credits'
+      fullPath: '/credits'
+      preLoaderRoute: typeof CreditsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/book': {
@@ -570,13 +565,6 @@ declare module '@tanstack/react-router' {
       path: '/cartilla/sesiones'
       fullPath: '/cartilla/sesiones'
       preLoaderRoute: typeof CartillaSesionesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/cartilla/kiosko': {
-      id: '/cartilla/kiosko'
-      path: '/cartilla/kiosko'
-      fullPath: '/cartilla/kiosko'
-      preLoaderRoute: typeof CartillaKioskoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cartilla/binder': {
@@ -690,13 +678,6 @@ declare module '@tanstack/react-router' {
       fullPath: '/cartilla/presentar/$n'
       preLoaderRoute: typeof CartillaPresentarNRouteImport
       parentRoute: typeof rootRouteImport
-    }
-    '/cartilla/kiosko/$n': {
-      id: '/cartilla/kiosko/$n'
-      path: '/$n'
-      fullPath: '/cartilla/kiosko/$n'
-      preLoaderRoute: typeof CartillaKioskoNRouteImport
-      parentRoute: typeof CartillaKioskoRoute
     }
     '/cartilla/imprimir/all': {
       id: '/cartilla/imprimir/all'
@@ -871,28 +852,16 @@ const CartillaBinderRouteWithChildren = CartillaBinderRoute._addFileChildren(
   CartillaBinderRouteChildren,
 )
 
-interface CartillaKioskoRouteChildren {
-  CartillaKioskoNRoute: typeof CartillaKioskoNRoute
-}
-
-const CartillaKioskoRouteChildren: CartillaKioskoRouteChildren = {
-  CartillaKioskoNRoute: CartillaKioskoNRoute,
-}
-
-const CartillaKioskoRouteWithChildren = CartillaKioskoRoute._addFileChildren(
-  CartillaKioskoRouteChildren,
-)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRoute: AuthenticatedRouteWithChildren,
   BookRoute: BookRoute,
+  CreditsRoute: CreditsRoute,
   LoginRoute: LoginRoute,
   CartillaStudentRouteRoute: CartillaStudentRouteRouteWithChildren,
   CartillaTeacherRouteRoute: CartillaTeacherRouteRouteWithChildren,
   CartillaAutoraRoute: CartillaAutoraRoute,
   CartillaBinderRoute: CartillaBinderRouteWithChildren,
-  CartillaKioskoRoute: CartillaKioskoRouteWithChildren,
   CartillaSesionesRoute: CartillaSesionesRoute,
   CartillaUnirseRoute: CartillaUnirseRoute,
   PrintLessonIdRoute: PrintLessonIdRoute,

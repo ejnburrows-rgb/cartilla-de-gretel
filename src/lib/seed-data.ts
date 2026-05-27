@@ -18,10 +18,10 @@ export const SEED_TEACHERS = [
 ] as const;
 
 export const SEED_STUDENT_ACCESS = [
-  { name: "Erick Novo", joinCode: "GRETEL", studentCode: "NOVO" },
-  { name: "Sofia Morejon", joinCode: "GRETEL", studentCode: "SOFIA" },
-  { name: "Erick Novo", joinCode: "NOVO26", studentCode: "NOVO" },
-  { name: "Sofia Morejon", joinCode: "NOVO26", studentCode: "SOFIA" },
+  { name: "Erik Novo", joinCode: "GRETEL", studentCode: "NOVO" },
+  { name: "Sofía Morejón", joinCode: "GRETEL", studentCode: "SOFIA" },
+  { name: "Erik Novo", joinCode: "NOVO26", studentCode: "NOVO" },
+  { name: "Sofía Morejón", joinCode: "NOVO26", studentCode: "SOFIA" },
 ] as const;
 
 const AUTH_KEY = "cartilla.seed.teacher.v1";
@@ -99,28 +99,28 @@ function initialState(): SeedState {
     {
       id: "seed-student-erick-leonor",
       class_id: "seed-class-leonor",
-      display_name: "Erick Novo",
+      display_name: "Erik Novo",
       student_code: "NOVO",
       created_at: nowIso(),
     },
     {
       id: "seed-student-sofia-leonor",
       class_id: "seed-class-leonor",
-      display_name: "Sofia Morejon",
+      display_name: "Sofía Morejón",
       student_code: "SOFIA",
       created_at: nowIso(),
     },
     {
       id: "seed-student-erick-emilio",
       class_id: "seed-class-emilio",
-      display_name: "Erick Novo",
+      display_name: "Erik Novo",
       student_code: "NOVO",
       created_at: nowIso(),
     },
     {
       id: "seed-student-sofia-emilio",
       class_id: "seed-class-emilio",
-      display_name: "Sofia Morejon",
+      display_name: "Sofía Morejón",
       student_code: "SOFIA",
       created_at: nowIso(),
     },
@@ -146,8 +146,26 @@ function initialState(): SeedState {
 function seedEvents(): SeedEvent[] {
   const base = Date.now() - 1000 * 60 * 60 * 24;
   return [
-    event("seed-student-erick-leonor", "1", "lesson_completed", null, null, null, { seeded: true }, base),
-    event("seed-student-erick-leonor", "1", "exercise", 4, 5, 180, { exercise: "syllable_tap" }, base),
+    event(
+      "seed-student-erick-leonor",
+      "1",
+      "lesson_completed",
+      null,
+      null,
+      null,
+      { seeded: true },
+      base,
+    ),
+    event(
+      "seed-student-erick-leonor",
+      "1",
+      "exercise",
+      4,
+      5,
+      180,
+      { exercise: "syllable_tap" },
+      base,
+    ),
     event(
       "seed-student-sofia-leonor",
       "1",
@@ -158,7 +176,16 @@ function seedEvents(): SeedEvent[] {
       { seeded: true },
       base + 5000,
     ),
-    event("seed-student-sofia-leonor", "1", "exercise", 5, 5, 155, { exercise: "word_match" }, base),
+    event(
+      "seed-student-sofia-leonor",
+      "1",
+      "exercise",
+      5,
+      5,
+      155,
+      { exercise: "word_match" },
+      base,
+    ),
   ];
 }
 
@@ -511,9 +538,7 @@ export function getSeedClassProgress(classId: string) {
     assignments: assignments.map((assignment) => {
       const lessonEvents = events.filter((e) => e.lesson_id === assignment.lesson_id);
       const completedIds = new Set(
-        lessonEvents
-          .filter((e) => e.event_kind === "lesson_completed")
-          .map((e) => e.student_id),
+        lessonEvents.filter((e) => e.event_kind === "lesson_completed").map((e) => e.student_id),
       );
       const exerciseRows = lessonEvents.filter(
         (e) => e.event_kind === "exercise" && e.score != null && e.total != null,
@@ -563,4 +588,3 @@ export function resetSeedStateRaw() {
   window.dispatchEvent(new Event("cartilla:seed-data"));
   window.dispatchEvent(new Event("cartilla:seed-data"));
 }
-

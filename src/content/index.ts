@@ -19,7 +19,6 @@ export * from "./vowel-drag-pairs";
 export * from "./reading-mode-hard";
 export * from "./audio-manifest";
 export * from "./family-practice-plan";
-export * from "./kiosko-config";
 export * from "./error-messages";
 export * from "./onboarding-copy";
 export * from "./sticker-pack";

@@ -40,7 +40,8 @@ export const Route = createFileRoute("/cartilla/")({
       { property: "og:title", content: "La Cartilla de Gretel — Edición digital interactiva" },
       {
         property: "og:description",
-        content: "Método fonético K-2 con 24 lecciones, ejercicios interactivos y panel de maestro.",
+        content:
+          "Método fonético K-2 con 24 lecciones, ejercicios interactivos y panel de maestro.",
       },
     ],
   }),
@@ -105,11 +106,21 @@ function CartillaHome() {
       desc: "Conoce a Leonor Lopetegui, autora del método.",
       color: "bg-vowel-u",
     },
+    {
+      to: "/credits" as const,
+      icon: BookOpen,
+      title: "Créditos",
+      desc: "Autora, ilustradora, desarrollo, editorial e ISBN.",
+      color: "bg-primary",
+    },
   ];
 
   return (
     <main className="min-h-screen relative overflow-hidden flex flex-col">
-      <PageBackground letter="a" className="fixed inset-0 -z-10 w-full h-full opacity-60 mix-blend-multiply" />
+      <PageBackground
+        letter="a"
+        className="fixed inset-0 -z-10 w-full h-full opacity-60 mix-blend-multiply"
+      />
       <div className="fixed inset-0 -z-10 pointer-events-none">
         <SparkleField animated={true} className="w-full h-full opacity-70" />
       </div>
@@ -140,7 +151,8 @@ function CartillaHome() {
             La Cartilla de Gretel
           </h1>
           <p className="mt-3 text-foreground/70 text-lg leading-relaxed max-w-md">
-            Método fonético K-2 · 24 lecciones · Leonor Lopetegui<br />
+            Método fonético K-2 · 24 lecciones · Leonor Lopetegui
+            <br />
             <span className="text-sm">Ilustraciones: Estela de Armas Plasencia</span>
           </p>
           <div className="mt-5 flex flex-wrap gap-3 justify-center sm:justify-start">
@@ -212,18 +224,10 @@ function CartillaHome() {
                   aria-label={`Lección ${entry.n}: ${entry.title}${done ? " — completada" : ""}`}
                 >
                   <div className="lesson-tile__art" style={{ backgroundColor: `${entry.color}18` }}>
-                    <BookArtFigure
-                      lesson={entry.n}
-                      role="character"
-                      className="w-full h-full"
-                    />
+                    <BookArtFigure lesson={entry.n} role="character" className="w-full h-full" />
                   </div>
                   <div className="lesson-tile__body">
-                    <div
-                      className="lesson-tile__letter"
-                      style={{ color: entry.color }}
-                      aria-hidden
-                    >
+                    <div className="lesson-tile__letter" style={{ color: entry.color }} aria-hidden>
                       {letter.toUpperCase()}
                     </div>
                     <p className="lesson-tile__caption">{caption}</p>
@@ -266,7 +270,9 @@ function CoverArt() {
         aria-label="Portada de La Cartilla de Gretel"
       >
         <span className="text-white font-bold text-sm leading-tight">
-          La Cartilla<br />de Gretel
+          La Cartilla
+          <br />
+          de Gretel
         </span>
       </div>
     );

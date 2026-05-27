@@ -4,18 +4,19 @@ import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "vite";
 import tsConfigPaths from "vite-tsconfig-paths";
 import { gzipSync, brotliCompressSync } from "zlib";
+import type { OutputBundle, PluginContext } from "rollup";
 
 function compressPlugin() {
   return {
     name: "compress-plugin",
     apply: "build" as const,
     enforce: "post" as const,
-    generateBundle(this: any, _: any, bundle: any) {
+    generateBundle(this: PluginContext, _: unknown, bundle: OutputBundle) {
       for (const fileName in bundle) {
         const asset = bundle[fileName];
-        let code: any;
+        let code: string | Uint8Array;
         if (asset.type === "asset") {
-          code = asset.source;
+          code = typeof asset.source === "string" ? asset.source : new Uint8Array(asset.source);
         } else if (asset.type === "chunk") {
           code = asset.code;
         } else {
@@ -93,9 +94,6 @@ export default defineConfig({
           }
           if (id.includes("routes/cartilla/binder") || id.includes("components/print")) {
             return "route-binder";
-          }
-          if (id.includes("routes/cartilla/kiosko") || id.includes("components/kiosko")) {
-            return "route-kiosko";
           }
           if (id.includes("content/") || id.includes("lesson-catalog") || id.includes("seed")) {
             return "content-bundle";

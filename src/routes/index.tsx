@@ -62,6 +62,9 @@ function Landing() {
       <footer className="mt-16 text-xs text-foreground/50 text-center space-y-1">
         <p>© {new Date().getFullYear()} Double R Publishing · Leonor Lopetegui</p>
         <p>ISBN 978-1-7368420-7-2</p>
+        <Link to="/credits" className="inline-block font-bold text-primary hover:underline">
+          Créditos
+        </Link>
       </footer>
     </main>
   );
