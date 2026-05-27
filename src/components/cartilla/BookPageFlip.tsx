@@ -26,6 +26,11 @@ const springTransition = {
   mass: 0.9,
 };
 
+const flipTransition = {
+  duration: 0.5,
+  ease: "easeOut" as const,
+};
+
 const pageVariants = {
   enter: (dir: number) => ({
     rotateY: dir > 0 ? -88 : 0,
@@ -66,6 +71,9 @@ function SpiralBinding() {
 }
 
 export function BookPageFlip({ pageKey, direction, children }: BookPageFlipProps) {
+  const glareInitial = { opacity: 0.55, x: direction > 0 ? -90 : 90 };
+  const glareAnimate = { opacity: 0, x: direction > 0 ? 90 : -90 };
+
   return (
     <div className="relative overflow-visible rounded-[1.6rem]" style={stageStyle}>
       <div className="pointer-events-none absolute -inset-x-6 bottom-0 z-0 h-16 rounded-[50%] bg-[#2c1e16]/24 blur-2xl" />
@@ -89,9 +97,9 @@ export function BookPageFlip({ pageKey, direction, children }: BookPageFlipProps
           <SpiralBinding />
           <motion.div
             className="pointer-events-none absolute inset-0 z-30 rounded-[1.45rem] bg-[linear-gradient(115deg,transparent,rgba(255,255,245,0.30),transparent)] mix-blend-screen"
-            initial= opacity: 0.55, x: direction > 0 ? -90 : 90 
-            animate= opacity: 0, x: direction > 0 ? 90 : -90 
-            transition= duration: 0.5, ease: "easeOut" 
+            initial={glareInitial}
+            animate={glareAnimate}
+            transition={flipTransition}
           />
           {children}
         </motion.div>
