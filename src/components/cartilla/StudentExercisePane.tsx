@@ -1,23 +1,25 @@
 /**
- * StudentExercisePane.tsx  — Lane A
+ * StudentExercisePane.tsx — Lane A
  *
- * Renders the ordered student exercise sequence for a given lesson:
- *   1. BookArtFigure (character role)
- *   2. SyllableTap
- *   3. WordMatch
- *   4. TapObjectActivity
- *   5. DragBuildWord
- *   6. DragWordReveal
+ * Renders the book-faithful student exercise sequence for a given lesson.
+ * All exercises are traceable to workbook or teacher-guide content.
  *
- * Sticky bottom bar: LessonTimer + 3-dot progress (one per exercise).
+ * Sequence (consonant lessons):
+ *   1. SyllableTap  — book syllables (ma, me, mi, mo, mu)
+ *   2. WordMatch    — first example word per syllable from consonants.json
+ *   3. DragBuildWord — build a word from book syllables
+ *   4. ReadingSentences — read the 2 workbook sentences aloud
+ *
+ * Sequence (vowel lessons): 1, 2, 3, 4 using vowel vocab
+ * Sequence (intro): syllable tap only
+ *
+ * Sticky bottom bar: LessonTimer + dots
  * Uses `key={lessonId}` strategy via caller to reset state on lesson change.
  */
 import { useState, useEffect } from "react";
 import { BookArtFigure } from "@/components/cartilla/BookArtFigure";
 import { SyllableTap, WordMatch } from "@/components/cartilla/Ejercicios";
 import { DragBuildWord } from "@/components/cartilla/DragBuildWord";
-import { DragWordReveal } from "@/components/cartilla/DragWordReveal";
-import { TapObjectActivity } from "@/components/cartilla/TapObjectActivity";
 import { OrderedExercises } from "@/components/cartilla/OrderedExercises";
 import { LessonTimer } from "@/components/cartilla/LessonTimer";
 import type { CatalogEntry } from "@/lib/lesson-catalog";
@@ -26,10 +28,10 @@ import "@/styles/cartilla-student.css";
 const EXERCISE_IDS = [
   "syllable_tap",
   "word_match",
-  "tap_object",
   "drag_build_word",
-  "drag_word_reveal",
+  "reading_sentences",
 ] as const;
+
 type ExerciseId = (typeof EXERCISE_IDS)[number];
 
 interface StudentExercisePaneProps {
@@ -37,6 +39,10 @@ interface StudentExercisePaneProps {
   lessonId: string;
   timeLimitSeconds?: number | null;
   onAllCompleted?: () => void;
+}
+
+function numberBadgeStyle(color: string): React.CSSProperties {
+  return { backgroundColor: color };
 }
 
 export function StudentExercisePane({
@@ -61,7 +67,7 @@ export function StudentExercisePane({
 
   const accent = entry.color;
 
-  // Derive syllables + words from the lesson entry
+  // Derive syllables + words from workbook data only
   const syllables: string[] = (() => {
     if (entry.kind === "consonant") return entry.data.syllables;
     if (entry.kind === "vowel") return [entry.vowel, ...["a", "e", "i", "o", "u"].filter((v) => v !== entry.vowel)];
@@ -70,44 +76,50 @@ export function StudentExercisePane({
 
   const words: Array<{ word: string; emoji?: string }> = (() => {
     if (entry.kind === "consonant") {
-      return Object.values(entry.data.examples)
-        .flat()
-        .slice(0, 6)
-        .map((w) => ({ word: w }));
+      // Only first example per syllable — all from consonants.json (book-derived)
+      const out: Array<{ word: string }> = [];
+      for (const list of Object.values(entry.data.examples)) {
+        if (Array.isArray(list) && list.length > 0) {
+          const w = list[0];
+          if (typeof w === "string" && w.length > 0) out.push({ word: w });
+        }
+        if (out.length >= 5) break;
+      }
+      return out;
     }
     if (entry.kind === "vowel") {
       return entry.lesson.vocab.slice(0, 4);
     }
     return [
-      { word: "ala", emoji: "🦅" },
-      { word: "oso", emoji: "🐻" },
-      { word: "uva", emoji: "🍇" },
-      { word: "isla", emoji: "🏝️" },
+      { word: "ala" },
+      { word: "oso" },
+      { word: "uva" },
+      { word: "isla" },
     ];
+  })();
+
+  // Book sentences (workbook-derived, from consonants.json)
+  const sentences: string[] = (() => {
+    if (entry.kind === "consonant") return entry.data.sentences ?? [];
+    if (entry.kind === "vowel") {
+      return (entry.lesson.vocab ?? [])
+        .map((v) => v.word)
+        .filter((w): w is string => typeof w === "string" && w.length > 0)
+        .slice(0, 3);
+    }
+    return [];
   })();
 
   const blocks = [
     {
       id: "syllable_tap",
-      label: "Sílabas",
+      label: "S\u00edlabas",
       node: <SyllableTap syllables={syllables} color={accent} lessonId={lessonId} onComplete={() => markDone("syllable_tap")} />
     },
     {
       id: "word_match",
       label: "Palabras",
       node: <WordMatch words={words} color={accent} lessonId={lessonId} onComplete={() => markDone("word_match")} />
-    },
-    {
-      id: "tap_object",
-      label: "Burbujas",
-      node: (
-        <TapObjectActivity
-          entry={entry}
-          accent={accent}
-          lessonId={lessonId}
-          onComplete={() => markDone("tap_object")}
-        />
-      )
     },
     {
       id: "drag_build_word",
@@ -121,32 +133,65 @@ export function StudentExercisePane({
         />
       )
     },
-    {
-      id: "drag_word_reveal",
-      label: "Lupa",
-      node: (
-        <DragWordReveal
-          entry={entry}
-          accent={accent}
-          lessonId={lessonId}
-          onComplete={() => markDone("drag_word_reveal")}
-        />
-      )
-    }
+    sentences.length > 0
+      ? {
+          id: "reading_sentences",
+          label: "Leer",
+          node: (
+            <section className="space-y-3">
+              <div className="text-xs font-black uppercase tracking-[0.18em]" style={{ color: accent }}>
+                Lee con el maestro
+              </div>
+              <ol className="space-y-2.5 rounded-3xl border border-stone-200 bg-white/85 p-5 text-base font-bold text-amber-950 shadow-[0_18px_42px_rgba(50,30,10,0.07)]">
+                {sentences.map((s, i) => (
+                  <li key={`${lessonId}-s${i}`} className="flex items-start gap-3">
+                    <span
+                      className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full text-[11px] font-black text-white"
+                      style={numberBadgeStyle(accent)}
+                    >
+                      {i + 1}
+                    </span>
+                    <span className="leading-relaxed">{s}</span>
+                  </li>
+                ))}
+              </ol>
+              <button
+                type="button"
+                className="w-full rounded-2xl py-3 text-sm font-black text-white shadow-sm transition hover:opacity-90"
+                style={{ backgroundColor: accent }}
+                onClick={() => markDone("reading_sentences")}
+              >
+                Ya le\u00ed \u2713
+              </button>
+            </section>
+          )
+        }
+      : {
+          id: "reading_sentences",
+          label: "Leer",
+          node: (
+            <button
+              type="button"
+              className="w-full rounded-2xl py-3 text-sm font-black text-white shadow-sm transition hover:opacity-90"
+              style={{ backgroundColor: accent }}
+              onClick={() => markDone("reading_sentences")}
+            >
+              Listo \u2713
+            </button>
+          )
+        },
   ];
 
   return (
     <div className="student-exercise-pane">
-      {/* 1 — Character art from Lane B manifest */}
+      {/* Character art from book asset manifest */}
       <BookArtFigure
         lesson={entry.n}
         role="character"
         className="w-full mb-5"
         style={{ aspectRatio: "4/3", maxHeight: "18rem" } as React.CSSProperties}
       />
-
       <OrderedExercises lessonId={lessonId} blocks={blocks} />
-
       {/* Sticky footer: timer + dots */}
       <div className="lesson-sticky-bar">
         <LessonTimer limitSeconds={timeLimitSeconds ?? null} />
