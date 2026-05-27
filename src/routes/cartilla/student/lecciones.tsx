@@ -316,7 +316,7 @@ function Lecciones() {
                     ) : null}
                   </div>
                   {/* Aspect-ratio preserving container with rounded corners */}
-                  <div className="aspect-square w-full rounded-xl overflow-hidden mb-2 relative flex items-center justify-center" style={entryBgStyle}>
+                  <div className="aspect-[8.5/11] w-full rounded-xl overflow-hidden mb-2 relative flex items-center justify-center" style={entryBgStyle}>
                     <BookArtFigure lesson={entry.n} role="character" className="w-full h-full object-contain p-2" />
                   </div>
                   <div
