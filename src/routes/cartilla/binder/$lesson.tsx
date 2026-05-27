@@ -1,43 +1,18 @@
-import { createFileRoute, Link, useParams } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/cartilla/binder/$lesson")({
   component: BinderLessonStub,
 });
 
 function BinderLessonStub() {
-  const { lesson } = useParams({ from: "/cartilla/binder/$lesson" });
+  const { lesson } = Route.useParams();
   return (
-    <div
-      style=
-        minHeight: "60vh",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "3rem 1.5rem",
-        fontFamily: "system-ui, -apple-system, sans-serif",
-        color: "#1c1917",
-        textAlign: "center",
-        gap: "1rem",
-      
-    >
-      <h1 style= fontSize: "1.5rem", fontWeight: 800, margin: 0, color: "#78350f" >
-        Lección {lesson}
-      </h1>
-      <p style= color: "#57534e", margin: 0, maxWidth: "36rem", lineHeight: 1.5 >
+    <div className="min-h-screen flex flex-col items-center justify-center p-12 text-center font-sans text-stone-800 bg-amber-50">
+      <h1 className="text-3xl font-extrabold mb-4 text-stone-900">Lección {lesson}</h1>
+      <p className="text-stone-600 mb-6 max-w-md leading-relaxed">
         La hoja de impresión para esta lección estará lista en unos minutos.
       </p>
-      <Link
-        to="/"
-        style=
-          marginTop: "1rem",
-          color: "#0369a1",
-          textDecoration: "underline",
-          fontWeight: 600,
-        
-      >
-        ← Volver al inicio
-      </Link>
+      <a href="/" className="text-sky-700 underline hover:text-sky-900">← Volver al inicio</a>
     </div>
   );
 }
