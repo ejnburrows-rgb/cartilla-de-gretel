@@ -36,6 +36,8 @@ const PageContent = forwardRef<HTMLDivElement, PageContentProps>(
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const FlipBook = HTMLFlipBook as any;
 
+const flipBookStyle = { background: "transparent" } as const;
+
 export interface WorkbookPageEntry {
   id: string;
   cover?: boolean;
@@ -81,7 +83,7 @@ export function StudentWorkbookFlip({
           usePortrait={true}
           showPageCorners={true}
           className="mx-auto"
-          style= background: "transparent" 
+          style={flipBookStyle}
           onFlip={(e: { data: number }) => {
             setCurrentPage(e.data);
             setHintVisible(false);
