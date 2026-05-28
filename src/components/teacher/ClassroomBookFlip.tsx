@@ -19,6 +19,18 @@ const pageStyle = {
 };
 const pageTransition = { duration: 0.55, ease: [0.2, 0.7, 0.2, 1] as const };
 
+const pageVariants = {
+  enter: (dir: number) => ({
+    rotateX: dir === 1 ? -92 : 92,
+    opacity: 0,
+  }),
+  center: { rotateX: 0, opacity: 1 },
+  exit: (dir: number) => ({
+    rotateX: dir === 1 ? 92 : -92,
+    opacity: 0,
+  }),
+};
+
 /**
  * Vertical 3D flip chart for the teacher's classroom book.
  * Pages rotate around their top edge — like a spiral-bound desk easel.
@@ -70,15 +82,10 @@ export function ClassroomBookFlip({
             <motion.div
               key={current.id}
               custom={direction}
-              initial=
-                rotateX: direction === 1 ? -92 : 92,
-                opacity: 0,
-              
-              animate= rotateX: 0, opacity: 1 
-              exit=
-                rotateX: direction === 1 ? 92 : -92,
-                opacity: 0,
-              
+              variants={pageVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
               transition={pageTransition}
               style={pageStyle}
               className="absolute inset-0 rounded-2xl border-2 border-[hsl(28,30%,18%)]/10 bg-[hsl(48_100%_97%)] p-10 shadow-[0_24px_60px_hsl(28_30%_18%/0.18)]"
