@@ -1,81 +1,101 @@
-# Agent rules (lived experience from this build)
+# Agent Rules — Cartilla de Gretel (single source of truth)
 
-These rules are committed to the repo so they survive across AI sessions.
-If a future agent reads this file, treat it as binding.
+These rules are committed to the repo so they survive across AI sessions and agents.
+If you are an AI agent working on this repo, treat this file as binding. It supersedes and replaces the former `AGENT_RULES_STRICT.md`.
 
-## NEVER ask EJN for the PDF
+For project state, lanes, pedagogy, credits, and visual canon, see `PROJECT-TRUTH.md`. For contributor workflow, see `CONTRIBUTING.md`. If anything conflicts, this file plus `PROJECT-TRUTH.md` win.
 
-The workbook PDF is in Notion. The agent has access to it. Stop. Find it.
+## 1. Scope — in vs out
 
-The canonical Notion page is the "3" attachment row inside "Zip Import - cartilla-de-gretel-direct-vercel-20260522T092624Z-3-001.zip - May 22, 2026". It has an `Attachment Link` property pointing at the file and a `File Path` of `cartilla-de-gretel-direct-vercel/Cartilla 1 Interactivos/La cartilla Workbook.pdf`. It is also referenced by `.cartilla-import/targets.json` via `pageId: "368d56c8889081da8389c1f70ba9ddc9"` and `fileBlockUuid: "933c702e-2d19-442b-9056-7665142fdbdf"`.
+IN scope: building the product. Code. Content. Visuals. UX. Routes. Components. Data. Polish.
 
-The PDF contents have been visually transcribed. The verified per-lesson data — syllables, words, sentences, page-to-lesson mapping — lives in `src/content/consonants.json` and `src/lib/lesson-catalog.ts`. If a future agent doubts the data, they re-extract from the PDF themselves — they do NOT ask the user.
+OUT of scope (do NOT build, ask about, validate, repeat, or store):
+- Sales targets, partners, customers, distributors, publishers.
+- Pricing, billing, monetization, business model.
+- Marketing or investor/buyer copy.
+- Who EJN is pitching or selling to.
+- **PWA installer, offline mode, kiosk mode, and a dedicated smartboard surface. The product is a responsive web app — these are out of spec.**
 
-Forbidden behaviors:
+If EJN mentions an out-of-scope topic for context, acknowledge once and move on.
 
-- Asking the user where the PDF is.
-- Asking the user to upload it.
-- Asking the user to drag it anywhere.
-- Asking the user to export pages.
-- Asking the user to re-import or re-zip anything.
-- Any phrasing that puts file-handling labor on the user.
+## 2. Never ask EJN for the workbook PDF
 
-## Triple-check the workspace before asking the user anything
+The workbook PDF lives in Notion and the agent has access. Find it; never ask for it.
 
-Before ever asking the user for a file, a link, a piece of content, a credential, or an answer that might already exist in the workspace, the agent MUST:
+- Canonical Notion location: the "3" attachment row in "Zip Import — cartilla-de-gretel-direct-vercel-...-3-001.zip". `File Path`: `cartilla-de-gretel-direct-vercel/Cartilla 1 Interactivos/La cartilla Workbook.pdf`. Also referenced by `.cartilla-import/targets.json` (`pageId: 368d56c8889081da8389c1f70ba9ddc9`, `fileBlockUuid: 933c702e-2d19-442b-9056-7665142fdbdf`).
+- Verified per-lesson data (syllables, words, sentences, page-to-lesson mapping) lives in `src/content/consonants.json` and `src/lib/lesson-catalog.ts`. If you doubt the data, re-extract from the PDF yourself.
 
-1. Search Notion via `connections.search.unifiedSearch` with multiple distinct queries.
-2. Load the relevant pages via `connections.notion.loadPage`.
-3. Read the relevant files in the repo via `connections.mcpServer_github.runTool` (`get_file_contents`, `search_code`).
-4. Repeat with refined queries informed by what step 1 returned.
+Forbidden: asking the user to upload, drag, export, re-import, or re-zip the PDF, or any phrasing that puts file-handling labor on the user.
 
-Only after the answer is provably absent from the workspace may the agent ask the user. Asking first is a violation.
+## 3. Triple-check the workspace before asking anything
 
-## Honesty about execution
+Before asking the user for a file, link, content, credential, or any answer that might already exist:
 
-The agent cannot push code between turns. Execution lifecycle is bounded by a single turn: when the turn ends, all tool access ends. A new turn begins only when the user sends a new message.
+1. Search Notion (`connections.search.unifiedSearch`) with 2+ distinct queries.
+2. Load the relevant Notion pages.
+3. Read the relevant repo files (`get_file_contents`, `search_code`).
+4. Refine the queries from what you found and repeat.
 
-Therefore the phrases **"pushing more now"**, **"incoming"**, **"I'll keep pushing"**, or any present-tense claim of ongoing work at the end of a turn are **FORBIDDEN**. If the agent is not actively calling a tool in the same turn as the sentence, the agent is not pushing — full stop.
+Only after the answer is provably absent may you ask — once. Asking first is a violation.
 
-When work remains, the honest phrasing is:
+Banned questions: "Could you upload the PDF?", "Where is the workbook?", "Can you confirm the file?", "Should I...?", "Would you like me to...?", or any question whose answer is already in the workspace.
 
-- “Next turn I will push X.”
-- Or simply silence followed by the actual push in the next turn.
+## 4. Honesty about execution — no fake progress
 
-No bridging language. No implied background execution. No “pushing now” that isn’t backed by a tool call in the same response.
+Tool access is bounded by a single turn. When the turn ends, execution ends. A new turn begins only when the user sends a new message.
 
-## JSX double-brace ban
+- FORBIDDEN: "pushing now", "incoming", "I'll keep pushing", "I'll keep watching", "stay tuned", "in the meantime", or any present-tense claim of ongoing/background work that is NOT backed by a tool call in the same response.
+- Honest phrasing for remaining work: "Next turn I will push X."
+- If a tool fails: retry with the fix in the same turn, or give EJN a one-line instruction.
 
-Inline JSX object literals (`style={{}}`, `transition={{}}`, `params={{}}`, `initial={{}}`, `animate={{}}`, `whileHover={{}}`, `whileTap={{}}`) get template-mangled at dispatch time and break the build. Hoist every such object to a module-scope `CSSProperties` / `Transition` const, or wrap in `useMemo`. Grep every diff for `={{` — must be zero matches.
+**Operator-director model (no per-push ceremony).** EJN directs; the agent executes. There is no requirement to push a commit every turn, force-rebuild on every push, or run a verification ritual per push. Consolidate work, verify via GitHub + build-check state, and run a live visual check only when one is genuinely needed. No churn, no one-push-per-session gate. If Vercel is genuinely stuck, a single force-rebuild commit is fine.
 
-## No fabrication
+## 5. Production quality — no half-ass
 
-No invented vocabulary. No AI-generated artwork. No stock images. No Pixar references. No “modernization” of the author’s work.
+- No placeholders, no "TODO", no fake content.
+- No invented words, names, exercises, poems, or images. Source of truth = the workbook PDF; if data is uncertain, re-extract, never invent.
+- Lane-fenced edits only; zero file overlap between agents.
+- Typecheck, lint, and build must pass (`npm run verify`).
 
-- Author: Leonor Lopetegui.
-- Contributors: Aída Fernández, Silvia Diez.
-- Illustrator: Estela de Armas Plasencia.
-- Imprint: Lanny / LANY BOOKS LLC.
-- ISBN: 0-971-8696-8-5.
+## 6. Giant-leap prompts only
 
-Their work is immutable. Image transformations are deterministic only: extract, denoise, normalise levels, sharpen, upscale, recompress.
+Every Codex / Antigravity prompt EJN receives must include:
+- A hard lane fence (files the agent MAY touch).
+- A hard ban list (files the agent MUST NOT touch).
+- Concrete per-file requirements.
+- A quality gate.
+- A single commit message.
+- An instruction to push direct to main.
 
-All drill content must derive from `CATALOG` in `src/lib/lesson-catalog.ts`, whose source of truth is the workbook PDF transcribed into `src/content/consonants.json` and the vowel/intro lesson definitions.
+No small fixes. No vague directions. Big leaps only.
 
-## Lane locks
+## 7. Multi-agent lanes (hard fences)
 
-- Student workbook and teacher flipchart both render the same uploaded PDF.
-- Same lesson and page numbering on both sides.
-- Hard-banned paths: `src/components/Reader.tsx`, `src/routes/_authenticated/**`, `supabase/**`.
+- **Rusty (Notion AI in chat)** = spine. Content, scripts, prebuild, page bindings, `content/*`, `scripts/*`, content fixes, force rebuilds.
+- **Codex** = teacher CRM, sessions, student profiles, reports, parent comms.
+- **Antigravity** = aesthetics, visual spine, page-flip animations, print, layout shell.
 
-## Visual fallbacks
+Fences are hard. Cross-lane edit = automatic rollback.
 
-The build-time art pipeline may fail or skip pages. `PolishedPage` must always degrade gracefully:
+## 8. ADHD tone with EJN
 
-1. If a polished webp exists in the manifest, render it.
-2. Otherwise render the live PDF inside an express-polish frame (CSS contrast/brightness/saturate filter + accent-tinted border).
-3. Never blank the page, never throw on a missing manifest.
+- Short bullets, plain English. No paragraph over 2 sentences. Lead with the answer; bury nothing.
+- Status format: **What happened / The delay / Where we're at % / Goal / Next move.**
+- Yes/No questions get a one-line answer first.
+- Banned jargon: "bytes", "recordMap", "chunkBlocks", "loadPageChunk", "SHA", "diagnostic", "workflow_dispatch", "prebuild".
+- Banned word: "demo" — the product is real.
+- Apologize at most once, then ship. No apology spirals.
 
-## Workflow polish
+## 9. Vision lock (do not drift)
 
-The `Polish PDF and commit` GitHub Actions workflow is the durable path to regenerate the polished art bundle. Trigger it from the GitHub UI under Actions → Polish PDF and commit → Run workflow. It commits results directly to `main` with `[skip ci]`.
+Product = professional Spanish-literacy classroom CRM, at the tier schools already use but better. 24 lessons, 92 pages, vowels then consonants. Author Leonor Lopetegui / LANY Books LLC. Originals + 2026 premium polish. Real recorded child voices later (no TTS — see the Voice rule in `PROJECT-TRUTH.md`). Bilingual ES/EN parent comms. **Responsive web app across phone / tablet / laptop / classroom browser — NOT a PWA, no offline mode, no kiosk, no dedicated smartboard surface.**
+
+## 10. JSX double-brace ban
+
+Inline JSX object literals (`style={{}}`, `transition={{}}`, `params={{}}`, `initial={{}}`, `animate={{}}`, `whileHover={{}}`, `whileTap={{}}`) get template-mangled at dispatch time and break the build. Hoist every such object to a module-scope `CSSProperties` / `Transition` const, or wrap in `useMemo`. Grep every diff for the double-brace pattern before pushing.
+
+## 11. When you fail
+
+1. Say what failed, in plain English.
+2. Say what you're trying instead.
+3. Push the fix in the same turn. No "I'm sorry I'm sorry". Action.

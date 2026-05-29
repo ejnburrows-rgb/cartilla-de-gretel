@@ -20,6 +20,12 @@ Stack:
 - Supabase
 - Vercel
 
+## Scope
+
+- Responsive web app only. Targets phone, tablet, laptop, and the classroom browser.
+- Out of spec: PWA installer, offline mode, kiosk mode, dedicated smartboard surface.
+- Real recorded child voices are planned for later (no TTS). See the Voice rule below.
+
 ## Verified current GitHub state
 
 Repo:
@@ -32,25 +38,25 @@ main
 
 Verified current HEAD on GitHub:
 
-09f08438c2617a65e98bec4e084d7965089df9d3
+6a64b2be196136164c4f28bb0cfdc4a5135463c1
 
 Commit message:
 
-feat(intro): pastel Cartilla splash + /intro route — Giant Leap P
+Consolidate visual sweep: #14 + #17 + #18 (#19)
 
 Note:
 
-The Notion Hub previously listed 13f940e6 as HEAD. That value is stale compared with GitHub main.
+This consolidation squash-merged PRs #14, #17, and #18 into main on 2026-05-29. Earlier HEAD values (13f940e6, 09f08438) are stale.
 
 ## Verified deployment state
 
-GitHub reports the Vercel status check for HEAD 09f08438c2617a65e98bec4e084d7965089df9d3 as success.
+GitHub reports the Vercel deployment for HEAD 6a64b2be196136164c4f28bb0cfdc4a5135463c1 as success.
 
-The `/intro` route returned HTTP 200 from Vercel during verification.
+GitHub main is wired to Vercel auto-deploy.
 
 Unknown / needs confirmation:
 
-A full Comet phone/browser visual check has not been run in this pass.
+A full Comet phone/browser visual check has not been run on this HEAD.
 
 ## Product lanes
 
@@ -259,27 +265,27 @@ physical CD → digitize → clone original Gretel voice → approved clips adde
 - Fix or hide broken Erik/Sofía login until real auth works.
 - Rotate or replace upside-down workbook scans.
 - Add drag-and-drop where the workbook requires it.
-- Add 3D vertical page-flip for student workbook and teacher flipchart.
 - Improve HD/colorized illustrations using approved source-faithful pipeline.
 
 ## Current active work
 
 Immediate Hub priority:
 
-1. Leap F — code-only UX sweep.
+1. Leap F — visual sweep consolidation. DONE (2026-05-29): #14 + #17 + #18 squash-merged to main via #19.
 2. Leap G — image fixes.
 3. Leap H — demo-data cleanup.
 
 Queued:
 
-- 3D vertical page-flip
 - drag-and-drop interactions
 - HD colorized illustrations
 - optional silent mascot component if E confirms scope
 
+Note: 3D vertical page-flip is already done (Leaps L + M).
+
 ## Unknown / needs confirmation
 
-- Full visual Comet phone check for HEAD 09f08438.
+- Full visual Comet phone check for HEAD 6a64b2b.
 - Whether mascot batch is now canonical work.
 - Which coding agent receives mascot work.
 - LANY Books sibling site scope.
