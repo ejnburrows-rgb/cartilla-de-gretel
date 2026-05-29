@@ -118,6 +118,7 @@ export function IntroSplash({
           animate="visible"
           transition={heroTransition}
         >
+          <img src="/gretel/happy.webp" alt="Gretel" className="w-20 h-20 mx-auto mb-4 object-contain" />
           <p className="text-xs font-black uppercase tracking-[0.3em] text-[hsl(31,56%,48%)]">
             Bienvenidos a
           </p>
@@ -154,9 +155,9 @@ export function IntroSplash({
             type="button"
             onClick={onContinue}
             className="min-h-14 rounded-full bg-[hsl(197,41%,22%)] px-10 py-4 text-base font-black uppercase tracking-widest text-white shadow-[0_18px_36px_hsl(197_41%_22%/0.28)] transition hover:-translate-y-0.5 hover:shadow-[0_22px_44px_hsl(197_41%_22%/0.34)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[hsl(31,56%,48%)]"
-          >
-            {ctaLabel} →
-          </button>
+>
+             {ctaLabel}
+           </button>
         </motion.div>
 
         <div

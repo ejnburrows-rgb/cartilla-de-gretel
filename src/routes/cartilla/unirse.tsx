@@ -5,6 +5,7 @@ import { ArrowLeft, LogIn, Loader2, LogOut } from "lucide-react";
 import { joinClass } from "@/lib/student.functions";
 import { setStudentSession, useStudentSession } from "@/lib/student-session";
 import { SEED_STUDENT_ACCESS } from "@/lib/seed-data";
+import { GretelMascot } from "@/components/gretel/GretelMascot";
 
 export const Route = createFileRoute("/cartilla/unirse")({
   component: JoinPage,
@@ -73,8 +74,15 @@ function JoinPage() {
       </header>
 
       {session ? (
-        <div className="mt-8 kid-card p-4 text-center">
-          <p className="font-bold">¡Hola, {session.studentName}!</p>
+        <div className="mt-8 kid-card p-6 text-center flex flex-col items-center">
+          <div className="mb-4">
+            <GretelMascot
+              pose="welcome"
+              text={`¡Hola, ${session.studentName}!\n¡Qué alegría verte aquí!\nEntra a tu clase para comenzar.`}
+              bubblePosition="top"
+            />
+          </div>
+          <p className="font-bold text-lg mt-2">¡Hola, {session.studentName}!</p>
           <p className="text-sm text-foreground/60 mt-1">
             Estás en la clase <strong>{session.className}</strong>.
           </p>

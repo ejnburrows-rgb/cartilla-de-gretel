@@ -5,7 +5,7 @@ import { PolishedPage } from "./PolishedPage";
 import { StudentBookToolbar } from "./StudentBookToolbar";
 import { BookOpen, Tv } from "lucide-react";
 import { speak } from "@/lib/speak";
-import { GretelMascot } from "./GretelMascot";
+import { GretelMascot } from "@/components/gretel/GretelMascot";
 
 interface BookReaderProps {
   initialPage?: number;
@@ -13,7 +13,7 @@ interface BookReaderProps {
 
 export function BookReader({ initialPage = 1 }: BookReaderProps) {
   const [currentPage, setCurrentPage] = useState<number>(initialPage);
-  const [layoutMode, setLayoutMode] = useState<"horizontal" | "vertical">("vertical");
+  const [layoutMode, setLayoutMode] = useState<"horizontal" | "vertical">("horizontal");
 
   // Determine total pages from catalog
   const totalPages = useMemo(() => {
@@ -21,7 +21,7 @@ export function BookReader({ initialPage = 1 }: BookReaderProps) {
       ...CATALOG.map((entry) => {
         const parts = entry.pages.split("-").map(Number);
         return parts[1] || parts[0] || 1;
-      })
+      }),
     );
   }, []);
 
@@ -112,7 +112,12 @@ export function BookReader({ initialPage = 1 }: BookReaderProps) {
 
       {/* Mascot Integration */}
       <div className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50">
-        <GretelMascot state="idle" />
+        <GretelMascot
+          pose="read"
+          text="¡Vamos a leer!\nPasa las páginas para explorar el libro."
+          bubblePosition="left"
+          showCloseButton={true}
+        />
       </div>
     </div>
   );

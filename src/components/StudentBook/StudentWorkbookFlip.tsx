@@ -102,7 +102,7 @@ export function StudentWorkbookFlip({
           aria-hidden
           className="pointer-events-none absolute bottom-10 right-10 z-10 animate-pulse rounded-full bg-white/90 px-4 py-2 text-sm font-black text-[hsl(31,56%,48%)] shadow-lg"
         >
-          Presione aquí 👉
+          Presione aquí
         </div>
       ) : null}
 

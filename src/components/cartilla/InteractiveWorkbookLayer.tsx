@@ -1,16 +1,19 @@
 import type { CSSProperties } from "react";
 import { useMemo, useState } from "react";
-import { BookOpen, Volume2, CheckCircle2, Hourglass, BookOpenCheck, Sparkles, Image as ImageIcon, Trophy } from "lucide-react";
+import {
+  BookOpen,
+  Volume2,
+  CheckCircle2,
+  Hourglass,
+  BookOpenCheck,
+  Sparkles,
+  Image as ImageIcon,
+  Trophy,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
-import { speak } from "@/lib/speak";
 import { assetPath } from "@/lib/assets";
 import { getWorkbookPagesForLesson } from "@/lib/book-faithful";
-import {
-  getInteractionsForPage,
-  getPageInteractionSet,
-} from "@/lib/workbook-interactions";
-import { DragWordReveal } from "@/components/cartilla/DragWordReveal";
-import { TapObjectActivity } from "@/components/cartilla/TapObjectActivity";
+import { getInteractionsForPage, getPageInteractionSet } from "@/lib/workbook-interactions";
 import type { WorkbookInteraction } from "@/lib/workbook-interactions";
 
 type Props = {
@@ -80,7 +83,6 @@ function SyllablePractice({
   const [tapped, setTapped] = useState<Set<string>>(new Set());
 
   const handleTap = (id: string, label: string) => {
-    speak(label);
     setTapped((prev) => {
       const next = new Set(prev);
       next.add(id);
@@ -95,10 +97,16 @@ function SyllablePractice({
     <div className="rounded-[1.75rem] border-2 border-foreground/10 bg-white/90 shadow-xl shadow-primary/5 overflow-hidden">
       <div className="px-4 py-3 flex items-center gap-3" style={borderStyle(accent)}>
         <div className="flex-1 min-w-0">
-          <h3 className="font-black text-lg text-foreground/90 leading-tight">{interaction.title}</h3>
-          <p className="text-sm font-semibold text-foreground/55 mt-1 leading-snug">{interaction.prompt}</p>
+          <h3 className="font-black text-lg text-foreground/90 leading-tight">
+            {interaction.title}
+          </h3>
+          <p className="text-sm font-semibold text-foreground/55 mt-1 leading-snug">
+            {interaction.prompt}
+          </p>
         </div>
-        {allDone && <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" aria-label="Completado" />}
+        {allDone && (
+          <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" aria-label="Completado" />
+        )}
       </div>
       <div className="px-4 py-4">
         <SourceImageCard assetRef={interaction.assetRef} />
@@ -119,7 +127,10 @@ function SyllablePractice({
                 )}
               >
                 {item.label}
-                <Volume2 aria-hidden className={cn("w-3.5 h-3.5", done ? "text-emerald-400" : "text-foreground/25")} />
+                <Volume2
+                  aria-hidden
+                  className={cn("w-3.5 h-3.5", done ? "text-emerald-400" : "text-foreground/25")}
+                />
               </button>
             );
           })}
@@ -146,7 +157,6 @@ function WordTap({
   const [tapped, setTapped] = useState<Set<string>>(new Set());
 
   const handleTap = (id: string, label: string) => {
-    speak(label);
     setTapped((prev) => {
       const next = new Set(prev);
       next.add(id);
@@ -161,10 +171,16 @@ function WordTap({
     <div className="rounded-[1.75rem] border-2 border-foreground/10 bg-white/90 shadow-xl shadow-primary/5 overflow-hidden">
       <div className="px-4 py-3 flex items-center gap-3" style={borderStyle(accent)}>
         <div className="flex-1 min-w-0">
-          <h3 className="font-black text-lg text-foreground/90 leading-tight">{interaction.title}</h3>
-          <p className="text-sm font-semibold text-foreground/55 mt-1 leading-snug">{interaction.prompt}</p>
+          <h3 className="font-black text-lg text-foreground/90 leading-tight">
+            {interaction.title}
+          </h3>
+          <p className="text-sm font-semibold text-foreground/55 mt-1 leading-snug">
+            {interaction.prompt}
+          </p>
         </div>
-        {allDone && <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" aria-label="Completado" />}
+        {allDone && (
+          <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" aria-label="Completado" />
+        )}
       </div>
       <div className="px-4 py-4">
         <SourceImageCard assetRef={interaction.assetRef} />
@@ -185,8 +201,19 @@ function WordTap({
                     : "border-foreground/15 bg-white hover:scale-105 text-foreground",
                 )}
               >
-                {done ? <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" aria-hidden /> : <Volume2 className="w-4 h-4 text-foreground/35 shrink-0" aria-hidden />}
-                {itemImageSrc && <img src={itemImageSrc} alt="" className="h-10 w-10 rounded-xl object-cover ring-1 ring-foreground/10" loading="lazy" />}
+                {done ? (
+                  <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" aria-hidden />
+                ) : (
+                  <Volume2 className="w-4 h-4 text-foreground/35 shrink-0" aria-hidden />
+                )}
+                {itemImageSrc && (
+                  <img
+                    src={itemImageSrc}
+                    alt=""
+                    className="h-10 w-10 rounded-xl object-cover ring-1 ring-foreground/10"
+                    loading="lazy"
+                  />
+                )}
                 {item.label}
               </button>
             );
@@ -214,7 +241,6 @@ function ReadAloud({
   const [tapped, setTapped] = useState<Set<string>>(new Set());
 
   const handleTap = (id: string, label: string) => {
-    speak(label);
     setTapped((prev) => {
       const next = new Set(prev);
       next.add(id);
@@ -230,10 +256,16 @@ function ReadAloud({
     <div className="rounded-[1.75rem] border-2 border-foreground/10 bg-white/90 shadow-xl shadow-primary/5 overflow-hidden">
       <div className="px-4 py-3 flex items-center gap-3" style={borderStyle(accent)}>
         <div className="flex-1 min-w-0">
-          <h3 className="font-black text-lg text-foreground/90 leading-tight">{interaction.title}</h3>
-          <p className="text-sm font-semibold text-foreground/55 mt-1 leading-snug">{interaction.prompt}</p>
+          <h3 className="font-black text-lg text-foreground/90 leading-tight">
+            {interaction.title}
+          </h3>
+          <p className="text-sm font-semibold text-foreground/55 mt-1 leading-snug">
+            {interaction.prompt}
+          </p>
         </div>
-        {allDone && <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" aria-label="Completado" />}
+        {allDone && (
+          <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" aria-label="Completado" />
+        )}
       </div>
       <div className="px-4 py-4">
         <SourceImageCard assetRef={interaction.assetRef} />
@@ -248,13 +280,19 @@ function ReadAloud({
                 onClick={() => handleTap(item.id, item.label)}
                 className={cn(
                   "flex items-center gap-3 rounded-2xl border-[3px] font-bold transition-all active:scale-[0.98] text-left shadow-sm",
-                  isSentences ? "px-5 py-4 sm:px-6 sm:py-5 text-lg sm:text-xl leading-snug" : "px-6 py-4 sm:px-8 sm:py-5 text-2xl sm:text-3xl font-extrabold",
+                  isSentences
+                    ? "px-5 py-4 sm:px-6 sm:py-5 text-lg sm:text-xl leading-snug"
+                    : "px-6 py-4 sm:px-8 sm:py-5 text-2xl sm:text-3xl font-extrabold",
                   done
                     ? "border-emerald-300 bg-emerald-50 text-emerald-800"
                     : "border-foreground/12 bg-white hover:bg-foreground/4 text-foreground",
                 )}
               >
-                {done ? <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" aria-hidden /> : <Volume2 className="w-4 h-4 shrink-0 text-foreground/30" aria-hidden />}
+                {done ? (
+                  <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" aria-hidden />
+                ) : (
+                  <Volume2 className="w-4 h-4 shrink-0 text-foreground/30" aria-hidden />
+                )}
                 <span>{item.label}</span>
               </button>
             );
@@ -274,7 +312,11 @@ function MiniStoryCard({ interaction }: { interaction: WorkbookInteraction; acce
   const hasText = interaction.items.length > 0;
 
   return (
-    <div className="rounded-[1.75rem] border-2 border-amber-200/70 bg-amber-50/80 shadow-xl shadow-amber-500/5 overflow-hidden" role="complementary" aria-label="Mini-cuento del cuaderno">
+    <div
+      className="rounded-[1.75rem] border-2 border-amber-200/70 bg-amber-50/80 shadow-xl shadow-amber-500/5 overflow-hidden"
+      role="complementary"
+      aria-label="Mini-cuento del cuaderno"
+    >
       <div className="px-4 py-3 flex items-center gap-3 bg-amber-100/60 border-b border-amber-200/50">
         <BookOpen className="w-5 h-5 text-amber-700 shrink-0" aria-hidden />
         <div className="flex-1 min-w-0">
@@ -320,7 +362,9 @@ function AutoScanActivity({
         <Sparkles className="h-5 w-5 text-indigo-600" />
         <div>
           <h3 className="font-black text-indigo-950">{title}</h3>
-          <p className="text-sm font-semibold text-indigo-800/70">Actividad generada desde texto verificado o escaneo conectado.</p>
+          <p className="text-sm font-semibold text-indigo-800/70">
+            Actividad generada desde texto verificado o escaneo conectado.
+          </p>
         </div>
       </div>
       <div className="px-4 py-4 flex flex-wrap gap-3">
@@ -328,7 +372,6 @@ function AutoScanActivity({
           <button
             key={item.id}
             type="button"
-            onClick={() => speak(item.label)}
             className="inline-flex min-h-14 items-center gap-2 rounded-2xl border-2 border-indigo-200 bg-white px-5 py-3 text-lg font-black text-indigo-900 shadow-sm transition hover:-translate-y-0.5 hover:border-indigo-300 active:scale-95"
           >
             <Volume2 className="h-4 w-4 text-indigo-500" /> {item.label}
@@ -349,10 +392,6 @@ function ActivityCard({
   onComplete?: (id: string) => void;
 }) {
   switch (interaction.kind) {
-    case "drag-word-to-image":
-      return <DragWordReveal interaction={interaction} accent={accent} onComplete={onComplete} />;
-    case "tap-object":
-      return <TapObjectActivity interaction={interaction} accent={accent} onComplete={onComplete} />;
     case "drag-syllable-to-slot":
       return <SyllablePractice interaction={interaction} accent={accent} onComplete={onComplete} />;
     case "listen-and-tap":
@@ -387,9 +426,14 @@ export function InteractiveWorkbookLayer({
     (i) => i.kind === "mini-story" && i.sourceStatus === "needs-transcription",
   );
   const visibleInteractions = [...ready, ...storyPlaceholders];
-  const autoItems = visibleInteractions.length === 0 ? normalizeFallbackItems(workbookPage?.verifiedTextBlocks ?? []) : [];
+  const autoItems =
+    visibleInteractions.length === 0
+      ? normalizeFallbackItems(workbookPage?.verifiedTextBlocks ?? [])
+      : [];
 
-  const allInteractionsForLesson = pageNumbers.flatMap((pn) => getInteractionsForPage(lessonNumber, pn));
+  const allInteractionsForLesson = pageNumbers.flatMap((pn) =>
+    getInteractionsForPage(lessonNumber, pn),
+  );
   const hasAnyScanText = Boolean(workbookPage?.verifiedTextBlocks.length);
 
   if (allInteractionsForLesson.length === 0 && !hasAnyScanText) return null;
@@ -404,31 +448,49 @@ export function InteractiveWorkbookLayer({
         <div className="h-px flex-1" style={gradientRight(accent)} />
         <div className="flex items-center gap-2 px-1">
           <BookOpenCheck className="w-4 h-4 text-primary" aria-hidden />
-          <h2 className="text-xs font-extrabold uppercase tracking-widest text-foreground/50">Actividades del cuaderno</h2>
+          <h2 className="text-xs font-extrabold uppercase tracking-widest text-foreground/50">
+            Actividades del cuaderno
+          </h2>
         </div>
         <div className="h-px flex-1" style={gradientLeft(accent)} />
       </div>
 
       {visibleInteractions.length === 0 ? (
-        <AutoScanActivity title={`Página ${activePage}: leer y escuchar`} items={autoItems} accent={accent} />
+        <AutoScanActivity
+          title={`Página ${activePage}: leer y escuchar`}
+          items={autoItems}
+          accent={accent}
+        />
       ) : (
         <div className="space-y-3">
           {visibleInteractions.map((interaction) => (
-            <ActivityCard key={interaction.id} interaction={interaction} accent={accent} onComplete={handleComplete} />
+            <ActivityCard
+              key={interaction.id}
+              interaction={interaction}
+              accent={accent}
+              onComplete={handleComplete}
+            />
           ))}
           {totalVisible > 1 && completedCount > 0 && (
             <div className="flex items-center gap-3 justify-end rounded-full bg-white/70 px-3 py-2 shadow-sm">
               <div className="h-1.5 flex-1 max-w-24 bg-foreground/8 rounded-full overflow-hidden">
-                <div className="h-full rounded-full transition-all" style={progressStyle((completedCount / totalVisible) * 100, accent)} />
+                <div
+                  className="h-full rounded-full transition-all"
+                  style={progressStyle((completedCount / totalVisible) * 100, accent)}
+                />
               </div>
-              <span className="text-[10px] font-bold text-foreground/35 tabular-nums">{completedCount}/{totalVisible}</span>
+              <span className="text-[10px] font-bold text-foreground/35 tabular-nums">
+                {completedCount}/{totalVisible}
+              </span>
             </div>
           )}
           {totalVisible > 1 && completedCount === totalVisible && (
             <div className="rounded-[1.75rem] border-2 border-emerald-300 bg-emerald-50 px-4 py-4 text-center text-emerald-800 shadow-lg shadow-emerald-500/10">
               <Trophy className="mx-auto mb-1 h-6 w-6" />
               <div className="text-base font-black">¡Gran trabajo!</div>
-              <p className="text-sm font-semibold text-emerald-700/80">Terminaste las actividades de esta página.</p>
+              <p className="text-sm font-semibold text-emerald-700/80">
+                Terminaste las actividades de esta página.
+              </p>
             </div>
           )}
         </div>
