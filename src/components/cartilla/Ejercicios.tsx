@@ -172,7 +172,7 @@ export function SyllableTap({
   );
 }
 
-/** Match drawing to word */
+/** Match word to picture */
 export function WordMatch({
   words,
   color,

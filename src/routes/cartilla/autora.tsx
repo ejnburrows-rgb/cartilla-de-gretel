@@ -78,12 +78,7 @@ function Autora() {
 
       <section className="bg-[hsl(25,25%,12%)] text-[hsl(40,40%,92%)]">
         <div className="max-w-6xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
-          {[
-            ["+50", "años en el aula"],
-            ["★", "Premio Cervantes"],
-            ["10+", "años liderando bilingüe"],
-            ["6 jun 2014", "Día de la Sra. Lopetegui"],
-          ].map(([n, l]) => (
+{["+50", "años en el aula"], ["Premio Cervantes", "Reconocimiento"], ["10+", "años liderando bilingüe"], ["6 jun 2014", "Día de la Sra. Lopetegui"]].map(([n, l]) => (
             <div key={l} className="text-center md:text-left">
               <p
                 className="text-3xl md:text-4xl mb-1 text-[hsl(40,40%,96%)]"

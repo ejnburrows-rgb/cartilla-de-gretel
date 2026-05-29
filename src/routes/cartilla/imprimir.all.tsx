@@ -153,7 +153,7 @@ function LessonWorksheet({ entry }: { entry: CatalogEntry }) {
                       </div>
                     ))}
                   </div>
-                  <div className="hidden sm:block text-stone-400 font-bold">➡️</div>
+                  <div className="hidden sm:block text-stone-400 font-bold">→</div>
                   <div className="flex gap-1.5">
                     {targetWord.split("").map((_, i) => (
                       <div
