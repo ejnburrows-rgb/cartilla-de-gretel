@@ -21,7 +21,7 @@ function Landing() {
       <section className="mx-auto flex min-h-[calc(100vh-4rem)] w-full max-w-6xl flex-col justify-between">
         <header className="flex items-center justify-between gap-4">
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.24em] text-[hsl(31,56%,48%)]">
+            <p className="text-xs font-black uppercase tracking-[0.24em] text-[hsl(24,98%,50%)]">
               La Cartilla de Gretel
             </p>
             <h1 className="mt-2 text-3xl font-black leading-none sm:text-5xl">
@@ -37,14 +37,14 @@ function Landing() {
         </header>
 
         <div className="grid items-center gap-8 py-10 lg:grid-cols-[0.95fr_1.05fr]">
-          <div className="relative mx-auto aspect-[4/5] w-full max-w-sm rounded-[2rem] border border-white/80 bg-white/70 p-4 shadow-2xl shadow-[hsl(31,56%,48%)]/20 backdrop-blur">
+          <div className="relative mx-auto aspect-[4/5] w-full max-w-sm rounded-[2rem] border border-white/80 bg-white/70 p-4 shadow-2xl shadow-[hsl(24,98%,50%)]/20 backdrop-blur">
             <div className="h-full rounded-[1.5rem] border border-[hsl(28,30%,18%)]/10 bg-[linear-gradient(160deg,#f8dfb7,#f7efe1_48%,#d5ebe2)] p-6 shadow-inner">
               <div className="flex h-full flex-col items-center justify-center text-center">
-                <Sparkles className="mb-5 h-10 w-10 text-[hsl(31,56%,48%)]" />
-                <p className="text-sm font-black uppercase tracking-[0.22em] text-[hsl(31,56%,48%)]">
+                <Sparkles className="mb-5 h-10 w-10 text-[hsl(24,98%,50%)]" />
+                <p className="text-sm font-black uppercase tracking-[0.22em] text-[hsl(24,98%,50%)]">
                   Lectura y práctica
                 </p>
-                <h2 className="mt-4 text-5xl font-black leading-none text-[hsl(197,41%,22%)]">
+                <h2 className="mt-4 text-5xl font-black leading-none text-[hsl(200,98%,39%)]">
                   Gretel
                 </h2>
                 <p className="mt-5 max-w-xs text-base font-semibold leading-relaxed text-[hsl(28,30%,18%)]/72">
@@ -55,47 +55,47 @@ function Landing() {
           </div>
 
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.22em] text-[hsl(31,56%,48%)]">
+            <p className="text-sm font-black uppercase tracking-[0.22em] text-[hsl(24,98%,50%)]">
               Comience aquí
             </p>
-            <h2 className="mt-4 max-w-2xl text-4xl font-black leading-[0.98] text-[hsl(197,41%,22%)] sm:text-6xl">
+            <h2 className="mt-4 max-w-2xl text-4xl font-black leading-[0.98] text-[hsl(200,98%,39%)] sm:text-6xl">
               Elija el camino de la clase.
             </h2>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               <Link
                 to="/cartilla/unirse"
-                className="group min-h-56 rounded-[1.5rem] border border-white/80 bg-white/82 p-6 shadow-xl shadow-[hsl(197,41%,22%)]/10 transition hover:-translate-y-1 hover:bg-white focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[hsl(31,56%,48%)]"
+                className="group min-h-56 rounded-[1.5rem] border border-white/80 bg-white/82 p-6 shadow-xl shadow-[hsl(200,98%,39%)]/10 transition hover:-translate-y-1 hover:bg-white focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[hsl(24,98%,50%)]"
                 aria-label="Entrar como estudiante"
               >
-                <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[hsl(197,41%,22%)] text-white shadow-lg shadow-[hsl(197,41%,22%)]/20">
+                <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[hsl(200,98%,39%)] text-white shadow-lg shadow-[hsl(200,98%,39%)]/20">
                   <BookOpen className="h-7 w-7" aria-hidden />
                 </span>
-                <span className="mt-6 block text-3xl font-black text-[hsl(197,41%,22%)]">
+                <span className="mt-6 block text-3xl font-black text-[hsl(200,98%,39%)]">
                   Estudiante
                 </span>
                 <span className="mt-3 block text-base font-semibold leading-relaxed text-[hsl(28,30%,18%)]/70">
                   Entrar con el código de clase y continuar las lecciones.
                 </span>
-                <span className="mt-6 inline-flex text-sm font-black text-[hsl(31,56%,48%)] group-hover:underline">
+                <span className="mt-6 inline-flex text-sm font-black text-[hsl(24,98%,50%)] group-hover:underline">
                   Entrar como estudiante
                 </span>
               </Link>
 
               <Link
                 to="/cartilla/teacher"
-                className="group min-h-56 rounded-[1.5rem] border border-white/80 bg-white/82 p-6 shadow-xl shadow-[hsl(197,41%,22%)]/10 transition hover:-translate-y-1 hover:bg-white focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[hsl(31,56%,48%)]"
+                className="group min-h-56 rounded-[1.5rem] border border-white/80 bg-white/82 p-6 shadow-xl shadow-[hsl(200,98%,39%)]/10 transition hover:-translate-y-1 hover:bg-white focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[hsl(24,98%,50%)]"
                 aria-label="Entrar como maestro"
               >
-                <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[hsl(31,56%,48%)] text-white shadow-lg shadow-[hsl(31,56%,48%)]/20">
+                <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[hsl(24,98%,50%)] text-white shadow-lg shadow-[hsl(24,98%,50%)]/20">
                   <GraduationCap className="h-7 w-7" aria-hidden />
                 </span>
-                <span className="mt-6 block text-3xl font-black text-[hsl(197,41%,22%)]">
+                <span className="mt-6 block text-3xl font-black text-[hsl(200,98%,39%)]">
                   Maestro
                 </span>
                 <span className="mt-3 block text-base font-semibold leading-relaxed text-[hsl(28,30%,18%)]/70">
                   Abrir el panel del maestro y la presentación de clase.
                 </span>
-                <span className="mt-6 inline-flex text-sm font-black text-[hsl(31,56%,48%)] group-hover:underline">
+                <span className="mt-6 inline-flex text-sm font-black text-[hsl(24,98%,50%)] group-hover:underline">
                   Entrar como maestro
                 </span>
               </Link>
@@ -106,10 +106,10 @@ function Landing() {
         <footer className="flex flex-col gap-3 border-t border-[hsl(28,30%,18%)]/10 py-5 text-xs font-bold text-[hsl(28,30%,18%)]/60 sm:flex-row sm:items-center sm:justify-between">
           <p>La Cartilla de Gretel · Leonor Lopetegui · Digital adaptation by Emilio Jose Novo · Imprint: LANY Books LLC</p>
           <div className="flex gap-4">
-            <Link to="/book" className="hover:text-[hsl(31,56%,48%)] hover:underline">
+            <Link to="/book" className="hover:text-[hsl(24,98%,50%)] hover:underline">
               Libro
             </Link>
-            <Link to="/credits" className="hover:text-[hsl(31,56%,48%)] hover:underline">
+            <Link to="/credits" className="hover:text-[hsl(24,98%,50%)] hover:underline">
               Créditos
             </Link>
           </div>
