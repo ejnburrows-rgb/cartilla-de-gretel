@@ -13,12 +13,12 @@ interface GretelMascotProps {
 }
 
 const imageByPose: Record<GretelPose, string> = {
-  welcome: "/gretel/happy.webp",
-  point: "/gretel/encouraging.webp",
-  read: "/gretel/idle-1.webp",
-  celebrate: "/gretel/cheer.webp",
-  think: "/gretel/thinking.webp",
-  wave: "/gretel/happy.webp",
+  welcome: "/cartilla/images/gretel/happy.webp",
+  point: "/cartilla/images/gretel/encouraging.webp",
+  read: "/cartilla/images/gretel/idle-1.webp",
+  celebrate: "/cartilla/images/gretel/cheer.webp",
+  think: "/cartilla/images/gretel/thinking.webp",
+  wave: "/cartilla/images/gretel/happy.webp",
 };
 
 const variants: Variants = {
