@@ -25,7 +25,7 @@ function lessonCardStyle(color: string) {
 
 function TeacherPresentation() {
   return (
-    <TeacherPresentationShell title="Presentación docente" subtitle="Presentación docente basada en la estructura verificada del libro.">
+    <TeacherPresentationShell accentColor="#3b82f6" onExit={() => window.history.back()}>
       <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
         <div className="flex flex-wrap items-center gap-3">
           <Link to="/cartilla/teacher" className="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/20 bg-white/12 px-4 py-2 text-sm font-bold text-white hover:bg-white/18">

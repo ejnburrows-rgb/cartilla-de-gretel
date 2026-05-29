@@ -2,15 +2,12 @@ import type { CSSProperties } from "react";
 import { useMemo, useState } from "react";
 import { BookOpen, Volume2, CheckCircle2, Hourglass, BookOpenCheck, Sparkles, Image as ImageIcon, Trophy } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { speak } from "@/lib/speak";
 import { assetPath } from "@/lib/assets";
 import { getWorkbookPagesForLesson } from "@/lib/book-faithful";
 import {
   getInteractionsForPage,
   getPageInteractionSet,
 } from "@/lib/workbook-interactions";
-import { DragWordReveal } from "@/components/cartilla/DragWordReveal";
-import { TapObjectActivity } from "@/components/cartilla/TapObjectActivity";
 import type { WorkbookInteraction } from "@/lib/workbook-interactions";
 
 type Props = {
@@ -80,7 +77,6 @@ function SyllablePractice({
   const [tapped, setTapped] = useState<Set<string>>(new Set());
 
   const handleTap = (id: string, label: string) => {
-    speak(label);
     setTapped((prev) => {
       const next = new Set(prev);
       next.add(id);
@@ -146,7 +142,6 @@ function WordTap({
   const [tapped, setTapped] = useState<Set<string>>(new Set());
 
   const handleTap = (id: string, label: string) => {
-    speak(label);
     setTapped((prev) => {
       const next = new Set(prev);
       next.add(id);
@@ -214,7 +209,6 @@ function ReadAloud({
   const [tapped, setTapped] = useState<Set<string>>(new Set());
 
   const handleTap = (id: string, label: string) => {
-    speak(label);
     setTapped((prev) => {
       const next = new Set(prev);
       next.add(id);
@@ -328,7 +322,6 @@ function AutoScanActivity({
           <button
             key={item.id}
             type="button"
-            onClick={() => speak(item.label)}
             className="inline-flex min-h-14 items-center gap-2 rounded-2xl border-2 border-indigo-200 bg-white px-5 py-3 text-lg font-black text-indigo-900 shadow-sm transition hover:-translate-y-0.5 hover:border-indigo-300 active:scale-95"
           >
             <Volume2 className="h-4 w-4 text-indigo-500" /> {item.label}
@@ -349,10 +342,6 @@ function ActivityCard({
   onComplete?: (id: string) => void;
 }) {
   switch (interaction.kind) {
-    case "drag-word-to-image":
-      return <DragWordReveal interaction={interaction} accent={accent} onComplete={onComplete} />;
-    case "tap-object":
-      return <TapObjectActivity interaction={interaction} accent={accent} onComplete={onComplete} />;
     case "drag-syllable-to-slot":
       return <SyllablePractice interaction={interaction} accent={accent} onComplete={onComplete} />;
     case "listen-and-tap":

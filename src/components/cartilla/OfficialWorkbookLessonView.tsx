@@ -101,12 +101,12 @@ export function OfficialWorkbookLessonView({
       <div className="official-workbook-canvas">
         <div className={cn("official-workbook-spread", isDoublePage ? "md:grid-cols-2" : "grid-cols-1")}>
           <section className="official-workbook-slot">
-            <PolishedPage pageNumber={leftSource.pageNumber} lessonN={lessonNumber} />
+            <PolishedPage pageNumber={leftSource.pageNumber} />
             {belowPage?.(leftSource.pageNumber)}
           </section>
           {isDoublePage && rightSource && (
             <section className="official-workbook-slot">
-              <PolishedPage pageNumber={rightSource.pageNumber} lessonN={lessonNumber} />
+              <PolishedPage pageNumber={rightSource.pageNumber} />
               {belowPage?.(rightSource.pageNumber)}
             </section>
           )}
@@ -148,7 +148,7 @@ export function OfficialWorkbookLessonView({
             </div>
             <div className="flex flex-1 items-center justify-center overflow-auto rounded-[2rem] bg-white/38 p-4 shadow-inner backdrop-blur-sm">
               <div className="w-full max-w-5xl origin-center transition-transform duration-200">
-                <PolishedPage pageNumber={sources[selectedIdx]?.pageNumber ?? leftSource.pageNumber} lessonN={lessonNumber} />
+                <PolishedPage pageNumber={sources[selectedIdx]?.pageNumber ?? leftSource.pageNumber} />
               </div>
             </div>
             <div className="mt-4 flex shrink-0 items-center justify-between rounded-2xl bg-white/70 p-3 shadow-sm backdrop-blur">
