@@ -1,7 +1,7 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useServerFn } from "@/lib/useServerFn";
-import { ArrowLeft, LogIn, Loader2, LogOut } from "lucide-react";
+import { ArrowLeft, LogIn, Loader2, LogOut, Sparkles } from "lucide-react";
 import { joinClass } from "@/lib/student.functions";
 import { setStudentSession, useStudentSession } from "@/lib/student-session";
 
@@ -18,6 +18,11 @@ function JoinPage() {
   const [studentCode, setStudentCode] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -25,6 +30,20 @@ function JoinPage() {
     setError(null);
     try {
       const res = await join({ data: { joinCode, studentCode } });
+      setStudentSession(res);
+      navigate({ to: "/cartilla/student/lecciones" });
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Error desconocido");
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const handleQuickDemo = async () => {
+    setBusy(true);
+    setError(null);
+    try {
+      const res = await join({ data: { joinCode: "DEMO12", studentCode: "DEMO1" } });
       setStudentSession(res);
       navigate({ to: "/cartilla/student/lecciones" });
     } catch (err) {
@@ -53,7 +72,11 @@ function JoinPage() {
         </p>
       </header>
 
-      {session ? (
+      {!mounted ? (
+        <div className="mt-12 flex justify-center">
+          <Loader2 className="w-8 h-8 animate-spin text-primary" />
+        </div>
+      ) : session ? (
         <div className="mt-8 kid-card p-4 text-center">
           <p className="font-bold">¡Hola, {session.studentName}!</p>
           <p className="text-sm text-foreground/60 mt-1">
@@ -113,6 +136,37 @@ function JoinPage() {
               Entrar
             </button>
           </form>
+
+          <div className="border-2 border-dashed border-foreground/15 rounded-2xl p-5 bg-card hover:border-primary/40 transition-colors mt-6 text-center space-y-3">
+            <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-vowel-i/10 text-vowel-i mb-1">
+              <Sparkles className="w-5 h-5" />
+            </div>
+            <h2 className="text-base font-bold text-foreground">Demostración Fuera de Línea</h2>
+            <p className="text-xs text-foreground/60 leading-relaxed max-w-xs mx-auto">
+              ¿Quieres probar la aplicación sin conexión al servidor? Usa nuestro estudiante de prueba local.
+            </p>
+            <div className="pt-2 flex flex-col gap-2">
+              <button
+                type="button"
+                onClick={handleQuickDemo}
+                disabled={busy}
+                className="w-full py-2.5 rounded-xl bg-foreground text-background hover:opacity-90 active:scale-[0.98] transition font-bold text-sm flex items-center justify-center gap-2"
+              >
+                Entrar en Modo Demo
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setJoinCode("DEMO12");
+                  setStudentCode("DEMO1");
+                }}
+                disabled={busy}
+                className="w-full py-2.5 rounded-xl border border-foreground/10 bg-card hover:bg-secondary active:scale-[0.98] transition font-bold text-sm text-foreground/80"
+              >
+                Cargar credenciales demo
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </main>

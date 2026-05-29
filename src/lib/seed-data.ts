@@ -75,8 +75,24 @@ function nowIso() {
 
 function initialState(): SeedState {
   return {
-    classes: [],
-    students: [],
+    classes: [
+      {
+        id: "seed-class-demo",
+        teacher_id: "seed-teacher-leonor",
+        name: "Clase de Prueba (Demo Local)",
+        join_code: "DEMO12",
+        created_at: new Date("2026-01-01T00:00:00.000Z").toISOString(),
+      }
+    ],
+    students: [
+      {
+        id: "seed-student-demo",
+        class_id: "seed-class-demo",
+        display_name: "Estudiante Demo (Local)",
+        student_code: "DEMO1",
+        created_at: new Date("2026-01-01T00:00:00.000Z").toISOString(),
+      }
+    ],
     events: [],
     assignments: [],
   };
