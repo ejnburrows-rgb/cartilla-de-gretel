@@ -1,5 +1,12 @@
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
+import {
+  getSeedTeacher,
+  listSeedAssignments,
+  createSeedAssignment,
+  deleteSeedAssignment,
+  listSeedStudentAssignments,
+} from "./seed-data";
 
 type Call<T> = { data: T };
 type AssignmentRow = {
@@ -13,6 +20,12 @@ type AssignmentRow = {
 };
 
 async function requireUser() {
+  // Try seed teacher first for offline fallback
+  const seedTeacher = getSeedTeacher();
+  if (seedTeacher) {
+    return { id: seedTeacher.id };
+  }
+  
   const { data, error } = await supabase.auth.getUser();
   if (error) throw new Error(error.message);
   if (!data.user) throw new Error("Debes iniciar sesión como maestro.");
@@ -34,6 +47,16 @@ async function ensureTeacherOwnsClass(classId: string) {
 /** Teacher: list assignments for a class they own. */
 export async function listAssignments(input: Call<{ classId: string }>) {
   const data = z.object({ classId: z.string().uuid() }).parse(input.data);
+  
+  // Try seed teacher offline fallback
+  if (getSeedTeacher()) {
+    try {
+      return listSeedAssignments(data.classId);
+    } catch (e) {
+      // Fall through to Supabase
+    }
+  }
+  
   await ensureTeacherOwnsClass(data.classId);
   const { data: rows, error } = await supabase
     .from("assignments")
@@ -64,6 +87,21 @@ export async function createAssignment(
     })
     .parse(input.data);
 
+  // Try seed teacher offline fallback
+  if (getSeedTeacher()) {
+    try {
+      return createSeedAssignment({
+        classId: data.classId,
+        lessonId: data.lessonId,
+        title: data.title,
+        dueAt: data.dueAt,
+        timeLimitSeconds: data.timeLimitSeconds,
+      });
+    } catch (e) {
+      // Fall through to Supabase
+    }
+  }
+
   await ensureTeacherOwnsClass(data.classId);
   const { data: row, error } = await supabase
     .from("assignments")
@@ -83,6 +121,16 @@ export async function createAssignment(
 /** Teacher: delete assignment. */
 export async function deleteAssignment(input: Call<{ id: string }>) {
   const data = z.object({ id: z.string().uuid() }).parse(input.data);
+  
+  // Try seed teacher offline fallback
+  if (getSeedTeacher()) {
+    try {
+      return deleteSeedAssignment(data.id);
+    } catch (e) {
+      // Fall through to Supabase
+    }
+  }
+  
   const { data: assignment, error: readErr } = await supabase
     .from("assignments")
     .select("id, class_id")
@@ -107,6 +155,19 @@ export async function listMyAssignments(
       studentCode: z.string().trim().min(4).max(10),
     })
     .parse(input.data);
+
+  // Try seed teacher offline fallback
+  if (getSeedTeacher()) {
+    try {
+      return listSeedStudentAssignments({
+        classId: data.classId,
+        studentId: data.studentId,
+        studentCode: data.studentCode,
+      });
+    } catch (e) {
+      // Fall through to Supabase
+    }
+  }
 
   const { data: rows, error } = await supabase.rpc("get_student_assignments", {
     p_class_id: data.classId,

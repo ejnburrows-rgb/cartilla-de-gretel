@@ -2,6 +2,7 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { GraduationCap, ArrowLeft, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { signInSeedTeacher, SEED_TEACHERS } from "@/lib/seed-data";
 
 export const Route = createFileRoute("/login")({
   component: LoginPage,
@@ -39,6 +40,15 @@ function LoginPage() {
         });
         if (err) throw err;
       } else {
+        // Try seed teacher login first for offline fallback
+        try {
+          signInSeedTeacher(email, password);
+          navigate({ to: "/cartilla/teacher" });
+          return;
+        } catch (seedErr) {
+          // Fall through to Supabase
+        }
+        
         const { error: err } = await supabase.auth.signInWithPassword({ email, password });
         if (err) throw err;
       }

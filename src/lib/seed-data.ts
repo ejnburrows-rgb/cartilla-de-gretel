@@ -15,6 +15,27 @@ export const SEED_TEACHERS = [
     email: "emilio@cartilla.local",
     password: "Novo2026!",
   },
+  {
+    id: "seed-teacher-maria",
+    name: "María González",
+    username: "maria",
+    email: "maria@cartilla.local",
+    password: "Gonzalez2026!",
+  },
+  {
+    id: "seed-teacher-carlos",
+    name: "Carlos Ruiz",
+    username: "carlos",
+    email: "carlos@cartilla.local",
+    password: "Ruiz2026!",
+  },
+  {
+    id: "seed-teacher-ana",
+    name: "Ana Martínez",
+    username: "ana",
+    email: "ana@cartilla.local",
+    password: "Martinez2026!",
+  },
 ] as const;
 
 export const SEED_STUDENT_ACCESS = [] as const;
@@ -74,6 +95,53 @@ function nowIso() {
 }
 
 function initialState(): SeedState {
+  const now = new Date("2026-01-01T00:00:00.000Z").toISOString();
+  const vowelLessons = ["2", "3", "4", "5", "6"]; // O, A, E, I, U
+  
+  // Create 10 students with vowel progress
+  const students: SeedStudent[] = [];
+  const events: SeedEvent[] = [];
+  
+  for (let i = 1; i <= 10; i++) {
+    const studentId = `seed-student-vowels-${i}`;
+    students.push({
+      id: studentId,
+      class_id: "seed-class-vowels",
+      display_name: `Estudiante ${i}`,
+      student_code: `VOWEL${i}`,
+      created_at: now,
+    });
+    
+    // Add progress for each vowel lesson
+    vowelLessons.forEach((lessonId, idx) => {
+      // Add lesson completion event
+      events.push({
+        id: `seed-event-${studentId}-lesson-${lessonId}`,
+        student_id: studentId,
+        lesson_id: lessonId,
+        event_kind: "lesson_completed",
+        score: null,
+        total: null,
+        time_seconds: null,
+        meta: null,
+        created_at: now,
+      });
+      
+      // Add some exercise events
+      events.push({
+        id: `seed-event-${studentId}-exercise-${lessonId}`,
+        student_id: studentId,
+        lesson_id: lessonId,
+        event_kind: "exercise",
+        score: Math.floor(Math.random() * 20) + 80, // 80-100 score
+        total: 100,
+        time_seconds: Math.floor(Math.random() * 300) + 60, // 60-360 seconds
+        meta: { exercise: "drag_build_word" },
+        created_at: now,
+      });
+    });
+  }
+  
   return {
     classes: [
       {
@@ -81,7 +149,14 @@ function initialState(): SeedState {
         teacher_id: "seed-teacher-leonor",
         name: "Clase de Prueba (Demo Local)",
         join_code: "DEMO12",
-        created_at: new Date("2026-01-01T00:00:00.000Z").toISOString(),
+        created_at: now,
+      },
+      {
+        id: "seed-class-vowels",
+        teacher_id: "seed-teacher-leonor",
+        name: "Clase de Vocales (Demo)",
+        join_code: "VOWELS",
+        created_at: now,
       }
     ],
     students: [
@@ -90,10 +165,11 @@ function initialState(): SeedState {
         class_id: "seed-class-demo",
         display_name: "Estudiante Demo (Local)",
         student_code: "DEMO1",
-        created_at: new Date("2026-01-01T00:00:00.000Z").toISOString(),
-      }
+        created_at: now,
+      },
+      ...students
     ],
-    events: [],
+    events,
     assignments: [],
   };
 }
@@ -473,4 +549,18 @@ export function resetSeedStateRaw() {
   localStorage.removeItem(STATE_KEY);
   window.dispatchEvent(new Event("cartilla:seed-data"));
   window.dispatchEvent(new Event("cartilla:seed-data"));
+}
+
+export function findSeedStudentsByName(q: string, classId?: string) {
+  const teacher = getSeedTeacher();
+  if (!teacher) throw new Error("Debes iniciar sesion como maestro.");
+  const state = readState();
+  const results = state.students
+    .filter((s) => {
+      const cls = state.classes.find((c) => c.id === s.class_id);
+      return cls && cls.teacher_id === teacher.id && s.display_name.toLowerCase().includes(q.toLowerCase());
+    })
+    .filter((s) => !classId || s.class_id === classId)
+    .slice(0, 20);
+  return results;
 }

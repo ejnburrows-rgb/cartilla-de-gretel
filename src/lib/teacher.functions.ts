@@ -1,5 +1,20 @@
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
+import {
+  getSeedTeacher,
+  listSeedClasses,
+  createSeedClass,
+  deleteSeedClass,
+  getSeedClass,
+  addSeedStudents,
+  deleteSeedStudent,
+  getSeedTeacherStudentProgress,
+  getSeedClassProgress,
+  findSeedStudentsByName,
+  listSeedAssignments,
+  createSeedAssignment,
+  deleteSeedAssignment,
+} from "./seed-data";
 
 const ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
 
@@ -46,6 +61,12 @@ function makeCode(len: number) {
 }
 
 async function requireTeacher(): Promise<TeacherCtx> {
+  // Try seed teacher first for offline fallback
+  const seedTeacher = getSeedTeacher();
+  if (seedTeacher) {
+    return { userId: seedTeacher.id };
+  }
+  
   const { data, error } = await supabase.auth.getUser();
   if (error) throw new Error(error.message);
   if (!data.user) throw new Error("Debes iniciar sesión como maestro.");
@@ -87,6 +108,16 @@ function exerciseName(e: { meta?: unknown }) {
 
 export async function listClasses(): Promise<TeacherClassWithCount[]> {
   const { userId } = await requireTeacher();
+  
+  // Try seed teacher offline fallback
+  if (getSeedTeacher()) {
+    try {
+      return listSeedClasses();
+    } catch (e) {
+      // Fall through to Supabase
+    }
+  }
+  
   const { data, error } = await supabase
     .from("classes")
     .select("id, name, join_code, created_at")
@@ -112,6 +143,16 @@ export async function listClasses(): Promise<TeacherClassWithCount[]> {
 export async function createClass(input: Call<{ name: string }>) {
   const data = z.object({ name: z.string().trim().min(1).max(80) }).parse(input.data);
   const { userId } = await requireTeacher();
+  
+  // Try seed teacher offline fallback
+  if (getSeedTeacher()) {
+    try {
+      return createSeedClass(data.name);
+    } catch (e) {
+      // Fall through to Supabase
+    }
+  }
+  
   for (let i = 0; i < 5; i++) {
     const code = makeCode(6);
     const { data: row, error } = await supabase
@@ -128,6 +169,16 @@ export async function createClass(input: Call<{ name: string }>) {
 export async function deleteClass(input: Call<{ id: string }>) {
   const data = z.object({ id: z.string().uuid() }).parse(input.data);
   const { userId } = await requireTeacher();
+  
+  // Try seed teacher offline fallback
+  if (getSeedTeacher()) {
+    try {
+      return deleteSeedClass(data.id);
+    } catch (e) {
+      // Fall through to Supabase
+    }
+  }
+  
   await ensureTeacherOwnsClass(data.id);
   const { error } = await supabase
     .from("classes")
@@ -142,6 +193,16 @@ export async function getClass(
   input: Call<{ id: string }>,
 ): Promise<{ class: TeacherClass; students: TeacherStudentWithStats[] }> {
   const data = z.object({ id: z.string().uuid() }).parse(input.data);
+  
+  // Try seed teacher offline fallback
+  if (getSeedTeacher()) {
+    try {
+      return getSeedClass(data.id);
+    } catch (e) {
+      // Fall through to Supabase
+    }
+  }
+  
   const cls = await ensureTeacherOwnsClass(data.id);
 
   const { data: students, error: e2 } = await supabase
@@ -193,6 +254,16 @@ export async function addStudents(input: Call<{ classId: string; names: string[]
       names: z.array(z.string().trim().min(1).max(60)).min(1).max(50),
     })
     .parse(input.data);
+  
+  // Try seed teacher offline fallback
+  if (getSeedTeacher()) {
+    try {
+      return addSeedStudents(data.classId, data.names);
+    } catch (e) {
+      // Fall through to Supabase
+    }
+  }
+  
   await ensureTeacherOwnsClass(data.classId);
   const rows = data.names.map((n) => ({
     class_id: data.classId,
@@ -206,6 +277,16 @@ export async function addStudents(input: Call<{ classId: string; names: string[]
 
 export async function deleteStudent(input: Call<{ id: string }>) {
   const data = z.object({ id: z.string().uuid() }).parse(input.data);
+  
+  // Try seed teacher offline fallback
+  if (getSeedTeacher()) {
+    try {
+      return deleteSeedStudent(data.id);
+    } catch (e) {
+      // Fall through to Supabase
+    }
+  }
+  
   await ensureTeacherOwnsStudent(data.id);
   const { error } = await supabase.from("students").delete().eq("id", data.id);
   if (error) throw new Error(error.message);
@@ -214,6 +295,16 @@ export async function deleteStudent(input: Call<{ id: string }>) {
 
 export async function getStudentProgress(input: Call<{ id: string }>) {
   const data = z.object({ id: z.string().uuid() }).parse(input.data);
+  
+  // Try seed teacher offline fallback
+  if (getSeedTeacher()) {
+    try {
+      return getSeedTeacherStudentProgress(data.id);
+    } catch (e) {
+      // Fall through to Supabase
+    }
+  }
+  
   const student = await ensureTeacherOwnsStudent(data.id);
   const cls = Array.isArray(student.classes) ? student.classes[0] : student.classes;
 
@@ -240,6 +331,16 @@ export async function getStudentProgress(input: Call<{ id: string }>) {
 /** Aggregated progress for a whole class — for the teacher class chart. */
 export async function getClassProgress(input: Call<{ id: string }>) {
   const data = z.object({ id: z.string().uuid() }).parse(input.data);
+  
+  // Try seed teacher offline fallback
+  if (getSeedTeacher()) {
+    try {
+      return getSeedClassProgress(data.id);
+    } catch (e) {
+      // Fall through to Supabase
+    }
+  }
+  
   await ensureTeacherOwnsClass(data.id);
   const { data: students, error: sErr } = await supabase
     .from("students")
@@ -376,6 +477,16 @@ export async function findStudentsByName(input: Call<{ q: string; classId?: stri
   const data = z
     .object({ q: z.string().trim().min(1).max(60), classId: z.string().uuid().optional() })
     .parse(input.data);
+  
+  // Try seed teacher offline fallback
+  if (getSeedTeacher()) {
+    try {
+      return findSeedStudentsByName(data.q, data.classId);
+    } catch (e) {
+      // Fall through to Supabase
+    }
+  }
+  
   const { userId } = await requireTeacher();
   let q = supabase
     .from("students")
