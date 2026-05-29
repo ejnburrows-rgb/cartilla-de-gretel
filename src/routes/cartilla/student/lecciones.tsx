@@ -7,13 +7,7 @@
  * Deep-link: ?p=23 → scrolls to page 23 on mount.
  */
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ArrowLeft, BookOpen, Check, Lock, RotateCcw, Sparkles, Zap } from "lucide-react";
 import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
 import { hydrateLessonProgress, useLessonProgress } from "@/lib/lesson-progress";
@@ -26,6 +20,7 @@ import { BookArtFigure } from "@/components/cartilla/BookArtFigure";
 import { InstallPrompt } from "@/components/cartilla/InstallPrompt";
 import { PageBackground } from "@/components/art/PageBackground";
 import { SparkleField } from "@/components/art/SparkleField";
+import { GretelMascot } from "@/components/gretel/GretelMascot";
 import "@/styles/cartilla-student.css";
 
 // Search param validation without zod
@@ -102,15 +97,10 @@ function Lecciones() {
   }, []);
 
   // Scroll active page into view when activePage changes
-  const scrollToPage = useCallback(
-    (page: number) => {
-      const el = spreadRef.current?.querySelector<HTMLElement>(
-        `[data-page="${page}"]`,
-      );
-      el?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
-    },
-    [],
-  );
+  const scrollToPage = useCallback((page: number) => {
+    const el = spreadRef.current?.querySelector<HTMLElement>(`[data-page="${page}"]`);
+    el?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+  }, []);
 
   useEffect(() => {
     scrollToPage(activePage);
@@ -125,11 +115,19 @@ function Lecciones() {
   const activeLessonColorStyle = { color: activeLesson.color };
   const activeLessonBgStyle = { backgroundColor: activeLesson.color };
 
-  const activeLetter = activeLesson.kind === "consonant" ? activeLesson.letter : activeLesson.kind === "vowel" ? activeLesson.vowel : "a";
+  const activeLetter =
+    activeLesson.kind === "consonant"
+      ? activeLesson.letter
+      : activeLesson.kind === "vowel"
+        ? activeLesson.vowel
+        : "a";
 
   return (
     <div className="min-h-screen relative flex flex-col overflow-hidden">
-      <PageBackground letter={activeLetter} className="fixed inset-0 -z-10 w-full h-full opacity-60 mix-blend-multiply transition-opacity duration-1000" />
+      <PageBackground
+        letter={activeLetter}
+        className="fixed inset-0 -z-10 w-full h-full opacity-60 mix-blend-multiply transition-opacity duration-1000"
+      />
       <div className="fixed inset-0 -z-10 pointer-events-none">
         <SparkleField animated={true} className="w-full h-full opacity-50" />
       </div>
@@ -216,10 +214,7 @@ function Lecciones() {
               style={pageStyle}
             >
               <PdfPage pageNumber={page} />
-              <div
-                className="px-2 py-1 text-[11px] font-bold truncate"
-                style={labelStyle}
-              >
+              <div className="px-2 py-1 text-[11px] font-bold truncate" style={labelStyle}>
                 L{lesson.n} · pág. {page}
               </div>
             </button>
@@ -234,10 +229,7 @@ function Lecciones() {
             <div className="text-xs font-bold uppercase tracking-wide text-foreground/50">
               Lección {activeLesson.n} · páginas {activeLesson.pages}
             </div>
-            <h2
-              className="text-2xl font-bold"
-              style={activeLessonColorStyle}
-            >
+            <h2 className="text-2xl font-bold" style={activeLessonColorStyle}>
               {activeLesson.title}
             </h2>
           </div>
@@ -316,8 +308,15 @@ function Lecciones() {
                     ) : null}
                   </div>
                   {/* Aspect-ratio preserving container with rounded corners */}
-                  <div className="aspect-[8.5/11] w-full rounded-xl overflow-hidden mb-2 relative flex items-center justify-center" style={entryBgStyle}>
-                    <BookArtFigure lesson={entry.n} role="character" className="w-full h-full object-contain p-2" />
+                  <div
+                    className="aspect-[8.5/11] w-full rounded-xl overflow-hidden mb-2 relative flex items-center justify-center"
+                    style={entryBgStyle}
+                  >
+                    <BookArtFigure
+                      lesson={entry.n}
+                      role="character"
+                      className="w-full h-full object-contain p-2"
+                    />
                   </div>
                   <div
                     className="text-sm font-bold leading-tight line-clamp-2"
@@ -332,6 +331,14 @@ function Lecciones() {
         </ol>
       </section>
       <InstallPrompt />
+      <div className="fixed bottom-4 right-4 z-40">
+        <GretelMascot
+          pose="welcome"
+          text="¡Start here!\nAbre tu libro o continúa con la siguiente lección."
+          bubblePosition="left"
+          showCloseButton={true}
+        />
+      </div>
     </div>
   );
 }

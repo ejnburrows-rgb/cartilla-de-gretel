@@ -14,11 +14,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@/lib/useServerFn";
 import { ArrowLeft, ArrowRight, Check, ClipboardList, Printer, Tv } from "lucide-react";
 import { CATALOG, TOTAL_LESSONS, type CatalogEntry } from "@/lib/lesson-catalog";
-import {
-  useLessonProgress,
-  isLessonUnlocked,
-  markLessonCompleted,
-} from "@/lib/lesson-progress";
+import { useLessonProgress, isLessonUnlocked, markLessonCompleted } from "@/lib/lesson-progress";
 import { recordEvent, useStudentSession } from "@/lib/student-session";
 import { PdfPage } from "@/components/cartilla/PdfPage";
 import { FlipBook } from "@/components/cartilla/FlipBook";
@@ -32,6 +28,7 @@ import { useOnlineStatus } from "@/hooks/useOnlineStatus";
 import { InstallPrompt } from "@/components/cartilla/InstallPrompt";
 import { PageBackground } from "@/components/art/PageBackground";
 import { SparkleField } from "@/components/art/SparkleField";
+import { GretelMascot } from "@/components/gretel/GretelMascot";
 import "@/styles/cartilla-student.css";
 
 export const Route = createFileRoute("/cartilla/student/leccion/$n")({
@@ -117,11 +114,15 @@ function Leccion() {
   const activeColorStyle = { color: entry.color };
   const heroBgStyle = { backgroundColor: `${entry.color}15` };
 
-  const activeLetter = entry.kind === "consonant" ? entry.letter : entry.kind === "vowel" ? entry.vowel : "a";
+  const activeLetter =
+    entry.kind === "consonant" ? entry.letter : entry.kind === "vowel" ? entry.vowel : "a";
 
   return (
     <div className="min-h-screen relative flex flex-col overflow-hidden">
-      <PageBackground letter={activeLetter} className="fixed inset-0 -z-10 w-full h-full opacity-60 mix-blend-multiply transition-opacity duration-1000" />
+      <PageBackground
+        letter={activeLetter}
+        className="fixed inset-0 -z-10 w-full h-full opacity-60 mix-blend-multiply transition-opacity duration-1000"
+      />
       <div className="fixed inset-0 -z-10 pointer-events-none">
         <SparkleField animated={true} className="w-full h-full opacity-50" />
       </div>
@@ -206,9 +207,16 @@ function Leccion() {
         </div>
 
         {/* Hero Band: Desktop only (hidden sm:flex) */}
-        <div className="hidden sm:flex items-center gap-5 p-5 rounded-3xl border border-foreground/10" style={heroBgStyle}>
+        <div
+          className="hidden sm:flex items-center gap-5 p-5 rounded-3xl border border-foreground/10"
+          style={heroBgStyle}
+        >
           <div className="w-20 h-20 shrink-0 flex items-center justify-center rounded-2xl bg-white/40 overflow-hidden">
-            <BookArtFigure lesson={n} role="character" className="w-full h-full object-contain p-1" />
+            <BookArtFigure
+              lesson={n}
+              role="character"
+              className="w-full h-full object-contain p-1"
+            />
           </div>
           <div>
             <div className="text-xs font-bold uppercase tracking-wide text-foreground/50">
@@ -266,7 +274,11 @@ function Leccion() {
             onClick={goNext}
             disabled={isLast && done}
             className="lesson-focus-ring px-6 py-3 rounded-2xl bg-primary text-primary-foreground font-bold text-lg disabled:opacity-40 hover:translate-y-px"
-            aria-label={isLast ? "Marcar lección como terminada" : `Marcar lección ${n} y avanzar a la ${n + 1}`}
+            aria-label={
+              isLast
+                ? "Marcar lección como terminada"
+                : `Marcar lección ${n} y avanzar a la ${n + 1}`
+            }
           >
             {isLast
               ? done
@@ -279,6 +291,14 @@ function Leccion() {
           </button>
         </div>
       </nav>
+      <div className="fixed bottom-24 right-4 z-40">
+        <GretelMascot
+          pose="point"
+          text="¡Excelente! Resolvamos estos divertidos ejercicios juntos. ¡Tú puedes!"
+          bubblePosition="left"
+          showCloseButton={true}
+        />
+      </div>
     </div>
   );
 }
