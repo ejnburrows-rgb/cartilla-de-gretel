@@ -28,10 +28,21 @@ export function PolishedPage({ pageNumber, className = "" }: PolishedPageProps) 
   const activeColor = entry?.color || "#c98c4f";
   const pastelBg = useMemo(() => getPastelBg(activeColor), [activeColor]);
 
+  const isEven = pageNumber % 2 === 0;
+
+  // Real paper texture look: warm white base combined with HSL pastel tint and multi-page stacked shadow
+  const gutterShadow = isEven
+    ? "inset -18px 0 24px -12px rgba(0, 0, 0, 0.08)"
+    : "inset 18px 0 24px -12px rgba(0, 0, 0, 0.08)";
+  const edgeShadow = isEven
+    ? "-1px 1px 1px rgba(0,0,0,0.05), -2px 2px 2px rgba(0,0,0,0.04), -3px 3px 2px rgba(0,0,0,0.03), -4px 4px 3px rgba(0,0,0,0.02)"
+    : "1px 1px 1px rgba(0,0,0,0.05), 2px 2px 2px rgba(0,0,0,0.04), 3px 3px 2px rgba(0,0,0,0.03), 4px 4px 3px rgba(0,0,0,0.02)";
+
   // strict double-brace JSX styling ban compliance
   const containerStyle = {
-    backgroundColor: pastelBg,
-    borderColor: activeColor,
+    background: `linear-gradient(${isEven ? "135deg" : "-135deg"}, #fdfaf3 0%, ${pastelBg} 100%)`,
+    borderColor: `${activeColor}30`,
+    boxShadow: `${gutterShadow}, ${edgeShadow}`,
   };
 
   const titleStyle = {
@@ -44,11 +55,39 @@ export function PolishedPage({ pageNumber, className = "" }: PolishedPageProps) 
     return start === pageNumber;
   }, [entry, pageNumber]);
 
+  const tabLetter = useMemo(() => {
+    if (!entry) return "";
+    return entry.kind === "consonant"
+      ? entry.letter
+      : entry.kind === "vowel"
+        ? entry.vowel
+        : String(entry.n);
+  }, [entry]);
+
   return (
-    <div 
+    <div
       className={`polished-page w-full h-full px-8 py-6 transition-all duration-350 relative flex flex-col justify-between ${className}`}
       style={containerStyle}
     >
+      {/* Interactive side tab strips */}
+      {entry && (
+        <div
+          className={`absolute top-[25%] z-20 w-8 h-20 flex flex-col items-center justify-center shadow-md select-none border-stone-200/20 text-white font-black uppercase text-[10px] tracking-wider transition-transform hover:scale-105 duration-200 ${
+            isEven
+              ? "left-0 rounded-r-xl border-r border-y"
+              : "right-0 rounded-l-xl border-l border-y"
+          }`}
+          style={{
+            backgroundColor: activeColor,
+          }}
+        >
+          <span className={isEven ? "pl-0.5" : "pr-0.5"}>{tabLetter}</span>
+          <span className={`text-[8px] opacity-75 ${isEven ? "pl-0.5" : "pr-0.5"}`}>
+            L{entry.n}
+          </span>
+        </div>
+      )}
+
       {/* Page Header */}
       <div className="w-full flex justify-between items-start border-b border-stone-200/50 pb-3 mb-2">
         {isFirstOfLesson && entry ? (
