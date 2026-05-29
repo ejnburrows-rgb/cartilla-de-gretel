@@ -1,10 +1,11 @@
 import { useState, useRef, useEffect, useMemo } from "react";
-import { Volume2, RotateCcw, Search, Check, X } from "lucide-react";
+import { Volume2, RotateCcw, Search, Check } from "lucide-react";
 import { speak } from "@/lib/speak";
 import { feelBus } from "@/lib/feel-bus";
 import { recordEvent } from "@/lib/student-session";
 import type { CatalogEntry } from "@/lib/lesson-catalog";
 import { cn } from "@/lib/utils";
+import { MonochromeDrawing } from "./MonochromeDrawings";
 
 interface DragWordRevealProps {
   entry: CatalogEntry;
@@ -15,7 +16,6 @@ interface DragWordRevealProps {
 
 type RevealWord = {
   word: string;
-  emoji: string;
   distractors: string[];
 };
 
@@ -26,32 +26,32 @@ export function DragWordReveal({ entry, accent, lessonId, onComplete }: DragWord
       const v = entry.vowel.toLowerCase();
       if (v === "a") {
         return [
-          { word: "ala", emoji: "🦅", distractors: ["🐻", "🐱"] },
-          { word: "árbol", emoji: "🌳", distractors: ["🐢", "🐬"] }
+          { word: "ala", distractors: ["oso", "uvas"] },
+          { word: "árbol", distractors: ["espejo", "iglú"] }
         ];
       }
       if (v === "o") {
         return [
-          { word: "oso", emoji: "🐻", distractors: ["🦅", "🦊"] },
-          { word: "ojo", emoji: "👁️", distractors: ["🦎", "🐸"] }
+          { word: "oso", distractors: ["ala", "uvas"] },
+          { word: "ojo", distractors: ["iglú", "estrella"] }
         ];
       }
       if (v === "e") {
         return [
-          { word: "elefante", emoji: "🐘", distractors: ["🦁", "🐠"] },
-          { word: "estrella", emoji: "⭐", distractors: ["🌙", "☀️"] }
+          { word: "elefante", distractors: ["oso", "abeja"] },
+          { word: "estrella", distractors: ["espejo", "escoba"] }
         ];
       }
       if (v === "i") {
         return [
-          { word: "isla", emoji: "🏝️", distractors: ["🏔️", "🏜️"] },
-          { word: "iguana", emoji: "🦎", distractors: ["🦖", "🐒"] }
+          { word: "isla", distractors: ["árbol", "uvas"] },
+          { word: "iguana", distractors: ["elefante", "oso"] }
         ];
       }
       if (v === "u") {
         return [
-          { word: "uva", emoji: "🍇", distractors: ["🍎", "🍌"] },
-          { word: "unicornio", emoji: "🦄", distractors: ["🐴", "🐐"] }
+          { word: "uvas", distractors: ["árbol", "oso"] },
+          { word: "uno", distractors: ["espejo", "iglú"] }
         ];
       }
     }
@@ -60,13 +60,13 @@ export function DragWordReveal({ entry, accent, lessonId, onComplete }: DragWord
       const first = examples[0] ?? "sol";
       const second = examples[1] ?? "sal";
       return [
-        { word: first, emoji: "✨", distractors: ["🍎", "🐻"] },
-        { word: second, emoji: "🌟", distractors: ["🐱", "🐸"] }
+        { word: first, distractors: ["oso", "uvas"] },
+        { word: second, distractors: ["mesa", "mono"] }
       ];
     }
     return [
-      { word: "ala", emoji: "🦅", distractors: ["🐻", "🐱"] },
-      { word: "oso", emoji: "🐻", distractors: ["🦅", "🐱"] }
+      { word: "ala", distractors: ["oso", "uvas"] },
+      { word: "oso", distractors: ["ala", "uvas"] }
     ];
   }, [entry]);
 
@@ -76,7 +76,7 @@ export function DragWordReveal({ entry, accent, lessonId, onComplete }: DragWord
   const [revealed, setRevealed] = useState<boolean[]>(() =>
     Array(currentItem.word.length).fill(false)
   );
-  const [selectedEmoji, setSelectedEmoji] = useState<string | null>(null);
+  const [selectedWord, setSelectedWord] = useState<string | null>(null);
   const [wrongSelection, setWrongSelection] = useState<string | null>(null);
   const [isLensDragging, setIsLensDragging] = useState(false);
   const [lensPos, setLensPos] = useState({ x: 0, y: 0 });
@@ -89,16 +89,15 @@ export function DragWordReveal({ entry, accent, lessonId, onComplete }: DragWord
   // Re-initialize state when moving to a new word
   useEffect(() => {
     setRevealed(Array(currentItem.word.length).fill(false));
-    setSelectedEmoji(null);
+    setSelectedWord(null);
     setWrongSelection(null);
     setSuccess(false);
     setAttempts(0);
   }, [currentItem]);
 
-  // Merge target emoji and distractors in shuffled order
-  const emojiChoices = useMemo(() => {
-    const list = [currentItem.emoji, ...currentItem.distractors];
-    // Simple deterministically shuffled or pseudo-randomized
+  // Merge target word and distractors in shuffled order
+  const wordChoices = useMemo(() => {
+    const list = [currentItem.word, ...currentItem.distractors];
     return list.sort();
   }, [currentItem]);
 
@@ -155,12 +154,12 @@ export function DragWordReveal({ entry, accent, lessonId, onComplete }: DragWord
     });
   };
 
-  const handleEmojiClick = (emoji: string) => {
+  const handleWordClick = (choiceWord: string) => {
     if (!isWordFullyRevealed || success) return;
     setAttempts((a) => a + 1);
 
-    if (emoji === currentItem.emoji) {
-      setSelectedEmoji(emoji);
+    if (choiceWord === currentItem.word) {
+      setSelectedWord(choiceWord);
       setSuccess(true);
       speak(currentItem.word);
       feelBus.emit("success");
@@ -179,7 +178,7 @@ export function DragWordReveal({ entry, accent, lessonId, onComplete }: DragWord
         setTimeout(onComplete, 1600);
       }
     } else {
-      setWrongSelection(emoji);
+      setWrongSelection(choiceWord);
       feelBus.emit("error");
       setTimeout(() => setWrongSelection(null), 800);
     }
@@ -191,12 +190,27 @@ export function DragWordReveal({ entry, accent, lessonId, onComplete }: DragWord
 
   const handleReset = () => {
     setRevealed(Array(currentItem.word.length).fill(false));
-    setSelectedEmoji(null);
+    setSelectedWord(null);
     setWrongSelection(null);
     setSuccess(false);
     setAttempts(0);
     feelBus.emit("tap");
   };
+
+  // Hoisted styles for strict JSX double-brace styling compliance
+  const containerStyle: React.CSSProperties = useMemo(() => ({
+    "--accent-color": accent
+  } as React.CSSProperties), [accent]);
+
+  const lensStyle: React.CSSProperties = useMemo(() => ({
+    borderColor: accent,
+    left: isLensDragging ? `${lensPos.x - 32}px` : "calc(50% - 32px)",
+    top: isLensDragging ? `${lensPos.y - 32}px` : "160px",
+  }), [accent, isLensDragging, lensPos.x, lensPos.y]);
+
+  const nextBtnStyle: React.CSSProperties = useMemo(() => ({
+    backgroundColor: accent
+  }), [accent]);
 
   return (
     <div
@@ -205,7 +219,7 @@ export function DragWordReveal({ entry, accent, lessonId, onComplete }: DragWord
       onPointerMove={handlePointerMove}
       onPointerUp={handlePointerUp}
       onPointerLeave={handlePointerUp}
-      style={{ "--accent-color": accent } as React.CSSProperties}
+      style={containerStyle}
     >
       <div className="flex items-center justify-between mb-4">
         <h3 className="font-bold text-base text-foreground font-fredoka flex items-center gap-1.5">
@@ -230,31 +244,34 @@ export function DragWordReveal({ entry, accent, lessonId, onComplete }: DragWord
       </div>
 
       <p className="text-xs text-foreground/60 mb-6 text-center">
-        Arraste la lupa sobre las casillas para revelar las letras mágicas, luego escoge el dibujo.
+        Arrastra la lupa sobre las casillas para revelar las letras mágicas, luego escoge el dibujo.
       </p>
 
       {/* Target Word Letters Grid */}
       <div className="flex justify-center gap-3 mb-8">
-        {currentItem.word.split("").map((letter, idx) => (
-          <div
-            key={idx}
-            ref={(el) => {
-              letterRefs.current[idx] = el;
-            }}
-            className={cn(
-              "w-12 h-14 rounded-2xl flex items-center justify-center font-bold text-2xl border-3 transition-all duration-300",
-              revealed[idx]
-                ? "bg-white dark:bg-neutral-800 scale-100 shadow-md"
-                : "bg-secondary/40 border-dashed border-foreground/20 text-transparent"
-            )}
-            style={{
-              borderColor: revealed[idx] ? accent : "transparent",
-              color: revealed[idx] ? accent : undefined,
-            }}
-          >
-            {revealed[idx] ? letter : "?"}
-          </div>
-        ))}
+        {currentItem.word.split("").map((letter, idx) => {
+          const letterStyle: React.CSSProperties = {
+            borderColor: revealed[idx] ? accent : "transparent",
+            color: revealed[idx] ? accent : undefined,
+          };
+          return (
+            <div
+              key={idx}
+              ref={(el) => {
+                letterRefs.current[idx] = el;
+              }}
+              className={cn(
+                "w-12 h-14 rounded-2xl flex items-center justify-center font-bold text-2xl border-3 transition-all duration-300",
+                revealed[idx]
+                  ? "bg-white dark:bg-neutral-800 scale-100 shadow-md"
+                  : "bg-secondary/40 border-dashed border-foreground/20 text-transparent"
+              )}
+              style={letterStyle}
+            >
+              {revealed[idx] ? letter : "?"}
+            </div>
+          );
+        })}
       </div>
 
       {/* Interactive Magnifying Glass Lens */}
@@ -262,11 +279,7 @@ export function DragWordReveal({ entry, accent, lessonId, onComplete }: DragWord
         <div
           onPointerDown={handlePointerDown}
           className="absolute cursor-grab active:cursor-grabbing w-16 h-16 rounded-full border-4 flex items-center justify-center bg-white/20 backdrop-blur-sm z-20 shadow-lg active:scale-105 transition-transform"
-          style={{
-            borderColor: accent,
-            left: isLensDragging ? `${lensPos.x - 32}px` : "calc(50% - 32px)",
-            top: isLensDragging ? `${lensPos.y - 32}px` : "160px",
-          }}
+          style={lensStyle}
         >
           <div className="w-10 h-10 rounded-full bg-white/40 border border-white/50 flex items-center justify-center">
             <Search className="w-5 h-5 text-foreground/80" />
@@ -274,7 +287,7 @@ export function DragWordReveal({ entry, accent, lessonId, onComplete }: DragWord
         </div>
       )}
 
-      {/* Emoji Match Panel */}
+      {/* Drawing Match Panel */}
       {isWordFullyRevealed && (
         <div className="flex flex-col items-center gap-4 animate-fade-in">
           <div className="text-center font-bold text-success text-sm flex items-center gap-1 mb-2">
@@ -282,25 +295,28 @@ export function DragWordReveal({ entry, accent, lessonId, onComplete }: DragWord
           </div>
 
           <div className="flex justify-center gap-4">
-            {emojiChoices.map((emoji, idx) => {
-              const isWrong = wrongSelection === emoji;
-              const isSelected = selectedEmoji === emoji;
+            {wordChoices.map((choiceWord, idx) => {
+              const isWrong = wrongSelection === choiceWord;
+              const isSelected = selectedWord === choiceWord;
+
+              const choiceBtnStyle: React.CSSProperties = {
+                borderColor: isSelected ? "var(--success)" : isWrong ? "var(--destructive)" : undefined,
+              };
 
               return (
                 <button
                   key={idx}
-                  onClick={() => handleEmojiClick(emoji)}
+                  onClick={() => handleWordClick(choiceWord)}
                   disabled={success}
                   className={cn(
-                    "w-20 h-20 text-4xl rounded-2xl flex items-center justify-center border-4 bg-secondary/20 hover:bg-secondary/40 transition active:scale-95 duration-200",
+                    "w-20 h-20 rounded-2xl flex items-center justify-center border-4 bg-secondary/20 hover:bg-secondary/40 transition active:scale-95 duration-200 p-2.5",
                     isWrong && "border-destructive bg-destructive/10 animate-shake",
                     isSelected && "border-success bg-success/10 scale-105"
                   )}
-                  style={{
-                    borderColor: isSelected ? "var(--success)" : isWrong ? "var(--destructive)" : undefined,
-                  }}
+                  style={choiceBtnStyle}
+                  aria-label={`Dibujo de ${choiceWord}`}
                 >
-                  {emoji}
+                  <MonochromeDrawing word={choiceWord} size={48} />
                 </button>
               );
             })}
@@ -308,14 +324,14 @@ export function DragWordReveal({ entry, accent, lessonId, onComplete }: DragWord
 
           {success && (
             <div className="mt-4 flex flex-col items-center">
-              <div className="text-base font-bold text-success flex items-center gap-1.5">
-                🌟 ¡Fantástico! Es <strong>«{currentItem.word}»</strong>.
-              </div>
+<div className="text-base font-bold text-success flex items-center gap-1.5">
+                 ¡Fantástico! Es <strong>«{currentItem.word}»</strong>.
+               </div>
               {wordIdx < gameWords.length - 1 && (
                 <button
                   onClick={handleNextWord}
                   className="mt-3 px-5 py-2.5 rounded-2xl font-bold text-sm text-white transition hover:-translate-y-0.5 active:scale-95"
-                  style={{ backgroundColor: accent }}
+                  style={nextBtnStyle}
                 >
                   Siguiente Palabra →
                 </button>

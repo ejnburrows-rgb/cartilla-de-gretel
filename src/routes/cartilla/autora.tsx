@@ -7,8 +7,8 @@ export const Route = createFileRoute("/cartilla/autora")({
   head: () => ({ meta: [{ title: "Leonor Lopetegui — La autora" }] }),
 });
 
-const PURCHASE_URL = "https://doublermuybien-com.3dcartstores.com/";
-const CONTACT_EMAIL = "info@doublerpublishing.com";
+const PURCHASE_URL = "https://lanybooks.com/";
+const CONTACT_EMAIL = "info@lanybooks.com";
 
 function Autora() {
   return (
@@ -25,7 +25,7 @@ function Autora() {
             className="hidden md:block text-[11px] tracking-[0.45em] uppercase text-[hsl(25,25%,35%)]"
             style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
           >
-            Double R Publishing · est. 2004
+            LANY Books LLC
           </p>
           <a
             href={`mailto:${CONTACT_EMAIL}`}
@@ -53,8 +53,7 @@ function Autora() {
             className="text-lg md:text-xl leading-relaxed text-[hsl(25,25%,28%)] max-w-prose"
             style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
           >
-            Casi cincuenta años enseñando español en las aulas del Condado de Miami-Dade. Fundadora
-            de Double R Publishing y autora de La Cartilla de Gretel, un método propio —fonético,
+            Casi cincuenta años enseñando español en las aulas del Condado de Miami-Dade. Autora de La Cartilla de Gretel, un método propio —fonético,
             visual y entrañable— que ha acompañado a miles de familias.
           </p>
           <div className="mt-10 flex flex-wrap gap-3">

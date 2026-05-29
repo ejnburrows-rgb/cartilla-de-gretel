@@ -72,7 +72,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "Edición digital interactiva de La Cartilla de Gretel — método fonético K-2 con 24 lecciones, ejercicios y panel de maestro.",
       },
-      { name: "author", content: "Leonor Lopetegui — Double R Publishing" },
+      { name: "author", content: "Leonor Lopetegui — LANY Books LLC" },
       { property: "og:title", content: "La Cartilla de Gretel" },
       { property: "og:description", content: "Edición digital interactiva — método fonético K-2." },
       { property: "og:type", content: "website" },
