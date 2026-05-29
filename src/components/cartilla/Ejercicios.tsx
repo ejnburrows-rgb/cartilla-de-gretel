@@ -6,6 +6,7 @@ import { recordEvent, useStudentSession } from "@/lib/student-session";
 import { supabase } from "@/integrations/supabase/client";
 import { GretelFeedback } from "@/components/gretel/GretelFeedback";
 import { feelBus } from "@/lib/feel-bus";
+import { MonochromeDrawing } from "./MonochromeDrawings";
 
 type Word = { word: string; emoji?: string };
 
@@ -171,7 +172,7 @@ export function SyllableTap({
   );
 }
 
-/** Match emoji to word */
+/** Match drawing to word */
 export function WordMatch({
   words,
   color,
@@ -183,7 +184,7 @@ export function WordMatch({
   lessonId?: string;
   onComplete?: () => void;
 }) {
-  const items = useMemo(() => words.filter((w) => w.emoji).slice(0, 4), [words]);
+  const items = useMemo(() => words.slice(0, 4), [words]);
   const [picked, setPicked] = useState<string | null>(null);
   const [matched, setMatched] = useState<Set<string>>(new Set());
   const [attempts, setAttempts] = useState(0);
@@ -191,8 +192,6 @@ export function WordMatch({
   const [feedback, setFeedback] = useState<{
     kind: "ok" | "no";
     word: string;
-    emoji?: string;
-    correctEmoji?: string;
   } | null>(null);
   const loggedRound = useRef(false);
   const shuffled = useMemo(() => shuffle(items), [items]);
@@ -204,11 +203,9 @@ export function WordMatch({
     setPicked(w);
     setFeedback(null);
   };
-  const onEmoji = (target: string) => {
+  const onDrawing = (target: string) => {
     if (!picked) return;
     setAttempts((a) => a + 1);
-    const pickedItem = items.find((i) => i.word === picked);
-    const targetItem = items.find((i) => i.word === target);
     if (picked === target) {
       setHits((h) => h + 1);
       feelBus.emit("success");
@@ -229,7 +226,7 @@ export function WordMatch({
         }
         return next;
       });
-      setFeedback({ kind: "ok", word: picked, emoji: pickedItem?.emoji });
+      setFeedback({ kind: "ok", word: picked });
       speak(target);
       setPicked(null);
       setTimeout(
@@ -241,8 +238,6 @@ export function WordMatch({
       setFeedback({
         kind: "no",
         word: picked,
-        emoji: targetItem?.emoji,
-        correctEmoji: pickedItem?.emoji,
       });
       setPicked(null);
     }
@@ -287,39 +282,46 @@ export function WordMatch({
       </div>
       <div className="grid grid-cols-2 gap-4">
         <div className="space-y-2.5">
-          {items.map((w) => (
-            <button
-              key={w.word}
-              disabled={matched.has(w.word)}
-              onClick={() => onWord(w.word)}
-              className={cn(
-                "w-full h-14 px-4 py-2 rounded-2xl border-3 font-bold font-fredoka text-left transition duration-200",
-                matched.has(w.word)
-                  ? "opacity-30 line-through border-gray-200 bg-gray-50 text-gray-400"
-                  : picked === w.word
-                    ? "scale-[1.04] bg-primary/10 border-primary shadow-md"
-                    : "hover:bg-secondary/50 hover:scale-[1.02] active:scale-95",
-              )}
-              style={{ borderColor: color, color: matched.has(w.word) ? undefined : color }}
-            >
-              {w.word}
-            </button>
-          ))}
+          {items.map((w) => {
+            const wordBtnStyle: React.CSSProperties = {
+              borderColor: color,
+              color: matched.has(w.word) ? undefined : color,
+            };
+            return (
+              <button
+                key={w.word}
+                disabled={matched.has(w.word)}
+                onClick={() => onWord(w.word)}
+                className={cn(
+                  "w-full h-14 px-4 py-2 rounded-2xl border-3 font-bold font-fredoka text-left transition duration-200",
+                  matched.has(w.word)
+                    ? "opacity-30 line-through border-gray-200 bg-gray-50 text-gray-400"
+                    : picked === w.word
+                      ? "scale-[1.04] bg-primary/10 border-primary shadow-md"
+                      : "hover:bg-secondary/50 hover:scale-[1.02] active:scale-95",
+                )}
+                style={wordBtnStyle}
+              >
+                {w.word}
+              </button>
+            );
+          })}
         </div>
         <div className="space-y-2.5">
           {shuffled.map((w) => (
             <button
               key={w.word}
               disabled={matched.has(w.word)}
-              onClick={() => onEmoji(w.word)}
+              onClick={() => onDrawing(w.word)}
               className={cn(
-                "w-full h-14 text-4xl rounded-2xl border-3 transition duration-200",
+                "w-full h-14 rounded-2xl border-3 transition duration-200 flex items-center justify-center p-1.5",
                 matched.has(w.word)
                   ? "opacity-30 border-gray-200 bg-gray-50"
                   : "border-foreground/10 hover:bg-secondary/50 hover:scale-[1.04] active:scale-95 hover:shadow-md",
               )}
+              aria-label={`Dibujo de ${w.word}`}
             >
-              {w.emoji}
+              <MonochromeDrawing word={w.word} size={36} />
             </button>
           ))}
         </div>
@@ -329,16 +331,11 @@ export function WordMatch({
         message={
           feedback?.kind === "no" ? (
             <p>
-              <strong>«{feedback.word}»</strong>{" "}
-              {feedback.correctEmoji && (
-                <span className="text-lg align-middle">{feedback.correctEmoji}</span>
-              )}{" "}
-              no es ese dibujo. Lee la palabra otra vez, separa sus sílabas y busca el dibujo que la representa.
+              <strong>«{feedback.word}»</strong> no es ese dibujo. Lee la palabra otra vez, separa sus sílabas y busca el dibujo que la representa.
             </p>
           ) : feedback?.kind === "ok" ? (
             <p>
-              <strong>«{feedback.word}»</strong>{" "}
-              {feedback.emoji && <span className="text-lg align-middle">{feedback.emoji}</span>} — uniste bien la palabra con su dibujo.
+              <strong>«{feedback.word}»</strong> — uniste bien la palabra con su dibujo.
             </p>
           ) : null
         }

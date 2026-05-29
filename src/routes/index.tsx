@@ -103,8 +103,8 @@ function Landing() {
           </div>
         </div>
 
-        <footer className="flex flex-col gap-3 border-t border-[hsl(28,30%,18%)]/10 py-5 text-sm font-bold text-[hsl(28,30%,18%)]/60 sm:flex-row sm:items-center sm:justify-between">
-          <p>La Cartilla de Gretel · Leonor Lopetegui</p>
+        <footer className="flex flex-col gap-3 border-t border-[hsl(28,30%,18%)]/10 py-5 text-xs font-bold text-[hsl(28,30%,18%)]/60 sm:flex-row sm:items-center sm:justify-between">
+          <p>La Cartilla de Gretel · Leonor Lopetegui · Digital adaptation by Emilio Jose Novo · Imprint: LANY Books LLC</p>
           <div className="flex gap-4">
             <Link to="/book" className="hover:text-[hsl(31,56%,48%)] hover:underline">
               Libro

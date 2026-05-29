@@ -75,7 +75,6 @@ export function CinemaNarrativeDrawer({ entry, isOpen, onToggle }: CinemaNarrati
               <ul className="grid grid-cols-2 gap-2" role="list">
                 {entry.lesson.vocab.map((item, idx) => (
                   <li key={idx} className="flex items-center gap-2 p-2 bg-foreground/5 rounded-xl text-xs font-medium">
-                    <span className="text-base" aria-hidden>{item.emoji}</span>
                     <span className="capitalize">{item.word}</span>
                   </li>
                 ))}
