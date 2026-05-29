@@ -37,10 +37,10 @@ function CartillaHome() {
 
         <div className="grid flex-1 items-center gap-8 py-10 lg:grid-cols-[0.9fr_1.1fr]">
           <header>
-            <p className="text-sm font-black uppercase tracking-[0.24em] text-[hsl(31,56%,48%)]">
+            <p className="text-sm font-black uppercase tracking-[0.24em] text-[hsl(24,98%,50%)]">
               La Cartilla de Gretel
             </p>
-            <h1 className="mt-4 max-w-2xl text-5xl font-black leading-[0.95] text-[hsl(197,41%,22%)] sm:text-7xl">
+            <h1 className="mt-4 max-w-2xl text-5xl font-black leading-[0.95] text-[hsl(200,98%,39%)] sm:text-7xl">
               ¿Quién va a entrar?
             </h1>
             <p className="mt-6 max-w-xl text-xl font-semibold leading-relaxed text-[hsl(28,30%,18%)]/72">
@@ -51,20 +51,20 @@ function CartillaHome() {
           <section className="grid gap-5" aria-label="Caminos de entrada">
             <Link
               to="/cartilla/unirse"
-              className="group grid min-h-48 grid-cols-[72px_1fr] items-center gap-5 rounded-[1.75rem] border border-white/80 bg-white/85 p-5 shadow-2xl shadow-[hsl(197,41%,22%)]/10 transition hover:-translate-y-1 hover:bg-white focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[hsl(31,56%,48%)] sm:grid-cols-[96px_1fr]"
+              className="group grid min-h-48 grid-cols-[72px_1fr] items-center gap-5 rounded-[1.75rem] border border-white/80 bg-white/85 p-5 shadow-2xl shadow-[hsl(200,98%,39%)]/10 transition hover:-translate-y-1 hover:bg-white focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[hsl(24,98%,50%)] sm:grid-cols-[96px_1fr]"
               aria-label="Entrar como estudiante"
             >
-              <span className="flex h-16 w-16 items-center justify-center rounded-3xl bg-[hsl(197,41%,22%)] text-white shadow-lg shadow-[hsl(197,41%,22%)]/20 sm:h-24 sm:w-24">
+              <span className="flex h-16 w-16 items-center justify-center rounded-3xl bg-[hsl(200,98%,39%)] text-white shadow-lg shadow-[hsl(200,98%,39%)]/20 sm:h-24 sm:w-24">
                 <BookOpen className="h-8 w-8 sm:h-11 sm:w-11" aria-hidden />
               </span>
               <span>
-                <span className="block text-3xl font-black text-[hsl(197,41%,22%)] sm:text-4xl">
+                <span className="block text-3xl font-black text-[hsl(200,98%,39%)] sm:text-4xl">
                   Estudiante
                 </span>
                 <span className="mt-2 block text-base font-semibold leading-relaxed text-[hsl(28,30%,18%)]/70">
                   Código de clase, lecciones, práctica y progreso.
                 </span>
-                <span className="mt-4 inline-flex text-sm font-black text-[hsl(31,56%,48%)] group-hover:underline">
+                <span className="mt-4 inline-flex text-sm font-black text-[hsl(24,98%,50%)] group-hover:underline">
                   Entrar como estudiante
                 </span>
               </span>
@@ -72,20 +72,20 @@ function CartillaHome() {
 
             <Link
               to="/cartilla/teacher"
-              className="group grid min-h-48 grid-cols-[72px_1fr] items-center gap-5 rounded-[1.75rem] border border-white/80 bg-white/85 p-5 shadow-2xl shadow-[hsl(197,41%,22%)]/10 transition hover:-translate-y-1 hover:bg-white focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[hsl(31,56%,48%)] sm:grid-cols-[96px_1fr]"
+              className="group grid min-h-48 grid-cols-[72px_1fr] items-center gap-5 rounded-[1.75rem] border border-white/80 bg-white/85 p-5 shadow-2xl shadow-[hsl(200,98%,39%)]/10 transition hover:-translate-y-1 hover:bg-white focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[hsl(24,98%,50%)] sm:grid-cols-[96px_1fr]"
               aria-label="Entrar como maestro"
             >
-              <span className="flex h-16 w-16 items-center justify-center rounded-3xl bg-[hsl(31,56%,48%)] text-white shadow-lg shadow-[hsl(31,56%,48%)]/20 sm:h-24 sm:w-24">
+              <span className="flex h-16 w-16 items-center justify-center rounded-3xl bg-[hsl(24,98%,50%)] text-white shadow-lg shadow-[hsl(24,98%,50%)]/20 sm:h-24 sm:w-24">
                 <GraduationCap className="h-8 w-8 sm:h-11 sm:w-11" aria-hidden />
               </span>
               <span>
-                <span className="block text-3xl font-black text-[hsl(197,41%,22%)] sm:text-4xl">
+                <span className="block text-3xl font-black text-[hsl(200,98%,39%)] sm:text-4xl">
                   Maestro
                 </span>
                 <span className="mt-2 block text-base font-semibold leading-relaxed text-[hsl(28,30%,18%)]/70">
                   Panel, grupo, progreso y presentación del maestro.
                 </span>
-                <span className="mt-4 inline-flex text-sm font-black text-[hsl(31,56%,48%)] group-hover:underline">
+                <span className="mt-4 inline-flex text-sm font-black text-[hsl(24,98%,50%)] group-hover:underline">
                   Entrar como maestro
                 </span>
               </span>
@@ -96,10 +96,10 @@ function CartillaHome() {
         <footer className="flex flex-col gap-3 border-t border-[hsl(28,30%,18%)]/10 py-5 text-sm font-bold text-[hsl(28,30%,18%)]/60 sm:flex-row sm:items-center sm:justify-between">
           <p>Libro, práctica y clase en una entrada sencilla.</p>
           <div className="flex gap-4">
-            <Link to="/book" className="hover:text-[hsl(31,56%,48%)] hover:underline">
+            <Link to="/book" className="hover:text-[hsl(24,98%,50%)] hover:underline">
               Libro
             </Link>
-            <Link to="/credits" className="hover:text-[hsl(31,56%,48%)] hover:underline">
+            <Link to="/credits" className="hover:text-[hsl(24,98%,50%)] hover:underline">
               Créditos
             </Link>
           </div>

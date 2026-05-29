@@ -22,6 +22,7 @@ import { SyllableTap, WordMatch } from "@/components/cartilla/Ejercicios";
 import { DragBuildWord } from "@/components/cartilla/DragBuildWord";
 import { OrderedExercises } from "@/components/cartilla/OrderedExercises";
 import { LessonTimer } from "@/components/cartilla/LessonTimer";
+import { GretelMascot } from "@/components/gretel/GretelMascot";
 import type { CatalogEntry } from "@/lib/lesson-catalog";
 import "@/styles/cartilla-student.css";
 
@@ -74,7 +75,7 @@ export function StudentExercisePane({
     return ["a", "e", "i", "o", "u"];
   })();
 
-  const words: Array<{ word: string; emoji?: string }> = (() => {
+  const words: Array<{ word: string;  }> = (() => {
     if (entry.kind === "consonant") {
       // Only first example per syllable — all from consonants.json (book-derived)
       const out: Array<{ word: string }> = [];
@@ -183,7 +184,10 @@ export function StudentExercisePane({
   ];
 
   return (
-    <div className="student-exercise-pane">
+    <div className="student-exercise-pane relative">
+      <div className="absolute -top-12 -right-4 z-10 hidden sm:block">
+        <GretelMascot pose="point" className="scale-75 origin-bottom-right" />
+      </div>
       {/* Character art from book asset manifest */}
       <BookArtFigure
         lesson={entry.n}

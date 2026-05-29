@@ -118,13 +118,14 @@ export function IntroSplash({
           animate="visible"
           transition={heroTransition}
         >
-          <p className="text-xs font-black uppercase tracking-[0.3em] text-[hsl(31,56%,48%)]">
+          <img src="/cartilla/images/gretel/happy.webp" alt="Gretel" className="w-20 h-20 mx-auto mb-4 object-contain" />
+          <p className="text-xs font-black uppercase tracking-[0.3em] text-[hsl(24,98%,50%)]">
             Bienvenidos a
           </p>
-          <h1 className="mt-4 text-6xl font-black leading-[0.95] text-[hsl(197,41%,22%)] sm:text-7xl md:text-8xl">
+          <h1 className="mt-4 text-6xl font-black leading-[0.95] text-[hsl(200,98%,39%)] sm:text-7xl md:text-8xl">
             La Cartilla
             <br />
-            <span className="text-[hsl(31,56%,48%)]">de Gretel</span>
+            <span className="text-[hsl(24,98%,50%)]">de Gretel</span>
           </h1>
         </motion.div>
 
@@ -153,10 +154,10 @@ export function IntroSplash({
           <button
             type="button"
             onClick={onContinue}
-            className="min-h-14 rounded-full bg-[hsl(197,41%,22%)] px-10 py-4 text-base font-black uppercase tracking-widest text-white shadow-[0_18px_36px_hsl(197_41%_22%/0.28)] transition hover:-translate-y-0.5 hover:shadow-[0_22px_44px_hsl(197_41%_22%/0.34)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[hsl(31,56%,48%)]"
-          >
-            {ctaLabel} →
-          </button>
+            className="min-h-14 rounded-full bg-[hsl(24,98%,50%)] px-10 py-4 text-base font-black uppercase tracking-widest text-white shadow-[0_18px_36px_hsl(24_98%_50%/0.28)] transition hover:-translate-y-0.5 hover:shadow-[0_22px_44px_hsl(24_98%_50%/0.34)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[hsl(200,98%,39%)]"
+>
+             {ctaLabel}
+           </button>
         </motion.div>
 
         <div

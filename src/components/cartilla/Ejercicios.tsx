@@ -8,7 +8,7 @@ import { GretelFeedback } from "@/components/gretel/GretelFeedback";
 import { feelBus } from "@/lib/feel-bus";
 import { MonochromeDrawing } from "./MonochromeDrawings";
 
-type Word = { word: string; emoji?: string };
+type Word = { word: string;  };
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -172,7 +172,7 @@ export function SyllableTap({
   );
 }
 
-/** Match drawing to word */
+/** Match word to picture */
 export function WordMatch({
   words,
   color,

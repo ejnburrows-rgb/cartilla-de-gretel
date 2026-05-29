@@ -1,46 +1,69 @@
-# La Cartilla de Gretel — Direct Vercel Build
+# La Cartilla de Gretel
 
-This is a standard Vite + React + TanStack Router application. It is no longer tied to Lovable or TanStack Start SSR.
+A digital edition and classroom platform for *La Cartilla de Gretel*, the Spanish early-literacy workbook by Leonor Lopetegui. It pairs a faithful digital workbook for students with a teacher dashboard for managing classes, assignments, and progress.
 
-## Quick start
+**Live:** https://cartilla-de-gretel.vercel.app
+
+## Features
+
+- **Student workbook** — page-faithful lessons following the book's vowel and consonant order, with light interactive activities.
+- **Teacher dashboard** — classes, students, join codes, assignments, and progress tracking.
+- **Classroom view** — a presentation-friendly flip book for teaching at the front of the room.
+
+## Tech stack
+
+- Vite + React + TypeScript
+- TanStack Router
+- Tailwind CSS
+- Supabase (authentication and data)
+- Deployed on Vercel
+
+## Getting started
 
 ```bash
 npm install
+npm run dev
+```
+
+To build and preview a production bundle:
+
+```bash
 npm run build
 npm run preview
 ```
 
-Open the preview URL printed by Vite.
+## Environment variables
 
-## Vercel deployment settings
+The public reader and local lesson mode work without any configuration. Teacher accounts, classes, join codes, and cloud progress require Supabase:
 
-Use these settings in Vercel:
-
-- Framework Preset: Vite
-- Build Command: `npm run build`
-- Output Directory: `dist`
-
-The included `vercel.json` handles SPA route rewrites and PDF caching.
-
-## Supabase
-
-The public reader and local interactive lesson mode work without Supabase.
-
-Teacher accounts, classes, student join codes, assignments, and cloud progress require:
-
-```txt
-VITE_SUPABASE_URL
-VITE_SUPABASE_PUBLISHABLE_KEY
+```
+VITE_SUPABASE_URL=
+VITE_SUPABASE_PUBLISHABLE_KEY=
 ```
 
-Apply the SQL migrations in `supabase/migrations/` before using the teacher/student cloud platform.
+Apply the SQL migrations in `supabase/migrations/` before using the teacher and student cloud features.
 
-## Book file
+## Deployment
 
-The official PDF is included here:
+Deployed on Vercel using the Vite preset:
 
-```txt
-public/book/book.pdf
-```
+- Build command: `npm run build`
+- Output directory: `dist`
 
-Do not rename it unless you also update the reader path.
+`vercel.json` handles single-page-app route rewrites.
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md). The source content — workbook text, illustrations, and lesson order — is authored by the project owner and is not accepted via pull request.
+
+## License
+
+Released under the MIT License. See [LICENSE](LICENSE).
+
+## Credits
+
+- Author: Leonor Lopetegui
+- Contributors: Aída Fernández, Silvia Diez
+- Illustrator: Estela de Armas Plasencia
+- Digital adaptation: Emilio José Novo
+- Published by LANY Books LLC

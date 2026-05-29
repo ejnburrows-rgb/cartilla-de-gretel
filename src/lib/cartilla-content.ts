@@ -1,9 +1,9 @@
 import lessonsData from "@/content/lessons.json";
 import miamiData from "@/content/miami-dade.json";
 
-export type VocabWord = { word: string; emoji: string };
+export type VocabWord = { word: string; };
 export type MatchPair = { left: string; right: string; pairId: number };
-export type CheckboxItem = { word: string; emoji: string; startsWithVowel: boolean };
+export type CheckboxItem = { word: string; startsWithVowel: boolean };
 export type VowelLesson = {
   id: string;
   vowel: string;
@@ -70,7 +70,6 @@ const stripDiacritics = (s: string) =>
 export const fastTest = lessons.flatMap((l) =>
   l.vocab.slice(0, 2).map((v) => ({
     word: v.word,
-    emoji: v.emoji,
     correctVowel: stripDiacritics(v.word).charAt(0),
   })),
 );

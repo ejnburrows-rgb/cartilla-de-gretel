@@ -3,6 +3,7 @@ import { Check, Star, Sparkles } from "lucide-react";
 import { feelBus } from "@/lib/feel-bus";
 import { STICKERS, type Sticker } from "@/lib/rewards";
 import { saveEarnedSticker, getEarnedStickers } from "@/lib/rewards";
+import { GretelMascot } from "@/components/gretel/GretelMascot";
 
 interface LessonCompleteModalProps {
   lessonId: string;
@@ -17,7 +18,7 @@ export function LessonCompleteModal({ lessonId, onNext }: LessonCompleteModalPro
     const ownedIds = getEarnedStickers(); // number[]
     const available = STICKERS.filter((s) => !ownedIds.includes(s.lessonId));
     let stickerToAward = available[Math.floor(Math.random() * available.length)];
-    
+
     // If they have all stickers, just show a random one anyway
     if (!stickerToAward) {
       stickerToAward = STICKERS[Math.floor(Math.random() * STICKERS.length)];
@@ -28,7 +29,7 @@ export function LessonCompleteModal({ lessonId, onNext }: LessonCompleteModalPro
     }
 
     setAwardedSticker(stickerToAward ?? null);
-    
+
     // Trigger celebration effects
     feelBus.emit("success");
     setTimeout(() => feelBus.emit("sparkle"), 400);
@@ -40,13 +41,17 @@ export function LessonCompleteModal({ lessonId, onNext }: LessonCompleteModalPro
       <div className="bg-card border border-border shadow-2xl rounded-3xl p-8 max-w-sm w-full text-center relative overflow-hidden">
         {/* Background rays/sparkles */}
         <div className="absolute inset-0 pointer-events-none opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-amber-200 via-transparent to-transparent animate-pulse" />
-        
+
         <div className="relative z-10">
-          <div className="w-20 h-20 bg-success/20 text-success rounded-full flex items-center justify-center mx-auto mb-6">
-            <Check className="w-10 h-10" />
+          <div className="flex justify-center mb-6">
+            <GretelMascot
+              pose="celebrate"
+              text={`¡Great job!\n¡Completaste todos los retos de hoy!`}
+              bubblePosition="top"
+            />
           </div>
-          
-          <h2 className="text-3xl font-bold font-fredoka mb-2 text-foreground">
+
+          <h2 className="text-3xl font-bold font-fredoka mb-2 text-foreground mt-4">
             ¡Lección Completada!
           </h2>
           <p className="text-foreground/70 mb-8">

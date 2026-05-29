@@ -9,9 +9,13 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WorkbookRouteImport } from './routes/workbook'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as IntroRouteImport } from './routes/intro'
 import { Route as CreditsRouteImport } from './routes/credits'
+import { Route as ClassroomRouteImport } from './routes/classroom'
 import { Route as BookRouteImport } from './routes/book'
+import { Route as ActivitiesRouteImport } from './routes/activities'
 import { Route as AuthenticatedRouteImport } from './routes/_authenticated'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CartillaIndexRouteImport } from './routes/cartilla/index'
@@ -50,9 +54,19 @@ import { Route as AuthenticatedCartillaTeacherBrandingRouteImport } from './rout
 import { Route as AuthenticatedCartillaTeacherClaseIdRouteImport } from './routes/_authenticated/cartilla.teacher.clase.$id'
 import { Route as AuthenticatedCartillaTeacherAlumnoIdRouteImport } from './routes/_authenticated/cartilla.teacher.alumno.$id'
 
+const WorkbookRoute = WorkbookRouteImport.update({
+  id: '/workbook',
+  path: '/workbook',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IntroRoute = IntroRouteImport.update({
+  id: '/intro',
+  path: '/intro',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CreditsRoute = CreditsRouteImport.update({
@@ -60,9 +74,19 @@ const CreditsRoute = CreditsRouteImport.update({
   path: '/credits',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ClassroomRoute = ClassroomRouteImport.update({
+  id: '/classroom',
+  path: '/classroom',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BookRoute = BookRouteImport.update({
   id: '/book',
   path: '/book',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ActivitiesRoute = ActivitiesRouteImport.update({
+  id: '/activities',
+  path: '/activities',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthenticatedRoute = AuthenticatedRouteImport.update({
@@ -262,9 +286,13 @@ const AuthenticatedCartillaTeacherAlumnoIdRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/activities': typeof ActivitiesRoute
   '/book': typeof BookRoute
+  '/classroom': typeof ClassroomRoute
   '/credits': typeof CreditsRoute
+  '/intro': typeof IntroRoute
   '/login': typeof LoginRoute
+  '/workbook': typeof WorkbookRoute
   '/cartilla/student': typeof CartillaStudentRouteRouteWithChildren
   '/cartilla/teacher': typeof CartillaTeacherRouteRouteWithChildren
   '/cartilla/autora': typeof CartillaAutoraRoute
@@ -303,9 +331,13 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/activities': typeof ActivitiesRoute
   '/book': typeof BookRoute
+  '/classroom': typeof ClassroomRoute
   '/credits': typeof CreditsRoute
+  '/intro': typeof IntroRoute
   '/login': typeof LoginRoute
+  '/workbook': typeof WorkbookRoute
   '/cartilla/student': typeof CartillaStudentRouteRouteWithChildren
   '/cartilla/autora': typeof CartillaAutoraRoute
   '/cartilla/binder': typeof CartillaBinderRouteWithChildren
@@ -345,9 +377,13 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteWithChildren
+  '/activities': typeof ActivitiesRoute
   '/book': typeof BookRoute
+  '/classroom': typeof ClassroomRoute
   '/credits': typeof CreditsRoute
+  '/intro': typeof IntroRoute
   '/login': typeof LoginRoute
+  '/workbook': typeof WorkbookRoute
   '/cartilla/student': typeof CartillaStudentRouteRouteWithChildren
   '/cartilla/teacher': typeof CartillaTeacherRouteRouteWithChildren
   '/cartilla/autora': typeof CartillaAutoraRoute
@@ -388,9 +424,13 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/activities'
     | '/book'
+    | '/classroom'
     | '/credits'
+    | '/intro'
     | '/login'
+    | '/workbook'
     | '/cartilla/student'
     | '/cartilla/teacher'
     | '/cartilla/autora'
@@ -429,9 +469,13 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/activities'
     | '/book'
+    | '/classroom'
     | '/credits'
+    | '/intro'
     | '/login'
+    | '/workbook'
     | '/cartilla/student'
     | '/cartilla/autora'
     | '/cartilla/binder'
@@ -470,9 +514,13 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/_authenticated'
+    | '/activities'
     | '/book'
+    | '/classroom'
     | '/credits'
+    | '/intro'
     | '/login'
+    | '/workbook'
     | '/cartilla/student'
     | '/cartilla/teacher'
     | '/cartilla/autora'
@@ -513,9 +561,13 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRoute: typeof AuthenticatedRouteWithChildren
+  ActivitiesRoute: typeof ActivitiesRoute
   BookRoute: typeof BookRoute
+  ClassroomRoute: typeof ClassroomRoute
   CreditsRoute: typeof CreditsRoute
+  IntroRoute: typeof IntroRoute
   LoginRoute: typeof LoginRoute
+  WorkbookRoute: typeof WorkbookRoute
   CartillaStudentRouteRoute: typeof CartillaStudentRouteRouteWithChildren
   CartillaTeacherRouteRoute: typeof CartillaTeacherRouteRouteWithChildren
   CartillaAutoraRoute: typeof CartillaAutoraRoute
@@ -536,11 +588,25 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/workbook': {
+      id: '/workbook'
+      path: '/workbook'
+      fullPath: '/workbook'
+      preLoaderRoute: typeof WorkbookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/login': {
       id: '/login'
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/intro': {
+      id: '/intro'
+      path: '/intro'
+      fullPath: '/intro'
+      preLoaderRoute: typeof IntroRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/credits': {
@@ -550,11 +616,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CreditsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/classroom': {
+      id: '/classroom'
+      path: '/classroom'
+      fullPath: '/classroom'
+      preLoaderRoute: typeof ClassroomRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/book': {
       id: '/book'
       path: '/book'
       fullPath: '/book'
       preLoaderRoute: typeof BookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/activities': {
+      id: '/activities'
+      path: '/activities'
+      fullPath: '/activities'
+      preLoaderRoute: typeof ActivitiesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_authenticated': {
@@ -915,9 +995,13 @@ const CartillaBinderRouteWithChildren = CartillaBinderRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRoute: AuthenticatedRouteWithChildren,
+  ActivitiesRoute: ActivitiesRoute,
   BookRoute: BookRoute,
+  ClassroomRoute: ClassroomRoute,
   CreditsRoute: CreditsRoute,
+  IntroRoute: IntroRoute,
   LoginRoute: LoginRoute,
+  WorkbookRoute: WorkbookRoute,
   CartillaStudentRouteRoute: CartillaStudentRouteRouteWithChildren,
   CartillaTeacherRouteRoute: CartillaTeacherRouteRouteWithChildren,
   CartillaAutoraRoute: CartillaAutoraRoute,

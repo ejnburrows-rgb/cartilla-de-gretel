@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 // @ts-ignore
 import HTMLFlipBook from "react-pageflip";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -29,17 +29,38 @@ const Page = React.forwardRef<HTMLDivElement, PageProps>(({ pageNum, ...props },
 });
 
 export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPageFlipProps) {
+  const [mounted, setMounted] = useState(false);
   const bookRef = useRef<any>(null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Sync internal state with external currentPage
   useEffect(() => {
+    if (!mounted) return;
     if (bookRef.current && bookRef.current.pageFlip) {
       const flipPage = bookRef.current.pageFlip().getCurrentPageIndex() + 1;
       if (Math.abs(flipPage - currentPage) > 1) {
         bookRef.current.pageFlip().turnToPage(currentPage - 1);
       }
     }
-  }, [currentPage]);
+  }, [currentPage, mounted]);
+
+  if (!mounted) {
+    return (
+      <div className="relative w-full flex items-center justify-center select-none py-6 md:py-10 px-4 sm:px-8 max-w-4xl mx-auto book-desk-wrapper">
+        <div className="relative z-10 drop-shadow-2xl mx-auto w-full">
+          <div className="w-full max-w-[900px] aspect-[3/2] min-h-[420px] max-h-[750px] bg-stone-100 rounded-lg flex flex-col items-center justify-center border-2 border-stone-200/50 shadow-md mx-auto">
+            <div className="flex flex-col items-center gap-3">
+              <div className="h-10 w-10 animate-spin rounded-full border-4 border-stone-300 border-t-amber-500" />
+              <span className="text-stone-500 font-medium">Cargando libro…</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   const onFlip = (e: any) => {
     onPageChange(e.data + 1);
@@ -60,8 +81,8 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
 
   return (
-    <div className="relative w-full flex items-center justify-center select-none py-4 md:py-8">
-      <div className="relative z-10 drop-shadow-2xl mx-auto w-full max-w-4xl">
+    <div className="relative w-full flex items-center justify-center select-none py-6 md:py-10 px-4 sm:px-8 max-w-4xl mx-auto book-desk-wrapper">
+      <div className="relative z-10 drop-shadow-2xl mx-auto w-full">
         <FlipBook
           width={450}
           height={600}
@@ -98,10 +119,10 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
       </div>
 
       {/* Navigation Controls */}
-      <div className="absolute top-1/2 -left-2 -right-2 md:-left-12 md:-right-12 transform -translate-y-1/2 flex justify-between pointer-events-none z-20 no-print">
+      <div className="absolute top-1/2 -left-2 -right-2 md:-left-8 md:-right-8 transform -translate-y-1/2 flex justify-between pointer-events-none z-20 no-print">
         <button
           onClick={handlePrev}
-          className="w-12 h-12 rounded-full border-2 border-stone-200 bg-white/80 backdrop-blur hover:bg-stone-50 text-stone-700 flex items-center justify-center cursor-pointer pointer-events-auto transition hover:scale-105 active:scale-95 shadow-lg shadow-black/10"
+          className="w-12 h-12 rounded-full flex items-center justify-center cursor-pointer pointer-events-auto book-control-btn shadow-lg"
           aria-label="Página anterior"
         >
           <ChevronLeft className="w-6 h-6" />
@@ -109,7 +130,7 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
 
         <button
           onClick={handleNext}
-          className="w-12 h-12 rounded-full border-2 border-stone-200 bg-white/80 backdrop-blur hover:bg-stone-50 text-stone-700 flex items-center justify-center cursor-pointer pointer-events-auto transition hover:scale-105 active:scale-95 shadow-lg shadow-black/10"
+          className="w-12 h-12 rounded-full flex items-center justify-center cursor-pointer pointer-events-auto book-control-btn shadow-lg"
           aria-label="Página siguiente"
         >
           <ChevronRight className="w-6 h-6" />
