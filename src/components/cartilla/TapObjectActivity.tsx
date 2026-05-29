@@ -202,9 +202,9 @@ export function TapObjectActivity({ entry, accent, lessonId, onComplete }: TapOb
       </div>
 
       <div className="bg-amber-50/70 dark:bg-amber-950/20 p-3 rounded-2xl border border-amber-200/50 mb-4">
-        <p className="text-sm font-bold text-amber-950 dark:text-amber-300 text-center font-fredoka">
-          🎈 ¡Toca todos los globos que contengan o empiecen con la sílaba:{" "}
-          <span className="text-lg text-primary underline font-extrabold">{targetSyllable}</span>!
+<p className="text-sm font-bold text-amber-950 dark:text-amber-300 text-center font-fredoka">
+           ¡Toca todos los globos que contengan o empiecen con la sílaba:{" "}
+           <span className="text-lg text-primary underline font-extrabold">{targetSyllable}</span>!
         </p>
       </div>
 

@@ -38,7 +38,7 @@ export function ThemeToggle() {
       title={theme === "dark" ? "Modo claro" : "Modo oscuro"}
       className="text-xs px-2 py-1 rounded-md border border-border hover:bg-muted"
     >
-      {theme === "dark" ? "☀" : "☾"}
+      {theme === "dark" ? "Claro" : "Oscuro"}
     </button>
   );
 }
