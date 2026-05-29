@@ -20,32 +20,50 @@ export function PipelineBoard({
   selectedStudentId,
   onSelectStudent,
 }: PipelineBoardProps) {
-  const atencion = students.filter(s => s.progress < 40);
-  const progreso = students.filter(s => s.progress >= 40 && s.progress < 80);
-  const excelente = students.filter(s => s.progress >= 80);
+  if (students.length === 0) {
+    return (
+      <div className="crm-card text-center py-12 px-4 space-y-4">
+        <div className="w-16 h-16 mx-auto bg-[#fdfbf7] border border-[#e8e2d9] rounded-2xl flex items-center justify-center text-[#7a7065]/60 shadow-inner">
+          <AlertCircle className="w-8 h-8" />
+        </div>
+        <div className="space-y-1">
+          <h4 className="font-extrabold text-lg text-[#3a322b]">No students yet.</h4>
+          <p className="text-sm font-medium text-[#7a7065] max-w-[280px] mx-auto leading-relaxed">
+            Create or connect a class to see roster data.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  const atencion = students.filter((s) => s.progress < 40);
+  const progreso = students.filter((s) => s.progress >= 40 && s.progress < 80);
+  const excelente = students.filter((s) => s.progress >= 80);
 
   return (
     <div className="crm-card">
-      <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-        Estado de la clase
-      </h3>
+      <h3 className="text-lg font-bold mb-4 flex items-center gap-2">Estado de la clase</h3>
       <div className="crm-pipeline">
         {/* Requieren atención */}
         <div className="crm-pipeline-column">
           <div className="font-bold text-sm text-[#902b2b] mb-2 flex justify-between items-center">
             <span>Requieren atención</span>
-            <span className="bg-[#f2d8d8] px-2 py-0.5 rounded-full text-xs font-black">{atencion.length}</span>
+            <span className="bg-[#f2d8d8] px-2 py-0.5 rounded-full text-xs font-black">
+              {atencion.length}
+            </span>
           </div>
           <div className="space-y-3 min-h-[120px]">
-            {atencion.map(s => {
+            {atencion.map((s) => {
               const isSelected = selectedStudentId === s.id;
               return (
-                <div 
-                  key={s.id} 
+                <div
+                  key={s.id}
                   onClick={() => onSelectStudent(s.id)}
                   className={cn(
                     "crm-pipeline-card border-l-4 border-l-[#902b2b] transition-all",
-                    isSelected ? "ring-2 ring-[#902b2b]/40 scale-[1.02] bg-[hsl(354,78%,99%)]" : "hover:border-[#902b2b]/40"
+                    isSelected
+                      ? "ring-2 ring-[#902b2b]/40 scale-[1.02] bg-[hsl(354,78%,99%)]"
+                      : "hover:border-[#902b2b]/40",
                   )}
                 >
                   <div className="flex justify-between items-start">
@@ -71,18 +89,22 @@ export function PipelineBoard({
         <div className="crm-pipeline-column">
           <div className="font-bold text-sm text-[#8c6b36] mb-2 flex justify-between items-center">
             <span>En progreso normal</span>
-            <span className="bg-[#f6ecd7] px-2 py-0.5 rounded-full text-xs font-black">{progreso.length}</span>
+            <span className="bg-[#f6ecd7] px-2 py-0.5 rounded-full text-xs font-black">
+              {progreso.length}
+            </span>
           </div>
           <div className="space-y-3 min-h-[120px]">
-            {progreso.map(s => {
+            {progreso.map((s) => {
               const isSelected = selectedStudentId === s.id;
               return (
-                <div 
-                  key={s.id} 
+                <div
+                  key={s.id}
                   onClick={() => onSelectStudent(s.id)}
                   className={cn(
                     "crm-pipeline-card border-l-4 border-l-[#d4a373] transition-all",
-                    isSelected ? "ring-2 ring-[#d4a373]/40 scale-[1.02] bg-[hsl(48,100%,99%)]" : "hover:border-[#d4a373]/40"
+                    isSelected
+                      ? "ring-2 ring-[#d4a373]/40 scale-[1.02] bg-[hsl(48,100%,99%)]"
+                      : "hover:border-[#d4a373]/40",
                   )}
                 >
                   <span className="font-bold text-sm text-[#3a322b]">{s.name}</span>
@@ -105,18 +127,22 @@ export function PipelineBoard({
         <div className="crm-pipeline-column">
           <div className="font-bold text-sm text-[#2c3e20] mb-2 flex justify-between items-center">
             <span>Excelente progreso</span>
-            <span className="bg-[#dce7d5] px-2 py-0.5 rounded-full text-xs font-black">{excelente.length}</span>
+            <span className="bg-[#dce7d5] px-2 py-0.5 rounded-full text-xs font-black">
+              {excelente.length}
+            </span>
           </div>
           <div className="space-y-3 min-h-[120px]">
-            {excelente.map(s => {
+            {excelente.map((s) => {
               const isSelected = selectedStudentId === s.id;
               return (
-                <div 
-                  key={s.id} 
+                <div
+                  key={s.id}
                   onClick={() => onSelectStudent(s.id)}
                   className={cn(
                     "crm-pipeline-card border-l-4 border-l-[#8da47e] transition-all",
-                    isSelected ? "ring-2 ring-[#8da47e]/40 scale-[1.02] bg-[hsl(145,60%,99%)]" : "hover:border-[#8da47e]/40"
+                    isSelected
+                      ? "ring-2 ring-[#8da47e]/40 scale-[1.02] bg-[hsl(145,60%,99%)]"
+                      : "hover:border-[#8da47e]/40",
                   )}
                 >
                   <span className="font-bold text-sm text-[#3a322b]">{s.name}</span>

@@ -17,12 +17,7 @@ export const SEED_TEACHERS = [
   },
 ] as const;
 
-export const SEED_STUDENT_ACCESS = [
-  { name: "Erik Novo", joinCode: "GRETEL", studentCode: "NOVO" },
-  { name: "Sofía Morejón", joinCode: "GRETEL", studentCode: "SOFIA" },
-  { name: "Erik Novo", joinCode: "NOVO26", studentCode: "NOVO" },
-  { name: "Sofía Morejón", joinCode: "NOVO26", studentCode: "SOFIA" },
-] as const;
+export const SEED_STUDENT_ACCESS = [] as const;
 
 const AUTH_KEY = "cartilla.seed.teacher.v1";
 const STATE_KEY = "cartilla.seed.state.v1";
@@ -79,136 +74,11 @@ function nowIso() {
 }
 
 function initialState(): SeedState {
-  const classes: SeedClass[] = [
-    {
-      id: "seed-class-leonor",
-      teacher_id: "seed-teacher-leonor",
-      name: "Clase Leonor",
-      join_code: "GRETEL",
-      created_at: nowIso(),
-    },
-    {
-      id: "seed-class-emilio",
-      teacher_id: "seed-teacher-emilio",
-      name: "Clase Emilio",
-      join_code: "NOVO26",
-      created_at: nowIso(),
-    },
-  ];
-  const students: SeedStudent[] = [
-    {
-      id: "seed-student-erick-leonor",
-      class_id: "seed-class-leonor",
-      display_name: "Erik Novo",
-      student_code: "NOVO",
-      created_at: nowIso(),
-    },
-    {
-      id: "seed-student-sofia-leonor",
-      class_id: "seed-class-leonor",
-      display_name: "Sofía Morejón",
-      student_code: "SOFIA",
-      created_at: nowIso(),
-    },
-    {
-      id: "seed-student-erick-emilio",
-      class_id: "seed-class-emilio",
-      display_name: "Erik Novo",
-      student_code: "NOVO",
-      created_at: nowIso(),
-    },
-    {
-      id: "seed-student-sofia-emilio",
-      class_id: "seed-class-emilio",
-      display_name: "Sofía Morejón",
-      student_code: "SOFIA",
-      created_at: nowIso(),
-    },
-  ];
   return {
-    classes,
-    students,
-    events: seedEvents(),
-    assignments: [
-      {
-        id: "seed-assignment-leonor-l1",
-        class_id: "seed-class-leonor",
-        lesson_id: "1",
-        title: "Primer repaso",
-        due_at: null,
-        time_limit_seconds: null,
-        created_at: nowIso(),
-      },
-    ],
-  };
-}
-
-function seedEvents(): SeedEvent[] {
-  const base = Date.now() - 1000 * 60 * 60 * 24;
-  return [
-    event(
-      "seed-student-erick-leonor",
-      "1",
-      "lesson_completed",
-      null,
-      null,
-      null,
-      { seeded: true },
-      base,
-    ),
-    event(
-      "seed-student-erick-leonor",
-      "1",
-      "exercise",
-      4,
-      5,
-      180,
-      { exercise: "syllable_tap" },
-      base,
-    ),
-    event(
-      "seed-student-sofia-leonor",
-      "1",
-      "lesson_completed",
-      null,
-      null,
-      null,
-      { seeded: true },
-      base + 5000,
-    ),
-    event(
-      "seed-student-sofia-leonor",
-      "1",
-      "exercise",
-      5,
-      5,
-      155,
-      { exercise: "word_match" },
-      base,
-    ),
-  ];
-}
-
-function event(
-  studentId: string,
-  lessonId: string,
-  kind: string,
-  score: number | null,
-  total: number | null,
-  timeSeconds: number | null,
-  meta: Record<string, unknown> | null,
-  time: number,
-): SeedEvent {
-  return {
-    id: `seed-event-${studentId}-${lessonId}-${kind}-${time}`,
-    student_id: studentId,
-    lesson_id: lessonId,
-    event_kind: kind,
-    score,
-    total,
-    time_seconds: timeSeconds,
-    meta,
-    created_at: new Date(time).toISOString(),
+    classes: [],
+    students: [],
+    events: [],
+    assignments: [],
   };
 }
 
