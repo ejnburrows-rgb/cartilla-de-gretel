@@ -4,6 +4,20 @@ import { ChevronRight, Mail, MessageSquare } from "lucide-react";
 export function AccountPanel() {
   const student = mockStudents[0];
 
+  if (!student) {
+    return (
+      <div className="crm-card h-full flex flex-col justify-center items-center text-center p-6 border-2 border-dashed border-[#e8e2d9] bg-[#faf8f5]">
+        <div className="text-[#8da47e] mb-3 opacity-60">
+          <MessageSquare className="w-10 h-10" />
+        </div>
+        <h4 className="font-bold text-lg text-[#3a322b] mb-2">No students yet.</h4>
+        <p className="text-xs text-[#7a7065] max-w-[200px]">
+          Create or connect a class to see roster data.
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className="crm-card">
       <div className="flex items-center justify-between mb-4">

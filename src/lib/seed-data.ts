@@ -17,12 +17,7 @@ export const SEED_TEACHERS = [
   },
 ] as const;
 
-export const SEED_STUDENT_ACCESS = [
-  { name: "Erik Novo", joinCode: "GRETEL", studentCode: "NOVO" },
-  { name: "Sofía Morejón", joinCode: "GRETEL", studentCode: "SOFIA" },
-  { name: "Erik Novo", joinCode: "NOVO26", studentCode: "NOVO" },
-  { name: "Sofía Morejón", joinCode: "NOVO26", studentCode: "SOFIA" },
-] as const;
+export const SEED_STUDENT_ACCESS: any[] = [];
 
 const AUTH_KEY = "cartilla.seed.teacher.v1";
 const STATE_KEY = "cartilla.seed.state.v1";
@@ -79,67 +74,11 @@ function nowIso() {
 }
 
 function initialState(): SeedState {
-  const classes: SeedClass[] = [
-    {
-      id: "seed-class-leonor",
-      teacher_id: "seed-teacher-leonor",
-      name: "Clase Leonor",
-      join_code: "GRETEL",
-      created_at: nowIso(),
-    },
-    {
-      id: "seed-class-emilio",
-      teacher_id: "seed-teacher-emilio",
-      name: "Clase Emilio",
-      join_code: "NOVO26",
-      created_at: nowIso(),
-    },
-  ];
-  const students: SeedStudent[] = [
-    {
-      id: "seed-student-erick-leonor",
-      class_id: "seed-class-leonor",
-      display_name: "Erik Novo",
-      student_code: "NOVO",
-      created_at: nowIso(),
-    },
-    {
-      id: "seed-student-sofia-leonor",
-      class_id: "seed-class-leonor",
-      display_name: "Sofía Morejón",
-      student_code: "SOFIA",
-      created_at: nowIso(),
-    },
-    {
-      id: "seed-student-erick-emilio",
-      class_id: "seed-class-emilio",
-      display_name: "Erik Novo",
-      student_code: "NOVO",
-      created_at: nowIso(),
-    },
-    {
-      id: "seed-student-sofia-emilio",
-      class_id: "seed-class-emilio",
-      display_name: "Sofía Morejón",
-      student_code: "SOFIA",
-      created_at: nowIso(),
-    },
-  ];
   return {
-    classes,
-    students,
-    events: seedEvents(),
-    assignments: [
-      {
-        id: "seed-assignment-leonor-l1",
-        class_id: "seed-class-leonor",
-        lesson_id: "1",
-        title: "Primer repaso",
-        due_at: null,
-        time_limit_seconds: null,
-        created_at: nowIso(),
-      },
-    ],
+    classes: [],
+    students: [],
+    events: [],
+    assignments: [],
   };
 }
 

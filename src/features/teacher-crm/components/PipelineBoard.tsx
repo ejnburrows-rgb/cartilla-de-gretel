@@ -6,6 +6,25 @@ export function PipelineBoard() {
   const progreso = mockStudents.filter(s => s.status === 'progreso');
   const excelente = mockStudents.filter(s => s.status === 'excelente');
 
+  if (mockStudents.length === 0) {
+    return (
+      <div className="crm-card">
+        <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
+          Estado de la clase
+        </h3>
+        <div className="flex flex-col items-center justify-center py-12 text-center border-2 border-dashed border-[#e8e2d9] rounded-xl bg-[#faf8f5]">
+          <div className="text-[#8c6b36] mb-3 opacity-60">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h4 className="text-lg font-bold text-[#3a322b] mb-2">No students yet.</h4>
+          <p className="text-sm text-[#7a7065] max-w-sm">
+            Create or connect a class to see roster data. Progress appears after students complete activities.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="crm-card">
       <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
