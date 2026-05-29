@@ -1,11 +1,17 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, lazy, Suspense } from "react";
 import { CATALOG } from "@/lib/lesson-catalog";
-import { BookPageFlip } from "./BookPageFlip";
 import { PolishedPage } from "./PolishedPage";
 import { StudentBookToolbar } from "./StudentBookToolbar";
 import { BookOpen, Tv } from "lucide-react";
 import { speak } from "@/lib/speak";
 import { GretelMascot } from "@/components/gretel/GretelMascot";
+
+// Lazy-load the flipbook so `react-pageflip` (which touches browser-only APIs
+// at import time) never evaluates during SSR. Combined with the `mounted` gate
+// below, the module only loads on the client after hydration.
+const BookPageFlip = lazy(() =>
+  import("./BookPageFlip").then((m) => ({ default: m.BookPageFlip })),
+);
 
 interface BookReaderProps {
   initialPage?: number;
@@ -14,6 +20,13 @@ interface BookReaderProps {
 export function BookReader({ initialPage = 1 }: BookReaderProps) {
   const [currentPage, setCurrentPage] = useState<number>(initialPage);
   const [layoutMode, setLayoutMode] = useState<"horizontal" | "vertical">("horizontal");
+  const [mounted, setMounted] = useState(false);
+
+  // Only render the client-only flipbook after mount so `react-pageflip`
+  // is never requested on the server.
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Determine total pages from catalog
   const totalPages = useMemo(() => {
@@ -40,6 +53,15 @@ export function BookReader({ initialPage = 1 }: BookReaderProps) {
   const handleAudio = () => {
     speak(`Página ${currentPage}`);
   };
+
+  const flipbookFallback = (
+    <div className="w-full flex items-center justify-center py-10">
+      <div className="flex flex-col items-center gap-3">
+        <div className="h-10 w-10 animate-spin rounded-full border-4 border-stone-300 border-t-amber-500" />
+        <span className="text-stone-500 font-medium">Cargando libro…</span>
+      </div>
+    </div>
+  );
 
   return (
     <div className="w-full flex flex-col min-h-screen">
@@ -88,11 +110,17 @@ export function BookReader({ initialPage = 1 }: BookReaderProps) {
       {/* Main Page Layout Container */}
       <main className="flex-1 w-full max-w-2xl mx-auto px-4 py-8 flex flex-col items-center justify-center">
         {layoutMode === "horizontal" ? (
-          <BookPageFlip
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={setCurrentPage}
-          />
+          mounted ? (
+            <Suspense fallback={flipbookFallback}>
+              <BookPageFlip
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={setCurrentPage}
+              />
+            </Suspense>
+          ) : (
+            flipbookFallback
+          )
         ) : (
           <div className="w-full space-y-8 pb-24">
             {allPages.map((pageNum) => (
