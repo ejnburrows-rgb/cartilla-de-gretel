@@ -87,3 +87,31 @@
   z-index: 1;
   border-radius: 1rem;
 }
+
+/* 3. Student-facing app-created drawing color layer
+   These rules color the generated SVG learning drawings/cards only.
+   They do not edit, recolor, replace, crop, or rotate workbook scan image files. */
+.cartilla-flip-book-page svg[viewBox="0 0 100 100"]:not([class*="w-24"]),
+.cartilla-flip-vertical-page svg[viewBox="0 0 100 100"]:not([class*="w-24"]) {
+  filter: drop-shadow(0 8px 14px rgba(14, 116, 144, 0.14));
+}
+
+.cartilla-flip-book-page svg[viewBox="0 0 100 100"]:not([class*="w-24"]) :is(circle, ellipse, rect, polygon)[fill="none"],
+.cartilla-flip-vertical-page svg[viewBox="0 0 100 100"]:not([class*="w-24"]) :is(circle, ellipse, rect, polygon)[fill="none"] {
+  fill: rgba(125, 211, 252, 0.18);
+}
+
+.cartilla-flip-book-page svg[viewBox="0 0 100 100"]:not([class*="w-24"]) :is(path, circle, ellipse, rect, polygon),
+.cartilla-flip-vertical-page svg[viewBox="0 0 100 100"]:not([class*="w-24"]) :is(path, circle, ellipse, rect, polygon) {
+  stroke: #0f766e;
+}
+
+.cartilla-flip-book-page svg[viewBox="0 0 100 100"]:not([class*="w-24"]) [fill="#d6d3d1"],
+.cartilla-flip-vertical-page svg[viewBox="0 0 100 100"]:not([class*="w-24"]) [fill="#d6d3d1"] {
+  fill: #f9a8d4;
+}
+
+.cartilla-flip-book-page svg[viewBox="0 0 100 100"]:not([class*="w-24"]) [fill="#1c1917"],
+.cartilla-flip-vertical-page svg[viewBox="0 0 100 100"]:not([class*="w-24"]) [fill="#1c1917"] {
+  fill: #134e4a;
+}
