@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect, lazy, Suspense } from "react";
 import { CATALOG } from "@/lib/lesson-catalog";
 import { PolishedPage } from "./PolishedPage";
 import { StudentBookToolbar } from "./StudentBookToolbar";
+import { RingTabNav } from "./RingTabNav";
 import { BookOpen, Tv } from "lucide-react";
 import { speak } from "@/lib/speak";
 import { GretelMascot } from "@/components/gretel/GretelMascot";
@@ -135,29 +136,36 @@ export function BookReader({ initialPage = 1 }: BookReaderProps) {
         </span>
       </div>
 
-      {/* Main Page Layout Container */}
-      <main className="flex-1 w-full max-w-2xl mx-auto px-4 py-8 flex flex-col items-center justify-center">
-        {showHorizontal ? (
-          mounted ? (
-            <FlipErrorBoundary
-              fallback={verticalReader}
-              onError={() => setFlipFailed(true)}
-            >
-              <Suspense fallback={flipbookFallback}>
-                <BookPageFlip
-                  currentPage={currentPage}
-                  totalPages={totalPages}
-                  onPageChange={setCurrentPage}
-                />
-              </Suspense>
-            </FlipErrorBoundary>
+      {/* Main Page Layout Container — ring-tab rail + book */}
+      <div className="flex-1 w-full max-w-5xl mx-auto flex flex-col md:flex-row md:items-start md:justify-center gap-2 md:gap-4 px-2 md:px-4">
+        <RingTabNav
+          currentPage={currentPage}
+          onSelect={setCurrentPage}
+          className="md:sticky md:top-24 md:max-h-[78vh]"
+        />
+        <main className="flex-1 w-full max-w-2xl mx-auto px-2 md:px-4 py-6 md:py-8 flex flex-col items-center justify-center">
+          {showHorizontal ? (
+            mounted ? (
+              <FlipErrorBoundary
+                fallback={verticalReader}
+                onError={() => setFlipFailed(true)}
+              >
+                <Suspense fallback={flipbookFallback}>
+                  <BookPageFlip
+                    currentPage={currentPage}
+                    totalPages={totalPages}
+                    onPageChange={setCurrentPage}
+                  />
+                </Suspense>
+              </FlipErrorBoundary>
+            ) : (
+              flipbookFallback
+            )
           ) : (
-            flipbookFallback
-          )
-        ) : (
-          verticalReader
-        )}
-      </main>
+            verticalReader
+          )}
+        </main>
+      </div>
 
       {/* Mascot Integration */}
       <div className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50">
