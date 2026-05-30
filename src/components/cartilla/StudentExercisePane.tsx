@@ -52,7 +52,21 @@ export function StudentExercisePane({
   timeLimitSeconds,
   onAllCompleted,
 }: StudentExercisePaneProps) {
-  const [completed, setCompleted] = useState<Set<ExerciseId>>(new Set());
+  const STORAGE_KEY = `cartilla.exercise-done.v1.${lessonId}`;
+  
+  const [completed, setCompleted] = useState<Set<ExerciseId>>(() => {
+    if (typeof window === "undefined") return new Set();
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) {
+        const arr = JSON.parse(raw) as ExerciseId[];
+        return new Set(arr);
+      }
+    } catch {
+      // ignore
+    }
+    return new Set();
+  });
 
   useEffect(() => {
     if (completed.size === EXERCISE_IDS.length && onAllCompleted) {
@@ -63,7 +77,11 @@ export function StudentExercisePane({
   const markDone = (id: ExerciseId) =>
     setCompleted((prev) => {
       if (prev.has(id)) return prev;
-      return new Set([...prev, id]);
+      const next = new Set([...prev, id]);
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify([...next]));
+      } catch {}
+      return next;
     });
 
   const accent = entry.color;

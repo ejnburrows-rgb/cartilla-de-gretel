@@ -1,7 +1,7 @@
 /**
  * DragBuildWord.tsx  — Lane A
  *
- * Drag (pointer-events API) letter tiles from a tray onto word slots.
+ * Drag (pointer-events API via @dnd-kit) letter tiles from a tray onto word slots.
  * Wrong drops snap back with shake animation.
  * Correct drops lock in place.
  * On full word completion, plays a celebration tone via AudioContext.
@@ -9,12 +9,23 @@
  * Respects prefers-reduced-motion for celebration.
  */
 import { useCallback, useEffect, useMemo, useReducer, useRef, useState } from "react";
-import { Check, RotateCcw, Volume2 } from "lucide-react";
+import { RotateCcw, Volume2 } from "lucide-react";
 import { speak } from "@/lib/speak";
 import { recordEvent } from "@/lib/student-session";
 import type { CatalogEntry } from "@/lib/lesson-catalog";
-import { GretelFeedback } from "@/components/gretel/GretelFeedback";
+import { GretelFeedback } from "@/components/cartilla/GretelFeedback";
 import { feelBus } from "@/lib/feel-bus";
+import {
+  DndContext,
+  useDraggable,
+  useDroppable,
+  MouseSensor,
+  TouchSensor,
+  KeyboardSensor,
+  useSensor,
+  useSensors,
+  DragEndEvent,
+} from "@dnd-kit/core";
 
 // ── Audio ──────────────────────────────────────────────────────────
 function playCelebrationTone() {
@@ -123,6 +134,75 @@ function reducer(state: DragBuildWordState, action: Action): DragBuildWordState 
   }
 }
 
+// ── Subcomponents ──────────────────────────────────────────────────
+function DraggableLetter({ letter, trayIdx, used, accent, disabled, selectedTray, onTrayKeyDown }: any) {
+  const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
+    id: `tray-${trayIdx}`,
+    data: { trayIdx, letter },
+    disabled: used || disabled,
+  });
+
+  const style: React.CSSProperties = {
+    color: accent,
+    borderColor: accent,
+    backgroundColor: `${accent}12`,
+    transform: transform ? `translate3d(${Math.round(transform.x)}px, ${Math.round(transform.y)}px, 0)` : undefined,
+    zIndex: isDragging ? 9999 : undefined,
+    opacity: isDragging ? 0.35 : used ? 0.18 : 1,
+    scale: isDragging ? 0.9 : 1,
+    pointerEvents: used ? "none" : undefined,
+  };
+
+  return (
+    <div
+      ref={setNodeRef}
+      {...listeners}
+      {...attributes}
+      data-used={used ? "true" : "false"}
+      data-dragging={isDragging ? "true" : "false"}
+      className="drag-build-word__letter lesson-focus-ring"
+      style={style}
+      tabIndex={used || disabled ? -1 : 0}
+      role="button"
+      aria-label={`Letra ${letter}${selectedTray === trayIdx ? " (seleccionada)" : ""}`}
+      aria-pressed={selectedTray === trayIdx}
+      onKeyDown={(e) => onTrayKeyDown(e, trayIdx)}
+      aria-disabled={used}
+    >
+      {letter}
+    </div>
+  );
+}
+
+function DroppableSlot({ slotIdx, filled, accent, wrongSlot, selectedTray, onSlotKeyDown }: any) {
+  const { isOver, setNodeRef } = useDroppable({
+    id: `slot-${slotIdx}`,
+    data: { slotIdx },
+  });
+
+  return (
+    <div
+      ref={setNodeRef}
+      data-slot-idx={slotIdx}
+      data-filled={filled !== null ? "true" : "false"}
+      data-over={isOver ? "true" : "false"}
+      data-correct={filled !== null ? "true" : "false"}
+      data-wrong={wrongSlot === slotIdx ? "true" : "false"}
+      className="drag-build-word__slot lesson-focus-ring"
+      style={{ color: accent, borderColor: filled ? accent : undefined }}
+      tabIndex={selectedTray !== null && filled === null ? 0 : -1}
+      onKeyDown={(e) => onSlotKeyDown(e, slotIdx)}
+      aria-label={
+        filled
+          ? `Casilla ${slotIdx + 1}: ${filled}`
+          : `Casilla ${slotIdx + 1}: vacía`
+      }
+    >
+      {filled ?? <span className="text-foreground/20 text-sm">_</span>}
+    </div>
+  );
+}
+
 // ── Component ──────────────────────────────────────────────────────
 interface DragBuildWordProps {
   entry: CatalogEntry;
@@ -148,14 +228,24 @@ export function DragBuildWord({ entry, accent, lessonId, onComplete }: DragBuild
   const currentWord = words[wordIdx % words.length] ?? "ola";
 
   const [state, dispatch] = useReducer(reducer, currentWord, initState);
+  const [feedbackState, setFeedbackState] = useState<"ok" | "x" | null>(null);
 
   // Keyboard drag state
   const [selectedTray, setSelectedTray] = useState<number | null>(null);
 
+  const sensors = useSensors(
+    useSensor(MouseSensor, { activationConstraint: { distance: 5 } }),
+    useSensor(TouchSensor, { activationConstraint: { distance: 5 } }),
+    useSensor(KeyboardSensor)
+  );
+
   // Clear wrong animation after 400ms
   useEffect(() => {
     if (state.wrongSlot !== null) {
-      const t = setTimeout(() => dispatch({ type: "CLEAR_WRONG" }), 400);
+      const t = setTimeout(() => {
+        dispatch({ type: "CLEAR_WRONG" });
+        setFeedbackState(null);
+      }, 1000); // 1s to show "X" feedback
       return () => clearTimeout(t);
     }
   }, [state.wrongSlot]);
@@ -177,6 +267,7 @@ export function DragBuildWord({ entry, accent, lessonId, onComplete }: DragBuild
           meta: { exercise: "drag_build_word", word: state.target, completed: true },
         });
       }
+      setFeedbackState("ok");
       onComplete?.();
     }
   }, [state.completed, state.target, state.attempts, lessonId, onComplete]);
@@ -189,6 +280,7 @@ export function DragBuildWord({ entry, accent, lessonId, onComplete }: DragBuild
         feelBus.emit("success");
       } else {
         feelBus.emit("error");
+        setFeedbackState("x");
       }
       dispatch({ type: "DROP", slotIdx, trayIdx });
     },
@@ -201,53 +293,14 @@ export function DragBuildWord({ entry, accent, lessonId, onComplete }: DragBuild
     setWordIdx(next);
     dispatch({ type: "NEXT_WORD", word: words[next] ?? "ola" });
     setSelectedTray(null);
+    setFeedbackState(null);
   };
 
   const reset = () => {
     hasCalledComplete.current = false;
     dispatch({ type: "RESET" });
     setSelectedTray(null);
-  };
-
-  // ── Pointer drag (desktop + touch) ──────────────────────────────
-  const draggingRef = useRef<{ trayIdx: number; el: HTMLElement } | null>(null);
-  const ghostRef = useRef<HTMLElement | null>(null);
-
-  const onPointerDown = (e: React.PointerEvent, trayIdx: number) => {
-    if (state.usedTrayIdx.has(trayIdx) || state.completed) return;
-    feelBus.emit("drag-pick");
-    const el = e.currentTarget as HTMLElement;
-    el.setPointerCapture(e.pointerId);
-    draggingRef.current = { trayIdx, el };
-    const ghost = el.cloneNode(true) as HTMLElement;
-    ghost.style.cssText = `position:fixed;pointer-events:none;z-index:9999;opacity:0.85;transform:scale(1.1);top:${e.clientY - 24}px;left:${e.clientX - 24}px;width:3rem;height:3.25rem;`;
-    document.body.appendChild(ghost);
-    ghostRef.current = ghost;
-    el.dataset.dragging = "true";
-  };
-
-  const onPointerMove = (e: React.PointerEvent) => {
-    if (!ghostRef.current) return;
-    ghostRef.current.style.top = `${e.clientY - 24}px`;
-    ghostRef.current.style.left = `${e.clientX - 24}px`;
-  };
-
-  const onPointerUp = (e: React.PointerEvent) => {
-    if (!draggingRef.current) return;
-    feelBus.emit("drag-drop");
-    const { trayIdx, el } = draggingRef.current;
-    el.removeAttribute("data-dragging");
-    ghostRef.current?.remove();
-    ghostRef.current = null;
-    draggingRef.current = null;
-
-    // Hit test: find slot under pointer
-    const target = document.elementFromPoint(e.clientX, e.clientY);
-    const slotEl = target?.closest<HTMLElement>("[data-slot-idx]");
-    if (slotEl) {
-      const slotIdx = Number(slotEl.dataset.slotIdx);
-      handleDrop(slotIdx, trayIdx);
-    }
+    setFeedbackState(null);
   };
 
   // ── Keyboard ─────────────────────────────────────────────────────
@@ -263,6 +316,19 @@ export function DragBuildWord({ entry, accent, lessonId, onComplete }: DragBuild
       e.preventDefault();
       handleDrop(slotIdx, selectedTray);
       setSelectedTray(null);
+    }
+  };
+
+  // ── @dnd-kit Handlers ────────────────────────────────────────────
+  const onDragStart = () => {
+    feelBus.emit("drag-pick");
+  };
+
+  const onDragEnd = (e: DragEndEvent) => {
+    feelBus.emit("drag-drop");
+    const { active, over } = e;
+    if (over && active.data.current && over.data.current) {
+      handleDrop(over.data.current.slotIdx, active.data.current.trayIdx);
     }
   };
 
@@ -292,90 +358,52 @@ export function DragBuildWord({ entry, accent, lessonId, onComplete }: DragBuild
         </div>
       </div>
 
-      {/* Slots */}
-      <div
-        className="drag-build-word__slots"
-        role="group"
-        aria-label="Casillas de la palabra"
-      >
-        {state.slots.map((filled, slotIdx) => (
-          <div
-            key={slotIdx}
-            data-slot-idx={slotIdx}
-            data-filled={filled !== null ? "true" : "false"}
-            data-over="false"
-            data-correct={filled !== null ? "true" : "false"}
-            data-wrong={state.wrongSlot === slotIdx ? "true" : "false"}
-            className="drag-build-word__slot lesson-focus-ring"
-            style={{ color: accent, borderColor: filled ? accent : undefined }}
-            tabIndex={selectedTray !== null && filled === null ? 0 : -1}
-            onKeyDown={(e) => onSlotKeyDown(e, slotIdx)}
-            aria-label={
-              filled
-                ? `Casilla ${slotIdx + 1}: ${filled}`
-                : `Casilla ${slotIdx + 1}: vacía`
-            }
-            onPointerEnter={(e) => {
-              (e.currentTarget as HTMLElement).dataset.over = "true";
-            }}
-            onPointerLeave={(e) => {
-              (e.currentTarget as HTMLElement).dataset.over = "false";
-            }}
-          >
-            {filled ?? <span className="text-foreground/20 text-sm">_</span>}
-          </div>
-        ))}
-      </div>
-
-      {/* Completion */}
-      {state.completed && (
-        <GretelFeedback
-          isCorrect={true}
-          message={
-            <p>
-              ¡<span style={{ color: accent, fontWeight: "bold" }}>{state.target}</span> — ¡Muy bien! Formaste la palabra correctamente.
-            </p>
-          }
+      <DndContext sensors={sensors} onDragStart={onDragStart} onDragEnd={onDragEnd}>
+        {/* Slots */}
+        <div
+          className="drag-build-word__slots"
+          role="group"
+          aria-label="Casillas de la palabra"
         >
-          {words.length > 1 && (
-            <button
-              onClick={nextWord}
-              className="lesson-focus-ring text-xs font-bold px-3 py-1.5 rounded-xl text-white"
-              style={{ backgroundColor: accent }}
-            >
-              Siguiente →
-            </button>
-          )}
-        </GretelFeedback>
-      )}
+          {state.slots.map((filled, slotIdx) => (
+            <DroppableSlot
+              key={slotIdx}
+              slotIdx={slotIdx}
+              filled={filled}
+              accent={accent}
+              wrongSlot={state.wrongSlot}
+              selectedTray={selectedTray}
+              onSlotKeyDown={onSlotKeyDown}
+            />
+          ))}
+        </div>
 
-      {/* Tray */}
-      <div
-        className="drag-build-word__tray"
-        role="group"
-        aria-label="Letras disponibles"
-        onPointerMove={onPointerMove}
-        onPointerUp={onPointerUp}
-      >
-        {state.tray.map((letter, trayIdx) => (
-          <div
-            key={trayIdx}
-            data-used={state.usedTrayIdx.has(trayIdx) ? "true" : "false"}
-            data-dragging="false"
-            className="drag-build-word__letter lesson-focus-ring"
-            style={{ color: accent, borderColor: accent, backgroundColor: `${accent}12` }}
-            tabIndex={state.usedTrayIdx.has(trayIdx) || state.completed ? -1 : 0}
-            role="button"
-            aria-label={`Letra ${letter}${selectedTray === trayIdx ? " (seleccionada)" : ""}`}
-            aria-pressed={selectedTray === trayIdx}
-            onPointerDown={(e) => onPointerDown(e, trayIdx)}
-            onKeyDown={(e) => onTrayKeyDown(e, trayIdx)}
-            aria-disabled={state.usedTrayIdx.has(trayIdx)}
-          >
-            {letter}
-          </div>
-        ))}
-      </div>
+        {/* Completion Feedback */}
+        <GretelFeedback
+          state={feedbackState}
+          onRetry={feedbackState === "ok" ? nextWord : () => setFeedbackState(null)}
+        />
+
+        {/* Tray */}
+        <div
+          className="drag-build-word__tray"
+          role="group"
+          aria-label="Letras disponibles"
+        >
+          {state.tray.map((letter, trayIdx) => (
+            <DraggableLetter
+              key={trayIdx}
+              letter={letter}
+              trayIdx={trayIdx}
+              used={state.usedTrayIdx.has(trayIdx)}
+              accent={accent}
+              disabled={state.completed}
+              selectedTray={selectedTray}
+              onTrayKeyDown={onTrayKeyDown}
+            />
+          ))}
+        </div>
+      </DndContext>
 
       {selectedTray !== null && (
         <p className="mt-2 text-xs text-foreground/50" aria-live="polite">
