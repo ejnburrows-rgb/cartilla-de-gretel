@@ -172,6 +172,9 @@ export function DragBuildWord({ entry, accent, lessonId, onComplete }: DragBuild
     }
   }, [state.wrongSlot]);
 
+  // Show immediate feedback for wrong drops
+  const showWrongFeedback = state.wrongSlot !== null && !state.completed;
+
   // On completion
   const hasCalledComplete = useRef(false);
   useEffect(() => {
@@ -338,15 +341,19 @@ export function DragBuildWord({ entry, accent, lessonId, onComplete }: DragBuild
           })}
         </div>
 
+        {/* Wrong drop feedback */}
+        {showWrongFeedback && (
+          <GretelFeedback
+            isCorrect={false}
+            message="Inténtalo otra vez"
+          />
+        )}
+
         {/* Completion */}
         {state.completed && (
           <GretelFeedback
             isCorrect={true}
-            message={
-              <p>
-                ¡<span style={{ color: accent, fontWeight: "bold" }}>{state.target}</span> — ¡Muy bien! Formaste la palabra correctamente.
-              </p>
-            }
+            message="¡Muy bien!"
           >
             {words.length > 1 && (
               <button
