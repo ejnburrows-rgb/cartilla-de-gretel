@@ -17,53 +17,46 @@ interface GretelMascotProps {
  *   public/cartilla/images/gretel/poses/
  * and are served at /cartilla/images/gretel/poses/.
  * The component cycles through each pose's frames to make Gretel move.
- * If a frame is missing, it gracefully falls back to a still image so
- * nothing ever breaks.
+ * Only files that ACTUALLY EXIST in that folder are referenced here
+ * (wave, idle-1, idle-2, point, talk-open, talk-closed, cheer, blink) so
+ * she animates instead of falling back to a frozen still. If a frame is ever
+ * missing it gracefully falls back to a still image so nothing breaks.
  */
 const POSE_DIR = "/cartilla/images/gretel/poses";
 
 const framesByPose: Record<GretelPose, string[]> = {
   welcome: [
-    `${POSE_DIR}/pose7-wave-0.webp`,
-    `${POSE_DIR}/pose7-wave-1.webp`,
-    `${POSE_DIR}/pose7-wave-2.webp`,
-    `${POSE_DIR}/pose7-wave-1.webp`,
+    `${POSE_DIR}/wave.webp`,
+    `${POSE_DIR}/idle-1.webp`,
+    `${POSE_DIR}/wave.webp`,
+    `${POSE_DIR}/idle-2.webp`,
   ],
-  wave: [
-    `${POSE_DIR}/pose7-wave-0.webp`,
-    `${POSE_DIR}/pose7-wave-1.webp`,
-    `${POSE_DIR}/pose7-wave-2.webp`,
-    `${POSE_DIR}/pose7-wave-1.webp`,
-  ],
-  point: [
-    `${POSE_DIR}/pose7-talk-0.webp`,
-    `${POSE_DIR}/pose7-talk-1.webp`,
-    `${POSE_DIR}/pose7-talk-2.webp`,
-    `${POSE_DIR}/pose7-talk-1.webp`,
-  ],
-  read: [`${POSE_DIR}/pose7-talk-0.webp`, `${POSE_DIR}/pose7-blink.webp`],
-  celebrate: [`${POSE_DIR}/pose7-cheer-0.webp`, `${POSE_DIR}/pose7-cheer-1.webp`],
-  think: [`${POSE_DIR}/pose7-talk-0.webp`, `${POSE_DIR}/pose7-blink.webp`],
+  wave: [`${POSE_DIR}/wave.webp`, `${POSE_DIR}/idle-1.webp`],
+  point: [`${POSE_DIR}/point.webp`, `${POSE_DIR}/talk-open.webp`],
+  read: [`${POSE_DIR}/talk-open.webp`, `${POSE_DIR}/talk-closed.webp`],
+  celebrate: [`${POSE_DIR}/cheer.webp`, `${POSE_DIR}/idle-2.webp`],
+  think: [`${POSE_DIR}/idle-1.webp`, `${POSE_DIR}/blink.webp`],
 };
 
 // How fast each pose flips its frames (milliseconds per frame).
 const frameIntervalByPose: Record<GretelPose, number> = {
   welcome: 220,
   wave: 170,
-  point: 240,
-  read: 1600,
-  celebrate: 200,
-  think: 1400,
+  point: 260,
+  read: 320,
+  celebrate: 220,
+  think: 900,
 };
 
-// Safe fallbacks: existing still art already in public/cartilla/images/gretel/.
+// Safe fallbacks: confirmed-existing frames in poses/, so even the worst case
+// shows a real Gretel image rather than a broken tile.
 const fallbackByPose: Record<GretelPose, string> = {
-  welcome: "/cartilla/images/gretel/happy.webp",
-  point: "/cartilla/images/gretel/encouraging.webp",
-  read: "/cartilla/images/gretel/idle-1.webp",
-  celebrate: "/cartilla/images/gretel/cheer.webp",
-  think: "/cartilla/images/gretel/thinking.webp",
-  wave: "/cartilla/images/gretel/happy.webp",
+  welcome: `${POSE_DIR}/wave.webp`,
+  point: `${POSE_DIR}/point.webp`,
+  read: `${POSE_DIR}/talk-open.webp`,
+  celebrate: `${POSE_DIR}/cheer.webp`,
+  think: `${POSE_DIR}/idle-1.webp`,
+  wave: `${POSE_DIR}/wave.webp`,
 };
 
 const variants: Variants = {

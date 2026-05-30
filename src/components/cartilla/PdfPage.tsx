@@ -1,14 +1,14 @@
 /**
- * PdfPage.tsx  — Lane A
- * High-definition page renderer that serves polished, upscaled, and white-balanced JPEGs
- * from our asset pipeline. Completely removes scan residues and gray margins.
+ * PdfPage.tsx — Lane A
+ * High-definition page renderer.
  *
- * Render priority (Leap U): the faithful HD art at /cartilla/art/hd/workbook/page-NNN.jpg
- * is served FIRST. The raw verified source scan is used only as an onError fallback when
- * an HD asset is missing. This auto-upgrades pages the moment cleaner HD files land in
- * the same path, and the worst case is identical to serving the original scan.
+ * Render priority: the clean COLORIZED art at /cartilla/art/color/workbook/page-NNN.jpg
+ * is served FIRST. If it is missing, it falls back to the HD art at
+ * /cartilla/art/hd/workbook/page-NNN.jpg, and finally to the raw verified source
+ * scan. This auto-upgrades every page the moment the colorized files land in the
+ * color/ folder, with no risk: the worst case is identical to serving the scan.
  */
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import sourceArtInventory from "@/data/source-art-inventory.json";
 import { PAGE_ROTATION_MAP } from "@/lib/page-rotation-map";
 
@@ -35,6 +35,11 @@ const rawScanByWorkbookPage = new Map(
     .map((asset) => [asset.workbookPageNumber, `/${asset.path}`]),
 );
 
+function getColorPageSrc(pageNumber: number) {
+  const paddedPageNum = String(pageNumber).padStart(3, "0");
+  return `/cartilla/art/color/workbook/page-${paddedPageNum}.jpg`;
+}
+
 function getHdPageSrc(pageNumber: number) {
   const paddedPageNum = String(pageNumber).padStart(3, "0");
   return `/cartilla/art/hd/workbook/page-${paddedPageNum}.jpg`;
@@ -44,10 +49,17 @@ function getRawScanFallbackSrc(pageNumber: number) {
   return rawScanByWorkbookPage.get(pageNumber);
 }
 
+function getPageSources(pageNumber: number) {
+  const list = [getColorPageSrc(pageNumber), getHdPageSrc(pageNumber)];
+  const raw = getRawScanFallbackSrc(pageNumber);
+  if (raw) list.push(raw);
+  return list;
+}
+
 export function prefetchPage(pageNumber: number) {
   if (pageNumber < 1 || pageNumber > 92) return;
   const img = new Image();
-  img.src = getHdPageSrc(pageNumber);
+  img.src = getColorPageSrc(pageNumber);
 }
 
 interface PdfPageProps {
@@ -57,15 +69,31 @@ interface PdfPageProps {
 
 export function PdfPage({ pageNumber, className = "" }: PdfPageProps) {
   const safePageNumber = Math.max(1, pageNumber);
-  const src = getHdPageSrc(safePageNumber);
 
+  const sources = useMemo(() => getPageSources(safePageNumber), [safePageNumber]);
+  const [srcIndex, setSrcIndex] = useState(0);
+
+  // Reset to the highest-quality source whenever the page changes.
+  useEffect(() => {
+    setSrcIndex(0);
+  }, [safePageNumber]);
+
+  const src = sources[Math.min(srcIndex, sources.length - 1)];
+  const isColorSrc = src === getColorPageSrc(safePageNumber);
+
+  // Rotation correction only applies to the legacy raw scans (the rotation map
+  // was built from raw scan filenames). The colorized art is delivered upright.
   let rotation = 0;
-  if (src) {
+  if (!isColorSrc && src) {
     const filename = src.split("/").pop()?.replace(".jpg", "");
     if (filename && PAGE_ROTATION_MAP[filename]) {
       rotation = PAGE_ROTATION_MAP[filename];
     }
   }
+
+  const handleError = () => {
+    setSrcIndex((i) => (i < sources.length - 1 ? i + 1 : i));
+  };
 
   return (
     <div
@@ -78,6 +106,7 @@ export function PdfPage({ pageNumber, className = "" }: PdfPageProps) {
         className="w-full h-full object-contain max-h-full"
         loading="lazy"
         draggable={false}
+        onError={handleError}
         style={{ transform: rotation ? `rotate(${rotation}deg)` : undefined }}
       />
     </div>

@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { BookOpen, GraduationCap, Sparkles } from "lucide-react";
+import { BookOpen, GraduationCap } from "lucide-react";
+import { GretelMascot } from "@/components/gretel/GretelMascot";
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -39,16 +40,20 @@ function Landing() {
         <div className="grid items-center gap-8 py-10 lg:grid-cols-[0.95fr_1.05fr]">
           <div className="relative mx-auto aspect-[4/5] w-full max-w-sm rounded-[2rem] border border-white/80 bg-white/70 p-4 shadow-2xl shadow-[hsl(24,98%,50%)]/20 backdrop-blur">
             <div className="h-full rounded-[1.5rem] border border-[hsl(28,30%,18%)]/10 bg-[linear-gradient(160deg,#f8dfb7,#f7efe1_48%,#d5ebe2)] p-6 shadow-inner">
-              <div className="flex h-full flex-col items-center justify-center text-center">
-                <Sparkles className="mb-5 h-10 w-10 text-[hsl(24,98%,50%)]" />
-                <p className="text-sm font-black uppercase tracking-[0.22em] text-[hsl(24,98%,50%)]">
-                  Lectura y práctica
-                </p>
-                <h2 className="mt-4 text-5xl font-black leading-none text-[hsl(200,98%,39%)]">
+              <div className="flex h-full flex-col items-center justify-end text-center">
+                {/* Gretel greets the child in Spanish the moment they arrive. */}
+                <div className="flex flex-1 items-center justify-center pt-8">
+                  <GretelMascot
+                    pose="welcome"
+                    text={"¡Hola! Soy Gretel.\nVamos a aprender a leer juntos, paso a paso."}
+                    bubblePosition="top"
+                  />
+                </div>
+                <h2 className="mt-2 text-5xl font-black leading-none text-[hsl(200,98%,39%)]">
                   Gretel
                 </h2>
-                <p className="mt-5 max-w-xs text-base font-semibold leading-relaxed text-[hsl(28,30%,18%)]/72">
-                  Un camino para estudiantes y otro para maestros, claro desde la primera pantalla.
+                <p className="mt-4 max-w-xs text-base font-semibold leading-relaxed text-[hsl(28,30%,18%)]/72">
+                  Te acompaño en cada lección, paso a paso, como en tu libro.
                 </p>
               </div>
             </div>

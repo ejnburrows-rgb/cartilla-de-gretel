@@ -30,7 +30,7 @@ export function PolishedPage({ pageNumber, className = "" }: PolishedPageProps) 
 
   const isEven = pageNumber % 2 === 0;
 
-  // Real paper texture look: warm white base combined with HSL pastel tint and multi-page stacked shadow
+  // Real paper look: warm white base + subtle pastel tint + stacked-page shadow.
   const gutterShadow = isEven
     ? "inset -18px 0 24px -12px rgba(0, 0, 0, 0.08)"
     : "inset 18px 0 24px -12px rgba(0, 0, 0, 0.08)";
@@ -38,7 +38,7 @@ export function PolishedPage({ pageNumber, className = "" }: PolishedPageProps) 
     ? "-1px 1px 1px rgba(0,0,0,0.05), -2px 2px 2px rgba(0,0,0,0.04), -3px 3px 2px rgba(0,0,0,0.03), -4px 4px 3px rgba(0,0,0,0.02)"
     : "1px 1px 1px rgba(0,0,0,0.05), 2px 2px 2px rgba(0,0,0,0.04), 3px 3px 2px rgba(0,0,0,0.03), 4px 4px 3px rgba(0,0,0,0.02)";
 
-  // strict double-brace JSX styling ban compliance
+  // Named style objects (single-brace) to satisfy the double-brace JSX style ban.
   const containerStyle = {
     background: `linear-gradient(${isEven ? "135deg" : "-135deg"}, #fdfaf3 0%, ${pastelBg} 100%)`,
     borderColor: `${activeColor}30`,
@@ -47,6 +47,11 @@ export function PolishedPage({ pageNumber, className = "" }: PolishedPageProps) 
 
   const titleStyle = {
     color: activeColor,
+  };
+
+  const tabStyle = {
+    backgroundColor: activeColor,
+    borderColor: `${activeColor}40`,
   };
 
   const isFirstOfLesson = useMemo(() => {
@@ -77,9 +82,7 @@ export function PolishedPage({ pageNumber, className = "" }: PolishedPageProps) 
               ? "left-0 rounded-r-xl border-r border-y"
               : "right-0 rounded-l-xl border-l border-y"
           }`}
-          style={{
-            backgroundColor: activeColor,
-          }}
+          style={tabStyle}
         >
           <span className={isEven ? "pl-0.5" : "pr-0.5"}>{tabLetter}</span>
           <span className={`text-[8px] opacity-75 ${isEven ? "pl-0.5" : "pr-0.5"}`}>
@@ -107,8 +110,8 @@ export function PolishedPage({ pageNumber, className = "" }: PolishedPageProps) 
         </span>
       </div>
 
-      {/* Main Page Scan */}
-      <div className="flex-1 flex items-center justify-center overflow-hidden mix-blend-multiply py-4">
+      {/* Main Page Art */}
+      <div className="flex-1 flex items-center justify-center overflow-hidden py-4">
         <PdfPage pageNumber={pageNumber} className="w-full h-full object-contain" />
       </div>
 
