@@ -10,6 +10,7 @@
  */
 import { useEffect, useState } from "react";
 import sourceArtInventory from "@/data/source-art-inventory.json";
+import { PAGE_ROTATION_MAP } from "@/lib/page-rotation-map";
 
 type SourcePageAsset = {
   path?: string;
@@ -56,14 +57,15 @@ interface PdfPageProps {
 
 export function PdfPage({ pageNumber, className = "" }: PdfPageProps) {
   const safePageNumber = Math.max(1, pageNumber);
-  const [useRawFallback, setUseRawFallback] = useState(false);
-  const hdSrc = getHdPageSrc(safePageNumber);
-  const rawFallbackSrc = getRawScanFallbackSrc(safePageNumber);
-  const src = useRawFallback && rawFallbackSrc ? rawFallbackSrc : hdSrc;
+  const src = getHdPageSrc(safePageNumber);
 
-  useEffect(() => {
-    setUseRawFallback(false);
-  }, [safePageNumber]);
+  let rotation = 0;
+  if (src) {
+    const filename = src.split("/").pop()?.replace(".jpg", "");
+    if (filename && PAGE_ROTATION_MAP[filename]) {
+      rotation = PAGE_ROTATION_MAP[filename];
+    }
+  }
 
   return (
     <div
@@ -76,9 +78,7 @@ export function PdfPage({ pageNumber, className = "" }: PdfPageProps) {
         className="w-full h-full object-contain max-h-full"
         loading="lazy"
         draggable={false}
-        onError={() => {
-          if (!useRawFallback && rawFallbackSrc) setUseRawFallback(true);
-        }}
+        style={{ transform: rotation ? `rotate(${rotation}deg)` : undefined }}
       />
     </div>
   );

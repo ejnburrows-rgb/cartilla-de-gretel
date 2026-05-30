@@ -19,108 +19,26 @@ export const Route = createFileRoute("/workbook")({
 });
 
 function WorkbookPage() {
-  const pages: WorkbookPageEntry[] = [
-    {
-      id: "cover",
-      cover: true,
+  const pages: WorkbookPageEntry[] = Array.from({ length: 92 }).map((_, i) => {
+    const pageNum = i + 1;
+    const paddedPageNum = String(pageNum).padStart(3, "0");
+    const src = `/cartilla/art/hd/workbook/page-${paddedPageNum}.jpg`;
+
+    return {
+      id: `page-${pageNum}`,
+      cover: pageNum === 1,
       content: (
-        <div className="flex h-full flex-col items-center justify-center text-center">
-          <p className="text-xs font-black uppercase tracking-[0.24em] text-[hsl(31,56%,48%)]">
-            Lectura y práctica
-          </p>
-          <h1 className="mt-3 text-5xl font-black leading-tight text-[hsl(197,41%,22%)]">
-            La Cartilla de Gretel
-          </h1>
-          <p className="mt-6 text-base font-bold text-[hsl(28,30%,18%)]/70">
-            Leonor Lopetegui · © 2004
-          </p>
-          <p className="mt-2 text-xs font-bold uppercase tracking-widest text-[hsl(28,30%,18%)]/45">
-            LANY Books LLC
-          </p>
+        <div className="flex h-full w-full items-center justify-center bg-white">
+          <img
+            src={src}
+            alt={`Página ${pageNum}`}
+            className="h-full w-full object-contain"
+            draggable={false}
+          />
         </div>
       ),
-    },
-    {
-      id: "intro",
-      content: (
-        <div>
-          <h2 className="text-3xl font-black text-[hsl(197,41%,22%)]">¡Hola!</h2>
-          <p className="mt-4 text-lg font-semibold leading-relaxed text-[hsl(28,30%,18%)]/80">
-            Soy Gretel. Vamos a aprender a leer juntos. Pasa la página tocando
-            o arrastrando la esquina.
-          </p>
-        </div>
-      ),
-    },
-    {
-      id: "o",
-      content: (
-        <article>
-          <span className="inline-block rounded-full bg-[hsl(var(--vowel-o))]/15 px-4 py-1 text-xs font-black uppercase tracking-widest text-[hsl(var(--vowel-o))]">
-            Vocal O
-          </span>
-          <h2 className="mt-3 text-4xl font-black text-[hsl(var(--vowel-o))]">
-            Arre caballito
-          </h2>
-          <p className="mt-6 text-lg font-semibold leading-relaxed text-[hsl(28,30%,18%)]/80">
-            Arre, arre, caballito, vamos para Belén…
-          </p>
-        </article>
-      ),
-    },
-    {
-      id: "a",
-      content: (
-        <article>
-          <span className="inline-block rounded-full bg-[hsl(var(--vowel-a))]/15 px-4 py-1 text-xs font-black uppercase tracking-widest text-[hsl(var(--vowel-a))]">
-            Vocal A
-          </span>
-          <h2 className="mt-3 text-4xl font-black text-[hsl(var(--vowel-a))]">
-            La niña enfermita
-          </h2>
-        </article>
-      ),
-    },
-    {
-      id: "e",
-      content: (
-        <article>
-          <span className="inline-block rounded-full bg-[hsl(var(--vowel-e))]/15 px-4 py-1 text-xs font-black uppercase tracking-widest text-[hsl(var(--vowel-e))]">
-            Vocal E
-          </span>
-          <h2 className="mt-3 text-4xl font-black text-[hsl(var(--vowel-e))]">
-            La niña sordita
-          </h2>
-        </article>
-      ),
-    },
-    {
-      id: "i",
-      content: (
-        <article>
-          <span className="inline-block rounded-full bg-[hsl(var(--vowel-i))]/15 px-4 py-1 text-xs font-black uppercase tracking-widest text-[hsl(var(--vowel-i))]">
-            Vocal I
-          </span>
-          <h2 className="mt-3 text-4xl font-black text-[hsl(var(--vowel-i))]">
-            La niña llorona
-          </h2>
-        </article>
-      ),
-    },
-    {
-      id: "u",
-      content: (
-        <article>
-          <span className="inline-block rounded-full bg-[hsl(var(--vowel-u))]/15 px-4 py-1 text-xs font-black uppercase tracking-widest text-[hsl(var(--vowel-u))]">
-            Vocal U
-          </span>
-          <h2 className="mt-3 text-4xl font-black text-[hsl(var(--vowel-u))]">
-            La brujita
-          </h2>
-        </article>
-      ),
-    },
-  ];
+    };
+  });
 
   return (
     <main className="min-h-screen bg-[radial-gradient(circle_at_top_left,rgba(255,214,165,0.58),transparent_32%),linear-gradient(135deg,#fff8ed_0%,#f9efe0_48%,#e8f4ef_100%)] px-4 py-8">
