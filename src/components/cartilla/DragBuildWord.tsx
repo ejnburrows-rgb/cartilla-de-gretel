@@ -1,9 +1,7 @@
 /**
  * DragBuildWord.tsx  — Lane A
  *
- * Drag (@dnd-kit/core with PointerSensor) letter tiles from a tray onto word slots.
- * Works on TOUCH + mobile (Galaxy Z Fold tested).
- * Tap-to-place fallback: tap a letter, tap the slot.
+ * Drag (pointer-events API via @dnd-kit) letter tiles from a tray onto word slots.
  * Wrong drops snap back with shake animation.
  * Correct drops lock in place.
  * On full word completion, plays a celebration tone via AudioContext.
@@ -11,13 +9,23 @@
  * Respects prefers-reduced-motion for celebration.
  */
 import { useCallback, useEffect, useMemo, useReducer, useRef, useState } from "react";
-import { Check, RotateCcw, Volume2 } from "lucide-react";
-import { DndContext, PointerSensor, useDraggable, useDroppable, useSensor, useSensors, DragEndEvent } from "@dnd-kit/core";
+import { RotateCcw, Volume2 } from "lucide-react";
 import { speak } from "@/lib/speak";
 import { recordEvent } from "@/lib/student-session";
 import type { CatalogEntry } from "@/lib/lesson-catalog";
-import { GretelFeedback } from "@/components/gretel/GretelFeedback";
+import { GretelFeedback } from "@/components/cartilla/GretelFeedback";
 import { feelBus } from "@/lib/feel-bus";
+import {
+  DndContext,
+  useDraggable,
+  useDroppable,
+  MouseSensor,
+  TouchSensor,
+  KeyboardSensor,
+  useSensor,
+  useSensors,
+  DragEndEvent,
+} from "@dnd-kit/core";
 
 // ── Audio ──────────────────────────────────────────────────────────
 function playCelebrationTone() {
@@ -126,6 +134,75 @@ function reducer(state: DragBuildWordState, action: Action): DragBuildWordState 
   }
 }
 
+// ── Subcomponents ──────────────────────────────────────────────────
+function DraggableLetter({ letter, trayIdx, used, accent, disabled, selectedTray, onTrayKeyDown }: any) {
+  const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
+    id: `tray-${trayIdx}`,
+    data: { trayIdx, letter },
+    disabled: used || disabled,
+  });
+
+  const style: React.CSSProperties = {
+    color: accent,
+    borderColor: accent,
+    backgroundColor: `${accent}12`,
+    transform: transform ? `translate3d(${Math.round(transform.x)}px, ${Math.round(transform.y)}px, 0)` : undefined,
+    zIndex: isDragging ? 9999 : undefined,
+    opacity: isDragging ? 0.35 : used ? 0.18 : 1,
+    scale: isDragging ? 0.9 : 1,
+    pointerEvents: used ? "none" : undefined,
+  };
+
+  return (
+    <div
+      ref={setNodeRef}
+      {...listeners}
+      {...attributes}
+      data-used={used ? "true" : "false"}
+      data-dragging={isDragging ? "true" : "false"}
+      className="drag-build-word__letter lesson-focus-ring"
+      style={style}
+      tabIndex={used || disabled ? -1 : 0}
+      role="button"
+      aria-label={`Letra ${letter}${selectedTray === trayIdx ? " (seleccionada)" : ""}`}
+      aria-pressed={selectedTray === trayIdx}
+      onKeyDown={(e) => onTrayKeyDown(e, trayIdx)}
+      aria-disabled={used}
+    >
+      {letter}
+    </div>
+  );
+}
+
+function DroppableSlot({ slotIdx, filled, accent, wrongSlot, selectedTray, onSlotKeyDown }: any) {
+  const { isOver, setNodeRef } = useDroppable({
+    id: `slot-${slotIdx}`,
+    data: { slotIdx },
+  });
+
+  return (
+    <div
+      ref={setNodeRef}
+      data-slot-idx={slotIdx}
+      data-filled={filled !== null ? "true" : "false"}
+      data-over={isOver ? "true" : "false"}
+      data-correct={filled !== null ? "true" : "false"}
+      data-wrong={wrongSlot === slotIdx ? "true" : "false"}
+      className="drag-build-word__slot lesson-focus-ring"
+      style={{ color: accent, borderColor: filled ? accent : undefined }}
+      tabIndex={selectedTray !== null && filled === null ? 0 : -1}
+      onKeyDown={(e) => onSlotKeyDown(e, slotIdx)}
+      aria-label={
+        filled
+          ? `Casilla ${slotIdx + 1}: ${filled}`
+          : `Casilla ${slotIdx + 1}: vacía`
+      }
+    >
+      {filled ?? <span className="text-foreground/20 text-sm">_</span>}
+    </div>
+  );
+}
+
 // ── Component ──────────────────────────────────────────────────────
 interface DragBuildWordProps {
   entry: CatalogEntry;
@@ -151,29 +228,27 @@ export function DragBuildWord({ entry, accent, lessonId, onComplete }: DragBuild
   const currentWord = words[wordIdx % words.length] ?? "ola";
 
   const [state, dispatch] = useReducer(reducer, currentWord, initState);
+  const [feedbackState, setFeedbackState] = useState<"ok" | "x" | null>(null);
 
-  // Tap-to-place state
+  // Keyboard drag state
   const [selectedTray, setSelectedTray] = useState<number | null>(null);
 
-  // @dnd-kit/core sensors for touch/mobile support
   const sensors = useSensors(
-    useSensor(PointerSensor, {
-      activationConstraint: {
-        distance: 5, // Small movement before drag starts to distinguish from tap
-      },
-    })
+    useSensor(MouseSensor, { activationConstraint: { distance: 5 } }),
+    useSensor(TouchSensor, { activationConstraint: { distance: 5 } }),
+    useSensor(KeyboardSensor)
   );
 
   // Clear wrong animation after 400ms
   useEffect(() => {
     if (state.wrongSlot !== null) {
-      const t = setTimeout(() => dispatch({ type: "CLEAR_WRONG" }), 400);
+      const t = setTimeout(() => {
+        dispatch({ type: "CLEAR_WRONG" });
+        setFeedbackState(null);
+      }, 1000); // 1s to show "X" feedback
       return () => clearTimeout(t);
     }
   }, [state.wrongSlot]);
-
-  // Show immediate feedback for wrong drops
-  const showWrongFeedback = state.wrongSlot !== null && !state.completed;
 
   // On completion
   const hasCalledComplete = useRef(false);
@@ -192,6 +267,7 @@ export function DragBuildWord({ entry, accent, lessonId, onComplete }: DragBuild
           meta: { exercise: "drag_build_word", word: state.target, completed: true },
         });
       }
+      setFeedbackState("ok");
       onComplete?.();
     }
   }, [state.completed, state.target, state.attempts, lessonId, onComplete]);
@@ -204,46 +280,11 @@ export function DragBuildWord({ entry, accent, lessonId, onComplete }: DragBuild
         feelBus.emit("success");
       } else {
         feelBus.emit("error");
+        setFeedbackState("x");
       }
       dispatch({ type: "DROP", slotIdx, trayIdx });
     },
     [state.tray, state.target],
-  );
-
-  // @dnd-kit/core drag end handler
-  const handleDragEnd = useCallback(
-    (event: DragEndEvent) => {
-      const { active, over } = event;
-      if (!over) return;
-
-      const trayIdx = Number(active.id);
-      const slotIdx = Number(over.id);
-
-      if (!state.usedTrayIdx.has(trayIdx) && !state.completed) {
-        handleDrop(slotIdx, trayIdx);
-      }
-    },
-    [state.usedTrayIdx, state.completed, handleDrop],
-  );
-
-  // Tap-to-place: tap letter then tap slot
-  const handleTrayTap = useCallback(
-    (trayIdx: number) => {
-      if (state.usedTrayIdx.has(trayIdx) || state.completed) return;
-      setSelectedTray(trayIdx === selectedTray ? null : trayIdx);
-      feelBus.emit("drag-pick");
-    },
-    [state.usedTrayIdx, state.completed, selectedTray],
-  );
-
-  const handleSlotTap = useCallback(
-    (slotIdx: number) => {
-      if (selectedTray !== null && !state.completed) {
-        handleDrop(slotIdx, selectedTray);
-        setSelectedTray(null);
-      }
-    },
-    [selectedTray, state.completed, handleDrop],
   );
 
   const nextWord = () => {
@@ -252,12 +293,14 @@ export function DragBuildWord({ entry, accent, lessonId, onComplete }: DragBuild
     setWordIdx(next);
     dispatch({ type: "NEXT_WORD", word: words[next] ?? "ola" });
     setSelectedTray(null);
+    setFeedbackState(null);
   };
 
   const reset = () => {
     hasCalledComplete.current = false;
     dispatch({ type: "RESET" });
     setSelectedTray(null);
+    setFeedbackState(null);
   };
 
   // ── Keyboard ─────────────────────────────────────────────────────
@@ -276,96 +319,70 @@ export function DragBuildWord({ entry, accent, lessonId, onComplete }: DragBuild
     }
   };
 
-  return (
-    <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
-      <div
-        className="drag-build-word"
-        style={{ "--lesson-accent": accent } as React.CSSProperties}
-        aria-label="Arrastra las letras para formar la palabra"
-      >
-        <div className="flex items-center justify-between mb-3">
-          <h3 className="font-bold">Forma la palabra</h3>
-          <div className="flex gap-2">
-            <button
-              onClick={() => speak(state.target)}
-              aria-label={`Escuchar "${state.target}"`}
-              className="lesson-focus-ring inline-flex items-center gap-1 text-xs font-bold px-2 py-1 rounded-lg border border-foreground/10 hover:bg-secondary"
-            >
-              <Volume2 className="w-3.5 h-3.5" /> Escuchar
-            </button>
-            <button
-              onClick={reset}
-              aria-label="Reiniciar palabra"
-              className="lesson-focus-ring inline-flex items-center gap-1 text-xs font-bold px-2 py-1 rounded-lg border border-foreground/10 hover:bg-secondary"
-            >
-              <RotateCcw className="w-3.5 h-3.5" />
-            </button>
-          </div>
-        </div>
+  // ── @dnd-kit Handlers ────────────────────────────────────────────
+  const onDragStart = () => {
+    feelBus.emit("drag-pick");
+  };
 
+  const onDragEnd = (e: DragEndEvent) => {
+    feelBus.emit("drag-drop");
+    const { active, over } = e;
+    if (over && active.data.current && over.data.current) {
+      handleDrop(over.data.current.slotIdx, active.data.current.trayIdx);
+    }
+  };
+
+  return (
+    <div
+      className="drag-build-word"
+      style={{ "--lesson-accent": accent } as React.CSSProperties}
+      aria-label="Arrastra las letras para formar la palabra"
+    >
+      <div className="flex items-center justify-between mb-3">
+        <h3 className="font-bold">Forma la palabra</h3>
+        <div className="flex gap-2">
+          <button
+            onClick={() => speak(state.target)}
+            aria-label={`Escuchar "${state.target}"`}
+            className="lesson-focus-ring inline-flex items-center gap-1 text-xs font-bold px-2 py-1 rounded-lg border border-foreground/10 hover:bg-secondary"
+          >
+            <Volume2 className="w-3.5 h-3.5" /> Escuchar
+          </button>
+          <button
+            onClick={reset}
+            aria-label="Reiniciar palabra"
+            className="lesson-focus-ring inline-flex items-center gap-1 text-xs font-bold px-2 py-1 rounded-lg border border-foreground/10 hover:bg-secondary"
+          >
+            <RotateCcw className="w-3.5 h-3.5" />
+          </button>
+        </div>
+      </div>
+
+      <DndContext sensors={sensors} onDragStart={onDragStart} onDragEnd={onDragEnd}>
         {/* Slots */}
         <div
           className="drag-build-word__slots"
           role="group"
           aria-label="Casillas de la palabra"
         >
-          {state.slots.map((filled, slotIdx) => {
-            const { setNodeRef, isOver } = useDroppable({
-              id: slotIdx.toString(),
-              disabled: filled !== null || state.completed,
-            });
-
-            return (
-              <div
-                key={slotIdx}
-                ref={setNodeRef}
-                data-slot-idx={slotIdx}
-                data-filled={filled !== null ? "true" : "false"}
-                data-over={isOver ? "true" : "false"}
-                data-correct={filled !== null ? "true" : "false"}
-                data-wrong={state.wrongSlot === slotIdx ? "true" : "false"}
-                className="drag-build-word__slot lesson-focus-ring"
-                style={{ color: accent, borderColor: filled ? accent : undefined }}
-                tabIndex={selectedTray !== null && filled === null ? 0 : -1}
-                onClick={() => handleSlotTap(slotIdx)}
-                onKeyDown={(e) => onSlotKeyDown(e, slotIdx)}
-                aria-label={
-                  filled
-                    ? `Casilla ${slotIdx + 1}: ${filled}`
-                    : `Casilla ${slotIdx + 1}: vacía`
-                }
-              >
-                {filled ?? <span className="text-foreground/20 text-sm">_</span>}
-              </div>
-            );
-          })}
+          {state.slots.map((filled, slotIdx) => (
+            <DroppableSlot
+              key={slotIdx}
+              slotIdx={slotIdx}
+              filled={filled}
+              accent={accent}
+              wrongSlot={state.wrongSlot}
+              selectedTray={selectedTray}
+              onSlotKeyDown={onSlotKeyDown}
+            />
+          ))}
         </div>
 
-        {/* Wrong drop feedback */}
-        {showWrongFeedback && (
-          <GretelFeedback
-            isCorrect={false}
-            message="Inténtalo otra vez"
-          />
-        )}
-
-        {/* Completion */}
-        {state.completed && (
-          <GretelFeedback
-            isCorrect={true}
-            message="¡Muy bien!"
-          >
-            {words.length > 1 && (
-              <button
-                onClick={nextWord}
-                className="lesson-focus-ring text-xs font-bold px-3 py-1.5 rounded-xl text-white"
-                style={{ backgroundColor: accent }}
-              >
-                Siguiente →
-              </button>
-            )}
-          </GretelFeedback>
-        )}
+        {/* Completion Feedback */}
+        <GretelFeedback
+          state={feedbackState}
+          onRetry={feedbackState === "ok" ? nextWord : () => setFeedbackState(null)}
+        />
 
         {/* Tray */}
         <div
@@ -373,47 +390,26 @@ export function DragBuildWord({ entry, accent, lessonId, onComplete }: DragBuild
           role="group"
           aria-label="Letras disponibles"
         >
-          {state.tray.map((letter, trayIdx) => {
-            const { attributes, listeners, setNodeRef, isDragging } = useDraggable({
-              id: trayIdx.toString(),
-              disabled: state.usedTrayIdx.has(trayIdx) || state.completed,
-            });
-
-            return (
-              <div
-                key={trayIdx}
-                ref={setNodeRef}
-                {...listeners}
-                {...attributes}
-                data-used={state.usedTrayIdx.has(trayIdx) ? "true" : "false"}
-                data-dragging={isDragging ? "true" : "false"}
-                className="drag-build-word__letter lesson-focus-ring"
-                style={{
-                  color: accent,
-                  borderColor: accent,
-                  backgroundColor: `${accent}12`,
-                  opacity: isDragging ? 0.5 : 1,
-                }}
-                tabIndex={state.usedTrayIdx.has(trayIdx) || state.completed ? -1 : 0}
-                role="button"
-                aria-label={`Letra ${letter}${selectedTray === trayIdx ? " (seleccionada)" : ""}`}
-                aria-pressed={selectedTray === trayIdx}
-                onClick={() => handleTrayTap(trayIdx)}
-                onKeyDown={(e) => onTrayKeyDown(e, trayIdx)}
-                aria-disabled={state.usedTrayIdx.has(trayIdx)}
-              >
-                {letter}
-              </div>
-            );
-          })}
+          {state.tray.map((letter, trayIdx) => (
+            <DraggableLetter
+              key={trayIdx}
+              letter={letter}
+              trayIdx={trayIdx}
+              used={state.usedTrayIdx.has(trayIdx)}
+              accent={accent}
+              disabled={state.completed}
+              selectedTray={selectedTray}
+              onTrayKeyDown={onTrayKeyDown}
+            />
+          ))}
         </div>
+      </DndContext>
 
-        {selectedTray !== null && (
-          <p className="mt-2 text-xs text-foreground/50" aria-live="polite">
-            Letra «{state.tray[selectedTray]}» seleccionada — toca una casilla para colocar
-          </p>
-        )}
-      </div>
-    </DndContext>
+      {selectedTray !== null && (
+        <p className="mt-2 text-xs text-foreground/50" aria-live="polite">
+          Letra «{state.tray[selectedTray]}» seleccionada — pulsa Enter/Espacio en una casilla
+        </p>
+      )}
+    </div>
   );
 }
