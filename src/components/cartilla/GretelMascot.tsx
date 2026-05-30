@@ -113,19 +113,17 @@ export function GretelMascot({ state = "idle", className = "" }: GretelMascotPro
       : still;
 
   return (
-    <div className={`pointer-events-none z-50 ${className}`}>
-      <motion.div
-        animate={state}
-        variants={variants}
-        className="relative h-32 w-32 origin-bottom drop-shadow-2xl md:h-48 md:w-48"
-      >
-        <img
-          src={src}
-          alt="Gretel"
-          className="h-full w-full object-contain"
-          draggable={false}
-        />
-      </motion.div>
-    </div>
+    <motion.div
+      animate={state}
+      variants={variants}
+      className={`relative h-32 w-32 origin-bottom drop-shadow-2xl md:h-48 md:w-48 ${className}`}
+    >
+      <img
+        src={src}
+        alt="Gretel"
+        className="h-full w-full object-contain"
+        draggable={false}
+      />
+    </motion.div>
   );
 }
