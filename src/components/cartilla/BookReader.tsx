@@ -33,16 +33,7 @@ export function BookReader({ initialPage = 1 }: BookReaderProps) {
     setMounted(true);
   }, []);
 
-  // Determine total pages from catalog
-  const totalPages = useMemo(() => {
-    return Math.max(
-      1,
-      ...CATALOG.map((entry) => {
-        const parts = entry.pages.split("-").map(Number);
-        return parts[1] || parts[0] || 1;
-      }),
-    );
-  }, []);
+  const totalPages = 92;
 
   const allPages = useMemo(() => {
     const list = [];
