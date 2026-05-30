@@ -1,5 +1,5 @@
 import { motion, type Variants } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { X } from "lucide-react";
 
 export type GretelPose = "welcome" | "point" | "read" | "celebrate" | "think" | "wave";
@@ -12,7 +12,52 @@ interface GretelMascotProps {
   showCloseButton?: boolean;
 }
 
-const imageByPose: Record<GretelPose, string> = {
+/**
+ * Flip-book animation frames. These .webp files live in:
+ *   public/cartilla/images/gretel/poses/
+ * and are served at /cartilla/images/gretel/poses/.
+ * The component cycles through each pose's frames to make Gretel move.
+ * If a frame is missing, it gracefully falls back to a still image so
+ * nothing ever breaks.
+ */
+const POSE_DIR = "/cartilla/images/gretel/poses";
+
+const framesByPose: Record<GretelPose, string[]> = {
+  welcome: [
+    `${POSE_DIR}/pose7-wave-0.webp`,
+    `${POSE_DIR}/pose7-wave-1.webp`,
+    `${POSE_DIR}/pose7-wave-2.webp`,
+    `${POSE_DIR}/pose7-wave-1.webp`,
+  ],
+  wave: [
+    `${POSE_DIR}/pose7-wave-0.webp`,
+    `${POSE_DIR}/pose7-wave-1.webp`,
+    `${POSE_DIR}/pose7-wave-2.webp`,
+    `${POSE_DIR}/pose7-wave-1.webp`,
+  ],
+  point: [
+    `${POSE_DIR}/pose7-talk-0.webp`,
+    `${POSE_DIR}/pose7-talk-1.webp`,
+    `${POSE_DIR}/pose7-talk-2.webp`,
+    `${POSE_DIR}/pose7-talk-1.webp`,
+  ],
+  read: [`${POSE_DIR}/pose7-talk-0.webp`, `${POSE_DIR}/pose7-blink.webp`],
+  celebrate: [`${POSE_DIR}/pose7-cheer-0.webp`, `${POSE_DIR}/pose7-cheer-1.webp`],
+  think: [`${POSE_DIR}/pose7-talk-0.webp`, `${POSE_DIR}/pose7-blink.webp`],
+};
+
+// How fast each pose flips its frames (milliseconds per frame).
+const frameIntervalByPose: Record<GretelPose, number> = {
+  welcome: 220,
+  wave: 170,
+  point: 240,
+  read: 1600,
+  celebrate: 200,
+  think: 1400,
+};
+
+// Safe fallbacks: existing still art already in public/cartilla/images/gretel/.
+const fallbackByPose: Record<GretelPose, string> = {
   welcome: "/cartilla/images/gretel/happy.webp",
   point: "/cartilla/images/gretel/encouraging.webp",
   read: "/cartilla/images/gretel/idle-1.webp",
@@ -25,55 +70,31 @@ const variants: Variants = {
   welcome: {
     y: [0, -8, 0],
     rotate: [0, 3, -3, 0],
-    transition: {
-      duration: 3,
-      repeat: Infinity,
-      ease: "easeInOut",
-    },
+    transition: { duration: 3, repeat: Infinity, ease: "easeInOut" },
   },
   point: {
     x: [0, 5, 0],
     scale: 1.05,
-    transition: {
-      duration: 1.5,
-      repeat: Infinity,
-      ease: "easeInOut",
-    },
+    transition: { duration: 1.5, repeat: Infinity, ease: "easeInOut" },
   },
   read: {
     y: [0, -3, 0],
-    transition: {
-      duration: 4,
-      repeat: Infinity,
-      ease: "easeInOut",
-    },
+    transition: { duration: 4, repeat: Infinity, ease: "easeInOut" },
   },
   celebrate: {
     y: [0, -25, 0, -12, 0],
     scale: [1, 1.12, 0.98, 1.05, 1],
     rotate: [0, 8, -8, 4, 0],
-    transition: {
-      duration: 1.5,
-      repeat: Infinity,
-      ease: "easeOut",
-    },
+    transition: { duration: 1.5, repeat: Infinity, ease: "easeOut" },
   },
   think: {
     y: [0, -6, 0],
     rotate: [0, -4, 4, 0],
-    transition: {
-      duration: 5,
-      repeat: Infinity,
-      ease: "easeInOut",
-    },
+    transition: { duration: 5, repeat: Infinity, ease: "easeInOut" },
   },
   wave: {
     rotate: [0, 6, -6, 6, 0],
-    transition: {
-      duration: 1.2,
-      repeat: Infinity,
-      ease: "easeInOut",
-    },
+    transition: { duration: 1.2, repeat: Infinity, ease: "easeInOut" },
   },
 };
 
@@ -85,6 +106,24 @@ export function GretelMascot({
   showCloseButton = false,
 }: GretelMascotProps) {
   const [bubbleOpen, setBubbleOpen] = useState(true);
+  const [frameIndex, setFrameIndex] = useState(0);
+  const [useFallback, setUseFallback] = useState(false);
+
+  const frames = framesByPose[pose];
+  const interval = frameIntervalByPose[pose];
+
+  // Cycle through this pose's frames to animate Gretel.
+  useEffect(() => {
+    setFrameIndex(0);
+    setUseFallback(false);
+    if (frames.length <= 1) return;
+    const id = setInterval(() => {
+      setFrameIndex((i) => (i + 1) % frames.length);
+    }, interval);
+    return () => clearInterval(id);
+  }, [frames, interval]);
+
+  const currentSrc = useFallback ? fallbackByPose[pose] : frames[frameIndex];
 
   const bubbleClasses = {
     left: "right-full mr-4 bottom-6",
@@ -130,13 +169,15 @@ export function GretelMascot({
         className="relative h-24 w-24 sm:h-36 sm:w-36 origin-bottom drop-shadow-xl select-none"
       >
         <img
-          src={imageByPose[pose]}
+          src={currentSrc}
           alt={`Gretel - Pose: ${pose}`}
           className="h-full w-full object-contain"
           draggable={false}
+          onError={() => setUseFallback(true)}
         />
       </motion.div>
     </div>
   );
 }
+
 export default GretelMascot;
