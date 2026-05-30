@@ -27,6 +27,7 @@ const Page = React.forwardRef<HTMLDivElement, PageProps>(({ pageNum, ...props },
     </div>
   );
 });
+Page.displayName = "Page";
 
 export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPageFlipProps) {
   const [mounted, setMounted] = useState(false);
@@ -36,14 +37,29 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
     setMounted(true);
   }, []);
 
+  // Safely access the react-pageflip API. The instance attaches only after the
+  // inner DOM measures itself, so it can be undefined; every call is guarded.
+  const getApi = (): any | null => {
+    try {
+      const api = bookRef.current?.pageFlip?.();
+      return api ?? null;
+    } catch {
+      return null;
+    }
+  };
+
   // Sync internal state with external currentPage
   useEffect(() => {
     if (!mounted) return;
-    if (bookRef.current && bookRef.current.pageFlip) {
-      const flipPage = bookRef.current.pageFlip().getCurrentPageIndex() + 1;
+    const api = getApi();
+    if (!api) return;
+    try {
+      const flipPage = (api.getCurrentPageIndex?.() ?? 0) + 1;
       if (Math.abs(flipPage - currentPage) > 1) {
-        bookRef.current.pageFlip().turnToPage(currentPage - 1);
+        api.turnToPage?.(currentPage - 1);
       }
+    } catch {
+      /* flipbook not ready yet — ignore */
     }
   }, [currentPage, mounted]);
 
@@ -63,22 +79,30 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
   }
 
   const onFlip = (e: any) => {
+    if (!e || typeof e.data !== "number") return;
     onPageChange(e.data + 1);
   };
 
   const handlePrev = () => {
-    if (bookRef.current && bookRef.current.pageFlip) {
-      bookRef.current.pageFlip().flipPrev();
+    const api = getApi();
+    try {
+      api?.flipPrev?.();
+    } catch {
+      /* ignore */
     }
   };
 
   const handleNext = () => {
-    if (bookRef.current && bookRef.current.pageFlip) {
-      bookRef.current.pageFlip().flipNext();
+    const api = getApi();
+    try {
+      api?.flipNext?.();
+    } catch {
+      /* ignore */
     }
   };
 
-  const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+  const safeTotal = Math.max(1, totalPages);
+  const pages = Array.from({ length: safeTotal }, (_, i) => i + 1);
 
   return (
     <div className="relative w-full flex items-center justify-center select-none py-6 md:py-10 px-4 sm:px-8 max-w-4xl mx-auto book-desk-wrapper">
@@ -97,7 +121,7 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
           onFlip={onFlip}
           ref={bookRef}
           className="book-flip"
-          style={{ margin: "0 auto" }}
+          style= background: "transparent" 
         >
           {pages.map((pageNum) => (
             <Page key={pageNum} pageNum={pageNum} />
