@@ -29,13 +29,13 @@ type Props = {
 
 function normalizeFallbackItems(blocks: string[]) {
   const lines = blocks
-    .flatMap((block) => block.split(/[,/\u00b7]/g))
+    .flatMap((block) => block.split(/[,/·]/g))
     .map((line) => line.trim())
     .filter((line) => line.length > 0)
     .slice(0, 10);
 
   return lines.map((line, index) => ({
-    id: `auto-${index}-${line.toLowerCase().replace(/[^a-z\u00e1\u00e9\u00ed\u00f3\u00fa\u00f1\u00fc0-9]+/gi, "-")}`,
+    id: `auto-${index}-${line.toLowerCase().replace(/[^a-záéíóúñü0-9]+/gi, "-")}`,
     label: line,
   }));
 }
@@ -83,11 +83,11 @@ function SourceImageCard({ assetRef }: { assetRef?: string }) {
     <div className="rounded-3xl border border-foreground/10 bg-[hsl(42,48%,97%)] p-3 shadow-inner">
       <div className="mb-2 flex items-center gap-2 text-xs font-black uppercase tracking-wide text-foreground/45">
         <ImageIcon className="h-4 w-4" />
-        P\u00e1gina fuente
+        Página fuente
       </div>
       <img
         src={assetPath(assetRef)}
-        alt="P\u00e1gina fuente del cuaderno"
+        alt="Página fuente del cuaderno"
         className="mx-auto max-h-72 w-full rounded-2xl object-contain shadow-md ring-1 ring-foreground/10"
         loading="lazy"
       />
@@ -143,7 +143,7 @@ function SyllablePractice({
               <button
                 key={item.id}
                 type="button"
-                aria-label={`S\u00edlaba ${item.label}${done ? ". Le\u00edda." : ""}`}
+                aria-label={`Sílaba ${item.label}${done ? ". Leída." : ""}`}
                 onClick={() => handleTap(item.id, item.label)}
                 className={cn(
                   "min-w-[5.5rem] min-h-[5.5rem] sm:min-w-[7rem] sm:min-h-[7rem] rounded-3xl border-[3px] font-black text-3xl sm:text-4xl transition-all flex flex-col items-center justify-center gap-2 shadow-md active:scale-95",
@@ -163,7 +163,7 @@ function SyllablePractice({
         </div>
         {allDone && (
           <div className="mt-4 rounded-3xl border-2 border-emerald-300 bg-emerald-50 px-4 py-3 text-center text-sm font-black text-emerald-800">
-            \u00a1Gran trabajo! Le\u00edste todas las s\u00edlabas.
+            ¡Gran trabajo! Leíste todas las sílabas.
           </div>
         )}
       </div>
@@ -249,7 +249,7 @@ function WordTap({
         </div>
         {allDone && (
           <div className="mt-4 rounded-3xl border-2 border-emerald-300 bg-emerald-50 px-4 py-3 text-center text-sm font-black text-emerald-800">
-            \u00a1Muy bien! Escuchaste todas las palabras.
+            ¡Muy bien! Escuchaste todas las palabras.
           </div>
         )}
       </div>
@@ -330,7 +330,7 @@ function ReadAloud({
         </div>
         {allDone && (
           <div className="mt-4 rounded-3xl border-2 border-emerald-300 bg-emerald-50 px-4 py-3 text-center text-sm font-black text-emerald-800">
-            \u00a1Excelente lectura! Ya escuchaste todo.
+            ¡Excelente lectura! Ya escuchaste todo.
           </div>
         )}
       </div>
@@ -506,7 +506,7 @@ export function InteractiveWorkbookLayer({
 
       {visibleInteractions.length === 0 ? (
         <AutoScanActivity
-          title={`P\u00e1gina ${activePage}: leer y escuchar`}
+          title={`Página ${activePage}: leer y escuchar`}
           items={autoItems}
           accent={accent}
         />
@@ -536,9 +536,9 @@ export function InteractiveWorkbookLayer({
           {totalVisible > 1 && completedCount === totalVisible && (
             <div className="rounded-[1.75rem] border-2 border-emerald-300 bg-emerald-50 px-4 py-4 text-center text-emerald-800 shadow-lg shadow-emerald-500/10">
               <Trophy className="mx-auto mb-1 h-6 w-6" />
-              <div className="text-base font-black">\u00a1Gran trabajo!</div>
+              <div className="text-base font-black">¡Gran trabajo!</div>
               <p className="text-sm font-semibold text-emerald-700/80">
-                Terminaste las actividades de esta p\u00e1gina.
+                Terminaste las actividades de esta página.
               </p>
             </div>
           )}
