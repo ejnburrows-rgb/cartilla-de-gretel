@@ -13,81 +13,64 @@ interface GretelMascotProps {
 }
 
 /**
- * Flip-book animation frames. These .webp files live in:
- *   public/cartilla/images/gretel/poses/
- * and are served at /cartilla/images/gretel/poses/.
- * The component cycles through each pose's frames to make Gretel move.
- * Only files that ACTUALLY EXIST in that folder are referenced here
- * (wave, idle-1, idle-2, point, talk-open, talk-closed, cheer, blink) so
- * she animates instead of falling back to a frozen still. If a frame is ever
- * missing it gracefully falls back to a still image so nothing breaks.
+ * Gretel renders as a SINGLE clean character image per pose. We deliberately do
+ * NOT flip between different sketches anymore — that looked like swapping paper
+ * cutouts. Instead she stays one consistent drawing and is brought to life with
+ * smooth, gentle motion (a soft float / breathe / sway) via framer-motion.
+ *
+ * NOTE: True avatar-quality movement (her, alive, smooth) requires a proper
+ * animated asset — a rigged Lottie/Rive puppet or a looping clip built from her
+ * official art. That is an art-asset task; this component only makes a single
+ * still feel calm and alive without the cheap flicker.
+ *
+ * Pose art lives in: public/cartilla/images/gretel/poses/
+ * served at /cartilla/images/gretel/poses/.
  */
 const POSE_DIR = "/cartilla/images/gretel/poses";
 
-const framesByPose: Record<GretelPose, string[]> = {
-  welcome: [
-    `${POSE_DIR}/wave.webp`,
-    `${POSE_DIR}/idle-1.webp`,
-    `${POSE_DIR}/wave.webp`,
-    `${POSE_DIR}/idle-2.webp`,
-  ],
-  wave: [`${POSE_DIR}/wave.webp`, `${POSE_DIR}/idle-1.webp`],
-  point: [`${POSE_DIR}/point.webp`, `${POSE_DIR}/talk-open.webp`],
-  read: [`${POSE_DIR}/talk-open.webp`, `${POSE_DIR}/talk-closed.webp`],
-  celebrate: [`${POSE_DIR}/cheer.webp`, `${POSE_DIR}/idle-2.webp`],
-  think: [`${POSE_DIR}/idle-1.webp`, `${POSE_DIR}/blink.webp`],
-};
-
-// How fast each pose flips its frames (milliseconds per frame).
-const frameIntervalByPose: Record<GretelPose, number> = {
-  welcome: 220,
-  wave: 170,
-  point: 260,
-  read: 320,
-  celebrate: 220,
-  think: 900,
-};
-
-// Safe fallbacks: confirmed-existing frames in poses/, so even the worst case
-// shows a real Gretel image rather than a broken tile.
-const fallbackByPose: Record<GretelPose, string> = {
+// One consistent, full-figure drawing per pose (no jarring frame swaps).
+const srcByPose: Record<GretelPose, string> = {
   welcome: `${POSE_DIR}/wave.webp`,
+  wave: `${POSE_DIR}/wave.webp`,
   point: `${POSE_DIR}/point.webp`,
-  read: `${POSE_DIR}/talk-open.webp`,
+  read: `${POSE_DIR}/idle-1.webp`,
   celebrate: `${POSE_DIR}/cheer.webp`,
   think: `${POSE_DIR}/idle-1.webp`,
-  wave: `${POSE_DIR}/wave.webp`,
 };
 
+// If a pose image is missing, fall back to a safe full-figure idle drawing.
+const FALLBACK_SRC = `${POSE_DIR}/idle-1.webp`;
+
+// Smooth, gentle motion that makes a single still feel alive — no sketch swapping.
 const variants: Variants = {
   welcome: {
     y: [0, -8, 0],
     rotate: [0, 3, -3, 0],
-    transition: { duration: 3, repeat: Infinity, ease: "easeInOut" },
-  },
-  point: {
-    x: [0, 5, 0],
-    scale: 1.05,
-    transition: { duration: 1.5, repeat: Infinity, ease: "easeInOut" },
-  },
-  read: {
-    y: [0, -3, 0],
-    transition: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-  },
-  celebrate: {
-    y: [0, -25, 0, -12, 0],
-    scale: [1, 1.12, 0.98, 1.05, 1],
-    rotate: [0, 8, -8, 4, 0],
-    transition: { duration: 1.5, repeat: Infinity, ease: "easeOut" },
-  },
-  think: {
-    y: [0, -6, 0],
-    rotate: [0, -4, 4, 0],
-    transition: { duration: 5, repeat: Infinity, ease: "easeInOut" },
+    transition: { duration: 3.2, repeat: Infinity, ease: "easeInOut" },
   },
   wave: {
-    rotate: [0, 6, -6, 6, 0],
-    transition: { duration: 1.2, repeat: Infinity, ease: "easeInOut" },
+    rotate: [0, 5, -5, 5, 0],
+    transition: { duration: 2.4, repeat: Infinity, ease: "easeInOut" },
+  },
+  point: {
+    y: [0, -4, 0],
+    transition: { duration: 2.8, repeat: Infinity, ease: "easeInOut" },
+  },
+  read: {
+    y: [0, -5, 0],
+    scale: [1, 1.015, 1],
+    transition: { duration: 4.5, repeat: Infinity, ease: "easeInOut" },
+  },
+  celebrate: {
+    y: [0, -16, 0, -8, 0],
+    scale: [1, 1.06, 0.99, 1.03, 1],
+    rotate: [0, 5, -5, 3, 0],
+    transition: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+  },
+  think: {
+    y: [0, -5, 0],
+    scale: [1, 1.015, 1],
+    transition: { duration: 5, repeat: Infinity, ease: "easeInOut" },
   },
 };
 
@@ -99,24 +82,14 @@ export function GretelMascot({
   showCloseButton = false,
 }: GretelMascotProps) {
   const [bubbleOpen, setBubbleOpen] = useState(true);
-  const [frameIndex, setFrameIndex] = useState(0);
   const [useFallback, setUseFallback] = useState(false);
 
-  const frames = framesByPose[pose];
-  const interval = frameIntervalByPose[pose];
-
-  // Cycle through this pose's frames to animate Gretel.
+  // Reset the fallback whenever the pose changes so the right art is tried first.
   useEffect(() => {
-    setFrameIndex(0);
     setUseFallback(false);
-    if (frames.length <= 1) return;
-    const id = setInterval(() => {
-      setFrameIndex((i) => (i + 1) % frames.length);
-    }, interval);
-    return () => clearInterval(id);
-  }, [frames, interval]);
+  }, [pose]);
 
-  const currentSrc = useFallback ? fallbackByPose[pose] : frames[frameIndex];
+  const currentSrc = useFallback ? FALLBACK_SRC : srcByPose[pose];
 
   const bubbleClasses = {
     left: "right-full mr-4 bottom-6",
@@ -155,7 +128,7 @@ export function GretelMascot({
         </div>
       )}
 
-      {/* Mascot Render */}
+      {/* Mascot Render — one consistent drawing, gently animated */}
       <motion.div
         animate={pose}
         variants={variants}
@@ -163,7 +136,7 @@ export function GretelMascot({
       >
         <img
           src={currentSrc}
-          alt={`Gretel - Pose: ${pose}`}
+          alt={`Gretel - ${pose}`}
           className="h-full w-full object-contain"
           draggable={false}
           onError={() => setUseFallback(true)}
