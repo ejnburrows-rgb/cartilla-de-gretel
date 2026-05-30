@@ -6,6 +6,10 @@ import { BookPage } from "./BookPage";
 
 const FlipBook = HTMLFlipBook as any;
 
+// Defined as a named object (single-brace literal) and passed via style={flipBookStyle}
+// to avoid an inline double-brace style prop. Matches StudentWorkbookFlip.
+const flipBookStyle: React.CSSProperties = { background: "transparent" };
+
 interface BookPageFlipProps {
   currentPage: number;
   totalPages: number;
@@ -121,7 +125,7 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
           onFlip={onFlip}
           ref={bookRef}
           className="book-flip"
-          style= background: "transparent" 
+          style={flipBookStyle}
         >
           {pages.map((pageNum) => (
             <Page key={pageNum} pageNum={pageNum} />
