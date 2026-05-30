@@ -18,8 +18,7 @@ import { listMyAssignments } from "@/lib/assignments.functions";
 import { StudentWorkbookShell } from "@/components/cartilla/StudentWorkbookShell";
 import { getWorkbookPagesForLesson } from "@/lib/book-faithful";
 import { OfficialWorkbookLessonView } from "@/components/cartilla/OfficialWorkbookLessonView";
-import { InteractiveWorkbookLayer } from "@/components/cartilla/InteractiveWorkbookLayer";
-import { getLessonPageNumbers } from "@/lib/cartilla-crm-theme";
+import { FlipchartHdPanel } from "@/components/cartilla/FlipchartHdPanel";
 
 export const Route = createFileRoute("/cartilla/teacher/flipchart/$n")({
   component: FlipchartLeccion,
@@ -192,21 +191,7 @@ function FlipchartLeccion() {
           >
             {entry.title}
           </h1>
-          <OfficialWorkbookLessonView
-            lessonNumber={n}
-            pages={entry.pages}
-            title={entry.title}
-            accent={entry.color}
-            mode="teacher"
-            belowPage={(activePage) => (
-              <InteractiveWorkbookLayer
-                lessonNumber={n}
-                pageNumbers={getLessonPageNumbers(entry.pages)}
-                activePageNumber={activePage}
-                accent={entry.color}
-              />
-            )}
-          />
+          <FlipchartHdPanel lessonNumber={n} />
           <BookFaithfulOverlay n={n} />
           {entry.kind === "intro" && <IntroBody lessonId={String(n)} />}
           {entry.kind === "vowel" && <VowelBody entry={entry} lessonId={String(n)} />}
