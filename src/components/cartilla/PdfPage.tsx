@@ -2,6 +2,11 @@
  * PdfPage.tsx  — Lane A
  * High-definition page renderer that serves polished, upscaled, and white-balanced JPEGs
  * from our asset pipeline. Completely removes scan residues and gray margins.
+ *
+ * Render priority (Leap U): the faithful HD art at /cartilla/art/hd/workbook/page-NNN.jpg
+ * is served FIRST. The raw verified source scan is used only as an onError fallback when
+ * an HD asset is missing. This auto-upgrades pages the moment cleaner HD files land in
+ * the same path, and the worst case is identical to serving the original scan.
  */
 import { useEffect, useState } from "react";
 import sourceArtInventory from "@/data/source-art-inventory.json";
@@ -17,7 +22,7 @@ type SourceArtInventory = {
   assets?: SourcePageAsset[];
 };
 
-const sourcePageByWorkbookPage = new Map(
+const rawScanByWorkbookPage = new Map(
   ((sourceArtInventory as SourceArtInventory).assets ?? [])
     .filter(
       (asset): asset is SourcePageAsset & { path: string; workbookPageNumber: number } =>
@@ -34,14 +39,14 @@ function getHdPageSrc(pageNumber: number) {
   return `/cartilla/art/hd/workbook/page-${paddedPageNum}.jpg`;
 }
 
-function getBestWorkbookPageSrc(pageNumber: number) {
-  return sourcePageByWorkbookPage.get(pageNumber) ?? getHdPageSrc(pageNumber);
+function getRawScanFallbackSrc(pageNumber: number) {
+  return rawScanByWorkbookPage.get(pageNumber);
 }
 
 export function prefetchPage(pageNumber: number) {
   if (pageNumber < 1 || pageNumber > 92) return;
   const img = new Image();
-  img.src = getBestWorkbookPageSrc(pageNumber);
+  img.src = getHdPageSrc(pageNumber);
 }
 
 interface PdfPageProps {
@@ -51,11 +56,13 @@ interface PdfPageProps {
 
 export function PdfPage({ pageNumber, className = "" }: PdfPageProps) {
   const safePageNumber = Math.max(1, pageNumber);
-  const [useFallback, setUseFallback] = useState(false);
-  const src = useFallback ? getHdPageSrc(safePageNumber) : getBestWorkbookPageSrc(safePageNumber);
+  const [useRawFallback, setUseRawFallback] = useState(false);
+  const hdSrc = getHdPageSrc(safePageNumber);
+  const rawFallbackSrc = getRawScanFallbackSrc(safePageNumber);
+  const src = useRawFallback && rawFallbackSrc ? rawFallbackSrc : hdSrc;
 
   useEffect(() => {
-    setUseFallback(false);
+    setUseRawFallback(false);
   }, [safePageNumber]);
 
   return (
@@ -69,7 +76,9 @@ export function PdfPage({ pageNumber, className = "" }: PdfPageProps) {
         className="w-full h-full object-contain max-h-full"
         loading="lazy"
         draggable={false}
-        onError={() => setUseFallback(true)}
+        onError={() => {
+          if (!useRawFallback && rawFallbackSrc) setUseRawFallback(true);
+        }}
       />
     </div>
   );
