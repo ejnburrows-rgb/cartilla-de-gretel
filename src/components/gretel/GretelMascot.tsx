@@ -1,4 +1,4 @@
-import { motion, type Variants, useReducedMotion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { useEffect, useState } from "react";
 import { X } from "lucide-react";
 
@@ -12,59 +12,58 @@ interface GretelMascotProps {
   showCloseButton?: boolean;
 }
 
+/**
+ * Flip-book animation frames. These .webp files live in:
+ *   public/cartilla/images/gretel/poses/
+ * and are served at /cartilla/images/gretel/poses/.
+ * The component cycles through each pose's frames to make Gretel move.
+ * If a frame is missing, it gracefully falls back to a still image so
+ * nothing ever breaks.
+ */
 const POSE_DIR = "/cartilla/images/gretel/poses";
-const BASE_DIR = "/cartilla/images/gretel";
 
-const framesByPose: Record<string, string[]> = {
+const framesByPose: Record<GretelPose, string[]> = {
   welcome: [
     `${POSE_DIR}/pose7-wave-0.webp`,
     `${POSE_DIR}/pose7-wave-1.webp`,
     `${POSE_DIR}/pose7-wave-2.webp`,
+    `${POSE_DIR}/pose7-wave-1.webp`,
   ],
   wave: [
     `${POSE_DIR}/pose7-wave-0.webp`,
     `${POSE_DIR}/pose7-wave-1.webp`,
     `${POSE_DIR}/pose7-wave-2.webp`,
+    `${POSE_DIR}/pose7-wave-1.webp`,
   ],
   point: [
-    `${POSE_DIR}/point.webp`,
-  ],
-  read: [
     `${POSE_DIR}/pose7-talk-0.webp`,
     `${POSE_DIR}/pose7-talk-1.webp`,
     `${POSE_DIR}/pose7-talk-2.webp`,
+    `${POSE_DIR}/pose7-talk-1.webp`,
   ],
-  celebrate: [
-    `${POSE_DIR}/pose7-cheer-0.webp`,
-    `${POSE_DIR}/pose7-cheer-1.webp`,
-  ],
-  think: [
-    `${BASE_DIR}/thinking.webp`,
-  ],
-  idle: [
-    `${POSE_DIR}/idle-1.webp`,
-    `${POSE_DIR}/idle-1.webp`,
-    `${POSE_DIR}/idle-1.webp`,
-    `${POSE_DIR}/idle-1.webp`,
-    `${POSE_DIR}/idle-1.webp`,
-    `${POSE_DIR}/idle-2.webp`,
-    `${POSE_DIR}/idle-2.webp`,
-    `${POSE_DIR}/idle-1.webp`,
-    `${POSE_DIR}/idle-1.webp`,
-    `${POSE_DIR}/pose7-blink.webp`,
-  ],
+  read: [`${POSE_DIR}/pose7-talk-0.webp`, `${POSE_DIR}/pose7-blink.webp`],
+  celebrate: [`${POSE_DIR}/pose7-cheer-0.webp`, `${POSE_DIR}/pose7-cheer-1.webp`],
+  think: [`${POSE_DIR}/pose7-talk-0.webp`, `${POSE_DIR}/pose7-blink.webp`],
 };
 
-const FRAME_INTERVAL = 140; // ~7 fps
+// How fast each pose flips its frames (milliseconds per frame).
+const frameIntervalByPose: Record<GretelPose, number> = {
+  welcome: 220,
+  wave: 170,
+  point: 240,
+  read: 1600,
+  celebrate: 200,
+  think: 1400,
+};
 
-const fallbackByPose: Record<string, string> = {
-  welcome: `${BASE_DIR}/happy.webp`,
-  wave: `${BASE_DIR}/happy.webp`,
-  point: `${BASE_DIR}/encouraging.webp`,
-  read: `${BASE_DIR}/idle-1.webp`,
-  celebrate: `${BASE_DIR}/cheer.webp`,
-  think: `${BASE_DIR}/thinking.webp`,
-  idle: `${BASE_DIR}/idle-1.webp`,
+// Safe fallbacks: existing still art already in public/cartilla/images/gretel/.
+const fallbackByPose: Record<GretelPose, string> = {
+  welcome: "/cartilla/images/gretel/happy.webp",
+  point: "/cartilla/images/gretel/encouraging.webp",
+  read: "/cartilla/images/gretel/idle-1.webp",
+  celebrate: "/cartilla/images/gretel/cheer.webp",
+  think: "/cartilla/images/gretel/thinking.webp",
+  wave: "/cartilla/images/gretel/happy.webp",
 };
 
 const variants: Variants = {
@@ -100,7 +99,7 @@ const variants: Variants = {
 };
 
 export function GretelMascot({
-  pose,
+  pose = "welcome",
   text,
   className = "",
   bubblePosition = "left",
@@ -109,22 +108,22 @@ export function GretelMascot({
   const [bubbleOpen, setBubbleOpen] = useState(true);
   const [frameIndex, setFrameIndex] = useState(0);
   const [useFallback, setUseFallback] = useState(false);
-  const shouldReduceMotion = useReducedMotion();
 
-  const activePose = pose || "idle";
-  const frames = framesByPose[activePose] || framesByPose.idle;
+  const frames = framesByPose[pose];
+  const interval = frameIntervalByPose[pose];
 
+  // Cycle through this pose's frames to animate Gretel.
   useEffect(() => {
     setFrameIndex(0);
     setUseFallback(false);
-    if (frames.length <= 1 || shouldReduceMotion) return;
+    if (frames.length <= 1) return;
     const id = setInterval(() => {
       setFrameIndex((i) => (i + 1) % frames.length);
-    }, FRAME_INTERVAL);
+    }, interval);
     return () => clearInterval(id);
-  }, [frames, shouldReduceMotion]);
+  }, [frames, interval]);
 
-  const currentSrc = useFallback ? (fallbackByPose[activePose] || fallbackByPose.idle) : frames[frameIndex];
+  const currentSrc = useFallback ? fallbackByPose[pose] : frames[frameIndex];
 
   const bubbleClasses = {
     left: "right-full mr-4 bottom-6",
@@ -141,10 +140,12 @@ export function GretelMascot({
 
   return (
     <div className={`relative flex items-center justify-center ${className}`}>
+      {/* Speech Bubble */}
       {text && bubbleOpen && (
         <div
           className={`absolute z-30 max-w-[200px] sm:max-w-[240px] w-56 rounded-2xl bg-stone-100 p-3 sm:p-4 text-xs sm:text-sm font-bold text-stone-800 shadow-xl border border-stone-200/65 select-none animate-fade-in ${bubbleClasses[bubblePosition]}`}
         >
+          {/* Bubble Arrow */}
           <div className={`absolute w-0 h-0 border-solid ${bubbleArrowClasses[bubblePosition]}`} />
 
           {showCloseButton && (
@@ -161,14 +162,15 @@ export function GretelMascot({
         </div>
       )}
 
+      {/* Mascot Render */}
       <motion.div
-        animate={pose || "welcome"}
+        animate={pose}
         variants={variants}
         className="relative h-24 w-24 sm:h-36 sm:w-36 origin-bottom drop-shadow-xl select-none"
       >
         <img
           src={currentSrc}
-          alt={`Gretel - Pose: ${activePose}`}
+          alt={`Gretel - Pose: ${pose}`}
           className="h-full w-full object-contain"
           draggable={false}
           onError={() => setUseFallback(true)}

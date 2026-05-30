@@ -16,6 +16,7 @@ export type InteractionKind =
   | "tap-object"
   | "drag-word-to-image"
   | "drag-syllable-to-slot"
+  | "drag-build-word"
   | "match-word-image"
   | "listen-and-tap"
   | "trace-or-copy"

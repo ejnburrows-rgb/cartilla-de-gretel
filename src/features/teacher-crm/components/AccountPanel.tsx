@@ -22,8 +22,8 @@ export function AccountPanel({ student }: AccountPanelProps) {
     );
   }
 
-  const progressWidthStyle: React.CSSProperties = { 
-    width: `${student.progress}%` 
+  const progressWidthStyle: React.CSSProperties = {
+    width: `${student.progress}%`,
   };
 
   return (
@@ -34,13 +34,15 @@ export function AccountPanel({ student }: AccountPanelProps) {
           <ChevronRight className="w-5 h-5" />
         </button>
       </div>
-      
+
       <div className="text-center py-4 border-b border-[#e8e2d9]">
         <div className="w-16 h-16 mx-auto bg-[#dce7d5] rounded-full flex items-center justify-center text-2xl font-black text-[#2c3e20] mb-3 shadow-inner">
           {student.name.charAt(0)}
         </div>
         <h4 className="font-extrabold text-lg text-[#3a322b]">{student.name}</h4>
-        <p className="text-xs font-semibold text-[#7a7065] mt-1">Última actividad: {student.lastActive}</p>
+        <p className="text-xs font-semibold text-[#7a7065] mt-1">
+          Última actividad: {student.lastActive}
+        </p>
       </div>
 
       <div className="py-4 space-y-4">
@@ -52,6 +54,11 @@ export function AccountPanel({ student }: AccountPanelProps) {
           <div className="h-2 w-full bg-[#fdfbf7] rounded-full overflow-hidden border border-[#e8e2d9]">
             <div className="h-full bg-[#8da47e] rounded-full" style={progressWidthStyle}></div>
           </div>
+          {student.progress === 0 && (
+            <p className="text-[10px] text-[#7a7065]/70 italic font-semibold mt-1">
+              Progress appears after students complete activities.
+            </p>
+          )}
         </div>
 
         <div className="grid grid-cols-2 gap-2 mt-4">

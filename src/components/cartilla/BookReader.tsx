@@ -1,11 +1,19 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, lazy, Suspense } from "react";
 import { CATALOG } from "@/lib/lesson-catalog";
-import { BookPageFlip } from "./BookPageFlip";
 import { PolishedPage } from "./PolishedPage";
 import { StudentBookToolbar } from "./StudentBookToolbar";
+import { RingTabNav } from "./RingTabNav";
 import { BookOpen, Tv } from "lucide-react";
 import { speak } from "@/lib/speak";
 import { GretelMascot } from "@/components/gretel/GretelMascot";
+import { FlipErrorBoundary } from "./FlipErrorBoundary";
+
+// Lazy-load the flipbook so `react-pageflip` (which touches browser-only APIs
+// at import time) never evaluates during SSR. Combined with the `mounted` gate
+// below, the module only loads on the client after hydration.
+const BookPageFlip = lazy(() =>
+  import("./BookPageFlip").then((m) => ({ default: m.BookPageFlip })),
+);
 
 interface BookReaderProps {
   initialPage?: number;
@@ -14,16 +22,18 @@ interface BookReaderProps {
 export function BookReader({ initialPage = 1 }: BookReaderProps) {
   const [currentPage, setCurrentPage] = useState<number>(initialPage);
   const [layoutMode, setLayoutMode] = useState<"horizontal" | "vertical">("horizontal");
+  const [mounted, setMounted] = useState(false);
+  // If the flipbook throws at runtime, fall back to the continuous vertical
+  // reader instead of white-screening the whole route.
+  const [flipFailed, setFlipFailed] = useState(false);
 
-  // Determine total pages from catalog
-  const totalPages = useMemo(() => {
-    return Math.max(
-      ...CATALOG.map((entry) => {
-        const parts = entry.pages.split("-").map(Number);
-        return parts[1] || parts[0] || 1;
-      }),
-    );
+  // Only render the client-only flipbook after mount so `react-pageflip`
+  // is never requested on the server.
+  useEffect(() => {
+    setMounted(true);
   }, []);
+
+  const totalPages = 92;
 
   const allPages = useMemo(() => {
     const list = [];
@@ -41,6 +51,35 @@ export function BookReader({ initialPage = 1 }: BookReaderProps) {
     speak(`Página ${currentPage}`);
   };
 
+  const flipbookFallback = (
+    <div className="w-full flex items-center justify-center py-10">
+      <div className="flex flex-col items-center gap-3">
+        <div className="h-10 w-10 animate-spin rounded-full border-4 border-stone-300 border-t-amber-500" />
+        <span className="text-stone-500 font-medium">Cargando libro…</span>
+      </div>
+    </div>
+  );
+
+  // Continuous vertical reader. Used both as the explicit "vertical" layout
+  // mode AND as the safe fallback if the horizontal flipbook ever throws.
+  const verticalReader = (
+    <div className="w-full space-y-8 pb-24">
+      {allPages.map((pageNum) => (
+        <div
+          key={pageNum}
+          className={`transition-all duration-300 w-full flex justify-center ${
+            pageNum === currentPage ? "scale-[1.01] opacity-100" : "opacity-80"
+          }`}
+          onClick={() => setCurrentPage(pageNum)}
+        >
+          <PolishedPage pageNumber={pageNum} />
+        </div>
+      ))}
+    </div>
+  );
+
+  const showHorizontal = layoutMode === "horizontal" && !flipFailed;
+
   return (
     <div className="w-full flex flex-col min-h-screen">
       {/* Student Book Toolbar */}
@@ -56,7 +95,10 @@ export function BookReader({ initialPage = 1 }: BookReaderProps) {
       <div className="no-print max-w-2xl w-full mx-auto px-4 py-3 flex justify-between items-center bg-white/40 backdrop-blur rounded-2xl border border-stone-200/50 mt-4">
         <div className="flex gap-2">
           <button
-            onClick={() => setLayoutMode("horizontal")}
+            onClick={() => {
+              setFlipFailed(false);
+              setLayoutMode("horizontal");
+            }}
             className={`px-3 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1.5 border transition ${
               layoutMode === "horizontal"
                 ? "bg-amber-900 border-amber-900 text-white shadow-sm"
@@ -85,30 +127,36 @@ export function BookReader({ initialPage = 1 }: BookReaderProps) {
         </span>
       </div>
 
-      {/* Main Page Layout Container */}
-      <main className="flex-1 w-full max-w-2xl mx-auto px-4 py-8 flex flex-col items-center justify-center">
-        {layoutMode === "horizontal" ? (
-          <BookPageFlip
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={setCurrentPage}
-          />
-        ) : (
-          <div className="w-full space-y-8 pb-24">
-            {allPages.map((pageNum) => (
-              <div
-                key={pageNum}
-                className={`transition-all duration-300 w-full flex justify-center ${
-                  pageNum === currentPage ? "scale-[1.01] opacity-100" : "opacity-80"
-                }`}
-                onClick={() => setCurrentPage(pageNum)}
+      {/* Main Page Layout Container — ring-tab rail + book */}
+      <div className="flex-1 w-full max-w-5xl mx-auto flex flex-col md:flex-row md:items-start md:justify-center gap-2 md:gap-4 px-2 md:px-4">
+        <RingTabNav
+          currentPage={currentPage}
+          onSelect={setCurrentPage}
+          className="md:sticky md:top-24 md:max-h-[78vh]"
+        />
+        <main className="flex-1 w-full max-w-2xl mx-auto px-2 md:px-4 py-6 md:py-8 flex flex-col items-center justify-center">
+          {showHorizontal ? (
+            mounted ? (
+              <FlipErrorBoundary
+                fallback={verticalReader}
+                onError={() => setFlipFailed(true)}
               >
-                <PolishedPage pageNumber={pageNum} />
-              </div>
-            ))}
-          </div>
-        )}
-      </main>
+                <Suspense fallback={flipbookFallback}>
+                  <BookPageFlip
+                    currentPage={currentPage}
+                    totalPages={totalPages}
+                    onPageChange={setCurrentPage}
+                  />
+                </Suspense>
+              </FlipErrorBoundary>
+            ) : (
+              flipbookFallback
+            )
+          ) : (
+            verticalReader
+          )}
+        </main>
+      </div>
 
       {/* Mascot Integration */}
       <div className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50">

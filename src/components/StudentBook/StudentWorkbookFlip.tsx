@@ -13,18 +13,9 @@ const PageContent = forwardRef<HTMLDivElement, PageContentProps>(
       <div
         ref={ref}
         data-density={cover ? "hard" : "soft"}
-        className={
-          cover
-            ? "relative flex h-full w-full flex-col overflow-hidden bg-[linear-gradient(160deg,#f8dfb7,#f7efe1_48%,#d5ebe2)]"
-            : "relative flex h-full w-full flex-col overflow-hidden bg-[hsl(48_100%_97%)]"
-        }
+        className="relative flex h-full w-full flex-col overflow-hidden bg-white"
       >
-        <div className="flex-1 px-8 py-10">{children}</div>
-        {number !== undefined && !cover ? (
-          <div className="absolute bottom-3 right-5 text-xs font-bold text-[hsl(28,30%,18%)]/40">
-            {number}
-          </div>
-        ) : null}
+        <div className="flex-1 w-full h-full p-0">{children}</div>
       </div>
     );
   },

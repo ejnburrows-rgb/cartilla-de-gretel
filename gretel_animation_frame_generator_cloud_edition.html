@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gretel Animation Frame Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Added JSZip for bulk downloading -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        .transparency-grid {
+            background-image: 
+                linear-gradient(45deg, #e5e7eb 25%, transparent 25%), 
+                linear-gradient(-45deg, #e5e7eb 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, #e5e7eb 75%), 
+                linear-gradient(-45deg, transparent 75%, #e5e7eb 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+        }
+        .loader {
+            border-top-color: #3b82f6;
+            -webkit-animation: spinner 1.5s linear infinite;
+            animation: spinner 1.5s linear infinite;
+        }
+        @keyframes spinner {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen text-gray-800 p-6">
+    <div class="max-w-5xl mx-auto space-y-6">
+        
+        <header class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex justify-between items-center">
+            <div>
+                <h1 class="text-2xl font-bold text-gray-900"><i class="fa-solid fa-wand-magic-sparkles text-blue-500 mr-2"></i> Gretel Frame Generator</h1>
+                <p class="text-sm text-gray-500 mt-1">Generate and cloud-save isolated animation frames from your source stills.</p>
+            </div>
+            <div id="authStatus" class="flex items-center space-x-2 text-sm text-gray-500 bg-gray-100 px-3 py-1.5 rounded-full">
+                <i class="fa-solid fa-circle-notch fa-spin text-gray-400"></i>
+                <span>Connecting to Cloud...</span>
+            </div>
+        </header>
+
+        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-xl">
+            <div class="flex">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-info-circle text-blue-500"></i>
+                </div>
+                <div class="ml-3">
+                    <p class="text-sm text-blue-700">
+                        <strong>Strict Canon Requirement Note:</strong> Standard AI image-to-image pipelines may slightly alter non-target pixels. For 100% pixel-perfect locks (no drift on outfits/lines), output frames generated here might still require a quick mask composite over the original in Photoshop.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+            <!-- Controls Sidebar -->
+            <div class="md:col-span-4 space-y-6">
+                
+                <!-- Upload Section -->
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 space-y-4">
+                    <h2 class="font-semibold text-gray-800 border-b pb-2">1. Source Image</h2>
+                    <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:bg-gray-50 transition cursor-pointer" id="dropZone">
+                        <i class="fa-solid fa-cloud-arrow-up text-3xl text-gray-400 mb-2"></i>
+                        <p class="text-sm font-medium text-gray-600">Click to upload Gretel pose</p>
+                        <p class="text-xs text-gray-400 mt-1">PNG or WebP (transparent bg)</p>
+                        <input type="file" id="fileInput" class="hidden" accept="image/png, image/webp, image/jpeg">
+                    </div>
+                </div>
+
+                <!-- Generation Settings -->
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 space-y-4">
+                    <h2 class="font-semibold text-gray-800 border-b pb-2">2. Animation Target</h2>
+
+                    <div>
+                        <label class="block text-xs font-medium text-gray-500 mb-1">Base Pose Name (for export)</label>
+                        <input type="text" id="poseName" placeholder="e.g., read, happy, idle-1" class="w-full text-sm p-2 border rounded focus:ring-2 focus:ring-blue-500 outline-none">
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <label class="block text-xs font-medium text-gray-500">Target Action Frames (Batch)</label>
+                            <button id="selectAllBtn" class="text-xs text-blue-500 hover:text-blue-700">Select All</button>
+                        </div>
+                        <div class="space-y-2 max-h-60 overflow-y-auto p-2 border rounded bg-gray-50 text-sm" id="actionCheckboxes">
+                            <div class="font-medium text-xs text-gray-500 uppercase tracking-wider mt-2 mb-1">Talk (Mouth)</div>
+                            <label class="flex items-center space-x-2"><input type="checkbox" value="talk-0" class="rounded text-blue-600 action-cb" checked><span>Talk A (Closed)</span></label>
+                            <label class="flex items-center space-x-2"><input type="checkbox" value="talk-1" class="rounded text-blue-600 action-cb"><span>Talk B (Slightly Open)</span></label>
+                            <label class="flex items-center space-x-2"><input type="checkbox" value="talk-2" class="rounded text-blue-600 action-cb"><span>Talk C (Wide Open)</span></label>
+                            
+                            <div class="font-medium text-xs text-gray-500 uppercase tracking-wider mt-3 mb-1">Wave (Arm)</div>
+                            <label class="flex items-center space-x-2"><input type="checkbox" value="wave-0" class="rounded text-blue-600 action-cb"><span>Wave A (Mid-Raise)</span></label>
+                            <label class="flex items-center space-x-2"><input type="checkbox" value="wave-1" class="rounded text-blue-600 action-cb"><span>Wave B (Up/Open)</span></label>
+                            <label class="flex items-center space-x-2"><input type="checkbox" value="wave-2" class="rounded text-blue-600 action-cb"><span>Wave C (Tilted Out)</span></label>
+                            
+                            <div class="font-medium text-xs text-gray-500 uppercase tracking-wider mt-3 mb-1">Celebrate (Arms)</div>
+                            <label class="flex items-center space-x-2"><input type="checkbox" value="cheer-0" class="rounded text-blue-600 action-cb"><span>Celebrate A (Mid)</span></label>
+                            <label class="flex items-center space-x-2"><input type="checkbox" value="cheer-1" class="rounded text-blue-600 action-cb"><span>Celebrate B (Up High)</span></label>
+                            
+                            <div class="font-medium text-xs text-gray-500 uppercase tracking-wider mt-3 mb-1">Blink</div>
+                            <label class="flex items-center space-x-2"><input type="checkbox" value="blink" class="rounded text-blue-600 action-cb"><span>Blink (Eyes Closed)</span></label>
+                        </div>
+                    </div>
+
+                    <button id="generateBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center">
+                        <i class="fa-solid fa-bolt mr-2"></i> Generate Selected
+                    </button>
+                    <div id="errorMsg" class="hidden text-xs text-red-500 mt-2 bg-red-50 p-2 rounded"></div>
+                </div>
+
+            </div>
+
+            <!-- Previews -->
+            <div class="md:col-span-8 flex flex-col space-y-6">
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex-grow flex flex-col">
+                    <h2 class="font-semibold text-gray-800 border-b pb-2 mb-4">Workspace Preview</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 flex-grow">
+                        <!-- Source Preview -->
+                        <div class="flex flex-col h-full border rounded-lg overflow-hidden bg-gray-50">
+                            <div class="bg-gray-200 text-xs font-medium px-3 py-1 text-gray-600 border-b">Source Still</div>
+                            <div class="flex-grow flex items-center justify-center transparency-grid p-4 min-h-[300px]">
+                                <img id="sourceImage" src="" class="max-w-full max-h-[400px] object-contain hidden" alt="Source">
+                                <span id="sourcePlaceholder" class="text-gray-400 text-sm">Upload an image first</span>
+                            </div>
+                        </div>
+
+                        <!-- Generated Preview (Batch Gallery) -->
+                        <div class="flex flex-col h-full border rounded-lg overflow-hidden bg-gray-50 relative">
+                            <div class="bg-gray-200 text-xs font-medium px-3 py-1 text-gray-600 border-b flex justify-between items-center">
+                                <span>Batch Results</span>
+                            </div>
+                            
+                            <div id="resultsGallery" class="flex-grow overflow-y-auto p-4 grid grid-cols-2 gap-4 content-start min-h-[300px] transparency-grid">
+                                <div id="generatedPlaceholder" class="col-span-2 flex justify-center items-center h-full text-gray-400 text-sm">
+                                    Generated frames will appear here
+                                </div>
+                            </div>
+
+                            <div class="p-3 border-t bg-white flex space-x-2">
+                                <button id="downloadAllBtn" disabled class="flex-1 bg-green-600 hover:bg-green-700 disabled:bg-gray-300 text-white font-medium py-2 px-4 rounded transition flex items-center justify-center text-sm">
+                                    <i class="fa-solid fa-file-zipper mr-2"></i> Download ZIP
+                                </button>
+                                <button id="saveToCloudBtn" disabled class="flex-1 bg-purple-600 hover:bg-purple-700 disabled:bg-gray-300 text-white font-medium py-2 px-4 rounded transition flex items-center justify-center text-sm">
+                                    <i class="fa-solid fa-cloud-arrow-up mr-2"></i> Save to Cloud
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Cloud Saved Frames Gallery -->
+        <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 mt-6">
+            <h2 class="font-semibold text-gray-800 border-b pb-2 mb-4"><i class="fa-solid fa-cloud text-purple-500 mr-2"></i>Your Cloud Saved Frames</h2>
+            <div id="cloudGallery" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 min-h-[150px]">
+                <div class="col-span-full flex flex-col justify-center items-center h-32 text-gray-400 text-sm">
+                    <i class="fa-solid fa-cloud text-3xl mb-2 opacity-50"></i>
+                    <span>No saved frames yet.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+    import { getAuth, signInWithCustomToken, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+    import { getFirestore, collection, addDoc, onSnapshot, query, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+    const geminiApiKey = ""; // API Key injected by environment
+    let sourceBase64 = null;
+    let generatedResults = {}; // Store results for ZIP and Cloud
+
+    // UI Elements
+    const dropZone = document.getElementById('dropZone');
+    const fileInput = document.getElementById('fileInput');
+    const sourceImage = document.getElementById('sourceImage');
+    const sourcePlaceholder = document.getElementById('sourcePlaceholder');
+    const poseNameInput = document.getElementById('poseName');
+    const generateBtn = document.getElementById('generateBtn');
+    
+    const selectAllBtn = document.getElementById('selectAllBtn');
+    const checkboxes = document.querySelectorAll('.action-cb');
+    const resultsGallery = document.getElementById('resultsGallery');
+    const generatedPlaceholder = document.getElementById('generatedPlaceholder');
+    const downloadAllBtn = document.getElementById('downloadAllBtn');
+    const saveToCloudBtn = document.getElementById('saveToCloudBtn');
+    const errorMsg = document.getElementById('errorMsg');
+    
+    const authStatus = document.getElementById('authStatus');
+    const cloudGallery = document.getElementById('cloudGallery');
+
+    // Firebase Init
+    let app, auth, db, appId, currentUser;
+    let cloudUnsubscribe = null;
+
+    const initFirebase = async () => {
+        try {
+            const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null;
+            if (!firebaseConfig) {
+                authStatus.innerHTML = '<i class="fa-solid fa-triangle-exclamation text-yellow-500"></i><span class="text-yellow-600">Cloud unavailable</span>';
+                return;
+            }
+            
+            app = initializeApp(firebaseConfig);
+            auth = getAuth(app);
+            db = getFirestore(app);
+            appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+
+            // Init Auth
+            if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                await signInWithCustomToken(auth, __initial_auth_token);
+            } else {
+                await signInAnonymously(auth);
+            }
+
+            onAuthStateChanged(auth, (user) => {
+                currentUser = user;
+                if (user) {
+                    authStatus.innerHTML = '<i class="fa-solid fa-cloud-check text-green-500"></i><span class="text-green-700">Cloud Connected</span>';
+                    loadCloudGallery();
+                } else {
+                    authStatus.innerHTML = '<i class="fa-solid fa-cloud-xmark text-red-500"></i><span class="text-red-700">Disconnected</span>';
+                    if (cloudUnsubscribe) cloudUnsubscribe();
+                }
+            });
+        } catch (e) {
+            console.error("Firebase Init Error:", e);
+            authStatus.innerHTML = '<i class="fa-solid fa-triangle-exclamation text-yellow-500"></i><span class="text-yellow-600">Cloud Error</span>';
+        }
+    };
+    initFirebase();
+
+    // Setup Prompts mapping
+    const actionPrompts = {
+        "talk-0": "Keep the image exactly 100% identical. Same colors, lines, clothes, background. The ONLY change: Close her mouth completely.",
+        "talk-1": "Keep the image exactly 100% identical. Same colors, lines, clothes, background. The ONLY change: Open her mouth slightly as if speaking gently.",
+        "talk-2": "Keep the image exactly 100% identical. Same colors, lines, clothes, background. The ONLY change: Open her mouth wide as if shouting or speaking loudly.",
+        "wave-0": "Keep the image exactly 100% identical. Same colors, lines, clothes, background. The ONLY change: Move one arm to a mid-raise waving position.",
+        "wave-1": "Keep the image exactly 100% identical. Same colors, lines, clothes, background. The ONLY change: Move one arm fully up with the hand open, waving.",
+        "wave-2": "Keep the image exactly 100% identical. Same colors, lines, clothes, background. The ONLY change: Tilt the raised waving hand outwards.",
+        "cheer-0": "Keep the image exactly 100% identical. Same colors, lines, clothes, background. The ONLY change: Move her arms to a middle position in front of her.",
+        "cheer-1": "Keep the image exactly 100% identical. Same colors, lines, clothes, background. The ONLY change: Raise both arms up high in celebration.",
+        "blink": "Keep the image exactly 100% identical. Same colors, lines, clothes, background. The ONLY change: Close both of her eyes to form a blink."
+    };
+
+    // Handle Drop Zone click
+    dropZone.addEventListener('click', () => fileInput.click());
+
+    // Handle File Upload
+    fileInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const nameWithoutExt = file.name.split('.').slice(0, -1).join('.');
+        if(!poseNameInput.value) {
+            poseNameInput.value = nameWithoutExt.replace(/[^a-zA-Z0-9-]/g, '').toLowerCase() || 'pose';
+        }
+
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            sourceBase64 = event.target.result;
+            sourceImage.src = sourceBase64;
+            sourceImage.classList.remove('hidden');
+            sourcePlaceholder.classList.add('hidden');
+            generateBtn.disabled = false;
+        };
+        reader.readAsDataURL(file);
+    });
+
+    selectAllBtn.addEventListener('click', () => {
+        const allChecked = Array.from(checkboxes).every(cb => cb.checked);
+        checkboxes.forEach(cb => cb.checked = !allChecked);
+        selectAllBtn.textContent = allChecked ? "Select All" : "Deselect All";
+    });
+
+    const fetchWithRetry = async (url, options, retries = 5) => {
+        const delays = [1000, 2000, 4000, 8000, 16000];
+        for (let i = 0; i < retries; i++) {
+            try {
+                const response = await fetch(url, options);
+                if (!response.ok) throw new Error(`API Error: ${response.status}`);
+                return await response.json();
+            } catch (err) {
+                if (i === retries - 1) throw err;
+                await new Promise(res => setTimeout(res, delays[i]));
+            }
+        }
+    };
+
+    // Generate Target Frames (Batch)
+    generateBtn.addEventListener('click', async () => {
+        if (!sourceBase64) return;
+        
+        const selectedActions = Array.from(checkboxes).filter(cb => cb.checked).map(cb => cb.value);
+        if (selectedActions.length === 0) {
+            alert("Please select at least one target action frame to generate.");
+            return;
+        }
+
+        errorMsg.classList.add('hidden');
+        generateBtn.disabled = true;
+        generateBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Generating...';
+        downloadAllBtn.disabled = true;
+        saveToCloudBtn.disabled = true;
+        
+        generatedPlaceholder.classList.add('hidden');
+        resultsGallery.innerHTML = '';
+        generatedResults = {};
+
+        const poseName = poseNameInput.value || 'gretel';
+        const base64Data = sourceBase64.split(',')[1];
+        const mimeType = sourceBase64.split(';')[0].split(':')[1];
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image-preview:generateContent?key=${geminiApiKey}`;
+
+        for (const actionKey of selectedActions) {
+            const finalFilename = `${poseName}-${actionKey}.webp`;
+            
+            const cardId = `result-${actionKey}`;
+            let card = document.createElement('div');
+            card.id = cardId;
+            card.className = "bg-white p-2 rounded border shadow-sm flex flex-col items-center relative gap-2";
+            card.innerHTML = `
+                <div class="w-full bg-gray-200 h-24 md:h-32 rounded flex items-center justify-center relative overflow-hidden transparency-grid">
+                    <div class="loader ease-linear rounded-full border-2 border-t-2 border-blue-500 h-6 w-6 absolute z-10"></div>
+                    <img src="" class="hidden w-full h-full object-contain relative z-20">
+                </div>
+                <div class="text-[10px] font-mono text-gray-600 truncate w-full text-center" title="${finalFilename}">${finalFilename}</div>
+            `;
+            resultsGallery.appendChild(card);
+
+            const promptText = actionPrompts[actionKey] + " Maintain the transparency if present. Crucial: DO NOT restyle, redraw, reproportion, or recolor anything outside the target action zone.";
+            
+            const payload = {
+                contents: [{
+                    role: "user",
+                    parts: [
+                        { text: promptText },
+                        { inlineData: { mimeType: mimeType, data: base64Data } }
+                    ]
+                }],
+                generationConfig: { responseModalities: ["TEXT", "IMAGE"] }
+            };
+
+            try {
+                const data = await fetchWithRetry(url, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                });
+
+                const imagePart = data.candidates?.[0]?.content?.parts?.find(p => p.inlineData);
+                
+                if (imagePart) {
+                    const generatedBase64 = `data:${imagePart.inlineData.mimeType};base64,${imagePart.inlineData.data}`;
+                    generatedResults[finalFilename] = generatedBase64;
+                    
+                    const imgEl = card.querySelector('img');
+                    const loaderEl = card.querySelector('.loader');
+                    imgEl.src = generatedBase64;
+                    imgEl.classList.remove('hidden');
+                    loaderEl.classList.add('hidden');
+                    card.querySelector('div.bg-gray-200').classList.remove('bg-gray-200');
+                }
+            } catch (err) {
+                console.error(err);
+                card.innerHTML = `<div class="text-red-500 text-xs text-center p-2 w-full h-full flex items-center justify-center bg-red-50 border border-red-200 rounded">Failed: ${actionKey}</div>`;
+            }
+        }
+
+        generateBtn.disabled = false;
+        generateBtn.innerHTML = '<i class="fa-solid fa-bolt mr-2"></i> Generate Selected';
+        
+        if (Object.keys(generatedResults).length > 0) {
+            downloadAllBtn.disabled = false;
+            if (currentUser) saveToCloudBtn.disabled = false;
+        }
+    });
+
+    // Download ZIP
+    downloadAllBtn.addEventListener('click', async () => {
+        if (Object.keys(generatedResults).length === 0) return;
+        
+        downloadAllBtn.disabled = true;
+        downloadAllBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Zipping...';
+
+        const zip = new JSZip();
+        const poseName = poseNameInput.value || 'gretel';
+        
+        for (const [filename, base64Str] of Object.entries(generatedResults)) {
+            const data = base64Str.split(',')[1];
+            zip.file(filename, data, {base64: true});
+        }
+
+        try {
+            const content = await zip.generateAsync({type: "blob"});
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(content);
+            a.download = `${poseName}-frames.zip`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        } catch (err) {
+            console.error("Error creating ZIP:", err);
+            alert("Failed to create ZIP file.");
+        } finally {
+            downloadAllBtn.disabled = false;
+            downloadAllBtn.innerHTML = '<i class="fa-solid fa-file-zipper mr-2"></i> Download ZIP';
+        }
+    });
+
+    // Save to Cloud
+    saveToCloudBtn.addEventListener('click', async () => {
+        if (!currentUser || Object.keys(generatedResults).length === 0) return;
+
+        saveToCloudBtn.disabled = true;
+        saveToCloudBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Saving...';
+
+        try {
+            const framesRef = collection(db, 'artifacts', appId, 'users', currentUser.uid, 'saved_frames');
+            for (const [filename, base64Str] of Object.entries(generatedResults)) {
+                await addDoc(framesRef, {
+                    filename: filename,
+                    base64Data: base64Str,
+                    timestamp: Date.now()
+                });
+            }
+            saveToCloudBtn.innerHTML = '<i class="fa-solid fa-check mr-2"></i> Saved!';
+            setTimeout(() => {
+                saveToCloudBtn.innerHTML = '<i class="fa-solid fa-cloud-arrow-up mr-2"></i> Save to Cloud';
+                saveToCloudBtn.disabled = false;
+            }, 2000);
+        } catch (err) {
+            console.error("Save error:", err);
+            saveToCloudBtn.innerHTML = '<i class="fa-solid fa-triangle-exclamation mr-2"></i> Error';
+            saveToCloudBtn.classList.replace('bg-purple-600', 'bg-red-600');
+            saveToCloudBtn.classList.replace('hover:bg-purple-700', 'hover:bg-red-700');
+        }
+    });
+
+    // Load Cloud Gallery Data
+    function loadCloudGallery() {
+        if (!currentUser) return;
+        
+        const q = query(collection(db, 'artifacts', appId, 'users', currentUser.uid, 'saved_frames'));
+        
+        if (cloudUnsubscribe) cloudUnsubscribe();
+
+        cloudUnsubscribe = onSnapshot(q, (snapshot) => {
+            cloudGallery.innerHTML = ''; // Clear current
+            
+            if (snapshot.empty) {
+                cloudGallery.innerHTML = `
+                    <div class="col-span-full flex flex-col justify-center items-center h-32 text-gray-400 text-sm">
+                        <i class="fa-solid fa-cloud text-3xl mb-2 opacity-50"></i>
+                        <span>No saved frames yet.</span>
+                    </div>`;
+                return;
+            }
+
+            // Sort by timestamp descending manually (to avoid requiring indexes)
+            const docs = [];
+            snapshot.forEach(doc => docs.push({ id: doc.id, ...doc.data() }));
+            docs.sort((a, b) => b.timestamp - a.timestamp);
+
+            docs.forEach(data => {
+                const item = document.createElement('div');
+                item.className = "bg-white p-2 rounded border shadow-sm flex flex-col items-center relative group";
+                item.innerHTML = `
+                    <div class="w-full bg-gray-50 h-24 rounded flex items-center justify-center overflow-hidden transparency-grid relative">
+                        <img src="${data.base64Data}" class="w-full h-full object-contain relative z-10" alt="${data.filename}">
+                        
+                        <!-- Overlay actions -->
+                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity z-20 flex items-center justify-center gap-2">
+                            <button class="dl-btn bg-white text-gray-800 p-2 rounded-full hover:bg-green-100 transition" data-id="${data.id}" title="Download">
+                                <i class="fa-solid fa-download text-sm"></i>
+                            </button>
+                            <button class="del-btn bg-white text-red-500 p-2 rounded-full hover:bg-red-100 transition" data-id="${data.id}" title="Delete">
+                                <i class="fa-solid fa-trash text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="text-[10px] font-mono text-gray-600 truncate w-full text-center mt-1" title="${data.filename}">${data.filename}</div>
+                `;
+                
+                // Add events
+                item.querySelector('.dl-btn').addEventListener('click', () => {
+                    const a = document.createElement('a');
+                    a.href = data.base64Data;
+                    a.download = data.filename;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                });
+
+                item.querySelector('.del-btn').addEventListener('click', async () => {
+                    try {
+                        await deleteDoc(doc(db, 'artifacts', appId, 'users', currentUser.uid, 'saved_frames', data.id));
+                    } catch(err) {
+                        console.error("Error deleting document:", err);
+                    }
+                });
+
+                cloudGallery.appendChild(item);
+            });
+        }, (error) => {
+            console.error("Firestore listen error:", error);
+        });
+    }
+</script>
+</body>
+</html>
