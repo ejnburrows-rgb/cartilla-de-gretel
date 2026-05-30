@@ -1,7 +1,9 @@
 /**
  * DragBuildWord.tsx  — Lane A
  *
- * Drag (pointer-events API) letter tiles from a tray onto word slots.
+ * Drag (@dnd-kit/core with PointerSensor) letter tiles from a tray onto word slots.
+ * Works on TOUCH + mobile (Galaxy Z Fold tested).
+ * Tap-to-place fallback: tap a letter, tap the slot.
  * Wrong drops snap back with shake animation.
  * Correct drops lock in place.
  * On full word completion, plays a celebration tone via AudioContext.
@@ -10,6 +12,7 @@
  */
 import { useCallback, useEffect, useMemo, useReducer, useRef, useState } from "react";
 import { Check, RotateCcw, Volume2 } from "lucide-react";
+import { DndContext, PointerSensor, useDraggable, useDroppable, useSensor, useSensors, DragEndEvent } from "@dnd-kit/core";
 import { speak } from "@/lib/speak";
 import { recordEvent } from "@/lib/student-session";
 import type { CatalogEntry } from "@/lib/lesson-catalog";
@@ -149,8 +152,17 @@ export function DragBuildWord({ entry, accent, lessonId, onComplete }: DragBuild
 
   const [state, dispatch] = useReducer(reducer, currentWord, initState);
 
-  // Keyboard drag state
+  // Tap-to-place state
   const [selectedTray, setSelectedTray] = useState<number | null>(null);
+
+  // @dnd-kit/core sensors for touch/mobile support
+  const sensors = useSensors(
+    useSensor(PointerSensor, {
+      activationConstraint: {
+        distance: 5, // Small movement before drag starts to distinguish from tap
+      },
+    })
+  );
 
   // Clear wrong animation after 400ms
   useEffect(() => {
@@ -195,6 +207,42 @@ export function DragBuildWord({ entry, accent, lessonId, onComplete }: DragBuild
     [state.tray, state.target],
   );
 
+  // @dnd-kit/core drag end handler
+  const handleDragEnd = useCallback(
+    (event: DragEndEvent) => {
+      const { active, over } = event;
+      if (!over) return;
+
+      const trayIdx = Number(active.id);
+      const slotIdx = Number(over.id);
+
+      if (!state.usedTrayIdx.has(trayIdx) && !state.completed) {
+        handleDrop(slotIdx, trayIdx);
+      }
+    },
+    [state.usedTrayIdx, state.completed, handleDrop],
+  );
+
+  // Tap-to-place: tap letter then tap slot
+  const handleTrayTap = useCallback(
+    (trayIdx: number) => {
+      if (state.usedTrayIdx.has(trayIdx) || state.completed) return;
+      setSelectedTray(trayIdx === selectedTray ? null : trayIdx);
+      feelBus.emit("drag-pick");
+    },
+    [state.usedTrayIdx, state.completed, selectedTray],
+  );
+
+  const handleSlotTap = useCallback(
+    (slotIdx: number) => {
+      if (selectedTray !== null && !state.completed) {
+        handleDrop(slotIdx, selectedTray);
+        setSelectedTray(null);
+      }
+    },
+    [selectedTray, state.completed, handleDrop],
+  );
+
   const nextWord = () => {
     hasCalledComplete.current = false;
     const next = (wordIdx + 1) % words.length;
@@ -207,47 +255,6 @@ export function DragBuildWord({ entry, accent, lessonId, onComplete }: DragBuild
     hasCalledComplete.current = false;
     dispatch({ type: "RESET" });
     setSelectedTray(null);
-  };
-
-  // ── Pointer drag (desktop + touch) ──────────────────────────────
-  const draggingRef = useRef<{ trayIdx: number; el: HTMLElement } | null>(null);
-  const ghostRef = useRef<HTMLElement | null>(null);
-
-  const onPointerDown = (e: React.PointerEvent, trayIdx: number) => {
-    if (state.usedTrayIdx.has(trayIdx) || state.completed) return;
-    feelBus.emit("drag-pick");
-    const el = e.currentTarget as HTMLElement;
-    el.setPointerCapture(e.pointerId);
-    draggingRef.current = { trayIdx, el };
-    const ghost = el.cloneNode(true) as HTMLElement;
-    ghost.style.cssText = `position:fixed;pointer-events:none;z-index:9999;opacity:0.85;transform:scale(1.1);top:${e.clientY - 24}px;left:${e.clientX - 24}px;width:3rem;height:3.25rem;`;
-    document.body.appendChild(ghost);
-    ghostRef.current = ghost;
-    el.dataset.dragging = "true";
-  };
-
-  const onPointerMove = (e: React.PointerEvent) => {
-    if (!ghostRef.current) return;
-    ghostRef.current.style.top = `${e.clientY - 24}px`;
-    ghostRef.current.style.left = `${e.clientX - 24}px`;
-  };
-
-  const onPointerUp = (e: React.PointerEvent) => {
-    if (!draggingRef.current) return;
-    feelBus.emit("drag-drop");
-    const { trayIdx, el } = draggingRef.current;
-    el.removeAttribute("data-dragging");
-    ghostRef.current?.remove();
-    ghostRef.current = null;
-    draggingRef.current = null;
-
-    // Hit test: find slot under pointer
-    const target = document.elementFromPoint(e.clientX, e.clientY);
-    const slotEl = target?.closest<HTMLElement>("[data-slot-idx]");
-    if (slotEl) {
-      const slotIdx = Number(slotEl.dataset.slotIdx);
-      handleDrop(slotIdx, trayIdx);
-    }
   };
 
   // ── Keyboard ─────────────────────────────────────────────────────
@@ -267,121 +274,139 @@ export function DragBuildWord({ entry, accent, lessonId, onComplete }: DragBuild
   };
 
   return (
-    <div
-      className="drag-build-word"
-      style={{ "--lesson-accent": accent } as React.CSSProperties}
-      aria-label="Arrastra las letras para formar la palabra"
-    >
-      <div className="flex items-center justify-between mb-3">
-        <h3 className="font-bold">Forma la palabra</h3>
-        <div className="flex gap-2">
-          <button
-            onClick={() => speak(state.target)}
-            aria-label={`Escuchar "${state.target}"`}
-            className="lesson-focus-ring inline-flex items-center gap-1 text-xs font-bold px-2 py-1 rounded-lg border border-foreground/10 hover:bg-secondary"
-          >
-            <Volume2 className="w-3.5 h-3.5" /> Escuchar
-          </button>
-          <button
-            onClick={reset}
-            aria-label="Reiniciar palabra"
-            className="lesson-focus-ring inline-flex items-center gap-1 text-xs font-bold px-2 py-1 rounded-lg border border-foreground/10 hover:bg-secondary"
-          >
-            <RotateCcw className="w-3.5 h-3.5" />
-          </button>
-        </div>
-      </div>
-
-      {/* Slots */}
+    <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
       <div
-        className="drag-build-word__slots"
-        role="group"
-        aria-label="Casillas de la palabra"
+        className="drag-build-word"
+        style={{ "--lesson-accent": accent } as React.CSSProperties}
+        aria-label="Arrastra las letras para formar la palabra"
       >
-        {state.slots.map((filled, slotIdx) => (
-          <div
-            key={slotIdx}
-            data-slot-idx={slotIdx}
-            data-filled={filled !== null ? "true" : "false"}
-            data-over="false"
-            data-correct={filled !== null ? "true" : "false"}
-            data-wrong={state.wrongSlot === slotIdx ? "true" : "false"}
-            className="drag-build-word__slot lesson-focus-ring"
-            style={{ color: accent, borderColor: filled ? accent : undefined }}
-            tabIndex={selectedTray !== null && filled === null ? 0 : -1}
-            onKeyDown={(e) => onSlotKeyDown(e, slotIdx)}
-            aria-label={
-              filled
-                ? `Casilla ${slotIdx + 1}: ${filled}`
-                : `Casilla ${slotIdx + 1}: vacía`
-            }
-            onPointerEnter={(e) => {
-              (e.currentTarget as HTMLElement).dataset.over = "true";
-            }}
-            onPointerLeave={(e) => {
-              (e.currentTarget as HTMLElement).dataset.over = "false";
-            }}
-          >
-            {filled ?? <span className="text-foreground/20 text-sm">_</span>}
-          </div>
-        ))}
-      </div>
-
-      {/* Completion */}
-      {state.completed && (
-        <GretelFeedback
-          isCorrect={true}
-          message={
-            <p>
-              ¡<span style={{ color: accent, fontWeight: "bold" }}>{state.target}</span> — ¡Muy bien! Formaste la palabra correctamente.
-            </p>
-          }
-        >
-          {words.length > 1 && (
+        <div className="flex items-center justify-between mb-3">
+          <h3 className="font-bold">Forma la palabra</h3>
+          <div className="flex gap-2">
             <button
-              onClick={nextWord}
-              className="lesson-focus-ring text-xs font-bold px-3 py-1.5 rounded-xl text-white"
-              style={{ backgroundColor: accent }}
+              onClick={() => speak(state.target)}
+              aria-label={`Escuchar "${state.target}"`}
+              className="lesson-focus-ring inline-flex items-center gap-1 text-xs font-bold px-2 py-1 rounded-lg border border-foreground/10 hover:bg-secondary"
             >
-              Siguiente →
+              <Volume2 className="w-3.5 h-3.5" /> Escuchar
             </button>
-          )}
-        </GretelFeedback>
-      )}
-
-      {/* Tray */}
-      <div
-        className="drag-build-word__tray"
-        role="group"
-        aria-label="Letras disponibles"
-        onPointerMove={onPointerMove}
-        onPointerUp={onPointerUp}
-      >
-        {state.tray.map((letter, trayIdx) => (
-          <div
-            key={trayIdx}
-            data-used={state.usedTrayIdx.has(trayIdx) ? "true" : "false"}
-            data-dragging="false"
-            className="drag-build-word__letter lesson-focus-ring"
-            style={{ color: accent, borderColor: accent, backgroundColor: `${accent}12` }}
-            tabIndex={state.usedTrayIdx.has(trayIdx) || state.completed ? -1 : 0}
-            role="button"
-            aria-label={`Letra ${letter}${selectedTray === trayIdx ? " (seleccionada)" : ""}`}
-            aria-pressed={selectedTray === trayIdx}
-            onPointerDown={(e) => onPointerDown(e, trayIdx)}
-            onKeyDown={(e) => onTrayKeyDown(e, trayIdx)}
-            aria-disabled={state.usedTrayIdx.has(trayIdx)}
-          >
-            {letter}
+            <button
+              onClick={reset}
+              aria-label="Reiniciar palabra"
+              className="lesson-focus-ring inline-flex items-center gap-1 text-xs font-bold px-2 py-1 rounded-lg border border-foreground/10 hover:bg-secondary"
+            >
+              <RotateCcw className="w-3.5 h-3.5" />
+            </button>
           </div>
-        ))}
-      </div>
+        </div>
 
-      {selectedTray !== null && (
-        <p className="mt-2 text-xs text-foreground/50" aria-live="polite">
-          Letra «{state.tray[selectedTray]}» seleccionada — pulsa Enter/Espacio en una casilla
-        </p>
-      )}
-    </div>
+        {/* Slots */}
+        <div
+          className="drag-build-word__slots"
+          role="group"
+          aria-label="Casillas de la palabra"
+        >
+          {state.slots.map((filled, slotIdx) => {
+            const { setNodeRef, isOver } = useDroppable({
+              id: slotIdx.toString(),
+              disabled: filled !== null || state.completed,
+            });
+
+            return (
+              <div
+                key={slotIdx}
+                ref={setNodeRef}
+                data-slot-idx={slotIdx}
+                data-filled={filled !== null ? "true" : "false"}
+                data-over={isOver ? "true" : "false"}
+                data-correct={filled !== null ? "true" : "false"}
+                data-wrong={state.wrongSlot === slotIdx ? "true" : "false"}
+                className="drag-build-word__slot lesson-focus-ring"
+                style={{ color: accent, borderColor: filled ? accent : undefined }}
+                tabIndex={selectedTray !== null && filled === null ? 0 : -1}
+                onClick={() => handleSlotTap(slotIdx)}
+                onKeyDown={(e) => onSlotKeyDown(e, slotIdx)}
+                aria-label={
+                  filled
+                    ? `Casilla ${slotIdx + 1}: ${filled}`
+                    : `Casilla ${slotIdx + 1}: vacía`
+                }
+              >
+                {filled ?? <span className="text-foreground/20 text-sm">_</span>}
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Completion */}
+        {state.completed && (
+          <GretelFeedback
+            isCorrect={true}
+            message={
+              <p>
+                ¡<span style={{ color: accent, fontWeight: "bold" }}>{state.target}</span> — ¡Muy bien! Formaste la palabra correctamente.
+              </p>
+            }
+          >
+            {words.length > 1 && (
+              <button
+                onClick={nextWord}
+                className="lesson-focus-ring text-xs font-bold px-3 py-1.5 rounded-xl text-white"
+                style={{ backgroundColor: accent }}
+              >
+                Siguiente →
+              </button>
+            )}
+          </GretelFeedback>
+        )}
+
+        {/* Tray */}
+        <div
+          className="drag-build-word__tray"
+          role="group"
+          aria-label="Letras disponibles"
+        >
+          {state.tray.map((letter, trayIdx) => {
+            const { attributes, listeners, setNodeRef, isDragging } = useDraggable({
+              id: trayIdx.toString(),
+              disabled: state.usedTrayIdx.has(trayIdx) || state.completed,
+            });
+
+            return (
+              <div
+                key={trayIdx}
+                ref={setNodeRef}
+                {...listeners}
+                {...attributes}
+                data-used={state.usedTrayIdx.has(trayIdx) ? "true" : "false"}
+                data-dragging={isDragging ? "true" : "false"}
+                className="drag-build-word__letter lesson-focus-ring"
+                style={{
+                  color: accent,
+                  borderColor: accent,
+                  backgroundColor: `${accent}12`,
+                  opacity: isDragging ? 0.5 : 1,
+                }}
+                tabIndex={state.usedTrayIdx.has(trayIdx) || state.completed ? -1 : 0}
+                role="button"
+                aria-label={`Letra ${letter}${selectedTray === trayIdx ? " (seleccionada)" : ""}`}
+                aria-pressed={selectedTray === trayIdx}
+                onClick={() => handleTrayTap(trayIdx)}
+                onKeyDown={(e) => onTrayKeyDown(e, trayIdx)}
+                aria-disabled={state.usedTrayIdx.has(trayIdx)}
+              >
+                {letter}
+              </div>
+            );
+          })}
+        </div>
+
+        {selectedTray !== null && (
+          <p className="mt-2 text-xs text-foreground/50" aria-live="polite">
+            Letra «{state.tray[selectedTray]}» seleccionada — toca una casilla para colocar
+          </p>
+        )}
+      </div>
+    </DndContext>
   );
 }

@@ -15,6 +15,8 @@ import { assetPath } from "@/lib/assets";
 import { getWorkbookPagesForLesson } from "@/lib/book-faithful";
 import { getInteractionsForPage, getPageInteractionSet } from "@/lib/workbook-interactions";
 import type { WorkbookInteraction } from "@/lib/workbook-interactions";
+import { DragBuildWord } from "@/components/cartilla/DragBuildWord";
+import { CATALOG } from "@/lib/lesson-catalog";
 
 type Props = {
   lessonNumber: number;
@@ -394,6 +396,17 @@ function ActivityCard({
   switch (interaction.kind) {
     case "drag-syllable-to-slot":
       return <SyllablePractice interaction={interaction} accent={accent} onComplete={onComplete} />;
+    case "drag-build-word":
+      const entry = CATALOG.find((e) => e.n === interaction.lessonNumber);
+      if (!entry) return null;
+      return (
+        <DragBuildWord
+          entry={entry}
+          accent={accent}
+          lessonId={`lesson-${interaction.lessonNumber}`}
+          onComplete={() => onComplete?.(interaction.id)}
+        />
+      );
     case "listen-and-tap":
       return <WordTap interaction={interaction} accent={accent} onComplete={onComplete} />;
     case "read-aloud":
