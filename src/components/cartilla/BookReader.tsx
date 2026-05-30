@@ -57,14 +57,14 @@ export function BookReader({ initialPage = 1 }: BookReaderProps) {
   };
 
   const handleAudio = () => {
-    speak(`P\u00e1gina ${currentPage}`);
+    speak(`Página ${currentPage}`);
   };
 
   const flipbookFallback = (
     <div className="w-full flex items-center justify-center py-10">
       <div className="flex flex-col items-center gap-3">
         <div className="h-10 w-10 animate-spin rounded-full border-4 border-stone-300 border-t-amber-500" />
-        <span className="text-stone-500 font-medium">Cargando libro\u2026</span>
+        <span className="text-stone-500 font-medium">Cargando libro…</span>
       </div>
     </div>
   );
@@ -113,7 +113,7 @@ export function BookReader({ initialPage = 1 }: BookReaderProps) {
                 ? "bg-amber-900 border-amber-900 text-white shadow-sm"
                 : "bg-white border-stone-200 text-stone-600 hover:bg-stone-50"
             }`}
-            aria-label="Vista de libro cl\u00e1sica (horizontal)"
+            aria-label="Vista de libro clásica (horizontal)"
           >
             <BookOpen className="w-3.5 h-3.5" />
             Horizontal
@@ -136,7 +136,7 @@ export function BookReader({ initialPage = 1 }: BookReaderProps) {
         </span>
       </div>
 
-      {/* Main Page Layout Container \u2014 ring-tab rail + book */}
+      {/* Main Page Layout Container — ring-tab rail + book */}
       <div className="flex-1 w-full max-w-5xl mx-auto flex flex-col md:flex-row md:items-start md:justify-center gap-2 md:gap-4 px-2 md:px-4">
         <RingTabNav
           currentPage={currentPage}
@@ -171,7 +171,7 @@ export function BookReader({ initialPage = 1 }: BookReaderProps) {
       <div className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50">
         <GretelMascot
           pose="read"
-          text="\u00a1Vamos a leer!\nPasa las p\u00e1ginas para explorar el libro."
+          text="¡Vamos a leer!\nPasa las páginas para explorar el libro."
           bubblePosition="left"
           showCloseButton={true}
         />

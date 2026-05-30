@@ -62,7 +62,7 @@ export function RingTabNav({ currentPage, onSelect, className = "" }: RingTabNav
 
   return (
     <nav
-      aria-label="Navegaci\u00f3n por lecciones con pesta\u00f1as de anillas"
+      aria-label="Navegación por lecciones con pestañas de anillas"
       className={`ring-tab-nav no-print flex shrink-0 flex-row md:flex-col gap-1.5 md:gap-2 overflow-x-auto md:overflow-x-visible md:overflow-y-auto px-1 py-2 ${className}`}
     >
       {tabs.map((tab) => {
@@ -75,7 +75,7 @@ export function RingTabNav({ currentPage, onSelect, className = "" }: RingTabNav
             key={tab.n}
             type="button"
             onClick={() => handleSelect(tab)}
-            aria-label={`Ir a la lecci\u00f3n ${tab.n}: ${tab.title}`}
+            aria-label={`Ir a la lección ${tab.n}: ${tab.title}`}
             aria-current={active ? "page" : undefined}
             style={bodyStyle}
             className={`group relative flex h-12 w-11 shrink-0 flex-col items-center justify-center rounded-xl border-2 font-black uppercase shadow-sm transition-all duration-200 hover:scale-105 active:scale-95 md:w-12 ${
