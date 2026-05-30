@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   BookOpen,
   Volume2,
@@ -17,6 +17,8 @@ import { getInteractionsForPage, getPageInteractionSet } from "@/lib/workbook-in
 import type { WorkbookInteraction } from "@/lib/workbook-interactions";
 import { DragBuildWord } from "@/components/cartilla/DragBuildWord";
 import { CATALOG } from "@/lib/lesson-catalog";
+import { speak } from "@/lib/speak";
+import { gretelSpeak } from "@/lib/gretel-speak";
 
 type Props = {
   lessonNumber: number;
@@ -54,6 +56,26 @@ function progressStyle(width: number, accent: string): CSSProperties {
   return { width: `${width}%`, backgroundColor: accent };
 }
 
+// Speak Gretel's celebration aloud shortly after the activity finishes, so the
+// final tapped label isn't cut off by the celebration utterance.
+function useGretelCelebration(
+  done: boolean,
+  outcome: "correct" | "lesson-complete",
+  extras: { lessonN?: number; pageNumber?: number },
+  delayMs = 550,
+) {
+  const fired = useRef(false);
+  const lessonN = extras.lessonN;
+  const pageNumber = extras.pageNumber;
+  useEffect(() => {
+    if (!done || fired.current) return;
+    fired.current = true;
+    const detail = gretelSpeak(outcome, { lessonN, pageNumber });
+    const t = setTimeout(() => speak(detail.phrase), delayMs);
+    return () => clearTimeout(t);
+  }, [done, outcome, lessonN, pageNumber, delayMs]);
+}
+
 function SourceImageCard({ assetRef }: { assetRef?: string }) {
   if (!assetRef) return null;
 
@@ -85,6 +107,7 @@ function SyllablePractice({
   const [tapped, setTapped] = useState<Set<string>>(new Set());
 
   const handleTap = (id: string, label: string) => {
+    speak(label);
     setTapped((prev) => {
       const next = new Set(prev);
       next.add(id);
@@ -94,6 +117,7 @@ function SyllablePractice({
   };
 
   const allDone = tapped.size >= interaction.items.length;
+  useGretelCelebration(allDone, "correct", { lessonN: interaction.lessonNumber });
 
   return (
     <div className="rounded-[1.75rem] border-2 border-foreground/10 bg-white/90 shadow-xl shadow-primary/5 overflow-hidden">
@@ -159,6 +183,7 @@ function WordTap({
   const [tapped, setTapped] = useState<Set<string>>(new Set());
 
   const handleTap = (id: string, label: string) => {
+    speak(label);
     setTapped((prev) => {
       const next = new Set(prev);
       next.add(id);
@@ -168,6 +193,7 @@ function WordTap({
   };
 
   const allDone = tapped.size >= interaction.items.length;
+  useGretelCelebration(allDone, "correct", { lessonN: interaction.lessonNumber });
 
   return (
     <div className="rounded-[1.75rem] border-2 border-foreground/10 bg-white/90 shadow-xl shadow-primary/5 overflow-hidden">
@@ -243,6 +269,7 @@ function ReadAloud({
   const [tapped, setTapped] = useState<Set<string>>(new Set());
 
   const handleTap = (id: string, label: string) => {
+    speak(label);
     setTapped((prev) => {
       const next = new Set(prev);
       next.add(id);
@@ -253,6 +280,7 @@ function ReadAloud({
 
   const isSentences = interaction.items.some((i) => i.label.length > 10);
   const allDone = tapped.size >= interaction.items.length;
+  useGretelCelebration(allDone, "correct", { lessonN: interaction.lessonNumber });
 
   return (
     <div className="rounded-[1.75rem] border-2 border-foreground/10 bg-white/90 shadow-xl shadow-primary/5 overflow-hidden">
@@ -374,6 +402,8 @@ function AutoScanActivity({
           <button
             key={item.id}
             type="button"
+            onClick={() => speak(item.label)}
+            aria-label={`Escuchar ${item.label}`}
             className="inline-flex min-h-14 items-center gap-2 rounded-2xl border-2 border-indigo-200 bg-white px-5 py-3 text-lg font-black text-indigo-900 shadow-sm transition hover:-translate-y-0.5 hover:border-indigo-300 active:scale-95"
           >
             <Volume2 className="h-4 w-4 text-indigo-500" /> {item.label}
@@ -449,11 +479,17 @@ export function InteractiveWorkbookLayer({
   );
   const hasAnyScanText = Boolean(workbookPage?.verifiedTextBlocks.length);
 
+  const completedCount = visibleInteractions.filter((i) => completedIds.has(i.id)).length;
+  const totalVisible = visibleInteractions.length;
+  const allActivitiesDone = totalVisible > 1 && completedCount === totalVisible;
+  useGretelCelebration(allActivitiesDone, "lesson-complete", {
+    lessonN: lessonNumber,
+    pageNumber: activePage,
+  }, 400);
+
   if (allInteractionsForLesson.length === 0 && !hasAnyScanText) return null;
 
   const handleComplete = (id: string) => setCompletedIds((prev) => new Set([...prev, id]));
-  const completedCount = visibleInteractions.filter((i) => completedIds.has(i.id)).length;
-  const totalVisible = visibleInteractions.length;
 
   return (
     <section className="mt-6 space-y-4" aria-label="Actividades interactivas del cuaderno">
