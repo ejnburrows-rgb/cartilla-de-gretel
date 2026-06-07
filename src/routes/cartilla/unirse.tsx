@@ -82,8 +82,8 @@ function JoinPage() {
         <div className="mt-8 kid-card p-6 text-center flex flex-col items-center">
           <div className="mb-4">
             <GretelMascot
-              pose="welcome"
-              text={`¡Hola, ${session.studentName}!\n¡Qué alegría verte aquí!\nEntra a tu clase para comenzar.`}
+              pose="wave"
+              text={`¡Hola! Soy Gretel\n¡Qué alegría verte, ${session.studentName}!\nEntra a tu clase para comenzar.`}
               bubblePosition="top"
             />
           </div>
