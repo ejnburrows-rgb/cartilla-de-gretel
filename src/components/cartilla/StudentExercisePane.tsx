@@ -223,6 +223,17 @@ export function StudentExercisePane({
           accent={accent}
         />
       </div>
+      {/* Gretel reactions after exercises */}
+      {completed.size === EXERCISE_IDS.length && (
+        <div className="fixed bottom-24 right-4 z-40">
+          <GretelMascot
+            pose="celebrate"
+            text="¡Muy bien!\n¡Completaste todos los ejercicios!"
+            bubblePosition="left"
+            showCloseButton={true}
+          />
+        </div>
+      )}
     </div>
   );
 }
