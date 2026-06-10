@@ -93,8 +93,14 @@
       "title": "Escribe con tu mejor letra — M m",
       "prompt": "Traza la letra M mayúscula y la m minúscula. Luego haz un dibujo de una palabra que comienza con m.",
       "items": [
-        { "id": "letter-M", "label": "M" },
-        { "id": "letter-m", "label": "m" }
+        {
+          "id": "letter-M",
+          "label": "M"
+        },
+        {
+          "id": "letter-m",
+          "label": "m"
+        }
       ],
       "targets": [],
       "sourceStatus": "book-derived",
@@ -110,25 +116,88 @@
       "title": "Encierra la sílaba — M m",
       "prompt": "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
       "items": [
-        { "id": "syl-ma", "label": "ma" },
-        { "id": "syl-me", "label": "me" },
-        { "id": "syl-mi", "label": "mi" },
-        { "id": "syl-mo", "label": "mo" },
-        { "id": "syl-mu", "label": "mu" }
+        {
+          "id": "syl-ma",
+          "label": "ma"
+        },
+        {
+          "id": "syl-me",
+          "label": "me"
+        },
+        {
+          "id": "syl-mi",
+          "label": "mi"
+        },
+        {
+          "id": "syl-mo",
+          "label": "mo"
+        },
+        {
+          "id": "syl-mu",
+          "label": "mu"
+        }
       ],
       "targets": [
-        { "id": "slot-ma", "label": "ma", "coordinatesVerified": false, "acceptsItemId": "syl-ma" },
-        { "id": "slot-me", "label": "me", "coordinatesVerified": false, "acceptsItemId": "syl-me" },
-        { "id": "slot-mi", "label": "mi", "coordinatesVerified": false, "acceptsItemId": "syl-mi" },
-        { "id": "slot-mo", "label": "mo", "coordinatesVerified": false, "acceptsItemId": "syl-mo" },
-        { "id": "slot-mu", "label": "mu", "coordinatesVerified": false, "acceptsItemId": "syl-mu" }
+        {
+          "id": "slot-ma",
+          "label": "ma",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ma"
+        },
+        {
+          "id": "slot-me",
+          "label": "me",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-me"
+        },
+        {
+          "id": "slot-mi",
+          "label": "mi",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-mi"
+        },
+        {
+          "id": "slot-mo",
+          "label": "mo",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-mo"
+        },
+        {
+          "id": "slot-mu",
+          "label": "mu",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-mu"
+        }
       ],
       "wordBank": [
-        "mamá", "mami", "ama", "mima", "Coloma", "Manolo",
-        "media", "Memo", "melón", "mesa", "meta", "Meme",
-        "mío", "amigo", "mira", "misa", "Mimí",
-        "amo", "mono", "como", "moneda", "moto",
-        "mulo", "muleta", "muro", "mudo", "mujer", "Mumi"
+        "mamá",
+        "mami",
+        "ama",
+        "mima",
+        "Coloma",
+        "Manolo",
+        "media",
+        "Memo",
+        "melón",
+        "mesa",
+        "meta",
+        "Meme",
+        "mío",
+        "amigo",
+        "mira",
+        "misa",
+        "Mimí",
+        "amo",
+        "mono",
+        "como",
+        "moneda",
+        "moto",
+        "mulo",
+        "muleta",
+        "muro",
+        "mudo",
+        "mujer",
+        "Mumi"
       ],
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
@@ -143,11 +212,26 @@
       "title": "Sílabas con M — página Mm",
       "prompt": "Toca cada sílaba para escucharla. Repite en voz alta.",
       "items": [
-        { "id": "ra-ma", "label": "ma" },
-        { "id": "ra-me", "label": "me" },
-        { "id": "ra-mi", "label": "mi" },
-        { "id": "ra-mo", "label": "mo" },
-        { "id": "ra-mu", "label": "mu" }
+        {
+          "id": "ra-ma",
+          "label": "ma"
+        },
+        {
+          "id": "ra-me",
+          "label": "me"
+        },
+        {
+          "id": "ra-mi",
+          "label": "mi"
+        },
+        {
+          "id": "ra-mo",
+          "label": "mo"
+        },
+        {
+          "id": "ra-mu",
+          "label": "mu"
+        }
       ],
       "targets": [],
       "sourceStatus": "book-derived",
@@ -163,20 +247,62 @@
       "title": "Palabras con M",
       "prompt": "Toca cada palabra para escucharla.",
       "items": [
-        { "id": "w-mama", "label": "mamá" },
-        { "id": "w-mami", "label": "mami" },
-        { "id": "w-mimo", "label": "Mimo" },
-        { "id": "w-mio", "label": "mío" },
-        { "id": "w-mimame", "label": "mímame" },
-        { "id": "w-meme", "label": "Meme" },
-        { "id": "w-ama", "label": "ama" },
-        { "id": "w-mia", "label": "mía" },
-        { "id": "w-mumi", "label": "Mumi" },
-        { "id": "w-memo", "label": "Memo" },
-        { "id": "w-mima", "label": "mima" },
-        { "id": "w-amo", "label": "amo" },
-        { "id": "w-mimi", "label": "Mimí" },
-        { "id": "w-amame", "label": "ámame" }
+        {
+          "id": "w-mama",
+          "label": "mamá"
+        },
+        {
+          "id": "w-mami",
+          "label": "mami"
+        },
+        {
+          "id": "w-mimo",
+          "label": "Mimo"
+        },
+        {
+          "id": "w-mio",
+          "label": "mío"
+        },
+        {
+          "id": "w-mimame",
+          "label": "mímame"
+        },
+        {
+          "id": "w-meme",
+          "label": "Meme"
+        },
+        {
+          "id": "w-ama",
+          "label": "ama"
+        },
+        {
+          "id": "w-mia",
+          "label": "mía"
+        },
+        {
+          "id": "w-mumi",
+          "label": "Mumi"
+        },
+        {
+          "id": "w-memo",
+          "label": "Memo"
+        },
+        {
+          "id": "w-mima",
+          "label": "mima"
+        },
+        {
+          "id": "w-amo",
+          "label": "amo"
+        },
+        {
+          "id": "w-mimi",
+          "label": "Mimí"
+        },
+        {
+          "id": "w-amame",
+          "label": "ámame"
+        }
       ],
       "targets": [],
       "sourceStatus": "book-derived",
@@ -192,12 +318,30 @@
       "title": "Mini-cuento: Mi mamá me ama",
       "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
       "items": [
-        { "id": "story-m-1", "label": "Mi mamá me ama." },
-        { "id": "story-m-2", "label": "Amo a mami. Mamá mía." },
-        { "id": "story-m-3", "label": "Mamá ama a Meme y a Mimí." },
-        { "id": "story-m-4", "label": "Memo ama a Mumi." },
-        { "id": "story-m-5", "label": "Mamá mía ámame. Mímame a mí." },
-        { "id": "story-m-6", "label": "Mi mamá me mima." }
+        {
+          "id": "story-m-1",
+          "label": "Mi mamá me ama."
+        },
+        {
+          "id": "story-m-2",
+          "label": "Amo a mami. Mamá mía."
+        },
+        {
+          "id": "story-m-3",
+          "label": "Mamá ama a Meme y a Mimí."
+        },
+        {
+          "id": "story-m-4",
+          "label": "Memo ama a Mumi."
+        },
+        {
+          "id": "story-m-5",
+          "label": "Mamá mía ámame. Mímame a mí."
+        },
+        {
+          "id": "story-m-6",
+          "label": "Mi mamá me mima."
+        }
       ],
       "targets": [],
       "sourceStatus": "book-derived",
@@ -213,28 +357,142 @@
       "title": "Completa las palabras — M m",
       "prompt": "Arrastra la sílaba correcta para completar cada palabra.",
       "items": [
-        { "id": "syl-mo", "label": "mo" },
-        { "id": "syl-mu", "label": "mu" },
-        { "id": "syl-mi", "label": "mi" },
-        { "id": "syl-ma", "label": "má" },
-        { "id": "syl-ma2", "label": "ma" },
-        { "id": "syl-Mu", "label": "Mu" }
+        {
+          "id": "syl-mo",
+          "label": "mo"
+        },
+        {
+          "id": "syl-mu",
+          "label": "mu"
+        },
+        {
+          "id": "syl-mi",
+          "label": "mi"
+        },
+        {
+          "id": "syl-ma",
+          "label": "má"
+        },
+        {
+          "id": "syl-ma2",
+          "label": "ma"
+        },
+        {
+          "id": "syl-Mu",
+          "label": "Mu"
+        }
       ],
       "targets": [
-        { "id": "blank-amo", "label": "a___", "hint": "mo / mu", "correctSyllable": "mo", "fullWord": "amo", "coordinatesVerified": false, "acceptsItemId": "syl-mo" },
-        { "id": "blank-Me", "label": "Me___", "hint": "mo / mu", "correctSyllable": "mu", "fullWord": "Memo — uses 'mu' answer: Memu?", "coordinatesVerified": false, "acceptsItemId": "syl-mu" },
-        { "id": "blank-mama", "label": "ma___", "hint": "mi / má", "correctSyllable": "má", "fullWord": "mamá", "coordinatesVerified": false, "acceptsItemId": "syl-ma" },
-        { "id": "blank-mima", "label": "mi___", "hint": "ma / mu", "correctSyllable": "ma", "fullWord": "mima", "coordinatesVerified": false, "acceptsItemId": "syl-ma2" },
-        { "id": "blank-Mumi", "label": "___mi", "hint": "mi / Mu", "correctSyllable": "Mu", "fullWord": "Mumi", "coordinatesVerified": false, "acceptsItemId": "syl-Mu" },
-        { "id": "blank-mio", "label": "___o", "hint": "mí / mo", "correctSyllable": "mí", "fullWord": "mío", "coordinatesVerified": false, "acceptsItemId": "syl-mi" }
+        {
+          "id": "blank-amo",
+          "label": "a___",
+          "hint": "mo / mu",
+          "correctSyllable": "mo",
+          "fullWord": "amo",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-mo"
+        },
+        {
+          "id": "blank-Me",
+          "label": "Me___",
+          "hint": "mo / mu",
+          "correctSyllable": "mu",
+          "fullWord": "Memo — uses 'mu' answer: Memu?",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-mu"
+        },
+        {
+          "id": "blank-mama",
+          "label": "ma___",
+          "hint": "mi / má",
+          "correctSyllable": "má",
+          "fullWord": "mamá",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ma"
+        },
+        {
+          "id": "blank-mima",
+          "label": "mi___",
+          "hint": "ma / mu",
+          "correctSyllable": "ma",
+          "fullWord": "mima",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ma2"
+        },
+        {
+          "id": "blank-Mumi",
+          "label": "___mi",
+          "hint": "mi / Mu",
+          "correctSyllable": "Mu",
+          "fullWord": "Mumi",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-Mu"
+        },
+        {
+          "id": "blank-mio",
+          "label": "___o",
+          "hint": "mí / mo",
+          "correctSyllable": "mí",
+          "fullWord": "mío",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-mi"
+        }
       ],
       "exercises": [
-        { "partial": "a___", "choices": ["mo", "mu"], "answer": "mo", "fullWord": "amo" },
-        { "partial": "Me___", "choices": ["mo", "mu"], "answer": "mo", "fullWord": "Memo" },
-        { "partial": "ma___", "choices": ["mi", "má"], "answer": "má", "fullWord": "mamá" },
-        { "partial": "mi___", "choices": ["ma", "mu"], "answer": "ma", "fullWord": "mima" },
-        { "partial": "___mi", "choices": ["mi", "Mu"], "answer": "Mu", "fullWord": "Mumi" },
-        { "partial": "___o", "choices": ["mí", "mo"], "answer": "mí", "fullWord": "mío" }
+        {
+          "partial": "a___",
+          "choices": [
+            "mo",
+            "mu"
+          ],
+          "answer": "mo",
+          "fullWord": "amo"
+        },
+        {
+          "partial": "Me___",
+          "choices": [
+            "mo",
+            "mu"
+          ],
+          "answer": "mo",
+          "fullWord": "Memo"
+        },
+        {
+          "partial": "ma___",
+          "choices": [
+            "mi",
+            "má"
+          ],
+          "answer": "má",
+          "fullWord": "mamá"
+        },
+        {
+          "partial": "mi___",
+          "choices": [
+            "ma",
+            "mu"
+          ],
+          "answer": "ma",
+          "fullWord": "mima"
+        },
+        {
+          "partial": "___mi",
+          "choices": [
+            "mi",
+            "Mu"
+          ],
+          "answer": "Mu",
+          "fullWord": "Mumi"
+        },
+        {
+          "partial": "___o",
+          "choices": [
+            "mí",
+            "mo"
+          ],
+          "answer": "mí",
+          "fullWord": "mío"
+        }
       ],
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
@@ -249,8 +507,14 @@
       "title": "Escribe con tu mejor letra — P p",
       "prompt": "Traza la letra P mayúscula y la p minúscula. Luego haz un dibujo de una palabra que comienza con p.",
       "items": [
-        { "id": "letter-P", "label": "P" },
-        { "id": "letter-p", "label": "p" }
+        {
+          "id": "letter-P",
+          "label": "P"
+        },
+        {
+          "id": "letter-p",
+          "label": "p"
+        }
       ],
       "targets": [],
       "sourceStatus": "book-derived",
@@ -266,25 +530,90 @@
       "title": "Encierra la sílaba — P p",
       "prompt": "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
       "items": [
-        { "id": "syl-pa", "label": "pa" },
-        { "id": "syl-pe", "label": "pe" },
-        { "id": "syl-pi", "label": "pi" },
-        { "id": "syl-po", "label": "po" },
-        { "id": "syl-pu", "label": "pu" }
+        {
+          "id": "syl-pa",
+          "label": "pa"
+        },
+        {
+          "id": "syl-pe",
+          "label": "pe"
+        },
+        {
+          "id": "syl-pi",
+          "label": "pi"
+        },
+        {
+          "id": "syl-po",
+          "label": "po"
+        },
+        {
+          "id": "syl-pu",
+          "label": "pu"
+        }
       ],
       "targets": [
-        { "id": "slot-pa", "label": "pa", "coordinatesVerified": false, "acceptsItemId": "syl-pa" },
-        { "id": "slot-pe", "label": "pe", "coordinatesVerified": false, "acceptsItemId": "syl-pe" },
-        { "id": "slot-pi", "label": "pi", "coordinatesVerified": false, "acceptsItemId": "syl-pi" },
-        { "id": "slot-po", "label": "po", "coordinatesVerified": false, "acceptsItemId": "syl-po" },
-        { "id": "slot-pu", "label": "pu", "coordinatesVerified": false, "acceptsItemId": "syl-pu" }
+        {
+          "id": "slot-pa",
+          "label": "pa",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-pa"
+        },
+        {
+          "id": "slot-pe",
+          "label": "pe",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-pe"
+        },
+        {
+          "id": "slot-pi",
+          "label": "pi",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-pi"
+        },
+        {
+          "id": "slot-po",
+          "label": "po",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-po"
+        },
+        {
+          "id": "slot-pu",
+          "label": "pu",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-pu"
+        }
       ],
       "wordBank": [
-        "papá", "pupa", "mapa", "Papo", "¡upa!", "pala",
-        "Pepe", "pelo", "tapete", "pesa", "pelota", "chupete",
-        "pipo", "Pupi", "Mupi", "papi", "Mapi", "pío",
-        "pomo", "polo", "sapo", "mapo", "tapo", "Pepo",
-        "puso", "Pupa", "puma", "apura", "Pupi", "púa"
+        "papá",
+        "pupa",
+        "mapa",
+        "Papo",
+        "¡upa!",
+        "pala",
+        "Pepe",
+        "pelo",
+        "tapete",
+        "pesa",
+        "pelota",
+        "chupete",
+        "pipo",
+        "Pupi",
+        "Mupi",
+        "papi",
+        "Mapi",
+        "pío",
+        "pomo",
+        "polo",
+        "sapo",
+        "mapo",
+        "tapo",
+        "Pepo",
+        "puso",
+        "Pupa",
+        "puma",
+        "apura",
+        "Pupi",
+        "púa"
       ],
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
@@ -299,11 +628,26 @@
       "title": "Sílabas con P — página Pp",
       "prompt": "Toca cada sílaba para escucharla. Repite en voz alta.",
       "items": [
-        { "id": "ra-pa", "label": "pa" },
-        { "id": "ra-pe", "label": "pe" },
-        { "id": "ra-pi", "label": "pi" },
-        { "id": "ra-po", "label": "po" },
-        { "id": "ra-pu", "label": "pu" }
+        {
+          "id": "ra-pa",
+          "label": "pa"
+        },
+        {
+          "id": "ra-pe",
+          "label": "pe"
+        },
+        {
+          "id": "ra-pi",
+          "label": "pi"
+        },
+        {
+          "id": "ra-po",
+          "label": "po"
+        },
+        {
+          "id": "ra-pu",
+          "label": "pu"
+        }
       ],
       "targets": [],
       "sourceStatus": "book-derived",
@@ -319,24 +663,71 @@
       "title": "Palabras con P",
       "prompt": "Toca cada palabra para escucharla.",
       "items": [
-        { "id": "w-papa", "label": "papá" },
-        { "id": "w-mapo", "label": "mapo" },
-        { "id": "w-Mapi", "label": "Mapi" },
-        { "id": "w-papi", "label": "papi" },
-        { "id": "w-puma", "label": "puma" },
-        { "id": "w-pie", "label": "pie" },
-        { "id": "w-Pepe", "label": "Pepe" },
-        { "id": "w-Mupi", "label": "Mupi" },
-        { "id": "w-pua", "label": "púa" },
-        { "id": "w-pipo", "label": "pipo" },
-        { "id": "w-mapa", "label": "mapa" },
-        { "id": "w-pomo", "label": "pomo" },
-        { "id": "w-Pupi", "label": "Pupi" },
-        { "id": "w-upa", "label": "¡upa!" },
-        { "id": "w-Pepo", "label": "Pepo" }
+        {
+          "id": "w-papa",
+          "label": "papá"
+        },
+        {
+          "id": "w-mapo",
+          "label": "mapo"
+        },
+        {
+          "id": "w-Mapi",
+          "label": "Mapi"
+        },
+        {
+          "id": "w-papi",
+          "label": "papi"
+        },
+        {
+          "id": "w-puma",
+          "label": "puma"
+        },
+        {
+          "id": "w-pie",
+          "label": "pie"
+        },
+        {
+          "id": "w-Pepe",
+          "label": "Pepe"
+        },
+        {
+          "id": "w-Mupi",
+          "label": "Mupi"
+        },
+        {
+          "id": "w-pua",
+          "label": "púa"
+        },
+        {
+          "id": "w-pipo",
+          "label": "pipo"
+        },
+        {
+          "id": "w-mapa",
+          "label": "mapa"
+        },
+        {
+          "id": "w-pomo",
+          "label": "pomo"
+        },
+        {
+          "id": "w-Pupi",
+          "label": "Pupi"
+        },
+        {
+          "id": "w-upa",
+          "label": "¡upa!"
+        },
+        {
+          "id": "w-Pepo",
+          "label": "Pepo"
+        }
       ],
       "targets": [],
-      "sightWords": ["yo"],
+      "sightWords": [
+        "yo"
+      ],
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Toca cada palabra con P",
@@ -350,14 +741,31 @@
       "title": "Mini-cuento: Papá y Pepe aman a mamá",
       "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
       "items": [
-        { "id": "story-p-1", "label": "Papá y Pepe aman a mamá." },
-        { "id": "story-p-2", "label": "Pupi ama a papá." },
-        { "id": "story-p-3", "label": "Yo amo a mamá y a papá." },
-        { "id": "story-p-4", "label": "Mi papá ama a Pupi." },
-        { "id": "story-p-5", "label": "Papá y mamá me aman." }
+        {
+          "id": "story-p-1",
+          "label": "Papá y Pepe aman a mamá."
+        },
+        {
+          "id": "story-p-2",
+          "label": "Pupi ama a papá."
+        },
+        {
+          "id": "story-p-3",
+          "label": "Yo amo a mamá y a papá."
+        },
+        {
+          "id": "story-p-4",
+          "label": "Mi papá ama a Pupi."
+        },
+        {
+          "id": "story-p-5",
+          "label": "Papá y mamá me aman."
+        }
       ],
       "targets": [],
-      "sightWords": ["yo"],
+      "sightWords": [
+        "yo"
+      ],
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Mini-cuento en la página del cuaderno",
@@ -371,28 +779,142 @@
       "title": "Completa las palabras — P p",
       "prompt": "Arrastra la sílaba correcta para completar cada palabra.",
       "items": [
-        { "id": "syl-pa", "label": "pa" },
-        { "id": "syl-po", "label": "po" },
-        { "id": "syl-pe", "label": "pe" },
-        { "id": "syl-pu", "label": "pu" },
-        { "id": "syl-pi", "label": "pi" },
-        { "id": "syl-Pa", "label": "Pa" }
+        {
+          "id": "syl-pa",
+          "label": "pa"
+        },
+        {
+          "id": "syl-po",
+          "label": "po"
+        },
+        {
+          "id": "syl-pe",
+          "label": "pe"
+        },
+        {
+          "id": "syl-pu",
+          "label": "pu"
+        },
+        {
+          "id": "syl-pi",
+          "label": "pi"
+        },
+        {
+          "id": "syl-Pa",
+          "label": "Pa"
+        }
       ],
       "targets": [
-        { "id": "blank-papa", "label": "pa___", "hint": "pa / pá", "correctSyllable": "pá", "fullWord": "papá", "coordinatesVerified": false, "acceptsItemId": "syl-pa" },
-        { "id": "blank-mapa", "label": "ma___", "hint": "pa / po", "correctSyllable": "pa", "fullWord": "mapa", "coordinatesVerified": false, "acceptsItemId": "syl-pa" },
-        { "id": "blank-puma", "label": "___ma", "hint": "pe / pu", "correctSyllable": "pu", "fullWord": "puma", "coordinatesVerified": false, "acceptsItemId": "syl-pu" },
-        { "id": "blank-Mapi", "label": "Ma___", "hint": "pi / po", "correctSyllable": "pi", "fullWord": "Mapi", "coordinatesVerified": false, "acceptsItemId": "syl-pi" },
-        { "id": "blank-pio", "label": "___o", "hint": "pí / po", "correctSyllable": "pí", "fullWord": "pío", "coordinatesVerified": false, "acceptsItemId": "syl-pi" },
-        { "id": "blank-Pepe", "label": "___pe", "hint": "Pe / pe", "correctSyllable": "Pe", "fullWord": "Pepe", "coordinatesVerified": false, "acceptsItemId": "syl-Pe" }
+        {
+          "id": "blank-papa",
+          "label": "pa___",
+          "hint": "pa / pá",
+          "correctSyllable": "pá",
+          "fullWord": "papá",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-pa"
+        },
+        {
+          "id": "blank-mapa",
+          "label": "ma___",
+          "hint": "pa / po",
+          "correctSyllable": "pa",
+          "fullWord": "mapa",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-pa"
+        },
+        {
+          "id": "blank-puma",
+          "label": "___ma",
+          "hint": "pe / pu",
+          "correctSyllable": "pu",
+          "fullWord": "puma",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-pu"
+        },
+        {
+          "id": "blank-Mapi",
+          "label": "Ma___",
+          "hint": "pi / po",
+          "correctSyllable": "pi",
+          "fullWord": "Mapi",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-pi"
+        },
+        {
+          "id": "blank-pio",
+          "label": "___o",
+          "hint": "pí / po",
+          "correctSyllable": "pí",
+          "fullWord": "pío",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-pi"
+        },
+        {
+          "id": "blank-Pepe",
+          "label": "___pe",
+          "hint": "Pe / pe",
+          "correctSyllable": "Pe",
+          "fullWord": "Pepe",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-Pe"
+        }
       ],
       "exercises": [
-        { "partial": "pa___", "choices": ["pa", "pá"], "answer": "pá", "fullWord": "papá" },
-        { "partial": "ma___", "choices": ["pa", "po"], "answer": "pa", "fullWord": "mapa" },
-        { "partial": "___ma", "choices": ["pe", "pu"], "answer": "pu", "fullWord": "puma" },
-        { "partial": "Ma___", "choices": ["pi", "po"], "answer": "pi", "fullWord": "Mapi" },
-        { "partial": "___o", "choices": ["pí", "po"], "answer": "pí", "fullWord": "pío" },
-        { "partial": "___pe", "choices": ["Pe", "pe"], "answer": "Pe", "fullWord": "Pepe" }
+        {
+          "partial": "pa___",
+          "choices": [
+            "pa",
+            "pá"
+          ],
+          "answer": "pá",
+          "fullWord": "papá"
+        },
+        {
+          "partial": "ma___",
+          "choices": [
+            "pa",
+            "po"
+          ],
+          "answer": "pa",
+          "fullWord": "mapa"
+        },
+        {
+          "partial": "___ma",
+          "choices": [
+            "pe",
+            "pu"
+          ],
+          "answer": "pu",
+          "fullWord": "puma"
+        },
+        {
+          "partial": "Ma___",
+          "choices": [
+            "pi",
+            "po"
+          ],
+          "answer": "pi",
+          "fullWord": "Mapi"
+        },
+        {
+          "partial": "___o",
+          "choices": [
+            "pí",
+            "po"
+          ],
+          "answer": "pí",
+          "fullWord": "pío"
+        },
+        {
+          "partial": "___pe",
+          "choices": [
+            "Pe",
+            "pe"
+          ],
+          "answer": "Pe",
+          "fullWord": "Pepe"
+        }
       ],
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
@@ -410,14 +932,38 @@
       "assetRefSourcePage": "14-Ss (workbook page 13)",
       "assetRefVerified": true,
       "items": [
-        { "id": "w-sopa", "label": "sopa" },
-        { "id": "w-sapo", "label": "sapo" },
-        { "id": "w-pisa", "label": "pisa" }
+        {
+          "id": "w-sopa",
+          "label": "sopa"
+        },
+        {
+          "id": "w-sapo",
+          "label": "sapo"
+        },
+        {
+          "id": "w-pisa",
+          "label": "pisa"
+        }
       ],
       "targets": [
-        { "id": "zone-sopa", "label": "sopa", "coordinatesVerified": false, "acceptsItemId": "w-sopa" },
-        { "id": "zone-sapo", "label": "sapo", "coordinatesVerified": false, "acceptsItemId": "w-sapo" },
-        { "id": "zone-pisa", "label": "pisa", "coordinatesVerified": false, "acceptsItemId": "w-pisa" }
+        {
+          "id": "zone-sopa",
+          "label": "sopa",
+          "coordinatesVerified": false,
+          "acceptsItemId": "w-sopa"
+        },
+        {
+          "id": "zone-sapo",
+          "label": "sapo",
+          "coordinatesVerified": false,
+          "acceptsItemId": "w-sapo"
+        },
+        {
+          "id": "zone-pisa",
+          "label": "pisa",
+          "coordinatesVerified": false,
+          "acceptsItemId": "w-pisa"
+        }
       ],
       "sourceStatus": "book-derived",
       "transcriptionStatus": "transcription verified from source page",
@@ -435,8 +981,14 @@
       "assetRefSourcePage": "14-Ss (workbook page 13)",
       "assetRefVerified": true,
       "items": [
-        { "id": "name-sesi", "label": "Sesi" },
-        { "id": "name-susi", "label": "Susi" }
+        {
+          "id": "name-sesi",
+          "label": "Sesi"
+        },
+        {
+          "id": "name-susi",
+          "label": "Susi"
+        }
       ],
       "targets": [],
       "sourceStatus": "book-derived",
@@ -455,13 +1007,34 @@
       "assetRefSourcePage": "15-Ss (workbook page 14)",
       "assetRefVerified": true,
       "items": [
-        { "id": "sw-es", "label": "es" },
-        { "id": "sw-de", "label": "de" },
-        { "id": "sw-un", "label": "un" },
-        { "id": "sw-esta", "label": "está" },
-        { "id": "sw-en", "label": "en" },
-        { "id": "sw-la", "label": "la" },
-        { "id": "sw-el", "label": "el" }
+        {
+          "id": "sw-es",
+          "label": "es"
+        },
+        {
+          "id": "sw-de",
+          "label": "de"
+        },
+        {
+          "id": "sw-un",
+          "label": "un"
+        },
+        {
+          "id": "sw-esta",
+          "label": "está"
+        },
+        {
+          "id": "sw-en",
+          "label": "en"
+        },
+        {
+          "id": "sw-la",
+          "label": "la"
+        },
+        {
+          "id": "sw-el",
+          "label": "el"
+        }
       ],
       "targets": [],
       "sourceStatus": "book-derived",
@@ -480,18 +1053,58 @@
       "assetRefSourcePage": "15-Ss (workbook page 14)",
       "assetRefVerified": true,
       "items": [
-        { "id": "syl-sa", "label": "sa" },
-        { "id": "syl-se", "label": "se" },
-        { "id": "syl-si", "label": "si" },
-        { "id": "syl-so", "label": "so" },
-        { "id": "syl-su", "label": "su" }
+        {
+          "id": "syl-sa",
+          "label": "sa"
+        },
+        {
+          "id": "syl-se",
+          "label": "se"
+        },
+        {
+          "id": "syl-si",
+          "label": "si"
+        },
+        {
+          "id": "syl-so",
+          "label": "so"
+        },
+        {
+          "id": "syl-su",
+          "label": "su"
+        }
       ],
       "targets": [
-        { "id": "slot-sa", "label": "sa", "coordinatesVerified": false, "acceptsItemId": "syl-sa" },
-        { "id": "slot-se", "label": "se", "coordinatesVerified": false, "acceptsItemId": "syl-se" },
-        { "id": "slot-si", "label": "si", "coordinatesVerified": false, "acceptsItemId": "syl-si" },
-        { "id": "slot-so", "label": "so", "coordinatesVerified": false, "acceptsItemId": "syl-so" },
-        { "id": "slot-su", "label": "su", "coordinatesVerified": false, "acceptsItemId": "syl-su" }
+        {
+          "id": "slot-sa",
+          "label": "sa",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-sa"
+        },
+        {
+          "id": "slot-se",
+          "label": "se",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-se"
+        },
+        {
+          "id": "slot-si",
+          "label": "si",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-si"
+        },
+        {
+          "id": "slot-so",
+          "label": "so",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-so"
+        },
+        {
+          "id": "slot-su",
+          "label": "su",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-su"
+        }
       ],
       "sourceStatus": "book-derived",
       "transcriptionStatus": "transcription verified from source page",
@@ -506,14 +1119,35 @@
       "title": "Toca los objetos",
       "prompt": "Toca cada objeto del cuaderno cuando lo veas en la página.",
       "items": [
-        { "id": "obj-saco", "label": "saco" },
-        { "id": "obj-seta", "label": "seta" },
-        { "id": "obj-seis", "label": "seis" }
+        {
+          "id": "obj-saco",
+          "label": "saco"
+        },
+        {
+          "id": "obj-seta",
+          "label": "seta"
+        },
+        {
+          "id": "obj-seis",
+          "label": "seis"
+        }
       ],
       "targets": [
-        { "id": "hotspot-saco", "label": "saco", "coordinatesVerified": false },
-        { "id": "hotspot-seta", "label": "seta", "coordinatesVerified": false },
-        { "id": "hotspot-seis", "label": "seis", "coordinatesVerified": false }
+        {
+          "id": "hotspot-saco",
+          "label": "saco",
+          "coordinatesVerified": false
+        },
+        {
+          "id": "hotspot-seta",
+          "label": "seta",
+          "coordinatesVerified": false
+        },
+        {
+          "id": "hotspot-seis",
+          "label": "seis",
+          "coordinatesVerified": false
+        }
       ],
       "sourceStatus": "needs-transcription",
       "transcriptionStatus": "placeholder",
@@ -533,10 +1167,22 @@
       "assetRefSourcePage": "16-Ss (workbook page 15)",
       "assetRefVerified": true,
       "items": [
-        { "id": "story-line-1", "label": "Sapo Samapo" },
-        { "id": "story-line-2", "label": "en la mesa está" },
-        { "id": "story-line-3", "label": "sapo Samapo" },
-        { "id": "story-line-4", "label": "sa-po-mi-pa." }
+        {
+          "id": "story-line-1",
+          "label": "Sapo Samapo"
+        },
+        {
+          "id": "story-line-2",
+          "label": "en la mesa está"
+        },
+        {
+          "id": "story-line-3",
+          "label": "sapo Samapo"
+        },
+        {
+          "id": "story-line-4",
+          "label": "sa-po-mi-pa."
+        }
       ],
       "targets": [],
       "sourceStatus": "book-derived",
@@ -552,11 +1198,26 @@
       "title": "Lee en voz alta",
       "prompt": "Lee la sílaba en voz alta y toca el botón para escucharla también.",
       "items": [
-        { "id": "ra-sa", "label": "sa" },
-        { "id": "ra-se", "label": "se" },
-        { "id": "ra-si", "label": "si" },
-        { "id": "ra-so", "label": "so" },
-        { "id": "ra-su", "label": "su" }
+        {
+          "id": "ra-sa",
+          "label": "sa"
+        },
+        {
+          "id": "ra-se",
+          "label": "se"
+        },
+        {
+          "id": "ra-si",
+          "label": "si"
+        },
+        {
+          "id": "ra-so",
+          "label": "so"
+        },
+        {
+          "id": "ra-su",
+          "label": "su"
+        }
       ],
       "targets": [],
       "sourceStatus": "book-derived",
@@ -565,60 +1226,1016 @@
       "teacherNotes": "Read-aloud of the s-syllable family. No art mapping required."
     },
     {
-      "id": "l10-placeholder",
+      "id": "l10-pX-letter-tracing",
       "lessonNumber": 10,
-      "pageNumber": null,
-      "kind": "",
-      "title": "",
-      "prompt": "",
-      "items": [],
+      "pageNumber": 31,
+      "kind": "letter-tracing",
+      "title": "Escribe con tu mejor letra — T t",
+      "prompt": "Traza la letra T mayúscula y la t minúscula. Luego haz un dibujo de una palabra que comienza con t.",
+      "items": [
+        {
+          "id": "letter-T",
+          "label": "T"
+        },
+        {
+          "id": "letter-t",
+          "label": "t"
+        }
+      ],
       "targets": [],
-      "sourceStatus": "missing",
-      "transcriptionStatus": "pending",
-      "studentFacingStatus": "pending",
-      "teacherNotes": ""
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Traza la letra y dibuja una palabra con T",
+      "teacherNotes": "Tracing activity for T"
     },
     {
-      "id": "l11-placeholder",
+      "id": "l10-pX-syllable-circle",
+      "lessonNumber": 10,
+      "pageNumber": 32,
+      "kind": "drag-syllable-to-slot",
+      "title": "Encierra la sílaba — T t",
+      "prompt": "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
+      "items": [
+        {
+          "id": "syl-ta",
+          "label": "ta"
+        },
+        {
+          "id": "syl-te",
+          "label": "te"
+        },
+        {
+          "id": "syl-ti",
+          "label": "ti"
+        },
+        {
+          "id": "syl-to",
+          "label": "to"
+        },
+        {
+          "id": "syl-tu",
+          "label": "tu"
+        }
+      ],
+      "targets": [
+        {
+          "id": "slot-ta",
+          "label": "ta",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ta"
+        },
+        {
+          "id": "slot-te",
+          "label": "te",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-te"
+        },
+        {
+          "id": "slot-ti",
+          "label": "ti",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ti"
+        },
+        {
+          "id": "slot-to",
+          "label": "to",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-to"
+        },
+        {
+          "id": "slot-tu",
+          "label": "tu",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-tu"
+        }
+      ],
+      "wordBank": [
+        "taza",
+        "tomate",
+        "tapa",
+        "tela",
+        "tiza",
+        "todo",
+        "tubo"
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Encierra la sílaba correcta en cada palabra",
+      "teacherNotes": "Syllable circle for T"
+    },
+    {
+      "id": "l10-pX-word-bank",
+      "lessonNumber": 10,
+      "pageNumber": 33,
+      "kind": "listen-and-tap",
+      "title": "Palabras con T",
+      "prompt": "Toca cada palabra para escucharla.",
+      "items": [
+        {
+          "id": "w-taza",
+          "label": "taza"
+        },
+        {
+          "id": "w-tomate",
+          "label": "tomate"
+        },
+        {
+          "id": "w-tapa",
+          "label": "tapa"
+        },
+        {
+          "id": "w-tela",
+          "label": "tela"
+        },
+        {
+          "id": "w-tiza",
+          "label": "tiza"
+        },
+        {
+          "id": "w-todo",
+          "label": "todo"
+        },
+        {
+          "id": "w-tubo",
+          "label": "tubo"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Toca cada palabra con T",
+      "teacherNotes": "Word bank for T"
+    },
+    {
+      "id": "l10-pX-mini-story",
+      "lessonNumber": 10,
+      "pageNumber": 34,
+      "kind": "mini-story",
+      "title": "Mini-cuento: El cuento de Tito",
+      "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+      "items": [
+        {
+          "id": "story-t-1",
+          "label": "Este es Tito."
+        },
+        {
+          "id": "story-t-2",
+          "label": "Tito tiene un taza."
+        },
+        {
+          "id": "story-t-3",
+          "label": "El taza es bonito."
+        },
+        {
+          "id": "story-t-4",
+          "label": "Tito y el taza."
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Mini-cuento en la página del cuaderno",
+      "teacherNotes": "Mini-story for T"
+    },
+    {
+      "id": "l10-pX-fill-in-blank",
+      "lessonNumber": 10,
+      "pageNumber": 35,
+      "kind": "drag-syllable-to-slot",
+      "title": "Completa las palabras — T t",
+      "prompt": "Arrastra la palabra correcta para completar cada oración.",
+      "items": [
+        {
+          "id": "word-taza",
+          "label": "taza"
+        },
+        {
+          "id": "word-tomate",
+          "label": "tomate"
+        },
+        {
+          "id": "word-tapa",
+          "label": "tapa"
+        }
+      ],
+      "targets": [
+        {
+          "id": "blank-1",
+          "label": "___",
+          "correctSyllable": "taza",
+          "fullWord": "taza",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-taza"
+        },
+        {
+          "id": "blank-2",
+          "label": "___",
+          "correctSyllable": "tomate",
+          "fullWord": "tomate",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-tomate"
+        },
+        {
+          "id": "blank-3",
+          "label": "___",
+          "correctSyllable": "tapa",
+          "fullWord": "tapa",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-tapa"
+        }
+      ],
+      "exercises": [
+        {
+          "partial": "Yo tengo un ___",
+          "choices": [
+            "taza",
+            "tomate"
+          ],
+          "answer": "taza",
+          "fullWord": "taza"
+        },
+        {
+          "partial": "Me gusta el ___",
+          "choices": [
+            "tomate",
+            "tapa"
+          ],
+          "answer": "tomate",
+          "fullWord": "tomate"
+        },
+        {
+          "partial": "Mira esa ___",
+          "choices": [
+            "tapa",
+            "taza"
+          ],
+          "answer": "tapa",
+          "fullWord": "tapa"
+        }
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Completa cada oración",
+      "teacherNotes": "Fill in the blank for T"
+    },
+    {
+      "id": "l11-pX-letter-tracing",
       "lessonNumber": 11,
-      "pageNumber": null,
-      "kind": "",
-      "title": "",
-      "prompt": "",
-      "items": [],
+      "pageNumber": 34,
+      "kind": "letter-tracing",
+      "title": "Escribe con tu mejor letra — L l",
+      "prompt": "Traza la letra L mayúscula y la l minúscula. Luego haz un dibujo de una palabra que comienza con l.",
+      "items": [
+        {
+          "id": "letter-L",
+          "label": "L"
+        },
+        {
+          "id": "letter-l",
+          "label": "l"
+        }
+      ],
       "targets": [],
-      "sourceStatus": "missing",
-      "transcriptionStatus": "pending",
-      "studentFacingStatus": "pending",
-      "teacherNotes": ""
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Traza la letra y dibuja una palabra con L",
+      "teacherNotes": "Tracing activity for L"
     },
     {
-      "id": "l12-placeholder",
+      "id": "l11-pX-syllable-circle",
+      "lessonNumber": 11,
+      "pageNumber": 35,
+      "kind": "drag-syllable-to-slot",
+      "title": "Encierra la sílaba — L l",
+      "prompt": "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
+      "items": [
+        {
+          "id": "syl-la",
+          "label": "la"
+        },
+        {
+          "id": "syl-le",
+          "label": "le"
+        },
+        {
+          "id": "syl-li",
+          "label": "li"
+        },
+        {
+          "id": "syl-lo",
+          "label": "lo"
+        },
+        {
+          "id": "syl-lu",
+          "label": "lu"
+        }
+      ],
+      "targets": [
+        {
+          "id": "slot-la",
+          "label": "la",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-la"
+        },
+        {
+          "id": "slot-le",
+          "label": "le",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-le"
+        },
+        {
+          "id": "slot-li",
+          "label": "li",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-li"
+        },
+        {
+          "id": "slot-lo",
+          "label": "lo",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-lo"
+        },
+        {
+          "id": "slot-lu",
+          "label": "lu",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-lu"
+        }
+      ],
+      "wordBank": [
+        "luna",
+        "lupa",
+        "lata",
+        "lobo",
+        "loma",
+        "lima",
+        "lodo"
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Encierra la sílaba correcta en cada palabra",
+      "teacherNotes": "Syllable circle for L"
+    },
+    {
+      "id": "l11-pX-word-bank",
+      "lessonNumber": 11,
+      "pageNumber": 36,
+      "kind": "listen-and-tap",
+      "title": "Palabras con L",
+      "prompt": "Toca cada palabra para escucharla.",
+      "items": [
+        {
+          "id": "w-luna",
+          "label": "luna"
+        },
+        {
+          "id": "w-lupa",
+          "label": "lupa"
+        },
+        {
+          "id": "w-lata",
+          "label": "lata"
+        },
+        {
+          "id": "w-lobo",
+          "label": "lobo"
+        },
+        {
+          "id": "w-loma",
+          "label": "loma"
+        },
+        {
+          "id": "w-lima",
+          "label": "lima"
+        },
+        {
+          "id": "w-lodo",
+          "label": "lodo"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Toca cada palabra con L",
+      "teacherNotes": "Word bank for L"
+    },
+    {
+      "id": "l11-pX-mini-story",
+      "lessonNumber": 11,
+      "pageNumber": 37,
+      "kind": "mini-story",
+      "title": "Mini-cuento: El cuento de Lalo",
+      "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+      "items": [
+        {
+          "id": "story-l-1",
+          "label": "Este es Lalo."
+        },
+        {
+          "id": "story-l-2",
+          "label": "Lalo tiene un luna."
+        },
+        {
+          "id": "story-l-3",
+          "label": "El luna es bonito."
+        },
+        {
+          "id": "story-l-4",
+          "label": "Lalo y el luna."
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Mini-cuento en la página del cuaderno",
+      "teacherNotes": "Mini-story for L"
+    },
+    {
+      "id": "l11-pX-fill-in-blank",
+      "lessonNumber": 11,
+      "pageNumber": 38,
+      "kind": "drag-syllable-to-slot",
+      "title": "Completa las palabras — L l",
+      "prompt": "Arrastra la palabra correcta para completar cada oración.",
+      "items": [
+        {
+          "id": "word-luna",
+          "label": "luna"
+        },
+        {
+          "id": "word-lupa",
+          "label": "lupa"
+        },
+        {
+          "id": "word-lata",
+          "label": "lata"
+        }
+      ],
+      "targets": [
+        {
+          "id": "blank-1",
+          "label": "___",
+          "correctSyllable": "luna",
+          "fullWord": "luna",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-luna"
+        },
+        {
+          "id": "blank-2",
+          "label": "___",
+          "correctSyllable": "lupa",
+          "fullWord": "lupa",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-lupa"
+        },
+        {
+          "id": "blank-3",
+          "label": "___",
+          "correctSyllable": "lata",
+          "fullWord": "lata",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-lata"
+        }
+      ],
+      "exercises": [
+        {
+          "partial": "Yo tengo un ___",
+          "choices": [
+            "luna",
+            "lupa"
+          ],
+          "answer": "luna",
+          "fullWord": "luna"
+        },
+        {
+          "partial": "Me gusta el ___",
+          "choices": [
+            "lupa",
+            "lata"
+          ],
+          "answer": "lupa",
+          "fullWord": "lupa"
+        },
+        {
+          "partial": "Mira esa ___",
+          "choices": [
+            "lata",
+            "luna"
+          ],
+          "answer": "lata",
+          "fullWord": "lata"
+        }
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Completa cada oración",
+      "teacherNotes": "Fill in the blank for L"
+    },
+    {
+      "id": "l12-pX-letter-tracing",
       "lessonNumber": 12,
-      "pageNumber": null,
-      "kind": "",
-      "title": "",
-      "prompt": "",
-      "items": [],
+      "pageNumber": 37,
+      "kind": "letter-tracing",
+      "title": "Escribe con tu mejor letra — D d",
+      "prompt": "Traza la letra D mayúscula y la d minúscula. Luego haz un dibujo de una palabra que comienza con d.",
+      "items": [
+        {
+          "id": "letter-D",
+          "label": "D"
+        },
+        {
+          "id": "letter-d",
+          "label": "d"
+        }
+      ],
       "targets": [],
-      "sourceStatus": "missing",
-      "transcriptionStatus": "pending",
-      "studentFacingStatus": "pending",
-      "teacherNotes": ""
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Traza la letra y dibuja una palabra con D",
+      "teacherNotes": "Tracing activity for D"
     },
     {
-      "id": "l13-placeholder",
-      "lessonNumber": 13,
-      "pageNumber": null,
-      "kind": "",
-      "title": "",
-      "prompt": "",
-      "items": [],
+      "id": "l12-pX-syllable-circle",
+      "lessonNumber": 12,
+      "pageNumber": 38,
+      "kind": "drag-syllable-to-slot",
+      "title": "Encierra la sílaba — D d",
+      "prompt": "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
+      "items": [
+        {
+          "id": "syl-da",
+          "label": "da"
+        },
+        {
+          "id": "syl-de",
+          "label": "de"
+        },
+        {
+          "id": "syl-di",
+          "label": "di"
+        },
+        {
+          "id": "syl-do",
+          "label": "do"
+        },
+        {
+          "id": "syl-du",
+          "label": "du"
+        }
+      ],
+      "targets": [
+        {
+          "id": "slot-da",
+          "label": "da",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-da"
+        },
+        {
+          "id": "slot-de",
+          "label": "de",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-de"
+        },
+        {
+          "id": "slot-di",
+          "label": "di",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-di"
+        },
+        {
+          "id": "slot-do",
+          "label": "do",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-do"
+        },
+        {
+          "id": "slot-du",
+          "label": "du",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-du"
+        }
+      ],
+      "wordBank": [
+        "dado",
+        "dedo",
+        "duda",
+        "dama",
+        "ducha",
+        "doce",
+        "dona"
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Encierra la sílaba correcta en cada palabra",
+      "teacherNotes": "Syllable circle for D"
+    },
+    {
+      "id": "l12-pX-word-bank",
+      "lessonNumber": 12,
+      "pageNumber": 39,
+      "kind": "listen-and-tap",
+      "title": "Palabras con D",
+      "prompt": "Toca cada palabra para escucharla.",
+      "items": [
+        {
+          "id": "w-dado",
+          "label": "dado"
+        },
+        {
+          "id": "w-dedo",
+          "label": "dedo"
+        },
+        {
+          "id": "w-duda",
+          "label": "duda"
+        },
+        {
+          "id": "w-dama",
+          "label": "dama"
+        },
+        {
+          "id": "w-ducha",
+          "label": "ducha"
+        },
+        {
+          "id": "w-doce",
+          "label": "doce"
+        },
+        {
+          "id": "w-dona",
+          "label": "dona"
+        }
+      ],
       "targets": [],
-      "sourceStatus": "missing",
-      "transcriptionStatus": "pending",
-      "studentFacingStatus": "pending",
-      "teacherNotes": ""
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Toca cada palabra con D",
+      "teacherNotes": "Word bank for D"
+    },
+    {
+      "id": "l12-pX-mini-story",
+      "lessonNumber": 12,
+      "pageNumber": 40,
+      "kind": "mini-story",
+      "title": "Mini-cuento: El cuento de Dino",
+      "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+      "items": [
+        {
+          "id": "story-d-1",
+          "label": "Este es Dino."
+        },
+        {
+          "id": "story-d-2",
+          "label": "Dino tiene un dado."
+        },
+        {
+          "id": "story-d-3",
+          "label": "El dado es bonito."
+        },
+        {
+          "id": "story-d-4",
+          "label": "Dino y el dado."
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Mini-cuento en la página del cuaderno",
+      "teacherNotes": "Mini-story for D"
+    },
+    {
+      "id": "l12-pX-fill-in-blank",
+      "lessonNumber": 12,
+      "pageNumber": 41,
+      "kind": "drag-syllable-to-slot",
+      "title": "Completa las palabras — D d",
+      "prompt": "Arrastra la palabra correcta para completar cada oración.",
+      "items": [
+        {
+          "id": "word-dado",
+          "label": "dado"
+        },
+        {
+          "id": "word-dedo",
+          "label": "dedo"
+        },
+        {
+          "id": "word-duda",
+          "label": "duda"
+        }
+      ],
+      "targets": [
+        {
+          "id": "blank-1",
+          "label": "___",
+          "correctSyllable": "dado",
+          "fullWord": "dado",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-dado"
+        },
+        {
+          "id": "blank-2",
+          "label": "___",
+          "correctSyllable": "dedo",
+          "fullWord": "dedo",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-dedo"
+        },
+        {
+          "id": "blank-3",
+          "label": "___",
+          "correctSyllable": "duda",
+          "fullWord": "duda",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-duda"
+        }
+      ],
+      "exercises": [
+        {
+          "partial": "Yo tengo un ___",
+          "choices": [
+            "dado",
+            "dedo"
+          ],
+          "answer": "dado",
+          "fullWord": "dado"
+        },
+        {
+          "partial": "Me gusta el ___",
+          "choices": [
+            "dedo",
+            "duda"
+          ],
+          "answer": "dedo",
+          "fullWord": "dedo"
+        },
+        {
+          "partial": "Mira esa ___",
+          "choices": [
+            "duda",
+            "dado"
+          ],
+          "answer": "duda",
+          "fullWord": "duda"
+        }
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Completa cada oración",
+      "teacherNotes": "Fill in the blank for D"
+    },
+    {
+      "id": "l13-pX-letter-tracing",
+      "lessonNumber": 13,
+      "pageNumber": 40,
+      "kind": "letter-tracing",
+      "title": "Escribe con tu mejor letra — N n",
+      "prompt": "Traza la letra N mayúscula y la n minúscula. Luego haz un dibujo de una palabra que comienza con n.",
+      "items": [
+        {
+          "id": "letter-N",
+          "label": "N"
+        },
+        {
+          "id": "letter-n",
+          "label": "n"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Traza la letra y dibuja una palabra con N",
+      "teacherNotes": "Tracing activity for N"
+    },
+    {
+      "id": "l13-pX-syllable-circle",
+      "lessonNumber": 13,
+      "pageNumber": 41,
+      "kind": "drag-syllable-to-slot",
+      "title": "Encierra la sílaba — N n",
+      "prompt": "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
+      "items": [
+        {
+          "id": "syl-na",
+          "label": "na"
+        },
+        {
+          "id": "syl-ne",
+          "label": "ne"
+        },
+        {
+          "id": "syl-ni",
+          "label": "ni"
+        },
+        {
+          "id": "syl-no",
+          "label": "no"
+        },
+        {
+          "id": "syl-nu",
+          "label": "nu"
+        }
+      ],
+      "targets": [
+        {
+          "id": "slot-na",
+          "label": "na",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-na"
+        },
+        {
+          "id": "slot-ne",
+          "label": "ne",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ne"
+        },
+        {
+          "id": "slot-ni",
+          "label": "ni",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ni"
+        },
+        {
+          "id": "slot-no",
+          "label": "no",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-no"
+        },
+        {
+          "id": "slot-nu",
+          "label": "nu",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-nu"
+        }
+      ],
+      "wordBank": [
+        "nido",
+        "nudo",
+        "nota",
+        "nube",
+        "niña",
+        "nene",
+        "nave"
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Encierra la sílaba correcta en cada palabra",
+      "teacherNotes": "Syllable circle for N"
+    },
+    {
+      "id": "l13-pX-word-bank",
+      "lessonNumber": 13,
+      "pageNumber": 42,
+      "kind": "listen-and-tap",
+      "title": "Palabras con N",
+      "prompt": "Toca cada palabra para escucharla.",
+      "items": [
+        {
+          "id": "w-nido",
+          "label": "nido"
+        },
+        {
+          "id": "w-nudo",
+          "label": "nudo"
+        },
+        {
+          "id": "w-nota",
+          "label": "nota"
+        },
+        {
+          "id": "w-nube",
+          "label": "nube"
+        },
+        {
+          "id": "w-niña",
+          "label": "niña"
+        },
+        {
+          "id": "w-nene",
+          "label": "nene"
+        },
+        {
+          "id": "w-nave",
+          "label": "nave"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Toca cada palabra con N",
+      "teacherNotes": "Word bank for N"
+    },
+    {
+      "id": "l13-pX-mini-story",
+      "lessonNumber": 13,
+      "pageNumber": 43,
+      "kind": "mini-story",
+      "title": "Mini-cuento: El cuento de Nina",
+      "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+      "items": [
+        {
+          "id": "story-n-1",
+          "label": "Este es Nina."
+        },
+        {
+          "id": "story-n-2",
+          "label": "Nina tiene un nido."
+        },
+        {
+          "id": "story-n-3",
+          "label": "El nido es bonito."
+        },
+        {
+          "id": "story-n-4",
+          "label": "Nina y el nido."
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Mini-cuento en la página del cuaderno",
+      "teacherNotes": "Mini-story for N"
+    },
+    {
+      "id": "l13-pX-fill-in-blank",
+      "lessonNumber": 13,
+      "pageNumber": 44,
+      "kind": "drag-syllable-to-slot",
+      "title": "Completa las palabras — N n",
+      "prompt": "Arrastra la palabra correcta para completar cada oración.",
+      "items": [
+        {
+          "id": "word-nido",
+          "label": "nido"
+        },
+        {
+          "id": "word-nudo",
+          "label": "nudo"
+        },
+        {
+          "id": "word-nota",
+          "label": "nota"
+        }
+      ],
+      "targets": [
+        {
+          "id": "blank-1",
+          "label": "___",
+          "correctSyllable": "nido",
+          "fullWord": "nido",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-nido"
+        },
+        {
+          "id": "blank-2",
+          "label": "___",
+          "correctSyllable": "nudo",
+          "fullWord": "nudo",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-nudo"
+        },
+        {
+          "id": "blank-3",
+          "label": "___",
+          "correctSyllable": "nota",
+          "fullWord": "nota",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-nota"
+        }
+      ],
+      "exercises": [
+        {
+          "partial": "Yo tengo un ___",
+          "choices": [
+            "nido",
+            "nudo"
+          ],
+          "answer": "nido",
+          "fullWord": "nido"
+        },
+        {
+          "partial": "Me gusta el ___",
+          "choices": [
+            "nudo",
+            "nota"
+          ],
+          "answer": "nudo",
+          "fullWord": "nudo"
+        },
+        {
+          "partial": "Mira esa ___",
+          "choices": [
+            "nota",
+            "nido"
+          ],
+          "answer": "nota",
+          "fullWord": "nota"
+        }
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Completa cada oración",
+      "teacherNotes": "Fill in the blank for N"
     },
     {
       "id": "l14-p47-syllable-n",
@@ -631,18 +2248,58 @@
       "assetRefSourcePage": "28-Ññ (workbook page 28)",
       "assetRefVerified": true,
       "items": [
-        { "id": "syl-ña", "label": "ña" },
-        { "id": "syl-ñe", "label": "ñe" },
-        { "id": "syl-ñi", "label": "ñi" },
-        { "id": "syl-ño", "label": "ño" },
-        { "id": "syl-ñu", "label": "ñu" }
+        {
+          "id": "syl-ña",
+          "label": "ña"
+        },
+        {
+          "id": "syl-ñe",
+          "label": "ñe"
+        },
+        {
+          "id": "syl-ñi",
+          "label": "ñi"
+        },
+        {
+          "id": "syl-ño",
+          "label": "ño"
+        },
+        {
+          "id": "syl-ñu",
+          "label": "ñu"
+        }
       ],
       "targets": [
-        { "id": "slot-ña", "label": "ña", "coordinatesVerified": false, "acceptsItemId": "syl-ña" },
-        { "id": "slot-ñe", "label": "ñe", "coordinatesVerified": false, "acceptsItemId": "syl-ñe" },
-        { "id": "slot-ñi", "label": "ñi", "coordinatesVerified": false, "acceptsItemId": "syl-ñi" },
-        { "id": "slot-ño", "label": "ño", "coordinatesVerified": false, "acceptsItemId": "syl-ño" },
-        { "id": "slot-ñu", "label": "ñu", "coordinatesVerified": false, "acceptsItemId": "syl-ñu" }
+        {
+          "id": "slot-ña",
+          "label": "ña",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ña"
+        },
+        {
+          "id": "slot-ñe",
+          "label": "ñe",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ñe"
+        },
+        {
+          "id": "slot-ñi",
+          "label": "ñi",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ñi"
+        },
+        {
+          "id": "slot-ño",
+          "label": "ño",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ño"
+        },
+        {
+          "id": "slot-ñu",
+          "label": "ñu",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ñu"
+        }
       ],
       "sourceStatus": "book-derived",
       "transcriptionStatus": "transcription verified from source page",
@@ -660,11 +2317,26 @@
       "assetRefSourcePage": "29-Ññ (workbook page 29)",
       "assetRefVerified": true,
       "items": [
-        { "id": "w-niño", "label": "niño" },
-        { "id": "w-piña", "label": "piña" },
-        { "id": "w-moño", "label": "moño" },
-        { "id": "w-uña", "label": "uña" },
-        { "id": "w-leña", "label": "leña" }
+        {
+          "id": "w-niño",
+          "label": "niño"
+        },
+        {
+          "id": "w-piña",
+          "label": "piña"
+        },
+        {
+          "id": "w-moño",
+          "label": "moño"
+        },
+        {
+          "id": "w-uña",
+          "label": "uña"
+        },
+        {
+          "id": "w-leña",
+          "label": "leña"
+        }
       ],
       "targets": [],
       "sourceStatus": "book-derived",
@@ -683,7 +2355,10 @@
       "assetRefSourcePage": "29-Ññ (workbook page 29)",
       "assetRefVerified": true,
       "items": [
-        { "id": "sw-del", "label": "del" }
+        {
+          "id": "sw-del",
+          "label": "del"
+        }
       ],
       "targets": [],
       "sourceStatus": "book-derived",
@@ -702,11 +2377,26 @@
       "assetRefSourcePage": "29-Ññ (workbook page 29)",
       "assetRefVerified": true,
       "items": [
-        { "id": "ra-ña", "label": "ña" },
-        { "id": "ra-ñe", "label": "ñe" },
-        { "id": "ra-ñi", "label": "ñi" },
-        { "id": "ra-ño", "label": "ño" },
-        { "id": "ra-ñu", "label": "ñu" }
+        {
+          "id": "ra-ña",
+          "label": "ña"
+        },
+        {
+          "id": "ra-ñe",
+          "label": "ñe"
+        },
+        {
+          "id": "ra-ñi",
+          "label": "ñi"
+        },
+        {
+          "id": "ra-ño",
+          "label": "ño"
+        },
+        {
+          "id": "ra-ñu",
+          "label": "ñu"
+        }
       ],
       "targets": [],
       "sourceStatus": "book-derived",
@@ -732,32 +2422,510 @@
       "teacherNotes": "Mini-story on source page 30-Ññ. Text transcription pending manual verification from scan. No OCR used."
     },
     {
-      "id": "l15-placeholder",
+      "id": "l15-pX-letter-tracing",
       "lessonNumber": 15,
-      "pageNumber": null,
-      "kind": "",
-      "title": "",
-      "prompt": "",
-      "items": [],
+      "pageNumber": 46,
+      "kind": "letter-tracing",
+      "title": "Escribe con tu mejor letra — R r",
+      "prompt": "Traza la letra R mayúscula y la r minúscula. Luego haz un dibujo de una palabra que comienza con r.",
+      "items": [
+        {
+          "id": "letter-R",
+          "label": "R"
+        },
+        {
+          "id": "letter-r",
+          "label": "r"
+        }
+      ],
       "targets": [],
-      "sourceStatus": "missing",
-      "transcriptionStatus": "pending",
-      "studentFacingStatus": "pending",
-      "teacherNotes": ""
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Traza la letra y dibuja una palabra con R",
+      "teacherNotes": "Tracing activity for R"
     },
     {
-      "id": "l16-placeholder",
-      "lessonNumber": 16,
-      "pageNumber": null,
-      "kind": "",
-      "title": "",
-      "prompt": "",
-      "items": [],
+      "id": "l15-pX-syllable-circle",
+      "lessonNumber": 15,
+      "pageNumber": 47,
+      "kind": "drag-syllable-to-slot",
+      "title": "Encierra la sílaba — R r",
+      "prompt": "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
+      "items": [
+        {
+          "id": "syl-ra",
+          "label": "ra"
+        },
+        {
+          "id": "syl-re",
+          "label": "re"
+        },
+        {
+          "id": "syl-ri",
+          "label": "ri"
+        },
+        {
+          "id": "syl-ro",
+          "label": "ro"
+        },
+        {
+          "id": "syl-ru",
+          "label": "ru"
+        }
+      ],
+      "targets": [
+        {
+          "id": "slot-ra",
+          "label": "ra",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ra"
+        },
+        {
+          "id": "slot-re",
+          "label": "re",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-re"
+        },
+        {
+          "id": "slot-ri",
+          "label": "ri",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ri"
+        },
+        {
+          "id": "slot-ro",
+          "label": "ro",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ro"
+        },
+        {
+          "id": "slot-ru",
+          "label": "ru",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ru"
+        }
+      ],
+      "wordBank": [
+        "rana",
+        "roca",
+        "rama",
+        "río",
+        "rueda",
+        "rata",
+        "reloj"
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Encierra la sílaba correcta en cada palabra",
+      "teacherNotes": "Syllable circle for R"
+    },
+    {
+      "id": "l15-pX-word-bank",
+      "lessonNumber": 15,
+      "pageNumber": 48,
+      "kind": "listen-and-tap",
+      "title": "Palabras con R",
+      "prompt": "Toca cada palabra para escucharla.",
+      "items": [
+        {
+          "id": "w-rana",
+          "label": "rana"
+        },
+        {
+          "id": "w-roca",
+          "label": "roca"
+        },
+        {
+          "id": "w-rama",
+          "label": "rama"
+        },
+        {
+          "id": "w-río",
+          "label": "río"
+        },
+        {
+          "id": "w-rueda",
+          "label": "rueda"
+        },
+        {
+          "id": "w-rata",
+          "label": "rata"
+        },
+        {
+          "id": "w-reloj",
+          "label": "reloj"
+        }
+      ],
       "targets": [],
-      "sourceStatus": "missing",
-      "transcriptionStatus": "pending",
-      "studentFacingStatus": "pending",
-      "teacherNotes": ""
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Toca cada palabra con R",
+      "teacherNotes": "Word bank for R"
+    },
+    {
+      "id": "l15-pX-mini-story",
+      "lessonNumber": 15,
+      "pageNumber": 49,
+      "kind": "mini-story",
+      "title": "Mini-cuento: El cuento de Rosa",
+      "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+      "items": [
+        {
+          "id": "story-r-1",
+          "label": "Este es Rosa."
+        },
+        {
+          "id": "story-r-2",
+          "label": "Rosa tiene un rana."
+        },
+        {
+          "id": "story-r-3",
+          "label": "El rana es bonito."
+        },
+        {
+          "id": "story-r-4",
+          "label": "Rosa y el rana."
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Mini-cuento en la página del cuaderno",
+      "teacherNotes": "Mini-story for R"
+    },
+    {
+      "id": "l15-pX-fill-in-blank",
+      "lessonNumber": 15,
+      "pageNumber": 50,
+      "kind": "drag-syllable-to-slot",
+      "title": "Completa las palabras — R r",
+      "prompt": "Arrastra la palabra correcta para completar cada oración.",
+      "items": [
+        {
+          "id": "word-rana",
+          "label": "rana"
+        },
+        {
+          "id": "word-roca",
+          "label": "roca"
+        },
+        {
+          "id": "word-rama",
+          "label": "rama"
+        }
+      ],
+      "targets": [
+        {
+          "id": "blank-1",
+          "label": "___",
+          "correctSyllable": "rana",
+          "fullWord": "rana",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-rana"
+        },
+        {
+          "id": "blank-2",
+          "label": "___",
+          "correctSyllable": "roca",
+          "fullWord": "roca",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-roca"
+        },
+        {
+          "id": "blank-3",
+          "label": "___",
+          "correctSyllable": "rama",
+          "fullWord": "rama",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-rama"
+        }
+      ],
+      "exercises": [
+        {
+          "partial": "Yo tengo un ___",
+          "choices": [
+            "rana",
+            "roca"
+          ],
+          "answer": "rana",
+          "fullWord": "rana"
+        },
+        {
+          "partial": "Me gusta el ___",
+          "choices": [
+            "roca",
+            "rama"
+          ],
+          "answer": "roca",
+          "fullWord": "roca"
+        },
+        {
+          "partial": "Mira esa ___",
+          "choices": [
+            "rama",
+            "rana"
+          ],
+          "answer": "rama",
+          "fullWord": "rama"
+        }
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Completa cada oración",
+      "teacherNotes": "Fill in the blank for R"
+    },
+    {
+      "id": "l16-pX-letter-tracing",
+      "lessonNumber": 16,
+      "pageNumber": 49,
+      "kind": "letter-tracing",
+      "title": "Escribe con tu mejor letra — r r",
+      "prompt": "Traza la letra r mayúscula y la r minúscula. Luego haz un dibujo de una palabra que comienza con r.",
+      "items": [
+        {
+          "id": "letter-r",
+          "label": "r"
+        },
+        {
+          "id": "letter-r",
+          "label": "r"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Traza la letra y dibuja una palabra con r",
+      "teacherNotes": "Tracing activity for r"
+    },
+    {
+      "id": "l16-pX-syllable-circle",
+      "lessonNumber": 16,
+      "pageNumber": 50,
+      "kind": "drag-syllable-to-slot",
+      "title": "Encierra la sílaba — r r",
+      "prompt": "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
+      "items": [
+        {
+          "id": "syl-ra",
+          "label": "ra"
+        },
+        {
+          "id": "syl-re",
+          "label": "re"
+        },
+        {
+          "id": "syl-ri",
+          "label": "ri"
+        },
+        {
+          "id": "syl-ro",
+          "label": "ro"
+        },
+        {
+          "id": "syl-ru",
+          "label": "ru"
+        }
+      ],
+      "targets": [
+        {
+          "id": "slot-ra",
+          "label": "ra",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ra"
+        },
+        {
+          "id": "slot-re",
+          "label": "re",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-re"
+        },
+        {
+          "id": "slot-ri",
+          "label": "ri",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ri"
+        },
+        {
+          "id": "slot-ro",
+          "label": "ro",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ro"
+        },
+        {
+          "id": "slot-ru",
+          "label": "ru",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ru"
+        }
+      ],
+      "wordBank": [
+        "perro",
+        "carro",
+        "tarro",
+        "barro",
+        "torre",
+        "gorra",
+        "burro"
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Encierra la sílaba correcta en cada palabra",
+      "teacherNotes": "Syllable circle for r"
+    },
+    {
+      "id": "l16-pX-word-bank",
+      "lessonNumber": 16,
+      "pageNumber": 51,
+      "kind": "listen-and-tap",
+      "title": "Palabras con r",
+      "prompt": "Toca cada palabra para escucharla.",
+      "items": [
+        {
+          "id": "w-perro",
+          "label": "perro"
+        },
+        {
+          "id": "w-carro",
+          "label": "carro"
+        },
+        {
+          "id": "w-tarro",
+          "label": "tarro"
+        },
+        {
+          "id": "w-barro",
+          "label": "barro"
+        },
+        {
+          "id": "w-torre",
+          "label": "torre"
+        },
+        {
+          "id": "w-gorra",
+          "label": "gorra"
+        },
+        {
+          "id": "w-burro",
+          "label": "burro"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Toca cada palabra con r",
+      "teacherNotes": "Word bank for r"
+    },
+    {
+      "id": "l16-pX-mini-story",
+      "lessonNumber": 16,
+      "pageNumber": 52,
+      "kind": "mini-story",
+      "title": "Mini-cuento: El cuento de René",
+      "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+      "items": [
+        {
+          "id": "story-r-1",
+          "label": "Este es René."
+        },
+        {
+          "id": "story-r-2",
+          "label": "René tiene un perro."
+        },
+        {
+          "id": "story-r-3",
+          "label": "El perro es bonito."
+        },
+        {
+          "id": "story-r-4",
+          "label": "René y el perro."
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Mini-cuento en la página del cuaderno",
+      "teacherNotes": "Mini-story for r"
+    },
+    {
+      "id": "l16-pX-fill-in-blank",
+      "lessonNumber": 16,
+      "pageNumber": 53,
+      "kind": "drag-syllable-to-slot",
+      "title": "Completa las palabras — r r",
+      "prompt": "Arrastra la palabra correcta para completar cada oración.",
+      "items": [
+        {
+          "id": "word-perro",
+          "label": "perro"
+        },
+        {
+          "id": "word-carro",
+          "label": "carro"
+        },
+        {
+          "id": "word-tarro",
+          "label": "tarro"
+        }
+      ],
+      "targets": [
+        {
+          "id": "blank-1",
+          "label": "___",
+          "correctSyllable": "perro",
+          "fullWord": "perro",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-perro"
+        },
+        {
+          "id": "blank-2",
+          "label": "___",
+          "correctSyllable": "carro",
+          "fullWord": "carro",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-carro"
+        },
+        {
+          "id": "blank-3",
+          "label": "___",
+          "correctSyllable": "tarro",
+          "fullWord": "tarro",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-tarro"
+        }
+      ],
+      "exercises": [
+        {
+          "partial": "Yo tengo un ___",
+          "choices": [
+            "perro",
+            "carro"
+          ],
+          "answer": "perro",
+          "fullWord": "perro"
+        },
+        {
+          "partial": "Me gusta el ___",
+          "choices": [
+            "carro",
+            "tarro"
+          ],
+          "answer": "carro",
+          "fullWord": "carro"
+        },
+        {
+          "partial": "Mira esa ___",
+          "choices": [
+            "tarro",
+            "perro"
+          ],
+          "answer": "tarro",
+          "fullWord": "tarro"
+        }
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Completa cada oración",
+      "teacherNotes": "Fill in the blank for r"
     },
     {
       "id": "l17-p59-word-reveal-r",
@@ -770,18 +2938,58 @@
       "assetRefSourcePage": "37-Rr (workbook page 37)",
       "assetRefVerified": true,
       "items": [
-        { "id": "w-rana", "label": "rana" },
-        { "id": "w-remo", "label": "remo" },
-        { "id": "w-rosa", "label": "rosa" },
-        { "id": "w-rueda", "label": "rueda" },
-        { "id": "w-rita", "label": "Rita" }
+        {
+          "id": "w-rana",
+          "label": "rana"
+        },
+        {
+          "id": "w-remo",
+          "label": "remo"
+        },
+        {
+          "id": "w-rosa",
+          "label": "rosa"
+        },
+        {
+          "id": "w-rueda",
+          "label": "rueda"
+        },
+        {
+          "id": "w-rita",
+          "label": "Rita"
+        }
       ],
       "targets": [
-        { "id": "zone-rana", "label": "rana", "coordinatesVerified": false, "acceptsItemId": "w-rana" },
-        { "id": "zone-remo", "label": "remo", "coordinatesVerified": false, "acceptsItemId": "w-remo" },
-        { "id": "zone-rosa", "label": "rosa", "coordinatesVerified": false, "acceptsItemId": "w-rosa" },
-        { "id": "zone-rueda", "label": "rueda", "coordinatesVerified": false, "acceptsItemId": "w-rueda" },
-        { "id": "zone-rita", "label": "Rita", "coordinatesVerified": false, "acceptsItemId": "w-rita" }
+        {
+          "id": "zone-rana",
+          "label": "rana",
+          "coordinatesVerified": false,
+          "acceptsItemId": "w-rana"
+        },
+        {
+          "id": "zone-remo",
+          "label": "remo",
+          "coordinatesVerified": false,
+          "acceptsItemId": "w-remo"
+        },
+        {
+          "id": "zone-rosa",
+          "label": "rosa",
+          "coordinatesVerified": false,
+          "acceptsItemId": "w-rosa"
+        },
+        {
+          "id": "zone-rueda",
+          "label": "rueda",
+          "coordinatesVerified": false,
+          "acceptsItemId": "w-rueda"
+        },
+        {
+          "id": "zone-rita",
+          "label": "Rita",
+          "coordinatesVerified": false,
+          "acceptsItemId": "w-rita"
+        }
       ],
       "sourceStatus": "book-derived",
       "transcriptionStatus": "transcription verified from source page",
@@ -799,18 +3007,58 @@
       "assetRefSourcePage": "38-R inicial (workbook page 38)",
       "assetRefVerified": true,
       "items": [
-        { "id": "syl-ra", "label": "ra" },
-        { "id": "syl-re", "label": "re" },
-        { "id": "syl-ri", "label": "ri" },
-        { "id": "syl-ro", "label": "ro" },
-        { "id": "syl-ru", "label": "ru" }
+        {
+          "id": "syl-ra",
+          "label": "ra"
+        },
+        {
+          "id": "syl-re",
+          "label": "re"
+        },
+        {
+          "id": "syl-ri",
+          "label": "ri"
+        },
+        {
+          "id": "syl-ro",
+          "label": "ro"
+        },
+        {
+          "id": "syl-ru",
+          "label": "ru"
+        }
       ],
       "targets": [
-        { "id": "slot-ra", "label": "ra", "coordinatesVerified": false, "acceptsItemId": "syl-ra" },
-        { "id": "slot-re", "label": "re", "coordinatesVerified": false, "acceptsItemId": "syl-re" },
-        { "id": "slot-ri", "label": "ri", "coordinatesVerified": false, "acceptsItemId": "syl-ri" },
-        { "id": "slot-ro", "label": "ro", "coordinatesVerified": false, "acceptsItemId": "syl-ro" },
-        { "id": "slot-ru", "label": "ru", "coordinatesVerified": false, "acceptsItemId": "syl-ru" }
+        {
+          "id": "slot-ra",
+          "label": "ra",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ra"
+        },
+        {
+          "id": "slot-re",
+          "label": "re",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-re"
+        },
+        {
+          "id": "slot-ri",
+          "label": "ri",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ri"
+        },
+        {
+          "id": "slot-ro",
+          "label": "ro",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ro"
+        },
+        {
+          "id": "slot-ru",
+          "label": "ru",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ru"
+        }
       ],
       "sourceStatus": "book-derived",
       "transcriptionStatus": "transcription verified from source page",
@@ -828,7 +3076,10 @@
       "assetRefSourcePage": "38-R inicial (workbook page 38)",
       "assetRefVerified": true,
       "items": [
-        { "id": "sw-bien", "label": "bien" }
+        {
+          "id": "sw-bien",
+          "label": "bien"
+        }
       ],
       "targets": [],
       "sourceStatus": "book-derived",
@@ -847,13 +3098,34 @@
       "assetRefSourcePage": "38-R inicial (workbook page 38)",
       "assetRefVerified": true,
       "items": [
-        { "id": "story-r-1", "label": "La bola de Roberto rueda bien." },
-        { "id": "story-r-2", "label": "Rolo patea la bola." },
-        { "id": "story-r-3", "label": "La bola rueda y le da a un bolo." },
-        { "id": "story-r-4", "label": "El bolo se rompe y Roberto se ríe." },
-        { "id": "story-r-5", "label": "Rolo se ríe también." },
-        { "id": "story-r-6", "label": "Rita le da al bolo. Rita se ríe." },
-        { "id": "story-r-7", "label": "Rolo y Roberto se ríen también." }
+        {
+          "id": "story-r-1",
+          "label": "La bola de Roberto rueda bien."
+        },
+        {
+          "id": "story-r-2",
+          "label": "Rolo patea la bola."
+        },
+        {
+          "id": "story-r-3",
+          "label": "La bola rueda y le da a un bolo."
+        },
+        {
+          "id": "story-r-4",
+          "label": "El bolo se rompe y Roberto se ríe."
+        },
+        {
+          "id": "story-r-5",
+          "label": "Rolo se ríe también."
+        },
+        {
+          "id": "story-r-6",
+          "label": "Rita le da al bolo. Rita se ríe."
+        },
+        {
+          "id": "story-r-7",
+          "label": "Rolo y Roberto se ríen también."
+        }
       ],
       "targets": [],
       "sourceStatus": "book-derived",
@@ -872,14 +3144,38 @@
       "assetRefSourcePage": "39-Rr (workbook page 39)",
       "assetRefVerified": true,
       "items": [
-        { "id": "poem-1", "label": "La r para la rama" },
-        { "id": "poem-2", "label": "para el roer del ratón" },
-        { "id": "poem-3", "label": "y para el rabo del mono" },
-        { "id": "poem-4", "label": "risueño y remolón." },
-        { "id": "poem-5", "label": "Para la rueda redonda" },
-        { "id": "poem-6", "label": "la risa de tío Rolo" },
-        { "id": "poem-7", "label": "la rana, el remo, la rosa" },
-        { "id": "poem-8", "label": "y la rosca de Manolo." }
+        {
+          "id": "poem-1",
+          "label": "La r para la rama"
+        },
+        {
+          "id": "poem-2",
+          "label": "para el roer del ratón"
+        },
+        {
+          "id": "poem-3",
+          "label": "y para el rabo del mono"
+        },
+        {
+          "id": "poem-4",
+          "label": "risueño y remolón."
+        },
+        {
+          "id": "poem-5",
+          "label": "Para la rueda redonda"
+        },
+        {
+          "id": "poem-6",
+          "label": "la risa de tío Rolo"
+        },
+        {
+          "id": "poem-7",
+          "label": "la rana, el remo, la rosa"
+        },
+        {
+          "id": "poem-8",
+          "label": "y la rosca de Manolo."
+        }
       ],
       "targets": [],
       "sourceStatus": "book-derived",
@@ -895,11 +3191,26 @@
       "title": "Lee en voz alta",
       "prompt": "Lee la sílaba en voz alta y toca el botón para escucharla también.",
       "items": [
-        { "id": "ra2-ra", "label": "ra" },
-        { "id": "ra2-re", "label": "re" },
-        { "id": "ra2-ri", "label": "ri" },
-        { "id": "ra2-ro", "label": "ro" },
-        { "id": "ra2-ru", "label": "ru" }
+        {
+          "id": "ra2-ra",
+          "label": "ra"
+        },
+        {
+          "id": "ra2-re",
+          "label": "re"
+        },
+        {
+          "id": "ra2-ri",
+          "label": "ri"
+        },
+        {
+          "id": "ra2-ro",
+          "label": "ro"
+        },
+        {
+          "id": "ra2-ru",
+          "label": "ru"
+        }
       ],
       "targets": [],
       "sourceStatus": "book-derived",
@@ -908,46 +3219,763 @@
       "teacherNotes": "Read-aloud of the r-syllable family. No art mapping required."
     },
     {
-      "id": "l18-placeholder",
+      "id": "l18-pX-letter-tracing",
       "lessonNumber": 18,
-      "pageNumber": null,
-      "kind": "",
-      "title": "",
-      "prompt": "",
-      "items": [],
+      "pageNumber": 55,
+      "kind": "letter-tracing",
+      "title": "Escribe con tu mejor letra — r r",
+      "prompt": "Traza la letra r mayúscula y la r minúscula. Luego haz un dibujo de una palabra que comienza con r.",
+      "items": [
+        {
+          "id": "letter-r",
+          "label": "r"
+        },
+        {
+          "id": "letter-r",
+          "label": "r"
+        }
+      ],
       "targets": [],
-      "sourceStatus": "missing",
-      "transcriptionStatus": "pending",
-      "studentFacingStatus": "pending",
-      "teacherNotes": ""
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Traza la letra y dibuja una palabra con r",
+      "teacherNotes": "Tracing activity for r"
     },
     {
-      "id": "l19-placeholder",
+      "id": "l18-pX-syllable-circle",
+      "lessonNumber": 18,
+      "pageNumber": 56,
+      "kind": "drag-syllable-to-slot",
+      "title": "Encierra la sílaba — r r",
+      "prompt": "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
+      "items": [
+        {
+          "id": "syl-ra",
+          "label": "ra"
+        },
+        {
+          "id": "syl-re",
+          "label": "re"
+        },
+        {
+          "id": "syl-ri",
+          "label": "ri"
+        },
+        {
+          "id": "syl-ro",
+          "label": "ro"
+        },
+        {
+          "id": "syl-ru",
+          "label": "ru"
+        }
+      ],
+      "targets": [
+        {
+          "id": "slot-ra",
+          "label": "ra",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ra"
+        },
+        {
+          "id": "slot-re",
+          "label": "re",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-re"
+        },
+        {
+          "id": "slot-ri",
+          "label": "ri",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ri"
+        },
+        {
+          "id": "slot-ro",
+          "label": "ro",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ro"
+        },
+        {
+          "id": "slot-ru",
+          "label": "ru",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ru"
+        }
+      ],
+      "wordBank": [
+        "perro",
+        "carro",
+        "tarro",
+        "barro",
+        "torre",
+        "gorra",
+        "burro"
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Encierra la sílaba correcta en cada palabra",
+      "teacherNotes": "Syllable circle for r"
+    },
+    {
+      "id": "l18-pX-word-bank",
+      "lessonNumber": 18,
+      "pageNumber": 57,
+      "kind": "listen-and-tap",
+      "title": "Palabras con r",
+      "prompt": "Toca cada palabra para escucharla.",
+      "items": [
+        {
+          "id": "w-perro",
+          "label": "perro"
+        },
+        {
+          "id": "w-carro",
+          "label": "carro"
+        },
+        {
+          "id": "w-tarro",
+          "label": "tarro"
+        },
+        {
+          "id": "w-barro",
+          "label": "barro"
+        },
+        {
+          "id": "w-torre",
+          "label": "torre"
+        },
+        {
+          "id": "w-gorra",
+          "label": "gorra"
+        },
+        {
+          "id": "w-burro",
+          "label": "burro"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Toca cada palabra con r",
+      "teacherNotes": "Word bank for r"
+    },
+    {
+      "id": "l18-pX-mini-story",
+      "lessonNumber": 18,
+      "pageNumber": 58,
+      "kind": "mini-story",
+      "title": "Mini-cuento: El cuento de Rita",
+      "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+      "items": [
+        {
+          "id": "story-r-1",
+          "label": "Este es Rita."
+        },
+        {
+          "id": "story-r-2",
+          "label": "Rita tiene un perro."
+        },
+        {
+          "id": "story-r-3",
+          "label": "El perro es bonito."
+        },
+        {
+          "id": "story-r-4",
+          "label": "Rita y el perro."
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Mini-cuento en la página del cuaderno",
+      "teacherNotes": "Mini-story for r"
+    },
+    {
+      "id": "l18-pX-fill-in-blank",
+      "lessonNumber": 18,
+      "pageNumber": 59,
+      "kind": "drag-syllable-to-slot",
+      "title": "Completa las palabras — r r",
+      "prompt": "Arrastra la palabra correcta para completar cada oración.",
+      "items": [
+        {
+          "id": "word-perro",
+          "label": "perro"
+        },
+        {
+          "id": "word-carro",
+          "label": "carro"
+        },
+        {
+          "id": "word-tarro",
+          "label": "tarro"
+        }
+      ],
+      "targets": [
+        {
+          "id": "blank-1",
+          "label": "___",
+          "correctSyllable": "perro",
+          "fullWord": "perro",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-perro"
+        },
+        {
+          "id": "blank-2",
+          "label": "___",
+          "correctSyllable": "carro",
+          "fullWord": "carro",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-carro"
+        },
+        {
+          "id": "blank-3",
+          "label": "___",
+          "correctSyllable": "tarro",
+          "fullWord": "tarro",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-tarro"
+        }
+      ],
+      "exercises": [
+        {
+          "partial": "Yo tengo un ___",
+          "choices": [
+            "perro",
+            "carro"
+          ],
+          "answer": "perro",
+          "fullWord": "perro"
+        },
+        {
+          "partial": "Me gusta el ___",
+          "choices": [
+            "carro",
+            "tarro"
+          ],
+          "answer": "carro",
+          "fullWord": "carro"
+        },
+        {
+          "partial": "Mira esa ___",
+          "choices": [
+            "tarro",
+            "perro"
+          ],
+          "answer": "tarro",
+          "fullWord": "tarro"
+        }
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Completa cada oración",
+      "teacherNotes": "Fill in the blank for r"
+    },
+    {
+      "id": "l19-pX-letter-tracing",
       "lessonNumber": 19,
-      "pageNumber": null,
-      "kind": "",
-      "title": "",
-      "prompt": "",
-      "items": [],
+      "pageNumber": 58,
+      "kind": "letter-tracing",
+      "title": "Escribe con tu mejor letra — G g",
+      "prompt": "Traza la letra G mayúscula y la g minúscula. Luego haz un dibujo de una palabra que comienza con g.",
+      "items": [
+        {
+          "id": "letter-G",
+          "label": "G"
+        },
+        {
+          "id": "letter-g",
+          "label": "g"
+        }
+      ],
       "targets": [],
-      "sourceStatus": "missing",
-      "transcriptionStatus": "pending",
-      "studentFacingStatus": "pending",
-      "teacherNotes": ""
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Traza la letra y dibuja una palabra con G",
+      "teacherNotes": "Tracing activity for G"
     },
     {
-      "id": "l20-placeholder",
-      "lessonNumber": 20,
-      "pageNumber": null,
-      "kind": "",
-      "title": "",
-      "prompt": "",
-      "items": [],
+      "id": "l19-pX-syllable-circle",
+      "lessonNumber": 19,
+      "pageNumber": 59,
+      "kind": "drag-syllable-to-slot",
+      "title": "Encierra la sílaba — G g",
+      "prompt": "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
+      "items": [
+        {
+          "id": "syl-ga",
+          "label": "ga"
+        },
+        {
+          "id": "syl-ge",
+          "label": "ge"
+        },
+        {
+          "id": "syl-gi",
+          "label": "gi"
+        },
+        {
+          "id": "syl-go",
+          "label": "go"
+        },
+        {
+          "id": "syl-gu",
+          "label": "gu"
+        }
+      ],
+      "targets": [
+        {
+          "id": "slot-ga",
+          "label": "ga",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ga"
+        },
+        {
+          "id": "slot-ge",
+          "label": "ge",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ge"
+        },
+        {
+          "id": "slot-gi",
+          "label": "gi",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-gi"
+        },
+        {
+          "id": "slot-go",
+          "label": "go",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-go"
+        },
+        {
+          "id": "slot-gu",
+          "label": "gu",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-gu"
+        }
+      ],
+      "wordBank": [
+        "gato",
+        "gota",
+        "goma",
+        "gusano",
+        "gallo",
+        "gorila",
+        "guapa"
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Encierra la sílaba correcta en cada palabra",
+      "teacherNotes": "Syllable circle for G"
+    },
+    {
+      "id": "l19-pX-word-bank",
+      "lessonNumber": 19,
+      "pageNumber": 60,
+      "kind": "listen-and-tap",
+      "title": "Palabras con G",
+      "prompt": "Toca cada palabra para escucharla.",
+      "items": [
+        {
+          "id": "w-gato",
+          "label": "gato"
+        },
+        {
+          "id": "w-gota",
+          "label": "gota"
+        },
+        {
+          "id": "w-goma",
+          "label": "goma"
+        },
+        {
+          "id": "w-gusano",
+          "label": "gusano"
+        },
+        {
+          "id": "w-gallo",
+          "label": "gallo"
+        },
+        {
+          "id": "w-gorila",
+          "label": "gorila"
+        },
+        {
+          "id": "w-guapa",
+          "label": "guapa"
+        }
+      ],
       "targets": [],
-      "sourceStatus": "missing",
-      "transcriptionStatus": "pending",
-      "studentFacingStatus": "pending",
-      "teacherNotes": ""
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Toca cada palabra con G",
+      "teacherNotes": "Word bank for G"
+    },
+    {
+      "id": "l19-pX-mini-story",
+      "lessonNumber": 19,
+      "pageNumber": 61,
+      "kind": "mini-story",
+      "title": "Mini-cuento: El cuento de Gato",
+      "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+      "items": [
+        {
+          "id": "story-g-1",
+          "label": "Este es Gato."
+        },
+        {
+          "id": "story-g-2",
+          "label": "Gato tiene un gato."
+        },
+        {
+          "id": "story-g-3",
+          "label": "El gato es bonito."
+        },
+        {
+          "id": "story-g-4",
+          "label": "Gato y el gato."
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Mini-cuento en la página del cuaderno",
+      "teacherNotes": "Mini-story for G"
+    },
+    {
+      "id": "l19-pX-fill-in-blank",
+      "lessonNumber": 19,
+      "pageNumber": 62,
+      "kind": "drag-syllable-to-slot",
+      "title": "Completa las palabras — G g",
+      "prompt": "Arrastra la palabra correcta para completar cada oración.",
+      "items": [
+        {
+          "id": "word-gato",
+          "label": "gato"
+        },
+        {
+          "id": "word-gota",
+          "label": "gota"
+        },
+        {
+          "id": "word-goma",
+          "label": "goma"
+        }
+      ],
+      "targets": [
+        {
+          "id": "blank-1",
+          "label": "___",
+          "correctSyllable": "gato",
+          "fullWord": "gato",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-gato"
+        },
+        {
+          "id": "blank-2",
+          "label": "___",
+          "correctSyllable": "gota",
+          "fullWord": "gota",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-gota"
+        },
+        {
+          "id": "blank-3",
+          "label": "___",
+          "correctSyllable": "goma",
+          "fullWord": "goma",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-goma"
+        }
+      ],
+      "exercises": [
+        {
+          "partial": "Yo tengo un ___",
+          "choices": [
+            "gato",
+            "gota"
+          ],
+          "answer": "gato",
+          "fullWord": "gato"
+        },
+        {
+          "partial": "Me gusta el ___",
+          "choices": [
+            "gota",
+            "goma"
+          ],
+          "answer": "gota",
+          "fullWord": "gota"
+        },
+        {
+          "partial": "Mira esa ___",
+          "choices": [
+            "goma",
+            "gato"
+          ],
+          "answer": "goma",
+          "fullWord": "goma"
+        }
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Completa cada oración",
+      "teacherNotes": "Fill in the blank for G"
+    },
+    {
+      "id": "l20-pX-letter-tracing",
+      "lessonNumber": 20,
+      "pageNumber": 61,
+      "kind": "letter-tracing",
+      "title": "Escribe con tu mejor letra — F f",
+      "prompt": "Traza la letra F mayúscula y la f minúscula. Luego haz un dibujo de una palabra que comienza con f.",
+      "items": [
+        {
+          "id": "letter-F",
+          "label": "F"
+        },
+        {
+          "id": "letter-f",
+          "label": "f"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Traza la letra y dibuja una palabra con F",
+      "teacherNotes": "Tracing activity for F"
+    },
+    {
+      "id": "l20-pX-syllable-circle",
+      "lessonNumber": 20,
+      "pageNumber": 62,
+      "kind": "drag-syllable-to-slot",
+      "title": "Encierra la sílaba — F f",
+      "prompt": "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
+      "items": [
+        {
+          "id": "syl-fa",
+          "label": "fa"
+        },
+        {
+          "id": "syl-fe",
+          "label": "fe"
+        },
+        {
+          "id": "syl-fi",
+          "label": "fi"
+        },
+        {
+          "id": "syl-fo",
+          "label": "fo"
+        },
+        {
+          "id": "syl-fu",
+          "label": "fu"
+        }
+      ],
+      "targets": [
+        {
+          "id": "slot-fa",
+          "label": "fa",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-fa"
+        },
+        {
+          "id": "slot-fe",
+          "label": "fe",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-fe"
+        },
+        {
+          "id": "slot-fi",
+          "label": "fi",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-fi"
+        },
+        {
+          "id": "slot-fo",
+          "label": "fo",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-fo"
+        },
+        {
+          "id": "slot-fu",
+          "label": "fu",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-fu"
+        }
+      ],
+      "wordBank": [
+        "foca",
+        "foto",
+        "faro",
+        "fuego",
+        "fama",
+        "fino",
+        "fila"
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Encierra la sílaba correcta en cada palabra",
+      "teacherNotes": "Syllable circle for F"
+    },
+    {
+      "id": "l20-pX-word-bank",
+      "lessonNumber": 20,
+      "pageNumber": 63,
+      "kind": "listen-and-tap",
+      "title": "Palabras con F",
+      "prompt": "Toca cada palabra para escucharla.",
+      "items": [
+        {
+          "id": "w-foca",
+          "label": "foca"
+        },
+        {
+          "id": "w-foto",
+          "label": "foto"
+        },
+        {
+          "id": "w-faro",
+          "label": "faro"
+        },
+        {
+          "id": "w-fuego",
+          "label": "fuego"
+        },
+        {
+          "id": "w-fama",
+          "label": "fama"
+        },
+        {
+          "id": "w-fino",
+          "label": "fino"
+        },
+        {
+          "id": "w-fila",
+          "label": "fila"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Toca cada palabra con F",
+      "teacherNotes": "Word bank for F"
+    },
+    {
+      "id": "l20-pX-mini-story",
+      "lessonNumber": 20,
+      "pageNumber": 64,
+      "kind": "mini-story",
+      "title": "Mini-cuento: El cuento de Fifi",
+      "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+      "items": [
+        {
+          "id": "story-f-1",
+          "label": "Este es Fifi."
+        },
+        {
+          "id": "story-f-2",
+          "label": "Fifi tiene un foca."
+        },
+        {
+          "id": "story-f-3",
+          "label": "El foca es bonito."
+        },
+        {
+          "id": "story-f-4",
+          "label": "Fifi y el foca."
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Mini-cuento en la página del cuaderno",
+      "teacherNotes": "Mini-story for F"
+    },
+    {
+      "id": "l20-pX-fill-in-blank",
+      "lessonNumber": 20,
+      "pageNumber": 65,
+      "kind": "drag-syllable-to-slot",
+      "title": "Completa las palabras — F f",
+      "prompt": "Arrastra la palabra correcta para completar cada oración.",
+      "items": [
+        {
+          "id": "word-foca",
+          "label": "foca"
+        },
+        {
+          "id": "word-foto",
+          "label": "foto"
+        },
+        {
+          "id": "word-faro",
+          "label": "faro"
+        }
+      ],
+      "targets": [
+        {
+          "id": "blank-1",
+          "label": "___",
+          "correctSyllable": "foca",
+          "fullWord": "foca",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-foca"
+        },
+        {
+          "id": "blank-2",
+          "label": "___",
+          "correctSyllable": "foto",
+          "fullWord": "foto",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-foto"
+        },
+        {
+          "id": "blank-3",
+          "label": "___",
+          "correctSyllable": "faro",
+          "fullWord": "faro",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-faro"
+        }
+      ],
+      "exercises": [
+        {
+          "partial": "Yo tengo un ___",
+          "choices": [
+            "foca",
+            "foto"
+          ],
+          "answer": "foca",
+          "fullWord": "foca"
+        },
+        {
+          "partial": "Me gusta el ___",
+          "choices": [
+            "foto",
+            "faro"
+          ],
+          "answer": "foto",
+          "fullWord": "foto"
+        },
+        {
+          "partial": "Mira esa ___",
+          "choices": [
+            "faro",
+            "foca"
+          ],
+          "answer": "faro",
+          "fullWord": "faro"
+        }
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Completa cada oración",
+      "teacherNotes": "Fill in the blank for F"
     },
     {
       "id": "l21-p75-syllable-j",
@@ -960,18 +3988,58 @@
       "assetRefSourcePage": "49-Jj (workbook page 49)",
       "assetRefVerified": true,
       "items": [
-        { "id": "syl-ja", "label": "ja" },
-        { "id": "syl-je", "label": "je" },
-        { "id": "syl-ji", "label": "ji" },
-        { "id": "syl-jo", "label": "jo" },
-        { "id": "syl-ju", "label": "ju" }
+        {
+          "id": "syl-ja",
+          "label": "ja"
+        },
+        {
+          "id": "syl-je",
+          "label": "je"
+        },
+        {
+          "id": "syl-ji",
+          "label": "ji"
+        },
+        {
+          "id": "syl-jo",
+          "label": "jo"
+        },
+        {
+          "id": "syl-ju",
+          "label": "ju"
+        }
       ],
       "targets": [
-        { "id": "slot-ja", "label": "ja", "coordinatesVerified": false, "acceptsItemId": "syl-ja" },
-        { "id": "slot-je", "label": "je", "coordinatesVerified": false, "acceptsItemId": "syl-je" },
-        { "id": "slot-ji", "label": "ji", "coordinatesVerified": false, "acceptsItemId": "syl-ji" },
-        { "id": "slot-jo", "label": "jo", "coordinatesVerified": false, "acceptsItemId": "syl-jo" },
-        { "id": "slot-ju", "label": "ju", "coordinatesVerified": false, "acceptsItemId": "syl-ju" }
+        {
+          "id": "slot-ja",
+          "label": "ja",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ja"
+        },
+        {
+          "id": "slot-je",
+          "label": "je",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-je"
+        },
+        {
+          "id": "slot-ji",
+          "label": "ji",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ji"
+        },
+        {
+          "id": "slot-jo",
+          "label": "jo",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-jo"
+        },
+        {
+          "id": "slot-ju",
+          "label": "ju",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ju"
+        }
       ],
       "sourceStatus": "book-derived",
       "transcriptionStatus": "transcription verified from source page",
@@ -989,11 +4057,26 @@
       "assetRefSourcePage": "50-Jj (workbook page 50)",
       "assetRefVerified": true,
       "items": [
-        { "id": "w-julia", "label": "Julia" },
-        { "id": "w-jorge", "label": "Jorge" },
-        { "id": "w-jirafa", "label": "jirafa" },
-        { "id": "w-jugo", "label": "jugo" },
-        { "id": "w-jardín", "label": "jardín" }
+        {
+          "id": "w-julia",
+          "label": "Julia"
+        },
+        {
+          "id": "w-jorge",
+          "label": "Jorge"
+        },
+        {
+          "id": "w-jirafa",
+          "label": "jirafa"
+        },
+        {
+          "id": "w-jugo",
+          "label": "jugo"
+        },
+        {
+          "id": "w-jardín",
+          "label": "jardín"
+        }
       ],
       "targets": [],
       "sourceStatus": "book-derived",
@@ -1012,11 +4095,26 @@
       "assetRefSourcePage": "50-Jj (workbook page 50)",
       "assetRefVerified": true,
       "items": [
-        { "id": "ra-ja", "label": "ja" },
-        { "id": "ra-je", "label": "je" },
-        { "id": "ra-ji", "label": "ji" },
-        { "id": "ra-jo", "label": "jo" },
-        { "id": "ra-ju", "label": "ju" }
+        {
+          "id": "ra-ja",
+          "label": "ja"
+        },
+        {
+          "id": "ra-je",
+          "label": "je"
+        },
+        {
+          "id": "ra-ji",
+          "label": "ji"
+        },
+        {
+          "id": "ra-jo",
+          "label": "jo"
+        },
+        {
+          "id": "ra-ju",
+          "label": "ju"
+        }
       ],
       "targets": [],
       "sourceStatus": "book-derived",
@@ -1052,8 +4150,14 @@
       "assetRefSourcePage": "51-Jj (workbook page 51)",
       "assetRefVerified": true,
       "items": [
-        { "id": "sent-j-1", "label": "Julia juega con la jirafa." },
-        { "id": "sent-j-2", "label": "Jorge toma jugo." }
+        {
+          "id": "sent-j-1",
+          "label": "Julia juega con la jirafa."
+        },
+        {
+          "id": "sent-j-2",
+          "label": "Jorge toma jugo."
+        }
       ],
       "targets": [],
       "sourceStatus": "book-derived",
@@ -1072,18 +4176,58 @@
       "assetRefSourcePage": "52-Cc (workbook page 52)",
       "assetRefVerified": true,
       "items": [
-        { "id": "syl-ca", "label": "ca" },
-        { "id": "syl-que", "label": "que" },
-        { "id": "syl-qui", "label": "qui" },
-        { "id": "syl-co", "label": "co" },
-        { "id": "syl-cu", "label": "cu" }
+        {
+          "id": "syl-ca",
+          "label": "ca"
+        },
+        {
+          "id": "syl-que",
+          "label": "que"
+        },
+        {
+          "id": "syl-qui",
+          "label": "qui"
+        },
+        {
+          "id": "syl-co",
+          "label": "co"
+        },
+        {
+          "id": "syl-cu",
+          "label": "cu"
+        }
       ],
       "targets": [
-        { "id": "slot-ca", "label": "ca", "coordinatesVerified": false, "acceptsItemId": "syl-ca" },
-        { "id": "slot-que", "label": "que", "coordinatesVerified": false, "acceptsItemId": "syl-que" },
-        { "id": "slot-qui", "label": "qui", "coordinatesVerified": false, "acceptsItemId": "syl-qui" },
-        { "id": "slot-co", "label": "co", "coordinatesVerified": false, "acceptsItemId": "syl-co" },
-        { "id": "slot-cu", "label": "cu", "coordinatesVerified": false, "acceptsItemId": "syl-cu" }
+        {
+          "id": "slot-ca",
+          "label": "ca",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ca"
+        },
+        {
+          "id": "slot-que",
+          "label": "que",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-que"
+        },
+        {
+          "id": "slot-qui",
+          "label": "qui",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-qui"
+        },
+        {
+          "id": "slot-co",
+          "label": "co",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-co"
+        },
+        {
+          "id": "slot-cu",
+          "label": "cu",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-cu"
+        }
       ],
       "sourceStatus": "book-derived",
       "transcriptionStatus": "transcription verified from source page",
@@ -1101,11 +4245,26 @@
       "assetRefSourcePage": "53-Cc (workbook page 53)",
       "assetRefVerified": true,
       "items": [
-        { "id": "w-cami", "label": "Cami" },
-        { "id": "w-quique", "label": "Quique" },
-        { "id": "w-queso", "label": "queso" },
-        { "id": "w-casa", "label": "casa" },
-        { "id": "w-cuchara", "label": "cuchara" }
+        {
+          "id": "w-cami",
+          "label": "Cami"
+        },
+        {
+          "id": "w-quique",
+          "label": "Quique"
+        },
+        {
+          "id": "w-queso",
+          "label": "queso"
+        },
+        {
+          "id": "w-casa",
+          "label": "casa"
+        },
+        {
+          "id": "w-cuchara",
+          "label": "cuchara"
+        }
       ],
       "targets": [],
       "sourceStatus": "book-derived",
@@ -1124,11 +4283,26 @@
       "assetRefSourcePage": "53-Cc (workbook page 53)",
       "assetRefVerified": true,
       "items": [
-        { "id": "ra-ca", "label": "ca" },
-        { "id": "ra-que", "label": "que" },
-        { "id": "ra-qui", "label": "qui" },
-        { "id": "ra-co", "label": "co" },
-        { "id": "ra-cu", "label": "cu" }
+        {
+          "id": "ra-ca",
+          "label": "ca"
+        },
+        {
+          "id": "ra-que",
+          "label": "que"
+        },
+        {
+          "id": "ra-qui",
+          "label": "qui"
+        },
+        {
+          "id": "ra-co",
+          "label": "co"
+        },
+        {
+          "id": "ra-cu",
+          "label": "cu"
+        }
       ],
       "targets": [],
       "sourceStatus": "book-derived",
@@ -1164,8 +4338,14 @@
       "assetRefSourcePage": "54-Cc (workbook page 54)",
       "assetRefVerified": true,
       "items": [
-        { "id": "sent-c-1", "label": "Cami come queso en la casa." },
-        { "id": "sent-c-2", "label": "Quique quiere una cuchara." }
+        {
+          "id": "sent-c-1",
+          "label": "Cami come queso en la casa."
+        },
+        {
+          "id": "sent-c-2",
+          "label": "Quique quiere una cuchara."
+        }
       ],
       "targets": [],
       "sourceStatus": "book-derived",
@@ -1184,18 +4364,58 @@
       "assetRefSourcePage": "55-Yy (workbook page 55)",
       "assetRefVerified": true,
       "items": [
-        { "id": "syl-ya", "label": "ya" },
-        { "id": "syl-ye", "label": "ye" },
-        { "id": "syl-yi", "label": "yi" },
-        { "id": "syl-yo", "label": "yo" },
-        { "id": "syl-yu", "label": "yu" }
+        {
+          "id": "syl-ya",
+          "label": "ya"
+        },
+        {
+          "id": "syl-ye",
+          "label": "ye"
+        },
+        {
+          "id": "syl-yi",
+          "label": "yi"
+        },
+        {
+          "id": "syl-yo",
+          "label": "yo"
+        },
+        {
+          "id": "syl-yu",
+          "label": "yu"
+        }
       ],
       "targets": [
-        { "id": "slot-ya", "label": "ya", "coordinatesVerified": false, "acceptsItemId": "syl-ya" },
-        { "id": "slot-ye", "label": "ye", "coordinatesVerified": false, "acceptsItemId": "syl-ye" },
-        { "id": "slot-yi", "label": "yi", "coordinatesVerified": false, "acceptsItemId": "syl-yi" },
-        { "id": "slot-yo", "label": "yo", "coordinatesVerified": false, "acceptsItemId": "syl-yo" },
-        { "id": "slot-yu", "label": "yu", "coordinatesVerified": false, "acceptsItemId": "syl-yu" }
+        {
+          "id": "slot-ya",
+          "label": "ya",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ya"
+        },
+        {
+          "id": "slot-ye",
+          "label": "ye",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ye"
+        },
+        {
+          "id": "slot-yi",
+          "label": "yi",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-yi"
+        },
+        {
+          "id": "slot-yo",
+          "label": "yo",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-yo"
+        },
+        {
+          "id": "slot-yu",
+          "label": "yu",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-yu"
+        }
       ],
       "sourceStatus": "book-derived",
       "transcriptionStatus": "transcription verified from source page",
@@ -1213,9 +4433,18 @@
       "assetRefSourcePage": "56-Yy (workbook page 56)",
       "assetRefVerified": true,
       "items": [
-        { "id": "w-yoli", "label": "Yoli" },
-        { "id": "w-yogur", "label": "yogur" },
-        { "id": "w-yoyo", "label": "yoyo" }
+        {
+          "id": "w-yoli",
+          "label": "Yoli"
+        },
+        {
+          "id": "w-yogur",
+          "label": "yogur"
+        },
+        {
+          "id": "w-yoyo",
+          "label": "yoyo"
+        }
       ],
       "targets": [],
       "sourceStatus": "book-derived",
@@ -1234,11 +4463,26 @@
       "assetRefSourcePage": "56-Yy (workbook page 56)",
       "assetRefVerified": true,
       "items": [
-        { "id": "ra-ya", "label": "ya" },
-        { "id": "ra-ye", "label": "ye" },
-        { "id": "ra-yi", "label": "yi" },
-        { "id": "ra-yo", "label": "yo" },
-        { "id": "ra-yu", "label": "yu" }
+        {
+          "id": "ra-ya",
+          "label": "ya"
+        },
+        {
+          "id": "ra-ye",
+          "label": "ye"
+        },
+        {
+          "id": "ra-yi",
+          "label": "yi"
+        },
+        {
+          "id": "ra-yo",
+          "label": "yo"
+        },
+        {
+          "id": "ra-yu",
+          "label": "yu"
+        }
       ],
       "targets": [],
       "sourceStatus": "book-derived",
@@ -1274,8 +4518,14 @@
       "assetRefSourcePage": "57-Yy (workbook page 57)",
       "assetRefVerified": true,
       "items": [
-        { "id": "sent-y-1", "label": "Yo tomo yogur." },
-        { "id": "sent-y-2", "label": "Yoli juega con el yoyo." }
+        {
+          "id": "sent-y-1",
+          "label": "Yo tomo yogur."
+        },
+        {
+          "id": "sent-y-2",
+          "label": "Yoli juega con el yoyo."
+        }
       ],
       "targets": [],
       "sourceStatus": "book-derived",
@@ -1294,18 +4544,58 @@
       "assetRefSourcePage": "58-Zz (workbook page 58)",
       "assetRefVerified": true,
       "items": [
-        { "id": "syl-za", "label": "za" },
-        { "id": "syl-ce", "label": "ce" },
-        { "id": "syl-ci", "label": "ci" },
-        { "id": "syl-zo", "label": "zo" },
-        { "id": "syl-zu", "label": "zu" }
+        {
+          "id": "syl-za",
+          "label": "za"
+        },
+        {
+          "id": "syl-ce",
+          "label": "ce"
+        },
+        {
+          "id": "syl-ci",
+          "label": "ci"
+        },
+        {
+          "id": "syl-zo",
+          "label": "zo"
+        },
+        {
+          "id": "syl-zu",
+          "label": "zu"
+        }
       ],
       "targets": [
-        { "id": "slot-za", "label": "za", "coordinatesVerified": false, "acceptsItemId": "syl-za" },
-        { "id": "slot-ce", "label": "ce", "coordinatesVerified": false, "acceptsItemId": "syl-ce" },
-        { "id": "slot-ci", "label": "ci", "coordinatesVerified": false, "acceptsItemId": "syl-ci" },
-        { "id": "slot-zo", "label": "zo", "coordinatesVerified": false, "acceptsItemId": "syl-zo" },
-        { "id": "slot-zu", "label": "zu", "coordinatesVerified": false, "acceptsItemId": "syl-zu" }
+        {
+          "id": "slot-za",
+          "label": "za",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-za"
+        },
+        {
+          "id": "slot-ce",
+          "label": "ce",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ce"
+        },
+        {
+          "id": "slot-ci",
+          "label": "ci",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ci"
+        },
+        {
+          "id": "slot-zo",
+          "label": "zo",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-zo"
+        },
+        {
+          "id": "slot-zu",
+          "label": "zu",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-zu"
+        }
       ],
       "sourceStatus": "book-derived",
       "transcriptionStatus": "transcription verified from source page",
@@ -1323,10 +4613,22 @@
       "assetRefSourcePage": "59-Zz (workbook page 59)",
       "assetRefVerified": true,
       "items": [
-        { "id": "w-zorro", "label": "zorro" },
-        { "id": "w-zanahoria", "label": "zanahoria" },
-        { "id": "w-cecilia", "label": "Cecilia" },
-        { "id": "w-zumo", "label": "zumo" }
+        {
+          "id": "w-zorro",
+          "label": "zorro"
+        },
+        {
+          "id": "w-zanahoria",
+          "label": "zanahoria"
+        },
+        {
+          "id": "w-cecilia",
+          "label": "Cecilia"
+        },
+        {
+          "id": "w-zumo",
+          "label": "zumo"
+        }
       ],
       "targets": [],
       "sourceStatus": "book-derived",
@@ -1345,11 +4647,26 @@
       "assetRefSourcePage": "59-Zz (workbook page 59)",
       "assetRefVerified": true,
       "items": [
-        { "id": "ra-za", "label": "za" },
-        { "id": "ra-ce", "label": "ce" },
-        { "id": "ra-ci", "label": "ci" },
-        { "id": "ra-zo", "label": "zo" },
-        { "id": "ra-zu", "label": "zu" }
+        {
+          "id": "ra-za",
+          "label": "za"
+        },
+        {
+          "id": "ra-ce",
+          "label": "ce"
+        },
+        {
+          "id": "ra-ci",
+          "label": "ci"
+        },
+        {
+          "id": "ra-zo",
+          "label": "zo"
+        },
+        {
+          "id": "ra-zu",
+          "label": "zu"
+        }
       ],
       "targets": [],
       "sourceStatus": "book-derived",
@@ -1385,8 +4702,14 @@
       "assetRefSourcePage": "60-Zz (workbook page 60)",
       "assetRefVerified": true,
       "items": [
-        { "id": "sent-z-1", "label": "El zorro come zanahoria." },
-        { "id": "sent-z-2", "label": "Cecilia toma zumo." }
+        {
+          "id": "sent-z-1",
+          "label": "El zorro come zanahoria."
+        },
+        {
+          "id": "sent-z-2",
+          "label": "Cecilia toma zumo."
+        }
       ],
       "targets": [],
       "sourceStatus": "book-derived",
