@@ -10,7 +10,7 @@
       "items": [],
       "targets": [],
       "sourceStatus": "missing",
-      "transcriptionStatus": "pending",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "pending",
       "teacherNotes": "",
       "note": "Precedes vowel section; no flip chart or eval page exists for this lesson."
@@ -27,7 +27,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Actividad interactiva",
-      "teacherNotes": "Vocal O lesson - drag and drop word building activity"
+      "teacherNotes": "Vocal O lesson - drag and drop word building activity",
+      "sourcePage": "a-page-4.jpg"
     },
     {
       "id": "l3-p7-drag-word-a",
@@ -41,7 +42,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Actividad interactiva",
-      "teacherNotes": "Vocal A lesson - drag and drop word building activity"
+      "teacherNotes": "Vocal A lesson - drag and drop word building activity",
+      "sourcePage": "u-page-7.jpg"
     },
     {
       "id": "l4-p10-drag-word-e",
@@ -55,7 +57,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Actividad interactiva",
-      "teacherNotes": "Vocal E lesson - drag and drop word building activity"
+      "teacherNotes": "Vocal E lesson - drag and drop word building activity",
+      "sourcePage": "m-page-10.jpg"
     },
     {
       "id": "l5-p13-drag-word-i",
@@ -69,7 +72,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Actividad interactiva",
-      "teacherNotes": "Vocal I lesson - drag and drop word building activity"
+      "teacherNotes": "Vocal I lesson - drag and drop word building activity",
+      "sourcePage": "p-page-13.jpg"
     },
     {
       "id": "l6-p16-drag-word-u",
@@ -83,7 +87,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Actividad interactiva",
-      "teacherNotes": "Vocal U lesson - drag and drop word building activity"
+      "teacherNotes": "Vocal U lesson - drag and drop word building activity",
+      "sourcePage": "ss-page-16.jpg"
     },
     {
       "id": "l7-p19-letter-tracing",
@@ -106,7 +111,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Traza la letra y dibuja una palabra con M",
-      "teacherNotes": "Page 19 of Libro del alumno. Students trace uppercase M and lowercase m, then draw an object starting with the letter m. Standard tracing page format used for all consonant lessons."
+      "teacherNotes": "Page 19 of Libro del alumno. Students trace uppercase M and lowercase m, then draw an object starting with the letter m. Standard tracing page format used for all consonant lessons.",
+      "sourcePage": "d-page-19.jpg"
     },
     {
       "id": "l7-p20-syllable-circle",
@@ -202,7 +208,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Encierra la sílaba correcta en cada palabra",
-      "teacherNotes": "Page 20 of Libro del alumno. Students circle the syllable (ma/me/mi/mo/mu) that matches the highlighted part of each pictured word. Full word bank transcribed directly from PDF: mamá, mami, ama, mima, Coloma, Manolo, media, Memo, melón, mesa, meta, Meme, mío, amigo, mira, misa, Mimí, amo, mono, como, moneda, moto, mulo, muleta, muro, mudo, mujer, Mumi. Slot coordinates not yet mapped."
+      "teacherNotes": "Page 20 of Libro del alumno. Students circle the syllable (ma/me/mi/mo/mu) that matches the highlighted part of each pictured word. Full word bank transcribed directly from PDF: mamá, mami, ama, mima, Coloma, Manolo, media, Memo, melón, mesa, meta, Meme, mío, amigo, mira, misa, Mimí, amo, mono, como, moneda, moto, mulo, muleta, muro, mudo, mujer, Mumi. Slot coordinates not yet mapped.",
+      "sourcePage": "d-page-20.jpg"
     },
     {
       "id": "l7-p21-syllable-tap",
@@ -237,7 +244,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Toca cada sílaba con M",
-      "teacherNotes": "Page 21 of Libro del alumno. Top two rows of the Mm page show the syllable family in both orders: ma/me/mi/mo/mu and mu/mo/ma/me/mi. Standard syllable-tap format used across all consonant lessons."
+      "teacherNotes": "Page 21 of Libro del alumno. Top two rows of the Mm page show the syllable family in both orders: ma/me/mi/mo/mu and mu/mo/ma/me/mi. Standard syllable-tap format used across all consonant lessons.",
+      "sourcePage": "d-page-21.jpg"
     },
     {
       "id": "l7-p21-word-bank",
@@ -308,7 +316,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Toca cada palabra con M",
-      "teacherNotes": "Page 21 of Libro del alumno. Word bank in the middle column of the Mm page. All words transcribed directly from PDF: mamá, mami, Mimo, mío, me, mímame, Meme, ama, mía, Mumi, Memo, mima, amo, Mimí, ámame. Also includes the conjunction 'y' bridging the word list and the mini-story."
+      "teacherNotes": "Page 21 of Libro del alumno. Word bank in the middle column of the Mm page. All words transcribed directly from PDF: mamá, mami, Mimo, mío, me, mímame, Meme, ama, mía, Mumi, Memo, mima, amo, Mimí, ámame. Also includes the conjunction 'y' bridging the word list and the mini-story.",
+      "sourcePage": "d-page-21.jpg"
     },
     {
       "id": "l7-p21-mini-story",
@@ -347,7 +356,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Mini-cuento en la página del cuaderno",
-      "teacherNotes": "Page 21 of Libro del alumno. Mini-story transcribed directly from PDF. Characters: mamá, mami, Meme, Mimí, Memo, Mumi. Story introduces 'y' (sight word). All lines verified from OCR output."
+      "teacherNotes": "Page 21 of Libro del alumno. Mini-story transcribed directly from PDF. Characters: mamá, mami, Meme, Mimí, Memo, Mumi. Story introduces 'y' (sight word). All lines verified from OCR output.",
+      "sourcePage": "d-page-21.jpg"
     },
     {
       "id": "l7-p22-fill-in-blank",
@@ -497,7 +507,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Completa cada palabra con la sílaba correcta",
-      "teacherNotes": "Page 22 of Libro del alumno. Fill-in-the-blank exercise transcribed directly from PDF. Six items with binary choice. Exercises: a___(mo/mu)→amo, Me___(mo/mu)→Memo, ma___(mi/má)→mamá, mi___(ma/mu)→mima, ___mi(mi/Mu)→Mumi, ___o(mí/mo)→mío. Slot coordinates not yet mapped to workbook page."
+      "teacherNotes": "Page 22 of Libro del alumno. Fill-in-the-blank exercise transcribed directly from PDF. Six items with binary choice. Exercises: a___(mo/mu)→amo, Me___(mo/mu)→Memo, ma___(mi/má)→mamá, mi___(ma/mu)→mima, ___mi(mi/Mu)→Mumi, ___o(mí/mo)→mío. Slot coordinates not yet mapped to workbook page.",
+      "sourcePage": "l-page-22.jpg"
     },
     {
       "id": "l8-p23-letter-tracing",
@@ -520,7 +531,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Traza la letra y dibuja una palabra con P",
-      "teacherNotes": "Page 23 of Libro del alumno. Students trace uppercase P (2-stroke) and lowercase p (2-stroke), then draw an object starting with the letter p. Stroke order marked with numbered arrows in the original book."
+      "teacherNotes": "Page 23 of Libro del alumno. Students trace uppercase P (2-stroke) and lowercase p (2-stroke), then draw an object starting with the letter p. Stroke order marked with numbered arrows in the original book.",
+      "sourcePage": "l-page-23.jpg"
     },
     {
       "id": "l8-p24-syllable-circle",
@@ -618,7 +630,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Encierra la sílaba correcta en cada palabra",
-      "teacherNotes": "Page 24 of Libro del alumno. Students circle the syllable (pa/pe/pi/po/pu) in each pictured word. Full word bank transcribed directly from PDF: papá, pupa, mapa, Papo, ¡upa!, pala, Pepe, pelo, tapete, pesa, pelota, chupete, pipo, Pupi, Mupi, papi, Mapi, pío, pomo, polo, sapo, mapo, tapo, Pepo, puso, Pupa, puma, apura, Pupi, púa. Slot coordinates not yet mapped."
+      "teacherNotes": "Page 24 of Libro del alumno. Students circle the syllable (pa/pe/pi/po/pu) in each pictured word. Full word bank transcribed directly from PDF: papá, pupa, mapa, Papo, ¡upa!, pala, Pepe, pelo, tapete, pesa, pelota, chupete, pipo, Pupi, Mupi, papi, Mapi, pío, pomo, polo, sapo, mapo, tapo, Pepo, puso, Pupa, puma, apura, Pupi, púa. Slot coordinates not yet mapped.",
+      "sourcePage": "l-page-24.jpg"
     },
     {
       "id": "l8-p25-syllable-tap",
@@ -653,7 +666,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Toca cada sílaba con P",
-      "teacherNotes": "Page 25 of Libro del alumno. Top two rows of the Pp page show the syllable family: pa/pe/pi/po/pu and pu/po/pa/pe/pi. Standard syllable-tap format used across all consonant lessons."
+      "teacherNotes": "Page 25 of Libro del alumno. Top two rows of the Pp page show the syllable family: pa/pe/pi/po/pu and pu/po/pa/pe/pi. Standard syllable-tap format used across all consonant lessons.",
+      "sourcePage": "n-page-25.jpg"
     },
     {
       "id": "l8-p25-word-bank",
@@ -731,7 +745,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Toca cada palabra con P",
-      "teacherNotes": "Page 25 of Libro del alumno. Word bank in the middle column of the Pp page. All 15 words transcribed directly from PDF. Sight word 'yo' also introduced on this page (printed in bold in the story section)."
+      "teacherNotes": "Page 25 of Libro del alumno. Word bank in the middle column of the Pp page. All 15 words transcribed directly from PDF. Sight word 'yo' also introduced on this page (printed in bold in the story section).",
+      "sourcePage": "n-page-25.jpg"
     },
     {
       "id": "l8-p25-mini-story",
@@ -769,7 +784,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Mini-cuento en la página del cuaderno",
-      "teacherNotes": "Page 25 of Libro del alumno. Mini-story transcribed directly from PDF. Characters: papá, mamá, Pepe, Pupi. Introduces sight word 'yo' (printed in bold in original). All lines verified from OCR output."
+      "teacherNotes": "Page 25 of Libro del alumno. Mini-story transcribed directly from PDF. Characters: papá, mamá, Pepe, Pupi. Introduces sight word 'yo' (printed in bold in original). All lines verified from OCR output.",
+      "sourcePage": "n-page-25.jpg"
     },
     {
       "id": "l8-p26-fill-in-blank",
@@ -919,7 +935,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Completa cada palabra con la sílaba correcta",
-      "teacherNotes": "Page 26 of Libro del alumno. Fill-in-the-blank exercise transcribed directly from PDF. Six items: pa___(pa/pá)→papá, ma___(pa/po)→mapa, ___ma(pe/pu)→puma, Ma___(pi/po)→Mapi, ___o(pí/po)→pío, ___pe(Pe/pe)→Pepe. Slot coordinates not yet mapped to workbook page."
+      "teacherNotes": "Page 26 of Libro del alumno. Fill-in-the-blank exercise transcribed directly from PDF. Six items: pa___(pa/pá)→papá, ma___(pa/po)→mapa, ___ma(pe/pu)→puma, Ma___(pi/po)→Mapi, ___o(pí/po)→pío, ___pe(Pe/pe)→Pepe. Slot coordinates not yet mapped to workbook page.",
+      "sourcePage": "n-page-26.jpg"
     },
     {
       "id": "l9-p27-word-reveal",
@@ -931,44 +948,13 @@
       "assetRef": "cartilla/images/source/ss/ss-page-14.jpg",
       "assetRefSourcePage": "14-Ss (workbook page 13)",
       "assetRefVerified": true,
-      "items": [
-        {
-          "id": "w-sopa",
-          "label": "sopa"
-        },
-        {
-          "id": "w-sapo",
-          "label": "sapo"
-        },
-        {
-          "id": "w-pisa",
-          "label": "pisa"
-        }
-      ],
-      "targets": [
-        {
-          "id": "zone-sopa",
-          "label": "sopa",
-          "coordinatesVerified": false,
-          "acceptsItemId": "w-sopa"
-        },
-        {
-          "id": "zone-sapo",
-          "label": "sapo",
-          "coordinatesVerified": false,
-          "acceptsItemId": "w-sapo"
-        },
-        {
-          "id": "zone-pisa",
-          "label": "pisa",
-          "coordinatesVerified": false,
-          "acceptsItemId": "w-pisa"
-        }
-      ],
+      "items": [],
+      "targets": [],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "transcription verified from source page",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "source page image connected",
-      "teacherNotes": "sopa, sapo, pisa confirmed with illustrations on source page 14-Ss (workbook page 13). assetRef points to full page scan. page scan mapped; hotspot pending (per-object hotspots not mapped)."
+      "teacherNotes": "sopa, sapo, pisa confirmed with illustrations on source page 14-Ss (workbook page 13). assetRef points to full page scan. page scan mapped; hotspot pending (per-object hotspots not mapped).",
+      "sourcePage": "n-page-27.jpg"
     },
     {
       "id": "l9-p27-names-reveal",
@@ -980,21 +966,13 @@
       "assetRef": "cartilla/images/source/ss/ss-page-14.jpg",
       "assetRefSourcePage": "14-Ss (workbook page 13)",
       "assetRefVerified": true,
-      "items": [
-        {
-          "id": "name-sesi",
-          "label": "Sesi"
-        },
-        {
-          "id": "name-susi",
-          "label": "Susi"
-        }
-      ],
+      "items": [],
       "targets": [],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "transcription verified from source page",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "source page image connected",
-      "teacherNotes": "Sesi and Susi are illustrated characters on source page 14-Ss (workbook page 13). Both appear with labeled artwork. This is a listen-and-tap activity."
+      "teacherNotes": "Sesi and Susi are illustrated characters on source page 14-Ss (workbook page 13). Both appear with labeled artwork. This is a listen-and-tap activity.",
+      "sourcePage": "n-page-27.jpg"
     },
     {
       "id": "l9-p28-sight-words",
@@ -1006,41 +984,13 @@
       "assetRef": "cartilla/images/source/ss/ss-page-15.jpg",
       "assetRefSourcePage": "15-Ss (workbook page 14)",
       "assetRefVerified": true,
-      "items": [
-        {
-          "id": "sw-es",
-          "label": "es"
-        },
-        {
-          "id": "sw-de",
-          "label": "de"
-        },
-        {
-          "id": "sw-un",
-          "label": "un"
-        },
-        {
-          "id": "sw-esta",
-          "label": "está"
-        },
-        {
-          "id": "sw-en",
-          "label": "en"
-        },
-        {
-          "id": "sw-la",
-          "label": "la"
-        },
-        {
-          "id": "sw-el",
-          "label": "el"
-        }
-      ],
+      "items": [],
       "targets": [],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "transcription verified from source page",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "source page image connected",
-      "teacherNotes": "Sight words confirmed on source page 15-Ss (workbook page 14): es, de, un, está, en, la, el appear in the pink sight-word strip. Verified from page scan."
+      "teacherNotes": "Sight words confirmed on source page 15-Ss (workbook page 14): es, de, un, está, en, la, el appear in the pink sight-word strip. Verified from page scan.",
+      "sourcePage": "ñ-page-28.jpg"
     },
     {
       "id": "l9-p28-syllable-tap",
@@ -1052,64 +1002,13 @@
       "assetRef": "cartilla/images/source/ss/ss-page-15.jpg",
       "assetRefSourcePage": "15-Ss (workbook page 14)",
       "assetRefVerified": true,
-      "items": [
-        {
-          "id": "syl-sa",
-          "label": "sa"
-        },
-        {
-          "id": "syl-se",
-          "label": "se"
-        },
-        {
-          "id": "syl-si",
-          "label": "si"
-        },
-        {
-          "id": "syl-so",
-          "label": "so"
-        },
-        {
-          "id": "syl-su",
-          "label": "su"
-        }
-      ],
-      "targets": [
-        {
-          "id": "slot-sa",
-          "label": "sa",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-sa"
-        },
-        {
-          "id": "slot-se",
-          "label": "se",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-se"
-        },
-        {
-          "id": "slot-si",
-          "label": "si",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-si"
-        },
-        {
-          "id": "slot-so",
-          "label": "so",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-so"
-        },
-        {
-          "id": "slot-su",
-          "label": "su",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-su"
-        }
-      ],
+      "items": [],
+      "targets": [],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "transcription verified from source page",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "source page image connected",
-      "teacherNotes": "Syllables sa/se/si/so/su confirmed on source page 15-Ss (workbook page 14): syllable rows appear in both top bands. Slot coordinates not yet mapped to book page."
+      "teacherNotes": "Syllables sa/se/si/so/su confirmed on source page 15-Ss (workbook page 14): syllable rows appear in both top bands. Slot coordinates not yet mapped to book page.",
+      "sourcePage": "ñ-page-28.jpg"
     },
     {
       "id": "l9-p29-tap-obj",
@@ -1118,43 +1017,15 @@
       "kind": "tap-object",
       "title": "Toca los objetos",
       "prompt": "Toca cada objeto del cuaderno cuando lo veas en la página.",
-      "items": [
-        {
-          "id": "obj-saco",
-          "label": "saco"
-        },
-        {
-          "id": "obj-seta",
-          "label": "seta"
-        },
-        {
-          "id": "obj-seis",
-          "label": "seis"
-        }
-      ],
-      "targets": [
-        {
-          "id": "hotspot-saco",
-          "label": "saco",
-          "coordinatesVerified": false
-        },
-        {
-          "id": "hotspot-seta",
-          "label": "seta",
-          "coordinatesVerified": false
-        },
-        {
-          "id": "hotspot-seis",
-          "label": "seis",
-          "coordinatesVerified": false
-        }
-      ],
+      "items": [],
+      "targets": [],
       "sourceStatus": "needs-transcription",
-      "transcriptionStatus": "placeholder",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "source page image connected",
       "teacherNotes": "saco, seta, seis are NOT confirmed in consonants.json examples for Lesson 9. These object names are plausible for the S lesson but are not verified from the official workbook page scan. Do not promote to book-derived without page verification.",
       "assetRef": "cartilla/images/source/ss/ss-page-16.jpg",
-      "assetRefVerified": true
+      "assetRefVerified": true,
+      "sourcePage": "ñ-page-29.jpg"
     },
     {
       "id": "l9-p29-mini-story-ss",
@@ -1166,29 +1037,13 @@
       "assetRef": "cartilla/images/source/ss/ss-page-16.jpg",
       "assetRefSourcePage": "16-Ss (workbook page 15)",
       "assetRefVerified": true,
-      "items": [
-        {
-          "id": "story-line-1",
-          "label": "Sapo Samapo"
-        },
-        {
-          "id": "story-line-2",
-          "label": "en la mesa está"
-        },
-        {
-          "id": "story-line-3",
-          "label": "sapo Samapo"
-        },
-        {
-          "id": "story-line-4",
-          "label": "sa-po-mi-pa."
-        }
-      ],
+      "items": [],
       "targets": [],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "transcription verified from source page",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "source page image connected",
-      "teacherNotes": "Story text transcribed directly from source page 16-Ss (workbook page 15). Full page scan available as assetRef. Story: 'Sapo Samapo / en la mesa está / sapo Samapo / sa-po-mi-pa.'"
+      "teacherNotes": "Story text transcribed directly from source page 16-Ss (workbook page 15). Full page scan available as assetRef. Story: 'Sapo Samapo / en la mesa está / sapo Samapo / sa-po-mi-pa.'",
+      "sourcePage": "ñ-page-29.jpg"
     },
     {
       "id": "l9-p30-read-aloud",
@@ -1197,33 +1052,13 @@
       "kind": "read-aloud",
       "title": "Lee en voz alta",
       "prompt": "Lee la sílaba en voz alta y toca el botón para escucharla también.",
-      "items": [
-        {
-          "id": "ra-sa",
-          "label": "sa"
-        },
-        {
-          "id": "ra-se",
-          "label": "se"
-        },
-        {
-          "id": "ra-si",
-          "label": "si"
-        },
-        {
-          "id": "ra-so",
-          "label": "so"
-        },
-        {
-          "id": "ra-su",
-          "label": "su"
-        }
-      ],
+      "items": [],
       "targets": [],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "transcription verified from source page",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "object-level cutout pending",
-      "teacherNotes": "Read-aloud of the s-syllable family. No art mapping required."
+      "teacherNotes": "Read-aloud of the s-syllable family. No art mapping required.",
+      "sourcePage": "ñ-page-30.jpg"
     },
     {
       "id": "l10-pX-letter-tracing",
@@ -1246,7 +1081,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Traza la letra y dibuja una palabra con T",
-      "teacherNotes": "Tracing activity for T"
+      "teacherNotes": "Tracing activity for T",
+      "sourcePage": "b-page-31.jpg"
     },
     {
       "id": "l10-pX-syllable-circle",
@@ -1321,7 +1157,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Encierra la sílaba correcta en cada palabra",
-      "teacherNotes": "Syllable circle for T"
+      "teacherNotes": "Syllable circle for T",
+      "sourcePage": "b-page-32.jpg"
     },
     {
       "id": "l10-pX-word-bank",
@@ -1364,7 +1201,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Toca cada palabra con T",
-      "teacherNotes": "Word bank for T"
+      "teacherNotes": "Word bank for T",
+      "sourcePage": "b-page-33.jpg"
     },
     {
       "id": "l10-pX-mini-story",
@@ -1395,7 +1233,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Mini-cuento en la página del cuaderno",
-      "teacherNotes": "Mini-story for T"
+      "teacherNotes": "Mini-story for T",
+      "sourcePage": "v-page-34.jpg"
     },
     {
       "id": "l10-pX-fill-in-blank",
@@ -1476,7 +1315,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Completa cada oración",
-      "teacherNotes": "Fill in the blank for T"
+      "teacherNotes": "Fill in the blank for T",
+      "sourcePage": "v-page-35.jpg"
     },
     {
       "id": "l11-pX-letter-tracing",
@@ -1499,7 +1339,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Traza la letra y dibuja una palabra con L",
-      "teacherNotes": "Tracing activity for L"
+      "teacherNotes": "Tracing activity for L",
+      "sourcePage": "v-page-34.jpg"
     },
     {
       "id": "l11-pX-syllable-circle",
@@ -1574,7 +1415,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Encierra la sílaba correcta en cada palabra",
-      "teacherNotes": "Syllable circle for L"
+      "teacherNotes": "Syllable circle for L",
+      "sourcePage": "v-page-35.jpg"
     },
     {
       "id": "l11-pX-word-bank",
@@ -1617,7 +1459,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Toca cada palabra con L",
-      "teacherNotes": "Word bank for L"
+      "teacherNotes": "Word bank for L",
+      "sourcePage": "v-page-36.jpg"
     },
     {
       "id": "l11-pX-mini-story",
@@ -1648,7 +1491,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Mini-cuento en la página del cuaderno",
-      "teacherNotes": "Mini-story for L"
+      "teacherNotes": "Mini-story for L",
+      "sourcePage": "r-page-37.jpg"
     },
     {
       "id": "l11-pX-fill-in-blank",
@@ -1729,7 +1573,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Completa cada oración",
-      "teacherNotes": "Fill in the blank for L"
+      "teacherNotes": "Fill in the blank for L",
+      "sourcePage": "r-page-38.jpg"
     },
     {
       "id": "l12-pX-letter-tracing",
@@ -1752,7 +1597,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Traza la letra y dibuja una palabra con D",
-      "teacherNotes": "Tracing activity for D"
+      "teacherNotes": "Tracing activity for D",
+      "sourcePage": "r-page-37.jpg"
     },
     {
       "id": "l12-pX-syllable-circle",
@@ -1827,7 +1673,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Encierra la sílaba correcta en cada palabra",
-      "teacherNotes": "Syllable circle for D"
+      "teacherNotes": "Syllable circle for D",
+      "sourcePage": "r-page-38.jpg"
     },
     {
       "id": "l12-pX-word-bank",
@@ -1870,7 +1717,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Toca cada palabra con D",
-      "teacherNotes": "Word bank for D"
+      "teacherNotes": "Word bank for D",
+      "sourcePage": "r-page-39.jpg"
     },
     {
       "id": "l12-pX-mini-story",
@@ -1901,7 +1749,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Mini-cuento en la página del cuaderno",
-      "teacherNotes": "Mini-story for D"
+      "teacherNotes": "Mini-story for D",
+      "sourcePage": "rr-page-40.jpg"
     },
     {
       "id": "l12-pX-fill-in-blank",
@@ -1982,7 +1831,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Completa cada oración",
-      "teacherNotes": "Fill in the blank for D"
+      "teacherNotes": "Fill in the blank for D",
+      "sourcePage": "rr-page-41.jpg"
     },
     {
       "id": "l13-pX-letter-tracing",
@@ -2005,7 +1855,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Traza la letra y dibuja una palabra con N",
-      "teacherNotes": "Tracing activity for N"
+      "teacherNotes": "Tracing activity for N",
+      "sourcePage": "rr-page-40.jpg"
     },
     {
       "id": "l13-pX-syllable-circle",
@@ -2080,7 +1931,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Encierra la sílaba correcta en cada palabra",
-      "teacherNotes": "Syllable circle for N"
+      "teacherNotes": "Syllable circle for N",
+      "sourcePage": "rr-page-41.jpg"
     },
     {
       "id": "l13-pX-word-bank",
@@ -2123,7 +1975,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Toca cada palabra con N",
-      "teacherNotes": "Word bank for N"
+      "teacherNotes": "Word bank for N",
+      "sourcePage": "rr-page-42.jpg"
     },
     {
       "id": "l13-pX-mini-story",
@@ -2154,7 +2007,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Mini-cuento en la página del cuaderno",
-      "teacherNotes": "Mini-story for N"
+      "teacherNotes": "Mini-story for N",
+      "sourcePage": "g-page-43.jpg"
     },
     {
       "id": "l13-pX-fill-in-blank",
@@ -2235,7 +2089,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Completa cada oración",
-      "teacherNotes": "Fill in the blank for N"
+      "teacherNotes": "Fill in the blank for N",
+      "sourcePage": "g-page-44.jpg"
     },
     {
       "id": "l14-p47-syllable-n",
@@ -2247,64 +2102,13 @@
       "assetRef": "cartilla/images/source/ñ/ñ-page-28.jpg",
       "assetRefSourcePage": "28-Ññ (workbook page 28)",
       "assetRefVerified": true,
-      "items": [
-        {
-          "id": "syl-ña",
-          "label": "ña"
-        },
-        {
-          "id": "syl-ñe",
-          "label": "ñe"
-        },
-        {
-          "id": "syl-ñi",
-          "label": "ñi"
-        },
-        {
-          "id": "syl-ño",
-          "label": "ño"
-        },
-        {
-          "id": "syl-ñu",
-          "label": "ñu"
-        }
-      ],
-      "targets": [
-        {
-          "id": "slot-ña",
-          "label": "ña",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-ña"
-        },
-        {
-          "id": "slot-ñe",
-          "label": "ñe",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-ñe"
-        },
-        {
-          "id": "slot-ñi",
-          "label": "ñi",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-ñi"
-        },
-        {
-          "id": "slot-ño",
-          "label": "ño",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-ño"
-        },
-        {
-          "id": "slot-ñu",
-          "label": "ñu",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-ñu"
-        }
-      ],
+      "items": [],
+      "targets": [],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "transcription verified from source page",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "source page image connected",
-      "teacherNotes": "Syllables ña/ñe/ñi/ño/ñu are the standard Ñ family from consonants.json. Verified as correct for this lesson. Slot coordinates not yet mapped to book page hotspots."
+      "teacherNotes": "Syllables ña/ñe/ñi/ño/ñu are the standard Ñ family from consonants.json. Verified as correct for this lesson. Slot coordinates not yet mapped to book page hotspots.",
+      "sourcePage": "f-page-47.jpg"
     },
     {
       "id": "l14-p48-words-n",
@@ -2316,33 +2120,13 @@
       "assetRef": "cartilla/images/source/ñ/ñ-page-29.jpg",
       "assetRefSourcePage": "29-Ññ (workbook page 29)",
       "assetRefVerified": true,
-      "items": [
-        {
-          "id": "w-niño",
-          "label": "niño"
-        },
-        {
-          "id": "w-piña",
-          "label": "piña"
-        },
-        {
-          "id": "w-moño",
-          "label": "moño"
-        },
-        {
-          "id": "w-uña",
-          "label": "uña"
-        },
-        {
-          "id": "w-leña",
-          "label": "leña"
-        }
-      ],
+      "items": [],
       "targets": [],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "transcription verified from source page",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "source page image connected",
-      "teacherNotes": "Words with ñ from consonants.json examples. niño, piña, moño, uña, leña are standard ñ-lesson vocabulary confirmed in source data."
+      "teacherNotes": "Words with ñ from consonants.json examples. niño, piña, moño, uña, leña are standard ñ-lesson vocabulary confirmed in source data.",
+      "sourcePage": "f-page-48.jpg"
     },
     {
       "id": "l14-p48-sight-word-del",
@@ -2354,17 +2138,13 @@
       "assetRef": "cartilla/images/source/ñ/ñ-page-29.jpg",
       "assetRefSourcePage": "29-Ññ (workbook page 29)",
       "assetRefVerified": true,
-      "items": [
-        {
-          "id": "sw-del",
-          "label": "del"
-        }
-      ],
+      "items": [],
       "targets": [],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "transcription verified from source page",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "source page image connected",
-      "teacherNotes": "Sight word 'del' (contraction de+el) is the verified sight word for Lesson 14 per bookFaithfulLessons data."
+      "teacherNotes": "Sight word 'del' (contraction de+el) is the verified sight word for Lesson 14 per bookFaithfulLessons data.",
+      "sourcePage": "f-page-48.jpg"
     },
     {
       "id": "l14-p49-read-aloud",
@@ -2376,33 +2156,13 @@
       "assetRef": "cartilla/images/source/ñ/ñ-page-29.jpg",
       "assetRefSourcePage": "29-Ññ (workbook page 29)",
       "assetRefVerified": true,
-      "items": [
-        {
-          "id": "ra-ña",
-          "label": "ña"
-        },
-        {
-          "id": "ra-ñe",
-          "label": "ñe"
-        },
-        {
-          "id": "ra-ñi",
-          "label": "ñi"
-        },
-        {
-          "id": "ra-ño",
-          "label": "ño"
-        },
-        {
-          "id": "ra-ñu",
-          "label": "ñu"
-        }
-      ],
+      "items": [],
       "targets": [],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "transcription verified from source page",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "source page image connected",
-      "teacherNotes": "Read-aloud of the Ñ-syllable family. Syllables from consonants.json verified data."
+      "teacherNotes": "Read-aloud of the Ñ-syllable family. Syllables from consonants.json verified data.",
+      "sourcePage": "j-page-49.jpg"
     },
     {
       "id": "l14-p50-mini-story",
@@ -2417,9 +2177,10 @@
       "items": [],
       "targets": [],
       "sourceStatus": "needs-transcription",
-      "transcriptionStatus": "placeholder",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "Cuento en la página del cuaderno — lee con tu maestro.",
-      "teacherNotes": "Mini-story on source page 30-Ññ. Text transcription pending manual verification from scan. No OCR used."
+      "teacherNotes": "Mini-story on source page 30-Ññ. Text transcription pending manual verification from scan. No OCR used.",
+      "sourcePage": "j-page-50.jpg"
     },
     {
       "id": "l15-pX-letter-tracing",
@@ -2442,7 +2203,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Traza la letra y dibuja una palabra con R",
-      "teacherNotes": "Tracing activity for R"
+      "teacherNotes": "Tracing activity for R",
+      "sourcePage": "f-page-46.jpg"
     },
     {
       "id": "l15-pX-syllable-circle",
@@ -2517,7 +2279,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Encierra la sílaba correcta en cada palabra",
-      "teacherNotes": "Syllable circle for R"
+      "teacherNotes": "Syllable circle for R",
+      "sourcePage": "f-page-47.jpg"
     },
     {
       "id": "l15-pX-word-bank",
@@ -2560,7 +2323,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Toca cada palabra con R",
-      "teacherNotes": "Word bank for R"
+      "teacherNotes": "Word bank for R",
+      "sourcePage": "f-page-48.jpg"
     },
     {
       "id": "l15-pX-mini-story",
@@ -2591,7 +2355,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Mini-cuento en la página del cuaderno",
-      "teacherNotes": "Mini-story for R"
+      "teacherNotes": "Mini-story for R",
+      "sourcePage": "j-page-49.jpg"
     },
     {
       "id": "l15-pX-fill-in-blank",
@@ -2672,7 +2437,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Completa cada oración",
-      "teacherNotes": "Fill in the blank for R"
+      "teacherNotes": "Fill in the blank for R",
+      "sourcePage": "j-page-50.jpg"
     },
     {
       "id": "l16-pX-letter-tracing",
@@ -2695,7 +2461,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Traza la letra y dibuja una palabra con r",
-      "teacherNotes": "Tracing activity for r"
+      "teacherNotes": "Tracing activity for r",
+      "sourcePage": "j-page-49.jpg"
     },
     {
       "id": "l16-pX-syllable-circle",
@@ -2770,7 +2537,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Encierra la sílaba correcta en cada palabra",
-      "teacherNotes": "Syllable circle for r"
+      "teacherNotes": "Syllable circle for r",
+      "sourcePage": "j-page-50.jpg"
     },
     {
       "id": "l16-pX-word-bank",
@@ -2813,7 +2581,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Toca cada palabra con r",
-      "teacherNotes": "Word bank for r"
+      "teacherNotes": "Word bank for r",
+      "sourcePage": "j-page-51.jpg"
     },
     {
       "id": "l16-pX-mini-story",
@@ -2844,7 +2613,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Mini-cuento en la página del cuaderno",
-      "teacherNotes": "Mini-story for r"
+      "teacherNotes": "Mini-story for r",
+      "sourcePage": "c-page-52.jpg"
     },
     {
       "id": "l16-pX-fill-in-blank",
@@ -2925,7 +2695,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Completa cada oración",
-      "teacherNotes": "Fill in the blank for r"
+      "teacherNotes": "Fill in the blank for r",
+      "sourcePage": "c-page-53.jpg"
     },
     {
       "id": "l17-p59-word-reveal-r",
@@ -2937,64 +2708,13 @@
       "assetRef": "cartilla/images/source/r/r-page-37.jpg",
       "assetRefSourcePage": "37-Rr (workbook page 37)",
       "assetRefVerified": true,
-      "items": [
-        {
-          "id": "w-rana",
-          "label": "rana"
-        },
-        {
-          "id": "w-remo",
-          "label": "remo"
-        },
-        {
-          "id": "w-rosa",
-          "label": "rosa"
-        },
-        {
-          "id": "w-rueda",
-          "label": "rueda"
-        },
-        {
-          "id": "w-rita",
-          "label": "Rita"
-        }
-      ],
-      "targets": [
-        {
-          "id": "zone-rana",
-          "label": "rana",
-          "coordinatesVerified": false,
-          "acceptsItemId": "w-rana"
-        },
-        {
-          "id": "zone-remo",
-          "label": "remo",
-          "coordinatesVerified": false,
-          "acceptsItemId": "w-remo"
-        },
-        {
-          "id": "zone-rosa",
-          "label": "rosa",
-          "coordinatesVerified": false,
-          "acceptsItemId": "w-rosa"
-        },
-        {
-          "id": "zone-rueda",
-          "label": "rueda",
-          "coordinatesVerified": false,
-          "acceptsItemId": "w-rueda"
-        },
-        {
-          "id": "zone-rita",
-          "label": "Rita",
-          "coordinatesVerified": false,
-          "acceptsItemId": "w-rita"
-        }
-      ],
+      "items": [],
+      "targets": [],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "transcription verified from source page",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "source page image connected",
-      "teacherNotes": "Illustrated objects confirmed on source page 37-Rr (workbook page 37): rana, remo, Rita, rosa, rueda. Mapped directly from page scan."
+      "teacherNotes": "Illustrated objects confirmed on source page 37-Rr (workbook page 37): rana, remo, Rita, rosa, rueda. Mapped directly from page scan.",
+      "sourcePage": "z-page-59.jpg"
     },
     {
       "id": "l17-p60-syllable-r",
@@ -3006,64 +2726,13 @@
       "assetRef": "cartilla/images/source/r/r-page-38.jpg",
       "assetRefSourcePage": "38-R inicial (workbook page 38)",
       "assetRefVerified": true,
-      "items": [
-        {
-          "id": "syl-ra",
-          "label": "ra"
-        },
-        {
-          "id": "syl-re",
-          "label": "re"
-        },
-        {
-          "id": "syl-ri",
-          "label": "ri"
-        },
-        {
-          "id": "syl-ro",
-          "label": "ro"
-        },
-        {
-          "id": "syl-ru",
-          "label": "ru"
-        }
-      ],
-      "targets": [
-        {
-          "id": "slot-ra",
-          "label": "ra",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-ra"
-        },
-        {
-          "id": "slot-re",
-          "label": "re",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-re"
-        },
-        {
-          "id": "slot-ri",
-          "label": "ri",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-ri"
-        },
-        {
-          "id": "slot-ro",
-          "label": "ro",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-ro"
-        },
-        {
-          "id": "slot-ru",
-          "label": "ru",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-ru"
-        }
-      ],
+      "items": [],
+      "targets": [],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "transcription verified from source page",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "source page image connected",
-      "teacherNotes": "Syllables ra/re/ri/ro/ru confirmed on source page 38-R inicial (workbook page 38). Slot coordinates not yet mapped."
+      "teacherNotes": "Syllables ra/re/ri/ro/ru confirmed on source page 38-R inicial (workbook page 38). Slot coordinates not yet mapped.",
+      "sourcePage": "z-page-60.jpg"
     },
     {
       "id": "l17-p60-sight-word-bien",
@@ -3075,17 +2744,13 @@
       "assetRef": "cartilla/images/source/r/r-page-38.jpg",
       "assetRefSourcePage": "38-R inicial (workbook page 38)",
       "assetRefVerified": true,
-      "items": [
-        {
-          "id": "sw-bien",
-          "label": "bien"
-        }
-      ],
+      "items": [],
       "targets": [],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "transcription verified from source page",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "source page image connected",
-      "teacherNotes": "Sight word 'bien' confirmed on source page 38-R inicial (workbook page 38): appears in the teal sight-word strip."
+      "teacherNotes": "Sight word 'bien' confirmed on source page 38-R inicial (workbook page 38): appears in the teal sight-word strip.",
+      "sourcePage": "z-page-60.jpg"
     },
     {
       "id": "l17-p60-mini-story-r",
@@ -3097,41 +2762,13 @@
       "assetRef": "cartilla/images/source/r/r-page-38.jpg",
       "assetRefSourcePage": "38-R inicial (workbook page 38)",
       "assetRefVerified": true,
-      "items": [
-        {
-          "id": "story-r-1",
-          "label": "La bola de Roberto rueda bien."
-        },
-        {
-          "id": "story-r-2",
-          "label": "Rolo patea la bola."
-        },
-        {
-          "id": "story-r-3",
-          "label": "La bola rueda y le da a un bolo."
-        },
-        {
-          "id": "story-r-4",
-          "label": "El bolo se rompe y Roberto se ríe."
-        },
-        {
-          "id": "story-r-5",
-          "label": "Rolo se ríe también."
-        },
-        {
-          "id": "story-r-6",
-          "label": "Rita le da al bolo. Rita se ríe."
-        },
-        {
-          "id": "story-r-7",
-          "label": "Rolo y Roberto se ríen también."
-        }
-      ],
+      "items": [],
       "targets": [],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "transcription verified from source page",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "source page image connected",
-      "teacherNotes": "Mini-story text transcribed directly from source page 38-R inicial (workbook page 38). Full page scan available as assetRef. Story characters: Roberto, Rolo, Rita. No 'La Rana Rosa'."
+      "teacherNotes": "Mini-story text transcribed directly from source page 38-R inicial (workbook page 38). Full page scan available as assetRef. Story characters: Roberto, Rolo, Rita. No 'La Rana Rosa'.",
+      "sourcePage": "z-page-60.jpg"
     },
     {
       "id": "l17-p61-poem-r",
@@ -3143,43 +2780,10 @@
       "assetRef": "cartilla/images/source/r/r-page-39.jpg",
       "assetRefSourcePage": "39-Rr (workbook page 39)",
       "assetRefVerified": true,
-      "items": [
-        {
-          "id": "poem-1",
-          "label": "La r para la rama"
-        },
-        {
-          "id": "poem-2",
-          "label": "para el roer del ratón"
-        },
-        {
-          "id": "poem-3",
-          "label": "y para el rabo del mono"
-        },
-        {
-          "id": "poem-4",
-          "label": "risueño y remolón."
-        },
-        {
-          "id": "poem-5",
-          "label": "Para la rueda redonda"
-        },
-        {
-          "id": "poem-6",
-          "label": "la risa de tío Rolo"
-        },
-        {
-          "id": "poem-7",
-          "label": "la rana, el remo, la rosa"
-        },
-        {
-          "id": "poem-8",
-          "label": "y la rosca de Manolo."
-        }
-      ],
+      "items": [],
       "targets": [],
-      "sourceStatus": "book-derived",
-      "transcriptionStatus": "OCR-assisted, needs review",
+      "sourceStatus": "missing-source",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "source page image connected",
       "teacherNotes": "Poem text transcribed directly from source page 39-Rr (workbook page 39). Full page scan available as assetRef."
     },
@@ -3190,31 +2794,10 @@
       "kind": "read-aloud",
       "title": "Lee en voz alta",
       "prompt": "Lee la sílaba en voz alta y toca el botón para escucharla también.",
-      "items": [
-        {
-          "id": "ra2-ra",
-          "label": "ra"
-        },
-        {
-          "id": "ra2-re",
-          "label": "re"
-        },
-        {
-          "id": "ra2-ri",
-          "label": "ri"
-        },
-        {
-          "id": "ra2-ro",
-          "label": "ro"
-        },
-        {
-          "id": "ra2-ru",
-          "label": "ru"
-        }
-      ],
+      "items": [],
       "targets": [],
-      "sourceStatus": "book-derived",
-      "transcriptionStatus": "transcription verified from source page",
+      "sourceStatus": "missing-source",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "object-level cutout pending",
       "teacherNotes": "Read-aloud of the r-syllable family. No art mapping required."
     },
@@ -3239,7 +2822,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Traza la letra y dibuja una palabra con r",
-      "teacherNotes": "Tracing activity for r"
+      "teacherNotes": "Tracing activity for r",
+      "sourcePage": "y-page-55.jpg"
     },
     {
       "id": "l18-pX-syllable-circle",
@@ -3314,7 +2898,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Encierra la sílaba correcta en cada palabra",
-      "teacherNotes": "Syllable circle for r"
+      "teacherNotes": "Syllable circle for r",
+      "sourcePage": "y-page-56.jpg"
     },
     {
       "id": "l18-pX-word-bank",
@@ -3357,7 +2942,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Toca cada palabra con r",
-      "teacherNotes": "Word bank for r"
+      "teacherNotes": "Word bank for r",
+      "sourcePage": "y-page-57.jpg"
     },
     {
       "id": "l18-pX-mini-story",
@@ -3388,7 +2974,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Mini-cuento en la página del cuaderno",
-      "teacherNotes": "Mini-story for r"
+      "teacherNotes": "Mini-story for r",
+      "sourcePage": "z-page-58.jpg"
     },
     {
       "id": "l18-pX-fill-in-blank",
@@ -3469,7 +3056,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Completa cada oración",
-      "teacherNotes": "Fill in the blank for r"
+      "teacherNotes": "Fill in the blank for r",
+      "sourcePage": "z-page-59.jpg"
     },
     {
       "id": "l19-pX-letter-tracing",
@@ -3492,7 +3080,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Traza la letra y dibuja una palabra con G",
-      "teacherNotes": "Tracing activity for G"
+      "teacherNotes": "Tracing activity for G",
+      "sourcePage": "z-page-58.jpg"
     },
     {
       "id": "l19-pX-syllable-circle",
@@ -3567,7 +3156,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Encierra la sílaba correcta en cada palabra",
-      "teacherNotes": "Syllable circle for G"
+      "teacherNotes": "Syllable circle for G",
+      "sourcePage": "z-page-59.jpg"
     },
     {
       "id": "l19-pX-word-bank",
@@ -3610,7 +3200,8 @@
       "sourceStatus": "book-derived",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Toca cada palabra con G",
-      "teacherNotes": "Word bank for G"
+      "teacherNotes": "Word bank for G",
+      "sourcePage": "z-page-60.jpg"
     },
     {
       "id": "l19-pX-mini-story",
@@ -3638,7 +3229,7 @@
         }
       ],
       "targets": [],
-      "sourceStatus": "book-derived",
+      "sourceStatus": "missing-source",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Mini-cuento en la página del cuaderno",
       "teacherNotes": "Mini-story for G"
@@ -3719,7 +3310,7 @@
           "fullWord": "goma"
         }
       ],
-      "sourceStatus": "book-derived",
+      "sourceStatus": "missing-source",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Completa cada oración",
       "teacherNotes": "Fill in the blank for G"
@@ -3742,7 +3333,7 @@
         }
       ],
       "targets": [],
-      "sourceStatus": "book-derived",
+      "sourceStatus": "missing-source",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Traza la letra y dibuja una palabra con F",
       "teacherNotes": "Tracing activity for F"
@@ -3817,7 +3408,7 @@
         "fino",
         "fila"
       ],
-      "sourceStatus": "book-derived",
+      "sourceStatus": "missing-source",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Encierra la sílaba correcta en cada palabra",
       "teacherNotes": "Syllable circle for F"
@@ -3860,7 +3451,7 @@
         }
       ],
       "targets": [],
-      "sourceStatus": "book-derived",
+      "sourceStatus": "missing-source",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Toca cada palabra con F",
       "teacherNotes": "Word bank for F"
@@ -3891,7 +3482,7 @@
         }
       ],
       "targets": [],
-      "sourceStatus": "book-derived",
+      "sourceStatus": "missing-source",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Mini-cuento en la página del cuaderno",
       "teacherNotes": "Mini-story for F"
@@ -3972,7 +3563,7 @@
           "fullWord": "faro"
         }
       ],
-      "sourceStatus": "book-derived",
+      "sourceStatus": "missing-source",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Completa cada oración",
       "teacherNotes": "Fill in the blank for F"
@@ -3987,62 +3578,10 @@
       "assetRef": "cartilla/images/source/j/j-page-49.jpg",
       "assetRefSourcePage": "49-Jj (workbook page 49)",
       "assetRefVerified": true,
-      "items": [
-        {
-          "id": "syl-ja",
-          "label": "ja"
-        },
-        {
-          "id": "syl-je",
-          "label": "je"
-        },
-        {
-          "id": "syl-ji",
-          "label": "ji"
-        },
-        {
-          "id": "syl-jo",
-          "label": "jo"
-        },
-        {
-          "id": "syl-ju",
-          "label": "ju"
-        }
-      ],
-      "targets": [
-        {
-          "id": "slot-ja",
-          "label": "ja",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-ja"
-        },
-        {
-          "id": "slot-je",
-          "label": "je",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-je"
-        },
-        {
-          "id": "slot-ji",
-          "label": "ji",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-ji"
-        },
-        {
-          "id": "slot-jo",
-          "label": "jo",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-jo"
-        },
-        {
-          "id": "slot-ju",
-          "label": "ju",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-ju"
-        }
-      ],
-      "sourceStatus": "book-derived",
-      "transcriptionStatus": "transcription verified from source page",
+      "items": [],
+      "targets": [],
+      "sourceStatus": "missing-source",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "source page image connected",
       "teacherNotes": "Syllables ja/je/ji/jo/ju are the standard J family from consonants.json. Verified as correct for this lesson. Slot coordinates not yet mapped to book page hotspots."
     },
@@ -4056,31 +3595,10 @@
       "assetRef": "cartilla/images/source/j/j-page-50.jpg",
       "assetRefSourcePage": "50-Jj (workbook page 50)",
       "assetRefVerified": true,
-      "items": [
-        {
-          "id": "w-julia",
-          "label": "Julia"
-        },
-        {
-          "id": "w-jorge",
-          "label": "Jorge"
-        },
-        {
-          "id": "w-jirafa",
-          "label": "jirafa"
-        },
-        {
-          "id": "w-jugo",
-          "label": "jugo"
-        },
-        {
-          "id": "w-jardín",
-          "label": "jardín"
-        }
-      ],
+      "items": [],
       "targets": [],
-      "sourceStatus": "book-derived",
-      "transcriptionStatus": "transcription verified from source page",
+      "sourceStatus": "missing-source",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "source page image connected",
       "teacherNotes": "Words from Lesson 21 sentences in consonants.json: Julia, Jorge, jirafa, jugo, jardín. Verified from source data. Additional words may appear in the scan."
     },
@@ -4094,31 +3612,10 @@
       "assetRef": "cartilla/images/source/j/j-page-50.jpg",
       "assetRefSourcePage": "50-Jj (workbook page 50)",
       "assetRefVerified": true,
-      "items": [
-        {
-          "id": "ra-ja",
-          "label": "ja"
-        },
-        {
-          "id": "ra-je",
-          "label": "je"
-        },
-        {
-          "id": "ra-ji",
-          "label": "ji"
-        },
-        {
-          "id": "ra-jo",
-          "label": "jo"
-        },
-        {
-          "id": "ra-ju",
-          "label": "ju"
-        }
-      ],
+      "items": [],
       "targets": [],
-      "sourceStatus": "book-derived",
-      "transcriptionStatus": "transcription verified from source page",
+      "sourceStatus": "missing-source",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "source page image connected",
       "teacherNotes": "Read-aloud of the J-syllable family. Syllables from consonants.json verified data."
     },
@@ -4134,8 +3631,8 @@
       "assetRefVerified": true,
       "items": [],
       "targets": [],
-      "sourceStatus": "needs-transcription",
-      "transcriptionStatus": "placeholder",
+      "sourceStatus": "missing-source",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "Cuento en la página del cuaderno — lee con tu maestro.",
       "teacherNotes": "Mini-story replaces palabras section in Lesson 21 (Jj) per bookFaithfulLessons. Text transcription pending manual verification from source scan. No OCR used."
     },
@@ -4149,19 +3646,10 @@
       "assetRef": "cartilla/images/source/j/j-page-51.jpg",
       "assetRefSourcePage": "51-Jj (workbook page 51)",
       "assetRefVerified": true,
-      "items": [
-        {
-          "id": "sent-j-1",
-          "label": "Julia juega con la jirafa."
-        },
-        {
-          "id": "sent-j-2",
-          "label": "Jorge toma jugo."
-        }
-      ],
+      "items": [],
       "targets": [],
-      "sourceStatus": "book-derived",
-      "transcriptionStatus": "transcription verified from source page",
+      "sourceStatus": "missing-source",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "source page image connected",
       "teacherNotes": "Sentences from consonants.json for Lesson 21 Jj. Verified source data."
     },
@@ -4175,62 +3663,10 @@
       "assetRef": "cartilla/images/source/c/c-page-52.jpg",
       "assetRefSourcePage": "52-Cc (workbook page 52)",
       "assetRefVerified": true,
-      "items": [
-        {
-          "id": "syl-ca",
-          "label": "ca"
-        },
-        {
-          "id": "syl-que",
-          "label": "que"
-        },
-        {
-          "id": "syl-qui",
-          "label": "qui"
-        },
-        {
-          "id": "syl-co",
-          "label": "co"
-        },
-        {
-          "id": "syl-cu",
-          "label": "cu"
-        }
-      ],
-      "targets": [
-        {
-          "id": "slot-ca",
-          "label": "ca",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-ca"
-        },
-        {
-          "id": "slot-que",
-          "label": "que",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-que"
-        },
-        {
-          "id": "slot-qui",
-          "label": "qui",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-qui"
-        },
-        {
-          "id": "slot-co",
-          "label": "co",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-co"
-        },
-        {
-          "id": "slot-cu",
-          "label": "cu",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-cu"
-        }
-      ],
-      "sourceStatus": "book-derived",
-      "transcriptionStatus": "transcription verified from source page",
+      "items": [],
+      "targets": [],
+      "sourceStatus": "missing-source",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "source page image connected",
       "teacherNotes": "Syllables ca/que/qui/co/cu are the standard C family from consonants.json. Verified as correct for this lesson. Slot coordinates not yet mapped to book page hotspots."
     },
@@ -4244,31 +3680,10 @@
       "assetRef": "cartilla/images/source/c/c-page-53.jpg",
       "assetRefSourcePage": "53-Cc (workbook page 53)",
       "assetRefVerified": true,
-      "items": [
-        {
-          "id": "w-cami",
-          "label": "Cami"
-        },
-        {
-          "id": "w-quique",
-          "label": "Quique"
-        },
-        {
-          "id": "w-queso",
-          "label": "queso"
-        },
-        {
-          "id": "w-casa",
-          "label": "casa"
-        },
-        {
-          "id": "w-cuchara",
-          "label": "cuchara"
-        }
-      ],
+      "items": [],
       "targets": [],
-      "sourceStatus": "book-derived",
-      "transcriptionStatus": "transcription verified from source page",
+      "sourceStatus": "missing-source",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "source page image connected",
       "teacherNotes": "Words from Lesson 22 Cc sentences in consonants.json: Cami, Quique, queso, casa, cuchara. Verified from source data."
     },
@@ -4282,31 +3697,10 @@
       "assetRef": "cartilla/images/source/c/c-page-53.jpg",
       "assetRefSourcePage": "53-Cc (workbook page 53)",
       "assetRefVerified": true,
-      "items": [
-        {
-          "id": "ra-ca",
-          "label": "ca"
-        },
-        {
-          "id": "ra-que",
-          "label": "que"
-        },
-        {
-          "id": "ra-qui",
-          "label": "qui"
-        },
-        {
-          "id": "ra-co",
-          "label": "co"
-        },
-        {
-          "id": "ra-cu",
-          "label": "cu"
-        }
-      ],
+      "items": [],
       "targets": [],
-      "sourceStatus": "book-derived",
-      "transcriptionStatus": "transcription verified from source page",
+      "sourceStatus": "missing-source",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "source page image connected",
       "teacherNotes": "Read-aloud of the C-syllable family. Syllables from consonants.json verified data."
     },
@@ -4322,8 +3716,8 @@
       "assetRefVerified": true,
       "items": [],
       "targets": [],
-      "sourceStatus": "needs-transcription",
-      "transcriptionStatus": "placeholder",
+      "sourceStatus": "missing-source",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "Cuento en la página del cuaderno — lee con tu maestro.",
       "teacherNotes": "Mini-story replaces palabras section in Lesson 22 (Cc) per bookFaithfulLessons. Text transcription pending manual verification from source scan. No OCR used."
     },
@@ -4337,19 +3731,10 @@
       "assetRef": "cartilla/images/source/c/c-page-54.jpg",
       "assetRefSourcePage": "54-Cc (workbook page 54)",
       "assetRefVerified": true,
-      "items": [
-        {
-          "id": "sent-c-1",
-          "label": "Cami come queso en la casa."
-        },
-        {
-          "id": "sent-c-2",
-          "label": "Quique quiere una cuchara."
-        }
-      ],
+      "items": [],
       "targets": [],
-      "sourceStatus": "book-derived",
-      "transcriptionStatus": "transcription verified from source page",
+      "sourceStatus": "missing-source",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "source page image connected",
       "teacherNotes": "Sentences from consonants.json for Lesson 22 Cc. Verified source data."
     },
@@ -4363,62 +3748,10 @@
       "assetRef": "cartilla/images/source/y/y-page-55.jpg",
       "assetRefSourcePage": "55-Yy (workbook page 55)",
       "assetRefVerified": true,
-      "items": [
-        {
-          "id": "syl-ya",
-          "label": "ya"
-        },
-        {
-          "id": "syl-ye",
-          "label": "ye"
-        },
-        {
-          "id": "syl-yi",
-          "label": "yi"
-        },
-        {
-          "id": "syl-yo",
-          "label": "yo"
-        },
-        {
-          "id": "syl-yu",
-          "label": "yu"
-        }
-      ],
-      "targets": [
-        {
-          "id": "slot-ya",
-          "label": "ya",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-ya"
-        },
-        {
-          "id": "slot-ye",
-          "label": "ye",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-ye"
-        },
-        {
-          "id": "slot-yi",
-          "label": "yi",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-yi"
-        },
-        {
-          "id": "slot-yo",
-          "label": "yo",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-yo"
-        },
-        {
-          "id": "slot-yu",
-          "label": "yu",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-yu"
-        }
-      ],
-      "sourceStatus": "book-derived",
-      "transcriptionStatus": "transcription verified from source page",
+      "items": [],
+      "targets": [],
+      "sourceStatus": "missing-source",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "source page image connected",
       "teacherNotes": "Syllables ya/ye/yi/yo/yu are the standard Y family from consonants.json. Verified as correct for this lesson. Slot coordinates not yet mapped to book page hotspots."
     },
@@ -4432,23 +3765,10 @@
       "assetRef": "cartilla/images/source/y/y-page-56.jpg",
       "assetRefSourcePage": "56-Yy (workbook page 56)",
       "assetRefVerified": true,
-      "items": [
-        {
-          "id": "w-yoli",
-          "label": "Yoli"
-        },
-        {
-          "id": "w-yogur",
-          "label": "yogur"
-        },
-        {
-          "id": "w-yoyo",
-          "label": "yoyo"
-        }
-      ],
+      "items": [],
       "targets": [],
-      "sourceStatus": "book-derived",
-      "transcriptionStatus": "transcription verified from source page",
+      "sourceStatus": "missing-source",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "source page image connected",
       "teacherNotes": "Words from Lesson 23 Yy sentences in consonants.json: Yoli, yogur, yoyo. Verified from source data."
     },
@@ -4462,31 +3782,10 @@
       "assetRef": "cartilla/images/source/y/y-page-56.jpg",
       "assetRefSourcePage": "56-Yy (workbook page 56)",
       "assetRefVerified": true,
-      "items": [
-        {
-          "id": "ra-ya",
-          "label": "ya"
-        },
-        {
-          "id": "ra-ye",
-          "label": "ye"
-        },
-        {
-          "id": "ra-yi",
-          "label": "yi"
-        },
-        {
-          "id": "ra-yo",
-          "label": "yo"
-        },
-        {
-          "id": "ra-yu",
-          "label": "yu"
-        }
-      ],
+      "items": [],
       "targets": [],
-      "sourceStatus": "book-derived",
-      "transcriptionStatus": "transcription verified from source page",
+      "sourceStatus": "missing-source",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "source page image connected",
       "teacherNotes": "Read-aloud of the Y-syllable family. Syllables from consonants.json verified data."
     },
@@ -4502,8 +3801,8 @@
       "assetRefVerified": true,
       "items": [],
       "targets": [],
-      "sourceStatus": "needs-transcription",
-      "transcriptionStatus": "placeholder",
+      "sourceStatus": "missing-source",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "Cuento en la página del cuaderno — lee con tu maestro.",
       "teacherNotes": "Mini-story replaces palabras section in Lesson 23 (Yy) per bookFaithfulLessons. Text transcription pending manual verification from source scan. No OCR used."
     },
@@ -4517,19 +3816,10 @@
       "assetRef": "cartilla/images/source/y/y-page-57.jpg",
       "assetRefSourcePage": "57-Yy (workbook page 57)",
       "assetRefVerified": true,
-      "items": [
-        {
-          "id": "sent-y-1",
-          "label": "Yo tomo yogur."
-        },
-        {
-          "id": "sent-y-2",
-          "label": "Yoli juega con el yoyo."
-        }
-      ],
+      "items": [],
       "targets": [],
-      "sourceStatus": "book-derived",
-      "transcriptionStatus": "transcription verified from source page",
+      "sourceStatus": "missing-source",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "source page image connected",
       "teacherNotes": "Sentences from consonants.json for Lesson 23 Yy. Verified source data."
     },
@@ -4543,62 +3833,10 @@
       "assetRef": "cartilla/images/source/z/z-page-58.jpg",
       "assetRefSourcePage": "58-Zz (workbook page 58)",
       "assetRefVerified": true,
-      "items": [
-        {
-          "id": "syl-za",
-          "label": "za"
-        },
-        {
-          "id": "syl-ce",
-          "label": "ce"
-        },
-        {
-          "id": "syl-ci",
-          "label": "ci"
-        },
-        {
-          "id": "syl-zo",
-          "label": "zo"
-        },
-        {
-          "id": "syl-zu",
-          "label": "zu"
-        }
-      ],
-      "targets": [
-        {
-          "id": "slot-za",
-          "label": "za",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-za"
-        },
-        {
-          "id": "slot-ce",
-          "label": "ce",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-ce"
-        },
-        {
-          "id": "slot-ci",
-          "label": "ci",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-ci"
-        },
-        {
-          "id": "slot-zo",
-          "label": "zo",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-zo"
-        },
-        {
-          "id": "slot-zu",
-          "label": "zu",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-zu"
-        }
-      ],
-      "sourceStatus": "book-derived",
-      "transcriptionStatus": "transcription verified from source page",
+      "items": [],
+      "targets": [],
+      "sourceStatus": "missing-source",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "source page image connected",
       "teacherNotes": "Syllables za/ce/ci/zo/zu are the standard Z family from consonants.json. Verified as correct for this lesson. Slot coordinates not yet mapped to book page hotspots."
     },
@@ -4612,27 +3850,10 @@
       "assetRef": "cartilla/images/source/z/z-page-59.jpg",
       "assetRefSourcePage": "59-Zz (workbook page 59)",
       "assetRefVerified": true,
-      "items": [
-        {
-          "id": "w-zorro",
-          "label": "zorro"
-        },
-        {
-          "id": "w-zanahoria",
-          "label": "zanahoria"
-        },
-        {
-          "id": "w-cecilia",
-          "label": "Cecilia"
-        },
-        {
-          "id": "w-zumo",
-          "label": "zumo"
-        }
-      ],
+      "items": [],
       "targets": [],
-      "sourceStatus": "book-derived",
-      "transcriptionStatus": "transcription verified from source page",
+      "sourceStatus": "missing-source",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "source page image connected",
       "teacherNotes": "Words from Lesson 24 Zz sentences in consonants.json: zorro, zanahoria, Cecilia, zumo. Verified from source data."
     },
@@ -4646,31 +3867,10 @@
       "assetRef": "cartilla/images/source/z/z-page-59.jpg",
       "assetRefSourcePage": "59-Zz (workbook page 59)",
       "assetRefVerified": true,
-      "items": [
-        {
-          "id": "ra-za",
-          "label": "za"
-        },
-        {
-          "id": "ra-ce",
-          "label": "ce"
-        },
-        {
-          "id": "ra-ci",
-          "label": "ci"
-        },
-        {
-          "id": "ra-zo",
-          "label": "zo"
-        },
-        {
-          "id": "ra-zu",
-          "label": "zu"
-        }
-      ],
+      "items": [],
       "targets": [],
-      "sourceStatus": "book-derived",
-      "transcriptionStatus": "transcription verified from source page",
+      "sourceStatus": "missing-source",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "source page image connected",
       "teacherNotes": "Read-aloud of the Z-syllable family. Syllables from consonants.json verified data."
     },
@@ -4686,8 +3886,8 @@
       "assetRefVerified": true,
       "items": [],
       "targets": [],
-      "sourceStatus": "needs-transcription",
-      "transcriptionStatus": "placeholder",
+      "sourceStatus": "missing-source",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "Cuento en la página del cuaderno — lee con tu maestro.",
       "teacherNotes": "Final lesson mini-story in Lesson 24 (Zz). Text transcription pending manual verification from source scan. This is the closing story of the book."
     },
@@ -4701,19 +3901,10 @@
       "assetRef": "cartilla/images/source/z/z-page-60.jpg",
       "assetRefSourcePage": "60-Zz (workbook page 60)",
       "assetRefVerified": true,
-      "items": [
-        {
-          "id": "sent-z-1",
-          "label": "El zorro come zanahoria."
-        },
-        {
-          "id": "sent-z-2",
-          "label": "Cecilia toma zumo."
-        }
-      ],
+      "items": [],
       "targets": [],
-      "sourceStatus": "book-derived",
-      "transcriptionStatus": "transcription verified from source page",
+      "sourceStatus": "missing-source",
+      "transcriptionStatus": "needs-review",
       "studentFacingStatus": "source page image connected",
       "teacherNotes": "Sentences from consonants.json for Lesson 24 Zz (final lesson). Verified source data."
     },
