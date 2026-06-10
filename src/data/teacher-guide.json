@@ -17,7 +17,13 @@
       "assessment": "",
       "needsReview": true,
       "poem": [],
-      "id": 1
+      "id": 1,
+      "pages": [
+        1,
+        2,
+        3,
+        4
+      ]
     },
     {
       "lesson": 2,
@@ -32,7 +38,13 @@
       "assessment": "",
       "needsReview": true,
       "poem": [],
-      "id": 2
+      "id": 2,
+      "pages": [
+        5,
+        6,
+        7,
+        8
+      ]
     },
     {
       "lesson": 3,
@@ -47,7 +59,13 @@
       "assessment": "",
       "needsReview": true,
       "poem": [],
-      "id": 3
+      "id": 3,
+      "pages": [
+        9,
+        10,
+        11,
+        12
+      ]
     },
     {
       "lesson": 4,
@@ -62,7 +80,13 @@
       "assessment": "",
       "needsReview": true,
       "poem": [],
-      "id": 4
+      "id": 4,
+      "pages": [
+        13,
+        14,
+        15,
+        16
+      ]
     },
     {
       "lesson": 5,
@@ -77,7 +101,13 @@
       "assessment": "",
       "needsReview": true,
       "poem": [],
-      "id": 5
+      "id": 5,
+      "pages": [
+        17,
+        18,
+        19,
+        20
+      ]
     },
     {
       "lesson": 6,
@@ -92,7 +122,13 @@
       "assessment": "",
       "needsReview": true,
       "poem": [],
-      "id": 6
+      "id": 6,
+      "pages": [
+        21,
+        22,
+        23,
+        24
+      ]
     },
     {
       "lesson": 7,
@@ -107,7 +143,13 @@
       "assessment": "",
       "needsReview": true,
       "poem": [],
-      "id": 7
+      "id": 7,
+      "pages": [
+        25,
+        26,
+        27,
+        28
+      ]
     },
     {
       "lesson": 8,
@@ -122,7 +164,13 @@
       "assessment": "",
       "needsReview": true,
       "poem": [],
-      "id": 8
+      "id": 8,
+      "pages": [
+        29,
+        30,
+        31,
+        32
+      ]
     },
     {
       "lesson": 9,
@@ -137,7 +185,13 @@
       "assessment": "",
       "needsReview": true,
       "poem": [],
-      "id": 9
+      "id": 9,
+      "pages": [
+        33,
+        34,
+        35,
+        36
+      ]
     },
     {
       "lesson": 10,
@@ -152,7 +206,13 @@
       "assessment": "",
       "needsReview": true,
       "poem": [],
-      "id": 10
+      "id": 10,
+      "pages": [
+        37,
+        38,
+        39,
+        40
+      ]
     },
     {
       "lesson": 11,
@@ -167,7 +227,13 @@
       "assessment": "",
       "needsReview": true,
       "poem": [],
-      "id": 11
+      "id": 11,
+      "pages": [
+        41,
+        42,
+        43,
+        44
+      ]
     },
     {
       "lesson": 12,
@@ -182,7 +248,13 @@
       "assessment": "",
       "needsReview": true,
       "poem": [],
-      "id": 12
+      "id": 12,
+      "pages": [
+        45,
+        46,
+        47,
+        48
+      ]
     },
     {
       "lesson": 13,
@@ -197,7 +269,13 @@
       "assessment": "",
       "needsReview": true,
       "poem": [],
-      "id": 13
+      "id": 13,
+      "pages": [
+        49,
+        50,
+        51,
+        52
+      ]
     },
     {
       "lesson": 14,
@@ -212,7 +290,13 @@
       "assessment": "",
       "needsReview": true,
       "poem": [],
-      "id": 14
+      "id": 14,
+      "pages": [
+        53,
+        54,
+        55,
+        56
+      ]
     },
     {
       "lesson": 15,
@@ -227,7 +311,13 @@
       "assessment": "",
       "needsReview": true,
       "poem": [],
-      "id": 15
+      "id": 15,
+      "pages": [
+        57,
+        58,
+        59,
+        60
+      ]
     },
     {
       "lesson": 16,
@@ -238,7 +328,13 @@
       "assessment": "",
       "needsReview": true,
       "poem": [],
-      "id": 16
+      "id": 16,
+      "pages": [
+        61,
+        62,
+        63,
+        64
+      ]
     },
     {
       "lesson": 17,
@@ -249,7 +345,13 @@
       "assessment": "",
       "needsReview": true,
       "poem": [],
-      "id": 17
+      "id": 17,
+      "pages": [
+        65,
+        66,
+        67,
+        68
+      ]
     },
     {
       "lesson": 18,
@@ -260,7 +362,13 @@
       "assessment": "",
       "needsReview": true,
       "poem": [],
-      "id": 18
+      "id": 18,
+      "pages": [
+        69,
+        70,
+        71,
+        72
+      ]
     },
     {
       "lesson": 19,
@@ -271,7 +379,13 @@
       "assessment": "",
       "needsReview": true,
       "poem": [],
-      "id": 19
+      "id": 19,
+      "pages": [
+        73,
+        74,
+        75,
+        76
+      ]
     },
     {
       "lesson": 20,
@@ -282,7 +396,13 @@
       "assessment": "",
       "needsReview": true,
       "poem": [],
-      "id": 20
+      "id": 20,
+      "pages": [
+        77,
+        78,
+        79,
+        80
+      ]
     },
     {
       "lesson": 21,
@@ -293,7 +413,13 @@
       "assessment": "",
       "needsReview": true,
       "poem": [],
-      "id": 21
+      "id": 21,
+      "pages": [
+        81,
+        82,
+        83,
+        84
+      ]
     },
     {
       "lesson": 22,
@@ -304,7 +430,13 @@
       "assessment": "",
       "needsReview": true,
       "poem": [],
-      "id": 22
+      "id": 22,
+      "pages": [
+        85,
+        86,
+        87,
+        88
+      ]
     },
     {
       "lesson": 23,
@@ -315,7 +447,13 @@
       "assessment": "",
       "needsReview": true,
       "poem": [],
-      "id": 23
+      "id": 23,
+      "pages": [
+        89,
+        90,
+        91,
+        92
+      ]
     },
     {
       "lesson": 24,
@@ -326,7 +464,8 @@
       "assessment": "",
       "needsReview": true,
       "poem": [],
-      "id": 24
+      "id": 24,
+      "pages": []
     }
   ]
 }
