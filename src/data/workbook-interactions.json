@@ -1,6 +1,20 @@
 {
   "interactions": [
     {
+      "id": "l1-placeholder",
+      "lessonNumber": 1,
+      "pageNumber": null,
+      "kind": "",
+      "title": "",
+      "prompt": "",
+      "items": [],
+      "targets": [],
+      "sourceStatus": "missing",
+      "transcriptionStatus": "pending",
+      "studentFacingStatus": "pending",
+      "teacherNotes": ""
+    },
+    {
       "id": "l2-p4-drag-word-o",
       "lessonNumber": 2,
       "pageNumber": 4,
@@ -69,6 +83,34 @@
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Actividad interactiva",
       "teacherNotes": "Vocal U lesson - drag and drop word building activity"
+    },
+    {
+      "id": "l7-placeholder",
+      "lessonNumber": 7,
+      "pageNumber": null,
+      "kind": "",
+      "title": "",
+      "prompt": "",
+      "items": [],
+      "targets": [],
+      "sourceStatus": "missing",
+      "transcriptionStatus": "pending",
+      "studentFacingStatus": "pending",
+      "teacherNotes": ""
+    },
+    {
+      "id": "l8-placeholder",
+      "lessonNumber": 8,
+      "pageNumber": null,
+      "kind": "",
+      "title": "",
+      "prompt": "",
+      "items": [],
+      "targets": [],
+      "sourceStatus": "missing",
+      "transcriptionStatus": "pending",
+      "studentFacingStatus": "pending",
+      "teacherNotes": ""
     },
     {
       "id": "l9-p27-word-reveal",
@@ -375,6 +417,274 @@
       "teacherNotes": "Read-aloud of the s-syllable family. No art mapping required."
     },
     {
+      "id": "l10-placeholder",
+      "lessonNumber": 10,
+      "pageNumber": null,
+      "kind": "",
+      "title": "",
+      "prompt": "",
+      "items": [],
+      "targets": [],
+      "sourceStatus": "missing",
+      "transcriptionStatus": "pending",
+      "studentFacingStatus": "pending",
+      "teacherNotes": ""
+    },
+    {
+      "id": "l11-placeholder",
+      "lessonNumber": 11,
+      "pageNumber": null,
+      "kind": "",
+      "title": "",
+      "prompt": "",
+      "items": [],
+      "targets": [],
+      "sourceStatus": "missing",
+      "transcriptionStatus": "pending",
+      "studentFacingStatus": "pending",
+      "teacherNotes": ""
+    },
+    {
+      "id": "l12-placeholder",
+      "lessonNumber": 12,
+      "pageNumber": null,
+      "kind": "",
+      "title": "",
+      "prompt": "",
+      "items": [],
+      "targets": [],
+      "sourceStatus": "missing",
+      "transcriptionStatus": "pending",
+      "studentFacingStatus": "pending",
+      "teacherNotes": ""
+    },
+    {
+      "id": "l13-placeholder",
+      "lessonNumber": 13,
+      "pageNumber": null,
+      "kind": "",
+      "title": "",
+      "prompt": "",
+      "items": [],
+      "targets": [],
+      "sourceStatus": "missing",
+      "transcriptionStatus": "pending",
+      "studentFacingStatus": "pending",
+      "teacherNotes": ""
+    },
+    {
+      "id": "l14-p47-syllable-n",
+      "lessonNumber": 14,
+      "pageNumber": 47,
+      "kind": "drag-syllable-to-slot",
+      "title": "Sílabas con Ñ",
+      "prompt": "Toca cada sílaba para escucharla. Repite en voz alta.",
+      "assetRef": "cartilla/images/source/ñ/ñ-page-28.jpg",
+      "assetRefSourcePage": "28-Ññ (workbook page 28)",
+      "assetRefVerified": true,
+      "items": [
+        {
+          "id": "syl-ña",
+          "label": "ña"
+        },
+        {
+          "id": "syl-ñe",
+          "label": "ñe"
+        },
+        {
+          "id": "syl-ñi",
+          "label": "ñi"
+        },
+        {
+          "id": "syl-ño",
+          "label": "ño"
+        },
+        {
+          "id": "syl-ñu",
+          "label": "ñu"
+        }
+      ],
+      "targets": [
+        {
+          "id": "slot-ña",
+          "label": "ña",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ña"
+        },
+        {
+          "id": "slot-ñe",
+          "label": "ñe",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ñe"
+        },
+        {
+          "id": "slot-ñi",
+          "label": "ñi",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ñi"
+        },
+        {
+          "id": "slot-ño",
+          "label": "ño",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ño"
+        },
+        {
+          "id": "slot-ñu",
+          "label": "ñu",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ñu"
+        }
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "transcription verified from source page",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Syllables ña/ñe/ñi/ño/ñu are the standard Ñ family from consonants.json. Verified as correct for this lesson. Slot coordinates not yet mapped to book page hotspots."
+    },
+    {
+      "id": "l14-p48-words-n",
+      "lessonNumber": 14,
+      "pageNumber": 48,
+      "kind": "listen-and-tap",
+      "title": "Palabras con Ñ",
+      "prompt": "Toca cada palabra para escucharla.",
+      "assetRef": "cartilla/images/source/ñ/ñ-page-29.jpg",
+      "assetRefSourcePage": "29-Ññ (workbook page 29)",
+      "assetRefVerified": true,
+      "items": [
+        {
+          "id": "w-niño",
+          "label": "niño"
+        },
+        {
+          "id": "w-piña",
+          "label": "piña"
+        },
+        {
+          "id": "w-moño",
+          "label": "moño"
+        },
+        {
+          "id": "w-uña",
+          "label": "uña"
+        },
+        {
+          "id": "w-leña",
+          "label": "leña"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "transcription verified from source page",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Words with ñ from consonants.json examples. niño, piña, moño, uña, leña are standard ñ-lesson vocabulary confirmed in source data."
+    },
+    {
+      "id": "l14-p48-sight-word-del",
+      "lessonNumber": 14,
+      "pageNumber": 48,
+      "kind": "listen-and-tap",
+      "title": "Palabras a simple vista",
+      "prompt": "Escucha y toca cada palabra.",
+      "assetRef": "cartilla/images/source/ñ/ñ-page-29.jpg",
+      "assetRefSourcePage": "29-Ññ (workbook page 29)",
+      "assetRefVerified": true,
+      "items": [
+        {
+          "id": "sw-del",
+          "label": "del"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "transcription verified from source page",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Sight word 'del' (contraction de+el) is the verified sight word for Lesson 14 per bookFaithfulLessons data."
+    },
+    {
+      "id": "l14-p49-read-aloud",
+      "lessonNumber": 14,
+      "pageNumber": 49,
+      "kind": "read-aloud",
+      "title": "Lee en voz alta — sílabas con Ñ",
+      "prompt": "Toca cada sílaba y léela en voz alta.",
+      "assetRef": "cartilla/images/source/ñ/ñ-page-29.jpg",
+      "assetRefSourcePage": "29-Ññ (workbook page 29)",
+      "assetRefVerified": true,
+      "items": [
+        {
+          "id": "ra-ña",
+          "label": "ña"
+        },
+        {
+          "id": "ra-ñe",
+          "label": "ñe"
+        },
+        {
+          "id": "ra-ñi",
+          "label": "ñi"
+        },
+        {
+          "id": "ra-ño",
+          "label": "ño"
+        },
+        {
+          "id": "ra-ñu",
+          "label": "ñu"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "transcription verified from source page",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Read-aloud of the Ñ-syllable family. Syllables from consonants.json verified data."
+    },
+    {
+      "id": "l14-p50-mini-story",
+      "lessonNumber": 14,
+      "pageNumber": 50,
+      "kind": "mini-story",
+      "title": "Cuento con Ñ",
+      "prompt": "Lee el cuento del cuaderno con tu maestro.",
+      "assetRef": "cartilla/images/source/ñ/ñ-page-30.jpg",
+      "assetRefSourcePage": "30-Ññ (workbook page 30)",
+      "assetRefVerified": true,
+      "items": [],
+      "targets": [],
+      "sourceStatus": "needs-transcription",
+      "transcriptionStatus": "placeholder",
+      "studentFacingStatus": "Cuento en la página del cuaderno — lee con tu maestro.",
+      "teacherNotes": "Mini-story on source page 30-Ññ. Text transcription pending manual verification from scan. No OCR used."
+    },
+    {
+      "id": "l15-placeholder",
+      "lessonNumber": 15,
+      "pageNumber": null,
+      "kind": "",
+      "title": "",
+      "prompt": "",
+      "items": [],
+      "targets": [],
+      "sourceStatus": "missing",
+      "transcriptionStatus": "pending",
+      "studentFacingStatus": "pending",
+      "teacherNotes": ""
+    },
+    {
+      "id": "l16-placeholder",
+      "lessonNumber": 16,
+      "pageNumber": null,
+      "kind": "",
+      "title": "",
+      "prompt": "",
+      "items": [],
+      "targets": [],
+      "sourceStatus": "missing",
+      "transcriptionStatus": "pending",
+      "studentFacingStatus": "pending",
+      "teacherNotes": ""
+    },
+    {
       "id": "l17-p59-word-reveal-r",
       "lessonNumber": 17,
       "pageNumber": 59,
@@ -666,188 +976,46 @@
       "teacherNotes": "Read-aloud of the r-syllable family. No art mapping required."
     },
     {
-      "id": "l14-p47-syllable-n",
-      "lessonNumber": 14,
-      "pageNumber": 47,
-      "kind": "drag-syllable-to-slot",
-      "title": "Sílabas con Ñ",
-      "prompt": "Toca cada sílaba para escucharla. Repite en voz alta.",
-      "assetRef": "cartilla/images/source/ñ/ñ-page-28.jpg",
-      "assetRefSourcePage": "28-Ññ (workbook page 28)",
-      "assetRefVerified": true,
-      "items": [
-        {
-          "id": "syl-ña",
-          "label": "ña"
-        },
-        {
-          "id": "syl-ñe",
-          "label": "ñe"
-        },
-        {
-          "id": "syl-ñi",
-          "label": "ñi"
-        },
-        {
-          "id": "syl-ño",
-          "label": "ño"
-        },
-        {
-          "id": "syl-ñu",
-          "label": "ñu"
-        }
-      ],
-      "targets": [
-        {
-          "id": "slot-ña",
-          "label": "ña",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-ña"
-        },
-        {
-          "id": "slot-ñe",
-          "label": "ñe",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-ñe"
-        },
-        {
-          "id": "slot-ñi",
-          "label": "ñi",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-ñi"
-        },
-        {
-          "id": "slot-ño",
-          "label": "ño",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-ño"
-        },
-        {
-          "id": "slot-ñu",
-          "label": "ñu",
-          "coordinatesVerified": false,
-          "acceptsItemId": "syl-ñu"
-        }
-      ],
-      "sourceStatus": "book-derived",
-      "transcriptionStatus": "transcription verified from source page",
-      "studentFacingStatus": "source page image connected",
-      "teacherNotes": "Syllables ña/ñe/ñi/ño/ñu are the standard Ñ family from consonants.json. Verified as correct for this lesson. Slot coordinates not yet mapped to book page hotspots."
-    },
-    {
-      "id": "l14-p48-words-n",
-      "lessonNumber": 14,
-      "pageNumber": 48,
-      "kind": "listen-and-tap",
-      "title": "Palabras con Ñ",
-      "prompt": "Toca cada palabra para escucharla.",
-      "assetRef": "cartilla/images/source/ñ/ñ-page-29.jpg",
-      "assetRefSourcePage": "29-Ññ (workbook page 29)",
-      "assetRefVerified": true,
-      "items": [
-        {
-          "id": "w-niño",
-          "label": "niño"
-        },
-        {
-          "id": "w-piña",
-          "label": "piña"
-        },
-        {
-          "id": "w-moño",
-          "label": "moño"
-        },
-        {
-          "id": "w-uña",
-          "label": "uña"
-        },
-        {
-          "id": "w-leña",
-          "label": "leña"
-        }
-      ],
-      "targets": [],
-      "sourceStatus": "book-derived",
-      "transcriptionStatus": "transcription verified from source page",
-      "studentFacingStatus": "source page image connected",
-      "teacherNotes": "Words with ñ from consonants.json examples. niño, piña, moño, uña, leña are standard ñ-lesson vocabulary confirmed in source data."
-    },
-    {
-      "id": "l14-p48-sight-word-del",
-      "lessonNumber": 14,
-      "pageNumber": 48,
-      "kind": "listen-and-tap",
-      "title": "Palabras a simple vista",
-      "prompt": "Escucha y toca cada palabra.",
-      "assetRef": "cartilla/images/source/ñ/ñ-page-29.jpg",
-      "assetRefSourcePage": "29-Ññ (workbook page 29)",
-      "assetRefVerified": true,
-      "items": [
-        {
-          "id": "sw-del",
-          "label": "del"
-        }
-      ],
-      "targets": [],
-      "sourceStatus": "book-derived",
-      "transcriptionStatus": "transcription verified from source page",
-      "studentFacingStatus": "source page image connected",
-      "teacherNotes": "Sight word 'del' (contraction de+el) is the verified sight word for Lesson 14 per bookFaithfulLessons data."
-    },
-    {
-      "id": "l14-p49-read-aloud",
-      "lessonNumber": 14,
-      "pageNumber": 49,
-      "kind": "read-aloud",
-      "title": "Lee en voz alta — sílabas con Ñ",
-      "prompt": "Toca cada sílaba y léela en voz alta.",
-      "assetRef": "cartilla/images/source/ñ/ñ-page-29.jpg",
-      "assetRefSourcePage": "29-Ññ (workbook page 29)",
-      "assetRefVerified": true,
-      "items": [
-        {
-          "id": "ra-ña",
-          "label": "ña"
-        },
-        {
-          "id": "ra-ñe",
-          "label": "ñe"
-        },
-        {
-          "id": "ra-ñi",
-          "label": "ñi"
-        },
-        {
-          "id": "ra-ño",
-          "label": "ño"
-        },
-        {
-          "id": "ra-ñu",
-          "label": "ñu"
-        }
-      ],
-      "targets": [],
-      "sourceStatus": "book-derived",
-      "transcriptionStatus": "transcription verified from source page",
-      "studentFacingStatus": "source page image connected",
-      "teacherNotes": "Read-aloud of the Ñ-syllable family. Syllables from consonants.json verified data."
-    },
-    {
-      "id": "l14-p50-mini-story",
-      "lessonNumber": 14,
-      "pageNumber": 50,
-      "kind": "mini-story",
-      "title": "Cuento con Ñ",
-      "prompt": "Lee el cuento del cuaderno con tu maestro.",
-      "assetRef": "cartilla/images/source/ñ/ñ-page-30.jpg",
-      "assetRefSourcePage": "30-Ññ (workbook page 30)",
-      "assetRefVerified": true,
+      "id": "l18-placeholder",
+      "lessonNumber": 18,
+      "pageNumber": null,
+      "kind": "",
+      "title": "",
+      "prompt": "",
       "items": [],
       "targets": [],
-      "sourceStatus": "needs-transcription",
-      "transcriptionStatus": "placeholder",
-      "studentFacingStatus": "Cuento en la página del cuaderno — lee con tu maestro.",
-      "teacherNotes": "Mini-story on source page 30-Ññ. Text transcription pending manual verification from scan. No OCR used."
+      "sourceStatus": "missing",
+      "transcriptionStatus": "pending",
+      "studentFacingStatus": "pending",
+      "teacherNotes": ""
+    },
+    {
+      "id": "l19-placeholder",
+      "lessonNumber": 19,
+      "pageNumber": null,
+      "kind": "",
+      "title": "",
+      "prompt": "",
+      "items": [],
+      "targets": [],
+      "sourceStatus": "missing",
+      "transcriptionStatus": "pending",
+      "studentFacingStatus": "pending",
+      "teacherNotes": ""
+    },
+    {
+      "id": "l20-placeholder",
+      "lessonNumber": 20,
+      "pageNumber": null,
+      "kind": "",
+      "title": "",
+      "prompt": "",
+      "items": [],
+      "targets": [],
+      "sourceStatus": "missing",
+      "transcriptionStatus": "pending",
+      "studentFacingStatus": "pending",
+      "teacherNotes": ""
     },
     {
       "id": "l21-p75-syllable-j",
