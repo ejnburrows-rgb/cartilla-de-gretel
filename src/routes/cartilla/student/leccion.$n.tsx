@@ -17,6 +17,7 @@ import { CATALOG, TOTAL_LESSONS, type CatalogEntry } from "@/lib/lesson-catalog"
 import { useLessonProgress, isLessonUnlocked, markLessonCompleted } from "@/lib/lesson-progress";
 import { recordEvent, useStudentSession } from "@/lib/student-session";
 import interactionsData from "@/data/workbook-interactions.json";
+import teacherGuideData from "@/data/teacher-guide.json";
 import { PdfPage } from "@/components/cartilla/PdfPage";
 import { FlipBook } from "@/components/cartilla/FlipBook";
 import { OfflineBadge } from "@/components/cartilla/OfflineBadge";
@@ -58,6 +59,8 @@ function Leccion() {
   const { isCompleted } = useLessonProgress();
   const session = useStudentSession();
   const entry = useMemo<CatalogEntry | undefined>(() => CATALOG.find((e) => e.n === n), [n]);
+  const guideLesson = useMemo(() => teacherGuideData.lessons.find((l) => l.lesson === n), [n]);
+  const lessonPages = guideLesson?.pages || [];
   const [showModal, setShowModal] = useState(false);
 
   const poemInteraction = useMemo(() => {
@@ -349,6 +352,28 @@ function Leccion() {
           timeLimitSeconds={assignment?.time_limit_seconds ?? null}
           onAllCompleted={() => setShowModal(true)}
         />
+
+        {lessonPages.length > 0 && (
+          <section aria-label="Páginas del libro de trabajo" className="w-full mt-12 mb-8 mx-auto sm:max-w-[680px]">
+            <h2 className="text-3xl font-bold mb-6 text-center" style={activeColorStyle}>Páginas del libro</h2>
+            <div className="flex flex-col gap-8 w-full">
+              {lessonPages.map((pageNumber: number) => {
+                const pad = String(pageNumber).padStart(3, "0");
+                return (
+                  <img
+                    key={pageNumber}
+                    src={`/cartilla/art/hd/workbook/page-${pad}.jpg`}
+                    alt={`Página ${pageNumber} — Lección ${n}`}
+                    loading="lazy"
+                    width={2550}
+                    height={3301}
+                    className="w-full h-auto rounded-xl shadow-lg border border-black/10"
+                  />
+                );
+              })}
+            </div>
+          </section>
+        )}
 
         {done && (
           <div className="inline-flex items-center gap-2 text-sm font-bold text-success">
