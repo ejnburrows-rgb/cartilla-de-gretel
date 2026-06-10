@@ -948,10 +948,23 @@
       "assetRef": "cartilla/images/source/ss/ss-page-14.jpg",
       "assetRefSourcePage": "14-Ss (workbook page 13)",
       "assetRefVerified": true,
-      "items": [],
+      "items": [
+        {
+          "id": "w-sopa",
+          "label": "sopa"
+        },
+        {
+          "id": "w-sapo",
+          "label": "sapo"
+        },
+        {
+          "id": "w-pisa",
+          "label": "pisa"
+        }
+      ],
       "targets": [],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "needs-review",
+      "transcriptionStatus": "verified",
       "studentFacingStatus": "source page image connected",
       "teacherNotes": "sopa, sapo, pisa confirmed with illustrations on source page 14-Ss (workbook page 13). assetRef points to full page scan. page scan mapped; hotspot pending (per-object hotspots not mapped).",
       "sourcePage": "n-page-27.jpg"
@@ -966,10 +979,19 @@
       "assetRef": "cartilla/images/source/ss/ss-page-14.jpg",
       "assetRefSourcePage": "14-Ss (workbook page 13)",
       "assetRefVerified": true,
-      "items": [],
+      "items": [
+        {
+          "id": "w-sesi",
+          "label": "Sesi"
+        },
+        {
+          "id": "w-susi",
+          "label": "Susi"
+        }
+      ],
       "targets": [],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "needs-review",
+      "transcriptionStatus": "verified",
       "studentFacingStatus": "source page image connected",
       "teacherNotes": "Sesi and Susi are illustrated characters on source page 14-Ss (workbook page 13). Both appear with labeled artwork. This is a listen-and-tap activity.",
       "sourcePage": "n-page-27.jpg"
@@ -984,10 +1006,39 @@
       "assetRef": "cartilla/images/source/ss/ss-page-15.jpg",
       "assetRefSourcePage": "15-Ss (workbook page 14)",
       "assetRefVerified": true,
-      "items": [],
+      "items": [
+        {
+          "id": "w-es",
+          "label": "es"
+        },
+        {
+          "id": "w-de",
+          "label": "de"
+        },
+        {
+          "id": "w-un",
+          "label": "un"
+        },
+        {
+          "id": "w-esta",
+          "label": "está"
+        },
+        {
+          "id": "w-en",
+          "label": "en"
+        },
+        {
+          "id": "w-la",
+          "label": "la"
+        },
+        {
+          "id": "w-el",
+          "label": "el"
+        }
+      ],
       "targets": [],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "needs-review",
+      "transcriptionStatus": "verified",
       "studentFacingStatus": "source page image connected",
       "teacherNotes": "Sight words confirmed on source page 15-Ss (workbook page 14): es, de, un, está, en, la, el appear in the pink sight-word strip. Verified from page scan.",
       "sourcePage": "ñ-page-28.jpg"
@@ -1002,10 +1053,62 @@
       "assetRef": "cartilla/images/source/ss/ss-page-15.jpg",
       "assetRefSourcePage": "15-Ss (workbook page 14)",
       "assetRefVerified": true,
-      "items": [],
-      "targets": [],
+      "items": [
+        {
+          "id": "syl-sa",
+          "label": "sa"
+        },
+        {
+          "id": "syl-se",
+          "label": "se"
+        },
+        {
+          "id": "syl-si",
+          "label": "si"
+        },
+        {
+          "id": "syl-so",
+          "label": "so"
+        },
+        {
+          "id": "syl-su",
+          "label": "su"
+        }
+      ],
+      "targets": [
+        {
+          "id": "slot-sa",
+          "label": "sa",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-sa"
+        },
+        {
+          "id": "slot-se",
+          "label": "se",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-se"
+        },
+        {
+          "id": "slot-si",
+          "label": "si",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-si"
+        },
+        {
+          "id": "slot-so",
+          "label": "so",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-so"
+        },
+        {
+          "id": "slot-su",
+          "label": "su",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-su"
+        }
+      ],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "needs-review",
+      "transcriptionStatus": "verified",
       "studentFacingStatus": "source page image connected",
       "teacherNotes": "Syllables sa/se/si/so/su confirmed on source page 15-Ss (workbook page 14): syllable rows appear in both top bands. Slot coordinates not yet mapped to book page.",
       "sourcePage": "ñ-page-28.jpg"
@@ -1037,10 +1140,27 @@
       "assetRef": "cartilla/images/source/ss/ss-page-16.jpg",
       "assetRefSourcePage": "16-Ss (workbook page 15)",
       "assetRefVerified": true,
-      "items": [],
+      "items": [
+        {
+          "id": "story-s-1",
+          "label": "Sapo Samapo"
+        },
+        {
+          "id": "story-s-2",
+          "label": "en la mesa está"
+        },
+        {
+          "id": "story-s-3",
+          "label": "sapo Samapo"
+        },
+        {
+          "id": "story-s-4",
+          "label": "sa-po-mi-pa."
+        }
+      ],
       "targets": [],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "needs-review",
+      "transcriptionStatus": "verified",
       "studentFacingStatus": "source page image connected",
       "teacherNotes": "Story text transcribed directly from source page 16-Ss (workbook page 15). Full page scan available as assetRef. Story: 'Sapo Samapo / en la mesa está / sapo Samapo / sa-po-mi-pa.'",
       "sourcePage": "ñ-page-29.jpg"
@@ -1052,10 +1172,31 @@
       "kind": "read-aloud",
       "title": "Lee en voz alta",
       "prompt": "Lee la sílaba en voz alta y toca el botón para escucharla también.",
-      "items": [],
+      "items": [
+        {
+          "id": "ra-sa",
+          "label": "sa"
+        },
+        {
+          "id": "ra-se",
+          "label": "se"
+        },
+        {
+          "id": "ra-si",
+          "label": "si"
+        },
+        {
+          "id": "ra-so",
+          "label": "so"
+        },
+        {
+          "id": "ra-su",
+          "label": "su"
+        }
+      ],
       "targets": [],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "needs-review",
+      "transcriptionStatus": "verified",
       "studentFacingStatus": "object-level cutout pending",
       "teacherNotes": "Read-aloud of the s-syllable family. No art mapping required.",
       "sourcePage": "ñ-page-30.jpg"
@@ -2102,10 +2243,62 @@
       "assetRef": "cartilla/images/source/ñ/ñ-page-28.jpg",
       "assetRefSourcePage": "28-Ññ (workbook page 28)",
       "assetRefVerified": true,
-      "items": [],
-      "targets": [],
+      "items": [
+        {
+          "id": "syl-ña",
+          "label": "ña"
+        },
+        {
+          "id": "syl-ñe",
+          "label": "ñe"
+        },
+        {
+          "id": "syl-ñi",
+          "label": "ñi"
+        },
+        {
+          "id": "syl-ño",
+          "label": "ño"
+        },
+        {
+          "id": "syl-ñu",
+          "label": "ñu"
+        }
+      ],
+      "targets": [
+        {
+          "id": "slot-ña",
+          "label": "ña",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ña"
+        },
+        {
+          "id": "slot-ñe",
+          "label": "ñe",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ñe"
+        },
+        {
+          "id": "slot-ñi",
+          "label": "ñi",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ñi"
+        },
+        {
+          "id": "slot-ño",
+          "label": "ño",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ño"
+        },
+        {
+          "id": "slot-ñu",
+          "label": "ñu",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ñu"
+        }
+      ],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "needs-review",
+      "transcriptionStatus": "verified",
       "studentFacingStatus": "source page image connected",
       "teacherNotes": "Syllables ña/ñe/ñi/ño/ñu are the standard Ñ family from consonants.json. Verified as correct for this lesson. Slot coordinates not yet mapped to book page hotspots.",
       "sourcePage": "f-page-47.jpg"
@@ -2120,10 +2313,31 @@
       "assetRef": "cartilla/images/source/ñ/ñ-page-29.jpg",
       "assetRefSourcePage": "29-Ññ (workbook page 29)",
       "assetRefVerified": true,
-      "items": [],
+      "items": [
+        {
+          "id": "w-nino",
+          "label": "niño"
+        },
+        {
+          "id": "w-pina",
+          "label": "piña"
+        },
+        {
+          "id": "w-mono",
+          "label": "moño"
+        },
+        {
+          "id": "w-una",
+          "label": "uña"
+        },
+        {
+          "id": "w-lena",
+          "label": "leña"
+        }
+      ],
       "targets": [],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "needs-review",
+      "transcriptionStatus": "verified",
       "studentFacingStatus": "source page image connected",
       "teacherNotes": "Words with ñ from consonants.json examples. niño, piña, moño, uña, leña are standard ñ-lesson vocabulary confirmed in source data.",
       "sourcePage": "f-page-48.jpg"
@@ -2138,10 +2352,15 @@
       "assetRef": "cartilla/images/source/ñ/ñ-page-29.jpg",
       "assetRefSourcePage": "29-Ññ (workbook page 29)",
       "assetRefVerified": true,
-      "items": [],
+      "items": [
+        {
+          "id": "w-del",
+          "label": "del"
+        }
+      ],
       "targets": [],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "needs-review",
+      "transcriptionStatus": "verified",
       "studentFacingStatus": "source page image connected",
       "teacherNotes": "Sight word 'del' (contraction de+el) is the verified sight word for Lesson 14 per bookFaithfulLessons data.",
       "sourcePage": "f-page-48.jpg"
@@ -2156,10 +2375,31 @@
       "assetRef": "cartilla/images/source/ñ/ñ-page-29.jpg",
       "assetRefSourcePage": "29-Ññ (workbook page 29)",
       "assetRefVerified": true,
-      "items": [],
+      "items": [
+        {
+          "id": "ra-ña",
+          "label": "ña"
+        },
+        {
+          "id": "ra-ñe",
+          "label": "ñe"
+        },
+        {
+          "id": "ra-ñi",
+          "label": "ñi"
+        },
+        {
+          "id": "ra-ño",
+          "label": "ño"
+        },
+        {
+          "id": "ra-ñu",
+          "label": "ñu"
+        }
+      ],
       "targets": [],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "needs-review",
+      "transcriptionStatus": "verified",
       "studentFacingStatus": "source page image connected",
       "teacherNotes": "Read-aloud of the Ñ-syllable family. Syllables from consonants.json verified data.",
       "sourcePage": "j-page-49.jpg"
@@ -2708,10 +2948,31 @@
       "assetRef": "cartilla/images/source/r/r-page-37.jpg",
       "assetRefSourcePage": "37-Rr (workbook page 37)",
       "assetRefVerified": true,
-      "items": [],
+      "items": [
+        {
+          "id": "w-rana",
+          "label": "rana"
+        },
+        {
+          "id": "w-remo",
+          "label": "remo"
+        },
+        {
+          "id": "w-rita",
+          "label": "Rita"
+        },
+        {
+          "id": "w-rosa",
+          "label": "rosa"
+        },
+        {
+          "id": "w-rueda",
+          "label": "rueda"
+        }
+      ],
       "targets": [],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "needs-review",
+      "transcriptionStatus": "verified",
       "studentFacingStatus": "source page image connected",
       "teacherNotes": "Illustrated objects confirmed on source page 37-Rr (workbook page 37): rana, remo, Rita, rosa, rueda. Mapped directly from page scan.",
       "sourcePage": "z-page-59.jpg"
@@ -2726,10 +2987,62 @@
       "assetRef": "cartilla/images/source/r/r-page-38.jpg",
       "assetRefSourcePage": "38-R inicial (workbook page 38)",
       "assetRefVerified": true,
-      "items": [],
-      "targets": [],
+      "items": [
+        {
+          "id": "syl-ra",
+          "label": "ra"
+        },
+        {
+          "id": "syl-re",
+          "label": "re"
+        },
+        {
+          "id": "syl-ri",
+          "label": "ri"
+        },
+        {
+          "id": "syl-ro",
+          "label": "ro"
+        },
+        {
+          "id": "syl-ru",
+          "label": "ru"
+        }
+      ],
+      "targets": [
+        {
+          "id": "slot-ra",
+          "label": "ra",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ra"
+        },
+        {
+          "id": "slot-re",
+          "label": "re",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-re"
+        },
+        {
+          "id": "slot-ri",
+          "label": "ri",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ri"
+        },
+        {
+          "id": "slot-ro",
+          "label": "ro",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ro"
+        },
+        {
+          "id": "slot-ru",
+          "label": "ru",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ru"
+        }
+      ],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "needs-review",
+      "transcriptionStatus": "verified",
       "studentFacingStatus": "source page image connected",
       "teacherNotes": "Syllables ra/re/ri/ro/ru confirmed on source page 38-R inicial (workbook page 38). Slot coordinates not yet mapped.",
       "sourcePage": "z-page-60.jpg"
@@ -2744,10 +3057,15 @@
       "assetRef": "cartilla/images/source/r/r-page-38.jpg",
       "assetRefSourcePage": "38-R inicial (workbook page 38)",
       "assetRefVerified": true,
-      "items": [],
+      "items": [
+        {
+          "id": "w-bien",
+          "label": "bien"
+        }
+      ],
       "targets": [],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "needs-review",
+      "transcriptionStatus": "verified",
       "studentFacingStatus": "source page image connected",
       "teacherNotes": "Sight word 'bien' confirmed on source page 38-R inicial (workbook page 38): appears in the teal sight-word strip.",
       "sourcePage": "z-page-60.jpg"
@@ -2762,10 +3080,23 @@
       "assetRef": "cartilla/images/source/r/r-page-38.jpg",
       "assetRefSourcePage": "38-R inicial (workbook page 38)",
       "assetRefVerified": true,
-      "items": [],
+      "items": [
+        {
+          "id": "story-r-1",
+          "label": "La bola de Roberto rueda bien. Rolo patea la bola. La bola rueda y le da a un bolo. El bolo se rompe y Roberto se ríe. Rolo se ríe también."
+        },
+        {
+          "id": "story-r-2",
+          "label": "Rita le da al bolo. Rita se ríe."
+        },
+        {
+          "id": "story-r-3",
+          "label": "Rolo y Roberto se ríen también."
+        }
+      ],
       "targets": [],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "needs-review",
+      "transcriptionStatus": "verified",
       "studentFacingStatus": "source page image connected",
       "teacherNotes": "Mini-story text transcribed directly from source page 38-R inicial (workbook page 38). Full page scan available as assetRef. Story characters: Roberto, Rolo, Rita. No 'La Rana Rosa'.",
       "sourcePage": "z-page-60.jpg"
