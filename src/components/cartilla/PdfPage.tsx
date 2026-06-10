@@ -1,16 +1,14 @@
 /**
- * PdfPage.tsx — Lane A
- * High-definition page renderer.
+ * PdfPage.tsx
+ * Routes pages 1-90 to the fully digital WorkbookPageRenderer (SVG/JSX).
+ * Pages 91-92 fall back to the HD image scan.
  *
- * Render priority: the clean COLORIZED art at /cartilla/art/color/workbook/page-NNN.jpg
- * is served FIRST. If it is missing, it falls back to the HD art at
- * /cartilla/art/hd/workbook/page-NNN.jpg, and finally to the raw verified source
- * scan. This auto-upgrades every page the moment the colorized files land in the
- * color/ folder, with no risk: the worst case is identical to serving the scan.
+ * The color/workbook/ and hd/workbook/ scan paths are no longer used
+ * for pages 1-90 and can be deleted from public/ when convenient.
  */
 import { useEffect, useMemo, useState } from "react";
+import { WorkbookPageRenderer } from "./WorkbookPageRenderer";
 import sourceArtInventory from "@/data/source-art-inventory.json";
-import { PAGE_ROTATION_MAP } from "@/lib/page-rotation-map";
 
 type SourcePageAsset = {
   path?: string;
@@ -34,32 +32,23 @@ const rawScanByWorkbookPage = new Map(
     )
     .map((asset) => [asset.workbookPageNumber, `/${asset.path}`]),
 );
-
-function getColorPageSrc(pageNumber: number) {
-  const paddedPageNum = String(pageNumber).padStart(3, "0");
-  return `/cartilla/art/color/workbook/page-${paddedPageNum}.jpg`;
-}
-
 function getHdPageSrc(pageNumber: number) {
   const paddedPageNum = String(pageNumber).padStart(3, "0");
   return `/cartilla/art/hd/workbook/page-${paddedPageNum}.jpg`;
 }
 
-function getRawScanFallbackSrc(pageNumber: number) {
-  return rawScanByWorkbookPage.get(pageNumber);
-}
-
-function getPageSources(pageNumber: number) {
-  const list = [getColorPageSrc(pageNumber), getHdPageSrc(pageNumber)];
-  const raw = getRawScanFallbackSrc(pageNumber);
+function getFallbackSources(pageNumber: number) {
+  const list = [getHdPageSrc(pageNumber)];
+  const raw = rawScanByWorkbookPage.get(pageNumber);
   if (raw) list.push(raw);
   return list;
 }
 
 export function prefetchPage(pageNumber: number) {
-  if (pageNumber < 1 || pageNumber > 92) return;
+  // No-op for SVG pages; kept for API compatibility.
+  if (pageNumber < 91 || pageNumber > 92) return;
   const img = new Image();
-  img.src = getColorPageSrc(pageNumber);
+  img.src = getHdPageSrc(pageNumber);
 }
 
 interface PdfPageProps {
@@ -70,26 +59,31 @@ interface PdfPageProps {
 export function PdfPage({ pageNumber, className = "" }: PdfPageProps) {
   const safePageNumber = Math.max(1, pageNumber);
 
-  const sources = useMemo(() => getPageSources(safePageNumber), [safePageNumber]);
+  // Pages 1-90: fully digital interactive SVG content.
+  if (safePageNumber >= 1 && safePageNumber <= 90) {
+    return (
+      <div
+        className={`pdf-page-wrapper flex items-center justify-center overflow-hidden bg-white select-none ${className}`}
+        aria-label={`Página ${safePageNumber} del libro`}
+      >
+        <WorkbookPageRenderer pageNumber={safePageNumber} />
+      </div>
+    );
+  }
+
+  // Pages 91+: image fallback.
+  return <PdfPageImageFallback pageNumber={safePageNumber} className={className} />;
+}
+
+function PdfPageImageFallback({ pageNumber, className = "" }: PdfPageProps) {
+  const sources = useMemo(() => getFallbackSources(pageNumber), [pageNumber]);
   const [srcIndex, setSrcIndex] = useState(0);
 
-  // Reset to the highest-quality source whenever the page changes.
   useEffect(() => {
     setSrcIndex(0);
-  }, [safePageNumber]);
+  }, [pageNumber]);
 
   const src = sources[Math.min(srcIndex, sources.length - 1)];
-  const isColorSrc = src === getColorPageSrc(safePageNumber);
-
-  // Rotation correction only applies to the legacy raw scans (the rotation map
-  // was built from raw scan filenames). The colorized art is delivered upright.
-  let rotation = 0;
-  if (!isColorSrc && src) {
-    const filename = src.split("/").pop()?.replace(".jpg", "");
-    if (filename && PAGE_ROTATION_MAP[filename]) {
-      rotation = PAGE_ROTATION_MAP[filename];
-    }
-  }
 
   const handleError = () => {
     setSrcIndex((i) => (i < sources.length - 1 ? i + 1 : i));
@@ -98,16 +92,15 @@ export function PdfPage({ pageNumber, className = "" }: PdfPageProps) {
   return (
     <div
       className={`pdf-page-wrapper flex items-center justify-center overflow-hidden bg-white select-none ${className}`}
-      aria-label={`Página ${safePageNumber} del libro`}
+      aria-label={`Página ${pageNumber} del libro`}
     >
       <img
         src={src}
-        alt={`Página ${safePageNumber} del libro`}
+        alt={`Página ${pageNumber} del libro`}
         className="w-full h-full object-contain max-h-full"
         loading="lazy"
         draggable={false}
         onError={handleError}
-        style={{ transform: rotation ? `rotate(${rotation}deg)` : undefined }}
       />
     </div>
   );
