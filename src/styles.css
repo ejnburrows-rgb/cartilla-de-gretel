@@ -306,3 +306,125 @@ html.a11y-contrast .kid-card {
     transition-duration: 0.001ms !important;
   }
 }
+
+/* Hide printable view on screen */
+.print-only {
+  display: none;
+}
+
+/* ─── Print styles ────────────────────────────────────────────────── */
+@media print {
+  body {
+    background: white !important;
+    background-image: none !important;
+    color: black !important;
+    font-size: 12pt !important;
+    font-family: serif !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  @page {
+    size: letter;
+    margin: 1in;
+  }
+
+  /* Hide everything except the print container */
+  #root,
+  .no-print,
+  nav,
+  header,
+  footer,
+  button,
+  .print-btn,
+  .interactive-controls,
+  .sparkle-field,
+  .OfflineBadge,
+  .InstallPrompt,
+  .GretelMascot {
+    display: none !important;
+  }
+
+  /* Show print container */
+  .print-only {
+    display: block !important;
+  }
+
+  /* Styling for clean printable lesson contents */
+  .print-content {
+    color: #000000 !important;
+  }
+  
+  .print-header {
+    margin-bottom: 24pt;
+    border-bottom: 2pt solid #000000;
+    padding-bottom: 12pt;
+  }
+  
+  .print-lesson-num {
+    font-size: 14pt;
+    text-transform: uppercase;
+    margin: 0;
+    font-weight: bold;
+  }
+  
+  .print-letters {
+    font-size: 28pt;
+    font-weight: bold;
+    margin: 6pt 0 0 0;
+  }
+  
+  .print-syllables {
+    font-size: 16pt;
+    margin: 6pt 0 0 0;
+    font-style: italic;
+  }
+  
+  .print-section {
+    margin-bottom: 20pt;
+    page-break-inside: avoid;
+  }
+  
+  .print-section h2 {
+    font-size: 18pt;
+    font-weight: bold;
+    margin: 0 0 10pt 0;
+    border-bottom: 1px solid #000000;
+    padding-bottom: 3pt;
+  }
+  
+  .print-vocab-list {
+    margin: 0;
+    padding-left: 20pt;
+    column-count: 2;
+    column-gap: 20pt;
+  }
+  
+  .print-vocab-item {
+    font-size: 14pt;
+    margin-bottom: 6pt;
+    text-transform: capitalize;
+  }
+  
+  .print-poem {
+    padding-left: 20pt;
+    font-style: italic;
+  }
+  
+  .print-poem-line {
+    font-size: 14pt;
+    margin: 0 0 4pt 0;
+  }
+  
+  .print-sentences-list {
+    margin: 0;
+    padding-left: 20pt;
+  }
+  
+  .print-sentence-item {
+    font-size: 14pt;
+    margin-bottom: 8pt;
+    line-height: 1.4;
+  }
+}
+

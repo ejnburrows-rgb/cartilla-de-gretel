@@ -16,6 +16,7 @@ import { ArrowLeft, ArrowRight, Check, ClipboardList, Printer, Tv } from "lucide
 import { CATALOG, TOTAL_LESSONS, type CatalogEntry } from "@/lib/lesson-catalog";
 import { useLessonProgress, isLessonUnlocked, markLessonCompleted } from "@/lib/lesson-progress";
 import { recordEvent, useStudentSession } from "@/lib/student-session";
+import interactionsData from "@/data/workbook-interactions.json";
 import { PdfPage } from "@/components/cartilla/PdfPage";
 import { FlipBook } from "@/components/cartilla/FlipBook";
 import { OfflineBadge } from "@/components/cartilla/OfflineBadge";
@@ -58,6 +59,22 @@ function Leccion() {
   const session = useStudentSession();
   const entry = useMemo<CatalogEntry | undefined>(() => CATALOG.find((e) => e.n === n), [n]);
   const [showModal, setShowModal] = useState(false);
+
+  const poemInteraction = useMemo(() => {
+    return (interactionsData as any[]).find(
+      (item) => item.lessonNumber === n && (item.id.includes("poem") || item.id.includes("mini-story"))
+    );
+  }, [n]);
+
+  const poemLines = useMemo(() => {
+    if (!poemInteraction || !poemInteraction.items) return [];
+    return poemInteraction.items.map((line: any) => {
+      if (typeof line === "string") return line;
+      if (line && typeof line === "object" && typeof line.label === "string") return line.label;
+      if (line && typeof line === "object" && typeof line.text === "string") return line.text;
+      return "";
+    });
+  }, [poemInteraction]);
 
   const fetchAssignments = useServerFn(listMyAssignments);
   const { data: assignments } = useQuery({
@@ -118,7 +135,85 @@ function Leccion() {
     entry.kind === "consonant" ? entry.letter : entry.kind === "vowel" ? entry.vowel : "a";
 
   return (
-    <div className="min-h-screen relative flex flex-col overflow-hidden">
+    <>
+      {/* ── Print-only printable view ── */}
+      <div className="print-only">
+        <div className="print-content">
+          <header className="print-header">
+            <p className="print-lesson-num">Lección {n}</p>
+            <h1 className="print-letters">
+              {entry.kind === "vowel" ? `${entry.vowel.toUpperCase()} ${entry.vowel}` : entry.kind === "consonant" ? `${entry.letter.toUpperCase()} ${entry.letter}` : entry.title}
+            </h1>
+            {entry.kind === "consonant" && (
+              <p className="print-syllables">Sílabas: {entry.data.syllables.join(" - ")}</p>
+            )}
+          </header>
+
+          <main className="print-body">
+            {/* Vocabulary */}
+            {entry.kind === "vowel" && entry.lesson.vocab && (
+              <section className="print-section">
+                <h2>Vocabulario</h2>
+                <ul className="print-vocab-list">
+                  {entry.lesson.vocab.map((v, i) => (
+                    <li key={i} className="print-vocab-item">{v.word}</li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
+            {entry.kind === "consonant" && entry.data.examples && (
+              <section className="print-section">
+                <h2>Vocabulario</h2>
+                <ul className="print-vocab-list">
+                  {Object.values(entry.data.examples).flat().map((word, i) => (
+                    <li key={i} className="print-vocab-item">{word}</li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
+            {/* Poem */}
+            {entry.kind === "vowel" && entry.lesson.characterDesc && (
+              <section className="print-section">
+                <h2>Poema: {entry.lesson.characterName}</h2>
+                <div className="print-poem">
+                  {entry.lesson.characterDesc.split(/[–\.\r\n]+/).map((line, i) => {
+                    const trimmed = line.trim();
+                    if (!trimmed) return null;
+                    return <p key={i} className="print-poem-line">{trimmed}</p>;
+                  })}
+                </div>
+              </section>
+            )}
+
+            {entry.kind === "consonant" && poemLines.length > 0 && (
+              <section className="print-section">
+                <h2>{poemInteraction?.title || "Poema"}</h2>
+                <div className="print-poem">
+                  {poemLines.map((line: string, i: number) => (
+                    <p key={i} className="print-poem-line">{line}</p>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {/* Sentences */}
+            {entry.kind === "consonant" && entry.data.sentences && (
+              <section className="print-section">
+                <h2>Oraciones</h2>
+                <ul className="print-sentences-list">
+                  {entry.data.sentences.map((sent, i) => (
+                    <li key={i} className="print-sentence-item">{sent}</li>
+                  ))}
+                </ul>
+              </section>
+            )}
+          </main>
+        </div>
+      </div>
+
+      <div className="min-h-screen relative flex flex-col overflow-hidden">
       <PageBackground
         letter={activeLetter}
         className="fixed inset-0 -z-10 w-full h-full opacity-60 mix-blend-multiply transition-opacity duration-1000"
@@ -204,6 +299,18 @@ function Leccion() {
           {entry.kind !== "intro" && (
             <p className="text-sm text-foreground/65 mt-1">{entry.subtitle}</p>
           )}
+        </div>
+
+        <div className="print-btn-container no-print">
+          <button
+            onClick={() => typeof window !== "undefined" && window.print()}
+            className="print-btn inline-flex items-center gap-2 px-4 py-2 bg-stone-100 hover:bg-stone-200 dark:bg-stone-800 dark:hover:bg-stone-700 text-stone-700 dark:text-stone-200 font-bold text-sm rounded-xl border border-stone-300 dark:border-stone-600 transition"
+            style={{ minHeight: "44px" }}
+            type="button"
+          >
+            <Printer className="w-4 h-4" />
+            Imprimir esta lección
+          </button>
         </div>
 
         {/* Hero Band: Desktop only (hidden sm:flex) */}
@@ -300,5 +407,6 @@ function Leccion() {
         />
       </div>
     </div>
+    </>
   );
 }
