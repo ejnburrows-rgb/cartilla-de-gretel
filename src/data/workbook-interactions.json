@@ -12,7 +12,8 @@
       "sourceStatus": "missing",
       "transcriptionStatus": "pending",
       "studentFacingStatus": "pending",
-      "teacherNotes": ""
+      "teacherNotes": "",
+      "note": "Precedes vowel section; no flip chart or eval page exists for this lesson."
     },
     {
       "id": "l2-p4-drag-word-o",
@@ -1392,6 +1393,687 @@
       "transcriptionStatus": "transcription verified from source page",
       "studentFacingStatus": "source page image connected",
       "teacherNotes": "Sentences from consonants.json for Lesson 24 Zz (final lesson). Verified source data."
+    },
+    {
+      "id": "l10-flip-poem",
+      "lessonId": 10,
+      "kind": "mini-story",
+      "title": "La sopa de pato",
+      "prompt": "Lee el poema con tu maestro.",
+      "items": [
+        "Tuto, Tato y Uto",
+        "toman sopa de pato.",
+        "Ita tapa la sopa,",
+        "esta sopa es de Tato.",
+        "Tito toma la sopa",
+        "de tomate y pato,",
+        "papá toma su sopa",
+        "en la mesa del patio."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l10-eval-cloze",
+      "lessonId": 10,
+      "kind": "cloze-sentence",
+      "title": "Completa la oración — T t",
+      "prompt": "Escoge la palabra correcta del rectángulo para completar cada oración.",
+      "wordBank": [
+        "toma",
+        "timón",
+        "moto",
+        "topo",
+        "tomate",
+        "pato",
+        "tipi",
+        "pata"
+      ],
+      "exercises": [
+        "1 - Tito ___ sopa de ___.",
+        "2 - El ___ mete la ___ en el tipi.",
+        "3 - El ___ es de Tita.",
+        "4 - Teté monta su ___.",
+        "5 - Esa moto tiene ___.",
+        "6 - Piti toma sopa de ___."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l11-flip-poem",
+      "lessonId": 11,
+      "kind": "mini-story",
+      "title": "Made y papá",
+      "prompt": "Lee el poema con tu maestro.",
+      "items": [
+        "¿Dónde está Made?",
+        "¿Dónde está?",
+        "Está en el medio",
+        "de mamá y papá.",
+        "¿Dónde está Made?",
+        "¿Dónde está?",
+        "Made está delante",
+        "de mamá y papá."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l11-eval-cloze",
+      "lessonId": 11,
+      "kind": "cloze-sentence",
+      "title": "Completa la oración — D d",
+      "prompt": "Escoge la palabra correcta del rectángulo para completar cada oración.",
+      "wordBank": [
+        "Made",
+        "pide",
+        "dime",
+        "Dónde",
+        "dedal",
+        "dados",
+        "dame",
+        "Dunia",
+        "dudas"
+      ],
+      "exercises": [
+        "1 - Duma ___ si Ada tiene ___.",
+        "2 - ¿ ___ está ___?",
+        "3 - Adi le ___ un pomo.",
+        "4 - Adi ___ un ___.",
+        "5 - El mapa de ___ está en la mesa.",
+        "6 - Dino tiene los ___."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l12-flip-poem",
+      "lessonId": 12,
+      "kind": "mini-story",
+      "title": "Leo lee",
+      "prompt": "Lee el poema con tu maestro.",
+      "items": [
+        "Leo, leo, leo, leo",
+        "lima, palo, tela, Tula",
+        "leo, leo, leo, leo",
+        "lomo, Lala, lata, mula.",
+        "Lee, lee, lee, lee",
+        "maleta de tela",
+        "tela de lana",
+        "maleta de Polo",
+        "de Lalo y de Ana."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l12-eval-cloze",
+      "lessonId": 12,
+      "kind": "cloze-sentence",
+      "title": "Completa la oración — L l",
+      "prompt": "Escoge la palabra correcta del rectángulo para completar cada oración.",
+      "wordBank": [
+        "paleta",
+        "tela",
+        "sola",
+        "lupa",
+        "pelota",
+        "maleta",
+        "lata"
+      ],
+      "exercises": [
+        "1 - Lalo tiene una ___.",
+        "2 - La ___ de Tula es de ___.",
+        "3 - Pepe tiene una ___.",
+        "4 - Leo lee ___.",
+        "5 - La ___ es de Pili.",
+        "6 - La ___ es de Lalito."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l13-flip-poem",
+      "lessonId": 13,
+      "kind": "mini-story",
+      "title": "¡Nino nada!",
+      "prompt": "Lee el poema con tu maestro.",
+      "items": [
+        "Esta es la tina de Nino",
+        "mi patito nadador.",
+        "Nino nada, nada Nino,",
+        "pide Nené con amor.",
+        "Nada, nada mi patito",
+        "nada, nada, nada más",
+        "nada mi patito Nino.",
+        "¡Mi patito va a nadar!"
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l13-eval-cloze",
+      "lessonId": 13,
+      "kind": "cloze-sentence",
+      "title": "Completa la oración — N n",
+      "prompt": "Escoge la palabra correcta del rectángulo para completar cada oración.",
+      "wordBank": [
+        "anota",
+        "lana",
+        "nido",
+        "anida",
+        "suena",
+        "Dana"
+      ],
+      "exercises": [
+        "1 - La ___ tiene pelusas.",
+        "2 - El ___ está en la mata.",
+        "3 - Pepe ___ en su papel.",
+        "4 - ___ lee en la sala.",
+        "5 - Didi se ___ en la mata.",
+        "6 - La lata ___ en el piso."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l14-flip-poem",
+      "lessonId": 14,
+      "kind": "mini-story",
+      "title": "La niña sueña",
+      "prompt": "Lee el poema con tu maestro.",
+      "items": [
+        "La niña de Noña",
+        "tiene sueño,",
+        "Noña la tapa",
+        "con el pañuelo.",
+        "Sueña mi niña",
+        "sueños bonitos.",
+        "¿Estás soñando",
+        "con mis besitos?"
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l14-eval-cloze",
+      "lessonId": 14,
+      "kind": "cloze-sentence",
+      "title": "Completa la oración — Ñ ñ",
+      "prompt": "Escoge la palabra correcta del rectángulo para completar cada oración.",
+      "wordBank": [
+        "moño",
+        "niño",
+        "años",
+        "niña",
+        "paño",
+        "pañal",
+        "sueño"
+      ],
+      "exercises": [
+        "1 - Abuela tiene un ___.",
+        "2 - El pantalón de Pepe es de ___.",
+        "3 - Susi tiene 2 ___.",
+        "4 - Noña tapa su ___ con el ___.",
+        "5 - El ___ lee solo en la sala.",
+        "6 - Toña tiene ___."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l15-flip-poem",
+      "lessonId": 15,
+      "kind": "mini-story",
+      "title": "Sube la bola",
+      "prompt": "Lee el poema con tu maestro.",
+      "items": [
+        "Bebo batea la bola,",
+        "la bola a la nube dio.",
+        "Bebo le dio a la bola,",
+        "la bola alto subió.",
+        "La bola sube y sube,",
+        "la bola a la nube le dio.",
+        "Bebo batea y batea",
+        "Bebo alto la bateó."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l15-eval-cloze",
+      "lessonId": 15,
+      "kind": "cloze-sentence",
+      "title": "Completa la oración — B b",
+      "prompt": "Escoge la palabra correcta del rectángulo para completar cada oración.",
+      "wordBank": [
+        "batido",
+        "batea",
+        "nube",
+        "loba",
+        "baño",
+        "bota",
+        "bola"
+      ],
+      "exercises": [
+        "1 - Beba toma ___ de mamey.",
+        "2 - Pepe ___ la ___ alto.",
+        "3 - Yo ___ mi bebé.",
+        "4 - La ___ es de Benito.",
+        "5 - La ___ está alta.",
+        "6 - Esa ___ me asusta."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l16-flip-poem",
+      "lessonId": 16,
+      "kind": "mini-story",
+      "title": "Mi bote de vela",
+      "prompt": "Lee el poema con tu maestro.",
+      "items": [
+        "En mi bote de vela",
+        "voy a pasear,",
+        "vela al viento",
+        "vamos al mar.",
+        "Vuela velita",
+        "volando vas",
+        "mi volantina",
+        "volando más."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l16-eval-cloze",
+      "lessonId": 16,
+      "kind": "cloze-sentence",
+      "title": "Completa la oración — V v",
+      "prompt": "Escoge la palabra correcta del rectángulo para completar cada oración.",
+      "wordBank": [
+        "lava",
+        "vine",
+        "avión",
+        "vaso",
+        "nieva",
+        "invierno"
+      ],
+      "exercises": [
+        "1 - El ___ es de papá.",
+        "2 - Mamá ___ la tela.",
+        "3 - Yo ___ en avión.",
+        "4 - En invierno ___ bastante.",
+        "5 - El ___ es bonito.",
+        "6 - El ___ vuela alto."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l17-flip-poem",
+      "lessonId": 17,
+      "kind": "mini-story",
+      "title": "La rosca de Manolo",
+      "prompt": "Lee el poema con tu maestro.",
+      "items": [
+        "La r para la rama",
+        "para el roer del ratón",
+        "y para el rabo del mono",
+        "risueño y remolón.",
+        "Para la rueda redonda",
+        "la risa de tío Rolo",
+        "la rana, el remo, la rosa",
+        "y la rosca de Manolo."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l17-eval-cloze",
+      "lessonId": 17,
+      "kind": "cloze-sentence",
+      "title": "Completa la oración — R r inicial",
+      "prompt": "Escoge la palabra correcta del rectángulo para completar cada oración.",
+      "wordBank": [
+        "rama",
+        "ríe",
+        "Rita",
+        "rema",
+        "ruta",
+        "rana",
+        "rota",
+        "rosas"
+      ],
+      "exercises": [
+        "1 - La ___ está ___.",
+        "2 - ___ es muy buena.",
+        "3 - Rolo se ___ de la ___.",
+        "4 - Yo me sé la ___ al río.",
+        "5 - Estas ___ son de mamá.",
+        "6 - Remi ___ en su bote rosado."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l18-flip-poem",
+      "lessonId": 18,
+      "kind": "mini-story",
+      "title": "¡Rápido arriba!",
+      "prompt": "Lee el poema con tu maestro.",
+      "items": [
+        "Barri el burrito",
+        "sube a la loma.",
+        "Perri el perrito",
+        "roba mi bola.",
+        "Mi burro lindo",
+        "muy bien mandado.",
+        "Mi perro Perri",
+        "arrebatado."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l18-eval-cloze",
+      "lessonId": 18,
+      "kind": "cloze-sentence",
+      "title": "Completa la oración — rr",
+      "prompt": "Escoge la palabra correcta del rectángulo para completar cada oración.",
+      "wordBank": [
+        "Porra",
+        "amarra",
+        "perro",
+        "arrebatado",
+        "carro",
+        "burro",
+        "arriba",
+        "barras"
+      ],
+      "exercises": [
+        "1 - El ___ del señor ___ está ___.",
+        "2 - El señor Porra ___ su perro.",
+        "3 - La pelota de Rafael está ___ del ___.",
+        "4 - El caballo de Rebe salta las ___ rápido.",
+        "5 - Ramón va a montar su ___."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l19-flip-poem",
+      "lessonId": 19,
+      "kind": "mini-story",
+      "title": "El gato enamorado",
+      "prompt": "Lee el poema con tu maestro.",
+      "items": [
+        "Mi gato Goloso",
+        "se enamoró",
+        "de Musulunga",
+        "y la engatusó.",
+        "-Gatita gordita",
+        "gatita, mi amor",
+        "este gusanito",
+        "es para los dos."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l19-eval-cloze",
+      "lessonId": 19,
+      "kind": "cloze-sentence",
+      "title": "Completa la oración — G g ga go gu",
+      "prompt": "Escoge la palabra correcta del rectángulo para completar cada oración.",
+      "wordBank": [
+        "gorra",
+        "gato",
+        "lago",
+        "amigo",
+        "lagarto",
+        "Gustavo",
+        "mago",
+        "goma",
+        "laguna",
+        "Magali"
+      ],
+      "exercises": [
+        "1 - ___ tiene una ___ muy bonita.",
+        "2 - ___ pasea con su ___.",
+        "3 - En la ___ hay un ___.",
+        "4 - Magali borra con su ___.",
+        "5 - El ___ saca un ___ del pañuelo.",
+        "6 - Gabi se baña en el ___."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l20-flip-poem",
+      "lessonId": 20,
+      "kind": "mini-story",
+      "title": "A la fiesta",
+      "prompt": "Lee el poema con tu maestro.",
+      "items": [
+        "A la fiesta de familia",
+        "tía Fela va a invitar",
+        "las velitas del pastel",
+        "Fefita va a apagar.",
+        "Fu, fu... apaga la vela",
+        "fa, fa... la vela no es mía",
+        "fe, fe... apaga la vela",
+        "fi, fi... la vela es de tía."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l20-eval-cloze",
+      "lessonId": 20,
+      "kind": "cloze-sentence",
+      "title": "Completa la oración — F f",
+      "prompt": "Escoge la palabra correcta del rectángulo para completar cada oración.",
+      "wordBank": [
+        "fortuna",
+        "foto",
+        "Fefa",
+        "Felo",
+        "perfume",
+        "familia",
+        "fama",
+        "feo",
+        "feliz"
+      ],
+      "exercises": [
+        "1 - Felo tiene ___ y ___.",
+        "2 - La ___ de Fela está en la sala.",
+        "3 - A ___ le gusta el ___.",
+        "4 - El patito no es ___.",
+        "5 - Toda la ___ va de paseo.",
+        "6 - Rafael está ___ con su nieto."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l21-flip-poem",
+      "lessonId": 21,
+      "kind": "mini-story",
+      "title": "La jicotea Jabela",
+      "prompt": "Lee el poema con tu maestro.",
+      "items": [
+        "Mi jicotea Jabela",
+        "juega y juega sin parar,",
+        "con espuma de jabón",
+        "jamás la puedo bañar.",
+        "Se mete en el jaulón",
+        "no le gusta el agua pura",
+        "ni la espuma de jabón",
+        "a mi jicotea dura."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l21-eval-cloze",
+      "lessonId": 21,
+      "kind": "cloze-sentence",
+      "title": "Completa la oración — J j",
+      "prompt": "Escoge la palabra correcta del rectángulo para completar cada oración.",
+      "wordBank": [
+        "Jimena",
+        "jaula",
+        "Javi",
+        "jarra",
+        "jugo",
+        "Jabela",
+        "jamón",
+        "jefa",
+        "jinete",
+        "baja"
+      ],
+      "exercises": [
+        "1 - El ___ monta muy bien.",
+        "2 - José tiene una ___ de ___.",
+        "3 - Juana ___ la loma con ___.",
+        "4 - ___ no está en la ___.",
+        "5 - Jimena es la ___ de ___.",
+        "6 - A Julio le gusta el ___."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l22-flip-poem",
+      "lessonId": 22,
+      "kind": "mini-story",
+      "title": "Los caramelos",
+      "prompt": "Lee el poema con tu maestro.",
+      "items": [
+        "Cuco tiene caramelos",
+        "caramelitos de miel",
+        "Cuco reparte cariño",
+        "y caramelos también."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l22-eval-cloze",
+      "lessonId": 22,
+      "kind": "cloze-sentence",
+      "title": "Completa la oración — C c ca co cu",
+      "prompt": "Escoge la palabra correcta del rectángulo para completar cada oración.",
+      "wordBank": [
+        "casa",
+        "cola",
+        "cama",
+        "comida",
+        "coco",
+        "contento",
+        "cubo",
+        "Cuco"
+      ],
+      "exercises": [
+        "1 - El ___ es de papá.",
+        "2 - Catalina carga arena con su ___.",
+        "3 - La ___ de ___ es muy bonita.",
+        "4 - Paco está acostado en su ___.",
+        "5 - El perro contento mueve su ___.",
+        "6 - Mamá sirve la ___ para todos."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l23-flip-poem",
+      "lessonId": 23,
+      "kind": "mini-story",
+      "title": "El yate de Yayo",
+      "prompt": "Lee el poema con tu maestro.",
+      "items": [
+        "De Yateras a Cayo Hueso",
+        "de Cayo Hueso a Yateras",
+        "Yayo va con sus amigas",
+        "sus amigas yucatecas.",
+        "En su yate \"Cayo Largo\"",
+        "ayer vino a Yucatán",
+        "con una soga de yute",
+        "Yayo lo pudo amarrar."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l23-eval-cloze",
+      "lessonId": 23,
+      "kind": "cloze-sentence",
+      "title": "Completa la oración — Y y",
+      "prompt": "Escoge la palabra correcta del rectángulo para completar cada oración.",
+      "wordBank": [
+        "payaso",
+        "yodo",
+        "ayudó",
+        "yegua",
+        "ayer",
+        "yemas",
+        "yate"
+      ],
+      "exercises": [
+        "1 - Yayo tiene un ___ en Yateras.",
+        "2 - El ___ está en la fiesta.",
+        "3 - Me gusta comer ___.",
+        "4 - Cuco monta su ___ todos los días.",
+        "5 - Mayito ___ a Yayo ___.",
+        "6 - Yoli se puso ___ en la cortada."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l24-flip-poem",
+      "lessonId": 24,
+      "kind": "mini-story",
+      "title": "El carro-calabaza",
+      "prompt": "Lee el poema con tu maestro.",
+      "items": [
+        "En su carro-calabaza",
+        "con timón azucarado",
+        "Zulema se va a la plaza",
+        "a la plaza del mercado.",
+        "Compra ricas zarzamoras",
+        "zumo de zapote y miel",
+        "en su carro-calabaza",
+        "Zulema rueda muy bien."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l24-eval-cloze",
+      "lessonId": 24,
+      "kind": "cloze-sentence",
+      "title": "Completa la oración — Z z",
+      "prompt": "Escoge la palabra correcta del rectángulo para completar cada oración.",
+      "wordBank": [
+        "zarzuela",
+        "azúcar",
+        "zumo",
+        "azules",
+        "Zulema",
+        "zapatos"
+      ],
+      "exercises": [
+        "1 - ___ va a ver la ___.",
+        "2 - Elizabeth bebe ___ de naranja.",
+        "3 - El café con ___ es mío.",
+        "4 - Los pantalones de Rafael son ___.",
+        "5 - El señor González usa ___ nuevos."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
     }
   ]
 }
