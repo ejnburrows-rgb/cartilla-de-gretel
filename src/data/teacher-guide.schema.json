@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Teacher Guide Schema",
+  "type": "object",
+  "required": ["lessons"],
+  "properties": {
+    "version": { "type": "string" },
+    "generatedAt": { "type": "string" },
+    "source": { "type": "string" },
+    "lessons": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "letters",
+          "syllables",
+          "vocabulary",
+          "poem",
+          "objectives",
+          "procedures",
+          "assessment"
+        ],
+        "properties": {
+          "id": {
+            "type": ["integer", "string"]
+          },
+          "title": {
+            "type": "string"
+          },
+          "letters": {
+            "type": "string"
+          },
+          "syllables": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "vocabulary": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "poem": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "objectives": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "procedures": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "assessment": {
+            "anyOf": [
+              { "type": "string" },
+              { "type": "array", "items": { "type": "string" } }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

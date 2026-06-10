@@ -10,6 +10,7 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "format": "prettier --write .",
+    "validate": "node scripts/validate-teacher-guide.cjs",
     "art:extract": "node scripts/extract-art.mjs",
     "art:extract:force": "node scripts/extract-art.mjs --force",
     "art:polish": "node scripts/polish-art.mjs",
