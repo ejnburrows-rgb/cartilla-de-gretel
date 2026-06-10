@@ -37,8 +37,7 @@ const rawScanByWorkbookPage = new Map(
 
 function getColorPageSrc(pageNumber: number) {
   const paddedPageNum = String(pageNumber).padStart(3, "0");
-  const ext = pageNumber <= 16 ? "jpg" : "png";
-  return `/cartilla/art/color/workbook/page-${paddedPageNum}.${ext}`;
+  return `/cartilla/art/color/workbook/page-${paddedPageNum}.jpg`;
 }
 
 function getHdPageSrc(pageNumber: number) {
