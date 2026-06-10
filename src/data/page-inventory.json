@@ -1,0 +1,16 @@
+{
+  "flipchart": {
+    "description": "Teacher classroom flipchart cards",
+    "path": "public/cartilla/images/teacher-flipchart",
+    "totalPages": 62,
+    "pagesPerLesson": 0,
+    "lessons": []
+  },
+  "workbook": {
+    "description": "Student libro del alumno",
+    "path": "public/cartilla/images/source",
+    "totalPages": 59,
+    "pagesPerLesson": 0,
+    "lessons": []
+  }
+}
