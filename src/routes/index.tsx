@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { BookOpen, GraduationCap } from "lucide-react";
-import { GretelMascot } from "@/components/gretel/GretelMascot";
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -41,14 +40,7 @@ function Landing() {
           <div className="relative mx-auto aspect-[4/5] w-full max-w-sm rounded-[2rem] border border-white/80 bg-white/70 p-4 shadow-2xl shadow-[hsl(24,98%,50%)]/20 backdrop-blur">
             <div className="h-full rounded-[1.5rem] border border-[hsl(28,30%,18%)]/10 bg-[linear-gradient(160deg,#f8dfb7,#f7efe1_48%,#d5ebe2)] p-6 shadow-inner">
               <div className="flex h-full flex-col items-center justify-end text-center">
-                {/* Gretel greets the child in Spanish the moment they arrive. */}
-                <div className="flex flex-1 items-center justify-center pt-8">
-                  <GretelMascot
-                    pose="welcome"
-                    text={"¡Hola! Soy Gretel.\nVamos a aprender a leer juntos, paso a paso."}
-                    bubblePosition="top"
-                  />
-                </div>
+
                 <h2 className="mt-2 text-5xl font-black leading-none text-[hsl(200,98%,39%)]">
                   Gretel
                 </h2>

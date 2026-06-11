@@ -299,7 +299,15 @@
     <div class="kpi-strip" aria-label="Métricas principales">
       <div class="kpi green">
         <div class="kpi-value">8</div>
+<<<<<<< HEAD:public/status.html
         <div class="kpi-label">Lecciones verificadas</div>
+=======
+        <div class="kpi-label">✅ Lecciones verificadas</div>
+>>>>>>> 9558def (docs(status): add L9–L16 scaffold rows to status dashboard):docs/status.html
+      </div>
+      <div class="kpi gold">
+        <div class="kpi-value">8</div>
+        <div class="kpi-label">🚧 Lecciones en progreso</div>
       </div>
       <div class="kpi teal">
         <div class="kpi-value">4</div>
@@ -494,14 +502,14 @@
     { id:'L06', name:'L06 — D d',                              status:'verified', v:1, d:0, p:0 },
     { id:'L07', name:'L07 — N n',                              status:'verified', v:6, d:0, p:0 },
     { id:'L08', name:'L08 — F f',                              status:'verified', v:6, d:0, p:0 },
-    { id:'L09', name:'L09 — S s',                              status:'pending',  v:0, d:0, p:6 },
-    { id:'L10', name:'L10 — C c / Q q',                       status:'pending',  v:0, d:0, p:6 },
-    { id:'L11', name:'L11 — G g / J j',                       status:'pending',  v:0, d:0, p:6 },
-    { id:'L12', name:'L12 — Ch ch',                            status:'pending',  v:0, d:0, p:6 },
-    { id:'L13', name:'L13 — V v',                              status:'pending',  v:0, d:0, p:6 },
-    { id:'L14', name:'L14 — Ñ ñ',                              status:'pending',  v:0, d:0, p:6 },
-    { id:'L15', name:'L15 — Y y / Ll ll',                     status:'pending',  v:0, d:0, p:6 },
-    { id:'L16', name:'L16 — Z z',                              status:'pending',  v:0, d:0, p:6 },
+    { id:'L09', name:'L09 — S s',                              status:'scaffold', v:0, d:0, p:6 },
+    { id:'L10', name:'L10 — C c / Q q',                       status:'scaffold', v:0, d:0, p:6 },
+    { id:'L11', name:'L11 — G g / J j',                       status:'scaffold', v:0, d:0, p:6 },
+    { id:'L12', name:'L12 — Ch ch',                            status:'scaffold', v:0, d:0, p:6 },
+    { id:'L13', name:'L13 — V v',                              status:'scaffold', v:0, d:0, p:6 },
+    { id:'L14', name:'L14 — Ñ ñ',                              status:'scaffold', v:0, d:0, p:6 },
+    { id:'L15', name:'L15 — Y y / Ll ll',                     status:'scaffold', v:0, d:0, p:6 },
+    { id:'L16', name:'L16 — Z z',                              status:'scaffold', v:0, d:0, p:6 },
     { id:'L17', name:'L17 — R r / B b',                       status:'pending',  v:0, d:0, p:6 },
     { id:'L18', name:'L18 — H h',                              status:'pending',  v:0, d:0, p:6 },
     { id:'L19', name:'L19 — X x',                              status:'pending',  v:0, d:0, p:6 },
@@ -512,9 +520,10 @@
     { id:'L24', name:'L24 — Evaluación final (solo docente)', status:'teacher',  v:0, d:5, p:0 },
   ];
   const badge = {
-    verified: '<span class="badge badge-green">Verificada</span>',
-    pending:  '<span class="badge badge-gold">Pendiente</span>',
-    teacher:  '<span class="badge badge-teal">Solo docente</span>',
+    verified: '<span class="badge badge-green">✅ Verificada</span>',
+    pending:  '<span class="badge badge-gold">⚠️ Pendiente</span>',
+    scaffold: '<span class="badge badge-gold">🚧 Scaffold / Pendiente</span>',
+    teacher:  '<span class="badge badge-teal">📋 Solo docente</span>',
   };
   const tbody = document.getElementById('lesson-rows');
   lessons.forEach(l => {

@@ -146,36 +146,7 @@ function JoinPage() {
             </button>
           </form>
 
-          <div className="border-2 border-dashed border-foreground/15 rounded-2xl p-5 bg-card hover:border-primary/40 transition-colors mt-6 text-center space-y-3">
-            <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-vowel-i/10 text-vowel-i mb-1">
-              <Sparkles className="w-5 h-5" />
-            </div>
-            <h2 className="text-base font-bold text-foreground">Demostración Fuera de Línea</h2>
-            <p className="text-xs text-foreground/60 leading-relaxed max-w-xs mx-auto">
-              ¿Quieres probar la aplicación sin conexión al servidor? Usa nuestro estudiante de prueba local.
-            </p>
-            <div className="pt-2 flex flex-col gap-2">
-              <button
-                type="button"
-                onClick={handleQuickDemo}
-                disabled={busy}
-                className="w-full py-2.5 rounded-xl bg-foreground text-background hover:opacity-90 active:scale-[0.98] transition font-bold text-sm flex items-center justify-center gap-2"
-              >
-                Entrar en Modo Demo
-              </button>
-              <button
-                type="button"
-                onClick={() => {
-                  setJoinCode("DEMO12");
-                  setStudentCode("DEMO1");
-                }}
-                disabled={busy}
-                className="w-full py-2.5 rounded-xl border border-foreground/10 bg-card hover:bg-secondary active:scale-[0.98] transition font-bold text-sm text-foreground/80"
-              >
-                Cargar credenciales demo
-              </button>
-            </div>
-          </div>
+
         </div>
       )}
     </main>
