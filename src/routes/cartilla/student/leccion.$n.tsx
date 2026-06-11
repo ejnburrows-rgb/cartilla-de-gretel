@@ -116,6 +116,12 @@ function Leccion() {
     };
   }, [n, lessonId]);
 
+  const lessonInteractions = useMemo(() => {
+    return (interactionsData.interactions as any[])
+      .filter((i) => i.lessonNumber === n)
+      .sort((a, b) => (a.order || 0) - (b.order || 0));
+  }, [n]);
+
   useEffect(() => {
     try {
       const key = "gretel-completedLessons";
@@ -361,6 +367,15 @@ function Leccion() {
           onAllCompleted={() => setShowModal(true)}
         />
 
+        {lessonInteractions.length > 0 && (
+          <section className="w-full mt-12 mb-8 mx-auto sm:max-w-[680px]">
+            <h2 className="text-3xl font-bold mb-6 text-center" style={activeColorStyle}>Actividades del Libro</h2>
+            {lessonInteractions.map((interaction, i) => (
+              <InteractionRenderer key={interaction.id || i} interaction={interaction} />
+            ))}
+          </section>
+        )}
+
         {lessonPages.length > 0 && (
           <section aria-label="Páginas del libro de trabajo" className="w-full mt-12 mb-8 mx-auto sm:max-w-[680px]">
             <h2 className="text-3xl font-bold mb-6 text-center" style={activeColorStyle}>Páginas del libro</h2>
@@ -478,4 +493,169 @@ function Leccion() {
     </div>
     </>
   );
+}
+
+function WordBank({ interaction }: { interaction: any }) {
+  const [selected, setSelected] = useState<Set<number>>(new Set());
+  const toggle = (i: number) => {
+    const next = new Set(selected);
+    if (next.has(i)) next.delete(i);
+    else next.add(i);
+    setSelected(next);
+  };
+  return (
+    <div className="p-6 rounded-3xl bg-stone-50 border border-stone-200 shadow-sm my-6">
+      <h3 className="text-xl font-bold text-stone-800 mb-4">{interaction.title || "Banco de Palabras"}</h3>
+      {interaction.prompt && <p className="text-sm text-stone-500 mb-4">{interaction.prompt}</p>}
+      <div className="flex flex-wrap gap-3">
+        {interaction.items?.map((item: any, i: number) => {
+          const text = typeof item === "string" ? item : item.text || item.label || "";
+          const isSelected = selected.has(i);
+          return (
+            <button
+              key={i}
+              onClick={() => toggle(i)}
+              className={`px-5 py-2.5 rounded-full font-bold text-lg transition-colors ${
+                isSelected ? "bg-primary text-white shadow-md" : "bg-white text-stone-700 border border-stone-300"
+              }`}
+            >
+              {text}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function MiniStory({ interaction }: { interaction: any }) {
+  return (
+    <div className="p-8 rounded-3xl border border-stone-200 shadow-sm my-6" style={{ backgroundColor: "var(--color-surface-2, #f3f4f6)" }}>
+      <h3 className="text-2xl font-bold text-stone-800 mb-6 text-center">{interaction.title || "Mini Cuento"}</h3>
+      {interaction.prompt && <p className="text-sm text-stone-500 mb-4 text-center">{interaction.prompt}</p>}
+      <div className="space-y-4 max-w-lg mx-auto">
+        {interaction.items?.map((item: any, i: number) => {
+          const text = typeof item === "string" ? item : item.text || item.label || "";
+          return (
+            <p key={i} className="text-lg text-stone-700 leading-relaxed">
+              {text}
+            </p>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function TapObj({ interaction }: { interaction: any }) {
+  const [tapped, setTapped] = useState<Set<number>>(new Set());
+  return (
+    <div className="p-6 rounded-3xl bg-sky-50 border border-sky-100 shadow-sm my-6">
+      <h3 className="text-xl font-bold text-sky-900 mb-4 text-center">{interaction.title || "Toca la imagen"}</h3>
+      {interaction.prompt && <p className="text-sm text-sky-700 mb-6 text-center">{interaction.prompt}</p>}
+      <div className="flex flex-wrap justify-center gap-6">
+        {interaction.items?.map((item: any, i: number) => {
+          const text = typeof item === "string" ? item : item.text || item.label || "";
+          const isTapped = tapped.has(i);
+          return (
+            <button
+              key={i}
+              onClick={() => setTapped(prev => new Set(prev).add(i))}
+              className="relative w-32 h-32 bg-white rounded-2xl shadow-sm border border-sky-200 flex items-center justify-center overflow-hidden transition-transform active:scale-95"
+            >
+              <span className="text-2xl font-bold text-sky-800">{text}</span>
+              {isTapped && (
+                <div className="absolute inset-0 bg-black/10 flex items-center justify-center backdrop-blur-[1px]">
+                  <Check className="w-16 h-16 text-green-500 drop-shadow-md" />
+                </div>
+              )}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function LetterTracing({ interaction }: { interaction: any }) {
+  return (
+    <div className="p-8 rounded-3xl bg-white border border-stone-200 shadow-sm my-6 flex flex-col items-center justify-center">
+      <h3 className="text-xl font-bold text-stone-800 mb-2">{interaction.title || "Traza la letra"}</h3>
+      <div className="text-[120px] leading-none font-bold text-stone-800 tracking-widest my-6 font-serif">
+        {interaction.targets?.[0] || interaction.items?.[0] || "Aa"}
+      </div>
+      <p className="text-sm text-stone-400 font-medium tracking-wide">Traza la letra con tu dedo</p>
+    </div>
+  );
+}
+
+function FlipPoem({ interaction }: { interaction: any }) {
+  const [flipped, setFlipped] = useState(false);
+  return (
+    <div className="p-6 rounded-3xl bg-amber-50 border border-amber-200 shadow-sm text-center my-6">
+      <h3 className="text-xl font-bold text-amber-900 mb-4">{interaction.title || "Poema"}</h3>
+      <button 
+        onClick={() => setFlipped(!flipped)}
+        className="px-6 py-12 w-full max-w-sm mx-auto bg-white rounded-2xl shadow border border-amber-100 flex items-center justify-center transition-all"
+      >
+        {flipped ? (
+          <div className="space-y-2">
+            {interaction.items?.map((item: any, i: number) => (
+              <p key={i} className="text-amber-950 font-medium">{typeof item === "string" ? item : item.text}</p>
+            ))}
+          </div>
+        ) : (
+          <span className="text-amber-800 font-bold italic">Toca para leer el poema</span>
+        )}
+      </button>
+    </div>
+  );
+}
+
+function EvalCloze({ interaction }: { interaction: any }) {
+  return (
+    <div className="p-6 rounded-3xl bg-blue-50 border border-blue-200 shadow-sm text-center my-6">
+      <h3 className="text-xl font-bold text-blue-900 mb-4">{interaction.title || "Completa la oración"}</h3>
+      <div className="flex flex-col gap-3 max-w-md mx-auto">
+        {interaction.items?.map((item: any, i: number) => {
+          const text = typeof item === "string" ? item : item.text || item.label || "";
+          return (
+            <div key={i} className="p-4 bg-white rounded-xl shadow-sm text-blue-800 font-medium text-left border border-blue-100 flex items-center gap-3">
+              <span className="w-6 h-6 shrink-0 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs font-bold">{i + 1}</span>
+              <span>{text.replace(/_+/g, "_____")}</span>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function InteractionRenderer({ interaction }: { interaction: any }) {
+  switch (interaction.kind) {
+    case "letter-tracing":
+      return <LetterTracing interaction={interaction} />;
+    case "mini-story":
+      return <MiniStory interaction={interaction} />;
+    case "tap-object":
+    case "tap-obj":
+      return <TapObj interaction={interaction} />;
+    case "read-aloud":
+    case "listen-and-tap":
+    case "drag-word-to-image":
+    case "word-bank":
+      return <WordBank interaction={interaction} />;
+    case "flip-poem":
+      return <FlipPoem interaction={interaction} />;
+    case "cloze-sentence":
+    case "eval-cloze":
+      return <EvalCloze interaction={interaction} />;
+    case "drag-syllable-to-slot":
+    case "drag-build-word":
+      // Ignored here, normally handled by StudentExercisePane if it's the core exercise
+      return null;
+    default:
+      if (!interaction.kind) return null;
+      return <div className="p-4 border border-dashed border-stone-300 rounded-xl bg-stone-50 text-stone-500 text-sm my-4 text-center">TODO: {interaction.kind}</div>;
+  }
 }
