@@ -117,8 +117,10 @@ export function SyllableTap({
           <button
             key={s}
             onClick={() => pick(s)}
+            aria-label={`Sílaba: ${s}`}
+            aria-pressed={feedback?.kind === "ok" && s === target}
             className={cn(
-              "min-w-16 h-16 px-6 py-3 rounded-2xl text-xl font-bold font-fredoka border-3 transition duration-200 active:scale-95 hover:scale-[1.03]",
+              "min-w-16 h-16 px-6 py-3 rounded-2xl text-xl font-bold font-fredoka border-3 transition duration-200 active:scale-95 hover:scale-[1.03] focus:outline-none focus:ring-4 focus:ring-stone-400",
               feedback?.kind === "ok" && s === target && "bg-[#e6f4ea] text-[#2e7d32] border-[#81c784]",
               feedback?.kind === "no" &&
                 s === feedback.picked &&
@@ -292,8 +294,10 @@ export function WordMatch({
                 key={w.word}
                 disabled={matched.has(w.word)}
                 onClick={() => onWord(w.word)}
+                aria-label={`Palabra: ${w.word}`}
+                aria-pressed={picked === w.word}
                 className={cn(
-                  "w-full h-14 px-4 py-2 rounded-2xl border-3 font-bold font-fredoka text-left transition duration-200",
+                  "w-full h-14 px-4 py-2 rounded-2xl border-3 font-bold font-fredoka text-left transition duration-200 focus:outline-none focus:ring-4 focus:ring-stone-400",
                   matched.has(w.word)
                     ? "opacity-30 line-through border-gray-200 bg-gray-50 text-gray-400"
                     : picked === w.word
@@ -309,12 +313,12 @@ export function WordMatch({
         </div>
         <div className="space-y-2.5">
           {shuffled.map((w) => (
-            <button
-              key={w.word}
-              disabled={matched.has(w.word)}
-              onClick={() => onDrawing(w.word)}
-              className={cn(
-                "w-full h-14 rounded-2xl border-3 transition duration-200 flex items-center justify-center p-1.5",
+              <button
+                key={w.word}
+                disabled={matched.has(w.word)}
+                onClick={() => onDrawing(w.word)}
+                className={cn(
+                  "w-full h-14 rounded-2xl border-3 transition duration-200 flex items-center justify-center p-1.5 focus:outline-none focus:ring-4 focus:ring-stone-400",
                 matched.has(w.word)
                   ? "opacity-30 border-gray-200 bg-gray-50"
                   : "border-foreground/10 hover:bg-secondary/50 hover:scale-[1.04] active:scale-95 hover:shadow-md",

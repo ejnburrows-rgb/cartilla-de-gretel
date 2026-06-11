@@ -166,6 +166,10 @@ function Leccion() {
 
   return (
     <>
+      {/* ── Skip Link ── */}
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 bg-white px-4 py-2 rounded-xl shadow-lg border border-stone-200 font-bold text-stone-800">
+        Saltar al contenido principal
+      </a>
       <style>{`
         @media print {
           @page { size: letter; margin: 1in; }
@@ -330,7 +334,7 @@ function Leccion() {
       </header>
 
       {/* ── Main ── */}
-      <main className="flex-1 px-4 pt-4 pb-28 max-w-3xl w-full mx-auto space-y-6 relative z-10">
+      <main id="main-content" className="flex-1 px-4 pt-4 pb-28 max-w-3xl w-full mx-auto space-y-6 relative z-10">
         <div className="text-center mb-8">
           <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/40 mb-3">
             Lección {n}
@@ -535,6 +539,8 @@ function WordBank({ interaction }: { interaction: any }) {
             <button
               key={i}
               onClick={() => toggle(i)}
+              aria-pressed={isSelected}
+              aria-label={`Palabra: ${text}`}
               style={{
                 padding: "var(--space-2) var(--space-4)",
                 borderRadius: "var(--radius-full)",
@@ -546,7 +552,7 @@ function WordBank({ interaction }: { interaction: any }) {
                 alignItems: "center",
                 justifyContent: "center",
               }}
-              className="font-bold text-lg transition-colors cursor-pointer"
+              className="font-bold text-lg transition-colors cursor-pointer focus:outline-none focus:ring-4 focus:ring-stone-400"
             >
               {text}
             </button>
@@ -612,13 +618,15 @@ function TapObj({ interaction }: { interaction: any }) {
             <button
               key={i}
               onClick={() => toggle(i)}
+              aria-pressed={isTapped}
+              aria-label={`Objeto: ${text}`}
               style={{
                 minWidth: "80px",
                 minHeight: "80px",
                 backgroundColor: isTapped ? "var(--color-primary-highlight)" : "var(--color-surface-2)",
                 border: "1px solid var(--color-border)",
               }}
-              className="relative p-4 rounded-2xl shadow-sm flex items-center justify-center overflow-hidden transition-all active:scale-95 cursor-pointer"
+              className="relative p-4 rounded-2xl shadow-sm flex items-center justify-center overflow-hidden transition-all active:scale-95 cursor-pointer focus:outline-none focus:ring-4 focus:ring-sky-400"
             >
               <span
                 className="font-bold text-sky-800 text-center"
@@ -649,11 +657,14 @@ function LetterTracing({ interaction }: { interaction: any }) {
     <div className="p-8 rounded-3xl bg-white border border-stone-200 shadow-sm my-6 flex flex-col items-center justify-center">
       <h3 className="text-xl font-bold text-stone-800 mb-2">{interaction.title || "Traza la letra"}</h3>
       <div
-        className="leading-none font-bold text-stone-800 tracking-widest my-6 text-center select-none"
+        className="leading-none font-bold text-stone-800 tracking-widest my-6 text-center select-none focus:outline-none focus:ring-4 focus:ring-stone-400 rounded-lg px-4"
         style={{
           fontSize: "var(--text-hero)",
           fontFamily: "var(--font-display)"
         }}
+        tabIndex={0}
+        role="img"
+        aria-label={`Letras para trazar: ${letters}`}
       >
         {letters}
       </div>
@@ -717,9 +728,14 @@ function EvalCloze({ interaction }: { interaction: any }) {
       <div className="flex flex-col gap-3 max-w-md mx-auto">
         {exercises.map((text: string, i: number) => {
           return (
-            <div key={i} className="p-4 bg-white rounded-xl shadow-sm text-blue-800 font-medium text-left border border-blue-100 flex items-center gap-3">
-              <span className="w-6 h-6 shrink-0 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs font-bold">{i + 1}</span>
-              <span>{text.replace(/_+/g, "_____")}</span>
+            <div
+              key={i}
+              tabIndex={0}
+              aria-label={`Oración ${i + 1}: ${text.replace(/_+/g, "espacio en blanco")}`}
+              className="p-4 bg-white rounded-xl shadow-sm text-blue-800 font-medium text-left border border-blue-100 flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            >
+              <span className="w-6 h-6 shrink-0 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs font-bold" aria-hidden="true">{i + 1}</span>
+              <span aria-hidden="true">{text.replace(/_+/g, "_____")}</span>
             </div>
           );
         })}
