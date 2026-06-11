@@ -5,6 +5,8 @@ import { useServerFn } from "@/lib/useServerFn";
 import { ArrowLeft, Loader2, BookOpen, Award, Clock, Target, Activity } from "lucide-react";
 import { getStudentProgress } from "@/lib/teacher.functions";
 import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
+import teacherGuide from "@/data/teacher-guide.json";
+import { useState, useEffect } from "react";
 
 export const Route = createFileRoute("/_authenticated/cartilla/teacher/alumno/$id")({
   component: StudentDetail,
@@ -13,6 +15,17 @@ export const Route = createFileRoute("/_authenticated/cartilla/teacher/alumno/$i
 function StudentDetail() {
   const { id } = Route.useParams();
   const fetchProgress = useServerFn(getStudentProgress);
+  const [notes, setNotes] = useState("");
+  useEffect(() => {
+    const saved = localStorage.getItem(`gretel-notes-${id}`);
+    if (saved) setNotes(saved);
+  }, [id]);
+
+  const saveNotes = (val: string) => {
+    setNotes(val);
+    localStorage.setItem(`gretel-notes-${id}`, val);
+  };
+
   const { data, isLoading } = useQuery({
     queryKey: ["teacher", "student", id],
     queryFn: () => fetchProgress({ data: { id } }),
@@ -131,6 +144,7 @@ function StudentDetail() {
             const isDone = summary.completedSet.has(String(entry.n));
             const ex = summary.exerciseStats[String(entry.n)];
             const pct = ex ? Math.round((ex.score / ex.total) * 100) : null;
+            const tgTitle = teacherGuide.lessons.find((l: any) => String(l.id) === String(entry.n) || String(l.lesson) === String(entry.n))?.title || entry.title;
             return (
               <div
                 key={entry.n}
@@ -139,7 +153,7 @@ function StudentDetail() {
               >
                 <div className="text-xs font-bold w-8 text-foreground/50">{entry.n}</div>
                 <div className="flex-1 min-w-0">
-                  <div className="font-bold text-sm truncate">{entry.title}</div>
+                  <div className="font-bold text-sm truncate">{tgTitle}</div>
                   <div className="text-xs text-foreground/60 mt-0.5">
                     {isDone ? (
                       <span className="text-success font-bold">✓ completada</span>
@@ -172,6 +186,18 @@ function StudentDetail() {
         </section>
       )}
 
+      <section className="print:hidden mt-8 kid-card p-4">
+        <label htmlFor="teacher-notes" className="block font-bold mb-3 text-lg">Notas del maestro</label>
+        <textarea
+          id="teacher-notes"
+          value={notes}
+          onChange={(e) => setNotes(e.target.value)}
+          onBlur={(e) => saveNotes(e.target.value)}
+          placeholder="Escribe tus observaciones aquí…"
+          className="w-full min-h-[120px] px-4 py-3 rounded-xl border-2 border-foreground/10 bg-background focus:border-primary outline-none text-sm"
+        />
+      </section>
+
       <section className="mt-8">
         <h2 className="font-bold mb-3 text-lg">Actividad reciente</h2>
         <ul className="space-y-1.5 text-sm">
@@ -185,7 +211,7 @@ function StudentDetail() {
                 <span className="text-foreground/60">{labelEvent(e)}</span>
               </span>
               <span className="text-xs text-foreground/50">
-                {new Date(e.created_at).toLocaleString()}
+                {new Date(e.created_at).toLocaleDateString('es-MX', { dateStyle: 'long' })}
               </span>
             </li>
           ))}

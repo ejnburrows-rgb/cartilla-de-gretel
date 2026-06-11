@@ -25,6 +25,7 @@ import {
 } from "@/lib/teacher.functions";
 import { listAssignments, createAssignment, deleteAssignment } from "@/lib/assignments.functions";
 import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
+import teacherGuide from "@/data/teacher-guide.json";
 import { SimpleBarChart } from "@/components/cartilla/SimpleBarChart";
 import { downloadCSV, toCSV } from "@/lib/csv";
 
@@ -164,8 +165,15 @@ function ClassDetail() {
 
   if (isLoading) {
     return (
-      <main className="min-h-screen flex items-center justify-center">
-        <Loader2 className="w-6 h-6 animate-spin text-foreground/40" />
+      <main className="min-h-screen bg-background px-4 py-6 max-w-4xl mx-auto animate-pulse">
+        <div className="w-24 h-4 bg-secondary rounded mb-6"></div>
+        <div className="w-64 h-10 bg-secondary rounded mb-2"></div>
+        <div className="w-96 h-6 bg-secondary rounded mb-6"></div>
+        <div className="flex gap-2 mb-6">
+          <div className="w-32 h-10 bg-secondary rounded-xl"></div>
+        </div>
+        <div className="w-full h-48 bg-secondary rounded-2xl mb-6"></div>
+        <div className="w-full h-32 bg-secondary rounded-2xl"></div>
       </main>
     );
   }
@@ -176,7 +184,7 @@ function ClassDetail() {
     <main className="min-h-screen bg-background px-4 py-6 max-w-4xl mx-auto">
       <Link
         to="/cartilla/teacher"
-        className="inline-flex items-center gap-2 text-sm font-bold text-foreground/60 hover:text-foreground"
+        className="print:hidden inline-flex items-center gap-2 text-sm font-bold text-foreground/60 hover:text-foreground"
       >
         <ArrowLeft className="w-4 h-4" /> Mis clases
       </Link>
@@ -208,6 +216,12 @@ function ClassDetail() {
         >
           <Download className="w-4 h-4" /> Exportar CSV
         </button>
+        <button
+          onClick={() => window.print()}
+          className="print:hidden inline-flex items-center gap-1.5 text-sm px-3 py-2 rounded-xl border-2 border-foreground/10 hover:bg-secondary font-bold"
+        >
+          <ClipboardList className="w-4 h-4" /> Imprimir lista
+        </button>
       </div>
 
       {classProgress && lessonChart.length > 0 && (
@@ -222,7 +236,7 @@ function ClassDetail() {
         </section>
       )}
 
-      <section className="mt-6 kid-card p-4">
+      <section className="print:hidden mt-6 kid-card p-4">
         <h2 className="font-bold mb-3 inline-flex items-center gap-2">
           <ClipboardList className="w-4 h-4" /> Tareas asignadas
         </h2>
@@ -364,7 +378,7 @@ function ClassDetail() {
         )}
       </section>
 
-      <section className="mt-6 kid-card p-4">
+      <section className="print:hidden mt-6 kid-card p-4">
         <h2 className="font-bold mb-2 inline-flex items-center gap-2">
           <Search className="w-4 h-4" /> Buscar código olvidado
         </h2>
@@ -416,7 +430,7 @@ function ClassDetail() {
         )}
       </section>
 
-      <section className="mt-6 kid-card p-4">
+      <section className="print:hidden mt-6 kid-card p-4">
         <h2 className="font-bold mb-2 inline-flex items-center gap-2">
           <Plus className="w-4 h-4" /> Agregar alumnos
         </h2>
@@ -451,12 +465,20 @@ function ClassDetail() {
       <section className="mt-6">
         <h2 className="font-bold mb-3 text-lg">Alumnos ({data.students.length})</h2>
         {data.students.length === 0 ? (
-          <div className="kid-card p-6 text-center text-foreground/60">
-            Aún no hay alumnos. Agrega algunos arriba.
+          <div className="kid-card p-12 text-center flex flex-col items-center justify-center text-foreground/60">
+            <ClipboardList className="w-12 h-12 mb-4 opacity-50" />
+            <p className="text-lg font-bold mb-2 text-foreground">Aún no hay alumnos</p>
+            <p className="text-sm max-w-sm mb-6">Agrega los nombres de tus alumnos en la sección de arriba para comenzar a registrar su progreso.</p>
+            <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="print:hidden px-4 py-2 bg-primary text-primary-foreground font-bold rounded-xl text-sm">
+              Agregar alumnos
+            </button>
           </div>
         ) : (
           <div className="space-y-2">
-            {data.students.map((s) => (
+            {[...data.students].sort((a, b) => a.display_name.localeCompare(b.display_name)).map((s) => {
+              const curNum = Math.min(s.lessons + 1, 24);
+              const curTitle = teacherGuide.lessons.find((l: any) => l.id === curNum || l.lesson === curNum)?.title || `L${curNum}`;
+              return (
               <div key={s.id} className="kid-card p-3 flex items-center justify-between gap-3">
                 <Link
                   to="/cartilla/teacher/alumno/$id"
@@ -469,11 +491,11 @@ function ClassDetail() {
                       Código: <span className="font-mono font-bold">{s.student_code}</span>
                     </span>
                     <span className="inline-flex items-center gap-1">
-                      <BookOpen className="w-3 h-3" /> {s.lessons}/{TOTAL_LESSONS} lecciones
+                      <BookOpen className="w-3 h-3" /> Lección actual: {curTitle}
                     </span>
                     <span>{s.events} eventos</span>
                     {s.lastSeen && (
-                      <span>· última actividad {new Date(s.lastSeen).toLocaleDateString()}</span>
+                      <span>· última actividad {new Date(s.lastSeen).toLocaleDateString('es-MX', { dateStyle: 'long' })}</span>
                     )}
                   </div>
                 </Link>
@@ -496,7 +518,8 @@ function ClassDetail() {
                   <Trash2 className="w-4 h-4" />
                 </button>
               </div>
-            ))}
+            );
+            })}
           </div>
         )}
       </section>
