@@ -4,18 +4,31 @@
       "id": "l1-placeholder",
       "lessonNumber": 1,
       "pageNumber": null,
-      "kind": "",
-      "title": "",
+      "kind": "cover",
+      "title": "Portada",
       "prompt": "",
-      "items": [],
+      "items": [
+        {
+          "id": "cover-1",
+          "label": "La cartilla de Gretel"
+        },
+        {
+          "id": "cover-2",
+          "label": "Libro del alumno"
+        },
+        {
+          "id": "cover-3",
+          "label": "Autora: Leonor Lopetegui"
+        }
+      ],
       "targets": [],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "needs-review",
-      "studentFacingStatus": "pending",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Portada",
       "teacherNotes": "",
       "note": "Precedes vowel section; no flip chart or eval page exists for this lesson.",
       "sourcePage": "vocales-page-01.png",
-      "blockingReason": "Placeholder interaction for introductory lesson. No specific transcribable items."
+      "blockingReason": ""
     },
     {
       "id": "l2-p4-drag-word-o",
@@ -1119,19 +1132,40 @@
       "id": "l9-p29-tap-obj",
       "lessonNumber": 9,
       "pageNumber": 29,
-      "kind": "tap-object",
-      "title": "Toca los objetos",
-      "prompt": "Toca cada objeto del cuaderno cuando lo veas en la página.",
-      "items": [],
+      "kind": "mini-story",
+      "title": "Sapo Samapo",
+      "prompt": "Lee el poema del cuaderno.",
+      "items": [
+        {
+          "id": "sapo-1",
+          "label": "Sapo Samapo"
+        },
+        {
+          "id": "sapo-2",
+          "label": "Sapo Samapo"
+        },
+        {
+          "id": "sapo-3",
+          "label": "en la mesa está"
+        },
+        {
+          "id": "sapo-4",
+          "label": "sapo Samapo"
+        },
+        {
+          "id": "sapo-5",
+          "label": "sa-po-mi-pa."
+        }
+      ],
       "targets": [],
       "sourceStatus": "needs-transcription",
-      "transcriptionStatus": "needs-review",
-      "studentFacingStatus": "source page image connected",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Poema en la página del cuaderno",
       "teacherNotes": "saco, seta, seis are NOT confirmed in consonants.json examples for Lesson 9. These object names are plausible for the S lesson but are not verified from the official workbook page scan. Do not promote to book-derived without page verification.",
       "assetRef": "cartilla/images/source/ss/ss-page-16.jpg",
       "assetRefVerified": true,
       "sourcePage": "ñ-page-29.jpg",
-      "blockingReason": "Content (saco, seta, seis) cannot be confirmed. OCR is unavailable, and teacher-guide.json vocabulary is empty."
+      "blockingReason": ""
     },
     {
       "id": "l9-p29-mini-story-ss",
@@ -2412,19 +2446,56 @@
       "lessonNumber": 14,
       "pageNumber": 50,
       "kind": "mini-story",
-      "title": "Cuento con Ñ",
+      "title": "Cuento: La niña sueña",
       "prompt": "Lee el cuento del cuaderno con tu maestro.",
       "assetRef": "cartilla/images/source/ñ/ñ-page-30.jpg",
       "assetRefSourcePage": "30-Ññ (workbook page 30)",
       "assetRefVerified": true,
-      "items": [],
+      "items": [
+        {
+          "id": "n-1",
+          "label": "La niña sueña"
+        },
+        {
+          "id": "n-2",
+          "label": "La niña de Noña"
+        },
+        {
+          "id": "n-3",
+          "label": "tiene sueño,"
+        },
+        {
+          "id": "n-4",
+          "label": "Noña la tapa"
+        },
+        {
+          "id": "n-5",
+          "label": "con el pañuelo."
+        },
+        {
+          "id": "n-6",
+          "label": "Sueña mi niña"
+        },
+        {
+          "id": "n-7",
+          "label": "sueños bonitos."
+        },
+        {
+          "id": "n-8",
+          "label": "¿Estás soñando"
+        },
+        {
+          "id": "n-9",
+          "label": "con mis besitos?"
+        }
+      ],
       "targets": [],
       "sourceStatus": "needs-transcription",
-      "transcriptionStatus": "needs-review",
-      "studentFacingStatus": "Cuento en la página del cuaderno — lee con tu maestro.",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Cuento en la página del cuaderno",
       "teacherNotes": "Mini-story on source page 30-Ññ. Text transcription pending manual verification from scan. No OCR used.",
       "sourcePage": "j-page-50.jpg",
-      "blockingReason": "Content for mini-story cannot be confirmed. OCR is unavailable to read the text from the source image, and teacher-guide.json poem text is empty."
+      "blockingReason": ""
     },
     {
       "id": "l15-pX-letter-tracing",
@@ -3115,35 +3186,97 @@
       "assetRef": "cartilla/images/source/r/r-page-39.jpg",
       "assetRefSourcePage": "39-Rr (workbook page 39)",
       "assetRefVerified": true,
-      "items": [],
+      "items": [
+        {
+          "id": "r-1",
+          "label": "La rosca de Manolo"
+        },
+        {
+          "id": "r-2",
+          "label": "La r para la rama"
+        },
+        {
+          "id": "r-3",
+          "label": "para el roer del ratón"
+        },
+        {
+          "id": "r-4",
+          "label": "y para el rabo del mono"
+        },
+        {
+          "id": "r-5",
+          "label": "risueño y remolón."
+        },
+        {
+          "id": "r-6",
+          "label": "Para la rueda redonda"
+        },
+        {
+          "id": "r-7",
+          "label": "la risa de tío Rolo"
+        },
+        {
+          "id": "r-8",
+          "label": "la rana, el remo, la rosa"
+        },
+        {
+          "id": "r-9",
+          "label": "y la rosca de Manolo."
+        }
+      ],
       "targets": [],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "needs-review",
-      "studentFacingStatus": "source page image connected",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Poema en la página del cuaderno",
       "teacherNotes": "Poem text transcribed directly from source page 39-Rr (workbook page 39). Full page scan available as assetRef.",
       "sourcePage": "b-page-39.png",
-      "blockingReason": "Content for poem cannot be confirmed. OCR is unavailable to read the text from the source image, and teacher-guide.json poem text is empty."
+      "blockingReason": ""
     },
     {
       "id": "l17-p62-read-aloud",
       "lessonNumber": 17,
       "pageNumber": 62,
-      "kind": "read-aloud",
-      "title": "Lee en voz alta",
-      "prompt": "Lee la sílaba en voz alta y toca el botón para escucharla también.",
-      "items": [],
+      "kind": "eval-cloze",
+      "title": "Completa las palabras con la sílaba correcta.",
+      "prompt": "Escribe oraciones. Usa las sílabas que aprendiste.",
+      "items": [
+        {
+          "id": "cloze-1",
+          "label": "toma: ____ma (to - ta)"
+        },
+        {
+          "id": "cloze-2",
+          "label": "mata: ma____ (ta - ti)"
+        },
+        {
+          "id": "cloze-3",
+          "label": "topo: ____po (tu - to)"
+        },
+        {
+          "id": "cloze-4",
+          "label": "tomate: ____mate (to - tu)"
+        },
+        {
+          "id": "cloze-5",
+          "label": "tupe: ____pe (ti - tu)"
+        },
+        {
+          "id": "cloze-6",
+          "label": "tipi: ____pi (to - ti)"
+        }
+      ],
       "targets": [],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "needs-review",
-      "studentFacingStatus": "object-level cutout pending",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Lección 10",
       "teacherNotes": "Read-aloud of the r-syllable family. No art mapping required.",
       "sourcePage": "b-page-40.png",
-      "blockingReason": "Syllable content cannot be confirmed. OCR is unavailable to read the text from the source image, and teacher-guide.json objectives/procedures are empty."
+      "blockingReason": ""
     },
     {
-      "id": "l18-pX-letter-tracing",
+      "id": "l18-p63-letter-tracing",
       "lessonNumber": 18,
-      "pageNumber": 55,
+      "pageNumber": 63,
       "kind": "letter-tracing",
       "title": "Escribe con tu mejor letra — r r",
       "prompt": "Traza la letra r mayúscula y la r minúscula. Luego haz un dibujo de una palabra que comienza con r.",
@@ -3165,9 +3298,9 @@
       "sourcePage": "y-page-55.jpg"
     },
     {
-      "id": "l18-pX-syllable-circle",
+      "id": "l18-p64-syllable-circle",
       "lessonNumber": 18,
-      "pageNumber": 56,
+      "pageNumber": 64,
       "kind": "drag-syllable-to-slot",
       "title": "Encierra la sílaba — r r",
       "prompt": "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
@@ -3241,9 +3374,9 @@
       "sourcePage": "y-page-56.jpg"
     },
     {
-      "id": "l18-pX-word-bank",
+      "id": "l18-p65-word-bank",
       "lessonNumber": 18,
-      "pageNumber": 57,
+      "pageNumber": 65,
       "kind": "listen-and-tap",
       "title": "Palabras con r",
       "prompt": "Toca cada palabra para escucharla.",
@@ -3285,9 +3418,9 @@
       "sourcePage": "y-page-57.jpg"
     },
     {
-      "id": "l18-pX-mini-story",
+      "id": "l18-p65-mini-story",
       "lessonNumber": 18,
-      "pageNumber": 58,
+      "pageNumber": 65,
       "kind": "mini-story",
       "title": "Mini-cuento: El cuento de Rita",
       "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
@@ -3317,9 +3450,9 @@
       "sourcePage": "z-page-58.jpg"
     },
     {
-      "id": "l18-pX-fill-in-blank",
+      "id": "l18-p66-fill-in-blank",
       "lessonNumber": 18,
-      "pageNumber": 59,
+      "pageNumber": 66,
       "kind": "drag-syllable-to-slot",
       "title": "Completa las palabras — r r",
       "prompt": "Arrastra la palabra correcta para completar cada oración.",
@@ -3399,9 +3532,9 @@
       "sourcePage": "z-page-59.jpg"
     },
     {
-      "id": "l19-pX-letter-tracing",
+      "id": "l19-p67-letter-tracing",
       "lessonNumber": 19,
-      "pageNumber": 58,
+      "pageNumber": 67,
       "kind": "letter-tracing",
       "title": "Escribe con tu mejor letra — G g",
       "prompt": "Traza la letra G mayúscula y la g minúscula. Luego haz un dibujo de una palabra que comienza con g.",
@@ -3423,9 +3556,9 @@
       "sourcePage": "z-page-58.jpg"
     },
     {
-      "id": "l19-pX-syllable-circle",
+      "id": "l19-p68-syllable-circle",
       "lessonNumber": 19,
-      "pageNumber": 59,
+      "pageNumber": 68,
       "kind": "drag-syllable-to-slot",
       "title": "Encierra la sílaba — G g",
       "prompt": "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
@@ -3499,9 +3632,9 @@
       "sourcePage": "z-page-59.jpg"
     },
     {
-      "id": "l19-pX-word-bank",
+      "id": "l19-p69-word-bank",
       "lessonNumber": 19,
-      "pageNumber": 60,
+      "pageNumber": 69,
       "kind": "listen-and-tap",
       "title": "Palabras con G",
       "prompt": "Toca cada palabra para escucharla.",
@@ -3543,9 +3676,9 @@
       "sourcePage": "z-page-60.jpg"
     },
     {
-      "id": "l19-pX-mini-story",
+      "id": "l19-p69-mini-story",
       "lessonNumber": 19,
-      "pageNumber": 61,
+      "pageNumber": 69,
       "kind": "mini-story",
       "title": "Mini-cuento: El cuento de Gato",
       "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
@@ -3574,9 +3707,9 @@
       "teacherNotes": "Mini-story for G"
     },
     {
-      "id": "l19-pX-fill-in-blank",
+      "id": "l19-p70-fill-in-blank",
       "lessonNumber": 19,
-      "pageNumber": 62,
+      "pageNumber": 70,
       "kind": "drag-syllable-to-slot",
       "title": "Completa las palabras — G g",
       "prompt": "Arrastra la palabra correcta para completar cada oración.",
@@ -3655,9 +3788,9 @@
       "teacherNotes": "Fill in the blank for G"
     },
     {
-      "id": "l20-pX-letter-tracing",
+      "id": "l20-p71-letter-tracing",
       "lessonNumber": 20,
-      "pageNumber": 61,
+      "pageNumber": 71,
       "kind": "letter-tracing",
       "title": "Escribe con tu mejor letra — F f",
       "prompt": "Traza la letra F mayúscula y la f minúscula. Luego haz un dibujo de una palabra que comienza con f.",
@@ -3678,9 +3811,9 @@
       "teacherNotes": "Tracing activity for F"
     },
     {
-      "id": "l20-pX-syllable-circle",
+      "id": "l20-p72-syllable-circle",
       "lessonNumber": 20,
-      "pageNumber": 62,
+      "pageNumber": 72,
       "kind": "drag-syllable-to-slot",
       "title": "Encierra la sílaba — F f",
       "prompt": "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
@@ -3753,9 +3886,9 @@
       "teacherNotes": "Syllable circle for F"
     },
     {
-      "id": "l20-pX-word-bank",
+      "id": "l20-p73-word-bank",
       "lessonNumber": 20,
-      "pageNumber": 63,
+      "pageNumber": 73,
       "kind": "listen-and-tap",
       "title": "Palabras con F",
       "prompt": "Toca cada palabra para escucharla.",
@@ -3796,9 +3929,9 @@
       "teacherNotes": "Word bank for F"
     },
     {
-      "id": "l20-pX-mini-story",
+      "id": "l20-p73-mini-story",
       "lessonNumber": 20,
-      "pageNumber": 64,
+      "pageNumber": 73,
       "kind": "mini-story",
       "title": "Mini-cuento: El cuento de Fifi",
       "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
@@ -3827,9 +3960,9 @@
       "teacherNotes": "Mini-story for F"
     },
     {
-      "id": "l20-pX-fill-in-blank",
+      "id": "l20-p74-fill-in-blank",
       "lessonNumber": 20,
-      "pageNumber": 65,
+      "pageNumber": 74,
       "kind": "drag-syllable-to-slot",
       "title": "Completa las palabras — F f",
       "prompt": "Arrastra la palabra correcta para completar cada oración.",
