@@ -193,12 +193,12 @@
     td.num.nonzero { color:var(--color-text); font-weight:600; }
 
     /* ── Badges ── */
-    .badge {
-      display:inline-flex; align-items:center; gap:var(--space-1);
-      font-size:var(--text-xs); font-weight:600; padding:.18rem .55rem;
-      border-radius:var(--radius-full); white-space:nowrap;
-    }
-    .badge-green  { background:var(--color-success-highlight); color:var(--color-success); }
+    .badge { display: inline-block; font-size: .75rem; font-weight: 600; padding: .15rem .55rem; border-radius: 999px; }
+    .badge-green  { background: #dcfce7; color: var(--green); }
+    .badge-yellow { background: #fef9c3; color: var(--yellow); }
+    .badge-blue   { background: #dbeafe; color: var(--blue); }
+    .badge-gray   { background: #f3f4f6; color: var(--gray); }
+    .badge-red    { background: #fee2e2; color: var(--red); }
     .badge-teal   { background:var(--color-primary-highlight); color:var(--color-primary); }
     .badge-gold   { background:var(--color-gold-highlight); color:var(--color-gold); }
     .badge-muted  { background:var(--color-surface-offset); color:var(--color-text-muted); }
@@ -324,6 +324,114 @@
   </div>
 
   <div class="container sections">
+
+    <!-- Feature Inventory -->
+    <div class="section">
+      <h2 class="section-title">Inventario de Funcionalidades / Feature Inventory</h2>
+      <div class="scorecard-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Feature / Característica</th>
+              <th>File Path / Ruta del archivo</th>
+              <th>Status / Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>About page</td>
+              <td><span class="file-chip">src/routes/cartilla/autora.tsx</span></td>
+              <td><span class="badge badge-red">❌ missing</span></td>
+            </tr>
+            <tr>
+              <td>404 page</td>
+              <td><span class="file-chip">src/routes/__root.tsx</span></td>
+              <td><span class="badge badge-green">✅ exists</span></td>
+            </tr>
+            <tr>
+              <td>Favicon</td>
+              <td><span class="file-chip">public/favicon.svg</span></td>
+              <td><span class="badge badge-green">✅ exists</span></td>
+            </tr>
+            <tr>
+              <td>Progress map</td>
+              <td><span class="file-chip">src/routes/cartilla/student/progress.tsx</span></td>
+              <td><span class="badge badge-green">✅ exists</span></td>
+            </tr>
+            <tr>
+              <td>Lesson prev/next nav</td>
+              <td><span class="file-chip">src/routes/cartilla/student/leccion.$n.tsx</span></td>
+              <td><span class="badge badge-green">✅ exists</span></td>
+            </tr>
+            <tr>
+              <td>Completion tracking (localStorage)</td>
+              <td><span class="file-chip">src/lib/lesson-progress.ts</span></td>
+              <td><span class="badge badge-green">✅ exists</span></td>
+            </tr>
+            <tr>
+              <td>Word-bank renderer</td>
+              <td><span class="file-chip">src/routes/cartilla/student/leccion.$n.tsx</span></td>
+              <td><span class="badge badge-green">✅ exists</span></td>
+            </tr>
+            <tr>
+              <td>Mini-story renderer</td>
+              <td><span class="file-chip">src/routes/cartilla/student/leccion.$n.tsx</span></td>
+              <td><span class="badge badge-green">✅ exists</span></td>
+            </tr>
+            <tr>
+              <td>Tap-obj renderer</td>
+              <td><span class="file-chip">src/routes/cartilla/student/leccion.$n.tsx</span></td>
+              <td><span class="badge badge-green">✅ exists</span></td>
+            </tr>
+            <tr>
+              <td>Letter-tracing renderer</td>
+              <td><span class="file-chip">src/routes/cartilla/student/leccion.$n.tsx</span></td>
+              <td><span class="badge badge-green">✅ exists</span></td>
+            </tr>
+            <tr>
+              <td>Flip-poem renderer</td>
+              <td><span class="file-chip">src/routes/cartilla/student/leccion.$n.tsx</span></td>
+              <td><span class="badge badge-green">✅ exists</span></td>
+            </tr>
+            <tr>
+              <td>Eval-cloze renderer</td>
+              <td><span class="file-chip">src/routes/cartilla/student/leccion.$n.tsx</span></td>
+              <td><span class="badge badge-green">✅ exists</span></td>
+            </tr>
+            <tr>
+              <td>Schema validator (npm run validate)</td>
+              <td><span class="file-chip">scripts/validate-teacher-guide.cjs</span></td>
+              <td><span class="badge badge-green">✅ exists</span></td>
+            </tr>
+            <tr>
+              <td>Teacher classroom view</td>
+              <td><span class="file-chip">src/routes/cartilla/teacher/index.tsx</span></td>
+              <td><span class="badge badge-green">✅ exists</span></td>
+            </tr>
+            <tr>
+              <td>Teacher student detail</td>
+              <td><span class="file-chip">src/routes/_authenticated/cartilla.teacher.alumno.$id.tsx</span></td>
+              <td><span class="badge badge-green">✅ exists</span></td>
+            </tr>
+            <tr>
+              <td>Print view</td>
+              <td><span class="file-chip">src/routes/print/$lessonId.tsx</span></td>
+              <td><span class="badge badge-green">✅ exists</span></td>
+            </tr>
+            <tr>
+              <td>Skeleton loader</td>
+              <td><span class="file-chip">src/routes/cartilla/student/_components/LessonSkeleton.tsx</span></td>
+              <td><span class="badge badge-green">✅ exists</span></td>
+            </tr>
+            <tr>
+              <td>Skip link / OG meta tags</td>
+              <td><span class="file-chip">src/components/a11y/SkipLink.tsx</span> &amp; <span class="file-chip">src/routes/__root.tsx</span></td>
+              <td><span class="badge badge-green">✅ exists</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
     <!-- Scorecard -->
     <section id="scorecard" aria-labelledby="scorecard-title">
