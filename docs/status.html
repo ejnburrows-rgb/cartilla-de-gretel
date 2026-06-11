@@ -153,7 +153,7 @@
       background: var(--color-surface);
       border: 1px solid oklch(from var(--color-text) l c h / 0.08);
       border-radius: var(--radius-xl);
-      padding: var(--space-5) var(--space-5);
+      padding: var(--space-5);
       box-shadow: var(--shadow-sm);
     }
     .kpi-value { font-family:var(--font-display); font-size:var(--text-xl); line-height:1; margin-bottom:var(--space-1); }
@@ -195,12 +195,8 @@
     /* ── Badges ── */
     .badge { display: inline-block; font-size: .75rem; font-weight: 600; padding: .15rem .55rem; border-radius: 999px; }
     .badge-green  { background: var(--color-success-highlight); color: var(--color-success); }
-    .badge-yellow { background: var(--color-gold-highlight); color: var(--color-gold); }
-    .badge-blue   { background: var(--color-primary-highlight); color: var(--color-primary); }
-    .badge-gray   { background: var(--color-surface-offset); color: var(--color-text-muted); }
-    .badge-red    { background: var(--color-error-highlight); color: var(--color-error); }
-    .badge-teal   { background: var(--color-primary-highlight); color: var(--color-primary); }
     .badge-gold   { background: var(--color-gold-highlight); color: var(--color-gold); }
+    .badge-teal   { background: var(--color-primary-highlight); color: var(--color-primary); }
     .badge-muted  { background: var(--color-surface-offset); color: var(--color-text-muted); }
 
     /* ── Blocker cards ── */
@@ -261,10 +257,8 @@
 </head>
 <body>
 
-<!-- Skip link -->
 <a href="#main" style="position:absolute;top:-40px;left:0;background:var(--color-primary);color:#fff;padding:var(--space-2) var(--space-4);border-radius:var(--radius-md);z-index:999;transition:top .15s" onfocus="this.style.top='0'" onblur="this.style.top='-40px'">Ir al contenido</a>
 
-<!-- Nav -->
 <nav aria-label="Navegación principal">
   <div class="container nav-inner">
     <a class="nav-logo" href="#" aria-label="Inicio">
@@ -276,8 +270,9 @@
       <span class="nav-logo-text">La Cartilla de Gretel</span>
     </a>
     <div class="nav-right">
+      <a class="nav-link" href="#funciones">Funciones</a>
       <a class="nav-link" href="#scorecard">Lecciones</a>
-      <a class="nav-link" href="#blockers">Bloqueadores</a>
+      <a class="nav-link" href="#bloqueadores">Bloqueadores</a>
       <a class="btn-primary" href="https://cartilla-de-gretel.vercel.app" target="_blank" rel="noopener noreferrer">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         Abrir app
@@ -291,149 +286,145 @@
 
 <main id="main">
 
-  <!-- Hero -->
   <section class="hero">
     <div class="container">
-      <p class="hero-eyebrow">Estado del proyecto · Junio 2026</p>
+      <p class="hero-eyebrow">Estado del proyecto &middot; Junio 2026</p>
       <h1>Fidelidad de contenido</h1>
       <p class="hero-sub">Seguimiento de la transcripción y verificación de las lecciones de <em>La Cartilla de Gretel</em>, adaptación digital del libro de Leonor Lopetegui para LANY Books LLC.</p>
       <p class="hero-meta">Adaptación digital: Emilio José Novo &bull; Colaboradoras: Aída Fernández, Silvia Diez &bull; Ilustradora: Estela de Armas Plasencia</p>
     </div>
   </section>
 
-  <!-- KPIs -->
   <div class="container">
     <div class="kpi-strip" aria-label="Métricas principales">
       <div class="kpi green">
         <div class="kpi-value">16</div>
-        <div class="kpi-label">✅ Lecciones verificadas</div>
+        <div class="kpi-label">Lecciones verificadas</div>
       </div>
       <div class="kpi teal">
         <div class="kpi-value">4</div>
-        <div class="kpi-label">📋 Solo docente</div>
+        <div class="kpi-label">Solo docente</div>
       </div>
       <div class="kpi gold">
         <div class="kpi-value">4</div>
-        <div class="kpi-label">⚠️ Con pendientes</div>
+        <div class="kpi-label">Con pendientes</div>
       </div>
       <div class="kpi neutral">
         <div class="kpi-value">5</div>
-        <div class="kpi-label">🔒 Interacciones bloqueadas</div>
+        <div class="kpi-label">Interacciones bloqueadas</div>
       </div>
     </div>
   </div>
 
   <div class="container sections">
 
-    <!-- Feature Inventory -->
-    <div class="section">
-      <h2 class="section-title">Inventario de Funcionalidades / Feature Inventory</h2>
+    <section id="funciones" aria-labelledby="funciones-title">
+      <h2 class="section-title" id="funciones-title">Inventario de funciones</h2>
       <div class="scorecard-wrap">
         <table>
           <thead>
             <tr>
-              <th>Feature / Característica</th>
-              <th>File Path / Ruta del archivo</th>
-              <th>Status / Estado</th>
+              <th>Función</th>
+              <th>Ruta del archivo</th>
+              <th>Estado</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>About page</td>
+              <td>Página de la autora</td>
               <td><span class="file-chip">src/routes/cartilla/autora.tsx</span> &amp; <span class="file-chip">src/routes/credits.tsx</span></td>
-              <td><span class="badge badge-green">✅ exists</span></td>
+              <td><span class="badge badge-green">Existe</span></td>
             </tr>
             <tr>
-              <td>404 page</td>
+              <td>Página 404</td>
               <td><span class="file-chip">src/routes/__root.tsx</span></td>
-              <td><span class="badge badge-green">✅ exists</span></td>
+              <td><span class="badge badge-green">Existe</span></td>
             </tr>
             <tr>
               <td>Favicon</td>
               <td><span class="file-chip">public/favicon.svg</span></td>
-              <td><span class="badge badge-green">✅ exists</span></td>
+              <td><span class="badge badge-green">Existe</span></td>
             </tr>
             <tr>
-              <td>Progress map</td>
+              <td>Mapa de progreso</td>
               <td><span class="file-chip">src/routes/cartilla/student/progress.tsx</span> &amp; <span class="file-chip">src/routes/cartilla/student/mi-progreso.tsx</span></td>
-              <td><span class="badge badge-green">✅ exists</span></td>
+              <td><span class="badge badge-green">Existe</span></td>
             </tr>
             <tr>
-              <td>Lesson prev/next nav</td>
+              <td>Navegación anterior / siguiente</td>
               <td><span class="file-chip">src/routes/cartilla/student/leccion.$n.tsx</span></td>
-              <td><span class="badge badge-green">✅ exists</span></td>
+              <td><span class="badge badge-green">Existe</span></td>
             </tr>
             <tr>
-              <td>Completion tracking (localStorage)</td>
+              <td>Seguimiento de completados (localStorage)</td>
               <td><span class="file-chip">src/lib/lesson-progress.ts</span></td>
-              <td><span class="badge badge-green">✅ exists</span></td>
+              <td><span class="badge badge-green">Existe</span></td>
             </tr>
             <tr>
-              <td>Word-bank renderer</td>
+              <td>Renderizador de banco de palabras</td>
               <td><span class="file-chip">src/routes/cartilla/student/leccion.$n.tsx</span></td>
-              <td><span class="badge badge-green">✅ exists</span></td>
+              <td><span class="badge badge-green">Existe</span></td>
             </tr>
             <tr>
-              <td>Mini-story renderer</td>
+              <td>Renderizador de cuentito</td>
               <td><span class="file-chip">src/routes/cartilla/student/leccion.$n.tsx</span></td>
-              <td><span class="badge badge-green">✅ exists</span></td>
+              <td><span class="badge badge-green">Existe</span></td>
             </tr>
             <tr>
-              <td>Tap-obj renderer</td>
+              <td>Renderizador toca-objeto</td>
               <td><span class="file-chip">src/routes/cartilla/student/leccion.$n.tsx</span></td>
-              <td><span class="badge badge-green">✅ exists</span></td>
+              <td><span class="badge badge-green">Existe</span></td>
             </tr>
             <tr>
-              <td>Letter-tracing renderer</td>
+              <td>Renderizador de trazado de letras</td>
               <td><span class="file-chip">src/routes/cartilla/student/leccion.$n.tsx</span></td>
-              <td><span class="badge badge-green">✅ exists</span></td>
+              <td><span class="badge badge-green">Existe</span></td>
             </tr>
             <tr>
-              <td>Flip-poem renderer</td>
+              <td>Renderizador de poema desplegable</td>
               <td><span class="file-chip">src/routes/cartilla/student/leccion.$n.tsx</span></td>
-              <td><span class="badge badge-green">✅ exists</span></td>
+              <td><span class="badge badge-green">Existe</span></td>
             </tr>
             <tr>
-              <td>Eval-cloze renderer</td>
+              <td>Renderizador de evaluación con huecos</td>
               <td><span class="file-chip">src/routes/cartilla/student/leccion.$n.tsx</span></td>
-              <td><span class="badge badge-green">✅ exists</span></td>
+              <td><span class="badge badge-green">Existe</span></td>
             </tr>
             <tr>
-              <td>Schema validator (npm run validate)</td>
+              <td>Validador de esquema (<code>npm run validate</code>)</td>
               <td><span class="file-chip">scripts/validate-teacher-guide.cjs</span></td>
-              <td><span class="badge badge-green">✅ exists</span></td>
+              <td><span class="badge badge-green">Existe</span></td>
             </tr>
             <tr>
-              <td>Teacher classroom view</td>
+              <td>Vista de aula del docente</td>
               <td><span class="file-chip">src/routes/cartilla/teacher/index.tsx</span></td>
-              <td><span class="badge badge-green">✅ exists</span></td>
+              <td><span class="badge badge-green">Existe</span></td>
             </tr>
             <tr>
-              <td>Teacher student detail</td>
+              <td>Detalle de alumno (docente)</td>
               <td><span class="file-chip">src/routes/_authenticated/cartilla.teacher.alumno.$id.tsx</span></td>
-              <td><span class="badge badge-green">✅ exists</span></td>
+              <td><span class="badge badge-green">Existe</span></td>
             </tr>
             <tr>
-              <td>Print view</td>
+              <td>Vista de impresión</td>
               <td><span class="file-chip">src/routes/print/$lessonId.tsx</span></td>
-              <td><span class="badge badge-green">✅ exists</span></td>
+              <td><span class="badge badge-green">Existe</span></td>
             </tr>
             <tr>
-              <td>Skeleton loader</td>
+              <td>Skeleton de carga</td>
               <td><span class="file-chip">src/routes/cartilla/student/_components/LessonSkeleton.tsx</span></td>
-              <td><span class="badge badge-green">✅ exists</span></td>
+              <td><span class="badge badge-green">Existe</span></td>
             </tr>
             <tr>
-              <td>Skip link / OG meta tags</td>
+              <td>Enlace de salto de accesibilidad / metaetiquetas OG</td>
               <td><span class="file-chip">src/components/a11y/SkipLink.tsx</span> &amp; <span class="file-chip">src/routes/__root.tsx</span></td>
-              <td><span class="badge badge-green">✅ exists</span></td>
+              <td><span class="badge badge-green">Existe</span></td>
             </tr>
           </tbody>
         </table>
       </div>
-    </div>
+    </section>
 
-    <!-- Scorecard -->
     <section id="scorecard" aria-labelledby="scorecard-title">
       <h2 class="section-title" id="scorecard-title">Desglose por lección</h2>
       <div class="scorecard-wrap">
@@ -442,9 +433,9 @@
             <tr>
               <th scope="col">Lección</th>
               <th scope="col">Estado</th>
-              <th scope="col" class="num">✅ Verif.</th>
-              <th scope="col" class="num show-mobile">📋 Doc.</th>
-              <th scope="col" class="num">⚠️ Pend.</th>
+              <th scope="col" class="num">Verif.</th>
+              <th scope="col" class="num show-mobile">Doc.</th>
+              <th scope="col" class="num">Pend.</th>
             </tr>
           </thead>
           <tbody id="lesson-rows"></tbody>
@@ -452,17 +443,15 @@
       </div>
     </section>
 
-    <!-- Blockers -->
-    <section id="blockers" aria-labelledby="blockers-title">
-      <h2 class="section-title" id="blockers-title">Interacciones bloqueadas</h2>
+    <section id="bloqueadores" aria-labelledby="bloqueadores-title">
+      <h2 class="section-title" id="bloqueadores-title">Interacciones bloqueadas</h2>
       <p style="font-size:var(--text-sm);color:var(--color-text-muted);margin-bottom:var(--space-5)">Estas interacciones requieren revisión humana del escaneo original antes de activarse en la app.</p>
       <div class="blocker-list" id="blocker-cards"></div>
     </section>
 
-    <!-- Tech stack -->
     <section aria-labelledby="stack-title">
       <h2 class="section-title" id="stack-title">Tecnologías</h2>
-      <p style="font-size:var(--text-sm);color:var(--color-text-muted)">Stack del proyecto desplegado en Vercel.</p>
+      <p style="font-size:var(--text-sm);color:var(--color-text-muted)">Stack del proyecto, desplegado en Vercel.</p>
       <div class="stack-pills">
         <span class="pill">Vite</span>
         <span class="pill">React</span>
@@ -490,45 +479,45 @@
     const t=document.querySelector('[data-theme-toggle]'),r=document.documentElement;
     let d=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
     r.setAttribute('data-theme',d);
-    const sunIcon='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
-    const moonIcon='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
-    const updateIcon=()=>{t.innerHTML=d==='dark'?sunIcon:moonIcon;t.setAttribute('aria-label','Cambiar a modo '+(d==='dark'?'claro':'oscuro'));};
-    updateIcon();
-    t&&t.addEventListener('click',()=>{d=d==='dark'?'light':'dark';r.setAttribute('data-theme',d);updateIcon();});
+    const sun='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
+    const moon='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+    const sync=()=>{t.innerHTML=d==='dark'?sun:moon;t.setAttribute('aria-label','Cambiar a modo '+(d==='dark'?'claro':'oscuro'));};
+    sync();
+    t&&t.addEventListener('click',()=>{d=d==='dark'?'light':'dark';r.setAttribute('data-theme',d);sync();});
   })();
 
   /* ── Lesson data ── */
   const lessons = [
-    { id:'L01', name:'L01 — Vocales',       status:'pending',  v:0, d:0, p:1 },
-    { id:'L02', name:'L02',                  status:'verified', v:1, d:0, p:0 },
-    { id:'L03', name:'L03',                  status:'verified', v:1, d:0, p:0 },
-    { id:'L04', name:'L04',                  status:'verified', v:1, d:0, p:0 },
-    { id:'L05', name:'L05',                  status:'verified', v:1, d:0, p:0 },
-    { id:'L06', name:'L06',                  status:'verified', v:1, d:0, p:0 },
-    { id:'L07', name:'L07',                  status:'verified', v:6, d:0, p:0 },
-    { id:'L08', name:'L08',                  status:'verified', v:6, d:0, p:0 },
-    { id:'L09', name:'L09 — S s',            status:'pending',  v:6, d:0, p:1 },
-    { id:'L10', name:'L10',                  status:'verified', v:5, d:0, p:0 },
-    { id:'L11', name:'L11',                  status:'verified', v:5, d:0, p:0 },
-    { id:'L12', name:'L12',                  status:'verified', v:5, d:0, p:0 },
-    { id:'L13', name:'L13',                  status:'verified', v:5, d:0, p:0 },
-    { id:'L14', name:'L14 — Ñ ñ',            status:'pending',  v:4, d:0, p:1 },
-    { id:'L15', name:'L15',                  status:'verified', v:5, d:0, p:0 },
-    { id:'L16', name:'L16',                  status:'verified', v:5, d:0, p:0 },
-    { id:'L17', name:'L17 — R r / B b',      status:'pending',  v:4, d:0, p:2 },
-    { id:'L18', name:'L18',                  status:'verified', v:5, d:0, p:0 },
-    { id:'L19', name:'L19',                  status:'verified', v:5, d:0, p:0 },
-    { id:'L20', name:'L20',                  status:'verified', v:5, d:0, p:0 },
-    { id:'L21', name:'L21 — Solo docente',   status:'teacher',  v:0, d:5, p:0 },
-    { id:'L22', name:'L22 — Solo docente',   status:'teacher',  v:0, d:5, p:0 },
-    { id:'L23', name:'L23 — Solo docente',   status:'teacher',  v:0, d:5, p:0 },
-    { id:'L24', name:'L24 — Solo docente',   status:'teacher',  v:0, d:5, p:0 },
+    { id:'L01', name:'L01 — Las vocales',                 status:'pending',  v:0, d:0, p:1 },
+    { id:'L02', name:'L02 — M m',                          status:'verified', v:1, d:0, p:0 },
+    { id:'L03', name:'L03 — P p',                          status:'verified', v:1, d:0, p:0 },
+    { id:'L04', name:'L04 — L l',                          status:'verified', v:1, d:0, p:0 },
+    { id:'L05', name:'L05 — T t',                          status:'verified', v:1, d:0, p:0 },
+    { id:'L06', name:'L06 — D d',                          status:'verified', v:1, d:0, p:0 },
+    { id:'L07', name:'L07 — N n',                          status:'verified', v:6, d:0, p:0 },
+    { id:'L08', name:'L08 — F f',                          status:'verified', v:6, d:0, p:0 },
+    { id:'L09', name:'L09 — S s',                          status:'pending',  v:6, d:0, p:1 },
+    { id:'L10', name:'L10 — C c / Q q',                   status:'verified', v:5, d:0, p:0 },
+    { id:'L11', name:'L11 — G g / J j',                   status:'verified', v:5, d:0, p:0 },
+    { id:'L12', name:'L12 — Ch ch',                        status:'verified', v:5, d:0, p:0 },
+    { id:'L13', name:'L13 — V v',                          status:'verified', v:5, d:0, p:0 },
+    { id:'L14', name:'L14 — Ñ ñ',                          status:'pending',  v:4, d:0, p:1 },
+    { id:'L15', name:'L15 — Y y / Ll ll',                 status:'verified', v:5, d:0, p:0 },
+    { id:'L16', name:'L16 — Z z',                          status:'verified', v:5, d:0, p:0 },
+    { id:'L17', name:'L17 — R r / B b',                   status:'pending',  v:4, d:0, p:2 },
+    { id:'L18', name:'L18 — H h',                          status:'verified', v:5, d:0, p:0 },
+    { id:'L19', name:'L19 — X x',                          status:'verified', v:5, d:0, p:0 },
+    { id:'L20', name:'L20 — K k / W w',                   status:'verified', v:5, d:0, p:0 },
+    { id:'L21', name:'L21 — Repaso I (solo docente)',      status:'teacher',  v:0, d:5, p:0 },
+    { id:'L22', name:'L22 — Repaso II (solo docente)',     status:'teacher',  v:0, d:5, p:0 },
+    { id:'L23', name:'L23 — Repaso III (solo docente)',    status:'teacher',  v:0, d:5, p:0 },
+    { id:'L24', name:'L24 — Evaluación final (solo docente)', status:'teacher', v:0, d:5, p:0 },
   ];
 
-  const statusBadge = {
-    verified: '<span class="badge badge-green">✅ Verificada</span>',
-    pending:  '<span class="badge badge-gold">⚠️ Pendiente</span>',
-    teacher:  '<span class="badge badge-teal">📋 Solo docente</span>',
+  const badge = {
+    verified: '<span class="badge badge-green">Verificada</span>',
+    pending:  '<span class="badge badge-gold">Pendiente</span>',
+    teacher:  '<span class="badge badge-teal">Solo docente</span>',
   };
 
   const tbody = document.getElementById('lesson-rows');
@@ -536,7 +525,7 @@
     const tr = document.createElement('tr');
     tr.innerHTML = `
       <td class="lesson-name">${l.name}</td>
-      <td>${statusBadge[l.status]}</td>
+      <td>${badge[l.status]}</td>
       <td class="num${l.v?' nonzero':''}">${l.v||'—'}</td>
       <td class="num show-mobile${l.d?' nonzero':''}">${l.d||'—'}</td>
       <td class="num${l.p?' nonzero':''}">${l.p||'—'}</td>
@@ -549,19 +538,19 @@
     {
       id: 'l1-placeholder',
       title: 'L01 — Página introductoria de vocales',
-      why: 'Interacción marcada como placeholder. Los elementos interactivos de la lección introductoria no están confirmados.',
+      why: 'Interacción marcada como pendiente. Los elementos interactivos de la lección introductoria no están confirmados en el escaneo original.',
       file: 'public/cartilla/images/source/vocales/vocales-page-01.png'
     },
     {
       id: 'l9-p29-tap-obj',
       title: 'L09 — Toca los objetos (S s, pág. 29)',
-      why: 'Los nombres de los objetos (posiblemente <em>saco, seta, seis</em>) no están confirmados en <code>teacher-guide.json</code> ni en el escaneo verificado.',
+      why: 'Los nombres de los objetos no están confirmados en <code>teacher-guide.json</code> ni en el escaneo verificado.',
       file: 'public/cartilla/images/source/ss/ss-page-16.jpg'
     },
     {
       id: 'l14-p50-mini-story',
       title: 'L14 — Cuento con Ñ (pág. 50)',
-      why: 'El texto del cuento no puede confirmarse sin OCR o transcripción manual del escaneo original.',
+      why: 'El texto del cuento no puede confirmarse sin transcripción manual del escaneo original.',
       file: 'public/cartilla/images/source/ñ/ñ-page-30.jpg'
     },
     {
