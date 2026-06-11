@@ -19,6 +19,7 @@ import { recordEvent, useStudentSession } from "@/lib/student-session";
 import interactionsData from "@/data/workbook-interactions.json";
 import teacherGuideData from "@/data/teacher-guide.json";
 import pageInventory from "@/data/page-inventory.json";
+import LessonSkeleton from "./_components/LessonSkeleton";
 import { PdfPage } from "@/components/cartilla/PdfPage";
 import { FlipBook } from "@/components/cartilla/FlipBook";
 import { OfflineBadge } from "@/components/cartilla/OfflineBadge";
@@ -115,7 +116,8 @@ function Leccion() {
     };
   }, [n, lessonId]);
 
-  if (!entry || !unlocked) return null;
+  if (!unlocked) return null;
+  if (!entry || !guideLesson) return <LessonSkeleton />;
 
   const done = isCompleted(n);
   const isLast = n >= TOTAL_LESSONS;
@@ -143,6 +145,21 @@ function Leccion() {
 
   return (
     <>
+      <style>{`
+        @media print {
+          @page { size: letter; margin: 1in; }
+          body, html, #root { background: white !important; color: black !important; font-size: 12pt; }
+          h1, h2, h3 { font-size: 18pt !important; margin-bottom: 0.5em; color: black !important; }
+          nav, header:not(.print-header), footer, button, .interactive-controls, .no-print, .student-exercise-pane, .print-btn-container { display: none !important; }
+          .print-only { display: block; }
+          .print-vocab-list, .print-sentences-list { padding-left: 1.5em; list-style-type: disc; margin-bottom: 1em; }
+          .print-poem-line { margin: 0.2em 0; }
+          .print-section { margin-bottom: 2em; }
+        }
+        @media screen {
+          .print-only { display: none; }
+        }
+      `}</style>
       {/* ── Print-only printable view ── */}
       <div className="print-only">
         <div className="print-content">
@@ -293,59 +310,32 @@ function Leccion() {
 
       {/* ── Main ── */}
       <main className="flex-1 px-4 pt-4 pb-28 max-w-3xl w-full mx-auto space-y-6 relative z-10">
-        <div>
-          <div className="text-xs font-bold uppercase tracking-wide text-foreground/50">
-            Lección {n} · páginas {entry.pages}
+        <div className="text-center mb-8">
+          <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/40 mb-3">
+            Lección {n}
           </div>
           <h1
-            className="text-4xl sm:text-5xl font-bold leading-tight mt-1"
+            className="text-4xl sm:text-5xl font-bold leading-tight"
             style={activeColorStyle}
           >
             {entry.title}
           </h1>
           {entry.kind !== "intro" && (
-            <p className="text-sm text-foreground/65 mt-1">{entry.subtitle}</p>
+            <p className="text-sm text-foreground/60 mt-3 font-medium italic tracking-wide">{entry.subtitle}</p>
           )}
-        </div>
-
-        <div className="print-btn-container no-print">
-          <button
-            onClick={() => typeof window !== "undefined" && window.print()}
-            className="print-btn inline-flex items-center gap-2 px-4 py-2 bg-stone-100 hover:bg-stone-200 dark:bg-stone-800 dark:hover:bg-stone-700 text-stone-700 dark:text-stone-200 font-bold text-sm rounded-xl border border-stone-300 dark:border-stone-600 transition"
-            style={{ minHeight: "44px" }}
-            type="button"
-          >
-            <Printer className="w-4 h-4" />
-            Imprimir esta lección
-          </button>
-        </div>
-
-        {/* Hero Band: Desktop only (hidden sm:flex) */}
-        <div
-          className="hidden sm:flex items-center gap-5 p-5 rounded-3xl border border-foreground/10"
-          style={heroBgStyle}
-        >
-          <div className="w-20 h-20 shrink-0 flex items-center justify-center rounded-2xl bg-white/40 overflow-hidden">
-            <BookArtFigure
-              lesson={n}
-              role="character"
-              className="w-full h-full object-contain p-1"
-            />
-          </div>
-          <div>
-            <div className="text-xs font-bold uppercase tracking-wide text-foreground/50">
-              Lección {n}
-            </div>
-            <h2 className="text-2xl font-bold" style={activeColorStyle}>
-              {entry.title}
-            </h2>
-            {entry.kind !== "intro" && (
-              <p className="text-sm text-foreground/75 mt-0.5">{entry.subtitle}</p>
-            )}
+          <div className="mt-6">
+            <button
+              onClick={() => typeof window !== "undefined" && window.print()}
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white hover:bg-stone-50 text-stone-700 font-bold text-sm rounded-full border border-stone-200 shadow-sm hover:shadow transition-all no-print"
+              style={{ minHeight: "44px" }}
+              type="button"
+            >
+              🖨 Imprimir esta lección
+            </button>
           </div>
         </div>
 
-        {/* PDF page with page-peel flips */}
+        {/* PDF page with realistic page-peel flips */}
         <FlipBook entry={entry} initialPageNumber={firstPage} />
 
         {/* Student exercise pane — key resets all state on lesson change */}
@@ -424,26 +414,26 @@ function Leccion() {
 
       {/* ── Bottom nav ── */}
       <nav
-        className="no-print fixed bottom-0 inset-x-0 p-3 bg-background/95 backdrop-blur border-t-2 border-foreground/10"
+        className="no-print fixed bottom-0 inset-x-0 p-4 bg-gradient-to-t from-background/95 via-background/90 to-transparent backdrop-blur-sm pointer-events-none"
         aria-label="Navegación entre lecciones"
       >
-        <div className="max-w-3xl mx-auto flex items-center justify-between gap-3">
+        <div className="max-w-3xl mx-auto flex items-center justify-between gap-3 pointer-events-auto">
           <button
             onClick={() =>
               n > 1
                 ? navigate({ to: "/cartilla/leccion/$n", params: { n: String(n - 1) } })
                 : navigate({ to: "/cartilla/lecciones" })
             }
-            className="lesson-focus-ring px-5 py-3 rounded-2xl border-2 border-foreground/15 font-bold hover:bg-secondary"
+            className="lesson-focus-ring px-5 py-2.5 rounded-full bg-white text-stone-600 font-bold text-sm shadow-sm border border-stone-200 hover:bg-stone-50 transition-all flex items-center gap-2"
             aria-label={n > 1 ? `Ir a lección ${n - 1}` : "Volver al índice"}
           >
-            <ArrowLeft className="w-5 h-5 inline mr-1" aria-hidden />
+            <ArrowLeft className="w-4 h-4" aria-hidden />
             {n > 1 ? "Anterior" : "Índice"}
           </button>
           <button
             onClick={goNext}
             disabled={isLast && done}
-            className="lesson-focus-ring px-6 py-3 rounded-2xl bg-primary text-primary-foreground font-bold text-lg disabled:opacity-40 hover:translate-y-px"
+            className="lesson-focus-ring px-6 py-2.5 rounded-full bg-primary text-primary-foreground font-bold text-sm shadow-md disabled:opacity-50 hover:shadow-lg transition-all flex items-center gap-2"
             aria-label={
               isLast
                 ? "Marcar lección como terminada"
@@ -455,9 +445,9 @@ function Leccion() {
                 ? "Terminado"
                 : "Marcar y terminar"
               : done
-                ? "Siguiente"
-                : "Marcar y siguiente"}{" "}
-            <ArrowRight className="w-5 h-5 inline ml-1" aria-hidden />
+                ? "Siguiente Lección"
+                : "Marcar y Siguiente"}{" "}
+            <ArrowRight className="w-4 h-4" aria-hidden />
           </button>
         </div>
       </nav>
