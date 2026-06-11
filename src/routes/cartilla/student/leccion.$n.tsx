@@ -116,6 +116,20 @@ function Leccion() {
     };
   }, [n, lessonId]);
 
+  useEffect(() => {
+    try {
+      const key = "gretel-completedLessons";
+      const raw = localStorage.getItem(key);
+      const arr = raw ? JSON.parse(raw) : [];
+      if (Array.isArray(arr) && !arr.includes(n)) {
+        arr.push(n);
+        localStorage.setItem(key, JSON.stringify(arr));
+      }
+    } catch {
+      // ignore silently
+    }
+  }, [n]);
+
   if (!unlocked) return null;
   if (!entry || !guideLesson) return <LessonSkeleton />;
 
@@ -414,42 +428,44 @@ function Leccion() {
 
       {/* ── Bottom nav ── */}
       <nav
-        className="no-print fixed bottom-0 inset-x-0 p-4 bg-gradient-to-t from-background/95 via-background/90 to-transparent backdrop-blur-sm pointer-events-none"
+        className="no-print sticky bottom-0 z-50 flex items-center justify-between"
+        style={{
+          background: "var(--color-surface, #ffffff)",
+          borderTop: "1px solid var(--color-border, #e5e7eb)",
+          padding: "var(--space-3, 0.75rem) var(--space-4, 1rem)",
+          minHeight: "60px",
+        }}
         aria-label="Navegación entre lecciones"
       >
-        <div className="max-w-3xl mx-auto flex items-center justify-between gap-3 pointer-events-auto">
-          <button
-            onClick={() =>
-              n > 1
-                ? navigate({ to: "/cartilla/leccion/$n", params: { n: String(n - 1) } })
-                : navigate({ to: "/cartilla/lecciones" })
-            }
-            className="lesson-focus-ring px-5 py-2.5 rounded-full bg-white text-stone-600 font-bold text-sm shadow-sm border border-stone-200 hover:bg-stone-50 transition-all flex items-center gap-2"
-            aria-label={n > 1 ? `Ir a lección ${n - 1}` : "Volver al índice"}
-          >
-            <ArrowLeft className="w-4 h-4" aria-hidden />
-            {n > 1 ? "Anterior" : "Índice"}
-          </button>
-          <button
-            onClick={goNext}
-            disabled={isLast && done}
-            className="lesson-focus-ring px-6 py-2.5 rounded-full bg-primary text-primary-foreground font-bold text-sm shadow-md disabled:opacity-50 hover:shadow-lg transition-all flex items-center gap-2"
-            aria-label={
-              isLast
-                ? "Marcar lección como terminada"
-                : `Marcar lección ${n} y avanzar a la ${n + 1}`
-            }
-          >
-            {isLast
-              ? done
-                ? "Terminado"
-                : "Marcar y terminar"
-              : done
-                ? "Siguiente Lección"
-                : "Marcar y Siguiente"}{" "}
-            <ArrowRight className="w-4 h-4" aria-hidden />
-          </button>
-        </div>
+        <Link
+          to="/cartilla/student/leccion/$n"
+          params={{ n: String(n - 1) }}
+          disabled={n === 1}
+          className={`inline-flex items-center justify-center font-bold rounded-xl transition-colors text-sm ${
+            n === 1 ? "opacity-40 pointer-events-none text-foreground/50" : "hover:bg-foreground/5 text-foreground"
+          }`}
+          style={{ minHeight: "44px", minWidth: "44px", padding: "0 0.75rem" }}
+          aria-label={n === 1 ? undefined : `Ir a lección ${n - 1}`}
+        >
+          ← Lección anterior
+        </Link>
+
+        <span className="text-sm font-bold text-foreground/60">
+          Lección {n} de 24
+        </span>
+
+        <Link
+          to="/cartilla/student/leccion/$n"
+          params={{ n: String(n + 1) }}
+          disabled={n >= 24}
+          className={`inline-flex items-center justify-center font-bold rounded-xl transition-colors text-sm ${
+            n >= 24 ? "opacity-40 pointer-events-none text-foreground/50" : "hover:bg-foreground/5 text-foreground"
+          }`}
+          style={{ minHeight: "44px", minWidth: "44px", padding: "0 0.75rem" }}
+          aria-label={n >= 24 ? undefined : `Ir a lección ${n + 1}`}
+        >
+          Lección siguiente →
+        </Link>
       </nav>
       <div className="fixed bottom-24 right-4 z-40">
         <GretelMascot

@@ -207,13 +207,33 @@ function MyProgress() {
             </p>
           )}
         </div>
-        <button
-          onClick={exportCSV}
-          className="inline-flex items-center gap-1.5 text-sm px-3 py-2 rounded-xl border-2 border-foreground/10 hover:bg-secondary font-bold"
-          aria-label="Exportar progreso como CSV"
-        >
-          <Download className="w-4 h-4" aria-hidden /> CSV
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={exportCSV}
+            className="inline-flex items-center gap-1.5 text-sm px-3 py-2 rounded-xl border-2 border-foreground/10 hover:bg-secondary font-bold"
+            aria-label="Exportar progreso como CSV"
+            style={{ minHeight: "44px" }}
+          >
+            <Download className="w-4 h-4" aria-hidden /> CSV
+          </button>
+          <button
+            onClick={() => {
+              if (window.confirm("¿Seguro que quieres borrar tu progreso?")) {
+                try {
+                  localStorage.removeItem("gretel-completedLessons");
+                } catch {
+                  // ignore
+                }
+                window.location.reload();
+              }
+            }}
+            className="inline-flex items-center gap-1.5 text-sm px-3 py-2 rounded-xl border-2 border-transparent text-destructive hover:bg-destructive/10 font-bold transition-colors"
+            aria-label="Reiniciar progreso"
+            style={{ minHeight: "44px", color: "var(--color-error, #ef4444)" }}
+          >
+            Reiniciar progreso
+          </button>
+        </div>
       </header>
 
       {loading && (

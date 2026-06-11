@@ -55,6 +55,16 @@ function Lecciones() {
   const fetchMyProgress = useServerFn(getMyProgress);
   const { isCompleted, isUnlocked, completed, reset } = useLessonProgress();
 
+  const [visitedLessons, setVisitedLessons] = useState<number[]>([]);
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem("gretel-completedLessons");
+      if (raw) setVisitedLessons(JSON.parse(raw));
+    } catch {
+      // ignore
+    }
+  }, []);
+
   // Sync cloud progress
   useEffect(() => {
     if (!session) return;
@@ -280,7 +290,7 @@ function Lecciones() {
             return (
               <li key={entry.n} className="list-none">
                 <button
-                  className={`w-full text-left rounded-2xl border-2 p-3 transition ${
+                  className={`relative w-full text-left rounded-2xl border-2 p-3 transition ${
                     active
                       ? "shadow-md"
                       : unlocked
@@ -297,6 +307,29 @@ function Lecciones() {
                   aria-pressed={active}
                   aria-label={`Lección ${entry.n}: ${entry.title}${done ? " — completada" : !unlocked ? " — bloqueada" : ""}`}
                 >
+                  {visitedLessons.includes(entry.n) && (
+                    <div
+                      style={{
+                        position: "absolute",
+                        top: "-4px",
+                        right: "-4px",
+                        width: "20px",
+                        height: "20px",
+                        borderRadius: "50%",
+                        backgroundColor: "var(--color-success, #10b981)",
+                        color: "white",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontSize: "12px",
+                        fontWeight: "bold",
+                        zIndex: 10,
+                      }}
+                      aria-label="Visitada"
+                    >
+                      ✓
+                    </div>
+                  )}
                   <div className="flex items-center justify-between gap-1 mb-2">
                     <span className="text-[10px] font-bold uppercase tracking-wide text-foreground/50">
                       L{entry.n}
