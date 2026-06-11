@@ -13,6 +13,10 @@ This repository is the digital edition and classroom platform for *La Cartilla d
 - Edits to lesson content, illustrations, or pedagogy order (vowel order, consonant order, sight-word lists).
 - Replacing original illustrations with emoji, clip-art, or AI-generated images.
 
+## Image Restoration
+
+When digitizing and restoring official workbook scans, please follow the standard [Image Restoration Workflow](docs/image-restoration-workflow.md) to ensure high-quality, consistent assets.
+
 ## Local setup
 
 ```bash

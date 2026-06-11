@@ -18,6 +18,7 @@ import { useLessonProgress, isLessonUnlocked, markLessonCompleted } from "@/lib/
 import { recordEvent, useStudentSession } from "@/lib/student-session";
 import interactionsData from "@/data/workbook-interactions.json";
 import teacherGuideData from "@/data/teacher-guide.json";
+import pageInventory from "@/data/page-inventory.json";
 import { PdfPage } from "@/components/cartilla/PdfPage";
 import { FlipBook } from "@/components/cartilla/FlipBook";
 import { OfflineBadge } from "@/components/cartilla/OfflineBadge";
@@ -136,6 +137,9 @@ function Leccion() {
 
   const activeLetter =
     entry.kind === "consonant" ? entry.letter : entry.kind === "vowel" ? entry.vowel : "a";
+  const letterLower = activeLetter.toLowerCase();
+  const letterFolder = letterLower === "s" ? "ss" : letterLower === "r inicial" || letterLower === "rima" ? "rima" : letterLower;
+  const pages = pageInventory.workbook.lessons.find((l) => l.lessonId === n)?.pages || [];
 
   return (
     <>
@@ -374,6 +378,40 @@ function Leccion() {
             </div>
           </section>
         )}
+
+        {n >= 21 && n <= 24 ? (
+          <section aria-label="Páginas del libro de trabajo" className="w-full mt-12 mb-8 mx-auto sm:max-w-[680px] text-center">
+            <h2 className="text-3xl font-bold mb-4" style={activeColorStyle}>Páginas del libro</h2>
+            <p className="text-foreground/70 font-bold">Tu maestra te dará estas páginas en clase.</p>
+          </section>
+        ) : pages.length > 0 ? (
+          <section aria-label="Páginas del libro de trabajo" className="w-full mt-12 mb-8 mx-auto sm:max-w-[680px]">
+            <h2 className="text-3xl font-bold mb-6 text-center px-4" style={activeColorStyle}>Páginas del libro</h2>
+            <div className="flex flex-col gap-6 w-full sm:px-4">
+              {pages.map((filename: string, index: number) => (
+                <picture key={filename} className="w-full block -mx-4 sm:mx-0 w-[calc(100%+2rem)] sm:w-full">
+                  <source
+                    srcSet={`/cartilla/images/source/${letterFolder}/${filename}.avif`}
+                    type="image/avif"
+                  />
+                  <source
+                    srcSet={`/cartilla/images/source/${letterFolder}/${filename}.webp`}
+                    type="image/webp"
+                  />
+                  <img
+                    src={`/cartilla/images/source/${letterFolder}/${filename}`}
+                    alt={`Página ${index + 1} — Lección ${n}`}
+                    width={1240}
+                    height={1754}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-auto sm:rounded-xl sm:shadow-lg sm:border sm:border-black/10 block"
+                  />
+                </picture>
+              ))}
+            </div>
+          </section>
+        ) : null}
 
         {done && (
           <div className="inline-flex items-center gap-2 text-sm font-bold text-success">
