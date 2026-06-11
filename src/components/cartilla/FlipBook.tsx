@@ -1,201 +1,171 @@
-import React, { useState, useEffect, useMemo, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useRef, useEffect, useState, useMemo } from "react";
+// @ts-ignore
+import HTMLFlipBook from "react-pageflip";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { CatalogEntry } from "@/lib/lesson-catalog";
 import { PdfPage } from "@/components/cartilla/PdfPage";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const flipBookContainerStyle: React.CSSProperties = {
-  position: "relative",
-  width: "100%",
-  maxHeight: "65vh",
-  aspectRatio: "4/3",
-  borderRadius: "1rem",
-  overflow: "hidden",
-  userSelect: "none",
-  touchAction: "pan-y",
-  backgroundColor: "#fdfbf7",
-  boxShadow: "inset 0 0 20px rgba(0,0,0,0.03)",
-};
-
-const navigationOverlayStyle: React.CSSProperties = {
-  position: "absolute",
-  bottom: "0.85rem",
-  left: 0,
-  right: 0,
-  display: "flex",
-  justifyContent: "space-between",
-  padding: "0 1.25rem",
-  zIndex: 30,
-  pointerEvents: "none",
-};
-
-const navBtnStyle = (color: string, disabled: boolean): React.CSSProperties => ({
-  backgroundColor: disabled ? "#f5f5f4" : "#ffffff",
-  border: `2px solid ${disabled ? "#e7e5e4" : color}`,
-  color: disabled ? "#a8a29e" : color,
-  padding: "0.35rem 0.85rem",
-  borderRadius: "0.75rem",
-  fontSize: "0.7rem",
-  fontWeight: "bold",
-  cursor: disabled ? "not-allowed" : "pointer",
-  pointerEvents: disabled ? "none" : "auto",
-  boxShadow: disabled ? "none" : "0 4px 6px -1px rgba(0, 0, 0, 0.05)",
-  display: "inline-flex",
-  alignItems: "center",
-  gap: "0.25rem",
-  transition: "all 0.1s ease",
-});
+const FlipBookLib = HTMLFlipBook as any;
 
 interface FlipBookProps {
   entry: CatalogEntry;
   initialPageNumber: number;
 }
 
+interface PageProps extends React.HTMLAttributes<HTMLDivElement> {
+  pageNum: number;
+}
+
+const Page = React.forwardRef<HTMLDivElement, PageProps>(({ pageNum, ...props }, ref) => {
+  return (
+    <div
+      {...props}
+      className={`page bg-white shadow-md relative overflow-hidden ${props.className || ""}`}
+      ref={ref}
+    >
+      <PdfPage pageNumber={pageNum} className="w-full h-full object-contain" />
+
+      {/* Paper-depth overlay: soft gutter shadows and curled corners */}
+      <div className="pointer-events-none absolute inset-0 z-10">
+        <div className="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-black/15 to-transparent" />
+        <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-black/15 to-transparent" />
+        <div className="absolute bottom-0 right-0 h-16 w-16 bg-[radial-gradient(circle_at_bottom_right,rgba(0,0,0,0.18),transparent_70%)]" />
+        <div className="absolute bottom-0 left-0 h-16 w-16 bg-[radial-gradient(circle_at_bottom_left,rgba(0,0,0,0.18),transparent_70%)]" />
+        <div className="absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-white/40 to-transparent" />
+      </div>
+    </div>
+  );
+});
+Page.displayName = "Page";
+
 export function FlipBook({ entry, initialPageNumber }: FlipBookProps) {
   const parts = useMemo(() => entry.pages.split("-").map(Number), [entry]);
   const from = parts[0] || 1;
   const to = parts[1] || from;
 
+  const [mounted, setMounted] = useState(false);
+  const bookRef = useRef<any>(null);
   const [activePage, setActivePage] = useState(initialPageNumber);
-  const [prevPage, setPrevPage] = useState(initialPageNumber);
-  const [isFlipping, setIsFlipping] = useState(false);
-
-  // Direction: 1 = next page (flips to left), -1 = prev page (flips from left to right)
-  const direction = activePage > prevPage ? 1 : -1;
 
   useEffect(() => {
+    setMounted(true);
     setActivePage(initialPageNumber);
-    setPrevPage(initialPageNumber);
   }, [initialPageNumber]);
 
-  const triggerNext = () => {
-    if (isFlipping || activePage >= to) return;
-    setPrevPage(activePage);
-    setActivePage((p) => p + 1);
-    setIsFlipping(true);
-  };
-
-  const triggerPrev = () => {
-    if (isFlipping || activePage <= from) return;
-    setPrevPage(activePage);
-    setActivePage((p) => p - 1);
-    setIsFlipping(true);
-  };
-
-  const onAnimationComplete = () => {
-    setIsFlipping(false);
-  };
-
-  // Horizontal Side-to-Side Flip Variants
-  const variants = {
-    enter: (direction: number) => ({
-      rotateY: direction > 0 ? 0 : -90,
-      opacity: direction > 0 ? 0.5 : 0,
-      zIndex: direction > 0 ? 0 : 10,
-    }),
-    center: {
-      rotateY: 0,
-      opacity: 1,
-      zIndex: 5,
-    },
-    exit: (direction: number) => ({
-      rotateY: direction > 0 ? -90 : 0,
-      opacity: direction > 0 ? 0 : 0.5,
-      zIndex: direction > 0 ? 10 : 0,
-    }),
-  };
-
-  // Touch handlers for lightweight swiping gestures
-  const touchStartX = useRef(0);
-  const touchStartY = useRef(0);
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.touches[0]?.clientX || 0;
-    touchStartY.current = e.touches[0]?.clientY || 0;
-  };
-
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    const endX = e.changedTouches[0]?.clientX || 0;
-    const endY = e.changedTouches[0]?.clientY || 0;
-
-    const diffX = touchStartX.current - endX;
-    const diffY = touchStartY.current - endY;
-
-    if (Math.abs(diffX) > Math.abs(diffY)) {
-      if (diffX > 80) {
-        triggerNext();
-      } else if (diffX < -80) {
-        triggerPrev();
-      }
+  const getApi = (): any | null => {
+    try {
+      return bookRef.current?.pageFlip?.() ?? null;
+    } catch {
+      return null;
     }
   };
 
-  const color = entry.color || "#8B5A2B";
+  const onFlip = (e: any) => {
+    if (!e || typeof e.data !== "number") return;
+    setActivePage(from + e.data);
+  };
+
+  const handlePrev = () => { getApi()?.flipPrev?.(); };
+  const handleNext = () => { getApi()?.flipNext?.(); };
+
+  if (!mounted) {
+    return (
+      <div className="w-full h-[60vh] flex items-center justify-center">
+        <div className="h-10 w-10 animate-spin rounded-full border-4 border-stone-300 border-t-amber-500" />
+      </div>
+    );
+  }
+
+  const pagesCount = to - from + 1;
+  const pagesArray = Array.from({ length: pagesCount }, (_, i) => from + i);
+
   const hasPrev = activePage > from;
   const hasNext = activePage < to;
 
-  const prevStyle = navBtnStyle(color, !hasPrev || isFlipping);
-  const nextStyle = navBtnStyle(color, !hasNext || isFlipping);
+  // Single page rendering (e.g., L01)
+  if (pagesCount === 1) {
+    return (
+      <div className="relative w-full flex flex-col items-center justify-center py-6">
+        <div className="pointer-events-none absolute bottom-3 left-1/2 -translate-x-1/2 h-6 w-3/4 max-w-[400px] rounded-[50%] bg-black/25 blur-xl z-0" />
+        <div className="relative z-10 w-full max-w-[450px] aspect-[3/4] mx-auto drop-shadow-2xl rounded-lg overflow-hidden border border-black/5">
+          <Page pageNum={from} className="w-full h-full" />
+        </div>
+        <div className="mt-8 flex items-center justify-center gap-6 z-20">
+          <span className="font-mono text-sm font-bold text-stone-500">
+            Pág. {from}
+          </span>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div
-      style={flipBookContainerStyle}
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
-      className="select-none perspective-[1500px]"
-    >
-      <div className="w-full h-full relative flex items-center justify-center">
-        <AnimatePresence custom={direction} mode="popLayout" initial={false} onExitComplete={onAnimationComplete}>
-          <motion.div
-            key={activePage}
-            custom={direction}
-            variants={variants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{ type: "spring", stiffness: 100, damping: 20, mass: 0.8 }}
-            style={{
-              transformOrigin: "center left",
-              backfaceVisibility: "hidden",
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center"
-            }}
-          >
-            <PdfPage
-              pageNumber={activePage}
-              className="rounded-xl overflow-hidden object-contain max-h-[60vh] drop-shadow-md bg-transparent"
-            />
-          </motion.div>
-        </AnimatePresence>
+    <div className="relative w-full flex flex-col items-center justify-center select-none py-6 max-w-4xl mx-auto">
+      {/* Grounding shadow under the book */}
+      <div className="pointer-events-none absolute bottom-12 left-1/2 -translate-x-1/2 h-8 w-[85%] rounded-[50%] bg-black/25 blur-2xl z-0" />
+
+      <div className="relative z-10 drop-shadow-2xl mx-auto w-full flex justify-center">
+        <FlipBookLib
+          width={450}
+          height={600}
+          size="stretch"
+          minWidth={315}
+          maxWidth={550}
+          minHeight={420}
+          maxHeight={750}
+          maxShadowOpacity={0.55}
+          showCover={false}
+          mobileScrollSupport={true}
+          onFlip={onFlip}
+          ref={bookRef}
+          className="book-flip"
+          style={{ background: "transparent" }}
+        >
+          {pagesArray.map((pageNum) => (
+            <Page key={pageNum} pageNum={pageNum} />
+          ))}
+        </FlipBookLib>
+
+        {/* Spiral Binding Overlay (Desktop only) */}
+        <div className="pointer-events-none absolute inset-y-4 left-1/2 -ml-[14px] z-50 hidden md:flex w-7 flex-col items-center justify-around drop-shadow-md">
+          {Array.from({ length: 14 }).map((_, i) => (
+            <span
+              key={i}
+              className="relative block h-5 w-5 rounded-full bg-[conic-gradient(from_220deg,#d4d4d8,#71717a,#d4d4d8,#a1a1aa)] shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.65),inset_0_-1.5px_2px_rgba(0,0,0,0.4),0_1.5px_3px_rgba(0,0,0,0.28)]"
+            >
+              <span className="absolute inset-x-1 top-0.5 h-1 rounded-full bg-white/65 blur-[1px]" />
+              <span className="absolute inset-x-1 bottom-0.5 h-px rounded-full bg-black/35" />
+            </span>
+          ))}
+        </div>
       </div>
 
-      <div style={navigationOverlayStyle} className="no-print">
+      {/* Elegant Controls below the book */}
+      <div className="mt-8 flex items-center justify-center gap-6 z-20">
         <button
-          onClick={triggerPrev}
-          style={prevStyle}
-          disabled={!hasPrev || isFlipping}
-          aria-label="Página anterior"
+          onClick={handlePrev}
+          disabled={!hasPrev}
+          className={`flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-sm transition-all ${
+            hasPrev
+              ? "bg-white text-stone-700 shadow-md hover:bg-stone-50 border border-stone-200"
+              : "bg-stone-100 text-stone-400 cursor-not-allowed border border-transparent"
+          }`}
         >
-          <ChevronLeft className="w-3.5 h-3.5" />
-          Anterior
+          <ChevronLeft className="w-4 h-4" /> Anterior
         </button>
-
-        <span className="bg-white/80 dark:bg-black/60 px-3 py-1 rounded-full text-[10px] font-bold text-stone-600 dark:text-stone-300 font-mono shadow-sm self-center pointer-events-auto">
+        <span className="font-mono text-sm font-bold text-stone-500 bg-white/60 px-4 py-1.5 rounded-full shadow-sm">
           Pág. {activePage} de {to}
         </span>
-
         <button
-          onClick={triggerNext}
-          style={nextStyle}
-          disabled={!hasNext || isFlipping}
-          aria-label="Página siguiente"
+          onClick={handleNext}
+          disabled={!hasNext}
+          className={`flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-sm transition-all ${
+            hasNext
+              ? "bg-white text-stone-700 shadow-md hover:bg-stone-50 border border-stone-200"
+              : "bg-stone-100 text-stone-400 cursor-not-allowed border border-transparent"
+          }`}
         >
-          Siguiente
-          <ChevronRight className="w-3.5 h-3.5" />
+          Siguiente <ChevronRight className="w-4 h-4" />
         </button>
       </div>
     </div>
