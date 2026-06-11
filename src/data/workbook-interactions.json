@@ -9,11 +9,12 @@
       "prompt": "",
       "items": [],
       "targets": [],
-      "sourceStatus": "missing",
+      "sourceStatus": "book-derived",
       "transcriptionStatus": "needs-review",
       "studentFacingStatus": "pending",
       "teacherNotes": "",
-      "note": "Precedes vowel section; no flip chart or eval page exists for this lesson."
+      "note": "Precedes vowel section; no flip chart or eval page exists for this lesson.",
+      "sourcePage": "vocales-page-01.png"
     },
     {
       "id": "l2-p4-drag-word-o",
@@ -3113,10 +3114,11 @@
       "assetRefVerified": true,
       "items": [],
       "targets": [],
-      "sourceStatus": "missing-source",
+      "sourceStatus": "book-derived",
       "transcriptionStatus": "needs-review",
       "studentFacingStatus": "source page image connected",
-      "teacherNotes": "Poem text transcribed directly from source page 39-Rr (workbook page 39). Full page scan available as assetRef."
+      "teacherNotes": "Poem text transcribed directly from source page 39-Rr (workbook page 39). Full page scan available as assetRef.",
+      "sourcePage": "b-page-39.png"
     },
     {
       "id": "l17-p62-read-aloud",
@@ -3127,10 +3129,11 @@
       "prompt": "Lee la sílaba en voz alta y toca el botón para escucharla también.",
       "items": [],
       "targets": [],
-      "sourceStatus": "missing-source",
+      "sourceStatus": "book-derived",
       "transcriptionStatus": "needs-review",
       "studentFacingStatus": "object-level cutout pending",
-      "teacherNotes": "Read-aloud of the r-syllable family. No art mapping required."
+      "teacherNotes": "Read-aloud of the r-syllable family. No art mapping required.",
+      "sourcePage": "b-page-40.png"
     },
     {
       "id": "l18-pX-letter-tracing",
