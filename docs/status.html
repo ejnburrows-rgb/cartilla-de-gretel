@@ -194,14 +194,14 @@
 
     /* ── Badges ── */
     .badge { display: inline-block; font-size: .75rem; font-weight: 600; padding: .15rem .55rem; border-radius: 999px; }
-    .badge-green  { background: #dcfce7; color: var(--green); }
-    .badge-yellow { background: #fef9c3; color: var(--yellow); }
-    .badge-blue   { background: #dbeafe; color: var(--blue); }
-    .badge-gray   { background: #f3f4f6; color: var(--gray); }
-    .badge-red    { background: #fee2e2; color: var(--red); }
-    .badge-teal   { background:var(--color-primary-highlight); color:var(--color-primary); }
-    .badge-gold   { background:var(--color-gold-highlight); color:var(--color-gold); }
-    .badge-muted  { background:var(--color-surface-offset); color:var(--color-text-muted); }
+    .badge-green  { background: var(--color-success-highlight); color: var(--color-success); }
+    .badge-yellow { background: var(--color-gold-highlight); color: var(--color-gold); }
+    .badge-blue   { background: var(--color-primary-highlight); color: var(--color-primary); }
+    .badge-gray   { background: var(--color-surface-offset); color: var(--color-text-muted); }
+    .badge-red    { background: var(--color-error-highlight); color: var(--color-error); }
+    .badge-teal   { background: var(--color-primary-highlight); color: var(--color-primary); }
+    .badge-gold   { background: var(--color-gold-highlight); color: var(--color-gold); }
+    .badge-muted  { background: var(--color-surface-offset); color: var(--color-text-muted); }
 
     /* ── Blocker cards ── */
     .blocker-list { display:grid; gap:var(--space-4); }
@@ -340,8 +340,8 @@
           <tbody>
             <tr>
               <td>About page</td>
-              <td><span class="file-chip">src/routes/cartilla/autora.tsx</span></td>
-              <td><span class="badge badge-red">❌ missing</span></td>
+              <td><span class="file-chip">src/routes/cartilla/autora.tsx</span> &amp; <span class="file-chip">src/routes/credits.tsx</span></td>
+              <td><span class="badge badge-yellow">⚠️ partial</span></td>
             </tr>
             <tr>
               <td>404 page</td>
