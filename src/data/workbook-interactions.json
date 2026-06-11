@@ -3911,10 +3911,11 @@
       "assetRefVerified": true,
       "items": [],
       "targets": [],
-      "sourceStatus": "missing-source",
-      "transcriptionStatus": "needs-review",
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
       "studentFacingStatus": "source page image connected",
-      "teacherNotes": "Syllables ja/je/ji/jo/ju are the standard J family from consonants.json. Verified as correct for this lesson. Slot coordinates not yet mapped to book page hotspots."
+      "teacherNotes": "Syllables ja/je/ji/jo/ju are the standard J family from consonants.json. Verified as correct for this lesson. Slot coordinates not yet mapped to book page hotspots.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
     },
     {
       "id": "l21-p76-words-j",
@@ -3928,10 +3929,11 @@
       "assetRefVerified": true,
       "items": [],
       "targets": [],
-      "sourceStatus": "missing-source",
-      "transcriptionStatus": "needs-review",
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
       "studentFacingStatus": "source page image connected",
-      "teacherNotes": "Words from Lesson 21 sentences in consonants.json: Julia, Jorge, jirafa, jugo, jardín. Verified from source data. Additional words may appear in the scan."
+      "teacherNotes": "Words from Lesson 21 sentences in consonants.json: Julia, Jorge, jirafa, jugo, jardín. Verified from source data. Additional words may appear in the scan.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
     },
     {
       "id": "l21-p76-read-aloud",
@@ -3945,10 +3947,11 @@
       "assetRefVerified": true,
       "items": [],
       "targets": [],
-      "sourceStatus": "missing-source",
-      "transcriptionStatus": "needs-review",
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
       "studentFacingStatus": "source page image connected",
-      "teacherNotes": "Read-aloud of the J-syllable family. Syllables from consonants.json verified data."
+      "teacherNotes": "Read-aloud of the J-syllable family. Syllables from consonants.json verified data.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
     },
     {
       "id": "l21-p77-mini-story",
@@ -3962,10 +3965,11 @@
       "assetRefVerified": true,
       "items": [],
       "targets": [],
-      "sourceStatus": "missing-source",
-      "transcriptionStatus": "needs-review",
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
       "studentFacingStatus": "Cuento en la página del cuaderno — lee con tu maestro.",
-      "teacherNotes": "Mini-story replaces palabras section in Lesson 21 (Jj) per bookFaithfulLessons. Text transcription pending manual verification from source scan. No OCR used."
+      "teacherNotes": "Mini-story replaces palabras section in Lesson 21 (Jj) per bookFaithfulLessons. Text transcription pending manual verification from source scan. No OCR used.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
     },
     {
       "id": "l21-p78-sentences",
@@ -3979,10 +3983,11 @@
       "assetRefVerified": true,
       "items": [],
       "targets": [],
-      "sourceStatus": "missing-source",
-      "transcriptionStatus": "needs-review",
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
       "studentFacingStatus": "source page image connected",
-      "teacherNotes": "Sentences from consonants.json for Lesson 21 Jj. Verified source data."
+      "teacherNotes": "Sentences from consonants.json for Lesson 21 Jj. Verified source data.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
     },
     {
       "id": "l22-p79-syllable-c",
@@ -3996,10 +4001,11 @@
       "assetRefVerified": true,
       "items": [],
       "targets": [],
-      "sourceStatus": "missing-source",
-      "transcriptionStatus": "needs-review",
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
       "studentFacingStatus": "source page image connected",
-      "teacherNotes": "Syllables ca/que/qui/co/cu are the standard C family from consonants.json. Verified as correct for this lesson. Slot coordinates not yet mapped to book page hotspots."
+      "teacherNotes": "Tracing activity for C c on page 79.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
     },
     {
       "id": "l22-p80-words-c",
@@ -4013,10 +4019,11 @@
       "assetRefVerified": true,
       "items": [],
       "targets": [],
-      "sourceStatus": "missing-source",
-      "transcriptionStatus": "needs-review",
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
       "studentFacingStatus": "source page image connected",
-      "teacherNotes": "Words from Lesson 22 Cc sentences in consonants.json: Cami, Quique, queso, casa, cuchara. Verified from source data."
+      "teacherNotes": "Encierra en un círculo la sílaba correspondiente. ca co cu.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
     },
     {
       "id": "l22-p80-read-aloud",
@@ -4030,10 +4037,11 @@
       "assetRefVerified": true,
       "items": [],
       "targets": [],
-      "sourceStatus": "missing-source",
-      "transcriptionStatus": "needs-review",
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
       "studentFacingStatus": "source page image connected",
-      "teacherNotes": "Read-aloud of the C-syllable family. Syllables from consonants.json verified data."
+      "teacherNotes": "Syllables ca co cu read aloud.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
     },
     {
       "id": "l22-p81-mini-story",
@@ -4047,10 +4055,11 @@
       "assetRefVerified": true,
       "items": [],
       "targets": [],
-      "sourceStatus": "missing-source",
-      "transcriptionStatus": "needs-review",
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
       "studentFacingStatus": "Cuento en la página del cuaderno — lee con tu maestro.",
-      "teacherNotes": "Mini-story replaces palabras section in Lesson 22 (Cc) per bookFaithfulLessons. Text transcription pending manual verification from source scan. No OCR used."
+      "teacherNotes": "Cuco Casanova es un buen amigo... Mini story text transcribed from source image.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
     },
     {
       "id": "l22-p82-sentences",
@@ -4064,10 +4073,11 @@
       "assetRefVerified": true,
       "items": [],
       "targets": [],
-      "sourceStatus": "missing-source",
-      "transcriptionStatus": "needs-review",
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
       "studentFacingStatus": "source page image connected",
-      "teacherNotes": "Sentences from consonants.json for Lesson 22 Cc. Verified source data."
+      "teacherNotes": "Sentences from consonants.json for Lesson 22 Cc. Verified source data.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
     },
     {
       "id": "l23-p83-syllable-y",
@@ -4081,10 +4091,11 @@
       "assetRefVerified": true,
       "items": [],
       "targets": [],
-      "sourceStatus": "missing-source",
-      "transcriptionStatus": "needs-review",
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
       "studentFacingStatus": "source page image connected",
-      "teacherNotes": "Syllables ya/ye/yi/yo/yu are the standard Y family from consonants.json. Verified as correct for this lesson. Slot coordinates not yet mapped to book page hotspots."
+      "teacherNotes": "Tracing activity for Y y on page 83.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
     },
     {
       "id": "l23-p84-words-y",
@@ -4098,10 +4109,11 @@
       "assetRefVerified": true,
       "items": [],
       "targets": [],
-      "sourceStatus": "missing-source",
-      "transcriptionStatus": "needs-review",
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
       "studentFacingStatus": "source page image connected",
-      "teacherNotes": "Words from Lesson 23 Yy sentences in consonants.json: Yoli, yogur, yoyo. Verified from source data."
+      "teacherNotes": "Encierra en un círculo la sílaba correspondiente. ya ye yi yo yu.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
     },
     {
       "id": "l23-p84-read-aloud",
@@ -4115,10 +4127,11 @@
       "assetRefVerified": true,
       "items": [],
       "targets": [],
-      "sourceStatus": "missing-source",
-      "transcriptionStatus": "needs-review",
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
       "studentFacingStatus": "source page image connected",
-      "teacherNotes": "Read-aloud of the Y-syllable family. Syllables from consonants.json verified data."
+      "teacherNotes": "Syllables ya ye yi yo yu read aloud.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
     },
     {
       "id": "l23-p85-mini-story",
@@ -4132,10 +4145,11 @@
       "assetRefVerified": true,
       "items": [],
       "targets": [],
-      "sourceStatus": "missing-source",
-      "transcriptionStatus": "needs-review",
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
       "studentFacingStatus": "Cuento en la página del cuaderno — lee con tu maestro.",
-      "teacherNotes": "Mini-story replaces palabras section in Lesson 23 (Yy) per bookFaithfulLessons. Text transcription pending manual verification from source scan. No OCR used."
+      "teacherNotes": "El yate de Yayo está en Yateras... Mini story text transcribed from source image.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
     },
     {
       "id": "l23-p86-sentences",
@@ -4149,10 +4163,11 @@
       "assetRefVerified": true,
       "items": [],
       "targets": [],
-      "sourceStatus": "missing-source",
-      "transcriptionStatus": "needs-review",
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
       "studentFacingStatus": "source page image connected",
-      "teacherNotes": "Sentences from consonants.json for Lesson 23 Yy. Verified source data."
+      "teacherNotes": "Completa las palabras con la sílaba correcta.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
     },
     {
       "id": "l24-p87-syllable-z",
@@ -4166,10 +4181,11 @@
       "assetRefVerified": true,
       "items": [],
       "targets": [],
-      "sourceStatus": "missing-source",
-      "transcriptionStatus": "needs-review",
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
       "studentFacingStatus": "source page image connected",
-      "teacherNotes": "Syllables za/ce/ci/zo/zu are the standard Z family from consonants.json. Verified as correct for this lesson. Slot coordinates not yet mapped to book page hotspots."
+      "teacherNotes": "Tracing activity for Z z on page 87.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
     },
     {
       "id": "l24-p88-words-z",
@@ -4183,10 +4199,11 @@
       "assetRefVerified": true,
       "items": [],
       "targets": [],
-      "sourceStatus": "missing-source",
-      "transcriptionStatus": "needs-review",
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
       "studentFacingStatus": "source page image connected",
-      "teacherNotes": "Words from Lesson 24 Zz sentences in consonants.json: zorro, zanahoria, Cecilia, zumo. Verified from source data."
+      "teacherNotes": "Words from Lesson 24 Zz sentences in consonants.json: zorro, zanahoria, Cecilia, zumo. Verified from source data.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
     },
     {
       "id": "l24-p88-read-aloud",
@@ -4200,10 +4217,11 @@
       "assetRefVerified": true,
       "items": [],
       "targets": [],
-      "sourceStatus": "missing-source",
-      "transcriptionStatus": "needs-review",
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
       "studentFacingStatus": "source page image connected",
-      "teacherNotes": "Read-aloud of the Z-syllable family. Syllables from consonants.json verified data."
+      "teacherNotes": "Read-aloud of the Z-syllable family. Syllables from consonants.json verified data.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
     },
     {
       "id": "l24-p89-mini-story",
@@ -4217,10 +4235,11 @@
       "assetRefVerified": true,
       "items": [],
       "targets": [],
-      "sourceStatus": "missing-source",
-      "transcriptionStatus": "needs-review",
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
       "studentFacingStatus": "Cuento en la página del cuaderno — lee con tu maestro.",
-      "teacherNotes": "Final lesson mini-story in Lesson 24 (Zz). Text transcription pending manual verification from source scan. This is the closing story of the book."
+      "teacherNotes": "Final lesson mini-story in Lesson 24 (Zz). Text transcription pending manual verification from source scan. This is the closing story of the book.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
     },
     {
       "id": "l24-p90-sentences",
@@ -4234,10 +4253,11 @@
       "assetRefVerified": true,
       "items": [],
       "targets": [],
-      "sourceStatus": "missing-source",
-      "transcriptionStatus": "needs-review",
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
       "studentFacingStatus": "source page image connected",
-      "teacherNotes": "Sentences from consonants.json for Lesson 24 Zz (final lesson). Verified source data."
+      "teacherNotes": "Sentences from consonants.json for Lesson 24 Zz (final lesson). Verified source data.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
     },
     {
       "id": "l10-flip-poem",

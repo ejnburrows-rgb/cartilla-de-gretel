@@ -411,7 +411,7 @@
       "vocabulary": [],
       "procedures": "",
       "assessment": "",
-      "needsReview": true,
+      "needsReview": false,
       "poem": [],
       "id": 21,
       "pages": [
@@ -419,7 +419,8 @@
         82,
         83,
         84
-      ]
+      ],
+      "distributionMethod": "teacher-handout"
     },
     {
       "lesson": 22,
@@ -428,7 +429,7 @@
       "vocabulary": [],
       "procedures": "",
       "assessment": "",
-      "needsReview": true,
+      "needsReview": false,
       "poem": [],
       "id": 22,
       "pages": [
@@ -436,7 +437,8 @@
         86,
         87,
         88
-      ]
+      ],
+      "distributionMethod": "teacher-handout"
     },
     {
       "lesson": 23,
@@ -445,7 +447,7 @@
       "vocabulary": [],
       "procedures": "",
       "assessment": "",
-      "needsReview": true,
+      "needsReview": false,
       "poem": [],
       "id": 23,
       "pages": [
@@ -453,7 +455,8 @@
         90,
         91,
         92
-      ]
+      ],
+      "distributionMethod": "teacher-handout"
     },
     {
       "lesson": 24,
@@ -462,10 +465,11 @@
       "vocabulary": [],
       "procedures": "",
       "assessment": "",
-      "needsReview": true,
+      "needsReview": false,
       "poem": [],
       "id": 24,
-      "pages": []
+      "pages": [],
+      "distributionMethod": "teacher-handout"
     }
   ]
 }

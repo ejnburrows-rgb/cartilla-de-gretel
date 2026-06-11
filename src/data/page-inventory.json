@@ -11,6 +11,27 @@
     "path": "public/cartilla/images/source",
     "totalPages": 59,
     "pagesPerLesson": 0,
-    "lessons": []
+    "lessons": [
+      {
+        "lessonId": 21,
+        "pages": [],
+        "note": "Teacher-distributed. No bound workbook pages."
+      },
+      {
+        "lessonId": 22,
+        "pages": [],
+        "note": "Teacher-distributed. No bound workbook pages."
+      },
+      {
+        "lessonId": 23,
+        "pages": [],
+        "note": "Teacher-distributed. No bound workbook pages."
+      },
+      {
+        "lessonId": 24,
+        "pages": [],
+        "note": "Teacher-distributed. No bound workbook pages."
+      }
+    ]
   }
 }
