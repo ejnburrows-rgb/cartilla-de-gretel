@@ -421,10 +421,10 @@
           "id": "blank-Me",
           "label": "Me___",
           "hint": "mo / mu",
-          "correctSyllable": "mu",
-          "fullWord": "Memo — uses 'mu' answer: Memu?",
+          "correctSyllable": "mo",
+          "fullWord": "Memo",
           "coordinatesVerified": false,
-          "acceptsItemId": "syl-mu"
+          "acceptsItemId": "syl-mo"
         },
         {
           "id": "blank-mama",
