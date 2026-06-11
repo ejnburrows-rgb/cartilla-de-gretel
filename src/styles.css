@@ -61,6 +61,8 @@
 
 :root {
   --radius: 0.625rem;
+  --color-surface-offset: hsl(42 15% 91%);
+  --color-surface-dynamic: hsl(42 15% 95%);
 
   /* Cartilla — premium paper aesthetics (HSL triplets) */
   --background: 42 33% 96%; /* warm paper hue */
@@ -106,6 +108,8 @@
 
 .dark {
   --background: 222.2 84% 4.9%;
+  --color-surface-offset: hsl(222.2 25% 12%);
+  --color-surface-dynamic: hsl(222.2 20% 18%);
   --foreground: 210 40% 98%;
   --card: 222.2 84% 4.9%;
   --card-foreground: 210 40% 98%;

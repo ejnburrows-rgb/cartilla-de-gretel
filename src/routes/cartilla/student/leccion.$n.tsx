@@ -57,6 +57,7 @@ function Leccion() {
   const navigate = useNavigate();
   const isOnline = useOnlineStatus();
   const n = Number(nParam);
+  const lessonNumber = n;
   const lessonId = String(n);
   const { isCompleted } = useLessonProgress();
   const session = useStudentSession();
@@ -127,14 +128,14 @@ function Leccion() {
       const key = "gretel-completedLessons";
       const raw = localStorage.getItem(key);
       const arr = raw ? JSON.parse(raw) : [];
-      if (Array.isArray(arr) && !arr.includes(n)) {
-        arr.push(n);
+      if (Array.isArray(arr) && !arr.includes(lessonNumber)) {
+        arr.push(lessonNumber);
         localStorage.setItem(key, JSON.stringify(arr));
       }
     } catch {
       // ignore silently
     }
-  }, [n]);
+  }, [lessonNumber]);
 
   if (!unlocked) return null;
   if (!entry || !guideLesson) return <LessonSkeleton />;
@@ -443,41 +444,60 @@ function Leccion() {
 
       {/* ── Bottom nav ── */}
       <nav
-        className="no-print sticky bottom-0 z-50 flex items-center justify-between"
+        className="no-print"
         style={{
-          background: "var(--color-surface, #ffffff)",
-          borderTop: "1px solid var(--color-border, #e5e7eb)",
-          padding: "var(--space-3, 0.75rem) var(--space-4, 1rem)",
+          position: "sticky",
+          bottom: 0,
+          background: "var(--color-surface)",
+          borderTop: "1px solid var(--color-border)",
+          padding: "var(--space-3) var(--space-4)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
           minHeight: "60px",
+          zIndex: 10,
         }}
         aria-label="Navegación entre lecciones"
       >
         <Link
           to="/cartilla/student/leccion/$n"
-          params={{ n: String(n - 1) }}
-          disabled={n === 1}
-          className={`inline-flex items-center justify-center font-bold rounded-xl transition-colors text-sm ${
-            n === 1 ? "opacity-40 pointer-events-none text-foreground/50" : "hover:bg-foreground/5 text-foreground"
-          }`}
-          style={{ minHeight: "44px", minWidth: "44px", padding: "0 0.75rem" }}
-          aria-label={n === 1 ? undefined : `Ir a lección ${n - 1}`}
+          params={{ n: String(lessonNumber - 1) }}
+          disabled={lessonNumber === 1}
+          className="inline-flex items-center justify-center font-bold rounded-xl transition-colors"
+          style={{
+            minHeight: "44px",
+            minWidth: "44px",
+            padding: "0 0.75rem",
+            fontSize: "var(--text-sm)",
+            ...(lessonNumber === 1 ? { opacity: 0.4, pointerEvents: "none" } : {}),
+          }}
+          aria-label={lessonNumber === 1 ? undefined : `Ir a lección ${lessonNumber - 1}`}
         >
           ← Lección anterior
         </Link>
 
-        <span className="text-sm font-bold text-foreground/60">
-          Lección {n} de 24
+        <span
+          style={{
+            fontSize: "var(--text-sm)",
+            color: "var(--color-text-muted)",
+          }}
+        >
+          Lección {lessonNumber} de 24
         </span>
 
         <Link
           to="/cartilla/student/leccion/$n"
-          params={{ n: String(n + 1) }}
-          disabled={n >= 24}
-          className={`inline-flex items-center justify-center font-bold rounded-xl transition-colors text-sm ${
-            n >= 24 ? "opacity-40 pointer-events-none text-foreground/50" : "hover:bg-foreground/5 text-foreground"
-          }`}
-          style={{ minHeight: "44px", minWidth: "44px", padding: "0 0.75rem" }}
-          aria-label={n >= 24 ? undefined : `Ir a lección ${n + 1}`}
+          params={{ n: String(lessonNumber + 1) }}
+          disabled={lessonNumber >= 24}
+          className="inline-flex items-center justify-center font-bold rounded-xl transition-colors"
+          style={{
+            minHeight: "44px",
+            minWidth: "44px",
+            padding: "0 0.75rem",
+            fontSize: "var(--text-sm)",
+            ...(lessonNumber >= 24 ? { opacity: 0.4, pointerEvents: "none" } : {}),
+          }}
+          aria-label={lessonNumber >= 24 ? undefined : `Ir a lección ${lessonNumber + 1}`}
         >
           Lección siguiente →
         </Link>

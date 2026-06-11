@@ -11,6 +11,11 @@
   100% { background-position: 200% 0; }
 }
 
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
 @keyframes feel-float {
   0% { transform: translateY(0px); }
   50% { transform: translateY(-8px); }
@@ -121,5 +126,18 @@
   }
   .dark .feel-anim-shimmer {
     background: #334155 !important;
+  }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(90deg, var(--color-surface-offset) 25%, var(--color-surface-dynamic) 50%, var(--color-surface-offset) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-shimmer {
+    animation: none !important;
+    background: var(--color-surface-offset) !important;
   }
 }

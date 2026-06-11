@@ -84,12 +84,50 @@ function StudentDetail() {
 
   if (isLoading) {
     return (
-      <main className="min-h-screen flex items-center justify-center">
-        <Loader2 className="w-6 h-6 animate-spin text-foreground/40" />
+      <main className="min-h-screen bg-background px-4 py-6 max-w-4xl mx-auto space-y-6">
+        {/* Back link skeleton */}
+        <div className="w-24 h-4 rounded skeleton-shimmer"></div>
+        {/* Header skeleton */}
+        <div className="space-y-2">
+          <div className="w-64 h-10 rounded-xl skeleton-shimmer"></div>
+          <div className="w-48 h-4 rounded skeleton-shimmer"></div>
+        </div>
+        {/* Stats grid skeleton */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div className="h-20 rounded-2xl skeleton-shimmer"></div>
+          <div className="h-20 rounded-2xl skeleton-shimmer"></div>
+          <div className="h-20 rounded-2xl skeleton-shimmer"></div>
+          <div className="h-20 rounded-2xl skeleton-shimmer"></div>
+        </div>
+        {/* Notes skeleton */}
+        <div className="h-44 rounded-2xl skeleton-shimmer"></div>
+        {/* Progress skeleton */}
+        <div className="space-y-3">
+          <div className="w-48 h-6 rounded skeleton-shimmer"></div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div className="h-16 rounded-2xl skeleton-shimmer"></div>
+            <div className="h-16 rounded-2xl skeleton-shimmer"></div>
+          </div>
+        </div>
       </main>
     );
   }
-  if (!data || !summary) return null;
+
+  if (!data || !summary) {
+    return (
+      <main className="min-h-screen bg-background px-4 py-6 max-w-4xl mx-auto flex flex-col items-center justify-center text-center">
+        <ArrowLeft className="w-16 h-16 text-primary mb-4" />
+        <h1 className="text-2xl font-bold mb-2">Alumno no encontrado</h1>
+        <p className="text-foreground/60 mb-6">No se pudo cargar la información del alumno. Por favor, intenta de nuevo.</p>
+        <Link
+          to="/cartilla/teacher"
+          className="px-6 py-3 bg-primary text-primary-foreground font-bold rounded-xl shadow-md hover:bg-primary/95 transition-all"
+        >
+          Volver a Mis Clases
+        </Link>
+      </main>
+    );
+  }
 
   const fmtMin = (s: number) => `${Math.floor(s / 60)} min ${s % 60} s`;
 
@@ -105,8 +143,15 @@ function StudentDetail() {
 
       <header className="mt-6">
         <h1 className="text-3xl sm:text-4xl font-bold">{data.student.display_name}</h1>
-        <p className="text-sm text-foreground/60 mt-1">
-          Código personal: <span className="font-mono font-bold">{data.student.student_code}</span>
+        <p className="text-sm text-foreground/60 mt-1 flex flex-wrap gap-x-3 items-center">
+          <span>
+            Código personal: <span className="font-mono font-bold">{data.student.student_code}</span>
+          </span>
+          {data.student.lastSeen && (
+            <span className="text-xs text-foreground/50 border-l border-foreground/20 pl-3">
+              Última actividad: {new Date(data.student.lastSeen).toLocaleDateString('es-MX', { dateStyle: 'long' })}
+            </span>
+          )}
         </p>
       </header>
 
@@ -130,12 +175,25 @@ function StudentDetail() {
           <Activity className="w-5 h-5 text-primary" />
           <div>
             <div className="text-xs uppercase tracking-wide text-foreground/60">
-              Nivel adaptativo actual
+              Nivel adaptativo actual (desde el {new Date(summary.level.at).toLocaleDateString('es-MX', { dateStyle: 'long' })})
             </div>
             <div className="font-bold text-lg">{summary.level.value}</div>
           </div>
         </section>
       )}
+
+      <section className="print:hidden mt-4 kid-card p-4">
+        <label htmlFor="teacher-notes" className="block font-bold mb-3 text-lg">Notas del maestro</label>
+        <textarea
+          id="teacher-notes"
+          value={notes}
+          onChange={(e) => setNotes(e.target.value)}
+          onBlur={(e) => saveNotes(e.target.value)}
+          placeholder="Escribe tus observaciones aquí…"
+          style={{ minHeight: "120px" }}
+          className="w-full px-4 py-3 rounded-xl border-2 border-foreground/10 bg-background focus:border-primary outline-none text-sm"
+        />
+      </section>
 
       <section className="mt-8">
         <h2 className="font-bold mb-3 text-lg">Progreso por lección</h2>
@@ -178,43 +236,43 @@ function StudentDetail() {
           <h2 className="font-bold mb-3 text-lg">Insignias ganadas</h2>
           <ul className="flex flex-wrap gap-2">
             {summary.badges.map((b, i) => (
-              <li key={i} className="kid-card p-2 px-3 inline-flex items-center gap-2 text-sm">
-                <Award className="w-4 h-4 text-primary" /> {b.name}
+              <li
+                key={i}
+                className="kid-card p-2 px-3 inline-flex items-center gap-2 text-sm"
+                title={`Ganada el ${new Date(b.at).toLocaleDateString('es-MX', { dateStyle: 'long' })}`}
+              >
+                <Award className="w-4 h-4 text-primary" /> {b.name}{" "}
+                <span className="text-xs text-foreground/50">
+                  ({new Date(b.at).toLocaleDateString('es-MX', { dateStyle: 'long' })})
+                </span>
               </li>
             ))}
           </ul>
         </section>
       )}
 
-      <section className="print:hidden mt-8 kid-card p-4">
-        <label htmlFor="teacher-notes" className="block font-bold mb-3 text-lg">Notas del maestro</label>
-        <textarea
-          id="teacher-notes"
-          value={notes}
-          onChange={(e) => setNotes(e.target.value)}
-          onBlur={(e) => saveNotes(e.target.value)}
-          placeholder="Escribe tus observaciones aquí…"
-          className="w-full min-h-[120px] px-4 py-3 rounded-xl border-2 border-foreground/10 bg-background focus:border-primary outline-none text-sm"
-        />
-      </section>
-
       <section className="mt-8">
         <h2 className="font-bold mb-3 text-lg">Actividad reciente</h2>
         <ul className="space-y-1.5 text-sm">
-          {data.events.slice(0, 30).map((e) => (
-            <li
-              key={e.id}
-              className="flex items-center justify-between gap-3 px-3 py-2 rounded-lg bg-card border border-foreground/5"
-            >
-              <span>
-                <span className="font-bold text-foreground/70">L{e.lesson_id}</span>{" "}
-                <span className="text-foreground/60">{labelEvent(e)}</span>
-              </span>
-              <span className="text-xs text-foreground/50">
-                {new Date(e.created_at).toLocaleDateString('es-MX', { dateStyle: 'long' })}
-              </span>
-            </li>
-          ))}
+          {data.events.slice(0, 30).map((e) => {
+            const tgTitle = teacherGuide.lessons.find((l: any) => String(l.id) === String(e.lesson_id) || String(l.lesson) === String(e.lesson_id))?.title;
+            return (
+              <li
+                key={e.id}
+                className="flex items-center justify-between gap-3 px-3 py-2 rounded-lg bg-card border border-foreground/5"
+              >
+                <span>
+                  <span className="font-bold text-foreground/70">
+                    L{e.lesson_id}{tgTitle ? ` — ${tgTitle}` : ""}
+                  </span>{" "}
+                  <span className="text-foreground/60">{labelEvent(e)}</span>
+                </span>
+                <span className="text-xs text-foreground/50">
+                  {new Date(e.created_at).toLocaleDateString('es-MX', { dateStyle: 'long' })}
+                </span>
+              </li>
+            );
+          })}
           {data.events.length === 0 && (
             <li className="text-foreground/60">Sin actividad todavía.</li>
           )}

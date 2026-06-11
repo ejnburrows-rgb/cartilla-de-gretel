@@ -227,9 +227,13 @@ function MyProgress() {
                 window.location.reload();
               }
             }}
-            className="inline-flex items-center gap-1.5 text-sm px-3 py-2 rounded-xl border-2 border-transparent text-destructive hover:bg-destructive/10 font-bold transition-colors"
+            className="inline-flex items-center gap-1.5 text-sm px-3 py-2 rounded-xl border-2 hover:bg-destructive/10 font-bold transition-colors"
             aria-label="Reiniciar progreso"
-            style={{ minHeight: "44px", color: "var(--color-error, #ef4444)" }}
+            style={{
+              minHeight: "44px",
+              color: "var(--color-error, #ef4444)",
+              borderColor: "var(--color-error, #ef4444)",
+            }}
           >
             Reiniciar progreso
           </button>

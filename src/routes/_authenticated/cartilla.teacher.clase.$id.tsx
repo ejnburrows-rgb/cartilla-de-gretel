@@ -165,20 +165,34 @@ function ClassDetail() {
 
   if (isLoading) {
     return (
-      <main className="min-h-screen bg-background px-4 py-6 max-w-4xl mx-auto animate-pulse">
-        <div className="w-24 h-4 bg-secondary rounded mb-6"></div>
-        <div className="w-64 h-10 bg-secondary rounded mb-2"></div>
-        <div className="w-96 h-6 bg-secondary rounded mb-6"></div>
+      <main className="min-h-screen bg-background px-4 py-6 max-w-4xl mx-auto space-y-6">
+        <div className="w-24 h-4 rounded skeleton-shimmer mb-6"></div>
+        <div className="w-64 h-10 rounded-xl skeleton-shimmer mb-2"></div>
+        <div className="w-96 h-6 rounded skeleton-shimmer mb-6"></div>
         <div className="flex gap-2 mb-6">
-          <div className="w-32 h-10 bg-secondary rounded-xl"></div>
+          <div className="w-32 h-10 rounded-xl skeleton-shimmer"></div>
         </div>
-        <div className="w-full h-48 bg-secondary rounded-2xl mb-6"></div>
-        <div className="w-full h-32 bg-secondary rounded-2xl"></div>
+        <div className="w-full h-48 rounded-2xl skeleton-shimmer mb-6"></div>
+        <div className="w-full h-32 rounded-2xl skeleton-shimmer"></div>
       </main>
     );
   }
 
-  if (!data) return null;
+  if (!data) {
+    return (
+      <main className="min-h-screen bg-background px-4 py-6 max-w-4xl mx-auto flex flex-col items-center justify-center text-center">
+        <ClipboardList className="w-16 h-16 text-primary mb-4" />
+        <h1 className="text-2xl font-bold mb-2">Clase no encontrada</h1>
+        <p className="text-foreground/60 mb-6">No se pudo cargar la información de esta clase. Por favor, intenta de nuevo.</p>
+        <Link
+          to="/cartilla/teacher"
+          className="px-6 py-3 bg-primary text-primary-foreground font-bold rounded-xl shadow-md hover:bg-primary/95 transition-all"
+        >
+          Volver a Mis Clases
+        </Link>
+      </main>
+    );
+  }
 
   return (
     <main className="min-h-screen bg-background px-4 py-6 max-w-4xl mx-auto">
@@ -212,12 +226,14 @@ function ClassDetail() {
       <div className="mt-4 flex flex-wrap gap-2">
         <button
           onClick={exportClassCSV}
+          style={{ minHeight: "44px" }}
           className="inline-flex items-center gap-1.5 text-sm px-3 py-2 rounded-xl border-2 border-foreground/10 hover:bg-secondary font-bold"
         >
           <Download className="w-4 h-4" /> Exportar CSV
         </button>
         <button
           onClick={() => window.print()}
+          style={{ minHeight: "44px" }}
           className="print:hidden inline-flex items-center gap-1.5 text-sm px-3 py-2 rounded-xl border-2 border-foreground/10 hover:bg-secondary font-bold"
         >
           <ClipboardList className="w-4 h-4" /> Imprimir lista
@@ -306,7 +322,23 @@ function ClassDetail() {
           <p className="text-xs text-destructive mt-2">{(createAssMut.error as Error).message}</p>
         )}
 
-        {assignments && assignments.length > 0 && (
+        {(!assignments || assignments.length === 0) ? (
+          <div className="mt-4 kid-card p-6 text-center flex flex-col items-center justify-center text-foreground/60">
+            <BookOpen className="w-10 h-10 mb-3 opacity-50 text-primary" />
+            <p className="text-sm font-bold mb-1 text-foreground">No hay tareas asignadas</p>
+            <p className="text-xs max-w-xs mb-4">Crea una tarea seleccionando una lección e ingresando los detalles en el formulario de arriba.</p>
+            <button
+              type="button"
+              onClick={() => {
+                const selectEl = document.querySelector('select');
+                selectEl?.focus();
+              }}
+              className="px-4 py-2 bg-primary text-primary-foreground font-bold rounded-xl text-xs"
+            >
+              Asignar lección
+            </button>
+          </div>
+        ) : (
           <ul className="mt-4 space-y-2">
             {assignments.map((a) => {
               const entry = CATALOG.find((c) => String(c.n) === a.lesson_id);
