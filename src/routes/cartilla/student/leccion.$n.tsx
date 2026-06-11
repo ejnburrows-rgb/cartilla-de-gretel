@@ -67,8 +67,8 @@ function Leccion() {
   const [showModal, setShowModal] = useState(false);
 
   const poemInteraction = useMemo(() => {
-    return (interactionsData as any[]).find(
-      (item) => item.lessonNumber === n && (item.id.includes("poem") || item.id.includes("mini-story"))
+    return (interactionsData.interactions as any[]).find(
+      (item) => (item.lessonNumber === n || item.lessonId === n) && (item.id.includes("poem") || item.id.includes("mini-story"))
     );
   }, [n]);
 
@@ -119,8 +119,8 @@ function Leccion() {
 
   const lessonInteractions = useMemo(() => {
     return (interactionsData.interactions as any[])
-      .filter((i) => i.lessonNumber === n)
-      .sort((a, b) => (a.order || 0) - (b.order || 0));
+      .filter((i) => i.lessonNumber === n || i.lessonId === n)
+      .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
   }, [n]);
 
   useEffect(() => {
@@ -535,9 +535,18 @@ function WordBank({ interaction }: { interaction: any }) {
             <button
               key={i}
               onClick={() => toggle(i)}
-              className={`px-5 py-2.5 rounded-full font-bold text-lg transition-colors ${
-                isSelected ? "bg-primary text-white shadow-md" : "bg-white text-stone-700 border border-stone-300"
-              }`}
+              style={{
+                padding: "var(--space-2) var(--space-4)",
+                borderRadius: "var(--radius-full)",
+                background: isSelected ? "var(--color-primary)" : "var(--color-surface-2)",
+                color: isSelected ? "var(--color-text-inverse)" : "inherit",
+                border: isSelected ? "1px solid transparent" : "1px solid var(--color-border)",
+                minHeight: "44px",
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+              className="font-bold text-lg transition-colors cursor-pointer"
             >
               {text}
             </button>
@@ -550,14 +559,30 @@ function WordBank({ interaction }: { interaction: any }) {
 
 function MiniStory({ interaction }: { interaction: any }) {
   return (
-    <div className="p-8 rounded-3xl border border-stone-200 shadow-sm my-6" style={{ backgroundColor: "var(--color-surface-2, #f3f4f6)" }}>
-      <h3 className="text-2xl font-bold text-stone-800 mb-6 text-center">{interaction.title || "Mini Cuento"}</h3>
+    <div
+      className="border border-stone-200 shadow-sm my-6"
+      style={{
+        backgroundColor: "var(--color-surface-2)",
+        padding: "var(--space-6)",
+        borderRadius: "var(--radius-lg)",
+      }}
+    >
+      <h3
+        className="font-bold text-stone-800 mb-6 text-center"
+        style={{ fontSize: "var(--text-lg)" }}
+      >
+        {interaction.title || "Mini Cuento"}
+      </h3>
       {interaction.prompt && <p className="text-sm text-stone-500 mb-4 text-center">{interaction.prompt}</p>}
       <div className="space-y-4 max-w-lg mx-auto">
         {interaction.items?.map((item: any, i: number) => {
           const text = typeof item === "string" ? item : item.text || item.label || "";
           return (
-            <p key={i} className="text-lg text-stone-700 leading-relaxed">
+            <p
+              key={i}
+              className="text-stone-700 leading-relaxed text-center"
+              style={{ fontSize: "var(--text-base)" }}
+            >
               {text}
             </p>
           );
@@ -569,9 +594,15 @@ function MiniStory({ interaction }: { interaction: any }) {
 
 function TapObj({ interaction }: { interaction: any }) {
   const [tapped, setTapped] = useState<Set<number>>(new Set());
+  const toggle = (i: number) => {
+    const next = new Set(tapped);
+    if (next.has(i)) next.delete(i);
+    else next.add(i);
+    setTapped(next);
+  };
   return (
     <div className="p-6 rounded-3xl bg-sky-50 border border-sky-100 shadow-sm my-6">
-      <h3 className="text-xl font-bold text-sky-900 mb-4 text-center">{interaction.title || "Toca la imagen"}</h3>
+      <h3 className="text-xl font-bold text-sky-900 mb-4 text-center">{interaction.title || "Toca el objeto"}</h3>
       {interaction.prompt && <p className="text-sm text-sky-700 mb-6 text-center">{interaction.prompt}</p>}
       <div className="flex flex-wrap justify-center gap-6">
         {interaction.items?.map((item: any, i: number) => {
@@ -580,13 +611,24 @@ function TapObj({ interaction }: { interaction: any }) {
           return (
             <button
               key={i}
-              onClick={() => setTapped(prev => new Set(prev).add(i))}
-              className="relative w-32 h-32 bg-white rounded-2xl shadow-sm border border-sky-200 flex items-center justify-center overflow-hidden transition-transform active:scale-95"
+              onClick={() => toggle(i)}
+              style={{
+                minWidth: "80px",
+                minHeight: "80px",
+                backgroundColor: isTapped ? "var(--color-primary-highlight)" : "var(--color-surface-2)",
+                border: "1px solid var(--color-border)",
+              }}
+              className="relative p-4 rounded-2xl shadow-sm flex items-center justify-center overflow-hidden transition-all active:scale-95 cursor-pointer"
             >
-              <span className="text-2xl font-bold text-sky-800">{text}</span>
+              <span
+                className="font-bold text-sky-800 text-center"
+                style={{ fontSize: "var(--text-base)" }}
+              >
+                {text}
+              </span>
               {isTapped && (
-                <div className="absolute inset-0 bg-black/10 flex items-center justify-center backdrop-blur-[1px]">
-                  <Check className="w-16 h-16 text-green-500 drop-shadow-md" />
+                <div className="absolute inset-0 bg-sky-500/10 flex items-center justify-center">
+                  <Check className="w-10 h-10 text-sky-600 drop-shadow-sm stroke-[3]" />
                 </div>
               )}
             </button>
@@ -598,13 +640,32 @@ function TapObj({ interaction }: { interaction: any }) {
 }
 
 function LetterTracing({ interaction }: { interaction: any }) {
+  const letters = useMemo(() => {
+    if (!interaction.items) return "Aa";
+    return interaction.items.map((item: any) => typeof item === "string" ? item : item.label || item.text || "").join(" ");
+  }, [interaction]);
+
   return (
     <div className="p-8 rounded-3xl bg-white border border-stone-200 shadow-sm my-6 flex flex-col items-center justify-center">
       <h3 className="text-xl font-bold text-stone-800 mb-2">{interaction.title || "Traza la letra"}</h3>
-      <div className="text-[120px] leading-none font-bold text-stone-800 tracking-widest my-6 font-serif">
-        {interaction.targets?.[0] || interaction.items?.[0] || "Aa"}
+      <div
+        className="leading-none font-bold text-stone-800 tracking-widest my-6 text-center select-none"
+        style={{
+          fontSize: "var(--text-hero)",
+          fontFamily: "var(--font-display)"
+        }}
+      >
+        {letters}
       </div>
-      <p className="text-sm text-stone-400 font-medium tracking-wide">Traza la letra con tu dedo</p>
+      <p
+        style={{
+          fontSize: "var(--text-sm)",
+          color: "var(--color-text-muted)"
+        }}
+        className="font-medium tracking-wide"
+      >
+        Traza la letra con tu dedo
+      </p>
     </div>
   );
 }
@@ -614,14 +675,16 @@ function FlipPoem({ interaction }: { interaction: any }) {
   return (
     <div className="p-6 rounded-3xl bg-amber-50 border border-amber-200 shadow-sm text-center my-6">
       <h3 className="text-xl font-bold text-amber-900 mb-4">{interaction.title || "Poema"}</h3>
-      <button 
+      <button
         onClick={() => setFlipped(!flipped)}
-        className="px-6 py-12 w-full max-w-sm mx-auto bg-white rounded-2xl shadow border border-amber-100 flex items-center justify-center transition-all"
+        className="px-6 py-12 w-full max-w-sm mx-auto bg-white rounded-2xl shadow border border-amber-100 flex items-center justify-center transition-all cursor-pointer"
       >
         {flipped ? (
           <div className="space-y-2">
             {interaction.items?.map((item: any, i: number) => (
-              <p key={i} className="text-amber-950 font-medium">{typeof item === "string" ? item : item.text}</p>
+              <p key={i} className="text-amber-950 font-medium">
+                {typeof item === "string" ? item : item.text || item.label || ""}
+              </p>
             ))}
           </div>
         ) : (
@@ -633,12 +696,26 @@ function FlipPoem({ interaction }: { interaction: any }) {
 }
 
 function EvalCloze({ interaction }: { interaction: any }) {
+  const words = interaction.wordBank || [];
+  const exercises = interaction.exercises || [];
+
   return (
-    <div className="p-6 rounded-3xl bg-blue-50 border border-blue-200 shadow-sm text-center my-6">
-      <h3 className="text-xl font-bold text-blue-900 mb-4">{interaction.title || "Completa la oración"}</h3>
+    <div className="p-6 rounded-3xl bg-blue-50 border border-blue-200 shadow-sm my-6">
+      <h3 className="text-xl font-bold text-blue-900 mb-4 text-center">{interaction.title || "Completa la oración"}</h3>
+      {interaction.prompt && <p className="text-sm text-blue-700 mb-4 text-center">{interaction.prompt}</p>}
+      
+      {words.length > 0 && (
+        <div className="flex flex-wrap justify-center gap-2 mb-6 p-4 bg-white/60 rounded-2xl border border-blue-100/50">
+          {words.map((word: string, idx: number) => (
+            <span key={idx} className="px-3 py-1.5 bg-white border border-blue-200 text-blue-800 rounded-lg text-sm font-semibold animate-fade-in">
+              {word}
+            </span>
+          ))}
+        </div>
+      )}
+
       <div className="flex flex-col gap-3 max-w-md mx-auto">
-        {interaction.items?.map((item: any, i: number) => {
-          const text = typeof item === "string" ? item : item.text || item.label || "";
+        {exercises.map((text: string, i: number) => {
           return (
             <div key={i} className="p-4 bg-white rounded-xl shadow-sm text-blue-800 font-medium text-left border border-blue-100 flex items-center gap-3">
               <span className="w-6 h-6 shrink-0 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs font-bold">{i + 1}</span>
