@@ -1,6 +1,7 @@
 import React from "react";
 import type { CatalogEntry } from "@/lib/lesson-catalog";
 import { getExerciseKindForPage } from "../cartilla/AnswerKeyBlock";
+import interactionsData from "@/data/workbook-interactions.json";
 
 // Hoisted Styles for double-brace JSX styling ban compliance
 const containerStyle: React.CSSProperties = {
@@ -138,13 +139,36 @@ export function ExerciseHandout({ entry, pageNumber }: ExerciseHandoutProps) {
         ? entry.vowel
         : "V";
 
+  const isScaffold = (interactionsData.interactions as any[]).some(
+    (i) => (i.lessonNumber === entry.n || i.lessonId === String(entry.n)) && i.sourceStatus === "scaffold"
+  );
+
   return (
     <div style={containerStyle} className="exercise-handout-box">
       <div style={nameLineStyle}>Alumno: ________________________</div>
 
       <h4 style={titleStyle}>Ficha de Trabajo del Estudiante</h4>
 
-      {/* ── KIND 1: INTRO (Letter Tracing) ── */}
+      {isScaffold ? (
+        <div style={{
+          flex: 1,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          border: "2px dashed #cbd5e1",
+          borderRadius: "0.5rem",
+          backgroundColor: "#f8fafc",
+          padding: "1rem",
+          textAlign: "center",
+          color: "#64748b",
+          fontSize: "0.75rem",
+          fontWeight: "bold"
+        }}>
+          [ Ejercicio pendiente de verificación — Lección {entry.n} ]
+        </div>
+      ) : (
+        <>
+          {/* ── KIND 1: INTRO (Letter Tracing) ── */}
       {kind === "intro" && (
         <div className="flex-1 flex flex-col justify-between gap-1.5">
           <p style={instructionStyle}>
@@ -225,6 +249,8 @@ export function ExerciseHandout({ entry, pageNumber }: ExerciseHandoutProps) {
             <div style={lineRowStyle} />
           </div>
         </div>
+      )}
+        </>
       )}
     </div>
   );

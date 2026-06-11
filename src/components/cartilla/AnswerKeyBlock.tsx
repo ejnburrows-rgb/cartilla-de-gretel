@@ -1,5 +1,6 @@
 import type { CatalogEntry } from "@/lib/lesson-catalog";
 import { Key } from "lucide-react";
+import interactionsData from "@/data/workbook-interactions.json";
 
 // Hoisted Styles for double-brace JSX styling ban compliance
 const blockStyle: React.CSSProperties = {
@@ -108,6 +109,10 @@ export function AnswerKeyBlock({ entry, pageNumber }: AnswerKeyBlockProps) {
         ? [`${entry.lesson.characterName}. ${entry.lesson.characterDesc}`]
         : ["Las cinco vocales son a, e, i, o, u. Repite conmigo: a, e, i, o, u."];
 
+  const isScaffold = (interactionsData.interactions as any[]).some(
+    (i) => (i.lessonNumber === entry.n || i.lessonId === String(entry.n)) && i.sourceStatus === "scaffold"
+  );
+
   return (
     <div style={blockStyle}>
       <h4 style={titleStyle}>
@@ -116,6 +121,25 @@ export function AnswerKeyBlock({ entry, pageNumber }: AnswerKeyBlockProps) {
       </h4>
 
       <div style={contentStyle}>
+        {isScaffold ? (
+          <div style={{
+            flex: 1,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            border: "2px dashed #b7e4c7",
+            borderRadius: "0.5rem",
+            backgroundColor: "#f4fbf7",
+            padding: "1rem",
+            textAlign: "center",
+            color: "#2d6a4f",
+            fontSize: "0.75rem",
+            fontWeight: "bold"
+          }}>
+            [ Ejercicio pendiente de verificación — Lección {entry.n} ]
+          </div>
+        ) : (
+          <>
         {kind === "intro" && (
           <>
             <div>
@@ -190,6 +214,8 @@ export function AnswerKeyBlock({ entry, pageNumber }: AnswerKeyBlockProps) {
             <div className="mt-1">
               <span style={boldLabelStyle}>Caligrafía: </span> Copia manuscrita del estudiante en las guías pautadas.
             </div>
+          </>
+        )}
           </>
         )}
       </div>

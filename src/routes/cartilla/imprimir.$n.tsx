@@ -10,6 +10,7 @@ import { useMemo } from "react";
 import { ArrowLeft, Printer } from "lucide-react";
 import { CATALOG, type CatalogEntry } from "@/lib/lesson-catalog";
 import { PdfPage } from "@/components/cartilla/PdfPage";
+import interactionsData from "@/data/workbook-interactions.json";
 import "@/styles/cartilla-student.css";
 
 export const Route = createFileRoute("/cartilla/imprimir/$n")({
@@ -54,6 +55,10 @@ function ImprimirPage() {
       : entry.kind === "vowel"
         ? entry.lesson.vocab[0]?.word ?? "ola"
         : "ala";
+
+  const isScaffold = (interactionsData.interactions as any[]).some(
+    (i) => (i.lessonNumber === n || i.lessonId === String(n)) && i.sourceStatus === "scaffold"
+  );
 
   return (
     <div className="min-h-screen bg-white">
@@ -108,10 +113,16 @@ function ImprimirPage() {
 
         {/* ── Worksheet ── */}
         <section
-          className="border-2 rounded-2xl p-6 space-y-8"
-          style={{ borderColor: `${entry.color}40` }}
+          className={`border-2 rounded-2xl p-6 ${isScaffold ? "flex items-center justify-center min-h-[200px] border-dashed bg-slate-50" : "space-y-8"}`}
+          style={isScaffold ? { borderColor: "#cbd5e1" } : { borderColor: `${entry.color}40` }}
           aria-label="Hoja de trabajo para imprimir"
         >
+          {isScaffold ? (
+            <div className="font-bold text-slate-500 text-center text-lg">
+              [ Ejercicio pendiente de verificación — Lección {n} ]
+            </div>
+          ) : (
+            <>
           {/* 1 — Ejercicio A: rodea la sílaba */}
           <div>
             <h2 className="font-bold text-lg mb-3" style={{ color: entry.color }}>
@@ -202,6 +213,8 @@ function ImprimirPage() {
               })}
             </div>
           </div>
+            </>
+          )}
         </section>
 
         {/* Footer */}
