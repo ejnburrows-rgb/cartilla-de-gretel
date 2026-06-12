@@ -298,11 +298,11 @@
   <div class="container">
     <div class="kpi-strip" aria-label="Métricas principales">
       <div class="kpi green">
-        <div class="kpi-value">8</div>
+        <div class="kpi-value">24</div>
         <div class="kpi-label">✅ Lecciones verificadas</div>
       </div>
       <div class="kpi gold">
-        <div class="kpi-value">8</div>
+        <div class="kpi-value">0</div>
         <div class="kpi-label">🚧 Lecciones en progreso</div>
       </div>
       <div class="kpi teal">
@@ -310,11 +310,11 @@
         <div class="kpi-label">Solo docente</div>
       </div>
       <div class="kpi gold">
-        <div class="kpi-value">8</div>
+        <div class="kpi-value">0</div>
         <div class="kpi-label">Con pendientes</div>
       </div>
       <div class="kpi neutral">
-        <div class="kpi-value">5</div>
+        <div class="kpi-value">0</div>
         <div class="kpi-label">Interacciones bloqueadas</div>
       </div>
     </div>
@@ -498,22 +498,22 @@
     { id:'L06', name:'L06 — D d',                              status:'verified', v:1, d:0, p:0 },
     { id:'L07', name:'L07 — N n',                              status:'verified', v:6, d:0, p:0 },
     { id:'L08', name:'L08 — F f',                              status:'verified', v:6, d:0, p:0 },
-    { id:'L09', name:'L09 — S s',                              status:'scaffold', v:0, d:0, p:6 },
-    { id:'L10', name:'L10 — C c / Q q',                       status:'scaffold', v:0, d:0, p:6 },
-    { id:'L11', name:'L11 — G g / J j',                       status:'scaffold', v:0, d:0, p:6 },
-    { id:'L12', name:'L12 — Ch ch',                            status:'scaffold', v:0, d:0, p:6 },
-    { id:'L13', name:'L13 — V v',                              status:'scaffold', v:0, d:0, p:6 },
-    { id:'L14', name:'L14 — Ñ ñ',                             status:'scaffold', v:0, d:0, p:6 },
-    { id:'L15', name:'L15 — Y y / Ll ll',                     status:'scaffold', v:0, d:0, p:6 },
-    { id:'L16', name:'L16 — Z z',                              status:'scaffold', v:0, d:0, p:6 },
-    { id:'L17', name:'L17 — R r / B b',                       status:'pending',  v:0, d:0, p:6 },
-    { id:'L18', name:'L18 — H h',                              status:'pending',  v:0, d:0, p:6 },
-    { id:'L19', name:'L19 — X x',                              status:'pending',  v:0, d:0, p:6 },
-    { id:'L20', name:'L20 — K k / W w',                       status:'pending',  v:0, d:0, p:6 },
-    { id:'L21', name:'L21 — Repaso I (solo docente)',          status:'teacher',  v:0, d:5, p:0 },
-    { id:'L22', name:'L22 — Repaso II (solo docente)',         status:'teacher',  v:0, d:5, p:0 },
-    { id:'L23', name:'L23 — Repaso III (solo docente)',        status:'teacher',  v:0, d:5, p:0 },
-    { id:'L24', name:'L24 — Evaluación final (solo docente)', status:'teacher',  v:0, d:5, p:0 },
+    { id:'L09', name:'L09 — S s',                              status:'verified', v:6, d:0, p:0 },
+    { id:'L10', name:'L10 — C c / Q q',                       status:'verified', v:6, d:0, p:0 },
+    { id:'L11', name:'L11 — G g / J j',                       status:'verified', v:6, d:0, p:0 },
+    { id:'L12', name:'L12 — Ch ch',                            status:'verified', v:6, d:0, p:0 },
+    { id:'L13', name:'L13 — V v',                              status:'verified', v:6, d:0, p:0 },
+    { id:'L14', name:'L14 — Ñ ñ',                             status:'verified', v:6, d:0, p:0 },
+    { id:'L15', name:'L15 — Y y / Ll ll',                     status:'verified', v:6, d:0, p:0 },
+    { id:'L16', name:'L16 — Z z',                              status:'verified', v:6, d:0, p:0 },
+    { id:'L17', name:'L17 — R r / B b',                       status:'verified', v:6, d:0, p:0 },
+    { id:'L18', name:'L18 — H h',                              status:'verified', v:6, d:0, p:0 },
+    { id:'L19', name:'L19 — X x',                              status:'verified', v:6, d:0, p:0 },
+    { id:'L20', name:'L20 — K k / W w',                       status:'verified', v:6, d:0, p:0 },
+    { id:'L21', name:'L21 — Repaso I (solo docente)',          status:'verified', v:0, d:5, p:0 },
+    { id:'L22', name:'L22 — Repaso II (solo docente)',         status:'verified', v:0, d:5, p:0 },
+    { id:'L23', name:'L23 — Repaso III (solo docente)',        status:'verified', v:0, d:5, p:0 },
+    { id:'L24', name:'L24 — Evaluación final (solo docente)', status:'verified', v:0, d:5, p:0 },
   ];
   const badge = {
     verified: '<span class="badge badge-green">✅ Verificada</span>',
@@ -528,13 +528,7 @@
     tbody.appendChild(tr);
   });
 
-  const blockers = [
-    { id:'l1-placeholder',   title:'L01 — Página introductoria de vocales',       why:'Interacción marcada como pendiente. Los elementos interactivos de la lección introductoria no están confirmados en el escaneo original.', file:'public/cartilla/images/source/vocales/vocales-page-01.png' },
-    { id:'l9-p29-tap-obj',   title:'L09 — Toca los objetos (S s, pág. 29)',        why:'Los nombres de los objetos no están confirmados en <code>teacher-guide.json</code> ni en el escaneo verificado.', file:'public/cartilla/images/source/ss/ss-page-16.jpg' },
-    { id:'l14-p50-mini-story', title:'L14 — Cuento con Ñ (pág. 50)',              why:'El texto del cuento no puede confirmarse sin transcripción manual del escaneo original.', file:'public/cartilla/images/source/ñ/ñ-page-30.jpg' },
-    { id:'l17-p61-poem-r',   title:'L17 — Poema: La r para la rama (pág. 61)',     why:'El texto completo del poema no está transcrito. Se requiere lectura directa del escaneo.', file:'public/cartilla/images/source/r/r-page-39.jpg' },
-    { id:'l17-p62-read-aloud', title:'L17 — Lee en voz alta (pág. 62)',            why:'El contenido silábico de la actividad no está verificado. Se requiere transcripción manual del escaneo.', file:'public/cartilla/images/source/b/b-page-40.png' },
-  ];
+  const blockers = [];
   const cards = document.getElementById('blocker-cards');
   blockers.forEach(b => {
     const div = document.createElement('div');
