@@ -30,7 +30,7 @@ export function canTransition(from: GretelState, event: GretelEvent): boolean {
     case "idle":
       return ["BLINK", "SPEAK_START", "WAVE", "POINT", "CHEER", "ASSET_ERROR"].includes(event.type);
     case "blinking":
-      return event.type === "IDLE";
+      return ["IDLE", "ASSET_ERROR"].includes(event.type);
     case "talking":
       return ["SPEAK_STOP", "ASSET_ERROR"].includes(event.type);
     case "waving":
@@ -38,7 +38,7 @@ export function canTransition(from: GretelState, event: GretelEvent): boolean {
     case "cheering":
       return ["IDLE", "ASSET_ERROR"].includes(event.type);
     case "error":
-      return event.type === "RESET";
+      return ["RESET", "ASSET_ERROR"].includes(event.type);
     default:
       return false;
   }
@@ -51,44 +51,46 @@ export function canTransition(from: GretelState, event: GretelEvent): boolean {
 export function gretelReducer(state: GretelState, event: GretelEvent): GretelState {
   if (!canTransition(state, event)) {
     console.warn(`[GretelMachine] Illegal transition from '${state}' with event '${event.type}'. Healing to 'idle'.`);
-    return "idle";
+    return state === "error" ? "error" : "idle";
   }
 
+  let nextState = state;
   switch (state) {
     case "boot":
-      if (event.type === "INIT") return "idle";
+      if (event.type === "INIT") nextState = "idle";
       break;
 
     case "idle":
-      if (event.type === "BLINK") return "blinking";
-      if (event.type === "SPEAK_START") return "talking";
-      if (event.type === "WAVE") return "waving";
-      if (event.type === "POINT") return "pointing";
-      if (event.type === "CHEER") return "cheering";
-      if (event.type === "ASSET_ERROR") return "error";
+      if (event.type === "BLINK") nextState = "blinking";
+      if (event.type === "SPEAK_START") nextState = "talking";
+      if (event.type === "WAVE") nextState = "waving";
+      if (event.type === "POINT") nextState = "pointing";
+      if (event.type === "CHEER") nextState = "cheering";
+      if (event.type === "ASSET_ERROR") nextState = "error";
       break;
 
     case "blinking":
-      if (event.type === "IDLE") return "idle";
+      if (event.type === "IDLE") nextState = "idle";
+      if (event.type === "ASSET_ERROR") nextState = "error";
       break;
 
     case "talking":
-      if (event.type === "SPEAK_STOP") return "idle";
-      if (event.type === "ASSET_ERROR") return "error";
+      if (event.type === "SPEAK_STOP") nextState = "idle";
+      if (event.type === "ASSET_ERROR") nextState = "error";
       break;
 
     case "waving":
     case "pointing":
     case "cheering":
-      if (event.type === "IDLE") return "idle";
-      if (event.type === "ASSET_ERROR") return "error";
+      if (event.type === "IDLE") nextState = "idle";
+      if (event.type === "ASSET_ERROR") nextState = "error";
       break;
 
     case "error":
-      if (event.type === "RESET") return "idle";
+      if (event.type === "RESET") nextState = "idle";
+      if (event.type === "ASSET_ERROR") nextState = "error";
       break;
   }
 
-  // Fallback (should be unreachable given canTransition check)
-  return state;
+  return nextState;
 }

@@ -6,6 +6,9 @@ import {
 } from "./gretelMachine";
 import { GRETEL_POSES, GRETEL_FALLBACKS, type GretelPoseState } from "./gretelPoses";
 
+const failedUrls = new Set<string>();
+const TRANSPARENT_SPACER = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+
 export interface GretelAnimationHook {
   currentPose: string;
   machineState: GretelState;
@@ -18,6 +21,15 @@ export function useGretelAnimation(): GretelAnimationHook {
   const [currentPoseKey, setCurrentPoseKey] = useState<GretelPoseState>("idle-1");
   const [isRecovering, setIsRecovering] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const lastStateRef = useRef<GretelState>("boot");
+
+  const isRecoveringRef = useRef(isRecovering);
+  const currentPoseKeyRef = useRef(currentPoseKey);
+
+  useEffect(() => {
+    isRecoveringRef.current = isRecovering;
+    currentPoseKeyRef.current = currentPoseKey;
+  }, [isRecovering, currentPoseKey]);
 
   const clearTimer = useCallback(() => {
     if (timerRef.current !== null) {
@@ -26,13 +38,25 @@ export function useGretelAnimation(): GretelAnimationHook {
     }
   }, []);
 
-  // Wraps dispatch so that consumers can send events
   const send = useCallback((event: GretelEvent) => {
+    if (event.type === "RESET") {
+      setIsRecovering(false);
+      failedUrls.clear();
+    } else if (event.type === "ASSET_ERROR") {
+      const activeSrc = isRecoveringRef.current
+        ? GRETEL_FALLBACKS[currentPoseKeyRef.current]
+        : GRETEL_POSES[currentPoseKeyRef.current];
+      failedUrls.add(activeSrc);
+      if (!isRecoveringRef.current) {
+        setIsRecovering(true);
+      }
+    }
     dispatch(event);
   }, []);
 
   // Preloading utility
   const preloadImage = (src: string): Promise<void> => {
+    if (src === TRANSPARENT_SPACER) return Promise.resolve();
     return new Promise((resolve, reject) => {
       const img = new Image();
       img.onload = () => resolve();
@@ -43,18 +67,36 @@ export function useGretelAnimation(): GretelAnimationHook {
 
   const applyPose = useCallback(
     async (poseKey: GretelPoseState) => {
-      const src = isRecovering ? GRETEL_FALLBACKS[poseKey] : GRETEL_POSES[poseKey];
-      try {
+      const primarySrc = GRETEL_POSES[poseKey];
+      const fallbackSrc = GRETEL_FALLBACKS[poseKey];
+
+      const tryPreload = async (src: string) => {
+        if (failedUrls.has(src)) throw new Error("Cached failure");
         await preloadImage(src);
-        setCurrentPoseKey(poseKey);
-      } catch (e) {
-        if (!isRecovering) {
-          // HD asset failed, fall back
+      };
+
+      if (isRecovering) {
+        try {
+          await tryPreload(fallbackSrc);
+          setCurrentPoseKey(poseKey);
+        } catch (e) {
+          failedUrls.add(fallbackSrc);
+          dispatch({ type: "ASSET_ERROR" });
+        }
+      } else {
+        try {
+          await tryPreload(primarySrc);
+          setCurrentPoseKey(poseKey);
+        } catch (e) {
+          failedUrls.add(primarySrc);
           setIsRecovering(true);
-          dispatch({ type: "ASSET_ERROR" });
-        } else {
-          // Fallback also failed, transition to hard error state
-          dispatch({ type: "ASSET_ERROR" });
+          try {
+            await tryPreload(fallbackSrc);
+            setCurrentPoseKey(poseKey);
+          } catch (err) {
+            failedUrls.add(fallbackSrc);
+            dispatch({ type: "ASSET_ERROR" });
+          }
         }
       }
     },
@@ -70,7 +112,9 @@ export function useGretelAnimation(): GretelAnimationHook {
 
     clearTimer();
 
-    // Effect logic for each state
+    const stateChanged = lastStateRef.current !== machineState;
+    lastStateRef.current = machineState;
+
     let isCancelled = false;
 
     const runIdleCycle = () => {
@@ -78,16 +122,11 @@ export function useGretelAnimation(): GretelAnimationHook {
       timerRef.current = setTimeout(() => {
         if (isCancelled) return;
         
-        // Randomly decide to blink or alternate idle
         if (Math.random() < 0.3) {
           dispatch({ type: "BLINK" });
         } else {
-          setCurrentPoseKey((prev) => {
-            const next = prev === "idle-1" ? "idle-2" : "idle-1";
-            applyPose(next);
-            return next; // Optimistic update, actual update happens in applyPose
-          });
-          runIdleCycle();
+          const next = currentPoseKey === "idle-1" ? "idle-2" : "idle-1";
+          applyPose(next);
         }
       }, interval);
     };
@@ -95,50 +134,57 @@ export function useGretelAnimation(): GretelAnimationHook {
     const runTalkingCycle = () => {
       timerRef.current = setTimeout(() => {
         if (isCancelled) return;
-        setCurrentPoseKey((prev) => {
-          const next = prev === "talk-open" ? "talk-closed" : "talk-open";
-          applyPose(next);
-          return next;
-        });
-        runTalkingCycle();
+        const next = currentPoseKey === "talk-open" ? "talk-closed" : "talk-open";
+        applyPose(next);
       }, 220);
     };
 
     switch (machineState) {
       case "idle":
-        applyPose("idle-1");
+        if (stateChanged) {
+          applyPose("idle-1");
+        }
         runIdleCycle();
         break;
       case "blinking":
-        applyPose("blink");
+        if (stateChanged) {
+          applyPose("blink");
+        }
         timerRef.current = setTimeout(() => {
           if (!isCancelled) dispatch({ type: "IDLE" });
         }, 120);
         break;
       case "talking":
-        applyPose("talk-open");
+        if (stateChanged) {
+          applyPose("talk-open");
+        }
         runTalkingCycle();
         break;
       case "waving":
-        applyPose("wave");
+        if (stateChanged) {
+          applyPose("wave");
+        }
         timerRef.current = setTimeout(() => {
           if (!isCancelled) dispatch({ type: "IDLE" });
         }, 2000);
         break;
       case "pointing":
-        applyPose("point");
+        if (stateChanged) {
+          applyPose("point");
+        }
         timerRef.current = setTimeout(() => {
           if (!isCancelled) dispatch({ type: "IDLE" });
         }, 2000);
         break;
       case "cheering":
-        applyPose("cheer");
+        if (stateChanged) {
+          applyPose("cheer");
+        }
         timerRef.current = setTimeout(() => {
           if (!isCancelled) dispatch({ type: "IDLE" });
         }, 2000);
         break;
       case "error":
-        // Fallback for extreme failure - use the most basic available image or nothing
         setCurrentPoseKey("idle-1");
         break;
     }
@@ -147,11 +193,15 @@ export function useGretelAnimation(): GretelAnimationHook {
       isCancelled = true;
       clearTimer();
     };
-  }, [machineState, applyPose, clearTimer]);
+  }, [machineState, applyPose, clearTimer, currentPoseKey]);
 
-  const currentSrc = isRecovering
+  let currentSrc = isRecovering
     ? GRETEL_FALLBACKS[currentPoseKey]
     : GRETEL_POSES[currentPoseKey];
+
+  if (failedUrls.has(currentSrc)) {
+    currentSrc = TRANSPARENT_SPACER;
+  }
 
   return {
     currentPose: currentSrc,
