@@ -56,7 +56,10 @@ function ImprimirPage() {
         ? entry.lesson.vocab[0]?.word ?? "ola"
         : "ala";
 
-  const isScaffold = (interactionsData.interactions as any[]).some(
+  const isPendingLesson = entry.kind === "consonant" && 
+    (entry.data.syllables.length === 0 || Object.values(entry.data.examples).every(arr => arr.length === 0 || arr[0].includes("PENDIENTE")));
+
+  const isScaffold = isPendingLesson || (interactionsData.interactions as any[]).some(
     (i) => (i.lessonNumber === n || i.lessonId === String(n)) && i.sourceStatus === "scaffold"
   );
 
