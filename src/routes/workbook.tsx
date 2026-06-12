@@ -21,8 +21,7 @@ export const Route = createFileRoute("/workbook")({
 function WorkbookPage() {
   const pages: WorkbookPageEntry[] = Array.from({ length: 92 }).map((_, i) => {
     const pageNum = i + 1;
-    const paddedPageNum = String(pageNum).padStart(3, "0");
-    const src = `/cartilla/art/hd/workbook/page-${paddedPageNum}.jpg`;
+    const src = `/art/hd/page-${pageNum}.png`;
 
     return {
       id: `page-${pageNum}`,

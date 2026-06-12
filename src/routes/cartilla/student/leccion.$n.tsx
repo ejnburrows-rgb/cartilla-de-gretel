@@ -386,12 +386,11 @@ function Leccion() {
             <h2 className="text-3xl font-bold mb-6 text-center" style={activeColorStyle}>Páginas del libro</h2>
             <div className="flex flex-col gap-8 w-full">
               {lessonPages.map((pageNumber: number) => {
-                const pad = String(pageNumber).padStart(3, "0");
                 return (
                   <img
                     key={pageNumber}
-                    src={`/cartilla/art/hd/workbook/page-${pad}.jpg`}
-                    alt={`Página ${pageNumber} — Lección ${n}`}
+                    src={`/art/hd/page-${pageNumber}.png`}
+                    alt={`Página ${pageNumber} - Lección ${n}`}
                     loading="lazy"
                     width={2550}
                     height={3301}

@@ -8,8 +8,7 @@ interface FlipbookVerticalViewerProps {
 
 export function FlipbookVerticalViewer({ pageNumber, className = "" }: FlipbookVerticalViewerProps) {
   const safePageNumber = Math.max(1, pageNumber);
-  const paddedPageNum = String(safePageNumber).padStart(3, "0");
-  const src = `/cartilla/art/hd/workbook/page-${paddedPageNum}.jpg`;
+  const src = `/art/hd/page-${safePageNumber}.png`;
 
   // Track previous page to determine direction
   const [prevPage, setPrevPage] = useState(pageNumber);

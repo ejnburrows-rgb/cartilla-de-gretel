@@ -33,8 +33,7 @@ const rawScanByWorkbookPage = new Map(
     .map((asset) => [asset.workbookPageNumber, `/${asset.path}`]),
 );
 function getHdPageSrc(pageNumber: number) {
-  const paddedPageNum = String(pageNumber).padStart(3, "0");
-  return `/cartilla/art/hd/workbook/page-${paddedPageNum}.jpg`;
+  return `/art/hd/page-${pageNumber}.png`;
 }
 
 function getFallbackSources(pageNumber: number) {
