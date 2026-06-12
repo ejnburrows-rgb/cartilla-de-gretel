@@ -1,3 +1,5 @@
+import { getBookPageImage } from "@/lib/bookImages";
+
 export const lesson12 = [
   {
     id: "l12-p35-letter-tracing",
@@ -21,7 +23,7 @@ export const lesson12 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Students trace uppercase N and lowercase n.",
-    sourcePage: ""
+    sourcePage: getBookPageImage(35)
   },
   {
     id: "l12-p36-syllable-circle",
@@ -85,7 +87,7 @@ export const lesson12 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded syllable circle for N.",
-    sourcePage: ""
+    sourcePage: getBookPageImage(36)
   },
   {
     id: "l12-p36-syllable-tap",
@@ -106,7 +108,7 @@ export const lesson12 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded syllable tap for N.",
-    sourcePage: ""
+    sourcePage: getBookPageImage(36)
   },
   {
     id: "l12-p36-word-bank",
@@ -132,7 +134,7 @@ export const lesson12 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded word bank for N.",
-    sourcePage: ""
+    sourcePage: getBookPageImage(36)
   },
   {
     id: "l12-p36-mini-story",
@@ -158,7 +160,7 @@ export const lesson12 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded mini-story for N.",
-    sourcePage: ""
+    sourcePage: getBookPageImage(36)
   },
   {
     id: "l12-p37-fill-in-blank",
@@ -271,6 +273,6 @@ export const lesson12 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded fill-in-the-blank for N.",
-    sourcePage: ""
+    sourcePage: getBookPageImage(37)
   }
 ];

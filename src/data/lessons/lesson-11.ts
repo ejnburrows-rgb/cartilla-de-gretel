@@ -1,3 +1,5 @@
+import { getBookPageImage } from "@/lib/bookImages";
+
 export const lesson11 = [
   {
     id: "l11-p32-letter-tracing",
@@ -21,7 +23,7 @@ export const lesson11 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Students trace uppercase D and lowercase d.",
-    sourcePage: ""
+    sourcePage: getBookPageImage(32)
   },
   {
     id: "l11-p33-syllable-circle",
@@ -85,7 +87,7 @@ export const lesson11 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded syllable circle for D.",
-    sourcePage: ""
+    sourcePage: getBookPageImage(33)
   },
   {
     id: "l11-p33-syllable-tap",
@@ -106,7 +108,7 @@ export const lesson11 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded syllable tap for D.",
-    sourcePage: ""
+    sourcePage: getBookPageImage(33)
   },
   {
     id: "l11-p33-word-bank",
@@ -132,7 +134,7 @@ export const lesson11 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded word bank for D.",
-    sourcePage: ""
+    sourcePage: getBookPageImage(33)
   },
   {
     id: "l11-p33-mini-story",
@@ -158,7 +160,7 @@ export const lesson11 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded mini-story for D.",
-    sourcePage: ""
+    sourcePage: getBookPageImage(33)
   },
   {
     id: "l11-p34-fill-in-blank",
@@ -270,6 +272,6 @@ export const lesson11 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded fill-in-the-blank for D.",
-    sourcePage: ""
+    sourcePage: getBookPageImage(34)
   }
 ];

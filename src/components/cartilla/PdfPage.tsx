@@ -32,12 +32,10 @@ const rawScanByWorkbookPage = new Map(
     )
     .map((asset) => [asset.workbookPageNumber, `/${asset.path}`]),
 );
-function getHdPageSrc(pageNumber: number) {
-  return `/art/hd/page-${pageNumber}.png`;
-}
+import { getBookPageImage } from "@/lib/bookImages";
 
 function getFallbackSources(pageNumber: number) {
-  const list = [getHdPageSrc(pageNumber)];
+  const list = [getBookPageImage(pageNumber)];
   const raw = rawScanByWorkbookPage.get(pageNumber);
   if (raw) list.push(raw);
   return list;
@@ -47,7 +45,7 @@ export function prefetchPage(pageNumber: number) {
   // No-op for SVG pages; kept for API compatibility.
   if (pageNumber < 91 || pageNumber > 92) return;
   const img = new Image();
-  img.src = getHdPageSrc(pageNumber);
+  img.src = getBookPageImage(pageNumber);
 }
 
 interface PdfPageProps {

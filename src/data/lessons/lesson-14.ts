@@ -1,3 +1,5 @@
+import { getBookPageImage } from "@/lib/bookImages";
+
 export const lesson14 = [
   {
     id: "l14-p41-letter-tracing",
@@ -21,7 +23,7 @@ export const lesson14 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Students trace uppercase C and lowercase c.",
-    sourcePage: ""
+    sourcePage: getBookPageImage(41)
   },
   {
     id: "l14-p42-syllable-circle",
@@ -71,7 +73,7 @@ export const lesson14 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded syllable circle for C.",
-    sourcePage: ""
+    sourcePage: getBookPageImage(42)
   },
   {
     id: "l14-p42-syllable-tap",
@@ -90,7 +92,7 @@ export const lesson14 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded syllable tap for C.",
-    sourcePage: ""
+    sourcePage: getBookPageImage(42)
   },
   {
     id: "l14-p42-word-bank",
@@ -116,7 +118,7 @@ export const lesson14 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded word bank for C.",
-    sourcePage: ""
+    sourcePage: getBookPageImage(42)
   },
   {
     id: "l14-p42-mini-story",
@@ -142,7 +144,7 @@ export const lesson14 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded mini-story for C.",
-    sourcePage: ""
+    sourcePage: getBookPageImage(42)
   },
   {
     id: "l14-p43-fill-in-blank",
@@ -257,6 +259,6 @@ export const lesson14 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded fill-in-the-blank for C.",
-    sourcePage: ""
+    sourcePage: getBookPageImage(43)
   }
 ];

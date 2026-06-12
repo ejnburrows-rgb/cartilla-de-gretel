@@ -4,6 +4,8 @@ import {
   type WorkbookPageEntry,
 } from "../components/StudentBook/StudentWorkbookFlip";
 
+import { getBookPageImage } from "@/lib/bookImages";
+
 export const Route = createFileRoute("/workbook")({
   component: WorkbookPage,
   head: () => ({
@@ -21,7 +23,7 @@ export const Route = createFileRoute("/workbook")({
 function WorkbookPage() {
   const pages: WorkbookPageEntry[] = Array.from({ length: 92 }).map((_, i) => {
     const pageNum = i + 1;
-    const src = `/art/hd/page-${pageNum}.png`;
+    const src = getBookPageImage(pageNum);
 
     return {
       id: `page-${pageNum}`,

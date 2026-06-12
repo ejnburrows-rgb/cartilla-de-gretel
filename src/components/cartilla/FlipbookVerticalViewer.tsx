@@ -6,9 +6,11 @@ interface FlipbookVerticalViewerProps {
   className?: string;
 }
 
+import { getBookPageImage } from "@/lib/bookImages";
+
 export function FlipbookVerticalViewer({ pageNumber, className = "" }: FlipbookVerticalViewerProps) {
   const safePageNumber = Math.max(1, pageNumber);
-  const src = `/art/hd/page-${safePageNumber}.png`;
+  const src = getBookPageImage(safePageNumber);
 
   // Track previous page to determine direction
   const [prevPage, setPrevPage] = useState(pageNumber);

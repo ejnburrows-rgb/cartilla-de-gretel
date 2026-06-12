@@ -1,3 +1,5 @@
+import { getBookPageImage } from "@/lib/bookImages";
+
 export const lesson09 = [
   {
     id: "l9-p26-letter-tracing",
@@ -21,7 +23,7 @@ export const lesson09 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Students trace uppercase T (2-stroke) and lowercase t (2-stroke).",
-    sourcePage: ""
+    sourcePage: getBookPageImage(26)
   },
   {
     id: "l9-p27-syllable-circle",
@@ -85,7 +87,7 @@ export const lesson09 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded syllable circle for T. Need to map slot coordinates.",
-    sourcePage: ""
+    sourcePage: getBookPageImage(27)
   },
   {
     id: "l9-p27-syllable-tap",
@@ -106,7 +108,7 @@ export const lesson09 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded syllable tap for T.",
-    sourcePage: ""
+    sourcePage: getBookPageImage(27)
   },
   {
     id: "l9-p27-word-bank",
@@ -132,7 +134,7 @@ export const lesson09 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded word bank for T.",
-    sourcePage: ""
+    sourcePage: getBookPageImage(27)
   },
   {
     id: "l9-p27-mini-story",
@@ -158,7 +160,7 @@ export const lesson09 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded mini-story for T using M, P, T and sight words.",
-    sourcePage: ""
+    sourcePage: getBookPageImage(27)
   },
   {
     id: "l9-p28-fill-in-blank",
@@ -270,6 +272,6 @@ export const lesson09 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded fill-in-the-blank for T.",
-    sourcePage: ""
+    sourcePage: getBookPageImage(28)
   }
 ];

@@ -21,6 +21,7 @@ import teacherGuideData from "@/data/teacher-guide.json";
 import pageInventory from "@/data/page-inventory.json";
 import LessonSkeleton from "./_components/LessonSkeleton";
 import { PdfPage } from "@/components/cartilla/PdfPage";
+import { getBookPageImage } from "@/lib/bookImages";
 import { FlipBook } from "@/components/cartilla/FlipBook";
 import { OfflineBadge } from "@/components/cartilla/OfflineBadge";
 import { StudentExercisePane } from "@/components/cartilla/StudentExercisePane";
@@ -389,7 +390,7 @@ function Leccion() {
                 return (
                   <img
                     key={pageNumber}
-                    src={`/art/hd/page-${pageNumber}.png`}
+                    src={getBookPageImage(pageNumber)}
                     alt={`Página ${pageNumber} - Lección ${n}`}
                     loading="lazy"
                     width={2550}
