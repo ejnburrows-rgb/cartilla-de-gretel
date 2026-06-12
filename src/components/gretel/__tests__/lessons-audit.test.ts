@@ -1,4 +1,6 @@
 import { describe, it, expect } from "vitest";
+import { lesson07 } from "@/data/lessons/lesson-07";
+import { lesson08 } from "@/data/lessons/lesson-08";
 import { lesson09 } from "@/data/lessons/lesson-09";
 import { lesson10 } from "@/data/lessons/lesson-10";
 import { lesson11 } from "@/data/lessons/lesson-11";
@@ -10,6 +12,8 @@ import { lesson16 } from "@/data/lessons/lesson-16";
 import { getBookPageImage } from "@/lib/bookImages";
 
 const lessons = {
+  7: lesson07,
+  8: lesson08,
   9: lesson09,
   10: lesson10,
   11: lesson11,
