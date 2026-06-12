@@ -193,7 +193,7 @@ export function TeacherCrmShell() {
         
         <div className="crm-content flex-1 overflow-y-auto p-6 space-y-6">
           {/* Top Actions & Class Selector Bar */}
-          <section className="rounded-2xl border border-[hsl(28,30%,18%)]/10 bg-white p-5 shadow-xs">
+          <section className="rounded-2xl border border-border border-l-4 border-l-[var(--color-accent)] bg-surface p-5 shadow-sm">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div>
                 <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#8da47e]">Centro docente</p>

@@ -72,6 +72,8 @@ export function PdfPage({ pageNumber, className = "" }: PdfPageProps) {
   return <PdfPageImageFallback pageNumber={safePageNumber} className={className} />;
 }
 
+import { BookPageImage } from "./BookPageImage";
+
 function PdfPageImageFallback({ pageNumber, className = "" }: PdfPageProps) {
   const sources = useMemo(() => getFallbackSources(pageNumber), [pageNumber]);
   const [srcIndex, setSrcIndex] = useState(0);
@@ -88,15 +90,13 @@ function PdfPageImageFallback({ pageNumber, className = "" }: PdfPageProps) {
 
   return (
     <div
-      className={`pdf-page-wrapper flex items-center justify-center overflow-hidden bg-white select-none ${className}`}
+      className={`pdf-page-wrapper flex items-center justify-center overflow-hidden bg-transparent select-none p-2 ${className}`}
       aria-label={`Página ${pageNumber} del libro`}
     >
-      <img
+      <BookPageImage
         src={src}
         alt={`Página ${pageNumber} del libro`}
-        className="w-full h-full object-contain max-h-full"
-        loading="lazy"
-        draggable={false}
+        className="max-h-full"
         onError={handleError}
       />
     </div>

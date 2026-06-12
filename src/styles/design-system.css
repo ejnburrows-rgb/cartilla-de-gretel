@@ -1,0 +1,85 @@
+/* La Cartilla - New Design System */
+
+@theme inline {
+  --color-bg: #fdf8f0;
+  --color-surface: #fffdf7;
+  --color-surface-2: #f7f2e8;
+  --color-border: rgba(60, 40, 10, 0.12);
+  --color-text: #2c1f0e;
+  --color-text-muted: #7a6a52;
+  --color-primary: #d4541a;
+  --color-primary-hover: #b8420f;
+  --color-accent: #2a7d4f;
+  --color-accent-hover: #1e5e39;
+  --color-gold: #e8a820;
+  
+  --shadow-sm: 0 1px 3px rgba(44,31,14,0.08);
+  --shadow-md: 0 4px 16px rgba(44,31,14,0.12);
+  --shadow-lg: 0 12px 40px rgba(44,31,14,0.18);
+  
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  
+  --font-display: 'Nunito', 'Rounded Mplus 1c', sans-serif;
+  --font-body: 'Nunito', sans-serif;
+  
+  --color-white: var(--color-surface);
+}
+
+:root {
+  --color-bg: #fdf8f0;
+  --color-surface: #fffdf7;
+  --color-surface-2: #f7f2e8;
+  --color-border: rgba(60, 40, 10, 0.12);
+  --color-text: #2c1f0e;
+  --color-text-muted: #7a6a52;
+  --color-primary: #d4541a;       /* warm orange-red — energetic, child-safe */
+  --color-primary-hover: #b8420f;
+  --color-accent: #2a7d4f;        /* forest green — Spanish literacy feel */
+  --color-accent-hover: #1e5e39;
+  --color-gold: #e8a820;          /* reward/highlight color */
+  --shadow-sm: 0 1px 3px rgba(44,31,14,0.08);
+  --shadow-md: 0 4px 16px rgba(44,31,14,0.12);
+  --shadow-lg: 0 12px 40px rgba(44,31,14,0.18);
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --font-display: 'Nunito', 'Rounded Mplus 1c', sans-serif;
+  --font-body: 'Nunito', sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-bg) !important;
+    background-image: none !important;
+    color: var(--color-text) !important;
+    font-family: var(--font-body) !important;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display) !important;
+    color: var(--color-primary);
+    font-weight: 700;
+  }
+  
+  /* Apply fluid typography to headings if not otherwise sized */
+  h1 { font-size: clamp(2rem, 5vw, 3rem); }
+  h2 { font-size: clamp(1.5rem, 4vw, 2.25rem); }
+  
+  /* Buttons baseline styles */
+  button, .button {
+    font-family: var(--font-display);
+    min-height: 44px;
+    border-radius: var(--radius-md) !important;
+    font-weight: 700;
+  }
+}
+
+@layer utilities {
+  .kid-card {
+    border-radius: var(--radius-md) !important;
+    box-shadow: var(--shadow-sm) !important;
+    background-color: var(--color-surface) !important;
+  }
+}

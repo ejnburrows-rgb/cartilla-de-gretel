@@ -17,6 +17,7 @@ import {
   getFlipchartPageSrc,
   type FlipchartPage,
 } from "@/lib/flipchart-hd";
+import { BookPageImage } from "./BookPageImage";
 
 // ── Framer-motion variants matching the rest of the app ──────────────
 const VERTICAL_FLIP_VARIANTS = {
@@ -121,12 +122,10 @@ export function FlipchartHdPanel({ lessonNumber }: FlipchartHdPanelProps) {
               }}
             >
               {/* HD Flipchart image — displayed exactly as-is */}
-              <img
+              <BookPageImage
                 src={getFlipchartPageSrc(currentPage)}
                 alt={`Lámina ${currentPage.flipchartPage} del flipchart`}
-                className="w-full h-full object-contain select-none"
-                draggable={false}
-                loading="lazy"
+                wrapperClassName="border-0 shadow-none bg-transparent"
               />
             </motion.div>
           </AnimatePresence>

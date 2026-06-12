@@ -3,7 +3,7 @@
 // Keeps the content tree tidy as it grows.
 
 export * from "./lesson-meta";
-export * from "./page-bindings";
+export { default as pageBindings } from "./page-bindings.json";
 export * from "./exercise-seed";
 export * from "./sentence-bank";
 export * from "./picture-catalog";

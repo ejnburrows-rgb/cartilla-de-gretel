@@ -4,14 +4,13 @@ import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "vite";
 import tsConfigPaths from "vite-tsconfig-paths";
 import { gzipSync, brotliCompressSync } from "zlib";
-import type { OutputBundle, PluginContext } from "rollup";
 
 function compressPlugin() {
   return {
     name: "compress-plugin",
     apply: "build" as const,
     enforce: "post" as const,
-    generateBundle(this: PluginContext, _: unknown, bundle: OutputBundle) {
+    generateBundle(this: any, _: unknown, bundle: any) {
       for (const fileName in bundle) {
         const asset = bundle[fileName];
         let code: string | Uint8Array;

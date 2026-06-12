@@ -3,8 +3,10 @@ import { Maximize2, Minimize2, MousePointerClick, X } from "lucide-react";
 
 interface TeacherPresentationShellProps {
   children: React.ReactNode;
-  accentColor: string;
-  onExit: () => void;
+  accentColor?: string;
+  onExit?: () => void;
+  title?: string;
+  subtitle?: string;
 }
 
 const shellClass = "fixed inset-0 w-screen h-screen overflow-hidden bg-stone-950 text-white flex flex-col z-50 select-none font-sans";

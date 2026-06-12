@@ -1,6 +1,8 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
+@import "./styles/flipbook-3d.css";
+@import "./styles/design-system.css";
 
 @custom-variant dark (&:is(.dark *));
 

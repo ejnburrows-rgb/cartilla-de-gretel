@@ -18,7 +18,7 @@ export const Route = createFileRoute("/")({
 function Landing() {
   return (
     <main className="min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(255,214,165,0.58),transparent_32%),linear-gradient(135deg,#fff8ed_0%,#f9efe0_48%,#e8f4ef_100%)] px-4 py-8 text-[hsl(28,30%,18%)]">
-      <section className="mx-auto flex min-h-[calc(100vh-4rem)] w-full max-w-6xl flex-col justify-between">
+      <section className="mx-auto flex min-h-[calc(100vh-4rem)] w-full max-w-[1100px] flex-col justify-between">
         <header className="flex items-center justify-between gap-4">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.24em] text-[hsl(24,98%,50%)]">

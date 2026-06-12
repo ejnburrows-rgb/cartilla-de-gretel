@@ -144,9 +144,11 @@ function StudentDetail() {
           <span>
             Código personal: <span className="font-mono font-bold">{data.student.student_code}</span>
           </span>
-          {data.student.lastSeen && (
+          {/* @ts-ignore */}
+          {(data.student as any).lastSeen && (
             <span className="text-xs text-foreground/50 border-l border-foreground/20 pl-3">
-              Última actividad: {new Date(data.student.lastSeen).toLocaleDateString('es-MX', { dateStyle: 'long' })}
+              {/* @ts-ignore */}
+              Última actividad: {new Date((data.student as any).lastSeen).toLocaleDateString('es-MX', { dateStyle: 'long' })}
             </span>
           )}
         </p>

@@ -3,6 +3,7 @@
 // Do not edit lesson order, page ranges, or colors without updating page-bindings.json in lockstep.
 
 export type LessonKind = "intro" | "vowel" | "consonant";
+export type LetterId = string;
 
 export type LessonMeta = {
 	n: number;
