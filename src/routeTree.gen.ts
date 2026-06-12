@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as WorkbookRouteImport } from './routes/workbook'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as IntroRouteImport } from './routes/intro'
+import { Route as DevGretelRouteImport } from './routes/dev-gretel'
 import { Route as CreditsRouteImport } from './routes/credits'
 import { Route as ClassroomRouteImport } from './routes/classroom'
 import { Route as BookRouteImport } from './routes/book'
@@ -69,6 +70,11 @@ const LoginRoute = LoginRouteImport.update({
 const IntroRoute = IntroRouteImport.update({
   id: '/intro',
   path: '/intro',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DevGretelRoute = DevGretelRouteImport.update({
+  id: '/dev-gretel',
+  path: '/dev-gretel',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CreditsRoute = CreditsRouteImport.update({
@@ -303,6 +309,7 @@ export interface FileRoutesByFullPath {
   '/book': typeof BookRoute
   '/classroom': typeof ClassroomRoute
   '/credits': typeof CreditsRoute
+  '/dev-gretel': typeof DevGretelRoute
   '/intro': typeof IntroRoute
   '/login': typeof LoginRoute
   '/workbook': typeof WorkbookRoute
@@ -350,6 +357,7 @@ export interface FileRoutesByTo {
   '/book': typeof BookRoute
   '/classroom': typeof ClassroomRoute
   '/credits': typeof CreditsRoute
+  '/dev-gretel': typeof DevGretelRoute
   '/intro': typeof IntroRoute
   '/login': typeof LoginRoute
   '/workbook': typeof WorkbookRoute
@@ -398,6 +406,7 @@ export interface FileRoutesById {
   '/book': typeof BookRoute
   '/classroom': typeof ClassroomRoute
   '/credits': typeof CreditsRoute
+  '/dev-gretel': typeof DevGretelRoute
   '/intro': typeof IntroRoute
   '/login': typeof LoginRoute
   '/workbook': typeof WorkbookRoute
@@ -447,6 +456,7 @@ export interface FileRouteTypes {
     | '/book'
     | '/classroom'
     | '/credits'
+    | '/dev-gretel'
     | '/intro'
     | '/login'
     | '/workbook'
@@ -494,6 +504,7 @@ export interface FileRouteTypes {
     | '/book'
     | '/classroom'
     | '/credits'
+    | '/dev-gretel'
     | '/intro'
     | '/login'
     | '/workbook'
@@ -541,6 +552,7 @@ export interface FileRouteTypes {
     | '/book'
     | '/classroom'
     | '/credits'
+    | '/dev-gretel'
     | '/intro'
     | '/login'
     | '/workbook'
@@ -590,6 +602,7 @@ export interface RootRouteChildren {
   BookRoute: typeof BookRoute
   ClassroomRoute: typeof ClassroomRoute
   CreditsRoute: typeof CreditsRoute
+  DevGretelRoute: typeof DevGretelRoute
   IntroRoute: typeof IntroRoute
   LoginRoute: typeof LoginRoute
   WorkbookRoute: typeof WorkbookRoute
@@ -632,6 +645,13 @@ declare module '@tanstack/react-router' {
       path: '/intro'
       fullPath: '/intro'
       preLoaderRoute: typeof IntroRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dev-gretel': {
+      id: '/dev-gretel'
+      path: '/dev-gretel'
+      fullPath: '/dev-gretel'
+      preLoaderRoute: typeof DevGretelRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/credits': {
@@ -1043,6 +1063,7 @@ const rootRouteChildren: RootRouteChildren = {
   BookRoute: BookRoute,
   ClassroomRoute: ClassroomRoute,
   CreditsRoute: CreditsRoute,
+  DevGretelRoute: DevGretelRoute,
   IntroRoute: IntroRoute,
   LoginRoute: LoginRoute,
   WorkbookRoute: WorkbookRoute,
