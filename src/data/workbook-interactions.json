@@ -2438,8 +2438,8 @@
       ],
       "targets": [],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "verified",
-      "studentFacingStatus": "source page image connected",
+      "transcriptionStatus": "ready",
+      "studentFacingStatus": "ready",
       "teacherNotes": "Read-aloud of the Ñ-syllable family. Syllables from consonants.json verified data.",
       "sourcePage": "j-page-49.jpg"
     },
@@ -2450,7 +2450,7 @@
       "kind": "mini-story",
       "title": "Cuento: La niña sueña",
       "prompt": "Lee el cuento del cuaderno con tu maestro.",
-      "assetRef": "cartilla/images/source/ñ/ñ-page-30.jpg",
+      "assetRef": "cartilla/art/hd/workbook/page-050.jpg",
       "assetRefSourcePage": "30-Ññ (workbook page 30)",
       "assetRefVerified": true,
       "items": [
