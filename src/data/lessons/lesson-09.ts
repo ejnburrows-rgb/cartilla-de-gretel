@@ -2,112 +2,83 @@ import { getBookPageImage } from "@/lib/bookImages";
 
 export const lesson09 = [
   {
-    id: "l9-p26-letter-tracing",
+    id: "l9-p26-syllable-circle",
     lessonNumber: 9,
     pageNumber: 26,
-    kind: "letter-tracing",
-    title: "Escribe con tu mejor letra — T t",
-    prompt: "Traza la letra T mayúscula y la t minúscula. Luego haz un dibujo de una palabra que comienza con t.",
-    items: [
-      {
-        id: "letter-T",
-        label: "T"
-      },
-      {
-        id: "letter-t",
-        label: "t"
-      }
-    ],
-    targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Students trace uppercase T (2-stroke) and lowercase t (2-stroke).",
-    sourcePage: getBookPageImage(26)
-  },
-  {
-    id: "l9-p27-syllable-circle",
-    lessonNumber: 9,
-    pageNumber: 27,
     kind: "drag-syllable-to-slot",
-    title: "Encierra la sílaba — T t",
-    prompt: "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
+    title: "Encierra en un círculo la sílaba correspondiente.",
+    prompt: "Encierra en un círculo la sílaba que corresponde a cada palabra.",
     items: [
-      { id: "syl-ta", label: "ta" },
-      { id: "syl-te", label: "te" },
-      { id: "syl-ti", label: "ti" },
-      { id: "syl-to", label: "to" },
-      { id: "syl-tu", label: "tu" }
+      { id: "syl-ma", label: "ma" },
+      { id: "syl-me", label: "me" },
+      { id: "syl-mi", label: "mi" },
+      { id: "syl-mo", label: "mo" },
+      { id: "syl-mu", label: "mu" }
     ],
     targets: [
       {
-        id: "slot-ta",
-        label: "ta",
+        id: "slot-ma",
+        label: "ma",
         coordinatesVerified: false,
-        acceptsItemId: "syl-ta"
+        acceptsItemId: "syl-ma"
       },
       {
-        id: "slot-te",
-        label: "te",
+        id: "slot-me",
+        label: "me",
         coordinatesVerified: false,
-        acceptsItemId: "syl-te"
+        acceptsItemId: "syl-me"
       },
       {
-        id: "slot-ti",
-        label: "ti",
+        id: "slot-mi",
+        label: "mi",
         coordinatesVerified: false,
-        acceptsItemId: "syl-ti"
+        acceptsItemId: "syl-mi"
       },
       {
-        id: "slot-to",
-        label: "to",
+        id: "slot-mo",
+        label: "mo",
         coordinatesVerified: false,
-        acceptsItemId: "syl-to"
+        acceptsItemId: "syl-mo"
       },
       {
-        id: "slot-tu",
-        label: "tu",
+        id: "slot-mu",
+        label: "mu",
         coordinatesVerified: false,
-        acceptsItemId: "syl-tu"
+        acceptsItemId: "syl-mu"
       }
     ],
     wordBank: [
-      "tomate",
-      "moto",
-      "pato",
-      "tapa",
-      "topo",
-      "tía",
-      "tío",
-      "meta",
-      "toma",
-      "patata"
+      "mami", "ama", "mamá", "mima", "Coloma", "Manolo",
+      "media", "Memo", "melón", "mesa", "meta", "Meme",
+      "mío", "amigo", "mima", "mira", "misa", "Mimí",
+      "amo", "Memo", "mono", "como", "moneda", "moto",
+      "mulo", "muleta", "muro", "mudo", "mujer", "Mumi"
     ],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded syllable circle for T. Need to map slot coordinates.",
-    sourcePage: getBookPageImage(27)
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "Verified syllable circle for Mm. Need to map slot coordinates.",
+    sourcePage: getBookPageImage(26)
   },
   {
     id: "l9-p27-syllable-tap",
     lessonNumber: 9,
     pageNumber: 27,
     kind: "read-aloud",
-    title: "Sílabas con T — página Tt",
+    title: "Mm",
     prompt: "Toca cada sílaba para escucharla. Repite en voz alta.",
     items: [
-      { id: "ra-ta", label: "ta" },
-      { id: "ra-te", label: "te" },
-      { id: "ra-ti", label: "ti" },
-      { id: "ra-to", label: "to" },
-      { id: "ra-tu", label: "tu" }
+      { id: "ra-ma", label: "ma" },
+      { id: "ra-me", label: "me" },
+      { id: "ra-mi", label: "mi" },
+      { id: "ra-mo", label: "mo" },
+      { id: "ra-mu", label: "mu" }
     ],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded syllable tap for T.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "Verified syllable tap for Mm.",
     sourcePage: getBookPageImage(27)
   },
   {
@@ -115,25 +86,31 @@ export const lesson09 = [
     lessonNumber: 9,
     pageNumber: 27,
     kind: "listen-and-tap",
-    title: "Palabras con T",
+    title: "Palabras con M",
     prompt: "Toca cada palabra para escucharla.",
     items: [
-      { id: "w-tomate", label: "tomate" },
-      { id: "w-moto", label: "moto" },
-      { id: "w-pato", label: "pato" },
-      { id: "w-tapa", label: "tapa" },
-      { id: "w-topo", label: "topo" },
-      { id: "w-tia", label: "tía" },
-      { id: "w-tio", label: "tío" },
-      { id: "w-meta", label: "meta" },
-      { id: "w-toma", label: "toma" },
-      { id: "w-patata", label: "patata" }
+      { id: "w-mama", label: "mamá" },
+      { id: "w-mio", label: "mío" },
+      { id: "w-meme", label: "Meme" },
+      { id: "w-mumi", label: "Mumi" },
+      { id: "w-amo", label: "amo" },
+      { id: "w-mami", label: "mami" },
+      { id: "w-me", label: "me" },
+      { id: "w-ama", label: "ama" },
+      { id: "w-memo", label: "Memo" },
+      { id: "w-mimi", label: "Mimí" },
+      { id: "w-mimo", label: "Mimo" },
+      { id: "w-mimame", label: "mímame" },
+      { id: "w-mia", label: "mía" },
+      { id: "w-mima", label: "mima" },
+      { id: "w-amame", label: "ámame" },
+      { id: "w-y", label: "y" }
     ],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded word bank for T.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "Verified word bank for Mm.",
     sourcePage: getBookPageImage(27)
   },
   {
@@ -141,25 +118,24 @@ export const lesson09 = [
     lessonNumber: 9,
     pageNumber: 27,
     kind: "mini-story",
-    title: "Mini-cuento: Mi pato Tito",
-    prompt: "Lee el mini-cuento del cuaderno con tu maestro.",
+    title: "Oraciones con M",
+    prompt: "Lee las oraciones del cuaderno con tu maestro.",
     items: [
-      { id: "story-t-1", label: "Mi pato Tito." },
-      { id: "story-t-2", label: "Tito, mi pato." },
-      { id: "story-t-3", label: "Yo mimo a Tito." },
-      { id: "story-t-4", label: "Tito me ama a mí." },
-      { id: "story-t-5", label: "Tito patea tu tomate." },
-      { id: "story-t-6", label: "¡Tito, mi tomate!" }
+      { id: "story-m-1", label: "Mi mamá me ama." },
+      { id: "story-m-2", label: "Amo a mami. Mamá mía." },
+      { id: "story-m-3", label: "Mamá ama a Meme y a Mimí." },
+      { id: "story-m-4", label: "Memo ama a Mumi." },
+      { id: "story-m-5", label: "Mamá mía ámame. Mímame a mí." },
+      { id: "story-m-6", label: "Mi mamá me mima." }
     ],
     targets: [],
     sightWords: [
-      "yo",
       "y"
     ],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded mini-story for T using M, P, T and sight words.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "Verified mini-story for Mm.",
     sourcePage: getBookPageImage(27)
   },
   {
@@ -167,111 +143,129 @@ export const lesson09 = [
     lessonNumber: 9,
     pageNumber: 28,
     kind: "drag-syllable-to-slot",
-    title: "Completa las palabras — T t",
+    title: "Completa las palabras con la sílaba correcta.",
     prompt: "Arrastra la sílaba correcta para completar cada palabra.",
     items: [
-      { id: "syl-to", label: "to" },
-      { id: "syl-ta", label: "ta" },
-      { id: "syl-ti", label: "tí" }
+      { id: "syl-ma", label: "ma" },
+      { id: "syl-me", label: "Me" },
+      { id: "syl-mi", label: "mi" },
+      { id: "syl-mo", label: "mo" },
+      { id: "syl-mu", label: "mu" },
+      { id: "syl-mi-accent", label: "mí" }
     ],
     targets: [
       {
-        id: "blank-tomate",
-        label: "___mate",
-        hint: "to / tu",
-        correctSyllable: "to",
-        fullWord: "tomate",
+        id: "blank-amo",
+        label: "a___",
+        hint: "mo - mu",
+        correctSyllable: "mo",
+        fullWord: "amo",
         coordinatesVerified: false,
-        acceptsItemId: "syl-to"
+        acceptsItemId: "syl-mo"
       },
       {
-        id: "blank-moto",
-        label: "mo___",
-        hint: "to / ta",
-        correctSyllable: "to",
-        fullWord: "moto",
+        id: "blank-memo",
+        label: "Me___",
+        hint: "mo - mu",
+        correctSyllable: "mo",
+        fullWord: "Memo",
         coordinatesVerified: false,
-        acceptsItemId: "syl-to"
+        acceptsItemId: "syl-mo"
       },
       {
-        id: "blank-pato",
-        label: "pa___",
-        hint: "to / ti",
-        correctSyllable: "to",
-        fullWord: "pato",
+        id: "blank-mama",
+        label: "ma___",
+        hint: "mi - má",
+        correctSyllable: "má",
+        fullWord: "mamá",
         coordinatesVerified: false,
-        acceptsItemId: "syl-to"
+        acceptsItemId: "syl-ma-accent"
       },
       {
-        id: "blank-tapa",
-        label: "___pa",
-        hint: "ta / te",
-        correctSyllable: "ta",
-        fullWord: "tapa",
+        id: "blank-mima",
+        label: "mi___",
+        hint: "ma-mu",
+        correctSyllable: "ma",
+        fullWord: "mima",
         coordinatesVerified: false,
-        acceptsItemId: "syl-ta"
+        acceptsItemId: "syl-ma"
       },
       {
-        id: "blank-meta",
-        label: "me___",
-        hint: "ta / to",
-        correctSyllable: "ta",
-        fullWord: "meta",
+        id: "blank-mumi",
+        label: "___mi",
+        hint: "mi - Mu",
+        correctSyllable: "Mu",
+        fullWord: "Mumi",
         coordinatesVerified: false,
-        acceptsItemId: "syl-ta"
+        acceptsItemId: "syl-mu-cap"
       },
       {
-        id: "blank-tia",
-        label: "___a",
-        hint: "tí / tú",
-        correctSyllable: "tí",
-        fullWord: "tía",
+        id: "blank-mio",
+        label: "___o",
+        hint: "mí - mo",
+        correctSyllable: "mí",
+        fullWord: "mío",
         coordinatesVerified: false,
-        acceptsItemId: "syl-ti"
+        acceptsItemId: "syl-mi-accent"
       }
     ],
     exercises: [
       {
-        partial: "___mate",
-        choices: ["to", "tu"],
-        answer: "to",
-        fullWord: "tomate"
+        partial: "a___",
+        choices: ["mo", "mu"],
+        answer: "mo",
+        fullWord: "amo"
       },
       {
-        partial: "mo___",
-        choices: ["to", "ta"],
-        answer: "to",
-        fullWord: "moto"
+        partial: "Me___",
+        choices: ["mo", "mu"],
+        answer: "mo",
+        fullWord: "Memo"
       },
       {
-        partial: "pa___",
-        choices: ["to", "ti"],
-        answer: "to",
-        fullWord: "pato"
+        partial: "ma___",
+        choices: ["mi", "má"],
+        answer: "má",
+        fullWord: "mamá"
       },
       {
-        partial: "___pa",
-        choices: ["ta", "te"],
-        answer: "ta",
-        fullWord: "tapa"
+        partial: "mi___",
+        choices: ["ma", "mu"],
+        answer: "ma",
+        fullWord: "mima"
       },
       {
-        partial: "me___",
-        choices: ["ta", "to"],
-        answer: "ta",
-        fullWord: "meta"
+        partial: "___mi",
+        choices: ["mi", "Mu"],
+        answer: "Mu",
+        fullWord: "Mumi"
       },
       {
-        partial: "___a",
-        choices: ["tí", "tú"],
-        answer: "tí",
-        fullWord: "tía"
+        partial: "___o",
+        choices: ["mí", "mo"],
+        answer: "mí",
+        fullWord: "mío"
       }
     ],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded fill-in-the-blank for T.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "Verified fill-in-the-blank for Mm.",
+    sourcePage: getBookPageImage(28)
+  },
+  {
+    id: "l9-p28-write-sentences",
+    lessonNumber: 9,
+    pageNumber: 28,
+    kind: "letter-tracing",
+    title: "Escribe oraciones. Usa las sílabas que aprendiste.",
+    prompt: "Escribe oraciones usando las sílabas que aprendiste.",
+    items: [],
+    targets: [],
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "Sentence writing lines.",
     sourcePage: getBookPageImage(28)
   }
 ];
