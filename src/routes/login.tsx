@@ -63,12 +63,12 @@ function LoginPage() {
           <GraduationCap className="w-7 h-7" />
         </div>
         <h1 className="mt-4 text-3xl font-bold">
-          {mode === "login" ? "Acceso del maestro" : "Crear cuenta de maestro"}
+          {mode === "login" ? "Acceso del maestro (Supabase)" : "Crear cuenta (Supabase)"}
         </h1>
         <p className="text-sm text-foreground/60 mt-1">
           {mode === "login"
-            ? "Entra para gestionar tus clases y alumnos."
-            : "Crea tu cuenta para empezar a organizar clases."}
+            ? "Autenticación directa con Supabase email/password."
+            : "Registro directo en Supabase Auth."}
         </p>
       </header>
 

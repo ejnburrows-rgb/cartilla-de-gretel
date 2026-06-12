@@ -41,20 +41,6 @@ function JoinPage() {
     }
   };
 
-  const handleQuickDemo = async () => {
-    setBusy(true);
-    setError(null);
-    try {
-      const res = await join({ data: { joinCode: "DEMO12", studentCode: "DEMO1" } });
-      setStudentSession(res);
-      navigate({ to: "/cartilla/student/lecciones" });
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Error desconocido");
-    } finally {
-      setBusy(false);
-    }
-  };
-
   return (
     <main className="min-h-screen bg-background px-4 py-8 max-w-md mx-auto">
       <Link
@@ -68,9 +54,9 @@ function JoinPage() {
         <div className="mx-auto w-14 h-14 rounded-2xl bg-vowel-i text-white flex items-center justify-center">
           <LogIn className="w-7 h-7" />
         </div>
-        <h1 className="mt-4 text-3xl font-bold">Únete a tu clase</h1>
+        <h1 className="mt-4 text-3xl font-bold">Acceso de Estudiante</h1>
         <p className="text-sm text-foreground/60 mt-1">
-          Pídele a tu maestra o maestro los dos códigos.
+          Ingresa con código de clase y código personal.
         </p>
       </header>
 

@@ -64,7 +64,7 @@ export async function joinClass(input: Call<z.infer<typeof joinSchema>>) {
     } catch (seedErr) {
       throw new Error(
         err instanceof Error && err.message.includes("Failed to fetch")
-          ? "No se pudo conectar al servidor. Intenta con un código demo local (ej. DEMO12 / DEMO1)."
+          ? "No se pudo conectar al servidor."
           : (seedErr instanceof Error ? seedErr.message : "Código de clase o estudiante inválido.")
       );
     }
