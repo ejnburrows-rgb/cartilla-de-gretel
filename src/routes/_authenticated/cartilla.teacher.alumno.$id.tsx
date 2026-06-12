@@ -16,14 +16,11 @@ function StudentDetail() {
   const { id } = Route.useParams();
   const fetchProgress = useServerFn(getStudentProgress);
   const [notes, setNotes] = useState("");
-  useEffect(() => {
-    const saved = localStorage.getItem(`gretel-notes-${id}`);
-    if (saved) setNotes(saved);
-  }, [id]);
 
   const saveNotes = (val: string) => {
     setNotes(val);
-    localStorage.setItem(`gretel-notes-${id}`, val);
+    // In a real app, this would hit the backend via a server action.
+    // For now, per conventions, no localStorage/sessionStorage allowed.
   };
 
   const { data, isLoading } = useQuery({
