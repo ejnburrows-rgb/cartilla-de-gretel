@@ -2,270 +2,263 @@ import { getBookPageImage } from "@/lib/bookImages";
 
 export const lesson09 = [
   {
-    id: "l9-p26-syllable-circle",
+    id: "l9-p33-letter-tracing",
     lessonNumber: 9,
-    pageNumber: 26,
-    kind: "drag-syllable-to-slot",
-    title: "Encierra en un círculo la sílaba correspondiente.",
-    prompt: "Encierra en un círculo la sílaba que corresponde a cada palabra.",
+    pageNumber: 33,
+    kind: "letter-tracing",
+    title: "Escribe con tu mejor letra — S s",
+    prompt: "Traza la letra S mayúscula y la s minúscula. Luego haz un dibujo de una palabra que comienza con s.",
     items: [
-      { id: "syl-ma", label: "ma" },
-      { id: "syl-me", label: "me" },
-      { id: "syl-mi", label: "mi" },
-      { id: "syl-mo", label: "mo" },
-      { id: "syl-mu", label: "mu" }
+      { id: "letter-S", label: "S" },
+      { id: "letter-s", label: "s" }
+    ],
+    targets: [],
+    sourceStatus: "scaffold",
+    transcriptionStatus: "needs-source-verification",
+    studentFacingStatus: "pending",
+    teacherNotes: "Students trace uppercase S and lowercase s.",
+    sourcePage: getBookPageImage(33)
+  },
+  {
+    id: "l9-p34-syllable-circle",
+    lessonNumber: 9,
+    pageNumber: 34,
+    kind: "drag-syllable-to-slot",
+    title: "Encierra la sílaba — S s",
+    prompt: "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
+    items: [
+      { id: "syl-sa", label: "sa" },
+      { id: "syl-se", label: "se" },
+      { id: "syl-si", label: "si" },
+      { id: "syl-so", label: "so" },
+      { id: "syl-su", label: "su" }
     ],
     targets: [
-      {
-        id: "slot-ma",
-        label: "ma",
-        coordinatesVerified: false,
-        acceptsItemId: "syl-ma"
-      },
-      {
-        id: "slot-me",
-        label: "me",
-        coordinatesVerified: false,
-        acceptsItemId: "syl-me"
-      },
-      {
-        id: "slot-mi",
-        label: "mi",
-        coordinatesVerified: false,
-        acceptsItemId: "syl-mi"
-      },
-      {
-        id: "slot-mo",
-        label: "mo",
-        coordinatesVerified: false,
-        acceptsItemId: "syl-mo"
-      },
-      {
-        id: "slot-mu",
-        label: "mu",
-        coordinatesVerified: false,
-        acceptsItemId: "syl-mu"
-      }
+      { id: "slot-sa", label: "sa", coordinatesVerified: false, acceptsItemId: "syl-sa" },
+      { id: "slot-se", label: "se", coordinatesVerified: false, acceptsItemId: "syl-se" },
+      { id: "slot-si", label: "si", coordinatesVerified: false, acceptsItemId: "syl-si" },
+      { id: "slot-so", label: "so", coordinatesVerified: false, acceptsItemId: "syl-so" },
+      { id: "slot-su", label: "su", coordinatesVerified: false, acceptsItemId: "syl-su" }
     ],
     wordBank: [
-      "mami", "ama", "mamá", "mima", "Coloma", "Manolo",
-      "media", "Memo", "melón", "mesa", "meta", "Meme",
-      "mío", "amigo", "mima", "mira", "misa", "Mimí",
-      "amo", "Memo", "mono", "como", "moneda", "moto",
-      "mulo", "muleta", "muro", "mudo", "mujer", "Mumi"
+      "masa", "casa", "pesa", "sala", "mesa", "sapo",
+      "sello", "pase", "caseta", "seca", "semilla", "secante",
+      "silla", "casita", "cosita", "pasito", "osito", "sitio",
+      "paso", "sopa", "soga", "oso", "toso", "puso",
+      "suyo", "suma", "Susi", "supo", "sube", "sudor"
     ],
-    sourceStatus: "verified",
-    transcriptionStatus: "verified",
-    studentFacingStatus: "ready",
-    teacherNotes: "Verified syllable circle for Mm. Need to map slot coordinates.",
-    sourcePage: getBookPageImage(26)
+    sourceStatus: "scaffold",
+    transcriptionStatus: "needs-source-verification",
+    studentFacingStatus: "pending",
+    teacherNotes: "Scaffolded syllable circle for S.",
+    sourcePage: getBookPageImage(34)
   },
   {
-    id: "l9-p27-syllable-tap",
+    id: "l9-p35-syllable-tap",
     lessonNumber: 9,
-    pageNumber: 27,
+    pageNumber: 35,
     kind: "read-aloud",
-    title: "Mm",
+    title: "Sílabas con S — página Ss",
     prompt: "Toca cada sílaba para escucharla. Repite en voz alta.",
     items: [
-      { id: "ra-ma", label: "ma" },
-      { id: "ra-me", label: "me" },
-      { id: "ra-mi", label: "mi" },
-      { id: "ra-mo", label: "mo" },
-      { id: "ra-mu", label: "mu" }
+      { id: "ra-sa", label: "sa" },
+      { id: "ra-se", label: "se" },
+      { id: "ra-si", label: "si" },
+      { id: "ra-so", label: "so" },
+      { id: "ra-su", label: "su" }
     ],
     targets: [],
-    sourceStatus: "verified",
-    transcriptionStatus: "verified",
-    studentFacingStatus: "ready",
-    teacherNotes: "Verified syllable tap for Mm.",
-    sourcePage: getBookPageImage(27)
+    sourceStatus: "scaffold",
+    transcriptionStatus: "needs-source-verification",
+    studentFacingStatus: "pending",
+    teacherNotes: "Scaffolded syllable tap for S.",
+    sourcePage: getBookPageImage(35)
   },
   {
-    id: "l9-p27-word-bank",
+    id: "l9-p35-word-bank",
     lessonNumber: 9,
-    pageNumber: 27,
+    pageNumber: 35,
     kind: "listen-and-tap",
-    title: "Palabras con M",
+    title: "Palabras con S",
     prompt: "Toca cada palabra para escucharla.",
     items: [
-      { id: "w-mama", label: "mamá" },
-      { id: "w-mio", label: "mío" },
-      { id: "w-meme", label: "Meme" },
-      { id: "w-mumi", label: "Mumi" },
-      { id: "w-amo", label: "amo" },
-      { id: "w-mami", label: "mami" },
-      { id: "w-me", label: "me" },
-      { id: "w-ama", label: "ama" },
-      { id: "w-memo", label: "Memo" },
-      { id: "w-mimi", label: "Mimí" },
-      { id: "w-mimo", label: "Mimo" },
-      { id: "w-mimame", label: "mímame" },
-      { id: "w-mia", label: "mía" },
-      { id: "w-mima", label: "mima" },
-      { id: "w-amame", label: "ámame" },
-      { id: "w-y", label: "y" }
+      { id: "w-masa", label: "masa" },
+      { id: "w-mesa", label: "mesa" },
+      { id: "w-suma", label: "suma" },
+      { id: "w-sapo", label: "sapo" },
+      { id: "w-seso", label: "seso" },
+      { id: "w-susi", label: "Susi" },
+      { id: "w-asi", label: "así" },
+      { id: "w-sopa", label: "sopa" },
+      { id: "w-paso", label: "paso" },
+      { id: "w-puso", label: "puso" },
+      { id: "w-supo", label: "supo" },
+      { id: "w-supe", label: "supe" },
+      { id: "w-sisi", label: "Sisi" },
+      { id: "w-ese", label: "ese" },
+      { id: "w-esa", label: "esa" }
     ],
     targets: [],
-    sourceStatus: "verified",
-    transcriptionStatus: "verified",
-    studentFacingStatus: "ready",
-    teacherNotes: "Verified word bank for Mm.",
-    sourcePage: getBookPageImage(27)
+    sourceStatus: "scaffold",
+    transcriptionStatus: "needs-source-verification",
+    studentFacingStatus: "pending",
+    teacherNotes: "Scaffolded word bank for S.",
+    sourcePage: getBookPageImage(35)
   },
   {
-    id: "l9-p27-mini-story",
+    id: "l9-p35-mini-story",
     lessonNumber: 9,
-    pageNumber: 27,
+    pageNumber: 35,
     kind: "mini-story",
-    title: "Oraciones con M",
-    prompt: "Lee las oraciones del cuaderno con tu maestro.",
+    title: "Mini-cuento",
+    prompt: "Lee el mini-cuento del cuaderno con tu maestro.",
     items: [
-      { id: "story-m-1", label: "Mi mamá me ama." },
-      { id: "story-m-2", label: "Amo a mami. Mamá mía." },
-      { id: "story-m-3", label: "Mamá ama a Meme y a Mimí." },
-      { id: "story-m-4", label: "Memo ama a Mumi." },
-      { id: "story-m-5", label: "Mamá mía ámame. Mímame a mí." },
-      { id: "story-m-6", label: "Mi mamá me mima." }
+      { id: "story-s-1", label: "La mesa es de Susi." },
+      { id: "story-s-2", label: "La sopa está en la mesa." },
+      { id: "story-s-3", label: "Papá pasa la sopa a Susi." },
+      { id: "story-s-4", label: "Sisi pasa la sopa a mamá." },
+      { id: "story-s-5", label: "Ese sapo es de Sisi. Es el sapo Samapo." },
+      { id: "story-s-6", label: "Sisi pasa el sapo a Pepe." },
+      { id: "story-s-7", label: "Pepe puso un sapo en la mesa." }
     ],
     targets: [],
     sightWords: [
-      "y"
+      "es", "de", "un", "está", "en", "la", "el"
     ],
-    sourceStatus: "verified",
-    transcriptionStatus: "verified",
-    studentFacingStatus: "ready",
-    teacherNotes: "Verified mini-story for Mm.",
-    sourcePage: getBookPageImage(27)
+    sourceStatus: "scaffold",
+    transcriptionStatus: "needs-source-verification",
+    studentFacingStatus: "pending",
+    teacherNotes: "Scaffolded mini-story for S.",
+    sourcePage: getBookPageImage(35)
   },
   {
-    id: "l9-p28-fill-in-blank",
+    id: "l9-p36-fill-in-blank",
     lessonNumber: 9,
-    pageNumber: 28,
+    pageNumber: 36,
     kind: "drag-syllable-to-slot",
-    title: "Completa las palabras con la sílaba correcta.",
+    title: "Completa las palabras — S s",
     prompt: "Arrastra la sílaba correcta para completar cada palabra.",
     items: [
-      { id: "syl-ma", label: "ma" },
-      { id: "syl-me", label: "Me" },
-      { id: "syl-mi", label: "mi" },
-      { id: "syl-mo", label: "mo" },
-      { id: "syl-mu", label: "mu" },
-      { id: "syl-mi-accent", label: "mí" }
+      { id: "syl-sa", label: "sa" },
+      { id: "syl-se", label: "se" },
+      { id: "syl-si", label: "sí" },
+      { id: "syl-so", label: "so" },
+      { id: "syl-su", label: "su" },
+      { id: "syl-sa-accent", label: "sá" }
     ],
     targets: [
       {
-        id: "blank-amo",
-        label: "a___",
-        hint: "mo - mu",
-        correctSyllable: "mo",
-        fullWord: "amo",
+        id: "blank-sapo",
+        label: "___po",
+        hint: "sa - sá",
+        correctSyllable: "sa",
+        fullWord: "sapo",
         coordinatesVerified: false,
-        acceptsItemId: "syl-mo"
+        acceptsItemId: "syl-sa"
       },
       {
-        id: "blank-memo",
-        label: "Me___",
-        hint: "mo - mu",
-        correctSyllable: "mo",
-        fullWord: "Memo",
+        id: "blank-puso",
+        label: "pu___",
+        hint: "so - se",
+        correctSyllable: "so",
+        fullWord: "puso",
         coordinatesVerified: false,
-        acceptsItemId: "syl-mo"
+        acceptsItemId: "syl-so"
       },
       {
-        id: "blank-mama",
+        id: "blank-masa",
         label: "ma___",
-        hint: "mi - má",
-        correctSyllable: "má",
-        fullWord: "mamá",
+        hint: "sa - su",
+        correctSyllable: "sa",
+        fullWord: "masa",
         coordinatesVerified: false,
-        acceptsItemId: "syl-ma-accent"
+        acceptsItemId: "syl-sa"
       },
       {
-        id: "blank-mima",
-        label: "mi___",
-        hint: "ma-mu",
-        correctSyllable: "ma",
-        fullWord: "mima",
+        id: "blank-asi",
+        label: "a___",
+        hint: "sí - so",
+        correctSyllable: "sí",
+        fullWord: "así",
         coordinatesVerified: false,
-        acceptsItemId: "syl-ma"
+        acceptsItemId: "syl-si"
       },
       {
-        id: "blank-mumi",
-        label: "___mi",
-        hint: "mi - Mu",
-        correctSyllable: "Mu",
-        fullWord: "Mumi",
+        id: "blank-supo",
+        label: "___po",
+        hint: "su - sa",
+        correctSyllable: "su",
+        fullWord: "supo",
         coordinatesVerified: false,
-        acceptsItemId: "syl-mu-cap"
+        acceptsItemId: "syl-su"
       },
       {
-        id: "blank-mio",
-        label: "___o",
-        hint: "mí - mo",
-        correctSyllable: "mí",
-        fullWord: "mío",
+        id: "blank-pase",
+        label: "pa___",
+        hint: "se - si",
+        correctSyllable: "se",
+        fullWord: "pase",
         coordinatesVerified: false,
-        acceptsItemId: "syl-mi-accent"
+        acceptsItemId: "syl-se"
       }
     ],
     exercises: [
       {
-        partial: "a___",
-        choices: ["mo", "mu"],
-        answer: "mo",
-        fullWord: "amo"
+        partial: "___po",
+        choices: ["sa", "sá"],
+        answer: "sa",
+        fullWord: "sapo"
       },
       {
-        partial: "Me___",
-        choices: ["mo", "mu"],
-        answer: "mo",
-        fullWord: "Memo"
+        partial: "pu___",
+        choices: ["so", "se"],
+        answer: "so",
+        fullWord: "puso"
       },
       {
         partial: "ma___",
-        choices: ["mi", "má"],
-        answer: "má",
-        fullWord: "mamá"
+        choices: ["sa", "su"],
+        answer: "sa",
+        fullWord: "masa"
       },
       {
-        partial: "mi___",
-        choices: ["ma", "mu"],
-        answer: "ma",
-        fullWord: "mima"
+        partial: "a___",
+        choices: ["sí", "so"],
+        answer: "sí",
+        fullWord: "así"
       },
       {
-        partial: "___mi",
-        choices: ["mi", "Mu"],
-        answer: "Mu",
-        fullWord: "Mumi"
+        partial: "___po",
+        choices: ["su", "sa"],
+        answer: "su",
+        fullWord: "supo"
       },
       {
-        partial: "___o",
-        choices: ["mí", "mo"],
-        answer: "mí",
-        fullWord: "mío"
+        partial: "pa___",
+        choices: ["se", "si"],
+        answer: "se",
+        fullWord: "pase"
       }
     ],
-    sourceStatus: "verified",
-    transcriptionStatus: "verified",
-    studentFacingStatus: "ready",
-    teacherNotes: "Verified fill-in-the-blank for Mm.",
-    sourcePage: getBookPageImage(28)
+    sourceStatus: "scaffold",
+    transcriptionStatus: "needs-source-verification",
+    studentFacingStatus: "pending",
+    teacherNotes: "Scaffolded fill-in-the-blank for S.",
+    sourcePage: getBookPageImage(36)
   },
   {
-    id: "l9-p28-write-sentences",
+    id: "l9-p36-write-sentences",
     lessonNumber: 9,
-    pageNumber: 28,
+    pageNumber: 36,
     kind: "letter-tracing",
     title: "Escribe oraciones. Usa las sílabas que aprendiste.",
     prompt: "Escribe oraciones usando las sílabas que aprendiste.",
     items: [],
     targets: [],
-    sourceStatus: "verified",
-    transcriptionStatus: "verified",
-    studentFacingStatus: "ready",
+    sourceStatus: "scaffold",
+    transcriptionStatus: "needs-source-verification",
+    studentFacingStatus: "pending",
     teacherNotes: "Sentence writing lines.",
-    sourcePage: getBookPageImage(28)
+    sourcePage: getBookPageImage(36)
   }
 ];
