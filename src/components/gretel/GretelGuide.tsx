@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { GRETEL_POSES, GRETEL_FALLBACKS, type GretelPoseState } from "./gretelPoses";
+import { useEffect, useState } from "react";
+import { useGretelAnimation } from "./useGretelAnimation";
 
 export type GretelGuideState = "idle" | "talk" | "wave" | "point" | "cheer";
 
@@ -16,21 +16,29 @@ export function GretelGuide({
   className = "",
   bubblePosition = "left",
 }: GretelGuideProps) {
-  const [internalState, setInternalState] = useState<GretelGuideState>(state);
-  const [currentFrame, setCurrentFrame] = useState<GretelPoseState>("idle-1");
-  const [useFallback, setUseFallback] = useState(false);
+  const { currentPose, machineState, send, isRecovering } = useGretelAnimation();
   const [reducedMotion, setReducedMotion] = useState(false);
 
-  // Sync prop state to internal state, auto-revert transient states
+  // Sync prop state to machine state
   useEffect(() => {
-    setInternalState(state);
-    if (state !== "idle" && state !== "talk") {
-      const t = setTimeout(() => {
-        setInternalState("idle");
-      }, 2000);
-      return () => clearTimeout(t);
+    switch (state) {
+      case "idle":
+        send({ type: "IDLE" });
+        break;
+      case "talk":
+        send({ type: "SPEAK_START" });
+        break;
+      case "wave":
+        send({ type: "WAVE" });
+        break;
+      case "point":
+        send({ type: "POINT" });
+        break;
+      case "cheer":
+        send({ type: "CHEER" });
+        break;
     }
-  }, [state]);
+  }, [state, send]);
 
   // Handle prefers-reduced-motion
   useEffect(() => {
@@ -41,67 +49,22 @@ export function GretelGuide({
     return () => mediaQuery.removeEventListener("change", handler);
   }, []);
 
-  // Frame swapping logic
-  useEffect(() => {
-    if (reducedMotion) {
-      switch (internalState) {
-        case "talk": setCurrentFrame("talk-open"); break;
-        case "wave": setCurrentFrame("wave"); break;
-        case "point": setCurrentFrame("point"); break;
-        case "cheer": setCurrentFrame("cheer"); break;
-        default: setCurrentFrame("idle-1"); break;
-      }
-      return;
-    }
-
-    let intervalId: ReturnType<typeof setInterval>;
-    let timeoutId: ReturnType<typeof setTimeout>;
-
-    if (internalState === "idle") {
-      setCurrentFrame("idle-1");
-      const scheduleBlink = () => {
-        const delay = 3000 + Math.random() * 4000;
-        timeoutId = setTimeout(() => {
-          setCurrentFrame("blink");
-          setTimeout(() => {
-            setCurrentFrame("idle-1");
-            scheduleBlink();
-          }, 120);
-        }, delay);
-      };
-      scheduleBlink();
-    } else if (internalState === "talk") {
-      let open = true;
-      setCurrentFrame("talk-open");
-      intervalId = setInterval(() => {
-        open = !open;
-        setCurrentFrame(open ? "talk-open" : "talk-closed");
-      }, 220);
-    } else if (internalState === "wave") {
-      setCurrentFrame("wave");
-    } else if (internalState === "point") {
-      setCurrentFrame("point");
-    } else if (internalState === "cheer") {
-      setCurrentFrame("cheer");
-    }
-
-    return () => {
-      clearInterval(intervalId);
-      clearTimeout(timeoutId);
-    };
-  }, [internalState, reducedMotion]);
-
-  // Handle fallback seamlessly
-  const handleError = () => setUseFallback(true);
-  const imgSrc = useFallback ? GRETEL_FALLBACKS[currentFrame] : GRETEL_POSES[currentFrame];
+  const handleError = () => {
+    send({ type: "ASSET_ERROR" });
+  };
 
   // CSS Animation Classes
   let motionClass = "";
   if (!reducedMotion) {
-    if (internalState === "idle" || internalState === "talk") motionClass = "animate-gretel-bob";
-    else if (internalState === "wave") motionClass = "animate-gretel-wave";
-    else if (internalState === "point") motionClass = "animate-gretel-point";
-    else if (internalState === "cheer") motionClass = "animate-gretel-bounce";
+    if (machineState === "idle" || machineState === "talking" || machineState === "boot" || machineState === "blinking") {
+      motionClass = "animate-gretel-bob";
+    } else if (machineState === "waving") {
+      motionClass = "animate-gretel-wave";
+    } else if (machineState === "pointing") {
+      motionClass = "animate-gretel-point";
+    } else if (machineState === "cheering") {
+      motionClass = "animate-gretel-bounce";
+    }
   }
 
   const bubbleClasses = {
@@ -132,8 +95,8 @@ export function GretelGuide({
       {/* Mascot Image */}
       <div className={`relative h-24 w-24 sm:h-36 sm:w-36 origin-bottom drop-shadow-xl select-none ${motionClass}`}>
         <img
-          key={imgSrc} // Re-mount img visually when src changes isn't strictly necessary, but good
-          src={imgSrc}
+          key={currentPose} // Remount when src changes
+          src={currentPose}
           alt="Gretel"
           className="h-full w-full object-contain"
           draggable={false}

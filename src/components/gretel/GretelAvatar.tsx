@@ -1,8 +1,10 @@
-import { useEffect, useState, type CSSProperties } from "react";
+import { useEffect, type CSSProperties } from "react";
 import type { GretelOutcome } from "@/hooks/useGretel";
+import { useGretelAnimation } from "./useGretelAnimation";
 
 interface GretelAvatarProps {
   outcome: GretelOutcome;
+  isSpeaking?: boolean;
 }
 
 const avatarFrameStyle: CSSProperties = {
@@ -12,33 +14,46 @@ const avatarFrameStyle: CSSProperties = {
   transition: "opacity 0.22s ease-in-out",
 };
 
-const gretelImageByOutcome: Record<GretelOutcome, string> = {
-  correct: "/gretel/cheer.webp",
-  streak: "/gretel/cheer.webp",
-  "lesson-complete": "/gretel/cheer.webp",
-  start: "/gretel/happy.webp",
-  "try-again": "/gretel/encouraging.webp",
-  thinking: "/gretel/thinking.webp",
-  happy: "/gretel/happy.webp",
-  idle: "/gretel/idle-1.webp",
-};
-
-export function GretelAvatar({ outcome }: GretelAvatarProps) {
-  const [fallback, setFallback] = useState(false);
-  const src = fallback ? "/gretel/happy.webp" : gretelImageByOutcome[outcome];
+export function GretelAvatar({ outcome, isSpeaking }: GretelAvatarProps) {
+  const { currentPose, send } = useGretelAnimation();
 
   useEffect(() => {
-    setFallback(false);
-  }, [outcome]);
+    if (isSpeaking) {
+      send({ type: "SPEAK_START" });
+      return;
+    } else {
+      send({ type: "SPEAK_STOP" });
+    }
+
+    switch (outcome) {
+      case "correct":
+      case "streak":
+      case "lesson-complete":
+        send({ type: "CHEER" });
+        break;
+      case "start":
+      case "happy":
+        send({ type: "WAVE" });
+        break;
+      case "try-again":
+      case "thinking":
+        send({ type: "POINT" });
+        break;
+      case "idle":
+      default:
+        send({ type: "IDLE" });
+        break;
+    }
+  }, [outcome, isSpeaking, send]);
 
   return (
     <div style={avatarFrameStyle} className="gretel-avatar-svg-container">
       <img
-        src={src}
+        src={currentPose}
         alt="Gretel"
         className="h-full w-full object-contain"
         draggable={false}
-        onError={() => setFallback(true)}
+        onError={() => send({ type: "ASSET_ERROR" })}
       />
     </div>
   );
