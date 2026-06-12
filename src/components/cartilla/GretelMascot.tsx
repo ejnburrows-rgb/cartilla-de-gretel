@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { motion, type Variants } from "framer-motion";
+import { useGretelAnimation } from "../gretel/useGretelAnimation";
 
 export type GretelState = "idle" | "pointing" | "cheering";
 
@@ -8,122 +8,58 @@ interface GretelMascotProps {
   className?: string;
 }
 
-const variants: Variants = {
-  idle: {
-    y: [0, -6, 0],
-    rotate: [0, 2, -2, 0],
-    transition: {
-      duration: 4,
-      repeat: Infinity,
-      ease: "easeInOut",
-    },
-  },
-  pointing: {
-    y: [0, -3, 0],
-    scale: 1.05,
-    rotate: [0, -5, 0],
-    transition: {
-      duration: 0.5,
-    },
-  },
-  cheering: {
-    y: [0, -20, 0, -10, 0],
-    scale: [1, 1.1, 1],
-    rotate: [0, 10, -10, 0],
-    transition: {
-      duration: 1.2,
-      repeat: 3,
-    },
-  },
-};
-
-// Single still per state — always present, used as the guaranteed fallback.
-const stillByState: Record<GretelState, string> = {
-  idle: "/gretel/idle-1.webp",
-  pointing: "/gretel/encouraging.webp",
-  cheering: "/gretel/cheer.webp",
-};
-
-// Optional multi-frame sequences exported by the art pipeline into
-// public/gretel/frames/<state>-<n>.webp. When present they are cycled to
-// produce real frame-by-frame motion (talking mouth, waving, cheering, blink).
-// When absent (404), the component silently falls back to the single still,
-// so it behaves exactly as before until frames land.
-const MAX_FRAMES_PER_STATE = 6;
-const FRAME_INTERVAL_MS = 180;
-
-function frameCandidates(state: GretelState): string[] {
-  const list: string[] = [];
-  for (let i = 0; i < MAX_FRAMES_PER_STATE; i++) {
-    list.push(`/gretel/frames/${state}-${i}.webp`);
-  }
-  return list;
-}
-
 export function GretelMascot({ state = "idle", className = "" }: GretelMascotProps) {
-  const still = stillByState[state];
-  const [loadedFrames, setLoadedFrames] = useState<string[]>([]);
-  const [frameIndex, setFrameIndex] = useState(0);
+  const { currentPose, machineState, send } = useGretelAnimation();
+  const [reducedMotion, setReducedMotion] = useState(false);
 
-  // Preload frame candidates for the active state (client-only).
+  // Sync state prop with FSM events
   useEffect(() => {
-    setLoadedFrames([]);
-    setFrameIndex(0);
-    if (typeof window === "undefined") return;
+    switch (state) {
+      case "idle":
+        send({ type: "IDLE" });
+        break;
+      case "pointing":
+        send({ type: "POINT" });
+        break;
+      case "cheering":
+        send({ type: "CHEER" });
+        break;
+    }
+  }, [state, send]);
 
-    let cancelled = false;
-    const candidates = frameCandidates(state);
-    const found: string[] = [];
-    let pending = candidates.length;
-
-    const settle = () => {
-      pending -= 1;
-      if (!cancelled && pending === 0) {
-        setLoadedFrames(found.filter(Boolean));
-      }
-    };
-
-    candidates.forEach((src, idx) => {
-      const img = new Image();
-      img.onload = () => {
-        found[idx] = src;
-        settle();
-      };
-      img.onerror = settle;
-      img.src = src;
-    });
-
-    return () => {
-      cancelled = true;
-    };
-  }, [state]);
-
-  // Cycle the frames that actually loaded.
+  // Handle prefers-reduced-motion
   useEffect(() => {
-    if (loadedFrames.length < 2) return;
-    const id = window.setInterval(() => {
-      setFrameIndex((i) => (i + 1) % loadedFrames.length);
-    }, FRAME_INTERVAL_MS);
-    return () => window.clearInterval(id);
-  }, [loadedFrames]);
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(mediaQuery.matches);
+    const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    mediaQuery.addEventListener("change", handler);
+    return () => mediaQuery.removeEventListener("change", handler);
+  }, []);
 
-  const src =
-    loadedFrames.length > 0
-      ? loadedFrames[Math.min(frameIndex, loadedFrames.length - 1)]
-      : still;
+  // CSS Animation Classes matching the state
+  let motionClass = "";
+  if (!reducedMotion) {
+    if (machineState === "idle" || machineState === "boot" || machineState === "blinking") {
+      motionClass = "animate-gretel-bob";
+    } else if (machineState === "pointing") {
+      motionClass = "animate-gretel-point";
+    } else if (machineState === "cheering") {
+      motionClass = "animate-gretel-bounce";
+    }
+  }
 
   return (
-    <motion.div
-      animate={state}
-      variants={variants}
-      className={`relative h-32 w-32 origin-bottom drop-shadow-2xl md:h-48 md:w-48 ${className}`}
+    <div
+      className={`relative h-32 w-32 origin-bottom drop-shadow-2xl md:h-48 md:w-48 ${motionClass} ${className}`}
     >
       <img
-        src={src}
+        key={currentPose}
+        src={currentPose}
         alt="Gretel"
         className="h-full w-full object-contain"
         draggable={false}
+        onError={() => send({ type: "ASSET_ERROR" })}
       />
-    </motion.div>
+    </div>
   );
 }

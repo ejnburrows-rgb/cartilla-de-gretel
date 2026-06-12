@@ -1,6 +1,7 @@
 import { motion, type Variants } from "framer-motion";
 import { useEffect, useState } from "react";
 import { X } from "lucide-react";
+import { useGretelAnimation } from "./useGretelAnimation";
 
 export type GretelPose = "welcome" | "point" | "read" | "celebrate" | "think" | "wave";
 
@@ -11,35 +12,6 @@ interface GretelMascotProps {
   bubblePosition?: "left" | "right" | "top";
   showCloseButton?: boolean;
 }
-
-/**
- * Gretel renders as a SINGLE clean character image per pose. We deliberately do
- * NOT flip between different sketches anymore — that looked like swapping paper
- * cutouts. Instead she stays one consistent drawing and is brought to life with
- * smooth, gentle motion (a soft float / breathe / sway) via framer-motion.
- *
- * NOTE: True avatar-quality movement (her, alive, smooth) requires a proper
- * animated asset — a rigged Lottie/Rive puppet or a looping clip built from her
- * official art. That is an art-asset task; this component only makes a single
- * still feel calm and alive without the cheap flicker.
- *
- * Pose art lives in: public/cartilla/images/gretel/poses/
- * served at /cartilla/images/gretel/poses/.
- */
-const POSE_DIR = "/cartilla/images/gretel/poses";
-
-// One consistent, full-figure drawing per pose (no jarring frame swaps).
-const srcByPose: Record<GretelPose, string> = {
-  welcome: `${POSE_DIR}/wave.webp`,
-  wave: `${POSE_DIR}/wave.webp`,
-  point: `${POSE_DIR}/point.webp`,
-  read: `${POSE_DIR}/idle-1.webp`,
-  celebrate: `${POSE_DIR}/cheer.webp`,
-  think: `${POSE_DIR}/idle-1.webp`,
-};
-
-// If a pose image is missing, fall back to a safe full-figure idle drawing.
-const FALLBACK_SRC = `${POSE_DIR}/idle-1.webp`;
 
 // Smooth, gentle motion that makes a single still feel alive — no sketch swapping.
 const variants: Variants = {
@@ -82,14 +54,33 @@ export function GretelMascot({
   showCloseButton = false,
 }: GretelMascotProps) {
   const [bubbleOpen, setBubbleOpen] = useState(true);
-  const [useFallback, setUseFallback] = useState(false);
+  const { currentPose, send } = useGretelAnimation();
 
-  // Reset the fallback whenever the pose changes so the right art is tried first.
   useEffect(() => {
-    setUseFallback(false);
-  }, [pose]);
+    // Reset bubble open state when pose or text changes
+    setBubbleOpen(true);
+  }, [pose, text]);
 
-  const currentSrc = useFallback ? FALLBACK_SRC : srcByPose[pose];
+  useEffect(() => {
+    // Map props to FSM triggers
+    switch (pose) {
+      case "welcome":
+      case "wave":
+        send({ type: "WAVE" });
+        break;
+      case "point":
+        send({ type: "POINT" });
+        break;
+      case "celebrate":
+        send({ type: "CHEER" });
+        break;
+      case "read":
+      case "think":
+      default:
+        send({ type: "IDLE" });
+        break;
+    }
+  }, [pose, send]);
 
   const bubbleClasses = {
     left: "right-full mr-4 bottom-6",
@@ -135,11 +126,11 @@ export function GretelMascot({
         className="relative h-24 w-24 sm:h-36 sm:w-36 origin-bottom drop-shadow-xl select-none"
       >
         <img
-          src={currentSrc}
+          src={currentPose}
           alt={`Gretel - ${pose}`}
           className="h-full w-full object-contain"
           draggable={false}
-          onError={() => setUseFallback(true)}
+          onError={() => send({ type: "ASSET_ERROR" })}
         />
       </motion.div>
     </div>

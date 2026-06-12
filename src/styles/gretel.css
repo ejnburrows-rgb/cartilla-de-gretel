@@ -174,4 +174,72 @@
     animation: none;
     opacity: 0;
   }
+  .animate-gretel-bob,
+  .animate-gretel-wave,
+  .animate-gretel-point,
+  .animate-gretel-bounce {
+    animation: none !important;
+  }
+}
+
+/* Gretel mascot animation classes and keyframes */
+.animate-gretel-bob {
+  animation: gretel-bob 3s ease-in-out infinite;
+}
+
+.animate-gretel-wave {
+  animation: gretel-wave 1.5s ease-in-out infinite;
+}
+
+.animate-gretel-point {
+  animation: gretel-point 1s ease-in-out infinite;
+}
+
+.animate-gretel-bounce {
+  animation: gretel-bounce 1.2s ease-in-out infinite;
+}
+
+@keyframes gretel-bob {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes gretel-wave {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(4deg);
+  }
+  75% {
+    transform: rotate(-4deg);
+  }
+}
+
+@keyframes gretel-point {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04) translateY(-2px);
+  }
+}
+
+@keyframes gretel-bounce {
+  0%, 100% {
+    transform: translateY(0) scaleY(1);
+  }
+  30% {
+    transform: translateY(-12px) scaleY(1.05);
+  }
+  50% {
+    transform: translateY(0) scaleY(0.95);
+  }
+  75% {
+    transform: translateY(-4px) scaleY(1.02);
+  }
 }
