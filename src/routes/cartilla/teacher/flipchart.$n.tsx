@@ -19,6 +19,7 @@ import { StudentWorkbookShell } from "@/components/cartilla/StudentWorkbookShell
 import { getWorkbookPagesForLesson } from "@/lib/book-faithful";
 import { OfficialWorkbookLessonView } from "@/components/cartilla/OfficialWorkbookLessonView";
 import { FlipchartHdPanel } from "@/components/cartilla/FlipchartHdPanel";
+import { TeacherNoteField } from "@/components/teacher/TeacherNoteField";
 
 export const Route = createFileRoute("/cartilla/teacher/flipchart/$n")({
   component: FlipchartLeccion,
@@ -201,6 +202,8 @@ function FlipchartLeccion() {
               <Check className="w-4 h-4" /> Ya completaste esta lección
             </div>
           )}
+          
+          <TeacherNoteField lessonId={String(n)} className="mt-8 mb-24" />
         </main>
         <nav className="fixed bottom-0 inset-x-0 p-3.5 bg-[#FAF7F0]/95 backdrop-blur border-t border-amber-900/15 shadow-[0_-8px_30px_rgba(50,30,10,0.08)]">
           <div className="max-w-3xl mx-auto flex items-center justify-between gap-3">
