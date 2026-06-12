@@ -3269,9 +3269,11 @@
       ],
       "targets": [],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "verified",
-      "studentFacingStatus": "Lección 10",
+      "transcriptionStatus": "ready",
+      "studentFacingStatus": "ready",
       "teacherNotes": "Read-aloud of the r-syllable family. No art mapping required.",
+      "assetRef": "cartilla/art/hd/workbook/page-062.jpg",
+      "assetRefVerified": true,
       "sourcePage": "b-page-40.png",
       "blockingReason": ""
     },
