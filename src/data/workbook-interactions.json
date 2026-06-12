@@ -3185,7 +3185,7 @@
       "kind": "mini-story",
       "title": "Poema: La r para la rama",
       "prompt": "Lee el poema del cuaderno.",
-      "assetRef": "cartilla/images/source/r/r-page-39.jpg",
+      "assetRef": "cartilla/art/hd/workbook/page-061.jpg",
       "assetRefSourcePage": "39-Rr (workbook page 39)",
       "assetRefVerified": true,
       "items": [
@@ -3228,8 +3228,8 @@
       ],
       "targets": [],
       "sourceStatus": "book-derived",
-      "transcriptionStatus": "verified",
-      "studentFacingStatus": "Poema en la página del cuaderno",
+      "transcriptionStatus": "ready",
+      "studentFacingStatus": "ready",
       "teacherNotes": "Poem text transcribed directly from source page 39-Rr (workbook page 39). Full page scan available as assetRef.",
       "sourcePage": "b-page-39.png",
       "blockingReason": ""
