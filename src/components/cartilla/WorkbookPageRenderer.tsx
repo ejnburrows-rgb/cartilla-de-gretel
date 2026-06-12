@@ -267,7 +267,7 @@ export function WorkbookPageRenderer({ pageNumber }: WorkbookPageRendererProps) 
 
     // Vowel Page 1 (A): Large Letter & Word Grid
     if (isFirstPage) {
-      const vocabList = entry.lesson.vocab || [];
+      const vocabList = entry.lesson?.vocab || [];
       return (
         <div className="w-full h-full flex flex-col justify-between p-8 bg-stone-50 border border-stone-200/50 rounded-2xl">
           <div>
@@ -365,7 +365,7 @@ export function WorkbookPageRenderer({ pageNumber }: WorkbookPageRendererProps) 
           </p>
 
           <div className="space-y-4">
-            {entry.lesson.vocab.slice(0, 3).map((item) => (
+            {(entry.lesson?.vocab || []).slice(0, 3).map((item) => (
               <div key={item.word} className="flex items-center gap-4 bg-white border border-stone-200/80 rounded-2xl p-3">
                 <div className="w-12 h-12 border border-stone-200 rounded-xl flex items-center justify-center p-1 bg-stone-50">
                   <MonochromeDrawing word={item.word} size={36} />
@@ -398,8 +398,8 @@ export function WorkbookPageRenderer({ pageNumber }: WorkbookPageRendererProps) 
     const sentences = data.sentences || [];
 
     // Check if the lesson is scaffolded / pending
-    const isPending = syllables.length === 0 || 
-                      Object.values(data.examples).every(arr => arr.length === 0 || arr[0].includes("PENDIENTE"));
+    const isPending = !data || !data.examples || syllables.length === 0 || 
+                      Object.values(data.examples).every(arr => !arr || arr.length === 0 || (typeof arr[0] === 'string' && arr[0].includes("PENDIENTE")));
 
     if (isPending) {
       return (
@@ -421,7 +421,7 @@ export function WorkbookPageRenderer({ pageNumber }: WorkbookPageRendererProps) 
     // Consonant Page 1 (A): Syllable Matrix & Vocabulary
     if (subpage === 0) {
       // Find vocabulary words matching starting syllables
-      const vocabItems = Object.values(data.examples).flatMap((arr) => arr).slice(0, 4);
+      const vocabItems = data.examples ? Object.values(data.examples).flatMap((arr) => arr || []).slice(0, 4) : [];
 
       return (
         <div className="w-full h-full flex flex-col justify-between p-8 bg-stone-50 border border-stone-200/50 rounded-2xl">
@@ -537,7 +537,7 @@ export function WorkbookPageRenderer({ pageNumber }: WorkbookPageRendererProps) 
 
             <div className="grid grid-cols-4 gap-2 mt-4">
               {columns.map((syl) => {
-                const words = examplesMap[syl] || [];
+                const words = Array.isArray(examplesMap[syl]) ? examplesMap[syl] : [];
                 return (
                   <div key={syl} className="bg-white border border-stone-200/80 rounded-xl p-2 flex flex-col items-center">
                     <div className="w-8 h-8 rounded-full border border-stone-300 bg-stone-50 flex items-center justify-center font-black font-fredoka text-[10px] text-stone-800 mb-2">
@@ -568,7 +568,7 @@ export function WorkbookPageRenderer({ pageNumber }: WorkbookPageRendererProps) 
       const mainSentence = sentences[0] || "";
       const secondarySentence = sentences[1] || "";
       // Find a vocabulary key that we have illustrations for
-      const illustrationWord = Object.values(data.examples).flatMap((arr) => arr)[0] || "oso";
+      const illustrationWord = (data.examples ? Object.values(data.examples).flatMap((arr) => arr || [])[0] : null) || "oso";
 
       return (
         <div className="w-full h-full flex flex-col justify-between p-8 bg-stone-50 border border-stone-200/50 rounded-2xl">

@@ -56,16 +56,16 @@ export function PolishedPage({ pageNumber, className = "" }: PolishedPageProps) 
 
   const isFirstOfLesson = useMemo(() => {
     if (!entry) return false;
-    const start = parseInt(entry.pages.split("-")[0] || "1", 10);
+    const start = parseInt((entry.pages || "").split("-")[0] || "1", 10);
     return start === pageNumber;
   }, [entry, pageNumber]);
 
   const tabLetter = useMemo(() => {
     if (!entry) return "";
     return entry.kind === "consonant"
-      ? entry.letter
+      ? (entry.letter || "")
       : entry.kind === "vowel"
-        ? entry.vowel
+        ? (entry.vowel || "")
         : String(entry.n);
   }, [entry]);
 

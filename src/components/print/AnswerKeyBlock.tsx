@@ -60,23 +60,23 @@ export function AnswerKeyBlock({ entry, pageNumber }: AnswerKeyBlockProps) {
 
   const syllables: string[] =
     entry.kind === "consonant"
-      ? entry.data.syllables
+      ? (entry.data?.syllables || [])
       : entry.kind === "vowel"
         ? [entry.vowel, ...["a", "e", "i", "o", "u"].filter((v) => v !== entry.vowel)]
         : ["a", "e", "i", "o", "u"];
 
   const words: string[] =
     entry.kind === "consonant"
-      ? Object.values(entry.data.examples).flat().slice(0, 6)
+      ? (entry.data?.examples ? Object.values(entry.data.examples).flat().slice(0, 6) : [])
       : entry.kind === "vowel"
-        ? entry.lesson.vocab.slice(0, 6).map((v) => v.word)
+        ? (entry.lesson?.vocab || []).slice(0, 6).map((v) => v.word)
         : ["ala", "oso", "uva", "isla", "era"];
 
   const sentences: string[] =
     entry.kind === "consonant"
-      ? entry.data.sentences
+      ? (entry.data?.sentences || [])
       : entry.kind === "vowel"
-        ? [`${entry.lesson.characterName}. ${entry.lesson.characterDesc}`]
+        ? [`${entry.lesson?.characterName || ""}. ${entry.lesson?.characterDesc || ""}`]
         : ["Las cinco vocales son a, e, i, o, u. Repite conmigo: a, e, i, o, u."];
 
   return (

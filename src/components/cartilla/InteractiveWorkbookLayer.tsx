@@ -119,6 +119,7 @@ function SyllablePractice({
   onGretelState: (s: GretelState) => void;
 }) {
   const [tapped, setTapped] = useState<Set<string>>(new Set());
+  const items = interaction.items || [];
 
   const handleTap = useCallback(
     (id: string, label: string) => {
@@ -128,14 +129,14 @@ function SyllablePractice({
       setTapped((prev) => {
         const next = new Set(prev);
         next.add(id);
-        if (next.size >= interaction.items.length && onComplete) onComplete(interaction.id);
+        if (next.size >= items.length && onComplete) onComplete(interaction.id);
         return next;
       });
     },
-    [interaction.items.length, interaction.id, onComplete, onGretelState],
+    [items.length, interaction.id, onComplete, onGretelState],
   );
 
-  const allDone = tapped.size >= interaction.items.length;
+  const allDone = tapped.size >= items.length;
 
   return (
     <div className="rounded-[1.75rem] border-2 border-foreground/10 bg-white/90 shadow-xl shadow-primary/5 overflow-hidden">
@@ -155,7 +156,7 @@ function SyllablePractice({
       <div className="px-4 py-4">
         <HdPageArt pageNumber={interaction.pageNumber} />
         <div className="flex flex-wrap gap-3 justify-center">
-          {interaction.items.map((item, i) => {
+          {items.map((item, i) => {
             const done = tapped.has(item.id);
             return (
               <motion.div
@@ -228,6 +229,7 @@ function WordTap({
   onGretelState: (s: GretelState) => void;
 }) {
   const [tapped, setTapped] = useState<Set<string>>(new Set());
+  const items = interaction.items || [];
 
   const handleTap = useCallback(
     (id: string, label: string) => {
@@ -237,14 +239,14 @@ function WordTap({
       setTapped((prev) => {
         const next = new Set(prev);
         next.add(id);
-        if (next.size >= interaction.items.length && onComplete) onComplete(interaction.id);
+        if (next.size >= items.length && onComplete) onComplete(interaction.id);
         return next;
       });
     },
-    [interaction.items.length, interaction.id, onComplete, onGretelState],
+    [items.length, interaction.id, onComplete, onGretelState],
   );
 
-  const allDone = tapped.size >= interaction.items.length;
+  const allDone = tapped.size >= items.length;
 
   return (
     <div className="rounded-[1.75rem] border-2 border-foreground/10 bg-white/90 shadow-xl shadow-primary/5 overflow-hidden">
@@ -264,7 +266,7 @@ function WordTap({
       <div className="px-4 py-4">
         <HdPageArt pageNumber={interaction.pageNumber} />
         <div className="flex flex-wrap gap-3">
-          {interaction.items.map((item, i) => {
+          {items.map((item, i) => {
             const done = tapped.has(item.id);
             return (
               <motion.div
@@ -330,6 +332,7 @@ function ReadAloud({
   onGretelState: (s: GretelState) => void;
 }) {
   const [tapped, setTapped] = useState<Set<string>>(new Set());
+  const items = interaction.items || [];
 
   const handleTap = useCallback(
     (id: string, label: string) => {
@@ -339,15 +342,15 @@ function ReadAloud({
       setTapped((prev) => {
         const next = new Set(prev);
         next.add(id);
-        if (next.size >= interaction.items.length && onComplete) onComplete(interaction.id);
+        if (next.size >= items.length && onComplete) onComplete(interaction.id);
         return next;
       });
     },
-    [interaction.items.length, interaction.id, onComplete, onGretelState],
+    [items.length, interaction.id, onComplete, onGretelState],
   );
 
-  const isSentences = interaction.items.some((i) => i.label.length > 10);
-  const allDone = tapped.size >= interaction.items.length;
+  const isSentences = items.some((i) => i.label.length > 10);
+  const allDone = tapped.size >= items.length;
 
   return (
     <div className="rounded-[1.75rem] border-2 border-foreground/10 bg-white/90 shadow-xl shadow-primary/5 overflow-hidden">
@@ -367,7 +370,7 @@ function ReadAloud({
       <div className="px-4 py-4">
         <HdPageArt pageNumber={interaction.pageNumber} />
         <div className={cn("flex gap-3", isSentences ? "flex-col" : "flex-wrap")}>
-          {interaction.items.map((item, i) => {
+          {items.map((item, i) => {
             const done = tapped.has(item.id);
             return (
               <motion.div
@@ -439,8 +442,11 @@ function SyllableSlot({
   const [placed, setPlaced] = useState<Record<string, string>>({});
   const [wrongSlot, setWrongSlot] = useState<string | null>(null);
 
-  const allPlaced = interaction.targets.length > 0 &&
-    Object.keys(placed).length >= interaction.targets.length;
+  const targets = interaction.targets || [];
+  const items = interaction.items || [];
+
+  const allPlaced = targets.length > 0 &&
+    Object.keys(placed).length >= targets.length;
 
   const handleItemTap = useCallback(
     (itemId: string, label: string) => {
@@ -463,7 +469,7 @@ function SyllableSlot({
       if (!selected) return;
 
       // Find the target to see what item it accepts
-      const target = interaction.targets.find((t) => t.id === targetId);
+      const target = targets.find((t) => t.id === targetId);
       const correctItemId = target?.acceptsItemId;
 
       if (correctItemId && correctItemId === selected) {
@@ -474,7 +480,7 @@ function SyllableSlot({
         setPlaced((prev) => {
           const next = { ...prev, [targetId]: selected };
           if (
-            Object.keys(next).length >= interaction.targets.length &&
+            Object.keys(next).length >= targets.length &&
             onComplete
           ) {
             onComplete(interaction.id);
@@ -490,11 +496,11 @@ function SyllableSlot({
         setTimeout(() => setWrongSlot(null), 600);
       }
     },
-    [selected, placed, interaction.targets, interaction.id, onComplete, onGretelState],
+    [selected, placed, targets, interaction.id, onComplete, onGretelState],
   );
 
   // If no targets defined (some items only have items), fall back to simple tap mode
-  if (!interaction.targets.length) {
+  if (!targets.length) {
     return (
       <SyllablePractice
         interaction={interaction}
@@ -529,7 +535,7 @@ function SyllableSlot({
             Toca para seleccionar
           </p>
           <div className="flex flex-wrap gap-3">
-            {interaction.items.map((item, i) => {
+            {items.map((item, i) => {
               const isPlaced = Object.values(placed).includes(item.id);
               const isSelected = selected === item.id;
               return (
@@ -569,9 +575,9 @@ function SyllableSlot({
             Toca la casilla para colocar
           </p>
           <div className="flex flex-wrap gap-3">
-            {interaction.targets.map((target, i) => {
+            {targets.map((target, i) => {
               const placedItemId = placed[target.id];
-              const placedItem = interaction.items.find((it) => it.id === placedItemId);
+              const placedItem = items.find((it) => it.id === placedItemId);
               const isWrong = wrongSlot === target.id;
               return (
                 <motion.div
@@ -635,27 +641,28 @@ function MiniStoryCard({
   accent: string;
   onGretelState: (s: GretelState) => void;
 }) {
-  const hasText = interaction.items.length > 0;
+  const items = interaction.items || [];
+  const hasText = items.length > 0;
   const [revealedLines, setRevealedLines] = useState(hasText ? 1 : 0);
-  const allRevealed = !hasText || revealedLines >= interaction.items.length;
+  const allRevealed = !hasText || revealedLines >= items.length;
 
   const handleNext = useCallback(() => {
     const nextIdx = revealedLines; // 0-based: next line to reveal
-    const item = interaction.items[nextIdx];
+    const item = items[nextIdx];
     if (item) {
       speak(item.label);
       onGretelState("cheering");
       setTimeout(() => onGretelState("idle"), 1400);
     }
-    setRevealedLines((prev) => Math.min(prev + 1, interaction.items.length));
-    if (revealedLines + 1 >= interaction.items.length) {
+    setRevealedLines((prev) => Math.min(prev + 1, items.length));
+    if (revealedLines + 1 >= items.length) {
       // All revealed — speak last then celebrate
       setTimeout(() => onGretelState("cheering"), 600);
     }
-  }, [revealedLines, interaction.items, onGretelState]);
+  }, [revealedLines, items, onGretelState]);
 
   // Speak the first line on mount
-  const firstLabel = interaction.items[0]?.label;
+  const firstLabel = items[0]?.label;
   useMemo(() => {
     if (firstLabel) setTimeout(() => speak(firstLabel), 300);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -679,7 +686,7 @@ function MiniStoryCard({
         {hasText ? (
           <div className="space-y-3">
             <AnimatePresence initial={false}>
-              {interaction.items.slice(0, revealedLines).map((item) => (
+              {items.slice(0, revealedLines).map((item) => (
                 <motion.button
                   key={item.id}
                   type="button"
@@ -745,7 +752,8 @@ function TapObject({
   onGretelState: (s: GretelState) => void;
 }) {
   const [tapped, setTapped] = useState<Set<string>>(new Set());
-  const allDone = tapped.size >= interaction.items.length && interaction.items.length > 0;
+  const items = interaction.items || [];
+  const allDone = tapped.size >= items.length && items.length > 0;
 
   const handleTap = useCallback(
     (id: string, label: string) => {
@@ -755,11 +763,11 @@ function TapObject({
       setTapped((prev) => {
         const next = new Set(prev);
         next.add(id);
-        if (next.size >= interaction.items.length && onComplete) onComplete(interaction.id);
+        if (next.size >= items.length && onComplete) onComplete(interaction.id);
         return next;
       });
     },
-    [interaction.items.length, interaction.id, onComplete, onGretelState],
+    [items.length, interaction.id, onComplete, onGretelState],
   );
 
   return (
@@ -780,7 +788,7 @@ function TapObject({
       <div className="px-4 py-4">
         <HdPageArt pageNumber={interaction.pageNumber} />
         <div className="flex flex-wrap gap-3 justify-center">
-          {interaction.items.map((item, i) => {
+          {items.map((item, i) => {
             const done = tapped.has(item.id);
             return (
               <motion.div

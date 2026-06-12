@@ -39,9 +39,9 @@ const Page = React.forwardRef<HTMLDivElement, PageProps>(({ pageNum, ...props },
 Page.displayName = "Page";
 
 export function FlipBook({ entry, initialPageNumber }: FlipBookProps) {
-  const parts = useMemo(() => entry.pages.split("-").map(Number), [entry]);
-  const from = parts[0] || 1;
-  const to = parts[1] || from;
+  const parts = useMemo(() => (entry.pages || "").split("-").map(Number), [entry]);
+  const from = parts[0] && !isNaN(parts[0]) ? parts[0] : 1;
+  const to = parts[1] && !isNaN(parts[1]) ? parts[1] : from;
 
   const [mounted, setMounted] = useState(false);
   const bookRef = useRef<any>(null);
