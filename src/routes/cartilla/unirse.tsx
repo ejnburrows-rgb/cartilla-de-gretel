@@ -4,7 +4,6 @@ import { useServerFn } from "@/lib/useServerFn";
 import { ArrowLeft, LogIn, Loader2, LogOut, Sparkles } from "lucide-react";
 import { joinClass } from "@/lib/student.functions";
 import { setStudentSession, useStudentSession } from "@/lib/student-session";
-import { SEED_STUDENT_ACCESS } from "@/lib/seed-data";
 import { GretelMascot } from "@/components/gretel/GretelMascot";
 
 export const Route = createFileRoute("/cartilla/unirse")({
