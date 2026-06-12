@@ -1161,10 +1161,10 @@
       ],
       "targets": [],
       "sourceStatus": "needs-transcription",
-      "transcriptionStatus": "verified",
-      "studentFacingStatus": "Poema en la página del cuaderno",
+      "transcriptionStatus": "ready",
+      "studentFacingStatus": "ready",
       "teacherNotes": "saco, seta, seis are NOT confirmed in consonants.json examples for Lesson 9. These object names are plausible for the S lesson but are not verified from the official workbook page scan. Do not promote to book-derived without page verification.",
-      "assetRef": "cartilla/images/source/ss/ss-page-16.jpg",
+      "assetRef": "cartilla/art/hd/workbook/page-029.jpg",
       "assetRefVerified": true,
       "sourcePage": "ñ-page-29.jpg",
       "blockingReason": ""
