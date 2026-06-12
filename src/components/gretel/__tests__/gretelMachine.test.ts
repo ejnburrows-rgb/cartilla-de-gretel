@@ -38,6 +38,11 @@ describe('GretelMachine', () => {
     // ASSET_ERROR from transient states heals to error
     expect(gretelReducer('talking', { type: 'ASSET_ERROR' })).toBe('error');
     expect(gretelReducer('idle', { type: 'ASSET_ERROR' })).toBe('error');
+    expect(gretelReducer('blinking', { type: 'ASSET_ERROR' })).toBe('error');
+    
+    // ASSET_ERROR in error state stays in error state
+    expect(canTransition('error', { type: 'ASSET_ERROR' })).toBe(true);
+    expect(gretelReducer('error', { type: 'ASSET_ERROR' })).toBe('error');
     
     // Recovery via RESET
     expect(gretelReducer('error', { type: 'RESET' })).toBe('idle');
