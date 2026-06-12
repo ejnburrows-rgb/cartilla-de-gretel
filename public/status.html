@@ -299,11 +299,7 @@
     <div class="kpi-strip" aria-label="Métricas principales">
       <div class="kpi green">
         <div class="kpi-value">8</div>
-<<<<<<< HEAD:public/status.html
-        <div class="kpi-label">Lecciones verificadas</div>
-=======
         <div class="kpi-label">✅ Lecciones verificadas</div>
->>>>>>> 9558def (docs(status): add L9–L16 scaffold rows to status dashboard):docs/status.html
       </div>
       <div class="kpi gold">
         <div class="kpi-value">8</div>
@@ -507,7 +503,7 @@
     { id:'L11', name:'L11 — G g / J j',                       status:'scaffold', v:0, d:0, p:6 },
     { id:'L12', name:'L12 — Ch ch',                            status:'scaffold', v:0, d:0, p:6 },
     { id:'L13', name:'L13 — V v',                              status:'scaffold', v:0, d:0, p:6 },
-    { id:'L14', name:'L14 — Ñ ñ',                              status:'scaffold', v:0, d:0, p:6 },
+    { id:'L14', name:'L14 — Ñ ñ',                             status:'scaffold', v:0, d:0, p:6 },
     { id:'L15', name:'L15 — Y y / Ll ll',                     status:'scaffold', v:0, d:0, p:6 },
     { id:'L16', name:'L16 — Z z',                              status:'scaffold', v:0, d:0, p:6 },
     { id:'L17', name:'L17 — R r / B b',                       status:'pending',  v:0, d:0, p:6 },
@@ -528,7 +524,7 @@
   const tbody = document.getElementById('lesson-rows');
   lessons.forEach(l => {
     const tr = document.createElement('tr');
-    tr.innerHTML = `<td class="lesson-name">${l.name}</td><td>${badge[l.status]}</td><td class="num${l.v?' nonzero':''}">${l.v||'—'}</td><td class="num show-mobile${l.d?' nonzero':''}">${l.d||'—'}</td><td class="num${l.p?' nonzero':''}">${l.p||'—'}</td>`;
+    tr.innerHTML = `<td class="lesson-name">${l.name}</td><td>${badge[l.status]}</td><td class="num${l.v?' nonzero':''}'">${l.v||'—'}</td><td class="num show-mobile${l.d?' nonzero':''}'">${l.d||'—'}</td><td class="num${l.p?' nonzero':''}'">${l.p||'—'}</td>`;
     tbody.appendChild(tr);
   });
 
@@ -549,5 +545,3 @@
 </script>
 </body>
 </html>
-
-<!-- All lessons complete -->
