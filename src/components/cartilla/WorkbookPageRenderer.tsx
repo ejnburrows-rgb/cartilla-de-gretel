@@ -397,6 +397,27 @@ export function WorkbookPageRenderer({ pageNumber }: WorkbookPageRendererProps) 
     const syllables = data.syllables || [];
     const sentences = data.sentences || [];
 
+    // Check if the lesson is scaffolded / pending
+    const isPending = syllables.length === 0 || 
+                      Object.values(data.examples).every(arr => arr.length === 0 || arr[0].includes("PENDIENTE"));
+
+    if (isPending) {
+      return (
+        <div className="w-full h-full flex flex-col items-center justify-center p-8 bg-stone-50 border border-stone-200/50 rounded-2xl">
+          <div className="text-center p-8 border-2 border-dashed border-stone-200 rounded-xl bg-white max-w-sm shadow-sm">
+            <div className="text-4xl mb-4">🚧</div>
+            <h2 className="text-xl font-black font-fredoka text-stone-800 mb-2">Lección en Construcción</h2>
+            <p className="text-sm text-stone-500 font-semibold mb-4">
+              El material didáctico para la letra <strong>{letter.toUpperCase()}</strong> está pendiente de digitalización.
+            </p>
+            <div className="text-[10px] font-black text-stone-400 uppercase tracking-widest">
+              Próximamente
+            </div>
+          </div>
+        </div>
+      );
+    }
+
     // Consonant Page 1 (A): Syllable Matrix & Vocabulary
     if (subpage === 0) {
       // Find vocabulary words matching starting syllables
