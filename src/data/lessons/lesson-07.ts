@@ -6,16 +6,16 @@ export const lesson07 = [
     lessonNumber: 7,
     pageNumber: 25,
     kind: "letter-tracing",
-    title: "Escribe con tu mejor letra — M m",
-    prompt: "Traza la letra M mayúscula y la m minúscula. Luego haz un dibujo de una palabra que comienza con m.",
+    title: "Escribe con tu mejor letra.",
+    prompt: "Haz un dibujo que represente una palabra que comienza con m.",
     items: [
       { id: "letter-M", label: "M" },
       { id: "letter-m", label: "m" }
     ],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
     teacherNotes: "Students trace uppercase M and lowercase m.",
     sourcePage: getBookPageImage(25)
   },
@@ -24,8 +24,8 @@ export const lesson07 = [
     lessonNumber: 7,
     pageNumber: 26,
     kind: "drag-syllable-to-slot",
-    title: "Encierra la sílaba correspondiente — M m",
-    prompt: "Encierra en un círculo la sílaba que corresponde a cada palabra.",
+    title: "Encierra en un círculo la sílaba correspondiente.",
+    prompt: "Encierra en un círculo la sílaba correspondiente.",
     items: [
       { id: "syl-ma", label: "ma" },
       { id: "syl-me", label: "me" },
@@ -47,9 +47,9 @@ export const lesson07 = [
       "amo", "Memo", "mono", "como", "moneda", "moto",
       "mulo", "muleta", "muro", "mudo", "mujer", "Mumi"
     ],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
     teacherNotes: "Verified syllable circle for Mm. Need to map slot coordinates.",
     sourcePage: getBookPageImage(26)
   },
@@ -59,7 +59,7 @@ export const lesson07 = [
     pageNumber: 27,
     kind: "read-aloud",
     title: "Mm",
-    prompt: "Toca cada sílaba para escucharla. Repite en voz alta.",
+    prompt: "Mm",
     items: [
       { id: "ra-ma", label: "ma" },
       { id: "ra-me", label: "me" },
@@ -68,9 +68,9 @@ export const lesson07 = [
       { id: "ra-mu", label: "mu" }
     ],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
     teacherNotes: "Verified syllable tap for Mm.",
     sourcePage: getBookPageImage(27)
   },
@@ -79,8 +79,8 @@ export const lesson07 = [
     lessonNumber: 7,
     pageNumber: 27,
     kind: "listen-and-tap",
-    title: "Palabras con M",
-    prompt: "Toca cada palabra para escucharla.",
+    title: "Palabras",
+    prompt: "Palabras",
     items: [
       { id: "w-mama", label: "mamá" },
       { id: "w-mio", label: "mío" },
@@ -96,13 +96,12 @@ export const lesson07 = [
       { id: "w-mimame", label: "mímame" },
       { id: "w-mia", label: "mía" },
       { id: "w-mima", label: "mima" },
-      { id: "w-amame", label: "ámame" },
-      { id: "w-y", label: "y" }
+      { id: "w-amame", label: "ámame" }
     ],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
     teacherNotes: "Verified word bank for Mm.",
     sourcePage: getBookPageImage(27)
   },
@@ -111,8 +110,8 @@ export const lesson07 = [
     lessonNumber: 7,
     pageNumber: 27,
     kind: "mini-story",
-    title: "Oraciones con M",
-    prompt: "Lee las oraciones del cuaderno con tu maestro.",
+    title: "Cuento",
+    prompt: "Cuento",
     items: [
       { id: "story-m-1", label: "Mi mamá me ama." },
       { id: "story-m-2", label: "Amo a mami. Mamá mía." },
@@ -125,9 +124,9 @@ export const lesson07 = [
     sightWords: [
       "y"
     ],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
     teacherNotes: "Verified mini-story for Mm.",
     sourcePage: getBookPageImage(27)
   },
@@ -137,7 +136,7 @@ export const lesson07 = [
     pageNumber: 28,
     kind: "drag-syllable-to-slot",
     title: "Completa las palabras con la sílaba correcta.",
-    prompt: "Arrastra la sílaba correcta para completar cada palabra.",
+    prompt: "Completa las palabras con la sílaba correcta.",
     items: [
       { id: "syl-ma", label: "ma" },
       { id: "syl-me", label: "Me" },
@@ -242,9 +241,9 @@ export const lesson07 = [
         fullWord: "mío"
       }
     ],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
     teacherNotes: "Verified fill-in-the-blank for Mm.",
     sourcePage: getBookPageImage(28)
   },
@@ -254,12 +253,12 @@ export const lesson07 = [
     pageNumber: 28,
     kind: "letter-tracing",
     title: "Escribe oraciones. Usa las sílabas que aprendiste.",
-    prompt: "Escribe oraciones usando las sílabas que aprendiste.",
+    prompt: "Escribe oraciones. Usa las sílabas que aprendiste.",
     items: [],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
     teacherNotes: "Sentence writing lines.",
     sourcePage: getBookPageImage(28)
   }
