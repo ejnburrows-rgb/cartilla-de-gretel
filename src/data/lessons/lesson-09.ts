@@ -6,16 +6,16 @@ export const lesson09 = [
     lessonNumber: 9,
     pageNumber: 33,
     kind: "letter-tracing",
-    title: "Escribe con tu mejor letra — S s",
-    prompt: "Traza la letra S mayúscula y la s minúscula. Luego haz un dibujo de una palabra que comienza con s.",
+    title: "Escribe con tu mejor letra.",
+    prompt: "Haz un dibujo que represente una palabra que comienza con s.",
     items: [
       { id: "letter-S", label: "S" },
       { id: "letter-s", label: "s" }
     ],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
     teacherNotes: "Students trace uppercase S and lowercase s.",
     sourcePage: getBookPageImage(33)
   },
@@ -24,8 +24,8 @@ export const lesson09 = [
     lessonNumber: 9,
     pageNumber: 34,
     kind: "drag-syllable-to-slot",
-    title: "Encierra la sílaba — S s",
-    prompt: "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
+    title: "Encierra en un círculo la sílaba correspondiente.",
+    prompt: "Encierra en un círculo la sílaba correspondiente.",
     items: [
       { id: "syl-sa", label: "sa" },
       { id: "syl-se", label: "se" },
@@ -47,9 +47,9 @@ export const lesson09 = [
       "paso", "sopa", "soga", "oso", "toso", "puso",
       "suyo", "suma", "Susi", "supo", "sube", "sudor"
     ],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
     teacherNotes: "Scaffolded syllable circle for S.",
     sourcePage: getBookPageImage(34)
   },
@@ -68,9 +68,9 @@ export const lesson09 = [
       { id: "ra-su", label: "su" }
     ],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
     teacherNotes: "Scaffolded syllable tap for S.",
     sourcePage: getBookPageImage(35)
   },
@@ -99,9 +99,9 @@ export const lesson09 = [
       { id: "w-esa", label: "esa" }
     ],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
     teacherNotes: "Scaffolded word bank for S.",
     sourcePage: getBookPageImage(35)
   },
@@ -125,9 +125,9 @@ export const lesson09 = [
     sightWords: [
       "es", "de", "un", "está", "en", "la", "el"
     ],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
     teacherNotes: "Scaffolded mini-story for S.",
     sourcePage: getBookPageImage(35)
   },
@@ -136,8 +136,8 @@ export const lesson09 = [
     lessonNumber: 9,
     pageNumber: 36,
     kind: "drag-syllable-to-slot",
-    title: "Completa las palabras — S s",
-    prompt: "Arrastra la sílaba correcta para completar cada palabra.",
+    title: "Completa las palabras con la sílaba correcta.",
+    prompt: "Completa las palabras con la sílaba correcta.",
     items: [
       { id: "syl-sa", label: "sa" },
       { id: "syl-se", label: "se" },
@@ -186,7 +186,7 @@ export const lesson09 = [
       {
         id: "blank-supo",
         label: "___po",
-        hint: "su - sa",
+        hint: "su- sa",
         correctSyllable: "su",
         fullWord: "supo",
         coordinatesVerified: false,
@@ -240,9 +240,9 @@ export const lesson09 = [
         fullWord: "pase"
       }
     ],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
     teacherNotes: "Scaffolded fill-in-the-blank for S.",
     sourcePage: getBookPageImage(36)
   },
@@ -252,12 +252,12 @@ export const lesson09 = [
     pageNumber: 36,
     kind: "letter-tracing",
     title: "Escribe oraciones. Usa las sílabas que aprendiste.",
-    prompt: "Escribe oraciones usando las sílabas que aprendiste.",
+    prompt: "Escribe oraciones. Usa las sílabas que aprendiste.",
     items: [],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
     teacherNotes: "Sentence writing lines.",
     sourcePage: getBookPageImage(36)
   }
