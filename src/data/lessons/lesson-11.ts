@@ -2,11 +2,11 @@ import { getBookPageImage } from "@/lib/bookImages";
 
 export const lesson11 = [
   {
-    id: "l11-p32-letter-tracing",
+    id: "l11-p41-letter-tracing",
     lessonNumber: 11,
-    pageNumber: 32,
+    pageNumber: 41,
     kind: "letter-tracing",
-    title: "Escribe con tu mejor letra — D d",
+    title: "Escribe con tu mejor letra",
     prompt: "Traza la letra D mayúscula y la d minúscula. Luego haz un dibujo de una palabra que comienza con d.",
     items: [
       {
@@ -23,14 +23,14 @@ export const lesson11 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Students trace uppercase D and lowercase d.",
-    sourcePage: getBookPageImage(32)
+    sourcePage: getBookPageImage(41)
   },
   {
-    id: "l11-p33-syllable-circle",
+    id: "l11-p42-syllable-circle",
     lessonNumber: 11,
-    pageNumber: 33,
+    pageNumber: 42,
     kind: "drag-syllable-to-slot",
-    title: "Encierra la sílaba — D d",
+    title: "Encierra en un círculo la sílaba correspondiente.",
     prompt: "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
     items: [
       { id: "syl-da", label: "da" },
@@ -87,12 +87,12 @@ export const lesson11 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded syllable circle for D.",
-    sourcePage: getBookPageImage(33)
+    sourcePage: getBookPageImage(42)
   },
   {
-    id: "l11-p33-syllable-tap",
+    id: "l11-p42-syllable-tap",
     lessonNumber: 11,
-    pageNumber: 33,
+    pageNumber: 42,
     kind: "read-aloud",
     title: "Sílabas con D — página Dd",
     prompt: "Toca cada sílaba para escucharla. Repite en voz alta.",
@@ -108,12 +108,12 @@ export const lesson11 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded syllable tap for D.",
-    sourcePage: getBookPageImage(33)
+    sourcePage: getBookPageImage(42)
   },
   {
-    id: "l11-p33-word-bank",
+    id: "l11-p42-word-bank",
     lessonNumber: 11,
-    pageNumber: 33,
+    pageNumber: 42,
     kind: "listen-and-tap",
     title: "Palabras con D",
     prompt: "Toca cada palabra para escucharla.",
@@ -134,12 +134,12 @@ export const lesson11 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded word bank for D.",
-    sourcePage: getBookPageImage(33)
+    sourcePage: getBookPageImage(42)
   },
   {
-    id: "l11-p33-mini-story",
+    id: "l11-p42-mini-story",
     lessonNumber: 11,
-    pageNumber: 33,
+    pageNumber: 42,
     kind: "mini-story",
     title: "Mini-cuento",
     prompt: "Lee el mini-cuento del cuaderno con tu maestro.",
@@ -160,14 +160,14 @@ export const lesson11 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded mini-story for D.",
-    sourcePage: getBookPageImage(33)
+    sourcePage: getBookPageImage(42)
   },
   {
-    id: "l11-p34-fill-in-blank",
+    id: "l11-p43-fill-in-blank",
     lessonNumber: 11,
-    pageNumber: 34,
+    pageNumber: 43,
     kind: "drag-syllable-to-slot",
-    title: "Completa las palabras — D d",
+    title: "Completa las palabras con la sílaba correcta.",
     prompt: "Arrastra la sílaba correcta para completar cada palabra.",
     items: [
       { id: "syl-do", label: "do" },
@@ -272,6 +272,6 @@ export const lesson11 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded fill-in-the-blank for D.",
-    sourcePage: getBookPageImage(34)
+    sourcePage: getBookPageImage(43)
   }
 ];

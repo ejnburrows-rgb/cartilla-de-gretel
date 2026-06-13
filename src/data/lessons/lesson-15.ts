@@ -2,11 +2,11 @@ import { getBookPageImage } from "@/lib/bookImages";
 
 export const lesson15 = [
   {
-    id: "l15-p44-letter-tracing",
+    id: "l15-p57-letter-tracing",
     lessonNumber: 15,
-    pageNumber: 44,
+    pageNumber: 57,
     kind: "letter-tracing",
-    title: "Escribe con tu mejor letra — R r",
+    title: "Escribe con tu mejor letra",
     prompt: "Traza la letra R mayúscula y la r minúscula. Luego haz un dibujo de una palabra que comienza con r.",
     items: [
       {
@@ -23,14 +23,14 @@ export const lesson15 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Students trace uppercase R and lowercase r.",
-    sourcePage: getBookPageImage(44)
+    sourcePage: getBookPageImage(57)
   },
   {
-    id: "l15-p45-syllable-circle",
+    id: "l15-p58-syllable-circle",
     lessonNumber: 15,
-    pageNumber: 45,
+    pageNumber: 58,
     kind: "drag-syllable-to-slot",
-    title: "Encierra la sílaba — R r",
+    title: "Encierra en un círculo la sílaba correspondiente.",
     prompt: "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
     items: [
       { id: "syl-ra", label: "ra" },
@@ -87,12 +87,12 @@ export const lesson15 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded syllable circle for R.",
-    sourcePage: getBookPageImage(45)
+    sourcePage: getBookPageImage(58)
   },
   {
-    id: "l15-p45-syllable-tap",
+    id: "l15-p58-syllable-tap",
     lessonNumber: 15,
-    pageNumber: 45,
+    pageNumber: 58,
     kind: "read-aloud",
     title: "Sílabas con R — página Rr",
     prompt: "Toca cada sílaba para escucharla. Repite en voz alta.",
@@ -108,12 +108,12 @@ export const lesson15 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded syllable tap for R.",
-    sourcePage: getBookPageImage(45)
+    sourcePage: getBookPageImage(58)
   },
   {
-    id: "l15-p45-word-bank",
+    id: "l15-p58-word-bank",
     lessonNumber: 15,
-    pageNumber: 45,
+    pageNumber: 58,
     kind: "listen-and-tap",
     title: "Palabras con R",
     prompt: "Toca cada palabra para escucharla.",
@@ -134,12 +134,12 @@ export const lesson15 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded word bank for R.",
-    sourcePage: getBookPageImage(45)
+    sourcePage: getBookPageImage(58)
   },
   {
-    id: "l15-p45-mini-story",
+    id: "l15-p58-mini-story",
     lessonNumber: 15,
-    pageNumber: 45,
+    pageNumber: 58,
     kind: "mini-story",
     title: "Mini-cuento",
     prompt: "Lee el mini-cuento del cuaderno con tu maestro.",
@@ -160,14 +160,14 @@ export const lesson15 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded mini-story for R.",
-    sourcePage: getBookPageImage(45)
+    sourcePage: getBookPageImage(58)
   },
   {
-    id: "l15-p46-fill-in-blank",
+    id: "l15-p59-fill-in-blank",
     lessonNumber: 15,
-    pageNumber: 46,
+    pageNumber: 59,
     kind: "drag-syllable-to-slot",
-    title: "Completa las palabras — R r",
+    title: "Completa las palabras con la sílaba correcta.",
     prompt: "Arrastra la sílaba correcta para completar cada palabra.",
     items: [
       { id: "syl-na", label: "na" },
@@ -274,6 +274,6 @@ export const lesson15 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded fill-in-the-blank for R.",
-    sourcePage: getBookPageImage(46)
+    sourcePage: getBookPageImage(59)
   }
 ];

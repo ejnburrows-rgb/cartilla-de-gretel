@@ -2,11 +2,11 @@ import { getBookPageImage } from "@/lib/bookImages";
 
 export const lesson16 = [
   {
-    id: "l16-p47-letter-tracing",
+    id: "l16-p61-letter-tracing",
     lessonNumber: 16,
-    pageNumber: 47,
+    pageNumber: 61,
     kind: "letter-tracing",
-    title: "Escribe con tu mejor letra — F f",
+    title: "Escribe con tu mejor letra",
     prompt: "Traza la letra F mayúscula y la f minúscula. Luego haz un dibujo de una palabra que comienza con f.",
     items: [
       {
@@ -23,14 +23,14 @@ export const lesson16 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Students trace uppercase F and lowercase f.",
-    sourcePage: getBookPageImage(47)
+    sourcePage: getBookPageImage(61)
   },
   {
-    id: "l16-p48-syllable-circle",
+    id: "l16-p62-syllable-circle",
     lessonNumber: 16,
-    pageNumber: 48,
+    pageNumber: 62,
     kind: "drag-syllable-to-slot",
-    title: "Encierra la sílaba — F f",
+    title: "Encierra en un círculo la sílaba correspondiente.",
     prompt: "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
     items: [
       { id: "syl-fa", label: "fa" },
@@ -87,12 +87,12 @@ export const lesson16 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded syllable circle for F.",
-    sourcePage: getBookPageImage(48)
+    sourcePage: getBookPageImage(62)
   },
   {
-    id: "l16-p48-syllable-tap",
+    id: "l16-p62-syllable-tap",
     lessonNumber: 16,
-    pageNumber: 48,
+    pageNumber: 62,
     kind: "read-aloud",
     title: "Sílabas con F — página Ff",
     prompt: "Toca cada sílaba para escucharla. Repite en voz alta.",
@@ -108,12 +108,12 @@ export const lesson16 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded syllable tap for F.",
-    sourcePage: getBookPageImage(48)
+    sourcePage: getBookPageImage(62)
   },
   {
-    id: "l16-p48-word-bank",
+    id: "l16-p62-word-bank",
     lessonNumber: 16,
-    pageNumber: 48,
+    pageNumber: 62,
     kind: "listen-and-tap",
     title: "Palabras con F",
     prompt: "Toca cada palabra para escucharla.",
@@ -134,12 +134,12 @@ export const lesson16 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded word bank for F.",
-    sourcePage: getBookPageImage(48)
+    sourcePage: getBookPageImage(62)
   },
   {
-    id: "l16-p48-mini-story",
+    id: "l16-p62-mini-story",
     lessonNumber: 16,
-    pageNumber: 48,
+    pageNumber: 62,
     kind: "mini-story",
     title: "Mini-cuento",
     prompt: "Lee el mini-cuento del cuaderno con tu maestro.",
@@ -160,14 +160,14 @@ export const lesson16 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded mini-story for F.",
-    sourcePage: getBookPageImage(48)
+    sourcePage: getBookPageImage(62)
   },
   {
-    id: "l16-p49-fill-in-blank",
+    id: "l16-p63-fill-in-blank",
     lessonNumber: 16,
-    pageNumber: 49,
+    pageNumber: 63,
     kind: "drag-syllable-to-slot",
-    title: "Completa las palabras — F f",
+    title: "Completa las palabras con la sílaba correcta.",
     prompt: "Arrastra la sílaba correcta para completar cada palabra.",
     items: [
       { id: "syl-ca", label: "ca" },
@@ -275,6 +275,6 @@ export const lesson16 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded fill-in-the-blank for F.",
-    sourcePage: getBookPageImage(49)
+    sourcePage: getBookPageImage(63)
   }
 ];

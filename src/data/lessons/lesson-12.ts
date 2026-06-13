@@ -2,11 +2,11 @@ import { getBookPageImage } from "@/lib/bookImages";
 
 export const lesson12 = [
   {
-    id: "l12-p35-letter-tracing",
+    id: "l12-p45-letter-tracing",
     lessonNumber: 12,
-    pageNumber: 35,
+    pageNumber: 45,
     kind: "letter-tracing",
-    title: "Escribe con tu mejor letra — N n",
+    title: "Escribe con tu mejor letra",
     prompt: "Traza la letra N mayúscula y la n minúscula. Luego haz un dibujo de una palabra que comienza con n.",
     items: [
       {
@@ -23,14 +23,14 @@ export const lesson12 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Students trace uppercase N and lowercase n.",
-    sourcePage: getBookPageImage(35)
+    sourcePage: getBookPageImage(45)
   },
   {
-    id: "l12-p36-syllable-circle",
+    id: "l12-p46-syllable-circle",
     lessonNumber: 12,
-    pageNumber: 36,
+    pageNumber: 46,
     kind: "drag-syllable-to-slot",
-    title: "Encierra la sílaba — N n",
+    title: "Encierra en un círculo la sílaba correspondiente.",
     prompt: "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
     items: [
       { id: "syl-na", label: "na" },
@@ -87,12 +87,12 @@ export const lesson12 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded syllable circle for N.",
-    sourcePage: getBookPageImage(36)
+    sourcePage: getBookPageImage(46)
   },
   {
-    id: "l12-p36-syllable-tap",
+    id: "l12-p46-syllable-tap",
     lessonNumber: 12,
-    pageNumber: 36,
+    pageNumber: 46,
     kind: "read-aloud",
     title: "Sílabas con N — página Nn",
     prompt: "Toca cada sílaba para escucharla. Repite en voz alta.",
@@ -108,12 +108,12 @@ export const lesson12 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded syllable tap for N.",
-    sourcePage: getBookPageImage(36)
+    sourcePage: getBookPageImage(46)
   },
   {
-    id: "l12-p36-word-bank",
+    id: "l12-p46-word-bank",
     lessonNumber: 12,
-    pageNumber: 36,
+    pageNumber: 46,
     kind: "listen-and-tap",
     title: "Palabras con N",
     prompt: "Toca cada palabra para escucharla.",
@@ -134,12 +134,12 @@ export const lesson12 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded word bank for N.",
-    sourcePage: getBookPageImage(36)
+    sourcePage: getBookPageImage(46)
   },
   {
-    id: "l12-p36-mini-story",
+    id: "l12-p46-mini-story",
     lessonNumber: 12,
-    pageNumber: 36,
+    pageNumber: 46,
     kind: "mini-story",
     title: "Mini-cuento",
     prompt: "Lee el mini-cuento del cuaderno con tu maestro.",
@@ -160,14 +160,14 @@ export const lesson12 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded mini-story for N.",
-    sourcePage: getBookPageImage(36)
+    sourcePage: getBookPageImage(46)
   },
   {
-    id: "l12-p37-fill-in-blank",
+    id: "l12-p47-fill-in-blank",
     lessonNumber: 12,
-    pageNumber: 37,
+    pageNumber: 47,
     kind: "drag-syllable-to-slot",
-    title: "Completa las palabras — N n",
+    title: "Completa las palabras con la sílaba correcta.",
     prompt: "Arrastra la sílaba correcta para completar cada palabra.",
     items: [
       { id: "syl-do", label: "do" },
@@ -273,6 +273,6 @@ export const lesson12 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded fill-in-the-blank for N.",
-    sourcePage: getBookPageImage(37)
+    sourcePage: getBookPageImage(47)
   }
 ];

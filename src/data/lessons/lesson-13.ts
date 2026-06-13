@@ -2,11 +2,11 @@ import { getBookPageImage } from "@/lib/bookImages";
 
 export const lesson13 = [
   {
-    id: "l13-p38-letter-tracing",
+    id: "l13-p49-letter-tracing",
     lessonNumber: 13,
-    pageNumber: 38,
+    pageNumber: 49,
     kind: "letter-tracing",
-    title: "Escribe con tu mejor letra — S s",
+    title: "Escribe con tu mejor letra",
     prompt: "Traza la letra S mayúscula y la s minúscula. Luego haz un dibujo de una palabra que comienza con s.",
     items: [
       {
@@ -23,14 +23,14 @@ export const lesson13 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Students trace uppercase S and lowercase s.",
-    sourcePage: getBookPageImage(38)
+    sourcePage: getBookPageImage(49)
   },
   {
-    id: "l13-p39-syllable-circle",
+    id: "l13-p50-syllable-circle",
     lessonNumber: 13,
-    pageNumber: 39,
+    pageNumber: 50,
     kind: "drag-syllable-to-slot",
-    title: "Encierra la sílaba — S s",
+    title: "Encierra en un círculo la sílaba correspondiente.",
     prompt: "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
     items: [
       { id: "syl-sa", label: "sa" },
@@ -87,12 +87,12 @@ export const lesson13 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded syllable circle for S.",
-    sourcePage: getBookPageImage(39)
+    sourcePage: getBookPageImage(50)
   },
   {
-    id: "l13-p39-syllable-tap",
+    id: "l13-p50-syllable-tap",
     lessonNumber: 13,
-    pageNumber: 39,
+    pageNumber: 50,
     kind: "read-aloud",
     title: "Sílabas con S — página Ss",
     prompt: "Toca cada sílaba para escucharla. Repite en voz alta.",
@@ -108,12 +108,12 @@ export const lesson13 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded syllable tap for S.",
-    sourcePage: getBookPageImage(39)
+    sourcePage: getBookPageImage(50)
   },
   {
-    id: "l13-p39-word-bank",
+    id: "l13-p50-word-bank",
     lessonNumber: 13,
-    pageNumber: 39,
+    pageNumber: 50,
     kind: "listen-and-tap",
     title: "Palabras con S",
     prompt: "Toca cada palabra para escucharla.",
@@ -134,12 +134,12 @@ export const lesson13 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded word bank for S.",
-    sourcePage: getBookPageImage(39)
+    sourcePage: getBookPageImage(50)
   },
   {
-    id: "l13-p39-mini-story",
+    id: "l13-p50-mini-story",
     lessonNumber: 13,
-    pageNumber: 39,
+    pageNumber: 50,
     kind: "mini-story",
     title: "Mini-cuento",
     prompt: "Lee el mini-cuento del cuaderno con tu maestro.",
@@ -160,14 +160,14 @@ export const lesson13 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded mini-story for S.",
-    sourcePage: getBookPageImage(39)
+    sourcePage: getBookPageImage(50)
   },
   {
-    id: "l13-p40-fill-in-blank",
+    id: "l13-p51-fill-in-blank",
     lessonNumber: 13,
-    pageNumber: 40,
+    pageNumber: 51,
     kind: "drag-syllable-to-slot",
-    title: "Completa las palabras — S s",
+    title: "Completa las palabras con la sílaba correcta.",
     prompt: "Arrastra la sílaba correcta para completar cada palabra.",
     items: [
       { id: "syl-po", label: "po" },
@@ -274,6 +274,6 @@ export const lesson13 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded fill-in-the-blank for S.",
-    sourcePage: getBookPageImage(40)
+    sourcePage: getBookPageImage(51)
   }
 ];

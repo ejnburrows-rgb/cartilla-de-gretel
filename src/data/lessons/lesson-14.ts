@@ -2,11 +2,11 @@ import { getBookPageImage } from "@/lib/bookImages";
 
 export const lesson14 = [
   {
-    id: "l14-p41-letter-tracing",
+    id: "l14-p53-letter-tracing",
     lessonNumber: 14,
-    pageNumber: 41,
+    pageNumber: 53,
     kind: "letter-tracing",
-    title: "Escribe con tu mejor letra — C c",
+    title: "Escribe con tu mejor letra",
     prompt: "Traza la letra C mayúscula y la c minúscula. Luego haz un dibujo de una palabra que comienza con c.",
     items: [
       {
@@ -23,14 +23,14 @@ export const lesson14 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Students trace uppercase C and lowercase c.",
-    sourcePage: getBookPageImage(41)
+    sourcePage: getBookPageImage(53)
   },
   {
-    id: "l14-p42-syllable-circle",
+    id: "l14-p54-syllable-circle",
     lessonNumber: 14,
-    pageNumber: 42,
+    pageNumber: 54,
     kind: "drag-syllable-to-slot",
-    title: "Encierra la sílaba — C c",
+    title: "Encierra en un círculo la sílaba correspondiente.",
     prompt: "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
     items: [
       { id: "syl-ca", label: "ca" },
@@ -73,12 +73,12 @@ export const lesson14 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded syllable circle for C.",
-    sourcePage: getBookPageImage(42)
+    sourcePage: getBookPageImage(54)
   },
   {
-    id: "l14-p42-syllable-tap",
+    id: "l14-p54-syllable-tap",
     lessonNumber: 14,
-    pageNumber: 42,
+    pageNumber: 54,
     kind: "read-aloud",
     title: "Sílabas con C — página Cc",
     prompt: "Toca cada sílaba para escucharla. Repite en voz alta.",
@@ -92,12 +92,12 @@ export const lesson14 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded syllable tap for C.",
-    sourcePage: getBookPageImage(42)
+    sourcePage: getBookPageImage(54)
   },
   {
-    id: "l14-p42-word-bank",
+    id: "l14-p54-word-bank",
     lessonNumber: 14,
-    pageNumber: 42,
+    pageNumber: 54,
     kind: "listen-and-tap",
     title: "Palabras con C",
     prompt: "Toca cada palabra para escucharla.",
@@ -118,12 +118,12 @@ export const lesson14 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded word bank for C.",
-    sourcePage: getBookPageImage(42)
+    sourcePage: getBookPageImage(54)
   },
   {
-    id: "l14-p42-mini-story",
+    id: "l14-p54-mini-story",
     lessonNumber: 14,
-    pageNumber: 42,
+    pageNumber: 54,
     kind: "mini-story",
     title: "Mini-cuento",
     prompt: "Lee el mini-cuento del cuaderno con tu maestro.",
@@ -144,14 +144,14 @@ export const lesson14 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded mini-story for C.",
-    sourcePage: getBookPageImage(42)
+    sourcePage: getBookPageImage(54)
   },
   {
-    id: "l14-p43-fill-in-blank",
+    id: "l14-p55-fill-in-blank",
     lessonNumber: 14,
-    pageNumber: 43,
+    pageNumber: 55,
     kind: "drag-syllable-to-slot",
-    title: "Completa las palabras — C c",
+    title: "Completa las palabras con la sílaba correcta.",
     prompt: "Arrastra la sílaba correcta para completar cada palabra.",
     items: [
       { id: "syl-sa", label: "sa" },
@@ -259,6 +259,6 @@ export const lesson14 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded fill-in-the-blank for C.",
-    sourcePage: getBookPageImage(43)
+    sourcePage: getBookPageImage(55)
   }
 ];
