@@ -288,7 +288,7 @@
 
   <section class="hero">
     <div class="container">
-      <p class="hero-eyebrow">Estado del proyecto &middot; Junio 2026</p>
+      <p class="hero-eyebrow">Estado del proyecto &middot; 13 de junio de 2026</p>
       <h1>Fidelidad de contenido</h1>
       <p class="hero-sub">Seguimiento de la transcripción y verificación de las lecciones de <em>La Cartilla de Gretel</em>, adaptación digital del libro de Leonor Lopetegui para LANY Books LLC.</p>
       <p class="hero-meta">Adaptación digital: Emilio José Novo &bull; Colaboradoras: Aída Fernández, Silvia Diez &bull; Ilustradora: Estela de Armas Plasencia</p>
@@ -298,12 +298,12 @@
   <div class="container">
     <div class="kpi-strip" aria-label="Métricas principales">
       <div class="kpi green">
-        <div class="kpi-value">24</div>
+        <div class="kpi-value">0</div>
         <div class="kpi-label">✅ Lecciones verificadas</div>
       </div>
       <div class="kpi gold">
-        <div class="kpi-value">0</div>
-        <div class="kpi-label">🚧 Lecciones en progreso</div>
+        <div class="kpi-value">16</div>
+        <div class="kpi-label">🚧 Lecciones scaffolded</div>
       </div>
       <div class="kpi teal">
         <div class="kpi-value">4</div>
@@ -490,30 +490,30 @@
   })();
 
   const lessons = [
-    { id:'L01', name:'L01 — Vocales',                          status:'verified', v:1, d:0, p:0 },
-    { id:'L02', name:'L02 — M m',                              status:'verified', v:1, d:0, p:0 },
-    { id:'L03', name:'L03 — P p',                              status:'verified', v:1, d:0, p:0 },
-    { id:'L04', name:'L04 — L l',                              status:'verified', v:1, d:0, p:0 },
-    { id:'L05', name:'L05 — T t',                              status:'verified', v:1, d:0, p:0 },
-    { id:'L06', name:'L06 — D d',                              status:'verified', v:1, d:0, p:0 },
-    { id:'L07', name:'L07 — N n',                              status:'verified', v:6, d:0, p:0 },
-    { id:'L08', name:'L08 — F f',                              status:'verified', v:6, d:0, p:0 },
-    { id:'L09', name:'L09 — S s',                              status:'verified', v:6, d:0, p:0 },
-    { id:'L10', name:'L10 — C c / Q q',                       status:'verified', v:6, d:0, p:0 },
-    { id:'L11', name:'L11 — G g / J j',                       status:'verified', v:6, d:0, p:0 },
-    { id:'L12', name:'L12 — Ch ch',                            status:'verified', v:6, d:0, p:0 },
-    { id:'L13', name:'L13 — V v',                              status:'verified', v:6, d:0, p:0 },
-    { id:'L14', name:'L14 — Ñ ñ',                             status:'verified', v:6, d:0, p:0 },
-    { id:'L15', name:'L15 — Y y / Ll ll',                     status:'verified', v:6, d:0, p:0 },
-    { id:'L16', name:'L16 — Z z',                              status:'verified', v:6, d:0, p:0 },
-    { id:'L17', name:'L17 — R r / B b',                       status:'verified', v:6, d:0, p:0 },
-    { id:'L18', name:'L18 — H h',                              status:'verified', v:6, d:0, p:0 },
-    { id:'L19', name:'L19 — X x',                              status:'verified', v:6, d:0, p:0 },
-    { id:'L20', name:'L20 — K k / W w',                       status:'verified', v:6, d:0, p:0 },
-    { id:'L21', name:'L21 — Repaso I (solo docente)',          status:'verified', v:0, d:5, p:0 },
-    { id:'L22', name:'L22 — Repaso II (solo docente)',         status:'verified', v:0, d:5, p:0 },
-    { id:'L23', name:'L23 — Repaso III (solo docente)',        status:'verified', v:0, d:5, p:0 },
-    { id:'L24', name:'L24 — Evaluación final (solo docente)', status:'verified', v:0, d:5, p:0 },
+    { id:'L01', name:'L01 — Vocales',                          status:'scaffold', v:0, d:0, p:1 },
+    { id:'L02', name:'L02 — M m',                              status:'scaffold', v:0, d:0, p:1 },
+    { id:'L03', name:'L03 — P p',                              status:'scaffold', v:0, d:0, p:1 },
+    { id:'L04', name:'L04 — L l',                              status:'scaffold', v:0, d:0, p:1 },
+    { id:'L05', name:'L05 — T t',                              status:'scaffold', v:0, d:0, p:1 },
+    { id:'L06', name:'L06 — D d',                              status:'scaffold', v:0, d:0, p:1 },
+    { id:'L07', name:'L07 — N n',                              status:'scaffold', v:0, d:0, p:6 },
+    { id:'L08', name:'L08 — F f',                              status:'scaffold', v:0, d:0, p:6 },
+    { id:'L09', name:'L09 — S s',                              status:'scaffold', v:0, d:0, p:6 },
+    { id:'L10', name:'L10 — C c / Q q',                       status:'scaffold', v:0, d:0, p:6 },
+    { id:'L11', name:'L11 — G g / J j',                       status:'scaffold', v:0, d:0, p:6 },
+    { id:'L12', name:'L12 — Ch ch',                            status:'scaffold', v:0, d:0, p:6 },
+    { id:'L13', name:'L13 — V v',                              status:'scaffold', v:0, d:0, p:6 },
+    { id:'L14', name:'L14 — Ñ ñ',                             status:'scaffold', v:0, d:0, p:6 },
+    { id:'L15', name:'L15 — Y y / Ll ll',                     status:'scaffold', v:0, d:0, p:6 },
+    { id:'L16', name:'L16 — Z z',                              status:'scaffold', v:0, d:0, p:6 },
+    { id:'L17', name:'L17 — R r / B b',                       status:'pending', v:0, d:0, p:6 },
+    { id:'L18', name:'L18 — H h',                              status:'pending', v:0, d:0, p:6 },
+    { id:'L19', name:'L19 — X x',                              status:'pending', v:0, d:0, p:6 },
+    { id:'L20', name:'L20 — K k / W w',                       status:'pending', v:0, d:0, p:6 },
+    { id:'L21', name:'L21 — Repaso I (solo docente)',          status:'teacher', v:0, d:5, p:0 },
+    { id:'L22', name:'L22 — Repaso II (solo docente)',         status:'teacher', v:0, d:5, p:0 },
+    { id:'L23', name:'L23 — Repaso III (solo docente)',        status:'teacher', v:0, d:5, p:0 },
+    { id:'L24', name:'L24 — Evaluación final (solo docente)', status:'teacher', v:0, d:5, p:0 },
   ];
   const badge = {
     verified: '<span class="badge badge-green">✅ Verificada</span>',
