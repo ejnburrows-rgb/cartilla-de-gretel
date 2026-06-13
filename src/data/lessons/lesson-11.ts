@@ -16,7 +16,7 @@ export const lesson11 = [
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
-    teacherNotes: "Students trace uppercase D and lowercase d.",
+    teacherNotes: "Scaffolded letter tracing for D.",
     sourcePage: getBookPageImage(41)
   },
   {
@@ -58,14 +58,19 @@ export const lesson11 = [
     lessonNumber: 11,
     pageNumber: 43,
     kind: "read-aloud",
-    title: "Sílabas con D — página Dd",
-    prompt: "Toca cada sílaba para escucharla. Repite en voz alta.",
+    title: "Dd",
+    prompt: "Dd",
     items: [
-      { id: "ra-da", label: "da" },
-      { id: "ra-de", label: "de" },
-      { id: "ra-di", label: "di" },
-      { id: "ra-do", label: "do" },
-      { id: "ra-du", label: "du" }
+      { id: "ra-da-0", label: "da" },
+      { id: "ra-de-1", label: "de" },
+      { id: "ra-di-2", label: "di" },
+      { id: "ra-do-3", label: "do" },
+      { id: "ra-du-4", label: "du" },
+      { id: "ra-du-5", label: "du" },
+      { id: "ra-do-6", label: "do" },
+      { id: "ra-da-7", label: "da" },
+      { id: "ra-de-8", label: "de" },
+      { id: "ra-di-9", label: "di" }
     ],
     targets: [],
     sourceStatus: "scaffold",
@@ -79,26 +84,24 @@ export const lesson11 = [
     lessonNumber: 11,
     pageNumber: 43,
     kind: "listen-and-tap",
-    title: "Palabras con D",
-    prompt: "Toca cada palabra para escucharla.",
+    title: "Palabras",
+    prompt: "Palabras",
     items: [
-      { id: "w-dedo", label: "dedo" },
-      { id: "w-donde", label: "dónde" },
-      { id: "w-deme", label: "deme" },
-      { id: "w-dame", label: "dame" },
-      { id: "w-duma", label: "Duma" },
-      { id: "w-de", label: "de" },
-      { id: "w-dia", label: "día" },
-      { id: "w-dime", label: "dime" },
-      { id: "w-duda", label: "duda" },
-      { id: "w-ada", label: "Ada" },
-      { id: "w-pide", label: "pide" },
-      { id: "w-mudo", label: "mudo" },
-      { id: "w-moneda", label: "moneda" },
-      { id: "w-mide", label: "mide" },
-      { id: "w-dunia", label: "Dunia" },
-      { id: "w-son", label: "son" },
-      { id: "w-estan", label: "están" }
+      { id: "w-dedo-0", label: "dedo" },
+      { id: "w-donde-1", label: "dónde" },
+      { id: "w-deme-2", label: "deme" },
+      { id: "w-dame-3", label: "dame" },
+      { id: "w-duma-4", label: "Duma" },
+      { id: "w-de-5", label: "de" },
+      { id: "w-dia-6", label: "día" },
+      { id: "w-dime-7", label: "dime" },
+      { id: "w-duda-8", label: "duda" },
+      { id: "w-ada-9", label: "Ada" },
+      { id: "w-pide-10", label: "pide" },
+      { id: "w-mudo-11", label: "mudo" },
+      { id: "w-moneda-12", label: "moneda" },
+      { id: "w-mide-13", label: "mide" },
+      { id: "w-dunia-14", label: "Dunia" }
     ],
     targets: [],
     sourceStatus: "scaffold",
@@ -112,8 +115,8 @@ export const lesson11 = [
     lessonNumber: 11,
     pageNumber: 43,
     kind: "mini-story",
-    title: "Mini-cuento",
-    prompt: "Lee el mini-cuento del cuaderno con tu maestro.",
+    title: "Cuento",
+    prompt: "Cuento",
     items: [
       { id: "story-d-1", label: "Dime si Ada tiene dados." },
       { id: "story-d-2", label: "Los dados son de Dunia." },
@@ -141,67 +144,67 @@ export const lesson11 = [
     title: "Completa las palabras con la sílaba correcta.",
     prompt: "Completa las palabras con la sílaba correcta.",
     items: [
-      { id: "syl-di", label: "di" },
-      { id: "syl-de", label: "de" },
-      { id: "syl-do", label: "do" },
-      { id: "syl-du", label: "du" },
-      { id: "syl-da", label: "da" },
-      { id: "syl-Du", label: "Du" }
+      { id: "syl-di-0", label: "di" },
+      { id: "syl-de-1", label: "de" },
+      { id: "syl-do-2", label: "do" },
+      { id: "syl-du-3", label: "du" },
+      { id: "syl-da-4", label: "da" },
+      { id: "syl-Du-5", label: "Du" }
     ],
     targets: [
       {
-        id: "blank-dedo",
+        id: "blank-dedo-0",
         label: "___do",
         hint: "di - de",
         correctSyllable: "de",
         fullWord: "dedo",
         coordinatesVerified: false,
-        acceptsItemId: "syl-de"
+        acceptsItemId: "syl-de-1"
       },
       {
-        id: "blank-mide",
+        id: "blank-mide-1",
         label: "mi___",
         hint: "di - de",
         correctSyllable: "de",
         fullWord: "mide",
         coordinatesVerified: false,
-        acceptsItemId: "syl-de"
+        acceptsItemId: "syl-de-1"
       },
       {
-        id: "blank-mudo",
+        id: "blank-mudo-2",
         label: "mu___",
         hint: "do - du",
         correctSyllable: "do",
         fullWord: "mudo",
         coordinatesVerified: false,
-        acceptsItemId: "syl-do"
+        acceptsItemId: "syl-do-2"
       },
       {
-        id: "blank-ada",
+        id: "blank-ada-3",
         label: "A___",
         hint: "de - da",
         correctSyllable: "da",
         fullWord: "Ada",
         coordinatesVerified: false,
-        acceptsItemId: "syl-da"
+        acceptsItemId: "syl-da-4"
       },
       {
-        id: "blank-pide",
+        id: "blank-pide-4",
         label: "pi___",
         hint: "de - di",
         correctSyllable: "de",
         fullWord: "pide",
         coordinatesVerified: false,
-        acceptsItemId: "syl-de"
+        acceptsItemId: "syl-de-1"
       },
       {
-        id: "blank-duma",
+        id: "blank-duma-5",
         label: "___ma",
         hint: "Du - do",
         correctSyllable: "Du",
         fullWord: "Duma",
         coordinatesVerified: false,
-        acceptsItemId: "syl-Du"
+        acceptsItemId: "syl-Du-5"
       }
     ],
     exercises: [

@@ -16,7 +16,7 @@ export const lesson13 = [
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
-    teacherNotes: "Students trace uppercase N and lowercase n.",
+    teacherNotes: "Scaffolded letter tracing for N.",
     sourcePage: getBookPageImage(49)
   },
   {
@@ -58,14 +58,19 @@ export const lesson13 = [
     lessonNumber: 13,
     pageNumber: 51,
     kind: "read-aloud",
-    title: "Sílabas con N — página Nn",
-    prompt: "Toca cada sílaba para escucharla. Repite en voz alta.",
+    title: "Nn",
+    prompt: "Nn",
     items: [
-      { id: "ra-na", label: "na" },
-      { id: "ra-ne", label: "ne" },
-      { id: "ra-ni", label: "ni" },
-      { id: "ra-no", label: "no" },
-      { id: "ra-nu", label: "nu" }
+      { id: "ra-na-0", label: "na" },
+      { id: "ra-ne-1", label: "ne" },
+      { id: "ra-ni-2", label: "ni" },
+      { id: "ra-no-3", label: "no" },
+      { id: "ra-nu-4", label: "nu" },
+      { id: "ra-nu-5", label: "nu" },
+      { id: "ra-no-6", label: "no" },
+      { id: "ra-na-7", label: "na" },
+      { id: "ra-ne-8", label: "ne" },
+      { id: "ra-ni-9", label: "ni" }
     ],
     targets: [],
     sourceStatus: "scaffold",
@@ -79,26 +84,24 @@ export const lesson13 = [
     lessonNumber: 13,
     pageNumber: 51,
     kind: "listen-and-tap",
-    title: "Palabras con N",
-    prompt: "Toca cada palabra para escucharla.",
+    title: "Palabras",
+    prompt: "Palabras",
     items: [
-      { id: "w-nido", label: "nido" },
-      { id: "w-tina", label: "tina" },
-      { id: "w-nada", label: "nada" },
-      { id: "w-nene", label: "nené" },
-      { id: "w-mano", label: "mano" },
-      { id: "w-nulo", label: "nulo" },
-      { id: "w-nono", label: "Nono" },
-      { id: "w-tono", label: "Tono" },
-      { id: "w-alina", label: "Alina" },
-      { id: "w-poni", label: "poni" },
-      { id: "w-nena", label: "Nena" },
-      { id: "w-nata", label: "nata" },
-      { id: "w-mono", label: "mono" },
-      { id: "w-luna", label: "luna" },
-      { id: "w-neli", label: "Neli" },
-      { id: "w-esa", label: "esa" },
-      { id: "w-a", label: "a" }
+      { id: "w-nido-0", label: "nido" },
+      { id: "w-tina-1", label: "tina" },
+      { id: "w-nada-2", label: "nada" },
+      { id: "w-nene-3", label: "nené" },
+      { id: "w-mano-4", label: "mano" },
+      { id: "w-nulo-5", label: "nulo" },
+      { id: "w-nono-6", label: "Nono" },
+      { id: "w-tono-7", label: "Tono" },
+      { id: "w-alina-8", label: "Alina" },
+      { id: "w-poni-9", label: "poni" },
+      { id: "w-nena-10", label: "Nena" },
+      { id: "w-nata-11", label: "nata" },
+      { id: "w-mono-12", label: "mono" },
+      { id: "w-luna-13", label: "luna" },
+      { id: "w-neli-14", label: "Neli" }
     ],
     targets: [],
     sourceStatus: "scaffold",
@@ -112,8 +115,8 @@ export const lesson13 = [
     lessonNumber: 13,
     pageNumber: 51,
     kind: "mini-story",
-    title: "Mini-cuento",
-    prompt: "Lee el mini-cuento del cuaderno con tu maestro.",
+    title: "Cuento",
+    prompt: "Cuento",
     items: [
       { id: "story-n-1", label: "Tomás dame esa tina. La tina es de Napi." },
       { id: "story-n-2", label: "Tono y Alina aman a Napi." },
@@ -140,66 +143,66 @@ export const lesson13 = [
     title: "Completa las palabras con la sílaba correcta.",
     prompt: "Completa las palabras con la sílaba correcta.",
     items: [
-      { id: "syl-no", label: "no" },
-      { id: "syl-ni", label: "ni" },
-      { id: "syl-nu", label: "nu" },
-      { id: "syl-na", label: "na" },
-      { id: "syl-ne", label: "ne" }
+      { id: "syl-no-0", label: "no" },
+      { id: "syl-ni-1", label: "ni" },
+      { id: "syl-nu-2", label: "nu" },
+      { id: "syl-na-3", label: "na" },
+      { id: "syl-ne-4", label: "ne" }
     ],
     targets: [
       {
-        id: "blank-nido",
+        id: "blank-nido-0",
         label: "___do",
         hint: "no - ni",
         correctSyllable: "ni",
         fullWord: "nido",
         coordinatesVerified: false,
-        acceptsItemId: "syl-ni"
+        acceptsItemId: "syl-ni-1"
       },
       {
-        id: "blank-tina",
+        id: "blank-tina-1",
         label: "ti___",
         hint: "nu - na",
         correctSyllable: "na",
         fullWord: "tina",
         coordinatesVerified: false,
-        acceptsItemId: "syl-na"
+        acceptsItemId: "syl-na-3"
       },
       {
-        id: "blank-suena",
+        id: "blank-suena-2",
         label: "sue___",
         hint: "ni - na",
         correctSyllable: "na",
         fullWord: "suena",
         coordinatesVerified: false,
-        acceptsItemId: "syl-na"
+        acceptsItemId: "syl-na-3"
       },
       {
-        id: "blank-mono",
+        id: "blank-mono-3",
         label: "mo___",
         hint: "no - ne",
         correctSyllable: "no",
         fullWord: "mono",
         coordinatesVerified: false,
-        acceptsItemId: "syl-no"
+        acceptsItemId: "syl-no-0"
       },
       {
-        id: "blank-sano",
+        id: "blank-sano-4",
         label: "sa___",
         hint: "no - nu",
         correctSyllable: "no",
         fullWord: "sano",
         coordinatesVerified: false,
-        acceptsItemId: "syl-no"
+        acceptsItemId: "syl-no-0"
       },
       {
-        id: "blank-pone",
+        id: "blank-pone-5",
         label: "po___",
         hint: "ne - ni",
         correctSyllable: "ne",
         fullWord: "pone",
         coordinatesVerified: false,
-        acceptsItemId: "syl-ne"
+        acceptsItemId: "syl-ne-4"
       }
     ],
     exercises: [

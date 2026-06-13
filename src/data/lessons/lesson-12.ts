@@ -16,7 +16,7 @@ export const lesson12 = [
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
-    teacherNotes: "Students trace uppercase L and lowercase l.",
+    teacherNotes: "Scaffolded letter tracing for L.",
     sourcePage: getBookPageImage(45)
   },
   {
@@ -58,14 +58,19 @@ export const lesson12 = [
     lessonNumber: 12,
     pageNumber: 47,
     kind: "read-aloud",
-    title: "Sílabas con L — página Ll",
-    prompt: "Toca cada sílaba para escucharla. Repite en voz alta.",
+    title: "Ll",
+    prompt: "Ll",
     items: [
-      { id: "ra-la", label: "la" },
-      { id: "ra-le", label: "le" },
-      { id: "ra-li", label: "li" },
-      { id: "ra-lo", label: "lo" },
-      { id: "ra-lu", label: "lu" }
+      { id: "ra-la-0", label: "la" },
+      { id: "ra-le-1", label: "le" },
+      { id: "ra-li-2", label: "li" },
+      { id: "ra-lo-3", label: "lo" },
+      { id: "ra-lu-4", label: "lu" },
+      { id: "ra-lu-5", label: "lu" },
+      { id: "ra-lo-6", label: "lo" },
+      { id: "ra-la-7", label: "la" },
+      { id: "ra-le-8", label: "le" },
+      { id: "ra-li-9", label: "li" }
     ],
     targets: [],
     sourceStatus: "scaffold",
@@ -79,25 +84,24 @@ export const lesson12 = [
     lessonNumber: 12,
     pageNumber: 47,
     kind: "listen-and-tap",
-    title: "Palabras con L",
-    prompt: "Toca cada palabra para escucharla.",
+    title: "Palabras",
+    prompt: "Palabras",
     items: [
-      { id: "w-lima", label: "lima" },
-      { id: "w-lata", label: "lata" },
-      { id: "w-aleta", label: "aleta" },
-      { id: "w-maleta", label: "maleta" },
-      { id: "w-lupa", label: "lupa" },
-      { id: "w-sale", label: "sale" },
-      { id: "w-paloma", label: "paloma" },
-      { id: "w-pala", label: "pala" },
-      { id: "w-lomo", label: "lomo" },
-      { id: "w-pelusa", label: "pelusa" },
-      { id: "w-lilo", label: "Lilo" },
-      { id: "w-lola", label: "Lola" },
-      { id: "w-luli", label: "Luli" },
-      { id: "w-tela", label: "tela" },
-      { id: "w-tula", label: "Tula" },
-      { id: "w-tambien", label: "también" }
+      { id: "w-lima-0", label: "lima" },
+      { id: "w-lata-1", label: "lata" },
+      { id: "w-aleta-2", label: "aleta" },
+      { id: "w-maleta-3", label: "maleta" },
+      { id: "w-lupa-4", label: "lupa" },
+      { id: "w-sale-5", label: "sale" },
+      { id: "w-paloma-6", label: "paloma" },
+      { id: "w-pala-7", label: "pala" },
+      { id: "w-lomo-8", label: "lomo" },
+      { id: "w-pelusa-9", label: "pelusa" },
+      { id: "w-lilo-10", label: "Lilo" },
+      { id: "w-lola-11", label: "Lola" },
+      { id: "w-luli-12", label: "Luli" },
+      { id: "w-tela-13", label: "tela" },
+      { id: "w-tula-14", label: "Tula" }
     ],
     targets: [],
     sourceStatus: "scaffold",
@@ -111,8 +115,8 @@ export const lesson12 = [
     lessonNumber: 12,
     pageNumber: 47,
     kind: "mini-story",
-    title: "Mini-cuento",
-    prompt: "Lee el mini-cuento del cuaderno con tu maestro.",
+    title: "Cuento",
+    prompt: "Cuento",
     items: [
       { id: "story-l-1", label: "La maleta de Luli está en la mesa." },
       { id: "story-l-2", label: "La tela de la maleta tiene pelusas." },
@@ -139,66 +143,66 @@ export const lesson12 = [
     title: "Completa las palabras con la sílaba correcta.",
     prompt: "Completa las palabras con la sílaba correcta.",
     items: [
-      { id: "syl-le", label: "le" },
-      { id: "syl-lo", label: "lo" },
-      { id: "syl-li", label: "li" },
-      { id: "syl-la", label: "la" },
-      { id: "syl-lu", label: "lu" }
+      { id: "syl-le-0", label: "le" },
+      { id: "syl-lo-1", label: "lo" },
+      { id: "syl-li-2", label: "li" },
+      { id: "syl-la-3", label: "la" },
+      { id: "syl-lu-4", label: "lu" }
     ],
     targets: [
       {
-        id: "blank-paleta",
+        id: "blank-paleta-0",
         label: "pa___ta",
         hint: "le - lo",
         correctSyllable: "le",
         fullWord: "paleta",
         coordinatesVerified: false,
-        acceptsItemId: "syl-le"
+        acceptsItemId: "syl-le-0"
       },
       {
-        id: "blank-solo",
+        id: "blank-solo-1",
         label: "so___",
         hint: "li - lo",
         correctSyllable: "lo",
         fullWord: "solo",
         coordinatesVerified: false,
-        acceptsItemId: "syl-lo"
+        acceptsItemId: "syl-lo-1"
       },
       {
-        id: "blank-pala",
+        id: "blank-pala-2",
         label: "pa___",
         hint: "la - lu",
         correctSyllable: "la",
         fullWord: "pala",
         coordinatesVerified: false,
-        acceptsItemId: "syl-la"
+        acceptsItemId: "syl-la-3"
       },
       {
-        id: "blank-lata",
+        id: "blank-lata-3",
         label: "___ta",
         hint: "la - le",
         correctSyllable: "la",
         fullWord: "lata",
         coordinatesVerified: false,
-        acceptsItemId: "syl-la"
+        acceptsItemId: "syl-la-3"
       },
       {
-        id: "blank-maleta",
+        id: "blank-maleta-4",
         label: "ma___ta",
         hint: "le - li",
         correctSyllable: "le",
         fullWord: "maleta",
         coordinatesVerified: false,
-        acceptsItemId: "syl-le"
+        acceptsItemId: "syl-le-0"
       },
       {
-        id: "blank-lupa",
+        id: "blank-lupa-5",
         label: "___pa",
         hint: "lu - la",
         correctSyllable: "lu",
         fullWord: "lupa",
         coordinatesVerified: false,
-        acceptsItemId: "syl-lu"
+        acceptsItemId: "syl-lu-4"
       }
     ],
     exercises: [

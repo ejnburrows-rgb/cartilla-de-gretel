@@ -16,7 +16,7 @@ export const lesson16 = [
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
-    teacherNotes: "Students trace uppercase V and lowercase v.",
+    teacherNotes: "Scaffolded letter tracing for V.",
     sourcePage: getBookPageImage(61)
   },
   {
@@ -58,14 +58,19 @@ export const lesson16 = [
     lessonNumber: 16,
     pageNumber: 63,
     kind: "read-aloud",
-    title: "Sílabas con V — página Vv",
-    prompt: "Toca cada sílaba para escucharla. Repite en voz alta.",
+    title: "Vv",
+    prompt: "Vv",
     items: [
-      { id: "ra-va", label: "va" },
-      { id: "ra-ve", label: "ve" },
-      { id: "ra-vi", label: "vi" },
-      { id: "ra-vo", label: "vo" },
-      { id: "ra-vu", label: "vu" }
+      { id: "ra-va-0", label: "va" },
+      { id: "ra-ve-1", label: "ve" },
+      { id: "ra-vi-2", label: "vi" },
+      { id: "ra-vo-3", label: "vo" },
+      { id: "ra-vu-4", label: "vu" },
+      { id: "ra-vu-5", label: "vu" },
+      { id: "ra-vo-6", label: "vo" },
+      { id: "ra-va-7", label: "va" },
+      { id: "ra-ve-8", label: "ve" },
+      { id: "ra-vi-9", label: "vi" }
     ],
     targets: [],
     sourceStatus: "scaffold",
@@ -79,24 +84,24 @@ export const lesson16 = [
     lessonNumber: 16,
     pageNumber: 63,
     kind: "listen-and-tap",
-    title: "Palabras con V",
-    prompt: "Toca cada palabra para escucharla.",
+    title: "Palabras",
+    prompt: "Palabras",
     items: [
-      { id: "w-vaso", label: "vaso" },
-      { id: "w-avena", label: "avena" },
-      { id: "w-vivo", label: "vivo" },
-      { id: "w-vela", label: "vela" },
-      { id: "w-ventana", label: "ventana" },
-      { id: "w-vive", label: "vive" },
-      { id: "w-vale", label: "vale" },
-      { id: "w-pavo", label: "pavo" },
-      { id: "w-vine", label: "vine" },
-      { id: "w-vino", label: "vino" },
-      { id: "w-lava", label: "lava" },
-      { id: "w-vuli", label: "Vuli" },
-      { id: "w-venas", label: "venas" },
-      { id: "w-lavamanos", label: "lavamanos" },
-      { id: "w-ven", label: "ven" }
+      { id: "w-vaso-0", label: "vaso" },
+      { id: "w-avena-1", label: "avena" },
+      { id: "w-vivo-2", label: "vivo" },
+      { id: "w-vela-3", label: "vela" },
+      { id: "w-ventana-4", label: "ventana" },
+      { id: "w-vive-5", label: "vive" },
+      { id: "w-vale-6", label: "vale" },
+      { id: "w-pavo-7", label: "pavo" },
+      { id: "w-vine-8", label: "vine" },
+      { id: "w-vino-9", label: "vino" },
+      { id: "w-lava-10", label: "lava" },
+      { id: "w-vuli-11", label: "Vuli" },
+      { id: "w-venas-12", label: "venas" },
+      { id: "w-lavamanos-13", label: "lavamanos" },
+      { id: "w-ven-14", label: "ven" }
     ],
     targets: [],
     sourceStatus: "scaffold",
@@ -110,20 +115,17 @@ export const lesson16 = [
     lessonNumber: 16,
     pageNumber: 63,
     kind: "mini-story",
-    title: "Mini-cuento",
-    prompt: "Lee el mini-cuento del cuaderno con tu maestro.",
+    title: "Cuento",
+    prompt: "Cuento",
     items: [
       { id: "story-v-1", label: "La nieve se va. Vita se lava" },
-      { id: "story-v-2", label: "las manos en el lavamanos ." },
+      { id: "story-v-2", label: "las manos en el lavamanos." },
       { id: "story-v-3", label: "Mamá lava las mesas del patio." },
       { id: "story-v-4", label: "Mamá pone unos manteles nuevos." },
-      { id: "story-v-5", label: "El viento mueve los manteles de mamá y" },
-      { id: "story-v-6", label: "mueve el papalote de Valentín." },
-      { id: "story-v-7", label: "El papalote vuela y vuela." }
+      { id: "story-v-5", label: "El viento mueve los manteles de mamá y mueve el papalote de Valentín." },
+      { id: "story-v-6", label: "El papalote vuela y vuela." }
     ],
     targets: [],
-    sightWords: [
-    ],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
@@ -138,66 +140,66 @@ export const lesson16 = [
     title: "Completa las palabras con la sílaba correcta.",
     prompt: "Completa las palabras con la sílaba correcta.",
     items: [
-      { id: "syl-ve", label: "ve" },
-      { id: "syl-vu", label: "vu" },
-      { id: "syl-va", label: "va" },
-      { id: "syl-vo", label: "vo" },
-      { id: "syl-vi", label: "vi" }
+      { id: "syl-ve-0", label: "ve" },
+      { id: "syl-vu-1", label: "vu" },
+      { id: "syl-va-2", label: "va" },
+      { id: "syl-vo-3", label: "vo" },
+      { id: "syl-vi-4", label: "vi" }
     ],
     targets: [
       {
-        id: "blank-nave",
+        id: "blank-nave-0",
         label: "na___",
         hint: "ve - vu",
         correctSyllable: "ve",
         fullWord: "nave",
         coordinatesVerified: false,
-        acceptsItemId: "syl-ve"
+        acceptsItemId: "syl-ve-0"
       },
       {
-        id: "blank-vaso",
+        id: "blank-vaso-1",
         label: "___so",
         hint: "va - vo",
         correctSyllable: "va",
         fullWord: "vaso",
         coordinatesVerified: false,
-        acceptsItemId: "syl-va"
+        acceptsItemId: "syl-va-2"
       },
       {
-        id: "blank-vela",
+        id: "blank-vela-2",
         label: "___la",
         hint: "vi - ve",
         correctSyllable: "ve",
         fullWord: "vela",
         coordinatesVerified: false,
-        acceptsItemId: "syl-ve"
+        acceptsItemId: "syl-ve-0"
       },
       {
-        id: "blank-pavo",
+        id: "blank-pavo-3",
         label: "pa___",
         hint: "vo - vu",
         correctSyllable: "vo",
         fullWord: "pavo",
         coordinatesVerified: false,
-        acceptsItemId: "syl-vo"
+        acceptsItemId: "syl-vo-3"
       },
       {
-        id: "blank-vine",
+        id: "blank-vine-4",
         label: "___ne",
         hint: "va - vi",
         correctSyllable: "vi",
         fullWord: "vine",
         coordinatesVerified: false,
-        acceptsItemId: "syl-vi"
+        acceptsItemId: "syl-vi-4"
       },
       {
-        id: "blank-aviso",
+        id: "blank-aviso-5",
         label: "a___so",
         hint: "vi - vo",
         correctSyllable: "vi",
         fullWord: "aviso",
         coordinatesVerified: false,
-        acceptsItemId: "syl-vi"
+        acceptsItemId: "syl-vi-4"
       }
     ],
     exercises: [
