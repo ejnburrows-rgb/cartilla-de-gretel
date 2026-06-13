@@ -10,14 +10,14 @@ export const lesson14 = [
     prompt: "Haz un dibujo que represente una palabra que comienza con ñ.",
     items: [
       { id: "letter-Ñ", label: "Ñ" },
-      { id: "letter-ñ", label: "ñ" },
+      { id: "letter-ñ", label: "ñ" }
     ],
     targets: [],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Students trace uppercase Ñ and lowercase ñ.",
-    sourcePage: getBookPageImage(53),
+    sourcePage: getBookPageImage(53)
   },
   {
     id: "l14-p54-syllable-circle",
@@ -31,52 +31,27 @@ export const lesson14 = [
       { id: "syl-ñe", label: "ñe" },
       { id: "syl-ñi", label: "ñi" },
       { id: "syl-ño", label: "ño" },
-      { id: "syl-ñu", label: "ñu" },
+      { id: "syl-ñu", label: "ñu" }
     ],
     targets: [
       { id: "slot-ña", label: "ña", coordinatesVerified: false, acceptsItemId: "syl-ña" },
       { id: "slot-ñe", label: "ñe", coordinatesVerified: false, acceptsItemId: "syl-ñe" },
       { id: "slot-ñi", label: "ñi", coordinatesVerified: false, acceptsItemId: "syl-ñi" },
       { id: "slot-ño", label: "ño", coordinatesVerified: false, acceptsItemId: "syl-ño" },
-      { id: "slot-ñu", label: "ñu", coordinatesVerified: false, acceptsItemId: "syl-ñu" },
+      { id: "slot-ñu", label: "ñu", coordinatesVerified: false, acceptsItemId: "syl-ñu" }
     ],
     wordBank: [
-      "maña",
-      "mañana",
-      "montaña",
-      "ñame",
-      "araña",
-      "caña",
-      "Meñe",
-      "añejo",
-      "sueñe",
-      "adueñe",
-      "cañengo",
-      "apañe",
-      "añico",
-      "pañito",
-      "cañita",
-      "niñito",
-      "arañita",
-      "reñido",
-      "moño",
-      "niño",
-      "sueño",
-      "Ñoña",
-      "año",
-      "Ñuco",
-      "Ñuto",
-      "cañuto",
-      "moñudo",
-      "ceñudo",
-      "pañuelo",
-      "puño",
+      "maña", "mañana", "montaña", "ñame", "araña", "caña",
+      "Meñe", "añejo", "sueñe", "adueñe", "cañengo", "apañe",
+      "añico", "pañito", "cañita", "niñito", "arañita", "reñido",
+      "moño", "niño", "sueño", "Ñoña", "año", "Ñuco",
+      "Ñuto", "cañuto", "moñudo", "ceñudo", "pañuelo", "puño"
     ],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded syllable circle for Ñ.",
-    sourcePage: getBookPageImage(54),
+    sourcePage: getBookPageImage(54)
   },
   {
     id: "l14-p55-syllable-tap",
@@ -90,14 +65,14 @@ export const lesson14 = [
       { id: "ra-ñe", label: "ñe" },
       { id: "ra-ñi", label: "ñi" },
       { id: "ra-ño", label: "ño" },
-      { id: "ra-ñu", label: "ñu" },
+      { id: "ra-ñu", label: "ñu" }
     ],
     targets: [],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded syllable tap for Ñ.",
-    sourcePage: getBookPageImage(55),
+    sourcePage: getBookPageImage(55)
   },
   {
     id: "l14-p55-word-bank",
@@ -122,13 +97,14 @@ export const lesson14 = [
       { id: "w-uña", label: "uña" },
       { id: "w-añitos", label: "añitos" },
       { id: "w-pañuelo", label: "pañuelo" },
+      { id: "w-del", label: "del" }
     ],
     targets: [],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded word bank for Ñ.",
-    sourcePage: getBookPageImage(55),
+    sourcePage: getBookPageImage(55)
   },
   {
     id: "l14-p55-mini-story",
@@ -141,17 +117,19 @@ export const lesson14 = [
       { id: "story-ñ-1", label: "Meñe es dueña de esa piñata." },
       { id: "story-ñ-2", label: "La piñata es del año pasado." },
       { id: "story-ñ-3", label: "La piñata está en el patio." },
-      { id: "story-ñ-4", label: "Noña tiene una niña." },
+      { id: "story-ñ-4", label: "Ñoña tiene una niña." },
       { id: "story-ñ-5", label: "La niña tiene sueño." },
-      { id: "story-ñ-6", label: "Noña le pone el pañal a la niña." },
+      { id: "story-ñ-6", label: "Ñoña le pone el pañal a la niña." }
     ],
     targets: [],
-    sightWords: ["del"],
+    sightWords: [
+      "del"
+    ],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded mini-story for Ñ.",
-    sourcePage: getBookPageImage(55),
+    sourcePage: getBookPageImage(55)
   },
   {
     id: "l14-p56-fill-in-blank",
@@ -161,111 +139,111 @@ export const lesson14 = [
     title: "Completa las palabras con la sílaba correcta.",
     prompt: "Completa las palabras con la sílaba correcta.",
     items: [
-      { id: "syl-nye", label: "ñe" },
-      { id: "syl-nya", label: "ña" },
-      { id: "syl-nyo", label: "ño" },
-      { id: "syl-nyi", label: "ñi" },
-      { id: "syl-nyu", label: "ñu" },
+      { id: "syl-ñe", label: "ñe" },
+      { id: "syl-ña", label: "ña" },
+      { id: "syl-ño", label: "ño" },
+      { id: "syl-ñi", label: "ñi" },
+      { id: "syl-ñu", label: "ñu" }
     ],
     targets: [
       {
-        id: "blank-manya",
+        id: "blank-maña",
         label: "ma___",
         hint: "ñe - ña",
         correctSyllable: "ña",
         fullWord: "maña",
         coordinatesVerified: false,
-        acceptsItemId: "syl-nya",
+        acceptsItemId: "syl-ña"
       },
       {
-        id: "blank-panyito",
+        id: "blank-pañito",
         label: "pa___to",
         hint: "ño - ñi",
         correctSyllable: "ñi",
         fullWord: "pañito",
         coordinatesVerified: false,
-        acceptsItemId: "syl-nyi",
+        acceptsItemId: "syl-ñi"
       },
       {
-        id: "blank-ninyo",
+        id: "blank-niño",
         label: "ni___",
         hint: "ñi - ño",
         correctSyllable: "ño",
         fullWord: "niño",
         coordinatesVerified: false,
-        acceptsItemId: "syl-nyo",
+        acceptsItemId: "syl-ño"
       },
       {
-        id: "blank-monyo",
+        id: "blank-moño",
         label: "mo___",
         hint: "ño - ñe",
         correctSyllable: "ño",
         fullWord: "moño",
         coordinatesVerified: false,
-        acceptsItemId: "syl-nyo",
+        acceptsItemId: "syl-ño"
       },
       {
-        id: "blank-anyo",
+        id: "blank-año",
         label: "a___",
         hint: "ña - ño",
         correctSyllable: "ño",
         fullWord: "año",
         coordinatesVerified: false,
-        acceptsItemId: "syl-nyo",
+        acceptsItemId: "syl-ño"
       },
       {
-        id: "blank-punyo",
+        id: "blank-puño",
         label: "pu___",
         hint: "ño - ñu",
-        correctSyllable: "ño",
+        correctSyllable: "ñu",
         fullWord: "puño",
         coordinatesVerified: false,
-        acceptsItemId: "syl-nyo",
-      },
+        acceptsItemId: "syl-ñu"
+      }
     ],
     exercises: [
       {
         partial: "ma___",
         choices: ["ñe", "ña"],
         answer: "ña",
-        fullWord: "maña",
+        fullWord: "maña"
       },
       {
         partial: "pa___to",
         choices: ["ño", "ñi"],
         answer: "ñi",
-        fullWord: "pañito",
+        fullWord: "pañito"
       },
       {
         partial: "ni___",
         choices: ["ñi", "ño"],
         answer: "ño",
-        fullWord: "niño",
+        fullWord: "niño"
       },
       {
         partial: "mo___",
         choices: ["ño", "ñe"],
         answer: "ño",
-        fullWord: "moño",
+        fullWord: "moño"
       },
       {
         partial: "a___",
         choices: ["ña", "ño"],
         answer: "ño",
-        fullWord: "año",
+        fullWord: "año"
       },
       {
         partial: "pu___",
         choices: ["ño", "ñu"],
-        answer: "ño",
-        fullWord: "puño",
-      },
+        answer: "ñu",
+        fullWord: "puño"
+      }
     ],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded fill-in-the-blank for Ñ.",
-    sourcePage: getBookPageImage(56),
+    sourcePage: getBookPageImage(56)
   },
   {
     id: "l14-p56-write-sentences",
@@ -280,6 +258,6 @@ export const lesson14 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Sentence writing lines.",
-    sourcePage: getBookPageImage(56),
-  },
+    sourcePage: getBookPageImage(56)
+  }
 ];

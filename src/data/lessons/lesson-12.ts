@@ -10,14 +10,14 @@ export const lesson12 = [
     prompt: "Haz un dibujo que represente una palabra que comienza con l.",
     items: [
       { id: "letter-L", label: "L" },
-      { id: "letter-l", label: "l" },
+      { id: "letter-l", label: "l" }
     ],
     targets: [],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Students trace uppercase L and lowercase l.",
-    sourcePage: getBookPageImage(45),
+    sourcePage: getBookPageImage(45)
   },
   {
     id: "l12-p46-syllable-circle",
@@ -31,52 +31,27 @@ export const lesson12 = [
       { id: "syl-le", label: "le" },
       { id: "syl-li", label: "li" },
       { id: "syl-lo", label: "lo" },
-      { id: "syl-lu", label: "lu" },
+      { id: "syl-lu", label: "lu" }
     ],
     targets: [
       { id: "slot-la", label: "la", coordinatesVerified: false, acceptsItemId: "syl-la" },
       { id: "slot-le", label: "le", coordinatesVerified: false, acceptsItemId: "syl-le" },
       { id: "slot-li", label: "li", coordinatesVerified: false, acceptsItemId: "syl-li" },
       { id: "slot-lo", label: "lo", coordinatesVerified: false, acceptsItemId: "syl-lo" },
-      { id: "slot-lu", label: "lu", coordinatesVerified: false, acceptsItemId: "syl-lu" },
+      { id: "slot-lu", label: "lu", coordinatesVerified: false, acceptsItemId: "syl-lu" }
     ],
     wordBank: [
-      "lata",
-      "mala",
-      "pala",
-      "Lamas",
-      "mula",
-      "pila",
-      "Leo",
-      "aleta",
-      "saleta",
-      "maleta",
-      "sale",
-      "paleta",
-      "lima",
-      "Lila",
-      "alita",
-      "liso",
-      "palito",
-      "limón",
-      "pelota",
-      "palo",
-      "Lolo",
-      "Polo",
-      "Lola",
-      "paloma",
-      "lupa",
-      "pelusa",
-      "Luli",
-      "luna",
-      "saluda",
-      "Lupe",
+      "lata", "mala", "pala", "Lamas", "mula", "pila",
+      "Leo", "aleta", "saleta", "maleta", "sale", "paleta",
+      "lima", "Lila", "alita", "liso", "palito", "limón",
+      "pelota", "palo", "Lolo", "Polo", "Lola", "paloma",
+      "lupa", "pelusa", "Luli", "luna", "saluda", "Lupe"
     ],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded syllable circle for L.",
-    sourcePage: getBookPageImage(46),
+    sourcePage: getBookPageImage(46)
   },
   {
     id: "l12-p47-syllable-tap",
@@ -90,14 +65,14 @@ export const lesson12 = [
       { id: "ra-le", label: "le" },
       { id: "ra-li", label: "li" },
       { id: "ra-lo", label: "lo" },
-      { id: "ra-lu", label: "lu" },
+      { id: "ra-lu", label: "lu" }
     ],
     targets: [],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded syllable tap for L.",
-    sourcePage: getBookPageImage(47),
+    sourcePage: getBookPageImage(47)
   },
   {
     id: "l12-p47-word-bank",
@@ -122,13 +97,14 @@ export const lesson12 = [
       { id: "w-luli", label: "Luli" },
       { id: "w-tela", label: "tela" },
       { id: "w-tula", label: "Tula" },
+      { id: "w-tambien", label: "también" }
     ],
     targets: [],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded word bank for L.",
-    sourcePage: getBookPageImage(47),
+    sourcePage: getBookPageImage(47)
   },
   {
     id: "l12-p47-mini-story",
@@ -143,15 +119,17 @@ export const lesson12 = [
       { id: "story-l-3", label: "La maleta de Polo es de tela." },
       { id: "story-l-4", label: "Mamá le da la maleta a Polo." },
       { id: "story-l-5", label: "Polo toma su maleta de tela." },
-      { id: "story-l-6", label: "Lalo tiene una maleta de tela también." },
+      { id: "story-l-6", label: "Lalo tiene una maleta de tela también." }
     ],
     targets: [],
-    sightWords: ["también"],
+    sightWords: [
+      "también"
+    ],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded mini-story for L.",
-    sourcePage: getBookPageImage(47),
+    sourcePage: getBookPageImage(47)
   },
   {
     id: "l12-p48-fill-in-blank",
@@ -165,7 +143,7 @@ export const lesson12 = [
       { id: "syl-lo", label: "lo" },
       { id: "syl-li", label: "li" },
       { id: "syl-la", label: "la" },
-      { id: "syl-lu", label: "lu" },
+      { id: "syl-lu", label: "lu" }
     ],
     targets: [
       {
@@ -175,7 +153,7 @@ export const lesson12 = [
         correctSyllable: "le",
         fullWord: "paleta",
         coordinatesVerified: false,
-        acceptsItemId: "syl-le",
+        acceptsItemId: "syl-le"
       },
       {
         id: "blank-solo",
@@ -184,7 +162,7 @@ export const lesson12 = [
         correctSyllable: "lo",
         fullWord: "solo",
         coordinatesVerified: false,
-        acceptsItemId: "syl-lo",
+        acceptsItemId: "syl-lo"
       },
       {
         id: "blank-pala",
@@ -193,7 +171,7 @@ export const lesson12 = [
         correctSyllable: "la",
         fullWord: "pala",
         coordinatesVerified: false,
-        acceptsItemId: "syl-la",
+        acceptsItemId: "syl-la"
       },
       {
         id: "blank-lata",
@@ -202,7 +180,7 @@ export const lesson12 = [
         correctSyllable: "la",
         fullWord: "lata",
         coordinatesVerified: false,
-        acceptsItemId: "syl-la",
+        acceptsItemId: "syl-la"
       },
       {
         id: "blank-maleta",
@@ -211,7 +189,7 @@ export const lesson12 = [
         correctSyllable: "le",
         fullWord: "maleta",
         coordinatesVerified: false,
-        acceptsItemId: "syl-le",
+        acceptsItemId: "syl-le"
       },
       {
         id: "blank-lupa",
@@ -220,52 +198,52 @@ export const lesson12 = [
         correctSyllable: "lu",
         fullWord: "lupa",
         coordinatesVerified: false,
-        acceptsItemId: "syl-lu",
-      },
+        acceptsItemId: "syl-lu"
+      }
     ],
     exercises: [
       {
         partial: "pa___ta",
         choices: ["le", "lo"],
         answer: "le",
-        fullWord: "paleta",
+        fullWord: "paleta"
       },
       {
         partial: "so___",
         choices: ["li", "lo"],
         answer: "lo",
-        fullWord: "solo",
+        fullWord: "solo"
       },
       {
         partial: "pa___",
         choices: ["la", "lu"],
         answer: "la",
-        fullWord: "pala",
+        fullWord: "pala"
       },
       {
         partial: "___ta",
         choices: ["la", "le"],
         answer: "la",
-        fullWord: "lata",
+        fullWord: "lata"
       },
       {
         partial: "ma___ta",
         choices: ["le", "li"],
         answer: "le",
-        fullWord: "maleta",
+        fullWord: "maleta"
       },
       {
         partial: "___pa",
         choices: ["lu", "la"],
         answer: "lu",
-        fullWord: "lupa",
-      },
+        fullWord: "lupa"
+      }
     ],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded fill-in-the-blank for L.",
-    sourcePage: getBookPageImage(48),
+    sourcePage: getBookPageImage(48)
   },
   {
     id: "l12-p48-write-sentences",
@@ -280,6 +258,6 @@ export const lesson12 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Sentence writing lines.",
-    sourcePage: getBookPageImage(48),
-  },
+    sourcePage: getBookPageImage(48)
+  }
 ];
