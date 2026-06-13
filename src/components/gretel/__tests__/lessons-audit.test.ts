@@ -1,4 +1,10 @@
 import { describe, it, expect } from "vitest";
+import { lesson01 } from "@/data/lessons/lesson-01";
+import { lesson02 } from "@/data/lessons/lesson-02";
+import { lesson03 } from "@/data/lessons/lesson-03";
+import { lesson04 } from "@/data/lessons/lesson-04";
+import { lesson05 } from "@/data/lessons/lesson-05";
+import { lesson06 } from "@/data/lessons/lesson-06";
 import { lesson07 } from "@/data/lessons/lesson-07";
 import { lesson08 } from "@/data/lessons/lesson-08";
 import { lesson09 } from "@/data/lessons/lesson-09";
@@ -12,6 +18,12 @@ import { lesson16 } from "@/data/lessons/lesson-16";
 import { getBookPageImage } from "@/lib/bookImages";
 
 const lessons = {
+  1: lesson01,
+  2: lesson02,
+  3: lesson03,
+  4: lesson04,
+  5: lesson05,
+  6: lesson06,
   7: lesson07,
   8: lesson08,
   9: lesson09,
