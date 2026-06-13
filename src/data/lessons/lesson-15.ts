@@ -16,7 +16,7 @@ export const lesson15 = [
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded letter tracing for B.",
+    teacherNotes: "Students trace uppercase B and lowercase b.",
     sourcePage: getBookPageImage(57)
   },
   {
@@ -61,16 +61,11 @@ export const lesson15 = [
     title: "Bb",
     prompt: "Bb",
     items: [
-      { id: "ra-ba-0", label: "ba" },
-      { id: "ra-be-1", label: "be" },
-      { id: "ra-bi-2", label: "bi" },
-      { id: "ra-bo-3", label: "bo" },
-      { id: "ra-bu-4", label: "bu" },
-      { id: "ra-bu-5", label: "bu" },
-      { id: "ra-bo-6", label: "bo" },
-      { id: "ra-ba-7", label: "ba" },
-      { id: "ra-be-8", label: "be" },
-      { id: "ra-bi-9", label: "bi" }
+      { id: "ra-ba", label: "ba" },
+      { id: "ra-be", label: "be" },
+      { id: "ra-bi", label: "bi" },
+      { id: "ra-bo", label: "bo" },
+      { id: "ra-bu", label: "bu" }
     ],
     targets: [],
     sourceStatus: "scaffold",
@@ -87,21 +82,21 @@ export const lesson15 = [
     title: "Palabras",
     prompt: "Palabras",
     items: [
-      { id: "w-bano-0", label: "baño" },
-      { id: "w-bota-1", label: "bota" },
-      { id: "w-bolo-2", label: "bolo" },
-      { id: "w-bebe-3", label: "bebé" },
-      { id: "w-bebo-4", label: "Bebo" },
-      { id: "w-bonito-5", label: "bonito" },
-      { id: "w-bueno-6", label: "bueno" },
-      { id: "w-lobo-7", label: "lobo" },
-      { id: "w-bate-8", label: "bate" },
-      { id: "w-bonita-9", label: "bonita" },
-      { id: "w-sube-10", label: "sube" },
-      { id: "w-batea-11", label: "batea" },
-      { id: "w-cubito-12", label: "cubito" },
-      { id: "w-bote-13", label: "bote" },
-      { id: "w-nube-14", label: "nube" }
+      { id: "w-baño", label: "baño" },
+      { id: "w-bota", label: "bota" },
+      { id: "w-bolo", label: "bolo" },
+      { id: "w-bebe", label: "bebé" },
+      { id: "w-bebo", label: "Bebo" },
+      { id: "w-bonito", label: "bonito" },
+      { id: "w-bueno", label: "bueno" },
+      { id: "w-lobo", label: "lobo" },
+      { id: "w-bate", label: "bate" },
+      { id: "w-bonita", label: "bonita" },
+      { id: "w-sube", label: "sube" },
+      { id: "w-batea", label: "batea" },
+      { id: "w-cubito", label: "cubito" },
+      { id: "w-bote", label: "bote" },
+      { id: "w-nube", label: "nube" }
     ],
     targets: [],
     sourceStatus: "scaffold",
@@ -144,66 +139,66 @@ export const lesson15 = [
     title: "Completa las palabras con la sílaba correcta.",
     prompt: "Completa las palabras con la sílaba correcta.",
     items: [
-      { id: "syl-bu-0", label: "bu" },
-      { id: "syl-bo-1", label: "bo" },
-      { id: "syl-be-2", label: "be" },
-      { id: "syl-bi-3", label: "bi" },
-      { id: "syl-ba-4", label: "ba" }
+      { id: "syl-ba", label: "ba" },
+      { id: "syl-be", label: "be" },
+      { id: "syl-bi", label: "bi" },
+      { id: "syl-bo", label: "bo" },
+      { id: "syl-bu", label: "bu" }
     ],
     targets: [
       {
-        id: "blank-cubo-0",
+        id: "blank-cubo",
         label: "cu___",
         hint: "bu - bo",
         correctSyllable: "bo",
         fullWord: "cubo",
         coordinatesVerified: false,
-        acceptsItemId: "syl-bo-1"
+        acceptsItemId: "syl-bo"
       },
       {
-        id: "blank-bolo-1",
+        id: "blank-bolo",
         label: "___lo",
         hint: "bo - be",
         correctSyllable: "bo",
         fullWord: "bolo",
         coordinatesVerified: false,
-        acceptsItemId: "syl-bo-1"
+        acceptsItemId: "syl-bo"
       },
       {
-        id: "blank-cubito-2",
+        id: "blank-cubito",
         label: "cu___to",
         hint: "bo - bi",
         correctSyllable: "bi",
         fullWord: "cubito",
         coordinatesVerified: false,
-        acceptsItemId: "syl-bi-3"
+        acceptsItemId: "syl-bi"
       },
       {
-        id: "blank-batido-3",
+        id: "blank-batido",
         label: "___tido",
         hint: "be - ba",
         correctSyllable: "ba",
         fullWord: "batido",
         coordinatesVerified: false,
-        acceptsItemId: "syl-ba-4"
+        acceptsItemId: "syl-ba"
       },
       {
-        id: "blank-burro-4",
+        id: "blank-burro",
         label: "___rro",
         hint: "ba - bu",
         correctSyllable: "bu",
         fullWord: "burro",
         coordinatesVerified: false,
-        acceptsItemId: "syl-bu-0"
+        acceptsItemId: "syl-bu"
       },
       {
-        id: "blank-nube-5",
+        id: "blank-nube",
         label: "nu___",
         hint: "be - bi",
         correctSyllable: "be",
         fullWord: "nube",
         coordinatesVerified: false,
-        acceptsItemId: "syl-be-2"
+        acceptsItemId: "syl-be"
       }
     ],
     exercises: [

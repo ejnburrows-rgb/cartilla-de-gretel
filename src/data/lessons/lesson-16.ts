@@ -16,7 +16,7 @@ export const lesson16 = [
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded letter tracing for V.",
+    teacherNotes: "Students trace uppercase V and lowercase v.",
     sourcePage: getBookPageImage(61)
   },
   {
@@ -41,11 +41,11 @@ export const lesson16 = [
       { id: "slot-vu", label: "vu", coordinatesVerified: false, acceptsItemId: "syl-vu" }
     ],
     wordBank: [
-      "vaso", "lavamos", "vámonos", "lava", "nieva", "lavamanos",
-      "venado", "ave", "vela", "venas", "velo", "nave",
-      "vino", "vivo", "vidente", "vine", "aviso", "vitamina",
-      "lavo", "vivo", "pavo", "clavo", "volar", "Tavo",
-      "vuela", "vuelta", "vuelan", "vuelo", "revuelta", "revuelo"
+      "vaso", "lava", "lavamos", "nieva", "vámonos", "lavamanos",
+      "venado", "venas", "ave", "velo", "vela", "nave",
+      "vino", "vine", "vivo", "aviso", "vidente", "vitamina",
+      "lavo", "clavo", "vivo", "volar", "pavo", "Tavo",
+      "vuela", "vuelo", "vuelta", "revuelta", "vuelan", "revuelo"
     ],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
@@ -61,16 +61,11 @@ export const lesson16 = [
     title: "Vv",
     prompt: "Vv",
     items: [
-      { id: "ra-va-0", label: "va" },
-      { id: "ra-ve-1", label: "ve" },
-      { id: "ra-vi-2", label: "vi" },
-      { id: "ra-vo-3", label: "vo" },
-      { id: "ra-vu-4", label: "vu" },
-      { id: "ra-vu-5", label: "vu" },
-      { id: "ra-vo-6", label: "vo" },
-      { id: "ra-va-7", label: "va" },
-      { id: "ra-ve-8", label: "ve" },
-      { id: "ra-vi-9", label: "vi" }
+      { id: "ra-va", label: "va" },
+      { id: "ra-ve", label: "ve" },
+      { id: "ra-vi", label: "vi" },
+      { id: "ra-vo", label: "vo" },
+      { id: "ra-vu", label: "vu" }
     ],
     targets: [],
     sourceStatus: "scaffold",
@@ -87,21 +82,21 @@ export const lesson16 = [
     title: "Palabras",
     prompt: "Palabras",
     items: [
-      { id: "w-vaso-0", label: "vaso" },
-      { id: "w-avena-1", label: "avena" },
-      { id: "w-vivo-2", label: "vivo" },
-      { id: "w-vela-3", label: "vela" },
-      { id: "w-ventana-4", label: "ventana" },
-      { id: "w-vive-5", label: "vive" },
-      { id: "w-vale-6", label: "vale" },
-      { id: "w-pavo-7", label: "pavo" },
-      { id: "w-vine-8", label: "vine" },
-      { id: "w-vino-9", label: "vino" },
-      { id: "w-lava-10", label: "lava" },
-      { id: "w-vuli-11", label: "Vuli" },
-      { id: "w-venas-12", label: "venas" },
-      { id: "w-lavamanos-13", label: "lavamanos" },
-      { id: "w-ven-14", label: "ven" }
+      { id: "w-vaso", label: "vaso" },
+      { id: "w-vela", label: "vela" },
+      { id: "w-vale", label: "vale" },
+      { id: "w-vino", label: "vino" },
+      { id: "w-venas", label: "venas" },
+      { id: "w-avena", label: "avena" },
+      { id: "w-ventana", label: "ventana" },
+      { id: "w-pavo", label: "pavo" },
+      { id: "w-lava", label: "lava" },
+      { id: "w-lavamanos", label: "lavamanos" },
+      { id: "w-vivo", label: "vivo" },
+      { id: "w-vive", label: "vive" },
+      { id: "w-vine", label: "vine" },
+      { id: "w-vuli", label: "Vuli" },
+      { id: "w-ven", label: "ven" }
     ],
     targets: [],
     sourceStatus: "scaffold",
@@ -119,13 +114,15 @@ export const lesson16 = [
     prompt: "Cuento",
     items: [
       { id: "story-v-1", label: "La nieve se va. Vita se lava" },
-      { id: "story-v-2", label: "las manos en el lavamanos." },
+      { id: "story-v-2", label: "las manos en el lavamanos ." },
       { id: "story-v-3", label: "Mamá lava las mesas del patio." },
       { id: "story-v-4", label: "Mamá pone unos manteles nuevos." },
-      { id: "story-v-5", label: "El viento mueve los manteles de mamá y mueve el papalote de Valentín." },
-      { id: "story-v-6", label: "El papalote vuela y vuela." }
+      { id: "story-v-5", label: "El viento mueve los manteles de mamá y" },
+      { id: "story-v-6", label: "mueve el papalote de Valentín." },
+      { id: "story-v-7", label: "El papalote vuela y vuela." }
     ],
     targets: [],
+    sightWords: [],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
@@ -140,66 +137,66 @@ export const lesson16 = [
     title: "Completa las palabras con la sílaba correcta.",
     prompt: "Completa las palabras con la sílaba correcta.",
     items: [
-      { id: "syl-ve-0", label: "ve" },
-      { id: "syl-vu-1", label: "vu" },
-      { id: "syl-va-2", label: "va" },
-      { id: "syl-vo-3", label: "vo" },
-      { id: "syl-vi-4", label: "vi" }
+      { id: "syl-va", label: "va" },
+      { id: "syl-ve", label: "ve" },
+      { id: "syl-vi", label: "vi" },
+      { id: "syl-vo", label: "vo" },
+      { id: "syl-vu", label: "vu" }
     ],
     targets: [
       {
-        id: "blank-nave-0",
+        id: "blank-nave",
         label: "na___",
         hint: "ve - vu",
         correctSyllable: "ve",
         fullWord: "nave",
         coordinatesVerified: false,
-        acceptsItemId: "syl-ve-0"
+        acceptsItemId: "syl-ve"
       },
       {
-        id: "blank-vaso-1",
+        id: "blank-vaso",
         label: "___so",
         hint: "va - vo",
         correctSyllable: "va",
         fullWord: "vaso",
         coordinatesVerified: false,
-        acceptsItemId: "syl-va-2"
+        acceptsItemId: "syl-va"
       },
       {
-        id: "blank-vela-2",
+        id: "blank-vela",
         label: "___la",
         hint: "vi - ve",
         correctSyllable: "ve",
         fullWord: "vela",
         coordinatesVerified: false,
-        acceptsItemId: "syl-ve-0"
+        acceptsItemId: "syl-ve"
       },
       {
-        id: "blank-pavo-3",
+        id: "blank-pavo",
         label: "pa___",
         hint: "vo - vu",
         correctSyllable: "vo",
         fullWord: "pavo",
         coordinatesVerified: false,
-        acceptsItemId: "syl-vo-3"
+        acceptsItemId: "syl-vo"
       },
       {
-        id: "blank-vine-4",
+        id: "blank-vine",
         label: "___ne",
         hint: "va - vi",
         correctSyllable: "vi",
         fullWord: "vine",
         coordinatesVerified: false,
-        acceptsItemId: "syl-vi-4"
+        acceptsItemId: "syl-vi"
       },
       {
-        id: "blank-aviso-5",
+        id: "blank-aviso",
         label: "a___so",
         hint: "vi - vo",
         correctSyllable: "vi",
         fullWord: "aviso",
         coordinatesVerified: false,
-        acceptsItemId: "syl-vi-4"
+        acceptsItemId: "syl-vi"
       }
     ],
     exercises: [

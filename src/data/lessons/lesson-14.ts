@@ -16,7 +16,7 @@ export const lesson14 = [
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded letter tracing for Ñ.",
+    teacherNotes: "Students trace uppercase Ñ and lowercase ñ.",
     sourcePage: getBookPageImage(53)
   },
   {
@@ -61,16 +61,11 @@ export const lesson14 = [
     title: "Ññ",
     prompt: "Ññ",
     items: [
-      { id: "ra-ña-0", label: "ña" },
-      { id: "ra-ñe-1", label: "ñe" },
-      { id: "ra-ñi-2", label: "ñi" },
-      { id: "ra-ño-3", label: "ño" },
-      { id: "ra-ñu-4", label: "ñu" },
-      { id: "ra-ñu-5", label: "ñu" },
-      { id: "ra-ño-6", label: "ño" },
-      { id: "ra-ña-7", label: "ña" },
-      { id: "ra-ñe-8", label: "ñe" },
-      { id: "ra-ñi-9", label: "ñi" }
+      { id: "ra-ña", label: "ña" },
+      { id: "ra-ñe", label: "ñe" },
+      { id: "ra-ñi", label: "ñi" },
+      { id: "ra-ño", label: "ño" },
+      { id: "ra-ñu", label: "ñu" }
     ],
     targets: [],
     sourceStatus: "scaffold",
@@ -87,21 +82,21 @@ export const lesson14 = [
     title: "Palabras",
     prompt: "Palabras",
     items: [
-      { id: "w-name-0", label: "ñame" },
-      { id: "w-ano-1", label: "año" },
-      { id: "w-monudo-2", label: "moñudo" },
-      { id: "w-mono-3", label: "moño" },
-      { id: "w-nina-4", label: "niña" },
-      { id: "w-suena-5", label: "sueña" },
-      { id: "w-mene-6", label: "Meñe" },
-      { id: "w-pano-7", label: "paño" },
-      { id: "w-pina-8", label: "piña" },
-      { id: "w-ninito-9", label: "niñito" },
-      { id: "w-sueno-10", label: "sueño" },
-      { id: "w-puno-11", label: "puño" },
-      { id: "w-una-12", label: "uña" },
-      { id: "w-anitos-13", label: "añitos" },
-      { id: "w-panuelo-14", label: "pañuelo" }
+      { id: "w-ñame", label: "ñame" },
+      { id: "w-año", label: "año" },
+      { id: "w-moñudo", label: "moñudo" },
+      { id: "w-moño", label: "moño" },
+      { id: "w-niña", label: "niña" },
+      { id: "w-sueña", label: "sueña" },
+      { id: "w-meñe", label: "Meñe" },
+      { id: "w-paño", label: "paño" },
+      { id: "w-piña", label: "piña" },
+      { id: "w-niñito", label: "niñito" },
+      { id: "w-sueño", label: "sueño" },
+      { id: "w-puño", label: "puño" },
+      { id: "w-uña", label: "uña" },
+      { id: "w-añitos", label: "añitos" },
+      { id: "w-pañuelo", label: "pañuelo" }
     ],
     targets: [],
     sourceStatus: "scaffold",
@@ -143,66 +138,66 @@ export const lesson14 = [
     title: "Completa las palabras con la sílaba correcta.",
     prompt: "Completa las palabras con la sílaba correcta.",
     items: [
-      { id: "syl-ne-0", label: "ñe" },
-      { id: "syl-na-1", label: "ña" },
-      { id: "syl-no-2", label: "ño" },
-      { id: "syl-ni-3", label: "ñi" },
-      { id: "syl-nu-4", label: "ñu" }
+      { id: "syl-ña", label: "ña" },
+      { id: "syl-ñe", label: "ñe" },
+      { id: "syl-ñi", label: "ñi" },
+      { id: "syl-ño", label: "ño" },
+      { id: "syl-ñu", label: "ñu" }
     ],
     targets: [
       {
-        id: "blank-mana-0",
+        id: "blank-maña",
         label: "ma___",
         hint: "ñe - ña",
         correctSyllable: "ña",
         fullWord: "maña",
         coordinatesVerified: false,
-        acceptsItemId: "syl-na-1"
+        acceptsItemId: "syl-ña"
       },
       {
-        id: "blank-panito-1",
+        id: "blank-pañito",
         label: "pa___to",
         hint: "ño - ñi",
         correctSyllable: "ñi",
         fullWord: "pañito",
         coordinatesVerified: false,
-        acceptsItemId: "syl-ni-3"
+        acceptsItemId: "syl-ñi"
       },
       {
-        id: "blank-nino-2",
+        id: "blank-niño",
         label: "ni___",
         hint: "ñi - ño",
         correctSyllable: "ño",
         fullWord: "niño",
         coordinatesVerified: false,
-        acceptsItemId: "syl-no-2"
+        acceptsItemId: "syl-ño"
       },
       {
-        id: "blank-mono-3",
+        id: "blank-moño",
         label: "mo___",
         hint: "ño - ñe",
         correctSyllable: "ño",
         fullWord: "moño",
         coordinatesVerified: false,
-        acceptsItemId: "syl-no-2"
+        acceptsItemId: "syl-ño"
       },
       {
-        id: "blank-ano-4",
+        id: "blank-año",
         label: "a___",
         hint: "ña - ño",
         correctSyllable: "ño",
         fullWord: "año",
         coordinatesVerified: false,
-        acceptsItemId: "syl-no-2"
+        acceptsItemId: "syl-ño"
       },
       {
-        id: "blank-puno-5",
+        id: "blank-puño",
         label: "pu___",
         hint: "ño - ñu",
         correctSyllable: "ño",
         fullWord: "puño",
         coordinatesVerified: false,
-        acceptsItemId: "syl-no-2"
+        acceptsItemId: "syl-ño"
       }
     ],
     exercises: [

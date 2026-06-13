@@ -16,7 +16,7 @@ export const lesson12 = [
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded letter tracing for L.",
+    teacherNotes: "Students trace uppercase L and lowercase l.",
     sourcePage: getBookPageImage(45)
   },
   {
@@ -61,16 +61,11 @@ export const lesson12 = [
     title: "Ll",
     prompt: "Ll",
     items: [
-      { id: "ra-la-0", label: "la" },
-      { id: "ra-le-1", label: "le" },
-      { id: "ra-li-2", label: "li" },
-      { id: "ra-lo-3", label: "lo" },
-      { id: "ra-lu-4", label: "lu" },
-      { id: "ra-lu-5", label: "lu" },
-      { id: "ra-lo-6", label: "lo" },
-      { id: "ra-la-7", label: "la" },
-      { id: "ra-le-8", label: "le" },
-      { id: "ra-li-9", label: "li" }
+      { id: "ra-la", label: "la" },
+      { id: "ra-le", label: "le" },
+      { id: "ra-li", label: "li" },
+      { id: "ra-lo", label: "lo" },
+      { id: "ra-lu", label: "lu" }
     ],
     targets: [],
     sourceStatus: "scaffold",
@@ -87,21 +82,21 @@ export const lesson12 = [
     title: "Palabras",
     prompt: "Palabras",
     items: [
-      { id: "w-lima-0", label: "lima" },
-      { id: "w-lata-1", label: "lata" },
-      { id: "w-aleta-2", label: "aleta" },
-      { id: "w-maleta-3", label: "maleta" },
-      { id: "w-lupa-4", label: "lupa" },
-      { id: "w-sale-5", label: "sale" },
-      { id: "w-paloma-6", label: "paloma" },
-      { id: "w-pala-7", label: "pala" },
-      { id: "w-lomo-8", label: "lomo" },
-      { id: "w-pelusa-9", label: "pelusa" },
-      { id: "w-lilo-10", label: "Lilo" },
-      { id: "w-lola-11", label: "Lola" },
-      { id: "w-luli-12", label: "Luli" },
-      { id: "w-tela-13", label: "tela" },
-      { id: "w-tula-14", label: "Tula" }
+      { id: "w-lima", label: "lima" },
+      { id: "w-lata", label: "lata" },
+      { id: "w-aleta", label: "aleta" },
+      { id: "w-maleta", label: "maleta" },
+      { id: "w-lupa", label: "lupa" },
+      { id: "w-sale", label: "sale" },
+      { id: "w-paloma", label: "paloma" },
+      { id: "w-pala", label: "pala" },
+      { id: "w-lomo", label: "lomo" },
+      { id: "w-pelusa", label: "pelusa" },
+      { id: "w-lilo", label: "Lilo" },
+      { id: "w-lola", label: "Lola" },
+      { id: "w-luli", label: "Luli" },
+      { id: "w-tela", label: "tela" },
+      { id: "w-tula", label: "Tula" }
     ],
     targets: [],
     sourceStatus: "scaffold",
@@ -143,66 +138,66 @@ export const lesson12 = [
     title: "Completa las palabras con la sílaba correcta.",
     prompt: "Completa las palabras con la sílaba correcta.",
     items: [
-      { id: "syl-le-0", label: "le" },
-      { id: "syl-lo-1", label: "lo" },
-      { id: "syl-li-2", label: "li" },
-      { id: "syl-la-3", label: "la" },
-      { id: "syl-lu-4", label: "lu" }
+      { id: "syl-la", label: "la" },
+      { id: "syl-le", label: "le" },
+      { id: "syl-li", label: "li" },
+      { id: "syl-lo", label: "lo" },
+      { id: "syl-lu", label: "lu" }
     ],
     targets: [
       {
-        id: "blank-paleta-0",
+        id: "blank-paleta",
         label: "pa___ta",
         hint: "le - lo",
         correctSyllable: "le",
         fullWord: "paleta",
         coordinatesVerified: false,
-        acceptsItemId: "syl-le-0"
+        acceptsItemId: "syl-le"
       },
       {
-        id: "blank-solo-1",
+        id: "blank-solo",
         label: "so___",
         hint: "li - lo",
         correctSyllable: "lo",
         fullWord: "solo",
         coordinatesVerified: false,
-        acceptsItemId: "syl-lo-1"
+        acceptsItemId: "syl-lo"
       },
       {
-        id: "blank-pala-2",
+        id: "blank-pala",
         label: "pa___",
         hint: "la - lu",
         correctSyllable: "la",
         fullWord: "pala",
         coordinatesVerified: false,
-        acceptsItemId: "syl-la-3"
+        acceptsItemId: "syl-la"
       },
       {
-        id: "blank-lata-3",
+        id: "blank-lata",
         label: "___ta",
         hint: "la - le",
         correctSyllable: "la",
         fullWord: "lata",
         coordinatesVerified: false,
-        acceptsItemId: "syl-la-3"
+        acceptsItemId: "syl-la"
       },
       {
-        id: "blank-maleta-4",
+        id: "blank-maleta",
         label: "ma___ta",
         hint: "le - li",
         correctSyllable: "le",
         fullWord: "maleta",
         coordinatesVerified: false,
-        acceptsItemId: "syl-le-0"
+        acceptsItemId: "syl-le"
       },
       {
-        id: "blank-lupa-5",
+        id: "blank-lupa",
         label: "___pa",
         hint: "lu - la",
         correctSyllable: "lu",
         fullWord: "lupa",
         coordinatesVerified: false,
-        acceptsItemId: "syl-lu-4"
+        acceptsItemId: "syl-lu"
       }
     ],
     exercises: [
