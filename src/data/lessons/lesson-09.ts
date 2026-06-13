@@ -58,8 +58,8 @@ export const lesson09 = [
     lessonNumber: 9,
     pageNumber: 35,
     kind: "read-aloud",
-    title: "Sílabas con S — página Ss",
-    prompt: "Toca cada sílaba para escucharla. Repite en voz alta.",
+    title: "Ss",
+    prompt: "Ss",
     items: [
       { id: "ra-sa", label: "sa" },
       { id: "ra-se", label: "se" },
@@ -79,8 +79,8 @@ export const lesson09 = [
     lessonNumber: 9,
     pageNumber: 35,
     kind: "listen-and-tap",
-    title: "Palabras con S",
-    prompt: "Toca cada palabra para escucharla.",
+    title: "Palabras",
+    prompt: "Palabras",
     items: [
       { id: "w-masa", label: "masa" },
       { id: "w-mesa", label: "mesa" },
@@ -110,8 +110,8 @@ export const lesson09 = [
     lessonNumber: 9,
     pageNumber: 35,
     kind: "mini-story",
-    title: "Mini-cuento",
-    prompt: "Lee el mini-cuento del cuaderno con tu maestro.",
+    title: "Cuento",
+    prompt: "Cuento",
     items: [
       { id: "story-s-1", label: "La mesa es de Susi." },
       { id: "story-s-2", label: "La sopa está en la mesa." },
