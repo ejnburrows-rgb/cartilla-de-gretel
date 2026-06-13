@@ -15,6 +15,14 @@ import { lesson13 } from "@/data/lessons/lesson-13";
 import { lesson14 } from "@/data/lessons/lesson-14";
 import { lesson15 } from "@/data/lessons/lesson-15";
 import { lesson16 } from "@/data/lessons/lesson-16";
+import { lesson17 } from "@/data/lessons/lesson-17";
+import { lesson18 } from "@/data/lessons/lesson-18";
+import { lesson19 } from "@/data/lessons/lesson-19";
+import { lesson20 } from "@/data/lessons/lesson-20";
+import { lesson21 } from "@/data/lessons/lesson-21";
+import { lesson22 } from "@/data/lessons/lesson-22";
+import { lesson23 } from "@/data/lessons/lesson-23";
+import { lesson24 } from "@/data/lessons/lesson-24";
 import { getBookPageImage } from "@/lib/bookImages";
 
 const lessons = {
@@ -34,6 +42,14 @@ const lessons = {
   14: lesson14,
   15: lesson15,
   16: lesson16,
+  17: lesson17,
+  18: lesson18,
+  19: lesson19,
+  20: lesson20,
+  21: lesson21,
+  22: lesson22,
+  23: lesson23,
+  24: lesson24,
 };
 
 describe("Lessons Data Structural Hardening", () => {
@@ -76,7 +92,7 @@ describe("Lessons Data Structural Hardening", () => {
 
           // Check page number validity
           expect(item.pageNumber, `${prefix} invalid pageNumber`).toBeGreaterThanOrEqual(1);
-          expect(item.pageNumber, `${prefix} invalid pageNumber`).toBeLessThanOrEqual(92);
+          expect(item.pageNumber, `${prefix} invalid pageNumber`).toBeLessThanOrEqual(94);
 
           // Check sourcePage matches getBookPageImage(pageNumber)
           const expectedSourcePage = getBookPageImage(item.pageNumber);
