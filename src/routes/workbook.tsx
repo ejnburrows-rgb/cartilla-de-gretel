@@ -1,10 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import {
-  StudentWorkbookFlip,
-  type WorkbookPageEntry,
-} from "../components/StudentBook/StudentWorkbookFlip";
-
-import { getBookPageImage } from "@/lib/bookImages";
+import { StudentWorkbookFlip } from "@/components/StudentBook/StudentWorkbookFlip";
+import { buildPageArray } from "@/utils/buildPageArray";
+import { useBookDimensions } from "@/utils/useBookDimensions";
 
 export const Route = createFileRoute("/workbook")({
   component: WorkbookPage,
@@ -20,26 +17,10 @@ export const Route = createFileRoute("/workbook")({
   }),
 });
 
-function WorkbookPage() {
-  const pages: WorkbookPageEntry[] = Array.from({ length: 92 }).map((_, i) => {
-    const pageNum = i + 1;
-    const src = getBookPageImage(pageNum);
+const pages = buildPageArray();
 
-    return {
-      id: `page-${pageNum}`,
-      cover: pageNum === 1,
-      content: (
-        <div className="flex h-full w-full items-center justify-center bg-white">
-          <img
-            src={src}
-            alt={`Página ${pageNum}`}
-            className="h-full w-full object-contain"
-            draggable={false}
-          />
-        </div>
-      ),
-    };
-  });
+function WorkbookPage() {
+  const dims = useBookDimensions();
 
   return (
     <main className="min-h-screen bg-[radial-gradient(circle_at_top_left,rgba(255,214,165,0.58),transparent_32%),linear-gradient(135deg,#fff8ed_0%,#f9efe0_48%,#e8f4ef_100%)] px-4 py-8">
@@ -55,7 +36,11 @@ function WorkbookPage() {
             Libro del estudiante
           </p>
         </header>
-        <StudentWorkbookFlip pages={pages} />
+        <StudentWorkbookFlip
+          pages={pages}
+          spreadAspectRatio={dims ? String(dims.spreadAspect) : undefined}
+          singleAspectRatio={dims ? String(dims.singleAspect) : undefined}
+        />
       </div>
     </main>
   );

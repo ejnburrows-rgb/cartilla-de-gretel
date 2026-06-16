@@ -33,7 +33,7 @@ export function BookReader({ initialPage = 1 }: BookReaderProps) {
     setMounted(true);
   }, []);
 
-  const totalPages = 92;
+  const totalPages = 95;
 
   const allPages = useMemo(() => {
     const list = [];

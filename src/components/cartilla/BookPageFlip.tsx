@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { BookPage } from "./BookPage";
+import { preloadSpread } from "@/utils/preloadSpread";
 
 interface BookPageFlipProps {
   currentPage: number;
@@ -77,6 +78,9 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
       setIsFlipping(false);
       setFlipDirection(null);
       onPageChange(nextIndex + 1);
+      // Preload the next spread
+      const upcoming = [nextIndex + step + 1, nextIndex + step + 2].filter(n => n <= totalPages);
+      if (upcoming.length) preloadSpread(upcoming);
     }, 600);
   };
 
@@ -98,6 +102,9 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
       setIsFlipping(false);
       setFlipDirection(null);
       onPageChange(nextIndex + 1);
+      // Preload the next spread
+      const upcoming = [nextIndex + step + 1, nextIndex + step + 2].filter(n => n <= totalPages);
+      if (upcoming.length) preloadSpread(upcoming);
     }, 600);
   };
 
@@ -138,7 +145,11 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
             </div>
           </div>
         )}
-        <div className="absolute top-0 bottom-0 left-1/2 w-8 -translate-x-1/2 bg-gradient-to-r from-black/5 via-transparent to-black/5 z-30 pointer-events-none" />
+        {/* Book spine shadow — stronger gradient for a real binding feel */}
+        <div className="absolute top-0 bottom-0 left-1/2 w-10 -translate-x-1/2 pointer-events-none z-30">
+          <div className="absolute inset-0 bg-gradient-to-r from-black/15 via-black/5 to-transparent w-1/2" />
+          <div className="absolute inset-0 left-1/2 bg-gradient-to-l from-black/15 via-black/5 to-transparent w-1/2" />
+        </div>
       </div>
     );
   };

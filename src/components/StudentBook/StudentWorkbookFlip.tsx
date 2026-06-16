@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { preloadSpread } from "@/utils/preloadSpread";
 
 export interface WorkbookPageEntry {
   id: string;
@@ -10,6 +11,12 @@ export interface WorkbookPageEntry {
 export interface StudentWorkbookFlipProps {
   pages: WorkbookPageEntry[];
   initialPage?: number;
+  /** CSS aspect-ratio value for the two-page spread, e.g. "1.414" */
+  spreadAspectRatio?: string;
+  /** CSS aspect-ratio value for a single page (mobile), e.g. "0.707" */
+  singleAspectRatio?: string;
+  /** Callback fired after every page turn with the new currentIndex */
+  onPageChange?: (index: number) => void;
 }
 
 const PageContent = React.forwardRef<HTMLDivElement, { children?: React.ReactNode; cover?: boolean }>(
@@ -26,9 +33,15 @@ const PageContent = React.forwardRef<HTMLDivElement, { children?: React.ReactNod
   }
 );
 
-export function StudentWorkbookFlip({ pages, initialPage = 0 }: StudentWorkbookFlipProps) {
+export function StudentWorkbookFlip({
+  pages,
+  initialPage = 0,
+  spreadAspectRatio,
+  singleAspectRatio,
+  onPageChange,
+}: StudentWorkbookFlipProps) {
   const [isMobile, setIsMobile] = useState(false);
-  
+
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
@@ -47,13 +60,33 @@ export function StudentWorkbookFlip({ pages, initialPage = 0 }: StudentWorkbookF
   const hasPrev = currentIndex - step >= 0;
   const hasNext = currentIndex + step < pages.length;
 
+  // Preload the next spread whenever currentIndex changes
+  useEffect(() => {
+    const nextPages: number[] = [];
+    for (let i = 1; i <= 2; i++) {
+      const n = currentIndex + step + i;
+      if (n <= pages.length) nextPages.push(n);
+    }
+    if (nextPages.length > 0) preloadSpread(nextPages);
+  }, [currentIndex, step, pages.length]);
+
+  const afterFlip = useCallback(
+    (newIndex: number) => {
+      setCurrentIndex(newIndex);
+      setIsFlipping(false);
+      setFlipDirection(null);
+      onPageChange?.(newIndex);
+    },
+    [onPageChange],
+  );
+
   const handlePrev = () => {
     if (!hasPrev || isFlipping) return;
     setHintVisible(false);
     setFlipDirection('prev');
     setIsFlipping(true);
-    setFlipTransform('rotateY(-180deg)'); 
-    
+    setFlipTransform('rotateY(-180deg)');
+
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         setFlipTransform('rotateY(0deg)');
@@ -61,9 +94,7 @@ export function StudentWorkbookFlip({ pages, initialPage = 0 }: StudentWorkbookF
     });
 
     setTimeout(() => {
-      setCurrentIndex(prev => prev - step);
-      setIsFlipping(false);
-      setFlipDirection(null);
+      afterFlip(currentIndex - step);
     }, 600);
   };
 
@@ -72,8 +103,8 @@ export function StudentWorkbookFlip({ pages, initialPage = 0 }: StudentWorkbookF
     setHintVisible(false);
     setFlipDirection('next');
     setIsFlipping(true);
-    setFlipTransform('rotateY(0deg)'); 
-    
+    setFlipTransform('rotateY(0deg)');
+
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         setFlipTransform('rotateY(-180deg)');
@@ -81,29 +112,34 @@ export function StudentWorkbookFlip({ pages, initialPage = 0 }: StudentWorkbookF
     });
 
     setTimeout(() => {
-      setCurrentIndex(prev => prev + step);
-      setIsFlipping(false);
-      setFlipDirection(null);
+      afterFlip(currentIndex + step);
     }, 600);
   };
 
   const renderDesktop = () => {
     const leftIndex = isFlipping && flipDirection === 'prev' ? currentIndex - 2 : currentIndex;
     const rightIndex = isFlipping && flipDirection === 'next' ? currentIndex + 3 : currentIndex + 1;
-    
+
     const flipFrontIndex = isFlipping ? (flipDirection === 'next' ? currentIndex + 1 : currentIndex - 1) : -1;
     const flipBackIndex = isFlipping ? (flipDirection === 'next' ? currentIndex + 2 : currentIndex) : -1;
-    
+
+    const spreadStyle: React.CSSProperties = spreadAspectRatio
+      ? { aspectRatio: spreadAspectRatio }
+      : {};
+
     return (
-      <div className="book-container flex w-full aspect-[2/1.33] shadow-2xl rounded-lg bg-surface border border-border">
+      <div
+        className="book-container flex w-full shadow-2xl rounded-lg bg-surface border border-border"
+        style={{ aspectRatio: spreadAspectRatio ?? "2 / 1.33", ...spreadStyle }}
+      >
         <div className="w-1/2 h-full border-r border-border relative overflow-hidden">
           {pages[leftIndex] ? <PageContent cover={pages[leftIndex].cover}>{pages[leftIndex].content}</PageContent> : <div className="w-full h-full bg-surface" />}
         </div>
-        
+
         <div className="w-1/2 h-full relative overflow-hidden">
           {pages[rightIndex] ? <PageContent cover={pages[rightIndex].cover}>{pages[rightIndex].content}</PageContent> : <div className="w-full h-full bg-surface" />}
         </div>
-        
+
         {isFlipping && (
           <div className={`page-flip ${flipDirection === 'next' ? 'flipping-right-to-left' : ''}`} style={{ transform: flipTransform }}>
             <div className="page-front border-l border-border overflow-hidden">
@@ -114,7 +150,11 @@ export function StudentWorkbookFlip({ pages, initialPage = 0 }: StudentWorkbookF
             </div>
           </div>
         )}
-        <div className="absolute top-0 bottom-0 left-1/2 w-8 -translate-x-1/2 bg-gradient-to-r from-black/5 via-transparent to-black/5 z-30 pointer-events-none" />
+        {/* Book spine shadow — darker gradient to read as a real binding */}
+        <div className="absolute top-0 bottom-0 left-1/2 w-10 -translate-x-1/2 pointer-events-none z-30">
+          <div className="absolute inset-0 bg-gradient-to-r from-black/15 via-black/5 to-transparent w-1/2" />
+          <div className="absolute inset-0 left-1/2 bg-gradient-to-l from-black/15 via-black/5 to-transparent w-1/2" />
+        </div>
       </div>
     );
   };
@@ -125,11 +165,14 @@ export function StudentWorkbookFlip({ pages, initialPage = 0 }: StudentWorkbookF
     const flipBackIndex = isFlipping ? (flipDirection === 'next' ? currentIndex + 1 : currentIndex) : -1;
 
     return (
-      <div className="book-container book-single-page w-full aspect-[3/4] shadow-2xl rounded-lg bg-surface border border-border">
+      <div
+        className="book-container book-single-page w-full shadow-2xl rounded-lg bg-surface border border-border"
+        style={{ aspectRatio: singleAspectRatio ?? "3 / 4" }}
+      >
         <div className="w-full h-full relative overflow-hidden">
           {pages[staticIndex] ? <PageContent cover={pages[staticIndex].cover}>{pages[staticIndex].content}</PageContent> : <div className="w-full h-full bg-surface" />}
         </div>
-        
+
         {isFlipping && (
           <div className={`page-flip ${flipDirection === 'next' ? 'flipping-right-to-left' : ''}`}
                style={{ transform: flipTransform }}>
