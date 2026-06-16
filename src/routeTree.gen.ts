@@ -23,6 +23,7 @@ import { Route as CartillaIndexRouteImport } from './routes/cartilla/index'
 import { Route as PrintBinderRouteImport } from './routes/print/binder'
 import { Route as PrintLessonIdRouteImport } from './routes/print/$lessonId'
 import { Route as CartillaUnirseRouteImport } from './routes/cartilla/unirse'
+import { Route as CartillaStudentLoginRouteImport } from './routes/cartilla/student-login'
 import { Route as CartillaSesionesRouteImport } from './routes/cartilla/sesiones'
 import { Route as CartillaRepasoRouteImport } from './routes/cartilla/repaso'
 import { Route as CartillaPracticaRouteImport } from './routes/cartilla/practica'
@@ -129,6 +130,11 @@ const PrintLessonIdRoute = PrintLessonIdRouteImport.update({
 const CartillaUnirseRoute = CartillaUnirseRouteImport.update({
   id: '/cartilla/unirse',
   path: '/cartilla/unirse',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CartillaStudentLoginRoute = CartillaStudentLoginRouteImport.update({
+  id: '/cartilla/student-login',
+  path: '/cartilla/student-login',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CartillaSesionesRoute = CartillaSesionesRouteImport.update({
@@ -355,6 +361,7 @@ export interface FileRoutesByFullPath {
   '/cartilla/practica': typeof CartillaPracticaRoute
   '/cartilla/repaso': typeof CartillaRepasoRoute
   '/cartilla/sesiones': typeof CartillaSesionesRoute
+  '/cartilla/student-login': typeof CartillaStudentLoginRoute
   '/cartilla/unirse': typeof CartillaUnirseRoute
   '/print/$lessonId': typeof PrintLessonIdRoute
   '/print/binder': typeof PrintBinderRoute
@@ -406,6 +413,7 @@ export interface FileRoutesByTo {
   '/cartilla/practica': typeof CartillaPracticaRoute
   '/cartilla/repaso': typeof CartillaRepasoRoute
   '/cartilla/sesiones': typeof CartillaSesionesRoute
+  '/cartilla/student-login': typeof CartillaStudentLoginRoute
   '/cartilla/unirse': typeof CartillaUnirseRoute
   '/print/$lessonId': typeof PrintLessonIdRoute
   '/print/binder': typeof PrintBinderRoute
@@ -459,6 +467,7 @@ export interface FileRoutesById {
   '/cartilla/practica': typeof CartillaPracticaRoute
   '/cartilla/repaso': typeof CartillaRepasoRoute
   '/cartilla/sesiones': typeof CartillaSesionesRoute
+  '/cartilla/student-login': typeof CartillaStudentLoginRoute
   '/cartilla/unirse': typeof CartillaUnirseRoute
   '/print/$lessonId': typeof PrintLessonIdRoute
   '/print/binder': typeof PrintBinderRoute
@@ -514,6 +523,7 @@ export interface FileRouteTypes {
     | '/cartilla/practica'
     | '/cartilla/repaso'
     | '/cartilla/sesiones'
+    | '/cartilla/student-login'
     | '/cartilla/unirse'
     | '/print/$lessonId'
     | '/print/binder'
@@ -565,6 +575,7 @@ export interface FileRouteTypes {
     | '/cartilla/practica'
     | '/cartilla/repaso'
     | '/cartilla/sesiones'
+    | '/cartilla/student-login'
     | '/cartilla/unirse'
     | '/print/$lessonId'
     | '/print/binder'
@@ -617,6 +628,7 @@ export interface FileRouteTypes {
     | '/cartilla/practica'
     | '/cartilla/repaso'
     | '/cartilla/sesiones'
+    | '/cartilla/student-login'
     | '/cartilla/unirse'
     | '/print/$lessonId'
     | '/print/binder'
@@ -672,6 +684,7 @@ export interface RootRouteChildren {
   CartillaPracticaRoute: typeof CartillaPracticaRoute
   CartillaRepasoRoute: typeof CartillaRepasoRoute
   CartillaSesionesRoute: typeof CartillaSesionesRoute
+  CartillaStudentLoginRoute: typeof CartillaStudentLoginRoute
   CartillaUnirseRoute: typeof CartillaUnirseRoute
   PrintLessonIdRoute: typeof PrintLessonIdRoute
   PrintBinderRoute: typeof PrintBinderRoute
@@ -781,6 +794,13 @@ declare module '@tanstack/react-router' {
       path: '/cartilla/unirse'
       fullPath: '/cartilla/unirse'
       preLoaderRoute: typeof CartillaUnirseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cartilla/student-login': {
+      id: '/cartilla/student-login'
+      path: '/cartilla/student-login'
+      fullPath: '/cartilla/student-login'
+      preLoaderRoute: typeof CartillaStudentLoginRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cartilla/sesiones': {
@@ -1188,6 +1208,7 @@ const rootRouteChildren: RootRouteChildren = {
   CartillaPracticaRoute: CartillaPracticaRoute,
   CartillaRepasoRoute: CartillaRepasoRoute,
   CartillaSesionesRoute: CartillaSesionesRoute,
+  CartillaStudentLoginRoute: CartillaStudentLoginRoute,
   CartillaUnirseRoute: CartillaUnirseRoute,
   PrintLessonIdRoute: PrintLessonIdRoute,
   PrintBinderRoute: PrintBinderRoute,

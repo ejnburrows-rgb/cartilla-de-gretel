@@ -1,15 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { BookOpen, GraduationCap } from "lucide-react";
+import { GretelGuide } from "@/components/gretel/GretelGuide";
+import { GretelStage } from "@/components/gretel/GretelStage";
 
 export const Route = createFileRoute("/")({
   component: Landing,
   head: () => ({
     meta: [
-      { title: "La Cartilla de Gretel — Lector y Cartilla digital" },
+      { title: "La Cartilla de Gretel" },
       {
         name: "description",
-        content:
-          "Lee el libro original o usa la cartilla digital interactiva con lecciones, ejercicios y evaluaciones.",
+        content: "Libro de lectura para estudiantes de K-2 en Miami-Dade.",
       },
     ],
   }),
@@ -17,52 +17,39 @@ export const Route = createFileRoute("/")({
 
 function Landing() {
   return (
-    <main className="min-h-screen bg-background text-foreground px-4 py-12 flex flex-col items-center">
-      <header className="max-w-3xl text-center mb-12">
-        <p className="text-xs uppercase tracking-[0.35em] text-foreground/50 mb-3">
-          Double R Publishing
-        </p>
-        <h1 className="text-4xl sm:text-6xl font-bold leading-tight">La Cartilla de Gretel</h1>
-        <p className="mt-4 text-lg text-foreground/70">
-          Elige cómo quieres usarla: lee el libro original o practica con la cartilla digital
-          interactiva.
-        </p>
-      </header>
+    <main className="desk-scene min-h-screen flex items-center justify-center px-4 py-12">
+      <div className="relative z-10 flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 max-w-6xl w-full">
+        {/* Book Cover */}
+        <div className="relative order-2 lg:order-1">
+          <img
+            src="/art/hd/page-1.png"
+            alt="La Cartilla de Gretel - Portada"
+            className="w-64 sm:w-80 lg:w-96 h-auto rounded-lg shadow-2xl transform hover:scale-105 transition-transform duration-300"
+            style={{
+              boxShadow: "0 20px 60px rgba(0, 0, 0, 0.4), 0 8px 20px rgba(0, 0, 0, 0.3)",
+              transform: "rotate(-2deg)",
+            }}
+          />
+        </div>
 
-      <section className="grid sm:grid-cols-2 gap-6 max-w-4xl w-full">
-        <Link
-          to="/book"
-          className="kid-card p-8 hover:-translate-y-1 transition group flex flex-col items-start gap-4"
-        >
-          <div className="w-14 h-14 rounded-2xl bg-primary text-primary-foreground flex items-center justify-center">
-            <BookOpen className="w-7 h-7" />
-          </div>
-          <h2 className="text-2xl font-bold">Lector del libro</h2>
-          <p className="text-foreground/70">
-            PDF oficial de <em>La Cartilla de Gretel</em> con progreso por página.
-          </p>
-          <span className="text-sm font-bold text-primary mt-auto">Abrir lector →</span>
-        </Link>
+        {/* Gretel Waving */}
+        <div className="relative order-1 lg:order-2">
+          <GretelStage size="lg" warmth={true}>
+            <GretelGuide state="wave" text="¡Hola! Soy Gretel. ¡Vamos a leer juntos!" bubblePosition="left" />
+          </GretelStage>
+        </div>
 
-        <Link
-          to="/cartilla"
-          className="kid-card p-8 hover:-translate-y-1 transition group flex flex-col items-start gap-4"
-        >
-          <div className="w-14 h-14 rounded-2xl bg-vowel-i text-white flex items-center justify-center">
-            <GraduationCap className="w-7 h-7" />
-          </div>
-          <h2 className="text-2xl font-bold">Cartilla digital</h2>
-          <p className="text-foreground/70">
-            24 lecciones interactivas, ejercicios adaptativos, prueba FAST y panel de maestro.
-          </p>
-          <span className="text-sm font-bold text-primary mt-auto">Abrir cartilla →</span>
-        </Link>
-      </section>
-
-      <footer className="mt-16 text-xs text-foreground/50 text-center space-y-1">
-        <p>© {new Date().getFullYear()} Double R Publishing · Leonor Lopetegui</p>
-        <p>ISBN 978-1-7368420-7-2</p>
-      </footer>
+        {/* CTA Button */}
+        <div className="order-3 lg:order-3 mt-8 lg:mt-0">
+          <Link
+            to="/cartilla/student-login"
+            className="inline-block px-8 py-4 bg-amber-600 hover:bg-amber-700 text-white font-bold text-lg rounded-full shadow-lg transition-all hover:scale-105 hover:shadow-xl"
+            style={{ fontFamily: "'Fredoka', ui-rounded, system-ui, sans-serif" }}
+          >
+            ¡Comencemos!
+          </Link>
+        </div>
+      </div>
     </main>
   );
 }

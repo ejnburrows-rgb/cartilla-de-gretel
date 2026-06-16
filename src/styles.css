@@ -296,6 +296,104 @@ html.a11y-contrast .kid-card {
   }
 }
 
+/* ─── Desk Scene — Warm oak wood environment ───────────────────────────── */
+@layer utilities {
+  .desk-scene {
+    position: relative;
+    min-height: 100vh;
+    background:
+      /* Wood grain texture overlay */
+      repeating-linear-gradient(
+        90deg,
+        hsl(28 45% 35%) 0px,
+        hsl(28 45% 38%) 2px,
+        hsl(28 45% 35%) 4px,
+        hsl(28 45% 32%) 8px,
+        hsl(28 45% 35%) 12px
+      ),
+      /* Warm oak base */
+      linear-gradient(
+        180deg,
+        hsl(28 50% 40%) 0%,
+        hsl(25 48% 45%) 50%,
+        hsl(22 45% 50%) 100%
+      );
+  }
+
+  .desk-scene::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      /* Ambient lighting from top-left */
+      radial-gradient(
+        ellipse at 20% 20%,
+        hsl(35 60% 70% / 0.15) 0%,
+        transparent 50%
+      ),
+      /* Subtle vignette */
+      radial-gradient(
+        ellipse at 50% 50%,
+        transparent 60%,
+        hsl(20 40% 20% / 0.3) 100%
+      );
+    pointer-events: none;
+  }
+
+  .desk-scene::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: linear-gradient(
+      180deg,
+      hsl(20 40% 25%) 0%,
+      hsl(18 38% 20%) 100%
+    );
+    box-shadow: 0 -4px 12px hsl(20 40% 20% / 0.4);
+    pointer-events: none;
+  }
+
+  /* ─── Gretel Stage — Compositing for physical grounding ───────────────── */
+  .gretel-stage {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gretel-shadow-contact {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 55%;
+    height: 12px;
+    background: radial-gradient(ellipse, rgba(0, 0, 0, 0.35) 0%, transparent 70%);
+    filter: blur(3px);
+    z-index: 0;
+  }
+
+  .gretel-shadow-ambient {
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 32px;
+    background: radial-gradient(ellipse, rgba(0, 0, 0, 0.13) 0%, transparent 70%);
+    filter: blur(8px);
+    z-index: 0;
+  }
+
+  .gretel-figure {
+    position: relative;
+    z-index: 1;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
