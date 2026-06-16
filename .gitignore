@@ -28,3 +28,8 @@ dist-ssr
 *.sln
 *.sw?
 .vercel
+
+# Root-level generator output (source art lives in scratch/gretel-source-art/)
+# Leading / anchors these patterns to repo root only — does not affect public/ or src/
+/*.webp
+/*.png
