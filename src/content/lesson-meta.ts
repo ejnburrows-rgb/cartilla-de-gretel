@@ -43,7 +43,7 @@ export const LESSONS: LessonMeta[] = [
 	{ n: 21, title: "Consonant Jj",           titleEs: "La consonante Jj",      letter: "Jj", kind: "consonant", pages: [75, 78], accent: "#8338EC", studentBgClass: "cartilla-lesson-bg-21", teacherBgClass: "cartilla-teacher-bg-21", syllables: ["ja", "je", "ji", "jo", "ju"],          keywords: ["jaula", "jefe", "jirafa", "jota", "jugo"] },
 	{ n: 22, title: "Consonant Cc",titleEs: "La consonante Cc",      letter: "Cc", kind: "consonant", pages: [79, 82], accent: "#E63946", studentBgClass: "cartilla-lesson-bg-22", teacherBgClass: "cartilla-teacher-bg-22", syllables: ["ca", "que", "qui", "co", "cu"], keywords: ["casa", "queso", "quita", "coco", "cuna"] },
 	{ n: 23, title: "Consonant Yy",           titleEs: "La consonante Yy",      letter: "Yy", kind: "consonant", pages: [83, 86], accent: "#F4A261", studentBgClass: "cartilla-lesson-bg-23", teacherBgClass: "cartilla-teacher-bg-23", syllables: ["ya", "ye", "yi", "yo", "yu"],          keywords: ["yate", "yegua", "yoyo", "yuca"] },
-	{ n: 24, title: "Consonant Zz",           titleEs: "La consonante Zz",      letter: "Zz", kind: "consonant", pages: [87, 90], accent: "#2A9D8F", studentBgClass: "cartilla-lesson-bg-24", teacherBgClass: "cartilla-teacher-bg-24", syllables: ["za", "ze", "zi", "zo", "zu"],          keywords: ["zapato", "zorro", "zumo"] },
+	{ n: 24, title: "Consonant Zz",           titleEs: "La consonante Zz",      letter: "Zz", kind: "consonant", pages: [87, 90], accent: "#2A9D8F", studentBgClass: "cartilla-lesson-bg-24", teacherBgClass: "cartilla-teacher-bg-24", syllables: ["za", "ce", "ci", "zo", "zu"], keywords: ["zapato", "cesta", "cine", "zorro", "zumo"] },
 ];
 
 export function getLesson(n: number): LessonMeta | null {
