@@ -4,6 +4,8 @@ import { useServerFn } from "@/lib/useServerFn";
 import { getAllTeacherStudents } from "@/lib/teacher.functions";
 import { Loader2, ArrowLeft, User, Calendar, BookOpen } from "lucide-react";
 import { TOTAL_LESSONS } from "@/lib/lesson-catalog";
+import { useLanguage } from "@/context/LanguageContext";
+import { tCopy } from "@/content/teacher-copy";
 
 export const Route = createFileRoute("/_authenticated/cartilla/teacher/students")({
   component: StudentsOverview,
@@ -13,6 +15,8 @@ export const Route = createFileRoute("/_authenticated/cartilla/teacher/students"
 });
 
 function StudentsOverview() {
+  const { lang } = useLanguage();
+  const t = tCopy;
   const fetchStudents = useServerFn(getAllTeacherStudents);
   const { data: students, isLoading } = useQuery({
     queryKey: ["teacher", "all-students"],
@@ -42,12 +46,12 @@ function StudentsOverview() {
         to="/cartilla/teacher"
         className="inline-flex items-center gap-2 text-sm font-bold text-stone-500 hover:text-stone-800 transition-colors h-11"
       >
-        <ArrowLeft className="w-4 h-4" /> Volver al panel
+        <ArrowLeft className="w-4 h-4" /> {t.volverDashboard[lang]}
       </Link>
       
       <header className="mt-4 mb-8">
-        <h1 className="text-3xl sm:text-4xl font-black text-stone-800 font-fredoka">Progreso de Estudiantes</h1>
-        <p className="text-sm font-bold text-stone-500 mt-1">Vista general del avance de tus alumnos en todas las clases.</p>
+        <h1 className="text-3xl sm:text-4xl font-black text-stone-800 font-fredoka">{t.todosLosAlumnos[lang] ?? "Todos los Alumnos"}</h1>
+        <p className="text-sm font-bold text-stone-500 mt-1">{t.vistaGeneralAlumnos[lang] ?? "Vista general del avance de tus alumnos en todas las clases."}</p>
       </header>
 
       {sortedStudents.length === 0 ? (
@@ -55,9 +59,9 @@ function StudentsOverview() {
           <div className="w-16 h-16 bg-stone-100 text-stone-400 rounded-2xl flex items-center justify-center mx-auto mb-4">
             <User className="w-8 h-8" />
           </div>
-          <h2 className="text-xl font-black text-stone-800 font-fredoka mb-2">Aún no hay estudiantes en tu clase.</h2>
+          <h2 className="text-xl font-black text-stone-800 font-fredoka mb-2">{t.aunNoHayEstudiantes[lang] ?? "Aún no hay estudiantes en tu clase."}</h2>
           <p className="text-sm font-bold text-stone-500">
-            Añade estudiantes en el panel principal para ver su progreso aquí.
+            {t.anadeEstudiantes[lang] ?? "Añade estudiantes en el panel principal para ver su progreso aquí."}
           </p>
         </div>
       ) : (
@@ -79,13 +83,13 @@ function StudentsOverview() {
                     </div>
                     <div className="text-[11px] text-stone-500 flex items-center gap-1 font-black bg-stone-100 px-2.5 py-1.5 rounded-xl shrink-0">
                       <Calendar className="w-3.5 h-3.5" />
-                      {s.lastSeen ? new Date(s.lastSeen).toLocaleDateString() : 'Nunca'}
+                      {s.lastSeen ? new Date(s.lastSeen).toLocaleDateString() : t.nunca[lang]}
                     </div>
                   </div>
                   
                   <div className="space-y-2 mt-auto">
                     <div className="flex justify-between text-xs font-black text-stone-600">
-                      <span className="flex items-center gap-1"><BookOpen className="w-4 h-4 text-[#8da47e]"/> Lecciones completadas</span>
+                      <span className="flex items-center gap-1"><BookOpen className="w-4 h-4 text-[#8da47e]"/> {t.leccionesCompletadas[lang]}</span>
                       <span>{s.lessons} / {TOTAL_LESSONS}</span>
                     </div>
                     <div className="h-3.5 w-full bg-stone-100 rounded-full overflow-hidden border border-stone-200/50">

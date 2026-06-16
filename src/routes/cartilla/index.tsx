@@ -7,7 +7,6 @@ import {
   ArrowLeft,
   BarChart3,
   Sparkles,
-import {
   Zap,
 } from "lucide-react";
 import { useStudentSession } from "@/lib/student-session";

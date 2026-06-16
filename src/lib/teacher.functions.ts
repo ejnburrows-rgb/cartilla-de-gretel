@@ -388,3 +388,46 @@ export async function findStudentsByName(input: Call<{ q: string; classId?: stri
   if (error) throw new Error(error.message);
   return rows ?? [];
 }
+
+/** Get all students across all classes for the current teacher. */
+export async function getAllTeacherStudents(input: Call<Record<string, never>>) {
+  const { userId } = await requireTeacher();
+  const { data: students, error: sErr } = await supabase
+    .from("students")
+    .select("id, display_name, student_code, created_at, class_id, classes!inner(teacher_id)")
+    .eq("classes.teacher_id", userId);
+  if (sErr) throw new Error(sErr.message);
+
+  const ids = (students ?? []).map((s: { id: string }) => s.id);
+  const stats: Record<string, { events: number; lessons: number; lastSeen: string | null }> = {};
+  if (ids.length) {
+    const { data: ev, error: evErr } = await supabase
+      .from("progress_events")
+      .select("student_id, lesson_id, event_kind, created_at")
+      .in("student_id", ids)
+      .order("created_at", { ascending: false });
+    if (evErr) throw new Error(evErr.message);
+    (ev ?? []).forEach(
+      (e: { student_id: string; lesson_id: string; event_kind: string; created_at: string }) => {
+        const s = (stats[e.student_id] ??= { events: 0, lessons: 0, lastSeen: null });
+        s.events += 1;
+        if (!s.lastSeen) s.lastSeen = e.created_at;
+      },
+    );
+    const completed: Record<string, Set<string>> = {};
+    (ev ?? []).forEach((e: { student_id: string; lesson_id: string; event_kind: string }) => {
+      if (e.event_kind === "lesson_completed") {
+        (completed[e.student_id] ??= new Set()).add(e.lesson_id);
+      }
+    });
+    Object.entries(completed).forEach(([sid, set]) => {
+      if (stats[sid]) stats[sid].lessons = set.size;
+    });
+  }
+
+  return ((students ?? []) as TeacherStudent[]).map((s) => ({
+    ...s,
+    ...(stats[s.id] ?? { events: 0, lessons: 0, lastSeen: null }),
+  }));
+}
+
