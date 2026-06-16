@@ -133,19 +133,19 @@ export function StudentExercisePane({
     {
       id: "syllable_tap",
       label: "S\u00edlabas",
-      node: <SyllableTap syllables={syllables} color={accent} lessonId={lessonId} onComplete={() => markDone("syllable_tap")} />
+      node: <SyllableTap syllables={syllables} color={accent} lessonId={lessonId} />
     },
     {
       id: "word_match",
       label: "Palabras",
-      node: <WordMatch words={words} color={accent} lessonId={lessonId} onComplete={() => markDone("word_match")} />
+      node: <WordMatch words={words} color={accent} lessonId={lessonId} />
     },
     {
       id: "drag_build_word",
       label: "Construir",
       node: (
         <DragBuildWord
-          entry={entry}
+          words={words.map((w) => w.word)}
           accent={accent}
           lessonId={lessonId}
           onComplete={() => markDone("drag_build_word")}

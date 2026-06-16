@@ -1,4 +1,4 @@
-// Free Spanish TTS using the browser's SpeechSynthesis API.
+﻿// Free Spanish TTS using the browser's SpeechSynthesis API.
 let cachedVoice: SpeechSynthesisVoice | null = null;
 let voicesReady: Promise<void> | null = null;
 
@@ -66,49 +66,65 @@ function ensureVoices(): Promise<void> {
   return voicesReady;
 }
 
-export async function speak(text: string) {
+export async function speak(text: string): Promise<void> {
   if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
-  try {
-    await ensureVoices();
-    const synth = window.speechSynthesis;
-    synth.cancel();
-    const u = new SpeechSynthesisUtterance(text);
-    const voice = cachedVoice ?? pickBestVoice();
-    if (voice) {
-      u.voice = voice;
-      u.lang = voice.lang;
-    } else {
-      u.lang = "es-ES";
+  await ensureVoices();
+  return new Promise((resolve) => {
+    try {
+      const synth = window.speechSynthesis;
+      synth.cancel();
+      const u = new SpeechSynthesisUtterance(text);
+      
+      // Dispatch events for Gretel Mascot
+      u.onstart = () => window.dispatchEvent(new CustomEvent("gretel:speak_start"));
+      u.onend = () => { window.dispatchEvent(new CustomEvent("gretel:speak_stop")); resolve(); };
+      u.onerror = () => { window.dispatchEvent(new CustomEvent("gretel:speak_stop")); resolve(); };
+
+      const voice = cachedVoice ?? pickBestVoice();
+      if (voice) {
+        u.voice = voice;
+        u.lang = voice.lang;
+      } else {
+        u.lang = "es-ES";
+      }
+      u.rate = 0.88;
+      u.pitch = 1.05;
+      u.volume = 1;
+      synth.speak(u);
+    } catch {
+      resolve();
     }
-    u.rate = 0.88;
-    u.pitch = 1.05;
-    u.volume = 1;
-    synth.speak(u);
-  } catch {
-    /* noop */
-  }
+  });
 }
 
-export async function speakVowel(v: string) {
+export async function speakVowel(v: string): Promise<void> {
   const lower = v.toLowerCase();
   if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
-  try {
-    await ensureVoices();
-    const synth = window.speechSynthesis;
-    synth.cancel();
-    const u = new SpeechSynthesisUtterance(lower.repeat(5));
-    const voice = cachedVoice ?? pickBestVoice();
-    if (voice) {
-      u.voice = voice;
-      u.lang = voice.lang;
-    } else {
-      u.lang = "es-ES";
+  await ensureVoices();
+  return new Promise((resolve) => {
+    try {
+      const synth = window.speechSynthesis;
+      synth.cancel();
+      const u = new SpeechSynthesisUtterance(lower.repeat(5));
+
+      // Dispatch events for Gretel Mascot
+      u.onstart = () => window.dispatchEvent(new CustomEvent("gretel:speak_start"));
+      u.onend = () => { window.dispatchEvent(new CustomEvent("gretel:speak_stop")); resolve(); };
+      u.onerror = () => { window.dispatchEvent(new CustomEvent("gretel:speak_stop")); resolve(); };
+
+      const voice = cachedVoice ?? pickBestVoice();
+      if (voice) {
+        u.voice = voice;
+        u.lang = voice.lang;
+      } else {
+        u.lang = "es-ES";
+      }
+      u.rate = 0.7;
+      u.pitch = 1.1;
+      u.volume = 1;
+      synth.speak(u);
+    } catch {
+      resolve();
     }
-    u.rate = 0.7;
-    u.pitch = 1.1;
-    u.volume = 1;
-    synth.speak(u);
-  } catch {
-    /* noop */
-  }
+  });
 }

@@ -61,16 +61,16 @@ export function AudioNarrationDock({ entry, activeStepIdx }: AudioNarrationDockP
   const textToRead = getSpokenText(entry, activeStepIdx);
 
   const handleReadNormal = () => {
-    speak(textToRead, 0.95);
+    speak(textToRead);
   };
 
   const handleReadSlow = () => {
-    speak(textToRead, 0.7);
+    speak(textToRead);
   };
 
   const handleReadSyllables = () => {
     const syllabifiedText = spaceSyllables(textToRead);
-    speak(syllabifiedText, 0.45);
+    speak(syllabifiedText);
   };
 
   return (

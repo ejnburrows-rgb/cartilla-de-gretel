@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Check, RotateCcw, Eye, EyeOff, Volume2, X } from "lucide-react";
-import { speak } from "@/lib/speak";
+import { useAudio } from "@/hooks/useAudio";
 import { cn } from "@/lib/utils";
 import { recordEvent, useStudentSession } from "@/lib/student-session";
 import { supabase } from "@/integrations/supabase/client";
@@ -34,6 +34,7 @@ export function SyllableTap({
     picked: string;
     target: string;
   } | null>(null);
+  const { play, playingText } = useAudio();
   const choices = useMemo(() => shuffle(syllables), [target, syllables]);
   const lastLogged = useRef(0);
 
@@ -79,25 +80,25 @@ export function SyllableTap({
     if (s === target) {
       setScore((x) => x + 1);
       setFeedback({ kind: "ok", picked: s, target });
-      speak(s);
+      play(s);
       setTimeout(next, 1200);
     } else {
       setFeedback({ kind: "no", picked: s, target });
-      speak(target);
+      play(target);
     }
   };
 
   return (
     <div className="rounded-2xl border-2 border-foreground/10 bg-card p-4">
       <div className="flex items-center justify-between mb-3">
-        <h3 className="font-bold">Toca la sílaba que escuches</h3>
+        <h3 className="font-bold">Toca la sÃ­laba que escuches</h3>
         <span className="text-xs font-bold text-foreground/60">
           {score} / {tries}
         </span>
       </div>
       <button
-        onClick={() => speak(target)}
-        className="mb-3 inline-flex items-center gap-2 px-4 py-2 rounded-xl text-white font-bold"
+        onClick={() => play(target)}
+        className={`mb-3 inline-flex items-center gap-2 px-4 py-2 rounded-xl text-white font-bold ${playingText === target ? "animate-pulse ring-4 ring-white" : ""}`}
         style={{ backgroundColor: color }}
       >
         <Volume2 className="w-4 h-4" /> Escuchar
@@ -132,21 +133,21 @@ export function SyllableTap({
             <X className="w-4 h-4" /> Incorrecto
           </div>
           <p className="text-sm text-foreground/80 mt-1">
-            Tocaste <strong>«{feedback.picked}»</strong>. La sílaba correcta era{" "}
-            <strong>«{feedback.target}»</strong>. Vuelve a escuchar y fíjate en el sonido inicial.
+            Tocaste <strong>Â«{feedback.picked}Â»</strong>. La sÃ­laba correcta era{" "}
+            <strong>Â«{feedback.target}Â»</strong>. Vuelve a escuchar y fÃ­jate en el sonido inicial.
           </p>
           <div className="mt-2 flex gap-2">
             <button
-              onClick={() => speak(feedback.target)}
+              onClick={() => play(feedback.target)}
               className="inline-flex items-center gap-1 text-xs font-bold text-primary"
             >
-              <Volume2 className="w-3.5 h-3.5" /> Escuchar «{feedback.target}»
+              <Volume2 className="w-3.5 h-3.5" /> Escuchar Â«{feedback.target}Â»
             </button>
             <button
               onClick={next}
               className="text-xs font-bold text-foreground/60 hover:text-foreground"
             >
-              Siguiente →
+              Siguiente â†’
             </button>
           </div>
         </div>
@@ -154,10 +155,10 @@ export function SyllableTap({
       {feedback?.kind === "ok" && (
         <div className="mt-3 rounded-xl border-2 border-success/30 bg-success/5 p-3">
           <div className="text-sm font-bold text-success inline-flex items-center gap-1.5">
-            <Check className="w-4 h-4" /> ¡Correcto!
+            <Check className="w-4 h-4" /> Â¡Correcto!
           </div>
           <p className="text-sm text-foreground/80 mt-1">
-            <strong>«{feedback.target}»</strong> es la sílaba que sonaba. ¡Buen oído!
+            <strong>Â«{feedback.target}Â»</strong> es la sÃ­laba que sonaba. Â¡Buen oÃ­do!
           </p>
         </div>
       )}
@@ -175,6 +176,7 @@ export function WordMatch({
   color: string;
   lessonId?: string;
 }) {
+  const { play, playingText } = useAudio();
   const items = useMemo(() => words.filter((w) => w.emoji).slice(0, 4), [words]);
   const [picked, setPicked] = useState<string | null>(null);
   const [matched, setMatched] = useState<Set<string>>(new Set());
@@ -218,7 +220,7 @@ export function WordMatch({
         return next;
       });
       setFeedback({ kind: "ok", word: picked, emoji: pickedItem?.emoji });
-      speak(target);
+      play(target);
       setPicked(null);
       setTimeout(
         () => setFeedback((f) => (f?.kind === "ok" && f.word === target ? null : f)),
@@ -261,7 +263,7 @@ export function WordMatch({
         <div className="flex items-center gap-3">
           {acc !== null && (
             <span className="text-xs font-bold text-foreground/60">
-              {hits}/{attempts} · {acc}%
+              {hits}/{attempts} Â· {acc}%
             </span>
           )}
           <button
@@ -286,6 +288,7 @@ export function WordMatch({
                   : picked === w.word
                     ? "scale-[1.02]"
                     : "hover:bg-secondary",
+                playingText === w.word && "animate-pulse ring-4 ring-current"
               )}
               style={{ borderColor: color, color: matched.has(w.word) ? undefined : color }}
             >
@@ -314,11 +317,11 @@ export function WordMatch({
       {feedback?.kind === "ok" && (
         <div className="mt-3 rounded-xl border-2 border-success/30 bg-success/5 p-3">
           <div className="text-sm font-bold text-success inline-flex items-center gap-1.5">
-            <Check className="w-4 h-4" /> ¡Correcto!
+            <Check className="w-4 h-4" /> Â¡Correcto!
           </div>
           <p className="text-sm text-foreground/80 mt-1">
-            <strong>«{feedback.word}»</strong>{" "}
-            {feedback.emoji && <span className="text-lg align-middle">{feedback.emoji}</span>} —
+            <strong>Â«{feedback.word}Â»</strong>{" "}
+            {feedback.emoji && <span className="text-lg align-middle">{feedback.emoji}</span>} â€”
             uniste bien la palabra con su dibujo.
           </p>
         </div>
@@ -329,25 +332,25 @@ export function WordMatch({
             <X className="w-4 h-4" /> No coinciden
           </div>
           <p className="text-sm text-foreground/80 mt-1">
-            <strong>«{feedback.word}»</strong>{" "}
+            <strong>Â«{feedback.word}Â»</strong>{" "}
             {feedback.correctEmoji && (
               <span className="text-lg align-middle">{feedback.correctEmoji}</span>
             )}{" "}
-            no es ese dibujo. Lee la palabra otra vez, separa sus sílabas y busca el dibujo que la
+            no es ese dibujo. Lee la palabra otra vez, separa sus sÃ­labas y busca el dibujo que la
             representa.
           </p>
           <button
-            onClick={() => speak(feedback.word)}
+            onClick={() => play(feedback.word)}
             className="mt-2 inline-flex items-center gap-1 text-xs font-bold text-primary"
           >
-            <Volume2 className="w-3.5 h-3.5" /> Escuchar «{feedback.word}»
+            <Volume2 className="w-3.5 h-3.5" /> Escuchar Â«{feedback.word}Â»
           </button>
         </div>
       )}
       {allDone && (
         <div className="mt-3 rounded-xl border-2 border-success/40 bg-success/10 p-3">
           <div className="text-success font-bold inline-flex items-center gap-1.5">
-            <Check className="w-4 h-4" /> ¡Ronda completa!
+            <Check className="w-4 h-4" /> Â¡Ronda completa!
           </div>
           <p className="text-sm text-foreground/80 mt-1">
             Uniste todas las palabras. Resultado final:{" "}
@@ -362,7 +365,7 @@ export function WordMatch({
   );
 }
 
-/** Teacher answer key reveal — visible only to logged-in teachers or registered students */
+/** Teacher answer key reveal â€” visible only to logged-in teachers or registered students */
 export function TeacherAnswerKey({ items }: { items: Array<{ q: string; a: string }> }) {
   const [show, setShow] = useState(false);
   const [isTeacher, setIsTeacher] = useState(false);
@@ -388,7 +391,7 @@ export function TeacherAnswerKey({ items }: { items: Array<{ q: string; a: strin
     <div className="rounded-2xl border-2 border-dashed border-foreground/20 bg-secondary/30 p-4">
       <div className="flex items-center justify-between mb-2">
         <h3 className="font-bold text-sm uppercase tracking-wide text-foreground/60">
-          {isTeacher ? "Guía del maestro" : "Guía de estudio"}
+          {isTeacher ? "GuÃ­a del maestro" : "GuÃ­a de estudio"}
         </h3>
         <button
           onClick={() => setShow((s) => !s)}
@@ -416,7 +419,7 @@ export function TeacherAnswerKey({ items }: { items: Array<{ q: string; a: strin
                 show ? "text-success" : "text-transparent bg-foreground/15 rounded select-none",
               )}
             >
-              {show ? it.a : "••••"}
+              {show ? it.a : "â€¢â€¢â€¢â€¢"}
             </span>
           </li>
         ))}
@@ -424,3 +427,4 @@ export function TeacherAnswerKey({ items }: { items: Array<{ q: string; a: strin
     </div>
   );
 }
+

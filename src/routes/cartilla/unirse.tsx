@@ -33,7 +33,7 @@ function JoinPage() {
       setStudentSession(res);
       navigate({ to: "/cartilla/lecciones" });
     } catch (err) {
-      setError(err instanceof Error ? err.message : t.errorDesconocido?.[lang] || "Error");
+      setError(err instanceof Error ? err.message : lang === "es" ? "Error desconocido" : "Unknown error");
     } finally {
       setBusy(false);
     }

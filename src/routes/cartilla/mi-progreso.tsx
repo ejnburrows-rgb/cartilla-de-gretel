@@ -1,10 +1,12 @@
-import { createFileRoute, Link, redirect } from "@tanstack/react-router";
+﻿import { createFileRoute, Link, redirect } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { ArrowLeft, Award, BookOpen, Clock, Download, Sparkles, Target } from "lucide-react";
 import { getMyProgress } from "@/lib/student.functions";
 import { getStudentSession } from "@/lib/student-session";
 import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
 import { SimpleBarChart } from "@/components/cartilla/SimpleBarChart";
+import { useRewards } from "@/lib/rewards";
+import { motion } from "framer-motion";
 import { downloadCSV, toCSV } from "@/lib/csv";
 import { useLanguage } from "@/context/LanguageContext";
 import { LanguageToggle } from "@/components/LanguageToggle";
@@ -12,7 +14,7 @@ import { sCopy } from "@/content/student-copy";
 
 export const Route = createFileRoute("/cartilla/mi-progreso")({
   component: MyProgress,
-  head: () => ({ meta: [{ title: "Mi progreso — La Cartilla de Gretel" }] }),
+  head: () => ({ meta: [{ title: "Mi progreso â€” La Cartilla de Gretel" }] }),
   beforeLoad: () => {
     if (typeof window !== "undefined" && !getStudentSession()) {
       throw redirect({ to: "/cartilla/unirse" });
@@ -79,7 +81,7 @@ function MyProgress() {
       }
       if (e.event_kind === "time") timeTotal += e.time_seconds ?? 0;
       if (e.event_kind === "badge") badges.push(String((e.meta ?? {}).name ?? "Insignia"));
-      if (e.event_kind === "level" && !level) level = String((e.meta ?? {}).level ?? "—");
+      if (e.event_kind === "level" && !level) level = String((e.meta ?? {}).level ?? "â€”");
     }
     const dbCompleted = (
       (data as { lessonProgress?: Array<{ lesson_id: string; status: string }> }).lessonProgress ??
@@ -94,6 +96,8 @@ function MyProgress() {
     return { completed, exByLesson, timeTotal, badges, level, weak };
   }, [data]);
 
+  const rewards = useRewards(summary ? Array.from(summary.completed).map(Number) : [], summary?.exByLesson);
+
   const exportCSV = () => {
     if (!data || !summary) return;
     const rows = CATALOG.map((entry) => {
@@ -101,7 +105,7 @@ function MyProgress() {
       return {
         leccion: entry.n,
         titulo: entry.title,
-        completada: summary.completed.has(String(entry.n)) ? "sí" : "no",
+        completada: summary.completed.has(String(entry.n)) ? "sÃ­" : "no",
         ejercicios: ex?.runs ?? 0,
         aciertos: ex?.score ?? 0,
         intentos: ex?.total ?? 0,
@@ -132,7 +136,7 @@ function MyProgress() {
       label: `L${entry.n}`,
       value: ex && ex.total > 0 ? Math.round((ex.score / ex.total) * 100) : 0,
       color: entry.color,
-      sub: summary.completed.has(String(entry.n)) ? "✓" : "",
+      sub: summary.completed.has(String(entry.n)) ? "âœ“" : "",
     };
   });
 
@@ -152,7 +156,7 @@ function MyProgress() {
         <div>
           <h1 className="text-3xl sm:text-4xl font-bold">{t.holaName[lang].replace("{name}", data.student.display_name)}</h1>
           <p className="text-sm text-foreground/60 mt-1">
-            {t.clase[lang]} <strong>{data.class?.name ?? "—"}</strong> · {t.tuCodigo[lang]}{" "}
+            {t.clase[lang]} <strong>{data.class?.name ?? "â€”"}</strong> Â· {t.tuCodigo[lang]}{" "}
             <span className="font-mono font-bold">{data.student.student_code}</span>
           </p>
         </div>
@@ -199,7 +203,7 @@ function MyProgress() {
                   className="px-3 py-1.5 rounded-full text-xs font-bold border-2"
                   style={{ borderColor: entry.color, color: entry.color }}
                 >
-                  L{entry.n} — {entry.title}
+                  L{entry.n} â€” {entry.title}
                 </Link>
               );
             })}
@@ -212,6 +216,45 @@ function MyProgress() {
           </Link>
         </section>
       )}
+
+      {/* Trophy Case & Sticker Book */}
+      <section className="mt-6">
+        <h2 className="font-bold mb-3 text-lg flex items-center gap-2">
+          <Award className="w-5 h-5 text-amber-500" /> Colección de Logros
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="kid-card p-4">
+            <h3 className="font-bold text-foreground/80 mb-3 text-sm uppercase tracking-wider">Tus Stickers</h3>
+            <div className="flex flex-wrap gap-2">
+              {rewards.allStickers.map(s => {
+                const earned = rewards.stickers.includes(s.lessonId);
+                return (
+                  <div key={s.id} className={`w-12 h-12 flex items-center justify-center rounded-xl text-2xl transition-all duration-300 ${earned ? "bg-secondary scale-100 opacity-100" : "bg-foreground/5 scale-95 opacity-40 grayscale"}`} title={s.name}>
+                    {s.emoji}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          <div className="kid-card p-4">
+            <h3 className="font-bold text-foreground/80 mb-3 text-sm uppercase tracking-wider">Tus Trofeos</h3>
+            <div className="grid grid-cols-1 gap-2">
+              {rewards.allBadges.map(b => {
+                const earned = rewards.badges.includes(b.id);
+                return (
+                  <div key={b.id} className={`flex items-center gap-3 p-2 rounded-xl transition-all ${earned ? "bg-amber-100/50" : "opacity-50 grayscale"}`}>
+                    <div className="text-3xl">{b.emoji}</div>
+                    <div>
+                      <div className="font-bold text-sm" style={{ color: earned ? b.color : "inherit" }}>{b.name}</div>
+                      <div className="text-xs text-foreground/60">{b.description}</div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="mt-6 kid-card p-4">
         <h2 className="font-bold mb-3">{t.aciertosPorLeccion[lang]}</h2>
@@ -238,11 +281,11 @@ function MyProgress() {
                   <div className="font-bold text-sm truncate">{entry.title}</div>
                   <div className="text-xs text-foreground/60 mt-0.5">
                     {isDone ? (
-                      <span className="text-success font-bold">✓ {t.completada[lang]}</span>
+                      <span className="text-success font-bold">âœ“ {t.completada[lang]}</span>
                     ) : (
                       <span>{t.pendiente[lang]}</span>
                     )}
-                    {pct !== null && <span className="ml-2">· {pct}% {t.acierto[lang]}</span>}
+                    {pct !== null && <span className="ml-2">Â· {pct}% {t.acierto[lang]}</span>}
                   </div>
                 </div>
               </Link>
@@ -275,3 +318,5 @@ function Stat({
     </div>
   );
 }
+
+

@@ -54,6 +54,20 @@ export function useGretelAnimation(): GretelAnimationHook {
     dispatch(event);
   }, []);
 
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const handleSpeakStart = () => send({ type: "SPEAK_START" });
+    const handleSpeakStop = () => send({ type: "SPEAK_STOP" });
+
+    window.addEventListener("gretel:speak_start", handleSpeakStart);
+    window.addEventListener("gretel:speak_stop", handleSpeakStop);
+
+    return () => {
+      window.removeEventListener("gretel:speak_start", handleSpeakStart);
+      window.removeEventListener("gretel:speak_stop", handleSpeakStop);
+    };
+  }, [send]);
+
   // Preloading utility
   const preloadImage = (src: string): Promise<void> => {
     if (src === TRANSPARENT_SPACER) return Promise.resolve();

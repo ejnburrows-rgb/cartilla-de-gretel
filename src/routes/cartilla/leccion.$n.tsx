@@ -1,11 +1,11 @@
-import { useEffect, useMemo, useRef } from "react";
+﻿import { useEffect, useMemo, useRef } from "react";
 import { createFileRoute, Link, useNavigate, redirect } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@/lib/useServerFn";
 import { ArrowLeft, ArrowRight, Check, Volume2, ClipboardList } from "lucide-react";
 import { CATALOG, TOTAL_LESSONS, type CatalogEntry } from "@/lib/lesson-catalog";
 import { useLessonProgress, isLessonUnlocked, markLessonCompleted } from "@/lib/lesson-progress";
-import { speak, speakVowel } from "@/lib/speak";
+import { useAudio } from "@/hooks/useAudio";
 import { cn } from "@/lib/utils";
 import { SyllableTap, WordMatch, TeacherAnswerKey } from "@/components/cartilla/Ejercicios";
 import { OrderedExercises } from "@/components/cartilla/OrderedExercises";
@@ -125,7 +125,7 @@ function Leccion() {
       </header>
       <main className="flex-1 px-4 pt-6 pb-28 max-w-3xl w-full mx-auto">
         <div className="text-xs font-bold uppercase tracking-wide text-foreground/50">
-          {t.leccion[lang]} {n} · {t.paginas[lang].toLowerCase()} {entry.pages}
+          {t.leccion[lang]} {n} Ã‚Â· {t.paginas[lang].toLowerCase()} {entry.pages}
         </div>
         <h1
           className="text-4xl sm:text-5xl font-bold leading-tight mt-1"
@@ -175,13 +175,14 @@ function Leccion() {
 }
 
 function IntroBody({ lessonId, lang, t }: { lessonId: string; lang: "es" | "en"; t: typeof sCopy }) {
+  const { play, playingText } = useAudio();
   const vowels = ["a", "e", "i", "o", "u"];
   const vowelWords = [
-    { word: "ala", emoji: "🦋" },
-    { word: "elefante", emoji: "🐘" },
-    { word: "iglú", emoji: "🏠" },
-    { word: "oso", emoji: "🐻" },
-    { word: "uva", emoji: "🍇" },
+    { word: "ala", emoji: "Ã°Å¸Â¦â€¹" },
+    { word: "elefante", emoji: "Ã°Å¸ÂËœ" },
+    { word: "iglÃƒÂº", emoji: "Ã°Å¸ÂÂ " },
+    { word: "oso", emoji: "Ã°Å¸ÂÂ»" },
+    { word: "uva", emoji: "Ã°Å¸Ââ€¡" },
   ];
   return (
     <section className="mt-5 space-y-5">
@@ -192,9 +193,9 @@ function IntroBody({ lessonId, lang, t }: { lessonId: string; lang: "es" | "en";
         {vowels.map((v) => (
           <button
             key={v}
-            onClick={() => speakVowel(v)}
+            onClick={() => play(v, true)}
             aria-label={`Escuchar la vocal ${v}`}
-            className="w-16 h-16 rounded-2xl bg-primary text-primary-foreground text-3xl font-bold shadow-md hover:scale-105 active:scale-95 transition relative"
+            className={`w-16 h-16 rounded-2xl bg-primary text-primary-foreground text-3xl font-bold shadow-md hover:scale-105 active:scale-95 transition relative ${playingText === v ? "animate-pulse ring-4 ring-primary ring-offset-2" : ""}`}
           >
             {v}
             <Volume2
@@ -244,7 +245,8 @@ function VowelBody({
   lessonId: string;
   lang: "es" | "en";
   t: typeof sCopy;
-}) {
+  }) {
+  const { play, playingText } = useAudio();
   const l = entry.lesson;
   return (
     <section className="mt-5 space-y-5">
@@ -268,9 +270,9 @@ function VowelBody({
               <div className="text-3xl">{v.emoji}</div>
               <div className="font-bold mt-1">{v.word}</div>
               <button
-                onClick={() => speak(v.word)}
+                onClick={() => play(v.word)}
                 aria-label={`Escuchar ${v.word}`}
-                className="mt-1 inline-flex items-center gap-1 text-xs text-foreground/60 hover:text-primary"
+                className={`mt-1 inline-flex items-center gap-1 text-xs text-foreground/60 hover:text-primary ${playingText === v.word ? "animate-pulse text-primary" : ""}`}
               >
                 <Volume2 className="w-3.5 h-3.5" /> {t.oir[lang]}
               </button>
@@ -315,6 +317,7 @@ function ConsonantBody({
   lang: "es" | "en";
   t: typeof sCopy;
 }) {
+  const { play, playingText } = useAudio();
   const c = entry.data;
   return (
     <section className="mt-5 space-y-5">
@@ -328,12 +331,13 @@ function ConsonantBody({
         {c.syllables.map((s) => (
           <button
             key={s}
-            onClick={() => speak(s)}
+            onClick={() => play(s)}
             className={cn(
               "px-3 py-1.5 rounded-xl text-lg font-bold text-white shadow-sm hover:scale-105 active:scale-95 transition",
+              playingText === s && "animate-pulse ring-2 ring-offset-2 ring-offset-background ring-primary"
             )}
             style={{ backgroundColor: entry.color }}
-            aria-label={`Escuchar la sílaba ${s}`}
+            aria-label={`Escuchar la sÃƒÂ­laba ${s}`}
           >
             {s}
           </button>
@@ -352,9 +356,9 @@ function ConsonantBody({
                   <li key={w} className="flex items-center justify-between text-sm">
                     <span>{w}</span>
                     <button
-                      onClick={() => speak(w)}
+                      onClick={() => play(w)}
                       aria-label={`Escuchar ${w}`}
-                      className="text-foreground/50 hover:text-primary"
+                      className={`text-foreground/50 hover:text-primary ${playingText === w ? "animate-pulse text-primary" : ""}`}
                     >
                       <Volume2 className="w-3.5 h-3.5" />
                     </button>
@@ -369,16 +373,16 @@ function ConsonantBody({
         <div>
           <h2 className="text-xl font-bold mb-2">{t.oraciones[lang]}</h2>
           <ul className="space-y-2">
-            {c.sentences.map((t) => (
+            {c.sentences.map((t_sentence) => (
               <li
-                key={t}
+                key={t_sentence}
                 className="rounded-2xl border-2 border-foreground/10 bg-card p-3 italic flex items-start justify-between gap-3"
               >
-                <span>{t}</span>
+                <span>{t_sentence}</span>
                 <button
-                  onClick={() => speak(t)}
-                  aria-label={`Escuchar ${t}`}
-                  className="text-foreground/50 hover:text-primary shrink-0"
+                  onClick={() => play(t_sentence)}
+                  aria-label={`Escuchar ${t_sentence}`}
+                  className={`mt-0.5 text-foreground/50 hover:text-primary shrink-0 ${playingText === t_sentence ? "animate-pulse text-primary" : ""}`}
                 >
                   <Volume2 className="w-4 h-4" />
                 </button>
@@ -403,7 +407,7 @@ function ConsonantBody({
                 items={c.syllables.flatMap((s) =>
                   (c.examples[s] ?? [])
                     .slice(0, 1)
-                    .map((w) => ({ q: `Sílaba inicial de "${w}"`, a: s })),
+                    .map((w) => ({ q: `SÃƒÂ­laba inicial de "${w}"`, a: s })),
                 )}
               />
             ),
@@ -413,3 +417,6 @@ function ConsonantBody({
     </section>
   );
 }
+
+
+

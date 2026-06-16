@@ -1,5 +1,5 @@
-/**
- * DragBuildWord.tsx  — Lane A
+﻿/**
+ * DragBuildWord.tsx  â€” Lane A
  *
  * Drag (pointer-events API via @dnd-kit) letter tiles from a tray onto word slots.
  * Wrong drops snap back with shake animation.
@@ -10,9 +10,9 @@
  */
 import { useCallback, useEffect, useMemo, useReducer, useRef, useState } from "react";
 import { RotateCcw, Volume2 } from "lucide-react";
-import { speak } from "@/lib/speak";
+import { useAudio } from "@/hooks/useAudio";
 import { recordEvent } from "@/lib/student-session";
-import type { CatalogEntry } from "@/lib/lesson-catalog";
+
 import { GretelFeedback } from "@/components/cartilla/GretelFeedback";
 import { feelBus } from "@/lib/feel-bus";
 import {
@@ -27,7 +27,7 @@ import {
   DragEndEvent,
 } from "@dnd-kit/core";
 
-// ── Audio ──────────────────────────────────────────────────────────
+// â”€â”€ Audio â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function playCelebrationTone() {
   try {
     const ctx = new AudioContext();
@@ -60,7 +60,7 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
-// ── Types ──────────────────────────────────────────────────────────
+// â”€â”€ Types â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 type SlotState = string | null; // null = empty, string = letter placed
 
 interface DragBuildWordState {
@@ -80,7 +80,7 @@ type Action =
   | { type: "NEXT_WORD"; word: string };
 
 function buildTray(word: string): string[] {
-  // Add 1–3 distractor letters
+  // Add 1â€“3 distractor letters
   const alpha = "aeioumsptdlnbvrfgjcyz";
   const extras = shuffle(
     alpha.split("").filter((c) => !word.includes(c)),
@@ -134,7 +134,7 @@ function reducer(state: DragBuildWordState, action: Action): DragBuildWordState 
   }
 }
 
-// ── Subcomponents ──────────────────────────────────────────────────
+// â”€â”€ Subcomponents â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function DraggableLetter({ letter, trayIdx, used, accent, disabled, selectedTray, onTrayKeyDown }: any) {
   const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
     id: `tray-${trayIdx}`,
@@ -195,7 +195,7 @@ function DroppableSlot({ slotIdx, filled, accent, wrongSlot, selectedTray, onSlo
       aria-label={
         filled
           ? `Casilla ${slotIdx + 1}: ${filled}`
-          : `Casilla ${slotIdx + 1}: vacía`
+          : `Casilla ${slotIdx + 1}: vacÃ­a`
       }
     >
       {filled ?? <span className="text-foreground/20 text-sm">_</span>}
@@ -203,29 +203,21 @@ function DroppableSlot({ slotIdx, filled, accent, wrongSlot, selectedTray, onSlo
   );
 }
 
-// ── Component ──────────────────────────────────────────────────────
+// â”€â”€ Component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 interface DragBuildWordProps {
-  entry: CatalogEntry;
+  words: string[];
   accent: string;
   lessonId?: string;
   onComplete?: () => void;
 }
 
-export function DragBuildWord({ entry, accent, lessonId, onComplete }: DragBuildWordProps) {
-  // Pick a target word from the lesson's data
-  const words = useMemo<string[]>(() => {
-    if (entry.kind === "consonant") {
-      const examples = Object.values(entry.data.examples).flat();
-      return examples.filter((w) => w.length >= 2 && w.length <= 7);
-    }
-    if (entry.kind === "vowel") {
-      return entry.lesson.vocab.map((v) => v.word).filter((w) => w.length >= 2 && w.length <= 7);
-    }
-    return ["ala", "oso", "uva", "ojo", "era"];
-  }, [entry]);
+export function DragBuildWord({ words, accent, lessonId, onComplete }: DragBuildWordProps) {
+  const { play, playingText } = useAudio();
+  // If no words provided, fallback
+  const safeWords = words.length > 0 ? words : ["ola"];
 
   const [wordIdx, setWordIdx] = useState(0);
-  const currentWord = words[wordIdx % words.length] ?? "ola";
+  const currentWord = safeWords[wordIdx % safeWords.length] ?? "ola";
 
   const [state, dispatch] = useReducer(reducer, currentWord, initState);
   const [feedbackState, setFeedbackState] = useState<"ok" | "x" | null>(null);
@@ -255,7 +247,7 @@ export function DragBuildWord({ entry, accent, lessonId, onComplete }: DragBuild
   useEffect(() => {
     if (state.completed && !hasCalledComplete.current) {
       hasCalledComplete.current = true;
-      speak(state.target);
+      play(state.target);
       const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       if (!reduced) playCelebrationTone();
       if (lessonId) {
@@ -303,7 +295,7 @@ export function DragBuildWord({ entry, accent, lessonId, onComplete }: DragBuild
     setFeedbackState(null);
   };
 
-  // ── Keyboard ─────────────────────────────────────────────────────
+  // â”€â”€ Keyboard â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const onTrayKeyDown = (e: React.KeyboardEvent, trayIdx: number) => {
     if (e.key === " " || e.key === "Enter") {
       e.preventDefault();
@@ -319,7 +311,7 @@ export function DragBuildWord({ entry, accent, lessonId, onComplete }: DragBuild
     }
   };
 
-  // ── @dnd-kit Handlers ────────────────────────────────────────────
+  // â”€â”€ @dnd-kit Handlers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const onDragStart = () => {
     feelBus.emit("drag-pick");
   };
@@ -342,7 +334,7 @@ export function DragBuildWord({ entry, accent, lessonId, onComplete }: DragBuild
         <h3 className="font-bold">Forma la palabra</h3>
         <div className="flex gap-2">
           <button
-            onClick={() => speak(state.target)}
+            onClick={() => play(state.target)}
             aria-label={`Escuchar "${state.target}"`}
             className="lesson-focus-ring inline-flex items-center gap-1 text-xs font-bold px-2 py-1 rounded-lg border border-foreground/10 hover:bg-secondary"
           >
@@ -407,9 +399,10 @@ export function DragBuildWord({ entry, accent, lessonId, onComplete }: DragBuild
 
       {selectedTray !== null && (
         <p className="mt-2 text-xs text-foreground/50" aria-live="polite">
-          Letra «{state.tray[selectedTray]}» seleccionada — pulsa Enter/Espacio en una casilla
+          Letra Â«{state.tray[selectedTray]}Â» seleccionada â€” pulsa Enter/Espacio en una casilla
         </p>
       )}
     </div>
   );
 }
+

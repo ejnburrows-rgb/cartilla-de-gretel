@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { Check, Star, Sparkles } from "lucide-react";
 import { feelBus } from "@/lib/feel-bus";
 import { STICKERS, type Sticker } from "@/lib/rewards";
@@ -59,18 +60,27 @@ export function LessonCompleteModal({ lessonId, onNext }: LessonCompleteModalPro
           </p>
 
           {awardedSticker && (
-            <div className="mb-8 p-6 bg-secondary/30 rounded-3xl border border-secondary/50 relative group">
+            <motion.div
+              initial={{ scale: 0, rotate: -20, opacity: 0 }}
+              animate={{ scale: 1, rotate: 0, opacity: 1 }}
+              transition={{ type: "spring", bounce: 0.6, duration: 0.8, delay: 0.2 }}
+              className="mb-8 p-6 bg-secondary/30 rounded-3xl border border-secondary/50 relative group"
+            >
               <Sparkles className="absolute -top-3 -right-3 w-8 h-8 text-amber-400 animate-bounce" />
               <div className="text-sm font-bold text-foreground/50 uppercase tracking-wider mb-4">
                 Has ganado un sticker
               </div>
-              <div className="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">
+              <motion.div
+                animate={{ scale: [1, 1.1, 1] }}
+                transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                className="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300"
+              >
                 {awardedSticker.emoji}
-              </div>
+              </motion.div>
               <div className="font-bold text-lg font-fredoka text-primary">
                 {awardedSticker.name}
               </div>
-            </div>
+            </motion.div>
           )}
 
           <button
