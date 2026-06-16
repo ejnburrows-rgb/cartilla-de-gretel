@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { preloadSpread } from "@/utils/preloadSpread";
+import { gretelEvent } from "@/components/gretel/gretelEvents";
 
 export interface WorkbookPageEntry {
   id: string;
@@ -46,7 +47,13 @@ export function StudentWorkbookFlip({
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
     window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
+    
+    // Emit mount event when component mounts
+    gretelEvent("mount");
+    
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+    };
   }, []);
 
   const normalizedStartIdx = (!isMobile && initialPage % 2 !== 0) ? initialPage - 1 : initialPage;
@@ -76,6 +83,9 @@ export function StudentWorkbookFlip({
       setIsFlipping(false);
       setFlipDirection(null);
       onPageChange?.(newIndex);
+      
+      // Emit page-flip event when page changes
+      gretelEvent("page-flip");
     },
     [onPageChange],
   );
