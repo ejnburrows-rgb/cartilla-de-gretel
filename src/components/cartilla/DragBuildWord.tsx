@@ -195,7 +195,7 @@ function DroppableSlot({ slotIdx, filled, accent, wrongSlot, selectedTray, onSlo
       aria-label={
         filled
           ? `Casilla ${slotIdx + 1}: ${filled}`
-          : `Casilla ${slotIdx + 1}: vacÃ­a`
+          : `Casilla ${slotIdx + 1}: vacía`
       }
     >
       {filled ?? <span className="text-foreground/20 text-sm">_</span>}
@@ -399,7 +399,7 @@ export function DragBuildWord({ words, accent, lessonId, onComplete }: DragBuild
 
       {selectedTray !== null && (
         <p className="mt-2 text-xs text-foreground/50" aria-live="polite">
-          Letra Â«{state.tray[selectedTray]}Â» seleccionada â€” pulsa Enter/Espacio en una casilla
+          Letra «{state.tray[selectedTray]}» seleccionada — pulsa Enter/Espacio en una casilla
         </p>
       )}
     </div>

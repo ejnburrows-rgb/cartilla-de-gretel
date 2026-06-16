@@ -22,8 +22,8 @@ import { SyllableTap, WordMatch } from "@/components/cartilla/Ejercicios";
 import { DragBuildWord } from "@/components/cartilla/DragBuildWord";
 import { OrderedExercises } from "@/components/cartilla/OrderedExercises";
 import { LessonTimer } from "@/components/cartilla/LessonTimer";
-import { GretelMascot } from "@/components/gretel/GretelMascot";
 import type { CatalogEntry } from "@/lib/lesson-catalog";
+import { gretelEvent } from "@/lib/gretel-bus";
 import "@/styles/cartilla-student.css";
 
 const EXERCISE_IDS = [
@@ -69,12 +69,13 @@ export function StudentExercisePane({
   });
 
   useEffect(() => {
-    if (completed.size === EXERCISE_IDS.length && onAllCompleted) {
-      onAllCompleted();
+    if (completed.size === EXERCISE_IDS.length) {
+      gretelEvent("lesson:complete");
+      if (onAllCompleted) onAllCompleted();
     }
   }, [completed.size, onAllCompleted]);
 
-  const markDone = (id: ExerciseId) =>
+  const markDone = (id: ExerciseId) => {
     setCompleted((prev) => {
       if (prev.has(id)) return prev;
       const next = new Set([...prev, id]);
@@ -83,6 +84,8 @@ export function StudentExercisePane({
       } catch {}
       return next;
     });
+    gretelEvent("answer:correct");
+  };
 
   const accent = entry.color;
 
@@ -93,18 +96,9 @@ export function StudentExercisePane({
     return ["a", "e", "i", "o", "u"];
   })();
 
-  const words: Array<{ word: string;  }> = (() => {
+  const words: Array<{ word: string; emoji?: string }> = (() => {
     if (entry.kind === "consonant") {
-      // Only first example per syllable — all from consonants.json (book-derived)
-      const out: Array<{ word: string }> = [];
-      for (const list of Object.values(entry.data.examples)) {
-        if (Array.isArray(list) && list.length > 0) {
-          const w = list[0];
-          if (typeof w === "string" && w.length > 0) out.push({ word: w });
-        }
-        if (out.length >= 5) break;
-      }
-      return out;
+      return entry.data.vocab;
     }
     if (entry.kind === "vowel") {
       return entry.lesson.vocab.slice(0, 4);
@@ -203,9 +197,6 @@ export function StudentExercisePane({
 
   return (
     <div className="student-exercise-pane relative">
-      <div className="absolute -top-12 -right-4 z-10 hidden sm:block">
-        <GretelMascot pose="point" className="scale-75 origin-bottom-right" />
-      </div>
       {/* Character art from book asset manifest */}
       <BookArtFigure
         lesson={entry.n}
@@ -223,17 +214,6 @@ export function StudentExercisePane({
           accent={accent}
         />
       </div>
-      {/* Gretel reactions after exercises */}
-      {completed.size === EXERCISE_IDS.length && (
-        <div className="fixed bottom-24 right-4 z-40">
-          <GretelMascot
-            pose="celebrate"
-            text="¡Muy bien!\n¡Completaste todos los ejercicios!"
-            bubblePosition="left"
-            showCloseButton={true}
-          />
-        </div>
-      )}
     </div>
   );
 }

@@ -1,4 +1,4 @@
-﻿import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { createFileRoute, Link, useNavigate, redirect } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@/lib/useServerFn";
@@ -125,7 +125,7 @@ function Leccion() {
       </header>
       <main className="flex-1 px-4 pt-6 pb-28 max-w-3xl w-full mx-auto">
         <div className="text-xs font-bold uppercase tracking-wide text-foreground/50">
-          {t.leccion[lang]} {n} Ã‚Â· {t.paginas[lang].toLowerCase()} {entry.pages}
+          {t.leccion[lang]} {n} · {t.paginas[lang].toLowerCase()} {entry.pages}
         </div>
         <h1
           className="text-4xl sm:text-5xl font-bold leading-tight mt-1"
@@ -178,11 +178,11 @@ function IntroBody({ lessonId, lang, t }: { lessonId: string; lang: "es" | "en";
   const { play, playingText } = useAudio();
   const vowels = ["a", "e", "i", "o", "u"];
   const vowelWords = [
-    { word: "ala", emoji: "Ã°Å¸Â¦â€¹" },
-    { word: "elefante", emoji: "Ã°Å¸ÂËœ" },
-    { word: "iglÃƒÂº", emoji: "Ã°Å¸ÂÂ " },
-    { word: "oso", emoji: "Ã°Å¸ÂÂ»" },
-    { word: "uva", emoji: "Ã°Å¸Ââ€¡" },
+    { word: "ala", emoji: "🦅" },
+    { word: "elefante", emoji: "🐘" },
+    { word: "iglú", emoji: "⛺" },
+    { word: "oso", emoji: "🐻" },
+    { word: "uva", emoji: "🍇" },
   ];
   return (
     <section className="mt-5 space-y-5">
@@ -337,7 +337,7 @@ function ConsonantBody({
               playingText === s && "animate-pulse ring-2 ring-offset-2 ring-offset-background ring-primary"
             )}
             style={{ backgroundColor: entry.color }}
-            aria-label={`Escuchar la sÃƒÂ­laba ${s}`}
+            aria-label={`Escuchar la sílaba ${s}`}
           >
             {s}
           </button>
@@ -407,7 +407,7 @@ function ConsonantBody({
                 items={c.syllables.flatMap((s) =>
                   (c.examples[s] ?? [])
                     .slice(0, 1)
-                    .map((w) => ({ q: `SÃƒÂ­laba inicial de "${w}"`, a: s })),
+                    .map((w) => ({ q: `Sílaba inicial de "${w}"`, a: s })),
                 )}
               />
             ),
@@ -417,6 +417,3 @@ function ConsonantBody({
     </section>
   );
 }
-
-
-

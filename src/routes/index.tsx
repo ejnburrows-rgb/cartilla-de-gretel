@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect } from "react";
 import { GretelGuide } from "@/components/gretel/GretelGuide";
 import { GretelStage } from "@/components/gretel/GretelStage";
+import { gretelEvent } from "@/lib/gretel-bus";
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -16,6 +18,10 @@ export const Route = createFileRoute("/")({
 });
 
 function Landing() {
+  useEffect(() => {
+    gretelEvent("lesson:start");
+  }, []);
+
   return (
     <main className="desk-scene min-h-screen flex items-center justify-center px-4 py-12">
       <div className="relative z-10 flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 max-w-6xl w-full">
@@ -35,7 +41,7 @@ function Landing() {
         {/* Gretel Waving */}
         <div className="relative order-1 lg:order-2">
           <GretelStage size="lg" warmth={true}>
-            <GretelGuide state="wave" text="¡Hola! Soy Gretel. ¡Vamos a leer juntos!" bubblePosition="left" />
+            <GretelGuide bubblePosition="left" />
           </GretelStage>
         </div>
 

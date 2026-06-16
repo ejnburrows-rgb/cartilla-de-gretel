@@ -12,6 +12,7 @@ import { feelBus } from "@/lib/feel-bus";
 import { Play } from "lucide-react";
 import { GretelGuide } from "@/components/gretel/GretelGuide";
 import { GretelStage } from "@/components/gretel/GretelStage";
+import { gretelEvent } from "@/lib/gretel-bus";
 
 export const Route = createFileRoute("/workbook")({
   component: WorkbookPage,
@@ -33,8 +34,11 @@ function WorkbookPage() {
   const [currentPageIndex, setCurrentPageIndex] = useState(0);
   const [showOverlay, setShowOverlay] = useState(false);
   const [lessonCompleteId, setLessonCompleteId] = useState<string | null>(null);
-  const [gretelState, setGretelState] = useState<"idle" | "talk" | "wave" | "point" | "cheer">("idle");
-  const [gretelText, setGretelText] = useState<string | undefined>(undefined);
+
+  // Emit lesson:start on mount so Gretel waves
+  useEffect(() => {
+    gretelEvent("lesson:start");
+  }, []);
 
   // In a spread view, currentPageIndex points to the left page,
   // so the visible pages are currentPageIndex and currentPageIndex + 1 (if 0-indexed).
@@ -48,23 +52,6 @@ function WorkbookPage() {
 
   const activeExercisePage = rightExercise ? rightPageNum : (leftExercise ? leftPageNum : null);
   const hasExercise = activeExercisePage !== null;
-
-  // Gretel reactions based on page changes
-  useEffect(() => {
-    // Check if we're on page 95 (last page)
-    if (rightPageNum === 95 || leftPageNum === 95) {
-      setGretelState("cheer");
-      setGretelText("¡Felicidades! ¡Has terminado el libro!");
-    } else if (currentPageIndex === 0) {
-      // First page - welcome
-      setGretelState("wave");
-      setGretelText("¡Hola! Vamos a leer juntos. ¡Dale a la página para empezar!");
-    } else {
-      // Page flip - encourage
-      setGretelState("idle");
-      setGretelText(undefined);
-    }
-  }, [currentPageIndex, leftPageNum, rightPageNum]);
 
   return (
     <main className="min-h-screen relative bg-[radial-gradient(circle_at_top_left,rgba(255,214,165,0.58),transparent_32%),linear-gradient(135deg,#fff8ed_0%,#f9efe0_48%,#e8f4ef_100%)] px-4 py-8 overflow-hidden">
@@ -91,7 +78,7 @@ function WorkbookPage() {
         {/* Gretel Guide - Fixed bottom-right with compositing */}
         <div className="fixed bottom-6 right-6 z-30">
           <GretelStage size="md" warmth={true}>
-            <GretelGuide state={gretelState} text={gretelText} bubblePosition="left" />
+            <GretelGuide bubblePosition="left" />
           </GretelStage>
         </div>
 
@@ -143,6 +130,7 @@ function WorkbookPage() {
                     accent={getLessonForPage(activeExercisePage)?.accent ?? "hsl(var(--primary))"}
                     onComplete={() => {
                       setShowOverlay(false);
+                      gretelEvent("lesson:complete");
                       setLessonCompleteId(String(getLessonForPage(activeExercisePage)?.n ?? 1));
                     }}
                   />
