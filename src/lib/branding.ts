@@ -14,9 +14,9 @@ export const BRANDING = {
   productTagline: "Edición digital interactiva — método fonético K-2.",
   shortName: "Cartilla",
   author: "Leonor Lopetegui",
-  publisher: "LANY Books LLC",
-  publisherEstablished: 2026,
-  supportEmail: "info@lanybooks.com",
+  publisher: "Double R Publishing",
+  publisherEstablished: 2004,
+  supportEmail: "info@doublerpublishing.com",
   description:
     "Edición digital interactiva de La Cartilla de Gretel — método fonético K-2 con 24 lecciones, ejercicios y panel de maestro.",
   // Colores principales (referencia, los tokens reales viven en src/styles.css)
@@ -28,5 +28,5 @@ export function pageTitle(section?: string): string {
 }
 
 export function copyrightLine(): string {
-  return `Digital adaptation by Emilio Jose Novo · Imprint: ${BRANDING.publisher}`;
+  return `© ${new Date().getFullYear()} ${BRANDING.publisher} · ${BRANDING.author}`;
 }

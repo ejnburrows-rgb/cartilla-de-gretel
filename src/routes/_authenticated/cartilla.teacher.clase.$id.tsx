@@ -25,15 +25,18 @@ import {
 } from "@/lib/teacher.functions";
 import { listAssignments, createAssignment, deleteAssignment } from "@/lib/assignments.functions";
 import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
-import teacherGuide from "@/data/teacher-guide.json";
 import { SimpleBarChart } from "@/components/cartilla/SimpleBarChart";
 import { downloadCSV, toCSV } from "@/lib/csv";
+import { useLanguage } from "@/context/LanguageContext";
+import { tCopy } from "@/content/teacher-copy";
 
 export const Route = createFileRoute("/_authenticated/cartilla/teacher/clase/$id")({
   component: ClassDetail,
 });
 
 function ClassDetail() {
+  const { lang } = useLanguage();
+  const t = tCopy;
   const { id } = Route.useParams();
   const qc = useQueryClient();
   const fetchClass = useServerFn(getClass);
@@ -165,48 +168,27 @@ function ClassDetail() {
 
   if (isLoading) {
     return (
-      <main className="min-h-screen bg-background px-4 py-6 max-w-4xl mx-auto space-y-6">
-        <div className="w-24 h-4 rounded skeleton-shimmer mb-6"></div>
-        <div className="w-64 h-10 rounded-xl skeleton-shimmer mb-2"></div>
-        <div className="w-96 h-6 rounded skeleton-shimmer mb-6"></div>
-        <div className="flex gap-2 mb-6">
-          <div className="w-32 h-10 rounded-xl skeleton-shimmer"></div>
-        </div>
-        <div className="w-full h-48 rounded-2xl skeleton-shimmer mb-6"></div>
-        <div className="w-full h-32 rounded-2xl skeleton-shimmer"></div>
+      <main className="min-h-screen flex items-center justify-center">
+        <Loader2 className="w-6 h-6 animate-spin text-foreground/40" />
       </main>
     );
   }
 
-  if (!data) {
-    return (
-      <main className="min-h-screen bg-background px-4 py-6 max-w-4xl mx-auto flex flex-col items-center justify-center text-center">
-        <ClipboardList className="w-16 h-16 text-primary mb-4" />
-        <h1 className="text-2xl font-bold mb-2">Clase no encontrada</h1>
-        <p className="text-foreground/60 mb-6">No se pudo cargar la información de esta clase. Por favor, intenta de nuevo.</p>
-        <Link
-          to="/cartilla/teacher"
-          className="px-6 py-3 bg-primary text-primary-foreground font-bold rounded-xl shadow-md hover:bg-primary/95 transition-all"
-        >
-          Volver a Mis Clases
-        </Link>
-      </main>
-    );
-  }
+  if (!data) return null;
 
   return (
     <main className="min-h-screen bg-background px-4 py-6 max-w-4xl mx-auto">
       <Link
         to="/cartilla/teacher"
-        className="print:hidden inline-flex items-center gap-2 text-sm font-bold text-foreground/60 hover:text-foreground"
+        className="inline-flex items-center gap-2 text-sm font-bold text-foreground/60 hover:text-foreground"
       >
-        <ArrowLeft className="w-4 h-4" /> Mis clases
+        <ArrowLeft className="w-4 h-4" /> {t.misClases[lang]}
       </Link>
 
       <header className="mt-6">
         <h1 className="text-3xl sm:text-4xl font-bold">{data.class.name}</h1>
         <div className="mt-2 flex flex-wrap items-center gap-3 text-sm">
-          <span className="text-foreground/60">Código de unión:</span>
+          <span className="text-foreground/60">{t.codigoUnion[lang]}</span>
           <span className="font-mono text-lg font-bold tracking-wider px-3 py-1 rounded-lg bg-secondary">
             {data.class.join_code}
           </span>
@@ -214,51 +196,42 @@ function ClassDetail() {
             onClick={() => navigator.clipboard?.writeText(data.class.join_code)}
             className="inline-flex items-center gap-1 text-foreground/60 hover:text-primary"
           >
-            <Copy className="w-4 h-4" /> Copiar
+            <Copy className="w-4 h-4" /> {t.copiar[lang]}
           </button>
         </div>
         <p className="text-xs text-foreground/50 mt-2">
-          Comparte el código con tus alumnos. Ellos lo introducen en{" "}
-          <span className="font-bold">/cartilla/unirse</span> junto con su código personal.
+          {t.comparteCodigo[lang]}{" "}
+          <span className="font-bold">/cartilla/unirse</span> {t.juntoCon[lang]}
         </p>
       </header>
 
       <div className="mt-4 flex flex-wrap gap-2">
         <button
           onClick={exportClassCSV}
-          style={{ minHeight: "44px" }}
           className="inline-flex items-center gap-1.5 text-sm px-3 py-2 rounded-xl border-2 border-foreground/10 hover:bg-secondary font-bold"
         >
-          <Download className="w-4 h-4" /> Exportar CSV
-        </button>
-        <button
-          onClick={() => window.print()}
-          style={{ minHeight: "44px" }}
-          className="print:hidden inline-flex items-center gap-1.5 text-sm px-3 py-2 rounded-xl border-2 border-foreground/10 hover:bg-secondary font-bold"
-        >
-          <ClipboardList className="w-4 h-4" /> Imprimir lista
+          <Download className="w-4 h-4" /> {t.exportarCSV[lang]}
         </button>
       </div>
 
       {classProgress && lessonChart.length > 0 && (
         <section className="mt-6 kid-card p-4">
           <h2 className="font-bold mb-3 inline-flex items-center gap-2">
-            <BarChart3 className="w-4 h-4" /> Alumnos que completaron cada lección (1–12)
+            <BarChart3 className="w-4 h-4" /> {t.alumnosCompletaron[lang]}
           </h2>
           <SimpleBarChart bars={lessonChart} max={data.students.length || 1} />
           <p className="text-[11px] text-foreground/50 mt-2">
-            El subtítulo bajo cada barra es el % promedio de aciertos de la clase en esa lección.
+            {t.subtituloPromedio[lang]}
           </p>
         </section>
       )}
 
-      <section className="print:hidden mt-6 kid-card p-4">
+      <section className="mt-6 kid-card p-4">
         <h2 className="font-bold mb-3 inline-flex items-center gap-2">
-          <ClipboardList className="w-4 h-4" /> Tareas asignadas
+          <ClipboardList className="w-4 h-4" /> {t.tareasAsignadas[lang]}
         </h2>
         <p className="text-xs text-foreground/60 mb-3">
-          Asigna lecciones específicas con fecha de entrega y tiempo límite. Tus alumnos las verán
-          al abrir la lección.
+          {t.asignaLecciones[lang]}
         </p>
         <form
           onSubmit={(e) => {
@@ -281,7 +254,7 @@ function ClassDetail() {
           <input
             value={assTitle}
             onChange={(e) => setAssTitle(e.target.value)}
-            placeholder="Título (opcional, ej. 'Tarea del lunes')"
+            placeholder={t.tituloOpcional[lang]}
             className="px-3 py-2 rounded-xl border-2 border-foreground/10 bg-background focus:border-primary outline-none text-sm"
           />
           <label className="flex items-center gap-2 text-xs font-bold text-foreground/70">
@@ -301,7 +274,7 @@ function ClassDetail() {
               max={60}
               value={assLimit}
               onChange={(e) => setAssLimit(e.target.value)}
-              placeholder="Min límite (opcional)"
+              placeholder={t.minLimite[lang]}
               className="flex-1 px-3 py-2 rounded-xl border-2 border-foreground/10 bg-background focus:border-primary outline-none text-sm font-normal"
             />
           </label>
@@ -315,30 +288,14 @@ function ClassDetail() {
             ) : (
               <Plus className="w-4 h-4" />
             )}
-            Asignar lección
+            {t.asignarLeccion[lang]}
           </button>
         </form>
         {createAssMut.error && (
           <p className="text-xs text-destructive mt-2">{(createAssMut.error as Error).message}</p>
         )}
 
-        {(!assignments || assignments.length === 0) ? (
-          <div className="mt-4 kid-card p-6 text-center flex flex-col items-center justify-center text-foreground/60">
-            <BookOpen className="w-10 h-10 mb-3 opacity-50 text-primary" />
-            <p className="text-sm font-bold mb-1 text-foreground">No hay tareas asignadas</p>
-            <p className="text-xs max-w-xs mb-4">Crea una tarea seleccionando una lección e ingresando los detalles en el formulario de arriba.</p>
-            <button
-              type="button"
-              onClick={() => {
-                const selectEl = document.querySelector('select');
-                selectEl?.focus();
-              }}
-              className="px-4 py-2 bg-primary text-primary-foreground font-bold rounded-xl text-xs"
-            >
-              Asignar lección
-            </button>
-          </div>
-        ) : (
+        {assignments && assignments.length > 0 && (
           <ul className="mt-4 space-y-2">
             {assignments.map((a) => {
               const entry = CATALOG.find((c) => String(c.n) === a.lesson_id);
@@ -365,7 +322,7 @@ function ClassDetail() {
                 >
                   <div className="min-w-0 flex-1">
                     <div className="font-bold truncate">
-                      L{a.lesson_id} · {entry?.title ?? "Lección"}
+                      L{a.lesson_id} · {entry?.title ?? t.leccion[lang]}
                     </div>
                     {a.title && <div className="text-xs text-foreground/70">{a.title}</div>}
                     <div className="text-[11px] text-foreground/60 mt-0.5 flex flex-wrap gap-x-3">
@@ -383,23 +340,23 @@ function ClassDetail() {
                       )}
                       {overview && (
                         <span className="font-bold text-primary">
-                          {overview.completed}/{overview.assigned} completadas
+                          {t.completadasCount[lang].replace("{completed}", String(overview.completed)).replace("{assigned}", String(overview.assigned))}
                         </span>
                       )}
                       {overview && overview.late > 0 && (
-                        <span className="font-bold text-warning">{overview.late} tarde</span>
+                        <span className="font-bold text-warning">{overview.late} {t.tarde[lang]}</span>
                       )}
                       {overview?.accuracy != null && (
-                        <span>{Math.round(overview.accuracy * 100)}% acierto</span>
+                        <span>{Math.round(overview.accuracy * 100)}% {t.acierto[lang]}</span>
                       )}
                     </div>
                   </div>
                   <button
                     onClick={() => {
-                      if (confirm("¿Eliminar esta tarea?")) delAssMut.mutate(a.id);
+                      if (confirm(t.eliminarTarea[lang])) delAssMut.mutate(a.id);
                     }}
                     className="p-1.5 rounded hover:bg-destructive/10 text-destructive"
-                    aria-label="Eliminar tarea"
+                    aria-label="Eliminar"
                   >
                     <Trash2 className="w-4 h-4" />
                   </button>
@@ -410,18 +367,18 @@ function ClassDetail() {
         )}
       </section>
 
-      <section className="print:hidden mt-6 kid-card p-4">
+      <section className="mt-6 kid-card p-4">
         <h2 className="font-bold mb-2 inline-flex items-center gap-2">
-          <Search className="w-4 h-4" /> Buscar código olvidado
+          <Search className="w-4 h-4" /> {t.buscarCodigo[lang]}
         </h2>
         <p className="text-xs text-foreground/60 mb-2">
-          Si un alumno olvidó su código personal, búscalo por nombre.
+          {t.siOlvido[lang]}
         </p>
         <form onSubmit={runSearch} className="flex gap-2 flex-wrap">
           <input
             value={searchQ}
             onChange={(e) => setSearchQ(e.target.value)}
-            placeholder="Nombre o parte del nombre"
+            placeholder={t.nombreOParte[lang]}
             className="flex-1 min-w-0 px-3 py-2 rounded-xl border-2 border-foreground/10 bg-background focus:border-primary outline-none"
           />
           <button
@@ -434,13 +391,13 @@ function ClassDetail() {
             ) : (
               <Search className="w-4 h-4" />
             )}{" "}
-            Buscar
+            {t.buscar[lang]}
           </button>
         </form>
         {searchResults && (
           <ul className="mt-3 space-y-1 text-sm">
             {searchResults.length === 0 && (
-              <li className="text-foreground/60">Sin coincidencias.</li>
+              <li className="text-foreground/60">{t.sinCoincidencias[lang]}</li>
             )}
             {searchResults.map((r) => (
               <li
@@ -452,7 +409,7 @@ function ClassDetail() {
                 <button
                   onClick={() => navigator.clipboard?.writeText(r.student_code)}
                   className="p-1.5 rounded hover:bg-foreground/10 text-foreground/60"
-                  title="Copiar"
+                  title={t.copiar[lang]}
                 >
                   <Copy className="w-3.5 h-3.5" />
                 </button>
@@ -462,16 +419,16 @@ function ClassDetail() {
         )}
       </section>
 
-      <section className="print:hidden mt-6 kid-card p-4">
+      <section className="mt-6 kid-card p-4">
         <h2 className="font-bold mb-2 inline-flex items-center gap-2">
-          <Plus className="w-4 h-4" /> Agregar alumnos
+          <Plus className="w-4 h-4" /> {t.agregarAlumnos[lang]}
         </h2>
         <form onSubmit={submitAdd} className="space-y-2">
           <textarea
             value={bulkNames}
             onChange={(e) => setBulkNames(e.target.value)}
             placeholder={
-              "Un nombre por línea o separados por coma:\nAna López\nLuis Martínez\nMaría García"
+              t.unNombre[lang]
             }
             rows={4}
             className="w-full px-4 py-3 rounded-xl border-2 border-foreground/10 bg-background focus:border-primary outline-none font-mono text-sm"
@@ -486,7 +443,7 @@ function ClassDetail() {
             ) : (
               <Plus className="w-4 h-4" />
             )}
-            Agregar
+            {t.agregar[lang]}
           </button>
           {addMut.error && (
             <p className="text-sm text-destructive">{(addMut.error as Error).message}</p>
@@ -495,22 +452,14 @@ function ClassDetail() {
       </section>
 
       <section className="mt-6">
-        <h2 className="font-bold mb-3 text-lg">Alumnos ({data.students.length})</h2>
+        <h2 className="font-bold mb-3 text-lg">{t.alumnosHeader[lang]} ({data.students.length})</h2>
         {data.students.length === 0 ? (
-          <div className="kid-card p-12 text-center flex flex-col items-center justify-center text-foreground/60">
-            <ClipboardList className="w-12 h-12 mb-4 opacity-50" />
-            <p className="text-lg font-bold mb-2 text-foreground">Aún no hay alumnos</p>
-            <p className="text-sm max-w-sm mb-6">Agrega los nombres de tus alumnos en la sección de arriba para comenzar a registrar su progreso.</p>
-            <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="print:hidden px-4 py-2 bg-primary text-primary-foreground font-bold rounded-xl text-sm">
-              Agregar alumnos
-            </button>
+          <div className="kid-card p-6 text-center text-foreground/60">
+            {t.alumnosSinAlumnos[lang]}
           </div>
         ) : (
           <div className="space-y-2">
-            {[...data.students].sort((a, b) => a.display_name.localeCompare(b.display_name)).map((s) => {
-              const curNum = Math.min(s.lessons + 1, 24);
-              const curTitle = teacherGuide.lessons.find((l: any) => l.id === curNum || l.lesson === curNum)?.title || `L${curNum}`;
-              return (
+            {data.students.map((s) => (
               <div key={s.id} className="kid-card p-3 flex items-center justify-between gap-3">
                 <Link
                   to="/cartilla/teacher/alumno/$id"
@@ -520,38 +469,37 @@ function ClassDetail() {
                   <div className="font-bold truncate">{s.display_name}</div>
                   <div className="text-xs text-foreground/60 mt-0.5 flex flex-wrap gap-x-3">
                     <span>
-                      Código: <span className="font-mono font-bold">{s.student_code}</span>
+                      {t.codigo[lang]} <span className="font-mono font-bold">{s.student_code}</span>
                     </span>
                     <span className="inline-flex items-center gap-1">
-                      <BookOpen className="w-3 h-3" /> Lección actual: {curTitle}
+                      <BookOpen className="w-3 h-3" /> {t.leccionesCompletadas[lang].replace("{completed}", String(s.lessons)).replace("{total}", String(TOTAL_LESSONS))}
                     </span>
-                    <span>{s.events} eventos</span>
+                    <span>{s.events} {t.eventos[lang]}</span>
                     {s.lastSeen && (
-                      <span>· última actividad {new Date(s.lastSeen).toLocaleDateString('es-MX', { dateStyle: 'long' })}</span>
+                      <span>· {t.ultimaActividad[lang]} {new Date(s.lastSeen).toLocaleDateString()}</span>
                     )}
                   </div>
                 </Link>
                 <button
                   onClick={() => navigator.clipboard?.writeText(s.student_code)}
                   className="p-2 rounded-lg hover:bg-secondary text-foreground/60"
-                  aria-label="Copiar código"
-                  title="Copiar código"
+                  aria-label={t.copiarCodigo[lang]}
+                  title={t.copiarCodigo[lang]}
                 >
                   <Copy className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => {
-                    if (confirm(`¿Eliminar a ${s.display_name}? Se borrará su progreso.`))
+                    if (confirm(t.eliminarAlumnoPreg[lang].replace("{name}", s.display_name)))
                       delMut.mutate(s.id);
                   }}
                   className="p-2 rounded-lg hover:bg-destructive/10 text-destructive"
-                  aria-label="Eliminar alumno"
+                  aria-label="Eliminar"
                 >
                   <Trash2 className="w-4 h-4" />
                 </button>
               </div>
-            );
-            })}
+            ))}
           </div>
         )}
       </section>

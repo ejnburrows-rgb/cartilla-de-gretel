@@ -1,10 +1,12 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useServerFn } from "@/lib/useServerFn";
-import { ArrowLeft, LogIn, Loader2, LogOut, Sparkles } from "lucide-react";
+import { ArrowLeft, LogIn, Loader2, LogOut } from "lucide-react";
 import { joinClass } from "@/lib/student.functions";
 import { setStudentSession, useStudentSession } from "@/lib/student-session";
-import { GretelMascot } from "@/components/gretel/GretelMascot";
+import { useLanguage } from "@/context/LanguageContext";
+import { LanguageToggle } from "@/components/LanguageToggle";
+import { sCopy } from "@/content/student-copy";
 
 export const Route = createFileRoute("/cartilla/unirse")({
   component: JoinPage,
@@ -12,6 +14,8 @@ export const Route = createFileRoute("/cartilla/unirse")({
 });
 
 function JoinPage() {
+  const { lang } = useLanguage();
+  const t = sCopy;
   const navigate = useNavigate();
   const join = useServerFn(joinClass);
   const session = useStudentSession();
@@ -19,11 +23,6 @@ function JoinPage() {
   const [studentCode, setStudentCode] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -32,9 +31,9 @@ function JoinPage() {
     try {
       const res = await join({ data: { joinCode, studentCode } });
       setStudentSession(res);
-      navigate({ to: "/cartilla/student/lecciones" });
+      navigate({ to: "/cartilla/lecciones" });
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Error desconocido");
+      setError(err instanceof Error ? err.message : t.errorDesconocido?.[lang] || "Error");
     } finally {
       setBusy(false);
     }
@@ -42,97 +41,85 @@ function JoinPage() {
 
   return (
     <main className="min-h-screen bg-background px-4 py-8 max-w-md mx-auto">
-      <Link
-        to="/cartilla"
-        className="inline-flex items-center gap-2 text-sm font-bold text-foreground/60 hover:text-foreground"
-      >
-        <ArrowLeft className="w-4 h-4" /> Cartilla
-      </Link>
+      <div className="flex items-center justify-between gap-3">
+        <Link
+          to="/cartilla"
+          className="inline-flex items-center gap-2 text-sm font-bold text-foreground/60 hover:text-foreground"
+        >
+          <ArrowLeft className="w-4 h-4" /> {t.cartilla[lang]}
+        </Link>
+        <LanguageToggle />
+      </div>
 
       <header className="mt-8 text-center">
         <div className="mx-auto w-14 h-14 rounded-2xl bg-vowel-i text-white flex items-center justify-center">
           <LogIn className="w-7 h-7" />
         </div>
-        <h1 className="mt-4 text-3xl font-bold">Acceso de Estudiante</h1>
+        <h1 className="mt-4 text-3xl font-bold">{t.soyEstudiante[lang]}</h1>
         <p className="text-sm text-foreground/60 mt-1">
-          Ingresa con código de clase y código personal.
+          {t.pideleMaestra[lang]}
         </p>
       </header>
 
-      {!mounted ? (
-        <div className="mt-12 flex justify-center">
-          <Loader2 className="w-8 h-8 animate-spin text-primary" />
-        </div>
-      ) : session ? (
-        <div className="mt-8 kid-card p-6 text-center flex flex-col items-center">
-          <div className="mb-4">
-            <GretelMascot
-              pose="wave"
-              text={`¡Hola! Soy Gretel\n¡Qué alegría verte, ${session.studentName}!\nEntra a tu clase para comenzar.`}
-              bubblePosition="top"
-            />
-          </div>
-          <p className="font-bold text-lg mt-2">¡Hola, {session.studentName}!</p>
+      {session ? (
+        <div className="mt-8 kid-card p-4 text-center">
+          <p className="font-bold">{t.holaName[lang].replace("{name}", session.studentName)}!</p>
           <p className="text-sm text-foreground/60 mt-1">
-            Estás en la clase <strong>{session.className}</strong>.
+            {t.estasEnClase[lang]} <strong>{session.className}</strong>.
           </p>
           <div className="mt-4 flex flex-col gap-2">
             <Link
-              to="/cartilla/student/lecciones"
+              to="/cartilla/lecciones"
               className="px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold"
             >
-              Continuar a las lecciones
+              {t.continuarLecciones[lang]}
             </Link>
             <button
               onClick={() => setStudentSession(null)}
               className="text-sm text-foreground/60 hover:text-destructive inline-flex items-center justify-center gap-1"
             >
-              <LogOut className="w-4 h-4" /> Salir
+              <LogOut className="w-4 h-4" /> {t.salir[lang]}
             </button>
           </div>
         </div>
       ) : (
-        <div className="mt-8 space-y-5">
-          <form onSubmit={submit} className="space-y-3">
-            <div>
-              <label className="text-xs font-bold text-foreground/60 uppercase tracking-wide">
-                Código de la clase
-              </label>
-              <input
-                value={joinCode}
-                onChange={(e) => setJoinCode(e.target.value.toUpperCase())}
-                placeholder="ABC123"
-                maxLength={10}
-                className="w-full mt-1 px-4 py-3 rounded-xl border-2 border-foreground/10 bg-card focus:border-primary outline-none font-mono text-lg tracking-widest text-center"
-                required
-              />
-            </div>
-            <div>
-              <label className="text-xs font-bold text-foreground/60 uppercase tracking-wide">
-                Tu código personal
-              </label>
-              <input
-                value={studentCode}
-                onChange={(e) => setStudentCode(e.target.value.toUpperCase())}
-                placeholder="X9YZ2"
-                maxLength={10}
-                className="w-full mt-1 px-4 py-3 rounded-xl border-2 border-foreground/10 bg-card focus:border-primary outline-none font-mono text-lg tracking-widest text-center"
-                required
-              />
-            </div>
-            {error && <div className="text-sm text-destructive font-bold">{error}</div>}
-            <button
-              type="submit"
-              disabled={busy || !joinCode || !studentCode}
-              className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-bold disabled:opacity-50 inline-flex items-center justify-center gap-2"
-            >
-              {busy && <Loader2 className="w-4 h-4 animate-spin" />}
-              Entrar
-            </button>
-          </form>
-
-
-        </div>
+        <form onSubmit={submit} className="mt-8 space-y-3">
+          <div>
+            <label className="text-xs font-bold text-foreground/60 uppercase tracking-wide">
+              {t.codigoClase[lang]}
+            </label>
+            <input
+              value={joinCode}
+              onChange={(e) => setJoinCode(e.target.value.toUpperCase())}
+              placeholder="ABC123"
+              maxLength={10}
+              className="w-full mt-1 px-4 py-3 rounded-xl border-2 border-foreground/10 bg-card focus:border-primary outline-none font-mono text-lg tracking-widest text-center"
+              required
+            />
+          </div>
+          <div>
+            <label className="text-xs font-bold text-foreground/60 uppercase tracking-wide">
+              {t.tuCodigoPersonal[lang]}
+            </label>
+            <input
+              value={studentCode}
+              onChange={(e) => setStudentCode(e.target.value.toUpperCase())}
+              placeholder="X9YZ2"
+              maxLength={10}
+              className="w-full mt-1 px-4 py-3 rounded-xl border-2 border-foreground/10 bg-card focus:border-primary outline-none font-mono text-lg tracking-widest text-center"
+              required
+            />
+          </div>
+          {error && <div className="text-sm text-destructive font-bold">{error}</div>}
+          <button
+            type="submit"
+            disabled={busy || !joinCode || !studentCode}
+            className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-bold disabled:opacity-50 inline-flex items-center justify-center gap-2"
+          >
+            {busy && <Loader2 className="w-4 h-4 animate-spin" />}
+            {t.entrar[lang]}
+          </button>
+        </form>
       )}
     </main>
   );

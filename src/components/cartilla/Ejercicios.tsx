@@ -4,11 +4,8 @@ import { speak } from "@/lib/speak";
 import { cn } from "@/lib/utils";
 import { recordEvent, useStudentSession } from "@/lib/student-session";
 import { supabase } from "@/integrations/supabase/client";
-import { GretelFeedback } from "@/components/gretel/GretelFeedback";
-import { feelBus } from "@/lib/feel-bus";
-import { MonochromeDrawing } from "./MonochromeDrawings";
 
-type Word = { word: string;  };
+type Word = { word: string; emoji?: string };
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -24,12 +21,10 @@ export function SyllableTap({
   syllables,
   color,
   lessonId,
-  onComplete,
 }: {
   syllables: string[];
   color: string;
   lessonId?: string;
-  onComplete?: () => void;
 }) {
   const [target, setTarget] = useState(() => syllables[0]);
   const [score, setScore] = useState(0);
@@ -85,49 +80,42 @@ export function SyllableTap({
       setScore((x) => x + 1);
       setFeedback({ kind: "ok", picked: s, target });
       speak(s);
-      feelBus.emit("success");
-      if (score + 1 === 4 && onComplete) {
-        onComplete();
-      }
       setTimeout(next, 1200);
     } else {
       setFeedback({ kind: "no", picked: s, target });
       speak(target);
-      feelBus.emit("error");
     }
   };
 
   return (
     <div className="rounded-2xl border-2 border-foreground/10 bg-card p-4">
       <div className="flex items-center justify-between mb-3">
-        <h3 className="font-bold font-fredoka">Toca la sílaba que escuches</h3>
+        <h3 className="font-bold">Toca la sílaba que escuches</h3>
         <span className="text-xs font-bold text-foreground/60">
           {score} / {tries}
         </span>
       </div>
       <button
         onClick={() => speak(target)}
-        className="mb-4 inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl text-white font-bold transition hover:brightness-105 active:scale-95 hover:translate-y-px"
+        className="mb-3 inline-flex items-center gap-2 px-4 py-2 rounded-xl text-white font-bold"
         style={{ backgroundColor: color }}
       >
         <Volume2 className="w-4 h-4" /> Escuchar
       </button>
-      <div className="flex flex-wrap gap-3">
+      <div className="flex flex-wrap gap-2">
         {choices.map((s) => (
           <button
             key={s}
             onClick={() => pick(s)}
-            aria-label={`Sílaba: ${s}`}
-            aria-pressed={feedback?.kind === "ok" && s === target}
             className={cn(
-              "min-w-16 h-16 px-6 py-3 rounded-2xl text-xl font-bold font-fredoka border-3 transition duration-200 active:scale-95 hover:scale-[1.03] focus:outline-none focus:ring-4 focus:ring-stone-400",
-              feedback?.kind === "ok" && s === target && "bg-[#e6f4ea] text-[#2e7d32] border-[#81c784]",
+              "min-w-14 px-4 py-3 rounded-xl text-lg font-bold border-2 transition active:scale-95",
+              feedback?.kind === "ok" && s === target && "bg-success text-white border-success",
               feedback?.kind === "no" &&
                 s === feedback.picked &&
-                "bg-[#fce8e6] border-[#e57373] text-[#c62828]",
+                "bg-destructive/10 border-destructive text-destructive",
               feedback?.kind === "no" &&
                 s === target &&
-                "bg-[#e6f4ea] border-[#81c784] text-[#2e7d32]",
+                "bg-success/10 border-success text-success",
             )}
             style={{
               borderColor: !feedback ? color : undefined,
@@ -138,23 +126,16 @@ export function SyllableTap({
           </button>
         ))}
       </div>
-      <GretelFeedback
-        isCorrect={feedback?.kind === "ok" ? true : feedback?.kind === "no" ? false : null}
-        message={
-          feedback?.kind === "no" ? (
-            <p>
-              Tocaste <strong>«{feedback.picked}»</strong>. La sílaba correcta era{" "}
-              <strong>«{feedback.target}»</strong>. Vuelve a escuchar y fíjate en el sonido inicial.
-            </p>
-          ) : feedback?.kind === "ok" ? (
-            <p>
-              <strong>«{feedback.target}»</strong> es la sílaba que sonaba. ¡Buen oído!
-            </p>
-          ) : null
-        }
-      >
-        {feedback?.kind === "no" && (
-          <div className="flex gap-2">
+      {feedback?.kind === "no" && (
+        <div className="mt-3 rounded-xl border-2 border-destructive/30 bg-destructive/5 p-3">
+          <div className="text-sm font-bold text-destructive inline-flex items-center gap-1.5">
+            <X className="w-4 h-4" /> Incorrecto
+          </div>
+          <p className="text-sm text-foreground/80 mt-1">
+            Tocaste <strong>«{feedback.picked}»</strong>. La sílaba correcta era{" "}
+            <strong>«{feedback.target}»</strong>. Vuelve a escuchar y fíjate en el sonido inicial.
+          </p>
+          <div className="mt-2 flex gap-2">
             <button
               onClick={() => speak(feedback.target)}
               className="inline-flex items-center gap-1 text-xs font-bold text-primary"
@@ -168,25 +149,33 @@ export function SyllableTap({
               Siguiente →
             </button>
           </div>
-        )}
-      </GretelFeedback>
+        </div>
+      )}
+      {feedback?.kind === "ok" && (
+        <div className="mt-3 rounded-xl border-2 border-success/30 bg-success/5 p-3">
+          <div className="text-sm font-bold text-success inline-flex items-center gap-1.5">
+            <Check className="w-4 h-4" /> ¡Correcto!
+          </div>
+          <p className="text-sm text-foreground/80 mt-1">
+            <strong>«{feedback.target}»</strong> es la sílaba que sonaba. ¡Buen oído!
+          </p>
+        </div>
+      )}
     </div>
   );
 }
 
-/** Match word to picture */
+/** Match emoji to word */
 export function WordMatch({
   words,
   color,
   lessonId,
-  onComplete,
 }: {
   words: Word[];
   color: string;
   lessonId?: string;
-  onComplete?: () => void;
 }) {
-  const items = useMemo(() => words.slice(0, 4), [words]);
+  const items = useMemo(() => words.filter((w) => w.emoji).slice(0, 4), [words]);
   const [picked, setPicked] = useState<string | null>(null);
   const [matched, setMatched] = useState<Set<string>>(new Set());
   const [attempts, setAttempts] = useState(0);
@@ -194,6 +183,8 @@ export function WordMatch({
   const [feedback, setFeedback] = useState<{
     kind: "ok" | "no";
     word: string;
+    emoji?: string;
+    correctEmoji?: string;
   } | null>(null);
   const loggedRound = useRef(false);
   const shuffled = useMemo(() => shuffle(items), [items]);
@@ -205,30 +196,28 @@ export function WordMatch({
     setPicked(w);
     setFeedback(null);
   };
-  const onDrawing = (target: string) => {
+  const onEmoji = (target: string) => {
     if (!picked) return;
     setAttempts((a) => a + 1);
+    const pickedItem = items.find((i) => i.word === picked);
+    const targetItem = items.find((i) => i.word === target);
     if (picked === target) {
       setHits((h) => h + 1);
-      feelBus.emit("success");
       setMatched((m) => {
         const next = new Set(m).add(target);
-        if (next.size === items.length && !loggedRound.current) {
-          if (lessonId) {
-            loggedRound.current = true;
-            recordEvent({
-              lessonId,
-              kind: "exercise",
-              score: hits + 1,
-              total: attempts + 1,
-              meta: { exercise: "word_match", completed: true, items: items.length },
-            });
-          }
-          if (onComplete) onComplete();
+        if (next.size === items.length && !loggedRound.current && lessonId) {
+          loggedRound.current = true;
+          recordEvent({
+            lessonId,
+            kind: "exercise",
+            score: hits + 1,
+            total: attempts + 1,
+            meta: { exercise: "word_match", completed: true, items: items.length },
+          });
         }
         return next;
       });
-      setFeedback({ kind: "ok", word: picked });
+      setFeedback({ kind: "ok", word: picked, emoji: pickedItem?.emoji });
       speak(target);
       setPicked(null);
       setTimeout(
@@ -236,10 +225,11 @@ export function WordMatch({
         1800,
       );
     } else {
-      feelBus.emit("error");
       setFeedback({
         kind: "no",
         word: picked,
+        emoji: targetItem?.emoji,
+        correctEmoji: pickedItem?.emoji,
       });
       setPicked(null);
     }
@@ -267,7 +257,7 @@ export function WordMatch({
   return (
     <div className="rounded-2xl border-2 border-foreground/10 bg-card p-4">
       <div className="flex items-center justify-between mb-3">
-        <h3 className="font-bold font-fredoka">Une la palabra con su dibujo</h3>
+        <h3 className="font-bold">Une la palabra con su dibujo</h3>
         <div className="flex items-center gap-3">
           {acc !== null && (
             <span className="text-xs font-bold text-foreground/60">
@@ -282,77 +272,78 @@ export function WordMatch({
           </button>
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-4">
-        <div className="space-y-2.5">
-          {items.map((w) => {
-            const wordBtnStyle: React.CSSProperties = {
-              borderColor: color,
-              color: matched.has(w.word) ? undefined : color,
-            };
-            return (
-              <button
-                key={w.word}
-                disabled={matched.has(w.word)}
-                onClick={() => onWord(w.word)}
-                aria-label={`Palabra: ${w.word}`}
-                aria-pressed={picked === w.word}
-                className={cn(
-                  "w-full h-14 px-4 py-2 rounded-2xl border-3 font-bold font-fredoka text-left transition duration-200 focus:outline-none focus:ring-4 focus:ring-stone-400",
-                  matched.has(w.word)
-                    ? "opacity-30 line-through border-gray-200 bg-gray-50 text-gray-400"
-                    : picked === w.word
-                      ? "scale-[1.04] bg-primary/10 border-primary shadow-md"
-                      : "hover:bg-secondary/50 hover:scale-[1.02] active:scale-95",
-                )}
-                style={wordBtnStyle}
-              >
-                {w.word}
-              </button>
-            );
-          })}
-        </div>
-        <div className="space-y-2.5">
-          {shuffled.map((w) => (
-              <button
-                key={w.word}
-                disabled={matched.has(w.word)}
-                onClick={() => onDrawing(w.word)}
-                className={cn(
-                  "w-full h-14 rounded-2xl border-3 transition duration-200 flex items-center justify-center p-1.5 focus:outline-none focus:ring-4 focus:ring-stone-400",
+      <div className="grid grid-cols-2 gap-3">
+        <div className="space-y-2">
+          {items.map((w) => (
+            <button
+              key={w.word}
+              disabled={matched.has(w.word)}
+              onClick={() => onWord(w.word)}
+              className={cn(
+                "w-full px-3 py-2 rounded-xl border-2 font-bold text-left transition",
                 matched.has(w.word)
-                  ? "opacity-30 border-gray-200 bg-gray-50"
-                  : "border-foreground/10 hover:bg-secondary/50 hover:scale-[1.04] active:scale-95 hover:shadow-md",
+                  ? "opacity-40 line-through"
+                  : picked === w.word
+                    ? "scale-[1.02]"
+                    : "hover:bg-secondary",
               )}
-              aria-label={`Dibujo de ${w.word}`}
+              style={{ borderColor: color, color: matched.has(w.word) ? undefined : color }}
             >
-              <MonochromeDrawing word={w.word} size={36} />
+              {w.word}
+            </button>
+          ))}
+        </div>
+        <div className="space-y-2">
+          {shuffled.map((w) => (
+            <button
+              key={w.word}
+              disabled={matched.has(w.word)}
+              onClick={() => onEmoji(w.word)}
+              className={cn(
+                "w-full text-3xl py-2 rounded-xl border-2 transition",
+                matched.has(w.word)
+                  ? "opacity-40"
+                  : "border-foreground/10 hover:bg-secondary active:scale-95",
+              )}
+            >
+              {w.emoji}
             </button>
           ))}
         </div>
       </div>
-      <GretelFeedback
-        isCorrect={feedback?.kind === "ok" ? true : feedback?.kind === "no" ? false : null}
-        message={
-          feedback?.kind === "no" ? (
-            <p>
-              <strong>«{feedback.word}»</strong> no es ese dibujo. Lee la palabra otra vez, separa sus sílabas y busca el dibujo que la representa.
-            </p>
-          ) : feedback?.kind === "ok" ? (
-            <p>
-              <strong>«{feedback.word}»</strong> — uniste bien la palabra con su dibujo.
-            </p>
-          ) : null
-        }
-      >
-        {feedback?.kind === "no" && (
+      {feedback?.kind === "ok" && (
+        <div className="mt-3 rounded-xl border-2 border-success/30 bg-success/5 p-3">
+          <div className="text-sm font-bold text-success inline-flex items-center gap-1.5">
+            <Check className="w-4 h-4" /> ¡Correcto!
+          </div>
+          <p className="text-sm text-foreground/80 mt-1">
+            <strong>«{feedback.word}»</strong>{" "}
+            {feedback.emoji && <span className="text-lg align-middle">{feedback.emoji}</span>} —
+            uniste bien la palabra con su dibujo.
+          </p>
+        </div>
+      )}
+      {feedback?.kind === "no" && (
+        <div className="mt-3 rounded-xl border-2 border-destructive/30 bg-destructive/5 p-3">
+          <div className="text-sm font-bold text-destructive inline-flex items-center gap-1.5">
+            <X className="w-4 h-4" /> No coinciden
+          </div>
+          <p className="text-sm text-foreground/80 mt-1">
+            <strong>«{feedback.word}»</strong>{" "}
+            {feedback.correctEmoji && (
+              <span className="text-lg align-middle">{feedback.correctEmoji}</span>
+            )}{" "}
+            no es ese dibujo. Lee la palabra otra vez, separa sus sílabas y busca el dibujo que la
+            representa.
+          </p>
           <button
             onClick={() => speak(feedback.word)}
-            className="inline-flex items-center gap-1 text-xs font-bold text-primary"
+            className="mt-2 inline-flex items-center gap-1 text-xs font-bold text-primary"
           >
             <Volume2 className="w-3.5 h-3.5" /> Escuchar «{feedback.word}»
           </button>
-        )}
-      </GretelFeedback>
+        </div>
+      )}
       {allDone && (
         <div className="mt-3 rounded-xl border-2 border-success/40 bg-success/10 p-3">
           <div className="text-success font-bold inline-flex items-center gap-1.5">

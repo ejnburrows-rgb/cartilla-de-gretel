@@ -1,7 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { getStudentProgress, getClassProgress } from "@/lib/teacher.functions";
-import { ClipboardList, Award, BookOpen, Clock, AlertTriangle, FileSpreadsheet } from "lucide-react";
-
+import { ClipboardList, Award, BookOpen, Clock, AlertTriangle, FileSpreadsheet, Check } from "lucide-react";
+import { crmService } from "@/services/crm";
+import { TOTAL_LESSONS } from "@/lib/lesson-catalog";
 interface ReportCardProps {
   classId: string;
   studentId: string | null;
@@ -149,6 +150,7 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
   // ── Render Class Report ──
   if (classProgressData) {
     const { perStudent, perLesson, assignments } = classProgressData;
+    const allProgresos = crmService.getAllProgresos();
 
     return (
       <div className={cardClass}>
@@ -194,6 +196,57 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
                   <tr>
                     <td colSpan={4} className="p-8 text-center font-bold text-stone-400">
                       No hay alumnos registrados en esta clase.
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* 24-Lesson Grid */}
+        <div className="space-y-6 mt-12">
+          <div className="flex items-center justify-between">
+            <h3 className="text-sm font-black text-stone-700 uppercase tracking-wider">Matriz de Lecciones Completadas</h3>
+          </div>
+          <div className="overflow-x-auto border border-stone-200 rounded-2xl">
+            <table className="w-full text-sm text-left">
+              <thead className="bg-stone-50 text-stone-600 font-bold border-b border-stone-200">
+                <tr>
+                  <th className="p-3 sticky left-0 z-10 bg-stone-50 shadow-[2px_0_4px_rgba(0,0,0,0.02)]">Alumno</th>
+                  {Array.from({ length: TOTAL_LESSONS }).map((_, i) => (
+                    <th key={i} className="p-3 text-center min-w-[2.5rem] font-mono text-xs">L{i + 1}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-stone-150">
+                {perStudent.map((s: any) => {
+                  const prog = allProgresos.find(p => p.alumnoId === s.id)?.leccionesCompletadas || [];
+                  return (
+                    <tr key={s.id} className="hover:bg-stone-50/50 transition-colors">
+                      <td className="p-3 font-bold text-stone-800 sticky left-0 z-10 bg-white shadow-[2px_0_4px_rgba(0,0,0,0.02)]">
+                        {s.name}
+                      </td>
+                      {Array.from({ length: TOTAL_LESSONS }).map((_, i) => {
+                        const l = i + 1;
+                        const isComplete = prog.includes(l);
+                        return (
+                          <td key={l} className="p-2 text-center border-l border-stone-100">
+                            {isComplete ? (
+                              <Check className="w-4 h-4 text-emerald-500 mx-auto" />
+                            ) : (
+                              <span className="text-stone-300">—</span>
+                            )}
+                          </td>
+                        );
+                      })}
+                    </tr>
+                  );
+                })}
+                {perStudent.length === 0 && (
+                  <tr>
+                    <td colSpan={TOTAL_LESSONS + 1} className="p-8 text-center font-bold text-stone-400">
+                      No hay alumnos registrados.
                     </td>
                   </tr>
                 )}

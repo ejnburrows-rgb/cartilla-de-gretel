@@ -1,110 +1,144 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, BookOpen, GraduationCap } from "lucide-react";
-import "@/styles/cartilla-student.css";
+import {
+  BookOpen,
+  GraduationCap,
+  User,
+  ListOrdered,
+  ArrowLeft,
+  BarChart3,
+  Sparkles,
+import {
+  Zap,
+} from "lucide-react";
+import { useStudentSession } from "@/lib/student-session";
+import { useLanguage } from "@/context/LanguageContext";
+import { LanguageToggle } from "@/components/LanguageToggle";
+import { sCopy } from "@/content/student-copy";
 
 export const Route = createFileRoute("/cartilla/")({
   component: CartillaHome,
   head: () => ({
     meta: [
-      { title: "La Cartilla de Gretel — Estudiante o maestro" },
+      { title: "Cartilla digital — La Cartilla de Gretel" },
       {
         name: "description",
-        content: "Entrada directa para estudiantes y maestros de La Cartilla de Gretel.",
+        content:
+          "Cartilla digital interactiva: 24 lecciones, ejercicios, evaluaciones, prueba FAST y panel de maestro.",
+      },
+      { property: "og:title", content: "La Cartilla de Gretel — Edición digital interactiva" },
+      {
+        property: "og:description",
+        content:
+          "Método fonético K-2 con 24 lecciones, ejercicios interactivos y panel de maestro.",
       },
     ],
   }),
 });
 
 function CartillaHome() {
+  const { lang } = useLanguage();
+  const t = sCopy;
+  const session = useStudentSession();
+  const cards = [
+    {
+      to: "/cartilla/lecciones" as const,
+      icon: ListOrdered,
+      title: t.las24Lecciones[lang],
+      desc: t.aprendePasoVocales[lang],
+      color: "bg-primary",
+    },
+    {
+      to: "/cartilla/practica" as const,
+      icon: Zap,
+      title: t.practicaRapida[lang],
+      desc: t.drill[lang],
+      color: "bg-vowel-o",
+    },
+    ...(session
+      ? [
+          {
+            to: "/cartilla/mi-progreso" as const,
+            icon: BarChart3,
+            title: t.miProgreso[lang],
+            desc: t.holaNameRevisa[lang].replace("{name}", session.studentName),
+            color: "bg-vowel-a",
+          },
+          {
+            to: "/cartilla/repaso" as const,
+            icon: Sparkles,
+            title: t.modoRepaso[lang],
+            desc: t.practicaLeccionesFallaste[lang],
+            color: "bg-vowel-e",
+          },
+        ]
+      : [
+          {
+            to: "/cartilla/unirse" as const,
+            icon: User,
+            title: t.soyEstudiante[lang],
+            desc: t.uneteClase[lang],
+            color: "bg-vowel-i",
+          },
+        ]),
+    {
+      to: "/cartilla/teacher" as const,
+      icon: GraduationCap,
+      title: t.panelMaestro[lang],
+      desc: t.creaClases[lang],
+      color: "bg-vowel-o",
+    },
+    {
+      to: "/cartilla/autora" as const,
+      icon: User,
+      title: t.laAutora[lang],
+      desc: t.conoceAutora[lang],
+      color: "bg-vowel-u",
+    },
+  ];
   return (
-    <main className="min-h-screen overflow-hidden bg-[radial-gradient(circle_at_20%_10%,rgba(255,216,171,0.68),transparent_28%),radial-gradient(circle_at_85%_20%,rgba(168,213,198,0.42),transparent_30%),linear-gradient(135deg,#fff8ed_0%,#f7ead6_52%,#e8f4ef_100%)] px-4 py-6 text-[hsl(28,30%,18%)]">
-      <section className="mx-auto flex min-h-[calc(100vh-3rem)] w-full max-w-6xl flex-col">
-        <nav className="flex items-center justify-between gap-4">
+    <main className="min-h-screen bg-background px-4 py-8 max-w-4xl mx-auto">
+      <div className="flex items-center justify-between gap-3">
+        <Link
+          to="/"
+          className="inline-flex items-center gap-2 text-sm font-bold text-foreground/60 hover:text-foreground"
+        >
+          <ArrowLeft className="w-4 h-4" /> {t.inicio[lang]}
+        </Link>
+        <LanguageToggle />
+      </div>
+      <header className="mt-6 text-center">
+        <h1 className="float-soft text-4xl sm:text-5xl font-bold bg-gradient-to-br from-primary via-vowel-i to-vowel-o bg-clip-text text-transparent">
+          La Cartilla de Gretel
+        </h1>
+        <p className="mt-3 text-foreground/70">
+          {t.edicionDigital[lang]}
+        </p>
+      </header>
+      <section className="mt-10 grid sm:grid-cols-2 gap-4">
+        {cards.map((c) => (
           <Link
-            to="/"
-            className="inline-flex items-center gap-2 rounded-full border border-[hsl(28,30%,18%)]/10 bg-white/60 px-4 py-2 text-sm font-black shadow-sm backdrop-blur transition hover:bg-white"
-            aria-label="Volver al inicio"
+            key={c.to}
+            to={c.to}
+            className="kid-card group p-6 flex items-start gap-4 hover:-translate-y-1 transition duration-300"
           >
-            <ArrowLeft className="h-4 w-4" aria-hidden /> Inicio
-          </Link>
-          <Link
-            to="/credits"
-            className="rounded-full border border-[hsl(28,30%,18%)]/10 bg-white/60 px-4 py-2 text-sm font-black shadow-sm backdrop-blur transition hover:bg-white"
-          >
-            Créditos
-          </Link>
-        </nav>
-
-        <div className="grid flex-1 items-center gap-8 py-10 lg:grid-cols-[0.9fr_1.1fr]">
-          <header>
-            <p className="text-sm font-black uppercase tracking-[0.24em] text-[hsl(24,98%,50%)]">
-              La Cartilla de Gretel
-            </p>
-            <h1 className="mt-4 max-w-2xl text-5xl font-black leading-[0.95] text-[hsl(200,98%,39%)] sm:text-7xl">
-              ¿Quién va a entrar?
-            </h1>
-            <p className="mt-6 max-w-xl text-xl font-semibold leading-relaxed text-[hsl(28,30%,18%)]/72">
-              Use el acceso de estudiante para practicar. Use el acceso de maestro para dirigir la clase.
-            </p>
-          </header>
-
-          <section className="grid gap-5" aria-label="Caminos de entrada">
-            <Link
-              to="/cartilla/unirse"
-              className="group grid min-h-48 grid-cols-[72px_1fr] items-center gap-5 rounded-[1.75rem] border border-white/80 bg-white/85 p-5 shadow-2xl shadow-[hsl(200,98%,39%)]/10 transition hover:-translate-y-1 hover:bg-white focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[hsl(24,98%,50%)] sm:grid-cols-[96px_1fr]"
-              aria-label="Entrar como estudiante"
+            <div
+              className={`shrink-0 w-12 h-12 rounded-2xl ${c.color} text-white flex items-center justify-center transition duration-300 group-hover:scale-110 group-hover:rotate-3`}
             >
-              <span className="flex h-16 w-16 items-center justify-center rounded-3xl bg-[hsl(200,98%,39%)] text-white shadow-lg shadow-[hsl(200,98%,39%)]/20 sm:h-24 sm:w-24">
-                <BookOpen className="h-8 w-8 sm:h-11 sm:w-11" aria-hidden />
-              </span>
-              <span>
-                <span className="block text-3xl font-black text-[hsl(200,98%,39%)] sm:text-4xl">
-                  Estudiante
-                </span>
-                <span className="mt-2 block text-base font-semibold leading-relaxed text-[hsl(28,30%,18%)]/70">
-                  Código de clase, lecciones, práctica y progreso.
-                </span>
-                <span className="mt-4 inline-flex text-sm font-black text-[hsl(24,98%,50%)] group-hover:underline">
-                  Entrar como estudiante
-                </span>
-              </span>
-            </Link>
-
-            <Link
-              to="/cartilla/teacher"
-              className="group grid min-h-48 grid-cols-[72px_1fr] items-center gap-5 rounded-[1.75rem] border border-white/80 bg-white/85 p-5 shadow-2xl shadow-[hsl(200,98%,39%)]/10 transition hover:-translate-y-1 hover:bg-white focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[hsl(24,98%,50%)] sm:grid-cols-[96px_1fr]"
-              aria-label="Entrar como maestro"
-            >
-              <span className="flex h-16 w-16 items-center justify-center rounded-3xl bg-[hsl(24,98%,50%)] text-white shadow-lg shadow-[hsl(24,98%,50%)]/20 sm:h-24 sm:w-24">
-                <GraduationCap className="h-8 w-8 sm:h-11 sm:w-11" aria-hidden />
-              </span>
-              <span>
-                <span className="block text-3xl font-black text-[hsl(200,98%,39%)] sm:text-4xl">
-                  Maestro
-                </span>
-                <span className="mt-2 block text-base font-semibold leading-relaxed text-[hsl(28,30%,18%)]/70">
-                  Panel, grupo, progreso y presentación del maestro.
-                </span>
-                <span className="mt-4 inline-flex text-sm font-black text-[hsl(24,98%,50%)] group-hover:underline">
-                  Entrar como maestro
-                </span>
-              </span>
-            </Link>
-          </section>
-        </div>
-
-        <footer className="flex flex-col gap-3 border-t border-[hsl(28,30%,18%)]/10 py-5 text-sm font-bold text-[hsl(28,30%,18%)]/60 sm:flex-row sm:items-center sm:justify-between">
-          <p>Libro, práctica y clase en una entrada sencilla.</p>
-          <div className="flex gap-4">
-            <Link to="/book" className="hover:text-[hsl(24,98%,50%)] hover:underline">
-              Libro
-            </Link>
-            <Link to="/credits" className="hover:text-[hsl(24,98%,50%)] hover:underline">
-              Créditos
-            </Link>
-          </div>
-        </footer>
+              <c.icon className="w-6 h-6" />
+            </div>
+            <div>
+              <h2 className="text-lg font-bold">{c.title}</h2>
+              <p className="text-sm text-foreground/70 mt-1">{c.desc}</p>
+            </div>
+          </Link>
+        ))}
       </section>
+      <p className="mt-12 text-center text-xs text-foreground/50">
+        {t.prefieresLeer[lang]}{" "}
+        <Link to="/book" className="underline font-bold inline-flex items-center gap-1">
+          <BookOpen className="w-3 h-3" /> {t.abrirLector[lang]}
+        </Link>
+      </p>
     </main>
   );
 }

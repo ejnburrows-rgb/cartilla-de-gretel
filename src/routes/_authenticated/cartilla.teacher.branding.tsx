@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, BookMarked, Check } from "lucide-react";
 import { BRANDING, copyrightLine, pageTitle } from "@/lib/branding";
+import { useLanguage } from "@/context/LanguageContext";
+import { tCopy } from "@/content/teacher-copy";
 
 export const Route = createFileRoute("/_authenticated/cartilla/teacher/branding")({
   component: BrandingPage,
@@ -17,17 +19,19 @@ function Row({ label, value, mono = false }: { label: string; value: string; mon
 }
 
 function BrandingPage() {
+  const { lang } = useLanguage();
+  const t = tCopy;
   const fields: Array<[string, string, boolean?]> = [
-    ["Nombre del producto", BRANDING.productName],
-    ["Nombre corto", BRANDING.shortName],
-    ["Eslogan / tagline", BRANDING.productTagline],
-    ["Autora", BRANDING.author],
-    ["Editorial", BRANDING.publisher],
-    ["Año de fundación", String(BRANDING.publisherEstablished)],
-    ["Correo de soporte", BRANDING.supportEmail, true],
-    ["Color principal", BRANDING.themeColor, true],
-    ["Descripción larga", BRANDING.description],
-    ["Línea de copyright", copyrightLine()],
+    [t.nombreProducto[lang], BRANDING.productName],
+    [t.nombreCorto[lang], BRANDING.shortName],
+    [t.eslogan[lang], BRANDING.productTagline],
+    [t.autora[lang], BRANDING.author],
+    [t.editorial[lang], BRANDING.publisher],
+    [t.anoFundacion[lang], String(BRANDING.publisherEstablished)],
+    [t.correoSoporte[lang], BRANDING.supportEmail, true],
+    [t.colorPrincipal[lang], BRANDING.themeColor, true],
+    [t.descLarga[lang], BRANDING.description],
+    [t.lineaCopyright[lang], copyrightLine()],
   ];
 
   return (
@@ -36,7 +40,7 @@ function BrandingPage() {
         to="/cartilla/teacher"
         className="inline-flex items-center gap-2 text-sm font-bold text-foreground/60 hover:text-foreground"
       >
-        <ArrowLeft className="w-4 h-4" /> Panel de Maestro
+        <ArrowLeft className="w-4 h-4" /> {t.panelMaestro[lang]}
       </Link>
 
       <header className="mt-6 flex items-start gap-4">
@@ -44,17 +48,16 @@ function BrandingPage() {
           <BookMarked className="w-6 h-6" />
         </div>
         <div>
-          <h1 className="text-3xl font-bold">Marca y textos</h1>
+          <h1 className="text-3xl font-bold">{t.marcaTextos[lang]}</h1>
           <p className="text-foreground/70 mt-1">
-            Fuente única de los textos de marca. Estos valores aparecen en el título de las
-            pestañas, el manifest (PWA), redes sociales y pies de página.
+            {t.fuenteUnica[lang]}
           </p>
         </div>
       </header>
 
       <section className="mt-8 rounded-2xl border-2 border-foreground/10 bg-card p-6">
         <div className="flex items-center gap-2 text-success text-sm font-bold mb-2">
-          <Check className="w-4 h-4" /> Configuración activa
+          <Check className="w-4 h-4" /> {t.configActiva[lang]}
         </div>
         <div>
           {fields.map(([label, value, mono]) => (
@@ -64,13 +67,12 @@ function BrandingPage() {
       </section>
 
       <section className="mt-6 rounded-2xl border-2 border-dashed border-foreground/15 bg-muted/40 p-5 text-sm text-foreground/70">
-        <p className="font-bold text-foreground mb-1">¿Cómo cambiar estos valores?</p>
+        <p className="font-bold text-foreground mb-1">{t.comoCambiar[lang]}</p>
         <p>
-          Edita el archivo{" "}
+          {t.comoCambiarDesc1[lang]}{" "}
           <code className="font-mono bg-background px-1.5 py-0.5 rounded">src/lib/branding.ts</code>
-          . Todas las pantallas que usan{" "}
-          <code className="font-mono bg-background px-1.5 py-0.5 rounded">BRANDING</code> se
-          actualizan automáticamente. El nombre que aparece al instalar la app como PWA vive en{" "}
+          {t.comoCambiarDesc2[lang]}{" "}
+          <code className="font-mono bg-background px-1.5 py-0.5 rounded">BRANDING</code> {t.comoCambiarDesc3[lang]}{" "}
           <code className="font-mono bg-background px-1.5 py-0.5 rounded">
             public/manifest.webmanifest
           </code>

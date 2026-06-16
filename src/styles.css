@@ -1,8 +1,6 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
-@import "./styles/flipbook-3d.css";
-@import "./styles/design-system.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -63,17 +61,15 @@
 
 :root {
   --radius: 0.625rem;
-  --color-surface-offset: hsl(42 15% 91%);
-  --color-surface-dynamic: hsl(42 15% 95%);
 
-  /* Cartilla — premium paper aesthetics (HSL triplets) */
-  --background: 42 33% 96%; /* warm paper hue */
-  --foreground: 220 20% 25%; /* soft, readable ink */
-  --card: 42 50% 98%; /* slightly lighter paper for elevated elements */
-  --card-foreground: 220 20% 25%;
-  --popover: 42 50% 98%;
-  --popover-foreground: 220 20% 25%;
-  --primary: 230 65% 55%;
+  /* Cartilla — kid-first, Spanish literacy K-3 (HSL triplets) */
+  --background: 48 100% 97%;
+  --foreground: 230 35% 18%;
+  --card: 0 0% 100%;
+  --card-foreground: 230 35% 18%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 230 35% 18%;
+  --primary: 230 75% 58%;
   --primary-foreground: 0 0% 100%;
   --secondary: 48 95% 88%;
   --secondary-foreground: 230 35% 18%;
@@ -110,8 +106,6 @@
 
 .dark {
   --background: 222.2 84% 4.9%;
-  --color-surface-offset: hsl(222.2 25% 12%);
-  --color-surface-dynamic: hsl(222.2 20% 18%);
   --foreground: 210 40% 98%;
   --card: 222.2 84% 4.9%;
   --card-foreground: 210 40% 98%;
@@ -155,9 +149,9 @@
   }
   .kid-card {
     border-radius: 1.5rem;
-    border-width: 1px;
+    border-width: 2px;
     background-color: var(--color-card);
-    box-shadow: 0 4px 20px -4px hsl(var(--foreground) / 0.05), 0 2px 8px -2px hsl(var(--foreground) / 0.03);
+    box-shadow: 0 6px 0 hsl(var(--foreground) / 0.08);
   }
 }
 
@@ -231,17 +225,17 @@ html.a11y-contrast .kid-card {
   .kid-card {
     position: relative;
     overflow: hidden;
-    background: linear-gradient(180deg, hsl(var(--card) / 1), hsl(var(--card) / 0.96));
-    border-color: hsl(var(--foreground) / 0.06);
+    background: linear-gradient(180deg, hsl(var(--card) / 0.98), hsl(var(--card) / 0.92));
+    border-color: hsl(var(--foreground) / 0.08);
     box-shadow:
-      0 12px 30px -8px hsl(var(--foreground) / 0.08),
-      0 4px 12px -4px hsl(var(--foreground) / 0.04);
+      0 8px 0 hsl(var(--foreground) / 0.06),
+      0 18px 40px hsl(var(--primary) / 0.08);
     backdrop-filter: blur(10px);
     transition:
-      transform 300ms cubic-bezier(0.2, 0.8, 0.2, 1),
-      box-shadow 300ms cubic-bezier(0.2, 0.8, 0.2, 1),
-      border-color 300ms ease,
-      background-color 300ms ease;
+      transform 220ms ease,
+      box-shadow 220ms ease,
+      border-color 220ms ease,
+      background-color 220ms ease;
   }
 
   .kid-card::before {
@@ -249,17 +243,17 @@ html.a11y-contrast .kid-card {
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background: linear-gradient(120deg, transparent 0%, hsl(0 0% 100% / 0.4) 45%, transparent 72%);
+    background: linear-gradient(120deg, transparent 0%, hsl(0 0% 100% / 0.22) 45%, transparent 72%);
     transform: translateX(-120%);
-    transition: transform 700ms ease;
+    transition: transform 650ms ease;
   }
 
   .kid-card:hover {
-    transform: translateY(-2px);
-    border-color: hsl(var(--primary) / 0.15);
+    transform: translateY(-3px);
+    border-color: hsl(var(--primary) / 0.25);
     box-shadow:
-      0 20px 40px -10px hsl(var(--foreground) / 0.1),
-      0 8px 16px -6px hsl(var(--foreground) / 0.06);
+      0 10px 0 hsl(var(--foreground) / 0.07),
+      0 24px 50px hsl(var(--primary) / 0.14);
   }
 
   .kid-card:hover::before {
@@ -312,125 +306,3 @@ html.a11y-contrast .kid-card {
     transition-duration: 0.001ms !important;
   }
 }
-
-/* Hide printable view on screen */
-.print-only {
-  display: none;
-}
-
-/* ─── Print styles ────────────────────────────────────────────────── */
-@media print {
-  body {
-    background: white !important;
-    background-image: none !important;
-    color: black !important;
-    font-size: 12pt !important;
-    font-family: serif !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-  
-  @page {
-    size: letter;
-    margin: 1in;
-  }
-
-  /* Hide everything except the print container */
-  #root,
-  .no-print,
-  nav,
-  header,
-  footer,
-  button,
-  .print-btn,
-  .interactive-controls,
-  .sparkle-field,
-  .OfflineBadge,
-  .InstallPrompt,
-  .GretelMascot {
-    display: none !important;
-  }
-
-  /* Show print container */
-  .print-only {
-    display: block !important;
-  }
-
-  /* Styling for clean printable lesson contents */
-  .print-content {
-    color: #000000 !important;
-  }
-  
-  .print-header {
-    margin-bottom: 24pt;
-    border-bottom: 2pt solid #000000;
-    padding-bottom: 12pt;
-  }
-  
-  .print-lesson-num {
-    font-size: 14pt;
-    text-transform: uppercase;
-    margin: 0;
-    font-weight: bold;
-  }
-  
-  .print-letters {
-    font-size: 28pt;
-    font-weight: bold;
-    margin: 6pt 0 0 0;
-  }
-  
-  .print-syllables {
-    font-size: 16pt;
-    margin: 6pt 0 0 0;
-    font-style: italic;
-  }
-  
-  .print-section {
-    margin-bottom: 20pt;
-    page-break-inside: avoid;
-  }
-  
-  .print-section h2 {
-    font-size: 18pt;
-    font-weight: bold;
-    margin: 0 0 10pt 0;
-    border-bottom: 1px solid #000000;
-    padding-bottom: 3pt;
-  }
-  
-  .print-vocab-list {
-    margin: 0;
-    padding-left: 20pt;
-    column-count: 2;
-    column-gap: 20pt;
-  }
-  
-  .print-vocab-item {
-    font-size: 14pt;
-    margin-bottom: 6pt;
-    text-transform: capitalize;
-  }
-  
-  .print-poem {
-    padding-left: 20pt;
-    font-style: italic;
-  }
-  
-  .print-poem-line {
-    font-size: 14pt;
-    margin: 0 0 4pt 0;
-  }
-  
-  .print-sentences-list {
-    margin: 0;
-    padding-left: 20pt;
-  }
-  
-  .print-sentence-item {
-    font-size: 14pt;
-    margin-bottom: 8pt;
-    line-height: 1.4;
-  }
-}
-

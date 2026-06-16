@@ -1,9 +1,9 @@
 import lessonsData from "@/content/lessons.json";
 import miamiData from "@/content/miami-dade.json";
 
-export type VocabWord = { word: string; };
+export type VocabWord = { word: string; emoji: string };
 export type MatchPair = { left: string; right: string; pairId: number };
-export type CheckboxItem = { word: string; startsWithVowel: boolean };
+export type CheckboxItem = { word: string; emoji: string; startsWithVowel: boolean };
 export type VowelLesson = {
   id: string;
   vowel: string;
@@ -31,19 +31,7 @@ function loadOverride<T>(key: string, fallback: T): T {
   try {
     const raw = localStorage.getItem(key);
     if (!raw) return fallback;
-    const parsed = JSON.parse(raw);
-    
-    // Safety check: if it's the lessons override, ensure the first item has a 'vowel' property.
-    // If it's an old schema from a previous deployment, fallback to the default to prevent crashes.
-    if (key === LESSONS_OVERRIDE_KEY && Array.isArray(parsed) && parsed.length > 0) {
-      if (!parsed[0].vowel) {
-        console.warn("Discarding outdated lessons override from localStorage");
-        localStorage.removeItem(key);
-        return fallback;
-      }
-    }
-    
-    return parsed as T;
+    return JSON.parse(raw) as T;
   } catch {
     return fallback;
   }
@@ -70,6 +58,7 @@ const stripDiacritics = (s: string) =>
 export const fastTest = lessons.flatMap((l) =>
   l.vocab.slice(0, 2).map((v) => ({
     word: v.word,
+    emoji: v.emoji,
     correctVowel: stripDiacritics(v.word).charAt(0),
   })),
 );

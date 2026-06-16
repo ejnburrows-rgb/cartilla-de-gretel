@@ -5,24 +5,18 @@ import { useServerFn } from "@/lib/useServerFn";
 import { ArrowLeft, Loader2, BookOpen, Award, Clock, Target, Activity } from "lucide-react";
 import { getStudentProgress } from "@/lib/teacher.functions";
 import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
-import teacherGuide from "@/data/teacher-guide.json";
-import { useState, useEffect } from "react";
+import { useLanguage } from "@/context/LanguageContext";
+import { tCopy } from "@/content/teacher-copy";
 
 export const Route = createFileRoute("/_authenticated/cartilla/teacher/alumno/$id")({
   component: StudentDetail,
 });
 
 function StudentDetail() {
+  const { lang } = useLanguage();
+  const t = tCopy;
   const { id } = Route.useParams();
   const fetchProgress = useServerFn(getStudentProgress);
-  const [notes, setNotes] = useState("");
-
-  const saveNotes = (val: string) => {
-    setNotes(val);
-    // In a real app, this would hit the backend via a server action.
-    // For now, per conventions, no localStorage/sessionStorage allowed.
-  };
-
   const { data, isLoading } = useQuery({
     queryKey: ["teacher", "student", id],
     queryFn: () => fetchProgress({ data: { id } }),
@@ -81,52 +75,14 @@ function StudentDetail() {
 
   if (isLoading) {
     return (
-      <main className="min-h-screen bg-background px-4 py-6 max-w-4xl mx-auto space-y-6">
-        {/* Back link skeleton */}
-        <div className="w-24 h-4 rounded skeleton-shimmer"></div>
-        {/* Header skeleton */}
-        <div className="space-y-2">
-          <div className="w-64 h-10 rounded-xl skeleton-shimmer"></div>
-          <div className="w-48 h-4 rounded skeleton-shimmer"></div>
-        </div>
-        {/* Stats grid skeleton */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-          <div className="h-20 rounded-2xl skeleton-shimmer"></div>
-          <div className="h-20 rounded-2xl skeleton-shimmer"></div>
-          <div className="h-20 rounded-2xl skeleton-shimmer"></div>
-          <div className="h-20 rounded-2xl skeleton-shimmer"></div>
-        </div>
-        {/* Notes skeleton */}
-        <div className="h-44 rounded-2xl skeleton-shimmer"></div>
-        {/* Progress skeleton */}
-        <div className="space-y-3">
-          <div className="w-48 h-6 rounded skeleton-shimmer"></div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-            <div className="h-16 rounded-2xl skeleton-shimmer"></div>
-            <div className="h-16 rounded-2xl skeleton-shimmer"></div>
-          </div>
-        </div>
+      <main className="min-h-screen flex items-center justify-center">
+        <Loader2 className="w-6 h-6 animate-spin text-foreground/40" />
       </main>
     );
   }
+  if (!data || !summary) return null;
 
-  if (!data || !summary) {
-    return (
-      <main className="min-h-screen bg-background px-4 py-6 max-w-4xl mx-auto flex flex-col items-center justify-center text-center">
-        <ArrowLeft className="w-16 h-16 text-primary mb-4" />
-        <h1 className="text-2xl font-bold mb-2">Alumno no encontrado</h1>
-        <p className="text-foreground/60 mb-6">No se pudo cargar la información del alumno. Por favor, intenta de nuevo.</p>
-        <Link
-          to="/cartilla/teacher"
-          className="px-6 py-3 bg-primary text-primary-foreground font-bold rounded-xl shadow-md hover:bg-primary/95 transition-all"
-        >
-          Volver a Mis Clases
-        </Link>
-      </main>
-    );
-  }
-
-  const fmtMin = (s: number) => `${Math.floor(s / 60)} min ${s % 60} s`;
+  const fmtMin = (s: number) => `${Math.floor(s / 60)} ${t.min[lang]} ${s % 60} ${t.s[lang]}`;
 
   return (
     <main className="min-h-screen bg-background px-4 py-6 max-w-4xl mx-auto">
@@ -140,33 +96,24 @@ function StudentDetail() {
 
       <header className="mt-6">
         <h1 className="text-3xl sm:text-4xl font-bold">{data.student.display_name}</h1>
-        <p className="text-sm text-foreground/60 mt-1 flex flex-wrap gap-x-3 items-center">
-          <span>
-            Código personal: <span className="font-mono font-bold">{data.student.student_code}</span>
-          </span>
-          {/* @ts-ignore */}
-          {(data.student as any).lastSeen && (
-            <span className="text-xs text-foreground/50 border-l border-foreground/20 pl-3">
-              {/* @ts-ignore */}
-              Última actividad: {new Date((data.student as any).lastSeen).toLocaleDateString('es-MX', { dateStyle: 'long' })}
-            </span>
-          )}
+        <p className="text-sm text-foreground/60 mt-1">
+          {t.codigoPersonal[lang]} <span className="font-mono font-bold">{data.student.student_code}</span>
         </p>
       </header>
 
       <section className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
         <StatCard
           icon={BookOpen}
-          label="Lecciones"
+          label={t.leccionesCount[lang]}
           value={`${summary.completedCount}/${TOTAL_LESSONS}`}
         />
         <StatCard
           icon={Target}
-          label="Ejercicios"
+          label={t.ejercicios[lang]}
           value={String(Object.values(summary.exerciseStats).reduce((a, s) => a + s.runs, 0))}
         />
-        <StatCard icon={Clock} label="Tiempo total" value={fmtMin(summary.timeTotal)} />
-        <StatCard icon={Award} label="Insignias" value={String(summary.badges.length)} />
+        <StatCard icon={Clock} label={t.tiempoTotal[lang]} value={fmtMin(summary.timeTotal)} />
+        <StatCard icon={Award} label={t.insignias[lang]} value={String(summary.badges.length)} />
       </section>
 
       {summary.level && (
@@ -174,34 +121,20 @@ function StudentDetail() {
           <Activity className="w-5 h-5 text-primary" />
           <div>
             <div className="text-xs uppercase tracking-wide text-foreground/60">
-              Nivel adaptativo actual (desde el {new Date(summary.level.at).toLocaleDateString('es-MX', { dateStyle: 'long' })})
+              {t.nivelAdaptativo[lang]}
             </div>
             <div className="font-bold text-lg">{summary.level.value}</div>
           </div>
         </section>
       )}
 
-      <section className="print:hidden mt-4 kid-card p-4">
-        <label htmlFor="teacher-notes" className="block font-bold mb-3 text-lg">Notas del maestro</label>
-        <textarea
-          id="teacher-notes"
-          value={notes}
-          onChange={(e) => setNotes(e.target.value)}
-          onBlur={(e) => saveNotes(e.target.value)}
-          placeholder="Escribe tus observaciones aquí…"
-          style={{ minHeight: "120px" }}
-          className="w-full px-4 py-3 rounded-xl border-2 border-foreground/10 bg-background focus:border-primary outline-none text-sm"
-        />
-      </section>
-
       <section className="mt-8">
-        <h2 className="font-bold mb-3 text-lg">Progreso por lección</h2>
+        <h2 className="font-bold mb-3 text-lg">{t.progresoLeccion[lang]}</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
           {CATALOG.map((entry) => {
             const isDone = summary.completedSet.has(String(entry.n));
             const ex = summary.exerciseStats[String(entry.n)];
             const pct = ex ? Math.round((ex.score / ex.total) * 100) : null;
-            const tgTitle = teacherGuide.lessons.find((l: any) => String(l.id) === String(entry.n) || String(l.lesson) === String(entry.n))?.title || entry.title;
             return (
               <div
                 key={entry.n}
@@ -210,16 +143,16 @@ function StudentDetail() {
               >
                 <div className="text-xs font-bold w-8 text-foreground/50">{entry.n}</div>
                 <div className="flex-1 min-w-0">
-                  <div className="font-bold text-sm truncate">{tgTitle}</div>
+                  <div className="font-bold text-sm truncate">{entry.title}</div>
                   <div className="text-xs text-foreground/60 mt-0.5">
                     {isDone ? (
-                      <span className="text-success font-bold">✓ completada</span>
+                      <span className="text-success font-bold">✓ {t.completada[lang]}</span>
                     ) : (
-                      <span>pendiente</span>
+                      <span>{t.pendiente[lang]}</span>
                     )}
                     {ex && (
                       <span className="ml-2">
-                        · {ex.runs} ejercicio{ex.runs > 1 ? "s" : ""} ({pct}% acierto)
+                        · {ex.runs} {ex.runs > 1 ? t.ejercicioPlural[lang] : t.ejercicioSingular[lang]} ({pct}% {t.acierto[lang]})
                       </span>
                     )}
                   </div>
@@ -232,18 +165,11 @@ function StudentDetail() {
 
       {summary.badges.length > 0 && (
         <section className="mt-8">
-          <h2 className="font-bold mb-3 text-lg">Insignias ganadas</h2>
+          <h2 className="font-bold mb-3 text-lg">{t.insigniasGanadas[lang]}</h2>
           <ul className="flex flex-wrap gap-2">
             {summary.badges.map((b, i) => (
-              <li
-                key={i}
-                className="kid-card p-2 px-3 inline-flex items-center gap-2 text-sm"
-                title={`Ganada el ${new Date(b.at).toLocaleDateString('es-MX', { dateStyle: 'long' })}`}
-              >
-                <Award className="w-4 h-4 text-primary" /> {b.name}{" "}
-                <span className="text-xs text-foreground/50">
-                  ({new Date(b.at).toLocaleDateString('es-MX', { dateStyle: 'long' })})
-                </span>
+              <li key={i} className="kid-card p-2 px-3 inline-flex items-center gap-2 text-sm">
+                <Award className="w-4 h-4 text-primary" /> {b.name}
               </li>
             ))}
           </ul>
@@ -251,29 +177,24 @@ function StudentDetail() {
       )}
 
       <section className="mt-8">
-        <h2 className="font-bold mb-3 text-lg">Actividad reciente</h2>
+        <h2 className="font-bold mb-3 text-lg">{t.actividadReciente[lang]}</h2>
         <ul className="space-y-1.5 text-sm">
-          {data.events.slice(0, 30).map((e) => {
-            const tgTitle = teacherGuide.lessons.find((l: any) => String(l.id) === String(e.lesson_id) || String(l.lesson) === String(e.lesson_id))?.title;
-            return (
-              <li
-                key={e.id}
-                className="flex items-center justify-between gap-3 px-3 py-2 rounded-lg bg-card border border-foreground/5"
-              >
-                <span>
-                  <span className="font-bold text-foreground/70">
-                    L{e.lesson_id}{tgTitle ? ` — ${tgTitle}` : ""}
-                  </span>{" "}
-                  <span className="text-foreground/60">{labelEvent(e)}</span>
-                </span>
-                <span className="text-xs text-foreground/50">
-                  {new Date(e.created_at).toLocaleDateString('es-MX', { dateStyle: 'long' })}
-                </span>
-              </li>
-            );
-          })}
+          {data.events.slice(0, 30).map((e) => (
+            <li
+              key={e.id}
+              className="flex items-center justify-between gap-3 px-3 py-2 rounded-lg bg-card border border-foreground/5"
+            >
+              <span>
+                <span className="font-bold text-foreground/70">L{e.lesson_id}</span>{" "}
+                <span className="text-foreground/60">{labelEvent(e, lang)}</span>
+              </span>
+              <span className="text-xs text-foreground/50">
+                {new Date(e.created_at).toLocaleString()}
+              </span>
+            </li>
+          ))}
           {data.events.length === 0 && (
-            <li className="text-foreground/60">Sin actividad todavía.</li>
+            <li className="text-foreground/60">{t.sinActividad[lang]}</li>
           )}
         </ul>
       </section>
@@ -286,18 +207,19 @@ function labelEvent(e: {
   score: number | null;
   total: number | null;
   time_seconds: number | null;
-}) {
+}, lang: "es" | "en") {
+  const t = tCopy;
   switch (e.event_kind) {
     case "lesson_completed":
-      return "lección completada";
+      return t.evtLeccion[lang];
     case "exercise":
-      return `ejercicio ${e.score ?? 0}/${e.total ?? 0}`;
+      return `${t.evtEjercicio[lang]} ${e.score ?? 0}/${e.total ?? 0}`;
     case "time":
-      return `${e.time_seconds ?? 0} s de estudio`;
+      return `${e.time_seconds ?? 0} ${t.s[lang]} ${t.evtTiempo[lang]}`;
     case "badge":
-      return "insignia ganada";
+      return t.evtInsignia[lang];
     case "level":
-      return "cambio de nivel";
+      return t.evtNivel[lang];
     default:
       return e.event_kind;
   }

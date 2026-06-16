@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Outlet, Link, createRootRouteWithContext, useRouter } from "@tanstack/react-router";
 
 import { ServiceWorkerRegister } from "@/components/ServiceWorkerRegister";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 function NotFoundComponent() {
   return (
@@ -72,7 +73,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "Edición digital interactiva de La Cartilla de Gretel — método fonético K-2 con 24 lecciones, ejercicios y panel de maestro.",
       },
-      { name: "author", content: "Leonor Lopetegui — LANY Books LLC" },
+      { name: "author", content: "Leonor Lopetegui — Double R Publishing" },
       { property: "og:title", content: "La Cartilla de Gretel" },
       { property: "og:description", content: "Edición digital interactiva — método fonético K-2." },
       { property: "og:type", content: "website" },
@@ -104,8 +105,10 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ServiceWorkerRegister />
-      <Outlet />
+      <LanguageProvider>
+        <ServiceWorkerRegister />
+        <Outlet />
+      </LanguageProvider>
     </QueryClientProvider>
   );
 }

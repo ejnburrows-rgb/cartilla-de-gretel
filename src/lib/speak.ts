@@ -66,7 +66,7 @@ function ensureVoices(): Promise<void> {
   return voicesReady;
 }
 
-export async function speak(text: string, rate?: number) {
+export async function speak(text: string) {
   if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
   try {
     await ensureVoices();
@@ -80,7 +80,7 @@ export async function speak(text: string, rate?: number) {
     } else {
       u.lang = "es-ES";
     }
-    u.rate = rate ?? 0.88;
+    u.rate = 0.88;
     u.pitch = 1.05;
     u.volume = 1;
     synth.speak(u);
