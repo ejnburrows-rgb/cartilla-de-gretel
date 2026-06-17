@@ -5,6 +5,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useGretelAnimation } from "./useGretelAnimation";
 import { onGretelEvent, type GretelBusEvent } from "@/lib/gretel-bus";
+import { speak } from "@/lib/speak";
 
 const NUDGE_DELAY_MS = 10_000;
 
@@ -62,6 +63,7 @@ export function useGretelEvents() {
           send({ type: "CHEER" });
           setSpeechText("¡Muy bien!");
           scheduleSpeechClear(2200);
+          void speak("¡Muy bien!", { silentPose: true });
           break;
 
         case "answer:wrong":
@@ -88,6 +90,7 @@ export function useGretelEvents() {
           send({ type: "CHEER" });
           setSpeechText("¡Lo lograste!");
           scheduleSpeechClear(3200);
+          void speak("¡Lo lograste! Buen trabajo.", { silentPose: true });
           break;
 
         case "talk:start":

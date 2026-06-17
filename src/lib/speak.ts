@@ -66,7 +66,7 @@ function ensureVoices(): Promise<void> {
   return voicesReady;
 }
 
-export async function speak(text: string): Promise<void> {
+export async function speak(text: string, opts?: { silentPose?: boolean }): Promise<void> {
   if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
   await ensureVoices();
   return new Promise((resolve) => {
@@ -74,11 +74,19 @@ export async function speak(text: string): Promise<void> {
       const synth = window.speechSynthesis;
       synth.cancel();
       const u = new SpeechSynthesisUtterance(text);
-      
-      // Dispatch events for Gretel Mascot
-      u.onstart = () => window.dispatchEvent(new CustomEvent("gretel:speak_start"));
-      u.onend = () => { window.dispatchEvent(new CustomEvent("gretel:speak_stop")); resolve(); };
-      u.onerror = () => { window.dispatchEvent(new CustomEvent("gretel:speak_stop")); resolve(); };
+
+      // Dispatch events for Gretel Mascot (skipped when a pose like CHEER is
+      // already driving the mouth — talk-pose events would otherwise heal
+      // the FSM back to idle mid-pose, since SPEAK_START isn't a legal
+      // transition from cheering/waving/pointing).
+      if (!opts?.silentPose) {
+        u.onstart = () => window.dispatchEvent(new CustomEvent("gretel:speak_start"));
+        u.onend = () => { window.dispatchEvent(new CustomEvent("gretel:speak_stop")); resolve(); };
+        u.onerror = () => { window.dispatchEvent(new CustomEvent("gretel:speak_stop")); resolve(); };
+      } else {
+        u.onend = () => resolve();
+        u.onerror = () => resolve();
+      }
 
       const voice = cachedVoice ?? pickBestVoice();
       if (voice) {
