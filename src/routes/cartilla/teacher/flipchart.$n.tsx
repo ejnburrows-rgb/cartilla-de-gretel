@@ -71,7 +71,11 @@ function FlipchartLeccion() {
       <main className="flex-1 relative flex items-center justify-center bg-black">
         {/* The book page image */}
         <img
-          src={`/art/hd/page-${currentPageNumber}.png`}
+          src={
+            currentPageNumber <= 92
+              ? `/art/remastered/page-${currentPageNumber}.webp`
+              : `/art/hd/page-${currentPageNumber}.png`
+          }
           alt={`Página ${currentPageNumber}`}
           className="max-w-full max-h-full object-contain"
         />

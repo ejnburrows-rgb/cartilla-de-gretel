@@ -281,11 +281,11 @@ function MyProgress() {
                   <div className="font-bold text-sm truncate">{entry.title}</div>
                   <div className="text-xs text-foreground/60 mt-0.5">
                     {isDone ? (
-                      <span className="text-success font-bold">âœ" {t.completada[lang]}</span>
+                      <span className="text-success font-bold">✔ {t.completada[lang]}</span>
                     ) : (
                       <span>{t.pendiente[lang]}</span>
                     )}
-                    {pct !== null && <span className="ml-2">Â· {pct}% {t.acierto[lang]}</span>}
+                    {pct !== null && <span className="ml-2">· {pct}% {t.acierto[lang]}</span>}
                   </div>
                 </div>
               </Link>
