@@ -1,0 +1,216 @@
+{
+  "_comment": "Verified transcriptions of the corrected Teacher Flip Chart source PDFs supplied directly by the project owner (public/book/flipchart-source/). Each entry's text is read directly off the rendered master image -- the source PDFs have no embedded text layer (titles/body text are outlined art), so this is a manual faithful transcription, not OCR or generated placeholder content.",
+  "cards": [
+    {
+      "id": "1Portada",
+      "section": "cover",
+      "masterImage": "/cartilla/art/flipchart/master/1Portada.webp",
+      "regions": [
+        { "id": "cover-title", "regionType": "title", "order": 0, "fontRole": "heading", "text": "La Cartilla de Gretel" },
+        { "id": "cover-author", "regionType": "footer", "order": 1, "fontRole": "body", "text": "Autora: Leonor Lopetegui" }
+      ]
+    },
+    {
+      "id": "1aContraportada",
+      "section": "back-cover",
+      "masterImage": "/cartilla/art/flipchart/master/1aContraportada.webp",
+      "regions": [
+        { "id": "back-credits", "regionType": "footer", "order": 0, "fontRole": "body", "text": "Copyright © 2004, Revisión 2010. Autora: Leonor Lopetegui. Colaboradoras: Silvia Diez y Aida Fernández. Ilustradora: Estela de Armas Plasencia. Ilustraciones adicionales: Jupiter Images. Diseño gráfico: María Artola." },
+        { "id": "back-isbn", "regionType": "footer", "order": 1, "fontRole": "body", "text": "ISBN 0-971-8696-7-7. Publicado por Double R Publishing, LLC, 25025 SW 202 Ave, Homestead, FL 33031." },
+        { "id": "back-agradecimiento", "regionType": "sentence-line", "order": 2, "fontRole": "body", "text": "Agradecimiento: A mi hija Nora Bethy, a mis sobrinas Sofía M. Destefano y Alexa G. Flores, a todos los niños que estudian español." }
+      ]
+    },
+    {
+      "id": "2Las_hermanitas_vocales_Rima",
+      "section": "vowels-rhyme",
+      "masterImage": "/cartilla/art/flipchart/master/2Las_hermanitas_vocales_Rima.webp",
+      "regions": [
+        { "id": "rima-title", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Las hermanitas vocales" },
+        { "id": "rima-poem", "regionType": "sentence-line", "order": 1, "fontRole": "body", "text": "Cinco hermanitas, todas aplicadas, las cinco bonitas, nunca están calladas." },
+        { "id": "rima-vocab", "regionType": "vocab-grid", "order": 2, "fontRole": "body", "text": "a - avión, e - escoba, i - imán, o - olla, u - uña" }
+      ]
+    },
+    {
+      "id": "10Mm",
+      "section": "letter-M",
+      "masterImage": "/cartilla/art/flipchart/master/10Mm.webp",
+      "regions": [
+        { "id": "m-letter", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Mm" },
+        { "id": "m-title", "regionType": "title", "order": 1, "fontRole": "heading", "text": "Mi mamá" },
+        { "id": "m-sentence", "regionType": "sentence-line", "order": 2, "fontRole": "body", "text": "Mami me ama. Amo a mamá. Ámame mami, mímame más." }
+      ]
+    },
+    {
+      "id": "11Pp",
+      "section": "letter-P",
+      "masterImage": "/cartilla/art/flipchart/master/11Pp.webp",
+      "regions": [
+        { "id": "p1-letter", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Pp" },
+        { "id": "p1-syllables", "regionType": "syllable-bubble", "order": 1, "fontRole": "body", "text": "pa pe pi po pu" },
+        { "id": "p1-vocab", "regionType": "vocab-grid", "order": 2, "fontRole": "body", "text": "papá, pie, Pepe, puma, pomo" }
+      ]
+    },
+    {
+      "id": "12Pp",
+      "section": "letter-P",
+      "masterImage": "/cartilla/art/flipchart/master/12Pp.webp",
+      "regions": [
+        { "id": "p2-letter", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Pp" },
+        { "id": "p2-syllables", "regionType": "syllable-bubble", "order": 1, "fontRole": "body", "text": "pa pe pi po pu / pu po pa pe pi" },
+        { "id": "p2-vocab", "regionType": "vocab-grid", "order": 2, "fontRole": "body", "text": "papá, mapo, Mapi, papi, puma, pie, Pepe, Mupi, púa, pipo, mapa, pomo, Pupi, ¡upa!, Pepo" },
+        { "id": "p2-sightword", "regionType": "syllable-bubble", "order": 3, "fontRole": "body", "text": "yo" },
+        { "id": "p2-sentence", "regionType": "sentence-line", "order": 4, "fontRole": "body", "text": "Papá y Pepe aman a mamá. Pupi ama a papá. Yo amo a mamá y a papá. Mi papá ama a Pupi. Papá y mamá me aman." }
+      ]
+    },
+    {
+      "id": "13Pp",
+      "section": "letter-P",
+      "masterImage": "/cartilla/art/flipchart/master/13Pp.webp",
+      "regions": [
+        { "id": "p3-letter", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Pp" },
+        { "id": "p3-title", "regionType": "title", "order": 1, "fontRole": "heading", "text": "Mi papá" },
+        { "id": "p3-sentence", "regionType": "sentence-line", "order": 2, "fontRole": "body", "text": "Yo amo a Pupi, yo amo a papá. Pipo me ama a mí y a mamá." }
+      ]
+    },
+    {
+      "id": "14Ss",
+      "section": "letter-S",
+      "masterImage": "/cartilla/art/flipchart/master/14Ss.webp",
+      "regions": [
+        { "id": "s1-letter", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Ss" },
+        { "id": "s1-syllables", "regionType": "syllable-bubble", "order": 1, "fontRole": "body", "text": "sa se si so su" },
+        { "id": "s1-vocab", "regionType": "vocab-grid", "order": 2, "fontRole": "body", "text": "Sesi, sopa, sapo, pisa, Susi" }
+      ]
+    },
+    {
+      "id": "15Ss",
+      "section": "letter-S",
+      "masterImage": "/cartilla/art/flipchart/master/15Ss.webp",
+      "regions": [
+        { "id": "s2-letter", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Ss" },
+        { "id": "s2-syllables", "regionType": "syllable-bubble", "order": 1, "fontRole": "body", "text": "sa se si so su / su so sa se si" },
+        { "id": "s2-vocab", "regionType": "vocab-grid", "order": 2, "fontRole": "body", "text": "masa, mesa, suma, sapo, seso, Susi, así, sopa, paso, puso, supo, supe, Sisi, ese, esa" },
+        { "id": "s2-sightwords", "regionType": "syllable-bubble", "order": 3, "fontRole": "body", "text": "es de un está en la el" },
+        { "id": "s2-sentence", "regionType": "sentence-line", "order": 4, "fontRole": "body", "text": "La mesa es de Susi. La sopa está en la mesa. Papá pasa la sopa a Susi. Sisi pasa la sopa a mamá. Ese sapo es de Sisi. Es el sapo Samapo. Sisi pasa el sapo a Pepe. Pepe puso un sapo en la mesa." }
+      ]
+    },
+    {
+      "id": "16Ss",
+      "section": "letter-S",
+      "masterImage": "/cartilla/art/flipchart/master/16Ss.webp",
+      "regions": [
+        { "id": "s3-letter", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Ss" },
+        { "id": "s3-title", "regionType": "title", "order": 1, "fontRole": "heading", "text": "Sapo Samapo" },
+        { "id": "s3-sentence", "regionType": "sentence-line", "order": 2, "fontRole": "body", "text": "Sapo Samapo en la mesa está, sapo Samapo sa-po-mi-pa." }
+      ]
+    },
+    {
+      "id": "17Tt",
+      "section": "letter-T",
+      "masterImage": "/cartilla/art/flipchart/master/17Tt.webp",
+      "regions": [
+        { "id": "t1-letter", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Tt" },
+        { "id": "t1-syllables", "regionType": "syllable-bubble", "order": 1, "fontRole": "body", "text": "ta te ti to tu / tu to ta te ti" },
+        { "id": "t1-vocab", "regionType": "vocab-grid", "order": 2, "fontRole": "body", "text": "toma, teme, seta, Titi, pata, Soto, tupe, tapa, mete, Mota, Piti, topo, sapito, peseta, tomate, Poti, pato" },
+        { "id": "t1-sightwords", "regionType": "syllable-bubble", "order": 3, "fontRole": "body", "text": "tiene patio no" },
+        { "id": "t1-sentence", "regionType": "sentence-line", "order": 4, "fontRole": "body", "text": "La mesa tiene un tapete. El pomo está en la mesa. La mesa está en el patio. El pomo tiene sopa. El pomo tiene tapa. Tito tapa el pomo. –¡No Tito, no, no tapes el pomo! Papá tapa la sopa." }
+      ]
+    },
+    {
+      "id": "18Tt",
+      "section": "letter-T",
+      "masterImage": "/cartilla/art/flipchart/master/18Tt.webp",
+      "regions": [
+        { "id": "t2-letter", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Tt" },
+        { "id": "t2-title", "regionType": "title", "order": 1, "fontRole": "heading", "text": "La sopa de pato" },
+        { "id": "t2-sentence", "regionType": "sentence-line", "order": 2, "fontRole": "body", "text": "Tuto, Tato y Uto toman sopa de pato. Ita tapa la sopa, esta sopa es de Tato. Tito toma la sopa de tomate y pato, papá toma su sopa en la mesa del patio." }
+      ]
+    },
+    {
+      "id": "19Dd",
+      "section": "letter-D",
+      "masterImage": "/cartilla/art/flipchart/master/19Dd.webp",
+      "regions": [
+        { "id": "d1-letter", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Dd" },
+        { "id": "d1-syllables", "regionType": "syllable-bubble", "order": 1, "fontRole": "body", "text": "da de di do du" },
+        { "id": "d1-vocab", "regionType": "vocab-grid", "order": 2, "fontRole": "body", "text": "Didi, dados, dedo, doce, Dunia" }
+      ]
+    },
+    {
+      "id": "20Dd",
+      "section": "letter-D",
+      "masterImage": "/cartilla/art/flipchart/master/20Dd.webp",
+      "regions": [
+        { "id": "d2-letter", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Dd" },
+        { "id": "d2-syllables", "regionType": "syllable-bubble", "order": 1, "fontRole": "body", "text": "da de di do du / du do da de di" },
+        { "id": "d2-vocab", "regionType": "vocab-grid", "order": 2, "fontRole": "body", "text": "dedo, dónde, deme, dame, Duma, de, día, dime, duda, Ada, pide, mudo, moneda, mide, Dunia" },
+        { "id": "d2-sightwords", "regionType": "syllable-bubble", "order": 3, "fontRole": "body", "text": "son están" },
+        { "id": "d2-sentence", "regionType": "sentence-line", "order": 4, "fontRole": "body", "text": "Dime si Ada tiene dados. Los dados son de Dunia. –¿Dónde están los dados? Dunia pone los dados en el pomo. –Dunia dame el pomo. El pomo de Dunia está en la mesa. –Ada, ¿Dónde está Dunia?" }
+      ]
+    },
+    {
+      "id": "21Dd",
+      "section": "letter-D",
+      "masterImage": "/cartilla/art/flipchart/master/21Dd.webp",
+      "regions": [
+        { "id": "d3-letter", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Dd" },
+        { "id": "d3-title", "regionType": "title", "order": 1, "fontRole": "heading", "text": "Made y papá" },
+        { "id": "d3-sentence", "regionType": "sentence-line", "order": 2, "fontRole": "body", "text": "¿Dónde está Made? ¿Dónde está? Está en el medio de mamá y de papá. ¿Dónde está Made? ¿Dónde está? Made está delante de mamá y de papá." }
+      ]
+    },
+    {
+      "id": "22Ll",
+      "section": "letter-L",
+      "masterImage": "/cartilla/art/flipchart/master/22Ll.webp",
+      "regions": [
+        { "id": "l1-letter", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Ll" },
+        { "id": "l1-syllables", "regionType": "syllable-bubble", "order": 1, "fontRole": "body", "text": "la le li lo lu" },
+        { "id": "l1-vocab", "regionType": "vocab-grid", "order": 2, "fontRole": "body", "text": "maleta, lata, Luli, loma, Lala" }
+      ]
+    },
+    {
+      "id": "23Ll",
+      "section": "letter-L",
+      "masterImage": "/cartilla/art/flipchart/master/23Ll.webp",
+      "regions": [
+        { "id": "l2-letter", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Ll" },
+        { "id": "l2-syllables", "regionType": "syllable-bubble", "order": 1, "fontRole": "body", "text": "la le li lo lu / lu lo la le li" },
+        { "id": "l2-vocab", "regionType": "vocab-grid", "order": 2, "fontRole": "body", "text": "lima, lata, aleta, maleta, lupa, sale, paloma, pala, lomo, pelusa, Lilo, Lola, Luli, tela, Tula" },
+        { "id": "l2-sightwords", "regionType": "syllable-bubble", "order": 3, "fontRole": "body", "text": "también" },
+        { "id": "l2-sentence", "regionType": "sentence-line", "order": 4, "fontRole": "body", "text": "La maleta de Luli está en la mesa. La tela de la maleta tiene pelusas. La maleta de Polo es de tela. Mamá le da la maleta a Polo. Polo toma su maleta de tela. Lalo tiene una maleta de tela también." }
+      ]
+    },
+    {
+      "id": "24Ll",
+      "section": "letter-L",
+      "masterImage": "/cartilla/art/flipchart/master/24Ll.webp",
+      "regions": [
+        { "id": "l3-letter", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Ll" },
+        { "id": "l3-title", "regionType": "title", "order": 1, "fontRole": "heading", "text": "Leo lee" },
+        { "id": "l3-sentence", "regionType": "sentence-line", "order": 2, "fontRole": "body", "text": "Leo, leo, leo, leo, lima, palo, tela, Tula, leo, leo, leo, leo, lomo, Lala, lata, mula. Lee, lee, lee, lee, maleta de tela, tela de lana, maleta de Polo de Lalo y de Ana." }
+      ]
+    },
+    {
+      "id": "25Nn",
+      "section": "letter-N",
+      "masterImage": "/cartilla/art/flipchart/master/25Nn.webp",
+      "regions": [
+        { "id": "n1-letter", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Nn" },
+        { "id": "n1-syllables", "regionType": "syllable-bubble", "order": 1, "fontRole": "body", "text": "na ne ni no nu" },
+        { "id": "n1-vocab", "regionType": "vocab-grid", "order": 2, "fontRole": "body", "text": "nido, nudo, mono, Napi, tenedor" }
+      ]
+    },
+    {
+      "id": "26Nn",
+      "section": "letter-N",
+      "masterImage": "/cartilla/art/flipchart/master/26Nn.webp",
+      "regions": [
+        { "id": "n2-letter", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Nn" },
+        { "id": "n2-syllables", "regionType": "syllable-bubble", "order": 1, "fontRole": "body", "text": "na ne ni no nu / nu no na ne ni" },
+        { "id": "n2-vocab", "regionType": "vocab-grid", "order": 2, "fontRole": "body", "text": "nido, tina, nada, nené, mano, nulo, Nono, Tono, Alina, poni, Nena, nata, mono, luna, Neli" },
+        { "id": "n2-sightwords", "regionType": "syllable-bubble", "order": 3, "fontRole": "body", "text": "esa a" },
+        { "id": "n2-sentence", "regionType": "sentence-line", "order": 4, "fontRole": "body", "text": "Tomás dame esa tina. La tina es de Napi. Tono y Alina aman a Napi. Napi tiene pelo. Tono le pone la tina a Napi en el piso. Nono no le pone nada a esa tina. Esa tina no tiene nada." }
+      ]
+    }
+  ]
+}

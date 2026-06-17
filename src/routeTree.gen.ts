@@ -54,6 +54,7 @@ import { Route as CartillaPilotFaithfulNRouteImport } from './routes/cartilla/pi
 import { Route as CartillaLeccionNRouteImport } from './routes/cartilla/leccion.$n'
 import { Route as CartillaImprimirAllRouteImport } from './routes/cartilla/imprimir.all'
 import { Route as CartillaImprimirNRouteImport } from './routes/cartilla/imprimir.$n'
+import { Route as CartillaFlipchartSourceIdRouteImport } from './routes/cartilla/flipchart-source.$id'
 import { Route as CartillaBinderLessonRouteImport } from './routes/cartilla/binder/$lesson'
 import { Route as AuthenticatedCartillaTeacherRouteImport } from './routes/_authenticated/cartilla.teacher'
 import { Route as CartillaTeacherFlipchartIndexRouteImport } from './routes/cartilla/teacher/flipchart.index'
@@ -294,6 +295,12 @@ const CartillaImprimirNRoute = CartillaImprimirNRouteImport.update({
   path: '/cartilla/imprimir/$n',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CartillaFlipchartSourceIdRoute =
+  CartillaFlipchartSourceIdRouteImport.update({
+    id: '/cartilla/flipchart-source/$id',
+    path: '/cartilla/flipchart-source/$id',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const CartillaBinderLessonRoute = CartillaBinderLessonRouteImport.update({
   id: '/$lesson',
   path: '/$lesson',
@@ -391,6 +398,7 @@ export interface FileRoutesByFullPath {
   '/print/binder': typeof PrintBinderRoute
   '/cartilla/': typeof CartillaIndexRoute
   '/cartilla/binder/$lesson': typeof CartillaBinderLessonRoute
+  '/cartilla/flipchart-source/$id': typeof CartillaFlipchartSourceIdRoute
   '/cartilla/imprimir/$n': typeof CartillaImprimirNRoute
   '/cartilla/imprimir/all': typeof CartillaImprimirAllRoute
   '/cartilla/leccion/$n': typeof CartillaLeccionNRoute
@@ -448,6 +456,7 @@ export interface FileRoutesByTo {
   '/cartilla': typeof CartillaIndexRoute
   '/cartilla/teacher': typeof CartillaTeacherIndexRoute
   '/cartilla/binder/$lesson': typeof CartillaBinderLessonRoute
+  '/cartilla/flipchart-source/$id': typeof CartillaFlipchartSourceIdRoute
   '/cartilla/imprimir/$n': typeof CartillaImprimirNRoute
   '/cartilla/imprimir/all': typeof CartillaImprimirAllRoute
   '/cartilla/leccion/$n': typeof CartillaLeccionNRoute
@@ -506,6 +515,7 @@ export interface FileRoutesById {
   '/cartilla/': typeof CartillaIndexRoute
   '/_authenticated/cartilla/teacher': typeof AuthenticatedCartillaTeacherRouteWithChildren
   '/cartilla/binder/$lesson': typeof CartillaBinderLessonRoute
+  '/cartilla/flipchart-source/$id': typeof CartillaFlipchartSourceIdRoute
   '/cartilla/imprimir/$n': typeof CartillaImprimirNRoute
   '/cartilla/imprimir/all': typeof CartillaImprimirAllRoute
   '/cartilla/leccion/$n': typeof CartillaLeccionNRoute
@@ -565,6 +575,7 @@ export interface FileRouteTypes {
     | '/print/binder'
     | '/cartilla/'
     | '/cartilla/binder/$lesson'
+    | '/cartilla/flipchart-source/$id'
     | '/cartilla/imprimir/$n'
     | '/cartilla/imprimir/all'
     | '/cartilla/leccion/$n'
@@ -622,6 +633,7 @@ export interface FileRouteTypes {
     | '/cartilla'
     | '/cartilla/teacher'
     | '/cartilla/binder/$lesson'
+    | '/cartilla/flipchart-source/$id'
     | '/cartilla/imprimir/$n'
     | '/cartilla/imprimir/all'
     | '/cartilla/leccion/$n'
@@ -679,6 +691,7 @@ export interface FileRouteTypes {
     | '/cartilla/'
     | '/_authenticated/cartilla/teacher'
     | '/cartilla/binder/$lesson'
+    | '/cartilla/flipchart-source/$id'
     | '/cartilla/imprimir/$n'
     | '/cartilla/imprimir/all'
     | '/cartilla/leccion/$n'
@@ -737,6 +750,7 @@ export interface RootRouteChildren {
   PrintLessonIdRoute: typeof PrintLessonIdRoute
   PrintBinderRoute: typeof PrintBinderRoute
   CartillaIndexRoute: typeof CartillaIndexRoute
+  CartillaFlipchartSourceIdRoute: typeof CartillaFlipchartSourceIdRoute
   CartillaImprimirNRoute: typeof CartillaImprimirNRoute
   CartillaImprimirAllRoute: typeof CartillaImprimirAllRoute
   CartillaLeccionNRoute: typeof CartillaLeccionNRoute
@@ -1062,6 +1076,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CartillaImprimirNRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/cartilla/flipchart-source/$id': {
+      id: '/cartilla/flipchart-source/$id'
+      path: '/cartilla/flipchart-source/$id'
+      fullPath: '/cartilla/flipchart-source/$id'
+      preLoaderRoute: typeof CartillaFlipchartSourceIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/cartilla/binder/$lesson': {
       id: '/cartilla/binder/$lesson'
       path: '/$lesson'
@@ -1296,6 +1317,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrintLessonIdRoute: PrintLessonIdRoute,
   PrintBinderRoute: PrintBinderRoute,
   CartillaIndexRoute: CartillaIndexRoute,
+  CartillaFlipchartSourceIdRoute: CartillaFlipchartSourceIdRoute,
   CartillaImprimirNRoute: CartillaImprimirNRoute,
   CartillaImprimirAllRoute: CartillaImprimirAllRoute,
   CartillaLeccionNRoute: CartillaLeccionNRoute,
