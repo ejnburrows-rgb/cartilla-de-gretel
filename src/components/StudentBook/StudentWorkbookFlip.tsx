@@ -41,29 +41,17 @@ export function StudentWorkbookFlip({
   singleAspectRatio,
   onPageChange,
 }: StudentWorkbookFlipProps) {
-  const [isMobile, setIsMobile] = useState(false);
-
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    
-    // Emit mount event when component mounts
     gretelEvent("mount");
-    
-    return () => {
-      window.removeEventListener("resize", checkMobile);
-    };
   }, []);
 
-  const normalizedStartIdx = (!isMobile && initialPage % 2 !== 0) ? initialPage - 1 : initialPage;
-  const [currentIndex, setCurrentIndex] = useState(Math.max(0, normalizedStartIdx));
+  const [currentIndex, setCurrentIndex] = useState(Math.max(0, initialPage));
   const [isFlipping, setIsFlipping] = useState(false);
   const [flipDirection, setFlipDirection] = useState<'next' | 'prev' | null>(null);
   const [flipTransform, setFlipTransform] = useState('rotateY(0deg)');
   const [hintVisible, setHintVisible] = useState(true);
 
-  const step = isMobile ? 1 : 2;
+  const step = 1;
   const hasPrev = currentIndex - step >= 0;
   const hasNext = currentIndex + step < pages.length;
 
@@ -201,7 +189,7 @@ export function StudentWorkbookFlip({
   return (
     <div className="relative mx-auto flex w-full max-w-5xl flex-col items-center">
       <div className="w-full px-4">
-        {isMobile ? renderMobile() : renderDesktop()}
+        {renderMobile()}
       </div>
 
       {hintVisible && currentIndex === 0 && (
@@ -223,7 +211,7 @@ export function StudentWorkbookFlip({
           <ChevronLeft className="w-5 h-5" /> Anterior
         </button>
         <div className="text-sm font-bold text-text bg-surface-2 px-4 py-2 rounded-md border border-border shadow-sm">
-          Página {currentIndex + 1} {(!isMobile && currentIndex+1 < pages.length) ? `- ${currentIndex+2}` : ''} de {pages.length}
+          Página {currentIndex + 1} de {pages.length}
         </div>
         <button
           onClick={handleNext}
