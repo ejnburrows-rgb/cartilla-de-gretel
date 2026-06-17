@@ -14,7 +14,12 @@ import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@/lib/useServerFn";
 import { ArrowLeft, ArrowRight, Check, ClipboardList, Printer, Tv } from "lucide-react";
 import { CATALOG, TOTAL_LESSONS, type CatalogEntry } from "@/lib/lesson-catalog";
-import { useLessonProgress, isLessonUnlocked, markLessonCompleted } from "@/lib/lesson-progress";
+import {
+  useLessonProgress,
+  isLessonUnlocked,
+  markLessonCompleted,
+  useCloudLessonHydration,
+} from "@/lib/lesson-progress";
 import { recordEvent, useStudentSession } from "@/lib/student-session";
 import interactionsData from "@/data/workbook-interactions.json";
 import teacherGuideData from "@/data/teacher-guide.json";
@@ -63,6 +68,7 @@ function Leccion() {
   const lessonId = String(n);
   const { isCompleted } = useLessonProgress();
   const session = useStudentSession();
+  useCloudLessonHydration(session);
   const entry = useMemo<CatalogEntry | undefined>(() => CATALOG.find((e) => e.n === n), [n]);
   const guideLesson = useMemo(() => teacherGuideData.lessons.find((l) => l.lesson === n), [n]);
   const lessonPages = guideLesson?.pages || [];

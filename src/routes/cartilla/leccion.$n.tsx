@@ -4,7 +4,12 @@ import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@/lib/useServerFn";
 import { ArrowLeft, ArrowRight, Check, Volume2, ClipboardList } from "lucide-react";
 import { CATALOG, TOTAL_LESSONS, type CatalogEntry } from "@/lib/lesson-catalog";
-import { useLessonProgress, isLessonUnlocked, markLessonCompleted } from "@/lib/lesson-progress";
+import {
+  useLessonProgress,
+  isLessonUnlocked,
+  markLessonCompleted,
+  useCloudLessonHydration,
+} from "@/lib/lesson-progress";
 import { useAudio } from "@/hooks/useAudio";
 import { cn } from "@/lib/utils";
 import { SyllableTap, WordMatch, TeacherAnswerKey } from "@/components/cartilla/Ejercicios";
@@ -35,6 +40,7 @@ function Leccion() {
   const n = Number(nParam);
   const { isCompleted } = useLessonProgress();
   const session = useStudentSession();
+  useCloudLessonHydration(session);
   const entry = useMemo<CatalogEntry | undefined>(() => CATALOG.find((e) => e.n === n), [n]);
 
   const fetchAssignments = useServerFn(listMyAssignments);
