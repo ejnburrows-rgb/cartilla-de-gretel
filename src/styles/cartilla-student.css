@@ -185,6 +185,113 @@
   pointer-events: none;
 }
 
+/* ── DragMatchWords ──────────────────────────────────────────────── */
+.drag-match-words {
+  border-radius: 1.5rem;
+  border: 2px solid hsl(var(--foreground) / 0.10);
+  background: hsl(var(--card));
+  padding: 1rem;
+}
+
+.drag-match-words__slots {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.drag-match-words__slot {
+  min-height: 4.5rem;
+  border-radius: 1rem;
+  border: 3px dashed hsl(var(--foreground) / 0.25);
+  background: hsl(var(--secondary) / 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: 0.5rem;
+  transition: background 200ms ease, border-color 200ms ease, transform 200ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+  font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
+}
+
+.drag-match-words__emoji {
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.drag-match-words__filled-word {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.drag-match-words__slot[data-filled="true"] {
+  border-style: solid;
+  background: hsl(var(--card));
+}
+
+.drag-match-words__slot[data-over="true"] {
+  background: hsl(var(--primary) / 0.12);
+  border-color: hsl(var(--primary) / 0.5);
+  transform: scale(1.04);
+}
+
+.drag-match-words__slot[data-correct="true"] {
+  background: hsl(var(--success) / 0.10);
+  border-color: hsl(var(--success) / 0.5);
+  border-style: solid;
+}
+
+.drag-match-words__slot[data-wrong="true"] {
+  animation: slot-shake 320ms ease;
+}
+
+.drag-match-words__tray {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  min-height: 3rem;
+}
+
+.drag-match-words__word {
+  padding: 0.625rem 1rem;
+  border-radius: 1rem;
+  border: 3px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  transition: transform 200ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 140ms ease, box-shadow 140ms ease;
+  box-shadow: 0 4px 0 hsl(var(--foreground) / 0.12);
+  font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
+}
+
+.drag-match-words__word:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 5px 0 hsl(var(--foreground) / 0.12);
+}
+
+.drag-match-words__word:active {
+  cursor: grabbing;
+}
+
+.drag-match-words__word[data-dragging="true"] {
+  opacity: 0.35;
+  transform: scale(0.9);
+}
+
+.drag-match-words__word[data-used="true"] {
+  opacity: 0.18;
+  pointer-events: none;
+}
+
 /* ── Progress Dots ───────────────────────────────────────────────── */
 .progress-dots {
   display: flex;

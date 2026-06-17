@@ -18,8 +18,9 @@
  */
 import { useState, useEffect } from "react";
 import { BookArtFigure } from "@/components/cartilla/BookArtFigure";
-import { SyllableTap, WordMatch } from "@/components/cartilla/Ejercicios";
+import { SyllableTap } from "@/components/cartilla/Ejercicios";
 import { DragBuildWord } from "@/components/cartilla/DragBuildWord";
+import { DragMatchWords } from "@/components/cartilla/DragMatchWords";
 import { OrderedExercises } from "@/components/cartilla/OrderedExercises";
 import { LessonTimer } from "@/components/cartilla/LessonTimer";
 import type { CatalogEntry } from "@/lib/lesson-catalog";
@@ -132,7 +133,14 @@ export function StudentExercisePane({
     {
       id: "word_match",
       label: "Palabras",
-      node: <WordMatch words={words} color={accent} lessonId={lessonId} />
+      node: (
+        <DragMatchWords
+          words={words}
+          accent={accent}
+          lessonId={lessonId}
+          onComplete={() => markDone("word_match")}
+        />
+      )
     },
     {
       id: "drag_build_word",
