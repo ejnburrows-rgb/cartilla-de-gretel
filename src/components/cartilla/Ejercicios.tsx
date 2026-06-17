@@ -317,11 +317,11 @@ export function WordMatch({
       {feedback?.kind === "ok" && (
         <div className="mt-3 rounded-xl border-2 border-success/30 bg-success/5 p-3">
           <div className="text-sm font-bold text-success inline-flex items-center gap-1.5">
-            <Check className=”w-4 h-4” /> ¡Correcto!
+            <Check className="w-4 h-4" /> ¡Correcto!
           </div>
-          <p className=”text-sm text-foreground/80 mt-1”>
-            <strong>«{feedback.word}»</strong>{“ “}
-            {feedback.emoji && <span className=”text-lg align-middle”>{feedback.emoji}</span>} —
+          <p className="text-sm text-foreground/80 mt-1">
+            <strong>«{feedback.word}»</strong>{" "}
+            {feedback.emoji && <span className="text-lg align-middle">{feedback.emoji}</span>} —
             uniste bien la palabra con su dibujo.
           </p>
         </div>
@@ -365,7 +365,7 @@ export function WordMatch({
   );
 }
 
-/** Teacher answer key reveal â€” visible only to logged-in teachers or registered students */
+/** Teacher answer key reveal â€" visible only to logged-in teachers or registered students */
 export function TeacherAnswerKey({ items }: { items: Array<{ q: string; a: string }> }) {
   const [show, setShow] = useState(false);
   const [isTeacher, setIsTeacher] = useState(false);

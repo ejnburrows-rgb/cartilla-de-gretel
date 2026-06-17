@@ -110,7 +110,7 @@ function Autora() {
             className="text-6xl leading-none mb-4 text-[hsl(15,55%,38%)]"
             style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
           >
-            “
+            "
           </p>
           <blockquote
             className="italic text-2xl md:text-[28px] leading-snug text-[hsl(25,25%,18%)]"

@@ -1,5 +1,5 @@
 ﻿/**
- * DragBuildWord.tsx  â€” Lane A
+ * DragBuildWord.tsx  â€" Lane A
  *
  * Drag (pointer-events API via @dnd-kit) letter tiles from a tray onto word slots.
  * Wrong drops snap back with shake animation.
@@ -27,7 +27,7 @@ import {
   DragEndEvent,
 } from "@dnd-kit/core";
 
-// â”€â”€ Audio â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â"€â"€ Audio â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 function playCelebrationTone() {
   try {
     const ctx = new AudioContext();
@@ -60,7 +60,7 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
-// â”€â”€ Types â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â"€â"€ Types â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 type SlotState = string | null; // null = empty, string = letter placed
 
 interface DragBuildWordState {
@@ -80,7 +80,7 @@ type Action =
   | { type: "NEXT_WORD"; word: string };
 
 function buildTray(word: string): string[] {
-  // Add 1â€“3 distractor letters
+  // Add 1â€"3 distractor letters
   const alpha = "aeioumsptdlnbvrfgjcyz";
   const extras = shuffle(
     alpha.split("").filter((c) => !word.includes(c)),
@@ -134,7 +134,7 @@ function reducer(state: DragBuildWordState, action: Action): DragBuildWordState 
   }
 }
 
-// â”€â”€ Subcomponents â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â"€â"€ Subcomponents â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 function DraggableLetter({ letter, trayIdx, used, accent, disabled, selectedTray, onTrayKeyDown }: any) {
   const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
     id: `tray-${trayIdx}`,
@@ -203,7 +203,7 @@ function DroppableSlot({ slotIdx, filled, accent, wrongSlot, selectedTray, onSlo
   );
 }
 
-// â”€â”€ Component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â"€â"€ Component â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 interface DragBuildWordProps {
   words: string[];
   accent: string;
@@ -295,7 +295,7 @@ export function DragBuildWord({ words, accent, lessonId, onComplete }: DragBuild
     setFeedbackState(null);
   };
 
-  // â”€â”€ Keyboard â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // â"€â"€ Keyboard â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
   const onTrayKeyDown = (e: React.KeyboardEvent, trayIdx: number) => {
     if (e.key === " " || e.key === "Enter") {
       e.preventDefault();
@@ -311,7 +311,7 @@ export function DragBuildWord({ words, accent, lessonId, onComplete }: DragBuild
     }
   };
 
-  // â”€â”€ @dnd-kit Handlers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // â"€â"€ @dnd-kit Handlers â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
   const onDragStart = () => {
     feelBus.emit("drag-pick");
   };
