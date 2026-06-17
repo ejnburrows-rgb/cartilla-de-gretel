@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, Maximize, Minimize, X } from "lucide-react";
 import { CATALOG } from "@/lib/lesson-catalog";
 import { getWorkbookPagesForLesson } from "@/lib/book-faithful";
 import { TeacherNoteField } from "@/components/teacher/TeacherNoteField";
+import { FlipbookVerticalViewer } from "@/components/cartilla/FlipbookVerticalViewer";
 
 export const Route = createFileRoute("/cartilla/teacher/flipchart/$n")({
   component: FlipchartLeccion,
@@ -66,19 +67,22 @@ function FlipchartLeccion() {
   };
 
   return (
-    <div className="fixed inset-0 bg-stone-900 flex flex-col md:flex-row overflow-hidden">
+    <div className="fixed inset-0 flex flex-col md:flex-row overflow-hidden"
+         style={{ background: "linear-gradient(180deg, #c8e6f5 0%, #b3d9a0 38%, #8db87a 55%, #c49a6c 72%, #a07850 88%, #8a6442 100%)" }}>
+      {/* Hill silhouette */}
+      <div className="absolute inset-x-0 pointer-events-none" style={{ top: "20%", height: "35%", zIndex: 0 }}>
+        <svg viewBox="0 0 1200 200" preserveAspectRatio="none" className="w-full h-full" aria-hidden>
+          <ellipse cx="200" cy="200" rx="420" ry="170" fill="#7aaa5e" opacity="0.6" />
+          <ellipse cx="800" cy="200" rx="550" ry="150" fill="#6a9a52" opacity="0.5" />
+          <ellipse cx="1100" cy="200" rx="320" ry="130" fill="#8dba70" opacity="0.45" />
+        </svg>
+      </div>
+      {/* Desk surface at bottom */}
+      <div className="absolute bottom-0 inset-x-0 h-20 pointer-events-none" style={{ background: "linear-gradient(180deg, #b8895a 0%, #9a6e42 100%)", zIndex: 0 }} />
+
       {/* Main projection area */}
-      <main className="flex-1 relative flex items-center justify-center bg-black">
-        {/* The book page image */}
-        <img
-          src={
-            currentPageNumber <= 92
-              ? `/art/remastered/page-${currentPageNumber}.webp`
-              : `/art/hd/page-${currentPageNumber}.png`
-          }
-          alt={`Página ${currentPageNumber}`}
-          className="max-w-full max-h-full object-contain"
-        />
+      <main className="flex-1 relative flex items-center justify-center" style={{ zIndex: 1 }}>
+        <FlipbookVerticalViewer pageNumber={currentPageNumber} className="w-full h-full max-h-screen" />
 
         {/* Overlay controls (hidden when idle/fullscreen, but for now just subtle) */}
         <div className="absolute top-4 left-4 flex items-center gap-3 opacity-50 hover:opacity-100 transition-opacity">

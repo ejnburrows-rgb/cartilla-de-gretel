@@ -4,6 +4,7 @@ import { useAudio } from "@/hooks/useAudio";
 import { cn } from "@/lib/utils";
 import { recordEvent, useStudentSession } from "@/lib/student-session";
 import { supabase } from "@/integrations/supabase/client";
+import { gretelEvent } from "@/lib/gretel-bus";
 
 type Word = { word: string; emoji?: string };
 
@@ -80,10 +81,12 @@ export function SyllableTap({
     if (s === target) {
       setScore((x) => x + 1);
       setFeedback({ kind: "ok", picked: s, target });
+      gretelEvent("answer:correct");
       play(s);
       setTimeout(next, 1200);
     } else {
       setFeedback({ kind: "no", picked: s, target });
+      gretelEvent("answer:wrong");
       play(target);
     }
   };
@@ -219,6 +222,7 @@ export function WordMatch({
         }
         return next;
       });
+      gretelEvent("answer:correct");
       setFeedback({ kind: "ok", word: picked, emoji: pickedItem?.emoji });
       play(target);
       setPicked(null);
@@ -227,6 +231,7 @@ export function WordMatch({
         1800,
       );
     } else {
+      gretelEvent("answer:wrong");
       setFeedback({
         kind: "no",
         word: picked,

@@ -12,6 +12,7 @@ import { useCallback, useEffect, useMemo, useReducer, useRef, useState } from "r
 import { RotateCcw, Volume2 } from "lucide-react";
 import { useAudio } from "@/hooks/useAudio";
 import { recordEvent } from "@/lib/student-session";
+import { gretelEvent } from "@/lib/gretel-bus";
 
 import { GretelFeedback } from "@/components/cartilla/GretelFeedback";
 import { feelBus } from "@/lib/feel-bus";
@@ -259,6 +260,7 @@ export function DragBuildWord({ words, accent, lessonId, onComplete }: DragBuild
           meta: { exercise: "drag_build_word", word: state.target, completed: true },
         });
       }
+      gretelEvent("lesson:complete");
       setFeedbackState("ok");
       onComplete?.();
     }
@@ -270,8 +272,10 @@ export function DragBuildWord({ words, accent, lessonId, onComplete }: DragBuild
       const correct = letter === state.target[slotIdx];
       if (correct) {
         feelBus.emit("success");
+        gretelEvent("answer:correct");
       } else {
         feelBus.emit("error");
+        gretelEvent("answer:wrong");
         setFeedbackState("x");
       }
       dispatch({ type: "DROP", slotIdx, trayIdx });

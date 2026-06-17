@@ -15,6 +15,7 @@ import { listMyAssignments } from "@/lib/assignments.functions";
 import { useLanguage } from "@/context/LanguageContext";
 import { LanguageToggle } from "@/components/LanguageToggle";
 import { sCopy } from "@/content/student-copy";
+import { gretelEvent } from "@/lib/gretel-bus";
 
 export const Route = createFileRoute("/cartilla/leccion/$n")({
   component: Leccion,
@@ -64,6 +65,7 @@ function Leccion() {
   }, [entry, navigate, unlocked]);
 
   useEffect(() => {
+    gretelEvent("lesson:start");
     startedAt.current = Date.now();
     return () => {
       const secs = Math.round((Date.now() - startedAt.current) / 1000);
@@ -80,6 +82,7 @@ function Leccion() {
   const goNext = () => {
     markLessonCompleted(n);
     recordEvent({ lessonId: String(n), kind: "lesson_completed" });
+    gretelEvent("lesson:complete");
     if (isLast) navigate({ to: "/cartilla/lecciones" });
     else navigate({ to: "/cartilla/leccion/$n", params: { n: String(n + 1) } });
   };
