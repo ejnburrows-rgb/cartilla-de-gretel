@@ -3,6 +3,7 @@ import {
   FLIPCHART_SOURCE_CARDS,
   getFlipchartSourceCard,
   getFlipchartSourceCardIds,
+  getFlipchartSourceCardsForLesson,
 } from "@/lib/flipchart-source";
 
 describe("flipchart-source", () => {
@@ -35,5 +36,23 @@ describe("flipchart-source", () => {
     expect(ids[0]).toBe("1Portada");
     expect(ids).toContain("26Nn");
     expect(ids.length).toBe(20);
+  });
+
+  it("getFlipchartSourceCardsForLesson maps consonant lessons to their letter cards", () => {
+    expect(getFlipchartSourceCardsForLesson(7).map((c) => c.id)).toEqual(["10Mm"]);
+    expect(getFlipchartSourceCardsForLesson(8).map((c) => c.id)).toEqual(["11Pp", "12Pp", "13Pp"]);
+    expect(getFlipchartSourceCardsForLesson(13).map((c) => c.id)).toEqual(["25Nn", "26Nn"]);
+  });
+
+  it("getFlipchartSourceCardsForLesson maps the intro lesson to the cover and rhyme cards", () => {
+    expect(getFlipchartSourceCardsForLesson(1).map((c) => c.id)).toEqual([
+      "1Portada",
+      "2Las_hermanitas_vocales_Rima",
+    ]);
+  });
+
+  it("getFlipchartSourceCardsForLesson returns [] for lessons without a verified card", () => {
+    expect(getFlipchartSourceCardsForLesson(2)).toEqual([]);
+    expect(getFlipchartSourceCardsForLesson(24)).toEqual([]);
   });
 });

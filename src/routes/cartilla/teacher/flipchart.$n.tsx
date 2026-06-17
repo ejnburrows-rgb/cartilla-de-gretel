@@ -3,6 +3,7 @@ import { createFileRoute, Link, useNavigate, redirect } from "@tanstack/react-ro
 import { ArrowLeft, ArrowRight, Maximize, Minimize, X } from "lucide-react";
 import { CATALOG } from "@/lib/lesson-catalog";
 import { getWorkbookPagesForLesson } from "@/lib/book-faithful";
+import { getFlipchartSourceCardsForLesson } from "@/lib/flipchart-source";
 import { TeacherNoteField } from "@/components/teacher/TeacherNoteField";
 import { FlipbookVerticalViewer } from "@/components/cartilla/FlipbookVerticalViewer";
 
@@ -22,13 +23,20 @@ function FlipchartLeccion() {
   const n = Number(nParam);
   
   const workbookPages = getWorkbookPagesForLesson(n);
-  const pages = workbookPages.map((p) => p.pageNumber);
-  
+  // Verified Teacher Flip Chart cards take priority over the workbook scans
+  // for the lessons they cover (corrected source PDFs, see flipchart-source.ts).
+  const sourceCards = getFlipchartSourceCardsForLesson(n);
+  const usingSourceCards = sourceCards.length > 0;
+  const pages = usingSourceCards
+    ? sourceCards.map((_, idx) => idx + 1)
+    : workbookPages.map((p) => p.pageNumber);
+
   const [currentPageIndex, setCurrentPageIndex] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  
+
   const currentPageNumber = pages[currentPageIndex] || 1;
+  const currentSourceCard = usingSourceCards ? sourceCards[currentPageIndex] : null;
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -82,7 +90,12 @@ function FlipchartLeccion() {
 
       {/* Main projection area */}
       <main className="flex-1 relative flex items-center justify-center" style={{ zIndex: 1 }}>
-        <FlipbookVerticalViewer pageNumber={currentPageNumber} className="w-full h-full max-h-screen" />
+        <FlipbookVerticalViewer
+          pageNumber={currentPageNumber}
+          className="w-full h-full max-h-screen"
+          srcOverride={currentSourceCard?.masterImage}
+          altOverride={currentSourceCard ? `Lámina del Teacher Flip Chart — ${currentSourceCard.section}` : undefined}
+        />
 
         {/* Overlay controls (hidden when idle/fullscreen, but for now just subtle) */}
         <div className="absolute top-4 left-4 flex items-center gap-3 opacity-50 hover:opacity-100 transition-opacity">
@@ -125,7 +138,9 @@ function FlipchartLeccion() {
         
         {/* Page indicator */}
         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 bg-black/50 text-white font-bold rounded-full text-sm">
-          Lección {n} — Página {currentPageNumber}
+          {usingSourceCards
+            ? `Lección ${n} — Lámina ${currentPageIndex + 1} de ${pages.length} (${currentSourceCard?.id})`
+            : `Lección ${n} — Página ${currentPageNumber}`}
         </div>
       </main>
 

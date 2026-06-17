@@ -33,3 +33,28 @@ export function getFlipchartSourceCard(id: string): FlipchartSourceCard | null {
 export function getFlipchartSourceCardIds(): string[] {
   return raw.cards.map((card) => card.id);
 }
+
+/**
+ * Maps lesson-catalog numbers (src/lib/lesson-catalog.ts) to the corrected
+ * Teacher Flip Chart card ids that belong to that lesson. Only lessons with
+ * a verified, transcribed source card are listed here — every other lesson
+ * keeps projecting the workbook page scans (see flipchart.$n.tsx).
+ */
+const LESSON_FLIPCHART_CARD_IDS: Record<number, string[]> = {
+  1: ["1Portada", "2Las_hermanitas_vocales_Rima"],
+  7: ["10Mm"],
+  8: ["11Pp", "12Pp", "13Pp"],
+  9: ["14Ss", "15Ss", "16Ss"],
+  10: ["17Tt", "18Tt"],
+  11: ["19Dd", "20Dd", "21Dd"],
+  12: ["22Ll", "23Ll", "24Ll"],
+  13: ["25Nn", "26Nn"],
+};
+
+/** Ordered flipchart source cards to project for a given lesson, or [] if none exist yet. */
+export function getFlipchartSourceCardsForLesson(lessonNumber: number): FlipchartSourceCard[] {
+  const ids = LESSON_FLIPCHART_CARD_IDS[lessonNumber] ?? [];
+  return ids
+    .map((id) => getFlipchartSourceCard(id))
+    .filter((card): card is FlipchartSourceCard => card !== null);
+}

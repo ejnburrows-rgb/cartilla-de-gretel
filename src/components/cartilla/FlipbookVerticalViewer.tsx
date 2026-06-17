@@ -4,13 +4,23 @@ import { motion, AnimatePresence } from "framer-motion";
 interface FlipbookVerticalViewerProps {
   pageNumber: number;
   className?: string;
+  /** Overrides the resolved workbook scan with an explicit image (e.g. a Teacher Flip Chart master). */
+  srcOverride?: string;
+  /** Overrides the default "Página N del libro" alt/aria-label text when srcOverride is set. */
+  altOverride?: string;
 }
 
 import { getBookPageImage } from "@/lib/bookImages";
 
-export function FlipbookVerticalViewer({ pageNumber, className = "" }: FlipbookVerticalViewerProps) {
+export function FlipbookVerticalViewer({
+  pageNumber,
+  className = "",
+  srcOverride,
+  altOverride,
+}: FlipbookVerticalViewerProps) {
   const safePageNumber = Math.max(1, pageNumber);
-  const src = getBookPageImage(safePageNumber);
+  const src = srcOverride ?? getBookPageImage(safePageNumber);
+  const label = altOverride ?? `Página ${safePageNumber} del libro`;
 
   // Track previous page to determine direction
   const [prevPage, setPrevPage] = useState(pageNumber);
@@ -73,11 +83,11 @@ export function FlipbookVerticalViewer({ pageNumber, className = "" }: FlipbookV
             alignItems: "center",
             justifyContent: "center"
           }}
-          aria-label={`Página ${safePageNumber} del libro`}
+          aria-label={label}
         >
           <img
             src={src}
-            alt={`Página ${safePageNumber} del libro`}
+            alt={label}
             className="w-full h-full object-contain drop-shadow-xl"
             loading="lazy"
             draggable={false}
