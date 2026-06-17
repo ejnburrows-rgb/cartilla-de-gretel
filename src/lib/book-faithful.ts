@@ -1,5 +1,6 @@
 import lessonsData from "@/data/lessons.json";
 import sourceArtInventory from "@/data/source-art-inventory.json";
+import pageLayoutsPilot from "@/data/page-layouts.pilot.json";
 import { getBookSectionForLesson, getLessonPageNumbers } from "@/lib/cartilla-crm-theme";
 import { CATALOG } from "@/lib/lesson-catalog";
 
@@ -45,6 +46,36 @@ export type WorkbookTranscriptionStatus = "verified" | "missing" | "partial";
 
 export type WorkbookPageRole = "intro" | "vowels" | "consonants";
 
+/**
+ * A single structural region on a faithfully-digitized page (e.g. the title
+ * bar, a vocabulary grid, a tracing line). Text-bearing regions render as
+ * live HTML so they pick up `--font-book-faithful`; illustration regions
+ * resolve to either a MonochromeDrawing SVG (by word) or a cropped scan.
+ */
+export type PageRegionType =
+	| "title"
+	| "instruction"
+	| "vocab-grid"
+	| "tracing-line"
+	| "syllable-bubble"
+	| "sentence-line"
+	| "illustration-slot"
+	| "footer";
+
+export type PageRegionFontRole = "heading" | "body" | "tracing";
+
+export type PageRegion = {
+	id: string;
+	regionType: PageRegionType;
+	/** Render order within the page, ascending. */
+	order: number;
+	fontRole: PageRegionFontRole;
+	/** Present on text-bearing regions. */
+	text?: string;
+	/** Present on illustration-slot regions; looked up in MonochromeDrawing's registry. */
+	illustrationWord?: string;
+};
+
 export type WorkbookPageContent = {
 	pageNumber: number;
 	lessonNumber: number;
@@ -55,6 +86,8 @@ export type WorkbookPageContent = {
 	sourceScaffoldPosition: number | null;
 	sourceRawLabel: string | null;
 	transcriptionStatus: WorkbookTranscriptionStatus;
+	/** Faithful-HTML region layout, when available (pilot pages only for now). */
+	regions?: PageRegion[];
 };
 
 // ---------------------------------------------------------------------------
@@ -274,6 +307,22 @@ export function getWorkbookPagesForLesson(lessonNumber: number): WorkbookPageCon
 			transcriptionStatus: statusForTextBlocks(verifiedTextBlocks, scaffold, imageScanReference),
 		};
 	});
+}
+
+type PageLayoutsPilot = {
+	pages: Record<string, { regions: PageRegion[] }>;
+};
+
+const pilotLayouts = pageLayoutsPilot as unknown as PageLayoutsPilot;
+
+/**
+ * Faithful-HTML region layout for a page, if one has been authored.
+ * Only pilot pages (1-6) currently have data; everything else returns null
+ * until the corrected source files are transcribed.
+ */
+export function getPageLayout(pageNumber: number): PageRegion[] | null {
+	const entry = pilotLayouts.pages[String(pageNumber)];
+	return entry ? entry.regions : null;
 }
 
 export function getWorkbookTranscriptionSummary(lessonNumber: number) {

@@ -58,6 +58,8 @@ export type InteractionTarget = {
   /** If false, coordinates are NOT verified and hotspot mode is unavailable. */
   coordinatesVerified?: boolean;
   acceptsItemId?: string;
+  /** Optional id of a PageRegion (see book-faithful.ts) to target on a faithful-HTML page instead of raw coordinates. */
+  regionId?: string;
 };
 
 export type InteractionFeedback = {

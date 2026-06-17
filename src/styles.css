@@ -62,6 +62,9 @@
 :root {
   --radius: 0.625rem;
 
+  /* Faithful-HTML workbook pages: swap this one value once the real book font is supplied. */
+  --font-book-faithful: "Fredoka", ui-rounded, system-ui, sans-serif;
+
   /* Cartilla — kid-first, Spanish literacy K-3 (HSL triplets) */
   --background: 48 100% 97%;
   --foreground: 230 35% 18%;

@@ -1,0 +1,52 @@
+{
+  "_comment": "PILOT DATA ONLY. Placeholder region content for pages 1-6, used to validate the faithful-HTML schema and renderer. NOT transcribed from any source file -- public/book/book.pdf and the current cover/workbook scans were flagged as outdated/incorrect, so no real transcription has been performed yet. Replace with verified transcriptions once corrected source files are supplied.",
+  "pages": {
+    "1": {
+      "regions": [
+        { "id": "p1-title", "regionType": "title", "order": 0, "fontRole": "heading", "text": "La Cartilla de Gretel" },
+        { "id": "p1-subtitle", "regionType": "instruction", "order": 1, "fontRole": "body", "text": "Cuaderno de Lectoescritura" },
+        { "id": "p1-footer", "regionType": "footer", "order": 2, "fontRole": "body", "text": "Nombre del estudiante: ______________" }
+      ]
+    },
+    "2": {
+      "regions": [
+        { "id": "p2-title", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Las Cinco Vocales" },
+        { "id": "p2-instruction", "regionType": "instruction", "order": 1, "fontRole": "body", "text": "Identifica y pronuncia cada vocal." },
+        { "id": "p2-tracing", "regionType": "tracing-line", "order": 2, "fontRole": "tracing", "text": "a e i o u" }
+      ]
+    },
+    "3": {
+      "regions": [
+        { "id": "p3-title", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Práctica de Conexión" },
+        { "id": "p3-instruction", "regionType": "instruction", "order": 1, "fontRole": "body", "text": "Une cada vocal con su dibujo." },
+        { "id": "p3-illustration", "regionType": "illustration-slot", "order": 2, "fontRole": "body", "illustrationWord": "oso" }
+      ]
+    },
+    "4": {
+      "regions": [
+        { "id": "p4-title", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Vocal O" },
+        { "id": "p4-instruction", "regionType": "instruction", "order": 1, "fontRole": "body", "text": "Pronuncia en voz alta y practica trazar la vocal." },
+        { "id": "p4-illustration-oso", "regionType": "illustration-slot", "order": 2, "fontRole": "body", "illustrationWord": "oso" },
+        { "id": "p4-illustration-ojo", "regionType": "illustration-slot", "order": 3, "fontRole": "body", "illustrationWord": "ojo" },
+        { "id": "p4-vocab", "regionType": "vocab-grid", "order": 4, "fontRole": "body", "text": "oso, ojo, ola, olla" }
+      ]
+    },
+    "5": {
+      "regions": [
+        { "id": "p5-title", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Taller de Escritura" },
+        { "id": "p5-instruction", "regionType": "instruction", "order": 1, "fontRole": "body", "text": "Sigue las líneas punteadas para escribir la letra." },
+        { "id": "p5-tracing-lower", "regionType": "tracing-line", "order": 2, "fontRole": "tracing", "text": "o o o o o o o" },
+        { "id": "p5-tracing-upper", "regionType": "tracing-line", "order": 3, "fontRole": "tracing", "text": "O O O O O" }
+      ]
+    },
+    "6": {
+      "regions": [
+        { "id": "p6-title", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Taller de Lectura" },
+        { "id": "p6-instruction", "regionType": "instruction", "order": 1, "fontRole": "body", "text": "Identifica el sonido inicial y lee las palabras." },
+        { "id": "p6-illustration-ola", "regionType": "illustration-slot", "order": 2, "fontRole": "body", "illustrationWord": "ola" },
+        { "id": "p6-sentence", "regionType": "sentence-line", "order": 3, "fontRole": "body", "text": "el oso toma la ola" },
+        { "id": "p6-footer", "regionType": "footer", "order": 4, "fontRole": "body", "text": "La Cartilla de Gretel · Vocal O" }
+      ]
+    }
+  }
+}
