@@ -1,12 +1,15 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { useServerFn } from "@/lib/useServerFn";
-import { ArrowLeft, LogIn, Loader2, LogOut } from "lucide-react";
+import { ArrowLeft, LogIn, Loader2, LogOut, WifiOff } from "lucide-react";
 import { joinClass } from "@/lib/student.functions";
 import { setStudentSession, useStudentSession } from "@/lib/student-session";
 import { useLanguage } from "@/context/LanguageContext";
 import { LanguageToggle } from "@/components/LanguageToggle";
 import { sCopy } from "@/content/student-copy";
+import { useOnlineStatus } from "@/hooks/useOnlineStatus";
+import { OfflineBadge } from "@/components/cartilla/OfflineBadge";
+import { msg } from "@/content/error-messages";
 
 export const Route = createFileRoute("/cartilla/unirse")({
   component: JoinPage,
@@ -19,6 +22,7 @@ function JoinPage() {
   const navigate = useNavigate();
   const join = useServerFn(joinClass);
   const session = useStudentSession();
+  const isOnline = useOnlineStatus();
   const [joinCode, setJoinCode] = useState("");
   const [studentCode, setStudentCode] = useState("");
   const [busy, setBusy] = useState(false);
@@ -26,6 +30,10 @@ function JoinPage() {
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!isOnline) {
+      setError(msg("offline.empty", lang));
+      return;
+    }
     setBusy(true);
     setError(null);
     try {
@@ -41,6 +49,7 @@ function JoinPage() {
 
   return (
     <main className="min-h-screen bg-background px-4 py-8 max-w-md mx-auto">
+      <OfflineBadge />
       <div className="flex items-center justify-between gap-3">
         <Link
           to="/cartilla"
@@ -110,10 +119,16 @@ function JoinPage() {
               required
             />
           </div>
+          {!isOnline && (
+            <div className="flex items-center gap-2 text-sm font-bold text-destructive bg-destructive/10 rounded-xl px-3 py-2">
+              <WifiOff className="w-4 h-4 shrink-0" />
+              {msg("offline.empty", lang)}
+            </div>
+          )}
           {error && <div className="text-sm text-destructive font-bold">{error}</div>}
           <button
             type="submit"
-            disabled={busy || !joinCode || !studentCode}
+            disabled={busy || !joinCode || !studentCode || !isOnline}
             className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-bold disabled:opacity-50 inline-flex items-center justify-center gap-2"
           >
             {busy && <Loader2 className="w-4 h-4 animate-spin" />}

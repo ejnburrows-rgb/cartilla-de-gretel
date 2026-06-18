@@ -1,5 +1,5 @@
 // Versioned caches - must match src/lib/cache-version.ts
-const CACHE_VERSION = "v2.0.0";
+const CACHE_VERSION = "v2.1.0";
 const CACHE_NAMES = {
   appShell: `cartilla:shell:${CACHE_VERSION}`,
   assets: `cartilla:assets:${CACHE_VERSION}`,
@@ -11,10 +11,13 @@ const PRECACHE_URLS = [
   "/",
   "/offline.html",
   "/cartilla/lecciones",
+  "/cartilla/unirse",
   "/book/book.pdf",
   "/icons/app-192.png",
   "/icons/app-512.png",
   "/gretel/thinking.webp",
+  "/fonts/caveat-latin.woff2",
+  "/fonts/nunito-latin.woff2",
 ];
 
 // Helper to determine if a cached response has expired (in milliseconds)

@@ -1,5 +1,6 @@
 import { createFileRoute, Outlet, Link } from "@tanstack/react-router";
 import { ArrowLeft, BookOpen } from "lucide-react";
+import { OfflineBadge } from "@/components/cartilla/OfflineBadge";
 import "@/styles/cartilla-student.css"; // Ensure this has our pastel CSS vars
 
 export const Route = createFileRoute("/cartilla/student")({
@@ -16,7 +17,9 @@ function StudentLayout() {
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
         }}
       />
-      
+
+      <OfflineBadge />
+
       <header className="relative z-10 bg-white/60 backdrop-blur-md border-b border-[var(--pastel-border, #ecdac3)] sticky top-0 shadow-sm">
         <div className="max-w-4xl mx-auto px-4 h-14 flex items-center justify-between">
           <Link to="/cartilla" className="flex items-center gap-2 text-amber-800 hover:text-amber-600 font-bold text-sm transition">

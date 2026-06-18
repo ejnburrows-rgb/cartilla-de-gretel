@@ -28,7 +28,6 @@ import LessonSkeleton from "./_components/LessonSkeleton";
 import { PdfPage } from "@/components/cartilla/PdfPage";
 import { getBookPageImage } from "@/lib/bookImages";
 import { FlipBook } from "@/components/cartilla/FlipBook";
-import { OfflineBadge } from "@/components/cartilla/OfflineBadge";
 import { StudentExercisePane } from "@/components/cartilla/StudentExercisePane";
 import { StudentProgressBar } from "@/components/cartilla/StudentProgressBar";
 import { BookArtFigure } from "@/components/cartilla/BookArtFigure";
@@ -283,7 +282,6 @@ function Leccion() {
         <SparkleField animated={true} className="w-full h-full opacity-50" />
       </div>
 
-      <OfflineBadge />
       {/* ── Header ── */}
       <header className="no-print px-4 pt-4 max-w-3xl w-full mx-auto relative z-10">
         <div className="flex items-center justify-between gap-3 mb-3">

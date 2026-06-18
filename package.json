@@ -1,5 +1,6 @@
 {
   "name": "cartilla-de-gretel-platform",
+  "description": "Digital edition and classroom platform for La Cartilla de Gretel, a Spanish early-literacy workbook for children ages 4-7.",
   "private": true,
   "sideEffects": false,
   "type": "module",
