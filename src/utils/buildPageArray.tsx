@@ -1,4 +1,5 @@
 import type { WorkbookPageEntry } from "@/components/StudentBook/StudentWorkbookFlip";
+import animatedPages from "@/data/animatedPages.json";
 
 const TOTAL_PAGES = 95;
 
@@ -12,7 +13,16 @@ export function buildPageArray(): WorkbookPageEntry[] {
     return {
       id: `page-${n}`,
       cover: n === 1,
-      content: (
+      content: animatedPages.includes(n) ? (
+        <video
+          src={`/art/animated/page-${n}.mp4`}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        />
+      ) : (
         <img
           src={`/art/hd/page-${n}.png`}
           alt={`Página ${n}`}
