@@ -1,5 +1,5 @@
 // Versioned caches - must match src/lib/cache-version.ts
-const CACHE_VERSION = "v2.1.0";
+const CACHE_VERSION = "v2.2.0";
 const CACHE_NAMES = {
   appShell: `cartilla:shell:${CACHE_VERSION}`,
   assets: `cartilla:assets:${CACHE_VERSION}`,
@@ -78,9 +78,11 @@ self.addEventListener("fetch", (event) => {
   const isHtml = request.mode === "navigate" || path.endsWith(".html") || (!path.includes(".") && !path.startsWith("/api/"));
 
   // 1. HTML Strategy: Network-first, fall back to cache, fall back to /offline.html
+  // cache: "reload" bypasses the browser's HTTP cache so a fresh deploy is
+  // never masked by a stale cached document underneath this fetch.
   if (isHtml) {
     event.respondWith(
-      fetch(request)
+      fetch(request, { cache: "reload" })
         .then((response) => {
           if (response.ok) {
             const copy = response.clone();
