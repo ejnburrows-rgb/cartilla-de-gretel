@@ -306,19 +306,15 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
             }}
             className="h-full w-full"
           >
-            <AnimatePresence mode="wait">
-              <motion.img
-                key={currentPose}
-                src={currentPose}
-                alt="Gretel"
-                initial={{ opacity: 0.7, scale: 0.97 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0.7, scale: 0.97 }}
-                transition={{ duration: 0.2 }}
-                className="h-full w-full object-contain"
-                draggable={false}
-              />
-            </AnimatePresence>
+            <motion.img
+              src={currentPose}
+              alt="Gretel"
+              initial={{ opacity: 0.7, scale: 0.97 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.2 }}
+              className="h-full w-full object-contain"
+              draggable={false}
+            />
           </motion.div>
         </motion.div>
       </div>

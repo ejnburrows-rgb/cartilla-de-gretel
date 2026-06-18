@@ -21,8 +21,8 @@
   --radius-md: 12px;
   --radius-lg: 20px;
   
-  --font-display: 'Nunito', 'Rounded Mplus 1c', sans-serif;
-  --font-body: 'Nunito', sans-serif;
+  --font-display: 'Century Gothic', 'Avant Garde', Arial, sans-serif;
+  --font-body: 'Century Gothic', 'Avant Garde', Arial, sans-serif;
   
   --color-white: var(--color-surface);
 }
@@ -45,8 +45,8 @@
   --radius-sm: 6px;
   --radius-md: 12px;
   --radius-lg: 20px;
-  --font-display: 'Nunito', 'Rounded Mplus 1c', sans-serif;
-  --font-body: 'Nunito', sans-serif;
+  --font-display: 'Century Gothic', 'Avant Garde', Arial, sans-serif;
+  --font-body: 'Century Gothic', 'Avant Garde', Arial, sans-serif;
 }
 
 @layer base {
