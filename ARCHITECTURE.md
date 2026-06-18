@@ -27,12 +27,14 @@ access isn't a real use case the same way an offline workbook is.
 | Lesson exercises (drag-build-word, syllable tap, etc.) | ✅ | ❌ |
 | Local progress, streaks, badges (`localStorage`) | ✅ | ❌ |
 | Joining a class (`/cartilla/unirse`) | ❌ | ✅ |
-| Progress syncing to a teacher's dashboard | ❌ | ✅ |
+| Recording progress (capture) | ✅ queued locally | ❌ to capture |
+| Progress *reaching* the teacher's dashboard | ✅ syncs on reconnect | ✅ to sync |
 | Teacher login, class/roster management, CRM | ❌ | ✅ |
 
 A student who joined a class while online can keep doing lessons offline
-indefinitely — only the *sync back to the teacher* needs a connection, and
-that happens silently in the background (see below).
+indefinitely. Every progress event is captured locally and queued; the
+*sync back to the teacher* happens silently once a connection returns — no
+events are lost in the meantime (see below).
 
 ## Data flow
 
@@ -49,9 +51,9 @@ that happens silently in the background (see below).
 │  - app shell, JS/CSS, fonts   │      │ component finish │
 │  - workbook PDF, audio        │      └──────────────────┘
 └──────────────┬────────────────┘
-               │ best-effort, fire-and-forget
-               │ (fails silently if offline —
-               │  see src/lib/student-session.ts)
+               │ durable queue → retries on reconnect
+               │ (persisted to localStorage if offline —
+               │  see src/lib/progress-queue.ts)
                ▼
 ┌─────────────────────────────┐
 │ Supabase (Postgres + auth)    │
@@ -63,18 +65,23 @@ that happens silently in the background (see below).
 
 `recordEvent()` in `src/lib/student-session.ts` always writes to local
 storage first (so a student's own view of their progress never depends on
-the network), then makes a best-effort call to Supabase that's swallowed on
-failure (`.catch(() => console.warn(...))`). There is no retry queue — if a
-student finishes ten offline lessons in a row, today only the local copy is
-guaranteed; the next successful event after reconnecting is what syncs.
-This is a known, deliberate scope limit, not a bug — building a write queue
-for deferred sync is a larger feature, not part of solidifying the existing
-offline experience.
+the network), then hands the event to a **durable sync queue**
+(`src/lib/progress-queue.ts`). The queue appends each event to localStorage
+and tries to drain it to Supabase in FIFO order; if a send fails because the
+device is offline or the server is unreachable, the event stays queued and
+is retried on the next event, on the browser's `online` event, or via an
+explicit `flushProgressQueue()`. So if a student finishes ten offline lessons
+in a row, all ten are persisted and sync — in order — once a connection
+returns. Permanently-invalid events (schema rejections) and events that
+exhaust their retry budget are dropped so one bad entry can't wedge the queue.
 
-The teacher side (`src/features/teacher-crm/`, `src/routes/cartilla/teacher/`)
-talks to Supabase directly with no offline path, since a teacher reviewing
-rosters or assignments needs live, multi-student data that doesn't make
-sense to read from one browser's local cache.
+The teacher side (the protected dashboard under
+`src/routes/_authenticated/cartilla.teacher.*`) talks to Supabase directly
+with no offline path, since a teacher reviewing rosters or assignments needs
+live, multi-student data that doesn't make sense to read from one browser's
+local cache. Login-free classroom presentation tools (flipchart, projector,
+teacher guide, printables) live separately under
+`src/routes/cartilla/recursos/` and touch no student data.
 
 ## Service worker / offline caching
 

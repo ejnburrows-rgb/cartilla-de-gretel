@@ -45,6 +45,11 @@ export const KEYS = {
   // PWA / offline
   pwaInstallDismissed: "cartilla.pwa.install-dismissed.v1",
 
+  // Offline progress sync — durable queue of student progress events that
+  // couldn't reach Supabase yet (no connection / transient failure). Drained
+  // on reconnect. See src/lib/progress-queue.ts.
+  progressQueue: "cartilla.progress.queue.v1",
+
   // Audio
   audioMuted: "cartilla.audio.muted.v1",
   audioVolume: "cartilla.audio.volume.v1",

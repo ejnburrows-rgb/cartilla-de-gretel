@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { logProgress } from "@/lib/student.functions";
+import { enqueueProgress } from "@/lib/progress-queue";
 import { recordExerciseStat } from "@/lib/exercise-stats";
 
 export type StudentSession = {
@@ -54,7 +54,13 @@ type LogInput = {
   meta?: Record<string, unknown>;
 };
 
-/** Fire-and-forget: only logs if a student session exists. */
+/**
+ * Records a progress event. Always mirrors exercise results to local stats
+ * (works offline and for anonymous users), then — if a student session exists —
+ * enqueues the event for durable, offline-tolerant sync to Supabase. The
+ * enqueue persists immediately and retries on its own, so this stays a
+ * non-blocking call from the UI's perspective.
+ */
 export function recordEvent(input: LogInput) {
   // Always mirror exercise results to local stats (works for anonymous users too).
   if (input.kind === "exercise" && input.lessonId && typeof input.total === "number") {
@@ -71,11 +77,11 @@ export function recordEvent(input: LogInput) {
   }
   const s = getStudentSession();
   if (!s) return;
-  logProgress({
-    data: {
-      studentId: s.studentId,
-      studentCode: s.studentCode,
-      ...input,
-    },
-  }).catch((err) => console.warn("recordEvent failed", err));
+  // Queued, not fired-and-forgotten: survives offline / transient failures and
+  // drains on reconnect (see src/lib/progress-queue.ts).
+  void enqueueProgress({
+    studentId: s.studentId,
+    studentCode: s.studentCode,
+    ...input,
+  });
 }
