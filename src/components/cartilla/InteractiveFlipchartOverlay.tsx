@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { speak } from "@/lib/speak";
 import { Volume2 } from "lucide-react";
+import { PAGE_HOTSPOTS } from "@/content/page-hotspots";
 
 interface InteractiveFlipchartOverlayProps {
   pageNumber: number;
@@ -9,6 +10,8 @@ interface InteractiveFlipchartOverlayProps {
 
 export function InteractiveFlipchartOverlay({ pageNumber, words }: InteractiveFlipchartOverlayProps) {
   const [animatingIdx, setAnimatingIdx] = useState<number | null>(null);
+
+  const exactHotspots = PAGE_HOTSPOTS[pageNumber];
 
   const handleTap = async (word: string, index: number) => {
     setAnimatingIdx(index);
@@ -37,6 +40,34 @@ export function InteractiveFlipchartOverlay({ pageNumber, words }: InteractiveFl
     setAnimatingIdx(null);
   };
 
+  // If we have exact coordinates mapped for this page
+  if (exactHotspots && exactHotspots.length > 0) {
+    return (
+      <div className="absolute inset-0 z-50 pointer-events-none">
+        {exactHotspots.map((hotspot, i) => (
+          <button
+            key={i}
+            onClick={() => handleTap(hotspot.word, i)}
+            style={{
+              left: `${hotspot.x}%`,
+              top: `${hotspot.y}%`,
+              width: `${hotspot.w}%`,
+              height: `${hotspot.h}%`,
+            }}
+            className={`absolute pointer-events-auto flex items-center justify-center rounded-xl transition-all cursor-pointer border-4 border-transparent hover:border-red-400 hover:bg-white/10 ${
+              animatingIdx === i ? "animate-bounce scale-110 border-red-500 bg-red-400/20 shadow-[0_0_20px_rgba(239,68,68,0.5)]" : ""
+            }`}
+            title={`Escuchar ${hotspot.word}`}
+          >
+            {/* The hotspot itself is invisible by default so the authentic art shows through.
+                We only show a border on hover or when clicked. */}
+          </button>
+        ))}
+      </div>
+    );
+  }
+
+  // Fallback if no exact coordinates exist for this page yet
   if (!words || words.length === 0) return null;
 
   return (
@@ -50,7 +81,6 @@ export function InteractiveFlipchartOverlay({ pageNumber, words }: InteractiveFl
           }`}
           title={`Escuchar ${w.word}`}
         >
-          {/* Defaulting to emoji or icon until exact figure coordinate mapping is applied */}
           <span className="text-4xl">{w.emoji || <Volume2 className="w-8 h-8 text-stone-400" />}</span>
         </button>
       ))}
