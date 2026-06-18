@@ -1,7 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect } from "react";
-import { GretelGuide } from "@/components/gretel/GretelGuide";
-import { GretelStage } from "@/components/gretel/GretelStage";
 import { gretelEvent } from "@/lib/gretel-bus";
 
 export const Route = createFileRoute("/")({
@@ -23,33 +21,35 @@ function Landing() {
   }, []);
 
   return (
-    <main className="relative min-h-screen flex items-center justify-center px-4 py-12 overflow-hidden">
-      {/* Authentic Gretel Garden Background */}
-      <div 
-        className="absolute inset-0 z-0 bg-cover bg-center"
-        style={{ 
-          backgroundImage: "url('/art/hd/gretel-authentic.jpg')",
-          filter: "brightness(0.9)"
-        }}
-      />
+    <main className="min-h-screen flex items-center justify-center px-4 py-12 bg-gradient-to-br from-[#1b4332] via-[#2d6a4f] to-[#40916c] overflow-hidden">
       
-      <div className="relative z-10 flex flex-col items-center justify-center gap-8 max-w-4xl w-full text-center mt-32 sm:mt-64">
+      <div className="relative z-10 flex flex-col lg:flex-row items-center justify-center gap-12 max-w-6xl w-full">
+        
+        {/* Authentic Artwork Framed (No stretching!) */}
+        <div className="relative group perspective-1000">
+          <div className="absolute -inset-4 bg-gradient-to-r from-amber-400 to-amber-600 rounded-[2.5rem] blur-xl opacity-30 group-hover:opacity-50 transition duration-1000"></div>
+          <img 
+            src="/art/hd/gretel-authentic.jpg" 
+            alt="La Cartilla de Gretel Original"
+            className="relative rounded-3xl shadow-2xl border-[8px] border-white/10 w-auto max-h-[60vh] object-contain transform transition-transform duration-700 hover:scale-[1.02]"
+          />
+        </div>
 
-        <div className="bg-white/60 backdrop-blur-md rounded-3xl p-8 sm:p-12 shadow-2xl border border-white/40 max-w-2xl w-full mx-auto space-y-8">
+        {/* UI Panel */}
+        <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-10 sm:p-14 shadow-2xl border border-white/20 max-w-xl w-full text-center space-y-10">
           <div className="space-y-4">
-            <h1 className="text-4xl sm:text-5xl font-black text-[hsl(197,41%,22%)] drop-shadow-sm" style={{ fontFamily: "'Fredoka', ui-rounded, system-ui, sans-serif" }}>
+            <h1 className="text-5xl sm:text-6xl font-black text-white drop-shadow-md" style={{ fontFamily: "'Fredoka', ui-rounded, system-ui, sans-serif" }}>
               La Cartilla de Gretel
             </h1>
-            <p className="text-xl text-[hsl(197,41%,22%)]/90 font-bold drop-shadow-sm">
+            <p className="text-2xl text-white/90 font-medium">
               Selecciona cómo deseas entrar:
             </p>
           </div>
 
-          {/* Login Split Options */}
-          <div className="flex flex-col sm:flex-row gap-6 mt-4 justify-center items-center">
+          <div className="flex flex-col gap-5 w-full max-w-sm mx-auto">
             <Link
               to="/cartilla/student-login"
-              className="flex items-center justify-center px-8 py-4 bg-amber-600 hover:bg-amber-700 text-white font-bold text-xl rounded-full shadow-lg transition-all hover:scale-105 hover:shadow-xl w-64"
+              className="flex items-center justify-center px-8 py-5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-white font-bold text-2xl rounded-2xl shadow-lg transition-all hover:-translate-y-1 hover:shadow-amber-500/30"
               style={{ fontFamily: "'Fredoka', ui-rounded, system-ui, sans-serif" }}
             >
               Estudiante
@@ -57,7 +57,7 @@ function Landing() {
             
             <Link
               to="/login"
-              className="flex items-center justify-center px-8 py-4 bg-[hsl(197,41%,22%)] hover:bg-[hsl(197,41%,15%)] text-white font-bold text-xl rounded-full shadow-lg transition-all hover:scale-105 hover:shadow-xl w-64"
+              className="flex items-center justify-center px-8 py-5 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-bold text-2xl rounded-2xl shadow-lg transition-all border border-white/20 hover:-translate-y-1"
               style={{ fontFamily: "'Fredoka', ui-rounded, system-ui, sans-serif" }}
             >
               Maestro / Padre
