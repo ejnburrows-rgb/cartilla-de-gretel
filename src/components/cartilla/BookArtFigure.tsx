@@ -4,6 +4,7 @@
  * Consumes useBookArt(); falls back to a skeleton if manifest not yet shipped.
  */
 import type React from "react";
+import { useEffect, useState } from "react";
 import { useBookArt } from "@/hooks/useBookArt";
 
 
@@ -19,6 +20,7 @@ interface BookArtFigureProps {
 
 export function BookArtFigure({ lesson, role, className = "", alt, style }: BookArtFigureProps) {
   const art = useBookArt(lesson);
+  const [loaded, setLoaded] = useState(false);
 
   const src =
     role === "cover"
@@ -26,6 +28,10 @@ export function BookArtFigure({ lesson, role, className = "", alt, style }: Book
       : role === "page-thumb"
         ? art.pageThumb
         : art.character;
+
+  useEffect(() => {
+    setLoaded(false);
+  }, [src]);
 
   const defaultAlt =
     role === "cover"
@@ -56,11 +62,14 @@ export function BookArtFigure({ lesson, role, className = "", alt, style }: Book
   return (
     <figure className={`book-art-figure ${className}`} style={style} aria-label={alt ?? defaultAlt}>
       <img
+        key={src}
         src={src}
         alt={alt ?? defaultAlt}
         loading="lazy"
         decoding="async"
         draggable={false}
+        className={`book-art-figure__img ${loaded ? "is-loaded" : ""}`}
+        onLoad={() => setLoaded(true)}
       />
     </figure>
   );
