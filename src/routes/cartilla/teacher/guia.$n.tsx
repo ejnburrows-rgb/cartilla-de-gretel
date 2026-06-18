@@ -1,8 +1,8 @@
 import { createFileRoute, Link, useNavigate, redirect } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Printer, ChevronLeft } from "lucide-react";
 import { CATALOG } from "@/lib/lesson-catalog";
-import teacherGuideData from "@/data/teacher-guide.json";
-import { TeacherGuidePanel, type TeacherGuideLesson } from "@/components/teacher/TeacherGuidePanel";
+import { GuideLayout } from "@/content/guides/GuideLayout";
+import { Lesson1Guide } from "@/content/guides/lesson-1";
 
 export const Route = createFileRoute("/cartilla/teacher/guia/$n")({
   component: TeacherGuideLeccion,
@@ -30,21 +30,6 @@ function TeacherGuideLeccion() {
   const n = Number(nParam);
 
   const catalogEntry = CATALOG.find((e) => e.n === n);
-  const guideLesson = teacherGuideData.lessons.find((l) => l.lesson === n);
-
-  // Fallback structure in case lesson guide data is missing for a lesson
-  const fallbackLesson: TeacherGuideLesson = {
-    lesson: n,
-    title: catalogEntry?.title || `Lección ${n}`,
-    objectives: [],
-    vocabulary: [],
-    procedures: [],
-    assessment: "",
-    poem: [],
-    pages: [],
-  };
-
-  const lessonData = (guideLesson || fallbackLesson) as TeacherGuideLesson;
   const accentColor = catalogEntry?.color || "#f97316";
 
   const goNext = () => {
@@ -60,7 +45,7 @@ function TeacherGuideLeccion() {
   };
 
   return (
-    <div className="space-y-6 max-w-5xl mx-auto">
+    <div className="space-y-6 max-w-6xl mx-auto">
       {/* Top action row */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-stone-200/50 pb-5 no-print">
         <div className="flex items-center gap-3">
@@ -101,7 +86,7 @@ function TeacherGuideLeccion() {
             )}
           </div>
           <h1 className="text-2xl sm:text-3xl font-black text-stone-800 leading-tight">
-            {catalogEntry?.title || lessonData.title}
+            {catalogEntry?.title || `Lección ${n}`}
           </h1>
           {catalogEntry?.subtitle && (
             <p className="text-sm font-bold text-stone-500">{catalogEntry.subtitle}</p>
@@ -130,10 +115,19 @@ function TeacherGuideLeccion() {
         </div>
       </header>
 
-      {/* Main 4-Squares Panel */}
-      <div className="bg-transparent rounded-2xl">
-        <TeacherGuidePanel lesson={lessonData} accentColor={accentColor} />
-      </div>
+      {/* Main HTML Document Layout */}
+      <GuideLayout accentColor={accentColor}>
+        {n === 1 ? (
+          <Lesson1Guide />
+        ) : (
+          <div className="text-center py-20">
+            <h2 className="text-xl font-bold text-stone-400 mb-2">Archivo HTML Pendiente</h2>
+            <p className="text-stone-500 max-w-md mx-auto">
+              La guía para la lección {n} está lista para ser transcrita. Copia el archivo `src/content/guides/lesson-1.tsx` y cámbiale el nombre a `lesson-{n}.tsx` para comenzar a editar su contenido en HTML limpio.
+            </p>
+          </div>
+        )}
+      </GuideLayout>
     </div>
   );
 }
