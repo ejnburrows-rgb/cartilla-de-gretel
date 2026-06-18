@@ -1,9 +1,8 @@
 /**
- * Teacher Resource Hub — four color-coded entry points.
- * CRM (groups/students/progress) lives behind "Mis Alumnos" → /cartilla/teacher/crm
+ * Teacher Resource Hub — "Google Workspace" Drive view
  */
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { MonitorPlay, Users, BookOpenCheck, Printer } from "lucide-react";
+import { Folder, FolderOpen, FileText } from "lucide-react";
 
 export const Route = createFileRoute("/cartilla/teacher/")({
   component: TeacherHub,
@@ -12,118 +11,93 @@ export const Route = createFileRoute("/cartilla/teacher/")({
   }),
 });
 
-interface HubBox {
-  icon: React.ReactNode;
+interface DriveFolder {
   title: string;
-  subtitle: string;
   color: string;
-  textColor: string;
+  iconColor: string;
   to: string;
 }
 
-const BOXES: HubBox[] = [
+const FOLDERS: DriveFolder[] = [
   {
-    icon: <MonitorPlay className="w-12 h-12" />,
-    title: "Presentar",
-    subtitle: "Rotafolio HD para proyectar en el aula",
-    color: "#d99c30",
-    textColor: "#5c3d07",
-    to: "/cartilla/teacher/flipchart",
+    title: "Rimas Reproducible Enriquecimiento",
+    color: "bg-[#1e40af]", // Solid Blue
+    iconColor: "text-blue-200",
+    to: "/cartilla/teacher/recursos/rimas",
   },
   {
-    icon: <Users className="w-12 h-12" />,
-    title: "Mis Alumnos",
-    subtitle: "Grupos, progreso y registro de clase",
-    color: "#406c72",
-    textColor: "#1a2e31",
-    to: "/cartilla/teacher/crm",
+    title: "Respuestas de las Evaluaciones",
+    color: "bg-[#eab308]", // Solid Yellow
+    iconColor: "text-yellow-100",
+    to: "/cartilla/teacher/recursos/respuestas",
   },
   {
-    icon: <BookOpenCheck className="w-12 h-12" />,
-    title: "Guía del Maestro",
-    subtitle: "Planes de clase y notas pedagógicas",
-    color: "#6a7a60",
-    textColor: "#28301e",
-    to: "/cartilla/teacher/guide",
+    title: "Evaluaciones Reproducibles",
+    color: "bg-[#dc2626]", // Solid Red
+    iconColor: "text-red-200",
+    to: "/cartilla/teacher/recursos/evaluaciones",
   },
   {
-    icon: <Printer className="w-12 h-12" />,
-    title: "Imprimir",
-    subtitle: "Fichas de trabajo y materiales imprimibles",
-    color: "#b8311a",
-    textColor: "#4a1009",
-    to: "/cartilla/teacher/print",
+    title: "Blackline Masters tablas silábicas",
+    color: "bg-[#9333ea]", // Solid Purple
+    iconColor: "text-purple-200",
+    to: "/cartilla/teacher/recursos/blacklines",
   },
+  {
+    title: "Guía del Profesor",
+    color: "bg-[#16a34a]", // Solid Green for the newly provided text
+    iconColor: "text-green-200",
+    to: "/cartilla/teacher/guia/1",
+  }
 ];
 
 function TeacherHub() {
   return (
-    <div
-      className="w-full min-h-screen flex flex-col items-center justify-start py-16 px-6"
-      style={{
-        background:
-          "radial-gradient(ellipse 120% 80% at 50% -10%, #fdf3e0 0%, #f5e8c8 60%, #ecdaaa 100%)",
-      }}
-    >
-      <div className="text-center mb-14">
-        <div
-          className="inline-flex items-center justify-center w-20 h-20 rounded-full mb-5 shadow-md"
-          style={{ backgroundColor: "#d99c3020", border: "3px solid #d99c30" }}
-        >
-          <span className="text-4xl font-black" style={{ color: "#d99c30" }}>G</span>
+    <div className="w-full flex flex-col items-start py-8">
+      
+      {/* Header */}
+      <div className="mb-10 w-full border-b border-stone-200 pb-6 flex items-center justify-between">
+        <div>
+          <h1 className="text-3xl font-bold text-stone-800 tracking-tight flex items-center gap-3">
+            <FolderOpen className="w-8 h-8 text-stone-400" />
+            Mi Unidad (Recursos)
+          </h1>
+          <p className="text-stone-500 mt-1 font-medium">Materiales y documentos para el aula</p>
         </div>
-        <h1 className="text-5xl md:text-6xl font-black tracking-tight mb-3" style={{ color: "#3b2a12" }}>
-          Centro de Recursos
-        </h1>
-        <p className="text-xl font-semibold" style={{ color: "#7a6040" }}>
-          La Cartilla de Gretel · Maestro
-        </p>
       </div>
 
-      <div className="w-full max-w-5xl grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {BOXES.map((box) => (
-          <HubCard key={box.title} box={box} />
+      {/* Grid of Folders */}
+      <h2 className="text-sm font-bold text-stone-500 uppercase tracking-widest mb-6">Carpetas (5)</h2>
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {FOLDERS.map((folder) => (
+          <Link
+            key={folder.title}
+            to={folder.to as any}
+            className={`group relative flex flex-col items-start p-6 rounded-2xl overflow-hidden cursor-pointer transition-all duration-200 hover:-translate-y-1 hover:shadow-xl border border-black/10 ${folder.color}`}
+          >
+            {/* Folder Icon Background Glow */}
+            <div className={`absolute -right-4 -top-4 opacity-10 group-hover:opacity-20 transition-opacity ${folder.iconColor}`}>
+              <Folder className="w-40 h-40" />
+            </div>
+
+            <div className="relative z-10 flex items-center gap-4 w-full">
+              <Folder className={`w-10 h-10 ${folder.iconColor} fill-current`} />
+              <h2 className="text-xl font-bold text-white leading-tight drop-shadow-sm pr-4">
+                {folder.title}
+              </h2>
+            </div>
+
+          </Link>
         ))}
       </div>
+
+      {/* Placeholder for Recent Files */}
+      <h2 className="text-sm font-bold text-stone-500 uppercase tracking-widest mt-16 mb-6">Archivos Recientes</h2>
+      <div className="w-full bg-white rounded-2xl border border-stone-200 p-12 text-center text-stone-400 border-dashed">
+        <FileText className="w-12 h-12 mx-auto mb-4 opacity-30" />
+        <p className="font-medium">No hay archivos recientes. Abre una de las carpetas arriba para ver los documentos.</p>
+      </div>
+
     </div>
-  );
-}
-
-function HubCard({ box }: { box: HubBox }) {
-  return (
-    <Link
-      to={box.to as "/cartilla/teacher/flipchart" | "/cartilla/teacher/crm" | "/cartilla/teacher/guide" | "/cartilla/teacher/print"}
-      className="group relative flex flex-col items-start p-8 rounded-3xl overflow-hidden cursor-pointer transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl focus:outline-none focus-visible:ring-4 focus-visible:ring-offset-2"
-      style={{
-        backgroundColor: box.color,
-        boxShadow: `0 8px 32px ${box.color}55, 0 2px 8px rgba(0,0,0,0.12)`,
-      }}
-    >
-      <div
-        className="absolute -top-10 -right-10 w-48 h-48 rounded-full opacity-10 group-hover:opacity-20 transition-opacity"
-        style={{ backgroundColor: box.textColor }}
-      />
-
-      <div className="relative z-10" style={{ color: box.textColor, opacity: 0.85 }}>
-        {box.icon}
-      </div>
-
-      <h2
-        className="relative z-10 text-3xl font-black mt-5 mb-2 tracking-tight"
-        style={{ color: "#fff", textShadow: `0 1px 4px ${box.textColor}55` }}
-      >
-        {box.title}
-      </h2>
-      <p className="relative z-10 text-base font-semibold leading-snug" style={{ color: "#ffffffcc" }}>
-        {box.subtitle}
-      </p>
-
-      <div
-        className="relative z-10 mt-6 self-end text-3xl font-black opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all"
-        style={{ color: "#fff" }}
-      >
-        →
-      </div>
-    </Link>
   );
 }
