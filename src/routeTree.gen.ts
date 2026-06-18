@@ -9,7 +9,6 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as WorkbookRouteImport } from './routes/workbook'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as IntroRouteImport } from './routes/intro'
 import { Route as DevGretelRouteImport } from './routes/dev-gretel'
@@ -67,11 +66,6 @@ import { Route as AuthenticatedCartillaTeacherBrandingRouteImport } from './rout
 import { Route as AuthenticatedCartillaTeacherClaseIdRouteImport } from './routes/_authenticated/cartilla.teacher.clase.$id'
 import { Route as AuthenticatedCartillaTeacherAlumnoIdRouteImport } from './routes/_authenticated/cartilla.teacher.alumno.$id'
 
-const WorkbookRoute = WorkbookRouteImport.update({
-  id: '/workbook',
-  path: '/workbook',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
@@ -374,7 +368,6 @@ export interface FileRoutesByFullPath {
   '/dev-gretel': typeof DevGretelRoute
   '/intro': typeof IntroRoute
   '/login': typeof LoginRoute
-  '/workbook': typeof WorkbookRoute
   '/cartilla/student': typeof CartillaStudentRouteRouteWithChildren
   '/cartilla/teacher': typeof AuthenticatedCartillaTeacherRouteWithChildren
   '/cartilla/autora': typeof CartillaAutoraRoute
@@ -431,7 +424,6 @@ export interface FileRoutesByTo {
   '/dev-gretel': typeof DevGretelRoute
   '/intro': typeof IntroRoute
   '/login': typeof LoginRoute
-  '/workbook': typeof WorkbookRoute
   '/cartilla/student': typeof CartillaStudentRouteRouteWithChildren
   '/cartilla/autora': typeof CartillaAutoraRoute
   '/cartilla/binder': typeof CartillaBinderRouteWithChildren
@@ -488,7 +480,6 @@ export interface FileRoutesById {
   '/dev-gretel': typeof DevGretelRoute
   '/intro': typeof IntroRoute
   '/login': typeof LoginRoute
-  '/workbook': typeof WorkbookRoute
   '/cartilla/student': typeof CartillaStudentRouteRouteWithChildren
   '/cartilla/teacher': typeof CartillaTeacherRouteRouteWithChildren
   '/cartilla/autora': typeof CartillaAutoraRoute
@@ -548,7 +539,6 @@ export interface FileRouteTypes {
     | '/dev-gretel'
     | '/intro'
     | '/login'
-    | '/workbook'
     | '/cartilla/student'
     | '/cartilla/teacher'
     | '/cartilla/autora'
@@ -605,7 +595,6 @@ export interface FileRouteTypes {
     | '/dev-gretel'
     | '/intro'
     | '/login'
-    | '/workbook'
     | '/cartilla/student'
     | '/cartilla/autora'
     | '/cartilla/binder'
@@ -661,7 +650,6 @@ export interface FileRouteTypes {
     | '/dev-gretel'
     | '/intro'
     | '/login'
-    | '/workbook'
     | '/cartilla/student'
     | '/cartilla/teacher'
     | '/cartilla/autora'
@@ -721,7 +709,6 @@ export interface RootRouteChildren {
   DevGretelRoute: typeof DevGretelRoute
   IntroRoute: typeof IntroRoute
   LoginRoute: typeof LoginRoute
-  WorkbookRoute: typeof WorkbookRoute
   CartillaStudentRouteRoute: typeof CartillaStudentRouteRouteWithChildren
   CartillaTeacherRouteRoute: typeof CartillaTeacherRouteRouteWithChildren
   CartillaAutoraRoute: typeof CartillaAutoraRoute
@@ -746,13 +733,6 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/workbook': {
-      id: '/workbook'
-      path: '/workbook'
-      fullPath: '/workbook'
-      preLoaderRoute: typeof WorkbookRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/login': {
       id: '/login'
       path: '/login'
@@ -1281,7 +1261,6 @@ const rootRouteChildren: RootRouteChildren = {
   DevGretelRoute: DevGretelRoute,
   IntroRoute: IntroRoute,
   LoginRoute: LoginRoute,
-  WorkbookRoute: WorkbookRoute,
   CartillaStudentRouteRoute: CartillaStudentRouteRouteWithChildren,
   CartillaTeacherRouteRoute: CartillaTeacherRouteRouteWithChildren,
   CartillaAutoraRoute: CartillaAutoraRoute,

@@ -1,7 +1,6 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { GRETEL_POSES, GRETEL_FALLBACKS } from "../src/components/gretel/gretelPoses.ts";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -17,12 +16,11 @@ function checkFile(type: string, where: string, assetPath: string) {
   }
 }
 
-// 1) Check Gretel poses
-for (const [pose, assetPath] of Object.entries(GRETEL_POSES)) {
-  checkFile("Missing Gretel assets", `GRETEL_POSES['${pose}']`, assetPath);
-}
-for (const [pose, assetPath] of Object.entries(GRETEL_FALLBACKS)) {
-  checkFile("Missing Gretel assets", `GRETEL_FALLBACKS['${pose}']`, assetPath);
+// 1) Check Gretel original artwork (warn only — artist asset, not committed to git)
+const gretelPath = "cartilla/images/gretel/gretel-original.png";
+const gretelFull = path.join(rootDir, "public", gretelPath);
+if (!fs.existsSync(gretelFull)) {
+  console.warn(`[WARN] Gretel artwork not found at public/${gretelPath} — place the original PNG there.`);
 }
 
 // 2) Scan for book page assets and validate lesson files
