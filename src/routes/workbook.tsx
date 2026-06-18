@@ -2,7 +2,7 @@
 import { StudentWorkbookFlip } from "@/components/StudentBook/StudentWorkbookFlip";
 import { buildPageArray } from "@/utils/buildPageArray";
 import { useBookDimensions } from "@/utils/useBookDimensions";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { exerciseForPage } from "@/content/exercise-seed";
 import { AnimatePresence, motion } from "framer-motion";
 import { InteractiveWorkbookLayer } from "@/components/cartilla/InteractiveWorkbookLayer";
@@ -10,6 +10,9 @@ import { LessonCompleteModal } from "@/components/cartilla/LessonCompleteModal";
 import { getLessonForPage } from "@/content/lesson-meta";
 import { feelBus } from "@/lib/feel-bus";
 import { Play } from "lucide-react";
+import { GretelGuide } from "@/components/gretel/GretelGuide";
+import { GretelStage } from "@/components/gretel/GretelStage";
+import { gretelEvent } from "@/lib/gretel-bus";
 
 export const Route = createFileRoute("/workbook")({
   component: WorkbookPage,
@@ -32,7 +35,12 @@ function WorkbookPage() {
   const [showOverlay, setShowOverlay] = useState(false);
   const [lessonCompleteId, setLessonCompleteId] = useState<string | null>(null);
 
-  // In a spread view, currentPageIndex points to the left page, 
+  // Emit lesson:start on mount so Gretel waves
+  useEffect(() => {
+    gretelEvent("lesson:start");
+  }, []);
+
+  // In a spread view, currentPageIndex points to the left page,
   // so the visible pages are currentPageIndex and currentPageIndex + 1 (if 0-indexed).
   // The flipbook passes the current left-side index. So page numbers are index+1 and index+2.
   const leftPageNum = currentPageIndex + 1;
@@ -41,7 +49,7 @@ function WorkbookPage() {
   // Check if either visible page has an exercise.
   const leftExercise = exerciseForPage(leftPageNum);
   const rightExercise = exerciseForPage(rightPageNum);
-  
+
   const activeExercisePage = rightExercise ? rightPageNum : (leftExercise ? leftPageNum : null);
   const hasExercise = activeExercisePage !== null;
 
@@ -50,7 +58,7 @@ function WorkbookPage() {
       <div className="mx-auto max-w-6xl relative">
         <header className="mb-6 flex items-center justify-between">
           <Link
-            to="/cartilla"
+            to="/"
             className="rounded-full border border-[hsl(28,30%,18%)]/15 bg-white/70 px-4 py-2 text-sm font-black text-[hsl(28,30%,18%)] shadow-sm backdrop-blur transition hover:bg-white"
           >
             ← Inicio
@@ -59,13 +67,20 @@ function WorkbookPage() {
             Libro del estudiante
           </p>
         </header>
-        
+
         <StudentWorkbookFlip
           pages={pages}
           spreadAspectRatio={dims ? String(dims.spreadAspect) : undefined}
           singleAspectRatio={dims ? String(dims.singleAspect) : undefined}
           onPageChange={setCurrentPageIndex}
         />
+
+        {/* Gretel Guide - Fixed bottom-right with compositing */}
+        <div className="fixed bottom-6 right-6 z-30">
+          <GretelStage size="md" warmth={true}>
+            <GretelGuide bubblePosition="left" />
+          </GretelStage>
+        </div>
 
         {/* The Drawer */}
         <AnimatePresence>
@@ -115,6 +130,7 @@ function WorkbookPage() {
                     accent={getLessonForPage(activeExercisePage)?.accent ?? "hsl(var(--primary))"}
                     onComplete={() => {
                       setShowOverlay(false);
+                      gretelEvent("lesson:complete");
                       setLessonCompleteId(String(getLessonForPage(activeExercisePage)?.n ?? 1));
                     }}
                   />

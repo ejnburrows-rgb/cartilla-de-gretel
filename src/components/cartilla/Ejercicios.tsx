@@ -4,6 +4,7 @@ import { useAudio } from "@/hooks/useAudio";
 import { cn } from "@/lib/utils";
 import { recordEvent, useStudentSession } from "@/lib/student-session";
 import { supabase } from "@/integrations/supabase/client";
+import { gretelEvent } from "@/lib/gretel-bus";
 
 type Word = { word: string; emoji?: string };
 
@@ -80,10 +81,12 @@ export function SyllableTap({
     if (s === target) {
       setScore((x) => x + 1);
       setFeedback({ kind: "ok", picked: s, target });
+      gretelEvent("answer:correct");
       play(s);
       setTimeout(next, 1200);
     } else {
       setFeedback({ kind: "no", picked: s, target });
+      gretelEvent("answer:wrong");
       play(target);
     }
   };
@@ -91,7 +94,7 @@ export function SyllableTap({
   return (
     <div className="rounded-2xl border-2 border-foreground/10 bg-card p-4">
       <div className="flex items-center justify-between mb-3">
-        <h3 className="font-bold">Toca la sÃ­laba que escuches</h3>
+        <h3 className="font-bold">Toca la sílaba que escuches</h3>
         <span className="text-xs font-bold text-foreground/60">
           {score} / {tries}
         </span>
@@ -133,21 +136,21 @@ export function SyllableTap({
             <X className="w-4 h-4" /> Incorrecto
           </div>
           <p className="text-sm text-foreground/80 mt-1">
-            Tocaste <strong>Â«{feedback.picked}Â»</strong>. La sÃ­laba correcta era{" "}
-            <strong>Â«{feedback.target}Â»</strong>. Vuelve a escuchar y fÃ­jate en el sonido inicial.
+            Tocaste <strong>«{feedback.picked}»</strong>. La sílaba correcta era{" "}
+            <strong>«{feedback.target}»</strong>. Vuelve a escuchar y fíjate en el sonido inicial.
           </p>
           <div className="mt-2 flex gap-2">
             <button
               onClick={() => play(feedback.target)}
               className="inline-flex items-center gap-1 text-xs font-bold text-primary"
             >
-              <Volume2 className="w-3.5 h-3.5" /> Escuchar Â«{feedback.target}Â»
+              <Volume2 className="w-3.5 h-3.5" /> Escuchar «{feedback.target}»
             </button>
             <button
               onClick={next}
               className="text-xs font-bold text-foreground/60 hover:text-foreground"
             >
-              Siguiente â†’
+              Siguiente →
             </button>
           </div>
         </div>
@@ -155,10 +158,10 @@ export function SyllableTap({
       {feedback?.kind === "ok" && (
         <div className="mt-3 rounded-xl border-2 border-success/30 bg-success/5 p-3">
           <div className="text-sm font-bold text-success inline-flex items-center gap-1.5">
-            <Check className="w-4 h-4" /> Â¡Correcto!
+            <Check className="w-4 h-4" /> ¡Correcto!
           </div>
           <p className="text-sm text-foreground/80 mt-1">
-            <strong>Â«{feedback.target}Â»</strong> es la sÃ­laba que sonaba. Â¡Buen oÃ­do!
+            <strong>«{feedback.target}»</strong> es la sílaba que sonaba. ¡Buen oído!
           </p>
         </div>
       )}
@@ -219,6 +222,7 @@ export function WordMatch({
         }
         return next;
       });
+      gretelEvent("answer:correct");
       setFeedback({ kind: "ok", word: picked, emoji: pickedItem?.emoji });
       play(target);
       setPicked(null);
@@ -227,6 +231,7 @@ export function WordMatch({
         1800,
       );
     } else {
+      gretelEvent("answer:wrong");
       setFeedback({
         kind: "no",
         word: picked,
@@ -263,7 +268,7 @@ export function WordMatch({
         <div className="flex items-center gap-3">
           {acc !== null && (
             <span className="text-xs font-bold text-foreground/60">
-              {hits}/{attempts} Â· {acc}%
+              {hits}/{attempts} · {acc}%
             </span>
           )}
           <button
@@ -317,11 +322,11 @@ export function WordMatch({
       {feedback?.kind === "ok" && (
         <div className="mt-3 rounded-xl border-2 border-success/30 bg-success/5 p-3">
           <div className="text-sm font-bold text-success inline-flex items-center gap-1.5">
-            <Check className="w-4 h-4" /> Â¡Correcto!
+            <Check className="w-4 h-4" /> ¡Correcto!
           </div>
           <p className="text-sm text-foreground/80 mt-1">
-            <strong>Â«{feedback.word}Â»</strong>{" "}
-            {feedback.emoji && <span className="text-lg align-middle">{feedback.emoji}</span>} â€”
+            <strong>«{feedback.word}»</strong>{" "}
+            {feedback.emoji && <span className="text-lg align-middle">{feedback.emoji}</span>} —
             uniste bien la palabra con su dibujo.
           </p>
         </div>
@@ -332,25 +337,25 @@ export function WordMatch({
             <X className="w-4 h-4" /> No coinciden
           </div>
           <p className="text-sm text-foreground/80 mt-1">
-            <strong>Â«{feedback.word}Â»</strong>{" "}
+            <strong>«{feedback.word}»</strong>{" "}
             {feedback.correctEmoji && (
               <span className="text-lg align-middle">{feedback.correctEmoji}</span>
             )}{" "}
-            no es ese dibujo. Lee la palabra otra vez, separa sus sÃ­labas y busca el dibujo que la
+            no es ese dibujo. Lee la palabra otra vez, separa sus sílabas y busca el dibujo que la
             representa.
           </p>
           <button
             onClick={() => play(feedback.word)}
             className="mt-2 inline-flex items-center gap-1 text-xs font-bold text-primary"
           >
-            <Volume2 className="w-3.5 h-3.5" /> Escuchar Â«{feedback.word}Â»
+            <Volume2 className="w-3.5 h-3.5" /> Escuchar «{feedback.word}»
           </button>
         </div>
       )}
       {allDone && (
         <div className="mt-3 rounded-xl border-2 border-success/40 bg-success/10 p-3">
           <div className="text-success font-bold inline-flex items-center gap-1.5">
-            <Check className="w-4 h-4" /> Â¡Ronda completa!
+            <Check className="w-4 h-4" /> ¡Ronda completa!
           </div>
           <p className="text-sm text-foreground/80 mt-1">
             Uniste todas las palabras. Resultado final:{" "}
@@ -365,7 +370,7 @@ export function WordMatch({
   );
 }
 
-/** Teacher answer key reveal â€” visible only to logged-in teachers or registered students */
+/** Teacher answer key reveal â€" visible only to logged-in teachers or registered students */
 export function TeacherAnswerKey({ items }: { items: Array<{ q: string; a: string }> }) {
   const [show, setShow] = useState(false);
   const [isTeacher, setIsTeacher] = useState(false);
@@ -391,7 +396,7 @@ export function TeacherAnswerKey({ items }: { items: Array<{ q: string; a: strin
     <div className="rounded-2xl border-2 border-dashed border-foreground/20 bg-secondary/30 p-4">
       <div className="flex items-center justify-between mb-2">
         <h3 className="font-bold text-sm uppercase tracking-wide text-foreground/60">
-          {isTeacher ? "GuÃ­a del maestro" : "GuÃ­a de estudio"}
+          {isTeacher ? "Guía del maestro" : "Guía de estudio"}
         </h3>
         <button
           onClick={() => setShow((s) => !s)}
@@ -419,7 +424,7 @@ export function TeacherAnswerKey({ items }: { items: Array<{ q: string; a: strin
                 show ? "text-success" : "text-transparent bg-foreground/15 rounded select-none",
               )}
             >
-              {show ? it.a : "â€¢â€¢â€¢â€¢"}
+              {show ? it.a : "••••"}
             </span>
           </li>
         ))}

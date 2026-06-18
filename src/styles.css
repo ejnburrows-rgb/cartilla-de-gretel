@@ -133,12 +133,12 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-family: "Century Gothic", "Gill Sans", "Trebuchet MS", ui-sans-serif, sans-serif;
+    font-family: ui-sans-serif, system-ui, sans-serif;
   }
   h1,
   h2,
   h3 {
-    font-family: "Fredoka", "Century Gothic", ui-rounded, sans-serif;
+    font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
   }
 }
 
@@ -296,89 +296,103 @@ html.a11y-contrast .kid-card {
   }
 }
 
-/* ── Vertical Spiral Workbook Flip Styles ── */
-.workbook-container {
-  perspective: 1500px;
-  position: relative;
-  width: 100%;
-  max-width: 500px;
-  background: #fdfdfd;
-  border-radius: 0 0 16px 16px;
-  box-shadow: 
-    0 1px 1px rgba(0,0,0,0.05),
-    0 10px 30px rgba(0,0,0,0.08);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-top: none;
-}
+/* ─── Desk Scene — Warm oak wood environment ───────────────────────────── */
+@layer utilities {
+  .desk-scene {
+    position: relative;
+    min-height: 100vh;
+    background:
+      /* Wood grain texture overlay */
+      repeating-linear-gradient(
+        90deg,
+        hsl(28 45% 35%) 0px,
+        hsl(28 45% 38%) 2px,
+        hsl(28 45% 35%) 4px,
+        hsl(28 45% 32%) 8px,
+        hsl(28 45% 35%) 12px
+      ),
+      /* Warm oak base */
+      linear-gradient(
+        180deg,
+        hsl(28 50% 40%) 0%,
+        hsl(25 48% 45%) 50%,
+        hsl(22 45% 50%) 100%
+      );
+  }
 
-.spiral-binding {
-  position: absolute;
-  top: -12px;
-  left: 5%;
-  width: 90%;
-  height: 24px;
-  display: flex;
-  justify-content: space-between;
-  z-index: 50;
-  pointer-events: none;
-}
+  .desk-scene::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      /* Ambient lighting from top-left */
+      radial-gradient(
+        ellipse at 20% 20%,
+        hsl(35 60% 70% / 0.15) 0%,
+        transparent 50%
+      ),
+      /* Subtle vignette */
+      radial-gradient(
+        ellipse at 50% 50%,
+        transparent 60%,
+        hsl(20 40% 20% / 0.3) 100%
+      );
+    pointer-events: none;
+  }
 
-.spiral-ring {
-  width: 10px;
-  height: 24px;
-  background: linear-gradient(to right, #9ca3af, #d1d5db, #6b7280);
-  border-radius: 6px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.22);
-}
+  .desk-scene::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: linear-gradient(
+      180deg,
+      hsl(20 40% 25%) 0%,
+      hsl(18 38% 20%) 100%
+    );
+    box-shadow: 0 -4px 12px hsl(20 40% 20% / 0.4);
+    pointer-events: none;
+  }
 
-.workbook-flip-wrapper {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transform-origin: top center;
-  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-}
+  /* ─── Gretel Stage — Compositing for physical grounding ───────────────── */
+  .gretel-stage {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-.workbook-page-front,
-.workbook-page-back {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 0 0 12px 12px;
-  overflow: hidden;
-  background: #fff;
-}
+  .gretel-shadow-contact {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 55%;
+    height: 12px;
+    background: radial-gradient(ellipse, rgba(0, 0, 0, 0.35) 0%, transparent 70%);
+    filter: blur(3px);
+    z-index: 0;
+  }
 
-.workbook-page-back {
-  transform: rotateX(180deg);
-  background: #fafafa;
-  /* subtle paper back shadows */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, transparent 8%);
-}
+  .gretel-shadow-ambient {
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 32px;
+    background: radial-gradient(ellipse, rgba(0, 0, 0, 0.13) 0%, transparent 70%);
+    filter: blur(8px);
+    z-index: 0;
+  }
 
-.workbook-shadow-overlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: rgba(0,0,0,0.04);
-  z-index: 10;
-  transition: opacity 0.6s ease;
+  .gretel-figure {
+    position: relative;
+    z-index: 1;
+  }
 }
-
-.workbook-container::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.15), transparent);
-  z-index: 20;
-}
-
 
 @media (prefers-reduced-motion: reduce) {
   *,

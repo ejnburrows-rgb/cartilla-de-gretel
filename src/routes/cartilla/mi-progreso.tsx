@@ -14,7 +14,7 @@ import { sCopy } from "@/content/student-copy";
 
 export const Route = createFileRoute("/cartilla/mi-progreso")({
   component: MyProgress,
-  head: () => ({ meta: [{ title: "Mi progreso â€” La Cartilla de Gretel" }] }),
+  head: () => ({ meta: [{ title: "Mi progreso — La Cartilla de Gretel" }] }),
   beforeLoad: () => {
     if (typeof window !== "undefined" && !getStudentSession()) {
       throw redirect({ to: "/cartilla/unirse" });
@@ -81,7 +81,7 @@ function MyProgress() {
       }
       if (e.event_kind === "time") timeTotal += e.time_seconds ?? 0;
       if (e.event_kind === "badge") badges.push(String((e.meta ?? {}).name ?? "Insignia"));
-      if (e.event_kind === "level" && !level) level = String((e.meta ?? {}).level ?? "â€”");
+      if (e.event_kind === "level" && !level) level = String((e.meta ?? {}).level ?? "—");
     }
     const dbCompleted = (
       (data as { lessonProgress?: Array<{ lesson_id: string; status: string }> }).lessonProgress ??
@@ -105,7 +105,7 @@ function MyProgress() {
       return {
         leccion: entry.n,
         titulo: entry.title,
-        completada: summary.completed.has(String(entry.n)) ? "sÃ­" : "no",
+        completada: summary.completed.has(String(entry.n)) ? "sí" : "no",
         ejercicios: ex?.runs ?? 0,
         aciertos: ex?.score ?? 0,
         intentos: ex?.total ?? 0,
@@ -136,7 +136,7 @@ function MyProgress() {
       label: `L${entry.n}`,
       value: ex && ex.total > 0 ? Math.round((ex.score / ex.total) * 100) : 0,
       color: entry.color,
-      sub: summary.completed.has(String(entry.n)) ? "âœ“" : "",
+      sub: summary.completed.has(String(entry.n)) ? "✔" : "",
     };
   });
 
@@ -156,7 +156,7 @@ function MyProgress() {
         <div>
           <h1 className="text-3xl sm:text-4xl font-bold">{t.holaName[lang].replace("{name}", data.student.display_name)}</h1>
           <p className="text-sm text-foreground/60 mt-1">
-            {t.clase[lang]} <strong>{data.class?.name ?? "â€”"}</strong> Â· {t.tuCodigo[lang]}{" "}
+            {t.clase[lang]} <strong>{data.class?.name ?? "—"}</strong> · {t.tuCodigo[lang]}{" "}
             <span className="font-mono font-bold">{data.student.student_code}</span>
           </p>
         </div>
@@ -203,7 +203,7 @@ function MyProgress() {
                   className="px-3 py-1.5 rounded-full text-xs font-bold border-2"
                   style={{ borderColor: entry.color, color: entry.color }}
                 >
-                  L{entry.n} â€” {entry.title}
+                  L{entry.n} — {entry.title}
                 </Link>
               );
             })}
@@ -281,11 +281,11 @@ function MyProgress() {
                   <div className="font-bold text-sm truncate">{entry.title}</div>
                   <div className="text-xs text-foreground/60 mt-0.5">
                     {isDone ? (
-                      <span className="text-success font-bold">âœ“ {t.completada[lang]}</span>
+                      <span className="text-success font-bold">✔ {t.completada[lang]}</span>
                     ) : (
                       <span>{t.pendiente[lang]}</span>
                     )}
-                    {pct !== null && <span className="ml-2">Â· {pct}% {t.acierto[lang]}</span>}
+                    {pct !== null && <span className="ml-2">· {pct}% {t.acierto[lang]}</span>}
                   </div>
                 </div>
               </Link>

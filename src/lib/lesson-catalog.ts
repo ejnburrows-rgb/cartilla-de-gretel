@@ -7,6 +7,7 @@ export type ConsonantLessonData = {
   pages: string;
   color: string;
   syllables: string[];
+  vocab: { word: string; emoji: string }[];
   examples: Record<string, string[]>;
   sentences: string[];
 };

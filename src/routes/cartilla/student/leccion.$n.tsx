@@ -33,7 +33,8 @@ import { useOnlineStatus } from "@/hooks/useOnlineStatus";
 import { InstallPrompt } from "@/components/cartilla/InstallPrompt";
 import { PageBackground } from "@/components/art/PageBackground";
 import { SparkleField } from "@/components/art/SparkleField";
-import { GretelMascot } from "@/components/gretel/GretelMascot";
+import { GretelGuide } from "@/components/gretel/GretelGuide";
+import { gretelEvent } from "@/lib/gretel-bus";
 import "@/styles/cartilla-student.css";
 
 export const Route = createFileRoute("/cartilla/student/leccion/$n")({
@@ -109,6 +110,10 @@ function Leccion() {
   useEffect(() => {
     if (entry && !unlocked) navigate({ to: "/cartilla/lecciones" });
   }, [entry, navigate, unlocked]);
+
+  useEffect(() => {
+    gretelEvent("lesson:start");
+  }, [n]);
 
   useEffect(() => {
     startedAt.current = Date.now();
@@ -507,12 +512,7 @@ function Leccion() {
         </Link>
       </nav>
       <div className="fixed bottom-24 right-4 z-40">
-        <GretelMascot
-          pose="point"
-          text="¡Excelente! Resolvamos estos divertidos ejercicios juntos. ¡Tú puedes!"
-          bubblePosition="left"
-          showCloseButton={true}
-        />
+        <GretelGuide bubblePosition="left" />
       </div>
     </div>
     </>

@@ -136,7 +136,7 @@ function SyllableTapActivity({
         <AnimatePresence>
           {allDone && (
             <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="mt-4 rounded-3xl border-2 border-emerald-300 bg-emerald-50 px-4 py-3 text-center text-sm font-black text-emerald-800">
-              Â¡Gran trabajo!
+              ¡Gran trabajo!
             </motion.div>
           )}
         </AnimatePresence>
@@ -351,9 +351,9 @@ export function InteractiveWorkbookLayer({
             className="rounded-[1.75rem] border-2 border-emerald-300 bg-emerald-50 px-4 py-4 text-center text-emerald-800 shadow-lg shadow-emerald-500/10"
           >
             <Trophy className="mx-auto mb-1 h-6 w-6" />
-            <div className="text-base font-black">Â¡Gran trabajo!</div>
+            <div className="text-base font-black">¡Gran trabajo!</div>
             <p className="text-sm font-semibold text-emerald-700/80">
-              Terminaste las actividades de esta pÃ¡gina.
+              Terminaste las actividades de esta página.
             </p>
           </motion.div>
         )}

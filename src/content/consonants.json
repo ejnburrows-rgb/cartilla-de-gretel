@@ -5,6 +5,12 @@
     "pages": "19-22",
     "color": "#E63946",
     "syllables": ["ma", "me", "mi", "mo", "mu"],
+    "vocab": [
+      { "word": "mamá", "emoji": "👩" },
+      { "word": "mono", "emoji": "🐒" },
+      { "word": "moto", "emoji": "🛵" },
+      { "word": "mapa", "emoji": "🗺️" }
+    ],
     "examples": {
       "ma": ["mamá", "mapa", "maleta", "mago", "marisco"],
       "me": ["mesa", "miel", "mecha", "menudo", "Memo"],
@@ -20,6 +26,12 @@
     "pages": "23-26",
     "color": "#F4A261",
     "syllables": ["pa", "pe", "pi", "po", "pu"],
+    "vocab": [
+      { "word": "papá", "emoji": "👨" },
+      { "word": "pez", "emoji": "🐟" },
+      { "word": "pino", "emoji": "🌲" },
+      { "word": "pulpo", "emoji": "🐙" }
+    ],
     "examples": {
       "pa": ["papá", "pala", "pasa", "patata", "Pamela"],
       "pe": ["pelo", "pera", "pez", "Pepe", "peso"],
@@ -35,6 +47,12 @@
     "pages": "27-30",
     "color": "#2A9D8F",
     "syllables": ["sa", "se", "si", "so", "su"],
+    "vocab": [
+      { "word": "sapo", "emoji": "🐸" },
+      { "word": "sol", "emoji": "☀️" },
+      { "word": "sopa", "emoji": "🍲" },
+      { "word": "silla", "emoji": "💺" }
+    ],
     "examples": {
       "sa": ["sapo", "sala", "sano", "Sandi", "salida"],
       "se": ["seda", "señal", "sed", "Sela", "semana"],
@@ -50,6 +68,12 @@
     "pages": "31-34",
     "color": "#264653",
     "syllables": ["ta", "te", "ti", "to", "tu"],
+    "vocab": [
+      { "word": "tapa", "emoji": "🫙" },
+      { "word": "tomate", "emoji": "🍅" },
+      { "word": "tina", "emoji": "🛁" },
+      { "word": "tulipán", "emoji": "🌷" }
+    ],
     "examples": {
       "ta": ["tapa", "tasa", "Tati", "tarima", "tarea"],
       "te": ["teme", "tela", "tetera", "Teté", "techo"],
@@ -65,6 +89,12 @@
     "pages": "35-38",
     "color": "#8338EC",
     "syllables": ["da", "de", "di", "do", "du"],
+    "vocab": [
+      { "word": "dado", "emoji": "🎲" },
+      { "word": "delfín", "emoji": "🐬" },
+      { "word": "dona", "emoji": "🍩" },
+      { "word": "ducha", "emoji": "🚿" }
+    ],
     "examples": {
       "da": ["dado", "dama", "Dani", "dama", "danza"],
       "de": ["dedo", "delfín", "demora", "Dela", "Delia"],
@@ -80,6 +110,12 @@
     "pages": "39-42",
     "color": "#E63946",
     "syllables": ["la", "le", "li", "lo", "lu"],
+    "vocab": [
+      { "word": "luna", "emoji": "🌙" },
+      { "word": "lobo", "emoji": "🐺" },
+      { "word": "loro", "emoji": "🦜" },
+      { "word": "lupa", "emoji": "🔍" }
+    ],
     "examples": {
       "la": ["lata", "lana", "Lalo", "lago", "lazo"],
       "le": ["lema", "leña", "Lela", "lente", "letra"],
@@ -95,6 +131,12 @@
     "pages": "43-46",
     "color": "#F4A261",
     "syllables": ["na", "ne", "ni", "no", "nu"],
+    "vocab": [
+      { "word": "nariz", "emoji": "👃" },
+      { "word": "nido", "emoji": "🪹" },
+      { "word": "nube", "emoji": "☁️" },
+      { "word": "nata", "emoji": "🍦" }
+    ],
     "examples": {
       "na": ["nata", "nariz", "tina", "nada", "Napi"],
       "ne": ["Nena", "negro", "Nela", "tenedor", "negar"],
@@ -110,6 +152,12 @@
     "pages": "47-50",
     "color": "#2A9D8F",
     "syllables": ["ña", "ñe", "ñi", "ño", "ñu"],
+    "vocab": [
+      { "word": "piña", "emoji": "🍍" },
+      { "word": "muñeca", "emoji": "🪆" },
+      { "word": "niño", "emoji": "👦" },
+      { "word": "araña", "emoji": "🕷️" }
+    ],
     "examples": {
       "ña": ["caña", "araña", "leña", "España", "piña"],
       "ñe": ["ñeque", "muñeca", "ñero", "ñesa", "ordeñe"],
@@ -125,6 +173,12 @@
     "pages": "51-54",
     "color": "#264653",
     "syllables": ["ba", "be", "bi", "bo", "bu"],
+    "vocab": [
+      { "word": "barco", "emoji": "🚢" },
+      { "word": "bebé", "emoji": "👶" },
+      { "word": "bici", "emoji": "🚲" },
+      { "word": "bota", "emoji": "👢" }
+    ],
     "examples": {
       "ba": ["bata", "Bambi", "balde", "banda", "barco"],
       "be": ["bebé", "beso", "Beto", "bestia", "Bela"],
@@ -140,6 +194,12 @@
     "pages": "55-58",
     "color": "#8338EC",
     "syllables": ["va", "ve", "vi", "vo", "vu"],
+    "vocab": [
+      { "word": "vaca", "emoji": "🐄" },
+      { "word": "vela", "emoji": "🕯️" },
+      { "word": "vino", "emoji": "🍷" },
+      { "word": "volcán", "emoji": "🌋" }
+    ],
     "examples": {
       "va": ["vaca", "vaso", "Valeria", "vapor", "vainilla"],
       "ve": ["vela", "verde", "Vero", "vestido", "ventana"],
@@ -155,6 +215,12 @@
     "pages": "59-62",
     "color": "#E63946",
     "syllables": ["ra", "re", "ri", "ro", "ru"],
+    "vocab": [
+      { "word": "rana", "emoji": "🐸" },
+      { "word": "rosa", "emoji": "🌹" },
+      { "word": "remo", "emoji": "🚣" },
+      { "word": "rueda", "emoji": "⚙️" }
+    ],
     "examples": {
       "ra": ["cara", "rama", "Rafa", "rana", "rato"],
       "re": ["pera", "reto", "Rena", "remo", "redondo"],
@@ -170,6 +236,12 @@
     "pages": "63-66",
     "color": "#F4A261",
     "syllables": ["rra", "rre", "rri", "rro", "rru"],
+    "vocab": [
+      { "word": "perro", "emoji": "🐶" },
+      { "word": "carro", "emoji": "🚗" },
+      { "word": "burro", "emoji": "🫏" },
+      { "word": "guitarra", "emoji": "🎸" }
+    ],
     "examples": {
       "rra": ["barra", "tierra", "guitarra", "carretera", "agarra"],
       "rre": ["perro", "torre", "carrera", "correo", "corre"],
@@ -185,6 +257,12 @@
     "pages": "67-70",
     "color": "#2A9D8F",
     "syllables": ["ga", "gue", "gui", "go", "gu"],
+    "vocab": [
+      { "word": "gato", "emoji": "🐱" },
+      { "word": "galleta", "emoji": "🍪" },
+      { "word": "guitarra", "emoji": "🎸" },
+      { "word": "gusano", "emoji": "🐛" }
+    ],
     "examples": {
       "ga": ["gato", "gana", "Gabi", "ganso", "galleta"],
       "gue": ["guerra", "guepardo", "Miguel", "guía", "manguera"],
@@ -200,6 +278,12 @@
     "pages": "71-74",
     "color": "#264653",
     "syllables": ["fa", "fe", "fi", "fo", "fu"],
+    "vocab": [
+      { "word": "faro", "emoji": "🗼" },
+      { "word": "fiesta", "emoji": "🎉" },
+      { "word": "foca", "emoji": "🦭" },
+      { "word": "fuente", "emoji": "⛲" }
+    ],
     "examples": {
       "fa": ["fama", "faro", "Fabi", "falda", "familia"],
       "fe": ["feo", "fecha", "Felipe", "feria", "fenómeno"],
@@ -215,6 +299,12 @@
     "pages": "75-78",
     "color": "#8338EC",
     "syllables": ["ja", "je", "ji", "jo", "ju"],
+    "vocab": [
+      { "word": "jabón", "emoji": "🧼" },
+      { "word": "jirafa", "emoji": "🦒" },
+      { "word": "joya", "emoji": "💎" },
+      { "word": "juguete", "emoji": "🧸" }
+    ],
     "examples": {
       "ja": ["jabón", "jaula", "Javi", "jamón", "jarra"],
       "je": ["jefe", "jeringa", "Jenny", "jerga", "jersey"],
@@ -230,6 +320,12 @@
     "pages": "79-82",
     "color": "#E63946",
     "syllables": ["ca", "que", "qui", "co", "cu"],
+    "vocab": [
+      { "word": "casa", "emoji": "🏠" },
+      { "word": "queso", "emoji": "🧀" },
+      { "word": "coco", "emoji": "🥥" },
+      { "word": "cuchara", "emoji": "🥄" }
+    ],
     "examples": {
       "ca": ["casa", "cama", "Cami", "carro", "calle"],
       "que": ["queso", "queja", "Quique", "querer", "queremos"],
@@ -245,6 +341,12 @@
     "pages": "83-86",
     "color": "#F4A261",
     "syllables": ["ya", "ye", "yi", "yo", "yu"],
+    "vocab": [
+      { "word": "yate", "emoji": "⛵" },
+      { "word": "yegua", "emoji": "🐴" },
+      { "word": "yoyo", "emoji": "🪀" },
+      { "word": "yuca", "emoji": "🌿" }
+    ],
     "examples": {
       "ya": ["yate", "yarda", "Yamila", "yantar", "rayar"],
       "ye": ["yegua", "yeso", "Yeni", "yerno", "ayer"],
@@ -260,6 +362,12 @@
     "pages": "87-90",
     "color": "#2A9D8F",
     "syllables": ["za", "ce", "ci", "zo", "zu"],
+    "vocab": [
+      { "word": "zapato", "emoji": "👟" },
+      { "word": "zanahoria", "emoji": "🥕" },
+      { "word": "cine", "emoji": "🎬" },
+      { "word": "zorro", "emoji": "🦊" }
+    ],
     "examples": {
       "za": ["zapato", "zanahoria", "Zaida", "zapallo", "zarpa"],
       "ce": ["cesta", "cero", "Cecilia", "celda", "ceniza"],

@@ -1,49 +1,15 @@
 /**
- * PdfPage.tsx
- * Routes pages 1-90 to the fully digital WorkbookPageRenderer (SVG/JSX).
- * Pages 91-92 fall back to the HD image scan.
+ * PdfPage — renders a single workbook page as the original scanned image.
  *
- * The color/workbook/ and hd/workbook/ scan paths are no longer used
- * for pages 1-90 and can be deleted from public/ when convenient.
+ * Pages 1-92: 2550×3301 color scans from /cartilla/art/color/workbook/
+ * Pages 93-95: hd placeholder scans from /art/hd/
+ *
+ * The scanned art is the source of truth. WorkbookPageRenderer is not used.
  */
-import { useEffect, useMemo, useState } from "react";
-import { WorkbookPageRenderer } from "./WorkbookPageRenderer";
-import sourceArtInventory from "@/data/source-art-inventory.json";
-
-type SourcePageAsset = {
-  path?: string;
-  workbookPageNumber?: number;
-  sourceStatus?: string;
-  safeForStudentUI?: boolean;
-};
-
-type SourceArtInventory = {
-  assets?: SourcePageAsset[];
-};
-
-const rawScanByWorkbookPage = new Map(
-  ((sourceArtInventory as SourceArtInventory).assets ?? [])
-    .filter(
-      (asset): asset is SourcePageAsset & { path: string; workbookPageNumber: number } =>
-        Boolean(asset.path) &&
-        typeof asset.workbookPageNumber === "number" &&
-        asset.safeForStudentUI === true &&
-        asset.sourceStatus === "verified-source-image",
-    )
-    .map((asset) => [asset.workbookPageNumber, `/${asset.path}`]),
-);
+import { useEffect, useState } from "react";
 import { getBookPageImage } from "@/lib/bookImages";
 
-function getFallbackSources(pageNumber: number) {
-  const list = [getBookPageImage(pageNumber)];
-  const raw = rawScanByWorkbookPage.get(pageNumber);
-  if (raw) list.push(raw);
-  return list;
-}
-
 export function prefetchPage(pageNumber: number) {
-  // No-op for SVG pages; kept for API compatibility.
-  if (pageNumber < 91 || pageNumber > 92) return;
   const img = new Image();
   img.src = getBookPageImage(pageNumber);
 }
@@ -54,50 +20,39 @@ interface PdfPageProps {
 }
 
 export function PdfPage({ pageNumber, className = "" }: PdfPageProps) {
-  const safePageNumber = Math.max(1, pageNumber);
+  const safe = Math.max(1, Math.min(pageNumber, 95));
+  const primary = getBookPageImage(safe);
+  const fallback = `/art/hd/page-${safe}.png`;
 
-  // Pages 1-90: fully digital interactive SVG content.
-  if (safePageNumber >= 1 && safePageNumber <= 90) {
-    return (
-      <div
-        className={`pdf-page-wrapper flex items-center justify-center overflow-hidden bg-white select-none ${className}`}
-        aria-label={`Página ${safePageNumber} del libro`}
-      >
-        <WorkbookPageRenderer pageNumber={safePageNumber} />
-      </div>
-    );
-  }
-
-  // Pages 91+: image fallback.
-  return <PdfPageImageFallback pageNumber={safePageNumber} className={className} />;
-}
-
-import { BookPageImage } from "./BookPageImage";
-
-function PdfPageImageFallback({ pageNumber, className = "" }: PdfPageProps) {
-  const sources = useMemo(() => getFallbackSources(pageNumber), [pageNumber]);
-  const [srcIndex, setSrcIndex] = useState(0);
+  const [src, setSrc] = useState(primary);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    setSrcIndex(0);
+    setSrc(getBookPageImage(Math.max(1, Math.min(pageNumber, 95))));
+    setLoaded(false);
   }, [pageNumber]);
-
-  const src = sources[Math.min(srcIndex, sources.length - 1)];
-
-  const handleError = () => {
-    setSrcIndex((i) => (i < sources.length - 1 ? i + 1 : i));
-  };
 
   return (
     <div
-      className={`pdf-page-wrapper flex items-center justify-center overflow-hidden bg-transparent select-none p-2 ${className}`}
-      aria-label={`Página ${pageNumber} del libro`}
+      className={`pdf-page-wrapper relative flex items-center justify-center overflow-hidden bg-white select-none ${className}`}
+      aria-label={`Página ${safe} del libro`}
     >
-      <BookPageImage
+      {!loaded && (
+        <div className="absolute inset-0 bg-stone-100 animate-pulse" />
+      )}
+      <img
         src={src}
-        alt={`Página ${pageNumber} del libro`}
-        className="max-h-full"
-        onError={handleError}
+        alt={`Página ${safe} del libro`}
+        className={`w-full h-full object-contain transition-opacity duration-300 ${loaded ? "opacity-100" : "opacity-0"}`}
+        draggable={false}
+        loading="lazy"
+        onLoad={() => setLoaded(true)}
+        onError={() => {
+          if (src !== fallback) {
+            setSrc(fallback);
+            setLoaded(false);
+          }
+        }}
       />
     </div>
   );

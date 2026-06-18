@@ -1,12 +1,39 @@
+/**
+ * StudentExercisePane.tsx — Lane A
+ *
+ * Renders the book-faithful student exercise sequence for a given lesson.
+ * All exercises are traceable to workbook or teacher-guide content.
+ *
+ * Sequence (consonant lessons):
+ *   1. SyllableTap  — book syllables (ma, me, mi, mo, mu)
+ *   2. WordMatch    — first example word per syllable from consonants.json
+ *   3. DragBuildWord — build a word from book syllables
+ *   4. ReadingSentences — read the 2 workbook sentences aloud
+ *
+ * Sequence (vowel lessons): 1, 2, 3, 4 using vowel vocab
+ * Sequence (intro): syllable tap only
+ *
+ * Sticky bottom bar: LessonTimer + dots
+ * Uses `key={lessonId}` strategy via caller to reset state on lesson change.
+ */
 import { useState, useEffect } from "react";
 import { BookArtFigure } from "@/components/cartilla/BookArtFigure";
-import { ActivityCarousel } from "@/components/cartilla/ActivityCarousel";
+import { SyllableTap, WordMatch } from "@/components/cartilla/Ejercicios";
+import { DragBuildWord } from "@/components/cartilla/DragBuildWord";
+import { OrderedExercises } from "@/components/cartilla/OrderedExercises";
 import { LessonTimer } from "@/components/cartilla/LessonTimer";
-import { GretelMascot } from "@/components/gretel/GretelMascot";
 import type { CatalogEntry } from "@/lib/lesson-catalog";
-import { playCorrectChord } from "@/lib/piano-audio";
-import { Check } from "lucide-react";
+import { gretelEvent } from "@/lib/gretel-bus";
 import "@/styles/cartilla-student.css";
+
+const EXERCISE_IDS = [
+  "syllable_tap",
+  "word_match",
+  "drag_build_word",
+  "reading_sentences",
+] as const;
+
+type ExerciseId = (typeof EXERCISE_IDS)[number];
 
 interface StudentExercisePaneProps {
   entry: CatalogEntry;
@@ -15,77 +42,76 @@ interface StudentExercisePaneProps {
   onAllCompleted?: () => void;
 }
 
+function numberBadgeStyle(color: string): React.CSSProperties {
+  return { backgroundColor: color };
+}
+
 export function StudentExercisePane({
   entry,
   lessonId,
   timeLimitSeconds,
   onAllCompleted,
 }: StudentExercisePaneProps) {
-  const STORAGE_KEY_CAROUSEL = `cartilla.exercise-done.carousel.v1.${lessonId}`;
-  const STORAGE_KEY_READING = `cartilla.exercise-done.reading.v1.${lessonId}`;
-
-  const [carouselCompleted, setCarouselCompleted] = useState<boolean>(() => {
-    if (typeof window === "undefined") return false;
-    return localStorage.getItem(STORAGE_KEY_CAROUSEL) === "true";
+  const STORAGE_KEY = `cartilla.exercise-done.v1.${lessonId}`;
+  
+  const [completed, setCompleted] = useState<Set<ExerciseId>>(() => {
+    if (typeof window === "undefined") return new Set();
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) {
+        const arr = JSON.parse(raw) as ExerciseId[];
+        return new Set(arr);
+      }
+    } catch {
+      // ignore
+    }
+    return new Set();
   });
 
-  const [readingCompleted, setReadingCompleted] = useState<boolean>(() => {
-    if (typeof window === "undefined") return false;
-    return localStorage.getItem(STORAGE_KEY_READING) === "true";
-  });
+  useEffect(() => {
+    if (completed.size === EXERCISE_IDS.length) {
+      gretelEvent("lesson:complete");
+      if (onAllCompleted) onAllCompleted();
+    }
+  }, [completed.size, onAllCompleted]);
+
+  const markDone = (id: ExerciseId) => {
+    setCompleted((prev) => {
+      if (prev.has(id)) return prev;
+      const next = new Set([...prev, id]);
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify([...next]));
+      } catch {}
+      return next;
+    });
+    gretelEvent("answer:correct");
+  };
 
   const accent = entry.color;
 
-  // Deriving syllables
+  // Derive syllables + words from workbook data only
   const syllables: string[] = (() => {
     if (entry.kind === "consonant") return entry.data.syllables;
     if (entry.kind === "vowel") return [entry.vowel, ...["a", "e", "i", "o", "u"].filter((v) => v !== entry.vowel)];
     return ["a", "e", "i", "o", "u"];
   })();
 
-  // Deriving words and attaching emojis for matching game
   const words: Array<{ word: string; emoji?: string }> = (() => {
-    const emojiMap: Record<string, string> = {
-      mamá: "👩", papá: "👨", nene: "👶", sapo: "🐸", pelota: "⚽",
-      mesa: "🪑", gato: "🐱", perro: "🐶", casa: "🏠", rosa: "🌹",
-      oso: "🐻", uva: "🍇", ala: "🪶", isla: "🏝️", mano: "✋",
-      lupa: "🔍", sopa: "🥣", puma: "🐆", taza: "☕", bota: "🥾",
-      pelo: "💇", mapa: "🗺️", pipa: "🚬", pomo: "🧴", mula: "🐴",
-      sala: "🛋️", loma: "⛰️", pila: "🔋", lima: "🍋", pala: "🧹",
-      paloma: "🕊️", solo: "🙋", sola: "🙋‍♀️", lila: "🌸", malo: "👿",
-      misa: "⛪", peso: "⚖️", piso: "🏢", paso: "🚶", suma: "➕",
-      nena: "👧", pie: "🦶", pato: "🦆", pino: "🌲", tina: "🛁",
-      nido: "🪺", foco: "💡"
-    };
-
     if (entry.kind === "consonant") {
-      const out: Array<{ word: string; emoji?: string }> = [];
-      for (const list of Object.values(entry.data.examples)) {
-        if (Array.isArray(list) && list.length > 0) {
-          const w = list[0];
-          if (typeof w === "string" && w.length > 0) {
-            const lowercaseW = w.toLowerCase().trim();
-            out.push({ word: w, emoji: emojiMap[lowercaseW] || "⭐" });
-          }
-        }
-      }
-      return out;
+      return entry.data.vocab;
     }
     if (entry.kind === "vowel") {
-      return (entry.lesson.vocab || []).map((v) => ({
-        word: v.word,
-        emoji: v.emoji || emojiMap[v.word.toLowerCase().trim()] || "⭐"
-      }));
+      return entry.lesson.vocab.slice(0, 4);
     }
     return [
-      { word: "ala", emoji: "🪶" },
-      { word: "oso", emoji: "🐻" },
-      { word: "uva", emoji: "🍇" },
-      { word: "isla", emoji: "🏝️" },
+      { word: "ala" },
+      { word: "oso" },
+      { word: "uva" },
+      { word: "isla" },
     ];
   })();
 
-  // Deriving book sentences
+  // Book sentences (workbook-derived, from consonants.json)
   const sentences: string[] = (() => {
     if (entry.kind === "consonant") return entry.data.sentences ?? [];
     if (entry.kind === "vowel") {
@@ -97,136 +123,128 @@ export function StudentExercisePane({
     return [];
   })();
 
-  const letter = (() => {
-    if (entry.kind === "consonant") return entry.letter;
-    if (entry.kind === "vowel") return entry.vowel;
-    return "A";
-  })();
-
-  const isAllDone = carouselCompleted && (sentences.length === 0 || readingCompleted);
-
-  // Trigger completion callbacks
-  useEffect(() => {
-    if (isAllDone && onAllCompleted) {
-      onAllCompleted();
-    }
-  }, [isAllDone, onAllCompleted]);
-
-  const handleCarouselComplete = () => {
-    setCarouselCompleted(true);
-    try {
-      localStorage.setItem(STORAGE_KEY_CAROUSEL, "true");
-    } catch {}
-  };
-
-  const handleReadingComplete = () => {
-    setReadingCompleted(true);
-    playCorrectChord();
-    try {
-      localStorage.setItem(STORAGE_KEY_READING, "true");
-    } catch {}
-  };
+  const blocks = [
+    {
+      id: "syllable_tap",
+      label: "S\u00edlabas",
+      node: <SyllableTap syllables={syllables} color={accent} lessonId={lessonId} />
+    },
+    {
+      id: "word_match",
+      label: "Palabras",
+      node: <WordMatch words={words} color={accent} lessonId={lessonId} />
+    },
+    {
+      id: "drag_build_word",
+      label: "Construir",
+      node: (
+        <DragBuildWord
+          words={words.map((w) => w.word)}
+          accent={accent}
+          lessonId={lessonId}
+          onComplete={() => markDone("drag_build_word")}
+        />
+      )
+    },
+    sentences.length > 0
+      ? {
+          id: "reading_sentences",
+          label: "Leer",
+          node: (
+            <section className="space-y-3">
+              <div className="text-xs font-black uppercase tracking-[0.18em]" style={{ color: accent }}>
+                Lee con el maestro
+              </div>
+              <ol className="space-y-2.5 rounded-3xl border border-stone-200 bg-white/85 p-5 text-base font-bold text-amber-950 shadow-[0_18px_42px_rgba(50,30,10,0.07)]">
+                {sentences.map((s, i) => (
+                  <li key={`${lessonId}-s${i}`} className="flex items-start gap-3">
+                    <span
+                      className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full text-[11px] font-black text-white"
+                      style={numberBadgeStyle(accent)}
+                    >
+                      {i + 1}
+                    </span>
+                    <span className="leading-relaxed">{s}</span>
+                  </li>
+                ))}
+              </ol>
+              <button
+                type="button"
+                className="w-full rounded-2xl py-3 text-sm font-black text-white shadow-sm transition hover:opacity-90"
+                style={{ backgroundColor: accent }}
+                onClick={() => markDone("reading_sentences")}
+              >
+                Ya leí ✓
+              </button>
+            </section>
+          )
+        }
+      : {
+          id: "reading_sentences",
+          label: "Leer",
+          node: (
+            <button
+              type="button"
+              className="w-full rounded-2xl py-3 text-sm font-black text-white shadow-sm transition hover:opacity-90"
+              style={{ backgroundColor: accent }}
+              onClick={() => markDone("reading_sentences")}
+            >
+              Listo ✓
+            </button>
+          )
+        },
+  ];
 
   return (
-    <div className="student-exercise-pane relative space-y-6 pb-20">
-      {/* Dynamic Mascot Guide */}
-      <div className="absolute -top-12 -right-4 z-10 hidden sm:block">
-        <GretelMascot pose="point" className="scale-75 origin-bottom-right" />
-      </div>
-
-      {/* Book artwork illustration */}
+    <div className="student-exercise-pane relative">
+      {/* Character art from book asset manifest */}
       <BookArtFigure
         lesson={entry.n}
         role="character"
-        className="w-full mb-2"
+        className="w-full mb-5"
         style={{ aspectRatio: "4/3", maxHeight: "18rem" } as React.CSSProperties}
       />
-
-      {/* Main Interactive Carousel container */}
-      <div className="w-full">
-        <ActivityCarousel
-          lessonNumber={entry.n}
-          syllables={syllables}
-          words={words}
-          letter={letter}
-          color={accent}
-          lessonId={lessonId}
-          onCompleteAll={handleCarouselComplete}
+      <OrderedExercises lessonId={lessonId} blocks={blocks} />
+      {/* Sticky footer: timer + dots */}
+      <div className="lesson-sticky-bar">
+        <LessonTimer limitSeconds={timeLimitSeconds ?? null} />
+        <ProgressDots
+          ids={EXERCISE_IDS as unknown as ExerciseId[]}
+          completed={completed}
+          accent={accent}
         />
       </div>
+    </div>
+  );
+}
 
-      {/* Reading Sentences section (renders if lesson has sentences) */}
-      {sentences.length > 0 && (
-        <section className="space-y-3 pt-4 border-t border-stone-200/40">
-          <div className="text-xs font-black uppercase tracking-[0.18em]" style={{ color: accent }}>
-            Lee con el maestro
-          </div>
-          <ol className="space-y-3.5 rounded-3xl border border-stone-200 bg-white/85 p-5 text-base font-bold text-amber-950 shadow-[0_18px_42px_rgba(50,30,10,0.07)]">
-            {sentences.map((s, i) => (
-              <li key={`${lessonId}-s${i}`} className="flex items-start gap-3">
-                <span
-                  className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full text-[11px] font-black text-white"
-                  style={{ backgroundColor: accent }}
-                >
-                  {i + 1}
-                </span>
-                <span className="leading-relaxed">{s}</span>
-              </li>
-            ))}
-          </ol>
-
-          {readingCompleted ? (
-            <div className="w-full py-3 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-2xl text-center text-sm font-black flex items-center justify-center gap-2 shadow-sm">
-              <Check className="w-5 h-5 text-emerald-600" />
-              ¡Ya leíste las oraciones!
-            </div>
-          ) : (
-            <button
-              type="button"
-              className="w-full rounded-2xl py-3 text-sm font-black text-white shadow-md transition hover:brightness-105 active:scale-95"
-              style={{ backgroundColor: accent }}
-              onClick={handleReadingComplete}
-            >
-              Ya leí ✓
-            </button>
-          )}
-        </section>
-      )}
-
-      {/* Sticky footer timer and status */}
-      <div className="lesson-sticky-bar flex justify-between items-center px-6 py-3 bg-white/80 backdrop-blur-md border-t border-stone-200/50 fixed bottom-0 left-0 right-0 z-30 shadow-md">
-        <LessonTimer limitSeconds={timeLimitSeconds ?? null} />
-        <div className="flex items-center gap-2">
-          <span className="text-xs font-bold text-stone-500">Juegos:</span>
-          <div
-            className={`w-3.5 h-3.5 rounded-full border ${
-              carouselCompleted ? "bg-emerald-500 border-emerald-600" : "bg-stone-200 border-stone-300"
-            }`}
-          />
-          {sentences.length > 0 && (
-            <>
-              <span className="text-xs font-bold text-stone-500 ml-2">Lectura:</span>
-              <div
-                className={`w-3.5 h-3.5 rounded-full border ${
-                  readingCompleted ? "bg-emerald-500 border-emerald-600" : "bg-stone-200 border-stone-300"
-                }`}
-              />
-            </>
-          )}
-        </div>
-      </div>
-
-      {/* Final celebration trigger when everything is complete */}
-      {isAllDone && (
-        <div className="fixed bottom-24 right-4 z-40 animate-bounce">
-          <GretelMascot
-            pose="celebrate"
-            text="¡Excelente!\n¡Completaste toda la lección!"
-            bubblePosition="left"
-            showCloseButton={true}
-          />
-        </div>
-      )}
+// ── progress indicator ──────────────────────────────────────
+function ProgressDots({
+  ids,
+  completed,
+  accent,
+}: {
+  ids: ExerciseId[];
+  completed: Set<ExerciseId>;
+  accent: string;
+}) {
+  return (
+    <div
+      className="progress-dots"
+      role="group"
+      aria-label="Progreso de ejercicios"
+    >
+      {ids.map((id) => (
+        <div
+          key={id}
+          className="progress-dot"
+          data-done={completed.has(id) ? "true" : "false"}
+          data-active={!completed.has(id) ? "true" : "false"}
+          style={{ "--dot-color": accent } as React.CSSProperties}
+          aria-label={completed.has(id) ? `${id} completado` : `${id} pendiente`}
+          title={id.replace(/_/g, " ")}
+        />
+      ))}
     </div>
   );
 }

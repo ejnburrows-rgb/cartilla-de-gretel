@@ -1,46 +1,18 @@
 import { useEffect, useState } from "react";
-import { useGretelAnimation } from "./useGretelAnimation";
-
-export type GretelGuideState = "idle" | "talk" | "wave" | "point" | "cheer";
+import { useGretelEvents } from "./useGretelEvents";
 
 interface GretelGuideProps {
-  state?: GretelGuideState;
-  text?: string;
   className?: string;
   bubblePosition?: "left" | "right" | "top";
 }
 
 export function GretelGuide({
-  state = "idle",
-  text,
   className = "",
   bubblePosition = "left",
 }: GretelGuideProps) {
-  const { currentPose, machineState, send, isRecovering } = useGretelAnimation();
+  const { currentPose, machineState, speechText, send } = useGretelEvents();
   const [reducedMotion, setReducedMotion] = useState(false);
 
-  // Sync prop state to machine state
-  useEffect(() => {
-    switch (state) {
-      case "idle":
-        send({ type: "IDLE" });
-        break;
-      case "talk":
-        send({ type: "SPEAK_START" });
-        break;
-      case "wave":
-        send({ type: "WAVE" });
-        break;
-      case "point":
-        send({ type: "POINT" });
-        break;
-      case "cheer":
-        send({ type: "CHEER" });
-        break;
-    }
-  }, [state, send]);
-
-  // Handle prefers-reduced-motion
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     setReducedMotion(mediaQuery.matches);
@@ -53,7 +25,6 @@ export function GretelGuide({
     send({ type: "ASSET_ERROR" });
   };
 
-  // CSS Animation Classes
   let motionClass = "";
   if (!reducedMotion) {
     if (machineState === "idle" || machineState === "talking" || machineState === "boot" || machineState === "blinking") {
@@ -81,21 +52,19 @@ export function GretelGuide({
 
   return (
     <div className={`relative flex items-center justify-center ${className}`}>
-      {/* Speech Bubble */}
-      {text && (
+      {speechText && (
         <div
           className={`absolute z-30 max-w-[200px] sm:max-w-[240px] w-56 rounded-2xl bg-white p-3 sm:p-4 text-xs sm:text-sm font-bold text-stone-800 shadow-xl border border-stone-200/65 select-none animate-fade-in ${bubbleClasses[bubblePosition]}`}
           aria-live="polite"
         >
           <div className={`absolute w-0 h-0 border-solid ${bubbleArrowClasses[bubblePosition]}`} />
-          <p className="leading-relaxed whitespace-pre-line pr-2">{text}</p>
+          <p className="leading-relaxed whitespace-pre-line pr-2">{speechText}</p>
         </div>
       )}
 
-      {/* Mascot Image */}
       <div className={`relative h-24 w-24 sm:h-36 sm:w-36 origin-bottom drop-shadow-xl select-none ${motionClass}`}>
         <img
-          key={currentPose} // Remount when src changes
+          key={currentPose}
           src={currentPose}
           alt="Gretel"
           className="h-full w-full object-contain"
