@@ -6,7 +6,9 @@ export interface DashboardStudent {
   name: string;
   progress: number;
   lastActive: string;
-  alert: boolean;
+  alert?: boolean;
+  grade?: string;
+  teacher_notes?: string;
 }
 
 interface PipelineBoardProps {

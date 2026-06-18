@@ -14,7 +14,7 @@ function StudentLogin() {
     // If student already logged in, go straight to workbook
     const savedName = sessionStorage.getItem("studentName");
     if (savedName) {
-      navigate({ to: "/workbook" });
+      navigate({ to: "/cartilla/student/lecciones" });
     }
   }, [navigate]);
 
@@ -22,7 +22,7 @@ function StudentLogin() {
     e.preventDefault();
     if (studentName.trim()) {
       sessionStorage.setItem("studentName", studentName.trim());
-      navigate({ to: "/workbook" });
+      navigate({ to: "/cartilla/student/lecciones" });
     }
   };
 

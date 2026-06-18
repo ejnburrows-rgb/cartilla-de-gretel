@@ -1,74 +1,121 @@
-import { ChevronRight, Mail, MessageSquare, User } from "lucide-react";
+import { useState, useEffect } from "react";
+import { ChevronRight, Mail, MessageSquare, User, Save, Star, Clock } from "lucide-react";
 import type { DashboardStudent } from "./PipelineBoard";
 
 interface AccountPanelProps {
   student: DashboardStudent | null;
+  onUpdate?: (id: string, updates: Partial<DashboardStudent>) => void;
 }
 
-export function AccountPanel({ student }: AccountPanelProps) {
+export function AccountPanel({ student, onUpdate }: AccountPanelProps) {
+  const [grade, setGrade] = useState("");
+  const [notes, setNotes] = useState("");
+  const [isEditingNotes, setIsEditingNotes] = useState(false);
+
+  useEffect(() => {
+    if (student) {
+      setGrade(student.grade || "");
+      setNotes(student.teacher_notes || "");
+      setIsEditingNotes(false);
+    }
+  }, [student?.id]);
+
+  const handleSave = () => {
+    if (student && onUpdate) {
+      onUpdate(student.id, { grade, teacher_notes: notes });
+    }
+    setIsEditingNotes(false);
+  };
+
   if (!student) {
     return (
-      <div className="crm-card text-center py-10 space-y-4">
-        <div className="w-12 h-12 mx-auto bg-[#f6ecd7] rounded-full flex items-center justify-center text-[#8c6b36]">
-          <User className="w-6 h-6" />
+      <div className="bg-white rounded-3xl p-8 text-center border-4 border-dashed border-[#f6ecd7] flex flex-col items-center justify-center min-h-[400px]">
+        <div className="w-20 h-20 bg-[#fdf3e0] rounded-full flex items-center justify-center text-[#d97706] mb-4 shadow-inner">
+          <User className="w-10 h-10" />
         </div>
-        <div>
-          <h4 className="font-bold text-sm text-[#3a322b]">Sin selección</h4>
-          <p className="text-xs text-[#7a7065] mt-1 max-w-[200px] mx-auto">
-            Selecciona un alumno de la pizarra para ver sus detalles.
-          </p>
-        </div>
+        <h4 className="font-black text-xl text-[#3b2a12]">Sin selección</h4>
+        <p className="text-sm font-bold text-[#7a6040] mt-2 max-w-[200px]">
+          Selecciona un alumno de la pizarra para ver sus detalles, notas y tiempo.
+        </p>
       </div>
     );
   }
 
-  const progressWidthStyle: React.CSSProperties = {
-    width: `${student.progress}%`,
-  };
-
   return (
-    <div className="crm-card">
-      <div className="flex items-center justify-between mb-4">
-        <h3 className="text-lg font-bold">Vista de alumno</h3>
-        <button className="text-[#7a7065] hover:text-[#3a322b]">
-          <ChevronRight className="w-5 h-5" />
-        </button>
-      </div>
-
-      <div className="text-center py-4 border-b border-[#e8e2d9]">
-        <div className="w-16 h-16 mx-auto bg-[#dce7d5] rounded-full flex items-center justify-center text-2xl font-black text-[#2c3e20] mb-3 shadow-inner">
-          {student.name.charAt(0)}
+    <div className="bg-white rounded-3xl shadow-[0_10px_30px_rgb(0,0,0,0.05)] border border-stone-100 overflow-hidden">
+      {/* Header Area */}
+      <div className="bg-gradient-to-br from-[#dcfce7] to-[#bbf7d0] p-6 relative">
+        <div className="absolute top-4 right-4 bg-white/50 backdrop-blur-sm px-3 py-1 rounded-xl text-xs font-black text-[#166534]">
+          Vista de Alumno
         </div>
-        <h4 className="font-extrabold text-lg text-[#3a322b]">{student.name}</h4>
-        <p className="text-xs font-semibold text-[#7a7065] mt-1">
-          Última actividad: {student.lastActive}
-        </p>
+        <div className="flex flex-col items-center pt-4">
+          <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center text-3xl font-black text-[#166534] shadow-lg mb-3">
+            {student.name.charAt(0)}
+          </div>
+          <h4 className="font-black text-2xl text-[#14532d]">{student.name}</h4>
+          <p className="text-xs font-bold text-[#166534]/70 mt-1 flex items-center gap-1">
+            <Clock className="w-3 h-3" /> Última actividad: {student.lastActive}
+          </p>
+        </div>
       </div>
 
-      <div className="py-4 space-y-4">
-        <div>
-          <div className="flex justify-between text-xs font-bold mb-1">
-            <span className="text-[#7a7065]">Progreso general</span>
-            <span className="text-[#8da47e]">{student.progress}%</span>
+      <div className="p-6 space-y-6">
+        {/* Progress */}
+        <div className="bg-[#f8fafc] p-4 rounded-2xl border border-[#e2e8f0]">
+          <div className="flex justify-between text-xs font-black mb-2">
+            <span className="text-[#64748b] uppercase tracking-wider">Progreso del libro</span>
+            <span className="text-[#0ea5e9]">{student.progress}%</span>
           </div>
-          <div className="h-2 w-full bg-[#fdfbf7] rounded-full overflow-hidden border border-[#e8e2d9]">
-            <div className="h-full bg-[#8da47e] rounded-full" style={progressWidthStyle}></div>
+          <div className="h-4 w-full bg-[#e0f2fe] rounded-full overflow-hidden shadow-inner">
+            <div className="h-full bg-gradient-to-r from-[#38bdf8] to-[#0284c7] rounded-full transition-all duration-1000" style={{ width: `${student.progress}%` }} />
           </div>
-          {student.progress === 0 && (
-            <p className="text-[10px] text-[#7a7065]/70 italic font-semibold mt-1">
-              Progress appears after students complete activities.
-            </p>
+        </div>
+
+        {/* Grading Area */}
+        <div className="flex gap-4">
+          <div className="flex-1 bg-[#fff7ed] p-4 rounded-2xl border border-[#ffedd5]">
+            <label className="flex items-center gap-2 text-xs font-black text-[#c2410c] uppercase tracking-wider mb-2">
+              <Star className="w-4 h-4" /> Calificación (Nota)
+            </label>
+            <input 
+              type="text" 
+              placeholder="Ej. A+, 95/100, Excelente"
+              value={grade}
+              onChange={(e) => setGrade(e.target.value)}
+              onBlur={handleSave}
+              className="w-full bg-white px-3 py-2 rounded-xl text-sm font-bold text-[#9a3412] focus:outline-none focus:ring-2 focus:ring-[#fdba74] border border-[#fed7aa]"
+            />
+          </div>
+        </div>
+
+        {/* Teacher Notes Area */}
+        <div className="bg-[#fefce8] p-4 rounded-2xl border border-[#fef08a]">
+          <div className="flex justify-between items-center mb-2">
+            <label className="flex items-center gap-2 text-xs font-black text-[#a16207] uppercase tracking-wider">
+              <MessageSquare className="w-4 h-4" /> Comentarios del Maestro
+            </label>
+          </div>
+          <textarea 
+            placeholder="Añade un comentario sobre el progreso o áreas de mejora..."
+            value={notes}
+            onChange={(e) => {
+              setNotes(e.target.value);
+              setIsEditingNotes(true);
+            }}
+            className="w-full h-24 bg-white px-3 py-3 rounded-xl text-sm font-medium text-[#713f12] focus:outline-none focus:ring-2 focus:ring-[#fde047] border border-[#fde047] resize-none"
+          />
+          {isEditingNotes && (
+            <div className="flex justify-end mt-2">
+              <button 
+                onClick={handleSave}
+                className="flex items-center gap-1 px-4 py-2 bg-[#ca8a04] hover:bg-[#a16207] text-white text-xs font-black rounded-xl shadow-sm transition"
+              >
+                <Save className="w-3 h-3" /> Guardar Notas
+              </button>
+            </div>
           )}
         </div>
 
-        <div className="grid grid-cols-2 gap-2 mt-4">
-          <button className="flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-[#f6ecd7] text-[#8c6b36] hover:bg-[#d4a373] hover:text-white transition shadow-xs text-xs font-bold cursor-pointer">
-            <MessageSquare className="w-4 h-4" /> Nota
-          </button>
-          <button className="flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-[#d4e4ea] text-[#2c4c5b] hover:bg-[#a9c9d6] transition shadow-xs text-xs font-bold cursor-pointer">
-            <Mail className="w-4 h-4" /> Padres
-          </button>
-        </div>
       </div>
     </div>
   );
