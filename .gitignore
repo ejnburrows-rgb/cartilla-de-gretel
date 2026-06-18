@@ -33,3 +33,5 @@ dist-ssr
 # Leading / anchors these patterns to repo root only — does not affect public/ or src/
 /*.webp
 /*.png
+/*.pdf
+*.pdf
