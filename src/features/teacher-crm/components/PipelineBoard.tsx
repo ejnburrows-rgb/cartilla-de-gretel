@@ -60,14 +60,17 @@ export function PipelineBoard({
                   key={s.id}
                   onClick={() => onSelectStudent(s.id)}
                   className={cn(
-                    "crm-pipeline-card border-l-4 border-l-[#902b2b] transition-all",
+                    "crm-pipeline-card border-2 border-[#902b2b]/25 bg-[#902b2b]/5 transition-all",
                     isSelected
                       ? "ring-2 ring-[#902b2b]/40 scale-[1.02] bg-[hsl(354,78%,99%)]"
-                      : "hover:border-[#902b2b]/40",
+                      : "hover:border-[#902b2b]/50",
                   )}
                 >
                   <div className="flex justify-between items-start">
-                    <span className="font-bold text-sm text-[#3a322b]">{s.name}</span>
+                    <span className="inline-flex items-center gap-1.5 font-bold text-sm text-[#3a322b]">
+                      <span className="w-2 h-2 rounded-full bg-[#902b2b]" />
+                      {s.name}
+                    </span>
                     {s.alert && <AlertCircle className="w-4 h-4 text-[#902b2b]" />}
                   </div>
                   <div className="mt-2 text-[10px] text-[#7a7065] flex justify-between font-bold">
@@ -101,13 +104,16 @@ export function PipelineBoard({
                   key={s.id}
                   onClick={() => onSelectStudent(s.id)}
                   className={cn(
-                    "crm-pipeline-card border-l-4 border-l-[#d4a373] transition-all",
+                    "crm-pipeline-card border-2 border-[#d4a373]/25 bg-[#d4a373]/5 transition-all",
                     isSelected
                       ? "ring-2 ring-[#d4a373]/40 scale-[1.02] bg-[hsl(48,100%,99%)]"
-                      : "hover:border-[#d4a373]/40",
+                      : "hover:border-[#d4a373]/50",
                   )}
                 >
-                  <span className="font-bold text-sm text-[#3a322b]">{s.name}</span>
+                  <span className="inline-flex items-center gap-1.5 font-bold text-sm text-[#3a322b]">
+                    <span className="w-2 h-2 rounded-full bg-[#d4a373]" />
+                    {s.name}
+                  </span>
                   <div className="mt-2 text-[10px] text-[#7a7065] flex justify-between font-bold">
                     <span>Progreso: {s.progress}%</span>
                     <span>{s.lastActive}</span>
@@ -139,13 +145,16 @@ export function PipelineBoard({
                   key={s.id}
                   onClick={() => onSelectStudent(s.id)}
                   className={cn(
-                    "crm-pipeline-card border-l-4 border-l-[#8da47e] transition-all",
+                    "crm-pipeline-card border-2 border-[#8da47e]/25 bg-[#8da47e]/5 transition-all",
                     isSelected
                       ? "ring-2 ring-[#8da47e]/40 scale-[1.02] bg-[hsl(145,60%,99%)]"
-                      : "hover:border-[#8da47e]/40",
+                      : "hover:border-[#8da47e]/50",
                   )}
                 >
-                  <span className="font-bold text-sm text-[#3a322b]">{s.name}</span>
+                  <span className="inline-flex items-center gap-1.5 font-bold text-sm text-[#3a322b]">
+                    <span className="w-2 h-2 rounded-full bg-[#8da47e]" />
+                    {s.name}
+                  </span>
                   <div className="mt-2 text-[10px] text-[#7a7065] flex justify-between font-bold">
                     <span>Progreso: {s.progress}%</span>
                     <span>{s.lastActive}</span>

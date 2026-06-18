@@ -1,6 +1,10 @@
 /**
  * DragMatchWords.tsx — Lane A
  *
+ * Unwired: not currently used in StudentExercisePane. Depends on emoji as
+ * vocab art, which is banned from student-facing UI (Issue #1). Keep until
+ * real workbook-faithful word images exist, then rewire.
+ *
  * Drag-and-drop counterpart to WordMatch (Ejercicios.tsx, tap-to-select).
  * Drag word tiles from a tray onto picture/emoji slots.
  * Wrong drops snap back with shake animation; correct drops lock in place.

@@ -60,8 +60,11 @@ export function StickerReel({ earnedIds }: StickerReelProps) {
               >
                 {isEarned ? (
                   <>
-                    <span className="text-4xl filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.15)] group-hover:animate-bounce select-none">
-                      {sticker.emoji}
+                    <span
+                      className="text-3xl font-black select-none"
+                      style={{ color: sticker.color }}
+                    >
+                      {sticker.name.charAt(0).toUpperCase()}
                     </span>
                     {/* Sparkle micro-indicator */}
                     <span className="absolute -top-1.5 -right-1.5 flex h-3 w-3">

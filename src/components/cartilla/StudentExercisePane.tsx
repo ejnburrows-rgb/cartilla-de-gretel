@@ -20,7 +20,6 @@ import { useState, useEffect } from "react";
 import { BookArtFigure } from "@/components/cartilla/BookArtFigure";
 import { SyllableTap } from "@/components/cartilla/Ejercicios";
 import { DragBuildWord } from "@/components/cartilla/DragBuildWord";
-import { DragMatchWords } from "@/components/cartilla/DragMatchWords";
 import { OrderedExercises } from "@/components/cartilla/OrderedExercises";
 import { LessonTimer } from "@/components/cartilla/LessonTimer";
 import type { CatalogEntry } from "@/lib/lesson-catalog";
@@ -29,7 +28,6 @@ import "@/styles/cartilla-student.css";
 
 const EXERCISE_IDS = [
   "syllable_tap",
-  "word_match",
   "drag_build_word",
   "reading_sentences",
 ] as const;
@@ -129,18 +127,6 @@ export function StudentExercisePane({
       id: "syllable_tap",
       label: "S\u00edlabas",
       node: <SyllableTap syllables={syllables} color={accent} lessonId={lessonId} />
-    },
-    {
-      id: "word_match",
-      label: "Palabras",
-      node: (
-        <DragMatchWords
-          words={words}
-          accent={accent}
-          lessonId={lessonId}
-          onComplete={() => markDone("word_match")}
-        />
-      )
     },
     {
       id: "drag_build_word",

@@ -153,7 +153,7 @@ function ClassDetail() {
 
   const lessonChart = useMemo(() => {
     if (!classProgress) return [];
-    return CATALOG.slice(0, 12).map((entry) => {
+    return CATALOG.map((entry) => {
       const pl = (
         classProgress.perLesson as Record<string, { completedBy: number; accuracy: number | null }>
       )[String(entry.n)];
@@ -219,7 +219,11 @@ function ClassDetail() {
           <h2 className="font-bold mb-3 inline-flex items-center gap-2">
             <BarChart3 className="w-4 h-4" /> {t.alumnosCompletaron[lang]}
           </h2>
-          <SimpleBarChart bars={lessonChart} max={data.students.length || 1} />
+          <div className="overflow-x-auto">
+            <div style={{ minWidth: lessonChart.length * 44 }}>
+              <SimpleBarChart bars={lessonChart} max={data.students.length || 1} />
+            </div>
+          </div>
           <p className="text-[11px] text-foreground/50 mt-2">
             {t.subtituloPromedio[lang]}
           </p>

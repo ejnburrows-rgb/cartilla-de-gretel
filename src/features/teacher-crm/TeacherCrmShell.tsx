@@ -193,11 +193,13 @@ export function TeacherCrmShell() {
         
         <div className="crm-content flex-1 overflow-y-auto p-6 space-y-6">
           {/* Top Actions & Class Selector Bar */}
-          <section className="rounded-2xl border border-border border-l-4 border-l-[var(--color-accent)] bg-surface p-5 shadow-sm">
+          <section className="rounded-2xl border border-border bg-surface p-5 shadow-sm">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div>
-                <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#8da47e]">Centro docente</p>
-                <h1 className="mt-1 text-2xl font-black text-stone-800 font-fredoka">CRM de clase y reportes</h1>
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-[#8da47e]/15 px-2.5 py-0.5 text-[10px] font-black uppercase tracking-[0.2em] text-[#8da47e]">
+                  <GraduationCap className="h-3 w-3" /> Centro docente
+                </span>
+                <h1 className="mt-2 text-2xl font-black text-stone-800 font-fredoka">CRM de clase y reportes</h1>
                 <p className="mt-1 text-xs font-semibold text-stone-500 max-w-lg">
                   Gestiona clases, revisa el progreso del cuaderno y prepara reportes de aula.
                 </p>

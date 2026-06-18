@@ -62,8 +62,11 @@ export function BadgeGrid({ earnedIds }: BadgeGridProps) {
                 <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-white/40 pointer-events-none"></div>
 
                 {isEarned ? (
-                  <span className="text-3.5xl filter drop-shadow-[0_2px_3px_rgba(0,0,0,0.15)] select-none">
-                    {badge.emoji}
+                  <span
+                    className="text-2xl font-black select-none"
+                    style={{ color: badge.color }}
+                  >
+                    {badge.name.charAt(0).toUpperCase()}
                   </span>
                 ) : (
                   <Lock className="w-6 h-6 text-foreground/40" />

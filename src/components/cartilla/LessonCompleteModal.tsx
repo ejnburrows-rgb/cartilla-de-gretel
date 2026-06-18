@@ -73,9 +73,10 @@ export function LessonCompleteModal({ lessonId, onNext }: LessonCompleteModalPro
               <motion.div
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-                className="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300"
+                className="text-6xl font-black mb-4 group-hover:scale-110 transition-transform duration-300"
+                style={{ color: awardedSticker.color }}
               >
-                {awardedSticker.emoji}
+                {awardedSticker.name.charAt(0).toUpperCase()}
               </motion.div>
               <div className="font-bold text-lg font-fredoka text-primary">
                 {awardedSticker.name}
