@@ -53,51 +53,56 @@ const FOLDERS: DriveFolder[] = [
 
 function TeacherHub() {
   return (
-    <div className="w-full flex flex-col items-start py-8">
-      
-      {/* Header */}
-      <div className="mb-10 w-full border-b border-stone-200 pb-6 flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-bold text-stone-800 tracking-tight flex items-center gap-3">
-            <FolderOpen className="w-8 h-8 text-stone-400" />
-            Mi Unidad (Recursos)
-          </h1>
-          <p className="text-stone-500 mt-1 font-medium">Materiales y documentos para el aula</p>
-        </div>
+    <div 
+      className="w-full min-h-screen flex flex-col items-center justify-start py-16 px-4 sm:px-8 -mx-6 -my-6"
+      style={{
+        background: "radial-gradient(ellipse 120% 80% at 50% -10%, #fdf3e0 0%, #f5e8c8 60%, #ecdaaa 100%)",
+        minHeight: "calc(100vh - 64px)", // account for header
+      }}
+    >
+      <div className="text-center mb-16 relative z-10">
+        <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-3" style={{ color: "#3b2a12" }}>
+          Recursos del Maestro
+        </h1>
+        <p className="text-lg md:text-xl font-bold" style={{ color: "#7a6040" }}>
+          Selecciona una carpeta para abrir los materiales
+        </p>
       </div>
 
-      {/* Grid of Folders */}
-      <h2 className="text-sm font-bold text-stone-500 uppercase tracking-widest mb-6">Carpetas (5)</h2>
-      <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 sm:gap-10 pb-20">
         {FOLDERS.map((folder) => (
           <Link
             key={folder.title}
             to={folder.to as any}
-            className={`group relative flex flex-col items-start p-6 rounded-2xl overflow-hidden cursor-pointer transition-all duration-200 hover:-translate-y-1 hover:shadow-xl border border-black/10 ${folder.color}`}
+            className="group relative flex flex-col w-full pt-8 cursor-pointer transition-transform duration-300 hover:-translate-y-4 hover:scale-[1.05]"
           >
-            {/* Folder Icon Background Glow */}
-            <div className={`absolute -right-4 -top-4 opacity-10 group-hover:opacity-20 transition-opacity ${folder.iconColor}`}>
-              <Folder className="w-40 h-40" />
+            {/* Folder Tab (Back flap) */}
+            <div 
+              className={`absolute top-0 left-4 w-2/5 h-12 ${folder.color} rounded-t-2xl z-0 shadow-inner`} 
+              style={{ filter: "brightness(0.9)" }} // Make tab slightly darker to look like it's behind
+            />
+            
+            {/* Folder Front/Body */}
+            <div 
+              className={`relative z-10 w-full aspect-square ${folder.color} rounded-3xl rounded-tl-sm shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),inset_0_4px_12px_rgba(255,255,255,0.3)] flex flex-col items-center justify-center p-4 sm:p-6 overflow-hidden`}
+            >
+              {/* Folder Crease/Shadow line to make it look physical */}
+              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/20 to-transparent pointer-events-none" />
+              <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-black/10 mix-blend-overlay pointer-events-none" />
+              
+              {/* Inner Label (Sticker on the physical folder) */}
+              <div className="bg-white/95 rounded-2xl shadow-md w-full h-3/5 flex flex-col items-center justify-center p-3 text-center border-2 border-stone-100 z-20">
+                <h2 
+                  className="text-lg md:text-xl font-black leading-snug uppercase tracking-wide"
+                  style={{ color: "#3b2a12" }}
+                >
+                  {folder.title}
+                </h2>
+              </div>
             </div>
-
-            <div className="relative z-10 flex items-center gap-4 w-full">
-              <Folder className={`w-10 h-10 ${folder.iconColor} fill-current`} />
-              <h2 className="text-xl font-bold text-white leading-tight drop-shadow-sm pr-4">
-                {folder.title}
-              </h2>
-            </div>
-
           </Link>
         ))}
       </div>
-
-      {/* Placeholder for Recent Files */}
-      <h2 className="text-sm font-bold text-stone-500 uppercase tracking-widest mt-16 mb-6">Archivos Recientes</h2>
-      <div className="w-full bg-white rounded-2xl border border-stone-200 p-12 text-center text-stone-400 border-dashed">
-        <FileText className="w-12 h-12 mx-auto mb-4 opacity-30" />
-        <p className="font-medium">No hay archivos recientes. Abre una de las carpetas arriba para ver los documentos.</p>
-      </div>
-
     </div>
   );
 }
