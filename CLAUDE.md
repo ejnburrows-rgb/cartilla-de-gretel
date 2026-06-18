@@ -16,7 +16,7 @@ Teachers create classes, assign students, and track progress via Supabase.
 - src/routes/        → all pages (file-based routing)
 - src/components/    → shared UI components
 - src/features/      → feature modules
-- src/services/      → all Supabase calls go here
+- src/lib/           → utilities + *.functions.ts (Supabase data-access lives here, NOT in src/services/)
 - src/integrations/  → Supabase client init
 - src/context/       → React context providers
 - src/data/          → static lesson/content data
@@ -27,7 +27,7 @@ Teachers create classes, assign students, and track progress via Supabase.
 ## Hard Rules
 - NEVER edit src/routeTree.gen.ts manually
 - NEVER hardcode localhost URLs — always use import.meta.env
-- ALL Supabase calls go through src/services/ only
+- Supabase data-access goes through src/lib/*.functions.ts (auth helpers may call the client directly)
 - NEVER delete files — move or rename only
 - NEVER refactor working code unless explicitly asked
 - NEVER touch Gretel animation state machine without explicit approval
@@ -45,7 +45,7 @@ Teachers create classes, assign students, and track progress via Supabase.
 ✅ Landing page with desk scene
 ✅ Workbook with 95 pages
 ✅ Gretel compositing (GretelStage, GretelGuide)
-⚠️  Student login — uses sessionStorage, needs Supabase
-❌  Teacher login + class management — incomplete  
-❌  Cloud progress sync — not yet built
+⚠️  Student login — Supabase-validated join, session cached locally (offline-first by design)
+✅  Teacher login + class management — Supabase-backed CRM at /cartilla/teacher
+✅  Cloud progress sync — offline queue, drains to Supabase on reconnect
 ❌  Gretel reactions — hardcoded to page numbers, needs event-driven refactor
