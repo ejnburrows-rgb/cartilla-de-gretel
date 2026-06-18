@@ -158,6 +158,13 @@ function Leccion() {
   // PDF page number: use the first page of the lesson's pages range
   const firstPage = parseInt(entry.pages.split("-")[0] ?? "1", 10) || 1;
 
+  // Full page range for the lesson, used to build the completion-screen recap slideshow
+  const [rangeStart, rangeEnd] = entry.pages.split("-").map((p) => parseInt(p, 10));
+  const recapImages =
+    Number.isFinite(rangeStart) && Number.isFinite(rangeEnd)
+      ? Array.from({ length: rangeEnd - rangeStart + 1 }, (_, i) => getBookPageImage(rangeStart + i))
+      : [];
+
   const goNext = () => {
     setShowModal(false);
     markLessonCompleted(n);
@@ -452,7 +459,9 @@ function Leccion() {
           </div>
         )}
         <InstallPrompt />
-        {showModal && <LessonCompleteModal lessonId={lessonId} onNext={goNext} />}
+        {showModal && (
+          <LessonCompleteModal lessonId={lessonId} onNext={goNext} recapImages={recapImages} />
+        )}
       </main>
 
       {/* ── Bottom nav ── */}

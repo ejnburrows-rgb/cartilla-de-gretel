@@ -5,13 +5,16 @@ import { feelBus } from "@/lib/feel-bus";
 import { STICKERS, type Sticker } from "@/lib/rewards";
 import { saveEarnedSticker, getEarnedStickers } from "@/lib/rewards";
 import { GretelMascot } from "@/components/gretel/GretelMascot";
+import { KenBurnsSlideshow } from "@/components/cartilla/KenBurnsSlideshow";
 
 interface LessonCompleteModalProps {
   lessonId: string;
   onNext: () => void;
+  /** Page images from this lesson, shown as a pan/zoom recap before the celebration. */
+  recapImages?: string[];
 }
 
-export function LessonCompleteModal({ lessonId, onNext }: LessonCompleteModalProps) {
+export function LessonCompleteModal({ lessonId, onNext, recapImages }: LessonCompleteModalProps) {
   const [awardedSticker, setAwardedSticker] = useState<Sticker | null>(null);
 
   useEffect(() => {
@@ -44,6 +47,15 @@ export function LessonCompleteModal({ lessonId, onNext }: LessonCompleteModalPro
         <div className="absolute inset-0 pointer-events-none opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-amber-200 via-transparent to-transparent animate-pulse" />
 
         <div className="relative z-10">
+          {recapImages && recapImages.length > 0 && (
+            <KenBurnsSlideshow
+              images={recapImages}
+              slideDuration={3}
+              className="mb-6 h-36 -mt-2"
+              alt={(i) => `Página ${i + 1} de la lección`}
+            />
+          )}
+
           <div className="flex justify-center mb-6">
             <GretelMascot
               pose="celebrate"
