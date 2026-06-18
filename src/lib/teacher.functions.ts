@@ -371,6 +371,67 @@ export async function getClassProgress(input: Call<{ id: string }>) {
   };
 }
 
+/**
+ * Manual lesson-completion override. Lets a teacher mark/un-mark a lesson as
+ * completed for one of their students — for work done offline, on paper, or
+ * outside the app. This is the Supabase-backed successor to the old local-only
+ * "toggle lesson" grid.
+ *
+ * Marking complete reuses the validated `log_student_progress` RPC so the
+ * normalized progress + assignment tables stay consistent exactly as a real
+ * student completion would (idempotent — we don't stack duplicate events). The
+ * student_code is read server-side from the owned student, never trusted from
+ * the caller. Un-marking deletes the completion event(s), which the existing
+ * "progress teacher delete" RLS policy permits.
+ */
+export async function setLessonCompletion(
+  input: Call<{ studentId: string; lessonId: string; completed: boolean }>,
+) {
+  const data = z
+    .object({
+      studentId: z.string().uuid(),
+      lessonId: z.string().trim().min(1).max(50),
+      completed: z.boolean(),
+    })
+    .parse(input.data);
+  const student = await ensureTeacherOwnsStudent(data.studentId);
+
+  if (data.completed) {
+    // Idempotent: if a completion event already exists, there's nothing to do.
+    const { data: existing, error: exErr } = await supabase
+      .from("progress_events")
+      .select("id")
+      .eq("student_id", data.studentId)
+      .eq("lesson_id", data.lessonId)
+      .eq("event_kind", "lesson_completed")
+      .limit(1);
+    if (exErr) throw new Error(exErr.message);
+    if (existing && existing.length > 0) return { ok: true, completed: true };
+
+    const { error } = await supabase.rpc("log_student_progress", {
+      p_student_id: data.studentId,
+      p_student_code: student.student_code.toUpperCase(),
+      p_lesson_id: data.lessonId,
+      p_event_kind: "lesson_completed",
+      p_score: null,
+      p_total: null,
+      p_time_seconds: null,
+      p_meta: { source: "teacher" },
+    });
+    if (error) throw new Error(error.message);
+    return { ok: true, completed: true };
+  }
+
+  const { error } = await supabase
+    .from("progress_events")
+    .delete()
+    .eq("student_id", data.studentId)
+    .eq("lesson_id", data.lessonId)
+    .eq("event_kind", "lesson_completed");
+  if (error) throw new Error(error.message);
+  return { ok: true, completed: false };
+}
+
 /** Search students by name within the teacher's classes — for "código olvidado". */
 export async function findStudentsByName(input: Call<{ q: string; classId?: string }>) {
   const data = z

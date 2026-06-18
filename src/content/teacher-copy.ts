@@ -215,6 +215,22 @@ export const tCopy = {
     es: "completada",
     en: "completed",
   },
+  marcarCompletada: {
+    es: "Marcar completada",
+    en: "Mark complete",
+  },
+  quitarCompletada: {
+    es: "Quitar",
+    en: "Undo",
+  },
+  ajusteManual: {
+    es: "Puedes marcar una lección a mano si la trabajaron sin conexión o fuera de la app.",
+    en: "You can mark a lesson by hand if it was done offline or outside the app.",
+  },
+  noSeActualizo: {
+    es: "No se pudo actualizar la lección.",
+    en: "Couldn't update the lesson.",
+  },
   ejercicioSingular: {
     es: "ejercicio",
     en: "exercise",

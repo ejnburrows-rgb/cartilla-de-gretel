@@ -1,9 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useMemo } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useMemo, useState } from "react";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useServerFn } from "@/lib/useServerFn";
-import { ArrowLeft, Loader2, BookOpen, Award, Clock, Target, Activity } from "lucide-react";
-import { getStudentProgress } from "@/lib/teacher.functions";
+import { ArrowLeft, Loader2, BookOpen, Award, Clock, Target, Activity, Plus } from "lucide-react";
+import { getStudentProgress, setLessonCompletion } from "@/lib/teacher.functions";
 import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
 import { useLanguage } from "@/context/LanguageContext";
 import { tCopy } from "@/content/teacher-copy";
@@ -16,10 +16,24 @@ function StudentDetail() {
   const { lang } = useLanguage();
   const t = tCopy;
   const { id } = Route.useParams();
+  const qc = useQueryClient();
   const fetchProgress = useServerFn(getStudentProgress);
+  const setCompletion = useServerFn(setLessonCompletion);
+  const [pendingLesson, setPendingLesson] = useState<string | null>(null);
   const { data, isLoading } = useQuery({
     queryKey: ["teacher", "student", id],
     queryFn: () => fetchProgress({ data: { id } }),
+  });
+
+  const toggleMut = useMutation({
+    mutationFn: (vars: { lessonId: string; completed: boolean }) =>
+      setCompletion({ data: { studentId: id, lessonId: vars.lessonId, completed: vars.completed } }),
+    onMutate: (vars) => setPendingLesson(vars.lessonId),
+    onSettled: () => setPendingLesson(null),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ["teacher", "student", id] });
+      qc.invalidateQueries({ queryKey: ["teacher", "class"] });
+    },
   });
 
   const summary = useMemo(() => {
@@ -129,12 +143,18 @@ function StudentDetail() {
       )}
 
       <section className="mt-8">
-        <h2 className="font-bold mb-3 text-lg">{t.progresoLeccion[lang]}</h2>
+        <h2 className="font-bold mb-1 text-lg">{t.progresoLeccion[lang]}</h2>
+        <p className="text-xs text-foreground/50 mb-3">{t.ajusteManual[lang]}</p>
+        {toggleMut.error && (
+          <p className="text-sm text-destructive mb-3">{t.noSeActualizo[lang]}</p>
+        )}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
           {CATALOG.map((entry) => {
-            const isDone = summary.completedSet.has(String(entry.n));
-            const ex = summary.exerciseStats[String(entry.n)];
+            const lessonKey = String(entry.n);
+            const isDone = summary.completedSet.has(lessonKey);
+            const ex = summary.exerciseStats[lessonKey];
             const pct = ex ? Math.round((ex.score / ex.total) * 100) : null;
+            const isPending = pendingLesson === lessonKey;
             return (
               <div
                 key={entry.n}
@@ -157,6 +177,27 @@ function StudentDetail() {
                     )}
                   </div>
                 </div>
+                <button
+                  onClick={() => toggleMut.mutate({ lessonId: lessonKey, completed: !isDone })}
+                  disabled={isPending}
+                  className={`shrink-0 inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-bold transition-colors disabled:opacity-50 ${
+                    isDone
+                      ? "text-foreground/50 hover:bg-destructive/10 hover:text-destructive"
+                      : "text-success hover:bg-success/10"
+                  }`}
+                  aria-label={isDone ? t.quitarCompletada[lang] : t.marcarCompletada[lang]}
+                  title={isDone ? t.quitarCompletada[lang] : t.marcarCompletada[lang]}
+                >
+                  {isPending ? (
+                    <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                  ) : isDone ? (
+                    t.quitarCompletada[lang]
+                  ) : (
+                    <>
+                      <Plus className="w-3.5 h-3.5" /> {t.marcarCompletada[lang]}
+                    </>
+                  )}
+                </button>
               </div>
             );
           })}
