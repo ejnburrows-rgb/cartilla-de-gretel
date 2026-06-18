@@ -38,7 +38,16 @@ function Landing() {
   }, []);
 
   return (
-    <main className="min-h-screen flex items-center justify-center p-4 lg:p-12 bg-gradient-to-br from-[#1b4332] via-[#2d6a4f] to-[#40916c] overflow-hidden">
+    <main className="relative min-h-screen flex items-center justify-center p-4 lg:p-12 overflow-hidden">
+      
+      {/* Blurred Garden Background */}
+      <div 
+        className="absolute inset-0 z-0 bg-cover bg-center"
+        style={{ 
+          backgroundImage: "url('/cartilla/images/family-garden-bg.jpeg')",
+          filter: "blur(12px) brightness(0.7)"
+        }}
+      />
       
       <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 max-w-[1400px] w-full">
         
@@ -48,9 +57,7 @@ function Landing() {
             
             <div className="space-y-6">
               <div className="w-24 h-24 mx-auto bg-white/20 rounded-full flex items-center justify-center shadow-inner mb-8">
-                <img src="/art/hd/page-1.png" alt="Icon" className="w-16 h-16 object-contain drop-shadow-lg" 
-                  onError={(e) => { e.currentTarget.style.display = 'none'; }} 
-                />
+                <span className="text-4xl">📖</span>
               </div>
               <h1 className="text-5xl sm:text-7xl font-black text-white tracking-tight drop-shadow-lg" style={{ fontFamily: "'Fredoka', ui-rounded, system-ui, sans-serif" }}>
                 La Cartilla de Gretel
@@ -80,20 +87,15 @@ function Landing() {
           </div>
         </div>
 
-        {/* RIGHT: Big Family "Living Collage" */}
-        <div className="flex-1 w-full max-w-3xl hidden lg:block perspective-1000">
-          <div className="grid grid-cols-2 gap-6 p-6 transform rotate-y-[-10deg] rotate-x-[5deg] scale-105 hover:rotate-y-0 hover:rotate-x-0 transition-transform duration-1000 ease-out">
-            
-            <div className="flex flex-col gap-6 pt-12">
-              <LivingVideo src="/art/animated/page-202606180716.mp4" className="aspect-[4/5] shadow-2xl" />
-              <LivingVideo src="/art/animated/page-14.mp4" className="aspect-square shadow-2xl" />
-            </div>
-
-            <div className="flex flex-col gap-6">
-              <LivingVideo src="/art/animated/page-33.mp4" className="aspect-square shadow-2xl" />
-              <LivingVideo src="/art/animated/page-21.mp4" className="aspect-[4/5] shadow-2xl" />
-            </div>
-
+        {/* RIGHT: Big Family Composition Area */}
+        <div className="flex-1 w-full max-w-3xl hidden lg:flex items-center justify-center relative">
+          {/* This is where the transparent PNG characters will go */}
+          <div className="bg-black/40 backdrop-blur-md rounded-3xl p-8 border border-white/20 text-center">
+            <h3 className="text-2xl font-bold text-white mb-4">Esperando recortes transparentes...</h3>
+            <p className="text-white/80">
+              Para que los animales y Gretel se mezclen perfectamente como "una gran familia" sobre el jardín borroso, 
+              necesito que subas las imágenes de los personajes en formato <b>PNG transparente</b>.
+            </p>
           </div>
         </div>
         
