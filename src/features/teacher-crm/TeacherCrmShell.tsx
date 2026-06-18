@@ -186,35 +186,43 @@ export function TeacherCrmShell() {
   };
 
   return (
-    <div className="crm-app bg-[#fdfbf7]">
+    <div 
+      className="crm-app"
+      style={{
+        background: "radial-gradient(circle at top left, #fdf3e0 0%, #f5e8c8 50%, #ecdaaa 100%)",
+      }}
+    >
       <Sidebar />
       <main className="crm-main flex-1 flex flex-col h-screen overflow-hidden">
         <Topbar />
         
         <div className="crm-content flex-1 overflow-y-auto p-6 space-y-6">
           {/* Top Actions & Class Selector Bar */}
-          <section className="rounded-2xl border border-border border-l-4 border-l-[var(--color-accent)] bg-surface p-5 shadow-sm">
-            <div className="flex flex-wrap items-center justify-between gap-4">
+          <section className="rounded-3xl border-4 border-white bg-white/60 backdrop-blur-md p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative overflow-hidden">
+            <div className="absolute -right-10 -top-10 w-40 h-40 bg-[hsl(48,100%,80%)] rounded-full blur-3xl opacity-50 pointer-events-none" />
+            <div className="absolute right-20 -bottom-10 w-32 h-32 bg-[hsl(198,78%,80%)] rounded-full blur-3xl opacity-50 pointer-events-none" />
+            
+            <div className="flex flex-wrap items-center justify-between gap-4 relative z-10">
               <div>
-                <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#8da47e]">Centro docente</p>
-                <h1 className="mt-1 text-2xl font-black text-stone-800 font-fredoka">CRM de clase y reportes</h1>
-                <p className="mt-1 text-xs font-semibold text-stone-500 max-w-lg">
-                  Gestiona clases, revisa el progreso del cuaderno y prepara reportes de aula.
+                <p className="text-xs font-black uppercase tracking-[0.2em] text-[#d97706]">Módulo para Profesores</p>
+                <h1 className="mt-1 text-4xl font-black text-[#3b2a12] font-fredoka drop-shadow-sm">Centro de Control</h1>
+                <p className="mt-2 text-sm font-bold text-[#7a6040] max-w-lg">
+                  Gestiona clases, revisa el progreso del cuaderno y prepara reportes de aula de forma fácil y divertida.
                 </p>
               </div>
 
-              <div className="flex flex-wrap items-center gap-3">
+              <div className="flex flex-wrap items-center gap-4">
                 {/* Selector */}
                 {classesList.length > 0 && (
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-bold text-stone-500">Clase:</span>
+                  <div className="flex items-center gap-3 bg-white/80 p-2 pl-4 rounded-2xl shadow-sm border border-stone-200">
+                    <span className="text-xs font-black text-stone-500 uppercase tracking-widest">Tu Clase:</span>
                     <select
                       value={selectedClassId}
                       onChange={(e) => {
                         setSelectedClassId(e.target.value);
                         setSelectedStudentId(null);
                       }}
-                      className="px-3 py-2 rounded-xl border border-[hsl(28,30%,18%)]/10 bg-[#fdfbf7] text-stone-800 font-bold text-xs focus:outline-none cursor-pointer"
+                      className="px-4 py-2 rounded-xl border-2 border-[hsl(28,30%,18%)]/10 bg-white text-stone-800 font-bold text-sm focus:outline-none focus:border-[#d97706] cursor-pointer transition-colors shadow-sm"
                     >
                       {classesList.map((c) => (
                         <option key={c.id} value={c.id}>
@@ -225,19 +233,19 @@ export function TeacherCrmShell() {
                   </div>
                 )}
 
-                <div className="flex gap-2">
+                <div className="flex gap-3">
                   <Link
                     to="/cartilla/teacher/reportes"
-                    className="inline-flex items-center gap-1.5 rounded-xl bg-stone-850 px-3 py-2 text-xs font-black text-white hover:bg-stone-950 transition cursor-pointer"
+                    className="inline-flex items-center gap-2 rounded-2xl bg-[#ea580c] px-5 py-3 text-sm font-black text-white shadow-lg hover:-translate-y-1 hover:shadow-xl hover:bg-[#c2410c] transition-all cursor-pointer"
                   >
-                    <BarChart3 className="h-4 w-4" /> Reportes
+                    <BarChart3 className="h-5 w-5" /> Reportes
                   </Link>
                   <Link
                     to="/cartilla/teacher/flipchart/$n"
                     params={{ n: "1" }}
-                    className="inline-flex items-center gap-1.5 rounded-xl border border-[hsl(28,30%,18%)]/15 bg-white px-3 py-2 text-xs font-black text-stone-700 hover:border-[#8da47e] transition cursor-pointer"
+                    className="inline-flex items-center gap-2 rounded-2xl border-4 border-white bg-[#0284c7] px-5 py-3 text-sm font-black text-white shadow-lg hover:-translate-y-1 hover:shadow-xl hover:bg-[#0369a1] transition-all cursor-pointer"
                   >
-                    <MonitorPlay className="h-4 w-4 text-[#8da47e]" /> Flipchart
+                    <MonitorPlay className="h-5 w-5" /> Flipchart Mágico
                   </Link>
                 </div>
               </div>

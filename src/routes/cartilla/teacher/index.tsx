@@ -57,43 +57,42 @@ function TeacherHub() {
       className="w-full min-h-screen flex flex-col items-center justify-start py-16 px-4 sm:px-8 -mx-6 -my-6"
       style={{
         background: "radial-gradient(ellipse 120% 80% at 50% -10%, #fdf3e0 0%, #f5e8c8 60%, #ecdaaa 100%)",
-        minHeight: "calc(100vh - 64px)", // account for header
+        minHeight: "calc(100vh - 64px)", 
       }}
     >
-      <div className="text-center mb-16 relative z-10">
-        <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-3" style={{ color: "#3b2a12" }}>
+      <div className="text-center mb-16 relative z-10 drop-shadow-sm">
+        <h1 className="text-5xl md:text-6xl font-black tracking-tight mb-4" style={{ color: "#3b2a12" }}>
           Recursos del Maestro
         </h1>
-        <p className="text-lg md:text-xl font-bold" style={{ color: "#7a6040" }}>
-          Selecciona una carpeta para abrir los materiales
+        <p className="text-xl md:text-2xl font-bold" style={{ color: "#7a6040" }}>
+          ¡Selecciona una carpeta para abrir los materiales!
         </p>
       </div>
 
-      <div className="w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 sm:gap-10 pb-20">
+      <div className="w-full max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 sm:gap-12 pb-20">
         {FOLDERS.map((folder) => (
           <Link
             key={folder.title}
             to={folder.to as any}
-            className="group relative flex flex-col w-full pt-8 cursor-pointer transition-transform duration-300 hover:-translate-y-4 hover:scale-[1.05]"
+            className="group relative flex flex-col w-full pt-10 cursor-pointer transition-transform duration-300 hover:-translate-y-4 hover:scale-[1.05] hover:rotate-1"
           >
-            {/* Folder Tab (Back flap) */}
+            {/* Playful Folder Tab */}
             <div 
-              className={`absolute top-0 left-4 w-2/5 h-12 ${folder.color} rounded-t-2xl z-0 shadow-inner`} 
-              style={{ filter: "brightness(0.9)" }} // Make tab slightly darker to look like it's behind
+              className={`absolute top-0 left-6 w-1/2 h-14 ${folder.color} rounded-t-3xl z-0 shadow-inner`} 
+              style={{ filter: "brightness(0.85)" }} 
             />
             
             {/* Folder Front/Body */}
             <div 
-              className={`relative z-10 w-full aspect-square ${folder.color} rounded-3xl rounded-tl-sm shadow-[0_15px_40px_-10px_rgba(0,0,0,0.3),inset_0_4px_12px_rgba(255,255,255,0.3)] flex flex-col items-center justify-center p-4 sm:p-6 overflow-hidden`}
+              className={`relative z-10 w-full min-h-[220px] ${folder.color} rounded-3xl rounded-tl-md shadow-[0_20px_40px_-10px_rgba(0,0,0,0.4),inset_0_6px_20px_rgba(255,255,255,0.4)] flex flex-col items-center justify-center p-5 overflow-visible border-b-4 border-black/20`}
             >
-              {/* Folder Crease/Shadow line to make it look physical */}
-              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/20 to-transparent pointer-events-none" />
-              <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-black/10 mix-blend-overlay pointer-events-none" />
+              {/* Fun shadow and light glare */}
+              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/30 to-transparent pointer-events-none rounded-3xl" />
               
-              {/* Inner Label (Sticker on the physical folder) */}
-              <div className="bg-white/95 rounded-2xl shadow-md w-full h-3/5 flex flex-col items-center justify-center p-3 text-center border-2 border-stone-100 z-20">
+              {/* White Sticker Label (expands naturally) */}
+              <div className="bg-white/95 rounded-2xl shadow-lg w-full flex flex-col items-center justify-center p-4 text-center border-4 border-stone-100 z-20 group-hover:bg-white transition-colors rotate-[-2deg] group-hover:rotate-0 duration-300">
                 <h2 
-                  className="text-lg md:text-xl font-black leading-snug uppercase tracking-wide"
+                  className="text-xl sm:text-2xl font-black leading-tight uppercase"
                   style={{ color: "#3b2a12" }}
                 >
                   {folder.title}
