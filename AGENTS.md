@@ -34,3 +34,5 @@ Images served locally via Vite dev server, via Vercel on production.
 feat(scope): description
 fix(scope): description
 chore(scope): description
+
+- NEVER use AI-generated images or the legacy 'GretelStage' animated character. Always use the authentic hand-drawn artwork (e.g. public/art/hd/gretel-authentic.jpg).

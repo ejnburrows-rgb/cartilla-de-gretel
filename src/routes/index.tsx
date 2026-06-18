@@ -24,25 +24,16 @@ function Landing() {
 
   return (
     <main className="relative min-h-screen flex items-center justify-center px-4 py-12 overflow-hidden">
-      {/* Full-screen Looping Video Background */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0"
-        src="/art/animated/page-202606180716.mp4"
+      {/* Authentic Gretel Garden Background */}
+      <div 
+        className="absolute inset-0 z-0 bg-cover bg-center"
+        style={{ 
+          backgroundImage: "url('/art/hd/gretel-authentic.jpg')",
+          filter: "brightness(0.9)"
+        }}
       />
-      {/* Subtle overlay to ensure text readability */}
-      <div className="absolute inset-0 bg-black/20 z-0" />
       
-      <div className="relative z-10 flex flex-col items-center justify-center gap-8 max-w-4xl w-full text-center">
-        {/* Gretel */}
-        <div className="relative">
-          <GretelStage size="lg" warmth={true}>
-            <GretelGuide bubblePosition="top" />
-          </GretelStage>
-        </div>
+      <div className="relative z-10 flex flex-col items-center justify-center gap-8 max-w-4xl w-full text-center mt-32 sm:mt-64">
 
         <div className="bg-white/60 backdrop-blur-md rounded-3xl p-8 sm:p-12 shadow-2xl border border-white/40 max-w-2xl w-full mx-auto space-y-8">
           <div className="space-y-4">
