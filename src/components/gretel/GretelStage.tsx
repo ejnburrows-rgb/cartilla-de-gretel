@@ -6,6 +6,7 @@ interface GretelStageProps {
   basePoseSrc?: string;
   blinkOverlaySrc?: string;
   showBlink?: boolean;
+  children?: React.ReactNode;
 }
 
 const warmFilter = { filter: "sepia(15%) brightness(1.03)" };
@@ -15,7 +16,8 @@ export function GretelStage({
   warmth = true, 
   basePoseSrc,
   blinkOverlaySrc,
-  showBlink = false 
+  showBlink = false,
+  children
 }: GretelStageProps) {
   const sizeClasses = {
     sm: "max-h-[100px] max-w-[100px]",
@@ -63,6 +65,8 @@ export function GretelStage({
             draggable={false}
           />
         )}
+        
+        {children}
       </div>
     </div>
   );
