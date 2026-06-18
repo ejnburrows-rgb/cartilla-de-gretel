@@ -1,5 +1,5 @@
 import { createFileRoute, Outlet, Link, useLocation, redirect } from "@tanstack/react-router";
-import { Users, BarChart3, FileSpreadsheet, MonitorPlay } from "lucide-react";
+import { Users, BarChart3, FileSpreadsheet, MonitorPlay, BookOpen } from "lucide-react";
 import { getStudentSession } from "@/lib/student-session";
 
 export const Route = createFileRoute("/cartilla/teacher")({
@@ -64,6 +64,12 @@ function TeacherLayout() {
               icon={<FileSpreadsheet className="w-4 h-4" />}
               label="Reports"
               active={location.pathname.includes("/reportes")}
+            />
+            <NavLink
+              to="/cartilla/teacher/guia/1"
+              icon={<BookOpen className="w-4 h-4" />}
+              label="Guía"
+              active={location.pathname.includes("/guia")}
             />
             <NavLink
               to="/cartilla/student/lecciones"

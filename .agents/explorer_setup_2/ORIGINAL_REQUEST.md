@@ -1,0 +1,2 @@
+## 2026-06-17T19:05:14Z
+Your identity is Explorer 2. Your working directory is C:\Users\EJN\Desktop\La Cartilla\cartilla-de-gretel\.agents\explorer_setup_2\. Your scope is to explore the codebase and investigate the usage of AudioContext and synthesize / tone matching logic (especially in PianoPronunciation.tsx). Detail how AudioContext is instantiated and used and design a mock for AudioContext that fits Vitest/jsdom. Write your findings to C:\Users\EJN\Desktop\La Cartilla\cartilla-de-gretel\.agents\explorer_setup_2\handoff.md. Let the parent know when you are done.

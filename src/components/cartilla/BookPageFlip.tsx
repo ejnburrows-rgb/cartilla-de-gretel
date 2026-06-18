@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { BookPage } from "./BookPage";
+import { useSwipe } from "@/hooks/useSwipe";
 import { preloadSpread } from "@/utils/preloadSpread";
 
 interface BookPageFlipProps {
@@ -108,51 +109,17 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
     }, 600);
   };
 
-  if (!mounted) {
-    return (
-      <div className="relative w-full flex items-center justify-center select-none py-6 md:py-10 px-4 sm:px-8 max-w-4xl mx-auto book-desk-wrapper">
-        <div className="relative z-10 drop-shadow-2xl mx-auto w-full flex justify-center items-center h-[50vh]">
-          <div className="h-10 w-10 animate-spin rounded-full border-4 border-stone-300 border-t-amber-500" />
-        </div>
-      </div>
-    );
-  }
-
-  const renderDesktop = () => {
-    const leftIndex = isFlipping && flipDirection === 'prev' ? currentIndex - 2 : currentIndex;
-    const rightIndex = isFlipping && flipDirection === 'next' ? currentIndex + 3 : currentIndex + 1;
-    
-    const flipFrontIndex = isFlipping ? (flipDirection === 'next' ? currentIndex + 1 : currentIndex - 1) : -1;
-    const flipBackIndex = isFlipping ? (flipDirection === 'next' ? currentIndex + 2 : currentIndex) : -1;
-    
-    return (
-      <div className="book-container flex w-full max-w-4xl mx-auto aspect-[2/1.3] shadow-2xl rounded-lg bg-surface border border-border">
-        <div className="w-1/2 h-full border-r border-border relative overflow-hidden">
-          {pagesArray[leftIndex] !== undefined ? <Page pageNum={pagesArray[leftIndex]} /> : <div className="w-full h-full bg-surface" />}
-        </div>
-        
-        <div className="w-1/2 h-full relative overflow-hidden">
-          {pagesArray[rightIndex] !== undefined ? <Page pageNum={pagesArray[rightIndex]} /> : <div className="w-full h-full bg-surface" />}
-        </div>
-        
-        {isFlipping && (
-          <div className={`page-flip ${flipDirection === 'next' ? 'flipping-right-to-left' : ''}`} style={{ transform: flipTransform }}>
-            <div className="page-front border-l border-border overflow-hidden">
-              {pagesArray[flipFrontIndex] !== undefined ? <Page pageNum={pagesArray[flipFrontIndex]} /> : <div className="w-full h-full bg-surface" />}
-            </div>
-            <div className="page-back border-r border-border overflow-hidden">
-              {pagesArray[flipBackIndex] !== undefined ? <Page pageNum={pagesArray[flipBackIndex]} /> : <div className="w-full h-full bg-surface" />}
-            </div>
-          </div>
-        )}
-        {/* Book spine shadow — stronger gradient for a real binding feel */}
-        <div className="absolute top-0 bottom-0 left-1/2 w-10 -translate-x-1/2 pointer-events-none z-30">
-          <div className="absolute inset-0 bg-gradient-to-r from-black/15 via-black/5 to-transparent w-1/2" />
-          <div className="absolute inset-0 left-1/2 bg-gradient-to-l from-black/15 via-black/5 to-transparent w-1/2" />
-        </div>
-      </div>
-    );
-  };
+  // Add touch swipe support (swipe left = next, swipe right = previous)
+  const swipeHandlers = useSwipe({
+    onSwipe: (data) => {
+      if (data.direction === "left") {
+        handleNext();
+      } else if (data.direction === "right") {
+        handlePrev();
+      }
+    },
+    minDistance: 40,
+  });
 
   const renderMobile = () => {
     const staticIndex = isFlipping && flipDirection === 'prev' ? currentIndex - 1 : (isFlipping && flipDirection === 'next' ? currentIndex + 1 : currentIndex);
@@ -160,22 +127,72 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
     const flipBackIndex = isFlipping ? (flipDirection === 'next' ? currentIndex + 1 : currentIndex) : -1;
 
     return (
-      <div className="book-container book-single-page w-full max-w-[450px] mx-auto aspect-[3/4] shadow-2xl rounded-lg bg-surface border border-border">
+      <div 
+        className="book-container book-single-page w-full shadow-2xl rounded-lg bg-surface border border-border aspect-[3/4]"
+        {...swipeHandlers}
+      >
         <div className="w-full h-full relative overflow-hidden">
           {pagesArray[staticIndex] !== undefined ? <Page pageNum={pagesArray[staticIndex]} /> : <div className="w-full h-full bg-surface" />}
         </div>
-        
+
         {isFlipping && (
           <div className={`page-flip ${flipDirection === 'next' ? 'flipping-right-to-left' : ''}`}
                style={{ transform: flipTransform }}>
              <div className="page-front overflow-hidden">
-               {pagesArray[flipFrontIndex] !== undefined ? <Page pageNum={pagesArray[flipFrontIndex]} /> : <div className="w-full h-full bg-surface" />}
+                {pagesArray[flipFrontIndex] !== undefined ? <Page pageNum={pagesArray[flipFrontIndex]} /> : <div className="w-full h-full bg-surface" />}
              </div>
              <div className="page-back overflow-hidden">
-               {pagesArray[flipBackIndex] !== undefined ? <Page pageNum={pagesArray[flipBackIndex]} /> : <div className="w-full h-full bg-surface" />}
+                {pagesArray[flipBackIndex] !== undefined ? <Page pageNum={pagesArray[flipBackIndex]} /> : <div className="w-full h-full bg-surface" />}
              </div>
           </div>
         )}
+      </div>
+    );
+  };
+
+  const renderDesktop = () => {
+    const leftIndex = isFlipping && flipDirection === 'prev' ? currentIndex - 2 : currentIndex;
+    const rightIndex = isFlipping && flipDirection === 'next' ? currentIndex + 3 : currentIndex + 1;
+
+    const flipFrontIndex = isFlipping ? (flipDirection === 'next' ? currentIndex + 1 : currentIndex - 1) : -1;
+    const flipBackIndex = isFlipping ? (flipDirection === 'next' ? currentIndex + 2 : currentIndex) : -1;
+
+    return (
+      <div 
+        className="book-container flex w-full shadow-2xl rounded-lg bg-surface border border-border aspect-[2/1.33] relative"
+        {...swipeHandlers}
+      >
+        {/* Left page */}
+        <div className="w-1/2 h-full border-r border-stone-200/50 relative overflow-hidden">
+          {pagesArray[leftIndex] !== undefined ? <Page pageNum={pagesArray[leftIndex]} /> : <div className="w-full h-full bg-surface" />}
+          {/* Subtle page edge overlay shadow on the right side of the left page */}
+          <div className="absolute top-0 bottom-0 right-0 w-2 bg-gradient-to-l from-black/5 to-transparent pointer-events-none z-10" />
+        </div>
+
+        {/* Right page */}
+        <div className="w-1/2 h-full relative overflow-hidden">
+          {pagesArray[rightIndex] !== undefined ? <Page pageNum={pagesArray[rightIndex]} /> : <div className="w-full h-full bg-surface" />}
+          {/* Subtle page edge overlay shadow on the left side of the right page */}
+          <div className="absolute top-0 bottom-0 left-0 w-2 bg-gradient-to-r from-black/5 to-transparent pointer-events-none z-10" />
+        </div>
+
+        {/* Moving leaf during flip */}
+        {isFlipping && (
+          <div className={`page-flip ${flipDirection === 'next' ? 'flipping-right-to-left' : ''}`} style={{ transform: flipTransform }}>
+            <div className="page-front border-l border-stone-200/30 overflow-hidden">
+              {pagesArray[flipFrontIndex] !== undefined ? <Page pageNum={pagesArray[flipFrontIndex]} /> : <div className="w-full h-full bg-surface" />}
+            </div>
+            <div className="page-back border-r border-stone-200/30 overflow-hidden">
+              {pagesArray[flipBackIndex] !== undefined ? <Page pageNum={pagesArray[flipBackIndex]} /> : <div className="w-full h-full bg-surface" />}
+            </div>
+          </div>
+        )}
+
+        {/* Central Book spine shadow */}
+        <div className="absolute top-0 bottom-0 left-1/2 w-8 -translate-x-1/2 pointer-events-none z-30">
+          <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-black/3 to-transparent w-1/2" />
+          <div className="absolute inset-0 left-1/2 bg-gradient-to-l from-black/10 via-black/3 to-transparent w-1/2" />
+        </div>
       </div>
     );
   };

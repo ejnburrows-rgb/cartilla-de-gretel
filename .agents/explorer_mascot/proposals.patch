@@ -1,0 +1,75 @@
+diff --git a/src/components/gretel/gretelPoses.ts b/src/components/gretel/gretelPoses.ts
+index a1a2a3a..b4b5b6b 100644
+--- a/src/components/gretel/gretelPoses.ts
++++ b/src/components/gretel/gretelPoses.ts
+@@ -15,10 +15,10 @@ export type GretelPoseState =
+  * Operators will drop these files into public/cartilla/images/gretel/poses/.
+  */
+ export const GRETEL_POSES: Record<GretelPoseState, string> = {
+-  "idle-1": "/cartilla/images/gretel/sitting.jpg",
+-  "idle-2": "/cartilla/images/gretel/sitting.jpg",
+-  "blink": "/cartilla/images/gretel/sitting.jpg",
+-  "talk-open": "/cartilla/images/gretel/waving-red.jpg",
+-  "talk-closed": "/cartilla/images/gretel/sitting.jpg",
+-  "wave": "/cartilla/images/gretel/waving-blue.jpg",
+-  "point": "/cartilla/images/gretel/waving-red.jpg",
+-  "cheer": "/cartilla/images/gretel/thumbs-up.png",
++  "idle-1": "/cartilla/images/gretel/poses/idle-1.webp",
++  "idle-2": "/cartilla/images/gretel/poses/idle-2.webp",
++  "blink": "/cartilla/images/gretel/poses/blink.webp",
++  "talk-open": "/cartilla/images/gretel/poses/talk-open.webp",
++  "talk-closed": "/cartilla/images/gretel/poses/talk-closed.webp",
++  "wave": "/cartilla/images/gretel/poses/wave.webp",
++  "point": "/cartilla/images/gretel/poses/point.webp",
++  "cheer": "/cartilla/images/gretel/poses/cheer.webp",
+ };
+
+diff --git a/src/lib/speak.ts b/src/lib/speak.ts
+index c1c2c3c..d4d5d6d 100644
+--- a/src/lib/speak.ts
++++ b/src/lib/speak.ts
+@@ -1,6 +1,7 @@
+ // Free Spanish TTS using the browser's SpeechSynthesis API.
+ let cachedVoice: SpeechSynthesisVoice | null = null;
+ let voicesReady: Promise<void> | null = null;
++let lastOnLine: boolean | null = null;
+ 
+ const PREFERRED_NAMES = [
+   "Google español",
+@@ -47,6 +48,17 @@ function scoreVoice(v: SpeechSynthesisVoice): number {
+   return score;
+ }
+ 
++function getVoice(): SpeechSynthesisVoice | null {
++  const currentOnLine = typeof navigator !== "undefined" ? navigator.onLine : true;
++  if (lastOnLine !== currentOnLine) {
++    cachedVoice = null;
++    lastOnLine = currentOnLine;
++  }
++  if (!cachedVoice) {
++    cachedVoice = pickBestVoice();
++  }
++  return cachedVoice;
++}
++
+ function pickBestVoice(): SpeechSynthesisVoice | null {
+   const voices = window.speechSynthesis.getVoices();
+   if (!voices.length) return null;
+@@ -91,7 +103,7 @@ export async function speak(text: string): Promise<void> {
+       u.onend = () => { window.dispatchEvent(new CustomEvent("gretel:speak_stop")); resolve(); };
+       u.onerror = () => { window.dispatchEvent(new CustomEvent("gretel:speak_stop")); resolve(); };
+ 
+-      const voice = cachedVoice ?? pickBestVoice();
++      const voice = getVoice();
+       if (voice) {
+         u.voice = voice;
+         u.lang = voice.lang;
+@@ -123,7 +135,7 @@ export async function speakVowel(v: string): Promise<void> {
+       u.onend = () => { window.dispatchEvent(new CustomEvent("gretel:speak_stop")); resolve(); };
+       u.onerror = () => { window.dispatchEvent(new CustomEvent("gretel:speak_stop")); resolve(); };
+ 
+-      const voice = cachedVoice ?? pickBestVoice();
++      const voice = getVoice();
+       if (voice) {
+         u.voice = voice;
+         u.lang = voice.lang;

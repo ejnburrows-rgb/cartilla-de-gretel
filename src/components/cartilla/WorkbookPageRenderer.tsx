@@ -19,8 +19,8 @@ const baseStroke = {
   fill: "none",
 };
 
-const dottedTextClass = "fill-none stroke-stone-400 stroke-[1.5] stroke-dasharray-[2,2] font-fredoka";
-const solidTextClass = "fill-stone-800 font-black font-fredoka";
+const dottedTextClass = "fill-none stroke-stone-400 stroke-[1.5] stroke-dasharray-[2,2]";
+const solidTextClass = "fill-stone-800 font-black";
 
 interface SVGWorkbookLineProps {
   text: string;
@@ -51,6 +51,7 @@ export function SVGWorkbookLine({ text, dotted = false }: SVGWorkbookLineProps) 
         x="15"
         y="32"
         fontSize="22"
+        fontFamily="Century Gothic, Gill Sans, Trebuchet MS, sans-serif"
         className={dotted ? dottedTextClass : solidTextClass}
         letterSpacing="4"
       >
@@ -81,7 +82,7 @@ export function SVGTracingLetter({ letter }: SVGTracingLetterProps) {
         x="50"
         y="72"
         fontSize="64"
-        fontFamily="Fredoka, sans-serif"
+        fontFamily="Century Gothic, Gill Sans, Trebuchet MS, sans-serif"
         fontWeight="bold"
         fill="none"
         stroke="#e2e8f0"
@@ -96,7 +97,7 @@ export function SVGTracingLetter({ letter }: SVGTracingLetterProps) {
         x="50"
         y="72"
         fontSize="64"
-        fontFamily="Fredoka, sans-serif"
+        fontFamily="Century Gothic, Gill Sans, Trebuchet MS, sans-serif"
         fontWeight="bold"
         fill="none"
         stroke="#78716c"

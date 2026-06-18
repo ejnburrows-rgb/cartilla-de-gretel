@@ -1,6 +1,7 @@
-﻿// Free Spanish TTS using the browser's SpeechSynthesis API.
+// Free Spanish TTS using the browser's SpeechSynthesis API.
 let cachedVoice: SpeechSynthesisVoice | null = null;
 let voicesReady: Promise<void> | null = null;
+let lastOnLine: boolean | null = null;
 
 const PREFERRED_NAMES = [
   "Google español",
@@ -31,7 +32,18 @@ function scoreVoice(v: SpeechSynthesisVoice): number {
   if (lang === "es-mx") score += 30;
   else if (lang === "es-us") score += 25;
   else if (lang === "es-es") score += 20;
-  if (v.localService) score += 5;
+
+  // Boost local voices when offline to ensure SpeechSynthesis functions without network calls
+  const isOffline = typeof navigator !== "undefined" && !navigator.onLine;
+  if (isOffline) {
+    if (v.localService) {
+      score += 5000;
+    } else {
+      score -= 2000; // Penalize online-only voices when offline
+    }
+  } else {
+    if (v.localService) score += 5;
+  }
   return score;
 }
 
@@ -43,6 +55,18 @@ function pickBestVoice(): SpeechSynthesisVoice | null {
     .filter((x) => x.s >= 0)
     .sort((a, b) => b.s - a.s);
   return ranked[0]?.v ?? null;
+}
+
+function getVoice(): SpeechSynthesisVoice | null {
+  const currentOnLine = typeof navigator !== "undefined" ? navigator.onLine : true;
+  if (lastOnLine !== currentOnLine) {
+    cachedVoice = null;
+    lastOnLine = currentOnLine;
+  }
+  if (!cachedVoice) {
+    cachedVoice = pickBestVoice();
+  }
+  return cachedVoice;
 }
 
 function ensureVoices(): Promise<void> {
@@ -80,7 +104,7 @@ export async function speak(text: string): Promise<void> {
       u.onend = () => { window.dispatchEvent(new CustomEvent("gretel:speak_stop")); resolve(); };
       u.onerror = () => { window.dispatchEvent(new CustomEvent("gretel:speak_stop")); resolve(); };
 
-      const voice = cachedVoice ?? pickBestVoice();
+      const voice = getVoice();
       if (voice) {
         u.voice = voice;
         u.lang = voice.lang;
@@ -112,7 +136,7 @@ export async function speakVowel(v: string): Promise<void> {
       u.onend = () => { window.dispatchEvent(new CustomEvent("gretel:speak_stop")); resolve(); };
       u.onerror = () => { window.dispatchEvent(new CustomEvent("gretel:speak_stop")); resolve(); };
 
-      const voice = cachedVoice ?? pickBestVoice();
+      const voice = getVoice();
       if (voice) {
         u.voice = voice;
         u.lang = voice.lang;

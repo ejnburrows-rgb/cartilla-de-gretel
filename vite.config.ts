@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/// <reference types="vitest" />
 import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
 import viteReact from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
-import { defineConfig } from "vite";
+import { defineConfig } from "vitest/config";
 import tsConfigPaths from "vite-tsconfig-paths";
 import { gzipSync, brotliCompressSync } from "zlib";
 
@@ -58,6 +60,11 @@ export default defineConfig({
     tsConfigPaths(),
     compressPlugin(),
   ],
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: "./src/test/setup.ts",
+  },
   esbuild: {
     drop: ["console", "debugger"],
   },

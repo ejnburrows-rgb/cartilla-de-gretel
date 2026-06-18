@@ -1,4 +1,4 @@
-import type { CSSProperties } from "react";
+import { useEffect, type CSSProperties } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Check, RefreshCw, Sparkles, X } from "lucide-react";
 
@@ -57,6 +57,14 @@ export function GretelFeedback({
   state: "ok" | "x" | null;
   onRetry: () => void;
 }) {
+  useEffect(() => {
+    if (state === "ok") {
+      window.dispatchEvent(new CustomEvent("gretel:celebrate", {
+        detail: { text: "¡Muy bien! ¡Excelente trabajo!" }
+      }));
+    }
+  }, [state]);
+
   return (
     <AnimatePresence>
       {state && (
@@ -82,7 +90,7 @@ export function GretelFeedback({
             <GretelAvatar mood={state} />
             <div className="relative z-10 min-w-0 flex-1">
               <div className="text-xl font-black leading-tight sm:text-2xl" style={titleStyle(state)}>
-                {state === "ok" ? "Muy bien" : "Intenta otra vez"}
+                {state === "ok" ? "¡Muy bien!" : "Intenta otra vez"}
               </div>
               <div className="mt-0.5 text-sm font-semibold leading-snug sm:text-base" style={bodyStyle(state)}>
                 {state === "ok" ? "Lo hiciste con cuidado. Sigue con la siguiente." : "No pasa nada. Limpia los espacios y prueba otra vez."}
@@ -94,7 +102,7 @@ export function GretelFeedback({
               className="relative z-10 inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-xl px-3 py-2 text-sm font-black text-white shadow-sm transition hover:-translate-y-px active:scale-95 sm:min-h-12 sm:px-4"
               style={retryButtonStyle(state)}
             >
-              <RefreshCw className="h-4 w-4" /> {state === "ok" ? "Otra" : "Intentar"}
+              <RefreshCw className="h-4 w-4" /> {state === "ok" ? "Siguiente" : "Intentar"}
             </button>
           </motion.div>
         </motion.div>
