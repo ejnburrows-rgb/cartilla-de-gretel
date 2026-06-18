@@ -40,7 +40,7 @@ export function StudentWorkbookShell({
             <Link to="/cartilla/teacher" className="inline-flex min-h-10 items-center gap-2 rounded-full border border-white/55 bg-white/55 px-3 py-2 text-xs font-black shadow-sm backdrop-blur hover:bg-white/80">
               <GraduationCap className="h-3.5 w-3.5" /> CRM docente
             </Link>
-            <Link to="/cartilla/teacher/flipchart" className="inline-flex min-h-10 items-center gap-2 rounded-full border border-white/55 bg-white/55 px-3 py-2 text-xs font-black shadow-sm backdrop-blur hover:bg-white/80">
+            <Link to="/cartilla/recursos/flipchart" className="inline-flex min-h-10 items-center gap-2 rounded-full border border-white/55 bg-white/55 px-3 py-2 text-xs font-black shadow-sm backdrop-blur hover:bg-white/80">
               <Presentation className="h-3.5 w-3.5" /> Flipchart
             </Link>
           </div>

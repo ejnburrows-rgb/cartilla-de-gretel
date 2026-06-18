@@ -8,7 +8,7 @@ import {
   Layers,
 } from "lucide-react";
 
-export const Route = createFileRoute("/cartilla/teacher/guide")({
+export const Route = createFileRoute("/cartilla/recursos/guide")({
   component: TeacherGuide,
   head: () => ({
     meta: [{ title: "Guía del Maestro — La Cartilla de Gretel" }],
@@ -86,7 +86,7 @@ function TeacherGuide() {
     >
       <div className="max-w-5xl mx-auto">
         <Link
-          to="/cartilla/teacher"
+          to="/cartilla/recursos"
           className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest mb-10 text-[#6a7a60] hover:text-[#3a4a30] transition-colors"
         >
           <ChevronLeft className="w-4 h-4" /> Volver

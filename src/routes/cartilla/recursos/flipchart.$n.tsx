@@ -7,12 +7,12 @@ import { getFlipchartSourceCardsForLesson } from "@/lib/flipchart-source";
 import { TeacherNoteField } from "@/components/teacher/TeacherNoteField";
 import { FlipbookVerticalViewer } from "@/components/cartilla/FlipbookVerticalViewer";
 
-export const Route = createFileRoute("/cartilla/teacher/flipchart/$n")({
+export const Route = createFileRoute("/cartilla/recursos/flipchart/$n")({
   component: FlipchartLeccion,
   beforeLoad: ({ params }) => {
     const n = Number(params.n);
     if (!Number.isFinite(n) || !CATALOG.find((e) => e.n === n)) {
-      throw redirect({ to: "/cartilla/teacher/flipchart" });
+      throw redirect({ to: "/cartilla/recursos/flipchart" });
     }
   },
 });
@@ -62,7 +62,7 @@ function FlipchartLeccion() {
     if (currentPageIndex < pages.length - 1) {
       setCurrentPageIndex(prev => prev + 1);
     } else if (n < CATALOG.length) {
-      navigate({ to: "/cartilla/teacher/flipchart/$n", params: { n: String(n + 1) } });
+      navigate({ to: "/cartilla/recursos/flipchart/$n", params: { n: String(n + 1) } });
     }
   };
 
@@ -70,7 +70,7 @@ function FlipchartLeccion() {
     if (currentPageIndex > 0) {
       setCurrentPageIndex(prev => prev - 1);
     } else if (n > 1) {
-      navigate({ to: "/cartilla/teacher/flipchart/$n", params: { n: String(n - 1) } });
+      navigate({ to: "/cartilla/recursos/flipchart/$n", params: { n: String(n - 1) } });
     }
   };
 
@@ -100,7 +100,7 @@ function FlipchartLeccion() {
         {/* Overlay controls (hidden when idle/fullscreen, but for now just subtle) */}
         <div className="absolute top-4 left-4 flex items-center gap-3 opacity-50 hover:opacity-100 transition-opacity">
           <Link
-            to="/cartilla/teacher/flipchart"
+            to="/cartilla/recursos/flipchart"
             className="p-3 bg-stone-800 text-white rounded-full hover:bg-stone-700"
             title="Volver al selector"
           >

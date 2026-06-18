@@ -1,11 +1,12 @@
 /**
  * Teacher Resource Hub — four color-coded entry points.
- * CRM (groups/students/progress) lives behind "Mis Alumnos" → /cartilla/teacher/crm
+ * CRM (groups/students/progress) lives at the real Supabase-backed
+ * dashboard behind "Mis Alumnos" → /cartilla/teacher
  */
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { MonitorPlay, Users, BookOpenCheck, Printer } from "lucide-react";
 
-export const Route = createFileRoute("/cartilla/teacher/")({
+export const Route = createFileRoute("/cartilla/recursos/")({
   component: TeacherHub,
   head: () => ({
     meta: [{ title: "Recursos del Maestro — La Cartilla de Gretel" }],
@@ -28,7 +29,7 @@ const BOXES: HubBox[] = [
     subtitle: "Rotafolio HD para proyectar en el aula",
     color: "#d99c30",
     textColor: "#5c3d07",
-    to: "/cartilla/teacher/flipchart",
+    to: "/cartilla/recursos/flipchart",
   },
   {
     icon: <Users className="w-12 h-12" />,
@@ -36,7 +37,7 @@ const BOXES: HubBox[] = [
     subtitle: "Grupos, progreso y registro de clase",
     color: "#406c72",
     textColor: "#1a2e31",
-    to: "/cartilla/teacher/crm",
+    to: "/cartilla/teacher",
   },
   {
     icon: <BookOpenCheck className="w-12 h-12" />,
@@ -44,7 +45,7 @@ const BOXES: HubBox[] = [
     subtitle: "Planes de clase y notas pedagógicas",
     color: "#6a7a60",
     textColor: "#28301e",
-    to: "/cartilla/teacher/guide",
+    to: "/cartilla/recursos/guide",
   },
   {
     icon: <Printer className="w-12 h-12" />,
@@ -52,7 +53,7 @@ const BOXES: HubBox[] = [
     subtitle: "Fichas de trabajo y materiales imprimibles",
     color: "#b8311a",
     textColor: "#4a1009",
-    to: "/cartilla/teacher/print",
+    to: "/cartilla/recursos/print",
   },
 ];
 
@@ -92,7 +93,7 @@ function TeacherHub() {
 function HubCard({ box }: { box: HubBox }) {
   return (
     <Link
-      to={box.to as "/cartilla/teacher/flipchart" | "/cartilla/teacher/crm" | "/cartilla/teacher/guide" | "/cartilla/teacher/print"}
+      to={box.to as "/cartilla/recursos/flipchart" | "/cartilla/teacher" | "/cartilla/recursos/guide" | "/cartilla/recursos/print"}
       className="group relative flex flex-col items-start p-8 rounded-3xl overflow-hidden cursor-pointer transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl focus:outline-none focus-visible:ring-4 focus-visible:ring-offset-2"
       style={{
         backgroundColor: box.color,

@@ -4,9 +4,9 @@ import { getStudentSession } from "@/lib/student-session";
 // Teacher-only gate. The flip book is a teacher presentation tool: the teacher
 // drives it and projects it to the class while students only watch. They never
 // navigate here themselves, so if an active student session is detected, bounce
-// back to the student lessons. Mirrors the parent /cartilla/teacher guard so the
-// whole teacher lane stays teacher-only.
-export const Route = createFileRoute("/cartilla/teacher/flipchart")({
+// back to the student lessons. Mirrors the parent /cartilla/recursos guard so the
+// whole resources lane stays teacher-only.
+export const Route = createFileRoute("/cartilla/recursos/flipchart")({
   beforeLoad: () => {
     const session = getStudentSession();
     if (session) {

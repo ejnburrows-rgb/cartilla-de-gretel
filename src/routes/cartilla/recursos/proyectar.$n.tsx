@@ -15,7 +15,7 @@ const LazyFlipbookViewer = React.lazy(() =>
   import("@/components/cartilla/FlipbookVerticalViewer").then((module) => ({ default: module.FlipbookVerticalViewer }))
 );
 
-export const Route = createFileRoute("/cartilla/teacher/proyectar/$n")({
+export const Route = createFileRoute("/cartilla/recursos/proyectar/$n")({
   component: ProyectarLesson,
   head: ({ params }) => ({
     meta: [

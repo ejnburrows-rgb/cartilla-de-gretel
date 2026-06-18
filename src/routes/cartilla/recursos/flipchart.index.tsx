@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { CATALOG } from "@/lib/lesson-catalog";
 import { MonitorPlay } from "lucide-react";
 
-export const Route = createFileRoute("/cartilla/teacher/flipchart/")({
+export const Route = createFileRoute("/cartilla/recursos/flipchart/")({
   component: FlipchartPickerPage,
 });
 
@@ -30,7 +30,7 @@ function FlipchartPickerPage() {
         {CATALOG.map((entry) => (
           <Link
             key={entry.n}
-            to="/cartilla/teacher/flipchart/$n"
+            to="/cartilla/recursos/flipchart/$n"
             params={{ n: String(entry.n) }}
             className="group block rounded-[2rem] border-2 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md active:scale-95 text-center flex flex-col justify-center items-center min-h-[140px]"
             style={accentBorderStyle(entry.color)}

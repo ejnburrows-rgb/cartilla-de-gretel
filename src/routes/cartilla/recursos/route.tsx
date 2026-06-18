@@ -1,18 +1,22 @@
 import { createFileRoute, Outlet, Link, useLocation, redirect } from "@tanstack/react-router";
-import { Users, BarChart3, FileSpreadsheet, MonitorPlay, BookOpenCheck } from "lucide-react";
+import { Users, MonitorPlay, BookOpenCheck } from "lucide-react";
 import { getStudentSession } from "@/lib/student-session";
 
-export const Route = createFileRoute("/cartilla/teacher")({
+// Non-data teacher resources: presentation tools, the teacher guide, and
+// printables. These don't touch student/roster data, so unlike the real
+// CRM at /cartilla/teacher they don't require a Supabase login — a teacher
+// can open a projector on a shared classroom device without signing in first.
+export const Route = createFileRoute("/cartilla/recursos")({
   beforeLoad: () => {
     const session = getStudentSession();
     if (session) {
       throw redirect({ to: "/cartilla/student/lecciones" });
     }
   },
-  component: TeacherLayout,
+  component: RecursosLayout,
 });
 
-function TeacherLayout() {
+function RecursosLayout() {
   const location = useLocation();
 
   // If we are in presentation mode, don't show the nav.
@@ -40,30 +44,17 @@ function TeacherLayout() {
                 La Cartilla de Gretel
               </span>
               <span className="text-[10px] font-bold tracking-widest uppercase text-stone-400 leading-tight">
-                Teacher CRM
+                Recursos
               </span>
             </div>
           </div>
 
           <nav className="hidden sm:flex items-center gap-6">
             <NavLink
-              to="/cartilla/teacher/roster"
+              to="/cartilla/teacher"
               icon={<Users className="w-4 h-4" />}
-              label="Roster"
-              active={location.pathname.includes("/roster")}
-            />
-            {/* Progress can just be a placeholder pointing to reports or missing for now if not explicitly requested, but we will add the link */}
-            <NavLink
-              to="/cartilla/teacher/progreso"
-              icon={<BarChart3 className="w-4 h-4" />}
-              label="Progress"
-              active={location.pathname.includes("/progreso")}
-            />
-            <NavLink
-              to="/cartilla/teacher/reportes"
-              icon={<FileSpreadsheet className="w-4 h-4" />}
-              label="Reports"
-              active={location.pathname.includes("/reportes")}
+              label="Mis Alumnos"
+              active={false}
             />
             <NavLink
               to="/cartilla/student/lecciones"
@@ -72,7 +63,7 @@ function TeacherLayout() {
               active={false}
             />
             <NavLink
-              to="/cartilla/teacher/guide"
+              to="/cartilla/recursos/guide"
               icon={<BookOpenCheck className="w-4 h-4" />}
               label="Guía"
               active={location.pathname.includes("/guide")}

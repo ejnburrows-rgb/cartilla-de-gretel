@@ -294,7 +294,7 @@ function Leccion() {
           </Link>
           <div className="flex items-center gap-4">
             <Link
-              to="/cartilla/teacher/proyectar/$n"
+              to="/cartilla/recursos/proyectar/$n"
               params={{ n: lessonId }}
               className="lesson-focus-ring inline-flex items-center gap-1 text-xs font-bold text-foreground/50 hover:text-foreground"
               aria-label={`Proyectar lección ${n} para la clase`}

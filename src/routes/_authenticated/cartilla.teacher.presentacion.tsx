@@ -31,7 +31,7 @@ function TeacherPresentation() {
           <Link to="/cartilla/teacher" className="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/20 bg-white/12 px-4 py-2 text-sm font-bold text-white hover:bg-white/18">
             <ArrowLeft className="h-4 w-4" /> Panel CRM
           </Link>
-          <Link to="/cartilla/teacher/flipchart" className="inline-flex min-h-11 items-center gap-2 rounded-full border border-[var(--cartilla-accent)] bg-[var(--cartilla-accent)] px-4 py-2 text-sm font-bold text-white hover:opacity-90 shadow-lg shadow-[var(--cartilla-accent)]/20">
+          <Link to="/cartilla/recursos/flipchart" className="inline-flex min-h-11 items-center gap-2 rounded-full border border-[var(--cartilla-accent)] bg-[var(--cartilla-accent)] px-4 py-2 text-sm font-bold text-white hover:opacity-90 shadow-lg shadow-[var(--cartilla-accent)]/20">
             <BookOpen className="h-4 w-4" /> Abrir Flipchart
           </Link>
           <Link to="/cartilla/teacher/remaster-review" className="inline-flex min-h-11 items-center gap-2 rounded-full border border-indigo-500 bg-indigo-600/30 px-4 py-2 text-sm font-bold text-indigo-200 hover:bg-indigo-600/50 transition-colors">
