@@ -312,4 +312,17 @@ export const tCopy = {
   guardarNota: { es: "Guardar nota", en: "Save note" },
   sinNotas: { es: "Aún no hay notas.", en: "No notes yet." },
   eliminarNota: { es: "¿Eliminar esta nota?", en: "Delete this note?" },
+  reporteProgreso: { es: "Reporte de progreso", en: "Progress report" },
+  certificadoLogro: { es: "Certificado", en: "Certificate" },
+  imprimirGuardarPDF: { es: "Imprimir / Guardar como PDF", en: "Print / Save as PDF" },
+  reportePara: { es: "Reporte de progreso de", en: "Progress report for" },
+  generadoEl: { es: "Generado el", en: "Generated on" },
+  resumenLecciones: { es: "Resumen por lección", en: "Lesson summary" },
+  felicidades: { es: "¡Felicidades!", en: "Congratulations!" },
+  certificaQueObtuvo: {
+    es: "ha completado lecciones de La Cartilla de Gretel con gran esfuerzo y dedicación.",
+    en: "has completed lessons of La Cartilla de Gretel with great effort and dedication.",
+  },
+  otorgadoA: { es: "Otorgado a", en: "Awarded to" },
+  fecha: { es: "Fecha", en: "Date" },
 };

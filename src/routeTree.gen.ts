@@ -63,6 +63,8 @@ import { Route as AuthenticatedCartillaTeacherPresentacionRouteImport } from './
 import { Route as AuthenticatedCartillaTeacherBrandingRouteImport } from './routes/_authenticated/cartilla.teacher.branding'
 import { Route as AuthenticatedCartillaTeacherClaseIdRouteImport } from './routes/_authenticated/cartilla.teacher.clase.$id'
 import { Route as AuthenticatedCartillaTeacherAlumnoIdRouteImport } from './routes/_authenticated/cartilla.teacher.alumno.$id'
+import { Route as AuthenticatedCartillaTeacherAlumnoIdReporteRouteImport } from './routes/_authenticated/cartilla.teacher.alumno.$id.reporte'
+import { Route as AuthenticatedCartillaTeacherAlumnoIdCertificadoRouteImport } from './routes/_authenticated/cartilla.teacher.alumno.$id.certificado'
 
 const WorkbookRoute = WorkbookRouteImport.update({
   id: '/workbook',
@@ -347,6 +349,18 @@ const AuthenticatedCartillaTeacherAlumnoIdRoute =
     path: '/alumno/$id',
     getParentRoute: () => AuthenticatedCartillaTeacherRoute,
   } as any)
+const AuthenticatedCartillaTeacherAlumnoIdReporteRoute =
+  AuthenticatedCartillaTeacherAlumnoIdReporteRouteImport.update({
+    id: '/reporte',
+    path: '/reporte',
+    getParentRoute: () => AuthenticatedCartillaTeacherAlumnoIdRoute,
+  } as any)
+const AuthenticatedCartillaTeacherAlumnoIdCertificadoRoute =
+  AuthenticatedCartillaTeacherAlumnoIdCertificadoRouteImport.update({
+    id: '/certificado',
+    path: '/certificado',
+    getParentRoute: () => AuthenticatedCartillaTeacherAlumnoIdRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -400,8 +414,10 @@ export interface FileRoutesByFullPath {
   '/cartilla/recursos/proyectar/$n': typeof CartillaRecursosProyectarNRoute
   '/cartilla/student/leccion/$n': typeof CartillaStudentLeccionNRoute
   '/cartilla/recursos/flipchart/': typeof CartillaRecursosFlipchartIndexRoute
-  '/cartilla/teacher/alumno/$id': typeof AuthenticatedCartillaTeacherAlumnoIdRoute
+  '/cartilla/teacher/alumno/$id': typeof AuthenticatedCartillaTeacherAlumnoIdRouteWithChildren
   '/cartilla/teacher/clase/$id': typeof AuthenticatedCartillaTeacherClaseIdRoute
+  '/cartilla/teacher/alumno/$id/certificado': typeof AuthenticatedCartillaTeacherAlumnoIdCertificadoRoute
+  '/cartilla/teacher/alumno/$id/reporte': typeof AuthenticatedCartillaTeacherAlumnoIdReporteRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -453,8 +469,10 @@ export interface FileRoutesByTo {
   '/cartilla/recursos/proyectar/$n': typeof CartillaRecursosProyectarNRoute
   '/cartilla/student/leccion/$n': typeof CartillaStudentLeccionNRoute
   '/cartilla/recursos/flipchart': typeof CartillaRecursosFlipchartIndexRoute
-  '/cartilla/teacher/alumno/$id': typeof AuthenticatedCartillaTeacherAlumnoIdRoute
+  '/cartilla/teacher/alumno/$id': typeof AuthenticatedCartillaTeacherAlumnoIdRouteWithChildren
   '/cartilla/teacher/clase/$id': typeof AuthenticatedCartillaTeacherClaseIdRoute
+  '/cartilla/teacher/alumno/$id/certificado': typeof AuthenticatedCartillaTeacherAlumnoIdCertificadoRoute
+  '/cartilla/teacher/alumno/$id/reporte': typeof AuthenticatedCartillaTeacherAlumnoIdReporteRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -510,8 +528,10 @@ export interface FileRoutesById {
   '/cartilla/recursos/proyectar/$n': typeof CartillaRecursosProyectarNRoute
   '/cartilla/student/leccion/$n': typeof CartillaStudentLeccionNRoute
   '/cartilla/recursos/flipchart/': typeof CartillaRecursosFlipchartIndexRoute
-  '/_authenticated/cartilla/teacher/alumno/$id': typeof AuthenticatedCartillaTeacherAlumnoIdRoute
+  '/_authenticated/cartilla/teacher/alumno/$id': typeof AuthenticatedCartillaTeacherAlumnoIdRouteWithChildren
   '/_authenticated/cartilla/teacher/clase/$id': typeof AuthenticatedCartillaTeacherClaseIdRoute
+  '/_authenticated/cartilla/teacher/alumno/$id/certificado': typeof AuthenticatedCartillaTeacherAlumnoIdCertificadoRoute
+  '/_authenticated/cartilla/teacher/alumno/$id/reporte': typeof AuthenticatedCartillaTeacherAlumnoIdReporteRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -569,6 +589,8 @@ export interface FileRouteTypes {
     | '/cartilla/recursos/flipchart/'
     | '/cartilla/teacher/alumno/$id'
     | '/cartilla/teacher/clase/$id'
+    | '/cartilla/teacher/alumno/$id/certificado'
+    | '/cartilla/teacher/alumno/$id/reporte'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -622,6 +644,8 @@ export interface FileRouteTypes {
     | '/cartilla/recursos/flipchart'
     | '/cartilla/teacher/alumno/$id'
     | '/cartilla/teacher/clase/$id'
+    | '/cartilla/teacher/alumno/$id/certificado'
+    | '/cartilla/teacher/alumno/$id/reporte'
   id:
     | '__root__'
     | '/'
@@ -678,6 +702,8 @@ export interface FileRouteTypes {
     | '/cartilla/recursos/flipchart/'
     | '/_authenticated/cartilla/teacher/alumno/$id'
     | '/_authenticated/cartilla/teacher/clase/$id'
+    | '/_authenticated/cartilla/teacher/alumno/$id/certificado'
+    | '/_authenticated/cartilla/teacher/alumno/$id/reporte'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -1095,15 +1121,47 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedCartillaTeacherAlumnoIdRouteImport
       parentRoute: typeof AuthenticatedCartillaTeacherRoute
     }
+    '/_authenticated/cartilla/teacher/alumno/$id/reporte': {
+      id: '/_authenticated/cartilla/teacher/alumno/$id/reporte'
+      path: '/reporte'
+      fullPath: '/cartilla/teacher/alumno/$id/reporte'
+      preLoaderRoute: typeof AuthenticatedCartillaTeacherAlumnoIdReporteRouteImport
+      parentRoute: typeof AuthenticatedCartillaTeacherAlumnoIdRoute
+    }
+    '/_authenticated/cartilla/teacher/alumno/$id/certificado': {
+      id: '/_authenticated/cartilla/teacher/alumno/$id/certificado'
+      path: '/certificado'
+      fullPath: '/cartilla/teacher/alumno/$id/certificado'
+      preLoaderRoute: typeof AuthenticatedCartillaTeacherAlumnoIdCertificadoRouteImport
+      parentRoute: typeof AuthenticatedCartillaTeacherAlumnoIdRoute
+    }
   }
 }
+
+interface AuthenticatedCartillaTeacherAlumnoIdRouteChildren {
+  AuthenticatedCartillaTeacherAlumnoIdCertificadoRoute: typeof AuthenticatedCartillaTeacherAlumnoIdCertificadoRoute
+  AuthenticatedCartillaTeacherAlumnoIdReporteRoute: typeof AuthenticatedCartillaTeacherAlumnoIdReporteRoute
+}
+
+const AuthenticatedCartillaTeacherAlumnoIdRouteChildren: AuthenticatedCartillaTeacherAlumnoIdRouteChildren =
+  {
+    AuthenticatedCartillaTeacherAlumnoIdCertificadoRoute:
+      AuthenticatedCartillaTeacherAlumnoIdCertificadoRoute,
+    AuthenticatedCartillaTeacherAlumnoIdReporteRoute:
+      AuthenticatedCartillaTeacherAlumnoIdReporteRoute,
+  }
+
+const AuthenticatedCartillaTeacherAlumnoIdRouteWithChildren =
+  AuthenticatedCartillaTeacherAlumnoIdRoute._addFileChildren(
+    AuthenticatedCartillaTeacherAlumnoIdRouteChildren,
+  )
 
 interface AuthenticatedCartillaTeacherRouteChildren {
   AuthenticatedCartillaTeacherBrandingRoute: typeof AuthenticatedCartillaTeacherBrandingRoute
   AuthenticatedCartillaTeacherPresentacionRoute: typeof AuthenticatedCartillaTeacherPresentacionRoute
   AuthenticatedCartillaTeacherRemasterReviewRoute: typeof AuthenticatedCartillaTeacherRemasterReviewRoute
   AuthenticatedCartillaTeacherStudentsRoute: typeof AuthenticatedCartillaTeacherStudentsRoute
-  AuthenticatedCartillaTeacherAlumnoIdRoute: typeof AuthenticatedCartillaTeacherAlumnoIdRoute
+  AuthenticatedCartillaTeacherAlumnoIdRoute: typeof AuthenticatedCartillaTeacherAlumnoIdRouteWithChildren
   AuthenticatedCartillaTeacherClaseIdRoute: typeof AuthenticatedCartillaTeacherClaseIdRoute
 }
 
@@ -1118,7 +1176,7 @@ const AuthenticatedCartillaTeacherRouteChildren: AuthenticatedCartillaTeacherRou
     AuthenticatedCartillaTeacherStudentsRoute:
       AuthenticatedCartillaTeacherStudentsRoute,
     AuthenticatedCartillaTeacherAlumnoIdRoute:
-      AuthenticatedCartillaTeacherAlumnoIdRoute,
+      AuthenticatedCartillaTeacherAlumnoIdRouteWithChildren,
     AuthenticatedCartillaTeacherClaseIdRoute:
       AuthenticatedCartillaTeacherClaseIdRoute,
   }

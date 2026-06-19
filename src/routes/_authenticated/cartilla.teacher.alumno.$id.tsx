@@ -13,10 +13,13 @@ import {
   Plus,
   StickyNote,
   Trash2,
+  FileText,
+  Sparkles,
 } from "lucide-react";
 import { getStudentProgress, setLessonCompletion } from "@/lib/teacher.functions";
 import { listStudentNotes, addStudentNote, deleteStudentNote } from "@/lib/notes.functions";
 import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
+import { summarizeStudentEvents } from "@/lib/student-summary";
 import { useLanguage } from "@/context/LanguageContext";
 import { tCopy } from "@/content/teacher-copy";
 
@@ -72,53 +75,7 @@ function StudentDetail() {
 
   const summary = useMemo(() => {
     if (!data) return null;
-    const completed = new Set<string>();
-    const exerciseStats: Record<string, { score: number; total: number; runs: number }> = {};
-    const latestExerciseKeys = new Set<string>();
-    let timeTotal = 0;
-    const badges: Array<{ name: string; at: string }> = [];
-    let level: { value: string; at: string } | null = null;
-
-    for (const e of data.events) {
-      if (e.event_kind === "lesson_completed") completed.add(e.lesson_id);
-      if (
-        e.event_kind === "exercise" &&
-        typeof e.score === "number" &&
-        typeof e.total === "number"
-      ) {
-        const meta = (e.meta ?? {}) as Record<string, unknown>;
-        const exercise = typeof meta.exercise === "string" ? meta.exercise : "exercise";
-        const key = `${e.lesson_id}:${exercise}`;
-        if (!latestExerciseKeys.has(key)) {
-          latestExerciseKeys.add(key);
-          const stat = (exerciseStats[e.lesson_id] ??= { score: 0, total: 0, runs: 0 });
-          stat.score += e.score;
-          stat.total += e.total;
-          stat.runs += 1;
-        }
-      }
-      if (e.event_kind === "time" && typeof e.time_seconds === "number")
-        timeTotal += e.time_seconds;
-      if (e.event_kind === "badge")
-        badges.push({
-          name: String((e.meta as Record<string, unknown> | null)?.name ?? "Insignia"),
-          at: e.created_at,
-        });
-      if (e.event_kind === "level" && !level)
-        level = {
-          value: String((e.meta as Record<string, unknown> | null)?.level ?? "—"),
-          at: e.created_at,
-        };
-    }
-
-    return {
-      completedSet: completed,
-      completedCount: completed.size,
-      exerciseStats,
-      timeTotal,
-      badges,
-      level,
-    };
+    return summarizeStudentEvents(data.events);
   }, [data]);
 
   if (isLoading) {
@@ -142,11 +99,29 @@ function StudentDetail() {
         <ArrowLeft className="w-4 h-4" /> {data.class?.name ?? "Clase"}
       </Link>
 
-      <header className="mt-6">
-        <h1 className="text-3xl sm:text-4xl font-bold">{data.student.display_name}</h1>
-        <p className="text-sm text-foreground/60 mt-1">
-          {t.codigoPersonal[lang]} <span className="font-mono font-bold">{data.student.student_code}</span>
-        </p>
+      <header className="mt-6 flex items-start justify-between gap-4 flex-wrap">
+        <div>
+          <h1 className="text-3xl sm:text-4xl font-bold">{data.student.display_name}</h1>
+          <p className="text-sm text-foreground/60 mt-1">
+            {t.codigoPersonal[lang]} <span className="font-mono font-bold">{data.student.student_code}</span>
+          </p>
+        </div>
+        <div className="flex gap-2">
+          <Link
+            to="/cartilla/teacher/alumno/$id/reporte"
+            params={{ id }}
+            className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl border-2 border-foreground/10 text-sm font-bold text-foreground/70 hover:border-primary hover:text-primary"
+          >
+            <FileText className="w-4 h-4" /> {t.reporteProgreso[lang]}
+          </Link>
+          <Link
+            to="/cartilla/teacher/alumno/$id/certificado"
+            params={{ id }}
+            className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl border-2 border-foreground/10 text-sm font-bold text-foreground/70 hover:border-primary hover:text-primary"
+          >
+            <Sparkles className="w-4 h-4" /> {t.certificadoLogro[lang]}
+          </Link>
+        </div>
       </header>
 
       <section className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
