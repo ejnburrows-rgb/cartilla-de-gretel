@@ -129,5 +129,5 @@ all.
 ## Directory map
 
 See `CLAUDE.md` for the full directory map and project-specific rules
-(no manual edits to `routeTree.gen.ts`, all Supabase calls go through
-`src/services/`, etc).
+(no manual edits to `routeTree.gen.ts`, all Supabase data-access goes
+through `src/lib/*.functions.ts`, etc).
