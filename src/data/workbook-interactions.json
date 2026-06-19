@@ -33,19 +33,74 @@
       "blockingReason": ""
     },
     {
-      "id": "l2-p4-drag-word-o",
+      "id": "l2-p4-listen-o",
       "lessonNumber": 2,
       "pageNumber": 4,
-      "kind": "drag-build-word",
-      "title": "Forma palabras con O",
-      "prompt": "Arrastra las letras para formar la palabra. Toca una letra y luego toca la casilla.",
+      "kind": "listen-and-tap",
+      "title": "Encuentra las palabras con O",
+      "prompt": "Toca los dibujos que comienzan con O.",
       "items": [],
-      "targets": [],
-      "sourceStatus": "book-derived",
+      "targets": [
+        {
+          "id": "target-oso1",
+          "label": "oso",
+          "coordinatesVerified": true,
+          "xPercent": 60,
+          "yPercent": 35,
+          "widthPercent": 15,
+          "heightPercent": 15
+        },
+        {
+          "id": "target-oreja",
+          "label": "oreja",
+          "coordinatesVerified": true,
+          "xPercent": 80,
+          "yPercent": 45,
+          "widthPercent": 15,
+          "heightPercent": 15
+        },
+        {
+          "id": "target-olla",
+          "label": "olla",
+          "coordinatesVerified": true,
+          "xPercent": 25,
+          "yPercent": 55,
+          "widthPercent": 15,
+          "heightPercent": 15
+        },
+        {
+          "id": "target-ocho",
+          "label": "ocho",
+          "coordinatesVerified": true,
+          "xPercent": 60,
+          "yPercent": 55,
+          "widthPercent": 15,
+          "heightPercent": 15
+        },
+        {
+          "id": "target-oso2",
+          "label": "oso",
+          "coordinatesVerified": true,
+          "xPercent": 45,
+          "yPercent": 65,
+          "widthPercent": 15,
+          "heightPercent": 15
+        },
+        {
+          "id": "target-ojos",
+          "label": "ojos",
+          "coordinatesVerified": true,
+          "xPercent": 80,
+          "yPercent": 65,
+          "widthPercent": 15,
+          "heightPercent": 10
+        }
+      ],
+      "sourceStatus": "verified",
       "transcriptionStatus": "verified",
       "studentFacingStatus": "Actividad interactiva",
-      "teacherNotes": "Vocal O lesson - drag and drop word building activity",
-      "sourcePage": "a-page-4.jpg"
+      "teacherNotes": "Vocal O lesson - grid tap activity",
+      "sourcePage": "page-10.png"
     },
     {
       "id": "l3-p7-drag-word-a",
