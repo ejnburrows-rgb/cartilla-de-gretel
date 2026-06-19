@@ -50,7 +50,14 @@ Deployed on Vercel using the Vite preset:
 - Build command: `npm run build`
 - Output directory: `dist`
 
-`vercel.json` handles single-page-app route rewrites.
+`vercel.json` handles single-page-app route rewrites, and gates **production**
+deploys to the `main` branch — every other branch gets a non-production
+preview deployment instead.
+
+See the [deployment & release runbook](docs/deployment.md) for the
+branch → preview → merge workflow, how to recover when production deploys are
+`BLOCKED` (and the live site is stuck on an old build), deployment-protection
+settings, and offline cache versioning.
 
 ## Contributing
 

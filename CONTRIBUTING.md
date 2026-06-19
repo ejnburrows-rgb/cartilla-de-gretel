@@ -24,11 +24,24 @@ npm install
 npm run dev
 ```
 
-Before opening a pull request, make sure the project builds:
+Before opening a pull request, make sure the project builds and the tests pass:
 
 ```bash
 npm run build
+npm run typecheck
+npx vitest run
 ```
+
+## Branching & deployment
+
+- **Never commit directly to `main`.** Branch first, push, and open a PR.
+- Vercel builds a **preview** deployment for every branch/PR — verify your
+  change there (the real built app) before merging.
+- Merging to `main` is what deploys **production**. Don't merge red, and
+  settle a design on your branch rather than iterating on production.
+
+Full details, plus how to recover when production deploys are stuck, are in
+the [deployment & release runbook](docs/deployment.md).
 
 ## Reporting issues
 
