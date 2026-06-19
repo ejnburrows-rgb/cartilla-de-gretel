@@ -44,3 +44,13 @@ chore(scope): description
 4. **Before merging:** run `pnpm typecheck` and `pnpm vitest run`, and confirm the preview URL actually renders. Don't merge red.
 5. **Stay in your lane.** You own the student path + activities. Claude owns infra / teacher-CRM / docs. Don't both edit the same files; rebase on latest `main` before large changes so we don't clobber each other.
 6. **No Emojis/Made-up Art in CRM.** NEVER use any emojis or any made-up art inside the CRM unless specifically allowed by the user.
+
+## UI / UX Strict Guidelines
+- **Teacher CRM (Google-Suite Style)**: The teacher interface must be ultra-professional, seamless, and standardized (like Google Workspace). No emojis, no AI-generated art, and consistent fonts throughout.
+- **Teacher CRM Color-Coding (The "4 Squares")**:
+  - Blue: "Rimas Reproducible Enriquecimiento" (y Respuestas de las Evaluaciones)
+  - Red: "Evaluaciones Reproducibles"
+  - Purple: "Black line masters, tablas silábicas"
+  *(Information must be structured in these distinct folders as sublinks).*
+- **Student Gamification**: The student interface must NOT use plain grids. It must use immersive, story-like gamification (e.g., "Mapa de Gretel" level-paths, infinite parallax environments).
+- **Art Integration (No Dead Cutters)**: When integrating authentic hand-drawn Cartilla art, NEVER use "white, dead cutters" (plain white square backgrounds). You must use CSS masking (e.g., `mask-image: radial-gradient`) or proper transparent PNGs to seamlessly blend the characters into immersive environments so they look like one cohesive "Big Happy Family."
