@@ -6,19 +6,18 @@ interface GretelStageProps {
   basePoseSrc?: string;
   blinkOverlaySrc?: string;
   showBlink?: boolean;
-  /** Overlaid content (e.g. <GretelGuide />) composited onto the staged pose. */
   children?: React.ReactNode;
 }
 
 const warmFilter = { filter: "sepia(15%) brightness(1.03)" };
 
-export function GretelStage({
-  size = "md",
-  warmth = true,
+export function GretelStage({ 
+  size = "md", 
+  warmth = true, 
   basePoseSrc,
   blinkOverlaySrc,
   showBlink = false,
-  children,
+  children
 }: GretelStageProps) {
   const sizeClasses = {
     sm: "max-h-[100px] max-w-[100px]",
@@ -59,15 +58,14 @@ export function GretelStage({
             src={blinkOverlaySrc}
             alt="Gretel blink overlay"
             className="absolute top-0 left-0 w-full h-full object-contain pointer-events-none"
-            style={{
+            style={{ 
               transition: "opacity 200ms ease-in-out",
               opacity: 1
             }}
             draggable={false}
           />
         )}
-
-        {/* Composited overlay content (e.g. GretelGuide) */}
+        
         {children}
       </div>
     </div>

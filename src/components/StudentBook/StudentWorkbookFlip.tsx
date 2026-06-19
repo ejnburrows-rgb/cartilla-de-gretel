@@ -114,115 +114,107 @@ export function StudentWorkbookFlip({
     }, 600);
   };
 
-  const renderDesktop = () => {
-    const leftIndex = isFlipping && flipDirection === 'prev' ? currentIndex - 2 : currentIndex;
-    const rightIndex = isFlipping && flipDirection === 'next' ? currentIndex + 3 : currentIndex + 1;
-
-    const flipFrontIndex = isFlipping ? (flipDirection === 'next' ? currentIndex + 1 : currentIndex - 1) : -1;
-    const flipBackIndex = isFlipping ? (flipDirection === 'next' ? currentIndex + 2 : currentIndex) : -1;
-
-    const spreadStyle: React.CSSProperties = spreadAspectRatio
-      ? { aspectRatio: spreadAspectRatio }
-      : {};
-
-    return (
-      <div
-        className="book-container flex w-full shadow-2xl rounded-lg bg-surface border border-border"
-        style={{ aspectRatio: spreadAspectRatio ?? "2 / 1.33", ...spreadStyle }}
-      >
-        <div className="w-1/2 h-full border-r border-border relative overflow-hidden">
-          {pages[leftIndex] ? <PageContent cover={pages[leftIndex].cover}>{pages[leftIndex].content}</PageContent> : <div className="w-full h-full bg-surface" />}
-        </div>
-
-        <div className="w-1/2 h-full relative overflow-hidden">
-          {pages[rightIndex] ? <PageContent cover={pages[rightIndex].cover}>{pages[rightIndex].content}</PageContent> : <div className="w-full h-full bg-surface" />}
-        </div>
-
-        {isFlipping && (
-          <div className={`page-flip ${flipDirection === 'next' ? 'flipping-right-to-left' : ''}`} style={{ transform: flipTransform }}>
-            <div className="page-front border-l border-border overflow-hidden">
-              {pages[flipFrontIndex] ? <PageContent cover={pages[flipFrontIndex].cover}>{pages[flipFrontIndex].content}</PageContent> : <div className="w-full h-full bg-surface" />}
-            </div>
-            <div className="page-back border-r border-border overflow-hidden">
-              {pages[flipBackIndex] ? <PageContent cover={pages[flipBackIndex].cover}>{pages[flipBackIndex].content}</PageContent> : <div className="w-full h-full bg-surface" />}
-            </div>
-          </div>
-        )}
-        {/* Book spine shadow — darker gradient to read as a real binding */}
-        <div className="absolute top-0 bottom-0 left-1/2 w-10 -translate-x-1/2 pointer-events-none z-30">
-          <div className="absolute inset-0 bg-gradient-to-r from-black/15 via-black/5 to-transparent w-1/2" />
-          <div className="absolute inset-0 left-1/2 bg-gradient-to-l from-black/15 via-black/5 to-transparent w-1/2" />
-        </div>
-      </div>
-    );
-  };
-
-  const renderMobile = () => {
-    const staticIndex = isFlipping && flipDirection === 'prev' ? currentIndex - 1 : (isFlipping && flipDirection === 'next' ? currentIndex + 1 : currentIndex);
-    const flipFrontIndex = isFlipping ? (flipDirection === 'next' ? currentIndex : currentIndex - 1) : -1;
-    const flipBackIndex = isFlipping ? (flipDirection === 'next' ? currentIndex + 1 : currentIndex) : -1;
-
-    return (
-      <div
-        className="book-container book-single-page w-full shadow-2xl rounded-lg bg-surface border border-border"
-        style={{ aspectRatio: singleAspectRatio ?? "3 / 4" }}
-      >
-        <div className="w-full h-full relative overflow-hidden">
-          {pages[staticIndex] ? <PageContent cover={pages[staticIndex].cover}>{pages[staticIndex].content}</PageContent> : <div className="w-full h-full bg-surface" />}
-        </div>
-
-        {isFlipping && (
-          <div className={`page-flip ${flipDirection === 'next' ? 'flipping-right-to-left' : ''}`}
-               style={{ transform: flipTransform }}>
-             <div className="page-front overflow-hidden">
-               {pages[flipFrontIndex] ? <PageContent cover={pages[flipFrontIndex].cover}>{pages[flipFrontIndex].content}</PageContent> : <div className="w-full h-full bg-surface" />}
-             </div>
-             <div className="page-back overflow-hidden">
-               {pages[flipBackIndex] ? <PageContent cover={pages[flipBackIndex].cover}>{pages[flipBackIndex].content}</PageContent> : <div className="w-full h-full bg-surface" />}
-             </div>
-          </div>
-        )}
-      </div>
-    );
-  };
+  const staticIndex = isFlipping && flipDirection === 'prev' ? currentIndex - 1 : (isFlipping && flipDirection === 'next' ? currentIndex + 1 : currentIndex);
+  const flipFrontIndex = isFlipping ? (flipDirection === 'next' ? currentIndex : currentIndex - 1) : -1;
+  const flipBackIndex = isFlipping ? (flipDirection === 'next' ? currentIndex + 1 : currentIndex) : -1;
 
   return (
-    <div className="relative mx-auto flex w-full max-w-5xl flex-col items-center">
-      <div className="w-full px-4">
-        {renderMobile()}
+    <div className="relative mx-auto flex w-full max-w-lg flex-col items-center">
+      {/* Vertical Spiral Workbook Container */}
+      <div 
+        className="workbook-container"
+        style={{ aspectRatio: singleAspectRatio ?? "3 / 4" }}
+      >
+        <div className="spiral-binding">
+          {[...Array(16)].map((_, i) => (
+            <div key={i} className="spiral-ring" />
+          ))}
+        </div>
+
+        {/* Static Base Page */}
+        <div className="w-full h-full relative overflow-hidden rounded-b-xl">
+          {pages[staticIndex] ? (
+            <PageContent cover={pages[staticIndex].cover}>{pages[staticIndex].content}</PageContent>
+          ) : (
+            <div className="w-full h-full bg-surface" />
+          )}
+        </div>
+
+        {/* Flipping Leaf */}
+        {isFlipping && (
+          <div 
+            className="absolute inset-0 z-30 pointer-events-none"
+            style={{ 
+              transformStyle: "preserve-3d", 
+              perspective: "1500px" 
+            }}
+          >
+            <div
+              className="workbook-flip-wrapper"
+              style={{ transform: flipTransform }}
+            >
+              {/* Front of flipping leaf */}
+              <div className="workbook-page-front">
+                {pages[flipFrontIndex] ? (
+                  <PageContent cover={pages[flipFrontIndex].cover}>{pages[flipFrontIndex].content}</PageContent>
+                ) : (
+                  <div className="w-full h-full bg-surface" />
+                )}
+                <div 
+                  className="workbook-shadow-overlay"
+                  style={{ opacity: flipDirection === 'next' ? 1 : 0 }}
+                />
+              </div>
+
+              {/* Back of flipping leaf */}
+              <div className="workbook-page-back">
+                {pages[flipBackIndex] ? (
+                  <PageContent cover={pages[flipBackIndex].cover}>{pages[flipBackIndex].content}</PageContent>
+                ) : (
+                  <div className="w-full h-full bg-surface" />
+                )}
+                <div 
+                  className="workbook-shadow-overlay"
+                  style={{ opacity: flipDirection === 'prev' ? 1 : 0 }}
+                />
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       {hintVisible && currentIndex === 0 && (
-        <div className="pointer-events-none absolute bottom-20 right-10 z-10 animate-pulse rounded-full bg-surface-2 px-4 py-2 text-sm font-black text-primary shadow-lg border border-border">
-          Presione aquí
+        <div className="pointer-events-none absolute bottom-24 right-6 z-10 animate-pulse rounded-full bg-primary px-4 py-2 text-xs font-black text-white shadow-lg border border-amber-300">
+          Desliza o presiona ↑
         </div>
       )}
 
-      <div className="mt-8 flex items-center justify-center gap-6 z-20">
+      {/* Navigation Controls */}
+      <div className="mt-8 flex items-center justify-center gap-6 z-20 no-print">
         <button
           onClick={handlePrev}
           disabled={!hasPrev || isFlipping}
-          className={`flex items-center justify-center gap-2 px-5 py-3 rounded-md font-bold transition-all ${
+          className={`flex items-center justify-center gap-2 px-5 py-2.5 rounded-full font-bold transition-all border ${
             hasPrev
-              ? "bg-primary text-white hover:bg-primary-hover shadow-sm"
-              : "bg-surface-2 text-text-muted cursor-not-allowed opacity-50"
+              ? "bg-white text-stone-700 hover:bg-stone-50 border-stone-300 shadow-sm"
+              : "bg-stone-100 text-stone-400 border-stone-200 cursor-not-allowed opacity-50"
           }`}
         >
-          <ChevronLeft className="w-5 h-5" /> Anterior
+          <ChevronLeft className="w-4 h-4" /> Anterior
         </button>
-        <div className="text-sm font-bold text-text bg-surface-2 px-4 py-2 rounded-md border border-border shadow-sm">
+        <div className="text-sm font-bold text-stone-700 bg-white px-4 py-2 rounded-full border border-stone-200 shadow-sm">
           Página {currentIndex + 1} de {pages.length}
         </div>
         <button
           onClick={handleNext}
           disabled={!hasNext || isFlipping}
-          className={`flex items-center justify-center gap-2 px-5 py-3 rounded-md font-bold transition-all ${
+          className={`flex items-center justify-center gap-2 px-5 py-2.5 rounded-full font-bold transition-all border ${
             hasNext
-              ? "bg-primary text-white hover:bg-primary-hover shadow-sm"
-              : "bg-surface-2 text-text-muted cursor-not-allowed opacity-50"
+              ? "bg-white text-stone-700 hover:bg-stone-50 border-stone-300 shadow-sm"
+              : "bg-stone-100 text-stone-400 border-stone-200 cursor-not-allowed opacity-50"
           }`}
         >
-          Siguiente <ChevronRight className="w-5 h-5" />
+          Siguiente <ChevronRight className="w-4 h-4" />
         </button>
       </div>
     </div>

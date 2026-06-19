@@ -1,5 +1,5 @@
 import { createFileRoute, Outlet, Link, useLocation, redirect } from "@tanstack/react-router";
-import { Users, MonitorPlay, BookOpenCheck } from "lucide-react";
+import { Users, MonitorPlay, BookOpenCheck, BookOpen } from "lucide-react";
 import { getStudentSession } from "@/lib/student-session";
 
 // Non-data teacher resources: presentation tools, the teacher guide, and
@@ -67,6 +67,12 @@ function RecursosLayout() {
               icon={<BookOpenCheck className="w-4 h-4" />}
               label="Guía"
               active={location.pathname.includes("/guide")}
+            />
+            <NavLink
+              to="/cartilla/recursos/guia/1"
+              icon={<BookOpen className="w-4 h-4" />}
+              label="Guía de Lección"
+              active={location.pathname.includes("/guia")}
             />
           </nav>
         </div>

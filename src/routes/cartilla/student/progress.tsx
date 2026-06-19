@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { ArrowLeft, Check, RotateCcw } from "lucide-react";
 import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
-import teacherGuide from "@/data/teacher-guide.json";
 import "@/styles/cartilla-student.css";
 
 const STORAGE_KEY = "gretel_completed_lessons";
@@ -31,11 +30,9 @@ function ProgressPage() {
   const [pendingReset, setPendingReset] = useState(false);
 
   const lessons = useMemo(() => {
-    const teacherLessons = (teacherGuide as { lessons: Array<{ lesson: number; title: string }> }).lessons;
-    const map = new Map(teacherLessons.map((l) => [l.lesson, l.title]));
     return CATALOG.map((entry) => ({
       n: entry.n,
-      title: map.get(entry.n) ?? entry.title,
+      title: entry.title,
       color: entry.color,
       kind: entry.kind,
     }));

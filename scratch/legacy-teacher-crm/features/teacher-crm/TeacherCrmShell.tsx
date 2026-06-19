@@ -18,7 +18,8 @@ import {
   listSeedClasses, 
   getSeedClass, 
   createSeedClass, 
-  addSeedStudents 
+  addSeedStudents,
+  updateSeedStudent
 } from "@/lib/seed-data";
 
 export function TeacherCrmShell() {
@@ -101,6 +102,8 @@ export function TeacherCrmShell() {
         progress: progressPct,
         lastActive: s.lastSeen ? new Date(s.lastSeen).toLocaleDateString() : "Nunca",
         alert: progressPct < 40 && daysSinceActive > 3,
+        grade: (s as any).grade,
+        teacher_notes: (s as any).teacher_notes,
       };
     });
   }, [studentsList]);
@@ -180,43 +183,75 @@ export function TeacherCrmShell() {
     }
   };
 
+  const handleUpdateStudent = async (id: string, updates: Partial<DashboardStudent>) => {
+    try {
+      if (isSeed) {
+        // Map the fields
+        updateSeedStudent(id, {
+          grade: updates.grade,
+          teacher_notes: updates.teacher_notes
+        });
+        showMessage("Cambios guardados localmente.", "success");
+      } else {
+        // In cloud mode, this would call a Supabase RPC or update the students table
+        // For now, we will just show a message as we wait for cloud backend
+        showMessage("Funcionalidad en la nube en desarrollo.", "error");
+      }
+      // Force refresh of the student data
+      if (isSeed) {
+        // A hack to force re-evaluation of seed data
+        setBusy(prev => !prev);
+      } else {
+        refetchRealStudents();
+      }
+    } catch (err) {
+      showMessage(err instanceof Error ? err.message : "Error guardando cambios", "error");
+    }
+  };
+
   // Hoisted alert borders to satisfy the double-brace ban
   const alertBoxStyle: React.CSSProperties = {
     borderColor: "hsl(var(--vowel-a) / 0.15)",
   };
 
   return (
-    <div className="crm-app bg-[#fdfbf7]">
+    <div 
+      className="crm-app"
+      style={{
+        background: "radial-gradient(circle at top left, #fdf3e0 0%, #f5e8c8 50%, #ecdaaa 100%)",
+      }}
+    >
       <Sidebar />
       <main className="crm-main flex-1 flex flex-col h-screen overflow-hidden">
         <Topbar />
         
         <div className="crm-content flex-1 overflow-y-auto p-6 space-y-6">
           {/* Top Actions & Class Selector Bar */}
-          <section className="rounded-2xl border border-border bg-surface p-5 shadow-sm">
-            <div className="flex flex-wrap items-center justify-between gap-4">
+          <section className="rounded-3xl border-4 border-white bg-white/60 backdrop-blur-md p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative overflow-hidden">
+            <div className="absolute -right-10 -top-10 w-40 h-40 bg-[hsl(48,100%,80%)] rounded-full blur-3xl opacity-50 pointer-events-none" />
+            <div className="absolute right-20 -bottom-10 w-32 h-32 bg-[hsl(198,78%,80%)] rounded-full blur-3xl opacity-50 pointer-events-none" />
+
+            <div className="flex flex-wrap items-center justify-between gap-4 relative z-10">
               <div>
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-[#8da47e]/15 px-2.5 py-0.5 text-[10px] font-black uppercase tracking-[0.2em] text-[#8da47e]">
-                  <GraduationCap className="h-3 w-3" /> Centro docente
-                </span>
-                <h1 className="mt-2 text-2xl font-black text-stone-800 font-fredoka">CRM de clase y reportes</h1>
-                <p className="mt-1 text-xs font-semibold text-stone-500 max-w-lg">
-                  Gestiona clases, revisa el progreso del cuaderno y prepara reportes de aula.
+                <p className="text-xs font-black uppercase tracking-[0.2em] text-[#d97706]">Módulo para Profesores</p>
+                <h1 className="mt-1 text-4xl font-black text-[#3b2a12] font-fredoka drop-shadow-sm">Centro de Control</h1>
+                <p className="mt-2 text-sm font-bold text-[#7a6040] max-w-lg">
+                  Gestiona clases, revisa el progreso del cuaderno y prepara reportes de aula de forma fácil y divertida.
                 </p>
               </div>
 
-              <div className="flex flex-wrap items-center gap-3">
+              <div className="flex flex-wrap items-center gap-4">
                 {/* Selector */}
                 {classesList.length > 0 && (
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-bold text-stone-500">Clase:</span>
+                  <div className="flex items-center gap-3 bg-white/80 p-2 pl-4 rounded-2xl shadow-sm border border-stone-200">
+                    <span className="text-xs font-black text-stone-500 uppercase tracking-widest">Tu Clase:</span>
                     <select
                       value={selectedClassId}
                       onChange={(e) => {
                         setSelectedClassId(e.target.value);
                         setSelectedStudentId(null);
                       }}
-                      className="px-3 py-2 rounded-xl border border-[hsl(28,30%,18%)]/10 bg-[#fdfbf7] text-stone-800 font-bold text-xs focus:outline-none cursor-pointer"
+                      className="px-4 py-2 rounded-xl border-2 border-[hsl(28,30%,18%)]/10 bg-white text-stone-800 font-bold text-sm focus:outline-none focus:border-[#d97706] cursor-pointer transition-colors shadow-sm"
                     >
                       {classesList.map((c) => (
                         <option key={c.id} value={c.id}>
@@ -227,19 +262,19 @@ export function TeacherCrmShell() {
                   </div>
                 )}
 
-                <div className="flex gap-2">
+                <div className="flex gap-3">
                   <Link
                     to="/cartilla/teacher/reportes"
-                    className="inline-flex items-center gap-1.5 rounded-xl bg-stone-850 px-3 py-2 text-xs font-black text-white hover:bg-stone-950 transition cursor-pointer"
+                    className="inline-flex items-center gap-2 rounded-2xl bg-[#ea580c] px-5 py-3 text-sm font-black text-white shadow-lg hover:-translate-y-1 hover:shadow-xl hover:bg-[#c2410c] transition-all cursor-pointer"
                   >
-                    <BarChart3 className="h-4 w-4" /> Reportes
+                    <BarChart3 className="h-5 w-5" /> Reportes
                   </Link>
                   <Link
                     to="/cartilla/teacher/flipchart/$n"
                     params={{ n: "1" }}
-                    className="inline-flex items-center gap-1.5 rounded-xl border border-[hsl(28,30%,18%)]/15 bg-white px-3 py-2 text-xs font-black text-stone-700 hover:border-[#8da47e] transition cursor-pointer"
+                    className="inline-flex items-center gap-2 rounded-2xl border-4 border-white bg-[#0284c7] px-5 py-3 text-sm font-black text-white shadow-lg hover:-translate-y-1 hover:shadow-xl hover:bg-[#0369a1] transition-all cursor-pointer"
                   >
-                    <MonitorPlay className="h-4 w-4 text-[#8da47e]" /> Flipchart
+                    <MonitorPlay className="h-5 w-5" /> Flipchart Mágico
                   </Link>
                 </div>
               </div>
@@ -263,22 +298,22 @@ export function TeacherCrmShell() {
           {/* Load / Empty States */}
           {loadingClasses ? (
             <div className="p-12 text-center font-bold text-stone-400 animate-pulse bg-white border border-stone-200 rounded-[2rem]">
-              Cargando tablero CRM...
+               Cargando tablero CRM...
             </div>
           ) : classesList.length === 0 ? (
             /* Honest Empty State: No Classes */
-            <div className="kid-card p-12 text-center bg-white/70 max-w-xl mx-auto space-y-6 mt-4">
-              <div className="w-16 h-16 rounded-3xl bg-[hsl(48,100%,94%)] text-vowel-e flex items-center justify-center mx-auto shadow-inner float-soft">
+            <div className="kid-card p-12 text-center bg-white/70 max-w-xl mx-auto space-y-6 mt-4 border-4 border-dashed border-[#e8e2d9]">
+              <div className="w-16 h-16 rounded-3xl bg-[#fdf3e0] text-[#d97706] flex items-center justify-center mx-auto shadow-inner float-soft">
                 <GraduationCap className="w-9 h-9" />
               </div>
               <div>
-                <h2 className="text-2xl font-black text-stone-800 font-fredoka">¡Bienvenido al CRM de Gretel!</h2>
-                <p className="text-sm font-semibold text-stone-500 mt-2 leading-relaxed max-w-sm mx-auto">
-                  Para ver las métricas de progreso, KPIs y el listado de alumnos, primero debes crear una clase de lectura.
+                <h2 className="text-3xl font-black text-[#3b2a12] font-fredoka">¡Bienvenido al CRM de Gretel!</h2>
+                <p className="text-sm font-bold text-[#7a6040] mt-2 leading-relaxed max-w-sm mx-auto">
+                  Crea una clase para empezar a añadir estudiantes y seguir su progreso mágicamente.
                 </p>
               </div>
 
-              <form onSubmit={handleCreateClass} className="flex gap-2 max-w-md mx-auto justify-center items-center">
+              <form onSubmit={handleCreateClass} className="flex gap-3 max-w-md mx-auto justify-center items-center mt-6">
                 <input
                   type="text"
                   value={newClassName}
@@ -286,62 +321,53 @@ export function TeacherCrmShell() {
                   placeholder="Ej. Primaria 1° A"
                   maxLength={40}
                   disabled={busy}
-                  className="flex-1 px-4 py-3 rounded-2xl border-2 border-[hsl(28,30%,18%)]/10 bg-white text-stone-800 text-sm focus:outline-none focus:border-vowel-a outline-none shadow-xs"
+                  className="flex-1 px-5 py-4 rounded-2xl border-2 border-stone-200 bg-white text-stone-800 text-sm font-bold focus:outline-none focus:border-[#d97706] outline-none shadow-inner"
                   required
                 />
                 <button
                   type="submit"
                   disabled={busy || !newClassName.trim()}
-                  className="px-6 py-3 rounded-2xl bg-vowel-o text-white font-black text-sm hover:brightness-105 active:scale-95 shadow-sm transition disabled:opacity-50 cursor-pointer"
+                  className="px-8 py-4 rounded-2xl bg-[#ea580c] text-white font-black text-sm hover:-translate-y-1 shadow-lg hover:shadow-xl transition disabled:opacity-50 cursor-pointer"
                 >
-                  Crear Clase
+                  Crear
                 </button>
               </form>
-
-              <div className="p-4 rounded-2xl bg-[hsl(354,78%,98%)] border text-left text-xs text-[hsl(354,78%,35%)] font-bold flex items-start gap-3" style={alertBoxStyle}>
-                <AlertCircle className="w-4 h-4 mt-0.5 shrink-0" />
-                <p>
-                  <strong>Sesión:</strong> {isSeed ? "Estás operando en modo local (sin Supabase). Todos los datos se guardan de manera segura en la memoria de este navegador." : "Tu cuenta de maestro está vinculada a la nube. El progreso se sincronizará automáticamente."}
-                </p>
-              </div>
             </div>
           ) : loadingStudents ? (
             <div className="p-12 text-center font-bold text-stone-400 animate-pulse bg-white border border-stone-200 rounded-[2rem]">
-              Cargando alumnos de la clase...
+              Cargando alumnos...
             </div>
           ) : studentsList.length === 0 ? (
             /* Honest Empty State: Class exists, but has no students */
-            <div className="kid-card p-12 text-center bg-white/70 max-w-xl mx-auto space-y-6 mt-4">
-              <div className="w-16 h-16 rounded-3xl bg-[hsl(198,78%,95%)] text-vowel-i flex items-center justify-center mx-auto shadow-inner">
+            <div className="kid-card p-12 text-center bg-white/70 max-w-xl mx-auto space-y-6 mt-4 border-4 border-dashed border-[#e8e2d9]">
+              <div className="w-16 h-16 rounded-3xl bg-[#e0f2fe] text-[#0284c7] flex items-center justify-center mx-auto shadow-inner">
                 <User className="w-9 h-9" />
               </div>
               <div>
-                <h2 className="text-2xl font-black text-stone-800 font-fredoka">Esta clase aún no tiene alumnos</h2>
-                <p className="text-sm font-semibold text-stone-500 mt-2 leading-relaxed max-w-sm mx-auto">
-                  Comparte el código de unión <strong className="font-mono text-vowel-e text-lg">{activeClass?.join_code}</strong> con tus alumnos para que comiencen a jugar.
-                </p>
-                <p className="text-xs font-bold text-stone-400 mt-1">
-                  O añade un alumno manualmente a continuación.
+                <h2 className="text-3xl font-black text-[#3b2a12] font-fredoka">No hay alumnos</h2>
+                <p className="text-sm font-bold text-[#7a6040] mt-2 leading-relaxed max-w-sm mx-auto">
+                  Código de unión para tu clase: <br/>
+                  <strong className="font-mono text-[#0284c7] text-2xl bg-[#e0f2fe] px-4 py-2 rounded-xl mt-2 inline-block shadow-inner">{activeClass?.join_code}</strong>
                 </p>
               </div>
 
-              <form onSubmit={handleAddStudent} className="flex gap-2 max-w-md mx-auto justify-center items-center">
+              <form onSubmit={handleAddStudent} className="flex gap-3 max-w-md mx-auto justify-center items-center mt-6">
                 <input
                   type="text"
                   value={newStudentName}
                   onChange={(e) => setNewStudentName(e.target.value)}
-                  placeholder="Nombre completo del alumno"
+                  placeholder="Añadir alumno manualmente..."
                   maxLength={50}
                   disabled={busy}
-                  className="flex-1 px-4 py-3 rounded-2xl border-2 border-[hsl(28,30%,18%)]/10 bg-white text-stone-800 text-sm focus:outline-none focus:border-vowel-a outline-none shadow-xs"
+                  className="flex-1 px-5 py-4 rounded-2xl border-2 border-stone-200 bg-white text-stone-800 text-sm font-bold focus:outline-none focus:border-[#0284c7] outline-none shadow-inner"
                   required
                 />
                 <button
                   type="submit"
                   disabled={busy || !newStudentName.trim()}
-                  className="px-6 py-3 rounded-2xl bg-vowel-a text-white font-black text-sm hover:brightness-105 active:scale-95 shadow-sm transition disabled:opacity-50 cursor-pointer"
+                  className="px-6 py-4 rounded-2xl bg-[#0284c7] text-white font-black text-sm hover:-translate-y-1 shadow-lg hover:shadow-xl transition disabled:opacity-50 cursor-pointer"
                 >
-                  Añadir Alumno
+                  Añadir
                 </button>
               </form>
             </div>
@@ -364,7 +390,10 @@ export function TeacherCrmShell() {
                   />
                 </div>
                 <div className="space-y-6">
-                  <AccountPanel student={selectedStudent} />
+                  <AccountPanel 
+                    student={selectedStudent} 
+                    onUpdate={handleUpdateStudent}
+                  />
                   <TaskList />
                   <AnalyticsPanel />
                 </div>

@@ -1,10 +1,7 @@
 /**
- * Teacher Resource Hub — four color-coded entry points.
- * CRM (groups/students/progress) lives at the real Supabase-backed
- * dashboard behind "Mis Alumnos" → /cartilla/teacher
+ * Teacher Resource Hub — "Google Workspace" Drive view
  */
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { MonitorPlay, Users, BookOpenCheck, Printer } from "lucide-react";
 
 export const Route = createFileRoute("/cartilla/recursos/")({
   component: TeacherHub,
@@ -13,118 +10,97 @@ export const Route = createFileRoute("/cartilla/recursos/")({
   }),
 });
 
-interface HubBox {
-  icon: React.ReactNode;
+interface DriveFolder {
   title: string;
-  subtitle: string;
   color: string;
-  textColor: string;
+  iconColor: string;
   to: string;
 }
 
-const BOXES: HubBox[] = [
+const FOLDERS: DriveFolder[] = [
   {
-    icon: <MonitorPlay className="w-12 h-12" />,
-    title: "Presentar",
-    subtitle: "Rotafolio HD para proyectar en el aula",
-    color: "#d99c30",
-    textColor: "#5c3d07",
-    to: "/cartilla/recursos/flipchart",
+    title: "Rimas Reproducible Enriquecimiento",
+    color: "bg-[#1e40af]", // Solid Blue
+    iconColor: "text-blue-200",
+    to: "/cartilla/recursos/rimas",
   },
   {
-    icon: <Users className="w-12 h-12" />,
-    title: "Mis Alumnos",
-    subtitle: "Grupos, progreso y registro de clase",
-    color: "#406c72",
-    textColor: "#1a2e31",
-    to: "/cartilla/teacher",
+    title: "Respuestas de las Evaluaciones",
+    color: "bg-[#eab308]", // Solid Yellow
+    iconColor: "text-yellow-100",
+    to: "/cartilla/recursos/respuestas",
   },
   {
-    icon: <BookOpenCheck className="w-12 h-12" />,
-    title: "Guía del Maestro",
-    subtitle: "Planes de clase y notas pedagógicas",
-    color: "#6a7a60",
-    textColor: "#28301e",
-    to: "/cartilla/recursos/guide",
+    title: "Evaluaciones Reproducibles",
+    color: "bg-[#dc2626]", // Solid Red
+    iconColor: "text-red-200",
+    to: "/cartilla/recursos/evaluaciones",
   },
   {
-    icon: <Printer className="w-12 h-12" />,
-    title: "Imprimir",
-    subtitle: "Fichas de trabajo y materiales imprimibles",
-    color: "#b8311a",
-    textColor: "#4a1009",
-    to: "/cartilla/recursos/print",
+    title: "Blackline Masters tablas silábicas",
+    color: "bg-[#9333ea]", // Solid Purple
+    iconColor: "text-purple-200",
+    to: "/cartilla/recursos/blacklines",
   },
+  {
+    title: "Guía del Profesor",
+    color: "bg-[#16a34a]", // Solid Green for the newly provided text
+    iconColor: "text-green-200",
+    to: "/cartilla/recursos/guia",
+  }
 ];
 
 function TeacherHub() {
   return (
     <div
-      className="w-full min-h-screen flex flex-col items-center justify-start py-16 px-6"
+      className="w-full min-h-screen flex flex-col items-center justify-start py-16 px-4 sm:px-8 -mx-6 -my-6"
       style={{
-        background:
-          "radial-gradient(ellipse 120% 80% at 50% -10%, #fdf3e0 0%, #f5e8c8 60%, #ecdaaa 100%)",
+        background: "radial-gradient(ellipse 120% 80% at 50% -10%, #fdf3e0 0%, #f5e8c8 60%, #ecdaaa 100%)",
+        minHeight: "calc(100vh - 64px)",
       }}
     >
-      <div className="text-center mb-14">
-        <div
-          className="inline-flex items-center justify-center w-20 h-20 rounded-full mb-5 shadow-md"
-          style={{ backgroundColor: "#d99c3020", border: "3px solid #d99c30" }}
-        >
-          <span className="text-4xl font-black" style={{ color: "#d99c30" }}>G</span>
-        </div>
-        <h1 className="text-5xl md:text-6xl font-black tracking-tight mb-3" style={{ color: "#3b2a12" }}>
-          Centro de Recursos
+      <div className="text-center mb-16 relative z-10 drop-shadow-sm">
+        <h1 className="text-5xl md:text-6xl font-black tracking-tight mb-4" style={{ color: "#3b2a12" }}>
+          Recursos del Maestro
         </h1>
-        <p className="text-xl font-semibold" style={{ color: "#7a6040" }}>
-          La Cartilla de Gretel · Maestro
+        <p className="text-xl md:text-2xl font-bold" style={{ color: "#7a6040" }}>
+          ¡Selecciona una carpeta para abrir los materiales!
         </p>
       </div>
 
-      <div className="w-full max-w-5xl grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {BOXES.map((box) => (
-          <HubCard key={box.title} box={box} />
+      <div className="w-full max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 sm:gap-12 pb-20">
+        {FOLDERS.map((folder) => (
+          <Link
+            key={folder.title}
+            to={folder.to as any}
+            className="group relative flex flex-col w-full pt-10 cursor-pointer transition-transform duration-300 hover:-translate-y-4 hover:scale-[1.05] hover:rotate-1"
+          >
+            {/* Playful Folder Tab */}
+            <div
+              className={`absolute top-0 left-6 w-1/2 h-14 ${folder.color} rounded-t-3xl z-0 shadow-inner`}
+              style={{ filter: "brightness(0.85)" }}
+            />
+
+            {/* Folder Front/Body */}
+            <div
+              className={`relative z-10 w-full min-h-[220px] ${folder.color} rounded-3xl rounded-tl-md shadow-[0_20px_40px_-10px_rgba(0,0,0,0.4),inset_0_6px_20px_rgba(255,255,255,0.4)] flex flex-col items-center justify-center p-5 overflow-visible border-b-4 border-black/20`}
+            >
+              {/* Fun shadow and light glare */}
+              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/30 to-transparent pointer-events-none rounded-3xl" />
+
+              {/* White Sticker Label (expands naturally) */}
+              <div className="bg-white/95 rounded-2xl shadow-lg w-full flex flex-col items-center justify-center p-4 text-center border-4 border-stone-100 z-20 group-hover:bg-white transition-colors rotate-[-2deg] group-hover:rotate-0 duration-300">
+                <h2
+                  className="text-xl sm:text-2xl font-black leading-tight uppercase"
+                  style={{ color: "#3b2a12" }}
+                >
+                  {folder.title}
+                </h2>
+              </div>
+            </div>
+          </Link>
         ))}
       </div>
     </div>
-  );
-}
-
-function HubCard({ box }: { box: HubBox }) {
-  return (
-    <Link
-      to={box.to as "/cartilla/recursos/flipchart" | "/cartilla/teacher" | "/cartilla/recursos/guide" | "/cartilla/recursos/print"}
-      className="group relative flex flex-col items-start p-8 rounded-3xl overflow-hidden cursor-pointer transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl focus:outline-none focus-visible:ring-4 focus-visible:ring-offset-2"
-      style={{
-        backgroundColor: box.color,
-        boxShadow: `0 8px 32px ${box.color}55, 0 2px 8px rgba(0,0,0,0.12)`,
-      }}
-    >
-      <div
-        className="absolute -top-10 -right-10 w-48 h-48 rounded-full opacity-10 group-hover:opacity-20 transition-opacity"
-        style={{ backgroundColor: box.textColor }}
-      />
-
-      <div className="relative z-10" style={{ color: box.textColor, opacity: 0.85 }}>
-        {box.icon}
-      </div>
-
-      <h2
-        className="relative z-10 text-3xl font-black mt-5 mb-2 tracking-tight"
-        style={{ color: "#fff", textShadow: `0 1px 4px ${box.textColor}55` }}
-      >
-        {box.title}
-      </h2>
-      <p className="relative z-10 text-base font-semibold leading-snug" style={{ color: "#ffffffcc" }}>
-        {box.subtitle}
-      </p>
-
-      <div
-        className="relative z-10 mt-6 self-end text-3xl font-black opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all"
-        style={{ color: "#fff" }}
-      >
-        →
-      </div>
-    </Link>
   );
 }

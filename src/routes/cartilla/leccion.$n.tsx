@@ -22,6 +22,9 @@ import { LanguageToggle } from "@/components/LanguageToggle";
 import { sCopy } from "@/content/student-copy";
 import { gretelEvent } from "@/lib/gretel-bus";
 
+import { StudentWorkbookFlip } from "@/components/StudentBook/StudentWorkbookFlip";
+import { buildPageArray } from "@/utils/buildPageArray";
+
 export const Route = createFileRoute("/cartilla/leccion/$n")({
   component: Leccion,
   beforeLoad: ({ params }) => {
@@ -42,6 +45,7 @@ function Leccion() {
   const session = useStudentSession();
   useCloudLessonHydration(session);
   const entry = useMemo<CatalogEntry | undefined>(() => CATALOG.find((e) => e.n === n), [n]);
+  const pages = useMemo(() => buildPageArray(), []);
 
   const fetchAssignments = useServerFn(listMyAssignments);
   const { data: assignments } = useQuery({
@@ -132,24 +136,39 @@ function Leccion() {
           </div>
         )}
       </header>
-      <main className="flex-1 px-4 pt-6 pb-28 max-w-3xl w-full mx-auto">
-        <div className="text-xs font-bold uppercase tracking-wide text-foreground/50">
-          {t.leccion[lang]} {n} · {t.paginas[lang].toLowerCase()} {entry.pages}
-        </div>
-        <h1
-          className="text-4xl sm:text-5xl font-bold leading-tight mt-1"
-          style={{ color: entry.color }}
-        >
-          {entry.title}
-        </h1>
-        {entry.kind === "intro" && <IntroBody lessonId={String(n)} lang={lang} t={t} />}
-        {entry.kind === "vowel" && <VowelBody entry={entry} lessonId={String(n)} lang={lang} t={t} />}
-        {entry.kind === "consonant" && <ConsonantBody entry={entry} lessonId={String(n)} lang={lang} t={t} />}
-        {done && (
-          <div className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-success">
-            <Check className="w-4 h-4" /> {t.yaCompletaste[lang]}
+      <main className="flex-1 px-4 pt-6 pb-28 max-w-5xl w-full mx-auto flex flex-col items-center">
+        <div className="w-full max-w-3xl text-left">
+          <div className="text-xs font-bold uppercase tracking-wide text-foreground/50">
+            {t.leccion[lang]} {n} · {t.paginas[lang].toLowerCase()} {entry.pages}
           </div>
-        )}
+          <h1
+            className="text-4xl sm:text-5xl font-bold leading-tight mt-1 mb-8"
+            style={{ color: entry.color }}
+          >
+            {entry.title}
+          </h1>
+        </div>
+
+        {/* Digital Workbook Section */}
+        <div className="w-full relative bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')] bg-[#d4a373] rounded-[2rem] p-4 sm:p-8 shadow-inner border-[8px] border-[#bc6c25] mb-12">
+          <StudentWorkbookFlip 
+            pages={pages} 
+            initialPage={parseInt(entry.pages.split("-")[0], 10) - 1} 
+          />
+        </div>
+
+        {/* Interactive Zone */}
+        <div className="w-full max-w-3xl">
+          <h2 className="text-2xl font-black mb-6 text-center text-foreground/80">¡Zona Interactiva!</h2>
+          {entry.kind === "intro" && <IntroBody lessonId={String(n)} lang={lang} t={t} />}
+          {entry.kind === "vowel" && <VowelBody entry={entry} lessonId={String(n)} lang={lang} t={t} />}
+          {entry.kind === "consonant" && <ConsonantBody entry={entry} lessonId={String(n)} lang={lang} t={t} />}
+          {done && (
+            <div className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-success bg-success/10 px-4 py-2 rounded-full mx-auto w-fit">
+              <Check className="w-4 h-4" /> {t.yaCompletaste[lang]}
+            </div>
+          )}
+        </div>
       </main>
       <nav className="fixed bottom-0 inset-x-0 p-3 bg-background/95 backdrop-blur border-t-2 border-foreground/10">
         <div className="max-w-3xl mx-auto flex items-center justify-between gap-3">

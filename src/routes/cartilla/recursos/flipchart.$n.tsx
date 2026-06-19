@@ -1,11 +1,15 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo, Suspense } from "react";
 import { createFileRoute, Link, useNavigate, redirect } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, Maximize, Minimize, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, Maximize, Minimize, X, BookOpen } from "lucide-react";
 import { CATALOG } from "@/lib/lesson-catalog";
-import { getWorkbookPagesForLesson } from "@/lib/book-faithful";
-import { getFlipchartSourceCardsForLesson } from "@/lib/flipchart-source";
 import { TeacherNoteField } from "@/components/teacher/TeacherNoteField";
-import { FlipbookVerticalViewer } from "@/components/cartilla/FlipbookVerticalViewer";
+import { getLesson } from "@/content/lesson-meta";
+import { wordsForLesson } from "@/content/word-bank";
+import { InteractiveFlipchartOverlay } from "@/components/cartilla/InteractiveFlipchartOverlay";
+
+const LazyFlipbookViewer = React.lazy(() =>
+  import("@/components/cartilla/FlipbookVerticalViewer").then((module) => ({ default: module.FlipbookVerticalViewer }))
+);
 
 export const Route = createFileRoute("/cartilla/recursos/flipchart/$n")({
   component: FlipchartLeccion,
@@ -21,22 +25,22 @@ function FlipchartLeccion() {
   const { n: nParam } = Route.useParams();
   const navigate = useNavigate();
   const n = Number(nParam);
-  
-  const workbookPages = getWorkbookPagesForLesson(n);
-  // Verified Teacher Flip Chart cards take priority over the workbook scans
-  // for the lessons they cover (corrected source PDFs, see flipchart-source.ts).
-  const sourceCards = getFlipchartSourceCardsForLesson(n);
-  const usingSourceCards = sourceCards.length > 0;
-  const pages = usingSourceCards
-    ? sourceCards.map((_, idx) => idx + 1)
-    : workbookPages.map((p) => p.pageNumber);
 
-  const [currentPageIndex, setCurrentPageIndex] = useState(0);
+  const lesson = getLesson(n);
+  const words = useMemo(() => wordsForLesson(n).map((word) => ({ word })), [n]);
+
+  const initialPage = useMemo(() => lesson?.pages[0] ?? 1, [lesson]);
+
+  const lastPage = useMemo(() => lesson?.pages[1] ?? lesson?.pages[0] ?? 1, [lesson]);
+
+  const [page, setPage] = useState(initialPage);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  const currentPageNumber = pages[currentPageIndex] || 1;
-  const currentSourceCard = usingSourceCards ? sourceCards[currentPageIndex] : null;
+  // Reset page when lesson changes
+  useEffect(() => {
+    setPage(initialPage);
+  }, [initialPage]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -48,7 +52,7 @@ function FlipchartLeccion() {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [n, currentPageIndex, pages.length]);
+  }, [n, page, lastPage]);
 
   const toggleFullscreen = () => {
     if (!document.fullscreenElement) {
@@ -59,88 +63,69 @@ function FlipchartLeccion() {
   };
 
   const goNext = () => {
-    if (currentPageIndex < pages.length - 1) {
-      setCurrentPageIndex(prev => prev + 1);
+    if (page < lastPage) {
+      setPage(p => p + 1);
     } else if (n < CATALOG.length) {
       navigate({ to: "/cartilla/recursos/flipchart/$n", params: { n: String(n + 1) } });
     }
   };
 
   const goPrev = () => {
-    if (currentPageIndex > 0) {
-      setCurrentPageIndex(prev => prev - 1);
+    if (page > initialPage) {
+      setPage(p => p - 1);
     } else if (n > 1) {
       navigate({ to: "/cartilla/recursos/flipchart/$n", params: { n: String(n - 1) } });
     }
   };
 
+  if (!lesson) return null;
+
   return (
-    <div className="fixed inset-0 flex flex-col md:flex-row overflow-hidden"
-         style={{ background: "linear-gradient(180deg, #c8e6f5 0%, #b3d9a0 38%, #8db87a 55%, #c49a6c 72%, #a07850 88%, #8a6442 100%)" }}>
-      {/* Hill silhouette */}
-      <div className="absolute inset-x-0 pointer-events-none" style={{ top: "20%", height: "35%", zIndex: 0 }}>
-        <svg viewBox="0 0 1200 200" preserveAspectRatio="none" className="w-full h-full" aria-hidden>
-          <ellipse cx="200" cy="200" rx="420" ry="170" fill="#7aaa5e" opacity="0.6" />
-          <ellipse cx="800" cy="200" rx="550" ry="150" fill="#6a9a52" opacity="0.5" />
-          <ellipse cx="1100" cy="200" rx="320" ry="130" fill="#8dba70" opacity="0.45" />
-        </svg>
-      </div>
-      {/* Desk surface at bottom */}
-      <div className="absolute bottom-0 inset-x-0 h-20 pointer-events-none" style={{ background: "linear-gradient(180deg, #b8895a 0%, #9a6e42 100%)", zIndex: 0 }} />
+    <div className="fixed inset-0 bg-stone-900 flex flex-col md:flex-row overflow-hidden font-display select-none">
+      <main className="flex-1 relative flex items-center justify-center bg-[#1a1a1a]">
 
-      {/* Main projection area */}
-      <main className="flex-1 relative flex items-center justify-center" style={{ zIndex: 1 }}>
-        <FlipbookVerticalViewer
-          pageNumber={currentPageNumber}
-          className="w-full h-full max-h-screen"
-          srcOverride={currentSourceCard?.masterImage}
-          altOverride={currentSourceCard ? `Lámina del Teacher Flip Chart — ${currentSourceCard.section}` : undefined}
-        />
-
-        {/* Overlay controls (hidden when idle/fullscreen, but for now just subtle) */}
-        <div className="absolute top-4 left-4 flex items-center gap-3 opacity-50 hover:opacity-100 transition-opacity">
-          <Link
-            to="/cartilla/recursos/flipchart"
-            className="p-3 bg-stone-800 text-white rounded-full hover:bg-stone-700"
-            title="Volver al selector"
+        {/* The 100% Faithful Flipchart Viewer */}
+        <div className="relative w-full max-w-4xl h-[85vh] shadow-2xl flex items-center justify-center bg-black/20">
+          <Suspense
+            fallback={
+              <div className="text-white/60 font-bold text-sm" aria-busy="true">
+                Cargando rotafolio original…
+              </div>
+            }
           >
+            <LazyFlipbookViewer pageNumber={page} className="w-full h-full" />
+          </Suspense>
+
+          {/* Interactive Overlay to bring cropped figures to life */}
+          <InteractiveFlipchartOverlay pageNumber={page} words={words} />
+        </div>
+
+        {/* Overlay controls */}
+        <div className="absolute top-4 left-4 flex items-center gap-3 opacity-50 hover:opacity-100 transition-opacity z-50">
+          <Link to="/cartilla/recursos/flipchart" className="p-3 bg-stone-800 text-white rounded-full hover:bg-stone-700" title="Volver al selector">
             <X className="w-6 h-6" />
           </Link>
-          <button
-            onClick={toggleFullscreen}
-            className="p-3 bg-stone-800 text-white rounded-full hover:bg-stone-700"
-            title="Pantalla Completa (F)"
-          >
+          <button onClick={toggleFullscreen} className="p-3 bg-stone-800 text-white rounded-full hover:bg-stone-700" title="Pantalla Completa (F)">
             {isFullscreen ? <Minimize className="w-6 h-6" /> : <Maximize className="w-6 h-6" />}
           </button>
-          <button
-            onClick={() => setSidebarOpen(!sidebarOpen)}
-            className={`px-4 py-2 font-bold rounded-full ${sidebarOpen ? 'bg-orange-500 text-white' : 'bg-stone-800 text-white'}`}
-          >
-            Notas (T)
+          <button onClick={() => setSidebarOpen(!sidebarOpen)} className={`flex items-center gap-2 px-4 py-3 font-bold rounded-full transition-colors ${sidebarOpen ? 'bg-orange-500 text-white' : 'bg-stone-800 text-white hover:bg-stone-700'}`}>
+            <BookOpen className="w-5 h-5" />
+            <span className="hidden md:inline">Notas (T)</span>
           </button>
         </div>
 
         {/* Navigation arrows overlay */}
-        <button
-          onClick={goPrev}
-          className="absolute left-4 top-1/2 -translate-y-1/2 p-4 bg-black/30 hover:bg-black/60 text-white rounded-full transition-colors"
-        >
+        <button onClick={goPrev} disabled={n <= 1 && page === initialPage} className="absolute left-4 top-1/2 -translate-y-1/2 p-4 bg-black/30 hover:bg-black/60 disabled:opacity-20 text-white rounded-full transition-colors z-50">
           <ArrowLeft className="w-10 h-10" />
         </button>
-        
-        <button
-          onClick={goNext}
-          className="absolute right-4 top-1/2 -translate-y-1/2 p-4 bg-black/30 hover:bg-black/60 text-white rounded-full transition-colors"
-        >
+
+        <button onClick={goNext} disabled={n >= CATALOG.length && page === lastPage} className="absolute right-4 top-1/2 -translate-y-1/2 p-4 bg-black/30 hover:bg-black/60 disabled:opacity-20 text-white rounded-full transition-colors z-50">
           <ArrowRight className="w-10 h-10" />
         </button>
-        
+
         {/* Page indicator */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 bg-black/50 text-white font-bold rounded-full text-sm">
-          {usingSourceCards
-            ? `Lección ${n} — Lámina ${currentPageIndex + 1} de ${pages.length} (${currentSourceCard?.id})`
-            : `Lección ${n} — Página ${currentPageNumber}`}
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 bg-black/50 text-white font-bold rounded-full text-sm z-50">
+          Lección {n} — Pág. {page}
         </div>
       </main>
 

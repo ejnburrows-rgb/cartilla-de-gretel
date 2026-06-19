@@ -41,6 +41,8 @@ type SeedStudent = {
   class_id: string;
   display_name: string;
   student_code: string;
+  grade?: string;
+  teacher_notes?: string;
   created_at: string;
 };
 
@@ -238,6 +240,15 @@ export function deleteSeedStudent(id: string) {
   state.events = state.events.filter((e) => e.student_id !== id);
   writeState(state);
   return { ok: true };
+}
+
+export function updateSeedStudent(id: string, updates: Partial<SeedStudent>) {
+  const state = readState();
+  const index = state.students.findIndex((s) => s.id === id);
+  if (index === -1) throw new Error("Alumno no encontrado.");
+  state.students[index] = { ...state.students[index], ...updates };
+  writeState(state);
+  return state.students[index];
 }
 
 export function joinSeedClass(joinCode: string, studentCode: string) {

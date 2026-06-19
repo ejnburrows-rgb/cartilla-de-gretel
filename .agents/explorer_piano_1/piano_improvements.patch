@@ -1,0 +1,252 @@
+diff --git a/src/hooks/useSpeechRecognition.ts b/src/hooks/useSpeechRecognition.ts
+index c6b96fb..fae2c14 100644
+--- a/src/hooks/useSpeechRecognition.ts
++++ b/src/hooks/useSpeechRecognition.ts
+@@ -9,15 +9,21 @@ export interface UseSpeechRecognitionReturn {
+   error: string | null;
+ }
+ 
+-export function useSpeechRecognition(): UseSpeechRecognitionReturn {
++export interface SpeechRecognitionOptions {
++  lang?: string;
++}
++
++export function useSpeechRecognition(options?: SpeechRecognitionOptions): UseSpeechRecognitionReturn {
+   const [isListening, setIsListening] = useState(false);
+   const [transcript, setTranscript] = useState("");
+   const [error, setError] = useState<string | null>(null);
+   const [isSupported, setIsSupported] = useState(false);
+ 
+   const recognitionRef = useRef<any>(null);
++  const lang = options?.lang || "es-MX";
+ 
+   useEffect(() => {
+     if (typeof window !== "undefined") {
+       const SpeechRecognition =
+         (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+@@ -27,7 +33,7 @@ export function useSpeechRecognition(): UseSpeechRecognitionReturn {
+         const recognition = new SpeechRecognition();
+         recognition.continuous = false;
+         recognition.interimResults = false;
+-        recognition.lang = "es-MX"; // Primary target Spanish pronunciation
++        recognition.lang = lang;
+ 
+         recognition.onstart = () => {
+           setIsListening(true);
+@@ -55,8 +61,23 @@ export function useSpeechRecognition(): UseSpeechRecognitionReturn {
+         recognitionRef.current = recognition;
+       }
+     }
++
++    return () => {
++      if (recognitionRef.current) {
++        try {
++          recognitionRef.current.abort();
++        } catch (e) {
++          // Ignore
++        }
++      }
++    };
+   }, []);
+ 
++  useEffect(() => {
++    if (recognitionRef.current) {
++      recognitionRef.current.lang = lang;
++    }
++  }, [lang]);
++
+   const startListening = useCallback(() => {
+     if (!recognitionRef.current) return;
+     try {
+diff --git a/src/lib/piano-audio.ts b/src/lib/piano-audio.ts
+index e09b4db..7ffb8bb 100644
+--- a/src/lib/piano-audio.ts
++++ b/src/lib/piano-audio.ts
+@@ -20,29 +20,455 @@ export function playNote(freq: number, duration = 0.8) {
+   // Master Gain to prevent clipping
+   const masterGain = ctx.createGain();
+   masterGain.gain.setValueAtTime(0, now);
+-  // Linear ramp to full volume (soft attack)
+-  masterGain.gain.linearRampToValueAtTime(0.3, now + 0.02);
++  // Quick attack strike (10ms)
++  masterGain.gain.linearRampToValueAtTime(0.25, now + 0.01);
+   // Exponential decay
+   masterGain.gain.exponentialRampToValueAtTime(0.001, now + duration);
+   masterGain.connect(ctx.destination);
+ 
+-  // Fundamental Oscillator
+-  const osc1 = ctx.createOscillator();
+-  osc1.type = "sine";
+-  osc1.frequency.setValueAtTime(freq, now);
+-  osc1.connect(masterGain);
+-  osc1.start(now);
+-  osc1.stop(now + duration);
++  const activeNodes: any[] = [masterGain];
+ 
+-  // Subtler second harmonic for a richer piano-like timbre
+-  const osc2 = ctx.createOscillator();
+-  osc2.type = "triangle";
+-  osc2.frequency.setValueAtTime(freq * 2, now);
+-  const gain2 = ctx.createGain();
+-  gain2.gain.setValueAtTime(0.08, now);
+-  gain2.gain.exponentialRampToValueAtTime(0.001, now + duration * 0.5);
+-  osc2.connect(gain2);
+-  gain2.connect(masterGain);
+-  osc2.start(now);
+-  osc2.stop(now + duration);
++  // Rich harmonic setup to synthesize a pleasant piano timbre:
++  // - 1st: Fundamental (sine) -> strong
++  // - 2nd: Octave (triangle) -> medium-low
++  // - 3rd: Octave + Fifth (sine) -> subtle
++  // - 4th: Double Octave (sine) -> very subtle
++  const harmonics = [
++    { freqMult: 1, type: "sine" as OscillatorType, gainVal: 0.5, decayMult: 1.0 },
++    { freqMult: 2, type: "triangle" as OscillatorType, gainVal: 0.15, decayMult: 0.7 },
++    { freqMult: 3, type: "sine" as OscillatorType, gainVal: 0.08, decayMult: 0.5 },
++    { freqMult: 4, type: "sine" as OscillatorType, gainVal: 0.04, decayMult: 0.3 }
++  ];
++
++  harmonics.forEach(({ freqMult, type, gainVal, decayMult }) => {
++    const osc = ctx.createOscillator();
++    osc.type = type;
++    osc.frequency.setValueAtTime(freq * freqMult, now);
++
++    const gainNode = ctx.createGain();
++    gainNode.gain.setValueAtTime(gainVal, now);
++    gainNode.gain.exponentialRampToValueAtTime(0.001, now + duration * decayMult);
++
++    osc.connect(gainNode);
++    gainNode.connect(masterGain);
++
++    osc.start(now);
++    osc.stop(now + duration);
++
++    activeNodes.push(osc, gainNode);
++  });
++
++  // Explicitly disconnect all nodes after playback finishes to prevent memory/audio leaks
++  setTimeout(() => {
++    activeNodes.forEach((node) => {
++      try {
++        node.disconnect();
++      } catch (e) {
++        // Ignore if already disconnected
++      }
++    });
++  }, duration * 1000 + 100);
+ }
+ 
+ export function playCorrectChord() {
+@@ -74,10 +89,17 @@ export function playWrongBuzz() {
+   // Lowpass filter to make it sound warm/soft rather than harsh
+   const filter = ctx.createBiquadFilter();
+   filter.type = "lowpass";
+   filter.frequency.setValueAtTime(300, now);
+ 
+   osc.connect(filter);
+   filter.connect(gain);
+   gain.connect(ctx.destination);
+ 
+   osc.start(now);
+   osc.stop(now + 0.3);
++
++  setTimeout(() => {
++    try {
++      osc.disconnect();
++      filter.disconnect();
++      gain.disconnect();
++    } catch (e) {}
++  }, 400);
+ }
+diff --git a/src/components/cartilla/PianoPronunciation.tsx b/src/components/cartilla/PianoPronunciation.tsx
+index 32cf1b4..15eb90a 100644
+--- a/src/components/cartilla/PianoPronunciation.tsx
++++ b/src/components/cartilla/PianoPronunciation.tsx
+@@ -12,11 +12,12 @@ interface PianoPronunciationProps {
+   lessonId?: string;
+   color?: string;
+   onComplete?: () => void;
++  locale?: string;
+ }
+ 
+ export function PianoPronunciation({
+   syllables,
+   lessonId = "demo",
+   color = "#f97316",
+   onComplete,
++  locale = "es-MX",
+ }: PianoPronunciationProps) {
+   const {
+     isListening,
+     transcript,
+     startListening,
+     stopListening,
+     isSupported,
+     error,
+-  } = useSpeechRecognition();
++  } = useSpeechRecognition({ lang: locale });
+ 
+   const [activeKeyIdx, setActiveKeyIdx] = useState<number | null>(null);
+   const [keyStates, setKeyStates] = useState<Record<number, "idle" | "correct" | "incorrect">>({});
+@@ -100,10 +101,12 @@ export function PianoPronunciation({
+       setHelperText(`Escuché: "${transcript}". ¡Intenta otra vez!`);
+       // Shake all non-completed keys briefly
+       const updatedStates: Record<number, "idle" | "correct" | "incorrect"> = {};
+-      pianoKeys.forEach((_, idx) => {
+-        updatedStates[idx] = "incorrect";
++      pianoKeys.forEach((key, idx) => {
++        if (!completedSet.has(key.syllable)) {
++          updatedStates[idx] = "incorrect";
++        }
+       });
+       setKeyStates(updatedStates);
+       
+       setTimeout(() => {
+         setKeyStates({});
+@@ -124,10 +127,19 @@ export function PianoPronunciation({
+   const listenToSyllable = async (syllable: string, index: number) => {
+     setActiveKeyIdx(index);
+     playNote(pianoKeys[index].frequency, 0.6);
++
++    // Prevent speech synthesis audio from feeding back into the active microphone
++    const wasListening = isListening;
++    if (wasListening) {
++      stopListening();
++    }
++
+     await speak(syllable);
+     setActiveKeyIdx(null);
++
++    if (wasListening) {
++      setTimeout(() => {
++        startListening();
++      }, 300);
++    }
+   };
+ 
+   const handleMicClick = () => {
+@@ -174,10 +186,11 @@ export function PianoPronunciation({
+                 {/* White Key Core */}
+                 <div
+                   className={cn(
+                     "absolute inset-0 bg-white border border-stone-200 rounded-b-xl shadow-md transition-all duration-150 flex flex-col justify-end items-center pb-4",
+                     "group-active:pt-2 group-active:pb-2 group-active:shadow-sm",
++                    isCompleted && "bg-emerald-50/50 border-emerald-200",
+                     isActive && "bg-amber-100 scale-y-[0.98]",
+-                    state === "correct" && "bg-emerald-400 border-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.6)] text-white",
+-                    state === "incorrect" && "bg-red-400 border-red-500 shadow-[0_0_10px_rgba(239,68,68,0.5)] text-white"
++                    state === "correct" && "bg-emerald-400 border-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.6)]",
++                    state === "incorrect" && "bg-red-400 border-red-500 shadow-[0_0_10px_rgba(239,68,68,0.5)]"
+                   )}
+                 >
+                   {/* Visual key bottom indent */}
+                   <div className="absolute bottom-0 inset-x-0 h-2 bg-stone-200 rounded-b-xl group-active:h-0.5 transition-all" />
+ 
+                   {/* Syllable tag */}
+-                  <span className="text-xl font-black font-display text-stone-800 group-hover:scale-110 transition-transform">
++                  <span className={cn(
++                    "text-xl font-black font-display group-hover:scale-110 transition-transform",
++                    (state === "correct" || state === "incorrect") ? "text-white" : "text-stone-800"
++                  )}>
+                     {key.syllable}
+                   </span>

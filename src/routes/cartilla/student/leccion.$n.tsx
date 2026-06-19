@@ -22,7 +22,6 @@ import {
 } from "@/lib/lesson-progress";
 import { recordEvent, useStudentSession } from "@/lib/student-session";
 import interactionsData from "@/data/workbook-interactions.json";
-import teacherGuideData from "@/data/teacher-guide.json";
 import pageInventory from "@/data/page-inventory.json";
 import LessonSkeleton from "./_components/LessonSkeleton";
 import { PdfPage } from "@/components/cartilla/PdfPage";
@@ -69,8 +68,12 @@ function Leccion() {
   const session = useStudentSession();
   useCloudLessonHydration(session);
   const entry = useMemo<CatalogEntry | undefined>(() => CATALOG.find((e) => e.n === n), [n]);
-  const guideLesson = useMemo(() => teacherGuideData.lessons.find((l) => l.lesson === n), [n]);
-  const lessonPages = guideLesson?.pages || [];
+  const lessonPages = useMemo(() => {
+    if (!entry) return [];
+    const [from, to] = entry.pages.split("-").map(Number);
+    const end = to ?? from;
+    return Array.from({ length: end - from + 1 }, (_, i) => from + i);
+  }, [entry]);
   const [showModal, setShowModal] = useState(false);
 
   const poemInteraction = useMemo(() => {
@@ -149,7 +152,7 @@ function Leccion() {
   }, [lessonNumber]);
 
   if (!unlocked) return null;
-  if (!entry || !guideLesson) return <LessonSkeleton />;
+  if (!entry) return <LessonSkeleton />;
 
   const done = isCompleted(n);
   const isLast = n >= TOTAL_LESSONS;

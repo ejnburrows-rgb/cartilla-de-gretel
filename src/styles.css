@@ -414,6 +414,89 @@ html.a11y-contrast .kid-card {
   }
 }
 
+/* ── Vertical Spiral Workbook Flip Styles ── */
+.workbook-container {
+  perspective: 1500px;
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  background: #fdfdfd;
+  border-radius: 0 0 16px 16px;
+  box-shadow: 
+    0 1px 1px rgba(0,0,0,0.05),
+    0 10px 30px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-top: none;
+}
+
+.spiral-binding {
+  position: absolute;
+  top: -12px;
+  left: 5%;
+  width: 90%;
+  height: 24px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 50;
+  pointer-events: none;
+}
+
+.spiral-ring {
+  width: 10px;
+  height: 24px;
+  background: linear-gradient(to right, #9ca3af, #d1d5db, #6b7280);
+  border-radius: 6px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.22);
+}
+
+.workbook-flip-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform-origin: top center;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.workbook-page-front,
+.workbook-page-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 0 0 12px 12px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.workbook-page-back {
+  transform: rotateX(180deg);
+  background: #fafafa;
+  /* subtle paper back shadows */
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, transparent 8%);
+}
+
+.workbook-shadow-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: rgba(0,0,0,0.04);
+  z-index: 10;
+  transition: opacity 0.6s ease;
+}
+
+.workbook-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.15), transparent);
+  z-index: 20;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

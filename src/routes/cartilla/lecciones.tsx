@@ -47,116 +47,98 @@ function Lecciones() {
   const pct = Math.round((doneCount / TOTAL_LESSONS) * 100);
 
   return (
-    <div className="min-h-screen bg-background">
-      <header className="px-4 pt-5 pb-4 max-w-5xl mx-auto">
-        <div className="flex items-center justify-between gap-3 mb-4 flex-wrap">
+    <div className="min-h-screen bg-stone-50 overflow-hidden relative pb-32">
+      {/* Background decoration */}
+      <div className="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-orange-100/50 to-transparent pointer-events-none" />
+      
+      <header className="px-4 pt-8 pb-4 max-w-2xl mx-auto relative z-10 text-center">
+        <div className="flex items-center justify-between mb-8">
           <Link
             to="/cartilla"
-            className="inline-flex items-center gap-2 text-sm font-bold text-foreground/70 hover:text-foreground"
+            className="inline-flex items-center gap-2 text-sm font-bold text-stone-500 hover:text-stone-800 transition-colors"
           >
-            <ArrowLeft className="w-4 h-4" /> {t.cartilla[lang]}
+            <ArrowLeft className="w-5 h-5" /> {t.cartilla[lang]}
           </Link>
-          <div className="flex items-center gap-3">
-            <LanguageToggle />
-            <div className="flex items-center gap-2">
-              <Link
-                to="/cartilla/practica"
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-vowel-o hover:underline"
-              >
-                <Zap className="w-3.5 h-3.5" /> {t.practicaRapida[lang]}
-              </Link>
-              <Link
-                to="/cartilla/repaso"
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline"
-              >
-                <Sparkles className="w-3.5 h-3.5" /> {t.modoRepaso[lang]}
-              </Link>
-              <button
-                type="button"
-                onClick={() => {
-                  if (window.confirm(t.reiniciarPregunta[lang])) reset();
-                }}
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-foreground/60 hover:text-destructive"
-              >
-                <RotateCcw className="w-3.5 h-3.5" /> {t.reiniciarProgreso[lang]}
-              </button>
-            </div>
-          </div>
+          <LanguageToggle />
         </div>
-        <h1 className="text-3xl sm:text-4xl font-bold leading-tight">
-          {t.las24LeccionesDe[lang]} <em>La Cartilla de Gretel</em>
+        
+        <h1 className="text-3xl sm:text-4xl font-black leading-tight text-stone-800">
+          Tu Camino de Aprendizaje
         </h1>
-        <p className="text-foreground/70 mt-1">
+        <p className="text-stone-500 font-medium mt-2">
           {t.aprendePaso[lang]}
         </p>
-        <div className="mt-5">
-          <div className="flex items-baseline justify-between text-sm font-bold">
-            <span className="text-foreground/80">
-              {t.progreso[lang]} {doneCount} / {TOTAL_LESSONS}
+
+        {/* Progress Bar */}
+        <div className="mt-8 max-w-sm mx-auto bg-white p-4 rounded-2xl shadow-sm border border-stone-200">
+          <div className="flex items-baseline justify-between text-sm font-black mb-2">
+            <span className="text-orange-500 uppercase tracking-widest text-[10px]">
+              {t.progreso[lang]}
             </span>
-            <span className="text-foreground/60">{pct}%</span>
+            <span className="text-stone-800">{doneCount} / {TOTAL_LESSONS}</span>
           </div>
-          <div className="mt-1.5 h-3 bg-secondary rounded-full overflow-hidden border border-foreground/10">
-            <div className="h-full bg-primary transition-all" style={{ width: `${pct}%` }} />
+          <div className="h-4 bg-stone-100 rounded-full overflow-hidden border border-stone-200 shadow-inner">
+            <div 
+              className="h-full bg-gradient-to-r from-orange-400 to-orange-500 transition-all duration-1000" 
+              style={{ width: `${pct}%` }} 
+            />
           </div>
         </div>
       </header>
-      <main className="px-4 pb-24 max-w-5xl mx-auto">
-        <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-4">
-          {CATALOG.map((entry) => {
+
+      <main className="px-4 max-w-2xl mx-auto relative mt-12">
+        {/* The Path Line */}
+        <div className="absolute top-0 bottom-0 left-1/2 w-4 bg-stone-200 rounded-full -translate-x-1/2 opacity-50 shadow-inner"></div>
+
+        <div className="flex flex-col items-center gap-10">
+          {CATALOG.map((entry, i) => {
             const done = isCompleted(entry.n);
             const unlocked = isUnlocked(entry.n);
-            const cls = `block rounded-2xl border-2 p-4 h-full transition shadow-sm ${unlocked ? "bg-card border-foreground/10 hover:shadow-md hover:-translate-y-0.5 cursor-pointer" : "bg-muted/40 border-foreground/5 cursor-not-allowed opacity-60"}`;
-            const inner = (
-              <>
-                <div className="flex items-start justify-between gap-2 mb-2">
-                  <span className="text-xs font-bold uppercase tracking-wide text-foreground/50">
-                    {t.leccion[lang]} {entry.n}
-                  </span>
-                  {done ? (
-                    <span className="inline-flex items-center gap-1 text-[11px] font-bold text-success">
-                      <Check className="w-3.5 h-3.5" /> {t.completada[lang]}
-                    </span>
-                  ) : !unlocked ? (
-                    <span className="inline-flex items-center gap-1 text-[11px] font-bold text-foreground/40">
-                      <Lock className="w-3.5 h-3.5" /> {t.bloqueada[lang]}
-                    </span>
-                  ) : (
-                    <span className="inline-flex items-center gap-1 text-[11px] font-bold text-primary">
-                      <BookOpen className="w-3.5 h-3.5" /> {t.disponible[lang]}
-                    </span>
-                  )}
-                </div>
-                <h2
-                  className="text-lg font-bold leading-tight"
-                  style={{ color: unlocked ? entry.color : undefined }}
-                >
-                  {entry.title}
-                </h2>
-                <p className="text-sm text-foreground/70 mt-1 line-clamp-2">{entry.subtitle}</p>
-                <div className="text-[11px] text-foreground/50 mt-2">{t.paginas[lang]} {entry.pages}</div>
-              </>
-            );
+            
+            // Calculate a zig-zag offset (Duolingo style)
+            const offsetX = Math.sin(i * 1.5) * 80;
+            
+            const nodeColor = entry.color || "#f97316";
+            
             return (
-              <li key={entry.n} className="list-none">
+              <div 
+                key={entry.n} 
+                className="relative flex flex-col items-center group z-10"
+                style={{ transform: `translateX(${offsetX}px)` }}
+              >
                 {unlocked ? (
                   <Link
                     to="/cartilla/leccion/$n"
                     params={{ n: String(entry.n) }}
-                    className={cls}
-                    style={{ borderLeftColor: entry.color, borderLeftWidth: 6 }}
+                    className={`relative w-24 h-24 rounded-full flex flex-col items-center justify-center text-white font-black text-2xl transition-all duration-300 shadow-xl border-b-8 active:border-b-0 active:translate-y-2 hover:scale-105 ${done ? "opacity-100" : "animate-bounce"}`}
+                    style={{ 
+                      backgroundColor: nodeColor,
+                      borderColor: "rgba(0,0,0,0.2)"
+                    }}
                   >
-                    {inner}
+                    {done ? <Check className="w-10 h-10 drop-shadow-md" /> : <span>{entry.n}</span>}
+                    
+                    {/* Floating Label */}
+                    <div className={`absolute top-full mt-3 px-4 py-1.5 bg-white rounded-xl shadow-md border border-stone-200 text-xs font-black uppercase tracking-wider text-stone-700 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity`}>
+                      {entry.title}
+                    </div>
                   </Link>
                 ) : (
-                  <div aria-disabled className={cls}>
-                    {inner}
+                  <div 
+                    className="relative w-20 h-20 rounded-full bg-stone-200 flex items-center justify-center shadow-inner border-4 border-stone-100 cursor-not-allowed opacity-80"
+                  >
+                    <Lock className="w-8 h-8 text-stone-400" />
+                    
+                    {/* Floating Label */}
+                    <div className="absolute top-full mt-3 px-3 py-1 bg-stone-100 rounded-lg text-[10px] font-bold text-stone-400 whitespace-nowrap">
+                      Bloqueado
+                    </div>
                   </div>
                 )}
-              </li>
+              </div>
             );
           })}
-        </ol>
+        </div>
       </main>
     </div>
   );

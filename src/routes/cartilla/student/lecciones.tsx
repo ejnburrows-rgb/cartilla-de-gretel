@@ -272,96 +272,111 @@ function Lecciones() {
         )}
       </section>
 
-      {/* ── Lesson grid ── */}
-      <section className="px-4 pb-10 max-w-5xl mx-auto w-full relative z-10">
-        <h2 className="text-lg font-bold mb-3">Todas las lecciones</h2>
-        <ol className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
-          {CATALOG.map((entry) => {
-            const done = isCompleted(entry.n);
-            const unlocked = isUnlocked(entry.n);
-            const active = entry.n === activeLesson.n;
-            const itemStyle = {
-              borderLeftWidth: 5,
-              borderLeftColor: entry.color,
-              borderColor: active ? entry.color : undefined,
-            };
-            const entryBgStyle = { backgroundColor: `${entry.color}18` };
-            const entryColorStyle = { color: unlocked ? entry.color : undefined };
-            return (
-              <li key={entry.n} className="list-none">
-                <button
-                  className={`relative w-full text-left rounded-2xl border-2 p-3 transition ${
-                    active
-                      ? "shadow-md"
-                      : unlocked
-                        ? "hover:shadow-md hover:-translate-y-0.5 cursor-pointer"
-                        : "opacity-50 cursor-not-allowed"
-                  }`}
-                  style={itemStyle}
-                  onClick={() => {
-                    const firstP = parseInt(entry.pages.split("-")[0] ?? "1", 10) || 1;
-                    setActivePage(firstP);
-                    spreadRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-                  }}
-                  disabled={!unlocked}
-                  aria-pressed={active}
-                  aria-label={`Lección ${entry.n}: ${entry.title}${done ? " — completada" : !unlocked ? " — bloqueada" : ""}`}
-                >
-                  {visitedLessons.includes(entry.n) && (
-                    <div
-                      style={{
-                        position: "absolute",
-                        top: "-4px",
-                        right: "-4px",
-                        width: "20px",
-                        height: "20px",
-                        borderRadius: "50%",
-                        background: "var(--color-success)",
-                        color: "white",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        fontSize: "11px",
-                        fontWeight: "bold",
-                        zIndex: 10,
-                      }}
-                      aria-label="Visitada"
+      {/* ── El Mapa de Aventuras (Gamified Grid) ── */}
+      <section className="px-4 pb-20 max-w-5xl mx-auto w-full relative z-10">
+        <div className="bg-white/80 backdrop-blur-md rounded-3xl p-6 md:p-10 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border-4 border-white relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-[#fde047] to-[#fef08a] rounded-full blur-3xl opacity-40 -z-10 -translate-y-1/2 translate-x-1/2" />
+          
+          <h2 className="text-3xl md:text-5xl font-black mb-2 text-[#3b2a12] font-fredoka flex items-center gap-3">
+            <Sparkles className="w-8 h-8 text-[#eab308]" /> El Mapa de Gretel
+          </h2>
+          <p className="text-[#7a6040] font-bold mb-8 max-w-lg">
+            ¡Sigue el camino, completa los retos y gana estrellas doradas!
+          </p>
+
+          <ol className="flex flex-wrap justify-center gap-6 md:gap-10">
+            {CATALOG.map((entry, i) => {
+              const done = isCompleted(entry.n);
+              const unlocked = isUnlocked(entry.n);
+              const active = entry.n === activeLesson.n;
+              
+              // Gamification: Randomize 1-3 stars if completed, 0 otherwise for demo
+              // Real data could pull from progress events
+              const stars = done ? (entry.n % 3) + 1 : 0; 
+              
+              return (
+                <li key={entry.n} className="list-none relative group">
+                  {/* Connecting Line (except last) */}
+                  {i < CATALOG.length - 1 && (
+                    <div className="hidden md:block absolute top-1/2 -right-10 w-10 h-2 border-t-4 border-dashed border-[#e2e8f0] -z-10" />
+                  )}
+
+                  <button
+                    className={`relative w-28 h-28 md:w-36 md:h-36 rounded-full border-4 transition-all duration-300 flex flex-col items-center justify-center gap-1 shadow-lg ${
+                      active
+                        ? "scale-110 shadow-2xl z-20 ring-8 ring-white"
+                        : unlocked
+                          ? "hover:scale-105 hover:-translate-y-2 cursor-pointer bg-white"
+                          : "opacity-60 cursor-not-allowed bg-stone-100 grayscale-[0.5]"
+                    }`}
+                    style={{
+                      borderColor: active || unlocked ? entry.color : '#cbd5e1',
+                      backgroundColor: active ? `${entry.color}15` : undefined,
+                    }}
+                    onClick={() => {
+                      if (!unlocked) return;
+                      const firstP = parseInt(entry.pages.split("-")[0] ?? "1", 10) || 1;
+                      setActivePage(firstP);
+                      spreadRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }}
+                    disabled={!unlocked}
+                    aria-pressed={active}
+                    aria-label={`Nivel ${entry.n}: ${entry.title}${done ? " — completado" : !unlocked ? " — bloqueado" : ""}`}
+                  >
+                    {/* Character/Icon inside the bubble */}
+                    <div className="w-12 h-12 md:w-16 md:h-16 relative">
+                      <BookArtFigure
+                        lesson={entry.n}
+                        role="character"
+                        className={`w-full h-full object-contain ${!unlocked && "opacity-50"}`}
+                      />
+                      {!unlocked && (
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <Lock className="w-6 h-6 text-stone-500 bg-white/80 rounded-full p-1 shadow-sm" />
+                        </div>
+                      )}
+                      {done && (
+                        <div className="absolute -top-2 -right-2 bg-[#22c55e] text-white rounded-full p-1 shadow-md">
+                          <Check className="w-4 h-4" />
+                        </div>
+                      )}
+                    </div>
+
+                    <span 
+                      className="text-xs md:text-sm font-black uppercase tracking-widest px-2 text-center truncate w-full"
+                      style={{ color: unlocked ? entry.color : '#64748b' }}
                     >
-                      ✓
+                      Nivel {entry.n}
+                    </span>
+                    
+                    {/* Star Rewards */}
+                    {unlocked && (
+                      <div className="flex gap-0.5 mt-1 absolute -bottom-3 bg-white px-2 py-1 rounded-full shadow-md border-2 border-stone-100">
+                        {[1, 2, 3].map((starIdx) => (
+                          <svg 
+                            key={starIdx} 
+                            className={`w-3 h-3 md:w-4 md:h-4 ${starIdx <= stars ? 'text-[#eab308] fill-[#eab308]' : 'text-stone-200 fill-stone-100'}`} 
+                            viewBox="0 0 24 24"
+                          >
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                          </svg>
+                        ))}
+                      </div>
+                    )}
+                  </button>
+                  
+                  {/* Title Tooltip on Hover */}
+                  {unlocked && (
+                    <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-stone-900 text-white text-xs font-bold px-3 py-1.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-30 shadow-xl">
+                      {entry.title}
+                      <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-stone-900 rotate-45" />
                     </div>
                   )}
-                  <div className="flex items-center justify-between gap-1 mb-2">
-                    <span className="text-[10px] font-bold uppercase tracking-wide text-foreground/50">
-                      L{entry.n}
-                    </span>
-                    {done ? (
-                      <Check className="w-3.5 h-3.5 text-success" aria-hidden />
-                    ) : !unlocked ? (
-                      <Lock className="w-3.5 h-3.5 text-foreground/30" aria-hidden />
-                    ) : null}
-                  </div>
-                  {/* Aspect-ratio preserving container with rounded corners */}
-                  <div
-                    className="aspect-[8.5/11] w-full rounded-xl overflow-hidden mb-2 relative flex items-center justify-center"
-                    style={entryBgStyle}
-                  >
-                    <BookArtFigure
-                      lesson={entry.n}
-                      role="character"
-                      className="w-full h-full object-contain p-2"
-                    />
-                  </div>
-                  <div
-                    className="text-sm font-bold leading-tight line-clamp-2"
-                    style={entryColorStyle}
-                  >
-                    {entry.title}
-                  </div>
-                </button>
-              </li>
-            );
-          })}
-        </ol>
+                </li>
+              );
+            })}
+          </ol>
+        </div>
       </section>
       <InstallPrompt />
       <div className="fixed bottom-4 right-4 z-40">
