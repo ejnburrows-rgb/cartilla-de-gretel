@@ -19,6 +19,12 @@ import { gretelEvent } from "@/lib/gretel-bus";
 
 import { StudentWorkbookFlip } from "@/components/StudentBook/StudentWorkbookFlip";
 import { buildPageArray } from "@/utils/buildPageArray";
+import {
+  SpeechRecognitionExercise,
+  LetterTracing,
+  AudioMultipleChoice,
+  DragDropMatch,
+} from "@/components/cartilla/InteractiveMiniGames";
 
 export const Route = createFileRoute("/cartilla/leccion/$n")({
   component: Leccion,
@@ -231,16 +237,24 @@ function IntroBody({ lessonId, lang, t }: { lessonId: string; lang: "es" | "en";
         lessonId={lessonId}
         blocks={[
           {
-            id: "syllable_tap",
-            label: t.silabas[lang],
-            node: (
-              <SyllableTap syllables={vowels} color="hsl(var(--primary))" lessonId={lessonId} />
-            ),
+            id: "letter_tracing",
+            label: "Traza las letras",
+            node: <LetterTracing letter="a" color="hsl(var(--primary))" />,
           },
           {
-            id: "word_match",
-            label: t.palabras[lang],
-            node: <WordMatch words={vowelWords} color="hsl(var(--primary))" lessonId={lessonId} />,
+            id: "audio_mc",
+            label: "Escucha",
+            node: <AudioMultipleChoice targetWord="oso" options={vowelWords} color="hsl(var(--primary))" />,
+          },
+          {
+            id: "drag_drop",
+            label: "Arrastra",
+            node: <DragDropMatch words={vowelWords.slice(0, 3)} color="hsl(var(--primary))" />,
+          },
+          {
+            id: "speech",
+            label: "Micrófono",
+            node: <SpeechRecognitionExercise targetWord="uva" emoji="🍇" color="hsl(var(--primary))" />,
           },
           {
             id: "answer_key",
@@ -306,9 +320,24 @@ function VowelBody({
         lessonId={lessonId}
         blocks={[
           {
-            id: "word_match",
-            label: t.palabras[lang],
-            node: <WordMatch words={l.vocab} color={entry.color} lessonId={lessonId} />,
+            id: "letter_tracing",
+            label: "Traza",
+            node: <LetterTracing letter={l.vowel} color={entry.color} />,
+          },
+          {
+            id: "audio_mc",
+            label: "Escucha",
+            node: <AudioMultipleChoice targetWord={l.vocab[0]?.word || "a"} options={l.vocab} color={entry.color} />,
+          },
+          {
+            id: "drag_drop",
+            label: "Arrastra",
+            node: <DragDropMatch words={l.vocab.slice(0, 4)} color={entry.color} />,
+          },
+          {
+            id: "speech",
+            label: "Habla",
+            node: <SpeechRecognitionExercise targetWord={l.vocab[0]?.word || "a"} emoji={l.vocab[0]?.emoji} color={entry.color} />,
           },
           {
             id: "answer_key",
@@ -417,9 +446,14 @@ function ConsonantBody({
         lessonId={lessonId}
         blocks={[
           {
-            id: "syllable_tap",
-            label: t.silabas[lang],
-            node: <SyllableTap syllables={c.syllables} color={entry.color} lessonId={lessonId} />,
+            id: "letter_tracing",
+            label: "Traza",
+            node: <LetterTracing letter={c.syllables[0]} color={entry.color} />,
+          },
+          {
+            id: "speech",
+            label: "Habla",
+            node: <SpeechRecognitionExercise targetWord={c.examples[c.syllables[0]]?.[0] || c.syllables[0]} emoji="🎤" color={entry.color} />,
           },
           {
             id: "answer_key",

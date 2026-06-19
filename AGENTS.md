@@ -36,3 +36,10 @@ fix(scope): description
 chore(scope): description
 
 - NEVER use AI-generated images or the legacy 'GretelStage' animated character. Always use the authentic hand-drawn artwork (e.g. public/art/hd/gretel-authentic.jpg).
+
+## Workflow Rules (Strict)
+1. **Do not commit to `main`.** Create a feature branch, push there, open a PR. Let Vercel build the **preview** deployment and verify your change on the preview URL *before* it ever touches production.
+2. **Stop iterating on production.** If you're redesigning a component, settle the design on your branch and push **once** when it works — not 5 commits redoing the same screen. Every push to `main` is a production build that consumes our Vercel deploy budget.
+3. **Our Vercel production deploys are currently BLOCKED** (usage/spend limit) and production is frozen on a June-17 build. Until that's cleared, pushing more to `main` does nothing but burn quota. Slow down and batch.
+4. **Before merging:** run `pnpm typecheck` and `pnpm vitest run`, and confirm the preview URL actually renders. Don't merge red.
+5. **Stay in your lane.** You own the student path + activities. Claude owns infra / teacher-CRM / docs. Don't both edit the same files; rebase on latest `main` before large changes so we don't clobber each other.
