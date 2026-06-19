@@ -285,7 +285,7 @@ function MyProgress() {
               return (
                 <Link
                   key={n}
-                  to="/cartilla/student/leccion/$n"
+                  to="/cartilla/leccion/$n"
                   params={{ n }}
                   className="px-3 py-1.5 rounded-full text-xs font-bold border-2"
                   style={{ borderColor: entry.color, color: entry.color }}
@@ -348,7 +348,7 @@ function MyProgress() {
             const pct = ex && ex.total > 0 ? Math.round((ex.score / ex.total) * 100) : null;
             return (
               <Link
-                to="/cartilla/student/leccion/$n"
+                to="/cartilla/leccion/$n"
                 params={{ n: String(entry.n) }}
                 key={entry.n}
                 className="kid-card p-3 flex items-center gap-3 hover:-translate-y-0.5 transition"

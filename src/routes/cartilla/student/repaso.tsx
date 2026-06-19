@@ -203,7 +203,7 @@ function Section({
                     </h3>
                     <p className="text-sm text-foreground/70 line-clamp-2">{entry.subtitle}</p>
                     <Link
-                      to="/cartilla/student/leccion/$n"
+                      to="/cartilla/leccion/$n"
                       params={{ n: String(entry.n) }}
                       className="mt-auto inline-flex items-center justify-center gap-1.5 py-2.5 px-4 rounded-xl text-sm font-bold text-white transition hover:-translate-y-0.5"
                       style={{ backgroundColor: entry.color }}
