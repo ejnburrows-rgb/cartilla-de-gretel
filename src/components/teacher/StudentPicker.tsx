@@ -82,10 +82,10 @@ export function StudentPicker({ onSelectionChange }: StudentPickerProps) {
             disabled={!selectedClassId}
             className={dropdownClass}
           >
-            <option value="all">👥 Toda la clase (Reporte general)</option>
+            <option value="all">Toda la clase (Reporte general)</option>
             {classData?.students?.map((s) => (
               <option key={s.id} value={s.id}>
-                👤 {s.display_name}
+                {s.display_name}
               </option>
             ))}
           </select>
