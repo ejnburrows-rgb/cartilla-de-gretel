@@ -126,6 +126,21 @@ falls back to a disabled client (every call resolves with a
 throwing — this is what lets the public reader run without a backend at
 all.
 
+## Crash reporting & analytics (optional)
+
+`src/lib/monitoring.ts`, called once from `src/main.tsx`, wires up two
+optional, **env-gated** services — both are no-ops with zero network calls
+unless their env var is set, so local dev and forks stay silent by default:
+
+- `VITE_SENTRY_DSN` — when set, initializes Sentry (`@sentry/react`) for
+  crash reporting. A `beforeSend` scrubber redacts student-name fields
+  (`name`, `studentName`, `fullName`, etc.) from every event before it
+  leaves the browser.
+- `VITE_VERCEL_ANALYTICS="1"` — when set, injects Vercel Web Analytics
+  (`@vercel/analytics`), a cookieless, no-PII page-view counter.
+
+See `.env.example` and `docs/deployment.md` for how to set these in Vercel.
+
 ## Directory map
 
 See `CLAUDE.md` for the full directory map and project-specific rules

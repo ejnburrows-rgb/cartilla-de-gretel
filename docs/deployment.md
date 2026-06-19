@@ -88,6 +88,19 @@ even going live.
    work lands at once.
 3. Re-verify the live URL.
 
+## Crash reporting & analytics (optional)
+
+Two services in `src/lib/monitoring.ts` are off by default and turn on only
+when their env var is set in the Vercel project (Settings → Environment
+Variables) — see `ARCHITECTURE.md` for what each one does:
+
+| Env var | Effect when set |
+|---|---|
+| `VITE_SENTRY_DSN` | Sends crash reports to Sentry (student names redacted). |
+| `VITE_VERCEL_ANALYTICS="1"` | Turns on cookieless Vercel Web Analytics. |
+
+Leave both unset to run with no third-party calls at all.
+
 ## Deployment protection (student access)
 
 If the production URL returns **401/403** to a logged-out visitor, **Vercel
