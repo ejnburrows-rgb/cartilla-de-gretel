@@ -43,3 +43,4 @@ chore(scope): description
 3. **Our Vercel production deploys are currently BLOCKED** (usage/spend limit) and production is frozen on a June-17 build. Until that's cleared, pushing more to `main` does nothing but burn quota. Slow down and batch.
 4. **Before merging:** run `pnpm typecheck` and `pnpm vitest run`, and confirm the preview URL actually renders. Don't merge red.
 5. **Stay in your lane.** You own the student path + activities. Claude owns infra / teacher-CRM / docs. Don't both edit the same files; rebase on latest `main` before large changes so we don't clobber each other.
+6. **No Emojis/Made-up Art in CRM.** NEVER use any emojis or any made-up art inside the CRM unless specifically allowed by the user.
