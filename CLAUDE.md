@@ -1,5 +1,12 @@
 # Cartilla de Gretel — Claude Code Instructions
 
+## Talking to the Owner
+The project owner is not a programmer. When replying to them, use plain,
+everyday English — short sentences and no jargon. Avoid tech words like
+"deploy", "branch", "cache", "merge", "commit", "service worker" unless you
+explain them in simple, real-world terms. Always lead with what is happening
+and what they need to do about it.
+
 ## What This Is
 Spanish literacy app for young children (ages 4-7).
 Gretel is an animated guide character who reacts to student actions.
