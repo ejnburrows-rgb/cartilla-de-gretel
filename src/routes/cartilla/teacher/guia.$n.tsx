@@ -2,7 +2,9 @@ import { createFileRoute, Link, useNavigate, redirect } from "@tanstack/react-ro
 import { Printer, ChevronLeft } from "lucide-react";
 import { CATALOG } from "@/lib/lesson-catalog";
 import { GuideLayout } from "@/content/guides/GuideLayout";
-import { Lesson1Guide } from "@/content/guides/lesson-1";
+
+// Eagerly import all guide components
+const guideModules = import.meta.glob("@/content/guides/lesson-*.tsx", { eager: true });
 
 export const Route = createFileRoute("/cartilla/teacher/guia/$n")({
   component: TeacherGuideLeccion,
@@ -36,6 +38,11 @@ function TeacherGuideLeccion() {
     navigate({ to: "/cartilla/teacher/guia/$n", params: { n: String(newN) } });
   };
 
+  // Dynamically resolve the correct component for the lesson
+  const componentKey = `/src/content/guides/lesson-${n}.tsx`;
+  const mod = guideModules[componentKey] as any;
+  const GuideComponent = mod ? mod[`Lesson${n}Guide`] : null;
+
   return (
     <div className="space-y-4 max-w-[1400px] mx-auto h-[90vh] flex flex-col">
       {/* Top action row */}
@@ -64,13 +71,13 @@ function TeacherGuideLeccion() {
           onSelectLesson={handleSelectLesson}
           accentColor={accentColor}
         >
-          {n === 1 ? (
-            <Lesson1Guide />
+          {GuideComponent ? (
+            <GuideComponent />
           ) : (
             <div className="text-center py-20">
               <h2 className="text-xl font-bold text-stone-400 mb-2">Archivo HTML Pendiente</h2>
               <p className="text-stone-500 max-w-md mx-auto">
-                La guía para la lección {n} está lista para ser transcrita. Copia el archivo `src/content/guides/lesson-1.tsx` y cámbiale el nombre a `lesson-{n}.tsx` para comenzar a editar su contenido en HTML limpio.
+                La guía para la lección {n} aún no ha sido transcrita o no se encuentra el componente.
               </p>
             </div>
           )}
