@@ -1,9 +1,20 @@
 import { createFileRoute, Link, Outlet, useNavigate, useRouterState } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useServerFn } from "@/lib/useServerFn";
-import { ArrowLeft, Plus, GraduationCap, LogOut, Users, Trash2, Copy, Loader2 } from "lucide-react";
-import { listClasses, createClass, deleteClass } from "@/lib/teacher.functions";
+import {
+  ArrowLeft,
+  Plus,
+  GraduationCap,
+  LogOut,
+  Users,
+  Trash2,
+  Copy,
+  Loader2,
+  AlertTriangle,
+} from "lucide-react";
+import { listClasses, createClass, deleteClass, getAllTeacherStudents } from "@/lib/teacher.functions";
+import { selectStalledStudents } from "@/lib/needs-attention";
 import { supabase } from "@/integrations/supabase/client";
 import { useLanguage } from "@/context/LanguageContext";
 import { LanguageToggle } from "@/components/LanguageToggle";
@@ -28,6 +39,7 @@ function TeacherDashboard() {
   const list = useServerFn(listClasses);
   const create = useServerFn(createClass);
   const del = useServerFn(deleteClass);
+  const fetchAllStudents = useServerFn(getAllTeacherStudents);
   const [name, setName] = useState("");
   const [teacherEmail, setTeacherEmail] = useState<string>("");
 
@@ -39,6 +51,13 @@ function TeacherDashboard() {
     queryKey: ["teacher", "classes"],
     queryFn: () => list(),
   });
+
+  const { data: allStudents } = useQuery({
+    queryKey: ["teacher", "students", "all"],
+    queryFn: () => fetchAllStudents({ data: {} }),
+  });
+
+  const stalled = useMemo(() => (allStudents ? selectStalledStudents(allStudents) : []), [allStudents]);
 
   const createMut = useMutation({
     mutationFn: (n: string) => create({ data: { name: n } }),
@@ -94,6 +113,32 @@ function TeacherDashboard() {
           {t.marcaTextos[lang]}
         </Link>
       </header>
+
+      {stalled.length > 0 && (
+        <section className="mt-6 kid-card p-4 border-2 border-warning/30">
+          <h2 className="font-bold mb-3 inline-flex items-center gap-2 text-warning">
+            <AlertTriangle className="w-4 h-4" /> {t.necesitanAtencion[lang]}
+          </h2>
+          <ul className="space-y-1.5 text-sm">
+            {stalled.map((s) => (
+              <li key={s.id}>
+                <Link
+                  to="/cartilla/teacher/alumno/$id"
+                  params={{ id: s.id }}
+                  className="flex items-center justify-between gap-2 px-3 py-2 rounded-lg bg-warning/5 hover:bg-warning/10"
+                >
+                  <span className="font-bold">{s.name}</span>
+                  <span className="text-xs text-foreground/60">
+                    {s.reason === "never_started"
+                      ? t.nuncaEmpezo[lang]
+                      : t.inactivoDias[lang].replace("{days}", String(s.daysSinceActive))}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <section className="mt-6 kid-card p-4">
         <h2 className="font-bold mb-2">{t.crearClase[lang]}</h2>

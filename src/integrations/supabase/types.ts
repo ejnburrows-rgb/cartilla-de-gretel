@@ -217,6 +217,38 @@ export type Database = {
           },
         ];
       };
+      student_notes: {
+        Row: {
+          id: string;
+          student_id: string;
+          teacher_id: string;
+          body: string;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          student_id: string;
+          teacher_id: string;
+          body: string;
+          created_at?: string;
+        };
+        Update: {
+          id?: string;
+          student_id?: string;
+          teacher_id?: string;
+          body?: string;
+          created_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "student_notes_student_id_fkey";
+            columns: ["student_id"];
+            isOneToOne: false;
+            referencedRelation: "students";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
       assignment_progress: {
         Row: {
           id: string;

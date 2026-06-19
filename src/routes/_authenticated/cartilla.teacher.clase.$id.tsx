@@ -15,6 +15,7 @@ import {
   ClipboardList,
   Calendar,
   Timer,
+  AlertTriangle,
 } from "lucide-react";
 import {
   getClass,
@@ -27,6 +28,11 @@ import { listAssignments, createAssignment, deleteAssignment } from "@/lib/assig
 import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
 import { SimpleBarChart } from "@/components/cartilla/SimpleBarChart";
 import { downloadCSV, toCSV } from "@/lib/csv";
+import {
+  selectStrugglingStudents,
+  selectStalledStudents,
+  selectOverdueAssignments,
+} from "@/lib/needs-attention";
 import { useLanguage } from "@/context/LanguageContext";
 import { tCopy } from "@/content/teacher-copy";
 
@@ -151,6 +157,20 @@ function ClassDetail() {
     downloadCSV(`clase-${data.class.name.replace(/\s+/g, "_")}.csv`, toCSV(rows));
   };
 
+  const needsAttention = useMemo(() => {
+    if (!classProgress || !data) return { struggling: [], stalled: [], overdue: [] };
+    return {
+      struggling: selectStrugglingStudents(classProgress.perStudent),
+      stalled: selectStalledStudents(data.students),
+      overdue: selectOverdueAssignments(classProgress.assignments),
+    };
+  }, [classProgress, data]);
+
+  const hasAlerts =
+    needsAttention.struggling.length > 0 ||
+    needsAttention.stalled.length > 0 ||
+    needsAttention.overdue.length > 0;
+
   const lessonChart = useMemo(() => {
     if (!classProgress) return [];
     return CATALOG.map((entry) => {
@@ -204,6 +224,62 @@ function ClassDetail() {
           <span className="font-bold">/cartilla/unirse</span> {t.juntoCon[lang]}
         </p>
       </header>
+
+      {hasAlerts && (
+        <section className="mt-6 kid-card p-4 border-2 border-warning/30">
+          <h2 className="font-bold mb-3 inline-flex items-center gap-2 text-warning">
+            <AlertTriangle className="w-4 h-4" /> {t.necesitanAtencion[lang]}
+          </h2>
+          <ul className="space-y-1.5 text-sm">
+            {needsAttention.struggling.map((s) => (
+              <li key={`struggling-${s.id}`}>
+                <Link
+                  to="/cartilla/teacher/alumno/$id"
+                  params={{ id: s.id }}
+                  className="flex items-center justify-between gap-2 px-3 py-2 rounded-lg bg-warning/5 hover:bg-warning/10"
+                >
+                  <span className="font-bold">{s.name}</span>
+                  <span className="text-xs text-foreground/60">
+                    {t.aciertoBajo[lang].replace("{pct}", String(Math.round(s.accuracy * 100)))}
+                  </span>
+                </Link>
+              </li>
+            ))}
+            {needsAttention.stalled.map((s) => (
+              <li key={`stalled-${s.id}`}>
+                <Link
+                  to="/cartilla/teacher/alumno/$id"
+                  params={{ id: s.id }}
+                  className="flex items-center justify-between gap-2 px-3 py-2 rounded-lg bg-warning/5 hover:bg-warning/10"
+                >
+                  <span className="font-bold">{s.name}</span>
+                  <span className="text-xs text-foreground/60">
+                    {s.reason === "never_started"
+                      ? t.nuncaEmpezo[lang]
+                      : t.inactivoDias[lang].replace("{days}", String(s.daysSinceActive))}
+                  </span>
+                </Link>
+              </li>
+            ))}
+            {needsAttention.overdue.map((a) => (
+              <li
+                key={`overdue-${a.id}`}
+                className="flex items-center justify-between gap-2 px-3 py-2 rounded-lg bg-warning/5"
+              >
+                <span className="font-bold">
+                  {t.tareaVencida[lang].replace(
+                    "{title}",
+                    a.title ?? `L${a.lessonId}`,
+                  )}
+                </span>
+                <span className="text-xs text-foreground/60">
+                  {t.alumnosPendientes[lang].replace("{n}", String(a.outstanding))}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <div className="mt-4 flex flex-wrap gap-2">
         <button

@@ -2,8 +2,20 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useServerFn } from "@/lib/useServerFn";
-import { ArrowLeft, Loader2, BookOpen, Award, Clock, Target, Activity, Plus } from "lucide-react";
+import {
+  ArrowLeft,
+  Loader2,
+  BookOpen,
+  Award,
+  Clock,
+  Target,
+  Activity,
+  Plus,
+  StickyNote,
+  Trash2,
+} from "lucide-react";
 import { getStudentProgress, setLessonCompletion } from "@/lib/teacher.functions";
+import { listStudentNotes, addStudentNote, deleteStudentNote } from "@/lib/notes.functions";
 import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
 import { useLanguage } from "@/context/LanguageContext";
 import { tCopy } from "@/content/teacher-copy";
@@ -19,10 +31,32 @@ function StudentDetail() {
   const qc = useQueryClient();
   const fetchProgress = useServerFn(getStudentProgress);
   const setCompletion = useServerFn(setLessonCompletion);
+  const fetchNotes = useServerFn(listStudentNotes);
+  const addNote = useServerFn(addStudentNote);
+  const delNote = useServerFn(deleteStudentNote);
   const [pendingLesson, setPendingLesson] = useState<string | null>(null);
+  const [noteBody, setNoteBody] = useState("");
   const { data, isLoading } = useQuery({
     queryKey: ["teacher", "student", id],
     queryFn: () => fetchProgress({ data: { id } }),
+  });
+
+  const { data: notes } = useQuery({
+    queryKey: ["teacher", "student", id, "notes"],
+    queryFn: () => fetchNotes({ data: { studentId: id } }),
+  });
+
+  const addNoteMut = useMutation({
+    mutationFn: (body: string) => addNote({ data: { studentId: id, body } }),
+    onSuccess: () => {
+      setNoteBody("");
+      qc.invalidateQueries({ queryKey: ["teacher", "student", id, "notes"] });
+    },
+  });
+
+  const delNoteMut = useMutation({
+    mutationFn: (noteId: string) => delNote({ data: { id: noteId } }),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ["teacher", "student", id, "notes"] }),
   });
 
   const toggleMut = useMutation({
@@ -216,6 +250,66 @@ function StudentDetail() {
           </ul>
         </section>
       )}
+
+      <section className="mt-8">
+        <h2 className="font-bold mb-1 text-lg inline-flex items-center gap-2">
+          <StickyNote className="w-4 h-4" /> {t.notasPrivadas[lang]}
+        </h2>
+        <p className="text-xs text-foreground/50 mb-3">{t.notasSoloMaestro[lang]}</p>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            if (noteBody.trim()) addNoteMut.mutate(noteBody.trim());
+          }}
+          className="space-y-2"
+        >
+          <textarea
+            value={noteBody}
+            onChange={(e) => setNoteBody(e.target.value)}
+            placeholder={t.escribeNota[lang]}
+            rows={3}
+            maxLength={2000}
+            className="w-full px-4 py-3 rounded-xl border-2 border-foreground/10 bg-background focus:border-primary outline-none text-sm"
+          />
+          <button
+            type="submit"
+            disabled={addNoteMut.isPending || !noteBody.trim()}
+            className="px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold inline-flex items-center gap-2 disabled:opacity-50"
+          >
+            {addNoteMut.isPending ? (
+              <Loader2 className="w-4 h-4 animate-spin" />
+            ) : (
+              <Plus className="w-4 h-4" />
+            )}
+            {t.guardarNota[lang]}
+          </button>
+        </form>
+        <ul className="mt-4 space-y-2">
+          {notes?.length === 0 && <li className="text-sm text-foreground/60">{t.sinNotas[lang]}</li>}
+          {notes?.map((n) => (
+            <li
+              key={n.id}
+              className="flex items-start justify-between gap-3 px-3 py-2 rounded-lg bg-card border border-foreground/5 text-sm"
+            >
+              <div className="min-w-0 flex-1">
+                <p className="whitespace-pre-wrap">{n.body}</p>
+                <p className="text-xs text-foreground/50 mt-1">
+                  {new Date(n.created_at).toLocaleString()}
+                </p>
+              </div>
+              <button
+                onClick={() => {
+                  if (confirm(t.eliminarNota[lang])) delNoteMut.mutate(n.id);
+                }}
+                className="p-1.5 rounded hover:bg-destructive/10 text-destructive shrink-0"
+                aria-label={t.eliminarNota[lang]}
+              >
+                <Trash2 className="w-4 h-4" />
+              </button>
+            </li>
+          ))}
+        </ul>
+      </section>
 
       <section className="mt-8">
         <h2 className="font-bold mb-3 text-lg">{t.actividadReciente[lang]}</h2>
