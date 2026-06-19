@@ -40,48 +40,27 @@ export function InteractiveFlipchartOverlay({ pageNumber, words }: InteractiveFl
     setAnimatingIdx(null);
   };
 
-  // If we have exact coordinates mapped for this page
-  if (exactHotspots && exactHotspots.length > 0) {
-    return (
-      <div className="absolute inset-0 z-50 pointer-events-none">
-        {exactHotspots.map((hotspot, i) => (
-          <button
-            key={i}
-            onClick={() => handleTap(hotspot.word, i)}
-            style={{
-              left: `${hotspot.x}%`,
-              top: `${hotspot.y}%`,
-              width: `${hotspot.w}%`,
-              height: `${hotspot.h}%`,
-            }}
-            className={`absolute pointer-events-auto flex items-center justify-center rounded-xl transition-all cursor-pointer border-4 border-transparent hover:border-red-400 hover:bg-white/10 ${
-              animatingIdx === i ? "animate-bounce scale-110 border-red-500 bg-red-400/20 shadow-[0_0_20px_rgba(239,68,68,0.5)]" : ""
-            }`}
-            title={`Escuchar ${hotspot.word}`}
-          >
-            {/* The hotspot itself is invisible by default so the authentic art shows through.
-                We only show a border on hover or when clicked. */}
-          </button>
-        ))}
-      </div>
-    );
-  }
-
-  // Fallback if no exact coordinates exist for this page yet
+  // We are falling back to the corner buttons because mapping all cutouts requires a full remap
+  // and the corner buttons are easier to see.
+  
   if (!words || words.length === 0) return null;
 
   return (
-    <div className="absolute inset-0 z-50 pointer-events-none flex flex-wrap gap-4 p-8 items-start justify-end">
+    <div className="absolute inset-0 z-50 pointer-events-none flex flex-wrap gap-5 p-8 items-start justify-end">
       {words.map((w, i) => (
         <button
           key={i}
           onClick={() => handleTap(w.word, i)}
-          className={`pointer-events-auto flex items-center justify-center w-20 h-20 bg-white/90 backdrop-blur-sm shadow-xl rounded-2xl border-4 border-red-200 transition-all cursor-pointer hover:scale-110 hover:border-red-400 ${
-            animatingIdx === i ? "animate-bounce scale-110 border-red-500" : ""
+          className={`pointer-events-auto flex items-center justify-center w-24 h-24 rounded-3xl border-4 transition-all duration-300 cursor-pointer shadow-2xl ${
+            animatingIdx === i 
+              ? "animate-bounce scale-125 border-yellow-300 bg-gradient-to-br from-orange-400 to-red-500 shadow-[0_0_40px_rgba(249,115,22,0.8)]" 
+              : "bg-gradient-to-br from-orange-300 to-red-400 border-white/80 hover:scale-110 hover:border-yellow-300 hover:shadow-[0_0_30px_rgba(251,146,60,0.6)]"
           }`}
           title={`Escuchar ${w.word}`}
         >
-          <span className="text-4xl">{w.emoji || <Volume2 className="w-8 h-8 text-stone-400" />}</span>
+          <span className="text-5xl drop-shadow-md">
+            {w.emoji || <Volume2 className="w-10 h-10 text-white" />}
+          </span>
         </button>
       ))}
     </div>
