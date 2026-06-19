@@ -2,6 +2,7 @@ import React, { useEffect, useState, useMemo } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { CatalogEntry } from "@/lib/lesson-catalog";
 import { PdfPage } from "@/components/cartilla/PdfPage";
+import "@/styles/flipbook-3d.css";
 
 interface FlipBookProps {
   entry: CatalogEntry;
