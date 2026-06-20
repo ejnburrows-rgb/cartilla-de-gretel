@@ -45,7 +45,9 @@ function Leccion() {
   const { isCompleted } = useLessonProgress();
   const session = useStudentSession();
   const entry = useMemo<CatalogEntry | undefined>(() => CATALOG.find((e) => e.n === n), [n]);
-  const pages = useMemo(() => buildPageArray(), []);
+
+  // Build page array from page-inventory.json for this specific lesson
+  const pages = useMemo(() => buildPageArray(n), [n]);
 
   const fetchAssignments = useServerFn(listMyAssignments);
   const { data: assignments } = useQuery({
@@ -151,9 +153,9 @@ function Leccion() {
 
         {/* Digital Workbook Section */}
         <div className="w-full relative bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')] bg-[#d4a373] rounded-[2rem] p-4 sm:p-8 shadow-inner border-[8px] border-[#bc6c25] mb-12">
-          <StudentWorkbookFlip 
-            pages={pages} 
-            initialPage={parseInt(entry.pages.split("-")[0], 10) - 1} 
+          <StudentWorkbookFlip
+            pages={pages}
+            initialPage={0}
           />
         </div>
 
@@ -206,7 +208,7 @@ function IntroBody({ lessonId, lang, t }: { lessonId: string; lang: "es" | "en";
   const { play, playingText } = useAudio();
   const vowels = ["a", "e", "i", "o", "u"];
   const vowelWords = [
-    { word: "ala", emoji: "🦅" },
+    { word: "ala", emoji: "🧥" },
     { word: "elefante", emoji: "🐘" },
     { word: "iglú", emoji: "⛺" },
     { word: "oso", emoji: "🐻" },
