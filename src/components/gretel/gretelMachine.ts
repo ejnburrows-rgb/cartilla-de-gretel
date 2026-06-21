@@ -36,7 +36,7 @@ export function canTransition(from: GretelState, event: GretelEvent): boolean {
     case "waving":
     case "pointing":
     case "cheering":
-      return ["IDLE", "ASSET_ERROR"].includes(event.type);
+      return ["IDLE", "ASSET_ERROR", "SPEAK_START", "SPEAK_STOP"].includes(event.type);
     case "error":
       return ["RESET", "ASSET_ERROR"].includes(event.type);
     default:

@@ -14,11 +14,13 @@ export interface GretelAnimationHook {
   machineState: GretelState;
   send: (event: GretelEvent) => void;
   isRecovering: boolean;
+  isSpeaking: boolean;
 }
 
 export function useGretelAnimation(): GretelAnimationHook {
   const [machineState, dispatch] = useReducer(gretelReducer, "boot");
   const [isRecovering, setIsRecovering] = useState(false);
+  const [isSpeaking, setIsSpeaking] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const clearTimer = useCallback(() => {
@@ -39,8 +41,14 @@ export function useGretelAnimation(): GretelAnimationHook {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const handleSpeakStart = () => send({ type: "SPEAK_START" });
-    const handleSpeakStop = () => send({ type: "SPEAK_STOP" });
+    const handleSpeakStart = () => {
+      setIsSpeaking(true);
+      send({ type: "SPEAK_START" });
+    };
+    const handleSpeakStop = () => {
+      setIsSpeaking(false);
+      send({ type: "SPEAK_STOP" });
+    };
 
     window.addEventListener("gretel:speak_start", handleSpeakStart);
     window.addEventListener("gretel:speak_stop", handleSpeakStop);
@@ -99,6 +107,7 @@ export function useGretelAnimation(): GretelAnimationHook {
     machineState,
     send,
     isRecovering,
+    isSpeaking,
   };
 }
 

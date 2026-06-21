@@ -124,7 +124,7 @@ function getShadowAnimation(state: string) {
 
 export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatarProps>(
   ({ className = "", size = "md", bubblePosition = "top" }, ref) => {
-    const { currentPose, machineState, send } = useGretelAnimation();
+    const { currentPose, machineState, send, isSpeaking } = useGretelAnimation();
     const [bubbleText, setBubbleText] = useState<string | null>(null);
     const [sparkles, setSparkles] = useState<{ id: number; x: number; y: number; color: string }[]>([]);
     const [hearts, setHearts] = useState<{ id: number; x: number; delay: number }[]>([]);
@@ -319,7 +319,7 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
 
               {/* Dynamic SVG mouth overlay for lip-sync */}
               <AnimatePresence>
-                {machineState === "talking" && (
+                {isSpeaking && (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 1, scale: 1 }}

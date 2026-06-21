@@ -55,4 +55,22 @@ describe('GretelMachine', () => {
     state = gretelReducer(state, { type: 'SPEAK_STOP' });
     expect(state).toBe('idle');
   });
+
+  it('canTransition: allows SPEAK_START and SPEAK_STOP in active states (waving, pointing, cheering)', () => {
+    expect(canTransition('waving', { type: 'SPEAK_START' })).toBe(true);
+    expect(canTransition('pointing', { type: 'SPEAK_START' })).toBe(true);
+    expect(canTransition('cheering', { type: 'SPEAK_START' })).toBe(true);
+    expect(canTransition('waving', { type: 'SPEAK_STOP' })).toBe(true);
+    expect(canTransition('pointing', { type: 'SPEAK_STOP' })).toBe(true);
+    expect(canTransition('cheering', { type: 'SPEAK_STOP' })).toBe(true);
+  });
+
+  it('gretelReducer: retains active states on SPEAK_START and SPEAK_STOP', () => {
+    expect(gretelReducer('waving', { type: 'SPEAK_START' })).toBe('waving');
+    expect(gretelReducer('pointing', { type: 'SPEAK_START' })).toBe('pointing');
+    expect(gretelReducer('cheering', { type: 'SPEAK_START' })).toBe('cheering');
+    expect(gretelReducer('waving', { type: 'SPEAK_STOP' })).toBe('waving');
+    expect(gretelReducer('pointing', { type: 'SPEAK_STOP' })).toBe('pointing');
+    expect(gretelReducer('cheering', { type: 'SPEAK_STOP' })).toBe('cheering');
+  });
 });
