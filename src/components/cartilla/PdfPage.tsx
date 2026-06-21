@@ -2,7 +2,6 @@
  * PdfPage — renders a single workbook page as the original scanned image.
  *
  * Pages 1-92: 2550×3301 color scans from /cartilla/art/color/workbook/
- * Pages 93-95: hd placeholder scans from /art/hd/
  *
  * The scanned art is the source of truth. WorkbookPageRenderer is not used.
  */
@@ -10,8 +9,11 @@ import { useEffect, useState } from "react";
 import { getBookPageImage } from "@/lib/bookImages";
 
 export function prefetchPage(pageNumber: number) {
-  const img = new Image();
-  img.src = getBookPageImage(pageNumber);
+  const src = getBookPageImage(pageNumber);
+  if (src) {
+    const img = new Image();
+    img.src = src;
+  }
 }
 
 interface PdfPageProps {
@@ -22,9 +24,8 @@ interface PdfPageProps {
 export function PdfPage({ pageNumber, className = "" }: PdfPageProps) {
   const safe = Math.max(1, Math.min(pageNumber, 95));
   const primary = getBookPageImage(safe);
-  const fallback = `/art/hd/page-${safe}.png`;
 
-  const [src, setSrc] = useState(primary);
+  const [src, setSrc] = useState<string | null>(primary);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -40,20 +41,24 @@ export function PdfPage({ pageNumber, className = "" }: PdfPageProps) {
       {!loaded && (
         <div className="absolute inset-0 bg-stone-100 animate-pulse" />
       )}
-      <img
-        src={src}
-        alt={`Página ${safe} del libro`}
-        className={`w-full h-full object-contain transition-opacity duration-300 ${loaded ? "opacity-100" : "opacity-0"}`}
-        draggable={false}
-        loading="lazy"
-        onLoad={() => setLoaded(true)}
-        onError={() => {
-          if (src !== fallback) {
-            setSrc(fallback);
+      {src ? (
+        <img
+          src={src}
+          alt={`Página ${safe} del libro`}
+          className={`w-full h-full object-contain transition-opacity duration-300 ${loaded ? "opacity-100" : "opacity-0"}`}
+          draggable={false}
+          loading="lazy"
+          onLoad={() => setLoaded(true)}
+          onError={() => {
+            setSrc(null);
             setLoaded(false);
-          }
-        }}
-      />
+          }}
+        />
+      ) : (
+        <div className="w-full h-full flex items-center justify-center text-stone-400 p-8 text-center bg-stone-50 border border-stone-200">
+          <span className="font-medium">Página no disponible</span>
+        </div>
+      )}
     </div>
   );
 }

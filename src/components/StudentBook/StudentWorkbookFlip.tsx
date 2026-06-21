@@ -6,6 +6,7 @@ import { gretelEvent } from "@/components/gretel/gretelEvents";
 export interface WorkbookPageEntry {
   id: string;
   cover?: boolean;
+  src?: string;
   content: React.ReactNode;
 }
 
@@ -57,13 +58,16 @@ export function StudentWorkbookFlip({
 
   // Preload the next spread whenever currentIndex changes
   useEffect(() => {
-    const nextPages: number[] = [];
+    const nextSrcs: string[] = [];
     for (let i = 1; i <= 2; i++) {
       const n = currentIndex + step + i;
-      if (n <= pages.length) nextPages.push(n);
+      if (n <= pages.length) {
+        const p = pages[n - 1];
+        if (p?.src) nextSrcs.push(p.src);
+      }
     }
-    if (nextPages.length > 0) preloadSpread(nextPages);
-  }, [currentIndex, step, pages.length]);
+    if (nextSrcs.length > 0) preloadSpread(nextSrcs);
+  }, [currentIndex, step, pages]);
 
   const afterFlip = useCallback(
     (newIndex: number) => {

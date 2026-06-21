@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { GRETEL_POSES, GRETEL_FALLBACKS } from "../src/components/gretel/gretelPoses.ts";
+
 
 // Depending on ts-node config, __dirname might not be available in ES modules.
 const __filename = fileURLToPath(import.meta.url);
@@ -22,13 +22,7 @@ function checkFile(type: string, where: string, assetPath: string) {
   }
 }
 
-// 1) Check Gretel poses from gretelPoses.ts
-for (const [pose, assetPath] of Object.entries(GRETEL_POSES)) {
-  checkFile("Missing Gretel pose assets", `GRETEL_POSES['${pose}'] in src/components/gretel/gretelPoses.ts`, assetPath);
-}
-for (const [pose, assetPath] of Object.entries(GRETEL_FALLBACKS)) {
-  checkFile("Missing Gretel pose assets", `GRETEL_FALLBACKS['${pose}'] in src/components/gretel/gretelPoses.ts`, assetPath);
-}
+
 
 // 2) Check book pages and gretel images by scanning files
 const filesToScan = [

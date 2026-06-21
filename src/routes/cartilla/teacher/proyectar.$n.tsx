@@ -146,7 +146,7 @@ function ProyectarLesson() {
       >
         <div className="flex items-center gap-3">
           <Link
-            to="/cartilla/student/leccion/$n"
+            to="/cartilla/leccion/$n"
             params={{ n: String(initialLessonN) }}
             className="p-2 rounded-xl border border-white/10 hover:bg-white/5 text-white/80 transition"
             aria-label="Salir del modo proyección"

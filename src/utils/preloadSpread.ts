@@ -13,21 +13,19 @@ function clearPreloads(): void {
     .forEach((el) => el.remove());
 }
 
-/**
- * Preload images for the given page numbers.
- * Clears any previously injected preloads first.
- */
-export function preloadSpread(pageNumbers: number[]): void {
+export function preloadSpread(srcs: string[]): void {
   clearPreloads();
-  for (const n of pageNumbers) {
-    if (n < 1 || n > 95) continue;
-    const id = `${PRELOAD_PREFIX}${n}`;
+  let i = 0;
+  for (const src of srcs) {
+    if (!src) continue;
+    i++;
+    const id = `${PRELOAD_PREFIX}${i}-${btoa(src).replace(/=/g, '')}`;
     if (document.getElementById(id)) continue;
     const link = document.createElement("link");
     link.id = id;
     link.rel = "preload";
     link.as = "image";
-    link.href = `/art/hd/page-${n}.png`;
+    link.href = src;
     link.setAttribute("data-flipbook-preload", "true");
     document.head.appendChild(link);
   }

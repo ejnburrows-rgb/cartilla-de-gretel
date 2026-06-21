@@ -245,7 +245,7 @@ function Lecciones() {
           </div>
           {isUnlocked(activeLesson.n) && (
             <Link
-              to="/cartilla/student/leccion/$n"
+              to="/cartilla/leccion/$n"
               params={{ n: String(activeLesson.n) }}
               className="inline-flex items-center gap-1.5 text-sm font-bold px-3 py-2 rounded-xl text-white"
               style={activeLessonBgStyle}
