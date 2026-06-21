@@ -9,8 +9,11 @@ export type GretelBusEvent =
   | "hint:show"       // point, held until hint:hide
   | "hint:hide"       // return to idle
   | "lesson:complete" // cheer 3s → idle
+  | "activity:complete" // cheer
   | "talk:start"      // enter talking loop
   | "talk:stop"       // return to idle
+  | "mount"           // component mount
+  | "page-flip"       // turning page
   | "nudge";          // point 2s (inactivity prompt)
 
 const CHANNEL = "gretel:bus";

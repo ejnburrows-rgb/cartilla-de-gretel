@@ -76,7 +76,7 @@ export function FlipbookVerticalViewer({ pageNumber, className = "" }: FlipbookV
           aria-label={`Página ${safePageNumber} del libro`}
         >
           <img
-            src={src}
+            src={src || undefined}
             alt={`Página ${safePageNumber} del libro`}
             className="w-full h-full object-contain drop-shadow-xl"
             loading="lazy"

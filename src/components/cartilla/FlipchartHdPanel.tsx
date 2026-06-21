@@ -4,7 +4,7 @@
  * Displays the HD-colour teacher flipchart artwork for a given lesson,
  * using the same vertical-flip framer-motion animation already present
  * in the app. Images are served from:
- *   public/art/hd/page-NNN.png
+ *   public/cartilla/images/teacher-flipchart/teacher-page-01.jpg
  *
  * ART RULE — POLISH, NOT CHANGE: The existing HD art files are shown
  * exactly as-is. No recolouring, filtering, cropping, or 3-D effects.

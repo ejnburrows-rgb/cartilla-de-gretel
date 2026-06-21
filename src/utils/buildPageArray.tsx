@@ -1,5 +1,5 @@
 import type { WorkbookPageEntry } from "@/components/StudentBook/StudentWorkbookFlip";
-import animatedPages from "@/data/animatedPages.json";
+
 import pageInventory from "@/data/page-inventory.json";
 
 const BASE = "/cartilla/images/source";
@@ -8,9 +8,7 @@ const BASE = "/cartilla/images/source";
  * Builds the WorkbookPageEntry[] for a specific lesson.
  * Pages are served from /cartilla/images/source/{letter}/{filename}
  * as defined in page-inventory.json workbook.lessons.
- *
- * Falls back to /art/hd/page-{n}.png for any page not in the inventory
- * so legacy animated/art pages continue to work unchanged.
+ * as defined in page-inventory.json workbook.lessons.
  */
 export function buildPageArray(lessonId: number): WorkbookPageEntry[] {
   const lessonEntry = (pageInventory.workbook.lessons as Array<{ lessonId: number; pages: string[] }>)
@@ -33,6 +31,7 @@ export function buildPageArray(lessonId: number): WorkbookPageEntry[] {
     return {
       id: `lesson-${lessonId}-page-${pageNum}`,
       cover: i === 0,
+      src,
       content: isAnimated ? (
         <video
           src={src}

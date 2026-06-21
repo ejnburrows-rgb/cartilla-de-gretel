@@ -38,14 +38,7 @@ function StudentLogin() {
       <div className="scene-garden-back loop-medium" />
       <div className="scene-garden-front loop-fast" />
 
-      {/* Big Happy Family Characters */}
-      <div className="family-container">
-        <img src="/art/hd/animal_1.png" className="family-member animal-1 breath-slow" alt="Gretel Character" />
-        <img src="/art/hd/animal_2.png" className="family-member animal-2 breath-medium" alt="Gretel Character" />
-        <img src="/art/hd/animal_3.png" className="family-member animal-3 breath-fast" alt="Gretel Character" />
-        <img src="/art/hd/animal_4.png" className="family-member animal-4 breath-medium-alt" alt="Gretel Character" />
-        <img src="/art/hd/animal_5.png" className="family-member animal-5 breath-slow-alt" alt="Gretel Character" />
-      </div>
+      {/* Family Characters removed as per rules */}
 
       {/* Login Box */}
       <div className="login-box-container z-50">

@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { BookPage } from "./BookPage";
+import { getBookPageImage } from "@/lib/bookImages";
 import { preloadSpread } from "@/utils/preloadSpread";
 import { gretelEvent } from "@/components/gretel/gretelEvents";
 
@@ -67,7 +68,10 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
       onPageChange(nextIndex + 1);
       gretelEvent("page-flip");
       const upcoming = [nextIndex + 2, nextIndex + 3].filter(n => n <= totalPages);
-      if (upcoming.length) preloadSpread(upcoming);
+      if (upcoming.length) {
+        const srcs = upcoming.map(n => getBookPageImage(n)).filter(Boolean) as string[];
+        preloadSpread(srcs);
+      }
     }, 500);
   }, [hasPrev, isFlipping, currentIndex, onPageChange, totalPages]);
 
@@ -85,7 +89,10 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
       onPageChange(nextIndex + 1);
       gretelEvent("page-flip");
       const upcoming = [nextIndex + 2, nextIndex + 3].filter(n => n <= totalPages);
-      if (upcoming.length) preloadSpread(upcoming);
+      if (upcoming.length) {
+        const srcs = upcoming.map(n => getBookPageImage(n)).filter(Boolean) as string[];
+        preloadSpread(srcs);
+      }
     }, 500);
   }, [hasNext, isFlipping, currentIndex, onPageChange, totalPages]);
 

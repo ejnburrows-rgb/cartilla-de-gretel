@@ -3,7 +3,6 @@
  *
  * Utilities for accessing the HD colour flipchart artwork.
  * Source-of-truth data is src/data/teacher-flipchart.json.
- * HD images live in public/cartilla/art/hd/flipchart/.
  */
 import flipchartData from "@/data/teacher-flipchart.json";
 
