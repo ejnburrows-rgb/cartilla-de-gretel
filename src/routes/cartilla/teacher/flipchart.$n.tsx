@@ -31,14 +31,12 @@ function FlipchartLeccion() {
 
   const initialPage = useMemo(() => {
     if (!lesson) return 1;
-    const parts = lesson.pages.split("-").map(Number);
-    return parts[0] || 1;
+    return lesson.pages[0] || 1;
   }, [lesson]);
 
   const lastPage = useMemo(() => {
     if (!lesson) return 1;
-    const parts = lesson.pages.split("-").map(Number);
-    return parts[1] || parts[0] || 1;
+    return lesson.pages[1] || lesson.pages[0] || 1;
   }, [lesson]);
 
   const [page, setPage] = useState(initialPage);
@@ -72,7 +70,7 @@ function FlipchartLeccion() {
 
   const goNext = () => {
     if (page < lastPage) {
-      setPage(p => p + 1);
+      setPage((p: number) => p + 1);
     } else if (n < CATALOG.length) {
       navigate({ to: "/cartilla/teacher/flipchart/$n", params: { n: String(n + 1) } });
     }
@@ -80,7 +78,7 @@ function FlipchartLeccion() {
 
   const goPrev = () => {
     if (page > initialPage) {
-      setPage(p => p - 1);
+      setPage((p: number) => p - 1);
     } else if (n > 1) {
       navigate({ to: "/cartilla/teacher/flipchart/$n", params: { n: String(n - 1) } });
     }
@@ -105,7 +103,7 @@ function FlipchartLeccion() {
           </Suspense>
           
           {/* Interactive Overlay to bring cropped figures to life */}
-          <InteractiveFlipchartOverlay pageNumber={page} words={words} />
+          <InteractiveFlipchartOverlay pageNumber={page} words={words.map(w => ({ word: w }))} />
         </div>
 
         {/* Overlay controls */}

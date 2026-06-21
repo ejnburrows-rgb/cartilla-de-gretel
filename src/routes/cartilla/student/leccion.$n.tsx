@@ -17,7 +17,6 @@ import { CATALOG, TOTAL_LESSONS, type CatalogEntry } from "@/lib/lesson-catalog"
 import { useLessonProgress, isLessonUnlocked, markLessonCompleted } from "@/lib/lesson-progress";
 import { recordEvent, useStudentSession } from "@/lib/student-session";
 import interactionsData from "@/data/workbook-interactions.json";
-import teacherGuideData from "@/data/teacher-guide.json";
 import pageInventory from "@/data/page-inventory.json";
 import LessonSkeleton from "./_components/LessonSkeleton";
 import { PdfPage } from "@/components/cartilla/PdfPage";
@@ -64,8 +63,6 @@ function Leccion() {
   const { isCompleted } = useLessonProgress();
   const session = useStudentSession();
   const entry = useMemo<CatalogEntry | undefined>(() => CATALOG.find((e) => e.n === n), [n]);
-  const guideLesson = useMemo(() => teacherGuideData.lessons.find((l) => l.lesson === n), [n]);
-  const lessonPages = guideLesson?.pages || [];
   const [showModal, setShowModal] = useState(false);
 
   const poemInteraction = useMemo(() => {
@@ -144,7 +141,7 @@ function Leccion() {
   }, [lessonNumber]);
 
   if (!unlocked) return null;
-  if (!entry || !guideLesson) return <LessonSkeleton />;
+  if (!entry) return <LessonSkeleton />;
 
   const done = isCompleted(n);
   const isLast = n >= TOTAL_LESSONS;
@@ -384,27 +381,6 @@ function Leccion() {
             {lessonInteractions.map((interaction, i) => (
               <InteractionRenderer key={interaction.id || i} interaction={interaction} />
             ))}
-          </section>
-        )}
-
-        {lessonPages.length > 0 && (
-          <section aria-label="Páginas del libro de trabajo" className="w-full mt-12 mb-8 mx-auto sm:max-w-[680px]">
-            <h2 className="text-3xl font-bold mb-6 text-center" style={activeColorStyle}>Páginas del libro</h2>
-            <div className="flex flex-col gap-8 w-full">
-              {lessonPages.map((pageNumber: number) => {
-                return (
-                  <img
-                    key={pageNumber}
-                    src={getBookPageImage(pageNumber)}
-                    alt={`Página ${pageNumber} - Lección ${n}`}
-                    loading="lazy"
-                    width={2550}
-                    height={3301}
-                    className="w-full h-auto rounded-xl shadow-lg border border-black/10"
-                  />
-                );
-              })}
-            </div>
           </section>
         )}
 

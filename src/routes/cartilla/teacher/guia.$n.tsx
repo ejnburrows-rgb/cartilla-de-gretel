@@ -4,7 +4,7 @@ import { CATALOG } from "@/lib/lesson-catalog";
 import { GuideLayout } from "@/content/guides/GuideLayout";
 
 // Eagerly import all guide components
-const guideModules = import.meta.glob("@/content/guides/lesson-*.tsx", { eager: true });
+const guideModules = import.meta.glob("/src/content/guides/lesson-*.tsx", { eager: true });
 
 export const Route = createFileRoute("/cartilla/teacher/guia/$n")({
   component: TeacherGuideLeccion,

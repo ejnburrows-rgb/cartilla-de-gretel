@@ -7,6 +7,9 @@ import { getBookSectionForLesson, getLessonPageNumbers } from "@/lib/cartilla-cr
 import { getWorkbookPageSourcesForLesson } from "@/lib/workbook-source";
 import { getInteractionReadinessForLesson } from "@/lib/workbook-interactions";
 import { routePath } from "@/lib/assets";
+import { useState } from "react";
+import { TeacherResourcePanel } from "@/components/teacher/TeacherResourcePanel";
+import { Info } from "lucide-react";
 
 export const Route = createFileRoute("/_authenticated/cartilla/teacher/presentacion")({
   component: TeacherPresentation,
@@ -24,8 +27,13 @@ function lessonCardStyle(color: string) {
 }
 
 function TeacherPresentation() {
+  const [selectedResource, setSelectedResource] = useState<string | null>(null);
+
   return (
     <TeacherPresentationShell title="Presentación docente" subtitle="Presentación docente basada en la estructura verificada del libro.">
+      {selectedResource && (
+        <TeacherResourcePanel resourceId={selectedResource} onClose={() => setSelectedResource(null)} />
+      )}
       <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
         <div className="flex flex-wrap items-center gap-3">
           <Link to="/cartilla/teacher" className="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/20 bg-white/12 px-4 py-2 text-sm font-bold text-white hover:bg-white/18">
@@ -88,10 +96,42 @@ function TeacherPresentation() {
                 <Link to="/cartilla/student/lecciones" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-foreground/12 px-3 py-2 text-sm font-bold text-foreground/70 hover:bg-foreground/5">
                   <BookOpen className="h-4 w-4" /> Índice
                 </Link>
+                <button 
+                  onClick={() => setSelectedResource(`lesson-${entry.n}`)}
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-foreground/12 px-3 py-2 text-sm font-bold text-foreground/70 hover:bg-foreground/5"
+                >
+                  <Info className="h-4 w-4" /> Más info
+                </button>
               </div>
             </article>
           );
         })}
+      </div>
+
+      <div className="mt-12 mb-5">
+        <h2 className="text-2xl font-bold text-stone-800">Juegos Interactivos</h2>
+      </div>
+      <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
+        <article className="rounded-2xl border border-white/16 bg-white/92 p-4 text-[var(--cartilla-title-ink)] shadow-xl" style={lessonCardStyle("#f97316")}>
+          <div className="flex items-start justify-between gap-3">
+            <div>
+              <div className="text-xs font-bold uppercase tracking-wide text-foreground/55">Juego</div>
+              <h2 className="mt-1 text-xl font-bold leading-tight">Payaso Chano</h2>
+            </div>
+          </div>
+          <p className="mt-2 text-sm font-semibold text-foreground/68">Forma palabras con sílabas s, m, p</p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            <a href="/cartilla/juego/payaso-chano-ss" className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-xl bg-[var(--cartilla-accent)] px-3 py-2 text-sm font-bold text-white hover:opacity-90">
+              <Eye className="h-4 w-4" /> Abrir juego
+            </a>
+            <button 
+              onClick={() => setSelectedResource("game-payaso-chano")}
+              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-foreground/12 px-3 py-2 text-sm font-bold text-foreground/70 hover:bg-foreground/5"
+            >
+              <Info className="h-4 w-4" /> Más info
+            </button>
+          </div>
+        </article>
       </div>
     </TeacherPresentationShell>
   );
