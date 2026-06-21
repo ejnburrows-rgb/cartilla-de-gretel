@@ -306,15 +306,113 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
             }}
             className="h-full w-full"
           >
-            <motion.img
-              src={currentPose}
-              alt="Gretel"
-              initial={{ opacity: 0.7, scale: 0.97 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.2 }}
-              className="h-full w-full object-contain"
-              draggable={false}
-            />
+            <div className="relative aspect-[3/4] h-full mx-auto">
+              <motion.img
+                src={currentPose}
+                alt="Gretel"
+                initial={{ opacity: 0.7, scale: 0.97 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.2 }}
+                className="h-full w-full object-contain"
+                draggable={false}
+              />
+
+              {/* Dynamic SVG mouth overlay for lip-sync */}
+              <AnimatePresence>
+                {machineState === "talking" && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.5 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute pointer-events-none"
+                    style={{
+                      top: "29.4%",
+                      left: "51.8%",
+                      width: "6.2%",
+                      height: "2.3%",
+                      transform: "translate(-50%, -50%)",
+                      backgroundColor: "#fae1d4",
+                      borderRadius: "50%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      overflow: "visible",
+                    }}
+                  >
+                    {/* An animated mouth shape that opens and closes */}
+                    <motion.svg
+                      viewBox="0 0 100 100"
+                      className="w-full h-full overflow-visible"
+                    >
+                      {/* Inner mouth background / tongue / teeth */}
+                      <motion.ellipse
+                        cx="50"
+                        cy="50"
+                        rx="45"
+                        ry="35"
+                        fill="#be123c"
+                        animate={{
+                          ry: [10, 38, 15, 42, 8, 35, 10],
+                        }}
+                        transition={{
+                          duration: 0.55,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                          times: [0, 0.2, 0.4, 0.6, 0.75, 0.9, 1]
+                        }}
+                      />
+                      {/* Teeth line */}
+                      <motion.line
+                        x1="12"
+                        y1="38"
+                        x2="88"
+                        y2="38"
+                        stroke="#ffffff"
+                        strokeWidth="8"
+                        strokeLinecap="round"
+                        animate={{
+                          y1: [46, 30, 42, 28, 48, 32, 46],
+                          y2: [46, 30, 42, 28, 48, 32, 46],
+                        }}
+                        transition={{
+                          duration: 0.55,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                          times: [0, 0.2, 0.4, 0.6, 0.75, 0.9, 1]
+                        }}
+                      />
+                      {/* Lips outline */}
+                      <motion.path
+                        d="M 5 50 Q 50 15 95 50 Q 50 85 5 50 Z"
+                        fill="none"
+                        stroke="#e11d48"
+                        strokeWidth="10"
+                        strokeLinejoin="round"
+                        strokeLinecap="round"
+                        animate={{
+                          d: [
+                            "M 5 50 Q 50 45 95 50 Q 50 55 5 50 Z",
+                            "M 5 50 Q 50 10 95 50 Q 50 90 5 50 Z",
+                            "M 5 50 Q 50 35 95 50 Q 50 65 5 50 Z",
+                            "M 5 50 Q 50 5 95 50 Q 50 95 5 50 Z",
+                            "M 5 50 Q 50 48 95 50 Q 50 52 5 50 Z",
+                            "M 5 50 Q 50 15 95 50 Q 50 85 5 50 Z",
+                            "M 5 50 Q 50 45 95 50 Q 50 55 5 50 Z",
+                          ]
+                        }}
+                        transition={{
+                          duration: 0.55,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                          times: [0, 0.2, 0.4, 0.6, 0.75, 0.9, 1]
+                        }}
+                      />
+                    </motion.svg>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </motion.div>
         </motion.div>
       </div>

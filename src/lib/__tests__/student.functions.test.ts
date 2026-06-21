@@ -1,150 +1,135 @@
 /**
  * @vitest-environment jsdom
  */
-
-// Mock localStorage globally for testing environment
-if (typeof window !== "undefined") {
-  const store: Record<string, string> = {};
-  Object.defineProperty(window, "localStorage", {
-    value: {
-      clear: () => { for (const k in store) delete store[k]; },
-      getItem: (key: string) => store[key] || null,
-      setItem: (key: string, value: string) => { store[key] = String(value); },
-      removeItem: (key: string) => { delete store[key]; },
-      length: 0,
-      key: (index: number) => "",
-    },
-    writable: true,
-  });
-}
-if (typeof global !== "undefined") {
-  const store: Record<string, string> = {};
-  Object.defineProperty(global, "localStorage", {
-    value: {
-      clear: () => { for (const k in store) delete store[k]; },
-      getItem: (key: string) => store[key] || null,
-      setItem: (key: string, value: string) => { store[key] = String(value); },
-      removeItem: (key: string) => { delete store[key]; },
-      length: 0,
-      key: (index: number) => "",
-    },
-    writable: true,
-  });
-}
-
-import { describe, it, expect, beforeEach } from "vitest";
+import { describe, it, expect, beforeEach, vi } from "vitest";
+import { supabase } from "@/integrations/supabase/client";
 import { joinClass, logProgress, getMyProgress } from "../student.functions";
 
-describe("student.functions intercept tests", () => {
+vi.mock("@/integrations/supabase/client", () => {
+  const mockSingle = vi.fn();
+  const mockRpc = vi.fn().mockReturnValue({
+    single: mockSingle,
+  });
+  return {
+    supabase: {
+      rpc: mockRpc,
+    },
+  };
+});
+
+describe("student.functions tests", () => {
   beforeEach(() => {
-    localStorage.clear();
+    vi.clearAllMocks();
   });
 
-  it("should intercept joinClass for DEMO joinCode", async () => {
-    // Setup initial seed state in localStorage
-    const demoState = {
-      classes: [
-        {
-          id: "seed-class-demo",
-          teacher_id: "seed-teacher-leonor",
-          name: "Clase de Prueba (Demo Local)",
-          join_code: "DEMO12",
-          created_at: new Date().toISOString(),
-        }
-      ],
-      students: [
-        {
-          id: "seed-student-demo",
-          class_id: "seed-class-demo",
-          display_name: "Estudiante Demo (Local)",
-          student_code: "DEMO1",
-          created_at: new Date().toISOString(),
-        }
-      ],
-      events: [],
-      assignments: [],
-    };
-    localStorage.setItem("cartilla.seed.state.v1", JSON.stringify(demoState));
+  describe("joinClass", () => {
+    it("should succeed and return parsed data when Supabase RPC succeeds", async () => {
+      const mockResult = {
+        student_id: "11111111-1111-1111-1111-111111111111",
+        student_name: "Estudiante Demo",
+        student_code: "DEMO1",
+        class_id: "22222222-2222-2222-2222-222222222222",
+        class_name: "Clase Demo",
+      };
 
-    const result = await joinClass({
-      data: {
-        joinCode: "DEMO12",
-        studentCode: "DEMO1",
-      },
+      const mockSingle = vi.fn().mockResolvedValue({ data: mockResult, error: null });
+      vi.mocked(supabase.rpc).mockReturnValue({ single: mockSingle } as any);
+
+      const result = await joinClass({
+        data: {
+          joinCode: "DEMO12",
+          studentCode: "DEMO1",
+        },
+      });
+
+      expect(supabase.rpc).toHaveBeenCalledWith("join_class", {
+        p_join_code: "DEMO12",
+        p_student_code: "DEMO1",
+      });
+      expect(result).toEqual({
+        studentId: mockResult.student_id,
+        studentName: mockResult.student_name,
+        studentCode: mockResult.student_code,
+        classId: mockResult.class_id,
+        className: mockResult.class_name,
+      });
     });
 
-    expect(result.studentId).toBe("seed-student-demo");
-    expect(result.studentName).toBe("Estudiante Demo (Local)");
-    expect(result.classId).toBe("seed-class-demo");
+    it("should throw error when Supabase RPC fails", async () => {
+      const mockSingle = vi.fn().mockResolvedValue({ data: null, error: { message: "Invalid code" } });
+      vi.mocked(supabase.rpc).mockReturnValue({ single: mockSingle } as any);
+
+      await expect(
+        joinClass({
+          data: {
+            joinCode: "FAIL12",
+            studentCode: "FAIL1",
+          },
+        })
+      ).rejects.toThrow("Invalid code");
+    });
   });
 
-  it("should intercept logProgress for demo student ID", async () => {
-    const demoState = {
-      classes: [],
-      students: [],
-      events: [],
-      assignments: [],
-    };
-    localStorage.setItem("cartilla.seed.state.v1", JSON.stringify(demoState));
+  describe("logProgress", () => {
+    it("should succeed when Supabase RPC succeeds with valid data", async () => {
+      vi.mocked(supabase.rpc).mockResolvedValue({ error: null } as any);
 
-    const result = await logProgress({
-      data: {
-        studentId: "seed-student-demo",
-        studentCode: "DEMO1",
-        lessonId: "1",
-        kind: "lesson_completed",
-      },
+      const result = await logProgress({
+        data: {
+          studentId: "11111111-1111-1111-1111-111111111111",
+          studentCode: "DEMO1",
+          lessonId: "1",
+          kind: "lesson_completed",
+        },
+      });
+
+      expect(supabase.rpc).toHaveBeenCalledWith("log_student_progress", {
+        p_student_id: "11111111-1111-1111-1111-111111111111",
+        p_student_code: "DEMO1",
+        p_lesson_id: "1",
+        p_event_kind: "lesson_completed",
+        p_score: null,
+        p_total: null,
+        p_time_seconds: null,
+        p_meta: null,
+      });
+      expect(result).toEqual({ ok: true });
     });
 
-    expect(result.ok).toBe(true);
-
-    const updatedStateRaw = localStorage.getItem("cartilla.seed.state.v1");
-    expect(updatedStateRaw).toBeDefined();
-    const updatedState = JSON.parse(updatedStateRaw!);
-    expect(updatedState.events).toHaveLength(1);
-    expect(updatedState.events[0].student_id).toBe("seed-student-demo");
-    expect(updatedState.events[0].event_kind).toBe("lesson_completed");
+    it("should throw Zod error when studentId is not a valid UUID", async () => {
+      await expect(
+        logProgress({
+          data: {
+            studentId: "invalid-uuid-string",
+            studentCode: "DEMO1",
+            lessonId: "1",
+            kind: "lesson_completed",
+          },
+        })
+      ).rejects.toThrow();
+    });
   });
 
-  it("should intercept getMyProgress for demo student ID", async () => {
-    const demoState = {
-      classes: [],
-      students: [
-        {
-          id: "seed-student-demo",
-          class_id: "seed-class-demo",
-          display_name: "Estudiante Demo (Local)",
-          student_code: "DEMO1",
-          created_at: new Date().toISOString(),
-        }
-      ],
-      events: [
-        {
-          id: "event-1",
-          student_id: "seed-student-demo",
-          lesson_id: "1",
-          event_kind: "lesson_completed",
-          score: null,
-          total: null,
-          time_seconds: null,
-          meta: null,
-          created_at: new Date().toISOString(),
-        }
-      ],
-      assignments: [],
-    };
-    localStorage.setItem("cartilla.seed.state.v1", JSON.stringify(demoState));
+  describe("getMyProgress", () => {
+    it("should succeed and return payload when Supabase RPC succeeds", async () => {
+      const mockPayload = {
+        events: [],
+        lessonProgress: [],
+      };
+      vi.mocked(supabase.rpc).mockResolvedValue({ data: mockPayload, error: null } as any);
 
-    const result = (await getMyProgress({
-      data: {
-        studentId: "seed-student-demo",
-        studentCode: "DEMO1",
-      },
-    })) as any;
+      const result = await getMyProgress({
+        data: {
+          studentId: "11111111-1111-1111-1111-111111111111",
+          studentCode: "DEMO1",
+        },
+      });
 
-    expect(result.events).toHaveLength(1);
-    expect(result.events[0].event_kind).toBe("lesson_completed");
-    expect(result.lessonProgress).toHaveLength(1);
-    expect(result.lessonProgress[0].lesson_id).toBe("1");
+      expect(supabase.rpc).toHaveBeenCalledWith("get_student_progress", {
+        p_student_id: "11111111-1111-1111-1111-111111111111",
+        p_student_code: "DEMO1",
+      });
+      expect(result).toEqual(mockPayload);
+    });
   });
 });
