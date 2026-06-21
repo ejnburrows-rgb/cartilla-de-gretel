@@ -93,7 +93,7 @@ function FlipchartPickerPage() {
           >
             <Info className="h-3 w-3" /> Más info
           </button>
-        </Link>
+        </a>
       </div>
     </div>
   );
