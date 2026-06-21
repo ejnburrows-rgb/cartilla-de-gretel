@@ -35,10 +35,9 @@ function FlipchartPickerPage() {
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
         {CATALOG.map((entry) => (
-          <Link
+          <a
             key={entry.n}
-            to="/cartilla/teacher/flipchart/$n"
-            params={{ n: String(entry.n) }}
+            href={`/cartilla/teacher/flipchart/${entry.n}`}
             className="group block rounded-[2rem] border-2 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md active:scale-95 text-center flex flex-col justify-center items-center min-h-[140px]"
             style={accentBorderStyle(entry.color)}
           >
@@ -60,7 +59,7 @@ function FlipchartPickerPage() {
             >
               <Info className="h-3 w-3" /> Más info
             </button>
-          </Link>
+          </a>
         ))}
       </div>
 
