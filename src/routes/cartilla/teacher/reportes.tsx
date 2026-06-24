@@ -67,12 +67,12 @@ function TeacherReportsPage() {
   };
 
   return (
-    <div className="w-full space-y-6">
+    <div className="w-full flex flex-col pt-4">
       {/* Header (No print) */}
-      <header className="no-print flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+      <div className="mb-6 no-print flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-3xl font-black text-stone-800">Panel de Reportes</h1>
-          <p className="text-sm font-bold text-stone-500 mt-1">
+          <h1 className="text-[22px] font-normal text-gray-800">Panel de Reportes</h1>
+          <p className="text-[14px] text-gray-600 mt-1">
             Visualiza métricas, exporta datos y prepara informes IEP para tu clase.
           </p>
         </div>
@@ -81,7 +81,7 @@ function TeacherReportsPage() {
           <button
             onClick={handleExportCSV}
             disabled={!classId}
-            className="px-4 py-2 bg-stone-800 hover:bg-stone-900 disabled:opacity-50 text-white font-bold text-sm rounded-xl shadow-sm inline-flex items-center gap-2 transition"
+            className="px-4 py-2 bg-[#1a73e8] hover:bg-[#1557b0] disabled:opacity-50 text-white font-medium text-[14px] rounded-md shadow-sm inline-flex items-center gap-2 transition"
           >
             <FileSpreadsheet className="w-4 h-4" />
             Exportar CSV
@@ -89,13 +89,13 @@ function TeacherReportsPage() {
           <button
             onClick={() => window.print()}
             disabled={!classId}
-            className="px-4 py-2 bg-white hover:bg-stone-50 border border-stone-200 disabled:opacity-50 text-stone-800 font-bold text-sm rounded-xl shadow-sm inline-flex items-center gap-2 transition"
+            className="px-4 py-2 bg-white hover:bg-gray-50 border border-gray-300 disabled:opacity-50 text-gray-700 font-medium text-[14px] rounded-md shadow-sm inline-flex items-center gap-2 transition"
           >
-            <Printer className="w-4 h-4 text-stone-500" />
+            <Printer className="w-4 h-4 text-gray-500" />
             Imprimir
           </button>
         </div>
-      </header>
+      </div>
 
       {/* Picker (No print) */}
       <StudentPicker onSelectionChange={handleSelectionChange} />
@@ -104,7 +104,7 @@ function TeacherReportsPage() {
       {classId ? (
         <ReportCard classId={classId} studentId={studentId} />
       ) : (
-        <div className="no-print p-12 text-center font-bold text-stone-400 bg-white border border-stone-200 rounded-3xl">
+        <div className="no-print p-12 text-center text-gray-500 bg-white border border-gray-200 rounded-md">
           Por favor selecciona una clase o alumno para ver las analíticas.
         </div>
       )}

@@ -6,8 +6,8 @@ interface StudentPickerProps {
   onSelectionChange: (classId: string, studentId: string | null) => void;
 }
 
-const dropdownClass = "w-full sm:w-64 px-4 py-2.5 rounded-xl border border-stone-200 bg-white text-stone-800 font-bold shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition-shadow text-sm cursor-pointer";
-const labelClass = "block text-[10px] font-bold text-stone-500 uppercase tracking-widest mb-1.5 ml-1";
+const dropdownClass = "w-full sm:w-64 px-3 py-2 rounded-md border border-gray-300 bg-white text-gray-800 font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow text-[14px] cursor-pointer";
+const labelClass = "block text-[12px] font-medium text-gray-500 mb-1";
 
 export function StudentPicker({ onSelectionChange }: StudentPickerProps) {
   const [selectedClassId, setSelectedClassId] = useState<string>("");
@@ -51,11 +51,11 @@ export function StudentPicker({ onSelectionChange }: StudentPickerProps) {
   };
 
   return (
-    <div className="flex flex-col sm:flex-row gap-4 p-5 bg-stone-50 border border-stone-200 rounded-3xl no-print shadow-sm">
+    <div className="flex flex-col sm:flex-row gap-4 p-4 bg-white border border-gray-200 rounded-md no-print shadow-sm">
       <div className="flex-1">
         <label className={labelClass}>Clase</label>
         {loadingClasses ? (
-          <div className="text-sm font-bold text-stone-400 py-2">Cargando clases...</div>
+          <div className="text-[14px] font-medium text-gray-400 py-2">Cargando clases...</div>
         ) : (
           <select
             value={selectedClassId}
@@ -74,7 +74,7 @@ export function StudentPicker({ onSelectionChange }: StudentPickerProps) {
       <div className="flex-1">
         <label className={labelClass}>Alumno</label>
         {loadingStudents && selectedClassId ? (
-          <div className="text-sm font-bold text-stone-400 py-2">Cargando alumnos...</div>
+          <div className="text-[14px] font-medium text-gray-400 py-2">Cargando alumnos...</div>
         ) : (
           <select
             value={selectedStudentId || "all"}

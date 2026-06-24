@@ -52,25 +52,25 @@ function TeacherProgressPage() {
   const allProgresos = crmService.getAllProgresos();
 
   return (
-    <div className="w-full space-y-6">
-      <header className="no-print">
-        <h1 className="text-3xl font-black text-stone-800">Progreso de la Clase</h1>
-        <p className="text-sm font-bold text-stone-500 mt-1">
+    <div className="w-full flex flex-col pt-4">
+      <div className="mb-6 no-print">
+        <h1 className="text-[22px] font-normal text-gray-800">Progreso de la Clase</h1>
+        <p className="text-[14px] text-gray-600 mt-1">
           Marca manualmente las lecciones completadas por cada alumno. Toca en una celda para alternar.
         </p>
-      </header>
+      </div>
 
       {/* Class Selector */}
-      <div className="flex gap-4 p-5 bg-stone-50 border border-stone-200 rounded-3xl no-print shadow-sm">
+      <div className="flex gap-4 p-4 bg-white border border-gray-200 rounded-md shadow-sm no-print mb-6">
         <div className="flex-1 max-w-sm">
-          <label className="block text-[10px] font-bold text-stone-500 uppercase tracking-widest mb-1.5 ml-1">Clase</label>
+          <label className="block text-[12px] font-medium text-gray-500 mb-1">Clase</label>
           {loadingClasses ? (
-            <div className="text-sm font-bold text-stone-400 py-2">Cargando clases...</div>
+            <div className="text-[14px] text-gray-400 font-medium py-2">Cargando clases...</div>
           ) : (
             <select
               value={selectedClassId}
               onChange={(e) => setSelectedClassId(e.target.value)}
-              className="w-full px-4 py-2.5 rounded-xl border border-stone-200 bg-white text-stone-800 font-bold shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-orange-400 cursor-pointer text-sm"
+              className="w-full px-3 py-2 rounded-md border border-gray-300 bg-white text-gray-800 font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 cursor-pointer text-sm"
             >
               {classes?.map((c) => (
                 <option key={c.id} value={c.id}>
@@ -83,31 +83,31 @@ function TeacherProgressPage() {
       </div>
 
       {loadingStudents ? (
-        <div className="p-12 text-center font-bold text-stone-400 animate-pulse bg-white border border-stone-200 rounded-[2rem]">
+        <div className="p-12 text-center text-gray-500 animate-pulse bg-white border border-gray-200 rounded-md">
           Cargando listado de alumnos...
         </div>
       ) : classData?.students?.length === 0 ? (
-        <div className="p-12 text-center bg-white border border-stone-200 rounded-[2rem]">
-          <h2 className="text-xl font-bold text-stone-800">No hay alumnos</h2>
-          <p className="text-stone-500 mt-2">Agrega alumnos a esta clase desde el Roster para marcar su progreso.</p>
+        <div className="p-12 text-center bg-white border border-gray-200 rounded-md">
+          <h2 className="text-[18px] font-medium text-gray-800">No hay alumnos</h2>
+          <p className="text-[14px] text-gray-500 mt-2">Agrega alumnos a esta clase desde el Directorio para marcar su progreso.</p>
         </div>
       ) : classData?.students ? (
-        <div className="bg-white border border-stone-200 rounded-[2rem] shadow-xs overflow-x-auto">
-          <table className="w-full text-left text-sm whitespace-nowrap">
-            <thead className="bg-stone-50/70 text-stone-500 font-bold uppercase tracking-wider text-[10px] border-b border-stone-200">
+        <div className="bg-white border border-gray-200 rounded-md shadow-sm overflow-x-auto">
+          <table className="w-full text-left text-sm whitespace-nowrap border-collapse">
+            <thead className="bg-gray-50 text-gray-500 font-medium text-[13px] border-b border-gray-200">
               <tr>
-                <th className="p-4 pl-6 sticky left-0 z-10 bg-stone-50/95 backdrop-blur shadow-[2px_0_4px_rgba(0,0,0,0.02)]">Alumno</th>
+                <th className="py-3 px-4 pl-6 sticky left-0 z-10 bg-gray-50 shadow-[2px_0_4px_rgba(0,0,0,0.02)]">Alumno</th>
                 {Array.from({ length: TOTAL_LESSONS }).map((_, i) => (
-                  <th key={i} className="p-4 text-center min-w-[3rem]">L{i + 1}</th>
+                  <th key={i} className="py-3 px-4 text-center min-w-[3rem]">L{i + 1}</th>
                 ))}
               </tr>
             </thead>
-            <tbody className="divide-y divide-stone-100 bg-white">
+            <tbody className="divide-y divide-gray-200 bg-white">
               {classData.students.map((s) => {
                 const prog = allProgresos.find(p => p.alumnoId === s.id)?.leccionesCompletadas || [];
                 return (
-                  <tr key={s.id} className="hover:bg-stone-50/50 transition-colors">
-                    <td className="p-4 pl-6 font-extrabold text-stone-800 sticky left-0 z-10 bg-white shadow-[2px_0_4px_rgba(0,0,0,0.02)]">
+                  <tr key={s.id} className="hover:bg-gray-50 transition-colors">
+                    <td className="py-3 px-4 pl-6 font-medium text-gray-800 text-[14px] sticky left-0 z-10 bg-white group-hover:bg-gray-50 shadow-[2px_0_4px_rgba(0,0,0,0.02)]">
                       {s.display_name}
                     </td>
                     {Array.from({ length: TOTAL_LESSONS }).map((_, i) => {
@@ -117,14 +117,14 @@ function TeacherProgressPage() {
                         <td key={l} className="p-2 text-center">
                           <button
                             onClick={() => handleToggle(s.id, l)}
-                            className={`w-10 h-10 min-w-[48px] min-h-[48px] m-auto rounded-xl flex items-center justify-center transition-all cursor-pointer ${
+                            className={`w-8 h-8 m-auto rounded-md flex items-center justify-center transition-colors cursor-pointer ${
                               isComplete 
-                                ? "bg-emerald-100 text-emerald-600 shadow-sm scale-100" 
-                                : "bg-stone-100 text-stone-300 hover:bg-stone-200 scale-95 hover:scale-100"
+                                ? "bg-green-100 text-green-700" 
+                                : "bg-gray-100 text-gray-300 hover:bg-gray-200 hover:text-gray-500"
                             }`}
                             aria-label={`Marcar lección ${l} de ${s.display_name}`}
                           >
-                            {isComplete ? <Check className="w-5 h-5" /> : <X className="w-4 h-4 opacity-0 hover:opacity-100" />}
+                            {isComplete ? <Check className="w-4 h-4" /> : <X className="w-4 h-4 opacity-0 hover:opacity-100" />}
                           </button>
                         </td>
                       );

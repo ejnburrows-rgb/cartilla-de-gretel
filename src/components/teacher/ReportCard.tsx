@@ -8,11 +8,11 @@ interface ReportCardProps {
   studentId: string | null;
 }
 
-const cardClass = "bg-white border border-stone-200 rounded-3xl p-6 shadow-sm";
-const metricBoxClass = "flex items-center gap-4 p-4 rounded-2xl bg-stone-50 border border-stone-100 hover:bg-stone-100/50 transition-colors";
-const metricValClass = "text-2xl font-black text-stone-800";
-const metricLblClass = "text-[10px] font-bold text-stone-500 uppercase tracking-widest";
-const headerTitleClass = "text-2xl font-black text-stone-800 flex items-center gap-2";
+const cardClass = "bg-white border border-gray-200 rounded-md p-6 shadow-sm";
+const metricBoxClass = "flex items-center gap-4 p-4 rounded-md bg-white border border-gray-200";
+const metricValClass = "text-[24px] font-normal text-gray-800";
+const metricLblClass = "text-[12px] font-medium text-gray-500 uppercase tracking-wide";
+const headerTitleClass = "text-[20px] font-normal text-gray-800 flex items-center gap-2";
 
 export function ReportCard({ classId, studentId }: ReportCardProps) {
   // 1. Fetch Student Progress if selected
@@ -33,7 +33,7 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
 
   if (loading) {
     return (
-      <div className="p-8 text-center text-stone-500 font-bold bg-white border border-stone-200 rounded-3xl animate-pulse">
+      <div className="p-8 text-center text-gray-500 bg-white border border-gray-200 rounded-md animate-pulse">
         Cargando métricas y analíticas de reportes...
       </div>
     );
@@ -54,18 +54,18 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
 
     return (
       <div className={cardClass}>
-        <div className="flex flex-col sm:flex-row justify-between items-start gap-4 border-b border-stone-150 pb-6 mb-6">
+        <div className="flex flex-col sm:flex-row justify-between items-start gap-4 border-b border-gray-200 pb-6 mb-6">
           <div>
             <h2 className={headerTitleClass}>
-              <Award className="w-6 h-6 text-orange-400" />
+              <Award className="w-6 h-6 text-gray-500" />
               Reporte de Logros: {student.display_name}
             </h2>
-            <p className="text-xs font-bold text-stone-500 mt-1">
-              Código Alumno: <span className="font-mono text-stone-700 bg-stone-100 px-1.5 py-0.5 rounded">{student.student_code}</span> | Clase: {classObj?.name}
+            <p className="text-[13px] text-gray-500 mt-1">
+              Código Alumno: <span className="font-mono text-gray-700 bg-gray-100 px-1.5 py-0.5 rounded">{student.student_code}</span> | Clase: {classObj?.name}
             </p>
           </div>
           <div className="text-right">
-            <span className="text-[10px] font-black uppercase tracking-widest px-3 py-1.5 bg-orange-100 text-orange-800 rounded-full border border-orange-200/50">
+            <span className="text-[11px] font-medium uppercase tracking-wide px-3 py-1 bg-blue-50 text-blue-700 rounded-full border border-blue-200">
               IEP & Adaptaciones
             </span>
           </div>
@@ -106,24 +106,24 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
 
         {/* Activity Logs / IEP details */}
         <div>
-          <h3 className="text-sm font-black text-stone-700 uppercase tracking-wider mb-3">Historial de Progreso Reciente</h3>
-          <div className="overflow-x-auto border border-stone-200 rounded-2xl">
-            <table className="w-full text-sm text-left">
-              <thead className="bg-stone-50 text-stone-600 font-bold border-b border-stone-200">
+          <h3 className="text-[13px] font-medium text-gray-500 uppercase tracking-wide mb-3">Historial de Progreso Reciente</h3>
+          <div className="overflow-x-auto border border-gray-200 rounded-md">
+            <table className="w-full text-sm text-left border-collapse">
+              <thead className="bg-gray-50 text-gray-500 font-medium border-b border-gray-200">
                 <tr>
-                  <th className="p-3">Fecha</th>
-                  <th className="p-3">Evento</th>
-                  <th className="p-3">Lección</th>
-                  <th className="p-3">Puntuación / Info</th>
+                  <th className="py-3 px-4">Fecha</th>
+                  <th className="py-3 px-4">Evento</th>
+                  <th className="py-3 px-4">Lección</th>
+                  <th className="py-3 px-4">Puntuación / Info</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-stone-150">
+              <tbody className="divide-y divide-gray-200 bg-white">
                 {events.slice(0, 10).map((e: any) => (
-                  <tr key={e.id}>
-                    <td className="p-3 font-mono text-xs">{new Date(e.created_at).toLocaleDateString()}</td>
-                    <td className="p-3 capitalize font-bold text-stone-700">{e.event_kind}</td>
-                    <td className="p-3">Lección {e.lesson_id}</td>
-                    <td className="p-3">
+                  <tr key={e.id} className="hover:bg-gray-50 transition-colors">
+                    <td className="py-3 px-4 font-mono text-[13px] text-gray-600">{new Date(e.created_at).toLocaleDateString()}</td>
+                    <td className="py-3 px-4 capitalize font-medium text-gray-800">{e.event_kind}</td>
+                    <td className="py-3 px-4 text-gray-600">Lección {e.lesson_id}</td>
+                    <td className="py-3 px-4 text-gray-600">
                       {e.event_kind === "exercise" && e.total > 0
                         ? `${e.score}/${e.total} (${Math.round((e.score/e.total)*100)}%)`
                         : e.event_kind === "time"
@@ -134,7 +134,7 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
                 ))}
                 {events.length === 0 && (
                   <tr>
-                    <td colSpan={4} className="p-8 text-center font-bold text-stone-400">
+                    <td colSpan={4} className="py-8 text-center text-gray-400">
                       Sin eventos registrados aún.
                     </td>
                   </tr>
@@ -154,13 +154,13 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
 
     return (
       <div className={cardClass}>
-        <div className="flex flex-col sm:flex-row justify-between items-start gap-4 border-b border-stone-150 pb-6 mb-6">
+        <div className="flex flex-col sm:flex-row justify-between items-start gap-4 border-b border-gray-200 pb-6 mb-6">
           <div>
             <h2 className={headerTitleClass}>
-              <ClipboardList className="w-6 h-6 text-orange-400" />
+              <ClipboardList className="w-6 h-6 text-gray-500" />
               Análisis y Progreso Grupal de la Clase
             </h2>
-            <p className="text-xs font-bold text-stone-500 mt-1">
+            <p className="text-[13px] text-gray-500 mt-1">
               Consolidado de rendimiento académico para todas las lecciones.
             </p>
           </div>
@@ -169,32 +169,32 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
         {/* Student metrics table */}
         <div className="space-y-6">
           <div className="flex items-center justify-between">
-            <h3 className="text-sm font-black text-stone-700 uppercase tracking-wider">Desempeño Individual por Alumno</h3>
+            <h3 className="text-[13px] font-medium text-gray-500 uppercase tracking-wide">Desempeño Individual por Alumno</h3>
           </div>
-          <div className="overflow-x-auto border border-stone-200 rounded-2xl">
-            <table className="w-full text-sm text-left">
-              <thead className="bg-stone-50 text-stone-600 font-bold border-b border-stone-200">
+          <div className="overflow-x-auto border border-gray-200 rounded-md">
+            <table className="w-full text-sm text-left border-collapse">
+              <thead className="bg-gray-50 text-gray-500 font-medium border-b border-gray-200">
                 <tr>
-                  <th className="p-3">Nombre Alumno</th>
-                  <th className="p-3">Lecciones Completas</th>
-                  <th className="p-3">Precisión General</th>
-                  <th className="p-3">Tiempo Total</th>
+                  <th className="py-3 px-4">Nombre Alumno</th>
+                  <th className="py-3 px-4">Lecciones Completas</th>
+                  <th className="py-3 px-4">Precisión General</th>
+                  <th className="py-3 px-4">Tiempo Total</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-stone-150">
+              <tbody className="divide-y divide-gray-200 bg-white">
                 {perStudent.map((s: any) => (
-                  <tr key={s.id}>
-                    <td className="p-3 font-bold text-stone-800">{s.name}</td>
-                    <td className="p-3">{s.lessonsCount}</td>
-                    <td className="p-3 font-bold">
+                  <tr key={s.id} className="hover:bg-gray-50 transition-colors">
+                    <td className="py-3 px-4 font-medium text-gray-800">{s.name}</td>
+                    <td className="py-3 px-4 text-gray-600">{s.lessonsCount}</td>
+                    <td className="py-3 px-4 font-medium text-gray-800">
                       {s.accuracy !== null ? `${Math.round(s.accuracy * 100)}%` : "—"}
                     </td>
-                    <td className="p-3">{Math.round(s.timeSeconds / 60)} mins</td>
+                    <td className="py-3 px-4 text-gray-600">{Math.round(s.timeSeconds / 60)} mins</td>
                   </tr>
                 ))}
                 {perStudent.length === 0 && (
                   <tr>
-                    <td colSpan={4} className="p-8 text-center font-bold text-stone-400">
+                    <td colSpan={4} className="py-8 text-center text-gray-400">
                       No hay alumnos registrados en esta clase.
                     </td>
                   </tr>
@@ -207,35 +207,35 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
         {/* 24-Lesson Grid */}
         <div className="space-y-6 mt-12">
           <div className="flex items-center justify-between">
-            <h3 className="text-sm font-black text-stone-700 uppercase tracking-wider">Matriz de Lecciones Completadas</h3>
+            <h3 className="text-[13px] font-medium text-gray-500 uppercase tracking-wide">Matriz de Lecciones Completadas</h3>
           </div>
-          <div className="overflow-x-auto border border-stone-200 rounded-2xl">
-            <table className="w-full text-sm text-left">
-              <thead className="bg-stone-50 text-stone-600 font-bold border-b border-stone-200">
+          <div className="overflow-x-auto border border-gray-200 rounded-md">
+            <table className="w-full text-sm text-left border-collapse">
+              <thead className="bg-gray-50 text-gray-500 font-medium border-b border-gray-200">
                 <tr>
-                  <th className="p-3 sticky left-0 z-10 bg-stone-50 shadow-[2px_0_4px_rgba(0,0,0,0.02)]">Alumno</th>
+                  <th className="py-3 px-4 sticky left-0 z-10 bg-gray-50 shadow-[2px_0_4px_rgba(0,0,0,0.02)]">Alumno</th>
                   {Array.from({ length: TOTAL_LESSONS }).map((_, i) => (
-                    <th key={i} className="p-3 text-center min-w-[2.5rem] font-mono text-xs">L{i + 1}</th>
+                    <th key={i} className="py-3 px-4 text-center min-w-[2.5rem] font-mono text-[12px]">L{i + 1}</th>
                   ))}
                 </tr>
               </thead>
-              <tbody className="divide-y divide-stone-150">
+              <tbody className="divide-y divide-gray-200 bg-white">
                 {perStudent.map((s: any) => {
                   const prog = allProgresos.find(p => p.alumnoId === s.id)?.leccionesCompletadas || [];
                   return (
-                    <tr key={s.id} className="hover:bg-stone-50/50 transition-colors">
-                      <td className="p-3 font-bold text-stone-800 sticky left-0 z-10 bg-white shadow-[2px_0_4px_rgba(0,0,0,0.02)]">
+                    <tr key={s.id} className="hover:bg-gray-50 transition-colors">
+                      <td className="py-3 px-4 font-medium text-gray-800 sticky left-0 z-10 bg-white group-hover:bg-gray-50 shadow-[2px_0_4px_rgba(0,0,0,0.02)]">
                         {s.name}
                       </td>
                       {Array.from({ length: TOTAL_LESSONS }).map((_, i) => {
                         const l = i + 1;
                         const isComplete = prog.includes(l);
                         return (
-                          <td key={l} className="p-2 text-center border-l border-stone-100">
+                          <td key={l} className="p-2 text-center border-l border-gray-100">
                             {isComplete ? (
-                              <Check className="w-4 h-4 text-emerald-500 mx-auto" />
+                              <Check className="w-4 h-4 text-green-600 mx-auto" />
                             ) : (
-                              <span className="text-stone-300">—</span>
+                              <span className="text-gray-300">—</span>
                             )}
                           </td>
                         );
@@ -245,7 +245,7 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
                 })}
                 {perStudent.length === 0 && (
                   <tr>
-                    <td colSpan={TOTAL_LESSONS + 1} className="p-8 text-center font-bold text-stone-400">
+                    <td colSpan={TOTAL_LESSONS + 1} className="py-8 text-center text-gray-400">
                       No hay alumnos registrados.
                     </td>
                   </tr>
