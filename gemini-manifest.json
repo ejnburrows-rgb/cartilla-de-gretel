@@ -1,0 +1,9 @@
+{
+  "book_metadata": {
+    "title": "La Cartilla de Gretel - Workbook & Core Reader",
+    "author": "Leonor Lopetegui",
+    "system_version": "2026.1.0",
+    "target_vertical": "Bilingual Early Literacy CRM Pipeline"
+  },
+  "_instructions_for_agent": "This is the master content manifest. Every page entry contains: page_number, ui_component_type, letter_focus, all text content, and asset slots. Asset slots with null paths need to be matched to files in public/cartilla/art/hd/flipchart/ using the description field. Replace null with the matched filename. Merge completed paths into public/cartilla/art/manifest.json."
+}
