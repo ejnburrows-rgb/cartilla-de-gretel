@@ -1,436 +1,497 @@
 {
-  "version": "1.0",
   "pages": [
     {
       "flipchartPage": 1,
-      "path": "art/hd/page-1.png",
+      "lesson": 1,
+      "path": "cartilla/art/hd/flipchart/page-001.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 2,
-      "path": "art/hd/page-2.png",
+      "lesson": 2,
+      "path": "cartilla/art/hd/flipchart/page-002.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 3,
-      "path": "art/hd/page-3.png",
+      "lesson": 3,
+      "path": "cartilla/art/hd/flipchart/page-003.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 4,
-      "path": "art/hd/page-4.png",
+      "lesson": 4,
+      "path": "cartilla/art/hd/flipchart/page-004.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 5,
-      "path": "art/hd/page-5.png",
+      "lesson": 5,
+      "path": "cartilla/art/hd/flipchart/page-005.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 6,
-      "path": "art/hd/page-6.png",
+      "lesson": 6,
+      "path": "cartilla/art/hd/flipchart/page-006.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 7,
-      "path": "art/hd/page-7.png",
+      "lesson": 7,
+      "path": "cartilla/art/hd/flipchart/page-007.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 8,
-      "path": "art/hd/page-8.png",
+      "lesson": 7,
+      "path": "cartilla/art/hd/flipchart/page-008.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 9,
-      "path": "art/hd/page-9.png",
+      "lesson": 7,
+      "path": "cartilla/art/hd/flipchart/page-009.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 10,
-      "path": "art/hd/page-10.png",
+      "lesson": 8,
+      "path": "cartilla/art/hd/flipchart/page-010.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 11,
-      "path": "art/hd/page-11.png",
+      "lesson": 8,
+      "path": "cartilla/art/hd/flipchart/page-011.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 12,
-      "path": "art/hd/page-12.png",
+      "lesson": 8,
+      "path": "cartilla/art/hd/flipchart/page-012.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 13,
-      "path": "art/hd/page-13.png",
+      "lesson": 9,
+      "path": "cartilla/art/hd/flipchart/page-013.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 14,
-      "path": "art/hd/page-14.png",
+      "lesson": 9,
+      "path": "cartilla/art/hd/flipchart/page-014.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 15,
-      "path": "art/hd/page-15.png",
+      "lesson": 9,
+      "path": "cartilla/art/hd/flipchart/page-015.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 16,
-      "path": "art/hd/page-16.png",
+      "lesson": 10,
+      "path": "cartilla/art/hd/flipchart/page-016.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 17,
-      "path": "art/hd/page-17.png",
+      "lesson": 10,
+      "path": "cartilla/art/hd/flipchart/page-017.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 18,
-      "path": "art/hd/page-18.png",
+      "lesson": 10,
+      "path": "cartilla/art/hd/flipchart/page-018.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 19,
-      "path": "art/hd/page-19.png",
+      "lesson": 11,
+      "path": "cartilla/art/hd/flipchart/page-019.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 20,
-      "path": "art/hd/page-20.png",
+      "lesson": 11,
+      "path": "cartilla/art/hd/flipchart/page-020.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 21,
-      "path": "art/hd/page-21.png",
+      "lesson": 11,
+      "path": "cartilla/art/hd/flipchart/page-021.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 22,
-      "path": "art/hd/page-22.png",
+      "lesson": 12,
+      "path": "cartilla/art/hd/flipchart/page-022.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 23,
-      "path": "art/hd/page-23.png",
+      "lesson": 12,
+      "path": "cartilla/art/hd/flipchart/page-023.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 24,
-      "path": "art/hd/page-24.png",
+      "lesson": 12,
+      "path": "cartilla/art/hd/flipchart/page-024.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 25,
-      "path": "art/hd/page-25.png",
+      "lesson": 13,
+      "path": "cartilla/art/hd/flipchart/page-025.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 26,
-      "path": "art/hd/page-26.png",
+      "lesson": 13,
+      "path": "cartilla/art/hd/flipchart/page-026.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 27,
-      "path": "art/hd/page-27.png",
+      "lesson": 13,
+      "path": "cartilla/art/hd/flipchart/page-027.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 28,
-      "path": "art/hd/page-28.png",
+      "lesson": 14,
+      "path": "cartilla/art/hd/flipchart/page-028.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 29,
-      "path": "art/hd/page-29.png",
+      "lesson": 14,
+      "path": "cartilla/art/hd/flipchart/page-029.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 30,
-      "path": "art/hd/page-30.png",
+      "lesson": 14,
+      "path": "cartilla/art/hd/flipchart/page-030.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 31,
-      "path": "art/hd/page-31.png",
+      "lesson": 15,
+      "path": "cartilla/art/hd/flipchart/page-031.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 32,
-      "path": "art/hd/page-32.png",
+      "lesson": 15,
+      "path": "cartilla/art/hd/flipchart/page-032.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 33,
-      "path": "art/hd/page-33.png",
+      "lesson": 15,
+      "path": "cartilla/art/hd/flipchart/page-033.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 34,
-      "path": "art/hd/page-34.png",
+      "lesson": 16,
+      "path": "cartilla/art/hd/flipchart/page-034.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 35,
-      "path": "art/hd/page-35.png",
+      "lesson": 16,
+      "path": "cartilla/art/hd/flipchart/page-035.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 36,
-      "path": "art/hd/page-36.png",
+      "lesson": 16,
+      "path": "cartilla/art/hd/flipchart/page-036.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 37,
-      "path": "art/hd/page-37.png",
+      "lesson": 17,
+      "path": "cartilla/art/hd/flipchart/page-037.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 38,
-      "path": "art/hd/page-38.png",
+      "lesson": 17,
+      "path": "cartilla/art/hd/flipchart/page-038.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 39,
-      "path": "art/hd/page-39.png",
+      "lesson": 17,
+      "path": "cartilla/art/hd/flipchart/page-039.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 40,
-      "path": "art/hd/page-40.png",
+      "lesson": 18,
+      "path": "cartilla/art/hd/flipchart/page-040.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 41,
-      "path": "art/hd/page-41.png",
+      "lesson": 18,
+      "path": "cartilla/art/hd/flipchart/page-041.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 42,
-      "path": "art/hd/page-42.png",
+      "lesson": 18,
+      "path": "cartilla/art/hd/flipchart/page-042.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 43,
-      "path": "art/hd/page-43.png",
+      "lesson": 19,
+      "path": "cartilla/art/hd/flipchart/page-043.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 44,
-      "path": "art/hd/page-44.png",
+      "lesson": 19,
+      "path": "cartilla/art/hd/flipchart/page-044.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 45,
-      "path": "art/hd/page-45.png",
+      "lesson": 19,
+      "path": "cartilla/art/hd/flipchart/page-045.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 46,
-      "path": "art/hd/page-46.png",
+      "lesson": 20,
+      "path": "cartilla/art/hd/flipchart/page-046.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 47,
-      "path": "art/hd/page-47.png",
+      "lesson": 20,
+      "path": "cartilla/art/hd/flipchart/page-047.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 48,
-      "path": "art/hd/page-48.png",
+      "lesson": 20,
+      "path": "cartilla/art/hd/flipchart/page-048.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 49,
-      "path": "art/hd/page-49.png",
+      "lesson": 21,
+      "path": "cartilla/art/hd/flipchart/page-049.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 50,
-      "path": "art/hd/page-50.png",
+      "lesson": 21,
+      "path": "cartilla/art/hd/flipchart/page-050.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 51,
-      "path": "art/hd/page-51.png",
+      "lesson": 21,
+      "path": "cartilla/art/hd/flipchart/page-051.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 52,
-      "path": "art/hd/page-52.png",
+      "lesson": 22,
+      "path": "cartilla/art/hd/flipchart/page-052.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 53,
-      "path": "art/hd/page-53.png",
+      "lesson": 22,
+      "path": "cartilla/art/hd/flipchart/page-053.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 54,
-      "path": "art/hd/page-54.png",
+      "lesson": 22,
+      "path": "cartilla/art/hd/flipchart/page-054.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 55,
-      "path": "art/hd/page-55.png",
+      "lesson": 23,
+      "path": "cartilla/art/hd/flipchart/page-055.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 56,
-      "path": "art/hd/page-56.png",
+      "lesson": 23,
+      "path": "cartilla/art/hd/flipchart/page-056.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 57,
-      "path": "art/hd/page-57.png",
+      "lesson": 23,
+      "path": "cartilla/art/hd/flipchart/page-057.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 58,
-      "path": "art/hd/page-58.png",
+      "lesson": 24,
+      "path": "cartilla/art/hd/flipchart/page-058.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 59,
-      "path": "art/hd/page-59.png",
+      "lesson": 24,
+      "path": "cartilla/art/hd/flipchart/page-059.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 60,
-      "path": "art/hd/page-60.png",
+      "lesson": 24,
+      "path": "cartilla/art/hd/flipchart/page-060.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 61,
-      "path": "art/hd/page-61.png",
+      "lesson": null,
+      "path": "cartilla/art/hd/flipchart/page-061.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
     },
     {
       "flipchartPage": 62,
-      "path": "art/hd/page-62.png",
+      "lesson": null,
+      "path": "cartilla/art/hd/flipchart/page-062.jpg",
       "type": "flipchart",
       "status": "original source connected",
       "remasterStatus": "original only"
