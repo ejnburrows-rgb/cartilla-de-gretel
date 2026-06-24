@@ -7,8 +7,7 @@ import { CATALOG, TOTAL_LESSONS, type CatalogEntry } from "@/lib/lesson-catalog"
 import { useLessonProgress, isLessonUnlocked, markLessonCompleted } from "@/lib/lesson-progress";
 import { useAudio } from "@/hooks/useAudio";
 import { cn } from "@/lib/utils";
-import { SyllableTap, WordMatch, TeacherAnswerKey } from "@/components/cartilla/Ejercicios";
-import { OrderedExercises } from "@/components/cartilla/OrderedExercises";
+import { SyllableTap, WordMatch } from "@/components/cartilla/Ejercicios";
 import { recordEvent, useStudentSession } from "@/lib/student-session";
 import { LessonTimer } from "@/components/cartilla/LessonTimer";
 import { listMyAssignments } from "@/lib/assignments.functions";
@@ -19,12 +18,7 @@ import { gretelEvent } from "@/lib/gretel-bus";
 
 import { StudentWorkbookFlip } from "@/components/StudentBook/StudentWorkbookFlip";
 import { buildPageArray } from "@/utils/buildPageArray";
-import {
-  SpeechRecognitionExercise,
-  LetterTracing,
-  AudioMultipleChoice,
-  DragDropMatch,
-} from "@/components/cartilla/InteractiveMiniGames";
+import { ActivityCarousel } from "@/components/cartilla/ActivityCarousel";
 
 export const Route = createFileRoute("/cartilla/leccion/$n")({
   component: Leccion,
@@ -235,39 +229,14 @@ function IntroBody({ lessonId, lang, t }: { lessonId: string; lang: "es" | "en";
           </button>
         ))}
       </div>
-      <OrderedExercises
+      <ActivityCarousel
+        lessonNumber={1}
+        syllables={vowels}
+        words={vowelWords}
+        letter="a"
+        color="hsl(var(--primary))"
         lessonId={lessonId}
-        blocks={[
-          {
-            id: "letter_tracing",
-            label: "Traza las letras",
-            node: <LetterTracing letter="a" color="hsl(var(--primary))" />,
-          },
-          {
-            id: "audio_mc",
-            label: "Escucha",
-            node: <AudioMultipleChoice targetWord="oso" options={vowelWords} color="hsl(var(--primary))" />,
-          },
-          {
-            id: "drag_drop",
-            label: "Arrastra",
-            node: <DragDropMatch words={vowelWords.slice(0, 3)} color="hsl(var(--primary))" />,
-          },
-          {
-            id: "speech",
-            label: "Micrófono",
-            node: <SpeechRecognitionExercise targetWord="uva" emoji="🍇" color="hsl(var(--primary))" />,
-          },
-          {
-            id: "answer_key",
-            label: t.respuestas[lang],
-            node: (
-              <TeacherAnswerKey
-                items={vowelWords.map((v) => ({ q: `Vocal inicial de "${v.word}"`, a: v.word[0] }))}
-              />
-            ),
-          },
-        ]}
+        onCompleteAll={() => markLessonCompleted(1)}
       />
     </section>
   );
@@ -318,42 +287,14 @@ function VowelBody({
           ))}
         </ul>
       </div>
-      <OrderedExercises
+      <ActivityCarousel
+        lessonNumber={entry.n}
+        syllables={[l.vowel]}
+        words={l.vocab}
+        letter={l.vowel}
+        color={entry.color}
         lessonId={lessonId}
-        blocks={[
-          {
-            id: "letter_tracing",
-            label: "Traza",
-            node: <LetterTracing letter={l.vowel} color={entry.color} />,
-          },
-          {
-            id: "audio_mc",
-            label: "Escucha",
-            node: <AudioMultipleChoice targetWord={l.vocab[0]?.word || "a"} options={l.vocab} color={entry.color} />,
-          },
-          {
-            id: "drag_drop",
-            label: "Arrastra",
-            node: <DragDropMatch words={l.vocab.slice(0, 4)} color={entry.color} />,
-          },
-          {
-            id: "speech",
-            label: "Habla",
-            node: <SpeechRecognitionExercise targetWord={l.vocab[0]?.word || "a"} emoji={l.vocab[0]?.emoji} color={entry.color} />,
-          },
-          {
-            id: "answer_key",
-            label: t.respuestas[lang],
-            node: (
-              <TeacherAnswerKey
-                items={l.vocab.map((v) => ({
-                  q: `Palabra que empieza con "${v.word[0]}"`,
-                  a: v.word,
-                }))}
-              />
-            ),
-          },
-        ]}
+        onCompleteAll={() => markLessonCompleted(entry.n)}
       />
     </section>
   );
@@ -444,33 +385,14 @@ function ConsonantBody({
           </ul>
         </div>
       )}
-      <OrderedExercises
+      <ActivityCarousel
+        lessonNumber={entry.n}
+        syllables={c.syllables}
+        words={c.vocab}
+        letter={c.letter}
+        color={entry.color}
         lessonId={lessonId}
-        blocks={[
-          {
-            id: "letter_tracing",
-            label: "Traza",
-            node: <LetterTracing letter={c.syllables[0]} color={entry.color} />,
-          },
-          {
-            id: "speech",
-            label: "Habla",
-            node: <SpeechRecognitionExercise targetWord={c.examples[c.syllables[0]]?.[0] || c.syllables[0]} emoji="🎤" color={entry.color} />,
-          },
-          {
-            id: "answer_key",
-            label: t.respuestas[lang],
-            node: (
-              <TeacherAnswerKey
-                items={c.syllables.flatMap((s) =>
-                  (c.examples[s] ?? [])
-                    .slice(0, 1)
-                    .map((w) => ({ q: `Sílaba inicial de "${w}"`, a: s })),
-                )}
-              />
-            ),
-          },
-        ]}
+        onCompleteAll={() => markLessonCompleted(entry.n)}
       />
     </section>
   );

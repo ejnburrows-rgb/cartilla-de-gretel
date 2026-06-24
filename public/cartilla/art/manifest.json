@@ -1,5 +1,6 @@
 {
-  "builtAt": "2026-05-27T00:59:59.014Z",
+  "builtAt": "2026-06-24T21:15:44.504Z",
+  "version": "2.0.0",
   "cover": "/cartilla/art/hd/workbook/page-001.jpg",
   "lessons": {
     "1": {
@@ -146,5 +147,3983 @@
         "/cartilla/art/hd/workbook/page-025.jpg"
       ]
     }
+  },
+  "flipchart": {
+    "totalPages": 62,
+    "lessons": {
+      "1": {
+        "pageThumb": "/cartilla/art/hd/flipchart/page-001.jpg",
+        "pages": [
+          "/cartilla/art/hd/flipchart/page-001.jpg",
+          "/cartilla/art/hd/flipchart/page-002.jpg",
+          "/cartilla/art/hd/flipchart/page-003.jpg",
+          "/cartilla/art/hd/flipchart/page-004.jpg",
+          "/cartilla/art/hd/flipchart/page-005.jpg",
+          "/cartilla/art/hd/flipchart/page-006.jpg"
+        ]
+      },
+      "2": {
+        "pageThumb": "/cartilla/art/hd/flipchart/page-002.jpg",
+        "pages": [
+          "/cartilla/art/hd/flipchart/page-002.jpg"
+        ]
+      },
+      "3": {
+        "pageThumb": "/cartilla/art/hd/flipchart/page-003.jpg",
+        "pages": [
+          "/cartilla/art/hd/flipchart/page-003.jpg"
+        ]
+      },
+      "4": {
+        "pageThumb": "/cartilla/art/hd/flipchart/page-004.jpg",
+        "pages": [
+          "/cartilla/art/hd/flipchart/page-004.jpg"
+        ]
+      },
+      "5": {
+        "pageThumb": "/cartilla/art/hd/flipchart/page-005.jpg",
+        "pages": [
+          "/cartilla/art/hd/flipchart/page-005.jpg"
+        ]
+      },
+      "6": {
+        "pageThumb": "/cartilla/art/hd/flipchart/page-006.jpg",
+        "pages": [
+          "/cartilla/art/hd/flipchart/page-006.jpg"
+        ]
+      },
+      "7": {
+        "pageThumb": "/cartilla/art/hd/flipchart/page-007.jpg",
+        "pages": [
+          "/cartilla/art/hd/flipchart/page-007.jpg",
+          "/cartilla/art/hd/flipchart/page-008.jpg",
+          "/cartilla/art/hd/flipchart/page-009.jpg"
+        ]
+      },
+      "8": {
+        "pageThumb": "/cartilla/art/hd/flipchart/page-010.jpg",
+        "pages": [
+          "/cartilla/art/hd/flipchart/page-010.jpg",
+          "/cartilla/art/hd/flipchart/page-011.jpg",
+          "/cartilla/art/hd/flipchart/page-012.jpg"
+        ]
+      },
+      "9": {
+        "pageThumb": "/cartilla/art/hd/flipchart/page-013.jpg",
+        "pages": [
+          "/cartilla/art/hd/flipchart/page-013.jpg",
+          "/cartilla/art/hd/flipchart/page-014.jpg",
+          "/cartilla/art/hd/flipchart/page-015.jpg"
+        ]
+      },
+      "10": {
+        "pageThumb": "/cartilla/art/hd/flipchart/page-016.jpg",
+        "pages": [
+          "/cartilla/art/hd/flipchart/page-016.jpg",
+          "/cartilla/art/hd/flipchart/page-017.jpg",
+          "/cartilla/art/hd/flipchart/page-018.jpg"
+        ]
+      },
+      "11": {
+        "pageThumb": "/cartilla/art/hd/flipchart/page-019.jpg",
+        "pages": [
+          "/cartilla/art/hd/flipchart/page-019.jpg",
+          "/cartilla/art/hd/flipchart/page-020.jpg",
+          "/cartilla/art/hd/flipchart/page-021.jpg"
+        ]
+      },
+      "12": {
+        "pageThumb": "/cartilla/art/hd/flipchart/page-022.jpg",
+        "pages": [
+          "/cartilla/art/hd/flipchart/page-022.jpg",
+          "/cartilla/art/hd/flipchart/page-023.jpg",
+          "/cartilla/art/hd/flipchart/page-024.jpg"
+        ]
+      },
+      "13": {
+        "pageThumb": "/cartilla/art/hd/flipchart/page-025.jpg",
+        "pages": [
+          "/cartilla/art/hd/flipchart/page-025.jpg",
+          "/cartilla/art/hd/flipchart/page-026.jpg",
+          "/cartilla/art/hd/flipchart/page-027.jpg"
+        ]
+      },
+      "14": {
+        "pageThumb": "/cartilla/art/hd/flipchart/page-028.jpg",
+        "pages": [
+          "/cartilla/art/hd/flipchart/page-028.jpg",
+          "/cartilla/art/hd/flipchart/page-029.jpg",
+          "/cartilla/art/hd/flipchart/page-030.jpg"
+        ]
+      },
+      "15": {
+        "pageThumb": "/cartilla/art/hd/flipchart/page-031.jpg",
+        "pages": [
+          "/cartilla/art/hd/flipchart/page-031.jpg",
+          "/cartilla/art/hd/flipchart/page-032.jpg",
+          "/cartilla/art/hd/flipchart/page-033.jpg"
+        ]
+      },
+      "16": {
+        "pageThumb": "/cartilla/art/hd/flipchart/page-034.jpg",
+        "pages": [
+          "/cartilla/art/hd/flipchart/page-034.jpg",
+          "/cartilla/art/hd/flipchart/page-035.jpg",
+          "/cartilla/art/hd/flipchart/page-036.jpg"
+        ]
+      },
+      "17": {
+        "pageThumb": "/cartilla/art/hd/flipchart/page-037.jpg",
+        "pages": [
+          "/cartilla/art/hd/flipchart/page-037.jpg",
+          "/cartilla/art/hd/flipchart/page-038.jpg",
+          "/cartilla/art/hd/flipchart/page-039.jpg"
+        ]
+      },
+      "18": {
+        "pageThumb": "/cartilla/art/hd/flipchart/page-040.jpg",
+        "pages": [
+          "/cartilla/art/hd/flipchart/page-040.jpg",
+          "/cartilla/art/hd/flipchart/page-041.jpg",
+          "/cartilla/art/hd/flipchart/page-042.jpg"
+        ]
+      },
+      "19": {
+        "pageThumb": "/cartilla/art/hd/flipchart/page-043.jpg",
+        "pages": [
+          "/cartilla/art/hd/flipchart/page-043.jpg",
+          "/cartilla/art/hd/flipchart/page-044.jpg",
+          "/cartilla/art/hd/flipchart/page-045.jpg"
+        ]
+      },
+      "20": {
+        "pageThumb": "/cartilla/art/hd/flipchart/page-046.jpg",
+        "pages": [
+          "/cartilla/art/hd/flipchart/page-046.jpg",
+          "/cartilla/art/hd/flipchart/page-047.jpg",
+          "/cartilla/art/hd/flipchart/page-048.jpg"
+        ]
+      },
+      "21": {
+        "pageThumb": "/cartilla/art/hd/flipchart/page-049.jpg",
+        "pages": [
+          "/cartilla/art/hd/flipchart/page-049.jpg",
+          "/cartilla/art/hd/flipchart/page-050.jpg",
+          "/cartilla/art/hd/flipchart/page-051.jpg"
+        ]
+      },
+      "22": {
+        "pageThumb": "/cartilla/art/hd/flipchart/page-052.jpg",
+        "pages": [
+          "/cartilla/art/hd/flipchart/page-052.jpg",
+          "/cartilla/art/hd/flipchart/page-053.jpg",
+          "/cartilla/art/hd/flipchart/page-054.jpg"
+        ]
+      },
+      "23": {
+        "pageThumb": "/cartilla/art/hd/flipchart/page-055.jpg",
+        "pages": [
+          "/cartilla/art/hd/flipchart/page-055.jpg",
+          "/cartilla/art/hd/flipchart/page-056.jpg",
+          "/cartilla/art/hd/flipchart/page-057.jpg"
+        ]
+      },
+      "24": {
+        "pageThumb": "/cartilla/art/hd/flipchart/page-058.jpg",
+        "pages": [
+          "/cartilla/art/hd/flipchart/page-058.jpg",
+          "/cartilla/art/hd/flipchart/page-059.jpg",
+          "/cartilla/art/hd/flipchart/page-060.jpg"
+        ]
+      }
+    }
+  },
+  "content": {
+    "metadata": {
+      "title": "La Cartilla de Gretel - Workbook & Core Reader",
+      "author": "Leonor Lopetegui",
+      "system_version": "2026.1.0",
+      "target_vertical": "Bilingual Early Literacy CRM Pipeline"
+    },
+    "pages": [
+      {
+        "page_number": 1,
+        "ui_component_type": "CoverPage",
+        "letter_focus": null,
+        "content": {
+          "title": "La Cartilla de Gretel",
+          "subtitle": "Autora: Leonor Lopetegui",
+          "meta_text": "Este Libro pertenece a"
+        },
+        "assets": [
+          {
+            "id": "cover_butterfly",
+            "description": "Mariposa amarilla y roja",
+            "path": "page-001.jpg"
+          }
+        ]
+      },
+      {
+        "page_number": 2,
+        "ui_component_type": "CreditsPage",
+        "letter_focus": null,
+        "content": {
+          "copyright_details": "Copyright 2004, Revision 2010. Autora: Leonor Lopetegui. Colaboradoras: Silvia Diez, Aida Fernandez. Ilustradora: Estela de Armas Plasencia.",
+          "preface_title": "Agradecimiento",
+          "preface_paragraphs": [
+            "A mi hija Nora Bethsy, a mi sobrinas Sofía M. Destefano y Alexa G. Flores...",
+            "Este libro ha nacido en las aulas y a ellas quiero que vuelva. Mis alumnos señalaron el camino..."
+          ]
+        },
+        "assets": []
+      },
+      {
+        "page_number": 3,
+        "ui_component_type": "SyllableCircleWorksheet",
+        "letter_focus": [
+          "a",
+          "e",
+          "i",
+          "o",
+          "u"
+        ],
+        "instructions": "Circula los dibujos de las palabras en cada línea horizontal que comienzan con el mismo sonido.",
+        "exercise_rows": [
+          {
+            "row_index": 1,
+            "target_phoneme_match": "abrigo_avion",
+            "items": [
+              {
+                "id": "item_1_1",
+                "description": "Abrigo de invierno / Chaqueta",
+                "image_path": "page-003.jpg"
+              },
+              {
+                "id": "item_1_2",
+                "description": "Imán de herradura",
+                "image_path": "page-003.jpg"
+              },
+              {
+                "id": "item_1_3",
+                "description": "Abanico de mano",
+                "image_path": "page-003.jpg"
+              },
+              {
+                "id": "item_1_4",
+                "description": "Oso de peluche con barril",
+                "image_path": "page-003.jpg"
+              }
+            ]
+          },
+          {
+            "row_index": 2,
+            "target_phoneme_match": "isla_iman",
+            "items": [
+              {
+                "id": "item_2_1",
+                "description": "Isla con palmera",
+                "image_path": "page-003.jpg"
+              },
+              {
+                "id": "item_2_2",
+                "description": "Avión de pasajeros",
+                "image_path": "page-003.jpg"
+              },
+              {
+                "id": "item_2_3",
+                "description": "Imán de herradura",
+                "image_path": "page-003.jpg"
+              },
+              {
+                "id": "item_2_4",
+                "description": "Aro / Anillo",
+                "image_path": "page-003.jpg"
+              }
+            ]
+          },
+          {
+            "row_index": 3,
+            "target_phoneme_match": "escoba_escuela",
+            "items": [
+              {
+                "id": "item_3_1",
+                "description": "Escalera de tijera",
+                "image_path": "page-003.jpg"
+              },
+              {
+                "id": "item_3_2",
+                "description": "Bloque del número 1",
+                "image_path": "page-003.jpg"
+              },
+              {
+                "id": "item_3_3",
+                "description": "Escuela / Colegio con campana",
+                "image_path": "page-003.jpg"
+              },
+              {
+                "id": "item_3_4",
+                "description": "Oreja humana",
+                "image_path": "page-003.jpg"
+              }
+            ]
+          },
+          {
+            "row_index": 4,
+            "target_phoneme_match": "oveja_ojo",
+            "items": [
+              {
+                "id": "item_4_1",
+                "description": "Pijama / Ropa de dormir",
+                "image_path": "page-003.jpg"
+              },
+              {
+                "id": "item_4_2",
+                "description": "Ojo estilizado",
+                "image_path": "page-003.jpg"
+              },
+              {
+                "id": "item_4_3",
+                "description": "Oveja con flores",
+                "image_path": "page-003.jpg"
+              },
+              {
+                "id": "item_4_4",
+                "description": "Elefante con lazo",
+                "image_path": "page-003.jpg"
+              }
+            ]
+          },
+          {
+            "row_index": 5,
+            "target_phoneme_match": "unicornio_uva",
+            "items": [
+              {
+                "id": "item_5_1",
+                "description": "Ojo humano",
+                "image_path": "page-003.jpg"
+              },
+              {
+                "id": "item_5_2",
+                "description": "Mazorca de maíz",
+                "image_path": "page-003.jpg"
+              },
+              {
+                "id": "item_5_3",
+                "description": "Abeja volando",
+                "image_path": "page-003.jpg"
+              },
+              {
+                "id": "item_5_4",
+                "description": "Olla de cocina con tapa",
+                "image_path": "page-003.jpg"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "page_number": 4,
+        "ui_component_type": "VowelIntroWorksheet",
+        "letter_focus": "Aa",
+        "instructions": "Circula el dibujo que comienza con la vocal del recuadro.",
+        "grid_items": [
+          {
+            "word": "anillo",
+            "vowel_box": "a",
+            "is_correct": true,
+            "image_path": "page-001.jpg"
+          },
+          {
+            "word": "manzana",
+            "vowel_box": "a",
+            "is_correct": false,
+            "image_path": "page-001.jpg"
+          },
+          {
+            "word": "libro",
+            "vowel_box": "e",
+            "is_correct": false,
+            "image_path": "page-001.jpg"
+          },
+          {
+            "word": "casa",
+            "vowel_box": "e",
+            "is_correct": false,
+            "image_path": "page-001.jpg"
+          },
+          {
+            "word": "árbol",
+            "vowel_box": "i",
+            "is_correct": false,
+            "image_path": "page-001.jpg"
+          },
+          {
+            "word": "estrella",
+            "vowel_box": "i",
+            "is_correct": false,
+            "image_path": "page-001.jpg"
+          },
+          {
+            "word": "indio",
+            "vowel_box": "o",
+            "is_correct": false,
+            "image_path": "page-001.jpg"
+          },
+          {
+            "word": "pera",
+            "vowel_box": "o",
+            "is_correct": false,
+            "image_path": "page-001.jpg"
+          },
+          {
+            "word": "pájaro",
+            "vowel_box": "u",
+            "is_correct": false,
+            "image_path": "page-001.jpg"
+          },
+          {
+            "word": "oso",
+            "vowel_box": "u",
+            "is_correct": false,
+            "image_path": "page-001.jpg"
+          },
+          {
+            "word": "auto",
+            "vowel_box": "u",
+            "is_correct": false,
+            "image_path": "page-001.jpg"
+          },
+          {
+            "word": "globo",
+            "vowel_box": "u",
+            "is_correct": false,
+            "image_path": "page-001.jpg"
+          },
+          {
+            "word": "caramelo",
+            "vowel_box": "u",
+            "is_correct": false,
+            "image_path": "page-001.jpg"
+          }
+        ]
+      },
+      {
+        "page_number": 5,
+        "ui_component_type": "InteractiveMatchingChart",
+        "letter_focus": [
+          "o",
+          "a",
+          "i",
+          "e",
+          "u"
+        ],
+        "instructions": "Traza una línea de la vocal al dibujo que le corresponde.",
+        "matching_pairs": [
+          {
+            "vowel": "o",
+            "target_word": "olla",
+            "image_description": "Olla de cocina con tapa"
+          },
+          {
+            "vowel": "a",
+            "target_word": "araña",
+            "image_description": "Araña tejiendo red"
+          },
+          {
+            "vowel": "i",
+            "target_word": "iglesia",
+            "image_description": "Iglesia con cruz"
+          },
+          {
+            "vowel": "e",
+            "target_word": "escoba",
+            "image_description": "Escoba de barrer"
+          },
+          {
+            "vowel": "u",
+            "target_word": "uno",
+            "image_description": "Bloque tridimensional del número 1"
+          }
+        ],
+        "auxiliary_assets": [
+          {
+            "id": "num_8",
+            "description": "Gráfico del número 8",
+            "path": "page-002.jpg"
+          }
+        ]
+      },
+      {
+        "page_number": 6,
+        "ui_component_type": "LetterIntro",
+        "letter_focus": "O o",
+        "poem": {
+          "title": "Arre caballito",
+          "lines": [
+            "Arre caballito",
+            "llévame a pasear",
+            "yo soy redondita",
+            "y puedo rodar.",
+            "¡Oh, oh caballito",
+            "yo quiero parar!",
+            "¡Oh, oh caballito",
+            "ya no ruedes más!"
+          ]
+        },
+        "vocabulary_cards": [
+          {
+            "word": "olla",
+            "highlight_letter": "o",
+            "image_path": "page-002.jpg"
+          },
+          {
+            "word": "Oto",
+            "highlight_letter": "O",
+            "image_path": "page-002.jpg"
+          },
+          {
+            "word": "oveja",
+            "highlight_letter": "o",
+            "image_path": "page-002.jpg"
+          },
+          {
+            "word": "oso",
+            "highlight_letter": "o",
+            "image_path": "page-002.jpg"
+          },
+          {
+            "word": "oreja",
+            "highlight_letter": "o",
+            "image_path": "page-002.jpg"
+          },
+          {
+            "word": "ocho",
+            "highlight_letter": "o",
+            "image_path": "page-002.jpg"
+          }
+        ]
+      },
+      {
+        "page_number": 7,
+        "ui_component_type": "WorkbookActivity",
+        "letter_focus": "O o",
+        "instructions": "Marca con una x los dibujos de las palabras que comienzan con Oo.",
+        "grid_items": [
+          {
+            "word": "ola",
+            "is_correct": true,
+            "image_path": "page-002.jpg"
+          },
+          {
+            "word": "iglú",
+            "is_correct": false,
+            "image_path": "page-002.jpg"
+          },
+          {
+            "word": "oso",
+            "is_correct": true,
+            "image_path": "page-002.jpg"
+          },
+          {
+            "word": "maíz",
+            "is_correct": false,
+            "image_path": "page-002.jpg"
+          },
+          {
+            "word": "oreja",
+            "is_correct": true,
+            "image_path": "page-002.jpg"
+          },
+          {
+            "word": "olla",
+            "is_correct": true,
+            "image_path": "page-002.jpg"
+          },
+          {
+            "word": "uñas",
+            "is_correct": false,
+            "image_path": "page-002.jpg"
+          },
+          {
+            "word": "alas",
+            "is_correct": false,
+            "image_path": "page-002.jpg"
+          }
+        ]
+      },
+      {
+        "page_number": 8,
+        "ui_component_type": "TracingWritingPane",
+        "letter_focus": "O o",
+        "instructions_writing": "Escribe con tu mejor letra.",
+        "instructions_drawing": "Haz un dibujo que represente una palabra que comienza con o.",
+        "workspace_config": {
+          "guide_lines_count": 3,
+          "drawing_box_ratio": "1:1"
+        }
+      },
+      {
+        "page_number": 9,
+        "ui_component_type": "LetterIntro",
+        "letter_focus": "A a",
+        "poem": {
+          "title": "La niña enfermita",
+          "lines": [
+            "La niña bonita",
+            "visitó al doctor.",
+            " ",
+            "-Abre bien la boca",
+            "si tienes dolor.",
+            "-Di a...como abuela,",
+            "abanico y amor.",
+            "-Di a... como ala,",
+            "anillo y avión."
+          ]
+        },
+        "vocabulary_cards": [
+          {
+            "word": "abanico",
+            "highlight_letter": "a",
+            "image_path": "page-003.jpg"
+          },
+          {
+            "word": "anillo",
+            "highlight_letter": "a",
+            "image_path": "page-003.jpg"
+          },
+          {
+            "word": "araña",
+            "highlight_letter": "a",
+            "image_path": "page-003.jpg"
+          },
+          {
+            "word": "ala",
+            "highlight_letter": "a",
+            "image_path": "page-003.jpg"
+          },
+          {
+            "word": "aro",
+            "highlight_letter": "a",
+            "image_path": "page-003.jpg"
+          },
+          {
+            "word": "Ana",
+            "highlight_letter": "A",
+            "image_path": "page-003.jpg"
+          }
+        ]
+      },
+      {
+        "page_number": 10,
+        "ui_component_type": "WorkbookActivity",
+        "letter_focus": "A a",
+        "instructions": "Traza una línea desde la vocal Aa hasta el dibujo de la palabra que comienza con Aa.",
+        "source_anchor": "Aa",
+        "target_options": [
+          {
+            "word": "avión",
+            "is_correct": true,
+            "image_path": "page-003.jpg"
+          },
+          {
+            "word": "aguja",
+            "is_correct": true,
+            "image_path": "page-003.jpg"
+          },
+          {
+            "word": "abanico",
+            "is_correct": true,
+            "image_path": "page-003.jpg"
+          },
+          {
+            "word": "ardilla",
+            "is_correct": true,
+            "image_path": "page-003.jpg"
+          },
+          {
+            "word": "oso",
+            "is_correct": false,
+            "image_path": "page-003.jpg"
+          }
+        ]
+      },
+      {
+        "page_number": 11,
+        "ui_component_type": "TracingWritingPane",
+        "letter_focus": "A a",
+        "instructions_writing": "Escribe con tu mejor letra.",
+        "instructions_drawing": "Haz un dibujo que represente una palabra que comienza con a."
+      },
+      {
+        "page_number": 12,
+        "ui_component_type": "LetterIntro",
+        "letter_focus": "E e",
+        "poem": {
+          "title": "La niña sordita",
+          "lines": [
+            "Sordita es la 'Ee'",
+            "entiende al revés,",
+            "su mamá la llama",
+            "una y otra vez.",
+            "-Ee, Ee te he llamado",
+            "te he llamado, Ee.",
+            "-Te oigo muy bajito",
+            "llámame otra vez."
+          ]
+        },
+        "vocabulary_cards": [
+          {
+            "word": "elefante",
+            "highlight_letter": "e",
+            "image_path": "page-004.jpg"
+          },
+          {
+            "word": "espejo",
+            "highlight_letter": "e",
+            "image_path": "page-004.jpg"
+          },
+          {
+            "word": "Ema",
+            "highlight_letter": "E",
+            "image_path": "page-004.jpg"
+          },
+          {
+            "word": "estrella",
+            "highlight_letter": "e",
+            "image_path": "page-004.jpg"
+          },
+          {
+            "word": "erizo",
+            "highlight_letter": "e",
+            "image_path": "page-004.jpg"
+          },
+          {
+            "word": "escalera",
+            "highlight_letter": "e",
+            "image_path": "page-004.jpg"
+          }
+        ]
+      },
+      {
+        "page_number": 13,
+        "ui_component_type": "WorkbookActivity",
+        "letter_focus": "E e",
+        "instructions": "Marca con una x los dibujos de las palabras que comienzan con E e.",
+        "grid_items": [
+          {
+            "word": "elefante",
+            "is_correct": true,
+            "image_path": "page-004.jpg"
+          },
+          {
+            "word": "escalera",
+            "is_correct": true,
+            "image_path": "page-004.jpg"
+          },
+          {
+            "word": "escoba",
+            "is_correct": true,
+            "image_path": "page-004.jpg"
+          },
+          {
+            "word": "abrigo",
+            "is_correct": false,
+            "image_path": "page-004.jpg"
+          },
+          {
+            "word": "estrella",
+            "is_correct": true,
+            "image_path": "page-004.jpg"
+          }
+        ]
+      },
+      {
+        "page_number": 14,
+        "ui_component_type": "TracingWritingPane",
+        "letter_focus": "E e",
+        "instructions_writing": "Escribe con tu mejor letra.",
+        "instructions_drawing": "Haz un dibujo que represente una palabra que comienza con e."
+      },
+      {
+        "page_number": 15,
+        "ui_component_type": "LetterIntro",
+        "letter_focus": "I i",
+        "poem": {
+          "title": "La niña llorona",
+          "lines": [
+            "Flaquita y llorona",
+            "viene la infeliz",
+            "que le duele todo",
+            "hasta la nariz.",
+            " ",
+            "Llora y llora la flaquita.",
+            "I de Irma, i de imán",
+            "i de iglú, i de insecto",
+            "¡ii! no llores más."
+          ]
+        },
+        "vocabulary_cards": [
+          {
+            "word": "imán",
+            "highlight_letter": "i",
+            "image_path": "page-005.jpg"
+          },
+          {
+            "word": "iglú",
+            "highlight_letter": "i",
+            "image_path": "page-005.jpg"
+          },
+          {
+            "word": "indio",
+            "highlight_letter": "i",
+            "image_path": "page-005.jpg"
+          },
+          {
+            "word": "insecto",
+            "highlight_letter": "i",
+            "image_path": "page-005.jpg"
+          },
+          {
+            "word": "isla",
+            "highlight_letter": "i",
+            "image_path": "page-005.jpg"
+          },
+          {
+            "word": "Irma",
+            "highlight_letter": "I",
+            "image_path": "page-005.jpg"
+          }
+        ]
+      },
+      {
+        "page_number": 16,
+        "ui_component_type": "WorkbookActivity",
+        "letter_focus": "I i",
+        "instructions": "Marca con una x los dibujos de las palabras que comienzan con Ii.",
+        "grid_items": [
+          {
+            "word": "iguana",
+            "is_correct": true,
+            "image_path": "page-005.jpg"
+          },
+          {
+            "word": "imán",
+            "is_correct": true,
+            "image_path": "page-005.jpg"
+          },
+          {
+            "word": "indio",
+            "is_correct": true,
+            "image_path": "page-005.jpg"
+          },
+          {
+            "word": "iglú",
+            "is_correct": true,
+            "image_path": "page-005.jpg"
+          },
+          {
+            "word": "isla",
+            "is_correct": true,
+            "image_path": "page-005.jpg"
+          }
+        ]
+      },
+      {
+        "page_number": 17,
+        "ui_component_type": "TracingWritingPane",
+        "letter_focus": "I i",
+        "instructions_writing": "Escribe con tu mejor letra.",
+        "instructions_drawing": "Haz un dibujo que represente una palabra que comienza con i."
+      },
+      {
+        "page_number": 18,
+        "ui_component_type": "LetterIntro",
+        "letter_focus": "U u",
+        "poem": {
+          "title": "La brujita",
+          "lines": [
+            "Una, no tengo ninguna,",
+            "dos, asustando voy,",
+            "tres, me escondo otra vez,",
+            "cuatro, asusto a los gatos.",
+            "La U está disfrazada",
+            "con su traje de brujita",
+            "y su carita alargada",
+            "asusta a sus hermanitas."
+          ]
+        },
+        "vocabulary_cards": [
+          {
+            "word": "uno",
+            "highlight_letter": "u",
+            "image_path": "page-006.jpg"
+          },
+          {
+            "word": "uva",
+            "highlight_letter": "u",
+            "image_path": "page-006.jpg"
+          },
+          {
+            "word": "urraca",
+            "highlight_letter": "u",
+            "image_path": "page-006.jpg"
+          },
+          {
+            "word": "unicornio",
+            "highlight_letter": "u",
+            "image_path": "page-006.jpg"
+          },
+          {
+            "word": "uniforme",
+            "highlight_letter": "u",
+            "image_path": "page-006.jpg"
+          },
+          {
+            "word": "Ulises",
+            "highlight_letter": "U",
+            "image_path": "page-006.jpg"
+          }
+        ]
+      },
+      {
+        "page_number": 19,
+        "ui_component_type": "WorkbookActivity",
+        "letter_focus": "U u",
+        "instructions": "Traza una línea desde la vocal Uu hasta el dibujo de la palabra que comienza con Uu.",
+        "target_options": [
+          {
+            "word": "unicornio",
+            "is_correct": true,
+            "image_path": "page-006.jpg"
+          },
+          {
+            "word": "uñas",
+            "is_correct": true,
+            "image_path": "page-006.jpg"
+          },
+          {
+            "word": "uniforme",
+            "is_correct": true,
+            "image_path": "page-006.jpg"
+          },
+          {
+            "word": "uvas",
+            "is_correct": true,
+            "image_path": "page-006.jpg"
+          }
+        ]
+      },
+      {
+        "page_number": 20,
+        "ui_component_type": "TracingWritingPane",
+        "letter_focus": "U u",
+        "instructions_writing": "Escribe con tu mejor letra.",
+        "instructions_drawing": "Haz un dibujo que represente una palabra que comienza con u."
+      },
+      {
+        "page_number": 21,
+        "ui_component_type": "TracingWritingPane",
+        "letter_focus": "Mm",
+        "instructions_writing": "Escribe con tu mejor letra (M, m).",
+        "instructions_drawing": "Haz un dibujo que represente una palabra que comienza con m."
+      },
+      {
+        "page_number": 22,
+        "ui_component_type": "SyllableTargetGrid",
+        "letter_focus": "Mm",
+        "instructions": "Encierra en un círculo la sílaba correspondiente.",
+        "syllable_mappings": {
+          "ma": [
+            "mami",
+            "ama",
+            "mamá",
+            "ma",
+            "mima",
+            "Coloma",
+            "Manolo",
+            "media"
+          ],
+          "me": [
+            "Memo",
+            "melón",
+            "me",
+            "mesa",
+            "meta",
+            "Meme",
+            "mío",
+            "amigo"
+          ],
+          "mi": [
+            "mima",
+            "mi",
+            "mira",
+            "misa",
+            "Mimí",
+            "amo",
+            "Memo",
+            "mono"
+          ],
+          "mo": [
+            "mo",
+            "como",
+            "moneda",
+            "moto"
+          ],
+          "mu": [
+            "mulo",
+            "muleta",
+            "muro",
+            "mu",
+            "mudo",
+            "mujer",
+            "Mumi"
+          ]
+        }
+      },
+      {
+        "page_number": 23,
+        "ui_component_type": "InteractiveSyllableChart",
+        "letter_focus": "Mm",
+        "syllables": [
+          "ma",
+          "me",
+          "mi",
+          "mo",
+          "mu",
+          "mu",
+          "mo",
+          "ma",
+          "me",
+          "mi"
+        ],
+        "words": [
+          "mamá",
+          "mami",
+          "Mimo",
+          "mío",
+          "me",
+          "mímame",
+          "Meme",
+          "ama",
+          "mía",
+          "Mumi",
+          "Memo",
+          "mima",
+          "amo",
+          "Mimí",
+          "ámame"
+        ],
+        "focus_word": "y",
+        "sentences": [
+          "Mi mamá me ama.",
+          "Amo a mami. Mamá mía.",
+          "Mamá ama a Meme y a Mimí.",
+          "Memo ama a Mumi.",
+          "Mamá mía ámame. Mímame a mí.",
+          "Mi mamá me mima."
+        ],
+        "assets": [
+          {
+            "id": "capital_m_decorative",
+            "description": "Letra Mm decorativa con una vaca amistosa diciendo MMM",
+            "path": "/cartilla/art/illustrations/Flow_202606171952_31.jpeg"
+          }
+        ]
+      },
+      {
+        "page_number": 24,
+        "ui_component_type": "WorkbookActivity",
+        "letter_focus": "Mm",
+        "instructions_completion": "Completa las palabras con la sílaba correcta.",
+        "instructions_writing": "Escribe oraciones. Usa las sílabas que aprendiste.",
+        "completion_items": [
+          {
+            "word_template": "a__i",
+            "correct_syllable": "mi",
+            "output_word": "mami"
+          },
+          {
+            "word_template": "a__o",
+            "correct_syllable": "m",
+            "output_word": "amo"
+          },
+          {
+            "word_template": "ma__á",
+            "correct_syllable": "m",
+            "output_word": "mamá"
+          },
+          {
+            "word_template": "__i__a",
+            "correct_syllable": "mima",
+            "output_word": "mima"
+          },
+          {
+            "word_template": "__u__i",
+            "correct_syllable": "Mumi",
+            "output_word": "Mumi"
+          },
+          {
+            "word_template": "__ío",
+            "correct_syllable": "mi",
+            "output_word": "mío"
+          }
+        ]
+      },
+      {
+        "page_number": 25,
+        "ui_component_type": "TracingWritingPane",
+        "letter_focus": "Pp",
+        "instructions_writing": "Escribe con tu mejor letra (P, p).",
+        "instructions_drawing": "Haz un dibujo que represente una palabra que comienza con p."
+      },
+      {
+        "page_number": 26,
+        "ui_component_type": "SyllableTargetGrid",
+        "letter_focus": "Pp",
+        "instructions": "Encierra en un círculo la sílaba correspondiente.",
+        "syllable_mappings": {
+          "pa": [
+            "papá",
+            "pupa",
+            "mapa",
+            "pa",
+            "Papo",
+            "jupa!",
+            "pala"
+          ],
+          "pe": [
+            "Pepe",
+            "pelo",
+            "tapete",
+            "pe",
+            "pesa",
+            "pelota",
+            "chupete"
+          ],
+          "pi": [
+            "pipo",
+            "Pupi",
+            "Mupi",
+            "pi",
+            "papi",
+            "Mapi",
+            "pío"
+          ],
+          "po": [
+            "pomo",
+            "polo",
+            "sapo",
+            "po",
+            "mapo",
+            "tapo",
+            "Pepo"
+          ],
+          "pu": [
+            "puso",
+            "Pupa",
+            "puma",
+            "pu",
+            "apura",
+            "Pupi",
+            "púa"
+          ]
+        }
+      },
+      {
+        "page_number": 27,
+        "ui_component_type": "InteractiveSyllableChart",
+        "letter_focus": "Pp",
+        "syllables": [
+          "pa",
+          "pe",
+          "pi",
+          "po",
+          "pu",
+          "pu",
+          "po",
+          "pa",
+          "pe",
+          "pi"
+        ],
+        "words": [
+          "papá",
+          "mapo",
+          "Mapi",
+          "papi",
+          "puma",
+          "pie",
+          "Pepe",
+          "Mupi",
+          "púa",
+          "pipo",
+          "mapa",
+          "pomo",
+          "Pupi",
+          "¡upa!",
+          "Pepo"
+        ],
+        "focus_word": "yo",
+        "sentences": [
+          "Papá y Pepe aman a mamá.",
+          "Pupi ama a papá.",
+          "Yo amo a mamá y a papá.",
+          "Mi papá ama a Pupi.",
+          "Papá y mamá me aman."
+        ],
+        "assets": [
+          {
+            "id": "chick_balloons",
+            "description": "Pollito amarillo sosteniendo globos en un nido",
+            "path": "page-010.jpg"
+          },
+          {
+            "id": "vocab_papa",
+            "description": "Dibujo de un papá abrazando a su hijo",
+            "path": "/cartilla/art/illustrations/Flow_202606181352_15.jpeg"
+          },
+          {
+            "id": "vocab_pie",
+            "description": "Ilustración de un pie humano",
+            "path": "/cartilla/art/illustrations/Flow_202606181352_10.jpeg"
+          },
+          {
+            "id": "vocab_puma",
+            "description": "Un puma agazapado en la selva",
+            "path": "/cartilla/art/illustrations/Flow_202606171952_26.jpeg"
+          },
+          {
+            "id": "vocab_pomo",
+            "description": "Pomo / frasco de vidrio de laboratorio",
+            "path": "/cartilla/art/illustrations/Flow_202606171952_3.jpeg"
+          }
+        ]
+      },
+      {
+        "page_number": 28,
+        "ui_component_type": "WorkbookActivity",
+        "letter_focus": "Pp",
+        "instructions_completion": "Completa las palabras con la sílaba correcta.",
+        "instructions_writing": "Escribe oraciones. Usa las sílabas que aprendiste.",
+        "completion_items": [
+          {
+            "word_template": "__pá",
+            "correct_syllable": "pa",
+            "output_word": "papá"
+          },
+          {
+            "word_template": "ma__a",
+            "correct_syllable": "p",
+            "output_word": "mapa"
+          },
+          {
+            "word_template": "__u__a",
+            "correct_syllable": "puma",
+            "output_word": "puma"
+          },
+          {
+            "word_template": "Ma__i",
+            "correct_syllable": "p",
+            "output_word": "Mapi"
+          },
+          {
+            "word_template": "__ío",
+            "correct_syllable": "p",
+            "output_word": "pío"
+          },
+          {
+            "word_template": "Pe__e",
+            "correct_syllable": "p",
+            "output_word": "Pepe"
+          }
+        ]
+      },
+      {
+        "page_number": 29,
+        "ui_component_type": "TracingWritingPane",
+        "letter_focus": "Ss",
+        "instructions_writing": "Escribe con tu mejor letra (S, s).",
+        "instructions_drawing": "Haz un dibujo que represente una palabra que comienza con s."
+      },
+      {
+        "page_number": 30,
+        "ui_component_type": "SyllableTargetGrid",
+        "letter_focus": "Ss",
+        "instructions": "Encierra en un círculo la sílaba correspondiente.",
+        "syllable_mappings": {
+          "sa": [
+            "masa",
+            "casa",
+            "pesa",
+            "sa",
+            "sala",
+            "mesa",
+            "sapo"
+          ],
+          "se": [
+            "semilla",
+            "caseta",
+            "secante",
+            "sello",
+            "pase",
+            "se",
+            "seca"
+          ],
+          "si": [
+            "silla",
+            "casita",
+            "cosita",
+            "si",
+            "pasito",
+            "osito",
+            "sitio"
+          ],
+          "so": [
+            "paso",
+            "sopa",
+            "soga",
+            "so",
+            "oso",
+            "toso",
+            "puso"
+          ],
+          "su": [
+            "suyo",
+            "suma",
+            "Susi",
+            "su",
+            "supo",
+            "sube",
+            "sudor"
+          ]
+        }
+      },
+      {
+        "page_number": 31,
+        "ui_component_type": "InteractiveSyllableChart",
+        "letter_focus": "Ss",
+        "syllables": [
+          "sa",
+          "se",
+          "si",
+          "so",
+          "su",
+          "su",
+          "so",
+          "sa",
+          "se",
+          "si"
+        ],
+        "words": [
+          "masa",
+          "mesa",
+          "suma",
+          "sapo",
+          "seso",
+          "Susi",
+          "así",
+          "sopa",
+          "paso",
+          "puso",
+          "supo",
+          "supe",
+          "Sisi",
+          "ese",
+          "esa"
+        ],
+        "focus_words": [
+          "es",
+          "de",
+          "un",
+          "está",
+          "en",
+          "la",
+          "el"
+        ],
+        "sentences": [
+          "La mesa es de Susi.",
+          "La sopa está en la mesa.",
+          "Papá pasa la sopa a Susi.",
+          "Sisi pasa la sopa a mamá.",
+          "Ese sapo es de Sisi. Es el sapo Samapo.",
+          "Sisi pasa el sapo a Pepe.",
+          "Pepe puso un sapo en la mesa."
+        ],
+        "assets": [
+          {
+            "id": "snake_hill_snail",
+            "description": "Serpiente enroscada en una colina hablando con un caracol",
+            "path": "/cartilla/art/illustrations/Flow_202606171952_32.jpeg"
+          },
+          {
+            "id": "vocab_sesi",
+            "description": "Niña llamada Sesi",
+            "path": "/cartilla/art/illustrations/Flow_202606181352_12.jpeg"
+          },
+          {
+            "id": "vocab_sopa",
+            "description": "Tazón de sopa caliente humeante",
+            "path": "/cartilla/art/illustrations/Flow_202606181352_8.jpeg"
+          },
+          {
+            "id": "vocab_sapo",
+            "description": "Un sapo verde sentado",
+            "path": "/cartilla/art/illustrations/Flow_202606181352_11.jpeg"
+          },
+          {
+            "id": "vocab_susi",
+            "description": "Una mujer llamada Susi",
+            "path": "/cartilla/art/illustrations/Flow_202606181352_14.jpeg"
+          }
+        ]
+      },
+      {
+        "page_number": 32,
+        "ui_component_type": "WorkbookActivity",
+        "letter_focus": "Ss",
+        "instructions_completion": "Completa las palabras con la sílaba correcta.",
+        "instructions_writing": "Escribe oraciones. Usa las sílabas que aprendiste.",
+        "completion_items": [
+          {
+            "word_template": "__apo",
+            "correct_syllable": "s",
+            "output_word": "sapo"
+          },
+          {
+            "word_template": "pu__o",
+            "correct_syllable": "s",
+            "output_word": "puso"
+          },
+          {
+            "word_template": "ma__a",
+            "correct_syllable": "s",
+            "output_word": "masa"
+          },
+          {
+            "word_template": "a__í",
+            "correct_syllable": "s",
+            "output_word": "así"
+          },
+          {
+            "word_template": "__upo",
+            "correct_syllable": "s",
+            "output_word": "supo"
+          },
+          {
+            "word_template": "pa__e",
+            "correct_syllable": "s",
+            "output_word": "pase"
+          }
+        ]
+      },
+      {
+        "page_number": 33,
+        "ui_component_type": "TracingWritingPane",
+        "letter_focus": "Tt",
+        "instructions_writing": "Escribe con tu mejor letra.",
+        "instructions_drawing": "Haz un dibujo que represente una palabra que comienza con t."
+      },
+      {
+        "page_number": 34,
+        "ui_component_type": "SyllableTargetGrid",
+        "letter_focus": "Tt",
+        "instructions": "Encierra en un círculo la sílaba correspondiente.",
+        "syllable_mappings": {
+          "ta": [
+            "tapa",
+            "Mota",
+            "Tota",
+            "ta",
+            "seta",
+            "peseta",
+            "pata"
+          ],
+          "te": [
+            "tema",
+            "tomate",
+            "mete",
+            "te",
+            "teme",
+            "Teté",
+            "tapete"
+          ],
+          "ti": [
+            "Tito",
+            "Piti",
+            "timón",
+            "ti",
+            "tina",
+            "Poti",
+            "tipi"
+          ],
+          "to": [
+            "topo",
+            "moto",
+            "tomate",
+            "to",
+            "pato",
+            "toma",
+            "sapito"
+          ],
+          "tu": [
+            "tupe",
+            "tubo",
+            "tulipán",
+            "tu",
+            "tuna",
+            "tuba",
+            "Matute"
+          ]
+        }
+      },
+      {
+        "page_number": 35,
+        "ui_component_type": "InteractiveSyllableChart",
+        "letter_focus": "Tt",
+        "syllables": [
+          "ta",
+          "te",
+          "ti",
+          "to",
+          "tu",
+          "tu",
+          "to",
+          "ta",
+          "te",
+          "ti"
+        ],
+        "words": [
+          "toma",
+          "teme",
+          "seta",
+          "tute",
+          "Titi",
+          "pata",
+          "Soto",
+          "tupe",
+          "tapa",
+          "mete",
+          "Mota",
+          "Piti",
+          "topo",
+          "sapito",
+          "peseta",
+          "tomate",
+          "Poti",
+          "pato"
+        ],
+        "focus_words": [
+          "tiene",
+          "patio",
+          "no"
+        ],
+        "sentences": [
+          "La mesa tiene un tapete.",
+          "El pomo está en la mesa.",
+          "La mesa está en el patio.",
+          "El pomo tiene sopa. El pomo tiene tapa.",
+          "Tito tapa el pomo.",
+          "-¡No Tito, no, no tapes el pomo!",
+          "Papá tapa la sopa."
+        ],
+        "assets": [
+          {
+            "id": "boy_drum",
+            "description": "Niño pequeño marchando con tambor rojo",
+            "path": "page-016.jpg"
+          },
+          {
+            "id": "vocab_tomate",
+            "description": "Tomate rojo maduro",
+            "path": "page-016.jpg"
+          },
+          {
+            "id": "vocab_tapa",
+            "description": "Tapa metálica redonda",
+            "path": "page-016.jpg"
+          },
+          {
+            "id": "vocab_topo",
+            "description": "Un topo saliendo de la tierra",
+            "path": "page-016.jpg"
+          },
+          {
+            "id": "vocab_tipi",
+            "description": "Tipi / Tienda de campaña india",
+            "path": "page-016.jpg"
+          }
+        ]
+      },
+      {
+        "page_number": 36,
+        "ui_component_type": "WorkbookActivity",
+        "letter_focus": "Tt",
+        "instructions_completion": "Completa las palabras con la sílaba correcta.",
+        "instructions_writing": "Escribe oraciones. Usa las sílabas que aprendiste.",
+        "completion_items": [
+          {
+            "word_template": "__oma",
+            "correct_syllable": "t",
+            "output_word": "toma"
+          },
+          {
+            "word_template": "ma__a",
+            "correct_syllable": "t",
+            "output_word": "mata"
+          },
+          {
+            "word_template": "__opo",
+            "correct_syllable": "t",
+            "output_word": "topo"
+          },
+          {
+            "word_template": "__omate",
+            "correct_syllable": "t",
+            "output_word": "tomate"
+          },
+          {
+            "word_template": "__upe",
+            "correct_syllable": "t",
+            "output_word": "tupe"
+          },
+          {
+            "word_template": "__ipi",
+            "correct_syllable": "t",
+            "output_word": "tipi"
+          }
+        ]
+      },
+      {
+        "page_number": 37,
+        "ui_component_type": "TracingWritingPane",
+        "letter_focus": "Dd",
+        "instructions_writing": "Escribe con tu mejor letra (D, d).",
+        "instructions_drawing": "Haz un dibujo que represente una palabra que comienza con d."
+      },
+      {
+        "page_number": 38,
+        "ui_component_type": "SyllableTargetGrid",
+        "letter_focus": "Dd",
+        "instructions": "Encierra en un círculo la sílaba correspondiente.",
+        "syllable_mappings": {
+          "da": [
+            "da",
+            "dame",
+            "Ada",
+            "Made",
+            "duda",
+            "dado",
+            "poda"
+          ],
+          "de": [
+            "dedo",
+            "además",
+            "deme",
+            "de",
+            "modelo",
+            "pide",
+            "debajo"
+          ],
+          "di": [
+            "dime",
+            "Adi",
+            "dice",
+            "di",
+            "dinero",
+            "día",
+            "Didi"
+          ],
+          "do": [
+            "dado",
+            "podo",
+            "doce",
+            "do",
+            "dedo",
+            "modo",
+            "mudo"
+          ],
+          "du": [
+            "du",
+            "Duma",
+            "duro",
+            "duda",
+            "durazno",
+            "maduro",
+            "ducha"
+          ]
+        }
+      },
+      {
+        "page_number": 39,
+        "ui_component_type": "InteractiveSyllableChart",
+        "letter_focus": "Dd",
+        "syllables": [
+          "da",
+          "de",
+          "di",
+          "do",
+          "du",
+          "du",
+          "do",
+          "da",
+          "de",
+          "di"
+        ],
+        "words": [
+          "dedo",
+          "dónde",
+          "deme",
+          "dame",
+          "Duma",
+          "de",
+          "día",
+          "dime",
+          "duda",
+          "Ada",
+          "pide",
+          "mudo",
+          "moneda",
+          "mide",
+          "Dunia"
+        ],
+        "focus_words": [
+          "son",
+          "están"
+        ],
+        "sentences": [
+          "Dime si Ada tiene dados. Los dados son de Dunia.",
+          "-¿Dónde están los dados?",
+          "Dunia pone los dados en el pomo.",
+          "- Dunia dame el pomo.",
+          "El pomo de Dunia está en la mesa.",
+          "- Ada, ¿Dónde está Dunia?"
+        ],
+        "assets": [
+          {
+            "id": "boy_bell",
+            "description": "Niño subiendo escalera para tocar una campana de oro",
+            "path": "page-019.jpg"
+          },
+          {
+            "id": "vocab_dados",
+            "description": "Un par de dados de juego",
+            "path": "/cartilla/art/illustrations/Flow_202606171952_34.jpeg"
+          },
+          {
+            "id": "vocab_dedo",
+            "description": "Un dedo índice apuntando hacia arriba",
+            "path": "/cartilla/art/illustrations/Flow_202606171952.jpeg"
+          },
+          {
+            "id": "vocab_doce",
+            "description": "Bloques con el número 12",
+            "path": "/cartilla/art/illustrations/Flow_202606171952_28.jpeg"
+          },
+          {
+            "id": "vocab_dunia",
+            "description": "Una niña llamada Dunia",
+            "path": "/cartilla/art/illustrations/Flow_202606171952_27.jpeg"
+          }
+        ]
+      },
+      {
+        "page_number": 40,
+        "ui_component_type": "WorkbookActivity",
+        "letter_focus": "Dd",
+        "instructions_completion": "Completa las palabras con la sílaba correcta.",
+        "instructions_writing": "Escribe oraciones. Usa las sílabas que aprendiste.",
+        "completion_items": [
+          {
+            "word_template": "__edo",
+            "correct_syllable": "d",
+            "output_word": "dedo"
+          },
+          {
+            "word_template": "mi__e",
+            "correct_syllable": "d",
+            "output_word": "mide"
+          },
+          {
+            "word_template": "mu__o",
+            "correct_syllable": "d",
+            "output_word": "mudo"
+          },
+          {
+            "word_template": "A__a",
+            "correct_syllable": "d",
+            "output_word": "Ada"
+          },
+          {
+            "word_template": "pi__e",
+            "correct_syllable": "d",
+            "output_word": "pide"
+          },
+          {
+            "word_template": "__uma",
+            "correct_syllable": "D",
+            "output_word": "Duma"
+          }
+        ]
+      },
+      {
+        "page_number": 41,
+        "ui_component_type": "TracingWritingPane",
+        "letter_focus": "Ll",
+        "instructions_writing": "Escribe con tu mejor letra (L).",
+        "instructions_drawing": "Haz un dibujo que represente una palabra que comienza con l."
+      },
+      {
+        "page_number": 42,
+        "ui_component_type": "SyllableTargetGrid",
+        "letter_focus": "Ll",
+        "instructions": "Encierra en un círculo la sílaba correspondiente.",
+        "syllable_mappings": {
+          "la": [
+            "lata",
+            "mala",
+            "pala",
+            "la",
+            "Lamas",
+            "mula",
+            "pila"
+          ],
+          "le": [
+            "Leo",
+            "aleta",
+            "saleta",
+            "le",
+            "maleta",
+            "sale",
+            "paleta"
+          ],
+          "li": [
+            "lima",
+            "Lila",
+            "alita",
+            "li",
+            "liso",
+            "palito",
+            "limón"
+          ],
+          "lo": [
+            "pelota",
+            "palo",
+            "Lolo",
+            "lo",
+            "Polo",
+            "Lola",
+            "paloma"
+          ],
+          "lu": [
+            "lu",
+            "lupa",
+            "pelusa",
+            "Luli",
+            "luna",
+            "saluda",
+            "Lupe"
+          ]
+        }
+      },
+      {
+        "page_number": 43,
+        "ui_component_type": "InteractiveSyllableChart",
+        "letter_focus": "Ll",
+        "syllables": [
+          "la",
+          "le",
+          "li",
+          "lo",
+          "lu",
+          "lu",
+          "lo",
+          "la",
+          "le",
+          "li"
+        ],
+        "words": [
+          "lima",
+          "lata",
+          "aleta",
+          "maleta",
+          "lupa",
+          "sale",
+          "paloma",
+          "pala",
+          "lomo",
+          "pelusa",
+          "Lilo",
+          "Lola",
+          "Luli",
+          "tela",
+          "Tula"
+        ],
+        "focus_word": "también",
+        "sentences": [
+          "La maleta de Luli está en la mesa.",
+          "La tela de la maleta tiene pelusas.",
+          "La maleta de Polo es de tela.",
+          "Mamá le da la maleta a Polo.",
+          "Polo toma su maleta de tela.",
+          "Lalo tiene una maleta de tela también."
+        ],
+        "assets": [
+          {
+            "id": "lady_moon",
+            "description": "Dama elegante con vestido rosa cerca de una luna azul",
+            "path": "page-022.jpg"
+          },
+          {
+            "id": "vocab_maleta",
+            "description": "Una maleta de viaje de tela",
+            "path": "/cartilla/art/illustrations/Flow_202606171952_9.jpeg"
+          },
+          {
+            "id": "vocab_lata",
+            "description": "Una lata de aluminio / conservas",
+            "path": "/cartilla/art/illustrations/Flow_202606181352_13.jpeg"
+          },
+          {
+            "id": "vocab_luli",
+            "description": "Niña pequeña llamada Luli",
+            "path": "/cartilla/art/illustrations/Flow_202606171952_7.jpeg"
+          },
+          {
+            "id": "vocab_loma",
+            "description": "Una loma / colina verde baja",
+            "path": "/cartilla/art/illustrations/Flow_202606181352_9.jpeg"
+          }
+        ]
+      },
+      {
+        "page_number": 44,
+        "ui_component_type": "WorkbookActivity",
+        "letter_focus": "Ll",
+        "instructions_completion": "Completa las palabras con la sílaba correcta.",
+        "instructions_writing": "Escribe oraciones. Usa las sílabas que aprendiste.",
+        "completion_items": [
+          {
+            "word_template": "pa__eta",
+            "correct_syllable": "l",
+            "output_word": "paleta"
+          },
+          {
+            "word_template": "so__o",
+            "correct_syllable": "l",
+            "output_word": "solo"
+          },
+          {
+            "word_template": "__ata",
+            "correct_syllable": "l",
+            "output_word": "lata"
+          },
+          {
+            "word_template": "ma__eta",
+            "correct_syllable": "l",
+            "output_word": "maleta"
+          },
+          {
+            "word_template": "pa__a",
+            "correct_syllable": "l",
+            "output_word": "pala"
+          },
+          {
+            "word_template": "__upa",
+            "correct_syllable": "l",
+            "output_word": "lupa"
+          }
+        ]
+      },
+      {
+        "page_number": 45,
+        "ui_component_type": "TracingWritingPane",
+        "letter_focus": "Nn",
+        "instructions_writing": "Escribe con tu mejor letra (N, n).",
+        "instructions_drawing": "Haz un dibujo que represente una palabra que comienza con n."
+      },
+      {
+        "page_number": 46,
+        "ui_component_type": "SyllableTargetGrid",
+        "letter_focus": "Nn",
+        "instructions": "Encierra en un círculo la sílaba correspondiente.",
+        "syllable_mappings": {
+          "na": [
+            "nata",
+            "nariz",
+            "tina",
+            "na",
+            "nada",
+            "Napi",
+            "lana"
+          ],
+          "ne": [
+            "Nena",
+            "negro",
+            "Nela",
+            "ne",
+            "tenedor",
+            "negar",
+            "Nenita"
+          ],
+          "ni": [
+            "nido",
+            "niño",
+            "poni",
+            "ni",
+            "sonido",
+            "anida",
+            "Nino"
+          ],
+          "no": [
+            "mono",
+            "Nora",
+            "pino",
+            "no",
+            "Nono",
+            "noche",
+            "mano"
+          ],
+          "nu": [
+            "nudo",
+            "menudo",
+            "nulo",
+            "nu",
+            "Anuca",
+            "anudo",
+            "nube"
+          ]
+        }
+      },
+      {
+        "page_number": 47,
+        "ui_component_type": "InteractiveSyllableChart",
+        "letter_focus": "Nn",
+        "syllables": [
+          "na",
+          "ne",
+          "ni",
+          "no",
+          "nu",
+          "nu",
+          "no",
+          "na",
+          "ne",
+          "ni"
+        ],
+        "words": [
+          "nido",
+          "tina",
+          "nada",
+          "nené",
+          "mano",
+          "nulo",
+          "Nono",
+          "Tono",
+          "Alina",
+          "poni",
+          "Nena",
+          "nata",
+          "mono",
+          "luna",
+          "Neli"
+        ],
+        "focus_words": [
+          "esa",
+          "a"
+        ],
+        "sentences": [
+          "Tomás james esa tina. La tina es de Napi. Tono y Alina aman a Napi.",
+          "Napi tiene pelo.",
+          "Tono le pone la tina a Napi en el piso.",
+          "Nono no le pone nada a esa tina.",
+          "Esa tina no tiene nada."
+        ],
+        "assets": [
+          {
+            "id": "calf_bush",
+            "description": "Ternero joven al lado de un arbusto de cerezas",
+            "path": "page-025.jpg"
+          },
+          {
+            "id": "vocab_nido",
+            "description": "Nido de ave con huevos",
+            "path": "page-025.jpg"
+          },
+          {
+            "id": "vocab_nudo",
+            "description": "Un nudo marinero apretado en una cuerda",
+            "path": "page-025.jpg"
+          },
+          {
+            "id": "vocab_mono",
+            "description": "Un mono divertido colgando de una rama",
+            "path": "page-025.jpg"
+          },
+          {
+            "id": "vocab_napi",
+            "description": "Perrito mascota llamado Napi",
+            "path": "page-025.jpg"
+          }
+        ]
+      },
+      {
+        "page_number": 48,
+        "ui_component_type": "WorkbookActivity",
+        "letter_focus": "Nn",
+        "instructions_completion": "Completa las palabras con la sílaba correcta.",
+        "instructions_writing": "Escribe oraciones. Usa las sílabas que aprendiste.",
+        "completion_items": [
+          {
+            "word_template": "__ido",
+            "correct_syllable": "n",
+            "output_word": "nido"
+          },
+          {
+            "word_template": "ti__a",
+            "correct_syllable": "n",
+            "output_word": "tina"
+          },
+          {
+            "word_template": "sue__a",
+            "correct_syllable": "n",
+            "output_word": "suena"
+          },
+          {
+            "word_template": "mo__o",
+            "correct_syllable": "n",
+            "output_word": "mono"
+          },
+          {
+            "word_template": "sa__o",
+            "correct_syllable": "n",
+            "output_word": "sano"
+          },
+          {
+            "word_template": "po__e",
+            "correct_syllable": "n",
+            "output_word": "pone"
+          }
+        ]
+      },
+      {
+        "page_number": 49,
+        "ui_component_type": "TracingWritingPane",
+        "letter_focus": "Ññ",
+        "instructions_writing": "Escribe con tu mejor letra.",
+        "instructions_drawing": "Haz un dibujo que represente una palabra que comienza con ñ."
+      },
+      {
+        "page_number": 50,
+        "ui_component_type": "SyllableTargetGrid",
+        "letter_focus": "Ññ",
+        "instructions": "Encierra en un círculo la sílaba correspondiente.",
+        "syllable_mappings": {
+          "ña": [
+            "maña",
+            "mañana",
+            "montaña",
+            "ña",
+            "ñame",
+            "araña",
+            "caña"
+          ],
+          "ñe": [
+            "Meñe",
+            "añejo",
+            "sueñe",
+            "ñe",
+            "adueñe",
+            "cañengo",
+            "apañe"
+          ],
+          "ñi": [
+            "añico",
+            "pañito",
+            "cañita",
+            "ñi",
+            "niñito",
+            "arañita",
+            "reñido"
+          ],
+          "ño": [
+            "moño",
+            "niño",
+            "sueño",
+            "ño",
+            "Noña",
+            "año"
+          ],
+          "ñu": [
+            "Nuco",
+            "Nuto",
+            "cañuto",
+            "moñudo",
+            "ñu",
+            "ceñudo",
+            "pañuelo",
+            "puño"
+          ]
+        }
+      },
+      {
+        "page_number": 51,
+        "ui_component_type": "InteractiveSyllableChart",
+        "letter_focus": "Ññ",
+        "syllables": [
+          "ña",
+          "ñe",
+          "ñi",
+          "ño",
+          "ñu",
+          "ñu",
+          "ño",
+          "ña",
+          "ñe",
+          "ñi"
+        ],
+        "words": [
+          "ñame",
+          "año",
+          "moñudo",
+          "moño",
+          "niña",
+          "sueña",
+          "Meñe",
+          "paño",
+          "piña",
+          "niñito",
+          "sueño",
+          "puño",
+          "uña",
+          "añitos",
+          "pañuelo"
+        ],
+        "focus_word": "del",
+        "sentences": [
+          "Meñe es dueña de esa piñata.",
+          "La piñata es del año pasado.",
+          "La piñata está en el patio.",
+          "Noña tiene una niña.",
+          "La niña tiene sueño.",
+          "Noña le pone el pañal a la niña."
+        ],
+        "assets": [
+          {
+            "id": "sleepy_girl",
+            "description": "Niña adormecida frotándose los ojos bajo arco floral",
+            "path": "page-028.jpg"
+          },
+          {
+            "id": "vocab_pinata",
+            "description": "Piñata colorida de estrella",
+            "path": "page-028.jpg"
+          },
+          {
+            "id": "vocab_nuno",
+            "description": "Un niño llamado Ñuno",
+            "path": "page-028.jpg"
+          },
+          {
+            "id": "vocab_ninito",
+            "description": "Un niñito pequeño jugando",
+            "path": "page-028.jpg"
+          },
+          {
+            "id": "vocab_mono_n",
+            "description": "Un moño para el cabello",
+            "path": "page-028.jpg"
+          }
+        ]
+      },
+      {
+        "page_number": 52,
+        "ui_component_type": "WorkbookActivity",
+        "letter_focus": "Ññ",
+        "instructions_completion": "Completa las palabras con la sílaba correcta.",
+        "instructions_writing": "Escribe oraciones. Usa las sílabas que aprendiste.",
+        "completion_items": [
+          {
+            "word_template": "ma__a",
+            "correct_syllable": "ñ",
+            "output_word": "maña"
+          },
+          {
+            "word_template": "pa__ito",
+            "correct_syllable": "ñ",
+            "output_word": "pañito"
+          },
+          {
+            "word_template": "ni__o",
+            "correct_syllable": "ñ",
+            "output_word": "niño"
+          },
+          {
+            "word_template": "mo__o",
+            "correct_syllable": "ñ",
+            "output_word": "moño"
+          },
+          {
+            "word_template": "a__o",
+            "correct_syllable": "ñ",
+            "output_word": "año"
+          },
+          {
+            "word_template": "pu__o",
+            "correct_syllable": "ñ",
+            "output_word": "puño"
+          }
+        ]
+      },
+      {
+        "page_number": 53,
+        "ui_component_type": "TracingWritingPane",
+        "letter_focus": "Bb",
+        "instructions_writing": "Escribe con tu mejor letra (B, b).",
+        "instructions_drawing": "Haz un dibujo que represente una palabra que comienza con b."
+      },
+      {
+        "page_number": 54,
+        "ui_component_type": "SyllableTargetGrid",
+        "letter_focus": "Bb",
+        "instructions": "Encierra en un círculo la sílaba correspondiente.",
+        "syllable_mappings": {
+          "ba": [
+            "ba",
+            "baño",
+            "bala",
+            "batir",
+            "batea",
+            "abanico",
+            "loba"
+          ],
+          "be": [
+            "sube",
+            "Bebo",
+            "bebé",
+            "be",
+            "abeja",
+            "nube",
+            "cubeta"
+          ],
+          "bi": [
+            "bebida",
+            "cabito",
+            "bicicleta",
+            "bi",
+            "bisagra",
+            "bisonte",
+            "cubito"
+          ],
+          "bo": [
+            "lobo",
+            "bonita",
+            "tubo",
+            "bo",
+            "bodega",
+            "bola",
+            "botella"
+          ],
+          "bu": [
+            "burro",
+            "aburre",
+            "aburrido",
+            "bu",
+            "bulla",
+            "abuso",
+            "buche"
+          ]
+        }
+      },
+      {
+        "page_number": 55,
+        "ui_component_type": "InteractiveSyllableChart",
+        "letter_focus": "Bb",
+        "syllables": [
+          "ba",
+          "be",
+          "bi",
+          "bo",
+          "bu",
+          "bu",
+          "bo",
+          "ba",
+          "be",
+          "bi"
+        ],
+        "words": [
+          "baño",
+          "bota",
+          "bolo",
+          "bebé",
+          "Bebo",
+          "bonito",
+          "bueno",
+          "lobo",
+          "bate",
+          "bonita",
+          "sube",
+          "batea",
+          "cubito",
+          "bote",
+          "nube"
+        ],
+        "focus_words": [
+          "alto",
+          "con",
+          "bueno"
+        ],
+        "sentences": [
+          "La nube sube y sube. Es una nube bonita.",
+          "Bebo batea la bola de Pepito.",
+          "La bola sube y sube alto. La bola sube a la nube.",
+          "Pepito batea la bola con el bate. La bola sube y sube alto también.",
+          "Pepito es bueno en la pelota."
+        ],
+        "assets": [
+          {
+            "id": "goat_palm",
+            "description": "Cabra marrón bajo una palmera diciendo B b B b",
+            "path": "page-031.jpg"
+          },
+          {
+            "id": "vocab_beba",
+            "description": "Una niña pequeña llamada Beba",
+            "path": "page-031.jpg"
+          },
+          {
+            "id": "vocab_bubi",
+            "description": "Un perro cachorro llamado Bubi",
+            "path": "page-031.jpg"
+          },
+          {
+            "id": "vocab_bate",
+            "description": "Un bate de béisbol de madera",
+            "path": "page-031.jpg"
+          },
+          {
+            "id": "vocab_bota",
+            "description": "Una bota de cuero de montar",
+            "path": "page-031.jpg"
+          }
+        ]
+      },
+      {
+        "page_number": 56,
+        "ui_component_type": "WorkbookActivity",
+        "letter_focus": "Bb",
+        "instructions_completion": "Completa las palabras con la sílaba correcta.",
+        "instructions_writing": "Escribe oraciones. Usa las sílabas que aprendiste.",
+        "completion_items": [
+          {
+            "word_template": "cu__o",
+            "correct_syllable": "bo",
+            "output_word": "cubo"
+          },
+          {
+            "word_template": "cu__ito",
+            "correct_syllable": "bi",
+            "output_word": "cubito"
+          },
+          {
+            "word_template": "__atido",
+            "correct_syllable": "ba",
+            "output_word": "batido"
+          },
+          {
+            "word_template": "__urro",
+            "correct_syllable": "bu",
+            "output_word": "burro"
+          },
+          {
+            "word_template": "nu__e",
+            "correct_syllable": "be",
+            "output_word": "nube"
+          }
+        ]
+      },
+      {
+        "page_number": 57,
+        "ui_component_type": "TracingWritingPane",
+        "letter_focus": "Vv",
+        "instructions_writing": "Escribe con tu mejor letra.",
+        "instructions_drawing": "Haz un dibujo que represente una palabra que comienza con v."
+      },
+      {
+        "page_number": 58,
+        "ui_component_type": "SyllableTargetGrid",
+        "letter_focus": "Vv",
+        "instructions": "Encierra en un círculo la sílaba correspondiente.",
+        "syllable_mappings": {
+          "va": [
+            "Vaso",
+            "lavamos",
+            "vámonos",
+            "va",
+            "lava",
+            "nieva",
+            "lavamanos"
+          ],
+          "ve": [
+            "venado",
+            "ave",
+            "vela",
+            "ve",
+            "venas",
+            "velo",
+            "nave"
+          ],
+          "vi": [
+            "vino",
+            "vivo",
+            "vidente",
+            "vi",
+            "vine",
+            "aviso",
+            "vitamina"
+          ],
+          "vo": [
+            "lavo",
+            "vivo",
+            "pavo",
+            "vo",
+            "clavo",
+            "volar",
+            "Tavo"
+          ],
+          "vu": [
+            "vuela",
+            "vuelta",
+            "vuelan",
+            "vu",
+            "vuelo",
+            "revuelta",
+            "revuelo"
+          ]
+        }
+      },
+      {
+        "page_number": 59,
+        "ui_component_type": "InteractiveSyllableChart",
+        "letter_focus": "Vv",
+        "syllables": [
+          "va",
+          "ve",
+          "vi",
+          "vo",
+          "vu",
+          "vu",
+          "vo",
+          "va",
+          "ve",
+          "vi"
+        ],
+        "words": [
+          "vaso",
+          "avena",
+          "vivo",
+          "vive",
+          "vale",
+          "pavo",
+          "vine",
+          "vino",
+          "lava",
+          "Vuli",
+          "venas",
+          "lavamanos",
+          "ven"
+        ],
+        "sentences": [
+          "La nieve se va. Vita se lava las manos en el lavamanos.",
+          "Mamá lava las mesas del patio.",
+          "Mamá pone unos manteles nuevos.",
+          "El viento mueve los manteles de mamá y mueve el papalote de Valentín.",
+          "El papalote vuela y vuela."
+        ],
+        "assets": [
+          {
+            "id": "wind_personified",
+            "description": "Viento azul soplando nubes de aire v v v v",
+            "path": "page-034.jpg"
+          },
+          {
+            "id": "vocab_vaso",
+            "description": "Un vaso de vidrio con agua",
+            "path": "page-034.jpg"
+          },
+          {
+            "id": "vocab_vela",
+            "description": "Una vela encendida con llama",
+            "path": "page-034.jpg"
+          },
+          {
+            "id": "vocab_vita",
+            "description": "Una niña llamada Vita",
+            "path": "page-034.jpg"
+          },
+          {
+            "id": "vocab_pavo",
+            "description": "Un pavo real con plumas abiertas",
+            "path": "page-034.jpg"
+          }
+        ]
+      },
+      {
+        "page_number": 60,
+        "ui_component_type": "WorkbookActivity",
+        "letter_focus": "Vv",
+        "instructions_completion": "Completa las palabras con la sílaba correcta.",
+        "instructions_writing": "Escribe oraciones. Usa las sílabas que aprendiste.",
+        "completion_items": [
+          {
+            "word_template": "na__e",
+            "correct_syllable": "ve",
+            "output_word": "nave"
+          },
+          {
+            "word_template": "__aso",
+            "correct_syllable": "va",
+            "output_word": "vaso"
+          },
+          {
+            "word_template": "__ela",
+            "correct_syllable": "ve",
+            "output_word": "vela"
+          },
+          {
+            "word_template": "pa__o",
+            "correct_syllable": "vo",
+            "output_word": "pavo"
+          },
+          {
+            "word_template": "a__iso",
+            "correct_syllable": "vi",
+            "output_word": "aviso"
+          }
+        ]
+      },
+      {
+        "page_number": 61,
+        "ui_component_type": "TracingWritingPane",
+        "letter_focus": "Rr",
+        "instructions_writing": "Escribe con tu mejor letra (R).",
+        "instructions_drawing": "Haz un dibujo que represente una palabra que comienza con r."
+      },
+      {
+        "page_number": 62,
+        "ui_component_type": "SyllableTargetGrid",
+        "letter_focus": "Rr",
+        "instructions": "Encierra en un círculo la sílaba correspondiente.",
+        "syllable_mappings": {
+          "ra": [
+            "rana",
+            "rama",
+            "ratón",
+            "ra",
+            "rata",
+            "raso",
+            "rama"
+          ],
+          "re": [
+            "remo",
+            "reloj",
+            "relevo",
+            "re",
+            "rezo",
+            "revista",
+            "rema"
+          ],
+          "ri": [
+            "riña",
+            "rima",
+            "rimamos",
+            "ri",
+            "Rita",
+            "risa",
+            "rizo"
+          ],
+          "ro": [
+            "rosa",
+            "roto",
+            "Rolo",
+            "ro",
+            "roca",
+            "rota",
+            "Roberto"
+          ],
+          "ru": [
+            "ruta",
+            "Rufino",
+            "rubio",
+            "ru",
+            "ruso",
+            "rutina",
+            "rudo"
+          ]
+        }
+      },
+      {
+        "page_number": 63,
+        "ui_component_type": "InteractiveSyllableChart",
+        "letter_focus": "Rr",
+        "syllables": [
+          "ra",
+          "re",
+          "ri",
+          "ro",
+          "ru",
+          "ru",
+          "ro",
+          "ra",
+          "re",
+          "ri"
+        ],
+        "words": [
+          "ramo",
+          "remo",
+          "ropa",
+          "rosado",
+          "risa",
+          "ruta",
+          "rulo",
+          "rata",
+          "Rita",
+          "Rolo",
+          "roto",
+          "Roma",
+          "rebaño"
+        ],
+        "focus_word": "bien",
+        "sentences": [
+          "La bola de Roberto rueda bien. Rolo patea la bola. La bola rueda y le da a un bolo. El bolo se rompe y Roberto se ríe. Rolo se ríe también.",
+          "Rita le da al bolo. Rita se ríe. Rolo y Roberto se ríen también."
+        ],
+        "assets": [
+          {
+            "id": "mouse_letter_r",
+            "description": "Ratón violeta comiendo maíz al lado de una gran R",
+            "path": "page-037.jpg"
+          },
+          {
+            "id": "vocab_rana",
+            "description": "Rana saltarina verde",
+            "path": "page-037.jpg"
+          },
+          {
+            "id": "vocab_remos",
+            "description": "Un par de remos de madera cruzados",
+            "path": "page-037.jpg"
+          },
+          {
+            "id": "vocab_rita",
+            "description": "Una niña llamada Rita",
+            "path": "page-037.jpg"
+          },
+          {
+            "id": "vocab_rosa",
+            "description": "Una rosa rosa con espinas",
+            "path": "page-037.jpg"
+          }
+        ]
+      },
+      {
+        "page_number": 64,
+        "ui_component_type": "WorkbookActivity",
+        "letter_focus": "Rr",
+        "instructions_completion": "Completa las palabras con la sílaba correcta.",
+        "instructions_writing": "Escribe oraciones. Usa las sílabas que aprendiste.",
+        "completion_items": [
+          {
+            "word_template": "__ana",
+            "correct_syllable": "ra",
+            "output_word": "rana"
+          },
+          {
+            "word_template": "__ita",
+            "correct_syllable": "Ri",
+            "output_word": "Rita"
+          },
+          {
+            "word_template": "__emo",
+            "correct_syllable": "re",
+            "output_word": "remo"
+          },
+          {
+            "word_template": "__osa",
+            "correct_syllable": "ro",
+            "output_word": "rosa"
+          },
+          {
+            "word_template": "__uta",
+            "correct_syllable": "ru",
+            "output_word": "ruta"
+          },
+          {
+            "word_template": "__ubio",
+            "correct_syllable": "ru",
+            "output_word": "rubio"
+          }
+        ]
+      },
+      {
+        "page_number": 65,
+        "ui_component_type": "TracingWritingPane",
+        "letter_focus": "rr",
+        "instructions_writing": "Escribe con tu mejor letra (rr).",
+        "instructions_drawing": "Haz un dibujo que represente una palabra que contenga la letra rr."
+      },
+      {
+        "page_number": 66,
+        "ui_component_type": "SyllableTargetGrid",
+        "letter_focus": "rr",
+        "instructions": "Encierra en un círculo la sílaba correspondiente.",
+        "syllable_mappings": {
+          "rra": [
+            "amarra",
+            "pizarra",
+            "barra",
+            "rra",
+            "Porra",
+            "arrasar",
+            "perra"
+          ],
+          "rre": [
+            "torre",
+            "amarre",
+            "arrebatado",
+            "rre",
+            "barre",
+            "arrebatar",
+            "arrepiente"
+          ],
+          "rri": [
+            "arriba",
+            "arrima",
+            "parrilla",
+            "rri",
+            "perrita",
+            "barril",
+            "carrito"
+          ],
+          "rro": [
+            "carro",
+            "arroyo",
+            "burro",
+            "rro",
+            "perro",
+            "amarro",
+            "tarro"
+          ],
+          "rru": [
+            "arruga",
+            "arrugado",
+            "arrullo",
+            "rru",
+            "verruga",
+            "arrullar",
+            "arrullador"
+          ]
+        }
+      },
+      {
+        "page_number": 67,
+        "ui_component_type": "InteractiveSyllableChart",
+        "letter_focus": "rr",
+        "syllables": [
+          "rra",
+          "rre",
+          "rri",
+          "rro",
+          "rru",
+          "rru",
+          "rro",
+          "rra",
+          "rre",
+          "rri"
+        ],
+        "words": [
+          "tarro",
+          "burro",
+          "tierra",
+          "perro",
+          "amarro",
+          "carrusel",
+          "barro",
+          "arrebato",
+          "torre",
+          "burrito",
+          "carro"
+        ],
+        "sentences": [
+          "Rode tiene un perro. Es un perro alemán. El perro de Rode tiene una tina de barro. La tina de barro está en el piso. Rosi amarra el perro en la mata. El perro no muerde. El perro Tito mueve el rabo. Tito arruinó el carro de rosas."
+        ],
+        "assets": [
+          {
+            "id": "vintage_yellow_car",
+            "description": "Automóvil clásico de motor de color amarillo",
+            "path": "page-001.jpg"
+          },
+          {
+            "id": "vocab_burro",
+            "description": "Un burro de carga gris",
+            "path": "page-001.jpg"
+          },
+          {
+            "id": "vocab_carrusel",
+            "description": "Carrusel de feria con caballos",
+            "path": "page-001.jpg"
+          },
+          {
+            "id": "vocab_torre",
+            "description": "Una gran torre de piedra medieval",
+            "path": "page-001.jpg"
+          },
+          {
+            "id": "vocab_barril",
+            "description": "Un barril de madera con bandas de metal",
+            "path": "page-001.jpg"
+          }
+        ]
+      },
+      {
+        "page_number": 68,
+        "ui_component_type": "WorkbookActivity",
+        "letter_focus": "rr",
+        "instructions_completion": "Completa las palabras con la sílaba correcta.",
+        "instructions_writing": "Escribe oraciones. Usa las sílabas que aprendiste.",
+        "completion_items": [
+          {
+            "word_template": "pe__o",
+            "correct_syllable": "rro",
+            "output_word": "perro"
+          },
+          {
+            "word_template": "bu__o",
+            "correct_syllable": "rro",
+            "output_word": "burro"
+          },
+          {
+            "word_template": "ba__e",
+            "correct_syllable": "rre",
+            "output_word": "barre"
+          },
+          {
+            "word_template": "to__e",
+            "correct_syllable": "rre",
+            "output_word": "torre"
+          },
+          {
+            "word_template": "ca__o",
+            "correct_syllable": "rro",
+            "output_word": "carro"
+          },
+          {
+            "word_template": "ama__o",
+            "correct_syllable": "rro",
+            "output_word": "amarro"
+          }
+        ]
+      },
+      {
+        "page_number": 69,
+        "ui_component_type": "TracingWritingPane",
+        "letter_focus": "Gg",
+        "instructions_writing": "Escribe con tu mejor letra (G, g).",
+        "instructions_drawing": "Haz un dibujo que represente una palabra que comienza con g."
+      },
+      {
+        "page_number": 70,
+        "ui_component_type": "SyllableTargetGrid",
+        "letter_focus": "Gg",
+        "instructions": "Encierra en un círculo la sílaba correspondiente.",
+        "syllable_mappings": {
+          "ga": [
+            "garras",
+            "gasolina",
+            "ga",
+            "gato",
+            "paga",
+            "ganas",
+            "maga"
+          ],
+          "go": [
+            "goma",
+            "gorra",
+            "go",
+            "lago",
+            "gota",
+            "mago",
+            "goloso"
+          ],
+          "gu": [
+            "gusano",
+            "gula",
+            "gu",
+            "agudo",
+            "mangú",
+            "laguna",
+            "aguja"
+          ]
+        }
+      },
+      {
+        "page_number": 71,
+        "ui_component_type": "InteractiveSyllableChart",
+        "letter_focus": "Gg",
+        "syllables": [
+          "ga",
+          "go",
+          "gu",
+          "gu",
+          "go",
+          "ga"
+        ],
+        "words": [
+          "gato",
+          "Gustavo",
+          "gotero",
+          "goma",
+          "mago",
+          "laguna",
+          "Magali",
+          "lago",
+          "golosina",
+          "gorra",
+          "gondola"
+        ],
+        "sentences": [
+          "El gato de Magali bebe agua en el lago. Magali le pone una gorra a su gato Goloso. Goloso ve a Musulunga, la gata gordita. Magali y Gustavo van al lago. En el lago ven el agua. A Magali le gusta el agua. Goloso y Musulunga van a la laguna. Goloso le regala un gusanito rosadito a Musulunga."
+        ],
+        "assets": [
+          {
+            "id": "boy_gargling",
+            "description": "Niño con gafas haciendo gárgaras con agua junto a un grillo",
+            "path": "page-043.jpg"
+          },
+          {
+            "id": "vocab_gaveta",
+            "description": "Gaveta / cajón de un escritorio de madera",
+            "path": "page-043.jpg"
+          },
+          {
+            "id": "vocab_gusano",
+            "description": "Un gusano de tierra rosado",
+            "path": "page-043.jpg"
+          },
+          {
+            "id": "vocab_goloso",
+            "description": "Gato gordo Goloso con un tarro de dulces",
+            "path": "page-043.jpg"
+          },
+          {
+            "id": "vocab_gorra",
+            "description": "Una gorra de béisbol azul con visera",
+            "path": "page-043.jpg"
+          }
+        ]
+      },
+      {
+        "page_number": 72,
+        "ui_component_type": "WorkbookActivity",
+        "letter_focus": "Gg",
+        "instructions_completion": "Completa las palabras con la sílaba correcta.",
+        "instructions_writing": "Escribe oraciones. Usa las sílabas que aprendiste.",
+        "completion_items": [
+          {
+            "word_template": "ma__o",
+            "correct_syllable": "go",
+            "output_word": "mago"
+          },
+          {
+            "word_template": "a__uja",
+            "correct_syllable": "gu",
+            "output_word": "aguja"
+          },
+          {
+            "word_template": "__anas",
+            "correct_syllable": "ga",
+            "output_word": "ganas"
+          },
+          {
+            "word_template": "__ato",
+            "correct_syllable": "ga",
+            "output_word": "gato"
+          },
+          {
+            "word_template": "__oma",
+            "correct_syllable": "go",
+            "output_word": "goma"
+          },
+          {
+            "word_template": "la__o",
+            "correct_syllable": "go",
+            "output_word": "lago"
+          }
+        ]
+      },
+      {
+        "page_number": 73,
+        "ui_component_type": "TracingWritingPane",
+        "letter_focus": "Ff",
+        "instructions_writing": "Escribe con tu mejor letra (F, f).",
+        "instructions_drawing": "Haz un dibujo que represente una palabra que comienza con f."
+      },
+      {
+        "page_number": 74,
+        "ui_component_type": "SyllableTargetGrid",
+        "letter_focus": "Ff",
+        "instructions": "Encierra en un círculo la sílaba correspondiente.",
+        "syllable_mappings": {
+          "fa": [
+            "fama",
+            "familia",
+            "faro",
+            "fa",
+            "famoso",
+            "fatiga",
+            "afanado"
+          ],
+          "fe": [
+            "feo",
+            "fecha",
+            "Felo",
+            "fe",
+            "feliz",
+            "felino",
+            "Felicia"
+          ],
+          "fi": [
+            "fila",
+            "filo",
+            "afinado",
+            "fi",
+            "afina",
+            "fino",
+            "afilar"
+          ],
+          "fo": [
+            "foto",
+            "sofoca",
+            "fosa",
+            "fo",
+            "foso",
+            "teléfono",
+            "foca"
+          ],
+          "fu": [
+            "furia",
+            "funda",
+            "futuro",
+            "fu",
+            "furor",
+            "perfume",
+            "fuga"
+          ]
+        }
+      },
+      {
+        "page_number": 75,
+        "ui_component_type": "InteractiveSyllableChart",
+        "letter_focus": "Ff",
+        "syllables": [
+          "fa",
+          "fe",
+          "fi",
+          "fo",
+          "fu",
+          "fu",
+          "fo",
+          "fa",
+          "fe",
+          "fi"
+        ],
+        "words": [
+          "familia",
+          "fino",
+          "fila",
+          "Fígaro",
+          "fusta",
+          "falso",
+          "fama",
+          "fumiga",
+          "fortuna",
+          "famoso",
+          "teléfono",
+          "Ofelia",
+          "foto",
+          "feo",
+          "foca"
+        ],
+        "focus_word": "hay",
+        "sentences": [
+          "La familia de Ofelia va a la finca de Felo. En la finca de Felo hay aves y ganado. Felo arrea el ganado con una fusta. El ganado vale una fortuna. Es un ganado de fama. Felo pone todo el ganado en fila."
+        ],
+        "assets": [
+          {
+            "id": "lily_pollen",
+            "description": "Abeja soplando polen sobre una cala blanca F f f",
+            "path": "page-046.jpg"
+          },
+          {
+            "id": "vocab_foto",
+            "description": "Una cámara fotográfica instantánea sacando foto",
+            "path": "page-046.jpg"
+          },
+          {
+            "id": "vocab_fideos",
+            "description": "Un plato de sopa de fideos largos",
+            "path": "page-046.jpg"
+          },
+          {
+            "id": "vocab_familia",
+            "description": "Grupo familiar sonriente",
+            "path": "page-046.jpg"
+          },
+          {
+            "id": "vocab_felo",
+            "description": "Un granjero llamado Felo con sombrero",
+            "path": "page-046.jpg"
+          }
+        ]
+      },
+      {
+        "page_number": 76,
+        "ui_component_type": "WorkbookActivity",
+        "letter_focus": "Ff",
+        "instructions_completion": "Completa las palabras con la sílaba correcta.",
+        "instructions_writing": "Escribe oraciones. Usa las sílabas que aprendiste.",
+        "completion_items": [
+          {
+            "word_template": "__ama",
+            "correct_syllable": "fa",
+            "output_word": "fama"
+          },
+          {
+            "word_template": "__ila",
+            "correct_syllable": "fi",
+            "output_word": "fila"
+          },
+          {
+            "word_template": "telé__ono",
+            "correct_syllable": "f",
+            "output_word": "teléfono"
+          },
+          {
+            "word_template": "__oca",
+            "correct_syllable": "f",
+            "output_word": "foca"
+          },
+          {
+            "word_template": "__echa",
+            "correct_syllable": "f",
+            "output_word": "fecha"
+          },
+          {
+            "word_template": "__oto",
+            "correct_syllable": "f",
+            "output_word": "foto"
+          }
+        ]
+      },
+      {
+        "page_number": 77,
+        "ui_component_type": "TracingWritingPane",
+        "letter_focus": "Jj",
+        "instructions_writing": "Escribe con tu mejor letra (J, j).",
+        "instructions_drawing": "Haz un dibujo que represente una palabra que comienza con j."
+      },
+      {
+        "page_number": 78,
+        "ui_component_type": "SyllableTargetGrid",
+        "letter_focus": "Jj",
+        "instructions": "Encierra en un círculo la sílaba correspondiente.",
+        "syllable_mappings": {
+          "ja": [
+            "jaba",
+            "jabón",
+            "jamás",
+            "ja",
+            "jarra",
+            "jamón",
+            "baja"
+          ],
+          "je": [
+            "Jesús",
+            "jefe",
+            "baje",
+            "je",
+            "jefatura",
+            "jerez",
+            "ajeno"
+          ],
+          "ji": [
+            "jicotea",
+            "jíbaro",
+            "jirafa",
+            "ji",
+            "ají",
+            "jinete",
+            "ajillo"
+          ],
+          "jo": [
+            "jobo",
+            "José",
+            "bajo",
+            "jo",
+            "ajo",
+            "jota",
+            "jorobado"
+          ],
+          "ju": [
+            "júbilo",
+            "Julio",
+            "jutía",
+            "ju",
+            "juventud",
+            "jugo",
+            "jugar"
+          ]
+        }
+      },
+      {
+        "page_number": 79,
+        "ui_component_type": "InteractiveSyllableChart",
+        "letter_focus": "Jj",
+        "syllables": [
+          "ja",
+          "je",
+          "ji",
+          "jo",
+          "ju",
+          "ju",
+          "jo",
+          "ja",
+          "je",
+          "ji"
+        ],
+        "words": [
+          "jaba",
+          "jicotea",
+          "ají",
+          "baja",
+          "jura",
+          "vieja",
+          "jefe",
+          "Jesús",
+          "jamón",
+          "José",
+          "Julia",
+          "jarro",
+          "joven"
+        ],
+        "sentences": [
+          "José y Julia son amigos. A José le gusta el jamón y a Julia le gusta el jugo de tomate. Juan tiene una jutía y la baña con jabón. José y Josefa juegan en la laguna. Jabela es una jicotea. A Jabela le gusta la laguna. A Jabela no le gusta la espuma de jabón."
+        ],
+        "assets": [
+          {
+            "id": "giraffe_laughing",
+            "description": "Girafa alta con gafas riendo Ji Ji Ji junto a palmeras",
+            "path": "page-049.jpg"
+          },
+          {
+            "id": "vocab_jicotea",
+            "description": "Una tortuga pequeña (jicotea) de río",
+            "path": "page-049.jpg"
+          },
+          {
+            "id": "vocab_jugo",
+            "description": "Un vaso de jugo de naranja con caña",
+            "path": "page-049.jpg"
+          },
+          {
+            "id": "vocab_jesus",
+            "description": "Un niño llamado Jesús",
+            "path": "page-049.jpg"
+          },
+          {
+            "id": "vocab_ajo",
+            "description": "Una cabeza de ajo blanca",
+            "path": "page-049.jpg"
+          }
+        ]
+      },
+      {
+        "page_number": 80,
+        "ui_component_type": "WorkbookActivity",
+        "letter_focus": "Jj",
+        "instructions_completion": "Completa las palabras con la sílaba correcta.",
+        "instructions_writing": "Escribe oraciones. Usa las sílabas que aprendiste.",
+        "completion_items": [
+          {
+            "word_template": "__aba",
+            "correct_syllable": "j",
+            "output_word": "jaba"
+          },
+          {
+            "word_template": "__ugo",
+            "correct_syllable": "j",
+            "output_word": "jugo"
+          },
+          {
+            "word_template": "__amón",
+            "correct_syllable": "j",
+            "output_word": "jamón"
+          },
+          {
+            "word_template": "__efe",
+            "correct_syllable": "j",
+            "output_word": "jefe"
+          },
+          {
+            "word_template": "__ugar",
+            "correct_syllable": "j",
+            "output_word": "jugar"
+          },
+          {
+            "word_template": "__utía",
+            "correct_syllable": "j",
+            "output_word": "jutía"
+          }
+        ]
+      },
+      {
+        "page_number": 81,
+        "ui_component_type": "TracingWritingPane",
+        "letter_focus": "Cc",
+        "instructions_writing": "Escribe con tu mejor letra (C, c).",
+        "instructions_drawing": "Haz un dibujo que represente una palabra que comienza con c."
+      },
+      {
+        "page_number": 82,
+        "ui_component_type": "SyllableTargetGrid",
+        "letter_focus": "Cc",
+        "instructions": "Encierra en un círculo la sílaba correspondiente.",
+        "syllable_mappings": {
+          "ca": [
+            "cama",
+            "cala",
+            "casa",
+            "ca",
+            "cana",
+            "loca",
+            "saca"
+          ],
+          "co": [
+            "coma",
+            "cosa",
+            "poco",
+            "co",
+            "cola",
+            "copa",
+            "saco"
+          ],
+          "cu": [
+            "cuna",
+            "Cuba",
+            "acuna",
+            "cu",
+            "acuso",
+            "acumula",
+            "cubo"
+          ]
+        }
+      },
+      {
+        "page_number": 83,
+        "ui_component_type": "InteractiveSyllableChart",
+        "letter_focus": "Cc",
+        "syllables": [
+          "ca",
+          "co",
+          "cu"
+        ],
+        "words": [
+          "carro",
+          "boca",
+          "cuna",
+          "coco",
+          "Colombia",
+          "saco",
+          "casa",
+          "poco",
+          "roca",
+          "Cuba",
+          "pico",
+          "cumbia",
+          "camisa",
+          "Cuco",
+          "colonia"
+        ],
+        "sentences": [
+          "Cuco Casanova es un buen amigo del papá y de la mamá de Paco. El señor Casanova es cubano. El vive en el campo, vive con Doña María, su mamá. Cuco Casanova juega con los niños y los cuida también. Todos en la casa de Paco aman a Cuco."
+        ],
+        "assets": [
+          {
+            "id": "rooster_letter_c",
+            "description": "Un gallo cantando dentro de una C decorada con corazones",
+            "path": "page-052.jpg"
+          },
+          {
+            "id": "vocab_cuna",
+            "description": "Una cuna de madera para un bebé",
+            "path": "page-052.jpg"
+          },
+          {
+            "id": "vocab_conejo",
+            "description": "Un conejo blanco con orejas largas",
+            "path": "page-052.jpg"
+          },
+          {
+            "id": "vocab_casa",
+            "description": "Una casa de campo bonita con tejas rojas",
+            "path": "page-052.jpg"
+          },
+          {
+            "id": "vocab_cubo",
+            "description": "Un cubo / balde de playa azul",
+            "path": "page-052.jpg"
+          }
+        ]
+      },
+      {
+        "page_number": 84,
+        "ui_component_type": "WorkbookActivity",
+        "letter_focus": "Cc",
+        "instructions_completion": "Completa las palabras con la sílaba correcta.",
+        "instructions_writing": "Escribe oraciones. Usa las sílabas que aprendiste.",
+        "completion_items": [
+          {
+            "word_template": "__ama",
+            "correct_syllable": "ca",
+            "output_word": "cama"
+          },
+          {
+            "word_template": "__ola",
+            "correct_syllable": "c",
+            "output_word": "cola"
+          },
+          {
+            "word_template": "__osa",
+            "correct_syllable": "c",
+            "output_word": "cosa"
+          },
+          {
+            "word_template": "sa__a",
+            "correct_syllable": "c",
+            "output_word": "saca"
+          },
+          {
+            "word_template": "lo__a",
+            "correct_syllable": "c",
+            "output_word": "loca"
+          },
+          {
+            "word_template": "__ubo",
+            "correct_syllable": "c",
+            "output_word": "cubo"
+          }
+        ]
+      },
+      {
+        "page_number": 85,
+        "ui_component_type": "TracingWritingPane",
+        "letter_focus": "Yy",
+        "instructions_writing": "Escribe con tu mejor letra (Y, y).",
+        "instructions_drawing": "Haz un dibujo que represente una palabra que comienza con y."
+      },
+      {
+        "page_number": 86,
+        "ui_component_type": "SyllableTargetGrid",
+        "letter_focus": "Yy",
+        "instructions": "Encierra en un círculo la sílaba correspondiente.",
+        "syllable_mappings": {
+          "ya": [
+            "yate",
+            "Yara",
+            "payaso",
+            "ya",
+            "yana",
+            "yagua",
+            "maya"
+          ],
+          "ye": [
+            "yegua",
+            "enyesado",
+            "yema",
+            "ye",
+            "Yesenia",
+            "Yeyo",
+            "yeso"
+          ],
+          "yi": [
+            "Mayito",
+            "yi",
+            "Yayita",
+            "Yayi",
+            "Yigüiro",
+            "Yoyita",
+            "Mayita"
+          ],
+          "yo": [
+            "cayo",
+            "yoyo",
+            "rayo",
+            "yo",
+            "coyote",
+            "yo",
+            "Yayo"
+          ],
+          "yu": [
+            "Yucatán",
+            "Cayuco",
+            "ayudar",
+            "yu",
+            "yuca",
+            "ayuda",
+            "desayuno"
+          ]
+        }
+      },
+      {
+        "page_number": 87,
+        "ui_component_type": "InteractiveSyllableChart",
+        "letter_focus": "Yy",
+        "syllables": [
+          "ya",
+          "ye",
+          "yi",
+          "yo",
+          "yu",
+          "yu",
+          "yo",
+          "ya",
+          "ye",
+          "yi"
+        ],
+        "words": [
+          "yuca",
+          "ayer",
+          "cayo",
+          "yema",
+          "payaso",
+          "Mayito",
+          "yate",
+          "yute",
+          "joya",
+          "yegua",
+          "yoyo",
+          "yucateco",
+          "yagua",
+          "Yucatán",
+          "yeso"
+        ],
+        "sentences": [
+          "El yate de Yayo está en Yateras. Yayo fue a los cayos a pescar con sus amigas yucatecas. Yayo tiene una soga de yute para amarrar su yate. Yayo comió yuca y guacamole. A Yayo le gusta el arroz con yemas de huevos también. Su mamá le dio el arroz con yemas de huevos ayer. Yayo se lo comió todo."
+        ],
+        "assets": [
+          {
+            "id": "boy_yoyo_tree",
+            "description": "Niño rubio jugando con un yoyo sentado en la rama de un árbol",
+            "path": "page-055.jpg"
+          },
+          {
+            "id": "vocab_yate",
+            "description": "Un yate de vela de lujo blanco",
+            "path": "page-055.jpg"
+          },
+          {
+            "id": "vocab_yema",
+            "description": "Un huevo roto mostrando la yema amarilla",
+            "path": "page-055.jpg"
+          },
+          {
+            "id": "vocab_yayita",
+            "description": "Una niña pequeña llamada Yayita",
+            "path": "page-055.jpg"
+          },
+          {
+            "id": "vocab_yoyo",
+            "description": "Un yoyo de juguete de madera de color rojo",
+            "path": "page-055.jpg"
+          }
+        ]
+      },
+      {
+        "page_number": 88,
+        "ui_component_type": "WorkbookActivity",
+        "letter_focus": "Yy",
+        "instructions_completion": "Completa las palabras con la sílaba correcta.",
+        "instructions_writing": "Escribe oraciones. Usa las sílabas que aprendiste.",
+        "completion_items": [
+          {
+            "word_template": "__ate",
+            "correct_syllable": "y",
+            "output_word": "yate"
+          },
+          {
+            "word_template": "__uca",
+            "correct_syllable": "y",
+            "output_word": "yuca"
+          },
+          {
+            "word_template": "__eso",
+            "correct_syllable": "y",
+            "output_word": "yeso"
+          },
+          {
+            "word_template": "ca__o",
+            "correct_syllable": "y",
+            "output_word": "cayo"
+          },
+          {
+            "word_template": "Ma__ito",
+            "correct_syllable": "y",
+            "output_word": "Mayito"
+          },
+          {
+            "word_template": "__ema",
+            "correct_syllable": "y",
+            "output_word": "yema"
+          }
+        ]
+      },
+      {
+        "page_number": 89,
+        "ui_component_type": "TracingWritingPane",
+        "letter_focus": "Zz",
+        "instructions_writing": "Escribe con tu mejor letra (Z, z).",
+        "instructions_drawing": "Haz un dibujo que represente una palabra que comienza con z."
+      },
+      {
+        "page_number": 90,
+        "ui_component_type": "SyllableTargetGrid",
+        "letter_focus": "Zz",
+        "instructions": "Encierra en un círculo la sílaba correspondiente.",
+        "syllable_mappings": {
+          "za": [
+            "taza",
+            "caza",
+            "zapatero",
+            "za",
+            "plaza",
+            "zapato",
+            "zapote"
+          ],
+          "ze": [
+            "zepelín",
+            "zeta",
+            "zebra",
+            "ze",
+            "Zegrí",
+            "Zenaida",
+            "Zema"
+          ],
+          "zi": [
+            "zig-zag",
+            "Zimba",
+            "zi",
+            "Zila",
+            "Zita"
+          ],
+          "zo": [
+            "zorro",
+            "portazo",
+            "zocato",
+            "zo",
+            "azotes",
+            "zopilote",
+            "lazo"
+          ],
+          "zu": [
+            "azúcar",
+            "zurra",
+            "azucarado",
+            "zu",
+            "azules",
+            "Zulema",
+            "azulado"
+          ]
+        }
+      },
+      {
+        "page_number": 91,
+        "ui_component_type": "InteractiveSyllableChart",
+        "letter_focus": "Zz",
+        "syllables": [
+          "za",
+          "ze",
+          "zi",
+          "zo",
+          "zu",
+          "zu",
+          "zo",
+          "za",
+          "ze",
+          "zi"
+        ],
+        "words": [
+          "zorro",
+          "zeta",
+          "calabaza",
+          "zapato",
+          "taza",
+          "zumo",
+          "azul",
+          "lazo",
+          "azúcar",
+          "zig-zag",
+          "zapote",
+          "zepelín",
+          "Zila",
+          "Zulema",
+          "azucarado"
+        ],
+        "sentences": [
+          "Zulema toma zumo de melón.",
+          "A Zulema le gusta el zumo con azúcar. Ella se bebe el zumo y se pone sus zapatos azules.",
+          "Zila va con Zulema, van en un carro con ruedas de calabazas."
+        ],
+        "assets": [
+          {
+            "id": "sleeping_bee",
+            "description": "Abeja cansada volando con rastro de z z z z sobre girasoles",
+            "path": "page-058.jpg"
+          },
+          {
+            "id": "vocab_zapato",
+            "description": "Un zapato de cuero elegante azul",
+            "path": "page-058.jpg"
+          },
+          {
+            "id": "vocab_zigzag",
+            "description": "Una línea negra con patrón de zig-zag",
+            "path": "page-058.jpg"
+          },
+          {
+            "id": "vocab_zorro",
+            "description": "Un zorro rojo astuto sentado",
+            "path": "page-058.jpg"
+          },
+          {
+            "id": "vocab_zulema",
+            "description": "Una niña llamada Zulema",
+            "path": "page-058.jpg"
+          }
+        ]
+      },
+      {
+        "page_number": 92,
+        "ui_component_type": "WorkbookActivity",
+        "letter_focus": "Zz",
+        "instructions_completion": "Completa las palabras con la sílaba correcta.",
+        "instructions_writing": "Escribe oraciones. Usa las sílabas que aprendiste.",
+        "completion_items": [
+          {
+            "word_template": "__apato",
+            "correct_syllable": "z",
+            "output_word": "zapato"
+          },
+          {
+            "word_template": "__eta",
+            "correct_syllable": "z",
+            "output_word": "zeta"
+          },
+          {
+            "word_template": "__umo",
+            "correct_syllable": "z",
+            "output_word": "zumo"
+          },
+          {
+            "word_template": "la__o",
+            "correct_syllable": "zo",
+            "output_word": "lazo"
+          },
+          {
+            "word_template": "a__ules",
+            "correct_syllable": "z",
+            "output_word": "azules"
+          },
+          {
+            "word_template": "__ita",
+            "correct_syllable": "Z",
+            "output_word": "Zita"
+          }
+        ]
+      }
+    ]
+  },
+  "illustrations": {
+    "totalFiles": 70,
+    "basePath": "/cartilla/art/illustrations",
+    "files": [
+      "Flow_202606171952.jpeg",
+      "Flow_202606171952_10.jpeg",
+      "Flow_202606171952_11.jpeg",
+      "Flow_202606171952_12.jpeg",
+      "Flow_202606171952_13.jpeg",
+      "Flow_202606171952_14.jpeg",
+      "Flow_202606171952_15.jpeg",
+      "Flow_202606171952_16.jpeg",
+      "Flow_202606171952_17.jpeg",
+      "Flow_202606171952_18.jpeg",
+      "Flow_202606171952_19.jpeg",
+      "Flow_202606171952_2.jpeg",
+      "Flow_202606171952_20.jpeg",
+      "Flow_202606171952_21.jpeg",
+      "Flow_202606171952_22.jpeg",
+      "Flow_202606171952_23.jpeg",
+      "Flow_202606171952_24.jpeg",
+      "Flow_202606171952_25.jpeg",
+      "Flow_202606171952_26.jpeg",
+      "Flow_202606171952_27.jpeg",
+      "Flow_202606171952_28.jpeg",
+      "Flow_202606171952_29.jpeg",
+      "Flow_202606171952_3.jpeg",
+      "Flow_202606171952_30.jpeg",
+      "Flow_202606171952_31.jpeg",
+      "Flow_202606171952_32.jpeg",
+      "Flow_202606171952_33.jpeg",
+      "Flow_202606171952_34.jpeg",
+      "Flow_202606171952_35.jpeg",
+      "Flow_202606171952_4.jpeg",
+      "Flow_202606171952_5.jpeg",
+      "Flow_202606171952_6.jpeg",
+      "Flow_202606171952_7.jpeg",
+      "Flow_202606171952_8.jpeg",
+      "Flow_202606171952_9.jpeg",
+      "Flow_202606181352.jpeg",
+      "Flow_202606181352_10.jpeg",
+      "Flow_202606181352_11.jpeg",
+      "Flow_202606181352_12.jpeg",
+      "Flow_202606181352_13.jpeg",
+      "Flow_202606181352_14.jpeg",
+      "Flow_202606181352_15.jpeg",
+      "Flow_202606181352_16.jpeg",
+      "Flow_202606181352_17.jpeg",
+      "Flow_202606181352_18.jpeg",
+      "Flow_202606181352_19.jpeg",
+      "Flow_202606181352_2.jpeg",
+      "Flow_202606181352_20.jpeg",
+      "Flow_202606181352_21.jpeg",
+      "Flow_202606181352_22.jpeg",
+      "Flow_202606181352_23.jpeg",
+      "Flow_202606181352_24.jpeg",
+      "Flow_202606181352_25.jpeg",
+      "Flow_202606181352_26.jpeg",
+      "Flow_202606181352_27.jpeg",
+      "Flow_202606181352_28.jpeg",
+      "Flow_202606181352_29.jpeg",
+      "Flow_202606181352_3.jpeg",
+      "Flow_202606181352_30.jpeg",
+      "Flow_202606181352_31.jpeg",
+      "Flow_202606181352_32.jpeg",
+      "Flow_202606181352_33.jpeg",
+      "Flow_202606181352_34.jpeg",
+      "Flow_202606181352_35.jpeg",
+      "Flow_202606181352_4.jpeg",
+      "Flow_202606181352_5.jpeg",
+      "Flow_202606181352_6.jpeg",
+      "Flow_202606181352_7.jpeg",
+      "Flow_202606181352_8.jpeg",
+      "Flow_202606181352_9.jpeg"
+    ]
   }
 }
