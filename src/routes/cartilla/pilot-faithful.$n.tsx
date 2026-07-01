@@ -3,7 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import { FaithfulPageRenderer } from "@/components/cartilla/FaithfulPageRenderer";
 import { PdfPage } from "@/components/cartilla/PdfPage";
 
-const PILOT_PAGES = [1, 2, 3, 4, 5, 6, 7, 9, 10, 12, 13, 15];
+const PILOT_PAGES = [1, 2, 3, 4, 5, 6, 7, 9, 10, 12, 13, 15, 16, 18];
 
 export const Route = createFileRoute("/cartilla/pilot-faithful/$n")({
   component: PilotFaithfulPage,
@@ -63,7 +63,17 @@ function PilotFaithfulPage() {
               <FaithfulPageRenderer
                 pageNumber={pageNumber}
                 lessonNumber={
-                  pageNumber <= 3 ? 1 : pageNumber <= 6 ? 2 : pageNumber <= 9 ? 3 : pageNumber <= 12 ? 4 : 5
+                  pageNumber <= 3
+                    ? 1
+                    : pageNumber <= 6
+                      ? 2
+                      : pageNumber <= 9
+                        ? 3
+                        : pageNumber <= 12
+                          ? 4
+                          : pageNumber <= 15
+                            ? 5
+                            : 6
                 }
               />
             </div>

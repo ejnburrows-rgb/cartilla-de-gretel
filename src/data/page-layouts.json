@@ -1,6 +1,6 @@
 {
   "_comment": "CANONICAL faithful page layouts — the single source of truth for the student CRM view, student workbook, and teacher flipbook. Each page is an ordered list of regions; text regions hold VERIFIED transcriptions (checked against the official workbook), picture cells / illustration slots hold `illustrationSrc` paths to faithful COLOR crops from the art pipeline (public/cartilla/art/faithful/manifest.json). A page absent here has no verified layout yet and renders its surface's existing fallback. NOTHING here is placeholder or invented — pages are added lesson-by-lesson only after the owner verifies them. Pictures without a real crop show an explicit 'pendiente' marker, never an invented drawing.",
-  "_status": "Lección 2 (Vocal O) + Lección 3 (Vocal A) + Lección 4 (Vocal E) + Lección 5 (Vocal I). Writing pages (6, 9, 12, 15) are complete (text + tracing + draw box). Grid pages (4, 7, 10, 13) have faithful instruction text + the correct 4x4 picture grid with word captions; pictures pending crops from the art pipeline. Matching pages (5, 8, 11, 14, trace-a-line) are intentionally omitted until color crops land, since their layout is built around the pictures. Awaiting owner verification.",
+  "_status": "Lección 2-6 (Vocales O, A, E, I, U — all five vowel lessons). Writing pages (6, 9, 12, 15, 18) are complete (text + tracing + draw box). Grid pages (4, 7, 10, 13, 16) have faithful instruction text + the correct 4x4 picture grid with word captions; pictures pending crops from the art pipeline. Matching pages (5, 8, 11, 14, 17, trace-a-line) are intentionally omitted until color crops land, since their layout is built around the pictures. Awaiting owner verification. Next: consonants (Lección 7+).",
   "pages": {
     "4": {
       "regions": [
@@ -88,6 +88,28 @@
         { "id": "p15-write-i2", "regionType": "writing-line", "order": 4, "fontRole": "tracing" },
         { "id": "p15-instr2", "regionType": "instruction", "order": 5, "fontRole": "body", "text": "Haz un dibujo que represente una palabra que comienza con i." },
         { "id": "p15-draw", "regionType": "draw-box", "order": 6, "fontRole": "body" }
+      ]
+    },
+    "16": {
+      "regions": [
+        { "id": "p16-instr", "regionType": "instruction", "order": 0, "fontRole": "body", "label": "Instrucciones:", "text": "Marca con una x los dibujos de las palabras que comienzan con U u." },
+        { "id": "p16-grid", "regionType": "picture-grid", "order": 1, "fontRole": "body", "columns": 4, "cells": [
+          { "caption": "unicornio" }, { "caption": "oveja" }, { "caption": "pez" }, { "caption": "arco" },
+          { "caption": "uvas" }, { "caption": "estrella" }, { "caption": "traje" }, { "caption": "elefante" },
+          { "caption": "árbol" }, { "caption": "uno" }, { "caption": "oso" }, { "caption": "águila" },
+          { "caption": "abeja" }, { "caption": "traje" }, { "caption": "insecto" }, { "caption": "uno" }
+        ] }
+      ]
+    },
+    "18": {
+      "regions": [
+        { "id": "p18-instr1", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Escribe con tu mejor letra." },
+        { "id": "p18-write-U", "regionType": "writing-line", "order": 1, "fontRole": "tracing", "modelText": "U" },
+        { "id": "p18-write-U2", "regionType": "writing-line", "order": 2, "fontRole": "tracing" },
+        { "id": "p18-write-u", "regionType": "writing-line", "order": 3, "fontRole": "tracing", "modelText": "u" },
+        { "id": "p18-write-u2", "regionType": "writing-line", "order": 4, "fontRole": "tracing" },
+        { "id": "p18-instr2", "regionType": "instruction", "order": 5, "fontRole": "body", "text": "Haz un dibujo que represente una palabra que comienza con u." },
+        { "id": "p18-draw", "regionType": "draw-box", "order": 6, "fontRole": "body" }
       ]
     }
   }
