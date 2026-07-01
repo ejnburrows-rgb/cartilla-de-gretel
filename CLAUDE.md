@@ -41,6 +41,16 @@ Teachers create classes, assign students, and track progress via Supabase.
 3. Summarize what you find
 4. Wait for task assignment before making any changes
 
+## Working Style — Never Stall
+- Never end a turn by just waiting idle. Always leave the owner with either
+  (a) concrete next-step prompts they can hand to their other agent
+  (Antigravity) or act on themselves, or (b) continued work of your own.
+- When blocked on an external dependency (e.g. art delivery), don't just
+  report and stop — find and execute the next unblocked piece of work
+  yourself, and say what it was.
+- Default to action over asking, once you have enough information to make
+  a reasonable call.
+
 ## Current Status (June 2026)
 ✅ Landing page with desk scene
 ✅ Workbook with 95 pages
