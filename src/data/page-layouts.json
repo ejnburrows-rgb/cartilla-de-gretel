@@ -253,6 +253,62 @@
         { "id": "p37-s6", "regionType": "sentence-line", "order": 12, "fontRole": "body", "text": "El pomo de Dunia está en la mesa." },
         { "id": "p37-s7", "regionType": "sentence-line", "order": 13, "fontRole": "body", "text": "—Ada, ¿Dónde está Dunia?" }
       ]
+    },
+    "39": {
+      "regions": [
+        { "id": "p39-instr1", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Escribe con tu mejor letra." },
+        { "id": "p39-write-L", "regionType": "writing-line", "order": 1, "fontRole": "tracing", "modelText": "L" },
+        { "id": "p39-write-L2", "regionType": "writing-line", "order": 2, "fontRole": "tracing" },
+        { "id": "p39-write-l", "regionType": "writing-line", "order": 3, "fontRole": "tracing", "modelText": "l" },
+        { "id": "p39-write-l2", "regionType": "writing-line", "order": 4, "fontRole": "tracing" },
+        { "id": "p39-instr2", "regionType": "instruction", "order": 5, "fontRole": "body", "text": "Haz un dibujo que represente una palabra que comienza con l." },
+        { "id": "p39-draw", "regionType": "draw-box", "order": 6, "fontRole": "body" }
+      ]
+    },
+    "41": {
+      "regions": [
+        { "id": "p41-title", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Ll" },
+        { "id": "p41-syl1", "regionType": "syllable-bubble", "order": 1, "fontRole": "body", "text": "la  le  li  lo  lu" },
+        { "id": "p41-syl2", "regionType": "syllable-bubble", "order": 2, "fontRole": "body", "text": "lu  lo  la  le  li" },
+        { "id": "p41-words1", "regionType": "vocab-grid", "order": 3, "fontRole": "body", "text": "lima · maleta · paloma · pelusa · Luli" },
+        { "id": "p41-words2", "regionType": "vocab-grid", "order": 4, "fontRole": "body", "text": "lata · lupa · pala · Lilo · tela" },
+        { "id": "p41-words3", "regionType": "vocab-grid", "order": 5, "fontRole": "body", "text": "aleta · sale · lomo · Lola · Tula" },
+        { "id": "p41-sightwords", "regionType": "vocab-grid", "order": 6, "fontRole": "heading", "text": "también" },
+        { "id": "p41-s1", "regionType": "sentence-line", "order": 7, "fontRole": "body", "text": "La maleta de Luli está en la mesa." },
+        { "id": "p41-s2", "regionType": "sentence-line", "order": 8, "fontRole": "body", "text": "La tela de la maleta tiene pelusas." },
+        { "id": "p41-s3", "regionType": "sentence-line", "order": 9, "fontRole": "body", "text": "La maleta de Polo es de tela." },
+        { "id": "p41-s4", "regionType": "sentence-line", "order": 10, "fontRole": "body", "text": "Mamá le da la maleta a Polo." },
+        { "id": "p41-s5", "regionType": "sentence-line", "order": 11, "fontRole": "body", "text": "Polo toma su maleta de tela." },
+        { "id": "p41-s6", "regionType": "sentence-line", "order": 12, "fontRole": "body", "text": "Lalo tiene una maleta de tela también." }
+      ]
+    },
+    "43": {
+      "regions": [
+        { "id": "p43-instr1", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Escribe con tu mejor letra." },
+        { "id": "p43-write-N", "regionType": "writing-line", "order": 1, "fontRole": "tracing", "modelText": "N" },
+        { "id": "p43-write-N2", "regionType": "writing-line", "order": 2, "fontRole": "tracing" },
+        { "id": "p43-write-n", "regionType": "writing-line", "order": 3, "fontRole": "tracing", "modelText": "n" },
+        { "id": "p43-write-n2", "regionType": "writing-line", "order": 4, "fontRole": "tracing" },
+        { "id": "p43-instr2", "regionType": "instruction", "order": 5, "fontRole": "body", "text": "Haz un dibujo que represente una palabra que comienza con n." },
+        { "id": "p43-draw", "regionType": "draw-box", "order": 6, "fontRole": "body" }
+      ]
+    },
+    "45": {
+      "regions": [
+        { "id": "p45-title", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Nn" },
+        { "id": "p45-syl1", "regionType": "syllable-bubble", "order": 1, "fontRole": "body", "text": "na  ne  ni  no  nu" },
+        { "id": "p45-syl2", "regionType": "syllable-bubble", "order": 2, "fontRole": "body", "text": "nu  no  na  ne  ni" },
+        { "id": "p45-words1", "regionType": "vocab-grid", "order": 3, "fontRole": "body", "text": "nido · nené · Nono · poni · mono" },
+        { "id": "p45-words2", "regionType": "vocab-grid", "order": 4, "fontRole": "body", "text": "tina · mano · Tono · Nena · luna" },
+        { "id": "p45-words3", "regionType": "vocab-grid", "order": 5, "fontRole": "body", "text": "nada · nulo · Alina · nata · Neli" },
+        { "id": "p45-sightwords", "regionType": "vocab-grid", "order": 6, "fontRole": "heading", "text": "esa · a" },
+        { "id": "p45-s1", "regionType": "sentence-line", "order": 7, "fontRole": "body", "text": "Tomás dame esa tina. La tina es de Napi." },
+        { "id": "p45-s2", "regionType": "sentence-line", "order": 8, "fontRole": "body", "text": "Tono y Alina aman a Napi." },
+        { "id": "p45-s3", "regionType": "sentence-line", "order": 9, "fontRole": "body", "text": "Napi tiene pelo." },
+        { "id": "p45-s4", "regionType": "sentence-line", "order": 10, "fontRole": "body", "text": "Tono le pone la tina a Napi en el piso." },
+        { "id": "p45-s5", "regionType": "sentence-line", "order": 11, "fontRole": "body", "text": "Nono no le pone nada a esa tina." },
+        { "id": "p45-s6", "regionType": "sentence-line", "order": 12, "fontRole": "body", "text": "Esa tina no tiene nada." }
+      ]
     }
   }
 }
