@@ -548,6 +548,36 @@
         { "id": "p49-s6", "regionType": "sentence-line", "order": 12, "fontRole": "body", "text": "Noña le pone el pañal a la niña." }
       ]
     },
+    "48": {
+      "regions": [
+        { "id": "p48-instr", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Encierra en un círculo la sílaba correspondiente." },
+        { "id": "p48-nia", "regionType": "syllable-match", "order": 1, "fontRole": "body", "syllable": "ña", "matchRows": [["maña", "mañana", "montaña"], ["ñame", "araña", "caña"]] },
+        { "id": "p48-nie", "regionType": "syllable-match", "order": 2, "fontRole": "body", "syllable": "ñe", "matchRows": [["Meñe", "añejo", "sueñe"], ["adueñe", "cañengo", "apañe"]] },
+        { "id": "p48-nii", "regionType": "syllable-match", "order": 3, "fontRole": "body", "syllable": "ñi", "matchRows": [["añico", "pañito", "cañita"], ["niñito", "arañita", "reñido"]] },
+        { "id": "p48-nio", "regionType": "syllable-match", "order": 4, "fontRole": "body", "syllable": "ño", "matchRows": [["moño", "niño", "sueño"], ["Ñoña", "año", "Ñuco"]] },
+        { "id": "p48-niu", "regionType": "syllable-match", "order": 5, "fontRole": "body", "syllable": "ñu", "matchRows": [["Ñuto", "cañuto", "moñudo"], ["ceñudo", "pañuelo", "puño"]] }
+      ]
+    },
+    "50": {
+      "regions": [
+        { "id": "p50-instr", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Completa las palabras con la sílaba correcta." },
+        { "id": "p50-fill1", "regionType": "fill-in-blank", "order": 1, "fontRole": "body", "fillItems": [
+          { "wordBox": "maña", "blank": "ma ___", "choices": "ñe - ña" },
+          { "wordBox": "pañito", "blank": "pa ___ to", "choices": "ño - ñi" },
+          { "wordBox": "niño", "blank": "ni ___", "choices": "ñi - ño" }
+        ] },
+        { "id": "p50-fill2", "regionType": "fill-in-blank", "order": 2, "fontRole": "body", "fillItems": [
+          { "wordBox": "moño", "blank": "mo ___", "choices": "ño - ñe" },
+          { "wordBox": "año", "blank": "a ___", "choices": "ña - ño" },
+          { "wordBox": "puño", "blank": "pu ___", "choices": "ño - ñu" }
+        ] },
+        { "id": "p50-instr2", "regionType": "instruction", "order": 3, "fontRole": "body", "text": "Escribe oraciones. Usa las sílabas que aprendiste." },
+        { "id": "p50-write1", "regionType": "writing-line", "order": 4, "fontRole": "tracing" },
+        { "id": "p50-write2", "regionType": "writing-line", "order": 5, "fontRole": "tracing" },
+        { "id": "p50-write3", "regionType": "writing-line", "order": 6, "fontRole": "tracing" },
+        { "id": "p50-write4", "regionType": "writing-line", "order": 7, "fontRole": "tracing" }
+      ]
+    },
     "51": {
       "regions": [
         { "id": "p51-instr1", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Escribe con tu mejor letra." },
@@ -575,6 +605,36 @@
         { "id": "p53-s5", "regionType": "sentence-line", "order": 11, "fontRole": "body", "text": "Pepito batea la bola con el bate." },
         { "id": "p53-s6", "regionType": "sentence-line", "order": 12, "fontRole": "body", "text": "La bola sube y sube alto también." },
         { "id": "p53-s7", "regionType": "sentence-line", "order": 13, "fontRole": "body", "text": "Pepito es bueno en la pelota." }
+      ]
+    },
+    "52": {
+      "regions": [
+        { "id": "p52-instr", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Encierra en un círculo la sílaba correspondiente." },
+        { "id": "p52-ba", "regionType": "syllable-match", "order": 1, "fontRole": "body", "syllable": "ba", "matchRows": [["baño", "bala", "batir"], ["batea", "abanico", "loba"]] },
+        { "id": "p52-be", "regionType": "syllable-match", "order": 2, "fontRole": "body", "syllable": "be", "matchRows": [["sube", "Bebo", "bebé"], ["abeja", "nube", "cubeta"]] },
+        { "id": "p52-bi", "regionType": "syllable-match", "order": 3, "fontRole": "body", "syllable": "bi", "matchRows": [["bebida", "cabito", "bicicleta"], ["bisagra", "bisonte", "cubito"]] },
+        { "id": "p52-bo", "regionType": "syllable-match", "order": 4, "fontRole": "body", "syllable": "bo", "matchRows": [["lobo", "bonita", "tubo"], ["bodega", "bola", "botella"]] },
+        { "id": "p52-bu", "regionType": "syllable-match", "order": 5, "fontRole": "body", "syllable": "bu", "matchRows": [["burro", "aburre", "aburrido"], ["bulla", "abuso", "buche"]] }
+      ]
+    },
+    "54": {
+      "regions": [
+        { "id": "p54-instr", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Completa las palabras con la sílaba correcta." },
+        { "id": "p54-fill1", "regionType": "fill-in-blank", "order": 1, "fontRole": "body", "fillItems": [
+          { "wordBox": "cubo", "blank": "cu ___", "choices": "bu - bo" },
+          { "wordBox": "bolo", "blank": "___ lo", "choices": "bo - be" },
+          { "wordBox": "cubito", "blank": "cu ___ to", "choices": "bo - bi" }
+        ] },
+        { "id": "p54-fill2", "regionType": "fill-in-blank", "order": 2, "fontRole": "body", "fillItems": [
+          { "wordBox": "batido", "blank": "___ tido", "choices": "be - ba" },
+          { "wordBox": "burro", "blank": "___ rro", "choices": "ba - bu" },
+          { "wordBox": "nube", "blank": "nu ___", "choices": "be - bi" }
+        ] },
+        { "id": "p54-instr2", "regionType": "instruction", "order": 3, "fontRole": "body", "text": "Escribe oraciones. Usa las sílabas que aprendiste." },
+        { "id": "p54-write1", "regionType": "writing-line", "order": 4, "fontRole": "tracing" },
+        { "id": "p54-write2", "regionType": "writing-line", "order": 5, "fontRole": "tracing" },
+        { "id": "p54-write3", "regionType": "writing-line", "order": 6, "fontRole": "tracing" },
+        { "id": "p54-write4", "regionType": "writing-line", "order": 7, "fontRole": "tracing" }
       ]
     },
     "55": {

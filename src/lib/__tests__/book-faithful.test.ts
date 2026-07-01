@@ -1,14 +1,22 @@
 import { describe, it, expect } from "vitest";
 import { getPageLayout, hasPageLayout, type PageRegion } from "@/lib/book-faithful";
 import pilotLayouts from "@/data/page-layouts.pilot.json";
+import canonicalLayouts from "@/data/page-layouts.json";
 
 const pilotPages = (pilotLayouts as { pages: Record<string, { regions: PageRegion[] }> }).pages;
+const canonicalPages = (canonicalLayouts as { pages: Record<string, { regions: PageRegion[] }> })
+  .pages;
 
 describe("faithful page layouts", () => {
-  it("canonical page-layouts.json only serves VERIFIED pages (none seeded with placeholder)", () => {
-    // Phase 0: no page is claimed as faithful until transcribed + verified.
-    expect(getPageLayout(50)).toBeNull();
-    expect(hasPageLayout(50)).toBe(false);
+  it("hasPageLayout/getPageLayout agree with the canonical file for every known page and for a page outside any lesson's range", () => {
+    for (const key of Object.keys(canonicalPages)) {
+      const pageNumber = Number(key);
+      expect(hasPageLayout(pageNumber)).toBe(true);
+      expect(getPageLayout(pageNumber)).not.toBeNull();
+    }
+    // Page 999 is far outside the 92-page workbook — always unverified.
+    expect(hasPageLayout(999)).toBe(false);
+    expect(getPageLayout(999)).toBeNull();
   });
 
   it("pilot demo layout parses with well-formed, ordered regions", () => {
