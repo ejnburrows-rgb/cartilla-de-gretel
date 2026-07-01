@@ -25,13 +25,16 @@
               "caption": "imán"
             },
             {
-              "caption": "abanico"
+              "caption": "abanico",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/abanico.webp"
             },
             {
-              "caption": "oso"
+              "caption": "oso",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oso.webp"
             },
             {
-              "caption": "isla"
+              "caption": "isla",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/isla.webp"
             },
             {
               "caption": "avión"
@@ -43,16 +46,19 @@
               "caption": "remolino"
             },
             {
-              "caption": "escalera"
+              "caption": "escalera",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-e/escalera.webp"
             },
             {
-              "caption": "uno"
+              "caption": "uno",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-u/uno.webp"
             },
             {
               "caption": "escuela"
             },
             {
-              "caption": "oreja"
+              "caption": "oreja",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oreja.webp"
             },
             {
               "caption": "traje"
@@ -64,7 +70,8 @@
               "caption": "oveja"
             },
             {
-              "caption": "elefante"
+              "caption": "elefante",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-e/elefante.webp"
             },
             {
               "caption": "ojos"
@@ -101,7 +108,8 @@
               "letter": "a",
               "cells": [
                 {
-                  "caption": "anillo"
+                  "caption": "anillo",
+                  "illustrationSrc": "/cartilla/art/faithful/vocal-a/anillo.webp"
                 },
                 {
                   "caption": "manzana"
@@ -121,7 +129,8 @@
                   "caption": "árbol"
                 },
                 {
-                  "caption": "estrella"
+                  "caption": "estrella",
+                  "illustrationSrc": "/cartilla/art/faithful/vocal-e/estrella.webp"
                 }
               ]
             },
@@ -132,7 +141,8 @@
                   "caption": "taza"
                 },
                 {
-                  "caption": "indio"
+                  "caption": "indio",
+                  "illustrationSrc": "/cartilla/art/faithful/vocal-i/indio.webp"
                 },
                 {
                   "caption": "pera"
@@ -146,7 +156,8 @@
                   "caption": "pájaro"
                 },
                 {
-                  "caption": "oso"
+                  "caption": "oso",
+                  "illustrationSrc": "/cartilla/art/faithful/vocal-o/oso.webp"
                 },
                 {
                   "caption": "carro"
@@ -188,11 +199,13 @@
           "vowelPairs": [
             {
               "letter": "o",
-              "caption": "ocho"
+              "caption": "ocho",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-o/ocho.webp"
             },
             {
               "letter": "a",
-              "caption": "araña"
+              "caption": "araña",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/arana.webp"
             },
             {
               "letter": "i",
@@ -204,7 +217,8 @@
             },
             {
               "letter": "u",
-              "caption": "uno"
+              "caption": "uno",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-u/uno.webp"
             }
           ]
         }
@@ -231,10 +245,12 @@
               "caption": "ola"
             },
             {
-              "caption": "iglú"
+              "caption": "iglú",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iglu.webp"
             },
             {
-              "caption": "oso"
+              "caption": "oso",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oso.webp"
             },
             {
               "caption": "maíz"
@@ -246,10 +262,12 @@
               "caption": "oveja"
             },
             {
-              "caption": "alas"
+              "caption": "alas",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/alas.webp"
             },
             {
-              "caption": "oreja"
+              "caption": "oreja",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oreja.webp"
             },
             {
               "caption": "olla"
@@ -258,16 +276,20 @@
               "caption": "uvas"
             },
             {
-              "caption": "ocho"
+              "caption": "ocho",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-o/ocho.webp"
             },
             {
-              "caption": "uno"
+              "caption": "uno",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-u/uno.webp"
             },
             {
-              "caption": "araña"
+              "caption": "araña",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/arana.webp"
             },
             {
-              "caption": "oso"
+              "caption": "oso",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oso.webp"
             },
             {
               "caption": "traje"
@@ -297,7 +319,8 @@
           "exampleCaption": "ola",
           "cells": [
             {
-              "caption": "iglú"
+              "caption": "iglú",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iglu.webp"
             },
             {
               "caption": "oveja"
@@ -306,7 +329,8 @@
               "caption": "ojos"
             },
             {
-              "caption": "oreja"
+              "caption": "oreja",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oreja.webp"
             },
             {
               "caption": "olla"
@@ -315,10 +339,12 @@
               "caption": "ola"
             },
             {
-              "caption": "oso"
+              "caption": "oso",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oso.webp"
             },
             {
-              "caption": "alas"
+              "caption": "alas",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/alas.webp"
             }
           ]
         }
@@ -392,7 +418,8 @@
           "columns": 4,
           "cells": [
             {
-              "caption": "abanico"
+              "caption": "abanico",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/abanico.webp"
             },
             {
               "caption": "oruga"
@@ -413,16 +440,20 @@
               "caption": "árbol"
             },
             {
-              "caption": "elefante"
+              "caption": "elefante",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-e/elefante.webp"
             },
             {
-              "caption": "uno"
+              "caption": "uno",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-u/uno.webp"
             },
             {
-              "caption": "alas"
+              "caption": "alas",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/alas.webp"
             },
             {
-              "caption": "estrella"
+              "caption": "estrella",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-e/estrella.webp"
             },
             {
               "caption": "ardilla"
@@ -461,13 +492,16 @@
           "exampleCaption": "abeja",
           "cells": [
             {
-              "caption": "oso"
+              "caption": "oso",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oso.webp"
             },
             {
-              "caption": "iglú"
+              "caption": "iglú",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iglu.webp"
             },
             {
-              "caption": "alas"
+              "caption": "alas",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/alas.webp"
             },
             {
               "caption": "abeja"
@@ -556,22 +590,27 @@
           "columns": 4,
           "cells": [
             {
-              "caption": "elefante"
+              "caption": "elefante",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-e/elefante.webp"
             },
             {
-              "caption": "iglú"
+              "caption": "iglú",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iglu.webp"
             },
             {
               "caption": "maíz"
             },
             {
-              "caption": "indio"
+              "caption": "indio",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/indio.webp"
             },
             {
-              "caption": "escalera"
+              "caption": "escalera",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-e/escalera.webp"
             },
             {
-              "caption": "erizo"
+              "caption": "erizo",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-e/erizo.webp"
             },
             {
               "caption": "abeja"
@@ -583,10 +622,12 @@
               "caption": "escoba"
             },
             {
-              "caption": "unicornio"
+              "caption": "unicornio",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-u/unicornio.webp"
             },
             {
-              "caption": "estrella"
+              "caption": "estrella",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-e/estrella.webp"
             },
             {
               "caption": "águila"
@@ -598,10 +639,12 @@
               "caption": "traje"
             },
             {
-              "caption": "espejo"
+              "caption": "espejo",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-e/espejo.webp"
             },
             {
-              "caption": "uno"
+              "caption": "uno",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-u/uno.webp"
             }
           ]
         }
@@ -625,25 +668,30 @@
           "exampleCaption": "erizo",
           "cells": [
             {
-              "caption": "oso"
+              "caption": "oso",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oso.webp"
             },
             {
-              "caption": "elefante"
+              "caption": "elefante",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-e/elefante.webp"
             },
             {
               "caption": "abeja"
             },
             {
-              "caption": "erizo"
+              "caption": "erizo",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-e/erizo.webp"
             },
             {
               "caption": "maíz"
             },
             {
-              "caption": "escalera"
+              "caption": "escalera",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-e/escalera.webp"
             },
             {
-              "caption": "estrella"
+              "caption": "estrella",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-e/estrella.webp"
             },
             {
               "caption": "abrigo"
@@ -720,7 +768,8 @@
           "columns": 4,
           "cells": [
             {
-              "caption": "iglú"
+              "caption": "iglú",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iglu.webp"
             },
             {
               "caption": "pez"
@@ -729,16 +778,20 @@
               "caption": "iguana"
             },
             {
-              "caption": "abanico"
+              "caption": "abanico",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/abanico.webp"
             },
             {
-              "caption": "oso"
+              "caption": "oso",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oso.webp"
             },
             {
-              "caption": "indio"
+              "caption": "indio",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/indio.webp"
             },
             {
-              "caption": "alas"
+              "caption": "alas",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/alas.webp"
             },
             {
               "caption": "invierno"
@@ -750,10 +803,12 @@
               "caption": "imán"
             },
             {
-              "caption": "uno"
+              "caption": "uno",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-u/uno.webp"
             },
             {
-              "caption": "isla"
+              "caption": "isla",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/isla.webp"
             },
             {
               "caption": "arco"
@@ -762,7 +817,8 @@
               "caption": "igual"
             },
             {
-              "caption": "insecto"
+              "caption": "insecto",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/insecto.webp"
             },
             {
               "caption": "olla"
@@ -792,16 +848,19 @@
               "caption": "imán"
             },
             {
-              "caption": "oso"
+              "caption": "oso",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oso.webp"
             },
             {
-              "caption": "iglú"
+              "caption": "iglú",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iglu.webp"
             },
             {
               "caption": "igual"
             },
             {
-              "caption": "indio"
+              "caption": "indio",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/indio.webp"
             },
             {
               "caption": "arco"
@@ -884,7 +943,8 @@
           "columns": 4,
           "cells": [
             {
-              "caption": "unicornio"
+              "caption": "unicornio",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-u/unicornio.webp"
             },
             {
               "caption": "oveja"
@@ -899,22 +959,26 @@
               "caption": "uvas"
             },
             {
-              "caption": "estrella"
+              "caption": "estrella",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-e/estrella.webp"
             },
             {
               "caption": "traje"
             },
             {
-              "caption": "elefante"
+              "caption": "elefante",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-e/elefante.webp"
             },
             {
               "caption": "árbol"
             },
             {
-              "caption": "uno"
+              "caption": "uno",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-u/uno.webp"
             },
             {
-              "caption": "oso"
+              "caption": "oso",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oso.webp"
             },
             {
               "caption": "águila"
@@ -926,10 +990,12 @@
               "caption": "traje"
             },
             {
-              "caption": "insecto"
+              "caption": "insecto",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/insecto.webp"
             },
             {
-              "caption": "uno"
+              "caption": "uno",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-u/uno.webp"
             }
           ]
         }
@@ -956,22 +1022,26 @@
               "caption": "traje"
             },
             {
-              "caption": "uno"
+              "caption": "uno",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-u/uno.webp"
             },
             {
-              "caption": "oso"
+              "caption": "oso",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oso.webp"
             },
             {
               "caption": "uvas"
             },
             {
-              "caption": "unicornio"
+              "caption": "unicornio",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-u/unicornio.webp"
             },
             {
               "caption": "arco"
             },
             {
-              "caption": "estrella"
+              "caption": "estrella",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-e/estrella.webp"
             },
             {
               "caption": "imán"

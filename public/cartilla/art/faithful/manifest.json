@@ -1,1 +1,164 @@
-[]
+[
+  {
+    "slug": "iglu",
+    "word": "iglú",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-i/iglu.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "oso",
+    "word": "oso",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-o/oso.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "estrella",
+    "word": "estrella",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-e/estrella.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "abanico",
+    "word": "abanico",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-a/abanico.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "alas",
+    "word": "alas",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-a/alas.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "anillo",
+    "word": "anillo",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-a/anillo.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "arana",
+    "word": "araña",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-a/arana.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "elefante",
+    "word": "elefante",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-e/elefante.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "erizo",
+    "word": "erizo",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-e/erizo.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "escalera",
+    "word": "escalera",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-e/escalera.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "indio",
+    "word": "indio",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-i/indio.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "insecto",
+    "word": "insecto",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-i/insecto.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "isla",
+    "word": "isla",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-i/isla.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "ocho",
+    "word": "ocho",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-o/ocho.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "oreja",
+    "word": "oreja",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-o/oreja.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "unicornio",
+    "word": "unicornio",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-u/unicornio.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "espejo",
+    "word": "espejo",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-e/espejo.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "uno",
+    "word": "uno",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-u/uno.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  }
+]
