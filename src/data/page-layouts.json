@@ -309,6 +309,63 @@
         { "id": "p45-s5", "regionType": "sentence-line", "order": 11, "fontRole": "body", "text": "Nono no le pone nada a esa tina." },
         { "id": "p45-s6", "regionType": "sentence-line", "order": 12, "fontRole": "body", "text": "Esa tina no tiene nada." }
       ]
+    },
+    "47": {
+      "regions": [
+        { "id": "p47-instr1", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Escribe con tu mejor letra." },
+        { "id": "p47-write-N", "regionType": "writing-line", "order": 1, "fontRole": "tracing", "modelText": "Ñ" },
+        { "id": "p47-write-N2", "regionType": "writing-line", "order": 2, "fontRole": "tracing" },
+        { "id": "p47-write-n", "regionType": "writing-line", "order": 3, "fontRole": "tracing", "modelText": "ñ" },
+        { "id": "p47-write-n2", "regionType": "writing-line", "order": 4, "fontRole": "tracing" },
+        { "id": "p47-instr2", "regionType": "instruction", "order": 5, "fontRole": "body", "text": "Haz un dibujo que represente una palabra que comienza con ñ." },
+        { "id": "p47-draw", "regionType": "draw-box", "order": 6, "fontRole": "body" }
+      ]
+    },
+    "49": {
+      "regions": [
+        { "id": "p49-title", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Ññ" },
+        { "id": "p49-syl1", "regionType": "syllable-bubble", "order": 1, "fontRole": "body", "text": "ña  ñe  ñi  ño  ñu" },
+        { "id": "p49-syl2", "regionType": "syllable-bubble", "order": 2, "fontRole": "body", "text": "ñu  ño  ña  ñe  ñi" },
+        { "id": "p49-words1", "regionType": "vocab-grid", "order": 3, "fontRole": "body", "text": "ñame · moño · Meñe · niñito · uña" },
+        { "id": "p49-words2", "regionType": "vocab-grid", "order": 4, "fontRole": "body", "text": "año · niña · paño · sueño · añitos" },
+        { "id": "p49-words3", "regionType": "vocab-grid", "order": 5, "fontRole": "body", "text": "moñudo · sueña · piña · puño · pañuelo" },
+        { "id": "p49-sightwords", "regionType": "vocab-grid", "order": 6, "fontRole": "heading", "text": "del" },
+        { "id": "p49-s1", "regionType": "sentence-line", "order": 7, "fontRole": "body", "text": "Meñe es dueña de esa piñata." },
+        { "id": "p49-s2", "regionType": "sentence-line", "order": 8, "fontRole": "body", "text": "La piñata es del año pasado." },
+        { "id": "p49-s3", "regionType": "sentence-line", "order": 9, "fontRole": "body", "text": "La piñata está en el patio." },
+        { "id": "p49-s4", "regionType": "sentence-line", "order": 10, "fontRole": "body", "text": "Noña tiene una niña." },
+        { "id": "p49-s5", "regionType": "sentence-line", "order": 11, "fontRole": "body", "text": "La niña tiene sueño." },
+        { "id": "p49-s6", "regionType": "sentence-line", "order": 12, "fontRole": "body", "text": "Noña le pone el pañal a la niña." }
+      ]
+    },
+    "51": {
+      "regions": [
+        { "id": "p51-instr1", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Escribe con tu mejor letra." },
+        { "id": "p51-write-B", "regionType": "writing-line", "order": 1, "fontRole": "tracing", "modelText": "B" },
+        { "id": "p51-write-B2", "regionType": "writing-line", "order": 2, "fontRole": "tracing" },
+        { "id": "p51-write-b", "regionType": "writing-line", "order": 3, "fontRole": "tracing", "modelText": "b" },
+        { "id": "p51-write-b2", "regionType": "writing-line", "order": 4, "fontRole": "tracing" },
+        { "id": "p51-instr2", "regionType": "instruction", "order": 5, "fontRole": "body", "text": "Haz un dibujo que represente una palabra que comienza con b." },
+        { "id": "p51-draw", "regionType": "draw-box", "order": 6, "fontRole": "body" }
+      ]
+    },
+    "53": {
+      "regions": [
+        { "id": "p53-title", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Bb" },
+        { "id": "p53-syl1", "regionType": "syllable-bubble", "order": 1, "fontRole": "body", "text": "ba  be  bi  bo  bu" },
+        { "id": "p53-syl2", "regionType": "syllable-bubble", "order": 2, "fontRole": "body", "text": "bu  bo  ba  be  bi" },
+        { "id": "p53-words1", "regionType": "vocab-grid", "order": 3, "fontRole": "body", "text": "baño · bebé · bueno · bonita · cubito" },
+        { "id": "p53-words2", "regionType": "vocab-grid", "order": 4, "fontRole": "body", "text": "bota · Bebo · lobo · sube · bote" },
+        { "id": "p53-words3", "regionType": "vocab-grid", "order": 5, "fontRole": "body", "text": "bolo · bonito · bate · batea · nube" },
+        { "id": "p53-sightwords", "regionType": "vocab-grid", "order": 6, "fontRole": "heading", "text": "alto · con · bueno" },
+        { "id": "p53-s1", "regionType": "sentence-line", "order": 7, "fontRole": "body", "text": "La nube sube y sube. Es una nube bonita." },
+        { "id": "p53-s2", "regionType": "sentence-line", "order": 8, "fontRole": "body", "text": "Bebo, batea la bola de Pepito." },
+        { "id": "p53-s3", "regionType": "sentence-line", "order": 9, "fontRole": "body", "text": "La bola sube y sube alto." },
+        { "id": "p53-s4", "regionType": "sentence-line", "order": 10, "fontRole": "body", "text": "La bola sube a la nube." },
+        { "id": "p53-s5", "regionType": "sentence-line", "order": 11, "fontRole": "body", "text": "Pepito batea la bola con el bate." },
+        { "id": "p53-s6", "regionType": "sentence-line", "order": 12, "fontRole": "body", "text": "La bola sube y sube alto también." },
+        { "id": "p53-s7", "regionType": "sentence-line", "order": 13, "fontRole": "body", "text": "Pepito es bueno en la pelota." }
+      ]
     }
   }
 }
