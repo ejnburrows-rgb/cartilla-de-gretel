@@ -469,6 +469,57 @@
         { "id": "p69-s5", "regionType": "sentence-line", "order": 10, "fontRole": "body", "text": "Goloso y Musulunga van a la laguna." },
         { "id": "p69-s6", "regionType": "sentence-line", "order": 11, "fontRole": "body", "text": "Goloso le regala un gusanito rosadito a Musulunga." }
       ]
+    },
+    "71": {
+      "regions": [
+        { "id": "p71-instr1", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Escribe con tu mejor letra." },
+        { "id": "p71-write-F", "regionType": "writing-line", "order": 1, "fontRole": "tracing", "modelText": "F" },
+        { "id": "p71-write-F2", "regionType": "writing-line", "order": 2, "fontRole": "tracing" },
+        { "id": "p71-write-f", "regionType": "writing-line", "order": 3, "fontRole": "tracing", "modelText": "f" },
+        { "id": "p71-write-f2", "regionType": "writing-line", "order": 4, "fontRole": "tracing" },
+        { "id": "p71-instr2", "regionType": "instruction", "order": 5, "fontRole": "body", "text": "Haz un dibujo que represente una palabra que comienza con f." },
+        { "id": "p71-draw", "regionType": "draw-box", "order": 6, "fontRole": "body" }
+      ]
+    },
+    "73": {
+      "regions": [
+        { "id": "p73-title", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Ff" },
+        { "id": "p73-syl1", "regionType": "syllable-bubble", "order": 1, "fontRole": "body", "text": "fa  fe  fi  fo  fu" },
+        { "id": "p73-syl2", "regionType": "syllable-bubble", "order": 2, "fontRole": "body", "text": "fu  fo  fa  fe  fi" },
+        { "id": "p73-words1", "regionType": "vocab-grid", "order": 3, "fontRole": "body", "text": "familia · Fígaro · fama · famoso · foto" },
+        { "id": "p73-words2", "regionType": "vocab-grid", "order": 4, "fontRole": "body", "text": "fino · fusta · fumiga · teléfono · feo" },
+        { "id": "p73-words3", "regionType": "vocab-grid", "order": 5, "fontRole": "body", "text": "fila · falso · fortuna · Ofelia · foca" },
+        { "id": "p73-sightwords", "regionType": "vocab-grid", "order": 6, "fontRole": "heading", "text": "hay" },
+        { "id": "p73-s1", "regionType": "sentence-line", "order": 7, "fontRole": "body", "text": "La familia de Ofelia va a la finca de Felo." },
+        { "id": "p73-s2", "regionType": "sentence-line", "order": 8, "fontRole": "body", "text": "En la finca de Felo hay aves y ganado." },
+        { "id": "p73-s3", "regionType": "sentence-line", "order": 9, "fontRole": "body", "text": "Felo arrea el ganado con una fusta. El ganado vale una fortuna. Es un ganado de fama." },
+        { "id": "p73-s4", "regionType": "sentence-line", "order": 10, "fontRole": "body", "text": "Felo pone todo el ganado en fila." }
+      ]
+    },
+    "75": {
+      "regions": [
+        { "id": "p75-instr1", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Escribe con tu mejor letra." },
+        { "id": "p75-write-J", "regionType": "writing-line", "order": 1, "fontRole": "tracing", "modelText": "J" },
+        { "id": "p75-write-J2", "regionType": "writing-line", "order": 2, "fontRole": "tracing" },
+        { "id": "p75-write-j", "regionType": "writing-line", "order": 3, "fontRole": "tracing", "modelText": "j" },
+        { "id": "p75-write-j2", "regionType": "writing-line", "order": 4, "fontRole": "tracing" },
+        { "id": "p75-instr2", "regionType": "instruction", "order": 5, "fontRole": "body", "text": "Haz un dibujo que represente una palabra que comienza con j." },
+        { "id": "p75-draw", "regionType": "draw-box", "order": 6, "fontRole": "body" }
+      ]
+    },
+    "77": {
+      "regions": [
+        { "id": "p77-title", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Jj" },
+        { "id": "p77-syl1", "regionType": "syllable-bubble", "order": 1, "fontRole": "body", "text": "ja  je  ji  jo  ju" },
+        { "id": "p77-syl2", "regionType": "syllable-bubble", "order": 2, "fontRole": "body", "text": "ju  jo  ja  je  ji" },
+        { "id": "p77-words1", "regionType": "vocab-grid", "order": 3, "fontRole": "body", "text": "jaba · baja · jabón · Jesús · Julia" },
+        { "id": "p77-words2", "regionType": "vocab-grid", "order": 4, "fontRole": "body", "text": "jicotea · jura · vieja · jamón · jarro" },
+        { "id": "p77-words3", "regionType": "vocab-grid", "order": 5, "fontRole": "body", "text": "ají · jinete · jefe · José · joven" },
+        { "id": "p77-s1", "regionType": "sentence-line", "order": 6, "fontRole": "body", "text": "Jesús y Julia son amigos. A José le gusta el jamón y a Julia le gusta el jugo de tomate." },
+        { "id": "p77-s2", "regionType": "sentence-line", "order": 7, "fontRole": "body", "text": "Juan tiene una jutía y la baña con jabón." },
+        { "id": "p77-s3", "regionType": "sentence-line", "order": 8, "fontRole": "body", "text": "José y Josefa juegan en la laguna. Jabela es una jicotea." },
+        { "id": "p77-s4", "regionType": "sentence-line", "order": 9, "fontRole": "body", "text": "A Jabela le gusta la laguna. A Jabela no le gusta la espuma de jabón." }
+      ]
     }
   }
 }
