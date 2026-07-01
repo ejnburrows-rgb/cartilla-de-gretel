@@ -418,6 +418,57 @@
         { "id": "p61-s3", "regionType": "sentence-line", "order": 9, "fontRole": "body", "text": "Rita le da al bolo. Rita se ríe." },
         { "id": "p61-s4", "regionType": "sentence-line", "order": 10, "fontRole": "body", "text": "Rolo y Roberto se ríen también." }
       ]
+    },
+    "63": {
+      "regions": [
+        { "id": "p63-instr1", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Escribe con tu mejor letra." },
+        { "id": "p63-write-rr", "regionType": "writing-line", "order": 1, "fontRole": "tracing", "modelText": "rr" },
+        { "id": "p63-write-rr2", "regionType": "writing-line", "order": 2, "fontRole": "tracing" },
+        { "id": "p63-instr2", "regionType": "instruction", "order": 3, "fontRole": "body", "text": "Haz un dibujo que represente una palabra que contenga la letra rr." },
+        { "id": "p63-draw", "regionType": "draw-box", "order": 4, "fontRole": "body" }
+      ]
+    },
+    "65": {
+      "regions": [
+        { "id": "p65-title", "regionType": "title", "order": 0, "fontRole": "heading", "text": "rr" },
+        { "id": "p65-syl1", "regionType": "syllable-bubble", "order": 1, "fontRole": "body", "text": "rra  rre  rri  rro  rru" },
+        { "id": "p65-syl2", "regionType": "syllable-bubble", "order": 2, "fontRole": "body", "text": "rru  rro  rra  rre  rri" },
+        { "id": "p65-words1", "regionType": "vocab-grid", "order": 3, "fontRole": "body", "text": "tarro · perro · barro · arroba · arriba" },
+        { "id": "p65-words2", "regionType": "vocab-grid", "order": 4, "fontRole": "body", "text": "burro · amarro · arrebato · parra · arruina" },
+        { "id": "p65-words3", "regionType": "vocab-grid", "order": 5, "fontRole": "body", "text": "tierra · carrusel · torre · burrito · carro" },
+        { "id": "p65-s1", "regionType": "sentence-line", "order": 6, "fontRole": "body", "text": "Rode tiene un perro. Es un perro alemán." },
+        { "id": "p65-s2", "regionType": "sentence-line", "order": 7, "fontRole": "body", "text": "El perro de Rode tiene una tina de barro." },
+        { "id": "p65-s3", "regionType": "sentence-line", "order": 8, "fontRole": "body", "text": "La tina de barro está en el piso." },
+        { "id": "p65-s4", "regionType": "sentence-line", "order": 9, "fontRole": "body", "text": "Rosi amarra el perro en la mata." },
+        { "id": "p65-s5", "regionType": "sentence-line", "order": 10, "fontRole": "body", "text": "El perro no muerde. El perro Tito mueve el rabo. Tito arruinó el carro de rosas." }
+      ]
+    },
+    "67": {
+      "regions": [
+        { "id": "p67-instr1", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Escribe con tu mejor letra." },
+        { "id": "p67-write-G", "regionType": "writing-line", "order": 1, "fontRole": "tracing", "modelText": "G" },
+        { "id": "p67-write-G2", "regionType": "writing-line", "order": 2, "fontRole": "tracing" },
+        { "id": "p67-write-g", "regionType": "writing-line", "order": 3, "fontRole": "tracing", "modelText": "g" },
+        { "id": "p67-write-g2", "regionType": "writing-line", "order": 4, "fontRole": "tracing" },
+        { "id": "p67-instr2", "regionType": "instruction", "order": 5, "fontRole": "body", "text": "Haz un dibujo que represente una palabra que comienza con g." },
+        { "id": "p67-draw", "regionType": "draw-box", "order": 6, "fontRole": "body" }
+      ]
+    },
+    "69": {
+      "regions": [
+        { "id": "p69-title", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Gg" },
+        { "id": "p69-syl1", "regionType": "syllable-bubble", "order": 1, "fontRole": "body", "text": "ga  go  gu" },
+        { "id": "p69-syl2", "regionType": "syllable-bubble", "order": 2, "fontRole": "body", "text": "gu  go  ga" },
+        { "id": "p69-words1", "regionType": "vocab-grid", "order": 3, "fontRole": "body", "text": "gato · goma · Magali · ganas · gusta" },
+        { "id": "p69-words2", "regionType": "vocab-grid", "order": 4, "fontRole": "body", "text": "Gustavo · mago · lago · agua · gusano" },
+        { "id": "p69-words3", "regionType": "vocab-grid", "order": 5, "fontRole": "body", "text": "gotero · laguna · golosina · gorra · góndola" },
+        { "id": "p69-s1", "regionType": "sentence-line", "order": 6, "fontRole": "body", "text": "El gato de Magali bebe agua en el lago." },
+        { "id": "p69-s2", "regionType": "sentence-line", "order": 7, "fontRole": "body", "text": "Magali le pone una gorra a su gato Goloso." },
+        { "id": "p69-s3", "regionType": "sentence-line", "order": 8, "fontRole": "body", "text": "Goloso ve a Musulunga, la gata gordita." },
+        { "id": "p69-s4", "regionType": "sentence-line", "order": 9, "fontRole": "body", "text": "Magali y Gustavo van al lago. En el lago ven el agua. A Magali le gusta el agua." },
+        { "id": "p69-s5", "regionType": "sentence-line", "order": 10, "fontRole": "body", "text": "Goloso y Musulunga van a la laguna." },
+        { "id": "p69-s6", "regionType": "sentence-line", "order": 11, "fontRole": "body", "text": "Goloso le regala un gusanito rosadito a Musulunga." }
+      ]
     }
   }
 }
