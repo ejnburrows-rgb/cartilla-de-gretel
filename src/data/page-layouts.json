@@ -1,6 +1,6 @@
 {
   "_comment": "CANONICAL faithful page layouts — the single source of truth for the student CRM view, student workbook, and teacher flipbook. Each page is an ordered list of regions; text regions hold VERIFIED transcriptions (checked against the official workbook), picture cells / illustration slots hold `illustrationSrc` paths to faithful COLOR crops from the art pipeline (public/cartilla/art/faithful/manifest.json). A page absent here has no verified layout yet and renders its surface's existing fallback. NOTHING here is placeholder or invented — pages are added lesson-by-lesson only after the owner verifies them. Pictures without a real crop show an explicit 'pendiente' marker, never an invented drawing.",
-  "_status": "Lección 2-6 (Vocales O, A, E, I, U — all five vowel lessons) + Lección 7 (Consonante M, pages 19+21 of its 4-page spread). Writing pages (6, 9, 12, 15, 18, 19) complete. Grid pages (4, 7, 10, 13, 16) have faithful text + correct picture grid with word captions; pictures pending crops from the art pipeline. Matching/fill-in-blank pages (5, 8, 11, 14, 17, 20, 22) are intentionally omitted for now — interactive layouts (line-matching, fill-in-the-blank) not yet worth building faithfully; page 21 (letter + syllables + sentences, the core content) is included. Awaiting owner verification.",
+  "_status": "Lecciones 2-6 (all 5 vowels) + Lección 7 (Consonante M) + Lección 8 (Consonante P). Each consonant lesson contributes its writing page + its core letter/syllables/sentences page; the matching (circle-the-syllable) and fill-in-the-blank pages are intentionally deferred for every lesson, same policy as the vowel matching pages. Awaiting owner verification.",
   "pages": {
     "4": {
       "regions": [
@@ -138,6 +138,62 @@
         { "id": "p21-s4", "regionType": "sentence-line", "order": 10, "fontRole": "body", "text": "Memo ama a Mumi." },
         { "id": "p21-s5", "regionType": "sentence-line", "order": 11, "fontRole": "body", "text": "Mamá mía ámame. Mímame a mí." },
         { "id": "p21-s6", "regionType": "sentence-line", "order": 12, "fontRole": "body", "text": "Mi mamá me mima." }
+      ]
+    },
+    "23": {
+      "regions": [
+        { "id": "p23-instr1", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Escribe con tu mejor letra." },
+        { "id": "p23-write-P", "regionType": "writing-line", "order": 1, "fontRole": "tracing", "modelText": "P" },
+        { "id": "p23-write-P2", "regionType": "writing-line", "order": 2, "fontRole": "tracing" },
+        { "id": "p23-write-p", "regionType": "writing-line", "order": 3, "fontRole": "tracing", "modelText": "p" },
+        { "id": "p23-write-p2", "regionType": "writing-line", "order": 4, "fontRole": "tracing" },
+        { "id": "p23-instr2", "regionType": "instruction", "order": 5, "fontRole": "body", "text": "Haz un dibujo que represente una palabra que comienza con p." },
+        { "id": "p23-draw", "regionType": "draw-box", "order": 6, "fontRole": "body" }
+      ]
+    },
+    "25": {
+      "regions": [
+        { "id": "p25-title", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Pp" },
+        { "id": "p25-syl1", "regionType": "syllable-bubble", "order": 1, "fontRole": "body", "text": "pa  pe  pi  po  pu" },
+        { "id": "p25-syl2", "regionType": "syllable-bubble", "order": 2, "fontRole": "body", "text": "pu  po  pa  pe  pi" },
+        { "id": "p25-words1", "regionType": "vocab-grid", "order": 3, "fontRole": "body", "text": "papá · papi · Pepe · pipo · Pupi" },
+        { "id": "p25-words2", "regionType": "vocab-grid", "order": 4, "fontRole": "body", "text": "mapo · puma · Mupi · mapa · ¡upa!" },
+        { "id": "p25-words3", "regionType": "vocab-grid", "order": 5, "fontRole": "body", "text": "Mapi · pie · púa · pomo · Pepo" },
+        { "id": "p25-sightword", "regionType": "vocab-grid", "order": 6, "fontRole": "heading", "text": "yo" },
+        { "id": "p25-s1", "regionType": "sentence-line", "order": 7, "fontRole": "body", "text": "Papá y Pepe aman a mamá." },
+        { "id": "p25-s2", "regionType": "sentence-line", "order": 8, "fontRole": "body", "text": "Pupi ama a papá." },
+        { "id": "p25-s3", "regionType": "sentence-line", "order": 9, "fontRole": "body", "text": "Yo amo a mamá y a papá." },
+        { "id": "p25-s4", "regionType": "sentence-line", "order": 10, "fontRole": "body", "text": "Mi papá ama a Pupi." },
+        { "id": "p25-s5", "regionType": "sentence-line", "order": 11, "fontRole": "body", "text": "Papá y mamá me aman." }
+      ]
+    },
+    "27": {
+      "regions": [
+        { "id": "p27-instr1", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Escribe con tu mejor letra." },
+        { "id": "p27-write-S", "regionType": "writing-line", "order": 1, "fontRole": "tracing", "modelText": "S" },
+        { "id": "p27-write-S2", "regionType": "writing-line", "order": 2, "fontRole": "tracing" },
+        { "id": "p27-write-s", "regionType": "writing-line", "order": 3, "fontRole": "tracing", "modelText": "s" },
+        { "id": "p27-write-s2", "regionType": "writing-line", "order": 4, "fontRole": "tracing" },
+        { "id": "p27-instr2", "regionType": "instruction", "order": 5, "fontRole": "body", "text": "Haz un dibujo que represente una palabra que comienza con s." },
+        { "id": "p27-draw", "regionType": "draw-box", "order": 6, "fontRole": "body" }
+      ]
+    },
+    "29": {
+      "regions": [
+        { "id": "p29-title", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Ss" },
+        { "id": "p29-syl1", "regionType": "syllable-bubble", "order": 1, "fontRole": "body", "text": "sa  se  si  so  su" },
+        { "id": "p29-syl2", "regionType": "syllable-bubble", "order": 2, "fontRole": "body", "text": "su  so  sa  se  si" },
+        { "id": "p29-words1", "regionType": "vocab-grid", "order": 3, "fontRole": "body", "text": "masa · sapo · así · puso · Sisi" },
+        { "id": "p29-words2", "regionType": "vocab-grid", "order": 4, "fontRole": "body", "text": "mesa · seso · sopa · supo · ese" },
+        { "id": "p29-words3", "regionType": "vocab-grid", "order": 5, "fontRole": "body", "text": "suma · Susi · paso · supe · esa" },
+        { "id": "p29-sightwords", "regionType": "vocab-grid", "order": 6, "fontRole": "heading", "text": "es · de · un · está · en · la · el" },
+        { "id": "p29-s1", "regionType": "sentence-line", "order": 7, "fontRole": "body", "text": "La mesa es de Susi." },
+        { "id": "p29-s2", "regionType": "sentence-line", "order": 8, "fontRole": "body", "text": "La sopa está en la mesa." },
+        { "id": "p29-s3", "regionType": "sentence-line", "order": 9, "fontRole": "body", "text": "Papá pasa la sopa a Susi." },
+        { "id": "p29-s4", "regionType": "sentence-line", "order": 10, "fontRole": "body", "text": "Sisi pasa la sopa a mamá." },
+        { "id": "p29-s5", "regionType": "sentence-line", "order": 11, "fontRole": "body", "text": "Ese sapo es de Sisi. Es el sapo Samapo." },
+        { "id": "p29-s6", "regionType": "sentence-line", "order": 12, "fontRole": "body", "text": "Sisi pasa el sapo a Pepe." },
+        { "id": "p29-s7", "regionType": "sentence-line", "order": 13, "fontRole": "body", "text": "Pepe puso un sapo en la mesa." }
       ]
     }
   }

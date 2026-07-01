@@ -3,7 +3,15 @@ import { ArrowLeft } from "lucide-react";
 import { FaithfulPageRenderer } from "@/components/cartilla/FaithfulPageRenderer";
 import { PdfPage } from "@/components/cartilla/PdfPage";
 
-const PILOT_PAGES = [1, 2, 3, 4, 5, 6, 7, 9, 10, 12, 13, 15, 16, 18, 19, 21];
+const PILOT_PAGES = [1, 2, 3, 4, 5, 6, 7, 9, 10, 12, 13, 15, 16, 18, 19, 21, 23, 25, 27, 29];
+
+/** Lesson number for a given book page: intro=1 (pp1-3), vowels 2-6 (pp4-18,
+ * 3pp each), consonants 7+ (pp19+, 4pp each). Preview-only helper. */
+function lessonForPage(pageNumber: number): number {
+  if (pageNumber <= 3) return 1;
+  if (pageNumber <= 18) return 2 + Math.floor((pageNumber - 4) / 3);
+  return 7 + Math.floor((pageNumber - 19) / 4);
+}
 
 export const Route = createFileRoute("/cartilla/pilot-faithful/$n")({
   component: PilotFaithfulPage,
@@ -60,24 +68,7 @@ function PilotFaithfulPage() {
               Faithful HTML (new)
             </h2>
             <div className="overflow-hidden rounded-xl border border-foreground/10">
-              <FaithfulPageRenderer
-                pageNumber={pageNumber}
-                lessonNumber={
-                  pageNumber <= 3
-                    ? 1
-                    : pageNumber <= 6
-                      ? 2
-                      : pageNumber <= 9
-                        ? 3
-                        : pageNumber <= 12
-                          ? 4
-                          : pageNumber <= 15
-                            ? 5
-                            : pageNumber <= 18
-                              ? 6
-                              : 7
-                }
-              />
+              <FaithfulPageRenderer pageNumber={pageNumber} lessonNumber={lessonForPage(pageNumber)} />
             </div>
           </div>
           <div>
