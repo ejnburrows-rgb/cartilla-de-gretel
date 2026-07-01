@@ -2,6 +2,214 @@
   "_comment": "CANONICAL faithful page layouts — the single source of truth for the student CRM view, student workbook, and teacher flipbook. Each page is an ordered list of regions; text regions hold VERIFIED transcriptions (checked against the official workbook), picture cells / illustration slots hold `illustrationSrc` paths to faithful COLOR crops from the art pipeline (public/cartilla/art/faithful/manifest.json). A page absent here has no verified layout yet and renders its surface's existing fallback. NOTHING here is placeholder or invented — pages are added lesson-by-lesson only after the owner verifies them. Pictures without a real crop show an explicit 'pendiente' marker, never an invented drawing.",
   "_status": "ALL 24 LESSONS complete for their writing page + core letter/syllables/sentences page: Lecciones 2-6 (vowels O,A,E,I,U) + Lecciones 7-24 (consonants M,P,S,T,D,L,N,Ñ,B,V,R,rr,G,F,J,C,Y,Z). Every lesson's matching (circle-the-syllable / trace-a-line) and fill-in-the-blank pages are intentionally deferred — same policy applied consistently throughout, since those are picture- or interactive-layout-driven and not yet worth building faithfully. All text transcribed from the owner-uploaded workbook PDF and cross-checked page-by-page; picture-grid illustrations show honest 'pendiente' markers pending the art pipeline. AWAITING OWNER VERIFICATION before this is considered final.",
   "pages": {
+    "1": {
+      "regions": [
+        {
+          "id": "p1-instr",
+          "regionType": "instruction",
+          "order": 0,
+          "fontRole": "body",
+          "text": "Circula los dibujos de las palabras en cada línea horizontal que comienzan con el mismo sonido."
+        },
+        {
+          "id": "p1-grid",
+          "regionType": "picture-grid",
+          "order": 1,
+          "fontRole": "body",
+          "columns": 4,
+          "cells": [
+            {
+              "caption": "abrigo"
+            },
+            {
+              "caption": "imán"
+            },
+            {
+              "caption": "abanico"
+            },
+            {
+              "caption": "oso"
+            },
+            {
+              "caption": "isla"
+            },
+            {
+              "caption": "avión"
+            },
+            {
+              "caption": "imán"
+            },
+            {
+              "caption": "remolino"
+            },
+            {
+              "caption": "escalera"
+            },
+            {
+              "caption": "uno"
+            },
+            {
+              "caption": "escuela"
+            },
+            {
+              "caption": "oreja"
+            },
+            {
+              "caption": "traje"
+            },
+            {
+              "caption": "arco"
+            },
+            {
+              "caption": "oveja"
+            },
+            {
+              "caption": "elefante"
+            },
+            {
+              "caption": "ojos"
+            },
+            {
+              "caption": "maíz"
+            },
+            {
+              "caption": "abeja"
+            },
+            {
+              "caption": "olla"
+            }
+          ]
+        }
+      ]
+    },
+    "2": {
+      "regions": [
+        {
+          "id": "p2-instr",
+          "regionType": "instruction",
+          "order": 0,
+          "fontRole": "body",
+          "text": "Circula el dibujo que comienza con la vocal del recuadro."
+        },
+        {
+          "id": "p2-rows",
+          "regionType": "vowel-pick-one",
+          "order": 1,
+          "fontRole": "body",
+          "vowelRows": [
+            {
+              "letter": "a",
+              "cells": [
+                {
+                  "caption": "anillo"
+                },
+                {
+                  "caption": "manzana"
+                },
+                {
+                  "caption": "libro"
+                }
+              ]
+            },
+            {
+              "letter": "e",
+              "cells": [
+                {
+                  "caption": "casa"
+                },
+                {
+                  "caption": "árbol"
+                },
+                {
+                  "caption": "estrella"
+                }
+              ]
+            },
+            {
+              "letter": "i",
+              "cells": [
+                {
+                  "caption": "taza"
+                },
+                {
+                  "caption": "indio"
+                },
+                {
+                  "caption": "pera"
+                }
+              ]
+            },
+            {
+              "letter": "o",
+              "cells": [
+                {
+                  "caption": "pájaro"
+                },
+                {
+                  "caption": "oso"
+                },
+                {
+                  "caption": "carro"
+                }
+              ]
+            },
+            {
+              "letter": "u",
+              "cells": [
+                {
+                  "caption": "uniforme"
+                },
+                {
+                  "caption": "globo"
+                },
+                {
+                  "caption": "dulce"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "3": {
+      "regions": [
+        {
+          "id": "p3-instr",
+          "regionType": "instruction",
+          "order": 0,
+          "fontRole": "body",
+          "text": "Traza una línea de la vocal al dibujo que le corresponde."
+        },
+        {
+          "id": "p3-pairs",
+          "regionType": "vowel-match-all",
+          "order": 1,
+          "fontRole": "body",
+          "vowelPairs": [
+            {
+              "letter": "o",
+              "caption": "ocho"
+            },
+            {
+              "letter": "a",
+              "caption": "araña"
+            },
+            {
+              "letter": "i",
+              "caption": "iglesia"
+            },
+            {
+              "letter": "e",
+              "caption": "escoba"
+            },
+            {
+              "letter": "u",
+              "caption": "uno"
+            }
+          ]
+        }
+      ]
+    },
     "4": {
       "regions": [
         {

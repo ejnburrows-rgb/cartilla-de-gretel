@@ -129,6 +129,54 @@ function VowelLineMatch({ region }: { region: PageRegion }) {
   );
 }
 
+function VowelPickOne({ region }: { region: PageRegion }) {
+  const rows = region.vowelRows ?? [];
+  return (
+    <div className="fp-vowel-pick">
+      {rows.map((row, i) => (
+        <div key={i} className="fp-vowel-pick__row">
+          <span className="fp-vowel-pick__letter">{row.letter}</span>
+          {row.cells.map((cell, j) => (
+            <div key={j} className="fp-vowel-pick__cell">
+              {cell.illustrationSrc ? (
+                <img src={cell.illustrationSrc} alt={cell.caption ?? ""} loading="lazy" />
+              ) : (
+                <div className="fp-art-pending" role="img" aria-label={cell.caption ? `Ilustración pendiente: ${cell.caption}` : "Ilustración pendiente"}>
+                  {cell.caption ? <span className="fp-art-pending__word">{cell.caption}</span> : null}
+                  <span>pendiente</span>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function VowelMatchAll({ region }: { region: PageRegion }) {
+  const pairs = region.vowelPairs ?? [];
+  return (
+    <div className="fp-vowel-match-all">
+      {pairs.map((pair, i) => (
+        <div key={i} className="fp-vowel-match-all__row">
+          <span className="fp-vowel-match-all__letter">{pair.letter}</span>
+          <div className="fp-vowel-match-all__cell">
+            {pair.illustrationSrc ? (
+              <img src={pair.illustrationSrc} alt={pair.caption ?? ""} loading="lazy" />
+            ) : (
+              <div className="fp-art-pending" role="img" aria-label={pair.caption ? `Ilustración pendiente: ${pair.caption}` : "Ilustración pendiente"}>
+                {pair.caption ? <span className="fp-art-pending__word">{pair.caption}</span> : null}
+                <span>pendiente</span>
+              </div>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function RegionView({ region }: { region: PageRegion }) {
   switch (region.regionType) {
     case "illustration-slot":
@@ -137,6 +185,10 @@ function RegionView({ region }: { region: PageRegion }) {
       return <PictureGrid region={region} />;
     case "vowel-line-match":
       return <VowelLineMatch region={region} />;
+    case "vowel-pick-one":
+      return <VowelPickOne region={region} />;
+    case "vowel-match-all":
+      return <VowelMatchAll region={region} />;
     case "syllable-match":
       return <SyllableMatch region={region} />;
     case "fill-in-blank":

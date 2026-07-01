@@ -66,6 +66,8 @@ export type PageRegionType =
 	| "syllable-match" // "Encierra en un círculo la sílaba correspondiente" — a syllable + its candidate-word rows
 	| "fill-in-blank" // "Completa las palabras con la sílaba correcta" — one word-box + blank + syllable choices
 	| "vowel-line-match" // "Traza una línea desde la vocal Xx hasta el dibujo..." — 8 picture cells around a center vowel-pair
+	| "vowel-pick-one" // "Circula el dibujo que comienza con la vocal del recuadro" — one row per vowel, 3 picture options
+	| "vowel-match-all" // "Traza una línea de la vocal al dibujo que le corresponde" — all 5 vowels, each paired 1:1 with its picture
 	| "footer";
 
 /** A single illustration cell inside a picture-grid region. */
@@ -127,6 +129,10 @@ export type PageRegion = {
 	letterPair?: string;
 	/** For "vowel-line-match": the word/example the printed page shows already connected to the vowel with a line. */
 	exampleCaption?: string;
+	/** For "vowel-pick-one": one row per vowel — the letter + its candidate picture cells (one is correct). */
+	vowelRows?: Array<{ letter: string; cells: PageGridCell[] }>;
+	/** For "vowel-match-all": all 5 vowels, each 1:1 paired with its picture. */
+	vowelPairs?: Array<{ letter: string } & PageGridCell>;
 	/**
 	 * @deprecated Legacy pilot field that mapped to an INVENTED vector drawing.
 	 * Not faithful — do not use on real pages; kept only so old pilot data parses.

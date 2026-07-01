@@ -329,6 +329,96 @@
   color: var(--book-teal);
 }
 
+/* Vowel pick-one ("Circula el dibujo que comienza con la vocal del recuadro")
+ * — one row per vowel: big letter + 3 candidate picture cells. */
+.fp-vowel-pick {
+  display: flex;
+  flex-direction: column;
+  gap: 2cqw;
+  flex: 1;
+}
+.fp-vowel-pick__row {
+  display: grid;
+  grid-template-columns: 1fr repeat(3, 1fr);
+  gap: 1.5cqw;
+  align-items: stretch;
+}
+.fp-vowel-pick__letter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 6cqw;
+  color: var(--book-teal);
+}
+.fp-vowel-pick__cell {
+  aspect-ratio: 1 / 1;
+  border: 1.5px solid var(--book-teal);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 1cqw;
+}
+.fp-vowel-pick__cell img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.fp-vowel-pick__cell .fp-art-pending {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  font-size: 2.2cqw;
+}
+
+/* Vowel match-all ("Traza una línea de la vocal al dibujo que le
+ * corresponde") — all 5 vowels, each 1:1 paired with its picture. */
+.fp-vowel-match-all {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5cqw;
+  flex: 1;
+}
+.fp-vowel-match-all__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2cqw;
+  align-items: center;
+}
+.fp-vowel-match-all__letter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 6cqw;
+  color: var(--book-teal);
+}
+.fp-vowel-match-all__cell {
+  aspect-ratio: 2 / 1;
+  border: 1.5px solid var(--book-teal);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 1cqw;
+}
+.fp-vowel-match-all__cell img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.fp-vowel-match-all__cell .fp-art-pending {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  font-size: 2.2cqw;
+}
+
 /* Neutral placeholder when a whole page has no verified layout yet and no
  * fallback was supplied. */
 .faithful-page--pending .faithful-page__body {
