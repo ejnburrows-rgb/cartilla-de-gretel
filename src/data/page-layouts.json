@@ -4356,6 +4356,112 @@
         }
       ]
     },
+    "64": {
+      "regions": [
+        {
+          "id": "p64-instr",
+          "regionType": "instruction",
+          "order": 0,
+          "fontRole": "body",
+          "text": "Encierra en un círculo la sílaba correspondiente."
+        },
+        {
+          "id": "p64-rra",
+          "regionType": "syllable-match",
+          "order": 1,
+          "fontRole": "body",
+          "syllable": "rra",
+          "matchRows": [
+            [
+              "barra",
+              "amarra",
+              "pizarra"
+            ],
+            [
+              "Porra",
+              "arrasar",
+              "perra"
+            ]
+          ]
+        },
+        {
+          "id": "p64-rre",
+          "regionType": "syllable-match",
+          "order": 2,
+          "fontRole": "body",
+          "syllable": "rre",
+          "matchRows": [
+            [
+              "torre",
+              "amarre",
+              "arrebatado"
+            ],
+            [
+              "barre",
+              "arrebatar",
+              "arrepiente"
+            ]
+          ]
+        },
+        {
+          "id": "p64-rri",
+          "regionType": "syllable-match",
+          "order": 3,
+          "fontRole": "body",
+          "syllable": "rri",
+          "matchRows": [
+            [
+              "arriba",
+              "arrima",
+              "parrilla"
+            ],
+            [
+              "perrita",
+              "barril",
+              "carrito"
+            ]
+          ]
+        },
+        {
+          "id": "p64-rro",
+          "regionType": "syllable-match",
+          "order": 4,
+          "fontRole": "body",
+          "syllable": "rro",
+          "matchRows": [
+            [
+              "carro",
+              "arroyo",
+              "burro"
+            ],
+            [
+              "perro",
+              "amarro",
+              "tarro"
+            ]
+          ]
+        },
+        {
+          "id": "p64-rru",
+          "regionType": "syllable-match",
+          "order": 5,
+          "fontRole": "body",
+          "syllable": "rru",
+          "matchRows": [
+            [
+              "arruga",
+              "arrugado",
+              "arrullo"
+            ],
+            [
+              "verruga",
+              "arrullar",
+              "arrullador"
+            ]
+          ]
+        }
+      ]
+    },
     "65": {
       "regions": [
         {
@@ -4437,6 +4543,94 @@
         }
       ]
     },
+    "66": {
+      "regions": [
+        {
+          "id": "p66-instr",
+          "regionType": "instruction",
+          "order": 0,
+          "fontRole": "body",
+          "text": "Completa las palabras con la sílaba correcta."
+        },
+        {
+          "id": "p66-fill1",
+          "regionType": "fill-in-blank",
+          "order": 1,
+          "fontRole": "body",
+          "fillItems": [
+            {
+              "wordBox": "perro",
+              "blank": "pe ___",
+              "choices": "rra - rro"
+            },
+            {
+              "wordBox": "barre",
+              "blank": "ba ___",
+              "choices": "rre - rri"
+            },
+            {
+              "wordBox": "torre",
+              "blank": "to ___",
+              "choices": "rro - rre"
+            }
+          ]
+        },
+        {
+          "id": "p66-fill2",
+          "regionType": "fill-in-blank",
+          "order": 2,
+          "fontRole": "body",
+          "fillItems": [
+            {
+              "wordBox": "burro",
+              "blank": "bu ___",
+              "choices": "rro - rru"
+            },
+            {
+              "wordBox": "carro",
+              "blank": "ca ___",
+              "choices": "rro - rru"
+            },
+            {
+              "wordBox": "amarro",
+              "blank": "ama ___",
+              "choices": "rru - rro"
+            }
+          ]
+        },
+        {
+          "id": "p66-instr2",
+          "regionType": "instruction",
+          "order": 3,
+          "fontRole": "body",
+          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
+        },
+        {
+          "id": "p66-write1",
+          "regionType": "writing-line",
+          "order": 4,
+          "fontRole": "tracing"
+        },
+        {
+          "id": "p66-write2",
+          "regionType": "writing-line",
+          "order": 5,
+          "fontRole": "tracing"
+        },
+        {
+          "id": "p66-write3",
+          "regionType": "writing-line",
+          "order": 6,
+          "fontRole": "tracing"
+        },
+        {
+          "id": "p66-write4",
+          "regionType": "writing-line",
+          "order": 7,
+          "fontRole": "tracing"
+        }
+      ]
+    },
     "67": {
       "regions": [
         {
@@ -4484,6 +4678,80 @@
           "regionType": "draw-box",
           "order": 6,
           "fontRole": "body"
+        }
+      ]
+    },
+    "68": {
+      "regions": [
+        {
+          "id": "p68-instr",
+          "regionType": "instruction",
+          "order": 0,
+          "fontRole": "body",
+          "text": "Encierra en un círculo la sílaba correspondiente."
+        },
+        {
+          "id": "p68-ga",
+          "regionType": "syllable-match",
+          "order": 1,
+          "fontRole": "body",
+          "syllable": "ga",
+          "matchRows": [
+            [
+              "garras",
+              "gasolina"
+            ],
+            [
+              "gato",
+              "paga"
+            ],
+            [
+              "ganas",
+              "maga"
+            ]
+          ]
+        },
+        {
+          "id": "p68-go",
+          "regionType": "syllable-match",
+          "order": 2,
+          "fontRole": "body",
+          "syllable": "go",
+          "matchRows": [
+            [
+              "goma",
+              "gorra"
+            ],
+            [
+              "lago",
+              "gota"
+            ],
+            [
+              "mago",
+              "goloso"
+            ]
+          ]
+        },
+        {
+          "id": "p68-gu",
+          "regionType": "syllable-match",
+          "order": 3,
+          "fontRole": "body",
+          "syllable": "gu",
+          "matchRows": [
+            [
+              "gusano",
+              "gula"
+            ],
+            [
+              "agudo",
+              "mangú"
+            ],
+            [
+              "laguna",
+              "aguja"
+            ]
+          ]
         }
       ]
     },
@@ -4572,6 +4840,94 @@
           "order": 11,
           "fontRole": "body",
           "text": "Goloso le regala un gusanito rosadito a Musulunga."
+        }
+      ]
+    },
+    "70": {
+      "regions": [
+        {
+          "id": "p70-instr",
+          "regionType": "instruction",
+          "order": 0,
+          "fontRole": "body",
+          "text": "Completa las palabras con la sílaba correcta."
+        },
+        {
+          "id": "p70-fill1",
+          "regionType": "fill-in-blank",
+          "order": 1,
+          "fontRole": "body",
+          "fillItems": [
+            {
+              "wordBox": "aguja",
+              "blank": "a ___ ja",
+              "choices": "gu - go"
+            },
+            {
+              "wordBox": "ganas",
+              "blank": "___ nas",
+              "choices": "ga - go"
+            },
+            {
+              "wordBox": "mago",
+              "blank": "ma ___",
+              "choices": "go - gu"
+            }
+          ]
+        },
+        {
+          "id": "p70-fill2",
+          "regionType": "fill-in-blank",
+          "order": 2,
+          "fontRole": "body",
+          "fillItems": [
+            {
+              "wordBox": "gato",
+              "blank": "___ to",
+              "choices": "ga - gu"
+            },
+            {
+              "wordBox": "goma",
+              "blank": "___ ma",
+              "choices": "gu - go"
+            },
+            {
+              "wordBox": "lago",
+              "blank": "la ___",
+              "choices": "go - ga"
+            }
+          ]
+        },
+        {
+          "id": "p70-instr2",
+          "regionType": "instruction",
+          "order": 3,
+          "fontRole": "body",
+          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
+        },
+        {
+          "id": "p70-write1",
+          "regionType": "writing-line",
+          "order": 4,
+          "fontRole": "tracing"
+        },
+        {
+          "id": "p70-write2",
+          "regionType": "writing-line",
+          "order": 5,
+          "fontRole": "tracing"
+        },
+        {
+          "id": "p70-write3",
+          "regionType": "writing-line",
+          "order": 6,
+          "fontRole": "tracing"
+        },
+        {
+          "id": "p70-write4",
+          "regionType": "writing-line",
+          "order": 7,
+          "fontRole": "tracing"
         }
       ]
     },
