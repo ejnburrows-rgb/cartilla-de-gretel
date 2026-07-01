@@ -1,6 +1,6 @@
 {
   "_comment": "CANONICAL faithful page layouts — the single source of truth for the student CRM view, student workbook, and teacher flipbook. Each page is an ordered list of regions; text regions hold VERIFIED transcriptions (checked against the official workbook), picture cells / illustration slots hold `illustrationSrc` paths to faithful COLOR crops from the art pipeline (public/cartilla/art/faithful/manifest.json). A page absent here has no verified layout yet and renders its surface's existing fallback. NOTHING here is placeholder or invented — pages are added lesson-by-lesson only after the owner verifies them. Pictures without a real crop show an explicit 'pendiente' marker, never an invented drawing.",
-  "_status": "Lecciones 2-6 (all 5 vowels) + Lección 7 (Consonante M) + Lección 8 (Consonante P). Each consonant lesson contributes its writing page + its core letter/syllables/sentences page; the matching (circle-the-syllable) and fill-in-the-blank pages are intentionally deferred for every lesson, same policy as the vowel matching pages. Awaiting owner verification.",
+  "_status": "ALL 24 LESSONS complete for their writing page + core letter/syllables/sentences page: Lecciones 2-6 (vowels O,A,E,I,U) + Lecciones 7-24 (consonants M,P,S,T,D,L,N,Ñ,B,V,R,rr,G,F,J,C,Y,Z). Every lesson's matching (circle-the-syllable / trace-a-line) and fill-in-the-blank pages are intentionally deferred — same policy applied consistently throughout, since those are picture- or interactive-layout-driven and not yet worth building faithfully. All text transcribed from the owner-uploaded workbook PDF and cross-checked page-by-page; picture-grid illustrations show honest 'pendiente' markers pending the art pipeline. AWAITING OWNER VERIFICATION before this is considered final.",
   "pages": {
     "4": {
       "regions": [
@@ -519,6 +519,81 @@
         { "id": "p77-s2", "regionType": "sentence-line", "order": 7, "fontRole": "body", "text": "Juan tiene una jutía y la baña con jabón." },
         { "id": "p77-s3", "regionType": "sentence-line", "order": 8, "fontRole": "body", "text": "José y Josefa juegan en la laguna. Jabela es una jicotea." },
         { "id": "p77-s4", "regionType": "sentence-line", "order": 9, "fontRole": "body", "text": "A Jabela le gusta la laguna. A Jabela no le gusta la espuma de jabón." }
+      ]
+    },
+    "79": {
+      "regions": [
+        { "id": "p79-instr1", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Escribe con tu mejor letra." },
+        { "id": "p79-write-C", "regionType": "writing-line", "order": 1, "fontRole": "tracing", "modelText": "C" },
+        { "id": "p79-write-C2", "regionType": "writing-line", "order": 2, "fontRole": "tracing" },
+        { "id": "p79-write-c", "regionType": "writing-line", "order": 3, "fontRole": "tracing", "modelText": "c" },
+        { "id": "p79-write-c2", "regionType": "writing-line", "order": 4, "fontRole": "tracing" },
+        { "id": "p79-instr2", "regionType": "instruction", "order": 5, "fontRole": "body", "text": "Haz un dibujo que represente una palabra que comienza con c." },
+        { "id": "p79-draw", "regionType": "draw-box", "order": 6, "fontRole": "body" }
+      ]
+    },
+    "81": {
+      "regions": [
+        { "id": "p81-title", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Cc" },
+        { "id": "p81-syl1", "regionType": "syllable-bubble", "order": 1, "fontRole": "body", "text": "ca  co  cu" },
+        { "id": "p81-syl2", "regionType": "syllable-bubble", "order": 2, "fontRole": "body", "text": "cu  co  ca" },
+        { "id": "p81-words1", "regionType": "vocab-grid", "order": 3, "fontRole": "body", "text": "carro · coco · casa · Cuba · camisa" },
+        { "id": "p81-words2", "regionType": "vocab-grid", "order": 4, "fontRole": "body", "text": "boca · Colombia · poco · pico · Cuco" },
+        { "id": "p81-words3", "regionType": "vocab-grid", "order": 5, "fontRole": "body", "text": "cuna · saco · roca · cumbia · colonia" },
+        { "id": "p81-s1", "regionType": "sentence-line", "order": 6, "fontRole": "body", "text": "Cuco Casanova es un buen amigo del papá y de la mamá de Paco." },
+        { "id": "p81-s2", "regionType": "sentence-line", "order": 7, "fontRole": "body", "text": "El señor Casanova es cubano. El vive en el campo, vive con Doña María, su mamá." },
+        { "id": "p81-s3", "regionType": "sentence-line", "order": 8, "fontRole": "body", "text": "Cuco Casanova juega con los niños y los cuida también." },
+        { "id": "p81-s4", "regionType": "sentence-line", "order": 9, "fontRole": "body", "text": "Todos en la casa de Paco aman a Cuco." }
+      ]
+    },
+    "83": {
+      "regions": [
+        { "id": "p83-instr1", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Escribe con tu mejor letra." },
+        { "id": "p83-write-Y", "regionType": "writing-line", "order": 1, "fontRole": "tracing", "modelText": "Y" },
+        { "id": "p83-write-Y2", "regionType": "writing-line", "order": 2, "fontRole": "tracing" },
+        { "id": "p83-write-y", "regionType": "writing-line", "order": 3, "fontRole": "tracing", "modelText": "y" },
+        { "id": "p83-write-y2", "regionType": "writing-line", "order": 4, "fontRole": "tracing" },
+        { "id": "p83-instr2", "regionType": "instruction", "order": 5, "fontRole": "body", "text": "Haz un dibujo que represente una palabra que comienza con y." },
+        { "id": "p83-draw", "regionType": "draw-box", "order": 6, "fontRole": "body" }
+      ]
+    },
+    "85": {
+      "regions": [
+        { "id": "p85-title", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Yy" },
+        { "id": "p85-syl1", "regionType": "syllable-bubble", "order": 1, "fontRole": "body", "text": "ya  ye  yo  yi  yu" },
+        { "id": "p85-syl2", "regionType": "syllable-bubble", "order": 2, "fontRole": "body", "text": "yu  yo  ya  ye  yi" },
+        { "id": "p85-words1", "regionType": "vocab-grid", "order": 3, "fontRole": "body", "text": "yuca · yema · yate · yegua · yagua" },
+        { "id": "p85-words2", "regionType": "vocab-grid", "order": 4, "fontRole": "body", "text": "ayer · payaso · yute · yoyo · Yucatán" },
+        { "id": "p85-words3", "regionType": "vocab-grid", "order": 5, "fontRole": "body", "text": "cayo · Mayito · joya · yucateco · yeso" },
+        { "id": "p85-s1", "regionType": "sentence-line", "order": 6, "fontRole": "body", "text": "El yate de Yayo está en Yateras. Yayo fue a los cayos a pescar con sus amigas yucatecas." },
+        { "id": "p85-s2", "regionType": "sentence-line", "order": 7, "fontRole": "body", "text": "Yayo tiene una soga de yute para amarrar su yate." },
+        { "id": "p85-s3", "regionType": "sentence-line", "order": 8, "fontRole": "body", "text": "Yayo comió yuca y guacamole. A Yayo le gusta el arroz con yemas de huevos también." },
+        { "id": "p85-s4", "regionType": "sentence-line", "order": 9, "fontRole": "body", "text": "Su mamá le dio el arroz con yemas de huevos ayer. Yayo se lo comió todo." }
+      ]
+    },
+    "87": {
+      "regions": [
+        { "id": "p87-instr1", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Escribe con tu mejor letra." },
+        { "id": "p87-write-Z", "regionType": "writing-line", "order": 1, "fontRole": "tracing", "modelText": "Z" },
+        { "id": "p87-write-Z2", "regionType": "writing-line", "order": 2, "fontRole": "tracing" },
+        { "id": "p87-write-z", "regionType": "writing-line", "order": 3, "fontRole": "tracing", "modelText": "z" },
+        { "id": "p87-write-z2", "regionType": "writing-line", "order": 4, "fontRole": "tracing" },
+        { "id": "p87-instr2", "regionType": "instruction", "order": 5, "fontRole": "body", "text": "Haz un dibujo que represente una palabra que comienza con z." },
+        { "id": "p87-draw", "regionType": "draw-box", "order": 6, "fontRole": "body" }
+      ]
+    },
+    "89": {
+      "regions": [
+        { "id": "p89-title", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Zz" },
+        { "id": "p89-syl1", "regionType": "syllable-bubble", "order": 1, "fontRole": "body", "text": "za  ze  zo  zi  zu" },
+        { "id": "p89-syl2", "regionType": "syllable-bubble", "order": 2, "fontRole": "body", "text": "zu  zo  za  ze  zi" },
+        { "id": "p89-words1", "regionType": "vocab-grid", "order": 3, "fontRole": "body", "text": "zorro · zapato · azul · zig-zag · Zila" },
+        { "id": "p89-words2", "regionType": "vocab-grid", "order": 4, "fontRole": "body", "text": "zeta · taza · lazo · zapote · Zulema" },
+        { "id": "p89-words3", "regionType": "vocab-grid", "order": 5, "fontRole": "body", "text": "calabaza · zumo · azúcar · zepelín · azucarado" },
+        { "id": "p89-s1", "regionType": "sentence-line", "order": 6, "fontRole": "body", "text": "Zulema toma zumo de melón." },
+        { "id": "p89-s2", "regionType": "sentence-line", "order": 7, "fontRole": "body", "text": "A Zulema le gusta el zumo con azúcar." },
+        { "id": "p89-s3", "regionType": "sentence-line", "order": 8, "fontRole": "body", "text": "Ella se bebe el zumo y se pone sus zapatos azules." },
+        { "id": "p89-s4", "regionType": "sentence-line", "order": 9, "fontRole": "body", "text": "Zila va con Zulema, van en un carro con ruedas de calabazas." }
       ]
     }
   }
