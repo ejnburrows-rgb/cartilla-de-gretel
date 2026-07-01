@@ -1,6 +1,6 @@
 {
   "_comment": "CANONICAL faithful page layouts — the single source of truth for the student CRM view, student workbook, and teacher flipbook. Each page is an ordered list of regions; text regions hold VERIFIED transcriptions (checked against the official workbook), picture cells / illustration slots hold `illustrationSrc` paths to faithful COLOR crops from the art pipeline (public/cartilla/art/faithful/manifest.json). A page absent here has no verified layout yet and renders its surface's existing fallback. NOTHING here is placeholder or invented — pages are added lesson-by-lesson only after the owner verifies them. Pictures without a real crop show an explicit 'pendiente' marker, never an invented drawing.",
-  "_status": "Lección 2-6 (Vocales O, A, E, I, U — all five vowel lessons). Writing pages (6, 9, 12, 15, 18) are complete (text + tracing + draw box). Grid pages (4, 7, 10, 13, 16) have faithful instruction text + the correct 4x4 picture grid with word captions; pictures pending crops from the art pipeline. Matching pages (5, 8, 11, 14, 17, trace-a-line) are intentionally omitted until color crops land, since their layout is built around the pictures. Awaiting owner verification. Next: consonants (Lección 7+).",
+  "_status": "Lección 2-6 (Vocales O, A, E, I, U — all five vowel lessons) + Lección 7 (Consonante M, pages 19+21 of its 4-page spread). Writing pages (6, 9, 12, 15, 18, 19) complete. Grid pages (4, 7, 10, 13, 16) have faithful text + correct picture grid with word captions; pictures pending crops from the art pipeline. Matching/fill-in-blank pages (5, 8, 11, 14, 17, 20, 22) are intentionally omitted for now — interactive layouts (line-matching, fill-in-the-blank) not yet worth building faithfully; page 21 (letter + syllables + sentences, the core content) is included. Awaiting owner verification.",
   "pages": {
     "4": {
       "regions": [
@@ -110,6 +110,34 @@
         { "id": "p18-write-u2", "regionType": "writing-line", "order": 4, "fontRole": "tracing" },
         { "id": "p18-instr2", "regionType": "instruction", "order": 5, "fontRole": "body", "text": "Haz un dibujo que represente una palabra que comienza con u." },
         { "id": "p18-draw", "regionType": "draw-box", "order": 6, "fontRole": "body" }
+      ]
+    },
+    "19": {
+      "regions": [
+        { "id": "p19-instr1", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Escribe con tu mejor letra." },
+        { "id": "p19-write-M", "regionType": "writing-line", "order": 1, "fontRole": "tracing", "modelText": "M" },
+        { "id": "p19-write-M2", "regionType": "writing-line", "order": 2, "fontRole": "tracing" },
+        { "id": "p19-write-m", "regionType": "writing-line", "order": 3, "fontRole": "tracing", "modelText": "m" },
+        { "id": "p19-write-m2", "regionType": "writing-line", "order": 4, "fontRole": "tracing" },
+        { "id": "p19-instr2", "regionType": "instruction", "order": 5, "fontRole": "body", "text": "Haz un dibujo que represente una palabra que comienza con m." },
+        { "id": "p19-draw", "regionType": "draw-box", "order": 6, "fontRole": "body" }
+      ]
+    },
+    "21": {
+      "regions": [
+        { "id": "p21-title", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Mm" },
+        { "id": "p21-syl1", "regionType": "syllable-bubble", "order": 1, "fontRole": "body", "text": "ma  me  mi  mo  mu" },
+        { "id": "p21-syl2", "regionType": "syllable-bubble", "order": 2, "fontRole": "body", "text": "mu  mo  ma  me  mi" },
+        { "id": "p21-words1", "regionType": "vocab-grid", "order": 3, "fontRole": "body", "text": "mamá · mío · Meme · Mumi · amo" },
+        { "id": "p21-words2", "regionType": "vocab-grid", "order": 4, "fontRole": "body", "text": "mami · me · ama · Memo · Mimí" },
+        { "id": "p21-words3", "regionType": "vocab-grid", "order": 5, "fontRole": "body", "text": "Mimo · mímame · mía · mima · ámame" },
+        { "id": "p21-sightword", "regionType": "vocab-grid", "order": 6, "fontRole": "heading", "text": "y" },
+        { "id": "p21-s1", "regionType": "sentence-line", "order": 7, "fontRole": "body", "text": "Mi mamá me ama." },
+        { "id": "p21-s2", "regionType": "sentence-line", "order": 8, "fontRole": "body", "text": "Amo a mami. Mamá mía." },
+        { "id": "p21-s3", "regionType": "sentence-line", "order": 9, "fontRole": "body", "text": "Mamá ama a Meme y a Mimí." },
+        { "id": "p21-s4", "regionType": "sentence-line", "order": 10, "fontRole": "body", "text": "Memo ama a Mumi." },
+        { "id": "p21-s5", "regionType": "sentence-line", "order": 11, "fontRole": "body", "text": "Mamá mía ámame. Mímame a mí." },
+        { "id": "p21-s6", "regionType": "sentence-line", "order": 12, "fontRole": "body", "text": "Mi mamá me mima." }
       ]
     }
   }
