@@ -432,6 +432,36 @@
         { "id": "p41-s6", "regionType": "sentence-line", "order": 12, "fontRole": "body", "text": "Lalo tiene una maleta de tela también." }
       ]
     },
+    "40": {
+      "regions": [
+        { "id": "p40-instr", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Encierra en un círculo la sílaba correspondiente." },
+        { "id": "p40-la", "regionType": "syllable-match", "order": 1, "fontRole": "body", "syllable": "la", "matchRows": [["lata", "mala", "pala"], ["Lamas", "mula", "pila"]] },
+        { "id": "p40-le", "regionType": "syllable-match", "order": 2, "fontRole": "body", "syllable": "le", "matchRows": [["Leo", "aleta", "saleta"], ["maleta", "sale", "paleta"]] },
+        { "id": "p40-li", "regionType": "syllable-match", "order": 3, "fontRole": "body", "syllable": "li", "matchRows": [["lima", "Lila", "alita"], ["liso", "palito", "limón"]] },
+        { "id": "p40-lo", "regionType": "syllable-match", "order": 4, "fontRole": "body", "syllable": "lo", "matchRows": [["pelota", "palo", "Lolo"], ["Polo", "Lola", "paloma"]] },
+        { "id": "p40-lu", "regionType": "syllable-match", "order": 5, "fontRole": "body", "syllable": "lu", "matchRows": [["lupa", "pelusa", "Luli"], ["luna", "saluda", "Lupe"]] }
+      ]
+    },
+    "42": {
+      "regions": [
+        { "id": "p42-instr", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Completa las palabras con la sílaba correcta." },
+        { "id": "p42-fill1", "regionType": "fill-in-blank", "order": 1, "fontRole": "body", "fillItems": [
+          { "wordBox": "paleta", "blank": "pa___ta", "choices": "le - lo" },
+          { "wordBox": "solo", "blank": "so ___", "choices": "li - lo" },
+          { "wordBox": "pala", "blank": "pa ___", "choices": "la - lu" }
+        ] },
+        { "id": "p42-fill2", "regionType": "fill-in-blank", "order": 2, "fontRole": "body", "fillItems": [
+          { "wordBox": "lata", "blank": "___ ta", "choices": "la - le" },
+          { "wordBox": "maleta", "blank": "ma ___ ta", "choices": "le - li" },
+          { "wordBox": "lupa", "blank": "___ pa", "choices": "lu - la" }
+        ] },
+        { "id": "p42-instr2", "regionType": "instruction", "order": 3, "fontRole": "body", "text": "Escribe oraciones. Usa las sílabas que aprendiste." },
+        { "id": "p42-write1", "regionType": "writing-line", "order": 4, "fontRole": "tracing" },
+        { "id": "p42-write2", "regionType": "writing-line", "order": 5, "fontRole": "tracing" },
+        { "id": "p42-write3", "regionType": "writing-line", "order": 6, "fontRole": "tracing" },
+        { "id": "p42-write4", "regionType": "writing-line", "order": 7, "fontRole": "tracing" }
+      ]
+    },
     "43": {
       "regions": [
         { "id": "p43-instr1", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Escribe con tu mejor letra." },
@@ -458,6 +488,36 @@
         { "id": "p45-s4", "regionType": "sentence-line", "order": 10, "fontRole": "body", "text": "Tono le pone la tina a Napi en el piso." },
         { "id": "p45-s5", "regionType": "sentence-line", "order": 11, "fontRole": "body", "text": "Nono no le pone nada a esa tina." },
         { "id": "p45-s6", "regionType": "sentence-line", "order": 12, "fontRole": "body", "text": "Esa tina no tiene nada." }
+      ]
+    },
+    "44": {
+      "regions": [
+        { "id": "p44-instr", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Encierra en un círculo la sílaba correspondiente." },
+        { "id": "p44-na", "regionType": "syllable-match", "order": 1, "fontRole": "body", "syllable": "na", "matchRows": [["nata", "nariz", "tina"], ["nada", "Napi", "lana"]] },
+        { "id": "p44-ne", "regionType": "syllable-match", "order": 2, "fontRole": "body", "syllable": "ne", "matchRows": [["Nena", "negro", "Nela"], ["tenedor", "negar", "Nenita"]] },
+        { "id": "p44-ni", "regionType": "syllable-match", "order": 3, "fontRole": "body", "syllable": "ni", "matchRows": [["nido", "niño", "poni"], ["sonido", "anida", "Nino"]] },
+        { "id": "p44-no", "regionType": "syllable-match", "order": 4, "fontRole": "body", "syllable": "no", "matchRows": [["mono", "Nora", "pino"], ["Nono", "noche", "mano"]] },
+        { "id": "p44-nu", "regionType": "syllable-match", "order": 5, "fontRole": "body", "syllable": "nu", "matchRows": [["nudo", "menudo", "nulo"], ["Anuca", "anudo", "nube"]] }
+      ]
+    },
+    "46": {
+      "regions": [
+        { "id": "p46-instr", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Completa las palabras con la sílaba correcta." },
+        { "id": "p46-fill1", "regionType": "fill-in-blank", "order": 1, "fontRole": "body", "fillItems": [
+          { "wordBox": "nido", "blank": "___ do", "choices": "no - ni" },
+          { "wordBox": "tina", "blank": "ti ___", "choices": "nu - na" },
+          { "wordBox": "suena", "blank": "sue ___", "choices": "ni - na" }
+        ] },
+        { "id": "p46-fill2", "regionType": "fill-in-blank", "order": 2, "fontRole": "body", "fillItems": [
+          { "wordBox": "mono", "blank": "mo ___", "choices": "no - ne" },
+          { "wordBox": "sano", "blank": "sa ___", "choices": "no - nu" },
+          { "wordBox": "pone", "blank": "po ___", "choices": "ne - ni" }
+        ] },
+        { "id": "p46-instr2", "regionType": "instruction", "order": 3, "fontRole": "body", "text": "Escribe oraciones. Usa las sílabas que aprendiste." },
+        { "id": "p46-write1", "regionType": "writing-line", "order": 4, "fontRole": "tracing" },
+        { "id": "p46-write2", "regionType": "writing-line", "order": 5, "fontRole": "tracing" },
+        { "id": "p46-write3", "regionType": "writing-line", "order": 6, "fontRole": "tracing" },
+        { "id": "p46-write4", "regionType": "writing-line", "order": 7, "fontRole": "tracing" }
       ]
     },
     "47": {
