@@ -71,6 +71,51 @@
         }
       ]
     },
+    "5": {
+      "regions": [
+        {
+          "id": "p5-instr",
+          "regionType": "instruction",
+          "order": 0,
+          "fontRole": "body",
+          "text": "Traza una línea desde la vocal Oo hasta el dibujo de la palabra que comienza con Oo."
+        },
+        {
+          "id": "p5-match",
+          "regionType": "vowel-line-match",
+          "order": 1,
+          "fontRole": "body",
+          "letterPair": "Oo",
+          "exampleCaption": "ola",
+          "cells": [
+            {
+              "caption": "iglú"
+            },
+            {
+              "caption": "oveja"
+            },
+            {
+              "caption": "ojos"
+            },
+            {
+              "caption": "oreja"
+            },
+            {
+              "caption": "olla"
+            },
+            {
+              "caption": "ola"
+            },
+            {
+              "caption": "oso"
+            },
+            {
+              "caption": "alas"
+            }
+          ]
+        }
+      ]
+    },
     "6": {
       "regions": [
         {
@@ -185,6 +230,51 @@
             },
             {
               "caption": "aro"
+            }
+          ]
+        }
+      ]
+    },
+    "8": {
+      "regions": [
+        {
+          "id": "p8-instr",
+          "regionType": "instruction",
+          "order": 0,
+          "fontRole": "body",
+          "text": "Traza una línea desde la vocal Aa hasta el dibujo de la palabra que comienza con Aa."
+        },
+        {
+          "id": "p8-match",
+          "regionType": "vowel-line-match",
+          "order": 1,
+          "fontRole": "body",
+          "letterPair": "Aa",
+          "exampleCaption": "abeja",
+          "cells": [
+            {
+              "caption": "oso"
+            },
+            {
+              "caption": "iglú"
+            },
+            {
+              "caption": "alas"
+            },
+            {
+              "caption": "abeja"
+            },
+            {
+              "caption": "aguja"
+            },
+            {
+              "caption": "maíz"
+            },
+            {
+              "caption": "pez"
+            },
+            {
+              "caption": "remolino"
             }
           ]
         }
@@ -309,6 +399,51 @@
         }
       ]
     },
+    "11": {
+      "regions": [
+        {
+          "id": "p11-instr",
+          "regionType": "instruction",
+          "order": 0,
+          "fontRole": "body",
+          "text": "Traza una línea desde la vocal Ee hasta el dibujo de la palabra que comienza con Ee."
+        },
+        {
+          "id": "p11-match",
+          "regionType": "vowel-line-match",
+          "order": 1,
+          "fontRole": "body",
+          "letterPair": "Ee",
+          "exampleCaption": "erizo",
+          "cells": [
+            {
+              "caption": "oso"
+            },
+            {
+              "caption": "elefante"
+            },
+            {
+              "caption": "abeja"
+            },
+            {
+              "caption": "erizo"
+            },
+            {
+              "caption": "maíz"
+            },
+            {
+              "caption": "escalera"
+            },
+            {
+              "caption": "estrella"
+            },
+            {
+              "caption": "abrigo"
+            }
+          ]
+        }
+      ]
+    },
     "12": {
       "regions": [
         {
@@ -428,6 +563,51 @@
         }
       ]
     },
+    "14": {
+      "regions": [
+        {
+          "id": "p14-instr",
+          "regionType": "instruction",
+          "order": 0,
+          "fontRole": "body",
+          "text": "Traza una línea desde la vocal Ii hasta el dibujo de la palabra que comienza con Ii."
+        },
+        {
+          "id": "p14-match",
+          "regionType": "vowel-line-match",
+          "order": 1,
+          "fontRole": "body",
+          "letterPair": "Ii",
+          "exampleCaption": "iguana",
+          "cells": [
+            {
+              "caption": "imán"
+            },
+            {
+              "caption": "oso"
+            },
+            {
+              "caption": "iglú"
+            },
+            {
+              "caption": "igual"
+            },
+            {
+              "caption": "indio"
+            },
+            {
+              "caption": "arco"
+            },
+            {
+              "caption": "iguana"
+            },
+            {
+              "caption": "abeja"
+            }
+          ]
+        }
+      ]
+    },
     "15": {
       "regions": [
         {
@@ -542,6 +722,51 @@
             },
             {
               "caption": "uno"
+            }
+          ]
+        }
+      ]
+    },
+    "17": {
+      "regions": [
+        {
+          "id": "p17-instr",
+          "regionType": "instruction",
+          "order": 0,
+          "fontRole": "body",
+          "text": "Traza una línea desde la vocal Uu hasta el dibujo de la palabra que comienza con Uu."
+        },
+        {
+          "id": "p17-match",
+          "regionType": "vowel-line-match",
+          "order": 1,
+          "fontRole": "body",
+          "letterPair": "Uu",
+          "exampleCaption": "uvas",
+          "cells": [
+            {
+              "caption": "traje"
+            },
+            {
+              "caption": "uno"
+            },
+            {
+              "caption": "oso"
+            },
+            {
+              "caption": "uvas"
+            },
+            {
+              "caption": "unicornio"
+            },
+            {
+              "caption": "arco"
+            },
+            {
+              "caption": "estrella"
+            },
+            {
+              "caption": "imán"
             }
           ]
         }

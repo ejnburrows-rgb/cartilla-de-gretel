@@ -65,6 +65,7 @@ export type PageRegionType =
 	| "illustration-slot"
 	| "syllable-match" // "Encierra en un círculo la sílaba correspondiente" — a syllable + its candidate-word rows
 	| "fill-in-blank" // "Completa las palabras con la sílaba correcta" — one word-box + blank + syllable choices
+	| "vowel-line-match" // "Traza una línea desde la vocal Xx hasta el dibujo..." — 8 picture cells around a center vowel-pair
 	| "footer";
 
 /** A single illustration cell inside a picture-grid region. */
@@ -122,6 +123,10 @@ export type PageRegion = {
 	matchRows?: SyllableMatchRow[];
 	/** For "fill-in-blank": the items in this exercise row. */
 	fillItems?: FillInBlankItem[];
+	/** For "vowel-line-match": the vowel pair shown in the center cell, e.g. "Oo". */
+	letterPair?: string;
+	/** For "vowel-line-match": the word/example the printed page shows already connected to the vowel with a line. */
+	exampleCaption?: string;
 	/**
 	 * @deprecated Legacy pilot field that mapped to an INVENTED vector drawing.
 	 * Not faithful — do not use on real pages; kept only so old pilot data parses.

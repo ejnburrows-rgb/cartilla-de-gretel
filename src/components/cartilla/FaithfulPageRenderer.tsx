@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { getPageLayout, type PageRegion } from "@/lib/book-faithful";
+import { getPageLayout, type PageGridCell, type PageRegion } from "@/lib/book-faithful";
 import { PageFrame } from "./PageFrame";
 
 /**
@@ -99,12 +99,44 @@ function FillInBlank({ region }: { region: PageRegion }) {
   );
 }
 
+function VowelMatchCell({ cell, isExample }: { cell: PageGridCell; isExample: boolean }) {
+  return (
+    <div className={`fp-vowel-match__cell${isExample ? " fp-vowel-match__cell--example" : ""}`}>
+      {cell.illustrationSrc ? (
+        <img src={cell.illustrationSrc} alt={cell.caption ?? ""} loading="lazy" />
+      ) : (
+        <div className="fp-art-pending" role="img" aria-label={cell.caption ? `Ilustración pendiente: ${cell.caption}` : "Ilustración pendiente"}>
+          {cell.caption ? <span className="fp-art-pending__word">{cell.caption}</span> : null}
+          <span>pendiente</span>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function VowelLineMatch({ region }: { region: PageRegion }) {
+  const cells = region.cells ?? [];
+  return (
+    <div className="fp-vowel-match">
+      {cells.slice(0, 4).map((cell, i) => (
+        <VowelMatchCell key={i} cell={cell} isExample={Boolean(region.exampleCaption) && cell.caption === region.exampleCaption} />
+      ))}
+      <div className="fp-vowel-match__letters">{region.letterPair}</div>
+      {cells.slice(4, 8).map((cell, i) => (
+        <VowelMatchCell key={i + 4} cell={cell} isExample={Boolean(region.exampleCaption) && cell.caption === region.exampleCaption} />
+      ))}
+    </div>
+  );
+}
+
 function RegionView({ region }: { region: PageRegion }) {
   switch (region.regionType) {
     case "illustration-slot":
       return <IllustrationSlot region={region} />;
     case "picture-grid":
       return <PictureGrid region={region} />;
+    case "vowel-line-match":
+      return <VowelLineMatch region={region} />;
     case "syllable-match":
       return <SyllableMatch region={region} />;
     case "fill-in-blank":

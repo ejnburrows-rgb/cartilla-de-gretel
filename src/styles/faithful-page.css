@@ -286,6 +286,49 @@
   padding-top: 0.6cqw;
 }
 
+/* Vowel line-match ("Traza una línea desde la vocal Xx hasta el dibujo...") —
+ * 3x3 grid: 8 illustration cells around a center cell showing the vowel pair. */
+.fp-vowel-match {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2cqw;
+  flex: 1;
+}
+.fp-vowel-match__cell {
+  aspect-ratio: 1 / 1;
+  border: 1.5px solid var(--book-teal);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 1cqw;
+}
+.fp-vowel-match__cell img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.fp-vowel-match__cell .fp-art-pending {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  font-size: 2.2cqw;
+}
+.fp-vowel-match__cell--example {
+  border-style: dashed;
+  border-width: 2px;
+}
+.fp-vowel-match__letters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 8cqw;
+  color: var(--book-teal);
+}
+
 /* Neutral placeholder when a whole page has no verified layout yet and no
  * fallback was supplied. */
 .faithful-page--pending .faithful-page__body {
