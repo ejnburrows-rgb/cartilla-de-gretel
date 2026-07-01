@@ -160,6 +160,72 @@
   text-transform: capitalize;
 }
 
+/* Ruled handwriting line: solid baseline + dashed teal midline, optional model */
+.fp-writing-line {
+  display: flex;
+  align-items: flex-end;
+  gap: 2cqw;
+  margin: 1.5cqw 0;
+}
+.fp-writing-line__model {
+  font-family: var(--font-book-faithful);
+  font-size: 8cqw;
+  line-height: 1;
+  color: var(--book-teal);
+  font-weight: 700;
+}
+.fp-writing-line__rule {
+  flex: 1;
+  height: 9cqw;
+  border-bottom: 2px solid var(--book-ink);
+  background-image: linear-gradient(var(--book-guide), var(--book-guide));
+  background-repeat: repeat-x;
+  background-size: 12px 2px;
+  background-position: left 55%;
+}
+
+/* Empty draw box for "haz un dibujo" */
+.fp-draw-box {
+  border: 2px solid var(--book-teal);
+  border-radius: 6px;
+  min-height: 30cqw;
+  display: flex;
+  align-items: flex-start;
+  padding: 2cqw;
+}
+.fp-draw-box__hint {
+  font-size: 2.6cqw;
+  color: var(--book-ink-soft);
+}
+
+/* Picture grid ("marca con una x", matching, etc.) */
+.fp-picture-grid {
+  display: grid;
+  gap: 2cqw;
+}
+.fp-picture-grid__cell {
+  aspect-ratio: 1 / 1;
+  border: 1.5px solid var(--book-teal);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 1cqw;
+}
+.fp-picture-grid__cell img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.fp-picture-grid__cell .fp-art-pending {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  font-size: 2.2cqw;
+}
+
 /* Neutral placeholder when a whole page has no verified layout yet and no
  * fallback was supplied. */
 .faithful-page--pending .faithful-page__body {

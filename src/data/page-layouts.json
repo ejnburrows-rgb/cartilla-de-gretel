@@ -1,4 +1,28 @@
 {
-  "_comment": "CANONICAL faithful page layouts — the single source of truth for the student CRM view, student workbook, and teacher flipbook. Each page is an ordered list of regions; text regions hold VERIFIED transcriptions (checked against the official workbook), illustration-slot regions hold `illustrationSrc` paths to faithful COLOR crops from the art pipeline (public/cartilla/art/faithful/manifest.json). A page absent here has no verified layout yet and renders its surface's existing fallback. NOTHING here is placeholder or invented — pages are added lesson-by-lesson only after the owner verifies them.",
-  "pages": {}
+  "_comment": "CANONICAL faithful page layouts — the single source of truth for the student CRM view, student workbook, and teacher flipbook. Each page is an ordered list of regions; text regions hold VERIFIED transcriptions (checked against the official workbook), picture cells / illustration slots hold `illustrationSrc` paths to faithful COLOR crops from the art pipeline (public/cartilla/art/faithful/manifest.json). A page absent here has no verified layout yet and renders its surface's existing fallback. NOTHING here is placeholder or invented — pages are added lesson-by-lesson only after the owner verifies them. Pictures without a real crop show an explicit 'pendiente' marker, never an invented drawing.",
+  "_status": "Lección 2 (Vocal O). Page 6 is complete (text + tracing + draw box). Page 4 has faithful instruction text + the correct 4x4 picture grid; its 16 pictures are pending crops from the art pipeline. Page 5 (trace-a-line matching) is intentionally omitted until the color crops land, since its layout is built around the pictures. Awaiting owner verification.",
+  "pages": {
+    "4": {
+      "regions": [
+        { "id": "p4-instr", "regionType": "instruction", "order": 0, "fontRole": "body", "label": "Instrucciones:", "text": "Marca con una x los dibujos que comienzan con O o." },
+        { "id": "p4-grid", "regionType": "picture-grid", "order": 1, "fontRole": "body", "columns": 4, "cells": [
+          {}, {}, {}, {},
+          {}, {}, {}, {},
+          {}, {}, {}, {},
+          {}, {}, {}, {}
+        ] }
+      ]
+    },
+    "6": {
+      "regions": [
+        { "id": "p6-instr1", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Escribe con tu mejor letra." },
+        { "id": "p6-write-O", "regionType": "writing-line", "order": 1, "fontRole": "tracing", "modelText": "O" },
+        { "id": "p6-write-O2", "regionType": "writing-line", "order": 2, "fontRole": "tracing" },
+        { "id": "p6-write-o", "regionType": "writing-line", "order": 3, "fontRole": "tracing", "modelText": "o" },
+        { "id": "p6-write-o2", "regionType": "writing-line", "order": 4, "fontRole": "tracing" },
+        { "id": "p6-instr2", "regionType": "instruction", "order": 5, "fontRole": "body", "text": "Haz un dibujo que represente una palabra que comienza con o." },
+        { "id": "p6-draw", "regionType": "draw-box", "order": 6, "fontRole": "body" }
+      ]
+    }
+  }
 }

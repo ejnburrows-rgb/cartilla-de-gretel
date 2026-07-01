@@ -2,12 +2,8 @@ import { createFileRoute, Link, redirect } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import { FaithfulPageRenderer } from "@/components/cartilla/FaithfulPageRenderer";
 import { PdfPage } from "@/components/cartilla/PdfPage";
-import type { PageRegion } from "@/lib/book-faithful";
-import pilotLayouts from "@/data/page-layouts.pilot.json";
 
 const PILOT_PAGES = [1, 2, 3, 4, 5, 6];
-
-const pilotPages = (pilotLayouts as { pages: Record<string, { regions: PageRegion[] }> }).pages;
 
 export const Route = createFileRoute("/cartilla/pilot-faithful/$n")({
   component: PilotFaithfulPage,
@@ -34,10 +30,11 @@ function PilotFaithfulPage() {
         </Link>
 
         <h1 className="mt-3 text-2xl font-black">
-          Pilot: faithful-HTML vs. original scan — página {pageNumber}
+          Página faithful vs. scan original — página {pageNumber}
         </h1>
         <p className="mt-1 text-sm text-foreground/60">
-          Placeholder content, not yet transcribed from the corrected source files.
+          Vista previa de las páginas reconstruidas (texto verificado + arte a color).
+          Las páginas sin diseño verificado muestran “en preparación”.
         </p>
 
         <div className="mt-4 flex flex-wrap gap-2">
@@ -65,8 +62,7 @@ function PilotFaithfulPage() {
             <div className="overflow-hidden rounded-xl border border-foreground/10">
               <FaithfulPageRenderer
                 pageNumber={pageNumber}
-                lessonNumber={pageNumber <= 1 ? 1 : 2}
-                regions={pilotPages[String(pageNumber)]?.regions}
+                lessonNumber={pageNumber <= 3 ? 1 : 2}
               />
             </div>
           </div>

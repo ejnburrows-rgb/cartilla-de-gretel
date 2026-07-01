@@ -57,10 +57,21 @@ export type PageRegionType =
 	| "instruction"
 	| "vocab-grid"
 	| "tracing-line"
+	| "writing-line" // ruled handwriting line (solid baseline + dashed teal midline), optional model letters
+	| "draw-box" // empty bordered box for "haz un dibujo"
+	| "picture-grid" // grid of illustration cells (e.g. "marca con una x")
 	| "syllable-bubble"
 	| "sentence-line"
 	| "illustration-slot"
 	| "footer";
+
+/** A single illustration cell inside a picture-grid region. */
+export type PageGridCell = {
+	/** Faithful color crop path; absent → "art pending" (never invented). */
+	illustrationSrc?: string;
+	/** Real Spanish word the picture depicts (used as caption + art-pipeline slug). */
+	caption?: string;
+};
 
 export type PageRegionFontRole = "heading" | "body" | "tracing";
 
@@ -72,6 +83,8 @@ export type PageRegion = {
 	fontRole: PageRegionFontRole;
 	/** Present on text-bearing regions. */
 	text?: string;
+	/** Optional bold inline label before the text (e.g. "Instrucciones:") — only where the book shows it. */
+	label?: string;
 	/**
 	 * Faithful COLOR illustration cropped from the original artwork.
 	 * Path under /public (e.g. "/cartilla/art/faithful/2/oso.webp"), produced
@@ -82,6 +95,12 @@ export type PageRegion = {
 	illustrationSrc?: string;
 	/** Caption/word for the illustration (real Spanish word, incl. accents). */
 	caption?: string;
+	/** For "writing-line": faint model letters at the start of the ruled line (e.g. "O o"). */
+	modelText?: string;
+	/** For "picture-grid": number of columns (defaults to a sensible value). */
+	columns?: number;
+	/** For "picture-grid": the illustration cells, in reading order. */
+	cells?: PageGridCell[];
 	/**
 	 * @deprecated Legacy pilot field that mapped to an INVENTED vector drawing.
 	 * Not faithful — do not use on real pages; kept only so old pilot data parses.

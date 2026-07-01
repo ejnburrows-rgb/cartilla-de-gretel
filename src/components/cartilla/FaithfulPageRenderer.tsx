@@ -40,19 +40,59 @@ function IllustrationSlot({ region }: { region: PageRegion }) {
   );
 }
 
+function PictureGrid({ region }: { region: PageRegion }) {
+  const cells = region.cells ?? [];
+  const columns = region.columns ?? 4;
+  return (
+    <div
+      className="fp-picture-grid"
+      style={{ gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))` }}
+    >
+      {cells.map((cell, i) => (
+        <div key={i} className="fp-picture-grid__cell">
+          {cell.illustrationSrc ? (
+            <img src={cell.illustrationSrc} alt={cell.caption ?? ""} loading="lazy" />
+          ) : (
+            <div className="fp-art-pending" role="img" aria-label={cell.caption ? `Ilustración pendiente: ${cell.caption}` : "Ilustración pendiente"}>
+              {cell.caption ? <span className="fp-art-pending__word">{cell.caption}</span> : null}
+              <span>pendiente</span>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function RegionView({ region }: { region: PageRegion }) {
-  if (region.regionType === "illustration-slot") {
-    return <IllustrationSlot region={region} />;
+  switch (region.regionType) {
+    case "illustration-slot":
+      return <IllustrationSlot region={region} />;
+    case "picture-grid":
+      return <PictureGrid region={region} />;
+    case "instruction":
+      return (
+        <p className="fp-region--instruction">
+          {region.label ? <span className="fp-label">{region.label} </span> : null}
+          {region.text}
+        </p>
+      );
+    case "writing-line":
+      return (
+        <div className="fp-writing-line">
+          {region.modelText ? <span className="fp-writing-line__model">{region.modelText}</span> : null}
+          <span className="fp-writing-line__rule" aria-hidden="true" />
+        </div>
+      );
+    case "draw-box":
+      return (
+        <div className="fp-draw-box" aria-label={region.text ?? "Espacio para dibujar"}>
+          {region.text ? <span className="fp-draw-box__hint">{region.text}</span> : null}
+        </div>
+      );
+    default:
+      return <p className={`fp-region--${region.regionType}`}>{region.text}</p>;
   }
-  if (region.regionType === "instruction") {
-    return (
-      <p className="fp-region--instruction">
-        <span className="fp-label">Instrucciones: </span>
-        {region.text}
-      </p>
-    );
-  }
-  return <p className={`fp-region--${region.regionType}`}>{region.text}</p>;
 }
 
 export function FaithfulPageRenderer({
