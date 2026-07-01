@@ -197,6 +197,36 @@
         { "id": "p25-s5", "regionType": "sentence-line", "order": 11, "fontRole": "body", "text": "Papá y mamá me aman." }
       ]
     },
+    "24": {
+      "regions": [
+        { "id": "p24-instr", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Encierra en un círculo la sílaba correspondiente." },
+        { "id": "p24-pa", "regionType": "syllable-match", "order": 1, "fontRole": "body", "syllable": "pa", "matchRows": [["papá", "pupa", "mapa"], ["Papo", "¡upa!", "pala"]] },
+        { "id": "p24-pe", "regionType": "syllable-match", "order": 2, "fontRole": "body", "syllable": "pe", "matchRows": [["Pepe", "pelo", "tapete"], ["pesa", "pelota", "chupete"]] },
+        { "id": "p24-pi", "regionType": "syllable-match", "order": 3, "fontRole": "body", "syllable": "pi", "matchRows": [["pipo", "Pupi", "Mupi"], ["papi", "Mapi", "pío"]] },
+        { "id": "p24-po", "regionType": "syllable-match", "order": 4, "fontRole": "body", "syllable": "po", "matchRows": [["pomo", "polo", "sapo"], ["mapo", "tapo", "Pepo"]] },
+        { "id": "p24-pu", "regionType": "syllable-match", "order": 5, "fontRole": "body", "syllable": "pu", "matchRows": [["puso", "Pupa", "puma"], ["apura", "Pupi", "púa"]] }
+      ]
+    },
+    "26": {
+      "regions": [
+        { "id": "p26-instr", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Completa las palabras con la sílaba correcta." },
+        { "id": "p26-fill1", "regionType": "fill-in-blank", "order": 1, "fontRole": "body", "fillItems": [
+          { "wordBox": "papá", "blank": "pa ___", "choices": "pa - pá" },
+          { "wordBox": "mapa", "blank": "ma ___", "choices": "pa - po" },
+          { "wordBox": "puma", "blank": "___ ma", "choices": "pe - pu" }
+        ] },
+        { "id": "p26-fill2", "regionType": "fill-in-blank", "order": 2, "fontRole": "body", "fillItems": [
+          { "wordBox": "Mapi", "blank": "Ma ___", "choices": "pi - po" },
+          { "wordBox": "pío", "blank": "___ o", "choices": "pí - po" },
+          { "wordBox": "Pepe", "blank": "___ pe", "choices": "Pe - pe" }
+        ] },
+        { "id": "p26-instr2", "regionType": "instruction", "order": 3, "fontRole": "body", "text": "Escribe oraciones. Usa las sílabas que aprendiste." },
+        { "id": "p26-write1", "regionType": "writing-line", "order": 4, "fontRole": "tracing" },
+        { "id": "p26-write2", "regionType": "writing-line", "order": 5, "fontRole": "tracing" },
+        { "id": "p26-write3", "regionType": "writing-line", "order": 6, "fontRole": "tracing" },
+        { "id": "p26-write4", "regionType": "writing-line", "order": 7, "fontRole": "tracing" }
+      ]
+    },
     "27": {
       "regions": [
         { "id": "p27-instr1", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Escribe con tu mejor letra." },
@@ -224,6 +254,36 @@
         { "id": "p29-s5", "regionType": "sentence-line", "order": 11, "fontRole": "body", "text": "Ese sapo es de Sisi. Es el sapo Samapo." },
         { "id": "p29-s6", "regionType": "sentence-line", "order": 12, "fontRole": "body", "text": "Sisi pasa el sapo a Pepe." },
         { "id": "p29-s7", "regionType": "sentence-line", "order": 13, "fontRole": "body", "text": "Pepe puso un sapo en la mesa." }
+      ]
+    },
+    "28": {
+      "regions": [
+        { "id": "p28-instr", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Encierra en un círculo la sílaba correspondiente." },
+        { "id": "p28-sa", "regionType": "syllable-match", "order": 1, "fontRole": "body", "syllable": "sa", "matchRows": [["masa", "casa", "pesa"], ["sala", "mesa", "sapo"]] },
+        { "id": "p28-se", "regionType": "syllable-match", "order": 2, "fontRole": "body", "syllable": "se", "matchRows": [["sello", "pase", "caseta"], ["seca", "semilla", "secante"]] },
+        { "id": "p28-si", "regionType": "syllable-match", "order": 3, "fontRole": "body", "syllable": "si", "matchRows": [["silla", "casita", "cosita"], ["pasito", "osito", "sitio"]] },
+        { "id": "p28-so", "regionType": "syllable-match", "order": 4, "fontRole": "body", "syllable": "so", "matchRows": [["paso", "sopa", "soga"], ["oso", "toso", "puso"]] },
+        { "id": "p28-su", "regionType": "syllable-match", "order": 5, "fontRole": "body", "syllable": "su", "matchRows": [["suyo", "suma", "Susi"], ["supo", "sube", "sudor"]] }
+      ]
+    },
+    "30": {
+      "regions": [
+        { "id": "p30-instr", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Completa las palabras con la sílaba correcta." },
+        { "id": "p30-fill1", "regionType": "fill-in-blank", "order": 1, "fontRole": "body", "fillItems": [
+          { "wordBox": "sapo", "blank": "___ po", "choices": "sa - sá" },
+          { "wordBox": "puso", "blank": "pu ___", "choices": "so - se" },
+          { "wordBox": "masa", "blank": "ma___", "choices": "sa - su" }
+        ] },
+        { "id": "p30-fill2", "regionType": "fill-in-blank", "order": 2, "fontRole": "body", "fillItems": [
+          { "wordBox": "así", "blank": "a ___", "choices": "sí - so" },
+          { "wordBox": "supo", "blank": "___ po", "choices": "su - sa" },
+          { "wordBox": "pase", "blank": "pa ___", "choices": "se - si" }
+        ] },
+        { "id": "p30-instr2", "regionType": "instruction", "order": 3, "fontRole": "body", "text": "Escribe oraciones. Usa las sílabas que aprendiste." },
+        { "id": "p30-write1", "regionType": "writing-line", "order": 4, "fontRole": "tracing" },
+        { "id": "p30-write2", "regionType": "writing-line", "order": 5, "fontRole": "tracing" },
+        { "id": "p30-write3", "regionType": "writing-line", "order": 6, "fontRole": "tracing" },
+        { "id": "p30-write4", "regionType": "writing-line", "order": 7, "fontRole": "tracing" }
       ]
     },
     "31": {
@@ -255,6 +315,36 @@
         { "id": "p33-s7", "regionType": "sentence-line", "order": 13, "fontRole": "body", "text": "Papá tapa la sopa." }
       ]
     },
+    "32": {
+      "regions": [
+        { "id": "p32-instr", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Encierra en un círculo la sílaba correspondiente." },
+        { "id": "p32-ta", "regionType": "syllable-match", "order": 1, "fontRole": "body", "syllable": "ta", "matchRows": [["tapa", "Mota", "Tota"], ["seta", "peseta", "pata"]] },
+        { "id": "p32-te", "regionType": "syllable-match", "order": 2, "fontRole": "body", "syllable": "te", "matchRows": [["tema", "tomate", "mete"], ["teme", "Teté", "tapete"]] },
+        { "id": "p32-ti", "regionType": "syllable-match", "order": 3, "fontRole": "body", "syllable": "ti", "matchRows": [["Tito", "Piti", "timón"], ["tina", "Poti", "tipi"]] },
+        { "id": "p32-to", "regionType": "syllable-match", "order": 4, "fontRole": "body", "syllable": "to", "matchRows": [["topo", "moto", "tomate"], ["pato", "toma", "sapito"]] },
+        { "id": "p32-tu", "regionType": "syllable-match", "order": 5, "fontRole": "body", "syllable": "tu", "matchRows": [["tupe", "tubo", "tulipán"], ["tuna", "tuba", "Matute"]] }
+      ]
+    },
+    "34": {
+      "regions": [
+        { "id": "p34-instr", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Completa las palabras con la sílaba correcta." },
+        { "id": "p34-fill1", "regionType": "fill-in-blank", "order": 1, "fontRole": "body", "fillItems": [
+          { "wordBox": "toma", "blank": "___ ma", "choices": "to - ta" },
+          { "wordBox": "mata", "blank": "ma ___", "choices": "ta - ti" },
+          { "wordBox": "topo", "blank": "___ po", "choices": "tu - to" }
+        ] },
+        { "id": "p34-fill2", "regionType": "fill-in-blank", "order": 2, "fontRole": "body", "fillItems": [
+          { "wordBox": "tomate", "blank": "___ mate", "choices": "to - tu" },
+          { "wordBox": "tupe", "blank": "___ pe", "choices": "ti - tu" },
+          { "wordBox": "tipi", "blank": "___ pi", "choices": "to - ti" }
+        ] },
+        { "id": "p34-instr2", "regionType": "instruction", "order": 3, "fontRole": "body", "text": "Escribe oraciones. Usa las sílabas que aprendiste." },
+        { "id": "p34-write1", "regionType": "writing-line", "order": 4, "fontRole": "tracing" },
+        { "id": "p34-write2", "regionType": "writing-line", "order": 5, "fontRole": "tracing" },
+        { "id": "p34-write3", "regionType": "writing-line", "order": 6, "fontRole": "tracing" },
+        { "id": "p34-write4", "regionType": "writing-line", "order": 7, "fontRole": "tracing" }
+      ]
+    },
     "35": {
       "regions": [
         { "id": "p35-instr1", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Escribe con tu mejor letra." },
@@ -282,6 +372,36 @@
         { "id": "p37-s5", "regionType": "sentence-line", "order": 11, "fontRole": "body", "text": "—Dunia dame el pomo." },
         { "id": "p37-s6", "regionType": "sentence-line", "order": 12, "fontRole": "body", "text": "El pomo de Dunia está en la mesa." },
         { "id": "p37-s7", "regionType": "sentence-line", "order": 13, "fontRole": "body", "text": "—Ada, ¿Dónde está Dunia?" }
+      ]
+    },
+    "36": {
+      "regions": [
+        { "id": "p36-instr", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Encierra en un círculo la sílaba correspondiente." },
+        { "id": "p36-da", "regionType": "syllable-match", "order": 1, "fontRole": "body", "syllable": "da", "matchRows": [["dame", "Ada", "Made"], ["duda", "dado", "poda"]] },
+        { "id": "p36-de", "regionType": "syllable-match", "order": 2, "fontRole": "body", "syllable": "de", "matchRows": [["dedo", "además", "deme"], ["modelo", "pide", "debajo"]] },
+        { "id": "p36-di", "regionType": "syllable-match", "order": 3, "fontRole": "body", "syllable": "di", "matchRows": [["dime", "Adi", "dice"], ["dinero", "día", "Didi"]] },
+        { "id": "p36-do", "regionType": "syllable-match", "order": 4, "fontRole": "body", "syllable": "do", "matchRows": [["dado", "podo", "doce"], ["dedo", "modo", "mudo"]] },
+        { "id": "p36-du", "regionType": "syllable-match", "order": 5, "fontRole": "body", "syllable": "du", "matchRows": [["Duma", "duro", "duda"], ["durazno", "maduro", "ducha"]] }
+      ]
+    },
+    "38": {
+      "regions": [
+        { "id": "p38-instr", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Completa las palabras con la sílaba correcta." },
+        { "id": "p38-fill1", "regionType": "fill-in-blank", "order": 1, "fontRole": "body", "fillItems": [
+          { "wordBox": "dedo", "blank": "___ do", "choices": "di - de" },
+          { "wordBox": "mide", "blank": "mi ___", "choices": "di - de" },
+          { "wordBox": "mudo", "blank": "mu ___", "choices": "do - du" }
+        ] },
+        { "id": "p38-fill2", "regionType": "fill-in-blank", "order": 2, "fontRole": "body", "fillItems": [
+          { "wordBox": "Ada", "blank": "A ___", "choices": "de - da" },
+          { "wordBox": "pide", "blank": "pi ___", "choices": "de - di" },
+          { "wordBox": "Duma", "blank": "___ ma", "choices": "Du - do" }
+        ] },
+        { "id": "p38-instr2", "regionType": "instruction", "order": 3, "fontRole": "body", "text": "Escribe oraciones. Usa las sílabas que aprendiste." },
+        { "id": "p38-write1", "regionType": "writing-line", "order": 4, "fontRole": "tracing" },
+        { "id": "p38-write2", "regionType": "writing-line", "order": 5, "fontRole": "tracing" },
+        { "id": "p38-write3", "regionType": "writing-line", "order": 6, "fontRole": "tracing" },
+        { "id": "p38-write4", "regionType": "writing-line", "order": 7, "fontRole": "tracing" }
       ]
     },
     "39": {
