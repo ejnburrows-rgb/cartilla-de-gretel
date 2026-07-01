@@ -4981,6 +4981,112 @@
         }
       ]
     },
+    "72": {
+      "regions": [
+        {
+          "id": "p72-instr",
+          "regionType": "instruction",
+          "order": 0,
+          "fontRole": "body",
+          "text": "Encierra en un círculo la sílaba correspondiente."
+        },
+        {
+          "id": "p72-fa",
+          "regionType": "syllable-match",
+          "order": 1,
+          "fontRole": "body",
+          "syllable": "fa",
+          "matchRows": [
+            [
+              "fama",
+              "familia",
+              "faro"
+            ],
+            [
+              "famoso",
+              "fatiga",
+              "afanado"
+            ]
+          ]
+        },
+        {
+          "id": "p72-fe",
+          "regionType": "syllable-match",
+          "order": 2,
+          "fontRole": "body",
+          "syllable": "fe",
+          "matchRows": [
+            [
+              "feo",
+              "fecha",
+              "Felo"
+            ],
+            [
+              "feliz",
+              "felino",
+              "Felicia"
+            ]
+          ]
+        },
+        {
+          "id": "p72-fi",
+          "regionType": "syllable-match",
+          "order": 3,
+          "fontRole": "body",
+          "syllable": "fi",
+          "matchRows": [
+            [
+              "fila",
+              "filo",
+              "afinado"
+            ],
+            [
+              "afina",
+              "fino",
+              "afilar"
+            ]
+          ]
+        },
+        {
+          "id": "p72-fo",
+          "regionType": "syllable-match",
+          "order": 4,
+          "fontRole": "body",
+          "syllable": "fo",
+          "matchRows": [
+            [
+              "foto",
+              "sofoca",
+              "fosa"
+            ],
+            [
+              "foso",
+              "teléfono",
+              "foca"
+            ]
+          ]
+        },
+        {
+          "id": "p72-fu",
+          "regionType": "syllable-match",
+          "order": 5,
+          "fontRole": "body",
+          "syllable": "fu",
+          "matchRows": [
+            [
+              "furia",
+              "funda",
+              "futuro"
+            ],
+            [
+              "furor",
+              "perfume",
+              "fuga"
+            ]
+          ]
+        }
+      ]
+    },
     "73": {
       "regions": [
         {
@@ -5062,6 +5168,94 @@
         }
       ]
     },
+    "74": {
+      "regions": [
+        {
+          "id": "p74-instr",
+          "regionType": "instruction",
+          "order": 0,
+          "fontRole": "body",
+          "text": "Completa las palabras con la sílaba correcta."
+        },
+        {
+          "id": "p74-fill1",
+          "regionType": "fill-in-blank",
+          "order": 1,
+          "fontRole": "body",
+          "fillItems": [
+            {
+              "wordBox": "fama",
+              "blank": "___ ma",
+              "choices": "fa - fo"
+            },
+            {
+              "wordBox": "fila",
+              "blank": "___ la",
+              "choices": "fi - fe"
+            },
+            {
+              "wordBox": "teléfono",
+              "blank": "telé ___ no",
+              "choices": "fo - fu"
+            }
+          ]
+        },
+        {
+          "id": "p74-fill2",
+          "regionType": "fill-in-blank",
+          "order": 2,
+          "fontRole": "body",
+          "fillItems": [
+            {
+              "wordBox": "foca",
+              "blank": "___ ca",
+              "choices": "fo - fi"
+            },
+            {
+              "wordBox": "fecha",
+              "blank": "___ cha",
+              "choices": "fe - fu"
+            },
+            {
+              "wordBox": "foto",
+              "blank": "___ to",
+              "choices": "fo - fi"
+            }
+          ]
+        },
+        {
+          "id": "p74-instr2",
+          "regionType": "instruction",
+          "order": 3,
+          "fontRole": "body",
+          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
+        },
+        {
+          "id": "p74-write1",
+          "regionType": "writing-line",
+          "order": 4,
+          "fontRole": "tracing"
+        },
+        {
+          "id": "p74-write2",
+          "regionType": "writing-line",
+          "order": 5,
+          "fontRole": "tracing"
+        },
+        {
+          "id": "p74-write3",
+          "regionType": "writing-line",
+          "order": 6,
+          "fontRole": "tracing"
+        },
+        {
+          "id": "p74-write4",
+          "regionType": "writing-line",
+          "order": 7,
+          "fontRole": "tracing"
+        }
+      ]
+    },
     "75": {
       "regions": [
         {
@@ -5109,6 +5303,112 @@
           "regionType": "draw-box",
           "order": 6,
           "fontRole": "body"
+        }
+      ]
+    },
+    "76": {
+      "regions": [
+        {
+          "id": "p76-instr",
+          "regionType": "instruction",
+          "order": 0,
+          "fontRole": "body",
+          "text": "Encierra en un círculo la sílaba correspondiente."
+        },
+        {
+          "id": "p76-ja",
+          "regionType": "syllable-match",
+          "order": 1,
+          "fontRole": "body",
+          "syllable": "ja",
+          "matchRows": [
+            [
+              "jaba",
+              "jabón",
+              "jamás"
+            ],
+            [
+              "jarra",
+              "jamón",
+              "baja"
+            ]
+          ]
+        },
+        {
+          "id": "p76-je",
+          "regionType": "syllable-match",
+          "order": 2,
+          "fontRole": "body",
+          "syllable": "je",
+          "matchRows": [
+            [
+              "Jesús",
+              "jefe",
+              "baje"
+            ],
+            [
+              "jefatura",
+              "jerez",
+              "ajeno"
+            ]
+          ]
+        },
+        {
+          "id": "p76-ji",
+          "regionType": "syllable-match",
+          "order": 3,
+          "fontRole": "body",
+          "syllable": "ji",
+          "matchRows": [
+            [
+              "jicotea",
+              "jíbaro",
+              "jirafa"
+            ],
+            [
+              "ají",
+              "ajillo",
+              "jinete"
+            ]
+          ]
+        },
+        {
+          "id": "p76-jo",
+          "regionType": "syllable-match",
+          "order": 4,
+          "fontRole": "body",
+          "syllable": "jo",
+          "matchRows": [
+            [
+              "jobo",
+              "José",
+              "bajo"
+            ],
+            [
+              "ajo",
+              "jota",
+              "jorobado"
+            ]
+          ]
+        },
+        {
+          "id": "p76-ju",
+          "regionType": "syllable-match",
+          "order": 5,
+          "fontRole": "body",
+          "syllable": "ju",
+          "matchRows": [
+            [
+              "júbilo",
+              "Julio",
+              "jutía"
+            ],
+            [
+              "juventud",
+              "jugo",
+              "jugar"
+            ]
+          ]
         }
       ]
     },
@@ -5183,6 +5483,94 @@
           "order": 9,
           "fontRole": "body",
           "text": "A Jabela le gusta la laguna. A Jabela no le gusta la espuma de jabón."
+        }
+      ]
+    },
+    "78": {
+      "regions": [
+        {
+          "id": "p78-instr",
+          "regionType": "instruction",
+          "order": 0,
+          "fontRole": "body",
+          "text": "Completa las palabras con la sílaba correcta."
+        },
+        {
+          "id": "p78-fill1",
+          "regionType": "fill-in-blank",
+          "order": 1,
+          "fontRole": "body",
+          "fillItems": [
+            {
+              "wordBox": "jaba",
+              "blank": "___ ba",
+              "choices": "ja - jo"
+            },
+            {
+              "wordBox": "jugo",
+              "blank": "___ go",
+              "choices": "ju - je"
+            },
+            {
+              "wordBox": "jamón",
+              "blank": "___ món",
+              "choices": "ja - ju"
+            }
+          ]
+        },
+        {
+          "id": "p78-fill2",
+          "regionType": "fill-in-blank",
+          "order": 2,
+          "fontRole": "body",
+          "fillItems": [
+            {
+              "wordBox": "jefe",
+              "blank": "___ fe",
+              "choices": "je - ja"
+            },
+            {
+              "wordBox": "jugar",
+              "blank": "___ gar",
+              "choices": "ju - je"
+            },
+            {
+              "wordBox": "jutía",
+              "blank": "___ tía",
+              "choices": "ju - ji"
+            }
+          ]
+        },
+        {
+          "id": "p78-instr2",
+          "regionType": "instruction",
+          "order": 3,
+          "fontRole": "body",
+          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
+        },
+        {
+          "id": "p78-write1",
+          "regionType": "writing-line",
+          "order": 4,
+          "fontRole": "tracing"
+        },
+        {
+          "id": "p78-write2",
+          "regionType": "writing-line",
+          "order": 5,
+          "fontRole": "tracing"
+        },
+        {
+          "id": "p78-write3",
+          "regionType": "writing-line",
+          "order": 6,
+          "fontRole": "tracing"
+        },
+        {
+          "id": "p78-write4",
+          "regionType": "writing-line",
+          "order": 7,
+          "fontRole": "tracing"
         }
       ]
     },
