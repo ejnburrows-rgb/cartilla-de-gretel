@@ -366,6 +366,58 @@
         { "id": "p53-s6", "regionType": "sentence-line", "order": 12, "fontRole": "body", "text": "La bola sube y sube alto también." },
         { "id": "p53-s7", "regionType": "sentence-line", "order": 13, "fontRole": "body", "text": "Pepito es bueno en la pelota." }
       ]
+    },
+    "55": {
+      "regions": [
+        { "id": "p55-instr1", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Escribe con tu mejor letra." },
+        { "id": "p55-write-V", "regionType": "writing-line", "order": 1, "fontRole": "tracing", "modelText": "V" },
+        { "id": "p55-write-V2", "regionType": "writing-line", "order": 2, "fontRole": "tracing" },
+        { "id": "p55-write-v", "regionType": "writing-line", "order": 3, "fontRole": "tracing", "modelText": "v" },
+        { "id": "p55-write-v2", "regionType": "writing-line", "order": 4, "fontRole": "tracing" },
+        { "id": "p55-instr2", "regionType": "instruction", "order": 5, "fontRole": "body", "text": "Haz un dibujo que represente una palabra que comienza con v." },
+        { "id": "p55-draw", "regionType": "draw-box", "order": 6, "fontRole": "body" }
+      ]
+    },
+    "57": {
+      "regions": [
+        { "id": "p57-title", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Vv" },
+        { "id": "p57-syl1", "regionType": "syllable-bubble", "order": 1, "fontRole": "body", "text": "va  ve  vi  vo  vu" },
+        { "id": "p57-syl2", "regionType": "syllable-bubble", "order": 2, "fontRole": "body", "text": "vu  vo  va  ve  vi" },
+        { "id": "p57-words1", "regionType": "vocab-grid", "order": 3, "fontRole": "body", "text": "vaso · vela · vale · vino · venas" },
+        { "id": "p57-words2", "regionType": "vocab-grid", "order": 4, "fontRole": "body", "text": "avena · ventana · pavo · lava · lavamanos" },
+        { "id": "p57-words3", "regionType": "vocab-grid", "order": 5, "fontRole": "body", "text": "vivo · vive · vine · Vuli · ven" },
+        { "id": "p57-s1", "regionType": "sentence-line", "order": 6, "fontRole": "body", "text": "La nieve se va. Vita se lava las manos en el lavamanos." },
+        { "id": "p57-s2", "regionType": "sentence-line", "order": 7, "fontRole": "body", "text": "Mamá lava las mesas del patio." },
+        { "id": "p57-s3", "regionType": "sentence-line", "order": 8, "fontRole": "body", "text": "Mamá pone unos manteles nuevos." },
+        { "id": "p57-s4", "regionType": "sentence-line", "order": 9, "fontRole": "body", "text": "El viento mueve los manteles de mamá y mueve el papalote de Valentín." },
+        { "id": "p57-s5", "regionType": "sentence-line", "order": 10, "fontRole": "body", "text": "El papalote vuela y vuela." }
+      ]
+    },
+    "59": {
+      "regions": [
+        { "id": "p59-instr1", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Escribe con tu mejor letra." },
+        { "id": "p59-write-R", "regionType": "writing-line", "order": 1, "fontRole": "tracing", "modelText": "R" },
+        { "id": "p59-write-R2", "regionType": "writing-line", "order": 2, "fontRole": "tracing" },
+        { "id": "p59-write-r", "regionType": "writing-line", "order": 3, "fontRole": "tracing", "modelText": "r" },
+        { "id": "p59-write-r2", "regionType": "writing-line", "order": 4, "fontRole": "tracing" },
+        { "id": "p59-instr2", "regionType": "instruction", "order": 5, "fontRole": "body", "text": "Haz un dibujo que represente una palabra que comienza con r." },
+        { "id": "p59-draw", "regionType": "draw-box", "order": 6, "fontRole": "body" }
+      ]
+    },
+    "61": {
+      "regions": [
+        { "id": "p61-title", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Rr" },
+        { "id": "p61-syl1", "regionType": "syllable-bubble", "order": 1, "fontRole": "body", "text": "ra  re  ri  ro  ru" },
+        { "id": "p61-syl2", "regionType": "syllable-bubble", "order": 2, "fontRole": "body", "text": "ru  ro  ra  re  ri" },
+        { "id": "p61-words1", "regionType": "vocab-grid", "order": 3, "fontRole": "body", "text": "ramo · rosa · risa · rata · roto" },
+        { "id": "p61-words2", "regionType": "vocab-grid", "order": 4, "fontRole": "body", "text": "remo · rana · ruta · Rita · Roma" },
+        { "id": "p61-words3", "regionType": "vocab-grid", "order": 5, "fontRole": "body", "text": "ropa · rosado · rulo · Rolo · rebaño" },
+        { "id": "p61-sightwords", "regionType": "vocab-grid", "order": 6, "fontRole": "heading", "text": "bien" },
+        { "id": "p61-s1", "regionType": "sentence-line", "order": 7, "fontRole": "body", "text": "La bola de Roberto rueda bien." },
+        { "id": "p61-s2", "regionType": "sentence-line", "order": 8, "fontRole": "body", "text": "Rolo patea la bola. La bola rueda y le da a un bolo. El bolo se rompe y Roberto se ríe. Rolo se ríe también." },
+        { "id": "p61-s3", "regionType": "sentence-line", "order": 9, "fontRole": "body", "text": "Rita le da al bolo. Rita se ríe." },
+        { "id": "p61-s4", "regionType": "sentence-line", "order": 10, "fontRole": "body", "text": "Rolo y Roberto se ríen también." }
+      ]
     }
   }
 }
