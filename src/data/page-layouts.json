@@ -5624,6 +5624,74 @@
         }
       ]
     },
+    "80": {
+      "regions": [
+        {
+          "id": "p80-instr",
+          "regionType": "instruction",
+          "order": 0,
+          "fontRole": "body",
+          "text": "Encierra en un círculo la sílaba correspondiente."
+        },
+        {
+          "id": "p80-ca",
+          "regionType": "syllable-match",
+          "order": 1,
+          "fontRole": "body",
+          "syllable": "ca",
+          "matchRows": [
+            [
+              "cama",
+              "cala",
+              "casa"
+            ],
+            [
+              "cana",
+              "loca",
+              "saca"
+            ]
+          ]
+        },
+        {
+          "id": "p80-co",
+          "regionType": "syllable-match",
+          "order": 2,
+          "fontRole": "body",
+          "syllable": "co",
+          "matchRows": [
+            [
+              "coma",
+              "cosa",
+              "poco"
+            ],
+            [
+              "cola",
+              "copa",
+              "saco"
+            ]
+          ]
+        },
+        {
+          "id": "p80-cu",
+          "regionType": "syllable-match",
+          "order": 3,
+          "fontRole": "body",
+          "syllable": "cu",
+          "matchRows": [
+            [
+              "cuna",
+              "Cuba",
+              "acuna"
+            ],
+            [
+              "acuso",
+              "acumula",
+              "cubo"
+            ]
+          ]
+        }
+      ]
+    },
     "81": {
       "regions": [
         {
@@ -5695,6 +5763,94 @@
           "order": 9,
           "fontRole": "body",
           "text": "Todos en la casa de Paco aman a Cuco."
+        }
+      ]
+    },
+    "82": {
+      "regions": [
+        {
+          "id": "p82-instr",
+          "regionType": "instruction",
+          "order": 0,
+          "fontRole": "body",
+          "text": "Completa las palabras con la sílaba correcta."
+        },
+        {
+          "id": "p82-fill1",
+          "regionType": "fill-in-blank",
+          "order": 1,
+          "fontRole": "body",
+          "fillItems": [
+            {
+              "wordBox": "coma",
+              "blank": "___ ma",
+              "choices": "co - cu"
+            },
+            {
+              "wordBox": "cosa",
+              "blank": "___ sa",
+              "choices": "co - ca"
+            },
+            {
+              "wordBox": "saca",
+              "blank": "sa ___",
+              "choices": "ca - co"
+            }
+          ]
+        },
+        {
+          "id": "p82-fill2",
+          "regionType": "fill-in-blank",
+          "order": 2,
+          "fontRole": "body",
+          "fillItems": [
+            {
+              "wordBox": "cola",
+              "blank": "___ la",
+              "choices": "ca - co"
+            },
+            {
+              "wordBox": "loca",
+              "blank": "lo ___",
+              "choices": "co - ca"
+            },
+            {
+              "wordBox": "cubo",
+              "blank": "___ bo",
+              "choices": "co - cu"
+            }
+          ]
+        },
+        {
+          "id": "p82-instr2",
+          "regionType": "instruction",
+          "order": 3,
+          "fontRole": "body",
+          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
+        },
+        {
+          "id": "p82-write1",
+          "regionType": "writing-line",
+          "order": 4,
+          "fontRole": "tracing"
+        },
+        {
+          "id": "p82-write2",
+          "regionType": "writing-line",
+          "order": 5,
+          "fontRole": "tracing"
+        },
+        {
+          "id": "p82-write3",
+          "regionType": "writing-line",
+          "order": 6,
+          "fontRole": "tracing"
+        },
+        {
+          "id": "p82-write4",
+          "regionType": "writing-line",
+          "order": 7,
+          "fontRole": "tracing"
         }
       ]
     },
