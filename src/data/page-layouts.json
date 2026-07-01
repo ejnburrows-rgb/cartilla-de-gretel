@@ -5904,6 +5904,112 @@
         }
       ]
     },
+    "84": {
+      "regions": [
+        {
+          "id": "p84-instr",
+          "regionType": "instruction",
+          "order": 0,
+          "fontRole": "body",
+          "text": "Encierra en un círculo la sílaba correspondiente."
+        },
+        {
+          "id": "p84-ya",
+          "regionType": "syllable-match",
+          "order": 1,
+          "fontRole": "body",
+          "syllable": "ya",
+          "matchRows": [
+            [
+              "yate",
+              "Yara",
+              "payaso"
+            ],
+            [
+              "yana",
+              "yagua",
+              "maya"
+            ]
+          ]
+        },
+        {
+          "id": "p84-ye",
+          "regionType": "syllable-match",
+          "order": 2,
+          "fontRole": "body",
+          "syllable": "ye",
+          "matchRows": [
+            [
+              "yegua",
+              "enyesado",
+              "yema"
+            ],
+            [
+              "Yesenia",
+              "Yeyo",
+              "yeso"
+            ]
+          ]
+        },
+        {
+          "id": "p84-yi",
+          "regionType": "syllable-match",
+          "order": 3,
+          "fontRole": "body",
+          "syllable": "yi",
+          "matchRows": [
+            [
+              "Mayito",
+              "Yayita",
+              "Yayi"
+            ],
+            [
+              "Yigüiro",
+              "Yoyita",
+              "Mayita"
+            ]
+          ]
+        },
+        {
+          "id": "p84-yo",
+          "regionType": "syllable-match",
+          "order": 4,
+          "fontRole": "body",
+          "syllable": "yo",
+          "matchRows": [
+            [
+              "cayo",
+              "yoyo",
+              "rayo"
+            ],
+            [
+              "coyote",
+              "yo",
+              "Yayo"
+            ]
+          ]
+        },
+        {
+          "id": "p84-yu",
+          "regionType": "syllable-match",
+          "order": 5,
+          "fontRole": "body",
+          "syllable": "yu",
+          "matchRows": [
+            [
+              "Yucatán",
+              "Cayuco",
+              "ayudar"
+            ],
+            [
+              "yuca",
+              "ayuda",
+              "desayuno"
+            ]
+          ]
+        }
+      ]
+    },
     "85": {
       "regions": [
         {
@@ -5978,6 +6084,94 @@
         }
       ]
     },
+    "86": {
+      "regions": [
+        {
+          "id": "p86-instr",
+          "regionType": "instruction",
+          "order": 0,
+          "fontRole": "body",
+          "text": "Completa las palabras con la sílaba correcta."
+        },
+        {
+          "id": "p86-fill1",
+          "regionType": "fill-in-blank",
+          "order": 1,
+          "fontRole": "body",
+          "fillItems": [
+            {
+              "wordBox": "yate",
+              "blank": "___ te",
+              "choices": "yo - ya"
+            },
+            {
+              "wordBox": "yeso",
+              "blank": "___ so",
+              "choices": "yo - ye"
+            },
+            {
+              "wordBox": "cayo",
+              "blank": "ca ___",
+              "choices": "yo - ye"
+            }
+          ]
+        },
+        {
+          "id": "p86-fill2",
+          "regionType": "fill-in-blank",
+          "order": 2,
+          "fontRole": "body",
+          "fillItems": [
+            {
+              "wordBox": "yuca",
+              "blank": "___ ca",
+              "choices": "ya - yu"
+            },
+            {
+              "wordBox": "Mayito",
+              "blank": "Ma ___ to",
+              "choices": "ya - yi"
+            },
+            {
+              "wordBox": "yema",
+              "blank": "___ ma",
+              "choices": "ye - ya"
+            }
+          ]
+        },
+        {
+          "id": "p86-instr2",
+          "regionType": "instruction",
+          "order": 3,
+          "fontRole": "body",
+          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
+        },
+        {
+          "id": "p86-write1",
+          "regionType": "writing-line",
+          "order": 4,
+          "fontRole": "tracing"
+        },
+        {
+          "id": "p86-write2",
+          "regionType": "writing-line",
+          "order": 5,
+          "fontRole": "tracing"
+        },
+        {
+          "id": "p86-write3",
+          "regionType": "writing-line",
+          "order": 6,
+          "fontRole": "tracing"
+        },
+        {
+          "id": "p86-write4",
+          "regionType": "writing-line",
+          "order": 7,
+          "fontRole": "tracing"
+        }
+      ]
+    },
     "87": {
       "regions": [
         {
@@ -6025,6 +6219,110 @@
           "regionType": "draw-box",
           "order": 6,
           "fontRole": "body"
+        }
+      ]
+    },
+    "88": {
+      "regions": [
+        {
+          "id": "p88-instr",
+          "regionType": "instruction",
+          "order": 0,
+          "fontRole": "body",
+          "text": "Encierra en un círculo la sílaba correspondiente."
+        },
+        {
+          "id": "p88-za",
+          "regionType": "syllable-match",
+          "order": 1,
+          "fontRole": "body",
+          "syllable": "za",
+          "matchRows": [
+            [
+              "taza",
+              "caza",
+              "zapatero"
+            ],
+            [
+              "plaza",
+              "zapato",
+              "zapote"
+            ]
+          ]
+        },
+        {
+          "id": "p88-ze",
+          "regionType": "syllable-match",
+          "order": 2,
+          "fontRole": "body",
+          "syllable": "ze",
+          "matchRows": [
+            [
+              "zepelín",
+              "zebra",
+              "Zenaida"
+            ],
+            [
+              "zeta",
+              "Zegrí",
+              "Zema"
+            ]
+          ]
+        },
+        {
+          "id": "p88-zi",
+          "regionType": "syllable-match",
+          "order": 3,
+          "fontRole": "body",
+          "syllable": "zi",
+          "matchRows": [
+            [
+              "zig-zag",
+              "Zimba"
+            ],
+            [
+              "Zila",
+              "Zita"
+            ]
+          ]
+        },
+        {
+          "id": "p88-zo",
+          "regionType": "syllable-match",
+          "order": 4,
+          "fontRole": "body",
+          "syllable": "zo",
+          "matchRows": [
+            [
+              "zorro",
+              "portazo",
+              "zocato"
+            ],
+            [
+              "azotes",
+              "zopilote",
+              "lazo"
+            ]
+          ]
+        },
+        {
+          "id": "p88-zu",
+          "regionType": "syllable-match",
+          "order": 5,
+          "fontRole": "body",
+          "syllable": "zu",
+          "matchRows": [
+            [
+              "azúcar",
+              "zurra",
+              "azucarado"
+            ],
+            [
+              "azules",
+              "Zulema",
+              "azulado"
+            ]
+          ]
         }
       ]
     },
@@ -6099,6 +6397,94 @@
           "order": 9,
           "fontRole": "body",
           "text": "Zila va con Zulema, van en un carro con ruedas de calabazas."
+        }
+      ]
+    },
+    "90": {
+      "regions": [
+        {
+          "id": "p90-instr",
+          "regionType": "instruction",
+          "order": 0,
+          "fontRole": "body",
+          "text": "Completa las palabras con la sílaba correcta."
+        },
+        {
+          "id": "p90-fill1",
+          "regionType": "fill-in-blank",
+          "order": 1,
+          "fontRole": "body",
+          "fillItems": [
+            {
+              "wordBox": "zapato",
+              "blank": "___ pato",
+              "choices": "za - zo"
+            },
+            {
+              "wordBox": "zeta",
+              "blank": "___ ta",
+              "choices": "za - ze"
+            },
+            {
+              "wordBox": "zumo",
+              "blank": "___ mo",
+              "choices": "zo - zu"
+            }
+          ]
+        },
+        {
+          "id": "p90-fill2",
+          "regionType": "fill-in-blank",
+          "order": 2,
+          "fontRole": "body",
+          "fillItems": [
+            {
+              "wordBox": "lazo",
+              "blank": "la ___",
+              "choices": "zo - zú"
+            },
+            {
+              "wordBox": "azules",
+              "blank": "a ___ les",
+              "choices": "zu - za"
+            },
+            {
+              "wordBox": "Zita",
+              "blank": "___ ta",
+              "choices": "Zo - Zi"
+            }
+          ]
+        },
+        {
+          "id": "p90-instr2",
+          "regionType": "instruction",
+          "order": 3,
+          "fontRole": "body",
+          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
+        },
+        {
+          "id": "p90-write1",
+          "regionType": "writing-line",
+          "order": 4,
+          "fontRole": "tracing"
+        },
+        {
+          "id": "p90-write2",
+          "regionType": "writing-line",
+          "order": 5,
+          "fontRole": "tracing"
+        },
+        {
+          "id": "p90-write3",
+          "regionType": "writing-line",
+          "order": 6,
+          "fontRole": "tracing"
+        },
+        {
+          "id": "p90-write4",
+          "regionType": "writing-line",
+          "order": 7,
+          "fontRole": "tracing"
         }
       ]
     }
