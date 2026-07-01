@@ -64,12 +64,51 @@ function PictureGrid({ region }: { region: PageRegion }) {
   );
 }
 
+function SyllableMatch({ region }: { region: PageRegion }) {
+  const rows = region.matchRows ?? [];
+  return (
+    <div className="fp-syllable-match">
+      <span className="fp-syllable-match__syllable">{region.syllable}</span>
+      <div className="fp-syllable-match__rows">
+        {rows.map((row, i) => (
+          <div key={i} className="fp-syllable-match__row">
+            {row.map((word, j) => (
+              <span key={j} className="fp-syllable-match__word">
+                {word}
+              </span>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function FillInBlank({ region }: { region: PageRegion }) {
+  const items = region.fillItems ?? [];
+  return (
+    <div className="fp-fill-in-blank">
+      {items.map((item, i) => (
+        <div key={i} className="fp-fill-in-blank__item">
+          <span className="fp-fill-in-blank__wordbox">{item.wordBox}</span>
+          <span className="fp-fill-in-blank__blank">{item.blank}</span>
+          <span className="fp-fill-in-blank__choices">{item.choices}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function RegionView({ region }: { region: PageRegion }) {
   switch (region.regionType) {
     case "illustration-slot":
       return <IllustrationSlot region={region} />;
     case "picture-grid":
       return <PictureGrid region={region} />;
+    case "syllable-match":
+      return <SyllableMatch region={region} />;
+    case "fill-in-blank":
+      return <FillInBlank region={region} />;
     case "instruction":
       return (
         <p className="fp-region--instruction">

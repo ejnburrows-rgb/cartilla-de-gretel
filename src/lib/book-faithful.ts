@@ -63,6 +63,8 @@ export type PageRegionType =
 	| "syllable-bubble"
 	| "sentence-line"
 	| "illustration-slot"
+	| "syllable-match" // "Encierra en un círculo la sílaba correspondiente" — a syllable + its candidate-word rows
+	| "fill-in-blank" // "Completa las palabras con la sílaba correcta" — one word-box + blank + syllable choices
 	| "footer";
 
 /** A single illustration cell inside a picture-grid region. */
@@ -71,6 +73,19 @@ export type PageGridCell = {
 	illustrationSrc?: string;
 	/** Real Spanish word the picture depicts (used as caption + art-pipeline slug). */
 	caption?: string;
+};
+
+/** One row of candidate words the student picks from, for a syllable-match region. */
+export type SyllableMatchRow = string[];
+
+/** One "complete the word" item inside a fill-in-blank exercise. */
+export type FillInBlankItem = {
+	/** The whole reference word shown in a box, e.g. "amo". */
+	wordBox: string;
+	/** The partial word with the blank, e.g. "a ___" or "___ mi". */
+	blank: string;
+	/** The syllable choices offered, e.g. "mo - mu". */
+	choices: string;
 };
 
 export type PageRegionFontRole = "heading" | "body" | "tracing";
@@ -101,6 +116,12 @@ export type PageRegion = {
 	columns?: number;
 	/** For "picture-grid": the illustration cells, in reading order. */
 	cells?: PageGridCell[];
+	/** For "syllable-match": the target syllable, e.g. "ma". */
+	syllable?: string;
+	/** For "syllable-match": each row of candidate words the student chooses among. */
+	matchRows?: SyllableMatchRow[];
+	/** For "fill-in-blank": the items in this exercise row. */
+	fillItems?: FillInBlankItem[];
 	/**
 	 * @deprecated Legacy pilot field that mapped to an INVENTED vector drawing.
 	 * Not faithful — do not use on real pages; kept only so old pilot data parses.

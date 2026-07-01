@@ -226,6 +226,66 @@
   font-size: 2.2cqw;
 }
 
+/* Syllable-match ("Encierra en un círculo la sílaba correspondiente") */
+.fp-syllable-match {
+  display: flex;
+  gap: 3cqw;
+  align-items: flex-start;
+}
+.fp-syllable-match__syllable {
+  font-weight: 700;
+  font-size: 5.5cqw;
+  color: var(--book-teal-deep);
+  min-width: 10cqw;
+}
+.fp-syllable-match__rows {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2cqw;
+  flex: 1;
+}
+.fp-syllable-match__row {
+  display: flex;
+  gap: 3cqw;
+}
+.fp-syllable-match__word {
+  font-size: 3.6cqw;
+  color: var(--book-ink);
+}
+
+/* Fill-in-blank ("Completa las palabras con la sílaba correcta") */
+.fp-fill-in-blank {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3cqw;
+}
+.fp-fill-in-blank__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8cqw;
+  min-width: 22cqw;
+}
+.fp-fill-in-blank__wordbox {
+  border: 1.5px solid var(--book-teal);
+  border-radius: 4px;
+  padding: 0.8cqw 1.5cqw;
+  font-size: 3.6cqw;
+  font-weight: 700;
+  color: var(--book-ink);
+  text-align: center;
+  align-self: flex-start;
+}
+.fp-fill-in-blank__blank {
+  font-size: 3.6cqw;
+  color: var(--book-ink);
+}
+.fp-fill-in-blank__choices {
+  font-size: 3cqw;
+  color: var(--book-ink-soft);
+  border-top: 1px solid var(--book-ink-soft);
+  padding-top: 0.6cqw;
+}
+
 /* Neutral placeholder when a whole page has no verified layout yet and no
  * fallback was supplied. */
 .faithful-page--pending .faithful-page__body {

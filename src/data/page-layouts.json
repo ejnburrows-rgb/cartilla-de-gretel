@@ -140,6 +140,36 @@
         { "id": "p21-s6", "regionType": "sentence-line", "order": 12, "fontRole": "body", "text": "Mi mamá me mima." }
       ]
     },
+    "20": {
+      "regions": [
+        { "id": "p20-instr", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Encierra en un círculo la sílaba correspondiente." },
+        { "id": "p20-ma", "regionType": "syllable-match", "order": 1, "fontRole": "body", "syllable": "ma", "matchRows": [["mami", "ama", "mamá"], ["mima", "Coloma", "Manolo"]] },
+        { "id": "p20-me", "regionType": "syllable-match", "order": 2, "fontRole": "body", "syllable": "me", "matchRows": [["media", "Memo", "melón"], ["mesa", "meta", "Meme"]] },
+        { "id": "p20-mi", "regionType": "syllable-match", "order": 3, "fontRole": "body", "syllable": "mi", "matchRows": [["mío", "amigo", "mima"], ["mira", "misa", "Mimí"]] },
+        { "id": "p20-mo", "regionType": "syllable-match", "order": 4, "fontRole": "body", "syllable": "mo", "matchRows": [["amo", "Memo", "mono"], ["como", "moneda", "moto"]] },
+        { "id": "p20-mu", "regionType": "syllable-match", "order": 5, "fontRole": "body", "syllable": "mu", "matchRows": [["mulo", "muleta", "muro"], ["mudo", "mujer", "Mumi"]] }
+      ]
+    },
+    "22": {
+      "regions": [
+        { "id": "p22-instr", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Completa las palabras con la sílaba correcta." },
+        { "id": "p22-fill1", "regionType": "fill-in-blank", "order": 1, "fontRole": "body", "fillItems": [
+          { "wordBox": "amo", "blank": "a ___", "choices": "mo - mu" },
+          { "wordBox": "M", "blank": "Me ___", "choices": "mo - mu" },
+          { "wordBox": "mamá", "blank": "ma ___", "choices": "mi - má" }
+        ] },
+        { "id": "p22-fill2", "regionType": "fill-in-blank", "order": 2, "fontRole": "body", "fillItems": [
+          { "wordBox": "mima", "blank": "mi ___", "choices": "ma - mu" },
+          { "wordBox": "Mumi", "blank": "___ mi", "choices": "mi - Mu" },
+          { "wordBox": "mío", "blank": "___ o", "choices": "mí - mo" }
+        ] },
+        { "id": "p22-instr2", "regionType": "instruction", "order": 3, "fontRole": "body", "text": "Escribe oraciones. Usa las sílabas que aprendiste." },
+        { "id": "p22-write1", "regionType": "writing-line", "order": 4, "fontRole": "tracing" },
+        { "id": "p22-write2", "regionType": "writing-line", "order": 5, "fontRole": "tracing" },
+        { "id": "p22-write3", "regionType": "writing-line", "order": 6, "fontRole": "tracing" },
+        { "id": "p22-write4", "regionType": "writing-line", "order": 7, "fontRole": "tracing" }
+      ]
+    },
     "23": {
       "regions": [
         { "id": "p23-instr1", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Escribe con tu mejor letra." },
