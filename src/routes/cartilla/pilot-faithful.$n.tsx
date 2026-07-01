@@ -3,7 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import { FaithfulPageRenderer } from "@/components/cartilla/FaithfulPageRenderer";
 import { PdfPage } from "@/components/cartilla/PdfPage";
 
-const PILOT_PAGES = [1, 2, 3, 4, 5, 6, 7, 9, 10, 12, 13, 15, 16, 18, 19, 21, 23, 25, 27, 29];
+const PILOT_PAGES = [1, 2, 3, 4, 5, 6, 7, 9, 10, 12, 13, 15, 16, 18, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37];
 
 /** Lesson number for a given book page: intro=1 (pp1-3), vowels 2-6 (pp4-18,
  * 3pp each), consonants 7+ (pp19+, 4pp each). Preview-only helper. */

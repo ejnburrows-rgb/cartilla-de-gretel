@@ -195,6 +195,64 @@
         { "id": "p29-s6", "regionType": "sentence-line", "order": 12, "fontRole": "body", "text": "Sisi pasa el sapo a Pepe." },
         { "id": "p29-s7", "regionType": "sentence-line", "order": 13, "fontRole": "body", "text": "Pepe puso un sapo en la mesa." }
       ]
+    },
+    "31": {
+      "regions": [
+        { "id": "p31-instr1", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Escribe con tu mejor letra." },
+        { "id": "p31-write-T", "regionType": "writing-line", "order": 1, "fontRole": "tracing", "modelText": "T" },
+        { "id": "p31-write-T2", "regionType": "writing-line", "order": 2, "fontRole": "tracing" },
+        { "id": "p31-write-t", "regionType": "writing-line", "order": 3, "fontRole": "tracing", "modelText": "t" },
+        { "id": "p31-write-t2", "regionType": "writing-line", "order": 4, "fontRole": "tracing" },
+        { "id": "p31-instr2", "regionType": "instruction", "order": 5, "fontRole": "body", "text": "Haz un dibujo que represente una palabra que comienza con t." },
+        { "id": "p31-draw", "regionType": "draw-box", "order": 6, "fontRole": "body" }
+      ]
+    },
+    "33": {
+      "regions": [
+        { "id": "p33-title", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Tt" },
+        { "id": "p33-syl1", "regionType": "syllable-bubble", "order": 1, "fontRole": "body", "text": "ta  te  ti  to  tu" },
+        { "id": "p33-syl2", "regionType": "syllable-bubble", "order": 2, "fontRole": "body", "text": "tu  to  ta  te  ti" },
+        { "id": "p33-words1", "regionType": "vocab-grid", "order": 3, "fontRole": "body", "text": "toma · tute · Soto · mete · topo · tomate" },
+        { "id": "p33-words2", "regionType": "vocab-grid", "order": 4, "fontRole": "body", "text": "teme · Titi · tupe · Mota · sapito · Poti" },
+        { "id": "p33-words3", "regionType": "vocab-grid", "order": 5, "fontRole": "body", "text": "seta · pata · tapa · Piti · peseta · pato" },
+        { "id": "p33-sightwords", "regionType": "vocab-grid", "order": 6, "fontRole": "heading", "text": "tiene · patio · no" },
+        { "id": "p33-s1", "regionType": "sentence-line", "order": 7, "fontRole": "body", "text": "La mesa tiene un tapete." },
+        { "id": "p33-s2", "regionType": "sentence-line", "order": 8, "fontRole": "body", "text": "El pomo está en la mesa." },
+        { "id": "p33-s3", "regionType": "sentence-line", "order": 9, "fontRole": "body", "text": "La mesa está en el patio." },
+        { "id": "p33-s4", "regionType": "sentence-line", "order": 10, "fontRole": "body", "text": "El pomo tiene sopa. El pomo tiene tapa." },
+        { "id": "p33-s5", "regionType": "sentence-line", "order": 11, "fontRole": "body", "text": "Tito tapa el pomo." },
+        { "id": "p33-s6", "regionType": "sentence-line", "order": 12, "fontRole": "body", "text": "—¡No Tito, no, no tapes el pomo!" },
+        { "id": "p33-s7", "regionType": "sentence-line", "order": 13, "fontRole": "body", "text": "Papá tapa la sopa." }
+      ]
+    },
+    "35": {
+      "regions": [
+        { "id": "p35-instr1", "regionType": "instruction", "order": 0, "fontRole": "body", "text": "Escribe con tu mejor letra." },
+        { "id": "p35-write-D", "regionType": "writing-line", "order": 1, "fontRole": "tracing", "modelText": "D" },
+        { "id": "p35-write-D2", "regionType": "writing-line", "order": 2, "fontRole": "tracing" },
+        { "id": "p35-write-d", "regionType": "writing-line", "order": 3, "fontRole": "tracing", "modelText": "d" },
+        { "id": "p35-write-d2", "regionType": "writing-line", "order": 4, "fontRole": "tracing" },
+        { "id": "p35-instr2", "regionType": "instruction", "order": 5, "fontRole": "body", "text": "Haz un dibujo que represente una palabra que comienza con d." },
+        { "id": "p35-draw", "regionType": "draw-box", "order": 6, "fontRole": "body" }
+      ]
+    },
+    "37": {
+      "regions": [
+        { "id": "p37-title", "regionType": "title", "order": 0, "fontRole": "heading", "text": "Dd" },
+        { "id": "p37-syl1", "regionType": "syllable-bubble", "order": 1, "fontRole": "body", "text": "da  de  di  do  du" },
+        { "id": "p37-syl2", "regionType": "syllable-bubble", "order": 2, "fontRole": "body", "text": "du  do  da  de  di" },
+        { "id": "p37-words1", "regionType": "vocab-grid", "order": 3, "fontRole": "body", "text": "dedo · dame · día · Ada · moneda" },
+        { "id": "p37-words2", "regionType": "vocab-grid", "order": 4, "fontRole": "body", "text": "dónde · Duma · dime · pide · mide" },
+        { "id": "p37-words3", "regionType": "vocab-grid", "order": 5, "fontRole": "body", "text": "deme · de · duda · mudo · Dunia" },
+        { "id": "p37-sightwords", "regionType": "vocab-grid", "order": 6, "fontRole": "heading", "text": "son · están" },
+        { "id": "p37-s1", "regionType": "sentence-line", "order": 7, "fontRole": "body", "text": "Dime si Ada tiene dados." },
+        { "id": "p37-s2", "regionType": "sentence-line", "order": 8, "fontRole": "body", "text": "Los dados son de Dunia." },
+        { "id": "p37-s3", "regionType": "sentence-line", "order": 9, "fontRole": "body", "text": "—¿Dónde están los dados?" },
+        { "id": "p37-s4", "regionType": "sentence-line", "order": 10, "fontRole": "body", "text": "Dunia pone los dados en el pomo." },
+        { "id": "p37-s5", "regionType": "sentence-line", "order": 11, "fontRole": "body", "text": "—Dunia dame el pomo." },
+        { "id": "p37-s6", "regionType": "sentence-line", "order": 12, "fontRole": "body", "text": "El pomo de Dunia está en la mesa." },
+        { "id": "p37-s7", "regionType": "sentence-line", "order": 13, "fontRole": "body", "text": "—Ada, ¿Dónde está Dunia?" }
+      ]
     }
   }
 }
