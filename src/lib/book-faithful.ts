@@ -1,6 +1,6 @@
 import lessonsData from "@/data/lessons.json";
 import sourceArtInventory from "@/data/source-art-inventory.json";
-import pageLayoutsPilot from "@/data/page-layouts.pilot.json";
+import pageLayouts from "@/data/page-layouts.json";
 import { getBookSectionForLesson, getLessonPageNumbers } from "@/lib/cartilla-crm-theme";
 import { CATALOG } from "@/lib/lesson-catalog";
 
@@ -72,7 +72,20 @@ export type PageRegion = {
 	fontRole: PageRegionFontRole;
 	/** Present on text-bearing regions. */
 	text?: string;
-	/** Present on illustration-slot regions; looked up in MonochromeDrawing's registry. */
+	/**
+	 * Faithful COLOR illustration cropped from the original artwork.
+	 * Path under /public (e.g. "/cartilla/art/faithful/2/oso.webp"), produced
+	 * by the art pipeline (see public/cartilla/art/faithful/manifest.json).
+	 * When absent on an illustration-slot, the renderer shows an explicit
+	 * "art pending" marker — never an invented drawing.
+	 */
+	illustrationSrc?: string;
+	/** Caption/word for the illustration (real Spanish word, incl. accents). */
+	caption?: string;
+	/**
+	 * @deprecated Legacy pilot field that mapped to an INVENTED vector drawing.
+	 * Not faithful — do not use on real pages; kept only so old pilot data parses.
+	 */
 	illustrationWord?: string;
 };
 
@@ -309,20 +322,27 @@ export function getWorkbookPagesForLesson(lessonNumber: number): WorkbookPageCon
 	});
 }
 
-type PageLayoutsPilot = {
+type PageLayouts = {
 	pages: Record<string, { regions: PageRegion[] }>;
 };
 
-const pilotLayouts = pageLayoutsPilot as unknown as PageLayoutsPilot;
+const canonicalLayouts = pageLayouts as unknown as PageLayouts;
 
 /**
- * Faithful-HTML region layout for a page, if one has been authored.
- * Only pilot pages (1-6) currently have data; everything else returns null
- * until the corrected source files are transcribed.
+ * Faithful-HTML region layout for a page, if one has been authored & verified.
+ * Canonical source: src/data/page-layouts.json (one shared file that drives the
+ * student CRM view, student workbook, and teacher flipbook — same content, same
+ * order everywhere). Returns null for any page not yet transcribed/verified,
+ * so callers can fall back to their existing rendering.
  */
 export function getPageLayout(pageNumber: number): PageRegion[] | null {
-	const entry = pilotLayouts.pages[String(pageNumber)];
+	const entry = canonicalLayouts.pages[String(pageNumber)];
 	return entry ? entry.regions : null;
+}
+
+/** True if a faithful, verified layout exists for this page. */
+export function hasPageLayout(pageNumber: number): boolean {
+	return Boolean(canonicalLayouts.pages[String(pageNumber)]);
 }
 
 export function getWorkbookTranscriptionSummary(lessonNumber: number) {

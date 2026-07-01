@@ -1,33 +1,38 @@
 import { describe, it, expect } from "vitest";
-import { getPageLayout } from "@/lib/book-faithful";
+import { getPageLayout, hasPageLayout, type PageRegion } from "@/lib/book-faithful";
+import pilotLayouts from "@/data/page-layouts.pilot.json";
 
-const PILOT_PAGES = [1, 2, 3, 4, 5, 6];
+const pilotPages = (pilotLayouts as { pages: Record<string, { regions: PageRegion[] }> }).pages;
 
-describe("getPageLayout", () => {
-  it("returns ordered regions for each pilot page (1-6)", () => {
-    for (const pageNumber of PILOT_PAGES) {
-      const regions = getPageLayout(pageNumber);
-      expect(regions).not.toBeNull();
-      expect(regions!.length).toBeGreaterThan(0);
+describe("faithful page layouts", () => {
+  it("canonical page-layouts.json only serves VERIFIED pages (none seeded with placeholder)", () => {
+    // Phase 0: no page is claimed as faithful until transcribed + verified.
+    expect(getPageLayout(50)).toBeNull();
+    expect(hasPageLayout(50)).toBe(false);
+  });
 
-      const orders = regions!.map((r) => r.order);
+  it("pilot demo layout parses with well-formed, ordered regions", () => {
+    const keys = Object.keys(pilotPages);
+    expect(keys.length).toBeGreaterThan(0);
+
+    for (const key of keys) {
+      const regions = pilotPages[key]?.regions ?? [];
+      expect(regions.length).toBeGreaterThan(0);
+
+      const orders = regions.map((r) => r.order);
       expect(orders).toEqual([...orders].sort((a, b) => a - b));
 
-      for (const region of regions!) {
+      for (const region of regions) {
         expect(region.id).toBeTruthy();
         expect(region.regionType).toBeTruthy();
         expect(["heading", "body", "tracing"]).toContain(region.fontRole);
         if (region.regionType === "illustration-slot") {
-          expect(region.illustrationWord).toBeTruthy();
+          // pilot uses legacy illustrationWord; faithful pages use illustrationSrc
+          expect(region.illustrationWord ?? region.illustrationSrc).toBeTruthy();
         } else {
           expect(region.text).toBeTruthy();
         }
       }
     }
-  });
-
-  it("returns null for pages without an authored pilot layout", () => {
-    expect(getPageLayout(7)).toBeNull();
-    expect(getPageLayout(50)).toBeNull();
   });
 });

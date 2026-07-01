@@ -7,10 +7,15 @@ interface FlipbookVerticalViewerProps {
 }
 
 import { getBookPageImage } from "@/lib/bookImages";
+import { hasPageLayout } from "@/lib/book-faithful";
+import { FaithfulPageRenderer } from "@/components/cartilla/FaithfulPageRenderer";
 
 export function FlipbookVerticalViewer({ pageNumber, className = "" }: FlipbookVerticalViewerProps) {
   const safePageNumber = Math.max(1, pageNumber);
   const src = getBookPageImage(safePageNumber);
+  // Same shared source as the student workbook + CRM view: show the faithful,
+  // verified page when it exists; otherwise keep the current scan.
+  const faithful = hasPageLayout(safePageNumber);
 
   // Track previous page to determine direction
   const [prevPage, setPrevPage] = useState(pageNumber);
@@ -75,13 +80,19 @@ export function FlipbookVerticalViewer({ pageNumber, className = "" }: FlipbookV
           }}
           aria-label={`Página ${safePageNumber} del libro`}
         >
-          <img
-            src={src || undefined}
-            alt={`Página ${safePageNumber} del libro`}
-            className="w-full h-full object-contain drop-shadow-xl"
-            loading="lazy"
-            draggable={false}
-          />
+          {faithful ? (
+            <div className="w-full h-full flex items-center justify-center drop-shadow-xl">
+              <FaithfulPageRenderer pageNumber={safePageNumber} />
+            </div>
+          ) : (
+            <img
+              src={src || undefined}
+              alt={`Página ${safePageNumber} del libro`}
+              className="w-full h-full object-contain drop-shadow-xl"
+              loading="lazy"
+              draggable={false}
+            />
+          )}
         </motion.div>
       </AnimatePresence>
     </div>

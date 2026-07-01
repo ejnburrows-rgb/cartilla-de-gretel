@@ -1,0 +1,170 @@
+/* Faithful page — the book's signature "trim", identical on every page.
+ * White paper, wavy teal left sidebar, teal diamond page number, "Lección N"
+ * footer. Used by the student CRM view, student workbook, and teacher flipbook
+ * so all three match exactly. Tokens live in styles.css (:root).
+ */
+
+.faithful-page {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 612 / 792; /* US-Letter, matches the printed book trim */
+  background: var(--book-paper);
+  color: var(--book-ink);
+  font-family: var(--font-book-faithful);
+  border: 1px solid rgba(63, 169, 166, 0.25);
+  border-radius: 10px;
+  overflow: hidden;
+  container-type: inline-size;
+}
+
+/* Wavy teal sidebar down the left edge */
+.faithful-page__sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 7%;
+  min-width: 34px;
+  pointer-events: none;
+  color: var(--book-teal); /* SVG fill=currentColor */
+}
+.faithful-page__sidebar svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Content area — clears the sidebar */
+.faithful-page__body {
+  position: absolute;
+  inset: 0;
+  padding: 6% 7% 9% 12%;
+  display: flex;
+  flex-direction: column;
+  gap: 3cqw;
+  overflow: auto;
+}
+
+/* Teal diamond page number, bottom-left */
+.faithful-page__pagenum {
+  position: absolute;
+  left: 2.2%;
+  bottom: 2.5%;
+  width: 6.5cqw;
+  height: 6.5cqw;
+  min-width: 22px;
+  min-height: 22px;
+  transform: rotate(45deg);
+  background: var(--book-teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+}
+.faithful-page__pagenum span {
+  transform: rotate(-45deg);
+  color: #fff;
+  font-weight: 700;
+  font-size: 3.2cqw;
+  line-height: 1;
+}
+
+/* "Lección N" footer, bottom-right */
+.faithful-page__lesson {
+  position: absolute;
+  right: 5%;
+  bottom: 3.2%;
+  color: var(--book-ink-soft);
+  font-size: 3cqw;
+  font-family: var(--font-book-faithful);
+}
+
+/* ── Region typography ───────────────────────────────────────────── */
+.fp-region--title {
+  font-family: var(--font-book-title);
+  font-weight: 700;
+  font-size: 6.5cqw;
+  color: var(--book-ink);
+  line-height: 1.1;
+}
+.fp-region--instruction {
+  font-size: 4.2cqw;
+  color: var(--book-ink);
+}
+.fp-region--instruction .fp-label {
+  font-weight: 700;
+}
+.fp-region--vocab-grid,
+.fp-region--sentence-line,
+.fp-region--footer {
+  font-size: 4cqw;
+  color: var(--book-ink);
+}
+.fp-region--footer {
+  color: var(--book-ink-soft);
+  margin-top: auto;
+}
+.fp-region--tracing-line {
+  font-family: var(--font-book-hand);
+  font-size: 8cqw;
+  letter-spacing: 0.25em;
+  color: var(--book-ink-soft);
+  border-bottom: 2px solid var(--book-ink);
+  padding-bottom: 2cqw;
+}
+.fp-region--syllable-bubble {
+  font-weight: 700;
+  font-size: 5cqw;
+  color: var(--book-teal-deep);
+}
+
+/* ── Illustration slot ───────────────────────────────────────────── */
+.fp-illustration {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5cqw;
+}
+.fp-illustration img {
+  max-width: 32cqw;
+  max-height: 32cqw;
+  object-fit: contain;
+  border-radius: 8px;
+}
+.fp-illustration__caption {
+  font-size: 3.4cqw;
+  color: var(--book-ink);
+  text-transform: capitalize;
+}
+
+/* Explicit "art pending" marker — shown ONLY when a faithful crop is not yet
+ * available. Never an invented drawing. Makes any missing art obvious. */
+.fp-art-pending {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1cqw;
+  width: 30cqw;
+  height: 30cqw;
+  border: 2px dashed var(--book-teal);
+  border-radius: 10px;
+  background: rgba(63, 169, 166, 0.06);
+  color: var(--book-teal-deep);
+  font-size: 2.8cqw;
+  text-align: center;
+  padding: 2cqw;
+}
+.fp-art-pending__word {
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+/* Neutral placeholder when a whole page has no verified layout yet and no
+ * fallback was supplied. */
+.faithful-page--pending .faithful-page__body {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--book-ink-soft);
+}

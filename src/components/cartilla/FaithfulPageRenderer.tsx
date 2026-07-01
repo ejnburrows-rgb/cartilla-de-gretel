@@ -1,51 +1,84 @@
+import type { ReactNode } from "react";
 import { getPageLayout, type PageRegion } from "@/lib/book-faithful";
-import { MonochromeDrawing } from "./MonochromeDrawings";
-import { WorkbookPageRenderer } from "./WorkbookPageRenderer";
+import { PageFrame } from "./PageFrame";
 
-const fontRoleClass: Record<PageRegion["fontRole"], string> = {
-  heading: "font-[var(--font-book-faithful)] font-black text-2xl text-stone-800",
-  body: "font-[var(--font-book-faithful)] text-sm text-stone-600",
-  tracing: "font-[var(--font-book-faithful)] text-3xl tracking-[0.4em] text-stone-400",
-};
+/**
+ * Renders a workbook page from its faithful, verified region layout
+ * (src/data/page-layouts.json) — real text in the book's font + real COLOR
+ * illustrations cropped from the original artwork. This is the single renderer
+ * shared by the student CRM view, the student workbook, and the teacher
+ * flipbook, so all three match exactly and in the same order.
+ *
+ * If a page has no verified layout yet, it renders `fallback` (the surface's
+ * existing content) so nothing regresses — never invented content.
+ */
+interface FaithfulPageRendererProps {
+  pageNumber: number;
+  lessonNumber?: number;
+  /** Override layout (used by the preview route); defaults to the canonical file. */
+  regions?: PageRegion[];
+  /** Shown when this page has no verified faithful layout yet. */
+  fallback?: ReactNode;
+}
 
-function PageRegionView({ region }: { region: PageRegion }) {
-  if (region.regionType === "illustration-slot") {
+function IllustrationSlot({ region }: { region: PageRegion }) {
+  const caption = region.caption ?? region.illustrationWord;
+  if (region.illustrationSrc) {
     return (
-      <div className="flex h-24 w-24 items-center justify-center rounded-xl border border-stone-200 bg-white p-2">
-        {region.illustrationWord ? (
-          <MonochromeDrawing word={region.illustrationWord} size={72} />
-        ) : null}
+      <div className="fp-illustration">
+        <img src={region.illustrationSrc} alt={caption ?? ""} loading="lazy" />
+        {caption ? <span className="fp-illustration__caption">{caption}</span> : null}
       </div>
     );
   }
-
-  return <p className={fontRoleClass[region.fontRole]}>{region.text}</p>;
+  // No faithful crop yet — explicit marker, NEVER an invented drawing.
+  return (
+    <div className="fp-art-pending" role="img" aria-label={caption ? `Ilustración pendiente: ${caption}` : "Ilustración pendiente"}>
+      {caption ? <span className="fp-art-pending__word">{caption}</span> : null}
+      <span>ilustración pendiente</span>
+    </div>
+  );
 }
 
-interface FaithfulPageRendererProps {
-  pageNumber: number;
+function RegionView({ region }: { region: PageRegion }) {
+  if (region.regionType === "illustration-slot") {
+    return <IllustrationSlot region={region} />;
+  }
+  if (region.regionType === "instruction") {
+    return (
+      <p className="fp-region--instruction">
+        <span className="fp-label">Instrucciones: </span>
+        {region.text}
+      </p>
+    );
+  }
+  return <p className={`fp-region--${region.regionType}`}>{region.text}</p>;
 }
 
-/**
- * Renders a page from its faithful-HTML region layout (live text in
- * --font-book-faithful, illustrations as MonochromeDrawing SVGs) when one
- * has been authored. Falls back to the generic WorkbookPageRenderer template
- * for any page that doesn't have a layout yet.
- */
-export function FaithfulPageRenderer({ pageNumber }: FaithfulPageRendererProps) {
-  const regions = getPageLayout(pageNumber);
+export function FaithfulPageRenderer({
+  pageNumber,
+  lessonNumber,
+  regions,
+  fallback,
+}: FaithfulPageRendererProps) {
+  const layout = regions ?? getPageLayout(pageNumber);
 
-  if (!regions) {
-    return <WorkbookPageRenderer pageNumber={pageNumber} />;
+  if (!layout) {
+    if (fallback !== undefined) return <>{fallback}</>;
+    return (
+      <PageFrame pageNumber={pageNumber} lessonNumber={lessonNumber} className="faithful-page--pending">
+        <p>Página en preparación</p>
+      </PageFrame>
+    );
   }
 
-  const ordered = [...regions].sort((a, b) => a.order - b.order);
+  const ordered = [...layout].sort((a, b) => a.order - b.order);
 
   return (
-    <div className="w-full h-full flex flex-col gap-4 p-8 bg-stone-50 border border-stone-200/50 rounded-2xl">
+    <PageFrame pageNumber={pageNumber} lessonNumber={lessonNumber}>
       {ordered.map((region) => (
-        <PageRegionView key={region.id} region={region} />
+        <RegionView key={region.id} region={region} />
       ))}
-    </div>
+    </PageFrame>
   );
 }

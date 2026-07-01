@@ -1,0 +1,4 @@
+{
+  "_comment": "CANONICAL faithful page layouts — the single source of truth for the student CRM view, student workbook, and teacher flipbook. Each page is an ordered list of regions; text regions hold VERIFIED transcriptions (checked against the official workbook), illustration-slot regions hold `illustrationSrc` paths to faithful COLOR crops from the art pipeline (public/cartilla/art/faithful/manifest.json). A page absent here has no verified layout yet and renders its surface's existing fallback. NOTHING here is placeholder or invented — pages are added lesson-by-lesson only after the owner verifies them.",
+  "pages": {}
+}

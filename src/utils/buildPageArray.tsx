@@ -1,6 +1,10 @@
 import type { WorkbookPageEntry } from "@/components/StudentBook/StudentWorkbookFlip";
 
 import pageInventory from "@/data/page-inventory.json";
+import { CATALOG } from "@/lib/lesson-catalog";
+import { getLessonPageNumbers } from "@/lib/cartilla-crm-theme";
+import { hasPageLayout } from "@/lib/book-faithful";
+import { FaithfulPageRenderer } from "@/components/cartilla/FaithfulPageRenderer";
 
 const BASE = "/cartilla/images/source";
 
@@ -21,12 +25,31 @@ export function buildPageArray(lessonId: number): WorkbookPageEntry[] {
     return [];
   }
 
+  // Global (book) page numbers for this lesson, so we can look up a faithful,
+  // verified layout for each page. Falls back to the scan when none exists.
+  const catalogEntry = CATALOG.find((e) => e.n === lessonId);
+  const globalPages = catalogEntry ? getLessonPageNumbers(catalogEntry.pages) : [];
+
   return paths.map((filename, i) => {
     const src = `${BASE}/${filename}`;
     const pageNum = i + 1;
+    const globalPage = globalPages[i];
     // Check animated list by position index (legacy animated pages used global page numbers;
     // for inventory-driven lessons we simply check if the file is an mp4)
     const isAnimated = filename.endsWith(".mp4");
+
+    // Prefer the faithful, verified page when one exists (same shared source as
+    // the teacher flipbook + student CRM view). Until then, keep the scan.
+    if (typeof globalPage === "number" && hasPageLayout(globalPage)) {
+      return {
+        id: `lesson-${lessonId}-page-${pageNum}`,
+        cover: i === 0,
+        src,
+        content: (
+          <FaithfulPageRenderer pageNumber={globalPage} lessonNumber={lessonId} />
+        ),
+      };
+    }
 
     return {
       id: `lesson-${lessonId}-page-${pageNum}`,

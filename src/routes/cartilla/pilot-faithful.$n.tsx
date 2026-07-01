@@ -2,8 +2,12 @@ import { createFileRoute, Link, redirect } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import { FaithfulPageRenderer } from "@/components/cartilla/FaithfulPageRenderer";
 import { PdfPage } from "@/components/cartilla/PdfPage";
+import type { PageRegion } from "@/lib/book-faithful";
+import pilotLayouts from "@/data/page-layouts.pilot.json";
 
 const PILOT_PAGES = [1, 2, 3, 4, 5, 6];
+
+const pilotPages = (pilotLayouts as { pages: Record<string, { regions: PageRegion[] }> }).pages;
 
 export const Route = createFileRoute("/cartilla/pilot-faithful/$n")({
   component: PilotFaithfulPage,
@@ -58,8 +62,12 @@ function PilotFaithfulPage() {
             <h2 className="mb-2 text-xs font-bold uppercase tracking-wide text-foreground/50">
               Faithful HTML (new)
             </h2>
-            <div className="aspect-[2550/3301] overflow-hidden rounded-xl border border-foreground/10">
-              <FaithfulPageRenderer pageNumber={pageNumber} />
+            <div className="overflow-hidden rounded-xl border border-foreground/10">
+              <FaithfulPageRenderer
+                pageNumber={pageNumber}
+                lessonNumber={pageNumber <= 1 ? 1 : 2}
+                regions={pilotPages[String(pageNumber)]?.regions}
+              />
             </div>
           </div>
           <div>
