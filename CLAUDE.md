@@ -51,6 +51,17 @@ Teachers create classes, assign students, and track progress via Supabase.
   and move on.
 
 ## Working Style — Never Stall
+- Do not stop working and wait for a reply unless the owner says to stop
+  right now. Keep finding and doing the next unblocked thing.
+- Only report a piece of external work (Antigravity, another agent) as
+  "done" once independently verified — never relay a self-report as
+  fact. Report back the moment that verification is actually confident,
+  not on a timer.
+- The owner also has Fable 5 and another non-coding-but-code-capable agent
+  available. Only hand them a prompt when genuinely confident it's a
+  well-scoped, independent piece of work worth parallelizing — don't
+  invent busywork for them just to seem productive. Otherwise, say so
+  plainly and keep working solo.
 - Never end a turn by just waiting idle. Always leave the owner with either
   (a) concrete next-step prompts they can hand to their other agent
   (Antigravity) or act on themselves, or (b) continued work of your own.
