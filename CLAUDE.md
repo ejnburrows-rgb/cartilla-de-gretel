@@ -51,11 +51,21 @@ Teachers create classes, assign students, and track progress via Supabase.
 - Default to action over asking, once you have enough information to make
   a reasonable call.
 
-## Current Status (June 2026)
+## Current Status (July 2026)
 ✅ Landing page with desk scene
 ✅ Workbook with 95 pages
 ✅ Gretel compositing (GretelStage, GretelGuide)
+✅ Gretel reactions — event-driven via src/lib/gretel-bus.ts (lesson:start,
+   answer:correct/wrong, lesson:complete, activity:complete, etc.), wired
+   from real student actions across Ejercicios/DragBuildWord/InteractiveMiniGames
+   /etc. NOT hardcoded to page numbers — that refactor is already done.
+✅ Faithful page digitization (feat/faithful-pages, PR #48) — all 90 workbook
+   pages transcribed with real text + book fonts/colors (PageRegion schema +
+   FaithfulPageRenderer, src/data/page-layouts.json). Student workbook and
+   teacher flipbook both render it automatically wherever hasPageLayout()
+   is true, scan fallback otherwise. Illustrations: partial (verified real
+   crops wired in as they arrive from the art pipeline; "art pending" shown
+   honestly elsewhere — see public/cartilla/art/faithful/manifest.json).
 ⚠️  Student login — uses sessionStorage, needs Supabase
-❌  Teacher login + class management — incomplete  
+❌  Teacher login + class management — incomplete
 ❌  Cloud progress sync — not yet built
-❌  Gretel reactions — hardcoded to page numbers, needs event-driven refactor
