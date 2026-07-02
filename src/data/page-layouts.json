@@ -22,7 +22,8 @@
               "caption": "abrigo"
             },
             {
-              "caption": "imán"
+              "caption": "imán",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iman.webp"
             },
             {
               "caption": "abanico",
@@ -37,10 +38,12 @@
               "illustrationSrc": "/cartilla/art/faithful/vocal-i/isla.webp"
             },
             {
-              "caption": "avión"
+              "caption": "avión",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/avion.webp"
             },
             {
-              "caption": "imán"
+              "caption": "imán",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iman.webp"
             },
             {
               "caption": "remolino"
@@ -84,7 +87,8 @@
               "caption": "abeja"
             },
             {
-              "caption": "olla"
+              "caption": "olla",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-o/olla.webp"
             }
           ]
         }
@@ -214,7 +218,8 @@
             },
             {
               "letter": "e",
-              "caption": "escoba"
+              "caption": "escoba",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-e/escoba.webp"
             },
             {
               "letter": "u",
@@ -272,10 +277,12 @@
               "illustrationSrc": "/cartilla/art/faithful/vocal-o/oreja.webp"
             },
             {
-              "caption": "olla"
+              "caption": "olla",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-o/olla.webp"
             },
             {
-              "caption": "uvas"
+              "caption": "uvas",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-u/uvas.webp"
             },
             {
               "caption": "ocho",
@@ -336,7 +343,8 @@
               "illustrationSrc": "/cartilla/art/faithful/vocal-o/oreja.webp"
             },
             {
-              "caption": "olla"
+              "caption": "olla",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-o/olla.webp"
             },
             {
               "caption": "ola"
@@ -428,10 +436,12 @@
               "caption": "oruga"
             },
             {
-              "caption": "aro"
+              "caption": "aro",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/aro.webp"
             },
             {
-              "caption": "imán"
+              "caption": "imán",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iman.webp"
             },
             {
               "caption": "oveja",
@@ -466,13 +476,15 @@
               "caption": "ojos"
             },
             {
-              "caption": "avión"
+              "caption": "avión",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/avion.webp"
             },
             {
               "caption": "aguja"
             },
             {
-              "caption": "aro"
+              "caption": "aro",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/aro.webp"
             }
           ]
         }
@@ -623,7 +635,8 @@
               "caption": "aguja"
             },
             {
-              "caption": "escoba"
+              "caption": "escoba",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-e/escoba.webp"
             },
             {
               "caption": "unicornio",
@@ -804,7 +817,8 @@
               "caption": "ola"
             },
             {
-              "caption": "imán"
+              "caption": "imán",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iman.webp"
             },
             {
               "caption": "uno",
@@ -825,7 +839,8 @@
               "illustrationSrc": "/cartilla/art/faithful/vocal-i/insecto.webp"
             },
             {
-              "caption": "olla"
+              "caption": "olla",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-o/olla.webp"
             }
           ]
         }
@@ -849,7 +864,8 @@
           "exampleCaption": "iguana",
           "cells": [
             {
-              "caption": "imán"
+              "caption": "imán",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iman.webp"
             },
             {
               "caption": "oso",
@@ -961,7 +977,8 @@
               "caption": "arco"
             },
             {
-              "caption": "uvas"
+              "caption": "uvas",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-u/uvas.webp"
             },
             {
               "caption": "estrella",
@@ -1035,7 +1052,8 @@
               "illustrationSrc": "/cartilla/art/faithful/vocal-o/oso.webp"
             },
             {
-              "caption": "uvas"
+              "caption": "uvas",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-u/uvas.webp"
             },
             {
               "caption": "unicornio",
@@ -1049,7 +1067,8 @@
               "illustrationSrc": "/cartilla/art/faithful/vocal-e/estrella.webp"
             },
             {
-              "caption": "imán"
+              "caption": "imán",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iman.webp"
             }
           ]
         }

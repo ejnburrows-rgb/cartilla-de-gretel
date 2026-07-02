@@ -169,5 +169,59 @@
     "src": "/cartilla/art/faithful/vocal-o/oveja.webp",
     "sourceFlipchartPage": null,
     "cropBox": null
+  },
+  {
+    "slug": "avion",
+    "word": "avión",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-a/avion.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "aro",
+    "word": "aro",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-a/aro.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "escoba",
+    "word": "escoba",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-e/escoba.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "iman",
+    "word": "imán",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-i/iman.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "olla",
+    "word": "olla",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-o/olla.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "uvas",
+    "word": "uvas",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-u/uvas.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
   }
 ]
