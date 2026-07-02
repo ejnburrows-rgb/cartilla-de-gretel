@@ -41,6 +41,15 @@ Teachers create classes, assign students, and track progress via Supabase.
 3. Summarize what you find
 4. Wait for task assignment before making any changes
 
+## Talking to the Owner
+- The project owner is not a programmer. Explain things in plain, everyday
+  words — no tech jargon (no "routes," "branches," "deploy," "backend,"
+  etc. without explaining what that means in real terms). Say what
+  something does for the app/the kids/the teachers, not how it's built.
+- Whenever the owner says "memorize" something, actually write it into this
+  file right then, every single time — don't just acknowledge it in chat
+  and move on.
+
 ## Working Style — Never Stall
 - Never end a turn by just waiting idle. Always leave the owner with either
   (a) concrete next-step prompts they can hand to their other agent
