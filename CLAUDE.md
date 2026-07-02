@@ -50,6 +50,14 @@ Teachers create classes, assign students, and track progress via Supabase.
   yourself, and say what it was.
 - Default to action over asking, once you have enough information to make
   a reasonable call.
+- When something needs to go back to Antigravity (or anyone else), give
+  ONE complete, consolidated, copy-pasteable list of everything outstanding
+  — every known bug, every missing word, every gap — in a single message.
+  Never dole it out piecemeal across multiple turns/rounds; the owner is
+  relaying these by hand and re-checking every round costs them real time.
+- Don't ask the owner small clarifying questions when a reasonable default
+  exists — pick it, act, and say what you picked. Save questions for real
+  decisions only.
 
 ## Current Status (July 2026)
 ✅ Landing page with desk scene
