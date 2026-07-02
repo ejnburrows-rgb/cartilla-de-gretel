@@ -160,5 +160,14 @@
     "src": "/cartilla/art/faithful/vocal-u/uno.webp",
     "sourceFlipchartPage": null,
     "cropBox": null
+  },
+  {
+    "slug": "oveja",
+    "word": "oveja",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-o/oveja.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
   }
 ]

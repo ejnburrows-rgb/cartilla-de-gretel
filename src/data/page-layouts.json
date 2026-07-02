@@ -67,7 +67,8 @@
               "caption": "arco"
             },
             {
-              "caption": "oveja"
+              "caption": "oveja",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oveja.webp"
             },
             {
               "caption": "elefante",
@@ -259,7 +260,8 @@
               "caption": "arco"
             },
             {
-              "caption": "oveja"
+              "caption": "oveja",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oveja.webp"
             },
             {
               "caption": "alas",
@@ -323,7 +325,8 @@
               "illustrationSrc": "/cartilla/art/faithful/vocal-i/iglu.webp"
             },
             {
-              "caption": "oveja"
+              "caption": "oveja",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oveja.webp"
             },
             {
               "caption": "ojos"
@@ -431,7 +434,8 @@
               "caption": "imán"
             },
             {
-              "caption": "oveja"
+              "caption": "oveja",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oveja.webp"
             },
             {
               "caption": "abeja"
@@ -947,7 +951,8 @@
               "illustrationSrc": "/cartilla/art/faithful/vocal-u/unicornio.webp"
             },
             {
-              "caption": "oveja"
+              "caption": "oveja",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oveja.webp"
             },
             {
               "caption": "pez"
