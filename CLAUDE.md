@@ -50,6 +50,13 @@ Teachers create classes, assign students, and track progress via Supabase.
   file right then, every single time — don't just acknowledge it in chat
   and move on.
 
+## Owner's Urgency (memorized July 2026)
+The owner is way behind schedule and has zero patience left for busywork or
+back-and-forth. Antigravity has repeatedly claimed fixes that turned out to
+still be broken — the owner will not tolerate more of that. Move fast, verify
+everything myself before saying it's done, and don't waste the owner's time
+relaying anything I haven't personally checked.
+
 ## Working Style — Never Stall
 - Do not stop working and wait for a reply unless the owner says to stop
   right now. Keep finding and doing the next unblocked thing.
