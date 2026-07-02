@@ -2,6 +2,7 @@ import React, { useEffect, useState, useMemo, Suspense } from "react";
 import { createFileRoute, Link, useNavigate, redirect } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Maximize, Minimize, X, BookOpen } from "lucide-react";
 import { CATALOG } from "@/lib/lesson-catalog";
+import { getLessonPageNumbers } from "@/lib/cartilla-crm-theme";
 import { TeacherNoteField } from "@/components/teacher/TeacherNoteField";
 import { wordsForLesson } from "@/content/word-bank";
 import { InteractiveFlipchartOverlay } from "@/components/cartilla/InteractiveFlipchartOverlay";
@@ -48,6 +49,17 @@ function FlipchartLeccion() {
 
   const currentFile = fcPages[pageIndex] ?? null;
   const currentSrc = currentFile ? `${FC_BASE}/${currentFile}` : null;
+
+  // Global (book-wide) page number for this lesson's slot, for the fallback
+  // viewer only — FlipbookVerticalViewer/getBookPageImage/page-layouts.json
+  // are all keyed by the GLOBAL 1-92 page number, not this lesson's local
+  // pageIndex, so a straight pageIndex+1 would show the wrong lesson's page.
+  const catalogEntry = useMemo(() => CATALOG.find((e) => e.n === n), [n]);
+  const globalPageNumbers = useMemo(
+    () => (catalogEntry ? getLessonPageNumbers(catalogEntry.pages) : []),
+    [catalogEntry],
+  );
+  const fallbackGlobalPage = globalPageNumbers[pageIndex] ?? globalPageNumbers[0] ?? 1;
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -115,7 +127,7 @@ function FlipchartLeccion() {
                 </div>
               }
             >
-              <LazyFlipbookViewer pageNumber={pageIndex + 1} className="w-full h-full" />
+              <LazyFlipbookViewer pageNumber={fallbackGlobalPage} className="w-full h-full" />
             </Suspense>
           )}
 

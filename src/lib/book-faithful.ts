@@ -1,5 +1,6 @@
 import lessonsData from "@/data/lessons.json";
 import sourceArtInventory from "@/data/source-art-inventory.json";
+import pageLayouts from "@/data/page-layouts.json";
 import { getBookSectionForLesson, getLessonPageNumbers } from "@/lib/cartilla-crm-theme";
 import { CATALOG } from "@/lib/lesson-catalog";
 
@@ -45,6 +46,100 @@ export type WorkbookTranscriptionStatus = "verified" | "missing" | "partial";
 
 export type WorkbookPageRole = "intro" | "vowels" | "consonants";
 
+/**
+ * A single structural region on a faithfully-digitized page (e.g. the title
+ * bar, a vocabulary grid, a tracing line). Text-bearing regions render as
+ * live HTML so they pick up `--font-book-faithful`; illustration regions
+ * resolve to either a MonochromeDrawing SVG (by word) or a cropped scan.
+ */
+export type PageRegionType =
+	| "title"
+	| "instruction"
+	| "vocab-grid"
+	| "tracing-line"
+	| "writing-line" // ruled handwriting line (solid baseline + dashed teal midline), optional model letters
+	| "draw-box" // empty bordered box for "haz un dibujo"
+	| "picture-grid" // grid of illustration cells (e.g. "marca con una x")
+	| "syllable-bubble"
+	| "sentence-line"
+	| "illustration-slot"
+	| "syllable-match" // "Encierra en un círculo la sílaba correspondiente" — a syllable + its candidate-word rows
+	| "fill-in-blank" // "Completa las palabras con la sílaba correcta" — one word-box + blank + syllable choices
+	| "vowel-line-match" // "Traza una línea desde la vocal Xx hasta el dibujo..." — 8 picture cells around a center vowel-pair
+	| "vowel-pick-one" // "Circula el dibujo que comienza con la vocal del recuadro" — one row per vowel, 3 picture options
+	| "vowel-match-all" // "Traza una línea de la vocal al dibujo que le corresponde" — all 5 vowels, each paired 1:1 with its picture
+	| "footer";
+
+/** A single illustration cell inside a picture-grid region. */
+export type PageGridCell = {
+	/** Faithful color crop path; absent → "art pending" (never invented). */
+	illustrationSrc?: string;
+	/** Real Spanish word the picture depicts (used as caption + art-pipeline slug). */
+	caption?: string;
+};
+
+/** One row of candidate words the student picks from, for a syllable-match region. */
+export type SyllableMatchRow = string[];
+
+/** One "complete the word" item inside a fill-in-blank exercise. */
+export type FillInBlankItem = {
+	/** The whole reference word shown in a box, e.g. "amo". */
+	wordBox: string;
+	/** The partial word with the blank, e.g. "a ___" or "___ mi". */
+	blank: string;
+	/** The syllable choices offered, e.g. "mo - mu". */
+	choices: string;
+};
+
+export type PageRegionFontRole = "heading" | "body" | "tracing";
+
+export type PageRegion = {
+	id: string;
+	regionType: PageRegionType;
+	/** Render order within the page, ascending. */
+	order: number;
+	fontRole: PageRegionFontRole;
+	/** Present on text-bearing regions. */
+	text?: string;
+	/** Optional bold inline label before the text (e.g. "Instrucciones:") — only where the book shows it. */
+	label?: string;
+	/**
+	 * Faithful COLOR illustration cropped from the original artwork.
+	 * Path under /public (e.g. "/cartilla/art/faithful/2/oso.webp"), produced
+	 * by the art pipeline (see public/cartilla/art/faithful/manifest.json).
+	 * When absent on an illustration-slot, the renderer shows an explicit
+	 * "art pending" marker — never an invented drawing.
+	 */
+	illustrationSrc?: string;
+	/** Caption/word for the illustration (real Spanish word, incl. accents). */
+	caption?: string;
+	/** For "writing-line": faint model letters at the start of the ruled line (e.g. "O o"). */
+	modelText?: string;
+	/** For "picture-grid": number of columns (defaults to a sensible value). */
+	columns?: number;
+	/** For "picture-grid": the illustration cells, in reading order. */
+	cells?: PageGridCell[];
+	/** For "syllable-match": the target syllable, e.g. "ma". */
+	syllable?: string;
+	/** For "syllable-match": each row of candidate words the student chooses among. */
+	matchRows?: SyllableMatchRow[];
+	/** For "fill-in-blank": the items in this exercise row. */
+	fillItems?: FillInBlankItem[];
+	/** For "vowel-line-match": the vowel pair shown in the center cell, e.g. "Oo". */
+	letterPair?: string;
+	/** For "vowel-line-match": the word/example the printed page shows already connected to the vowel with a line. */
+	exampleCaption?: string;
+	/** For "vowel-pick-one": one row per vowel — the letter + its candidate picture cells (one is correct). */
+	vowelRows?: Array<{ letter: string; cells: PageGridCell[] }>;
+	/** For "vowel-match-all": all 5 vowels, each 1:1 paired with its picture. */
+	vowelPairs?: Array<{ letter: string } & PageGridCell>;
+	/**
+	 * @deprecated Legacy pilot field that mapped to an INVENTED vector drawing.
+	 * Not faithful — do not use on real pages; kept only so old pilot data parses.
+	 */
+	illustrationWord?: string;
+};
+
 export type WorkbookPageContent = {
 	pageNumber: number;
 	lessonNumber: number;
@@ -55,6 +150,8 @@ export type WorkbookPageContent = {
 	sourceScaffoldPosition: number | null;
 	sourceRawLabel: string | null;
 	transcriptionStatus: WorkbookTranscriptionStatus;
+	/** Faithful-HTML region layout, when available (pilot pages only for now). */
+	regions?: PageRegion[];
 };
 
 // ---------------------------------------------------------------------------
@@ -274,6 +371,29 @@ export function getWorkbookPagesForLesson(lessonNumber: number): WorkbookPageCon
 			transcriptionStatus: statusForTextBlocks(verifiedTextBlocks, scaffold, imageScanReference),
 		};
 	});
+}
+
+type PageLayouts = {
+	pages: Record<string, { regions: PageRegion[] }>;
+};
+
+const canonicalLayouts = pageLayouts as unknown as PageLayouts;
+
+/**
+ * Faithful-HTML region layout for a page, if one has been authored & verified.
+ * Canonical source: src/data/page-layouts.json (one shared file that drives the
+ * student CRM view, student workbook, and teacher flipbook — same content, same
+ * order everywhere). Returns null for any page not yet transcribed/verified,
+ * so callers can fall back to their existing rendering.
+ */
+export function getPageLayout(pageNumber: number): PageRegion[] | null {
+	const entry = canonicalLayouts.pages[String(pageNumber)];
+	return entry ? entry.regions : null;
+}
+
+/** True if a faithful, verified layout exists for this page. */
+export function hasPageLayout(pageNumber: number): boolean {
+	return Boolean(canonicalLayouts.pages[String(pageNumber)]);
 }
 
 export function getWorkbookTranscriptionSummary(lessonNumber: number) {

@@ -1,0 +1,429 @@
+/* Faithful page — the book's signature "trim", identical on every page.
+ * White paper, wavy teal left sidebar, teal diamond page number, "Lección N"
+ * footer. Used by the student CRM view, student workbook, and teacher flipbook
+ * so all three match exactly. Tokens live in styles.css (:root).
+ */
+
+.faithful-page {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 612 / 792; /* US-Letter, matches the printed book trim */
+  background: var(--book-paper);
+  color: var(--book-ink);
+  font-family: var(--font-book-faithful);
+  border: 1px solid rgba(63, 169, 166, 0.25);
+  border-radius: 10px;
+  overflow: hidden;
+  container-type: inline-size;
+}
+
+/* Wavy teal sidebar down the left edge */
+.faithful-page__sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 7%;
+  min-width: 34px;
+  pointer-events: none;
+  color: var(--book-teal); /* SVG fill=currentColor */
+}
+.faithful-page__sidebar svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Content area — clears the sidebar */
+.faithful-page__body {
+  position: absolute;
+  inset: 0;
+  padding: 6% 7% 9% 12%;
+  display: flex;
+  flex-direction: column;
+  gap: 3cqw;
+  overflow: auto;
+}
+
+/* Teal diamond page number, bottom-left */
+.faithful-page__pagenum {
+  position: absolute;
+  left: 2.2%;
+  bottom: 2.5%;
+  width: 6.5cqw;
+  height: 6.5cqw;
+  min-width: 22px;
+  min-height: 22px;
+  transform: rotate(45deg);
+  background: var(--book-teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+}
+.faithful-page__pagenum span {
+  transform: rotate(-45deg);
+  color: #fff;
+  font-weight: 700;
+  font-size: 3.2cqw;
+  line-height: 1;
+}
+
+/* "Lección N" footer, bottom-right */
+.faithful-page__lesson {
+  position: absolute;
+  right: 5%;
+  bottom: 3.2%;
+  color: var(--book-ink-soft);
+  font-size: 3cqw;
+  font-family: var(--font-book-faithful);
+}
+
+/* ── Region typography ───────────────────────────────────────────── */
+.fp-region--title {
+  font-family: var(--font-book-title);
+  font-weight: 700;
+  font-size: 6.5cqw;
+  color: var(--book-ink);
+  line-height: 1.1;
+}
+.fp-region--instruction {
+  font-size: 4.2cqw;
+  color: var(--book-ink);
+}
+.fp-region--instruction .fp-label {
+  font-weight: 700;
+}
+.fp-region--vocab-grid,
+.fp-region--sentence-line,
+.fp-region--footer {
+  font-size: 4cqw;
+  color: var(--book-ink);
+}
+.fp-region--footer {
+  color: var(--book-ink-soft);
+  margin-top: auto;
+}
+.fp-region--tracing-line {
+  font-family: var(--font-book-hand);
+  font-size: 8cqw;
+  letter-spacing: 0.25em;
+  color: var(--book-ink-soft);
+  border-bottom: 2px solid var(--book-ink);
+  padding-bottom: 2cqw;
+}
+.fp-region--syllable-bubble {
+  font-weight: 700;
+  font-size: 5cqw;
+  color: var(--book-teal-deep);
+}
+
+/* ── Illustration slot ───────────────────────────────────────────── */
+.fp-illustration {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5cqw;
+}
+.fp-illustration img {
+  max-width: 32cqw;
+  max-height: 32cqw;
+  object-fit: contain;
+  border-radius: 8px;
+}
+.fp-illustration__caption {
+  font-size: 3.4cqw;
+  color: var(--book-ink);
+  text-transform: capitalize;
+}
+
+/* Explicit "art pending" marker — shown ONLY when a faithful crop is not yet
+ * available. Never an invented drawing. Makes any missing art obvious. */
+.fp-art-pending {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1cqw;
+  width: 30cqw;
+  height: 30cqw;
+  border: 2px dashed var(--book-teal);
+  border-radius: 10px;
+  background: rgba(63, 169, 166, 0.06);
+  color: var(--book-teal-deep);
+  font-size: 2.8cqw;
+  text-align: center;
+  padding: 2cqw;
+}
+.fp-art-pending__word {
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+/* Ruled handwriting line: solid baseline + dashed teal midline, optional model */
+.fp-writing-line {
+  display: flex;
+  align-items: flex-end;
+  gap: 2cqw;
+  margin: 1.5cqw 0;
+}
+.fp-writing-line__model {
+  font-family: var(--font-book-faithful);
+  font-size: 8cqw;
+  line-height: 1;
+  color: var(--book-teal);
+  font-weight: 700;
+}
+.fp-writing-line__rule {
+  flex: 1;
+  height: 9cqw;
+  border-bottom: 2px solid var(--book-ink);
+  background-image: linear-gradient(var(--book-guide), var(--book-guide));
+  background-repeat: repeat-x;
+  background-size: 12px 2px;
+  background-position: left 55%;
+}
+
+/* Empty draw box for "haz un dibujo" */
+.fp-draw-box {
+  border: 2px solid var(--book-teal);
+  border-radius: 6px;
+  min-height: 30cqw;
+  display: flex;
+  align-items: flex-start;
+  padding: 2cqw;
+}
+.fp-draw-box__hint {
+  font-size: 2.6cqw;
+  color: var(--book-ink-soft);
+}
+
+/* Picture grid ("marca con una x", matching, etc.) */
+.fp-picture-grid {
+  display: grid;
+  gap: 2cqw;
+}
+.fp-picture-grid__cell {
+  aspect-ratio: 1 / 1;
+  border: 1.5px solid var(--book-teal);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 1cqw;
+}
+.fp-picture-grid__cell img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.fp-picture-grid__cell .fp-art-pending {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  font-size: 2.2cqw;
+}
+
+/* Syllable-match ("Encierra en un círculo la sílaba correspondiente") */
+.fp-syllable-match {
+  display: flex;
+  gap: 3cqw;
+  align-items: flex-start;
+}
+.fp-syllable-match__syllable {
+  font-weight: 700;
+  font-size: 5.5cqw;
+  color: var(--book-teal-deep);
+  min-width: 10cqw;
+}
+.fp-syllable-match__rows {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2cqw;
+  flex: 1;
+}
+.fp-syllable-match__row {
+  display: flex;
+  gap: 3cqw;
+}
+.fp-syllable-match__word {
+  font-size: 3.6cqw;
+  color: var(--book-ink);
+}
+
+/* Fill-in-blank ("Completa las palabras con la sílaba correcta") */
+.fp-fill-in-blank {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3cqw;
+}
+.fp-fill-in-blank__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8cqw;
+  min-width: 22cqw;
+}
+.fp-fill-in-blank__wordbox {
+  border: 1.5px solid var(--book-teal);
+  border-radius: 4px;
+  padding: 0.8cqw 1.5cqw;
+  font-size: 3.6cqw;
+  font-weight: 700;
+  color: var(--book-ink);
+  text-align: center;
+  align-self: flex-start;
+}
+.fp-fill-in-blank__blank {
+  font-size: 3.6cqw;
+  color: var(--book-ink);
+}
+.fp-fill-in-blank__choices {
+  font-size: 3cqw;
+  color: var(--book-ink-soft);
+  border-top: 1px solid var(--book-ink-soft);
+  padding-top: 0.6cqw;
+}
+
+/* Vowel line-match ("Traza una línea desde la vocal Xx hasta el dibujo...") —
+ * 3x3 grid: 8 illustration cells around a center cell showing the vowel pair. */
+.fp-vowel-match {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2cqw;
+  flex: 1;
+}
+.fp-vowel-match__cell {
+  aspect-ratio: 1 / 1;
+  border: 1.5px solid var(--book-teal);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 1cqw;
+}
+.fp-vowel-match__cell img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.fp-vowel-match__cell .fp-art-pending {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  font-size: 2.2cqw;
+}
+.fp-vowel-match__cell--example {
+  border-style: dashed;
+  border-width: 2px;
+}
+.fp-vowel-match__letters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 8cqw;
+  color: var(--book-teal);
+}
+
+/* Vowel pick-one ("Circula el dibujo que comienza con la vocal del recuadro")
+ * — one row per vowel: big letter + 3 candidate picture cells. */
+.fp-vowel-pick {
+  display: flex;
+  flex-direction: column;
+  gap: 2cqw;
+  flex: 1;
+}
+.fp-vowel-pick__row {
+  display: grid;
+  grid-template-columns: 1fr repeat(3, 1fr);
+  gap: 1.5cqw;
+  align-items: stretch;
+}
+.fp-vowel-pick__letter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 6cqw;
+  color: var(--book-teal);
+}
+.fp-vowel-pick__cell {
+  aspect-ratio: 1 / 1;
+  border: 1.5px solid var(--book-teal);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 1cqw;
+}
+.fp-vowel-pick__cell img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.fp-vowel-pick__cell .fp-art-pending {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  font-size: 2.2cqw;
+}
+
+/* Vowel match-all ("Traza una línea de la vocal al dibujo que le
+ * corresponde") — all 5 vowels, each 1:1 paired with its picture. */
+.fp-vowel-match-all {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5cqw;
+  flex: 1;
+}
+.fp-vowel-match-all__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2cqw;
+  align-items: center;
+}
+.fp-vowel-match-all__letter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 6cqw;
+  color: var(--book-teal);
+}
+.fp-vowel-match-all__cell {
+  aspect-ratio: 2 / 1;
+  border: 1.5px solid var(--book-teal);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 1cqw;
+}
+.fp-vowel-match-all__cell img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.fp-vowel-match-all__cell .fp-art-pending {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  font-size: 2.2cqw;
+}
+
+/* Neutral placeholder when a whole page has no verified layout yet and no
+ * fallback was supplied. */
+.faithful-page--pending .faithful-page__body {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--book-ink-soft);
+}

@@ -41,11 +41,39 @@ Teachers create classes, assign students, and track progress via Supabase.
 3. Summarize what you find
 4. Wait for task assignment before making any changes
 
-## Current Status (June 2026)
+## Working Style — Never Stall
+- Never end a turn by just waiting idle. Always leave the owner with either
+  (a) concrete next-step prompts they can hand to their other agent
+  (Antigravity) or act on themselves, or (b) continued work of your own.
+- When blocked on an external dependency (e.g. art delivery), don't just
+  report and stop — find and execute the next unblocked piece of work
+  yourself, and say what it was.
+- Default to action over asking, once you have enough information to make
+  a reasonable call.
+- When something needs to go back to Antigravity (or anyone else), give
+  ONE complete, consolidated, copy-pasteable list of everything outstanding
+  — every known bug, every missing word, every gap — in a single message.
+  Never dole it out piecemeal across multiple turns/rounds; the owner is
+  relaying these by hand and re-checking every round costs them real time.
+- Don't ask the owner small clarifying questions when a reasonable default
+  exists — pick it, act, and say what you picked. Save questions for real
+  decisions only.
+
+## Current Status (July 2026)
 ✅ Landing page with desk scene
 ✅ Workbook with 95 pages
 ✅ Gretel compositing (GretelStage, GretelGuide)
+✅ Gretel reactions — event-driven via src/lib/gretel-bus.ts (lesson:start,
+   answer:correct/wrong, lesson:complete, activity:complete, etc.), wired
+   from real student actions across Ejercicios/DragBuildWord/InteractiveMiniGames
+   /etc. NOT hardcoded to page numbers — that refactor is already done.
+✅ Faithful page digitization (feat/faithful-pages, PR #48) — all 90 workbook
+   pages transcribed with real text + book fonts/colors (PageRegion schema +
+   FaithfulPageRenderer, src/data/page-layouts.json). Student workbook and
+   teacher flipbook both render it automatically wherever hasPageLayout()
+   is true, scan fallback otherwise. Illustrations: partial (verified real
+   crops wired in as they arrive from the art pipeline; "art pending" shown
+   honestly elsewhere — see public/cartilla/art/faithful/manifest.json).
 ⚠️  Student login — uses sessionStorage, needs Supabase
-❌  Teacher login + class management — incomplete  
+❌  Teacher login + class management — incomplete
 ❌  Cloud progress sync — not yet built
-❌  Gretel reactions — hardcoded to page numbers, needs event-driven refactor
