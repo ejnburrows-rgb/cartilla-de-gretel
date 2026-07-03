@@ -12,19 +12,21 @@ message. Last verified: July 2026, against `src/data/page-layouts.json` and
 6 are genuinely clean, tight crops with no neighbor bleed. These are done;
 don't redo them.
 
-## Still needed (2 words — for the existing vocabulary games, not the
-## workbook pages)
-The student-facing vocabulary games (word matching, etc.) currently use
-emoji pictures instead of real book art for 20 words. 18 of those 20
-already have a real crop sitting in the manifest and just need wiring in
-(no new cropping needed) — only these 2 are genuinely new:
+## Update — the last word is closed out
+`uña` was delivered and verified directly (a genuine, tight fingernail
+crop) — merged. `urna` was first delivered as a duplicate of the `uña`
+file mislabeled — rejected, not merged. Antigravity then reported `urna`
+doesn't actually appear anywhere in the book (a hallucinated word, same
+category as arco/pez/traje/águila below) and removed it. That claim is
+**not independently verified against the physical scan** — taken on
+report, same caveat as the other "doesn't exist" words. If it later turns
+up in a real page, add it back here.
 
-| word | status | notes |
-|---|---|---|
-| uña | never attempted | a fingernail — no crop exists yet |
-| urna | never attempted | a vase/urn/ballot-box shape — no crop exists yet |
-
-Same crop rule as always: tight, no neighbor bleed, no oversized canvas.
+**Vocabulary games note**: the student-facing games (word matching, etc.)
+still use emoji pictures for their 18 other words even though real crops
+for those already exist in the manifest — that's an app-side wiring task
+(Claude's side), not an art-extraction task. Nothing further needed from
+Antigravity on vocabulary art right now.
 
 **Crop rule**: crop tight to just the illustration itself. If a neighboring
 cell's label or drawing is bleeding into the frame, the crop boundary is
@@ -32,10 +34,15 @@ wrong — move it in, don't just accept the bleed. When in doubt, crop
 tighter rather than looser.
 
 ## Confirmed NOT to exist in the source material — do not attempt
-arco, pez, traje, águila — these words appear in `page-layouts.json`'s
-captions but have no corresponding illustration anywhere in the physical
-book's scans. Leave their cells showing "art pending" — that's correct,
-not a gap to fill.
+arco, pez, traje, águila, urna — these words appear in the app's content
+but have no corresponding illustration anywhere in the physical book's
+scans (per Antigravity's own report — not independently re-verified by
+Claude against the physical pages). Leave their cells showing "art
+pending" — that's correct, not a gap to fill.
+
+## Current status: no open art-extraction work
+Every word Claude currently needs has a real crop wired in. Don't start
+new crops without a fresh entry appearing in this file first.
 
 ## Already done — do not re-deliver
 Every other word currently wired in `public/cartilla/art/faithful/manifest.json`
