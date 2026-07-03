@@ -19,7 +19,8 @@
           "columns": 4,
           "cells": [
             {
-              "caption": "abrigo"
+              "caption": "abrigo",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/abrigo.webp"
             },
             {
               "caption": "imán",
@@ -78,7 +79,8 @@
               "illustrationSrc": "/cartilla/art/faithful/vocal-e/elefante.webp"
             },
             {
-              "caption": "ojos"
+              "caption": "ojos",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-o/ojos.webp"
             },
             {
               "caption": "maíz"
@@ -213,11 +215,13 @@
             },
             {
               "letter": "i",
-              "caption": "iglesia"
+              "caption": "iglesia",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iglesia.webp"
             },
             {
               "letter": "e",
-              "caption": "escoba"
+              "caption": "escoba",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-e/escoba.webp"
             },
             {
               "letter": "u",
@@ -302,7 +306,8 @@
               "caption": "traje"
             },
             {
-              "caption": "ojos"
+              "caption": "ojos",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-o/ojos.webp"
             }
           ]
         }
@@ -334,7 +339,8 @@
               "illustrationSrc": "/cartilla/art/faithful/vocal-o/oveja.webp"
             },
             {
-              "caption": "ojos"
+              "caption": "ojos",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-o/ojos.webp"
             },
             {
               "caption": "oreja",
@@ -431,7 +437,8 @@
               "illustrationSrc": "/cartilla/art/faithful/vocal-a/abanico.webp"
             },
             {
-              "caption": "oruga"
+              "caption": "oruga",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oruga.webp"
             },
             {
               "caption": "aro",
@@ -471,7 +478,8 @@
               "caption": "ardilla"
             },
             {
-              "caption": "ojos"
+              "caption": "ojos",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-o/ojos.webp"
             },
             {
               "caption": "avión",
@@ -633,7 +641,8 @@
               "caption": "aguja"
             },
             {
-              "caption": "escoba"
+              "caption": "escoba",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-e/escoba.webp"
             },
             {
               "caption": "unicornio",
@@ -708,7 +717,8 @@
               "illustrationSrc": "/cartilla/art/faithful/vocal-e/estrella.webp"
             },
             {
-              "caption": "abrigo"
+              "caption": "abrigo",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/abrigo.webp"
             }
           ]
         }
