@@ -43,6 +43,18 @@
   flex-direction: column;
   gap: 3cqw;
   overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--book-teal) transparent;
+}
+.faithful-page__body::-webkit-scrollbar {
+  width: 6px;
+}
+.faithful-page__body::-webkit-scrollbar-track {
+  background: transparent;
+}
+.faithful-page__body::-webkit-scrollbar-thumb {
+  background-color: var(--book-teal);
+  border-radius: 999px;
 }
 
 /* Teal diamond page number, bottom-left */
