@@ -119,10 +119,12 @@
               "letter": "a",
               "cells": [
                 {
-                  "caption": "anillo"
+                  "caption": "anillo",
+                  "illustrationSrc": "/cartilla/art/faithful/vocal-a/anillo.webp"
                 },
                 {
-                  "caption": "manzana"
+                  "caption": "manzana",
+                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/manzana.webp"
                 },
                 {
                   "caption": "libro",
@@ -151,14 +153,16 @@
               "letter": "i",
               "cells": [
                 {
-                  "caption": "taza"
+                  "caption": "taza",
+                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/taza.webp"
                 },
                 {
                   "caption": "indio",
                   "illustrationSrc": "/cartilla/art/faithful/vocal-i/indio.webp"
                 },
                 {
-                  "caption": "pera"
+                  "caption": "pera",
+                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/pera.webp"
                 }
               ]
             },
@@ -183,7 +187,8 @@
               "letter": "u",
               "cells": [
                 {
-                  "caption": "uniforme"
+                  "caption": "uniforme",
+                  "illustrationSrc": "/cartilla/art/faithful/vocal-u/uniforme.webp"
                 },
                 {
                   "caption": "globo",
@@ -503,7 +508,8 @@
               "illustrationSrc": "/cartilla/art/faithful/vocal-a/avion.webp"
             },
             {
-              "caption": "aguja"
+              "caption": "aguja",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/aguja.webp"
             },
             {
               "caption": "aro",
@@ -547,7 +553,8 @@
               "illustrationSrc": "/cartilla/art/faithful/vocal-a/abeja.webp"
             },
             {
-              "caption": "aguja"
+              "caption": "aguja",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/aguja.webp"
             },
             {
               "caption": "maíz",
@@ -660,7 +667,8 @@
               "illustrationSrc": "/cartilla/art/faithful/vocal-a/abeja.webp"
             },
             {
-              "caption": "aguja"
+              "caption": "aguja",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/aguja.webp"
             },
             {
               "caption": "escoba",
