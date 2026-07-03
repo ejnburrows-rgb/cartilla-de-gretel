@@ -394,5 +394,14 @@
     "src": "/cartilla/art/faithful/vocal-i/invierno.webp",
     "sourceFlipchartPage": null,
     "cropBox": null
+  },
+  {
+    "slug": "uña",
+    "word": "uña",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-u/uña.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
   }
 ]
