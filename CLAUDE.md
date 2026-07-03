@@ -82,6 +82,10 @@ relaying anything I haven't personally checked.
   — every known bug, every missing word, every gap — in a single message.
   Never dole it out piecemeal across multiple turns/rounds; the owner is
   relaying these by hand and re-checking every round costs them real time.
+- Every single time something needs to go to Antigravity, write it as an
+  actual ready-to-paste prompt (direct instructions Antigravity can act on
+  immediately), not just a description of the problem — the owner copies
+  these over by hand, so make it something they can paste as-is.
 - Don't ask the owner small clarifying questions when a reasonable default
   exists — pick it, act, and say what you picked. Save questions for real
   decisions only.
