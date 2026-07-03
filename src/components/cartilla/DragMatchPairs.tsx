@@ -17,6 +17,7 @@ import { RotateCcw } from "lucide-react";
 export interface Pair {
   word: string;
   emoji: string;
+  illustrationSrc?: string;
 }
 
 interface DragMatchPairsProps {
@@ -254,10 +255,14 @@ function DroppableEmojiCard({
         boxShadow: isOver ? `0 0 12px ${color}22` : undefined,
       }}
     >
-      {/* Emoji display */}
-      <span className="text-3xl select-none" role="img" aria-label="dibujo">
-        {pair.emoji}
-      </span>
+      {/* Picture display */}
+      {pair.illustrationSrc ? (
+        <img src={pair.illustrationSrc} alt={pair.word} className="w-10 h-10 object-contain select-none" loading="lazy" />
+      ) : (
+        <span className="text-3xl select-none" role="img" aria-label="dibujo">
+          {pair.emoji}
+        </span>
+      )}
 
       {/* Drop slot zone */}
       <div className="flex-1 max-w-[150px]">

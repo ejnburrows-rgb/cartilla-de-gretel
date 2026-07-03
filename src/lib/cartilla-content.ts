@@ -1,7 +1,7 @@
 import lessonsData from "@/content/lessons.json";
 import miamiData from "@/content/miami-dade.json";
 
-export type VocabWord = { word: string; emoji: string };
+export type VocabWord = { word: string; emoji: string; illustrationSrc?: string };
 export type MatchPair = { left: string; right: string; pairId: number };
 export type CheckboxItem = { word: string; emoji: string; startsWithVowel: boolean };
 export type VowelLesson = {

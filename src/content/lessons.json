@@ -8,21 +8,65 @@
     "characterName": "La Abeja Cantora",
     "characterDesc": "Una abeja que siempre canta \"aaaaa\" cuando vuela de flor en flor recolectando néctar.",
     "vocab": [
-      { "word": "árbol", "emoji": "🌳" },
-      { "word": "avión", "emoji": "✈️" },
-      { "word": "abeja", "emoji": "🐝" },
-      { "word": "ala", "emoji": "🪽" }
+      {
+        "word": "árbol",
+        "emoji": "🌳",
+        "illustrationSrc": "/cartilla/art/faithful/vocal-a/arbol.webp"
+      },
+      {
+        "word": "avión",
+        "emoji": "✈️",
+        "illustrationSrc": "/cartilla/art/faithful/vocal-a/avion.webp"
+      },
+      {
+        "word": "abeja",
+        "emoji": "🐝",
+        "illustrationSrc": "/cartilla/art/faithful/vocal-a/abeja.webp"
+      },
+      {
+        "word": "ala",
+        "emoji": "🪽",
+        "illustrationSrc": "/cartilla/art/faithful/vocal-a/alas.webp"
+      }
     ],
     "matchPairs": [
-      { "left": "a", "right": "🌳 árbol", "pairId": 0 },
-      { "left": "a", "right": "✈️ avión", "pairId": 1 },
-      { "left": "a", "right": "🐝 abeja", "pairId": 2 }
+      {
+        "left": "a",
+        "right": "🌳 árbol",
+        "pairId": 0
+      },
+      {
+        "left": "a",
+        "right": "✈️ avión",
+        "pairId": 1
+      },
+      {
+        "left": "a",
+        "right": "🐝 abeja",
+        "pairId": 2
+      }
     ],
     "checkboxItems": [
-      { "word": "árbol", "emoji": "🌳", "startsWithVowel": true },
-      { "word": "avión", "emoji": "✈️", "startsWithVowel": true },
-      { "word": "elefante", "emoji": "🐘", "startsWithVowel": false },
-      { "word": "escoba", "emoji": "🧹", "startsWithVowel": false }
+      {
+        "word": "árbol",
+        "emoji": "🌳",
+        "startsWithVowel": true
+      },
+      {
+        "word": "avión",
+        "emoji": "✈️",
+        "startsWithVowel": true
+      },
+      {
+        "word": "elefante",
+        "emoji": "🐘",
+        "startsWithVowel": false
+      },
+      {
+        "word": "escoba",
+        "emoji": "🧹",
+        "startsWithVowel": false
+      }
     ]
   },
   {
@@ -34,21 +78,65 @@
     "characterName": "La Niña que no Oye Bien",
     "characterDesc": "Una niña con dificultad para oír; cuando no escucha, dice \"eeeee\" para pedir que le repitan.",
     "vocab": [
-      { "word": "elefante", "emoji": "🐘" },
-      { "word": "escoba", "emoji": "🧹" },
-      { "word": "espejo", "emoji": "🪞" },
-      { "word": "estrella", "emoji": "⭐" }
+      {
+        "word": "elefante",
+        "emoji": "🐘",
+        "illustrationSrc": "/cartilla/art/faithful/vocal-e/elefante.webp"
+      },
+      {
+        "word": "escoba",
+        "emoji": "🧹",
+        "illustrationSrc": "/cartilla/art/faithful/vocal-e/escoba.webp"
+      },
+      {
+        "word": "espejo",
+        "emoji": "🪞",
+        "illustrationSrc": "/cartilla/art/faithful/vocal-e/espejo.webp"
+      },
+      {
+        "word": "estrella",
+        "emoji": "⭐",
+        "illustrationSrc": "/cartilla/art/faithful/vocal-e/estrella.webp"
+      }
     ],
     "matchPairs": [
-      { "left": "e", "right": "🐘 elefante", "pairId": 0 },
-      { "left": "e", "right": "🧹 escoba", "pairId": 1 },
-      { "left": "e", "right": "🪞 espejo", "pairId": 2 }
+      {
+        "left": "e",
+        "right": "🐘 elefante",
+        "pairId": 0
+      },
+      {
+        "left": "e",
+        "right": "🧹 escoba",
+        "pairId": 1
+      },
+      {
+        "left": "e",
+        "right": "🪞 espejo",
+        "pairId": 2
+      }
     ],
     "checkboxItems": [
-      { "word": "elefante", "emoji": "🐘", "startsWithVowel": true },
-      { "word": "escoba", "emoji": "🧹", "startsWithVowel": true },
-      { "word": "árbol", "emoji": "🌳", "startsWithVowel": false },
-      { "word": "avión", "emoji": "✈️", "startsWithVowel": false }
+      {
+        "word": "elefante",
+        "emoji": "🐘",
+        "startsWithVowel": true
+      },
+      {
+        "word": "escoba",
+        "emoji": "🧹",
+        "startsWithVowel": true
+      },
+      {
+        "word": "árbol",
+        "emoji": "🌳",
+        "startsWithVowel": false
+      },
+      {
+        "word": "avión",
+        "emoji": "✈️",
+        "startsWithVowel": false
+      }
     ]
   },
   {
@@ -60,21 +148,65 @@
     "characterName": "El Explorador del Iglú",
     "characterDesc": "Un explorador valiente que vive en el iglú y siempre dice \"iiiii\" de emoción al descubrir cosas nuevas.",
     "vocab": [
-      { "word": "iglú", "emoji": "🛖" },
-      { "word": "isla", "emoji": "🏝️" },
-      { "word": "iguana", "emoji": "🦎" },
-      { "word": "imán", "emoji": "🧲" }
+      {
+        "word": "iglú",
+        "emoji": "🛖",
+        "illustrationSrc": "/cartilla/art/faithful/vocal-i/iglu.webp"
+      },
+      {
+        "word": "isla",
+        "emoji": "🏝️",
+        "illustrationSrc": "/cartilla/art/faithful/vocal-i/isla.webp"
+      },
+      {
+        "word": "iguana",
+        "emoji": "🦎",
+        "illustrationSrc": "/cartilla/art/faithful/vocal-i/iguana.webp"
+      },
+      {
+        "word": "imán",
+        "emoji": "🧲",
+        "illustrationSrc": "/cartilla/art/faithful/vocal-i/iman.webp"
+      }
     ],
     "matchPairs": [
-      { "left": "i", "right": "🛖 iglú", "pairId": 0 },
-      { "left": "i", "right": "🏝️ isla", "pairId": 1 },
-      { "left": "i", "right": "🦎 iguana", "pairId": 2 }
+      {
+        "left": "i",
+        "right": "🛖 iglú",
+        "pairId": 0
+      },
+      {
+        "left": "i",
+        "right": "🏝️ isla",
+        "pairId": 1
+      },
+      {
+        "left": "i",
+        "right": "🦎 iguana",
+        "pairId": 2
+      }
     ],
     "checkboxItems": [
-      { "word": "iglú", "emoji": "🛖", "startsWithVowel": true },
-      { "word": "isla", "emoji": "🏝️", "startsWithVowel": true },
-      { "word": "árbol", "emoji": "🌳", "startsWithVowel": false },
-      { "word": "avión", "emoji": "✈️", "startsWithVowel": false }
+      {
+        "word": "iglú",
+        "emoji": "🛖",
+        "startsWithVowel": true
+      },
+      {
+        "word": "isla",
+        "emoji": "🏝️",
+        "startsWithVowel": true
+      },
+      {
+        "word": "árbol",
+        "emoji": "🌳",
+        "startsWithVowel": false
+      },
+      {
+        "word": "avión",
+        "emoji": "✈️",
+        "startsWithVowel": false
+      }
     ]
   },
   {
@@ -86,21 +218,65 @@
     "characterName": "El Oso Dormilón",
     "characterDesc": "Un oso grande y cariñoso que siempre está sorprendido y dice \"oooo\" cuando ve algo interesante.",
     "vocab": [
-      { "word": "oso", "emoji": "🐻" },
-      { "word": "ojo", "emoji": "👁️" },
-      { "word": "ola", "emoji": "🌊" },
-      { "word": "olla", "emoji": "🍲" }
+      {
+        "word": "oso",
+        "emoji": "🐻",
+        "illustrationSrc": "/cartilla/art/faithful/vocal-o/oso.webp"
+      },
+      {
+        "word": "ojo",
+        "emoji": "👁️",
+        "illustrationSrc": "/cartilla/art/faithful/vocal-o/ojos.webp"
+      },
+      {
+        "word": "ola",
+        "emoji": "🌊",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-1/ola.webp"
+      },
+      {
+        "word": "olla",
+        "emoji": "🍲",
+        "illustrationSrc": "/cartilla/art/faithful/vocal-o/olla.webp"
+      }
     ],
     "matchPairs": [
-      { "left": "o", "right": "🐻 oso", "pairId": 0 },
-      { "left": "o", "right": "👁️ ojo", "pairId": 1 },
-      { "left": "o", "right": "🌊 ola", "pairId": 2 }
+      {
+        "left": "o",
+        "right": "🐻 oso",
+        "pairId": 0
+      },
+      {
+        "left": "o",
+        "right": "👁️ ojo",
+        "pairId": 1
+      },
+      {
+        "left": "o",
+        "right": "🌊 ola",
+        "pairId": 2
+      }
     ],
     "checkboxItems": [
-      { "word": "oso", "emoji": "🐻", "startsWithVowel": true },
-      { "word": "ojo", "emoji": "👁️", "startsWithVowel": true },
-      { "word": "árbol", "emoji": "🌳", "startsWithVowel": false },
-      { "word": "avión", "emoji": "✈️", "startsWithVowel": false }
+      {
+        "word": "oso",
+        "emoji": "🐻",
+        "startsWithVowel": true
+      },
+      {
+        "word": "ojo",
+        "emoji": "👁️",
+        "startsWithVowel": true
+      },
+      {
+        "word": "árbol",
+        "emoji": "🌳",
+        "startsWithVowel": false
+      },
+      {
+        "word": "avión",
+        "emoji": "✈️",
+        "startsWithVowel": false
+      }
     ]
   },
   {
@@ -112,21 +288,64 @@
     "characterName": "La Única Unicornia",
     "characterDesc": "Una unicornia mágica y brillante que dice \"uuuu\" de maravilla cada vez que usa su magia.",
     "vocab": [
-      { "word": "uvas", "emoji": "🍇" },
-      { "word": "uña", "emoji": "💅" },
-      { "word": "uno", "emoji": "1️⃣" },
-      { "word": "urna", "emoji": "🏺" }
+      {
+        "word": "uvas",
+        "emoji": "🍇",
+        "illustrationSrc": "/cartilla/art/faithful/vocal-u/uvas.webp"
+      },
+      {
+        "word": "uña",
+        "emoji": "💅",
+        "illustrationSrc": "/cartilla/art/faithful/vocal-u/uña.webp"
+      },
+      {
+        "word": "uno",
+        "emoji": "1️⃣",
+        "illustrationSrc": "/cartilla/art/faithful/vocal-u/uno.webp"
+      },
+      {
+        "word": "urna",
+        "emoji": "🏺"
+      }
     ],
     "matchPairs": [
-      { "left": "u", "right": "🍇 uvas", "pairId": 0 },
-      { "left": "u", "right": "💅 uña", "pairId": 1 },
-      { "left": "u", "right": "1️⃣ uno", "pairId": 2 }
+      {
+        "left": "u",
+        "right": "🍇 uvas",
+        "pairId": 0
+      },
+      {
+        "left": "u",
+        "right": "💅 uña",
+        "pairId": 1
+      },
+      {
+        "left": "u",
+        "right": "1️⃣ uno",
+        "pairId": 2
+      }
     ],
     "checkboxItems": [
-      { "word": "uvas", "emoji": "🍇", "startsWithVowel": true },
-      { "word": "uña", "emoji": "💅", "startsWithVowel": true },
-      { "word": "árbol", "emoji": "🌳", "startsWithVowel": false },
-      { "word": "avión", "emoji": "✈️", "startsWithVowel": false }
+      {
+        "word": "uvas",
+        "emoji": "🍇",
+        "startsWithVowel": true
+      },
+      {
+        "word": "uña",
+        "emoji": "💅",
+        "startsWithVowel": true
+      },
+      {
+        "word": "árbol",
+        "emoji": "🌳",
+        "startsWithVowel": false
+      },
+      {
+        "word": "avión",
+        "emoji": "✈️",
+        "startsWithVowel": false
+      }
     ]
   }
 ]
