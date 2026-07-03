@@ -113,12 +113,10 @@
               "letter": "a",
               "cells": [
                 {
-                  "caption": "anillo",
-                  "illustrationSrc": "/cartilla/art/faithful/vocal-a/anillo.webp"
+                  "caption": "anillo"
                 },
                 {
-                  "caption": "manzana",
-                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/manzana.webp"
+                  "caption": "manzana"
                 },
                 {
                   "caption": "libro"
@@ -144,16 +142,14 @@
               "letter": "i",
               "cells": [
                 {
-                  "caption": "taza",
-                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/taza.webp"
+                  "caption": "taza"
                 },
                 {
                   "caption": "indio",
                   "illustrationSrc": "/cartilla/art/faithful/vocal-i/indio.webp"
                 },
                 {
-                  "caption": "pera",
-                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/pera.webp"
+                  "caption": "pera"
                 }
               ]
             },
@@ -176,8 +172,7 @@
               "letter": "u",
               "cells": [
                 {
-                  "caption": "uniforme",
-                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/uniforme.webp"
+                  "caption": "uniforme"
                 },
                 {
                   "caption": "globo"
@@ -639,8 +634,7 @@
               "caption": "aguja"
             },
             {
-              "caption": "escoba",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-e/escoba.webp"
+              "caption": "escoba"
             },
             {
               "caption": "unicornio",
