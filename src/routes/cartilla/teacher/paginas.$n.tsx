@@ -79,10 +79,11 @@ function PaginasLeccion() {
   return (
     <div className="fixed inset-0 bg-stone-900 flex flex-col md:flex-row overflow-hidden font-display select-none">
       <main className="flex-1 relative flex items-center justify-center bg-[#1a1a1a]">
-        <div className="relative w-full max-w-4xl h-[85vh] shadow-2xl flex items-center justify-center bg-white overflow-hidden rounded-sm">
-          <div className="w-full h-full overflow-y-auto">
-            <FaithfulPageRenderer pageNumber={currentGlobalPage} lessonNumber={n} />
-          </div>
+        <div
+          className="relative h-[85vh] max-w-full shadow-2xl overflow-hidden rounded-sm"
+          style={{ aspectRatio: "612 / 792" }}
+        >
+          <FaithfulPageRenderer pageNumber={currentGlobalPage} lessonNumber={n} />
         </div>
 
         {/* Overlay controls */}
