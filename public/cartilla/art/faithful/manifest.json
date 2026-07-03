@@ -250,5 +250,41 @@
     "src": "/cartilla/art/faithful/vocal-e/escoba.webp",
     "sourceFlipchartPage": null,
     "cropBox": null
+  },
+  {
+    "slug": "casa",
+    "word": "casa",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-1/casa.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "ola",
+    "word": "ola",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-1/ola.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "pajaro",
+    "word": "pájaro",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-1/pajaro.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "remolino",
+    "word": "remolino",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-1/remolino.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
   }
 ]

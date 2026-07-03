@@ -47,7 +47,8 @@
               "illustrationSrc": "/cartilla/art/faithful/vocal-i/iman.webp"
             },
             {
-              "caption": "remolino"
+              "caption": "remolino",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/remolino.webp"
             },
             {
               "caption": "escalera",
@@ -129,7 +130,8 @@
               "letter": "e",
               "cells": [
                 {
-                  "caption": "casa"
+                  "caption": "casa",
+                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/casa.webp"
                 },
                 {
                   "caption": "árbol"
@@ -159,7 +161,8 @@
               "letter": "o",
               "cells": [
                 {
-                  "caption": "pájaro"
+                  "caption": "pájaro",
+                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/pajaro.webp"
                 },
                 {
                   "caption": "oso",
@@ -249,7 +252,8 @@
           "columns": 4,
           "cells": [
             {
-              "caption": "ola"
+              "caption": "ola",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/ola.webp"
             },
             {
               "caption": "iglú",
@@ -350,7 +354,8 @@
               "illustrationSrc": "/cartilla/art/faithful/vocal-o/olla.webp"
             },
             {
-              "caption": "ola"
+              "caption": "ola",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/ola.webp"
             },
             {
               "caption": "oso",
@@ -537,7 +542,8 @@
               "caption": "pez"
             },
             {
-              "caption": "remolino"
+              "caption": "remolino",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/remolino.webp"
             }
           ]
         }
@@ -820,7 +826,8 @@
               "caption": "invierno"
             },
             {
-              "caption": "ola"
+              "caption": "ola",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/ola.webp"
             },
             {
               "caption": "imán",
