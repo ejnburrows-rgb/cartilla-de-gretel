@@ -13,6 +13,7 @@ import {
 import { playNote, playCorrectChord, playWrongBuzz } from "@/lib/piano-audio";
 import { recordEvent } from "@/lib/student-session";
 import { RotateCcw } from "lucide-react";
+import "@/styles/interactive-exercises.css";
 
 export interface Pair {
   word: string;
@@ -154,7 +155,7 @@ export function DragMatchPairs({ pairs, lessonId, color = "#f97316", onComplete 
           <div className="space-y-4">
             <h4 className="text-xs font-black tracking-wider text-stone-400 uppercase text-center">Dibujos</h4>
             <div className="space-y-3">
-              {shuffledEmojis.map((pair) => {
+              {shuffledEmojis.map((pair, i) => {
                 // Find if a word has matched this emoji
                 const matchedWord = Object.keys(matches).find((k) => matches[k] === pair.emoji);
                 return (
@@ -164,6 +165,7 @@ export function DragMatchPairs({ pairs, lessonId, color = "#f97316", onComplete 
                     matchedWord={matchedWord}
                     color={color}
                     isWrong={wrongMatch?.emoji === pair.emoji}
+                    floatDelay={((i * 37) % 47) / 10}
                   />
                 );
               })}
@@ -229,11 +231,13 @@ function DroppableEmojiCard({
   matchedWord,
   color,
   isWrong,
+  floatDelay = 0,
 }: {
   pair: Pair;
   matchedWord?: string;
   color: string;
   isWrong: boolean;
+  floatDelay?: number;
 }) {
   const { isOver, setNodeRef } = useDroppable({
     id: `target-${pair.emoji}`,
@@ -257,7 +261,13 @@ function DroppableEmojiCard({
     >
       {/* Picture display */}
       {pair.illustrationSrc ? (
-        <img src={pair.illustrationSrc} alt={pair.word} className="w-10 h-10 object-contain select-none" loading="lazy" />
+        <img
+          src={pair.illustrationSrc}
+          alt={pair.word}
+          className="w-10 h-10 object-contain select-none game-pic-float"
+          style={{ ["--float-delay" as string]: `${floatDelay}s` }}
+          loading="lazy"
+        />
       ) : (
         <span className="text-3xl select-none" role="img" aria-label="dibujo">
           {pair.emoji}

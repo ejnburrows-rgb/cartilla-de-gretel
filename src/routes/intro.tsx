@@ -20,7 +20,7 @@ function IntroPage() {
   return (
     <IntroSplash
       ctaLabel="Comenzar"
-      onContinue={() => navigate({ to: "/cartilla/student/lecciones" })}
+      onContinue={() => navigate({ to: "/cartilla/lecciones" })}
     />
   );
 }

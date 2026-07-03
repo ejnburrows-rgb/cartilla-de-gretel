@@ -19,6 +19,7 @@ import { gretelEvent } from "@/lib/gretel-bus";
 import { StudentWorkbookFlip } from "@/components/StudentBook/StudentWorkbookFlip";
 import { buildPageArray } from "@/utils/buildPageArray";
 import { ActivityCarousel } from "@/components/cartilla/ActivityCarousel";
+import "@/styles/interactive-exercises.css";
 
 export const Route = createFileRoute("/cartilla/leccion/$n")({
   component: Leccion,
@@ -269,13 +270,19 @@ function VowelBody({
       <div>
         <h2 className="text-xl font-bold mb-2">{t.palabrasConVocal[lang]} {l.vowel}</h2>
         <ul className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-          {l.vocab.map((v) => (
+          {l.vocab.map((v, i) => (
             <li
               key={v.word}
               className="rounded-2xl border-2 border-foreground/10 bg-card p-3 text-center hover:-translate-y-0.5 transition"
             >
               {v.illustrationSrc ? (
-                <img src={v.illustrationSrc} alt={v.word} className="w-12 h-12 mx-auto object-contain" loading="lazy" />
+                <img
+                  src={v.illustrationSrc}
+                  alt={v.word}
+                  className="w-12 h-12 mx-auto object-contain game-pic-float"
+                  style={{ ["--float-delay" as string]: `${((i * 37) % 47) / 10}s` }}
+                  loading="lazy"
+                />
               ) : (
                 <div className="text-3xl">{v.emoji}</div>
               )}
