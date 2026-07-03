@@ -115,6 +115,21 @@ not a real product. Decisions made, now locked in:
 - Before building any large visual change like this, make a quick mockup
   (Artifact) first so the owner can react before real code gets written —
   worked well here, keep doing it for future visual asks.
+- Illustrations get real motion, reusing Gretel's own proven technique
+  (layered Framer Motion infinite loops on a static image — see
+  GretelLiveAvatar.tsx): a very subtle always-on ambient idle loop
+  (per-cell randomized timing so a grid never moves in sync — that's the
+  "cliché" look to avoid), plus a bigger momentary reaction on tap/correct/
+  incorrect. Never new animated art — motion only, applied to the real
+  faithful crop.
+- **Wording will need to change, but not yet.** The book's printed
+  instructions say things like "Circula los dibujos" (circle the
+  pictures) — that verb doesn't make sense once it's a tap/click
+  interaction on a screen. Eventually these need to become
+  computer-appropriate verbs (e.g. "Presiona los dibujos" instead of
+  "Circula los dibujos"). Owner's call: **don't touch the wording yet** —
+  get all the real art in place first, tackle instruction-text rewording
+  as a later, separate pass.
 
 ## Current Status (July 2026)
 ✅ Landing page with desk scene
