@@ -274,7 +274,11 @@ function VowelBody({
               key={v.word}
               className="rounded-2xl border-2 border-foreground/10 bg-card p-3 text-center hover:-translate-y-0.5 transition"
             >
-              <div className="text-3xl">{v.emoji}</div>
+              {v.illustrationSrc ? (
+                <img src={v.illustrationSrc} alt={v.word} className="w-12 h-12 mx-auto object-contain" loading="lazy" />
+              ) : (
+                <div className="text-3xl">{v.emoji}</div>
+              )}
               <div className="font-bold mt-1">{v.word}</div>
               <button
                 onClick={() => play(v.word)}

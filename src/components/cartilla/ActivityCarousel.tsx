@@ -10,7 +10,7 @@ import { PianoPronunciation } from "@/components/cartilla/PianoPronunciation";
 interface ActivityCarouselProps {
   lessonNumber: number;
   syllables: string[];
-  words: Array<{ word: string; emoji?: string }>;
+  words: Array<{ word: string; emoji?: string; illustrationSrc?: string }>;
   letter: string;
   color: string;
   lessonId?: string;
@@ -34,7 +34,7 @@ export function ActivityCarousel({
   // Derive matching pairs from words
   const pairs = words
     .filter((w) => typeof w.emoji === "string" && w.emoji.trim() !== "")
-    .map((w) => ({ word: w.word, emoji: w.emoji as string }))
+    .map((w) => ({ word: w.word, emoji: w.emoji as string, illustrationSrc: w.illustrationSrc }))
     .slice(0, 4); // Keep to a max of 4 pairs for a balanced layout
 
   // Map tabs to metadata

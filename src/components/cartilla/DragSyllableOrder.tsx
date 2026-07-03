@@ -24,6 +24,7 @@ import { RotateCcw, ArrowRight, CheckCircle2 } from "lucide-react";
 export interface DragSyllableWord {
   word: string;
   emoji?: string;
+  illustrationSrc?: string;
 }
 
 interface DragSyllableOrderProps {
@@ -261,14 +262,18 @@ export function DragSyllableOrder({ words, lessonId, color = "#f97316", onComple
       </div>
 
       <div className="flex flex-col items-center justify-center space-y-6 py-4">
-        {/* Emoji Picture */}
-        {currentWordData?.emoji && (
+        {/* Word picture */}
+        {(currentWordData?.illustrationSrc || currentWordData?.emoji) && (
           <motion.div
             initial={{ scale: 0.8 }}
             animate={{ scale: 1 }}
-            className="w-24 h-24 bg-white/80 rounded-2xl border border-stone-200/60 flex items-center justify-center text-5xl shadow-sm select-none"
+            className="w-24 h-24 bg-white/80 rounded-2xl border border-stone-200/60 flex items-center justify-center text-5xl shadow-sm select-none overflow-hidden"
           >
-            {currentWordData.emoji}
+            {currentWordData?.illustrationSrc ? (
+              <img src={currentWordData.illustrationSrc} alt={currentWordData.word} className="w-full h-full object-contain p-1.5" loading="lazy" />
+            ) : (
+              currentWordData?.emoji
+            )}
           </motion.div>
         )}
 
