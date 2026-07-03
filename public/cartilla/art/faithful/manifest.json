@@ -286,5 +286,113 @@
     "src": "/cartilla/art/faithful/leccion-1/remolino.webp",
     "sourceFlipchartPage": null,
     "cropBox": null
+  },
+  {
+    "slug": "carro",
+    "word": "carro",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-1/carro.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "dulce",
+    "word": "dulce",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-1/dulce.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "globo",
+    "word": "globo",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-1/globo.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "libro",
+    "word": "libro",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-1/libro.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "maiz",
+    "word": "maíz",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-1/maiz.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "abeja",
+    "word": "abeja",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-a/abeja.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "arbol",
+    "word": "árbol",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-a/arbol.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "ardilla",
+    "word": "ardilla",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-a/ardilla.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "escuela",
+    "word": "escuela",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-e/escuela.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "igual",
+    "word": "igual",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-i/igual.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "iguana",
+    "word": "iguana",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-i/iguana.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "invierno",
+    "word": "invierno",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-i/invierno.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
   }
 ]
