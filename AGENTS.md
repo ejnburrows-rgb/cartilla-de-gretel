@@ -23,36 +23,70 @@ PDFs: project root (NOT committed to git)
 Images served locally via Vite dev server, via Vercel on production.
 
 ## Hard Rules — Never Break These
-- Never commit PDFs to git. PNGs in public/cartilla/art/ ARE allowed to be committed.
+- Never commit PDFs to git. Image files in public/cartilla/art/ ARE allowed to be committed.
 - Never change lesson-meta.ts letter assignments or page ranges
 - Never replace original book illustrations with AI-generated art
 - Never hardcode Supabase keys
 - Never add English text to student-facing UI
 - Never alter the book's original Spanish reading content
+- NEVER use AI-generated images. Always use the authentic hand-drawn artwork
+  cropped from the real flipchart scans.
 
 ## Commit Format
 feat(scope): description
 fix(scope): description
 chore(scope): description
 
-- NEVER use AI-generated images or the legacy 'GretelStage' animated character. Always use the authentic hand-drawn artwork (e.g. public/art/hd/gretel-authentic.jpg).
+## Current division of labor (updated — supersedes any earlier "own the
+## student path" instruction below or in prior sessions)
+- **Antigravity: art-extraction only.** Your entire job is producing real,
+  tightly-cropped color illustration files from the physical book's
+  flipchart scans and wiring them into the shared manifest below. You do
+  **not** own the student path, activities, gamification, or any UI/UX
+  decisions — those all belong to Claude. If you think a UI/UX change is
+  needed, say so as a suggestion; don't implement it.
+- **Claude: everything else** — app code, schema, page content
+  (`src/data/page-layouts.json`), teacher CRM, student activities, grading,
+  Supabase, routing, styling.
+- **Before starting ANY work, every time**: `git fetch origin && git reset
+  --hard origin/main` (or fresh-clone) so you're never working from a stale
+  base. A branch built on a `main` that's several commits behind will look
+  like it's redoing already-finished work, because it is — this has
+  happened before and wasted a full round.
+- **Read `ART_BACKLOG.md`** (repo root) before starting — it is the current,
+  authoritative list of what art is actually still needed. It is kept
+  up to date in git; a chat message is not a substitute for it and may be
+  stale the moment `main` moves.
+- **Never touch `src/data/page-layouts.json`.** It's Claude's page-content
+  schema (text, region layout, grading data) — Antigravity's job is only to
+  produce image files and manifest entries; Claude wires `illustrationSrc`
+  references into that file.
+
+## Shared art contract (the only interface between the two of us)
+- Crop faithful COLOR illustrations from the flipchart scans — no redraw,
+  no AI generation, no color changes.
+- **Crop tight**: no neighboring word's label bleeding in from an adjacent
+  cell, no oversized blank canvas around the picture. If unsure where the
+  cell boundary is, err toward cropping tighter, not looser — a slightly
+  tight crop is fixable, a crop with a neighbor's text/drawing bleeding in
+  is not usable as-is and has been the single most common rejection reason.
+- File lands at `public/cartilla/art/faithful/<lesson-or-vowel-folder>/<slug>.webp`
+  — reuse the existing folder convention already in the manifest (e.g.
+  `leccion-1/`, `vocal-a/`, `vocal-e/`, `vocal-i/`, `vocal-o/`, `vocal-u/`).
+  Do not invent a new top-level folder (e.g. a flat `vocales/` folder) —
+  it breaks the existing lookup convention.
+- Add one entry to `public/cartilla/art/faithful/manifest.json`:
+  `{ slug, word, lessonNumber, pageNumber, src, sourceFlipchartPage, cropBox }`.
+- Only produce words that actually appear in `page-layouts.json`'s existing
+  captions (check `ART_BACKLOG.md` for the current list) — don't introduce
+  new words that aren't part of the book's own transcribed content.
+- Push to a fresh branch off current `main` and **open a PR against this
+  repo** (you already have push access — this repo's Claude session is
+  subscribed to PR activity and will review automatically) instead of only
+  reporting done in chat.
 
 ## Workflow Rules (Strict)
-1. Committing directly to main is allowed for asset files (PNGs in public/cartilla/art/). All code changes still require a feature branch and PR. Let Vercel build the **preview** deployment and verify your change on the preview URL *before* it ever touches production.
-2. **Stop iterating on production.** If you're redesigning a component, settle the design on your branch and push **once** when it works — not 5 commits redoing the same screen. Every push to `main` is a production build that consumes our Vercel deploy budget.
-4. **Before merging:** run `pnpm typecheck` and `pnpm vitest run`, and confirm the preview URL actually renders. Don't merge red.
-5. **Stay in your lane.** You own the student path + activities. Claude owns infra / teacher-CRM / docs. Don't both edit the same files; rebase on latest `main` before large changes so we don't clobber each other.
-6. **No Emojis/Made-up Art in CRM.** NEVER use any emojis or any made-up art inside the CRM unless specifically allowed by the user.
-
-## UI / UX Strict Guidelines
-- **Teacher CRM (Google-Suite Style)**: The teacher interface must be ultra-professional, seamless, and standardized (like Google Workspace). No emojis, no AI-generated art, and consistent fonts throughout.
-- **Teacher CRM Color-Coding (The "4 Squares")**:
-  - Blue: "Rimas Reproducible Enriquecimiento" (y Respuestas de las Evaluaciones)
-  - Red: "Evaluaciones Reproducibles"
-  - Purple: "Black line masters, tablas silábicas"
-  *(Information must be structured in these distinct folders as sublinks).*
-- **Student Gamification**: The student interface must NOT use plain grids. It must use immersive, story-like gamification (e.g., "Mapa de Gretel" level-paths, infinite parallax environments).
-- **Art Integration (No Dead Cutters)**: When integrating authentic hand-drawn Cartilla art, NEVER use "white, dead cutters" (plain white square backgrounds). You must use CSS masking (e.g., `mask-image: radial-gradient`) or proper transparent PNGs to seamlessly blend the characters into immersive environments so they look like one cohesive "Big Happy Family."
-- **No UI Surprises**: Before implementing any new major UI component or screen, the agent MUST first provide a visual mockup (using the generate_image tool or a detailed visual description) and get explicit user approval.
-- **School District Standards**: For any new Teacher-facing features, the agent must perform web research on the most user-friendly, modern UX formats used by US School Districts (e.g., Canvas, Google Classroom, Clever) and apply those specific design patterns, rather than guessing.
-- **100% Visual Fidelity**: Any digital representation of the physical book or flipchart MUST be 100% faithful to the original layout, aspect ratio, and aesthetic. No deviations or modernized simplifications are allowed for the original content.
+1. Committing directly to main is allowed for asset files (images in public/cartilla/art/). All code changes still require a feature branch and PR. Let Vercel build the **preview** deployment and verify your change on the preview URL *before* it ever touches production.
+2. **Stop iterating on production.** Settle the work on your branch and push **once** when it's right — not 5 commits redoing the same batch. Every push to `main` is a production build that consumes our Vercel deploy budget.
+3. **Before merging:** confirm the preview URL actually renders. Don't merge red.
+4. **No Emojis/Made-up Art.** NEVER use any emojis or any made-up art unless specifically allowed by the user.
