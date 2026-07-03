@@ -41,7 +41,34 @@ Teachers create classes, assign students, and track progress via Supabase.
 3. Summarize what you find
 4. Wait for task assignment before making any changes
 
+## Talking to the Owner
+- The project owner is not a programmer. Explain things in plain, everyday
+  words — no tech jargon (no "routes," "branches," "deploy," "backend,"
+  etc. without explaining what that means in real terms). Say what
+  something does for the app/the kids/the teachers, not how it's built.
+- Whenever the owner says "memorize" something, actually write it into this
+  file right then, every single time — don't just acknowledge it in chat
+  and move on.
+
+## Owner's Urgency (memorized July 2026)
+The owner is way behind schedule and has zero patience left for busywork or
+back-and-forth. Antigravity has repeatedly claimed fixes that turned out to
+still be broken — the owner will not tolerate more of that. Move fast, verify
+everything myself before saying it's done, and don't waste the owner's time
+relaying anything I haven't personally checked.
+
 ## Working Style — Never Stall
+- Do not stop working and wait for a reply unless the owner says to stop
+  right now. Keep finding and doing the next unblocked thing.
+- Only report a piece of external work (Antigravity, another agent) as
+  "done" once independently verified — never relay a self-report as
+  fact. Report back the moment that verification is actually confident,
+  not on a timer.
+- The owner also has Fable 5 and another non-coding-but-code-capable agent
+  available. Only hand them a prompt when genuinely confident it's a
+  well-scoped, independent piece of work worth parallelizing — don't
+  invent busywork for them just to seem productive. Otherwise, say so
+  plainly and keep working solo.
 - Never end a turn by just waiting idle. Always leave the owner with either
   (a) concrete next-step prompts they can hand to their other agent
   (Antigravity) or act on themselves, or (b) continued work of your own.
