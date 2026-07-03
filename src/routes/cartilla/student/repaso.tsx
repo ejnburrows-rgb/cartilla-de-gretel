@@ -63,7 +63,7 @@ function Repaso() {
       <header className="px-4 pt-5 pb-4 max-w-5xl mx-auto">
         <div className="flex items-center justify-between gap-3 mb-4">
           <Link
-            to="/cartilla/student/lecciones"
+            to="/cartilla/lecciones"
             className="inline-flex items-center gap-2 text-sm font-bold text-foreground/70 hover:text-foreground"
             aria-label="Volver al índice de lecciones"
           >

@@ -93,7 +93,7 @@ function TeacherPresentation() {
                 <a href={routePath(`/cartilla/leccion/${entry.n}`)} className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-xl bg-[var(--cartilla-accent)] px-3 py-2 text-sm font-bold text-white hover:opacity-90">
                   <Eye className="h-4 w-4" /> Abrir lección
                 </a>
-                <Link to="/cartilla/student/lecciones" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-foreground/12 px-3 py-2 text-sm font-bold text-foreground/70 hover:bg-foreground/5">
+                <Link to="/cartilla/lecciones" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-foreground/12 px-3 py-2 text-sm font-bold text-foreground/70 hover:bg-foreground/5">
                   <BookOpen className="h-4 w-4" /> Índice
                 </Link>
                 <button 

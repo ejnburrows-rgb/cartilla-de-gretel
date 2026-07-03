@@ -6,7 +6,7 @@ export const Route = createFileRoute("/cartilla/teacher")({
   beforeLoad: () => {
     const session = getStudentSession();
     if (session) {
-      throw redirect({ to: "/cartilla/student/lecciones" });
+      throw redirect({ to: "/cartilla/lecciones" });
     }
   },
   component: TeacherLayout,
@@ -72,7 +72,7 @@ function TeacherLayout() {
               active={location.pathname.includes("/guia")}
             />
             <NavLink
-              to="/cartilla/student/lecciones"
+              to="/cartilla/lecciones"
               icon={<MonitorPlay className="w-4 h-4" />}
               label="Present"
               active={false}

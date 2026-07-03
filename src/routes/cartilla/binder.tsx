@@ -171,7 +171,7 @@ export function TeacherBinderDashboard() {
       <div className="no-print">
         <header style={pageHeaderStyle}>
           <Link
-            to="/cartilla/student/lecciones"
+            to="/cartilla/lecciones"
             className="inline-flex items-center gap-2 text-sm font-bold text-amber-900 hover:text-amber-700 mb-4 bg-amber-50 px-3 py-1.5 rounded-full border border-amber-200/50"
           >
             <ArrowLeft className="w-4 h-4" /> Panel de Lecciones
