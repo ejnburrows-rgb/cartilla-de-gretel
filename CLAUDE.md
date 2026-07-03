@@ -90,6 +90,32 @@ relaying anything I haven't personally checked.
   exists — pick it, act, and say what you picked. Save questions for real
   decisions only.
 
+## Reading Experience Redesign (memorized July 2026)
+The owner rejected the reconstructed-page look: it read as a "cheap scan,"
+not a real product. Decisions made, now locked in:
+- The workbook pages must become **real interactive exercises** — kids tap
+  to circle pictures, mark an X, trace a line — not just look at pictures.
+  This is NOT a passive "reading CRM." Scope: student workbook view only;
+  teacher's flipbook/paginas views stay read-only previews.
+- **Grading is real from day one** — correct/incorrect interactions log to
+  Supabase like the existing lesson exercises (reuse Ejercicios.tsx's
+  existing pattern, don't invent a new one).
+- **Rollout**: pilot on Lección 1 first, get sign-off, then batch the rest —
+  same discipline as the original page-by-page digitization.
+- **Palette stays book-faithful only** — teal/white/Andika tokens already in
+  src/styles.css (--book-teal, --book-paper, --book-ink, etc.). Never pull
+  the landing page's blue/orange brand colors into the actual page content
+  or its chrome. "Premium" means better craft inside the book's own look.
+- Root cause of a scrollbar bug found along the way: `.faithful-page` sizes
+  itself via `aspect-ratio` + container queries; any wrapper that forces a
+  fixed pixel/viewport height instead of an aspect-ratio breaks that and
+  produces a stray native scrollbar. Always size faithful-page wrappers by
+  aspect-ratio (see StudentWorkbookFlip.tsx's working pattern), never by
+  fixed height.
+- Before building any large visual change like this, make a quick mockup
+  (Artifact) first so the owner can react before real code gets written —
+  worked well here, keep doing it for future visual asks.
+
 ## Current Status (July 2026)
 ✅ Landing page with desk scene
 ✅ Workbook with 95 pages
