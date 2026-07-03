@@ -46,7 +46,7 @@ export function buildPageArray(lessonId: number): WorkbookPageEntry[] {
         cover: i === 0,
         src,
         content: (
-          <FaithfulPageRenderer pageNumber={globalPage} lessonNumber={lessonId} />
+          <FaithfulPageRenderer pageNumber={globalPage} lessonNumber={lessonId} interactive />
         ),
       };
     }
