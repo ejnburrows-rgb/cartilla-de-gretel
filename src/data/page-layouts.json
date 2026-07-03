@@ -117,7 +117,8 @@
                   "illustrationSrc": "/cartilla/art/faithful/vocal-a/anillo.webp"
                 },
                 {
-                  "caption": "manzana"
+                  "caption": "manzana",
+                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/manzana.webp"
                 },
                 {
                   "caption": "libro"
@@ -143,14 +144,16 @@
               "letter": "i",
               "cells": [
                 {
-                  "caption": "taza"
+                  "caption": "taza",
+                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/taza.webp"
                 },
                 {
                   "caption": "indio",
                   "illustrationSrc": "/cartilla/art/faithful/vocal-i/indio.webp"
                 },
                 {
-                  "caption": "pera"
+                  "caption": "pera",
+                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/pera.webp"
                 }
               ]
             },
@@ -173,7 +176,8 @@
               "letter": "u",
               "cells": [
                 {
-                  "caption": "uniforme"
+                  "caption": "uniforme",
+                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/uniforme.webp"
                 },
                 {
                   "caption": "globo"
