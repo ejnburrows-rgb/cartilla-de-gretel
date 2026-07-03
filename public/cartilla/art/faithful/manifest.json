@@ -205,5 +205,50 @@
     "src": "/cartilla/art/faithful/vocal-u/uvas.webp",
     "sourceFlipchartPage": null,
     "cropBox": null
+  },
+  {
+    "slug": "abrigo",
+    "word": "abrigo",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-1/abrigo.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "iglesia",
+    "word": "iglesia",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-i/iglesia.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "ojos",
+    "word": "ojos",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-o/ojos.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "oruga",
+    "word": "oruga",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-o/oruga.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
+  },
+  {
+    "slug": "escoba",
+    "word": "escoba",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-e/escoba.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null
   }
 ]
