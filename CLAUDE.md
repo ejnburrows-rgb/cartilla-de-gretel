@@ -131,6 +131,39 @@ not a real product. Decisions made, now locked in:
   get all the real art in place first, tackle instruction-text rewording
   as a later, separate pass.
 
+## Visual direction — REVERSED the book-palette-only call above (memorized
+## July 2026)
+There is a whole separate, already-live "Actividades" section
+(`ActivityCarousel.tsx`, rendered from `leccion.$n.tsx` under every vowel
+lesson) with real games already built: word matching, syllable ordering,
+letter tracing, and a piano-style pronunciation game using voice
+(`PianoPronunciation.tsx` + `useSpeechRecognition.ts`). It's colorful,
+uses rounded chip buttons, and has the Gretel character present. The owner
+saw the plain teal/white book-faithful mockup, compared it to this
+already-familiar colorful style, and rejected it as "cheap." Asked
+directly, the owner confirmed:
+- **The new tap-to-circle/pick-one page exercises must match the existing
+  colorful games style** (bright accent colors, rounded chip buttons,
+  Gretel present) — NOT the strict teal/white book-faithful look. This
+  reverses the "palette stays book-faithful only" line above — that
+  decision is superseded.
+- **The existing games currently use emoji** (🍎, 🐘, etc., via each vocab
+  word's `emoji` field, consumed in `ActivityCarousel.tsx`'s `pairs`
+  derivation) instead of real book art. Owner wants these **replaced with
+  real cropped book illustrations** — matches the "never invented art"
+  rule already enforced everywhere else. This is new art-pipeline work,
+  not yet scoped into `ART_BACKLOG.md`.
+- **Not yet decided**: whether the existing games (piano/matching/
+  syllable-order/trace) stay as a separate section below the workbook page
+  (current layout) or get woven directly into the on-page exercises
+  instead. Owner wants to see Lección 1 with both pieces together before
+  deciding the general rule — don't build a structural merge yet.
+- The book-faithful teal/white treatment is **not thrown out** — it still
+  governs the page's own frame/illustrations/text fidelity. What changes
+  is the *interaction/feedback* layer: chips, colors, motion should match
+  the games' established, already-approved visual language rather than
+  staying monochrome-teal.
+
 ## Current Status (July 2026)
 ✅ Landing page with desk scene
 ✅ Workbook with 95 pages

@@ -6,16 +6,25 @@ moves — read this file fresh every time, don't rely on an earlier chat
 message. Last verified: July 2026, against `src/data/page-layouts.json` and
 `public/cartilla/art/faithful/manifest.json` on `main`.
 
-## Still needed (6 words)
+## Update — first 6 confirmed done
+`aguja`, `anillo`, `manzana`, `pera`, `taza`, `uniforme` were delivered on
+`art/final-6-words` and checked directly (not just taken on report) — all
+6 are genuinely clean, tight crops with no neighbor bleed. These are done;
+don't redo them.
+
+## Still needed (2 words — for the existing vocabulary games, not the
+## workbook pages)
+The student-facing vocabulary games (word matching, etc.) currently use
+emoji pictures instead of real book art for 20 words. 18 of those 20
+already have a real crop sitting in the manifest and just need wiring in
+(no new cropping needed) — only these 2 are genuinely new:
 
 | word | status | notes |
 |---|---|---|
-| aguja | never attempted | no crop exists yet at all |
-| anillo | needs re-crop | last delivery still had a neighboring word's label bleeding in from the top edge |
-| manzana | needs re-crop | earlier bad crop moved to `_needs-recrop/`, never fixed |
-| pera | needs re-crop | earlier bad crop moved to `_needs-recrop/`, never fixed |
-| taza | needs re-crop | earlier bad crop moved to `_needs-recrop/`, never fixed |
-| uniforme | needs re-crop | last delivery still had neighbor-bleed below the illustration plus an oversized blank canvas |
+| uña | never attempted | a fingernail — no crop exists yet |
+| urna | never attempted | a vase/urn/ballot-box shape — no crop exists yet |
+
+Same crop rule as always: tight, no neighbor bleed, no oversized canvas.
 
 **Crop rule**: crop tight to just the illustration itself. If a neighboring
 cell's label or drawing is bleeding into the frame, the crop boundary is
