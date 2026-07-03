@@ -3,9 +3,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Volume2, Grid, Puzzle, PenTool, Music, CheckCircle } from "lucide-react";
 import { SyllableTap } from "@/components/cartilla/Ejercicios";
 import { DragMatchPairs } from "@/components/cartilla/DragMatchPairs";
-import { DragSyllableOrder } from "@/components/cartilla/DragSyllableOrder";
+import { DragBuildWord } from "@/components/cartilla/DragBuildWord";
 import { DragLetterTrace } from "@/components/cartilla/DragLetterTrace";
 import { PianoPronunciation } from "@/components/cartilla/PianoPronunciation";
+import "@/styles/cartilla-student.css";
 
 interface ActivityCarouselProps {
   lessonNumber: number;
@@ -96,10 +97,10 @@ export function ActivityCarousel({
       case "armar":
         return (
           <div className="py-2">
-            <DragSyllableOrder
-              words={words.slice(0, 4)}
+            <DragBuildWord
+              words={words.slice(0, 4).map((w) => w.word)}
+              accent={color}
               lessonId={lessonId}
-              color={color}
               onComplete={() => handleCompleteTab("armar")}
             />
           </div>

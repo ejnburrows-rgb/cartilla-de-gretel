@@ -13,6 +13,19 @@
  * correct accent automatically.
  */
 
+/* Shared subtle-motion utility for the older games (Emparejar/Armar's hint
+ * picture) so their real book art isn't static while the new page
+ * exercises float — same keyframe, same per-cell randomized delay rule. */
+.game-pic-float {
+  animation: fpIxFloat 5.5s ease-in-out infinite;
+  animation-delay: var(--float-delay, 0s);
+}
+@media (prefers-reduced-motion: reduce) {
+  .game-pic-float {
+    animation: none !important;
+  }
+}
+
 .fp-ix-grid,
 .fp-ix-pick,
 .fp-ix-match-all,

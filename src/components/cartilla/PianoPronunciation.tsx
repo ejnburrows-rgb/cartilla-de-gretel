@@ -26,6 +26,18 @@ const PIANO_NOTES = [
   NOTE_FREQS.C5,
 ];
 
+// A real toy piano isn't all-white keys — give each one its own bright color.
+const KEY_COLORS = [
+  "#f43f5e", // rose
+  "#f97316", // orange
+  "#eab308", // amber
+  "#22c55e", // green
+  "#14b8a6", // teal
+  "#3b82f6", // blue
+  "#8b5cf6", // violet
+  "#ec4899", // pink
+];
+
 export function PianoPronunciation({
   syllables,
   lessonId = "demo",
@@ -177,42 +189,67 @@ export function PianoPronunciation({
             const isCompleted = completedSet.has(key.syllable);
             const isActive = activeKeyIdx === index;
             const state = keyStates[index] || "idle";
+            const keyColor = KEY_COLORS[index % KEY_COLORS.length];
 
             return (
               <motion.div
                 key={index}
-                animate={state === "incorrect" ? { x: [-3, 3, -3, 3, 0] } : {}}
-                transition={{ duration: 0.4 }}
-                style={{ flex: "1 1 0%" }}
-                className="mx-[2px] first:ml-0 last:mr-0 h-44 rounded-b-xl relative select-none cursor-pointer group"
+                animate={
+                  state === "incorrect"
+                    ? { x: [-3, 3, -3, 3, 0] }
+                    : state === "correct"
+                      ? { y: [0, 10, 0], scaleY: [1, 0.93, 1] }
+                      : {}
+                }
+                transition={{ duration: state === "correct" ? 0.3 : 0.4 }}
+                style={{ flex: "1 1 0%", transformOrigin: "top" }}
+                className="mx-[2px] first:ml-0 last:mr-0 h-72 rounded-b-xl relative select-none cursor-pointer group"
                 onClick={() => listenToSyllable(key.syllable, index)}
               >
-                {/* White Key Core */}
+                {/* Colorful Key Core — a real toy piano isn't all-white */}
                 <div
                   className={cn(
-                    "absolute inset-0 bg-white border border-stone-200 rounded-b-xl shadow-md transition-all duration-150 flex flex-col justify-end items-center pb-4",
+                    "absolute inset-0 border-2 rounded-b-xl shadow-md transition-all duration-150 flex flex-col justify-end items-center pb-4",
                     "group-active:pt-2 group-active:pb-2 group-active:shadow-sm",
-                    isCompleted && "bg-emerald-50/50 border-emerald-200",
-                    isActive && "bg-amber-100 scale-y-[0.98]",
-                    state === "correct" && "bg-emerald-400 border-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.6)]",
+                    isActive && "scale-y-[0.98]",
+                    state === "correct" && "shadow-[0_0_18px_rgba(16,185,129,0.7)]",
                     state === "incorrect" && "bg-red-400 border-red-500 shadow-[0_0_10px_rgba(239,68,68,0.5)]"
                   )}
+                  style={
+                    state === "incorrect"
+                      ? undefined
+                      : {
+                          backgroundColor:
+                            state === "correct" || isCompleted
+                              ? "#34d399"
+                              : `color-mix(in srgb, ${keyColor} 24%, white)`,
+                          borderColor: state === "correct" || isCompleted ? "#10b981" : keyColor,
+                        }
+                  }
                 >
                   {/* Visual key bottom indent */}
-                  <div className="absolute bottom-0 inset-x-0 h-2 bg-stone-200 rounded-b-xl group-active:h-0.5 transition-all" />
+                  <div
+                    className="absolute bottom-0 inset-x-0 h-2 rounded-b-xl group-active:h-0.5 transition-all"
+                    style={{ backgroundColor: `color-mix(in srgb, ${keyColor} 45%, white)` }}
+                  />
 
                   {/* Syllable tag */}
-                  <span className={cn(
-                    "text-xl font-black font-display group-hover:scale-110 transition-transform",
-                    (state === "correct" || state === "incorrect") ? "text-white" : "text-stone-800"
-                  )}>
+                  <span
+                    className="text-2xl font-black font-display group-hover:scale-110 transition-transform"
+                    style={{
+                      color:
+                        state === "correct" || state === "incorrect" || isCompleted
+                          ? "#fff"
+                          : keyColor,
+                    }}
+                  >
                     {key.syllable}
                   </span>
 
                   {/* Escuchar micro button */}
                   <button
                     type="button"
-                    className="mt-3 p-1.5 bg-stone-100 hover:bg-stone-200 text-stone-500 rounded-full border border-stone-300 transition-colors shadow-sm cursor-pointer"
+                    className="mt-3 p-1.5 bg-white/70 hover:bg-white text-stone-600 rounded-full border border-white/80 transition-colors shadow-sm cursor-pointer"
                     aria-label={`Escuchar ${key.syllable}`}
                     onClick={(e) => {
                       e.stopPropagation();
@@ -224,8 +261,8 @@ export function PianoPronunciation({
 
                   {/* Completed star indicator */}
                   {isCompleted && (
-                    <div className="absolute top-2 right-2 text-emerald-600 animate-fade-in">
-                      <CheckCircle className="w-4 h-4 fill-emerald-100" />
+                    <div className="absolute top-2 right-2 text-white animate-fade-in">
+                      <CheckCircle className="w-5 h-5 fill-emerald-600" />
                     </div>
                   )}
                 </div>
