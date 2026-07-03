@@ -47,7 +47,8 @@
               "illustrationSrc": "/cartilla/art/faithful/vocal-i/iman.webp"
             },
             {
-              "caption": "remolino"
+              "caption": "remolino",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/remolino.webp"
             },
             {
               "caption": "escalera",
@@ -58,7 +59,8 @@
               "illustrationSrc": "/cartilla/art/faithful/vocal-u/uno.webp"
             },
             {
-              "caption": "escuela"
+              "caption": "escuela",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-e/escuela.webp"
             },
             {
               "caption": "oreja",
@@ -83,10 +85,12 @@
               "illustrationSrc": "/cartilla/art/faithful/vocal-o/ojos.webp"
             },
             {
-              "caption": "maíz"
+              "caption": "maíz",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/maiz.webp"
             },
             {
-              "caption": "abeja"
+              "caption": "abeja",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/abeja.webp"
             },
             {
               "caption": "olla",
@@ -121,7 +125,8 @@
                   "caption": "manzana"
                 },
                 {
-                  "caption": "libro"
+                  "caption": "libro",
+                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/libro.webp"
                 }
               ]
             },
@@ -129,10 +134,12 @@
               "letter": "e",
               "cells": [
                 {
-                  "caption": "casa"
+                  "caption": "casa",
+                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/casa.webp"
                 },
                 {
-                  "caption": "árbol"
+                  "caption": "árbol",
+                  "illustrationSrc": "/cartilla/art/faithful/vocal-a/arbol.webp"
                 },
                 {
                   "caption": "estrella",
@@ -159,14 +166,16 @@
               "letter": "o",
               "cells": [
                 {
-                  "caption": "pájaro"
+                  "caption": "pájaro",
+                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/pajaro.webp"
                 },
                 {
                   "caption": "oso",
                   "illustrationSrc": "/cartilla/art/faithful/vocal-o/oso.webp"
                 },
                 {
-                  "caption": "carro"
+                  "caption": "carro",
+                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/carro.webp"
                 }
               ]
             },
@@ -177,10 +186,12 @@
                   "caption": "uniforme"
                 },
                 {
-                  "caption": "globo"
+                  "caption": "globo",
+                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/globo.webp"
                 },
                 {
-                  "caption": "dulce"
+                  "caption": "dulce",
+                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/dulce.webp"
                 }
               ]
             }
@@ -220,7 +231,8 @@
             },
             {
               "letter": "e",
-              "caption": "escoba"
+              "caption": "escoba",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-e/escoba.webp"
             },
             {
               "letter": "u",
@@ -249,7 +261,8 @@
           "columns": 4,
           "cells": [
             {
-              "caption": "ola"
+              "caption": "ola",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/ola.webp"
             },
             {
               "caption": "iglú",
@@ -260,7 +273,8 @@
               "illustrationSrc": "/cartilla/art/faithful/vocal-o/oso.webp"
             },
             {
-              "caption": "maíz"
+              "caption": "maíz",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/maiz.webp"
             },
             {
               "caption": "arco"
@@ -350,7 +364,8 @@
               "illustrationSrc": "/cartilla/art/faithful/vocal-o/olla.webp"
             },
             {
-              "caption": "ola"
+              "caption": "ola",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/ola.webp"
             },
             {
               "caption": "oso",
@@ -452,10 +467,12 @@
               "illustrationSrc": "/cartilla/art/faithful/vocal-o/oveja.webp"
             },
             {
-              "caption": "abeja"
+              "caption": "abeja",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/abeja.webp"
             },
             {
-              "caption": "árbol"
+              "caption": "árbol",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/arbol.webp"
             },
             {
               "caption": "elefante",
@@ -474,7 +491,8 @@
               "illustrationSrc": "/cartilla/art/faithful/vocal-e/estrella.webp"
             },
             {
-              "caption": "ardilla"
+              "caption": "ardilla",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/ardilla.webp"
             },
             {
               "caption": "ojos",
@@ -525,19 +543,22 @@
               "illustrationSrc": "/cartilla/art/faithful/vocal-a/alas.webp"
             },
             {
-              "caption": "abeja"
+              "caption": "abeja",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/abeja.webp"
             },
             {
               "caption": "aguja"
             },
             {
-              "caption": "maíz"
+              "caption": "maíz",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/maiz.webp"
             },
             {
               "caption": "pez"
             },
             {
-              "caption": "remolino"
+              "caption": "remolino",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/remolino.webp"
             }
           ]
         }
@@ -619,7 +640,8 @@
               "illustrationSrc": "/cartilla/art/faithful/vocal-i/iglu.webp"
             },
             {
-              "caption": "maíz"
+              "caption": "maíz",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/maiz.webp"
             },
             {
               "caption": "indio",
@@ -634,7 +656,8 @@
               "illustrationSrc": "/cartilla/art/faithful/vocal-e/erizo.webp"
             },
             {
-              "caption": "abeja"
+              "caption": "abeja",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/abeja.webp"
             },
             {
               "caption": "aguja"
@@ -655,7 +678,8 @@
               "caption": "águila"
             },
             {
-              "caption": "escuela"
+              "caption": "escuela",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-e/escuela.webp"
             },
             {
               "caption": "traje"
@@ -698,14 +722,16 @@
               "illustrationSrc": "/cartilla/art/faithful/vocal-e/elefante.webp"
             },
             {
-              "caption": "abeja"
+              "caption": "abeja",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/abeja.webp"
             },
             {
               "caption": "erizo",
               "illustrationSrc": "/cartilla/art/faithful/vocal-e/erizo.webp"
             },
             {
-              "caption": "maíz"
+              "caption": "maíz",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/maiz.webp"
             },
             {
               "caption": "escalera",
@@ -798,7 +824,8 @@
               "caption": "pez"
             },
             {
-              "caption": "iguana"
+              "caption": "iguana",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iguana.webp"
             },
             {
               "caption": "abanico",
@@ -817,10 +844,12 @@
               "illustrationSrc": "/cartilla/art/faithful/vocal-a/alas.webp"
             },
             {
-              "caption": "invierno"
+              "caption": "invierno",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/invierno.webp"
             },
             {
-              "caption": "ola"
+              "caption": "ola",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/ola.webp"
             },
             {
               "caption": "imán",
@@ -838,7 +867,8 @@
               "caption": "arco"
             },
             {
-              "caption": "igual"
+              "caption": "igual",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/igual.webp"
             },
             {
               "caption": "insecto",
@@ -882,7 +912,8 @@
               "illustrationSrc": "/cartilla/art/faithful/vocal-i/iglu.webp"
             },
             {
-              "caption": "igual"
+              "caption": "igual",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/igual.webp"
             },
             {
               "caption": "indio",
@@ -892,10 +923,12 @@
               "caption": "arco"
             },
             {
-              "caption": "iguana"
+              "caption": "iguana",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iguana.webp"
             },
             {
-              "caption": "abeja"
+              "caption": "abeja",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/abeja.webp"
             }
           ]
         }
@@ -998,7 +1031,8 @@
               "illustrationSrc": "/cartilla/art/faithful/vocal-e/elefante.webp"
             },
             {
-              "caption": "árbol"
+              "caption": "árbol",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/arbol.webp"
             },
             {
               "caption": "uno",
@@ -1012,7 +1046,8 @@
               "caption": "águila"
             },
             {
-              "caption": "abeja"
+              "caption": "abeja",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/abeja.webp"
             },
             {
               "caption": "traje"
