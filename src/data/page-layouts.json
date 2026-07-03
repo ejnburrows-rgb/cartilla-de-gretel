@@ -223,7 +223,8 @@
             },
             {
               "letter": "e",
-              "caption": "escoba"
+              "caption": "escoba",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-e/escoba.webp"
             },
             {
               "letter": "u",
