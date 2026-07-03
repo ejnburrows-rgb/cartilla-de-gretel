@@ -69,7 +69,7 @@ function Landing() {
 
             <div className="flex flex-col gap-5 w-full mx-auto">
               <Link
-                to="/cartilla/student-login"
+                to="/cartilla/unirse"
                 className="flex items-center justify-center px-8 py-5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-white font-black text-2xl rounded-2xl shadow-[0_10px_25px_-5px_rgba(245,158,11,0.5)] transition-all hover:-translate-y-1 hover:shadow-[0_15px_30px_-5px_rgba(245,158,11,0.6)] border border-amber-400/30"
                 style={{ fontFamily: "'Fredoka', ui-rounded, system-ui, sans-serif" }}
               >

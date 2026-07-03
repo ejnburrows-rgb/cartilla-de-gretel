@@ -74,6 +74,20 @@ Teachers create classes, assign students, and track progress via Supabase.
    is true, scan fallback otherwise. Illustrations: partial (verified real
    crops wired in as they arrive from the art pipeline; "art pending" shown
    honestly elsewhere — see public/cartilla/art/faithful/manifest.json).
-⚠️  Student login — uses sessionStorage, needs Supabase
-❌  Teacher login + class management — incomplete
-❌  Cloud progress sync — not yet built
+✅ Student login — real Supabase flow at /cartilla/unirse (join class by
+   code, src/lib/student.functions.ts + student-session.ts), zod-validated.
+   Landing page now links here (was pointing at a dead sessionStorage-only
+   stub — fixed in PR #49). NOT wired up in THIS environment (no
+   VITE_SUPABASE_URL/VITE_SUPABASE_PUBLISHABLE_KEY configured — check before
+   assuming it's broken; it's an env problem, not a code problem).
+✅ Teacher login + class management — real Supabase auth (src/routes/login.tsx)
+   + full class/student CRUD (src/lib/teacher.functions.ts: listClasses,
+   createClass, addStudents, getClassProgress, etc.) under
+   src/routes/_authenticated/. Same credentials caveat as above.
+✅ Cloud progress sync — src/lib/assignments.functions.ts +
+   log_student_progress/get_student_progress RPCs already implemented and
+   called from the real student flow. Same credentials caveat as above.
+⚠️  None of the three above have been tested end-to-end against a live
+   Supabase project in a session yet — only verified by reading the code
+   + existing unit tests (student.functions.test.ts). First real test needs
+   VITE_SUPABASE_URL + VITE_SUPABASE_PUBLISHABLE_KEY (local .env + Vercel).
