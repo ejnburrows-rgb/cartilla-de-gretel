@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { getPageLayout, type PageGridCell, type PageRegion } from "@/lib/book-faithful";
 import { PageFrame } from "./PageFrame";
+import { CATALOG } from "@/lib/lesson-catalog";
+import {
+  InteractivePictureGrid,
+  InteractiveVowelPickOne,
+  InteractiveVowelMatchAll,
+  InteractiveVowelLineMatch,
+} from "./InteractivePageExercises";
 
 /**
  * Renders a workbook page from its faithful, verified region layout
@@ -19,6 +26,13 @@ interface FaithfulPageRendererProps {
   regions?: PageRegion[];
   /** Shown when this page has no verified faithful layout yet. */
   fallback?: ReactNode;
+  /**
+   * Renders picture-grid/vowel-pick-one/vowel-match-all/vowel-line-match as
+   * real tap-and-grade exercises instead of static pictures. Student
+   * workbook only — teacher's flipbook/paginas views stay read-only
+   * previews and must never pass this.
+   */
+  interactive?: boolean;
 }
 
 function IllustrationSlot({ region }: { region: PageRegion }) {
@@ -177,18 +191,44 @@ function VowelMatchAll({ region }: { region: PageRegion }) {
   );
 }
 
-function RegionView({ region }: { region: PageRegion }) {
+function RegionView({
+  region,
+  interactive,
+  accent,
+  lessonId,
+}: {
+  region: PageRegion;
+  interactive?: boolean;
+  accent?: string;
+  lessonId?: string;
+}) {
   switch (region.regionType) {
     case "illustration-slot":
       return <IllustrationSlot region={region} />;
     case "picture-grid":
-      return <PictureGrid region={region} />;
+      return interactive ? (
+        <InteractivePictureGrid region={region} accent={accent ?? "hsl(230 75% 58%)"} lessonId={lessonId} />
+      ) : (
+        <PictureGrid region={region} />
+      );
     case "vowel-line-match":
-      return <VowelLineMatch region={region} />;
+      return interactive ? (
+        <InteractiveVowelLineMatch region={region} accent={accent ?? "hsl(230 75% 58%)"} lessonId={lessonId} />
+      ) : (
+        <VowelLineMatch region={region} />
+      );
     case "vowel-pick-one":
-      return <VowelPickOne region={region} />;
+      return interactive ? (
+        <InteractiveVowelPickOne region={region} accent={accent ?? "hsl(230 75% 58%)"} lessonId={lessonId} />
+      ) : (
+        <VowelPickOne region={region} />
+      );
     case "vowel-match-all":
-      return <VowelMatchAll region={region} />;
+      return interactive ? (
+        <InteractiveVowelMatchAll region={region} accent={accent ?? "hsl(230 75% 58%)"} lessonId={lessonId} />
+      ) : (
+        <VowelMatchAll region={region} />
+      );
     case "syllable-match":
       return <SyllableMatch region={region} />;
     case "fill-in-blank":
@@ -223,6 +263,7 @@ export function FaithfulPageRenderer({
   lessonNumber,
   regions,
   fallback,
+  interactive,
 }: FaithfulPageRendererProps) {
   const layout = regions ?? getPageLayout(pageNumber);
 
@@ -236,11 +277,13 @@ export function FaithfulPageRenderer({
   }
 
   const ordered = [...layout].sort((a, b) => a.order - b.order);
+  const accent = lessonNumber ? CATALOG.find((e) => e.n === lessonNumber)?.color : undefined;
+  const lessonId = lessonNumber ? String(lessonNumber) : undefined;
 
   return (
     <PageFrame pageNumber={pageNumber} lessonNumber={lessonNumber}>
       {ordered.map((region) => (
-        <RegionView key={region.id} region={region} />
+        <RegionView key={region.id} region={region} interactive={interactive} accent={accent} lessonId={lessonId} />
       ))}
     </PageFrame>
   );
