@@ -1,21 +1,13 @@
-import React, { useEffect, useState, useMemo, Suspense } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { createFileRoute, Link, useNavigate, redirect } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, Maximize, Minimize, X, BookOpen, BookOpenCheck } from "lucide-react";
+import { ArrowLeft, ArrowRight, Maximize, Minimize, X, BookOpen, ScanLine } from "lucide-react";
 import { CATALOG } from "@/lib/lesson-catalog";
 import { getLessonPageNumbers } from "@/lib/cartilla-crm-theme";
 import { TeacherNoteField } from "@/components/teacher/TeacherNoteField";
-import { wordsForLesson } from "@/content/word-bank";
-import { InteractiveFlipchartOverlay } from "@/components/cartilla/InteractiveFlipchartOverlay";
-import pageInventory from "@/data/page-inventory.json";
+import { FaithfulPageRenderer } from "@/components/cartilla/FaithfulPageRenderer";
 
-const FC_BASE = "/cartilla/images/teacher-flipchart";
-
-const LazyFlipbookViewer = React.lazy(() =>
-  import("@/components/cartilla/FlipbookVerticalViewer").then((module) => ({ default: module.FlipbookVerticalViewer }))
-);
-
-export const Route = createFileRoute("/cartilla/teacher/flipchart/$n")({
-  component: FlipchartLeccion,
+export const Route = createFileRoute("/cartilla/teacher/paginas/$n")({
+  component: PaginasLeccion,
   beforeLoad: ({ params }) => {
     const n = Number(params.n);
     if (!Number.isFinite(n) || !CATALOG.find((e) => e.n === n)) {
@@ -24,19 +16,16 @@ export const Route = createFileRoute("/cartilla/teacher/flipchart/$n")({
   },
 });
 
-function FlipchartLeccion() {
+function PaginasLeccion() {
   const { n: nParam } = Route.useParams();
   const navigate = useNavigate();
   const n = Number(nParam);
 
-  const words = wordsForLesson(n);
-
-  // Read page filenames from page-inventory.json — never from lesson-meta.ts
-  const fcPages = useMemo(() => {
-    const entry = (pageInventory.flipchart.lessons as Array<{ lessonId: number; pages: string[] }>)
-      .find((l) => l.lessonId === n);
-    return entry?.pages ?? [];
-  }, [n]);
+  const catalogEntry = useMemo(() => CATALOG.find((e) => e.n === n), [n]);
+  const globalPageNumbers = useMemo(
+    () => (catalogEntry ? getLessonPageNumbers(catalogEntry.pages) : []),
+    [catalogEntry],
+  );
 
   const [pageIndex, setPageIndex] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -47,19 +36,7 @@ function FlipchartLeccion() {
     setPageIndex(0);
   }, [n]);
 
-  const currentFile = fcPages[pageIndex] ?? null;
-  const currentSrc = currentFile ? `${FC_BASE}/${currentFile}` : null;
-
-  // Global (book-wide) page number for this lesson's slot, for the fallback
-  // viewer only — FlipbookVerticalViewer/getBookPageImage/page-layouts.json
-  // are all keyed by the GLOBAL 1-92 page number, not this lesson's local
-  // pageIndex, so a straight pageIndex+1 would show the wrong lesson's page.
-  const catalogEntry = useMemo(() => CATALOG.find((e) => e.n === n), [n]);
-  const globalPageNumbers = useMemo(
-    () => (catalogEntry ? getLessonPageNumbers(catalogEntry.pages) : []),
-    [catalogEntry],
-  );
-  const fallbackGlobalPage = globalPageNumbers[pageIndex] ?? globalPageNumbers[0] ?? 1;
+  const currentGlobalPage = globalPageNumbers[pageIndex] ?? globalPageNumbers[0] ?? 1;
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -70,7 +47,8 @@ function FlipchartLeccion() {
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [n, pageIndex, fcPages]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [n, pageIndex, globalPageNumbers]);
 
   const toggleFullscreen = () => {
     if (!document.fullscreenElement) {
@@ -81,10 +59,10 @@ function FlipchartLeccion() {
   };
 
   const goNext = () => {
-    if (pageIndex < fcPages.length - 1) {
+    if (pageIndex < globalPageNumbers.length - 1) {
       setPageIndex((i) => i + 1);
     } else if (n < CATALOG.length) {
-      navigate({ to: "/cartilla/teacher/flipchart/$n", params: { n: String(n + 1) } });
+      navigate({ to: "/cartilla/teacher/paginas/$n", params: { n: String(n + 1) } });
     }
   };
 
@@ -92,50 +70,19 @@ function FlipchartLeccion() {
     if (pageIndex > 0) {
       setPageIndex((i) => i - 1);
     } else if (n > 1) {
-      navigate({ to: "/cartilla/teacher/flipchart/$n", params: { n: String(n - 1) } });
+      navigate({ to: "/cartilla/teacher/paginas/$n", params: { n: String(n - 1) } });
     }
   };
 
-  if (fcPages.length === 0) return null;
+  if (globalPageNumbers.length === 0) return null;
 
   return (
     <div className="fixed inset-0 bg-stone-900 flex flex-col md:flex-row overflow-hidden font-display select-none">
       <main className="flex-1 relative flex items-center justify-center bg-[#1a1a1a]">
-
-        {/* Flipchart image viewer — images from /cartilla/images/teacher-flipchart/ only */}
-        <div className="relative w-full max-w-4xl h-[85vh] shadow-2xl flex items-center justify-center bg-black/20">
-          {currentSrc ? (
-            <img
-              key={currentSrc}
-              src={currentSrc}
-              alt={`Lección ${n} — Rotafolio pág. ${pageIndex + 1}`}
-              className="w-full h-full object-contain"
-              onError={(e) => {
-                const t = e.currentTarget;
-                t.style.display = "none";
-                const fb = document.createElement("div");
-                fb.className = "w-full h-full flex items-center justify-center text-white/40 text-sm font-bold";
-                fb.textContent = currentFile ?? "";
-                t.parentNode?.appendChild(fb);
-              }}
-            />
-          ) : (
-            <Suspense
-              fallback={
-                <div className="text-white/60 font-bold text-sm" aria-busy="true">
-                  Cargando rotafolio original…
-                </div>
-              }
-            >
-              <LazyFlipbookViewer pageNumber={fallbackGlobalPage} className="w-full h-full" />
-            </Suspense>
-          )}
-
-          {/* Interactive Overlay */}
-          <InteractiveFlipchartOverlay
-            pageNumber={pageIndex + 1}
-            words={words.map((w: string) => ({ word: w }))}
-          />
+        <div className="relative w-full max-w-4xl h-[85vh] shadow-2xl flex items-center justify-center bg-white overflow-hidden rounded-sm">
+          <div className="w-full h-full overflow-y-auto">
+            <FaithfulPageRenderer pageNumber={currentGlobalPage} lessonNumber={n} />
+          </div>
         </div>
 
         {/* Overlay controls */}
@@ -165,16 +112,16 @@ function FlipchartLeccion() {
           </button>
         </div>
 
-        {/* Switch to reconstructed pages */}
+        {/* Switch to original scans */}
         <div className="absolute top-20 right-4 z-50">
           <Link
-            to="/cartilla/teacher/paginas/$n"
+            to="/cartilla/teacher/flipchart/$n"
             params={{ n: String(n) }}
             className="flex items-center gap-2 px-4 py-3 bg-stone-800/80 hover:bg-stone-700 text-white font-bold rounded-full transition-colors text-sm"
-            title="Ver las páginas reconstruidas (mismo texto y arte que ven los estudiantes)"
+            title="Ver los escaneos originales del libro"
           >
-            <BookOpenCheck className="w-5 h-5" />
-            <span className="hidden md:inline">Ver páginas reconstruidas</span>
+            <ScanLine className="w-5 h-5" />
+            <span className="hidden md:inline">Ver escaneos originales</span>
           </Link>
         </div>
 
@@ -188,7 +135,7 @@ function FlipchartLeccion() {
         </button>
         <button
           onClick={goNext}
-          disabled={n >= CATALOG.length && pageIndex === fcPages.length - 1}
+          disabled={n >= CATALOG.length && pageIndex === globalPageNumbers.length - 1}
           className="absolute right-4 top-1/2 -translate-y-1/2 p-4 bg-black/30 hover:bg-black/60 disabled:opacity-20 text-white rounded-full transition-colors z-50"
         >
           <ArrowRight className="w-10 h-10" />
@@ -196,7 +143,7 @@ function FlipchartLeccion() {
 
         {/* Page indicator */}
         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 bg-black/50 text-white font-bold rounded-full text-sm z-50">
-          Lección {n} — Pág. {pageIndex + 1} / {fcPages.length}
+          Lección {n} — Pág. {pageIndex + 1} / {globalPageNumbers.length} (página {currentGlobalPage} del libro)
         </div>
       </main>
 
