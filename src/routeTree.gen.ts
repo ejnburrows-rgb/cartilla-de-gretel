@@ -57,6 +57,7 @@ import { Route as AuthenticatedCartillaTeacherRouteImport } from './routes/_auth
 import { Route as CartillaTeacherFlipchartIndexRouteImport } from './routes/cartilla/teacher/flipchart.index'
 import { Route as CartillaTeacherRecursosRecursoIdRouteImport } from './routes/cartilla/teacher/recursos/$recursoId'
 import { Route as CartillaTeacherProyectarNRouteImport } from './routes/cartilla/teacher/proyectar.$n'
+import { Route as CartillaTeacherPaginasNRouteImport } from './routes/cartilla/teacher/paginas.$n'
 import { Route as CartillaTeacherGuiaNRouteImport } from './routes/cartilla/teacher/guia.$n'
 import { Route as CartillaTeacherFlipchartNRouteImport } from './routes/cartilla/teacher/flipchart.$n'
 import { Route as AuthenticatedCartillaTeacherStudentsRouteImport } from './routes/_authenticated/cartilla.teacher.students'
@@ -312,6 +313,11 @@ const CartillaTeacherProyectarNRoute =
     path: '/proyectar/$n',
     getParentRoute: () => CartillaTeacherRouteRoute,
   } as any)
+const CartillaTeacherPaginasNRoute = CartillaTeacherPaginasNRouteImport.update({
+  id: '/paginas/$n',
+  path: '/paginas/$n',
+  getParentRoute: () => CartillaTeacherRouteRoute,
+} as any)
 const CartillaTeacherGuiaNRoute = CartillaTeacherGuiaNRouteImport.update({
   id: '/guia/$n',
   path: '/guia/$n',
@@ -410,6 +416,7 @@ export interface FileRoutesByFullPath {
   '/cartilla/teacher/students': typeof AuthenticatedCartillaTeacherStudentsRoute
   '/cartilla/teacher/flipchart/$n': typeof CartillaTeacherFlipchartNRoute
   '/cartilla/teacher/guia/$n': typeof CartillaTeacherGuiaNRoute
+  '/cartilla/teacher/paginas/$n': typeof CartillaTeacherPaginasNRoute
   '/cartilla/teacher/proyectar/$n': typeof CartillaTeacherProyectarNRoute
   '/cartilla/teacher/recursos/$recursoId': typeof CartillaTeacherRecursosRecursoIdRoute
   '/cartilla/teacher/flipchart/': typeof CartillaTeacherFlipchartIndexRoute
@@ -464,6 +471,7 @@ export interface FileRoutesByTo {
   '/cartilla/teacher/students': typeof AuthenticatedCartillaTeacherStudentsRoute
   '/cartilla/teacher/flipchart/$n': typeof CartillaTeacherFlipchartNRoute
   '/cartilla/teacher/guia/$n': typeof CartillaTeacherGuiaNRoute
+  '/cartilla/teacher/paginas/$n': typeof CartillaTeacherPaginasNRoute
   '/cartilla/teacher/proyectar/$n': typeof CartillaTeacherProyectarNRoute
   '/cartilla/teacher/recursos/$recursoId': typeof CartillaTeacherRecursosRecursoIdRoute
   '/cartilla/teacher/flipchart': typeof CartillaTeacherFlipchartIndexRoute
@@ -523,6 +531,7 @@ export interface FileRoutesById {
   '/_authenticated/cartilla/teacher/students': typeof AuthenticatedCartillaTeacherStudentsRoute
   '/cartilla/teacher/flipchart/$n': typeof CartillaTeacherFlipchartNRoute
   '/cartilla/teacher/guia/$n': typeof CartillaTeacherGuiaNRoute
+  '/cartilla/teacher/paginas/$n': typeof CartillaTeacherPaginasNRoute
   '/cartilla/teacher/proyectar/$n': typeof CartillaTeacherProyectarNRoute
   '/cartilla/teacher/recursos/$recursoId': typeof CartillaTeacherRecursosRecursoIdRoute
   '/cartilla/teacher/flipchart/': typeof CartillaTeacherFlipchartIndexRoute
@@ -581,6 +590,7 @@ export interface FileRouteTypes {
     | '/cartilla/teacher/students'
     | '/cartilla/teacher/flipchart/$n'
     | '/cartilla/teacher/guia/$n'
+    | '/cartilla/teacher/paginas/$n'
     | '/cartilla/teacher/proyectar/$n'
     | '/cartilla/teacher/recursos/$recursoId'
     | '/cartilla/teacher/flipchart/'
@@ -635,6 +645,7 @@ export interface FileRouteTypes {
     | '/cartilla/teacher/students'
     | '/cartilla/teacher/flipchart/$n'
     | '/cartilla/teacher/guia/$n'
+    | '/cartilla/teacher/paginas/$n'
     | '/cartilla/teacher/proyectar/$n'
     | '/cartilla/teacher/recursos/$recursoId'
     | '/cartilla/teacher/flipchart'
@@ -693,6 +704,7 @@ export interface FileRouteTypes {
     | '/_authenticated/cartilla/teacher/students'
     | '/cartilla/teacher/flipchart/$n'
     | '/cartilla/teacher/guia/$n'
+    | '/cartilla/teacher/paginas/$n'
     | '/cartilla/teacher/proyectar/$n'
     | '/cartilla/teacher/recursos/$recursoId'
     | '/cartilla/teacher/flipchart/'
@@ -1071,6 +1083,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CartillaTeacherProyectarNRouteImport
       parentRoute: typeof CartillaTeacherRouteRoute
     }
+    '/cartilla/teacher/paginas/$n': {
+      id: '/cartilla/teacher/paginas/$n'
+      path: '/paginas/$n'
+      fullPath: '/cartilla/teacher/paginas/$n'
+      preLoaderRoute: typeof CartillaTeacherPaginasNRouteImport
+      parentRoute: typeof CartillaTeacherRouteRoute
+    }
     '/cartilla/teacher/guia/$n': {
       id: '/cartilla/teacher/guia/$n'
       path: '/guia/$n'
@@ -1218,6 +1237,7 @@ interface CartillaTeacherRouteRouteChildren {
   CartillaTeacherRosterRoute: typeof CartillaTeacherRosterRoute
   CartillaTeacherIndexRoute: typeof CartillaTeacherIndexRoute
   CartillaTeacherGuiaNRoute: typeof CartillaTeacherGuiaNRoute
+  CartillaTeacherPaginasNRoute: typeof CartillaTeacherPaginasNRoute
   CartillaTeacherProyectarNRoute: typeof CartillaTeacherProyectarNRoute
   CartillaTeacherRecursosRecursoIdRoute: typeof CartillaTeacherRecursosRecursoIdRoute
 }
@@ -1232,6 +1252,7 @@ const CartillaTeacherRouteRouteChildren: CartillaTeacherRouteRouteChildren = {
   CartillaTeacherRosterRoute: CartillaTeacherRosterRoute,
   CartillaTeacherIndexRoute: CartillaTeacherIndexRoute,
   CartillaTeacherGuiaNRoute: CartillaTeacherGuiaNRoute,
+  CartillaTeacherPaginasNRoute: CartillaTeacherPaginasNRoute,
   CartillaTeacherProyectarNRoute: CartillaTeacherProyectarNRoute,
   CartillaTeacherRecursosRecursoIdRoute: CartillaTeacherRecursosRecursoIdRoute,
 }
