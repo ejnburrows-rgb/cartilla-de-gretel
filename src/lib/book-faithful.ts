@@ -76,6 +76,13 @@ export type PageGridCell = {
 	illustrationSrc?: string;
 	/** Real Spanish word the picture depicts (used as caption + art-pipeline slug). */
 	caption?: string;
+	/**
+	 * Whether this cell is a correct answer for its exercise (tap-to-select
+	 * regions only). Absent means "not yet graded" — the renderer must treat
+	 * that as non-interactive/ungraded rather than guessing, since a wrong
+	 * guess here would mis-grade a real student.
+	 */
+	correct?: boolean;
 };
 
 /** One row of candidate words the student picks from, for a syllable-match region. */
