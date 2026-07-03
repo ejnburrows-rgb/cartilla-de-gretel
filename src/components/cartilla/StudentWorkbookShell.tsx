@@ -33,7 +33,7 @@ export function StudentWorkbookShell({
     <div className="student-workbook-shell min-h-screen" style={style}>
       <div className="relative mx-auto flex min-h-screen w-full max-w-7xl flex-col px-3 py-4 sm:px-5 sm:py-6">
         <div className="mb-3 flex flex-wrap items-center justify-between gap-2 text-[#3A281E]">
-          <Link to="/cartilla/student/lecciones" className="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/60 bg-white/70 px-4 py-2 text-sm font-black shadow-sm backdrop-blur hover:bg-white">
+          <Link to="/cartilla/lecciones" className="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/60 bg-white/70 px-4 py-2 text-sm font-black shadow-sm backdrop-blur hover:bg-white">
             <BookOpen className="h-4 w-4" /> Cuaderno
           </Link>
           <div className="flex flex-wrap gap-2">

@@ -10,7 +10,7 @@ export const Route = createFileRoute("/cartilla/teacher/flipchart")({
   beforeLoad: () => {
     const session = getStudentSession();
     if (session) {
-      throw redirect({ to: "/cartilla/student/lecciones" });
+      throw redirect({ to: "/cartilla/lecciones" });
     }
   },
   component: FlipchartLayout,
