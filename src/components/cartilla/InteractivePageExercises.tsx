@@ -65,7 +65,9 @@ function Cell({
       style={{ ["--ix-float-delay" as string]: floatDelay(index) }}
       onClick={onToggle}
     >
-      <span className="fp-ix-cell__ring" aria-hidden="true" />
+      <svg className="fp-ix-cell__lasso" viewBox="0 0 100 100" aria-hidden="true">
+        <ellipse cx="50" cy="48" rx="42" ry="38" />
+      </svg>
       <ArtOrPending cell={cell} />
       <span className="fp-ix-cell__badge" aria-hidden="true" />
     </button>
