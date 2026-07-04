@@ -12,8 +12,16 @@ export type ConsonantLessonData = {
   sentences: string[];
 };
 
+/** Matches ActivityCarousel's tab ids — kept here since the catalog is the
+ * source of truth for which activities a lesson offers. */
+export type ActivityId = "silabas" | "palabras" | "armar" | "trazar" | "piano";
+
+/** Every lesson currently offers the same 5 activities in this order. Set a
+ * lesson's `activities` field to override which ones show and in what order. */
+export const DEFAULT_ACTIVITIES: ActivityId[] = ["silabas", "palabras", "armar", "trazar", "piano"];
+
 export type CatalogEntry =
-  | { n: number; kind: "intro"; title: string; subtitle: string; pages: string; color: string }
+  | { n: number; kind: "intro"; title: string; subtitle: string; pages: string; color: string; activities?: ActivityId[] }
   | {
       n: number;
       kind: "vowel";
@@ -23,6 +31,7 @@ export type CatalogEntry =
       color: string;
       vowel: string;
       lesson: VowelLesson;
+      activities?: ActivityId[];
     }
   | {
       n: number;
@@ -33,6 +42,7 @@ export type CatalogEntry =
       color: string;
       letter: string;
       data: ConsonantLessonData;
+      activities?: ActivityId[];
     };
 
 const consonants = consonantsData as unknown as ConsonantLessonData[];

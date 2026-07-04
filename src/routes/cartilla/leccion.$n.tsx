@@ -3,7 +3,7 @@ import { createFileRoute, Link, useNavigate, redirect } from "@tanstack/react-ro
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@/lib/useServerFn";
 import { ArrowLeft, ArrowRight, Check, Volume2, ClipboardList } from "lucide-react";
-import { CATALOG, TOTAL_LESSONS, type CatalogEntry } from "@/lib/lesson-catalog";
+import { CATALOG, TOTAL_LESSONS, type CatalogEntry, type ActivityId } from "@/lib/lesson-catalog";
 import { useLessonProgress, isLessonUnlocked, markLessonCompleted } from "@/lib/lesson-progress";
 import { useAudio } from "@/hooks/useAudio";
 import { cn } from "@/lib/utils";
@@ -157,7 +157,7 @@ function Leccion() {
         {/* Interactive Zone */}
         <div className="w-full max-w-3xl">
           <h2 className="text-2xl font-black mb-6 text-center text-foreground/80">¡Zona Interactiva!</h2>
-          {entry.kind === "intro" && <IntroBody lessonId={String(n)} lang={lang} t={t} />}
+          {entry.kind === "intro" && <IntroBody lessonId={String(n)} lang={lang} t={t} activities={entry.activities} />}
           {entry.kind === "vowel" && <VowelBody entry={entry} lessonId={String(n)} lang={lang} t={t} />}
           {entry.kind === "consonant" && <ConsonantBody entry={entry} lessonId={String(n)} lang={lang} t={t} />}
           {done && (
@@ -199,7 +199,17 @@ function Leccion() {
   );
 }
 
-function IntroBody({ lessonId, lang, t }: { lessonId: string; lang: "es" | "en"; t: typeof sCopy }) {
+function IntroBody({
+  lessonId,
+  lang,
+  t,
+  activities,
+}: {
+  lessonId: string;
+  lang: "es" | "en";
+  t: typeof sCopy;
+  activities?: ActivityId[];
+}) {
   const { play, playingText } = useAudio();
   const vowels = ["a", "e", "i", "o", "u"];
   const vowelWords = [
@@ -237,6 +247,7 @@ function IntroBody({ lessonId, lang, t }: { lessonId: string; lang: "es" | "en";
         letter="a"
         color="hsl(var(--primary))"
         lessonId={lessonId}
+        activities={activities}
         onCompleteAll={() => markLessonCompleted(1)}
       />
     </section>
@@ -305,6 +316,7 @@ function VowelBody({
         letter={l.vowel}
         color={entry.color}
         lessonId={lessonId}
+        activities={entry.activities}
         onCompleteAll={() => markLessonCompleted(entry.n)}
       />
     </section>
@@ -403,6 +415,7 @@ function ConsonantBody({
         letter={c.letter}
         color={entry.color}
         lessonId={lessonId}
+        activities={entry.activities}
         onCompleteAll={() => markLessonCompleted(entry.n)}
       />
     </section>
