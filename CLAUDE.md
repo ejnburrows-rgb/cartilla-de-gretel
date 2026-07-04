@@ -49,6 +49,7 @@ Teachers create classes, assign students, and track progress via Supabase.
 - Whenever the owner says "memorize" something, actually write it into this
   file right then, every single time — don't just acknowledge it in chat
   and move on.
+<<<<<<< Updated upstream
 - **Status update format (memorized July 2026):** every time the owner asks
   for a status update, give: (1) an honest end-goal completion percentage
   (a real judgment call, labeled as an estimate, not false precision) of
@@ -56,6 +57,16 @@ Teachers create classes, assign students, and track progress via Supabase.
   broken into four boxes — done, still needs to be done, and open
   questions/things needing the owner's input. Always in that format, not
   prose, every time status is asked for.
+=======
+- **Always give a real answer (memorized July 2026):** never respond with
+  an excuse, a deflection, or "I can't verify that" as a stopping point.
+  If something is blocked, say exactly what's blocking it AND what I'm
+  doing about it right now, or a concrete promise with a real next step —
+  never just an apology or an explanation with no action attached.
+- **Always ask relevant questions (memorized July 2026):** when there's a
+  real decision only the owner can make, ask it directly and specifically
+  — don't bury it in a status update or skip it to avoid seeming unsure.
+>>>>>>> Stashed changes
 
 ## Owner's Urgency (memorized July 2026)
 The owner is way behind schedule and has zero patience left for busywork or
