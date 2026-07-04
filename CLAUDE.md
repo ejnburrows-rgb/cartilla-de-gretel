@@ -70,6 +70,10 @@ Teachers create classes, assign students, and track progress via Supabase.
   option). Wasting the owner's time asking them to choose between two
   options when I can actually judge which is better is exactly what NOT
   to do.
+- **Short, concise, informative answers (memorized July 2026):** keep
+  replies tight by default — lead with the direct answer, skip preamble
+  and repetition. Save length for when the owner actually asks for detail
+  (e.g. the status-update checkbox format above still applies in full).
 - **Always ask relevant questions (memorized July 2026):** when there's a
   real decision only the owner can make, ask it directly and specifically
   — don't bury it in a status update or skip it to avoid seeming unsure.
