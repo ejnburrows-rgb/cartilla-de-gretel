@@ -1,0 +1,526 @@
+<title>Enlazar las Palabras — Lasso Interaction Mockup</title>
+<style>
+  @font-face {
+    font-family: "Fredoka-fallback";
+    src: local("Fredoka");
+  }
+
+  :root {
+    --book-teal: #3fa9a6;
+    --book-teal-deep: #2f8b88;
+    --book-paper: #ffffff;
+    --book-paper-warm: #fffdf8;
+    --book-ink: #1f2937;
+    --book-ink-soft: #6b7280;
+    --rope: #a9793f;
+    --rope-deep: #7a5527;
+    --rope-shadow: rgba(122, 85, 39, 0.25);
+    --accent: #e63946;
+    --accent-soft: #fdeaec;
+    --success: #10b981;
+    --success-soft: #e7faf3;
+    --panel-bg: #f6f5f1;
+    --panel-border: #e7e4da;
+    --font-title: "Fredoka", ui-rounded, system-ui, sans-serif;
+    --font-body: "Andika", "Century Gothic", "Segoe UI", ui-rounded, system-ui, sans-serif;
+    --font-hand: "Caveat", "Segoe Script", cursive;
+  }
+
+  :root[data-theme="dark"] {
+    --book-paper: #171a1c;
+    --book-paper-warm: #1b1e20;
+    --book-ink: #eef1f3;
+    --book-ink-soft: #9aa4ac;
+    --panel-bg: #202426;
+    --panel-border: #2c3134;
+    --accent-soft: #3a2226;
+    --success-soft: #10352c;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --book-paper: #171a1c;
+      --book-paper-warm: #1b1e20;
+      --book-ink: #eef1f3;
+      --book-ink-soft: #9aa4ac;
+      --panel-bg: #202426;
+      --panel-border: #2c3134;
+      --accent-soft: #3a2226;
+      --success-soft: #10352c;
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    color: var(--book-ink);
+    background: var(--book-paper-warm);
+    min-height: 100vh;
+  }
+
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  header.intro {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--book-teal-deep);
+  }
+
+  h1 {
+    font-family: var(--font-title);
+    font-size: clamp(1.7rem, 3.2vw, 2.5rem);
+    margin: 0;
+    text-wrap: balance;
+    color: var(--book-ink);
+  }
+
+  .sub {
+    color: var(--book-ink-soft);
+    font-size: 1rem;
+    max-width: 62ch;
+    line-height: 1.55;
+  }
+
+  .stage {
+    position: relative;
+    background: var(--book-paper);
+    border: 1px solid var(--panel-border);
+    border-radius: 22px;
+    padding: 2.2rem clamp(1.2rem, 4vw, 3rem) 2.6rem;
+    box-shadow: 0 24px 60px -32px rgba(31, 41, 55, 0.35), 0 2px 8px rgba(31, 41, 55, 0.06);
+    overflow: hidden;
+  }
+
+  .stage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(120% 90% at 8% -10%, rgba(63, 169, 166, 0.08), transparent 55%);
+    pointer-events: none;
+  }
+
+  .instruction-row {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    margin-bottom: 2.1rem;
+    flex-wrap: wrap;
+  }
+
+  .gretel {
+    position: relative;
+    width: 84px;
+    height: 84px;
+    flex: none;
+  }
+
+  .gretel__body {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 34% 30%, #ffe3b3, #f0a94e 62%, #d6842c 100%);
+    border: 3px solid #ffffff;
+    box-shadow: 0 10px 24px -10px rgba(214, 132, 44, 0.55), 0 0 0 3px var(--accent-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: bob 3.2s ease-in-out infinite;
+    position: relative;
+  }
+
+  .gretel__body span {
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: 0.72rem;
+    color: #7a4a12;
+    letter-spacing: 0.02em;
+  }
+
+  .gretel__label {
+    position: absolute;
+    bottom: -1.4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.62rem;
+    color: var(--book-ink-soft);
+    white-space: nowrap;
+  }
+
+  @keyframes bob {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-4px) rotate(-2deg); }
+  }
+
+  .bubble {
+    position: relative;
+    background: var(--book-teal);
+    color: #fff;
+    font-family: var(--font-title);
+    font-weight: 600;
+    font-size: 1.02rem;
+    padding: 0.75rem 1.2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 22px -12px rgba(63, 169, 166, 0.6);
+    transition: background 0.25s ease;
+  }
+
+  .bubble::before {
+    content: "";
+    position: absolute;
+    left: -9px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 8px 10px 8px 0;
+    border-style: solid;
+    border-color: transparent var(--book-teal) transparent transparent;
+    transition: border-color 0.25s ease;
+  }
+
+  .bubble.success { background: var(--success); }
+  .bubble.success::before { border-color: transparent var(--success) transparent transparent; }
+
+  .rope-field {
+    position: relative;
+  }
+
+  .word-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1.1rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .card {
+    --card-accent: var(--accent);
+    position: relative;
+    background: #fff;
+    border: 2px solid color-mix(in srgb, var(--card-accent) 30%, transparent);
+    border-radius: 16px;
+    padding: 1.3rem 1rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.65rem;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    box-shadow: 0 6px 16px -10px rgba(31, 41, 55, 0.18);
+  }
+
+  .card:hover { transform: translateY(-2px); border-color: var(--card-accent); }
+  .card:focus-visible { outline: 3px solid var(--card-accent); outline-offset: 2px; }
+
+  .card__glyph {
+    width: 58px;
+    height: 58px;
+    border-radius: 14px;
+    background: color-mix(in srgb, var(--card-accent) 14%, white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--card-accent);
+  }
+
+  .card__word {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--book-ink);
+  }
+
+  .card__loop {
+    position: absolute;
+    inset: -8px;
+    border-radius: 20px;
+    border: 4px solid var(--rope);
+    opacity: 0;
+    transform: scale(1.7) rotate(8deg);
+    pointer-events: none;
+  }
+
+  .card.roped .card__loop {
+    animation: cinch 0.55s cubic-bezier(0.32, 1.6, 0.5, 1) forwards;
+  }
+
+  @keyframes cinch {
+    0% { opacity: 0; transform: scale(1.9) rotate(14deg); }
+    55% { opacity: 1; transform: scale(0.94) rotate(-3deg); }
+    75% { transform: scale(1.05) rotate(1deg); }
+    100% { opacity: 1; transform: scale(1) rotate(0deg); }
+  }
+
+  .card.roped {
+    border-color: var(--success);
+    background: var(--success-soft);
+  }
+
+  .card.roped .card__glyph {
+    background: color-mix(in srgb, var(--success) 18%, white);
+    color: var(--success);
+  }
+
+  .rope-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: visible;
+  }
+
+  .rope-path {
+    fill: none;
+    stroke: var(--rope);
+    stroke-width: 5;
+    stroke-linecap: round;
+    filter: drop-shadow(0 3px 2px var(--rope-shadow));
+    stroke-dasharray: 340;
+    stroke-dashoffset: 340;
+  }
+
+  .rope-path.throwing {
+    animation: throw 0.32s ease-out forwards;
+  }
+
+  @keyframes throw {
+    to { stroke-dashoffset: 0; }
+  }
+
+  .rope-path.retract {
+    animation: retract 0.4s ease-in 0.5s forwards;
+  }
+
+  @keyframes retract {
+    to { opacity: 0; }
+  }
+
+  .reaction-note {
+    margin-top: 1.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.86rem;
+    color: var(--book-ink-soft);
+    border-top: 1px dashed var(--panel-border);
+    padding-top: 1.1rem;
+  }
+
+  .reaction-note .swatch {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: repeating-linear-gradient(135deg, #d7d2c5, #d7d2c5 4px, #ece8dc 4px, #ece8dc 8px);
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+  }
+
+  .panel {
+    background: var(--panel-bg);
+    border: 1px solid var(--panel-border);
+    border-radius: 18px;
+    padding: 1.6rem clamp(1.1rem, 3vw, 2rem);
+    display: grid;
+    gap: 1.1rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .panel h2 {
+    grid-column: 1 / -1;
+    font-family: var(--font-title);
+    font-size: 1.05rem;
+    margin: 0;
+    color: var(--book-ink);
+  }
+
+  .panel .point {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .panel .point .label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--book-teal-deep);
+  }
+
+  .panel .point p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--book-ink-soft);
+    line-height: 1.5;
+  }
+
+  .replay-btn {
+    align-self: flex-start;
+    font-family: var(--font-title);
+    font-weight: 600;
+    font-size: 0.86rem;
+    color: #fff;
+    background: var(--book-teal);
+    border: none;
+    border-radius: 999px;
+    padding: 0.55rem 1.3rem;
+    cursor: pointer;
+    margin-top: 1.6rem;
+    transition: filter 0.15s ease, transform 0.1s ease;
+  }
+  .replay-btn:hover { filter: brightness(1.06); }
+  .replay-btn:active { transform: scale(0.97); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .gretel__body { animation: none; }
+    .card__loop, .rope-path { animation: none !important; }
+  }
+</style>
+
+<div class="wrap">
+  <header class="intro">
+    <span class="eyebrow">Interaction concept · not final art</span>
+    <h1>Enlazar las palabras — the lasso mechanic</h1>
+    <p class="sub">
+      Gretel doesn't ask kids to circle a picture anymore — she throws a rope
+      around it. This mockup uses placeholder shapes since your pose photos
+      and video clips haven't been wired in yet; once those land, the tan
+      circle below becomes her real art and the teal speech bubble becomes
+      her real video clip playing inline. Tap a word to see the throw.
+    </p>
+  </header>
+
+  <div class="stage">
+    <div class="instruction-row">
+      <div class="gretel">
+        <div class="gretel__body" id="gretelBody"><span>G</span></div>
+        <div class="gretel__label">Gretel (placeholder)</div>
+      </div>
+      <div class="bubble" id="bubble">¡Vamos a enlazar las palabras!</div>
+    </div>
+
+    <div class="rope-field">
+      <svg class="rope-svg" id="ropeSvg"><path class="rope-path" id="ropePath" d=""></path></svg>
+      <div class="word-row" id="wordRow">
+        <button class="card" data-word="mono" data-accent="#e63946">
+          <span class="card__loop"></span>
+          <span class="card__glyph">🄼</span>
+          <span class="card__word">mono</span>
+        </button>
+        <button class="card" data-word="mapa" data-accent="#2f8b88">
+          <span class="card__loop"></span>
+          <span class="card__glyph">🄼</span>
+          <span class="card__word">mapa</span>
+        </button>
+        <button class="card" data-word="moto" data-accent="#a9793f">
+          <span class="card__loop"></span>
+          <span class="card__glyph">🄼</span>
+          <span class="card__word">moto</span>
+        </button>
+        <button class="card" data-word="mamá" data-accent="#7a3fae">
+          <span class="card__loop"></span>
+          <span class="card__glyph">🄼</span>
+          <span class="card__word">mamá</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="reaction-note">
+      <span class="swatch">▮▮</span>
+      <span>On a correct catch, this space plays your real "muy bien, lo hiciste" video instead of a checkmark badge — no X icons, no arcade sound stingers.</span>
+    </div>
+
+    <button class="replay-btn" id="replayBtn">↻ Reiniciar demo</button>
+  </div>
+
+  <div class="panel">
+    <h2>What's deliberately different from a generic kids' app</h2>
+    <div class="point">
+      <span class="label">The verb matches the gesture</span>
+      <p>"Circular" (circle) doesn't describe a tap on glass. "Enlazar" (lasso/rope) is something Gretel visibly does to the word — the instruction and the motion are the same idea.</p>
+    </div>
+    <div class="point">
+      <span class="label">Feedback is her, not an icon</span>
+      <p>Duolingo's Duo is the reference point here: the mascot reacts in-line to every answer using real character states, not a floating badge. Your video clips replace the ✓/✕ entirely.</p>
+    </div>
+    <div class="point">
+      <span class="label">Motion has one job at a time</span>
+      <p>The rope throw is the only large motion on screen — everything else (ambient float, hover) stays subtle so the catch reads as the moment, not noise.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const bubble = document.getElementById('bubble');
+  const cards = Array.from(document.querySelectorAll('.card'));
+  const ropePath = document.getElementById('ropePath');
+  const gretelBody = document.getElementById('gretelBody');
+  const stage = document.querySelector('.rope-field');
+  const defaultPrompt = '¡Vamos a enlazar las palabras!';
+  const successPrompts = ['¡Muy bien!', '¡Lo hiciste!', '¡Excelente!'];
+
+  function throwRopeAt(card) {
+    const gRect = gretelBody.getBoundingClientRect();
+    const fieldRect = stage.getBoundingClientRect();
+    const cardRect = card.getBoundingClientRect();
+
+    const startX = gRect.left + gRect.width / 2 - fieldRect.left;
+    const startY = gRect.top + gRect.height / 2 - fieldRect.top - 40;
+    const endX = cardRect.left + cardRect.width / 2 - fieldRect.left;
+    const endY = cardRect.top + cardRect.height / 2 - fieldRect.top;
+    const midX = (startX + endX) / 2;
+    const midY = Math.min(startY, endY) - 60;
+
+    const d = `M ${startX} ${startY} Q ${midX} ${midY} ${endX} ${endY}`;
+    ropePath.setAttribute('d', d);
+    ropePath.classList.remove('throwing', 'retract');
+    void ropePath.getBBox();
+    ropePath.style.opacity = 1;
+    ropePath.classList.add('throwing');
+
+    setTimeout(() => {
+      card.classList.add('roped');
+      ropePath.classList.add('retract');
+      bubble.textContent = successPrompts[Math.floor(Math.random() * successPrompts.length)];
+      bubble.classList.add('success');
+    }, 300);
+  }
+
+  cards.forEach((card) => {
+    card.addEventListener('click', () => {
+      if (card.classList.contains('roped')) return;
+      throwRopeAt(card);
+    });
+  });
+
+  document.getElementById('replayBtn').addEventListener('click', () => {
+    cards.forEach((c) => c.classList.remove('roped'));
+    ropePath.classList.remove('throwing', 'retract');
+    ropePath.style.opacity = 0;
+    bubble.textContent = defaultPrompt;
+    bubble.classList.remove('success');
+  });
+</script>
