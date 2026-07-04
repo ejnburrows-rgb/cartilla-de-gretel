@@ -49,6 +49,13 @@ Teachers create classes, assign students, and track progress via Supabase.
 - Whenever the owner says "memorize" something, actually write it into this
   file right then, every single time — don't just acknowledge it in chat
   and move on.
+- **Status update format (memorized July 2026):** every time the owner asks
+  for a status update, give: (1) an honest end-goal completion percentage
+  (a real judgment call, labeled as an estimate, not false precision) of
+  how close the whole project is to fully done, and (2) a checkbox list
+  broken into four boxes — done, still needs to be done, and open
+  questions/things needing the owner's input. Always in that format, not
+  prose, every time status is asked for.
 
 ## Owner's Urgency (memorized July 2026)
 The owner is way behind schedule and has zero patience left for busywork or
