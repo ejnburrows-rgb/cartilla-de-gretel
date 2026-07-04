@@ -54,6 +54,14 @@ function IllustrationSlot({ region }: { region: PageRegion }) {
   );
 }
 
+/** Same ambient float used by the interactive cells (InteractivePageExercises.tsx)
+ * and the older games (DragMatchPairs.tsx, leccion.$n.tsx) — duplicated per-file
+ * by convention rather than shared, so static/teal-only renderers never pull in
+ * interactive-exercises.css (which is scoped "student workbook only"). */
+function floatDelay(index: number): string {
+  return `${((index * 37) % 47) / 10}s`;
+}
+
 function PictureGrid({ region }: { region: PageRegion }) {
   const cells = region.cells ?? [];
   const columns = region.columns ?? 4;
@@ -63,7 +71,7 @@ function PictureGrid({ region }: { region: PageRegion }) {
       style={{ gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))` }}
     >
       {cells.map((cell, i) => (
-        <div key={i} className="fp-picture-grid__cell">
+        <div key={i} className="fp-picture-grid__cell" style={{ ["--float-delay" as string]: floatDelay(i) }}>
           {cell.illustrationSrc ? (
             <img src={cell.illustrationSrc} alt={cell.caption ?? ""} loading="lazy" />
           ) : (
@@ -113,9 +121,12 @@ function FillInBlank({ region }: { region: PageRegion }) {
   );
 }
 
-function VowelMatchCell({ cell, isExample }: { cell: PageGridCell; isExample: boolean }) {
+function VowelMatchCell({ cell, isExample, index }: { cell: PageGridCell; isExample: boolean; index: number }) {
   return (
-    <div className={`fp-vowel-match__cell${isExample ? " fp-vowel-match__cell--example" : ""}`}>
+    <div
+      className={`fp-vowel-match__cell${isExample ? " fp-vowel-match__cell--example" : ""}`}
+      style={{ ["--float-delay" as string]: floatDelay(index) }}
+    >
       {cell.illustrationSrc ? (
         <img src={cell.illustrationSrc} alt={cell.caption ?? ""} loading="lazy" />
       ) : (
@@ -133,11 +144,11 @@ function VowelLineMatch({ region }: { region: PageRegion }) {
   return (
     <div className="fp-vowel-match">
       {cells.slice(0, 4).map((cell, i) => (
-        <VowelMatchCell key={i} cell={cell} isExample={Boolean(region.exampleCaption) && cell.caption === region.exampleCaption} />
+        <VowelMatchCell key={i} index={i} cell={cell} isExample={Boolean(region.exampleCaption) && cell.caption === region.exampleCaption} />
       ))}
       <div className="fp-vowel-match__letters">{region.letterPair}</div>
       {cells.slice(4, 8).map((cell, i) => (
-        <VowelMatchCell key={i + 4} cell={cell} isExample={Boolean(region.exampleCaption) && cell.caption === region.exampleCaption} />
+        <VowelMatchCell key={i + 4} index={i + 4} cell={cell} isExample={Boolean(region.exampleCaption) && cell.caption === region.exampleCaption} />
       ))}
     </div>
   );
@@ -151,7 +162,7 @@ function VowelPickOne({ region }: { region: PageRegion }) {
         <div key={i} className="fp-vowel-pick__row">
           <span className="fp-vowel-pick__letter">{row.letter}</span>
           {row.cells.map((cell, j) => (
-            <div key={j} className="fp-vowel-pick__cell">
+            <div key={j} className="fp-vowel-pick__cell" style={{ ["--float-delay" as string]: floatDelay(i * 3 + j) }}>
               {cell.illustrationSrc ? (
                 <img src={cell.illustrationSrc} alt={cell.caption ?? ""} loading="lazy" />
               ) : (
@@ -175,7 +186,7 @@ function VowelMatchAll({ region }: { region: PageRegion }) {
       {pairs.map((pair, i) => (
         <div key={i} className="fp-vowel-match-all__row">
           <span className="fp-vowel-match-all__letter">{pair.letter}</span>
-          <div className="fp-vowel-match-all__cell">
+          <div className="fp-vowel-match-all__cell" style={{ ["--float-delay" as string]: floatDelay(i) }}>
             {pair.illustrationSrc ? (
               <img src={pair.illustrationSrc} alt={pair.caption ?? ""} loading="lazy" />
             ) : (
