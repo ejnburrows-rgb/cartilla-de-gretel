@@ -1388,14 +1388,32 @@
           "syllable": "ma",
           "matchRows": [
             [
-              "mami",
-              "ama",
-              "mamá"
+              {
+                "word": "mami",
+                "correct": true
+              },
+              {
+                "word": "ama",
+                "correct": true
+              },
+              {
+                "word": "mamá",
+                "correct": true
+              }
             ],
             [
-              "mima",
-              "Coloma",
-              "Manolo"
+              {
+                "word": "mima",
+                "correct": true
+              },
+              {
+                "word": "Coloma",
+                "correct": true
+              },
+              {
+                "word": "Manolo",
+                "correct": true
+              }
             ]
           ]
         },
@@ -1407,14 +1425,32 @@
           "syllable": "me",
           "matchRows": [
             [
-              "media",
-              "Memo",
-              "melón"
+              {
+                "word": "media",
+                "correct": true
+              },
+              {
+                "word": "Memo",
+                "correct": true
+              },
+              {
+                "word": "melón",
+                "correct": true
+              }
             ],
             [
-              "mesa",
-              "meta",
-              "Meme"
+              {
+                "word": "mesa",
+                "correct": true
+              },
+              {
+                "word": "meta",
+                "correct": true
+              },
+              {
+                "word": "Meme",
+                "correct": true
+              }
             ]
           ]
         },
@@ -1426,14 +1462,32 @@
           "syllable": "mi",
           "matchRows": [
             [
-              "mío",
-              "amigo",
-              "mima"
+              {
+                "word": "mío",
+                "correct": true
+              },
+              {
+                "word": "amigo",
+                "correct": true
+              },
+              {
+                "word": "mima",
+                "correct": true
+              }
             ],
             [
-              "mira",
-              "misa",
-              "Mimí"
+              {
+                "word": "mira",
+                "correct": true
+              },
+              {
+                "word": "misa",
+                "correct": true
+              },
+              {
+                "word": "Mimí",
+                "correct": true
+              }
             ]
           ]
         },
@@ -1445,14 +1499,32 @@
           "syllable": "mo",
           "matchRows": [
             [
-              "amo",
-              "Memo",
-              "mono"
+              {
+                "word": "amo",
+                "correct": true
+              },
+              {
+                "word": "Memo",
+                "correct": true
+              },
+              {
+                "word": "mono",
+                "correct": true
+              }
             ],
             [
-              "como",
-              "moneda",
-              "moto"
+              {
+                "word": "como",
+                "correct": true
+              },
+              {
+                "word": "moneda",
+                "correct": true
+              },
+              {
+                "word": "moto",
+                "correct": true
+              }
             ]
           ]
         },
@@ -1464,14 +1536,32 @@
           "syllable": "mu",
           "matchRows": [
             [
-              "mulo",
-              "muleta",
-              "muro"
+              {
+                "word": "mulo",
+                "correct": true
+              },
+              {
+                "word": "muleta",
+                "correct": true
+              },
+              {
+                "word": "muro",
+                "correct": true
+              }
             ],
             [
-              "mudo",
-              "mujer",
-              "Mumi"
+              {
+                "word": "mudo",
+                "correct": true
+              },
+              {
+                "word": "mujer",
+                "correct": true
+              },
+              {
+                "word": "Mumi",
+                "correct": true
+              }
             ]
           ]
         }
@@ -1590,17 +1680,40 @@
             {
               "wordBox": "amo",
               "blank": "a ___",
-              "choices": "mo - mu"
+              "choices": [
+                {
+                  "text": "mo",
+                  "correct": true
+                },
+                {
+                  "text": "mu"
+                }
+              ]
             },
             {
               "wordBox": "M",
               "blank": "Me ___",
-              "choices": "mo - mu"
+              "choices": [
+                {
+                  "text": "mo"
+                },
+                {
+                  "text": "mu"
+                }
+              ]
             },
             {
               "wordBox": "mamá",
               "blank": "ma ___",
-              "choices": "mi - má"
+              "choices": [
+                {
+                  "text": "mi"
+                },
+                {
+                  "text": "má",
+                  "correct": true
+                }
+              ]
             }
           ]
         },
@@ -1613,17 +1726,41 @@
             {
               "wordBox": "mima",
               "blank": "mi ___",
-              "choices": "ma - mu"
+              "choices": [
+                {
+                  "text": "ma",
+                  "correct": true
+                },
+                {
+                  "text": "mu"
+                }
+              ]
             },
             {
               "wordBox": "Mumi",
               "blank": "___ mi",
-              "choices": "mi - Mu"
+              "choices": [
+                {
+                  "text": "mi"
+                },
+                {
+                  "text": "Mu",
+                  "correct": true
+                }
+              ]
             },
             {
               "wordBox": "mío",
               "blank": "___ o",
-              "choices": "mí - mo"
+              "choices": [
+                {
+                  "text": "mí",
+                  "correct": true
+                },
+                {
+                  "text": "mo"
+                }
+              ]
             }
           ]
         },
@@ -1727,14 +1864,32 @@
           "syllable": "pa",
           "matchRows": [
             [
-              "papá",
-              "pupa",
-              "mapa"
+              {
+                "word": "papá",
+                "correct": true
+              },
+              {
+                "word": "pupa",
+                "correct": true
+              },
+              {
+                "word": "mapa",
+                "correct": true
+              }
             ],
             [
-              "Papo",
-              "¡upa!",
-              "pala"
+              {
+                "word": "Papo",
+                "correct": true
+              },
+              {
+                "word": "¡upa!",
+                "correct": true
+              },
+              {
+                "word": "pala",
+                "correct": true
+              }
             ]
           ]
         },
@@ -1746,14 +1901,32 @@
           "syllable": "pe",
           "matchRows": [
             [
-              "Pepe",
-              "pelo",
-              "tapete"
+              {
+                "word": "Pepe",
+                "correct": true
+              },
+              {
+                "word": "pelo",
+                "correct": true
+              },
+              {
+                "word": "tapete",
+                "correct": true
+              }
             ],
             [
-              "pesa",
-              "pelota",
-              "chupete"
+              {
+                "word": "pesa",
+                "correct": true
+              },
+              {
+                "word": "pelota",
+                "correct": true
+              },
+              {
+                "word": "chupete",
+                "correct": true
+              }
             ]
           ]
         },
@@ -1765,14 +1938,32 @@
           "syllable": "pi",
           "matchRows": [
             [
-              "pipo",
-              "Pupi",
-              "Mupi"
+              {
+                "word": "pipo",
+                "correct": true
+              },
+              {
+                "word": "Pupi",
+                "correct": true
+              },
+              {
+                "word": "Mupi",
+                "correct": true
+              }
             ],
             [
-              "papi",
-              "Mapi",
-              "pío"
+              {
+                "word": "papi",
+                "correct": true
+              },
+              {
+                "word": "Mapi",
+                "correct": true
+              },
+              {
+                "word": "pío",
+                "correct": true
+              }
             ]
           ]
         },
@@ -1784,14 +1975,32 @@
           "syllable": "po",
           "matchRows": [
             [
-              "pomo",
-              "polo",
-              "sapo"
+              {
+                "word": "pomo",
+                "correct": true
+              },
+              {
+                "word": "polo",
+                "correct": true
+              },
+              {
+                "word": "sapo",
+                "correct": true
+              }
             ],
             [
-              "mapo",
-              "tapo",
-              "Pepo"
+              {
+                "word": "mapo",
+                "correct": true
+              },
+              {
+                "word": "tapo",
+                "correct": true
+              },
+              {
+                "word": "Pepo",
+                "correct": true
+              }
             ]
           ]
         },
@@ -1803,14 +2012,32 @@
           "syllable": "pu",
           "matchRows": [
             [
-              "puso",
-              "Pupa",
-              "puma"
+              {
+                "word": "puso",
+                "correct": true
+              },
+              {
+                "word": "Pupa",
+                "correct": true
+              },
+              {
+                "word": "puma",
+                "correct": true
+              }
             ],
             [
-              "apura",
-              "Pupi",
-              "púa"
+              {
+                "word": "apura",
+                "correct": true
+              },
+              {
+                "word": "Pupi",
+                "correct": true
+              },
+              {
+                "word": "púa",
+                "correct": true
+              }
             ]
           ]
         }
@@ -1922,17 +2149,41 @@
             {
               "wordBox": "papá",
               "blank": "pa ___",
-              "choices": "pa - pá"
+              "choices": [
+                {
+                  "text": "pa"
+                },
+                {
+                  "text": "pá",
+                  "correct": true
+                }
+              ]
             },
             {
               "wordBox": "mapa",
               "blank": "ma ___",
-              "choices": "pa - po"
+              "choices": [
+                {
+                  "text": "pa",
+                  "correct": true
+                },
+                {
+                  "text": "po"
+                }
+              ]
             },
             {
               "wordBox": "puma",
               "blank": "___ ma",
-              "choices": "pe - pu"
+              "choices": [
+                {
+                  "text": "pe"
+                },
+                {
+                  "text": "pu",
+                  "correct": true
+                }
+              ]
             }
           ]
         },
@@ -1945,17 +2196,42 @@
             {
               "wordBox": "Mapi",
               "blank": "Ma ___",
-              "choices": "pi - po"
+              "choices": [
+                {
+                  "text": "pi",
+                  "correct": true
+                },
+                {
+                  "text": "po"
+                }
+              ]
             },
             {
               "wordBox": "pío",
               "blank": "___ o",
-              "choices": "pí - po"
+              "choices": [
+                {
+                  "text": "pí",
+                  "correct": true
+                },
+                {
+                  "text": "po"
+                }
+              ]
             },
             {
               "wordBox": "Pepe",
               "blank": "___ pe",
-              "choices": "Pe - pe"
+              "choices": [
+                {
+                  "text": "Pe",
+                  "correct": true
+                },
+                {
+                  "text": "pe",
+                  "correct": true
+                }
+              ]
             }
           ]
         },
@@ -2059,14 +2335,32 @@
           "syllable": "sa",
           "matchRows": [
             [
-              "masa",
-              "casa",
-              "pesa"
+              {
+                "word": "masa",
+                "correct": true
+              },
+              {
+                "word": "casa",
+                "correct": true
+              },
+              {
+                "word": "pesa",
+                "correct": true
+              }
             ],
             [
-              "sala",
-              "mesa",
-              "sapo"
+              {
+                "word": "sala",
+                "correct": true
+              },
+              {
+                "word": "mesa",
+                "correct": true
+              },
+              {
+                "word": "sapo",
+                "correct": true
+              }
             ]
           ]
         },
@@ -2078,14 +2372,32 @@
           "syllable": "se",
           "matchRows": [
             [
-              "sello",
-              "pase",
-              "caseta"
+              {
+                "word": "sello",
+                "correct": true
+              },
+              {
+                "word": "pase",
+                "correct": true
+              },
+              {
+                "word": "caseta",
+                "correct": true
+              }
             ],
             [
-              "seca",
-              "semilla",
-              "secante"
+              {
+                "word": "seca",
+                "correct": true
+              },
+              {
+                "word": "semilla",
+                "correct": true
+              },
+              {
+                "word": "secante",
+                "correct": true
+              }
             ]
           ]
         },
@@ -2097,14 +2409,32 @@
           "syllable": "si",
           "matchRows": [
             [
-              "silla",
-              "casita",
-              "cosita"
+              {
+                "word": "silla",
+                "correct": true
+              },
+              {
+                "word": "casita",
+                "correct": true
+              },
+              {
+                "word": "cosita",
+                "correct": true
+              }
             ],
             [
-              "pasito",
-              "osito",
-              "sitio"
+              {
+                "word": "pasito",
+                "correct": true
+              },
+              {
+                "word": "osito",
+                "correct": true
+              },
+              {
+                "word": "sitio",
+                "correct": true
+              }
             ]
           ]
         },
@@ -2116,14 +2446,32 @@
           "syllable": "so",
           "matchRows": [
             [
-              "paso",
-              "sopa",
-              "soga"
+              {
+                "word": "paso",
+                "correct": true
+              },
+              {
+                "word": "sopa",
+                "correct": true
+              },
+              {
+                "word": "soga",
+                "correct": true
+              }
             ],
             [
-              "oso",
-              "toso",
-              "puso"
+              {
+                "word": "oso",
+                "correct": true
+              },
+              {
+                "word": "toso",
+                "correct": true
+              },
+              {
+                "word": "puso",
+                "correct": true
+              }
             ]
           ]
         },
@@ -2135,14 +2483,32 @@
           "syllable": "su",
           "matchRows": [
             [
-              "suyo",
-              "suma",
-              "Susi"
+              {
+                "word": "suyo",
+                "correct": true
+              },
+              {
+                "word": "suma",
+                "correct": true
+              },
+              {
+                "word": "Susi",
+                "correct": true
+              }
             ],
             [
-              "supo",
-              "sube",
-              "sudor"
+              {
+                "word": "supo",
+                "correct": true
+              },
+              {
+                "word": "sube",
+                "correct": true
+              },
+              {
+                "word": "sudor",
+                "correct": true
+              }
             ]
           ]
         }
@@ -2268,17 +2634,41 @@
             {
               "wordBox": "sapo",
               "blank": "___ po",
-              "choices": "sa - sá"
+              "choices": [
+                {
+                  "text": "sa",
+                  "correct": true
+                },
+                {
+                  "text": "sá"
+                }
+              ]
             },
             {
               "wordBox": "puso",
               "blank": "pu ___",
-              "choices": "so - se"
+              "choices": [
+                {
+                  "text": "so",
+                  "correct": true
+                },
+                {
+                  "text": "se"
+                }
+              ]
             },
             {
               "wordBox": "masa",
               "blank": "ma___",
-              "choices": "sa - su"
+              "choices": [
+                {
+                  "text": "sa",
+                  "correct": true
+                },
+                {
+                  "text": "su"
+                }
+              ]
             }
           ]
         },
@@ -2291,17 +2681,41 @@
             {
               "wordBox": "así",
               "blank": "a ___",
-              "choices": "sí - so"
+              "choices": [
+                {
+                  "text": "sí",
+                  "correct": true
+                },
+                {
+                  "text": "so"
+                }
+              ]
             },
             {
               "wordBox": "supo",
               "blank": "___ po",
-              "choices": "su - sa"
+              "choices": [
+                {
+                  "text": "su",
+                  "correct": true
+                },
+                {
+                  "text": "sa"
+                }
+              ]
             },
             {
               "wordBox": "pase",
               "blank": "pa ___",
-              "choices": "se - si"
+              "choices": [
+                {
+                  "text": "se",
+                  "correct": true
+                },
+                {
+                  "text": "si"
+                }
+              ]
             }
           ]
         },
@@ -2405,14 +2819,32 @@
           "syllable": "ta",
           "matchRows": [
             [
-              "tapa",
-              "Mota",
-              "Tota"
+              {
+                "word": "tapa",
+                "correct": true
+              },
+              {
+                "word": "Mota",
+                "correct": true
+              },
+              {
+                "word": "Tota",
+                "correct": true
+              }
             ],
             [
-              "seta",
-              "peseta",
-              "pata"
+              {
+                "word": "seta",
+                "correct": true
+              },
+              {
+                "word": "peseta",
+                "correct": true
+              },
+              {
+                "word": "pata",
+                "correct": true
+              }
             ]
           ]
         },
@@ -2424,14 +2856,32 @@
           "syllable": "te",
           "matchRows": [
             [
-              "tema",
-              "tomate",
-              "mete"
+              {
+                "word": "tema",
+                "correct": true
+              },
+              {
+                "word": "tomate",
+                "correct": true
+              },
+              {
+                "word": "mete",
+                "correct": true
+              }
             ],
             [
-              "teme",
-              "Teté",
-              "tapete"
+              {
+                "word": "teme",
+                "correct": true
+              },
+              {
+                "word": "Teté",
+                "correct": true
+              },
+              {
+                "word": "tapete",
+                "correct": true
+              }
             ]
           ]
         },
@@ -2443,14 +2893,32 @@
           "syllable": "ti",
           "matchRows": [
             [
-              "Tito",
-              "Piti",
-              "timón"
+              {
+                "word": "Tito",
+                "correct": true
+              },
+              {
+                "word": "Piti",
+                "correct": true
+              },
+              {
+                "word": "timón",
+                "correct": true
+              }
             ],
             [
-              "tina",
-              "Poti",
-              "tipi"
+              {
+                "word": "tina",
+                "correct": true
+              },
+              {
+                "word": "Poti",
+                "correct": true
+              },
+              {
+                "word": "tipi",
+                "correct": true
+              }
             ]
           ]
         },
@@ -2462,14 +2930,32 @@
           "syllable": "to",
           "matchRows": [
             [
-              "topo",
-              "moto",
-              "tomate"
+              {
+                "word": "topo",
+                "correct": true
+              },
+              {
+                "word": "moto",
+                "correct": true
+              },
+              {
+                "word": "tomate",
+                "correct": true
+              }
             ],
             [
-              "pato",
-              "toma",
-              "sapito"
+              {
+                "word": "pato",
+                "correct": true
+              },
+              {
+                "word": "toma",
+                "correct": true
+              },
+              {
+                "word": "sapito",
+                "correct": true
+              }
             ]
           ]
         },
@@ -2481,14 +2967,32 @@
           "syllable": "tu",
           "matchRows": [
             [
-              "tupe",
-              "tubo",
-              "tulipán"
+              {
+                "word": "tupe",
+                "correct": true
+              },
+              {
+                "word": "tubo",
+                "correct": true
+              },
+              {
+                "word": "tulipán",
+                "correct": true
+              }
             ],
             [
-              "tuna",
-              "tuba",
-              "Matute"
+              {
+                "word": "tuna",
+                "correct": true
+              },
+              {
+                "word": "tuba",
+                "correct": true
+              },
+              {
+                "word": "Matute",
+                "correct": true
+              }
             ]
           ]
         }
@@ -2614,17 +3118,41 @@
             {
               "wordBox": "toma",
               "blank": "___ ma",
-              "choices": "to - ta"
+              "choices": [
+                {
+                  "text": "to",
+                  "correct": true
+                },
+                {
+                  "text": "ta"
+                }
+              ]
             },
             {
               "wordBox": "mata",
               "blank": "ma ___",
-              "choices": "ta - ti"
+              "choices": [
+                {
+                  "text": "ta",
+                  "correct": true
+                },
+                {
+                  "text": "ti"
+                }
+              ]
             },
             {
               "wordBox": "topo",
               "blank": "___ po",
-              "choices": "tu - to"
+              "choices": [
+                {
+                  "text": "tu"
+                },
+                {
+                  "text": "to",
+                  "correct": true
+                }
+              ]
             }
           ]
         },
@@ -2637,17 +3165,41 @@
             {
               "wordBox": "tomate",
               "blank": "___ mate",
-              "choices": "to - tu"
+              "choices": [
+                {
+                  "text": "to",
+                  "correct": true
+                },
+                {
+                  "text": "tu"
+                }
+              ]
             },
             {
               "wordBox": "tupe",
               "blank": "___ pe",
-              "choices": "ti - tu"
+              "choices": [
+                {
+                  "text": "ti"
+                },
+                {
+                  "text": "tu",
+                  "correct": true
+                }
+              ]
             },
             {
               "wordBox": "tipi",
               "blank": "___ pi",
-              "choices": "to - ti"
+              "choices": [
+                {
+                  "text": "to"
+                },
+                {
+                  "text": "ti",
+                  "correct": true
+                }
+              ]
             }
           ]
         },
@@ -2751,14 +3303,32 @@
           "syllable": "da",
           "matchRows": [
             [
-              "dame",
-              "Ada",
-              "Made"
+              {
+                "word": "dame",
+                "correct": true
+              },
+              {
+                "word": "Ada",
+                "correct": true
+              },
+              {
+                "word": "Made",
+                "correct": true
+              }
             ],
             [
-              "duda",
-              "dado",
-              "poda"
+              {
+                "word": "duda",
+                "correct": true
+              },
+              {
+                "word": "dado",
+                "correct": true
+              },
+              {
+                "word": "poda",
+                "correct": true
+              }
             ]
           ]
         },
@@ -2770,14 +3340,32 @@
           "syllable": "de",
           "matchRows": [
             [
-              "dedo",
-              "además",
-              "deme"
+              {
+                "word": "dedo",
+                "correct": true
+              },
+              {
+                "word": "además",
+                "correct": true
+              },
+              {
+                "word": "deme",
+                "correct": true
+              }
             ],
             [
-              "modelo",
-              "pide",
-              "debajo"
+              {
+                "word": "modelo",
+                "correct": true
+              },
+              {
+                "word": "pide",
+                "correct": true
+              },
+              {
+                "word": "debajo",
+                "correct": true
+              }
             ]
           ]
         },
@@ -2789,14 +3377,32 @@
           "syllable": "di",
           "matchRows": [
             [
-              "dime",
-              "Adi",
-              "dice"
+              {
+                "word": "dime",
+                "correct": true
+              },
+              {
+                "word": "Adi",
+                "correct": true
+              },
+              {
+                "word": "dice",
+                "correct": true
+              }
             ],
             [
-              "dinero",
-              "día",
-              "Didi"
+              {
+                "word": "dinero",
+                "correct": true
+              },
+              {
+                "word": "día",
+                "correct": true
+              },
+              {
+                "word": "Didi",
+                "correct": true
+              }
             ]
           ]
         },
@@ -2808,14 +3414,32 @@
           "syllable": "do",
           "matchRows": [
             [
-              "dado",
-              "podo",
-              "doce"
+              {
+                "word": "dado",
+                "correct": true
+              },
+              {
+                "word": "podo",
+                "correct": true
+              },
+              {
+                "word": "doce",
+                "correct": true
+              }
             ],
             [
-              "dedo",
-              "modo",
-              "mudo"
+              {
+                "word": "dedo",
+                "correct": true
+              },
+              {
+                "word": "modo",
+                "correct": true
+              },
+              {
+                "word": "mudo",
+                "correct": true
+              }
             ]
           ]
         },
@@ -2827,14 +3451,32 @@
           "syllable": "du",
           "matchRows": [
             [
-              "Duma",
-              "duro",
-              "duda"
+              {
+                "word": "Duma",
+                "correct": true
+              },
+              {
+                "word": "duro",
+                "correct": true
+              },
+              {
+                "word": "duda",
+                "correct": true
+              }
             ],
             [
-              "durazno",
-              "maduro",
-              "ducha"
+              {
+                "word": "durazno",
+                "correct": true
+              },
+              {
+                "word": "maduro",
+                "correct": true
+              },
+              {
+                "word": "ducha",
+                "correct": true
+              }
             ]
           ]
         }
@@ -2960,17 +3602,41 @@
             {
               "wordBox": "dedo",
               "blank": "___ do",
-              "choices": "di - de"
+              "choices": [
+                {
+                  "text": "di"
+                },
+                {
+                  "text": "de",
+                  "correct": true
+                }
+              ]
             },
             {
               "wordBox": "mide",
               "blank": "mi ___",
-              "choices": "di - de"
+              "choices": [
+                {
+                  "text": "di"
+                },
+                {
+                  "text": "de",
+                  "correct": true
+                }
+              ]
             },
             {
               "wordBox": "mudo",
               "blank": "mu ___",
-              "choices": "do - du"
+              "choices": [
+                {
+                  "text": "do",
+                  "correct": true
+                },
+                {
+                  "text": "du"
+                }
+              ]
             }
           ]
         },
@@ -2983,17 +3649,41 @@
             {
               "wordBox": "Ada",
               "blank": "A ___",
-              "choices": "de - da"
+              "choices": [
+                {
+                  "text": "de"
+                },
+                {
+                  "text": "da",
+                  "correct": true
+                }
+              ]
             },
             {
               "wordBox": "pide",
               "blank": "pi ___",
-              "choices": "de - di"
+              "choices": [
+                {
+                  "text": "de",
+                  "correct": true
+                },
+                {
+                  "text": "di"
+                }
+              ]
             },
             {
               "wordBox": "Duma",
               "blank": "___ ma",
-              "choices": "Du - do"
+              "choices": [
+                {
+                  "text": "Du",
+                  "correct": true
+                },
+                {
+                  "text": "do"
+                }
+              ]
             }
           ]
         },
@@ -3097,14 +3787,32 @@
           "syllable": "la",
           "matchRows": [
             [
-              "lata",
-              "mala",
-              "pala"
+              {
+                "word": "lata",
+                "correct": true
+              },
+              {
+                "word": "mala",
+                "correct": true
+              },
+              {
+                "word": "pala",
+                "correct": true
+              }
             ],
             [
-              "Lamas",
-              "mula",
-              "pila"
+              {
+                "word": "Lamas",
+                "correct": true
+              },
+              {
+                "word": "mula",
+                "correct": true
+              },
+              {
+                "word": "pila",
+                "correct": true
+              }
             ]
           ]
         },
@@ -3116,14 +3824,32 @@
           "syllable": "le",
           "matchRows": [
             [
-              "Leo",
-              "aleta",
-              "saleta"
+              {
+                "word": "Leo",
+                "correct": true
+              },
+              {
+                "word": "aleta",
+                "correct": true
+              },
+              {
+                "word": "saleta",
+                "correct": true
+              }
             ],
             [
-              "maleta",
-              "sale",
-              "paleta"
+              {
+                "word": "maleta",
+                "correct": true
+              },
+              {
+                "word": "sale",
+                "correct": true
+              },
+              {
+                "word": "paleta",
+                "correct": true
+              }
             ]
           ]
         },
@@ -3135,14 +3861,32 @@
           "syllable": "li",
           "matchRows": [
             [
-              "lima",
-              "Lila",
-              "alita"
+              {
+                "word": "lima",
+                "correct": true
+              },
+              {
+                "word": "Lila",
+                "correct": true
+              },
+              {
+                "word": "alita",
+                "correct": true
+              }
             ],
             [
-              "liso",
-              "palito",
-              "limón"
+              {
+                "word": "liso",
+                "correct": true
+              },
+              {
+                "word": "palito",
+                "correct": true
+              },
+              {
+                "word": "limón",
+                "correct": true
+              }
             ]
           ]
         },
@@ -3154,14 +3898,32 @@
           "syllable": "lo",
           "matchRows": [
             [
-              "pelota",
-              "palo",
-              "Lolo"
+              {
+                "word": "pelota",
+                "correct": true
+              },
+              {
+                "word": "palo",
+                "correct": true
+              },
+              {
+                "word": "Lolo",
+                "correct": true
+              }
             ],
             [
-              "Polo",
-              "Lola",
-              "paloma"
+              {
+                "word": "Polo",
+                "correct": true
+              },
+              {
+                "word": "Lola",
+                "correct": true
+              },
+              {
+                "word": "paloma",
+                "correct": true
+              }
             ]
           ]
         },
@@ -3173,14 +3935,32 @@
           "syllable": "lu",
           "matchRows": [
             [
-              "lupa",
-              "pelusa",
-              "Luli"
+              {
+                "word": "lupa",
+                "correct": true
+              },
+              {
+                "word": "pelusa",
+                "correct": true
+              },
+              {
+                "word": "Luli",
+                "correct": true
+              }
             ],
             [
-              "luna",
-              "saluda",
-              "Lupe"
+              {
+                "word": "luna",
+                "correct": true
+              },
+              {
+                "word": "saluda",
+                "correct": true
+              },
+              {
+                "word": "Lupe",
+                "correct": true
+              }
             ]
           ]
         }
@@ -3299,17 +4079,41 @@
             {
               "wordBox": "paleta",
               "blank": "pa___ta",
-              "choices": "le - lo"
+              "choices": [
+                {
+                  "text": "le",
+                  "correct": true
+                },
+                {
+                  "text": "lo"
+                }
+              ]
             },
             {
               "wordBox": "solo",
               "blank": "so ___",
-              "choices": "li - lo"
+              "choices": [
+                {
+                  "text": "li"
+                },
+                {
+                  "text": "lo",
+                  "correct": true
+                }
+              ]
             },
             {
               "wordBox": "pala",
               "blank": "pa ___",
-              "choices": "la - lu"
+              "choices": [
+                {
+                  "text": "la",
+                  "correct": true
+                },
+                {
+                  "text": "lu"
+                }
+              ]
             }
           ]
         },
@@ -3322,17 +4126,41 @@
             {
               "wordBox": "lata",
               "blank": "___ ta",
-              "choices": "la - le"
+              "choices": [
+                {
+                  "text": "la",
+                  "correct": true
+                },
+                {
+                  "text": "le"
+                }
+              ]
             },
             {
               "wordBox": "maleta",
               "blank": "ma ___ ta",
-              "choices": "le - li"
+              "choices": [
+                {
+                  "text": "le",
+                  "correct": true
+                },
+                {
+                  "text": "li"
+                }
+              ]
             },
             {
               "wordBox": "lupa",
               "blank": "___ pa",
-              "choices": "lu - la"
+              "choices": [
+                {
+                  "text": "lu",
+                  "correct": true
+                },
+                {
+                  "text": "la"
+                }
+              ]
             }
           ]
         },
@@ -3436,14 +4264,32 @@
           "syllable": "na",
           "matchRows": [
             [
-              "nata",
-              "nariz",
-              "tina"
+              {
+                "word": "nata",
+                "correct": true
+              },
+              {
+                "word": "nariz",
+                "correct": true
+              },
+              {
+                "word": "tina",
+                "correct": true
+              }
             ],
             [
-              "nada",
-              "Napi",
-              "lana"
+              {
+                "word": "nada",
+                "correct": true
+              },
+              {
+                "word": "Napi",
+                "correct": true
+              },
+              {
+                "word": "lana",
+                "correct": true
+              }
             ]
           ]
         },
@@ -3455,14 +4301,32 @@
           "syllable": "ne",
           "matchRows": [
             [
-              "Nena",
-              "negro",
-              "Nela"
+              {
+                "word": "Nena",
+                "correct": true
+              },
+              {
+                "word": "negro",
+                "correct": true
+              },
+              {
+                "word": "Nela",
+                "correct": true
+              }
             ],
             [
-              "tenedor",
-              "negar",
-              "Nenita"
+              {
+                "word": "tenedor",
+                "correct": true
+              },
+              {
+                "word": "negar",
+                "correct": true
+              },
+              {
+                "word": "Nenita",
+                "correct": true
+              }
             ]
           ]
         },
@@ -3474,14 +4338,32 @@
           "syllable": "ni",
           "matchRows": [
             [
-              "nido",
-              "niño",
-              "poni"
+              {
+                "word": "nido",
+                "correct": true
+              },
+              {
+                "word": "niño",
+                "correct": true
+              },
+              {
+                "word": "poni",
+                "correct": true
+              }
             ],
             [
-              "sonido",
-              "anida",
-              "Nino"
+              {
+                "word": "sonido",
+                "correct": true
+              },
+              {
+                "word": "anida",
+                "correct": true
+              },
+              {
+                "word": "Nino",
+                "correct": true
+              }
             ]
           ]
         },
@@ -3493,14 +4375,32 @@
           "syllable": "no",
           "matchRows": [
             [
-              "mono",
-              "Nora",
-              "pino"
+              {
+                "word": "mono",
+                "correct": true
+              },
+              {
+                "word": "Nora",
+                "correct": true
+              },
+              {
+                "word": "pino",
+                "correct": true
+              }
             ],
             [
-              "Nono",
-              "noche",
-              "mano"
+              {
+                "word": "Nono",
+                "correct": true
+              },
+              {
+                "word": "noche",
+                "correct": true
+              },
+              {
+                "word": "mano",
+                "correct": true
+              }
             ]
           ]
         },
@@ -3512,14 +4412,32 @@
           "syllable": "nu",
           "matchRows": [
             [
-              "nudo",
-              "menudo",
-              "nulo"
+              {
+                "word": "nudo",
+                "correct": true
+              },
+              {
+                "word": "menudo",
+                "correct": true
+              },
+              {
+                "word": "nulo",
+                "correct": true
+              }
             ],
             [
-              "Anuca",
-              "anudo",
-              "nube"
+              {
+                "word": "Anuca",
+                "correct": true
+              },
+              {
+                "word": "anudo",
+                "correct": true
+              },
+              {
+                "word": "nube",
+                "correct": true
+              }
             ]
           ]
         }
@@ -3638,17 +4556,41 @@
             {
               "wordBox": "nido",
               "blank": "___ do",
-              "choices": "no - ni"
+              "choices": [
+                {
+                  "text": "no"
+                },
+                {
+                  "text": "ni",
+                  "correct": true
+                }
+              ]
             },
             {
               "wordBox": "tina",
               "blank": "ti ___",
-              "choices": "nu - na"
+              "choices": [
+                {
+                  "text": "nu"
+                },
+                {
+                  "text": "na",
+                  "correct": true
+                }
+              ]
             },
             {
               "wordBox": "suena",
               "blank": "sue ___",
-              "choices": "ni - na"
+              "choices": [
+                {
+                  "text": "ni"
+                },
+                {
+                  "text": "na",
+                  "correct": true
+                }
+              ]
             }
           ]
         },
@@ -3661,17 +4603,41 @@
             {
               "wordBox": "mono",
               "blank": "mo ___",
-              "choices": "no - ne"
+              "choices": [
+                {
+                  "text": "no",
+                  "correct": true
+                },
+                {
+                  "text": "ne"
+                }
+              ]
             },
             {
               "wordBox": "sano",
               "blank": "sa ___",
-              "choices": "no - nu"
+              "choices": [
+                {
+                  "text": "no",
+                  "correct": true
+                },
+                {
+                  "text": "nu"
+                }
+              ]
             },
             {
               "wordBox": "pone",
               "blank": "po ___",
-              "choices": "ne - ni"
+              "choices": [
+                {
+                  "text": "ne",
+                  "correct": true
+                },
+                {
+                  "text": "ni"
+                }
+              ]
             }
           ]
         },
@@ -3775,14 +4741,32 @@
           "syllable": "ña",
           "matchRows": [
             [
-              "maña",
-              "mañana",
-              "montaña"
+              {
+                "word": "maña",
+                "correct": true
+              },
+              {
+                "word": "mañana",
+                "correct": true
+              },
+              {
+                "word": "montaña",
+                "correct": true
+              }
             ],
             [
-              "ñame",
-              "araña",
-              "caña"
+              {
+                "word": "ñame",
+                "correct": true
+              },
+              {
+                "word": "araña",
+                "correct": true
+              },
+              {
+                "word": "caña",
+                "correct": true
+              }
             ]
           ]
         },
@@ -3794,14 +4778,32 @@
           "syllable": "ñe",
           "matchRows": [
             [
-              "Meñe",
-              "añejo",
-              "sueñe"
+              {
+                "word": "Meñe",
+                "correct": true
+              },
+              {
+                "word": "añejo",
+                "correct": true
+              },
+              {
+                "word": "sueñe",
+                "correct": true
+              }
             ],
             [
-              "adueñe",
-              "cañengo",
-              "apañe"
+              {
+                "word": "adueñe",
+                "correct": true
+              },
+              {
+                "word": "cañengo",
+                "correct": true
+              },
+              {
+                "word": "apañe",
+                "correct": true
+              }
             ]
           ]
         },
@@ -3813,14 +4815,32 @@
           "syllable": "ñi",
           "matchRows": [
             [
-              "añico",
-              "pañito",
-              "cañita"
+              {
+                "word": "añico",
+                "correct": true
+              },
+              {
+                "word": "pañito",
+                "correct": true
+              },
+              {
+                "word": "cañita",
+                "correct": true
+              }
             ],
             [
-              "niñito",
-              "arañita",
-              "reñido"
+              {
+                "word": "niñito",
+                "correct": true
+              },
+              {
+                "word": "arañita",
+                "correct": true
+              },
+              {
+                "word": "reñido",
+                "correct": true
+              }
             ]
           ]
         },
@@ -3832,14 +4852,32 @@
           "syllable": "ño",
           "matchRows": [
             [
-              "moño",
-              "niño",
-              "sueño"
+              {
+                "word": "moño",
+                "correct": true
+              },
+              {
+                "word": "niño",
+                "correct": true
+              },
+              {
+                "word": "sueño",
+                "correct": true
+              }
             ],
             [
-              "Ñoña",
-              "año",
-              "Ñuco"
+              {
+                "word": "Ñoña",
+                "correct": true
+              },
+              {
+                "word": "año",
+                "correct": true
+              },
+              {
+                "word": "Ñuco",
+                "correct": true
+              }
             ]
           ]
         },
@@ -3851,14 +4889,32 @@
           "syllable": "ñu",
           "matchRows": [
             [
-              "Ñuto",
-              "cañuto",
-              "moñudo"
+              {
+                "word": "Ñuto",
+                "correct": true
+              },
+              {
+                "word": "cañuto",
+                "correct": true
+              },
+              {
+                "word": "moñudo",
+                "correct": true
+              }
             ],
             [
-              "ceñudo",
-              "pañuelo",
-              "puño"
+              {
+                "word": "ceñudo",
+                "correct": true
+              },
+              {
+                "word": "pañuelo",
+                "correct": true
+              },
+              {
+                "word": "puño",
+                "correct": true
+              }
             ]
           ]
         }
@@ -3977,17 +5033,41 @@
             {
               "wordBox": "maña",
               "blank": "ma ___",
-              "choices": "ñe - ña"
+              "choices": [
+                {
+                  "text": "ñe"
+                },
+                {
+                  "text": "ña",
+                  "correct": true
+                }
+              ]
             },
             {
               "wordBox": "pañito",
               "blank": "pa ___ to",
-              "choices": "ño - ñi"
+              "choices": [
+                {
+                  "text": "ño"
+                },
+                {
+                  "text": "ñi",
+                  "correct": true
+                }
+              ]
             },
             {
               "wordBox": "niño",
               "blank": "ni ___",
-              "choices": "ñi - ño"
+              "choices": [
+                {
+                  "text": "ñi"
+                },
+                {
+                  "text": "ño",
+                  "correct": true
+                }
+              ]
             }
           ]
         },
@@ -4000,17 +5080,41 @@
             {
               "wordBox": "moño",
               "blank": "mo ___",
-              "choices": "ño - ñe"
+              "choices": [
+                {
+                  "text": "ño",
+                  "correct": true
+                },
+                {
+                  "text": "ñe"
+                }
+              ]
             },
             {
               "wordBox": "año",
               "blank": "a ___",
-              "choices": "ña - ño"
+              "choices": [
+                {
+                  "text": "ña"
+                },
+                {
+                  "text": "ño",
+                  "correct": true
+                }
+              ]
             },
             {
               "wordBox": "puño",
               "blank": "pu ___",
-              "choices": "ño - ñu"
+              "choices": [
+                {
+                  "text": "ño",
+                  "correct": true
+                },
+                {
+                  "text": "ñu"
+                }
+              ]
             }
           ]
         },
@@ -4114,14 +5218,32 @@
           "syllable": "ba",
           "matchRows": [
             [
-              "baño",
-              "bala",
-              "batir"
+              {
+                "word": "baño",
+                "correct": true
+              },
+              {
+                "word": "bala",
+                "correct": true
+              },
+              {
+                "word": "batir",
+                "correct": true
+              }
             ],
             [
-              "batea",
-              "abanico",
-              "loba"
+              {
+                "word": "batea",
+                "correct": true
+              },
+              {
+                "word": "abanico",
+                "correct": true
+              },
+              {
+                "word": "loba",
+                "correct": true
+              }
             ]
           ]
         },
@@ -4133,14 +5255,32 @@
           "syllable": "be",
           "matchRows": [
             [
-              "sube",
-              "Bebo",
-              "bebé"
+              {
+                "word": "sube",
+                "correct": true
+              },
+              {
+                "word": "Bebo",
+                "correct": true
+              },
+              {
+                "word": "bebé",
+                "correct": true
+              }
             ],
             [
-              "abeja",
-              "nube",
-              "cubeta"
+              {
+                "word": "abeja",
+                "correct": true
+              },
+              {
+                "word": "nube",
+                "correct": true
+              },
+              {
+                "word": "cubeta",
+                "correct": true
+              }
             ]
           ]
         },
@@ -4152,14 +5292,32 @@
           "syllable": "bi",
           "matchRows": [
             [
-              "bebida",
-              "cabito",
-              "bicicleta"
+              {
+                "word": "bebida",
+                "correct": true
+              },
+              {
+                "word": "cabito",
+                "correct": true
+              },
+              {
+                "word": "bicicleta",
+                "correct": true
+              }
             ],
             [
-              "bisagra",
-              "bisonte",
-              "cubito"
+              {
+                "word": "bisagra",
+                "correct": true
+              },
+              {
+                "word": "bisonte",
+                "correct": true
+              },
+              {
+                "word": "cubito",
+                "correct": true
+              }
             ]
           ]
         },
@@ -4171,14 +5329,32 @@
           "syllable": "bo",
           "matchRows": [
             [
-              "lobo",
-              "bonita",
-              "tubo"
+              {
+                "word": "lobo",
+                "correct": true
+              },
+              {
+                "word": "bonita",
+                "correct": true
+              },
+              {
+                "word": "tubo",
+                "correct": true
+              }
             ],
             [
-              "bodega",
-              "bola",
-              "botella"
+              {
+                "word": "bodega",
+                "correct": true
+              },
+              {
+                "word": "bola",
+                "correct": true
+              },
+              {
+                "word": "botella",
+                "correct": true
+              }
             ]
           ]
         },
@@ -4190,14 +5366,32 @@
           "syllable": "bu",
           "matchRows": [
             [
-              "burro",
-              "aburre",
-              "aburrido"
+              {
+                "word": "burro",
+                "correct": true
+              },
+              {
+                "word": "aburre",
+                "correct": true
+              },
+              {
+                "word": "aburrido",
+                "correct": true
+              }
             ],
             [
-              "bulla",
-              "abuso",
-              "buche"
+              {
+                "word": "bulla",
+                "correct": true
+              },
+              {
+                "word": "abuso",
+                "correct": true
+              },
+              {
+                "word": "buche",
+                "correct": true
+              }
             ]
           ]
         }
@@ -4323,17 +5517,41 @@
             {
               "wordBox": "cubo",
               "blank": "cu ___",
-              "choices": "bu - bo"
+              "choices": [
+                {
+                  "text": "bu"
+                },
+                {
+                  "text": "bo",
+                  "correct": true
+                }
+              ]
             },
             {
               "wordBox": "bolo",
               "blank": "___ lo",
-              "choices": "bo - be"
+              "choices": [
+                {
+                  "text": "bo",
+                  "correct": true
+                },
+                {
+                  "text": "be"
+                }
+              ]
             },
             {
               "wordBox": "cubito",
               "blank": "cu ___ to",
-              "choices": "bo - bi"
+              "choices": [
+                {
+                  "text": "bo"
+                },
+                {
+                  "text": "bi",
+                  "correct": true
+                }
+              ]
             }
           ]
         },
@@ -4346,17 +5564,41 @@
             {
               "wordBox": "batido",
               "blank": "___ tido",
-              "choices": "be - ba"
+              "choices": [
+                {
+                  "text": "be"
+                },
+                {
+                  "text": "ba",
+                  "correct": true
+                }
+              ]
             },
             {
               "wordBox": "burro",
               "blank": "___ rro",
-              "choices": "ba - bu"
+              "choices": [
+                {
+                  "text": "ba"
+                },
+                {
+                  "text": "bu",
+                  "correct": true
+                }
+              ]
             },
             {
               "wordBox": "nube",
               "blank": "nu ___",
-              "choices": "be - bi"
+              "choices": [
+                {
+                  "text": "be",
+                  "correct": true
+                },
+                {
+                  "text": "bi"
+                }
+              ]
             }
           ]
         },
@@ -4460,14 +5702,32 @@
           "syllable": "va",
           "matchRows": [
             [
-              "vaso",
-              "lavamos",
-              "vámonos"
+              {
+                "word": "vaso",
+                "correct": true
+              },
+              {
+                "word": "lavamos",
+                "correct": true
+              },
+              {
+                "word": "vámonos",
+                "correct": true
+              }
             ],
             [
-              "lava",
-              "nieva",
-              "lavamanos"
+              {
+                "word": "lava",
+                "correct": true
+              },
+              {
+                "word": "nieva",
+                "correct": true
+              },
+              {
+                "word": "lavamanos",
+                "correct": true
+              }
             ]
           ]
         },
@@ -4479,14 +5739,32 @@
           "syllable": "ve",
           "matchRows": [
             [
-              "venado",
-              "ave",
-              "vela"
+              {
+                "word": "venado",
+                "correct": true
+              },
+              {
+                "word": "ave",
+                "correct": true
+              },
+              {
+                "word": "vela",
+                "correct": true
+              }
             ],
             [
-              "venas",
-              "velo",
-              "nave"
+              {
+                "word": "venas",
+                "correct": true
+              },
+              {
+                "word": "velo",
+                "correct": true
+              },
+              {
+                "word": "nave",
+                "correct": true
+              }
             ]
           ]
         },
@@ -4498,14 +5776,32 @@
           "syllable": "vi",
           "matchRows": [
             [
-              "vino",
-              "vivo",
-              "vidente"
+              {
+                "word": "vino",
+                "correct": true
+              },
+              {
+                "word": "vivo",
+                "correct": true
+              },
+              {
+                "word": "vidente",
+                "correct": true
+              }
             ],
             [
-              "vine",
-              "aviso",
-              "vitamina"
+              {
+                "word": "vine",
+                "correct": true
+              },
+              {
+                "word": "aviso",
+                "correct": true
+              },
+              {
+                "word": "vitamina",
+                "correct": true
+              }
             ]
           ]
         },
@@ -4517,14 +5813,32 @@
           "syllable": "vo",
           "matchRows": [
             [
-              "lavo",
-              "vivo",
-              "pavo"
+              {
+                "word": "lavo",
+                "correct": true
+              },
+              {
+                "word": "vivo",
+                "correct": true
+              },
+              {
+                "word": "pavo",
+                "correct": true
+              }
             ],
             [
-              "clavo",
-              "volar",
-              "Tavo"
+              {
+                "word": "clavo",
+                "correct": true
+              },
+              {
+                "word": "volar",
+                "correct": true
+              },
+              {
+                "word": "Tavo",
+                "correct": true
+              }
             ]
           ]
         },
@@ -4536,14 +5850,32 @@
           "syllable": "vu",
           "matchRows": [
             [
-              "vuela",
-              "vuelta",
-              "vuelan"
+              {
+                "word": "vuela",
+                "correct": true
+              },
+              {
+                "word": "vuelta",
+                "correct": true
+              },
+              {
+                "word": "vuelan",
+                "correct": true
+              }
             ],
             [
-              "vuelo",
-              "revuelta",
-              "revuelo"
+              {
+                "word": "vuelo",
+                "correct": true
+              },
+              {
+                "word": "revuelta",
+                "correct": true
+              },
+              {
+                "word": "revuelo",
+                "correct": true
+              }
             ]
           ]
         }
@@ -4648,17 +5980,41 @@
             {
               "wordBox": "nave",
               "blank": "na ___",
-              "choices": "ve - vu"
+              "choices": [
+                {
+                  "text": "ve",
+                  "correct": true
+                },
+                {
+                  "text": "vu"
+                }
+              ]
             },
             {
               "wordBox": "vaso",
               "blank": "___ so",
-              "choices": "va - vo"
+              "choices": [
+                {
+                  "text": "va",
+                  "correct": true
+                },
+                {
+                  "text": "vo"
+                }
+              ]
             },
             {
               "wordBox": "vela",
               "blank": "___ la",
-              "choices": "vi - ve"
+              "choices": [
+                {
+                  "text": "vi"
+                },
+                {
+                  "text": "ve",
+                  "correct": true
+                }
+              ]
             }
           ]
         },
@@ -4671,17 +6027,41 @@
             {
               "wordBox": "pavo",
               "blank": "pa ___",
-              "choices": "vo - vu"
+              "choices": [
+                {
+                  "text": "vo",
+                  "correct": true
+                },
+                {
+                  "text": "vu"
+                }
+              ]
             },
             {
               "wordBox": "vine",
               "blank": "___ ne",
-              "choices": "va - vi"
+              "choices": [
+                {
+                  "text": "va"
+                },
+                {
+                  "text": "vi",
+                  "correct": true
+                }
+              ]
             },
             {
               "wordBox": "aviso",
               "blank": "a ___ so",
-              "choices": "vi - vo"
+              "choices": [
+                {
+                  "text": "vi",
+                  "correct": true
+                },
+                {
+                  "text": "vo"
+                }
+              ]
             }
           ]
         },
@@ -4785,14 +6165,32 @@
           "syllable": "ra",
           "matchRows": [
             [
-              "rana",
-              "rama",
-              "ratón"
+              {
+                "word": "rana",
+                "correct": true
+              },
+              {
+                "word": "rama",
+                "correct": true
+              },
+              {
+                "word": "ratón",
+                "correct": true
+              }
             ],
             [
-              "rata",
-              "raso",
-              "rama"
+              {
+                "word": "rata",
+                "correct": true
+              },
+              {
+                "word": "raso",
+                "correct": true
+              },
+              {
+                "word": "rama",
+                "correct": true
+              }
             ]
           ]
         },
@@ -4804,14 +6202,32 @@
           "syllable": "re",
           "matchRows": [
             [
-              "remo",
-              "reloj",
-              "relevo"
+              {
+                "word": "remo",
+                "correct": true
+              },
+              {
+                "word": "reloj",
+                "correct": true
+              },
+              {
+                "word": "relevo",
+                "correct": true
+              }
             ],
             [
-              "rezo",
-              "revista",
-              "rema"
+              {
+                "word": "rezo",
+                "correct": true
+              },
+              {
+                "word": "revista",
+                "correct": true
+              },
+              {
+                "word": "rema",
+                "correct": true
+              }
             ]
           ]
         },
@@ -4823,14 +6239,32 @@
           "syllable": "ri",
           "matchRows": [
             [
-              "riña",
-              "rima",
-              "rimamos"
+              {
+                "word": "riña",
+                "correct": true
+              },
+              {
+                "word": "rima",
+                "correct": true
+              },
+              {
+                "word": "rimamos",
+                "correct": true
+              }
             ],
             [
-              "Rita",
-              "risa",
-              "rizo"
+              {
+                "word": "Rita",
+                "correct": true
+              },
+              {
+                "word": "risa",
+                "correct": true
+              },
+              {
+                "word": "rizo",
+                "correct": true
+              }
             ]
           ]
         },
@@ -4842,14 +6276,32 @@
           "syllable": "ro",
           "matchRows": [
             [
-              "rosa",
-              "roto",
-              "Rolo"
+              {
+                "word": "rosa",
+                "correct": true
+              },
+              {
+                "word": "roto",
+                "correct": true
+              },
+              {
+                "word": "Rolo",
+                "correct": true
+              }
             ],
             [
-              "roca",
-              "rota",
-              "Roberto"
+              {
+                "word": "roca",
+                "correct": true
+              },
+              {
+                "word": "rota",
+                "correct": true
+              },
+              {
+                "word": "Roberto",
+                "correct": true
+              }
             ]
           ]
         },
@@ -4861,14 +6313,32 @@
           "syllable": "ru",
           "matchRows": [
             [
-              "ruta",
-              "Rufino",
-              "rubio"
+              {
+                "word": "ruta",
+                "correct": true
+              },
+              {
+                "word": "Rufino",
+                "correct": true
+              },
+              {
+                "word": "rubio",
+                "correct": true
+              }
             ],
             [
-              "ruso",
-              "rutina",
-              "rudo"
+              {
+                "word": "ruso",
+                "correct": true
+              },
+              {
+                "word": "rutina",
+                "correct": true
+              },
+              {
+                "word": "rudo",
+                "correct": true
+              }
             ]
           ]
         }
@@ -4973,17 +6443,41 @@
             {
               "wordBox": "rana",
               "blank": "___ na",
-              "choices": "ru - ra"
+              "choices": [
+                {
+                  "text": "ru"
+                },
+                {
+                  "text": "ra",
+                  "correct": true
+                }
+              ]
             },
             {
               "wordBox": "Rita",
               "blank": "___ ta",
-              "choices": "Ri - re"
+              "choices": [
+                {
+                  "text": "Ri",
+                  "correct": true
+                },
+                {
+                  "text": "re"
+                }
+              ]
             },
             {
               "wordBox": "ruta",
               "blank": "___ ta",
-              "choices": "ru - ra"
+              "choices": [
+                {
+                  "text": "ru",
+                  "correct": true
+                },
+                {
+                  "text": "ra"
+                }
+              ]
             }
           ]
         },
@@ -4996,17 +6490,41 @@
             {
               "wordBox": "remo",
               "blank": "___ mo",
-              "choices": "re - ro"
+              "choices": [
+                {
+                  "text": "re",
+                  "correct": true
+                },
+                {
+                  "text": "ro"
+                }
+              ]
             },
             {
               "wordBox": "rosa",
               "blank": "___ sa",
-              "choices": "ro - ri"
+              "choices": [
+                {
+                  "text": "ro",
+                  "correct": true
+                },
+                {
+                  "text": "ri"
+                }
+              ]
             },
             {
               "wordBox": "rubio",
               "blank": "___ bio",
-              "choices": "re - ru"
+              "choices": [
+                {
+                  "text": "re"
+                },
+                {
+                  "text": "ru",
+                  "correct": true
+                }
+              ]
             }
           ]
         },
@@ -5097,14 +6615,32 @@
           "syllable": "rra",
           "matchRows": [
             [
-              "barra",
-              "amarra",
-              "pizarra"
+              {
+                "word": "barra",
+                "correct": true
+              },
+              {
+                "word": "amarra",
+                "correct": true
+              },
+              {
+                "word": "pizarra",
+                "correct": true
+              }
             ],
             [
-              "Porra",
-              "arrasar",
-              "perra"
+              {
+                "word": "Porra",
+                "correct": true
+              },
+              {
+                "word": "arrasar",
+                "correct": true
+              },
+              {
+                "word": "perra",
+                "correct": true
+              }
             ]
           ]
         },
@@ -5116,14 +6652,32 @@
           "syllable": "rre",
           "matchRows": [
             [
-              "torre",
-              "amarre",
-              "arrebatado"
+              {
+                "word": "torre",
+                "correct": true
+              },
+              {
+                "word": "amarre",
+                "correct": true
+              },
+              {
+                "word": "arrebatado",
+                "correct": true
+              }
             ],
             [
-              "barre",
-              "arrebatar",
-              "arrepiente"
+              {
+                "word": "barre",
+                "correct": true
+              },
+              {
+                "word": "arrebatar",
+                "correct": true
+              },
+              {
+                "word": "arrepiente",
+                "correct": true
+              }
             ]
           ]
         },
@@ -5135,14 +6689,32 @@
           "syllable": "rri",
           "matchRows": [
             [
-              "arriba",
-              "arrima",
-              "parrilla"
+              {
+                "word": "arriba",
+                "correct": true
+              },
+              {
+                "word": "arrima",
+                "correct": true
+              },
+              {
+                "word": "parrilla",
+                "correct": true
+              }
             ],
             [
-              "perrita",
-              "barril",
-              "carrito"
+              {
+                "word": "perrita",
+                "correct": true
+              },
+              {
+                "word": "barril",
+                "correct": true
+              },
+              {
+                "word": "carrito",
+                "correct": true
+              }
             ]
           ]
         },
@@ -5154,14 +6726,32 @@
           "syllable": "rro",
           "matchRows": [
             [
-              "carro",
-              "arroyo",
-              "burro"
+              {
+                "word": "carro",
+                "correct": true
+              },
+              {
+                "word": "arroyo",
+                "correct": true
+              },
+              {
+                "word": "burro",
+                "correct": true
+              }
             ],
             [
-              "perro",
-              "amarro",
-              "tarro"
+              {
+                "word": "perro",
+                "correct": true
+              },
+              {
+                "word": "amarro",
+                "correct": true
+              },
+              {
+                "word": "tarro",
+                "correct": true
+              }
             ]
           ]
         },
@@ -5173,14 +6763,32 @@
           "syllable": "rru",
           "matchRows": [
             [
-              "arruga",
-              "arrugado",
-              "arrullo"
+              {
+                "word": "arruga",
+                "correct": true
+              },
+              {
+                "word": "arrugado",
+                "correct": true
+              },
+              {
+                "word": "arrullo",
+                "correct": true
+              }
             ],
             [
-              "verruga",
-              "arrullar",
-              "arrullador"
+              {
+                "word": "verruga",
+                "correct": true
+              },
+              {
+                "word": "arrullar",
+                "correct": true
+              },
+              {
+                "word": "arrullador",
+                "correct": true
+              }
             ]
           ]
         }
@@ -5285,17 +6893,41 @@
             {
               "wordBox": "perro",
               "blank": "pe ___",
-              "choices": "rra - rro"
+              "choices": [
+                {
+                  "text": "rra"
+                },
+                {
+                  "text": "rro",
+                  "correct": true
+                }
+              ]
             },
             {
               "wordBox": "barre",
               "blank": "ba ___",
-              "choices": "rre - rri"
+              "choices": [
+                {
+                  "text": "rre",
+                  "correct": true
+                },
+                {
+                  "text": "rri"
+                }
+              ]
             },
             {
               "wordBox": "torre",
               "blank": "to ___",
-              "choices": "rro - rre"
+              "choices": [
+                {
+                  "text": "rro"
+                },
+                {
+                  "text": "rre",
+                  "correct": true
+                }
+              ]
             }
           ]
         },
@@ -5308,17 +6940,41 @@
             {
               "wordBox": "burro",
               "blank": "bu ___",
-              "choices": "rro - rru"
+              "choices": [
+                {
+                  "text": "rro",
+                  "correct": true
+                },
+                {
+                  "text": "rru"
+                }
+              ]
             },
             {
               "wordBox": "carro",
               "blank": "ca ___",
-              "choices": "rro - rru"
+              "choices": [
+                {
+                  "text": "rro",
+                  "correct": true
+                },
+                {
+                  "text": "rru"
+                }
+              ]
             },
             {
               "wordBox": "amarro",
               "blank": "ama ___",
-              "choices": "rru - rro"
+              "choices": [
+                {
+                  "text": "rru"
+                },
+                {
+                  "text": "rro",
+                  "correct": true
+                }
+              ]
             }
           ]
         },
@@ -5422,16 +7078,34 @@
           "syllable": "ga",
           "matchRows": [
             [
-              "garras",
-              "gasolina"
+              {
+                "word": "garras",
+                "correct": true
+              },
+              {
+                "word": "gasolina",
+                "correct": true
+              }
             ],
             [
-              "gato",
-              "paga"
+              {
+                "word": "gato",
+                "correct": true
+              },
+              {
+                "word": "paga",
+                "correct": true
+              }
             ],
             [
-              "ganas",
-              "maga"
+              {
+                "word": "ganas",
+                "correct": true
+              },
+              {
+                "word": "maga",
+                "correct": true
+              }
             ]
           ]
         },
@@ -5443,16 +7117,34 @@
           "syllable": "go",
           "matchRows": [
             [
-              "goma",
-              "gorra"
+              {
+                "word": "goma",
+                "correct": true
+              },
+              {
+                "word": "gorra",
+                "correct": true
+              }
             ],
             [
-              "lago",
-              "gota"
+              {
+                "word": "lago",
+                "correct": true
+              },
+              {
+                "word": "gota",
+                "correct": true
+              }
             ],
             [
-              "mago",
-              "goloso"
+              {
+                "word": "mago",
+                "correct": true
+              },
+              {
+                "word": "goloso",
+                "correct": true
+              }
             ]
           ]
         },
@@ -5464,16 +7156,34 @@
           "syllable": "gu",
           "matchRows": [
             [
-              "gusano",
-              "gula"
+              {
+                "word": "gusano",
+                "correct": true
+              },
+              {
+                "word": "gula",
+                "correct": true
+              }
             ],
             [
-              "agudo",
-              "mangú"
+              {
+                "word": "agudo",
+                "correct": true
+              },
+              {
+                "word": "mangú",
+                "correct": true
+              }
             ],
             [
-              "laguna",
-              "aguja"
+              {
+                "word": "laguna",
+                "correct": true
+              },
+              {
+                "word": "aguja",
+                "correct": true
+              }
             ]
           ]
         }
@@ -5585,17 +7295,41 @@
             {
               "wordBox": "aguja",
               "blank": "a ___ ja",
-              "choices": "gu - go"
+              "choices": [
+                {
+                  "text": "gu",
+                  "correct": true
+                },
+                {
+                  "text": "go"
+                }
+              ]
             },
             {
               "wordBox": "ganas",
               "blank": "___ nas",
-              "choices": "ga - go"
+              "choices": [
+                {
+                  "text": "ga",
+                  "correct": true
+                },
+                {
+                  "text": "go"
+                }
+              ]
             },
             {
               "wordBox": "mago",
               "blank": "ma ___",
-              "choices": "go - gu"
+              "choices": [
+                {
+                  "text": "go",
+                  "correct": true
+                },
+                {
+                  "text": "gu"
+                }
+              ]
             }
           ]
         },
@@ -5608,17 +7342,41 @@
             {
               "wordBox": "gato",
               "blank": "___ to",
-              "choices": "ga - gu"
+              "choices": [
+                {
+                  "text": "ga",
+                  "correct": true
+                },
+                {
+                  "text": "gu"
+                }
+              ]
             },
             {
               "wordBox": "goma",
               "blank": "___ ma",
-              "choices": "gu - go"
+              "choices": [
+                {
+                  "text": "gu"
+                },
+                {
+                  "text": "go",
+                  "correct": true
+                }
+              ]
             },
             {
               "wordBox": "lago",
               "blank": "la ___",
-              "choices": "go - ga"
+              "choices": [
+                {
+                  "text": "go",
+                  "correct": true
+                },
+                {
+                  "text": "ga"
+                }
+              ]
             }
           ]
         },
@@ -5722,14 +7480,32 @@
           "syllable": "fa",
           "matchRows": [
             [
-              "fama",
-              "familia",
-              "faro"
+              {
+                "word": "fama",
+                "correct": true
+              },
+              {
+                "word": "familia",
+                "correct": true
+              },
+              {
+                "word": "faro",
+                "correct": true
+              }
             ],
             [
-              "famoso",
-              "fatiga",
-              "afanado"
+              {
+                "word": "famoso",
+                "correct": true
+              },
+              {
+                "word": "fatiga",
+                "correct": true
+              },
+              {
+                "word": "afanado",
+                "correct": true
+              }
             ]
           ]
         },
@@ -5741,14 +7517,32 @@
           "syllable": "fe",
           "matchRows": [
             [
-              "feo",
-              "fecha",
-              "Felo"
+              {
+                "word": "feo",
+                "correct": true
+              },
+              {
+                "word": "fecha",
+                "correct": true
+              },
+              {
+                "word": "Felo",
+                "correct": true
+              }
             ],
             [
-              "feliz",
-              "felino",
-              "Felicia"
+              {
+                "word": "feliz",
+                "correct": true
+              },
+              {
+                "word": "felino",
+                "correct": true
+              },
+              {
+                "word": "Felicia",
+                "correct": true
+              }
             ]
           ]
         },
@@ -5760,14 +7554,32 @@
           "syllable": "fi",
           "matchRows": [
             [
-              "fila",
-              "filo",
-              "afinado"
+              {
+                "word": "fila",
+                "correct": true
+              },
+              {
+                "word": "filo",
+                "correct": true
+              },
+              {
+                "word": "afinado",
+                "correct": true
+              }
             ],
             [
-              "afina",
-              "fino",
-              "afilar"
+              {
+                "word": "afina",
+                "correct": true
+              },
+              {
+                "word": "fino",
+                "correct": true
+              },
+              {
+                "word": "afilar",
+                "correct": true
+              }
             ]
           ]
         },
@@ -5779,14 +7591,32 @@
           "syllable": "fo",
           "matchRows": [
             [
-              "foto",
-              "sofoca",
-              "fosa"
+              {
+                "word": "foto",
+                "correct": true
+              },
+              {
+                "word": "sofoca",
+                "correct": true
+              },
+              {
+                "word": "fosa",
+                "correct": true
+              }
             ],
             [
-              "foso",
-              "teléfono",
-              "foca"
+              {
+                "word": "foso",
+                "correct": true
+              },
+              {
+                "word": "teléfono",
+                "correct": true
+              },
+              {
+                "word": "foca",
+                "correct": true
+              }
             ]
           ]
         },
@@ -5798,14 +7628,32 @@
           "syllable": "fu",
           "matchRows": [
             [
-              "furia",
-              "funda",
-              "futuro"
+              {
+                "word": "furia",
+                "correct": true
+              },
+              {
+                "word": "funda",
+                "correct": true
+              },
+              {
+                "word": "futuro",
+                "correct": true
+              }
             ],
             [
-              "furor",
-              "perfume",
-              "fuga"
+              {
+                "word": "furor",
+                "correct": true
+              },
+              {
+                "word": "perfume",
+                "correct": true
+              },
+              {
+                "word": "fuga",
+                "correct": true
+              }
             ]
           ]
         }
@@ -5910,17 +7758,41 @@
             {
               "wordBox": "fama",
               "blank": "___ ma",
-              "choices": "fa - fo"
+              "choices": [
+                {
+                  "text": "fa",
+                  "correct": true
+                },
+                {
+                  "text": "fo"
+                }
+              ]
             },
             {
               "wordBox": "fila",
               "blank": "___ la",
-              "choices": "fi - fe"
+              "choices": [
+                {
+                  "text": "fi",
+                  "correct": true
+                },
+                {
+                  "text": "fe"
+                }
+              ]
             },
             {
               "wordBox": "teléfono",
               "blank": "telé ___ no",
-              "choices": "fo - fu"
+              "choices": [
+                {
+                  "text": "fo",
+                  "correct": true
+                },
+                {
+                  "text": "fu"
+                }
+              ]
             }
           ]
         },
@@ -5933,17 +7805,41 @@
             {
               "wordBox": "foca",
               "blank": "___ ca",
-              "choices": "fo - fi"
+              "choices": [
+                {
+                  "text": "fo",
+                  "correct": true
+                },
+                {
+                  "text": "fi"
+                }
+              ]
             },
             {
               "wordBox": "fecha",
               "blank": "___ cha",
-              "choices": "fe - fu"
+              "choices": [
+                {
+                  "text": "fe",
+                  "correct": true
+                },
+                {
+                  "text": "fu"
+                }
+              ]
             },
             {
               "wordBox": "foto",
               "blank": "___ to",
-              "choices": "fo - fi"
+              "choices": [
+                {
+                  "text": "fo",
+                  "correct": true
+                },
+                {
+                  "text": "fi"
+                }
+              ]
             }
           ]
         },
@@ -6047,14 +7943,32 @@
           "syllable": "ja",
           "matchRows": [
             [
-              "jaba",
-              "jabón",
-              "jamás"
+              {
+                "word": "jaba",
+                "correct": true
+              },
+              {
+                "word": "jabón",
+                "correct": true
+              },
+              {
+                "word": "jamás",
+                "correct": true
+              }
             ],
             [
-              "jarra",
-              "jamón",
-              "baja"
+              {
+                "word": "jarra",
+                "correct": true
+              },
+              {
+                "word": "jamón",
+                "correct": true
+              },
+              {
+                "word": "baja",
+                "correct": true
+              }
             ]
           ]
         },
@@ -6066,14 +7980,32 @@
           "syllable": "je",
           "matchRows": [
             [
-              "Jesús",
-              "jefe",
-              "baje"
+              {
+                "word": "Jesús",
+                "correct": true
+              },
+              {
+                "word": "jefe",
+                "correct": true
+              },
+              {
+                "word": "baje",
+                "correct": true
+              }
             ],
             [
-              "jefatura",
-              "jerez",
-              "ajeno"
+              {
+                "word": "jefatura",
+                "correct": true
+              },
+              {
+                "word": "jerez",
+                "correct": true
+              },
+              {
+                "word": "ajeno",
+                "correct": true
+              }
             ]
           ]
         },
@@ -6085,14 +8017,32 @@
           "syllable": "ji",
           "matchRows": [
             [
-              "jicotea",
-              "jíbaro",
-              "jirafa"
+              {
+                "word": "jicotea",
+                "correct": true
+              },
+              {
+                "word": "jíbaro",
+                "correct": true
+              },
+              {
+                "word": "jirafa",
+                "correct": true
+              }
             ],
             [
-              "ají",
-              "ajillo",
-              "jinete"
+              {
+                "word": "ají",
+                "correct": true
+              },
+              {
+                "word": "ajillo",
+                "correct": true
+              },
+              {
+                "word": "jinete",
+                "correct": true
+              }
             ]
           ]
         },
@@ -6104,14 +8054,32 @@
           "syllable": "jo",
           "matchRows": [
             [
-              "jobo",
-              "José",
-              "bajo"
+              {
+                "word": "jobo",
+                "correct": true
+              },
+              {
+                "word": "José",
+                "correct": true
+              },
+              {
+                "word": "bajo",
+                "correct": true
+              }
             ],
             [
-              "ajo",
-              "jota",
-              "jorobado"
+              {
+                "word": "ajo",
+                "correct": true
+              },
+              {
+                "word": "jota",
+                "correct": true
+              },
+              {
+                "word": "jorobado",
+                "correct": true
+              }
             ]
           ]
         },
@@ -6123,14 +8091,32 @@
           "syllable": "ju",
           "matchRows": [
             [
-              "júbilo",
-              "Julio",
-              "jutía"
+              {
+                "word": "júbilo",
+                "correct": true
+              },
+              {
+                "word": "Julio",
+                "correct": true
+              },
+              {
+                "word": "jutía",
+                "correct": true
+              }
             ],
             [
-              "juventud",
-              "jugo",
-              "jugar"
+              {
+                "word": "juventud",
+                "correct": true
+              },
+              {
+                "word": "jugo",
+                "correct": true
+              },
+              {
+                "word": "jugar",
+                "correct": true
+              }
             ]
           ]
         }
@@ -6228,17 +8214,41 @@
             {
               "wordBox": "jaba",
               "blank": "___ ba",
-              "choices": "ja - jo"
+              "choices": [
+                {
+                  "text": "ja",
+                  "correct": true
+                },
+                {
+                  "text": "jo"
+                }
+              ]
             },
             {
               "wordBox": "jugo",
               "blank": "___ go",
-              "choices": "ju - je"
+              "choices": [
+                {
+                  "text": "ju",
+                  "correct": true
+                },
+                {
+                  "text": "je"
+                }
+              ]
             },
             {
               "wordBox": "jamón",
               "blank": "___ món",
-              "choices": "ja - ju"
+              "choices": [
+                {
+                  "text": "ja",
+                  "correct": true
+                },
+                {
+                  "text": "ju"
+                }
+              ]
             }
           ]
         },
@@ -6251,17 +8261,41 @@
             {
               "wordBox": "jefe",
               "blank": "___ fe",
-              "choices": "je - ja"
+              "choices": [
+                {
+                  "text": "je",
+                  "correct": true
+                },
+                {
+                  "text": "ja"
+                }
+              ]
             },
             {
               "wordBox": "jugar",
               "blank": "___ gar",
-              "choices": "ju - je"
+              "choices": [
+                {
+                  "text": "ju",
+                  "correct": true
+                },
+                {
+                  "text": "je"
+                }
+              ]
             },
             {
               "wordBox": "jutía",
               "blank": "___ tía",
-              "choices": "ju - ji"
+              "choices": [
+                {
+                  "text": "ju",
+                  "correct": true
+                },
+                {
+                  "text": "ji"
+                }
+              ]
             }
           ]
         },
@@ -6365,14 +8399,32 @@
           "syllable": "ca",
           "matchRows": [
             [
-              "cama",
-              "cala",
-              "casa"
+              {
+                "word": "cama",
+                "correct": true
+              },
+              {
+                "word": "cala",
+                "correct": true
+              },
+              {
+                "word": "casa",
+                "correct": true
+              }
             ],
             [
-              "cana",
-              "loca",
-              "saca"
+              {
+                "word": "cana",
+                "correct": true
+              },
+              {
+                "word": "loca",
+                "correct": true
+              },
+              {
+                "word": "saca",
+                "correct": true
+              }
             ]
           ]
         },
@@ -6384,14 +8436,32 @@
           "syllable": "co",
           "matchRows": [
             [
-              "coma",
-              "cosa",
-              "poco"
+              {
+                "word": "coma",
+                "correct": true
+              },
+              {
+                "word": "cosa",
+                "correct": true
+              },
+              {
+                "word": "poco",
+                "correct": true
+              }
             ],
             [
-              "cola",
-              "copa",
-              "saco"
+              {
+                "word": "cola",
+                "correct": true
+              },
+              {
+                "word": "copa",
+                "correct": true
+              },
+              {
+                "word": "saco",
+                "correct": true
+              }
             ]
           ]
         },
@@ -6403,14 +8473,32 @@
           "syllable": "cu",
           "matchRows": [
             [
-              "cuna",
-              "Cuba",
-              "acuna"
+              {
+                "word": "cuna",
+                "correct": true
+              },
+              {
+                "word": "Cuba",
+                "correct": true
+              },
+              {
+                "word": "acuna",
+                "correct": true
+              }
             ],
             [
-              "acuso",
-              "acumula",
-              "cubo"
+              {
+                "word": "acuso",
+                "correct": true
+              },
+              {
+                "word": "acumula",
+                "correct": true
+              },
+              {
+                "word": "cubo",
+                "correct": true
+              }
             ]
           ]
         }
@@ -6508,17 +8596,41 @@
             {
               "wordBox": "coma",
               "blank": "___ ma",
-              "choices": "co - cu"
+              "choices": [
+                {
+                  "text": "co",
+                  "correct": true
+                },
+                {
+                  "text": "cu"
+                }
+              ]
             },
             {
               "wordBox": "cosa",
               "blank": "___ sa",
-              "choices": "co - ca"
+              "choices": [
+                {
+                  "text": "co",
+                  "correct": true
+                },
+                {
+                  "text": "ca"
+                }
+              ]
             },
             {
               "wordBox": "saca",
               "blank": "sa ___",
-              "choices": "ca - co"
+              "choices": [
+                {
+                  "text": "ca",
+                  "correct": true
+                },
+                {
+                  "text": "co"
+                }
+              ]
             }
           ]
         },
@@ -6531,17 +8643,41 @@
             {
               "wordBox": "cola",
               "blank": "___ la",
-              "choices": "ca - co"
+              "choices": [
+                {
+                  "text": "ca"
+                },
+                {
+                  "text": "co",
+                  "correct": true
+                }
+              ]
             },
             {
               "wordBox": "loca",
               "blank": "lo ___",
-              "choices": "co - ca"
+              "choices": [
+                {
+                  "text": "co"
+                },
+                {
+                  "text": "ca",
+                  "correct": true
+                }
+              ]
             },
             {
               "wordBox": "cubo",
               "blank": "___ bo",
-              "choices": "co - cu"
+              "choices": [
+                {
+                  "text": "co"
+                },
+                {
+                  "text": "cu",
+                  "correct": true
+                }
+              ]
             }
           ]
         },
@@ -6645,14 +8781,32 @@
           "syllable": "ya",
           "matchRows": [
             [
-              "yate",
-              "Yara",
-              "payaso"
+              {
+                "word": "yate",
+                "correct": true
+              },
+              {
+                "word": "Yara",
+                "correct": true
+              },
+              {
+                "word": "payaso",
+                "correct": true
+              }
             ],
             [
-              "yana",
-              "yagua",
-              "maya"
+              {
+                "word": "yana",
+                "correct": true
+              },
+              {
+                "word": "yagua",
+                "correct": true
+              },
+              {
+                "word": "maya",
+                "correct": true
+              }
             ]
           ]
         },
@@ -6664,14 +8818,32 @@
           "syllable": "ye",
           "matchRows": [
             [
-              "yegua",
-              "enyesado",
-              "yema"
+              {
+                "word": "yegua",
+                "correct": true
+              },
+              {
+                "word": "enyesado",
+                "correct": true
+              },
+              {
+                "word": "yema",
+                "correct": true
+              }
             ],
             [
-              "Yesenia",
-              "Yeyo",
-              "yeso"
+              {
+                "word": "Yesenia",
+                "correct": true
+              },
+              {
+                "word": "Yeyo",
+                "correct": true
+              },
+              {
+                "word": "yeso",
+                "correct": true
+              }
             ]
           ]
         },
@@ -6683,14 +8855,32 @@
           "syllable": "yi",
           "matchRows": [
             [
-              "Mayito",
-              "Yayita",
-              "Yayi"
+              {
+                "word": "Mayito",
+                "correct": true
+              },
+              {
+                "word": "Yayita",
+                "correct": true
+              },
+              {
+                "word": "Yayi",
+                "correct": true
+              }
             ],
             [
-              "Yigüiro",
-              "Yoyita",
-              "Mayita"
+              {
+                "word": "Yigüiro",
+                "correct": true
+              },
+              {
+                "word": "Yoyita",
+                "correct": true
+              },
+              {
+                "word": "Mayita",
+                "correct": true
+              }
             ]
           ]
         },
@@ -6702,14 +8892,32 @@
           "syllable": "yo",
           "matchRows": [
             [
-              "cayo",
-              "yoyo",
-              "rayo"
+              {
+                "word": "cayo",
+                "correct": true
+              },
+              {
+                "word": "yoyo",
+                "correct": true
+              },
+              {
+                "word": "rayo",
+                "correct": true
+              }
             ],
             [
-              "coyote",
-              "yo",
-              "Yayo"
+              {
+                "word": "coyote",
+                "correct": true
+              },
+              {
+                "word": "yo",
+                "correct": true
+              },
+              {
+                "word": "Yayo",
+                "correct": true
+              }
             ]
           ]
         },
@@ -6721,14 +8929,32 @@
           "syllable": "yu",
           "matchRows": [
             [
-              "Yucatán",
-              "Cayuco",
-              "ayudar"
+              {
+                "word": "Yucatán",
+                "correct": true
+              },
+              {
+                "word": "Cayuco",
+                "correct": true
+              },
+              {
+                "word": "ayudar",
+                "correct": true
+              }
             ],
             [
-              "yuca",
-              "ayuda",
-              "desayuno"
+              {
+                "word": "yuca",
+                "correct": true
+              },
+              {
+                "word": "ayuda",
+                "correct": true
+              },
+              {
+                "word": "desayuno",
+                "correct": true
+              }
             ]
           ]
         }
@@ -6826,17 +9052,41 @@
             {
               "wordBox": "yate",
               "blank": "___ te",
-              "choices": "yo - ya"
+              "choices": [
+                {
+                  "text": "yo"
+                },
+                {
+                  "text": "ya",
+                  "correct": true
+                }
+              ]
             },
             {
               "wordBox": "yeso",
               "blank": "___ so",
-              "choices": "yo - ye"
+              "choices": [
+                {
+                  "text": "yo"
+                },
+                {
+                  "text": "ye",
+                  "correct": true
+                }
+              ]
             },
             {
               "wordBox": "cayo",
               "blank": "ca ___",
-              "choices": "yo - ye"
+              "choices": [
+                {
+                  "text": "yo",
+                  "correct": true
+                },
+                {
+                  "text": "ye"
+                }
+              ]
             }
           ]
         },
@@ -6849,17 +9099,41 @@
             {
               "wordBox": "yuca",
               "blank": "___ ca",
-              "choices": "ya - yu"
+              "choices": [
+                {
+                  "text": "ya"
+                },
+                {
+                  "text": "yu",
+                  "correct": true
+                }
+              ]
             },
             {
               "wordBox": "Mayito",
               "blank": "Ma ___ to",
-              "choices": "ya - yi"
+              "choices": [
+                {
+                  "text": "ya"
+                },
+                {
+                  "text": "yi",
+                  "correct": true
+                }
+              ]
             },
             {
               "wordBox": "yema",
               "blank": "___ ma",
-              "choices": "ye - ya"
+              "choices": [
+                {
+                  "text": "ye",
+                  "correct": true
+                },
+                {
+                  "text": "ya"
+                }
+              ]
             }
           ]
         },
@@ -6963,14 +9237,32 @@
           "syllable": "za",
           "matchRows": [
             [
-              "taza",
-              "caza",
-              "zapatero"
+              {
+                "word": "taza",
+                "correct": true
+              },
+              {
+                "word": "caza",
+                "correct": true
+              },
+              {
+                "word": "zapatero",
+                "correct": true
+              }
             ],
             [
-              "plaza",
-              "zapato",
-              "zapote"
+              {
+                "word": "plaza",
+                "correct": true
+              },
+              {
+                "word": "zapato",
+                "correct": true
+              },
+              {
+                "word": "zapote",
+                "correct": true
+              }
             ]
           ]
         },
@@ -6982,14 +9274,32 @@
           "syllable": "ze",
           "matchRows": [
             [
-              "zepelín",
-              "zebra",
-              "Zenaida"
+              {
+                "word": "zepelín",
+                "correct": true
+              },
+              {
+                "word": "zebra",
+                "correct": true
+              },
+              {
+                "word": "Zenaida",
+                "correct": true
+              }
             ],
             [
-              "zeta",
-              "Zegrí",
-              "Zema"
+              {
+                "word": "zeta",
+                "correct": true
+              },
+              {
+                "word": "Zegrí",
+                "correct": true
+              },
+              {
+                "word": "Zema",
+                "correct": true
+              }
             ]
           ]
         },
@@ -7001,12 +9311,24 @@
           "syllable": "zi",
           "matchRows": [
             [
-              "zig-zag",
-              "Zimba"
+              {
+                "word": "zig-zag",
+                "correct": true
+              },
+              {
+                "word": "Zimba",
+                "correct": true
+              }
             ],
             [
-              "Zila",
-              "Zita"
+              {
+                "word": "Zila",
+                "correct": true
+              },
+              {
+                "word": "Zita",
+                "correct": true
+              }
             ]
           ]
         },
@@ -7018,14 +9340,32 @@
           "syllable": "zo",
           "matchRows": [
             [
-              "zorro",
-              "portazo",
-              "zocato"
+              {
+                "word": "zorro",
+                "correct": true
+              },
+              {
+                "word": "portazo",
+                "correct": true
+              },
+              {
+                "word": "zocato",
+                "correct": true
+              }
             ],
             [
-              "azotes",
-              "zopilote",
-              "lazo"
+              {
+                "word": "azotes",
+                "correct": true
+              },
+              {
+                "word": "zopilote",
+                "correct": true
+              },
+              {
+                "word": "lazo",
+                "correct": true
+              }
             ]
           ]
         },
@@ -7037,14 +9377,32 @@
           "syllable": "zu",
           "matchRows": [
             [
-              "azúcar",
-              "zurra",
-              "azucarado"
+              {
+                "word": "azúcar",
+                "correct": true
+              },
+              {
+                "word": "zurra",
+                "correct": true
+              },
+              {
+                "word": "azucarado",
+                "correct": true
+              }
             ],
             [
-              "azules",
-              "Zulema",
-              "azulado"
+              {
+                "word": "azules",
+                "correct": true
+              },
+              {
+                "word": "Zulema",
+                "correct": true
+              },
+              {
+                "word": "azulado",
+                "correct": true
+              }
             ]
           ]
         }
@@ -7142,17 +9500,41 @@
             {
               "wordBox": "zapato",
               "blank": "___ pato",
-              "choices": "za - zo"
+              "choices": [
+                {
+                  "text": "za",
+                  "correct": true
+                },
+                {
+                  "text": "zo"
+                }
+              ]
             },
             {
               "wordBox": "zeta",
               "blank": "___ ta",
-              "choices": "za - ze"
+              "choices": [
+                {
+                  "text": "za"
+                },
+                {
+                  "text": "ze",
+                  "correct": true
+                }
+              ]
             },
             {
               "wordBox": "zumo",
               "blank": "___ mo",
-              "choices": "zo - zu"
+              "choices": [
+                {
+                  "text": "zo"
+                },
+                {
+                  "text": "zu",
+                  "correct": true
+                }
+              ]
             }
           ]
         },
@@ -7165,17 +9547,41 @@
             {
               "wordBox": "lazo",
               "blank": "la ___",
-              "choices": "zo - zú"
+              "choices": [
+                {
+                  "text": "zo",
+                  "correct": true
+                },
+                {
+                  "text": "zú"
+                }
+              ]
             },
             {
               "wordBox": "azules",
               "blank": "a ___ les",
-              "choices": "zu - za"
+              "choices": [
+                {
+                  "text": "zu",
+                  "correct": true
+                },
+                {
+                  "text": "za"
+                }
+              ]
             },
             {
               "wordBox": "Zita",
               "blank": "___ ta",
-              "choices": "Zo - Zi"
+              "choices": [
+                {
+                  "text": "Zo"
+                },
+                {
+                  "text": "Zi",
+                  "correct": true
+                }
+              ]
             }
           ]
         },

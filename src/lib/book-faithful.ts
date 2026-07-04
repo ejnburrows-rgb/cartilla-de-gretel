@@ -85,8 +85,20 @@ export type PageGridCell = {
 	correct?: boolean;
 };
 
-/** One row of candidate words the student picks from, for a syllable-match region. */
-export type SyllableMatchRow = string[];
+/**
+ * One word in a syllable-match row. Unlike a picture-grid cell, this is NOT a
+ * multiple-choice pick — the real book exercise ("Encierra en un círculo la
+ * sílaba correspondiente") shows several real example words that ALL contain
+ * the target syllable, and asks the student to find/circle it in each one.
+ * `correct` here means "contains the syllable" (true for every word in the
+ * real book data checked so far) — grading is "did you mark all of them",
+ * not "did you pick the right one out of distractors".
+ */
+export type SyllableMatchWord = { word: string; correct?: boolean };
+export type SyllableMatchRow = SyllableMatchWord[];
+
+/** One choice offered inside a fill-in-blank item. */
+export type FillInBlankChoice = { text: string; correct?: boolean };
 
 /** One "complete the word" item inside a fill-in-blank exercise. */
 export type FillInBlankItem = {
@@ -94,8 +106,8 @@ export type FillInBlankItem = {
 	wordBox: string;
 	/** The partial word with the blank, e.g. "a ___" or "___ mi". */
 	blank: string;
-	/** The syllable choices offered, e.g. "mo - mu". */
-	choices: string;
+	/** The syllable choices offered — exactly one reconstructs `wordBox` via `blank`. */
+	choices: FillInBlankChoice[];
 };
 
 export type PageRegionFontRole = "heading" | "body" | "tracing";
