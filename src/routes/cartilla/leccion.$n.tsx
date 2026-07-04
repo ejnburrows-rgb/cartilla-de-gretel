@@ -204,9 +204,9 @@ function IntroBody({ lessonId, lang, t }: { lessonId: string; lang: "es" | "en";
   const vowels = ["a", "e", "i", "o", "u"];
   const vowelWords = [
     { word: "ala", emoji: "🧥" },
-    { word: "elefante", emoji: "🐘" },
-    { word: "iglú", emoji: "⛺" },
-    { word: "oso", emoji: "🐻" },
+    { word: "elefante", emoji: "🐘", illustrationSrc: "/cartilla/art/faithful/vocal-e/elefante.webp" },
+    { word: "iglú", emoji: "⛺", illustrationSrc: "/cartilla/art/faithful/vocal-i/iglu.webp" },
+    { word: "oso", emoji: "🐻", illustrationSrc: "/cartilla/art/faithful/vocal-o/oso.webp" },
     { word: "uva", emoji: "🍇" },
   ];
   return (
