@@ -440,6 +440,35 @@
   max-height: 100%;
   object-fit: contain;
 }
+
+/* Ambient float for every static illustration cell (teacher flipbook/paginas
+ * preview and any student page not covered by an interactive component) —
+ * same keyframe/timing as the interactive cells' fpIxFloat
+ * (interactive-exercises.css), duplicated here rather than imported so this
+ * teacher-reachable stylesheet never depends on a file scoped "student
+ * workbook only". Per-cell delay comes from --float-delay (see
+ * FaithfulPageRenderer.tsx's floatDelay helper) so a grid never moves in
+ * lockstep. */
+@keyframes fpFaithfulFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-2.5px) rotate(1deg); }
+}
+.fp-picture-grid__cell img,
+.fp-vowel-match__cell img,
+.fp-vowel-pick__cell img,
+.fp-vowel-match-all__cell img {
+  animation: fpFaithfulFloat 5.5s ease-in-out infinite;
+  animation-delay: var(--float-delay, 0s);
+}
+@media (prefers-reduced-motion: reduce) {
+  .fp-picture-grid__cell img,
+  .fp-vowel-match__cell img,
+  .fp-vowel-pick__cell img,
+  .fp-vowel-match-all__cell img {
+    animation: none !important;
+  }
+}
+
 .fp-vowel-match-all__cell .fp-art-pending {
   width: 100%;
   height: 100%;
