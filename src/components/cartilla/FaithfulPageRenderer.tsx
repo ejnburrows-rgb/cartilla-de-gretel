@@ -7,6 +7,8 @@ import {
   InteractiveVowelPickOne,
   InteractiveVowelMatchAll,
   InteractiveVowelLineMatch,
+  InteractiveSyllableMatch,
+  InteractiveFillInBlank,
 } from "./InteractivePageExercises";
 
 /**
@@ -94,9 +96,9 @@ function SyllableMatch({ region }: { region: PageRegion }) {
       <div className="fp-syllable-match__rows">
         {rows.map((row, i) => (
           <div key={i} className="fp-syllable-match__row">
-            {row.map((word, j) => (
+            {row.map((entry, j) => (
               <span key={j} className="fp-syllable-match__word">
-                {word}
+                {entry.word}
               </span>
             ))}
           </div>
@@ -114,7 +116,7 @@ function FillInBlank({ region }: { region: PageRegion }) {
         <div key={i} className="fp-fill-in-blank__item">
           <span className="fp-fill-in-blank__wordbox">{item.wordBox}</span>
           <span className="fp-fill-in-blank__blank">{item.blank}</span>
-          <span className="fp-fill-in-blank__choices">{item.choices}</span>
+          <span className="fp-fill-in-blank__choices">{item.choices.map((c) => c.text).join(" - ")}</span>
         </div>
       ))}
     </div>
@@ -241,9 +243,17 @@ function RegionView({
         <VowelMatchAll region={region} />
       );
     case "syllable-match":
-      return <SyllableMatch region={region} />;
+      return interactive ? (
+        <InteractiveSyllableMatch region={region} accent={accent ?? "hsl(230 75% 58%)"} lessonId={lessonId} />
+      ) : (
+        <SyllableMatch region={region} />
+      );
     case "fill-in-blank":
-      return <FillInBlank region={region} />;
+      return interactive ? (
+        <InteractiveFillInBlank region={region} accent={accent ?? "hsl(230 75% 58%)"} lessonId={lessonId} />
+      ) : (
+        <FillInBlank region={region} />
+      );
     case "instruction":
       return (
         <p className="fp-region--instruction">
