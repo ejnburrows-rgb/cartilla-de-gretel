@@ -3,43 +3,13 @@ import "@/styles/garden-scene.css";
 
 /**
  * Soft garden frame around the student workbook, replacing the old
- * wood-desk background. Palette and motifs (grass, flowers, a yellow
- * butterfly, a dragonfly) are drawn from the real book cover art
+ * wood-desk background. Palette and motifs (grass, a yellow butterfly, a
+ * dragonfly) are drawn from the real book cover art
  * (public/cartilla/images/original/cover.jpg), not invented.
  */
 interface GardenSceneProps {
   children: ReactNode;
   className?: string;
-}
-
-const FLOWER_COLORS = ["#e0568c", "#f0923a", "#f4c542", "#e0568c"];
-const FLOWER_POSITIONS = [6, 26, 68, 88]; // left %, kept off-center so nothing overlaps the book
-const FLOWER_DELAYS = [0, 1.1, 0.5, 1.7];
-
-function Flower({ color, left, delay }: { color: string; left: number; delay: number }) {
-  return (
-    <div
-      className="garden-flower"
-      style={{ left: `${left}%`, ["--sway-delay" as string]: `${delay}s` }}
-      aria-hidden="true"
-    >
-      <svg width="34" height="46" viewBox="0 0 34 46">
-        <path d="M17 46 L17 20" stroke="#7a9c53" strokeWidth="3" strokeLinecap="round" />
-        {[0, 72, 144, 216, 288].map((angle) => (
-          <ellipse
-            key={angle}
-            cx="17"
-            cy="12"
-            rx="6"
-            ry="9"
-            fill={color}
-            transform={`rotate(${angle} 17 20)`}
-          />
-        ))}
-        <circle cx="17" cy="20" r="5" fill="#f9dd6b" />
-      </svg>
-    </div>
-  );
 }
 
 function Butterfly({ delay }: { delay: number }) {
@@ -79,9 +49,6 @@ export function GardenScene({ children, className }: GardenSceneProps) {
   return (
     <div className={`garden-scene p-5 sm:p-9 mb-12 ${className ?? ""}`}>
       <div className="garden-scene__critters">
-        {FLOWER_POSITIONS.map((left, i) => (
-          <Flower key={left} color={FLOWER_COLORS[i]} left={left} delay={FLOWER_DELAYS[i]} />
-        ))}
         <Butterfly delay={0} />
         <Dragonfly delay={2.4} />
       </div>
