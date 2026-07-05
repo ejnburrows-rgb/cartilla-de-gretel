@@ -135,11 +135,13 @@ category as arco/pez/traje/águila below) and removed it. That claim is
 report, same caveat as the other "doesn't exist" words. If it later turns
 up in a real page, add it back here.
 
-**Vocabulary games note**: the student-facing games (word matching, etc.)
-still use emoji pictures for their 18 other words even though real crops
-for those already exist in the manifest — that's an app-side wiring task
-(Claude's side), not an art-extraction task. Nothing further needed from
-Antigravity on vocabulary art right now.
+**Vocabulary games note (updated July 2026)**: all 5 vowel lesson vocab
+games are now wired to real art (19/20 words; urna has no crop in the book
+and is correct to show "art pending"). 3 of 72 consonant vocabulary words
+(araña, carro, casa) have manifest crops and are wired into consonants.json.
+The remaining 69 consonant vocab words need crops from Antigravity before
+they can show real art in the games — those are the next batch to request.
+Nothing further needed from Antigravity for vowel vocab.
 
 **Crop rule**: crop tight to just the illustration itself. If a neighboring
 cell's label or drawing is bleeding into the frame, the crop boundary is
