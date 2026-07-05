@@ -26,15 +26,19 @@ export function GretelGuide({
   };
 
   let motionClass = "";
+  let shadowMotionClass = "";
   if (!reducedMotion) {
     if (machineState === "idle" || machineState === "talking" || machineState === "boot" || machineState === "blinking") {
       motionClass = "animate-gretel-bob";
+      shadowMotionClass = "animate-gretel-shadow-bob";
     } else if (machineState === "waving") {
       motionClass = "animate-gretel-wave";
     } else if (machineState === "pointing") {
       motionClass = "animate-gretel-point";
+      shadowMotionClass = "animate-gretel-shadow-point";
     } else if (machineState === "cheering") {
       motionClass = "animate-gretel-bounce";
+      shadowMotionClass = "animate-gretel-shadow-bounce";
     }
   }
 
@@ -62,15 +66,21 @@ export function GretelGuide({
         </div>
       )}
 
-      <div className={`relative h-24 w-24 sm:h-36 sm:w-36 origin-bottom drop-shadow-xl select-none ${motionClass}`}>
-        <img
-          key={currentPose}
-          src={currentPose}
-          alt="Gretel"
-          className="h-full w-full object-contain"
-          draggable={false}
-          onError={handleError}
-        />
+      <div className="relative h-24 w-24 sm:h-36 sm:w-36">
+        <div className={`gretel-contact-shadow ${shadowMotionClass}`} />
+        <div
+          className={`relative h-full w-full origin-bottom select-none ${motionClass}`}
+          style={{ filter: "drop-shadow(0 10px 10px rgba(20, 20, 30, 0.28)) drop-shadow(0 2px 3px rgba(20, 20, 30, 0.18))" }}
+        >
+          <img
+            key={currentPose}
+            src={currentPose}
+            alt="Gretel"
+            className="h-full w-full object-contain"
+            draggable={false}
+            onError={handleError}
+          />
+        </div>
       </div>
     </div>
   );

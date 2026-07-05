@@ -177,7 +177,10 @@
   .animate-gretel-bob,
   .animate-gretel-wave,
   .animate-gretel-point,
-  .animate-gretel-bounce {
+  .animate-gretel-bounce,
+  .animate-gretel-shadow-bob,
+  .animate-gretel-shadow-point,
+  .animate-gretel-shadow-bounce {
     animation: none !important;
   }
 }
@@ -241,5 +244,75 @@
   }
   75% {
     transform: translateY(-4px) scaleY(1.02);
+  }
+}
+
+/* Soft contact shadow beneath Gretel's feet, grounding her against any
+   background. Pulses in sync with each motion class's own vertical travel
+   so the shadow shrinks/lightens exactly when she lifts off the ground. */
+.gretel-contact-shadow {
+  position: absolute;
+  left: 50%;
+  bottom: -2%;
+  width: 62%;
+  height: 10%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(15, 15, 25, 0.4) 0%, rgba(15, 15, 25, 0.2) 50%, rgba(15, 15, 25, 0) 78%);
+  filter: blur(2px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.animate-gretel-shadow-bob {
+  animation: gretel-shadow-bob 3s ease-in-out infinite;
+}
+
+.animate-gretel-shadow-point {
+  animation: gretel-shadow-point 1s ease-in-out infinite;
+}
+
+.animate-gretel-shadow-bounce {
+  animation: gretel-shadow-bounce 1.2s ease-in-out infinite;
+}
+
+@keyframes gretel-shadow-bob {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) scale(0.85);
+    opacity: 0.65;
+  }
+}
+
+@keyframes gretel-shadow-point {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) scale(0.93);
+    opacity: 0.8;
+  }
+}
+
+@keyframes gretel-shadow-bounce {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+  30% {
+    transform: translateX(-50%) scale(0.68);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateX(-50%) scale(1.1);
+    opacity: 1;
+  }
+  75% {
+    transform: translateX(-50%) scale(0.82);
+    opacity: 0.7;
   }
 }
