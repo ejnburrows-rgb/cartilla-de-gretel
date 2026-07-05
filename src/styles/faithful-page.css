@@ -24,6 +24,25 @@
     0 2px 8px -4px rgba(63, 169, 166, 0.12);
 }
 
+/* Student workbook only (garden={true}, tied to FaithfulPageRenderer's
+ * `interactive` flag) — a barely-there garden tint on the paper itself plus
+ * two small real-art corner flourishes (same feathered crops used in the
+ * outer GardenScene frame), kept faint enough that text/exercise contrast
+ * is unaffected. Teacher preview surfaces never pass `garden`, so they stay
+ * pure white, unchanged. */
+.faithful-page--garden {
+  background:
+    radial-gradient(140% 100% at 15% 0%, rgba(63, 169, 166, 0.05), transparent 55%),
+    url("/cartilla/images/garden/grass-left.webp") left bottom no-repeat,
+    url("/cartilla/images/garden/grass-right.webp") right bottom no-repeat,
+    linear-gradient(180deg, var(--book-paper) 70%, #eef4de 100%);
+  background-size: auto, 22% auto, 22% auto, 100% 100%;
+}
+.faithful-page--garden .faithful-page__body {
+  position: relative;
+  z-index: 1;
+}
+
 /* Wavy teal sidebar down the left edge */
 .faithful-page__sidebar {
   position: absolute;
