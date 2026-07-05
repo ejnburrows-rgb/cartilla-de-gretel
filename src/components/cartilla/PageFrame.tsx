@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import React, { type ReactNode } from "react";
 import "@/styles/faithful-page.css";
 
 /**
@@ -16,6 +16,10 @@ interface PageFrameProps {
   /** Subtle garden-tinted paper + corner art, student workbook only — never
    * applied to the teacher's read-only preview surfaces. */
   garden?: boolean;
+  /** Per-lesson background image URL — overrides the default gretel-authentic.jpg.
+   * Passed as `--garden-page-bg: url(...)` so the CSS ::before layer hot-swaps
+   * without any other change. Only meaningful when `garden` is true. */
+  gardenBg?: string;
 }
 
 /** Wavy right-edge teal band, stretched to the page height. */
@@ -40,12 +44,13 @@ function WavySidebar() {
   );
 }
 
-export function PageFrame({ pageNumber, lessonNumber, children, className, garden }: PageFrameProps) {
+export function PageFrame({ pageNumber, lessonNumber, children, className, garden, gardenBg }: PageFrameProps) {
   const classes = ["faithful-page", garden ? "faithful-page--garden" : "", className ?? ""]
     .filter(Boolean)
     .join(" ");
+  const style = garden && gardenBg ? ({ "--garden-page-bg": `url('${gardenBg}')` } as React.CSSProperties) : undefined;
   return (
-    <div className={classes}>
+    <div className={classes} style={style}>
       <div className="faithful-page__sidebar">
         <WavySidebar />
       </div>
