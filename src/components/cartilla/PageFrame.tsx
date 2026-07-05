@@ -13,6 +13,9 @@ interface PageFrameProps {
   children: ReactNode;
   /** Extra class on the root (e.g. "faithful-page--pending"). */
   className?: string;
+  /** Subtle garden-tinted paper + corner art, student workbook only — never
+   * applied to the teacher's read-only preview surfaces. */
+  garden?: boolean;
 }
 
 /** Wavy right-edge teal band, stretched to the page height. */
@@ -37,10 +40,12 @@ function WavySidebar() {
   );
 }
 
-export function PageFrame({ pageNumber, lessonNumber, children, className }: PageFrameProps) {
-  const rootClass = className ? `faithful-page ${className}` : "faithful-page";
+export function PageFrame({ pageNumber, lessonNumber, children, className, garden }: PageFrameProps) {
+  const classes = ["faithful-page", garden ? "faithful-page--garden" : "", className ?? ""]
+    .filter(Boolean)
+    .join(" ");
   return (
-    <div className={rootClass}>
+    <div className={classes}>
       <div className="faithful-page__sidebar">
         <WavySidebar />
       </div>

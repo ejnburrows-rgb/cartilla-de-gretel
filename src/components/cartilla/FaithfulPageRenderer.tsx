@@ -302,7 +302,7 @@ export function FaithfulPageRenderer({
   const lessonId = lessonNumber ? String(lessonNumber) : undefined;
 
   return (
-    <PageFrame pageNumber={pageNumber} lessonNumber={lessonNumber}>
+    <PageFrame pageNumber={pageNumber} lessonNumber={lessonNumber} garden={interactive}>
       {ordered.map((region) => (
         <RegionView key={region.id} region={region} interactive={interactive} accent={accent} lessonId={lessonId} />
       ))}
