@@ -234,3 +234,20 @@ directly, the owner confirmed:
    Supabase project in a session yet — only verified by reading the code
    + existing unit tests (student.functions.test.ts). First real test needs
    VITE_SUPABASE_URL + VITE_SUPABASE_PUBLISHABLE_KEY (local .env + Vercel).
+✅ Interactive on-page exercises — all 6 region types (picture-grid,
+   vowel-pick-one, vowel-match-all, vowel-line-match, syllable-match,
+   fill-in-blank) tap-to-answer + grade + react, wired generically in
+   FaithfulPageRenderer.tsx via buildPageArray.tsx's `interactive` flag —
+   this already applies to every lesson automatically, not just Lección 1.
+   Verified end-to-end in-browser (July 2026) across 3 different lessons
+   (1, 2, 7) and all 6 region types: grading fires correctly and Gretel
+   reacts every time. Along the way found and fixed a real bug (PR #90):
+   page-inventory.json only listed 1 of each vowel lesson's 3 real pages,
+   silently making the vowel-line-match exercise unreachable in the student
+   workbook for all 5 vowel lessons — fixed, now all 3 pages are reachable.
+✅ Gretel avatar polish (PR #87) — fixed a real sock/shoe gap defect on 3
+   poses (idle/point/talk), added a ground-contact shadow + ambient
+   drop-shadow, both synced to her motion state.
+✅ Workbook frame redesign (PR #88) — replaced the old wood-desk background
+   with a garden scene (grass, swaying flowers, a drifting butterfly, a
+   dragonfly) drawn from the real book cover art, not invented.
