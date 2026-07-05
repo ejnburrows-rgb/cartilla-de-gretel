@@ -3,12 +3,12 @@ import { useGretelEvents } from "./useGretelEvents";
 
 interface GretelGuideProps {
   className?: string;
+  /** @deprecated feedback is now spoken, not shown as a text bubble; kept so existing call sites don't need to change. */
   bubblePosition?: "left" | "right" | "top";
 }
 
 export function GretelGuide({
   className = "",
-  bubblePosition = "left",
 }: GretelGuideProps) {
   const { currentPose, machineState, speechText, send } = useGretelEvents();
   const [reducedMotion, setReducedMotion] = useState(false);
@@ -42,28 +42,15 @@ export function GretelGuide({
     }
   }
 
-  const bubbleClasses = {
-    left: "right-full mr-4 bottom-6",
-    right: "left-full ml-4 bottom-6",
-    top: "bottom-full mb-4 left-1/2 -translate-x-1/2",
-  };
-
-  const bubbleArrowClasses = {
-    left: "right-[-8px] bottom-6 border-l-white border-t-transparent border-b-transparent border-r-transparent border-y-[8px] border-l-[8px]",
-    right: "left-[-8px] bottom-6 border-r-white border-t-transparent border-b-transparent border-l-transparent border-y-[8px] border-r-[8px]",
-    top: "bottom-[-8px] left-1/2 -translate-x-1/2 border-t-white border-x-transparent border-b-transparent border-y-[8px] border-t-[8px] border-x-[8px]",
-  };
-
   return (
     <div className={`relative flex items-center justify-center ${className}`}>
+      {/* Feedback is spoken aloud (gretel-tts.ts), not shown as a text
+          bubble. Still exposed to screen readers via a visually-hidden
+          live region so the feedback isn't audio-only for accessibility. */}
       {speechText && (
-        <div
-          className={`absolute z-30 max-w-[200px] sm:max-w-[240px] w-56 rounded-2xl bg-white p-3 sm:p-4 text-xs sm:text-sm font-bold text-stone-800 shadow-xl border border-stone-200/65 select-none animate-fade-in ${bubbleClasses[bubblePosition]}`}
-          aria-live="polite"
-        >
-          <div className={`absolute w-0 h-0 border-solid ${bubbleArrowClasses[bubblePosition]}`} />
-          <p className="leading-relaxed whitespace-pre-line pr-2">{speechText}</p>
-        </div>
+        <span className="sr-only" aria-live="polite">
+          {speechText}
+        </span>
       )}
 
       <div className="relative h-24 w-24 sm:h-36 sm:w-36">

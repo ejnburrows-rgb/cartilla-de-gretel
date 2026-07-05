@@ -5,6 +5,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useGretelAnimation } from "./useGretelAnimation";
 import { onGretelEvent, type GretelBusEvent } from "@/lib/gretel-bus";
+import { speakGretelPhrase } from "@/lib/gretel-tts";
 
 const NUDGE_DELAY_MS = 10_000;
 
@@ -36,11 +37,18 @@ export function useGretelEvents() {
       speechTimerRef.current = setTimeout(() => setSpeechText(undefined), ms);
     };
 
+    // Speaks the phrase aloud (real audio, no on-screen text) and keeps
+    // speechText in state for any non-visual consumer (e.g. a11y/testing).
+    const say = (phrase: string) => {
+      setSpeechText(phrase);
+      speakGretelPhrase(phrase);
+    };
+
     const resetNudge = () => {
       if (nudgeTimerRef.current) clearTimeout(nudgeTimerRef.current);
       nudgeTimerRef.current = setTimeout(() => {
         send({ type: "POINT" });
-        setSpeechText("¡Inténtalo!");
+        say("¡Inténtalo!");
         scheduleSpeechClear(2200);
       }, NUDGE_DELAY_MS);
     };
@@ -54,25 +62,25 @@ export function useGretelEvents() {
       switch (type) {
         case "lesson:start":
           send({ type: "WAVE" });
-          setSpeechText("¡Empecemos!");
+          say("¡Empecemos!");
           scheduleSpeechClear(2200);
           break;
 
         case "answer:correct":
           send({ type: "CHEER" });
-          setSpeechText("¡Muy bien!");
+          say("¡Muy bien!");
           scheduleSpeechClear(2200);
           break;
 
         case "answer:wrong":
           send({ type: "POINT" });
-          setSpeechText("¡Inténtalo de nuevo!");
+          say("¡Inténtalo de nuevo!");
           scheduleSpeechClear(2200);
           break;
 
         case "hint:show":
           send({ type: "POINT" });
-          setSpeechText("¡Mira aquí!");
+          say("¡Mira aquí!");
           // Re-point every 1.8s to hold the pose past the 2s FSM auto-return
           hintIntervalRef.current = setInterval(() => send({ type: "POINT" }), 1800);
           break;
@@ -86,7 +94,7 @@ export function useGretelEvents() {
 
         case "lesson:complete":
           send({ type: "CHEER" });
-          setSpeechText("¡Lo lograste!");
+          say("¡Lo lograste!");
           scheduleSpeechClear(3200);
           break;
 
@@ -102,7 +110,7 @@ export function useGretelEvents() {
 
         case "nudge":
           send({ type: "POINT" });
-          setSpeechText("¡Inténtalo!");
+          say("¡Inténtalo!");
           scheduleSpeechClear(2200);
           break;
       }
