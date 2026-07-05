@@ -25,18 +25,35 @@
 }
 
 /* Student workbook only (garden={true}, tied to FaithfulPageRenderer's
- * `interactive` flag) — a barely-there garden tint on the paper itself plus
- * two small real-art corner flourishes (same feathered crops used in the
- * outer GardenScene frame), kept faint enough that text/exercise contrast
- * is unaffected. Teacher preview surfaces never pass `garden`, so they stay
- * pure white, unchanged. */
+ * `interactive` flag) — the page paper gets real painted garden art from
+ * the book's source painting as a soft background layer; two small real-art
+ * corner flourishes anchor the bottom. Teacher preview surfaces never pass
+ * `garden`, so they stay pure white, unchanged.
+ *
+ * --garden-page-bg: CSS custom property for the painting URL, set here to
+ * the interim gretel-authentic.jpg (full garden scene). Override per-lesson
+ * via inline style on PageFrame once dedicated lesson backgrounds arrive. */
 .faithful-page--garden {
+  --garden-page-bg: url("/art/hd/gretel-authentic.jpg");
   background:
-    radial-gradient(140% 100% at 15% 0%, rgba(63, 169, 166, 0.05), transparent 55%),
-    url("/cartilla/images/garden/grass-left.webp") left bottom no-repeat,
-    url("/cartilla/images/garden/grass-right.webp") right bottom no-repeat,
-    linear-gradient(180deg, var(--book-paper) 70%, #eef4de 100%);
-  background-size: auto, 22% auto, 22% auto, 100% 100%;
+    url("/cartilla/images/garden/grass-left.webp") left bottom / 18% auto no-repeat,
+    url("/cartilla/images/garden/grass-right.webp") right bottom / 18% auto no-repeat,
+    linear-gradient(180deg, var(--book-paper) 60%, #eef4de 100%);
+}
+/* The painted garden layer — sits above the gradient but below all content.
+ * Positioned to show the lower garden/foliage area of the painting rather
+ * than Gretel's figure. Blurred + low-opacity so exercises stay readable. */
+.faithful-page--garden::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--garden-page-bg);
+  background-size: cover;
+  background-position: center 68%;
+  opacity: 0.22;
+  filter: blur(2px) saturate(0.8) brightness(1.06);
+  pointer-events: none;
+  z-index: 0;
 }
 .faithful-page--garden .faithful-page__body {
   position: relative;
