@@ -12,6 +12,16 @@ import {
 } from "./InteractivePageExercises";
 
 /**
+ * Per-lesson garden background overrides. The CSS default is gretel-authentic.jpg
+ * (set on .faithful-page--garden in faithful-page.css). Add an entry here when
+ * a dedicated lesson background arrives from the image-gen pipeline — just the
+ * URL path, no `url()` wrapper needed. Hot-swappable without any other change.
+ */
+const LESSON_GARDEN_BG: Record<number, string> = {
+  // e.g. 1: "/art/hd/garden/lesson-01.jpg",
+};
+
+/**
  * Renders a workbook page from its faithful, verified region layout
  * (src/data/page-layouts.json) — real text in the book's font + real COLOR
  * illustrations cropped from the original artwork. This is the single renderer
@@ -300,9 +310,10 @@ export function FaithfulPageRenderer({
   const ordered = [...layout].sort((a, b) => a.order - b.order);
   const accent = lessonNumber ? CATALOG.find((e) => e.n === lessonNumber)?.color : undefined;
   const lessonId = lessonNumber ? String(lessonNumber) : undefined;
+  const gardenBg = lessonNumber ? LESSON_GARDEN_BG[lessonNumber] : undefined;
 
   return (
-    <PageFrame pageNumber={pageNumber} lessonNumber={lessonNumber} garden={interactive}>
+    <PageFrame pageNumber={pageNumber} lessonNumber={lessonNumber} garden={interactive} gardenBg={gardenBg}>
       {ordered.map((region) => (
         <RegionView key={region.id} region={region} interactive={interactive} accent={accent} lessonId={lessonId} />
       ))}
