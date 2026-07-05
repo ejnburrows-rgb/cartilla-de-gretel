@@ -231,16 +231,13 @@ feedback, to follow going forward:
   small flower graphics painted along one edge — it means an actual
   illustrated garden environment/setting, full scope still being defined
   with the owner (see active plan).
-- **Gretel must not be limited to 5 static swappable poses.** The owner
-  believes a system was promised that would use ALL of the images the
-  owner uploaded to bring her to life, not just pose-swapping between 5
-  fixed images. This needs real investigation (find every uploaded Gretel
-  image asset that actually exists, not just the 5 in
-  `public/cartilla/images/gretel/poses/`) before any further pose/animation
-  work — do not keep building on the current 5-pose system without first
-  confirming with the owner whether more source images exist and are
-  simply not wired in yet, or whether real new animation/video work is
-  expected instead.
+- **Gretel pose investigation is now complete.** Confirmed: only 5 poses
+  exist in the repo (public/cartilla/images/gretel/poses/: idle, cheer,
+  point, talk, wave). No additional uploaded images found anywhere in
+  public/. The 5-pose system is all we have right now. For richer
+  animation (talk mouth frames, wave arm frames, cheer variants, blink)
+  new frames need to come from an image-gen agent (Prompt 2 in active
+  plan) — not from the owner's prior uploads, which are simply not there.
 - Owner's own words, verbatim, for tone/urgency: "You are below
   expectations. You're doing a half-assed job. You're not doing what you
   planned, what you promised, what I mentioned." Take this seriously —
@@ -293,6 +290,26 @@ feedback, to follow going forward:
 ✅ Gretel avatar polish (PR #87) — fixed a real sock/shoe gap defect on 3
    poses (idle/point/talk), added a ground-contact shadow + ambient
    drop-shadow, both synced to her motion state.
-✅ Workbook frame redesign (PR #88) — replaced the old wood-desk background
-   with a garden scene (grass, swaying flowers, a drifting butterfly, a
-   dragonfly) drawn from the real book cover art, not invented.
+✅ Workbook frame redesign (PR #88 + #93 + #95) — replaced wood-desk with
+   a garden scene; PR #93 removed literal flower graphics (owner feedback);
+   PR #95 replaced synthetic art with real feathered crops from
+   gretel-authentic.jpg for the grass corners.
+✅ Gretel spoken feedback (PR #94) — feedback is spoken via browser TTS
+   (speakGretelPhrase in src/lib/gretel-tts.ts), never shown as on-screen
+   text that could cover content. a11y-only hidden text kept for screen
+   readers. Text bubble deleted entirely.
+✅ Painted garden background on workbook pages (PR #99) — student workbook
+   pages now use the real book painting (gretel-authentic.jpg) as a soft
+   background (blurred, 22% opacity, lower garden/foliage area shown).
+   CSS custom property --garden-page-bg is hot-swappable per lesson when
+   dedicated backgrounds arrive. Teacher views unaffected.
+✅ Vocab card grids with real art (PRs #97, #98, #46) — all 5 vowel
+   lessons show painted illustration crops in the vocab card grid; 3
+   consonant words (araña, carro, casa) show real art. The 51 manifest
+   crops are all clean and wired wherever they match content. Remaining
+   69 consonant vocab words await Antigravity's batch delivery.
+✅ Gretel pose investigation COMPLETE — confirmed only 5 poses exist in
+   the repo (public/cartilla/images/gretel/poses/: idle, cheer, point,
+   talk, wave). No additional uploaded images found anywhere in public/.
+   The 5-pose system is what we have. New animation frames (talk/wave/cheer
+   variants) need image-gen agent delivery (Prompt 2 in active plan).
