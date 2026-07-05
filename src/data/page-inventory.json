@@ -207,31 +207,41 @@
       {
         "lessonId": 2,
         "pages": [
-          "o/o-page-3.jpg"
+          "o/o-page-3.jpg",
+          "o/o-page-4.jpg",
+          "o/o-page-5.jpg"
         ]
       },
       {
         "lessonId": 3,
         "pages": [
-          "a/a-page-4.jpg"
+          "a/a-page-4.jpg",
+          "a/a-page-5.jpg",
+          "a/a-page-6.jpg"
         ]
       },
       {
         "lessonId": 4,
         "pages": [
-          "e/e-page-5.jpg"
+          "e/e-page-10.jpg",
+          "e/e-page-11.jpg",
+          "e/e-page-12.jpg"
         ]
       },
       {
         "lessonId": 5,
         "pages": [
-          "i/i-page-6.jpg"
+          "i/i-page-13.jpg",
+          "i/i-page-14.jpg",
+          "i/i-page-15.jpg"
         ]
       },
       {
         "lessonId": 6,
         "pages": [
-          "u/u-page-7.jpg"
+          "u/u-page-16.jpg",
+          "u/u-page-17.jpg",
+          "u/u-page-18.jpg"
         ]
       },
       {
