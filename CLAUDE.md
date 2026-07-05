@@ -313,3 +313,13 @@ feedback, to follow going forward:
    talk, wave). No additional uploaded images found anywhere in public/.
    The 5-pose system is what we have. New animation frames (talk/wave/cheer
    variants) need image-gen agent delivery (Prompt 2 in active plan).
+✅ Illustration motion on static cells (faithful-page.css + FaithfulPageRenderer.tsx)
+   — @keyframes fpFaithfulFloat + per-cell --float-delay offsets applied to
+   all 4 static region types (picture-grid, vowel-match, vowel-pick, vowel-match-all).
+   Teacher views and student workbook both show ambient floating motion;
+   prefers-reduced-motion disables it fully. Shipped as part of PR #99 era.
+✅ Per-lesson garden background hot-swap infrastructure (PR #101) — PageFrame
+   gains a `gardenBg` prop that sets --garden-page-bg inline; FaithfulPageRenderer
+   defines a LESSON_GARDEN_BG mapping (empty for now, all lessons use interim
+   gretel-authentic.jpg). Adding a dedicated lesson background once image-gen
+   delivers art is a one-line change in that mapping.
