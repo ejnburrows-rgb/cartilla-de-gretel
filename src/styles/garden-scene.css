@@ -1,7 +1,7 @@
 /* Garden Scene — replaces the old wood-desk frame around the student
  * workbook with a soft garden environment derived from the real book cover
- * (La Cartilla de Gretel: Gretel reading on a stool, grass, flowers, a
- * yellow butterfly, a dragonfly). CSS/SVG only, no new illustration assets —
+ * (La Cartilla de Gretel: Gretel reading on a stool, grass, a yellow
+ * butterfly, a dragonfly). CSS/SVG only, no new illustration assets —
  * mirrors the same "motion on a static shape" approach used for Gretel's
  * own idle-loop animation elsewhere in the app.
  */
@@ -31,23 +31,6 @@
 .garden-scene__content {
   position: relative;
   z-index: 1;
-}
-
-.garden-flower {
-  position: absolute;
-  bottom: -6px;
-  transform-origin: bottom center;
-  animation: garden-flower-sway 4.5s ease-in-out infinite;
-  animation-delay: var(--sway-delay, 0s);
-}
-
-@keyframes garden-flower-sway {
-  0%, 100% {
-    transform: rotate(-3deg);
-  }
-  50% {
-    transform: rotate(3deg);
-  }
 }
 
 .garden-butterfly {
@@ -123,7 +106,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .garden-flower,
   .garden-butterfly,
   .garden-dragonfly,
   .garden-butterfly__wing,
