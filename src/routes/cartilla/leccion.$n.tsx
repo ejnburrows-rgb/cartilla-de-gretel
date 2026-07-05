@@ -20,6 +20,7 @@ import { StudentWorkbookFlip } from "@/components/StudentBook/StudentWorkbookFli
 import { buildPageArray } from "@/utils/buildPageArray";
 import { ActivityCarousel } from "@/components/cartilla/ActivityCarousel";
 import { GretelGuide } from "@/components/gretel/GretelGuide";
+import { GardenScene } from "@/components/cartilla/GardenScene";
 import "@/styles/interactive-exercises.css";
 import "@/styles/gretel.css";
 
@@ -149,7 +150,7 @@ function Leccion() {
         </div>
 
         {/* Digital Workbook Section */}
-        <div className="w-full relative bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')] bg-[#d4a373] rounded-[2rem] p-4 sm:p-8 shadow-inner border-[8px] border-[#bc6c25] mb-12">
+        <GardenScene>
           <StudentWorkbookFlip
             pages={pages}
             initialPage={0}
@@ -157,7 +158,7 @@ function Leccion() {
           <div className="absolute -bottom-6 -right-2 sm:right-4 z-20 pointer-events-none">
             <GretelGuide bubblePosition="left" />
           </div>
-        </div>
+        </GardenScene>
 
         {/* Interactive Zone */}
         <div className="w-full max-w-3xl">
