@@ -6,6 +6,9 @@ Register a new teacher subroute `/cartilla/teacher/guia/$n` rendering the 2x2 gr
 ## Milestones
 | # | Name | Scope | Dependencies | Status |
 |---|------|-------|-------------|--------|
-| 1 | Register Guide Route | Define route cartilla.teacher.guia.$n in route Tree and navigation | None | PLANNED |
-| 2 | Guide Panel Content | Render grid and custom callout blocks (tip, warning, fyi) | M1 | PLANNED |
-| 3 | Print Formatting | CSS rules for print view (hiding headers/sidebars, rendering full text) | M2 | PLANNED |
+| 1 | Register Guide Route | Define route cartilla.teacher.guia.$n in route Tree and navigation | None | DONE |
+| 2 | Guide Panel Content | Render grid and custom callout blocks (tip, warning, fyi) | M1 | DONE |
+| 3 | Print Formatting | CSS rules for print view (hiding headers/sidebars, rendering full text) | M2 | DONE (src/styles/teacher-print.css) |
+
+## Status Note (2026-07-01)
+Verified against `main` (`7288043`): route `src/routes/cartilla/teacher/guia.$n.tsx` is registered in `routeTree.gen.ts` and has been through several further real-world iterations (bilingual metadata, master-detail hub, gamified duolingo-style map) beyond this original scope. This SCOPE doc was stale — updated during a branch/status audit.

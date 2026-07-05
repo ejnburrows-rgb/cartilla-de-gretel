@@ -414,6 +414,37 @@ function ConsonantBody({
           </ul>
         </div>
       )}
+      <div>
+        <h2 className="text-xl font-bold mb-2">{t.palabras[lang]}</h2>
+        <ul className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          {c.vocab.map((v, i) => (
+            <li
+              key={v.word}
+              className="rounded-2xl border-2 border-foreground/10 bg-card p-3 text-center hover:-translate-y-0.5 transition"
+            >
+              {v.illustrationSrc ? (
+                <img
+                  src={v.illustrationSrc}
+                  alt={v.word}
+                  className="w-12 h-12 mx-auto object-contain game-pic-float"
+                  style={{ ["--float-delay" as string]: `${((i * 37) % 47) / 10}s` }}
+                  loading="lazy"
+                />
+              ) : (
+                <div className="text-3xl">{v.emoji}</div>
+              )}
+              <div className="font-bold mt-1">{v.word}</div>
+              <button
+                onClick={() => play(v.word)}
+                aria-label={`Escuchar ${v.word}`}
+                className={`mt-1 inline-flex items-center gap-1 text-xs text-foreground/60 hover:text-primary ${playingText === v.word ? "animate-pulse text-primary" : ""}`}
+              >
+                <Volume2 className="w-3.5 h-3.5" /> {t.oir[lang]}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
       <ActivityCarousel
         lessonNumber={entry.n}
         syllables={c.syllables}
