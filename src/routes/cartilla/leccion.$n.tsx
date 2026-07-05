@@ -19,7 +19,9 @@ import { gretelEvent } from "@/lib/gretel-bus";
 import { StudentWorkbookFlip } from "@/components/StudentBook/StudentWorkbookFlip";
 import { buildPageArray } from "@/utils/buildPageArray";
 import { ActivityCarousel } from "@/components/cartilla/ActivityCarousel";
+import { GretelGuide } from "@/components/gretel/GretelGuide";
 import "@/styles/interactive-exercises.css";
+import "@/styles/gretel.css";
 
 export const Route = createFileRoute("/cartilla/leccion/$n")({
   component: Leccion,
@@ -152,6 +154,9 @@ function Leccion() {
             pages={pages}
             initialPage={0}
           />
+          <div className="absolute -bottom-6 -right-2 sm:right-4 z-20 pointer-events-none">
+            <GretelGuide bubblePosition="left" />
+          </div>
         </div>
 
         {/* Interactive Zone */}
