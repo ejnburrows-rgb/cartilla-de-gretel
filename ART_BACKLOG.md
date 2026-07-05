@@ -6,6 +6,29 @@ moves — read this file fresh every time, don't rely on an earlier chat
 message. Last verified: July 2026, against `src/data/page-layouts.json` and
 `public/cartilla/art/faithful/manifest.json` on `main`.
 
+## Update — the re-audit list below is now fully closed out
+
+Every word named in the "full re-audit" section below has been fixed and
+merged directly to `main` this session, by hand-cropping from the real
+source page scans (`public/cartilla/art/hd/workbook/page-0NN.jpg`) — not
+taken on report from any other agent: `arbol`, `oruga`, `maiz`, `iguana`,
+`igual`, `erizo`, `ojos`, `globo`, `abanico`, `abeja`, `escalera`, `pera`
+(contrast fixed), and now **`ardilla`** — the one word previously marked
+"unresolved, no wider source available." A wider source was found after
+all: `public/cartilla/art/hd/workbook/page-009.jpg` (real book page 7,
+Vocal A picture-grid — note this scan folder's filenames run 2 pages ahead
+of the real page number, e.g. `page-009.jpg` = real page 7, confirmed by
+reading the page-number diamond directly on multiple files, not assumed).
+The squirrel illustration in that grid cell is printed upside-down relative
+to the rest of the page (a real quirk of this scan, not a mistake on my
+part) — rotating just that cell 180° before cropping gives a full, clean,
+tight squirrel holding an acorn, no bleed, no clipping.
+
+**No open art-extraction defects remain as of this update.** The only two
+words confirmed to have no illustration anywhere in the physical book are
+still `arco`, `pez`, `traje`, `águila`, `urna` (see "Confirmed NOT to
+exist" below) — those stay as "art pending," which is correct.
+
 ## Update — full re-audit of all 51 wired crops, real work reopened
 
 The "no open art-extraction work" line below is **no longer true** — a full,
