@@ -202,6 +202,41 @@ directly, the owner confirmed:
   the games' established, already-approved visual language rather than
   staying monochrome-teal.
 
+## Owner rejected the garden/Gretel work as half-assed (memorized July 2026)
+The owner reviewed the garden-scene frame (PR #88) and Gretel polish (PR #87)
+and rejected both as below expectations, not what was promised. Exact
+feedback, to follow going forward:
+- **No literal flower decorations** — the few flower graphics added at the
+  bottom of the garden frame read as "a little girl CRM." Remove them.
+- **No corny on-screen feedback phrases** — text like "¡Inténtalo de nuevo!"
+  popping up as a speech bubble is not acceptable. Feedback should be
+  **spoken** (real audio/voice), not written on screen as a text bubble.
+- Whatever feedback mechanism replaces it must **never cover other art or
+  parts of the page/CRM** — no overlapping popups blocking content.
+- **This was only ever meant to be step one.** The real, full ask: every
+  single lesson page's background — not just the outer frame around the
+  workbook — needs to stop being white and needs real, beautiful garden
+  scenery behind it, done **one lesson/session at a time** after realigning
+  on what "garden" actually means. "Garden" does NOT mean a handful of
+  small flower graphics painted along one edge — it means an actual
+  illustrated garden environment/setting, full scope still being defined
+  with the owner (see active plan).
+- **Gretel must not be limited to 5 static swappable poses.** The owner
+  believes a system was promised that would use ALL of the images the
+  owner uploaded to bring her to life, not just pose-swapping between 5
+  fixed images. This needs real investigation (find every uploaded Gretel
+  image asset that actually exists, not just the 5 in
+  `public/cartilla/images/gretel/poses/`) before any further pose/animation
+  work — do not keep building on the current 5-pose system without first
+  confirming with the owner whether more source images exist and are
+  simply not wired in yet, or whether real new animation/video work is
+  expected instead.
+- Owner's own words, verbatim, for tone/urgency: "You are below
+  expectations. You're doing a half-assed job. You're not doing what you
+  planned, what you promised, what I mentioned." Take this seriously —
+  re-analyze everything, do deep research, ask real clarifying questions
+  before building more, don't just re-guess and ship again.
+
 ## Current Status (July 2026)
 ✅ Landing page with desk scene
 ✅ Workbook with 95 pages
