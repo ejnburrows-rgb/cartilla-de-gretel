@@ -77,6 +77,16 @@ Teachers create classes, assign students, and track progress via Supabase.
 - **Always ask relevant questions (memorized July 2026):** when there's a
   real decision only the owner can make, ask it directly and specifically
   — don't bury it in a status update or skip it to avoid seeming unsure.
+- **Always recognize and answer what's actually being asked (memorized
+  July 2026):** read each message for the real question inside it, and
+  answer that question directly and explicitly before moving on to
+  anything else — don't let it get lost in status updates, other work, or
+  a pivot to a different topic.
+- **Answer immediately, don't make the owner wait (memorized July 2026):**
+  when a new message comes in while I'm mid-task, answer it right away in
+  that same turn — don't silently keep coding and save the answer for
+  whenever I next feel like surfacing it. Keep working in parallel, but the
+  answer itself comes now, not later.
 
 ## Owner's Urgency (memorized July 2026)
 The owner is way behind schedule and has zero patience left for busywork or

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, type ReactElement } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Volume2, Grid, Puzzle, PenTool, Music, CheckCircle } from "lucide-react";
 import { SyllableTap } from "@/components/cartilla/Ejercicios";
@@ -6,6 +6,7 @@ import { DragMatchPairs } from "@/components/cartilla/DragMatchPairs";
 import { DragBuildWord } from "@/components/cartilla/DragBuildWord";
 import { DragLetterTrace } from "@/components/cartilla/DragLetterTrace";
 import { PianoPronunciation } from "@/components/cartilla/PianoPronunciation";
+import { DEFAULT_ACTIVITIES, type ActivityId } from "@/lib/lesson-catalog";
 import "@/styles/cartilla-student.css";
 
 interface ActivityCarouselProps {
@@ -16,9 +17,11 @@ interface ActivityCarouselProps {
   color: string;
   lessonId?: string;
   onCompleteAll?: () => void;
+  /** Which activities this lesson offers, and in what order. Defaults to all 5. */
+  activities?: ActivityId[];
 }
 
-type TabType = "silabas" | "palabras" | "armar" | "trazar" | "piano";
+type TabType = ActivityId;
 
 export function ActivityCarousel({
   lessonNumber,
@@ -28,8 +31,9 @@ export function ActivityCarousel({
   color,
   lessonId,
   onCompleteAll,
+  activities = DEFAULT_ACTIVITIES,
 }: ActivityCarouselProps) {
-  const [activeTab, setActiveTab] = useState<TabType>("silabas");
+  const [activeTab, setActiveTab] = useState<TabType>(activities[0] ?? "silabas");
   const [completedTabs, setCompletedTabs] = useState<Set<TabType>>(new Set());
 
   // Derive matching pairs from words
@@ -38,14 +42,17 @@ export function ActivityCarousel({
     .map((w) => ({ word: w.word, emoji: w.emoji as string, illustrationSrc: w.illustrationSrc }))
     .slice(0, 4); // Keep to a max of 4 pairs for a balanced layout
 
-  // Map tabs to metadata
-  const tabs = [
-    { id: "silabas" as TabType, label: "Sílabas", icon: <Volume2 className="w-4 h-4" /> },
-    { id: "palabras" as TabType, label: "Emparejar", icon: <Grid className="w-4 h-4" />, disabled: pairs.length === 0 },
-    { id: "armar" as TabType, label: "Armar", icon: <Puzzle className="w-4 h-4" /> },
-    { id: "trazar" as TabType, label: "Trazar", icon: <PenTool className="w-4 h-4" /> },
-    { id: "piano" as TabType, label: "Piano", icon: <Music className="w-4 h-4" /> },
-  ].filter(t => !t.disabled);
+  // Map tabs to metadata, in the order this lesson's `activities` specifies
+  const tabMeta: Record<TabType, { label: string; icon: ReactElement; disabled?: boolean }> = {
+    silabas: { label: "Sílabas", icon: <Volume2 className="w-4 h-4" /> },
+    palabras: { label: "Emparejar", icon: <Grid className="w-4 h-4" />, disabled: pairs.length === 0 },
+    armar: { label: "Armar", icon: <Puzzle className="w-4 h-4" /> },
+    trazar: { label: "Trazar", icon: <PenTool className="w-4 h-4" /> },
+    piano: { label: "Piano", icon: <Music className="w-4 h-4" /> },
+  };
+  const tabs = activities
+    .map((id) => ({ id, ...tabMeta[id] }))
+    .filter((t) => !t.disabled);
 
   // Mark tab complete
   const handleCompleteTab = (tabId: TabType) => {

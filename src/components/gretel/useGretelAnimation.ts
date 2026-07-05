@@ -4,7 +4,7 @@ import {
   GretelState,
   GretelEvent,
 } from "./gretelMachine";
-import { GRETEL_ORIGINAL_ARTWORK } from "./gretelPoses";
+import { getGretelPose } from "./gretelPoses";
 
 const failedUrls = new Set<string>();
 const TRANSPARENT_SPACER = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
@@ -22,6 +22,8 @@ export function useGretelAnimation(): GretelAnimationHook {
   const [isRecovering, setIsRecovering] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const machineStateRef = useRef<GretelState>(machineState);
+  machineStateRef.current = machineState;
 
   const clearTimer = useCallback(() => {
     if (timerRef.current !== null) {
@@ -34,7 +36,7 @@ export function useGretelAnimation(): GretelAnimationHook {
     if (event.type === "RESET") {
       failedUrls.clear();
     } else if (event.type === "ASSET_ERROR") {
-      failedUrls.add(GRETEL_ORIGINAL_ARTWORK);
+      failedUrls.add(getGretelPose(machineStateRef.current));
     }
     dispatch(event);
   }, []);
@@ -71,9 +73,10 @@ export function useGretelAnimation(): GretelAnimationHook {
 
   useEffect(() => {
     if (machineState === "boot") {
-      preloadImage(GRETEL_ORIGINAL_ARTWORK)
+      const idlePose = getGretelPose("idle");
+      preloadImage(idlePose)
         .catch(() => {
-          failedUrls.add(GRETEL_ORIGINAL_ARTWORK);
+          failedUrls.add(idlePose);
         })
         .finally(() => {
           dispatch({ type: "INIT" });
@@ -97,7 +100,7 @@ export function useGretelAnimation(): GretelAnimationHook {
     };
   }, [machineState, clearTimer]);
 
-  let currentSrc = GRETEL_ORIGINAL_ARTWORK;
+  let currentSrc = getGretelPose(machineState);
   if (failedUrls.has(currentSrc)) {
     currentSrc = TRANSPARENT_SPACER;
   }
