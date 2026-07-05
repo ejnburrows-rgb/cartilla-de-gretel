@@ -219,11 +219,11 @@ function IntroBody({
   const { play, playingText } = useAudio();
   const vowels = ["a", "e", "i", "o", "u"];
   const vowelWords = [
-    { word: "ala", emoji: "🧥" },
+    { word: "ala", emoji: "🧥", illustrationSrc: "/cartilla/art/faithful/vocal-a/alas.webp" },
     { word: "elefante", emoji: "🐘", illustrationSrc: "/cartilla/art/faithful/vocal-e/elefante.webp" },
     { word: "iglú", emoji: "⛺", illustrationSrc: "/cartilla/art/faithful/vocal-i/iglu.webp" },
     { word: "oso", emoji: "🐻", illustrationSrc: "/cartilla/art/faithful/vocal-o/oso.webp" },
-    { word: "uva", emoji: "🍇" },
+    { word: "uva", emoji: "🍇", illustrationSrc: "/cartilla/art/faithful/vocal-u/uvas.webp" },
   ];
   return (
     <section className="mt-5 space-y-5">
