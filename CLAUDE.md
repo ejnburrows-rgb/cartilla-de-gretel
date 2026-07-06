@@ -100,6 +100,26 @@ Teachers create classes, assign students, and track progress via Supabase.
   that same turn — don't silently keep coding and save the answer for
   whenever I next feel like surfacing it. Keep working in parallel, but the
   answer itself comes now, not later.
+- **Owner does not do manual work (memorized July 2026):** The owner does
+  not crop images, edit JSON, run terminal commands, or do any production
+  task by hand. Everything is automated or done with coding tools. **Antigravity
+  owns art extraction end-to-end** (scripts, crops, manifest, PR). Grok/Claude
+  owns visual QA, takeover on AG failure, and wiring `illustrationSrc` after
+  each art PR passes. Never tell the owner to hand-crop, open an image editor,
+  or run commands themselves — always give Antigravity complete, paste-ready
+  prompts it can execute autonomously.
+- **Always ship a 0%→100% checklist (memorized July 2026):** every multi-step
+  goal gets an explicit percent-tracked list of everything left to reach done —
+  no implied steps, no guessing. Ask the owner only when MD files lack the answer.
+- **Grok work groups — nonstop rotation (memorized July 2026):** Grok cycles
+  without owner pings: **A** watch GitHub for `feat/consonant-art-l*` PRs;
+  **B** visual QA every webp; **C** takeover crop if Antigravity fails;
+  **D** wire `consonants.json` after pass; **E** unblocked backlog (Gretel,
+  docs) while waiting. Never merge rejected branches; never touch `leccion-1/`
+  or `vocal-*/`.
+- **Antigravity parallel lanes (memorized July 2026):** consonant crops split
+  into 3 lanes — L7–12, L13–18, L19–24 — one HEADER + one LANE prompt per
+  Antigravity session, one PR per lesson per lane.
 
 ## Owner's Urgency (memorized July 2026)
 The owner is way behind schedule and has zero patience left for busywork or
