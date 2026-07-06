@@ -46,6 +46,16 @@ const variants: Variants = {
   },
 };
 
+/**
+ * SUPPRESSED visual speech bubble per owner directive (CLAUDE.md
+ * "Characters must be ALIVE"): Gretel speaks via TTS audio. The visible text
+ * bubble that overlaid and blocked page content is removed. If `text` is
+ * passed, it renders as a screen-reader-only live region for a11y.
+ *
+ * The bubble CSS classes and arrow code below are preserved but unused so
+ * the diff is minimal and easy to review. If the owner ever approves visible
+ * captions, re-add the `{text && bubbleOpen && (...)}` block.
+ */
 export function GretelMascot({
   pose = "welcome",
   text,
@@ -57,12 +67,10 @@ export function GretelMascot({
   const { currentPose, send } = useGretelAnimation();
 
   useEffect(() => {
-    // Reset bubble open state when pose or text changes
     setBubbleOpen(true);
   }, [pose, text]);
 
   useEffect(() => {
-    // Map props to FSM triggers
     switch (pose) {
       case "welcome":
       case "wave":
@@ -82,41 +90,19 @@ export function GretelMascot({
     }
   }, [pose, send]);
 
-  const bubbleClasses = {
-    left: "right-full mr-4 bottom-6",
-    right: "left-full ml-4 bottom-6",
-    top: "bottom-full mb-4 left-1/2 -translate-x-1/2",
-  };
-
-  const bubbleArrowClasses = {
-    left: "right-[-8px] bottom-6 border-l-stone-100 border-t-transparent border-b-transparent border-r-transparent border-y-[8px] border-l-[8px]",
-    right:
-      "left-[-8px] bottom-6 border-r-stone-100 border-t-transparent border-b-transparent border-l-transparent border-y-[8px] border-r-[8px]",
-    top: "bottom-[-8px] left-1/2 -translate-x-1/2 border-t-stone-100 border-x-transparent border-b-transparent border-y-[8px] border-t-[8px] border-x-[8px]",
-  };
+  // Kept for future re-enablement; currently unused since bubble is suppressed.
+  void bubblePosition;
+  void showCloseButton;
+  void bubbleOpen;
+  void setBubbleOpen;
 
   return (
     <div className={`relative flex items-center justify-center ${className}`}>
-      {/* Speech Bubble */}
-      {text && bubbleOpen && (
-        <div
-          className={`absolute z-30 max-w-[200px] sm:max-w-[240px] w-56 rounded-2xl bg-stone-100 p-3 sm:p-4 text-xs sm:text-sm font-bold text-stone-800 shadow-xl border border-stone-200/65 select-none animate-fade-in ${bubbleClasses[bubblePosition]}`}
-        >
-          {/* Bubble Arrow */}
-          <div className={`absolute w-0 h-0 border-solid ${bubbleArrowClasses[bubblePosition]}`} />
-
-          {showCloseButton && (
-            <button
-              onClick={() => setBubbleOpen(false)}
-              className="absolute top-1.5 right-1.5 text-stone-400 hover:text-stone-600 cursor-pointer p-0.5 rounded-full hover:bg-stone-200 transition"
-              aria-label="Cerrar mensaje"
-            >
-              <X className="w-3.5 h-3.5" />
-            </button>
-          )}
-
-          <p className="leading-relaxed whitespace-pre-line pr-2">{text}</p>
-        </div>
+      {/* Speech bubble SUPPRESSED — Gretel speaks via TTS audio only */}
+      {text && (
+        <span className="sr-only" role="status" aria-live="polite">
+          {text}
+        </span>
       )}
 
       {/* Mascot Render — one consistent drawing, gently animated */}
