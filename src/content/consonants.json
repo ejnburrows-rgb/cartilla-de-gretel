@@ -88,7 +88,8 @@
     "vocab": [
       {
         "word": "papá",
-        "emoji": "👨"
+        "emoji": "👨",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-8-p/papa.webp"
       },
       {
         "word": "pez",
@@ -160,7 +161,8 @@
     "vocab": [
       {
         "word": "sapo",
-        "emoji": "🐸"
+        "emoji": "🐸",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-9-s/sapo.webp"
       },
       {
         "word": "sol",
@@ -168,7 +170,8 @@
       },
       {
         "word": "sopa",
-        "emoji": "🍲"
+        "emoji": "🍲",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-9-s/sopa.webp"
       },
       {
         "word": "silla",
@@ -304,7 +307,8 @@
     "vocab": [
       {
         "word": "dado",
-        "emoji": "🎲"
+        "emoji": "🎲",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/dado.webp"
       },
       {
         "word": "delfín",
