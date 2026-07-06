@@ -457,5 +457,34 @@
     "src": "/cartilla/art/faithful/vocal-u/uniforme.webp",
     "sourceFlipchartPage": null,
     "cropBox": null
+  },
+  {
+    "slug": "mama",
+    "word": "mamá",
+    "lessonNumber": 7,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-7-m/mama.webp",
+    "sourceFlipchartPage": "m-page-8.jpg",
+    "cropBox": [
+      100,
+      1200,
+      880,
+      1820
+    ]
+  },
+  {
+    "slug": "mono",
+    "word": "mono",
+    "lessonNumber": 7,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-7-m/mono.webp",
+    "sourceFlipchartPage": "n-page-25.jpg",
+    "cropBox": [
+      1600,
+      950,
+      2360,
+      1630
+    ],
+    "crossLessonNote": "cross-lesson: N flipchart page 25"
   }
 ]
