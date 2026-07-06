@@ -551,5 +551,27 @@
     "pageNumber": 22,
     "src": "/cartilla/art/faithful/leccion-12-l/luna.webp",
     "sourceNote": "No explicit text label, crop of the moon in the background"
+  },
+  {
+    "slug": "bota",
+    "word": "bota",
+    "lessonNumber": 15,
+    "pageNumber": 31,
+    "src": "/cartilla/art/faithful/leccion-15-b/bota.webp"
+  },
+  {
+    "slug": "bebe",
+    "word": "bebé",
+    "lessonNumber": 15,
+    "pageNumber": 31,
+    "src": "/cartilla/art/faithful/leccion-15-b/bebe.webp",
+    "sourceNote": "Source label is 'bebita'"
+  },
+  {
+    "slug": "vela",
+    "word": "vela",
+    "lessonNumber": 16,
+    "pageNumber": 34,
+    "src": "/cartilla/art/faithful/leccion-16-v/vela.webp"
   }
 ]

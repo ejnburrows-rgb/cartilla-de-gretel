@@ -602,7 +602,8 @@
       },
       {
         "word": "bebé",
-        "emoji": "👶"
+        "emoji": "👶",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-15-b/bebe.webp"
       },
       {
         "word": "bici",
@@ -610,7 +611,8 @@
       },
       {
         "word": "bota",
-        "emoji": "👢"
+        "emoji": "👢",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-15-b/bota.webp"
       }
     ],
     "examples": {
@@ -674,7 +676,8 @@
       },
       {
         "word": "vela",
-        "emoji": "🕯️"
+        "emoji": "🕯️",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/vela.webp"
       },
       {
         "word": "vino",
