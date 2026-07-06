@@ -41,6 +41,9 @@ Teachers create classes, assign students, and track progress via Supabase.
 - NEVER delete files — move or rename only
 - NEVER refactor working code unless explicitly asked
 - NEVER touch Gretel animation state machine without explicit approval
+  (one scoped approval granted July 2026 — see "Characters must be ALIVE"
+  section: wiring the 7 delivered frames is approved; anything beyond that
+  still requires new approval)
 - Confirm before any change touching more than 3 files at once
 - sessionStorage is a placeholder — student data must go to Supabase
 - All env vars use import.meta.env (Vite)
@@ -169,7 +172,10 @@ not a real product. Decisions made, now locked in:
   (per-cell randomized timing so a grid never moves in sync — that's the
   "cliché" look to avoid), plus a bigger momentary reaction on tap/correct/
   incorrect. Never new animated art — motion only, applied to the real
-  faithful crop.
+  faithful crop. (July 2026 update: the owner has now approved ONE scoped
+  exception — see "Characters must be ALIVE": living creatures in book
+  illustrations may get generated blink frames derived from the real book
+  art.)
 - **Wording will need to change, but not yet.** The book's printed
   instructions say things like "Circula los dibujos" (circle the
   pictures) — that verb doesn't make sense once it's a tap/click
@@ -211,6 +217,11 @@ directly, the owner confirmed:
   is the *interaction/feedback* layer: chips, colors, motion should match
   the games' established, already-approved visual language rather than
   staying monochrome-teal.
+- **July 2026 owner directive:** the Activities/games section (the owner
+  calls it "the channel") must be **REVAMPED COMPLETELY** when the owner
+  asks for it. Do not start the revamp unprompted, and do not sink time
+  into incremental patches to the current carousel in the meantime — when
+  the owner says go, it's a full redesign, not a touch-up.
 
 ## Owner rejected the garden/Gretel work as half-assed (memorized July 2026)
 The owner reviewed the garden-scene frame (PR #88) and Gretel polish (PR #87)
@@ -238,6 +249,8 @@ feedback, to follow going forward:
   animation (talk mouth frames, wave arm frames, cheer variants, blink)
   new frames need to come from an image-gen agent (Prompt 2 in active
   plan) — not from the owner's prior uploads, which are simply not there.
+  (July 2026 update: those frames HAVE now been delivered — see next
+  section.)
 - Owner's own words, verbatim, for tone/urgency: "You are below
   expectations. You're doing a half-assed job. You're not doing what you
   planned, what you promised, what I mentioned." Take this seriously —
@@ -259,24 +272,42 @@ every agent working on this repo:
   count as "animated."
 - **Never block content:** Gretel (and any character or feedback element)
   must never cover or overlap the workbook page, exercises, or any part of
-  the CRM the kids use. She needs a dedicated spot outside the content
-  area, and/or must shrink/hide while a child is working. This extends the
-  existing "feedback must never cover content" rule to the character
-  herself.
+  the CRM the kids use. This extends the existing "feedback must never
+  cover content" rule to the character herself.
 - **No unprompted speech:** Gretel only speaks in reaction to a real
   student action or event (lesson start, correct, wrong, complete). No
   idle chatter, no random phrases "for no reason."
 - Priority: ASAP — this is the owner's top visual complaint right now.
-- Raw material now exists: 7 new animation frames (blink, talk-0/1/2,
-  wave-1/2, cheer-1) were delivered on the branch behind PR #107. Wiring
-  them into the Gretel state machine STILL requires the owner's explicit
-  go (hard rule above) — that approval is being requested from the owner
-  right now; do not wire ahead of it.
-- Open question with the owner (do not act until answered): making the
-  in-book illustration crops of living creatures blink would require
-  generating new per-creature animation frames (new art-pipeline scope,
-  conflicts with the "never invented art" rule unless the owner approves
-  an exception). Inanimate-object crops keep the existing gentle float.
+
+### Owner decisions, asked and answered directly (July 2026) — all locked in
+1. **Frame wiring: APPROVED — "Yes, go now."** The owner gave the explicit
+   go to wire the 7 delivered frames (gretel-blink, gretel-talk-0/1/2,
+   gretel-wave-1/2, gretel-cheer-1) into the Gretel animation state machine
+   (gretelMachine + GretelLiveAvatar.tsx): idle blink loop every few
+   seconds, talk mouth frames cycling while she speaks, wave on lesson
+   start, cheer on completion. This satisfies the "explicit approval" hard
+   rule for THIS scoped work only; anything beyond it needs fresh approval.
+2. **Placement: fixed corner spot.** Gretel lives in a dedicated fixed
+   corner of the screen that never overlaps the page, the exercises, or any
+   content — on EVERY surface. The owner confirmed she currently blocks
+   content / misbehaves on the workbook pages, in the lesson games, and
+   everywhere she appears — audit and fix every surface, not just one.
+3. **Speech audit everywhere:** the owner sees her "saying nonsense for no
+   reason" across all surfaces. Verify every trigger; anything that fires
+   speech outside real student events (start/correct/wrong/complete) is a
+   bug to remove.
+4. **Voice: robot browser TTS stays for now.** Fix behavior first; real
+   recorded human voice is a later, separate pass. Do not spend time on
+   voice recording now.
+5. **Blink frames for book creatures: APPROVED exception to the
+   never-invent-art rule.** Generating new blink/idle frames for LIVING
+   CREATURES in the book's illustrations is allowed, with strict limits:
+   frames must be derived from the real book illustration of that same
+   creature (same style, same colors, same creature — eyes closed / mid-
+   blink variants only), never a newly invented character or redrawn scene.
+   Inanimate-object crops keep the existing gentle float/bob only.
+6. **"Channel" = the Activities/games section** (see the Visual direction
+   section above) — full revamp queued for when the owner asks; not started.
 
 ## Current Status (July 2026)
 ✅ Landing page with desk scene
@@ -341,17 +372,21 @@ every agent working on this repo:
    lessons show painted illustration crops in the vocab card grid; 3
    consonant words (araña, carro, casa) show real art. The 51 manifest
    crops are all clean and wired wherever they match content. Remaining
-   69 consonant vocab words await Antigravity's batch delivery.
-✅ Gretel pose investigation COMPLETE — confirmed only 5 poses exist in
-   the repo (public/cartilla/images/gretel/poses/: idle, cheer, point,
-   talk, wave). No additional uploaded images found anywhere in public/.
-   The 5-pose system is what we have. New animation frames (talk/wave/cheer
-   variants) need image-gen agent delivery (Prompt 2 in active plan).
+   69 consonant vocab words await verification of Antigravity's delivered
+   batch (feat/art-extraction-consonants — crops are heuristic, every one
+   must be opened at full resolution before wiring).
+✅ Gretel pose investigation COMPLETE — confirmed only 5 poses exist on
+   main (public/cartilla/images/gretel/poses/: idle, cheer, point,
+   talk, wave). July 2026: 7 NEW animation frames (blink, talk-0/1/2,
+   wave-1/2, cheer-1) delivered via PR #107 — owner approved wiring them
+   in (see "Characters must be ALIVE" decisions).
 ✅ Illustration motion on static cells (faithful-page.css + FaithfulPageRenderer.tsx)
    — @keyframes fpFaithfulFloat + per-cell --float-delay offsets applied to
    all 4 static region types (picture-grid, vowel-match, vowel-pick, vowel-match-all).
    Teacher views and student workbook both show ambient floating motion;
    prefers-reduced-motion disables it fully. Shipped as part of PR #99 era.
+   (July 2026: per the ALIVE standard, this float is now only correct for
+   INANIMATE objects — living creatures need blink frames, see decisions.)
 ✅ Per-lesson garden background hot-swap infrastructure (PR #101) — PageFrame
    gains a `gardenBg` prop that sets --garden-page-bg inline; FaithfulPageRenderer
    defines a LESSON_GARDEN_BG mapping (empty for now, all lessons use interim
