@@ -1,0 +1,27 @@
+name: Supabase PR Safety Check
+
+on:
+  pull_request:
+    paths:
+      - 'supabase/migrations/**'
+
+concurrency:
+  group: supabase-pr-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify-migrations:
+    name: Verify Migrations
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Supabase CLI
+        uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - name: Start Supabase locally (Validates Migrations)
+        run: supabase start
