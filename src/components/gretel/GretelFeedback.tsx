@@ -7,9 +7,18 @@ interface GretelFeedbackProps {
   children?: ReactNode;
 }
 
-const wrapperClass = "flex flex-col sm:flex-row items-center gap-4 p-4 rounded-3xl bg-amber-50/50 border border-amber-100/50 shadow-sm w-full transition-all duration-300 mt-3";
-const bubbleClass = "relative flex-1 bg-white border border-stone-200 p-4 rounded-2xl text-stone-800 text-sm shadow-sm before:absolute before:-top-2 before:left-10 sm:before:top-1/2 sm:before:-left-2 sm:before:-translate-y-1/2 before:w-4 before:h-4 before:bg-white before:border-t before:border-l sm:before:border-t-0 sm:before:border-b before:border-stone-200 before:rotate-45";
+const wrapperClass =
+  "flex flex-col sm:flex-row items-center gap-4 p-4 rounded-3xl bg-amber-50/50 border border-amber-100/50 shadow-sm w-full transition-all duration-300 mt-3";
 
+/**
+ * SUPPRESSED visual speech bubble per owner directive (CLAUDE.md
+ * "Characters must be ALIVE"): Gretel speaks via TTS audio. The visible text
+ * bubble that overlaid and blocked page content is removed. If a message is
+ * passed, it renders as a screen-reader-only live region for a11y.
+ *
+ * The `bubbleClass` const and the visual bubble JSX are removed. If the
+ * owner ever approves visible captions, re-add the bubble block.
+ */
 export function GretelFeedback({ isCorrect, message, children }: GretelFeedbackProps) {
   const { currentPose, send } = useGretelAnimation();
 
@@ -24,12 +33,13 @@ export function GretelFeedback({ isCorrect, message, children }: GretelFeedbackP
 
   if (isCorrect === null) return null;
 
-  const feedbackMessage = message || (isCorrect 
-    ? "¡Excelente trabajo! ¡Sigue así, lo estás haciendo de maravilla!" 
+  const feedbackMessage = message || (isCorrect
+    ? "¡Excelente trabajo! ¡Sigue así, lo estás haciendo de maravilla!"
     : "Buen intento. ¡No te rindas, inténtalo de nuevo y lo lograrás!");
 
   return (
     <div className={wrapperClass}>
+      {/* Gretel avatar — feedback is spoken via TTS, not shown as text */}
       <div className="w-20 h-20 shrink-0 relative animate-fade-in drop-shadow-md">
         <img
           src={currentPose}
@@ -39,10 +49,11 @@ export function GretelFeedback({ isCorrect, message, children }: GretelFeedbackP
           onError={() => send({ type: "ASSET_ERROR" })}
         />
       </div>
-      <div className={bubbleClass}>
-        <div>{feedbackMessage}</div>
-        {children && <div className="mt-3">{children}</div>}
-      </div>
+      {/* Screen-reader-only feedback text — no visual overlay */}
+      <span className="sr-only" role="status" aria-live="polite">
+        {feedbackMessage}
+      </span>
+      {children && <div className="mt-3 w-full">{children}</div>}
     </div>
   );
 }

@@ -1,13 +1,15 @@
 // useGretelEvents.ts
 // Wraps useGretelAnimation and subscribes to the gretel-bus.
 // Any component using this hook will respond to gretelEvent() calls.
-// Manages speech text display and a 10s inactivity nudge timer.
+//
+// Owner rule (CLAUDE.md "Characters must be ALIVE"): no unprompted speech.
+// The 10s inactivity nudge timer that fired speech with zero student action
+// has been REMOVED. Gretel only speaks on: lesson:start, answer:correct,
+// answer:wrong, lesson:complete, hint:show, hint:hide, talk:start, talk:stop.
 import { useEffect, useRef, useState } from "react";
 import { useGretelAnimation } from "./useGretelAnimation";
 import { onGretelEvent, type GretelBusEvent } from "@/lib/gretel-bus";
 import { speakGretelPhrase } from "@/lib/gretel-tts";
-
-const NUDGE_DELAY_MS = 10_000;
 
 export function useGretelEvents() {
   const { currentPose, machineState, send, isRecovering } = useGretelAnimation();
@@ -15,7 +17,6 @@ export function useGretelEvents() {
 
   const speechTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const hintIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const nudgeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const clearSpeech = () => {
@@ -44,19 +45,7 @@ export function useGretelEvents() {
       speakGretelPhrase(phrase);
     };
 
-    const resetNudge = () => {
-      if (nudgeTimerRef.current) clearTimeout(nudgeTimerRef.current);
-      nudgeTimerRef.current = setTimeout(() => {
-        send({ type: "POINT" });
-        say("¡Inténtalo!");
-        scheduleSpeechClear(2200);
-      }, NUDGE_DELAY_MS);
-    };
-
-    resetNudge();
-
     const off = onGretelEvent((type: GretelBusEvent) => {
-      resetNudge();
       clearHint();
 
       switch (type) {
@@ -108,10 +97,12 @@ export function useGretelEvents() {
           clearSpeech();
           break;
 
+        // "nudge" case removed — was fired by a 10s inactivity timer with
+        // zero student action. The timer is gone. If any external caller
+        // still dispatches "nudge" it hits this no-op default.
         case "nudge":
-          send({ type: "POINT" });
-          say("¡Inténtalo!");
-          scheduleSpeechClear(2200);
+        case "mount":
+        case "page-flip":
           break;
       }
     });
@@ -120,7 +111,6 @@ export function useGretelEvents() {
       off();
       clearSpeech();
       clearHint();
-      if (nudgeTimerRef.current) clearTimeout(nudgeTimerRef.current);
     };
   }, [send]);
 
