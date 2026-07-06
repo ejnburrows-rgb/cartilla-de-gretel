@@ -14,11 +14,13 @@
     "vocab": [
       {
         "word": "mamá",
-        "emoji": "👩"
+        "emoji": "👩",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/mama.webp"
       },
       {
         "word": "mono",
-        "emoji": "🐒"
+        "emoji": "🐒",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/mono.webp"
       },
       {
         "word": "moto",

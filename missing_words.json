@@ -1,0 +1,337 @@
+[
+  {
+    "lesson": 7,
+    "word": "moto",
+    "slug": "moto"
+  },
+  {
+    "lesson": 7,
+    "word": "mapa",
+    "slug": "mapa"
+  },
+  {
+    "lesson": 8,
+    "word": "papá",
+    "slug": "papa"
+  },
+  {
+    "lesson": 8,
+    "word": "pez",
+    "slug": "pez"
+  },
+  {
+    "lesson": 8,
+    "word": "pino",
+    "slug": "pino"
+  },
+  {
+    "lesson": 8,
+    "word": "pulpo",
+    "slug": "pulpo"
+  },
+  {
+    "lesson": 9,
+    "word": "sapo",
+    "slug": "sapo"
+  },
+  {
+    "lesson": 9,
+    "word": "sol",
+    "slug": "sol"
+  },
+  {
+    "lesson": 9,
+    "word": "sopa",
+    "slug": "sopa"
+  },
+  {
+    "lesson": 9,
+    "word": "silla",
+    "slug": "silla"
+  },
+  {
+    "lesson": 10,
+    "word": "tapa",
+    "slug": "tapa"
+  },
+  {
+    "lesson": 10,
+    "word": "tomate",
+    "slug": "tomate"
+  },
+  {
+    "lesson": 10,
+    "word": "tina",
+    "slug": "tina"
+  },
+  {
+    "lesson": 10,
+    "word": "tulipán",
+    "slug": "tulipan"
+  },
+  {
+    "lesson": 11,
+    "word": "dado",
+    "slug": "dado"
+  },
+  {
+    "lesson": 11,
+    "word": "delfín",
+    "slug": "delfin"
+  },
+  {
+    "lesson": 11,
+    "word": "dona",
+    "slug": "dona"
+  },
+  {
+    "lesson": 11,
+    "word": "ducha",
+    "slug": "ducha"
+  },
+  {
+    "lesson": 12,
+    "word": "luna",
+    "slug": "luna"
+  },
+  {
+    "lesson": 12,
+    "word": "lobo",
+    "slug": "lobo"
+  },
+  {
+    "lesson": 12,
+    "word": "loro",
+    "slug": "loro"
+  },
+  {
+    "lesson": 12,
+    "word": "lupa",
+    "slug": "lupa"
+  },
+  {
+    "lesson": 13,
+    "word": "nariz",
+    "slug": "nariz"
+  },
+  {
+    "lesson": 13,
+    "word": "nido",
+    "slug": "nido"
+  },
+  {
+    "lesson": 13,
+    "word": "nube",
+    "slug": "nube"
+  },
+  {
+    "lesson": 13,
+    "word": "nata",
+    "slug": "nata"
+  },
+  {
+    "lesson": 14,
+    "word": "piña",
+    "slug": "pina"
+  },
+  {
+    "lesson": 14,
+    "word": "muñeca",
+    "slug": "muneca"
+  },
+  {
+    "lesson": 14,
+    "word": "niño",
+    "slug": "nino"
+  },
+  {
+    "lesson": 15,
+    "word": "barco",
+    "slug": "barco"
+  },
+  {
+    "lesson": 15,
+    "word": "bebé",
+    "slug": "bebe"
+  },
+  {
+    "lesson": 15,
+    "word": "bici",
+    "slug": "bici"
+  },
+  {
+    "lesson": 15,
+    "word": "bota",
+    "slug": "bota"
+  },
+  {
+    "lesson": 16,
+    "word": "vaca",
+    "slug": "vaca"
+  },
+  {
+    "lesson": 16,
+    "word": "vela",
+    "slug": "vela"
+  },
+  {
+    "lesson": 16,
+    "word": "vino",
+    "slug": "vino"
+  },
+  {
+    "lesson": 16,
+    "word": "volcán",
+    "slug": "volcan"
+  },
+  {
+    "lesson": 17,
+    "word": "rana",
+    "slug": "rana"
+  },
+  {
+    "lesson": 17,
+    "word": "rosa",
+    "slug": "rosa"
+  },
+  {
+    "lesson": 17,
+    "word": "remo",
+    "slug": "remo"
+  },
+  {
+    "lesson": 17,
+    "word": "rueda",
+    "slug": "rueda"
+  },
+  {
+    "lesson": 18,
+    "word": "perro",
+    "slug": "perro"
+  },
+  {
+    "lesson": 18,
+    "word": "burro",
+    "slug": "burro"
+  },
+  {
+    "lesson": 18,
+    "word": "guitarra",
+    "slug": "guitarra"
+  },
+  {
+    "lesson": 19,
+    "word": "gato",
+    "slug": "gato"
+  },
+  {
+    "lesson": 19,
+    "word": "galleta",
+    "slug": "galleta"
+  },
+  {
+    "lesson": 19,
+    "word": "guitarra",
+    "slug": "guitarra"
+  },
+  {
+    "lesson": 19,
+    "word": "gusano",
+    "slug": "gusano"
+  },
+  {
+    "lesson": 20,
+    "word": "faro",
+    "slug": "faro"
+  },
+  {
+    "lesson": 20,
+    "word": "fiesta",
+    "slug": "fiesta"
+  },
+  {
+    "lesson": 20,
+    "word": "foca",
+    "slug": "foca"
+  },
+  {
+    "lesson": 20,
+    "word": "fuente",
+    "slug": "fuente"
+  },
+  {
+    "lesson": 21,
+    "word": "jabón",
+    "slug": "jabon"
+  },
+  {
+    "lesson": 21,
+    "word": "jirafa",
+    "slug": "jirafa"
+  },
+  {
+    "lesson": 21,
+    "word": "joya",
+    "slug": "joya"
+  },
+  {
+    "lesson": 21,
+    "word": "juguete",
+    "slug": "juguete"
+  },
+  {
+    "lesson": 22,
+    "word": "queso",
+    "slug": "queso"
+  },
+  {
+    "lesson": 22,
+    "word": "coco",
+    "slug": "coco"
+  },
+  {
+    "lesson": 22,
+    "word": "cuchara",
+    "slug": "cuchara"
+  },
+  {
+    "lesson": 23,
+    "word": "yate",
+    "slug": "yate"
+  },
+  {
+    "lesson": 23,
+    "word": "yegua",
+    "slug": "yegua"
+  },
+  {
+    "lesson": 23,
+    "word": "yoyo",
+    "slug": "yoyo"
+  },
+  {
+    "lesson": 23,
+    "word": "yuca",
+    "slug": "yuca"
+  },
+  {
+    "lesson": 24,
+    "word": "zapato",
+    "slug": "zapato"
+  },
+  {
+    "lesson": 24,
+    "word": "zanahoria",
+    "slug": "zanahoria"
+  },
+  {
+    "lesson": 24,
+    "word": "cine",
+    "slug": "cine"
+  },
+  {
+    "lesson": 24,
+    "word": "zorro",
+    "slug": "zorro"
+  }
+]
