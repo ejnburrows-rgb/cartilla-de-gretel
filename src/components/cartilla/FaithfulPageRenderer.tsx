@@ -90,7 +90,7 @@ function PictureGrid({ region }: { region: PageRegion }) {
       style={{ gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))` }}
     >
       {cells.map((cell, i) => (
-        <div key={i} className="fp-picture-grid__cell" style= ["--float-delay" as string]: floatDelay(i) >
+        <div key={i} className="fp-picture-grid__cell" style={{ ["--float-delay" as string]: floatDelay(i) }}>
           {cell.illustrationSrc ? (
             <img src={cell.illustrationSrc} alt={cell.caption ?? ""} loading="lazy" />
           ) : (
@@ -144,7 +144,7 @@ function VowelMatchCell({ cell, isExample, index }: { cell: PageGridCell; isExam
   return (
     <div
       className={`fp-vowel-match__cell${isExample ? " fp-vowel-match__cell--example" : ""}`}
-      style= ["--float-delay" as string]: floatDelay(index) 
+      style={{ ["--float-delay" as string]: floatDelay(index) }} 
     >
       {cell.illustrationSrc ? (
         <img src={cell.illustrationSrc} alt={cell.caption ?? ""} loading="lazy" />
@@ -181,7 +181,7 @@ function VowelPickOne({ region }: { region: PageRegion }) {
         <div key={i} className="fp-vowel-pick__row">
           <span className="fp-vowel-pick__letter">{row.letter}</span>
           {row.cells.map((cell, j) => (
-            <div key={j} className="fp-vowel-pick__cell" style= ["--float-delay" as string]: floatDelay(i * 3 + j) >
+            <div key={j} className="fp-vowel-pick__cell" style={{ ["--float-delay" as string]: floatDelay(i * 3 + j) }}>
               {cell.illustrationSrc ? (
                 <img src={cell.illustrationSrc} alt={cell.caption ?? ""} loading="lazy" />
               ) : (
@@ -205,7 +205,7 @@ function VowelMatchAll({ region }: { region: PageRegion }) {
       {pairs.map((pair, i) => (
         <div key={i} className="fp-vowel-match-all__row">
           <span className="fp-vowel-match-all__letter">{pair.letter}</span>
-          <div className="fp-vowel-match-all__cell" style= ["--float-delay" as string]: floatDelay(i) >
+          <div className="fp-vowel-match-all__cell" style={{ ["--float-delay" as string]: floatDelay(i) }}>
             {pair.illustrationSrc ? (
               <img src={pair.illustrationSrc} alt={pair.caption ?? ""} loading="lazy" />
             ) : (

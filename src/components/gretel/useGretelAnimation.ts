@@ -4,7 +4,7 @@ import {
   GretelState,
   GretelEvent,
 } from "./gretelMachine";
-import { getGretelPose } from "./gretelPoses";
+import { getGretelPose, getGretelPoseFrames } from "./gretelPoses";
 
 const failedUrls = new Set<string>();
 const TRANSPARENT_SPACER = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
@@ -36,7 +36,12 @@ export function useGretelAnimation(): GretelAnimationHook {
     if (event.type === "RESET") {
       failedUrls.clear();
     } else if (event.type === "ASSET_ERROR") {
-      failedUrls.add(getGretelPose(machineStateRef.current));
+      const pose = getGretelPoseFrames(machineStateRef.current);
+      if (typeof pose === "string") {
+        failedUrls.add(pose);
+      } else {
+        pose.forEach(p => failedUrls.add(p));
+      }
     }
     dispatch(event);
   }, []);
@@ -73,7 +78,7 @@ export function useGretelAnimation(): GretelAnimationHook {
 
   useEffect(() => {
     if (machineState === "boot") {
-      const idlePose = getGretelPose("idle");
+      const idlePose = getGretelPose("idle") as string;
       preloadImage(idlePose)
         .catch(() => {
           failedUrls.add(idlePose);
@@ -88,10 +93,21 @@ export function useGretelAnimation(): GretelAnimationHook {
     let isCancelled = false;
 
     // Reset back to idle automatically for transient states like pointing/waving/cheering
-    if (["pointing", "waving", "cheering", "blinking"].includes(machineState)) {
+    if (["pointing", "waving", "cheering"].includes(machineState)) {
       timerRef.current = setTimeout(() => {
         if (!isCancelled) dispatch({ type: "IDLE" });
       }, 2000);
+    } else if (machineState === "blinking") {
+      // Blink is fast
+      timerRef.current = setTimeout(() => {
+        if (!isCancelled) dispatch({ type: "IDLE" });
+      }, 150);
+    } else if (machineState === "idle") {
+      // Random blink cycle when idle
+      const nextBlink = Math.random() * 4000 + 2000; // 2-6 seconds
+      timerRef.current = setTimeout(() => {
+        if (!isCancelled) dispatch({ type: "BLINK" });
+      }, nextBlink);
     }
 
     return () => {
@@ -101,7 +117,7 @@ export function useGretelAnimation(): GretelAnimationHook {
   }, [machineState, clearTimer]);
 
   let currentSrc = getGretelPose(machineState);
-  if (failedUrls.has(currentSrc)) {
+  if (typeof currentSrc === "string" && failedUrls.has(currentSrc)) {
     currentSrc = TRANSPARENT_SPACER;
   }
 
