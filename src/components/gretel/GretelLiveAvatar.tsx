@@ -223,19 +223,6 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    /* ── Bubble positioning ── */
-    const bubbleClasses = {
-      left: "right-full mr-4 bottom-6",
-      right: "left-full ml-4 bottom-6",
-      top: "bottom-full mb-4 left-1/2 -translate-x-1/2",
-    };
-
-    const bubbleArrowClasses = {
-      left: "right-[-8px] bottom-6 border-l-amber-100 border-t-transparent border-b-transparent border-r-transparent border-y-[8px] border-l-[8px]",
-      right: "left-[-8px] bottom-6 border-r-amber-100 border-t-transparent border-b-transparent border-l-transparent border-y-[8px] border-r-[8px]",
-      top: "bottom-[-8px] left-1/2 -translate-x-1/2 border-t-amber-100 border-x-transparent border-b-transparent border-y-[8px] border-t-[8px] border-x-[8px]",
-    };
-
     return (
       <div className={`relative flex items-center justify-center ${className}`}>
 
@@ -286,29 +273,12 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
           ))}
         </AnimatePresence>
 
-        {/* ── Speech bubble ── */}
-        <AnimatePresence>
-          {bubbleText && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.6, y: 14 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.6, y: 14 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className={`absolute z-30 max-w-[220px] w-56 rounded-2xl bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 p-4 text-sm font-black text-amber-900 shadow-2xl border-2 border-amber-200 select-none ${bubbleClasses[bubblePosition]}`}
-            >
-              <div className={`absolute w-0 h-0 border-solid ${bubbleArrowClasses[bubblePosition]}`} />
-              {/* Animated text typing feel */}
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.3 }}
-                className="leading-relaxed text-center text-base"
-              >
-                {bubbleText}
-              </motion.p>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {/* Feedback is spoken via TTS — no visible bubble that blocks content. */}
+        {bubbleText && (
+          <span className="sr-only" aria-live="polite">
+            {bubbleText}
+          </span>
+        )}
 
         {/* ── Gretel's body — the living, breathing avatar ── */}
         <motion.div
