@@ -7,38 +7,28 @@ interface GretelSpeechBubbleProps {
   onDismiss: () => void;
 }
 
-// Hoisted Styles for double-brace JSX styling ban compliance
-const phraseStyle: React.CSSProperties = {
-  fontSize: "0.85rem",
-  fontWeight: "bold",
-  lineHeight: "1.35",
-  margin: 0,
-};
-
-const subtitleStyle: React.CSSProperties = {
-  fontSize: "0.7rem",
-  color: "var(--muted-color)",
-  lineHeight: "1.3",
-  marginTop: "0.25rem",
-  fontStyle: "italic",
-};
-
-export function GretelSpeechBubble({ phrase, subtitle, onDismiss }: GretelSpeechBubbleProps) {
-  const { lang } = useTheme();
+/**
+ * SUPPRESSED per owner directive (CLAUDE.md "Characters must be ALIVE"):
+ * Gretel speaks via TTS audio only. No visible text bubble overlay that
+ * blocks page content. This component now renders a screen-reader-only
+ * live region so the phrase is still accessible to assistive tech.
+ *
+ * NOT deleted — file preserved per CLAUDE.md "never delete files" rule.
+ * If the owner ever approves visible captions, re-add the visual JSX here.
+ */
+export function GretelSpeechBubble({ phrase, onDismiss }: GretelSpeechBubbleProps) {
+  useTheme(); // keep hook call for compat even though lang is unused now
 
   return (
-    <div
-      onClick={onDismiss}
-      className="gretel-speech-bubble no-print"
-      role="alert"
+    <span
+      className="sr-only"
+      role="status"
+      aria-live="polite"
       aria-label={`Gretel dice: ${phrase}`}
-      title="Toca para descartar"
+      onClick={onDismiss}
     >
-      <p style={phraseStyle}>{phrase}</p>
-      {lang === "en" && subtitle && (
-        <p style={subtitleStyle}>{subtitle}</p>
-      )}
-    </div>
+      {phrase}
+    </span>
   );
 }
 export type GretelSpeechBubble = typeof GretelSpeechBubble;
