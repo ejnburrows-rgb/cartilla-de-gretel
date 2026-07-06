@@ -11,11 +11,6 @@
   },
   {
     "lesson": 8,
-    "word": "papá",
-    "slug": "papa"
-  },
-  {
-    "lesson": 8,
     "word": "pez",
     "slug": "pez"
   },
@@ -31,18 +26,8 @@
   },
   {
     "lesson": 9,
-    "word": "sapo",
-    "slug": "sapo"
-  },
-  {
-    "lesson": 9,
     "word": "sol",
     "slug": "sol"
-  },
-  {
-    "lesson": 9,
-    "word": "sopa",
-    "slug": "sopa"
   },
   {
     "lesson": 9,
@@ -68,11 +53,6 @@
     "lesson": 10,
     "word": "tulipán",
     "slug": "tulipan"
-  },
-  {
-    "lesson": 11,
-    "word": "dado",
-    "slug": "dado"
   },
   {
     "lesson": 11,

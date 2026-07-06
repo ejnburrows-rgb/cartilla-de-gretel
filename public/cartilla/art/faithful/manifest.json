@@ -486,5 +486,62 @@
       1630
     ],
     "crossLessonNote": "cross-lesson: N flipchart page 25"
+  },
+  {
+    "slug": "papa",
+    "word": "papá",
+    "lessonNumber": 8,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-8-p/papa.webp",
+    "sourceFlipchartPage": "p-page-11.jpg",
+    "cropBox": [
+      60,
+      1180,
+      840,
+      1880
+    ]
+  },
+  {
+    "slug": "sapo",
+    "word": "sapo",
+    "lessonNumber": 9,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-9-s/sapo.webp",
+    "sourceFlipchartPage": "ss-page-14.jpg",
+    "cropBox": [
+      1540,
+      1180,
+      2320,
+      1880
+    ]
+  },
+  {
+    "slug": "sopa",
+    "word": "sopa",
+    "lessonNumber": 9,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-9-s/sopa.webp",
+    "sourceFlipchartPage": "ss-page-14.jpg",
+    "cropBox": [
+      820,
+      1180,
+      1600,
+      1880
+    ]
+  },
+  {
+    "slug": "dado",
+    "word": "dado",
+    "lessonNumber": 11,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-11-d/dado.webp",
+    "sourceFlipchartPage": "d-page-19.jpg",
+    "cropBox": [
+      820,
+      1180,
+      1600,
+      1880
+    ],
+    "sourceNote": "source label is 'dados' (dice pair)"
   }
 ]
