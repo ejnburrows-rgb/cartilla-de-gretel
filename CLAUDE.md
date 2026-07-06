@@ -244,6 +244,40 @@ feedback, to follow going forward:
   re-analyze everything, do deep research, ask real clarifying questions
   before building more, don't just re-guess and ship again.
 
+## Characters must be ALIVE — current Gretel treatment rejected (memorized July 2026)
+The owner reviewed the current Gretel presentation and rejected it outright.
+Their words: she is "just a stupid figurine bouncing up and down," with
+"five poses just awkwardly there," she is "blocking the damn CRM for the
+kids," and she is "saying nonsense for no reason." This is NOT to their
+expectations. Standing rules from this feedback, effective immediately, for
+every agent working on this repo:
+- **Alive standard for every character:** anything living (Gretel, animals
+  like a bear) must show organic, life-like animation — blinking,
+  breathing, natural micro-movement — never just a vertical bounce loop.
+  Only inanimate objects (a box, a ball) may use the simple up-and-down
+  bob. A static pose image sliding or bouncing around the screen does not
+  count as "animated."
+- **Never block content:** Gretel (and any character or feedback element)
+  must never cover or overlap the workbook page, exercises, or any part of
+  the CRM the kids use. She needs a dedicated spot outside the content
+  area, and/or must shrink/hide while a child is working. This extends the
+  existing "feedback must never cover content" rule to the character
+  herself.
+- **No unprompted speech:** Gretel only speaks in reaction to a real
+  student action or event (lesson start, correct, wrong, complete). No
+  idle chatter, no random phrases "for no reason."
+- Priority: ASAP — this is the owner's top visual complaint right now.
+- Raw material now exists: 7 new animation frames (blink, talk-0/1/2,
+  wave-1/2, cheer-1) were delivered on the branch behind PR #107. Wiring
+  them into the Gretel state machine STILL requires the owner's explicit
+  go (hard rule above) — that approval is being requested from the owner
+  right now; do not wire ahead of it.
+- Open question with the owner (do not act until answered): making the
+  in-book illustration crops of living creatures blink would require
+  generating new per-creature animation frames (new art-pipeline scope,
+  conflicts with the "never invented art" rule unless the owner approves
+  an exception). Inanimate-object crops keep the existing gentle float.
+
 ## Current Status (July 2026)
 ✅ Landing page with desk scene
 ✅ Workbook with 95 pages
