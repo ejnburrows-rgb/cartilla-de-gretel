@@ -83,6 +83,15 @@ Teachers create classes, assign students, and track progress via Supabase.
   option). Wasting the owner's time asking them to choose between two
   options when I can actually judge which is better is exactly what NOT
   to do.
+- **Recommend and execute — never ask permission for the obvious (memorized
+  July 2026):** when I can determine with full confidence that an action
+  is the right call and will not break anything, **state the recommendation
+  as fact and do it** — do not end with "want me to merge?" / "say the word"
+  / "your call?" The owner banned permission-seeking on safe, recommended
+  next steps. Only pause for owner input on genuine forks (money, legal,
+  visual art approval on new illustrations, env secrets they alone hold).
+  Wrong: "Merge PR #110 when you're ready?" Right: "Merging PR #110 now —
+  one-file bubble fix, typecheck clean, matches #109."
 - **Short, concise, informative answers (memorized July 2026):** keep
   replies tight by default — lead with the direct answer, skip preamble
   and repetition. Save length for when the owner actually asks for detail
