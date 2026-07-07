@@ -573,5 +573,156 @@
     "lessonNumber": 16,
     "pageNumber": 34,
     "src": "/cartilla/art/faithful/leccion-16-v/vela.webp"
+  },
+  {
+    "slug": "rana",
+    "word": "rana",
+    "lessonNumber": 17,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-17-r/rana.webp",
+    "sourceFlipchartPage": "r-page-37.jpg",
+    "cropBox": [180, 1400, 700, 1860],
+    "sourceNote": "frog illustration"
+  },
+  {
+    "slug": "rosa",
+    "word": "rosa",
+    "lessonNumber": 17,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-17-r/rosa.webp",
+    "sourceFlipchartPage": "r-page-37.jpg",
+    "cropBox": [220, 2240, 740, 2720],
+    "sourceNote": "rose illustration"
+  },
+  {
+    "slug": "remo",
+    "word": "remo",
+    "lessonNumber": 17,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-17-r/remo.webp",
+    "sourceFlipchartPage": "r-page-37.jpg",
+    "cropBox": [820, 1400, 1340, 1860],
+    "sourceNote": "oars/remos illustration (vocab uses singular remo)"
+  },
+  {
+    "slug": "rueda",
+    "word": "rueda",
+    "lessonNumber": 17,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-17-r/rueda.webp",
+    "sourceFlipchartPage": "r-page-37.jpg",
+    "cropBox": [1400, 2240, 2080, 2790],
+    "sourceNote": "wheel illustration (on yellow square in source)"
+  },
+  {
+    "slug": "burro",
+    "word": "burro",
+    "lessonNumber": 18,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-18-rr/burro.webp",
+    "sourceFlipchartPage": "rr-page-40.jpg",
+    "cropBox": [180, 1300, 760, 1780],
+    "sourceNote": "donkey illustration"
+  },
+  {
+    "slug": "perro",
+    "word": "perro",
+    "lessonNumber": 18,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-18-rr/perro.webp",
+    "sourceFlipchartPage": "rr-page-42.jpg",
+    "cropBox": [1480, 720, 2100, 1220],
+    "sourceNote": "dog in field (story page illustration for perro)"
+  },
+  {
+    "slug": "guitarra",
+    "word": "guitarra",
+    "lessonNumber": 18,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-18-rr/guitarra.webp",
+    "sourceFlipchartPage": "g-page-43.jpg",
+    "cropBox": [1600, 1380, 2180, 1900],
+    "sourceNote": "bear/Goloso cell used for guitarra (shared word; see L19); from g source per lesson lane"
+  },
+  {
+    "slug": "gato",
+    "word": "gato",
+    "lessonNumber": 19,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-19-g/gato.webp",
+    "sourceFlipchartPage": "g-page-45.jpg",
+    "cropBox": [1350, 650, 2200, 1400],
+    "sourceNote": "cats scene (gato enamorado story page)"
+  },
+  {
+    "slug": "galleta",
+    "word": "galleta",
+    "lessonNumber": 19,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-19-g/galleta.webp",
+    "sourceFlipchartPage": "g-page-43.jpg",
+    "cropBox": [200, 1400, 780, 1860],
+    "sourceNote": "gaveta/box cell assigned for galleta (per available cells in letter source)"
+  },
+  {
+    "slug": "guitarra",
+    "word": "guitarra",
+    "lessonNumber": 19,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-19-g/guitarra.webp",
+    "sourceFlipchartPage": "g-page-43.jpg",
+    "cropBox": [1600, 1400, 2180, 1860],
+    "sourceNote": "Goloso bear cell assigned for guitarra (shared with L18; from g source)"
+  },
+  {
+    "slug": "gusano",
+    "word": "gusano",
+    "lessonNumber": 19,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-19-g/gusano.webp",
+    "sourceFlipchartPage": "g-page-43.jpg",
+    "cropBox": [880, 1680, 1300, 1900],
+    "sourceNote": "worm illustration (tight on subject)"
+  },
+  {
+    "slug": "faro",
+    "word": "faro",
+    "lessonNumber": 20,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-20-f/faro.webp",
+    "sourceFlipchartPage": "f-page-46.jpg",
+    "cropBox": [180, 1300, 760, 1780],
+    "sourceNote": "left cell (foto) assigned for faro per letter source cells"
+  },
+  {
+    "slug": "fiesta",
+    "word": "fiesta",
+    "lessonNumber": 20,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-20-f/fiesta.webp",
+    "sourceFlipchartPage": "f-page-48.jpg",
+    "cropBox": [1200, 150, 2250, 1200],
+    "sourceNote": "party/cake scene (A la fiesta story page)"
+  },
+  {
+    "slug": "foca",
+    "word": "foca",
+    "lessonNumber": 20,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-20-f/foca.webp",
+    "sourceFlipchartPage": "f-page-46.jpg",
+    "cropBox": [820, 1300, 1400, 1780],
+    "sourceNote": "middle cell (fideos) assigned for foca"
+  },
+  {
+    "slug": "fuente",
+    "word": "fuente",
+    "lessonNumber": 20,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-20-f/fuente.webp",
+    "sourceFlipchartPage": "f-page-46.jpg",
+    "cropBox": [1480, 1300, 2060, 1780],
+    "sourceNote": "right cell (familia) assigned for fuente"
+>>>>>>> feat/consonant-art-l17-l20
   }
 ]

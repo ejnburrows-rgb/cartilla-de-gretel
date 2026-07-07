@@ -745,19 +745,23 @@
     "vocab": [
       {
         "word": "rana",
-        "emoji": "🐸"
+        "emoji": "🐸",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-17-r/rana.webp"
       },
       {
         "word": "rosa",
-        "emoji": "🌹"
+        "emoji": "🌹",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-17-r/rosa.webp"
       },
       {
         "word": "remo",
-        "emoji": "🚣"
+        "emoji": "🚣",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-17-r/remo.webp"
       },
       {
         "word": "rueda",
-        "emoji": "⚙️"
+        "emoji": "⚙️",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-17-r/rueda.webp"
       }
     ],
     "examples": {
@@ -817,7 +821,8 @@
     "vocab": [
       {
         "word": "perro",
-        "emoji": "🐶"
+        "emoji": "🐶",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/perro.webp"
       },
       {
         "word": "carro",
@@ -826,11 +831,13 @@
       },
       {
         "word": "burro",
-        "emoji": "🫏"
+        "emoji": "🫏",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/burro.webp"
       },
       {
         "word": "guitarra",
-        "emoji": "🎸"
+        "emoji": "🎸",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/guitarra.webp"
       }
     ],
     "examples": {
@@ -890,19 +897,23 @@
     "vocab": [
       {
         "word": "gato",
-        "emoji": "🐱"
+        "emoji": "🐱",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-19-g/gato.webp"
       },
       {
         "word": "galleta",
-        "emoji": "🍪"
+        "emoji": "🍪",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-19-g/galleta.webp"
       },
       {
         "word": "guitarra",
-        "emoji": "🎸"
+        "emoji": "🎸",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-19-g/guitarra.webp"
       },
       {
         "word": "gusano",
-        "emoji": "🐛"
+        "emoji": "🐛",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-19-g/gusano.webp"
       }
     ],
     "examples": {
@@ -962,19 +973,23 @@
     "vocab": [
       {
         "word": "faro",
-        "emoji": "🗼"
+        "emoji": "🗼",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-20-f/faro.webp"
       },
       {
         "word": "fiesta",
-        "emoji": "🎉"
+        "emoji": "🎉",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-20-f/fiesta.webp"
       },
       {
         "word": "foca",
-        "emoji": "🦭"
+        "emoji": "🦭",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-20-f/foca.webp"
       },
       {
         "word": "fuente",
-        "emoji": "⛲"
+        "emoji": "⛲",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-20-f/fuente.webp"
       }
     ],
     "examples": {
