@@ -11,7 +11,7 @@ export const Route = createFileRoute("/cartilla/teacher/paginas/$n")({
   beforeLoad: ({ params }) => {
     const n = Number(params.n);
     if (!Number.isFinite(n) || !CATALOG.find((e) => e.n === n)) {
-      throw redirect({ to: "/cartilla/teacher/flipchart" });
+      throw redirect({ to: "/cartilla/lecciones" });
     }
   },
 });
@@ -89,7 +89,7 @@ function PaginasLeccion() {
         {/* Overlay controls */}
         <div className="absolute top-4 left-4 flex items-center gap-3 opacity-50 hover:opacity-100 transition-opacity z-50">
           <Link
-            to="/cartilla/teacher/flipchart"
+            to="/cartilla/lecciones"
             className="p-3 bg-stone-800 text-white rounded-full hover:bg-stone-700"
             title="Volver al selector"
           >
@@ -116,7 +116,7 @@ function PaginasLeccion() {
         {/* Switch to original scans */}
         <div className="absolute top-20 right-4 z-50">
           <Link
-            to="/cartilla/teacher/flipchart/$n"
+            to="/cartilla/presentar/$n"
             params={{ n: String(n) }}
             className="flex items-center gap-2 px-4 py-3 bg-stone-800/80 hover:bg-stone-700 text-white font-bold rounded-full transition-colors text-sm"
             title="Ver los escaneos originales del libro"

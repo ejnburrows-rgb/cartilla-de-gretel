@@ -270,7 +270,7 @@ export function TeacherCrmShell() {
                     <BarChart3 className="h-5 w-5" /> Reportes
                   </Link>
                   <Link
-                    to="/cartilla/teacher/flipchart/$n"
+                    to="/cartilla/presentar/$n"
                     params={{ n: "1" }}
                     className="inline-flex items-center gap-2 rounded-2xl border-4 border-white bg-[#0284c7] px-5 py-3 text-sm font-black text-white shadow-lg hover:-translate-y-1 hover:shadow-xl hover:bg-[#0369a1] transition-all cursor-pointer"
                   >

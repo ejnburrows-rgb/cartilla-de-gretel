@@ -51,7 +51,7 @@ export function TeacherFlipChart({
 
     setTimeout(() => {
       afterFlip(currentIndex - step);
-    }, 800); // 800ms elegant transition
+    }, 1500); // 1.5s elegant transition
   }, [hasPrev, isFlipping, currentIndex, step, afterFlip]);
 
   const handleNext = useCallback(() => {
@@ -69,7 +69,7 @@ export function TeacherFlipChart({
 
     setTimeout(() => {
       afterFlip(currentIndex + step);
-    }, 800);
+    }, 1500);
   }, [hasNext, isFlipping, currentIndex, step, afterFlip]);
 
   // Keyboard navigation & remote-clicker mapping
