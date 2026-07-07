@@ -3,6 +3,7 @@ import { createFileRoute, redirect, useNavigate } from "@tanstack/react-router";
 import { CATALOG, type CatalogEntry } from "@/lib/lesson-catalog";
 import { TeacherPresentationShell } from "@/components/cartilla/TeacherPresentationShell";
 import { TeacherFlipChart } from "@/components/cartilla/TeacherFlipChart";
+import { GardenScene } from "@/components/cartilla/GardenScene";
 import "@/styles/kiosko.css";
 
 export const Route = createFileRoute("/cartilla/presentar/$n")({
@@ -57,39 +58,36 @@ export function PresentarLesson() {
 
   const accentColor = entry.color || "#c98c4f";
 
-  // Hoisted styles for double-brace JSX styling ban compliance
-  const slideContainerStyle = {
-    background: `radial-gradient(circle at center, ${accentColor}18 0%, #0d0a08 100%)`,
-  };
-
   return (
     <TeacherPresentationShell accentColor={accentColor} onExit={handleExit}>
-      <div className="w-full h-full flex flex-col items-center justify-between p-8" style={slideContainerStyle}>
-        
-        {/* Top Info bar */}
-        <div className="w-full flex justify-between items-center text-stone-400 z-50">
-          <div className="text-left">
-            <span className="text-[10px] font-black uppercase tracking-widest text-amber-500">
-              Lección {n}
+      <GardenScene>
+        <div className="w-full h-full flex flex-col items-center justify-between p-8 relative z-10">
+          
+          {/* Top Info bar */}
+          <div className="w-full flex justify-between items-center text-stone-800 z-50 bg-white/80 backdrop-blur px-6 py-3 rounded-2xl shadow-sm border border-stone-200">
+            <div className="text-left">
+              <span className="text-[10px] font-black uppercase tracking-widest" style={{ color: accentColor }}>
+                Lección {n}
+              </span>
+              <h2 className="text-lg font-black text-stone-800">{entry.title}</h2>
+            </div>
+            <span className="text-xs font-mono font-bold bg-white px-3 py-1 rounded-full border border-stone-200 shadow-inner text-stone-600">
+              Página {pages[activePageIndex]} (Slide {activePageIndex + 1} de {pages.length})
             </span>
-            <h2 className="text-lg font-black text-white">{entry.title}</h2>
           </div>
-          <span className="text-xs font-mono font-bold text-amber-500 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
-            Página {pages[activePageIndex]} (Slide {activePageIndex + 1} de {pages.length})
-          </span>
-        </div>
 
-        {/* Page Render via TeacherFlipChart */}
-        <div className="flex-1 flex items-center justify-center p-4 w-full">
-          <TeacherFlipChart 
-            pages={pages} 
-            lessonNumber={n} 
-            initialPage={0} 
-            onPageChange={setActivePageIndex} 
-            accentColor={accentColor} 
-          />
+          {/* Page Render via TeacherFlipChart */}
+          <div className="flex-1 flex items-center justify-center p-4 w-full">
+            <TeacherFlipChart 
+              pages={pages} 
+              lessonNumber={n} 
+              initialPage={0} 
+              onPageChange={setActivePageIndex} 
+              accentColor={accentColor} 
+            />
+          </div>
         </div>
-      </div>
+      </GardenScene>
     </TeacherPresentationShell>
   );
 }
