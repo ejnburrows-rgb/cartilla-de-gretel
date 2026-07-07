@@ -19,7 +19,7 @@ import { gretelEvent } from "@/lib/gretel-bus";
 import { StudentWorkbookFlip } from "@/components/StudentBook/StudentWorkbookFlip";
 import { buildPageArray } from "@/utils/buildPageArray";
 import { ActivityCarousel } from "@/components/cartilla/ActivityCarousel";
-import { GretelGuide } from "@/components/gretel/GretelGuide";
+import { GretelLiveAvatar } from "@/components/gretel/GretelLiveAvatar";
 import { GardenScene } from "@/components/cartilla/GardenScene";
 import "@/styles/interactive-exercises.css";
 import "@/styles/gretel.css";
@@ -155,8 +155,8 @@ function Leccion() {
             pages={pages}
             initialPage={0}
           />
-          <div className="absolute -bottom-6 -right-2 sm:right-4 z-20 pointer-events-none">
-            <GretelGuide bubblePosition="left" />
+          <div className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-[100] pointer-events-none">
+            <GretelLiveAvatar size="md" bubblePosition="left" />
           </div>
         </GardenScene>
 
