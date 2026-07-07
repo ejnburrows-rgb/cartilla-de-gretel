@@ -344,7 +344,15 @@ export function InteractiveSyllableMatch({ region, accent, lessonId }: ExerciseP
                     disabled={flagged || graded}
                     onClick={() => toggle(key)}
                   >
-                    {entry.word}
+                    {entry.illustrationSrc && (
+                      <img
+                        src={entry.illustrationSrc}
+                        alt={entry.word}
+                        className="fp-ix-syllable__img"
+                        loading="lazy"
+                      />
+                    )}
+                    <span>{entry.word}</span>
                   </button>
                 );
               })}
@@ -402,6 +410,14 @@ export function InteractiveFillInBlank({ region, accent, lessonId }: ExercisePro
         const flagged = !item.choices.some((c) => c.correct);
         return (
           <div key={i} className={`fp-ix-fill__item${flagged ? " fp-ix-fill__item--flagged" : ""}`}>
+            {item.illustrationSrc && (
+              <img
+                src={item.illustrationSrc}
+                alt={item.wordBox}
+                className="fp-ix-fill__img"
+                loading="lazy"
+              />
+            )}
             <span className="fp-ix-fill__wordbox">{item.wordBox}</span>
             <span className="fp-ix-fill__blank">{item.blank}</span>
             <div className="fp-ix-fill__choices">

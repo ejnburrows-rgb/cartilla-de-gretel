@@ -87,7 +87,7 @@ function generateWritingPage(pageId: number, letter: string) {
   };
 }
 
-function generateSyllableMatchPage(pageId: number, data: ConsonantData) {
+function generateSyllableMatchPage(pageId: number, data: ConsonantData, manifest: any[]) {
   const regions: any[] = [
     {
       id: `p${pageId}-instr`,
@@ -115,17 +115,20 @@ function generateSyllableMatchPage(pageId: number, data: ConsonantData) {
     }
     const bad3 = getRandom(incorrectWords, 3);
 
+    // Look up illustrationSrc
+    const getSrc = (w: string) => manifest.find((m) => m.word.toLowerCase() === w.toLowerCase() || m.slug === w.toLowerCase())?.src;
+
     // Create 2 rows of 3 words
     const row1 = [
-      { word: top3[0], correct: true },
-      { word: bad3[0] || "pato", correct: false },
-      { word: top3[1] || top3[0], correct: true },
+      { word: top3[0], correct: true, illustrationSrc: getSrc(top3[0]) },
+      { word: bad3[0] || "pato", correct: false, illustrationSrc: getSrc(bad3[0] || "pato") },
+      { word: top3[1] || top3[0], correct: true, illustrationSrc: getSrc(top3[1] || top3[0]) },
     ].sort(() => 0.5 - Math.random());
 
     const row2 = [
-      { word: bad3[1] || "sol", correct: false },
-      { word: top3[2] || top3[0], correct: true },
-      { word: bad3[2] || "luna", correct: false },
+      { word: bad3[1] || "sol", correct: false, illustrationSrc: getSrc(bad3[1] || "sol") },
+      { word: top3[2] || top3[0], correct: true, illustrationSrc: getSrc(top3[2] || top3[0]) },
+      { word: bad3[2] || "luna", correct: false, illustrationSrc: getSrc(bad3[2] || "luna") },
     ].sort(() => 0.5 - Math.random());
 
     regions.push({
@@ -140,7 +143,7 @@ function generateSyllableMatchPage(pageId: number, data: ConsonantData) {
   return { regions };
 }
 
-function generateFillInBlankPage(pageId: number, data: ConsonantData) {
+function generateFillInBlankPage(pageId: number, data: ConsonantData, manifest: any[]) {
   const fillItems = [];
 
   for (const vocab of data.vocab.slice(0, 5)) {
@@ -159,8 +162,11 @@ function generateFillInBlankPage(pageId: number, data: ConsonantData) {
       ...getRandom(data.syllables, 2, blankSyl).map((s) => ({ text: s })),
     ].sort(() => 0.5 - Math.random());
 
+    const illustrationSrc = manifest.find((m) => m.word.toLowerCase() === vocab.word.toLowerCase() || m.slug === vocab.word.toLowerCase())?.src;
+
     fillItems.push({
       wordBox: vocab.word,
+      illustrationSrc,
       blank: blankSyl,
       choices,
     });
@@ -241,6 +247,7 @@ function generateReadingPage(pageId: number, data: ConsonantData) {
 async function main() {
   const consonants: ConsonantData[] = JSON.parse(fs.readFileSync(CONSONANTS_PATH, "utf-8"));
   const layouts = JSON.parse(fs.readFileSync(PAGE_LAYOUTS_PATH, "utf-8"));
+  const manifest = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), "public/cartilla/art/faithful/manifest.json"), "utf-8"));
 
   for (const item of consonants) {
     // Only process lessons 7 to 24
@@ -260,10 +267,10 @@ async function main() {
     layouts.pages[p1.toString()] = generateWritingPage(p1, item.letter);
     
     // 2. Syllable Match
-    layouts.pages[p2.toString()] = generateSyllableMatchPage(p2, item);
+    layouts.pages[p2.toString()] = generateSyllableMatchPage(p2, item, manifest);
 
     // 3. Fill in the Blank
-    layouts.pages[p3.toString()] = generateFillInBlankPage(p3, item);
+    layouts.pages[p3.toString()] = generateFillInBlankPage(p3, item, manifest);
 
     // 4. Reading Page
     layouts.pages[p4.toString()] = generateReadingPage(p4, item);

@@ -1390,29 +1390,31 @@
             [
               {
                 "word": "mamá",
-                "correct": true
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/mama.webp"
               },
               {
-                "word": "mesa",
+                "word": "moda",
                 "correct": false
               },
               {
                 "word": "mapa",
-                "correct": true
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/mapa.webp"
               }
             ],
             [
               {
-                "word": "mina",
-                "correct": false
-              },
-              {
-                "word": "miel",
+                "word": "Memo",
                 "correct": false
               },
               {
                 "word": "maleta",
                 "correct": true
+              },
+              {
+                "word": "Mimi",
+                "correct": false
               }
             ]
           ]
@@ -1426,7 +1428,7 @@
           "matchRows": [
             [
               {
-                "word": "moto",
+                "word": "momia",
                 "correct": false
               },
               {
@@ -1440,16 +1442,16 @@
             ],
             [
               {
-                "word": "mapa",
-                "correct": false
-              },
-              {
-                "word": "Mimi",
+                "word": "muleta",
                 "correct": false
               },
               {
                 "word": "mecha",
                 "correct": true
+              },
+              {
+                "word": "maleta",
+                "correct": false
               }
             ]
           ]
@@ -1468,7 +1470,8 @@
               },
               {
                 "word": "mamá",
-                "correct": false
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/mama.webp"
               },
               {
                 "word": "mira",
@@ -1477,16 +1480,16 @@
             ],
             [
               {
-                "word": "mecha",
-                "correct": false
-              },
-              {
-                "word": "momia",
-                "correct": false
-              },
-              {
                 "word": "mina",
                 "correct": true
+              },
+              {
+                "word": "moda",
+                "correct": false
+              },
+              {
+                "word": "marisco",
+                "correct": false
               }
             ]
           ]
@@ -1501,15 +1504,18 @@
             [
               {
                 "word": "mono",
-                "correct": true
-              },
-              {
-                "word": "mapa",
-                "correct": false
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/mono.webp"
               },
               {
                 "word": "moto",
-                "correct": true
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/moto.webp"
+              },
+              {
+                "word": "mapa",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/mapa.webp"
               }
             ],
             [
@@ -1518,11 +1524,11 @@
                 "correct": true
               },
               {
-                "word": "mudo",
+                "word": "mesa",
                 "correct": false
               },
               {
-                "word": "mira",
+                "word": "marisco",
                 "correct": false
               }
             ]
@@ -1537,16 +1543,16 @@
           "matchRows": [
             [
               {
+                "word": "mulo",
+                "correct": true
+              },
+              {
                 "word": "muleta",
                 "correct": true
               },
               {
-                "word": "momia",
+                "word": "miel",
                 "correct": false
-              },
-              {
-                "word": "mulo",
-                "correct": true
               }
             ],
             [
@@ -1555,11 +1561,11 @@
                 "correct": true
               },
               {
-                "word": "Mimi",
+                "word": "marisco",
                 "correct": false
               },
               {
-                "word": "mira",
+                "word": "modo",
                 "correct": false
               }
             ]
@@ -1584,6 +1590,7 @@
           "fillItems": [
             {
               "wordBox": "mamá",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/mama.webp",
               "blank": "ma",
               "choices": [
                 {
@@ -1591,39 +1598,41 @@
                   "correct": true
                 },
                 {
-                  "text": "mo"
+                  "text": "me"
                 },
                 {
-                  "text": "me"
+                  "text": "mo"
                 }
               ]
             },
             {
               "wordBox": "mono",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/mono.webp",
               "blank": "mo",
               "choices": [
+                {
+                  "text": "me"
+                },
                 {
                   "text": "mu"
                 },
                 {
                   "text": "mo",
                   "correct": true
-                },
-                {
-                  "text": "me"
                 }
               ]
             },
             {
               "wordBox": "moto",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/moto.webp",
               "blank": "mo",
               "choices": [
                 {
-                  "text": "mi"
-                },
-                {
                   "text": "mo",
                   "correct": true
+                },
+                {
+                  "text": "ma"
                 },
                 {
                   "text": "me"
@@ -1632,17 +1641,18 @@
             },
             {
               "wordBox": "mapa",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/mapa.webp",
               "blank": "ma",
               "choices": [
+                {
+                  "text": "ma",
+                  "correct": true
+                },
                 {
                   "text": "mo"
                 },
                 {
                   "text": "mu"
-                },
-                {
-                  "text": "ma",
-                  "correct": true
                 }
               ]
             }
@@ -1768,12 +1778,13 @@
           "matchRows": [
             [
               {
-                "word": "Pupi",
+                "word": "poco",
                 "correct": false
               },
               {
                 "word": "papá",
-                "correct": true
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-8-p/papa.webp"
               },
               {
                 "word": "pala",
@@ -1782,16 +1793,17 @@
             ],
             [
               {
-                "word": "pipa",
-                "correct": false
-              },
-              {
-                "word": "pino",
-                "correct": false
-              },
-              {
                 "word": "pasa",
                 "correct": true
+              },
+              {
+                "word": "peso",
+                "correct": false
+              },
+              {
+                "word": "pulpo",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-8-p/pulpo.webp"
               }
             ]
           ]
@@ -1805,29 +1817,31 @@
           "matchRows": [
             [
               {
-                "word": "pisa",
-                "correct": false
-              },
-              {
-                "word": "pera",
-                "correct": true
-              },
-              {
-                "word": "pelo",
-                "correct": true
-              }
-            ],
-            [
-              {
                 "word": "pala",
                 "correct": false
               },
               {
-                "word": "pez",
+                "word": "pelo",
                 "correct": true
               },
               {
-                "word": "pasa",
+                "word": "pera",
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-1/pera.webp"
+              }
+            ],
+            [
+              {
+                "word": "puma",
+                "correct": false
+              },
+              {
+                "word": "pez",
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-8-p/pez.webp"
+              },
+              {
+                "word": "Pamela",
                 "correct": false
               }
             ]
@@ -1842,25 +1856,26 @@
           "matchRows": [
             [
               {
+                "word": "pisa",
+                "correct": true
+              },
+              {
                 "word": "patata",
                 "correct": false
               },
               {
                 "word": "pino",
-                "correct": true
-              },
-              {
-                "word": "pisa",
-                "correct": true
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-8-p/pino.webp"
               }
             ],
             [
               {
-                "word": "peso",
+                "word": "poma",
                 "correct": false
               },
               {
-                "word": "pomo",
+                "word": "poco",
                 "correct": false
               },
               {
@@ -1879,29 +1894,30 @@
           "matchRows": [
             [
               {
-                "word": "púa",
+                "word": "pomo",
+                "correct": true
+              },
+              {
+                "word": "pisa",
                 "correct": false
               },
               {
                 "word": "poma",
                 "correct": true
-              },
-              {
-                "word": "pomo",
-                "correct": true
               }
             ],
             [
-              {
-                "word": "Pipo",
-                "correct": false
-              },
               {
                 "word": "popa",
                 "correct": true
               },
               {
-                "word": "pasa",
+                "word": "pera",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-1/pera.webp"
+              },
+              {
+                "word": "pala",
                 "correct": false
               }
             ]
@@ -1916,29 +1932,29 @@
           "matchRows": [
             [
               {
-                "word": "pera",
+                "word": "puma",
+                "correct": true
+              },
+              {
+                "word": "Pepe",
                 "correct": false
               },
               {
                 "word": "pupa",
                 "correct": true
-              },
-              {
-                "word": "puma",
-                "correct": true
               }
             ],
             [
-              {
-                "word": "pipa",
-                "correct": false
-              },
               {
                 "word": "Pupi",
                 "correct": true
               },
               {
-                "word": "poco",
+                "word": "Pamela",
+                "correct": false
+              },
+              {
+                "word": "pisa",
                 "correct": false
               }
             ]
@@ -1963,29 +1979,31 @@
           "fillItems": [
             {
               "wordBox": "papá",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-8-p/papa.webp",
               "blank": "pa",
               "choices": [
-                {
-                  "text": "pi"
-                },
                 {
                   "text": "pa",
                   "correct": true
                 },
                 {
-                  "text": "pe"
+                  "text": "pi"
+                },
+                {
+                  "text": "pu"
                 }
               ]
             },
             {
               "wordBox": "pez",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-8-p/pez.webp",
               "blank": "pe",
               "choices": [
                 {
-                  "text": "pu"
+                  "text": "po"
                 },
                 {
-                  "text": "pi"
+                  "text": "pa"
                 },
                 {
                   "text": "pe",
@@ -1995,33 +2013,35 @@
             },
             {
               "wordBox": "pino",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-8-p/pino.webp",
               "blank": "pi",
-              "choices": [
-                {
-                  "text": "pi",
-                  "correct": true
-                },
-                {
-                  "text": "po"
-                },
-                {
-                  "text": "pe"
-                }
-              ]
-            },
-            {
-              "wordBox": "pulpo",
-              "blank": "po",
               "choices": [
                 {
                   "text": "pa"
                 },
                 {
-                  "text": "po",
+                  "text": "pe"
+                },
+                {
+                  "text": "pi",
                   "correct": true
+                }
+              ]
+            },
+            {
+              "wordBox": "pulpo",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-8-p/pulpo.webp",
+              "blank": "po",
+              "choices": [
+                {
+                  "text": "pu"
                 },
                 {
                   "text": "pe"
+                },
+                {
+                  "text": "po",
+                  "correct": true
                 }
               ]
             }
@@ -2147,29 +2167,30 @@
           "matchRows": [
             [
               {
-                "word": "sino",
+                "word": "semana",
                 "correct": false
-              },
-              {
-                "word": "sapo",
-                "correct": true
               },
               {
                 "word": "sala",
                 "correct": true
+              },
+              {
+                "word": "sapo",
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-9-s/sapo.webp"
               }
             ],
             [
-              {
-                "word": "silla",
-                "correct": false
-              },
               {
                 "word": "sano",
                 "correct": true
               },
               {
-                "word": "sol",
+                "word": "sube",
+                "correct": false
+              },
+              {
+                "word": "suyo",
                 "correct": false
               }
             ]
@@ -2184,29 +2205,29 @@
           "matchRows": [
             [
               {
-                "word": "señal",
-                "correct": true
-              },
-              {
                 "word": "seda",
                 "correct": true
               },
               {
-                "word": "sapo",
+                "word": "sitio",
                 "correct": false
+              },
+              {
+                "word": "señal",
+                "correct": true
               }
             ],
             [
+              {
+                "word": "Simón",
+                "correct": false
+              },
               {
                 "word": "sed",
                 "correct": true
               },
               {
-                "word": "Soto",
-                "correct": false
-              },
-              {
-                "word": "sopa",
+                "word": "sima",
                 "correct": false
               }
             ]
@@ -2221,29 +2242,30 @@
           "matchRows": [
             [
               {
-                "word": "sino",
-                "correct": true
+                "word": "sube",
+                "correct": false
               },
               {
                 "word": "sima",
                 "correct": true
               },
               {
-                "word": "Soto",
-                "correct": false
+                "word": "sino",
+                "correct": true
               }
             ],
             [
               {
                 "word": "sapo",
-                "correct": false
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-9-s/sapo.webp"
               },
               {
                 "word": "Simón",
                 "correct": true
               },
               {
-                "word": "señal",
+                "word": "sala",
                 "correct": false
               }
             ]
@@ -2258,30 +2280,32 @@
           "matchRows": [
             [
               {
-                "word": "sopa",
-                "correct": true
-              },
-              {
-                "word": "sano",
+                "word": "señal",
                 "correct": false
               },
               {
+                "word": "sopa",
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-9-s/sopa.webp"
+              },
+              {
                 "word": "sol",
-                "correct": true
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-9-s/sol.webp"
               }
             ],
             [
               {
-                "word": "salida",
-                "correct": false
-              },
-              {
-                "word": "sala",
-                "correct": false
-              },
-              {
                 "word": "soga",
                 "correct": true
+              },
+              {
+                "word": "suyo",
+                "correct": false
+              },
+              {
+                "word": "Sandi",
+                "correct": false
               }
             ]
           ]
@@ -2295,16 +2319,16 @@
           "matchRows": [
             [
               {
-                "word": "suma",
-                "correct": true
+                "word": "semana",
+                "correct": false
               },
               {
                 "word": "suyo",
                 "correct": true
               },
               {
-                "word": "sima",
-                "correct": false
+                "word": "suma",
+                "correct": true
               }
             ],
             [
@@ -2313,11 +2337,12 @@
                 "correct": true
               },
               {
-                "word": "seda",
-                "correct": false
+                "word": "sol",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-9-s/sol.webp"
               },
               {
-                "word": "sed",
+                "word": "sala",
                 "correct": false
               }
             ]
@@ -2342,6 +2367,7 @@
           "fillItems": [
             {
               "wordBox": "sapo",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-9-s/sapo.webp",
               "blank": "sa",
               "choices": [
                 {
@@ -2349,7 +2375,7 @@
                   "correct": true
                 },
                 {
-                  "text": "su"
+                  "text": "se"
                 },
                 {
                   "text": "so"
@@ -2358,49 +2384,52 @@
             },
             {
               "wordBox": "sol",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-9-s/sol.webp",
               "blank": "so",
               "choices": [
                 {
-                  "text": "su"
+                  "text": "si"
+                },
+                {
+                  "text": "se"
                 },
                 {
                   "text": "so",
                   "correct": true
-                },
-                {
-                  "text": "si"
                 }
               ]
             },
             {
               "wordBox": "sopa",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-9-s/sopa.webp",
               "blank": "so",
               "choices": [
                 {
-                  "text": "si"
+                  "text": "so",
+                  "correct": true
                 },
                 {
                   "text": "sa"
                 },
                 {
-                  "text": "so",
-                  "correct": true
+                  "text": "se"
                 }
               ]
             },
             {
               "wordBox": "silla",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-9-s/silla.webp",
               "blank": "si",
               "choices": [
                 {
-                  "text": "so"
+                  "text": "sa"
+                },
+                {
+                  "text": "se"
                 },
                 {
                   "text": "si",
                   "correct": true
-                },
-                {
-                  "text": "sa"
                 }
               ]
             }
@@ -2526,30 +2555,31 @@
           "matchRows": [
             [
               {
-                "word": "tasa",
-                "correct": true
+                "word": "tapa",
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tapa.webp"
               },
               {
-                "word": "tirita",
+                "word": "Teté",
                 "correct": false
               },
               {
-                "word": "tapa",
+                "word": "tasa",
                 "correct": true
               }
             ],
             [
               {
-                "word": "toldo",
-                "correct": false
-              },
-              {
-                "word": "tomate",
-                "correct": false
-              },
-              {
                 "word": "Tati",
                 "correct": true
+              },
+              {
+                "word": "Tito",
+                "correct": false
+              },
+              {
+                "word": "tetera",
+                "correct": false
               }
             ]
           ]
@@ -2563,12 +2593,13 @@
           "matchRows": [
             [
               {
-                "word": "Tito",
-                "correct": false
-              },
-              {
                 "word": "teme",
                 "correct": true
+              },
+              {
+                "word": "tapa",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tapa.webp"
               },
               {
                 "word": "tela",
@@ -2577,16 +2608,16 @@
             ],
             [
               {
-                "word": "tipo",
+                "word": "tasa",
+                "correct": false
+              },
+              {
+                "word": "Toño",
                 "correct": false
               },
               {
                 "word": "tetera",
                 "correct": true
-              },
-              {
-                "word": "toldo",
-                "correct": false
               }
             ]
           ]
@@ -2600,30 +2631,32 @@
           "matchRows": [
             [
               {
+                "word": "techo",
+                "correct": false
+              },
+              {
                 "word": "tina",
-                "correct": true
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tina.webp"
               },
               {
                 "word": "tipo",
                 "correct": true
-              },
-              {
-                "word": "tarima",
-                "correct": false
               }
             ],
             [
               {
-                "word": "teme",
-                "correct": false
-              },
-              {
-                "word": "tomate",
-                "correct": false
+                "word": "tapa",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tapa.webp"
               },
               {
                 "word": "Tito",
                 "correct": true
+              },
+              {
+                "word": "topo",
+                "correct": false
               }
             ]
           ]
@@ -2637,29 +2670,31 @@
           "matchRows": [
             [
               {
-                "word": "tasa",
-                "correct": false
-              },
-              {
                 "word": "tomate",
-                "correct": true
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tomate.webp"
               },
               {
                 "word": "topo",
                 "correct": true
+              },
+              {
+                "word": "tina",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tina.webp"
               }
             ],
             [
+              {
+                "word": "teme",
+                "correct": false
+              },
               {
                 "word": "Toño",
                 "correct": true
               },
               {
-                "word": "Tati",
-                "correct": false
-              },
-              {
-                "word": "tetera",
+                "word": "tarea",
                 "correct": false
               }
             ]
@@ -2674,30 +2709,31 @@
           "matchRows": [
             [
               {
-                "word": "toldo",
-                "correct": false
+                "word": "tubo",
+                "correct": true
               },
               {
                 "word": "tupe",
                 "correct": true
               },
               {
-                "word": "tubo",
-                "correct": true
+                "word": "tela",
+                "correct": false
               }
             ],
             [
               {
-                "word": "tarima",
-                "correct": false
-              },
-              {
-                "word": "tina",
-                "correct": false
-              },
-              {
                 "word": "tulipán",
-                "correct": true
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tulipan.webp"
+              },
+              {
+                "word": "tipo",
+                "correct": false
+              },
+              {
+                "word": "teme",
+                "correct": false
               }
             ]
           ]
@@ -2721,6 +2757,7 @@
           "fillItems": [
             {
               "wordBox": "tapa",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tapa.webp",
               "blank": "ta",
               "choices": [
                 {
@@ -2728,35 +2765,37 @@
                   "correct": true
                 },
                 {
-                  "text": "ti"
+                  "text": "te"
                 },
                 {
-                  "text": "tu"
+                  "text": "to"
                 }
               ]
             },
             {
               "wordBox": "tomate",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tomate.webp",
               "blank": "te",
               "choices": [
                 {
                   "text": "ti"
                 },
                 {
-                  "text": "to"
-                },
-                {
                   "text": "te",
                   "correct": true
+                },
+                {
+                  "text": "to"
                 }
               ]
             },
             {
               "wordBox": "tina",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tina.webp",
               "blank": "ti",
               "choices": [
                 {
-                  "text": "to"
+                  "text": "ta"
                 },
                 {
                   "text": "tu"
@@ -2769,10 +2808,11 @@
             },
             {
               "wordBox": "tulipán",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tulipan.webp",
               "blank": "tu",
               "choices": [
                 {
-                  "text": "te"
+                  "text": "ti"
                 },
                 {
                   "text": "tu",
@@ -2905,26 +2945,27 @@
           "matchRows": [
             [
               {
-                "word": "dama",
-                "correct": true
-              },
-              {
                 "word": "Dela",
                 "correct": false
               },
               {
-                "word": "dado",
+                "word": "dama",
                 "correct": true
+              },
+              {
+                "word": "dado",
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/dado.webp"
               }
             ],
             [
               {
-                "word": "dona",
-                "correct": false
-              },
-              {
                 "word": "Dani",
                 "correct": true
+              },
+              {
+                "word": "dime",
+                "correct": false
               },
               {
                 "word": "demora",
@@ -2942,21 +2983,23 @@
           "matchRows": [
             [
               {
-                "word": "dedo",
-                "correct": true
+                "word": "dado",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/dado.webp"
               },
               {
                 "word": "delfín",
-                "correct": true
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/delfin.webp"
               },
               {
-                "word": "dona",
-                "correct": false
+                "word": "dedo",
+                "correct": true
               }
             ],
             [
               {
-                "word": "dado",
+                "word": "domo",
                 "correct": false
               },
               {
@@ -2964,7 +3007,7 @@
                 "correct": true
               },
               {
-                "word": "domo",
+                "word": "dama",
                 "correct": false
               }
             ]
@@ -2979,30 +3022,31 @@
           "matchRows": [
             [
               {
-                "word": "dime",
-                "correct": true
-              },
-              {
                 "word": "Dina",
                 "correct": true
               },
               {
-                "word": "duro",
+                "word": "dime",
+                "correct": true
+              },
+              {
+                "word": "Delia",
                 "correct": false
               }
             ],
             [
               {
-                "word": "ducha",
-                "correct": false
-              },
-              {
                 "word": "Diego",
                 "correct": true
               },
               {
-                "word": "dama",
+                "word": "duda",
                 "correct": false
+              },
+              {
+                "word": "ducha",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/ducha.webp"
               }
             ]
           ]
@@ -3016,12 +3060,14 @@
           "matchRows": [
             [
               {
-                "word": "Duma",
-                "correct": false
+                "word": "dona",
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/dona.webp"
               },
               {
-                "word": "dona",
-                "correct": true
+                "word": "dado",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/dado.webp"
               },
               {
                 "word": "doce",
@@ -3030,15 +3076,15 @@
             ],
             [
               {
-                "word": "Diego",
-                "correct": false
-              },
-              {
                 "word": "domo",
                 "correct": true
               },
               {
-                "word": "dama",
+                "word": "dieta",
+                "correct": false
+              },
+              {
+                "word": "diadema",
                 "correct": false
               }
             ]
@@ -3053,29 +3099,30 @@
           "matchRows": [
             [
               {
-                "word": "Delia",
-                "correct": false
+                "word": "duro",
+                "correct": true
               },
               {
                 "word": "Duma",
                 "correct": true
               },
               {
-                "word": "duro",
-                "correct": true
+                "word": "dama",
+                "correct": false
               }
             ],
             [
-              {
-                "word": "dedo",
-                "correct": false
-              },
               {
                 "word": "duda",
                 "correct": true
               },
               {
-                "word": "dormido",
+                "word": "delfín",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/delfin.webp"
+              },
+              {
+                "word": "Dina",
                 "correct": false
               }
             ]
@@ -3100,65 +3147,69 @@
           "fillItems": [
             {
               "wordBox": "dado",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/dado.webp",
               "blank": "da",
               "choices": [
                 {
-                  "text": "di"
+                  "text": "do"
                 },
                 {
                   "text": "da",
                   "correct": true
                 },
                 {
-                  "text": "du"
+                  "text": "de"
                 }
               ]
             },
             {
               "wordBox": "delfín",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/delfin.webp",
               "blank": "de",
               "choices": [
                 {
-                  "text": "du"
-                },
-                {
-                  "text": "di"
+                  "text": "da"
                 },
                 {
                   "text": "de",
                   "correct": true
+                },
+                {
+                  "text": "du"
                 }
               ]
             },
             {
               "wordBox": "dona",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/dona.webp",
               "blank": "do",
               "choices": [
+                {
+                  "text": "da"
+                },
                 {
                   "text": "di"
                 },
                 {
                   "text": "do",
                   "correct": true
-                },
-                {
-                  "text": "de"
                 }
               ]
             },
             {
               "wordBox": "ducha",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/ducha.webp",
               "blank": "du",
               "choices": [
-                {
-                  "text": "du",
-                  "correct": true
-                },
                 {
                   "text": "da"
                 },
                 {
                   "text": "de"
+                },
+                {
+                  "text": "du",
+                  "correct": true
                 }
               ]
             }
@@ -3284,29 +3335,30 @@
           "matchRows": [
             [
               {
-                "word": "lila",
+                "word": "lema",
                 "correct": false
               },
               {
-                "word": "lata",
+                "word": "lana",
                 "correct": true
               },
               {
-                "word": "lana",
+                "word": "lata",
                 "correct": true
               }
             ],
             [
               {
-                "word": "Lela",
-                "correct": false
-              },
-              {
                 "word": "Lalo",
                 "correct": true
               },
               {
-                "word": "lema",
+                "word": "lupa",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/lupa.webp"
+              },
+              {
+                "word": "Lupe",
                 "correct": false
               }
             ]
@@ -3321,12 +3373,12 @@
           "matchRows": [
             [
               {
-                "word": "lema",
-                "correct": true
+                "word": "lata",
+                "correct": false
               },
               {
-                "word": "Lili",
-                "correct": false
+                "word": "lema",
+                "correct": true
               },
               {
                 "word": "leña",
@@ -3335,16 +3387,17 @@
             ],
             [
               {
+                "word": "Lolo",
+                "correct": false
+              },
+              {
+                "word": "lupa",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/lupa.webp"
+              },
+              {
                 "word": "Lela",
                 "correct": true
-              },
-              {
-                "word": "Lalo",
-                "correct": false
-              },
-              {
-                "word": "lago",
-                "correct": false
               }
             ]
           ]
@@ -3358,30 +3411,30 @@
           "matchRows": [
             [
               {
-                "word": "lila",
-                "correct": true
-              },
-              {
                 "word": "lima",
                 "correct": true
               },
               {
-                "word": "lobo",
+                "word": "leña",
                 "correct": false
+              },
+              {
+                "word": "lila",
+                "correct": true
               }
             ],
             [
               {
-                "word": "pelusa",
-                "correct": false
-              },
-              {
-                "word": "loro",
-                "correct": false
-              },
-              {
                 "word": "Lili",
                 "correct": true
+              },
+              {
+                "word": "Lolo",
+                "correct": false
+              },
+              {
+                "word": "Lupe",
+                "correct": false
               }
             ]
           ]
@@ -3395,16 +3448,17 @@
           "matchRows": [
             [
               {
-                "word": "loma",
-                "correct": true
+                "word": "lata",
+                "correct": false
               },
               {
                 "word": "lobo",
-                "correct": true
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/lobo.webp"
               },
               {
-                "word": "lente",
-                "correct": false
+                "word": "loma",
+                "correct": true
               }
             ],
             [
@@ -3413,12 +3467,13 @@
                 "correct": true
               },
               {
-                "word": "lupa",
+                "word": "lana",
                 "correct": false
               },
               {
-                "word": "Lela",
-                "correct": false
+                "word": "luna",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/luna.webp"
               }
             ]
           ]
@@ -3432,30 +3487,31 @@
           "matchRows": [
             [
               {
-                "word": "pelusa",
-                "correct": true
+                "word": "lupa",
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/lupa.webp"
               },
               {
                 "word": "lista",
                 "correct": false
               },
               {
-                "word": "lupa",
+                "word": "pelusa",
                 "correct": true
               }
             ],
             [
               {
+                "word": "Lalo",
+                "correct": false
+              },
+              {
+                "word": "lana",
+                "correct": false
+              },
+              {
                 "word": "Luli",
                 "correct": true
-              },
-              {
-                "word": "lila",
-                "correct": false
-              },
-              {
-                "word": "loro",
-                "correct": false
               }
             ]
           ]
@@ -3479,65 +3535,69 @@
           "fillItems": [
             {
               "wordBox": "luna",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/luna.webp",
               "blank": "lu",
               "choices": [
-                {
-                  "text": "la"
-                },
                 {
                   "text": "lu",
                   "correct": true
-                },
-                {
-                  "text": "le"
-                }
-              ]
-            },
-            {
-              "wordBox": "lobo",
-              "blank": "lo",
-              "choices": [
-                {
-                  "text": "le"
-                },
-                {
-                  "text": "lo",
-                  "correct": true
-                },
-                {
-                  "text": "la"
-                }
-              ]
-            },
-            {
-              "wordBox": "loro",
-              "blank": "lo",
-              "choices": [
-                {
-                  "text": "lu"
-                },
-                {
-                  "text": "le"
-                },
-                {
-                  "text": "lo",
-                  "correct": true
-                }
-              ]
-            },
-            {
-              "wordBox": "lupa",
-              "blank": "lu",
-              "choices": [
-                {
-                  "text": "le"
                 },
                 {
                   "text": "lo"
                 },
                 {
+                  "text": "la"
+                }
+              ]
+            },
+            {
+              "wordBox": "lobo",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/lobo.webp",
+              "blank": "lo",
+              "choices": [
+                {
+                  "text": "li"
+                },
+                {
+                  "text": "le"
+                },
+                {
+                  "text": "lo",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "wordBox": "loro",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/loro.webp",
+              "blank": "lo",
+              "choices": [
+                {
+                  "text": "la"
+                },
+                {
+                  "text": "lo",
+                  "correct": true
+                },
+                {
+                  "text": "le"
+                }
+              ]
+            },
+            {
+              "wordBox": "lupa",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/lupa.webp",
+              "blank": "lu",
+              "choices": [
+                {
                   "text": "lu",
                   "correct": true
+                },
+                {
+                  "text": "la"
+                },
+                {
+                  "text": "lo"
                 }
               ]
             }
@@ -3663,16 +3723,19 @@
           "matchRows": [
             [
               {
-                "word": "nata",
-                "correct": true
+                "word": "niño",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-14-n/nino.webp"
               },
               {
-                "word": "noche",
-                "correct": false
+                "word": "nata",
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-13-n/nata.webp"
               },
               {
                 "word": "nariz",
-                "correct": true
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-13-n/nariz.webp"
               }
             ],
             [
@@ -3682,10 +3745,11 @@
               },
               {
                 "word": "tina",
-                "correct": true
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tina.webp"
               },
               {
-                "word": "nido",
+                "word": "sonido",
                 "correct": false
               }
             ]
@@ -3700,29 +3764,30 @@
           "matchRows": [
             [
               {
+                "word": "Nena",
+                "correct": true
+              },
+              {
                 "word": "negro",
                 "correct": true
               },
               {
-                "word": "pino",
+                "word": "nada",
                 "correct": false
-              },
-              {
-                "word": "Nena",
-                "correct": true
               }
             ],
             [
               {
-                "word": "noche",
-                "correct": false
+                "word": "tina",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tina.webp"
               },
               {
                 "word": "Nela",
                 "correct": true
               },
               {
-                "word": "nata",
+                "word": "poni",
                 "correct": false
               }
             ]
@@ -3737,30 +3802,33 @@
           "matchRows": [
             [
               {
-                "word": "Napi",
+                "word": "Nela",
                 "correct": false
               },
               {
                 "word": "nido",
-                "correct": true
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-13-n/nido.webp"
               },
               {
                 "word": "niño",
-                "correct": true
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-14-n/nino.webp"
               }
             ],
             [
+              {
+                "word": "nada",
+                "correct": false
+              },
               {
                 "word": "poni",
                 "correct": true
               },
               {
-                "word": "nata",
-                "correct": false
-              },
-              {
-                "word": "Nena",
-                "correct": false
+                "word": "tina",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tina.webp"
               }
             ]
           ]
@@ -3774,30 +3842,34 @@
           "matchRows": [
             [
               {
-                "word": "poni",
-                "correct": false
-              },
-              {
                 "word": "mono",
-                "correct": true
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/mono.webp"
               },
               {
                 "word": "Nora",
                 "correct": true
+              },
+              {
+                "word": "negro",
+                "correct": false
               }
             ],
             [
               {
-                "word": "nata",
-                "correct": false
+                "word": "nariz",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-13-n/nariz.webp"
               },
               {
                 "word": "pino",
-                "correct": true
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-8-p/pino.webp"
               },
               {
-                "word": "negar",
-                "correct": false
+                "word": "tina",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tina.webp"
               }
             ]
           ]
@@ -3811,30 +3883,32 @@
           "matchRows": [
             [
               {
-                "word": "niño",
-                "correct": false
-              },
-              {
                 "word": "nudo",
                 "correct": true
               },
               {
                 "word": "menudo",
                 "correct": true
+              },
+              {
+                "word": "poni",
+                "correct": false
               }
             ],
             [
               {
-                "word": "Nena",
-                "correct": false
+                "word": "niño",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-14-n/nino.webp"
+              },
+              {
+                "word": "nido",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-13-n/nido.webp"
               },
               {
                 "word": "nulo",
                 "correct": true
-              },
-              {
-                "word": "mono",
-                "correct": false
               }
             ]
           ]
@@ -3858,6 +3932,7 @@
           "fillItems": [
             {
               "wordBox": "nariz",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-13-n/nariz.webp",
               "blank": "na",
               "choices": [
                 {
@@ -3874,6 +3949,7 @@
             },
             {
               "wordBox": "nido",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-13-n/nido.webp",
               "blank": "ni",
               "choices": [
                 {
@@ -3881,22 +3957,23 @@
                   "correct": true
                 },
                 {
-                  "text": "no"
+                  "text": "nu"
                 },
                 {
-                  "text": "na"
+                  "text": "no"
                 }
               ]
             },
             {
               "wordBox": "nube",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-13-n/nube.webp",
               "blank": "nu",
               "choices": [
                 {
-                  "text": "ne"
+                  "text": "na"
                 },
                 {
-                  "text": "ni"
+                  "text": "ne"
                 },
                 {
                   "text": "nu",
@@ -3906,17 +3983,18 @@
             },
             {
               "wordBox": "nata",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-13-n/nata.webp",
               "blank": "na",
               "choices": [
+                {
+                  "text": "na",
+                  "correct": true
+                },
                 {
                   "text": "no"
                 },
                 {
                   "text": "ne"
-                },
-                {
-                  "text": "na",
-                  "correct": true
                 }
               ]
             }
@@ -4042,16 +4120,17 @@
           "matchRows": [
             [
               {
-                "word": "niño",
-                "correct": false
-              },
-              {
                 "word": "caña",
                 "correct": true
               },
               {
                 "word": "araña",
-                "correct": true
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/vocal-a/arana.webp"
+              },
+              {
+                "word": "ñutu",
+                "correct": false
               }
             ],
             [
@@ -4064,7 +4143,7 @@
                 "correct": false
               },
               {
-                "word": "ñu",
+                "word": "ñeque",
                 "correct": false
               }
             ]
@@ -4079,25 +4158,27 @@
           "matchRows": [
             [
               {
-                "word": "ñudo",
+                "word": "ñeque",
+                "correct": true
+              },
+              {
+                "word": "cariño",
                 "correct": false
               },
               {
                 "word": "muñeca",
-                "correct": true
-              },
-              {
-                "word": "ñeque",
-                "correct": true
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-14-n/muneca.webp"
               }
             ],
             [
               {
-                "word": "niño",
-                "correct": false
+                "word": "piña",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-14-n/pina.webp"
               },
               {
-                "word": "moño",
+                "word": "muñido",
                 "correct": false
               },
               {
@@ -4116,30 +4197,30 @@
           "matchRows": [
             [
               {
-                "word": "muñido",
-                "correct": true
-              },
-              {
                 "word": "ñiquiñaque",
                 "correct": true
               },
               {
-                "word": "sueño",
+                "word": "muñido",
+                "correct": true
+              },
+              {
+                "word": "España",
                 "correct": false
               }
             ],
             [
               {
-                "word": "niño",
-                "correct": false
-              },
-              {
-                "word": "ñero",
+                "word": "ordeñe",
                 "correct": false
               },
               {
                 "word": "ceñido",
                 "correct": true
+              },
+              {
+                "word": "moño",
+                "correct": false
               }
             ]
           ]
@@ -4154,20 +4235,21 @@
             [
               {
                 "word": "niño",
-                "correct": true
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-14-n/nino.webp"
+              },
+              {
+                "word": "añublo",
+                "correct": false
               },
               {
                 "word": "moño",
                 "correct": true
-              },
-              {
-                "word": "muñido",
-                "correct": false
               }
             ],
             [
               {
-                "word": "muñeca",
+                "word": "España",
                 "correct": false
               },
               {
@@ -4175,7 +4257,7 @@
                 "correct": true
               },
               {
-                "word": "España",
+                "word": "ñero",
                 "correct": false
               }
             ]
@@ -4190,29 +4272,30 @@
           "matchRows": [
             [
               {
-                "word": "ñudo",
-                "correct": true
+                "word": "muñeca",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-14-n/muneca.webp"
               },
               {
                 "word": "ñu",
                 "correct": true
               },
               {
-                "word": "niño",
-                "correct": false
+                "word": "ñudo",
+                "correct": true
               }
             ],
             [
-              {
-                "word": "araña",
-                "correct": false
-              },
               {
                 "word": "ñublado",
                 "correct": true
               },
               {
-                "word": "moñito",
+                "word": "España",
+                "correct": false
+              },
+              {
+                "word": "ñero",
                 "correct": false
               }
             ]
@@ -4237,45 +4320,48 @@
           "fillItems": [
             {
               "wordBox": "piña",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-14-n/pina.webp",
               "blank": "ña",
               "choices": [
                 {
-                  "text": "ñi"
-                },
-                {
-                  "text": "ñe"
+                  "text": "ño"
                 },
                 {
                   "text": "ña",
                   "correct": true
+                },
+                {
+                  "text": "ñu"
                 }
               ]
             },
             {
               "wordBox": "muñeca",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-14-n/muneca.webp",
               "blank": "ñe",
               "choices": [
+                {
+                  "text": "ñu"
+                },
                 {
                   "text": "ñe",
                   "correct": true
                 },
                 {
                   "text": "ña"
-                },
-                {
-                  "text": "ñu"
                 }
               ]
             },
             {
               "wordBox": "niño",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-14-n/nino.webp",
               "blank": "ño",
               "choices": [
                 {
-                  "text": "ñi"
+                  "text": "ñu"
                 },
                 {
-                  "text": "ñu"
+                  "text": "ñe"
                 },
                 {
                   "text": "ño",
@@ -4285,6 +4371,7 @@
             },
             {
               "wordBox": "araña",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/arana.webp",
               "blank": "ña",
               "choices": [
                 {
@@ -4295,7 +4382,7 @@
                   "correct": true
                 },
                 {
-                  "text": "ño"
+                  "text": "ñe"
                 }
               ]
             }
@@ -4421,12 +4508,12 @@
           "matchRows": [
             [
               {
-                "word": "Beto",
-                "correct": false
-              },
-              {
                 "word": "Bambi",
                 "correct": true
+              },
+              {
+                "word": "Beto",
+                "correct": false
               },
               {
                 "word": "bata",
@@ -4435,12 +4522,12 @@
             ],
             [
               {
-                "word": "balde",
-                "correct": true
+                "word": "bestia",
+                "correct": false
               },
               {
-                "word": "beso",
-                "correct": false
+                "word": "balde",
+                "correct": true
               },
               {
                 "word": "buho",
@@ -4459,15 +4546,16 @@
             [
               {
                 "word": "bebé",
-                "correct": true
-              },
-              {
-                "word": "banda",
-                "correct": false
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-15-b/bebe.webp"
               },
               {
                 "word": "beso",
                 "correct": true
+              },
+              {
+                "word": "bonito",
+                "correct": false
               }
             ],
             [
@@ -4476,12 +4564,12 @@
                 "correct": false
               },
               {
-                "word": "Beto",
-                "correct": true
-              },
-              {
                 "word": "Bubu",
                 "correct": false
+              },
+              {
+                "word": "Beto",
+                "correct": true
               }
             ]
           ]
@@ -4495,30 +4583,32 @@
           "matchRows": [
             [
               {
+                "word": "bici",
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-15-b/bici.webp"
+              },
+              {
                 "word": "biberón",
                 "correct": true
               },
               {
-                "word": "bici",
-                "correct": true
-              },
-              {
-                "word": "bata",
+                "word": "buho",
                 "correct": false
               }
             ],
             [
               {
-                "word": "bota",
+                "word": "Bambi",
                 "correct": false
+              },
+              {
+                "word": "bebé",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-15-b/bebe.webp"
               },
               {
                 "word": "Bibi",
                 "correct": true
-              },
-              {
-                "word": "beso",
-                "correct": false
               }
             ]
           ]
@@ -4532,12 +4622,13 @@
           "matchRows": [
             [
               {
-                "word": "bebé",
-                "correct": false
+                "word": "bota",
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-15-b/bota.webp"
               },
               {
-                "word": "bota",
-                "correct": true
+                "word": "burro",
+                "correct": false
               },
               {
                 "word": "boca",
@@ -4546,16 +4637,16 @@
             ],
             [
               {
-                "word": "burro",
+                "word": "bola",
+                "correct": true
+              },
+              {
+                "word": "Bambi",
                 "correct": false
               },
               {
                 "word": "bata",
                 "correct": false
-              },
-              {
-                "word": "bola",
-                "correct": true
               }
             ]
           ]
@@ -4569,16 +4660,16 @@
           "matchRows": [
             [
               {
-                "word": "Bibi",
-                "correct": false
-              },
-              {
                 "word": "buho",
                 "correct": true
               },
               {
                 "word": "buque",
                 "correct": true
+              },
+              {
+                "word": "bata",
+                "correct": false
               }
             ],
             [
@@ -4587,11 +4678,11 @@
                 "correct": true
               },
               {
-                "word": "bota",
+                "word": "Beto",
                 "correct": false
               },
               {
-                "word": "bici",
+                "word": "biberón",
                 "correct": false
               }
             ]
@@ -4616,22 +4707,24 @@
           "fillItems": [
             {
               "wordBox": "barco",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-15-b/barco.webp",
               "blank": "ba",
               "choices": [
                 {
+                  "text": "bu"
+                },
+                {
+                  "text": "be"
+                },
+                {
                   "text": "ba",
                   "correct": true
-                },
-                {
-                  "text": "bo"
-                },
-                {
-                  "text": "bi"
                 }
               ]
             },
             {
               "wordBox": "bebé",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-15-b/bebe.webp",
               "blank": "be",
               "choices": [
                 {
@@ -4639,42 +4732,44 @@
                   "correct": true
                 },
                 {
-                  "text": "ba"
+                  "text": "bi"
                 },
                 {
-                  "text": "bi"
+                  "text": "bo"
                 }
               ]
             },
             {
               "wordBox": "bici",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-15-b/bici.webp",
               "blank": "bi",
               "choices": [
                 {
-                  "text": "bo"
+                  "text": "bi",
+                  "correct": true
+                },
+                {
+                  "text": "ba"
                 },
                 {
                   "text": "be"
-                },
-                {
-                  "text": "bi",
-                  "correct": true
                 }
               ]
             },
             {
               "wordBox": "bota",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-15-b/bota.webp",
               "blank": "bo",
               "choices": [
                 {
-                  "text": "bu"
+                  "text": "be"
                 },
                 {
                   "text": "bo",
                   "correct": true
                 },
                 {
-                  "text": "ba"
+                  "text": "bi"
                 }
               ]
             }
@@ -4800,21 +4895,23 @@
           "matchRows": [
             [
               {
-                "word": "vida",
-                "correct": false
+                "word": "vaso",
+                "correct": true
               },
               {
                 "word": "vaca",
-                "correct": true
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/vaca.webp"
               },
               {
-                "word": "vaso",
-                "correct": true
+                "word": "vela",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/vela.webp"
               }
             ],
             [
               {
-                "word": "vela",
+                "word": "Vivi",
                 "correct": false
               },
               {
@@ -4822,7 +4919,7 @@
                 "correct": true
               },
               {
-                "word": "voltaje",
+                "word": "violeta",
                 "correct": false
               }
             ]
@@ -4837,12 +4934,14 @@
           "matchRows": [
             [
               {
-                "word": "voz",
-                "correct": false
+                "word": "vela",
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/vela.webp"
               },
               {
-                "word": "vela",
-                "correct": true
+                "word": "vaca",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/vaca.webp"
               },
               {
                 "word": "verde",
@@ -4851,15 +4950,15 @@
             ],
             [
               {
+                "word": "voltaje",
+                "correct": false
+              },
+              {
                 "word": "Vero",
                 "correct": true
               },
               {
-                "word": "vulgar",
-                "correct": false
-              },
-              {
-                "word": "Valeria",
+                "word": "vuelta",
                 "correct": false
               }
             ]
@@ -4875,29 +4974,31 @@
             [
               {
                 "word": "vino",
-                "correct": true
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/vino.webp"
               },
               {
                 "word": "vida",
                 "correct": true
               },
               {
-                "word": "Valeria",
-                "correct": false
+                "word": "vela",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/vela.webp"
               }
             ],
             [
               {
+                "word": "voz",
+                "correct": false
+              },
+              {
+                "word": "vulgar",
+                "correct": false
+              },
+              {
                 "word": "Vivi",
                 "correct": true
-              },
-              {
-                "word": "volcán",
-                "correct": false
-              },
-              {
-                "word": "vuelta",
-                "correct": false
               }
             ]
           ]
@@ -4912,20 +5013,21 @@
             [
               {
                 "word": "volcán",
-                "correct": true
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/volcan.webp"
+              },
+              {
+                "word": "vapor",
+                "correct": false
               },
               {
                 "word": "voto",
                 "correct": true
-              },
-              {
-                "word": "vela",
-                "correct": false
               }
             ],
             [
               {
-                "word": "vapor",
+                "word": "Valeria",
                 "correct": false
               },
               {
@@ -4933,7 +5035,7 @@
                 "correct": true
               },
               {
-                "word": "vuestra",
+                "word": "vuelo",
                 "correct": false
               }
             ]
@@ -4948,30 +5050,30 @@
           "matchRows": [
             [
               {
-                "word": "Valeria",
+                "word": "vudú",
+                "correct": true
+              },
+              {
+                "word": "vainilla",
                 "correct": false
               },
               {
                 "word": "vulgar",
                 "correct": true
-              },
-              {
-                "word": "vudú",
-                "correct": true
               }
             ],
             [
               {
-                "word": "vino",
+                "word": "vómito",
+                "correct": false
+              },
+              {
+                "word": "viento",
                 "correct": false
               },
               {
                 "word": "vuelo",
                 "correct": true
-              },
-              {
-                "word": "vaso",
-                "correct": false
               }
             ]
           ]
@@ -4995,22 +5097,24 @@
           "fillItems": [
             {
               "wordBox": "vaca",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/vaca.webp",
               "blank": "va",
               "choices": [
                 {
-                  "text": "vo"
+                  "text": "vu"
                 },
                 {
                   "text": "va",
                   "correct": true
                 },
                 {
-                  "text": "vu"
+                  "text": "vo"
                 }
               ]
             },
             {
               "wordBox": "vela",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/vela.webp",
               "blank": "ve",
               "choices": [
                 {
@@ -5018,15 +5122,16 @@
                   "correct": true
                 },
                 {
-                  "text": "vu"
+                  "text": "va"
                 },
                 {
-                  "text": "va"
+                  "text": "vu"
                 }
               ]
             },
             {
               "wordBox": "vino",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/vino.webp",
               "blank": "vi",
               "choices": [
                 {
@@ -5034,15 +5139,16 @@
                   "correct": true
                 },
                 {
-                  "text": "vo"
+                  "text": "vu"
                 },
                 {
-                  "text": "vu"
+                  "text": "vo"
                 }
               ]
             },
             {
               "wordBox": "volcán",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/volcan.webp",
               "blank": "vo",
               "choices": [
                 {
@@ -5050,10 +5156,10 @@
                   "correct": true
                 },
                 {
-                  "text": "ve"
+                  "text": "vu"
                 },
                 {
-                  "text": "vu"
+                  "text": "vi"
                 }
               ]
             }
@@ -5179,29 +5285,30 @@
           "matchRows": [
             [
               {
-                "word": "Romina",
-                "correct": false
-              },
-              {
-                "word": "cara",
-                "correct": true
+                "word": "pera",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-1/pera.webp"
               },
               {
                 "word": "rama",
+                "correct": true
+              },
+              {
+                "word": "cara",
                 "correct": true
               }
             ],
             [
               {
+                "word": "rueda",
+                "correct": false
+              },
+              {
                 "word": "Rafa",
                 "correct": true
               },
               {
-                "word": "Ricki",
-                "correct": false
-              },
-              {
-                "word": "rosa",
+                "word": "reto",
                 "correct": false
               }
             ]
@@ -5216,23 +5323,20 @@
           "matchRows": [
             [
               {
-                "word": "pera",
-                "correct": true
-              },
-              {
                 "word": "reto",
                 "correct": true
               },
               {
-                "word": "Rubi",
+                "word": "pera",
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-1/pera.webp"
+              },
+              {
+                "word": "Rafa",
                 "correct": false
               }
             ],
             [
-              {
-                "word": "rubio",
-                "correct": false
-              },
               {
                 "word": "Ricki",
                 "correct": false
@@ -5240,6 +5344,10 @@
               {
                 "word": "Rena",
                 "correct": true
+              },
+              {
+                "word": "puro",
+                "correct": false
               }
             ]
           ]
@@ -5253,30 +5361,33 @@
           "matchRows": [
             [
               {
+                "word": "risa",
+                "correct": true
+              },
+              {
                 "word": "pira",
                 "correct": true
               },
               {
-                "word": "rana",
-                "correct": false
-              },
-              {
-                "word": "risa",
-                "correct": true
+                "word": "remo",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-17-r/remo.webp"
               }
             ],
             [
-              {
-                "word": "loro",
-                "correct": false
-              },
               {
                 "word": "Ricki",
                 "correct": true
               },
               {
-                "word": "Rena",
-                "correct": false
+                "word": "loro",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/loro.webp"
+              },
+              {
+                "word": "pera",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-1/pera.webp"
               }
             ]
           ]
@@ -5290,30 +5401,33 @@
           "matchRows": [
             [
               {
-                "word": "loro",
-                "correct": true
+                "word": "rana",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-17-r/rana.webp"
               },
               {
-                "word": "cara",
-                "correct": false
+                "word": "loro",
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/loro.webp"
               },
               {
                 "word": "rosa",
-                "correct": true
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-17-r/rosa.webp"
               }
             ],
             [
               {
-                "word": "rato",
-                "correct": false
-              },
-              {
-                "word": "rama",
+                "word": "Rafa",
                 "correct": false
               },
               {
                 "word": "Romina",
                 "correct": true
+              },
+              {
+                "word": "pira",
+                "correct": false
               }
             ]
           ]
@@ -5327,30 +5441,31 @@
           "matchRows": [
             [
               {
-                "word": "ruta",
-                "correct": true
+                "word": "rana",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-17-r/rana.webp"
               },
               {
                 "word": "puro",
                 "correct": true
               },
               {
-                "word": "rana",
-                "correct": false
+                "word": "ruta",
+                "correct": true
               }
             ],
             [
               {
-                "word": "cara",
-                "correct": false
-              },
-              {
-                "word": "Ricki",
-                "correct": false
-              },
-              {
                 "word": "Rubi",
                 "correct": true
+              },
+              {
+                "word": "rama",
+                "correct": false
+              },
+              {
+                "word": "redondo",
+                "correct": false
               }
             ]
           ]
@@ -5374,49 +5489,52 @@
           "fillItems": [
             {
               "wordBox": "rana",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-17-r/rana.webp",
               "blank": "ra",
               "choices": [
                 {
-                  "text": "ro"
-                },
-                {
-                  "text": "ru"
+                  "text": "ri"
                 },
                 {
                   "text": "ra",
                   "correct": true
+                },
+                {
+                  "text": "ru"
                 }
               ]
             },
             {
               "wordBox": "rosa",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-17-r/rosa.webp",
               "blank": "ro",
               "choices": [
                 {
-                  "text": "ra"
+                  "text": "ru"
+                },
+                {
+                  "text": "re"
                 },
                 {
                   "text": "ro",
                   "correct": true
-                },
-                {
-                  "text": "ri"
                 }
               ]
             },
             {
               "wordBox": "remo",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-17-r/remo.webp",
               "blank": "re",
               "choices": [
-                {
-                  "text": "ro"
-                },
                 {
                   "text": "re",
                   "correct": true
                 },
                 {
-                  "text": "ri"
+                  "text": "ro"
+                },
+                {
+                  "text": "ra"
                 }
               ]
             },
@@ -5428,11 +5546,11 @@
                   "text": "ro"
                 },
                 {
-                  "text": "ru",
-                  "correct": true
+                  "text": "ri"
                 },
                 {
-                  "text": "ra"
+                  "text": "ru",
+                  "correct": true
                 }
               ]
             }
@@ -5558,7 +5676,7 @@
           "matchRows": [
             [
               {
-                "word": "carro",
+                "word": "correo",
                 "correct": false
               },
               {
@@ -5576,12 +5694,13 @@
                 "correct": true
               },
               {
-                "word": "corre",
+                "word": "barrio",
                 "correct": false
               },
               {
-                "word": "carrito",
-                "correct": false
+                "word": "carro",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/carro.webp"
               }
             ]
           ]
@@ -5596,29 +5715,31 @@
             [
               {
                 "word": "perro",
-                "correct": true
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/perro.webp"
+              },
+              {
+                "word": "barrio",
+                "correct": false
               },
               {
                 "word": "torre",
-                "correct": true
-              },
-              {
-                "word": "morro",
-                "correct": false
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/torre.webp"
               }
             ],
             [
               {
+                "word": "borrumba",
+                "correct": false
+              },
+              {
+                "word": "cigarro",
+                "correct": false
+              },
+              {
                 "word": "carrera",
                 "correct": true
-              },
-              {
-                "word": "burrito",
-                "correct": false
-              },
-              {
-                "word": "carrito",
-                "correct": false
               }
             ]
           ]
@@ -5632,30 +5753,30 @@
           "matchRows": [
             [
               {
-                "word": "arriba",
-                "correct": true
-              },
-              {
                 "word": "carrito",
                 "correct": true
               },
               {
-                "word": "correo",
+                "word": "arrullo",
                 "correct": false
+              },
+              {
+                "word": "arriba",
+                "correct": true
               }
             ],
             [
               {
-                "word": "burro",
+                "word": "hierro",
+                "correct": false
+              },
+              {
+                "word": "guitarra",
                 "correct": false
               },
               {
                 "word": "barrio",
                 "correct": true
-              },
-              {
-                "word": "barra",
-                "correct": false
               }
             ]
           ]
@@ -5669,29 +5790,30 @@
           "matchRows": [
             [
               {
-                "word": "guitarra",
-                "correct": false
+                "word": "burro",
+                "correct": true
               },
               {
                 "word": "carro",
-                "correct": true
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/carro.webp"
               },
               {
-                "word": "burro",
-                "correct": true
+                "word": "barra",
+                "correct": false
               }
             ],
             [
-              {
-                "word": "tierra",
-                "correct": false
-              },
               {
                 "word": "morro",
                 "correct": true
               },
               {
-                "word": "carretera",
+                "word": "tierra",
+                "correct": false
+              },
+              {
+                "word": "guitarra",
                 "correct": false
               }
             ]
@@ -5706,30 +5828,30 @@
           "matchRows": [
             [
               {
-                "word": "borrumba",
+                "word": "arruga",
                 "correct": true
               },
               {
-                "word": "burrito",
+                "word": "carrera",
                 "correct": false
               },
               {
-                "word": "arruga",
+                "word": "borrumba",
                 "correct": true
               }
             ],
             [
               {
-                "word": "barra",
-                "correct": false
-              },
-              {
-                "word": "carrito",
-                "correct": false
-              },
-              {
                 "word": "arrullo",
                 "correct": true
+              },
+              {
+                "word": "guitarra",
+                "correct": false
+              },
+              {
+                "word": "cigarro",
+                "correct": false
               }
             ]
           ]
@@ -5753,6 +5875,24 @@
           "fillItems": [
             {
               "wordBox": "perro",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/perro.webp",
+              "blank": "rro",
+              "choices": [
+                {
+                  "text": "rro",
+                  "correct": true
+                },
+                {
+                  "text": "rre"
+                },
+                {
+                  "text": "rru"
+                }
+              ]
+            },
+            {
+              "wordBox": "carro",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/carro.webp",
               "blank": "rro",
               "choices": [
                 {
@@ -5768,34 +5908,18 @@
               ]
             },
             {
-              "wordBox": "carro",
-              "blank": "rro",
-              "choices": [
-                {
-                  "text": "rra"
-                },
-                {
-                  "text": "rro",
-                  "correct": true
-                },
-                {
-                  "text": "rru"
-                }
-              ]
-            },
-            {
               "wordBox": "burro",
               "blank": "rro",
               "choices": [
                 {
-                  "text": "rra"
-                },
-                {
                   "text": "rro",
                   "correct": true
                 },
                 {
                   "text": "rru"
+                },
+                {
+                  "text": "rra"
                 }
               ]
             },
@@ -5937,25 +6061,25 @@
           "matchRows": [
             [
               {
-                "word": "Guille",
-                "correct": false
+                "word": "gana",
+                "correct": true
               },
               {
                 "word": "gato",
                 "correct": true
               },
               {
-                "word": "gana",
-                "correct": true
+                "word": "gusano",
+                "correct": false
               }
             ],
             [
               {
-                "word": "manguera",
+                "word": "águila",
                 "correct": false
               },
               {
-                "word": "guía",
+                "word": "guardia",
                 "correct": false
               },
               {
@@ -5974,29 +6098,29 @@
           "matchRows": [
             [
               {
+                "word": "guerra",
+                "correct": true
+              },
+              {
                 "word": "guepardo",
                 "correct": true
               },
               {
-                "word": "guardia",
+                "word": "Guille",
                 "correct": false
-              },
-              {
-                "word": "guerra",
-                "correct": true
               }
             ],
             [
-              {
-                "word": "gorrión",
-                "correct": false
-              },
               {
                 "word": "Miguel",
                 "correct": true
               },
               {
-                "word": "Gabi",
+                "word": "ganso",
+                "correct": false
+              },
+              {
+                "word": "gota",
                 "correct": false
               }
             ]
@@ -6025,16 +6149,16 @@
             ],
             [
               {
-                "word": "manguera",
-                "correct": false
-              },
-              {
-                "word": "Miguel",
+                "word": "gola",
                 "correct": false
               },
               {
                 "word": "águila",
                 "correct": true
+              },
+              {
+                "word": "gula",
+                "correct": false
               }
             ]
           ]
@@ -6048,15 +6172,15 @@
           "matchRows": [
             [
               {
-                "word": "gana",
+                "word": "guerra",
                 "correct": false
               },
               {
-                "word": "gota",
+                "word": "gola",
                 "correct": true
               },
               {
-                "word": "gola",
+                "word": "gota",
                 "correct": true
               }
             ],
@@ -6066,11 +6190,11 @@
                 "correct": true
               },
               {
-                "word": "guiño",
+                "word": "guepardo",
                 "correct": false
               },
               {
-                "word": "manguera",
+                "word": "guisante",
                 "correct": false
               }
             ]
@@ -6085,30 +6209,30 @@
           "matchRows": [
             [
               {
+                "word": "galleta",
+                "correct": false
+              },
+              {
                 "word": "gusto",
                 "correct": true
               },
               {
                 "word": "gula",
                 "correct": true
-              },
-              {
-                "word": "Guille",
-                "correct": false
               }
             ],
             [
               {
-                "word": "gato",
-                "correct": false
-              },
-              {
-                "word": "guitarra",
+                "word": "gana",
                 "correct": false
               },
               {
                 "word": "Gus",
                 "correct": true
+              },
+              {
+                "word": "guisante",
+                "correct": false
               }
             ]
           ]
@@ -6135,14 +6259,14 @@
               "blank": "ga",
               "choices": [
                 {
+                  "text": "gue"
+                },
+                {
                   "text": "gu"
                 },
                 {
                   "text": "ga",
                   "correct": true
-                },
-                {
-                  "text": "go"
                 }
               ]
             },
@@ -6151,10 +6275,10 @@
               "blank": "ga",
               "choices": [
                 {
-                  "text": "gui"
+                  "text": "gue"
                 },
                 {
-                  "text": "gue"
+                  "text": "go"
                 },
                 {
                   "text": "ga",
@@ -6167,14 +6291,14 @@
               "blank": "gui",
               "choices": [
                 {
-                  "text": "gu"
+                  "text": "ga"
                 },
                 {
                   "text": "gui",
                   "correct": true
                 },
                 {
-                  "text": "ga"
+                  "text": "go"
                 }
               ]
             },
@@ -6183,10 +6307,10 @@
               "blank": "gu",
               "choices": [
                 {
-                  "text": "go"
+                  "text": "gui"
                 },
                 {
-                  "text": "gui"
+                  "text": "gue"
                 },
                 {
                   "text": "gu",
@@ -6316,30 +6440,30 @@
           "matchRows": [
             [
               {
-                "word": "fuma",
+                "word": "faro",
+                "correct": true
+              },
+              {
+                "word": "foto",
                 "correct": false
               },
               {
                 "word": "fama",
                 "correct": true
-              },
-              {
-                "word": "faro",
-                "correct": true
               }
             ],
             [
               {
+                "word": "fila",
+                "correct": false
+              },
+              {
+                "word": "feo",
+                "correct": false
+              },
+              {
                 "word": "Fabi",
                 "correct": true
-              },
-              {
-                "word": "Fifi",
-                "correct": false
-              },
-              {
-                "word": "Felipe",
-                "correct": false
               }
             ]
           ]
@@ -6353,7 +6477,7 @@
           "matchRows": [
             [
               {
-                "word": "foto",
+                "word": "fama",
                 "correct": false
               },
               {
@@ -6367,7 +6491,7 @@
             ],
             [
               {
-                "word": "fama",
+                "word": "foto",
                 "correct": false
               },
               {
@@ -6390,15 +6514,15 @@
           "matchRows": [
             [
               {
-                "word": "fila",
+                "word": "fino",
                 "correct": true
               },
               {
-                "word": "forma",
+                "word": "foca",
                 "correct": false
               },
               {
-                "word": "fino",
+                "word": "fila",
                 "correct": true
               }
             ],
@@ -6408,7 +6532,7 @@
                 "correct": false
               },
               {
-                "word": "Felipe",
+                "word": "foto",
                 "correct": false
               },
               {
@@ -6427,19 +6551,23 @@
           "matchRows": [
             [
               {
-                "word": "foca",
+                "word": "foto",
                 "correct": true
               },
               {
-                "word": "fecha",
+                "word": "Fufu",
                 "correct": false
               },
               {
-                "word": "foto",
+                "word": "foca",
                 "correct": true
               }
             ],
             [
+              {
+                "word": "fiesta",
+                "correct": false
+              },
               {
                 "word": "falda",
                 "correct": false
@@ -6447,10 +6575,6 @@
               {
                 "word": "Foco",
                 "correct": true
-              },
-              {
-                "word": "fila",
-                "correct": false
               }
             ]
           ]
@@ -6464,15 +6588,15 @@
           "matchRows": [
             [
               {
-                "word": "fama",
+                "word": "fino",
                 "correct": false
               },
               {
-                "word": "fuente",
+                "word": "fuma",
                 "correct": true
               },
               {
-                "word": "fuma",
+                "word": "fuente",
                 "correct": true
               }
             ],
@@ -6482,12 +6606,12 @@
                 "correct": false
               },
               {
-                "word": "Fufu",
-                "correct": true
+                "word": "fenómeno",
+                "correct": false
               },
               {
-                "word": "foca",
-                "correct": false
+                "word": "Fufu",
+                "correct": true
               }
             ]
           ]
@@ -6514,14 +6638,14 @@
               "blank": "fa",
               "choices": [
                 {
+                  "text": "fi"
+                },
+                {
                   "text": "fa",
                   "correct": true
                 },
                 {
                   "text": "fu"
-                },
-                {
-                  "text": "fi"
                 }
               ]
             },
@@ -6530,14 +6654,14 @@
               "blank": "fi",
               "choices": [
                 {
-                  "text": "fe"
+                  "text": "fa"
                 },
                 {
                   "text": "fi",
                   "correct": true
                 },
                 {
-                  "text": "fo"
+                  "text": "fe"
                 }
               ]
             },
@@ -6546,14 +6670,14 @@
               "blank": "fo",
               "choices": [
                 {
+                  "text": "fe"
+                },
+                {
                   "text": "fo",
                   "correct": true
                 },
                 {
-                  "text": "fe"
-                },
-                {
-                  "text": "fi"
+                  "text": "fu"
                 }
               ]
             },
@@ -6566,10 +6690,10 @@
                   "correct": true
                 },
                 {
-                  "text": "fe"
+                  "text": "fa"
                 },
                 {
-                  "text": "fi"
+                  "text": "fo"
                 }
               ]
             }
@@ -6695,12 +6819,12 @@
           "matchRows": [
             [
               {
-                "word": "jugo",
-                "correct": false
-              },
-              {
                 "word": "jabón",
                 "correct": true
+              },
+              {
+                "word": "jinete",
+                "correct": false
               },
               {
                 "word": "jaula",
@@ -6709,16 +6833,16 @@
             ],
             [
               {
-                "word": "jefe",
+                "word": "Jimena",
+                "correct": false
+              },
+              {
+                "word": "jícara",
                 "correct": false
               },
               {
                 "word": "Javi",
                 "correct": true
-              },
-              {
-                "word": "juguete",
-                "correct": false
               }
             ]
           ]
@@ -6732,30 +6856,30 @@
           "matchRows": [
             [
               {
-                "word": "jeringa",
-                "correct": true
-              },
-              {
                 "word": "jefe",
                 "correct": true
               },
               {
-                "word": "jarra",
+                "word": "Javi",
                 "correct": false
+              },
+              {
+                "word": "jeringa",
+                "correct": true
               }
             ],
             [
               {
-                "word": "jorobado",
+                "word": "juguete",
+                "correct": false
+              },
+              {
+                "word": "jamón",
                 "correct": false
               },
               {
                 "word": "Jenny",
                 "correct": true
-              },
-              {
-                "word": "Jimmy",
-                "correct": false
               }
             ]
           ]
@@ -6769,21 +6893,21 @@
           "matchRows": [
             [
               {
-                "word": "jinete",
-                "correct": true
-              },
-              {
                 "word": "jirafa",
                 "correct": true
               },
               {
-                "word": "jota",
+                "word": "jarra",
                 "correct": false
+              },
+              {
+                "word": "jinete",
+                "correct": true
               }
             ],
             [
               {
-                "word": "jabón",
+                "word": "jota",
                 "correct": false
               },
               {
@@ -6791,7 +6915,7 @@
                 "correct": true
               },
               {
-                "word": "jugo",
+                "word": "jersey",
                 "correct": false
               }
             ]
@@ -6810,7 +6934,7 @@
                 "correct": true
               },
               {
-                "word": "jerga",
+                "word": "jirafa",
                 "correct": false
               },
               {
@@ -6820,12 +6944,12 @@
             ],
             [
               {
-                "word": "Jorge",
-                "correct": true
+                "word": "jamón",
+                "correct": false
               },
               {
-                "word": "jefe",
-                "correct": false
+                "word": "Jorge",
+                "correct": true
               },
               {
                 "word": "Juan",
@@ -6843,16 +6967,16 @@
           "matchRows": [
             [
               {
-                "word": "jugo",
-                "correct": true
-              },
-              {
                 "word": "junto",
                 "correct": true
               },
               {
-                "word": "joven",
+                "word": "jamón",
                 "correct": false
+              },
+              {
+                "word": "jugo",
+                "correct": true
               }
             ],
             [
@@ -6861,11 +6985,11 @@
                 "correct": true
               },
               {
-                "word": "jabón",
+                "word": "joya",
                 "correct": false
               },
               {
-                "word": "Jorge",
+                "word": "Jimena",
                 "correct": false
               }
             ]
@@ -6893,11 +7017,11 @@
               "blank": "ja",
               "choices": [
                 {
-                  "text": "ja",
-                  "correct": true
+                  "text": "ji"
                 },
                 {
-                  "text": "je"
+                  "text": "ja",
+                  "correct": true
                 },
                 {
                   "text": "jo"
@@ -6909,14 +7033,14 @@
               "blank": "ji",
               "choices": [
                 {
+                  "text": "ji",
+                  "correct": true
+                },
+                {
                   "text": "ju"
                 },
                 {
-                  "text": "jo"
-                },
-                {
-                  "text": "ji",
-                  "correct": true
+                  "text": "je"
                 }
               ]
             },
@@ -6925,14 +7049,14 @@
               "blank": "jo",
               "choices": [
                 {
+                  "text": "ja"
+                },
+                {
                   "text": "jo",
                   "correct": true
                 },
                 {
                   "text": "ju"
-                },
-                {
-                  "text": "ji"
                 }
               ]
             },
@@ -6944,11 +7068,11 @@
                   "text": "je"
                 },
                 {
-                  "text": "jo"
-                },
-                {
                   "text": "ju",
                   "correct": true
+                },
+                {
+                  "text": "jo"
                 }
               ]
             }
@@ -7074,30 +7198,31 @@
           "matchRows": [
             [
               {
-                "word": "queremos",
+                "word": "Quirino",
                 "correct": false
               },
               {
-                "word": "cama",
-                "correct": true
+                "word": "casa",
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-19-c/casa.webp"
               },
               {
-                "word": "casa",
+                "word": "cama",
                 "correct": true
               }
             ],
             [
               {
-                "word": "Quique",
+                "word": "queso",
+                "correct": false
+              },
+              {
+                "word": "queja",
                 "correct": false
               },
               {
                 "word": "Cami",
                 "correct": true
-              },
-              {
-                "word": "cuerpo",
-                "correct": false
               }
             ]
           ]
@@ -7111,15 +7236,15 @@
           "matchRows": [
             [
               {
-                "word": "Quirino",
+                "word": "química",
                 "correct": false
               },
               {
-                "word": "queso",
+                "word": "queja",
                 "correct": true
               },
               {
-                "word": "queja",
+                "word": "queso",
                 "correct": true
               }
             ],
@@ -7129,11 +7254,11 @@
                 "correct": true
               },
               {
-                "word": "casa",
+                "word": "cuchara",
                 "correct": false
               },
               {
-                "word": "cuchara",
+                "word": "cosa",
                 "correct": false
               }
             ]
@@ -7148,25 +7273,26 @@
           "matchRows": [
             [
               {
-                "word": "cosa",
+                "word": "quita",
+                "correct": true
+              },
+              {
+                "word": "Quique",
                 "correct": false
               },
               {
                 "word": "quince",
                 "correct": true
-              },
-              {
-                "word": "quita",
-                "correct": true
               }
             ],
             [
               {
-                "word": "Cami",
-                "correct": false
+                "word": "casa",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-19-c/casa.webp"
               },
               {
-                "word": "cuchara",
+                "word": "cosa",
                 "correct": false
               },
               {
@@ -7185,7 +7311,7 @@
           "matchRows": [
             [
               {
-                "word": "calle",
+                "word": "Quirino",
                 "correct": false
               },
               {
@@ -7199,15 +7325,15 @@
             ],
             [
               {
-                "word": "carro",
-                "correct": false
-              },
-              {
                 "word": "Coco",
                 "correct": true
               },
               {
-                "word": "queremos",
+                "word": "calle",
+                "correct": false
+              },
+              {
+                "word": "cuerpo",
                 "correct": false
               }
             ]
@@ -7222,30 +7348,31 @@
           "matchRows": [
             [
               {
-                "word": "carro",
-                "correct": false
-              },
-              {
-                "word": "cuna",
-                "correct": true
-              },
-              {
                 "word": "cuento",
                 "correct": true
-              }
-            ],
-            [
-              {
-                "word": "Cuca",
-                "correct": true
-              },
-              {
-                "word": "casa",
-                "correct": false
               },
               {
                 "word": "queso",
                 "correct": false
+              },
+              {
+                "word": "cuna",
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-19-c/cuna.webp"
+              }
+            ],
+            [
+              {
+                "word": "cosa",
+                "correct": false
+              },
+              {
+                "word": "quiosco",
+                "correct": false
+              },
+              {
+                "word": "Cuca",
+                "correct": true
               }
             ]
           ]
@@ -7269,17 +7396,18 @@
           "fillItems": [
             {
               "wordBox": "casa",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-19-c/casa.webp",
               "blank": "ca",
               "choices": [
-                {
-                  "text": "cu"
-                },
                 {
                   "text": "que"
                 },
                 {
                   "text": "ca",
                   "correct": true
+                },
+                {
+                  "text": "cu"
                 }
               ]
             },
@@ -7288,14 +7416,14 @@
               "blank": "que",
               "choices": [
                 {
-                  "text": "cu"
-                },
-                {
                   "text": "que",
                   "correct": true
                 },
                 {
-                  "text": "ca"
+                  "text": "cu"
+                },
+                {
+                  "text": "qui"
                 }
               ]
             },
@@ -7311,7 +7439,7 @@
                   "text": "que"
                 },
                 {
-                  "text": "qui"
+                  "text": "ca"
                 }
               ]
             },
@@ -7320,14 +7448,14 @@
               "blank": "cu",
               "choices": [
                 {
-                  "text": "ca"
-                },
-                {
-                  "text": "co"
+                  "text": "que"
                 },
                 {
                   "text": "cu",
                   "correct": true
+                },
+                {
+                  "text": "qui"
                 }
               ]
             }
@@ -7453,21 +7581,23 @@
           "matchRows": [
             [
               {
-                "word": "yerno",
-                "correct": false
+                "word": "yarda",
+                "correct": true
               },
               {
                 "word": "yate",
-                "correct": true
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yate.webp"
               },
               {
-                "word": "yarda",
-                "correct": true
+                "word": "yegua",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yegua.webp"
               }
             ],
             [
               {
-                "word": "yip",
+                "word": "yogur",
                 "correct": false
               },
               {
@@ -7475,7 +7605,7 @@
                 "correct": true
               },
               {
-                "word": "yodo",
+                "word": "yiyo",
                 "correct": false
               }
             ]
@@ -7490,12 +7620,13 @@
           "matchRows": [
             [
               {
-                "word": "Yoli",
+                "word": "yodo",
                 "correct": false
               },
               {
                 "word": "yegua",
-                "correct": true
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yegua.webp"
               },
               {
                 "word": "yeso",
@@ -7504,16 +7635,16 @@
             ],
             [
               {
-                "word": "yiyo",
+                "word": "rayar",
+                "correct": false
+              },
+              {
+                "word": "yuca",
                 "correct": false
               },
               {
                 "word": "Yeni",
                 "correct": true
-              },
-              {
-                "word": "ayuda",
-                "correct": false
               }
             ]
           ]
@@ -7527,16 +7658,17 @@
           "matchRows": [
             [
               {
+                "word": "yoyo",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yoyo.webp"
+              },
+              {
                 "word": "yip",
                 "correct": true
               },
               {
                 "word": "yiddish",
                 "correct": true
-              },
-              {
-                "word": "yarda",
-                "correct": false
               }
             ],
             [
@@ -7545,11 +7677,11 @@
                 "correct": true
               },
               {
-                "word": "yate",
+                "word": "yuca",
                 "correct": false
               },
               {
-                "word": "yuca",
+                "word": "rayar",
                 "correct": false
               }
             ]
@@ -7568,26 +7700,27 @@
                 "correct": true
               },
               {
-                "word": "yate",
-                "correct": false
+                "word": "yoyo",
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yoyo.webp"
               },
               {
-                "word": "yoyo",
-                "correct": true
+                "word": "Yeni",
+                "correct": false
               }
             ],
             [
+              {
+                "word": "yoga",
+                "correct": true
+              },
               {
                 "word": "yiteo",
                 "correct": false
               },
               {
-                "word": "yip",
+                "word": "yeso",
                 "correct": false
-              },
-              {
-                "word": "yoga",
-                "correct": true
               }
             ]
           ]
@@ -7605,7 +7738,7 @@
                 "correct": true
               },
               {
-                "word": "ayer",
+                "word": "Yoli",
                 "correct": false
               },
               {
@@ -7615,16 +7748,17 @@
             ],
             [
               {
-                "word": "yoyo",
-                "correct": false
-              },
-              {
-                "word": "yantar",
+                "word": "yerno",
                 "correct": false
               },
               {
                 "word": "Yuli",
                 "correct": true
+              },
+              {
+                "word": "yoyo",
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yoyo.webp"
               }
             ]
           ]
@@ -7648,14 +7782,15 @@
           "fillItems": [
             {
               "wordBox": "yate",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yate.webp",
               "blank": "ya",
               "choices": [
                 {
-                  "text": "yi"
-                },
-                {
                   "text": "ya",
                   "correct": true
+                },
+                {
+                  "text": "yu"
                 },
                 {
                   "text": "yo"
@@ -7664,6 +7799,7 @@
             },
             {
               "wordBox": "yegua",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yegua.webp",
               "blank": "ye",
               "choices": [
                 {
@@ -7680,17 +7816,18 @@
             },
             {
               "wordBox": "yoyo",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yoyo.webp",
               "blank": "yo",
               "choices": [
+                {
+                  "text": "ya"
+                },
                 {
                   "text": "yo",
                   "correct": true
                 },
                 {
-                  "text": "ya"
-                },
-                {
-                  "text": "yu"
+                  "text": "yi"
                 }
               ]
             },
@@ -7699,14 +7836,14 @@
               "blank": "yu",
               "choices": [
                 {
-                  "text": "ye"
-                },
-                {
                   "text": "yu",
                   "correct": true
                 },
                 {
-                  "text": "yi"
+                  "text": "ye"
+                },
+                {
+                  "text": "ya"
                 }
               ]
             }
@@ -7832,30 +7969,32 @@
           "matchRows": [
             [
               {
-                "word": "zapato",
-                "correct": true
-              },
-              {
-                "word": "ciruela",
+                "word": "celda",
                 "correct": false
               },
               {
+                "word": "zapato",
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-23-z/zapato.webp"
+              },
+              {
                 "word": "zanahoria",
-                "correct": true
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-23-z/zanahoria.webp"
               }
             ],
             [
               {
-                "word": "zorro",
-                "correct": false
-              },
-              {
-                "word": "celda",
+                "word": "zurdo",
                 "correct": false
               },
               {
                 "word": "Zaida",
                 "correct": true
+              },
+              {
+                "word": "zorrito",
+                "correct": false
               }
             ]
           ]
@@ -7873,26 +8012,26 @@
                 "correct": true
               },
               {
-                "word": "cesta",
-                "correct": true
+                "word": "zarpa",
+                "correct": false
               },
               {
-                "word": "zapallo",
-                "correct": false
+                "word": "cesta",
+                "correct": true
               }
             ],
             [
               {
-                "word": "Zaida",
-                "correct": false
-              },
-              {
-                "word": "zona",
-                "correct": false
-              },
-              {
                 "word": "Cecilia",
                 "correct": true
+              },
+              {
+                "word": "zorrito",
+                "correct": false
+              },
+              {
+                "word": "Zoraida",
+                "correct": false
               }
             ]
           ]
@@ -7906,16 +8045,17 @@
           "matchRows": [
             [
               {
+                "word": "circo",
+                "correct": true
+              },
+              {
                 "word": "cine",
                 "correct": true
               },
               {
                 "word": "zapato",
-                "correct": false
-              },
-              {
-                "word": "circo",
-                "correct": true
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-23-z/zapato.webp"
               }
             ],
             [
@@ -7924,11 +8064,11 @@
                 "correct": true
               },
               {
-                "word": "zumba",
+                "word": "celda",
                 "correct": false
               },
               {
-                "word": "Cecilia",
+                "word": "zumo",
                 "correct": false
               }
             ]
@@ -7943,12 +8083,12 @@
           "matchRows": [
             [
               {
-                "word": "Cecilia",
-                "correct": false
-              },
-              {
                 "word": "zorro",
                 "correct": true
+              },
+              {
+                "word": "zarpa",
+                "correct": false
               },
               {
                 "word": "zona",
@@ -7961,11 +8101,11 @@
                 "correct": true
               },
               {
-                "word": "Zaida",
+                "word": "cero",
                 "correct": false
               },
               {
-                "word": "zapallo",
+                "word": "zumo",
                 "correct": false
               }
             ]
@@ -7980,29 +8120,29 @@
           "matchRows": [
             [
               {
-                "word": "Zaida",
+                "word": "cero",
                 "correct": false
               },
               {
-                "word": "zumba",
+                "word": "zumo",
                 "correct": true
               },
               {
-                "word": "zumo",
+                "word": "zumba",
                 "correct": true
               }
             ],
             [
               {
+                "word": "zorro",
+                "correct": false
+              },
+              {
                 "word": "Zulema",
                 "correct": true
               },
               {
-                "word": "circo",
-                "correct": false
-              },
-              {
-                "word": "zanahoria",
+                "word": "Cecilia",
                 "correct": false
               }
             ]
@@ -8027,6 +8167,7 @@
           "fillItems": [
             {
               "wordBox": "zapato",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-23-z/zapato.webp",
               "blank": "za",
               "choices": [
                 {
@@ -8043,14 +8184,15 @@
             },
             {
               "wordBox": "zanahoria",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-23-z/zanahoria.webp",
               "blank": "za",
               "choices": [
                 {
-                  "text": "ci"
-                },
-                {
                   "text": "za",
                   "correct": true
+                },
+                {
+                  "text": "ce"
                 },
                 {
                   "text": "zo"
@@ -8062,14 +8204,14 @@
               "blank": "ci",
               "choices": [
                 {
-                  "text": "ce"
+                  "text": "za"
                 },
                 {
                   "text": "ci",
                   "correct": true
                 },
                 {
-                  "text": "zo"
+                  "text": "zu"
                 }
               ]
             },
@@ -8085,7 +8227,7 @@
                   "text": "ce"
                 },
                 {
-                  "text": "ci"
+                  "text": "za"
                 }
               ]
             }

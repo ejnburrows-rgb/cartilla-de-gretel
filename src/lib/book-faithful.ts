@@ -94,7 +94,7 @@ export type PageGridCell = {
  * real book data checked so far) — grading is "did you mark all of them",
  * not "did you pick the right one out of distractors".
  */
-export type SyllableMatchWord = { word: string; correct?: boolean };
+export type SyllableMatchWord = { word: string; correct?: boolean; illustrationSrc?: string };
 export type SyllableMatchRow = SyllableMatchWord[];
 
 /** One choice offered inside a fill-in-blank item. */
@@ -104,6 +104,8 @@ export type FillInBlankChoice = { text: string; correct?: boolean };
 export type FillInBlankItem = {
 	/** The whole reference word shown in a box, e.g. "amo". */
 	wordBox: string;
+	/** Faithful color crop path for the wordBox image */
+	illustrationSrc?: string;
 	/** The partial word with the blank, e.g. "a ___" or "___ mi". */
 	blank: string;
 	/** The syllable choices offered — exactly one reconstructs `wordBox` via `blank`. */

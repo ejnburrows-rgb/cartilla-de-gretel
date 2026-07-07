@@ -382,10 +382,14 @@
   color: var(--ix-accent);
   background: #fff;
   border: 2.5px solid color-mix(in srgb, var(--ix-accent) 45%, transparent);
-  border-radius: 999px;
+  border-radius: 12px;
   padding: 1cqw 2.4cqw;
   cursor: pointer;
   transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6cqw;
 }
 .fp-ix-syllable__word:hover {
   transform: translateY(-1px) scale(1.03);
@@ -408,12 +412,25 @@
 .fp-ix-syllable__word:disabled {
   cursor: default;
 }
+.fp-ix-syllable__img {
+  width: 10cqw;
+  height: 10cqw;
+  object-fit: contain;
+  border-radius: 8px;
+}
 
 /* fill-in-blank: reference word + blank template + tappable choice chips */
 .fp-ix-fill {
   display: flex;
   flex-direction: column;
   gap: 1.4cqw;
+}
+.fp-ix-fill__img {
+  width: 8cqw;
+  height: 8cqw;
+  object-fit: contain;
+  border-radius: 6px;
+  flex-shrink: 0;
 }
 .fp-ix-fill__item {
   display: flex;
