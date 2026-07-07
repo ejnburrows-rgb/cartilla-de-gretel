@@ -151,6 +151,16 @@ function Leccion() {
 
         {/* Digital Workbook Section */}
         <GardenScene>
+          {!session && (
+            <div className="fixed top-4 left-4 z-[200]">
+              <Link
+                to="/cartilla/teacher/lecciones"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-stone-800/90 hover:bg-stone-800 text-white font-bold rounded-xl shadow-lg backdrop-blur transition hover:-translate-y-0.5"
+              >
+                <ArrowLeft className="w-4 h-4" /> Salir al CRM
+              </Link>
+            </div>
+          )}
           <StudentWorkbookFlip
             pages={pages}
             initialPage={0}
@@ -160,18 +170,7 @@ function Leccion() {
           </div>
         </GardenScene>
 
-        {/* Interactive Zone */}
-        <div className="w-full max-w-3xl">
-          <h2 className="text-2xl font-black mb-6 text-center text-foreground/80">¡Zona Interactiva!</h2>
-          {entry.kind === "intro" && <IntroBody lessonId={String(n)} lang={lang} t={t} activities={entry.activities} />}
-          {entry.kind === "vowel" && <VowelBody entry={entry} lessonId={String(n)} lang={lang} t={t} />}
-          {entry.kind === "consonant" && <ConsonantBody entry={entry} lessonId={String(n)} lang={lang} t={t} />}
-          {done && (
-            <div className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-success bg-success/10 px-4 py-2 rounded-full mx-auto w-fit">
-              <Check className="w-4 h-4" /> {t.yaCompletaste[lang]}
-            </div>
-          )}
-        </div>
+
       </main>
       <nav className="fixed bottom-0 inset-x-0 p-3 bg-background/95 backdrop-blur border-t-2 border-foreground/10">
         <div className="max-w-3xl mx-auto flex items-center justify-between gap-3">

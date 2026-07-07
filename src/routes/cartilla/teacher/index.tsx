@@ -47,7 +47,7 @@ const FOLDERS: DriveFolder[] = [
     title: "Guía del Profesor",
     color: "bg-[#16a34a]", // Solid Green for the newly provided text
     iconColor: "text-green-200",
-    to: "/cartilla/teacher/recursos/guia",
+    to: "/cartilla/teacher/guide",
   }
 ];
 

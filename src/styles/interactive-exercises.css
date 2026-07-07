@@ -17,8 +17,20 @@
  * picture) so their real book art isn't static while the new page
  * exercises float — same keyframe, same per-cell randomized delay rule. */
 .game-pic-float {
-  animation: fpIxFloat 5.5s ease-in-out infinite;
+  animation: fpIxFloat 3.5s ease-in-out infinite;
   animation-delay: var(--float-delay, 0s);
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
+}
+
+@keyframes fpIxFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15)) brightness(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.05);
+    filter: drop-shadow(0 10px 12px rgba(234, 88, 12, 0.25)) brightness(1.1);
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .game-pic-float {

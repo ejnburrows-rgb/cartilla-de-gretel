@@ -10,6 +10,10 @@ All notable changes to this project are documented in this file. Format follows 
 - `CHANGELOG.md` to track release history.
 - `.github/workflows/extract-art.yml` to run the art extraction, polish, and manifest pipeline on push.
 - Status badges, hero pointer, folder-structure tree, contributing, license, and credits sections in `README.md`.
+- **Teacher CRM Lesson Catalog**: Centralized, minimalist curriculum browser mapping to all 24 interactive student workbook lessons.
+- **Interactive Exercises Digitization**: Fully interactive, colorful, and faithful layout structures for all 18 Consonant lessons (Lessons 7-24).
+- **Splash Screen Gateway**: Redesigned 3D CSS-animated garden entry point with explicit routing separation between Students and Teachers.
+- **Supabase Integration**: Live connection established via local Vercel CLI token linking.
 
 ### Removed
 - Kid-voice recording entry point and related orphans (`src/routes/cartilla/grabar.tsx`, `src/lib/audio-recorder.ts`) as out of spec.

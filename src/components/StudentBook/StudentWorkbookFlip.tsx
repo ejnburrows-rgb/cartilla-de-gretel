@@ -97,7 +97,7 @@ export function StudentWorkbookFlip({
 
     setTimeout(() => {
       afterFlip(currentIndex - step);
-    }, 600);
+    }, 1500);
   };
 
   const handleNext = () => {
@@ -115,7 +115,7 @@ export function StudentWorkbookFlip({
 
     setTimeout(() => {
       afterFlip(currentIndex + step);
-    }, 600);
+    }, 1500);
   };
 
   const staticIndex = isFlipping && flipDirection === 'prev' ? currentIndex - 1 : (isFlipping && flipDirection === 'next' ? currentIndex + 1 : currentIndex);

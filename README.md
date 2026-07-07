@@ -10,6 +10,11 @@ A digital edition and classroom platform for *La Cartilla de Gretel*, the Spanis
 - **Teacher dashboard** — classes, students, join codes, assignments, and progress tracking.
 - **Classroom view** — a presentation-friendly flip book for teaching at the front of the room.
 
+### Status Highlights
+- All 24 core lessons (vowels and consonants) are fully digitized with faithful layouts and interactive elements.
+- The Teacher CRM includes a centralized curriculum catalog.
+- Fully integrated with Supabase.
+
 ## Tech stack
 
 - Vite + React + TypeScript

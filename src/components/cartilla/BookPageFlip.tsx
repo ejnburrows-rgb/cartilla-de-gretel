@@ -72,7 +72,7 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
         const srcs = upcoming.map(n => getBookPageImage(n)).filter(Boolean) as string[];
         preloadSpread(srcs);
       }
-    }, 500);
+    }, 1500);
   }, [hasPrev, isFlipping, currentIndex, onPageChange, totalPages]);
 
   const handleNext = useCallback(() => {
@@ -93,7 +93,7 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
         const srcs = upcoming.map(n => getBookPageImage(n)).filter(Boolean) as string[];
         preloadSpread(srcs);
       }
-    }, 500);
+    }, 1500);
   }, [hasNext, isFlipping, currentIndex, onPageChange, totalPages]);
 
   const onPointerDown = (e: React.PointerEvent) => {
@@ -124,7 +124,7 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
   return (
     <div
       className="book-scene relative w-full select-none py-10 px-4 flex flex-col items-center"
-      style={{ background: "linear-gradient(180deg, #c8e6f5 0%, #b3d9a0 38%, #8db87a 55%, #c49a6c 72%, #a07850 88%, #8a6442 100%)" }}
+      style={{ background: "radial-gradient(circle, #e5c531 0%, #0d6b38 100%)" }}
     >
       {/* Hill silhouette */}
       <div
@@ -176,7 +176,7 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
           {isFlipping && (
             <div
               className={`page-flip absolute inset-0 ${flipDirection === 'next' ? 'flipping-right-to-left' : ''}`}
-              style={{ transform: flipTransform, transition: "transform 500ms cubic-bezier(0.4,0,0.2,1)", transformStyle: "preserve-3d" }}
+              style={{ transform: flipTransform, transition: "transform 1500ms cubic-bezier(0.4,0,0.2,1)", transformStyle: "preserve-3d" }}
             >
               <div className="page-front absolute inset-0 overflow-hidden">
                 {pagesArray[flipFrontIndex] !== undefined

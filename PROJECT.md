@@ -9,9 +9,10 @@ The student view is located under `/cartilla/student/leccion/$n` and the teacher
 |---|------|-------|-------------|--------|
 | 1 | Mascot Upgrades | Synchronized mouth animations, confetti celebration overlay, local voices boost | None | DONE (Conv: b876fdee-5fbf-499e-bdf4-8f4a89f6afc7) |
 | 2 | Voice Piano Pronunciation | AudioContext piano synth, Spanish SpeechRecognition, red/green key feedback | M1 | IN_PROGRESS (Conv: 62b7f65f-b42c-4b54-b0da-011bc87829aa) |
-| 3 | Workbook Page Flip | Upward vertical spiral book flip, swipe navigation (horizontal/vertical) | None | IN_PROGRESS (Conv: d7449ca8-8cdb-46d8-b2a0-accaffe3208e) |
-| 4 | Teacher 4-Squares Guide | Route `/cartilla/teacher/guia/$n`, 2x2 grid guide dashboard, FYI/tip/warning blocks | None | PLANNED |
-| 5 | Drag-and-Drop Activities | DragMatchPairs, DragSyllableOrder, DragLetterTrace games, ActivityCarousel wrapper | M3 | PLANNED |
+| 3 | Workbook Page Flip | Upward vertical spiral book flip, swipe navigation (horizontal/vertical) | None | DONE |
+| 4 | Interactive Consonants | Digitization of Lessons 7-24 with modern layouts, colorful aesthetic, and 3D flip-ups | M3 | DONE |
+| 5 | Teacher Lesson Catalog | CRM Integration: minimalist curriculum browser `/cartilla/teacher/lecciones` | None | DONE |
+| 6 | Gateway UI Overhaul | CSS-animated garden Splash Screen isolating student/teacher routes | None | IN_PROGRESS |
 | - | E2E Testing Track | Requirement-driven test suite & infrastructure (TEST_READY.md) | None | IN_PROGRESS (Conv: f242b944-55cb-4c3d-b012-ba3ef2ea72d8) |
 
 ## Interface Contracts
