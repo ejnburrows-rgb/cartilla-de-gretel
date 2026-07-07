@@ -301,8 +301,7 @@ every agent working on this repo:
   count as "animated."
 - **Never block content:** Gretel (and any character or feedback element)
   must never cover or overlap the workbook page, exercises, or any part of
-  the CRM the kids use. This extends the existing "feedback must never
-  cover content" rule to the character herself.
+  the CRM the kids use. GretelLiveAvatar is now the standard component replacing GretelGuide, and uses fixed corner placement across all routes (login, student view, teacher view) to guarantee she never overlaps content.
 - **No unprompted speech:** Gretel only speaks in reaction to a real
   student action or event (lesson start, correct, wrong, complete). No
   idle chatter, no random phrases "for no reason."
@@ -398,12 +397,9 @@ every agent working on this repo:
    CSS custom property --garden-page-bg is hot-swappable per lesson when
    dedicated backgrounds arrive. Teacher views unaffected.
 ✅ Vocab card grids with real art (PRs #97, #98, #46) — all 5 vowel
-   lessons show painted illustration crops in the vocab card grid; 3
-   consonant words (araña, carro, casa) show real art. The 51 manifest
-   crops are all clean and wired wherever they match content. Remaining
-   69 consonant vocab words await verification of Antigravity's delivered
-   batch (feat/art-extraction-consonants — crops are heuristic, every one
-   must be opened at full resolution before wiring).
+   lessons show painted illustration crops in the vocab card grid;
+   consonant words for lessons 7-20 now show real art (verified and merged).
+   Remaining consonant vocab words for L21-L24 await verification.
 ✅ Gretel pose investigation COMPLETE — confirmed only 5 poses exist on
    main (public/cartilla/images/gretel/poses/: idle, cheer, point,
    talk, wave). July 2026: 7 NEW animation frames (blink, talk-0/1/2,
