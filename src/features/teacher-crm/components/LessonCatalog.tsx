@@ -58,7 +58,7 @@ export function LessonCatalog() {
           <BookOpen className="w-4 h-4" /> Ver Cuaderno
         </Link>
         <Link
-          to={`/cartilla/teacher/flipchart/$n`}
+          to={`/cartilla/presentar/$n`}
           params={{ n: l.lesson.toString() }}
           className={`w-full py-2.5 rounded-xl text-white font-bold text-sm transition-colors flex items-center justify-center gap-2 shadow-sm ${l.type === "vowel" ? "bg-[#ea580c] hover:bg-[#c2410c]" : "bg-[#0284c7] hover:bg-[#0369a1]"}`}
         >

@@ -12,7 +12,7 @@ The student view is located under `/cartilla/student/leccion/$n` and the teacher
 | 3 | Workbook Page Flip | Upward vertical spiral book flip, swipe navigation (horizontal/vertical) | None | DONE |
 | 4 | Interactive Consonants | Digitization of Lessons 7-24 with modern layouts, colorful aesthetic, and 3D flip-ups | M3 | DONE |
 | 5 | Teacher Lesson Catalog | CRM Integration: minimalist curriculum browser `/cartilla/teacher/lecciones` | None | DONE |
-| 6 | Gateway UI Overhaul | CSS-animated garden Splash Screen isolating student/teacher routes | None | IN_PROGRESS |
+| 6 | Gateway UI Overhaul | CSS-animated garden Splash Screen isolating student/teacher routes | None | DONE |
 | - | E2E Testing Track | Requirement-driven test suite & infrastructure (TEST_READY.md) | None | IN_PROGRESS (Conv: f242b944-55cb-4c3d-b012-ba3ef2ea72d8) |
 
 ## Interface Contracts

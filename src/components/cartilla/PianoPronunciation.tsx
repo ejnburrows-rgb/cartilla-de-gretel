@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Mic, MicOff, Volume2, CheckCircle } from "lucide-react";
 import { useSpeechRecognition } from "@/hooks/useSpeechRecognition";
 import { playNote, playCorrectChord, playWrongBuzz, NOTE_FREQS } from "@/lib/piano-audio";
+import { matchesSyllablePhonetically } from "@/lib/phoneme-matcher";
 import { speak } from "@/lib/speak";
 import { recordEvent } from "@/lib/student-session";
 import { cn } from "@/lib/utils";
@@ -68,12 +69,10 @@ export function PianoPronunciation({
   // Match mic transcript to syllables
   useEffect(() => {
     if (!transcript) return;
-    const cleanTranscript = transcript.toLowerCase().trim().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
-    
-    // Find matching syllable
+    // Find matching syllable using phonetic fuzzing
     let matchIdx = -1;
     for (let i = 0; i < pianoKeys.length; i++) {
-      if (cleanTranscript.includes(pianoKeys[i].syllable.toLowerCase())) {
+      if (matchesSyllablePhonetically(pianoKeys[i].syllable, transcript)) {
         matchIdx = i;
         break;
       }
@@ -203,7 +202,11 @@ export function PianoPronunciation({
                 }
                 transition={{ duration: state === "correct" ? 0.3 : 0.4 }}
                 style={{ flex: "1 1 0%", transformOrigin: "top" }}
-                className="mx-[2px] first:ml-0 last:mr-0 h-72 rounded-b-xl relative select-none cursor-pointer group"
+                className={cn(
+                    "mx-[2px] first:ml-0 last:mr-0 h-72 rounded-b-xl relative select-none cursor-pointer group",
+                    state === "correct" && "key-bounce",
+                    state === "incorrect" && "key-shake"
+                )}
                 onClick={() => listenToSyllable(key.syllable, index)}
               >
                 {/* Colorful Key Core — a real toy piano isn't all-white */}

@@ -65,7 +65,7 @@ function TeacherGuide() {
                     <div className="relative">
                       <Folder className="w-8 h-8 fill-current" style={{ color: vTheme.accent }} />
                       <span className="absolute inset-0 flex items-center justify-center text-white font-black text-xs font-fredoka pt-1">
-                        {v.focus}
+                        {v.title.replace("Vocal ", "").replace("Consonante ", "")}
                       </span>
                     </div>
                     <div className="text-left">
@@ -108,7 +108,7 @@ function TeacherGuide() {
           {selectedCatalogEntry && theme && (
             <div className="mb-12">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl text-3xl font-black text-white shadow-lg mb-6 font-fredoka" style={{ backgroundColor: theme.accent }}>
-                {selectedCatalogEntry.focus}
+                {selectedCatalogEntry.title.replace("Vocal ", "").replace("Consonante ", "")}
               </div>
               <h2 className="text-4xl font-black text-stone-800 font-fredoka mb-4">{selectedCatalogEntry.title}</h2>
               <p className="text-lg text-stone-600 font-medium border-l-4 pl-4" style={{ borderColor: theme.accent }}>

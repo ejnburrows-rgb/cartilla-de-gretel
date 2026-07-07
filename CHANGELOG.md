@@ -25,3 +25,8 @@ All notable changes to this project are documented in this file. Format follows 
 - `/cartilla/leccion/9` rendered with Letra S s, páginas 27-30, sight-word chips, and aria labels.
 - `/cartilla/leccion/17` rendered with Letra R r, páginas 59-62, and the mini-story banner.
 - Browser console: no errors during the smoke test.
+## [Unreleased] - 2026-07-07
+### Added
+- 1.5s elegant animations for 3D flipbook page turns.
+- Garden aesthetic applied directly to the Teacher Flipchart presentation mode.
+- Lesson Catalog now points to the immersive presenter mode.
