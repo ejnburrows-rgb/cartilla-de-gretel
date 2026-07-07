@@ -380,7 +380,8 @@
     "vocab": [
       {
         "word": "luna",
-        "emoji": "🌙"
+        "emoji": "🌙",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/luna.webp"
       },
       {
         "word": "lobo",

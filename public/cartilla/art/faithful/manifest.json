@@ -543,5 +543,13 @@
       1880
     ],
     "sourceNote": "source label is 'dados' (dice pair)"
+  },
+  {
+    "slug": "luna",
+    "word": "luna",
+    "lessonNumber": 12,
+    "pageNumber": 22,
+    "src": "/cartilla/art/faithful/leccion-12-l/luna.webp",
+    "sourceNote": "No explicit text label, crop of the moon in the background"
   }
 ]
