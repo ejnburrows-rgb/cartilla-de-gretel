@@ -134,15 +134,32 @@ export const LETTER_TEMPLATES: Record<string, Point[][]> = {
 };
 
 /**
+ * Letters whose lowercase print-manuscript form is genuinely the same shape
+ * as its uppercase (just smaller), so sharing one template is faithful, not
+ * a guess: O/o, U/u, C/c, S/s, V/v, Z/z. Every other lowercase letter in this
+ * workbook's alphabet (a, e, i, m, p, t, d, l, n, b, r, g, f, j, y) has a
+ * shape that genuinely differs from its uppercase (a is a bowl+stem not a
+ * peaked triangle, e is a loop not three bars, etc.) — inventing those
+ * lowercase paths from memory without a real handwriting-curriculum
+ * reference risks teaching a child an incorrect letterform, so they are
+ * intentionally NOT templated yet and fall back to the static line.
+ */
+const CASE_SHAPE_MATCHES_UPPER = new Set(["O", "U", "C", "S", "V", "Z"]);
+
+/**
  * Returns the trace template for a printed model letter, or null when there is
- * no faithful template yet. Uppercases and trims so 'o'/'O' share the O
- * template. Digraphs/diacritics with no unambiguous single-glyph stroke path
- * (RR, Ñ) intentionally return null so the caller can fall back to a static
- * writing line rather than trace a guessed shape.
+ * no faithful template yet. Digraphs/diacritics with no unambiguous
+ * single-glyph stroke path (RR, Ñ) intentionally return null, as does any
+ * lowercase letter whose shape isn't a same-topology match for its uppercase
+ * (see CASE_SHAPE_MATCHES_UPPER) — both fall back to the static writing line
+ * rather than trace a guessed shape.
  */
 export function getLetterTemplate(modelText: string | undefined | null): Point[][] | null {
   if (!modelText) return null;
-  const key = modelText.trim().toUpperCase();
+  const trimmed = modelText.trim();
+  const isLower = trimmed === trimmed.toLowerCase() && trimmed !== trimmed.toUpperCase();
+  const key = trimmed.toUpperCase();
+  if (isLower && !CASE_SHAPE_MATCHES_UPPER.has(key)) return null;
   return LETTER_TEMPLATES[key] ?? null;
 }
 

@@ -163,34 +163,45 @@ The real, narrower gaps (what Phase 2 tracing work actually addresses):
    (`LETTER_TEMPLATES[letter] || LETTER_TEMPLATES.A`). Templates must exist
    for every letter the workbook writing-line regions request.
 
-**Phase-2 tracing progress (this branch `feat/elearning-crm-ui`):**
-- Real path-graded tracing is now wired into the student workbook
-  `writing-line` region (`WorkbookLetterTrace.tsx` + shared
-  `letter-stroke-templates.ts`). Grading enforces path-following:
-  off-path excursions are penalised (each lowers the score) and the letter
-  can only complete by passing every checkpoint in order — verified
-  in-browser (off-path slash cannot complete; on-path trace completes,
-  records progress, Gretel reacts). Templates added for V, Y, Z.
-- **PILOT = page 6 (Vocal O), not Lección 1** — Lección 1 has NO
-  `writing-line` regions (they start at page 6). Awaiting owner sign-off on
-  page 6 before enabling batch.
-- **Known limitations to resolve before batch rollout:**
-  - **Lowercase letterforms reuse UPPERCASE templates** (`getLetterTemplate`
-    uppercases). Correct for O/o (same shape) — the pilot — but WRONG for
-    a, e, b, d, g, etc. whose lowercase forms differ. Dedicated lowercase
-    templates are required before enabling tracing on those pages, or
-    tracing must be restricted to uppercase-only until they exist.
-  - **RR and Ñ have no template** (digraph / diacritic — ambiguous). They
-    correctly fall back to the static ruled line for now; flagged rather
-    than guessed.
+**Phase-2 tracing progress — batch rollout complete, all 24 lessons
+(`feat/elearning-crm-ui`), no pilot sign-off gate per owner's July 2026
+"finish the entire project" directive:**
+- Real path-graded tracing is wired into the student workbook `writing-line`
+  region for every lesson (`WorkbookLetterTrace.tsx` + shared
+  `letter-stroke-templates.ts`). Grading enforces path-following: off-path
+  excursions are penalised (each lowers the score) and the letter can only
+  complete by passing every checkpoint in order.
+- The "trace it again" second practice line (previously always static, no
+  `modelText` of its own) now inherits its letter from the preceding
+  writing-line sibling, so both repetitions of every letter are traceable,
+  not just the first — doubling real practice on every lesson.
+- **Lowercase safety fix**: `getLetterTemplate` no longer blindly reuses the
+  uppercase shape for lowercase input. It only does so for the 6 letters
+  where the lowercase print-manuscript form is genuinely the same shape as
+  uppercase (O/o, U/u, C/c, S/s, V/v, Z/z). Every other lowercase letter in
+  this workbook's alphabet (a, e, i, m, p, t, d, l, n, b, r, g, f, j, y) —
+  whose lowercase shape is NOT a scaled copy of its uppercase — correctly
+  falls back to the static ruled line rather than trace a guessed shape.
+  Verified in-browser: the Vocal A page traces its uppercase A pair and
+  shows the lowercase a pair as static (1:1 ratio); the Vocal O page traces
+  all four (both cases, since O/o share topology).
+- **RR and Ñ have no template** (digraph / diacritic — genuinely ambiguous
+  as a single stroke path). Correctly fall back to the static ruled line;
+  flagged rather than guessed.
+- **Remaining, real gap**: dedicated lowercase stroke templates for the 15
+  letters above (a, e, i, m, p, t, d, l, n, b, r, g, f, j, y) don't exist yet.
+  Building them requires real print-manuscript letterform reference (e.g. a
+  standard early-literacy handwriting guide), not invented from memory —
+  flagged here rather than guessed at. Until they exist, those lowercase
+  practice lines are static (same as before this PR), which is honest, not
+  a regression.
 
 ## What Phase 2 actually needs, in priority order
 
-1. **Real tracing mechanic in the workbook** — harden the existing
-   `DragLetterTrace.tsx` stroke engine (off-path deviation check + real
-   score), ensure letter-template coverage, and wire it into the
-   `writing-line` region behind the `interactive` flag. NOT a from-scratch
-   build — the engine exists.
+1. ~~Real tracing mechanic in the workbook~~ — **DONE**, all 24 lessons,
+   uppercase + the 6 same-shape lowercase letters. Remaining: dedicated
+   lowercase templates for the other 15 letters (needs a real handwriting
+   reference, not guessed).
 2. **17 remaining vowel/intro illustration slots** + **43 remaining consonant
    vocab-card illustrations** — art-extraction work, same pipeline already
    proven this session (Antigravity crops, I verify + wire).
