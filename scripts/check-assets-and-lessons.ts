@@ -24,10 +24,15 @@ if (!fs.existsSync(gretelFull)) {
 }
 
 // 2) Scan for book page assets and validate lesson files
-const lessonsDir = path.join(rootDir, "src", "data", "lessons");
+const lessonsDir = path.join(rootDir, "src", "data", "lesson-exercises");
 if (fs.existsSync(lessonsDir)) {
-  const files = fs.readdirSync(lessonsDir).filter((f: string) => f.endsWith(".ts") && !f.endsWith(".d.ts"));
-  
+  // index.ts is a barrel file that imports/aggregates the 24 real lesson
+  // files — it never contains its own "export const lessonNN"/id/kind
+  // fields, so it's exempt from the per-lesson structural checks below.
+  const files = fs
+    .readdirSync(lessonsDir)
+    .filter((f: string) => f.endsWith(".ts") && !f.endsWith(".d.ts") && f !== "index.ts");
+
   for (const file of files) {
     const filePath = path.join(lessonsDir, file);
     const content = fs.readFileSync(filePath, "utf-8");
@@ -51,7 +56,7 @@ if (fs.existsSync(lessonsDir)) {
       const pageMatches = line.match(/\/art\/hd\/page-[\w-]+\.png/g);
       if (pageMatches) {
         for (const match of pageMatches) {
-          checkFile("Missing book assets", `src/data/lessons/${file}:${i + 1}`, match);
+          checkFile("Missing book assets", `src/data/lesson-exercises/${file}:${i + 1}`, match);
         }
       }
 
@@ -60,13 +65,13 @@ if (fs.existsSync(lessonsDir)) {
         if (numMatch) {
             const pageNum = parseInt(numMatch[1], 10);
             const expectedPath = `/art/hd/page-${pageNum}.png`;
-            checkFile("Bad page references", `src/data/lessons/${file}:${i + 1}`, expectedPath);
+            checkFile("Bad page references", `src/data/lesson-exercises/${file}:${i + 1}`, expectedPath);
         }
       }
     }
   }
 } else {
-    problems.push({ type: "Malformed lessons", where: "src/data/lessons", path: "Directory missing" });
+    problems.push({ type: "Malformed lessons", where: "src/data/lesson-exercises", path: "Directory missing" });
 }
 
 // Check other files for page assets
