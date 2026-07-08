@@ -1,5 +1,46 @@
 # Art backlog — current, authoritative
 
+## ⚠️ UPDATE (July 2026) — the "best effort heuristic" batch is confirmed BAD, not just unverified
+
+Commit `bb3a458` ("Extract 69 vocabulary crops (best effort heuristic)",
+already merged to `main`) is the source of 34 of the 44 currently-missing
+consonant vocab illustrations having a manifest entry. I wired all 34 into
+`src/content/consonants.json` and then visually opened each file before
+committing (never trust a manifest entry without opening the actual pixels
+— same discipline used all session). **5 of 5 spot-checked are wrong,
+not just imperfectly cropped:**
+- `leccion-7-m/moto.webp` — labeled "moto" (motorcycle), the actual image
+  is a floral border decoration. Completely wrong subject, not a bad crop
+  of the right thing.
+- `leccion-8-p/pino.webp`, `leccion-8-p/pez.webp`,
+  `leccion-11-d/dona.webp` — each is ~90%+ blank white canvas with an
+  unrelated fragment (a dark round shape, a fish-tail-like fragment, a
+  pink corner) in one corner. Not recognizable as the labeled word.
+- `leccion-14-n/nino.webp` — a boy's head/shoulder fragment, badly
+  off-center with excessive blank space, not a usable crop.
+
+**Every other file from this same commit must be treated as unverified and
+likely wrong** until individually opened and confirmed — the heuristic
+that produced this batch is not reliable. Do NOT wire any of the following
+into `consonants.json` until each is re-cropped and re-verified: tulipán,
+delfín, dona, ducha, lobo, loro, lupa, nariz, nido, nube, nata, piña,
+muñeca, niño, barco, bici, vaca, vino, volcán, yate, yegua, yoyo, zapato,
+zanahoria, moto, mapa, pino, pulpo, sol, silla, tapa, tomate, tina, pez.
+(`mamá`, `mono`, `papá`, `sapo`, `sopa`, `dado` — from the same commit but
+originally delivered by earlier careful, hand-verified PRs #111/#112 —
+are NOT affected; those are confirmed separately and already wired.)
+
+**Also confirmed by direct recount of `page-layouts.json`**: the "17
+remaining vowel/intro illustration slots" mentioned elsewhere are not a
+real gap. All 17 are the words already listed below as confirmed absent
+from the physical book (arco, pez, traje, águila) — correctly showing
+"art pending," nothing to extract. Do not reattempt these.
+
+**Still genuinely missing entirely (no manifest entry at all, real new
+crops needed)**: jabón, jirafa, joya, juguete (L21 J), queso, coco, cuchara
+(L22 C), yuca (L23 Y), cine, zorro (L24 Z).
+
+
 This is the real, current list of illustration art still needed. It is kept
 in git (not chat) specifically so it never goes stale the moment `main`
 moves — read this file fresh every time, don't rely on an earlier chat
