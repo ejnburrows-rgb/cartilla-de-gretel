@@ -173,6 +173,13 @@ relaying anything I haven't personally checked.
 - When blocked on an external dependency (e.g. art delivery), don't just
   report and stop — find and execute the next unblocked piece of work
   yourself, and say what it was.
+- **Whenever waiting on another AI agent, always hand over a ready-to-paste
+  prompt for it — every single time, no exceptions (memorized July 2026).**
+  Never just report "blocked on Antigravity" and stop. Do not stall waiting
+  on the owner's reply either — be proactive, not reactive: check real state
+  yourself first (git log/diff, file contents — not the other agent's
+  self-report), then hand over the prompt in the same turn, whether or not
+  the owner asked for one this time.
 - Default to action over asking, once you have enough information to make
   a reasonable call.
 - When something needs to go back to Antigravity (or anyone else), give
