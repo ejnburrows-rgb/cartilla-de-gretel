@@ -19,7 +19,8 @@
       },
       {
         "word": "mono",
-        "emoji": "🐒"
+        "emoji": "🐒",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/mono.webp"
       },
       {
         "word": "moto",
@@ -455,7 +456,8 @@
       },
       {
         "word": "nido",
-        "emoji": "🪹"
+        "emoji": "🪹",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-13-n/nido.webp"
       },
       {
         "word": "nube",
@@ -600,7 +602,8 @@
       },
       {
         "word": "bebé",
-        "emoji": "👶"
+        "emoji": "👶",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-15-b/bebe.webp"
       },
       {
         "word": "bici",
@@ -1262,7 +1265,8 @@
     "vocab": [
       {
         "word": "zapato",
-        "emoji": "👟"
+        "emoji": "👟",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-23-z/zapato.webp"
       },
       {
         "word": "zanahoria",

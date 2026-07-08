@@ -101,25 +101,40 @@ exactly as suspected. `illustrationSrc` re-added to
 for these 6 words (only text-only syllable-match rows), so nothing else
 needed wiring. `pnpm tsc --noEmit` and `pnpm build` both clean.
 
-**Real finding, not a gap to re-crop**: `mono` (M lesson) and `luna` (L
-lesson) were checked directly against BOTH the workbook scans
-(`public/cartilla/images/source/m/`, `public/cartilla/images/source/l/`)
-and the corresponding flipchart pages — **neither word has any illustration
-anywhere in this book edition.** Same situation already documented for
-`moto`/`mapa`. These vocab words are a superset addition to the game's word
-list, not pulled from real book content. Leave `illustrationSrc` absent
-(honest "art pending") — do not ask Antigravity to find art that isn't
-there. The same is likely true for other words in the 39-word remaining
-list below; check the real source scan before attempting a crop, not just
-the flipchart.
+**Correction to an earlier entry in this file**: `mono` was first checked
+only against the M-lesson pages and wrongly declared "no illustration
+exists." It turns out `mono` (a monkey) IS really illustrated in this book
+— just as bonus vocab on the **N-lesson** page (`public/cartilla/images/source/n/n-page-25.jpg`),
+not the M lesson. Lesson: when a word's own lesson pages don't show it,
+check neighboring lessons before concluding it's absent — the book reuses
+some words as filler vocab in other letters' pages. Re-cropped and wired.
+Also found and cropped `nido` (a real bird's nest with eggs) on the same
+page — one more of the 39-word backlog closed.
 
-## Consolidated remaining list — 39 words (supersedes the 45-word list above by the 6 just closed)
+**Confirmed genuinely absent** (checked ALL pages of the relevant lesson,
+not just one): `luna` (L lesson, 4 pages checked), `moto`/`mapa` (M lesson),
+`foca` (F lesson, all 4 pages checked — only appears as a plain text word
+in a fill-in-blank exercise, never illustrated), `nariz`/`nube` (N lesson,
+all 4 pages checked). These vocab words are a superset addition to the
+game's word list, not pulled from real book content — leave
+`illustrationSrc` absent (honest "art pending"). Given `mono` turned out to
+have art in an unexpected lesson, double-check neighboring lessons' pages
+before writing off any remaining word as absent.
 
-tulipán, delfín, dona, ducha, lobo, loro, lupa, nariz, nido, nube, nata,
-piña, muñeca, niño, barco, bici, vaca, vino, volcán, yate, yegua, yoyo,
-zanahoria, pino, pulpo, sol, silla, tapa, tomate, tina, foca, zapato, bebe
-(33 words to attempt), plus moto, mapa, mono, luna (4 words confirmed
-absent from the book — do not attempt, see above).
+## Consolidated remaining list — 27 words (updated as Claude closes more directly)
+
+**Fixed so far, directly by Claude** (10 total across all rounds): casa,
+dado, rosa, remo, sapo, sopa, bebe, zapato, mono, nido.
+
+**Still to attempt** (27 words):
+tulipán, delfín, dona, ducha, lobo, loro, lupa, nata, piña, muñeca, niño,
+barco, bici, vaca, vino, volcán, yate, yegua, yoyo, zanahoria, pino, pulpo,
+sol, silla, tapa, tomate, tina.
+
+**Confirmed genuinely absent from this book edition — do not attempt**:
+moto, mapa, luna, foca, nariz, nube (6 words — each checked against every
+page of its own lesson, not just one page).
+
 (De-dupe against the manifest before starting — some of these may already
 have been independently fixed since this was written.)
 
@@ -150,14 +165,17 @@ Task: re-crop these 39 consonant vocab words. For EACH word:
    src, sourceFlipchartPage (the real workbook scan filename you used),
    cropBox.
 
-Words (33 to attempt + 4 already confirmed absent — verify absence
+Words (27 to attempt + 6 already confirmed absent — verify absence
 independently, don't just trust this list):
-tulipán(→tulipan), delfín(→delfin), dona, ducha, lobo, loro, lupa, nariz,
-nido, nube, nata, piña(→pina), muñeca(→muneca), niño(→nino), barco, bici,
-vaca, vino, volcán(→volcan), yate, yegua, yoyo, zanahoria, pino, pulpo, sol,
-silla, tapa, tomate, tina, foca, zapato, bebe.
-Confirmed already absent from the book, do not attempt: moto, mapa, mono,
-luna.
+tulipán(→tulipan), delfín(→delfin), dona, ducha, lobo, loro, lupa, nata,
+piña(→pina), muñeca(→muneca), niño(→nino), barco, bici, vaca, vino,
+volcán(→volcan), yate, yegua, yoyo, zanahoria, pino, pulpo, sol, silla,
+tapa, tomate, tina.
+Confirmed already absent from the book, do not attempt: moto, mapa, luna,
+foca, nariz, nube. IMPORTANT: before writing off any word as absent, check
+NEIGHBORING lessons' pages too, not just its own lesson — "mono" was
+initially misjudged as absent because it turned out to be illustrated as
+bonus vocab on the N-lesson page, not the M-lesson page.
 
 DO NOT TOUCH: src/content/consonants.json, src/data/page-layouts.json, any
 .tsx/.ts file. Push to a fresh branch off current main, open a PR. Claude
