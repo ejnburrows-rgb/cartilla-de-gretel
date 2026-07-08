@@ -228,11 +228,15 @@ function RegionView({
   interactive,
   accent,
   lessonId,
+  resolvedModelText,
 }: {
   region: PageRegion;
   interactive?: boolean;
   accent?: string;
   lessonId?: string;
+  /** writing-line only: region.modelText, or inherited from the preceding
+   * writing-line sibling when this region is the blank "trace it again" line. */
+  resolvedModelText?: string;
 }) {
   switch (region.regionType) {
     case "illustration-slot":
@@ -282,15 +286,19 @@ function RegionView({
       );
     case "writing-line": {
       // Student workbook (interactive) + a faithful stroke template for this
-      // model letter → real tracing exercise. Otherwise (teacher preview,
-      // blank practice lines with no modelText, or digraphs/diacritics with no
-      // template like RR/Ñ) → the static ruled writing line, unchanged.
-      const canTrace = interactive && region.modelText && getLetterTemplate(region.modelText) !== null;
+      // model letter → real tracing exercise. The "trace it again" blank
+      // line (no modelText of its own) inherits its letter from the
+      // preceding writing-line sibling via resolvedModelText, so both
+      // repetitions are traceable, not just the first. Otherwise (teacher
+      // preview, or digraphs/diacritics with no template like RR/Ñ) → the
+      // static ruled writing line, unchanged.
+      const traceLetter = resolvedModelText ?? region.modelText;
+      const canTrace = interactive && traceLetter && getLetterTemplate(traceLetter) !== null;
       if (canTrace) {
         return (
           <div className="fp-writing-line fp-writing-line--trace">
             <WorkbookLetterTrace
-              modelText={region.modelText as string}
+              modelText={traceLetter as string}
               accent={accent}
               lessonId={lessonId}
             />
@@ -338,11 +346,31 @@ export function FaithfulPageRenderer({
   const lessonId = lessonNumber ? String(lessonNumber) : undefined;
   const gardenBg = lessonNumber ? LESSON_GARDEN_BG[lessonNumber] : undefined;
 
+  // Every letter's writing-line pair is [model line with modelText, blank
+  // "trace it again" line with no modelText] — the blank one inherits the
+  // model letter from its immediately preceding writing-line sibling so both
+  // repetitions are traceable, not just the first.
+  let lastWritingLineModelText: string | undefined;
+
   return (
     <PageFrame pageNumber={pageNumber} lessonNumber={lessonNumber} garden={interactive} gardenBg={gardenBg}>
-      {ordered.map((region) => (
-        <RegionView key={region.id} region={region} interactive={interactive} accent={accent} lessonId={lessonId} />
-      ))}
+      {ordered.map((region) => {
+        let resolvedModelText: string | undefined;
+        if (region.regionType === "writing-line") {
+          resolvedModelText = region.modelText || lastWritingLineModelText;
+          lastWritingLineModelText = region.modelText || lastWritingLineModelText;
+        }
+        return (
+          <RegionView
+            key={region.id}
+            region={region}
+            interactive={interactive}
+            accent={accent}
+            lessonId={lessonId}
+            resolvedModelText={resolvedModelText}
+          />
+        );
+      })}
     </PageFrame>
   );
 }
