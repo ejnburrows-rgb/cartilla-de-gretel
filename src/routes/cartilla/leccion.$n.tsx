@@ -1,13 +1,12 @@
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { createFileRoute, Link, useNavigate, redirect } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@/lib/useServerFn";
-import { ArrowLeft, ArrowRight, Check, Volume2, ClipboardList } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, Volume2, ClipboardList, BookOpen, PenLine, Gamepad2 } from "lucide-react";
 import { CATALOG, TOTAL_LESSONS, type CatalogEntry, type ActivityId } from "@/lib/lesson-catalog";
 import { useLessonProgress, isLessonUnlocked, markLessonCompleted } from "@/lib/lesson-progress";
 import { useAudio } from "@/hooks/useAudio";
 import { cn } from "@/lib/utils";
-import { SyllableTap, WordMatch } from "@/components/cartilla/Ejercicios";
 import { recordEvent, useStudentSession } from "@/lib/student-session";
 import { LessonTimer } from "@/components/cartilla/LessonTimer";
 import { listMyAssignments } from "@/lib/assignments.functions";
@@ -16,7 +15,7 @@ import { LanguageToggle } from "@/components/LanguageToggle";
 import { sCopy } from "@/content/student-copy";
 import { gretelEvent } from "@/lib/gretel-bus";
 
-import { StudentWorkbookFlip } from "@/components/StudentBook/StudentWorkbookFlip";
+import { SimplePageViewer } from "@/components/StudentBook/SimplePageViewer";
 import { buildPageArray } from "@/utils/buildPageArray";
 import { ActivityCarousel } from "@/components/cartilla/ActivityCarousel";
 import { GretelLiveAvatar } from "@/components/gretel/GretelLiveAvatar";
@@ -34,6 +33,13 @@ export const Route = createFileRoute("/cartilla/leccion/$n")({
   },
 });
 
+type Step = "aprende" | "practica" | "ejercicios";
+const STEPS: { id: Step; label: string; icon: typeof BookOpen }[] = [
+  { id: "aprende", label: "Aprende la Letra", icon: BookOpen },
+  { id: "practica", label: "Práctica de Lectura", icon: PenLine },
+  { id: "ejercicios", label: "Ejercicios Interactivos", icon: Gamepad2 },
+];
+
 function Leccion() {
   const { lang } = useLanguage();
   const t = sCopy;
@@ -44,8 +50,14 @@ function Leccion() {
   const session = useStudentSession();
   const entry = useMemo<CatalogEntry | undefined>(() => CATALOG.find((e) => e.n === n), [n]);
 
-  // Build page array from page-inventory.json for this specific lesson
+  // Build page array from page-inventory.json for this specific lesson —
+  // real book pages, rendered via FaithfulPageRenderer (book-faithful text +
+  // art + tracing/exercises), unchanged. Only the flip-book presentation
+  // shell around them changed (see SimplePageViewer).
   const pages = useMemo(() => buildPageArray(n), [n]);
+
+  const [step, setStep] = useState<Step>("aprende");
+  useEffect(() => setStep("aprende"), [n]);
 
   const fetchAssignments = useServerFn(listMyAssignments);
   const { data: assignments } = useQuery({
@@ -97,6 +109,8 @@ function Leccion() {
     else navigate({ to: "/cartilla/leccion/$n", params: { n: String(n + 1) } });
   };
 
+  const lessonId = String(n);
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <header className="px-4 pt-4 max-w-3xl w-full mx-auto">
@@ -142,35 +156,64 @@ function Leccion() {
             {t.leccion[lang]} {n} · {t.paginas[lang].toLowerCase()} {entry.pages}
           </div>
           <h1
-            className="text-4xl sm:text-5xl font-bold leading-tight mt-1 mb-8"
+            className="text-4xl sm:text-5xl font-bold leading-tight mt-1 mb-6"
             style={{ color: entry.color }}
           >
             {entry.title}
           </h1>
         </div>
 
-        {/* Digital Workbook Section */}
-        <GardenScene>
-          {!session && (
-            <div className="fixed top-4 left-4 z-[200]">
-              <Link
-                to="/cartilla/teacher/lecciones"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-stone-800/90 hover:bg-stone-800 text-white font-bold rounded-xl shadow-lg backdrop-blur transition hover:-translate-y-0.5"
+        {/* Step tabs — the native 3-step module flow */}
+        <div className="w-full max-w-3xl flex gap-2 mb-6" role="tablist" aria-label="Pasos de la lección">
+          {STEPS.map((s) => {
+            const Icon = s.icon;
+            const active = step === s.id;
+            return (
+              <button
+                key={s.id}
+                role="tab"
+                aria-selected={active}
+                onClick={() => setStep(s.id)}
+                className={cn(
+                  "flex-1 flex items-center justify-center gap-2 px-3 py-3 rounded-2xl font-bold text-sm transition-all border-2",
+                  active
+                    ? "text-white shadow-md"
+                    : "bg-card text-foreground/60 border-foreground/10 hover:border-foreground/25",
+                )}
+                style={active ? { backgroundColor: entry.color, borderColor: entry.color } : undefined}
               >
-                <ArrowLeft className="w-4 h-4" /> Salir al CRM
-              </Link>
-            </div>
+                <Icon className="w-4 h-4 shrink-0" />
+                <span className="hidden sm:inline">{s.label}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        <div className="w-full">
+          {step === "aprende" && <LearnStep entry={entry} lessonId={lessonId} lang={lang} t={t} />}
+
+          {step === "practica" && (
+            <GardenScene>
+              {!session && (
+                <div className="fixed top-4 left-4 z-[200]">
+                  <Link
+                    to="/cartilla/teacher/lecciones"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-stone-800/90 hover:bg-stone-800 text-white font-bold rounded-xl shadow-lg backdrop-blur transition hover:-translate-y-0.5"
+                  >
+                    <ArrowLeft className="w-4 h-4" /> Salir al CRM
+                  </Link>
+                </div>
+              )}
+              <SimplePageViewer pages={pages} initialPage={0} />
+            </GardenScene>
           )}
-          <StudentWorkbookFlip
-            pages={pages}
-            initialPage={0}
-          />
-          <div className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-[100] pointer-events-none">
-            <GretelLiveAvatar size="md" bubblePosition="left" />
-          </div>
-        </GardenScene>
 
+          {step === "ejercicios" && <ExercisesStep entry={entry} lessonId={lessonId} />}
+        </div>
 
+        <div className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-[100] pointer-events-none">
+          <GretelLiveAvatar size="md" bubblePosition="left" />
+        </div>
       </main>
       <nav className="fixed bottom-0 inset-x-0 p-3 bg-background/95 backdrop-blur border-t-2 border-foreground/10">
         <div className="max-w-3xl mx-auto flex items-center justify-between gap-3">
@@ -204,28 +247,82 @@ function Leccion() {
   );
 }
 
-function IntroBody({
+/** Step 1 — vocab, syllables, character intro. Dispatches by lesson kind. */
+function LearnStep({
+  entry,
   lessonId,
   lang,
   t,
-  activities,
 }: {
+  entry: CatalogEntry;
   lessonId: string;
   lang: "es" | "en";
   t: typeof sCopy;
-  activities?: ActivityId[];
 }) {
+  if (entry.kind === "intro") return <IntroLearn lang={lang} t={t} />;
+  if (entry.kind === "vowel") return <VowelLearn entry={entry} lang={lang} t={t} />;
+  return <ConsonantLearn entry={entry} lang={lang} t={t} />;
+}
+
+/** Step 3 — the drag/match/piano games. Dispatches by lesson kind. */
+function ExercisesStep({ entry, lessonId }: { entry: CatalogEntry; lessonId: string }) {
+  if (entry.kind === "intro") {
+    const vowels = ["a", "e", "i", "o", "u"];
+    const vowelWords = [
+      { word: "ala", emoji: "🧥", illustrationSrc: "/cartilla/art/faithful/vocal-a/alas.webp" },
+      { word: "elefante", emoji: "🐘", illustrationSrc: "/cartilla/art/faithful/vocal-e/elefante.webp" },
+      { word: "iglú", emoji: "⛺", illustrationSrc: "/cartilla/art/faithful/vocal-i/iglu.webp" },
+      { word: "oso", emoji: "🐻", illustrationSrc: "/cartilla/art/faithful/vocal-o/oso.webp" },
+      { word: "uva", emoji: "🍇", illustrationSrc: "/cartilla/art/faithful/vocal-u/uvas.webp" },
+    ];
+    return (
+      <ActivityCarousel
+        lessonNumber={1}
+        syllables={vowels}
+        words={vowelWords}
+        letter="a"
+        color="hsl(var(--primary))"
+        lessonId={lessonId}
+        activities={entry.activities}
+        onCompleteAll={() => markLessonCompleted(1)}
+      />
+    );
+  }
+  if (entry.kind === "vowel") {
+    const l = entry.lesson;
+    return (
+      <ActivityCarousel
+        lessonNumber={entry.n}
+        syllables={[l.vowel]}
+        words={l.vocab}
+        letter={l.vowel}
+        color={entry.color}
+        lessonId={lessonId}
+        activities={entry.activities}
+        onCompleteAll={() => markLessonCompleted(entry.n)}
+      />
+    );
+  }
+  const c = entry.data;
+  return (
+    <ActivityCarousel
+      lessonNumber={entry.n}
+      syllables={c.syllables}
+      words={c.vocab}
+      letter={c.letter}
+      color={entry.color}
+      lessonId={lessonId}
+      activities={entry.activities}
+      onCompleteAll={() => markLessonCompleted(entry.n)}
+    />
+  );
+}
+
+function IntroLearn({ lang, t }: { lang: "es" | "en"; t: typeof sCopy }) {
   const { play, playingText } = useAudio();
   const vowels = ["a", "e", "i", "o", "u"];
-  const vowelWords = [
-    { word: "ala", emoji: "🧥", illustrationSrc: "/cartilla/art/faithful/vocal-a/alas.webp" },
-    { word: "elefante", emoji: "🐘", illustrationSrc: "/cartilla/art/faithful/vocal-e/elefante.webp" },
-    { word: "iglú", emoji: "⛺", illustrationSrc: "/cartilla/art/faithful/vocal-i/iglu.webp" },
-    { word: "oso", emoji: "🐻", illustrationSrc: "/cartilla/art/faithful/vocal-o/oso.webp" },
-    { word: "uva", emoji: "🍇", illustrationSrc: "/cartilla/art/faithful/vocal-u/uvas.webp" },
-  ];
   return (
-    <section className="mt-5 space-y-5">
+    <section className="space-y-5">
       <p className="text-lg text-foreground/80 leading-relaxed">
         {t.conocerasVocales[lang]}
       </p>
@@ -245,35 +342,23 @@ function IntroBody({
           </button>
         ))}
       </div>
-      <ActivityCarousel
-        lessonNumber={1}
-        syllables={vowels}
-        words={vowelWords}
-        letter="a"
-        color="hsl(var(--primary))"
-        lessonId={lessonId}
-        activities={activities}
-        onCompleteAll={() => markLessonCompleted(1)}
-      />
     </section>
   );
 }
 
-function VowelBody({
+function VowelLearn({
   entry,
-  lessonId,
   lang,
   t,
 }: {
   entry: Extract<CatalogEntry, { kind: "vowel" }>;
-  lessonId: string;
   lang: "es" | "en";
   t: typeof sCopy;
-  }) {
+}) {
   const { play, playingText } = useAudio();
   const l = entry.lesson;
   return (
-    <section className="mt-5 space-y-5">
+    <section className="space-y-5">
       <div
         className="rounded-2xl border-2 p-4 bg-card animate-in fade-in slide-in-from-bottom-2"
         style={{ borderColor: entry.color }}
@@ -314,35 +399,23 @@ function VowelBody({
           ))}
         </ul>
       </div>
-      <ActivityCarousel
-        lessonNumber={entry.n}
-        syllables={[l.vowel]}
-        words={l.vocab}
-        letter={l.vowel}
-        color={entry.color}
-        lessonId={lessonId}
-        activities={entry.activities}
-        onCompleteAll={() => markLessonCompleted(entry.n)}
-      />
     </section>
   );
 }
 
-function ConsonantBody({
+function ConsonantLearn({
   entry,
-  lessonId,
   lang,
   t,
 }: {
   entry: Extract<CatalogEntry, { kind: "consonant" }>;
-  lessonId: string;
   lang: "es" | "en";
   t: typeof sCopy;
 }) {
   const { play, playingText } = useAudio();
   const c = entry.data;
   return (
-    <section className="mt-5 space-y-5">
+    <section className="space-y-5">
       <div
         className="rounded-2xl border-2 p-4 bg-card flex flex-wrap items-center gap-2 animate-in fade-in slide-in-from-bottom-2"
         style={{ borderColor: entry.color }}
@@ -444,16 +517,6 @@ function ConsonantBody({
           ))}
         </ul>
       </div>
-      <ActivityCarousel
-        lessonNumber={entry.n}
-        syllables={c.syllables}
-        words={c.vocab}
-        letter={c.letter}
-        color={entry.color}
-        lessonId={lessonId}
-        activities={entry.activities}
-        onCompleteAll={() => markLessonCompleted(entry.n)}
-      />
     </section>
   );
 }
