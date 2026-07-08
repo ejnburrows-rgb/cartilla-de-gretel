@@ -75,6 +75,95 @@ or below. Given how wrong the "already verified" assumption turned out to be,
 treat anything not explicitly confirmed-correct in this file as unverified,
 not safe.
 
+## Update — 6 words re-cropped directly from source scans (Claude, not Antigravity)
+
+Since the owner has no Antigravity access right now, directly re-cropped and
+re-wired 6 of the 45-word gap above straight from the real workbook page
+scans (`public/cartilla/images/source/<letter>/`), each verified visually
+before saving:
+- **casa** — real house+trees illustration, `public/cartilla/images/source/c/c-page-52.jpg`.
+  Note: two different `casa.webp` files existed at two different manifest
+  paths (`leccion-1/casa.webp`, a 0-byte broken file — left in place per the
+  never-delete-files rule but now fully unreferenced; and
+  `leccion-19-c/casa.webp`, now fixed). Also fixed `lessonNumber` in the
+  manifest from 19 to 22 (casa is the C lesson, not 19/G).
+- **dado** — real pair of dice ("dados"), `public/cartilla/images/source/d/d-page-19.jpg`.
+- **rosa** — real rose, `public/cartilla/images/source/r/r-page-37.jpg`.
+- **remo** — real crossed oars ("remos" — not decorative, as an earlier pass
+  assumed), same page.
+- **sapo** — real frog, `public/cartilla/images/source/ss/ss-page-14.jpg`.
+- **sopa** — real bowl of soup, same page.
+
+Root cause confirmed for `rosa`/`remo`: the earlier bad crop had grabbed the
+neighboring grid cell (an off-by-one on which cell belongs to which caption),
+exactly as suspected. `illustrationSrc` re-added to
+`src/content/consonants.json`; `page-layouts.json` had no picture-grid cells
+for these 6 words (only text-only syllable-match rows), so nothing else
+needed wiring. `pnpm tsc --noEmit` and `pnpm build` both clean.
+
+**Real finding, not a gap to re-crop**: `mono` (M lesson) and `luna` (L
+lesson) were checked directly against BOTH the workbook scans
+(`public/cartilla/images/source/m/`, `public/cartilla/images/source/l/`)
+and the corresponding flipchart pages — **neither word has any illustration
+anywhere in this book edition.** Same situation already documented for
+`moto`/`mapa`. These vocab words are a superset addition to the game's word
+list, not pulled from real book content. Leave `illustrationSrc` absent
+(honest "art pending") — do not ask Antigravity to find art that isn't
+there. The same is likely true for other words in the 39-word remaining
+list below; check the real source scan before attempting a crop, not just
+the flipchart.
+
+## Consolidated remaining list — 39 words (supersedes the 45-word list above by the 6 just closed)
+
+tulipán, delfín, dona, ducha, lobo, loro, lupa, nariz, nido, nube, nata,
+piña, muñeca, niño, barco, bici, vaca, vino, volcán, yate, yegua, yoyo,
+zanahoria, pino, pulpo, sol, silla, tapa, tomate, tina, foca, zapato, bebe
+(33 words to attempt), plus moto, mapa, mono, luna (4 words confirmed
+absent from the book — do not attempt, see above).
+(De-dupe against the manifest before starting — some of these may already
+have been independently fixed since this was written.)
+
+**Antigravity prompt — ready to paste once the owner has access again:**
+
+```
+Repo: https://github.com/ejnburrows-rgb/cartilla-de-gretel
+Step 1: git pull origin main
+Step 2: Read ART_BACKLOG.md (repo root) — this file, read the whole thing first
+Step 3: Read AGENTS.md (repo root)
+
+Task: re-crop these 39 consonant vocab words. For EACH word:
+1. Find its real source scan in public/cartilla/images/source/<letter>/ —
+   open the actual JPG and confirm the word's caption AND illustration are
+   both visible in the same grid cell before cropping. Do NOT crop a
+   neighboring cell's picture — several previous rounds got this wrong
+   (e.g. "rosa" was cropped from the "remos" cell next to it).
+2. If a word's caption appears in the workbook text but you cannot find a
+   matching illustration anywhere on that lesson's pages (workbook AND
+   flipchart), do NOT invent or force a crop — report it back as "no
+   illustration exists in this book edition," same as the already-confirmed
+   cases (moto, mapa, mono, luna).
+3. Crop tight to just that one illustration, full color, no neighboring
+   bleed, no grid-divider lines.
+4. Save as public/cartilla/art/faithful/<lesson-folder>/<slug>.webp
+   (reuse existing lesson folder names already in manifest.json).
+5. Add/update the manifest.json entry: slug, word, lessonNumber, pageNumber,
+   src, sourceFlipchartPage (the real workbook scan filename you used),
+   cropBox.
+
+Words (33 to attempt + 4 already confirmed absent — verify absence
+independently, don't just trust this list):
+tulipán(→tulipan), delfín(→delfin), dona, ducha, lobo, loro, lupa, nariz,
+nido, nube, nata, piña(→pina), muñeca(→muneca), niño(→nino), barco, bici,
+vaca, vino, volcán(→volcan), yate, yegua, yoyo, zanahoria, pino, pulpo, sol,
+silla, tapa, tomate, tina, foca, zapato, bebe.
+Confirmed already absent from the book, do not attempt: moto, mapa, mono,
+luna.
+
+DO NOT TOUCH: src/content/consonants.json, src/data/page-layouts.json, any
+.tsx/.ts file. Push to a fresh branch off current main, open a PR. Claude
+wires illustrationSrc in once the PR lands and each crop is re-verified.
+```
+
 ## ⚠️ UPDATE (July 2026) — the "best effort heuristic" batch is confirmed BAD, not just unverified
 
 Commit `bb3a458` ("Extract 69 vocabulary crops (best effort heuristic)",
