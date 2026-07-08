@@ -121,6 +121,12 @@ Teachers create classes, assign students, and track progress via Supabase.
   NOT cover genuinely new, undirected creative choices (e.g. picking an
   illustration style nobody asked for) — only changes that implement an
   explicit, already-given instruction.
+- **Always show 3-5 pages of progress (memorized July 2026):** whenever
+  work touches pages/visual content, show the owner 3-5 real
+  screenshots/pages actually worked on (not just a text description) so
+  they can see the progress directly — send them as files
+  (SendUserFile), not just describe them in words. Do this every time,
+  not just when asked.
 - **Short, concise, informative answers (memorized July 2026):** keep
   replies tight by default — lead with the direct answer, skip preamble
   and repetition. Save length for when the owner actually asks for detail
