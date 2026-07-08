@@ -163,6 +163,27 @@ The real, narrower gaps (what Phase 2 tracing work actually addresses):
    (`LETTER_TEMPLATES[letter] || LETTER_TEMPLATES.A`). Templates must exist
    for every letter the workbook writing-line regions request.
 
+**Phase-2 tracing progress (this branch `feat/elearning-crm-ui`):**
+- Real path-graded tracing is now wired into the student workbook
+  `writing-line` region (`WorkbookLetterTrace.tsx` + shared
+  `letter-stroke-templates.ts`). Grading enforces path-following:
+  off-path excursions are penalised (each lowers the score) and the letter
+  can only complete by passing every checkpoint in order — verified
+  in-browser (off-path slash cannot complete; on-path trace completes,
+  records progress, Gretel reacts). Templates added for V, Y, Z.
+- **PILOT = page 6 (Vocal O), not Lección 1** — Lección 1 has NO
+  `writing-line` regions (they start at page 6). Awaiting owner sign-off on
+  page 6 before enabling batch.
+- **Known limitations to resolve before batch rollout:**
+  - **Lowercase letterforms reuse UPPERCASE templates** (`getLetterTemplate`
+    uppercases). Correct for O/o (same shape) — the pilot — but WRONG for
+    a, e, b, d, g, etc. whose lowercase forms differ. Dedicated lowercase
+    templates are required before enabling tracing on those pages, or
+    tracing must be restricted to uppercase-only until they exist.
+  - **RR and Ñ have no template** (digraph / diacritic — ambiguous). They
+    correctly fall back to the static ruled line for now; flagged rather
+    than guessed.
+
 ## What Phase 2 actually needs, in priority order
 
 1. **Real tracing mechanic in the workbook** — harden the existing

@@ -241,6 +241,77 @@
   background-position: left 55%;
 }
 
+/* Interactive letter tracing (student workbook only) — replaces the static
+ * ruled line for model letters that have a faithful stroke template. */
+.fp-writing-line--trace {
+  display: block;
+  margin: 2cqw 0;
+}
+.fp-trace {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5cqw;
+  width: 100%;
+}
+.fp-trace__svg {
+  width: 26cqw;
+  max-width: 130px;
+  aspect-ratio: 100 / 120;
+  touch-action: none;
+  cursor: crosshair;
+  background: rgba(63, 169, 166, 0.05);
+  border: 1.5px solid rgba(63, 169, 166, 0.28);
+  border-radius: 10px;
+}
+.fp-trace[data-status="done"] .fp-trace__svg {
+  background: rgba(52, 211, 153, 0.12);
+  border-color: rgba(52, 211, 153, 0.5);
+}
+.fp-trace__footer {
+  display: flex;
+  align-items: center;
+  gap: 2cqw;
+  width: 26cqw;
+  max-width: 130px;
+}
+.fp-trace__progress {
+  flex: 1;
+  height: 6px;
+  background: rgba(31, 41, 55, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.fp-trace__progress-fill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.15s ease-out;
+}
+.fp-trace__hint {
+  font-family: var(--font-book-faithful);
+  font-size: 3cqw;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.fp-trace__hint--off { color: #e11d48; }
+.fp-trace__hint--ok { color: #059669; }
+.fp-trace__reset {
+  border: none;
+  background: rgba(31, 41, 55, 0.06);
+  color: var(--book-ink-soft);
+  border-radius: 8px;
+  width: 22px;
+  height: 22px;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+}
+.fp-trace__reset:hover { background: rgba(31, 41, 55, 0.12); }
+@media (prefers-reduced-motion: reduce) {
+  .fp-trace__progress-fill { transition: none; }
+}
+
 /* Empty draw box for "haz un dibujo" */
 .fp-draw-box {
   border: 2px solid var(--book-teal);

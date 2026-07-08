@@ -10,6 +10,8 @@ import {
   InteractiveSyllableMatch,
   InteractiveFillInBlank,
 } from "./InteractivePageExercises";
+import { WorkbookLetterTrace } from "./WorkbookLetterTrace";
+import { getLetterTemplate } from "./letter-stroke-templates";
 
 /**
  * Per-lesson garden background overrides. The CSS default is gretel-authentic.jpg
@@ -278,13 +280,30 @@ function RegionView({
           {region.text}
         </p>
       );
-    case "writing-line":
+    case "writing-line": {
+      // Student workbook (interactive) + a faithful stroke template for this
+      // model letter → real tracing exercise. Otherwise (teacher preview,
+      // blank practice lines with no modelText, or digraphs/diacritics with no
+      // template like RR/Ñ) → the static ruled writing line, unchanged.
+      const canTrace = interactive && region.modelText && getLetterTemplate(region.modelText) !== null;
+      if (canTrace) {
+        return (
+          <div className="fp-writing-line fp-writing-line--trace">
+            <WorkbookLetterTrace
+              modelText={region.modelText as string}
+              accent={accent}
+              lessonId={lessonId}
+            />
+          </div>
+        );
+      }
       return (
         <div className="fp-writing-line">
           {region.modelText ? <span className="fp-writing-line__model">{region.modelText}</span> : null}
           <span className="fp-writing-line__rule" aria-hidden="true" />
         </div>
       );
+    }
     case "draw-box":
       return (
         <div className="fp-draw-box" aria-label={region.text ?? "Espacio para dibujar"}>
