@@ -1,28 +1,28 @@
 import { describe, it, expect } from "vitest";
-import { lesson01 } from "@/data/lessons/lesson-01";
-import { lesson02 } from "@/data/lessons/lesson-02";
-import { lesson03 } from "@/data/lessons/lesson-03";
-import { lesson04 } from "@/data/lessons/lesson-04";
-import { lesson05 } from "@/data/lessons/lesson-05";
-import { lesson06 } from "@/data/lessons/lesson-06";
-import { lesson07 } from "@/data/lessons/lesson-07";
-import { lesson08 } from "@/data/lessons/lesson-08";
-import { lesson09 } from "@/data/lessons/lesson-09";
-import { lesson10 } from "@/data/lessons/lesson-10";
-import { lesson11 } from "@/data/lessons/lesson-11";
-import { lesson12 } from "@/data/lessons/lesson-12";
-import { lesson13 } from "@/data/lessons/lesson-13";
-import { lesson14 } from "@/data/lessons/lesson-14";
-import { lesson15 } from "@/data/lessons/lesson-15";
-import { lesson16 } from "@/data/lessons/lesson-16";
-import { lesson17 } from "@/data/lessons/lesson-17";
-import { lesson18 } from "@/data/lessons/lesson-18";
-import { lesson19 } from "@/data/lessons/lesson-19";
-import { lesson20 } from "@/data/lessons/lesson-20";
-import { lesson21 } from "@/data/lessons/lesson-21";
-import { lesson22 } from "@/data/lessons/lesson-22";
-import { lesson23 } from "@/data/lessons/lesson-23";
-import { lesson24 } from "@/data/lessons/lesson-24";
+import { lesson01 } from "@/data/lesson-exercises/lesson-01";
+import { lesson02 } from "@/data/lesson-exercises/lesson-02";
+import { lesson03 } from "@/data/lesson-exercises/lesson-03";
+import { lesson04 } from "@/data/lesson-exercises/lesson-04";
+import { lesson05 } from "@/data/lesson-exercises/lesson-05";
+import { lesson06 } from "@/data/lesson-exercises/lesson-06";
+import { lesson07 } from "@/data/lesson-exercises/lesson-07";
+import { lesson08 } from "@/data/lesson-exercises/lesson-08";
+import { lesson09 } from "@/data/lesson-exercises/lesson-09";
+import { lesson10 } from "@/data/lesson-exercises/lesson-10";
+import { lesson11 } from "@/data/lesson-exercises/lesson-11";
+import { lesson12 } from "@/data/lesson-exercises/lesson-12";
+import { lesson13 } from "@/data/lesson-exercises/lesson-13";
+import { lesson14 } from "@/data/lesson-exercises/lesson-14";
+import { lesson15 } from "@/data/lesson-exercises/lesson-15";
+import { lesson16 } from "@/data/lesson-exercises/lesson-16";
+import { lesson17 } from "@/data/lesson-exercises/lesson-17";
+import { lesson18 } from "@/data/lesson-exercises/lesson-18";
+import { lesson19 } from "@/data/lesson-exercises/lesson-19";
+import { lesson20 } from "@/data/lesson-exercises/lesson-20";
+import { lesson21 } from "@/data/lesson-exercises/lesson-21";
+import { lesson22 } from "@/data/lesson-exercises/lesson-22";
+import { lesson23 } from "@/data/lesson-exercises/lesson-23";
+import { lesson24 } from "@/data/lesson-exercises/lesson-24";
 import { getBookPageImage } from "@/lib/bookImages";
 
 const lessons = {
@@ -62,7 +62,7 @@ describe("Lessons Data Structural Hardening", () => {
         expect(lessonArray.length).toBeGreaterThan(0);
       });
 
-      lessonArray.forEach((item: any, idx) => {
+      lessonArray.forEach((item: any, idx: number) => {
         const prefix = `Item ${idx} (id: ${item?.id})`;
         
         it(`${prefix} should have all required fields and valid page references`, () => {

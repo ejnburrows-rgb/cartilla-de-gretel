@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ChevronLeft, Folder, BookOpenCheck, ChevronRight } from "lucide-react";
-import { allLessonExercises } from "@/data/lessons";
+import { allLessonExercises } from "@/data/lesson-exercises";
 import { CATALOG } from "@/lib/lesson-catalog";
 import { getCartillaCrmTheme } from "@/lib/cartilla-crm-theme";
 
