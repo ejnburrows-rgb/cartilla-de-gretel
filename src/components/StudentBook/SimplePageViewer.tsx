@@ -102,12 +102,6 @@ export function SimplePageViewer({
         className="workbook-container"
         style={{ aspectRatio: singleAspectRatio ?? "3 / 4" }}
       >
-        <div className="spiral-binding">
-          {[...Array(16)].map((_, i) => (
-            <div key={i} className="spiral-ring" />
-          ))}
-        </div>
-
         {/* Static base page */}
         <div className="w-full h-full relative overflow-hidden rounded-b-xl">
           {pages[staticIndex] ? (
