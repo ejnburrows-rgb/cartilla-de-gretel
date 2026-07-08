@@ -2,7 +2,7 @@
   "pages": [
     {
       "flipchartPage": 1,
-      "lesson": 1,
+      "lesson": 0,
       "path": "cartilla/art/hd/flipchart/page-001.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -10,7 +10,7 @@
     },
     {
       "flipchartPage": 2,
-      "lesson": 2,
+      "lesson": 0,
       "path": "cartilla/art/hd/flipchart/page-002.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -18,7 +18,7 @@
     },
     {
       "flipchartPage": 3,
-      "lesson": 3,
+      "lesson": 1,
       "path": "cartilla/art/hd/flipchart/page-003.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -26,7 +26,7 @@
     },
     {
       "flipchartPage": 4,
-      "lesson": 4,
+      "lesson": 2,
       "path": "cartilla/art/hd/flipchart/page-004.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -34,7 +34,7 @@
     },
     {
       "flipchartPage": 5,
-      "lesson": 5,
+      "lesson": 3,
       "path": "cartilla/art/hd/flipchart/page-005.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -42,7 +42,7 @@
     },
     {
       "flipchartPage": 6,
-      "lesson": 6,
+      "lesson": 4,
       "path": "cartilla/art/hd/flipchart/page-006.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -50,7 +50,7 @@
     },
     {
       "flipchartPage": 7,
-      "lesson": 7,
+      "lesson": 5,
       "path": "cartilla/art/hd/flipchart/page-007.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -58,7 +58,7 @@
     },
     {
       "flipchartPage": 8,
-      "lesson": 7,
+      "lesson": 6,
       "path": "cartilla/art/hd/flipchart/page-008.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -74,7 +74,7 @@
     },
     {
       "flipchartPage": 10,
-      "lesson": 8,
+      "lesson": 7,
       "path": "cartilla/art/hd/flipchart/page-010.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -82,7 +82,7 @@
     },
     {
       "flipchartPage": 11,
-      "lesson": 8,
+      "lesson": 7,
       "path": "cartilla/art/hd/flipchart/page-011.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -98,7 +98,7 @@
     },
     {
       "flipchartPage": 13,
-      "lesson": 9,
+      "lesson": 8,
       "path": "cartilla/art/hd/flipchart/page-013.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -106,7 +106,7 @@
     },
     {
       "flipchartPage": 14,
-      "lesson": 9,
+      "lesson": 8,
       "path": "cartilla/art/hd/flipchart/page-014.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -122,7 +122,7 @@
     },
     {
       "flipchartPage": 16,
-      "lesson": 10,
+      "lesson": 9,
       "path": "cartilla/art/hd/flipchart/page-016.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -130,7 +130,7 @@
     },
     {
       "flipchartPage": 17,
-      "lesson": 10,
+      "lesson": 9,
       "path": "cartilla/art/hd/flipchart/page-017.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -146,7 +146,7 @@
     },
     {
       "flipchartPage": 19,
-      "lesson": 11,
+      "lesson": 10,
       "path": "cartilla/art/hd/flipchart/page-019.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -154,7 +154,7 @@
     },
     {
       "flipchartPage": 20,
-      "lesson": 11,
+      "lesson": 10,
       "path": "cartilla/art/hd/flipchart/page-020.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -170,7 +170,7 @@
     },
     {
       "flipchartPage": 22,
-      "lesson": 12,
+      "lesson": 11,
       "path": "cartilla/art/hd/flipchart/page-022.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -178,7 +178,7 @@
     },
     {
       "flipchartPage": 23,
-      "lesson": 12,
+      "lesson": 11,
       "path": "cartilla/art/hd/flipchart/page-023.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -194,7 +194,7 @@
     },
     {
       "flipchartPage": 25,
-      "lesson": 13,
+      "lesson": 12,
       "path": "cartilla/art/hd/flipchart/page-025.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -202,7 +202,7 @@
     },
     {
       "flipchartPage": 26,
-      "lesson": 13,
+      "lesson": 12,
       "path": "cartilla/art/hd/flipchart/page-026.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -218,7 +218,7 @@
     },
     {
       "flipchartPage": 28,
-      "lesson": 14,
+      "lesson": 13,
       "path": "cartilla/art/hd/flipchart/page-028.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -226,7 +226,7 @@
     },
     {
       "flipchartPage": 29,
-      "lesson": 14,
+      "lesson": 13,
       "path": "cartilla/art/hd/flipchart/page-029.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -242,7 +242,7 @@
     },
     {
       "flipchartPage": 31,
-      "lesson": 15,
+      "lesson": 14,
       "path": "cartilla/art/hd/flipchart/page-031.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -250,7 +250,7 @@
     },
     {
       "flipchartPage": 32,
-      "lesson": 15,
+      "lesson": 14,
       "path": "cartilla/art/hd/flipchart/page-032.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -266,7 +266,7 @@
     },
     {
       "flipchartPage": 34,
-      "lesson": 16,
+      "lesson": 15,
       "path": "cartilla/art/hd/flipchart/page-034.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -274,7 +274,7 @@
     },
     {
       "flipchartPage": 35,
-      "lesson": 16,
+      "lesson": 15,
       "path": "cartilla/art/hd/flipchart/page-035.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -290,7 +290,7 @@
     },
     {
       "flipchartPage": 37,
-      "lesson": 17,
+      "lesson": 16,
       "path": "cartilla/art/hd/flipchart/page-037.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -298,7 +298,7 @@
     },
     {
       "flipchartPage": 38,
-      "lesson": 17,
+      "lesson": 16,
       "path": "cartilla/art/hd/flipchart/page-038.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -314,7 +314,7 @@
     },
     {
       "flipchartPage": 40,
-      "lesson": 18,
+      "lesson": 17,
       "path": "cartilla/art/hd/flipchart/page-040.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -322,7 +322,7 @@
     },
     {
       "flipchartPage": 41,
-      "lesson": 18,
+      "lesson": 17,
       "path": "cartilla/art/hd/flipchart/page-041.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -338,7 +338,7 @@
     },
     {
       "flipchartPage": 43,
-      "lesson": 19,
+      "lesson": 18,
       "path": "cartilla/art/hd/flipchart/page-043.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -346,7 +346,7 @@
     },
     {
       "flipchartPage": 44,
-      "lesson": 19,
+      "lesson": 18,
       "path": "cartilla/art/hd/flipchart/page-044.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -362,7 +362,7 @@
     },
     {
       "flipchartPage": 46,
-      "lesson": 20,
+      "lesson": 19,
       "path": "cartilla/art/hd/flipchart/page-046.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -370,7 +370,7 @@
     },
     {
       "flipchartPage": 47,
-      "lesson": 20,
+      "lesson": 19,
       "path": "cartilla/art/hd/flipchart/page-047.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -386,7 +386,7 @@
     },
     {
       "flipchartPage": 49,
-      "lesson": 21,
+      "lesson": 20,
       "path": "cartilla/art/hd/flipchart/page-049.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -394,7 +394,7 @@
     },
     {
       "flipchartPage": 50,
-      "lesson": 21,
+      "lesson": 20,
       "path": "cartilla/art/hd/flipchart/page-050.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -410,7 +410,7 @@
     },
     {
       "flipchartPage": 52,
-      "lesson": 22,
+      "lesson": 21,
       "path": "cartilla/art/hd/flipchart/page-052.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -418,7 +418,7 @@
     },
     {
       "flipchartPage": 53,
-      "lesson": 22,
+      "lesson": 21,
       "path": "cartilla/art/hd/flipchart/page-053.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -434,7 +434,7 @@
     },
     {
       "flipchartPage": 55,
-      "lesson": 23,
+      "lesson": 22,
       "path": "cartilla/art/hd/flipchart/page-055.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -442,7 +442,7 @@
     },
     {
       "flipchartPage": 56,
-      "lesson": 23,
+      "lesson": 22,
       "path": "cartilla/art/hd/flipchart/page-056.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -458,7 +458,7 @@
     },
     {
       "flipchartPage": 58,
-      "lesson": 24,
+      "lesson": 23,
       "path": "cartilla/art/hd/flipchart/page-058.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -466,7 +466,7 @@
     },
     {
       "flipchartPage": 59,
-      "lesson": 24,
+      "lesson": 23,
       "path": "cartilla/art/hd/flipchart/page-059.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -482,7 +482,7 @@
     },
     {
       "flipchartPage": 61,
-      "lesson": null,
+      "lesson": 24,
       "path": "cartilla/art/hd/flipchart/page-061.jpg",
       "type": "flipchart",
       "status": "original source connected",
@@ -490,7 +490,7 @@
     },
     {
       "flipchartPage": 62,
-      "lesson": null,
+      "lesson": 24,
       "path": "cartilla/art/hd/flipchart/page-062.jpg",
       "type": "flipchart",
       "status": "original source connected",
