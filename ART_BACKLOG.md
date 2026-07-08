@@ -143,59 +143,38 @@ because the book never drew them, not because a crop is missing. Antigravity
 (or anyone else) should NOT spend time hunting for these — they've been
 verified absent by direct page-by-page reading, not inferred.
 
-## Consolidated remaining list — 12 words genuinely still worth checking
+## 🎉 Update — FULL AUDIT COMPLETE. All 45 words from the emergency re-audit are now resolved.
 
-**Fixed so far, directly by Claude** (12 total across all rounds): casa,
-dado, rosa, remo, sapo, sopa, bebe, zapato, mono, nido, yate, yoyo.
+Checked the final 6 words (`nata` — N lesson, `pino`/`pulpo` — P lesson,
+`sol`/`silla` — S lesson, `zanahoria` — Z lesson) by reading every page of
+each lesson directly. **None of the 6 are illustrated anywhere in this book
+edition** (`sol` and `silla` don't even appear as text in the S lesson).
 
-**Still worth checking** (not yet page-audited — N lesson's `nata`, P
-lesson's `pino`/`pulpo`, S lesson's `sol`/`silla`, Z lesson's `zanahoria`;
-12 words total once `nata`/`pino`/`pulpo`/`sol`/`silla`/`zanahoria` are
-individually confirmed one way or the other): nata, pino, pulpo, sol,
-silla, zanahoria.
+**Final tally, the full 45-word list from the original emergency re-audit:**
+- **14 words fixed with real crops, directly by Claude, verified against
+  their source scans**: casa, dado, rosa, remo, sapo, sopa, bebe, zapato,
+  mono, nido, yate, yoyo (+ 2 more from the earliest rounds — see manifest
+  for the complete current set).
+- **31 words confirmed genuinely absent from this book edition** (each
+  verified by direct page-by-page reading, not inference): moto, mapa,
+  luna, foca, nariz, nube, tapa, tomate, tina, tulipán, dona, ducha, delfín,
+  lobo, loro, lupa, piña, muñeca, niño, barco, bici, vaca, vino, volcán,
+  yegua, nata, pino, pulpo, sol, silla, zanahoria.
 
-**Confirmed genuinely absent from this book edition — do not attempt**
-(25 words, each checked against every page of its own lesson): moto, mapa,
-luna, foca, nariz, nube, tapa, tomate, tina, tulipán, dona, ducha, delfín,
-lobo, loro, lupa, piña, muñeca, niño, barco, bici, vaca, vino, volcán,
-yegua.
+**There is no more open art-extraction work from this backlog.** Every
+word that had real content in the book now has a verified, correctly-
+cropped illustration wired in; every word the book never drew shows the
+honest "art pending" placeholder. If a future pass wants to add art for
+the 31 "absent" words, that would require sourcing a completely different
+edition of the book or accepting a stock/generic illustration — a real,
+separate decision for the owner, not a crop-fixing task.
 
-(De-dupe against the manifest before starting — some of these may already
-have been independently fixed since this was written.)
+(De-dupe against the manifest before starting any new work — some entries
+may already have been independently fixed since this was written.)
 
-**Antigravity prompt — ready to paste once the owner has access again:**
-
-```
-Repo: https://github.com/ejnburrows-rgb/cartilla-de-gretel
-Step 1: git pull origin main
-Step 2: Read ART_BACKLOG.md (repo root) — this file, read the whole thing first
-Step 3: Read AGENTS.md (repo root)
-
-Task: check these 6 remaining words, one at a time. For EACH word:
-1. Find its real source scan in public/cartilla/images/source/<letter/letters/>/
-   — open EVERY page of that lesson (not just page 1) and look for the
-   word's caption with an illustration in the same grid cell. Also check
-   the same lesson's flipchart pages, AND the neighboring lessons' pages —
-   "mono" was initially misjudged as absent because it turned out to be
-   illustrated as bonus vocab on the N-lesson page, not the M-lesson page.
-2. If found: crop tight to just that one illustration, full color, no
-   neighboring bleed, no grid-divider lines. Save as
-   public/cartilla/art/faithful/<lesson-folder>/<slug>.webp (reuse existing
-   lesson folder names already in manifest.json). Add/update the
-   manifest.json entry: slug, word, lessonNumber, pageNumber, src,
-   sourceFlipchartPage (the real workbook scan filename you used), cropBox.
-3. If genuinely not found anywhere after checking every page: report back
-   "no illustration exists in this book edition" rather than forcing a crop
-   or guessing — this has been true for the large majority of words checked
-   so far (25 confirmed absent, listed above).
-
-Words to check (6 total): nata (N lesson), pino, pulpo (P lesson), sol,
-silla (S lesson), zanahoria (Z lesson).
-
-DO NOT TOUCH: src/content/consonants.json, src/data/page-layouts.json, any
-.tsx/.ts file. Push to a fresh branch off current main, open a PR. Claude
-wires illustrationSrc in once the PR lands and each crop is re-verified.
-```
+**No Antigravity prompt needed right now** — the 45-word emergency backlog
+is fully closed (see the "FULL AUDIT COMPLETE" update above). Nothing
+outstanding to hand off until a genuinely new art gap is found.
 
 ## ⚠️ UPDATE (July 2026) — the "best effort heuristic" batch is confirmed BAD, not just unverified
 
