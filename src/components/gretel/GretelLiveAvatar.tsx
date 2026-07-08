@@ -40,38 +40,51 @@ const SIZES = {
   lg: "h-44 w-44 sm:h-56 sm:w-56",
 };
 
-/* ── Per-state animation configs ── */
+/* ── Per-state animation configs ──
+ * Each state gets its own motion signature instead of reusing one
+ * vertical-bounce loop everywhere — a real celebratory jump should look
+ * different from calm idle breathing, which should look different from a
+ * head-tilt while talking. Only "cheering" is meant to read as a bounce;
+ * every other state avoids net vertical translation. */
 function getBodyAnimation(state: string) {
   switch (state) {
     case "cheering":
+      // The one state that should actually look like a jump.
       return {
         y: [0, -28, -10, -28, 0],
         scale: [1, 1.12, 1.05, 1.12, 1],
         rotate: [0, -6, 6, -4, 0],
       };
     case "waving":
+      // Side-to-side sway, like the arm swing is carrying through the body.
       return {
-        y: [0, -4, 0, -4, 0],
-        scale: [1, 1.02, 1, 1.02, 1],
-        rotate: [0, -3, 3, -2, 0],
+        y: 0,
+        scale: [1, 1.01, 1],
+        rotate: [0, -4, 4, -3, 0],
       };
     case "talking":
+      // Small head-tilt nod, not a bounce — mouth frames already carry the motion.
       return {
-        y: [0, -3, 0, -2, 0],
-        scale: [1, 1.015, 1, 1.01, 1],
-        rotate: [0, -1, 1, 0, 0],
+        y: 0,
+        scale: [1, 1.008, 1],
+        rotate: [0, -1.5, 1.5, 0],
       };
     case "pointing":
+      // Lean into the point and settle, rather than loop-bouncing.
       return {
-        y: [0, -5, 0],
-        scale: [1, 1.03, 1],
-        rotate: [0, 2, 0],
+        y: 0,
+        scale: [1, 1.02, 1.01],
+        rotate: [0, 2, 1.5],
       };
-    default: // idle, blinking, boot
+    case "blinking":
+      // Hold still — the pose swap alone should read as the blink.
+      return { y: 0, scale: 1, rotate: 0 };
+    default: // idle, boot
+      // Calm breathing: scale only, no net vertical travel.
       return {
-        y: [0, -5, 0],
-        scale: [1, 1.015, 1],
-        rotate: [-0.5, 0.5, -0.5],
+        y: 0,
+        scale: [1, 1.008, 1],
+        rotate: [-0.3, 0.3, -0.3],
       };
   }
 }
@@ -81,13 +94,15 @@ function getBodyTransition(state: string) {
     case "cheering":
       return { duration: 0.7, repeat: Infinity, ease: "easeInOut" as const };
     case "waving":
-      return { duration: 1.8, repeat: Infinity, ease: "easeInOut" as const };
+      return { duration: 1.6, repeat: Infinity, ease: "easeInOut" as const };
     case "talking":
-      return { duration: 0.8, repeat: Infinity, ease: "easeInOut" as const };
+      return { duration: 0.7, repeat: Infinity, ease: "easeInOut" as const };
     case "pointing":
-      return { duration: 2.5, repeat: Infinity, ease: "easeInOut" as const };
+      return { duration: 0.4, ease: "easeOut" as const };
+    case "blinking":
+      return { duration: 0.1, ease: "linear" as const };
     default:
-      return { duration: 4, repeat: Infinity, ease: "easeInOut" as const };
+      return { duration: 6, repeat: Infinity, ease: "easeInOut" as const };
   }
 }
 
