@@ -16,6 +16,24 @@ Gretel is an animated guide character who reacts to student actions.
 Students work through a 95-page interactive workbook (cartilla).
 Teachers create classes, assign students, and track progress via Supabase.
 
+## CANON FACTS (memorized July 2026 — override any conflicting assumption)
+- **Page count is NOT a magic number.** The physical book is a real printed
+  book: it may contain blank pages, cover pages, or filler. Do NOT chase a
+  fixed total like "92" (or "90" or "95"). The truth is whatever the source
+  PDF/scans actually contain that is worth digitizing. Every page with real
+  content gets digitized; blank/filler pages get logged in SPEC.md as
+  SKIPPED-BLANK (with the page number) and are NOT counted as gaps.
+  Completion = 100% of *content* pages, not a magic total.
+- **The two products are never mixed** (this is not complicated):
+  - **TEACHER FLIPCHART/FLIPBOOK** = the teacher's tool. The teacher uses it
+    to PRESENT and share lessons with the whole class (projection /
+    front-of-class). It lives in the TEACHER LANE only.
+  - **STUDENT WORKBOOK** = the students' book. Students work in it
+    individually (exercises, tracing, practice). It lives in the STUDENT
+    LANE only.
+  Student screens never show flipchart material; the flipchart view never
+  shows student workbook exercises.
+
 ## Stack
 - Vite + React + TypeScript
 - TanStack Router (file-based routing — src/routes/)
