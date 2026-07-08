@@ -160,7 +160,8 @@
     "vocab": [
       {
         "word": "sapo",
-        "emoji": "🐸"
+        "emoji": "🐸",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-9-s/sapo.webp"
       },
       {
         "word": "sol",
@@ -168,7 +169,8 @@
       },
       {
         "word": "sopa",
-        "emoji": "🍲"
+        "emoji": "🍲",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-9-s/sopa.webp"
       },
       {
         "word": "silla",
@@ -304,7 +306,8 @@
     "vocab": [
       {
         "word": "dado",
-        "emoji": "🎲"
+        "emoji": "🎲",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/dado.webp"
       },
       {
         "word": "delfín",
@@ -744,11 +747,13 @@
       },
       {
         "word": "rosa",
-        "emoji": "🌹"
+        "emoji": "🌹",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-17-r/rosa.webp"
       },
       {
         "word": "remo",
-        "emoji": "🚣"
+        "emoji": "🚣",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-17-r/remo.webp"
       },
       {
         "word": "rueda",
@@ -1112,7 +1117,8 @@
     "vocab": [
       {
         "word": "casa",
-        "emoji": "🏠"
+        "emoji": "🏠",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-19-c/casa.webp"
       },
       {
         "word": "queso",

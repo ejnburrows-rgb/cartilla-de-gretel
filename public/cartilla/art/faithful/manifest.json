@@ -254,15 +254,15 @@
   {
     "slug": "casa",
     "word": "casa",
-    "lessonNumber": 19,
+    "lessonNumber": 22,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-19-c/casa.webp",
     "sourceFlipchartPage": "c-page-52.jpg",
     "cropBox": [
-      230,
-      1094,
-      574,
-      398
+      1530,
+      1225,
+      730,
+      660
     ]
   },
   {
@@ -588,10 +588,10 @@
     "src": "/cartilla/art/faithful/leccion-9-s/sapo.webp",
     "sourceFlipchartPage": "ss-page-14.jpg",
     "cropBox": [
-      230,
-      1095,
-      574,
-      398
+      1689,
+      1454,
+      594,
+      501
     ]
   },
   {
@@ -616,10 +616,10 @@
     "src": "/cartilla/art/faithful/leccion-9-s/sopa.webp",
     "sourceFlipchartPage": "ss-page-14.jpg",
     "cropBox": [
-      1378,
-      1095,
-      574,
-      398
+      938,
+      1470,
+      516,
+      453
     ]
   },
   {
@@ -700,10 +700,10 @@
     "src": "/cartilla/art/faithful/leccion-11-d/dado.webp",
     "sourceFlipchartPage": "d-page-19.jpg",
     "cropBox": [
-      230,
-      1095,
-      573,
-      398
+      880,
+      1240,
+      630,
+      630
     ]
   },
   {
@@ -1036,10 +1036,10 @@
     "src": "/cartilla/art/faithful/leccion-17-r/rosa.webp",
     "sourceFlipchartPage": "r-page-37.jpg",
     "cropBox": [
-      806,
-      1095,
-      575,
-      398
+      420,
+      2150,
+      450,
+      460
     ]
   },
   {
@@ -1050,10 +1050,10 @@
     "src": "/cartilla/art/faithful/leccion-17-r/remo.webp",
     "sourceFlipchartPage": "r-page-37.jpg",
     "cropBox": [
-      1381,
-      1095,
-      575,
-      398
+      930,
+      1300,
+      590,
+      580
     ]
   },
   {
