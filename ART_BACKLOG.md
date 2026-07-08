@@ -1,5 +1,80 @@
 # Art backlog — current, authoritative
 
+## 🚨 UPDATE (July 2026) — emergency re-audit: the "already verified good" set was WRONG too; scope is much bigger than documented, safe fix already shipped
+
+Triggered by directly opening `mono.webp` again (previously claimed "confirmed
+separately and already wired, NOT affected" by the note below) and finding it
+shows a floral decoration, not a monkey. That forced a full re-open of every
+word from PRs #111/#112 that had been trusted without re-checking. **Every
+file below was opened directly at full resolution — not taken on the earlier
+report:**
+
+**CONFIRMED WRONG (subject does not match the label at all):**
+- `mono.webp` — shows flowers, not a monkey.
+- `sapo.webp` — shows a girl's hair, not a toad.
+- `sopa.webp` — mostly blank + a tiny unrelated fragment, not soup.
+- `dado.webp` — shows a ladder + a bird, not a die.
+- `foca.webp` — shows a man eating noodles — this is actually `fideos`'
+  illustration (a different F-word), not a seal.
+- `zapato.webp` — shows an unrelated yellow/purple shape + leaves, not a shoe.
+- `casa.webp` (leccion-19-c) — shows a baby crib + teddy bear, not a house.
+- `casa.webp` (leccion-1) — **separate, additional bug**: this file is a
+  **0-byte empty file** committed to git (confirmed via `git cat-file -s` =
+  0), a broken image reference regardless of subject. Two different `casa`
+  files exist at two different paths and both are bad, for two different
+  reasons.
+- `luna.webp` — shows high-heel shoes + a suitcase, not a moon.
+- `bebe.webp` — shows shoe soles + confetti + a possible animal fragment,
+  not a baby.
+- `rosa.webp` — shows crossed drumsticks — this is actually `remos`'
+  illustration (a different R-word), not a rose.
+- `remo.webp` — shows a butterfly, not an oar.
+
+**Re-confirmed CORRECT (subject genuinely matches, spot-checked to bound the
+damage, not assumed):** `mama`, `papa`, `rana`, `burro`, `gato`, `perro`,
+`vela` (marginal — small/off-center but right subject), `rueda` (a bicycle
+wheel — correct for "rueda").
+
+**Root cause**: the earlier note directly below ("mamá, mono, papá, sapo,
+sopa, dado ... are NOT affected; those are confirmed separately and already
+wired") was itself wrong — being sourced from an earlier "hand-verified" PR
+did not mean every word in it was actually opened and checked pixel-by-pixel.
+Lesson: "hand-verified in an earlier PR" is not a substitute for re-opening
+the actual current file before trusting it — a later commit can silently
+replace a good crop with a bad one, or the original verification simply
+missed a subset.
+
+**Safe fix already shipped this pass (no owner sign-off needed — this is an
+unambiguous correctness fix, not a creative call)**: removed the
+`illustrationSrc` field for all 11 confirmed-wrong words above, plus the full
+34-word `bb3a458` batch below (tulipán, delfín, dona, ducha, lobo, loro, lupa,
+nariz, nido, nube, nata, piña, muñeca, niño, barco, bici, vaca, vino, volcán,
+yate, yegua, yoyo, zapato, zanahoria, moto, mapa, pino, pulpo, sol, silla,
+tapa, tomate, tina, pez), from both `src/content/consonants.json` and
+`src/data/page-layouts.json` — **125 references removed total** (structural
+JSON edit, not text search-replace). Students now see the honest "art
+pending" placeholder instead of actively wrong content. `pnpm tsc --noEmit`
+and `pnpm build` both clean after the removal.
+
+**What Antigravity needs to re-crop (real, current, consolidated list — 45
+words total, supersedes every prior partial list in this file)**: mono, sapo,
+sopa, dado, foca, zapato, casa (both leccion-1 and leccion-19-c paths — verify
+which lesson actually owns "casa" and only keep one), luna, bebe, rosa, remo,
+tulipán, delfín, dona, ducha, lobo, loro, lupa, nariz, nido, nube, nata, piña,
+muñeca, niño, barco, bici, vaca, vino, volcán, yate, yegua, yoyo, zanahoria,
+moto, mapa, pino, pulpo, sol, silla, tapa, tomate, tina. (`pez` is excluded —
+confirmed elsewhere in this file as not existing in the physical book.)
+**Crop rule reminder**: crop tight to only the labeled word's own
+illustration; if the source scan shows a grid of vocab pictures, double- and
+triple-check the label actually printed next to/under the picture you're
+cropping — several of the defects above (rosa/remo swapped, foca showing
+fideos) look like an off-by-one grid-cell error, not a bad crop boundary.
+
+**Not yet re-audited**: the remaining consonant-lesson words not named above
+or below. Given how wrong the "already verified" assumption turned out to be,
+treat anything not explicitly confirmed-correct in this file as unverified,
+not safe.
+
 ## ⚠️ UPDATE (July 2026) — the "best effort heuristic" batch is confirmed BAD, not just unverified
 
 Commit `bb3a458` ("Extract 69 vocabulary crops (best effort heuristic)",

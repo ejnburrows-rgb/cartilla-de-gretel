@@ -19,8 +19,7 @@
       },
       {
         "word": "mono",
-        "emoji": "🐒",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/mono.webp"
+        "emoji": "🐒"
       },
       {
         "word": "moto",
@@ -161,8 +160,7 @@
     "vocab": [
       {
         "word": "sapo",
-        "emoji": "🐸",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-9-s/sapo.webp"
+        "emoji": "🐸"
       },
       {
         "word": "sol",
@@ -170,8 +168,7 @@
       },
       {
         "word": "sopa",
-        "emoji": "🍲",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-9-s/sopa.webp"
+        "emoji": "🍲"
       },
       {
         "word": "silla",
@@ -307,8 +304,7 @@
     "vocab": [
       {
         "word": "dado",
-        "emoji": "🎲",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/dado.webp"
+        "emoji": "🎲"
       },
       {
         "word": "delfín",
@@ -380,8 +376,7 @@
     "vocab": [
       {
         "word": "luna",
-        "emoji": "🌙",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/luna.webp"
+        "emoji": "🌙"
       },
       {
         "word": "lobo",
@@ -602,8 +597,7 @@
       },
       {
         "word": "bebé",
-        "emoji": "👶",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-15-b/bebe.webp"
+        "emoji": "👶"
       },
       {
         "word": "bici",
@@ -750,13 +744,11 @@
       },
       {
         "word": "rosa",
-        "emoji": "🌹",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-17-r/rosa.webp"
+        "emoji": "🌹"
       },
       {
         "word": "remo",
-        "emoji": "🚣",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-17-r/remo.webp"
+        "emoji": "🚣"
       },
       {
         "word": "rueda",
@@ -983,8 +975,7 @@
       },
       {
         "word": "foca",
-        "emoji": "🦭",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-20-f/foca.webp"
+        "emoji": "🦭"
       },
       {
         "word": "fuente",
@@ -1121,8 +1112,7 @@
     "vocab": [
       {
         "word": "casa",
-        "emoji": "🏠",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-1/casa.webp"
+        "emoji": "🏠"
       },
       {
         "word": "queso",
