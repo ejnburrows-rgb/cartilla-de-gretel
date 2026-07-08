@@ -121,19 +121,44 @@ game's word list, not pulled from real book content — leave
 have art in an unexpected lesson, double-check neighboring lessons' pages
 before writing off any remaining word as absent.
 
-## Consolidated remaining list — 27 words (updated as Claude closes more directly)
+## Update — full lesson-by-lesson audit completed; most of the "remaining backlog" turned out to not exist in this book at all
 
-**Fixed so far, directly by Claude** (10 total across all rounds): casa,
-dado, rosa, remo, sapo, sopa, bebe, zapato, mono, nido.
+Systematically opened and read EVERY page of the T, D, L, Ñ, B, V, and Y
+lessons (all 4 workbook pages each, or 3 for Y) looking for the remaining
+backlog words' illustrations. Result: the overwhelming majority of them
+are simply not illustrated anywhere in this book edition — they're generic
+phonics-list words, not words the book itself drew a picture for. Only 2
+more words had real art to recover (`yate`, `yoyo` — both on `y-page-55.jpg`,
+now fixed). Confirmed absent (every page of the relevant lesson read):
+`tapa`, `tomate`, `tina`, `tulipán` (T lesson, no picture-grid at all —
+only text exercises and one unrelated story illustration), `dona`, `ducha`,
+`delfín` (D lesson), `lobo`, `loro`, `lupa` (L lesson), `piña`, `muñeca`,
+`niño` (Ñ lesson — the book actually uses "piñata," "niñito," and "niña,"
+different words, not these exact ones), `barco`, `bici` (B lesson), `vaca`,
+`vino`, `volcán` (V lesson), `yegua` (Y lesson).
 
-**Still to attempt** (27 words):
-tulipán, delfín, dona, ducha, lobo, loro, lupa, nata, piña, muñeca, niño,
-barco, bici, vaca, vino, volcán, yate, yegua, yoyo, zanahoria, pino, pulpo,
-sol, silla, tapa, tomate, tina.
+**This means the true "real, findable" backlog is much smaller than the
+word count suggested** — most of these words were never going to have art
+because the book never drew them, not because a crop is missing. Antigravity
+(or anyone else) should NOT spend time hunting for these — they've been
+verified absent by direct page-by-page reading, not inferred.
 
-**Confirmed genuinely absent from this book edition — do not attempt**:
-moto, mapa, luna, foca, nariz, nube (6 words — each checked against every
-page of its own lesson, not just one page).
+## Consolidated remaining list — 12 words genuinely still worth checking
+
+**Fixed so far, directly by Claude** (12 total across all rounds): casa,
+dado, rosa, remo, sapo, sopa, bebe, zapato, mono, nido, yate, yoyo.
+
+**Still worth checking** (not yet page-audited — N lesson's `nata`, P
+lesson's `pino`/`pulpo`, S lesson's `sol`/`silla`, Z lesson's `zanahoria`;
+12 words total once `nata`/`pino`/`pulpo`/`sol`/`silla`/`zanahoria` are
+individually confirmed one way or the other): nata, pino, pulpo, sol,
+silla, zanahoria.
+
+**Confirmed genuinely absent from this book edition — do not attempt**
+(25 words, each checked against every page of its own lesson): moto, mapa,
+luna, foca, nariz, nube, tapa, tomate, tina, tulipán, dona, ducha, delfín,
+lobo, loro, lupa, piña, muñeca, niño, barco, bici, vaca, vino, volcán,
+yegua.
 
 (De-dupe against the manifest before starting — some of these may already
 have been independently fixed since this was written.)
@@ -146,36 +171,26 @@ Step 1: git pull origin main
 Step 2: Read ART_BACKLOG.md (repo root) — this file, read the whole thing first
 Step 3: Read AGENTS.md (repo root)
 
-Task: re-crop these 39 consonant vocab words. For EACH word:
-1. Find its real source scan in public/cartilla/images/source/<letter>/ —
-   open the actual JPG and confirm the word's caption AND illustration are
-   both visible in the same grid cell before cropping. Do NOT crop a
-   neighboring cell's picture — several previous rounds got this wrong
-   (e.g. "rosa" was cropped from the "remos" cell next to it).
-2. If a word's caption appears in the workbook text but you cannot find a
-   matching illustration anywhere on that lesson's pages (workbook AND
-   flipchart), do NOT invent or force a crop — report it back as "no
-   illustration exists in this book edition," same as the already-confirmed
-   cases (moto, mapa, mono, luna).
-3. Crop tight to just that one illustration, full color, no neighboring
-   bleed, no grid-divider lines.
-4. Save as public/cartilla/art/faithful/<lesson-folder>/<slug>.webp
-   (reuse existing lesson folder names already in manifest.json).
-5. Add/update the manifest.json entry: slug, word, lessonNumber, pageNumber,
-   src, sourceFlipchartPage (the real workbook scan filename you used),
-   cropBox.
+Task: check these 6 remaining words, one at a time. For EACH word:
+1. Find its real source scan in public/cartilla/images/source/<letter/letters/>/
+   — open EVERY page of that lesson (not just page 1) and look for the
+   word's caption with an illustration in the same grid cell. Also check
+   the same lesson's flipchart pages, AND the neighboring lessons' pages —
+   "mono" was initially misjudged as absent because it turned out to be
+   illustrated as bonus vocab on the N-lesson page, not the M-lesson page.
+2. If found: crop tight to just that one illustration, full color, no
+   neighboring bleed, no grid-divider lines. Save as
+   public/cartilla/art/faithful/<lesson-folder>/<slug>.webp (reuse existing
+   lesson folder names already in manifest.json). Add/update the
+   manifest.json entry: slug, word, lessonNumber, pageNumber, src,
+   sourceFlipchartPage (the real workbook scan filename you used), cropBox.
+3. If genuinely not found anywhere after checking every page: report back
+   "no illustration exists in this book edition" rather than forcing a crop
+   or guessing — this has been true for the large majority of words checked
+   so far (25 confirmed absent, listed above).
 
-Words (27 to attempt + 6 already confirmed absent — verify absence
-independently, don't just trust this list):
-tulipán(→tulipan), delfín(→delfin), dona, ducha, lobo, loro, lupa, nata,
-piña(→pina), muñeca(→muneca), niño(→nino), barco, bici, vaca, vino,
-volcán(→volcan), yate, yegua, yoyo, zanahoria, pino, pulpo, sol, silla,
-tapa, tomate, tina.
-Confirmed already absent from the book, do not attempt: moto, mapa, luna,
-foca, nariz, nube. IMPORTANT: before writing off any word as absent, check
-NEIGHBORING lessons' pages too, not just its own lesson — "mono" was
-initially misjudged as absent because it turned out to be illustrated as
-bonus vocab on the N-lesson page, not the M-lesson page.
+Words to check (6 total): nata (N lesson), pino, pulpo (P lesson), sol,
+silla (S lesson), zanahoria (Z lesson).
 
 DO NOT TOUCH: src/content/consonants.json, src/data/page-layouts.json, any
 .tsx/.ts file. Push to a fresh branch off current main, open a PR. Claude

@@ -1193,7 +1193,8 @@
     "vocab": [
       {
         "word": "yate",
-        "emoji": "⛵"
+        "emoji": "⛵",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yate.webp"
       },
       {
         "word": "yegua",
@@ -1201,7 +1202,8 @@
       },
       {
         "word": "yoyo",
-        "emoji": "🪀"
+        "emoji": "🪀",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yoyo.webp"
       },
       {
         "word": "yuca",

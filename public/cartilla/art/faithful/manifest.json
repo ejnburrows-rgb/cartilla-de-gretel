@@ -1143,29 +1143,29 @@
   {
     "slug": "yoyo",
     "word": "yoyo",
-    "lessonNumber": 22,
+    "lessonNumber": 23,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-22-y/yoyo.webp",
     "sourceFlipchartPage": "y-page-55.jpg",
     "cropBox": [
-      230,
-      1094,
-      574,
-      398
+      1391,
+      2266,
+      609,
+      516
     ]
   },
   {
     "slug": "yate",
     "word": "yate",
-    "lessonNumber": 22,
+    "lessonNumber": 23,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-22-y/yate.webp",
     "sourceFlipchartPage": "y-page-55.jpg",
     "cropBox": [
-      804,
-      1094,
-      574,
-      398
+      86,
+      1430,
+      651,
+      408
     ]
   },
   {
