@@ -7,6 +7,35 @@ directly from the real JSON data files in this repo (`src/data/page-layouts.json
 memory. Where an earlier automated pass produced a different number, it was
 re-verified by hand and corrected here (see "Corrections" below).
 
+## Update — teacher "presentar" (present) mode was showing the wrong product
+
+Per the memorized canon (student workbook vs teacher flipchart are never
+mixed): `presentar.$n.tsx` (the teacher's classroom-presentation mode) was
+rendering `TeacherFlipChart.tsx`, which pulls from `FaithfulPageRenderer` —
+i.e. it was showing **reconstructed student workbook pages**, not the real
+teacher flipchart. Fixed: `presentar.$n.tsx` now renders `FlipchartHdPanel`,
+which sources from `teacher-flipchart.json` / `public/cartilla/art/hd/flipchart/`
+— the actual flipchart scans. `TeacherFlipChart.tsx` is deleted (it had no
+other consumers, confirmed by repo-wide search before deletion). Its 3-D
+`rotateX`/`perspective` flip animation is also gone — `FlipchartHdPanel` now
+uses a plain cross-fade, making it the genuinely "simplest static HD viewer"
+for teacher presentation, matching the file's own header comment ("No...
+3-D effects") which had been contradicted by its actual implementation
+until now.
+
+**New defect found while fixing this, NOT fixed (flagged only):** every
+source JPG in `public/cartilla/art/hd/flipchart/` (all 62 files, verified
+across lessons 1, 2, 7, 24) displays with wrong orientation — illustrations
+and text both read wrong. A CSS `rotate(180deg)` was tried as a display-layer
+stopgap: it visually straightened the illustrations, but the word-label text
+came out with reversed letter *order* ("oibni" instead of "indio") rather
+than a clean upside-down flip — meaning the real defect isn't a simple 180°
+rotation, and guessing further at a transform risks a "fix" that looks
+plausible on a couple of samples but is subtly wrong elsewhere. **The CSS
+workaround was reverted, not shipped.** This needs someone to open the
+actual source JPGs and determine the real transform needed (or re-export
+them correctly) — an art-pipeline task, not a UI task.
+
 ## Flagged discrepancies — read before acting on the mission brief
 
 1. **Page count — per canon, NOT a magic number.** Completion = 100% of

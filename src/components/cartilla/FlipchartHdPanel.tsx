@@ -1,13 +1,19 @@
 /**
  * FlipchartHdPanel.tsx
  *
- * Displays the HD-colour teacher flipchart artwork for a given lesson,
- * using the same vertical-flip framer-motion animation already present
- * in the app. Images are served from:
- *   public/cartilla/images/teacher-flipchart/teacher-page-01.jpg
+ * Displays the HD-colour teacher flipchart artwork for a given lesson —
+ * this is the real, physical teacher flipchart (student workbook pages are
+ * a separate surface, see FaithfulPageRenderer). Images are served from:
+ *   public/cartilla/art/hd/flipchart/page-NNN.jpg
  *
  * ART RULE — POLISH, NOT CHANGE: The existing HD art files are shown
  * exactly as-is. No recolouring, filtering, cropping, or 3-D effects.
+ *
+ * Kept deliberately simple (a plain cross-fade between pages, no 3-D
+ * flip/rotateX) so it's genuinely the "simplest static HD viewer" reference
+ * tool for teacher presentation — a fancier flip animation lives (lived) in
+ * TeacherFlipChart.tsx, which showed reconstructed student-workbook pages
+ * and has been removed; this is the sole teacher-lane page viewer now.
  */
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -19,23 +25,11 @@ import {
 } from "@/lib/flipchart-hd";
 import { BookPageImage } from "./BookPageImage";
 
-// ── Framer-motion variants matching the rest of the app ──────────────
-const VERTICAL_FLIP_VARIANTS = {
-  enter: (direction: number) => ({
-    rotateX: direction > 0 ? 0 : 90,
-    opacity: direction > 0 ? 0.5 : 0,
-    zIndex: direction > 0 ? 0 : 10,
-  }),
-  center: {
-    rotateX: 0,
-    opacity: 1,
-    zIndex: 5,
-  },
-  exit: (direction: number) => ({
-    rotateX: direction > 0 ? 90 : 0,
-    opacity: direction > 0 ? 0 : 0.5,
-    zIndex: direction > 0 ? 10 : 0,
-  }),
+// Plain cross-fade — no rotateX/perspective 3-D flip.
+const FADE_VARIANTS = {
+  enter: { opacity: 0 },
+  center: { opacity: 1 },
+  exit: { opacity: 0 },
 };
 
 interface FlipchartHdPanelProps {
@@ -45,29 +39,24 @@ interface FlipchartHdPanelProps {
 export function FlipchartHdPanel({ lessonNumber }: FlipchartHdPanelProps) {
   const pages: FlipchartPage[] = getFlipchartPagesForLesson(lessonNumber);
   const [selectedIdx, setSelectedIdx] = useState(0);
-  const [prevIdx, setPrevIdx] = useState(0);
 
   // Reset to first page when lesson changes.
   useEffect(() => {
     setSelectedIdx(0);
-    setPrevIdx(0);
   }, [lessonNumber]);
 
   if (pages.length === 0) return null;
 
   const safeIdx = Math.min(selectedIdx, pages.length - 1);
   const currentPage = pages[safeIdx]!;
-  const direction = safeIdx > prevIdx ? 1 : -1;
 
   const handlePrev = () => {
     if (safeIdx === 0) return;
-    setPrevIdx(safeIdx);
     setSelectedIdx(safeIdx - 1);
   };
 
   const handleNext = () => {
     if (safeIdx >= pages.length - 1) return;
-    setPrevIdx(safeIdx);
     setSelectedIdx(safeIdx + 1);
   };
 
@@ -96,32 +85,31 @@ export function FlipchartHdPanel({ lessonNumber }: FlipchartHdPanelProps) {
           ))}
         </div>
 
-        {/* Flipping page container */}
-        <div
-          className="w-full relative px-6 pt-12 pb-6 min-h-[70vh] flex flex-col justify-center overflow-hidden bg-white rounded-2xl shadow-xl border border-stone-200"
-          style={{ perspective: "1500px" }}
-        >
-          <AnimatePresence custom={direction} mode="popLayout" initial={false}>
+        {/* Page container — plain cross-fade, no 3-D flip */}
+        <div className="w-full relative px-6 pt-12 pb-6 min-h-[70vh] flex flex-col justify-center overflow-hidden bg-white rounded-2xl shadow-xl border border-stone-200">
+          <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={currentPage.flipchartPage}
-              custom={direction}
-              variants={VERTICAL_FLIP_VARIANTS}
+              variants={FADE_VARIANTS}
               initial="enter"
               animate="center"
               exit="exit"
-              transition={{
-                type: "spring",
-                stiffness: 120,
-                damping: 20,
-                mass: 0.8,
-              }}
-              style={{
-                transformOrigin: "top center",
-                backfaceVisibility: "hidden",
-                width: "100%",
-              }}
+              transition={{ duration: 0.15, ease: "easeOut" }}
+              style={{ width: "100%" }}
             >
-              {/* HD Flipchart image — displayed exactly as-is */}
+              {/* HD Flipchart image — displayed exactly as-is, no transforms.
+               * KNOWN DEFECT (not fixed here — see SPEC.md): every source JPG
+               * in public/cartilla/art/hd/flipchart/ renders with wrong
+               * orientation (verified across lessons 1, 2, 7, 24 — systemic,
+               * not a one-off scan error). A naive CSS rotate(180deg) was
+               * tried and rejected: it straightened the illustrations but left
+               * word labels reading as reversed letter-order ("oibni" instead
+               * of "indio") rather than a clean upside-down flip, meaning the
+               * actual defect isn't a simple 180° rotation and guessing
+               * further at a display-layer transform risks a wrong "fix"
+               * that looks plausible but silently corrupts other pages. This
+               * needs the source JPGs themselves inspected and corrected by
+               * whoever owns the art pipeline, not a UI-layer workaround. */}
               <BookPageImage
                 src={getFlipchartPageSrc(currentPage)}
                 alt={`Lámina ${currentPage.flipchartPage} del flipchart`}
