@@ -107,9 +107,20 @@ Teachers create classes, assign students, and track progress via Supabase.
   as fact and do it** — do not end with "want me to merge?" / "say the word"
   / "your call?" The owner banned permission-seeking on safe, recommended
   next steps. Only pause for owner input on genuine forks (money, legal,
-  visual art approval on new illustrations, env secrets they alone hold).
+  env secrets they alone hold).
   Wrong: "Merge PR #110 when you're ready?" Right: "Merging PR #110 now —
   one-file bubble fix, typecheck clean, matches #109."
+- **No visual sign-off gate — including for visual/palette/animation
+  changes (memorized July 2026, supersedes the "visual art approval"
+  carve-out above):** the owner explicitly banned pausing for a visual
+  "does this look right?" check whenever I'm 100% confident the result
+  matches what they explicitly asked for — verify it myself (in-browser,
+  screenshots if useful to confirm to myself), then ship it, same as any
+  other confident recommend-and-execute call. Do NOT wait on the owner's
+  reply before merging a visual PR I'm confident matches spec. This does
+  NOT cover genuinely new, undirected creative choices (e.g. picking an
+  illustration style nobody asked for) — only changes that implement an
+  explicit, already-given instruction.
 - **Short, concise, informative answers (memorized July 2026):** keep
   replies tight by default — lead with the direct answer, skip preamble
   and repetition. Save length for when the owner actually asks for detail
