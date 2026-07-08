@@ -488,12 +488,12 @@
     "lessonNumber": 7,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-7-m/mono.webp",
-    "sourceFlipchartPage": "m-page-10.jpg",
+    "sourceFlipchartPage": "n-page-25.jpg",
     "cropBox": [
-      806,
-      1095,
-      575,
-      398
+      1783,
+      1212,
+      406,
+      743
     ]
   },
   {
@@ -826,10 +826,10 @@
     "src": "/cartilla/art/faithful/leccion-13-n/nido.webp",
     "sourceFlipchartPage": "n-page-25.jpg",
     "cropBox": [
-      804,
-      1095,
-      574,
-      398
+      179,
+      1470,
+      556,
+      399
     ]
   },
   {
@@ -924,10 +924,10 @@
     "src": "/cartilla/art/faithful/leccion-15-b/bebe.webp",
     "sourceFlipchartPage": "b-page-31.jpg",
     "cropBox": [
-      804,
-      1095,
-      574,
-      398
+      1329,
+      2158,
+      657,
+      438
     ]
   },
   {
@@ -1199,15 +1199,15 @@
   {
     "slug": "zapato",
     "word": "zapato",
-    "lessonNumber": 23,
+    "lessonNumber": 24,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-23-z/zapato.webp",
     "sourceFlipchartPage": "z-page-58.jpg",
     "cropBox": [
-      231,
-      1094,
-      575,
-      398
+      101,
+      1289,
+      610,
+      579
     ]
   },
   {
