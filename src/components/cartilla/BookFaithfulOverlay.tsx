@@ -73,7 +73,7 @@ export function BookFaithfulOverlay({ n }: { n: number }) {
 					className="inline-flex items-start gap-2 rounded-xl border-2 border-foreground/15 bg-secondary px-3 py-2 text-xs font-bold text-foreground/70"
 				>
 					<Info className="w-4 h-4 shrink-0 mt-0.5" />
-					<span>Esta lección no tiene sección de palabras.</span>
+					<span>— intencionalmente vacío —</span>
 				</div>
 			)}
 
