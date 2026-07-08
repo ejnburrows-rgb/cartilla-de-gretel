@@ -1,8 +1,9 @@
 import React from "react";
-import { useTheme } from "@/hooks/useTheme";
+import { useLanguage } from "@/context/LanguageContext";
+import "@/styles/a11y.css";
 
 export function SkipLink() {
-  const { lang } = useTheme();
+  const { lang } = useLanguage();
 
   const label = lang === "es" 
     ? "Saltar al contenido principal" 
