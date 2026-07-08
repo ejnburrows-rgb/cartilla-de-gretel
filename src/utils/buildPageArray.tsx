@@ -1,4 +1,4 @@
-import type { WorkbookPageEntry } from "@/components/StudentBook/StudentWorkbookFlip";
+import type { WorkbookPageEntry } from "@/components/StudentBook/SimplePageViewer";
 
 import pageInventory from "@/data/page-inventory.json";
 import { CATALOG } from "@/lib/lesson-catalog";
