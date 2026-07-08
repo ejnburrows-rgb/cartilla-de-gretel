@@ -16,6 +16,24 @@ Gretel is an animated guide character who reacts to student actions.
 Students work through a 95-page interactive workbook (cartilla).
 Teachers create classes, assign students, and track progress via Supabase.
 
+## CANON FACTS (memorized July 2026 — override any conflicting assumption)
+- **Page count is NOT a magic number.** The physical book is a real printed
+  book: it may contain blank pages, cover pages, or filler. Do NOT chase a
+  fixed total like "92" (or "90" or "95"). The truth is whatever the source
+  PDF/scans actually contain that is worth digitizing. Every page with real
+  content gets digitized; blank/filler pages get logged in SPEC.md as
+  SKIPPED-BLANK (with the page number) and are NOT counted as gaps.
+  Completion = 100% of *content* pages, not a magic total.
+- **The two products are never mixed** (this is not complicated):
+  - **TEACHER FLIPCHART/FLIPBOOK** = the teacher's tool. The teacher uses it
+    to PRESENT and share lessons with the whole class (projection /
+    front-of-class). It lives in the TEACHER LANE only.
+  - **STUDENT WORKBOOK** = the students' book. Students work in it
+    individually (exercises, tracing, practice). It lives in the STUDENT
+    LANE only.
+  Student screens never show flipchart material; the flipchart view never
+  shows student workbook exercises.
+
 ## Stack
 - Vite + React + TypeScript
 - TanStack Router (file-based routing — src/routes/)
@@ -169,6 +187,18 @@ relaying anything I haven't personally checked.
 - Don't ask the owner small clarifying questions when a reasonable default
   exists — pick it, act, and say what you picked. Save questions for real
   decisions only.
+- **No pilot sign-off gate — finish the entire project (memorized July
+  2026):** the owner explicitly ended the "pilot one lesson, wait for
+  verdict, then batch" discipline. Do not stop and wait for approval on a
+  pilot lesson/module before continuing to the rest. Build, verify (typecheck
+  + build + real in-browser check), commit, and keep going through the full
+  scope autonomously. This does NOT override the mission brief's own
+  explicit stop conditions (Supabase/production data, secrets/keys,
+  deletions beyond what's been approved, spending money, genuine scope
+  changes) — those are still real forks that need the owner's input. But
+  "does this pilot look right to you?" is no longer one of them — verify it
+  yourself to the same bar, then proceed to the next lesson/batch without
+  pausing.
 
 ## Reading Experience Redesign (memorized July 2026)
 The owner rejected the reconstructed-page look: it read as a "cheap scan,"
