@@ -187,6 +187,18 @@ relaying anything I haven't personally checked.
 - Don't ask the owner small clarifying questions when a reasonable default
   exists — pick it, act, and say what you picked. Save questions for real
   decisions only.
+- **No pilot sign-off gate — finish the entire project (memorized July
+  2026):** the owner explicitly ended the "pilot one lesson, wait for
+  verdict, then batch" discipline. Do not stop and wait for approval on a
+  pilot lesson/module before continuing to the rest. Build, verify (typecheck
+  + build + real in-browser check), commit, and keep going through the full
+  scope autonomously. This does NOT override the mission brief's own
+  explicit stop conditions (Supabase/production data, secrets/keys,
+  deletions beyond what's been approved, spending money, genuine scope
+  changes) — those are still real forks that need the owner's input. But
+  "does this pilot look right to you?" is no longer one of them — verify it
+  yourself to the same bar, then proceed to the next lesson/batch without
+  pausing.
 
 ## Reading Experience Redesign (memorized July 2026)
 The owner rejected the reconstructed-page look: it read as a "cheap scan,"
