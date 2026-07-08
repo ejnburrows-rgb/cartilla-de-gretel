@@ -20,6 +20,7 @@ import { buildPageArray } from "@/utils/buildPageArray";
 import { ActivityCarousel } from "@/components/cartilla/ActivityCarousel";
 import { GretelLiveAvatar } from "@/components/gretel/GretelLiveAvatar";
 import { GardenScene } from "@/components/cartilla/GardenScene";
+import { BookFaithfulOverlay } from "@/components/cartilla/BookFaithfulOverlay";
 import "@/styles/interactive-exercises.css";
 import "@/styles/gretel.css";
 
@@ -161,6 +162,7 @@ function Leccion() {
           >
             {entry.title}
           </h1>
+          <BookFaithfulOverlay n={n} />
         </div>
 
         {/* Step tabs — the native 3-step module flow */}

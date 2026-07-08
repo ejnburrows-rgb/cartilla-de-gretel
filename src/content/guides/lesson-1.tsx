@@ -75,9 +75,22 @@ export function Lesson1Guide() {
         </p>
         <div className="bg-blue-50 border border-blue-100 rounded-2xl p-6 text-center">
           <p className="text-blue-900 font-bold italic">
-            A, E, I, O, U <br />
-            las hermanitas vocales eres tú.
+            Cinco hermanitas<br />
+            todas aplicadas<br />
+            las cinco bonitas<br />
+            nunca están calladas.
           </p>
+          <p className="text-stone-500 text-sm mt-2 not-italic">"Cinco hermanitas" — Reproducible Rhyme 1.</p>
+        </div>
+        <div className="mt-4">
+          <p className="text-xs font-black uppercase tracking-wide text-stone-400 mb-2">Palabras iniciales por vocal</p>
+          <div className="flex flex-wrap gap-2">
+            <span className="px-2.5 py-1 rounded-full bg-blue-50 text-blue-900 text-sm font-bold border border-blue-100">avión (a)</span>
+            <span className="px-2.5 py-1 rounded-full bg-blue-50 text-blue-900 text-sm font-bold border border-blue-100">escoba (e)</span>
+            <span className="px-2.5 py-1 rounded-full bg-blue-50 text-blue-900 text-sm font-bold border border-blue-100">imán (i)</span>
+            <span className="px-2.5 py-1 rounded-full bg-blue-50 text-blue-900 text-sm font-bold border border-blue-100">olla (o)</span>
+            <span className="px-2.5 py-1 rounded-full bg-blue-50 text-blue-900 text-sm font-bold border border-blue-100">uña (u)</span>
+          </div>
         </div>
       </section>
 
