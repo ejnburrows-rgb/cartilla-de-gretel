@@ -452,7 +452,10 @@ html.a11y-contrast .kid-card {
 }
 
 .workbook-page-back {
-  transform: rotateX(180deg);
+  /* Y-axis, matching .workbook-flip-wrapper's rotateY parent — the back
+     face must pre-rotate on the same axis the parent turns on, or it reads
+     upside-down instead of correctly mirrored. */
+  transform: rotateY(180deg);
   background: #fafafa;
   /* subtle paper back shadows */
   background-image: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, transparent 8%);
@@ -463,6 +466,46 @@ html.a11y-contrast .kid-card {
   inset: 0;
   pointer-events: none;
   background: rgba(0,0,0,0.04);
+  z-index: 10;
+  transition: opacity 0.6s ease;
+}
+
+/* ── Teacher Flip Chart — vertical (top-hinged) page flip ──
+   Same technique as .workbook-flip-wrapper, rotated to the X axis so pages
+   flip up and over the top like a real easel flip chart, not left-right
+   like the student book. */
+.flipchart-flip-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform-origin: center top;
+  transition: transform 1.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.flipchart-page-front,
+.flipchart-page-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 0.75rem;
+}
+
+.flipchart-page-back {
+  /* X-axis, matching .flipchart-flip-wrapper's rotateX parent. */
+  transform: rotateX(180deg);
+  background: #fafafa;
+}
+
+.flipchart-shadow-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.05);
   z-index: 10;
   transition: opacity 0.6s ease;
 }
@@ -534,13 +577,15 @@ html.a11y-contrast .kid-card {
   --font-book-title: "Fredoka", ui-rounded, system-ui, sans-serif;
   --font-book-hand: "Caveat", "Segoe Script", cursive;
 
-  /* Interior worksheet palette (exact to the printed book) */
-  --book-teal: #3fa9a6;          /* signature turquoise: sidebar, borders, guides */
-  --book-teal-deep: #2f8b88;     /* darker teal for text-on-white accents */
-  --book-paper: #ffffff;         /* white page */
-  --book-ink: #1f2937;           /* near-black body + headings */
-  --book-ink-soft: #6b7280;      /* secondary/footer gray */
-  --book-guide: #7fd3d0;         /* dashed handwriting midline */
+  /* Interior worksheet palette — green & cream kid-friendly aesthetic
+     (owner-directed repaint, superseding the earlier teal/white book-exact
+     palette; variable names kept as-is to avoid touching every consumer). */
+  --book-teal: #5fa777;          /* signature garden green: sidebar, borders, guides */
+  --book-teal-deep: #3d7a5c;     /* darker green for text-on-cream accents */
+  --book-paper: #fbf3e0;         /* warm cream page */
+  --book-ink: #2b2a22;           /* warm near-black body + headings */
+  --book-ink-soft: #8a8272;      /* warm secondary/footer gray */
+  --book-guide: #a8d9b5;         /* dashed handwriting midline */
 
   /* Gretel brand (app shell / character moments — NOT the worksheet interior) */
   --gretel-blue: #1f5fa8;

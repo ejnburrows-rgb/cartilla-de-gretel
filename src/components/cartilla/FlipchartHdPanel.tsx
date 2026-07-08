@@ -7,16 +7,16 @@
  *   public/cartilla/art/hd/flipchart/page-NNN.jpg
  *
  * ART RULE — POLISH, NOT CHANGE: The existing HD art files are shown
- * exactly as-is. No recolouring, filtering, cropping, or 3-D effects.
+ * exactly as-is. No recolouring, filtering, or cropping.
  *
- * Kept deliberately simple (a plain cross-fade between pages, no 3-D
- * flip/rotateX) so it's genuinely the "simplest static HD viewer" reference
- * tool for teacher presentation — a fancier flip animation lives (lived) in
- * TeacherFlipChart.tsx, which showed reconstructed student-workbook pages
- * and has been removed; this is the sole teacher-lane page viewer now.
+ * Real vertical (top-hinged) 3-D page flip — pages turn up and over the top
+ * like a physical easel flip chart, mirroring the student book's horizontal
+ * (left-hinged) turn in SimplePageViewer.tsx but rotated to the X axis.
+ * A fancier flip animation lived in TeacherFlipChart.tsx, which showed
+ * reconstructed student-workbook pages and has been removed; this is the
+ * sole teacher-lane page viewer now.
  */
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useCallback, useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import {
   getFlipchartPagesForLesson,
@@ -25,40 +25,74 @@ import {
 } from "@/lib/flipchart-hd";
 import { BookPageImage } from "./BookPageImage";
 
-// Plain cross-fade — no rotateX/perspective 3-D flip.
-const FADE_VARIANTS = {
-  enter: { opacity: 0 },
-  center: { opacity: 1 },
-  exit: { opacity: 0 },
-};
-
 interface FlipchartHdPanelProps {
   lessonNumber: number;
+}
+
+const FLIP_MS = 1100; // must match .flipchart-flip-wrapper's CSS transition duration
+
+function FlipchartFace({ page }: { page?: FlipchartPage }) {
+  if (!page) return <div className="w-full h-full bg-surface" />;
+  return (
+    <BookPageImage
+      src={getFlipchartPageSrc(page)}
+      alt={`Lámina ${page.flipchartPage} del flipchart`}
+      wrapperClassName="border-0 shadow-none bg-transparent"
+    />
+  );
 }
 
 export function FlipchartHdPanel({ lessonNumber }: FlipchartHdPanelProps) {
   const pages: FlipchartPage[] = getFlipchartPagesForLesson(lessonNumber);
   const [selectedIdx, setSelectedIdx] = useState(0);
+  const [isFlipping, setIsFlipping] = useState(false);
+  const [flipDirection, setFlipDirection] = useState<"next" | "prev" | null>(null);
+  const [flipTransform, setFlipTransform] = useState("rotateX(0deg)");
 
   // Reset to first page when lesson changes.
   useEffect(() => {
     setSelectedIdx(0);
+    setIsFlipping(false);
+    setFlipDirection(null);
+    setFlipTransform("rotateX(0deg)");
   }, [lessonNumber]);
+
+  const afterFlip = useCallback((newIndex: number) => {
+    setSelectedIdx(newIndex);
+    setIsFlipping(false);
+    setFlipDirection(null);
+  }, []);
 
   if (pages.length === 0) return null;
 
   const safeIdx = Math.min(selectedIdx, pages.length - 1);
   const currentPage = pages[safeIdx]!;
 
-  const handlePrev = () => {
-    if (safeIdx === 0) return;
-    setSelectedIdx(safeIdx - 1);
+  const goTo = (index: number, direction: "next" | "prev") => {
+    if (isFlipping) return;
+    setFlipDirection(direction);
+    setIsFlipping(true);
+    setFlipTransform(direction === "next" ? "rotateX(0deg)" : "rotateX(-180deg)");
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        setFlipTransform(direction === "next" ? "rotateX(-180deg)" : "rotateX(0deg)");
+      });
+    });
+
+    setTimeout(() => afterFlip(index), FLIP_MS);
   };
 
-  const handleNext = () => {
-    if (safeIdx >= pages.length - 1) return;
-    setSelectedIdx(safeIdx + 1);
-  };
+  const handlePrev = () => safeIdx > 0 && goTo(safeIdx - 1, "prev");
+  const handleNext = () => safeIdx < pages.length - 1 && goTo(safeIdx + 1, "next");
+
+  const staticIdx = isFlipping
+    ? flipDirection === "prev"
+      ? safeIdx - 1
+      : safeIdx + 1
+    : safeIdx;
+  const flipFrontIdx = isFlipping ? (flipDirection === "next" ? safeIdx : safeIdx - 1) : -1;
+  const flipBackIdx = isFlipping ? (flipDirection === "next" ? safeIdx + 1 : safeIdx) : -1;
 
   return (
     <div className="my-6 w-full max-w-2xl mx-auto">
@@ -85,38 +119,42 @@ export function FlipchartHdPanel({ lessonNumber }: FlipchartHdPanelProps) {
           ))}
         </div>
 
-        {/* Page container — plain cross-fade, no 3-D flip */}
+        {/* Page container — real vertical (top-hinged) 3-D flip */}
         <div className="w-full relative px-6 pt-12 pb-6 min-h-[70vh] flex flex-col justify-center overflow-hidden bg-white rounded-2xl shadow-xl border border-stone-200">
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.div
-              key={currentPage.flipchartPage}
-              variants={FADE_VARIANTS}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{ duration: 0.15, ease: "easeOut" }}
-              style={{ width: "100%" }}
-            >
-              {/* HD Flipchart image — displayed exactly as-is, no transforms.
-               * KNOWN DEFECT (not fixed here — see SPEC.md): every source JPG
-               * in public/cartilla/art/hd/flipchart/ renders with wrong
-               * orientation (verified across lessons 1, 2, 7, 24 — systemic,
-               * not a one-off scan error). A naive CSS rotate(180deg) was
-               * tried and rejected: it straightened the illustrations but left
-               * word labels reading as reversed letter-order ("oibni" instead
-               * of "indio") rather than a clean upside-down flip, meaning the
-               * actual defect isn't a simple 180° rotation and guessing
-               * further at a display-layer transform risks a wrong "fix"
-               * that looks plausible but silently corrupts other pages. This
-               * needs the source JPGs themselves inspected and corrected by
-               * whoever owns the art pipeline, not a UI-layer workaround. */}
-              <BookPageImage
-                src={getFlipchartPageSrc(currentPage)}
-                alt={`Lámina ${currentPage.flipchartPage} del flipchart`}
-                wrapperClassName="border-0 shadow-none bg-transparent"
-              />
-            </motion.div>
-          </AnimatePresence>
+          <div
+            className="relative w-full"
+            style={{ minHeight: "55vh" }}
+          >
+            {/* Static base — the destination page while a flip is in flight */}
+            <div className="w-full h-full absolute inset-0">
+              <FlipchartFace page={pages[staticIdx] ?? currentPage} />
+            </div>
+
+            {/* Flipping leaf — vertical (rotateX), hinged on the top edge */}
+            {isFlipping && (
+              <div
+                className="absolute inset-0 z-30 pointer-events-none"
+                style={{ transformStyle: "preserve-3d", perspective: "1800px" }}
+              >
+                <div className="flipchart-flip-wrapper" style={{ transform: flipTransform }}>
+                  <div className="flipchart-page-front">
+                    <FlipchartFace page={pages[flipFrontIdx]} />
+                    <div
+                      className="flipchart-shadow-overlay"
+                      style={{ opacity: flipDirection === "next" ? 1 : 0 }}
+                    />
+                  </div>
+                  <div className="flipchart-page-back">
+                    <FlipchartFace page={pages[flipBackIdx]} />
+                    <div
+                      className="flipchart-shadow-overlay"
+                      style={{ opacity: flipDirection === "prev" ? 1 : 0 }}
+                    />
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Controls below the easel */}
@@ -124,7 +162,7 @@ export function FlipchartHdPanel({ lessonNumber }: FlipchartHdPanelProps) {
           <button
             type="button"
             onClick={handlePrev}
-            disabled={safeIdx === 0}
+            disabled={safeIdx === 0 || isFlipping}
             className="inline-flex items-center gap-2 rounded-2xl border border-amber-900/15 bg-white px-5 py-3 text-sm font-extrabold text-[#3A281E] shadow-sm transition hover:bg-stone-50 disabled:opacity-30 sm:px-6 sm:py-3.5"
             aria-label="Lámina anterior"
           >
@@ -137,7 +175,7 @@ export function FlipchartHdPanel({ lessonNumber }: FlipchartHdPanelProps) {
           <button
             type="button"
             onClick={handleNext}
-            disabled={safeIdx >= pages.length - 1}
+            disabled={safeIdx >= pages.length - 1 || isFlipping}
             className="inline-flex items-center gap-2 rounded-2xl bg-amber-800 px-6 py-3 text-sm font-extrabold text-white shadow-sm transition hover:bg-amber-900 disabled:opacity-30 sm:px-8 sm:py-3.5 sm:text-base"
             aria-label="Lámina siguiente"
           >
