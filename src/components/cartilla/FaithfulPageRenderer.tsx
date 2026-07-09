@@ -345,7 +345,9 @@ function RegionView({
       );
     }
     case "draw-box":
-      return (
+      return interactive ? (
+        <DrawBoxCanvas regionId={region.id} hint={region.text} lessonId={lessonId} />
+      ) : (
         <div className="fp-draw-box" aria-label={region.text ?? "Espacio para dibujar"}>
           {region.text ? <span className="fp-draw-box__hint">{region.text}</span> : null}
         </div>
