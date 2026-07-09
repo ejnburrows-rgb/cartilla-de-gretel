@@ -31,6 +31,76 @@ the operator's Notion agent and is the shared source of truth between us.
 - Do not re-read all pages mid-session; once per session is enough (token
   discipline).
 
+## Standing orders — effective immediately, permanent (memorized July 2026)
+The owner is done with waiting, "checking now" narration, and premature
+BLOCKED ON YOU flags. These rules end that, permanently:
+1. **Pre-authorized, forever** — never ask again for: reading anything,
+   running scripts/tests/validators, committing and pushing to the working
+   branch, opening and merging PRs per the established flow, re-running
+   builds or workflows, writing docs/status files, retrying failures. If
+   it's inside the lane and the locked rules, do it without asking.
+2. **BLOCKED ON YOU is a last resort.** Before using it, try every
+   alternative route and list what was tried and exactly why each one is
+   IMPOSSIBLE — not slow, not indirect, IMPOSSIBLE. "The normal path is
+   broken" is not blocked; find the other path first.
+3. Applies directly to CI/infra failures: if the normal automated path
+   (e.g. a GitHub Action) is broken, bypass it and use the direct
+   equivalent (CLI linked to the project, direct execution with
+   credentials already configured in the environment) rather than waiting
+   for the owner to fix the automation. Never print, log, or commit any
+   secret. The broken automation becomes a cleanup item, not a blocker.
+4. **Never idle.** If one item is truly blocked, mark it in one line and
+   immediately pull the next item from the backlog. A blocked item never
+   stops the session — there is always real work available.
+5. **No narration turns.** "Checking now / investigating / confirming" is
+   not output. Work silently, batch the steps, report RESULTS only, in the
+   digest format: DONE / LIVE-VERIFIED / FAILED / BLOCKED (with the
+   impossibility proof) / NEXT 3.
+6. Still absolute, never overridden by speed: no invented content, no
+   touching forbidden paths, no force-push, no printing secrets.
+
+## Silent running — final operating mode (memorized July 2026)
+1. **Zero questions.** Never ask the owner anything mid-session. No "unless
+   you redirect me," no "want me to...", no options, no confirmations, no
+   permission requests. Decide using this precedence: Notion Hub canon >
+   CLAUDE.md > SPEC.md. If something is genuinely ambiguous, pick the most
+   book-faithful, launch-spec-aligned option, record the decision in ONE
+   line in the digest, and keep going. The owner overrules later if needed.
+2. **OPERATOR-QUEUE replaces questions.** Anything that truly requires the
+   owner (credentials, Settings screens, physical scans, sign-offs) goes as
+   one line in an OPERATOR-QUEUE section at the END of the digest — never a
+   pause, never a question. Nothing new enters this queue without an
+   impossibility proof (see standing order #2 above).
+3. **Run the whole backlog without stopping.** Pre-approved, start to
+   finish, no pause between items. Work until nothing unblocked remains,
+   then output exactly "ALL UNBLOCKED WORK COMPLETE" + final digest +
+   OPERATOR-QUEUE. That is the only stopping condition.
+4. **What the owner still personally owns** (never self-declare, never ask
+   about mid-work): final matches-the-book sign-off, crop approvals, launch
+   declaration. Build everything to done; the owner reviews in batches at
+   the end.
+5. Unchanged and absolute: no invented content, forbidden paths untouched,
+   digest format, no narration turns, no secrets in output.
+
+## Automatic per-turn rule — Anti-Gravity check-in (memorized July 2026)
+At the START of every single turn — no matter what the owner's message says,
+even mid-task — automatically, without being asked:
+1. Fetch `feat/content-extraction` and check for new Anti-Gravity pushes
+   since the last check (new commits, new AG-STATUS.md entries).
+2. If there's anything new: verify it (validators, spot-check against
+   source, no invented content, no forbidden paths touched) and confirm in
+   plain language what AG pushed, whether it's good, and what was done
+   with it.
+3. If there's nothing new since last check, say so in one line ("AG: no
+   new pushes since <last sha>") and move on.
+
+At the END of every turn — also automatic, also unprompted:
+4. A fresh copy-paste AG prompt matched to the current state (never
+   "nothing for AG" — minimum is a verification pass).
+5. A copy-paste prompt for the owner's own next session.
+
+Never skip this, never ask whether the owner wants it.
+
 ## What This Is
 Spanish literacy app for young children (ages 4-7).
 Gretel is an animated guide character who reacts to student actions.
