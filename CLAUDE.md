@@ -10,6 +10,27 @@ with a quick plain-English translation of what it actually means for them in
 this project. Lead with what's happening / what they need to do, then the
 jargon-with-translation, not the other way around.
 
+## Notion Sync — permanent rule (memorized July 2026)
+Claude is connected to the operator's Notion via MCP. Notion is maintained by
+the operator's Notion agent and is the shared source of truth between us.
+- **At the start of every session**, read from Notion: (1) "La Cartilla de
+  Gretel Hub" — Launch definition (locked 7/9), Hard-coded rules block,
+  Status snapshot (verified 7/9), Current 3 next actions — these override any
+  older assumptions; (2) when lesson TEXT/vocab is in question: "📖 Lessons ·
+  47 Pages" and "🎮 Activities & Games · 26 Pages" — canonical, never invent
+  past them; (3) when teacher-guide content is in question: "📘 Step 4 ·
+  Teacher's Guide" (canonical for L1-16; L17-24 status tracked there); (4)
+  when visual/art rules are in question: "Visual Direction — Locked Canon"
+  and the Gretel canon table in the Hub.
+- **READ-ONLY**: never create, edit, or delete anything in Notion. The
+  Notion agent maintains those pages; Claude's writes go to the repo only.
+- **Precedence**: Hub hard-coded rules > CLAUDE.md > SPEC.md > code comments.
+- If the repo contradicts Notion, do not silently pick one — put it in the
+  WRONG-IN-DOCS section of the session digest so the operator can have the
+  Notion agent reconcile it.
+- Do not re-read all pages mid-session; once per session is enough (token
+  discipline).
+
 ## What This Is
 Spanish literacy app for young children (ages 4-7).
 Gretel is an animated guide character who reacts to student actions.

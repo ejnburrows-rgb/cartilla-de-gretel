@@ -314,12 +314,18 @@ function RegionView({
       // model letter → real tracing exercise. The "trace it again" blank
       // line (no modelText of its own) inherits its letter from the
       // preceding writing-line sibling via resolvedModelText, so both
-      // repetitions are traceable, not just the first. Otherwise (teacher
-      // preview, or digraphs/diacritics with no template like RR/Ñ) → the
-      // static ruled writing line, unchanged.
+      // repetitions are traceable, not just the first.
       const traceLetter = resolvedModelText ?? region.modelText;
-      const canTrace = interactive && traceLetter && getLetterTemplate(traceLetter) !== null;
-      if (canTrace) {
+      const hasTemplate = !!traceLetter && getLetterTemplate(traceLetter) !== null;
+      if (interactive && !hasTemplate) {
+        // No real template for this letter (e.g. Ñ, rr, most lowercase) —
+        // hide the tracing step entirely rather than show a fake/blank
+        // stand-in. Teacher preview (non-interactive) keeps the static line
+        // below, since that's a faithful page preview, not a student
+        // tracing exercise.
+        return null;
+      }
+      if (interactive && hasTemplate) {
         return (
           <div className="fp-writing-line fp-writing-line--trace">
             <WorkbookLetterTrace
