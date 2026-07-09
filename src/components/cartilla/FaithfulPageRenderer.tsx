@@ -391,9 +391,24 @@ export function FaithfulPageRenderer({
   // repetitions are traceable, not just the first.
   let lastWritingLineModelText: string | undefined;
 
+  // If every writing-line on this page hides (no real template), the
+  // "Traza con tu mejor letra." instruction that precedes them would be
+  // left dangling with nothing to write on — hide it too in that case.
+  const pageHasTraceableWritingLine = ordered.some(
+    (r) => r.regionType === "writing-line" && getLetterTemplate(r.modelText) !== null,
+  );
+
   return (
     <PageFrame pageNumber={pageNumber} lessonNumber={lessonNumber} garden={interactive} gardenBg={gardenBg}>
       {ordered.map((region) => {
+        if (
+          interactive &&
+          !pageHasTraceableWritingLine &&
+          region.regionType === "instruction" &&
+          region.text === "Traza con tu mejor letra."
+        ) {
+          return null;
+        }
         let resolvedModelText: string | undefined;
         if (region.regionType === "writing-line") {
           resolvedModelText = region.modelText || lastWritingLineModelText;

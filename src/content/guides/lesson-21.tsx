@@ -41,7 +41,7 @@ export function Lesson21Guide() {
         <h2 className="text-2xl font-black text-stone-800 mb-6 flex items-center gap-3">
           <span className="text-blue-500">3.</span> Vocabulario y Poema
         </h2>
-<p className="text-stone-500 italic">No hay vocabulario ni poema registrado.</p>
+<p className="text-amber-600 italic">AWAITING-SOURCE-SCAN — Guía del profesor páginas 75–78 (Lección 21) aún no transcritas; el escaneo físico no está disponible todavía.</p>
       </section>
 
       {/* EVALUACION */}
@@ -49,7 +49,7 @@ export function Lesson21Guide() {
         <h2 className="text-2xl font-black text-stone-800 mb-6 flex items-center gap-3">
           <span className="text-purple-500">4.</span> Evaluación
         </h2>
-<p className="text-stone-500 italic">No hay evaluación registrada.</p>
+<p className="text-amber-600 italic">AWAITING-SOURCE-SCAN — Guía del profesor páginas 75–78 (Lección 21) aún no transcritas; el escaneo físico no está disponible todavía.</p>
       </section>
 
     </div>
