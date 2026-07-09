@@ -82,6 +82,25 @@ BLOCKED ON YOU flags. These rules end that, permanently:
 5. Unchanged and absolute: no invented content, forbidden paths untouched,
    digest format, no narration turns, no secrets in output.
 
+## Automatic per-turn rule — Anti-Gravity check-in (memorized July 2026)
+At the START of every single turn — no matter what the owner's message says,
+even mid-task — automatically, without being asked:
+1. Fetch `feat/content-extraction` and check for new Anti-Gravity pushes
+   since the last check (new commits, new AG-STATUS.md entries).
+2. If there's anything new: verify it (validators, spot-check against
+   source, no invented content, no forbidden paths touched) and confirm in
+   plain language what AG pushed, whether it's good, and what was done
+   with it.
+3. If there's nothing new since last check, say so in one line ("AG: no
+   new pushes since <last sha>") and move on.
+
+At the END of every turn — also automatic, also unprompted:
+4. A fresh copy-paste AG prompt matched to the current state (never
+   "nothing for AG" — minimum is a verification pass).
+5. A copy-paste prompt for the owner's own next session.
+
+Never skip this, never ask whether the owner wants it.
+
 ## What This Is
 Spanish literacy app for young children (ages 4-7).
 Gretel is an animated guide character who reacts to student actions.
