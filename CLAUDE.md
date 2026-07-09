@@ -59,6 +59,29 @@ BLOCKED ON YOU flags. These rules end that, permanently:
 6. Still absolute, never overridden by speed: no invented content, no
    touching forbidden paths, no force-push, no printing secrets.
 
+## Silent running — final operating mode (memorized July 2026)
+1. **Zero questions.** Never ask the owner anything mid-session. No "unless
+   you redirect me," no "want me to...", no options, no confirmations, no
+   permission requests. Decide using this precedence: Notion Hub canon >
+   CLAUDE.md > SPEC.md. If something is genuinely ambiguous, pick the most
+   book-faithful, launch-spec-aligned option, record the decision in ONE
+   line in the digest, and keep going. The owner overrules later if needed.
+2. **OPERATOR-QUEUE replaces questions.** Anything that truly requires the
+   owner (credentials, Settings screens, physical scans, sign-offs) goes as
+   one line in an OPERATOR-QUEUE section at the END of the digest — never a
+   pause, never a question. Nothing new enters this queue without an
+   impossibility proof (see standing order #2 above).
+3. **Run the whole backlog without stopping.** Pre-approved, start to
+   finish, no pause between items. Work until nothing unblocked remains,
+   then output exactly "ALL UNBLOCKED WORK COMPLETE" + final digest +
+   OPERATOR-QUEUE. That is the only stopping condition.
+4. **What the owner still personally owns** (never self-declare, never ask
+   about mid-work): final matches-the-book sign-off, crop approvals, launch
+   declaration. Build everything to done; the owner reviews in batches at
+   the end.
+5. Unchanged and absolute: no invented content, forbidden paths untouched,
+   digest format, no narration turns, no secrets in output.
+
 ## What This Is
 Spanish literacy app for young children (ages 4-7).
 Gretel is an animated guide character who reacts to student actions.
