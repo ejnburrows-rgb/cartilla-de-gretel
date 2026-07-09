@@ -171,7 +171,7 @@ function validatePageInventory() {
     if (!val.path || !Array.isArray(val.lessons)) continue;
 
     const basePath = path.join(rootDir, val.path);
-    let totalFilesListed = 0;
+    const uniquePageFiles = new Set();
     val.lessons.forEach((lesson, i) => {
       const lessonWhere = `${where} / lessons[${i}] (lessonId ${lesson.lessonId ?? "?"})`;
       if (lesson.lessonId === undefined) err(lessonWhere, "missing lessonId");
@@ -180,15 +180,15 @@ function validatePageInventory() {
         return;
       }
       for (const pageFile of lesson.pages) {
-        totalFilesListed++;
+        uniquePageFiles.add(pageFile);
         const full = path.join(basePath, pageFile);
         if (!fs.existsSync(full)) {
           err(lessonWhere, `page file not found: ${path.relative(rootDir, full)}`);
         }
       }
     });
-    if (typeof val.totalPages === "number" && totalFilesListed !== val.totalPages) {
-      warn(where, `totalPages says ${val.totalPages}, but lessons[].pages lists ${totalFilesListed} (may double-count shared pages across lessons)`);
+    if (typeof val.totalPages === "number" && uniquePageFiles.size !== val.totalPages) {
+      warn(where, `totalPages says ${val.totalPages}, but lessons[].pages lists ${uniquePageFiles.size} unique page files (some lessons share pages, e.g. review spreads, so this counts each file once)`);
     }
   }
 }
