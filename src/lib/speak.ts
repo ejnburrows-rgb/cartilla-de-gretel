@@ -17,11 +17,22 @@ const PREFERRED_NAMES = [
   "Monica",
 ];
 
+/** Neutral Latin American Spanish locales — the required target. Any other
+ * es-* locale (es-ES, es-AR, es-CO, plain "es", etc.) is a fallback, never
+ * silent (see pickBestVoice). */
+const NEUTRAL_LATAM_LANGS = new Set(["es-mx", "es-us", "es-419"]);
+
+function isNeutralLatAm(lang: string): boolean {
+  return NEUTRAL_LATAM_LANGS.has(lang.toLowerCase());
+}
+
 function scoreVoice(v: SpeechSynthesisVoice): number {
   const name = v.name;
   const lang = (v.lang || "").toLowerCase();
   if (!lang.startsWith("es")) return -1;
-  let score = 0;
+  // Locale tier dominates quality heuristics: a neutral es-MX/es-US/es-419
+  // voice always outranks any other Spanish dialect, regardless of name.
+  let score = isNeutralLatAm(lang) ? 100000 : 0;
   const idx = PREFERRED_NAMES.findIndex((n) => name.includes(n));
   if (idx >= 0) score += 1000 - idx;
   if (/natural|neural|online|premium|enhanced/i.test(name)) score += 200;
@@ -29,9 +40,6 @@ function scoreVoice(v: SpeechSynthesisVoice): number {
   if (/microsoft/i.test(name)) score += 100;
   if (/(sabina|dalia|elvira|ximena|helena|paulina|mónica|monica|lucia|laura|sara)/i.test(name))
     score += 50;
-  if (lang === "es-mx") score += 30;
-  else if (lang === "es-us") score += 25;
-  else if (lang === "es-es") score += 20;
 
   // Boost local voices when offline to ensure SpeechSynthesis functions without network calls
   const isOffline = typeof navigator !== "undefined" && !navigator.onLine;
@@ -47,6 +55,8 @@ function scoreVoice(v: SpeechSynthesisVoice): number {
   return score;
 }
 
+let loggedFallback = false;
+
 function pickBestVoice(): SpeechSynthesisVoice | null {
   const voices = window.speechSynthesis.getVoices();
   if (!voices.length) return null;
@@ -54,10 +64,21 @@ function pickBestVoice(): SpeechSynthesisVoice | null {
     .map((v) => ({ v, s: scoreVoice(v) }))
     .filter((x) => x.s >= 0)
     .sort((a, b) => b.s - a.s);
-  return ranked[0]?.v ?? null;
+  const best = ranked[0]?.v ?? null;
+
+  // Never a silent fallback: if this device has no neutral Latin American
+  // Spanish voice at all, log it once so the gap is visible, not hidden.
+  if (best && !isNeutralLatAm(best.lang || "") && !loggedFallback) {
+    loggedFallback = true;
+    console.warn(
+      `[TTS] No neutral Latin American Spanish voice (es-MX/es-US/es-419) found on this device. ` +
+        `Falling back to "${best.name}" (${best.lang}).`,
+    );
+  }
+  return best;
 }
 
-function getVoice(): SpeechSynthesisVoice | null {
+export function getVoice(): SpeechSynthesisVoice | null {
   const currentOnLine = typeof navigator !== "undefined" ? navigator.onLine : true;
   if (lastOnLine !== currentOnLine) {
     cachedVoice = null;
@@ -109,7 +130,11 @@ export async function speak(text: string): Promise<void> {
         u.voice = voice;
         u.lang = voice.lang;
       } else {
-        u.lang = "es-ES";
+        if (!loggedFallback) {
+          loggedFallback = true;
+          console.warn("[TTS] No Spanish voice available on this device at all — using es-MX as a lang hint with no voice object.");
+        }
+        u.lang = "es-MX";
       }
       u.rate = 0.88;
       u.pitch = 1.05;
@@ -141,7 +166,11 @@ export async function speakVowel(v: string): Promise<void> {
         u.voice = voice;
         u.lang = voice.lang;
       } else {
-        u.lang = "es-ES";
+        if (!loggedFallback) {
+          loggedFallback = true;
+          console.warn("[TTS] No Spanish voice available on this device at all — using es-MX as a lang hint with no voice object.");
+        }
+        u.lang = "es-MX";
       }
       u.rate = 0.7;
       u.pitch = 1.1;

@@ -8,6 +8,15 @@ const joinSchema = z.object({
   studentCode: z.string().trim().min(4).max(10),
 });
 
+const listClassStudentsSchema = z.object({
+  joinCode: z.string().trim().min(4).max(10),
+});
+
+const enterClassSchema = z.object({
+  joinCode: z.string().trim().min(4).max(10),
+  studentId: z.string().uuid(),
+});
+
 const progressSchema = z.object({
   studentId: z.string().uuid(),
   studentCode: z.string().trim().min(4).max(10),
@@ -34,6 +43,52 @@ export async function joinClass(input: Call<z.infer<typeof joinSchema>>) {
     .single();
 
   if (error) throw new Error(error.message || "No se pudo unir a la clase.");
+  if (!row) throw new Error("Código de clase o estudiante inválido.");
+
+  const result = row as {
+    student_id: string;
+    student_name: string;
+    student_code: string;
+    class_id: string;
+    class_name: string;
+  };
+
+  return {
+    studentId: result.student_id,
+    studentName: result.student_name,
+    studentCode: result.student_code,
+    classId: result.class_id,
+    className: result.class_name,
+  };
+}
+
+/** Step 1 of the class-code + tap-your-name flow: list the real roster for
+ * a class by join code only — no student code required or exposed. */
+export async function listClassStudents(input: Call<z.infer<typeof listClassStudentsSchema>>) {
+  const data = listClassStudentsSchema.parse(input.data);
+  const { data: rows, error } = await supabase.rpc("list_class_students", {
+    p_join_code: data.joinCode.toUpperCase(),
+  });
+  if (error) throw new Error(error.message || "No se pudo cargar la clase.");
+
+  const results = (rows ?? []) as Array<{ student_id: string; display_name: string }>;
+  if (results.length === 0) throw new Error("Código de clase inválido.");
+
+  return results.map((r) => ({ studentId: r.student_id, displayName: r.display_name }));
+}
+
+/** Step 2: student tapped their name — enter the class session, no password
+ * or typed code needed beyond the class join code from step 1. */
+export async function enterClassAsStudent(input: Call<z.infer<typeof enterClassSchema>>) {
+  const data = enterClassSchema.parse(input.data);
+  const { data: row, error } = await supabase
+    .rpc("enter_class_as_student", {
+      p_join_code: data.joinCode.toUpperCase(),
+      p_student_id: data.studentId,
+    })
+    .single();
+
+  if (error) throw new Error(error.message || "No se pudo entrar a la clase.");
   if (!row) throw new Error("Código de clase o estudiante inválido.");
 
   const result = row as {
