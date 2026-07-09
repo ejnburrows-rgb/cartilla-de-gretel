@@ -2,7 +2,7 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { useServerFn } from "@/lib/useServerFn";
 import { ArrowLeft, Loader2, LogOut, KeyRound } from "lucide-react";
-import { joinClass } from "@/lib/student.functions";
+import { listClassStudents, enterClassAsStudent } from "@/lib/student.functions";
 import { setStudentSession, useStudentSession } from "@/lib/student-session";
 import { useLanguage } from "@/context/LanguageContext";
 import { LanguageToggle } from "@/components/LanguageToggle";
@@ -14,23 +14,41 @@ export const Route = createFileRoute("/cartilla/unirse")({
   head: () => ({ meta: [{ title: "Únete a una clase — La Cartilla de Gretel" }] }),
 });
 
+type Step = "code" | "pick";
+
 function JoinPage() {
   const { lang } = useLanguage();
   const t = sCopy;
   const navigate = useNavigate();
-  const join = useServerFn(joinClass);
+  const listStudents = useServerFn(listClassStudents);
+  const enterClass = useServerFn(enterClassAsStudent);
   const session = useStudentSession();
+  const [step, setStep] = useState<Step>("code");
   const [joinCode, setJoinCode] = useState("");
-  const [studentCode, setStudentCode] = useState("");
+  const [roster, setRoster] = useState<Array<{ studentId: string; displayName: string }>>([]);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const submit = async (e: React.FormEvent) => {
+  const submitCode = async (e: React.FormEvent) => {
     e.preventDefault();
     setBusy(true);
     setError(null);
     try {
-      const res = await join({ data: { joinCode, studentCode } });
+      const students = await listStudents({ data: { joinCode } });
+      setRoster(students);
+      setStep("pick");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : lang === "es" ? "Error desconocido" : "Unknown error");
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const pickStudent = async (studentId: string) => {
+    setBusy(true);
+    setError(null);
+    try {
+      const res = await enterClass({ data: { joinCode, studentId } });
       setStudentSession(res);
       navigate({ to: "/cartilla/lecciones" });
     } catch (err) {
@@ -38,6 +56,12 @@ function JoinPage() {
     } finally {
       setBusy(false);
     }
+  };
+
+  const backToCode = () => {
+    setStep("code");
+    setRoster([]);
+    setError(null);
   };
 
   return (
@@ -103,8 +127,8 @@ function JoinPage() {
                 </button>
               </div>
             </div>
-          ) : (
-            <form onSubmit={submit} className="space-y-5">
+          ) : step === "code" ? (
+            <form onSubmit={submitCode} className="space-y-5">
               <div>
                 <label className="text-xs font-black text-stone-500 uppercase tracking-widest ml-4 mb-2 block">
                   {t.codigoClase[lang]}
@@ -116,36 +140,55 @@ function JoinPage() {
                   maxLength={10}
                   className="w-full px-6 py-4 rounded-full border-4 border-white bg-white/60 focus:bg-white shadow-inner font-mono text-2xl font-black tracking-[0.2em] text-center text-stone-700 outline-none focus:ring-4 focus:ring-primary/30 transition-all placeholder:text-stone-300 placeholder:font-bold"
                   required
+                  autoFocus
                 />
               </div>
-              <div>
-                <label className="text-xs font-black text-stone-500 uppercase tracking-widest ml-4 mb-2 block">
-                  {t.tuCodigoPersonal[lang]}
-                </label>
-                <input
-                  value={studentCode}
-                  onChange={(e) => setStudentCode(e.target.value.toUpperCase())}
-                  placeholder="X9YZ2"
-                  maxLength={10}
-                  className="w-full px-6 py-4 rounded-full border-4 border-white bg-white/60 focus:bg-white shadow-inner font-mono text-2xl font-black tracking-[0.2em] text-center text-stone-700 outline-none focus:ring-4 focus:ring-[#0284c7]/30 transition-all placeholder:text-stone-300 placeholder:font-bold"
-                  required
-                />
-              </div>
-              
+
               {error && (
                 <div className="bg-red-50 text-red-600 font-bold text-sm text-center py-3 px-4 rounded-2xl border-2 border-red-100">
                   {error}
                 </div>
               )}
-              
+
               <button
                 type="submit"
-                disabled={busy || !joinCode || !studentCode}
+                disabled={busy || !joinCode}
                 className="w-full mt-4 py-4 rounded-full bg-primary text-primary-foreground font-black text-xl disabled:opacity-50 inline-flex items-center justify-center gap-2 shadow-lg hover:bg-primary/90 hover:-translate-y-1 transition-all active:translate-y-0"
               >
                 {busy ? <Loader2 className="w-6 h-6 animate-spin" /> : t.entrar[lang]}
               </button>
             </form>
+          ) : (
+            <div className="space-y-5">
+              <h2 className="text-center text-xl font-black text-[#3b2a12]">{t.elijeTuNombre[lang]}</h2>
+
+              {error && (
+                <div className="bg-red-50 text-red-600 font-bold text-sm text-center py-3 px-4 rounded-2xl border-2 border-red-100">
+                  {error}
+                </div>
+              )}
+
+              <div className="grid grid-cols-2 gap-3 max-h-[50vh] overflow-y-auto pr-1">
+                {roster.map((s) => (
+                  <button
+                    key={s.studentId}
+                    onClick={() => pickStudent(s.studentId)}
+                    disabled={busy}
+                    className="min-h-[4.5rem] px-4 py-3 rounded-3xl border-4 border-white bg-white/70 hover:bg-white shadow-md hover:-translate-y-1 active:translate-y-0 transition-all font-black text-lg text-stone-800 disabled:opacity-50 flex items-center justify-center text-center"
+                  >
+                    {busy ? <Loader2 className="w-5 h-5 animate-spin" /> : s.displayName}
+                  </button>
+                ))}
+              </div>
+
+              <button
+                onClick={backToCode}
+                disabled={busy}
+                className="w-full text-sm font-bold text-stone-400 hover:text-stone-600 transition-colors inline-flex items-center justify-center gap-1 py-2"
+              >
+                <ArrowLeft className="w-4 h-4" /> {t.cambiarCodigo[lang]}
+              </button>
+            </div>
           )}
         </div>
       </div>

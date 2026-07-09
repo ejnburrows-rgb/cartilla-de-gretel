@@ -85,6 +85,25 @@ function exerciseName(e: { meta?: unknown }) {
   return typeof meta.exercise === "string" ? meta.exercise : "exercise";
 }
 
+/** Real exercise-kind prefixes recorded by the interactive page components
+ * (each fires with a per-region-id suffix, e.g. "picture_grid_p1-grid1") —
+ * bucket by kind for a per-student, per-exercise-type breakdown. */
+const EXERCISE_KIND_PREFIXES = [
+  "picture_grid",
+  "vowel_pick_one",
+  "vowel_match_all",
+  "syllable_match",
+  "fill_in_blank",
+  "vowel_line_match",
+  "workbook_letter_trace",
+  "drag_syllable_order",
+] as const;
+
+function exerciseKind(exercise: string): string {
+  const prefix = EXERCISE_KIND_PREFIXES.find((p) => exercise === p || exercise.startsWith(`${p}_`));
+  return prefix ?? exercise;
+}
+
 export async function listClasses(): Promise<TeacherClassWithCount[]> {
   const { userId } = await requireTeacher();
   const { data, error } = await supabase
@@ -247,7 +266,7 @@ export async function getClassProgress(input: Call<{ id: string }>) {
     .eq("class_id", data.id);
   if (sErr) throw new Error(sErr.message);
   const ids = (students ?? []).map((s: { id: string }) => s.id);
-  if (ids.length === 0) return { perStudent: [], perLesson: {}, assignments: [] };
+  if (ids.length === 0) return { perStudent: [], perLesson: {}, perStudentExercise: {}, assignments: [] };
 
   const { data: events, error: eErr } = await supabase
     .from("progress_events")
@@ -305,6 +324,26 @@ export async function getClassProgress(input: Call<{ id: string }>) {
     },
   );
 
+  const { data: exerciseSummaries, error: exErr } = await supabase
+    .from("exercise_attempt_summary")
+    .select("student_id, exercise, hits, attempts")
+    .in("student_id", ids);
+  if (exErr) throw new Error(exErr.message);
+
+  const perStudentExercise: Record<string, Record<string, { hits: number; attempts: number }>> = {};
+  (students ?? []).forEach((s: { id: string }) => {
+    perStudentExercise[s.id] = {};
+  });
+  (exerciseSummaries ?? []).forEach(
+    (row: { student_id: string; exercise: string; hits: number; attempts: number }) => {
+      const kind = exerciseKind(row.exercise);
+      const bucket = (perStudentExercise[row.student_id] ??= {});
+      const cell = (bucket[kind] ??= { hits: 0, attempts: 0 });
+      cell.hits += row.hits ?? 0;
+      cell.attempts += row.attempts ?? 0;
+    },
+  );
+
   const { data: assignments } = await supabase
     .from("assignments")
     .select("id, lesson_id, title, due_at")
@@ -342,6 +381,7 @@ export async function getClassProgress(input: Call<{ id: string }>) {
         },
       ]),
     ),
+    perStudentExercise,
     assignments: (assignments ?? []).map(
       (a: { id: string; lesson_id: string; title: string | null; due_at: string | null }) => {
         const rows = assignmentRows.filter((r) => r.assignment_id === a.id);
