@@ -9,7 +9,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Circula los dibujos de las palabras en cada línea horizontal que comienzan con el mismo sonido."
+          "text": "Presiona los dibujos de las palabras en cada línea horizontal que comienzan con el mismo sonido."
         },
         {
           "id": "p1-grid",
@@ -123,7 +123,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Circula el dibujo que comienza con la vocal del recuadro."
+          "text": "Presiona el dibujo que comienza con la vocal del recuadro."
         },
         {
           "id": "p2-rows",

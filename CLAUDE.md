@@ -121,6 +121,19 @@ Teachers create classes, assign students, and track progress via Supabase.
   NOT cover genuinely new, undirected creative choices (e.g. picking an
   illustration style nobody asked for) — only changes that implement an
   explicit, already-given instruction.
+- **Stop holding off, even on my own creative calls — no exceptions
+  (memorized July 2026, third time the owner has said this, supersedes the
+  "undirected creative choices" carve-out above):** the owner explicitly
+  said "screw the sign-off rules" — as long as a change is safe and in
+  line with what the owner has already said (the established look, the
+  established patterns, real derived art not invented art, working code),
+  merge it myself without waiting for review or asking "should I merge?" —
+  including self-initiated creative extensions of already-approved work
+  (e.g. extending an approved per-vowel-lesson background technique to the
+  remaining lessons using the lesson's own already-defined accent color).
+  Only genuine forks — money, legal, secrets/env vars only the owner
+  holds — still pause. Do not open a PR and then wait; open it and merge
+  it in the same turn once checks are green.
 - **Always show 3-5 pages of progress (memorized July 2026):** whenever
   work touches pages/visual content, show the owner 3-5 real
   screenshots/pages actually worked on (not just a text description) so

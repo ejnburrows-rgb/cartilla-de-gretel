@@ -80,7 +80,7 @@ interface ExerciseProps {
   lessonId?: string;
 }
 
-/** "Circula los dibujos..." — tap to circle each guessed cell, grade on check. */
+/** "Presiona los dibujos..." — tap each guessed cell, grade on check. */
 export function InteractivePictureGrid({ region, accent, lessonId }: ExerciseProps) {
   const cells = region.cells ?? [];
   const columns = region.columns ?? 4;
@@ -151,7 +151,7 @@ export function InteractivePictureGrid({ region, accent, lessonId }: ExercisePro
   );
 }
 
-/** "Circula el dibujo que comienza con la vocal..." — one pick per row, grade on check. */
+/** "Presiona el dibujo que comienza con la vocal..." — one pick per row, grade on check. */
 export function InteractiveVowelPickOne({ region, accent, lessonId }: ExerciseProps) {
   const rows = region.vowelRows ?? [];
   const [picked, setPicked] = useState<Record<number, number>>({});

@@ -6,8 +6,8 @@ export const lesson01 = [
     lessonNumber: 1,
     pageNumber: 7,
     kind: "listen-and-tap",
-    title: "Circula los dibujos",
-    prompt: "Circula los dibujos de las palabras en cada línea horizontal que comienzan con el mismo sonido.",
+    title: "Presiona los dibujos",
+    prompt: "Presiona los dibujos de las palabras en cada línea horizontal que comienzan con el mismo sonido.",
     items: [
       { id: "img-abrigo-0", label: "abrigo" },
       { id: "img-imán-1", label: "imán" },
@@ -42,8 +42,8 @@ export const lesson01 = [
     lessonNumber: 1,
     pageNumber: 8,
     kind: "listen-and-tap",
-    title: "Circula el dibujo",
-    prompt: "Circula el dibujo que comienza con la vocal del recuadro.",
+    title: "Presiona el dibujo",
+    prompt: "Presiona el dibujo que comienza con la vocal del recuadro.",
     items: [
       { id: "item-a-0", label: "a" },
       { id: "item-anillo-1", label: "anillo" },

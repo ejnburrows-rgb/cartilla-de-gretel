@@ -461,7 +461,7 @@
   color: var(--book-teal);
 }
 
-/* Vowel pick-one ("Circula el dibujo que comienza con la vocal del recuadro")
+/* Vowel pick-one ("Presiona el dibujo que comienza con la vocal del recuadro")
  * — one row per vowel: big letter + 3 candidate picture cells. */
 .fp-vowel-pick {
   display: flex;
