@@ -2,8 +2,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { createFileRoute, Link, useNavigate, redirect } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@/lib/useServerFn";
-import { ArrowLeft, ArrowRight, Check, Volume2, ClipboardList, BookOpen, PenLine, Gamepad2 } from "lucide-react";
-import { CATALOG, TOTAL_LESSONS, type CatalogEntry, type ActivityId } from "@/lib/lesson-catalog";
+import { ArrowLeft, ArrowRight, Check, Volume2, ClipboardList, BookOpen, PenLine } from "lucide-react";
+import { CATALOG, TOTAL_LESSONS, type CatalogEntry } from "@/lib/lesson-catalog";
 import { useLessonProgress, isLessonUnlocked, markLessonCompleted } from "@/lib/lesson-progress";
 import { useAudio } from "@/hooks/useAudio";
 import { cn } from "@/lib/utils";
@@ -17,7 +17,6 @@ import { gretelEvent } from "@/lib/gretel-bus";
 
 import { SimplePageViewer } from "@/components/StudentBook/SimplePageViewer";
 import { buildPageArray } from "@/utils/buildPageArray";
-import { ActivityCarousel } from "@/components/cartilla/ActivityCarousel";
 import { GretelLiveAvatar } from "@/components/gretel/GretelLiveAvatar";
 import { GardenScene } from "@/components/cartilla/GardenScene";
 import { BookFaithfulOverlay } from "@/components/cartilla/BookFaithfulOverlay";
@@ -34,11 +33,10 @@ export const Route = createFileRoute("/cartilla/leccion/$n")({
   },
 });
 
-type Step = "aprende" | "practica" | "ejercicios";
+type Step = "aprende" | "practica";
 const STEPS: { id: Step; label: string; icon: typeof BookOpen }[] = [
   { id: "aprende", label: "Aprende la Letra", icon: BookOpen },
   { id: "practica", label: "Práctica de Lectura", icon: PenLine },
-  { id: "ejercicios", label: "Ejercicios Interactivos", icon: Gamepad2 },
 ];
 
 function Leccion() {
@@ -209,8 +207,6 @@ function Leccion() {
               <SimplePageViewer pages={pages} initialPage={0} />
             </GardenScene>
           )}
-
-          {step === "ejercicios" && <ExercisesStep entry={entry} lessonId={lessonId} />}
         </div>
 
         <div className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-[100] pointer-events-none">
@@ -264,60 +260,6 @@ function LearnStep({
   if (entry.kind === "intro") return <IntroLearn lang={lang} t={t} />;
   if (entry.kind === "vowel") return <VowelLearn entry={entry} lang={lang} t={t} />;
   return <ConsonantLearn entry={entry} lang={lang} t={t} />;
-}
-
-/** Step 3 — the drag/match/piano games. Dispatches by lesson kind. */
-function ExercisesStep({ entry, lessonId }: { entry: CatalogEntry; lessonId: string }) {
-  if (entry.kind === "intro") {
-    const vowels = ["a", "e", "i", "o", "u"];
-    const vowelWords = [
-      { word: "ala", emoji: "🧥", illustrationSrc: "/cartilla/art/faithful/vocal-a/alas.webp" },
-      { word: "elefante", emoji: "🐘", illustrationSrc: "/cartilla/art/faithful/vocal-e/elefante.webp" },
-      { word: "iglú", emoji: "⛺", illustrationSrc: "/cartilla/art/faithful/vocal-i/iglu.webp" },
-      { word: "oso", emoji: "🐻", illustrationSrc: "/cartilla/art/faithful/vocal-o/oso.webp" },
-      { word: "uva", emoji: "🍇", illustrationSrc: "/cartilla/art/faithful/vocal-u/uvas.webp" },
-    ];
-    return (
-      <ActivityCarousel
-        lessonNumber={1}
-        syllables={vowels}
-        words={vowelWords}
-        letter="a"
-        color="hsl(var(--primary))"
-        lessonId={lessonId}
-        activities={entry.activities}
-        onCompleteAll={() => markLessonCompleted(1)}
-      />
-    );
-  }
-  if (entry.kind === "vowel") {
-    const l = entry.lesson;
-    return (
-      <ActivityCarousel
-        lessonNumber={entry.n}
-        syllables={[l.vowel]}
-        words={l.vocab}
-        letter={l.vowel}
-        color={entry.color}
-        lessonId={lessonId}
-        activities={entry.activities}
-        onCompleteAll={() => markLessonCompleted(entry.n)}
-      />
-    );
-  }
-  const c = entry.data;
-  return (
-    <ActivityCarousel
-      lessonNumber={entry.n}
-      syllables={c.syllables}
-      words={c.vocab}
-      letter={c.letter}
-      color={entry.color}
-      lessonId={lessonId}
-      activities={entry.activities}
-      onCompleteAll={() => markLessonCompleted(entry.n)}
-    />
-  );
 }
 
 function IntroLearn({ lang, t }: { lang: "es" | "en"; t: typeof sCopy }) {
