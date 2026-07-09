@@ -408,9 +408,13 @@ Note: these particular pages are genuinely grayscale/duotone in this book
 edition (cross-checked against `i-page-13.jpg`, same page type) — that is
 faithful, not a scan defect.
 
-**`urna` only remains genuinely unconfirmed** — not yet independently
-re-checked by Claude against the physical scans. Leave its cell "art
-pending" until someone opens the real source page and confirms either way.
+**`urna` — CONFIRMED-ABSENT (resolved).** Directly opened all 4 real U-lesson
+source pages (`u-page-7.jpg`, `u-page-16.jpg`, `u-page-17.jpg`,
+`u-page-18.jpg`) and read every illustrated word on each: uno, uva, urraca,
+unicornio, uniforme, Ulises (vocab/rhyme page), plus the marca-con-x/traza-línea
+distractor cells already documented elsewhere. "urna" never appears as an
+illustrated word on any U-lesson page in this book edition. Correct to keep
+showing "art pending" for its vocab-grid cell — not a gap to fill.
 
 ## Current status: SUPERSEDED, see the re-audit update at the top of this file
 This line used to say "no open art-extraction work" — that's no longer
