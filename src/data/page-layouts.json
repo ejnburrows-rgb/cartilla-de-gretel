@@ -1667,6 +1667,13 @@
               ]
             }
           ]
+        },
+        {
+          "id": "p21-instr2",
+          "regionType": "instruction",
+          "order": 2,
+          "fontRole": "body",
+          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
         }
       ]
     },
@@ -2050,6 +2057,13 @@
               ]
             }
           ]
+        },
+        {
+          "id": "p25-instr2",
+          "regionType": "instruction",
+          "order": 2,
+          "fontRole": "body",
+          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
         }
       ]
     },
