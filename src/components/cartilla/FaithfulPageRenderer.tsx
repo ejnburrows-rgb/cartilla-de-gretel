@@ -12,6 +12,7 @@ import {
 } from "./InteractivePageExercises";
 import { WorkbookLetterTrace } from "./WorkbookLetterTrace";
 import { getLetterTemplate } from "./letter-stroke-templates";
+import { DrawBoxCanvas } from "./DrawBoxCanvas";
 
 /**
  * Per-lesson garden background overrides. The CSS default is gretel-authentic.jpg
