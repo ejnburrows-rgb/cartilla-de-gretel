@@ -1,12 +1,10 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { createFileRoute, Link, useNavigate, redirect } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@/lib/useServerFn";
-import { ArrowLeft, ArrowRight, Check, Volume2, ClipboardList, BookOpen, PenLine } from "lucide-react";
+import { ArrowLeft, ArrowRight, ClipboardList } from "lucide-react";
 import { CATALOG, TOTAL_LESSONS, type CatalogEntry } from "@/lib/lesson-catalog";
 import { useLessonProgress, isLessonUnlocked, markLessonCompleted } from "@/lib/lesson-progress";
-import { useAudio } from "@/hooks/useAudio";
-import { cn } from "@/lib/utils";
 import { recordEvent, useStudentSession } from "@/lib/student-session";
 import { LessonTimer } from "@/components/cartilla/LessonTimer";
 import { listMyAssignments } from "@/lib/assignments.functions";
@@ -19,7 +17,6 @@ import { SimplePageViewer } from "@/components/StudentBook/SimplePageViewer";
 import { buildPageArray } from "@/utils/buildPageArray";
 import { GretelLiveAvatar } from "@/components/gretel/GretelLiveAvatar";
 import { GardenScene } from "@/components/cartilla/GardenScene";
-import { BookFaithfulOverlay } from "@/components/cartilla/BookFaithfulOverlay";
 import "@/styles/interactive-exercises.css";
 import "@/styles/gretel.css";
 
@@ -32,12 +29,6 @@ export const Route = createFileRoute("/cartilla/leccion/$n")({
     }
   },
 });
-
-type Step = "aprende" | "practica";
-const STEPS: { id: Step; label: string; icon: typeof BookOpen }[] = [
-  { id: "aprende", label: "Aprende la Letra", icon: BookOpen },
-  { id: "practica", label: "Práctica de Lectura", icon: PenLine },
-];
 
 function Leccion() {
   const { lang } = useLanguage();
@@ -54,9 +45,6 @@ function Leccion() {
   // art + tracing/exercises), unchanged. Only the flip-book presentation
   // shell around them changed (see SimplePageViewer).
   const pages = useMemo(() => buildPageArray(n), [n]);
-
-  const [step, setStep] = useState<Step>("aprende");
-  useEffect(() => setStep("aprende"), [n]);
 
   const fetchAssignments = useServerFn(listMyAssignments);
   const { data: assignments } = useQuery({
@@ -108,8 +96,6 @@ function Leccion() {
     else navigate({ to: "/cartilla/leccion/$n", params: { n: String(n + 1) } });
   };
 
-  const lessonId = String(n);
-
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <header className="px-4 pt-4 max-w-3xl w-full mx-auto">
@@ -150,63 +136,28 @@ function Leccion() {
         )}
       </header>
       <main className="flex-1 px-4 pt-6 pb-28 max-w-5xl w-full mx-auto flex flex-col items-center">
-        <div className="w-full max-w-3xl text-left">
+        <div className="w-full max-w-3xl text-left mb-4">
           <div className="text-xs font-bold uppercase tracking-wide text-foreground/50">
             {t.leccion[lang]} {n} · {t.paginas[lang].toLowerCase()} {entry.pages}
           </div>
-          <h1
-            className="text-4xl sm:text-5xl font-bold leading-tight mt-1 mb-6"
-            style={{ color: entry.color }}
-          >
-            {entry.title}
-          </h1>
-          <BookFaithfulOverlay n={n} />
         </div>
 
-        {/* Step tabs — the native 3-step module flow */}
-        <div className="w-full max-w-3xl flex gap-2 mb-6" role="tablist" aria-label="Pasos de la lección">
-          {STEPS.map((s) => {
-            const Icon = s.icon;
-            const active = step === s.id;
-            return (
-              <button
-                key={s.id}
-                role="tab"
-                aria-selected={active}
-                onClick={() => setStep(s.id)}
-                className={cn(
-                  "flex-1 flex items-center justify-center gap-2 px-3 py-3 rounded-2xl font-bold text-sm transition-all border-2",
-                  active
-                    ? "text-white shadow-md"
-                    : "bg-card text-foreground/60 border-foreground/10 hover:border-foreground/25",
-                )}
-                style={active ? { backgroundColor: entry.color, borderColor: entry.color } : undefined}
-              >
-                <Icon className="w-4 h-4 shrink-0" />
-                <span className="hidden sm:inline">{s.label}</span>
-              </button>
-            );
-          })}
-        </div>
-
+        {/* The lesson IS the book's own pages, one at a time, in order — no
+            invented sections/tabs/screens around them (locked canon 7/9). */}
         <div className="w-full">
-          {step === "aprende" && <LearnStep entry={entry} lessonId={lessonId} lang={lang} t={t} />}
-
-          {step === "practica" && (
-            <GardenScene>
-              {!session && (
-                <div className="fixed top-4 left-4 z-[200]">
-                  <Link
-                    to="/cartilla/teacher/lecciones"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-stone-800/90 hover:bg-stone-800 text-white font-bold rounded-xl shadow-lg backdrop-blur transition hover:-translate-y-0.5"
-                  >
-                    <ArrowLeft className="w-4 h-4" /> Salir al CRM
-                  </Link>
-                </div>
-              )}
-              <SimplePageViewer pages={pages} initialPage={0} />
-            </GardenScene>
-          )}
+          <GardenScene>
+            {!session && (
+              <div className="fixed top-4 left-4 z-[200]">
+                <Link
+                  to="/cartilla/teacher/lecciones"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-stone-800/90 hover:bg-stone-800 text-white font-bold rounded-xl shadow-lg backdrop-blur transition hover:-translate-y-0.5"
+                >
+                  <ArrowLeft className="w-4 h-4" /> Salir al CRM
+                </Link>
+              </div>
+            )}
+            <SimplePageViewer pages={pages} initialPage={0} />
+          </GardenScene>
         </div>
 
         <div className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-[100] pointer-events-none">
@@ -242,225 +193,5 @@ function Leccion() {
         </div>
       </nav>
     </div>
-  );
-}
-
-/** Step 1 — vocab, syllables, character intro. Dispatches by lesson kind. */
-function LearnStep({
-  entry,
-  lessonId,
-  lang,
-  t,
-}: {
-  entry: CatalogEntry;
-  lessonId: string;
-  lang: "es" | "en";
-  t: typeof sCopy;
-}) {
-  if (entry.kind === "intro") return <IntroLearn lang={lang} t={t} />;
-  if (entry.kind === "vowel") return <VowelLearn entry={entry} lang={lang} t={t} />;
-  return <ConsonantLearn entry={entry} lang={lang} t={t} />;
-}
-
-function IntroLearn({ lang, t }: { lang: "es" | "en"; t: typeof sCopy }) {
-  const { play, playingText } = useAudio();
-  const vowels = ["a", "e", "i", "o", "u"];
-  return (
-    <section className="space-y-5">
-      <p className="text-lg text-foreground/80 leading-relaxed">
-        {t.conocerasVocales[lang]}
-      </p>
-      <div className="flex flex-wrap gap-3">
-        {vowels.map((v) => (
-          <button
-            key={v}
-            onClick={() => play(v, true)}
-            aria-label={`Escuchar la vocal ${v}`}
-            className={`w-16 h-16 rounded-2xl bg-primary text-primary-foreground text-3xl font-bold shadow-md hover:scale-105 active:scale-95 transition relative ${playingText === v ? "animate-pulse ring-4 ring-primary ring-offset-2" : ""}`}
-          >
-            {v}
-            <Volume2
-              aria-hidden
-              className="absolute -bottom-1 -right-1 w-5 h-5 p-0.5 rounded-full bg-background text-foreground/70 border border-foreground/10"
-            />
-          </button>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function VowelLearn({
-  entry,
-  lang,
-  t,
-}: {
-  entry: Extract<CatalogEntry, { kind: "vowel" }>;
-  lang: "es" | "en";
-  t: typeof sCopy;
-}) {
-  const { play, playingText } = useAudio();
-  const l = entry.lesson;
-  return (
-    <section className="space-y-5">
-      <div
-        className="rounded-2xl border-2 p-4 bg-card animate-in fade-in slide-in-from-bottom-2"
-        style={{ borderColor: entry.color }}
-      >
-        <div className="text-sm font-bold" style={{ color: entry.color }}>
-          {l.characterName}
-        </div>
-        <p className="text-foreground/80 mt-1">{l.characterDesc}</p>
-      </div>
-      <div>
-        <h2 className="text-xl font-bold mb-2">{t.palabrasConVocal[lang]} {l.vowel}</h2>
-        <ul className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-          {l.vocab.map((v, i) => (
-            <li
-              key={v.word}
-              className="rounded-2xl border-2 border-foreground/10 bg-card p-3 text-center hover:-translate-y-0.5 transition"
-            >
-              {v.illustrationSrc ? (
-                <img
-                  src={v.illustrationSrc}
-                  alt={v.word}
-                  className="w-12 h-12 mx-auto object-contain game-pic-float"
-                  style={{ ["--float-delay" as string]: `${((i * 37) % 47) / 10}s` }}
-                  loading="lazy"
-                />
-              ) : (
-                <div className="text-3xl">{v.emoji}</div>
-              )}
-              <div className="font-bold mt-1">{v.word}</div>
-              <button
-                onClick={() => play(v.word)}
-                aria-label={`Escuchar ${v.word}`}
-                className={`mt-1 inline-flex items-center gap-1 text-xs text-foreground/60 hover:text-primary ${playingText === v.word ? "animate-pulse text-primary" : ""}`}
-              >
-                <Volume2 className="w-3.5 h-3.5" /> {t.oir[lang]}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-  );
-}
-
-function ConsonantLearn({
-  entry,
-  lang,
-  t,
-}: {
-  entry: Extract<CatalogEntry, { kind: "consonant" }>;
-  lang: "es" | "en";
-  t: typeof sCopy;
-}) {
-  const { play, playingText } = useAudio();
-  const c = entry.data;
-  return (
-    <section className="space-y-5">
-      <div
-        className="rounded-2xl border-2 p-4 bg-card flex flex-wrap items-center gap-2 animate-in fade-in slide-in-from-bottom-2"
-        style={{ borderColor: entry.color }}
-      >
-        <span className="text-xs font-bold uppercase tracking-wide text-foreground/60">
-          {t.silabas[lang]}
-        </span>
-        {c.syllables.map((s) => (
-          <button
-            key={s}
-            onClick={() => play(s)}
-            className={cn(
-              "px-3 py-1.5 rounded-xl text-lg font-bold text-white shadow-sm hover:scale-105 active:scale-95 transition",
-              playingText === s && "animate-pulse ring-2 ring-offset-2 ring-offset-background ring-primary"
-            )}
-            style={{ backgroundColor: entry.color }}
-            aria-label={`Escuchar la sílaba ${s}`}
-          >
-            {s}
-          </button>
-        ))}
-      </div>
-      <div>
-        <h2 className="text-xl font-bold mb-2">{t.palabrasEjemplo[lang]}</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {c.syllables.map((s) => (
-            <div key={s} className="rounded-2xl border-2 border-foreground/10 bg-card p-3">
-              <div className="font-bold text-lg mb-1" style={{ color: entry.color }}>
-                {s}
-              </div>
-              <ul className="space-y-1">
-                {(c.examples[s] ?? []).map((w) => (
-                  <li key={w} className="flex items-center justify-between text-sm">
-                    <span>{w}</span>
-                    <button
-                      onClick={() => play(w)}
-                      aria-label={`Escuchar ${w}`}
-                      className={`text-foreground/50 hover:text-primary ${playingText === w ? "animate-pulse text-primary" : ""}`}
-                    >
-                      <Volume2 className="w-3.5 h-3.5" />
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </div>
-      {c.sentences.length > 0 && (
-        <div>
-          <h2 className="text-xl font-bold mb-2">{t.oraciones[lang]}</h2>
-          <ul className="space-y-2">
-            {c.sentences.map((t_sentence) => (
-              <li
-                key={t_sentence}
-                className="rounded-2xl border-2 border-foreground/10 bg-card p-3 italic flex items-start justify-between gap-3"
-              >
-                <span>{t_sentence}</span>
-                <button
-                  onClick={() => play(t_sentence)}
-                  aria-label={`Escuchar ${t_sentence}`}
-                  className={`mt-0.5 text-foreground/50 hover:text-primary shrink-0 ${playingText === t_sentence ? "animate-pulse text-primary" : ""}`}
-                >
-                  <Volume2 className="w-4 h-4" />
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-      <div>
-        <h2 className="text-xl font-bold mb-2">{t.palabras[lang]}</h2>
-        <ul className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-          {c.vocab.map((v, i) => (
-            <li
-              key={v.word}
-              className="rounded-2xl border-2 border-foreground/10 bg-card p-3 text-center hover:-translate-y-0.5 transition"
-            >
-              {v.illustrationSrc ? (
-                <img
-                  src={v.illustrationSrc}
-                  alt={v.word}
-                  className="w-12 h-12 mx-auto object-contain game-pic-float"
-                  style={{ ["--float-delay" as string]: `${((i * 37) % 47) / 10}s` }}
-                  loading="lazy"
-                />
-              ) : (
-                <div className="text-3xl">{v.emoji}</div>
-              )}
-              <div className="font-bold mt-1">{v.word}</div>
-              <button
-                onClick={() => play(v.word)}
-                aria-label={`Escuchar ${v.word}`}
-                className={`mt-1 inline-flex items-center gap-1 text-xs text-foreground/60 hover:text-primary ${playingText === v.word ? "animate-pulse text-primary" : ""}`}
-              >
-                <Volume2 className="w-3.5 h-3.5" /> {t.oir[lang]}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
   );
 }
