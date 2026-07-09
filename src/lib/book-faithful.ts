@@ -66,7 +66,7 @@ export type PageRegionType =
 	| "syllable-match" // "Encierra en un círculo la sílaba correspondiente" — a syllable + its candidate-word rows
 	| "fill-in-blank" // "Completa las palabras con la sílaba correcta" — one word-box + blank + syllable choices
 	| "vowel-line-match" // "Traza una línea desde la vocal Xx hasta el dibujo..." — 8 picture cells around a center vowel-pair
-	| "vowel-pick-one" // "Circula el dibujo que comienza con la vocal del recuadro" — one row per vowel, 3 picture options
+	| "vowel-pick-one" // "Presiona el dibujo que comienza con la vocal del recuadro" — one row per vowel, 3 picture options
 	| "vowel-match-all" // "Traza una línea de la vocal al dibujo que le corresponde" — all 5 vowels, each paired 1:1 with its picture
 	| "footer";
 

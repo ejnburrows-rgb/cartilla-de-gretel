@@ -129,24 +129,32 @@ them correctly) — an art-pipeline task, not a UI task.
 | 4 | Vocal E | 10-12 | 3/3 | 22/24 (92%) | 4/4 | MOSTLY DONE |
 | 5 | Vocal I | 13-15 | 3/3 | 21/24 (88%) | 4/4 | MOSTLY DONE |
 | 6 | Vocal U | 16-18 | 3/3 | 17/24 (71%) | 3/4 | MOSTLY DONE |
-| 7 | Consonante M | 19-22 | 4/4 | n/a (no picture-grid on these pages) | 2/4 | TEXT DONE, vocab art PARTIAL |
-| 8 | Consonante P | 23-26 | 4/4 | n/a | 1/4 | TEXT DONE, vocab art PARTIAL |
-| 9 | Consonante S | 27-30 | 4/4 | n/a | 2/4 | TEXT DONE, vocab art PARTIAL |
-| 10 | Consonante T | 31-34 | 4/4 | n/a | 0/4 | TEXT DONE, vocab art MISSING |
-| 11 | Consonante D | 35-38 | 4/4 | n/a | 1/4 | TEXT DONE, vocab art PARTIAL |
-| 12 | Consonante L | 39-42 | 4/4 | n/a | 1/4 | TEXT DONE, vocab art PARTIAL |
-| 13 | Consonante N | 43-46 | 4/4 | n/a | 0/4 | TEXT DONE, vocab art MISSING |
-| 14 | Consonante Ñ | 47-50 | 4/4 | n/a | 1/4 | TEXT DONE, vocab art PARTIAL |
-| 15 | Consonante B | 51-54 | 4/4 | n/a | 2/4 | TEXT DONE, vocab art PARTIAL |
-| 16 | Consonante V | 55-58 | 4/4 | n/a | 1/4 | TEXT DONE, vocab art PARTIAL |
+| 7 | Consonante M | 19-22 | 4/4 | n/a (no picture-grid on these pages) | 2/4 | TEXT DONE, art done (2 of 4 words genuinely have no illustration in this book) |
+| 8 | Consonante P | 23-26 | 4/4 | n/a | 1/4 | TEXT DONE, art done (pino/pulpo confirmed absent from book) |
+| 9 | Consonante S | 27-30 | 4/4 | n/a | 2/4 | TEXT DONE, art done (sol/silla confirmed absent from book) |
+| 10 | Consonante T | 31-34 | 4/4 | n/a | 0/4 | TEXT DONE, art done — all 4 words (tapa/tomate/tina/tulipán) confirmed absent, no picture-grid at all in this lesson |
+| 11 | Consonante D | 35-38 | 4/4 | n/a | 1/4 | TEXT DONE, art done (dona/ducha/delfín confirmed absent) |
+| 12 | Consonante L | 39-42 | 4/4 | n/a | 0/4 | TEXT DONE, art done — all 4 words (lobo/loro/lupa/luna) confirmed absent |
+| 13 | Consonante N | 43-46 | 4/4 | n/a | 1/4 | TEXT DONE, art done (nariz/nube/nata confirmed absent) |
+| 14 | Consonante Ñ | 47-50 | 4/4 | n/a | 0/4 | TEXT DONE, art done — all 4 words (piña/muñeca/niño confirmed absent) |
+| 15 | Consonante B | 51-54 | 4/4 | n/a | 2/4 | TEXT DONE, art done (barco/bici confirmed absent) |
+| 16 | Consonante V | 55-58 | 4/4 | n/a | 0/4 | TEXT DONE, art done — all 4 words (vaca/vino/volcán confirmed absent) |
 | 17 | Consonante R | 59-62 | 4/4 | n/a | 4/4 | DONE |
 | 18 | Consonante rr | 63-66 | 4/4 | n/a | 4/4 | DONE |
 | 19 | Consonante G | 67-70 | 4/4 | n/a | 4/4 | DONE |
-| 20 | Consonante F | 71-74 | 4/4 | n/a | 4/4 | DONE |
-| 21 | Consonante J | 75-78 | 4/4 | n/a | 0/4 | TEXT DONE, vocab art MISSING |
-| 22 | Consonante C | 79-82 | 4/4 | n/a | 1/4 | TEXT DONE, vocab art PARTIAL |
-| 23 | Consonante Y | 83-86 | 4/4 | n/a | 0/4 | TEXT DONE, vocab art MISSING |
-| 24 | Consonante Z | 87-90 | 4/4 | n/a | 0/4 | TEXT DONE, vocab art MISSING |
+| 20 | Consonante F | 71-74 | 4/4 | n/a | 3/4 | TEXT DONE, art done (foca confirmed absent) |
+| 21 | Consonante J | 75-78 | 4/4 | n/a | 0/4 | TEXT DONE, vocab art not yet audited (jabón/jirafa/joya/juguete) |
+| 22 | Consonante C | 79-82 | 4/4 | n/a | 1/4 | TEXT DONE, art done (casa fixed this session; queso/coco/cuchara not yet audited) |
+| 23 | Consonante Y | 83-86 | 4/4 | n/a | 2/4 | TEXT DONE, art done (yate/yoyo fixed this session; yegua confirmed absent) |
+| 24 | Consonante Z | 87-90 | 4/4 | n/a | 1/4 | TEXT DONE, art done (zapato fixed this session; zanahoria confirmed absent; cine not yet audited) |
+
+**Note on "art done" above**: means every word in that lesson has either a
+real verified crop or a confirmed-absent finding (checked page-by-page against
+the source scans) — not that every word has a picture. The book itself
+doesn't illustrate every vocab word; showing the honest "art pending"
+placeholder for a genuinely-absent word is the correct, complete state, not
+a gap. J lesson (jabón/jirafa/joya/juguete) has not yet been individually
+page-audited — that is the one real remaining unknown.
 
 ## Per-lesson table — teacher guide side
 
