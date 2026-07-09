@@ -1265,5 +1265,61 @@
       555,
       680
     ]
+  },
+  {
+    "slug": "traje",
+    "word": "traje",
+    "lessonNumber": 1,
+    "pageNumber": 16,
+    "src": "/cartilla/art/faithful/leccion-1/traje.webp",
+    "sourceFlipchartPage": "u-page-16.jpg",
+    "cropBox": [
+      718,
+      598,
+      254,
+      232
+    ]
+  },
+  {
+    "slug": "arco",
+    "word": "arco",
+    "lessonNumber": 1,
+    "pageNumber": 16,
+    "src": "/cartilla/art/faithful/leccion-1/arco.webp",
+    "sourceFlipchartPage": "u-page-16.jpg",
+    "cropBox": [
+      980,
+      350,
+      252,
+      235
+    ]
+  },
+  {
+    "slug": "pez",
+    "word": "pez",
+    "lessonNumber": 1,
+    "pageNumber": 16,
+    "src": "/cartilla/art/faithful/leccion-1/pez.webp",
+    "sourceFlipchartPage": "u-page-16.jpg",
+    "cropBox": [
+      718,
+      350,
+      254,
+      235
+    ]
+  },
+  {
+    "slug": "aguila",
+    "word": "águila",
+    "lessonNumber": 1,
+    "pageNumber": 16,
+    "src": "/cartilla/art/faithful/leccion-1/aguila.webp",
+    "sourceFlipchartPage": "u-page-16.jpg",
+    "cropBox": [
+      980,
+      842,
+      252,
+      236
+    ]
   }
 ]
