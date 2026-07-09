@@ -1251,5 +1251,19 @@
       575,
       398
     ]
+  },
+  {
+    "slug": "zorro",
+    "word": "zorro",
+    "lessonNumber": 24,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-23-z/zorro.webp",
+    "sourceFlipchartPage": "z-page-58.jpg",
+    "cropBox": [
+      1680,
+      1170,
+      555,
+      680
+    ]
   }
 ]
