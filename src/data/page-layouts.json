@@ -9,7 +9,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Presiona los dibujos de las palabras en cada línea horizontal que comienzan con el mismo sonido."
+          "text": "Circula los dibujos de las palabras en cada línea horizontal que comienzan con el mismo sonido."
         },
         {
           "id": "p1-grid",
@@ -123,7 +123,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Presiona el dibujo que comienza con la vocal del recuadro."
+          "text": "Circula el dibujo que comienza con la vocal del recuadro."
         },
         {
           "id": "p2-rows",
@@ -451,7 +451,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Traza con tu mejor letra."
+          "text": "Escribe con tu mejor letra."
         },
         {
           "id": "p6-write-O",
@@ -662,7 +662,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Traza con tu mejor letra."
+          "text": "Escribe con tu mejor letra."
         },
         {
           "id": "p9-write-A",
@@ -872,7 +872,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Traza con tu mejor letra."
+          "text": "Escribe con tu mejor letra."
         },
         {
           "id": "p12-write-E",
@@ -1081,7 +1081,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Traza con tu mejor letra."
+          "text": "Escribe con tu mejor letra."
         },
         {
           "id": "p15-write-I",
@@ -1278,7 +1278,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Traza con tu mejor letra."
+          "text": "Escribe con tu mejor letra."
         },
         {
           "id": "p18-write-U",
@@ -1328,7 +1328,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Escribe con tu mejor letra."
         },
         {
           "id": "p19-write-U",
@@ -1361,7 +1361,7 @@
           "regionType": "instruction",
           "order": 5,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Haz un dibujo que represente una palabra que comienza con m."
         },
         {
           "id": "p19-draw",
@@ -1378,7 +1378,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Encierra en un círculo la sílaba correspondiente."
         },
         {
           "id": "p20-ma",
@@ -1724,7 +1724,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Escribe con tu mejor letra."
         },
         {
           "id": "p23-write-U",
@@ -1757,7 +1757,7 @@
           "regionType": "instruction",
           "order": 5,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Haz un dibujo que represente una palabra que comienza con p."
         },
         {
           "id": "p23-draw",
@@ -1774,7 +1774,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Encierra en un círculo la sílaba correspondiente."
         },
         {
           "id": "p24-pa",
@@ -2120,7 +2120,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Escribe con tu mejor letra."
         },
         {
           "id": "p27-write-U",
@@ -2153,7 +2153,7 @@
           "regionType": "instruction",
           "order": 5,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Haz un dibujo que represente una palabra que comienza con s."
         },
         {
           "id": "p27-draw",
@@ -2170,7 +2170,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Encierra en un círculo la sílaba correspondiente."
         },
         {
           "id": "p28-sa",
@@ -2448,13 +2448,6 @@
               ]
             }
           ]
-        },
-        {
-          "id": "p29-instr2",
-          "regionType": "instruction",
-          "order": 2,
-          "fontRole": "body",
-          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
         }
       ]
     },
@@ -2515,7 +2508,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Escribe con tu mejor letra."
         },
         {
           "id": "p31-write-U",
@@ -2548,7 +2541,7 @@
           "regionType": "instruction",
           "order": 5,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Haz un dibujo que represente una palabra que comienza con t."
         },
         {
           "id": "p31-draw",
@@ -2565,7 +2558,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Encierra en un círculo la sílaba correspondiente."
         },
         {
           "id": "p32-ta",
@@ -2845,13 +2838,6 @@
               ]
             }
           ]
-        },
-        {
-          "id": "p33-instr2",
-          "regionType": "instruction",
-          "order": 2,
-          "fontRole": "body",
-          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
         }
       ]
     },
@@ -2912,7 +2898,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Escribe con tu mejor letra."
         },
         {
           "id": "p35-write-U",
@@ -2945,7 +2931,7 @@
           "regionType": "instruction",
           "order": 5,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Haz un dibujo que represente una palabra que comienza con d."
         },
         {
           "id": "p35-draw",
@@ -2962,7 +2948,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Encierra en un círculo la sílaba correspondiente."
         },
         {
           "id": "p36-da",
@@ -3242,13 +3228,6 @@
               ]
             }
           ]
-        },
-        {
-          "id": "p37-instr2",
-          "regionType": "instruction",
-          "order": 2,
-          "fontRole": "body",
-          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
         }
       ]
     },
@@ -3309,7 +3288,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Escribe con tu mejor letra."
         },
         {
           "id": "p39-write-U",
@@ -3342,7 +3321,7 @@
           "regionType": "instruction",
           "order": 5,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Haz un dibujo que represente una palabra que comienza con l."
         },
         {
           "id": "p39-draw",
@@ -3359,7 +3338,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Encierra en un círculo la sílaba correspondiente."
         },
         {
           "id": "p40-la",
@@ -3637,13 +3616,6 @@
               ]
             }
           ]
-        },
-        {
-          "id": "p41-instr2",
-          "regionType": "instruction",
-          "order": 2,
-          "fontRole": "body",
-          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
         }
       ]
     },
@@ -3704,7 +3676,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Escribe con tu mejor letra."
         },
         {
           "id": "p43-write-U",
@@ -3737,7 +3709,7 @@
           "regionType": "instruction",
           "order": 5,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Haz un dibujo que represente una palabra que comienza con n."
         },
         {
           "id": "p43-draw",
@@ -3754,7 +3726,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Encierra en un círculo la sílaba correspondiente."
         },
         {
           "id": "p44-na",
@@ -4041,13 +4013,6 @@
               ]
             }
           ]
-        },
-        {
-          "id": "p45-instr2",
-          "regionType": "instruction",
-          "order": 2,
-          "fontRole": "body",
-          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
         }
       ]
     },
@@ -4108,7 +4073,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Escribe con tu mejor letra."
         },
         {
           "id": "p47-write-U",
@@ -4141,7 +4106,7 @@
           "regionType": "instruction",
           "order": 5,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Haz un dibujo que represente una palabra que comienza con ñ."
         },
         {
           "id": "p47-draw",
@@ -4158,7 +4123,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Encierra en un círculo la sílaba correspondiente."
         },
         {
           "id": "p48-ña",
@@ -4436,13 +4401,6 @@
               ]
             }
           ]
-        },
-        {
-          "id": "p49-instr2",
-          "regionType": "instruction",
-          "order": 2,
-          "fontRole": "body",
-          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
         }
       ]
     },
@@ -4503,7 +4461,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Escribe con tu mejor letra."
         },
         {
           "id": "p51-write-U",
@@ -4536,7 +4494,7 @@
           "regionType": "instruction",
           "order": 5,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Haz un dibujo que represente una palabra que comienza con b."
         },
         {
           "id": "p51-draw",
@@ -4553,7 +4511,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Encierra en un círculo la sílaba correspondiente."
         },
         {
           "id": "p52-ba",
@@ -4830,13 +4788,6 @@
               ]
             }
           ]
-        },
-        {
-          "id": "p53-instr2",
-          "regionType": "instruction",
-          "order": 2,
-          "fontRole": "body",
-          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
         }
       ]
     },
@@ -4897,7 +4848,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Escribe con tu mejor letra."
         },
         {
           "id": "p55-write-U",
@@ -4930,7 +4881,7 @@
           "regionType": "instruction",
           "order": 5,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Haz un dibujo que represente una palabra que comienza con v."
         },
         {
           "id": "p55-draw",
@@ -4947,7 +4898,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Encierra en un círculo la sílaba correspondiente."
         },
         {
           "id": "p56-va",
@@ -5227,13 +5178,6 @@
               ]
             }
           ]
-        },
-        {
-          "id": "p57-instr2",
-          "regionType": "instruction",
-          "order": 2,
-          "fontRole": "body",
-          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
         }
       ]
     },
@@ -5294,7 +5238,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Escribe con tu mejor letra."
         },
         {
           "id": "p59-write-U",
@@ -5327,7 +5271,7 @@
           "regionType": "instruction",
           "order": 5,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Haz un dibujo que represente una palabra que comienza con r."
         },
         {
           "id": "p59-draw",
@@ -5344,7 +5288,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Encierra en un círculo la sílaba correspondiente."
         },
         {
           "id": "p60-ra",
@@ -5625,13 +5569,6 @@
               ]
             }
           ]
-        },
-        {
-          "id": "p61-instr2",
-          "regionType": "instruction",
-          "order": 2,
-          "fontRole": "body",
-          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
         }
       ]
     },
@@ -5692,7 +5629,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Escribe con tu mejor letra."
         },
         {
           "id": "p63-write-U",
@@ -5725,7 +5662,7 @@
           "regionType": "instruction",
           "order": 5,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Haz un dibujo que represente una palabra que comienza con rr."
         },
         {
           "id": "p63-draw",
@@ -5742,7 +5679,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Encierra en un círculo la sílaba correspondiente."
         },
         {
           "id": "p64-rra",
@@ -6017,13 +5954,6 @@
               ]
             }
           ]
-        },
-        {
-          "id": "p65-instr2",
-          "regionType": "instruction",
-          "order": 2,
-          "fontRole": "body",
-          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
         }
       ]
     },
@@ -6084,7 +6014,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Escribe con tu mejor letra."
         },
         {
           "id": "p67-write-U",
@@ -6117,7 +6047,7 @@
           "regionType": "instruction",
           "order": 5,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Haz un dibujo que represente una palabra que comienza con g."
         },
         {
           "id": "p67-draw",
@@ -6134,7 +6064,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Encierra en un círculo la sílaba correspondiente."
         },
         {
           "id": "p68-ga",
@@ -6403,13 +6333,6 @@
               ]
             }
           ]
-        },
-        {
-          "id": "p69-instr2",
-          "regionType": "instruction",
-          "order": 2,
-          "fontRole": "body",
-          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
         }
       ]
     },
@@ -6470,7 +6393,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Escribe con tu mejor letra."
         },
         {
           "id": "p71-write-U",
@@ -6503,7 +6426,7 @@
           "regionType": "instruction",
           "order": 5,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Haz un dibujo que represente una palabra que comienza con f."
         },
         {
           "id": "p71-draw",
@@ -6520,7 +6443,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Encierra en un círculo la sílaba correspondiente."
         },
         {
           "id": "p72-fa",
@@ -6789,13 +6712,6 @@
               ]
             }
           ]
-        },
-        {
-          "id": "p73-instr2",
-          "regionType": "instruction",
-          "order": 2,
-          "fontRole": "body",
-          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
         }
       ]
     },
@@ -6856,7 +6772,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Escribe con tu mejor letra."
         },
         {
           "id": "p75-write-U",
@@ -6889,7 +6805,7 @@
           "regionType": "instruction",
           "order": 5,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Haz un dibujo que represente una palabra que comienza con j."
         },
         {
           "id": "p75-draw",
@@ -6906,7 +6822,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Encierra en un círculo la sílaba correspondiente."
         },
         {
           "id": "p76-ja",
@@ -7175,13 +7091,6 @@
               ]
             }
           ]
-        },
-        {
-          "id": "p77-instr2",
-          "regionType": "instruction",
-          "order": 2,
-          "fontRole": "body",
-          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
         }
       ]
     },
@@ -7242,7 +7151,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Escribe con tu mejor letra."
         },
         {
           "id": "p79-write-U",
@@ -7275,7 +7184,7 @@
           "regionType": "instruction",
           "order": 5,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Haz un dibujo que represente una palabra que comienza con c."
         },
         {
           "id": "p79-draw",
@@ -7292,7 +7201,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Encierra en un círculo la sílaba correspondiente."
         },
         {
           "id": "p80-ca",
@@ -7565,13 +7474,6 @@
               ]
             }
           ]
-        },
-        {
-          "id": "p81-instr2",
-          "regionType": "instruction",
-          "order": 2,
-          "fontRole": "body",
-          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
         }
       ]
     },
@@ -7632,7 +7534,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Escribe con tu mejor letra."
         },
         {
           "id": "p83-write-U",
@@ -7665,7 +7567,7 @@
           "regionType": "instruction",
           "order": 5,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Haz un dibujo que represente una palabra que comienza con y."
         },
         {
           "id": "p83-draw",
@@ -7682,7 +7584,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Encierra en un círculo la sílaba correspondiente."
         },
         {
           "id": "p84-ya",
@@ -7960,13 +7862,6 @@
               ]
             }
           ]
-        },
-        {
-          "id": "p85-instr2",
-          "regionType": "instruction",
-          "order": 2,
-          "fontRole": "body",
-          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
         }
       ]
     },
@@ -8027,7 +7922,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Escribe con tu mejor letra."
         },
         {
           "id": "p87-write-U",
@@ -8060,7 +7955,7 @@
           "regionType": "instruction",
           "order": 5,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Haz un dibujo que represente una palabra que comienza con z."
         },
         {
           "id": "p87-draw",
@@ -8077,7 +7972,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "UNREADABLE"
+          "text": "Encierra en un círculo la sílaba correspondiente."
         },
         {
           "id": "p88-za",
@@ -8351,13 +8246,6 @@
               ]
             }
           ]
-        },
-        {
-          "id": "p89-instr2",
-          "regionType": "instruction",
-          "order": 2,
-          "fontRole": "body",
-          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
         }
       ]
     },
