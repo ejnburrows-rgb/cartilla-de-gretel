@@ -13,8 +13,8 @@ interface DragLetterTraceProps {
 }
 
 export function DragLetterTrace({ letter, color = "#f97316", lessonId, onComplete }: DragLetterTraceProps) {
-  const targetLetter = letter.toUpperCase().trim() || "A";
-  const strokes = LETTER_TEMPLATES[targetLetter] || LETTER_TEMPLATES.A;
+  const targetLetter = letter.toUpperCase().trim();
+  const strokes = LETTER_TEMPLATES[targetLetter] ?? null;
 
   const [currentStrokeIdx, setCurrentStrokeIdx] = useState(0);
   const [currentPointIdx, setCurrentPointIdx] = useState(0);
@@ -23,7 +23,7 @@ export function DragLetterTrace({ letter, color = "#f97316", lessonId, onComplet
   const [isTracing, setIsTracing] = useState(false);
   const [isFinished, setIsFinished] = useState(false);
 
-  const totalPoints = strokes.reduce((acc, stroke) => acc + stroke.length, 0);
+  const totalPoints = (strokes ?? []).reduce((acc, stroke) => acc + stroke.length, 0);
   const completedPointsCount =
     completedStrokes.reduce((acc, stroke) => acc + stroke.length, 0) + currentStrokePoints.length;
   const progressPercent = Math.min(100, Math.round((completedPointsCount / totalPoints) * 100));
@@ -41,7 +41,7 @@ export function DragLetterTrace({ letter, color = "#f97316", lessonId, onComplet
     resetGame();
   }, [letter, resetGame]);
 
-  const nextCheckpoint = strokes[currentStrokeIdx]?.[currentPointIdx];
+  const nextCheckpoint = strokes?.[currentStrokeIdx]?.[currentPointIdx];
 
   const handlePointerDown = (e: React.PointerEvent<SVGSVGElement>) => {
     if (isFinished || !nextCheckpoint) return;
@@ -62,7 +62,7 @@ export function DragLetterTrace({ letter, color = "#f97316", lessonId, onComplet
   };
 
   const handlePointerMove = (e: React.PointerEvent<SVGSVGElement>) => {
-    if (!isTracing || isFinished || !nextCheckpoint) return;
+    if (!isTracing || isFinished || !nextCheckpoint || !strokes) return;
 
     const rect = e.currentTarget.getBoundingClientRect();
     const x = ((e.clientX - rect.left) / rect.width) * 100;
@@ -121,6 +121,12 @@ export function DragLetterTrace({ letter, color = "#f97316", lessonId, onComplet
   const handlePointerUp = () => {
     setIsTracing(false);
   };
+
+  if (!strokes) {
+    // No real handwriting template for this letter — hide the tracing
+    // step entirely rather than invent a fake exercise for the wrong letter.
+    return null;
+  }
 
   return (
     <div className="w-full max-w-sm mx-auto p-5 bg-white/40 backdrop-blur-md border border-stone-200/50 rounded-2xl shadow-sm space-y-6">

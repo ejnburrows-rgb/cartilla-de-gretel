@@ -79,10 +79,12 @@
               "correct": false
             },
             {
-              "caption": "traje"
+              "caption": "traje",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/traje.webp"
             },
             {
-              "caption": "arco"
+              "caption": "arco",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/arco.webp"
             },
             {
               "caption": "oveja",
@@ -323,7 +325,8 @@
             },
             {
               "caption": "arco",
-              "correct": true
+              "correct": true,
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/arco.webp"
             },
             {
               "caption": "oveja",
@@ -372,7 +375,8 @@
             },
             {
               "caption": "traje",
-              "correct": false
+              "correct": false,
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/traje.webp"
             },
             {
               "caption": "ojos",
@@ -644,7 +648,8 @@
             },
             {
               "caption": "pez",
-              "correct": false
+              "correct": false,
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/pez.webp"
             },
             {
               "caption": "remolino",
@@ -779,7 +784,8 @@
             },
             {
               "caption": "águila",
-              "correct": false
+              "correct": false,
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/aguila.webp"
             },
             {
               "caption": "escuela",
@@ -788,7 +794,8 @@
             },
             {
               "caption": "traje",
-              "correct": false
+              "correct": false,
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/traje.webp"
             },
             {
               "caption": "espejo",
@@ -939,7 +946,8 @@
             },
             {
               "caption": "pez",
-              "correct": false
+              "correct": false,
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/pez.webp"
             },
             {
               "caption": "iguana",
@@ -993,7 +1001,8 @@
             },
             {
               "caption": "arco",
-              "correct": false
+              "correct": false,
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/arco.webp"
             },
             {
               "caption": "igual",
@@ -1058,7 +1067,8 @@
             },
             {
               "caption": "arco",
-              "correct": false
+              "correct": false,
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/arco.webp"
             },
             {
               "caption": "iguana",
@@ -1150,10 +1160,12 @@
               "illustrationSrc": "/cartilla/art/faithful/vocal-o/oveja.webp"
             },
             {
-              "caption": "pez"
+              "caption": "pez",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/pez.webp"
             },
             {
-              "caption": "arco"
+              "caption": "arco",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/arco.webp"
             },
             {
               "caption": "uvas",
@@ -1167,7 +1179,8 @@
             },
             {
               "caption": "traje",
-              "correct": false
+              "correct": false,
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/traje.webp"
             },
             {
               "caption": "elefante",
@@ -1191,14 +1204,16 @@
             },
             {
               "caption": "águila",
-              "correct": true
+              "correct": true,
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/aguila.webp"
             },
             {
               "caption": "abeja",
               "illustrationSrc": "/cartilla/art/faithful/vocal-a/abeja.webp"
             },
             {
-              "caption": "traje"
+              "caption": "traje",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/traje.webp"
             },
             {
               "caption": "insecto",
@@ -1231,7 +1246,8 @@
           "cells": [
             {
               "caption": "traje",
-              "correct": false
+              "correct": false,
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/traje.webp"
             },
             {
               "caption": "uno",
@@ -1255,7 +1271,8 @@
             },
             {
               "caption": "arco",
-              "correct": false
+              "correct": false,
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/arco.webp"
             },
             {
               "caption": "estrella",

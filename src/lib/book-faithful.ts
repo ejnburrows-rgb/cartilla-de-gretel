@@ -68,6 +68,7 @@ export type PageRegionType =
 	| "vowel-line-match" // "Traza una línea desde la vocal Xx hasta el dibujo..." — 8 picture cells around a center vowel-pair
 	| "vowel-pick-one" // "Presiona el dibujo que comienza con la vocal del recuadro" — one row per vowel, 3 picture options
 	| "vowel-match-all" // "Traza una línea de la vocal al dibujo que le corresponde" — all 5 vowels, each paired 1:1 with its picture
+	| "reading-sentences" // one or more real practice sentences to read aloud, e.g. "Mi mamá me mima."
 	| "footer";
 
 /** A single illustration cell inside a picture-grid region. */
@@ -154,6 +155,8 @@ export type PageRegion = {
 	vowelRows?: Array<{ letter: string; cells: PageGridCell[] }>;
 	/** For "vowel-match-all": all 5 vowels, each 1:1 paired with its picture. */
 	vowelPairs?: Array<{ letter: string } & PageGridCell>;
+	/** For "reading-sentences": the real practice sentences, in reading order. */
+	sentences?: string[];
 	/**
 	 * @deprecated Legacy pilot field that mapped to an INVENTED vector drawing.
 	 * Not faithful — do not use on real pages; kept only so old pilot data parses.
