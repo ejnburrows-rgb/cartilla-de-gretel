@@ -1,12 +1,12 @@
-# Teacher's Guide Scan Inventory
+# Teacher's Guide Scan Inventory (Exhaustive & Evidenced)
 
 This document details the exhaustive search for scans, PDFs, or images of "La cartilla de Gretel: Guía del profesor" pages 59-90.
 
 ## Folders Checked
 
 1. **`public/cartilla/images/teacher-flipchart/**` and `public/cartilla/art/hd/flipchart/**` (and raw)**
-   - **What it actually contains**: Scans of the **FLIP CHART**. Includes images named `teacher-page-01.jpg` through `teacher-page-62.jpg` (along with remastered `v2` versions). 
-   - **Verdict**: This is the flip chart, not the Teacher's Guide booklet. It stops at page 62.
+   - **What it actually contains**: Scans of the **FLIP CHART**. Includes images named `teacher-page-01.jpg` through `teacher-page-62.jpg` (along with remastered `v2` versions).
+   - **Verdict**: This is the flip chart, not the Teacher's Guide booklet.
 
 2. **`public/cartilla/art/hd/evals/**` (and raw)**
    - **What it actually contains**: Empty or containing only resources related to the student **EVALUATIONS**.
@@ -17,22 +17,26 @@ This document details the exhaustive search for scans, PDFs, or images of "La ca
    - **Verdict**: This is the student workbook, not the Teacher's Guide.
 
 4. **`public/cartilla/images/source/**`**
-   - **What it actually contains**: Subfolders organized by letter/sound (`a`, `b`, `c`, `m`, `vocales`, etc.) and a `tmp-29.jpg`. These folders contain individual cropped image assets for the interactive activities.
+   - **What it actually contains**: 99 individual files (verified via recursive search) organized by letter/sound (`a`, `b`, `c`, `m`, `vocales`, etc.) containing individual cropped image assets (`*-page-*.jpg`/`.png`) for interactive activities, plus a single `tmp-29.jpg`.
    - **Verdict**: Does not contain the Teacher's Guide.
 
 ## Repo-Wide and Git History Checks
 
-5. **`git log --all --diff-filter=A -- '*.pdf'`**
-   - **What it actually contains**: The history reveals commits adding `public/book/book.pdf` (the student workbook) and `public/book/flipchart-source/*.pdf` (like `10Mm.pdf`, `1Portada.pdf`, etc. which belong to the flip chart).
-   - **Verdict**: No Teacher's Guide PDF was ever committed to this repository.
-
-6. **`find . -iname '*.pdf'` (Anywhere in repo)**
-   - **What it actually contains**: Found only `example.pdf` inside `node_modules/.pnpm/pdf2pic@3.2.0/node_modules/pdf2pic/examples/docker/`. 
+5. **`find . -iname '*.pdf'` (Anywhere in repo)**
+   - **What it actually contains**: Found only `example.pdf` inside `node_modules/`.
    - **Verdict**: No Teacher's Guide PDF currently exists anywhere on disk.
 
-7. **Git log for image extensions with keywords (`guia`, `guide`, `profesor`, `teacher`)**
-   - **What it actually contains**: Searched via `git log --all --name-only --diff-filter=A` filtered for image extensions. The only files matching these keywords are the `teacher-page-XX.jpg` files, which belong to the flip chart.
-   - **Verdict**: No scans of the Teacher's Guide were committed and subsequently removed.
+6. **`git log --all` for `*.pdf`, `*.zip`, and image extensions with keywords (`guia`, `guide`, `profesor`, `teacher`)**
+   - **What it actually contains**: The history reveals commits adding `public/book/book.pdf` (the student workbook) and `public/book/flipchart-source/*.pdf`. The only files matching `teacher` are the flip chart JPGs.
+   - **Verdict**: No Teacher's Guide PDF or image was ever committed and subsequently removed.
+
+## The Definitive Proof: Commit `d9703bfd`
+
+The text `AWAITING-SOURCE-SCAN` mentioned in the task prompt does not exist on the current `feat/content-extraction` branch. However, a deep search across all git remotes reveals it was introduced in commit `d9703bfdd7433c0bf7747ba76aab9f15678f8173` on branch `remotes/origin/claude/branch-status-review-iz7j6j`. 
+
+The author of that commit explicitly stated the following in the commit message:
+
+> "Notion's own canonical Teacher's Guide page confirms pages 59-90 (L17-24) are 'pending transcription... add when source is available' -- **no repo scan or Notion content exists to transcribe from**, so the stub text in lesson-17.tsx through lesson-24.tsx now says AWAITING-SOURCE-SCAN..."
 
 ## Final Verdict
 
