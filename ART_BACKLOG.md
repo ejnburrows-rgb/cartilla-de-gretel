@@ -396,12 +396,21 @@ cell's label or drawing is bleeding into the frame, the crop boundary is
 wrong — move it in, don't just accept the bleed. When in doubt, crop
 tighter rather than looser.
 
-## Confirmed NOT to exist in the source material — do not attempt
-arco, pez, traje, águila, urna — these words appear in the app's content
-but have no corresponding illustration anywhere in the physical book's
-scans (per Antigravity's own report — not independently re-verified by
-Claude against the physical pages). Leave their cells showing "art
-pending" — that's correct, not a gap to fill.
+## Correction — arco/pez/traje/águila DO exist, Antigravity's report was wrong
+This section previously said arco, pez, traje, águila, urna have no
+illustration anywhere in the book, per an unverified Antigravity report.
+That was **false for 4 of the 5 words**: direct inspection of
+`u-page-16.jpg` (real page 16, Lección 6) found all 4 as distractor cells
+in its picture grid. Cropped and wired (commit `1098aa5`) to
+`leccion-1/traje.webp`, `arco.webp`, `pez.webp`, `aguila.webp`, filling all
+17 cells that referenced them across pages 1, 4, 8, 10, 13, 14, 16, 17.
+Note: these particular pages are genuinely grayscale/duotone in this book
+edition (cross-checked against `i-page-13.jpg`, same page type) — that is
+faithful, not a scan defect.
+
+**`urna` only remains genuinely unconfirmed** — not yet independently
+re-checked by Claude against the physical scans. Leave its cell "art
+pending" until someone opens the real source page and confirms either way.
 
 ## Current status: SUPERSEDED, see the re-audit update at the top of this file
 This line used to say "no open art-extraction work" — that's no longer
