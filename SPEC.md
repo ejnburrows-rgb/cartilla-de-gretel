@@ -781,7 +781,32 @@ only grading — no invented "correct drawing") wired into
 `FaithfulPageRenderer.tsx`'s `"draw-box"` case for `interactive` mode;
 teacher preview keeps the static placeholder. CSS added to
 `faithful-page.css`. `pnpm tsc --noEmit` and `pnpm build` both clean.
-Committed `e484cfb`, pushed to `claude/branch-status-review-iz7j6j`, opened
-as PR #139 (not yet merged — contains the new Supabase migration from Round
-3, which is a genuine Supabase/production fork per CLAUDE.md; holding for
-owner sign-off rather than self-merging).
+Committed `e484cfb`, merged via PR #139 — owner corrected in real time that
+pre-approved-flow PRs (already merged the same way for #135/#137/#138) don't
+wait on a fresh sign-off; merged and production-verified same turn.
+
+**Follow-up defect, self-caught and fixed same turn:** PR #139's draw-box
+wiring only added `DrawBoxCanvas.tsx` and imported it — the actual
+`case "draw-box"` switch branch was never updated to render it, so
+interactive mode kept showing the old static placeholder (unused import
+only). Caught by checking the merged production bundle for the
+`fp-draw-box--interactive` class string and finding it absent. Fixed in
+PR #142 (4-line diff), reverified the string present in a fresh local build
+before committing, then confirmed live in production via exact content-hash
+match on the `route-binder`/`content-bundle` chunks against that local
+build.
+
+Also fixed: `validate-content.mjs` threw a false-positive warning
+("totalPages says 60, but lessons[].pages lists 65") because it summed
+`lessons[].pages` without deduplicating flipchart pages intentionally shared
+across lessons (review spreads) — 65 raw listings, 60 unique files, which is
+exactly what totalPages says. Fixed to count unique files (PR #143).
+
+Anti-Gravity's UNREADABLE violation (previous update) self-corrected on its
+own branch: commit `9e7d4f5` reverts all 54 destructive overwrites while
+keeping the 2 legitimate new instruction additions. That branch (including
+the revert) was merged to main via PR #141, along with an unrelated batch of
+~2000 extracted `.webp` crops and duplicate data files
+(`src/content/page-layouts.json`, `src/content/page-inventory.json`) that
+nothing in `src/` imports — confirmed inert (not a live-content risk), just
+unused clutter. Not cleaned up this turn; flagged as low-priority follow-up.
