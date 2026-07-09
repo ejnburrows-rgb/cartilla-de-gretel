@@ -1,0 +1,569 @@
+[
+  {
+    "slug": "casa",
+    "source": "public/cartilla/images/source/c/c-page-52.jpg",
+    "x": 1530,
+    "y": 1225,
+    "width": 730,
+    "height": 660,
+    "output": "public/cartilla/art/extracted/casa.webp"
+  },
+  {
+    "slug": "carro",
+    "source": "public/cartilla/images/source/rr/rr-page-40.jpg",
+    "x": 230,
+    "y": 1492,
+    "width": 574,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/carro.webp"
+  },
+  {
+    "slug": "mama",
+    "source": "public/cartilla/images/source/m/m-page-10.jpg",
+    "x": 231,
+    "y": 1095,
+    "width": 575,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/mama.webp"
+  },
+  {
+    "slug": "mono",
+    "source": "public/cartilla/images/source/n/n-page-25.jpg",
+    "x": 1783,
+    "y": 1212,
+    "width": 406,
+    "height": 743,
+    "output": "public/cartilla/art/extracted/mono.webp"
+  },
+  {
+    "slug": "moto",
+    "source": "public/cartilla/images/source/m/m-page-10.jpg",
+    "x": 1381,
+    "y": 1095,
+    "width": 575,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/moto.webp"
+  },
+  {
+    "slug": "mapa",
+    "source": "public/cartilla/images/source/m/m-page-10.jpg",
+    "x": 231,
+    "y": 1493,
+    "width": 575,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/mapa.webp"
+  },
+  {
+    "slug": "papa",
+    "source": "public/cartilla/images/source/p/p-page-11.jpg",
+    "x": 231,
+    "y": 1094,
+    "width": 575,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/papa.webp"
+  },
+  {
+    "slug": "pez",
+    "source": "public/cartilla/images/source/p/p-page-11.jpg",
+    "x": 806,
+    "y": 1094,
+    "width": 575,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/pez.webp"
+  },
+  {
+    "slug": "pino",
+    "source": "public/cartilla/images/source/p/p-page-11.jpg",
+    "x": 1381,
+    "y": 1094,
+    "width": 575,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/pino.webp"
+  },
+  {
+    "slug": "pulpo",
+    "source": "public/cartilla/images/source/p/p-page-11.jpg",
+    "x": 231,
+    "y": 1492,
+    "width": 575,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/pulpo.webp"
+  },
+  {
+    "slug": "sapo",
+    "source": "public/cartilla/images/source/ss/ss-page-14.jpg",
+    "x": 1689,
+    "y": 1454,
+    "width": 594,
+    "height": 501,
+    "output": "public/cartilla/art/extracted/sapo.webp"
+  },
+  {
+    "slug": "sol",
+    "source": "public/cartilla/images/source/ss/ss-page-14.jpg",
+    "x": 804,
+    "y": 1095,
+    "width": 574,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/sol.webp"
+  },
+  {
+    "slug": "sopa",
+    "source": "public/cartilla/images/source/ss/ss-page-14.jpg",
+    "x": 938,
+    "y": 1470,
+    "width": 516,
+    "height": 453,
+    "output": "public/cartilla/art/extracted/sopa.webp"
+  },
+  {
+    "slug": "silla",
+    "source": "public/cartilla/images/source/ss/ss-page-14.jpg",
+    "x": 230,
+    "y": 1493,
+    "width": 574,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/silla.webp"
+  },
+  {
+    "slug": "tapa",
+    "source": "public/cartilla/images/source/t/t-page-17.jpg",
+    "x": 230,
+    "y": 1095,
+    "width": 574,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/tapa.webp"
+  },
+  {
+    "slug": "tomate",
+    "source": "public/cartilla/images/source/t/t-page-17.jpg",
+    "x": 804,
+    "y": 1095,
+    "width": 574,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/tomate.webp"
+  },
+  {
+    "slug": "tina",
+    "source": "public/cartilla/images/source/t/t-page-17.jpg",
+    "x": 1378,
+    "y": 1095,
+    "width": 574,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/tina.webp"
+  },
+  {
+    "slug": "tulipan",
+    "source": "public/cartilla/images/source/t/t-page-17.jpg",
+    "x": 230,
+    "y": 1493,
+    "width": 574,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/tulipan.webp"
+  },
+  {
+    "slug": "dado",
+    "source": "public/cartilla/images/source/d/d-page-19.jpg",
+    "x": 880,
+    "y": 1240,
+    "width": 630,
+    "height": 630,
+    "output": "public/cartilla/art/extracted/dado.webp"
+  },
+  {
+    "slug": "delfin",
+    "source": "public/cartilla/images/source/d/d-page-19.jpg",
+    "x": 803,
+    "y": 1095,
+    "width": 573,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/delfin.webp"
+  },
+  {
+    "slug": "dona",
+    "source": "public/cartilla/images/source/d/d-page-19.jpg",
+    "x": 1376,
+    "y": 1095,
+    "width": 573,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/dona.webp"
+  },
+  {
+    "slug": "ducha",
+    "source": "public/cartilla/images/source/d/d-page-19.jpg",
+    "x": 230,
+    "y": 1493,
+    "width": 573,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/ducha.webp"
+  },
+  {
+    "slug": "luna",
+    "source": "public/cartilla/images/source/l/l-page-22.jpg",
+    "x": 230,
+    "y": 1094,
+    "width": 574,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/luna.webp"
+  },
+  {
+    "slug": "lobo",
+    "source": "public/cartilla/images/source/l/l-page-22.jpg",
+    "x": 804,
+    "y": 1094,
+    "width": 574,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/lobo.webp"
+  },
+  {
+    "slug": "loro",
+    "source": "public/cartilla/images/source/l/l-page-22.jpg",
+    "x": 1378,
+    "y": 1094,
+    "width": 574,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/loro.webp"
+  },
+  {
+    "slug": "lupa",
+    "source": "public/cartilla/images/source/l/l-page-22.jpg",
+    "x": 230,
+    "y": 1492,
+    "width": 574,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/lupa.webp"
+  },
+  {
+    "slug": "nariz",
+    "source": "public/cartilla/images/source/n/n-page-25.jpg",
+    "x": 230,
+    "y": 1095,
+    "width": 574,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/nariz.webp"
+  },
+  {
+    "slug": "nido",
+    "source": "public/cartilla/images/source/n/n-page-25.jpg",
+    "x": 179,
+    "y": 1470,
+    "width": 556,
+    "height": 399,
+    "output": "public/cartilla/art/extracted/nido.webp"
+  },
+  {
+    "slug": "nube",
+    "source": "public/cartilla/images/source/n/n-page-25.jpg",
+    "x": 1378,
+    "y": 1095,
+    "width": 574,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/nube.webp"
+  },
+  {
+    "slug": "nata",
+    "source": "public/cartilla/images/source/n/n-page-25.jpg",
+    "x": 230,
+    "y": 1493,
+    "width": 574,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/nata.webp"
+  },
+  {
+    "slug": "pina",
+    "source": "public/cartilla/images/source/ñ/ñ-page-28.jpg",
+    "x": 230,
+    "y": 1095,
+    "width": 574,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/pina.webp"
+  },
+  {
+    "slug": "muneca",
+    "source": "public/cartilla/images/source/ñ/ñ-page-28.jpg",
+    "x": 804,
+    "y": 1095,
+    "width": 574,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/muneca.webp"
+  },
+  {
+    "slug": "nino",
+    "source": "public/cartilla/images/source/ñ/ñ-page-28.jpg",
+    "x": 1378,
+    "y": 1095,
+    "width": 574,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/nino.webp"
+  },
+  {
+    "slug": "barco",
+    "source": "public/cartilla/images/source/b/b-page-31.jpg",
+    "x": 230,
+    "y": 1095,
+    "width": 574,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/barco.webp"
+  },
+  {
+    "slug": "bebe",
+    "source": "public/cartilla/images/source/b/b-page-31.jpg",
+    "x": 1329,
+    "y": 2158,
+    "width": 657,
+    "height": 438,
+    "output": "public/cartilla/art/extracted/bebe.webp"
+  },
+  {
+    "slug": "bici",
+    "source": "public/cartilla/images/source/b/b-page-31.jpg",
+    "x": 1378,
+    "y": 1095,
+    "width": 574,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/bici.webp"
+  },
+  {
+    "slug": "bota",
+    "source": "public/cartilla/images/source/b/b-page-31.jpg",
+    "x": 230,
+    "y": 1493,
+    "width": 574,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/bota.webp"
+  },
+  {
+    "slug": "vaca",
+    "source": "public/cartilla/images/source/v/v-page-34.jpg",
+    "x": 230,
+    "y": 1095,
+    "width": 574,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/vaca.webp"
+  },
+  {
+    "slug": "vela",
+    "source": "public/cartilla/images/source/v/v-page-34.jpg",
+    "x": 804,
+    "y": 1095,
+    "width": 574,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/vela.webp"
+  },
+  {
+    "slug": "vino",
+    "source": "public/cartilla/images/source/v/v-page-34.jpg",
+    "x": 1378,
+    "y": 1095,
+    "width": 574,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/vino.webp"
+  },
+  {
+    "slug": "volcan",
+    "source": "public/cartilla/images/source/v/v-page-34.jpg",
+    "x": 230,
+    "y": 1493,
+    "width": 574,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/volcan.webp"
+  },
+  {
+    "slug": "rana",
+    "source": "public/cartilla/images/source/r/r-page-37.jpg",
+    "x": 231,
+    "y": 1095,
+    "width": 575,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/rana.webp"
+  },
+  {
+    "slug": "rosa",
+    "source": "public/cartilla/images/source/r/r-page-37.jpg",
+    "x": 420,
+    "y": 2150,
+    "width": 450,
+    "height": 460,
+    "output": "public/cartilla/art/extracted/rosa.webp"
+  },
+  {
+    "slug": "remo",
+    "source": "public/cartilla/images/source/r/r-page-37.jpg",
+    "x": 930,
+    "y": 1300,
+    "width": 590,
+    "height": 580,
+    "output": "public/cartilla/art/extracted/remo.webp"
+  },
+  {
+    "slug": "perro",
+    "source": "public/cartilla/images/source/rr/rr-page-40.jpg",
+    "x": 230,
+    "y": 1094,
+    "width": 574,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/perro.webp"
+  },
+  {
+    "slug": "torre",
+    "source": "public/cartilla/images/source/rr/rr-page-40.jpg",
+    "x": 804,
+    "y": 1094,
+    "width": 574,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/torre.webp"
+  },
+  {
+    "slug": "barril",
+    "source": "public/cartilla/images/source/rr/rr-page-40.jpg",
+    "x": 1378,
+    "y": 1094,
+    "width": 574,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/barril.webp"
+  },
+  {
+    "slug": "cono",
+    "source": "public/cartilla/images/source/c/c-page-52.jpg",
+    "x": 804,
+    "y": 1094,
+    "width": 574,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/cono.webp"
+  },
+  {
+    "slug": "cuna",
+    "source": "public/cartilla/images/source/c/c-page-52.jpg",
+    "x": 1378,
+    "y": 1094,
+    "width": 574,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/cuna.webp"
+  },
+  {
+    "slug": "camisa",
+    "source": "public/cartilla/images/source/c/c-page-52.jpg",
+    "x": 230,
+    "y": 1492,
+    "width": 574,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/camisa.webp"
+  },
+  {
+    "slug": "yoyo",
+    "source": "public/cartilla/images/source/y/y-page-55.jpg",
+    "x": 1391,
+    "y": 2266,
+    "width": 609,
+    "height": 516,
+    "output": "public/cartilla/art/extracted/yoyo.webp"
+  },
+  {
+    "slug": "yate",
+    "source": "public/cartilla/images/source/y/y-page-55.jpg",
+    "x": 86,
+    "y": 1430,
+    "width": 651,
+    "height": 408,
+    "output": "public/cartilla/art/extracted/yate.webp"
+  },
+  {
+    "slug": "yegua",
+    "source": "public/cartilla/images/source/y/y-page-55.jpg",
+    "x": 1378,
+    "y": 1094,
+    "width": 574,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/yegua.webp"
+  },
+  {
+    "slug": "yema",
+    "source": "public/cartilla/images/source/y/y-page-55.jpg",
+    "x": 230,
+    "y": 1492,
+    "width": 574,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/yema.webp"
+  },
+  {
+    "slug": "zapato",
+    "source": "public/cartilla/images/source/z/z-page-58.jpg",
+    "x": 101,
+    "y": 1289,
+    "width": 610,
+    "height": 579,
+    "output": "public/cartilla/art/extracted/zapato.webp"
+  },
+  {
+    "slug": "zanahoria",
+    "source": "public/cartilla/images/source/z/z-page-58.jpg",
+    "x": 806,
+    "y": 1094,
+    "width": 575,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/zanahoria.webp"
+  },
+  {
+    "slug": "cisne",
+    "source": "public/cartilla/images/source/z/z-page-58.jpg",
+    "x": 1381,
+    "y": 1094,
+    "width": 575,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/cisne.webp"
+  },
+  {
+    "slug": "cepillo",
+    "source": "public/cartilla/images/source/z/z-page-58.jpg",
+    "x": 231,
+    "y": 1492,
+    "width": 575,
+    "height": 398,
+    "output": "public/cartilla/art/extracted/cepillo.webp"
+  },
+  {
+    "slug": "zorro",
+    "source": "public/cartilla/images/source/z/z-page-58.jpg",
+    "x": 1680,
+    "y": 1170,
+    "width": 555,
+    "height": 680,
+    "output": "public/cartilla/art/extracted/zorro.webp"
+  },
+  {
+    "slug": "traje",
+    "source": "public/cartilla/images/source/u/u-page-16.jpg",
+    "x": 718,
+    "y": 598,
+    "width": 254,
+    "height": 232,
+    "output": "public/cartilla/art/extracted/traje.webp"
+  },
+  {
+    "slug": "arco",
+    "source": "public/cartilla/images/source/u/u-page-16.jpg",
+    "x": 980,
+    "y": 350,
+    "width": 252,
+    "height": 235,
+    "output": "public/cartilla/art/extracted/arco.webp"
+  },
+  {
+    "slug": "pez",
+    "source": "public/cartilla/images/source/u/u-page-16.jpg",
+    "x": 718,
+    "y": 350,
+    "width": 254,
+    "height": 235,
+    "output": "public/cartilla/art/extracted/pez.webp"
+  },
+  {
+    "slug": "aguila",
+    "source": "public/cartilla/images/source/u/u-page-16.jpg",
+    "x": 980,
+    "y": 842,
+    "width": 252,
+    "height": 236,
+    "output": "public/cartilla/art/extracted/aguila.webp"
+  }
+]

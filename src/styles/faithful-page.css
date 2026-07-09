@@ -157,6 +157,13 @@
   font-size: 4cqw;
   color: var(--book-ink);
 }
+.fp-region--reading-sentences {
+  font-size: 4.2cqw;
+  color: var(--book-ink);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+}
 .fp-region--footer {
   color: var(--book-ink-soft);
   margin-top: auto;

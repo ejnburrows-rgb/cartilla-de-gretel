@@ -194,7 +194,7 @@
   "workbook": {
     "description": "Student libro del alumno — separate from teacher flipchart",
     "path": "public/cartilla/images/source",
-    "totalPages": 90,
+    "totalPages": 87,
     "lessons": [
       {
         "lessonId": 1,
@@ -268,7 +268,7 @@
           "ss/ss-page-14.jpg",
           "ss/ss-page-15.jpg",
           "ss/ss-page-16.jpg",
-          "s/s-page-17.jpg"
+          "ss/ss-page-17.jpg"
         ]
       },
       {
@@ -374,40 +374,36 @@
       {
         "lessonId": 21,
         "pages": [
-          "j/j-page-1.jpg",
-          "j/j-page-2.jpg",
-          "j/j-page-3.jpg",
-          "j/j-page-4.jpg"
+          "j/j-page-49.jpg",
+          "j/j-page-50.jpg",
+          "j/j-page-51.jpg"
         ],
         "note": "Teacher-distributed. No bound workbook pages."
       },
       {
         "lessonId": 22,
         "pages": [
-          "c/c-page-1.jpg",
-          "c/c-page-2.jpg",
-          "c/c-page-3.jpg",
-          "c/c-page-4.jpg"
+          "c/c-page-52.jpg",
+          "c/c-page-53.jpg",
+          "c/c-page-54.jpg"
         ],
         "note": "Teacher-distributed. No bound workbook pages."
       },
       {
         "lessonId": 23,
         "pages": [
-          "y/y-page-1.jpg",
-          "y/y-page-2.jpg",
-          "y/y-page-3.jpg",
-          "y/y-page-4.jpg"
+          "y/y-page-55.jpg",
+          "y/y-page-56.jpg",
+          "y/y-page-57.jpg"
         ],
         "note": "Teacher-distributed. No bound workbook pages."
       },
       {
         "lessonId": 24,
         "pages": [
-          "z/z-page-1.jpg",
-          "z/z-page-2.jpg",
-          "z/z-page-3.jpg",
-          "z/z-page-4.jpg"
+          "z/z-page-58.jpg",
+          "z/z-page-59.jpg",
+          "z/z-page-60.jpg"
         ],
         "note": "Teacher-distributed. No bound workbook pages."
       }

@@ -343,6 +343,14 @@ function RegionView({
           {region.text ? <span className="fp-draw-box__hint">{region.text}</span> : null}
         </div>
       );
+    case "reading-sentences":
+      return (
+        <div className="fp-region--reading-sentences">
+          {(region.sentences ?? []).map((sentence, i) => (
+            <p key={i}>{sentence}</p>
+          ))}
+        </div>
+      );
     default:
       return <p className={`fp-region--${region.regionType}`}>{region.text}</p>;
   }
