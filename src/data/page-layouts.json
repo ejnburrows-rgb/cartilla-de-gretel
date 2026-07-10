@@ -1674,6 +1674,12 @@
           "order": 2,
           "fontRole": "body",
           "text": "Escribe oraciones. Usa las sílabas que aprendiste."
+        },
+        {
+          "id": "p21-draw",
+          "regionType": "draw-box",
+          "order": 3,
+          "fontRole": "body"
         }
       ]
     },
@@ -2064,6 +2070,12 @@
           "order": 2,
           "fontRole": "body",
           "text": "Escribe oraciones. Usa las sílabas que aprendiste."
+        },
+        {
+          "id": "p25-draw",
+          "regionType": "draw-box",
+          "order": 3,
+          "fontRole": "body"
         }
       ]
     },
