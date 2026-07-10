@@ -9,7 +9,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Circula los dibujos de las palabras en cada línea horizontal que comienzan con el mismo sonido."
+          "text": "Toca los dibujos de las palabras en cada línea horizontal que comienzan con el mismo sonido."
         },
         {
           "id": "p1-grid",
@@ -123,7 +123,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Circula el dibujo que comienza con la vocal del recuadro."
+          "text": "Toca el dibujo que comienza con la vocal del recuadro."
         },
         {
           "id": "p2-rows",
@@ -292,7 +292,7 @@
           "order": 0,
           "fontRole": "body",
           "label": "Instrucciones:",
-          "text": "Marca con una x los dibujos que comienzan con O o."
+          "text": "Toca los dibujos que comienzan con O o."
         },
         {
           "id": "p4-grid",
@@ -451,7 +451,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p6-write-O",
@@ -502,7 +502,7 @@
           "order": 0,
           "fontRole": "body",
           "label": "Instrucciones:",
-          "text": "Marca con una x los dibujos de las palabras que comienzan con A a."
+          "text": "Toca los dibujos de las palabras que comienzan con A a."
         },
         {
           "id": "p7-grid",
@@ -662,7 +662,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p9-write-A",
@@ -713,7 +713,7 @@
           "order": 0,
           "fontRole": "body",
           "label": "Instrucciones:",
-          "text": "Marca con una x los dibujos de las palabras que comienzan con E e."
+          "text": "Toca los dibujos de las palabras que comienzan con E e."
         },
         {
           "id": "p10-grid",
@@ -872,7 +872,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p12-write-E",
@@ -923,7 +923,7 @@
           "order": 0,
           "fontRole": "body",
           "label": "Instrucciones:",
-          "text": "Marca con una x los dibujos de las palabras que comienzan con I i."
+          "text": "Toca los dibujos de las palabras que comienzan con I i."
         },
         {
           "id": "p13-grid",
@@ -1081,7 +1081,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p15-write-I",
@@ -1132,7 +1132,7 @@
           "order": 0,
           "fontRole": "body",
           "label": "Instrucciones:",
-          "text": "Marca con una x los dibujos de las palabras que comienzan con U u."
+          "text": "Toca los dibujos de las palabras que comienzan con U u."
         },
         {
           "id": "p16-grid",
@@ -1278,7 +1278,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p18-write-U",
@@ -1328,7 +1328,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p19-write-U",
@@ -1580,7 +1580,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Completa las palabras con la sílaba correcta."
+          "text": "Completa las palabras con la s�laba correcta. Escribe oraciones con el nombre de cada figura. Usa las s�labas que aprendiste."
         },
         {
           "id": "p21-fill",
@@ -1717,7 +1717,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p23-write-U",
@@ -1969,7 +1969,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Completa las palabras con la sílaba correcta."
+          "text": "Completa las palabras con la s�laba correcta. Escribe oraciones con el nombre de cada figura. Usa las s�labas que aprendiste."
         },
         {
           "id": "p25-fill",
@@ -2106,7 +2106,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p27-write-U",
@@ -2357,7 +2357,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Completa las palabras con la sílaba correcta."
+          "text": "Completa las palabras con la s�laba correcta. Escribe oraciones con el nombre de cada figura. Usa las s�labas que aprendiste."
         },
         {
           "id": "p29-fill",
@@ -2494,7 +2494,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p31-write-U",
@@ -2747,7 +2747,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Completa las palabras con la sílaba correcta."
+          "text": "Completa las palabras con la s�laba correcta. Escribe oraciones con el nombre de cada figura. Usa las s�labas que aprendiste."
         },
         {
           "id": "p33-fill",
@@ -2884,7 +2884,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p35-write-U",
@@ -3137,7 +3137,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Completa las palabras con la sílaba correcta."
+          "text": "Completa las palabras con la s�laba correcta. Escribe oraciones con el nombre de cada figura. Usa las s�labas que aprendiste."
         },
         {
           "id": "p37-fill",
@@ -3274,7 +3274,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p39-write-U",
@@ -3525,7 +3525,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Completa las palabras con la sílaba correcta."
+          "text": "Completa las palabras con la s�laba correcta. Escribe oraciones con el nombre de cada figura. Usa las s�labas que aprendiste."
         },
         {
           "id": "p41-fill",
@@ -3662,7 +3662,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p43-write-U",
@@ -3922,7 +3922,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Completa las palabras con la sílaba correcta."
+          "text": "Completa las palabras con la s�laba correcta. Escribe oraciones con el nombre de cada figura. Usa las s�labas que aprendiste."
         },
         {
           "id": "p45-fill",
@@ -4059,7 +4059,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p47-write-U",
@@ -4310,7 +4310,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Completa las palabras con la sílaba correcta."
+          "text": "Completa las palabras con la s�laba correcta. Escribe oraciones con el nombre de cada figura. Usa las s�labas que aprendiste."
         },
         {
           "id": "p49-fill",
@@ -4447,7 +4447,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p51-write-U",
@@ -4697,7 +4697,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Completa las palabras con la sílaba correcta."
+          "text": "Completa las palabras con la s�laba correcta. Escribe oraciones con el nombre de cada figura. Usa las s�labas que aprendiste."
         },
         {
           "id": "p53-fill",
@@ -4834,7 +4834,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p55-write-U",
@@ -5087,7 +5087,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Completa las palabras con la sílaba correcta."
+          "text": "Completa las palabras con la s�laba correcta. Escribe oraciones con el nombre de cada figura. Usa las s�labas que aprendiste."
         },
         {
           "id": "p57-fill",
@@ -5224,7 +5224,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p59-write-U",
@@ -5479,7 +5479,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Completa las palabras con la sílaba correcta."
+          "text": "Completa las palabras con la s�laba correcta. Escribe oraciones con el nombre de cada figura. Usa las s�labas que aprendiste."
         },
         {
           "id": "p61-fill",
@@ -5615,7 +5615,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p63-write-U",
@@ -5865,7 +5865,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Completa las palabras con la sílaba correcta."
+          "text": "Completa las palabras con la s�laba correcta. Escribe oraciones con el nombre de cada figura. Usa las s�labas que aprendiste."
         },
         {
           "id": "p65-fill",
@@ -6000,7 +6000,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p67-write-U",
@@ -6246,7 +6246,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Completa las palabras con la sílaba correcta."
+          "text": "Completa las palabras con la s�laba correcta. Escribe oraciones con el nombre de cada figura. Usa las s�labas que aprendiste."
         },
         {
           "id": "p69-fill",
@@ -6379,7 +6379,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p71-write-U",
@@ -6625,7 +6625,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Completa las palabras con la sílaba correcta."
+          "text": "Completa las palabras con la s�laba correcta. Escribe oraciones con el nombre de cada figura. Usa las s�labas que aprendiste."
         },
         {
           "id": "p73-fill",
@@ -6758,7 +6758,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p75-write-U",
@@ -7004,7 +7004,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Completa las palabras con la sílaba correcta."
+          "text": "Completa las palabras con la s�laba correcta. Escribe oraciones con el nombre de cada figura. Usa las s�labas que aprendiste."
         },
         {
           "id": "p77-fill",
@@ -7137,7 +7137,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p79-write-U",
@@ -7386,7 +7386,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Completa las palabras con la sílaba correcta."
+          "text": "Completa las palabras con la s�laba correcta. Escribe oraciones con el nombre de cada figura. Usa las s�labas que aprendiste."
         },
         {
           "id": "p81-fill",
@@ -7520,7 +7520,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p83-write-U",
@@ -7772,7 +7772,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Completa las palabras con la sílaba correcta."
+          "text": "Completa las palabras con la s�laba correcta. Escribe oraciones con el nombre de cada figura. Usa las s�labas que aprendiste."
         },
         {
           "id": "p85-fill",
@@ -7908,7 +7908,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p87-write-U",
@@ -8157,7 +8157,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Completa las palabras con la sílaba correcta."
+          "text": "Completa las palabras con la s�laba correcta. Escribe oraciones con el nombre de cada figura. Usa las s�labas que aprendiste."
         },
         {
           "id": "p89-fill",
