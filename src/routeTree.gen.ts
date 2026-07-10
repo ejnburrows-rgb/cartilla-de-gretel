@@ -21,6 +21,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as CartillaIndexRouteImport } from './routes/cartilla/index'
 import { Route as PrintBinderRouteImport } from './routes/print/binder'
 import { Route as PrintLessonIdRouteImport } from './routes/print/$lessonId'
+import { Route as CartillaVocesRouteImport } from './routes/cartilla/voces'
 import { Route as CartillaUnirseRouteImport } from './routes/cartilla/unirse'
 import { Route as CartillaStudentLoginRouteImport } from './routes/cartilla/student-login'
 import { Route as CartillaSesionesRouteImport } from './routes/cartilla/sesiones'
@@ -121,6 +122,11 @@ const PrintBinderRoute = PrintBinderRouteImport.update({
 const PrintLessonIdRoute = PrintLessonIdRouteImport.update({
   id: '/print/$lessonId',
   path: '/print/$lessonId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CartillaVocesRoute = CartillaVocesRouteImport.update({
+  id: '/cartilla/voces',
+  path: '/cartilla/voces',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CartillaUnirseRoute = CartillaUnirseRouteImport.update({
@@ -366,6 +372,7 @@ export interface FileRoutesByFullPath {
   '/cartilla/sesiones': typeof CartillaSesionesRoute
   '/cartilla/student-login': typeof CartillaStudentLoginRoute
   '/cartilla/unirse': typeof CartillaUnirseRoute
+  '/cartilla/voces': typeof CartillaVocesRoute
   '/print/$lessonId': typeof PrintLessonIdRoute
   '/print/binder': typeof PrintBinderRoute
   '/cartilla/': typeof CartillaIndexRoute
@@ -419,6 +426,7 @@ export interface FileRoutesByTo {
   '/cartilla/sesiones': typeof CartillaSesionesRoute
   '/cartilla/student-login': typeof CartillaStudentLoginRoute
   '/cartilla/unirse': typeof CartillaUnirseRoute
+  '/cartilla/voces': typeof CartillaVocesRoute
   '/print/$lessonId': typeof PrintLessonIdRoute
   '/print/binder': typeof PrintBinderRoute
   '/cartilla': typeof CartillaIndexRoute
@@ -475,6 +483,7 @@ export interface FileRoutesById {
   '/cartilla/sesiones': typeof CartillaSesionesRoute
   '/cartilla/student-login': typeof CartillaStudentLoginRoute
   '/cartilla/unirse': typeof CartillaUnirseRoute
+  '/cartilla/voces': typeof CartillaVocesRoute
   '/print/$lessonId': typeof PrintLessonIdRoute
   '/print/binder': typeof PrintBinderRoute
   '/cartilla/': typeof CartillaIndexRoute
@@ -532,6 +541,7 @@ export interface FileRouteTypes {
     | '/cartilla/sesiones'
     | '/cartilla/student-login'
     | '/cartilla/unirse'
+    | '/cartilla/voces'
     | '/print/$lessonId'
     | '/print/binder'
     | '/cartilla/'
@@ -585,6 +595,7 @@ export interface FileRouteTypes {
     | '/cartilla/sesiones'
     | '/cartilla/student-login'
     | '/cartilla/unirse'
+    | '/cartilla/voces'
     | '/print/$lessonId'
     | '/print/binder'
     | '/cartilla'
@@ -640,6 +651,7 @@ export interface FileRouteTypes {
     | '/cartilla/sesiones'
     | '/cartilla/student-login'
     | '/cartilla/unirse'
+    | '/cartilla/voces'
     | '/print/$lessonId'
     | '/print/binder'
     | '/cartilla/'
@@ -697,6 +709,7 @@ export interface RootRouteChildren {
   CartillaSesionesRoute: typeof CartillaSesionesRoute
   CartillaStudentLoginRoute: typeof CartillaStudentLoginRoute
   CartillaUnirseRoute: typeof CartillaUnirseRoute
+  CartillaVocesRoute: typeof CartillaVocesRoute
   PrintLessonIdRoute: typeof PrintLessonIdRoute
   PrintBinderRoute: typeof PrintBinderRoute
   CartillaIndexRoute: typeof CartillaIndexRoute
@@ -792,6 +805,13 @@ declare module '@tanstack/react-router' {
       path: '/print/$lessonId'
       fullPath: '/print/$lessonId'
       preLoaderRoute: typeof PrintLessonIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cartilla/voces': {
+      id: '/cartilla/voces'
+      path: '/cartilla/voces'
+      fullPath: '/cartilla/voces'
+      preLoaderRoute: typeof CartillaVocesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cartilla/unirse': {
@@ -1218,6 +1238,7 @@ const rootRouteChildren: RootRouteChildren = {
   CartillaSesionesRoute: CartillaSesionesRoute,
   CartillaStudentLoginRoute: CartillaStudentLoginRoute,
   CartillaUnirseRoute: CartillaUnirseRoute,
+  CartillaVocesRoute: CartillaVocesRoute,
   PrintLessonIdRoute: PrintLessonIdRoute,
   PrintBinderRoute: PrintBinderRoute,
   CartillaIndexRoute: CartillaIndexRoute,
