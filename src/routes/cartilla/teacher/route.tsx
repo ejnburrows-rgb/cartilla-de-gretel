@@ -66,7 +66,7 @@ function TeacherLayout() {
               active={location.pathname.includes("/reportes")}
             />
             <NavLink
-              to="/cartilla/teacher/guia/1"
+              to="/cartilla/teacher/guia"
               icon={<BookOpen className="w-4 h-4" />}
               label="Guía"
               active={location.pathname.includes("/guia")}

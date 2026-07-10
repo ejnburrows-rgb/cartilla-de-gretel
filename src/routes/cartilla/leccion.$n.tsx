@@ -149,10 +149,10 @@ function Leccion() {
             {!session && (
               <div className="fixed top-4 left-4 z-[200]">
                 <Link
-                  to="/cartilla/teacher/lecciones"
+                  to="/cartilla/lecciones"
                   className="inline-flex items-center gap-2 px-4 py-2 bg-stone-800/90 hover:bg-stone-800 text-white font-bold rounded-xl shadow-lg backdrop-blur transition hover:-translate-y-0.5"
                 >
-                  <ArrowLeft className="w-4 h-4" /> Salir al CRM
+                  <ArrowLeft className="w-4 h-4" /> Volver a mis lecciones
                 </Link>
               </div>
             )}

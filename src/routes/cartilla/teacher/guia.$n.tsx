@@ -1,5 +1,5 @@
 import { createFileRoute, Link, useNavigate, redirect } from "@tanstack/react-router";
-import { Printer, ChevronLeft } from "lucide-react";
+import { Printer, ChevronLeft, MonitorPlay, BookOpenCheck, FolderOpen } from "lucide-react";
 import { CATALOG } from "@/lib/lesson-catalog";
 import { GuideLayout } from "@/content/guides/GuideLayout";
 
@@ -58,13 +58,36 @@ function TeacherGuideLeccion() {
           Volver al Panel
         </Link>
         
-        <button
-          onClick={() => window.print()}
-          className="flex items-center gap-2 px-4 py-2 bg-stone-100 hover:bg-stone-200 text-stone-700 rounded-xl text-sm font-bold border border-stone-200 transition-all shadow-sm"
-        >
-          <Printer className="w-4 h-4" />
-          Imprimir Guía
-        </button>
+        <div className="flex items-center gap-2">
+          <Link
+            to="/cartilla/teacher/guia"
+            className="flex items-center gap-1.5 px-3 py-2 bg-stone-100 hover:bg-stone-200 text-stone-700 rounded-xl text-xs font-bold border border-stone-200 transition-all"
+          >
+            <FolderOpen className="w-3.5 h-3.5" /> Carpetas
+          </Link>
+          <Link
+            to="/cartilla/teacher/paginas/$n"
+            params={{ n: String(n) }}
+            className="flex items-center gap-1.5 px-3 py-2 bg-stone-100 hover:bg-stone-200 text-stone-700 rounded-xl text-xs font-bold border border-stone-200 transition-all"
+          >
+            <BookOpenCheck className="w-3.5 h-3.5" /> Actividades del estudiante
+          </Link>
+          <Link
+            to="/cartilla/presentar/$n"
+            params={{ n: String(n) }}
+            className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold border transition-all"
+            style={{ background: accentColor, color: "white", borderColor: accentColor }}
+          >
+            <MonitorPlay className="w-3.5 h-3.5" /> Presentar flipchart
+          </Link>
+          <button
+            onClick={() => window.print()}
+            className="flex items-center gap-2 px-4 py-2 bg-stone-100 hover:bg-stone-200 text-stone-700 rounded-xl text-sm font-bold border border-stone-200 transition-all shadow-sm"
+          >
+            <Printer className="w-4 h-4" />
+            Imprimir Guía
+          </button>
+        </div>
       </div>
 
       {/* Full Master-Detail Curriculum Layout */}
