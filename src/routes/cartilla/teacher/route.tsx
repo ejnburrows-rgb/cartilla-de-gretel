@@ -1,12 +1,24 @@
 import { createFileRoute, Outlet, Link, useLocation, redirect } from "@tanstack/react-router";
 import { Users, BarChart3, FileSpreadsheet, MonitorPlay, BookOpen } from "lucide-react";
 import { getStudentSession } from "@/lib/student-session";
+import { supabase } from "@/integrations/supabase/client";
 
+// Every /cartilla/teacher/* page nests under this route via <Outlet/>, so
+// this is the single real gate for the whole teacher lane. Previously this
+// only kicked out logged-in students — it never actually checked for a real
+// teacher session, so the nav shell (and public curriculum content like the
+// Guía folders) rendered for anyone, logged in or not. Real student/class
+// data was still protected separately (every teacher.functions.ts call
+// requires a session), but the lane itself wasn't gated. Now it is.
 export const Route = createFileRoute("/cartilla/teacher")({
-  beforeLoad: () => {
-    const session = getStudentSession();
-    if (session) {
+  beforeLoad: async () => {
+    const studentSession = getStudentSession();
+    if (studentSession) {
       throw redirect({ to: "/cartilla/lecciones" });
+    }
+    const { data } = await supabase.auth.getSession();
+    if (!data.session) {
+      throw redirect({ to: "/login" });
     }
   },
   component: TeacherLayout,
