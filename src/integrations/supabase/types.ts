@@ -46,6 +46,50 @@ export type Database = {
           },
         ];
       };
+      folder_assignments: {
+        Row: {
+          activity_label: string;
+          class_id: string;
+          created_at: string;
+          folder_key: string;
+          id: string;
+          lesson_id: string;
+          student_ids: string[] | null;
+          target_scope: string;
+          teacher_id: string;
+        };
+        Insert: {
+          activity_label: string;
+          class_id: string;
+          created_at?: string;
+          folder_key: string;
+          id?: string;
+          lesson_id: string;
+          student_ids?: string[] | null;
+          target_scope: string;
+          teacher_id: string;
+        };
+        Update: {
+          activity_label?: string;
+          class_id?: string;
+          created_at?: string;
+          folder_key?: string;
+          id?: string;
+          lesson_id?: string;
+          student_ids?: string[] | null;
+          target_scope?: string;
+          teacher_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "folder_assignments_class_id_fkey";
+            columns: ["class_id"];
+            isOneToOne: false;
+            referencedRelation: "classes";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
       classes: {
         Row: {
           created_at: string;
@@ -398,6 +442,24 @@ export type Database = {
           student_code: string;
           class_id: string;
           class_name: string;
+        }[];
+      };
+      get_student_folder_assignments: {
+        Args: {
+          p_class_id: string;
+          p_student_id: string;
+          p_student_code: string;
+        };
+        Returns: {
+          id: string;
+          class_id: string;
+          teacher_id: string;
+          folder_key: string;
+          lesson_id: string;
+          activity_label: string;
+          target_scope: string;
+          student_ids: string[] | null;
+          created_at: string;
         }[];
       };
       log_student_progress: {
