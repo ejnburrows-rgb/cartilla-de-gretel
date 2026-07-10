@@ -256,6 +256,49 @@
   align-items: center;
   justify-content: center;
 }
+.fp-ix-pick__letter--draggable {
+  border: none;
+  padding: 0;
+  cursor: grab;
+  touch-action: none;
+  transition: box-shadow 0.15s ease, scale 0.15s ease;
+}
+.fp-ix-pick__letter--draggable.is-dragging {
+  cursor: grabbing;
+  scale: 1.12;
+  box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.35);
+}
+.fp-ix-pick__letter--draggable.is-selected {
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.7), 0 0 0 7px var(--ix-accent);
+}
+.fp-ix-pick__letter--draggable:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.fp-ix-cell--droppable.is-over {
+  outline: 3px dashed var(--ix-accent);
+  outline-offset: 3px;
+}
+.fp-ix-cell--droppable.graded-wrong-flash {
+  animation: fpIxBounceBack 0.4s ease;
+}
+@keyframes fpIxBounceBack {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-3%); }
+  50% { transform: translateX(3%); }
+  75% { transform: translateX(-2%); }
+  100% { transform: translateX(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fp-ix-pick__letter--draggable,
+  .fp-ix-pick__letter--draggable.is-dragging {
+    transition: none;
+    scale: 1;
+  }
+  .fp-ix-cell--droppable.graded-wrong-flash {
+    animation: none;
+  }
+}
 .fp-ix-pick__cells {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
