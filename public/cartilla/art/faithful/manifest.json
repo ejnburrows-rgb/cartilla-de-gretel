@@ -341,9 +341,10 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-i/iglesia.webp",
-    "sourceFlipchartPage": null,
+    "sourceFlipchartPage": "UNKNOWN-SOURCE",
     "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "provenanceStatus": "PROVENANCE-UNKNOWN",
+    "sourceScan": "UNKNOWN-SOURCE"
   },
   {
     "slug": "ojos",
@@ -351,9 +352,10 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-o/ojos.webp",
-    "sourceFlipchartPage": null,
+    "sourceFlipchartPage": "UNKNOWN-SOURCE",
     "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "provenanceStatus": "PROVENANCE-UNKNOWN",
+    "sourceScan": "UNKNOWN-SOURCE"
   },
   {
     "slug": "oruga",
@@ -361,9 +363,10 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-o/oruga.webp",
-    "sourceFlipchartPage": null,
+    "sourceFlipchartPage": "UNKNOWN-SOURCE",
     "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "provenanceStatus": "PROVENANCE-UNKNOWN",
+    "sourceScan": "UNKNOWN-SOURCE"
   },
   {
     "slug": "escoba",
@@ -399,9 +402,10 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-1/ola.webp",
-    "sourceFlipchartPage": null,
+    "sourceFlipchartPage": "UNKNOWN-SOURCE",
     "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "provenanceStatus": "PROVENANCE-UNKNOWN",
+    "sourceScan": "UNKNOWN-SOURCE"
   },
   {
     "slug": "pajaro",
@@ -409,9 +413,10 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-1/pajaro.webp",
-    "sourceFlipchartPage": null,
+    "sourceFlipchartPage": "UNKNOWN-SOURCE",
     "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "provenanceStatus": "PROVENANCE-UNKNOWN",
+    "sourceScan": "UNKNOWN-SOURCE"
   },
   {
     "slug": "remolino",
@@ -419,9 +424,10 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-1/remolino.webp",
-    "sourceFlipchartPage": null,
+    "sourceFlipchartPage": "UNKNOWN-SOURCE",
     "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "provenanceStatus": "PROVENANCE-UNKNOWN",
+    "sourceScan": "UNKNOWN-SOURCE"
   },
   {
     "slug": "carro",
@@ -443,9 +449,10 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-1/dulce.webp",
-    "sourceFlipchartPage": null,
+    "sourceFlipchartPage": "UNKNOWN-SOURCE",
     "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "provenanceStatus": "PROVENANCE-UNKNOWN",
+    "sourceScan": "UNKNOWN-SOURCE"
   },
   {
     "slug": "globo",
@@ -453,9 +460,10 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-1/globo.webp",
-    "sourceFlipchartPage": null,
+    "sourceFlipchartPage": "UNKNOWN-SOURCE",
     "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "provenanceStatus": "PROVENANCE-UNKNOWN",
+    "sourceScan": "UNKNOWN-SOURCE"
   },
   {
     "slug": "libro",
@@ -463,9 +471,10 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-1/libro.webp",
-    "sourceFlipchartPage": null,
+    "sourceFlipchartPage": "UNKNOWN-SOURCE",
     "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "provenanceStatus": "PROVENANCE-UNKNOWN",
+    "sourceScan": "UNKNOWN-SOURCE"
   },
   {
     "slug": "maiz",
@@ -515,9 +524,10 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-a/ardilla.webp",
-    "sourceFlipchartPage": null,
+    "sourceFlipchartPage": "UNKNOWN-SOURCE",
     "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "provenanceStatus": "PROVENANCE-UNKNOWN",
+    "sourceScan": "UNKNOWN-SOURCE"
   },
   {
     "slug": "escuela",
@@ -525,9 +535,10 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-e/escuela.webp",
-    "sourceFlipchartPage": null,
+    "sourceFlipchartPage": "UNKNOWN-SOURCE",
     "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "provenanceStatus": "PROVENANCE-UNKNOWN",
+    "sourceScan": "UNKNOWN-SOURCE"
   },
   {
     "slug": "igual",
@@ -535,9 +546,10 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-i/igual.webp",
-    "sourceFlipchartPage": null,
+    "sourceFlipchartPage": "UNKNOWN-SOURCE",
     "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "provenanceStatus": "PROVENANCE-UNKNOWN",
+    "sourceScan": "UNKNOWN-SOURCE"
   },
   {
     "slug": "iguana",
@@ -545,9 +557,10 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-i/iguana.webp",
-    "sourceFlipchartPage": null,
+    "sourceFlipchartPage": "UNKNOWN-SOURCE",
     "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "provenanceStatus": "PROVENANCE-UNKNOWN",
+    "sourceScan": "UNKNOWN-SOURCE"
   },
   {
     "slug": "invierno",
@@ -583,9 +596,10 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-a/aguja.webp",
-    "sourceFlipchartPage": null,
+    "sourceFlipchartPage": "UNKNOWN-SOURCE",
     "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "provenanceStatus": "PROVENANCE-UNKNOWN",
+    "sourceScan": "UNKNOWN-SOURCE"
   },
   {
     "slug": "anillo",
@@ -593,9 +607,10 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-a/anillo.webp",
-    "sourceFlipchartPage": null,
+    "sourceFlipchartPage": "UNKNOWN-SOURCE",
     "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "provenanceStatus": "PROVENANCE-UNKNOWN",
+    "sourceScan": "UNKNOWN-SOURCE"
   },
   {
     "slug": "manzana",
@@ -603,9 +618,10 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-1/manzana.webp",
-    "sourceFlipchartPage": null,
+    "sourceFlipchartPage": "UNKNOWN-SOURCE",
     "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "provenanceStatus": "PROVENANCE-UNKNOWN",
+    "sourceScan": "UNKNOWN-SOURCE"
   },
   {
     "slug": "pera",
@@ -613,9 +629,10 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-1/pera.webp",
-    "sourceFlipchartPage": null,
+    "sourceFlipchartPage": "UNKNOWN-SOURCE",
     "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "provenanceStatus": "PROVENANCE-UNKNOWN",
+    "sourceScan": "UNKNOWN-SOURCE"
   },
   {
     "slug": "taza",
@@ -623,9 +640,10 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-1/taza.webp",
-    "sourceFlipchartPage": null,
+    "sourceFlipchartPage": "UNKNOWN-SOURCE",
     "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "provenanceStatus": "PROVENANCE-UNKNOWN",
+    "sourceScan": "UNKNOWN-SOURCE"
   },
   {
     "slug": "uniforme",

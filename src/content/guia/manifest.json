@@ -4,433 +4,557 @@
     "folder": "Guía del profesor",
     "lesson": 1,
     "path": "public/cartilla/art/hd/flipchart/page-001.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 2",
     "folder": "Guía del profesor",
     "lesson": 2,
     "path": "public/cartilla/art/hd/flipchart/page-002.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 3",
     "folder": "Guía del profesor",
     "lesson": 3,
     "path": "public/cartilla/art/hd/flipchart/page-003.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 4",
     "folder": "Guía del profesor",
     "lesson": 4,
     "path": "public/cartilla/art/hd/flipchart/page-004.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 5",
     "folder": "Guía del profesor",
     "lesson": 5,
     "path": "public/cartilla/art/hd/flipchart/page-005.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 6",
     "folder": "Guía del profesor",
     "lesson": 6,
     "path": "public/cartilla/art/hd/flipchart/page-006.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 7",
     "folder": "Guía del profesor",
     "lesson": 7,
     "path": "public/cartilla/art/hd/flipchart/page-007.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 8",
     "folder": "Guía del profesor",
     "lesson": 7,
     "path": "public/cartilla/art/hd/flipchart/page-008.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 9",
     "folder": "Guía del profesor",
     "lesson": 7,
     "path": "public/cartilla/art/hd/flipchart/page-009.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 10",
     "folder": "Guía del profesor",
     "lesson": 8,
     "path": "public/cartilla/art/hd/flipchart/page-010.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 11",
     "folder": "Guía del profesor",
     "lesson": 8,
     "path": "public/cartilla/art/hd/flipchart/page-011.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 12",
     "folder": "Guía del profesor",
     "lesson": 8,
     "path": "public/cartilla/art/hd/flipchart/page-012.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 13",
     "folder": "Guía del profesor",
     "lesson": 9,
     "path": "public/cartilla/art/hd/flipchart/page-013.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 14",
     "folder": "Guía del profesor",
     "lesson": 9,
     "path": "public/cartilla/art/hd/flipchart/page-014.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 15",
     "folder": "Guía del profesor",
     "lesson": 9,
     "path": "public/cartilla/art/hd/flipchart/page-015.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 16",
     "folder": "Guía del profesor",
     "lesson": 10,
     "path": "public/cartilla/art/hd/flipchart/page-016.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 17",
     "folder": "Guía del profesor",
     "lesson": 10,
     "path": "public/cartilla/art/hd/flipchart/page-017.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 18",
     "folder": "Guía del profesor",
     "lesson": 10,
     "path": "public/cartilla/art/hd/flipchart/page-018.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 19",
     "folder": "Guía del profesor",
     "lesson": 11,
     "path": "public/cartilla/art/hd/flipchart/page-019.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 20",
     "folder": "Guía del profesor",
     "lesson": 11,
     "path": "public/cartilla/art/hd/flipchart/page-020.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 21",
     "folder": "Guía del profesor",
     "lesson": 11,
     "path": "public/cartilla/art/hd/flipchart/page-021.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 22",
     "folder": "Guía del profesor",
     "lesson": 12,
     "path": "public/cartilla/art/hd/flipchart/page-022.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 23",
     "folder": "Guía del profesor",
     "lesson": 12,
     "path": "public/cartilla/art/hd/flipchart/page-023.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 24",
     "folder": "Guía del profesor",
     "lesson": 12,
     "path": "public/cartilla/art/hd/flipchart/page-024.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 25",
     "folder": "Guía del profesor",
     "lesson": 13,
     "path": "public/cartilla/art/hd/flipchart/page-025.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 26",
     "folder": "Guía del profesor",
     "lesson": 13,
     "path": "public/cartilla/art/hd/flipchart/page-026.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 27",
     "folder": "Guía del profesor",
     "lesson": 13,
     "path": "public/cartilla/art/hd/flipchart/page-027.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 28",
     "folder": "Guía del profesor",
     "lesson": 14,
     "path": "public/cartilla/art/hd/flipchart/page-028.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 29",
     "folder": "Guía del profesor",
     "lesson": 14,
     "path": "public/cartilla/art/hd/flipchart/page-029.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 30",
     "folder": "Guía del profesor",
     "lesson": 14,
     "path": "public/cartilla/art/hd/flipchart/page-030.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 31",
     "folder": "Guía del profesor",
     "lesson": 15,
     "path": "public/cartilla/art/hd/flipchart/page-031.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 32",
     "folder": "Guía del profesor",
     "lesson": 15,
     "path": "public/cartilla/art/hd/flipchart/page-032.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 33",
     "folder": "Guía del profesor",
     "lesson": 15,
     "path": "public/cartilla/art/hd/flipchart/page-033.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 34",
     "folder": "Guía del profesor",
     "lesson": 16,
     "path": "public/cartilla/art/hd/flipchart/page-034.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 35",
     "folder": "Guía del profesor",
     "lesson": 16,
     "path": "public/cartilla/art/hd/flipchart/page-035.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 36",
     "folder": "Guía del profesor",
     "lesson": 16,
     "path": "public/cartilla/art/hd/flipchart/page-036.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 37",
     "folder": "Guía del profesor",
     "lesson": 17,
     "path": "public/cartilla/art/hd/flipchart/page-037.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 38",
     "folder": "Guía del profesor",
     "lesson": 17,
     "path": "public/cartilla/art/hd/flipchart/page-038.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 39",
     "folder": "Guía del profesor",
     "lesson": 17,
     "path": "public/cartilla/art/hd/flipchart/page-039.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 40",
     "folder": "Guía del profesor",
     "lesson": 18,
     "path": "public/cartilla/art/hd/flipchart/page-040.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 41",
     "folder": "Guía del profesor",
     "lesson": 18,
     "path": "public/cartilla/art/hd/flipchart/page-041.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 42",
     "folder": "Guía del profesor",
     "lesson": 18,
     "path": "public/cartilla/art/hd/flipchart/page-042.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 43",
     "folder": "Guía del profesor",
     "lesson": 19,
     "path": "public/cartilla/art/hd/flipchart/page-043.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 44",
     "folder": "Guía del profesor",
     "lesson": 19,
     "path": "public/cartilla/art/hd/flipchart/page-044.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 45",
     "folder": "Guía del profesor",
     "lesson": 19,
     "path": "public/cartilla/art/hd/flipchart/page-045.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 46",
     "folder": "Guía del profesor",
     "lesson": 20,
     "path": "public/cartilla/art/hd/flipchart/page-046.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 47",
     "folder": "Guía del profesor",
     "lesson": 20,
     "path": "public/cartilla/art/hd/flipchart/page-047.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 48",
     "folder": "Guía del profesor",
     "lesson": 20,
     "path": "public/cartilla/art/hd/flipchart/page-048.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 49",
     "folder": "Guía del profesor",
     "lesson": 21,
     "path": "public/cartilla/art/hd/flipchart/page-049.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 50",
     "folder": "Guía del profesor",
     "lesson": 21,
     "path": "public/cartilla/art/hd/flipchart/page-050.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 51",
     "folder": "Guía del profesor",
     "lesson": 21,
     "path": "public/cartilla/art/hd/flipchart/page-051.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 52",
     "folder": "Guía del profesor",
     "lesson": 22,
     "path": "public/cartilla/art/hd/flipchart/page-052.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 53",
     "folder": "Guía del profesor",
     "lesson": 22,
     "path": "public/cartilla/art/hd/flipchart/page-053.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 54",
     "folder": "Guía del profesor",
     "lesson": 22,
     "path": "public/cartilla/art/hd/flipchart/page-054.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 55",
     "folder": "Guía del profesor",
     "lesson": 23,
     "path": "public/cartilla/art/hd/flipchart/page-055.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 56",
     "folder": "Guía del profesor",
     "lesson": 23,
     "path": "public/cartilla/art/hd/flipchart/page-056.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 57",
     "folder": "Guía del profesor",
     "lesson": 23,
     "path": "public/cartilla/art/hd/flipchart/page-057.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 58",
     "folder": "Guía del profesor",
     "lesson": 24,
     "path": "public/cartilla/art/hd/flipchart/page-058.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 59",
     "folder": "Guía del profesor",
     "lesson": 24,
     "path": "public/cartilla/art/hd/flipchart/page-059.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 60",
     "folder": "Guía del profesor",
     "lesson": 24,
     "path": "public/cartilla/art/hd/flipchart/page-060.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 61",
     "folder": "Guía del profesor",
     "lesson": null,
     "path": "public/cartilla/art/hd/flipchart/page-061.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   },
   {
     "name": "Teacher Flipchart Page 62",
     "folder": "Guía del profesor",
     "lesson": null,
     "path": "public/cartilla/art/hd/flipchart/page-062.jpg",
-    "type": "image"
+    "type": "image",
+    "sourceScan": "UNKNOWN-SOURCE",
+    "sourceFlipchartPage": "UNKNOWN-SOURCE"
   }
 ]
