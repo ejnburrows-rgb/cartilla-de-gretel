@@ -1,9 +1,20 @@
 {
-  "lesson": 23,
-  "title": "NOT-FOUND-AFTER-SEARCH",
-  "objectives": "NOT-FOUND-AFTER-SEARCH",
-  "motivation": "NOT-FOUND-AFTER-SEARCH",
-  "story_script": "NOT-FOUND-AFTER-SEARCH",
-  "evaluation_references": "NOT-FOUND-AFTER-SEARCH",
-  "provenance": "NOT-FOUND-AFTER-SEARCH"
+  "lessonId": 23,
+  "objectives": [
+    "NOT-FOUND-AFTER-SEARCH: Searched docs/ folder and all git branches for remaining lessons and other text files."
+  ],
+  "motivation": "NOT-FOUND-AFTER-SEARCH: Searched docs/ folder and all git branches for remaining lessons and other text files.",
+  "script": "NOT-FOUND-AFTER-SEARCH: Searched docs/ folder and all git branches for remaining lessons and other text files.",
+  "evaluationRef": {
+    "page": null,
+    "note": "NOT-FOUND-AFTER-SEARCH: Searched docs/ folder and all git branches for remaining lessons and other text files."
+  },
+  "rhyme": {
+    "title": null,
+    "text": null
+  },
+  "provenance": {
+    "source": "NOT-FOUND-AFTER-SEARCH",
+    "verified": false
+  }
 }

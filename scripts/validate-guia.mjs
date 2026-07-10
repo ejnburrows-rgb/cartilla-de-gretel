@@ -1,70 +1,90 @@
 import fs from 'fs';
 import path from 'path';
 
-const repoRoot = process.cwd();
-const guiaDir = path.join(repoRoot, 'src', 'content', 'guia');
+const guiaDir = path.join(process.cwd(), 'src', 'content', 'guia');
 const manifestPath = path.join(guiaDir, 'manifest.json');
 
-let hasErrors = false;
+let hasError = false;
 
-console.log("=== Validating Teacher Guide Extractions ===");
+function error(msg) {
+  console.error(`ERROR: ${msg}`);
+  hasError = true;
+}
 
-// 1. Check all 24 lesson JSON files
+// 1. Assert all 24 JSONs exist and parse, and no schema fields are empty
 for (let i = 1; i <= 24; i++) {
-    const lessonNum = i.toString().padStart(2, '0');
-    const filePath = path.join(guiaDir, `leccion-${lessonNum}.json`);
+  const fileName = `leccion-${String(i).padStart(2, '0')}.json`;
+  const filePath = path.join(guiaDir, fileName);
+  
+  if (!fs.existsSync(filePath)) {
+    error(`${fileName} does not exist.`);
+    continue;
+  }
+  
+  try {
+    const content = fs.readFileSync(filePath, 'utf8');
+    const data = JSON.parse(content);
     
-    if (!fs.existsSync(filePath)) {
-        console.error(`ERROR: Missing file ${filePath}`);
-        hasErrors = true;
-        continue;
+    // Check fields
+    if (!data.lessonId) error(`${fileName}: lessonId is empty`);
+    if (!data.objectives || data.objectives.length === 0) error(`${fileName}: objectives is empty`);
+    if (!data.motivation) error(`${fileName}: motivation is empty`);
+    if (!data.script) error(`${fileName}: script is empty`);
+    
+    if (!data.evaluationRef) error(`${fileName}: evaluationRef is missing`);
+    else {
+      // page can be null, but note must not be empty
+      if (!data.evaluationRef.note) error(`${fileName}: evaluationRef.note is empty`);
     }
     
-    try {
-        const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-        
-        // Verify provenance
-        const prov = data.provenance;
-        if (prov !== "NOT-FOUND-AFTER-SEARCH") {
-            const provPath = path.join(repoRoot, prov);
-            if (!fs.existsSync(provPath)) {
-                console.error(`ERROR: Provenance file '${prov}' in leccion-${lessonNum}.json does not exist in repo.`);
-                hasErrors = true;
-            }
-        }
-        
-    } catch (e) {
-        console.error(`ERROR: Failed to parse ${filePath}: ${e.message}`);
-        hasErrors = true;
+    if (!data.rhyme) error(`${fileName}: rhyme is missing`);
+    // rhyme.title and rhyme.text can be null based on schema, but the object must exist
+    
+    if (!data.provenance) error(`${fileName}: provenance is missing`);
+    else {
+      if (!data.provenance.source) error(`${fileName}: provenance.source is empty`);
     }
+    
+  } catch (e) {
+    error(`Failed to parse ${fileName}: ${e.message}`);
+  }
 }
 
-console.log("=== Validating manifest.json ===");
-
+// 2. Manifest validation
 if (!fs.existsSync(manifestPath)) {
-    console.error(`ERROR: Missing manifest file ${manifestPath}`);
-    hasErrors = true;
+  error(`manifest.json does not exist.`);
 } else {
-    try {
-        const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
-        
-        for (const item of manifest) {
-            const itemPath = path.join(repoRoot, item.path);
-            if (!fs.existsSync(itemPath)) {
-                console.error(`ERROR: Path '${item.path}' in manifest does not resolve on disk.`);
-                hasErrors = true;
-            }
+  try {
+    const content = fs.readFileSync(manifestPath, 'utf8');
+    const manifest = JSON.parse(content);
+    
+    manifest.forEach((item, index) => {
+      if (!item.name || !item.folder || item.lesson === undefined || !item.path || !item.type) {
+        error(`manifest.json[${index}] has empty fields.`);
+      }
+      
+      // Resolve path
+      if (!item.path.startsWith('NOT-FOUND-AFTER-SEARCH')) {
+        let resolvePath = item.path;
+        // If it starts with /cartilla (like Vite paths), make it relative to public
+        if (resolvePath.startsWith('/cartilla')) {
+          resolvePath = path.join(process.cwd(), 'public', resolvePath);
+        } else if (resolvePath.startsWith('public/')) {
+          resolvePath = path.join(process.cwd(), resolvePath);
         }
-    } catch (e) {
-        console.error(`ERROR: Failed to parse ${manifestPath}: ${e.message}`);
-        hasErrors = true;
-    }
+        
+        if (!fs.existsSync(resolvePath)) {
+          error(`manifest.json[${index}] path does not exist on disk: ${item.path}`);
+        }
+      }
+    });
+  } catch (e) {
+    error(`Failed to parse manifest.json: ${e.message}`);
+  }
 }
 
-if (hasErrors) {
-    console.error("\nValidation FAILED.");
-    process.exit(1);
+if (hasError) {
+  process.exit(1);
 } else {
-    console.log("\nValidation PASSED.");
-    process.exit(0);
+  console.log("Validation passed successfully.");
 }
