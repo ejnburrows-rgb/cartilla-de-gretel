@@ -1324,266 +1324,71 @@
     "19": {
       "regions": [
         {
-          "id": "p19-instr1",
-          "regionType": "instruction",
+          "id": "p19-title-0",
+          "regionType": "title",
           "order": 0,
-          "fontRole": "body",
-          "text": "Traza con tu mejor letra."
+          "fontRole": "heading",
+          "text": "Mm"
         },
         {
-          "id": "p19-write-U",
-          "regionType": "writing-line",
+          "id": "p19-syllable-bubble-1",
+          "regionType": "syllable-bubble",
           "order": 1,
-          "fontRole": "tracing",
-          "modelText": "M"
-        },
-        {
-          "id": "p19-write-U2",
-          "regionType": "writing-line",
-          "order": 2,
-          "fontRole": "tracing"
-        },
-        {
-          "id": "p19-write-l",
-          "regionType": "writing-line",
-          "order": 3,
-          "fontRole": "tracing",
-          "modelText": "m"
-        },
-        {
-          "id": "p19-write-l2",
-          "regionType": "writing-line",
-          "order": 4,
-          "fontRole": "tracing"
-        },
-        {
-          "id": "p19-instr2",
-          "regionType": "instruction",
-          "order": 5,
           "fontRole": "body",
-          "text": "Haz un dibujo que represente una palabra que comienza con m."
+          "text": "ma  me  mi  mo  mu"
         },
         {
-          "id": "p19-draw",
-          "regionType": "draw-box",
-          "order": 6,
-          "fontRole": "body"
+          "id": "p19-syllable-bubble-2",
+          "regionType": "syllable-bubble",
+          "order": 2,
+          "fontRole": "body",
+          "text": "mu  mo  mi  me  ma"
+        },
+        {
+          "id": "p19-vocab-grid-3",
+          "regionType": "vocab-grid",
+          "order": 3,
+          "fontRole": "body",
+          "text": "mamá · mono · moto · mapa"
         }
       ]
     },
     "20": {
-      "regions": [
-        {
-          "id": "p20-instr",
-          "regionType": "instruction",
-          "order": 0,
-          "fontRole": "body",
-          "text": "Encierra en un círculo la sílaba correspondiente."
-        },
-        {
-          "id": "p20-ma",
-          "regionType": "syllable-match",
-          "order": 1,
-          "fontRole": "body",
-          "syllable": "ma",
-          "matchRows": [
-            [
-              {
-                "word": "mamá",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/mama.webp"
-              },
-              {
-                "word": "moda",
-                "correct": false
-              },
-              {
-                "word": "mapa",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/mapa.webp"
-              }
-            ],
-            [
-              {
-                "word": "Memo",
-                "correct": false
-              },
-              {
-                "word": "maleta",
-                "correct": true
-              },
-              {
-                "word": "Mimi",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p20-me",
-          "regionType": "syllable-match",
-          "order": 2,
-          "fontRole": "body",
-          "syllable": "me",
-          "matchRows": [
-            [
-              {
-                "word": "momia",
-                "correct": false
-              },
-              {
-                "word": "mesa",
-                "correct": true
-              },
-              {
-                "word": "miel",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "muleta",
-                "correct": false
-              },
-              {
-                "word": "mecha",
-                "correct": true
-              },
-              {
-                "word": "maleta",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p20-mi",
-          "regionType": "syllable-match",
-          "order": 3,
-          "fontRole": "body",
-          "syllable": "mi",
-          "matchRows": [
-            [
-              {
-                "word": "mimo",
-                "correct": true
-              },
-              {
-                "word": "mamá",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/mama.webp"
-              },
-              {
-                "word": "mira",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "mina",
-                "correct": true
-              },
-              {
-                "word": "moda",
-                "correct": false
-              },
-              {
-                "word": "marisco",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p20-mo",
-          "regionType": "syllable-match",
-          "order": 4,
-          "fontRole": "body",
-          "syllable": "mo",
-          "matchRows": [
-            [
-              {
-                "word": "mono",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/mono.webp"
-              },
-              {
-                "word": "moto",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/moto.webp"
-              },
-              {
-                "word": "mapa",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/mapa.webp"
-              }
-            ],
-            [
-              {
-                "word": "moda",
-                "correct": true
-              },
-              {
-                "word": "mesa",
-                "correct": false
-              },
-              {
-                "word": "marisco",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p20-mu",
-          "regionType": "syllable-match",
-          "order": 5,
-          "fontRole": "body",
-          "syllable": "mu",
-          "matchRows": [
-            [
-              {
-                "word": "mulo",
-                "correct": true
-              },
-              {
-                "word": "muleta",
-                "correct": true
-              },
-              {
-                "word": "miel",
-                "correct": false
-              }
-            ],
-            [
-              {
-                "word": "muro",
-                "correct": true
-              },
-              {
-                "word": "marisco",
-                "correct": false
-              },
-              {
-                "word": "modo",
-                "correct": false
-              }
-            ]
-          ]
-        }
-      ]
+      "regions": []
     },
     "21": {
       "regions": [
         {
-          "id": "p21-instr",
+          "id": "p21-sentence-0",
+          "regionType": "reading-sentences",
+          "order": 0,
+          "fontRole": "body",
+          "sentences": [
+            "Mi mamá me mima."
+          ]
+        },
+        {
+          "id": "p21-sentence-1",
+          "regionType": "reading-sentences",
+          "order": 1,
+          "fontRole": "body",
+          "sentences": [
+            "Mamá ama a Memo."
+          ]
+        }
+      ]
+    },
+    "22": {
+      "regions": [
+        {
+          "id": "p22-instr1",
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Completa las palabras con la s�laba correcta. Escribe oraciones con el nombre de cada figura. Usa las s�labas que aprendiste."
+          "text": "Completa las palabras con la sílaba correcta."
         },
         {
-          "id": "p21-fill",
+          "id": "p22-fill-1",
           "regionType": "fill-in-blank",
           "order": 1,
           "fontRole": "body",
@@ -1657,322 +1462,110 @@
               ]
             }
           ]
-        }
-      ]
-    },
-    "22": {
-      "regions": [
-        {
-          "id": "p22-title",
-          "regionType": "title",
-          "order": 0,
-          "fontRole": "heading",
-          "text": "Mm"
         },
         {
-          "id": "p22-syl1",
-          "regionType": "syllable-bubble",
-          "order": 1,
-          "fontRole": "body",
-          "text": "ma  me  mi  mo  mu"
-        },
-        {
-          "id": "p22-syl2",
-          "regionType": "syllable-bubble",
+          "id": "p22-instr2",
+          "regionType": "instruction",
           "order": 2,
           "fontRole": "body",
-          "text": "mu  mo  mi  me  ma"
+          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
         },
         {
-          "id": "p22-words",
-          "regionType": "vocab-grid",
+          "id": "p22-write-3",
+          "regionType": "writing-line",
           "order": 3,
-          "fontRole": "body",
-          "text": "mamá · mono · moto · mapa"
+          "fontRole": "tracing",
+          "modelText": "M"
         },
         {
-          "id": "p22-sentence1",
-          "regionType": "reading-sentences",
+          "id": "p22-write-4",
+          "regionType": "writing-line",
           "order": 4,
-          "fontRole": "body",
-          "sentences": [
-            "Mi mamá me mima."
-          ]
+          "fontRole": "tracing"
         },
         {
-          "id": "p22-sentence2",
-          "regionType": "reading-sentences",
+          "id": "p22-write-5",
+          "regionType": "writing-line",
           "order": 5,
-          "fontRole": "body",
-          "sentences": [
-            "Mamá ama a Memo."
-          ]
+          "fontRole": "tracing",
+          "modelText": "m"
+        },
+        {
+          "id": "p22-write-6",
+          "regionType": "writing-line",
+          "order": 6,
+          "fontRole": "tracing"
         }
       ]
     },
     "23": {
       "regions": [
         {
-          "id": "p23-instr1",
-          "regionType": "instruction",
+          "id": "p23-title-0",
+          "regionType": "title",
           "order": 0,
-          "fontRole": "body",
-          "text": "Traza con tu mejor letra."
+          "fontRole": "heading",
+          "text": "Pp"
         },
         {
-          "id": "p23-write-U",
-          "regionType": "writing-line",
+          "id": "p23-syllable-bubble-1",
+          "regionType": "syllable-bubble",
           "order": 1,
-          "fontRole": "tracing",
-          "modelText": "P"
-        },
-        {
-          "id": "p23-write-U2",
-          "regionType": "writing-line",
-          "order": 2,
-          "fontRole": "tracing"
-        },
-        {
-          "id": "p23-write-l",
-          "regionType": "writing-line",
-          "order": 3,
-          "fontRole": "tracing",
-          "modelText": "p"
-        },
-        {
-          "id": "p23-write-l2",
-          "regionType": "writing-line",
-          "order": 4,
-          "fontRole": "tracing"
-        },
-        {
-          "id": "p23-instr2",
-          "regionType": "instruction",
-          "order": 5,
           "fontRole": "body",
-          "text": "Haz un dibujo que represente una palabra que comienza con p."
+          "text": "pa  pe  pi  po  pu"
         },
         {
-          "id": "p23-draw",
-          "regionType": "draw-box",
-          "order": 6,
-          "fontRole": "body"
+          "id": "p23-syllable-bubble-2",
+          "regionType": "syllable-bubble",
+          "order": 2,
+          "fontRole": "body",
+          "text": "pu  po  pi  pe  pa"
+        },
+        {
+          "id": "p23-vocab-grid-3",
+          "regionType": "vocab-grid",
+          "order": 3,
+          "fontRole": "body",
+          "text": "papá · pez · pino · pulpo"
         }
       ]
     },
     "24": {
-      "regions": [
-        {
-          "id": "p24-instr",
-          "regionType": "instruction",
-          "order": 0,
-          "fontRole": "body",
-          "text": "Encierra en un círculo la sílaba correspondiente."
-        },
-        {
-          "id": "p24-pa",
-          "regionType": "syllable-match",
-          "order": 1,
-          "fontRole": "body",
-          "syllable": "pa",
-          "matchRows": [
-            [
-              {
-                "word": "poco",
-                "correct": false
-              },
-              {
-                "word": "papá",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-8-p/papa.webp"
-              },
-              {
-                "word": "pala",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "pasa",
-                "correct": true
-              },
-              {
-                "word": "peso",
-                "correct": false
-              },
-              {
-                "word": "pulpo",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-8-p/pulpo.webp"
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p24-pe",
-          "regionType": "syllable-match",
-          "order": 2,
-          "fontRole": "body",
-          "syllable": "pe",
-          "matchRows": [
-            [
-              {
-                "word": "pala",
-                "correct": false
-              },
-              {
-                "word": "pelo",
-                "correct": true
-              },
-              {
-                "word": "pera",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-1/pera.webp"
-              }
-            ],
-            [
-              {
-                "word": "puma",
-                "correct": false
-              },
-              {
-                "word": "pez",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-8-p/pez.webp"
-              },
-              {
-                "word": "Pamela",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p24-pi",
-          "regionType": "syllable-match",
-          "order": 3,
-          "fontRole": "body",
-          "syllable": "pi",
-          "matchRows": [
-            [
-              {
-                "word": "pisa",
-                "correct": true
-              },
-              {
-                "word": "patata",
-                "correct": false
-              },
-              {
-                "word": "pino",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-8-p/pino.webp"
-              }
-            ],
-            [
-              {
-                "word": "poma",
-                "correct": false
-              },
-              {
-                "word": "poco",
-                "correct": false
-              },
-              {
-                "word": "pipa",
-                "correct": true
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p24-po",
-          "regionType": "syllable-match",
-          "order": 4,
-          "fontRole": "body",
-          "syllable": "po",
-          "matchRows": [
-            [
-              {
-                "word": "pomo",
-                "correct": true
-              },
-              {
-                "word": "pisa",
-                "correct": false
-              },
-              {
-                "word": "poma",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "popa",
-                "correct": true
-              },
-              {
-                "word": "pera",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-1/pera.webp"
-              },
-              {
-                "word": "pala",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p24-pu",
-          "regionType": "syllable-match",
-          "order": 5,
-          "fontRole": "body",
-          "syllable": "pu",
-          "matchRows": [
-            [
-              {
-                "word": "puma",
-                "correct": true
-              },
-              {
-                "word": "Pepe",
-                "correct": false
-              },
-              {
-                "word": "pupa",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "Pupi",
-                "correct": true
-              },
-              {
-                "word": "Pamela",
-                "correct": false
-              },
-              {
-                "word": "pisa",
-                "correct": false
-              }
-            ]
-          ]
-        }
-      ]
+      "regions": []
     },
     "25": {
       "regions": [
         {
-          "id": "p25-instr",
+          "id": "p25-sentence-0",
+          "regionType": "reading-sentences",
+          "order": 0,
+          "fontRole": "body",
+          "sentences": [
+            "Mi papá ama a Pupi."
+          ]
+        },
+        {
+          "id": "p25-sentence-1",
+          "regionType": "reading-sentences",
+          "order": 1,
+          "fontRole": "body",
+          "sentences": [
+            "Papá y mamá me aman."
+          ]
+        }
+      ]
+    },
+    "26": {
+      "regions": [
+        {
+          "id": "p26-instr1",
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Completa las palabras con la s�laba correcta. Escribe oraciones con el nombre de cada figura. Usa las s�labas que aprendiste."
+          "text": "Completa las palabras con la sílaba correcta."
         },
         {
-          "id": "p25-fill",
+          "id": "p26-fill-1",
           "regionType": "fill-in-blank",
           "order": 1,
           "fontRole": "body",
@@ -2046,321 +1639,110 @@
               ]
             }
           ]
-        }
-      ]
-    },
-    "26": {
-      "regions": [
-        {
-          "id": "p26-title",
-          "regionType": "title",
-          "order": 0,
-          "fontRole": "heading",
-          "text": "Pp"
         },
         {
-          "id": "p26-syl1",
-          "regionType": "syllable-bubble",
-          "order": 1,
-          "fontRole": "body",
-          "text": "pa  pe  pi  po  pu"
-        },
-        {
-          "id": "p26-syl2",
-          "regionType": "syllable-bubble",
+          "id": "p26-instr2",
+          "regionType": "instruction",
           "order": 2,
           "fontRole": "body",
-          "text": "pu  po  pi  pe  pa"
+          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
         },
         {
-          "id": "p26-words",
-          "regionType": "vocab-grid",
+          "id": "p26-write-3",
+          "regionType": "writing-line",
           "order": 3,
-          "fontRole": "body",
-          "text": "papá · pez · pino · pulpo"
+          "fontRole": "tracing",
+          "modelText": "P"
         },
         {
-          "id": "p26-sentence1",
-          "regionType": "reading-sentences",
+          "id": "p26-write-4",
+          "regionType": "writing-line",
           "order": 4,
-          "fontRole": "body",
-          "sentences": [
-            "Mi papá ama a Pupi."
-          ]
+          "fontRole": "tracing"
         },
         {
-          "id": "p26-sentence2",
-          "regionType": "reading-sentences",
+          "id": "p26-write-5",
+          "regionType": "writing-line",
           "order": 5,
-          "fontRole": "body",
-          "sentences": [
-            "Papá y mamá me aman."
-          ]
+          "fontRole": "tracing",
+          "modelText": "p"
+        },
+        {
+          "id": "p26-write-6",
+          "regionType": "writing-line",
+          "order": 6,
+          "fontRole": "tracing"
         }
       ]
     },
     "27": {
       "regions": [
         {
-          "id": "p27-instr1",
-          "regionType": "instruction",
+          "id": "p27-title-0",
+          "regionType": "title",
           "order": 0,
-          "fontRole": "body",
-          "text": "Traza con tu mejor letra."
+          "fontRole": "heading",
+          "text": "Ss"
         },
         {
-          "id": "p27-write-U",
-          "regionType": "writing-line",
+          "id": "p27-syllable-bubble-1",
+          "regionType": "syllable-bubble",
           "order": 1,
-          "fontRole": "tracing",
-          "modelText": "S"
-        },
-        {
-          "id": "p27-write-U2",
-          "regionType": "writing-line",
-          "order": 2,
-          "fontRole": "tracing"
-        },
-        {
-          "id": "p27-write-l",
-          "regionType": "writing-line",
-          "order": 3,
-          "fontRole": "tracing",
-          "modelText": "s"
-        },
-        {
-          "id": "p27-write-l2",
-          "regionType": "writing-line",
-          "order": 4,
-          "fontRole": "tracing"
-        },
-        {
-          "id": "p27-instr2",
-          "regionType": "instruction",
-          "order": 5,
           "fontRole": "body",
-          "text": "Haz un dibujo que represente una palabra que comienza con s."
+          "text": "sa  se  si  so  su"
         },
         {
-          "id": "p27-draw",
-          "regionType": "draw-box",
-          "order": 6,
-          "fontRole": "body"
+          "id": "p27-syllable-bubble-2",
+          "regionType": "syllable-bubble",
+          "order": 2,
+          "fontRole": "body",
+          "text": "su  so  si  se  sa"
+        },
+        {
+          "id": "p27-vocab-grid-3",
+          "regionType": "vocab-grid",
+          "order": 3,
+          "fontRole": "body",
+          "text": "sapo · sol · sopa · silla"
         }
       ]
     },
     "28": {
-      "regions": [
-        {
-          "id": "p28-instr",
-          "regionType": "instruction",
-          "order": 0,
-          "fontRole": "body",
-          "text": "Encierra en un círculo la sílaba correspondiente."
-        },
-        {
-          "id": "p28-sa",
-          "regionType": "syllable-match",
-          "order": 1,
-          "fontRole": "body",
-          "syllable": "sa",
-          "matchRows": [
-            [
-              {
-                "word": "semana",
-                "correct": false
-              },
-              {
-                "word": "sala",
-                "correct": true
-              },
-              {
-                "word": "sapo",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-9-s/sapo.webp"
-              }
-            ],
-            [
-              {
-                "word": "sano",
-                "correct": true
-              },
-              {
-                "word": "sube",
-                "correct": false
-              },
-              {
-                "word": "suyo",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p28-se",
-          "regionType": "syllable-match",
-          "order": 2,
-          "fontRole": "body",
-          "syllable": "se",
-          "matchRows": [
-            [
-              {
-                "word": "seda",
-                "correct": true
-              },
-              {
-                "word": "sitio",
-                "correct": false
-              },
-              {
-                "word": "señal",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "Simón",
-                "correct": false
-              },
-              {
-                "word": "sed",
-                "correct": true
-              },
-              {
-                "word": "sima",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p28-si",
-          "regionType": "syllable-match",
-          "order": 3,
-          "fontRole": "body",
-          "syllable": "si",
-          "matchRows": [
-            [
-              {
-                "word": "sube",
-                "correct": false
-              },
-              {
-                "word": "sima",
-                "correct": true
-              },
-              {
-                "word": "sino",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "sapo",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-9-s/sapo.webp"
-              },
-              {
-                "word": "Simón",
-                "correct": true
-              },
-              {
-                "word": "sala",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p28-so",
-          "regionType": "syllable-match",
-          "order": 4,
-          "fontRole": "body",
-          "syllable": "so",
-          "matchRows": [
-            [
-              {
-                "word": "señal",
-                "correct": false
-              },
-              {
-                "word": "sopa",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-9-s/sopa.webp"
-              },
-              {
-                "word": "sol",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-9-s/sol.webp"
-              }
-            ],
-            [
-              {
-                "word": "soga",
-                "correct": true
-              },
-              {
-                "word": "suyo",
-                "correct": false
-              },
-              {
-                "word": "Sandi",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p28-su",
-          "regionType": "syllable-match",
-          "order": 5,
-          "fontRole": "body",
-          "syllable": "su",
-          "matchRows": [
-            [
-              {
-                "word": "semana",
-                "correct": false
-              },
-              {
-                "word": "suyo",
-                "correct": true
-              },
-              {
-                "word": "suma",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "Susi",
-                "correct": true
-              },
-              {
-                "word": "sol",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-9-s/sol.webp"
-              },
-              {
-                "word": "sala",
-                "correct": false
-              }
-            ]
-          ]
-        }
-      ]
+      "regions": []
     },
     "29": {
       "regions": [
         {
-          "id": "p29-instr",
+          "id": "p29-sentence-0",
+          "regionType": "reading-sentences",
+          "order": 0,
+          "fontRole": "body",
+          "sentences": [
+            "Pepe puso un sapo en la mesa."
+          ]
+        },
+        {
+          "id": "p29-sentence-1",
+          "regionType": "reading-sentences",
+          "order": 1,
+          "fontRole": "body",
+          "sentences": [
+            "Susi suma sopa."
+          ]
+        }
+      ]
+    },
+    "30": {
+      "regions": [
+        {
+          "id": "p30-instr1",
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Completa las palabras con la s�laba correcta. Escribe oraciones con el nombre de cada figura. Usa las s�labas que aprendiste."
+          "text": "Completa las palabras con la sílaba correcta."
         },
         {
-          "id": "p29-fill",
+          "id": "p30-fill-1",
           "regionType": "fill-in-blank",
           "order": 1,
           "fontRole": "body",
@@ -2434,323 +1816,110 @@
               ]
             }
           ]
-        }
-      ]
-    },
-    "30": {
-      "regions": [
-        {
-          "id": "p30-title",
-          "regionType": "title",
-          "order": 0,
-          "fontRole": "heading",
-          "text": "Ss"
         },
         {
-          "id": "p30-syl1",
-          "regionType": "syllable-bubble",
-          "order": 1,
-          "fontRole": "body",
-          "text": "sa  se  si  so  su"
-        },
-        {
-          "id": "p30-syl2",
-          "regionType": "syllable-bubble",
+          "id": "p30-instr2",
+          "regionType": "instruction",
           "order": 2,
           "fontRole": "body",
-          "text": "su  so  si  se  sa"
+          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
         },
         {
-          "id": "p30-words",
-          "regionType": "vocab-grid",
+          "id": "p30-write-3",
+          "regionType": "writing-line",
           "order": 3,
-          "fontRole": "body",
-          "text": "sapo · sol · sopa · silla"
+          "fontRole": "tracing",
+          "modelText": "S"
         },
         {
-          "id": "p30-sentence1",
-          "regionType": "reading-sentences",
+          "id": "p30-write-4",
+          "regionType": "writing-line",
           "order": 4,
-          "fontRole": "body",
-          "sentences": [
-            "Pepe puso un sapo en la mesa."
-          ]
+          "fontRole": "tracing"
         },
         {
-          "id": "p30-sentence2",
-          "regionType": "reading-sentences",
+          "id": "p30-write-5",
+          "regionType": "writing-line",
           "order": 5,
-          "fontRole": "body",
-          "sentences": [
-            "Susi suma sopa."
-          ]
+          "fontRole": "tracing",
+          "modelText": "s"
+        },
+        {
+          "id": "p30-write-6",
+          "regionType": "writing-line",
+          "order": 6,
+          "fontRole": "tracing"
         }
       ]
     },
     "31": {
       "regions": [
         {
-          "id": "p31-instr1",
-          "regionType": "instruction",
+          "id": "p31-title-0",
+          "regionType": "title",
           "order": 0,
-          "fontRole": "body",
-          "text": "Traza con tu mejor letra."
+          "fontRole": "heading",
+          "text": "Tt"
         },
         {
-          "id": "p31-write-U",
-          "regionType": "writing-line",
+          "id": "p31-syllable-bubble-1",
+          "regionType": "syllable-bubble",
           "order": 1,
-          "fontRole": "tracing",
-          "modelText": "T"
-        },
-        {
-          "id": "p31-write-U2",
-          "regionType": "writing-line",
-          "order": 2,
-          "fontRole": "tracing"
-        },
-        {
-          "id": "p31-write-l",
-          "regionType": "writing-line",
-          "order": 3,
-          "fontRole": "tracing",
-          "modelText": "t"
-        },
-        {
-          "id": "p31-write-l2",
-          "regionType": "writing-line",
-          "order": 4,
-          "fontRole": "tracing"
-        },
-        {
-          "id": "p31-instr2",
-          "regionType": "instruction",
-          "order": 5,
           "fontRole": "body",
-          "text": "Haz un dibujo que represente una palabra que comienza con t."
+          "text": "ta  te  ti  to  tu"
         },
         {
-          "id": "p31-draw",
-          "regionType": "draw-box",
-          "order": 6,
-          "fontRole": "body"
+          "id": "p31-syllable-bubble-2",
+          "regionType": "syllable-bubble",
+          "order": 2,
+          "fontRole": "body",
+          "text": "tu  to  ti  te  ta"
+        },
+        {
+          "id": "p31-vocab-grid-3",
+          "regionType": "vocab-grid",
+          "order": 3,
+          "fontRole": "body",
+          "text": "tapa · tomate · tina · tulipán"
         }
       ]
     },
     "32": {
-      "regions": [
-        {
-          "id": "p32-instr",
-          "regionType": "instruction",
-          "order": 0,
-          "fontRole": "body",
-          "text": "Encierra en un círculo la sílaba correspondiente."
-        },
-        {
-          "id": "p32-ta",
-          "regionType": "syllable-match",
-          "order": 1,
-          "fontRole": "body",
-          "syllable": "ta",
-          "matchRows": [
-            [
-              {
-                "word": "tapa",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tapa.webp"
-              },
-              {
-                "word": "Teté",
-                "correct": false
-              },
-              {
-                "word": "tasa",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "Tati",
-                "correct": true
-              },
-              {
-                "word": "Tito",
-                "correct": false
-              },
-              {
-                "word": "tetera",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p32-te",
-          "regionType": "syllable-match",
-          "order": 2,
-          "fontRole": "body",
-          "syllable": "te",
-          "matchRows": [
-            [
-              {
-                "word": "teme",
-                "correct": true
-              },
-              {
-                "word": "tapa",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tapa.webp"
-              },
-              {
-                "word": "tela",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "tasa",
-                "correct": false
-              },
-              {
-                "word": "Toño",
-                "correct": false
-              },
-              {
-                "word": "tetera",
-                "correct": true
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p32-ti",
-          "regionType": "syllable-match",
-          "order": 3,
-          "fontRole": "body",
-          "syllable": "ti",
-          "matchRows": [
-            [
-              {
-                "word": "techo",
-                "correct": false
-              },
-              {
-                "word": "tina",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tina.webp"
-              },
-              {
-                "word": "tipo",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "tapa",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tapa.webp"
-              },
-              {
-                "word": "Tito",
-                "correct": true
-              },
-              {
-                "word": "topo",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p32-to",
-          "regionType": "syllable-match",
-          "order": 4,
-          "fontRole": "body",
-          "syllable": "to",
-          "matchRows": [
-            [
-              {
-                "word": "tomate",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tomate.webp"
-              },
-              {
-                "word": "topo",
-                "correct": true
-              },
-              {
-                "word": "tina",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tina.webp"
-              }
-            ],
-            [
-              {
-                "word": "teme",
-                "correct": false
-              },
-              {
-                "word": "Toño",
-                "correct": true
-              },
-              {
-                "word": "tarea",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p32-tu",
-          "regionType": "syllable-match",
-          "order": 5,
-          "fontRole": "body",
-          "syllable": "tu",
-          "matchRows": [
-            [
-              {
-                "word": "tubo",
-                "correct": true
-              },
-              {
-                "word": "tupe",
-                "correct": true
-              },
-              {
-                "word": "tela",
-                "correct": false
-              }
-            ],
-            [
-              {
-                "word": "tulipán",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tulipan.webp"
-              },
-              {
-                "word": "tipo",
-                "correct": false
-              },
-              {
-                "word": "teme",
-                "correct": false
-              }
-            ]
-          ]
-        }
-      ]
+      "regions": []
     },
     "33": {
       "regions": [
         {
-          "id": "p33-instr",
+          "id": "p33-sentence-0",
+          "regionType": "reading-sentences",
+          "order": 0,
+          "fontRole": "body",
+          "sentences": [
+            "¡No Tito, no, no tapes el pomo!"
+          ]
+        },
+        {
+          "id": "p33-sentence-1",
+          "regionType": "reading-sentences",
+          "order": 1,
+          "fontRole": "body",
+          "sentences": [
+            "Papá tapa la sopa."
+          ]
+        }
+      ]
+    },
+    "34": {
+      "regions": [
+        {
+          "id": "p34-instr1",
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Completa las palabras con la s�laba correcta. Escribe oraciones con el nombre de cada figura. Usa las s�labas que aprendiste."
+          "text": "Completa las palabras con la sílaba correcta."
         },
         {
-          "id": "p33-fill",
+          "id": "p34-fill-1",
           "regionType": "fill-in-blank",
           "order": 1,
           "fontRole": "body",
@@ -2824,323 +1993,110 @@
               ]
             }
           ]
-        }
-      ]
-    },
-    "34": {
-      "regions": [
-        {
-          "id": "p34-title",
-          "regionType": "title",
-          "order": 0,
-          "fontRole": "heading",
-          "text": "Tt"
         },
         {
-          "id": "p34-syl1",
-          "regionType": "syllable-bubble",
-          "order": 1,
-          "fontRole": "body",
-          "text": "ta  te  ti  to  tu"
-        },
-        {
-          "id": "p34-syl2",
-          "regionType": "syllable-bubble",
+          "id": "p34-instr2",
+          "regionType": "instruction",
           "order": 2,
           "fontRole": "body",
-          "text": "tu  to  ti  te  ta"
+          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
         },
         {
-          "id": "p34-words",
-          "regionType": "vocab-grid",
+          "id": "p34-write-3",
+          "regionType": "writing-line",
           "order": 3,
-          "fontRole": "body",
-          "text": "tapa · tomate · tina · tulipán"
+          "fontRole": "tracing",
+          "modelText": "T"
         },
         {
-          "id": "p34-sentence1",
-          "regionType": "reading-sentences",
+          "id": "p34-write-4",
+          "regionType": "writing-line",
           "order": 4,
-          "fontRole": "body",
-          "sentences": [
-            "¡No Tito, no, no tapes el pomo!"
-          ]
+          "fontRole": "tracing"
         },
         {
-          "id": "p34-sentence2",
-          "regionType": "reading-sentences",
+          "id": "p34-write-5",
+          "regionType": "writing-line",
           "order": 5,
-          "fontRole": "body",
-          "sentences": [
-            "Papá tapa la sopa."
-          ]
+          "fontRole": "tracing",
+          "modelText": "t"
+        },
+        {
+          "id": "p34-write-6",
+          "regionType": "writing-line",
+          "order": 6,
+          "fontRole": "tracing"
         }
       ]
     },
     "35": {
       "regions": [
         {
-          "id": "p35-instr1",
-          "regionType": "instruction",
+          "id": "p35-title-0",
+          "regionType": "title",
           "order": 0,
-          "fontRole": "body",
-          "text": "Traza con tu mejor letra."
+          "fontRole": "heading",
+          "text": "Dd"
         },
         {
-          "id": "p35-write-U",
-          "regionType": "writing-line",
+          "id": "p35-syllable-bubble-1",
+          "regionType": "syllable-bubble",
           "order": 1,
-          "fontRole": "tracing",
-          "modelText": "D"
-        },
-        {
-          "id": "p35-write-U2",
-          "regionType": "writing-line",
-          "order": 2,
-          "fontRole": "tracing"
-        },
-        {
-          "id": "p35-write-l",
-          "regionType": "writing-line",
-          "order": 3,
-          "fontRole": "tracing",
-          "modelText": "d"
-        },
-        {
-          "id": "p35-write-l2",
-          "regionType": "writing-line",
-          "order": 4,
-          "fontRole": "tracing"
-        },
-        {
-          "id": "p35-instr2",
-          "regionType": "instruction",
-          "order": 5,
           "fontRole": "body",
-          "text": "Haz un dibujo que represente una palabra que comienza con d."
+          "text": "da  de  di  do  du"
         },
         {
-          "id": "p35-draw",
-          "regionType": "draw-box",
-          "order": 6,
-          "fontRole": "body"
+          "id": "p35-syllable-bubble-2",
+          "regionType": "syllable-bubble",
+          "order": 2,
+          "fontRole": "body",
+          "text": "du  do  di  de  da"
+        },
+        {
+          "id": "p35-vocab-grid-3",
+          "regionType": "vocab-grid",
+          "order": 3,
+          "fontRole": "body",
+          "text": "dado · delfín · dona · ducha"
         }
       ]
     },
     "36": {
-      "regions": [
-        {
-          "id": "p36-instr",
-          "regionType": "instruction",
-          "order": 0,
-          "fontRole": "body",
-          "text": "Encierra en un círculo la sílaba correspondiente."
-        },
-        {
-          "id": "p36-da",
-          "regionType": "syllable-match",
-          "order": 1,
-          "fontRole": "body",
-          "syllable": "da",
-          "matchRows": [
-            [
-              {
-                "word": "Dela",
-                "correct": false
-              },
-              {
-                "word": "dama",
-                "correct": true
-              },
-              {
-                "word": "dado",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/dado.webp"
-              }
-            ],
-            [
-              {
-                "word": "Dani",
-                "correct": true
-              },
-              {
-                "word": "dime",
-                "correct": false
-              },
-              {
-                "word": "demora",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p36-de",
-          "regionType": "syllable-match",
-          "order": 2,
-          "fontRole": "body",
-          "syllable": "de",
-          "matchRows": [
-            [
-              {
-                "word": "dado",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/dado.webp"
-              },
-              {
-                "word": "delfín",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/delfin.webp"
-              },
-              {
-                "word": "dedo",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "domo",
-                "correct": false
-              },
-              {
-                "word": "demora",
-                "correct": true
-              },
-              {
-                "word": "dama",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p36-di",
-          "regionType": "syllable-match",
-          "order": 3,
-          "fontRole": "body",
-          "syllable": "di",
-          "matchRows": [
-            [
-              {
-                "word": "Dina",
-                "correct": true
-              },
-              {
-                "word": "dime",
-                "correct": true
-              },
-              {
-                "word": "Delia",
-                "correct": false
-              }
-            ],
-            [
-              {
-                "word": "Diego",
-                "correct": true
-              },
-              {
-                "word": "duda",
-                "correct": false
-              },
-              {
-                "word": "ducha",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/ducha.webp"
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p36-do",
-          "regionType": "syllable-match",
-          "order": 4,
-          "fontRole": "body",
-          "syllable": "do",
-          "matchRows": [
-            [
-              {
-                "word": "dona",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/dona.webp"
-              },
-              {
-                "word": "dado",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/dado.webp"
-              },
-              {
-                "word": "doce",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "domo",
-                "correct": true
-              },
-              {
-                "word": "dieta",
-                "correct": false
-              },
-              {
-                "word": "diadema",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p36-du",
-          "regionType": "syllable-match",
-          "order": 5,
-          "fontRole": "body",
-          "syllable": "du",
-          "matchRows": [
-            [
-              {
-                "word": "duro",
-                "correct": true
-              },
-              {
-                "word": "Duma",
-                "correct": true
-              },
-              {
-                "word": "dama",
-                "correct": false
-              }
-            ],
-            [
-              {
-                "word": "duda",
-                "correct": true
-              },
-              {
-                "word": "delfín",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/delfin.webp"
-              },
-              {
-                "word": "Dina",
-                "correct": false
-              }
-            ]
-          ]
-        }
-      ]
+      "regions": []
     },
     "37": {
       "regions": [
         {
-          "id": "p37-instr",
+          "id": "p37-sentence-0",
+          "regionType": "reading-sentences",
+          "order": 0,
+          "fontRole": "body",
+          "sentences": [
+            "El pomo de Dunia está en la mesa."
+          ]
+        },
+        {
+          "id": "p37-sentence-1",
+          "regionType": "reading-sentences",
+          "order": 1,
+          "fontRole": "body",
+          "sentences": [
+            "—Ada, ¿dónde está Dunia?"
+          ]
+        }
+      ]
+    },
+    "38": {
+      "regions": [
+        {
+          "id": "p38-instr1",
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Completa las palabras con la s�laba correcta. Escribe oraciones con el nombre de cada figura. Usa las s�labas que aprendiste."
+          "text": "Completa las palabras con la sílaba correcta."
         },
         {
-          "id": "p37-fill",
+          "id": "p38-fill-1",
           "regionType": "fill-in-blank",
           "order": 1,
           "fontRole": "body",
@@ -3214,321 +2170,110 @@
               ]
             }
           ]
-        }
-      ]
-    },
-    "38": {
-      "regions": [
-        {
-          "id": "p38-title",
-          "regionType": "title",
-          "order": 0,
-          "fontRole": "heading",
-          "text": "Dd"
         },
         {
-          "id": "p38-syl1",
-          "regionType": "syllable-bubble",
-          "order": 1,
-          "fontRole": "body",
-          "text": "da  de  di  do  du"
-        },
-        {
-          "id": "p38-syl2",
-          "regionType": "syllable-bubble",
+          "id": "p38-instr2",
+          "regionType": "instruction",
           "order": 2,
           "fontRole": "body",
-          "text": "du  do  di  de  da"
+          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
         },
         {
-          "id": "p38-words",
-          "regionType": "vocab-grid",
+          "id": "p38-write-3",
+          "regionType": "writing-line",
           "order": 3,
-          "fontRole": "body",
-          "text": "dado · delfín · dona · ducha"
+          "fontRole": "tracing",
+          "modelText": "D"
         },
         {
-          "id": "p38-sentence1",
-          "regionType": "reading-sentences",
+          "id": "p38-write-4",
+          "regionType": "writing-line",
           "order": 4,
-          "fontRole": "body",
-          "sentences": [
-            "El pomo de Dunia está en la mesa."
-          ]
+          "fontRole": "tracing"
         },
         {
-          "id": "p38-sentence2",
-          "regionType": "reading-sentences",
+          "id": "p38-write-5",
+          "regionType": "writing-line",
           "order": 5,
-          "fontRole": "body",
-          "sentences": [
-            "—Ada, ¿dónde está Dunia?"
-          ]
+          "fontRole": "tracing",
+          "modelText": "d"
+        },
+        {
+          "id": "p38-write-6",
+          "regionType": "writing-line",
+          "order": 6,
+          "fontRole": "tracing"
         }
       ]
     },
     "39": {
       "regions": [
         {
-          "id": "p39-instr1",
-          "regionType": "instruction",
+          "id": "p39-title-0",
+          "regionType": "title",
           "order": 0,
-          "fontRole": "body",
-          "text": "Traza con tu mejor letra."
+          "fontRole": "heading",
+          "text": "Ll"
         },
         {
-          "id": "p39-write-U",
-          "regionType": "writing-line",
+          "id": "p39-syllable-bubble-1",
+          "regionType": "syllable-bubble",
           "order": 1,
-          "fontRole": "tracing",
-          "modelText": "L"
-        },
-        {
-          "id": "p39-write-U2",
-          "regionType": "writing-line",
-          "order": 2,
-          "fontRole": "tracing"
-        },
-        {
-          "id": "p39-write-l",
-          "regionType": "writing-line",
-          "order": 3,
-          "fontRole": "tracing",
-          "modelText": "l"
-        },
-        {
-          "id": "p39-write-l2",
-          "regionType": "writing-line",
-          "order": 4,
-          "fontRole": "tracing"
-        },
-        {
-          "id": "p39-instr2",
-          "regionType": "instruction",
-          "order": 5,
           "fontRole": "body",
-          "text": "Haz un dibujo que represente una palabra que comienza con l."
+          "text": "la  le  li  lo  lu"
         },
         {
-          "id": "p39-draw",
-          "regionType": "draw-box",
-          "order": 6,
-          "fontRole": "body"
+          "id": "p39-syllable-bubble-2",
+          "regionType": "syllable-bubble",
+          "order": 2,
+          "fontRole": "body",
+          "text": "lu  lo  li  le  la"
+        },
+        {
+          "id": "p39-vocab-grid-3",
+          "regionType": "vocab-grid",
+          "order": 3,
+          "fontRole": "body",
+          "text": "luna · lobo · loro · lupa"
         }
       ]
     },
     "40": {
-      "regions": [
-        {
-          "id": "p40-instr",
-          "regionType": "instruction",
-          "order": 0,
-          "fontRole": "body",
-          "text": "Encierra en un círculo la sílaba correspondiente."
-        },
-        {
-          "id": "p40-la",
-          "regionType": "syllable-match",
-          "order": 1,
-          "fontRole": "body",
-          "syllable": "la",
-          "matchRows": [
-            [
-              {
-                "word": "lema",
-                "correct": false
-              },
-              {
-                "word": "lana",
-                "correct": true
-              },
-              {
-                "word": "lata",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "Lalo",
-                "correct": true
-              },
-              {
-                "word": "lupa",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/lupa.webp"
-              },
-              {
-                "word": "Lupe",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p40-le",
-          "regionType": "syllable-match",
-          "order": 2,
-          "fontRole": "body",
-          "syllable": "le",
-          "matchRows": [
-            [
-              {
-                "word": "lata",
-                "correct": false
-              },
-              {
-                "word": "lema",
-                "correct": true
-              },
-              {
-                "word": "leña",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "Lolo",
-                "correct": false
-              },
-              {
-                "word": "lupa",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/lupa.webp"
-              },
-              {
-                "word": "Lela",
-                "correct": true
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p40-li",
-          "regionType": "syllable-match",
-          "order": 3,
-          "fontRole": "body",
-          "syllable": "li",
-          "matchRows": [
-            [
-              {
-                "word": "lima",
-                "correct": true
-              },
-              {
-                "word": "leña",
-                "correct": false
-              },
-              {
-                "word": "lila",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "Lili",
-                "correct": true
-              },
-              {
-                "word": "Lolo",
-                "correct": false
-              },
-              {
-                "word": "Lupe",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p40-lo",
-          "regionType": "syllable-match",
-          "order": 4,
-          "fontRole": "body",
-          "syllable": "lo",
-          "matchRows": [
-            [
-              {
-                "word": "lata",
-                "correct": false
-              },
-              {
-                "word": "lobo",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/lobo.webp"
-              },
-              {
-                "word": "loma",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "Lolo",
-                "correct": true
-              },
-              {
-                "word": "lana",
-                "correct": false
-              },
-              {
-                "word": "luna",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/luna.webp"
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p40-lu",
-          "regionType": "syllable-match",
-          "order": 5,
-          "fontRole": "body",
-          "syllable": "lu",
-          "matchRows": [
-            [
-              {
-                "word": "lupa",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/lupa.webp"
-              },
-              {
-                "word": "lista",
-                "correct": false
-              },
-              {
-                "word": "pelusa",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "Lalo",
-                "correct": false
-              },
-              {
-                "word": "lana",
-                "correct": false
-              },
-              {
-                "word": "Luli",
-                "correct": true
-              }
-            ]
-          ]
-        }
-      ]
+      "regions": []
     },
     "41": {
       "regions": [
         {
-          "id": "p41-instr",
+          "id": "p41-sentence-0",
+          "regionType": "reading-sentences",
+          "order": 0,
+          "fontRole": "body",
+          "sentences": [
+            "Polo toma su maleta de tela."
+          ]
+        },
+        {
+          "id": "p41-sentence-1",
+          "regionType": "reading-sentences",
+          "order": 1,
+          "fontRole": "body",
+          "sentences": [
+            "Lalo tiene una maleta de tela también."
+          ]
+        }
+      ]
+    },
+    "42": {
+      "regions": [
+        {
+          "id": "p42-instr1",
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Completa las palabras con la s�laba correcta. Escribe oraciones con el nombre de cada figura. Usa las s�labas que aprendiste."
+          "text": "Completa las palabras con la sílaba correcta."
         },
         {
-          "id": "p41-fill",
+          "id": "p42-fill-1",
           "regionType": "fill-in-blank",
           "order": 1,
           "fontRole": "body",
@@ -3602,330 +2347,110 @@
               ]
             }
           ]
-        }
-      ]
-    },
-    "42": {
-      "regions": [
-        {
-          "id": "p42-title",
-          "regionType": "title",
-          "order": 0,
-          "fontRole": "heading",
-          "text": "Ll"
         },
         {
-          "id": "p42-syl1",
-          "regionType": "syllable-bubble",
-          "order": 1,
-          "fontRole": "body",
-          "text": "la  le  li  lo  lu"
-        },
-        {
-          "id": "p42-syl2",
-          "regionType": "syllable-bubble",
+          "id": "p42-instr2",
+          "regionType": "instruction",
           "order": 2,
           "fontRole": "body",
-          "text": "lu  lo  li  le  la"
+          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
         },
         {
-          "id": "p42-words",
-          "regionType": "vocab-grid",
+          "id": "p42-write-3",
+          "regionType": "writing-line",
           "order": 3,
-          "fontRole": "body",
-          "text": "luna · lobo · loro · lupa"
+          "fontRole": "tracing",
+          "modelText": "L"
         },
         {
-          "id": "p42-sentence1",
-          "regionType": "reading-sentences",
+          "id": "p42-write-4",
+          "regionType": "writing-line",
           "order": 4,
-          "fontRole": "body",
-          "sentences": [
-            "Polo toma su maleta de tela."
-          ]
+          "fontRole": "tracing"
         },
         {
-          "id": "p42-sentence2",
-          "regionType": "reading-sentences",
+          "id": "p42-write-5",
+          "regionType": "writing-line",
           "order": 5,
-          "fontRole": "body",
-          "sentences": [
-            "Lalo tiene una maleta de tela también."
-          ]
+          "fontRole": "tracing",
+          "modelText": "l"
+        },
+        {
+          "id": "p42-write-6",
+          "regionType": "writing-line",
+          "order": 6,
+          "fontRole": "tracing"
         }
       ]
     },
     "43": {
       "regions": [
         {
-          "id": "p43-instr1",
-          "regionType": "instruction",
+          "id": "p43-title-0",
+          "regionType": "title",
           "order": 0,
-          "fontRole": "body",
-          "text": "Traza con tu mejor letra."
+          "fontRole": "heading",
+          "text": "Nn"
         },
         {
-          "id": "p43-write-U",
-          "regionType": "writing-line",
+          "id": "p43-syllable-bubble-1",
+          "regionType": "syllable-bubble",
           "order": 1,
-          "fontRole": "tracing",
-          "modelText": "N"
-        },
-        {
-          "id": "p43-write-U2",
-          "regionType": "writing-line",
-          "order": 2,
-          "fontRole": "tracing"
-        },
-        {
-          "id": "p43-write-l",
-          "regionType": "writing-line",
-          "order": 3,
-          "fontRole": "tracing",
-          "modelText": "n"
-        },
-        {
-          "id": "p43-write-l2",
-          "regionType": "writing-line",
-          "order": 4,
-          "fontRole": "tracing"
-        },
-        {
-          "id": "p43-instr2",
-          "regionType": "instruction",
-          "order": 5,
           "fontRole": "body",
-          "text": "Haz un dibujo que represente una palabra que comienza con n."
+          "text": "na  ne  ni  no  nu"
         },
         {
-          "id": "p43-draw",
-          "regionType": "draw-box",
-          "order": 6,
-          "fontRole": "body"
+          "id": "p43-syllable-bubble-2",
+          "regionType": "syllable-bubble",
+          "order": 2,
+          "fontRole": "body",
+          "text": "nu  no  ni  ne  na"
+        },
+        {
+          "id": "p43-vocab-grid-3",
+          "regionType": "vocab-grid",
+          "order": 3,
+          "fontRole": "body",
+          "text": "nariz · nido · nube · nata"
         }
       ]
     },
     "44": {
-      "regions": [
-        {
-          "id": "p44-instr",
-          "regionType": "instruction",
-          "order": 0,
-          "fontRole": "body",
-          "text": "Encierra en un círculo la sílaba correspondiente."
-        },
-        {
-          "id": "p44-na",
-          "regionType": "syllable-match",
-          "order": 1,
-          "fontRole": "body",
-          "syllable": "na",
-          "matchRows": [
-            [
-              {
-                "word": "niño",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-14-n/nino.webp"
-              },
-              {
-                "word": "nata",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-13-n/nata.webp"
-              },
-              {
-                "word": "nariz",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-13-n/nariz.webp"
-              }
-            ],
-            [
-              {
-                "word": "Nena",
-                "correct": false
-              },
-              {
-                "word": "tina",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tina.webp"
-              },
-              {
-                "word": "sonido",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p44-ne",
-          "regionType": "syllable-match",
-          "order": 2,
-          "fontRole": "body",
-          "syllable": "ne",
-          "matchRows": [
-            [
-              {
-                "word": "Nena",
-                "correct": true
-              },
-              {
-                "word": "negro",
-                "correct": true
-              },
-              {
-                "word": "nada",
-                "correct": false
-              }
-            ],
-            [
-              {
-                "word": "tina",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tina.webp"
-              },
-              {
-                "word": "Nela",
-                "correct": true
-              },
-              {
-                "word": "poni",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p44-ni",
-          "regionType": "syllable-match",
-          "order": 3,
-          "fontRole": "body",
-          "syllable": "ni",
-          "matchRows": [
-            [
-              {
-                "word": "Nela",
-                "correct": false
-              },
-              {
-                "word": "nido",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-13-n/nido.webp"
-              },
-              {
-                "word": "niño",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-14-n/nino.webp"
-              }
-            ],
-            [
-              {
-                "word": "nada",
-                "correct": false
-              },
-              {
-                "word": "poni",
-                "correct": true
-              },
-              {
-                "word": "tina",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tina.webp"
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p44-no",
-          "regionType": "syllable-match",
-          "order": 4,
-          "fontRole": "body",
-          "syllable": "no",
-          "matchRows": [
-            [
-              {
-                "word": "mono",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/mono.webp"
-              },
-              {
-                "word": "Nora",
-                "correct": true
-              },
-              {
-                "word": "negro",
-                "correct": false
-              }
-            ],
-            [
-              {
-                "word": "nariz",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-13-n/nariz.webp"
-              },
-              {
-                "word": "pino",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-8-p/pino.webp"
-              },
-              {
-                "word": "tina",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tina.webp"
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p44-nu",
-          "regionType": "syllable-match",
-          "order": 5,
-          "fontRole": "body",
-          "syllable": "nu",
-          "matchRows": [
-            [
-              {
-                "word": "nudo",
-                "correct": true
-              },
-              {
-                "word": "menudo",
-                "correct": true
-              },
-              {
-                "word": "poni",
-                "correct": false
-              }
-            ],
-            [
-              {
-                "word": "niño",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-14-n/nino.webp"
-              },
-              {
-                "word": "nido",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-13-n/nido.webp"
-              },
-              {
-                "word": "nulo",
-                "correct": true
-              }
-            ]
-          ]
-        }
-      ]
+      "regions": []
     },
     "45": {
       "regions": [
         {
-          "id": "p45-instr",
+          "id": "p45-sentence-0",
+          "regionType": "reading-sentences",
+          "order": 0,
+          "fontRole": "body",
+          "sentences": [
+            "Nina ata el nudo."
+          ]
+        },
+        {
+          "id": "p45-sentence-1",
+          "regionType": "reading-sentences",
+          "order": 1,
+          "fontRole": "body",
+          "sentences": [
+            "Nono mira la nube."
+          ]
+        }
+      ]
+    },
+    "46": {
+      "regions": [
+        {
+          "id": "p46-instr1",
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Completa las palabras con la s�laba correcta. Escribe oraciones con el nombre de cada figura. Usa las s�labas que aprendiste."
+          "text": "Completa las palabras con la sílaba correcta."
         },
         {
-          "id": "p45-fill",
+          "id": "p46-fill-1",
           "regionType": "fill-in-blank",
           "order": 1,
           "fontRole": "body",
@@ -3999,321 +2524,110 @@
               ]
             }
           ]
-        }
-      ]
-    },
-    "46": {
-      "regions": [
-        {
-          "id": "p46-title",
-          "regionType": "title",
-          "order": 0,
-          "fontRole": "heading",
-          "text": "Nn"
         },
         {
-          "id": "p46-syl1",
-          "regionType": "syllable-bubble",
-          "order": 1,
-          "fontRole": "body",
-          "text": "na  ne  ni  no  nu"
-        },
-        {
-          "id": "p46-syl2",
-          "regionType": "syllable-bubble",
+          "id": "p46-instr2",
+          "regionType": "instruction",
           "order": 2,
           "fontRole": "body",
-          "text": "nu  no  ni  ne  na"
+          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
         },
         {
-          "id": "p46-words",
-          "regionType": "vocab-grid",
+          "id": "p46-write-3",
+          "regionType": "writing-line",
           "order": 3,
-          "fontRole": "body",
-          "text": "nariz · nido · nube · nata"
+          "fontRole": "tracing",
+          "modelText": "N"
         },
         {
-          "id": "p46-sentence1",
-          "regionType": "reading-sentences",
+          "id": "p46-write-4",
+          "regionType": "writing-line",
           "order": 4,
-          "fontRole": "body",
-          "sentences": [
-            "Nina ata el nudo."
-          ]
+          "fontRole": "tracing"
         },
         {
-          "id": "p46-sentence2",
-          "regionType": "reading-sentences",
+          "id": "p46-write-5",
+          "regionType": "writing-line",
           "order": 5,
-          "fontRole": "body",
-          "sentences": [
-            "Nono mira la nube."
-          ]
+          "fontRole": "tracing",
+          "modelText": "n"
+        },
+        {
+          "id": "p46-write-6",
+          "regionType": "writing-line",
+          "order": 6,
+          "fontRole": "tracing"
         }
       ]
     },
     "47": {
       "regions": [
         {
-          "id": "p47-instr1",
-          "regionType": "instruction",
+          "id": "p47-title-0",
+          "regionType": "title",
           "order": 0,
-          "fontRole": "body",
-          "text": "Traza con tu mejor letra."
+          "fontRole": "heading",
+          "text": "Ññ"
         },
         {
-          "id": "p47-write-U",
-          "regionType": "writing-line",
+          "id": "p47-syllable-bubble-1",
+          "regionType": "syllable-bubble",
           "order": 1,
-          "fontRole": "tracing",
-          "modelText": "Ñ"
-        },
-        {
-          "id": "p47-write-U2",
-          "regionType": "writing-line",
-          "order": 2,
-          "fontRole": "tracing"
-        },
-        {
-          "id": "p47-write-l",
-          "regionType": "writing-line",
-          "order": 3,
-          "fontRole": "tracing",
-          "modelText": "ñ"
-        },
-        {
-          "id": "p47-write-l2",
-          "regionType": "writing-line",
-          "order": 4,
-          "fontRole": "tracing"
-        },
-        {
-          "id": "p47-instr2",
-          "regionType": "instruction",
-          "order": 5,
           "fontRole": "body",
-          "text": "Haz un dibujo que represente una palabra que comienza con ñ."
+          "text": "ña  ñe  ñi  ño  ñu"
         },
         {
-          "id": "p47-draw",
-          "regionType": "draw-box",
-          "order": 6,
-          "fontRole": "body"
+          "id": "p47-syllable-bubble-2",
+          "regionType": "syllable-bubble",
+          "order": 2,
+          "fontRole": "body",
+          "text": "ñu  ño  ñi  ñe  ña"
+        },
+        {
+          "id": "p47-vocab-grid-3",
+          "regionType": "vocab-grid",
+          "order": 3,
+          "fontRole": "body",
+          "text": "piña · muñeca · niño · araña"
         }
       ]
     },
     "48": {
-      "regions": [
-        {
-          "id": "p48-instr",
-          "regionType": "instruction",
-          "order": 0,
-          "fontRole": "body",
-          "text": "Encierra en un círculo la sílaba correspondiente."
-        },
-        {
-          "id": "p48-ña",
-          "regionType": "syllable-match",
-          "order": 1,
-          "fontRole": "body",
-          "syllable": "ña",
-          "matchRows": [
-            [
-              {
-                "word": "caña",
-                "correct": true
-              },
-              {
-                "word": "araña",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/vocal-a/arana.webp"
-              },
-              {
-                "word": "ñutu",
-                "correct": false
-              }
-            ],
-            [
-              {
-                "word": "leña",
-                "correct": true
-              },
-              {
-                "word": "cariño",
-                "correct": false
-              },
-              {
-                "word": "ñeque",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p48-ñe",
-          "regionType": "syllable-match",
-          "order": 2,
-          "fontRole": "body",
-          "syllable": "ñe",
-          "matchRows": [
-            [
-              {
-                "word": "ñeque",
-                "correct": true
-              },
-              {
-                "word": "cariño",
-                "correct": false
-              },
-              {
-                "word": "muñeca",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-14-n/muneca.webp"
-              }
-            ],
-            [
-              {
-                "word": "piña",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-14-n/pina.webp"
-              },
-              {
-                "word": "muñido",
-                "correct": false
-              },
-              {
-                "word": "ñero",
-                "correct": true
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p48-ñi",
-          "regionType": "syllable-match",
-          "order": 3,
-          "fontRole": "body",
-          "syllable": "ñi",
-          "matchRows": [
-            [
-              {
-                "word": "ñiquiñaque",
-                "correct": true
-              },
-              {
-                "word": "muñido",
-                "correct": true
-              },
-              {
-                "word": "España",
-                "correct": false
-              }
-            ],
-            [
-              {
-                "word": "ordeñe",
-                "correct": false
-              },
-              {
-                "word": "ceñido",
-                "correct": true
-              },
-              {
-                "word": "moño",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p48-ño",
-          "regionType": "syllable-match",
-          "order": 4,
-          "fontRole": "body",
-          "syllable": "ño",
-          "matchRows": [
-            [
-              {
-                "word": "niño",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-14-n/nino.webp"
-              },
-              {
-                "word": "añublo",
-                "correct": false
-              },
-              {
-                "word": "moño",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "España",
-                "correct": false
-              },
-              {
-                "word": "puño",
-                "correct": true
-              },
-              {
-                "word": "ñero",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p48-ñu",
-          "regionType": "syllable-match",
-          "order": 5,
-          "fontRole": "body",
-          "syllable": "ñu",
-          "matchRows": [
-            [
-              {
-                "word": "muñeca",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-14-n/muneca.webp"
-              },
-              {
-                "word": "ñu",
-                "correct": true
-              },
-              {
-                "word": "ñudo",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "ñublado",
-                "correct": true
-              },
-              {
-                "word": "España",
-                "correct": false
-              },
-              {
-                "word": "ñero",
-                "correct": false
-              }
-            ]
-          ]
-        }
-      ]
+      "regions": []
     },
     "49": {
       "regions": [
         {
-          "id": "p49-instr",
+          "id": "p49-sentence-0",
+          "regionType": "reading-sentences",
+          "order": 0,
+          "fontRole": "body",
+          "sentences": [
+            "El niño tiene un moño."
+          ]
+        },
+        {
+          "id": "p49-sentence-1",
+          "regionType": "reading-sentences",
+          "order": 1,
+          "fontRole": "body",
+          "sentences": [
+            "La piña es dulce."
+          ]
+        }
+      ]
+    },
+    "50": {
+      "regions": [
+        {
+          "id": "p50-instr1",
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Completa las palabras con la s�laba correcta. Escribe oraciones con el nombre de cada figura. Usa las s�labas que aprendiste."
+          "text": "Completa las palabras con la sílaba correcta."
         },
         {
-          "id": "p49-fill",
+          "id": "p50-fill-1",
           "regionType": "fill-in-blank",
           "order": 1,
           "fontRole": "body",
@@ -4387,320 +2701,110 @@
               ]
             }
           ]
-        }
-      ]
-    },
-    "50": {
-      "regions": [
-        {
-          "id": "p50-title",
-          "regionType": "title",
-          "order": 0,
-          "fontRole": "heading",
-          "text": "Ññ"
         },
         {
-          "id": "p50-syl1",
-          "regionType": "syllable-bubble",
-          "order": 1,
-          "fontRole": "body",
-          "text": "ña  ñe  ñi  ño  ñu"
-        },
-        {
-          "id": "p50-syl2",
-          "regionType": "syllable-bubble",
+          "id": "p50-instr2",
+          "regionType": "instruction",
           "order": 2,
           "fontRole": "body",
-          "text": "ñu  ño  ñi  ñe  ña"
+          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
         },
         {
-          "id": "p50-words",
-          "regionType": "vocab-grid",
+          "id": "p50-write-3",
+          "regionType": "writing-line",
           "order": 3,
-          "fontRole": "body",
-          "text": "piña · muñeca · niño · araña"
+          "fontRole": "tracing",
+          "modelText": "Ñ"
         },
         {
-          "id": "p50-sentence1",
-          "regionType": "reading-sentences",
+          "id": "p50-write-4",
+          "regionType": "writing-line",
           "order": 4,
-          "fontRole": "body",
-          "sentences": [
-            "El niño tiene un moño."
-          ]
+          "fontRole": "tracing"
         },
         {
-          "id": "p50-sentence2",
-          "regionType": "reading-sentences",
+          "id": "p50-write-5",
+          "regionType": "writing-line",
           "order": 5,
-          "fontRole": "body",
-          "sentences": [
-            "La piña es dulce."
-          ]
+          "fontRole": "tracing",
+          "modelText": "ñ"
+        },
+        {
+          "id": "p50-write-6",
+          "regionType": "writing-line",
+          "order": 6,
+          "fontRole": "tracing"
         }
       ]
     },
     "51": {
       "regions": [
         {
-          "id": "p51-instr1",
-          "regionType": "instruction",
+          "id": "p51-title-0",
+          "regionType": "title",
           "order": 0,
-          "fontRole": "body",
-          "text": "Traza con tu mejor letra."
+          "fontRole": "heading",
+          "text": "Bb"
         },
         {
-          "id": "p51-write-U",
-          "regionType": "writing-line",
+          "id": "p51-syllable-bubble-1",
+          "regionType": "syllable-bubble",
           "order": 1,
-          "fontRole": "tracing",
-          "modelText": "B"
-        },
-        {
-          "id": "p51-write-U2",
-          "regionType": "writing-line",
-          "order": 2,
-          "fontRole": "tracing"
-        },
-        {
-          "id": "p51-write-l",
-          "regionType": "writing-line",
-          "order": 3,
-          "fontRole": "tracing",
-          "modelText": "b"
-        },
-        {
-          "id": "p51-write-l2",
-          "regionType": "writing-line",
-          "order": 4,
-          "fontRole": "tracing"
-        },
-        {
-          "id": "p51-instr2",
-          "regionType": "instruction",
-          "order": 5,
           "fontRole": "body",
-          "text": "Haz un dibujo que represente una palabra que comienza con b."
+          "text": "ba  be  bi  bo  bu"
         },
         {
-          "id": "p51-draw",
-          "regionType": "draw-box",
-          "order": 6,
-          "fontRole": "body"
+          "id": "p51-syllable-bubble-2",
+          "regionType": "syllable-bubble",
+          "order": 2,
+          "fontRole": "body",
+          "text": "bu  bo  bi  be  ba"
+        },
+        {
+          "id": "p51-vocab-grid-3",
+          "regionType": "vocab-grid",
+          "order": 3,
+          "fontRole": "body",
+          "text": "barco · bebé · bici · bota"
         }
       ]
     },
     "52": {
-      "regions": [
-        {
-          "id": "p52-instr",
-          "regionType": "instruction",
-          "order": 0,
-          "fontRole": "body",
-          "text": "Encierra en un círculo la sílaba correspondiente."
-        },
-        {
-          "id": "p52-ba",
-          "regionType": "syllable-match",
-          "order": 1,
-          "fontRole": "body",
-          "syllable": "ba",
-          "matchRows": [
-            [
-              {
-                "word": "Bambi",
-                "correct": true
-              },
-              {
-                "word": "Beto",
-                "correct": false
-              },
-              {
-                "word": "bata",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "bestia",
-                "correct": false
-              },
-              {
-                "word": "balde",
-                "correct": true
-              },
-              {
-                "word": "buho",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p52-be",
-          "regionType": "syllable-match",
-          "order": 2,
-          "fontRole": "body",
-          "syllable": "be",
-          "matchRows": [
-            [
-              {
-                "word": "bebé",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-15-b/bebe.webp"
-              },
-              {
-                "word": "beso",
-                "correct": true
-              },
-              {
-                "word": "bonito",
-                "correct": false
-              }
-            ],
-            [
-              {
-                "word": "Bambi",
-                "correct": false
-              },
-              {
-                "word": "Bubu",
-                "correct": false
-              },
-              {
-                "word": "Beto",
-                "correct": true
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p52-bi",
-          "regionType": "syllable-match",
-          "order": 3,
-          "fontRole": "body",
-          "syllable": "bi",
-          "matchRows": [
-            [
-              {
-                "word": "bici",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-15-b/bici.webp"
-              },
-              {
-                "word": "biberón",
-                "correct": true
-              },
-              {
-                "word": "buho",
-                "correct": false
-              }
-            ],
-            [
-              {
-                "word": "Bambi",
-                "correct": false
-              },
-              {
-                "word": "bebé",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-15-b/bebe.webp"
-              },
-              {
-                "word": "Bibi",
-                "correct": true
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p52-bo",
-          "regionType": "syllable-match",
-          "order": 4,
-          "fontRole": "body",
-          "syllable": "bo",
-          "matchRows": [
-            [
-              {
-                "word": "bota",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-15-b/bota.webp"
-              },
-              {
-                "word": "burro",
-                "correct": false
-              },
-              {
-                "word": "boca",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "bola",
-                "correct": true
-              },
-              {
-                "word": "Bambi",
-                "correct": false
-              },
-              {
-                "word": "bata",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p52-bu",
-          "regionType": "syllable-match",
-          "order": 5,
-          "fontRole": "body",
-          "syllable": "bu",
-          "matchRows": [
-            [
-              {
-                "word": "buho",
-                "correct": true
-              },
-              {
-                "word": "buque",
-                "correct": true
-              },
-              {
-                "word": "bata",
-                "correct": false
-              }
-            ],
-            [
-              {
-                "word": "Bubu",
-                "correct": true
-              },
-              {
-                "word": "Beto",
-                "correct": false
-              },
-              {
-                "word": "biberón",
-                "correct": false
-              }
-            ]
-          ]
-        }
-      ]
+      "regions": []
     },
     "53": {
       "regions": [
         {
-          "id": "p53-instr",
+          "id": "p53-sentence-0",
+          "regionType": "reading-sentences",
+          "order": 0,
+          "fontRole": "body",
+          "sentences": [
+            "El bebé bebe."
+          ]
+        },
+        {
+          "id": "p53-sentence-1",
+          "regionType": "reading-sentences",
+          "order": 1,
+          "fontRole": "body",
+          "sentences": [
+            "Beto besa a la abuela."
+          ]
+        }
+      ]
+    },
+    "54": {
+      "regions": [
+        {
+          "id": "p54-instr1",
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Completa las palabras con la s�laba correcta. Escribe oraciones con el nombre de cada figura. Usa las s�labas que aprendiste."
+          "text": "Completa las palabras con la sílaba correcta."
         },
         {
-          "id": "p53-fill",
+          "id": "p54-fill-1",
           "regionType": "fill-in-blank",
           "order": 1,
           "fontRole": "body",
@@ -4774,323 +2878,110 @@
               ]
             }
           ]
-        }
-      ]
-    },
-    "54": {
-      "regions": [
-        {
-          "id": "p54-title",
-          "regionType": "title",
-          "order": 0,
-          "fontRole": "heading",
-          "text": "Bb"
         },
         {
-          "id": "p54-syl1",
-          "regionType": "syllable-bubble",
-          "order": 1,
-          "fontRole": "body",
-          "text": "ba  be  bi  bo  bu"
-        },
-        {
-          "id": "p54-syl2",
-          "regionType": "syllable-bubble",
+          "id": "p54-instr2",
+          "regionType": "instruction",
           "order": 2,
           "fontRole": "body",
-          "text": "bu  bo  bi  be  ba"
+          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
         },
         {
-          "id": "p54-words",
-          "regionType": "vocab-grid",
+          "id": "p54-write-3",
+          "regionType": "writing-line",
           "order": 3,
-          "fontRole": "body",
-          "text": "barco · bebé · bici · bota"
+          "fontRole": "tracing",
+          "modelText": "B"
         },
         {
-          "id": "p54-sentence1",
-          "regionType": "reading-sentences",
+          "id": "p54-write-4",
+          "regionType": "writing-line",
           "order": 4,
-          "fontRole": "body",
-          "sentences": [
-            "El bebé bebe."
-          ]
+          "fontRole": "tracing"
         },
         {
-          "id": "p54-sentence2",
-          "regionType": "reading-sentences",
+          "id": "p54-write-5",
+          "regionType": "writing-line",
           "order": 5,
-          "fontRole": "body",
-          "sentences": [
-            "Beto besa a la abuela."
-          ]
+          "fontRole": "tracing",
+          "modelText": "b"
+        },
+        {
+          "id": "p54-write-6",
+          "regionType": "writing-line",
+          "order": 6,
+          "fontRole": "tracing"
         }
       ]
     },
     "55": {
       "regions": [
         {
-          "id": "p55-instr1",
-          "regionType": "instruction",
+          "id": "p55-title-0",
+          "regionType": "title",
           "order": 0,
-          "fontRole": "body",
-          "text": "Traza con tu mejor letra."
+          "fontRole": "heading",
+          "text": "Vv"
         },
         {
-          "id": "p55-write-U",
-          "regionType": "writing-line",
+          "id": "p55-syllable-bubble-1",
+          "regionType": "syllable-bubble",
           "order": 1,
-          "fontRole": "tracing",
-          "modelText": "V"
-        },
-        {
-          "id": "p55-write-U2",
-          "regionType": "writing-line",
-          "order": 2,
-          "fontRole": "tracing"
-        },
-        {
-          "id": "p55-write-l",
-          "regionType": "writing-line",
-          "order": 3,
-          "fontRole": "tracing",
-          "modelText": "v"
-        },
-        {
-          "id": "p55-write-l2",
-          "regionType": "writing-line",
-          "order": 4,
-          "fontRole": "tracing"
-        },
-        {
-          "id": "p55-instr2",
-          "regionType": "instruction",
-          "order": 5,
           "fontRole": "body",
-          "text": "Haz un dibujo que represente una palabra que comienza con v."
+          "text": "va  ve  vi  vo  vu"
         },
         {
-          "id": "p55-draw",
-          "regionType": "draw-box",
-          "order": 6,
-          "fontRole": "body"
+          "id": "p55-syllable-bubble-2",
+          "regionType": "syllable-bubble",
+          "order": 2,
+          "fontRole": "body",
+          "text": "vu  vo  vi  ve  va"
+        },
+        {
+          "id": "p55-vocab-grid-3",
+          "regionType": "vocab-grid",
+          "order": 3,
+          "fontRole": "body",
+          "text": "vaca · vela · vino · volcán"
         }
       ]
     },
     "56": {
-      "regions": [
-        {
-          "id": "p56-instr",
-          "regionType": "instruction",
-          "order": 0,
-          "fontRole": "body",
-          "text": "Encierra en un círculo la sílaba correspondiente."
-        },
-        {
-          "id": "p56-va",
-          "regionType": "syllable-match",
-          "order": 1,
-          "fontRole": "body",
-          "syllable": "va",
-          "matchRows": [
-            [
-              {
-                "word": "vaso",
-                "correct": true
-              },
-              {
-                "word": "vaca",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/vaca.webp"
-              },
-              {
-                "word": "vela",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/vela.webp"
-              }
-            ],
-            [
-              {
-                "word": "Vivi",
-                "correct": false
-              },
-              {
-                "word": "Valeria",
-                "correct": true
-              },
-              {
-                "word": "violeta",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p56-ve",
-          "regionType": "syllable-match",
-          "order": 2,
-          "fontRole": "body",
-          "syllable": "ve",
-          "matchRows": [
-            [
-              {
-                "word": "vela",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/vela.webp"
-              },
-              {
-                "word": "vaca",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/vaca.webp"
-              },
-              {
-                "word": "verde",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "voltaje",
-                "correct": false
-              },
-              {
-                "word": "Vero",
-                "correct": true
-              },
-              {
-                "word": "vuelta",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p56-vi",
-          "regionType": "syllable-match",
-          "order": 3,
-          "fontRole": "body",
-          "syllable": "vi",
-          "matchRows": [
-            [
-              {
-                "word": "vino",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/vino.webp"
-              },
-              {
-                "word": "vida",
-                "correct": true
-              },
-              {
-                "word": "vela",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/vela.webp"
-              }
-            ],
-            [
-              {
-                "word": "voz",
-                "correct": false
-              },
-              {
-                "word": "vulgar",
-                "correct": false
-              },
-              {
-                "word": "Vivi",
-                "correct": true
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p56-vo",
-          "regionType": "syllable-match",
-          "order": 4,
-          "fontRole": "body",
-          "syllable": "vo",
-          "matchRows": [
-            [
-              {
-                "word": "volcán",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/volcan.webp"
-              },
-              {
-                "word": "vapor",
-                "correct": false
-              },
-              {
-                "word": "voto",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "Valeria",
-                "correct": false
-              },
-              {
-                "word": "vómito",
-                "correct": true
-              },
-              {
-                "word": "vuelo",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p56-vu",
-          "regionType": "syllable-match",
-          "order": 5,
-          "fontRole": "body",
-          "syllable": "vu",
-          "matchRows": [
-            [
-              {
-                "word": "vudú",
-                "correct": true
-              },
-              {
-                "word": "vainilla",
-                "correct": false
-              },
-              {
-                "word": "vulgar",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "vómito",
-                "correct": false
-              },
-              {
-                "word": "viento",
-                "correct": false
-              },
-              {
-                "word": "vuelo",
-                "correct": true
-              }
-            ]
-          ]
-        }
-      ]
+      "regions": []
     },
     "57": {
       "regions": [
         {
-          "id": "p57-instr",
+          "id": "p57-sentence-0",
+          "regionType": "reading-sentences",
+          "order": 0,
+          "fontRole": "body",
+          "sentences": [
+            "La vaca ve a Vero."
+          ]
+        },
+        {
+          "id": "p57-sentence-1",
+          "regionType": "reading-sentences",
+          "order": 1,
+          "fontRole": "body",
+          "sentences": [
+            "Vivi viene en el vuelo."
+          ]
+        }
+      ]
+    },
+    "58": {
+      "regions": [
+        {
+          "id": "p58-instr1",
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Completa las palabras con la s�laba correcta. Escribe oraciones con el nombre de cada figura. Usa las s�labas que aprendiste."
+          "text": "Completa las palabras con la sílaba correcta."
         },
         {
-          "id": "p57-fill",
+          "id": "p58-fill-1",
           "regionType": "fill-in-blank",
           "order": 1,
           "fontRole": "body",
@@ -5164,325 +3055,110 @@
               ]
             }
           ]
-        }
-      ]
-    },
-    "58": {
-      "regions": [
-        {
-          "id": "p58-title",
-          "regionType": "title",
-          "order": 0,
-          "fontRole": "heading",
-          "text": "Vv"
         },
         {
-          "id": "p58-syl1",
-          "regionType": "syllable-bubble",
-          "order": 1,
-          "fontRole": "body",
-          "text": "va  ve  vi  vo  vu"
-        },
-        {
-          "id": "p58-syl2",
-          "regionType": "syllable-bubble",
+          "id": "p58-instr2",
+          "regionType": "instruction",
           "order": 2,
           "fontRole": "body",
-          "text": "vu  vo  vi  ve  va"
+          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
         },
         {
-          "id": "p58-words",
-          "regionType": "vocab-grid",
+          "id": "p58-write-3",
+          "regionType": "writing-line",
           "order": 3,
-          "fontRole": "body",
-          "text": "vaca · vela · vino · volcán"
+          "fontRole": "tracing",
+          "modelText": "V"
         },
         {
-          "id": "p58-sentence1",
-          "regionType": "reading-sentences",
+          "id": "p58-write-4",
+          "regionType": "writing-line",
           "order": 4,
-          "fontRole": "body",
-          "sentences": [
-            "La vaca ve a Vero."
-          ]
+          "fontRole": "tracing"
         },
         {
-          "id": "p58-sentence2",
-          "regionType": "reading-sentences",
+          "id": "p58-write-5",
+          "regionType": "writing-line",
           "order": 5,
-          "fontRole": "body",
-          "sentences": [
-            "Vivi viene en el vuelo."
-          ]
+          "fontRole": "tracing",
+          "modelText": "v"
+        },
+        {
+          "id": "p58-write-6",
+          "regionType": "writing-line",
+          "order": 6,
+          "fontRole": "tracing"
         }
       ]
     },
     "59": {
       "regions": [
         {
-          "id": "p59-instr1",
-          "regionType": "instruction",
+          "id": "p59-title-0",
+          "regionType": "title",
           "order": 0,
-          "fontRole": "body",
-          "text": "Traza con tu mejor letra."
+          "fontRole": "heading",
+          "text": "Rr"
         },
         {
-          "id": "p59-write-U",
-          "regionType": "writing-line",
+          "id": "p59-syllable-bubble-1",
+          "regionType": "syllable-bubble",
           "order": 1,
-          "fontRole": "tracing",
-          "modelText": "R"
-        },
-        {
-          "id": "p59-write-U2",
-          "regionType": "writing-line",
-          "order": 2,
-          "fontRole": "tracing"
-        },
-        {
-          "id": "p59-write-l",
-          "regionType": "writing-line",
-          "order": 3,
-          "fontRole": "tracing",
-          "modelText": "r"
-        },
-        {
-          "id": "p59-write-l2",
-          "regionType": "writing-line",
-          "order": 4,
-          "fontRole": "tracing"
-        },
-        {
-          "id": "p59-instr2",
-          "regionType": "instruction",
-          "order": 5,
           "fontRole": "body",
-          "text": "Haz un dibujo que represente una palabra que comienza con r."
+          "text": "ra  re  ri  ro  ru"
         },
         {
-          "id": "p59-draw",
-          "regionType": "draw-box",
-          "order": 6,
-          "fontRole": "body"
+          "id": "p59-syllable-bubble-2",
+          "regionType": "syllable-bubble",
+          "order": 2,
+          "fontRole": "body",
+          "text": "ru  ro  ri  re  ra"
+        },
+        {
+          "id": "p59-vocab-grid-3",
+          "regionType": "vocab-grid",
+          "order": 3,
+          "fontRole": "body",
+          "text": "rana · rosa · remo · rueda"
         }
       ]
     },
     "60": {
-      "regions": [
-        {
-          "id": "p60-instr",
-          "regionType": "instruction",
-          "order": 0,
-          "fontRole": "body",
-          "text": "Encierra en un círculo la sílaba correspondiente."
-        },
-        {
-          "id": "p60-ra",
-          "regionType": "syllable-match",
-          "order": 1,
-          "fontRole": "body",
-          "syllable": "ra",
-          "matchRows": [
-            [
-              {
-                "word": "pera",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-1/pera.webp"
-              },
-              {
-                "word": "rama",
-                "correct": true
-              },
-              {
-                "word": "cara",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "rueda",
-                "correct": false
-              },
-              {
-                "word": "Rafa",
-                "correct": true
-              },
-              {
-                "word": "reto",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p60-re",
-          "regionType": "syllable-match",
-          "order": 2,
-          "fontRole": "body",
-          "syllable": "re",
-          "matchRows": [
-            [
-              {
-                "word": "reto",
-                "correct": true
-              },
-              {
-                "word": "pera",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-1/pera.webp"
-              },
-              {
-                "word": "Rafa",
-                "correct": false
-              }
-            ],
-            [
-              {
-                "word": "Ricki",
-                "correct": false
-              },
-              {
-                "word": "Rena",
-                "correct": true
-              },
-              {
-                "word": "puro",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p60-ri",
-          "regionType": "syllable-match",
-          "order": 3,
-          "fontRole": "body",
-          "syllable": "ri",
-          "matchRows": [
-            [
-              {
-                "word": "risa",
-                "correct": true
-              },
-              {
-                "word": "pira",
-                "correct": true
-              },
-              {
-                "word": "remo",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-17-r/remo.webp"
-              }
-            ],
-            [
-              {
-                "word": "Ricki",
-                "correct": true
-              },
-              {
-                "word": "loro",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/loro.webp"
-              },
-              {
-                "word": "pera",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-1/pera.webp"
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p60-ro",
-          "regionType": "syllable-match",
-          "order": 4,
-          "fontRole": "body",
-          "syllable": "ro",
-          "matchRows": [
-            [
-              {
-                "word": "rana",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-17-r/rana.webp"
-              },
-              {
-                "word": "loro",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/loro.webp"
-              },
-              {
-                "word": "rosa",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-17-r/rosa.webp"
-              }
-            ],
-            [
-              {
-                "word": "Rafa",
-                "correct": false
-              },
-              {
-                "word": "Romina",
-                "correct": true
-              },
-              {
-                "word": "pira",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p60-ru",
-          "regionType": "syllable-match",
-          "order": 5,
-          "fontRole": "body",
-          "syllable": "ru",
-          "matchRows": [
-            [
-              {
-                "word": "rana",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-17-r/rana.webp"
-              },
-              {
-                "word": "puro",
-                "correct": true
-              },
-              {
-                "word": "ruta",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "Rubi",
-                "correct": true
-              },
-              {
-                "word": "rama",
-                "correct": false
-              },
-              {
-                "word": "redondo",
-                "correct": false
-              }
-            ]
-          ]
-        }
-      ]
+      "regions": []
     },
     "61": {
       "regions": [
         {
-          "id": "p61-instr",
+          "id": "p61-sentence-0",
+          "regionType": "reading-sentences",
+          "order": 0,
+          "fontRole": "body",
+          "sentences": [
+            "La rana ríe."
+          ]
+        },
+        {
+          "id": "p61-sentence-1",
+          "regionType": "reading-sentences",
+          "order": 1,
+          "fontRole": "body",
+          "sentences": [
+            "Rosa toma una pera."
+          ]
+        }
+      ]
+    },
+    "62": {
+      "regions": [
+        {
+          "id": "p62-instr1",
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Completa las palabras con la s�laba correcta. Escribe oraciones con el nombre de cada figura. Usa las s�labas que aprendiste."
+          "text": "Completa las palabras con la sílaba correcta."
         },
         {
-          "id": "p61-fill",
+          "id": "p62-fill-1",
           "regionType": "fill-in-blank",
           "order": 1,
           "fontRole": "body",
@@ -5555,320 +3231,110 @@
               ]
             }
           ]
-        }
-      ]
-    },
-    "62": {
-      "regions": [
-        {
-          "id": "p62-title",
-          "regionType": "title",
-          "order": 0,
-          "fontRole": "heading",
-          "text": "Rr"
         },
         {
-          "id": "p62-syl1",
-          "regionType": "syllable-bubble",
-          "order": 1,
-          "fontRole": "body",
-          "text": "ra  re  ri  ro  ru"
-        },
-        {
-          "id": "p62-syl2",
-          "regionType": "syllable-bubble",
+          "id": "p62-instr2",
+          "regionType": "instruction",
           "order": 2,
           "fontRole": "body",
-          "text": "ru  ro  ri  re  ra"
+          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
         },
         {
-          "id": "p62-words",
-          "regionType": "vocab-grid",
+          "id": "p62-write-3",
+          "regionType": "writing-line",
           "order": 3,
-          "fontRole": "body",
-          "text": "rana · rosa · remo · rueda"
+          "fontRole": "tracing",
+          "modelText": "R"
         },
         {
-          "id": "p62-sentence1",
-          "regionType": "reading-sentences",
+          "id": "p62-write-4",
+          "regionType": "writing-line",
           "order": 4,
-          "fontRole": "body",
-          "sentences": [
-            "La rana ríe."
-          ]
+          "fontRole": "tracing"
         },
         {
-          "id": "p62-sentence2",
-          "regionType": "reading-sentences",
+          "id": "p62-write-5",
+          "regionType": "writing-line",
           "order": 5,
-          "fontRole": "body",
-          "sentences": [
-            "Rosa toma una pera."
-          ]
+          "fontRole": "tracing",
+          "modelText": "r"
+        },
+        {
+          "id": "p62-write-6",
+          "regionType": "writing-line",
+          "order": 6,
+          "fontRole": "tracing"
         }
       ]
     },
     "63": {
       "regions": [
         {
-          "id": "p63-instr1",
-          "regionType": "instruction",
+          "id": "p63-title-0",
+          "regionType": "title",
           "order": 0,
-          "fontRole": "body",
-          "text": "Traza con tu mejor letra."
+          "fontRole": "heading",
+          "text": "RRrr"
         },
         {
-          "id": "p63-write-U",
-          "regionType": "writing-line",
+          "id": "p63-syllable-bubble-1",
+          "regionType": "syllable-bubble",
           "order": 1,
-          "fontRole": "tracing",
-          "modelText": "RR"
-        },
-        {
-          "id": "p63-write-U2",
-          "regionType": "writing-line",
-          "order": 2,
-          "fontRole": "tracing"
-        },
-        {
-          "id": "p63-write-l",
-          "regionType": "writing-line",
-          "order": 3,
-          "fontRole": "tracing",
-          "modelText": "rr"
-        },
-        {
-          "id": "p63-write-l2",
-          "regionType": "writing-line",
-          "order": 4,
-          "fontRole": "tracing"
-        },
-        {
-          "id": "p63-instr2",
-          "regionType": "instruction",
-          "order": 5,
           "fontRole": "body",
-          "text": "Haz un dibujo que represente una palabra que comienza con rr."
+          "text": "rra  rre  rri  rro  rru"
         },
         {
-          "id": "p63-draw",
-          "regionType": "draw-box",
-          "order": 6,
-          "fontRole": "body"
+          "id": "p63-syllable-bubble-2",
+          "regionType": "syllable-bubble",
+          "order": 2,
+          "fontRole": "body",
+          "text": "rru  rro  rri  rre  rra"
+        },
+        {
+          "id": "p63-vocab-grid-3",
+          "regionType": "vocab-grid",
+          "order": 3,
+          "fontRole": "body",
+          "text": "perro · carro · burro · guitarra"
         }
       ]
     },
     "64": {
-      "regions": [
-        {
-          "id": "p64-instr",
-          "regionType": "instruction",
-          "order": 0,
-          "fontRole": "body",
-          "text": "Encierra en un círculo la sílaba correspondiente."
-        },
-        {
-          "id": "p64-rra",
-          "regionType": "syllable-match",
-          "order": 1,
-          "fontRole": "body",
-          "syllable": "rra",
-          "matchRows": [
-            [
-              {
-                "word": "correo",
-                "correct": false
-              },
-              {
-                "word": "tierra",
-                "correct": true
-              },
-              {
-                "word": "barra",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "guitarra",
-                "correct": true
-              },
-              {
-                "word": "barrio",
-                "correct": false
-              },
-              {
-                "word": "carro",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/carro.webp"
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p64-rre",
-          "regionType": "syllable-match",
-          "order": 2,
-          "fontRole": "body",
-          "syllable": "rre",
-          "matchRows": [
-            [
-              {
-                "word": "perro",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/perro.webp"
-              },
-              {
-                "word": "barrio",
-                "correct": false
-              },
-              {
-                "word": "torre",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/torre.webp"
-              }
-            ],
-            [
-              {
-                "word": "borrumba",
-                "correct": false
-              },
-              {
-                "word": "cigarro",
-                "correct": false
-              },
-              {
-                "word": "carrera",
-                "correct": true
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p64-rri",
-          "regionType": "syllable-match",
-          "order": 3,
-          "fontRole": "body",
-          "syllable": "rri",
-          "matchRows": [
-            [
-              {
-                "word": "carrito",
-                "correct": true
-              },
-              {
-                "word": "arrullo",
-                "correct": false
-              },
-              {
-                "word": "arriba",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "hierro",
-                "correct": false
-              },
-              {
-                "word": "guitarra",
-                "correct": false
-              },
-              {
-                "word": "barrio",
-                "correct": true
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p64-rro",
-          "regionType": "syllable-match",
-          "order": 4,
-          "fontRole": "body",
-          "syllable": "rro",
-          "matchRows": [
-            [
-              {
-                "word": "burro",
-                "correct": true
-              },
-              {
-                "word": "carro",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/carro.webp"
-              },
-              {
-                "word": "barra",
-                "correct": false
-              }
-            ],
-            [
-              {
-                "word": "morro",
-                "correct": true
-              },
-              {
-                "word": "tierra",
-                "correct": false
-              },
-              {
-                "word": "guitarra",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p64-rru",
-          "regionType": "syllable-match",
-          "order": 5,
-          "fontRole": "body",
-          "syllable": "rru",
-          "matchRows": [
-            [
-              {
-                "word": "arruga",
-                "correct": true
-              },
-              {
-                "word": "carrera",
-                "correct": false
-              },
-              {
-                "word": "borrumba",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "arrullo",
-                "correct": true
-              },
-              {
-                "word": "guitarra",
-                "correct": false
-              },
-              {
-                "word": "cigarro",
-                "correct": false
-              }
-            ]
-          ]
-        }
-      ]
+      "regions": []
     },
     "65": {
       "regions": [
         {
-          "id": "p65-instr",
+          "id": "p65-sentence-0",
+          "regionType": "reading-sentences",
+          "order": 0,
+          "fontRole": "body",
+          "sentences": [
+            "El perro corre por la torre."
+          ]
+        },
+        {
+          "id": "p65-sentence-1",
+          "regionType": "reading-sentences",
+          "order": 1,
+          "fontRole": "body",
+          "sentences": [
+            "El carro va por la carretera."
+          ]
+        }
+      ]
+    },
+    "66": {
+      "regions": [
+        {
+          "id": "p66-instr1",
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Completa las palabras con la s�laba correcta. Escribe oraciones con el nombre de cada figura. Usa las s�labas que aprendiste."
+          "text": "Completa las palabras con la sílaba correcta."
         },
         {
-          "id": "p65-fill",
+          "id": "p66-fill-1",
           "regionType": "fill-in-blank",
           "order": 1,
           "fontRole": "body",
@@ -5940,316 +3406,110 @@
               ]
             }
           ]
-        }
-      ]
-    },
-    "66": {
-      "regions": [
-        {
-          "id": "p66-title",
-          "regionType": "title",
-          "order": 0,
-          "fontRole": "heading",
-          "text": "RRrr"
         },
         {
-          "id": "p66-syl1",
-          "regionType": "syllable-bubble",
-          "order": 1,
-          "fontRole": "body",
-          "text": "rra  rre  rri  rro  rru"
-        },
-        {
-          "id": "p66-syl2",
-          "regionType": "syllable-bubble",
+          "id": "p66-instr2",
+          "regionType": "instruction",
           "order": 2,
           "fontRole": "body",
-          "text": "rru  rro  rri  rre  rra"
+          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
         },
         {
-          "id": "p66-words",
-          "regionType": "vocab-grid",
+          "id": "p66-write-3",
+          "regionType": "writing-line",
           "order": 3,
-          "fontRole": "body",
-          "text": "perro · carro · burro · guitarra"
+          "fontRole": "tracing",
+          "modelText": "RR"
         },
         {
-          "id": "p66-sentence1",
-          "regionType": "reading-sentences",
+          "id": "p66-write-4",
+          "regionType": "writing-line",
           "order": 4,
-          "fontRole": "body",
-          "sentences": [
-            "El perro corre por la torre."
-          ]
+          "fontRole": "tracing"
         },
         {
-          "id": "p66-sentence2",
-          "regionType": "reading-sentences",
+          "id": "p66-write-5",
+          "regionType": "writing-line",
           "order": 5,
-          "fontRole": "body",
-          "sentences": [
-            "El carro va por la carretera."
-          ]
+          "fontRole": "tracing",
+          "modelText": "rr"
+        },
+        {
+          "id": "p66-write-6",
+          "regionType": "writing-line",
+          "order": 6,
+          "fontRole": "tracing"
         }
       ]
     },
     "67": {
       "regions": [
         {
-          "id": "p67-instr1",
-          "regionType": "instruction",
+          "id": "p67-title-0",
+          "regionType": "title",
           "order": 0,
-          "fontRole": "body",
-          "text": "Traza con tu mejor letra."
+          "fontRole": "heading",
+          "text": "Gg"
         },
         {
-          "id": "p67-write-U",
-          "regionType": "writing-line",
+          "id": "p67-syllable-bubble-1",
+          "regionType": "syllable-bubble",
           "order": 1,
-          "fontRole": "tracing",
-          "modelText": "G"
-        },
-        {
-          "id": "p67-write-U2",
-          "regionType": "writing-line",
-          "order": 2,
-          "fontRole": "tracing"
-        },
-        {
-          "id": "p67-write-l",
-          "regionType": "writing-line",
-          "order": 3,
-          "fontRole": "tracing",
-          "modelText": "g"
-        },
-        {
-          "id": "p67-write-l2",
-          "regionType": "writing-line",
-          "order": 4,
-          "fontRole": "tracing"
-        },
-        {
-          "id": "p67-instr2",
-          "regionType": "instruction",
-          "order": 5,
           "fontRole": "body",
-          "text": "Haz un dibujo que represente una palabra que comienza con g."
+          "text": "ga  gue  gui  go  gu"
         },
         {
-          "id": "p67-draw",
-          "regionType": "draw-box",
-          "order": 6,
-          "fontRole": "body"
+          "id": "p67-syllable-bubble-2",
+          "regionType": "syllable-bubble",
+          "order": 2,
+          "fontRole": "body",
+          "text": "gu  go  gui  gue  ga"
+        },
+        {
+          "id": "p67-vocab-grid-3",
+          "regionType": "vocab-grid",
+          "order": 3,
+          "fontRole": "body",
+          "text": "gato · galleta · guitarra · gusano"
         }
       ]
     },
     "68": {
-      "regions": [
-        {
-          "id": "p68-instr",
-          "regionType": "instruction",
-          "order": 0,
-          "fontRole": "body",
-          "text": "Encierra en un círculo la sílaba correspondiente."
-        },
-        {
-          "id": "p68-ga",
-          "regionType": "syllable-match",
-          "order": 1,
-          "fontRole": "body",
-          "syllable": "ga",
-          "matchRows": [
-            [
-              {
-                "word": "gana",
-                "correct": true
-              },
-              {
-                "word": "gato",
-                "correct": true
-              },
-              {
-                "word": "gusano",
-                "correct": false
-              }
-            ],
-            [
-              {
-                "word": "águila",
-                "correct": false
-              },
-              {
-                "word": "guardia",
-                "correct": false
-              },
-              {
-                "word": "Gabi",
-                "correct": true
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p68-gue",
-          "regionType": "syllable-match",
-          "order": 2,
-          "fontRole": "body",
-          "syllable": "gue",
-          "matchRows": [
-            [
-              {
-                "word": "guerra",
-                "correct": true
-              },
-              {
-                "word": "guepardo",
-                "correct": true
-              },
-              {
-                "word": "Guille",
-                "correct": false
-              }
-            ],
-            [
-              {
-                "word": "Miguel",
-                "correct": true
-              },
-              {
-                "word": "ganso",
-                "correct": false
-              },
-              {
-                "word": "gota",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p68-gui",
-          "regionType": "syllable-match",
-          "order": 3,
-          "fontRole": "body",
-          "syllable": "gui",
-          "matchRows": [
-            [
-              {
-                "word": "guiño",
-                "correct": true
-              },
-              {
-                "word": "Gabi",
-                "correct": false
-              },
-              {
-                "word": "guitarra",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "gola",
-                "correct": false
-              },
-              {
-                "word": "águila",
-                "correct": true
-              },
-              {
-                "word": "gula",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p68-go",
-          "regionType": "syllable-match",
-          "order": 4,
-          "fontRole": "body",
-          "syllable": "go",
-          "matchRows": [
-            [
-              {
-                "word": "guerra",
-                "correct": false
-              },
-              {
-                "word": "gola",
-                "correct": true
-              },
-              {
-                "word": "gota",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "Goyo",
-                "correct": true
-              },
-              {
-                "word": "guepardo",
-                "correct": false
-              },
-              {
-                "word": "guisante",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p68-gu",
-          "regionType": "syllable-match",
-          "order": 5,
-          "fontRole": "body",
-          "syllable": "gu",
-          "matchRows": [
-            [
-              {
-                "word": "galleta",
-                "correct": false
-              },
-              {
-                "word": "gusto",
-                "correct": true
-              },
-              {
-                "word": "gula",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "gana",
-                "correct": false
-              },
-              {
-                "word": "Gus",
-                "correct": true
-              },
-              {
-                "word": "guisante",
-                "correct": false
-              }
-            ]
-          ]
-        }
-      ]
+      "regions": []
     },
     "69": {
       "regions": [
         {
-          "id": "p69-instr",
+          "id": "p69-sentence-0",
+          "regionType": "reading-sentences",
+          "order": 0,
+          "fontRole": "body",
+          "sentences": [
+            "El gato toca la guitarra."
+          ]
+        },
+        {
+          "id": "p69-sentence-1",
+          "regionType": "reading-sentences",
+          "order": 1,
+          "fontRole": "body",
+          "sentences": [
+            "Miguel juega con su gato."
+          ]
+        }
+      ]
+    },
+    "70": {
+      "regions": [
+        {
+          "id": "p70-instr1",
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Completa las palabras con la s�laba correcta. Escribe oraciones con el nombre de cada figura. Usa las s�labas que aprendiste."
+          "text": "Completa las palabras con la sílaba correcta."
         },
         {
-          "id": "p69-fill",
+          "id": "p70-fill-1",
           "regionType": "fill-in-blank",
           "order": 1,
           "fontRole": "body",
@@ -6319,316 +3579,110 @@
               ]
             }
           ]
-        }
-      ]
-    },
-    "70": {
-      "regions": [
-        {
-          "id": "p70-title",
-          "regionType": "title",
-          "order": 0,
-          "fontRole": "heading",
-          "text": "Gg"
         },
         {
-          "id": "p70-syl1",
-          "regionType": "syllable-bubble",
-          "order": 1,
-          "fontRole": "body",
-          "text": "ga  gue  gui  go  gu"
-        },
-        {
-          "id": "p70-syl2",
-          "regionType": "syllable-bubble",
+          "id": "p70-instr2",
+          "regionType": "instruction",
           "order": 2,
           "fontRole": "body",
-          "text": "gu  go  gui  gue  ga"
+          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
         },
         {
-          "id": "p70-words",
-          "regionType": "vocab-grid",
+          "id": "p70-write-3",
+          "regionType": "writing-line",
           "order": 3,
-          "fontRole": "body",
-          "text": "gato · galleta · guitarra · gusano"
+          "fontRole": "tracing",
+          "modelText": "G"
         },
         {
-          "id": "p70-sentence1",
-          "regionType": "reading-sentences",
+          "id": "p70-write-4",
+          "regionType": "writing-line",
           "order": 4,
-          "fontRole": "body",
-          "sentences": [
-            "El gato toca la guitarra."
-          ]
+          "fontRole": "tracing"
         },
         {
-          "id": "p70-sentence2",
-          "regionType": "reading-sentences",
+          "id": "p70-write-5",
+          "regionType": "writing-line",
           "order": 5,
-          "fontRole": "body",
-          "sentences": [
-            "Miguel juega con su gato."
-          ]
+          "fontRole": "tracing",
+          "modelText": "g"
+        },
+        {
+          "id": "p70-write-6",
+          "regionType": "writing-line",
+          "order": 6,
+          "fontRole": "tracing"
         }
       ]
     },
     "71": {
       "regions": [
         {
-          "id": "p71-instr1",
-          "regionType": "instruction",
+          "id": "p71-title-0",
+          "regionType": "title",
           "order": 0,
-          "fontRole": "body",
-          "text": "Traza con tu mejor letra."
+          "fontRole": "heading",
+          "text": "Ff"
         },
         {
-          "id": "p71-write-U",
-          "regionType": "writing-line",
+          "id": "p71-syllable-bubble-1",
+          "regionType": "syllable-bubble",
           "order": 1,
-          "fontRole": "tracing",
-          "modelText": "F"
-        },
-        {
-          "id": "p71-write-U2",
-          "regionType": "writing-line",
-          "order": 2,
-          "fontRole": "tracing"
-        },
-        {
-          "id": "p71-write-l",
-          "regionType": "writing-line",
-          "order": 3,
-          "fontRole": "tracing",
-          "modelText": "f"
-        },
-        {
-          "id": "p71-write-l2",
-          "regionType": "writing-line",
-          "order": 4,
-          "fontRole": "tracing"
-        },
-        {
-          "id": "p71-instr2",
-          "regionType": "instruction",
-          "order": 5,
           "fontRole": "body",
-          "text": "Haz un dibujo que represente una palabra que comienza con f."
+          "text": "fa  fe  fi  fo  fu"
         },
         {
-          "id": "p71-draw",
-          "regionType": "draw-box",
-          "order": 6,
-          "fontRole": "body"
+          "id": "p71-syllable-bubble-2",
+          "regionType": "syllable-bubble",
+          "order": 2,
+          "fontRole": "body",
+          "text": "fu  fo  fi  fe  fa"
+        },
+        {
+          "id": "p71-vocab-grid-3",
+          "regionType": "vocab-grid",
+          "order": 3,
+          "fontRole": "body",
+          "text": "faro · fiesta · foca · fuente"
         }
       ]
     },
     "72": {
-      "regions": [
-        {
-          "id": "p72-instr",
-          "regionType": "instruction",
-          "order": 0,
-          "fontRole": "body",
-          "text": "Encierra en un círculo la sílaba correspondiente."
-        },
-        {
-          "id": "p72-fa",
-          "regionType": "syllable-match",
-          "order": 1,
-          "fontRole": "body",
-          "syllable": "fa",
-          "matchRows": [
-            [
-              {
-                "word": "faro",
-                "correct": true
-              },
-              {
-                "word": "foto",
-                "correct": false
-              },
-              {
-                "word": "fama",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "fila",
-                "correct": false
-              },
-              {
-                "word": "feo",
-                "correct": false
-              },
-              {
-                "word": "Fabi",
-                "correct": true
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p72-fe",
-          "regionType": "syllable-match",
-          "order": 2,
-          "fontRole": "body",
-          "syllable": "fe",
-          "matchRows": [
-            [
-              {
-                "word": "fama",
-                "correct": false
-              },
-              {
-                "word": "feo",
-                "correct": true
-              },
-              {
-                "word": "fecha",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "foto",
-                "correct": false
-              },
-              {
-                "word": "Felipe",
-                "correct": true
-              },
-              {
-                "word": "fondo",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p72-fi",
-          "regionType": "syllable-match",
-          "order": 3,
-          "fontRole": "body",
-          "syllable": "fi",
-          "matchRows": [
-            [
-              {
-                "word": "fino",
-                "correct": true
-              },
-              {
-                "word": "foca",
-                "correct": false
-              },
-              {
-                "word": "fila",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "fama",
-                "correct": false
-              },
-              {
-                "word": "foto",
-                "correct": false
-              },
-              {
-                "word": "Fifi",
-                "correct": true
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p72-fo",
-          "regionType": "syllable-match",
-          "order": 4,
-          "fontRole": "body",
-          "syllable": "fo",
-          "matchRows": [
-            [
-              {
-                "word": "foto",
-                "correct": true
-              },
-              {
-                "word": "Fufu",
-                "correct": false
-              },
-              {
-                "word": "foca",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "fiesta",
-                "correct": false
-              },
-              {
-                "word": "falda",
-                "correct": false
-              },
-              {
-                "word": "Foco",
-                "correct": true
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p72-fu",
-          "regionType": "syllable-match",
-          "order": 5,
-          "fontRole": "body",
-          "syllable": "fu",
-          "matchRows": [
-            [
-              {
-                "word": "fino",
-                "correct": false
-              },
-              {
-                "word": "fuma",
-                "correct": true
-              },
-              {
-                "word": "fuente",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "faro",
-                "correct": false
-              },
-              {
-                "word": "fenómeno",
-                "correct": false
-              },
-              {
-                "word": "Fufu",
-                "correct": true
-              }
-            ]
-          ]
-        }
-      ]
+      "regions": []
     },
     "73": {
       "regions": [
         {
-          "id": "p73-instr",
+          "id": "p73-sentence-0",
+          "regionType": "reading-sentences",
+          "order": 0,
+          "fontRole": "body",
+          "sentences": [
+            "La foca está en la fila."
+          ]
+        },
+        {
+          "id": "p73-sentence-1",
+          "regionType": "reading-sentences",
+          "order": 1,
+          "fontRole": "body",
+          "sentences": [
+            "Felipe toma una foto."
+          ]
+        }
+      ]
+    },
+    "74": {
+      "regions": [
+        {
+          "id": "p74-instr1",
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Completa las palabras con la s�laba correcta. Escribe oraciones con el nombre de cada figura. Usa las s�labas que aprendiste."
+          "text": "Completa las palabras con la sílaba correcta."
         },
         {
-          "id": "p73-fill",
+          "id": "p74-fill-1",
           "regionType": "fill-in-blank",
           "order": 1,
           "fontRole": "body",
@@ -6698,316 +3752,110 @@
               ]
             }
           ]
-        }
-      ]
-    },
-    "74": {
-      "regions": [
-        {
-          "id": "p74-title",
-          "regionType": "title",
-          "order": 0,
-          "fontRole": "heading",
-          "text": "Ff"
         },
         {
-          "id": "p74-syl1",
-          "regionType": "syllable-bubble",
-          "order": 1,
-          "fontRole": "body",
-          "text": "fa  fe  fi  fo  fu"
-        },
-        {
-          "id": "p74-syl2",
-          "regionType": "syllable-bubble",
+          "id": "p74-instr2",
+          "regionType": "instruction",
           "order": 2,
           "fontRole": "body",
-          "text": "fu  fo  fi  fe  fa"
+          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
         },
         {
-          "id": "p74-words",
-          "regionType": "vocab-grid",
+          "id": "p74-write-3",
+          "regionType": "writing-line",
           "order": 3,
-          "fontRole": "body",
-          "text": "faro · fiesta · foca · fuente"
+          "fontRole": "tracing",
+          "modelText": "F"
         },
         {
-          "id": "p74-sentence1",
-          "regionType": "reading-sentences",
+          "id": "p74-write-4",
+          "regionType": "writing-line",
           "order": 4,
-          "fontRole": "body",
-          "sentences": [
-            "La foca está en la fila."
-          ]
+          "fontRole": "tracing"
         },
         {
-          "id": "p74-sentence2",
-          "regionType": "reading-sentences",
+          "id": "p74-write-5",
+          "regionType": "writing-line",
           "order": 5,
-          "fontRole": "body",
-          "sentences": [
-            "Felipe toma una foto."
-          ]
+          "fontRole": "tracing",
+          "modelText": "f"
+        },
+        {
+          "id": "p74-write-6",
+          "regionType": "writing-line",
+          "order": 6,
+          "fontRole": "tracing"
         }
       ]
     },
     "75": {
       "regions": [
         {
-          "id": "p75-instr1",
-          "regionType": "instruction",
+          "id": "p75-title-0",
+          "regionType": "title",
           "order": 0,
-          "fontRole": "body",
-          "text": "Traza con tu mejor letra."
+          "fontRole": "heading",
+          "text": "Jj"
         },
         {
-          "id": "p75-write-U",
-          "regionType": "writing-line",
+          "id": "p75-syllable-bubble-1",
+          "regionType": "syllable-bubble",
           "order": 1,
-          "fontRole": "tracing",
-          "modelText": "J"
-        },
-        {
-          "id": "p75-write-U2",
-          "regionType": "writing-line",
-          "order": 2,
-          "fontRole": "tracing"
-        },
-        {
-          "id": "p75-write-l",
-          "regionType": "writing-line",
-          "order": 3,
-          "fontRole": "tracing",
-          "modelText": "j"
-        },
-        {
-          "id": "p75-write-l2",
-          "regionType": "writing-line",
-          "order": 4,
-          "fontRole": "tracing"
-        },
-        {
-          "id": "p75-instr2",
-          "regionType": "instruction",
-          "order": 5,
           "fontRole": "body",
-          "text": "Haz un dibujo que represente una palabra que comienza con j."
+          "text": "ja  je  ji  jo  ju"
         },
         {
-          "id": "p75-draw",
-          "regionType": "draw-box",
-          "order": 6,
-          "fontRole": "body"
+          "id": "p75-syllable-bubble-2",
+          "regionType": "syllable-bubble",
+          "order": 2,
+          "fontRole": "body",
+          "text": "ju  jo  ji  je  ja"
+        },
+        {
+          "id": "p75-vocab-grid-3",
+          "regionType": "vocab-grid",
+          "order": 3,
+          "fontRole": "body",
+          "text": "jabón · jirafa · joya · juguete"
         }
       ]
     },
     "76": {
-      "regions": [
-        {
-          "id": "p76-instr",
-          "regionType": "instruction",
-          "order": 0,
-          "fontRole": "body",
-          "text": "Encierra en un círculo la sílaba correspondiente."
-        },
-        {
-          "id": "p76-ja",
-          "regionType": "syllable-match",
-          "order": 1,
-          "fontRole": "body",
-          "syllable": "ja",
-          "matchRows": [
-            [
-              {
-                "word": "jabón",
-                "correct": true
-              },
-              {
-                "word": "jinete",
-                "correct": false
-              },
-              {
-                "word": "jaula",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "Jimena",
-                "correct": false
-              },
-              {
-                "word": "jícara",
-                "correct": false
-              },
-              {
-                "word": "Javi",
-                "correct": true
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p76-je",
-          "regionType": "syllable-match",
-          "order": 2,
-          "fontRole": "body",
-          "syllable": "je",
-          "matchRows": [
-            [
-              {
-                "word": "jefe",
-                "correct": true
-              },
-              {
-                "word": "Javi",
-                "correct": false
-              },
-              {
-                "word": "jeringa",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "juguete",
-                "correct": false
-              },
-              {
-                "word": "jamón",
-                "correct": false
-              },
-              {
-                "word": "Jenny",
-                "correct": true
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p76-ji",
-          "regionType": "syllable-match",
-          "order": 3,
-          "fontRole": "body",
-          "syllable": "ji",
-          "matchRows": [
-            [
-              {
-                "word": "jirafa",
-                "correct": true
-              },
-              {
-                "word": "jarra",
-                "correct": false
-              },
-              {
-                "word": "jinete",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "jota",
-                "correct": false
-              },
-              {
-                "word": "Jimena",
-                "correct": true
-              },
-              {
-                "word": "jersey",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p76-jo",
-          "regionType": "syllable-match",
-          "order": 4,
-          "fontRole": "body",
-          "syllable": "jo",
-          "matchRows": [
-            [
-              {
-                "word": "jota",
-                "correct": true
-              },
-              {
-                "word": "jirafa",
-                "correct": false
-              },
-              {
-                "word": "joven",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "jamón",
-                "correct": false
-              },
-              {
-                "word": "Jorge",
-                "correct": true
-              },
-              {
-                "word": "Juan",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p76-ju",
-          "regionType": "syllable-match",
-          "order": 5,
-          "fontRole": "body",
-          "syllable": "ju",
-          "matchRows": [
-            [
-              {
-                "word": "junto",
-                "correct": true
-              },
-              {
-                "word": "jamón",
-                "correct": false
-              },
-              {
-                "word": "jugo",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "Julia",
-                "correct": true
-              },
-              {
-                "word": "joya",
-                "correct": false
-              },
-              {
-                "word": "Jimena",
-                "correct": false
-              }
-            ]
-          ]
-        }
-      ]
+      "regions": []
     },
     "77": {
       "regions": [
         {
-          "id": "p77-instr",
+          "id": "p77-sentence-0",
+          "regionType": "reading-sentences",
+          "order": 0,
+          "fontRole": "body",
+          "sentences": [
+            "Julia juega con la jirafa."
+          ]
+        },
+        {
+          "id": "p77-sentence-1",
+          "regionType": "reading-sentences",
+          "order": 1,
+          "fontRole": "body",
+          "sentences": [
+            "Jorge toma jugo."
+          ]
+        }
+      ]
+    },
+    "78": {
+      "regions": [
+        {
+          "id": "p78-instr1",
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Completa las palabras con la s�laba correcta. Escribe oraciones con el nombre de cada figura. Usa las s�labas que aprendiste."
+          "text": "Completa las palabras con la sílaba correcta."
         },
         {
-          "id": "p77-fill",
+          "id": "p78-fill-1",
           "regionType": "fill-in-blank",
           "order": 1,
           "fontRole": "body",
@@ -7077,319 +3925,110 @@
               ]
             }
           ]
-        }
-      ]
-    },
-    "78": {
-      "regions": [
-        {
-          "id": "p78-title",
-          "regionType": "title",
-          "order": 0,
-          "fontRole": "heading",
-          "text": "Jj"
         },
         {
-          "id": "p78-syl1",
-          "regionType": "syllable-bubble",
-          "order": 1,
-          "fontRole": "body",
-          "text": "ja  je  ji  jo  ju"
-        },
-        {
-          "id": "p78-syl2",
-          "regionType": "syllable-bubble",
+          "id": "p78-instr2",
+          "regionType": "instruction",
           "order": 2,
           "fontRole": "body",
-          "text": "ju  jo  ji  je  ja"
+          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
         },
         {
-          "id": "p78-words",
-          "regionType": "vocab-grid",
+          "id": "p78-write-3",
+          "regionType": "writing-line",
           "order": 3,
-          "fontRole": "body",
-          "text": "jabón · jirafa · joya · juguete"
+          "fontRole": "tracing",
+          "modelText": "J"
         },
         {
-          "id": "p78-sentence1",
-          "regionType": "reading-sentences",
+          "id": "p78-write-4",
+          "regionType": "writing-line",
           "order": 4,
-          "fontRole": "body",
-          "sentences": [
-            "Julia juega con la jirafa."
-          ]
+          "fontRole": "tracing"
         },
         {
-          "id": "p78-sentence2",
-          "regionType": "reading-sentences",
+          "id": "p78-write-5",
+          "regionType": "writing-line",
           "order": 5,
-          "fontRole": "body",
-          "sentences": [
-            "Jorge toma jugo."
-          ]
+          "fontRole": "tracing",
+          "modelText": "j"
+        },
+        {
+          "id": "p78-write-6",
+          "regionType": "writing-line",
+          "order": 6,
+          "fontRole": "tracing"
         }
       ]
     },
     "79": {
       "regions": [
         {
-          "id": "p79-instr1",
-          "regionType": "instruction",
+          "id": "p79-title-0",
+          "regionType": "title",
           "order": 0,
-          "fontRole": "body",
-          "text": "Traza con tu mejor letra."
+          "fontRole": "heading",
+          "text": "Cc"
         },
         {
-          "id": "p79-write-U",
-          "regionType": "writing-line",
+          "id": "p79-syllable-bubble-1",
+          "regionType": "syllable-bubble",
           "order": 1,
-          "fontRole": "tracing",
-          "modelText": "C"
-        },
-        {
-          "id": "p79-write-U2",
-          "regionType": "writing-line",
-          "order": 2,
-          "fontRole": "tracing"
-        },
-        {
-          "id": "p79-write-l",
-          "regionType": "writing-line",
-          "order": 3,
-          "fontRole": "tracing",
-          "modelText": "c"
-        },
-        {
-          "id": "p79-write-l2",
-          "regionType": "writing-line",
-          "order": 4,
-          "fontRole": "tracing"
-        },
-        {
-          "id": "p79-instr2",
-          "regionType": "instruction",
-          "order": 5,
           "fontRole": "body",
-          "text": "Haz un dibujo que represente una palabra que comienza con c."
+          "text": "ca  que  qui  co  cu"
         },
         {
-          "id": "p79-draw",
-          "regionType": "draw-box",
-          "order": 6,
-          "fontRole": "body"
+          "id": "p79-syllable-bubble-2",
+          "regionType": "syllable-bubble",
+          "order": 2,
+          "fontRole": "body",
+          "text": "cu  co  qui  que  ca"
+        },
+        {
+          "id": "p79-vocab-grid-3",
+          "regionType": "vocab-grid",
+          "order": 3,
+          "fontRole": "body",
+          "text": "casa · queso · coco · cuchara"
         }
       ]
     },
     "80": {
-      "regions": [
-        {
-          "id": "p80-instr",
-          "regionType": "instruction",
-          "order": 0,
-          "fontRole": "body",
-          "text": "Encierra en un círculo la sílaba correspondiente."
-        },
-        {
-          "id": "p80-ca",
-          "regionType": "syllable-match",
-          "order": 1,
-          "fontRole": "body",
-          "syllable": "ca",
-          "matchRows": [
-            [
-              {
-                "word": "Quirino",
-                "correct": false
-              },
-              {
-                "word": "casa",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-19-c/casa.webp"
-              },
-              {
-                "word": "cama",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "queso",
-                "correct": false
-              },
-              {
-                "word": "queja",
-                "correct": false
-              },
-              {
-                "word": "Cami",
-                "correct": true
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p80-que",
-          "regionType": "syllable-match",
-          "order": 2,
-          "fontRole": "body",
-          "syllable": "que",
-          "matchRows": [
-            [
-              {
-                "word": "química",
-                "correct": false
-              },
-              {
-                "word": "queja",
-                "correct": true
-              },
-              {
-                "word": "queso",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "Quique",
-                "correct": true
-              },
-              {
-                "word": "cuchara",
-                "correct": false
-              },
-              {
-                "word": "cosa",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p80-qui",
-          "regionType": "syllable-match",
-          "order": 3,
-          "fontRole": "body",
-          "syllable": "qui",
-          "matchRows": [
-            [
-              {
-                "word": "quita",
-                "correct": true
-              },
-              {
-                "word": "Quique",
-                "correct": false
-              },
-              {
-                "word": "quince",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "casa",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-19-c/casa.webp"
-              },
-              {
-                "word": "cosa",
-                "correct": false
-              },
-              {
-                "word": "Quirino",
-                "correct": true
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p80-co",
-          "regionType": "syllable-match",
-          "order": 4,
-          "fontRole": "body",
-          "syllable": "co",
-          "matchRows": [
-            [
-              {
-                "word": "Quirino",
-                "correct": false
-              },
-              {
-                "word": "coco",
-                "correct": true
-              },
-              {
-                "word": "cosa",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "Coco",
-                "correct": true
-              },
-              {
-                "word": "calle",
-                "correct": false
-              },
-              {
-                "word": "cuerpo",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p80-cu",
-          "regionType": "syllable-match",
-          "order": 5,
-          "fontRole": "body",
-          "syllable": "cu",
-          "matchRows": [
-            [
-              {
-                "word": "cuento",
-                "correct": true
-              },
-              {
-                "word": "queso",
-                "correct": false
-              },
-              {
-                "word": "cuna",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-19-c/cuna.webp"
-              }
-            ],
-            [
-              {
-                "word": "cosa",
-                "correct": false
-              },
-              {
-                "word": "quiosco",
-                "correct": false
-              },
-              {
-                "word": "Cuca",
-                "correct": true
-              }
-            ]
-          ]
-        }
-      ]
+      "regions": []
     },
     "81": {
       "regions": [
         {
-          "id": "p81-instr",
+          "id": "p81-sentence-0",
+          "regionType": "reading-sentences",
+          "order": 0,
+          "fontRole": "body",
+          "sentences": [
+            "Cami come queso en la casa."
+          ]
+        },
+        {
+          "id": "p81-sentence-1",
+          "regionType": "reading-sentences",
+          "order": 1,
+          "fontRole": "body",
+          "sentences": [
+            "Quique quiere una cuchara."
+          ]
+        }
+      ]
+    },
+    "82": {
+      "regions": [
+        {
+          "id": "p82-instr1",
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Completa las palabras con la s�laba correcta. Escribe oraciones con el nombre de cada figura. Usa las s�labas que aprendiste."
+          "text": "Completa las palabras con la sílaba correcta."
         },
         {
-          "id": "p81-fill",
+          "id": "p82-fill-1",
           "regionType": "fill-in-blank",
           "order": 1,
           "fontRole": "body",
@@ -7460,322 +4099,110 @@
               ]
             }
           ]
-        }
-      ]
-    },
-    "82": {
-      "regions": [
-        {
-          "id": "p82-title",
-          "regionType": "title",
-          "order": 0,
-          "fontRole": "heading",
-          "text": "Cc"
         },
         {
-          "id": "p82-syl1",
-          "regionType": "syllable-bubble",
-          "order": 1,
-          "fontRole": "body",
-          "text": "ca  que  qui  co  cu"
-        },
-        {
-          "id": "p82-syl2",
-          "regionType": "syllable-bubble",
+          "id": "p82-instr2",
+          "regionType": "instruction",
           "order": 2,
           "fontRole": "body",
-          "text": "cu  co  qui  que  ca"
+          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
         },
         {
-          "id": "p82-words",
-          "regionType": "vocab-grid",
+          "id": "p82-write-3",
+          "regionType": "writing-line",
           "order": 3,
-          "fontRole": "body",
-          "text": "casa · queso · coco · cuchara"
+          "fontRole": "tracing",
+          "modelText": "C"
         },
         {
-          "id": "p82-sentence1",
-          "regionType": "reading-sentences",
+          "id": "p82-write-4",
+          "regionType": "writing-line",
           "order": 4,
-          "fontRole": "body",
-          "sentences": [
-            "Cami come queso en la casa."
-          ]
+          "fontRole": "tracing"
         },
         {
-          "id": "p82-sentence2",
-          "regionType": "reading-sentences",
+          "id": "p82-write-5",
+          "regionType": "writing-line",
           "order": 5,
-          "fontRole": "body",
-          "sentences": [
-            "Quique quiere una cuchara."
-          ]
+          "fontRole": "tracing",
+          "modelText": "c"
+        },
+        {
+          "id": "p82-write-6",
+          "regionType": "writing-line",
+          "order": 6,
+          "fontRole": "tracing"
         }
       ]
     },
     "83": {
       "regions": [
         {
-          "id": "p83-instr1",
-          "regionType": "instruction",
+          "id": "p83-title-0",
+          "regionType": "title",
           "order": 0,
-          "fontRole": "body",
-          "text": "Traza con tu mejor letra."
+          "fontRole": "heading",
+          "text": "Yy"
         },
         {
-          "id": "p83-write-U",
-          "regionType": "writing-line",
+          "id": "p83-syllable-bubble-1",
+          "regionType": "syllable-bubble",
           "order": 1,
-          "fontRole": "tracing",
-          "modelText": "Y"
-        },
-        {
-          "id": "p83-write-U2",
-          "regionType": "writing-line",
-          "order": 2,
-          "fontRole": "tracing"
-        },
-        {
-          "id": "p83-write-l",
-          "regionType": "writing-line",
-          "order": 3,
-          "fontRole": "tracing",
-          "modelText": "y"
-        },
-        {
-          "id": "p83-write-l2",
-          "regionType": "writing-line",
-          "order": 4,
-          "fontRole": "tracing"
-        },
-        {
-          "id": "p83-instr2",
-          "regionType": "instruction",
-          "order": 5,
           "fontRole": "body",
-          "text": "Haz un dibujo que represente una palabra que comienza con y."
+          "text": "ya  ye  yi  yo  yu"
         },
         {
-          "id": "p83-draw",
-          "regionType": "draw-box",
-          "order": 6,
-          "fontRole": "body"
+          "id": "p83-syllable-bubble-2",
+          "regionType": "syllable-bubble",
+          "order": 2,
+          "fontRole": "body",
+          "text": "yu  yo  yi  ye  ya"
+        },
+        {
+          "id": "p83-vocab-grid-3",
+          "regionType": "vocab-grid",
+          "order": 3,
+          "fontRole": "body",
+          "text": "yate · yegua · yoyo · yuca"
         }
       ]
     },
     "84": {
-      "regions": [
-        {
-          "id": "p84-instr",
-          "regionType": "instruction",
-          "order": 0,
-          "fontRole": "body",
-          "text": "Encierra en un círculo la sílaba correspondiente."
-        },
-        {
-          "id": "p84-ya",
-          "regionType": "syllable-match",
-          "order": 1,
-          "fontRole": "body",
-          "syllable": "ya",
-          "matchRows": [
-            [
-              {
-                "word": "yarda",
-                "correct": true
-              },
-              {
-                "word": "yate",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yate.webp"
-              },
-              {
-                "word": "yegua",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yegua.webp"
-              }
-            ],
-            [
-              {
-                "word": "yogur",
-                "correct": false
-              },
-              {
-                "word": "Yamila",
-                "correct": true
-              },
-              {
-                "word": "yiyo",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p84-ye",
-          "regionType": "syllable-match",
-          "order": 2,
-          "fontRole": "body",
-          "syllable": "ye",
-          "matchRows": [
-            [
-              {
-                "word": "yodo",
-                "correct": false
-              },
-              {
-                "word": "yegua",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yegua.webp"
-              },
-              {
-                "word": "yeso",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "rayar",
-                "correct": false
-              },
-              {
-                "word": "yuca",
-                "correct": false
-              },
-              {
-                "word": "Yeni",
-                "correct": true
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p84-yi",
-          "regionType": "syllable-match",
-          "order": 3,
-          "fontRole": "body",
-          "syllable": "yi",
-          "matchRows": [
-            [
-              {
-                "word": "yoyo",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yoyo.webp"
-              },
-              {
-                "word": "yip",
-                "correct": true
-              },
-              {
-                "word": "yiddish",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "yiyo",
-                "correct": true
-              },
-              {
-                "word": "yuca",
-                "correct": false
-              },
-              {
-                "word": "rayar",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p84-yo",
-          "regionType": "syllable-match",
-          "order": 4,
-          "fontRole": "body",
-          "syllable": "yo",
-          "matchRows": [
-            [
-              {
-                "word": "yodo",
-                "correct": true
-              },
-              {
-                "word": "yoyo",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yoyo.webp"
-              },
-              {
-                "word": "Yeni",
-                "correct": false
-              }
-            ],
-            [
-              {
-                "word": "yoga",
-                "correct": true
-              },
-              {
-                "word": "yiteo",
-                "correct": false
-              },
-              {
-                "word": "yeso",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p84-yu",
-          "regionType": "syllable-match",
-          "order": 5,
-          "fontRole": "body",
-          "syllable": "yu",
-          "matchRows": [
-            [
-              {
-                "word": "yuca",
-                "correct": true
-              },
-              {
-                "word": "Yoli",
-                "correct": false
-              },
-              {
-                "word": "yugo",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "yerno",
-                "correct": false
-              },
-              {
-                "word": "Yuli",
-                "correct": true
-              },
-              {
-                "word": "yoyo",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yoyo.webp"
-              }
-            ]
-          ]
-        }
-      ]
+      "regions": []
     },
     "85": {
       "regions": [
         {
-          "id": "p85-instr",
+          "id": "p85-sentence-0",
+          "regionType": "reading-sentences",
+          "order": 0,
+          "fontRole": "body",
+          "sentences": [
+            "Yo tomo yogur."
+          ]
+        },
+        {
+          "id": "p85-sentence-1",
+          "regionType": "reading-sentences",
+          "order": 1,
+          "fontRole": "body",
+          "sentences": [
+            "Yoli juega con el yoyo."
+          ]
+        }
+      ]
+    },
+    "86": {
+      "regions": [
+        {
+          "id": "p86-instr1",
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Completa las palabras con la s�laba correcta. Escribe oraciones con el nombre de cada figura. Usa las s�labas que aprendiste."
+          "text": "Completa las palabras con la sílaba correcta."
         },
         {
-          "id": "p85-fill",
+          "id": "p86-fill-1",
           "regionType": "fill-in-blank",
           "order": 1,
           "fontRole": "body",
@@ -7848,319 +4275,110 @@
               ]
             }
           ]
-        }
-      ]
-    },
-    "86": {
-      "regions": [
-        {
-          "id": "p86-title",
-          "regionType": "title",
-          "order": 0,
-          "fontRole": "heading",
-          "text": "Yy"
         },
         {
-          "id": "p86-syl1",
-          "regionType": "syllable-bubble",
-          "order": 1,
-          "fontRole": "body",
-          "text": "ya  ye  yi  yo  yu"
-        },
-        {
-          "id": "p86-syl2",
-          "regionType": "syllable-bubble",
+          "id": "p86-instr2",
+          "regionType": "instruction",
           "order": 2,
           "fontRole": "body",
-          "text": "yu  yo  yi  ye  ya"
+          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
         },
         {
-          "id": "p86-words",
-          "regionType": "vocab-grid",
+          "id": "p86-write-3",
+          "regionType": "writing-line",
           "order": 3,
-          "fontRole": "body",
-          "text": "yate · yegua · yoyo · yuca"
+          "fontRole": "tracing",
+          "modelText": "Y"
         },
         {
-          "id": "p86-sentence1",
-          "regionType": "reading-sentences",
+          "id": "p86-write-4",
+          "regionType": "writing-line",
           "order": 4,
-          "fontRole": "body",
-          "sentences": [
-            "Yo tomo yogur."
-          ]
+          "fontRole": "tracing"
         },
         {
-          "id": "p86-sentence2",
-          "regionType": "reading-sentences",
+          "id": "p86-write-5",
+          "regionType": "writing-line",
           "order": 5,
-          "fontRole": "body",
-          "sentences": [
-            "Yoli juega con el yoyo."
-          ]
+          "fontRole": "tracing",
+          "modelText": "y"
+        },
+        {
+          "id": "p86-write-6",
+          "regionType": "writing-line",
+          "order": 6,
+          "fontRole": "tracing"
         }
       ]
     },
     "87": {
       "regions": [
         {
-          "id": "p87-instr1",
-          "regionType": "instruction",
+          "id": "p87-title-0",
+          "regionType": "title",
           "order": 0,
-          "fontRole": "body",
-          "text": "Traza con tu mejor letra."
+          "fontRole": "heading",
+          "text": "Zz"
         },
         {
-          "id": "p87-write-U",
-          "regionType": "writing-line",
+          "id": "p87-syllable-bubble-1",
+          "regionType": "syllable-bubble",
           "order": 1,
-          "fontRole": "tracing",
-          "modelText": "Z"
-        },
-        {
-          "id": "p87-write-U2",
-          "regionType": "writing-line",
-          "order": 2,
-          "fontRole": "tracing"
-        },
-        {
-          "id": "p87-write-l",
-          "regionType": "writing-line",
-          "order": 3,
-          "fontRole": "tracing",
-          "modelText": "z"
-        },
-        {
-          "id": "p87-write-l2",
-          "regionType": "writing-line",
-          "order": 4,
-          "fontRole": "tracing"
-        },
-        {
-          "id": "p87-instr2",
-          "regionType": "instruction",
-          "order": 5,
           "fontRole": "body",
-          "text": "Haz un dibujo que represente una palabra que comienza con z."
+          "text": "za  ce  ci  zo  zu"
         },
         {
-          "id": "p87-draw",
-          "regionType": "draw-box",
-          "order": 6,
-          "fontRole": "body"
+          "id": "p87-syllable-bubble-2",
+          "regionType": "syllable-bubble",
+          "order": 2,
+          "fontRole": "body",
+          "text": "zu  zo  ci  ce  za"
+        },
+        {
+          "id": "p87-vocab-grid-3",
+          "regionType": "vocab-grid",
+          "order": 3,
+          "fontRole": "body",
+          "text": "zapato · zanahoria · cine · zorro"
         }
       ]
     },
     "88": {
-      "regions": [
-        {
-          "id": "p88-instr",
-          "regionType": "instruction",
-          "order": 0,
-          "fontRole": "body",
-          "text": "Encierra en un círculo la sílaba correspondiente."
-        },
-        {
-          "id": "p88-za",
-          "regionType": "syllable-match",
-          "order": 1,
-          "fontRole": "body",
-          "syllable": "za",
-          "matchRows": [
-            [
-              {
-                "word": "celda",
-                "correct": false
-              },
-              {
-                "word": "zapato",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-23-z/zapato.webp"
-              },
-              {
-                "word": "zanahoria",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-23-z/zanahoria.webp"
-              }
-            ],
-            [
-              {
-                "word": "zurdo",
-                "correct": false
-              },
-              {
-                "word": "Zaida",
-                "correct": true
-              },
-              {
-                "word": "zorrito",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p88-ce",
-          "regionType": "syllable-match",
-          "order": 2,
-          "fontRole": "body",
-          "syllable": "ce",
-          "matchRows": [
-            [
-              {
-                "word": "cero",
-                "correct": true
-              },
-              {
-                "word": "zarpa",
-                "correct": false
-              },
-              {
-                "word": "cesta",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "Cecilia",
-                "correct": true
-              },
-              {
-                "word": "zorrito",
-                "correct": false
-              },
-              {
-                "word": "Zoraida",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p88-ci",
-          "regionType": "syllable-match",
-          "order": 3,
-          "fontRole": "body",
-          "syllable": "ci",
-          "matchRows": [
-            [
-              {
-                "word": "circo",
-                "correct": true
-              },
-              {
-                "word": "cine",
-                "correct": true
-              },
-              {
-                "word": "zapato",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-23-z/zapato.webp"
-              }
-            ],
-            [
-              {
-                "word": "Cintia",
-                "correct": true
-              },
-              {
-                "word": "celda",
-                "correct": false
-              },
-              {
-                "word": "zumo",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p88-zo",
-          "regionType": "syllable-match",
-          "order": 4,
-          "fontRole": "body",
-          "syllable": "zo",
-          "matchRows": [
-            [
-              {
-                "word": "zorro",
-                "correct": true
-              },
-              {
-                "word": "zarpa",
-                "correct": false
-              },
-              {
-                "word": "zona",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "Zoraida",
-                "correct": true
-              },
-              {
-                "word": "cero",
-                "correct": false
-              },
-              {
-                "word": "zumo",
-                "correct": false
-              }
-            ]
-          ]
-        },
-        {
-          "id": "p88-zu",
-          "regionType": "syllable-match",
-          "order": 5,
-          "fontRole": "body",
-          "syllable": "zu",
-          "matchRows": [
-            [
-              {
-                "word": "cero",
-                "correct": false
-              },
-              {
-                "word": "zumo",
-                "correct": true
-              },
-              {
-                "word": "zumba",
-                "correct": true
-              }
-            ],
-            [
-              {
-                "word": "zorro",
-                "correct": false
-              },
-              {
-                "word": "Zulema",
-                "correct": true
-              },
-              {
-                "word": "Cecilia",
-                "correct": false
-              }
-            ]
-          ]
-        }
-      ]
+      "regions": []
     },
     "89": {
       "regions": [
         {
-          "id": "p89-instr",
+          "id": "p89-sentence-0",
+          "regionType": "reading-sentences",
+          "order": 0,
+          "fontRole": "body",
+          "sentences": [
+            "El zorro come zanahoria."
+          ]
+        },
+        {
+          "id": "p89-sentence-1",
+          "regionType": "reading-sentences",
+          "order": 1,
+          "fontRole": "body",
+          "sentences": [
+            "Cecilia toma zumo."
+          ]
+        }
+      ]
+    },
+    "90": {
+      "regions": [
+        {
+          "id": "p90-instr1",
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Completa las palabras con la s�laba correcta. Escribe oraciones con el nombre de cada figura. Usa las s�labas que aprendiste."
+          "text": "Completa las palabras con la sílaba correcta."
         },
         {
-          "id": "p89-fill",
+          "id": "p90-fill-1",
           "regionType": "fill-in-blank",
           "order": 1,
           "fontRole": "body",
@@ -8232,56 +4450,39 @@
               ]
             }
           ]
-        }
-      ]
-    },
-    "90": {
-      "regions": [
-        {
-          "id": "p90-title",
-          "regionType": "title",
-          "order": 0,
-          "fontRole": "heading",
-          "text": "Zz"
         },
         {
-          "id": "p90-syl1",
-          "regionType": "syllable-bubble",
-          "order": 1,
-          "fontRole": "body",
-          "text": "za  ce  ci  zo  zu"
-        },
-        {
-          "id": "p90-syl2",
-          "regionType": "syllable-bubble",
+          "id": "p90-instr2",
+          "regionType": "instruction",
           "order": 2,
           "fontRole": "body",
-          "text": "zu  zo  ci  ce  za"
+          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
         },
         {
-          "id": "p90-words",
-          "regionType": "vocab-grid",
+          "id": "p90-write-3",
+          "regionType": "writing-line",
           "order": 3,
-          "fontRole": "body",
-          "text": "zapato · zanahoria · cine · zorro"
+          "fontRole": "tracing",
+          "modelText": "Z"
         },
         {
-          "id": "p90-sentence1",
-          "regionType": "reading-sentences",
+          "id": "p90-write-4",
+          "regionType": "writing-line",
           "order": 4,
-          "fontRole": "body",
-          "sentences": [
-            "El zorro come zanahoria."
-          ]
+          "fontRole": "tracing"
         },
         {
-          "id": "p90-sentence2",
-          "regionType": "reading-sentences",
+          "id": "p90-write-5",
+          "regionType": "writing-line",
           "order": 5,
-          "fontRole": "body",
-          "sentences": [
-            "Cecilia toma zumo."
-          ]
+          "fontRole": "tracing",
+          "modelText": "z"
+        },
+        {
+          "id": "p90-write-6",
+          "regionType": "writing-line",
+          "order": 6,
+          "fontRole": "tracing"
         }
       ]
     }
