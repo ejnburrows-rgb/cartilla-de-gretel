@@ -831,3 +831,79 @@ syllable list, the vocab word list on each consonant's first page) matching
 the book's real static layout — not paper actions, correctly non-interactive
 via the renderer's default text fallback. No further conversion gaps found.
 `pnpm tsc --noEmit` + `pnpm build` clean; merged via PR #145.
+
+## Update — real regression found: console.warn/error was stripped from the entire production build
+
+While trying to prove the TTS "never a silent fallback" warning (see Round 3
+above) actually fires, found `vite.config.ts` had `esbuild.drop: ["console",
+"debugger"]` at the config root — this deletes **every** `console.warn`/
+`console.error` call app-wide, in both `vite build` and the Vitest
+transform (the `esbuild` field isn't scoped to `build:` only). Verified
+directly: none of the fallback-warning strings existed anywhere in
+`dist/assets/*.js` before the fix. This means the Round 3 TTS fallback
+logging has never actually reached production despite passing typecheck/
+build the whole time — a real, previously-undetected regression, not a
+theoretical risk.
+
+**Fix (PR #147):** narrowed to `drop: ["debugger"]` + `pure: ["console.log",
+"console.debug", "console.info"]`, leaving `console.warn`/`console.error`
+untouched everywhere. Added 4 new tests to `speak.test.ts` — isolated via
+`vi.resetModules()` + a fresh dynamic import per test (the warning only
+fires once per module instance) — asserting `console.warn` is actually
+called with the right message, both when no neutral LatAm voice exists and
+when no Spanish voice exists at all. Confirmed these tests **failed** (0
+calls recorded) before the fix and **passed** after. Rebuilt and confirmed
+the warning strings now exist in the shipped bundle. `pnpm tsc --noEmit`,
+`node scripts/validate-content.mjs`, and the full suite (211 passed, 2
+expected fail) all clean.
+
+## Login end-to-end test plan — READY, blocked only on migration confirmation
+
+Owner is applying the Supabase migration (`20260709191308_class_code_tap_
+name_login.sql`) directly via GitHub Settings + a manual Action re-run. The
+moment that's confirmed applied, run this exact sequence and report each
+step's real result (not just "should work"):
+
+**Primary verification path — direct API calls (works regardless of this
+sandbox's Chromium/proxy limitation, and is a stronger proof than a UI
+click-through since it exercises the real RPCs against the real database):**
+1. `POST {VITE_SUPABASE_URL}/rest/v1/rpc/list_class_students` with
+   `apikey`/`Authorization: Bearer {VITE_SUPABASE_PUBLISHABLE_KEY}` and body
+   `{"p_join_code": "<a real class's join code>"}` — expect a JSON array of
+   `{student_id, display_name}` rows, no sensitive fields, for a class that
+   actually has students.
+2. `POST .../rpc/enter_class_as_student` with
+   `{"p_join_code": "...", "p_student_id": "<one of the ids from step 1>"}`
+   — expect the 5-field session shape (`student_id, student_name,
+   student_code, class_id, class_name`), matching `join_class`'s existing
+   shape.
+3. Using the returned `student_id`/`student_code`, call
+   `.../rpc/log_student_progress` for one lesson/exercise with a real
+   score, then `.../rpc/get_student_progress` and confirm the event is
+   present.
+4. As the teacher (authenticated session), call `getClassProgress`'s
+   underlying `exercise_attempt_summary` query (or load
+   `/cartilla/teacher/reportes`, pick the class + student) and confirm the
+   just-logged attempt shows up in the per-exercise-type table.
+
+**Secondary path — real UI click-through (attempt again once the migration
+is live; this sandbox's Chromium couldn't complete outbound HTTPS through
+its proxy earlier this session, worth re-testing rather than assuming it's
+still broken):**
+1. Teacher: log in, create/open a class, copy its join code
+   (`/cartilla/teacher/clase/{id}`, the code shown at the top).
+2. Student: go to `/cartilla/unirse`, type the join code, submit — expect
+   the tap-name roster screen, not a typed-code field.
+3. Tap a real student name — expect redirect to `/cartilla/lecciones` with
+   a welcome/continue state, not an error.
+4. Open any lesson (e.g. `/cartilla/leccion/2`), complete one graded
+   interactive exercise (tap the right answer in a picture-grid/vowel-pick
+   region) — expect Gretel's correct/wrong reaction to fire and the score
+   to be recorded (no console errors).
+5. Teacher: `/cartilla/teacher/reportes`, select the same class + student —
+   expect the just-completed exercise's hits/attempts to appear in the
+   per-exercise-type table, matching what was actually done in step 4.
+
+Both paths report PASS/FAIL per numbered step, not a single pass/fail for
+the whole flow — if step 3 fails but 1-2 passed, that's exactly the
+information needed to isolate where the migration or the RPC logic broke.
