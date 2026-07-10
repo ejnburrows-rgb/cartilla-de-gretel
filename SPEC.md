@@ -810,3 +810,24 @@ the revert) was merged to main via PR #141, along with an unrelated batch of
 (`src/content/page-layouts.json`, `src/content/page-inventory.json`) that
 nothing in `src/` imports — confirmed inert (not a live-content risk), just
 unused clutter. Not cleaned up this turn; flagged as low-priority follow-up.
+
+**Real content gap found and closed, PR #145:** re-auditing every page for
+orphaned instructions (a trailing `instruction` region with nothing after
+it) found 2 — real book pages 22 (Lección 7, M) and 26 (Lección 8, P), both
+"Escribe oraciones. Usa las sílabas que aprendiste." with zero region behind
+it. Verified directly against `m-page-11.jpg`/`p-page-14.jpg`: both show 4
+real blank ruled lines, no printed model text (genuine free composition, not
+missing transcription). Added `p21-draw`/`p25-draw` `draw-box` regions,
+reusing `DrawBoxCanvas` — same freehand-capture, completion-only pattern as
+every other draw-box, no invented sentence content. Re-ran the orphan check
+across all 90 pages after the fix: zero remain.
+
+**Canon-rework paper-action sweep, closed:** searched all region `text`
+fields for other paper-only verbs (recortar, pegar, colorear, doblar,
+pintar, subrayar) — none found. The 3 other repeating region types with no
+dedicated interactive case (`title`, `syllable-bubble`, `vocab-grid`)
+checked directly: all are pure static display text (the big letter, the
+syllable list, the vocab word list on each consonant's first page) matching
+the book's real static layout — not paper actions, correctly non-interactive
+via the renderer's default text fallback. No further conversion gaps found.
+`pnpm tsc --noEmit` + `pnpm build` clean; merged via PR #145.
