@@ -3,9 +3,11 @@ import { Printer, ChevronLeft } from "lucide-react";
 import { CATALOG } from "@/lib/lesson-catalog";
 import { GuideLayout } from "@/content/guides/GuideLayout";
 
-// Eagerly import all guide components
-// Adjust the relative path assuming this file is in src/routes/cartilla/teacher/
-const guideModules = import.meta.glob("../../../content/guides/lesson-*.tsx", { eager: true });
+// Eagerly import all guide components. Rooted at /src so keys match the
+// componentKey lookup below ("/src/content/guides/lesson-N.tsx") exactly —
+// the previous relative pattern produced differently-shaped keys and made
+// every lesson's guide unreachable (always fell through to the "pending" state).
+const guideModules = import.meta.glob("/src/content/guides/lesson-*.tsx", { eager: true });
 
 export const Route = createFileRoute("/cartilla/teacher/guia/$n")({
   component: TeacherGuideLeccion,

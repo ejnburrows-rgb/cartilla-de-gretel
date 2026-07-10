@@ -14,6 +14,17 @@ const metricValClass = "text-2xl font-black text-stone-800";
 const metricLblClass = "text-[10px] font-bold text-stone-500 uppercase tracking-widest";
 const headerTitleClass = "text-2xl font-black text-stone-800 flex items-center gap-2";
 
+const EXERCISE_KIND_LABELS: Record<string, string> = {
+  picture_grid: "Marca la imagen",
+  vowel_pick_one: "Elige la vocal",
+  vowel_match_all: "Empareja vocales",
+  syllable_match: "Sílabas",
+  fill_in_blank: "Completa",
+  vowel_line_match: "Traza línea",
+  workbook_letter_trace: "Trazar letra",
+  drag_syllable_order: "Ordenar sílabas",
+};
+
 export function ReportCard({ classId, studentId }: ReportCardProps) {
   // 1. Fetch Student Progress if selected
   const { data: studentData, isLoading: loadingStudent } = useQuery({
@@ -149,8 +160,11 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
 
   // ── Render Class Report ──
   if (classProgressData) {
-    const { perStudent, perLesson, assignments } = classProgressData;
+    const { perStudent, perLesson, perStudentExercise, assignments } = classProgressData;
     const allProgresos = crmService.getAllProgresos();
+    const exerciseKinds = Array.from(
+      new Set(Object.values(perStudentExercise ?? {}).flatMap((row: any) => Object.keys(row))),
+    ).sort();
 
     return (
       <div className={cardClass}>
@@ -196,6 +210,52 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
                   <tr>
                     <td colSpan={4} className="p-8 text-center font-bold text-stone-400">
                       No hay alumnos registrados en esta clase.
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Per-exercise-type right/wrong breakdown */}
+        <div className="space-y-6 mt-12">
+          <div className="flex items-center justify-between">
+            <h3 className="text-sm font-black text-stone-700 uppercase tracking-wider">Aciertos por Tipo de Ejercicio</h3>
+          </div>
+          <div className="overflow-x-auto border border-stone-200 rounded-2xl">
+            <table className="w-full text-sm text-left">
+              <thead className="bg-stone-50 text-stone-600 font-bold border-b border-stone-200">
+                <tr>
+                  <th className="p-3 sticky left-0 z-10 bg-stone-50 shadow-[2px_0_4px_rgba(0,0,0,0.02)]">Alumno</th>
+                  {exerciseKinds.map((kind) => (
+                    <th key={kind} className="p-3 text-center min-w-[7rem]">{EXERCISE_KIND_LABELS[kind] ?? kind}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-stone-150">
+                {perStudent.map((s: any) => {
+                  const row = perStudentExercise?.[s.id] ?? {};
+                  return (
+                    <tr key={s.id}>
+                      <td className="p-3 font-bold text-stone-800 sticky left-0 z-10 bg-white shadow-[2px_0_4px_rgba(0,0,0,0.02)]">
+                        {s.name}
+                      </td>
+                      {exerciseKinds.map((kind) => {
+                        const cell = row[kind];
+                        return (
+                          <td key={kind} className="p-3 text-center font-mono text-xs">
+                            {cell ? `${cell.hits}/${cell.attempts}` : "—"}
+                          </td>
+                        );
+                      })}
+                    </tr>
+                  );
+                })}
+                {(perStudent.length === 0 || exerciseKinds.length === 0) && (
+                  <tr>
+                    <td colSpan={exerciseKinds.length + 1} className="p-8 text-center font-bold text-stone-400">
+                      Todavía no hay intentos de ejercicios registrados en esta clase.
                     </td>
                   </tr>
                 )}

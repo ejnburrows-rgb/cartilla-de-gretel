@@ -1,6 +1,6 @@
-import { useState, useEffect, type ReactElement } from "react";
+import React, { useState, useEffect, type ReactElement } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Volume2, Grid, Puzzle, PenTool, Music, CheckCircle } from "lucide-react";
+import { Volume2, Grid, Puzzle, PenTool, Music, CheckCircle, Sparkles, Check } from "lucide-react";
 import { SyllableTap } from "@/components/cartilla/Ejercicios";
 import { DragMatchPairs } from "@/components/cartilla/DragMatchPairs";
 import { DragBuildWord } from "@/components/cartilla/DragBuildWord";
@@ -139,40 +139,75 @@ export function ActivityCarousel({
     }
   };
 
+  const doneCount = tabs.filter((t) => completedTabs.has(t.id)).length;
+
   return (
-    <div className="w-full space-y-6">
-      {/* Dynamic Tab Bar */}
-      <div className="flex flex-wrap gap-2 p-1.5 bg-stone-100 rounded-2xl border border-stone-200/50 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]">
+    <div
+      className="channel-shell w-full space-y-5 rounded-[2rem] p-4 sm:p-6"
+      style={{ "--channel-accent": color } as React.CSSProperties}
+    >
+      {/* Channel header — gives this section its own identity, distinct from the workbook page above it */}
+      <div className="flex items-center justify-between gap-3">
+        <div className="flex items-center gap-2.5">
+          <span
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl shadow-sm"
+            style={{ background: color }}
+          >
+            <Sparkles className="h-5 w-5 text-white" />
+          </span>
+          <div>
+            <h3 className="font-display text-lg font-black leading-tight text-stone-900">¡A jugar!</h3>
+            <p className="text-xs font-bold text-stone-500">{doneCount} de {tabs.length} completados</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Tactile tab chips */}
+      <div className="flex flex-wrap gap-2.5">
         {tabs.map((tab) => {
           const isActive = activeTab === tab.id;
           const isDone = completedTabs.has(tab.id);
 
           return (
-            <button
+            <motion.button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-black transition-all select-none relative ${
+              whileTap={{ scale: 0.94 }}
+              className="channel-tab relative flex flex-1 items-center justify-center gap-2 rounded-2xl px-4 py-3.5 text-sm font-black transition-colors select-none"
+              style={
                 isActive
-                  ? "bg-white text-stone-900 shadow-sm border border-stone-200/30"
-                  : "text-stone-500 hover:text-stone-800 hover:bg-white/50"
-              }`}
+                  ? {
+                      background: color,
+                      color: "#fff",
+                      boxShadow: `0 6px 16px -4px color-mix(in srgb, ${color} 40%, transparent)`,
+                    }
+                  : { background: "#ffffff", color: "#78716c", border: "1px solid #e7e5e4" }
+              }
             >
-              <span className="flex items-center justify-center shrink-0">
-                {tab.icon}
-              </span>
-              <span className="hidden sm:inline">{tab.label}</span>
+              <span className="flex shrink-0 items-center justify-center">{tab.icon}</span>
+              <span>{tab.label}</span>
 
-              {/* Little completion checkmark or dot */}
               {isDone && (
-                <span className="absolute top-1 right-1 w-2.5 h-2.5 bg-emerald-500 rounded-full border border-white" />
+                <span
+                  className="absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full border-2 border-white bg-emerald-500 shadow-sm"
+                  aria-label="Completado"
+                >
+                  <Check className="h-3 w-3 text-white" strokeWidth={3} />
+                </span>
               )}
-            </button>
+            </motion.button>
           );
         })}
       </div>
 
-      {/* Slide transition container */}
-      <div className="relative overflow-hidden min-h-[350px]">
+      {/* Game card — soft tint of the lesson's own accent color */}
+      <div
+        className="channel-card relative min-h-[350px] overflow-hidden rounded-[1.75rem] border p-3 sm:p-5"
+        style={{
+          background: `color-mix(in srgb, ${color} 5%, white)`,
+          borderColor: `color-mix(in srgb, ${color} 15%, transparent)`,
+        }}
+      >
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
@@ -187,22 +222,23 @@ export function ActivityCarousel({
         </AnimatePresence>
       </div>
 
-      {/* Progress indicators dots */}
-      <div className="flex justify-center items-center gap-2 pt-2 border-t border-stone-200/20">
-        {tabs.map((tab) => {
+      {/* Step track */}
+      <div className="flex items-center justify-center gap-1.5 pt-1">
+        {tabs.map((tab, i) => {
           const isDone = completedTabs.has(tab.id);
           const isActive = activeTab === tab.id;
           return (
             <div
               key={`dot-${tab.id}`}
-              className={`w-3 h-3 rounded-full border transition-all duration-300 ${
-                isDone
-                  ? "bg-emerald-500 border-emerald-600 scale-110"
-                  : isActive
-                  ? "border-stone-400 bg-stone-300 animate-pulse"
-                  : "bg-stone-200 border-stone-300"
-              }`}
               title={`${tab.label}: ${isDone ? "Completado" : "Pendiente"}`}
+              className="h-2 flex-1 max-w-10 rounded-full transition-all duration-300"
+              style={{
+                background: isDone
+                  ? color
+                  : isActive
+                    ? `color-mix(in srgb, ${color} 50%, transparent)`
+                    : "#e7e5e4",
+              }}
             />
           );
         })}

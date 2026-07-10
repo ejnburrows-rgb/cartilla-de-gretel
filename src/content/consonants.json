@@ -380,8 +380,7 @@
     "vocab": [
       {
         "word": "luna",
-        "emoji": "🌙",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/luna.webp"
+        "emoji": "🌙"
       },
       {
         "word": "lobo",
@@ -457,7 +456,8 @@
       },
       {
         "word": "nido",
-        "emoji": "🪹"
+        "emoji": "🪹",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-13-n/nido.webp"
       },
       {
         "word": "nube",
@@ -983,8 +983,7 @@
       },
       {
         "word": "foca",
-        "emoji": "🦭",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-20-f/foca.webp"
+        "emoji": "🦭"
       },
       {
         "word": "fuente",
@@ -1122,7 +1121,7 @@
       {
         "word": "casa",
         "emoji": "🏠",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-1/casa.webp"
+        "illustrationSrc": "/cartilla/art/faithful/leccion-19-c/casa.webp"
       },
       {
         "word": "queso",
@@ -1194,7 +1193,8 @@
     "vocab": [
       {
         "word": "yate",
-        "emoji": "⛵"
+        "emoji": "⛵",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yate.webp"
       },
       {
         "word": "yegua",
@@ -1202,7 +1202,8 @@
       },
       {
         "word": "yoyo",
-        "emoji": "🪀"
+        "emoji": "🪀",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yoyo.webp"
       },
       {
         "word": "yuca",
@@ -1266,7 +1267,8 @@
     "vocab": [
       {
         "word": "zapato",
-        "emoji": "👟"
+        "emoji": "👟",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-23-z/zapato.webp"
       },
       {
         "word": "zanahoria",
@@ -1278,7 +1280,8 @@
       },
       {
         "word": "zorro",
-        "emoji": "🦊"
+        "emoji": "🦊",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-23-z/zorro.webp"
       }
     ],
     "examples": {

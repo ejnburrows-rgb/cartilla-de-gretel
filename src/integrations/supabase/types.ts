@@ -378,6 +378,28 @@ export type Database = {
           class_name: string;
         }[];
       };
+      list_class_students: {
+        Args: {
+          p_join_code: string;
+        };
+        Returns: {
+          student_id: string;
+          display_name: string;
+        }[];
+      };
+      enter_class_as_student: {
+        Args: {
+          p_join_code: string;
+          p_student_id: string;
+        };
+        Returns: {
+          student_id: string;
+          student_name: string;
+          student_code: string;
+          class_id: string;
+          class_name: string;
+        }[];
+      };
       log_student_progress: {
         Args: {
           p_student_id: string;

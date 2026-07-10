@@ -90,13 +90,16 @@ export const sCopy = {
   pendientes: { es: "Pendientes", en: "Pendientes" },
   hasCompletado: { es: "Has completado todas las lecciones disponibles.", en: "Has completado todas las lecciones disponibles." },
   // Unirse
-  pideleMaestra: { es: "Pídele a tu maestra o maestro los dos códigos.", en: "Pídele a tu maestra o maestro los dos códigos." },
+  pideleMaestra: { es: "Pídele a tu maestra o maestro el código de la clase.", en: "Pídele a tu maestra o maestro el código de la clase." },
   estasEnClase: { es: "Estás en la clase", en: "Estás en la clase" },
   continuarLecciones: { es: "Continuar a las lecciones", en: "Continuar a las lecciones" },
   salir: { es: "Salir", en: "Salir" },
   codigoClase: { es: "Código de la clase", en: "Código de la clase" },
   tuCodigoPersonal: { es: "Tu código personal", en: "Tu código personal" },
   entrar: { es: "Entrar", en: "Entrar" },
+  elijeTuNombre: { es: "¡Toca tu nombre!", en: "¡Toca tu nombre!" },
+  cambiarCodigo: { es: "Cambiar código", en: "Cambiar código" },
+  buscandoClase: { es: "Buscando tu clase...", en: "Buscando tu clase..." },
   // Autora
   educadora: { es: "Educadora · Autora · Editora", en: "Educadora · Autora · Editora" },
   bioLeonor: { es: "Casi cincuenta años enseñando español en las aulas del Condado de Miami-Dade. Fundadora de Double R Publishing y autora de La Cartilla de Gretel, un método propio —fonético, visual y entrañable— que ha acompañado a miles de familias.", en: "Casi cincuenta años enseñando español en las aulas del Condado de Miami-Dade. Fundadora de Double R Publishing y autora de La Cartilla de Gretel, un método propio —fonético, visual y entrañable— que ha acompañado a miles de familias." },

@@ -10,7 +10,7 @@ export function Lesson17Guide() {
           <span className="text-orange-500">1.</span> Objetivos de Aprendizaje
         </h2>
         <div className="bg-orange-50/50 border border-orange-100 rounded-2xl p-6">
-<p className="text-stone-500 italic">No hay objetivos registrados.</p>
+<p className="text-amber-600 italic">AWAITING-SOURCE-SCAN — Guía del profesor páginas 59–62 (Lección 17) aún no transcritas; el escaneo físico no está disponible todavía.</p>
         </div>
       </section>
 
@@ -19,7 +19,7 @@ export function Lesson17Guide() {
         <h2 className="text-2xl font-black text-stone-800 mb-6 flex items-center gap-3">
           <span className="text-emerald-500">2.</span> Procedimiento Sugerido
         </h2>
-<p className="text-stone-500 italic">No hay procedimiento registrado.</p>
+<p className="text-amber-600 italic">AWAITING-SOURCE-SCAN — Guía del profesor páginas 59–62 (Lección 17) aún no transcritas; el escaneo físico no está disponible todavía.</p>
       </section>
 
       {/* VOCABULARIO Y POEMA */}
@@ -27,7 +27,7 @@ export function Lesson17Guide() {
         <h2 className="text-2xl font-black text-stone-800 mb-6 flex items-center gap-3">
           <span className="text-blue-500">3.</span> Vocabulario y Poema
         </h2>
-<p className="text-stone-500 italic">No hay vocabulario ni poema registrado.</p>
+<p className="text-amber-600 italic">AWAITING-SOURCE-SCAN — Guía del profesor páginas 59–62 (Lección 17) aún no transcritas; el escaneo físico no está disponible todavía.</p>
       </section>
 
       {/* EVALUACION */}
@@ -35,7 +35,7 @@ export function Lesson17Guide() {
         <h2 className="text-2xl font-black text-stone-800 mb-6 flex items-center gap-3">
           <span className="text-purple-500">4.</span> Evaluación
         </h2>
-<p className="text-stone-500 italic">No hay evaluación registrada.</p>
+<p className="text-amber-600 italic">AWAITING-SOURCE-SCAN — Guía del profesor páginas 59–62 (Lección 17) aún no transcritas; el escaneo físico no está disponible todavía.</p>
       </section>
 
     </div>

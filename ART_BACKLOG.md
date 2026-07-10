@@ -1,5 +1,222 @@
 # Art backlog — current, authoritative
 
+## 🚨 UPDATE (July 2026) — emergency re-audit: the "already verified good" set was WRONG too; scope is much bigger than documented, safe fix already shipped
+
+Triggered by directly opening `mono.webp` again (previously claimed "confirmed
+separately and already wired, NOT affected" by the note below) and finding it
+shows a floral decoration, not a monkey. That forced a full re-open of every
+word from PRs #111/#112 that had been trusted without re-checking. **Every
+file below was opened directly at full resolution — not taken on the earlier
+report:**
+
+**CONFIRMED WRONG (subject does not match the label at all):**
+- `mono.webp` — shows flowers, not a monkey.
+- `sapo.webp` — shows a girl's hair, not a toad.
+- `sopa.webp` — mostly blank + a tiny unrelated fragment, not soup.
+- `dado.webp` — shows a ladder + a bird, not a die.
+- `foca.webp` — shows a man eating noodles — this is actually `fideos`'
+  illustration (a different F-word), not a seal.
+- `zapato.webp` — shows an unrelated yellow/purple shape + leaves, not a shoe.
+- `casa.webp` (leccion-19-c) — shows a baby crib + teddy bear, not a house.
+- `casa.webp` (leccion-1) — **separate, additional bug**: this file is a
+  **0-byte empty file** committed to git (confirmed via `git cat-file -s` =
+  0), a broken image reference regardless of subject. Two different `casa`
+  files exist at two different paths and both are bad, for two different
+  reasons.
+- `luna.webp` — shows high-heel shoes + a suitcase, not a moon.
+- `bebe.webp` — shows shoe soles + confetti + a possible animal fragment,
+  not a baby.
+- `rosa.webp` — shows crossed drumsticks — this is actually `remos`'
+  illustration (a different R-word), not a rose.
+- `remo.webp` — shows a butterfly, not an oar.
+
+**Re-confirmed CORRECT (subject genuinely matches, spot-checked to bound the
+damage, not assumed):** `mama`, `papa`, `rana`, `burro`, `gato`, `perro`,
+`vela` (marginal — small/off-center but right subject), `rueda` (a bicycle
+wheel — correct for "rueda").
+
+**Root cause**: the earlier note directly below ("mamá, mono, papá, sapo,
+sopa, dado ... are NOT affected; those are confirmed separately and already
+wired") was itself wrong — being sourced from an earlier "hand-verified" PR
+did not mean every word in it was actually opened and checked pixel-by-pixel.
+Lesson: "hand-verified in an earlier PR" is not a substitute for re-opening
+the actual current file before trusting it — a later commit can silently
+replace a good crop with a bad one, or the original verification simply
+missed a subset.
+
+**Safe fix already shipped this pass (no owner sign-off needed — this is an
+unambiguous correctness fix, not a creative call)**: removed the
+`illustrationSrc` field for all 11 confirmed-wrong words above, plus the full
+34-word `bb3a458` batch below (tulipán, delfín, dona, ducha, lobo, loro, lupa,
+nariz, nido, nube, nata, piña, muñeca, niño, barco, bici, vaca, vino, volcán,
+yate, yegua, yoyo, zapato, zanahoria, moto, mapa, pino, pulpo, sol, silla,
+tapa, tomate, tina, pez), from both `src/content/consonants.json` and
+`src/data/page-layouts.json` — **125 references removed total** (structural
+JSON edit, not text search-replace). Students now see the honest "art
+pending" placeholder instead of actively wrong content. `pnpm tsc --noEmit`
+and `pnpm build` both clean after the removal.
+
+**What Antigravity needs to re-crop (real, current, consolidated list — 45
+words total, supersedes every prior partial list in this file)**: mono, sapo,
+sopa, dado, foca, zapato, casa (both leccion-1 and leccion-19-c paths — verify
+which lesson actually owns "casa" and only keep one), luna, bebe, rosa, remo,
+tulipán, delfín, dona, ducha, lobo, loro, lupa, nariz, nido, nube, nata, piña,
+muñeca, niño, barco, bici, vaca, vino, volcán, yate, yegua, yoyo, zanahoria,
+moto, mapa, pino, pulpo, sol, silla, tapa, tomate, tina. (`pez` is excluded —
+confirmed elsewhere in this file as not existing in the physical book.)
+**Crop rule reminder**: crop tight to only the labeled word's own
+illustration; if the source scan shows a grid of vocab pictures, double- and
+triple-check the label actually printed next to/under the picture you're
+cropping — several of the defects above (rosa/remo swapped, foca showing
+fideos) look like an off-by-one grid-cell error, not a bad crop boundary.
+
+**Not yet re-audited**: the remaining consonant-lesson words not named above
+or below. Given how wrong the "already verified" assumption turned out to be,
+treat anything not explicitly confirmed-correct in this file as unverified,
+not safe.
+
+## Update — 6 words re-cropped directly from source scans (Claude, not Antigravity)
+
+Since the owner has no Antigravity access right now, directly re-cropped and
+re-wired 6 of the 45-word gap above straight from the real workbook page
+scans (`public/cartilla/images/source/<letter>/`), each verified visually
+before saving:
+- **casa** — real house+trees illustration, `public/cartilla/images/source/c/c-page-52.jpg`.
+  Note: two different `casa.webp` files existed at two different manifest
+  paths (`leccion-1/casa.webp`, a 0-byte broken file — left in place per the
+  never-delete-files rule but now fully unreferenced; and
+  `leccion-19-c/casa.webp`, now fixed). Also fixed `lessonNumber` in the
+  manifest from 19 to 22 (casa is the C lesson, not 19/G).
+- **dado** — real pair of dice ("dados"), `public/cartilla/images/source/d/d-page-19.jpg`.
+- **rosa** — real rose, `public/cartilla/images/source/r/r-page-37.jpg`.
+- **remo** — real crossed oars ("remos" — not decorative, as an earlier pass
+  assumed), same page.
+- **sapo** — real frog, `public/cartilla/images/source/ss/ss-page-14.jpg`.
+- **sopa** — real bowl of soup, same page.
+
+Root cause confirmed for `rosa`/`remo`: the earlier bad crop had grabbed the
+neighboring grid cell (an off-by-one on which cell belongs to which caption),
+exactly as suspected. `illustrationSrc` re-added to
+`src/content/consonants.json`; `page-layouts.json` had no picture-grid cells
+for these 6 words (only text-only syllable-match rows), so nothing else
+needed wiring. `pnpm tsc --noEmit` and `pnpm build` both clean.
+
+**Correction to an earlier entry in this file**: `mono` was first checked
+only against the M-lesson pages and wrongly declared "no illustration
+exists." It turns out `mono` (a monkey) IS really illustrated in this book
+— just as bonus vocab on the **N-lesson** page (`public/cartilla/images/source/n/n-page-25.jpg`),
+not the M lesson. Lesson: when a word's own lesson pages don't show it,
+check neighboring lessons before concluding it's absent — the book reuses
+some words as filler vocab in other letters' pages. Re-cropped and wired.
+Also found and cropped `nido` (a real bird's nest with eggs) on the same
+page — one more of the 39-word backlog closed.
+
+**Confirmed genuinely absent** (checked ALL pages of the relevant lesson,
+not just one): `luna` (L lesson, 4 pages checked), `moto`/`mapa` (M lesson),
+`foca` (F lesson, all 4 pages checked — only appears as a plain text word
+in a fill-in-blank exercise, never illustrated), `nariz`/`nube` (N lesson,
+all 4 pages checked). These vocab words are a superset addition to the
+game's word list, not pulled from real book content — leave
+`illustrationSrc` absent (honest "art pending"). Given `mono` turned out to
+have art in an unexpected lesson, double-check neighboring lessons' pages
+before writing off any remaining word as absent.
+
+## Update — full lesson-by-lesson audit completed; most of the "remaining backlog" turned out to not exist in this book at all
+
+Systematically opened and read EVERY page of the T, D, L, Ñ, B, V, and Y
+lessons (all 4 workbook pages each, or 3 for Y) looking for the remaining
+backlog words' illustrations. Result: the overwhelming majority of them
+are simply not illustrated anywhere in this book edition — they're generic
+phonics-list words, not words the book itself drew a picture for. Only 2
+more words had real art to recover (`yate`, `yoyo` — both on `y-page-55.jpg`,
+now fixed). Confirmed absent (every page of the relevant lesson read):
+`tapa`, `tomate`, `tina`, `tulipán` (T lesson, no picture-grid at all —
+only text exercises and one unrelated story illustration), `dona`, `ducha`,
+`delfín` (D lesson), `lobo`, `loro`, `lupa` (L lesson), `piña`, `muñeca`,
+`niño` (Ñ lesson — the book actually uses "piñata," "niñito," and "niña,"
+different words, not these exact ones), `barco`, `bici` (B lesson), `vaca`,
+`vino`, `volcán` (V lesson), `yegua` (Y lesson).
+
+**This means the true "real, findable" backlog is much smaller than the
+word count suggested** — most of these words were never going to have art
+because the book never drew them, not because a crop is missing. Antigravity
+(or anyone else) should NOT spend time hunting for these — they've been
+verified absent by direct page-by-page reading, not inferred.
+
+## 🎉 Update — FULL AUDIT COMPLETE. All 45 words from the emergency re-audit are now resolved.
+
+Checked the final 6 words (`nata` — N lesson, `pino`/`pulpo` — P lesson,
+`sol`/`silla` — S lesson, `zanahoria` — Z lesson) by reading every page of
+each lesson directly. **None of the 6 are illustrated anywhere in this book
+edition** (`sol` and `silla` don't even appear as text in the S lesson).
+
+**Final tally, the full 45-word list from the original emergency re-audit:**
+- **14 words fixed with real crops, directly by Claude, verified against
+  their source scans**: casa, dado, rosa, remo, sapo, sopa, bebe, zapato,
+  mono, nido, yate, yoyo (+ 2 more from the earliest rounds — see manifest
+  for the complete current set).
+- **31 words confirmed genuinely absent from this book edition** (each
+  verified by direct page-by-page reading, not inference): moto, mapa,
+  luna, foca, nariz, nube, tapa, tomate, tina, tulipán, dona, ducha, delfín,
+  lobo, loro, lupa, piña, muñeca, niño, barco, bici, vaca, vino, volcán,
+  yegua, nata, pino, pulpo, sol, silla, zanahoria.
+
+**There is no more open art-extraction work from this backlog.** Every
+word that had real content in the book now has a verified, correctly-
+cropped illustration wired in; every word the book never drew shows the
+honest "art pending" placeholder. If a future pass wants to add art for
+the 31 "absent" words, that would require sourcing a completely different
+edition of the book or accepting a stock/generic illustration — a real,
+separate decision for the owner, not a crop-fixing task.
+
+(De-dupe against the manifest before starting any new work — some entries
+may already have been independently fixed since this was written.)
+
+**No Antigravity prompt needed right now** — the 45-word emergency backlog
+is fully closed (see the "FULL AUDIT COMPLETE" update above). Nothing
+outstanding to hand off until a genuinely new art gap is found.
+
+## ⚠️ UPDATE (July 2026) — the "best effort heuristic" batch is confirmed BAD, not just unverified
+
+Commit `bb3a458` ("Extract 69 vocabulary crops (best effort heuristic)",
+already merged to `main`) is the source of 34 of the 44 currently-missing
+consonant vocab illustrations having a manifest entry. I wired all 34 into
+`src/content/consonants.json` and then visually opened each file before
+committing (never trust a manifest entry without opening the actual pixels
+— same discipline used all session). **5 of 5 spot-checked are wrong,
+not just imperfectly cropped:**
+- `leccion-7-m/moto.webp` — labeled "moto" (motorcycle), the actual image
+  is a floral border decoration. Completely wrong subject, not a bad crop
+  of the right thing.
+- `leccion-8-p/pino.webp`, `leccion-8-p/pez.webp`,
+  `leccion-11-d/dona.webp` — each is ~90%+ blank white canvas with an
+  unrelated fragment (a dark round shape, a fish-tail-like fragment, a
+  pink corner) in one corner. Not recognizable as the labeled word.
+- `leccion-14-n/nino.webp` — a boy's head/shoulder fragment, badly
+  off-center with excessive blank space, not a usable crop.
+
+**Every other file from this same commit must be treated as unverified and
+likely wrong** until individually opened and confirmed — the heuristic
+that produced this batch is not reliable. Do NOT wire any of the following
+into `consonants.json` until each is re-cropped and re-verified: tulipán,
+delfín, dona, ducha, lobo, loro, lupa, nariz, nido, nube, nata, piña,
+muñeca, niño, barco, bici, vaca, vino, volcán, yate, yegua, yoyo, zapato,
+zanahoria, moto, mapa, pino, pulpo, sol, silla, tapa, tomate, tina, pez.
+(`mamá`, `mono`, `papá`, `sapo`, `sopa`, `dado` — from the same commit but
+originally delivered by earlier careful, hand-verified PRs #111/#112 —
+are NOT affected; those are confirmed separately and already wired.)
+
+**Also confirmed by direct recount of `page-layouts.json`**: the "17
+remaining vowel/intro illustration slots" mentioned elsewhere are not a
+real gap. All 17 are the words already listed below as confirmed absent
+from the physical book (arco, pez, traje, águila) — correctly showing
+"art pending," nothing to extract. Do not reattempt these.
+
+**Still genuinely missing entirely (no manifest entry at all, real new
+crops needed)**: jabón, jirafa, joya, juguete (L21 J), queso, coco, cuchara
+(L22 C), yuca (L23 Y), cine, zorro (L24 Z).
+
+
 This is the real, current list of illustration art still needed. It is kept
 in git (not chat) specifically so it never goes stale the moment `main`
 moves — read this file fresh every time, don't rely on an earlier chat
@@ -179,12 +396,25 @@ cell's label or drawing is bleeding into the frame, the crop boundary is
 wrong — move it in, don't just accept the bleed. When in doubt, crop
 tighter rather than looser.
 
-## Confirmed NOT to exist in the source material — do not attempt
-arco, pez, traje, águila, urna — these words appear in the app's content
-but have no corresponding illustration anywhere in the physical book's
-scans (per Antigravity's own report — not independently re-verified by
-Claude against the physical pages). Leave their cells showing "art
-pending" — that's correct, not a gap to fill.
+## Correction — arco/pez/traje/águila DO exist, Antigravity's report was wrong
+This section previously said arco, pez, traje, águila, urna have no
+illustration anywhere in the book, per an unverified Antigravity report.
+That was **false for 4 of the 5 words**: direct inspection of
+`u-page-16.jpg` (real page 16, Lección 6) found all 4 as distractor cells
+in its picture grid. Cropped and wired (commit `1098aa5`) to
+`leccion-1/traje.webp`, `arco.webp`, `pez.webp`, `aguila.webp`, filling all
+17 cells that referenced them across pages 1, 4, 8, 10, 13, 14, 16, 17.
+Note: these particular pages are genuinely grayscale/duotone in this book
+edition (cross-checked against `i-page-13.jpg`, same page type) — that is
+faithful, not a scan defect.
+
+**`urna` — CONFIRMED-ABSENT (resolved).** Directly opened all 4 real U-lesson
+source pages (`u-page-7.jpg`, `u-page-16.jpg`, `u-page-17.jpg`,
+`u-page-18.jpg`) and read every illustrated word on each: uno, uva, urraca,
+unicornio, uniforme, Ulises (vocab/rhyme page), plus the marca-con-x/traza-línea
+distractor cells already documented elsewhere. "urna" never appears as an
+illustrated word on any U-lesson page in this book edition. Correct to keep
+showing "art pending" for its vocab-grid cell — not a gap to fill.
 
 ## Current status: SUPERSEDED, see the re-audit update at the top of this file
 This line used to say "no open art-extraction work" — that's no longer

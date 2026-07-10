@@ -2,12 +2,9 @@ import { useEffect, useMemo, useRef } from "react";
 import { createFileRoute, Link, useNavigate, redirect } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@/lib/useServerFn";
-import { ArrowLeft, ArrowRight, Check, Volume2, ClipboardList } from "lucide-react";
-import { CATALOG, TOTAL_LESSONS, type CatalogEntry, type ActivityId } from "@/lib/lesson-catalog";
+import { ArrowLeft, ArrowRight, ClipboardList } from "lucide-react";
+import { CATALOG, TOTAL_LESSONS, type CatalogEntry } from "@/lib/lesson-catalog";
 import { useLessonProgress, isLessonUnlocked, markLessonCompleted } from "@/lib/lesson-progress";
-import { useAudio } from "@/hooks/useAudio";
-import { cn } from "@/lib/utils";
-import { SyllableTap, WordMatch } from "@/components/cartilla/Ejercicios";
 import { recordEvent, useStudentSession } from "@/lib/student-session";
 import { LessonTimer } from "@/components/cartilla/LessonTimer";
 import { listMyAssignments } from "@/lib/assignments.functions";
@@ -16,9 +13,8 @@ import { LanguageToggle } from "@/components/LanguageToggle";
 import { sCopy } from "@/content/student-copy";
 import { gretelEvent } from "@/lib/gretel-bus";
 
-import { StudentWorkbookFlip } from "@/components/StudentBook/StudentWorkbookFlip";
+import { SimplePageViewer } from "@/components/StudentBook/SimplePageViewer";
 import { buildPageArray } from "@/utils/buildPageArray";
-import { ActivityCarousel } from "@/components/cartilla/ActivityCarousel";
 import { GretelLiveAvatar } from "@/components/gretel/GretelLiveAvatar";
 import { GardenScene } from "@/components/cartilla/GardenScene";
 import "@/styles/interactive-exercises.css";
@@ -44,7 +40,10 @@ function Leccion() {
   const session = useStudentSession();
   const entry = useMemo<CatalogEntry | undefined>(() => CATALOG.find((e) => e.n === n), [n]);
 
-  // Build page array from page-inventory.json for this specific lesson
+  // Build page array from page-inventory.json for this specific lesson —
+  // real book pages, rendered via FaithfulPageRenderer (book-faithful text +
+  // art + tracing/exercises), unchanged. Only the flip-book presentation
+  // shell around them changed (see SimplePageViewer).
   const pages = useMemo(() => buildPageArray(n), [n]);
 
   const fetchAssignments = useServerFn(listMyAssignments);
@@ -137,40 +136,33 @@ function Leccion() {
         )}
       </header>
       <main className="flex-1 px-4 pt-6 pb-28 max-w-5xl w-full mx-auto flex flex-col items-center">
-        <div className="w-full max-w-3xl text-left">
+        <div className="w-full max-w-3xl text-left mb-4">
           <div className="text-xs font-bold uppercase tracking-wide text-foreground/50">
             {t.leccion[lang]} {n} · {t.paginas[lang].toLowerCase()} {entry.pages}
           </div>
-          <h1
-            className="text-4xl sm:text-5xl font-bold leading-tight mt-1 mb-8"
-            style={{ color: entry.color }}
-          >
-            {entry.title}
-          </h1>
         </div>
 
-        {/* Digital Workbook Section */}
-        <GardenScene>
-          {!session && (
-            <div className="fixed top-4 left-4 z-[200]">
-              <Link
-                to="/cartilla/teacher/lecciones"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-stone-800/90 hover:bg-stone-800 text-white font-bold rounded-xl shadow-lg backdrop-blur transition hover:-translate-y-0.5"
-              >
-                <ArrowLeft className="w-4 h-4" /> Salir al CRM
-              </Link>
-            </div>
-          )}
-          <StudentWorkbookFlip
-            pages={pages}
-            initialPage={0}
-          />
-          <div className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-[100] pointer-events-none">
-            <GretelLiveAvatar size="md" bubblePosition="left" />
-          </div>
-        </GardenScene>
+        {/* The lesson IS the book's own pages, one at a time, in order — no
+            invented sections/tabs/screens around them (locked canon 7/9). */}
+        <div className="w-full">
+          <GardenScene>
+            {!session && (
+              <div className="fixed top-4 left-4 z-[200]">
+                <Link
+                  to="/cartilla/teacher/lecciones"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-stone-800/90 hover:bg-stone-800 text-white font-bold rounded-xl shadow-lg backdrop-blur transition hover:-translate-y-0.5"
+                >
+                  <ArrowLeft className="w-4 h-4" /> Salir al CRM
+                </Link>
+              </div>
+            )}
+            <SimplePageViewer pages={pages} initialPage={0} />
+          </GardenScene>
+        </div>
 
-
+        <div className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-[100] pointer-events-none">
+          <GretelLiveAvatar size="md" bubblePosition="left" />
+        </div>
       </main>
       <nav className="fixed bottom-0 inset-x-0 p-3 bg-background/95 backdrop-blur border-t-2 border-foreground/10">
         <div className="max-w-3xl mx-auto flex items-center justify-between gap-3">
@@ -201,259 +193,5 @@ function Leccion() {
         </div>
       </nav>
     </div>
-  );
-}
-
-function IntroBody({
-  lessonId,
-  lang,
-  t,
-  activities,
-}: {
-  lessonId: string;
-  lang: "es" | "en";
-  t: typeof sCopy;
-  activities?: ActivityId[];
-}) {
-  const { play, playingText } = useAudio();
-  const vowels = ["a", "e", "i", "o", "u"];
-  const vowelWords = [
-    { word: "ala", emoji: "🧥", illustrationSrc: "/cartilla/art/faithful/vocal-a/alas.webp" },
-    { word: "elefante", emoji: "🐘", illustrationSrc: "/cartilla/art/faithful/vocal-e/elefante.webp" },
-    { word: "iglú", emoji: "⛺", illustrationSrc: "/cartilla/art/faithful/vocal-i/iglu.webp" },
-    { word: "oso", emoji: "🐻", illustrationSrc: "/cartilla/art/faithful/vocal-o/oso.webp" },
-    { word: "uva", emoji: "🍇", illustrationSrc: "/cartilla/art/faithful/vocal-u/uvas.webp" },
-  ];
-  return (
-    <section className="mt-5 space-y-5">
-      <p className="text-lg text-foreground/80 leading-relaxed">
-        {t.conocerasVocales[lang]}
-      </p>
-      <div className="flex flex-wrap gap-3">
-        {vowels.map((v) => (
-          <button
-            key={v}
-            onClick={() => play(v, true)}
-            aria-label={`Escuchar la vocal ${v}`}
-            className={`w-16 h-16 rounded-2xl bg-primary text-primary-foreground text-3xl font-bold shadow-md hover:scale-105 active:scale-95 transition relative ${playingText === v ? "animate-pulse ring-4 ring-primary ring-offset-2" : ""}`}
-          >
-            {v}
-            <Volume2
-              aria-hidden
-              className="absolute -bottom-1 -right-1 w-5 h-5 p-0.5 rounded-full bg-background text-foreground/70 border border-foreground/10"
-            />
-          </button>
-        ))}
-      </div>
-      <ActivityCarousel
-        lessonNumber={1}
-        syllables={vowels}
-        words={vowelWords}
-        letter="a"
-        color="hsl(var(--primary))"
-        lessonId={lessonId}
-        activities={activities}
-        onCompleteAll={() => markLessonCompleted(1)}
-      />
-    </section>
-  );
-}
-
-function VowelBody({
-  entry,
-  lessonId,
-  lang,
-  t,
-}: {
-  entry: Extract<CatalogEntry, { kind: "vowel" }>;
-  lessonId: string;
-  lang: "es" | "en";
-  t: typeof sCopy;
-  }) {
-  const { play, playingText } = useAudio();
-  const l = entry.lesson;
-  return (
-    <section className="mt-5 space-y-5">
-      <div
-        className="rounded-2xl border-2 p-4 bg-card animate-in fade-in slide-in-from-bottom-2"
-        style={{ borderColor: entry.color }}
-      >
-        <div className="text-sm font-bold" style={{ color: entry.color }}>
-          {l.characterName}
-        </div>
-        <p className="text-foreground/80 mt-1">{l.characterDesc}</p>
-      </div>
-      <div>
-        <h2 className="text-xl font-bold mb-2">{t.palabrasConVocal[lang]} {l.vowel}</h2>
-        <ul className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-          {l.vocab.map((v, i) => (
-            <li
-              key={v.word}
-              className="rounded-2xl border-2 border-foreground/10 bg-card p-3 text-center hover:-translate-y-0.5 transition"
-            >
-              {v.illustrationSrc ? (
-                <img
-                  src={v.illustrationSrc}
-                  alt={v.word}
-                  className="w-12 h-12 mx-auto object-contain game-pic-float"
-                  style={{ ["--float-delay" as string]: `${((i * 37) % 47) / 10}s` }}
-                  loading="lazy"
-                />
-              ) : (
-                <div className="text-3xl">{v.emoji}</div>
-              )}
-              <div className="font-bold mt-1">{v.word}</div>
-              <button
-                onClick={() => play(v.word)}
-                aria-label={`Escuchar ${v.word}`}
-                className={`mt-1 inline-flex items-center gap-1 text-xs text-foreground/60 hover:text-primary ${playingText === v.word ? "animate-pulse text-primary" : ""}`}
-              >
-                <Volume2 className="w-3.5 h-3.5" /> {t.oir[lang]}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <ActivityCarousel
-        lessonNumber={entry.n}
-        syllables={[l.vowel]}
-        words={l.vocab}
-        letter={l.vowel}
-        color={entry.color}
-        lessonId={lessonId}
-        activities={entry.activities}
-        onCompleteAll={() => markLessonCompleted(entry.n)}
-      />
-    </section>
-  );
-}
-
-function ConsonantBody({
-  entry,
-  lessonId,
-  lang,
-  t,
-}: {
-  entry: Extract<CatalogEntry, { kind: "consonant" }>;
-  lessonId: string;
-  lang: "es" | "en";
-  t: typeof sCopy;
-}) {
-  const { play, playingText } = useAudio();
-  const c = entry.data;
-  return (
-    <section className="mt-5 space-y-5">
-      <div
-        className="rounded-2xl border-2 p-4 bg-card flex flex-wrap items-center gap-2 animate-in fade-in slide-in-from-bottom-2"
-        style={{ borderColor: entry.color }}
-      >
-        <span className="text-xs font-bold uppercase tracking-wide text-foreground/60">
-          {t.silabas[lang]}
-        </span>
-        {c.syllables.map((s) => (
-          <button
-            key={s}
-            onClick={() => play(s)}
-            className={cn(
-              "px-3 py-1.5 rounded-xl text-lg font-bold text-white shadow-sm hover:scale-105 active:scale-95 transition",
-              playingText === s && "animate-pulse ring-2 ring-offset-2 ring-offset-background ring-primary"
-            )}
-            style={{ backgroundColor: entry.color }}
-            aria-label={`Escuchar la sílaba ${s}`}
-          >
-            {s}
-          </button>
-        ))}
-      </div>
-      <div>
-        <h2 className="text-xl font-bold mb-2">{t.palabrasEjemplo[lang]}</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {c.syllables.map((s) => (
-            <div key={s} className="rounded-2xl border-2 border-foreground/10 bg-card p-3">
-              <div className="font-bold text-lg mb-1" style={{ color: entry.color }}>
-                {s}
-              </div>
-              <ul className="space-y-1">
-                {(c.examples[s] ?? []).map((w) => (
-                  <li key={w} className="flex items-center justify-between text-sm">
-                    <span>{w}</span>
-                    <button
-                      onClick={() => play(w)}
-                      aria-label={`Escuchar ${w}`}
-                      className={`text-foreground/50 hover:text-primary ${playingText === w ? "animate-pulse text-primary" : ""}`}
-                    >
-                      <Volume2 className="w-3.5 h-3.5" />
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </div>
-      {c.sentences.length > 0 && (
-        <div>
-          <h2 className="text-xl font-bold mb-2">{t.oraciones[lang]}</h2>
-          <ul className="space-y-2">
-            {c.sentences.map((t_sentence) => (
-              <li
-                key={t_sentence}
-                className="rounded-2xl border-2 border-foreground/10 bg-card p-3 italic flex items-start justify-between gap-3"
-              >
-                <span>{t_sentence}</span>
-                <button
-                  onClick={() => play(t_sentence)}
-                  aria-label={`Escuchar ${t_sentence}`}
-                  className={`mt-0.5 text-foreground/50 hover:text-primary shrink-0 ${playingText === t_sentence ? "animate-pulse text-primary" : ""}`}
-                >
-                  <Volume2 className="w-4 h-4" />
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-      <div>
-        <h2 className="text-xl font-bold mb-2">{t.palabras[lang]}</h2>
-        <ul className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-          {c.vocab.map((v, i) => (
-            <li
-              key={v.word}
-              className="rounded-2xl border-2 border-foreground/10 bg-card p-3 text-center hover:-translate-y-0.5 transition"
-            >
-              {v.illustrationSrc ? (
-                <img
-                  src={v.illustrationSrc}
-                  alt={v.word}
-                  className="w-12 h-12 mx-auto object-contain game-pic-float"
-                  style={{ ["--float-delay" as string]: `${((i * 37) % 47) / 10}s` }}
-                  loading="lazy"
-                />
-              ) : (
-                <div className="text-3xl">{v.emoji}</div>
-              )}
-              <div className="font-bold mt-1">{v.word}</div>
-              <button
-                onClick={() => play(v.word)}
-                aria-label={`Escuchar ${v.word}`}
-                className={`mt-1 inline-flex items-center gap-1 text-xs text-foreground/60 hover:text-primary ${playingText === v.word ? "animate-pulse text-primary" : ""}`}
-              >
-                <Volume2 className="w-3.5 h-3.5" /> {t.oir[lang]}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <ActivityCarousel
-        lessonNumber={entry.n}
-        syllables={c.syllables}
-        words={c.vocab}
-        letter={c.letter}
-        color={entry.color}
-        lessonId={lessonId}
-        activities={entry.activities}
-        onCompleteAll={() => markLessonCompleted(entry.n)}
-      />
-    </section>
   );
 }

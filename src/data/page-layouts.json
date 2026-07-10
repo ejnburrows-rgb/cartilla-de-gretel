@@ -9,7 +9,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Circula los dibujos de las palabras en cada línea horizontal que comienzan con el mismo sonido."
+          "text": "Presiona los dibujos de las palabras en cada línea horizontal que comienzan con el mismo sonido."
         },
         {
           "id": "p1-grid",
@@ -79,10 +79,12 @@
               "correct": false
             },
             {
-              "caption": "traje"
+              "caption": "traje",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/traje.webp"
             },
             {
-              "caption": "arco"
+              "caption": "arco",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/arco.webp"
             },
             {
               "caption": "oveja",
@@ -123,7 +125,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Circula el dibujo que comienza con la vocal del recuadro."
+          "text": "Presiona el dibujo que comienza con la vocal del recuadro."
         },
         {
           "id": "p2-rows",
@@ -156,7 +158,7 @@
               "cells": [
                 {
                   "caption": "casa",
-                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/casa.webp",
+                  "illustrationSrc": "/cartilla/art/faithful/leccion-19-c/casa.webp",
                   "correct": false
                 },
                 {
@@ -323,7 +325,8 @@
             },
             {
               "caption": "arco",
-              "correct": true
+              "correct": true,
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/arco.webp"
             },
             {
               "caption": "oveja",
@@ -372,7 +375,8 @@
             },
             {
               "caption": "traje",
-              "correct": false
+              "correct": false,
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/traje.webp"
             },
             {
               "caption": "ojos",
@@ -451,7 +455,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p6-write-O",
@@ -644,7 +648,8 @@
             },
             {
               "caption": "pez",
-              "correct": false
+              "correct": false,
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/pez.webp"
             },
             {
               "caption": "remolino",
@@ -662,7 +667,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p9-write-A",
@@ -779,7 +784,8 @@
             },
             {
               "caption": "águila",
-              "correct": false
+              "correct": false,
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/aguila.webp"
             },
             {
               "caption": "escuela",
@@ -788,7 +794,8 @@
             },
             {
               "caption": "traje",
-              "correct": false
+              "correct": false,
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/traje.webp"
             },
             {
               "caption": "espejo",
@@ -872,7 +879,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p12-write-E",
@@ -939,7 +946,8 @@
             },
             {
               "caption": "pez",
-              "correct": false
+              "correct": false,
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/pez.webp"
             },
             {
               "caption": "iguana",
@@ -993,7 +1001,8 @@
             },
             {
               "caption": "arco",
-              "correct": false
+              "correct": false,
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/arco.webp"
             },
             {
               "caption": "igual",
@@ -1058,7 +1067,8 @@
             },
             {
               "caption": "arco",
-              "correct": false
+              "correct": false,
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/arco.webp"
             },
             {
               "caption": "iguana",
@@ -1081,7 +1091,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p15-write-I",
@@ -1150,10 +1160,12 @@
               "illustrationSrc": "/cartilla/art/faithful/vocal-o/oveja.webp"
             },
             {
-              "caption": "pez"
+              "caption": "pez",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/pez.webp"
             },
             {
-              "caption": "arco"
+              "caption": "arco",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/arco.webp"
             },
             {
               "caption": "uvas",
@@ -1167,7 +1179,8 @@
             },
             {
               "caption": "traje",
-              "correct": false
+              "correct": false,
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/traje.webp"
             },
             {
               "caption": "elefante",
@@ -1191,14 +1204,16 @@
             },
             {
               "caption": "águila",
-              "correct": true
+              "correct": true,
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/aguila.webp"
             },
             {
               "caption": "abeja",
               "illustrationSrc": "/cartilla/art/faithful/vocal-a/abeja.webp"
             },
             {
-              "caption": "traje"
+              "caption": "traje",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/traje.webp"
             },
             {
               "caption": "insecto",
@@ -1231,7 +1246,8 @@
           "cells": [
             {
               "caption": "traje",
-              "correct": false
+              "correct": false,
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/traje.webp"
             },
             {
               "caption": "uno",
@@ -1255,7 +1271,8 @@
             },
             {
               "caption": "arco",
-              "correct": false
+              "correct": false,
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/arco.webp"
             },
             {
               "caption": "estrella",
@@ -1278,7 +1295,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p18-write-U",
@@ -1328,7 +1345,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p19-write-U",
@@ -1399,8 +1416,7 @@
               },
               {
                 "word": "mapa",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/mapa.webp"
+                "correct": true
               }
             ],
             [
@@ -1504,18 +1520,15 @@
             [
               {
                 "word": "mono",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/mono.webp"
+                "correct": true
               },
               {
                 "word": "moto",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/moto.webp"
+                "correct": true
               },
               {
                 "word": "mapa",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/mapa.webp"
+                "correct": false
               }
             ],
             [
@@ -1607,7 +1620,6 @@
             },
             {
               "wordBox": "mono",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/mono.webp",
               "blank": "mo",
               "choices": [
                 {
@@ -1624,7 +1636,6 @@
             },
             {
               "wordBox": "moto",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/moto.webp",
               "blank": "mo",
               "choices": [
                 {
@@ -1641,7 +1652,6 @@
             },
             {
               "wordBox": "mapa",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/mapa.webp",
               "blank": "ma",
               "choices": [
                 {
@@ -1657,6 +1667,19 @@
               ]
             }
           ]
+        },
+        {
+          "id": "p21-instr2",
+          "regionType": "instruction",
+          "order": 2,
+          "fontRole": "body",
+          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
+        },
+        {
+          "id": "p21-draw",
+          "regionType": "draw-box",
+          "order": 3,
+          "fontRole": "body"
         }
       ]
     },
@@ -1717,7 +1740,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p23-write-U",
@@ -1802,8 +1825,7 @@
               },
               {
                 "word": "pulpo",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-8-p/pulpo.webp"
+                "correct": false
               }
             ]
           ]
@@ -1837,8 +1859,7 @@
               },
               {
                 "word": "pez",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-8-p/pez.webp"
+                "correct": true
               },
               {
                 "word": "Pamela",
@@ -1865,8 +1886,7 @@
               },
               {
                 "word": "pino",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-8-p/pino.webp"
+                "correct": true
               }
             ],
             [
@@ -1996,7 +2016,6 @@
             },
             {
               "wordBox": "pez",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-8-p/pez.webp",
               "blank": "pe",
               "choices": [
                 {
@@ -2013,7 +2032,6 @@
             },
             {
               "wordBox": "pino",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-8-p/pino.webp",
               "blank": "pi",
               "choices": [
                 {
@@ -2030,7 +2048,6 @@
             },
             {
               "wordBox": "pulpo",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-8-p/pulpo.webp",
               "blank": "po",
               "choices": [
                 {
@@ -2046,6 +2063,19 @@
               ]
             }
           ]
+        },
+        {
+          "id": "p25-instr2",
+          "regionType": "instruction",
+          "order": 2,
+          "fontRole": "body",
+          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
+        },
+        {
+          "id": "p25-draw",
+          "regionType": "draw-box",
+          "order": 3,
+          "fontRole": "body"
         }
       ]
     },
@@ -2106,7 +2136,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p27-write-U",
@@ -2176,8 +2206,7 @@
               },
               {
                 "word": "sapo",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-9-s/sapo.webp"
+                "correct": true
               }
             ],
             [
@@ -2257,8 +2286,7 @@
             [
               {
                 "word": "sapo",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-9-s/sapo.webp"
+                "correct": false
               },
               {
                 "word": "Simón",
@@ -2285,13 +2313,11 @@
               },
               {
                 "word": "sopa",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-9-s/sopa.webp"
+                "correct": true
               },
               {
                 "word": "sol",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-9-s/sol.webp"
+                "correct": true
               }
             ],
             [
@@ -2338,8 +2364,7 @@
               },
               {
                 "word": "sol",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-9-s/sol.webp"
+                "correct": false
               },
               {
                 "word": "sala",
@@ -2367,7 +2392,6 @@
           "fillItems": [
             {
               "wordBox": "sapo",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-9-s/sapo.webp",
               "blank": "sa",
               "choices": [
                 {
@@ -2384,7 +2408,6 @@
             },
             {
               "wordBox": "sol",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-9-s/sol.webp",
               "blank": "so",
               "choices": [
                 {
@@ -2401,7 +2424,6 @@
             },
             {
               "wordBox": "sopa",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-9-s/sopa.webp",
               "blank": "so",
               "choices": [
                 {
@@ -2418,7 +2440,6 @@
             },
             {
               "wordBox": "silla",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-9-s/silla.webp",
               "blank": "si",
               "choices": [
                 {
@@ -2494,7 +2515,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p31-write-U",
@@ -2556,8 +2577,7 @@
             [
               {
                 "word": "tapa",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tapa.webp"
+                "correct": true
               },
               {
                 "word": "Teté",
@@ -2598,8 +2618,7 @@
               },
               {
                 "word": "tapa",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tapa.webp"
+                "correct": false
               },
               {
                 "word": "tela",
@@ -2636,8 +2655,7 @@
               },
               {
                 "word": "tina",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tina.webp"
+                "correct": true
               },
               {
                 "word": "tipo",
@@ -2647,8 +2665,7 @@
             [
               {
                 "word": "tapa",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tapa.webp"
+                "correct": false
               },
               {
                 "word": "Tito",
@@ -2671,8 +2688,7 @@
             [
               {
                 "word": "tomate",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tomate.webp"
+                "correct": true
               },
               {
                 "word": "topo",
@@ -2680,8 +2696,7 @@
               },
               {
                 "word": "tina",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tina.webp"
+                "correct": false
               }
             ],
             [
@@ -2724,8 +2739,7 @@
             [
               {
                 "word": "tulipán",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tulipan.webp"
+                "correct": true
               },
               {
                 "word": "tipo",
@@ -2757,7 +2771,6 @@
           "fillItems": [
             {
               "wordBox": "tapa",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tapa.webp",
               "blank": "ta",
               "choices": [
                 {
@@ -2774,7 +2787,6 @@
             },
             {
               "wordBox": "tomate",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tomate.webp",
               "blank": "te",
               "choices": [
                 {
@@ -2791,7 +2803,6 @@
             },
             {
               "wordBox": "tina",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tina.webp",
               "blank": "ti",
               "choices": [
                 {
@@ -2808,7 +2819,6 @@
             },
             {
               "wordBox": "tulipán",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tulipan.webp",
               "blank": "tu",
               "choices": [
                 {
@@ -2884,7 +2894,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p35-write-U",
@@ -2954,8 +2964,7 @@
               },
               {
                 "word": "dado",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/dado.webp"
+                "correct": true
               }
             ],
             [
@@ -2984,13 +2993,11 @@
             [
               {
                 "word": "dado",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/dado.webp"
+                "correct": false
               },
               {
                 "word": "delfín",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/delfin.webp"
+                "correct": true
               },
               {
                 "word": "dedo",
@@ -3045,8 +3052,7 @@
               },
               {
                 "word": "ducha",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/ducha.webp"
+                "correct": false
               }
             ]
           ]
@@ -3061,13 +3067,11 @@
             [
               {
                 "word": "dona",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/dona.webp"
+                "correct": true
               },
               {
                 "word": "dado",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/dado.webp"
+                "correct": false
               },
               {
                 "word": "doce",
@@ -3118,8 +3122,7 @@
               },
               {
                 "word": "delfín",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/delfin.webp"
+                "correct": false
               },
               {
                 "word": "Dina",
@@ -3147,7 +3150,6 @@
           "fillItems": [
             {
               "wordBox": "dado",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/dado.webp",
               "blank": "da",
               "choices": [
                 {
@@ -3164,7 +3166,6 @@
             },
             {
               "wordBox": "delfín",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/delfin.webp",
               "blank": "de",
               "choices": [
                 {
@@ -3181,7 +3182,6 @@
             },
             {
               "wordBox": "dona",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/dona.webp",
               "blank": "do",
               "choices": [
                 {
@@ -3198,7 +3198,6 @@
             },
             {
               "wordBox": "ducha",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/ducha.webp",
               "blank": "du",
               "choices": [
                 {
@@ -3274,7 +3273,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p39-write-U",
@@ -3354,8 +3353,7 @@
               },
               {
                 "word": "lupa",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/lupa.webp"
+                "correct": false
               },
               {
                 "word": "Lupe",
@@ -3392,8 +3390,7 @@
               },
               {
                 "word": "lupa",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/lupa.webp"
+                "correct": false
               },
               {
                 "word": "Lela",
@@ -3453,8 +3450,7 @@
               },
               {
                 "word": "lobo",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/lobo.webp"
+                "correct": true
               },
               {
                 "word": "loma",
@@ -3472,8 +3468,7 @@
               },
               {
                 "word": "luna",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/luna.webp"
+                "correct": false
               }
             ]
           ]
@@ -3488,8 +3483,7 @@
             [
               {
                 "word": "lupa",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/lupa.webp"
+                "correct": true
               },
               {
                 "word": "lista",
@@ -3535,7 +3529,6 @@
           "fillItems": [
             {
               "wordBox": "luna",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/luna.webp",
               "blank": "lu",
               "choices": [
                 {
@@ -3552,7 +3545,6 @@
             },
             {
               "wordBox": "lobo",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/lobo.webp",
               "blank": "lo",
               "choices": [
                 {
@@ -3569,7 +3561,6 @@
             },
             {
               "wordBox": "loro",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/loro.webp",
               "blank": "lo",
               "choices": [
                 {
@@ -3586,7 +3577,6 @@
             },
             {
               "wordBox": "lupa",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/lupa.webp",
               "blank": "lu",
               "choices": [
                 {
@@ -3662,7 +3652,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p43-write-U",
@@ -3724,18 +3714,15 @@
             [
               {
                 "word": "niño",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-14-n/nino.webp"
+                "correct": false
               },
               {
                 "word": "nata",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-13-n/nata.webp"
+                "correct": true
               },
               {
                 "word": "nariz",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-13-n/nariz.webp"
+                "correct": true
               }
             ],
             [
@@ -3745,8 +3732,7 @@
               },
               {
                 "word": "tina",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tina.webp"
+                "correct": true
               },
               {
                 "word": "sonido",
@@ -3779,8 +3765,7 @@
             [
               {
                 "word": "tina",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tina.webp"
+                "correct": false
               },
               {
                 "word": "Nela",
@@ -3807,13 +3792,11 @@
               },
               {
                 "word": "nido",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-13-n/nido.webp"
+                "correct": true
               },
               {
                 "word": "niño",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-14-n/nino.webp"
+                "correct": true
               }
             ],
             [
@@ -3827,8 +3810,7 @@
               },
               {
                 "word": "tina",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tina.webp"
+                "correct": false
               }
             ]
           ]
@@ -3843,8 +3825,7 @@
             [
               {
                 "word": "mono",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/mono.webp"
+                "correct": true
               },
               {
                 "word": "Nora",
@@ -3858,18 +3839,15 @@
             [
               {
                 "word": "nariz",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-13-n/nariz.webp"
+                "correct": false
               },
               {
                 "word": "pino",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-8-p/pino.webp"
+                "correct": true
               },
               {
                 "word": "tina",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tina.webp"
+                "correct": false
               }
             ]
           ]
@@ -3898,13 +3876,11 @@
             [
               {
                 "word": "niño",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-14-n/nino.webp"
+                "correct": false
               },
               {
                 "word": "nido",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-13-n/nido.webp"
+                "correct": false
               },
               {
                 "word": "nulo",
@@ -3932,7 +3908,6 @@
           "fillItems": [
             {
               "wordBox": "nariz",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-13-n/nariz.webp",
               "blank": "na",
               "choices": [
                 {
@@ -3949,7 +3924,6 @@
             },
             {
               "wordBox": "nido",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-13-n/nido.webp",
               "blank": "ni",
               "choices": [
                 {
@@ -3966,7 +3940,6 @@
             },
             {
               "wordBox": "nube",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-13-n/nube.webp",
               "blank": "nu",
               "choices": [
                 {
@@ -3983,7 +3956,6 @@
             },
             {
               "wordBox": "nata",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-13-n/nata.webp",
               "blank": "na",
               "choices": [
                 {
@@ -4059,7 +4031,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p47-write-U",
@@ -4167,15 +4139,13 @@
               },
               {
                 "word": "muñeca",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-14-n/muneca.webp"
+                "correct": true
               }
             ],
             [
               {
                 "word": "piña",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-14-n/pina.webp"
+                "correct": false
               },
               {
                 "word": "muñido",
@@ -4235,8 +4205,7 @@
             [
               {
                 "word": "niño",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-14-n/nino.webp"
+                "correct": true
               },
               {
                 "word": "añublo",
@@ -4273,8 +4242,7 @@
             [
               {
                 "word": "muñeca",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-14-n/muneca.webp"
+                "correct": false
               },
               {
                 "word": "ñu",
@@ -4320,7 +4288,6 @@
           "fillItems": [
             {
               "wordBox": "piña",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-14-n/pina.webp",
               "blank": "ña",
               "choices": [
                 {
@@ -4337,7 +4304,6 @@
             },
             {
               "wordBox": "muñeca",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-14-n/muneca.webp",
               "blank": "ñe",
               "choices": [
                 {
@@ -4354,7 +4320,6 @@
             },
             {
               "wordBox": "niño",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-14-n/nino.webp",
               "blank": "ño",
               "choices": [
                 {
@@ -4447,7 +4412,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p51-write-U",
@@ -4546,8 +4511,7 @@
             [
               {
                 "word": "bebé",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-15-b/bebe.webp"
+                "correct": true
               },
               {
                 "word": "beso",
@@ -4584,8 +4548,7 @@
             [
               {
                 "word": "bici",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-15-b/bici.webp"
+                "correct": true
               },
               {
                 "word": "biberón",
@@ -4603,8 +4566,7 @@
               },
               {
                 "word": "bebé",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-15-b/bebe.webp"
+                "correct": false
               },
               {
                 "word": "Bibi",
@@ -4707,7 +4669,6 @@
           "fillItems": [
             {
               "wordBox": "barco",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-15-b/barco.webp",
               "blank": "ba",
               "choices": [
                 {
@@ -4724,7 +4685,6 @@
             },
             {
               "wordBox": "bebé",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-15-b/bebe.webp",
               "blank": "be",
               "choices": [
                 {
@@ -4741,7 +4701,6 @@
             },
             {
               "wordBox": "bici",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-15-b/bici.webp",
               "blank": "bi",
               "choices": [
                 {
@@ -4834,7 +4793,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p55-write-U",
@@ -4900,8 +4859,7 @@
               },
               {
                 "word": "vaca",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/vaca.webp"
+                "correct": true
               },
               {
                 "word": "vela",
@@ -4940,8 +4898,7 @@
               },
               {
                 "word": "vaca",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/vaca.webp"
+                "correct": false
               },
               {
                 "word": "verde",
@@ -4974,8 +4931,7 @@
             [
               {
                 "word": "vino",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/vino.webp"
+                "correct": true
               },
               {
                 "word": "vida",
@@ -5013,8 +4969,7 @@
             [
               {
                 "word": "volcán",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/volcan.webp"
+                "correct": true
               },
               {
                 "word": "vapor",
@@ -5097,7 +5052,6 @@
           "fillItems": [
             {
               "wordBox": "vaca",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/vaca.webp",
               "blank": "va",
               "choices": [
                 {
@@ -5131,7 +5085,6 @@
             },
             {
               "wordBox": "vino",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/vino.webp",
               "blank": "vi",
               "choices": [
                 {
@@ -5148,7 +5101,6 @@
             },
             {
               "wordBox": "volcán",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/volcan.webp",
               "blank": "vo",
               "choices": [
                 {
@@ -5224,7 +5176,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p59-write-U",
@@ -5370,8 +5322,7 @@
               },
               {
                 "word": "remo",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-17-r/remo.webp"
+                "correct": false
               }
             ],
             [
@@ -5381,8 +5332,7 @@
               },
               {
                 "word": "loro",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/loro.webp"
+                "correct": false
               },
               {
                 "word": "pera",
@@ -5407,13 +5357,11 @@
               },
               {
                 "word": "loro",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/loro.webp"
+                "correct": true
               },
               {
                 "word": "rosa",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-17-r/rosa.webp"
+                "correct": true
               }
             ],
             [
@@ -5506,7 +5454,6 @@
             },
             {
               "wordBox": "rosa",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-17-r/rosa.webp",
               "blank": "ro",
               "choices": [
                 {
@@ -5523,7 +5470,6 @@
             },
             {
               "wordBox": "remo",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-17-r/remo.webp",
               "blank": "re",
               "choices": [
                 {
@@ -5615,7 +5561,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p63-write-U",
@@ -6000,7 +5946,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p67-write-U",
@@ -6379,7 +6325,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p71-write-U",
@@ -6758,7 +6704,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p75-write-U",
@@ -7137,7 +7083,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p79-write-U",
@@ -7203,8 +7149,7 @@
               },
               {
                 "word": "casa",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-19-c/casa.webp"
+                "correct": true
               },
               {
                 "word": "cama",
@@ -7288,8 +7233,7 @@
             [
               {
                 "word": "casa",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-19-c/casa.webp"
+                "correct": false
               },
               {
                 "word": "cosa",
@@ -7396,7 +7340,6 @@
           "fillItems": [
             {
               "wordBox": "casa",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-19-c/casa.webp",
               "blank": "ca",
               "choices": [
                 {
@@ -7520,7 +7463,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p83-write-U",
@@ -7586,13 +7529,11 @@
               },
               {
                 "word": "yate",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yate.webp"
+                "correct": true
               },
               {
                 "word": "yegua",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yegua.webp"
+                "correct": false
               }
             ],
             [
@@ -7625,8 +7566,7 @@
               },
               {
                 "word": "yegua",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yegua.webp"
+                "correct": true
               },
               {
                 "word": "yeso",
@@ -7659,8 +7599,7 @@
             [
               {
                 "word": "yoyo",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yoyo.webp"
+                "correct": false
               },
               {
                 "word": "yip",
@@ -7701,8 +7640,7 @@
               },
               {
                 "word": "yoyo",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yoyo.webp"
+                "correct": true
               },
               {
                 "word": "Yeni",
@@ -7757,8 +7695,7 @@
               },
               {
                 "word": "yoyo",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yoyo.webp"
+                "correct": false
               }
             ]
           ]
@@ -7782,7 +7719,6 @@
           "fillItems": [
             {
               "wordBox": "yate",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yate.webp",
               "blank": "ya",
               "choices": [
                 {
@@ -7799,7 +7735,6 @@
             },
             {
               "wordBox": "yegua",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yegua.webp",
               "blank": "ye",
               "choices": [
                 {
@@ -7816,7 +7751,6 @@
             },
             {
               "wordBox": "yoyo",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yoyo.webp",
               "blank": "yo",
               "choices": [
                 {
@@ -7908,7 +7842,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Escribe con tu mejor letra."
+          "text": "Traza con tu mejor letra."
         },
         {
           "id": "p87-write-U",
@@ -7974,13 +7908,11 @@
               },
               {
                 "word": "zapato",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-23-z/zapato.webp"
+                "correct": true
               },
               {
                 "word": "zanahoria",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-23-z/zanahoria.webp"
+                "correct": true
               }
             ],
             [
@@ -8054,8 +7986,7 @@
               },
               {
                 "word": "zapato",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-23-z/zapato.webp"
+                "correct": false
               }
             ],
             [
@@ -8167,7 +8098,6 @@
           "fillItems": [
             {
               "wordBox": "zapato",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-23-z/zapato.webp",
               "blank": "za",
               "choices": [
                 {
@@ -8184,7 +8114,6 @@
             },
             {
               "wordBox": "zanahoria",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-23-z/zanahoria.webp",
               "blank": "za",
               "choices": [
                 {

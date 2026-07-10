@@ -10,6 +10,97 @@ with a quick plain-English translation of what it actually means for them in
 this project. Lead with what's happening / what they need to do, then the
 jargon-with-translation, not the other way around.
 
+## Notion Sync — permanent rule (memorized July 2026)
+Claude is connected to the operator's Notion via MCP. Notion is maintained by
+the operator's Notion agent and is the shared source of truth between us.
+- **At the start of every session**, read from Notion: (1) "La Cartilla de
+  Gretel Hub" — Launch definition (locked 7/9), Hard-coded rules block,
+  Status snapshot (verified 7/9), Current 3 next actions — these override any
+  older assumptions; (2) when lesson TEXT/vocab is in question: "📖 Lessons ·
+  47 Pages" and "🎮 Activities & Games · 26 Pages" — canonical, never invent
+  past them; (3) when teacher-guide content is in question: "📘 Step 4 ·
+  Teacher's Guide" (canonical for L1-16; L17-24 status tracked there); (4)
+  when visual/art rules are in question: "Visual Direction — Locked Canon"
+  and the Gretel canon table in the Hub.
+- **READ-ONLY**: never create, edit, or delete anything in Notion. The
+  Notion agent maintains those pages; Claude's writes go to the repo only.
+- **Precedence**: Hub hard-coded rules > CLAUDE.md > SPEC.md > code comments.
+- If the repo contradicts Notion, do not silently pick one — put it in the
+  WRONG-IN-DOCS section of the session digest so the operator can have the
+  Notion agent reconcile it.
+- Do not re-read all pages mid-session; once per session is enough (token
+  discipline).
+
+## Standing orders — effective immediately, permanent (memorized July 2026)
+The owner is done with waiting, "checking now" narration, and premature
+BLOCKED ON YOU flags. These rules end that, permanently:
+1. **Pre-authorized, forever** — never ask again for: reading anything,
+   running scripts/tests/validators, committing and pushing to the working
+   branch, opening and merging PRs per the established flow, re-running
+   builds or workflows, writing docs/status files, retrying failures. If
+   it's inside the lane and the locked rules, do it without asking.
+2. **BLOCKED ON YOU is a last resort.** Before using it, try every
+   alternative route and list what was tried and exactly why each one is
+   IMPOSSIBLE — not slow, not indirect, IMPOSSIBLE. "The normal path is
+   broken" is not blocked; find the other path first.
+3. Applies directly to CI/infra failures: if the normal automated path
+   (e.g. a GitHub Action) is broken, bypass it and use the direct
+   equivalent (CLI linked to the project, direct execution with
+   credentials already configured in the environment) rather than waiting
+   for the owner to fix the automation. Never print, log, or commit any
+   secret. The broken automation becomes a cleanup item, not a blocker.
+4. **Never idle.** If one item is truly blocked, mark it in one line and
+   immediately pull the next item from the backlog. A blocked item never
+   stops the session — there is always real work available.
+5. **No narration turns.** "Checking now / investigating / confirming" is
+   not output. Work silently, batch the steps, report RESULTS only, in the
+   digest format: DONE / LIVE-VERIFIED / FAILED / BLOCKED (with the
+   impossibility proof) / NEXT 3.
+6. Still absolute, never overridden by speed: no invented content, no
+   touching forbidden paths, no force-push, no printing secrets.
+
+## Silent running — final operating mode (memorized July 2026)
+1. **Zero questions.** Never ask the owner anything mid-session. No "unless
+   you redirect me," no "want me to...", no options, no confirmations, no
+   permission requests. Decide using this precedence: Notion Hub canon >
+   CLAUDE.md > SPEC.md. If something is genuinely ambiguous, pick the most
+   book-faithful, launch-spec-aligned option, record the decision in ONE
+   line in the digest, and keep going. The owner overrules later if needed.
+2. **OPERATOR-QUEUE replaces questions.** Anything that truly requires the
+   owner (credentials, Settings screens, physical scans, sign-offs) goes as
+   one line in an OPERATOR-QUEUE section at the END of the digest — never a
+   pause, never a question. Nothing new enters this queue without an
+   impossibility proof (see standing order #2 above).
+3. **Run the whole backlog without stopping.** Pre-approved, start to
+   finish, no pause between items. Work until nothing unblocked remains,
+   then output exactly "ALL UNBLOCKED WORK COMPLETE" + final digest +
+   OPERATOR-QUEUE. That is the only stopping condition.
+4. **What the owner still personally owns** (never self-declare, never ask
+   about mid-work): final matches-the-book sign-off, crop approvals, launch
+   declaration. Build everything to done; the owner reviews in batches at
+   the end.
+5. Unchanged and absolute: no invented content, forbidden paths untouched,
+   digest format, no narration turns, no secrets in output.
+
+## Automatic per-turn rule — Anti-Gravity check-in (memorized July 2026)
+At the START of every single turn — no matter what the owner's message says,
+even mid-task — automatically, without being asked:
+1. Fetch `feat/content-extraction` and check for new Anti-Gravity pushes
+   since the last check (new commits, new AG-STATUS.md entries).
+2. If there's anything new: verify it (validators, spot-check against
+   source, no invented content, no forbidden paths touched) and confirm in
+   plain language what AG pushed, whether it's good, and what was done
+   with it.
+3. If there's nothing new since last check, say so in one line ("AG: no
+   new pushes since <last sha>") and move on.
+
+At the END of every turn — also automatic, also unprompted:
+4. A fresh copy-paste AG prompt matched to the current state (never
+   "nothing for AG" — minimum is a verification pass).
+5. A copy-paste prompt for the owner's own next session.
+
+Never skip this, never ask whether the owner wants it.
+
 ## What This Is
 Spanish literacy app for young children (ages 4-7).
 Gretel is an animated guide character who reacts to student actions.
@@ -107,9 +198,39 @@ Teachers create classes, assign students, and track progress via Supabase.
   as fact and do it** — do not end with "want me to merge?" / "say the word"
   / "your call?" The owner banned permission-seeking on safe, recommended
   next steps. Only pause for owner input on genuine forks (money, legal,
-  visual art approval on new illustrations, env secrets they alone hold).
+  env secrets they alone hold).
   Wrong: "Merge PR #110 when you're ready?" Right: "Merging PR #110 now —
   one-file bubble fix, typecheck clean, matches #109."
+- **No visual sign-off gate — including for visual/palette/animation
+  changes (memorized July 2026, supersedes the "visual art approval"
+  carve-out above):** the owner explicitly banned pausing for a visual
+  "does this look right?" check whenever I'm 100% confident the result
+  matches what they explicitly asked for — verify it myself (in-browser,
+  screenshots if useful to confirm to myself), then ship it, same as any
+  other confident recommend-and-execute call. Do NOT wait on the owner's
+  reply before merging a visual PR I'm confident matches spec. This does
+  NOT cover genuinely new, undirected creative choices (e.g. picking an
+  illustration style nobody asked for) — only changes that implement an
+  explicit, already-given instruction.
+- **Stop holding off, even on my own creative calls — no exceptions
+  (memorized July 2026, third time the owner has said this, supersedes the
+  "undirected creative choices" carve-out above):** the owner explicitly
+  said "screw the sign-off rules" — as long as a change is safe and in
+  line with what the owner has already said (the established look, the
+  established patterns, real derived art not invented art, working code),
+  merge it myself without waiting for review or asking "should I merge?" —
+  including self-initiated creative extensions of already-approved work
+  (e.g. extending an approved per-vowel-lesson background technique to the
+  remaining lessons using the lesson's own already-defined accent color).
+  Only genuine forks — money, legal, secrets/env vars only the owner
+  holds — still pause. Do not open a PR and then wait; open it and merge
+  it in the same turn once checks are green.
+- **Always show 3-5 pages of progress (memorized July 2026):** whenever
+  work touches pages/visual content, show the owner 3-5 real
+  screenshots/pages actually worked on (not just a text description) so
+  they can see the progress directly — send them as files
+  (SendUserFile), not just describe them in words. Do this every time,
+  not just when asked.
 - **Short, concise, informative answers (memorized July 2026):** keep
   replies tight by default — lead with the direct answer, skip preamble
   and repetition. Save length for when the owner actually asks for detail
@@ -173,6 +294,13 @@ relaying anything I haven't personally checked.
 - When blocked on an external dependency (e.g. art delivery), don't just
   report and stop — find and execute the next unblocked piece of work
   yourself, and say what it was.
+- **Whenever waiting on another AI agent, always hand over a ready-to-paste
+  prompt for it — every single time, no exceptions (memorized July 2026).**
+  Never just report "blocked on Antigravity" and stop. Do not stall waiting
+  on the owner's reply either — be proactive, not reactive: check real state
+  yourself first (git log/diff, file contents — not the other agent's
+  self-report), then hand over the prompt in the same turn, whether or not
+  the owner asked for one this time.
 - Default to action over asking, once you have enough information to make
   a reasonable call.
 - When something needs to go back to Antigravity (or anyone else), give
