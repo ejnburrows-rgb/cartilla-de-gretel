@@ -1,14 +1,14 @@
 # Grok Art Recovery Summary
-Generated: 2026-07-11T07:11:31
+Generated: 2026-07-11T07:13:53
 Repo: C:\Users\EJN\.gemini\antigravity\scratch\cartilla-de-gretel
 Staging: C:\Users\EJN\Desktop\cartilla-art-from-grok
 
 ## Counts by kind (manifest rows)
 - color: 162
 - crop: 10
-- gretel: 54
+- gretel: 16
 - sheet: 3
-- total_manifest_rows: 229
+- total_manifest_rows: 191
 
 ## Staged directory file counts
 - gretel-poses: 53
