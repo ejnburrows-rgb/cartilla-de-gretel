@@ -1,0 +1,101 @@
+{
+  "version": "1.0",
+  "lessons": {
+    "1": {
+      "file": "lesson-1.json",
+      "status": "transcribed"
+    },
+    "2": {
+      "file": "lesson-2.json",
+      "status": "transcribed"
+    },
+    "3": {
+      "file": "lesson-3.json",
+      "status": "transcribed"
+    },
+    "4": {
+      "file": "lesson-4.json",
+      "status": "transcribed"
+    },
+    "5": {
+      "file": "lesson-5.json",
+      "status": "transcribed"
+    },
+    "6": {
+      "file": "lesson-6.json",
+      "status": "transcribed"
+    },
+    "7": {
+      "file": "lesson-7.json",
+      "status": "transcribed"
+    },
+    "8": {
+      "file": "lesson-8.json",
+      "status": "transcribed"
+    },
+    "9": {
+      "file": "lesson-9.json",
+      "status": "transcribed"
+    },
+    "10": {
+      "file": "lesson-10.json",
+      "status": "transcribed"
+    },
+    "11": {
+      "file": "lesson-11.json",
+      "status": "transcribed"
+    },
+    "12": {
+      "file": "lesson-12.json",
+      "status": "transcribed"
+    },
+    "13": {
+      "file": "lesson-13.json",
+      "status": "transcribed"
+    },
+    "14": {
+      "file": "lesson-14.json",
+      "status": "transcribed"
+    },
+    "15": {
+      "file": "lesson-15.json",
+      "status": "transcribed"
+    },
+    "16": {
+      "file": "lesson-16.json",
+      "status": "pending"
+    },
+    "17": {
+      "file": "lesson-17.json",
+      "status": "pending"
+    },
+    "18": {
+      "file": "lesson-18.json",
+      "status": "pending"
+    },
+    "19": {
+      "file": "lesson-19.json",
+      "status": "pending"
+    },
+    "20": {
+      "file": "lesson-20.json",
+      "status": "pending"
+    },
+    "21": {
+      "file": "lesson-21.json",
+      "status": "pending"
+    },
+    "22": {
+      "file": "lesson-22.json",
+      "status": "pending"
+    },
+    "23": {
+      "file": "lesson-23.json",
+      "status": "pending"
+    },
+    "24": {
+      "file": "lesson-24.json",
+      "status": "pending"
+    }
+  }
+}
