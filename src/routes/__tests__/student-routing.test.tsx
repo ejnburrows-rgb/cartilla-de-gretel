@@ -85,16 +85,25 @@ describe("Student-Teacher Routing Isolation", () => {
 
   it("(a) student login lands on /cartilla/lecciones", async () => {
     const { history } = renderWithRouter(["/cartilla/unirse"]);
-    
-    // Simulate student login
-    // wait for render
     await waitFor(() => expect(history.location.pathname).toBe("/cartilla/unirse"));
     
-    // In our test environment, we'll manually call the function that `unirse.tsx` uses,
-    // or we can test the router redirects directly if we mock the route.
-    // However, it's easier to just mock the effect of logging in by setting the session
-    // and verifying the navigation.
+    const codeInput = await screen.findByRole("textbox") as HTMLInputElement;
+    fireEvent.change(codeInput, { target: { value: "ABC123" } });
+    
+    const submitBtn = document.querySelector('button[type="submit"]');
+    const form = submitBtn?.closest('form');
+    if (form) {
+      await fireEvent.submit(form);
+    }
+    
+    const studentBtn = await screen.findByText("Student 1");
+    await fireEvent.click(studentBtn);
+    
+    await waitFor(() => {
+      expect(history.location.pathname).toBe("/cartilla/lecciones");
+    });
   });
+
 
   describe("presentar.$n.tsx route guard", () => {
     it("(b) blocks student session from teacher presentation route", async () => {
