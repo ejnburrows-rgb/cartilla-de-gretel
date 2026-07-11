@@ -29,9 +29,7 @@ Lesson 12: TRANSCRIBED
 Lesson 13: TRANSCRIBED
 Lesson 14: TRANSCRIBED
 Lesson 15: TRANSCRIBED
-Lesson 16: MISSING_CONTENT
-  -> Missing: Entire text (Objectives, Motivation, Script, Evaluation Note)
-  -> Paths Searched: docs/Transcripción Integral_ La cartilla de Gretel - Guía del profesor.txt, src/content/guides/lesson-*.tsx, src/data/**, teacher-folder-data.ts
+Lesson 16: TRANSCRIBED
 Lesson 17: MISSING_CONTENT
   -> Missing: Entire text (Objectives, Motivation, Script, Evaluation Note)
   -> Paths Searched: docs/Transcripción Integral_ La cartilla de Gretel - Guía del profesor.txt, src/content/guides/lesson-*.tsx, src/data/**, teacher-folder-data.ts
