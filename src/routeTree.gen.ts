@@ -24,6 +24,7 @@ import { Route as CartillaVocesRouteImport } from './routes/cartilla/voces'
 import { Route as CartillaUnirseRouteImport } from './routes/cartilla/unirse'
 import { Route as CartillaStudentLoginRouteImport } from './routes/cartilla/student-login'
 import { Route as CartillaSesionesRouteImport } from './routes/cartilla/sesiones'
+import { Route as CartillaSandboxLivingRouteImport } from './routes/cartilla/sandbox-living'
 import { Route as CartillaRepasoRouteImport } from './routes/cartilla/repaso'
 import { Route as CartillaPracticaRouteImport } from './routes/cartilla/practica'
 import { Route as CartillaMiProgresoRouteImport } from './routes/cartilla/mi-progreso'
@@ -131,6 +132,11 @@ const CartillaStudentLoginRoute = CartillaStudentLoginRouteImport.update({
 const CartillaSesionesRoute = CartillaSesionesRouteImport.update({
   id: '/cartilla/sesiones',
   path: '/cartilla/sesiones',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CartillaSandboxLivingRoute = CartillaSandboxLivingRouteImport.update({
+  id: '/cartilla/sandbox-living',
+  path: '/cartilla/sandbox-living',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CartillaRepasoRoute = CartillaRepasoRouteImport.update({
@@ -322,6 +328,7 @@ export interface FileRoutesByFullPath {
   '/cartilla/mi-progreso': typeof CartillaMiProgresoRoute
   '/cartilla/practica': typeof CartillaPracticaRoute
   '/cartilla/repaso': typeof CartillaRepasoRoute
+  '/cartilla/sandbox-living': typeof CartillaSandboxLivingRoute
   '/cartilla/sesiones': typeof CartillaSesionesRoute
   '/cartilla/student-login': typeof CartillaStudentLoginRoute
   '/cartilla/unirse': typeof CartillaUnirseRoute
@@ -371,6 +378,7 @@ export interface FileRoutesByTo {
   '/cartilla/mi-progreso': typeof CartillaMiProgresoRoute
   '/cartilla/practica': typeof CartillaPracticaRoute
   '/cartilla/repaso': typeof CartillaRepasoRoute
+  '/cartilla/sandbox-living': typeof CartillaSandboxLivingRoute
   '/cartilla/sesiones': typeof CartillaSesionesRoute
   '/cartilla/student-login': typeof CartillaStudentLoginRoute
   '/cartilla/unirse': typeof CartillaUnirseRoute
@@ -422,6 +430,7 @@ export interface FileRoutesById {
   '/cartilla/mi-progreso': typeof CartillaMiProgresoRoute
   '/cartilla/practica': typeof CartillaPracticaRoute
   '/cartilla/repaso': typeof CartillaRepasoRoute
+  '/cartilla/sandbox-living': typeof CartillaSandboxLivingRoute
   '/cartilla/sesiones': typeof CartillaSesionesRoute
   '/cartilla/student-login': typeof CartillaStudentLoginRoute
   '/cartilla/unirse': typeof CartillaUnirseRoute
@@ -474,6 +483,7 @@ export interface FileRouteTypes {
     | '/cartilla/mi-progreso'
     | '/cartilla/practica'
     | '/cartilla/repaso'
+    | '/cartilla/sandbox-living'
     | '/cartilla/sesiones'
     | '/cartilla/student-login'
     | '/cartilla/unirse'
@@ -523,6 +533,7 @@ export interface FileRouteTypes {
     | '/cartilla/mi-progreso'
     | '/cartilla/practica'
     | '/cartilla/repaso'
+    | '/cartilla/sandbox-living'
     | '/cartilla/sesiones'
     | '/cartilla/student-login'
     | '/cartilla/unirse'
@@ -573,6 +584,7 @@ export interface FileRouteTypes {
     | '/cartilla/mi-progreso'
     | '/cartilla/practica'
     | '/cartilla/repaso'
+    | '/cartilla/sandbox-living'
     | '/cartilla/sesiones'
     | '/cartilla/student-login'
     | '/cartilla/unirse'
@@ -624,6 +636,7 @@ export interface RootRouteChildren {
   CartillaMiProgresoRoute: typeof CartillaMiProgresoRoute
   CartillaPracticaRoute: typeof CartillaPracticaRoute
   CartillaRepasoRoute: typeof CartillaRepasoRoute
+  CartillaSandboxLivingRoute: typeof CartillaSandboxLivingRoute
   CartillaSesionesRoute: typeof CartillaSesionesRoute
   CartillaStudentLoginRoute: typeof CartillaStudentLoginRoute
   CartillaUnirseRoute: typeof CartillaUnirseRoute
@@ -744,6 +757,13 @@ declare module '@tanstack/react-router' {
       path: '/cartilla/sesiones'
       fullPath: '/cartilla/sesiones'
       preLoaderRoute: typeof CartillaSesionesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cartilla/sandbox-living': {
+      id: '/cartilla/sandbox-living'
+      path: '/cartilla/sandbox-living'
+      fullPath: '/cartilla/sandbox-living'
+      preLoaderRoute: typeof CartillaSandboxLivingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cartilla/repaso': {
@@ -1062,6 +1082,7 @@ const rootRouteChildren: RootRouteChildren = {
   CartillaMiProgresoRoute: CartillaMiProgresoRoute,
   CartillaPracticaRoute: CartillaPracticaRoute,
   CartillaRepasoRoute: CartillaRepasoRoute,
+  CartillaSandboxLivingRoute: CartillaSandboxLivingRoute,
   CartillaSesionesRoute: CartillaSesionesRoute,
   CartillaStudentLoginRoute: CartillaStudentLoginRoute,
   CartillaUnirseRoute: CartillaUnirseRoute,

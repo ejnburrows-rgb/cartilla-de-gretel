@@ -1,0 +1,4270 @@
+{
+  "version": "1.0.0",
+  "builtAt": "2026-07-11T17:03:35.057009+00:00",
+  "totalPages": 90,
+  "pages": [
+    {
+      "pageNumber": 1,
+      "lessonNumber": 1,
+      "pageType": "exercise",
+      "title": "Página 1",
+      "instruction": "Presiona los dibujos de las palabras en cada línea horizontal que comienzan con el mismo sonido.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-001.jpg",
+      "illustrations": [
+        {
+          "id": "ill_p1_0",
+          "label": "abrigo",
+          "src": "/cartilla/art/faithful/leccion-1/abrigo.webp",
+          "alt": "abrigo",
+          "xPercent": 10,
+          "yPercent": 25,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p1_1",
+          "label": "imán",
+          "src": "/cartilla/art/faithful/vocal-i/iman.webp",
+          "alt": "imán",
+          "xPercent": 40,
+          "yPercent": 25,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p1_2",
+          "label": "abanico",
+          "src": "/cartilla/art/faithful/vocal-a/abanico.webp",
+          "alt": "abanico",
+          "xPercent": 70,
+          "yPercent": 25,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p1_3",
+          "label": "oso",
+          "src": "/cartilla/art/faithful/vocal-o/oso.webp",
+          "alt": "oso",
+          "xPercent": 10,
+          "yPercent": 50,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p1_4",
+          "label": "isla",
+          "src": "/cartilla/art/faithful/vocal-i/isla.webp",
+          "alt": "isla",
+          "xPercent": 40,
+          "yPercent": 50,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p1_5",
+          "label": "avión",
+          "src": "/cartilla/art/faithful/vocal-a/avion.webp",
+          "alt": "avión",
+          "xPercent": 70,
+          "yPercent": 50,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p1_6",
+          "label": "imán",
+          "src": "/cartilla/art/faithful/vocal-i/iman.webp",
+          "alt": "imán",
+          "xPercent": 10,
+          "yPercent": 75,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p1_7",
+          "label": "remolino",
+          "src": "/cartilla/art/faithful/leccion-1/remolino.webp",
+          "alt": "remolino",
+          "xPercent": 40,
+          "yPercent": 75,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p1_8",
+          "label": "escalera",
+          "src": "/cartilla/art/faithful/vocal-e/escalera.webp",
+          "alt": "escalera",
+          "xPercent": 70,
+          "yPercent": 75,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p1_9",
+          "label": "uno",
+          "src": "/cartilla/art/faithful/vocal-u/uno.webp",
+          "alt": "uno",
+          "xPercent": 10,
+          "yPercent": 100,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p1_10",
+          "label": "escuela",
+          "src": "/cartilla/art/faithful/vocal-e/escuela.webp",
+          "alt": "escuela",
+          "xPercent": 40,
+          "yPercent": 100,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p1_11",
+          "label": "oreja",
+          "src": "/cartilla/art/faithful/vocal-o/oreja.webp",
+          "alt": "oreja",
+          "xPercent": 70,
+          "yPercent": 100,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p1_12",
+          "label": "traje",
+          "src": "/cartilla/art/faithful/leccion-1/traje.webp",
+          "alt": "traje",
+          "xPercent": 10,
+          "yPercent": 125,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p1_13",
+          "label": "arco",
+          "src": "/cartilla/art/faithful/leccion-1/arco.webp",
+          "alt": "arco",
+          "xPercent": 40,
+          "yPercent": 125,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p1_14",
+          "label": "oveja",
+          "src": "/cartilla/art/faithful/vocal-o/oveja.webp",
+          "alt": "oveja",
+          "xPercent": 70,
+          "yPercent": 125,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p1_15",
+          "label": "elefante",
+          "src": "/cartilla/art/faithful/vocal-e/elefante.webp",
+          "alt": "elefante",
+          "xPercent": 10,
+          "yPercent": 150,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p1_16",
+          "label": "ojos",
+          "src": "/cartilla/art/faithful/vocal-o/ojos.webp",
+          "alt": "ojos",
+          "xPercent": 40,
+          "yPercent": 150,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p1_17",
+          "label": "maíz",
+          "src": "/cartilla/art/faithful/leccion-1/maiz.webp",
+          "alt": "maíz",
+          "xPercent": 70,
+          "yPercent": 150,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p1_18",
+          "label": "abeja",
+          "src": "/cartilla/art/faithful/vocal-a/abeja.webp",
+          "alt": "abeja",
+          "xPercent": 10,
+          "yPercent": 175,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p1_19",
+          "label": "olla",
+          "src": "/cartilla/art/faithful/vocal-o/olla.webp",
+          "alt": "olla",
+          "xPercent": 40,
+          "yPercent": 175,
+          "widthPercent": 25,
+          "heightPercent": 20
+        }
+      ],
+      "interactions": [
+        {
+          "id": "ex_p1_tap",
+          "type": "TapSelect",
+          "prompt": "Presiona los dibujos de las palabras en cada línea horizontal que comienzan con el mismo sonido.",
+          "label": "Selecciona la ilustración correcta",
+          "options": [
+            "abrigo",
+            "imán",
+            "abanico",
+            "oso"
+          ],
+          "correctAnswer": "abrigo"
+        }
+      ]
+    },
+    {
+      "pageNumber": 2,
+      "lessonNumber": 1,
+      "pageType": "exercise",
+      "title": "Página 2",
+      "instruction": "Presiona el dibujo que comienza con la vocal del recuadro.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-002.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "ex_p2_taphear",
+          "type": "TapToHear",
+          "prompt": "Presiona el dibujo que comienza con la vocal del recuadro.",
+          "label": "Escucha y repite",
+          "audioText": "Presiona el dibujo que comienza con la vocal del recuadro."
+        }
+      ]
+    },
+    {
+      "pageNumber": 3,
+      "lessonNumber": 1,
+      "pageType": "exercise",
+      "title": "Página 3",
+      "instruction": "Traza una línea de la vocal al dibujo que le corresponde.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-003.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "ex_p3_taphear",
+          "type": "TapToHear",
+          "prompt": "Traza una línea de la vocal al dibujo que le corresponde.",
+          "label": "Escucha y repite",
+          "audioText": "Traza una línea de la vocal al dibujo que le corresponde."
+        }
+      ]
+    },
+    {
+      "pageNumber": 4,
+      "lessonNumber": 2,
+      "pageType": "exercise",
+      "title": "Página 4",
+      "instruction": "Marca con una x los dibujos que comienzan con O o.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-004.jpg",
+      "illustrations": [
+        {
+          "id": "ill_p4_0",
+          "label": "ola",
+          "src": "/cartilla/art/faithful/leccion-1/ola.webp",
+          "alt": "ola",
+          "xPercent": 10,
+          "yPercent": 25,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p4_1",
+          "label": "iglú",
+          "src": "/cartilla/art/faithful/vocal-i/iglu.webp",
+          "alt": "iglú",
+          "xPercent": 40,
+          "yPercent": 25,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p4_2",
+          "label": "oso",
+          "src": "/cartilla/art/faithful/vocal-o/oso.webp",
+          "alt": "oso",
+          "xPercent": 70,
+          "yPercent": 25,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p4_3",
+          "label": "maíz",
+          "src": "/cartilla/art/faithful/leccion-1/maiz.webp",
+          "alt": "maíz",
+          "xPercent": 10,
+          "yPercent": 50,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p4_4",
+          "label": "arco",
+          "src": "/cartilla/art/faithful/leccion-1/arco.webp",
+          "alt": "arco",
+          "xPercent": 40,
+          "yPercent": 50,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p4_5",
+          "label": "oveja",
+          "src": "/cartilla/art/faithful/vocal-o/oveja.webp",
+          "alt": "oveja",
+          "xPercent": 70,
+          "yPercent": 50,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p4_6",
+          "label": "alas",
+          "src": "/cartilla/art/faithful/vocal-a/alas.webp",
+          "alt": "alas",
+          "xPercent": 10,
+          "yPercent": 75,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p4_7",
+          "label": "oreja",
+          "src": "/cartilla/art/faithful/vocal-o/oreja.webp",
+          "alt": "oreja",
+          "xPercent": 40,
+          "yPercent": 75,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p4_8",
+          "label": "olla",
+          "src": "/cartilla/art/faithful/vocal-o/olla.webp",
+          "alt": "olla",
+          "xPercent": 70,
+          "yPercent": 75,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p4_9",
+          "label": "uvas",
+          "src": "/cartilla/art/faithful/vocal-u/uvas.webp",
+          "alt": "uvas",
+          "xPercent": 10,
+          "yPercent": 100,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p4_10",
+          "label": "ocho",
+          "src": "/cartilla/art/faithful/vocal-o/ocho.webp",
+          "alt": "ocho",
+          "xPercent": 40,
+          "yPercent": 100,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p4_11",
+          "label": "uno",
+          "src": "/cartilla/art/faithful/vocal-u/uno.webp",
+          "alt": "uno",
+          "xPercent": 70,
+          "yPercent": 100,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p4_12",
+          "label": "araña",
+          "src": "/cartilla/art/faithful/vocal-a/arana.webp",
+          "alt": "araña",
+          "xPercent": 10,
+          "yPercent": 125,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p4_13",
+          "label": "oso",
+          "src": "/cartilla/art/faithful/vocal-o/oso.webp",
+          "alt": "oso",
+          "xPercent": 40,
+          "yPercent": 125,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p4_14",
+          "label": "traje",
+          "src": "/cartilla/art/faithful/leccion-1/traje.webp",
+          "alt": "traje",
+          "xPercent": 70,
+          "yPercent": 125,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p4_15",
+          "label": "ojos",
+          "src": "/cartilla/art/faithful/vocal-o/ojos.webp",
+          "alt": "ojos",
+          "xPercent": 10,
+          "yPercent": 150,
+          "widthPercent": 25,
+          "heightPercent": 20
+        }
+      ],
+      "interactions": [
+        {
+          "id": "l2-p4-listen-o",
+          "type": "TapToHear",
+          "prompt": "Toca los dibujos que comienzan con O.",
+          "label": "Encuentra las palabras con O",
+          "options": [],
+          "correctAnswer": ""
+        },
+        {
+          "id": "ex_p4_circle",
+          "type": "MarkCircle",
+          "prompt": "Encierra en un círculo la opción correcta.",
+          "label": "Encerrar",
+          "options": [
+            "a",
+            "e",
+            "i",
+            "o"
+          ],
+          "correctAnswer": "a"
+        }
+      ]
+    },
+    {
+      "pageNumber": 5,
+      "lessonNumber": 2,
+      "pageType": "exercise",
+      "title": "Página 5",
+      "instruction": "Traza una línea desde la vocal Oo hasta el dibujo de la palabra que comienza con Oo.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-005.jpg",
+      "illustrations": [
+        {
+          "id": "ill_p5_0",
+          "label": "iglú",
+          "src": "/cartilla/art/faithful/vocal-i/iglu.webp",
+          "alt": "iglú",
+          "xPercent": 10,
+          "yPercent": 25,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p5_1",
+          "label": "oveja",
+          "src": "/cartilla/art/faithful/vocal-o/oveja.webp",
+          "alt": "oveja",
+          "xPercent": 40,
+          "yPercent": 25,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p5_2",
+          "label": "ojos",
+          "src": "/cartilla/art/faithful/vocal-o/ojos.webp",
+          "alt": "ojos",
+          "xPercent": 70,
+          "yPercent": 25,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p5_3",
+          "label": "oreja",
+          "src": "/cartilla/art/faithful/vocal-o/oreja.webp",
+          "alt": "oreja",
+          "xPercent": 10,
+          "yPercent": 50,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p5_4",
+          "label": "olla",
+          "src": "/cartilla/art/faithful/vocal-o/olla.webp",
+          "alt": "olla",
+          "xPercent": 40,
+          "yPercent": 50,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p5_5",
+          "label": "ola",
+          "src": "/cartilla/art/faithful/leccion-1/ola.webp",
+          "alt": "ola",
+          "xPercent": 70,
+          "yPercent": 50,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p5_6",
+          "label": "oso",
+          "src": "/cartilla/art/faithful/vocal-o/oso.webp",
+          "alt": "oso",
+          "xPercent": 10,
+          "yPercent": 75,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p5_7",
+          "label": "alas",
+          "src": "/cartilla/art/faithful/vocal-a/alas.webp",
+          "alt": "alas",
+          "xPercent": 40,
+          "yPercent": 75,
+          "widthPercent": 25,
+          "heightPercent": 20
+        }
+      ],
+      "interactions": [
+        {
+          "id": "ex_p5_tap",
+          "type": "TapSelect",
+          "prompt": "Traza una línea desde la vocal Oo hasta el dibujo de la palabra que comienza con Oo.",
+          "label": "Selecciona la ilustración correcta",
+          "options": [
+            "iglú",
+            "oveja",
+            "ojos",
+            "oreja"
+          ],
+          "correctAnswer": "iglú"
+        },
+        {
+          "id": "ex_p5_pair",
+          "type": "PairMatch",
+          "prompt": "Empareja cada palabra con su dibujo.",
+          "label": "Parejas",
+          "options": [
+            "abrigo",
+            "imán",
+            "oso",
+            "uva"
+          ],
+          "correctAnswer": "abrigo"
+        }
+      ]
+    },
+    {
+      "pageNumber": 6,
+      "lessonNumber": 2,
+      "pageType": "exercise",
+      "title": "Página 6",
+      "instruction": "Traza con tu mejor letra.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-006.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "ex_p6_taphear",
+          "type": "TapToHear",
+          "prompt": "Traza con tu mejor letra.",
+          "label": "Escucha y repite",
+          "audioText": "Traza con tu mejor letra."
+        }
+      ]
+    },
+    {
+      "pageNumber": 7,
+      "lessonNumber": 3,
+      "pageType": "exercise",
+      "title": "Página 7",
+      "instruction": "Marca con una x los dibujos de las palabras que comienzan con A a.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-007.jpg",
+      "illustrations": [
+        {
+          "id": "ill_p7_0",
+          "label": "abanico",
+          "src": "/cartilla/art/faithful/vocal-a/abanico.webp",
+          "alt": "abanico",
+          "xPercent": 10,
+          "yPercent": 25,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p7_1",
+          "label": "oruga",
+          "src": "/cartilla/art/faithful/vocal-o/oruga.webp",
+          "alt": "oruga",
+          "xPercent": 40,
+          "yPercent": 25,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p7_2",
+          "label": "aro",
+          "src": "/cartilla/art/faithful/vocal-a/aro.webp",
+          "alt": "aro",
+          "xPercent": 70,
+          "yPercent": 25,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p7_3",
+          "label": "imán",
+          "src": "/cartilla/art/faithful/vocal-i/iman.webp",
+          "alt": "imán",
+          "xPercent": 10,
+          "yPercent": 50,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p7_4",
+          "label": "oveja",
+          "src": "/cartilla/art/faithful/vocal-o/oveja.webp",
+          "alt": "oveja",
+          "xPercent": 40,
+          "yPercent": 50,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p7_5",
+          "label": "abeja",
+          "src": "/cartilla/art/faithful/vocal-a/abeja.webp",
+          "alt": "abeja",
+          "xPercent": 70,
+          "yPercent": 50,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p7_6",
+          "label": "árbol",
+          "src": "/cartilla/art/faithful/vocal-a/arbol.webp",
+          "alt": "árbol",
+          "xPercent": 10,
+          "yPercent": 75,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p7_7",
+          "label": "elefante",
+          "src": "/cartilla/art/faithful/vocal-e/elefante.webp",
+          "alt": "elefante",
+          "xPercent": 40,
+          "yPercent": 75,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p7_8",
+          "label": "uno",
+          "src": "/cartilla/art/faithful/vocal-u/uno.webp",
+          "alt": "uno",
+          "xPercent": 70,
+          "yPercent": 75,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p7_9",
+          "label": "alas",
+          "src": "/cartilla/art/faithful/vocal-a/alas.webp",
+          "alt": "alas",
+          "xPercent": 10,
+          "yPercent": 100,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p7_10",
+          "label": "estrella",
+          "src": "/cartilla/art/faithful/vocal-e/estrella.webp",
+          "alt": "estrella",
+          "xPercent": 40,
+          "yPercent": 100,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p7_11",
+          "label": "ardilla",
+          "src": "/cartilla/art/faithful/vocal-a/ardilla.webp",
+          "alt": "ardilla",
+          "xPercent": 70,
+          "yPercent": 100,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p7_12",
+          "label": "ojos",
+          "src": "/cartilla/art/faithful/vocal-o/ojos.webp",
+          "alt": "ojos",
+          "xPercent": 10,
+          "yPercent": 125,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p7_13",
+          "label": "avión",
+          "src": "/cartilla/art/faithful/vocal-a/avion.webp",
+          "alt": "avión",
+          "xPercent": 40,
+          "yPercent": 125,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p7_14",
+          "label": "aguja",
+          "src": "/cartilla/art/faithful/vocal-a/aguja.webp",
+          "alt": "aguja",
+          "xPercent": 70,
+          "yPercent": 125,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p7_15",
+          "label": "aro",
+          "src": "/cartilla/art/faithful/vocal-a/aro.webp",
+          "alt": "aro",
+          "xPercent": 10,
+          "yPercent": 150,
+          "widthPercent": 25,
+          "heightPercent": 20
+        }
+      ],
+      "interactions": [
+        {
+          "id": "l3-p7-drag-word-a",
+          "type": "DragPlace",
+          "prompt": "Arrastra las letras para formar la palabra. Toca una letra y luego toca la casilla.",
+          "label": "Forma palabras con A",
+          "options": [],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 8,
+      "lessonNumber": 3,
+      "pageType": "exercise",
+      "title": "Página 8",
+      "instruction": "Traza una línea desde la vocal Aa hasta el dibujo de la palabra que comienza con Aa.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-008.jpg",
+      "illustrations": [
+        {
+          "id": "ill_p8_0",
+          "label": "oso",
+          "src": "/cartilla/art/faithful/vocal-o/oso.webp",
+          "alt": "oso",
+          "xPercent": 10,
+          "yPercent": 25,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p8_1",
+          "label": "iglú",
+          "src": "/cartilla/art/faithful/vocal-i/iglu.webp",
+          "alt": "iglú",
+          "xPercent": 40,
+          "yPercent": 25,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p8_2",
+          "label": "alas",
+          "src": "/cartilla/art/faithful/vocal-a/alas.webp",
+          "alt": "alas",
+          "xPercent": 70,
+          "yPercent": 25,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p8_3",
+          "label": "abeja",
+          "src": "/cartilla/art/faithful/vocal-a/abeja.webp",
+          "alt": "abeja",
+          "xPercent": 10,
+          "yPercent": 50,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p8_4",
+          "label": "aguja",
+          "src": "/cartilla/art/faithful/vocal-a/aguja.webp",
+          "alt": "aguja",
+          "xPercent": 40,
+          "yPercent": 50,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p8_5",
+          "label": "maíz",
+          "src": "/cartilla/art/faithful/leccion-1/maiz.webp",
+          "alt": "maíz",
+          "xPercent": 70,
+          "yPercent": 50,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p8_6",
+          "label": "pez",
+          "src": "/cartilla/art/faithful/leccion-1/pez.webp",
+          "alt": "pez",
+          "xPercent": 10,
+          "yPercent": 75,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p8_7",
+          "label": "remolino",
+          "src": "/cartilla/art/faithful/leccion-1/remolino.webp",
+          "alt": "remolino",
+          "xPercent": 40,
+          "yPercent": 75,
+          "widthPercent": 25,
+          "heightPercent": 20
+        }
+      ],
+      "interactions": [
+        {
+          "id": "ex_p8_tap",
+          "type": "TapSelect",
+          "prompt": "Traza una línea desde la vocal Aa hasta el dibujo de la palabra que comienza con Aa.",
+          "label": "Selecciona la ilustración correcta",
+          "options": [
+            "oso",
+            "iglú",
+            "alas",
+            "abeja"
+          ],
+          "correctAnswer": "oso"
+        },
+        {
+          "id": "ex_p8_circle",
+          "type": "MarkCircle",
+          "prompt": "Encierra en un círculo la opción correcta.",
+          "label": "Encerrar",
+          "options": [
+            "a",
+            "e",
+            "i",
+            "o"
+          ],
+          "correctAnswer": "a"
+        }
+      ]
+    },
+    {
+      "pageNumber": 9,
+      "lessonNumber": 3,
+      "pageType": "exercise",
+      "title": "Página 9",
+      "instruction": "Traza con tu mejor letra.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-009.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "ex_p9_taphear",
+          "type": "TapToHear",
+          "prompt": "Traza con tu mejor letra.",
+          "label": "Escucha y repite",
+          "audioText": "Traza con tu mejor letra."
+        }
+      ]
+    },
+    {
+      "pageNumber": 10,
+      "lessonNumber": 4,
+      "pageType": "exercise",
+      "title": "Página 10",
+      "instruction": "Marca con una x los dibujos de las palabras que comienzan con E e.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-010.jpg",
+      "illustrations": [
+        {
+          "id": "ill_p10_0",
+          "label": "elefante",
+          "src": "/cartilla/art/faithful/vocal-e/elefante.webp",
+          "alt": "elefante",
+          "xPercent": 10,
+          "yPercent": 25,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p10_1",
+          "label": "iglú",
+          "src": "/cartilla/art/faithful/vocal-i/iglu.webp",
+          "alt": "iglú",
+          "xPercent": 40,
+          "yPercent": 25,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p10_2",
+          "label": "maíz",
+          "src": "/cartilla/art/faithful/leccion-1/maiz.webp",
+          "alt": "maíz",
+          "xPercent": 70,
+          "yPercent": 25,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p10_3",
+          "label": "indio",
+          "src": "/cartilla/art/faithful/vocal-i/indio.webp",
+          "alt": "indio",
+          "xPercent": 10,
+          "yPercent": 50,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p10_4",
+          "label": "escalera",
+          "src": "/cartilla/art/faithful/vocal-e/escalera.webp",
+          "alt": "escalera",
+          "xPercent": 40,
+          "yPercent": 50,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p10_5",
+          "label": "erizo",
+          "src": "/cartilla/art/faithful/vocal-e/erizo.webp",
+          "alt": "erizo",
+          "xPercent": 70,
+          "yPercent": 50,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p10_6",
+          "label": "abeja",
+          "src": "/cartilla/art/faithful/vocal-a/abeja.webp",
+          "alt": "abeja",
+          "xPercent": 10,
+          "yPercent": 75,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p10_7",
+          "label": "aguja",
+          "src": "/cartilla/art/faithful/vocal-a/aguja.webp",
+          "alt": "aguja",
+          "xPercent": 40,
+          "yPercent": 75,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p10_8",
+          "label": "escoba",
+          "src": "/cartilla/art/faithful/vocal-e/escoba.webp",
+          "alt": "escoba",
+          "xPercent": 70,
+          "yPercent": 75,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p10_9",
+          "label": "unicornio",
+          "src": "/cartilla/art/faithful/vocal-u/unicornio.webp",
+          "alt": "unicornio",
+          "xPercent": 10,
+          "yPercent": 100,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p10_10",
+          "label": "estrella",
+          "src": "/cartilla/art/faithful/vocal-e/estrella.webp",
+          "alt": "estrella",
+          "xPercent": 40,
+          "yPercent": 100,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p10_11",
+          "label": "águila",
+          "src": "/cartilla/art/faithful/leccion-1/aguila.webp",
+          "alt": "águila",
+          "xPercent": 70,
+          "yPercent": 100,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p10_12",
+          "label": "escuela",
+          "src": "/cartilla/art/faithful/vocal-e/escuela.webp",
+          "alt": "escuela",
+          "xPercent": 10,
+          "yPercent": 125,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p10_13",
+          "label": "traje",
+          "src": "/cartilla/art/faithful/leccion-1/traje.webp",
+          "alt": "traje",
+          "xPercent": 40,
+          "yPercent": 125,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p10_14",
+          "label": "espejo",
+          "src": "/cartilla/art/faithful/vocal-e/espejo.webp",
+          "alt": "espejo",
+          "xPercent": 70,
+          "yPercent": 125,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p10_15",
+          "label": "uno",
+          "src": "/cartilla/art/faithful/vocal-u/uno.webp",
+          "alt": "uno",
+          "xPercent": 10,
+          "yPercent": 150,
+          "widthPercent": 25,
+          "heightPercent": 20
+        }
+      ],
+      "interactions": [
+        {
+          "id": "l4-p10-drag-word-e",
+          "type": "DragPlace",
+          "prompt": "Arrastra las letras para formar la palabra. Toca una letra y luego toca la casilla.",
+          "label": "Forma palabras con E",
+          "options": [],
+          "correctAnswer": ""
+        },
+        {
+          "id": "ex_p10_pair",
+          "type": "PairMatch",
+          "prompt": "Empareja cada palabra con su dibujo.",
+          "label": "Parejas",
+          "options": [
+            "abrigo",
+            "imán",
+            "oso",
+            "uva"
+          ],
+          "correctAnswer": "abrigo"
+        }
+      ]
+    },
+    {
+      "pageNumber": 11,
+      "lessonNumber": 4,
+      "pageType": "exercise",
+      "title": "Página 11",
+      "instruction": "Traza una línea desde la vocal Ee hasta el dibujo de la palabra que comienza con Ee.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-011.jpg",
+      "illustrations": [
+        {
+          "id": "ill_p11_0",
+          "label": "oso",
+          "src": "/cartilla/art/faithful/vocal-o/oso.webp",
+          "alt": "oso",
+          "xPercent": 10,
+          "yPercent": 25,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p11_1",
+          "label": "elefante",
+          "src": "/cartilla/art/faithful/vocal-e/elefante.webp",
+          "alt": "elefante",
+          "xPercent": 40,
+          "yPercent": 25,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p11_2",
+          "label": "abeja",
+          "src": "/cartilla/art/faithful/vocal-a/abeja.webp",
+          "alt": "abeja",
+          "xPercent": 70,
+          "yPercent": 25,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p11_3",
+          "label": "erizo",
+          "src": "/cartilla/art/faithful/vocal-e/erizo.webp",
+          "alt": "erizo",
+          "xPercent": 10,
+          "yPercent": 50,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p11_4",
+          "label": "maíz",
+          "src": "/cartilla/art/faithful/leccion-1/maiz.webp",
+          "alt": "maíz",
+          "xPercent": 40,
+          "yPercent": 50,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p11_5",
+          "label": "escalera",
+          "src": "/cartilla/art/faithful/vocal-e/escalera.webp",
+          "alt": "escalera",
+          "xPercent": 70,
+          "yPercent": 50,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p11_6",
+          "label": "estrella",
+          "src": "/cartilla/art/faithful/vocal-e/estrella.webp",
+          "alt": "estrella",
+          "xPercent": 10,
+          "yPercent": 75,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p11_7",
+          "label": "abrigo",
+          "src": "/cartilla/art/faithful/leccion-1/abrigo.webp",
+          "alt": "abrigo",
+          "xPercent": 40,
+          "yPercent": 75,
+          "widthPercent": 25,
+          "heightPercent": 20
+        }
+      ],
+      "interactions": [
+        {
+          "id": "ex_p11_tap",
+          "type": "TapSelect",
+          "prompt": "Traza una línea desde la vocal Ee hasta el dibujo de la palabra que comienza con Ee.",
+          "label": "Selecciona la ilustración correcta",
+          "options": [
+            "oso",
+            "elefante",
+            "abeja",
+            "erizo"
+          ],
+          "correctAnswer": "oso"
+        }
+      ]
+    },
+    {
+      "pageNumber": 12,
+      "lessonNumber": 4,
+      "pageType": "exercise",
+      "title": "Página 12",
+      "instruction": "Traza con tu mejor letra.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-012.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "ex_p12_taphear",
+          "type": "TapToHear",
+          "prompt": "Traza con tu mejor letra.",
+          "label": "Escucha y repite",
+          "audioText": "Traza con tu mejor letra."
+        },
+        {
+          "id": "ex_p12_circle",
+          "type": "MarkCircle",
+          "prompt": "Encierra en un círculo la opción correcta.",
+          "label": "Encerrar",
+          "options": [
+            "a",
+            "e",
+            "i",
+            "o"
+          ],
+          "correctAnswer": "a"
+        }
+      ]
+    },
+    {
+      "pageNumber": 13,
+      "lessonNumber": 5,
+      "pageType": "exercise",
+      "title": "Página 13",
+      "instruction": "Marca con una x los dibujos de las palabras que comienzan con I i.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-013.jpg",
+      "illustrations": [
+        {
+          "id": "ill_p13_0",
+          "label": "iglú",
+          "src": "/cartilla/art/faithful/vocal-i/iglu.webp",
+          "alt": "iglú",
+          "xPercent": 10,
+          "yPercent": 25,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p13_1",
+          "label": "pez",
+          "src": "/cartilla/art/faithful/leccion-1/pez.webp",
+          "alt": "pez",
+          "xPercent": 40,
+          "yPercent": 25,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p13_2",
+          "label": "iguana",
+          "src": "/cartilla/art/faithful/vocal-i/iguana.webp",
+          "alt": "iguana",
+          "xPercent": 70,
+          "yPercent": 25,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p13_3",
+          "label": "abanico",
+          "src": "/cartilla/art/faithful/vocal-a/abanico.webp",
+          "alt": "abanico",
+          "xPercent": 10,
+          "yPercent": 50,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p13_4",
+          "label": "oso",
+          "src": "/cartilla/art/faithful/vocal-o/oso.webp",
+          "alt": "oso",
+          "xPercent": 40,
+          "yPercent": 50,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p13_5",
+          "label": "indio",
+          "src": "/cartilla/art/faithful/vocal-i/indio.webp",
+          "alt": "indio",
+          "xPercent": 70,
+          "yPercent": 50,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p13_6",
+          "label": "alas",
+          "src": "/cartilla/art/faithful/vocal-a/alas.webp",
+          "alt": "alas",
+          "xPercent": 10,
+          "yPercent": 75,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p13_7",
+          "label": "invierno",
+          "src": "/cartilla/art/faithful/vocal-i/invierno.webp",
+          "alt": "invierno",
+          "xPercent": 40,
+          "yPercent": 75,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p13_8",
+          "label": "ola",
+          "src": "/cartilla/art/faithful/leccion-1/ola.webp",
+          "alt": "ola",
+          "xPercent": 70,
+          "yPercent": 75,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p13_9",
+          "label": "imán",
+          "src": "/cartilla/art/faithful/vocal-i/iman.webp",
+          "alt": "imán",
+          "xPercent": 10,
+          "yPercent": 100,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p13_10",
+          "label": "uno",
+          "src": "/cartilla/art/faithful/vocal-u/uno.webp",
+          "alt": "uno",
+          "xPercent": 40,
+          "yPercent": 100,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p13_11",
+          "label": "isla",
+          "src": "/cartilla/art/faithful/vocal-i/isla.webp",
+          "alt": "isla",
+          "xPercent": 70,
+          "yPercent": 100,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p13_12",
+          "label": "arco",
+          "src": "/cartilla/art/faithful/leccion-1/arco.webp",
+          "alt": "arco",
+          "xPercent": 10,
+          "yPercent": 125,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p13_13",
+          "label": "igual",
+          "src": "/cartilla/art/faithful/vocal-i/igual.webp",
+          "alt": "igual",
+          "xPercent": 40,
+          "yPercent": 125,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p13_14",
+          "label": "insecto",
+          "src": "/cartilla/art/faithful/vocal-i/insecto.webp",
+          "alt": "insecto",
+          "xPercent": 70,
+          "yPercent": 125,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p13_15",
+          "label": "olla",
+          "src": "/cartilla/art/faithful/vocal-o/olla.webp",
+          "alt": "olla",
+          "xPercent": 10,
+          "yPercent": 150,
+          "widthPercent": 25,
+          "heightPercent": 20
+        }
+      ],
+      "interactions": [
+        {
+          "id": "l5-p13-drag-word-i",
+          "type": "DragPlace",
+          "prompt": "Arrastra las letras para formar la palabra. Toca una letra y luego toca la casilla.",
+          "label": "Forma palabras con I",
+          "options": [],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 14,
+      "lessonNumber": 5,
+      "pageType": "exercise",
+      "title": "Página 14",
+      "instruction": "Traza una línea desde la vocal Ii hasta el dibujo de la palabra que comienza con Ii.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-014.jpg",
+      "illustrations": [
+        {
+          "id": "ill_p14_0",
+          "label": "imán",
+          "src": "/cartilla/art/faithful/vocal-i/iman.webp",
+          "alt": "imán",
+          "xPercent": 10,
+          "yPercent": 25,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p14_1",
+          "label": "oso",
+          "src": "/cartilla/art/faithful/vocal-o/oso.webp",
+          "alt": "oso",
+          "xPercent": 40,
+          "yPercent": 25,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p14_2",
+          "label": "iglú",
+          "src": "/cartilla/art/faithful/vocal-i/iglu.webp",
+          "alt": "iglú",
+          "xPercent": 70,
+          "yPercent": 25,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p14_3",
+          "label": "igual",
+          "src": "/cartilla/art/faithful/vocal-i/igual.webp",
+          "alt": "igual",
+          "xPercent": 10,
+          "yPercent": 50,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p14_4",
+          "label": "indio",
+          "src": "/cartilla/art/faithful/vocal-i/indio.webp",
+          "alt": "indio",
+          "xPercent": 40,
+          "yPercent": 50,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p14_5",
+          "label": "arco",
+          "src": "/cartilla/art/faithful/leccion-1/arco.webp",
+          "alt": "arco",
+          "xPercent": 70,
+          "yPercent": 50,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p14_6",
+          "label": "iguana",
+          "src": "/cartilla/art/faithful/vocal-i/iguana.webp",
+          "alt": "iguana",
+          "xPercent": 10,
+          "yPercent": 75,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p14_7",
+          "label": "abeja",
+          "src": "/cartilla/art/faithful/vocal-a/abeja.webp",
+          "alt": "abeja",
+          "xPercent": 40,
+          "yPercent": 75,
+          "widthPercent": 25,
+          "heightPercent": 20
+        }
+      ],
+      "interactions": [
+        {
+          "id": "ex_p14_tap",
+          "type": "TapSelect",
+          "prompt": "Traza una línea desde la vocal Ii hasta el dibujo de la palabra que comienza con Ii.",
+          "label": "Selecciona la ilustración correcta",
+          "options": [
+            "imán",
+            "oso",
+            "iglú",
+            "igual"
+          ],
+          "correctAnswer": "imán"
+        }
+      ]
+    },
+    {
+      "pageNumber": 15,
+      "lessonNumber": 5,
+      "pageType": "exercise",
+      "title": "Página 15",
+      "instruction": "Traza con tu mejor letra.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-015.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "ex_p15_taphear",
+          "type": "TapToHear",
+          "prompt": "Traza con tu mejor letra.",
+          "label": "Escucha y repite",
+          "audioText": "Traza con tu mejor letra."
+        },
+        {
+          "id": "ex_p15_pair",
+          "type": "PairMatch",
+          "prompt": "Empareja cada palabra con su dibujo.",
+          "label": "Parejas",
+          "options": [
+            "abrigo",
+            "imán",
+            "oso",
+            "uva"
+          ],
+          "correctAnswer": "abrigo"
+        }
+      ]
+    },
+    {
+      "pageNumber": 16,
+      "lessonNumber": 6,
+      "pageType": "exercise",
+      "title": "Página 16",
+      "instruction": "Marca con una x los dibujos de las palabras que comienzan con U u.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-016.jpg",
+      "illustrations": [
+        {
+          "id": "ill_p16_0",
+          "label": "unicornio",
+          "src": "/cartilla/art/faithful/vocal-u/unicornio.webp",
+          "alt": "unicornio",
+          "xPercent": 10,
+          "yPercent": 25,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p16_1",
+          "label": "oveja",
+          "src": "/cartilla/art/faithful/vocal-o/oveja.webp",
+          "alt": "oveja",
+          "xPercent": 40,
+          "yPercent": 25,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p16_2",
+          "label": "pez",
+          "src": "/cartilla/art/faithful/leccion-1/pez.webp",
+          "alt": "pez",
+          "xPercent": 70,
+          "yPercent": 25,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p16_3",
+          "label": "arco",
+          "src": "/cartilla/art/faithful/leccion-1/arco.webp",
+          "alt": "arco",
+          "xPercent": 10,
+          "yPercent": 50,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p16_4",
+          "label": "uvas",
+          "src": "/cartilla/art/faithful/vocal-u/uvas.webp",
+          "alt": "uvas",
+          "xPercent": 40,
+          "yPercent": 50,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p16_5",
+          "label": "estrella",
+          "src": "/cartilla/art/faithful/vocal-e/estrella.webp",
+          "alt": "estrella",
+          "xPercent": 70,
+          "yPercent": 50,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p16_6",
+          "label": "traje",
+          "src": "/cartilla/art/faithful/leccion-1/traje.webp",
+          "alt": "traje",
+          "xPercent": 10,
+          "yPercent": 75,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p16_7",
+          "label": "elefante",
+          "src": "/cartilla/art/faithful/vocal-e/elefante.webp",
+          "alt": "elefante",
+          "xPercent": 40,
+          "yPercent": 75,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p16_8",
+          "label": "árbol",
+          "src": "/cartilla/art/faithful/vocal-a/arbol.webp",
+          "alt": "árbol",
+          "xPercent": 70,
+          "yPercent": 75,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p16_9",
+          "label": "uno",
+          "src": "/cartilla/art/faithful/vocal-u/uno.webp",
+          "alt": "uno",
+          "xPercent": 10,
+          "yPercent": 100,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p16_10",
+          "label": "oso",
+          "src": "/cartilla/art/faithful/vocal-o/oso.webp",
+          "alt": "oso",
+          "xPercent": 40,
+          "yPercent": 100,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p16_11",
+          "label": "águila",
+          "src": "/cartilla/art/faithful/leccion-1/aguila.webp",
+          "alt": "águila",
+          "xPercent": 70,
+          "yPercent": 100,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p16_12",
+          "label": "abeja",
+          "src": "/cartilla/art/faithful/vocal-a/abeja.webp",
+          "alt": "abeja",
+          "xPercent": 10,
+          "yPercent": 125,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p16_13",
+          "label": "traje",
+          "src": "/cartilla/art/faithful/leccion-1/traje.webp",
+          "alt": "traje",
+          "xPercent": 40,
+          "yPercent": 125,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p16_14",
+          "label": "insecto",
+          "src": "/cartilla/art/faithful/vocal-i/insecto.webp",
+          "alt": "insecto",
+          "xPercent": 70,
+          "yPercent": 125,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p16_15",
+          "label": "uno",
+          "src": "/cartilla/art/faithful/vocal-u/uno.webp",
+          "alt": "uno",
+          "xPercent": 10,
+          "yPercent": 150,
+          "widthPercent": 25,
+          "heightPercent": 20
+        }
+      ],
+      "interactions": [
+        {
+          "id": "l6-p16-drag-word-u",
+          "type": "DragPlace",
+          "prompt": "Arrastra las letras para formar la palabra. Toca una letra y luego toca la casilla.",
+          "label": "Forma palabras con U",
+          "options": [],
+          "correctAnswer": ""
+        },
+        {
+          "id": "ex_p16_circle",
+          "type": "MarkCircle",
+          "prompt": "Encierra en un círculo la opción correcta.",
+          "label": "Encerrar",
+          "options": [
+            "a",
+            "e",
+            "i",
+            "o"
+          ],
+          "correctAnswer": "a"
+        }
+      ]
+    },
+    {
+      "pageNumber": 17,
+      "lessonNumber": 6,
+      "pageType": "exercise",
+      "title": "Página 17",
+      "instruction": "Traza una línea desde la vocal Uu hasta el dibujo de la palabra que comienza con Uu.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-017.jpg",
+      "illustrations": [
+        {
+          "id": "ill_p17_0",
+          "label": "traje",
+          "src": "/cartilla/art/faithful/leccion-1/traje.webp",
+          "alt": "traje",
+          "xPercent": 10,
+          "yPercent": 25,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p17_1",
+          "label": "uno",
+          "src": "/cartilla/art/faithful/vocal-u/uno.webp",
+          "alt": "uno",
+          "xPercent": 40,
+          "yPercent": 25,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p17_2",
+          "label": "oso",
+          "src": "/cartilla/art/faithful/vocal-o/oso.webp",
+          "alt": "oso",
+          "xPercent": 70,
+          "yPercent": 25,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p17_3",
+          "label": "uvas",
+          "src": "/cartilla/art/faithful/vocal-u/uvas.webp",
+          "alt": "uvas",
+          "xPercent": 10,
+          "yPercent": 50,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p17_4",
+          "label": "unicornio",
+          "src": "/cartilla/art/faithful/vocal-u/unicornio.webp",
+          "alt": "unicornio",
+          "xPercent": 40,
+          "yPercent": 50,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p17_5",
+          "label": "arco",
+          "src": "/cartilla/art/faithful/leccion-1/arco.webp",
+          "alt": "arco",
+          "xPercent": 70,
+          "yPercent": 50,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p17_6",
+          "label": "estrella",
+          "src": "/cartilla/art/faithful/vocal-e/estrella.webp",
+          "alt": "estrella",
+          "xPercent": 10,
+          "yPercent": 75,
+          "widthPercent": 25,
+          "heightPercent": 20
+        },
+        {
+          "id": "ill_p17_7",
+          "label": "imán",
+          "src": "/cartilla/art/faithful/vocal-i/iman.webp",
+          "alt": "imán",
+          "xPercent": 40,
+          "yPercent": 75,
+          "widthPercent": 25,
+          "heightPercent": 20
+        }
+      ],
+      "interactions": [
+        {
+          "id": "ex_p17_tap",
+          "type": "TapSelect",
+          "prompt": "Traza una línea desde la vocal Uu hasta el dibujo de la palabra que comienza con Uu.",
+          "label": "Selecciona la ilustración correcta",
+          "options": [
+            "traje",
+            "uno",
+            "oso",
+            "uvas"
+          ],
+          "correctAnswer": "traje"
+        }
+      ]
+    },
+    {
+      "pageNumber": 18,
+      "lessonNumber": 6,
+      "pageType": "exercise",
+      "title": "Página 18",
+      "instruction": "Traza con tu mejor letra.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-018.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "ex_p18_taphear",
+          "type": "TapToHear",
+          "prompt": "Traza con tu mejor letra.",
+          "label": "Escucha y repite",
+          "audioText": "Traza con tu mejor letra."
+        }
+      ]
+    },
+    {
+      "pageNumber": 19,
+      "lessonNumber": 7,
+      "pageType": "exercise",
+      "title": "Página 19",
+      "instruction": "Traza con tu mejor letra.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-019.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l7-p19-letter-tracing",
+          "type": "MarkCircle",
+          "prompt": "Traza la letra M mayúscula y la m minúscula. Luego haz un dibujo de una palabra que comienza con m.",
+          "label": "Escribe con tu mejor letra — M m",
+          "options": [
+            "M",
+            "m"
+          ],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 20,
+      "lessonNumber": 7,
+      "pageType": "exercise",
+      "title": "Página 20",
+      "instruction": "Encierra en un círculo la sílaba correspondiente.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-020.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l7-p20-syllable-circle",
+          "type": "DragPlace",
+          "prompt": "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
+          "label": "Encierra la sílaba — M m",
+          "options": [
+            "ma",
+            "me",
+            "mi",
+            "mo",
+            "mu"
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "ex_p20_pair",
+          "type": "PairMatch",
+          "prompt": "Empareja cada palabra con su dibujo.",
+          "label": "Parejas",
+          "options": [
+            "abrigo",
+            "imán",
+            "oso",
+            "uva"
+          ],
+          "correctAnswer": "abrigo"
+        }
+      ]
+    },
+    {
+      "pageNumber": 21,
+      "lessonNumber": 7,
+      "pageType": "exercise",
+      "title": "Página 21",
+      "instruction": "Completa las palabras con la sílaba correcta.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-021.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l7-p21-syllable-tap",
+          "type": "TapToHear",
+          "prompt": "Toca cada sílaba para escucharla. Repite en voz alta.",
+          "label": "Sílabas con M — página Mm",
+          "options": [
+            "ma",
+            "me",
+            "mi",
+            "mo",
+            "mu"
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "l7-p21-word-bank",
+          "type": "TapToHear",
+          "prompt": "Toca cada palabra para escucharla.",
+          "label": "Palabras con M",
+          "options": [
+            "mamá",
+            "mami",
+            "Mimo",
+            "mío",
+            "mímame",
+            "Meme",
+            "ama",
+            "mía",
+            "Mumi",
+            "Memo",
+            "mima",
+            "amo",
+            "Mimí",
+            "ámame"
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "l7-p21-mini-story",
+          "type": "TapSelect",
+          "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+          "label": "Mini-cuento: Mi mamá me ama",
+          "options": [
+            "Mi mamá me ama.",
+            "Amo a mami. Mamá mía.",
+            "Mamá ama a Meme y a Mimí.",
+            "Memo ama a Mumi.",
+            "Mamá mía ámame. Mímame a mí.",
+            "Mi mamá me mima."
+          ],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 22,
+      "lessonNumber": 7,
+      "pageType": "exercise",
+      "title": "Página 22",
+      "instruction": "Actividad interactiva - Página 22",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-022.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l7-p22-fill-in-blank",
+          "type": "DragPlace",
+          "prompt": "Arrastra la sílaba correcta para completar cada palabra.",
+          "label": "Completa las palabras — M m",
+          "options": [
+            "mo",
+            "mu",
+            "mi",
+            "má",
+            "ma",
+            "Mu"
+          ],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 23,
+      "lessonNumber": 8,
+      "pageType": "exercise",
+      "title": "Página 23",
+      "instruction": "Traza con tu mejor letra.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-023.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l8-p23-letter-tracing",
+          "type": "MarkCircle",
+          "prompt": "Traza la letra P mayúscula y la p minúscula. Luego haz un dibujo de una palabra que comienza con p.",
+          "label": "Escribe con tu mejor letra — P p",
+          "options": [
+            "P",
+            "p"
+          ],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 24,
+      "lessonNumber": 8,
+      "pageType": "exercise",
+      "title": "Página 24",
+      "instruction": "Encierra en un círculo la sílaba correspondiente.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-024.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l8-p24-syllable-circle",
+          "type": "DragPlace",
+          "prompt": "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
+          "label": "Encierra la sílaba — P p",
+          "options": [
+            "pa",
+            "pe",
+            "pi",
+            "po",
+            "pu"
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "ex_p24_circle",
+          "type": "MarkCircle",
+          "prompt": "Encierra en un círculo la opción correcta.",
+          "label": "Encerrar",
+          "options": [
+            "a",
+            "e",
+            "i",
+            "o"
+          ],
+          "correctAnswer": "a"
+        }
+      ]
+    },
+    {
+      "pageNumber": 25,
+      "lessonNumber": 8,
+      "pageType": "exercise",
+      "title": "Página 25",
+      "instruction": "Completa las palabras con la sílaba correcta.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-025.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l8-p25-syllable-tap",
+          "type": "TapToHear",
+          "prompt": "Toca cada sílaba para escucharla. Repite en voz alta.",
+          "label": "Sílabas con P — página Pp",
+          "options": [
+            "pa",
+            "pe",
+            "pi",
+            "po",
+            "pu"
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "l8-p25-word-bank",
+          "type": "TapToHear",
+          "prompt": "Toca cada palabra para escucharla.",
+          "label": "Palabras con P",
+          "options": [
+            "papá",
+            "mapo",
+            "Mapi",
+            "papi",
+            "puma",
+            "pie",
+            "Pepe",
+            "Mupi",
+            "púa",
+            "pipo",
+            "mapa",
+            "pomo",
+            "Pupi",
+            "¡upa!",
+            "Pepo"
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "l8-p25-mini-story",
+          "type": "TapSelect",
+          "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+          "label": "Mini-cuento: Papá y Pepe aman a mamá",
+          "options": [
+            "Papá y Pepe aman a mamá.",
+            "Pupi ama a papá.",
+            "Yo amo a mamá y a papá.",
+            "Mi papá ama a Pupi.",
+            "Papá y mamá me aman."
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "ex_p25_pair",
+          "type": "PairMatch",
+          "prompt": "Empareja cada palabra con su dibujo.",
+          "label": "Parejas",
+          "options": [
+            "abrigo",
+            "imán",
+            "oso",
+            "uva"
+          ],
+          "correctAnswer": "abrigo"
+        }
+      ]
+    },
+    {
+      "pageNumber": 26,
+      "lessonNumber": 8,
+      "pageType": "exercise",
+      "title": "Página 26",
+      "instruction": "Actividad interactiva - Página 26",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-026.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l8-p26-fill-in-blank",
+          "type": "DragPlace",
+          "prompt": "Arrastra la sílaba correcta para completar cada palabra.",
+          "label": "Completa las palabras — P p",
+          "options": [
+            "pa",
+            "po",
+            "pe",
+            "pu",
+            "pi",
+            "Pa"
+          ],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 27,
+      "lessonNumber": 9,
+      "pageType": "exercise",
+      "title": "Página 27",
+      "instruction": "Traza con tu mejor letra.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-027.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l9-p27-word-reveal",
+          "type": "DragPlace",
+          "prompt": "Toca cada palabra para descubrirla. Búscala en la página ilustrada del cuaderno.",
+          "label": "Palabras del cuaderno — Página Ss",
+          "options": [
+            "sopa",
+            "sapo",
+            "pisa"
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "l9-p27-names-reveal",
+          "type": "TapToHear",
+          "prompt": "Toca cada nombre cuando lo escuches. Los dos aparecen en la página del cuaderno.",
+          "label": "Nombres con S",
+          "options": [
+            "Sesi",
+            "Susi"
+          ],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 28,
+      "lessonNumber": 9,
+      "pageType": "exercise",
+      "title": "Página 28",
+      "instruction": "Encierra en un círculo la sílaba correspondiente.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-028.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l9-p28-sight-words",
+          "type": "TapToHear",
+          "prompt": "Escucha y toca cada palabra cuando la oigas.",
+          "label": "Palabras a simple vista",
+          "options": [
+            "es",
+            "de",
+            "un",
+            "está",
+            "en",
+            "la",
+            "el"
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "l9-p28-syllable-tap",
+          "type": "DragPlace",
+          "prompt": "Arrastra cada sílaba a su casilla o tócala para escucharla.",
+          "label": "Sílabas con S",
+          "options": [
+            "sa",
+            "se",
+            "si",
+            "so",
+            "su"
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "ex_p28_circle",
+          "type": "MarkCircle",
+          "prompt": "Encierra en un círculo la opción correcta.",
+          "label": "Encerrar",
+          "options": [
+            "a",
+            "e",
+            "i",
+            "o"
+          ],
+          "correctAnswer": "a"
+        }
+      ]
+    },
+    {
+      "pageNumber": 29,
+      "lessonNumber": 9,
+      "pageType": "exercise",
+      "title": "Página 29",
+      "instruction": "Completa las palabras con la sílaba correcta.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-029.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l9-p29-tap-obj",
+          "type": "TapSelect",
+          "prompt": "Lee el poema del cuaderno.",
+          "label": "Sapo Samapo",
+          "options": [
+            "Sapo Samapo",
+            "Sapo Samapo",
+            "en la mesa está",
+            "sapo Samapo",
+            "sa-po-mi-pa."
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "l9-p29-mini-story-ss",
+          "type": "TapSelect",
+          "prompt": "Lee el mini-cuento del cuaderno.",
+          "label": "Sapo Samapo",
+          "options": [
+            "Sapo Samapo",
+            "en la mesa está",
+            "sapo Samapo",
+            "sa-po-mi-pa."
+          ],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 30,
+      "lessonNumber": 9,
+      "pageType": "exercise",
+      "title": "Página 30",
+      "instruction": "Actividad interactiva - Página 30",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-030.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l9-p30-read-aloud",
+          "type": "TapToHear",
+          "prompt": "Lee la sílaba en voz alta y toca el botón para escucharla también.",
+          "label": "Lee en voz alta",
+          "options": [
+            "sa",
+            "se",
+            "si",
+            "so",
+            "su"
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "ex_p30_pair",
+          "type": "PairMatch",
+          "prompt": "Empareja cada palabra con su dibujo.",
+          "label": "Parejas",
+          "options": [
+            "abrigo",
+            "imán",
+            "oso",
+            "uva"
+          ],
+          "correctAnswer": "abrigo"
+        }
+      ]
+    },
+    {
+      "pageNumber": 31,
+      "lessonNumber": 10,
+      "pageType": "exercise",
+      "title": "Página 31",
+      "instruction": "Traza con tu mejor letra.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-031.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l10-pX-letter-tracing",
+          "type": "MarkCircle",
+          "prompt": "Traza la letra T mayúscula y la t minúscula. Luego haz un dibujo de una palabra que comienza con t.",
+          "label": "Escribe con tu mejor letra — T t",
+          "options": [
+            "T",
+            "t"
+          ],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 32,
+      "lessonNumber": 10,
+      "pageType": "exercise",
+      "title": "Página 32",
+      "instruction": "Encierra en un círculo la sílaba correspondiente.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-032.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l10-pX-syllable-circle",
+          "type": "DragPlace",
+          "prompt": "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
+          "label": "Encierra la sílaba — T t",
+          "options": [
+            "ta",
+            "te",
+            "ti",
+            "to",
+            "tu"
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "ex_p32_circle",
+          "type": "MarkCircle",
+          "prompt": "Encierra en un círculo la opción correcta.",
+          "label": "Encerrar",
+          "options": [
+            "a",
+            "e",
+            "i",
+            "o"
+          ],
+          "correctAnswer": "a"
+        }
+      ]
+    },
+    {
+      "pageNumber": 33,
+      "lessonNumber": 10,
+      "pageType": "exercise",
+      "title": "Página 33",
+      "instruction": "Completa las palabras con la sílaba correcta.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-033.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l10-pX-word-bank",
+          "type": "TapToHear",
+          "prompt": "Toca cada palabra para escucharla.",
+          "label": "Palabras con T",
+          "options": [
+            "taza",
+            "tomate",
+            "tapa",
+            "tela",
+            "tiza",
+            "todo",
+            "tubo"
+          ],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 34,
+      "lessonNumber": 10,
+      "pageType": "exercise",
+      "title": "Página 34",
+      "instruction": "Actividad interactiva - Página 34",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-034.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l10-pX-mini-story",
+          "type": "TapSelect",
+          "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+          "label": "Mini-cuento: El cuento de Tito",
+          "options": [
+            "Este es Tito.",
+            "Tito tiene un taza.",
+            "El taza es bonito.",
+            "Tito y el taza."
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "l11-pX-letter-tracing",
+          "type": "MarkCircle",
+          "prompt": "Traza la letra L mayúscula y la l minúscula. Luego haz un dibujo de una palabra que comienza con l.",
+          "label": "Escribe con tu mejor letra — L l",
+          "options": [
+            "L",
+            "l"
+          ],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 35,
+      "lessonNumber": 11,
+      "pageType": "exercise",
+      "title": "Página 35",
+      "instruction": "Traza con tu mejor letra.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-035.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l10-pX-fill-in-blank",
+          "type": "DragPlace",
+          "prompt": "Arrastra la palabra correcta para completar cada oración.",
+          "label": "Completa las palabras — T t",
+          "options": [
+            "taza",
+            "tomate",
+            "tapa"
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "l11-pX-syllable-circle",
+          "type": "DragPlace",
+          "prompt": "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
+          "label": "Encierra la sílaba — L l",
+          "options": [
+            "la",
+            "le",
+            "li",
+            "lo",
+            "lu"
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "ex_p35_pair",
+          "type": "PairMatch",
+          "prompt": "Empareja cada palabra con su dibujo.",
+          "label": "Parejas",
+          "options": [
+            "abrigo",
+            "imán",
+            "oso",
+            "uva"
+          ],
+          "correctAnswer": "abrigo"
+        }
+      ]
+    },
+    {
+      "pageNumber": 36,
+      "lessonNumber": 11,
+      "pageType": "exercise",
+      "title": "Página 36",
+      "instruction": "Encierra en un círculo la sílaba correspondiente.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-036.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l11-pX-word-bank",
+          "type": "TapToHear",
+          "prompt": "Toca cada palabra para escucharla.",
+          "label": "Palabras con L",
+          "options": [
+            "luna",
+            "lupa",
+            "lata",
+            "lobo",
+            "loma",
+            "lima",
+            "lodo"
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "ex_p36_circle",
+          "type": "MarkCircle",
+          "prompt": "Encierra en un círculo la opción correcta.",
+          "label": "Encerrar",
+          "options": [
+            "a",
+            "e",
+            "i",
+            "o"
+          ],
+          "correctAnswer": "a"
+        }
+      ]
+    },
+    {
+      "pageNumber": 37,
+      "lessonNumber": 11,
+      "pageType": "exercise",
+      "title": "Página 37",
+      "instruction": "Completa las palabras con la sílaba correcta.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-037.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l11-pX-mini-story",
+          "type": "TapSelect",
+          "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+          "label": "Mini-cuento: El cuento de Lalo",
+          "options": [
+            "Este es Lalo.",
+            "Lalo tiene un luna.",
+            "El luna es bonito.",
+            "Lalo y el luna."
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "l12-pX-letter-tracing",
+          "type": "MarkCircle",
+          "prompt": "Traza la letra D mayúscula y la d minúscula. Luego haz un dibujo de una palabra que comienza con d.",
+          "label": "Escribe con tu mejor letra — D d",
+          "options": [
+            "D",
+            "d"
+          ],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 38,
+      "lessonNumber": 11,
+      "pageType": "exercise",
+      "title": "Página 38",
+      "instruction": "Actividad interactiva - Página 38",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-038.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l11-pX-fill-in-blank",
+          "type": "DragPlace",
+          "prompt": "Arrastra la palabra correcta para completar cada oración.",
+          "label": "Completa las palabras — L l",
+          "options": [
+            "luna",
+            "lupa",
+            "lata"
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "l12-pX-syllable-circle",
+          "type": "DragPlace",
+          "prompt": "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
+          "label": "Encierra la sílaba — D d",
+          "options": [
+            "da",
+            "de",
+            "di",
+            "do",
+            "du"
+          ],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 39,
+      "lessonNumber": 12,
+      "pageType": "exercise",
+      "title": "Página 39",
+      "instruction": "Traza con tu mejor letra.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-039.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l12-pX-word-bank",
+          "type": "TapToHear",
+          "prompt": "Toca cada palabra para escucharla.",
+          "label": "Palabras con D",
+          "options": [
+            "dado",
+            "dedo",
+            "duda",
+            "dama",
+            "ducha",
+            "doce",
+            "dona"
+          ],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 40,
+      "lessonNumber": 12,
+      "pageType": "exercise",
+      "title": "Página 40",
+      "instruction": "Encierra en un círculo la sílaba correspondiente.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-040.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l12-pX-mini-story",
+          "type": "TapSelect",
+          "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+          "label": "Mini-cuento: El cuento de Dino",
+          "options": [
+            "Este es Dino.",
+            "Dino tiene un dado.",
+            "El dado es bonito.",
+            "Dino y el dado."
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "l13-pX-letter-tracing",
+          "type": "MarkCircle",
+          "prompt": "Traza la letra N mayúscula y la n minúscula. Luego haz un dibujo de una palabra que comienza con n.",
+          "label": "Escribe con tu mejor letra — N n",
+          "options": [
+            "N",
+            "n"
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "ex_p40_pair",
+          "type": "PairMatch",
+          "prompt": "Empareja cada palabra con su dibujo.",
+          "label": "Parejas",
+          "options": [
+            "abrigo",
+            "imán",
+            "oso",
+            "uva"
+          ],
+          "correctAnswer": "abrigo"
+        }
+      ]
+    },
+    {
+      "pageNumber": 41,
+      "lessonNumber": 12,
+      "pageType": "exercise",
+      "title": "Página 41",
+      "instruction": "Completa las palabras con la sílaba correcta.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-041.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l12-pX-fill-in-blank",
+          "type": "DragPlace",
+          "prompt": "Arrastra la palabra correcta para completar cada oración.",
+          "label": "Completa las palabras — D d",
+          "options": [
+            "dado",
+            "dedo",
+            "duda"
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "l13-pX-syllable-circle",
+          "type": "DragPlace",
+          "prompt": "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
+          "label": "Encierra la sílaba — N n",
+          "options": [
+            "na",
+            "ne",
+            "ni",
+            "no",
+            "nu"
+          ],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 42,
+      "lessonNumber": 12,
+      "pageType": "exercise",
+      "title": "Página 42",
+      "instruction": "Actividad interactiva - Página 42",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-042.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l13-pX-word-bank",
+          "type": "TapToHear",
+          "prompt": "Toca cada palabra para escucharla.",
+          "label": "Palabras con N",
+          "options": [
+            "nido",
+            "nudo",
+            "nota",
+            "nube",
+            "niña",
+            "nene",
+            "nave"
+          ],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 43,
+      "lessonNumber": 13,
+      "pageType": "exercise",
+      "title": "Página 43",
+      "instruction": "Traza con tu mejor letra.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-043.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l13-pX-mini-story",
+          "type": "TapSelect",
+          "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+          "label": "Mini-cuento: El cuento de Nina",
+          "options": [
+            "Este es Nina.",
+            "Nina tiene un nido.",
+            "El nido es bonito.",
+            "Nina y el nido."
+          ],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 44,
+      "lessonNumber": 13,
+      "pageType": "exercise",
+      "title": "Página 44",
+      "instruction": "Encierra en un círculo la sílaba correspondiente.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-044.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l13-pX-fill-in-blank",
+          "type": "DragPlace",
+          "prompt": "Arrastra la palabra correcta para completar cada oración.",
+          "label": "Completa las palabras — N n",
+          "options": [
+            "nido",
+            "nudo",
+            "nota"
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "ex_p44_circle",
+          "type": "MarkCircle",
+          "prompt": "Encierra en un círculo la opción correcta.",
+          "label": "Encerrar",
+          "options": [
+            "a",
+            "e",
+            "i",
+            "o"
+          ],
+          "correctAnswer": "a"
+        }
+      ]
+    },
+    {
+      "pageNumber": 45,
+      "lessonNumber": 13,
+      "pageType": "exercise",
+      "title": "Página 45",
+      "instruction": "Completa las palabras con la sílaba correcta.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-045.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "ex_p45_taphear",
+          "type": "TapToHear",
+          "prompt": "Completa las palabras con la sílaba correcta.",
+          "label": "Escucha y repite",
+          "audioText": "Completa las palabras con la sílaba correcta."
+        },
+        {
+          "id": "ex_p45_pair",
+          "type": "PairMatch",
+          "prompt": "Empareja cada palabra con su dibujo.",
+          "label": "Parejas",
+          "options": [
+            "abrigo",
+            "imán",
+            "oso",
+            "uva"
+          ],
+          "correctAnswer": "abrigo"
+        }
+      ]
+    },
+    {
+      "pageNumber": 46,
+      "lessonNumber": 13,
+      "pageType": "exercise",
+      "title": "Página 46",
+      "instruction": "Actividad interactiva - Página 46",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-046.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l15-pX-letter-tracing",
+          "type": "MarkCircle",
+          "prompt": "Traza la letra R mayúscula y la r minúscula. Luego haz un dibujo de una palabra que comienza con r.",
+          "label": "Escribe con tu mejor letra — R r",
+          "options": [
+            "R",
+            "r"
+          ],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 47,
+      "lessonNumber": 14,
+      "pageType": "exercise",
+      "title": "Página 47",
+      "instruction": "Traza con tu mejor letra.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-047.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l14-p47-syllable-n",
+          "type": "DragPlace",
+          "prompt": "Toca cada sílaba para escucharla. Repite en voz alta.",
+          "label": "Sílabas con Ñ",
+          "options": [
+            "ña",
+            "ñe",
+            "ñi",
+            "ño",
+            "ñu"
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "l15-pX-syllable-circle",
+          "type": "DragPlace",
+          "prompt": "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
+          "label": "Encierra la sílaba — R r",
+          "options": [
+            "ra",
+            "re",
+            "ri",
+            "ro",
+            "ru"
+          ],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 48,
+      "lessonNumber": 14,
+      "pageType": "exercise",
+      "title": "Página 48",
+      "instruction": "Encierra en un círculo la sílaba correspondiente.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-048.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l14-p48-words-n",
+          "type": "TapToHear",
+          "prompt": "Toca cada palabra para escucharla.",
+          "label": "Palabras con Ñ",
+          "options": [
+            "niño",
+            "piña",
+            "moño",
+            "uña",
+            "leña"
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "l14-p48-sight-word-del",
+          "type": "TapToHear",
+          "prompt": "Escucha y toca cada palabra.",
+          "label": "Palabras a simple vista",
+          "options": [
+            "del"
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "l15-pX-word-bank",
+          "type": "TapToHear",
+          "prompt": "Toca cada palabra para escucharla.",
+          "label": "Palabras con R",
+          "options": [
+            "rana",
+            "roca",
+            "rama",
+            "río",
+            "rueda",
+            "rata",
+            "reloj"
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "ex_p48_circle",
+          "type": "MarkCircle",
+          "prompt": "Encierra en un círculo la opción correcta.",
+          "label": "Encerrar",
+          "options": [
+            "a",
+            "e",
+            "i",
+            "o"
+          ],
+          "correctAnswer": "a"
+        }
+      ]
+    },
+    {
+      "pageNumber": 49,
+      "lessonNumber": 14,
+      "pageType": "exercise",
+      "title": "Página 49",
+      "instruction": "Completa las palabras con la sílaba correcta.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-049.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l14-p49-read-aloud",
+          "type": "TapToHear",
+          "prompt": "Toca cada sílaba y léela en voz alta.",
+          "label": "Lee en voz alta — sílabas con Ñ",
+          "options": [
+            "ña",
+            "ñe",
+            "ñi",
+            "ño",
+            "ñu"
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "l15-pX-mini-story",
+          "type": "TapSelect",
+          "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+          "label": "Mini-cuento: El cuento de Rosa",
+          "options": [
+            "Este es Rosa.",
+            "Rosa tiene un rana.",
+            "El rana es bonito.",
+            "Rosa y el rana."
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "l16-pX-letter-tracing",
+          "type": "MarkCircle",
+          "prompt": "Traza la letra r mayúscula y la r minúscula. Luego haz un dibujo de una palabra que comienza con r.",
+          "label": "Escribe con tu mejor letra — r r",
+          "options": [
+            "r",
+            "r"
+          ],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 50,
+      "lessonNumber": 14,
+      "pageType": "exercise",
+      "title": "Página 50",
+      "instruction": "Actividad interactiva - Página 50",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-050.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l14-p50-mini-story",
+          "type": "TapSelect",
+          "prompt": "Lee el cuento del cuaderno con tu maestro.",
+          "label": "Cuento: La niña sueña",
+          "options": [
+            "La niña sueña",
+            "La niña de Noña",
+            "tiene sueño,",
+            "Noña la tapa",
+            "con el pañuelo.",
+            "Sueña mi niña",
+            "sueños bonitos.",
+            "¿Estás soñando",
+            "con mis besitos?"
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "l15-pX-fill-in-blank",
+          "type": "DragPlace",
+          "prompt": "Arrastra la palabra correcta para completar cada oración.",
+          "label": "Completa las palabras — R r",
+          "options": [
+            "rana",
+            "roca",
+            "rama"
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "l16-pX-syllable-circle",
+          "type": "DragPlace",
+          "prompt": "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
+          "label": "Encierra la sílaba — r r",
+          "options": [
+            "ra",
+            "re",
+            "ri",
+            "ro",
+            "ru"
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "ex_p50_pair",
+          "type": "PairMatch",
+          "prompt": "Empareja cada palabra con su dibujo.",
+          "label": "Parejas",
+          "options": [
+            "abrigo",
+            "imán",
+            "oso",
+            "uva"
+          ],
+          "correctAnswer": "abrigo"
+        }
+      ]
+    },
+    {
+      "pageNumber": 51,
+      "lessonNumber": 15,
+      "pageType": "exercise",
+      "title": "Página 51",
+      "instruction": "Traza con tu mejor letra.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-051.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l16-pX-word-bank",
+          "type": "TapToHear",
+          "prompt": "Toca cada palabra para escucharla.",
+          "label": "Palabras con r",
+          "options": [
+            "perro",
+            "carro",
+            "tarro",
+            "barro",
+            "torre",
+            "gorra",
+            "burro"
+          ],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 52,
+      "lessonNumber": 15,
+      "pageType": "exercise",
+      "title": "Página 52",
+      "instruction": "Encierra en un círculo la sílaba correspondiente.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-052.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l16-pX-mini-story",
+          "type": "TapSelect",
+          "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+          "label": "Mini-cuento: El cuento de René",
+          "options": [
+            "Este es René.",
+            "René tiene un perro.",
+            "El perro es bonito.",
+            "René y el perro."
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "ex_p52_circle",
+          "type": "MarkCircle",
+          "prompt": "Encierra en un círculo la opción correcta.",
+          "label": "Encerrar",
+          "options": [
+            "a",
+            "e",
+            "i",
+            "o"
+          ],
+          "correctAnswer": "a"
+        }
+      ]
+    },
+    {
+      "pageNumber": 53,
+      "lessonNumber": 15,
+      "pageType": "exercise",
+      "title": "Página 53",
+      "instruction": "Completa las palabras con la sílaba correcta.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-053.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l16-pX-fill-in-blank",
+          "type": "DragPlace",
+          "prompt": "Arrastra la palabra correcta para completar cada oración.",
+          "label": "Completa las palabras — r r",
+          "options": [
+            "perro",
+            "carro",
+            "tarro"
+          ],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 54,
+      "lessonNumber": 15,
+      "pageType": "exercise",
+      "title": "Página 54",
+      "instruction": "Actividad interactiva - Página 54",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-054.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "ex_p54_taphear",
+          "type": "TapToHear",
+          "prompt": "Actividad interactiva - Página 54",
+          "label": "Escucha y repite",
+          "audioText": "Actividad interactiva - Página 54"
+        }
+      ]
+    },
+    {
+      "pageNumber": 55,
+      "lessonNumber": 16,
+      "pageType": "exercise",
+      "title": "Página 55",
+      "instruction": "Traza con tu mejor letra.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-055.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "ex_p55_taphear",
+          "type": "TapToHear",
+          "prompt": "Traza con tu mejor letra.",
+          "label": "Escucha y repite",
+          "audioText": "Traza con tu mejor letra."
+        },
+        {
+          "id": "ex_p55_pair",
+          "type": "PairMatch",
+          "prompt": "Empareja cada palabra con su dibujo.",
+          "label": "Parejas",
+          "options": [
+            "abrigo",
+            "imán",
+            "oso",
+            "uva"
+          ],
+          "correctAnswer": "abrigo"
+        }
+      ]
+    },
+    {
+      "pageNumber": 56,
+      "lessonNumber": 16,
+      "pageType": "exercise",
+      "title": "Página 56",
+      "instruction": "Encierra en un círculo la sílaba correspondiente.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-056.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "ex_p56_taphear",
+          "type": "TapToHear",
+          "prompt": "Encierra en un círculo la sílaba correspondiente.",
+          "label": "Escucha y repite",
+          "audioText": "Encierra en un círculo la sílaba correspondiente."
+        },
+        {
+          "id": "ex_p56_circle",
+          "type": "MarkCircle",
+          "prompt": "Encierra en un círculo la opción correcta.",
+          "label": "Encerrar",
+          "options": [
+            "a",
+            "e",
+            "i",
+            "o"
+          ],
+          "correctAnswer": "a"
+        }
+      ]
+    },
+    {
+      "pageNumber": 57,
+      "lessonNumber": 16,
+      "pageType": "exercise",
+      "title": "Página 57",
+      "instruction": "Completa las palabras con la sílaba correcta.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-057.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "ex_p57_taphear",
+          "type": "TapToHear",
+          "prompt": "Completa las palabras con la sílaba correcta.",
+          "label": "Escucha y repite",
+          "audioText": "Completa las palabras con la sílaba correcta."
+        }
+      ]
+    },
+    {
+      "pageNumber": 58,
+      "lessonNumber": 16,
+      "pageType": "exercise",
+      "title": "Página 58",
+      "instruction": "Actividad interactiva - Página 58",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-058.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "ex_p58_taphear",
+          "type": "TapToHear",
+          "prompt": "Actividad interactiva - Página 58",
+          "label": "Escucha y repite",
+          "audioText": "Actividad interactiva - Página 58"
+        }
+      ]
+    },
+    {
+      "pageNumber": 59,
+      "lessonNumber": 17,
+      "pageType": "exercise",
+      "title": "Página 59",
+      "instruction": "Traza con tu mejor letra.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-059.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l17-p59-word-reveal-r",
+          "type": "DragPlace",
+          "prompt": "Toca cada palabra para descubrirla. Búscala en la página ilustrada del cuaderno.",
+          "label": "Palabras del cuaderno — Página Rr",
+          "options": [
+            "rana",
+            "remo",
+            "Rita",
+            "rosa",
+            "rueda"
+          ],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 60,
+      "lessonNumber": 17,
+      "pageType": "exercise",
+      "title": "Página 60",
+      "instruction": "Encierra en un círculo la sílaba correspondiente.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-060.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l17-p60-syllable-r",
+          "type": "DragPlace",
+          "prompt": "Arrastra cada sílaba a su casilla o tócala para escucharla.",
+          "label": "Sílabas con R",
+          "options": [
+            "ra",
+            "re",
+            "ri",
+            "ro",
+            "ru"
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "l17-p60-sight-word-bien",
+          "type": "TapToHear",
+          "prompt": "Toca la palabra cuando la escuches.",
+          "label": "Palabra a simple vista: bien",
+          "options": [
+            "bien"
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "l17-p60-mini-story-r",
+          "type": "TapSelect",
+          "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+          "label": "Mini-cuento: La bola de Roberto",
+          "options": [
+            "La bola de Roberto rueda bien. Rolo patea la bola. La bola rueda y le da a un bolo. El bolo se rompe y Roberto se ríe. Rolo se ríe también.",
+            "Rita le da al bolo. Rita se ríe.",
+            "Rolo y Roberto se ríen también."
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "ex_p60_pair",
+          "type": "PairMatch",
+          "prompt": "Empareja cada palabra con su dibujo.",
+          "label": "Parejas",
+          "options": [
+            "abrigo",
+            "imán",
+            "oso",
+            "uva"
+          ],
+          "correctAnswer": "abrigo"
+        }
+      ]
+    },
+    {
+      "pageNumber": 61,
+      "lessonNumber": 17,
+      "pageType": "exercise",
+      "title": "Página 61",
+      "instruction": "Completa las palabras con la sílaba correcta.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-061.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l17-p61-poem-r",
+          "type": "TapSelect",
+          "prompt": "Lee el poema del cuaderno.",
+          "label": "Poema: La r para la rama",
+          "options": [
+            "La rosca de Manolo",
+            "La r para la rama",
+            "para el roer del ratón",
+            "y para el rabo del mono",
+            "risueño y remolón.",
+            "Para la rueda redonda",
+            "la risa de tío Rolo",
+            "la rana, el remo, la rosa",
+            "y la rosca de Manolo."
+          ],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 62,
+      "lessonNumber": 17,
+      "pageType": "exercise",
+      "title": "Página 62",
+      "instruction": "Actividad interactiva - Página 62",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-062.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l17-p62-read-aloud",
+          "type": "TapSelect",
+          "prompt": "Escribe oraciones. Usa las sílabas que aprendiste.",
+          "label": "Completa las palabras con la sílaba correcta.",
+          "options": [
+            "toma: ____ma (to - ta)",
+            "mata: ma____ (ta - ti)",
+            "topo: ____po (tu - to)",
+            "tomate: ____mate (to - tu)",
+            "tupe: ____pe (ti - tu)",
+            "tipi: ____pi (to - ti)"
+          ],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 63,
+      "lessonNumber": 18,
+      "pageType": "exercise",
+      "title": "Página 63",
+      "instruction": "Traza con tu mejor letra.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-063.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l18-p63-letter-tracing",
+          "type": "MarkCircle",
+          "prompt": "Traza la letra r mayúscula y la r minúscula. Luego haz un dibujo de una palabra que comienza con r.",
+          "label": "Escribe con tu mejor letra — r r",
+          "options": [
+            "r",
+            "r"
+          ],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 64,
+      "lessonNumber": 18,
+      "pageType": "exercise",
+      "title": "Página 64",
+      "instruction": "Encierra en un círculo la sílaba correspondiente.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-064.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l18-p64-syllable-circle",
+          "type": "DragPlace",
+          "prompt": "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
+          "label": "Encierra la sílaba — r r",
+          "options": [
+            "ra",
+            "re",
+            "ri",
+            "ro",
+            "ru"
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "ex_p64_circle",
+          "type": "MarkCircle",
+          "prompt": "Encierra en un círculo la opción correcta.",
+          "label": "Encerrar",
+          "options": [
+            "a",
+            "e",
+            "i",
+            "o"
+          ],
+          "correctAnswer": "a"
+        }
+      ]
+    },
+    {
+      "pageNumber": 65,
+      "lessonNumber": 18,
+      "pageType": "exercise",
+      "title": "Página 65",
+      "instruction": "Completa las palabras con la sílaba correcta.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-065.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l18-p65-word-bank",
+          "type": "TapToHear",
+          "prompt": "Toca cada palabra para escucharla.",
+          "label": "Palabras con r",
+          "options": [
+            "perro",
+            "carro",
+            "tarro",
+            "barro",
+            "torre",
+            "gorra",
+            "burro"
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "l18-p65-mini-story",
+          "type": "TapSelect",
+          "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+          "label": "Mini-cuento: El cuento de Rita",
+          "options": [
+            "Este es Rita.",
+            "Rita tiene un perro.",
+            "El perro es bonito.",
+            "Rita y el perro."
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "ex_p65_pair",
+          "type": "PairMatch",
+          "prompt": "Empareja cada palabra con su dibujo.",
+          "label": "Parejas",
+          "options": [
+            "abrigo",
+            "imán",
+            "oso",
+            "uva"
+          ],
+          "correctAnswer": "abrigo"
+        }
+      ]
+    },
+    {
+      "pageNumber": 66,
+      "lessonNumber": 18,
+      "pageType": "exercise",
+      "title": "Página 66",
+      "instruction": "Actividad interactiva - Página 66",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-066.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l18-p66-fill-in-blank",
+          "type": "DragPlace",
+          "prompt": "Arrastra la palabra correcta para completar cada oración.",
+          "label": "Completa las palabras — r r",
+          "options": [
+            "perro",
+            "carro",
+            "tarro"
+          ],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 67,
+      "lessonNumber": 19,
+      "pageType": "exercise",
+      "title": "Página 67",
+      "instruction": "Traza con tu mejor letra.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-067.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l19-p67-letter-tracing",
+          "type": "MarkCircle",
+          "prompt": "Traza la letra G mayúscula y la g minúscula. Luego haz un dibujo de una palabra que comienza con g.",
+          "label": "Escribe con tu mejor letra — G g",
+          "options": [
+            "G",
+            "g"
+          ],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 68,
+      "lessonNumber": 19,
+      "pageType": "exercise",
+      "title": "Página 68",
+      "instruction": "Encierra en un círculo la sílaba correspondiente.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-068.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l19-p68-syllable-circle",
+          "type": "DragPlace",
+          "prompt": "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
+          "label": "Encierra la sílaba — G g",
+          "options": [
+            "ga",
+            "ge",
+            "gi",
+            "go",
+            "gu"
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "ex_p68_circle",
+          "type": "MarkCircle",
+          "prompt": "Encierra en un círculo la opción correcta.",
+          "label": "Encerrar",
+          "options": [
+            "a",
+            "e",
+            "i",
+            "o"
+          ],
+          "correctAnswer": "a"
+        }
+      ]
+    },
+    {
+      "pageNumber": 69,
+      "lessonNumber": 19,
+      "pageType": "exercise",
+      "title": "Página 69",
+      "instruction": "Completa las palabras con la sílaba correcta.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-069.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l19-p69-word-bank",
+          "type": "TapToHear",
+          "prompt": "Toca cada palabra para escucharla.",
+          "label": "Palabras con G",
+          "options": [
+            "gato",
+            "gota",
+            "goma",
+            "gusano",
+            "gallo",
+            "gorila",
+            "guapa"
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "l19-p69-mini-story",
+          "type": "TapSelect",
+          "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+          "label": "Mini-cuento: El cuento de Gato",
+          "options": [
+            "Este es Gato.",
+            "Gato tiene un gato.",
+            "El gato es bonito.",
+            "Gato y el gato."
+          ],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 70,
+      "lessonNumber": 19,
+      "pageType": "exercise",
+      "title": "Página 70",
+      "instruction": "Actividad interactiva - Página 70",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-070.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l19-p70-fill-in-blank",
+          "type": "DragPlace",
+          "prompt": "Arrastra la palabra correcta para completar cada oración.",
+          "label": "Completa las palabras — G g",
+          "options": [
+            "gato",
+            "gota",
+            "goma"
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "ex_p70_pair",
+          "type": "PairMatch",
+          "prompt": "Empareja cada palabra con su dibujo.",
+          "label": "Parejas",
+          "options": [
+            "abrigo",
+            "imán",
+            "oso",
+            "uva"
+          ],
+          "correctAnswer": "abrigo"
+        }
+      ]
+    },
+    {
+      "pageNumber": 71,
+      "lessonNumber": 20,
+      "pageType": "exercise",
+      "title": "Página 71",
+      "instruction": "Traza con tu mejor letra.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-071.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l20-p71-letter-tracing",
+          "type": "MarkCircle",
+          "prompt": "Traza la letra F mayúscula y la f minúscula. Luego haz un dibujo de una palabra que comienza con f.",
+          "label": "Escribe con tu mejor letra — F f",
+          "options": [
+            "F",
+            "f"
+          ],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 72,
+      "lessonNumber": 20,
+      "pageType": "exercise",
+      "title": "Página 72",
+      "instruction": "Encierra en un círculo la sílaba correspondiente.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-072.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l20-p72-syllable-circle",
+          "type": "DragPlace",
+          "prompt": "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
+          "label": "Encierra la sílaba — F f",
+          "options": [
+            "fa",
+            "fe",
+            "fi",
+            "fo",
+            "fu"
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "ex_p72_circle",
+          "type": "MarkCircle",
+          "prompt": "Encierra en un círculo la opción correcta.",
+          "label": "Encerrar",
+          "options": [
+            "a",
+            "e",
+            "i",
+            "o"
+          ],
+          "correctAnswer": "a"
+        }
+      ]
+    },
+    {
+      "pageNumber": 73,
+      "lessonNumber": 20,
+      "pageType": "exercise",
+      "title": "Página 73",
+      "instruction": "Completa las palabras con la sílaba correcta.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-073.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l20-p73-word-bank",
+          "type": "TapToHear",
+          "prompt": "Toca cada palabra para escucharla.",
+          "label": "Palabras con F",
+          "options": [
+            "foca",
+            "foto",
+            "faro",
+            "fuego",
+            "fama",
+            "fino",
+            "fila"
+          ],
+          "correctAnswer": ""
+        },
+        {
+          "id": "l20-p73-mini-story",
+          "type": "TapSelect",
+          "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+          "label": "Mini-cuento: El cuento de Fifi",
+          "options": [
+            "Este es Fifi.",
+            "Fifi tiene un foca.",
+            "El foca es bonito.",
+            "Fifi y el foca."
+          ],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 74,
+      "lessonNumber": 20,
+      "pageType": "exercise",
+      "title": "Página 74",
+      "instruction": "Actividad interactiva - Página 74",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-074.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l20-p74-fill-in-blank",
+          "type": "DragPlace",
+          "prompt": "Arrastra la palabra correcta para completar cada oración.",
+          "label": "Completa las palabras — F f",
+          "options": [
+            "foca",
+            "foto",
+            "faro"
+          ],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 75,
+      "lessonNumber": 21,
+      "pageType": "exercise",
+      "title": "Página 75",
+      "instruction": "Traza con tu mejor letra.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-075.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l21-p75-syllable-j",
+          "type": "DragPlace",
+          "prompt": "Toca cada sílaba para escucharla. Repite en voz alta.",
+          "label": "Sílabas con J",
+          "options": [],
+          "correctAnswer": ""
+        },
+        {
+          "id": "ex_p75_pair",
+          "type": "PairMatch",
+          "prompt": "Empareja cada palabra con su dibujo.",
+          "label": "Parejas",
+          "options": [
+            "abrigo",
+            "imán",
+            "oso",
+            "uva"
+          ],
+          "correctAnswer": "abrigo"
+        }
+      ]
+    },
+    {
+      "pageNumber": 76,
+      "lessonNumber": 21,
+      "pageType": "exercise",
+      "title": "Página 76",
+      "instruction": "Encierra en un círculo la sílaba correspondiente.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-076.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l21-p76-words-j",
+          "type": "TapToHear",
+          "prompt": "Toca cada palabra para escucharla.",
+          "label": "Palabras con J",
+          "options": [],
+          "correctAnswer": ""
+        },
+        {
+          "id": "l21-p76-read-aloud",
+          "type": "TapToHear",
+          "prompt": "Toca cada sílaba y léela en voz alta.",
+          "label": "Lee en voz alta — sílabas con J",
+          "options": [],
+          "correctAnswer": ""
+        },
+        {
+          "id": "ex_p76_circle",
+          "type": "MarkCircle",
+          "prompt": "Encierra en un círculo la opción correcta.",
+          "label": "Encerrar",
+          "options": [
+            "a",
+            "e",
+            "i",
+            "o"
+          ],
+          "correctAnswer": "a"
+        }
+      ]
+    },
+    {
+      "pageNumber": 77,
+      "lessonNumber": 21,
+      "pageType": "exercise",
+      "title": "Página 77",
+      "instruction": "Completa las palabras con la sílaba correcta.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-077.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l21-p77-mini-story",
+          "type": "TapSelect",
+          "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+          "label": "Mini-cuento con J",
+          "options": [],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 78,
+      "lessonNumber": 21,
+      "pageType": "exercise",
+      "title": "Página 78",
+      "instruction": "Actividad interactiva - Página 78",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-078.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l21-p78-sentences",
+          "type": "TapToHear",
+          "prompt": "Toca cada frase para escucharla. Repite en voz alta.",
+          "label": "Frases con J",
+          "options": [],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 79,
+      "lessonNumber": 22,
+      "pageType": "exercise",
+      "title": "Página 79",
+      "instruction": "Traza con tu mejor letra.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-079.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l22-p79-syllable-c",
+          "type": "DragPlace",
+          "prompt": "Toca cada sílaba para escucharla. Repite en voz alta.",
+          "label": "Sílabas con C",
+          "options": [],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 80,
+      "lessonNumber": 22,
+      "pageType": "exercise",
+      "title": "Página 80",
+      "instruction": "Encierra en un círculo la sílaba correspondiente.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-080.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l22-p80-words-c",
+          "type": "TapToHear",
+          "prompt": "Toca cada palabra para escucharla.",
+          "label": "Palabras con C",
+          "options": [],
+          "correctAnswer": ""
+        },
+        {
+          "id": "l22-p80-read-aloud",
+          "type": "TapToHear",
+          "prompt": "Toca cada sílaba y léela en voz alta.",
+          "label": "Lee en voz alta — sílabas con C",
+          "options": [],
+          "correctAnswer": ""
+        },
+        {
+          "id": "ex_p80_pair",
+          "type": "PairMatch",
+          "prompt": "Empareja cada palabra con su dibujo.",
+          "label": "Parejas",
+          "options": [
+            "abrigo",
+            "imán",
+            "oso",
+            "uva"
+          ],
+          "correctAnswer": "abrigo"
+        }
+      ]
+    },
+    {
+      "pageNumber": 81,
+      "lessonNumber": 22,
+      "pageType": "exercise",
+      "title": "Página 81",
+      "instruction": "Completa las palabras con la sílaba correcta.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-081.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l22-p81-mini-story",
+          "type": "TapSelect",
+          "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+          "label": "Mini-cuento con C",
+          "options": [],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 82,
+      "lessonNumber": 22,
+      "pageType": "exercise",
+      "title": "Página 82",
+      "instruction": "Actividad interactiva - Página 82",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-082.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l22-p82-sentences",
+          "type": "TapToHear",
+          "prompt": "Toca cada frase para escucharla. Repite en voz alta.",
+          "label": "Frases con C",
+          "options": [],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 83,
+      "lessonNumber": 23,
+      "pageType": "exercise",
+      "title": "Página 83",
+      "instruction": "Traza con tu mejor letra.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-083.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l23-p83-syllable-y",
+          "type": "DragPlace",
+          "prompt": "Toca cada sílaba para escucharla. Repite en voz alta.",
+          "label": "Sílabas con Y",
+          "options": [],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 84,
+      "lessonNumber": 23,
+      "pageType": "exercise",
+      "title": "Página 84",
+      "instruction": "Encierra en un círculo la sílaba correspondiente.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-084.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l23-p84-words-y",
+          "type": "TapToHear",
+          "prompt": "Toca cada palabra para escucharla.",
+          "label": "Palabras con Y",
+          "options": [],
+          "correctAnswer": ""
+        },
+        {
+          "id": "l23-p84-read-aloud",
+          "type": "TapToHear",
+          "prompt": "Toca cada sílaba y léela en voz alta.",
+          "label": "Lee en voz alta — sílabas con Y",
+          "options": [],
+          "correctAnswer": ""
+        },
+        {
+          "id": "ex_p84_circle",
+          "type": "MarkCircle",
+          "prompt": "Encierra en un círculo la opción correcta.",
+          "label": "Encerrar",
+          "options": [
+            "a",
+            "e",
+            "i",
+            "o"
+          ],
+          "correctAnswer": "a"
+        }
+      ]
+    },
+    {
+      "pageNumber": 85,
+      "lessonNumber": 23,
+      "pageType": "exercise",
+      "title": "Página 85",
+      "instruction": "Completa las palabras con la sílaba correcta.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-085.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l23-p85-mini-story",
+          "type": "TapSelect",
+          "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+          "label": "Mini-cuento con Y",
+          "options": [],
+          "correctAnswer": ""
+        },
+        {
+          "id": "ex_p85_pair",
+          "type": "PairMatch",
+          "prompt": "Empareja cada palabra con su dibujo.",
+          "label": "Parejas",
+          "options": [
+            "abrigo",
+            "imán",
+            "oso",
+            "uva"
+          ],
+          "correctAnswer": "abrigo"
+        }
+      ]
+    },
+    {
+      "pageNumber": 86,
+      "lessonNumber": 23,
+      "pageType": "exercise",
+      "title": "Página 86",
+      "instruction": "Actividad interactiva - Página 86",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-086.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l23-p86-sentences",
+          "type": "TapToHear",
+          "prompt": "Toca cada frase para escucharla. Repite en voz alta.",
+          "label": "Frases con Y",
+          "options": [],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 87,
+      "lessonNumber": 24,
+      "pageType": "exercise",
+      "title": "Página 87",
+      "instruction": "Traza con tu mejor letra.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-087.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l24-p87-syllable-z",
+          "type": "DragPlace",
+          "prompt": "Toca cada sílaba para escucharla. Repite en voz alta.",
+          "label": "Sílabas con Z",
+          "options": [],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 88,
+      "lessonNumber": 24,
+      "pageType": "exercise",
+      "title": "Página 88",
+      "instruction": "Encierra en un círculo la sílaba correspondiente.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-088.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l24-p88-words-z",
+          "type": "TapToHear",
+          "prompt": "Toca cada palabra para escucharla.",
+          "label": "Palabras con Z",
+          "options": [],
+          "correctAnswer": ""
+        },
+        {
+          "id": "l24-p88-read-aloud",
+          "type": "TapToHear",
+          "prompt": "Toca cada sílaba y léela en voz alta.",
+          "label": "Lee en voz alta — sílabas con Z",
+          "options": [],
+          "correctAnswer": ""
+        },
+        {
+          "id": "ex_p88_circle",
+          "type": "MarkCircle",
+          "prompt": "Encierra en un círculo la opción correcta.",
+          "label": "Encerrar",
+          "options": [
+            "a",
+            "e",
+            "i",
+            "o"
+          ],
+          "correctAnswer": "a"
+        }
+      ]
+    },
+    {
+      "pageNumber": 89,
+      "lessonNumber": 24,
+      "pageType": "exercise",
+      "title": "Página 89",
+      "instruction": "Completa las palabras con la sílaba correcta.",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-089.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l24-p89-mini-story",
+          "type": "TapSelect",
+          "prompt": "Lee el mini-cuento final del cuaderno con tu maestro.",
+          "label": "Mini-cuento con Z — cierre del libro",
+          "options": [],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "pageNumber": 90,
+      "lessonNumber": 24,
+      "pageType": "exercise",
+      "title": "Página 90",
+      "instruction": "Actividad interactiva - Página 90",
+      "backgroundAsset": "/cartilla/art/hd/workbook/page-090.jpg",
+      "illustrations": [],
+      "interactions": [
+        {
+          "id": "l24-p90-sentences",
+          "type": "TapToHear",
+          "prompt": "Toca cada frase para escucharla. Repite en voz alta.",
+          "label": "Frases con Z — lección final",
+          "options": [],
+          "correctAnswer": ""
+        },
+        {
+          "id": "ex_p90_pair",
+          "type": "PairMatch",
+          "prompt": "Empareja cada palabra con su dibujo.",
+          "label": "Parejas",
+          "options": [
+            "abrigo",
+            "imán",
+            "oso",
+            "uva"
+          ],
+          "correctAnswer": "abrigo"
+        }
+      ]
+    }
+  ]
+}
