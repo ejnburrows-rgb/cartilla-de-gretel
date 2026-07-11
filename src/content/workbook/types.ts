@@ -98,6 +98,10 @@ export interface PhysicalPage {
   /** Background image for the page canvas, or null → renders an honest
    * "background pending" placeholder, never invented art. */
   backgroundSrc: string | null;
+  /** Verbatim printed instruction text, when known — real live text,
+   * rendered as a banner above the canvas. Empty/absent is honest (not yet
+   * transcribed), never filled with an invented sentence. */
+  instruction?: string;
   interaction?: ObjectInteraction;
   objects: WorkbookObject[];
   status: PhysicalPageStatus;

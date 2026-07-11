@@ -9,7 +9,7 @@ import { playObjectAudio, type InteractionProps } from "./shared";
  * `object.audio.src === ""` safely no-ops per the project's audio convention
  * — the object still gets its tap/playing visual feedback either way.
  */
-export function TapToHear({ objects, onComplete, reducedMotion }: InteractionProps) {
+export function TapToHear({ objects, onComplete, onAudioPlayed, reducedMotion }: InteractionProps) {
   const [playedIds, setPlayedIds] = useState<Set<string>>(new Set());
   const [activeId, setActiveId] = useState<string | null>(null);
   const [completed, setCompleted] = useState(false);
@@ -24,7 +24,7 @@ export function TapToHear({ objects, onComplete, reducedMotion }: InteractionPro
   const handleTap = (objectId: string) => {
     const object = objects.find((o) => o.id === objectId);
     if (!object) return;
-    playObjectAudio(object);
+    if (playObjectAudio(object)) onAudioPlayed?.(objectId);
     setActiveId(objectId);
     setTimeout(() => setActiveId((prev) => (prev === objectId ? null : prev)), 600);
     setPlayedIds((prev) => new Set(prev).add(objectId));
@@ -47,7 +47,9 @@ export function TapToHear({ objects, onComplete, reducedMotion }: InteractionPro
           onClick={() => handleTap(object.id)}
           aria-label={object.audio?.label ?? object.alt ?? object.text ?? "escuchar"}
         >
-          {object.src && <img src={object.src} alt="" className="lwp-tap-to-hear__img" draggable={false} />}
+          {object.src && (
+            <img src={object.src} alt="" className="lwp-tap-to-hear__img" draggable={false} />
+          )}
           {object.text && <span className="lwp-tap-to-hear__text">{object.text}</span>}
           <span className="lwp-tap-to-hear__badge" aria-hidden="true" />
         </button>
