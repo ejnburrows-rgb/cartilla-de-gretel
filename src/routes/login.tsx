@@ -2,6 +2,7 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { GraduationCap, ArrowLeft, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { setStudentSession } from "@/lib/student-session";
 
 export const Route = createFileRoute("/login")({
   component: LoginPage,
@@ -28,6 +29,7 @@ function LoginPage() {
     setBusy(true);
     setError(null);
     try {
+      setStudentSession(null); // Clear student session on teacher login
       if (mode === "signup") {
         const { error: err } = await supabase.auth.signUp({
           email,

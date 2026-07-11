@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import type { Session } from "@supabase/supabase-js";
 import { Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { getStudentSession } from "@/lib/student-session";
 
 export const Route = createFileRoute("/_authenticated")({
   component: AuthenticatedLayout,
@@ -27,6 +28,10 @@ function AuthenticatedLayout() {
   }, []);
 
   useEffect(() => {
+    if (getStudentSession()) {
+      navigate({ to: "/cartilla/lecciones" });
+      return;
+    }
     if (session === null) {
       navigate({ to: "/login" });
     }
