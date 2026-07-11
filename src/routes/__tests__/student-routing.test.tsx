@@ -52,25 +52,16 @@ vi.mock("@tanstack/react-query", () => ({
 import { createMemoryHistory, createRouter, RouterProvider, createRootRouteWithContext, createRoute, Outlet } from "@tanstack/react-router";
 import { Route as LoginRoute } from "../login";
 import { Route as UnirseRoute } from "../cartilla/unirse";
-import { Route as AuthenticatedRoute } from "../_authenticated";
 import { Route as PresentarRoute } from "../cartilla/presentar.$n";
 
 function renderWithRouter(initialEntries: string[]) {
   const history = createMemoryHistory({ initialEntries });
-  
+
   const rootRoute = createRootRouteWithContext<{ queryClient: any }>()({ component: Outlet });
   const loginRoute = createRoute({ getParentRoute: () => rootRoute, path: "/login", component: LoginRoute.options.component });
   const unirseRoute = createRoute({ getParentRoute: () => rootRoute, path: "/cartilla/unirse", component: UnirseRoute.options.component });
-  
-  const authenticatedRoute = createRoute({ 
-    getParentRoute: () => rootRoute, 
-    path: "/_authenticated", 
-    component: AuthenticatedRoute.options.component,
-    beforeLoad: AuthenticatedRoute.options.beforeLoad 
-  });
-  const studentsRoute = createRoute({ getParentRoute: () => authenticatedRoute, path: "/students", component: () => <div>Students</div> });
 
-  const routeTree = rootRoute.addChildren([loginRoute, unirseRoute, authenticatedRoute.addChildren([studentsRoute])]);
+  const routeTree = rootRoute.addChildren([loginRoute, unirseRoute]);
   const router = createRouter({ routeTree, history, context: { queryClient: {} as any } });
   render(<RouterProvider router={router} />);
   return { router, history };
@@ -120,17 +111,6 @@ describe("Student-Teacher Routing Isolation", () => {
 
       expect(caught).toBeDefined();
       expect(caught.options.to).toBe("/cartilla/lecciones");
-    });
-  });
-
-  describe("_authenticated.tsx route guard", () => {
-    it("(b) blocks student session from teacher _authenticated route", async () => {
-      getStudentSessionMock.mockReturnValue({ studentId: "s1" });
-      const { history } = renderWithRouter(["/_authenticated/cartilla/teacher/students"]);
-      
-      await waitFor(() => {
-        expect(history.location.pathname).toBe("/cartilla/lecciones");
-      });
     });
   });
 
