@@ -58,6 +58,8 @@ function StaticObject({ object, motionOn }: { object: WorkbookObject; motionOn: 
           alt={object.alt ?? ""}
           className="lwp-object__img"
           draggable={false}
+          loading="lazy"
+          decoding="async"
         />
       )}
       {object.text && <div className="lwp-object__text">{object.text}</div>}
@@ -199,6 +201,8 @@ export function LivingWorkbookPage({
             className="lwp-page__bg"
             draggable={false}
             aria-hidden="true"
+            loading="lazy"
+            decoding="async"
           />
         ) : (
           <BackgroundPendingPlaceholder />

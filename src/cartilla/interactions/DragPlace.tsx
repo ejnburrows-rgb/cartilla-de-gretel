@@ -14,7 +14,17 @@ import { fireCorrectFeedback, fireWrongFeedback, type InteractionProps } from ".
 
 type DragPlaceData = { role: "draggable" | "target"; targetId?: string };
 
-function Draggable({ object, locked, selected, onSelect }: { object: WorkbookObject; locked: boolean; selected: boolean; onSelect: () => void }) {
+function Draggable({
+  object,
+  locked,
+  selected,
+  onSelect,
+}: {
+  object: WorkbookObject;
+  locked: boolean;
+  selected: boolean;
+  onSelect: () => void;
+}) {
   const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
     id: object.id,
     disabled: locked,
@@ -32,7 +42,9 @@ function Draggable({ object, locked, selected, onSelect }: { object: WorkbookObj
         top: `${object.box.yPct}%`,
         width: `${object.box.wPct}%`,
         height: `${object.box.hPct}%`,
-        transform: transform ? `translate3d(${Math.round(transform.x)}px, ${Math.round(transform.y)}px, 0)` : undefined,
+        transform: transform
+          ? `translate3d(${Math.round(transform.x)}px, ${Math.round(transform.y)}px, 0)`
+          : undefined,
         zIndex: isDragging ? 999 : object.zIndex,
         opacity: locked ? 0.35 : 1,
       }}
@@ -41,7 +53,16 @@ function Draggable({ object, locked, selected, onSelect }: { object: WorkbookObj
       aria-label={`${object.alt ?? object.text ?? "elemento"}. Arrástralo o presiónalo y luego presiona el destino`}
       onClick={onSelect}
     >
-      {object.src && <img src={object.src} alt="" className="lwp-drag-place__img" draggable={false} />}
+      {object.src && (
+        <img
+          src={object.src}
+          alt=""
+          className="lwp-drag-place__img"
+          draggable={false}
+          loading="lazy"
+          decoding="async"
+        />
+      )}
       {object.text && <span className="lwp-drag-place__text">{object.text}</span>}
     </button>
   );
@@ -77,7 +98,16 @@ function Target({
       onClick={onTap}
       aria-label={object.alt ?? object.text ?? "destino"}
     >
-      {object.src && <img src={object.src} alt="" className="lwp-drag-place__img" draggable={false} />}
+      {object.src && (
+        <img
+          src={object.src}
+          alt=""
+          className="lwp-drag-place__img"
+          draggable={false}
+          loading="lazy"
+          decoding="async"
+        />
+      )}
       {object.text && <span className="lwp-drag-place__text">{object.text}</span>}
     </button>
   );
@@ -93,8 +123,12 @@ function Target({
  * target object's `id`.
  */
 export function DragPlace({ objects, onResult, onComplete, reducedMotion }: InteractionProps) {
-  const draggables = objects.filter((o) => (o.interaction?.data as DragPlaceData | undefined)?.role === "draggable");
-  const targets = objects.filter((o) => (o.interaction?.data as DragPlaceData | undefined)?.role === "target");
+  const draggables = objects.filter(
+    (o) => (o.interaction?.data as DragPlaceData | undefined)?.role === "draggable",
+  );
+  const targets = objects.filter(
+    (o) => (o.interaction?.data as DragPlaceData | undefined)?.role === "target",
+  );
 
   const [placed, setPlaced] = useState<Record<string, string>>({}); // draggableId -> targetId
   const [selected, setSelected] = useState<string | null>(null);

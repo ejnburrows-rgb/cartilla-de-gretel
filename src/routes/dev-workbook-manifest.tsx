@@ -18,12 +18,15 @@ export const Route = createFileRoute("/dev-workbook-manifest")({
 });
 
 /**
- * Renders ANY real physical page number straight from the real
- * workbook-manifest.json (via getWorkbookPage), proving the manifest →
- * engine wiring end-to-end. Until Grok's census lands, the manifest is an
- * honestly-empty placeholder, so "no data for this page yet" is the
- * CORRECT, expected result for every page number — that's not a bug, it's
- * proof the pipeline never invents content it doesn't have.
+ * Renders every real physical page currently in
+ * src/content/workbook/workbook-manifest.json through the LivingWorkbookPage
+ * engine — background, positioned illustrations, and whichever interaction
+ * (TapSelect/TapToHear/DragPlace/PairMatch/MarkCircle) each page declares —
+ * proving the manifest → engine wiring end-to-end with real content. Also
+ * offers an arbitrary page-number loader below for testing pages outside
+ * the current seed/census. Until real census data exists for a given page
+ * number, "no census data for this page yet" is the correct, honest result
+ * — never invented content.
  */
 function DevWorkbookManifestSandbox() {
   const [pageInput, setPageInput] = useState("1");
@@ -46,61 +49,69 @@ function DevWorkbookManifestSandbox() {
       <header>
         <h1 className="text-2xl font-bold">Workbook manifest sandbox</h1>
         <p className="text-sm text-foreground/60 mt-1">
-          Renders a real physical page number from{" "}
+          Renders every real physical page from{" "}
           <code>src/content/workbook/workbook-manifest.json</code> through the LivingWorkbookPage
           engine. Manifest version: <code>{manifest.version}</code> · {manifest.pages.length}{" "}
-          page(s) currently in the census.
+          page(s) currently in the manifest.
         </p>
       </header>
 
-      <div className="flex items-center gap-2">
-        <label htmlFor="page-number" className="text-sm font-bold">
-          Physical page (1-92):
-        </label>
-        <input
-          id="page-number"
-          type="number"
-          min={1}
-          max={92}
-          value={pageInput}
-          onChange={(e) => setPageInput(e.target.value)}
-          className="w-20 px-2 py-1 rounded border-2 border-foreground/15"
-        />
-        <button
-          type="button"
-          onClick={() => setLoadedPage(Number(pageInput))}
-          className="px-4 py-1.5 rounded bg-primary text-primary-foreground font-bold text-sm"
-        >
-          Load
-        </button>
-      </div>
+      <section className="space-y-8">
+        <h2 className="text-lg font-bold">
+          All real pages currently in the manifest ({available.length})
+        </h2>
+        {available.length === 0 ? (
+          <div className="rounded-xl border-2 border-dashed border-foreground/20 p-8 text-center text-foreground/60">
+            No pages in the manifest yet — this is the correct, honest result until real content
+            lands. Nothing is invented here.
+          </div>
+        ) : (
+          available.map((n) => {
+            const p = getWorkbookPage(n);
+            if (!p) return null;
+            return (
+              <div key={n} className="space-y-1">
+                <h3 className="text-sm font-bold text-foreground/70">
+                  Physical page {n} · Lección {p.lessonNumber} · {p.interaction?.kind ?? "static"} ·{" "}
+                  {p.status}
+                </h3>
+                <LivingWorkbookPage page={p} />
+              </div>
+            );
+          })
+        )}
+      </section>
 
-      {available.length > 0 && (
-        <div className="text-xs text-foreground/60">
-          Pages currently in the census:{" "}
-          {available.map((n) => (
-            <button
-              key={n}
-              type="button"
-              className="underline mx-1"
-              onClick={() => {
-                setPageInput(String(n));
-                setLoadedPage(n);
-              }}
-            >
-              {n}
-            </button>
-          ))}
+      <section className="border-t-2 border-foreground/10 pt-6 space-y-3">
+        <h2 className="text-lg font-bold">Load an arbitrary page number</h2>
+        <div className="flex items-center gap-2">
+          <label htmlFor="page-number" className="text-sm font-bold">
+            Physical page (1-92):
+          </label>
+          <input
+            id="page-number"
+            type="number"
+            min={1}
+            max={92}
+            value={pageInput}
+            onChange={(e) => setPageInput(e.target.value)}
+            className="w-20 px-2 py-1 rounded border-2 border-foreground/15"
+          />
+          <button
+            type="button"
+            onClick={() => setLoadedPage(Number(pageInput))}
+            className="px-4 py-1.5 rounded bg-primary text-primary-foreground font-bold text-sm"
+          >
+            Load
+          </button>
         </div>
-      )}
 
-      <section>
         {page ? (
           <LivingWorkbookPage page={page} />
         ) : (
           <div className="rounded-xl border-2 border-dashed border-foreground/20 p-8 text-center text-foreground/60">
             No census data for physical page {loadedPage} yet. This is the correct, honest result
-            until Grok's files land — nothing is invented here.
+            until real content lands for it — nothing is invented here.
           </div>
         )}
       </section>

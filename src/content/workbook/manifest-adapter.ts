@@ -38,6 +38,14 @@ const MOTION_KINDS = new Set(["none", "float", "bob", "breathe", "blink"]);
  * interactive yet, which is honest given no matching component exists.
  * "read" only becomes "tap-to-hear" when the page actually has audio data;
  * otherwise it's just read-aloud text with nothing to tap.
+ *
+ * "select" splits between two components depending on how many correct
+ * answers the page declares: exactly one is "pick the one right choice"
+ * (TapSelect, stops at the first correct tap), while more than one is
+ * "circle every matching one" (MarkCircle, requires marking all of them) —
+ * both are real book exercise shapes (compare page-layouts.json's
+ * vowel-pick-one region to its picture-grid region), and the census's
+ * single "select" mechanic covers both without a schema change.
  */
 function mechanicToInteractionKind(
   interaction: ManifestInteraction | undefined,
@@ -46,7 +54,7 @@ function mechanicToInteractionKind(
   if (!interaction) return "none";
   switch (interaction.mechanic) {
     case "select":
-      return "tap-select";
+      return (interaction.answers?.length ?? 0) > 1 ? "mark-circle" : "tap-select";
     case "drag":
       return "drag-place";
     case "match":

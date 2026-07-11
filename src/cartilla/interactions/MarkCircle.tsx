@@ -16,7 +16,9 @@ export function MarkCircle({ objects, onResult, onComplete }: InteractionProps) 
   const [wrongId, setWrongId] = useState<string | null>(null);
   const [completed, setCompleted] = useState(false);
 
-  const totalCorrect = objects.filter((o) => Boolean((o.interaction?.data as MarkCircleData | undefined)?.correct)).length;
+  const totalCorrect = objects.filter((o) =>
+    Boolean((o.interaction?.data as MarkCircleData | undefined)?.correct),
+  ).length;
 
   useEffect(() => {
     if (totalCorrect > 0 && marked.size === totalCorrect && !completed) {
@@ -61,7 +63,16 @@ export function MarkCircle({ objects, onResult, onComplete }: InteractionProps) 
             aria-pressed={isMarked}
             aria-label={object.alt ?? object.text ?? "marcar"}
           >
-            {object.src && <img src={object.src} alt="" className="lwp-mark-circle__img" draggable={false} />}
+            {object.src && (
+              <img
+                src={object.src}
+                alt=""
+                className="lwp-mark-circle__img"
+                draggable={false}
+                loading="lazy"
+                decoding="async"
+              />
+            )}
             {object.text && <span className="lwp-mark-circle__text">{object.text}</span>}
             <span className="lwp-mark-circle__ring" aria-hidden="true" />
           </button>

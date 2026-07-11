@@ -22,12 +22,19 @@
   background: hsl(var(--card));
 }
 
+/* Soft, low-opacity treatment — matches the book-faithful garden
+   background convention (see faithful-page.css's .faithful-page--garden::before):
+   blurred + low-opacity so real illustrations layered on top stay legible,
+   never a full-strength competing image. */
 .lwp-page__bg {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 68%;
+  opacity: 0.22;
+  filter: blur(2px) saturate(0.8) brightness(1.06);
 }
 
 .lwp-bg-pending {
@@ -106,7 +113,8 @@
 .lwp-tap-select__img,
 .lwp-tap-to-hear__img,
 .lwp-drag-place__img,
-.lwp-pair-match__img {
+.lwp-pair-match__img,
+.lwp-mark-circle__img {
   width: 100%;
   height: 100%;
   object-fit: contain;

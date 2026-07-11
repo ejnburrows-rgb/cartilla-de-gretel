@@ -1,4 +1,667 @@
 {
-  "version": "0.0.0-no-census-yet",
-  "pages": []
+  "version": "0.1.0-seeded-from-real-content",
+  "generatedAt": "2026-07-11T17:01:53.279Z",
+  "pages": [
+    {
+      "physicalPage": 1,
+      "lesson": 1,
+      "instruction": "Presiona los dibujos de las palabras en cada línea horizontal que comienzan con el mismo sonido.",
+      "background": "/art/hd/gretel-authentic.jpg",
+      "interaction": {
+        "mechanic": "select",
+        "answers": [
+          "p1-cell-0",
+          "p1-cell-2",
+          "p1-cell-4",
+          "p1-cell-6",
+          "p1-cell-8",
+          "p1-cell-10",
+          "p1-cell-16",
+          "p1-cell-19"
+        ]
+      },
+      "objects": [
+        {
+          "id": "p1-cell-0",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/leccion-1/abrigo.webp",
+          "x": 3,
+          "y": 6,
+          "width": 22,
+          "height": 16,
+          "word": "abrigo",
+          "interactive": true
+        },
+        {
+          "id": "p1-cell-1",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/vocal-i/iman.webp",
+          "x": 27,
+          "y": 6,
+          "width": 22,
+          "height": 16,
+          "word": "imán",
+          "interactive": true
+        },
+        {
+          "id": "p1-cell-2",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/vocal-a/abanico.webp",
+          "x": 51,
+          "y": 6,
+          "width": 22,
+          "height": 16,
+          "word": "abanico",
+          "interactive": true
+        },
+        {
+          "id": "p1-cell-3",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/vocal-o/oso.webp",
+          "x": 75,
+          "y": 6,
+          "width": 22,
+          "height": 16,
+          "word": "oso",
+          "interactive": true
+        },
+        {
+          "id": "p1-cell-4",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/vocal-i/isla.webp",
+          "x": 3,
+          "y": 24,
+          "width": 22,
+          "height": 16,
+          "word": "isla",
+          "interactive": true
+        },
+        {
+          "id": "p1-cell-5",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/vocal-a/avion.webp",
+          "x": 27,
+          "y": 24,
+          "width": 22,
+          "height": 16,
+          "word": "avión",
+          "interactive": true
+        },
+        {
+          "id": "p1-cell-6",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/vocal-i/iman.webp",
+          "x": 51,
+          "y": 24,
+          "width": 22,
+          "height": 16,
+          "word": "imán",
+          "interactive": true
+        },
+        {
+          "id": "p1-cell-7",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/leccion-1/remolino.webp",
+          "x": 75,
+          "y": 24,
+          "width": 22,
+          "height": 16,
+          "word": "remolino",
+          "interactive": true
+        },
+        {
+          "id": "p1-cell-8",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/vocal-e/escalera.webp",
+          "x": 3,
+          "y": 42,
+          "width": 22,
+          "height": 16,
+          "word": "escalera",
+          "interactive": true
+        },
+        {
+          "id": "p1-cell-9",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/vocal-u/uno.webp",
+          "x": 27,
+          "y": 42,
+          "width": 22,
+          "height": 16,
+          "word": "uno",
+          "interactive": true
+        },
+        {
+          "id": "p1-cell-10",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/vocal-e/escuela.webp",
+          "x": 51,
+          "y": 42,
+          "width": 22,
+          "height": 16,
+          "word": "escuela",
+          "interactive": true
+        },
+        {
+          "id": "p1-cell-11",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/vocal-o/oreja.webp",
+          "x": 75,
+          "y": 42,
+          "width": 22,
+          "height": 16,
+          "word": "oreja",
+          "interactive": true
+        },
+        {
+          "id": "p1-cell-12",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/leccion-1/traje.webp",
+          "x": 3,
+          "y": 60,
+          "width": 22,
+          "height": 16,
+          "word": "traje",
+          "interactive": false
+        },
+        {
+          "id": "p1-cell-13",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/leccion-1/arco.webp",
+          "x": 27,
+          "y": 60,
+          "width": 22,
+          "height": 16,
+          "word": "arco",
+          "interactive": false
+        },
+        {
+          "id": "p1-cell-14",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/vocal-o/oveja.webp",
+          "x": 51,
+          "y": 60,
+          "width": 22,
+          "height": 16,
+          "word": "oveja",
+          "interactive": false
+        },
+        {
+          "id": "p1-cell-15",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/vocal-e/elefante.webp",
+          "x": 75,
+          "y": 60,
+          "width": 22,
+          "height": 16,
+          "word": "elefante",
+          "interactive": false
+        },
+        {
+          "id": "p1-cell-16",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/vocal-o/ojos.webp",
+          "x": 3,
+          "y": 78,
+          "width": 22,
+          "height": 16,
+          "word": "ojos",
+          "interactive": true
+        },
+        {
+          "id": "p1-cell-17",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/leccion-1/maiz.webp",
+          "x": 27,
+          "y": 78,
+          "width": 22,
+          "height": 16,
+          "word": "maíz",
+          "interactive": true
+        },
+        {
+          "id": "p1-cell-18",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/vocal-a/abeja.webp",
+          "x": 51,
+          "y": 78,
+          "width": 22,
+          "height": 16,
+          "word": "abeja",
+          "interactive": true
+        },
+        {
+          "id": "p1-cell-19",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/vocal-o/olla.webp",
+          "x": 75,
+          "y": 78,
+          "width": 22,
+          "height": 16,
+          "word": "olla",
+          "interactive": true
+        }
+      ],
+      "status": "complete",
+      "source": "src/data/page-layouts.json page 1 (Lección 1) — already-verified faithful transcription"
+    },
+    {
+      "physicalPage": 2,
+      "lesson": 1,
+      "instruction": "Presiona el dibujo que comienza con la vocal del recuadro.",
+      "background": "/art/hd/gretel-authentic.jpg",
+      "interaction": {
+        "mechanic": "select",
+        "answers": [
+          "p2-a-0"
+        ]
+      },
+      "objects": [
+        {
+          "id": "p2-a-0",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/vocal-a/anillo.webp",
+          "x": 3,
+          "y": 8,
+          "width": 30,
+          "height": 20,
+          "word": "anillo",
+          "interactive": true
+        },
+        {
+          "id": "p2-a-1",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/leccion-1/manzana.webp",
+          "x": 35,
+          "y": 8,
+          "width": 30,
+          "height": 20,
+          "word": "manzana",
+          "interactive": true
+        },
+        {
+          "id": "p2-a-2",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/leccion-1/libro.webp",
+          "x": 67,
+          "y": 8,
+          "width": 30,
+          "height": 20,
+          "word": "libro",
+          "interactive": true
+        },
+        {
+          "id": "p2-other-0",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/leccion-19-c/casa.webp",
+          "x": 3,
+          "y": 34,
+          "width": 30,
+          "height": 18,
+          "word": "casa",
+          "interactive": false
+        },
+        {
+          "id": "p2-other-1",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/vocal-a/arbol.webp",
+          "x": 35,
+          "y": 34,
+          "width": 30,
+          "height": 18,
+          "word": "árbol",
+          "interactive": false
+        },
+        {
+          "id": "p2-other-2",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/vocal-e/estrella.webp",
+          "x": 67,
+          "y": 34,
+          "width": 30,
+          "height": 18,
+          "word": "estrella",
+          "interactive": false
+        },
+        {
+          "id": "p2-other-3",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/leccion-1/taza.webp",
+          "x": 3,
+          "y": 54,
+          "width": 30,
+          "height": 18,
+          "word": "taza",
+          "interactive": false
+        },
+        {
+          "id": "p2-other-4",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/vocal-i/indio.webp",
+          "x": 35,
+          "y": 54,
+          "width": 30,
+          "height": 18,
+          "word": "indio",
+          "interactive": false
+        },
+        {
+          "id": "p2-other-5",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/leccion-1/pera.webp",
+          "x": 67,
+          "y": 54,
+          "width": 30,
+          "height": 18,
+          "word": "pera",
+          "interactive": false
+        },
+        {
+          "id": "p2-other-6",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/leccion-1/pajaro.webp",
+          "x": 3,
+          "y": 74,
+          "width": 30,
+          "height": 18,
+          "word": "pájaro",
+          "interactive": false
+        },
+        {
+          "id": "p2-other-7",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/vocal-o/oso.webp",
+          "x": 35,
+          "y": 74,
+          "width": 30,
+          "height": 18,
+          "word": "oso",
+          "interactive": false
+        },
+        {
+          "id": "p2-other-8",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/leccion-1/carro.webp",
+          "x": 67,
+          "y": 74,
+          "width": 30,
+          "height": 18,
+          "word": "carro",
+          "interactive": false
+        },
+        {
+          "id": "p2-other-9",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/vocal-u/uniforme.webp",
+          "x": 3,
+          "y": 94,
+          "width": 30,
+          "height": 18,
+          "word": "uniforme",
+          "interactive": false
+        },
+        {
+          "id": "p2-other-10",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/leccion-1/globo.webp",
+          "x": 35,
+          "y": 94,
+          "width": 30,
+          "height": 18,
+          "word": "globo",
+          "interactive": false
+        },
+        {
+          "id": "p2-other-11",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/leccion-1/dulce.webp",
+          "x": 67,
+          "y": 94,
+          "width": 30,
+          "height": 18,
+          "word": "dulce",
+          "interactive": false
+        }
+      ],
+      "status": "complete",
+      "source": "src/data/page-layouts.json page 2 (Lección 1), row 'a' only — already-verified faithful transcription (rows e/i/o shown as static real content, not part of this page's single graded interaction)"
+    },
+    {
+      "physicalPage": 3,
+      "lesson": 1,
+      "instruction": "Traza una línea de la vocal al dibujo que le corresponde.",
+      "background": "/art/hd/gretel-authentic.jpg",
+      "interaction": {
+        "mechanic": "match",
+        "answers": [
+          "p3-letter-o",
+          "p3-letter-a",
+          "p3-letter-i",
+          "p3-letter-e",
+          "p3-letter-u"
+        ],
+        "targets": [
+          "p3-pic-o",
+          "p3-pic-a",
+          "p3-pic-i",
+          "p3-pic-e",
+          "p3-pic-u"
+        ]
+      },
+      "objects": [
+        {
+          "id": "p3-letter-o",
+          "type": "letter",
+          "x": 10,
+          "y": 6,
+          "width": 15,
+          "height": 14,
+          "word": "O",
+          "interactive": true
+        },
+        {
+          "id": "p3-pic-o",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/vocal-o/ocho.webp",
+          "x": 55,
+          "y": 6,
+          "width": 30,
+          "height": 14,
+          "word": "ocho",
+          "interactive": true
+        },
+        {
+          "id": "p3-letter-a",
+          "type": "letter",
+          "x": 10,
+          "y": 23,
+          "width": 15,
+          "height": 14,
+          "word": "A",
+          "interactive": true
+        },
+        {
+          "id": "p3-pic-a",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/vocal-a/arana.webp",
+          "x": 55,
+          "y": 23,
+          "width": 30,
+          "height": 14,
+          "word": "araña",
+          "interactive": true
+        },
+        {
+          "id": "p3-letter-i",
+          "type": "letter",
+          "x": 10,
+          "y": 40,
+          "width": 15,
+          "height": 14,
+          "word": "I",
+          "interactive": true
+        },
+        {
+          "id": "p3-pic-i",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/vocal-i/iglesia.webp",
+          "x": 55,
+          "y": 40,
+          "width": 30,
+          "height": 14,
+          "word": "iglesia",
+          "interactive": true
+        },
+        {
+          "id": "p3-letter-e",
+          "type": "letter",
+          "x": 10,
+          "y": 57,
+          "width": 15,
+          "height": 14,
+          "word": "E",
+          "interactive": true
+        },
+        {
+          "id": "p3-pic-e",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/vocal-e/escoba.webp",
+          "x": 55,
+          "y": 57,
+          "width": 30,
+          "height": 14,
+          "word": "escoba",
+          "interactive": true
+        },
+        {
+          "id": "p3-letter-u",
+          "type": "letter",
+          "x": 10,
+          "y": 74,
+          "width": 15,
+          "height": 14,
+          "word": "U",
+          "interactive": true
+        },
+        {
+          "id": "p3-pic-u",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/vocal-u/uno.webp",
+          "x": 55,
+          "y": 74,
+          "width": 30,
+          "height": 14,
+          "word": "uno",
+          "interactive": true
+        }
+      ],
+      "status": "complete",
+      "source": "src/data/page-layouts.json page 3 (Lección 1) — already-verified faithful transcription"
+    },
+    {
+      "physicalPage": 91,
+      "lesson": 7,
+      "instruction": "",
+      "background": "/art/hd/gretel-authentic.jpg",
+      "interaction": {
+        "mechanic": "drag",
+        "answers": [
+          "p91-word-0",
+          "p91-word-1"
+        ],
+        "targets": [
+          "p91-target-0",
+          "p91-target-1"
+        ]
+      },
+      "objects": [
+        {
+          "id": "p91-target-0",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/leccion-7-m/mama.webp",
+          "x": 10,
+          "y": 45,
+          "width": 39,
+          "height": 30,
+          "word": "mamá",
+          "interactive": true
+        },
+        {
+          "id": "p91-word-0",
+          "type": "word",
+          "x": 10,
+          "y": 8,
+          "width": 39,
+          "height": 15,
+          "word": "mamá",
+          "interactive": true
+        },
+        {
+          "id": "p91-target-1",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/leccion-7-m/mono.webp",
+          "x": 51,
+          "y": 45,
+          "width": 39,
+          "height": 30,
+          "word": "mono",
+          "interactive": true
+        },
+        {
+          "id": "p91-word-1",
+          "type": "word",
+          "x": 51,
+          "y": 8,
+          "width": 39,
+          "height": 15,
+          "word": "mono",
+          "interactive": true
+        }
+      ],
+      "status": "implementation-ready",
+      "source": "derived vocab-practice exercise built from src/content/consonants.json lesson 7 (M) vocab (mamá, mono) — not a 1:1 scan of a printed page"
+    },
+    {
+      "physicalPage": 92,
+      "lesson": 7,
+      "instruction": "",
+      "background": "/art/hd/gretel-authentic.jpg",
+      "interaction": {
+        "mechanic": "read",
+        "answers": []
+      },
+      "audio": [
+        "mamá",
+        "mono"
+      ],
+      "objects": [
+        {
+          "id": "p92-word-0",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/leccion-7-m/mama.webp",
+          "x": 15,
+          "y": 25,
+          "width": 34,
+          "height": 40,
+          "word": "mamá",
+          "audioId": "mamá",
+          "interactive": true
+        },
+        {
+          "id": "p92-word-1",
+          "type": "illustration",
+          "asset": "/cartilla/art/faithful/leccion-7-m/mono.webp",
+          "x": 51,
+          "y": 25,
+          "width": 34,
+          "height": 40,
+          "word": "mono",
+          "audioId": "mono",
+          "interactive": true
+        }
+      ],
+      "status": "implementation-ready",
+      "source": "derived vocab-practice exercise built from src/content/consonants.json lesson 7 (M) vocab (mamá, mono) — not a 1:1 scan of a printed page; audio not yet recorded (safe no-op)"
+    }
+  ]
 }

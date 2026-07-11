@@ -81,6 +81,12 @@ export async function flushProgressEvents(): Promise<void> {
   const queue = readQueue();
   if (queue.length === 0) return;
 
+  // Offline: fail fast, no wasted request — the queue already holds these
+  // events, so the next flush (browser 'online' listener below, the next
+  // emitProgressEvent call, or a manual retry) picks up right where this
+  // left off.
+  if (typeof navigator !== "undefined" && navigator.onLine === false) return;
+
   const session = getStudentSession();
   if (!session) return; // stays queued until a real session exists
 
@@ -116,4 +122,13 @@ export function getQueuedProgressEvents(): ProgressEvent[] {
 
 export function clearProgressEventsQueue(): void {
   writeQueue([]);
+}
+
+// Reconnection sync: the moment the browser regains connectivity, retry
+// whatever stayed queued while offline instead of waiting for the next
+// student action to trigger a flush attempt.
+if (typeof window !== "undefined") {
+  window.addEventListener("online", () => {
+    void flushProgressEvents();
+  });
 }

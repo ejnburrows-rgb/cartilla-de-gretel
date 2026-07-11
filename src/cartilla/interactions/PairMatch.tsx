@@ -14,8 +14,21 @@ import { fireCorrectFeedback, fireWrongFeedback, type InteractionProps } from ".
 
 type PairMatchData = { role: "left" | "right"; pairId: string };
 
-function LeftItem({ object, matched, selected, onSelect }: { object: WorkbookObject; matched: boolean; selected: boolean; onSelect: () => void }) {
-  const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({ id: object.id, disabled: matched });
+function LeftItem({
+  object,
+  matched,
+  selected,
+  onSelect,
+}: {
+  object: WorkbookObject;
+  matched: boolean;
+  selected: boolean;
+  onSelect: () => void;
+}) {
+  const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
+    id: object.id,
+    disabled: matched,
+  });
   return (
     <button
       type="button"
@@ -29,7 +42,9 @@ function LeftItem({ object, matched, selected, onSelect }: { object: WorkbookObj
         top: `${object.box.yPct}%`,
         width: `${object.box.wPct}%`,
         height: `${object.box.hPct}%`,
-        transform: transform ? `translate3d(${Math.round(transform.x)}px, ${Math.round(transform.y)}px, 0)` : undefined,
+        transform: transform
+          ? `translate3d(${Math.round(transform.x)}px, ${Math.round(transform.y)}px, 0)`
+          : undefined,
         zIndex: isDragging ? 999 : object.zIndex,
         opacity: matched ? 0.35 : 1,
       }}
@@ -38,7 +53,16 @@ function LeftItem({ object, matched, selected, onSelect }: { object: WorkbookObj
       aria-label={`${object.alt ?? object.text ?? "elemento"}. Arrástralo o presiónalo y luego presiona su pareja`}
       onClick={onSelect}
     >
-      {object.src && <img src={object.src} alt="" className="lwp-pair-match__img" draggable={false} />}
+      {object.src && (
+        <img
+          src={object.src}
+          alt=""
+          className="lwp-pair-match__img"
+          draggable={false}
+          loading="lazy"
+          decoding="async"
+        />
+      )}
       {object.text && <span className="lwp-pair-match__text">{object.text}</span>}
     </button>
   );
@@ -74,7 +98,16 @@ function RightItem({
       onClick={onTap}
       aria-label={object.alt ?? object.text ?? "pareja"}
     >
-      {object.src && <img src={object.src} alt="" className="lwp-pair-match__img" draggable={false} />}
+      {object.src && (
+        <img
+          src={object.src}
+          alt=""
+          className="lwp-pair-match__img"
+          draggable={false}
+          loading="lazy"
+          decoding="async"
+        />
+      )}
       {object.text && <span className="lwp-pair-match__text">{object.text}</span>}
     </button>
   );
@@ -89,8 +122,12 @@ function RightItem({
  * correct match.
  */
 export function PairMatch({ objects, onResult, onComplete, reducedMotion }: InteractionProps) {
-  const lefts = objects.filter((o) => (o.interaction?.data as PairMatchData | undefined)?.role === "left");
-  const rights = objects.filter((o) => (o.interaction?.data as PairMatchData | undefined)?.role === "right");
+  const lefts = objects.filter(
+    (o) => (o.interaction?.data as PairMatchData | undefined)?.role === "left",
+  );
+  const rights = objects.filter(
+    (o) => (o.interaction?.data as PairMatchData | undefined)?.role === "right",
+  );
 
   const [matched, setMatched] = useState<Record<string, string>>({}); // leftId -> rightId
   const [selected, setSelected] = useState<string | null>(null);
