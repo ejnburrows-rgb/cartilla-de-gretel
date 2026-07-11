@@ -1,18 +1,18 @@
 {
   "lessonId": 16,
   "objectives": [],
-  "motivation": "",
-  "script": "Paso 1: Repaso (2 minutos)\n[Icono de reloj] 2 minutos\nMostrar a los estudiantes las tarjetas de repaso de sonidos (a, o, u, i, e, m, p, s, l, n, d, b, c, que/qui, f, r, rr, t, g, gue/gui, h, ch, j, y, ll).\nMostrar las palabras de uso frecuente de la lección anterior: a, al, en, el, la.\n\nPaso 2: Sonido Nuevo (5 minutos)\n[Icono de reloj] 5 minutos\nEscribir la letra v en la pizarra.\nExplicar a los estudiantes que la letra v es una consonante y hace el sonido /v/ como en \"vaca\".\nDecir el sonido /v/ y pedir a los estudiantes que lo repitan varias veces.\n\nPaso 3: Formando Sílabas (3 minutos)\n[Icono de reloj] 3 minutos\nMostrar cómo la consonante v se combina con las vocales para formar sílabas (va, vo, vu, vi, ve).\nEscribir las sílabas en la pizarra y leerlas en voz alta junto con los estudiantes.\n\nPaso 4: Palabras de Uso Frecuente (0 minutos)\n[Icono de reloj] 0 minutos\nSight-word note: L16 (V) has an intentionally empty 'palabras de uso frecuente' box... renderer must show '— intencionalmente vacío —'.\n\nPaso 5: Lectura de Palabras (10 minutos)\n[Icono de reloj] 10 minutos\nEscribir las siguientes palabras en la pizarra:\n- vaca\n- vaso\n- pavo\n- vino\n- vela\nLeer cada palabra en voz alta y pedir a los estudiantes que repitan.\n\nPaso 6: Práctica de Lectura (15 minutos)\n[Icono de reloj] 15 minutos\nDistribuir la lectura \"La vaca de Víctor\" a los estudiantes.\nLeer la historia juntos en voz alta, prestando especial atención a las palabras con la letra v.\nHacer preguntas de comprensión sobre la historia.",
+  "motivation": "El sonido de la Vvv… con el sonido del viento cuando sopla. v+a=va, v+e=ve, v+i=vi, v+o=vo, v+u=vu.\nPreguntas: ¿Qué ves en la ilustración? · ¿Cómo sopla el viento? · ¿De qué color es el pelo y la barba del viento? · ¿Quiénes tienen el pelo blanco? · ¿Qué mueve el viento? · ¿Qué otras cosas mueve el viento?\nEjemplos (vida personal): ¿Has escuchado el sonido del viento? · ¿Has volado alguna vez un papalote? · ¿Sabes cuál es el tiempo ideal para volar papalote? · ¿Qué otro nombre conoces para la palabra papalote?",
+  "script": "Open to Activity Book pages 55–56. (Nota: el libro tiene una errata que referencia páginas 47–48 aquí.)\nOpen Flip Chart page 35. Combinaciones va, ve, vi, vo, vu / vu, vo, va, ve, vi. Palabras de uso frecuente: \"rojos, mi, gusta\".\nOpen to Activity Book page 57. Preguntas de comprensión: ¿Qué se va? · ¿Dónde se lava las manos Vivi? · ¿Adónde va Vivi? · ¿Quién lava las mesas de patio? · ¿Qué pone mamá en las mesas? · ¿De qué color son los manteles? · ¿Qué mueve el viento? · ¿Qué otra cosa mueve el viento? · ¿Qué hace el papalote? · ¿Qué me gusta hacer a mí? · ¿Por qué Vivi y Valentín se escriben con letra mayúscula? · ¿Con qué letra empieza una oración? · ¿Qué signo de puntuación se pone al final de una oración?\nOpen to Activity Book page 58. Completar ejercicio.",
   "evaluationRef": {
     "page": 16,
-    "note": "Paso 7: Evaluación (5 minutos)\n[Icono de reloj] 5 minutos\nPedir a los estudiantes que escriban tres palabras que comiencen con la letra v en sus cuadernos.\nRevisar el trabajo de los estudiantes y proporcionar retroalimentación."
+    "note": "Evaluation: 16"
   },
   "rhyme": {
-    "title": null,
-    "text": null
+    "title": "missing-from-source",
+    "text": "missing-from-source"
   },
   "provenance": {
-    "source": "Provided by EJN via transcript prompt",
+    "source": "EJN's source-of-truth transcript",
     "verified": true
   }
 }

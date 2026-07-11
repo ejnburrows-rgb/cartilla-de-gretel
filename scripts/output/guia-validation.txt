@@ -1,8 +1,16 @@
 === Teacher's Guide JSON Schema Validation ===
 
-Validated 24 / 24 lessons successfully.
+Validated 16 / 24 lessons successfully.
 
-No schema errors found.
+Errors:
+lesson-17.json: JSON Parse Error
+lesson-18.json: JSON Parse Error
+lesson-19.json: JSON Parse Error
+lesson-20.json: JSON Parse Error
+lesson-21.json: JSON Parse Error
+lesson-22.json: JSON Parse Error
+lesson-23.json: JSON Parse Error
+lesson-24.json: JSON Parse Error
 
 Coverage Breakdown:
 ===================
