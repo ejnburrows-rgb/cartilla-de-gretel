@@ -4,6 +4,7 @@ import { useServerFn } from "@/lib/useServerFn";
 import { ArrowLeft, Loader2, LogOut, KeyRound } from "lucide-react";
 import { listClassStudents, enterClassAsStudent } from "@/lib/student.functions";
 import { setStudentSession, useStudentSession } from "@/lib/student-session";
+import { supabase } from "@/integrations/supabase/client";
 import { useLanguage } from "@/context/LanguageContext";
 import { LanguageToggle } from "@/components/LanguageToggle";
 import { sCopy } from "@/content/student-copy";
@@ -48,6 +49,7 @@ function JoinPage() {
     setBusy(true);
     setError(null);
     try {
+      await supabase.auth.signOut(); // Ensure no teacher session remains
       const res = await enterClass({ data: { joinCode, studentId } });
       setStudentSession(res);
       navigate({ to: "/cartilla/lecciones" });

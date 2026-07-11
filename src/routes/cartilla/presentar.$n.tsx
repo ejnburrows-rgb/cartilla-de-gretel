@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { createFileRoute, redirect, useNavigate } from "@tanstack/react-router";
 import { CATALOG, type CatalogEntry } from "@/lib/lesson-catalog";
+import { getStudentSession } from "@/lib/student-session";
 import { TeacherPresentationShell } from "@/components/cartilla/TeacherPresentationShell";
 import { FlipchartHdPanel } from "@/components/cartilla/FlipchartHdPanel";
 import { GardenScene } from "@/components/cartilla/GardenScene";
@@ -15,6 +16,9 @@ export const Route = createFileRoute("/cartilla/presentar/$n")({
     ],
   }),
   beforeLoad: ({ params }) => {
+    if (getStudentSession()) {
+      throw redirect({ to: "/cartilla/lecciones" });
+    }
     const n = Number(params.n);
     if (!Number.isFinite(n) || !CATALOG.find((e) => e.n === n)) {
       throw redirect({ to: "/cartilla/lecciones" });
