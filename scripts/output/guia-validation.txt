@@ -21,12 +21,30 @@ Lesson 12: TRANSCRIBED
 Lesson 13: TRANSCRIBED
 Lesson 14: TRANSCRIBED
 Lesson 15: TRANSCRIBED
-Lesson 16: PENDING
-Lesson 17: PENDING
-Lesson 18: PENDING
-Lesson 19: PENDING
-Lesson 20: PENDING
-Lesson 21: PENDING
-Lesson 22: PENDING
-Lesson 23: PENDING
-Lesson 24: PENDING
+Lesson 16: MISSING_CONTENT
+  -> Missing: Entire text (Objectives, Motivation, Script, Evaluation Note)
+  -> Paths Searched: docs/Transcripción Integral_ La cartilla de Gretel - Guía del profesor.txt, src/content/guides/lesson-*.tsx, src/data/**, teacher-folder-data.ts
+Lesson 17: MISSING_CONTENT
+  -> Missing: Entire text (Objectives, Motivation, Script, Evaluation Note)
+  -> Paths Searched: docs/Transcripción Integral_ La cartilla de Gretel - Guía del profesor.txt, src/content/guides/lesson-*.tsx, src/data/**, teacher-folder-data.ts
+Lesson 18: MISSING_CONTENT
+  -> Missing: Entire text (Objectives, Motivation, Script, Evaluation Note)
+  -> Paths Searched: docs/Transcripción Integral_ La cartilla de Gretel - Guía del profesor.txt, src/content/guides/lesson-*.tsx, src/data/**, teacher-folder-data.ts
+Lesson 19: MISSING_CONTENT
+  -> Missing: Entire text (Objectives, Motivation, Script, Evaluation Note)
+  -> Paths Searched: docs/Transcripción Integral_ La cartilla de Gretel - Guía del profesor.txt, src/content/guides/lesson-*.tsx, src/data/**, teacher-folder-data.ts
+Lesson 20: MISSING_CONTENT
+  -> Missing: Entire text (Objectives, Motivation, Script, Evaluation Note)
+  -> Paths Searched: docs/Transcripción Integral_ La cartilla de Gretel - Guía del profesor.txt, src/content/guides/lesson-*.tsx, src/data/**, teacher-folder-data.ts
+Lesson 21: MISSING_CONTENT
+  -> Missing: Entire text (Objectives, Motivation, Script, Evaluation Note)
+  -> Paths Searched: docs/Transcripción Integral_ La cartilla de Gretel - Guía del profesor.txt, src/content/guides/lesson-*.tsx, src/data/**, teacher-folder-data.ts
+Lesson 22: MISSING_CONTENT
+  -> Missing: Entire text (Objectives, Motivation, Script, Evaluation Note)
+  -> Paths Searched: docs/Transcripción Integral_ La cartilla de Gretel - Guía del profesor.txt, src/content/guides/lesson-*.tsx, src/data/**, teacher-folder-data.ts
+Lesson 23: MISSING_CONTENT
+  -> Missing: Entire text (Objectives, Motivation, Script, Evaluation Note)
+  -> Paths Searched: docs/Transcripción Integral_ La cartilla de Gretel - Guía del profesor.txt, src/content/guides/lesson-*.tsx, src/data/**, teacher-folder-data.ts
+Lesson 24: MISSING_CONTENT
+  -> Missing: Entire text (Objectives, Motivation, Script, Evaluation Note)
+  -> Paths Searched: docs/Transcripción Integral_ La cartilla de Gretel - Guía del profesor.txt, src/content/guides/lesson-*.tsx, src/data/**, teacher-folder-data.ts

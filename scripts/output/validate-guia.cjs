@@ -81,6 +81,10 @@ out += "===================\n";
 for (let i = 1; i <= 24; i++) {
   const st = manifest.lessons[i].status;
   out += `Lesson ${i}: ${st.toUpperCase()}\n`;
+  if (st === 'missing_content') {
+    out += '  -> Missing: Entire text (Objectives, Motivation, Script, Evaluation Note)\n';
+    out += '  -> Paths Searched: docs/Transcripción Integral_ La cartilla de Gretel - Guía del profesor.txt, src/content/guides/lesson-*.tsx, src/data/**, teacher-folder-data.ts\n';
+  }
 }
 
 fs.writeFileSync(outFile, out, 'utf8');

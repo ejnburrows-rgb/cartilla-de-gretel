@@ -63,39 +63,39 @@
     },
     "16": {
       "file": "lesson-16.json",
-      "status": "pending"
+      "status": "missing_content"
     },
     "17": {
       "file": "lesson-17.json",
-      "status": "pending"
+      "status": "missing_content"
     },
     "18": {
       "file": "lesson-18.json",
-      "status": "pending"
+      "status": "missing_content"
     },
     "19": {
       "file": "lesson-19.json",
-      "status": "pending"
+      "status": "missing_content"
     },
     "20": {
       "file": "lesson-20.json",
-      "status": "pending"
+      "status": "missing_content"
     },
     "21": {
       "file": "lesson-21.json",
-      "status": "pending"
+      "status": "missing_content"
     },
     "22": {
       "file": "lesson-22.json",
-      "status": "pending"
+      "status": "missing_content"
     },
     "23": {
       "file": "lesson-23.json",
-      "status": "pending"
+      "status": "missing_content"
     },
     "24": {
       "file": "lesson-24.json",
-      "status": "pending"
+      "status": "missing_content"
     }
   }
 }
