@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { storage } from "@/lib/storage";
+import { Sun, Moon } from "lucide-react";
 
 export type Theme = "light" | "dark";
 
@@ -36,9 +37,9 @@ export function ThemeToggle() {
     <button
       onClick={toggle}
       title={theme === "dark" ? "Modo claro" : "Modo oscuro"}
-      className="text-xs px-2 py-1 rounded-md border border-border hover:bg-muted"
+      className="p-2 rounded-full border border-border bg-background hover:bg-muted text-foreground transition-colors flex items-center justify-center tap-target shadow-sm"
     >
-      {theme === "dark" ? "☀" : "☾"}
+      {theme === "dark" ? <Sun size={20} className="text-yellow-400" /> : <Moon size={20} className="text-[hsl(var(--primary))]" />}
     </button>
   );
 }

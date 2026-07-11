@@ -1,0 +1,58 @@
+[
+  {
+    "lesson": "20",
+    "pageImage": "f-page-46.jpg",
+    "regionId": "p72-instr",
+    "before": "Encierra en un círculo la sílaba correspondiente.",
+    "after": "",
+    "doubt": "Instruction text is not present in the image."
+  },
+  {
+    "lesson": "20",
+    "pageImage": "f-page-47.jpg",
+    "regionId": "p73-instr",
+    "before": "Completa las palabras con la s\ufffdlaba correcta. Escribe oraciones con el nombre de cada figura. Usa las s\ufffdlabas que aprendiste.",
+    "after": "",
+    "doubt": "Instruction text is not present in the image."
+  },
+  {
+    "lesson": "20",
+    "pageImage": "f-page-48.jpg",
+    "regionId": "p74-syl1",
+    "before": "fa  fe  fi  fo  fu",
+    "after": "",
+    "doubt": "Text not found in this image."
+  },
+  {
+    "lesson": "20",
+    "pageImage": "f-page-48.jpg",
+    "regionId": "p74-syl2",
+    "before": "fu  fo  fi  fe  fa",
+    "after": "",
+    "doubt": "Text not found in this image."
+  },
+  {
+    "lesson": "20",
+    "pageImage": "f-page-48.jpg",
+    "regionId": "p74-words",
+    "before": "faro · fiesta · foca · fuente",
+    "after": "",
+    "doubt": "Text not found in this image."
+  },
+  {
+    "lesson": "20",
+    "pageImage": "f-page-49.jpg",
+    "regionId": "p75-instr1",
+    "before": "Traza con tu mejor letra.",
+    "after": "",
+    "doubt": "Text not found in this image."
+  },
+  {
+    "lesson": "20",
+    "pageImage": "f-page-49.jpg",
+    "regionId": "p75-instr2",
+    "before": "Haz un dibujo que represente una palabra que comienza con j.",
+    "after": "",
+    "doubt": "Text not found in this image."
+  }
+]

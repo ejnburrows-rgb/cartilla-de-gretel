@@ -1,0 +1,266 @@
+Hash: 7a75ca97e574183e7e62c4b2da99f732061ee504949a12c15700d1294f82d896
+  public/cartilla/images\gretel\poses\gretel-idle.webp
+  public/cartilla/images\gretel\poses\gretel-talk-0.webp
+
+Hash: c9cae39ba1dbfabc4942a9cba654d31e00d0bd9099d5e9bfb5401631e06fd707
+  public/cartilla/images\source\tmp-29.jpg
+  public/cartilla/images\source\ñ\ñ-page-29.jpg
+
+Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  public/cartilla/art\faithful\leccion-1\abeja.webp
+  public/cartilla/art\faithful\leccion-1\carro.webp
+  public/cartilla/art\faithful\leccion-1\casa.webp
+  public/cartilla/art\faithful\leccion-1\dulce.webp
+  public/cartilla/art\faithful\leccion-1\iglesia.webp
+  public/cartilla/art\faithful\leccion-1\libro.webp
+  public/cartilla/art\faithful\leccion-1\ojos.webp
+  public/cartilla/art\faithful\leccion-1\ola.webp
+  public/cartilla/art\faithful\leccion-1\oruga.webp
+  public/cartilla/art\faithful\leccion-1\pajaro.webp
+  public/cartilla/art\faithful\leccion-18-c\caballo.webp
+  public/cartilla/art\faithful\leccion-18-c\cama.webp
+  public/cartilla/art\faithful\leccion-19-ch\chaleco.webp
+  public/cartilla/art\faithful\leccion-19-ch\chile.webp
+  public/cartilla/art\faithful\leccion-20-f\familia.webp
+  public/cartilla/art\faithful\leccion-20-f\fila.webp
+  public/cartilla/art\faithful\leccion-21-y-ll\llanta.webp
+  public/cartilla/art\faithful\leccion-21-y-ll\llave.webp
+  public/cartilla/art\faithful\leccion-22-g-j\gato.webp
+  public/cartilla/art\faithful\leccion-22-g-j\gota.webp
+  public/cartilla/art\faithful\leccion-23-h-z\hielo.webp
+  public/cartilla/art\faithful\leccion-23-h-z\hoja.webp
+  public/cartilla/art\faithful\leccion-24-k-w-x\kiwi.webp
+  public/cartilla/art\faithful\leccion-24-k-w-x\koala.webp
+
+Hash: 3a872b5847520d4c8795bea3c81ed196ceacbb8c6792cdcbf17037da954e25b1
+  public/cartilla/art\hd\workbook\Flow_202606171952_10_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606181352_15_opt.png
+
+Hash: a69ddfeb619974ae72256c49a5f365bc01c5520991d600ce169c79d99a95e995
+  public/cartilla/art\hd\workbook\Flow_202606171952_11_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606181352_35_opt.png
+
+Hash: f4418f76e8136d48f6e84f77980f92d95c047d1e59e1847f92e128129d4bd8d5
+  public/cartilla/art\hd\workbook\Flow_202606171952_12_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606171952_18_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606181352_20_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606181352_8_opt.png
+
+Hash: efe53766aba4539d80366cb42f6ef1da2a80622f34ac3d1deffd638da9f2cb93
+  public/cartilla/art\hd\workbook\Flow_202606171952_13_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606171952_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606181352_22_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606181352_5_opt.png
+
+Hash: e39e413531bb6cf08015b5967766a11b9c96f98b1d64e7a2a988bfeaaf7b77e3
+  public/cartilla/art\hd\workbook\Flow_202606171952_14_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606171952_34_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606181352_16_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606181352_17_opt.png
+
+Hash: c1b1e8c2a7ebd2a2642177d7085aff0771a571ab44e9b5b1183a226df35f8bd2
+  public/cartilla/art\hd\workbook\Flow_202606171952_15_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606171952_9_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606181352_18_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606181352_34_opt.png
+
+Hash: cef7d7e92ad8bbca19c42eb70ed76f65c86f020c5e4f564b306217ce7a617786
+  public/cartilla/art\hd\workbook\Flow_202606171952_16_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606171952_17_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606181352_19_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606181352_4_opt.png
+
+Hash: 247310f53bd572ddea57ed98c5cb6f581cc2fe76db376445e14bd05ff1426bae
+  public/cartilla/art\hd\workbook\Flow_202606171952_19_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606171952_24_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606181352_12_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606181352_23_opt.png
+
+Hash: d00e0dfffc834d079dbd57af5c432c841281b39de93fb6856c1deb4d8f238a46
+  public/cartilla/art\hd\workbook\Flow_202606171952_20_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606181352_11_opt.png
+
+Hash: a2f8277509ee989887173cccfdc3482a7a517e49b82fde0f5baf9821ae7ef478
+  public/cartilla/art\hd\workbook\Flow_202606171952_21_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606181352_14_opt.png
+
+Hash: 6c492a9aafe5206512b367e6f016c09dde75adc82cc40b629dfc75ed4a441aa7
+  public/cartilla/art\hd\workbook\Flow_202606171952_22_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606171952_7_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606181352_6_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606181352_7_opt.png
+
+Hash: 062b442be44a62641965d2c5f834b5e92f5371f428eb0cc9ee3e7f0006708dac
+  public/cartilla/art\hd\workbook\Flow_202606171952_23_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606181352_21_opt.png
+
+Hash: b1b098771e6ce9e7015ff22c76d58c307857b4ce33de4f14c067250112c1c6b7
+  public/cartilla/art\hd\workbook\Flow_202606171952_25_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606181352_26_opt.png
+
+Hash: 2dee2239dead8904dfde9a0dd0d5a7dd6d8571208bc3b14b911fd1ae95e2574f
+  public/cartilla/art\hd\workbook\Flow_202606171952_26_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606181352_24_opt.png
+
+Hash: f1ab03b941763221344c9a33ee72bfcca0352346b0f1bd8ff562c480b31196b5
+  public/cartilla/art\hd\workbook\Flow_202606171952_27_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606171952_30_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606181352_27_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606181352_29_opt.png
+
+Hash: de600d6f1571c78bf1bd5e9ba718d54c06276b7f4aa58fb8b46407fd2fc61765
+  public/cartilla/art\hd\workbook\Flow_202606171952_28_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606171952_29_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606181352_28_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606181352_30_opt.png
+
+Hash: da8c1bb33fe845d58a2ef406044c5fa07c3a4002168992798f9aeff7e723e4e7
+  public/cartilla/art\hd\workbook\Flow_202606171952_2_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606171952_5_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606181352_13_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606181352_opt.png
+
+Hash: e31daa506120f31bf52745e4c5df0b163495dea300ec1e9fbf3de8cb78d4e772
+  public/cartilla/art\hd\workbook\Flow_202606171952_31_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606181352_31_opt.png
+
+Hash: 224bfba5ff1fe29d2dc71fa50d684bcf93e7528bdf6459a432d4ec68f4d2b883
+  public/cartilla/art\hd\workbook\Flow_202606171952_32_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606171952_33_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606181352_32_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606181352_33_opt.png
+
+Hash: 6187fd14f97c2bf23be5a3fbfb2eb51132a6dcc072b4b465151509d3135ba374
+  public/cartilla/art\hd\workbook\Flow_202606171952_35_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606181352_25_opt.png
+
+Hash: bbca295febc8d126b000210c48a63d7f6c1bba6c9ca080e5a2b4836cba79a6d3
+  public/cartilla/art\hd\workbook\Flow_202606171952_3_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606181352_3_opt.png
+
+Hash: de918b7450d4103cc8f44ec78b8974fe1505716ee70c7c3e5e4ca57336b8527c
+  public/cartilla/art\hd\workbook\Flow_202606171952_4_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606171952_8_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606181352_2_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606181352_9_opt.png
+
+Hash: 75284a07d305e45c91d54f3597436ea6b5654e43a673f6e02b00e9ec941554e1
+  public/cartilla/art\hd\workbook\Flow_202606171952_6_opt.png
+  public/cartilla/art\hd\workbook\Flow_202606181352_10_opt.png
+
+Hash: eed6e5e1634f9fc892f8e066649a9883ab3cd2426d3d3aa15e49a05e283b9c16
+  public/cartilla/art\illustrations\Flow_202606171952.jpeg
+  public/cartilla/art\illustrations\Flow_202606171952_13.jpeg
+  public/cartilla/art\illustrations\Flow_202606181352_22.jpeg
+  public/cartilla/art\illustrations\Flow_202606181352_5.jpeg
+
+Hash: 675aaed09f68cbd2577b1782d49ffb966cb0676185c870b1d8e424f228390ec1
+  public/cartilla/art\illustrations\Flow_202606171952_10.jpeg
+  public/cartilla/art\illustrations\Flow_202606181352_15.jpeg
+
+Hash: 555fa771fa985679cb2b6bd7b0a32bdf3a276397a8212b79320d42d64c7911cf
+  public/cartilla/art\illustrations\Flow_202606171952_11.jpeg
+  public/cartilla/art\illustrations\Flow_202606181352_35.jpeg
+
+Hash: e536f211da92ff5eb8f15546980b8c0b72be2986c939a124cc7dd7c726ffc137
+  public/cartilla/art\illustrations\Flow_202606171952_12.jpeg
+  public/cartilla/art\illustrations\Flow_202606171952_18.jpeg
+  public/cartilla/art\illustrations\Flow_202606181352_20.jpeg
+  public/cartilla/art\illustrations\Flow_202606181352_8.jpeg
+
+Hash: 38c8cdc4253df05601a44cde9b88242f9f6701c4d3f1d84b822d347432020634
+  public/cartilla/art\illustrations\Flow_202606171952_14.jpeg
+  public/cartilla/art\illustrations\Flow_202606171952_34.jpeg
+  public/cartilla/art\illustrations\Flow_202606181352_16.jpeg
+  public/cartilla/art\illustrations\Flow_202606181352_17.jpeg
+
+Hash: 10eebc02907a5e367c63af9ab216c999555b1987474210b3130418f30dc83a7c
+  public/cartilla/art\illustrations\Flow_202606171952_15.jpeg
+  public/cartilla/art\illustrations\Flow_202606171952_9.jpeg
+  public/cartilla/art\illustrations\Flow_202606181352_18.jpeg
+  public/cartilla/art\illustrations\Flow_202606181352_34.jpeg
+
+Hash: 2adbaba0b38658c50938012095dd41031ab3ce93cb0443f6c1c1caf245a95d22
+  public/cartilla/art\illustrations\Flow_202606171952_16.jpeg
+  public/cartilla/art\illustrations\Flow_202606171952_17.jpeg
+  public/cartilla/art\illustrations\Flow_202606181352_19.jpeg
+  public/cartilla/art\illustrations\Flow_202606181352_4.jpeg
+
+Hash: a76f1696f1b48ce0bdc2fdff6c846febd34f6ff0f2ad03fdb11af2d63c3a5984
+  public/cartilla/art\illustrations\Flow_202606171952_19.jpeg
+  public/cartilla/art\illustrations\Flow_202606171952_24.jpeg
+  public/cartilla/art\illustrations\Flow_202606181352_12.jpeg
+  public/cartilla/art\illustrations\Flow_202606181352_23.jpeg
+
+Hash: bc68f778b994393adf79e8a970ebde4d4dfd0022b5168fe26b60b435322e5e41
+  public/cartilla/art\illustrations\Flow_202606171952_2.jpeg
+  public/cartilla/art\illustrations\Flow_202606171952_5.jpeg
+  public/cartilla/art\illustrations\Flow_202606181352.jpeg
+  public/cartilla/art\illustrations\Flow_202606181352_13.jpeg
+
+Hash: a8293d5c599d0c494b813192c6e6b2374747c2efd3c93e9eee6ae6cece4d6df3
+  public/cartilla/art\illustrations\Flow_202606171952_20.jpeg
+  public/cartilla/art\illustrations\Flow_202606181352_11.jpeg
+
+Hash: dd9ac80ecb987d77d432c13d7a6845d2dbe94d9149141901fcef1dec829d52eb
+  public/cartilla/art\illustrations\Flow_202606171952_21.jpeg
+  public/cartilla/art\illustrations\Flow_202606181352_14.jpeg
+
+Hash: 7261399c13cdaa8ebe4d6579a1c9b965c13ae0342ca8c21b724a223a7d9d2012
+  public/cartilla/art\illustrations\Flow_202606171952_22.jpeg
+  public/cartilla/art\illustrations\Flow_202606171952_7.jpeg
+  public/cartilla/art\illustrations\Flow_202606181352_6.jpeg
+  public/cartilla/art\illustrations\Flow_202606181352_7.jpeg
+
+Hash: f9c4b4556239a6e2484aebeef7b4c5bb9183ca813694cd1e0a1d46ce785c5fdc
+  public/cartilla/art\illustrations\Flow_202606171952_23.jpeg
+  public/cartilla/art\illustrations\Flow_202606181352_21.jpeg
+
+Hash: d0dadfff042c2f32a7b1aec1982aa2004d2a12d91f232ce1512e13a017ebd128
+  public/cartilla/art\illustrations\Flow_202606171952_25.jpeg
+  public/cartilla/art\illustrations\Flow_202606181352_26.jpeg
+
+Hash: 1b1ef8e9374bfc3105b0367a51d9333d3de05a906dcd958e5f1617a028140830
+  public/cartilla/art\illustrations\Flow_202606171952_26.jpeg
+  public/cartilla/art\illustrations\Flow_202606181352_24.jpeg
+
+Hash: 1cd8722e0e04f87e40e8e682c6d4f8667e726267ae645ddd6665a34dd8d6a038
+  public/cartilla/art\illustrations\Flow_202606171952_27.jpeg
+  public/cartilla/art\illustrations\Flow_202606171952_30.jpeg
+  public/cartilla/art\illustrations\Flow_202606181352_27.jpeg
+  public/cartilla/art\illustrations\Flow_202606181352_29.jpeg
+
+Hash: 8646918654193d171c300c05e2da1d780aac928e52b8deb4611481c10bb8ae5c
+  public/cartilla/art\illustrations\Flow_202606171952_28.jpeg
+  public/cartilla/art\illustrations\Flow_202606171952_29.jpeg
+  public/cartilla/art\illustrations\Flow_202606181352_28.jpeg
+  public/cartilla/art\illustrations\Flow_202606181352_30.jpeg
+
+Hash: 899077c7d1ed278ab3bfbf96ef623ca1af3e7b5516cb8677bc0e315c74d8f5c2
+  public/cartilla/art\illustrations\Flow_202606171952_3.jpeg
+  public/cartilla/art\illustrations\Flow_202606181352_3.jpeg
+
+Hash: 86fa25e76d97ad55c3c21de3f07b1a3f613c36922f0421997e2a8d8dda97f498
+  public/cartilla/art\illustrations\Flow_202606171952_31.jpeg
+  public/cartilla/art\illustrations\Flow_202606181352_31.jpeg
+
+Hash: 5b78e1d68172c51e5f2a9766cc46942328ecffc55de7d7ade91c1fd89b17ea8c
+  public/cartilla/art\illustrations\Flow_202606171952_32.jpeg
+  public/cartilla/art\illustrations\Flow_202606171952_33.jpeg
+  public/cartilla/art\illustrations\Flow_202606181352_32.jpeg
+  public/cartilla/art\illustrations\Flow_202606181352_33.jpeg
+
+Hash: 4e3e5b6b4706faf80a5cad704ea3bf503168c3c44bad5377be06a5aa798d7997
+  public/cartilla/art\illustrations\Flow_202606171952_35.jpeg
+  public/cartilla/art\illustrations\Flow_202606181352_25.jpeg
+
+Hash: 977691c34dca04effe26582a2d945325cf5ac77a1885bb5ba2e2fcd410fe9042
+  public/cartilla/art\illustrations\Flow_202606171952_4.jpeg
+  public/cartilla/art\illustrations\Flow_202606171952_8.jpeg
+  public/cartilla/art\illustrations\Flow_202606181352_2.jpeg
+  public/cartilla/art\illustrations\Flow_202606181352_9.jpeg
+
+Hash: 4f807908068411164fde1a2c64c76802ffbf8417fe27458597382d3de116dfee
+  public/cartilla/art\illustrations\Flow_202606171952_6.jpeg
+  public/cartilla/art\illustrations\Flow_202606181352_10.jpeg
+

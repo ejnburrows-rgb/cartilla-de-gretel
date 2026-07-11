@@ -1,0 +1,98 @@
+[
+  {
+    "lesson": "12",
+    "pageImage": "n-page-25.jpg",
+    "regionId": "p43-instr1",
+    "before": "Traza con tu mejor letra.",
+    "after": "Missing from image. Image is the 'Nn' intro page containing syllables and vocabulary.",
+    "type": "mismatch"
+  },
+  {
+    "lesson": "12",
+    "pageImage": "n-page-25.jpg",
+    "regionId": "p43-instr2",
+    "before": "Haz un dibujo que represente una palabra que comienza con n.",
+    "after": "Missing from image.",
+    "type": "mismatch"
+  },
+  {
+    "lesson": "12",
+    "pageImage": "n-page-26.jpg",
+    "regionId": "p44-instr",
+    "before": "Encierra en un círculo la sílaba correspondiente.",
+    "after": "Missing from image. Image contains syllables, vocabulary, sight words, and reading sentences.",
+    "type": "mismatch"
+  },
+  {
+    "lesson": "12",
+    "pageImage": "n-page-27.jpg",
+    "regionId": "p45-instr",
+    "before": "Completa las palabras con la sílaba correcta. Escribe oraciones con el nombre de cada figura. Usa las sílabas que aprendiste.",
+    "after": "Missing from image. Image contains a reading poem titled '¡Nino nada!'.",
+    "type": "mismatch"
+  },
+  {
+    "lesson": "12",
+    "pageImage": "n-page-28.jpg",
+    "regionId": "p46-title",
+    "before": "Nn",
+    "after": "Missing from image. Image contains instructions 'Completa las palabras con la sílaba correcta.' and 'Escribe oraciones. Usa las sílabas que aprendiste.'",
+    "type": "mismatch"
+  },
+  {
+    "lesson": "13",
+    "pageImage": "ñ-page-28.jpg",
+    "regionId": "p47-instr1",
+    "before": "Traza con tu mejor letra.",
+    "after": "Missing from image. Image is the 'Ññ' intro page containing syllables and vocabulary.",
+    "type": "mismatch"
+  },
+  {
+    "lesson": "13",
+    "pageImage": "ñ-page-28.jpg",
+    "regionId": "p47-instr2",
+    "before": "Haz un dibujo que represente una palabra que comienza con ñ.",
+    "after": "Missing from image.",
+    "type": "mismatch"
+  },
+  {
+    "lesson": "13",
+    "pageImage": "ñ-page-29.jpg",
+    "regionId": "p48-instr",
+    "before": "Encierra en un círculo la sílaba correspondiente.",
+    "after": "Missing from image. Image contains syllables, vocabulary, and reading sentences.",
+    "type": "mismatch"
+  },
+  {
+    "lesson": "13",
+    "pageImage": "ñ-page-30.jpg",
+    "regionId": "p49-instr",
+    "before": "Completa las palabras con la sílaba correcta. Escribe oraciones con el nombre de cada figura. Usa las sílabas que aprendiste.",
+    "after": "Missing from image. Image contains a reading poem titled 'La niña sueña'.",
+    "type": "mismatch"
+  },
+  {
+    "lesson": "13",
+    "pageImage": "ñ-page-31.jpg",
+    "regionId": "p50-title",
+    "before": "Ññ",
+    "after": "Missing from image. Image contains instructions 'Completa las palabras con la sílaba correcta.' and 'Escribe oraciones. Usa las sílabas que aprendiste.'",
+    "type": "mismatch"
+  },
+  {
+    "lesson": "14",
+    "pageImage": "b-page-31.jpg",
+    "regionId": "p51-instr1",
+    "before": "Traza con tu mejor letra.",
+    "after": "Missing from image. Image is the 'Bb' intro page containing syllables and vocabulary.",
+    "type": "mismatch"
+  },
+  {
+    "lesson": "14",
+    "pageImage": "b-page-31.jpg",
+    "regionId": "p51-instr2",
+    "before": "Haz un dibujo que represente una palabra que comienza con b.",
+    "after": "Missing from image.",
+    "type": "mismatch"
+  }
+]

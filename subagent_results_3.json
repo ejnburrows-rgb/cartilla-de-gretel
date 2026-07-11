@@ -1,0 +1,146 @@
+[
+  {
+    "lesson": "10",
+    "pageImage": "t-page-18.jpg",
+    "regionId": "p32-instr",
+    "before": "Encierra en un círculo la sílaba correspondiente.",
+    "after": "",
+    "doubt": "Complete mismatch: Image shows the introductory lesson page for Tt (with syllables and images like taza, moto) rather than instructions."
+  },
+  {
+    "lesson": "10",
+    "pageImage": "t-page-19.jpg",
+    "regionId": "p33-instr",
+    "before": "Completa las palabras con la slaba correcta. Escribe oraciones con el nombre de cada figura. Usa las slabas que aprendiste.",
+    "after": "",
+    "doubt": "Complete mismatch: Image shows vocabulary lists and sentences for Tt, rather than instructions."
+  },
+  {
+    "lesson": "10",
+    "pageImage": "t-page-20.jpg",
+    "regionId": "p34-title",
+    "before": "Tt",
+    "after": "",
+    "doubt": "Complete mismatch: Image shows a reading story titled 'Tita', rather than the letter introduction."
+  },
+  {
+    "lesson": "10",
+    "pageImage": "t-page-20.jpg",
+    "regionId": "p34-syl1",
+    "before": "ta  te  ti  to  tu",
+    "after": "",
+    "doubt": "Mismatch due to page offset."
+  },
+  {
+    "lesson": "10",
+    "pageImage": "t-page-20.jpg",
+    "regionId": "p34-syl2",
+    "before": "tu  to  ti  te  ta",
+    "after": "",
+    "doubt": "Mismatch due to page offset."
+  },
+  {
+    "lesson": "10",
+    "pageImage": "t-page-20.jpg",
+    "regionId": "p34-words",
+    "before": "tapa · tomate · tina · tulipán",
+    "after": "",
+    "doubt": "Mismatch due to page offset."
+  },
+  {
+    "lesson": "11",
+    "pageImage": "d-page-19.jpg",
+    "regionId": "p35-instr1",
+    "before": "Traza con tu mejor letra.",
+    "after": "",
+    "doubt": "Complete mismatch: Image shows the introductory lesson page for Dd, not tracing instructions."
+  },
+  {
+    "lesson": "11",
+    "pageImage": "d-page-19.jpg",
+    "regionId": "p35-instr2",
+    "before": "Haz un dibujo que represente una palabra que comienza con d.",
+    "after": "",
+    "doubt": "Complete mismatch: Image shows the introductory lesson page for Dd."
+  },
+  {
+    "lesson": "11",
+    "pageImage": "d-page-20.jpg",
+    "regionId": "p36-instr",
+    "before": "Encierra en un círculo la sílaba correspondiente.",
+    "after": "",
+    "doubt": "Complete mismatch: Image shows vocabulary lists and sentences for Dd."
+  },
+  {
+    "lesson": "11",
+    "pageImage": "d-page-21.jpg",
+    "regionId": "p37-instr",
+    "before": "Completa las palabras con la slaba correcta. Escribe oraciones con el nombre de cada figura. Usa las slabas que aprendiste.",
+    "after": "",
+    "doubt": "Complete mismatch: Image shows a reading story 'Made y papá', not instructions."
+  },
+  {
+    "lesson": "11",
+    "pageImage": "d-page-22.jpg",
+    "regionId": "p38-title",
+    "before": "Dd",
+    "after": "Completa las palabras con la sílaba correcta.",
+    "doubt": "Complete mismatch: Image shows exercise instructions, but JSON expects letter introduction."
+  },
+  {
+    "lesson": "11",
+    "pageImage": "d-page-22.jpg",
+    "regionId": "p38-syl1",
+    "before": "da  de  di  do  du",
+    "after": "Escribe oraciones. Usa las sílabas que aprendiste.",
+    "doubt": "Mismatch due to page offset."
+  },
+  {
+    "lesson": "11",
+    "pageImage": "d-page-22.jpg",
+    "regionId": "p38-syl2",
+    "before": "du  do  di  de  da",
+    "after": "",
+    "doubt": "Mismatch due to page offset."
+  },
+  {
+    "lesson": "11",
+    "pageImage": "d-page-22.jpg",
+    "regionId": "p38-words",
+    "before": "dado · delfín · dona · ducha",
+    "after": "",
+    "doubt": "Mismatch due to page offset."
+  },
+  {
+    "lesson": "12",
+    "pageImage": "l-page-22.jpg",
+    "regionId": "p39-instr1",
+    "before": "Traza con tu mejor letra.",
+    "after": "",
+    "doubt": "Complete mismatch: Image shows the introductory lesson page for Ll, not tracing instructions."
+  },
+  {
+    "lesson": "12",
+    "pageImage": "l-page-22.jpg",
+    "regionId": "p39-instr2",
+    "before": "Haz un dibujo que represente una palabra que comienza con l.",
+    "after": "",
+    "doubt": "Complete mismatch: Image shows the introductory lesson page for Ll."
+  },
+  {
+    "lesson": "12",
+    "pageImage": "l-page-23.jpg",
+    "regionId": "p40-instr",
+    "before": "Encierra en un círculo la sílaba correspondiente.",
+    "after": "",
+    "doubt": "Complete mismatch: Image shows vocabulary lists and sentences for Ll."
+  },
+  {
+    "lesson": "12",
+    "pageImage": "l-page-24.jpg",
+    "regionId": "p41-instr",
+    "before": "Completa las palabras con la slaba correcta. Escribe oraciones con el nombre de cada figura. Usa las slabas que aprendiste.",
+    "after": "",
+    "doubt": "Complete mismatch: Image shows a reading story 'Leo lee', not instructions."
+  }
+]

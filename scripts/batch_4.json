@@ -1,0 +1,160 @@
+[
+  {
+    "lesson": 12,
+    "page_id": "42",
+    "image": "public\\cartilla\\images\\source\\l/l-page-25.jpg",
+    "regions": [
+      {
+        "id": "p42-title",
+        "text": "Ll"
+      },
+      {
+        "id": "p42-syl1",
+        "text": "la  le  li  lo  lu"
+      },
+      {
+        "id": "p42-syl2",
+        "text": "lu  lo  li  le  la"
+      },
+      {
+        "id": "p42-words",
+        "text": "luna \u00b7 lobo \u00b7 loro \u00b7 lupa"
+      }
+    ]
+  },
+  {
+    "lesson": 13,
+    "page_id": "43",
+    "image": "public\\cartilla\\images\\source\\n/n-page-25.jpg",
+    "regions": [
+      {
+        "id": "p43-instr1",
+        "text": "Traza con tu mejor letra."
+      },
+      {
+        "id": "p43-instr2",
+        "text": "Haz un dibujo que represente una palabra que comienza con n."
+      }
+    ]
+  },
+  {
+    "lesson": 13,
+    "page_id": "44",
+    "image": "public\\cartilla\\images\\source\\n/n-page-26.jpg",
+    "regions": [
+      {
+        "id": "p44-instr",
+        "text": "Encierra en un c\u00edrculo la s\u00edlaba correspondiente."
+      }
+    ]
+  },
+  {
+    "lesson": 13,
+    "page_id": "45",
+    "image": "public\\cartilla\\images\\source\\n/n-page-27.jpg",
+    "regions": [
+      {
+        "id": "p45-instr",
+        "text": "Completa las palabras con la s\ufffdlaba correcta. Escribe oraciones con el nombre de cada figura. Usa las s\ufffdlabas que aprendiste."
+      }
+    ]
+  },
+  {
+    "lesson": 13,
+    "page_id": "46",
+    "image": "public\\cartilla\\images\\source\\n/n-page-28.jpg",
+    "regions": [
+      {
+        "id": "p46-title",
+        "text": "Nn"
+      },
+      {
+        "id": "p46-syl1",
+        "text": "na  ne  ni  no  nu"
+      },
+      {
+        "id": "p46-syl2",
+        "text": "nu  no  ni  ne  na"
+      },
+      {
+        "id": "p46-words",
+        "text": "nariz \u00b7 nido \u00b7 nube \u00b7 nata"
+      }
+    ]
+  },
+  {
+    "lesson": 14,
+    "page_id": "47",
+    "image": "public\\cartilla\\images\\source\\\u00f1/\u00f1-page-28.jpg",
+    "regions": [
+      {
+        "id": "p47-instr1",
+        "text": "Traza con tu mejor letra."
+      },
+      {
+        "id": "p47-instr2",
+        "text": "Haz un dibujo que represente una palabra que comienza con \u00f1."
+      }
+    ]
+  },
+  {
+    "lesson": 14,
+    "page_id": "48",
+    "image": "public\\cartilla\\images\\source\\\u00f1/\u00f1-page-29.jpg",
+    "regions": [
+      {
+        "id": "p48-instr",
+        "text": "Encierra en un c\u00edrculo la s\u00edlaba correspondiente."
+      }
+    ]
+  },
+  {
+    "lesson": 14,
+    "page_id": "49",
+    "image": "public\\cartilla\\images\\source\\\u00f1/\u00f1-page-30.jpg",
+    "regions": [
+      {
+        "id": "p49-instr",
+        "text": "Completa las palabras con la s\ufffdlaba correcta. Escribe oraciones con el nombre de cada figura. Usa las s\ufffdlabas que aprendiste."
+      }
+    ]
+  },
+  {
+    "lesson": 14,
+    "page_id": "50",
+    "image": "public\\cartilla\\images\\source\\\u00f1/\u00f1-page-31.jpg",
+    "regions": [
+      {
+        "id": "p50-title",
+        "text": "\u00d1\u00f1"
+      },
+      {
+        "id": "p50-syl1",
+        "text": "\u00f1a  \u00f1e  \u00f1i  \u00f1o  \u00f1u"
+      },
+      {
+        "id": "p50-syl2",
+        "text": "\u00f1u  \u00f1o  \u00f1i  \u00f1e  \u00f1a"
+      },
+      {
+        "id": "p50-words",
+        "text": "pi\u00f1a \u00b7 mu\u00f1eca \u00b7 ni\u00f1o \u00b7 ara\u00f1a"
+      }
+    ]
+  },
+  {
+    "lesson": 15,
+    "page_id": "51",
+    "image": "public\\cartilla\\images\\source\\b/b-page-31.jpg",
+    "regions": [
+      {
+        "id": "p51-instr1",
+        "text": "Traza con tu mejor letra."
+      },
+      {
+        "id": "p51-instr2",
+        "text": "Haz un dibujo que represente una palabra que comienza con b."
+      }
+    ]
+  }
+]

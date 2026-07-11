@@ -1,0 +1,26 @@
+[
+  {
+    "lesson": "7",
+    "pageImage": "public\\cartilla\\images\\source\\m/m-page-8.jpg",
+    "regionId": "p19-instr1",
+    "before": "Traza con tu mejor letra.",
+    "after": "",
+    "doubt": "Mismatch: The referenced image is a vocabulary page ('ma me mi mo mu' and pictures like 'mamá'). It does not contain these tracing instructions."
+  },
+  {
+    "lesson": "7",
+    "pageImage": "public\\cartilla\\images\\source\\m/m-page-8.jpg",
+    "regionId": "p19-instr2",
+    "before": "Haz un dibujo que represente una palabra que comienza con m.",
+    "after": "",
+    "doubt": "Mismatch: The referenced image is a vocabulary page. It does not contain these drawing instructions."
+  },
+  {
+    "lesson": "7",
+    "pageImage": "public\\cartilla\\images\\source\\m/m-page-9.jpg",
+    "regionId": "p20-instr",
+    "before": "Encierra en un círculo la sílaba correspondiente.",
+    "after": "",
+    "doubt": "Mismatch: The referenced image is a reading page with sentences (e.g., 'Mi mamá me ama.'). It does not contain an instruction to circle syllables."
+  }
+]

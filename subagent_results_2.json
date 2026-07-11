@@ -1,0 +1,82 @@
+[
+  {
+    "lesson": "7",
+    "pageImage": "public/cartilla/images/source/m/m-page-10.jpg",
+    "regionId": "p21-instr",
+    "before": "Completa las palabras con la s\ufffdlaba correcta. Escribe oraciones con el nombre de cada figura. Usa las s\ufffdlabas que aprendiste.",
+    "after": "Mm Mi mam\u00e1 Mami me ama amo a mam\u00e1 \u00e1mame mami m\u00edmame m\u00e1s.",
+    "doubt": "Complete mismatch: Image shows a reading page, but JSON expects a word completion activity."
+  },
+  {
+    "lesson": "7",
+    "pageImage": "public/cartilla/images/source/m/m-page-11.jpg",
+    "regionId": "p22-title",
+    "before": "Mm",
+    "after": "Completa las palabras con la s\u00edlaba correcta.",
+    "doubt": "Complete mismatch: Image shows a word completion activity, but JSON expects a syllable introduction page."
+  },
+  {
+    "lesson": "8",
+    "pageImage": "public/cartilla/images/source/p/p-page-11.jpg",
+    "regionId": "p23-instr1",
+    "before": "Traza con tu mejor letra.",
+    "after": "Pp pa pe pi po pu pap\u00e1 pie Pepe puma pomo",
+    "doubt": "Complete mismatch: Image shows 'P' vocabulary, but JSON expects tracing activity."
+  },
+  {
+    "lesson": "8",
+    "pageImage": "public/cartilla/images/source/p/p-page-12.jpg",
+    "regionId": "p24-instr",
+    "before": "Encierra en un c\u00edrculo la s\u00edlaba correspondiente.",
+    "after": "Pp pa pe pi po pu pu po pa pe pi pap\u00e1 mapo Mapi...",
+    "doubt": "Complete mismatch: Image shows reading exercise, but JSON expects circling activity."
+  },
+  {
+    "lesson": "8",
+    "pageImage": "public/cartilla/images/source/p/p-page-13.jpg",
+    "regionId": "p25-instr",
+    "before": "Completa las palabras con la s\ufffdlaba correcta. Escribe oraciones con el nombre de cada figura. Usa las s\ufffdlabas que aprendiste.",
+    "after": "Pp Mi pap\u00e1 Yo amo a Pupi yo amo a pap\u00e1. Pipo me ama a m\u00ed y a mam\u00e1.",
+    "doubt": "Complete mismatch: Image shows a reading page, but JSON expects word completion activity."
+  },
+  {
+    "lesson": "8",
+    "pageImage": "public/cartilla/images/source/p/p-page-14.jpg",
+    "regionId": "p26-title",
+    "before": "Pp",
+    "after": "Lee. Elmo es ese oso. Ese oso es m\u00edo. Usa la masa, Ema. Susi, amasa la masa.",
+    "doubt": "Complete mismatch: Image shows sentences with M and S, but JSON expects 'Pp' vocabulary."
+  },
+  {
+    "lesson": "9",
+    "pageImage": "public/cartilla/images/source/ss/ss-page-14.jpg",
+    "regionId": "p27-instr1",
+    "before": "Traza con tu mejor letra.",
+    "after": "Escucha el sonido de la letra. Toca la letra. s s S S Susi oso sol sopa masa suma",
+    "doubt": "Complete mismatch: Image shows 'S' vocabulary, but JSON expects tracing activity."
+  },
+  {
+    "lesson": "9",
+    "pageImage": "public/cartilla/images/source/ss/ss-page-15.jpg",
+    "regionId": "p28-instr",
+    "before": "Encierra en un c\u00edrculo la s\u00edlaba correspondiente.",
+    "after": "Escucha y repite. sa se si so su as es is os us",
+    "doubt": "Complete mismatch: Image shows syllable repetition, but JSON expects circling activity."
+  },
+  {
+    "lesson": "9",
+    "pageImage": "public/cartilla/images/source/ss/ss-page-16.jpg",
+    "regionId": "p29-instr",
+    "before": "Completa las palabras con la s\ufffdlaba correcta. Escribe oraciones con el nombre de cada figura. Usa las s\ufffdlabas que aprendiste.",
+    "after": "Lee las s\u00edlabas. s sa su si se so m ma mu mi me mo p pa pu pi pe po",
+    "doubt": "Complete mismatch: Image shows reading syllables, but JSON expects word completion activity."
+  },
+  {
+    "lesson": "10",
+    "pageImage": "public/cartilla/images/source/t/t-page-17.jpg",
+    "regionId": "p31-instr1",
+    "before": "Traza con tu mejor letra.",
+    "after": "Escucha el sonido de la letra. Toca la letra. t t T T Tito tomates moto maleta topo pato",
+    "doubt": "Complete mismatch: Image shows 'T' vocabulary, but JSON expects tracing activity."
+  }
+]

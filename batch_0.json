@@ -1,0 +1,52 @@
+[
+  {
+    "page": "1",
+    "text": "Circula los dibujos de las palabras en cada línea horizontal que comienzan con el mismo sonido.",
+    "image": "public/cartilla/images/source\\vocales\\vocales-page-01.png"
+  },
+  {
+    "page": "2",
+    "text": "Circula el dibujo que comienza con la vocal del recuadro.",
+    "image": "public/cartilla/images/source\\vocales\\vocales-page-02.png"
+  },
+  {
+    "page": "3",
+    "text": "Traza una línea de la vocal al dibujo que le corresponde.",
+    "image": "public/cartilla/images/source\\vocales\\vocales-page-03.png"
+  },
+  {
+    "page": "4",
+    "text": "Marca con una x los dibujos que comienzan con O o.",
+    "image": "public/cartilla/images/source\\vocales\\vocales-page-04.png"
+  },
+  {
+    "page": "5",
+    "text": "Traza una línea desde la vocal Oo hasta el dibujo de la palabra que comienza con Oo.",
+    "image": "public/cartilla/images/source\\o\\o-page-5.jpg"
+  },
+  {
+    "page": "6",
+    "text": "Escribe con tu mejor letra.",
+    "image": "public/cartilla/images/source\\i\\i-page-6.jpg"
+  },
+  {
+    "page": "7",
+    "text": "Marca con una x los dibujos de las palabras que comienzan con A a.",
+    "image": "public/cartilla/images/source\\u\\u-page-7.jpg"
+  },
+  {
+    "page": "8",
+    "text": "Traza una línea desde la vocal Aa hasta el dibujo de la palabra que comienza con Aa.",
+    "image": "public/cartilla/images/source\\m\\m-page-8.jpg"
+  },
+  {
+    "page": "9",
+    "text": "Escribe con tu mejor letra.",
+    "image": "public/cartilla/images/source\\m\\m-page-9.jpg"
+  },
+  {
+    "page": "10",
+    "text": "Marca con una x los dibujos de las palabras que comienzan con E e.",
+    "image": "public/cartilla/images/source\\m\\m-page-10.jpg"
+  }
+]

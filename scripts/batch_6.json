@@ -1,0 +1,160 @@
+[
+  {
+    "lesson": 17,
+    "page_id": "62",
+    "image": "public\\cartilla\\images\\source\\r/r-page-39.jpg",
+    "regions": [
+      {
+        "id": "p62-title",
+        "text": "Rr"
+      },
+      {
+        "id": "p62-syl1",
+        "text": "ra  re  ri  ro  ru"
+      },
+      {
+        "id": "p62-syl2",
+        "text": "ru  ro  ri  re  ra"
+      },
+      {
+        "id": "p62-words",
+        "text": "rana \u00b7 rosa \u00b7 remo \u00b7 rueda"
+      }
+    ]
+  },
+  {
+    "lesson": 17,
+    "page_id": "63",
+    "image": "public\\cartilla\\images\\source\\r/r-page-40.jpg",
+    "regions": [
+      {
+        "id": "p63-instr1",
+        "text": "Traza con tu mejor letra."
+      },
+      {
+        "id": "p63-instr2",
+        "text": "Haz un dibujo que represente una palabra que comienza con rr."
+      }
+    ]
+  },
+  {
+    "lesson": 18,
+    "page_id": "64",
+    "image": "public\\cartilla\\images\\source\\rr/rr-page-40.jpg",
+    "regions": [
+      {
+        "id": "p64-instr",
+        "text": "Encierra en un c\u00edrculo la s\u00edlaba correspondiente."
+      }
+    ]
+  },
+  {
+    "lesson": 18,
+    "page_id": "65",
+    "image": "public\\cartilla\\images\\source\\rr/rr-page-41.jpg",
+    "regions": [
+      {
+        "id": "p65-instr",
+        "text": "Completa las palabras con la s\ufffdlaba correcta. Escribe oraciones con el nombre de cada figura. Usa las s\ufffdlabas que aprendiste."
+      }
+    ]
+  },
+  {
+    "lesson": 18,
+    "page_id": "66",
+    "image": "public\\cartilla\\images\\source\\rr/rr-page-42.jpg",
+    "regions": [
+      {
+        "id": "p66-title",
+        "text": "RRrr"
+      },
+      {
+        "id": "p66-syl1",
+        "text": "rra  rre  rri  rro  rru"
+      },
+      {
+        "id": "p66-syl2",
+        "text": "rru  rro  rri  rre  rra"
+      },
+      {
+        "id": "p66-words",
+        "text": "perro \u00b7 carro \u00b7 burro \u00b7 guitarra"
+      }
+    ]
+  },
+  {
+    "lesson": 18,
+    "page_id": "67",
+    "image": "public\\cartilla\\images\\source\\rr/rr-page-43.jpg",
+    "regions": [
+      {
+        "id": "p67-instr1",
+        "text": "Traza con tu mejor letra."
+      },
+      {
+        "id": "p67-instr2",
+        "text": "Haz un dibujo que represente una palabra que comienza con g."
+      }
+    ]
+  },
+  {
+    "lesson": 19,
+    "page_id": "68",
+    "image": "public\\cartilla\\images\\source\\g/g-page-43.jpg",
+    "regions": [
+      {
+        "id": "p68-instr",
+        "text": "Encierra en un c\u00edrculo la s\u00edlaba correspondiente."
+      }
+    ]
+  },
+  {
+    "lesson": 19,
+    "page_id": "69",
+    "image": "public\\cartilla\\images\\source\\g/g-page-44.jpg",
+    "regions": [
+      {
+        "id": "p69-instr",
+        "text": "Completa las palabras con la s\ufffdlaba correcta. Escribe oraciones con el nombre de cada figura. Usa las s\ufffdlabas que aprendiste."
+      }
+    ]
+  },
+  {
+    "lesson": 19,
+    "page_id": "70",
+    "image": "public\\cartilla\\images\\source\\g/g-page-45.jpg",
+    "regions": [
+      {
+        "id": "p70-title",
+        "text": "Gg"
+      },
+      {
+        "id": "p70-syl1",
+        "text": "ga  gue  gui  go  gu"
+      },
+      {
+        "id": "p70-syl2",
+        "text": "gu  go  gui  gue  ga"
+      },
+      {
+        "id": "p70-words",
+        "text": "gato \u00b7 galleta \u00b7 guitarra \u00b7 gusano"
+      }
+    ]
+  },
+  {
+    "lesson": 19,
+    "page_id": "71",
+    "image": "public\\cartilla\\images\\source\\g/g-page-46.jpg",
+    "regions": [
+      {
+        "id": "p71-instr1",
+        "text": "Traza con tu mejor letra."
+      },
+      {
+        "id": "p71-instr2",
+        "text": "Haz un dibujo que represente una palabra que comienza con f."
+      }
+    ]
+  }
+]

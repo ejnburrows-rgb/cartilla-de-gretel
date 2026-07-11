@@ -7,25 +7,83 @@ directly from the real JSON data files in this repo (`src/data/page-layouts.json
 memory. Where an earlier automated pass produced a different number, it was
 re-verified by hand and corrected here (see "Corrections" below).
 
+## Update — teacher "presentar" (present) mode was showing the wrong product
+
+Per the memorized canon (student workbook vs teacher flipchart are never
+mixed): `presentar.$n.tsx` (the teacher's classroom-presentation mode) was
+rendering `TeacherFlipChart.tsx`, which pulls from `FaithfulPageRenderer` —
+i.e. it was showing **reconstructed student workbook pages**, not the real
+teacher flipchart. Fixed: `presentar.$n.tsx` now renders `FlipchartHdPanel`,
+which sources from `teacher-flipchart.json` / `public/cartilla/art/hd/flipchart/`
+— the actual flipchart scans. `TeacherFlipChart.tsx` is deleted (it had no
+other consumers, confirmed by repo-wide search before deletion). Its 3-D
+`rotateX`/`perspective` flip animation is also gone — `FlipchartHdPanel` now
+uses a plain cross-fade, making it the genuinely "simplest static HD viewer"
+for teacher presentation, matching the file's own header comment ("No...
+3-D effects") which had been contradicted by its actual implementation
+until now.
+
+**New defect found while fixing this, NOT fixed (flagged only):** every
+source JPG in `public/cartilla/art/hd/flipchart/` (all 62 files, verified
+across lessons 1, 2, 7, 24) displays with wrong orientation — illustrations
+and text both read wrong. A CSS `rotate(180deg)` was tried as a display-layer
+stopgap: it visually straightened the illustrations, but the word-label text
+came out with reversed letter *order* ("oibni" instead of "indio") rather
+than a clean upside-down flip — meaning the real defect isn't a simple 180°
+rotation, and guessing further at a transform risks a "fix" that looks
+plausible on a couple of samples but is subtly wrong elsewhere. **The CSS
+workaround was reverted, not shipped.** This needs someone to open the
+actual source JPGs and determine the real transform needed (or re-export
+them correctly) — an art-pipeline task, not a UI task.
+
 ## Flagged discrepancies — read before acting on the mission brief
 
-1. **Page count: 90, not 92.** `src/data/page-inventory.json` tracks 90 total
-   student workbook pages across 24 lessons. No 92nd/91st page exists
-   anywhere in the repo's data. If you have a physical count of 92, the
-   missing 2 pages need to be identified from the source scans — tell me
-   which page numbers and I'll transcribe them.
-2. **`TeacherFlipbook.tsx` does not exist.** No file by that name is in the
-   repo. The real teacher flipchart/scan-viewing components are:
-   `TeacherFlipChart.tsx`, `FlipchartHdPanel.tsx`, `InteractiveFlipchartOverlay.tsx`
-   (all in `src/components/cartilla/`). Tell me which of these — or all three
-   — you mean to keep as the reference-only projection viewer before I
-   delete anything under that name.
+1. **Page count — per canon, NOT a magic number.** Completion = 100% of
+   *content* pages; blank/filler pages are logged SKIPPED-BLANK, not counted
+   as gaps (see CLAUDE.md "CANON FACTS"). Current state:
+   - **No source PDF exists in the repo** (searched tracked + untracked; no
+     `*.pdf` anywhere; `public/book/` does not exist). The PDF-diff the owner
+     ordered cannot run until the PDF is added to the repo, or the owner
+     supplies the canonical content-page list.
+   - Repo data is internally inconsistent: `page-layouts.json` has **90** page
+     entries and `page-inventory.json` `totalPages`=**90**, but that file's
+     per-lesson page arrays sum to **91** — because **L15 (Consonante B)
+     lists 5 pages while every other consonant lists 4**. This lives in the
+     CONTENT agent's lane (`page-inventory.json`); flagged here for that
+     agent to confirm/fix, not edited by the UI lane.
+2. **`TeacherFlipbook.tsx` does not exist.** The real flip components (all in
+   `src/components/cartilla/`), one line each:
+   - `TeacherFlipChart.tsx` — page-flip/3D-rotate animation viewer, renders
+     `FaithfulPageRenderer`; the ONLY one actually wired (into
+     `presentar.$n.tsx`, teacher lane).
+   - `FlipchartHdPanel.tsx` — HD scan-image viewer, also animated; UNUSED.
+   - `InteractiveFlipchartOverlay.tsx` — hotspot/speak overlay; UNUSED.
+   - `StudentWorkbookFlip.tsx` — student-lane page-flip book; wired into
+     `leccion.$n.tsx` + `buildPageArray.tsx` (the approved student deletion).
+   Per the two-products canon, the teacher flipchart is a legitimate teacher
+   presentation tool (keep it, teacher lane). These deletions are COUPLED to
+   the module-flow rebuild (can't delete `StudentWorkbookFlip` until
+   `leccion.$n.tsx` renders the new native flow; can't delete
+   `TeacherFlipChart` without rewiring `presentar.$n.tsx`), so they are
+   deferred out of the tracing PR — see the flipchart open question at the
+   bottom of this file.
 3. **Corrections to an earlier automated pass**: an initial audit reported
-   "772 illustration slots, 285 filled (36.9%)" — this was wrong (it appears
-   to have counted all `caption`/text fields, not actual illustration
-   slots). Direct recount: **155 real illustration slots, 138 filled (89%)**.
-   Trust the numbers in this document; they were computed twice with two
-   independently-written scripts that now agree.
+   "772 illustration slots, 285 filled (36.9%)" — this was wrong (it counted
+   all `caption`/text fields, not actual illustration slots). Direct recount:
+   **155 real illustration slots, 138 filled (89%)**.
+
+   **Recount method (reproducible):** an illustration slot is any object that
+   can hold an `illustrationSrc`, reached through exactly three paths in
+   `page-layouts.json` `pages[*].regions[*]` — mirroring what
+   `FaithfulPageRenderer.tsx` actually renders:
+   (a) a region whose `regionType === "illustration-slot"` (the region
+   itself), (b) each entry in a region's `cells[]` array (picture-grid,
+   vowel-line-match), (c) each `cell` in a region's `vowelRows[*].cells[]`
+   (vowel-pick-one). A slot counts as "filled" when its `illustrationSrc` is
+   truthy. Counting only these three paths yields 155 total / 138 filled.
+   Counting every object with a `caption` field instead (the earlier error)
+   inflates the denominator with text-only captions. Both an independent
+   Python walk and a JS walk over the same paths agree on 155/138.
 
 ## Sources of truth used for this audit
 - `src/data/page-layouts.json` — per-page extracted text + region data (90/90 pages present)
@@ -71,24 +129,32 @@ re-verified by hand and corrected here (see "Corrections" below).
 | 4 | Vocal E | 10-12 | 3/3 | 22/24 (92%) | 4/4 | MOSTLY DONE |
 | 5 | Vocal I | 13-15 | 3/3 | 21/24 (88%) | 4/4 | MOSTLY DONE |
 | 6 | Vocal U | 16-18 | 3/3 | 17/24 (71%) | 3/4 | MOSTLY DONE |
-| 7 | Consonante M | 19-22 | 4/4 | n/a (no picture-grid on these pages) | 2/4 | TEXT DONE, vocab art PARTIAL |
-| 8 | Consonante P | 23-26 | 4/4 | n/a | 1/4 | TEXT DONE, vocab art PARTIAL |
-| 9 | Consonante S | 27-30 | 4/4 | n/a | 2/4 | TEXT DONE, vocab art PARTIAL |
-| 10 | Consonante T | 31-34 | 4/4 | n/a | 0/4 | TEXT DONE, vocab art MISSING |
-| 11 | Consonante D | 35-38 | 4/4 | n/a | 1/4 | TEXT DONE, vocab art PARTIAL |
-| 12 | Consonante L | 39-42 | 4/4 | n/a | 1/4 | TEXT DONE, vocab art PARTIAL |
-| 13 | Consonante N | 43-46 | 4/4 | n/a | 0/4 | TEXT DONE, vocab art MISSING |
-| 14 | Consonante Ñ | 47-50 | 4/4 | n/a | 1/4 | TEXT DONE, vocab art PARTIAL |
-| 15 | Consonante B | 51-54 | 4/4 | n/a | 2/4 | TEXT DONE, vocab art PARTIAL |
-| 16 | Consonante V | 55-58 | 4/4 | n/a | 1/4 | TEXT DONE, vocab art PARTIAL |
+| 7 | Consonante M | 19-22 | 4/4 | n/a (no picture-grid on these pages) | 2/4 | TEXT DONE, art done (2 of 4 words genuinely have no illustration in this book) |
+| 8 | Consonante P | 23-26 | 4/4 | n/a | 1/4 | TEXT DONE, art done (pino/pulpo confirmed absent from book) |
+| 9 | Consonante S | 27-30 | 4/4 | n/a | 2/4 | TEXT DONE, art done (sol/silla confirmed absent from book) |
+| 10 | Consonante T | 31-34 | 4/4 | n/a | 0/4 | TEXT DONE, art done — all 4 words (tapa/tomate/tina/tulipán) confirmed absent, no picture-grid at all in this lesson |
+| 11 | Consonante D | 35-38 | 4/4 | n/a | 1/4 | TEXT DONE, art done (dona/ducha/delfín confirmed absent) |
+| 12 | Consonante L | 39-42 | 4/4 | n/a | 0/4 | TEXT DONE, art done — all 4 words (lobo/loro/lupa/luna) confirmed absent |
+| 13 | Consonante N | 43-46 | 4/4 | n/a | 1/4 | TEXT DONE, art done (nariz/nube/nata confirmed absent) |
+| 14 | Consonante Ñ | 47-50 | 4/4 | n/a | 0/4 | TEXT DONE, art done — all 4 words (piña/muñeca/niño confirmed absent) |
+| 15 | Consonante B | 51-54 | 4/4 | n/a | 2/4 | TEXT DONE, art done (barco/bici confirmed absent) |
+| 16 | Consonante V | 55-58 | 4/4 | n/a | 0/4 | TEXT DONE, art done — all 4 words (vaca/vino/volcán confirmed absent) |
 | 17 | Consonante R | 59-62 | 4/4 | n/a | 4/4 | DONE |
 | 18 | Consonante rr | 63-66 | 4/4 | n/a | 4/4 | DONE |
 | 19 | Consonante G | 67-70 | 4/4 | n/a | 4/4 | DONE |
-| 20 | Consonante F | 71-74 | 4/4 | n/a | 4/4 | DONE |
-| 21 | Consonante J | 75-78 | 4/4 | n/a | 0/4 | TEXT DONE, vocab art MISSING |
-| 22 | Consonante C | 79-82 | 4/4 | n/a | 1/4 | TEXT DONE, vocab art PARTIAL |
-| 23 | Consonante Y | 83-86 | 4/4 | n/a | 0/4 | TEXT DONE, vocab art MISSING |
-| 24 | Consonante Z | 87-90 | 4/4 | n/a | 0/4 | TEXT DONE, vocab art MISSING |
+| 20 | Consonante F | 71-74 | 4/4 | n/a | 3/4 | TEXT DONE, art done (foca confirmed absent) |
+| 21 | Consonante J | 75-78 | 4/4 | n/a | 0/4 | TEXT DONE, vocab art not yet audited (jabón/jirafa/joya/juguete) |
+| 22 | Consonante C | 79-82 | 4/4 | n/a | 1/4 | TEXT DONE, art done (casa fixed this session; queso/coco/cuchara not yet audited) |
+| 23 | Consonante Y | 83-86 | 4/4 | n/a | 2/4 | TEXT DONE, art done (yate/yoyo fixed this session; yegua confirmed absent) |
+| 24 | Consonante Z | 87-90 | 4/4 | n/a | 1/4 | TEXT DONE, art done (zapato fixed this session; zanahoria confirmed absent; cine not yet audited) |
+
+**Note on "art done" above**: means every word in that lesson has either a
+real verified crop or a confirmed-absent finding (checked page-by-page against
+the source scans) — not that every word has a picture. The book itself
+doesn't illustrate every vocab word; showing the honest "art pending"
+placeholder for a genuinely-absent word is the correct, complete state, not
+a gap. J lesson (jabón/jirafa/joya/juguete) has not yet been individually
+page-audited — that is the one real remaining unknown.
 
 ## Per-lesson table — teacher guide side
 
@@ -109,18 +175,70 @@ re-verified by hand and corrected here (see "Corrections" below).
 | vowel-match-all | Yes | Yes | n/a |
 | syllable-match | Yes | Yes | n/a |
 | fill-in-blank | Yes | Yes | n/a |
-| **writing-line / tracing** | Yes (visual only) | **No** | **No — this is currently just a static line/box, no drag/stroke tracing mechanic exists anywhere in the app** |
+| **writing-line / tracing (workbook page)** | Yes (visual only) | **No** | **Not wired into the workbook** — `writing-line` regions render a static line in `FaithfulPageRenderer.tsx` |
+| letter tracing (games section) | **Yes — real stroke engine** | **Yes** | **Yes** — `DragLetterTrace.tsx` (see correction below) |
 | draw-box | Yes (visual only) | No | No |
 
-**This is the single biggest functional gap against your brief**: real tracing
-(a child dragging their finger/stylus to trace a letter) does not exist yet
-anywhere in the codebase. Every other required interaction type (drag-and-drop
-matching, fill-in-blank, tap-to-select) is already built and working.
+**CORRECTION (supersedes an earlier draft of this file):** an earlier version
+of this SPEC said "real tracing has zero implementation anywhere in the app."
+That was WRONG. A real stroke-grading trace engine already exists:
+`src/components/cartilla/DragLetterTrace.tsx` (401 lines). It uses per-letter
+checkpoint templates in a 100×120 viewport; the pointer must reach each
+checkpoint **in stroke order** within a distance tolerance (`dist < 15`) to
+advance, stroke by stroke; it reports completion via `recordEvent`. This is
+genuine stroke-following, **not** tap-to-complete. It is currently wired only
+into `ActivityCarousel.tsx` (the games section), not into the student
+workbook.
+
+The real, narrower gaps (what Phase 2 tracing work actually addresses):
+1. The engine is not wired into the student workbook `writing-line` region.
+2. Grading is loose: it only checks proximity to the *next* checkpoint, not
+   off-path wandering *between* checkpoints, and it always records `score: 1`
+   (a trace can't be failed/partial). Needs an off-path deviation check and a
+   real score to meet the "stroke follows the path within tolerance" bar.
+3. Letter templates cover only a subset; missing letters fall back to `A`
+   (`LETTER_TEMPLATES[letter] || LETTER_TEMPLATES.A`). Templates must exist
+   for every letter the workbook writing-line regions request.
+
+**Phase-2 tracing progress — batch rollout complete, all 24 lessons
+(`feat/elearning-crm-ui`), no pilot sign-off gate per owner's July 2026
+"finish the entire project" directive:**
+- Real path-graded tracing is wired into the student workbook `writing-line`
+  region for every lesson (`WorkbookLetterTrace.tsx` + shared
+  `letter-stroke-templates.ts`). Grading enforces path-following: off-path
+  excursions are penalised (each lowers the score) and the letter can only
+  complete by passing every checkpoint in order.
+- The "trace it again" second practice line (previously always static, no
+  `modelText` of its own) now inherits its letter from the preceding
+  writing-line sibling, so both repetitions of every letter are traceable,
+  not just the first — doubling real practice on every lesson.
+- **Lowercase safety fix**: `getLetterTemplate` no longer blindly reuses the
+  uppercase shape for lowercase input. It only does so for the 6 letters
+  where the lowercase print-manuscript form is genuinely the same shape as
+  uppercase (O/o, U/u, C/c, S/s, V/v, Z/z). Every other lowercase letter in
+  this workbook's alphabet (a, e, i, m, p, t, d, l, n, b, r, g, f, j, y) —
+  whose lowercase shape is NOT a scaled copy of its uppercase — correctly
+  falls back to the static ruled line rather than trace a guessed shape.
+  Verified in-browser: the Vocal A page traces its uppercase A pair and
+  shows the lowercase a pair as static (1:1 ratio); the Vocal O page traces
+  all four (both cases, since O/o share topology).
+- **RR and Ñ have no template** (digraph / diacritic — genuinely ambiguous
+  as a single stroke path). Correctly fall back to the static ruled line;
+  flagged rather than guessed.
+- **Remaining, real gap**: dedicated lowercase stroke templates for the 15
+  letters above (a, e, i, m, p, t, d, l, n, b, r, g, f, j, y) don't exist yet.
+  Building them requires real print-manuscript letterform reference (e.g. a
+  standard early-literacy handwriting guide), not invented from memory —
+  flagged here rather than guessed at. Until they exist, those lowercase
+  practice lines are static (same as before this PR), which is honest, not
+  a regression.
 
 ## What Phase 2 actually needs, in priority order
 
-1. **Real tracing mechanic** — the one interaction type with zero
-   implementation. Needs a canvas/SVG stroke-tracking component.
+1. ~~Real tracing mechanic in the workbook~~ — **DONE**, all 24 lessons,
+   uppercase + the 6 same-shape lowercase letters. Remaining: dedicated
+   lowercase templates for the other 15 letters (needs a real handwriting
+   reference, not guessed).
 2. **17 remaining vowel/intro illustration slots** + **43 remaining consonant
    vocab-card illustrations** — art-extraction work, same pipeline already
    proven this session (Antigravity crops, I verify + wire).
@@ -131,16 +249,661 @@ matching, fill-in-blank, tap-to-select) is already built and working.
 4. **23 of 24 teacher guides need real vocab lists + assessment scripts**
    written (only Lección 1 has them); **5 guides (V,R,rr,G,F) need
    everything** written from scratch.
-5. **The two-file deletion + module-flow rebuild** (`StudentWorkbookFlip.tsx`,
-   and whichever teacher flip component you confirm) — this is the biggest
-   single architecture change: replacing the current page-based rendering
-   with the 3-step (Learn → Practice → Exercises) native module flow for
-   `leccion.$n.tsx`. Recommend piloting on Lección 1 only first, matching
-   the "pilot before batch" discipline already used successfully for the
-   original digitization — not attempting all 24 lessons at once.
+5. ~~The two-file deletion + module-flow rebuild~~ — **DONE.** Both
+   mission-approved deletions are complete: `TeacherFlipChart.tsx` (deleted
+   earlier this session; `presentar.$n.tsx` rewired onto `FlipchartHdPanel.tsx`,
+   its own 3D flip stripped to a plain cross-fade) and `StudentWorkbookFlip.tsx`
+   (deleted this batch). `leccion.$n.tsx` now renders a real 3-step tab flow
+   (Aprende la Letra / Práctica de Lectura / Ejercicios Interactivos) for
+   every lesson, not just a pilot. The "Aprende" and "Ejercicios" steps
+   turned out to be ~80% already built: `IntroBody`/`VowelBody`/`ConsonantBody`
+   existed in the prior file but were dead code (defined, never rendered) —
+   confirmed via grep before reuse, not rebuilt from scratch. "Práctica" uses
+   a new `SimplePageViewer.tsx` (plain instant page-swap, same
+   `aspectRatio`-driven sizing as the old flip-book, no 3D animation) in place
+   of the deleted component. Verified: `pnpm typecheck` + `pnpm build` clean;
+   in-browser click-through of all 3 tabs on Lección 1 (the only lesson
+   reachable at 0/24 progress under the app's existing Duolingo-style lesson
+   lock — confirmed pre-existing and unrelated to this change) with zero
+   console errors; tracing re-confirmed still functional through the new
+   viewer. One deliberate scope decision, not requested by the mission brief
+   and worth flagging: "Práctica" still renders pages inside the
+   aspect-ratio-locked `FaithfulPageRenderer`/`PageFrame` frame (not fully
+   "uncoupled from any paper aspect ratio" as the brief's language suggested)
+   — full decoupling would mean rebuilding the page-frame system that the
+   verified tracing/grading/picture-grid functionality depends on, for a
+   stylistic preference that wasn't blocking real value. Flagged here rather
+   than silently decided.
+
+## Update — teacher guides: real Notion source found + a real routing bug fixed
+
+Earlier revisions of this SPEC said "23 of 24 teacher guides need real
+vocab/assessment content from the owner's canonical Notion text" as a
+blocker. That was **incomplete** — the canonical source (*La cartilla de
+Gretel: Guía del profesor* by Leonor Lopetegui, transcribed in Notion)
+already exists and is directly queryable via the Notion connector. Checked
+directly this pass:
+
+- **Lessons 1–16**: real transcribed content exists (objectives, motivation
+  questions, comprehension questions, sight words, rhyme titles, evaluation
+  page references). Rewrote all 15 guide files (`lesson-2.tsx` through
+  `lesson-16.tsx`) from this real source, replacing the previous
+  partial-English/stub content. Also fixed `lesson-1.tsx`'s poem — it had a
+  **fabricated** couplet ("A, E, I, O, U / las hermanitas vocales eres tú")
+  that does not appear anywhere in the real source; replaced with the real
+  "Cinco hermanitas" verse.
+- **Known, honestly-flagged gaps within 1–16** (Notion's own transcription
+  callouts, not guessed by me): Lección 7 pages 20–21, Lección 9's rhyme +
+  reinforcement/evaluation/enrichment, Lección 13 page 44, and everything
+  after Lección 16's rhyme intro. Each shows an explicit amber gap-note in
+  the UI rather than inventing the missing text.
+- **Lessons 17–24: genuinely blocked, confirmed by direct inspection.**
+  Their Notion subpages (Teacher Presentation Book — Images) exist as
+  placeholders only — opened one directly, it is blank, no scan uploaded.
+  This is a real, external blocker (scans need to be added to Notion first),
+  not something to invent around.
+
+**Separately found and fixed, a real bug, not a content gap**: the teacher
+guide route (`teacher/guia.$n.tsx`) used `import.meta.glob("../../../content/guides/lesson-*.tsx")`
+(a relative pattern) to eagerly import guide components, then looked them up
+by an absolute-style key (`/src/content/guides/lesson-${n}.tsx`). The two
+key formats never matched — **every single lesson's guide, including
+Lección 1's "fully real" one, has been unreachable through the live teacher
+route this entire time**, always falling through to the "Archivo HTML
+Pendiente" placeholder. Verified before and after in a real browser (with
+progress unlocked via localStorage to reach lessons past 1). Fixed by
+rooting the glob pattern at `/src/content/guides/lesson-*.tsx` to match the
+existing lookup key exactly.
+
+**Also fixed**: `BookFaithfulOverlay.tsx` (the component that displays sight
+words / mini-story / intentionally-empty notes per lesson, sourced from
+`src/data/lessons.json`) was fully built and correct but **never mounted
+anywhere** — dead code, confirmed via repo-wide grep. Wired it into
+`leccion.$n.tsx` right beneath the lesson title, exactly where its own
+header comment said it belonged. Also corrected its "empty palabras" note
+text to the exact string Notion's source specifies
+("— intencionalmente vacío —") instead of a paraphrase. Verified in-browser:
+Lección 17 shows its real sight word ("bien") and mini-story note; Lección
+16 (one of the 7 lessons with an intentionally empty sight-word box) shows
+"— intencionalmente vacío —", not blank silence.
+
+Verified: `pnpm typecheck` + `pnpm build` clean; teacher guide route checked
+for lessons 1, 2, 9, 16 (real content renders, gap notes show correctly);
+student lesson view checked for lessons 1, 16, 17 (overlay renders
+correctly in both the sight-words and intentionally-empty cases).
+
+## Update — codebase-wide sweep for the "built but never wired in" bug pattern
+
+Given the guide-route and overlay bugs found this session were both the same
+class of defect (real code, zero consumers), ran a dedicated reachability
+sweep of every `src/components/**` file against every route. Findings:
+
+- **Fixed**: `SkipLink.tsx` (a11y "skip to main content" link) was fully
+  built but never mounted, **and** depended on a dead `ThemeProvider`/
+  `useTheme()` context that is never mounted anywhere either — wiring it in
+  as-is would have crashed at runtime. Repointed it at the app's real,
+  working `useLanguage()` context instead (same `{ lang: "es"|"en" }`
+  shape), then mounted it in `__root.tsx` with a matching `#main-content`
+  landing target. Verified in-browser: it's now the very first tab-stop on
+  the page with the correct `href="#main-content"`, and no layout
+  regression (the wrapper is an unconstrained block `div`, not a
+  height-constrained one — doesn't trigger the documented aspect-ratio
+  scrollbar bug).
+- **NOT touched, flagged for awareness only** — a large amount of orphaned,
+  parallel code that is a product/scope question, not a bug to silently
+  fix or delete (hard rule: never delete, never refactor unless asked):
+  - A fully-built first-run tutorial/spotlight system
+    (`components/tutorial/*`, `content/onboarding-copy.ts`) — never shown
+    to any user. Enabling it changes first-run UX for every student; a real
+    product decision, not a wiring oversight.
+  - An entire second `ThemeProvider`/dark-light theming system
+    (`components/theme/*`, `hooks/useTheme.ts`) — separate from and
+    unrelated to the app's actual dark-mode toggle (`ThemeToggle.tsx`, its
+    own local `useTheme`). Never mounted; its only 3 consumers are
+    themselves all unreached.
+  - Several complete alternate subsystems that appear superseded, not
+    accidentally orphaned: an alternate Gretel mascot implementation
+    (`components/gretel/Gretel{Avatar,Celebration,Feedback,Guide,Idle,
+    Reaction,SpeechBubble,Stage}.tsx`), an unused illustration/pose library
+    (`components/art/*` minus `PageBackground`/`SparkleField`, which ARE
+    used), a micro-interaction library (`components/feel/*`), unused perf
+    utilities (`components/perf/*` — the live app uses
+    `FlipErrorBoundary.tsx` instead), and a deprecated interactive-workbook
+    rendering path under `components/cartilla/` (its live replacement,
+    `PdfPage.tsx`, has its own comment confirming this: "the scanned art is
+    the source of truth... WorkbookPageRenderer is not used").
+  - The entire generic `components/ui/*` shadcn primitive set (~40 files) —
+    likely unused scaffolding from initial setup, not a bug.
+  These are listed here as a map for later triage, not acted on — deciding
+  whether any of this should be deleted, revived, or left alone is a real
+  call for you to make, not mine to guess at.
+
+Verified: `pnpm typecheck` + `pnpm build` clean; skip-link behavior
+confirmed in a real browser (tab order, href, no layout regression).
+
+## Update — owner-directed repaint: green/cream palette + real page-turn animations restored
+
+Owner explicitly confirmed two direction changes after I flagged them as
+conflicting with earlier decisions (asked directly, not assumed):
+1. **Palette**: green/cream replaces the book-faithful teal/white palette
+   across all 90 pages (not just chrome).
+2. **Page rotation**: real 3-D page-turn animation restored — horizontal
+   (left-hinged) for the student workbook, vertical (top-hinged) for the
+   teacher flip chart — reversing the earlier "simplest static, no flip"
+   decision from this session.
+
+**Palette**: updated the 6 `--book-*` CSS custom properties in
+`styles.css` (kept the variable names to avoid touching dozens of
+consumers; only the color values changed) — teal → garden green (#5fa777 /
+#3d7a5c), white → warm cream (#fbf3e0), plus warmed the ink/ink-soft tones
+to match. Also found and fixed **11 hardcoded `rgba(63,169,166,…)` /
+`rgba(47,139,136,…)` literals in `faithful-page.css`** that duplicated the
+old teal as raw RGB instead of referencing the CSS variable — these would
+NOT have picked up the palette change otherwise, silently leaving stray
+teal borders/shadows on an otherwise-green page. Left the decorative
+garden-scene dragonfly's teal wings untouched — that's ambient background
+chrome, not book-page content, and a teal dragonfly against a green garden
+is a natural pairing, not a leftover.
+
+**Page rotation**: restored `SimplePageViewer.tsx`'s real horizontal 3-D
+flip by reusing the exact technique from the deleted `StudentWorkbookFlip.tsx`
+(recovered from git history) — rotateY on a hinged wrapper, front/back
+faces, base page underneath. Fixed one latent bug found while restoring
+it: the back face used `rotateX(180deg)` under a `rotateY`-rotating
+parent, which would have rendered the back face's content upside-down
+instead of correctly mirrored — corrected to `rotateY(180deg)` to match
+the parent's rotation axis. Built a new, equivalent vertical (rotateX,
+top-hinged) flip for `FlipchartHdPanel.tsx`, mirroring the same proven
+technique on the other axis.
+
+Verified in-browser (screenshots sent to owner directly):
+- Palette renders correctly across teacher pages (vowel picture-grid,
+  consonant writing/tracing) and student workbook (tracing + sight-word
+  overlay) — cream paper, green sidebar/diamond/guides throughout.
+- Student workbook horizontal flip: confirmed mid-rotation with real 3-D
+  perspective distortion, hinged on the left edge; settles correctly onto
+  the destination page.
+- Teacher flip chart vertical flip: confirmed the flip wrapper renders
+  mid-animation and page index correctly advances (7→8); noted honestly to
+  the owner that the flipchart source JPGs still display upside-down —
+  this is the same pre-existing, already-documented scan-orientation
+  defect from earlier in this session, unrelated to and not fixed by this
+  rotation work.
+
+`pnpm typecheck` + `pnpm build` clean.
+
+## Update — MAJOR bug found and fixed: teacher flipchart showed the wrong lesson for 44 of 62 pages
+
+While hunting source material to re-crop the consonant vocab words (owner
+asked me to take over the art-extraction work directly, no longer waiting
+on Antigravity), I opened the real flipchart source scans to find "moto"/
+"mapa" for Lección 7. The scan claimed as Lección 7 (`page-007.jpg`)
+actually showed Vocal I content. Investigated further and found this was
+systemic, not a one-off:
+
+**Root cause**: `src/data/teacher-flipchart.json`'s `lesson` field was
+assigned as if `flipchartPage` numbers started at 1 for real lesson
+content. In reality, the physical flipchart's raw scan sequence has **2
+front-matter pages first** (page 1 = cover, page 2 = copyright/
+acknowledgments) before Lección 1's content begins at raw page 3. Every
+single lesson's real content is therefore offset by exactly **+2** from
+where the JSON assumed it was.
+
+**Verified the correct mapping directly** (not computed blind — opened and
+read the actual content of pages 1, 2, 3, 5, 7, 8, 9, 39, 40, 41, 42, 44,
+48, 62 to confirm both the +2 offset and the page-count-per-lesson pattern
+holds): vowel lessons (L1–L6) use exactly 1 flipchart page each (raw 3–8),
+consonant lessons (L7–L24) use exactly 3 pages each (raw 9 through 62, 18
+lessons × 3 = 54 pages). Every spot-check matched real content (e.g. raw
+page 9 = confirmed "Mm" content — mamá/amo/mima — for Lección 7; raw page
+48 = confirmed "Ff" content — foto/fideos/familia — for Lección 20; raw
+page 62 = confirmed "El carro-calabaza" Z-rhyme, the book's final page,
+for Lección 24).
+
+**Fix**: regenerated `teacher-flipchart.json`'s `lesson` field for all 62
+entries from this verified formula. **44 of 62 entries were wrong** —
+this means the teacher "Presentar" view has been showing incorrect content
+for the large majority of lessons this entire time. Pages 1–2 (front
+matter) are now correctly marked `lesson: 0` (excluded from every lesson's
+view) instead of being wrongly claimed as Lección 1 and Lección 2 content.
+
+Verified in-browser: Lección 7's presentar view now shows the real Mm
+content (previously showed Vocal I content).
+
+**Still open, not fixed by this change**: the source JPGs themselves still
+display upside-down (a separate, already-documented defect — see the
+earlier "presentar" update above). Fixing the lesson mapping doesn't fix
+the orientation; both are real, independent defects in the same asset
+pipeline.
+
+## Update — consonant vocab art: doing the crop work directly (owner has no Antigravity access right now)
+
+Started sourcing real crops for the 44 missing/bad consonant vocab words
+directly from the workbook scans (`public/cartilla/images/source/<letter>/`)
+and flipchart scans (`public/cartilla/art/hd/flipchart/`). Found early on
+that the STUDENT WORKBOOK scans for at least Lección 7 (M) do not contain
+illustrated cells for "moto" or "mapa" at all — those words only appear
+illustrated in the flipchart (once the lesson-mapping bug above is
+accounted for). This means the real source for at least some of these
+vocab crops is the flipchart, not the workbook scan set — worth knowing
+before assuming a missing workbook illustration means the word doesn't
+exist in the book at all.
+
+## Update — emergency re-audit: previously "confirmed good" crops were also wrong; live student-facing bug fixed
+
+While cropping the words above, re-opened `mono.webp` (previously documented
+as "confirmed separately and already wired, NOT affected" by an earlier
+PR's hand-verification) and found it shows a floral decoration, not a
+monkey. That single contradiction triggered a full re-open, at full
+resolution, of every consonant-lesson crop that had been trusted without a
+fresh check.
+
+**Confirmed WRONG (subject does not match the label), 11 words beyond the
+already-documented 34-word `bb3a458` batch**: `mono` (flowers), `sapo`
+(a girl's hair), `sopa` (mostly blank), `dado` (a ladder + bird), `foca`
+(shows "fideos" content — a different word), `zapato` (unrelated
+yellow/purple shape), `casa` (two separate bad files: `leccion-19-c/casa.webp`
+shows a crib/teddy bear, and `leccion-1/casa.webp` is a **0-byte empty file**
+committed to git — confirmed via `git cat-file -s` = 0, a broken image
+reference independent of subject-matching), `luna` (high-heel shoes +
+suitcase), `bebe` (shoe soles + confetti), `rosa` (shows "remos" content — a
+different word), `remo` (a butterfly).
+
+**Confirmed correct on re-check** (bounding the damage, not assuming):
+`mama`, `papa`, `rana`, `burro`, `gato`, `perro`, `vela` (marginal), `rueda`.
+
+**Root cause of the false "confirmed good" claim**: a word being sourced
+from an earlier "hand-verified" PR (#111/#112) was treated as proof every
+word in that batch was individually opened — it wasn't. This is a process
+gap (trusting a batch's reputation instead of re-opening the current file)
+now confirmed, not merely suspected.
+
+**Live impact**: all 11 words above were actively wired into both
+`src/content/consonants.json` (vocab game) and `src/data/page-layouts.json`
+(student workbook picture-grid/vocab exercises) — real students were seeing
+wrong/mislabeled illustrations during actual lessons, not just a docs gap.
+
+**Fix shipped this pass (no owner sign-off needed — unambiguous correctness
+fix)**: removed `illustrationSrc` for all 11 newly-confirmed-wrong words plus
+the full previously-documented 34-word `bb3a458` batch, from both files.
+**125 references removed total**, via a structural JSON walk (not text
+search-replace), so only exact-match bad slugs were touched. Cells now show
+the honest "art pending" placeholder. `pnpm tsc --noEmit` and `pnpm build`
+both verified clean after the change. Full consolidated 45-word re-crop
+list (supersedes all prior partial lists) is in `ART_BACKLOG.md`.
+
+## Update — 6 of the 45 removed illustrations re-cropped directly from source, real art restored
+
+Since the owner has no Antigravity access right now, directly re-cropped 6
+words straight from the real workbook page scans (never invented, never
+redrawn — same crop-from-real-source discipline as every other art fix this
+session): `casa` (real house, `source/c/c-page-52.jpg`), `dado` (real dice,
+`source/d/d-page-19.jpg`), `rosa` and `remo` (real rose / real crossed oars,
+`source/r/r-page-37.jpg` — confirms the earlier bad crops were an off-by-one
+grid-cell error, grabbing the neighboring word's picture), `sapo` and `sopa`
+(real frog / real soup bowl, `source/ss/ss-page-14.jpg`). Each re-added to
+`src/content/consonants.json`'s `illustrationSrc`; `page-layouts.json` had no
+picture-grid cells for these words, only text-only syllable-match rows, so
+nothing else needed wiring. `pnpm tsc --noEmit` and `pnpm build` both clean.
+
+**Real finding, later corrected**: `mono` was first checked only against the
+M-lesson pages and wrongly declared absent. Re-checking neighboring lessons
+found it IS illustrated — as bonus vocab on the N-lesson page
+(`source/n/n-page-25.jpg`), a real monkey. Re-cropped and wired, along with
+`nido` (a real bird's nest, same page) — 2 more words closed this round.
+Confirmed genuinely absent (every page of the relevant lesson checked, not
+just one): `luna`, `moto`, `mapa`, `foca`, `nariz`, `nube`. Left as honest
+"art pending."
+
+## Update — full lesson-by-lesson audit: `yate`/`yoyo` fixed; 25 words confirmed absent, only 6 remain unresolved
+
+Read every page of the T, D, L, Ñ, B, V, and Y lessons directly, hunting
+for the remaining backlog words. Found and fixed 2 more real illustrations
+(`yate` — a yacht, `yoyo` — both on `source/y/y-page-55.jpg`). Confirmed,
+by direct page-by-page reading (not inference), that 25 more words simply
+have no illustration anywhere in this book edition: `tapa`, `tomate`,
+`tina`, `tulipán` (T lesson has no picture-grid page at all), `dona`,
+`ducha`, `delfín` (D), `lobo`, `loro`, `lupa` (L), `piña`, `muñeca`, `niño`
+(Ñ — the book uses different words: "piñata," "niñito," "niña"), `barco`,
+`bici` (B), `vaca`, `vino`, `volcán` (V), `yegua` (Y). 12 words fixed total
+across all rounds now (casa, dado, rosa, remo, sapo, sopa, bebe, zapato,
+mono, nido, yate, yoyo).
+
+## Update — art backlog FULLY CLOSED: all 45 words from the emergency re-audit resolved
+
+Checked the final 6 words (`nata`, `pino`, `pulpo`, `sol`, `silla`,
+`zanahoria`) by reading every page of the N, P, S, and Z lessons directly —
+none are illustrated anywhere in this book edition. This closes the entire
+45-word list opened by the emergency re-audit: **14 words fixed with real,
+verified crops**; **31 words confirmed genuinely absent** from this book
+edition (not missing crops — the book itself never drew them). No further
+art-extraction work is outstanding from this backlog. Full word-by-word
+detail is in `ART_BACKLOG.md`.
+
+## Update — "Ejercicios Interactivos" step removed from every lesson (owner decision, supersedes Phase 2 item 5)
+
+Owner reviewed the live 3-step lesson flow (Aprende la Letra / Práctica de
+Lectura / Ejercicios Interactivos) and rejected the third step outright:
+generic games (sílabas/emparejar/armar/trazar/piano, via
+`ActivityCarousel.tsx`) are not appropriate for a student to see unattended.
+Per the owner's explicit words: every lesson's activity must be individually
+assigned by the owner, not a generic default; until that happens, the real
+per-page interactive exercises already in "Práctica" (tap-to-circle,
+pick-the-picture, line-match, etc. — already unique to each real book page)
+are the only exercise students do.
+
+**Fix shipped**: `leccion.$n.tsx` now renders a 2-step flow only (`Step` type
+narrowed to `"aprende" | "practica"`); the `ExercisesStep` dispatcher and its
+`ActivityCarousel` wiring were removed, along with the now-unused
+`Gamepad2`/`ActivityId` imports. `ActivityCarousel.tsx` and its game
+components (`SyllableTap`, `DragMatchPairs`, `DragBuildWord`,
+`DragLetterTrace`, `PianoPronunciation`) are left in place, unwired, per the
+never-delete-files rule — ready to be reattached on a per-lesson basis if/when
+the owner assigns specific activities. `CatalogEntry.activities?` (the
+per-lesson override field) remains in `lesson-catalog.ts`, unused by any
+lesson entry, as the mechanism for that future assignment.
+
+**Consequence for the Phase 2 backlog above**: item 2's "43 remaining
+consonant vocab-card illustrations" referred to `ActivityCarousel`'s
+emoji→real-art swap for the (now unwired) games section — that work is on
+hold, not needed, until the owner assigns specific per-lesson activities.
+The picture-grid/vocab-card illustrations inside the actual workbook pages
+(`page-layouts.json` / `consonants.json`, rendered in "Práctica") are a
+separate, still-live gap and are unaffected by this change.
+
+Verified: `pnpm tsc --noEmit` + `pnpm build` clean; in-browser check confirms
+Lección 1 shows exactly 2 tabs, no "Ejercicios Interactivos", no
+`ActivityCarousel` reference anywhere in the route file. Shipped in commit
+`c6fb07c`, merged via PR #135 (squash sha `ad7de78`).
+
+## Update — consonant vocab-art backlog CLOSED for L21-L24 (J, C, Y, Z)
+
+Direct page-by-page audit of source/j, source/c, source/y, source/z (all
+pages). Confirmed genuinely absent from this book edition: jabón, jirafa,
+joya, juguete (J — book uses jicotea/jugo/ajo/jarra instead), queso, coco,
+cuchara (C — book uses cuna/conejo/casa/cubo/Catalina), yuca (Y), cine (Z).
+**Real find**: `zorro` IS illustrated (z-page-58.jpg, alongside the
+already-fixed `zapato`) — cropped and wired to
+`leccion-23-z/zorro.webp`, commit `63a059f`. This closes the entire
+Phase-2-item-2 consonant vocab-art backlog: every word is now either
+correctly illustrated or confirmed absent, none left unaudited.
+
+## Update — Phase 2 item 2 fully CLOSED: 17 vowel/intro illustration slots wired
+
+Real crops (`traje`, `arco`, `pez`, `águila`) sourced from `u-page-16.jpg`,
+wired into all 17 cells across pages 1, 4, 8, 10, 13, 14, 16, 17. Commit
+`1098aa5`. Combined with the L21-L24 consonant closure above, Phase 2 item 2
+(art-extraction backlog) has zero remaining art-pending slots — every
+picture-grid/vowel-match/vowel-line-match cell in the app is now either a
+real crop or a confirmed-absent-from-book word.
+
+## Update — Phase 3 Round 1: merged to main, production reachability + bundle-presence verified; interactive click-through BLOCKED by sandbox limitation
+
+PR #136 (branch `claude/branch-status-review-iz7j6j`) merged to `main`, squash
+sha `7554248`. Production deployment confirmed READY (Vercel dpl
+`6bEEBFoVJMWp374BguBbudUEmdCV`, target=production, sha `75542482...`).
+
+**What was actually verified, per route, for lessons 1/7/14/18/24:**
+- `curl` HTTP 200 for all 5 `/cartilla/leccion/$n` routes — PASS (reachable).
+- Fetched the real deployed JS bundles (`index`, `route-binder`,
+  `content-bundle`, etc.) and confirmed by direct string search that this
+  session's fixes are genuinely present in what's served, not just committed:
+  `"reading-sentences"` and the real sentence text ("...mima...") appear in
+  `route-binder.js`/`content-bundle.js`; `"Ejercicios Interactivos"` (the
+  removed games-carousel label) does NOT appear anywhere in the sampled
+  chunks — PASS (deployed code matches source).
+- **Real in-browser click-through (grading fires on correct/wrong, console
+  errors, phone-width layout) — BLOCKED, not done.** Chromium cannot
+  complete an HTTPS connection through this sandbox's outbound proxy: a
+  minimal repro navigating to `https://example.com` (unrelated to this app)
+  fails identically with `net::ERR_CONNECTION_RESET`, while `curl -x
+  $HTTPS_PROXY` through the exact same proxy to the exact same production
+  URL succeeds with 200. This isolates the failure to a Chromium/proxy
+  incompatibility in this environment, not a production defect. Tried:
+  Playwright's `proxy` launch option, `--proxy-server` arg directly, and
+  disabling Chromium's background-networking flags (component updater was
+  seen making a non-CONNECT request the proxy correctly rejected) — none
+  resolved it. `WebFetch` was tried as a fallback and only returns the
+  pre-hydration static HTML shell (expected for a client-rendered SPA;
+  useless for verifying client-side interactivity).
+- **Net result: reachability + deployed-code-correctness are proven;
+  interactive/functional behavior on production is NOT proven this round.**
+  This matches (and does not regress) the Notion Hub's existing "production
+  interactivity UNVERIFIED" status. Real click-through was already
+  performed earlier in this overall session on PREVIEW branch URLs for
+  lessons 1/2/7 (a different, working network path) — that remains the
+  strongest real evidence the mechanism works, just not on this exact
+  production domain.
+
+## Update — Lesson-structure canon change: 2-tab layout retired, book pages ARE the lesson
+
+Owner locked a new canon (7/9 PM) overriding the earlier 2-tab (Aprende la
+Letra / Práctica de Lectura) approval: a lesson = the book's exact pages for
+that lesson, shown one at a time in book order, same layout as print — no
+invented sections/tabs/screens around them. Printed instructions appear
+word-for-word except a verb-only swap when the on-screen action differs
+from the paper action.
+
+**Shipped, commit `ccb1a05`:**
+- Removed the "Aprende la Letra" tab (LearnStep + Intro/Vowel/ConsonantLearn)
+  and `BookFaithfulOverlay` (a sight-words box that sat above the page
+  pager, not tied to a specific real page) — both were app-invented content
+  outside the actual printed pages. `leccion.$n.tsx` now renders
+  `buildPageArray(n)` (every real page for the lesson, via
+  `FaithfulPageRenderer(interactive)`) directly as the whole lesson body.
+  Verified all 24 lessons have non-empty page arrays before removing the
+  fallback content.
+- Verb swap: "Escribe con tu mejor letra." → "Traza con tu mejor letra."
+  (23 occurrences) — matches the real on-screen action (tracing).
+- Fixed a bug the swap surfaced: on pages where every writing-line hides
+  (no real letter template, per the Round 1 tracing-hide fix), the "Traza…"
+  instruction was left dangling with nothing underneath. Now hidden too
+  under the same no-template condition, interactive mode only.
+
+**Known gap, flagged not rushed:** `draw-box` regions ("Haz un dibujo que
+represente...", 23 occurrences) still have no tap/drag equivalent — this is
+a real new feature (freehand drawing capture + some form of completion
+signal), not a small swap. Per canon rule 3 this should eventually convert
+to a tap/drag equivalent; building it under time pressure risked a fragile
+result, so it's logged here rather than shipped half-done.
+
+## Update — Phase 3 Round 3: class-code tap-name login, per-exercise progress table, real TTS voice fix
+
+**1. Login rework.** `/cartilla/unirse` no longer asks for a typed student
+code — student types only the class join code, then taps their name from
+the real class roster (big tap targets, `min-h-[4.5rem]`, mobile-first
+container already in place). New migration
+`20260709191308_class_code_tap_name_login.sql` adds `list_class_students`
+(roster by join code, no sensitive fields exposed) and
+`enter_class_as_student` (validates the tapped student belongs to that
+class). `join_class` (old code+code flow) kept, not removed. No live demo
+mode existed in this route to preserve — checked directly, only present in
+test fixtures/seed data. **This migration auto-deploys to production** via
+the existing `.github/workflows/supabase-migrations.yml` (`supabase db
+push` on any `supabase/migrations/**` change landing on `main`) — no manual
+operator step needed; will verify the workflow run after merge.
+
+**2. Teacher progress table.** `getClassProgress` already had a real
+one-row-per-student table (lessons completed, accuracy, time — not new).
+Extended it to also query `exercise_attempt_summary` (already recording
+real hits/attempts per exercise) and added a new per-exercise-type
+right/wrong table to `ReportCard.tsx`, bucketed from the real per-region-id
+exercise names `InteractivePageExercises.tsx` already fires. No fake rows.
+
+**3. TTS voice fix — 2 real bugs found and fixed** in `src/lib/speak.ts`
+(the actual TTS path used app-wide, not just Gretel's feedback lines):
+neutral Latin American Spanish (es-MX/es-US/es-419) now strictly outranks
+every other Spanish dialect in voice scoring (previously just a small
+point nudge a good es-ES voice could still beat); both silent `es-ES`
+fallbacks replaced with a logged `console.warn` (once) — never silent,
+matching the same discipline already applied to the tracing fallback.
+`gretel-tts.ts` had its own separate, weaker "any es-* voice" picker —
+consolidated to reuse the fixed picker instead of duplicating the bug.
+
+Verified: `pnpm tsc --noEmit` and `pnpm build` (incl. `validate:content`)
+both clean. Not yet click-verified in a real browser (same sandbox proxy
+limitation as Round 1) or confirmed against a device lacking an es-MX/
+es-US/es-419 voice — that fallback path is logically correct but unrun in
+this sandbox.
 
 ## Audit trail
 Generated by direct computation against the files listed under "Sources of
 truth," cross-checked twice with independent scripts for the illustration-slot
 count after an initial discrepancy was caught and corrected. No page or
 number in this document was estimated or inferred.
+
+## Update — 2026-07-09 (Silent Running: AG audit verdict + draw-box conversion)
+
+**Anti-Gravity `feat/content-extraction` commit 19bac0b verdict: REJECTED, not merged.**
+Instructed as an audit-only pass ("do NOT edit page-layouts.json's text
+yourself... log everything to INSTRUCTION-AUDIT.md"). Instead it directly
+overwrote 54 live `text` fields across all 18 consonant lessons (3 recurring
+instruction strings x 18 lessons: "Escribe con tu mejor letra.", "Haz un
+dibujo que represente una palabra que comienza con X.", "Encierra en un
+círculo la sílaba correspondiente.") with the literal placeholder string
+"UNREADABLE". Verified directly against real source scans (m-page-8.jpg =
+real p.7, clearly legible Mm vocab page; p-page-11/12/13/14.jpg = real
+p.10-13+26, all clearly legible Pp pages including the exact "Escribe
+oraciones..." instruction AG separately and correctly added). These are the
+same 3 sentences already transcribed correctly and verified earlier this
+session — bulk-identical placeholder text across 18 independent scans is not
+a plausible per-page illegibility finding; it reads as a mechanical/lazy
+sweep. Not merged. A corrective prompt was sent back (see below) restating
+the audit-only boundary and the "never destroy verified content" rule.
+The one legitimate, verified-accurate addition in that same commit — a new
+instruction region "Escribe oraciones. Usa las sílabas que aprendiste."
+(confirmed against real page 22 scan) — is a candidate to reapply manually
+later; not done yet, tracked as a follow-up.
+
+**Draw-box paper-to-screen conversion: SHIPPED.** `DrawBoxCanvas.tsx` (real
+freehand crayon drawing, pointer-events canvas, 6-color picker, completion-
+only grading — no invented "correct drawing") wired into
+`FaithfulPageRenderer.tsx`'s `"draw-box"` case for `interactive` mode;
+teacher preview keeps the static placeholder. CSS added to
+`faithful-page.css`. `pnpm tsc --noEmit` and `pnpm build` both clean.
+Committed `e484cfb`, merged via PR #139 — owner corrected in real time that
+pre-approved-flow PRs (already merged the same way for #135/#137/#138) don't
+wait on a fresh sign-off; merged and production-verified same turn.
+
+**Follow-up defect, self-caught and fixed same turn:** PR #139's draw-box
+wiring only added `DrawBoxCanvas.tsx` and imported it — the actual
+`case "draw-box"` switch branch was never updated to render it, so
+interactive mode kept showing the old static placeholder (unused import
+only). Caught by checking the merged production bundle for the
+`fp-draw-box--interactive` class string and finding it absent. Fixed in
+PR #142 (4-line diff), reverified the string present in a fresh local build
+before committing, then confirmed live in production via exact content-hash
+match on the `route-binder`/`content-bundle` chunks against that local
+build.
+
+Also fixed: `validate-content.mjs` threw a false-positive warning
+("totalPages says 60, but lessons[].pages lists 65") because it summed
+`lessons[].pages` without deduplicating flipchart pages intentionally shared
+across lessons (review spreads) — 65 raw listings, 60 unique files, which is
+exactly what totalPages says. Fixed to count unique files (PR #143).
+
+Anti-Gravity's UNREADABLE violation (previous update) self-corrected on its
+own branch: commit `9e7d4f5` reverts all 54 destructive overwrites while
+keeping the 2 legitimate new instruction additions. That branch (including
+the revert) was merged to main via PR #141, along with an unrelated batch of
+~2000 extracted `.webp` crops and duplicate data files
+(`src/content/page-layouts.json`, `src/content/page-inventory.json`) that
+nothing in `src/` imports — confirmed inert (not a live-content risk), just
+unused clutter. Not cleaned up this turn; flagged as low-priority follow-up.
+
+**Real content gap found and closed, PR #145:** re-auditing every page for
+orphaned instructions (a trailing `instruction` region with nothing after
+it) found 2 — real book pages 22 (Lección 7, M) and 26 (Lección 8, P), both
+"Escribe oraciones. Usa las sílabas que aprendiste." with zero region behind
+it. Verified directly against `m-page-11.jpg`/`p-page-14.jpg`: both show 4
+real blank ruled lines, no printed model text (genuine free composition, not
+missing transcription). Added `p21-draw`/`p25-draw` `draw-box` regions,
+reusing `DrawBoxCanvas` — same freehand-capture, completion-only pattern as
+every other draw-box, no invented sentence content. Re-ran the orphan check
+across all 90 pages after the fix: zero remain.
+
+**Canon-rework paper-action sweep, closed:** searched all region `text`
+fields for other paper-only verbs (recortar, pegar, colorear, doblar,
+pintar, subrayar) — none found. The 3 other repeating region types with no
+dedicated interactive case (`title`, `syllable-bubble`, `vocab-grid`)
+checked directly: all are pure static display text (the big letter, the
+syllable list, the vocab word list on each consonant's first page) matching
+the book's real static layout — not paper actions, correctly non-interactive
+via the renderer's default text fallback. No further conversion gaps found.
+`pnpm tsc --noEmit` + `pnpm build` clean; merged via PR #145.
+
+## Update — real regression found: console.warn/error was stripped from the entire production build
+
+While trying to prove the TTS "never a silent fallback" warning (see Round 3
+above) actually fires, found `vite.config.ts` had `esbuild.drop: ["console",
+"debugger"]` at the config root — this deletes **every** `console.warn`/
+`console.error` call app-wide, in both `vite build` and the Vitest
+transform (the `esbuild` field isn't scoped to `build:` only). Verified
+directly: none of the fallback-warning strings existed anywhere in
+`dist/assets/*.js` before the fix. This means the Round 3 TTS fallback
+logging has never actually reached production despite passing typecheck/
+build the whole time — a real, previously-undetected regression, not a
+theoretical risk.
+
+**Fix (PR #147):** narrowed to `drop: ["debugger"]` + `pure: ["console.log",
+"console.debug", "console.info"]`, leaving `console.warn`/`console.error`
+untouched everywhere. Added 4 new tests to `speak.test.ts` — isolated via
+`vi.resetModules()` + a fresh dynamic import per test (the warning only
+fires once per module instance) — asserting `console.warn` is actually
+called with the right message, both when no neutral LatAm voice exists and
+when no Spanish voice exists at all. Confirmed these tests **failed** (0
+calls recorded) before the fix and **passed** after. Rebuilt and confirmed
+the warning strings now exist in the shipped bundle. `pnpm tsc --noEmit`,
+`node scripts/validate-content.mjs`, and the full suite (211 passed, 2
+expected fail) all clean.
+
+## Login end-to-end test plan — READY, blocked only on migration confirmation
+
+Owner is applying the Supabase migration (`20260709191308_class_code_tap_
+name_login.sql`) directly via GitHub Settings + a manual Action re-run. The
+moment that's confirmed applied, run this exact sequence and report each
+step's real result (not just "should work"):
+
+**Primary verification path — direct API calls (works regardless of this
+sandbox's Chromium/proxy limitation, and is a stronger proof than a UI
+click-through since it exercises the real RPCs against the real database):**
+1. `POST {VITE_SUPABASE_URL}/rest/v1/rpc/list_class_students` with
+   `apikey`/`Authorization: Bearer {VITE_SUPABASE_PUBLISHABLE_KEY}` and body
+   `{"p_join_code": "<a real class's join code>"}` — expect a JSON array of
+   `{student_id, display_name}` rows, no sensitive fields, for a class that
+   actually has students.
+2. `POST .../rpc/enter_class_as_student` with
+   `{"p_join_code": "...", "p_student_id": "<one of the ids from step 1>"}`
+   — expect the 5-field session shape (`student_id, student_name,
+   student_code, class_id, class_name`), matching `join_class`'s existing
+   shape.
+3. Using the returned `student_id`/`student_code`, call
+   `.../rpc/log_student_progress` for one lesson/exercise with a real
+   score, then `.../rpc/get_student_progress` and confirm the event is
+   present.
+4. As the teacher (authenticated session), call `getClassProgress`'s
+   underlying `exercise_attempt_summary` query (or load
+   `/cartilla/teacher/reportes`, pick the class + student) and confirm the
+   just-logged attempt shows up in the per-exercise-type table.
+
+**Secondary path — real UI click-through (attempt again once the migration
+is live; this sandbox's Chromium couldn't complete outbound HTTPS through
+its proxy earlier this session, worth re-testing rather than assuming it's
+still broken):**
+1. Teacher: log in, create/open a class, copy its join code
+   (`/cartilla/teacher/clase/{id}`, the code shown at the top).
+2. Student: go to `/cartilla/unirse`, type the join code, submit — expect
+   the tap-name roster screen, not a typed-code field.
+3. Tap a real student name — expect redirect to `/cartilla/lecciones` with
+   a welcome/continue state, not an error.
+4. Open any lesson (e.g. `/cartilla/leccion/2`), complete one graded
+   interactive exercise (tap the right answer in a picture-grid/vowel-pick
+   region) — expect Gretel's correct/wrong reaction to fire and the score
+   to be recorded (no console errors).
+5. Teacher: `/cartilla/teacher/reportes`, select the same class + student —
+   expect the just-completed exercise's hits/attempts to appear in the
+   per-exercise-type table, matching what was actually done in step 4.
+
+Both paths report PASS/FAIL per numbered step, not a single pass/fail for
+the whole flow — if step 3 fails but 1-2 passed, that's exactly the
+information needed to isolate where the migration or the RPC logic broke.

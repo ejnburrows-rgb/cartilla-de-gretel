@@ -1,0 +1,66 @@
+[
+  {
+    "lesson": "1",
+    "pageImage": "vocales-page-01.png",
+    "regionId": "p1-instr",
+    "before": "Toca los dibujos de las palabras en cada línea horizontal que comienzan con el mismo sonido.",
+    "after": "",
+    "doubt": "Instruction text is not present in the image (this is the book cover)."
+  },
+  {
+    "lesson": "1",
+    "pageImage": "vocales-page-02.png",
+    "regionId": "p2-instr",
+    "before": "Toca el dibujo que comienza con la vocal del recuadro.",
+    "after": "",
+    "doubt": "Instruction text is not present in the image (this is a title page)."
+  },
+  {
+    "lesson": "1",
+    "pageImage": "vocales-page-03.png",
+    "regionId": "p3-instr",
+    "before": "Traza una línea de la vocal al dibujo que le corresponde.",
+    "after": "",
+    "doubt": "Instruction text is not present in the image (this is an edition page)."
+  },
+  {
+    "lesson": "2",
+    "pageImage": "o-page-3.jpg",
+    "regionId": "p4-instr",
+    "before": "Toca los dibujos que comienzan con O o.",
+    "after": "",
+    "doubt": "Instruction text is not present in the image (it only contains vocabulary/rhyme)."
+  },
+  {
+    "lesson": "2",
+    "pageImage": "o-page-5.jpg",
+    "regionId": "p6-instr1",
+    "before": "Traza con tu mejor letra.",
+    "after": "Escribe con tu mejor letra.",
+    "doubt": "Action verb changed from 'Escribe' to 'Traza'. Might be an intentional digital adaptation."
+  },
+  {
+    "lesson": "3",
+    "pageImage": "a-page-4.jpg",
+    "regionId": "p7-instr",
+    "before": "Toca los dibujos de las palabras que comienzan con A a.",
+    "after": "",
+    "doubt": "Instruction text is not present in the image (it only contains vocabulary/rhyme)."
+  },
+  {
+    "lesson": "3",
+    "pageImage": "a-page-6.jpg",
+    "regionId": "p9-instr1",
+    "before": "Traza con tu mejor letra.",
+    "after": "Escribe con tu mejor letra.",
+    "doubt": "Action verb changed from 'Escribe' to 'Traza'. Might be an intentional digital adaptation."
+  },
+  {
+    "lesson": "4",
+    "pageImage": "e-page-10.jpg",
+    "regionId": "p10-instr",
+    "before": "Toca los dibujos de las palabras que comienzan con E e.",
+    "after": "Marca con una x los dibujos de las palabras que comienzan con E e.",
+    "doubt": "Action phrase changed from 'Marca con una x' to 'Toca'. Might be an intentional digital adaptation."
+  }
+]

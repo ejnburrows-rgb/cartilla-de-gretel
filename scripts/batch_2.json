@@ -1,0 +1,148 @@
+[
+  {
+    "lesson": 7,
+    "page_id": "21",
+    "image": "public\\cartilla\\images\\source\\m/m-page-10.jpg",
+    "regions": [
+      {
+        "id": "p21-instr",
+        "text": "Completa las palabras con la s\ufffdlaba correcta. Escribe oraciones con el nombre de cada figura. Usa las s\ufffdlabas que aprendiste."
+      }
+    ]
+  },
+  {
+    "lesson": 7,
+    "page_id": "22",
+    "image": "public\\cartilla\\images\\source\\m/m-page-11.jpg",
+    "regions": [
+      {
+        "id": "p22-title",
+        "text": "Mm"
+      },
+      {
+        "id": "p22-syl1",
+        "text": "ma  me  mi  mo  mu"
+      },
+      {
+        "id": "p22-syl2",
+        "text": "mu  mo  mi  me  ma"
+      },
+      {
+        "id": "p22-words",
+        "text": "mam\u00e1 \u00b7 mono \u00b7 moto \u00b7 mapa"
+      }
+    ]
+  },
+  {
+    "lesson": 8,
+    "page_id": "23",
+    "image": "public\\cartilla\\images\\source\\p/p-page-11.jpg",
+    "regions": [
+      {
+        "id": "p23-instr1",
+        "text": "Traza con tu mejor letra."
+      },
+      {
+        "id": "p23-instr2",
+        "text": "Haz un dibujo que represente una palabra que comienza con p."
+      }
+    ]
+  },
+  {
+    "lesson": 8,
+    "page_id": "24",
+    "image": "public\\cartilla\\images\\source\\p/p-page-12.jpg",
+    "regions": [
+      {
+        "id": "p24-instr",
+        "text": "Encierra en un c\u00edrculo la s\u00edlaba correspondiente."
+      }
+    ]
+  },
+  {
+    "lesson": 8,
+    "page_id": "25",
+    "image": "public\\cartilla\\images\\source\\p/p-page-13.jpg",
+    "regions": [
+      {
+        "id": "p25-instr",
+        "text": "Completa las palabras con la s\ufffdlaba correcta. Escribe oraciones con el nombre de cada figura. Usa las s\ufffdlabas que aprendiste."
+      }
+    ]
+  },
+  {
+    "lesson": 8,
+    "page_id": "26",
+    "image": "public\\cartilla\\images\\source\\p/p-page-14.jpg",
+    "regions": [
+      {
+        "id": "p26-title",
+        "text": "Pp"
+      },
+      {
+        "id": "p26-syl1",
+        "text": "pa  pe  pi  po  pu"
+      },
+      {
+        "id": "p26-syl2",
+        "text": "pu  po  pi  pe  pa"
+      },
+      {
+        "id": "p26-words",
+        "text": "pap\u00e1 \u00b7 pez \u00b7 pino \u00b7 pulpo"
+      }
+    ]
+  },
+  {
+    "lesson": 9,
+    "page_id": "27",
+    "image": "public\\cartilla\\images\\source\\ss/ss-page-14.jpg",
+    "regions": [
+      {
+        "id": "p27-instr1",
+        "text": "Traza con tu mejor letra."
+      },
+      {
+        "id": "p27-instr2",
+        "text": "Haz un dibujo que represente una palabra que comienza con s."
+      }
+    ]
+  },
+  {
+    "lesson": 9,
+    "page_id": "28",
+    "image": "public\\cartilla\\images\\source\\ss/ss-page-15.jpg",
+    "regions": [
+      {
+        "id": "p28-instr",
+        "text": "Encierra en un c\u00edrculo la s\u00edlaba correspondiente."
+      }
+    ]
+  },
+  {
+    "lesson": 9,
+    "page_id": "29",
+    "image": "public\\cartilla\\images\\source\\ss/ss-page-16.jpg",
+    "regions": [
+      {
+        "id": "p29-instr",
+        "text": "Completa las palabras con la s\ufffdlaba correcta. Escribe oraciones con el nombre de cada figura. Usa las s\ufffdlabas que aprendiste."
+      }
+    ]
+  },
+  {
+    "lesson": 10,
+    "page_id": "31",
+    "image": "public\\cartilla\\images\\source\\t/t-page-17.jpg",
+    "regions": [
+      {
+        "id": "p31-instr1",
+        "text": "Traza con tu mejor letra."
+      },
+      {
+        "id": "p31-instr2",
+        "text": "Haz un dibujo que represente una palabra que comienza con t."
+      }
+    ]
+  }
+]

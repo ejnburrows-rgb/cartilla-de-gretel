@@ -1,0 +1,62 @@
+[
+  {
+    "lesson": 20,
+    "page_id": "72",
+    "image": "public\\cartilla\\images\\source\\f/f-page-46.jpg",
+    "regions": [
+      {
+        "id": "p72-instr",
+        "text": "Encierra en un c\u00edrculo la s\u00edlaba correspondiente."
+      }
+    ]
+  },
+  {
+    "lesson": 20,
+    "page_id": "73",
+    "image": "public\\cartilla\\images\\source\\f/f-page-47.jpg",
+    "regions": [
+      {
+        "id": "p73-instr",
+        "text": "Completa las palabras con la s\ufffdlaba correcta. Escribe oraciones con el nombre de cada figura. Usa las s\ufffdlabas que aprendiste."
+      }
+    ]
+  },
+  {
+    "lesson": 20,
+    "page_id": "74",
+    "image": "public\\cartilla\\images\\source\\f/f-page-48.jpg",
+    "regions": [
+      {
+        "id": "p74-title",
+        "text": "Ff"
+      },
+      {
+        "id": "p74-syl1",
+        "text": "fa  fe  fi  fo  fu"
+      },
+      {
+        "id": "p74-syl2",
+        "text": "fu  fo  fi  fe  fa"
+      },
+      {
+        "id": "p74-words",
+        "text": "faro \u00b7 fiesta \u00b7 foca \u00b7 fuente"
+      }
+    ]
+  },
+  {
+    "lesson": 20,
+    "page_id": "75",
+    "image": "public\\cartilla\\images\\source\\f/f-page-49.jpg",
+    "regions": [
+      {
+        "id": "p75-instr1",
+        "text": "Traza con tu mejor letra."
+      },
+      {
+        "id": "p75-instr2",
+        "text": "Haz un dibujo que represente una palabra que comienza con j."
+      }
+    ]
+  }
+]

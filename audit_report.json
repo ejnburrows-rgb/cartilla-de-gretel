@@ -1,0 +1,709 @@
+[
+  {
+    "page": "1",
+    "pageType": "reading",
+    "target": "",
+    "jsonInstructions": [
+      "Circula los dibujos de las palabras en cada línea horizontal que comienzan con el mismo sonido."
+    ]
+  },
+  {
+    "page": "2",
+    "pageType": "reading",
+    "target": "",
+    "jsonInstructions": [
+      "Circula el dibujo que comienza con la vocal del recuadro."
+    ]
+  },
+  {
+    "page": "3",
+    "pageType": "reading",
+    "target": "",
+    "jsonInstructions": [
+      "Traza una línea de la vocal al dibujo que le corresponde."
+    ]
+  },
+  {
+    "page": "4",
+    "pageType": "reading",
+    "target": "",
+    "jsonInstructions": [
+      "Marca con una x los dibujos que comienzan con O o."
+    ]
+  },
+  {
+    "page": "5",
+    "pageType": "reading",
+    "target": "",
+    "jsonInstructions": [
+      "Traza una línea desde la vocal Oo hasta el dibujo de la palabra que comienza con Oo."
+    ]
+  },
+  {
+    "page": "6",
+    "pageType": "writing",
+    "target": "O",
+    "jsonInstructions": [
+      "Escribe con tu mejor letra.",
+      "Haz un dibujo que represente una palabra que comienza con o."
+    ]
+  },
+  {
+    "page": "7",
+    "pageType": "reading",
+    "target": "",
+    "jsonInstructions": [
+      "Marca con una x los dibujos de las palabras que comienzan con A a."
+    ]
+  },
+  {
+    "page": "8",
+    "pageType": "reading",
+    "target": "",
+    "jsonInstructions": [
+      "Traza una línea desde la vocal Aa hasta el dibujo de la palabra que comienza con Aa."
+    ]
+  },
+  {
+    "page": "9",
+    "pageType": "writing",
+    "target": "A",
+    "jsonInstructions": [
+      "Escribe con tu mejor letra.",
+      "Haz un dibujo que represente una palabra que comienza con a."
+    ]
+  },
+  {
+    "page": "10",
+    "pageType": "reading",
+    "target": "",
+    "jsonInstructions": [
+      "Marca con una x los dibujos de las palabras que comienzan con E e."
+    ]
+  },
+  {
+    "page": "11",
+    "pageType": "reading",
+    "target": "",
+    "jsonInstructions": [
+      "Traza una línea desde la vocal Ee hasta el dibujo de la palabra que comienza con Ee."
+    ]
+  },
+  {
+    "page": "12",
+    "pageType": "writing",
+    "target": "E",
+    "jsonInstructions": [
+      "Escribe con tu mejor letra.",
+      "Haz un dibujo que represente una palabra que comienza con e."
+    ]
+  },
+  {
+    "page": "13",
+    "pageType": "reading",
+    "target": "",
+    "jsonInstructions": [
+      "Marca con una x los dibujos de las palabras que comienzan con I i."
+    ]
+  },
+  {
+    "page": "14",
+    "pageType": "reading",
+    "target": "",
+    "jsonInstructions": [
+      "Traza una línea desde la vocal Ii hasta el dibujo de la palabra que comienza con Ii."
+    ]
+  },
+  {
+    "page": "15",
+    "pageType": "writing",
+    "target": "I",
+    "jsonInstructions": [
+      "Escribe con tu mejor letra.",
+      "Haz un dibujo que represente una palabra que comienza con i."
+    ]
+  },
+  {
+    "page": "16",
+    "pageType": "reading",
+    "target": "",
+    "jsonInstructions": [
+      "Marca con una x los dibujos de las palabras que comienzan con U u."
+    ]
+  },
+  {
+    "page": "17",
+    "pageType": "reading",
+    "target": "",
+    "jsonInstructions": [
+      "Traza una línea desde la vocal Uu hasta el dibujo de la palabra que comienza con Uu."
+    ]
+  },
+  {
+    "page": "18",
+    "pageType": "writing",
+    "target": "U",
+    "jsonInstructions": [
+      "Escribe con tu mejor letra.",
+      "Haz un dibujo que represente una palabra que comienza con u."
+    ]
+  },
+  {
+    "page": "19",
+    "pageType": "writing",
+    "target": "M",
+    "jsonInstructions": [
+      "Escribe con tu mejor letra.",
+      "Haz un dibujo que represente una palabra que comienza con m."
+    ]
+  },
+  {
+    "page": "20",
+    "pageType": "syllable",
+    "target": "",
+    "jsonInstructions": [
+      "Encierra en un círculo la sílaba correspondiente."
+    ]
+  },
+  {
+    "page": "21",
+    "pageType": "fill",
+    "target": "mamá",
+    "jsonInstructions": [
+      "Completa las palabras con la sílaba correcta."
+    ]
+  },
+  {
+    "page": "22",
+    "pageType": "title",
+    "target": "Mm",
+    "jsonInstructions": []
+  },
+  {
+    "page": "23",
+    "pageType": "writing",
+    "target": "P",
+    "jsonInstructions": [
+      "Escribe con tu mejor letra.",
+      "Haz un dibujo que represente una palabra que comienza con p."
+    ]
+  },
+  {
+    "page": "24",
+    "pageType": "syllable",
+    "target": "",
+    "jsonInstructions": [
+      "Encierra en un círculo la sílaba correspondiente."
+    ]
+  },
+  {
+    "page": "25",
+    "pageType": "fill",
+    "target": "papá",
+    "jsonInstructions": [
+      "Completa las palabras con la sílaba correcta."
+    ]
+  },
+  {
+    "page": "26",
+    "pageType": "title",
+    "target": "Pp",
+    "jsonInstructions": []
+  },
+  {
+    "page": "27",
+    "pageType": "writing",
+    "target": "S",
+    "jsonInstructions": [
+      "Escribe con tu mejor letra.",
+      "Haz un dibujo que represente una palabra que comienza con s."
+    ]
+  },
+  {
+    "page": "28",
+    "pageType": "syllable",
+    "target": "",
+    "jsonInstructions": [
+      "Encierra en un círculo la sílaba correspondiente."
+    ]
+  },
+  {
+    "page": "29",
+    "pageType": "fill",
+    "target": "sapo",
+    "jsonInstructions": [
+      "Completa las palabras con la sílaba correcta."
+    ]
+  },
+  {
+    "page": "30",
+    "pageType": "title",
+    "target": "Ss",
+    "jsonInstructions": []
+  },
+  {
+    "page": "31",
+    "pageType": "writing",
+    "target": "T",
+    "jsonInstructions": [
+      "Escribe con tu mejor letra.",
+      "Haz un dibujo que represente una palabra que comienza con t."
+    ]
+  },
+  {
+    "page": "32",
+    "pageType": "syllable",
+    "target": "",
+    "jsonInstructions": [
+      "Encierra en un círculo la sílaba correspondiente."
+    ]
+  },
+  {
+    "page": "33",
+    "pageType": "fill",
+    "target": "tapa",
+    "jsonInstructions": [
+      "Completa las palabras con la sílaba correcta."
+    ]
+  },
+  {
+    "page": "34",
+    "pageType": "title",
+    "target": "Tt",
+    "jsonInstructions": []
+  },
+  {
+    "page": "35",
+    "pageType": "writing",
+    "target": "D",
+    "jsonInstructions": [
+      "Escribe con tu mejor letra.",
+      "Haz un dibujo que represente una palabra que comienza con d."
+    ]
+  },
+  {
+    "page": "36",
+    "pageType": "syllable",
+    "target": "",
+    "jsonInstructions": [
+      "Encierra en un círculo la sílaba correspondiente."
+    ]
+  },
+  {
+    "page": "37",
+    "pageType": "fill",
+    "target": "dado",
+    "jsonInstructions": [
+      "Completa las palabras con la sílaba correcta."
+    ]
+  },
+  {
+    "page": "38",
+    "pageType": "title",
+    "target": "Dd",
+    "jsonInstructions": []
+  },
+  {
+    "page": "39",
+    "pageType": "writing",
+    "target": "L",
+    "jsonInstructions": [
+      "Escribe con tu mejor letra.",
+      "Haz un dibujo que represente una palabra que comienza con l."
+    ]
+  },
+  {
+    "page": "40",
+    "pageType": "syllable",
+    "target": "",
+    "jsonInstructions": [
+      "Encierra en un círculo la sílaba correspondiente."
+    ]
+  },
+  {
+    "page": "41",
+    "pageType": "fill",
+    "target": "luna",
+    "jsonInstructions": [
+      "Completa las palabras con la sílaba correcta."
+    ]
+  },
+  {
+    "page": "42",
+    "pageType": "title",
+    "target": "Ll",
+    "jsonInstructions": []
+  },
+  {
+    "page": "43",
+    "pageType": "writing",
+    "target": "N",
+    "jsonInstructions": [
+      "Escribe con tu mejor letra.",
+      "Haz un dibujo que represente una palabra que comienza con n."
+    ]
+  },
+  {
+    "page": "44",
+    "pageType": "syllable",
+    "target": "",
+    "jsonInstructions": [
+      "Encierra en un círculo la sílaba correspondiente."
+    ]
+  },
+  {
+    "page": "45",
+    "pageType": "fill",
+    "target": "nariz",
+    "jsonInstructions": [
+      "Completa las palabras con la sílaba correcta."
+    ]
+  },
+  {
+    "page": "46",
+    "pageType": "title",
+    "target": "Nn",
+    "jsonInstructions": []
+  },
+  {
+    "page": "47",
+    "pageType": "writing",
+    "target": "Ñ",
+    "jsonInstructions": [
+      "Escribe con tu mejor letra.",
+      "Haz un dibujo que represente una palabra que comienza con ñ."
+    ]
+  },
+  {
+    "page": "48",
+    "pageType": "syllable",
+    "target": "",
+    "jsonInstructions": [
+      "Encierra en un círculo la sílaba correspondiente."
+    ]
+  },
+  {
+    "page": "49",
+    "pageType": "fill",
+    "target": "piña",
+    "jsonInstructions": [
+      "Completa las palabras con la sílaba correcta."
+    ]
+  },
+  {
+    "page": "50",
+    "pageType": "title",
+    "target": "Ññ",
+    "jsonInstructions": []
+  },
+  {
+    "page": "51",
+    "pageType": "writing",
+    "target": "B",
+    "jsonInstructions": [
+      "Escribe con tu mejor letra.",
+      "Haz un dibujo que represente una palabra que comienza con b."
+    ]
+  },
+  {
+    "page": "52",
+    "pageType": "syllable",
+    "target": "",
+    "jsonInstructions": [
+      "Encierra en un círculo la sílaba correspondiente."
+    ]
+  },
+  {
+    "page": "53",
+    "pageType": "fill",
+    "target": "barco",
+    "jsonInstructions": [
+      "Completa las palabras con la sílaba correcta."
+    ]
+  },
+  {
+    "page": "54",
+    "pageType": "title",
+    "target": "Bb",
+    "jsonInstructions": []
+  },
+  {
+    "page": "55",
+    "pageType": "writing",
+    "target": "V",
+    "jsonInstructions": [
+      "Escribe con tu mejor letra.",
+      "Haz un dibujo que represente una palabra que comienza con v."
+    ]
+  },
+  {
+    "page": "56",
+    "pageType": "syllable",
+    "target": "",
+    "jsonInstructions": [
+      "Encierra en un círculo la sílaba correspondiente."
+    ]
+  },
+  {
+    "page": "57",
+    "pageType": "fill",
+    "target": "vaca",
+    "jsonInstructions": [
+      "Completa las palabras con la sílaba correcta."
+    ]
+  },
+  {
+    "page": "58",
+    "pageType": "title",
+    "target": "Vv",
+    "jsonInstructions": []
+  },
+  {
+    "page": "59",
+    "pageType": "writing",
+    "target": "R",
+    "jsonInstructions": [
+      "Escribe con tu mejor letra.",
+      "Haz un dibujo que represente una palabra que comienza con r."
+    ]
+  },
+  {
+    "page": "60",
+    "pageType": "syllable",
+    "target": "",
+    "jsonInstructions": [
+      "Encierra en un círculo la sílaba correspondiente."
+    ]
+  },
+  {
+    "page": "61",
+    "pageType": "fill",
+    "target": "rana",
+    "jsonInstructions": [
+      "Completa las palabras con la sílaba correcta."
+    ]
+  },
+  {
+    "page": "62",
+    "pageType": "title",
+    "target": "Rr",
+    "jsonInstructions": []
+  },
+  {
+    "page": "63",
+    "pageType": "writing",
+    "target": "RR",
+    "jsonInstructions": [
+      "Escribe con tu mejor letra.",
+      "Haz un dibujo que represente una palabra que comienza con rr."
+    ]
+  },
+  {
+    "page": "64",
+    "pageType": "syllable",
+    "target": "",
+    "jsonInstructions": [
+      "Encierra en un círculo la sílaba correspondiente."
+    ]
+  },
+  {
+    "page": "65",
+    "pageType": "fill",
+    "target": "perro",
+    "jsonInstructions": [
+      "Completa las palabras con la sílaba correcta."
+    ]
+  },
+  {
+    "page": "66",
+    "pageType": "title",
+    "target": "RRrr",
+    "jsonInstructions": []
+  },
+  {
+    "page": "67",
+    "pageType": "writing",
+    "target": "G",
+    "jsonInstructions": [
+      "Escribe con tu mejor letra.",
+      "Haz un dibujo que represente una palabra que comienza con g."
+    ]
+  },
+  {
+    "page": "68",
+    "pageType": "syllable",
+    "target": "",
+    "jsonInstructions": [
+      "Encierra en un círculo la sílaba correspondiente."
+    ]
+  },
+  {
+    "page": "69",
+    "pageType": "fill",
+    "target": "gato",
+    "jsonInstructions": [
+      "Completa las palabras con la sílaba correcta."
+    ]
+  },
+  {
+    "page": "70",
+    "pageType": "title",
+    "target": "Gg",
+    "jsonInstructions": []
+  },
+  {
+    "page": "71",
+    "pageType": "writing",
+    "target": "F",
+    "jsonInstructions": [
+      "Escribe con tu mejor letra.",
+      "Haz un dibujo que represente una palabra que comienza con f."
+    ]
+  },
+  {
+    "page": "72",
+    "pageType": "syllable",
+    "target": "",
+    "jsonInstructions": [
+      "Encierra en un círculo la sílaba correspondiente."
+    ]
+  },
+  {
+    "page": "73",
+    "pageType": "fill",
+    "target": "faro",
+    "jsonInstructions": [
+      "Completa las palabras con la sílaba correcta."
+    ]
+  },
+  {
+    "page": "74",
+    "pageType": "title",
+    "target": "Ff",
+    "jsonInstructions": []
+  },
+  {
+    "page": "75",
+    "pageType": "writing",
+    "target": "J",
+    "jsonInstructions": [
+      "Escribe con tu mejor letra.",
+      "Haz un dibujo que represente una palabra que comienza con j."
+    ]
+  },
+  {
+    "page": "76",
+    "pageType": "syllable",
+    "target": "",
+    "jsonInstructions": [
+      "Encierra en un círculo la sílaba correspondiente."
+    ]
+  },
+  {
+    "page": "77",
+    "pageType": "fill",
+    "target": "jabón",
+    "jsonInstructions": [
+      "Completa las palabras con la sílaba correcta."
+    ]
+  },
+  {
+    "page": "78",
+    "pageType": "title",
+    "target": "Jj",
+    "jsonInstructions": []
+  },
+  {
+    "page": "79",
+    "pageType": "writing",
+    "target": "C",
+    "jsonInstructions": [
+      "Escribe con tu mejor letra.",
+      "Haz un dibujo que represente una palabra que comienza con c."
+    ]
+  },
+  {
+    "page": "80",
+    "pageType": "syllable",
+    "target": "",
+    "jsonInstructions": [
+      "Encierra en un círculo la sílaba correspondiente."
+    ]
+  },
+  {
+    "page": "81",
+    "pageType": "fill",
+    "target": "casa",
+    "jsonInstructions": [
+      "Completa las palabras con la sílaba correcta."
+    ]
+  },
+  {
+    "page": "82",
+    "pageType": "title",
+    "target": "Cc",
+    "jsonInstructions": []
+  },
+  {
+    "page": "83",
+    "pageType": "writing",
+    "target": "Y",
+    "jsonInstructions": [
+      "Escribe con tu mejor letra.",
+      "Haz un dibujo que represente una palabra que comienza con y."
+    ]
+  },
+  {
+    "page": "84",
+    "pageType": "syllable",
+    "target": "",
+    "jsonInstructions": [
+      "Encierra en un círculo la sílaba correspondiente."
+    ]
+  },
+  {
+    "page": "85",
+    "pageType": "fill",
+    "target": "yate",
+    "jsonInstructions": [
+      "Completa las palabras con la sílaba correcta."
+    ]
+  },
+  {
+    "page": "86",
+    "pageType": "title",
+    "target": "Yy",
+    "jsonInstructions": []
+  },
+  {
+    "page": "87",
+    "pageType": "writing",
+    "target": "Z",
+    "jsonInstructions": [
+      "Escribe con tu mejor letra.",
+      "Haz un dibujo que represente una palabra que comienza con z."
+    ]
+  },
+  {
+    "page": "88",
+    "pageType": "syllable",
+    "target": "",
+    "jsonInstructions": [
+      "Encierra en un círculo la sílaba correspondiente."
+    ]
+  },
+  {
+    "page": "89",
+    "pageType": "fill",
+    "target": "zapato",
+    "jsonInstructions": [
+      "Completa las palabras con la sílaba correcta."
+    ]
+  },
+  {
+    "page": "90",
+    "pageType": "title",
+    "target": "Zz",
+    "jsonInstructions": []
+  }
+]

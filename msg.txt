@@ -1,0 +1,3 @@
+Revert fix(data): align instruction regions with physical book source scans
+
+This reverts commit 19bac0b1ed04545b93e6a18cc0bda2a0e1ab2251, but keeps p21-instr2 and p25-instr2.

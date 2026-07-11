@@ -1,0 +1,128 @@
+[
+  {
+    "lesson": 4,
+    "page_id": "11",
+    "image": "public\\cartilla\\images\\source\\e/e-page-11.jpg",
+    "regions": [
+      {
+        "id": "p11-instr",
+        "text": "Traza una l\u00ednea desde la vocal Ee hasta el dibujo de la palabra que comienza con Ee."
+      }
+    ]
+  },
+  {
+    "lesson": 4,
+    "page_id": "12",
+    "image": "public\\cartilla\\images\\source\\e/e-page-12.jpg",
+    "regions": [
+      {
+        "id": "p12-instr1",
+        "text": "Traza con tu mejor letra."
+      },
+      {
+        "id": "p12-instr2",
+        "text": "Haz un dibujo que represente una palabra que comienza con e."
+      }
+    ]
+  },
+  {
+    "lesson": 5,
+    "page_id": "13",
+    "image": "public\\cartilla\\images\\source\\i/i-page-13.jpg",
+    "regions": [
+      {
+        "id": "p13-instr",
+        "text": "Toca los dibujos de las palabras que comienzan con I i."
+      }
+    ]
+  },
+  {
+    "lesson": 5,
+    "page_id": "14",
+    "image": "public\\cartilla\\images\\source\\i/i-page-14.jpg",
+    "regions": [
+      {
+        "id": "p14-instr",
+        "text": "Traza una l\u00ednea desde la vocal Ii hasta el dibujo de la palabra que comienza con Ii."
+      }
+    ]
+  },
+  {
+    "lesson": 5,
+    "page_id": "15",
+    "image": "public\\cartilla\\images\\source\\i/i-page-15.jpg",
+    "regions": [
+      {
+        "id": "p15-instr1",
+        "text": "Traza con tu mejor letra."
+      },
+      {
+        "id": "p15-instr2",
+        "text": "Haz un dibujo que represente una palabra que comienza con i."
+      }
+    ]
+  },
+  {
+    "lesson": 6,
+    "page_id": "16",
+    "image": "public\\cartilla\\images\\source\\u/u-page-16.jpg",
+    "regions": [
+      {
+        "id": "p16-instr",
+        "text": "Toca los dibujos de las palabras que comienzan con U u."
+      }
+    ]
+  },
+  {
+    "lesson": 6,
+    "page_id": "17",
+    "image": "public\\cartilla\\images\\source\\u/u-page-17.jpg",
+    "regions": [
+      {
+        "id": "p17-instr",
+        "text": "Traza una l\u00ednea desde la vocal Uu hasta el dibujo de la palabra que comienza con Uu."
+      }
+    ]
+  },
+  {
+    "lesson": 6,
+    "page_id": "18",
+    "image": "public\\cartilla\\images\\source\\u/u-page-18.jpg",
+    "regions": [
+      {
+        "id": "p18-instr1",
+        "text": "Traza con tu mejor letra."
+      },
+      {
+        "id": "p18-instr2",
+        "text": "Haz un dibujo que represente una palabra que comienza con u."
+      }
+    ]
+  },
+  {
+    "lesson": 7,
+    "page_id": "19",
+    "image": "public\\cartilla\\images\\source\\m/m-page-8.jpg",
+    "regions": [
+      {
+        "id": "p19-instr1",
+        "text": "Traza con tu mejor letra."
+      },
+      {
+        "id": "p19-instr2",
+        "text": "Haz un dibujo que represente una palabra que comienza con m."
+      }
+    ]
+  },
+  {
+    "lesson": 7,
+    "page_id": "20",
+    "image": "public\\cartilla\\images\\source\\m/m-page-9.jpg",
+    "regions": [
+      {
+        "id": "p20-instr",
+        "text": "Encierra en un c\u00edrculo la s\u00edlaba correspondiente."
+      }
+    ]
+  }
+]

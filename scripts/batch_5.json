@@ -1,0 +1,144 @@
+[
+  {
+    "lesson": 15,
+    "page_id": "52",
+    "image": "public\\cartilla\\images\\source\\b/b-page-32.jpg",
+    "regions": [
+      {
+        "id": "p52-instr",
+        "text": "Encierra en un c\u00edrculo la s\u00edlaba correspondiente."
+      }
+    ]
+  },
+  {
+    "lesson": 15,
+    "page_id": "53",
+    "image": "public\\cartilla\\images\\source\\b/b-page-33.jpg",
+    "regions": [
+      {
+        "id": "p53-instr",
+        "text": "Completa las palabras con la s\ufffdlaba correcta. Escribe oraciones con el nombre de cada figura. Usa las s\ufffdlabas que aprendiste."
+      }
+    ]
+  },
+  {
+    "lesson": 15,
+    "page_id": "54",
+    "image": "public\\cartilla\\images\\source\\b/b-page-39.png",
+    "regions": [
+      {
+        "id": "p54-title",
+        "text": "Bb"
+      },
+      {
+        "id": "p54-syl1",
+        "text": "ba  be  bi  bo  bu"
+      },
+      {
+        "id": "p54-syl2",
+        "text": "bu  bo  bi  be  ba"
+      },
+      {
+        "id": "p54-words",
+        "text": "barco \u00b7 beb\u00e9 \u00b7 bici \u00b7 bota"
+      }
+    ]
+  },
+  {
+    "lesson": 15,
+    "page_id": "55",
+    "image": "public\\cartilla\\images\\source\\b/b-page-40.png",
+    "regions": [
+      {
+        "id": "p55-instr1",
+        "text": "Traza con tu mejor letra."
+      },
+      {
+        "id": "p55-instr2",
+        "text": "Haz un dibujo que represente una palabra que comienza con v."
+      }
+    ]
+  },
+  {
+    "lesson": 16,
+    "page_id": "56",
+    "image": "public\\cartilla\\images\\source\\v/v-page-34.jpg",
+    "regions": [
+      {
+        "id": "p56-instr",
+        "text": "Encierra en un c\u00edrculo la s\u00edlaba correspondiente."
+      }
+    ]
+  },
+  {
+    "lesson": 16,
+    "page_id": "57",
+    "image": "public\\cartilla\\images\\source\\v/v-page-35.jpg",
+    "regions": [
+      {
+        "id": "p57-instr",
+        "text": "Completa las palabras con la s\ufffdlaba correcta. Escribe oraciones con el nombre de cada figura. Usa las s\ufffdlabas que aprendiste."
+      }
+    ]
+  },
+  {
+    "lesson": 16,
+    "page_id": "58",
+    "image": "public\\cartilla\\images\\source\\v/v-page-36.jpg",
+    "regions": [
+      {
+        "id": "p58-title",
+        "text": "Vv"
+      },
+      {
+        "id": "p58-syl1",
+        "text": "va  ve  vi  vo  vu"
+      },
+      {
+        "id": "p58-syl2",
+        "text": "vu  vo  vi  ve  va"
+      },
+      {
+        "id": "p58-words",
+        "text": "vaca \u00b7 vela \u00b7 vino \u00b7 volc\u00e1n"
+      }
+    ]
+  },
+  {
+    "lesson": 16,
+    "page_id": "59",
+    "image": "public\\cartilla\\images\\source\\v/v-page-37.jpg",
+    "regions": [
+      {
+        "id": "p59-instr1",
+        "text": "Traza con tu mejor letra."
+      },
+      {
+        "id": "p59-instr2",
+        "text": "Haz un dibujo que represente una palabra que comienza con r."
+      }
+    ]
+  },
+  {
+    "lesson": 17,
+    "page_id": "60",
+    "image": "public\\cartilla\\images\\source\\r/r-page-37.jpg",
+    "regions": [
+      {
+        "id": "p60-instr",
+        "text": "Encierra en un c\u00edrculo la s\u00edlaba correspondiente."
+      }
+    ]
+  },
+  {
+    "lesson": 17,
+    "page_id": "61",
+    "image": "public\\cartilla\\images\\source\\r/r-page-38.jpg",
+    "regions": [
+      {
+        "id": "p61-instr",
+        "text": "Completa las palabras con la s\ufffdlaba correcta. Escribe oraciones con el nombre de cada figura. Usa las s\ufffdlabas que aprendiste."
+      }
+    ]
+  }
+]

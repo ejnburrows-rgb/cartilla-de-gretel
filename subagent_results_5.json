@@ -1,0 +1,146 @@
+[
+  {
+    "lesson": "15",
+    "pageImage": "b-page-32.jpg",
+    "regionId": "p52-instr",
+    "before": "Encierra en un círculo la sílaba correspondiente.",
+    "after": "",
+    "notes": "Doubt/Mismatch. The image contains reading text about 'La letra b' but no instruction text. The image's printed page number is 32."
+  },
+  {
+    "lesson": "15",
+    "pageImage": "b-page-33.jpg",
+    "regionId": "p53-instr",
+    "before": "Completa las palabras con la slaba correcta. Escribe oraciones con el nombre de cada figura. Usa las slabas que aprendiste.",
+    "after": "",
+    "notes": "Doubt/Mismatch. The image contains reading text 'Beto tiene unas botas...' and no instruction text. Printed page number is 33."
+  },
+  {
+    "lesson": "15",
+    "pageImage": "b-page-39.png",
+    "regionId": "p54-title",
+    "before": "Bb",
+    "after": "Tt",
+    "notes": "Doubt/Mismatch. The image corresponds to the letter T, not B. Printed page number is 33."
+  },
+  {
+    "lesson": "15",
+    "pageImage": "b-page-39.png",
+    "regionId": "p54-syl1",
+    "before": "ba  be  bi  bo  bu",
+    "after": "ta  te  ti  to  tu",
+    "notes": "Doubt/Mismatch. Image corresponds to the letter T."
+  },
+  {
+    "lesson": "15",
+    "pageImage": "b-page-39.png",
+    "regionId": "p54-syl2",
+    "before": "bu  bo  bi  be  ba",
+    "after": "tu  to  ta  te  ti",
+    "notes": "Doubt/Mismatch. Image corresponds to the letter T."
+  },
+  {
+    "lesson": "15",
+    "pageImage": "b-page-39.png",
+    "regionId": "p54-words",
+    "before": "barco · bebé · bici · bota",
+    "after": "taza · tela · tina · tomate",
+    "notes": "Doubt/Mismatch. Image corresponds to the letter T."
+  },
+  {
+    "lesson": "15",
+    "pageImage": "b-page-40.png",
+    "regionId": "p55-instr1",
+    "before": "Traza con tu mejor letra.",
+    "after": "Completa las palabras con la sílaba correcta.",
+    "notes": "Doubt/Mismatch. Image is for letter T fill-in-the-blanks. Printed page number is 34."
+  },
+  {
+    "lesson": "15",
+    "pageImage": "b-page-40.png",
+    "regionId": "p55-instr2",
+    "before": "Haz un dibujo que represente una palabra que comienza con v.",
+    "after": "Escribe oraciones. Usa las sílabas que aprendiste.",
+    "notes": "Doubt/Mismatch. Image is for letter T fill-in-the-blanks. Printed page number is 34."
+  },
+  {
+    "lesson": "16",
+    "pageImage": "v-page-34.jpg",
+    "regionId": "p56-instr",
+    "before": "Encierra en un círculo la sílaba correspondiente.",
+    "after": "",
+    "notes": "Doubt/Mismatch. The image shows letter Vv, syllables, and words with pictures, but no instruction text."
+  },
+  {
+    "lesson": "16",
+    "pageImage": "v-page-35.jpg",
+    "regionId": "p57-instr",
+    "before": "Completa las palabras con la slaba correcta. Escribe oraciones con el nombre de cada figura. Usa las slabas que aprendiste.",
+    "after": "",
+    "notes": "Doubt/Mismatch. The image shows syllables, words, and reading text 'La nieve se va...'. No instruction text."
+  },
+  {
+    "lesson": "16",
+    "pageImage": "v-page-36.jpg",
+    "regionId": "p58-title",
+    "before": "Vv",
+    "after": "Vv",
+    "notes": "Title is correct, but the rest of the page differs."
+  },
+  {
+    "lesson": "16",
+    "pageImage": "v-page-36.jpg",
+    "regionId": "p58-syl1",
+    "before": "va  ve  vi  vo  vu",
+    "after": "",
+    "notes": "Doubt/Mismatch. Image contains reading text 'Mi bote de vela...' and no syllables."
+  },
+  {
+    "lesson": "16",
+    "pageImage": "v-page-36.jpg",
+    "regionId": "p58-syl2",
+    "before": "vu  vo  vi  ve  va",
+    "after": "",
+    "notes": "Doubt/Mismatch. Image contains reading text 'Mi bote de vela...' and no syllables."
+  },
+  {
+    "lesson": "16",
+    "pageImage": "v-page-36.jpg",
+    "regionId": "p58-words",
+    "before": "vaca · vela · vino · volcán",
+    "after": "",
+    "notes": "Doubt/Mismatch. Image contains reading text 'Mi bote de vela...' and no word list."
+  },
+  {
+    "lesson": "16",
+    "pageImage": "v-page-37.jpg",
+    "regionId": "p59-instr1",
+    "before": "Traza con tu mejor letra.",
+    "after": "Completa las palabras con la sílaba correcta.",
+    "notes": "Doubt/Mismatch. The image contains fill-in-the-blank exercises for syllables. Printed page number is 58."
+  },
+  {
+    "lesson": "16",
+    "pageImage": "v-page-37.jpg",
+    "regionId": "p59-instr2",
+    "before": "Haz un dibujo que represente una palabra que comienza con r.",
+    "after": "Escribe oraciones. Usa las sílabas que aprendiste.",
+    "notes": "Doubt/Mismatch. The image contains fill-in-the-blank exercises for syllables. Printed page number is 58."
+  },
+  {
+    "lesson": "17",
+    "pageImage": "r-page-37.jpg",
+    "regionId": "p60-instr",
+    "before": "Encierra en un círculo la sílaba correspondiente.",
+    "after": "",
+    "notes": "Doubt/Mismatch. The image shows the letter Rr, syllables, and words with pictures. No instruction text. Printed page number is 37."
+  },
+  {
+    "lesson": "17",
+    "pageImage": "r-page-38.jpg",
+    "regionId": "p61-instr",
+    "before": "Completa las palabras con la slaba correcta. Escribe oraciones con el nombre de cada figura. Usa las slabas que aprendiste.",
+    "after": "",
+    "notes": "Doubt/Mismatch. The image contains a word list, a sight word 'bien', and reading text. No instruction text. Printed page number is 38."
+  }
+]

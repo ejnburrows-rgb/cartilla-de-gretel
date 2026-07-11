@@ -1,0 +1,120 @@
+[
+  {
+    "lesson": 1,
+    "page_id": "1",
+    "image": "public\\cartilla\\images\\source\\vocales/vocales-page-01.png",
+    "regions": [
+      {
+        "id": "p1-instr",
+        "text": "Toca los dibujos de las palabras en cada l\u00ednea horizontal que comienzan con el mismo sonido."
+      }
+    ]
+  },
+  {
+    "lesson": 1,
+    "page_id": "2",
+    "image": "public\\cartilla\\images\\source\\vocales/vocales-page-02.png",
+    "regions": [
+      {
+        "id": "p2-instr",
+        "text": "Toca el dibujo que comienza con la vocal del recuadro."
+      }
+    ]
+  },
+  {
+    "lesson": 1,
+    "page_id": "3",
+    "image": "public\\cartilla\\images\\source\\vocales/vocales-page-03.png",
+    "regions": [
+      {
+        "id": "p3-instr",
+        "text": "Traza una l\u00ednea de la vocal al dibujo que le corresponde."
+      }
+    ]
+  },
+  {
+    "lesson": 2,
+    "page_id": "4",
+    "image": "public\\cartilla\\images\\source\\o/o-page-3.jpg",
+    "regions": [
+      {
+        "id": "p4-instr",
+        "text": "Toca los dibujos que comienzan con O o."
+      }
+    ]
+  },
+  {
+    "lesson": 2,
+    "page_id": "5",
+    "image": "public\\cartilla\\images\\source\\o/o-page-4.jpg",
+    "regions": [
+      {
+        "id": "p5-instr",
+        "text": "Traza una l\u00ednea desde la vocal Oo hasta el dibujo de la palabra que comienza con Oo."
+      }
+    ]
+  },
+  {
+    "lesson": 2,
+    "page_id": "6",
+    "image": "public\\cartilla\\images\\source\\o/o-page-5.jpg",
+    "regions": [
+      {
+        "id": "p6-instr1",
+        "text": "Traza con tu mejor letra."
+      },
+      {
+        "id": "p6-instr2",
+        "text": "Haz un dibujo que represente una palabra que comienza con o."
+      }
+    ]
+  },
+  {
+    "lesson": 3,
+    "page_id": "7",
+    "image": "public\\cartilla\\images\\source\\a/a-page-4.jpg",
+    "regions": [
+      {
+        "id": "p7-instr",
+        "text": "Toca los dibujos de las palabras que comienzan con A a."
+      }
+    ]
+  },
+  {
+    "lesson": 3,
+    "page_id": "8",
+    "image": "public\\cartilla\\images\\source\\a/a-page-5.jpg",
+    "regions": [
+      {
+        "id": "p8-instr",
+        "text": "Traza una l\u00ednea desde la vocal Aa hasta el dibujo de la palabra que comienza con Aa."
+      }
+    ]
+  },
+  {
+    "lesson": 3,
+    "page_id": "9",
+    "image": "public\\cartilla\\images\\source\\a/a-page-6.jpg",
+    "regions": [
+      {
+        "id": "p9-instr1",
+        "text": "Traza con tu mejor letra."
+      },
+      {
+        "id": "p9-instr2",
+        "text": "Haz un dibujo que represente una palabra que comienza con a."
+      }
+    ]
+  },
+  {
+    "lesson": 4,
+    "page_id": "10",
+    "image": "public\\cartilla\\images\\source\\e/e-page-10.jpg",
+    "regions": [
+      {
+        "id": "p10-instr",
+        "text": "Toca los dibujos de las palabras que comienzan con E e."
+      }
+    ]
+  }
+]

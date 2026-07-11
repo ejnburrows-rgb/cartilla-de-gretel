@@ -1,0 +1,146 @@
+[
+  {
+    "lesson": "17",
+    "pageImage": "r-page-39.jpg",
+    "regionId": "p62-title",
+    "before": "Rr",
+    "after": "",
+    "status": "mismatch"
+  },
+  {
+    "lesson": "17",
+    "pageImage": "r-page-39.jpg",
+    "regionId": "p62-syl1",
+    "before": "ra re ri ro ru",
+    "after": "",
+    "status": "mismatch"
+  },
+  {
+    "lesson": "17",
+    "pageImage": "r-page-39.jpg",
+    "regionId": "p62-syl2",
+    "before": "ar er ir or ur",
+    "after": "",
+    "status": "mismatch"
+  },
+  {
+    "lesson": "17",
+    "pageImage": "r-page-39.jpg",
+    "regionId": "p62-words",
+    "before": "rata · remo · risa · rosa · ruta",
+    "after": "",
+    "status": "mismatch"
+  },
+  {
+    "lesson": "17",
+    "pageImage": "r-page-40.jpg",
+    "regionId": "p63-instr1",
+    "before": "Traza con tu mejor letra y pinta el dibujo.",
+    "after": "Completa las palabras con la sílaba correcta.",
+    "status": "mismatch"
+  },
+  {
+    "lesson": "17",
+    "pageImage": "r-page-40.jpg",
+    "regionId": "p63-instr2",
+    "before": "Haz un dibujo para una palabra con rr.",
+    "after": "Escribe oraciones. Usa las sílabas que aprendiste.",
+    "status": "mismatch"
+  },
+  {
+    "lesson": "18",
+    "pageImage": "rr-page-40.jpg",
+    "regionId": "p64-instr",
+    "before": "Encierra en un círculo la sílaba que falta para completar la palabra. Escríbela.",
+    "after": "",
+    "status": "mismatch"
+  },
+  {
+    "lesson": "18",
+    "pageImage": "rr-page-41.jpg",
+    "regionId": "p65-instr",
+    "before": "Completa las palabras con la sílaba correcta. Escribe oraciones. Usa las sílabas que aprendiste.",
+    "after": "",
+    "status": "mismatch"
+  },
+  {
+    "lesson": "18",
+    "pageImage": "rr-page-42.jpg",
+    "regionId": "p66-title",
+    "before": "RRrr",
+    "after": "",
+    "status": "mismatch"
+  },
+  {
+    "lesson": "18",
+    "pageImage": "rr-page-42.jpg",
+    "regionId": "p66-syl1",
+    "before": "rra rre rri rro rru",
+    "after": "",
+    "status": "mismatch"
+  },
+  {
+    "lesson": "18",
+    "pageImage": "rr-page-42.jpg",
+    "regionId": "p66-words",
+    "before": "perro · carro · burro · guitarra",
+    "after": "",
+    "status": "mismatch"
+  },
+  {
+    "lesson": "18",
+    "pageImage": "rr-page-43.jpg",
+    "regionId": "p67-instr",
+    "before": "Traza con tu mejor letra y pinta el dibujo. Haz un dibujo para una palabra con f.",
+    "after": "Completa las palabras con la sílaba correcta.\nEscribe oraciones. Usa las sílabas que aprendiste.",
+    "status": "mismatch"
+  },
+  {
+    "lesson": "19",
+    "pageImage": "g-page-43.jpg",
+    "regionId": "p68-instr",
+    "before": "Encierra en un círculo la sílaba que falta para completar la palabra. Escríbela.",
+    "after": "",
+    "status": "mismatch"
+  },
+  {
+    "lesson": "19",
+    "pageImage": "g-page-44.jpg",
+    "regionId": "p69-instr",
+    "before": "Completa las palabras con la sílaba correcta. Escribe oraciones. Usa las sílabas que aprendiste.",
+    "after": "",
+    "status": "mismatch"
+  },
+  {
+    "lesson": "19",
+    "pageImage": "g-page-45.jpg",
+    "regionId": "p70-title",
+    "before": "Gg",
+    "after": "",
+    "status": "mismatch"
+  },
+  {
+    "lesson": "19",
+    "pageImage": "g-page-45.jpg",
+    "regionId": "p70-syl1",
+    "before": "ga gue gui go gu",
+    "after": "",
+    "status": "mismatch"
+  },
+  {
+    "lesson": "19",
+    "pageImage": "g-page-45.jpg",
+    "regionId": "p70-words",
+    "before": "gato · galleta · guitarra · gusano",
+    "after": "",
+    "status": "mismatch"
+  },
+  {
+    "lesson": "19",
+    "pageImage": "g-page-46.jpg",
+    "regionId": "p71-instr",
+    "before": "Traza con tu mejor letra y pinta el dibujo. Haz un dibujo para una palabra con f.",
+    "after": "Completa las palabras con la sílaba correcta.\nEscribe oraciones. Usa las sílabas que aprendiste.",
+    "status": "mismatch"
+  }
+]
