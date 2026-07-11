@@ -198,7 +198,12 @@ export function LivingWorkbookPage({
           <img
             src={page.backgroundSrc}
             alt=""
-            className="lwp-page__bg"
+            // A page with no separate objects has nothing else to show —
+            // the background IS the real content (e.g. a full-page scan
+            // fallback), so it renders at full strength. Pages that layer
+            // real illustration objects on top get the soft, blurred
+            // ambient treatment so those objects stay legible.
+            className={`lwp-page__bg${page.objects.length === 0 ? " lwp-page__bg--content" : ""}`}
             draggable={false}
             aria-hidden="true"
             loading="lazy"

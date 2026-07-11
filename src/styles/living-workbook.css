@@ -37,6 +37,16 @@
   filter: blur(2px) saturate(0.8) brightness(1.06);
 }
 
+/* When the background IS the page's only real content (e.g. a full-page
+   scan fallback with no separate objects yet), it must render crisp and
+   full-strength — the soft/blurred treatment above would make the only
+   real content on the page nearly invisible. */
+.lwp-page__bg--content {
+  object-position: center;
+  opacity: 1;
+  filter: none;
+}
+
 .lwp-bg-pending {
   position: absolute;
   inset: 0;

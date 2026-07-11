@@ -39,6 +39,11 @@ export const PAGE_STATUSES = [
   "colorization-ready",
   "implementation-ready",
   "complete",
+  /** Real source page preserved, but the converter couldn't confidently
+   * classify its content into a known region-type pattern — needs a human
+   * look before it's trusted as fully correct. Never blocks the rest of
+   * the batch; see scripts/build-full-workbook-manifest.mjs. */
+  "source-review-required",
 ] as const;
 export type ManifestPageStatus = (typeof PAGE_STATUSES)[number];
 

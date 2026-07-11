@@ -26,6 +26,7 @@ const STATUS_MAP: Record<ManifestPageStatus, PhysicalPageStatus> = {
   "colorization-ready": "draft",
   "implementation-ready": "draft",
   complete: "verified",
+  "source-review-required": "draft",
 };
 
 const MOTION_KINDS = new Set(["none", "float", "bob", "breathe", "blink"]);
@@ -115,6 +116,11 @@ function buildObjectInteractionData(
     }
     case "mark-circle":
       return { correct: answers.includes(object.id) };
+    case "tap-to-hear":
+      // Ungraded — TapToHear doesn't read anything off `data`, but it must
+      // be a truthy object so toEngineObject actually marks this object
+      // interactive (an empty `{}` still passes that check).
+      return {};
     default:
       return undefined;
   }
