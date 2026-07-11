@@ -96,6 +96,26 @@ describe("manifestPageToEnginePage", () => {
     expect(right?.interaction?.data).toEqual({ role: "right", pairId: "pair-0" });
   });
 
+  it("maps select mechanic with more than one answer to mark-circle instead of tap-select", () => {
+    const engine = manifestPageToEnginePage({
+      physicalPage: 1,
+      lesson: 1,
+      instruction: "",
+      status: "implementation-ready",
+      interaction: { mechanic: "select", answers: ["a", "c"] },
+      objects: [
+        { id: "a", type: "shape", x: 0, y: 0, width: 20, interactive: true },
+        { id: "b", type: "shape", x: 30, y: 0, width: 20, interactive: true },
+        { id: "c", type: "shape", x: 60, y: 0, width: 20, interactive: true },
+      ],
+    });
+    expect(engine.interaction?.kind).toBe("mark-circle");
+    const objA = engine.objects.find((o) => o.id === "a");
+    const objB = engine.objects.find((o) => o.id === "b");
+    expect((objA?.interaction?.data as { correct?: boolean })?.correct).toBe(true);
+    expect((objB?.interaction?.data as { correct?: boolean })?.correct).toBe(false);
+  });
+
   it("falls back unsupported mechanics (order/trace) to no interaction, page still renders", () => {
     const engine = manifestPageToEnginePage({
       physicalPage: 1,

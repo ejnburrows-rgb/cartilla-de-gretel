@@ -48,7 +48,14 @@ export function TapToHear({ objects, onComplete, onAudioPlayed, reducedMotion }:
           aria-label={object.audio?.label ?? object.alt ?? object.text ?? "escuchar"}
         >
           {object.src && (
-            <img src={object.src} alt="" className="lwp-tap-to-hear__img" draggable={false} />
+            <img
+              src={object.src}
+              alt=""
+              className="lwp-tap-to-hear__img"
+              draggable={false}
+              loading="lazy"
+              decoding="async"
+            />
           )}
           {object.text && <span className="lwp-tap-to-hear__text">{object.text}</span>}
           <span className="lwp-tap-to-hear__badge" aria-hidden="true" />

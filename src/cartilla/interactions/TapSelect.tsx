@@ -14,7 +14,9 @@ export function TapSelect({ objects, onResult, onComplete }: InteractionProps) {
 
   const handleTap = (object: WorkbookObject) => {
     if (solved) return;
-    const correct = Boolean((object.interaction?.data as { correct?: boolean } | undefined)?.correct);
+    const correct = Boolean(
+      (object.interaction?.data as { correct?: boolean } | undefined)?.correct,
+    );
     if (correct) {
       setSolved(true);
       fireCorrectFeedback();
@@ -52,7 +54,16 @@ export function TapSelect({ objects, onResult, onComplete }: InteractionProps) {
             aria-pressed={showCorrect}
             aria-label={object.alt ?? object.text ?? "opción"}
           >
-            {object.src && <img src={object.src} alt="" className="lwp-tap-select__img" draggable={false} />}
+            {object.src && (
+              <img
+                src={object.src}
+                alt=""
+                className="lwp-tap-select__img"
+                draggable={false}
+                loading="lazy"
+                decoding="async"
+              />
+            )}
             {object.text && <span className="lwp-tap-select__text">{object.text}</span>}
           </button>
         );
