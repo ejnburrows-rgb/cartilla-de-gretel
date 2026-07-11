@@ -14,12 +14,19 @@
  *     is a string, objects is an array, status is a known value
  *   - every object: id (unique per page), type, x/y/width are 0-100
  *     percentages, no height > 100
+ *   - every background/asset path is non-blank AND resolves to a real file
+ *     under public/ (hard error if missing — never a silently broken path)
  *   - every object marked interactive has a page-level interaction.mechanic
  *   - every interaction.mechanic that needs answers (select/match/connect/
  *     order) has at least one non-empty answer
- *   - 92 unique physicalPage values overall (reported as a warning, not a
- *     hard error, since a real census may legitimately still be in progress)
- *   - all lessons 1-24 have at least one page (same: warning, not error)
+ *   - the manifest's unique physicalPage count matches src/data/page-layouts.json's
+ *     real, verified page count exactly (hard error if it doesn't — see
+ *     CLAUDE.md's "Page count is NOT a magic number" canon fact: this is
+ *     never hardcoded to 92, since that's just the census schema's upper
+ *     bound, not a claim that 92 real pages exist). Falls back to a
+ *     "<92 warning" only if page-layouts.json can't be read at all.
+ *   - all lessons 1-24 have at least one page (warning, not error, since a
+ *     real census may legitimately still be in progress for some lessons)
  *
  * Usage: node scripts/validate-workbook-manifest.mjs <path-to-manifest.json>
  * Exits 1 on any error, 0 otherwise (warnings never fail the run).
@@ -27,6 +34,10 @@
 
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const repoRoot = path.resolve(__dirname, "..");
 
 const MECHANICS = ["select", "match", "drag", "connect", "order", "trace", "read", "none"];
 const STATUSES = [
@@ -35,8 +46,24 @@ const STATUSES = [
   "colorization-ready",
   "implementation-ready",
   "complete",
+  "source-review-required",
 ];
 const MECHANICS_REQUIRING_ANSWERS = new Set(["select", "match", "connect", "order"]);
+
+/** The real, verified page count — read from page-layouts.json rather than
+ * hardcoded to 92. Per CLAUDE.md's "Page count is NOT a magic number" canon
+ * fact: 92 is Grok's future census format's upper bound, not a claim that
+ * 92 real pages exist today. */
+function getRealPageCount() {
+  try {
+    const layouts = JSON.parse(
+      fs.readFileSync(path.join(repoRoot, "src/data/page-layouts.json"), "utf8"),
+    );
+    return Object.keys(layouts.pages ?? {}).length;
+  } catch {
+    return null;
+  }
+}
 
 const errors = [];
 const warnings = [];
@@ -51,6 +78,17 @@ function isPercent(n) {
   return typeof n === "number" && Number.isFinite(n) && n >= 0 && n <= 100;
 }
 
+function validateAssetPath(where, label, relPath) {
+  if (relPath.trim().length === 0) {
+    err(where, `${label} is blank`);
+    return;
+  }
+  const fullPath = path.join(repoRoot, "public", relPath);
+  if (!fs.existsSync(fullPath)) {
+    err(where, `${label} "${relPath}" does not exist on disk`);
+  }
+}
+
 function validateObject(page, object, index) {
   const where = `physicalPage ${page.physicalPage ?? "?"} / object[${index}]`;
   if (typeof object.id !== "string" || object.id.length === 0) err(where, "missing/empty id");
@@ -63,6 +101,9 @@ function validateObject(page, object, index) {
     err(where, `width must be a 0-100 percent, got ${JSON.stringify(object.width)}`);
   if (object.height !== undefined && !isPercent(object.height))
     err(where, `height must be a 0-100 percent, got ${JSON.stringify(object.height)}`);
+  if (object.asset !== undefined && typeof object.asset === "string") {
+    validateAssetPath(where, "asset", object.asset);
+  }
 }
 
 function validateInteraction(page) {
@@ -127,6 +168,14 @@ function validatePage(page, index, allObjectIds, seenPhysicalPages) {
     );
   }
 
+  if (
+    page.background !== undefined &&
+    page.background !== null &&
+    typeof page.background === "string"
+  ) {
+    validateAssetPath(`physicalPage ${page.physicalPage ?? "?"}`, "background", page.background);
+  }
+
   if (!Array.isArray(page.objects)) {
     err(`physicalPage ${page.physicalPage ?? "?"}`, "objects must be an array");
     return;
@@ -181,10 +230,18 @@ function main() {
       validatePage(page, index, allObjectIds, seenPhysicalPages),
     );
 
-    if (seenPhysicalPages.size < 92) {
+    const realPageCount = getRealPageCount();
+    if (realPageCount !== null) {
+      if (seenPhysicalPages.size !== realPageCount) {
+        err(
+          "root",
+          `manifest has ${seenPhysicalPages.size} unique physicalPage value(s), but src/data/page-layouts.json has ${realPageCount} verified real pages — every real page must be covered, with no extras`,
+        );
+      }
+    } else if (seenPhysicalPages.size < 92) {
       warn(
         "root",
-        `only ${seenPhysicalPages.size}/92 physicalPage values present — expected for an in-progress census, not a hard error`,
+        `only ${seenPhysicalPages.size}/92 physicalPage values present — expected for an in-progress census, not a hard error (could not read src/data/page-layouts.json to check against the real count)`,
       );
     }
     const coveredLessons = new Set(

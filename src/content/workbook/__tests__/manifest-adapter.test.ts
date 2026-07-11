@@ -96,6 +96,31 @@ describe("manifestPageToEnginePage", () => {
     expect(right?.interaction?.data).toEqual({ role: "right", pairId: "pair-0" });
   });
 
+  it("maps read+audio to tap-to-hear and marks the object interactive (regression: was silently static)", () => {
+    const engine = manifestPageToEnginePage({
+      physicalPage: 1,
+      lesson: 1,
+      instruction: "",
+      status: "implementation-ready",
+      interaction: { mechanic: "read", answers: [] },
+      audio: ["mamá"],
+      objects: [
+        {
+          id: "a",
+          type: "illustration",
+          x: 0,
+          y: 0,
+          width: 20,
+          audioId: "mamá",
+          interactive: true,
+        },
+      ],
+    });
+    expect(engine.interaction?.kind).toBe("tap-to-hear");
+    const obj = engine.objects.find((o) => o.id === "a");
+    expect(obj?.interaction?.kind).toBe("tap-to-hear");
+  });
+
   it("maps select mechanic with more than one answer to mark-circle instead of tap-select", () => {
     const engine = manifestPageToEnginePage({
       physicalPage: 1,
