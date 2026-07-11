@@ -7,6 +7,7 @@ import { listClasses, createClass, deleteClass } from "@/lib/teacher.functions";
 import { supabase } from "@/integrations/supabase/client";
 import { useLanguage } from "@/context/LanguageContext";
 import { LanguageToggle } from "@/components/LanguageToggle";
+import { HelpSection } from "@/components/teacher/HelpSection";
 import { tCopy } from "@/content/teacher-copy";
 
 export const Route = createFileRoute("/_authenticated/cartilla/teacher")({
@@ -175,6 +176,8 @@ function TeacherDashboard() {
           </div>
         ))}
       </section>
+
+      <HelpSection />
     </main>
   );
 }
