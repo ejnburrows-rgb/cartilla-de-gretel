@@ -1,20 +1,20 @@
-{
+﻿{
   "lessonId": 19,
   "objectives": [
-    "MISSING_CONTENT: Lesson text missing from docs/Transcripción Integral_ La cartilla de Gretel - Guía del profesor.txt and could not be found anywhere else in the repository (searched docs/**, src/content/guides/**, src/data/**). EJN to supply the missing text."
+    "AWAITING-SOURCE-SCAN"
   ],
-  "motivation": "MISSING_CONTENT: Lesson text missing from docs/Transcripción Integral_ La cartilla de Gretel - Guía del profesor.txt and could not be found anywhere else in the repository (searched docs/**, src/content/guides/**, src/data/**). EJN to supply the missing text.",
-  "script": "MISSING_CONTENT: Lesson text missing from docs/Transcripción Integral_ La cartilla de Gretel - Guía del profesor.txt and could not be found anywhere else in the repository (searched docs/**, src/content/guides/**, src/data/**). EJN to supply the missing text.",
+  "motivation": "AWAITING-SOURCE-SCAN",
+  "script": "AWAITING-SOURCE-SCAN",
   "evaluationRef": {
     "page": null,
-    "note": "MISSING_CONTENT: Lesson text missing from docs/Transcripción Integral_ La cartilla de Gretel - Guía del profesor.txt and could not be found anywhere else in the repository (searched docs/**, src/content/guides/**, src/data/**). EJN to supply the missing text."
+    "note": "AWAITING-SOURCE-SCAN"
   },
   "rhyme": {
     "title": null,
-    "text": null
+    "text": "AWAITING-SOURCE-SCAN"
   },
   "provenance": {
-    "source": "MISSING_CONTENT: Lesson text missing from docs/Transcripción Integral_ La cartilla de Gretel - Guía del profesor.txt and could not be found anywhere else in the repository (searched docs/**, src/content/guides/**, src/data/**). EJN to supply the missing text.",
+    "source": "AWAITING-SOURCE-SCAN",
     "verified": false
   }
 }
