@@ -13,6 +13,8 @@
     "validate": "node scripts/validate-teacher-guide.cjs",
     "validate:content": "node scripts/validate-content.mjs",
     "validate:activities-content": "node scripts/validate-activities-content.mjs",
+    "validate:manifest": "node scripts/validate-workbook-manifest.mjs src/content/workbook/workbook-manifest.json",
+    "build:manifest": "node scripts/build-workbook-manifest.mjs",
     "crop:generate-manifest": "node scripts/generate-crop-manifest.mjs",
     "crop:illustrations": "node scripts/crop-illustrations.mjs",
     "check:assets": "ts-node --project tsconfig.json scripts/check-assets.ts",

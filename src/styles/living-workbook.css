@@ -5,6 +5,13 @@
   width: 100%;
 }
 
+.lwp-page__instruction {
+  font-family: var(--font-book-faithful, inherit);
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  color: hsl(var(--foreground));
+}
+
 .lwp-page__canvas {
   position: relative;
   width: 100%;

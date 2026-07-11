@@ -1,4 +1,5 @@
 import type { CSSProperties, ReactNode } from "react";
+import { useEffect, useRef } from "react";
 import "@/styles/living-workbook.css";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import type { PhysicalPage, WorkbookObject } from "@/content/workbook/types";
@@ -7,6 +8,7 @@ import { TapToHear } from "@/cartilla/interactions/TapToHear";
 import { DragPlace } from "@/cartilla/interactions/DragPlace";
 import { PairMatch } from "@/cartilla/interactions/PairMatch";
 import { MarkCircle } from "@/cartilla/interactions/MarkCircle";
+import { emitProgressEvent } from "@/lib/progress-events";
 
 export type InteractionResult = { objectId: string; result: "correct" | "wrong" };
 
@@ -17,7 +19,12 @@ export interface LivingWorkbookPageProps {
   className?: string;
 }
 
-function boxStyle(box: WorkbookObject["box"], zIndex: number | undefined, motionOn: boolean, motion: WorkbookObject["motion"]): CSSProperties {
+function boxStyle(
+  box: WorkbookObject["box"],
+  zIndex: number | undefined,
+  motionOn: boolean,
+  motion: WorkbookObject["motion"],
+): CSSProperties {
   const style: CSSProperties = {
     position: "absolute",
     left: `${box.xPct}%`,
@@ -46,7 +53,12 @@ function StaticObject({ object, motionOn }: { object: WorkbookObject; motionOn: 
     >
       {object.src && (
         // eslint-disable-next-line jsx-a11y/img-redundant-alt
-        <img src={object.src} alt={object.alt ?? ""} className="lwp-object__img" draggable={false} />
+        <img
+          src={object.src}
+          alt={object.alt ?? ""}
+          className="lwp-object__img"
+          draggable={false}
+        />
       )}
       {object.text && <div className="lwp-object__text">{object.text}</div>}
     </div>
@@ -73,7 +85,12 @@ function BackgroundPendingPlaceholder() {
  * disabled under prefers-reduced-motion; graded interaction feedback is not
  * decorative and stays on regardless.
  */
-export function LivingWorkbookPage({ page, onInteractionResult, onComplete, className }: LivingWorkbookPageProps) {
+export function LivingWorkbookPage({
+  page,
+  onInteractionResult,
+  onComplete,
+  className,
+}: LivingWorkbookPageProps) {
   const reducedMotion = useReducedMotion();
   const motionOn = !reducedMotion;
 
@@ -81,12 +98,75 @@ export function LivingWorkbookPage({ page, onInteractionResult, onComplete, clas
   const staticObjects = page.objects.filter((o) => (o.interaction?.kind ?? "none") === "none");
   const interactiveObjects = page.objects.filter((o) => (o.interaction?.kind ?? "none") !== "none");
 
+  const attemptCount = useRef(0);
+
+  // page_opened on mount / whenever the page changes; page_completed when
+  // the student navigates away from having had it open.
+  useEffect(() => {
+    if (page.pageNumber === null) return; // sandbox/dev records without a real page number aren't tracked
+    emitProgressEvent({
+      type: "page_opened",
+      physicalPage: page.pageNumber,
+      lesson: page.lessonNumber,
+      mechanic: interactionKind,
+    });
+    return () => {
+      emitProgressEvent({
+        type: "page_completed",
+        physicalPage: page.pageNumber as number,
+        lesson: page.lessonNumber,
+        mechanic: interactionKind,
+      });
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [page.pageNumber]);
+
+  const handleResult = (r: InteractionResult) => {
+    attemptCount.current += 1;
+    if (page.pageNumber !== null) {
+      emitProgressEvent({
+        type: r.result === "correct" ? "answer_correct" : "answer_incorrect",
+        physicalPage: page.pageNumber,
+        lesson: page.lessonNumber,
+        mechanic: interactionKind,
+        attempt: attemptCount.current,
+      });
+    }
+    onInteractionResult?.(r);
+  };
+
+  const handleComplete = () => {
+    if (page.pageNumber !== null) {
+      emitProgressEvent({
+        type: "activity_completed",
+        physicalPage: page.pageNumber,
+        lesson: page.lessonNumber,
+        mechanic: interactionKind,
+      });
+    }
+    onComplete?.();
+  };
+
+  const handleAudioPlayed = (objectId: string) => {
+    if (page.pageNumber !== null) {
+      emitProgressEvent({
+        type: "audio_played",
+        physicalPage: page.pageNumber,
+        lesson: page.lessonNumber,
+        mechanic: interactionKind,
+        attempt: undefined,
+      });
+    }
+    void objectId;
+  };
+
   let interactionSlot: ReactNode = null;
   if (interactionKind !== "none" && interactiveObjects.length > 0) {
     const shared = {
       objects: interactiveObjects,
-      onResult: onInteractionResult,
-      onComplete,
+      onResult: handleResult,
+      onComplete: handleComplete,
+      onAudioPlayed: handleAudioPlayed,
       reducedMotion,
     };
     switch (interactionKind) {
@@ -110,9 +190,16 @@ export function LivingWorkbookPage({ page, onInteractionResult, onComplete, clas
 
   return (
     <div className={`lwp-page${className ? ` ${className}` : ""}`} data-status={page.status}>
+      {page.instruction && <p className="lwp-page__instruction">{page.instruction}</p>}
       <div className="lwp-page__canvas">
         {page.backgroundSrc ? (
-          <img src={page.backgroundSrc} alt="" className="lwp-page__bg" draggable={false} aria-hidden="true" />
+          <img
+            src={page.backgroundSrc}
+            alt=""
+            className="lwp-page__bg"
+            draggable={false}
+            aria-hidden="true"
+          />
         ) : (
           <BackgroundPendingPlaceholder />
         )}

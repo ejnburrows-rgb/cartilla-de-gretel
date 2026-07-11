@@ -1,0 +1,4 @@
+[
+  { "physicalPage": 1, "mechanic": "select", "answers": ["shape-b"] },
+  { "physicalPage": 2, "mechanic": "read" }
+]
