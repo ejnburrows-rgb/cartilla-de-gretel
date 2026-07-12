@@ -1,0 +1,123 @@
+{
+  "generatedAt": "2026-07-12T22:24:08.826Z",
+  "phase": "final-release-qa",
+  "scannedFiles": 585,
+  "uniqueRefsOk": 229,
+  "uniqueRefsMissing": 13,
+  "missingCount": 14,
+  "ok": false,
+  "missingByRef": {
+    "/book/book.pdf": [
+      "src/components/Downloads.tsx:3",
+      "src/components/Reader.tsx:11"
+    ],
+    "/cartilla/images/gretel/happy.webp": [
+      "src/components/intro/IntroSplash.tsx:121"
+    ],
+    "/audio/ui/page-turn.mp3": [
+      "src/content/audio-manifest.ts:34"
+    ],
+    "/audio/ui/page-turn-soft.mp3": [
+      "src/content/audio-manifest.ts:35"
+    ],
+    "/audio/ui/success.mp3": [
+      "src/content/audio-manifest.ts:36"
+    ],
+    "/audio/ui/nudge-gentle.mp3": [
+      "src/content/audio-manifest.ts:37"
+    ],
+    "/audio/ui/streak-chime.mp3": [
+      "src/content/audio-manifest.ts:38"
+    ],
+    "/audio/ui/streak-cheer.mp3": [
+      "src/content/audio-manifest.ts:39"
+    ],
+    "/audio/ui/streak-fanfare.mp3": [
+      "src/content/audio-manifest.ts:40"
+    ],
+    "/audio/ui/ambient-classroom.mp3": [
+      "src/content/audio-manifest.ts:41"
+    ],
+    "/cartilla/art/faithful/2/oso.webp": [
+      "src/lib/book-faithful.ts:130"
+    ],
+    "/cartilla/art/faithful/gretel-poses/gretel-book-right.png": [
+      "src/routes/cartilla/index.tsx:74"
+    ],
+    "/cartilla/images/family-garden-bg.jpeg": [
+      "src/routes/index.tsx:47"
+    ]
+  },
+  "missingSample": [
+    {
+      "file": "src/components/Downloads.tsx",
+      "line": 3,
+      "ref": "/book/book.pdf"
+    },
+    {
+      "file": "src/components/intro/IntroSplash.tsx",
+      "line": 121,
+      "ref": "/cartilla/images/gretel/happy.webp"
+    },
+    {
+      "file": "src/components/Reader.tsx",
+      "line": 11,
+      "ref": "/book/book.pdf"
+    },
+    {
+      "file": "src/content/audio-manifest.ts",
+      "line": 34,
+      "ref": "/audio/ui/page-turn.mp3"
+    },
+    {
+      "file": "src/content/audio-manifest.ts",
+      "line": 35,
+      "ref": "/audio/ui/page-turn-soft.mp3"
+    },
+    {
+      "file": "src/content/audio-manifest.ts",
+      "line": 36,
+      "ref": "/audio/ui/success.mp3"
+    },
+    {
+      "file": "src/content/audio-manifest.ts",
+      "line": 37,
+      "ref": "/audio/ui/nudge-gentle.mp3"
+    },
+    {
+      "file": "src/content/audio-manifest.ts",
+      "line": 38,
+      "ref": "/audio/ui/streak-chime.mp3"
+    },
+    {
+      "file": "src/content/audio-manifest.ts",
+      "line": 39,
+      "ref": "/audio/ui/streak-cheer.mp3"
+    },
+    {
+      "file": "src/content/audio-manifest.ts",
+      "line": 40,
+      "ref": "/audio/ui/streak-fanfare.mp3"
+    },
+    {
+      "file": "src/content/audio-manifest.ts",
+      "line": 41,
+      "ref": "/audio/ui/ambient-classroom.mp3"
+    },
+    {
+      "file": "src/lib/book-faithful.ts",
+      "line": 130,
+      "ref": "/cartilla/art/faithful/2/oso.webp"
+    },
+    {
+      "file": "src/routes/cartilla/index.tsx",
+      "line": 74,
+      "ref": "/cartilla/art/faithful/gretel-poses/gretel-book-right.png"
+    },
+    {
+      "file": "src/routes/index.tsx",
+      "line": 47,
+      "ref": "/cartilla/images/family-garden-bg.jpeg"
+    }
+  ]
+}
