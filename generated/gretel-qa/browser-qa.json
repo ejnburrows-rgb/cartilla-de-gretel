@@ -1,0 +1,199 @@
+{
+  "base": "http://127.0.0.1:4185",
+  "generatedAt": "2026-07-12T22:29:43.245Z",
+  "launch": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+  "results": [
+    {
+      "dir": "generated/gretel-qa",
+      "viewport": "mobile",
+      "route": "/cartilla",
+      "id": "splash",
+      "status": "ok",
+      "screenshot": "generated/gretel-qa/mobile-splash.png"
+    },
+    {
+      "dir": "generated/gretel-qa",
+      "viewport": "mobile",
+      "route": "/cartilla/ayuda",
+      "id": "ayuda",
+      "status": "ok",
+      "screenshot": "generated/gretel-qa/mobile-ayuda.png"
+    },
+    {
+      "dir": "generated/gretel-qa",
+      "viewport": "mobile",
+      "route": "/cartilla/ayuda",
+      "id": "ayuda-teacher-tab",
+      "status": "ok",
+      "screenshot": "generated/gretel-qa/mobile-ayuda-teacher-tab.png"
+    },
+    {
+      "dir": "generated/gretel-qa",
+      "viewport": "mobile",
+      "route": "/cartilla/lecciones",
+      "id": "lecciones",
+      "status": "ok",
+      "screenshot": "generated/gretel-qa/mobile-lecciones.png"
+    },
+    {
+      "dir": "generated/gretel-qa",
+      "viewport": "mobile",
+      "route": "/cartilla/leccion/1",
+      "id": "leccion-1",
+      "status": "ok",
+      "screenshot": "generated/gretel-qa/mobile-leccion-1.png"
+    },
+    {
+      "dir": "generated/gretel-qa",
+      "viewport": "mobile",
+      "route": "/cartilla/teacher/crm",
+      "id": "teacher-crm",
+      "status": "ok",
+      "screenshot": "generated/gretel-qa/mobile-teacher-crm.png"
+    },
+    {
+      "dir": "generated/gretel-qa",
+      "viewport": "desktop",
+      "route": "/cartilla",
+      "id": "splash",
+      "status": "ok",
+      "screenshot": "generated/gretel-qa/desktop-splash.png"
+    },
+    {
+      "dir": "generated/gretel-qa",
+      "viewport": "desktop",
+      "route": "/cartilla/ayuda",
+      "id": "ayuda",
+      "status": "ok",
+      "screenshot": "generated/gretel-qa/desktop-ayuda.png"
+    },
+    {
+      "dir": "generated/gretel-qa",
+      "viewport": "desktop",
+      "route": "/cartilla/ayuda",
+      "id": "ayuda-teacher-tab",
+      "status": "ok",
+      "screenshot": "generated/gretel-qa/desktop-ayuda-teacher-tab.png"
+    },
+    {
+      "dir": "generated/gretel-qa",
+      "viewport": "desktop",
+      "route": "/cartilla/lecciones",
+      "id": "lecciones",
+      "status": "ok",
+      "screenshot": "generated/gretel-qa/desktop-lecciones.png"
+    },
+    {
+      "dir": "generated/gretel-qa",
+      "viewport": "desktop",
+      "route": "/cartilla/leccion/1",
+      "id": "leccion-1",
+      "status": "ok",
+      "screenshot": "generated/gretel-qa/desktop-leccion-1.png"
+    },
+    {
+      "dir": "generated/gretel-qa",
+      "viewport": "desktop",
+      "route": "/cartilla/teacher/crm",
+      "id": "teacher-crm",
+      "status": "ok",
+      "screenshot": "generated/gretel-qa/desktop-teacher-crm.png"
+    },
+    {
+      "dir": "generated/polish-qa",
+      "viewport": "mobile",
+      "route": "/cartilla",
+      "id": "splash",
+      "status": "ok",
+      "screenshot": "generated/polish-qa/mobile-splash.png"
+    },
+    {
+      "dir": "generated/polish-qa",
+      "viewport": "mobile",
+      "route": "/cartilla/ayuda",
+      "id": "ayuda",
+      "status": "ok",
+      "screenshot": "generated/polish-qa/mobile-ayuda.png"
+    },
+    {
+      "dir": "generated/polish-qa",
+      "viewport": "mobile",
+      "route": "/cartilla/ayuda",
+      "id": "ayuda-teacher-tab",
+      "status": "ok",
+      "screenshot": "generated/polish-qa/mobile-ayuda-teacher-tab.png"
+    },
+    {
+      "dir": "generated/polish-qa",
+      "viewport": "mobile",
+      "route": "/cartilla/lecciones",
+      "id": "lecciones",
+      "status": "ok",
+      "screenshot": "generated/polish-qa/mobile-lecciones.png"
+    },
+    {
+      "dir": "generated/polish-qa",
+      "viewport": "mobile",
+      "route": "/cartilla/leccion/1",
+      "id": "leccion-1",
+      "status": "ok",
+      "screenshot": "generated/polish-qa/mobile-leccion-1.png"
+    },
+    {
+      "dir": "generated/polish-qa",
+      "viewport": "mobile",
+      "route": "/cartilla/teacher/crm",
+      "id": "teacher-crm",
+      "status": "ok",
+      "screenshot": "generated/polish-qa/mobile-teacher-crm.png"
+    },
+    {
+      "dir": "generated/polish-qa",
+      "viewport": "desktop",
+      "route": "/cartilla",
+      "id": "splash",
+      "status": "ok",
+      "screenshot": "generated/polish-qa/desktop-splash.png"
+    },
+    {
+      "dir": "generated/polish-qa",
+      "viewport": "desktop",
+      "route": "/cartilla/ayuda",
+      "id": "ayuda",
+      "status": "ok",
+      "screenshot": "generated/polish-qa/desktop-ayuda.png"
+    },
+    {
+      "dir": "generated/polish-qa",
+      "viewport": "desktop",
+      "route": "/cartilla/ayuda",
+      "id": "ayuda-teacher-tab",
+      "status": "ok",
+      "screenshot": "generated/polish-qa/desktop-ayuda-teacher-tab.png"
+    },
+    {
+      "dir": "generated/polish-qa",
+      "viewport": "desktop",
+      "route": "/cartilla/lecciones",
+      "id": "lecciones",
+      "status": "ok",
+      "screenshot": "generated/polish-qa/desktop-lecciones.png"
+    },
+    {
+      "dir": "generated/polish-qa",
+      "viewport": "desktop",
+      "route": "/cartilla/leccion/1",
+      "id": "leccion-1",
+      "status": "ok",
+      "screenshot": "generated/polish-qa/desktop-leccion-1.png"
+    },
+    {
+      "dir": "generated/polish-qa",
+      "viewport": "desktop",
+      "route": "/cartilla/teacher/crm",
+      "id": "teacher-crm",
+      "status": "ok",
+      "screenshot": "generated/polish-qa/desktop-teacher-crm.png"
+    }
+  ]
+}

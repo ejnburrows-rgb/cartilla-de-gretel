@@ -1,0 +1,179 @@
+{
+  "generatedAt": "2026-07-12T22:23:33.603Z",
+  "sourceRoot": "public/cartilla/images/gretel/poses",
+  "hero": {
+    "src": "/cartilla/art/hero/gretel-hero.webp",
+    "src2x": "/cartilla/art/hero/gretel-hero@2x.webp",
+    "cutout": "/cartilla/art/hero/gretel-hero-cutout.webp",
+    "source": "public/cartilla/images/gretel/gretel-original.png",
+    "canon": {
+      "hair": "golden wavy blonde",
+      "bow": "red",
+      "eyes": "blue",
+      "blush": "pink",
+      "freckles": false,
+      "age": "5-7",
+      "clothing": "orange-red striped shirt + blue overall dress with flower hem"
+    },
+    "width": 640,
+    "height": 853,
+    "width2x": 1280,
+    "height2x": 1707,
+    "cutoutBytes": 39838
+  },
+  "blinkEnabled": true,
+  "rejectedSources": [
+    {
+      "file": "gretel-wave.webp",
+      "reason": "Clothing mismatch — white tee + teal skirt, not orange stripes + blue overalls"
+    }
+  ],
+  "poses": {
+    "idle": {
+      "frameCount": 2,
+      "frames": [
+        {
+          "index": 0,
+          "src": "/gretel/poses/idle/frame-0.webp",
+          "sourceFile": "gretel-idle.webp",
+          "width": 640,
+          "height": 961,
+          "bytes": 53310
+        },
+        {
+          "index": 1,
+          "src": "/gretel/poses/idle/frame-1.webp",
+          "sourceFile": "gretel-blink.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 44804
+        }
+      ],
+      "reducedMotionFallback": "/gretel/poses/idle/frame-0.webp"
+    },
+    "pointing": {
+      "frameCount": 1,
+      "frames": [
+        {
+          "index": 0,
+          "src": "/gretel/poses/pointing/frame-0.webp",
+          "sourceFile": "gretel-point.webp",
+          "width": 640,
+          "height": 961,
+          "bytes": 62844
+        }
+      ],
+      "reducedMotionFallback": "/gretel/poses/pointing/frame-0.webp"
+    },
+    "cheering": {
+      "frameCount": 2,
+      "frames": [
+        {
+          "index": 0,
+          "src": "/gretel/poses/cheering/frame-0.webp",
+          "sourceFile": "gretel-cheer.webp",
+          "width": 640,
+          "height": 961,
+          "bytes": 55826
+        },
+        {
+          "index": 1,
+          "src": "/gretel/poses/cheering/frame-1.webp",
+          "sourceFile": "gretel-cheer-1.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 42750
+        }
+      ],
+      "reducedMotionFallback": "/gretel/poses/cheering/frame-0.webp"
+    },
+    "thinking": {
+      "frameCount": 2,
+      "frames": [
+        {
+          "index": 0,
+          "src": "/gretel/poses/thinking/frame-0.webp",
+          "sourceFile": "gretel-talk-0.webp",
+          "width": 640,
+          "height": 961,
+          "bytes": 53310
+        },
+        {
+          "index": 1,
+          "src": "/gretel/poses/thinking/frame-1.webp",
+          "sourceFile": "gretel-talk.webp",
+          "width": 640,
+          "height": 961,
+          "bytes": 54034
+        }
+      ],
+      "reducedMotionFallback": "/gretel/poses/thinking/frame-0.webp"
+    },
+    "waving": {
+      "frameCount": 2,
+      "frames": [
+        {
+          "index": 0,
+          "src": "/gretel/poses/waving/frame-0.webp",
+          "sourceFile": "gretel-wave-1.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 28154
+        },
+        {
+          "index": 1,
+          "src": "/gretel/poses/waving/frame-1.webp",
+          "sourceFile": "gretel-wave-2.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 46448
+        }
+      ],
+      "reducedMotionFallback": "/gretel/poses/waving/frame-0.webp"
+    },
+    "talking": {
+      "frameCount": 3,
+      "frames": [
+        {
+          "index": 0,
+          "src": "/gretel/poses/talking/frame-0.webp",
+          "sourceFile": "gretel-talk-0.webp",
+          "width": 640,
+          "height": 961,
+          "bytes": 53310
+        },
+        {
+          "index": 1,
+          "src": "/gretel/poses/talking/frame-1.webp",
+          "sourceFile": "gretel-talk-1.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 93428
+        },
+        {
+          "index": 2,
+          "src": "/gretel/poses/talking/frame-2.webp",
+          "sourceFile": "gretel-talk-2.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 44598
+        }
+      ],
+      "reducedMotionFallback": "/gretel/poses/talking/frame-0.webp"
+    },
+    "blinking": {
+      "frameCount": 1,
+      "frames": [
+        {
+          "index": 0,
+          "src": "/gretel/poses/blinking/frame-0.webp",
+          "sourceFile": "gretel-blink.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 44804
+        }
+      ],
+      "reducedMotionFallback": "/gretel/poses/idle/frame-0.webp"
+    }
+  }
+}
