@@ -1,0 +1,4 @@
+physicalPage,objectId,type,x_pct,y_pct,width_pct,height_pct,interactive
+1,shape-a,shape,8,30,22,40,true
+1,shape-b,shape,39,30,22,40,true
+2,pixel-only-object,shape,,,,,false

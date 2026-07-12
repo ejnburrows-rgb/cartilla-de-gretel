@@ -1,0 +1,198 @@
+{
+  "base": "http://127.0.0.1:4173",
+  "generatedAt": "2026-07-12T20:13:58.789Z",
+  "results": [
+    {
+      "viewport": "mobile",
+      "route": "/cartilla",
+      "id": "splash",
+      "status": "ok",
+      "title": "La Cartilla de Gretel",
+      "screenshot": "generated/release-integration-qa/mobile-splash.png"
+    },
+    {
+      "viewport": "mobile",
+      "route": "/login",
+      "id": "login",
+      "status": "ok",
+      "title": "La Cartilla de Gretel",
+      "screenshot": "generated/release-integration-qa/mobile-login.png"
+    },
+    {
+      "viewport": "mobile",
+      "route": "/cartilla/ayuda",
+      "id": "ayuda",
+      "status": "ok",
+      "title": "La Cartilla de Gretel",
+      "screenshot": "generated/release-integration-qa/mobile-ayuda.png"
+    },
+    {
+      "viewport": "mobile",
+      "route": "/cartilla/lecciones",
+      "id": "lecciones",
+      "status": "ok",
+      "title": "La Cartilla de Gretel",
+      "screenshot": "generated/release-integration-qa/mobile-lecciones.png"
+    },
+    {
+      "viewport": "mobile",
+      "route": "/cartilla/student/libro",
+      "id": "student-libro",
+      "status": "ok",
+      "title": "La Cartilla de Gretel",
+      "screenshot": "generated/release-integration-qa/mobile-student-libro.png"
+    },
+    {
+      "viewport": "mobile",
+      "route": "/cartilla/student/libro-vivo",
+      "id": "libro-vivo",
+      "status": "ok",
+      "title": "La Cartilla de Gretel",
+      "screenshot": "generated/release-integration-qa/mobile-libro-vivo.png"
+    },
+    {
+      "viewport": "mobile",
+      "route": "/cartilla/student/mi-progreso",
+      "id": "mi-progreso",
+      "status": "ok",
+      "title": "La Cartilla de Gretel",
+      "screenshot": "generated/release-integration-qa/mobile-mi-progreso.png"
+    },
+    {
+      "viewport": "mobile",
+      "route": "/cartilla/leccion/1",
+      "id": "leccion-1",
+      "status": "ok",
+      "title": "La Cartilla de Gretel",
+      "screenshot": "generated/release-integration-qa/mobile-leccion-1.png"
+    },
+    {
+      "viewport": "mobile",
+      "route": "/cartilla/teacher/crm",
+      "id": "teacher-crm",
+      "status": "ok",
+      "title": "La Cartilla de Gretel",
+      "screenshot": "generated/release-integration-qa/mobile-teacher-crm.png"
+    },
+    {
+      "viewport": "mobile",
+      "route": "/cartilla/presentar/1",
+      "id": "teacher-flipchart",
+      "status": "ok",
+      "title": "La Cartilla de Gretel",
+      "screenshot": "generated/release-integration-qa/mobile-teacher-flipchart.png"
+    },
+    {
+      "viewport": "mobile",
+      "route": "/cartilla/teacher/reportes",
+      "id": "teacher-reportes",
+      "status": "ok",
+      "title": "La Cartilla de Gretel",
+      "screenshot": "generated/release-integration-qa/mobile-teacher-reportes.png"
+    },
+    {
+      "viewport": "mobile",
+      "route": "/dev-workbook-manifest",
+      "id": "dev-workbook-manifest",
+      "status": "ok",
+      "title": "La Cartilla de Gretel",
+      "screenshot": "generated/release-integration-qa/mobile-dev-workbook-manifest.png"
+    },
+    {
+      "viewport": "desktop",
+      "route": "/cartilla",
+      "id": "splash",
+      "status": "ok",
+      "title": "La Cartilla de Gretel",
+      "screenshot": "generated/release-integration-qa/desktop-splash.png"
+    },
+    {
+      "viewport": "desktop",
+      "route": "/login",
+      "id": "login",
+      "status": "ok",
+      "title": "La Cartilla de Gretel",
+      "screenshot": "generated/release-integration-qa/desktop-login.png"
+    },
+    {
+      "viewport": "desktop",
+      "route": "/cartilla/ayuda",
+      "id": "ayuda",
+      "status": "ok",
+      "title": "La Cartilla de Gretel",
+      "screenshot": "generated/release-integration-qa/desktop-ayuda.png"
+    },
+    {
+      "viewport": "desktop",
+      "route": "/cartilla/lecciones",
+      "id": "lecciones",
+      "status": "ok",
+      "title": "La Cartilla de Gretel",
+      "screenshot": "generated/release-integration-qa/desktop-lecciones.png"
+    },
+    {
+      "viewport": "desktop",
+      "route": "/cartilla/student/libro",
+      "id": "student-libro",
+      "status": "ok",
+      "title": "La Cartilla de Gretel",
+      "screenshot": "generated/release-integration-qa/desktop-student-libro.png"
+    },
+    {
+      "viewport": "desktop",
+      "route": "/cartilla/student/libro-vivo",
+      "id": "libro-vivo",
+      "status": "ok",
+      "title": "La Cartilla de Gretel",
+      "screenshot": "generated/release-integration-qa/desktop-libro-vivo.png"
+    },
+    {
+      "viewport": "desktop",
+      "route": "/cartilla/student/mi-progreso",
+      "id": "mi-progreso",
+      "status": "ok",
+      "title": "La Cartilla de Gretel",
+      "screenshot": "generated/release-integration-qa/desktop-mi-progreso.png"
+    },
+    {
+      "viewport": "desktop",
+      "route": "/cartilla/leccion/1",
+      "id": "leccion-1",
+      "status": "ok",
+      "title": "La Cartilla de Gretel",
+      "screenshot": "generated/release-integration-qa/desktop-leccion-1.png"
+    },
+    {
+      "viewport": "desktop",
+      "route": "/cartilla/teacher/crm",
+      "id": "teacher-crm",
+      "status": "ok",
+      "title": "La Cartilla de Gretel",
+      "screenshot": "generated/release-integration-qa/desktop-teacher-crm.png"
+    },
+    {
+      "viewport": "desktop",
+      "route": "/cartilla/presentar/1",
+      "id": "teacher-flipchart",
+      "status": "ok",
+      "title": "La Cartilla de Gretel",
+      "screenshot": "generated/release-integration-qa/desktop-teacher-flipchart.png"
+    },
+    {
+      "viewport": "desktop",
+      "route": "/cartilla/teacher/reportes",
+      "id": "teacher-reportes",
+      "status": "ok",
+      "title": "La Cartilla de Gretel",
+      "screenshot": "generated/release-integration-qa/desktop-teacher-reportes.png"
+    },
+    {
+      "viewport": "desktop",
+      "route": "/dev-workbook-manifest",
+      "id": "dev-workbook-manifest",
+      "status": "ok",
+      "title": "La Cartilla de Gretel",
+      "screenshot": "generated/release-integration-qa/desktop-dev-workbook-manifest.png"
+    }
+  ]
+}

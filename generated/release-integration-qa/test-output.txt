@@ -1,0 +1,241 @@
+Already up to date
+Done in 59ms using pnpm v11.10.0
+[2m$ vitest run[22m
+(node:10852) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Warning: Route file "C:/Users/EJN/grok-work/cartilla-rc/src/routes/__tests__/student-routing.test.tsx" does not export a Route. This file will not be included in the route tree.
+
+If this file is not intended to be a route, you can exclude it using one of these options:
+  1. Rename the file to "C:\Users\EJN\grok-work\cartilla-rc\src\routes\__tests__\-student-routing.test.tsx" (prefix with "-")
+  2. Use 'routeFileIgnorePattern' in your config to match this file
+
+Current configuration:
+  routeFileIgnorePrefix: "-"
+  routeFileIgnorePattern: undefined
+Warning: Route file "C:/Users/EJN/grok-work/cartilla-rc/src/routes/cartilla/student/_components/LessonSkeleton.tsx" does not export a Route. This file will not be included in the route tree.
+
+If this file is not intended to be a route, you can exclude it using one of these options:
+  1. Rename the file to "C:\Users\EJN\grok-work\cartilla-rc\src\routes\cartilla\student\_components\-LessonSkeleton.tsx" (prefix with "-")
+  2. Use 'routeFileIgnorePattern' in your config to match this file
+
+Current configuration:
+  routeFileIgnorePrefix: "-"
+  routeFileIgnorePattern: undefined
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.8 [39m[90mC:/Users/EJN/grok-work/cartilla-rc[39m
+
+[90mstderr[2m | src/lib/__tests__/speak.test.ts[2m > [22m[2mSpeak API - Voice Caching and Offline Support[2m > [22m[2mshould select the online-preferred voice when online and cache it
+[22m[39m[TTS] No neutral Latin American Spanish voice (es-MX/es-US/es-419) found on this device. Falling back to "Google español" (es-ES).
+
+(node:34060) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [32m✓[39m src/content/workbook/__tests__/manifest-integrity.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 146[2mms[22m[39m
+(node:2520) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [32m✓[39m src/components/cartilla/__tests__/InteractivePageExercises.dragmatch.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[33m 1009[2mms[22m[39m
+     [33m[2m✓[22m[39m grades a correct placement immediately: chime + Gretel correct, not yet complete [33m 603[2mms[22m[39m
+ [32m✓[39m scripts/__tests__/validate-workbook-manifest.test.ts [2m([22m[2m5 tests[22m[2m)[22m[33m 2002[2mms[22m[39m
+     [33m[2m✓[22m[39m fails when a background path doesn't resolve to a real file on disk [33m 562[2mms[22m[39m
+     [33m[2m✓[22m[39m fails when an object's asset path is blank [33m 410[2mms[22m[39m
+     [33m[2m✓[22m[39m fails when an object's asset path doesn't resolve to a real file [33m 354[2mms[22m[39m
+     [33m[2m✓[22m[39m passes when background/asset paths resolve to real public/ files [33m 362[2mms[22m[39m
+     [33m[2m✓[22m[39m accepts the source-review-required status value [33m 306[2mms[22m[39m
+ [32m✓[39m src/test/ui-features.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[33m 550[2mms[22m[39m
+       [33m[2m✓[22m[39m persists theme to localStorage and applies class to document [33m 520[2mms[22m[39m
+(node:26084) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [32m✓[39m scripts/__tests__/build-workbook-manifest.test.ts [2m([22m[2m4 tests[22m[2m)[22m[33m 1910[2mms[22m[39m
+     [33m[2m✓[22m[39m degrades gracefully with zero inputs: produces a valid empty manifest, no crash [33m 437[2mms[22m[39m
+     [33m[2m✓[22m[39m merges the 4 sample census fixtures into a correct, honest manifest [33m 787[2mms[22m[39m
+     [33m[2m✓[22m[39m tolerates a missing input file with a clear SKIPPED note instead of crashing [33m 302[2mms[22m[39m
+     [33m[2m✓[22m[39m never invents an object position: a percent-less crop row is skipped with a warning, not a guessed value [33m 376[2mms[22m[39m
+ [32m✓[39m src/routes/cartilla/teacher/__tests__/-route.auth.test.ts [2m([22m[2m3 tests[22m[2m)[22m[33m 1466[2mms[22m[39m
+     [33m[2m✓[22m[39m redirects to /login when there is no real Supabase session (anonymous visitor) [33m 1420[2mms[22m[39m
+[tanstack-router] These exports from "C:/Users/EJN/grok-work/cartilla-rc/src/routes/cartilla/presentar.$n.tsx" will not be code-split and will increase your bundle size:
+- PresentarLesson
+For the best optimization, these items should either have their export statements removed, or be imported from another location that is not a route file.
+(node:14516) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [32m✓[39m src/lib/__tests__/speak.test.ts [2m([22m[2m7 tests[22m[2m)[22m[33m 3370[2mms[22m[39m
+     [33m[2m✓[22m[39m logs a distinct warning and falls back to an es-MX lang hint with NO voice object when the device has zero Spanish voices installed [33m 1543[2mms[22m[39m
+     [33m[2m✓[22m[39m speakVowel also falls back to an es-MX lang hint (no voice object) when the device has zero Spanish voices [33m 1545[2mms[22m[39m
+(node:29320) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[90mstderr[2m | src/routes/__tests__/student-routing.test.tsx[2m > [22m[2mStudent-Teacher Routing Isolation[2m > [22m[2mpresentar.$n.tsx route guard[2m > [22m[2m(b) blocks student session from teacher presentation route
+[22m[39m[tanstack-router] These exports from "C:/Users/EJN/grok-work/cartilla-rc/src/routes/cartilla/presentar.$n.tsx" will not be code-split and will increase your bundle size:
+- PresentarLesson
+For the best optimization, these items should either have their export statements removed, or be imported from another location that is not a route file.
+
+Not implemented: Window's scrollTo() method
+ [32m✓[39m src/components/gretel/__tests__/lessons-audit.test.ts [2m([22m[2m170 tests[22m[2m)[22m[32m 225[2mms[22m[39m
+ [32m✓[39m src/components/cartilla/__tests__/LivingWorkbookPage.realpages.test.tsx [2m([22m[2m6 tests[22m[2m)[22m[33m 1164[2mms[22m[39m
+     [33m[2m✓[22m[39m MarkCircle: page 4 (picture-grid) grades a real correct cell as correct [33m 459[2mms[22m[39m
+Not implemented: Window's scrollTo() method
+[90mstderr[2m | src/routes/__tests__/student-routing.test.tsx[2m > [22m[2mStudent-Teacher Routing Isolation[2m > [22m[2mSession reset on cross-login[2m > [22m[2m(c) student login clears teacher session
+[22m[39mAn update to JoinPage inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to JoinPage inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to JoinPage inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+[90mstderr[2m | src/routes/__tests__/student-routing.test.tsx[2m > [22m[2mStudent-Teacher Routing Isolation[2m > [22m[2mSession reset on cross-login[2m > [22m[2m(c) student login clears teacher session
+[22m[39mWarning: A notFoundError was encountered on the route with ID "__root__", but a notFoundComponent option was not configured, nor was a router level defaultNotFoundComponent configured. Consider configuring at least one of these to avoid TanStack Router's overly generic defaultNotFoundComponent (<p>Not Found</p>)
+
+ [31m❯[39m src/routes/__tests__/student-routing.test.tsx [2m([22m[2m4 tests[22m[2m | [22m[31m1 failed[39m[2m)[22m[33m 3586[2mms[22m[39m
+[31m     [31m×[31m (a) student login lands on /cartilla/lecciones[39m[33m 1135[2mms[22m[39m
+       [33m[2m✓[22m[39m (b) blocks student session from teacher presentation route [33m 964[2mms[22m[39m
+       [33m[2m✓[22m[39m (c) teacher login clears student session [33m 961[2mms[22m[39m
+       [33m[2m✓[22m[39m (c) student login clears teacher session [33m 517[2mms[22m[39m
+ [32m✓[39m src/lib/__tests__/csv-export.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 109[2mms[22m[39m
+ [31m❯[39m src/utils/__tests__/buildPageArray.render.test.tsx [2m([22m[2m24 tests[22m[2m | [22m[31m1 failed[39m[2m)[22m[33m 7288[2mms[22m[39m
+     [33m[2m✓[22m[39m Lección 1 (Introducción de las vocales) — every real page renders cleanly [33m 504[2mms[22m[39m
+[31m     [31m×[31m Lección 2 (Vocal O o) — every real page renders cleanly[39m[33m 5190[2mms[22m[39m
+     [32m✓[39m Lección 3 (Vocal A a) — every real page renders cleanly[32m 79[2mms[22m[39m
+     [32m✓[39m Lección 4 (Vocal E e) — every real page renders cleanly[32m 112[2mms[22m[39m
+     [32m✓[39m Lección 5 (Vocal I i) — every real page renders cleanly[32m 74[2mms[22m[39m
+     [32m✓[39m Lección 6 (Vocal U u) — every real page renders cleanly[32m 62[2mms[22m[39m
+     [32m✓[39m Lección 7 (Letra M m) — every real page renders cleanly[32m 94[2mms[22m[39m
+     [32m✓[39m Lección 8 (Letra P p) — every real page renders cleanly[32m 98[2mms[22m[39m
+     [32m✓[39m Lección 9 (Letra S s) — every real page renders cleanly[32m 68[2mms[22m[39m
+     [32m✓[39m Lección 10 (Letra T t) — every real page renders cleanly[32m 57[2mms[22m[39m
+     [32m✓[39m Lección 11 (Letra D d) — every real page renders cleanly[32m 92[2mms[22m[39m
+     [32m✓[39m Lección 12 (Letra L l) — every real page renders cleanly[32m 69[2mms[22m[39m
+     [32m✓[39m Lección 13 (Letra N n) — every real page renders cleanly[32m 75[2mms[22m[39m
+     [32m✓[39m Lección 14 (Letra Ñ ñ) — every real page renders cleanly[32m 50[2mms[22m[39m
+     [32m✓[39m Lección 15 (Letra B b) — every real page renders cleanly[32m 51[2mms[22m[39m
+     [32m✓[39m Lección 16 (Letra V v) — every real page renders cleanly[32m 58[2mms[22m[39m
+     [32m✓[39m Lección 17 (Letra R r) — every real page renders cleanly[32m 162[2mms[22m[39m
+     [32m✓[39m Lección 18 (Letra RR rr) — every real page renders cleanly[32m 43[2mms[22m[39m
+     [32m✓[39m Lección 19 (Letra G g) — every real page renders cleanly[32m 53[2mms[22m[39m
+     [32m✓[39m Lección 20 (Letra F f) — every real page renders cleanly[32m 56[2mms[22m[39m
+     [32m✓[39m Lección 21 (Letra J j) — every real page renders cleanly[32m 51[2mms[22m[39m
+     [32m✓[39m Lección 22 (Letra C c) — every real page renders cleanly[32m 48[2mms[22m[39m
+     [32m✓[39m Lección 23 (Letra Y y) — every real page renders cleanly[32m 63[2mms[22m[39m
+     [32m✓[39m Lección 24 (Letra Z z) — every real page renders cleanly[32m 68[2mms[22m[39m
+ [32m✓[39m src/test/setup-helpers.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 91[2mms[22m[39m
+[90mstderr[2m | src/hooks/__tests__/useSpeechRecognition.test.ts[2m > [22m[2museSpeechRecognition Hook and MockSpeechRecognition[2m > [22m[2mshould handle error asynchronously, stop listening and populate error state
+[22m[39m[SpeechRecognition Error] no-speech
+
+ [32m✓[39m src/hooks/__tests__/useSpeechRecognition.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 84[2mms[22m[39m
+(node:5524) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:37664) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [32m✓[39m src/lib/__tests__/student.functions.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 38[2mms[22m[39m
+ [32m✓[39m src/lib/__tests__/progress-calculation.test.ts [2m([22m[2m23 tests[22m[2m)[22m[32m 32[2mms[22m[39m
+ [32m✓[39m src/lib/__tests__/release-integration.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 71[2mms[22m[39m
+ [32m✓[39m src/content/workbook/__tests__/loader.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 36[2mms[22m[39m
+ [32m✓[39m src/content/workbook/__tests__/manifest-schema.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 29[2mms[22m[39m
+ [32m✓[39m src/content/workbook/__tests__/manifest-adapter.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 26[2mms[22m[39m
+(node:18656) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [32m✓[39m src/lib/__tests__/book-faithful.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 35[2mms[22m[39m
+[90mstderr[2m | src/lib/__tests__/progress-events.test.ts[2m > [22m[2mprogress-events[2m > [22m[2mkeeps an event queued when logProgress rejects (real retry, not fire-and-forget)
+[22m[39mflushProgressEvents: one event failed, kept queued Error: network down
+    at C:/Users/EJN/grok-work/cartilla-rc/src/lib/__tests__/progress-events.test.ts:68:46
+    at [90mfile:///C:/Users/EJN/grok-work/cartilla-rc/[39mnode_modules/[4m.pnpm[24m/@vitest+runner@4.1.8/node_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:302:11
+    at [90mfile:///C:/Users/EJN/grok-work/cartilla-rc/[39mnode_modules/[4m.pnpm[24m/@vitest+runner@4.1.8/node_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:1903:26
+    at [90mfile:///C:/Users/EJN/grok-work/cartilla-rc/[39mnode_modules/[4m.pnpm[24m/@vitest+runner@4.1.8/node_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:2326:20
+    at new Promise (<anonymous>)
+    at runWithCancel [90m(file:///C:/Users/EJN/grok-work/cartilla-rc/[39mnode_modules/[4m.pnpm[24m/@vitest+runner@4.1.8/node_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:2323:10[90m)[39m
+    at [90mfile:///C:/Users/EJN/grok-work/cartilla-rc/[39mnode_modules/[4m.pnpm[24m/@vitest+runner@4.1.8/node_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:2305:20
+    at new Promise (<anonymous>)
+    at runWithTimeout [90m(file:///C:/Users/EJN/grok-work/cartilla-rc/[39mnode_modules/[4m.pnpm[24m/@vitest+runner@4.1.8/node_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:2272:10[90m)[39m
+    at [90mfile:///C:/Users/EJN/grok-work/cartilla-rc/[39mnode_modules/[4m.pnpm[24m/@vitest+runner@4.1.8/node_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:2955:64
+flushProgressEvents: one event failed, kept queued Error: network down
+    at C:/Users/EJN/grok-work/cartilla-rc/src/lib/__tests__/progress-events.test.ts:68:46
+    at [90mfile:///C:/Users/EJN/grok-work/cartilla-rc/[39mnode_modules/[4m.pnpm[24m/@vitest+runner@4.1.8/node_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:302:11
+    at [90mfile:///C:/Users/EJN/grok-work/cartilla-rc/[39mnode_modules/[4m.pnpm[24m/@vitest+runner@4.1.8/node_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:1903:26
+    at [90mfile:///C:/Users/EJN/grok-work/cartilla-rc/[39mnode_modules/[4m.pnpm[24m/@vitest+runner@4.1.8/node_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:2326:20
+    at new Promise (<anonymous>)
+    at runWithCancel [90m(file:///C:/Users/EJN/grok-work/cartilla-rc/[39mnode_modules/[4m.pnpm[24m/@vitest+runner@4.1.8/node_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:2323:10[90m)[39m
+    at [90mfile:///C:/Users/EJN/grok-work/cartilla-rc/[39mnode_modules/[4m.pnpm[24m/@vitest+runner@4.1.8/node_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:2305:20
+    at new Promise (<anonymous>)
+    at runWithTimeout [90m(file:///C:/Users/EJN/grok-work/cartilla-rc/[39mnode_modules/[4m.pnpm[24m/@vitest+runner@4.1.8/node_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:2272:10[90m)[39m
+    at [90mfile:///C:/Users/EJN/grok-work/cartilla-rc/[39mnode_modules/[4m.pnpm[24m/@vitest+runner@4.1.8/node_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:2955:64
+
+(node:36688) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [32m✓[39m src/lib/__tests__/progress-events.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 32[2mms[22m[39m
+(node:36276) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [32m✓[39m src/lib/__tests__/bookImages.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 21[2mms[22m[39m
+[90mstderr[2m | src/components/gretel/__tests__/gretelMachine.test.ts[2m > [22m[2mGretelMachine[2m > [22m[2mgretelReducer: applies conflict policy (heal to idle) on illegal transitions
+[22m[39m[GretelMachine] Illegal transition from 'talking' with event 'WAVE'. Healing to 'idle'.
+
+ [32m✓[39m src/components/gretel/__tests__/gretelMachine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 20[2mms[22m[39m
+ [32m✓[39m src/components/cartilla/__tests__/letter-stroke-templates.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 15[2mms[22m[39m
+ [32m✓[39m src/lib/__tests__/auth-role.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+
+[31m⎯⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Tests 2 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m src/routes/__tests__/student-routing.test.tsx[2m > [22mStudent-Teacher Routing Isolation[2m > [22m(a) student login lands on /cartilla/lecciones
+[31m[1mTestingLibraryElementError[22m: Unable to find role="textbox"
+
+Ignored nodes: comments, script, style
+[36m<body>[31m
+  [36m<div />[31m
+[36m</body>[31m
+
+Ignored nodes: comments, script, style
+[36m<body>[31m
+  [36m<div />[31m
+[36m</body>[31m[39m
+[90m [2m❯[22m waitForWrapper node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/wait-for.js:[2m163:27[22m[39m
+[90m [2m❯[22m node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:[2m86:33[22m[39m
+[36m [2m❯[22m src/routes/__tests__/student-routing.test.tsx:[2m81:36[22m[39m
+    [90m 79|[39m     await waitFor(() => expect(history.location.pathname).toBe("/carti…
+    [90m 80|[39m
+    [90m 81|[39m     const codeInput = await screen.findByRole("textbox") as HTMLInputE…
+    [90m   |[39m                                    [31m^[39m
+    [90m 82|[39m     fireEvent[33m.[39m[34mchange[39m(codeInput[33m,[39m { target[33m:[39m { value[33m:[39m [32m"ABC123"[39m } })[33m;[39m
+    [90m 83|[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/utils/__tests__/buildPageArray.render.test.tsx[2m > [22mall 24 lessons render without error (approval-walkthrough sweep)[2m > [22mLección 2 (Vocal O o) — every real page renders cleanly
+[31m[1mError[22m: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".[39m
+[36m [2m❯[22m src/utils/__tests__/buildPageArray.render.test.tsx:[2m20:5[22m[39m
+    [90m 18|[39m describe("all 24 lessons render without error (approval-walkthrough sw…
+    [90m 19|[39m   [35mfor[39m ([35mconst[39m entry [35mof[39m [33mCATALOG[39m) {
+    [90m 20|[39m     it(`Lección ${entry.n} (${entry.title}) — every real page renders …
+    [90m   |[39m     [31m^[39m
+    [90m 21|[39m       [35mconst[39m pages [33m=[39m [34mbuildPageArray[39m(entry[33m.[39mn)[33m;[39m
+    [90m 22|[39m       [34mexpect[39m(pages[33m.[39mlength)[33m.[39m[34mtoBeGreaterThan[39m([34m0[39m)[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯[22m[39m
+
+
+[2m Test Files [22m [1m[31m2 failed[39m[22m[2m | [22m[1m[32m24 passed[39m[22m[90m (26)[39m
+[2m      Tests [22m [1m[31m2 failed[39m[22m[2m | [22m[1m[32m349 passed[39m[22m[2m | [22m[36m2 expected fail[39m[90m (353)[39m
+[2m   Start at [22m 15:55:56
+[2m   Duration [22m 27.97s[2m (transform 24.63s, setup 31.29s, import 26.05s, tests 23.36s, environment 163.95s)[22m
+
+[41m[31m[[39m[49m[41m[30mELIFECYCLE[39m[49m[41m[31m][39m[49m [31mTest failed. See above for more details.[39m
+TEST_EXIT=0  

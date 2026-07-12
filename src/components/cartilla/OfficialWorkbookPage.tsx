@@ -24,14 +24,20 @@ export function OfficialWorkbookPage({
   runtimePdfAvailable = false,
 }: OfficialWorkbookPageProps) {
   const hasConnectedPdf = runtimePdfAvailable || source.status === "pdf-available";
-  const [activeImage, setActiveImage] = useState(source.imageRef ?? source.originalImageRef ?? "");
+  const chain = source.fallbackChain && source.fallbackChain.length > 0
+    ? source.fallbackChain
+    : [source.imageRef, source.originalImageRef].filter(Boolean) as string[];
+  const [activeImage, setActiveImage] = useState(chain[0] ?? source.imageRef ?? source.originalImageRef ?? "");
   const [width, setWidth] = useState<number>(980);
   const [loadError, setLoadError] = useState<string | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    setActiveImage(source.imageRef ?? source.originalImageRef ?? "");
-  }, [source.imageRef, source.originalImageRef]);
+    const nextChain = source.fallbackChain && source.fallbackChain.length > 0
+      ? source.fallbackChain
+      : [source.imageRef, source.originalImageRef].filter(Boolean) as string[];
+    setActiveImage(nextChain[0] ?? source.imageRef ?? source.originalImageRef ?? "");
+  }, [source.fallbackChain, source.imageRef, source.originalImageRef]);
 
   useEffect(() => {
     const node = containerRef.current;
@@ -58,7 +64,10 @@ export function OfficialWorkbookPage({
               loading="eager"
               fetchPriority="high"
               onError={() => {
-                if (source.originalImageRef && activeImage !== source.originalImageRef) {
+                const idx = chain.indexOf(activeImage);
+                if (idx >= 0 && idx + 1 < chain.length) {
+                  setActiveImage(chain[idx + 1]!);
+                } else if (source.originalImageRef && activeImage !== source.originalImageRef) {
                   setActiveImage(source.originalImageRef);
                 }
               }}

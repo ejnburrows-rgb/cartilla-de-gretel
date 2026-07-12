@@ -17,8 +17,19 @@ function LoginPage() {
   const [fullName, setFullName] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [unauthorized, setUnauthorized] = useState(false);
 
   useEffect(() => {
+    // The teacher route guard sets this flag and redirects here when a
+    // signed-in session has no teacher/admin role at all — sign that
+    // session out (a role-less session can't do anything anyway) instead
+    // of bouncing back to /cartilla/teacher and looping forever.
+    if (typeof window !== "undefined" && sessionStorage.getItem("cartilla.auth.unauthorized")) {
+      sessionStorage.removeItem("cartilla.auth.unauthorized");
+      setUnauthorized(true);
+      supabase.auth.signOut();
+      return;
+    }
     supabase.auth.getSession().then(({ data }) => {
       if (data.session) navigate({ to: "/cartilla/teacher" });
     });
@@ -73,6 +84,13 @@ function LoginPage() {
             : "Crea tu cuenta para empezar a organizar clases."}
         </p>
       </header>
+
+      {unauthorized && (
+        <div className="mt-6 text-sm text-destructive font-bold bg-destructive/10 border-2 border-destructive/20 rounded-xl px-4 py-3">
+          Tu cuenta no tiene permiso de maestro o administrador. Contacta al administrador de la
+          escuela.
+        </div>
+      )}
 
       <form onSubmit={submit} className="mt-8 space-y-3">
         {mode === "signup" && (

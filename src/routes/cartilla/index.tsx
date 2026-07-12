@@ -87,15 +87,22 @@ function CartillaSplash() {
         </Link>
       </div>
 
-      {/* Hidden/Subtle Teacher Padlock */}
-      <div className="absolute bottom-6 right-6 z-20">
+      {/* Help + subtle teacher padlock */}
+      <div className="absolute bottom-6 inset-x-0 z-20 flex items-center justify-between px-6">
+        <Link
+          to="/cartilla/ayuda"
+          className="min-h-12 min-w-12 px-4 py-3 bg-white/25 hover:bg-white/45 backdrop-blur-sm rounded-full text-white font-bold transition shadow-sm inline-flex items-center focus-visible:outline focus-visible:outline-4 focus-visible:outline-yellow-300"
+          aria-label="Ayuda"
+        >
+          Ayuda
+        </Link>
         <Link
           to="/cartilla/teacher"
-          className="p-3 bg-white/20 hover:bg-white/40 backdrop-blur-sm rounded-full text-white/70 hover:text-white transition shadow-sm inline-flex"
+          className="min-h-12 min-w-12 p-3 bg-white/20 hover:bg-white/40 backdrop-blur-sm rounded-full text-white/70 hover:text-white transition shadow-sm inline-flex items-center justify-center focus-visible:outline focus-visible:outline-4 focus-visible:outline-yellow-300"
           aria-label="Acceso Profesores"
           title="Acceso Profesores"
         >
-          <Lock className="w-5 h-5" />
+          <Lock className="w-5 h-5" aria-hidden="true" />
         </Link>
       </div>
     </main>

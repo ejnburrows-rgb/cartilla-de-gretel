@@ -6,7 +6,7 @@
  * The scanned art is the source of truth. WorkbookPageRenderer is not used.
  */
 import { useEffect, useState } from "react";
-import { getBookPageImage } from "@/lib/bookImages";
+import { getBookPageImage, getWorkbookPageFallbackChain } from "@/lib/bookImages";
 
 export function prefetchPage(pageNumber: number) {
   const src = getBookPageImage(pageNumber);
@@ -23,13 +23,14 @@ interface PdfPageProps {
 
 export function PdfPage({ pageNumber, className = "" }: PdfPageProps) {
   const safe = Math.max(1, Math.min(pageNumber, 95));
-  const primary = getBookPageImage(safe);
+  const chain = getWorkbookPageFallbackChain(safe);
 
-  const [src, setSrc] = useState<string | null>(primary);
+  const [src, setSrc] = useState<string | null>(chain[0] ?? null);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    setSrc(getBookPageImage(Math.max(1, Math.min(pageNumber, 95))));
+    const nextChain = getWorkbookPageFallbackChain(Math.max(1, Math.min(pageNumber, 95)));
+    setSrc(nextChain[0] ?? null);
     setLoaded(false);
   }, [pageNumber]);
 
@@ -50,8 +51,13 @@ export function PdfPage({ pageNumber, className = "" }: PdfPageProps) {
           loading="lazy"
           onLoad={() => setLoaded(true)}
           onError={() => {
-            setSrc(null);
-            setLoaded(false);
+            const currentIdx = chain.indexOf(src);
+            if (currentIdx >= 0 && currentIdx + 1 < chain.length) {
+              setSrc(chain[currentIdx + 1]!);
+            } else {
+              setSrc(null);
+              setLoaded(false);
+            }
           }}
         />
       ) : (
