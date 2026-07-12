@@ -1,0 +1,130 @@
+{
+  "repaired_count": 7,
+  "transfer_count_high_medium": 10,
+  "colorized_page_count": 6,
+  "page4": [
+    {
+      "slug": "ojos",
+      "verdict": "FIXED_FROM_SOURCE",
+      "confidence": "MEDIUM",
+      "method": "o-page-4-frame-interior",
+      "source": "public/cartilla/images/source/o/o-page-4.jpg",
+      "orientation": "upright",
+      "notes": "Teal eyes from exercise page; no full painted flipchart vocab panel",
+      "output": "public/cartilla/art/color/workbook/ojos.webp",
+      "before": "public/cartilla/art/faithful/vocal-o/ojos.webp",
+      "size": [
+        222,
+        151
+      ],
+      "colorfulness": 66.83,
+      "monochrome": false
+    },
+    {
+      "slug": "oreja",
+      "verdict": "FIXED_FROM_SOURCE",
+      "confidence": "HIGH",
+      "method": "faithful-verified + o-page-3 crosscheck",
+      "source": "public/cartilla/images/source/o/o-page-3.jpg",
+      "orientation": "upright",
+      "notes": "Corrupt 11x12 cropBox replaced; upright color ear",
+      "output": "public/cartilla/art/color/workbook/oreja.webp",
+      "before": "public/cartilla/art/faithful/vocal-o/oreja.webp",
+      "size": [
+        360,
+        538
+      ],
+      "colorfulness": 81.37,
+      "monochrome": false
+    },
+    {
+      "slug": "abeja",
+      "verdict": "FIXED_FROM_SOURCE",
+      "confidence": "LOW",
+      "method": "a-page-5-frame-interior-lineart",
+      "source": "public/cartilla/images/source/a/a-page-5.jpg",
+      "orientation": "upright",
+      "notes": "Lineart only; no full-color flipchart abeja in available sources; unmatched for color transfer",
+      "output": "public/cartilla/art/color/workbook/abeja.webp",
+      "before": "public/cartilla/art/faithful/vocal-a/abeja.webp",
+      "size": [
+        188,
+        232
+      ],
+      "colorfulness": 71.6,
+      "monochrome": true
+    },
+    {
+      "slug": "ola",
+      "verdict": "FIXED_FROM_SOURCE",
+      "confidence": "LOW",
+      "method": "o-page-4-frame-interior-monochrome",
+      "source": "public/cartilla/images/source/o/o-page-4.jpg",
+      "orientation": "upright",
+      "notes": "Monochrome wave; no full-color flipchart match",
+      "output": "public/cartilla/art/color/workbook/ola.webp",
+      "before": "public/cartilla/art/faithful/leccion-1/ola.webp",
+      "size": [
+        213,
+        227
+      ],
+      "colorfulness": 78.1,
+      "monochrome": true
+    },
+    {
+      "slug": "oso",
+      "verdict": "VERIFIED_UPRIGHT",
+      "confidence": "HIGH",
+      "method": "staged-flipchart-color",
+      "source": "C:\\Users\\EJN\\Desktop\\cartilla-incoming\\92-page-map\\staged-crops\\flipchart-color\\vocal-o\\oso.webp",
+      "orientation": "upright",
+      "notes": "Flipchart color authority o-page-3",
+      "output": "public/cartilla/art/color/workbook/oso.webp",
+      "before": "public/cartilla/art/faithful/vocal-o/oso.webp",
+      "size": [
+        516,
+        528
+      ],
+      "colorfulness": 108.87,
+      "monochrome": false
+    },
+    {
+      "slug": "olla",
+      "verdict": "VERIFIED_UPRIGHT",
+      "confidence": "HIGH",
+      "method": "staged-flipchart-color",
+      "source": "C:\\Users\\EJN\\Desktop\\cartilla-incoming\\92-page-map\\staged-crops\\flipchart-color\\vocal-o\\olla.webp",
+      "orientation": "upright",
+      "notes": "Flipchart color authority o-page-3",
+      "output": "public/cartilla/art/color/workbook/olla.webp",
+      "before": "public/cartilla/art/faithful/vocal-o/olla.webp",
+      "size": [
+        625,
+        479
+      ],
+      "colorfulness": 71.69,
+      "monochrome": false
+    },
+    {
+      "slug": "oveja",
+      "verdict": "VERIFIED_UPRIGHT",
+      "confidence": "HIGH",
+      "method": "staged-flipchart-color-label-trimmed",
+      "source": "C:\\Users\\EJN\\Desktop\\cartilla-incoming\\92-page-map\\staged-crops\\flipchart-color\\vocal-o\\oveja.webp",
+      "orientation": "upright",
+      "notes": "Flipchart color authority o-page-3; word label trimmed",
+      "output": "public/cartilla/art/color/workbook/oveja.webp",
+      "before": "public/cartilla/art/faithful/vocal-o/oveja.webp",
+      "size": [
+        519,
+        398
+      ],
+      "colorfulness": 89.78,
+      "monochrome": false
+    }
+  ],
+  "terminals": {
+    "ART_REPAIR": "COMPLETE",
+    "FLIPBOOK_COLOR_TRANSFER": "COMPLETE"
+  }
+}

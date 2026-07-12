@@ -1,0 +1,43 @@
+{
+  "slug": "traje",
+  "source": "C:\\Users\\EJN\\Desktop\\cartilla-incoming\\92-page-map\\staged-crops\\flipchart-color\\leccion-1\\traje.webp",
+  "method": "staged-flipchart-color",
+  "colors": [
+    {
+      "rgb": [
+        152,
+        158,
+        154
+      ],
+      "hex": "#989e9a",
+      "weight": 2744
+    },
+    {
+      "rgb": [
+        106,
+        114,
+        110
+      ],
+      "hex": "#6a726e",
+      "weight": 883
+    },
+    {
+      "rgb": [
+        162,
+        171,
+        167
+      ],
+      "hex": "#a2aba7",
+      "weight": 625
+    },
+    {
+      "rgb": [
+        234,
+        241,
+        240
+      ],
+      "hex": "#eaf1f0",
+      "weight": 576
+    }
+  ]
+}

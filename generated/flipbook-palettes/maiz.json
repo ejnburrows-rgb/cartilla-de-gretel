@@ -1,0 +1,52 @@
+{
+  "slug": "maiz",
+  "source": "C:\\Users\\EJN\\Desktop\\cartilla-incoming\\92-page-map\\staged-crops\\flipchart-color\\leccion-1\\maiz.webp",
+  "method": "staged-flipchart-color",
+  "colors": [
+    {
+      "rgb": [
+        253,
+        184,
+        210
+      ],
+      "hex": "#fdb8d2",
+      "weight": 2184
+    },
+    {
+      "rgb": [
+        181,
+        76,
+        136
+      ],
+      "hex": "#b54c88",
+      "weight": 1327
+    },
+    {
+      "rgb": [
+        112,
+        7,
+        94
+      ],
+      "hex": "#70075e",
+      "weight": 1157
+    },
+    {
+      "rgb": [
+        230,
+        176,
+        183
+      ],
+      "hex": "#e6b0b7",
+      "weight": 513
+    },
+    {
+      "rgb": [
+        252,
+        242,
+        234
+      ],
+      "hex": "#fcf2ea",
+      "weight": 326
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+[
+  {
+    "page": 1,
+    "status": "SKIPPED_MONOCHROME_NO_FAITHFUL_TRANSFER",
+    "colorfulness": 10.57,
+    "output": null,
+    "reason": "No verified flipchart placements; left monochrome"
+  },
+  {
+    "page": 4,
+    "status": "ORIENTATION_FIXED_QA_ONLY",
+    "rotated_180": true,
+    "output": null,
+    "reason": "Physical page-004 is Lección 1 vowel grid (upside-down in HD). Target O-words are not this page's cells; no invented composite."
+  },
+  {
+    "page": 19,
+    "status": "SOURCE_ALREADY_COLOR",
+    "colorfulness": 75.61,
+    "output": "public/cartilla/pages/colorized/page-019.webp",
+    "method": "export-existing-color-scan"
+  },
+  {
+    "page": 23,
+    "status": "SOURCE_ALREADY_COLOR",
+    "colorfulness": 60.27,
+    "output": "public/cartilla/pages/colorized/page-023.webp",
+    "method": "export-existing-color-scan"
+  },
+  {
+    "page": 27,
+    "status": "SOURCE_ALREADY_COLOR",
+    "colorfulness": 61.68,
+    "output": "public/cartilla/pages/colorized/page-027.webp",
+    "method": "export-existing-color-scan"
+  },
+  {
+    "page": 39,
+    "status": "SOURCE_ALREADY_COLOR",
+    "colorfulness": 65.65,
+    "output": "public/cartilla/pages/colorized/page-039.webp",
+    "method": "export-existing-color-scan"
+  },
+  {
+    "page": 45,
+    "status": "SOURCE_ALREADY_COLOR",
+    "colorfulness": 60.52,
+    "output": "public/cartilla/pages/colorized/page-045.webp",
+    "method": "export-existing-color-scan"
+  },
+  {
+    "page": 90,
+    "status": "SOURCE_ALREADY_COLOR",
+    "colorfulness": 58.82,
+    "output": "public/cartilla/pages/colorized/page-090.webp",
+    "method": "export-existing-color-scan"
+  }
+]

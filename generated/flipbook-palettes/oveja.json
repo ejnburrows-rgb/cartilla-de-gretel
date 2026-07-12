@@ -1,0 +1,62 @@
+{
+  "slug": "oveja",
+  "source": "C:\\Users\\EJN\\Desktop\\cartilla-incoming\\92-page-map\\staged-crops\\flipchart-color\\vocal-o\\oveja.webp",
+  "method": "staged-flipchart-color-label-trimmed",
+  "colors": [
+    {
+      "rgb": [
+        252,
+        251,
+        136
+      ],
+      "hex": "#fcfb88",
+      "weight": 1793
+    },
+    {
+      "rgb": [
+        42,
+        35,
+        26
+      ],
+      "hex": "#2a231a",
+      "weight": 1391
+    },
+    {
+      "rgb": [
+        254,
+        253,
+        182
+      ],
+      "hex": "#fefdb6",
+      "weight": 997
+    },
+    {
+      "rgb": [
+        186,
+        185,
+        144
+      ],
+      "hex": "#bab990",
+      "weight": 712
+    },
+    {
+      "rgb": [
+        247,
+        245,
+        200
+      ],
+      "hex": "#f7f5c8",
+      "weight": 459
+    },
+    {
+      "rgb": [
+        255,
+        255,
+        222
+      ],
+      "hex": "#ffffde",
+      "weight": 160
+    }
+  ],
+  "colorfulness": 89.77527858525539
+}
