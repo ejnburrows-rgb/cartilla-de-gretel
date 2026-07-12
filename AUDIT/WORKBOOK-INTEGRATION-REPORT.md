@@ -4,7 +4,8 @@
 **Branch:** `grok-swarm/workbook`  
 **Generated:** 2026-07-12  
 **Base main SHA:** `079aec9aa65f06c82fe756232a522bc35e5d5027`  
-**Worker commit SHA:** `6816e8c`  
+**Worker feature commit:** `6816e8c`  
+**Branch tip SHA:** `56b0f72`  
 **Remote:** `origin/grok-swarm/workbook` (pushed)  
 **Terminal:** **WORKBOOK_WORKER_COMPLETE**
 
