@@ -98,6 +98,13 @@ export interface PhysicalPage {
   /** Background image for the page canvas, or null → renders an honest
    * "background pending" placeholder, never invented art. */
   backgroundSrc: string | null;
+  /**
+   * Ordered art fallback for content backgrounds (HD improved → lineart →
+   * source scan). LivingWorkbookPage walks this on image load failure so
+   * missing improved art never crashes the page. Ambient garden backgrounds
+   * (non-scan) leave this undefined.
+   */
+  backgroundFallbackChain?: string[];
   /** Verbatim printed instruction text, when known — real live text,
    * rendered as a banner above the canvas. Empty/absent is honest (not yet
    * transcribed), never filled with an invented sentence. */

@@ -1,5 +1,5 @@
-import { useMemo, useState, useEffect } from "react";
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { useMemo, useEffect } from "react";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { LivingWorkbookPage } from "@/components/cartilla/LivingWorkbookPage";
 import {
@@ -8,8 +8,14 @@ import {
   getWorkbookManifest,
 } from "@/content/workbook/loader";
 
+type LibroVivoSearch = { p?: number };
+
 export const Route = createFileRoute("/cartilla/student/libro-vivo")({
   component: LibroVivoPage,
+  validateSearch: (search: Record<string, unknown>): LibroVivoSearch => {
+    const p = Number(search.p);
+    return { p: Number.isFinite(p) && p >= 1 ? Math.floor(p) : undefined };
+  },
   head: () => ({
     meta: [
       { title: "Libro vivo — La Cartilla de Gretel" },
@@ -25,29 +31,37 @@ export const Route = createFileRoute("/cartilla/student/libro-vivo")({
 /**
  * Production student route for the living workbook engine.
  * Uses only real manifest pages (never invents content). Navigation is
- * refresh-safe via the `?p=` query param.
+ * refresh-safe via the validated `?p=` search param (TanStack Router).
+ * Missing art is handled inside LivingWorkbookPage (fallback chain +
+ * honest placeholders) — this route never throws on a bad page number.
  */
 function LibroVivoPage() {
   const available = useMemo(() => listAvailablePhysicalPages(), []);
   const manifest = useMemo(() => getWorkbookManifest(), []);
-  const [pageNumber, setPageNumber] = useState(() => {
-    if (typeof window === "undefined") return available[0] ?? 1;
-    const q = new URLSearchParams(window.location.search).get("p");
-    const n = Number(q);
-    return Number.isFinite(n) && available.includes(n) ? n : available[0] ?? 1;
-  });
+  const { p: searchP } = Route.useSearch();
+  const navigate = useNavigate({ from: "/cartilla/student/libro-vivo" });
 
+  const fallbackPage = available[0] ?? null;
+  const pageNumber =
+    searchP != null && available.includes(searchP) ? searchP : fallbackPage;
+
+  // Normalize invalid / missing ?p= onto the first real census page (or clear it).
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    const url = new URL(window.location.href);
-    url.searchParams.set("p", String(pageNumber));
-    window.history.replaceState({}, "", url.toString());
-  }, [pageNumber]);
+    if (available.length === 0) return;
+    if (pageNumber == null) return;
+    if (searchP !== pageNumber) {
+      void navigate({ search: { p: pageNumber }, replace: true });
+    }
+  }, [available.length, navigate, pageNumber, searchP]);
 
-  const page = getWorkbookPage(pageNumber);
-  const idx = available.indexOf(pageNumber);
+  const page = pageNumber != null ? getWorkbookPage(pageNumber) : null;
+  const idx = pageNumber != null ? available.indexOf(pageNumber) : -1;
   const prev = idx > 0 ? available[idx - 1] : null;
   const next = idx >= 0 && idx < available.length - 1 ? available[idx + 1] : null;
+
+  const goTo = (n: number) => {
+    void navigate({ search: { p: n }, replace: true });
+  };
 
   return (
     <div className="min-h-screen bg-[#faf8f5] flex flex-col">
@@ -73,31 +87,42 @@ function LibroVivoPage() {
           Las interacciones declaradas como «none» se muestran sin ejercicio inventado.
         </p>
 
-        <label className="block text-sm font-bold">
-          Página física
-          <select
-            className="mt-1 w-full min-h-12 rounded-2xl border-2 border-stone-300 px-3 font-bold focus-visible:outline focus-visible:outline-4 focus-visible:outline-amber-400"
-            value={pageNumber}
-            onChange={(e) => setPageNumber(Number(e.target.value))}
-            aria-label="Seleccionar página del libro"
-          >
-            {available.map((p) => (
-              <option key={p} value={p}>
-                Página {p}
-              </option>
-            ))}
-          </select>
-        </label>
-
-        {page ? (
-          <LivingWorkbookPage page={page} />
-        ) : (
+        {available.length === 0 ? (
           <div
             className="rounded-2xl border-2 border-dashed border-amber-400 bg-amber-50 p-8 text-center font-bold text-amber-900"
             role="status"
           >
-            No hay datos de censo para la página {pageNumber}. No se inventa contenido.
+            El manifiesto no tiene páginas disponibles todavía. No se inventa contenido.
           </div>
+        ) : (
+          <>
+            <label className="block text-sm font-bold">
+              Página física
+              <select
+                className="mt-1 w-full min-h-12 rounded-2xl border-2 border-stone-300 px-3 font-bold focus-visible:outline focus-visible:outline-4 focus-visible:outline-amber-400"
+                value={pageNumber ?? ""}
+                onChange={(e) => goTo(Number(e.target.value))}
+                aria-label="Seleccionar página del libro"
+              >
+                {available.map((p) => (
+                  <option key={p} value={p}>
+                    Página {p}
+                  </option>
+                ))}
+              </select>
+            </label>
+
+            {page ? (
+              <LivingWorkbookPage page={page} />
+            ) : (
+              <div
+                className="rounded-2xl border-2 border-dashed border-amber-400 bg-amber-50 p-8 text-center font-bold text-amber-900"
+                role="status"
+              >
+                No hay datos de censo para la página {pageNumber}. No se inventa contenido.
+              </div>
+            )}
+          </>
         )}
       </main>
 
@@ -106,19 +131,19 @@ function LibroVivoPage() {
           <button
             type="button"
             disabled={prev == null}
-            onClick={() => prev != null && setPageNumber(prev)}
+            onClick={() => prev != null && goTo(prev)}
             className="min-h-12 min-w-12 px-5 py-3 rounded-2xl border-2 border-stone-300 font-bold disabled:opacity-40 focus-visible:outline focus-visible:outline-4 focus-visible:outline-amber-400"
             aria-label="Página anterior"
           >
             <ArrowLeft className="w-5 h-5 inline" aria-hidden="true" /> Anterior
           </button>
           <span className="text-sm font-bold">
-            {idx + 1} / {available.length}
+            {available.length === 0 ? "0 / 0" : `${Math.max(idx, 0) + 1} / ${available.length}`}
           </span>
           <button
             type="button"
             disabled={next == null}
-            onClick={() => next != null && setPageNumber(next)}
+            onClick={() => next != null && goTo(next)}
             className="min-h-12 min-w-12 px-5 py-3 rounded-2xl bg-primary text-primary-foreground font-bold disabled:opacity-40 focus-visible:outline focus-visible:outline-4 focus-visible:outline-amber-400"
             aria-label="Página siguiente"
           >

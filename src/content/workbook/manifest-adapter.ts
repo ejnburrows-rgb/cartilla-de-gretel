@@ -11,6 +11,7 @@ import type {
   PhysicalPageStatus,
   WorkbookObject,
 } from "./types";
+import { getWorkbookPageFallbackChain } from "@/lib/bookImages";
 
 /**
  * Converts a validated census ManifestPage (manifest-schema.ts's shape —
@@ -153,14 +154,70 @@ function toEngineObject(
   };
 }
 
+/**
+ * Resolve the page canvas background.
+ *
+ * Content pages (full-page scan / zero layered objects, or an explicit scan
+ * path) prefer improved HD art → lineart → original scan via
+ * getWorkbookPageFallbackChain so production never hard-depends on one asset
+ * tier. Ambient garden backgrounds behind layered illustration objects stay
+ * as declared — those are not page-scan substitutes.
+ */
+function resolveBackground(page: ManifestPage): {
+  backgroundSrc: string | null;
+  backgroundFallbackChain?: string[];
+} {
+  const raw = page.background ?? null;
+  if (raw === null) {
+    // No declared background — still offer the scan chain so the canvas can
+    // degrade to HD/lineart/source when a physical page number is known.
+    const chain = getWorkbookPageFallbackChain(page.physicalPage);
+    return {
+      backgroundSrc: chain[0] ?? null,
+      backgroundFallbackChain: chain.length > 0 ? chain : undefined,
+    };
+  }
+
+  const normalized = raw.startsWith("/") ? raw : `/${raw}`;
+  const isSourceOrWorkbookScan =
+    normalized.includes("/images/source/") ||
+    normalized.includes("/art/hd/workbook/") ||
+    normalized.includes("/art/color/workbook/") ||
+    normalized.includes("/art/hd/lineart/");
+  const isContentCanvas = page.objects.length === 0 || isSourceOrWorkbookScan;
+
+  if (!isContentCanvas) {
+    // Ambient (e.g. garden) background behind real illustration objects.
+    return { backgroundSrc: normalized };
+  }
+
+  const sourceRef = normalized.includes("/images/source/")
+    ? normalized.replace(/^\//, "")
+    : null;
+  const chain = getWorkbookPageFallbackChain(page.physicalPage, sourceRef);
+  // Prefer improved chain first; keep any explicit non-source path as an
+  // additional candidate only if it's not already in the chain.
+  const merged =
+    isSourceOrWorkbookScan && normalized.includes("/images/source/")
+      ? chain
+      : Array.from(new Set([normalized, ...chain]));
+
+  return {
+    backgroundSrc: merged[0] ?? normalized,
+    backgroundFallbackChain: merged,
+  };
+}
+
 export function manifestPageToEnginePage(page: ManifestPage): PhysicalPage {
   const hasAudio = Boolean(page.audio?.length) || page.objects.some((o) => o.audioId);
   const kind = mechanicToInteractionKind(page.interaction, hasAudio);
+  const { backgroundSrc, backgroundFallbackChain } = resolveBackground(page);
   return {
     id: `page-${page.physicalPage}`,
     pageNumber: page.physicalPage,
     lessonNumber: page.lesson,
-    backgroundSrc: page.background ?? null,
+    backgroundSrc,
+    ...(backgroundFallbackChain ? { backgroundFallbackChain } : {}),
     ...(page.instruction ? { instruction: page.instruction } : {}),
     ...(kind !== "none" ? { interaction: { kind } } : {}),
     objects: page.objects.map((object) => toEngineObject(object, kind, page.interaction)),

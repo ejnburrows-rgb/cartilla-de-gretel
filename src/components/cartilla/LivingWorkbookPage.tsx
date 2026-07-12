@@ -1,5 +1,5 @@
 import type { CSSProperties, ReactNode } from "react";
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import "@/styles/living-workbook.css";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import type { PhysicalPage, WorkbookObject } from "@/content/workbook/types";
@@ -43,15 +43,21 @@ function boxStyle(
   return style;
 }
 
-/** A plain, non-interactive object: image + real web text, percent-positioned. */
+/** A plain, non-interactive object: image + real web text, percent-positioned.
+ * Missing art degrades to text-only / empty slot — never throws. */
 function StaticObject({ object, motionOn }: { object: WorkbookObject; motionOn: boolean }) {
+  const [imgFailed, setImgFailed] = useState(false);
+  useEffect(() => {
+    setImgFailed(false);
+  }, [object.src]);
+
   return (
     <div
       className="lwp-object"
       style={boxStyle(object.box, object.zIndex, motionOn, object.motion)}
       aria-hidden={!object.text && !object.alt ? true : undefined}
     >
-      {object.src && (
+      {object.src && !imgFailed && (
         // eslint-disable-next-line jsx-a11y/img-redundant-alt
         <img
           src={object.src}
@@ -60,10 +66,50 @@ function StaticObject({ object, motionOn }: { object: WorkbookObject; motionOn: 
           draggable={false}
           loading="lazy"
           decoding="async"
+          onError={() => setImgFailed(true)}
         />
       )}
       {object.text && <div className="lwp-object__text">{object.text}</div>}
     </div>
+  );
+}
+
+/** Walk backgroundFallbackChain (HD → lineart → scan) without crashing. */
+function BackgroundImage({
+  primary,
+  chain,
+  contentMode,
+}: {
+  primary: string | null;
+  chain?: string[];
+  contentMode: boolean;
+}) {
+  const ordered = useMemo(() => {
+    const list = chain && chain.length > 0 ? chain : primary ? [primary] : [];
+    return Array.from(new Set(list.filter(Boolean)));
+  }, [primary, chain]);
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    setIndex(0);
+  }, [ordered.join("|")]);
+
+  const src = ordered[index] ?? null;
+  if (!src) return <BackgroundPendingPlaceholder />;
+
+  return (
+    <img
+      src={src}
+      alt=""
+      className={`lwp-page__bg${contentMode ? " lwp-page__bg--content" : ""}`}
+      draggable={false}
+      aria-hidden="true"
+      loading="lazy"
+      decoding="async"
+      onError={() => {
+        setIndex((i) => (i + 1 < ordered.length ? i + 1 : ordered.length));
+      }}
+    />
   );
 }
 
@@ -190,24 +236,24 @@ export function LivingWorkbookPage({
     }
   }
 
+  const hasBackground =
+    Boolean(page.backgroundSrc) ||
+    (page.backgroundFallbackChain && page.backgroundFallbackChain.length > 0);
+
   return (
     <div className={`lwp-page${className ? ` ${className}` : ""}`} data-status={page.status}>
       {page.instruction && <p className="lwp-page__instruction">{page.instruction}</p>}
       <div className="lwp-page__canvas">
-        {page.backgroundSrc ? (
-          <img
-            src={page.backgroundSrc}
-            alt=""
+        {hasBackground ? (
+          <BackgroundImage
+            primary={page.backgroundSrc}
+            chain={page.backgroundFallbackChain}
             // A page with no separate objects has nothing else to show —
             // the background IS the real content (e.g. a full-page scan
             // fallback), so it renders at full strength. Pages that layer
             // real illustration objects on top get the soft, blurred
             // ambient treatment so those objects stay legible.
-            className={`lwp-page__bg${page.objects.length === 0 ? " lwp-page__bg--content" : ""}`}
-            draggable={false}
-            aria-hidden="true"
-            loading="lazy"
-            decoding="async"
+            contentMode={page.objects.length === 0}
           />
         ) : (
           <BackgroundPendingPlaceholder />
