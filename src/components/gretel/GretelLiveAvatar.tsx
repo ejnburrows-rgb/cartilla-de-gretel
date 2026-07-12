@@ -1,8 +1,8 @@
 import React, { useState, useEffect, forwardRef, useImperativeHandle, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { speak } from "@/lib/speak";
 import { useGretelAnimation } from "./useGretelAnimation";
-import { getGretelPoseFrames } from "./gretelPoses";
+import { getGretelPoseFrames, getGretelStaticPose } from "./gretelPoses";
 import { Sparkles, Star } from "lucide-react";
 
 export interface GretelLiveAvatarRef {
@@ -140,32 +140,40 @@ function getShadowAnimation(state: string) {
 
 export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatarProps>(
   ({ className = "", size = "md", bubblePosition = "top" }, ref) => {
-    const { currentPose, machineState, send, isSpeaking } = useGretelAnimation();
+    const { machineState, send } = useGretelAnimation();
+    const prefersReducedMotion = useReducedMotion();
     const [bubbleText, setBubbleText] = useState<string | null>(null);
     const [sparkles, setSparkles] = useState<{ id: number; x: number; y: number; color: string }[]>([]);
     const [hearts, setHearts] = useState<{ id: number; x: number; delay: number }[]>([]);
     const [frameIndex, setFrameIndex] = useState(0);
     const sparkleIdCounter = useRef(0);
+    // bubblePosition reserved for future non-blocking layout variants
+    void bubblePosition;
 
-    /* ── Frame Cycling for Array Poses ── */
-    const frames = getGretelPoseFrames(machineState);
+    /* ── Frame Cycling for Array Poses (disabled when reduced-motion) ── */
+    const frames = prefersReducedMotion
+      ? getGretelStaticPose(machineState)
+      : getGretelPoseFrames(machineState);
 
     useEffect(() => {
+      if (prefersReducedMotion) {
+        setFrameIndex(0);
+        return;
+      }
       if (Array.isArray(frames)) {
-        // Different states might need different frame rates, but 150ms is a good default for talk/wave/cheer
+        // Gentle source-frame cycle — not a vertical bounce loop
         let speed = 150;
         if (machineState === "waving") speed = 200;
         if (machineState === "cheering") speed = 150;
         if (machineState === "talking") speed = 120;
-        
+
         const interval = setInterval(() => {
           setFrameIndex((prev) => (prev + 1) % frames.length);
         }, speed);
         return () => clearInterval(interval);
-      } else {
-        setFrameIndex(0);
       }
-    }, [frames, machineState]);
+      setFrameIndex(0);
+    }, [frames, machineState, prefersReducedMotion]);
 
     const activeSrc = Array.isArray(frames) ? frames[frameIndex] : frames;
 
@@ -238,55 +246,73 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    const bodyAnim = prefersReducedMotion ? { y: 0, scale: 1, rotate: 0 } : getBodyAnimation(machineState);
+    const bodyTrans = prefersReducedMotion
+      ? { duration: 0 }
+      : getBodyTransition(machineState);
+
     return (
-      <div className={`relative flex items-center justify-center ${className}`}>
+      <div
+        className={`relative flex items-center justify-center ${className}`}
+        role="img"
+        aria-label="Gretel, la guía de lectura"
+      >
 
         {/* ── Warm halo glow behind Gretel ── */}
-        <motion.div
-          animate={getShadowAnimation(machineState)}
-          transition={{ duration: machineState === "cheering" ? 0.8 : 3, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute rounded-full"
-          style={{ width: "70%", height: "70%", background: "radial-gradient(circle, rgba(251,191,36,0.15) 0%, transparent 70%)" }}
-        />
+        {!prefersReducedMotion && (
+          <motion.div
+            animate={getShadowAnimation(machineState)}
+            transition={{ duration: machineState === "cheering" ? 0.8 : 3, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute rounded-full"
+            style={{ width: "70%", height: "70%", background: "radial-gradient(circle, rgba(251,191,36,0.15) 0%, transparent 70%)" }}
+            aria-hidden="true"
+          />
+        )}
 
         {/* ── Sparkle particles ── */}
-        <AnimatePresence>
-          {sparkles.map((s) => (
-            <motion.div
-              key={s.id}
-              initial={{ scale: 0, opacity: 1, x: 0, y: 0 }}
-              animate={{
-                scale: [0, 1.4, 0],
-                opacity: [0.9, 1, 0],
-                x: s.x,
-                y: s.y,
-                rotate: [0, 180, 360],
-              }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 1.2, ease: "easeOut" }}
-              className="absolute pointer-events-none z-20"
-              style={{ color: s.color }}
-            >
-              <Sparkles className="w-5 h-5 fill-current" />
-            </motion.div>
-          ))}
-        </AnimatePresence>
+        {!prefersReducedMotion && (
+          <AnimatePresence>
+            {sparkles.map((s) => (
+              <motion.div
+                key={s.id}
+                initial={{ scale: 0, opacity: 1, x: 0, y: 0 }}
+                animate={{
+                  scale: [0, 1.4, 0],
+                  opacity: [0.9, 1, 0],
+                  x: s.x,
+                  y: s.y,
+                  rotate: [0, 180, 360],
+                }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1.2, ease: "easeOut" }}
+                className="absolute pointer-events-none z-20"
+                style={{ color: s.color }}
+                aria-hidden="true"
+              >
+                <Sparkles className="w-5 h-5 fill-current" />
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        )}
 
-        {/* ── Floating hearts (on encourage) ── */}
-        <AnimatePresence>
-          {hearts.map((h) => (
-            <motion.div
-              key={h.id}
-              initial={{ opacity: 0, y: 0, x: h.x, scale: 0.5 }}
-              animate={{ opacity: [0, 1, 1, 0], y: -120, scale: [0.5, 1, 0.8, 0.6] }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 1.6, delay: h.delay, ease: "easeOut" }}
-              className="absolute pointer-events-none z-20 text-rose-400"
-            >
-              <Star className="w-4 h-4 fill-current" />
-            </motion.div>
-          ))}
-        </AnimatePresence>
+        {/* ── Floating stars (on encourage) — decorative only ── */}
+        {!prefersReducedMotion && (
+          <AnimatePresence>
+            {hearts.map((h) => (
+              <motion.div
+                key={h.id}
+                initial={{ opacity: 0, y: 0, x: h.x, scale: 0.5 }}
+                animate={{ opacity: [0, 1, 1, 0], y: -120, scale: [0.5, 1, 0.8, 0.6] }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1.6, delay: h.delay, ease: "easeOut" }}
+                className="absolute pointer-events-none z-20 text-rose-400"
+                aria-hidden="true"
+              >
+                <Star className="w-4 h-4 fill-current" />
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        )}
 
         {/* Feedback is spoken via TTS — no visible bubble that blocks content. */}
         {bubbleText && (
@@ -295,35 +321,39 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
           </span>
         )}
 
-        {/* ── Gretel's body — the living, breathing avatar ── */}
+        {/* ── Gretel's body — living avatar; static when reduced-motion ── */}
         <motion.div
-          animate={getBodyAnimation(machineState)}
-          transition={getBodyTransition(machineState)}
+          animate={bodyAnim}
+          transition={bodyTrans}
           className={`relative ${SIZES[size]} origin-bottom select-none`}
           style={{ filter: "drop-shadow(0 8px 16px rgba(0,0,0,0.2))" }}
         >
-          {/* Inner subtle secondary motion layer — slight skew for liveliness */}
           <motion.div
-            animate={{
-              skewX: machineState === "cheering" ? [-1, 1, -1] : [-0.3, 0.3, -0.3],
-              skewY: machineState === "talking" ? [-0.5, 0.5, -0.5] : [0, 0, 0],
-            }}
+            animate={
+              prefersReducedMotion
+                ? { skewX: 0, skewY: 0 }
+                : {
+                    skewX: machineState === "cheering" ? [-1, 1, -1] : [-0.3, 0.3, -0.3],
+                    skewY: machineState === "talking" ? [-0.5, 0.5, -0.5] : [0, 0, 0],
+                  }
+            }
             transition={{
-              duration: machineState === "cheering" ? 0.4 : 5,
-              repeat: Infinity,
+              duration: prefersReducedMotion ? 0 : machineState === "cheering" ? 0.4 : 5,
+              repeat: prefersReducedMotion ? 0 : Infinity,
               ease: "easeInOut",
             }}
             className="h-full w-full"
           >
             <div className="relative aspect-[3/4] h-full mx-auto">
-              <motion.img
+              <img
                 src={activeSrc}
-                alt="Gretel"
-                initial={{ opacity: 0.7, scale: 0.97 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.2 }}
+                alt=""
+                width={256}
+                height={341}
                 className="h-full w-full object-contain"
                 draggable={false}
+                decoding="async"
+                // Decorative when parent has aria-label; empty alt avoids double-announce
               />
             </div>
           </motion.div>

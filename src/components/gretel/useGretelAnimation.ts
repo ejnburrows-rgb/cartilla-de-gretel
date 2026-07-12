@@ -103,11 +103,16 @@ export function useGretelAnimation(): GretelAnimationHook {
         if (!isCancelled) dispatch({ type: "IDLE" });
       }, 150);
     } else if (machineState === "idle") {
-      // Random blink cycle when idle
-      const nextBlink = Math.random() * 4000 + 2000; // 2-6 seconds
-      timerRef.current = setTimeout(() => {
-        if (!isCancelled) dispatch({ type: "BLINK" });
-      }, nextBlink);
+      // Random blink cycle when idle — skip if user prefers reduced motion
+      const reduceMotion =
+        typeof window !== "undefined" &&
+        window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+      if (!reduceMotion) {
+        const nextBlink = Math.random() * 4000 + 2000; // 2-6 seconds
+        timerRef.current = setTimeout(() => {
+          if (!isCancelled) dispatch({ type: "BLINK" });
+        }, nextBlink);
+      }
     }
 
     return () => {
