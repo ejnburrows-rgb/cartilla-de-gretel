@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { getStudentProgress, getClassProgress } from "@/lib/teacher.functions";
 import { ClipboardList, Award, BookOpen, Clock, AlertTriangle, FileSpreadsheet, Check } from "lucide-react";
-import { crmService } from "@/services/crm";
 import { TOTAL_LESSONS } from "@/lib/lesson-catalog";
 interface ReportCardProps {
   classId: string;
@@ -161,7 +160,6 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
   // ── Render Class Report ──
   if (classProgressData) {
     const { perStudent, perLesson, perStudentExercise, assignments } = classProgressData;
-    const allProgresos = crmService.getAllProgresos();
     const exerciseKinds = Array.from(
       new Set(Object.values(perStudentExercise ?? {}).flatMap((row: any) => Object.keys(row))),
     ).sort();
@@ -281,7 +279,7 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
               </thead>
               <tbody className="divide-y divide-stone-150">
                 {perStudent.map((s: any) => {
-                  const prog = allProgresos.find(p => p.alumnoId === s.id)?.leccionesCompletadas || [];
+                  const prog: string[] = s.completedLessonIds ?? [];
                   return (
                     <tr key={s.id} className="hover:bg-stone-50/50 transition-colors">
                       <td className="p-3 font-bold text-stone-800 sticky left-0 z-10 bg-white shadow-[2px_0_4px_rgba(0,0,0,0.02)]">
@@ -289,7 +287,7 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
                       </td>
                       {Array.from({ length: TOTAL_LESSONS }).map((_, i) => {
                         const l = i + 1;
-                        const isComplete = prog.includes(l);
+                        const isComplete = prog.includes(String(l));
                         return (
                           <td key={l} className="p-2 text-center border-l border-stone-100">
                             {isComplete ? (

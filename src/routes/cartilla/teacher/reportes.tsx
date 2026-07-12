@@ -4,6 +4,7 @@ import { StudentPicker } from "@/components/teacher/StudentPicker";
 import { ReportCard } from "@/components/teacher/ReportCard";
 import { ArrowLeft, Printer, FileSpreadsheet } from "lucide-react";
 import { getStudentProgress, getClassProgress } from "@/lib/teacher.functions";
+import { exportClassProgressCsv, exportStudentProgressCsv } from "@/lib/csv-export";
 import "@/styles/teacher-print.css";
 
 export const Route = createFileRoute("/cartilla/teacher/reportes")({
@@ -29,41 +30,13 @@ function TeacherReportsPage() {
   const handleExportCSV = async () => {
     if (!classId) return;
 
-    let csvContent = "";
-    let filename = "";
-
     if (studentId) {
-      // 1. Export Student Events
       const data = await getStudentProgress({ data: { id: studentId } });
-      filename = `reporte_${data.student.display_name.toLowerCase().replace(/\s+/g, "_")}.csv`;
-      
-      csvContent = "Fecha,Evento,Leccion,Puntuacion,Total,Tiempo (s)\n";
-      data.events.forEach((e: any) => {
-        csvContent += `${new Date(e.created_at).toLocaleDateString()},${e.event_kind},${e.lesson_id},${e.score || 0},${e.total || 0},${e.time_seconds || 0}\n`;
-      });
+      exportStudentProgressCsv(data.student.display_name, data.events);
     } else {
-      // 2. Export Class Matrix
       const data = await getClassProgress({ data: { id: classId } });
-      filename = `reporte_clase_${classId.slice(0, 8)}.csv`;
-
-      csvContent = "Nombre Alumno,Lecciones Completas,Precision Promedio,Tiempo Total (m)\n";
-      data.perStudent.forEach((s: any) => {
-        const accuracy = s.accuracy !== null ? `${Math.round(s.accuracy * 100)}%` : "N/A";
-        const timeMins = Math.round(s.timeSeconds / 60);
-        csvContent += `"${s.name}",${s.lessonsCount},${accuracy},${timeMins}\n`;
-      });
+      exportClassProgressCsv(`clase_${classId.slice(0, 8)}`, [], data);
     }
-
-    // Trigger download
-    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.setAttribute("href", url);
-    link.setAttribute("download", filename);
-    link.style.visibility = "hidden";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
   };
 
   return (

@@ -6,6 +6,8 @@ import {
   computeLastActive,
   summarizeStudentProgress,
   needsAttention,
+  checkNeedsAttention,
+  buildLessonTiles,
   type LessonProgressRow,
 } from "../progress-calculation";
 
@@ -121,5 +123,72 @@ describe("needsAttention", () => {
     expect(
       needsAttention({ completionPercent: 10, lastActiveAt: "2026-01-09T00:00:00Z" }, now),
     ).toBe(false);
+  });
+});
+
+describe("checkNeedsAttention", () => {
+  it("flags no recorded activity at all", () => {
+    const result = checkNeedsAttention({ lastActiveAt: null, recentAccuracies: [] });
+    expect(result.flagged).toBe(true);
+    expect(result.reasons).toContain("Sin actividad registrada");
+  });
+
+  it("flags 7+ days of inactivity", () => {
+    const now = new Date("2026-01-10T00:00:00Z").getTime();
+    const result = checkNeedsAttention(
+      { lastActiveAt: "2026-01-01T00:00:00Z", recentAccuracies: [] },
+      now,
+    );
+    expect(result.flagged).toBe(true);
+  });
+
+  it("does not flag inactivity under 7 days with no low scores", () => {
+    const now = new Date("2026-01-10T00:00:00Z").getTime();
+    const result = checkNeedsAttention(
+      { lastActiveAt: "2026-01-05T00:00:00Z", recentAccuracies: [0.9, 0.8] },
+      now,
+    );
+    expect(result.flagged).toBe(false);
+  });
+
+  it("flags 2+ repeated low scores even with recent activity", () => {
+    const now = new Date("2026-01-10T00:00:00Z").getTime();
+    const result = checkNeedsAttention(
+      { lastActiveAt: "2026-01-10T00:00:00Z", recentAccuracies: [0.3, 0.4, 0.9] },
+      now,
+    );
+    expect(result.flagged).toBe(true);
+    expect(result.reasons).toContain("Puntuaciones bajas repetidas");
+  });
+
+  it("does not flag a single low score", () => {
+    const now = new Date("2026-01-10T00:00:00Z").getTime();
+    const result = checkNeedsAttention(
+      { lastActiveAt: "2026-01-10T00:00:00Z", recentAccuracies: [0.3, 0.9] },
+      now,
+    );
+    expect(result.flagged).toBe(false);
+  });
+});
+
+describe("buildLessonTiles", () => {
+  it("returns one tile per lesson number with correct status and assigned flag", () => {
+    const rows: LessonProgressRow[] = [
+      { lesson_id: "1", status: "completed" },
+      { lesson_id: "2", status: "started" },
+    ];
+    const assigned = new Set(["3"]);
+    const tiles = buildLessonTiles(rows, assigned, 4);
+    expect(tiles).toHaveLength(4);
+    expect(tiles[0]).toEqual({ lessonNumber: 1, status: "completed", assigned: false });
+    expect(tiles[1]).toEqual({ lessonNumber: 2, status: "in_progress", assigned: false });
+    expect(tiles[2]).toEqual({ lessonNumber: 3, status: "not_started", assigned: true });
+    expect(tiles[3]).toEqual({ lessonNumber: 4, status: "not_started", assigned: false });
+  });
+
+  it("marks a lesson assigned even if the student already completed it", () => {
+    const rows: LessonProgressRow[] = [{ lesson_id: "1", status: "completed" }];
+    const tiles = buildLessonTiles(rows, new Set(["1"]), 1);
+    expect(tiles[0]).toEqual({ lessonNumber: 1, status: "completed", assigned: true });
   });
 });

@@ -2,7 +2,6 @@ import { useState, useEffect, useMemo } from "react";
 import { Link } from "@tanstack/react-router";
 import { BarChart3, MonitorPlay, Printer, GraduationCap, PlusCircle, AlertCircle, User, CheckCircle } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
-import { supabase } from "@/integrations/supabase/client";
 
 import "../../styles/teacher-crm.css";
 import { AccountPanel } from "./components/AccountPanel";
@@ -20,7 +19,8 @@ import {
   getSeedClass,
   createSeedClass,
   addSeedStudents,
-  updateSeedStudent
+  updateSeedStudent,
+  isSeedSessionActive,
 } from "@/lib/seed-data";
 
 export function TeacherCrmShell() {
@@ -32,10 +32,7 @@ export function TeacherCrmShell() {
   const [msg, setMsg] = useState<{ text: string; type: "success" | "error" } | null>(null);
 
   // Synchronously detect local seed teacher session
-  const isSeed = useMemo(() => {
-    if (typeof window === "undefined") return false;
-    return !!localStorage.getItem("cartilla.seed.teacher.v1") || !supabase.auth.getSession();
-  }, []);
+  const isSeed = useMemo(() => isSeedSessionActive(), []);
 
   // 1. Query Classes
   const { data: realClasses, isLoading: loadingRealClasses, refetch: refetchRealClasses } = useQuery({
@@ -257,6 +254,15 @@ export function TeacherCrmShell() {
                 )}
 
                 <div className="flex gap-3">
+                  {selectedClassId && (
+                    <Link
+                      to="/cartilla/teacher/crm/$classId"
+                      params={{ classId: selectedClassId }}
+                      className="inline-flex items-center gap-2 rounded-2xl border-4 border-white bg-[#8da47e] px-5 py-3 text-sm font-black text-white shadow-lg hover:-translate-y-1 hover:shadow-xl hover:bg-[#7a9169] transition-all cursor-pointer"
+                    >
+                      Ver clase completa
+                    </Link>
+                  )}
                   <Link
                     to="/cartilla/teacher/reportes"
                     className="inline-flex items-center gap-2 rounded-2xl bg-[#ea580c] px-5 py-3 text-sm font-black text-white shadow-lg hover:-translate-y-1 hover:shadow-xl hover:bg-[#c2410c] transition-all cursor-pointer"

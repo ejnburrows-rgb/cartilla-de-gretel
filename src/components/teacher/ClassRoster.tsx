@@ -13,7 +13,6 @@ import {
   Archive,
 } from "lucide-react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { supabase } from "@/integrations/supabase/client";
 import {
   listClasses,
   getClass,
@@ -29,7 +28,8 @@ import {
   getSeedClass,
   createSeedClass,
   addSeedStudents,
-  deleteSeedStudent
+  deleteSeedStudent,
+  isSeedSessionActive,
 } from "@/lib/seed-data";
 
 interface RosterStudent {
@@ -61,10 +61,7 @@ export function ClassRoster() {
   const [editingName, setEditingName] = useState("");
 
   // Synchronously detect if we are using the local seed teacher session
-  const isSeed = useMemo(() => {
-    if (typeof window === "undefined") return false;
-    return !!localStorage.getItem("cartilla.seed.teacher.v1") || !supabase.auth.getSession();
-  }, []);
+  const isSeed = useMemo(() => isSeedSessionActive(), []);
 
   // 1. Fetch Classes
   const { data: realClasses, isLoading: loadingRealClasses, refetch: refetchRealClasses } = useQuery({

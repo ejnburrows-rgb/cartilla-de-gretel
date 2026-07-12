@@ -1,4 +1,5 @@
 import { TOTAL_LESSONS } from "@/lib/lesson-catalog";
+import { checkNeedsAttention } from "@/lib/progress-calculation";
 
 export const SEED_TEACHERS = [
   {
@@ -21,6 +22,25 @@ export const SEED_STUDENT_ACCESS = [] as const;
 
 const AUTH_KEY = "cartilla.seed.teacher.v1";
 const STATE_KEY = "cartilla.seed.state.v1";
+
+/** Demo/seed mode is gated by VITE_ALLOW_DEMO_MODE so it can never activate
+ * in a production build regardless of any stray localStorage flag — set
+ * this env var to "true" scoped to Vercel's Preview environment only (never
+ * Production) to keep the demo lane reachable there. Absent/unset (the
+ * default everywhere, including a fresh production build) means disabled. */
+function demoModeAllowed(): boolean {
+  return import.meta.env.VITE_ALLOW_DEMO_MODE === "true";
+}
+
+/** Single shared check for "is this teacher session the local demo lane" —
+ * replaces the same inline localStorage check that used to be duplicated
+ * (and included a no-op `!supabase.auth.getSession()`, which is always
+ * false since getSession() returns a Promise) across every CRM component. */
+export function isSeedSessionActive(): boolean {
+  if (typeof window === "undefined") return false;
+  if (!demoModeAllowed()) return false;
+  return !!localStorage.getItem(AUTH_KEY);
+}
 
 type SeedTeacherId = (typeof SEED_TEACHERS)[number]["id"];
 
@@ -75,28 +95,179 @@ function nowIso() {
   return new Date().toISOString();
 }
 
+/** Days-ago helper for generating realistic-looking seed timestamps relative
+ * to whenever the demo lane is first opened, rather than baking in stale
+ * absolute dates. */
+function daysAgoIso(days: number, hour = 15): string {
+  const d = new Date();
+  d.setDate(d.getDate() - days);
+  d.setHours(hour, 0, 0, 0);
+  return d.toISOString();
+}
+
+/** Deterministic per-student event generator so the demo lane always shows
+ * the same varied spread of tile-grid states (completed/in-progress/
+ * not-started, good scores/struggling, active/inactive) without relying on
+ * Math.random — every reset of the demo produces the same story. */
+function generateSeedEvents(
+  studentId: string,
+  completedLessons: number[],
+  inProgressLessons: number[],
+  opts: { lastActiveDaysAgo: number; scoreQuality: "high" | "medium" | "low" },
+): SeedEvent[] {
+  const events: SeedEvent[] = [];
+  const scoreFor = (kind: typeof opts.scoreQuality) =>
+    kind === "high" ? { score: 9, total: 10 } : kind === "medium" ? { score: 6, total: 10 } : { score: 3, total: 10 };
+
+  completedLessons.forEach((lessonNum, i) => {
+    const daysAgo = opts.lastActiveDaysAgo + (completedLessons.length - i) * 2;
+    const lessonId = String(lessonNum);
+    const { score, total } = scoreFor(opts.scoreQuality);
+    events.push({
+      id: `seed-event-${studentId}-l${lessonNum}-ex`,
+      student_id: studentId,
+      lesson_id: lessonId,
+      event_kind: "exercise",
+      score,
+      total,
+      time_seconds: null,
+      meta: { exercise: "picture_grid" },
+      created_at: daysAgoIso(daysAgo + 1),
+    });
+    events.push({
+      id: `seed-event-${studentId}-l${lessonNum}-time`,
+      student_id: studentId,
+      lesson_id: lessonId,
+      event_kind: "time",
+      score: null,
+      total: null,
+      time_seconds: 420,
+      meta: null,
+      created_at: daysAgoIso(daysAgo),
+    });
+    events.push({
+      id: `seed-event-${studentId}-l${lessonNum}-done`,
+      student_id: studentId,
+      lesson_id: lessonId,
+      event_kind: "lesson_completed",
+      score: null,
+      total: null,
+      time_seconds: null,
+      meta: null,
+      created_at: daysAgoIso(daysAgo),
+    });
+  });
+
+  inProgressLessons.forEach((lessonNum) => {
+    const { score, total } = scoreFor(opts.scoreQuality);
+    events.push({
+      id: `seed-event-${studentId}-l${lessonNum}-inprog`,
+      student_id: studentId,
+      lesson_id: String(lessonNum),
+      event_kind: "exercise",
+      score,
+      total,
+      time_seconds: null,
+      meta: { exercise: "vowel_pick_one" },
+      created_at: daysAgoIso(opts.lastActiveDaysAgo),
+    });
+  });
+
+  return events;
+}
+
 function initialState(): SeedState {
+  const classId = "seed-class-demo";
+  const students: SeedStudent[] = [
+    {
+      id: "seed-student-sofia",
+      class_id: classId,
+      display_name: "Sofía Ramírez",
+      student_code: "SOFIA",
+      created_at: daysAgoIso(60),
+    },
+    {
+      id: "seed-student-mateo",
+      class_id: classId,
+      display_name: "Mateo Torres",
+      student_code: "MATEO",
+      created_at: daysAgoIso(45),
+    },
+    {
+      id: "seed-student-valentina",
+      class_id: classId,
+      display_name: "Valentina Cruz",
+      student_code: "VALEN",
+      created_at: daysAgoIso(20),
+    },
+    {
+      id: "seed-student-diego",
+      class_id: classId,
+      display_name: "Diego Fernández",
+      student_code: "DIEGO",
+      created_at: daysAgoIso(50),
+      teacher_notes: "Le cuesta la lectura de sílabas compuestas — reforzar en casa.",
+    },
+    {
+      id: "seed-student-camila",
+      class_id: classId,
+      display_name: "Camila Ortiz",
+      student_code: "CAMIL",
+      created_at: daysAgoIso(5),
+    },
+  ];
+
+  const events: SeedEvent[] = [
+    // Sofía — advanced, 18/24 completed, high scores, active recently.
+    ...generateSeedEvents(
+      "seed-student-sofia",
+      Array.from({ length: 18 }, (_, i) => i + 1),
+      [19],
+      { lastActiveDaysAgo: 1, scoreQuality: "high" },
+    ),
+    // Mateo — mid-progress, 10/24 completed, active 2 days ago.
+    ...generateSeedEvents(
+      "seed-student-mateo",
+      Array.from({ length: 10 }, (_, i) => i + 1),
+      [11],
+      { lastActiveDaysAgo: 2, scoreQuality: "medium" },
+    ),
+    // Valentina — just getting started, 2 completed + 1 in progress.
+    ...generateSeedEvents("seed-student-valentina", [1, 2], [3], {
+      lastActiveDaysAgo: 0,
+      scoreQuality: "high",
+    }),
+    // Diego — needs attention: 1 completed, repeated low scores, inactive 9 days.
+    ...generateSeedEvents("seed-student-diego", [1], [2, 3], {
+      lastActiveDaysAgo: 9,
+      scoreQuality: "low",
+    }),
+    // Camila — needs attention: brand new, zero activity at all.
+  ];
+
   return {
     classes: [
       {
-        id: "seed-class-demo",
+        id: classId,
         teacher_id: "seed-teacher-leonor",
         name: "Clase de Prueba (Demo Local)",
         join_code: "DEMO12",
-        created_at: new Date("2026-01-01T00:00:00.000Z").toISOString(),
-      }
+        created_at: daysAgoIso(60),
+      },
     ],
-    students: [
+    students,
+    events,
+    assignments: [
       {
-        id: "seed-student-demo",
-        class_id: "seed-class-demo",
-        display_name: "Estudiante Demo (Local)",
-        student_code: "DEMO1",
-        created_at: new Date("2026-01-01T00:00:00.000Z").toISOString(),
-      }
+        id: "seed-assignment-1",
+        class_id: classId,
+        lesson_id: "19",
+        title: "Repaso de la letra R",
+        due_at: null,
+        time_limit_seconds: null,
+        created_at: daysAgoIso(3),
+      },
     ],
-    events: [],
-    assignments: [],
   };
 }
 
@@ -383,15 +554,35 @@ export function getSeedTeacherStudentProgress(id: string) {
   const student = state.students.find((s) => s.id === id);
   if (!student) throw new Error("Alumno no encontrado.");
   const cls = state.classes.find((c) => c.id === student.class_id) ?? null;
+  const events = state.events.filter((e) => e.student_id === id);
+
+  const lessonIds = new Set(events.map((e) => e.lesson_id));
+  const lessonProgress = Array.from(lessonIds).map((lesson_id) => {
+    const lessonEvents = events.filter((e) => e.lesson_id === lesson_id);
+    const completed = lessonEvents.some((e) => e.event_kind === "lesson_completed");
+    const lastActive = lessonEvents
+      .map((e) => e.created_at)
+      .sort()
+      .at(-1);
+    return {
+      lesson_id,
+      status: completed ? "completed" : "started",
+      last_active_at: lastActive ?? null,
+    };
+  });
+
   return {
     student: {
       id: student.id,
       display_name: student.display_name,
       student_code: student.student_code,
       class_id: student.class_id,
+      teacher_notes: student.teacher_notes ?? null,
     },
     class: cls,
-    events: state.events.filter((e) => e.student_id === id),
+    events,
+    lessonProgress,
+    assignments: cls ? state.assignments.filter((a) => a.class_id === cls.id) : [],
   };
 }
 
@@ -409,9 +600,41 @@ export function getSeedClassProgress(classId: string) {
     }
   });
   const assignments = state.assignments.filter((a) => a.class_id === classId);
+  const classStudents = state.students.filter((s) => s.class_id === classId);
+
+  const recentEvents = events
+    .slice()
+    .sort((a, b) => b.created_at.localeCompare(a.created_at))
+    .slice(0, 20)
+    .map((e) => ({
+      studentId: e.student_id,
+      studentName: classStudents.find((s) => s.id === e.student_id)?.display_name ?? "?",
+      lessonId: e.lesson_id,
+      eventKind: e.event_kind,
+      score: e.score,
+      total: e.total,
+      createdAt: e.created_at,
+    }));
+
+  const attentionByStudent: Record<string, { flagged: boolean; reasons: string[] }> = {};
+  classStudents.forEach((s) => {
+    const studentEvents = events
+      .filter((e) => e.student_id === s.id)
+      .slice()
+      .sort((a, b) => b.created_at.localeCompare(a.created_at));
+    const lastActiveAt = studentEvents[0]?.created_at ?? null;
+    const recentAccuracies = studentEvents
+      .filter((e) => e.event_kind === "exercise" && (e.total ?? 0) > 0)
+      .slice(0, 5)
+      .map((e) => (e.score ?? 0) / (e.total ?? 1));
+    attentionByStudent[s.id] = checkNeedsAttention({ lastActiveAt, recentAccuracies });
+  });
+
   return {
-    perStudent: state.students
-      .filter((s) => s.class_id === classId)
+    recentEvents,
+    attentionByStudent,
+    perStudentExercise: {} as Record<string, Record<string, { hits: number; attempts: number }>>,
+    perStudent: classStudents
       .map((s) => ({
         id: s.id,
         name: s.display_name,
@@ -420,6 +643,13 @@ export function getSeedClassProgress(classId: string) {
             .filter((e) => e.student_id === s.id && e.event_kind === "lesson_completed")
             .map((e) => e.lesson_id),
         ).size,
+        completedLessonIds: Array.from(
+          new Set(
+            events
+              .filter((e) => e.student_id === s.id && e.event_kind === "lesson_completed")
+              .map((e) => e.lesson_id),
+          ),
+        ),
         accuracy: null,
         timeSeconds: 0,
       })),
