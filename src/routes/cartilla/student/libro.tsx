@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { BookReader } from "@/components/cartilla/BookReader";
 
 export const Route = createFileRoute("/cartilla/student/libro")({
@@ -14,6 +14,14 @@ export const Route = createFileRoute("/cartilla/student/libro")({
 function LibroReaderPage() {
   return (
     <div className="min-h-screen bg-[#faf8f5] dark:bg-[#120f0d] text-stone-850 flex flex-col">
+      <div className="px-4 pt-3 max-w-5xl w-full mx-auto">
+        <Link
+          to="/cartilla/student/libro-vivo"
+          className="inline-flex items-center min-h-11 px-4 py-2 rounded-xl border-2 border-stone-300 font-bold text-sm focus-visible:outline focus-visible:outline-4 focus-visible:outline-amber-400"
+        >
+          Abrir libro vivo (manifiesto)
+        </Link>
+      </div>
       <BookReader initialPage={1} />
     </div>
   );

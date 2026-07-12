@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { BookOpen, LayoutDashboard, Users, Settings, GraduationCap, FileSpreadsheet } from "lucide-react";
+import { BookOpen, LayoutDashboard, Users, Settings, GraduationCap, FileSpreadsheet, CircleHelp } from "lucide-react";
 
 export function Sidebar() {
   // Hoisted styles to satisfy the JSX double-brace styling ban
@@ -55,13 +55,21 @@ export function Sidebar() {
         >
           <FileSpreadsheet className="w-5 h-5" /> Reportes
         </Link>
+        <Link
+          to="/cartilla/ayuda"
+          activeProps={{ className: activeCls }}
+          inactiveProps={{ className: inactiveCls }}
+          className="flex items-center gap-3 px-3 py-2 rounded-xl font-bold text-sm transition-colors min-h-11"
+        >
+          <CircleHelp className="w-5 h-5" aria-hidden="true" /> Ayuda
+        </Link>
       </nav>
       <div className="p-4 border-t border-[#e8e2d9]">
         <Link 
           to="/cartilla"
-          className="flex items-center gap-3 px-3 py-2 text-[#7a7065] hover:bg-[#f2d8d8] hover:text-[hsl(354,78%,35%)] rounded-xl font-bold text-sm transition-colors"
+          className="flex items-center gap-3 px-3 py-2 text-[#7a7065] hover:bg-[#f2d8d8] hover:text-[hsl(354,78%,35%)] rounded-xl font-bold text-sm transition-colors min-h-11"
         >
-          <Settings className="w-5 h-5" /> Salir a Cartilla
+          <Settings className="w-5 h-5" aria-hidden="true" /> Salir a Cartilla
         </Link>
       </div>
     </aside>

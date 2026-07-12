@@ -35,22 +35,29 @@ export interface ProgressEvent {
 
 const QUEUE_KEY = "cartilla.progress-events-queue.v1";
 
+/** In-memory fallback when localStorage is unavailable (Node test envs, private mode). */
+let memoryQueue: ProgressEvent[] = [];
+
 function readQueue(): ProgressEvent[] {
-  if (typeof window === "undefined") return [];
+  if (typeof window === "undefined") return [...memoryQueue];
   try {
+    if (typeof localStorage === "undefined") return [...memoryQueue];
     const raw = localStorage.getItem(QUEUE_KEY);
-    return raw ? (JSON.parse(raw) as ProgressEvent[]) : [];
+    if (raw == null) return [...memoryQueue];
+    return JSON.parse(raw) as ProgressEvent[];
   } catch {
-    return [];
+    return [...memoryQueue];
   }
 }
 
 function writeQueue(events: ProgressEvent[]) {
+  memoryQueue = [...events];
   if (typeof window === "undefined") return;
   try {
+    if (typeof localStorage === "undefined") return;
     localStorage.setItem(QUEUE_KEY, JSON.stringify(events));
   } catch {
-    /* storage full/unavailable — drop silently, matches recordEvent's existing fire-and-forget convention */
+    /* storage full/unavailable — memory queue still holds events for this session */
   }
 }
 
