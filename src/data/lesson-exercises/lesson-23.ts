@@ -16,7 +16,7 @@ export const lesson23 = [
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
-    teacherNotes: "Students trace uppercase and lowercase y.",
+    teacherNotes: "[NEEDS_CONTENT_REVIEW] Students trace uppercase and lowercase y.",
     sourcePage: getBookPageImage(89)
   },
   {
@@ -46,7 +46,7 @@ export const lesson23 = [
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded syllable circle for y.",
+    teacherNotes: "[NEEDS_CONTENT_REVIEW] Scaffolded syllable circle for y.",
     sourcePage: getBookPageImage(90)
   },
   {
@@ -67,7 +67,7 @@ export const lesson23 = [
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded syllable tap for y.",
+    teacherNotes: "[NEEDS_CONTENT_REVIEW] Scaffolded syllable tap for y.",
     sourcePage: getBookPageImage(91)
   },
   {
@@ -98,7 +98,7 @@ export const lesson23 = [
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded word bank for y.",
+    teacherNotes: "[NEEDS_CONTENT_REVIEW] Scaffolded word bank for y.",
     sourcePage: getBookPageImage(91)
   },
   {
@@ -123,7 +123,7 @@ export const lesson23 = [
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded mini-story for y.",
+    teacherNotes: "[NEEDS_CONTENT_REVIEW] Scaffolded mini-story for y.",
     sourcePage: getBookPageImage(91)
   }
 ];

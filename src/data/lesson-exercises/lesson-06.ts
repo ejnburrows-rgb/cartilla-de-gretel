@@ -27,10 +27,10 @@ export const lesson06 = [
       { id: "img-uno-15", label: "uno" }
     ],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded exercise for U u.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Scaffolded exercise for U u.",
     sourcePage: getBookPageImage(22)
   },
   {
@@ -51,10 +51,10 @@ export const lesson06 = [
       { id: "img-iman-7", label: "imán" }
     ],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded exercise for U u.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Scaffolded exercise for U u.",
     sourcePage: getBookPageImage(23)
   },
   {
@@ -69,10 +69,10 @@ export const lesson06 = [
       { id: "letter-u", label: "u" }
     ],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded letter tracing for U u.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Scaffolded letter tracing for U u.",
     sourcePage: getBookPageImage(24)
   }
 ];

@@ -16,7 +16,7 @@ export const lesson20 = [
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
-    teacherNotes: "Students trace uppercase and lowercase f.",
+    teacherNotes: "[NEEDS_CONTENT_REVIEW] Students trace uppercase and lowercase f.",
     sourcePage: getBookPageImage(77)
   },
   {
@@ -46,7 +46,7 @@ export const lesson20 = [
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded syllable circle for f.",
+    teacherNotes: "[NEEDS_CONTENT_REVIEW] Scaffolded syllable circle for f.",
     sourcePage: getBookPageImage(78)
   },
   {
@@ -67,7 +67,7 @@ export const lesson20 = [
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded syllable tap for f.",
+    teacherNotes: "[NEEDS_CONTENT_REVIEW] Scaffolded syllable tap for f.",
     sourcePage: getBookPageImage(79)
   },
   {
@@ -98,7 +98,7 @@ export const lesson20 = [
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded word bank for f.",
+    teacherNotes: "[NEEDS_CONTENT_REVIEW] Scaffolded word bank for f.",
     sourcePage: getBookPageImage(79)
   },
   {
@@ -121,7 +121,7 @@ export const lesson20 = [
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded mini-story for f.",
+    teacherNotes: "[NEEDS_CONTENT_REVIEW] Scaffolded mini-story for f.",
     sourcePage: getBookPageImage(79)
   },
   {
@@ -235,7 +235,7 @@ export const lesson20 = [
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded fill-in-the-blank for f.",
+    teacherNotes: "[NEEDS_CONTENT_REVIEW] Scaffolded fill-in-the-blank for f.",
     sourcePage: getBookPageImage(80)
   },
   {
@@ -250,7 +250,7 @@ export const lesson20 = [
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
-    teacherNotes: "Sentence writing lines.",
+    teacherNotes: "[NEEDS_CONTENT_REVIEW] Sentence writing lines.",
     sourcePage: getBookPageImage(80)
   }
 ];

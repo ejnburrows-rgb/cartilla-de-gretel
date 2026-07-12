@@ -28,7 +28,7 @@ export const lesson24 = [
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded syllable circle for z.",
+    teacherNotes: "[NEEDS_CONTENT_REVIEW] Scaffolded syllable circle for z.",
     sourcePage: getBookPageImage(92)
   },
   {
@@ -49,7 +49,7 @@ export const lesson24 = [
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded syllable tap for z.",
+    teacherNotes: "[NEEDS_CONTENT_REVIEW] Scaffolded syllable tap for z.",
     sourcePage: getBookPageImage(93)
   },
   {
@@ -80,7 +80,7 @@ export const lesson24 = [
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded word bank for z.",
+    teacherNotes: "[NEEDS_CONTENT_REVIEW] Scaffolded word bank for z.",
     sourcePage: getBookPageImage(93)
   },
   {
@@ -103,7 +103,7 @@ export const lesson24 = [
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded mini-story for z.",
+    teacherNotes: "[NEEDS_CONTENT_REVIEW] Scaffolded mini-story for z.",
     sourcePage: getBookPageImage(93)
   },
   {
@@ -219,7 +219,7 @@ export const lesson24 = [
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded fill-in-the-blank for z.",
+    teacherNotes: "[NEEDS_CONTENT_REVIEW] Scaffolded fill-in-the-blank for z.",
     sourcePage: getBookPageImage(94)
   },
   {
@@ -234,7 +234,7 @@ export const lesson24 = [
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
-    teacherNotes: "Sentence writing lines.",
+    teacherNotes: "[NEEDS_CONTENT_REVIEW] Sentence writing lines.",
     sourcePage: getBookPageImage(94)
   }
 ];
