@@ -1,0 +1,309 @@
+Already up to date
+Done in 67ms using pnpm v11.10.0
+[2m$ pnpm check:sanity && pnpm validate:content && vite build[22m
+[2m$ ts-node --transpile-only scripts/check-assets-and-lessons.ts[22m
+Sanity check passed: All assets and lessons are valid.
+[2m$ node scripts/validate-content.mjs[22m
+✓ validate-content: PASS
+(node:32008) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Warning: Route file "C:/Users/EJN/grok-work/cartilla-hub/src/routes/__tests__/student-routing.test.tsx" does not export a Route. This file will not be included in the route tree.
+
+If this file is not intended to be a route, you can exclude it using one of these options:
+  1. Rename the file to "C:\Users\EJN\grok-work\cartilla-hub\src\routes\__tests__\-student-routing.test.tsx" (prefix with "-")
+  2. Use 'routeFileIgnorePattern' in your config to match this file
+
+Current configuration:
+  routeFileIgnorePrefix: "-"
+  routeFileIgnorePattern: undefined
+Warning: Route file "C:/Users/EJN/grok-work/cartilla-hub/src/routes/cartilla/student/_components/LessonSkeleton.tsx" does not export a Route. This file will not be included in the route tree.
+
+If this file is not intended to be a route, you can exclude it using one of these options:
+  1. Rename the file to "C:\Users\EJN\grok-work\cartilla-hub\src\routes\cartilla\student\_components\-LessonSkeleton.tsx" (prefix with "-")
+  2. Use 'routeFileIgnorePattern' in your config to match this file
+
+Current configuration:
+  routeFileIgnorePrefix: "-"
+  routeFileIgnorePattern: undefined
+[36mvite v7.3.3 [32mbuilding client environment for production...[36m[39m
+transforming...
+[32m✓[39m 2680 modules transformed.
+[33mCircular chunk: route-binder -> content-bundle -> route-binder. Please adjust the manual chunk logic for these chunks.[39m
+rendering chunks...
+[33m[plugin vite:reporter] 
+(!) C:/Users/EJN/grok-work/cartilla-hub/src/integrations/supabase/client.ts is dynamically imported by C:/Users/EJN/grok-work/cartilla-hub/src/routes/__root.tsx but also statically imported by C:/Users/EJN/grok-work/cartilla-hub/src/components/cartilla/Ejercicios.tsx, C:/Users/EJN/grok-work/cartilla-hub/src/lib/assignments.functions.ts, C:/Users/EJN/grok-work/cartilla-hub/src/lib/auth-role.ts, C:/Users/EJN/grok-work/cartilla-hub/src/lib/folder-assignments.functions.ts, C:/Users/EJN/grok-work/cartilla-hub/src/lib/student.functions.ts, C:/Users/EJN/grok-work/cartilla-hub/src/lib/teacher.functions.ts, C:/Users/EJN/grok-work/cartilla-hub/src/routes/cartilla/teacher/route.tsx, C:/Users/EJN/grok-work/cartilla-hub/src/routes/cartilla/teacher/route.tsx?tsr-split=component, C:/Users/EJN/grok-work/cartilla-hub/src/routes/cartilla/unirse.tsx?tsr-split=component, C:/Users/EJN/grok-work/cartilla-hub/src/routes/login.tsx?tsr-split=component, dynamic import will not move module into another chunk.
+[39m
+computing gzip size...
+[2mdist/[22m[32massets/crm-student-progress.Ba1Q1GXm.js.br               [39m[1m[2m    0.23 kB[22m[1m[22m
+[2mdist/[22m[32massets/crm-student-progress.Ba1Q1GXm.js.gz               [39m[1m[2m    0.27 kB[22m[1m[22m
+[2mdist/[22m[32massets/binder.CkbbDvAs.js.br                             [39m[1m[2m    0.33 kB[22m[1m[22m
+[2mdist/[22m[32massets/LanguageToggle.Bo-wELkl.js.br                     [39m[1m[2m    0.34 kB[22m[1m[22m
+[2mdist/[22m[32massets/CrmBreadcrumbs.CbBpFIG1.js.br                     [39m[1m[2m    0.35 kB[22m[1m[22m
+[2mdist/[22m[32massets/_lessonId.DMrDUjqa.js.br                          [39m[1m[2m    0.38 kB[22m[1m[22m
+[2mdist/[22m[32massets/binder.CkbbDvAs.js.gz                             [39m[1m[2m    0.41 kB[22m[1m[22m
+[2mdist/[22m[32massets/CrmBreadcrumbs.CbBpFIG1.js.gz                     [39m[1m[2m    0.42 kB[22m[1m[22m
+[2mdist/[22m[32massets/LanguageToggle.Bo-wELkl.js.gz                     [39m[1m[2m    0.42 kB[22m[1m[22m
+[2mdist/[22m[32massets/lesson-progress.DhitKm1n.js.br                    [39m[1m[2m    0.44 kB[22m[1m[22m
+[2mdist/[22m[32massets/_lessonId.DMrDUjqa.js.gz                          [39m[1m[2m    0.45 kB[22m[1m[22m
+[2mdist/[22m[32massets/ThemeToggle.BsbLW_sJ.js.br                        [39m[1m[2m    0.47 kB[22m[1m[22m
+[2mdist/[22m[32massets/print.6uPehLbO.js.br                              [39m[1m[2m    0.49 kB[22m[1m[22m
+[2mdist/[22m[32massets/LessonTimer.CT8ocWc9.js.br                        [39m[1m[2m    0.49 kB[22m[1m[22m
+[2mdist/[22m[32massets/csv-export.BIDHPi7Q.js.br                         [39m[1m[2m    0.49 kB[22m[1m[22m
+[2mdist/[22m[32massets/lesson-progress.DhitKm1n.js.gz                    [39m[1m[2m    0.51 kB[22m[1m[22m
+[2mdist/[22m[32massets/feel-bus.C_QrGKY0.js.br                           [39m[1m[2m    0.53 kB[22m[1m[22m
+[2mdist/[22m[32massets/ThemeToggle.BsbLW_sJ.js.gz                        [39m[1m[2m    0.54 kB[22m[1m[22m
+[2mdist/[22m[32massets/LessonTimer.CT8ocWc9.js.gz                        [39m[1m[2m    0.57 kB[22m[1m[22m
+[2mdist/[22m[32massets/csv-export.BIDHPi7Q.js.gz                         [39m[1m[2m    0.60 kB[22m[1m[22m
+[2mdist/[22m[32massets/print.6uPehLbO.js.gz                              [39m[1m[2m    0.61 kB[22m[1m[22m
+[2mdist/[22m[32massets/piano-audio.D63WrRw0.js.br                        [39m[1m[2m    0.63 kB[22m[1m[22m
+[2mdist/[22m[32massets/feel-bus.C_QrGKY0.js.gz                           [39m[1m[2m    0.63 kB[22m[1m[22m
+[2mdist/[22m[32massets/BookArtFigure.Cvt24OEy.js.br                      [39m[1m[2m    0.66 kB[22m[1m[22m
+[2mdist/[22m[32mindex.html.br                                            [39m[1m[2m    0.67 kB[22m[1m[22m
+[2mdist/[22m[32massets/piano-audio.D63WrRw0.js.gz                        [39m[1m[2m    0.69 kB[22m[1m[22m
+[2mdist/[22m[32massets/BookArtFigure.Cvt24OEy.js.gz                      [39m[1m[2m    0.74 kB[22m[1m[22m
+[2mdist/[22m[32massets/route.nlDdg2Rd.js.br                              [39m[1m[2m    0.74 kB[22m[1m[22m
+[2mdist/[22m[32massets/assignments.functions.zFoNTCTv.js.br              [39m[1m[2m    0.74 kB[22m[1m[22m
+[2mdist/[22m[32massets/credits.B_5XlPz5.js.br                            [39m[1m[2m    0.76 kB[22m[1m[22m
+[2mdist/[22m[32massets/useMutation.BCcGUmrn.js.br                        [39m[1m[2m    0.83 kB[22m[1m[22m
+[2mdist/[22m[32massets/dev-gretel.CL72RhRZ.js.br                         [39m[1m[2m    0.84 kB[22m[1m[22m
+[2mdist/[22m[32massets/assignments.functions.zFoNTCTv.js.gz              [39m[1m[2m    0.84 kB[22m[1m[22m
+[2mdist/[22m[32massets/route.nlDdg2Rd.js.gz                              [39m[1m[2m    0.87 kB[22m[1m[22m
+[2mdist/[22m[32massets/pilot-faithful._n.DeCo_WuL.js.br                  [39m[1m[2m    0.87 kB[22m[1m[22m
+[2mdist/[22m[32massets/credits.B_5XlPz5.js.gz                            [39m[1m[2m    0.87 kB[22m[1m[22m
+[2mdist/[22m[32massets/PrintBinder.zjo7-u0y.js.br                        [39m[1m[2m    0.87 kB[22m[1m[22m
+[2mdist/[22m[32mindex.html.gz                                            [39m[1m[2m    0.89 kB[22m[1m[22m
+[2mdist/[22m[32massets/useMutation.BCcGUmrn.js.gz                        [39m[1m[2m    0.93 kB[22m[1m[22m
+[2mdist/[22m[32massets/LivingWorkbookPage.BFl-11vB.css.br                [39m[1m[2m    0.94 kB[22m[1m[22m
+[2mdist/[22m[32massets/Topbar.B9iCcq5A.js.br                             [39m[1m[2m    0.94 kB[22m[1m[22m
+[2mdist/[22m[32massets/dev-gretel.CL72RhRZ.js.gz                         [39m[1m[2m    0.97 kB[22m[1m[22m
+[2mdist/[22m[32massets/PrintBinder.zjo7-u0y.js.gz                        [39m[1m[2m    0.99 kB[22m[1m[22m
+[2mdist/[22m[32massets/pilot-faithful._n.DeCo_WuL.js.gz                  [39m[1m[2m    1.00 kB[22m[1m[22m
+[2mdist/[22m[32massets/route.C_TTfWgX.js.br                              [39m[1m[2m    1.04 kB[22m[1m[22m
+[2mdist/[22m[32massets/index.DccN27H_.js.br                              [39m[1m[2m    1.06 kB[22m[1m[22m
+[2mdist/[22m[32massets/index.CcGEW4ay.js.br                              [39m[1m[2m    1.07 kB[22m[1m[22m
+[2mdist/[22m[32massets/PdfViewer.vcrc2sGM.js.br                          [39m[1m[2m    1.08 kB[22m[1m[22m
+[2mdist/[22m[32massets/guia._n.ApTHWG0q.js.br                            [39m[1m[2m    1.08 kB[22m[1m[22m
+[2mdist/[22m[32massets/Topbar.B9iCcq5A.js.gz                             [39m[1m[2m    1.09 kB[22m[1m[22m
+[2mdist/[22m[32massets/_recursoId.Tt1SRIKD.js.br                         [39m[1m[2m    1.10 kB[22m[1m[22m
+[2mdist/[22m[32massets/LivingWorkbookPage.BFl-11vB.css.gz                [39m[1m[2m    1.12 kB[22m[1m[22m
+[2mdist/[22m[32massets/index.CcGEW4ay.js.gz                              [39m[1m[2m    1.20 kB[22m[1m[22m
+[2mdist/[22m[32massets/AccountPanel.oft0RuEn.js.br                       [39m[1m[2m    1.20 kB[22m[1m[22m
+[2mdist/[22m[32massets/route.C_TTfWgX.js.gz                              [39m[1m[2m    1.20 kB[22m[1m[22m
+[2mdist/[22m[32massets/index.DccN27H_.js.gz                              [39m[1m[2m    1.20 kB[22m[1m[22m
+[2mdist/[22m[32massets/PdfViewer.vcrc2sGM.js.gz                          [39m[1m[2m    1.22 kB[22m[1m[22m
+[2mdist/[22m[32massets/_recursoId.Tt1SRIKD.js.gz                         [39m[1m[2m    1.23 kB[22m[1m[22m
+[2mdist/[22m[32massets/repaso.DzHmCo9A.js.br                             [39m[1m[2m    1.24 kB[22m[1m[22m
+[2mdist/[22m[32massets/guia._n.ApTHWG0q.js.gz                            [39m[1m[2m    1.26 kB[22m[1m[22m
+[2mdist/[22m[32massets/login.LtOBPEyi.js.br                              [39m[1m[2m    1.32 kB[22m[1m[22m
+[2mdist/[22m[32massets/AccountPanel.oft0RuEn.js.gz                       [39m[1m[2m    1.37 kB[22m[1m[22m
+[2mdist/[22m[32massets/libro-vivo.d0LHqulq.js.br                         [39m[1m[2m    1.37 kB[22m[1m[22m
+[2mdist/[22m[32massets/repaso.DzHmCo9A.js.gz                             [39m[1m[2m    1.39 kB[22m[1m[22m
+[2mdist/[22m[32massets/index.CJ0gOJzQ.js.br                              [39m[1m[2m    1.41 kB[22m[1m[22m
+[2mdist/[22m[32massets/intro.BI4Q6Mpy.js.br                              [39m[1m[2m    1.42 kB[22m[1m[22m
+[2mdist/[22m[32massets/dev-workbook-manifest.DS0zzdBk.js.br              [39m[1m[2m    1.43 kB[22m[1m[22m
+[2mdist/[22m[32massets/autora.Bnm6PkgT.js.br                             [39m[1m[2m    1.46 kB[22m[1m[22m
+[2mdist/[22m[32massets/imprimir.all.BgNouWes.js.br                       [39m[1m[2m    1.47 kB[22m[1m[22m
+[2mdist/[22m[32massets/crm._classId._studentId._lessonId.BTtrsszQ.js.br  [39m[1m[2m    1.50 kB[22m[1m[22m
+[2mdist/[22m[32massets/lecciones.BBh_xLvP.js.br                          [39m[1m[2m    1.52 kB[22m[1m[22m
+[2mdist/[22m[32massets/login.LtOBPEyi.js.gz                              [39m[1m[2m    1.53 kB[22m[1m[22m
+[2mdist/[22m[32massets/libro-vivo.d0LHqulq.js.gz                         [39m[1m[2m    1.55 kB[22m[1m[22m
+[2mdist/[22m[32massets/crm._classId._studentId.reporte.DC6UjX8a.js.br    [39m[1m[2m    1.60 kB[22m[1m[22m
+[2mdist/[22m[32massets/intro.BI4Q6Mpy.js.gz                              [39m[1m[2m    1.61 kB[22m[1m[22m
+[2mdist/[22m[32massets/index.CJ0gOJzQ.js.gz                              [39m[1m[2m    1.63 kB[22m[1m[22m
+[2mdist/[22m[32massets/classroom.pGjqfrOc.js.br                          [39m[1m[2m    1.63 kB[22m[1m[22m
+[2mdist/[22m[32massets/dev-workbook-manifest.DS0zzdBk.js.gz              [39m[1m[2m    1.65 kB[22m[1m[22m
+[2mdist/[22m[32massets/imprimir.all.BgNouWes.js.gz                       [39m[1m[2m    1.66 kB[22m[1m[22m
+[2mdist/[22m[32massets/react-vendor.CBXYWCWZ.css.br                      [39m[1m[2m    1.66 kB[22m[1m[22m
+[2mdist/[22m[32massets/repaso.jjJPklYw.js.br                             [39m[1m[2m    1.67 kB[22m[1m[22m
+[2mdist/[22m[32massets/crm._classId._studentId._lessonId.BTtrsszQ.js.gz  [39m[1m[2m    1.67 kB[22m[1m[22m
+[2mdist/[22m[32massets/autora.Bnm6PkgT.js.gz                             [39m[1m[2m    1.67 kB[22m[1m[22m
+[2mdist/[22m[32massets/dev-living-workbook.BvKSn4Wi.js.br                [39m[1m[2m    1.67 kB[22m[1m[22m
+[2mdist/[22m[32massets/lecciones.Df1vNAFk.js.br                          [39m[1m[2m    1.69 kB[22m[1m[22m
+[2mdist/[22m[32massets/index.BL3hYVyS.js.br                              [39m[1m[2m    1.71 kB[22m[1m[22m
+[2mdist/[22m[32massets/lecciones.BBh_xLvP.js.gz                          [39m[1m[2m    1.71 kB[22m[1m[22m
+[2mdist/[22m[32massets/crm._classId._studentId.index.CN0RkYyx.js.br      [39m[1m[2m    1.74 kB[22m[1m[22m
+[2mdist/[22m[32massets/imprimir._n.CtKV9wSv.js.br                        [39m[1m[2m    1.79 kB[22m[1m[22m
+[2mdist/[22m[32massets/crm._classId._studentId.reporte.DC6UjX8a.js.gz    [39m[1m[2m    1.82 kB[22m[1m[22m
+[2mdist/[22m[32massets/classroom.pGjqfrOc.js.gz                          [39m[1m[2m    1.86 kB[22m[1m[22m
+[2mdist/[22m[32massets/repaso.jjJPklYw.js.gz                             [39m[1m[2m    1.86 kB[22m[1m[22m
+[2mdist/[22m[32massets/lecciones.Df1vNAFk.js.gz                          [39m[1m[2m    1.90 kB[22m[1m[22m
+[2mdist/[22m[32massets/index.BL3hYVyS.js.gz                              [39m[1m[2m    1.91 kB[22m[1m[22m
+[2mdist/[22m[32massets/paginas._n.CV_SCfye.js.br                         [39m[1m[2m    1.92 kB[22m[1m[22m
+[2mdist/[22m[32massets/progreso.gTvTxmPM.js.br                           [39m[1m[2m    1.93 kB[22m[1m[22m
+[2mdist/[22m[32massets/crm._classId._studentId.index.CN0RkYyx.js.gz      [39m[1m[2m    1.93 kB[22m[1m[22m
+[2mdist/[22m[32massets/dev-living-workbook.BvKSn4Wi.js.gz                [39m[1m[2m    1.94 kB[22m[1m[22m
+[2mdist/[22m[32massets/react-vendor.CBXYWCWZ.css.gz                      [39m[1m[2m    1.98 kB[22m[1m[22m
+[2mdist/[22m[32massets/imprimir._n.CtKV9wSv.js.gz                        [39m[1m[2m    2.03 kB[22m[1m[22m
+[2mdist/[22m[32massets/unirse.Dwwf48Fv.js.br                             [39m[1m[2m    2.04 kB[22m[1m[22m
+[2mdist/[22m[32massets/crm._classId.index.CEWrrJ-m.js.br                 [39m[1m[2m    2.10 kB[22m[1m[22m
+[2mdist/[22m[32mindex.html                                               [39m[1m[2m    2.14 kB[22m[1m[22m[2m │ gzip:   0.89 kB[22m
+[2mdist/[22m[32massets/progreso.gTvTxmPM.js.gz                           [39m[1m[2m    2.15 kB[22m[1m[22m
+[2mdist/[22m[32massets/paginas._n.CV_SCfye.js.gz                         [39m[1m[2m    2.20 kB[22m[1m[22m
+[2mdist/[22m[32massets/FaithfulPageRenderer.tMM0euXj.css.br              [39m[1m[2m    2.20 kB[22m[1m[22m
+[2mdist/[22m[32massets/BookPageFlip.ChextJYi.js.br                       [39m[1m[2m    2.22 kB[22m[1m[22m
+[2mdist/[22m[32massets/practica.Dry-rlWG.js.br                           [39m[1m[2m    2.22 kB[22m[1m[22m
+[2mdist/[22m[32massets/voces.rlb61Rfy.js.br                              [39m[1m[2m    2.27 kB[22m[1m[22m
+[2mdist/[22m[32massets/unirse.Dwwf48Fv.js.gz                             [39m[1m[2m    2.31 kB[22m[1m[22m
+[2mdist/[22m[32massets/route-binder.WUlqmJPX.css.br                      [39m[1m[2m    2.31 kB[22m[1m[22m
+[2mdist/[22m[32massets/crm._classId.index.CEWrrJ-m.js.gz                 [39m[1m[2m    2.34 kB[22m[1m[22m
+[2mdist/[22m[32massets/csv.Dr3tvA3v.js.br                                [39m[1m[2m    2.38 kB[22m[1m[22m
+[2mdist/[22m[32massets/practica.Dry-rlWG.js.gz                           [39m[1m[2m    2.48 kB[22m[1m[22m
+[2mdist/[22m[32massets/BookPageFlip.ChextJYi.js.gz                       [39m[1m[2m    2.51 kB[22m[1m[22m
+[2mdist/[22m[32massets/voces.rlb61Rfy.js.gz                              [39m[1m[2m    2.54 kB[22m[1m[22m
+[2mdist/[22m[32massets/FaithfulPageRenderer.tMM0euXj.css.gz              [39m[1m[2m    2.57 kB[22m[1m[22m
+[2mdist/[22m[32massets/practica.BrQP94Uf.js.br                           [39m[1m[2m    2.58 kB[22m[1m[22m
+[2mdist/[22m[32massets/book.CoS4pFMJ.js.br                               [39m[1m[2m    2.64 kB[22m[1m[22m
+[2mdist/[22m[32massets/route-binder.WUlqmJPX.css.gz                      [39m[1m[2m    2.64 kB[22m[1m[22m
+[2mdist/[22m[32massets/csv.Dr3tvA3v.js.gz                                [39m[1m[2m    2.73 kB[22m[1m[22m
+[2mdist/[22m[32massets/teacher.functions.CzII6bgs.js.br                  [39m[1m[2m    2.83 kB[22m[1m[22m
+[2mdist/[22m[32massets/mi-progreso.GFjwiZXm.js.br                        [39m[1m[2m    2.84 kB[22m[1m[22m
+[2mdist/[22m[32massets/practica.BrQP94Uf.js.gz                           [39m[1m[2m    2.87 kB[22m[1m[22m
+[2mdist/[22m[32massets/book.CoS4pFMJ.js.gz                               [39m[1m[2m    2.95 kB[22m[1m[22m
+[2mdist/[22m[32massets/useQuery.BGoGiVCg.js.br                           [39m[1m[2m    2.97 kB[22m[1m[22m
+[2mdist/[22m[32massets/mi-progreso.GFjwiZXm.js.gz                        [39m[1m[2m    3.12 kB[22m[1m[22m
+[2mdist/[22m[32massets/teacher.functions.CzII6bgs.js.gz                  [39m[1m[2m    3.16 kB[22m[1m[22m
+[2mdist/[22m[32massets/reportes.BMGHE09Y.js.br                           [39m[1m[2m    3.18 kB[22m[1m[22m
+[2mdist/[22m[32massets/useQuery.BGoGiVCg.js.gz                           [39m[1m[2m    3.24 kB[22m[1m[22m
+[2mdist/[22m[32massets/guia.index.qSbNq2en.js.br                         [39m[1m[2m    3.24 kB[22m[1m[22m
+[2mdist/[22m[32massets/LivingWorkbookPage.De8L9d2i.js.br                 [39m[1m[2m    3.32 kB[22m[1m[22m
+[2mdist/[22m[32massets/reportes.BMGHE09Y.js.gz                           [39m[1m[2m    3.57 kB[22m[1m[22m
+[2mdist/[22m[32massets/guia.index.qSbNq2en.js.gz                         [39m[1m[2m    3.64 kB[22m[1m[22m
+[2mdist/[22m[32massets/LivingWorkbookPage.De8L9d2i.js.gz                 [39m[1m[2m    3.74 kB[22m[1m[22m
+[2mdist/[22m[32massets/roster.DpggvGzz.js.br                             [39m[1m[2m    3.89 kB[22m[1m[22m
+[2mdist/[22m[32massets/DragBuildWord.B5o8J5R3.js.br                      [39m[1m[2m    3.91 kB[22m[1m[22m
+[2mdist/[22m[32massets/ayuda.DaSwqkhq.js.br                              [39m[1m[2m    4.18 kB[22m[1m[22m
+[2mdist/[22m[32massets/DragBuildWord.B5o8J5R3.js.gz                      [39m[1m[2m    4.36 kB[22m[1m[22m
+[2mdist/[22m[32massets/mi-progreso.Bm33gbzW.js.br                        [39m[1m[2m    4.40 kB[22m[1m[22m
+[2mdist/[22m[32massets/roster.DpggvGzz.js.gz                             [39m[1m[2m    4.43 kB[22m[1m[22m
+[2mdist/[22m[32massets/activities.DTMJxvk8.js.br                         [39m[1m[2m    4.55 kB[22m[1m[22m
+[2mdist/[22m[32massets/ayuda.DaSwqkhq.js.gz                              [39m[1m[2m    4.84 kB[22m[1m[22m
+[2mdist/[22m[32massets/mi-progreso.Bm33gbzW.js.gz                        [39m[1m[2m    4.87 kB[22m[1m[22m
+[2mdist/[22m[32massets/activities.DTMJxvk8.js.gz                         [39m[1m[2m    5.11 kB[22m[1m[22m
+[2mdist/[22m[32massets/leccion._n.DQXGUhX5.js.br                         [39m[1m[2m    5.26 kB[22m[1m[22m
+[2mdist/[22m[32massets/crm.index.BUCxqUiP.js.br                          [39m[1m[2m    5.47 kB[22m[1m[22m
+[2mdist/[22m[32massets/leccion._n.DQXGUhX5.js.gz                         [39m[1m[2m    5.98 kB[22m[1m[22m
+[2mdist/[22m[32massets/crm.index.BUCxqUiP.js.gz                          [39m[1m[2m    6.14 kB[22m[1m[22m
+[2mdist/[22m[32massets/FaithfulPageRenderer.D7nO3-dn.js.br               [39m[1m[2m    7.14 kB[22m[1m[22m
+[2mdist/[22m[32massets/utils.CRInKBZC.js.br                              [39m[1m[2m    7.50 kB[22m[1m[22m
+[2mdist/[22m[32massets/FaithfulPageRenderer.D7nO3-dn.js.gz               [39m[1m[2m    8.07 kB[22m[1m[22m
+[2mdist/[22m[32massets/utils.CRInKBZC.js.gz                              [39m[1m[2m    8.59 kB[22m[1m[22m
+[2mdist/[22m[32massets/lecciones.eJlpPzWG.js.br                          [39m[1m[2m    9.07 kB[22m[1m[22m
+[2mdist/[22m[32massets/lecciones.eJlpPzWG.js.gz                          [39m[1m[2m   10.08 kB[22m[1m[22m
+[2mdist/[22m[32massets/core.esm.NNJqYGb7.js.br                           [39m[1m[2m   11.42 kB[22m[1m[22m
+[2mdist/[22m[32massets/core.esm.NNJqYGb7.js.gz                           [39m[1m[2m   12.63 kB[22m[1m[22m
+[2mdist/[22m[32massets/guide.CWUUXyla.js.br                              [39m[1m[2m   14.70 kB[22m[1m[22m
+[2mdist/[22m[32massets/guide.CWUUXyla.js.gz                              [39m[1m[2m   19.45 kB[22m[1m[22m
+[2mdist/[22m[32massets/tanstack-router.BXiz_29w.js.br                    [39m[1m[2m   25.01 kB[22m[1m[22m
+[2mdist/[22m[32massets/tanstack-router.BXiz_29w.js.gz                    [39m[1m[2m   27.71 kB[22m[1m[22m
+[2mdist/[22m[32massets/index.Ch2L7wSG.css.br                             [39m[1m[2m   30.58 kB[22m[1m[22m
+[2mdist/[22m[32massets/route-binder.064L1QB-.js.br                       [39m[1m[2m   37.10 kB[22m[1m[22m
+[2mdist/[22m[32massets/content-bundle.B9zZaNyv.js.br                     [39m[1m[2m   39.16 kB[22m[1m[22m
+[2mdist/[22m[32massets/index.Ch2L7wSG.css.gz                             [39m[1m[2m   39.64 kB[22m[1m[22m
+[2mdist/[22m[32massets/route-binder.064L1QB-.js.gz                       [39m[1m[2m   47.69 kB[22m[1m[22m
+[2mdist/[22m[32massets/content-bundle.B9zZaNyv.js.gz                     [39m[1m[2m   49.20 kB[22m[1m[22m
+[2mdist/[22m[32massets/index.BAHDQxGa.js.br                              [39m[1m[2m  108.23 kB[22m[1m[22m
+[2mdist/[22m[32massets/index.BAHDQxGa.js.gz                              [39m[1m[2m  126.98 kB[22m[1m[22m
+[2mdist/[22m[32massets/react-vendor.ByxfllV6.js.br                       [39m[1m[2m  156.29 kB[22m[1m[22m
+[2mdist/[22m[32massets/react-vendor.ByxfllV6.js.gz                       [39m[1m[2m  186.12 kB[22m[1m[22m
+[2mdist/[22m[32massets/pdf.worker.min.iDqQPrd3.mjs.br                    [39m[1m[2m  298.69 kB[22m[1m[22m
+[2mdist/[22m[32massets/pdf.worker.min.iDqQPrd3.mjs.gz                    [39m[1m[2m  364.73 kB[22m[1m[22m
+[2mdist/[22m[32massets/pdf.worker.min.iDqQPrd3.mjs                       [39m[1m[2m1,232.30 kB[22m[1m[22m
+[2mdist/[22m[32massets/autora-portrait.DK9aYRi8.png                      [39m[1m[2m2,243.05 kB[22m[1m[22m
+[2mdist/[22m[32massets/autora-portrait.DK9aYRi8.png.br                   [39m[1m[2m2,243.06 kB[22m[1m[22m
+[2mdist/[22m[32massets/autora-portrait.DK9aYRi8.png.gz                   [39m[1m[2m2,243.73 kB[22m[1m[22m
+[2mdist/[22m[35massets/LivingWorkbookPage.BFl-11vB.css                   [39m[1m[2m    3.75 kB[22m[1m[22m[2m │ gzip:   1.12 kB[22m
+[2mdist/[22m[35massets/react-vendor.CBXYWCWZ.css                         [39m[1m[2m    9.14 kB[22m[1m[22m[2m │ gzip:   1.98 kB[22m
+[2mdist/[22m[35massets/route-binder.WUlqmJPX.css                         [39m[1m[2m   10.07 kB[22m[1m[22m[2m │ gzip:   2.64 kB[22m
+[2mdist/[22m[35massets/FaithfulPageRenderer.tMM0euXj.css                 [39m[1m[2m   10.59 kB[22m[1m[22m[2m │ gzip:   2.57 kB[22m
+[2mdist/[22m[35massets/index.Ch2L7wSG.css                                [39m[1m[2m  261.34 kB[22m[1m[22m[2m │ gzip:  39.64 kB[22m
+[2mdist/[22m[36massets/useServerFn.BrBTNyhO.js                           [39m[1m[2m    0.04 kB[22m[1m[22m[2m │ gzip:   0.06 kB[22m
+[2mdist/[22m[36massets/gretel-bus.Cr4xG8Gv.js                            [39m[1m[2m    0.13 kB[22m[1m[22m[2m │ gzip:   0.13 kB[22m
+[2mdist/[22m[36massets/crm.DLTdXkC1.js                                   [39m[1m[2m    0.15 kB[22m[1m[22m[2m │ gzip:   0.14 kB[22m
+[2mdist/[22m[36massets/crm._classId.DLTdXkC1.js                          [39m[1m[2m    0.15 kB[22m[1m[22m[2m │ gzip:   0.14 kB[22m
+[2mdist/[22m[36massets/crm._classId._studentId.DLTdXkC1.js               [39m[1m[2m    0.15 kB[22m[1m[22m[2m │ gzip:   0.14 kB[22m
+[2mdist/[22m[36massets/gretelEvents.BMiIRu9Z.js                          [39m[1m[2m    0.26 kB[22m[1m[22m[2m │ gzip:   0.17 kB[22m
+[2mdist/[22m[36massets/crm-student-progress.Ba1Q1GXm.js                  [39m[1m[2m    0.59 kB[22m[1m[22m[2m │ gzip:   0.27 kB[22m
+[2mdist/[22m[36massets/LanguageToggle.Bo-wELkl.js                        [39m[1m[2m    0.61 kB[22m[1m[22m[2m │ gzip:   0.42 kB[22m
+[2mdist/[22m[36massets/binder.CkbbDvAs.js                                [39m[1m[2m    0.67 kB[22m[1m[22m[2m │ gzip:   0.41 kB[22m
+[2mdist/[22m[36massets/CrmBreadcrumbs.CbBpFIG1.js                        [39m[1m[2m    0.69 kB[22m[1m[22m[2m │ gzip:   0.42 kB[22m
+[2mdist/[22m[36massets/_lessonId.DMrDUjqa.js                             [39m[1m[2m    0.74 kB[22m[1m[22m[2m │ gzip:   0.45 kB[22m
+[2mdist/[22m[36massets/ThemeToggle.BsbLW_sJ.js                           [39m[1m[2m    0.91 kB[22m[1m[22m[2m │ gzip:   0.54 kB[22m
+[2mdist/[22m[36massets/csv-export.BIDHPi7Q.js                            [39m[1m[2m    1.03 kB[22m[1m[22m[2m │ gzip:   0.60 kB[22m
+[2mdist/[22m[36massets/lesson-progress.DhitKm1n.js                       [39m[1m[2m    1.03 kB[22m[1m[22m[2m │ gzip:   0.51 kB[22m
+[2mdist/[22m[36massets/print.6uPehLbO.js                                 [39m[1m[2m    1.04 kB[22m[1m[22m[2m │ gzip:   0.61 kB[22m
+[2mdist/[22m[36massets/LessonTimer.CT8ocWc9.js                           [39m[1m[2m    1.07 kB[22m[1m[22m[2m │ gzip:   0.57 kB[22m
+[2mdist/[22m[36massets/feel-bus.C_QrGKY0.js                              [39m[1m[2m    1.13 kB[22m[1m[22m[2m │ gzip:   0.63 kB[22m
+[2mdist/[22m[36massets/BookArtFigure.Cvt24OEy.js                         [39m[1m[2m    1.33 kB[22m[1m[22m[2m │ gzip:   0.74 kB[22m
+[2mdist/[22m[36massets/route.nlDdg2Rd.js                                 [39m[1m[2m    1.58 kB[22m[1m[22m[2m │ gzip:   0.87 kB[22m
+[2mdist/[22m[36massets/piano-audio.D63WrRw0.js                           [39m[1m[2m    1.60 kB[22m[1m[22m[2m │ gzip:   0.69 kB[22m
+[2mdist/[22m[36massets/credits.B_5XlPz5.js                               [39m[1m[2m    1.71 kB[22m[1m[22m[2m │ gzip:   0.87 kB[22m
+[2mdist/[22m[36massets/pilot-faithful._n.DeCo_WuL.js                     [39m[1m[2m    2.16 kB[22m[1m[22m[2m │ gzip:   1.00 kB[22m
+[2mdist/[22m[36massets/assignments.functions.zFoNTCTv.js                 [39m[1m[2m    2.18 kB[22m[1m[22m[2m │ gzip:   0.84 kB[22m
+[2mdist/[22m[36massets/useMutation.BCcGUmrn.js                           [39m[1m[2m    2.24 kB[22m[1m[22m[2m │ gzip:   0.93 kB[22m
+[2mdist/[22m[36massets/dev-gretel.CL72RhRZ.js                            [39m[1m[2m    2.29 kB[22m[1m[22m[2m │ gzip:   0.97 kB[22m
+[2mdist/[22m[36massets/PrintBinder.zjo7-u0y.js                           [39m[1m[2m    2.45 kB[22m[1m[22m[2m │ gzip:   0.99 kB[22m
+[2mdist/[22m[36massets/PdfViewer.vcrc2sGM.js                             [39m[1m[2m    2.64 kB[22m[1m[22m[2m │ gzip:   1.22 kB[22m
+[2mdist/[22m[36massets/index.DccN27H_.js                                 [39m[1m[2m    2.70 kB[22m[1m[22m[2m │ gzip:   1.20 kB[22m
+[2mdist/[22m[36massets/_recursoId.Tt1SRIKD.js                            [39m[1m[2m    2.77 kB[22m[1m[22m[2m │ gzip:   1.23 kB[22m
+[2mdist/[22m[36massets/index.CcGEW4ay.js                                 [39m[1m[2m    2.95 kB[22m[1m[22m[2m │ gzip:   1.20 kB[22m
+[2mdist/[22m[36massets/route.C_TTfWgX.js                                 [39m[1m[2m    3.06 kB[22m[1m[22m[2m │ gzip:   1.20 kB[22m
+[2mdist/[22m[36massets/AccountPanel.oft0RuEn.js                          [39m[1m[2m    3.42 kB[22m[1m[22m[2m │ gzip:   1.37 kB[22m
+[2mdist/[22m[36massets/repaso.DzHmCo9A.js                                [39m[1m[2m    3.48 kB[22m[1m[22m[2m │ gzip:   1.39 kB[22m
+[2mdist/[22m[36massets/intro.BI4Q6Mpy.js                                 [39m[1m[2m    3.50 kB[22m[1m[22m[2m │ gzip:   1.61 kB[22m
+[2mdist/[22m[36massets/guia._n.ApTHWG0q.js                               [39m[1m[2m    3.68 kB[22m[1m[22m[2m │ gzip:   1.26 kB[22m
+[2mdist/[22m[36massets/login.LtOBPEyi.js                                 [39m[1m[2m    3.83 kB[22m[1m[22m[2m │ gzip:   1.53 kB[22m
+[2mdist/[22m[36massets/libro-vivo.d0LHqulq.js                            [39m[1m[2m    4.01 kB[22m[1m[22m[2m │ gzip:   1.55 kB[22m
+[2mdist/[22m[36massets/index.BL3hYVyS.js                                 [39m[1m[2m    4.02 kB[22m[1m[22m[2m │ gzip:   1.91 kB[22m
+[2mdist/[22m[36massets/lecciones.BBh_xLvP.js                             [39m[1m[2m    4.13 kB[22m[1m[22m[2m │ gzip:   1.71 kB[22m
+[2mdist/[22m[36massets/dev-workbook-manifest.DS0zzdBk.js                 [39m[1m[2m    4.18 kB[22m[1m[22m[2m │ gzip:   1.65 kB[22m
+[2mdist/[22m[36massets/index.CJ0gOJzQ.js                                 [39m[1m[2m    4.37 kB[22m[1m[22m[2m │ gzip:   1.63 kB[22m
+[2mdist/[22m[36massets/imprimir.all.BgNouWes.js                          [39m[1m[2m    4.44 kB[22m[1m[22m[2m │ gzip:   1.66 kB[22m
+[2mdist/[22m[36massets/Topbar.B9iCcq5A.js                                [39m[1m[2m    4.45 kB[22m[1m[22m[2m │ gzip:   1.09 kB[22m
+[2mdist/[22m[36massets/crm._classId._studentId.reporte.DC6UjX8a.js       [39m[1m[2m    4.57 kB[22m[1m[22m[2m │ gzip:   1.82 kB[22m
+[2mdist/[22m[36massets/crm._classId._studentId.index.CN0RkYyx.js         [39m[1m[2m    4.72 kB[22m[1m[22m[2m │ gzip:   1.93 kB[22m
+[2mdist/[22m[36massets/repaso.jjJPklYw.js                                [39m[1m[2m    4.76 kB[22m[1m[22m[2m │ gzip:   1.86 kB[22m
+[2mdist/[22m[36massets/crm._classId._studentId._lessonId.BTtrsszQ.js     [39m[1m[2m    4.78 kB[22m[1m[22m[2m │ gzip:   1.67 kB[22m
+[2mdist/[22m[36massets/autora.Bnm6PkgT.js                                [39m[1m[2m    5.23 kB[22m[1m[22m[2m │ gzip:   1.67 kB[22m
+[2mdist/[22m[36massets/lecciones.Df1vNAFk.js                             [39m[1m[2m    5.31 kB[22m[1m[22m[2m │ gzip:   1.90 kB[22m
+[2mdist/[22m[36massets/voces.rlb61Rfy.js                                 [39m[1m[2m    5.37 kB[22m[1m[22m[2m │ gzip:   2.54 kB[22m
+[2mdist/[22m[36massets/progreso.gTvTxmPM.js                              [39m[1m[2m    5.44 kB[22m[1m[22m[2m │ gzip:   2.15 kB[22m
+[2mdist/[22m[36massets/imprimir._n.CtKV9wSv.js                           [39m[1m[2m    5.59 kB[22m[1m[22m[2m │ gzip:   2.03 kB[22m
+[2mdist/[22m[36massets/paginas._n.CV_SCfye.js                            [39m[1m[2m    5.60 kB[22m[1m[22m[2m │ gzip:   2.20 kB[22m
+[2mdist/[22m[36massets/dev-living-workbook.BvKSn4Wi.js                   [39m[1m[2m    6.15 kB[22m[1m[22m[2m │ gzip:   1.94 kB[22m
+[2mdist/[22m[36massets/classroom.pGjqfrOc.js                             [39m[1m[2m    6.25 kB[22m[1m[22m[2m │ gzip:   1.86 kB[22m
+[2mdist/[22m[36massets/BookPageFlip.ChextJYi.js                          [39m[1m[2m    6.40 kB[22m[1m[22m[2m │ gzip:   2.51 kB[22m
+[2mdist/[22m[36massets/unirse.Dwwf48Fv.js                                [39m[1m[2m    6.55 kB[22m[1m[22m[2m │ gzip:   2.31 kB[22m
+[2mdist/[22m[36massets/crm._classId.index.CEWrrJ-m.js                    [39m[1m[2m    6.71 kB[22m[1m[22m[2m │ gzip:   2.34 kB[22m
+[2mdist/[22m[36massets/csv.Dr3tvA3v.js                                   [39m[1m[2m    7.13 kB[22m[1m[22m[2m │ gzip:   2.73 kB[22m
+[2mdist/[22m[36massets/practica.Dry-rlWG.js                              [39m[1m[2m    7.27 kB[22m[1m[22m[2m │ gzip:   2.48 kB[22m
+[2mdist/[22m[36massets/book.CoS4pFMJ.js                                  [39m[1m[2m    8.07 kB[22m[1m[22m[2m │ gzip:   3.02 kB[22m
+[2mdist/[22m[36massets/practica.BrQP94Uf.js                              [39m[1m[2m    8.52 kB[22m[1m[22m[2m │ gzip:   2.87 kB[22m
+[2mdist/[22m[36massets/useQuery.BGoGiVCg.js                              [39m[1m[2m    8.87 kB[22m[1m[22m[2m │ gzip:   3.24 kB[22m
+[2mdist/[22m[36massets/mi-progreso.GFjwiZXm.js                           [39m[1m[2m    9.07 kB[22m[1m[22m[2m │ gzip:   3.12 kB[22m
+[2mdist/[22m[36massets/teacher.functions.CzII6bgs.js                     [39m[1m[2m    9.73 kB[22m[1m[22m[2m │ gzip:   3.16 kB[22m
+[2mdist/[22m[36massets/DragBuildWord.B5o8J5R3.js                         [39m[1m[2m   10.37 kB[22m[1m[22m[2m │ gzip:   4.36 kB[22m
+[2mdist/[22m[36massets/guia.index.qSbNq2en.js                            [39m[1m[2m   10.43 kB[22m[1m[22m[2m │ gzip:   3.64 kB[22m
+[2mdist/[22m[36massets/LivingWorkbookPage.De8L9d2i.js                    [39m[1m[2m   13.11 kB[22m[1m[22m[2m │ gzip:   3.74 kB[22m
+[2mdist/[22m[36massets/reportes.BMGHE09Y.js                              [39m[1m[2m   13.12 kB[22m[1m[22m[2m │ gzip:   3.57 kB[22m
+[2mdist/[22m[36massets/ayuda.DaSwqkhq.js                                 [39m[1m[2m   13.96 kB[22m[1m[22m[2m │ gzip:   4.84 kB[22m
+[2mdist/[22m[36massets/mi-progreso.Bm33gbzW.js                           [39m[1m[2m   14.07 kB[22m[1m[22m[2m │ gzip:   4.87 kB[22m
+[2mdist/[22m[36massets/roster.DpggvGzz.js                                [39m[1m[2m   14.79 kB[22m[1m[22m[2m │ gzip:   4.43 kB[22m
+[2mdist/[22m[36massets/leccion._n.DQXGUhX5.js                            [39m[1m[2m   17.12 kB[22m[1m[22m[2m │ gzip:   5.98 kB[22m
+[2mdist/[22m[36massets/activities.DTMJxvk8.js                            [39m[1m[2m   18.14 kB[22m[1m[22m[2m │ gzip:   5.11 kB[22m
+[2mdist/[22m[36massets/crm.index.BUCxqUiP.js                             [39m[1m[2m   23.26 kB[22m[1m[22m[2m │ gzip:   6.14 kB[22m
+[2mdist/[22m[36massets/utils.CRInKBZC.js                                 [39m[1m[2m   27.23 kB[22m[1m[22m[2m │ gzip:   8.59 kB[22m
+[2mdist/[22m[36massets/FaithfulPageRenderer.D7nO3-dn.js                  [39m[1m[2m   29.24 kB[22m[1m[22m[2m │ gzip:   8.07 kB[22m
+[2mdist/[22m[36massets/lecciones.eJlpPzWG.js                             [39m[1m[2m   31.59 kB[22m[1m[22m[2m │ gzip:  10.08 kB[22m
+[2mdist/[22m[36massets/core.esm.NNJqYGb7.js                              [39m[1m[2m   37.42 kB[22m[1m[22m[2m │ gzip:  12.63 kB[22m
+[2mdist/[22m[36massets/tanstack-router.BXiz_29w.js                       [39m[1m[2m   84.31 kB[22m[1m[22m[2m │ gzip:  27.71 kB[22m
+[2mdist/[22m[36massets/guide.CWUUXyla.js                                 [39m[1m[2m  122.30 kB[22m[1m[22m[2m │ gzip:  19.45 kB[22m
+[2mdist/[22m[36massets/route-binder.064L1QB-.js                          [39m[1m[2m  309.33 kB[22m[1m[22m[2m │ gzip:  47.69 kB[22m
+[2mdist/[22m[36massets/content-bundle.B9zZaNyv.js                        [39m[1m[2m  349.24 kB[22m[1m[22m[2m │ gzip:  49.20 kB[22m
+[2mdist/[22m[36massets/index.BAHDQxGa.js                                 [39m[1m[2m  454.86 kB[22m[1m[22m[2m │ gzip: 128.84 kB[22m
+[2mdist/[22m[36massets/react-vendor.ByxfllV6.js                          [39m[1m[33m  617.07 kB[39m[22m[2m │ gzip: 186.12 kB[22m
+[33m
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+[32m✓ built in 28.48s[39m
