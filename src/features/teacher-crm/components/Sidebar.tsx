@@ -15,8 +15,8 @@ export function Sidebar() {
         </div>
       </div>
       <nav className="flex-1 p-4 space-y-1">
-        <Link 
-          to="/cartilla/teacher" 
+        <Link
+          to="/cartilla/teacher/crm"
           activeProps={{ className: activeCls }}
           inactiveProps={{ className: inactiveCls }}
           className="flex items-center gap-3 px-3 py-2 rounded-xl font-bold text-sm transition-colors"

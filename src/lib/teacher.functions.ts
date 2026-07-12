@@ -1,6 +1,10 @@
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
-import { summarizeStudentProgress, type LessonProgressRow } from "@/lib/progress-calculation";
+import {
+  summarizeStudentProgress,
+  checkNeedsAttention,
+  type LessonProgressRow,
+} from "@/lib/progress-calculation";
 
 const ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
 
@@ -354,7 +358,16 @@ export async function getClassProgress(input: Call<{ id: string }>) {
     .eq("class_id", data.id);
   if (sErr) throw new Error(sErr.message);
   const ids = (students ?? []).map((s: { id: string }) => s.id);
-  if (ids.length === 0) return { perStudent: [], perLesson: {}, perStudentExercise: {}, assignments: [] };
+  if (ids.length === 0) {
+    return {
+      perStudent: [],
+      perLesson: {},
+      perStudentExercise: {},
+      assignments: [],
+      recentEvents: [],
+      attentionByStudent: {},
+    };
+  }
 
   const { data: events, error: eErr } = await supabase
     .from("progress_events")
@@ -369,6 +382,7 @@ export async function getClassProgress(input: Call<{ id: string }>) {
     { id: string; name: string; lessons: Set<string>; score: number; total: number; time: number }
   > = {};
   const perLesson: Record<string, { score: number; total: number; completedBy: Set<string> }> = {};
+  const recentAccuraciesByStudent: Record<string, number[]> = {};
   const latestExercise = new Set<string>();
   (students ?? []).forEach((s: { id: string; display_name: string }) => {
     perStudent[s.id] = {
@@ -379,7 +393,17 @@ export async function getClassProgress(input: Call<{ id: string }>) {
       total: 0,
       time: 0,
     };
+    recentAccuraciesByStudent[s.id] = [];
   });
+  const recentEvents: Array<{
+    studentId: string;
+    studentName: string;
+    lessonId: string;
+    eventKind: string;
+    score: number | null;
+    total: number | null;
+    createdAt: string;
+  }> = [];
   (events ?? []).forEach(
     (e: {
       student_id: string;
@@ -389,9 +413,21 @@ export async function getClassProgress(input: Call<{ id: string }>) {
       total: number | null;
       time_seconds: number | null;
       meta: unknown;
+      created_at: string;
     }) => {
       const ps = perStudent[e.student_id];
       if (!ps) return;
+      if (recentEvents.length < 20) {
+        recentEvents.push({
+          studentId: e.student_id,
+          studentName: ps.name,
+          lessonId: e.lesson_id,
+          eventKind: e.event_kind,
+          score: e.score,
+          total: e.total,
+          createdAt: e.created_at,
+        });
+      }
       const pl = (perLesson[e.lesson_id] ??= { score: 0, total: 0, completedBy: new Set() });
       if (e.event_kind === "lesson_completed") {
         ps.lessons.add(e.lesson_id);
@@ -405,6 +441,10 @@ export async function getClassProgress(input: Call<{ id: string }>) {
         ps.total += e.total ?? 0;
         pl.score += e.score ?? 0;
         pl.total += e.total ?? 0;
+        const bucket = recentAccuraciesByStudent[e.student_id];
+        if (bucket && (e.total ?? 0) > 0 && bucket.length < 5) {
+          bucket.push((e.score ?? 0) / (e.total ?? 1));
+        }
       }
       if (e.event_kind === "time") {
         ps.time += e.time_seconds ?? 0;
@@ -452,11 +492,23 @@ export async function getClassProgress(input: Call<{ id: string }>) {
     assignmentRows = rows ?? [];
   }
 
+  const progressStats = await fetchProgressStats(ids);
+  const attentionByStudent: Record<string, { flagged: boolean; reasons: string[] }> = {};
+  for (const id of ids) {
+    attentionByStudent[id] = checkNeedsAttention({
+      lastActiveAt: progressStats[id]?.lastSeen ?? null,
+      recentAccuracies: recentAccuraciesByStudent[id] ?? [],
+    });
+  }
+
   return {
+    recentEvents,
+    attentionByStudent,
     perStudent: Object.values(perStudent).map((s) => ({
       id: s.id,
       name: s.name,
       lessonsCount: s.lessons.size,
+      completedLessonIds: Array.from(s.lessons),
       accuracy: s.total > 0 ? s.score / s.total : null,
       timeSeconds: s.time,
     })),

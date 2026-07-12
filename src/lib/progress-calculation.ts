@@ -98,3 +98,67 @@ export function needsAttention(
   const daysSinceActive = (now - new Date(summary.lastActiveAt).getTime()) / (1000 * 60 * 60 * 24);
   return daysSinceActive > 3;
 }
+
+export interface AttentionCheckInput {
+  lastActiveAt: string | null;
+  /** Most recent exercise accuracy ratios (0-1), most recent first. */
+  recentAccuracies: number[];
+}
+
+export interface AttentionCheckResult {
+  flagged: boolean;
+  reasons: string[];
+}
+
+/** The Class Overview "needs attention" rule: 7+ days with no activity, or
+ * repeated (2+) recent low scores (<50% accuracy). Distinct from
+ * `needsAttention` above (which drives the dashboard KPI/pipeline alert and
+ * uses a faster 3-day + <40%-completion heuristic) — this one is specifically
+ * for surfacing struggling students at the top of the class overview. */
+export function checkNeedsAttention(
+  input: AttentionCheckInput,
+  now: number = Date.now(),
+): AttentionCheckResult {
+  const reasons: string[] = [];
+  if (!input.lastActiveAt) {
+    reasons.push("Sin actividad registrada");
+  } else {
+    const days = (now - new Date(input.lastActiveAt).getTime()) / (1000 * 60 * 60 * 24);
+    if (days >= 7) reasons.push(`Sin actividad hace ${Math.floor(days)} días`);
+  }
+  const lowScores = input.recentAccuracies.filter((a) => a < 0.5);
+  if (lowScores.length >= 2) reasons.push("Puntuaciones bajas repetidas");
+  return { flagged: reasons.length > 0, reasons };
+}
+
+export type TileStatus = LessonStatus;
+
+export interface LessonTileState {
+  lessonNumber: number;
+  status: TileStatus;
+  assigned: boolean;
+}
+
+/** Builds all `totalLessons` tile states (one per lesson number 1..N) for
+ * the Lalilo-style lesson tile grid — every lesson gets a tile even if the
+ * student has no row for it yet (not_started), and a lesson currently
+ * assigned to the class gets its `assigned` flag set regardless of the
+ * student's own progress on it. */
+export function buildLessonTiles(
+  rows: LessonProgressRow[],
+  assignedLessonIds: ReadonlySet<string>,
+  totalLessons: number = TOTAL_LESSONS,
+): LessonTileState[] {
+  const byLesson = new Map<string, LessonProgressRow>();
+  for (const row of rows) byLesson.set(row.lesson_id, row);
+  const tiles: LessonTileState[] = [];
+  for (let n = 1; n <= totalLessons; n++) {
+    const id = String(n);
+    tiles.push({
+      lessonNumber: n,
+      status: computeLessonStatus(byLesson.get(id)),
+      assigned: assignedLessonIds.has(id),
+    });
+  }
+  return tiles;
+}

@@ -3,6 +3,7 @@ import { Users, BarChart3, FileSpreadsheet, MonitorPlay, BookOpen, LogOut } from
 import { getStudentSession } from "@/lib/student-session";
 import { supabase } from "@/integrations/supabase/client";
 import { hasTeacherOrAdminRole } from "@/lib/auth-role";
+import { isSeedSessionActive } from "@/lib/seed-data";
 
 // Every /cartilla/teacher/* page nests under this route via <Outlet/>, so
 // this is the single real gate for the whole teacher lane. Previously this
@@ -18,6 +19,12 @@ import { hasTeacherOrAdminRole } from "@/lib/auth-role";
 // role at all, which should never legitimately reach this lane.
 export const Route = createFileRoute("/cartilla/teacher")({
   beforeLoad: async () => {
+    // The local demo/seed lane is its own self-contained auth (see
+    // seed-data.ts) and is env-gated to never activate in a production
+    // build (VITE_ALLOW_DEMO_MODE) — when active, skip the real Supabase
+    // session/role check entirely rather than bouncing a demo teacher to
+    // /login for a session that was never meant to exist.
+    if (isSeedSessionActive()) return;
     const studentSession = getStudentSession();
     if (studentSession) {
       throw redirect({ to: "/cartilla/lecciones" });
