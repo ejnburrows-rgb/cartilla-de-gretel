@@ -13,11 +13,12 @@ import { Sidebar } from "./components/Sidebar";
 import { TaskList } from "./components/TaskList";
 import { Topbar } from "./components/Topbar";
 
-import { listClasses, getClass, createClass, addStudents } from "@/lib/teacher.functions";
-import { 
-  listSeedClasses, 
-  getSeedClass, 
-  createSeedClass, 
+import { listClasses, getClass, createClass, addStudents, updateStudent } from "@/lib/teacher.functions";
+import { needsAttention } from "@/lib/progress-calculation";
+import {
+  listSeedClasses,
+  getSeedClass,
+  createSeedClass,
   addSeedStudents,
   updateSeedStudent
 } from "@/lib/seed-data";
@@ -89,24 +90,27 @@ export function TeacherCrmShell() {
 
   const loadingStudents = !isSeed && loadingRealStudents;
 
-  // Convert students to DashboardStudent type
+  // Convert students to DashboardStudent type — reuses the exact same
+  // completionPercent already computed by getClass/getAllTeacherStudents
+  // via the shared progress-calculation module, so this dashboard's number
+  // never disagrees with the roster or student detail page for the same
+  // student.
   const dashboardStudents = useMemo<DashboardStudent[]>(() => {
     return studentsList.map((s) => {
-      // 24 total lessons in Gretel curriculum
-      const progressPct = Math.round(((s.lessons ?? 0) / 24) * 100);
-      const daysSinceActive = s.lastSeen ? Math.round((Date.now() - new Date(s.lastSeen).getTime()) / (1000 * 60 * 60 * 24)) : 999;
-      
+      const withStats = s as { lessons?: number; completionPercent?: number; teacher_notes?: string | null };
+      const progressPct = isSeed
+        ? Math.round(((withStats.lessons ?? 0) / 24) * 100)
+        : (withStats.completionPercent ?? 0);
       return {
         id: s.id,
         name: s.display_name,
         progress: progressPct,
         lastActive: s.lastSeen ? new Date(s.lastSeen).toLocaleDateString() : "Nunca",
-        alert: progressPct < 40 && daysSinceActive > 3,
-        grade: (s as any).grade,
-        teacher_notes: (s as any).teacher_notes,
+        alert: needsAttention({ completionPercent: progressPct, lastActiveAt: s.lastSeen ?? null }),
+        teacher_notes: withStats.teacher_notes ?? undefined,
       };
     });
-  }, [studentsList]);
+  }, [studentsList, isSeed]);
 
   // Default selected student ID
   useEffect(() => {
@@ -127,7 +131,7 @@ export function TeacherCrmShell() {
     return `${Math.round(total / dashboardStudents.length)}%`;
   }, [dashboardStudents]);
 
-  const needsAttentionCount = dashboardStudents.filter((s) => s.progress < 40).length;
+  const needsAttentionCount = dashboardStudents.filter((s) => s.alert).length;
   // Dynamic metrics of total completed exercises/lessons
   const totalCompletedLessons = useMemo(() => {
     return studentsList.reduce((sum, s) => sum + (s.lessons ?? 0), 0);
@@ -186,23 +190,13 @@ export function TeacherCrmShell() {
   const handleUpdateStudent = async (id: string, updates: Partial<DashboardStudent>) => {
     try {
       if (isSeed) {
-        // Map the fields
-        updateSeedStudent(id, {
-          grade: updates.grade,
-          teacher_notes: updates.teacher_notes
-        });
+        updateSeedStudent(id, { teacher_notes: updates.teacher_notes });
         showMessage("Cambios guardados localmente.", "success");
+        setBusy((prev) => !prev); // force re-evaluation of seed data
       } else {
-        // In cloud mode, this would call a Supabase RPC or update the students table
-        // For now, we will just show a message as we wait for cloud backend
-        showMessage("Funcionalidad en la nube en desarrollo.", "error");
-      }
-      // Force refresh of the student data
-      if (isSeed) {
-        // A hack to force re-evaluation of seed data
-        setBusy(prev => !prev);
-      } else {
-        refetchRealStudents();
+        await updateStudent({ data: { id, teacherNotes: updates.teacher_notes ?? null } });
+        showMessage("Cambios guardados en la nube.", "success");
+        await refetchRealStudents();
       }
     } catch (err) {
       showMessage(err instanceof Error ? err.message : "Error guardando cambios", "error");
@@ -390,12 +384,18 @@ export function TeacherCrmShell() {
                   />
                 </div>
                 <div className="space-y-6">
-                  <AccountPanel 
-                    student={selectedStudent} 
+                  <AccountPanel
+                    student={selectedStudent}
                     onUpdate={handleUpdateStudent}
                   />
-                  <TaskList />
-                  <AnalyticsPanel />
+                  {isSeed ? (
+                    <div className="bg-white rounded-3xl border border-stone-100 p-6 text-sm font-bold text-stone-400 text-center">
+                      Las asignaciones reales no están disponibles en modo de práctica local.
+                    </div>
+                  ) : (
+                    <TaskList classId={selectedClassId} />
+                  )}
+                  <AnalyticsPanel classId={selectedClassId} isSeed={isSeed} />
                 </div>
               </div>
             </>

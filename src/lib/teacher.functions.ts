@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
+import { summarizeStudentProgress, type LessonProgressRow } from "@/lib/progress-calculation";
 
 const ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
 
@@ -23,12 +24,15 @@ type TeacherStudent = {
   display_name: string;
   student_code: string;
   created_at: string;
+  archived_at: string | null;
+  teacher_notes: string | null;
 };
 
 type TeacherStudentWithStats = TeacherStudent & {
   events: number;
   lessons: number;
   lastSeen: string | null;
+  completionPercent: number;
 };
 
 type TeacherStudentWithClass = {
@@ -36,8 +40,41 @@ type TeacherStudentWithClass = {
   display_name: string;
   student_code: string;
   class_id: string;
+  archived_at: string | null;
+  teacher_notes: string | null;
   classes: TeacherClass | TeacherClass[];
 };
+
+/** Fetches student_lesson_progress for a set of student ids and runs each
+ * student's rows through the one shared progress-calculation module — the
+ * same source every surface (roster, dashboard, student detail) reads, so
+ * "lessons completed" never disagrees between screens. */
+async function fetchProgressStats(
+  studentIds: string[],
+): Promise<Record<string, { lessons: number; lastSeen: string | null; completionPercent: number }>> {
+  const stats: Record<string, { lessons: number; lastSeen: string | null; completionPercent: number }> = {};
+  if (studentIds.length === 0) return stats;
+
+  const { data: rows, error } = await supabase
+    .from("student_lesson_progress")
+    .select("student_id, lesson_id, status, completed_at, last_active_at, last_page")
+    .in("student_id", studentIds);
+  if (error) throw new Error(error.message);
+
+  const byStudent: Record<string, LessonProgressRow[]> = {};
+  (rows ?? []).forEach((r) => {
+    (byStudent[r.student_id] ??= []).push(r);
+  });
+  for (const id of studentIds) {
+    const summary = summarizeStudentProgress(byStudent[id] ?? []);
+    stats[id] = {
+      lessons: summary.completedLessons,
+      lastSeen: summary.lastActiveAt,
+      completionPercent: summary.completionPercent,
+    };
+  }
+  return stats;
+}
 
 function makeCode(len: number) {
   let s = "";
@@ -70,7 +107,7 @@ async function ensureTeacherOwnsStudent(studentId: string) {
   const { data: student, error } = await supabase
     .from("students")
     .select(
-      "id, display_name, student_code, class_id, classes!inner(id, name, join_code, teacher_id)",
+      "id, display_name, student_code, class_id, archived_at, teacher_notes, classes!inner(id, name, join_code, teacher_id)",
     )
     .eq("id", studentId)
     .eq("classes.teacher_id", userId)
@@ -158,49 +195,44 @@ export async function deleteClass(input: Call<{ id: string }>) {
 }
 
 export async function getClass(
-  input: Call<{ id: string }>,
+  input: Call<{ id: string; includeArchived?: boolean }>,
 ): Promise<{ class: TeacherClass; students: TeacherStudentWithStats[] }> {
-  const data = z.object({ id: z.string().uuid() }).parse(input.data);
+  const data = z
+    .object({ id: z.string().uuid(), includeArchived: z.boolean().optional() })
+    .parse(input.data);
   const cls = await ensureTeacherOwnsClass(data.id);
 
-  const { data: students, error: e2 } = await supabase
+  let q = supabase
     .from("students")
-    .select("id, display_name, student_code, created_at")
+    .select("id, display_name, student_code, created_at, archived_at, teacher_notes")
     .eq("class_id", data.id)
     .order("display_name");
+  if (!data.includeArchived) q = q.is("archived_at", null);
+  const { data: students, error: e2 } = await q;
   if (e2) throw new Error(e2.message);
 
   const ids = (students ?? []).map((s: { id: string }) => s.id);
-  const stats: Record<string, { events: number; lessons: number; lastSeen: string | null }> = {};
+  const eventCounts: Record<string, number> = {};
   if (ids.length) {
     const { data: ev, error: evErr } = await supabase
       .from("progress_events")
-      .select("student_id, lesson_id, event_kind, created_at")
-      .in("student_id", ids)
-      .order("created_at", { ascending: false });
+      .select("student_id")
+      .in("student_id", ids);
     if (evErr) throw new Error(evErr.message);
-    (ev ?? []).forEach(
-      (e: { student_id: string; lesson_id: string; event_kind: string; created_at: string }) => {
-        const s = (stats[e.student_id] ??= { events: 0, lessons: 0, lastSeen: null });
-        s.events += 1;
-        if (!s.lastSeen) s.lastSeen = e.created_at;
-      },
-    );
-    const completed: Record<string, Set<string>> = {};
-    (ev ?? []).forEach((e: { student_id: string; lesson_id: string; event_kind: string }) => {
-      if (e.event_kind !== "lesson_completed") return;
-      (completed[e.student_id] ??= new Set()).add(e.lesson_id);
-    });
-    Object.entries(completed).forEach(([sid, set]) => {
-      if (stats[sid]) stats[sid].lessons = set.size;
+    (ev ?? []).forEach((e: { student_id: string }) => {
+      eventCounts[e.student_id] = (eventCounts[e.student_id] ?? 0) + 1;
     });
   }
+  const progressStats = await fetchProgressStats(ids);
 
   return {
     class: cls as TeacherClass,
     students: ((students ?? []) as TeacherStudent[]).map((s) => ({
       ...s,
-      ...(stats[s.id] ?? { events: 0, lessons: 0, lastSeen: null }),
+      events: eventCounts[s.id] ?? 0,
+      lessons: progressStats[s.id]?.lessons ?? 0,
+      lastSeen: progressStats[s.id]?.lastSeen ?? null,
+      completionPercent: progressStats[s.id]?.completionPercent ?? 0,
     })),
   };
 }
@@ -231,6 +263,50 @@ export async function deleteStudent(input: Call<{ id: string }>) {
   return { ok: true };
 }
 
+/** Rename a student and/or update the teacher's private notes on them. */
+export async function updateStudent(
+  input: Call<{ id: string; displayName?: string; teacherNotes?: string | null }>,
+) {
+  const data = z
+    .object({
+      id: z.string().uuid(),
+      displayName: z.string().trim().min(1).max(60).optional(),
+      teacherNotes: z.string().trim().max(2000).nullable().optional(),
+    })
+    .parse(input.data);
+  await ensureTeacherOwnsStudent(data.id);
+
+  const update: { display_name?: string; teacher_notes?: string | null } = {};
+  if (data.displayName !== undefined) update.display_name = data.displayName;
+  if (data.teacherNotes !== undefined) update.teacher_notes = data.teacherNotes;
+  if (Object.keys(update).length === 0) return { ok: true };
+
+  const { error } = await supabase.from("students").update(update).eq("id", data.id);
+  if (error) throw new Error(error.message);
+  return { ok: true };
+}
+
+/** Archive (soft-delete) a student — hides them from the roster/dashboard
+ * by default without destroying their progress history. */
+export async function archiveStudent(input: Call<{ id: string }>) {
+  const data = z.object({ id: z.string().uuid() }).parse(input.data);
+  await ensureTeacherOwnsStudent(data.id);
+  const { error } = await supabase
+    .from("students")
+    .update({ archived_at: new Date().toISOString() })
+    .eq("id", data.id);
+  if (error) throw new Error(error.message);
+  return { ok: true };
+}
+
+export async function restoreStudent(input: Call<{ id: string }>) {
+  const data = z.object({ id: z.string().uuid() }).parse(input.data);
+  await ensureTeacherOwnsStudent(data.id);
+  const { error } = await supabase.from("students").update({ archived_at: null }).eq("id", data.id);
+  if (error) throw new Error(error.message);
+  return { ok: true };
+}
+
 export async function getStudentProgress(input: Call<{ id: string }>) {
   const data = z.object({ id: z.string().uuid() }).parse(input.data);
   const student = await ensureTeacherOwnsStudent(data.id);
@@ -244,15 +320,27 @@ export async function getStudentProgress(input: Call<{ id: string }>) {
     .limit(1000);
   if (e2) throw new Error(e2.message);
 
+  const { data: lessonRows, error: e3 } = await supabase
+    .from("student_lesson_progress")
+    .select("lesson_id, status, completed_at, last_active_at, last_page")
+    .eq("student_id", data.id);
+  if (e3) throw new Error(e3.message);
+
+  const summary = summarizeStudentProgress(lessonRows ?? []);
+
   return {
     student: {
       id: student.id,
       display_name: student.display_name,
       student_code: student.student_code,
       class_id: student.class_id,
+      archived_at: student.archived_at,
+      teacher_notes: student.teacher_notes,
     },
     class: cls,
     events: events ?? [],
+    lessonProgress: lessonRows ?? [],
+    summary,
   };
 }
 
@@ -429,45 +517,87 @@ export async function findStudentsByName(input: Call<{ q: string; classId?: stri
   return rows ?? [];
 }
 
-/** Get all students across all classes for the current teacher. */
-export async function getAllTeacherStudents(input: Call<Record<string, never>>) {
-  const { userId } = await requireTeacher();
+const WEEKDAY_LABELS = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"];
+
+/** Real per-day event counts for a class over the last 7 days — powers the
+ * dashboard's "Actividad reciente" chart with actual progress_events rows
+ * instead of a hardcoded mock series. */
+export async function getWeeklyActivity(
+  input: Call<{ classId: string }>,
+): Promise<Array<{ label: string; count: number }>> {
+  const data = z.object({ classId: z.string().uuid() }).parse(input.data);
+  await ensureTeacherOwnsClass(data.classId);
+
   const { data: students, error: sErr } = await supabase
     .from("students")
-    .select("id, display_name, student_code, created_at, class_id, classes!inner(teacher_id)")
-    .eq("classes.teacher_id", userId);
+    .select("id")
+    .eq("class_id", data.classId);
   if (sErr) throw new Error(sErr.message);
-
   const ids = (students ?? []).map((s: { id: string }) => s.id);
-  const stats: Record<string, { events: number; lessons: number; lastSeen: string | null }> = {};
-  if (ids.length) {
-    const { data: ev, error: evErr } = await supabase
+
+  const since = new Date();
+  since.setHours(0, 0, 0, 0);
+  since.setDate(since.getDate() - 6);
+
+  const counts = new Array(7).fill(0) as number[];
+  if (ids.length > 0) {
+    const { data: events, error } = await supabase
       .from("progress_events")
-      .select("student_id, lesson_id, event_kind, created_at")
+      .select("created_at")
       .in("student_id", ids)
-      .order("created_at", { ascending: false });
-    if (evErr) throw new Error(evErr.message);
-    (ev ?? []).forEach(
-      (e: { student_id: string; lesson_id: string; event_kind: string; created_at: string }) => {
-        const s = (stats[e.student_id] ??= { events: 0, lessons: 0, lastSeen: null });
-        s.events += 1;
-        if (!s.lastSeen) s.lastSeen = e.created_at;
-      },
-    );
-    const completed: Record<string, Set<string>> = {};
-    (ev ?? []).forEach((e: { student_id: string; lesson_id: string; event_kind: string }) => {
-      if (e.event_kind === "lesson_completed") {
-        (completed[e.student_id] ??= new Set()).add(e.lesson_id);
-      }
-    });
-    Object.entries(completed).forEach(([sid, set]) => {
-      if (stats[sid]) stats[sid].lessons = set.size;
+      .gte("created_at", since.toISOString());
+    if (error) throw new Error(error.message);
+    (events ?? []).forEach((e: { created_at: string }) => {
+      const diffDays = Math.floor((new Date(e.created_at).getTime() - since.getTime()) / 86400000);
+      if (diffDays >= 0 && diffDays < 7) counts[diffDays]++;
     });
   }
 
+  return counts.map((count, i) => {
+    const d = new Date(since);
+    d.setDate(d.getDate() + i);
+    return { label: WEEKDAY_LABELS[d.getDay()], count };
+  });
+}
+
+/** Get all students across all classes for the current teacher. */
+export async function getAllTeacherStudents(
+  input: Call<{ includeArchived?: boolean } | Record<string, never>>,
+) {
+  const opts = z
+    .object({ includeArchived: z.boolean().optional() })
+    .parse(input.data ?? {});
+  const { userId } = await requireTeacher();
+  let q = supabase
+    .from("students")
+    .select(
+      "id, display_name, student_code, created_at, class_id, archived_at, teacher_notes, classes!inner(teacher_id)",
+    )
+    .eq("classes.teacher_id", userId);
+  if (!opts.includeArchived) q = q.is("archived_at", null);
+  const { data: students, error: sErr } = await q;
+  if (sErr) throw new Error(sErr.message);
+
+  const ids = (students ?? []).map((s: { id: string }) => s.id);
+  const eventCounts: Record<string, number> = {};
+  if (ids.length) {
+    const { data: ev, error: evErr } = await supabase
+      .from("progress_events")
+      .select("student_id")
+      .in("student_id", ids);
+    if (evErr) throw new Error(evErr.message);
+    (ev ?? []).forEach((e: { student_id: string }) => {
+      eventCounts[e.student_id] = (eventCounts[e.student_id] ?? 0) + 1;
+    });
+  }
+  const progressStats = await fetchProgressStats(ids);
+
   return ((students ?? []) as TeacherStudent[]).map((s) => ({
     ...s,
-    ...(stats[s.id] ?? { events: 0, lessons: 0, lastSeen: null }),
+    events: eventCounts[s.id] ?? 0,
+    lessons: progressStats[s.id]?.lessons ?? 0,
+    lastSeen: progressStats[s.id]?.lastSeen ?? null,
+    completionPercent: progressStats[s.id]?.completionPercent ?? 0,
   }));
 }
 

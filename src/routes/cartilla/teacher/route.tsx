@@ -1,7 +1,8 @@
 import { createFileRoute, Outlet, Link, useLocation, redirect } from "@tanstack/react-router";
-import { Users, BarChart3, FileSpreadsheet, MonitorPlay, BookOpen } from "lucide-react";
+import { Users, BarChart3, FileSpreadsheet, MonitorPlay, BookOpen, LogOut } from "lucide-react";
 import { getStudentSession } from "@/lib/student-session";
 import { supabase } from "@/integrations/supabase/client";
+import { hasTeacherOrAdminRole } from "@/lib/auth-role";
 
 // Every /cartilla/teacher/* page nests under this route via <Outlet/>, so
 // this is the single real gate for the whole teacher lane. Previously this
@@ -9,7 +10,12 @@ import { supabase } from "@/integrations/supabase/client";
 // teacher session, so the nav shell (and public curriculum content like the
 // Guía folders) rendered for anyone, logged in or not. Real student/class
 // data was still protected separately (every teacher.functions.ts call
-// requires a session), but the lane itself wasn't gated. Now it is.
+// requires a session), but the lane itself wasn't gated. Now it is — and it
+// also requires the signed-in user to actually hold the teacher or admin
+// role (has_role RPC), not just any authenticated Supabase session. Every
+// self-signup already gets 'teacher' automatically (see the
+// handle_new_user trigger), so this only ever blocks an account with no
+// role at all, which should never legitimately reach this lane.
 export const Route = createFileRoute("/cartilla/teacher")({
   beforeLoad: async () => {
     const studentSession = getStudentSession();
@@ -20,9 +26,21 @@ export const Route = createFileRoute("/cartilla/teacher")({
     if (!data.session) {
       throw redirect({ to: "/login" });
     }
+    const hasRole = await hasTeacherOrAdminRole(data.session.user.id);
+    if (!hasRole) {
+      if (typeof window !== "undefined") {
+        sessionStorage.setItem("cartilla.auth.unauthorized", "1");
+      }
+      throw redirect({ to: "/login" });
+    }
   },
   component: TeacherLayout,
 });
+
+async function signOut() {
+  await supabase.auth.signOut();
+  window.location.assign("/login");
+}
 
 function TeacherLayout() {
   const location = useLocation();
@@ -89,6 +107,14 @@ function TeacherLayout() {
               label="Present"
               active={false}
             />
+            <button
+              type="button"
+              onClick={() => void signOut()}
+              className="flex items-center gap-2 text-sm font-bold text-stone-500 hover:text-stone-800 py-5 border-b-2 border-transparent hover:border-stone-300 transition-all duration-200"
+              title="Cerrar sesión"
+            >
+              <LogOut className="w-4 h-4" /> Salir
+            </button>
           </nav>
         </div>
       </header>
