@@ -1,0 +1,44 @@
+Already up to date
+Done in 178ms using pnpm v11.10.0
+(node:2516) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Warning: Route file "C:/Users/EJN/grok-work/cartilla-grok-crm/src/routes/__tests__/student-routing.test.tsx" does not export a Route. This file will not be included in the route tree.
+
+If this file is not intended to be a route, you can exclude it using one of these options:
+  1. Rename the file to "C:\Users\EJN\grok-work\cartilla-grok-crm\src\routes\__tests__\-student-routing.test.tsx" (prefix with "-")
+  2. Use 'routeFileIgnorePattern' in your config to match this file
+
+Current configuration:
+  routeFileIgnorePrefix: "-"
+  routeFileIgnorePattern: undefined
+Warning: Route file "C:/Users/EJN/grok-work/cartilla-grok-crm/src/routes/cartilla/student/_components/LessonSkeleton.tsx" does not export a Route. This file will not be included in the route tree.
+
+If this file is not intended to be a route, you can exclude it using one of these options:
+  1. Rename the file to "C:\Users\EJN\grok-work\cartilla-grok-crm\src\routes\cartilla\student\_components\-LessonSkeleton.tsx" (prefix with "-")
+  2. Use 'routeFileIgnorePattern' in your config to match this file
+
+Current configuration:
+  routeFileIgnorePrefix: "-"
+  routeFileIgnorePattern: undefined
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.8 [39m[90mC:/Users/EJN/grok-work/cartilla-grok-crm[39m
+
+ [32m✓[39m src/lib/__tests__/auth-role.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+ [32m✓[39m src/lib/__tests__/student.functions.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 36[2mms[22m[39m
+ [32m✓[39m src/lib/__tests__/csv-export.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 89[2mms[22m[39m
+(node:32040) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:32220) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:27420) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [32m✓[39m src/routes/cartilla/teacher/__tests__/-route.auth.test.ts [2m([22m[2m3 tests[22m[2m)[22m[33m 1295[2mms[22m[39m
+     [33m[2m✓[22m[39m redirects to /login when there is no real Supabase session (anonymous visitor) [33m 1268[2mms[22m[39m
+ [32m✓[39m src/lib/__tests__/progress-calculation.test.ts [2m([22m[2m23 tests[22m[2m)[22m[32m 28[2mms[22m[39m
+ [32m✓[39m src/lib/__tests__/release-integration.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 70[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m6 passed[39m[22m[90m (6)[39m
+[2m      Tests [22m [1m[32m51 passed[39m[22m[90m (51)[39m
+[2m   Start at [22m 18:25:14
+[2m   Duration [22m 12.01s[2m (transform 7.30s, setup 7.08s, import 7.55s, tests 1.53s, environment 39.62s)[22m
+
