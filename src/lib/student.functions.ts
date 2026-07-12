@@ -33,6 +33,13 @@ const myProgressSchema = z.object({
   studentCode: z.string().trim().min(4).max(10),
 });
 
+const lastPageSchema = z.object({
+  studentId: z.string().uuid(),
+  studentCode: z.string().trim().min(4).max(10),
+  lessonId: z.string().min(1).max(50),
+  page: z.number().int().min(0).max(1000),
+});
+
 export async function joinClass(input: Call<z.infer<typeof joinSchema>>) {
   const data = joinSchema.parse(input.data);
   const { data: row, error } = await supabase
@@ -134,4 +141,20 @@ export async function getMyProgress(input: Call<z.infer<typeof myProgressSchema>
 
   if (error) throw new Error(error.message || "No se pudo cargar el progreso.");
   return payload ?? { events: [], lessonProgress: [] };
+}
+
+/** Persists the reader's current page for this student/lesson, so reopening
+ * the same lesson later resumes where they left off instead of restarting
+ * at page 0. Fire-and-forget from the caller's perspective is fine — the
+ * next `getMyProgress` call is always the source of truth for resume. */
+export async function saveLastPage(input: Call<z.infer<typeof lastPageSchema>>) {
+  const data = lastPageSchema.parse(input.data);
+  const { error } = await supabase.rpc("save_last_page", {
+    p_student_id: data.studentId,
+    p_student_code: data.studentCode.toUpperCase(),
+    p_lesson_id: data.lessonId,
+    p_page: data.page,
+  });
+  if (error) throw new Error(error.message || "No se pudo guardar la página.");
+  return { ok: true };
 }

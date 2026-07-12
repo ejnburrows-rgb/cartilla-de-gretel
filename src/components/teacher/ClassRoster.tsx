@@ -1,15 +1,35 @@
 import { useState, useEffect, useMemo } from "react";
-import { User, Trash2, GraduationCap, Award, BookOpen, AlertCircle, PlusCircle, CheckCircle } from "lucide-react";
+import {
+  User,
+  Trash2,
+  GraduationCap,
+  Award,
+  AlertCircle,
+  PlusCircle,
+  CheckCircle,
+  Search,
+  Pencil,
+  ArchiveRestore,
+  Archive,
+} from "lucide-react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
-import { listClasses, getClass, createClass, addStudents, deleteStudent } from "@/lib/teacher.functions";
-import { 
-  getSeedTeacher, 
-  listSeedClasses, 
-  getSeedClass, 
-  createSeedClass, 
-  addSeedStudents, 
-  deleteSeedStudent 
+import {
+  listClasses,
+  getClass,
+  createClass,
+  addStudents,
+  deleteStudent,
+  updateStudent,
+  archiveStudent,
+  restoreStudent,
+} from "@/lib/teacher.functions";
+import {
+  listSeedClasses,
+  getSeedClass,
+  createSeedClass,
+  addSeedStudents,
+  deleteSeedStudent
 } from "@/lib/seed-data";
 
 interface RosterStudent {
@@ -18,6 +38,7 @@ interface RosterStudent {
   student_code: string;
   lessons: number;
   lastSeen: string | null;
+  archived_at?: string | null;
 }
 
 interface RosterClass {
@@ -34,6 +55,10 @@ export function ClassRoster() {
   const [newStudentName, setNewStudentName] = useState("");
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<{ text: string; type: "success" | "error" } | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [showArchived, setShowArchived] = useState(false);
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [editingName, setEditingName] = useState("");
 
   // Synchronously detect if we are using the local seed teacher session
   const isSeed = useMemo(() => {
@@ -69,8 +94,8 @@ export function ClassRoster() {
 
   // 2. Fetch Students for Selected Class
   const { data: realClassData, isLoading: loadingRealStudents, refetch: refetchRealStudents } = useQuery({
-    queryKey: ["roster-students", selectedClassId],
-    queryFn: () => getClass({ data: { id: selectedClassId } }),
+    queryKey: ["roster-students", selectedClassId, showArchived],
+    queryFn: () => getClass({ data: { id: selectedClassId, includeArchived: showArchived } }),
     enabled: !isSeed && !!selectedClassId,
   });
 
@@ -84,13 +109,19 @@ export function ClassRoster() {
   }, [isSeed, selectedClassId, busy]);
 
   const activeClass = classesList.find((c) => c.id === selectedClassId);
-  
-  const studentsList: RosterStudent[] = useMemo(() => {
+
+  const allStudents: RosterStudent[] = useMemo(() => {
     if (isSeed) {
       return (seedClassData?.students ?? []) as RosterStudent[];
     }
     return (realClassData?.students ?? []) as RosterStudent[];
   }, [isSeed, seedClassData, realClassData]);
+
+  const studentsList = useMemo(() => {
+    const q = searchQuery.trim().toLowerCase();
+    if (!q) return allStudents;
+    return allStudents.filter((s) => s.display_name.toLowerCase().includes(q));
+  }, [allStudents, searchQuery]);
 
   const loadingStudents = !isSeed && loadingRealStudents;
 
@@ -159,6 +190,50 @@ export function ClassRoster() {
       }
     } catch (err) {
       showMessage(err instanceof Error ? err.message : "Error eliminando alumno", "error");
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const startEditing = (s: RosterStudent) => {
+    setEditingId(s.id);
+    setEditingName(s.display_name);
+  };
+
+  const handleSaveRename = async (studentId: string) => {
+    const name = editingName.trim();
+    if (!name) return;
+    setEditingId(null);
+    if (isSeed) {
+      showMessage("Renombrar no está disponible en modo local todavía.", "error");
+      return;
+    }
+    try {
+      await updateStudent({ data: { id: studentId, displayName: name } });
+      await refetchRealStudents();
+      showMessage("Nombre actualizado.", "success");
+    } catch (err) {
+      showMessage(err instanceof Error ? err.message : "Error renombrando alumno", "error");
+    }
+  };
+
+  const handleArchiveToggle = async (s: RosterStudent) => {
+    if (isSeed) {
+      showMessage("Archivar no está disponible en modo local todavía.", "error");
+      return;
+    }
+    setBusy(true);
+    try {
+      if (s.archived_at) {
+        await restoreStudent({ data: { id: s.id } });
+        showMessage("Alumno restaurado.", "success");
+      } else {
+        await archiveStudent({ data: { id: s.id } });
+        showMessage("Alumno archivado.", "success");
+      }
+      await refetchRealStudents();
+    } catch (err) {
+      showMessage(err instanceof Error ? err.message : "Error archivando alumno", "error");
     } finally {
       setBusy(false);
     }
@@ -265,7 +340,7 @@ export function ClassRoster() {
         <div className="p-12 text-center font-bold text-stone-400 animate-pulse bg-white border border-stone-200 rounded-3xl">
           Cargando listado de alumnos...
         </div>
-      ) : studentsList.length === 0 ? (
+      ) : allStudents.length === 0 ? (
         /* Honest Empty State: Class exists, but has no students */
         <div className="kid-card p-12 text-center bg-white/70 max-w-xl mx-auto space-y-6">
           <div className="w-16 h-16 rounded-3xl bg-[hsl(198,78%,95%)] text-vowel-i flex items-center justify-center mx-auto shadow-inner">
@@ -334,6 +409,35 @@ export function ClassRoster() {
             </form>
           </div>
 
+          <div className="p-4 border-b border-stone-200 flex flex-col sm:flex-row gap-3 items-stretch sm:items-center justify-between bg-white">
+            <div className="relative flex-1 max-w-sm">
+              <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-stone-400" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Buscar alumno por nombre…"
+                className="w-full pl-9 pr-3 py-2 rounded-xl border-2 border-stone-200 text-sm font-medium focus:outline-none focus:border-vowel-a"
+              />
+            </div>
+            {!isSeed && (
+              <label className="flex items-center gap-2 text-xs font-bold text-stone-500 cursor-pointer whitespace-nowrap">
+                <input
+                  type="checkbox"
+                  checked={showArchived}
+                  onChange={(e) => setShowArchived(e.target.checked)}
+                  className="w-4 h-4"
+                />
+                Mostrar archivados
+              </label>
+            )}
+          </div>
+
+          {studentsList.length === 0 ? (
+            <div className="p-8 text-center text-sm font-bold text-stone-400">
+              Ningún alumno coincide con &quot;{searchQuery}&quot;.
+            </div>
+          ) : (
           <div className="overflow-x-auto">
             <table className="w-full text-left text-sm">
               <thead className="bg-stone-50/70 text-stone-500 font-bold uppercase tracking-wider text-[10px] border-b border-stone-200">
@@ -347,15 +451,45 @@ export function ClassRoster() {
               </thead>
               <tbody className="divide-y divide-stone-100 bg-white">
                 {studentsList.map((s) => (
-                  <tr key={s.id} className="hover:bg-stone-50/50 transition-colors group">
+                  <tr
+                    key={s.id}
+                    className={`hover:bg-stone-50/50 transition-colors group ${s.archived_at ? "opacity-50" : ""}`}
+                  >
                     <td className="p-4 pl-6">
                       <div className="flex items-center gap-3">
-                        <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[hsl(28,87%,88%)] to-[hsl(48,95%,85%)] flex items-center justify-center text-orange-800 shadow-inner">
+                        <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[hsl(28,87%,88%)] to-[hsl(48,95%,85%)] flex items-center justify-center text-orange-800 shadow-inner shrink-0">
                           <User className="w-4 h-4" />
                         </div>
-                        <div>
-                          <div className="font-extrabold text-stone-800 text-sm">{s.display_name}</div>
-                        </div>
+                        {editingId === s.id ? (
+                          <input
+                            type="text"
+                            value={editingName}
+                            onChange={(e) => setEditingName(e.target.value)}
+                            onBlur={() => handleSaveRename(s.id)}
+                            onKeyDown={(e) => {
+                              if (e.key === "Enter") handleSaveRename(s.id);
+                              if (e.key === "Escape") setEditingId(null);
+                            }}
+                            autoFocus
+                            maxLength={50}
+                            className="font-extrabold text-stone-800 text-sm px-2 py-1 rounded-lg border-2 border-vowel-a focus:outline-none w-40"
+                          />
+                        ) : (
+                          <button
+                            type="button"
+                            onClick={() => startEditing(s)}
+                            disabled={isSeed}
+                            className="font-extrabold text-stone-800 text-sm text-left hover:underline decoration-dotted underline-offset-2 disabled:no-underline disabled:cursor-default cursor-pointer"
+                            title={isSeed ? undefined : "Editar nombre"}
+                          >
+                            {s.display_name}
+                            {s.archived_at && (
+                              <span className="ml-2 text-[10px] font-black uppercase tracking-wide text-stone-400 align-middle">
+                                Archivado
+                              </span>
+                            )}
+                          </button>
+                        )}
                       </div>
                     </td>
                     <td className="p-4">
@@ -372,20 +506,39 @@ export function ClassRoster() {
                       {s.lastSeen ? new Date(s.lastSeen).toLocaleDateString() : "Ninguna registrada"}
                     </td>
                     <td className="p-4 pr-6 text-right">
-                      <button
-                        onClick={() => handleDeleteStudent(s.id, s.display_name)}
-                        disabled={busy}
-                        className="p-2 text-stone-400 hover:text-[hsl(354,78%,56%)] hover:bg-[hsl(354,78%,98%)] rounded-xl transition duration-200 cursor-pointer disabled:opacity-50"
-                        title="Eliminar Alumno"
-                      >
-                        <Trash2 className="w-4 h-4" />
-                      </button>
+                      <div className="flex items-center justify-end gap-1">
+                        <button
+                          onClick={() => startEditing(s)}
+                          disabled={busy || isSeed}
+                          className="p-2 text-stone-400 hover:text-vowel-a hover:bg-[hsl(48,100%,97%)] rounded-xl transition duration-200 cursor-pointer disabled:opacity-50"
+                          title="Renombrar Alumno"
+                        >
+                          <Pencil className="w-4 h-4" />
+                        </button>
+                        <button
+                          onClick={() => handleArchiveToggle(s)}
+                          disabled={busy || isSeed}
+                          className="p-2 text-stone-400 hover:text-vowel-o hover:bg-[hsl(198,78%,97%)] rounded-xl transition duration-200 cursor-pointer disabled:opacity-50"
+                          title={s.archived_at ? "Restaurar Alumno" : "Archivar Alumno"}
+                        >
+                          {s.archived_at ? <ArchiveRestore className="w-4 h-4" /> : <Archive className="w-4 h-4" />}
+                        </button>
+                        <button
+                          onClick={() => handleDeleteStudent(s.id, s.display_name)}
+                          disabled={busy}
+                          className="p-2 text-stone-400 hover:text-[hsl(354,78%,56%)] hover:bg-[hsl(354,78%,98%)] rounded-xl transition duration-200 cursor-pointer disabled:opacity-50"
+                          title="Eliminar Alumno"
+                        >
+                          <Trash2 className="w-4 h-4" />
+                        </button>
+                      </div>
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
+          )}
         </div>
       )}
     </div>

@@ -76,7 +76,12 @@ export async function createAssignment(
     })
     .select()
     .single();
-  if (error) throw new Error(error.message);
+  if (error) {
+    if (error.code === "23505") {
+      throw new Error("Esta clase ya tiene una tarea asignada para esta lección.");
+    }
+    throw new Error(error.message);
+  }
   return row;
 }
 

@@ -8,6 +8,7 @@ import { useLessonProgress, isLessonUnlocked, markLessonCompleted } from "@/lib/
 import { recordEvent, useStudentSession } from "@/lib/student-session";
 import { LessonTimer } from "@/components/cartilla/LessonTimer";
 import { listMyAssignments } from "@/lib/assignments.functions";
+import { getMyProgress, saveLastPage } from "@/lib/student.functions";
 import { useLanguage } from "@/context/LanguageContext";
 import { LanguageToggle } from "@/components/LanguageToggle";
 import { sCopy } from "@/content/student-copy";
@@ -65,6 +66,41 @@ function Leccion() {
     () => (assignments ?? []).find((a: { lesson_id: string }) => a.lesson_id === String(n)),
     [assignments, n],
   );
+
+  const fetchProgress = useServerFn(getMyProgress);
+  const { data: progressData } = useQuery({
+    queryKey: ["my-progress", session?.studentId],
+    queryFn: () =>
+      session
+        ? fetchProgress({ data: { studentId: session.studentId, studentCode: session.studentCode } })
+        : Promise.resolve(null),
+    enabled: !!session,
+  });
+  const progressReady = !session || progressData !== undefined;
+  const initialPage = useMemo(() => {
+    if (!session) return 0;
+    const lessonProgress =
+      (progressData as { lessonProgress?: Array<{ lesson_id: string; last_page?: number | null }> } | null)
+        ?.lessonProgress ?? [];
+    const row = lessonProgress.find((p) => p.lesson_id === String(n));
+    return row?.last_page ?? 0;
+  }, [session, progressData, n]);
+
+  const saveLastPageFn = useServerFn(saveLastPage);
+  const handlePageChange = (index: number) => {
+    if (!session) return;
+    void saveLastPageFn({
+      data: {
+        studentId: session.studentId,
+        studentCode: session.studentCode,
+        lessonId: String(n),
+        page: index,
+      },
+    }).catch(() => {
+      // Best-effort: last-page persistence is a resume convenience, never
+      // blocks reading. getMyProgress remains the source of truth next load.
+    });
+  };
 
   const unlocked = typeof window === "undefined" || isLessonUnlocked(n);
   const startedAt = useRef<number>(Date.now());
@@ -156,7 +192,14 @@ function Leccion() {
                 </Link>
               </div>
             )}
-            <SimplePageViewer pages={pages} initialPage={0} />
+            {progressReady && (
+              <SimplePageViewer
+                key={n}
+                pages={pages}
+                initialPage={initialPage}
+                onPageChange={handlePageChange}
+              />
+            )}
           </GardenScene>
         </div>
 

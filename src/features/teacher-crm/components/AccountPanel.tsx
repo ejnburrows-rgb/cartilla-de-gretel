@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ChevronRight, Mail, MessageSquare, User, Save, Star, Clock } from "lucide-react";
+import { MessageSquare, User, Save, Clock } from "lucide-react";
 import type { DashboardStudent } from "./PipelineBoard";
 
 interface AccountPanelProps {
@@ -8,13 +8,11 @@ interface AccountPanelProps {
 }
 
 export function AccountPanel({ student, onUpdate }: AccountPanelProps) {
-  const [grade, setGrade] = useState("");
   const [notes, setNotes] = useState("");
   const [isEditingNotes, setIsEditingNotes] = useState(false);
 
   useEffect(() => {
     if (student) {
-      setGrade(student.grade || "");
       setNotes(student.teacher_notes || "");
       setIsEditingNotes(false);
     }
@@ -22,7 +20,7 @@ export function AccountPanel({ student, onUpdate }: AccountPanelProps) {
 
   const handleSave = () => {
     if (student && onUpdate) {
-      onUpdate(student.id, { grade, teacher_notes: notes });
+      onUpdate(student.id, { teacher_notes: notes });
     }
     setIsEditingNotes(false);
   };
@@ -68,23 +66,6 @@ export function AccountPanel({ student, onUpdate }: AccountPanelProps) {
           </div>
           <div className="h-4 w-full bg-[#e0f2fe] rounded-full overflow-hidden shadow-inner">
             <div className="h-full bg-gradient-to-r from-[#38bdf8] to-[#0284c7] rounded-full transition-all duration-1000" style={{ width: `${student.progress}%` }} />
-          </div>
-        </div>
-
-        {/* Grading Area */}
-        <div className="flex gap-4">
-          <div className="flex-1 bg-[#fff7ed] p-4 rounded-2xl border border-[#ffedd5]">
-            <label className="flex items-center gap-2 text-xs font-black text-[#c2410c] uppercase tracking-wider mb-2">
-              <Star className="w-4 h-4" /> Calificación (Nota)
-            </label>
-            <input 
-              type="text" 
-              placeholder="Ej. A+, 95/100, Excelente"
-              value={grade}
-              onChange={(e) => setGrade(e.target.value)}
-              onBlur={handleSave}
-              className="w-full bg-white px-3 py-2 rounded-xl text-sm font-bold text-[#9a3412] focus:outline-none focus:ring-2 focus:ring-[#fdba74] border border-[#fed7aa]"
-            />
           </div>
         </div>
 

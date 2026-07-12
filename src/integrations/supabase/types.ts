@@ -181,25 +181,31 @@ export type Database = {
       };
       students: {
         Row: {
+          archived_at: string | null;
           class_id: string;
           created_at: string;
           display_name: string;
           id: string;
           student_code: string;
+          teacher_notes: string | null;
         };
         Insert: {
+          archived_at?: string | null;
           class_id: string;
           created_at?: string;
           display_name: string;
           id?: string;
           student_code: string;
+          teacher_notes?: string | null;
         };
         Update: {
+          archived_at?: string | null;
           class_id?: string;
           created_at?: string;
           display_name?: string;
           id?: string;
           student_code?: string;
+          teacher_notes?: string | null;
         };
         Relationships: [
           {
@@ -224,6 +230,7 @@ export type Database = {
           best_total: number | null;
           total_attempts: number;
           time_seconds: number;
+          last_page: number | null;
         };
         Insert: {
           id?: string;
@@ -237,6 +244,7 @@ export type Database = {
           best_total?: number | null;
           total_attempts?: number;
           time_seconds?: number;
+          last_page?: number | null;
         };
         Update: {
           id?: string;
@@ -250,6 +258,7 @@ export type Database = {
           best_total?: number | null;
           total_attempts?: number;
           time_seconds?: number;
+          last_page?: number | null;
         };
         Relationships: [
           {
@@ -472,6 +481,15 @@ export type Database = {
           p_total: number | null;
           p_time_seconds: number | null;
           p_meta: Json | null;
+        };
+        Returns: Json;
+      };
+      save_last_page: {
+        Args: {
+          p_student_id: string;
+          p_student_code: string;
+          p_lesson_id: string;
+          p_page: number;
         };
         Returns: Json;
       };
