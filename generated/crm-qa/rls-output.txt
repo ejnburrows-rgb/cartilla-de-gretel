@@ -1,0 +1,5 @@
+[2026-07-12T22:22:51.896Z] === B4 RLS Negative Test (Teacher B vs Teacher A) ===
+[2026-07-12T22:22:51.898Z] Env presence: A_PW=MISSING B_PW=MISSING URL=MISSING KEY=MISSING
+[2026-07-12T22:22:51.899Z] Emails: A=fi***@cartilla.test B=fi***@cartilla.test host=n/a
+[2026-07-12T22:22:51.899Z] FATAL: E2E_TEACHER_A_PASSWORD not set — CRM_CLOUD_HARD_BLOCKED
+[2026-07-12T22:22:51.899Z] EXIT=1
