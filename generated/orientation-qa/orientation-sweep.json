@@ -1,0 +1,41 @@
+{
+  "checked": 85,
+  "findings": [
+    {
+      "page": 1,
+      "caption": "ma\u00edz",
+      "asset": "/cartilla/art/faithful/leccion-1/maiz.webp",
+      "issue": "object_inverted",
+      "upright_ncc": 0.0121,
+      "flipped_ncc": 0.1098
+    },
+    {
+      "page": 4,
+      "caption": "ola",
+      "asset": "/cartilla/art/faithful/leccion-1/ola.webp",
+      "issue": "missing_or_corrupt"
+    },
+    {
+      "page": 10,
+      "caption": "ma\u00edz",
+      "asset": "/cartilla/art/faithful/leccion-1/maiz.webp",
+      "issue": "object_inverted",
+      "upright_ncc": 0.0928,
+      "flipped_ncc": 0.1494
+    },
+    {
+      "page": 13,
+      "caption": "invierno",
+      "asset": "/cartilla/art/faithful/vocal-i/invierno.webp",
+      "issue": "object_inverted",
+      "upright_ncc": 0.398,
+      "flipped_ncc": 0.5182
+    },
+    {
+      "page": 13,
+      "caption": "ola",
+      "asset": "/cartilla/art/faithful/leccion-1/ola.webp",
+      "issue": "missing_or_corrupt"
+    }
+  ]
+}
