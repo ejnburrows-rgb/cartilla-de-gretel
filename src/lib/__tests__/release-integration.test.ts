@@ -54,4 +54,23 @@ describe("release integration — workbook + lessons", () => {
       true,
     );
   });
+
+  it("content-scan pages resolve engine background via improved-art-first chain", () => {
+    // Physical page 6 is a 0-object content canvas with a source-scan background
+    // in the committed manifest — adapter must prefer HD workbook art first.
+    const page = getWorkbookPage(6);
+    expect(page).toBeTruthy();
+    expect(page!.backgroundSrc).toMatch(/art\/hd\/workbook\/page-006\.(png|jpg)/);
+    expect(page!.backgroundFallbackChain?.length).toBeGreaterThanOrEqual(2);
+    expect(page!.backgroundFallbackChain?.[0]).toBe(page!.backgroundSrc);
+  });
+
+  it("every catalog lesson number is covered by at least one manifest page", () => {
+    const lessons = new Set(
+      getWorkbookManifest().pages.map((p) => p.lesson).filter((n): n is number => n != null),
+    );
+    for (let n = 1; n <= 24; n++) {
+      expect(lessons.has(n), `lesson ${n} missing from manifest`).toBe(true);
+    }
+  });
 });

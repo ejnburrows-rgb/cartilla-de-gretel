@@ -16,11 +16,13 @@ describe("manifestPageToEnginePage", () => {
     expect(engine.pageNumber).toBe(7);
     expect(engine.lessonNumber).toBe(3);
     expect(engine.instruction).toBe("Tap the correct picture.");
+    // Explicit non-scan bg stays first; chain still attached for runtime degrade.
     expect(engine.backgroundSrc).toBe("/some/bg.png");
+    expect(engine.backgroundFallbackChain?.[0]).toBe("/some/bg.png");
     expect(engine.status).toBe("draft");
   });
 
-  it("maps null background to null backgroundSrc (honest 'pending' state)", () => {
+  it("maps null background onto the HD→lineart→scan fallback chain (never invents art)", () => {
     const engine = manifestPageToEnginePage({
       physicalPage: 1,
       lesson: 1,
@@ -29,7 +31,61 @@ describe("manifestPageToEnginePage", () => {
       status: "mapped",
       background: null,
     });
-    expect(engine.backgroundSrc).toBeNull();
+    expect(engine.backgroundSrc).toBe("/cartilla/art/hd/workbook/page-001.png");
+    expect(engine.backgroundFallbackChain?.[0]).toBe("/cartilla/art/hd/workbook/page-001.png");
+  });
+
+  it("prefers improved HD art over a raw source-scan background", () => {
+    const engine = manifestPageToEnginePage({
+      physicalPage: 6,
+      lesson: 2,
+      instruction: "",
+      objects: [],
+      status: "mapped",
+      background: "/cartilla/images/source/o/o-page-5.jpg",
+    });
+    expect(engine.backgroundSrc).toBe("/cartilla/art/hd/workbook/page-006.png");
+    expect(engine.backgroundFallbackChain).toContain(
+      "/cartilla/art/hd/lineart/o-page-5.png",
+    );
+    expect(engine.backgroundFallbackChain).toContain(
+      "/cartilla/images/source/o/o-page-5.jpg",
+    );
+    const hdIdx = engine.backgroundFallbackChain!.indexOf(
+      "/cartilla/art/hd/workbook/page-006.png",
+    );
+    const lineartIdx = engine.backgroundFallbackChain!.indexOf(
+      "/cartilla/art/hd/lineart/o-page-5.png",
+    );
+    const scanIdx = engine.backgroundFallbackChain!.indexOf(
+      "/cartilla/images/source/o/o-page-5.jpg",
+    );
+    expect(hdIdx).toBe(0);
+    expect(lineartIdx).toBeGreaterThan(hdIdx);
+    expect(scanIdx).toBeGreaterThan(lineartIdx);
+  });
+
+  it("keeps ambient garden backgrounds for pages with layered illustration objects", () => {
+    const engine = manifestPageToEnginePage({
+      physicalPage: 1,
+      lesson: 1,
+      instruction: "",
+      status: "complete",
+      background: "/art/hd/gretel-authentic.jpg",
+      objects: [
+        {
+          id: "cell-0",
+          type: "illustration",
+          asset: "/cartilla/art/faithful/leccion-1/abrigo.webp",
+          x: 0,
+          y: 0,
+          width: 20,
+          interactive: false,
+        },
+      ],
+    });
+    expect(engine.backgroundSrc).toBe("/art/hd/gretel-authentic.jpg");
+    expect(engine.backgroundFallbackChain).toBeUndefined();
   });
 
   it("maps status complete -> verified, everything else -> draft", () => {

@@ -1,11 +1,11 @@
 /**
- * PdfPage — renders a single workbook page as the original scanned image.
+ * PdfPage — renders a single workbook page via the canonical art fallback
+ * chain (HD improved → lineart → source scan). Missing tiers degrade
+ * gracefully; the page never crashes.
  *
- * Pages 1-92: 2550×3301 color scans from /cartilla/art/color/workbook/
- *
- * The scanned art is the source of truth. WorkbookPageRenderer is not used.
+ * WorkbookPageRenderer is not used on this path.
  */
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { getBookPageImage, getWorkbookPageFallbackChain } from "@/lib/bookImages";
 
 export function prefetchPage(pageNumber: number) {
@@ -22,24 +22,23 @@ interface PdfPageProps {
 }
 
 export function PdfPage({ pageNumber, className = "" }: PdfPageProps) {
-  const safe = Math.max(1, Math.min(pageNumber, 95));
-  const chain = getWorkbookPageFallbackChain(safe);
+  const safe = Math.max(1, Math.min(Math.floor(Number(pageNumber) || 1), 95));
+  const chain = useMemo(() => getWorkbookPageFallbackChain(safe), [safe]);
 
   const [src, setSrc] = useState<string | null>(chain[0] ?? null);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    const nextChain = getWorkbookPageFallbackChain(Math.max(1, Math.min(pageNumber, 95)));
-    setSrc(nextChain[0] ?? null);
+    setSrc(chain[0] ?? null);
     setLoaded(false);
-  }, [pageNumber]);
+  }, [chain]);
 
   return (
     <div
       className={`pdf-page-wrapper relative flex items-center justify-center overflow-hidden bg-white select-none ${className}`}
       aria-label={`Página ${safe} del libro`}
     >
-      {!loaded && (
+      {!loaded && src && (
         <div className="absolute inset-0 bg-stone-100 animate-pulse" />
       )}
       {src ? (
@@ -51,8 +50,11 @@ export function PdfPage({ pageNumber, className = "" }: PdfPageProps) {
           loading="lazy"
           onLoad={() => setLoaded(true)}
           onError={() => {
+            // Re-resolve from the current chain so page changes never leave
+            // a stale index. Prefer improved art → lineart → source.
             const currentIdx = chain.indexOf(src);
             if (currentIdx >= 0 && currentIdx + 1 < chain.length) {
+              setLoaded(false);
               setSrc(chain[currentIdx + 1]!);
             } else {
               setSrc(null);
