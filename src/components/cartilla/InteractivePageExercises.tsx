@@ -666,3 +666,69 @@ export function InteractiveVowelLineMatch({ region, accent, lessonId }: Exercise
     </div>
   );
 }
+
+/**
+ * "Lee en voz alta" practice sentences from the book — student taps each real
+ * sentence to mark it read. No stock TTS expansion; only records progress when
+ * every printed sentence has been tapped.
+ */
+export function InteractiveReadingSentences({ region, accent, lessonId }: ExerciseProps) {
+  const sentences = region.sentences ?? [];
+  const [read, setRead] = useState<Set<number>>(new Set());
+  const [completed, setCompleted] = useState(false);
+
+  if (sentences.length === 0) return null;
+
+  const toggle = (i: number) => {
+    if (completed) return;
+    const next = new Set(read);
+    if (next.has(i)) next.delete(i);
+    else next.add(i);
+    setRead(next);
+    if (next.size === sentences.length) {
+      setCompleted(true);
+      gretelEvent("answer:correct");
+      gretelEvent("activity:complete");
+      if (lessonId) {
+        recordEvent({
+          lessonId,
+          kind: "exercise",
+          score: sentences.length,
+          total: sentences.length,
+          meta: { exercise: `reading_sentences_${region.id}`, completed: true },
+        });
+      }
+    }
+  };
+
+  return (
+    <div className="fp-ix-reading" style={{ ["--ix-accent" as string]: accent }}>
+      <ol className="fp-ix-reading__list">
+        {sentences.map((sentence, i) => {
+          const isRead = read.has(i);
+          return (
+            <li key={i}>
+              <button
+                type="button"
+                className={`fp-ix-reading__sentence${isRead ? " is-read" : ""}`}
+                aria-pressed={isRead}
+                onClick={() => toggle(i)}
+              >
+                <span className="fp-ix-reading__num" aria-hidden="true">
+                  {i + 1}
+                </span>
+                <span className="fp-ix-reading__text">{sentence}</span>
+              </button>
+            </li>
+          );
+        })}
+      </ol>
+      {completed ? (
+        <p className="fp-ix-reading__done" role="status">
+          Lectura marcada
+        </p>
+      ) : null}
+    </div>
+  );
+}
+

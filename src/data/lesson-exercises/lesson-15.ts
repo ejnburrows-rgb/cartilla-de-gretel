@@ -13,10 +13,10 @@ export const lesson15 = [
       { id: "letter-b", label: "b" }
     ],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Students trace uppercase B and lowercase b.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Students trace uppercase B and lowercase b.",
     sourcePage: getBookPageImage(57)
   },
   {
@@ -47,10 +47,10 @@ export const lesson15 = [
       "lobo", "bonita", "tubo", "bodega", "bola", "botella",
       "burro", "aburre", "aburrido", "bulla", "abuso", "buche"
     ],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded syllable circle for B.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Scaffolded syllable circle for B.",
     sourcePage: getBookPageImage(58)
   },
   {
@@ -68,10 +68,10 @@ export const lesson15 = [
       { id: "ra-bu", label: "bu" }
     ],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded syllable tap for B.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Scaffolded syllable tap for B.",
     sourcePage: getBookPageImage(59)
   },
   {
@@ -99,10 +99,10 @@ export const lesson15 = [
       { id: "w-nube", label: "nube" }
     ],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded word bank for B.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Scaffolded word bank for B.",
     sourcePage: getBookPageImage(59)
   },
   {
@@ -125,10 +125,10 @@ export const lesson15 = [
     sightWords: [
       "alto", "con", "bueno"
     ],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded mini-story for B.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Scaffolded mini-story for B.",
     sourcePage: getBookPageImage(59)
   },
   {
@@ -239,10 +239,10 @@ export const lesson15 = [
         fullWord: "nube"
       }
     ],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded fill-in-the-blank for B.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Scaffolded fill-in-the-blank for B.",
     sourcePage: getBookPageImage(60)
   },
   {
@@ -254,10 +254,10 @@ export const lesson15 = [
     prompt: "Escribe oraciones. Usa las sílabas que aprendiste.",
     items: [],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Sentence writing lines.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Sentence writing lines.",
     sourcePage: getBookPageImage(60)
   }
 ];

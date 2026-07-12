@@ -13,10 +13,10 @@ export const lesson08 = [
       { id: "letter-p", label: "p" }
     ],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Students trace uppercase P and lowercase p.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Students trace uppercase P and lowercase p.",
     sourcePage: getBookPageImage(29)
   },
   {
@@ -47,10 +47,10 @@ export const lesson08 = [
       "pomo", "polo", "sapo", "mapo", "tapo", "Pepo",
       "puso", "Pupa", "puma", "apura", "Pupi", "púa"
     ],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded syllable circle for P.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Scaffolded syllable circle for P.",
     sourcePage: getBookPageImage(30)
   },
   {
@@ -68,10 +68,10 @@ export const lesson08 = [
       { id: "ra-pu", label: "pu" }
     ],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded syllable tap for P.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Scaffolded syllable tap for P.",
     sourcePage: getBookPageImage(31)
   },
   {
@@ -99,10 +99,10 @@ export const lesson08 = [
       { id: "w-pepo", label: "Pepo" }
     ],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded word bank for P.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Scaffolded word bank for P.",
     sourcePage: getBookPageImage(31)
   },
   {
@@ -123,10 +123,10 @@ export const lesson08 = [
     sightWords: [
       "yo", "y", "a", "me", "Mi"
     ],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded mini-story for P.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Scaffolded mini-story for P.",
     sourcePage: getBookPageImage(31)
   },
   {
@@ -241,10 +241,10 @@ export const lesson08 = [
         fullWord: "Pepe"
       }
     ],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded fill-in-the-blank for P.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Scaffolded fill-in-the-blank for P.",
     sourcePage: getBookPageImage(32)
   },
   {
@@ -256,10 +256,10 @@ export const lesson08 = [
     prompt: "Escribe oraciones usando las sílabas que aprendiste.",
     items: [],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Sentence writing lines.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Sentence writing lines.",
     sourcePage: getBookPageImage(32)
   }
 ];

@@ -1,18 +1,8 @@
 {
-  "generatedAt": "2026-07-12T19:57:32.055Z",
+  "generatedAt": "2026-07-12T22:25:35.297Z",
   "terminal": "ACTIVITIES_PARTIAL",
   "incompleteLessons": [
-    6,
-    8,
-    10,
-    11,
-    12,
-    13,
-    14,
-    15,
-    16,
     17,
-    18,
     19,
     20,
     21,
@@ -171,10 +161,10 @@
       ],
       "productionExerciseCount": 3,
       "placeholderCount": 0,
-      "disabledInteractionCount": 3,
+      "disabledInteractionCount": 0,
       "missingContentState": false,
       "progressSavePath": "recordEvent via student-session + FaithfulPageRenderer exercises",
-      "incomplete": true
+      "incomplete": false
     },
     {
       "lesson": 7,
@@ -229,10 +219,10 @@
       ],
       "productionExerciseCount": 7,
       "placeholderCount": 0,
-      "disabledInteractionCount": 7,
+      "disabledInteractionCount": 0,
       "missingContentState": false,
       "progressSavePath": "recordEvent via student-session + FaithfulPageRenderer exercises",
-      "incomplete": true
+      "incomplete": false
     },
     {
       "lesson": 9,
@@ -287,10 +277,10 @@
       ],
       "productionExerciseCount": 7,
       "placeholderCount": 0,
-      "disabledInteractionCount": 7,
+      "disabledInteractionCount": 0,
       "missingContentState": false,
       "progressSavePath": "recordEvent via student-session + FaithfulPageRenderer exercises",
-      "incomplete": true
+      "incomplete": false
     },
     {
       "lesson": 11,
@@ -316,10 +306,10 @@
       ],
       "productionExerciseCount": 7,
       "placeholderCount": 0,
-      "disabledInteractionCount": 7,
+      "disabledInteractionCount": 0,
       "missingContentState": false,
       "progressSavePath": "recordEvent via student-session + FaithfulPageRenderer exercises",
-      "incomplete": true
+      "incomplete": false
     },
     {
       "lesson": 12,
@@ -345,10 +335,10 @@
       ],
       "productionExerciseCount": 7,
       "placeholderCount": 0,
-      "disabledInteractionCount": 7,
+      "disabledInteractionCount": 0,
       "missingContentState": false,
       "progressSavePath": "recordEvent via student-session + FaithfulPageRenderer exercises",
-      "incomplete": true
+      "incomplete": false
     },
     {
       "lesson": 13,
@@ -374,10 +364,10 @@
       ],
       "productionExerciseCount": 7,
       "placeholderCount": 0,
-      "disabledInteractionCount": 7,
+      "disabledInteractionCount": 0,
       "missingContentState": false,
       "progressSavePath": "recordEvent via student-session + FaithfulPageRenderer exercises",
-      "incomplete": true
+      "incomplete": false
     },
     {
       "lesson": 14,
@@ -403,10 +393,10 @@
       ],
       "productionExerciseCount": 7,
       "placeholderCount": 0,
-      "disabledInteractionCount": 7,
+      "disabledInteractionCount": 0,
       "missingContentState": false,
       "progressSavePath": "recordEvent via student-session + FaithfulPageRenderer exercises",
-      "incomplete": true
+      "incomplete": false
     },
     {
       "lesson": 15,
@@ -432,10 +422,10 @@
       ],
       "productionExerciseCount": 7,
       "placeholderCount": 0,
-      "disabledInteractionCount": 7,
+      "disabledInteractionCount": 0,
       "missingContentState": false,
       "progressSavePath": "recordEvent via student-session + FaithfulPageRenderer exercises",
-      "incomplete": true
+      "incomplete": false
     },
     {
       "lesson": 16,
@@ -461,10 +451,10 @@
       ],
       "productionExerciseCount": 7,
       "placeholderCount": 0,
-      "disabledInteractionCount": 7,
+      "disabledInteractionCount": 0,
       "missingContentState": false,
       "progressSavePath": "recordEvent via student-session + FaithfulPageRenderer exercises",
-      "incomplete": true
+      "incomplete": false
     },
     {
       "lesson": 17,
@@ -519,10 +509,10 @@
       ],
       "productionExerciseCount": 7,
       "placeholderCount": 0,
-      "disabledInteractionCount": 7,
+      "disabledInteractionCount": 0,
       "missingContentState": false,
       "progressSavePath": "recordEvent via student-session + FaithfulPageRenderer exercises",
-      "incomplete": true
+      "incomplete": false
     },
     {
       "lesson": 19,

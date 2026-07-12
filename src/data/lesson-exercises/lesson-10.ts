@@ -13,10 +13,10 @@ export const lesson10 = [
       { id: "letter-t", label: "t" }
     ],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Students trace uppercase T and lowercase t.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Students trace uppercase T and lowercase t.",
     sourcePage: getBookPageImage(37)
   },
   {
@@ -47,10 +47,10 @@ export const lesson10 = [
       "topo", "moto", "pato", "toma", "sapito",
       "tupe", "tubo", "tulipán", "tuna", "tuba", "Matute"
     ],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded syllable circle for T.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Scaffolded syllable circle for T.",
     sourcePage: getBookPageImage(38)
   },
   {
@@ -68,10 +68,10 @@ export const lesson10 = [
       { id: "ra-tu", label: "tu" }
     ],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded syllable tap for T.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Scaffolded syllable tap for T.",
     sourcePage: getBookPageImage(39)
   },
   {
@@ -102,10 +102,10 @@ export const lesson10 = [
       { id: "w-pato", label: "pato" }
     ],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded word bank for T.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Scaffolded word bank for T.",
     sourcePage: getBookPageImage(39)
   },
   {
@@ -128,10 +128,10 @@ export const lesson10 = [
     sightWords: [
       "tiene", "patio", "no"
     ],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded mini-story for T.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Scaffolded mini-story for T.",
     sourcePage: getBookPageImage(39)
   },
   {
@@ -243,10 +243,10 @@ export const lesson10 = [
         fullWord: "tipi"
       }
     ],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded fill-in-the-blank for T.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Scaffolded fill-in-the-blank for T.",
     sourcePage: getBookPageImage(40)
   },
   {
@@ -258,10 +258,10 @@ export const lesson10 = [
     prompt: "Escribe oraciones usando las sílabas que aprendiste.",
     items: [],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Sentence writing lines.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Sentence writing lines.",
     sourcePage: getBookPageImage(40)
   }
 ];

@@ -9,6 +9,7 @@ import {
   InteractiveVowelLineMatch,
   InteractiveSyllableMatch,
   InteractiveFillInBlank,
+  InteractiveReadingSentences,
 } from "./InteractivePageExercises";
 import { WorkbookLetterTrace } from "./WorkbookLetterTrace";
 import { getLetterTemplate } from "./letter-stroke-templates";
@@ -353,7 +354,9 @@ function RegionView({
         </div>
       );
     case "reading-sentences":
-      return (
+      return interactive ? (
+        <InteractiveReadingSentences region={region} accent={accent ?? "hsl(230 75% 58%)"} lessonId={lessonId} />
+      ) : (
         <div className="fp-region--reading-sentences">
           {(region.sentences ?? []).map((sentence, i) => (
             <p key={i}>{sentence}</p>

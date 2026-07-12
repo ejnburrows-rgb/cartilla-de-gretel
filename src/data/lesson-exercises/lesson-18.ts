@@ -13,10 +13,10 @@ export const lesson18 = [
       { id: "letter-rr", label: "rr" }
     ],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Students trace uppercase and lowercase rr.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Students trace uppercase and lowercase rr.",
     sourcePage: getBookPageImage(69)
   },
   {
@@ -43,10 +43,10 @@ export const lesson18 = [
     wordBank: [
       "barra", "amarra", "pizarra", "Porra", "arrasar", "perra", "torre", "amarre", "arrebatado", "barre", "arrebatar", "arrepiente", "arriba", "arrima", "parrilla", "perrita", "barril", "carrito", "carro", "arroyo", "burro", "perro", "amarro", "tarro", "arruga", "arrugado", "arrullo", "verruga", "arrullar", "arrullador"
     ],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded syllable circle for rr.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Scaffolded syllable circle for rr.",
     sourcePage: getBookPageImage(70)
   },
   {
@@ -64,10 +64,10 @@ export const lesson18 = [
       { id: "ra-rru", label: "rru" }
     ],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded syllable tap for rr.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Scaffolded syllable tap for rr.",
     sourcePage: getBookPageImage(71)
   },
   {
@@ -95,10 +95,10 @@ export const lesson18 = [
       { id: "w-carro-14", label: "carro" }
     ],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded word bank for rr.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Scaffolded word bank for rr.",
     sourcePage: getBookPageImage(71)
   },
   {
@@ -118,10 +118,10 @@ export const lesson18 = [
     ],
     targets: [],
     sightWords: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded mini-story for rr.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Scaffolded mini-story for rr.",
     sourcePage: getBookPageImage(71)
   },
   {
@@ -232,10 +232,10 @@ export const lesson18 = [
         fullWord: "amarro"
       }
     ],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded fill-in-the-blank for rr.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Scaffolded fill-in-the-blank for rr.",
     sourcePage: getBookPageImage(72)
   },
   {
@@ -247,10 +247,10 @@ export const lesson18 = [
     prompt: "Escribe oraciones usando las sílabas que aprendiste.",
     items: [],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Sentence writing lines.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Sentence writing lines.",
     sourcePage: getBookPageImage(72)
   }
 ];

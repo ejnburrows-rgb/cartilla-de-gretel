@@ -1,0 +1,73 @@
+{
+  "generatedAt": "2026-07-12T22:30:27.212Z",
+  "base": "http://127.0.0.1:4191",
+  "results": [
+    {
+      "lesson": 1,
+      "path": "/cartilla/leccion/1",
+      "status": "ok",
+      "screenshot": "generated/activities-qa/lesson-01.png"
+    },
+    {
+      "lesson": 2,
+      "path": "/cartilla/leccion/2",
+      "status": "ok",
+      "screenshot": "generated/activities-qa/lesson-02.png"
+    },
+    {
+      "lesson": 6,
+      "path": "/cartilla/leccion/6",
+      "status": "ok",
+      "screenshot": "generated/activities-qa/lesson-06.png"
+    },
+    {
+      "lesson": 7,
+      "path": "/cartilla/leccion/7",
+      "status": "ok",
+      "screenshot": "generated/activities-qa/lesson-07.png"
+    },
+    {
+      "lesson": 8,
+      "path": "/cartilla/leccion/8",
+      "status": "ok",
+      "screenshot": "generated/activities-qa/lesson-08.png"
+    },
+    {
+      "lesson": 9,
+      "path": "/cartilla/leccion/9",
+      "status": "ok",
+      "screenshot": "generated/activities-qa/lesson-09.png"
+    },
+    {
+      "lesson": 16,
+      "path": "/cartilla/leccion/16",
+      "status": "ok",
+      "screenshot": "generated/activities-qa/lesson-16.png"
+    },
+    {
+      "lesson": 17,
+      "path": "/cartilla/leccion/17",
+      "status": "ok",
+      "screenshot": "generated/activities-qa/lesson-17.png"
+    },
+    {
+      "lesson": 18,
+      "path": "/cartilla/leccion/18",
+      "status": "ok",
+      "screenshot": "generated/activities-qa/lesson-18.png"
+    },
+    {
+      "lesson": 24,
+      "path": "/cartilla/leccion/24",
+      "status": "ok",
+      "screenshot": "generated/activities-qa/lesson-24.png"
+    },
+    {
+      "lesson": null,
+      "path": "/cartilla/lecciones",
+      "status": "ok",
+      "screenshot": "generated/activities-qa/lecciones-index.png"
+    }
+  ],
+  "ok": true
+}

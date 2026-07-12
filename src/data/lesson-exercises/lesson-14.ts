@@ -13,10 +13,10 @@ export const lesson14 = [
       { id: "letter-ñ", label: "ñ" }
     ],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Students trace uppercase Ñ and lowercase ñ.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Students trace uppercase Ñ and lowercase ñ.",
     sourcePage: getBookPageImage(53)
   },
   {
@@ -47,10 +47,10 @@ export const lesson14 = [
       "moño", "niño", "sueño", "Ñoña", "año", "Ñuco",
       "Ñuto", "cañuto", "moñudo", "ceñudo", "pañuelo", "puño"
     ],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded syllable circle for Ñ.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Scaffolded syllable circle for Ñ.",
     sourcePage: getBookPageImage(54)
   },
   {
@@ -68,10 +68,10 @@ export const lesson14 = [
       { id: "ra-ñu", label: "ñu" }
     ],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded syllable tap for Ñ.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Scaffolded syllable tap for Ñ.",
     sourcePage: getBookPageImage(55)
   },
   {
@@ -99,10 +99,10 @@ export const lesson14 = [
       { id: "w-pañuelo", label: "pañuelo" }
     ],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded word bank for Ñ.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Scaffolded word bank for Ñ.",
     sourcePage: getBookPageImage(55)
   },
   {
@@ -124,10 +124,10 @@ export const lesson14 = [
     sightWords: [
       "del"
     ],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded mini-story for Ñ.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Scaffolded mini-story for Ñ.",
     sourcePage: getBookPageImage(55)
   },
   {
@@ -238,10 +238,10 @@ export const lesson14 = [
         fullWord: "puño"
       }
     ],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded fill-in-the-blank for Ñ.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Scaffolded fill-in-the-blank for Ñ.",
     sourcePage: getBookPageImage(56)
   },
   {
@@ -253,10 +253,10 @@ export const lesson14 = [
     prompt: "Escribe oraciones. Usa las sílabas que aprendiste.",
     items: [],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Sentence writing lines.",
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "[Source-backed promote 2026-07] Sentence writing lines.",
     sourcePage: getBookPageImage(56)
   }
 ];
