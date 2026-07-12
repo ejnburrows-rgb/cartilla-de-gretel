@@ -1,0 +1,44 @@
+{
+  "slug": "ojos",
+  "source": "public/cartilla/images/source/o/o-page-4.jpg",
+  "method": "o-page-4-frame-interior",
+  "colors": [
+    {
+      "rgb": [
+        94,
+        148,
+        138
+      ],
+      "hex": "#5e948a",
+      "weight": 701
+    },
+    {
+      "rgb": [
+        29,
+        50,
+        46
+      ],
+      "hex": "#1d322e",
+      "weight": 674
+    },
+    {
+      "rgb": [
+        250,
+        255,
+        253
+      ],
+      "hex": "#fafffd",
+      "weight": 503
+    },
+    {
+      "rgb": [
+        219,
+        234,
+        230
+      ],
+      "hex": "#dbeae6",
+      "weight": 499
+    }
+  ],
+  "colorfulness": 66.83075790657396
+}

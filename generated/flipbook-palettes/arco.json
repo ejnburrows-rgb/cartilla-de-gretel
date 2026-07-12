@@ -1,0 +1,43 @@
+{
+  "slug": "arco",
+  "source": "C:\\Users\\EJN\\Desktop\\cartilla-incoming\\92-page-map\\staged-crops\\flipchart-color\\leccion-1\\arco.webp",
+  "method": "staged-flipchart-color",
+  "colors": [
+    {
+      "rgb": [
+        170,
+        177,
+        174
+      ],
+      "hex": "#aab1ae",
+      "weight": 2576
+    },
+    {
+      "rgb": [
+        177,
+        185,
+        181
+      ],
+      "hex": "#b1b9b5",
+      "weight": 1280
+    },
+    {
+      "rgb": [
+        92,
+        97,
+        92
+      ],
+      "hex": "#5c615c",
+      "weight": 1139
+    },
+    {
+      "rgb": [
+        211,
+        216,
+        214
+      ],
+      "hex": "#d3d8d6",
+      "weight": 592
+    }
+  ]
+}

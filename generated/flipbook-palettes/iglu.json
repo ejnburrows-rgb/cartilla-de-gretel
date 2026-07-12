@@ -1,0 +1,43 @@
+{
+  "slug": "iglu",
+  "source": "C:\\Users\\EJN\\Desktop\\cartilla-incoming\\92-page-map\\staged-crops\\flipchart-color\\vocal-i\\iglu.webp",
+  "method": "staged-flipchart-color",
+  "colors": [
+    {
+      "rgb": [
+        153,
+        168,
+        168
+      ],
+      "hex": "#99a8a8",
+      "weight": 1293
+    },
+    {
+      "rgb": [
+        93,
+        96,
+        97
+      ],
+      "hex": "#5d6061",
+      "weight": 1050
+    },
+    {
+      "rgb": [
+        214,
+        223,
+        223
+      ],
+      "hex": "#d6dfdf",
+      "weight": 781
+    },
+    {
+      "rgb": [
+        248,
+        252,
+        252
+      ],
+      "hex": "#f8fcfc",
+      "weight": 743
+    }
+  ]
+}

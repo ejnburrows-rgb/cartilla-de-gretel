@@ -1,0 +1,11 @@
+C:\Users\EJN\grok-work\cartilla-grok-art-color\scripts\worker_d_final_crops.py:105: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rpx = list(right.resize((20, 40)).getdata())
+C:\Users\EJN\grok-work\cartilla-grok-art-color\scripts\worker_d_final_crops.py:150: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  lpx = list(left.resize((10, 40)).getdata())
+C:\Users\EJN\grok-work\cartilla-grok-art-color\scripts\worker_d_final_crops.py:171: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  counts = Counter(list(q.getdata()))
+o4 (1275, 1650) a5 (1275, 1650)
+ojos final (300, 175)
+ola final (245, 276)
+abeja final (276, 333)
+OK

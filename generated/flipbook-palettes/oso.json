@@ -1,0 +1,53 @@
+{
+  "slug": "oso",
+  "source": "C:\\Users\\EJN\\Desktop\\cartilla-incoming\\92-page-map\\staged-crops\\flipchart-color\\vocal-o\\oso.webp",
+  "method": "staged-flipchart-color",
+  "colors": [
+    {
+      "rgb": [
+        220,
+        141,
+        50
+      ],
+      "hex": "#dc8d32",
+      "weight": 2574
+    },
+    {
+      "rgb": [
+        164,
+        64,
+        18
+      ],
+      "hex": "#a44012",
+      "weight": 2020
+    },
+    {
+      "rgb": [
+        74,
+        38,
+        27
+      ],
+      "hex": "#4a261b",
+      "weight": 1653
+    },
+    {
+      "rgb": [
+        238,
+        207,
+        131
+      ],
+      "hex": "#eecf83",
+      "weight": 1503
+    },
+    {
+      "rgb": [
+        155,
+        111,
+        61
+      ],
+      "hex": "#9b6f3d",
+      "weight": 1256
+    }
+  ],
+  "colorfulness": 108.86584043884636
+}

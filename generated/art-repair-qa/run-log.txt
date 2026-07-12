@@ -1,0 +1,133 @@
+ROOT=C:\Users\EJN\grok-work\cartilla-grok-art-color
+SOURCE_PACK exists=True
+page4 repairs=7
+{
+  "repaired_count": 7,
+  "transfer_count_high_medium": 10,
+  "colorized_page_count": 6,
+  "page4": [
+    {
+      "slug": "ojos",
+      "verdict": "FIXED_FROM_SOURCE",
+      "confidence": "MEDIUM",
+      "method": "flipchart-exercise-recrop",
+      "source": "C:\\Users\\EJN\\grok-work\\cartilla-grok-art-color\\public\\cartilla\\images\\source\\o\\o-page-4.jpg",
+      "orientation": "upright_or_unknown",
+      "notes": "No dedicated flipchart color vocab panel; crop from o-page-4 exercise (teal eyes)",
+      "output": "public/cartilla/art/color/workbook/ojos.webp",
+      "before": "public/cartilla/art/faithful/vocal-o/ojos.webp",
+      "size": [
+        357,
+        297
+      ],
+      "colorfulness": 55.71,
+      "monochrome": false
+    },
+    {
+      "slug": "oreja",
+      "verdict": "FIXED_FROM_SOURCE",
+      "confidence": "HIGH",
+      "method": "flipchart-recrop-oreja-recomputed",
+      "source": "C:\\Users\\EJN\\grok-work\\cartilla-grok-art-color\\public\\cartilla\\images\\source\\o\\o-page-3.jpg",
+      "orientation": "upright_or_unknown",
+      "notes": "Corrupt 11x12 cropBox replaced; upright ear from o-page-3",
+      "output": "public/cartilla/art/color/workbook/oreja.webp",
+      "before": "public/cartilla/art/faithful/vocal-o/oreja.webp",
+      "size": [
+        1102,
+        932
+      ],
+      "colorfulness": 49.75,
+      "monochrome": false
+    },
+    {
+      "slug": "abeja",
+      "verdict": "FIXED_FROM_SOURCE",
+      "confidence": "LOW",
+      "method": "a-page-5-lineart-recrop",
+      "source": "C:\\Users\\EJN\\grok-work\\cartilla-grok-art-color\\public\\cartilla\\images\\source\\a\\a-page-5.jpg",
+      "orientation": "upright_or_unknown",
+      "notes": "Lineart only; no full-color flipchart abeja panel in available sources",
+      "output": "public/cartilla/art/color/workbook/abeja.webp",
+      "before": "public/cartilla/art/faithful/vocal-a/abeja.webp",
+      "size": [
+        357,
+        363
+      ],
+      "colorfulness": 75.8,
+      "monochrome": false
+    },
+    {
+      "slug": "ola",
+      "verdict": "FIXED_FROM_SOURCE",
+      "confidence": "LOW",
+      "method": "flipchart-exercise-recrop-monochrome",
+      "source": "C:\\Users\\EJN\\grok-work\\cartilla-grok-art-color\\public\\cartilla\\images\\source\\o\\o-page-4.jpg",
+      "orientation": "maybe_rotated_180",
+      "notes": "Wave is monochrome lineart on flipchart exercise page; no full-color match; orientation heuristic uncertain",
+      "output": "public/cartilla/art/color/workbook/ola.webp",
+      "before": "public/cartilla/art/faithful/leccion-1/ola.webp",
+      "size": [
+        357,
+        363
+      ],
+      "colorfulness": 58.73,
+      "monochrome": false
+    },
+    {
+      "slug": "oso",
+      "verdict": "VERIFIED_UPRIGHT",
+      "confidence": "HIGH",
+      "method": "staged-flipchart-color",
+      "source": "C:\\Users\\EJN\\Desktop\\cartilla-incoming\\92-page-map\\staged-crops\\flipchart-color\\vocal-o\\oso.webp",
+      "orientation": "maybe_rotated_180",
+      "notes": "",
+      "output": "public/cartilla/art/color/workbook/oso.webp",
+      "before": "public/cartilla/art/faithful/vocal-o/oso.webp",
+      "size": [
+        750,
+        554
+      ],
+      "colorfulness": 98.31,
+      "monochrome": false
+    },
+    {
+      "slug": "olla",
+      "verdict": "VERIFIED_UPRIGHT",
+      "confidence": "HIGH",
+      "method": "staged-flipchart-color",
+      "source": "C:\\Users\\EJN\\Desktop\\cartilla-incoming\\92-page-map\\staged-crops\\flipchart-color\\vocal-o\\olla.webp",
+      "orientation": "maybe_rotated_180",
+      "notes": "",
+      "output": "public/cartilla/art/color/workbook/olla.webp",
+      "before": "public/cartilla/art/faithful/vocal-o/olla.webp",
+      "size": [
+        798,
+        517
+      ],
+      "colorfulness": 62.7,
+      "monochrome": false
+    },
+    {
+      "slug": "oveja",
+      "verdict": "VERIFIED_UPRIGHT",
+      "confidence": "HIGH",
+      "method": "staged-flipchart-color",
+      "source": "C:\\Users\\EJN\\Desktop\\cartilla-incoming\\92-page-map\\staged-crops\\flipchart-color\\vocal-o\\oveja.webp",
+      "orientation": "upright_or_unknown",
+      "notes": "",
+      "output": "public/cartilla/art/color/workbook/oveja.webp",
+      "before": "public/cartilla/art/faithful/vocal-o/oveja.webp",
+      "size": [
+        807,
+        511
+      ],
+      "colorfulness": 76.06,
+      "monochrome": false
+    }
+  ],
+  "terminals": {
+    "ART_REPAIR": "COMPLETE",
+    "FLIPBOOK_COLOR_TRANSFER": "COMPLETE"
+  }
+}

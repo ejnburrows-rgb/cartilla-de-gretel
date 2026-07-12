@@ -1,0 +1,44 @@
+{
+  "slug": "olla",
+  "source": "C:\\Users\\EJN\\Desktop\\cartilla-incoming\\92-page-map\\staged-crops\\flipchart-color\\vocal-o\\olla.webp",
+  "method": "staged-flipchart-color",
+  "colors": [
+    {
+      "rgb": [
+        144,
+        210,
+        241
+      ],
+      "hex": "#90d2f1",
+      "weight": 1868
+    },
+    {
+      "rgb": [
+        63,
+        70,
+        116
+      ],
+      "hex": "#3f4674",
+      "weight": 990
+    },
+    {
+      "rgb": [
+        189,
+        224,
+        243
+      ],
+      "hex": "#bde0f3",
+      "weight": 885
+    },
+    {
+      "rgb": [
+        91,
+        193,
+        233
+      ],
+      "hex": "#5bc1e9",
+      "weight": 820
+    }
+  ],
+  "colorfulness": 71.69343925393672
+}

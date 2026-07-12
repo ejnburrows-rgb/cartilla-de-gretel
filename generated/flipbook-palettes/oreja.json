@@ -1,0 +1,62 @@
+{
+  "slug": "oreja",
+  "source": "public/cartilla/images/source/o/o-page-3.jpg",
+  "method": "faithful-verified + o-page-3 crosscheck",
+  "colors": [
+    {
+      "rgb": [
+        204,
+        147,
+        134
+      ],
+      "hex": "#cc9386",
+      "weight": 1508
+    },
+    {
+      "rgb": [
+        238,
+        149,
+        162
+      ],
+      "hex": "#ee95a2",
+      "weight": 1304
+    },
+    {
+      "rgb": [
+        249,
+        225,
+        197
+      ],
+      "hex": "#f9e1c5",
+      "weight": 1275
+    },
+    {
+      "rgb": [
+        180,
+        121,
+        119
+      ],
+      "hex": "#b47977",
+      "weight": 1202
+    },
+    {
+      "rgb": [
+        80,
+        46,
+        49
+      ],
+      "hex": "#502e31",
+      "weight": 1011
+    },
+    {
+      "rgb": [
+        229,
+        185,
+        168
+      ],
+      "hex": "#e5b9a8",
+      "weight": 712
+    }
+  ],
+  "colorfulness": 81.368931537968
+}

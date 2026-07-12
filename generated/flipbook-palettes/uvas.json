@@ -1,0 +1,52 @@
+{
+  "slug": "uvas",
+  "source": "C:\\Users\\EJN\\Desktop\\cartilla-incoming\\92-page-map\\staged-crops\\flipchart-color\\vocal-u\\uvas.webp",
+  "method": "staged-flipchart-color",
+  "colors": [
+    {
+      "rgb": [
+        96,
+        133,
+        24
+      ],
+      "hex": "#608518",
+      "weight": 1680
+    },
+    {
+      "rgb": [
+        25,
+        8,
+        21
+      ],
+      "hex": "#190815",
+      "weight": 1088
+    },
+    {
+      "rgb": [
+        182,
+        5,
+        114
+      ],
+      "hex": "#b60572",
+      "weight": 822
+    },
+    {
+      "rgb": [
+        133,
+        5,
+        96
+      ],
+      "hex": "#850560",
+      "weight": 509
+    },
+    {
+      "rgb": [
+        162,
+        194,
+        87
+      ],
+      "hex": "#a2c257",
+      "weight": 128
+    }
+  ]
+}

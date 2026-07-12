@@ -1,0 +1,194 @@
+[
+  {
+    "slug": "ojos",
+    "workbook_source": "public/cartilla/art/faithful/vocal-o/ojos.webp",
+    "flipchart_source": "public/cartilla/images/source/o/o-page-4.jpg",
+    "orientation": "upright",
+    "confidence": "MEDIUM",
+    "method": "o-page-4-frame-interior",
+    "output": "public/cartilla/art/color/workbook/ojos.webp",
+    "qa_verdict": "FIXED_FROM_SOURCE",
+    "notes": "Teal eyes from exercise page; no full painted flipchart vocab panel",
+    "join": null
+  },
+  {
+    "slug": "oreja",
+    "workbook_source": "public/cartilla/art/faithful/vocal-o/oreja.webp",
+    "flipchart_source": "public/cartilla/images/source/o/o-page-3.jpg",
+    "orientation": "upright",
+    "confidence": "HIGH",
+    "method": "faithful-verified + o-page-3 crosscheck",
+    "output": "public/cartilla/art/color/workbook/oreja.webp",
+    "qa_verdict": "FIXED_FROM_SOURCE",
+    "notes": "Corrupt 11x12 cropBox replaced; upright color ear",
+    "join": null
+  },
+  {
+    "slug": "abeja",
+    "workbook_source": "public/cartilla/art/faithful/vocal-a/abeja.webp",
+    "flipchart_source": "public/cartilla/images/source/a/a-page-5.jpg",
+    "orientation": "upright",
+    "confidence": "UNMATCHED",
+    "method": "a-page-5-frame-interior-lineart",
+    "output": "public/cartilla/art/color/workbook/abeja.webp",
+    "qa_verdict": "FIXED_FROM_SOURCE",
+    "notes": "Lineart only; no full-color flipchart abeja in available sources; unmatched for color transfer",
+    "join": null
+  },
+  {
+    "slug": "ola",
+    "workbook_source": "public/cartilla/art/faithful/leccion-1/ola.webp",
+    "flipchart_source": "public/cartilla/images/source/o/o-page-4.jpg",
+    "orientation": "upright",
+    "confidence": "UNMATCHED",
+    "method": "o-page-4-frame-interior-monochrome",
+    "output": "public/cartilla/art/color/workbook/ola.webp",
+    "qa_verdict": "FIXED_FROM_SOURCE",
+    "notes": "Monochrome wave; no full-color flipchart match",
+    "join": null
+  },
+  {
+    "slug": "oso",
+    "workbook_source": "public/cartilla/art/faithful/vocal-o/oso.webp",
+    "flipchart_source": "C:\\Users\\EJN\\Desktop\\cartilla-incoming\\92-page-map\\staged-crops\\flipchart-color\\vocal-o\\oso.webp",
+    "orientation": "upright",
+    "confidence": "HIGH",
+    "method": "staged-flipchart-color",
+    "output": "public/cartilla/art/color/workbook/oso.webp",
+    "qa_verdict": "VERIFIED_UPRIGHT",
+    "notes": "Flipchart color authority o-page-3",
+    "join": {
+      "workbook_asset_id": "PAGE-004-OBJECT-14",
+      "flipchart_asset_id": "FC-oso-p004-14",
+      "physical_page": "4",
+      "flipchart_page_id": "o-page-3.jpg",
+      "join_status": "operator-confirmed"
+    }
+  },
+  {
+    "slug": "olla",
+    "workbook_source": "public/cartilla/art/faithful/vocal-o/olla.webp",
+    "flipchart_source": "C:\\Users\\EJN\\Desktop\\cartilla-incoming\\92-page-map\\staged-crops\\flipchart-color\\vocal-o\\olla.webp",
+    "orientation": "upright",
+    "confidence": "HIGH",
+    "method": "staged-flipchart-color",
+    "output": "public/cartilla/art/color/workbook/olla.webp",
+    "qa_verdict": "VERIFIED_UPRIGHT",
+    "notes": "Flipchart color authority o-page-3",
+    "join": {
+      "workbook_asset_id": "PAGE-004-OBJECT-09",
+      "flipchart_asset_id": "FC-olla-p004-09",
+      "physical_page": "4",
+      "flipchart_page_id": "o-page-3.jpg",
+      "join_status": "operator-confirmed"
+    }
+  },
+  {
+    "slug": "oveja",
+    "workbook_source": "public/cartilla/art/faithful/vocal-o/oveja.webp",
+    "flipchart_source": "C:\\Users\\EJN\\Desktop\\cartilla-incoming\\92-page-map\\staged-crops\\flipchart-color\\vocal-o\\oveja.webp",
+    "orientation": "upright",
+    "confidence": "HIGH",
+    "method": "staged-flipchart-color-label-trimmed",
+    "output": "public/cartilla/art/color/workbook/oveja.webp",
+    "qa_verdict": "VERIFIED_UPRIGHT",
+    "notes": "Flipchart color authority o-page-3; word label trimmed",
+    "join": {
+      "workbook_asset_id": "PAGE-004-OBJECT-06",
+      "flipchart_asset_id": "FC-oveja-p004-06",
+      "physical_page": "4",
+      "flipchart_page_id": "o-page-3.jpg",
+      "join_status": "operator-confirmed"
+    }
+  },
+  {
+    "slug": "arco",
+    "workbook_source": "C:\\Users\\EJN\\Desktop\\cartilla-incoming\\92-page-map\\staged-crops\\workbook-line\\page-004\\arco.webp",
+    "flipchart_source": "C:\\Users\\EJN\\Desktop\\cartilla-incoming\\92-page-map\\staged-crops\\flipchart-color\\leccion-1\\arco.webp",
+    "orientation": "upright",
+    "confidence": "HIGH",
+    "method": "staged-flipchart-color",
+    "output": "public/cartilla/art/color/workbook/arco.webp",
+    "qa_verdict": "VERIFIED_UPRIGHT",
+    "notes": "Pre-staged flipchart color crop",
+    "join": {
+      "workbook_asset_id": "PAGE-004-OBJECT-05",
+      "flipchart_asset_id": "FC-arco-p004-05",
+      "physical_page": "4",
+      "flipchart_page_id": "u-page-16.jpg",
+      "join_status": "operator-confirmed"
+    }
+  },
+  {
+    "slug": "maiz",
+    "workbook_source": "C:\\Users\\EJN\\Desktop\\cartilla-incoming\\92-page-map\\staged-crops\\workbook-line\\page-004\\maiz.webp",
+    "flipchart_source": "C:\\Users\\EJN\\Desktop\\cartilla-incoming\\92-page-map\\staged-crops\\flipchart-color\\leccion-1\\maiz.webp",
+    "orientation": "upright",
+    "confidence": "HIGH",
+    "method": "staged-flipchart-color",
+    "output": "public/cartilla/art/color/workbook/maiz.webp",
+    "qa_verdict": "VERIFIED_UPRIGHT",
+    "notes": "Pre-staged flipchart color crop",
+    "join": {
+      "workbook_asset_id": "PAGE-004-OBJECT-04",
+      "flipchart_asset_id": "FC-maiz-p004-04",
+      "physical_page": "4",
+      "flipchart_page_id": "a-page-4.jpg",
+      "join_status": "operator-confirmed"
+    }
+  },
+  {
+    "slug": "traje",
+    "workbook_source": "C:\\Users\\EJN\\Desktop\\cartilla-incoming\\92-page-map\\staged-crops\\workbook-line\\page-004\\traje.webp",
+    "flipchart_source": "C:\\Users\\EJN\\Desktop\\cartilla-incoming\\92-page-map\\staged-crops\\flipchart-color\\leccion-1\\traje.webp",
+    "orientation": "upright",
+    "confidence": "HIGH",
+    "method": "staged-flipchart-color",
+    "output": "public/cartilla/art/color/workbook/traje.webp",
+    "qa_verdict": "VERIFIED_UPRIGHT",
+    "notes": "Pre-staged flipchart color crop",
+    "join": {
+      "workbook_asset_id": "PAGE-004-OBJECT-15",
+      "flipchart_asset_id": "FC-traje-p004-15",
+      "physical_page": "4",
+      "flipchart_page_id": "u-page-16.jpg",
+      "join_status": "operator-confirmed"
+    }
+  },
+  {
+    "slug": "iglu",
+    "workbook_source": "C:\\Users\\EJN\\Desktop\\cartilla-incoming\\92-page-map\\staged-crops\\workbook-line\\page-004\\iglu.webp",
+    "flipchart_source": "C:\\Users\\EJN\\Desktop\\cartilla-incoming\\92-page-map\\staged-crops\\flipchart-color\\vocal-i\\iglu.webp",
+    "orientation": "upright",
+    "confidence": "HIGH",
+    "method": "staged-flipchart-color",
+    "output": "public/cartilla/art/color/workbook/iglu.webp",
+    "qa_verdict": "VERIFIED_UPRIGHT",
+    "notes": "Pre-staged flipchart color crop",
+    "join": {
+      "workbook_asset_id": "PAGE-004-OBJECT-02",
+      "flipchart_asset_id": "FC-iglu-p004-02",
+      "physical_page": "4",
+      "flipchart_page_id": "i-page-14.jpg",
+      "join_status": "operator-confirmed"
+    }
+  },
+  {
+    "slug": "uvas",
+    "workbook_source": "C:\\Users\\EJN\\Desktop\\cartilla-incoming\\92-page-map\\staged-crops\\workbook-line\\page-004\\uvas.webp",
+    "flipchart_source": "C:\\Users\\EJN\\Desktop\\cartilla-incoming\\92-page-map\\staged-crops\\flipchart-color\\vocal-u\\uvas.webp",
+    "orientation": "upright",
+    "confidence": "HIGH",
+    "method": "staged-flipchart-color",
+    "output": "public/cartilla/art/color/workbook/uvas.webp",
+    "qa_verdict": "VERIFIED_UPRIGHT",
+    "notes": "Pre-staged flipchart color crop",
+    "join": {
+      "workbook_asset_id": "PAGE-004-OBJECT-10",
+      "flipchart_asset_id": "FC-uvas-p004-10",
+      "physical_page": "4",
+      "flipchart_page_id": "u-page-7.jpg",
+      "join_status": "operator-confirmed"
+    }
+  }
+]
