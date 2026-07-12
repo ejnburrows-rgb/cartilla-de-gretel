@@ -1,0 +1,860 @@
+{
+  "generatedAt": "2026-07-12T22:24:26.843Z",
+  "phase": "final-release-qa",
+  "root": "C:\\Users\\EJN\\grok-work\\cartilla-grok-validation",
+  "summary": {
+    "checked": 121,
+    "problems": 0,
+    "ok": true
+  },
+  "problems": [],
+  "checked": [
+    {
+      "kind": "manifest-present",
+      "ref": "faithful/manifest.json",
+      "where": "root",
+      "ok": true,
+      "detail": "entries=112"
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-i/iglu.webp",
+      "where": "slug=iglu",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-o/oso.webp",
+      "where": "slug=oso",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-e/estrella.webp",
+      "where": "slug=estrella",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-a/abanico.webp",
+      "where": "slug=abanico",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-a/alas.webp",
+      "where": "slug=alas",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-a/arana.webp",
+      "where": "slug=arana",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-e/elefante.webp",
+      "where": "slug=elefante",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-e/erizo.webp",
+      "where": "slug=erizo",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-e/escalera.webp",
+      "where": "slug=escalera",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-i/indio.webp",
+      "where": "slug=indio",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-i/insecto.webp",
+      "where": "slug=insecto",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-i/isla.webp",
+      "where": "slug=isla",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-o/ocho.webp",
+      "where": "slug=ocho",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-o/oreja.webp",
+      "where": "slug=oreja",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-u/unicornio.webp",
+      "where": "slug=unicornio",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-e/espejo.webp",
+      "where": "slug=espejo",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-u/uno.webp",
+      "where": "slug=uno",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-o/oveja.webp",
+      "where": "slug=oveja",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-a/avion.webp",
+      "where": "slug=avion",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-a/aro.webp",
+      "where": "slug=aro",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-i/iman.webp",
+      "where": "slug=iman",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-o/olla.webp",
+      "where": "slug=olla",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-u/uvas.webp",
+      "where": "slug=uvas",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-1/abrigo.webp",
+      "where": "slug=abrigo",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-i/iglesia.webp",
+      "where": "slug=iglesia",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-o/ojos.webp",
+      "where": "slug=ojos",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-o/oruga.webp",
+      "where": "slug=oruga",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-e/escoba.webp",
+      "where": "slug=escoba",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-19-c/casa.webp",
+      "where": "slug=casa",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-1/ola.webp",
+      "where": "slug=ola",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-1/pajaro.webp",
+      "where": "slug=pajaro",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-1/remolino.webp",
+      "where": "slug=remolino",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-18-rr/carro.webp",
+      "where": "slug=carro",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-1/dulce.webp",
+      "where": "slug=dulce",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-1/globo.webp",
+      "where": "slug=globo",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-1/libro.webp",
+      "where": "slug=libro",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-1/maiz.webp",
+      "where": "slug=maiz",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-a/abeja.webp",
+      "where": "slug=abeja",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-a/arbol.webp",
+      "where": "slug=arbol",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-a/ardilla.webp",
+      "where": "slug=ardilla",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-e/escuela.webp",
+      "where": "slug=escuela",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-i/igual.webp",
+      "where": "slug=igual",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-i/iguana.webp",
+      "where": "slug=iguana",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-i/invierno.webp",
+      "where": "slug=invierno",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-u/uña.webp",
+      "where": "slug=uña",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-a/aguja.webp",
+      "where": "slug=aguja",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-a/anillo.webp",
+      "where": "slug=anillo",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-1/manzana.webp",
+      "where": "slug=manzana",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-1/pera.webp",
+      "where": "slug=pera",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-1/taza.webp",
+      "where": "slug=taza",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/vocal-u/uniforme.webp",
+      "where": "slug=uniforme",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-7-m/mama.webp",
+      "where": "slug=mama",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-7-m/mono.webp",
+      "where": "slug=mono",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-7-m/moto.webp",
+      "where": "slug=moto",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-7-m/mapa.webp",
+      "where": "slug=mapa",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-8-p/papa.webp",
+      "where": "slug=papa",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-8-p/pez.webp",
+      "where": "slug=pez",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-8-p/pino.webp",
+      "where": "slug=pino",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-8-p/pulpo.webp",
+      "where": "slug=pulpo",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-9-s/sapo.webp",
+      "where": "slug=sapo",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-9-s/sol.webp",
+      "where": "slug=sol",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-9-s/sopa.webp",
+      "where": "slug=sopa",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-9-s/silla.webp",
+      "where": "slug=silla",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-10-t/tapa.webp",
+      "where": "slug=tapa",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-10-t/tomate.webp",
+      "where": "slug=tomate",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-10-t/tina.webp",
+      "where": "slug=tina",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-10-t/tulipan.webp",
+      "where": "slug=tulipan",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-11-d/dado.webp",
+      "where": "slug=dado",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-11-d/delfin.webp",
+      "where": "slug=delfin",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-11-d/dona.webp",
+      "where": "slug=dona",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-11-d/ducha.webp",
+      "where": "slug=ducha",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-12-l/luna.webp",
+      "where": "slug=luna",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-12-l/lobo.webp",
+      "where": "slug=lobo",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-12-l/loro.webp",
+      "where": "slug=loro",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-12-l/lupa.webp",
+      "where": "slug=lupa",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-13-n/nariz.webp",
+      "where": "slug=nariz",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-13-n/nido.webp",
+      "where": "slug=nido",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-13-n/nube.webp",
+      "where": "slug=nube",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-13-n/nata.webp",
+      "where": "slug=nata",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-14-n/pina.webp",
+      "where": "slug=pina",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-14-n/muneca.webp",
+      "where": "slug=muneca",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-14-n/nino.webp",
+      "where": "slug=nino",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-15-b/barco.webp",
+      "where": "slug=barco",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-15-b/bebe.webp",
+      "where": "slug=bebe",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-15-b/bici.webp",
+      "where": "slug=bici",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-15-b/bota.webp",
+      "where": "slug=bota",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-16-v/vaca.webp",
+      "where": "slug=vaca",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-16-v/vela.webp",
+      "where": "slug=vela",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-16-v/vino.webp",
+      "where": "slug=vino",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-16-v/volcan.webp",
+      "where": "slug=volcan",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-17-r/rana.webp",
+      "where": "slug=rana",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-17-r/rosa.webp",
+      "where": "slug=rosa",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-17-r/remo.webp",
+      "where": "slug=remo",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-18-rr/perro.webp",
+      "where": "slug=perro",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-18-rr/torre.webp",
+      "where": "slug=torre",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-18-rr/barril.webp",
+      "where": "slug=barril",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-19-c/cono.webp",
+      "where": "slug=cono",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-19-c/cuna.webp",
+      "where": "slug=cuna",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-19-c/camisa.webp",
+      "where": "slug=camisa",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-22-y/yoyo.webp",
+      "where": "slug=yoyo",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-22-y/yate.webp",
+      "where": "slug=yate",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-22-y/yegua.webp",
+      "where": "slug=yegua",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-22-y/yema.webp",
+      "where": "slug=yema",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-23-z/zapato.webp",
+      "where": "slug=zapato",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-23-z/zanahoria.webp",
+      "where": "slug=zanahoria",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-23-z/cisne.webp",
+      "where": "slug=cisne",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-23-z/cepillo.webp",
+      "where": "slug=cepillo",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-23-z/zorro.webp",
+      "where": "slug=zorro",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-1/traje.webp",
+      "where": "slug=traje",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-1/arco.webp",
+      "where": "slug=arco",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-1/pez.webp",
+      "where": "slug=pez",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "faithful-src",
+      "ref": "/cartilla/art/faithful/leccion-1/aguila.webp",
+      "where": "slug=aguila",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "gretel-pose",
+      "ref": "/cartilla/images/gretel/poses/gretel-idle.webp",
+      "where": "poses",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "gretel-pose",
+      "ref": "/cartilla/images/gretel/poses/gretel-cheer.webp",
+      "where": "poses",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "gretel-pose",
+      "ref": "/cartilla/images/gretel/poses/gretel-point.webp",
+      "where": "poses",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "gretel-pose",
+      "ref": "/cartilla/images/gretel/poses/gretel-talk.webp",
+      "where": "poses",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "gretel-pose",
+      "ref": "/cartilla/images/gretel/poses/gretel-wave.webp",
+      "where": "poses",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "gretel-pose",
+      "ref": "/cartilla/images/gretel/poses/gretel-blink.webp",
+      "where": "poses",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "kind": "hd-workbook-dir",
+      "ref": "public/cartilla/art/hd/workbook",
+      "where": "assets",
+      "ok": true,
+      "detail": "files=206"
+    },
+    {
+      "kind": "workbook-manifest",
+      "ref": "src/content/workbook/workbook-manifest.json",
+      "where": "content",
+      "ok": true,
+      "detail": "pageCount=90"
+    }
+  ]
+}
