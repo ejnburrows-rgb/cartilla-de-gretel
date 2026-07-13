@@ -6448,7 +6448,8 @@
               },
               {
                 "word": "foto",
-                "correct": false
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-20-f/foto.webp"
               },
               {
                 "word": "fama",
@@ -6495,7 +6496,8 @@
             [
               {
                 "word": "foto",
-                "correct": false
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-20-f/foto.webp"
               },
               {
                 "word": "Felipe",
@@ -6537,7 +6539,8 @@
               },
               {
                 "word": "foto",
-                "correct": false
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-20-f/foto.webp"
               },
               {
                 "word": "Fifi",
@@ -6556,7 +6559,8 @@
             [
               {
                 "word": "foto",
-                "correct": true
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-20-f/foto.webp"
               },
               {
                 "word": "Fufu",
@@ -6902,11 +6906,13 @@
             [
               {
                 "word": "jirafa",
-                "correct": true
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-21-j/jirafa.webp"
               },
               {
                 "word": "jarra",
-                "correct": false
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-21-j/jarra.webp"
               },
               {
                 "word": "jinete",
@@ -6943,7 +6949,8 @@
               },
               {
                 "word": "jirafa",
-                "correct": false
+                "correct": false,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-21-j/jirafa.webp"
               },
               {
                 "word": "joven",
@@ -6984,7 +6991,8 @@
               },
               {
                 "word": "jugo",
-                "correct": true
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-21-j/jugo.webp"
               }
             ],
             [
@@ -8145,7 +8153,8 @@
               },
               {
                 "word": "Zulema",
-                "correct": true
+                "correct": true,
+                "illustrationSrc": "/cartilla/art/faithful/leccion-23-z/zulema.webp"
               },
               {
                 "word": "Cecilia",

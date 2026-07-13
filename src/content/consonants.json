@@ -893,7 +893,8 @@
     "vocab": [
       {
         "word": "gaveta",
-        "emoji": "🗄"
+        "emoji": "🗄",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-19-g/gaveta.webp"
       },
       {
         "word": "gusano",
@@ -902,15 +903,18 @@
       },
       {
         "word": "Goloso",
-        "emoji": "😋"
+        "emoji": "😋",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-19-g/goloso.webp"
       },
       {
         "word": "gorra",
-        "emoji": "🧢"
+        "emoji": "🧢",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-19-g/gorra.webp"
       },
       {
         "word": "mago",
-        "emoji": "🧙"
+        "emoji": "🧙",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-19-g/mago.webp"
       }
     ],
     "examples": {
@@ -948,23 +952,28 @@
     "vocab": [
       {
         "word": "foto",
-        "emoji": "📷"
+        "emoji": "📷",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-20-f/foto.webp"
       },
       {
         "word": "fideos",
-        "emoji": "🍜"
+        "emoji": "🍜",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-20-f/fideos.webp"
       },
       {
         "word": "familia",
-        "emoji": "👨‍👩‍👧"
+        "emoji": "👨‍👩‍👧",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-20-f/familia.webp"
       },
       {
         "word": "Felo",
-        "emoji": "👦"
+        "emoji": "👦",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-20-f/felo.webp"
       },
       {
         "word": "funda",
-        "emoji": "📱"
+        "emoji": "📱",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-20-f/funda.webp"
       }
     ],
     "examples": {
@@ -1004,23 +1013,28 @@
     "vocab": [
       {
         "word": "jicotea",
-        "emoji": "🐢"
+        "emoji": "🐢",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-21-j/jicotea.webp"
       },
       {
         "word": "jugo",
-        "emoji": "🧃"
+        "emoji": "🧃",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-21-j/jugo.webp"
       },
       {
         "word": "Jesús",
-        "emoji": "👦"
+        "emoji": "👦",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-21-j/jesus.webp"
       },
       {
         "word": "ajo",
-        "emoji": "🧄"
+        "emoji": "🧄",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-21-j/ajo.webp"
       },
       {
         "word": "jarra",
-        "emoji": "🏺"
+        "emoji": "🏺",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-21-j/jarra.webp"
       }
     ],
     "examples": {
@@ -1065,7 +1079,8 @@
       },
       {
         "word": "conejo",
-        "emoji": "🐰"
+        "emoji": "🐰",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-19-c/conejo.webp"
       },
       {
         "word": "casa",
@@ -1074,11 +1089,13 @@
       },
       {
         "word": "cubo",
-        "emoji": "🧊"
+        "emoji": "🧊",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-19-c/cubo.webp"
       },
       {
         "word": "Catalina",
-        "emoji": "👧"
+        "emoji": "👧",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-19-c/catalina.webp"
       }
     ],
     "examples": {
@@ -1126,11 +1143,13 @@
       },
       {
         "word": "Yayita",
-        "emoji": "👧"
+        "emoji": "👧",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yayita.webp"
       },
       {
         "word": "mayúscula",
-        "emoji": "🔤"
+        "emoji": "🔤",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/mayuscula.webp"
       },
       {
         "word": "yoyo",
@@ -1179,7 +1198,8 @@
       },
       {
         "word": "zig-zag",
-        "emoji": "⚡"
+        "emoji": "⚡",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-23-z/zigzag.webp"
       },
       {
         "word": "zorro",
@@ -1188,11 +1208,13 @@
       },
       {
         "word": "zepelín",
-        "emoji": "🎈"
+        "emoji": "🎈",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-23-z/zepelin.webp"
       },
       {
         "word": "Zulema",
-        "emoji": "👧"
+        "emoji": "👧",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-23-z/zulema.webp"
       }
     ],
     "examples": {
