@@ -24,13 +24,11 @@
       },
       {
         "word": "moto",
-        "emoji": "🛵",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/moto.webp"
+        "emoji": "🛵"
       },
       {
         "word": "mapa",
-        "emoji": "🗺️",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/mapa.webp"
+        "emoji": "🗺️"
       }
     ],
     "examples": {
@@ -100,13 +98,11 @@
       },
       {
         "word": "pino",
-        "emoji": "🌲",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-8-p/pino.webp"
+        "emoji": "🌲"
       },
       {
         "word": "pulpo",
-        "emoji": "🐙",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-8-p/pulpo.webp"
+        "emoji": "🐙"
       }
     ],
     "examples": {
@@ -171,8 +167,7 @@
       },
       {
         "word": "sol",
-        "emoji": "☀️",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-9-s/sol.webp"
+        "emoji": "☀️"
       },
       {
         "word": "sopa",
@@ -181,8 +176,7 @@
       },
       {
         "word": "silla",
-        "emoji": "💺",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-9-s/silla.webp"
+        "emoji": "💺"
       }
     ],
     "examples": {
@@ -242,23 +236,19 @@
     "vocab": [
       {
         "word": "tapa",
-        "emoji": "🫙",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tapa.webp"
+        "emoji": "🫙"
       },
       {
         "word": "tomate",
-        "emoji": "🍅",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tomate.webp"
+        "emoji": "🍅"
       },
       {
         "word": "tina",
-        "emoji": "🛁",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tina.webp"
+        "emoji": "🛁"
       },
       {
         "word": "tulipán",
-        "emoji": "🌷",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tulipan.webp"
+        "emoji": "🌷"
       }
     ],
     "examples": {
@@ -323,18 +313,15 @@
       },
       {
         "word": "delfín",
-        "emoji": "🐬",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/delfin.webp"
+        "emoji": "🐬"
       },
       {
         "word": "dona",
-        "emoji": "🍩",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/dona.webp"
+        "emoji": "🍩"
       },
       {
         "word": "ducha",
-        "emoji": "🚿",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/ducha.webp"
+        "emoji": "🚿"
       }
     ],
     "examples": {
@@ -394,23 +381,19 @@
     "vocab": [
       {
         "word": "luna",
-        "emoji": "🌙",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/luna.webp"
+        "emoji": "🌙"
       },
       {
         "word": "lobo",
-        "emoji": "🐺",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/lobo.webp"
+        "emoji": "🐺"
       },
       {
         "word": "loro",
-        "emoji": "🦜",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/loro.webp"
+        "emoji": "🦜"
       },
       {
         "word": "lupa",
-        "emoji": "🔍",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/lupa.webp"
+        "emoji": "🔍"
       }
     ],
     "examples": {
@@ -470,8 +453,7 @@
     "vocab": [
       {
         "word": "nariz",
-        "emoji": "👃",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-13-n/nariz.webp"
+        "emoji": "👃"
       },
       {
         "word": "nido",
@@ -480,13 +462,11 @@
       },
       {
         "word": "nube",
-        "emoji": "☁️",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-13-n/nube.webp"
+        "emoji": "☁️"
       },
       {
         "word": "nata",
-        "emoji": "🍦",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-13-n/nata.webp"
+        "emoji": "🍦"
       }
     ],
     "examples": {
@@ -546,18 +526,15 @@
     "vocab": [
       {
         "word": "piña",
-        "emoji": "🍍",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-14-n/pina.webp"
+        "emoji": "🍍"
       },
       {
         "word": "muñeca",
-        "emoji": "🪆",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-14-n/muneca.webp"
+        "emoji": "🪆"
       },
       {
         "word": "niño",
-        "emoji": "👦",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-14-n/nino.webp"
+        "emoji": "👦"
       },
       {
         "word": "araña",
@@ -622,8 +599,7 @@
     "vocab": [
       {
         "word": "barco",
-        "emoji": "🚢",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-15-b/barco.webp"
+        "emoji": "🚢"
       },
       {
         "word": "bebé",
@@ -632,8 +608,7 @@
       },
       {
         "word": "bici",
-        "emoji": "🚲",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-15-b/bici.webp"
+        "emoji": "🚲"
       },
       {
         "word": "bota",
@@ -698,8 +673,7 @@
     "vocab": [
       {
         "word": "vaca",
-        "emoji": "🐄",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/vaca.webp"
+        "emoji": "🐄"
       },
       {
         "word": "vela",
@@ -708,13 +682,11 @@
       },
       {
         "word": "vino",
-        "emoji": "🍷",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/vino.webp"
+        "emoji": "🍷"
       },
       {
         "word": "volcán",
-        "emoji": "🌋",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/volcan.webp"
+        "emoji": "🌋"
       }
     ],
     "examples": {
