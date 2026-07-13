@@ -35,8 +35,12 @@ export const Route = createFileRoute("/cartilla/teacher")({
     }
     const hasRole = await hasTeacherOrAdminRole(data.session.user.id);
     if (!hasRole) {
-      if (typeof window !== "undefined") {
-        sessionStorage.setItem("cartilla.auth.unauthorized", "1");
+      try {
+        if (typeof window !== "undefined" && window.sessionStorage) {
+          window.sessionStorage.setItem("cartilla.auth.unauthorized", "1");
+        }
+      } catch {
+        /* storage unavailable in some test runners — still redirect */
       }
       throw redirect({ to: "/login" });
     }

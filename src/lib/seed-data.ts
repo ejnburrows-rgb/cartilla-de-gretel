@@ -39,7 +39,16 @@ function demoModeAllowed(): boolean {
 export function isSeedSessionActive(): boolean {
   if (typeof window === "undefined") return false;
   if (!demoModeAllowed()) return false;
-  return !!localStorage.getItem(AUTH_KEY);
+  // Node 26 / some test runners expose window without a usable localStorage
+  // (ExperimentalWarning: localStorage is not available). Never throw here —
+  // a storage failure means "no seed session", not a crash of the teacher gate.
+  try {
+    const store = globalThis.localStorage;
+    if (!store || typeof store.getItem !== "function") return false;
+    return !!store.getItem(AUTH_KEY);
+  } catch {
+    return false;
+  }
 }
 
 type SeedTeacherId = (typeof SEED_TEACHERS)[number]["id"];
