@@ -1,8 +1,9 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { GraduationCap, ArrowLeft, Loader2 } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
+import { supabase, isSupabaseConfigured } from "@/integrations/supabase/client";
 import { setStudentSession } from "@/lib/student-session";
+import { signInSeedTeacher } from "@/lib/seed-data";
 
 export const Route = createFileRoute("/login")({
   component: LoginPage,
@@ -41,6 +42,22 @@ function LoginPage() {
     setError(null);
     try {
       setStudentSession(null); // Clear student session on teacher login
+
+      // Demo/seed lane (VITE_ALLOW_DEMO_MODE only): accept known seed teachers
+      // so presentation + CRM work without cloud credentials on preview/demo.
+      if (mode === "login" && import.meta.env.VITE_ALLOW_DEMO_MODE === "true") {
+        try {
+          signInSeedTeacher(email, password);
+          navigate({ to: "/cartilla/teacher" });
+          return;
+        } catch {
+          // Not a seed credential — fall through to Supabase when configured.
+          if (!isSupabaseConfigured) {
+            throw new Error("Credenciales inválidas (modo demo).");
+          }
+        }
+      }
+
       if (mode === "signup") {
         const { error: err } = await supabase.auth.signUp({
           email,

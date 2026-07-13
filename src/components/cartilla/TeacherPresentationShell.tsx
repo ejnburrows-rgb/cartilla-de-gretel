@@ -131,9 +131,10 @@ export function TeacherPresentationShell({ children, accentColor, onExit }: Teac
         </div>
       </header>
 
-      {/* Main Slide canvas */}
-      <main className="flex-1 w-full h-full flex items-center justify-center p-6 mt-16 select-none relative">
-        <div className="w-full h-full max-w-[1280px] max-h-[720px] aspect-[16/9] bg-stone-900 border border-white/10 rounded-3xl overflow-hidden shadow-2xl flex items-center justify-center relative">
+      {/* Main canvas — portrait-friendly (real flipchart pages are portrait,
+          not 16:9). Full available viewport so HD scans stay presentation-sized. */}
+      <main className="flex-1 w-full min-h-0 flex items-center justify-center px-3 pb-3 pt-20 select-none relative">
+        <div className="w-full h-full max-w-[1200px] bg-stone-900/80 border border-white/10 rounded-3xl overflow-hidden shadow-2xl flex items-center justify-center relative min-h-0">
           {children}
         </div>
       </main>
