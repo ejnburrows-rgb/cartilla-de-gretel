@@ -76,7 +76,7 @@ function PresentarLesson() {
     <TeacherPresentationShell accentColor={accentColor} onExit={handleExit}>
       <div className="w-full h-full flex flex-col items-center justify-center gap-3 p-2 sm:p-4 relative z-10 min-h-0">
         {/* Compact lesson chrome — keeps HD flipchart as large as possible */}
-        <div className="w-full max-w-4xl shrink-0 flex justify-between items-center text-stone-800 bg-white/90 backdrop-blur px-4 py-2 rounded-2xl shadow-sm border border-stone-200">
+        <div className="w-full max-w-4xl shrink-0 flex justify-between items-center text-stone-800 dark:text-stone-100 bg-white/90 dark:bg-slate-900/85 backdrop-blur px-4 py-2 rounded-2xl shadow-sm border border-stone-200 dark:border-slate-600">
           <div className="text-left min-w-0">
             <span
               className="text-[10px] font-black uppercase tracking-widest"
@@ -84,7 +84,7 @@ function PresentarLesson() {
             >
               Lección {n} · Flipchart
             </span>
-            <h2 className="text-base sm:text-lg font-black text-stone-800 truncate">
+            <h2 className="text-base sm:text-lg font-black text-stone-800 dark:text-stone-50 truncate">
               {entry.title}
             </h2>
           </div>

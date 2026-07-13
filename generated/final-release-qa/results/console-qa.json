@@ -1,0 +1,29 @@
+{
+  "generatedAt": "2026-07-13T14:35:00.000Z",
+  "base": "http://127.0.0.1:4173",
+  "method": "playwright chromium.launch({ channel: 'chrome' })",
+  "results": [
+    { "id": "splash", "path": "/cartilla", "consoleErrors": [], "pageErrors": [] },
+    { "id": "leccion-1", "path": "/cartilla/leccion/1", "consoleErrors": [], "pageErrors": [] },
+    { "id": "student-libro", "path": "/cartilla/student/libro", "consoleErrors": [], "pageErrors": [] },
+    { "id": "presentar-1", "path": "/cartilla/presentar/1", "consoleErrors": [], "pageErrors": [] },
+    { "id": "landing", "path": "/", "consoleErrors": [], "pageErrors": [] }
+  ],
+  "assetHeadChecks": {
+    "realAssets200": [
+      "/audio/page-turn.mp3",
+      "/audio/ambient-classroom.mp3",
+      "/cartilla/images/gretel/poses/gretel-wave.webp",
+      "/art/hd/garden/base.jpg",
+      "/cartilla/art/hd/workbook/page-001.png",
+      "/cartilla/art/faithful/vocal-o/oso.webp"
+    ],
+    "oldBrokenPathsWereSpaHtmlFallback": [
+      "/cartilla/art/faithful/gretel-poses/gretel-book-right.png",
+      "/cartilla/images/gretel/happy.webp",
+      "/cartilla/images/family-garden-bg.jpeg",
+      "/audio/ui/page-turn.mp3"
+    ]
+  },
+  "demoMode": "OFF — VITE_ALLOW_DEMO_MODE unset; isSeedSessionActive() hard-disabled in production build"
+}
