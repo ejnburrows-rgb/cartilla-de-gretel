@@ -44,8 +44,13 @@ describe("guia loader", () => {
     expect(getRhymeText(18)).toContain("Barri el burrito");
   });
 
-  it("does not invent a rhyme for a lesson where none was transcribed (15, 16)", () => {
-    expect(getRhymeTitle(15)).toBeNull();
+  it("surfaces the real L15 rhyme transcribed from student-book scan (b-page-33)", () => {
+    expect(getRhymeTitle(15)).toBe("Sube la bola");
+    expect(getRhymeText(15)).toContain("Bebo batea la bola");
+    expect(hasRealObjectives(15)).toBe(true);
+  });
+
+  it("does not invent a rhyme for a lesson where none was transcribed (16)", () => {
     expect(getRhymeTitle(16)).toBeNull();
   });
 
