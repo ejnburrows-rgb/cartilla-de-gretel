@@ -1,13 +1,37 @@
 /**
- * Home / welcome hero — book-like Gretel scene (not sticker cutout).
- * Visual family: flipchart presenter (#182) warm pastels + paper stage.
+ * Home face-lift — book pastel aesthetics + high-contrast Entrar CTAs.
+ * Tokens locked for vendor-grade children's literacy product feel.
  */
 
+/* ── Tokens ───────────────────────────────────────────────────── */
+:root {
+  --home-paper: #fff8f0;
+  --home-paper-deep: #fff1e0;
+  --home-ink: #1c1410;
+  --home-ink-soft: #3d2e24;
+  --home-blush: #fadcd0;
+  --home-butter: #ffe9a8;
+  --home-mint: #c8efd9;
+  --home-sky: #c5e4ff;
+  --home-lavender: #e4d4ff;
+  --home-peach: #ffd4b8;
+  /* Primary CTAs — saturated, white labels (high contrast) */
+  --home-cta-student-bg: #e11d48;
+  --home-cta-student-bg-hover: #be123c;
+  --home-cta-student-fg: #ffffff;
+  --home-cta-teacher-bg: #0369a1;
+  --home-cta-teacher-bg-hover: #075985;
+  --home-cta-teacher-fg: #ffffff;
+  --home-accent-bow: #dc2626;
+  --home-accent-jumper: #2563eb;
+  --home-accent-leaf: #16a34a;
+  --home-accent-sun: #eab308;
+  --home-border: rgba(28, 20, 16, 0.12);
+  --home-shadow: 0 22px 48px -18px rgba(28, 20, 16, 0.22);
+}
+
+/* ── Book hero scene (full painted plate, not sticker) ────────── */
 .book-hero-gretel {
-  --hero-paper: #fff8e7;
-  --hero-ink: #17313b;
-  --hero-accent: #c98c4f;
-  --hero-border: rgba(23, 49, 59, 0.14);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,14 +44,15 @@
 .book-hero-gretel__frame {
   position: relative;
   width: 100%;
-  border-radius: 22px;
+  border-radius: 24px;
   overflow: hidden;
-  background: var(--hero-paper);
-  border: 1.5px solid var(--hero-border);
+  background:
+    linear-gradient(165deg, var(--home-butter) 0%, var(--home-mint) 45%, var(--home-sky) 100%);
+  border: 3px solid rgba(255, 255, 255, 0.85);
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.7) inset,
-    0 22px 48px -20px rgba(23, 49, 59, 0.32),
-    0 6px 16px -8px rgba(95, 167, 119, 0.2);
+    0 1px 0 rgba(255, 255, 255, 0.9) inset,
+    var(--home-shadow),
+    0 0 0 1px var(--home-border);
 }
 
 .book-hero-gretel--sm .book-hero-gretel__frame {
@@ -36,17 +61,17 @@
 }
 .book-hero-gretel--md .book-hero-gretel__frame {
   aspect-ratio: 4 / 5;
-  max-height: 360px;
+  max-height: 380px;
 }
 .book-hero-gretel--lg .book-hero-gretel__frame {
   aspect-ratio: 3 / 4;
-  max-height: min(68vh, 560px);
+  max-height: min(70vh, 580px);
 }
 
 @media (min-width: 1024px) {
   .book-hero-gretel--lg .book-hero-gretel__frame {
     aspect-ratio: 4 / 5;
-    max-height: min(72vh, 640px);
+    max-height: min(74vh, 660px);
   }
 }
 
@@ -54,8 +79,8 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 50% 18%, rgba(255, 248, 231, 0.35), transparent 55%),
-    linear-gradient(180deg, #f3efe6 0%, #e8f0d8 100%);
+    radial-gradient(ellipse at 50% 12%, rgba(255, 255, 255, 0.45), transparent 50%),
+    linear-gradient(180deg, var(--home-peach) 0%, var(--home-mint) 100%);
   z-index: 0;
 }
 
@@ -66,24 +91,23 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Full scene crop — figure + garden, never a transparent PNG cutout */
-  filter: saturate(1.04) contrast(1.02);
+  filter: saturate(1.08) contrast(1.03);
 }
 
 .book-hero-gretel__ground {
   position: absolute;
-  left: 8%;
-  right: 8%;
-  bottom: 6%;
-  height: 12%;
+  left: 6%;
+  right: 6%;
+  bottom: 5%;
+  height: 14%;
   z-index: 2;
   pointer-events: none;
   background: radial-gradient(
     ellipse at 50% 50%,
-    rgba(23, 49, 59, 0.18),
-    transparent 70%
+    rgba(28, 20, 16, 0.22),
+    transparent 72%
   );
-  filter: blur(6px);
+  filter: blur(7px);
 }
 
 .book-hero-gretel__vignette {
@@ -92,40 +116,41 @@
   z-index: 3;
   pointer-events: none;
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.25),
-    inset 0 -40px 48px -20px rgba(232, 240, 216, 0.45),
-    inset 0 24px 36px -24px rgba(255, 248, 231, 0.35);
+    inset 0 0 0 2px rgba(255, 255, 255, 0.35),
+    inset 0 -48px 56px -24px rgba(200, 239, 217, 0.35),
+    inset 0 28px 40px -28px rgba(255, 233, 168, 0.4);
   border-radius: inherit;
 }
 
 .book-hero-gretel__caption {
   margin: 0;
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: color-mix(in srgb, var(--hero-ink) 72%, transparent);
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--home-ink-soft);
   text-align: center;
   letter-spacing: 0.01em;
 }
 
-/* ── Landing page shell ───────────────────────────────────────── */
+/* ── Landing shell ────────────────────────────────────────────── */
 .home-landing {
-  --home-ink: #17313b;
-  --home-accent: #c98c4f;
-  --home-paper: #fff8e7;
   position: relative;
   min-height: 100vh;
   min-height: 100dvh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 1.25rem;
-  overflow: hidden;
+  padding: 1.25rem 1rem 1.5rem;
+  overflow-x: hidden;
   color: var(--home-ink);
-  font-family: var(--font-book-faithful, system-ui, sans-serif);
+  font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
   background:
-    radial-gradient(120% 80% at 10% 0%, rgba(95, 167, 119, 0.18), transparent 55%),
-    radial-gradient(90% 70% at 90% 100%, rgba(201, 140, 79, 0.16), transparent 50%),
-    linear-gradient(180deg, #f7f1e4 0%, #eef4de 55%, #e8f0d8 100%);
+    radial-gradient(ellipse at 8% 12%, var(--home-blush) 0%, transparent 42%),
+    radial-gradient(ellipse at 92% 8%, var(--home-sky) 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 100%, var(--home-mint) 0%, transparent 45%),
+    radial-gradient(ellipse at 78% 70%, var(--home-lavender) 0%, transparent 38%),
+    radial-gradient(ellipse at 18% 75%, var(--home-butter) 0%, transparent 36%),
+    linear-gradient(180deg, var(--home-paper) 0%, var(--home-paper-deep) 100%);
 }
 
 .home-landing__wash {
@@ -134,9 +159,9 @@
   z-index: 0;
   background-image: url("/art/hd/garden/base.jpg");
   background-size: cover;
-  background-position: center 60%;
-  opacity: 0.14;
-  filter: blur(2px) saturate(0.85);
+  background-position: center 55%;
+  opacity: 0.1;
+  filter: blur(3px) saturate(0.9);
   pointer-events: none;
 }
 
@@ -147,106 +172,193 @@
   max-width: 1180px;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.75rem;
+  gap: 1.5rem;
   align-items: center;
+  flex: 1;
 }
 
 @media (min-width: 960px) {
   .home-landing__inner {
     grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-    gap: 2.5rem;
+    gap: 2.25rem;
   }
 }
 
 .home-landing__panel {
-  background: rgba(255, 248, 231, 0.92);
-  border: 1.5px solid rgba(23, 49, 59, 0.12);
+  background: rgba(255, 255, 255, 0.88);
+  border: 2px solid rgba(255, 255, 255, 0.95);
   border-radius: 28px;
-  padding: 1.75rem 1.5rem 1.85rem;
+  padding: 1.65rem 1.35rem 1.75rem;
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.75) inset,
-    0 24px 48px -22px rgba(23, 49, 59, 0.22);
-  backdrop-filter: blur(12px);
+    0 1px 0 rgba(255, 255, 255, 0.95) inset,
+    var(--home-shadow);
+  backdrop-filter: blur(10px);
 }
 
 @media (min-width: 640px) {
   .home-landing__panel {
-    padding: 2.25rem 2.25rem 2.35rem;
+    padding: 2.15rem 2.15rem 2.25rem;
   }
 }
 
 .home-landing__eyebrow {
   margin: 0;
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   font-weight: 900;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--home-accent);
+  color: var(--home-accent-bow);
 }
 
 .home-landing__title {
-  margin: 0.45rem 0 0;
-  font-size: clamp(1.85rem, 4.5vw, 2.75rem);
+  margin: 0.4rem 0 0;
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 900;
-  line-height: 1.08;
+  line-height: 1.05;
   color: var(--home-ink);
   letter-spacing: -0.02em;
 }
 
 .home-landing__title span {
-  color: var(--home-accent);
+  color: var(--home-accent-jumper);
 }
 
 .home-landing__lead {
-  margin: 0.85rem 0 0;
-  font-size: 1.05rem;
-  font-weight: 600;
+  margin: 0.8rem 0 0;
+  font-size: 1.08rem;
+  font-weight: 650;
   line-height: 1.45;
-  color: color-mix(in srgb, var(--home-ink) 72%, transparent);
-  max-width: 28rem;
+  color: var(--home-ink-soft);
+  max-width: 30rem;
 }
 
+/* ── Giant entry cards ────────────────────────────────────────── */
 .home-landing__actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
+  margin-top: 1.6rem;
+}
+
+@media (min-width: 520px) {
+  .home-landing__actions {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}
+
+.home-entry-card {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  margin-top: 1.5rem;
+  align-items: stretch;
+  gap: 0.65rem;
+  padding: 1.1rem 1rem 1.15rem;
+  border-radius: 22px;
+  text-decoration: none;
+  border: 3px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  min-height: 9.5rem;
 }
 
+.home-entry-card:focus-visible {
+  outline: 4px solid var(--home-accent-sun);
+  outline-offset: 3px;
+}
+
+.home-entry-card:hover {
+  transform: translateY(-3px);
+}
+
+.home-entry-card--student {
+  background: linear-gradient(160deg, #fff5f7 0%, #ffe4e9 100%);
+  border-color: color-mix(in srgb, var(--home-cta-student-bg) 28%, white);
+  box-shadow: 0 12px 28px -14px rgba(225, 29, 72, 0.35);
+}
+
+.home-entry-card--teacher {
+  background: linear-gradient(160deg, #f0f9ff 0%, #e0f2fe 100%);
+  border-color: color-mix(in srgb, var(--home-cta-teacher-bg) 28%, white);
+  box-shadow: 0 12px 28px -14px rgba(3, 105, 161, 0.32);
+}
+
+.home-entry-card__label {
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--home-ink-soft);
+}
+
+.home-entry-card__title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--home-ink);
+  line-height: 1.15;
+}
+
+/* The actual Entrar buttons — non-negotiable high contrast */
 .home-landing__cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 52px;
-  padding: 0.85rem 1.25rem;
+  width: 100%;
+  min-height: 56px;
+  padding: 0.95rem 1.15rem;
   border-radius: 16px;
   font-weight: 900;
-  font-size: 1.05rem;
+  font-size: clamp(1.05rem, 2.8vw, 1.25rem);
+  letter-spacing: 0.01em;
   text-decoration: none;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  border: 2px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease,
+    filter 0.15s ease;
+  box-shadow: 0 8px 0 rgba(0, 0, 0, 0.12);
+}
+
+.home-landing__cta:active {
+  transform: translateY(2px);
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.12);
+}
+
+.home-landing__cta:focus-visible {
+  outline: 4px solid var(--home-accent-sun);
+  outline-offset: 3px;
 }
 
 .home-landing__cta--student {
-  background: linear-gradient(180deg, #d4a05a 0%, var(--home-accent) 100%);
-  color: #fff;
-  border: 1px solid color-mix(in srgb, var(--home-accent) 70%, #8b6914);
-  box-shadow: 0 10px 24px -10px rgba(201, 140, 79, 0.55);
+  background: var(--home-cta-student-bg);
+  color: var(--home-cta-student-fg);
+  border-color: #9f1239;
+  /* Contrast: white on #e11d48 ≈ 4.6:1+; solid fill arm's-length readable */
 }
+
 .home-landing__cta--student:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 28px -10px rgba(201, 140, 79, 0.6);
+  background: var(--home-cta-student-bg-hover);
+  filter: brightness(1.03);
 }
 
 .home-landing__cta--teacher {
-  background: #fff;
-  color: var(--home-ink);
-  border: 1.5px solid rgba(23, 49, 59, 0.14);
-  box-shadow: 0 4px 14px -8px rgba(23, 49, 59, 0.18);
+  background: var(--home-cta-teacher-bg);
+  color: var(--home-cta-teacher-fg);
+  border-color: #0c4a6e;
+  /* Contrast: white on #0369a1 ≈ 5.5:1+ */
 }
+
 .home-landing__cta--teacher:hover {
-  transform: translateY(-2px);
-  background: color-mix(in srgb, var(--home-accent) 8%, white);
-  border-color: color-mix(in srgb, var(--home-accent) 35%, transparent);
+  background: var(--home-cta-teacher-bg-hover);
+}
+
+/* Stacked full-width CTAs when not inside dual cards (splash) */
+.home-landing__actions--stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-top: 1.5rem;
+}
+
+.home-landing__actions--stack .home-landing__cta {
+  box-shadow: 0 10px 28px -8px rgba(28, 20, 16, 0.28);
 }
 
 .home-landing__hero-col {
@@ -255,8 +367,64 @@
   width: 100%;
 }
 
+.home-landing__footer {
+  position: relative;
+  z-index: 1;
+  margin-top: 1.25rem;
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: color-mix(in srgb, var(--home-ink) 55%, transparent);
+  letter-spacing: 0.02em;
+}
+
+.home-landing__footer strong {
+  color: var(--home-ink-soft);
+  font-weight: 800;
+}
+
+/* Splash bottom bar */
+.home-landing__dock {
+  position: absolute;
+  bottom: 1.15rem;
+  inset-inline: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.25rem;
+  pointer-events: none;
+}
+
+.home-landing__dock a {
+  pointer-events: auto;
+  min-height: 48px;
+  min-width: 48px;
+  padding: 0.65rem 1rem;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 2px solid var(--home-border);
+  color: var(--home-ink);
+  font-weight: 800;
+  box-shadow: 0 4px 14px -6px rgba(28, 20, 16, 0.18);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.home-landing__dock a:focus-visible {
+  outline: 4px solid var(--home-accent-sun);
+  outline-offset: 2px;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .home-landing__cta {
+  .home-landing__cta,
+  .home-entry-card {
     transition: none;
+  }
+  .home-entry-card:hover,
+  .home-landing__cta:active {
+    transform: none;
   }
 }
