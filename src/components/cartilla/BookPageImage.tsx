@@ -25,9 +25,8 @@ export function BookPageImage({ src, fallbackSrcs = [], alt, className = "", wra
       )}
       
       {hasError ? (
-        <div className="absolute inset-0 z-0 flex flex-col items-center justify-center bg-stone-100 text-stone-400">
-          <span className="text-2xl mb-2">📄</span>
-          <span className="text-sm font-medium">No se pudo cargar la imagen</span>
+        <div className="absolute inset-0 z-0 flex flex-col items-center justify-center bg-[#fff8e7] text-stone-500">
+          <span className="text-sm font-bold">Imagen no disponible</span>
         </div>
       ) : (
         <img
