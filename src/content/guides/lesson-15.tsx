@@ -80,9 +80,20 @@ export function Lesson15Guide() {
             </div>
           </div>
           <div className="bg-blue-50 border border-blue-100 rounded-2xl p-6">
-            <p className="text-blue-900 font-bold italic">"Sube la bola"</p>
-            <p className="text-stone-500 text-sm mt-2 not-italic">
-              Título documentado en la Guía del profesor. El texto completo de la rima no aparece en la transcripción disponible — se agregará cuando se transcriba.
+            <p className="text-blue-900 font-bold italic mb-3">"Sube la bola"</p>
+            <p className="whitespace-pre-line text-stone-700 leading-relaxed font-medium not-italic">
+              {`Bebo batea la bola,
+la bola a la nube dio.
+Bebo le dio a la bola,
+la bola alto subió.
+
+La bola sube y sube,
+la bola a la nube le dio.
+Bebo batea y batea
+Bebo alto la bateó.`}
+            </p>
+            <p className="text-xs text-stone-400 mt-4 not-italic">
+              Transcrito palabra por palabra de la página real del cuaderno (b-page-33). La Guía del profesor integral en el repo termina a mitad de la Lección 15 (solo página 51: objetivos y materiales); el guion de motivación de las páginas 52–54 no está en el repositorio.
             </p>
           </div>
         </div>
@@ -95,7 +106,7 @@ export function Lesson15Guide() {
         </h2>
         <div className="bg-purple-50 border border-purple-100 rounded-2xl p-6">
           <p className="text-purple-900 font-medium">
-            <strong>Evaluación, página 15.</strong> Los estudiantes seguirán las instrucciones del maestro para completar la evaluación.
+            <strong>Evaluación, página 15</strong> (Teaching Materials, Guía del profesor p. 51). El texto de instrucción completo de la evaluación no está en la transcripción disponible (el integral termina a mitad de Lección 15).
           </p>
         </div>
       </section>

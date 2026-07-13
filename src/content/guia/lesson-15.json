@@ -10,14 +10,14 @@
   "script": "",
   "evaluationRef": {
     "page": 15,
-    "note": null
+    "note": "Teaching Materials (verbatim from Guía del profesor page 51): Flip Chart: pages 31-33 · Activity Book: pages 51-54 · BL. Masters: pages 8, 17 · Evaluation: page 15 · Reproducible Rhyme: page 15 · Other Materials: pencil, crayons and paper. Full evaluation instruction line not present — integral transcript ends mid-Lección 15 after Teaching Materials."
   },
   "rhyme": {
-    "title": null,
-    "text": null
+    "title": "Sube la bola",
+    "text": "Bebo batea la bola,\nla bola a la nube dio.\nBebo le dio a la bola,\nla bola alto subió.\n\nLa bola sube y sube,\nla bola a la nube le dio.\nBebo batea y batea\nBebo alto la bateó."
   },
   "provenance": {
-    "source": "docs/Transcripción Integral_ La cartilla de Gretel - Guía del profesor.txt",
+    "source": "docs/Transcripción Integral_ La cartilla de Gretel - Guía del profesor.txt (page 51 only — objectives + teaching materials; Motivación / Lesson Development pages 52–54 NOT in integral). Rhyme transcribed word-for-word from public/cartilla/images/source/b/b-page-33.jpg (student book / rhyme page) and cross-checked with src/data/workbook-interactions.json id l15-flip-poem (book-derived, verified).",
     "verified": true
   }
 }
