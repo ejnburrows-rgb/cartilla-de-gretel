@@ -2,60 +2,33 @@ import { getBookPageImage } from "@/lib/bookImages";
 
 export const lesson23 = [
   {
-    id: "l23-p89-letter-tracing",
+    id: "l23-p83-picture-vocab",
     lessonNumber: 23,
-    pageNumber: 89,
-    kind: "letter-tracing",
-    title: "Escribe con tu mejor letra — Y y",
-    prompt: "Traza la letra Y mayúscula y la y minúscula. Luego haz un dibujo de una palabra que comienza con y.",
+    pageNumber: 83,
+    kind: "listen-and-tap",
+    title: "Yy",
+    prompt: "Presiona el dibujo de la palabra que escuchas.",
     items: [
-      { id: "letter-Y", label: "Y" },
-      { id: "letter-y", label: "y" }
+      { id: "img-yate", label: "yate" },
+      { id: "img-yema", label: "yema" },
+      { id: "img-yayita", label: "Yayita" },
+      { id: "img-mayuscula", label: "mayúscula" },
+      { id: "img-yoyo", label: "yoyo" }
     ],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Students trace uppercase and lowercase y.",
-    sourcePage: getBookPageImage(89)
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "Transcribed verbatim from public/cartilla/images/source/y/y-page-55.jpg (real scan).",
+    sourcePage: getBookPageImage(83)
   },
   {
-    id: "l23-p90-syllable-circle",
+    id: "l23-p84-syllable-tap",
     lessonNumber: 23,
-    pageNumber: 90,
-    kind: "drag-syllable-to-slot",
-    title: "Encierra la sílaba — Y y",
-    prompt: "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
-    items: [
-      { id: "syl-ya", label: "ya" },
-      { id: "syl-ye", label: "ye" },
-      { id: "syl-yi", label: "yi" },
-      { id: "syl-yo", label: "yo" },
-      { id: "syl-yu", label: "yu" }
-    ],
-    targets: [
-      { id: "slot-ya", label: "ya", coordinatesVerified: false, acceptsItemId: "syl-ya" },
-      { id: "slot-ye", label: "ye", coordinatesVerified: false, acceptsItemId: "syl-ye" },
-      { id: "slot-yi", label: "yi", coordinatesVerified: false, acceptsItemId: "syl-yi" },
-      { id: "slot-yo", label: "yo", coordinatesVerified: false, acceptsItemId: "syl-yo" },
-      { id: "slot-yu", label: "yu", coordinatesVerified: false, acceptsItemId: "syl-yu" }
-    ],
-    wordBank: [
-      "yate", "Yara", "payaso", "yana", "yagua", "maya", "yegua", "enyesado", "yema", "Yesenia", "Yeyo", "yeso", "Mayito", "Yayita", "Yayi", "Yigüiro", "Yoyita", "Mayita", "cayo", "yoyo", "rayo", "coyote", "yo", "Yayo", "Yucatán", "Cayuco", "ayudar", "yuca", "ayuda", "desayuno"
-    ],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded syllable circle for y.",
-    sourcePage: getBookPageImage(90)
-  },
-  {
-    id: "l23-p91-syllable-tap",
-    lessonNumber: 23,
-    pageNumber: 91,
+    pageNumber: 84,
     kind: "read-aloud",
-    title: "Sílabas con Y — página Yy",
-    prompt: "Toca cada sílaba para escucharla. Repite en voz alta.",
+    title: "Yy",
+    prompt: "ya ye yi yo yu",
     items: [
       { id: "ra-ya", label: "ya" },
       { id: "ra-ye", label: "ye" },
@@ -64,50 +37,50 @@ export const lesson23 = [
       { id: "ra-yu", label: "yu" }
     ],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded syllable tap for y.",
-    sourcePage: getBookPageImage(91)
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "Transcribed verbatim from public/cartilla/images/source/y/y-page-56.jpg (real scan).",
+    sourcePage: getBookPageImage(84)
   },
   {
-    id: "l23-p91-word-bank",
+    id: "l23-p84-word-bank",
     lessonNumber: 23,
-    pageNumber: 91,
+    pageNumber: 84,
     kind: "listen-and-tap",
-    title: "Palabras con Y",
-    prompt: "Toca cada palabra para escucharla.",
+    title: "Palabras",
+    prompt: "Palabras",
     items: [
-      { id: "w-yuca-0", label: "yuca" },
-      { id: "w-ayer-1", label: "ayer" },
-      { id: "w-cayo-2", label: "cayo" },
-      { id: "w-yema-3", label: "yema" },
-      { id: "w-payaso-4", label: "payaso" },
-      { id: "w-mayito-5", label: "Mayito" },
-      { id: "w-yate-6", label: "yate" },
-      { id: "w-yute-7", label: "yute" },
-      { id: "w-joya-8", label: "joya" },
-      { id: "w-yegua-9", label: "yegua" },
-      { id: "w-yoyo-10", label: "yoyo" },
-      { id: "w-yucateco-11", label: "yucateco" },
-      { id: "w-yagua-12", label: "yagua" },
-      { id: "w-yucatan-13", label: "Yucatán" },
-      { id: "w-yeso-14", label: "yeso" }
+      { id: "w-yuca", label: "yuca" },
+      { id: "w-yema", label: "yema" },
+      { id: "w-yate", label: "yate" },
+      { id: "w-yegua", label: "yegua" },
+      { id: "w-yagua", label: "yagua" },
+      { id: "w-ayer", label: "ayer" },
+      { id: "w-payaso", label: "payaso" },
+      { id: "w-yute", label: "yute" },
+      { id: "w-yoyo", label: "yoyo" },
+      { id: "w-yucatan", label: "Yucatán" },
+      { id: "w-cayo", label: "cayo" },
+      { id: "w-mayito", label: "Mayito" },
+      { id: "w-joya", label: "joya" },
+      { id: "w-yucateco", label: "yucateco" },
+      { id: "w-yeso", label: "yeso" }
     ],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded word bank for y.",
-    sourcePage: getBookPageImage(91)
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "Word list transcribed verbatim from public/cartilla/images/source/y/y-page-56.jpg (real scan).",
+    sourcePage: getBookPageImage(84)
   },
   {
-    id: "l23-p91-mini-story",
+    id: "l23-p84-mini-story",
     lessonNumber: 23,
-    pageNumber: 91,
+    pageNumber: 84,
     kind: "mini-story",
-    title: "Mini-cuento",
-    prompt: "Lee el mini-cuento del cuaderno con tu maestro.",
+    title: "Cuento",
+    prompt: "Cuento",
     items: [
       { id: "story-y-1", label: "El yate de Yayo está en Yateras. Yayo fue" },
       { id: "story-y-2", label: "a los cayos a pescar con sus amigas" },
@@ -119,11 +92,49 @@ export const lesson23 = [
       { id: "story-y-8", label: "Yayo se lo comió todo." }
     ],
     targets: [],
-    sightWords: [],
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "Reading passage transcribed verbatim from public/cartilla/images/source/y/y-page-56.jpg (real scan).",
+    sourcePage: getBookPageImage(84)
+  },
+  {
+    id: "l23-p85-rhyme",
+    lessonNumber: 23,
+    pageNumber: 85,
+    kind: "mini-story",
+    title: "El yate de Yayo",
+    prompt: "Rima",
+    items: [
+      { id: "rhyme-y-1", label: "De Yateras a Cayo Hueso" },
+      { id: "rhyme-y-2", label: "de Cayo Hueso a Yateras" },
+      { id: "rhyme-y-3", label: "Yayo va con sus amigas" },
+      { id: "rhyme-y-4", label: "sus amigas yucatecas." },
+      { id: "rhyme-y-5", label: "En su yate \"Cayo Largo\"" },
+      { id: "rhyme-y-6", label: "ayer vino a Yucatán" },
+      { id: "rhyme-y-7", label: "con una soga de yute" },
+      { id: "rhyme-y-8", label: "Yayo lo pudo amarrar." }
+    ],
+    targets: [],
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "Rhyme transcribed verbatim from public/cartilla/images/source/y/y-page-57.jpg (real scan).",
+    sourcePage: getBookPageImage(85)
+  },
+  {
+    id: "l23-p86-write-sentences",
+    lessonNumber: 23,
+    pageNumber: 86,
+    kind: "letter-tracing",
+    title: "Escribe oraciones. Usa las sílabas que aprendiste.",
+    prompt: "Escribe oraciones usando las sílabas que aprendiste.",
+    items: [],
+    targets: [],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded mini-story for y.",
-    sourcePage: getBookPageImage(91)
+    teacherNotes: "UNREADABLE-SCAN — no source scan was provided for physical page 86 (see fill-in-blank entry above for the same lesson/page).",
+    sourcePage: getBookPageImage(86)
   }
 ];
