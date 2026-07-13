@@ -16,6 +16,11 @@ dist-ssr
 .nitro
 *.local
 
+# Operator-local production secrets (never commit — publishable URL/key dumps + teacher creds)
+generated/prod-supabase-*.txt
+generated/prod-teacher-creds*
+generated/*.local.json
+generated/vercel-*.env.local
 
 # Editor directories and files
 .vscode/*
