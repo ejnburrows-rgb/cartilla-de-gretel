@@ -20,6 +20,18 @@
   transform: translateY(0) scale(1);
 }
 
+/* Home embed: always visible inside book plate (no extra slide-up delay stack) */
+.gretel-presence--home {
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.gretel-presence--home.gretel-presence--in {
+  opacity: 1;
+  transform: none;
+}
+
 .gretel-presence__stage {
   position: relative;
   width: 100%;

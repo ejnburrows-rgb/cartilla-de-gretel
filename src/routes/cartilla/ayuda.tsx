@@ -205,8 +205,7 @@ function AyudaPage() {
             {lang === "es" ? "Colaboradoras" : "Contributors"}: Silvia Diez, Aída Fernández
           </p>
           <p>
-            {lang === "es" ? "Adaptación digital" : "Digital adaptation"}: Emilio José Novo ·
-            LANY Books
+            {lang === "es" ? "Adaptación digital" : "Digital adaptation"}: Emilio José Novo
           </p>
         </section>
 

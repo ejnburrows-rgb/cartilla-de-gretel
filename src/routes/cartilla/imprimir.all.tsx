@@ -173,7 +173,7 @@ function LessonWorksheet({ entry }: { entry: CatalogEntry }) {
 
       {/* Sheet Footer */}
       <footer className="text-center text-[10px] text-stone-400 font-bold pt-4">
-        La Cartilla de Gretel · Leonor Lopetegui · LANY BOOKS LLC
+        La Cartilla de Gretel · Leonor Lopetegui
       </footer>
     </div>
   );

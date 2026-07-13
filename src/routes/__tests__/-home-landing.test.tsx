@@ -3,7 +3,14 @@
  */
 import { describe, it, expect, afterEach, vi } from "vitest";
 import { render, cleanup, screen } from "@testing-library/react";
-import { createMemoryHistory, createRouter, RouterProvider, createRootRoute, createRoute } from "@tanstack/react-router";
+import {
+  createMemoryHistory,
+  createRouter,
+  RouterProvider,
+  createRootRoute,
+  createRoute,
+} from "@tanstack/react-router";
+import { HOME_GREETING } from "@/lib/gretel-voice";
 
 vi.mock("@/lib/gretel-bus", () => ({
   gretelEvent: vi.fn(),
@@ -12,6 +19,16 @@ vi.mock("@/lib/gretel-bus", () => ({
 vi.mock("@/lib/student-session", () => ({
   getStudentSession: () => null,
 }));
+
+vi.mock("@/lib/gretel-voice", async (importOriginal) => {
+  const actual = await importOriginal<typeof import("@/lib/gretel-voice")>();
+  return {
+    ...actual,
+    speakAsGretel: vi.fn(() => Promise.resolve()),
+    cancelGretelSpeech: vi.fn(),
+    isGretelVoiceMuted: () => true,
+  };
+});
 
 afterEach(() => cleanup());
 
@@ -23,13 +40,16 @@ const BANNED = [
   "TODO",
   "WIP",
   "placeholder",
+  "LANY",
+  "Lany Books",
+  "jardín de las letras",
+  "Gretel te espera",
 ];
 
-describe("Home landing face-lift", () => {
-  it("renders high-contrast student and teacher Entrar landmarks", async () => {
+describe("Home landing — GretelPresence + approved copy only", () => {
+  it("renders high-contrast Entrar + real GretelPresence (not sticker/static-only)", async () => {
     const { Route: IndexRoute } = await import("../index");
     const rootRoute = createRootRoute();
-    // Re-bind index component under a test router
     const indexRoute = createRoute({
       getParentRoute: () => rootRoute,
       path: "/",
@@ -39,7 +59,6 @@ describe("Home landing face-lift", () => {
     const history = createMemoryHistory({ initialEntries: ["/"] });
     const router = createRouter({ routeTree, history });
     render(<RouterProvider router={router} />);
-
     await router.load();
 
     const student = await screen.findByTestId("home-cta-student");
@@ -47,16 +66,14 @@ describe("Home landing face-lift", () => {
     expect(student.textContent).toMatch(/Entrar como estudiante/i);
     expect(teacher.textContent).toMatch(/Entrar como maestro/i);
 
+    // GretelPresence system (data-gretel-system=presence), not sticker
     const hero = screen.getByTestId("book-hero-gretel");
     expect(hero.getAttribute("data-sticker")).toBe("false");
-    const img = hero.querySelector("img");
-    expect(img?.getAttribute("src")).toMatch(/gretel-authentic|garden/i);
-    expect(img?.getAttribute("src")).not.toMatch(/poses\/gretel-/);
-
-    expect(screen.getByTestId("home-footer-credits").textContent).toMatch(/Leonor/);
+    expect(hero.getAttribute("data-gretel-system")).toBe("presence");
+    expect(hero.getAttribute("data-variant")).toBe("home");
   });
 
-  it("does not show developer placeholder poison strings", async () => {
+  it("hero text is ONLY the approved greeting — no fabricated captions", async () => {
     const { Route: IndexRoute } = await import("../index");
     const rootRoute = createRootRoute();
     const indexRoute = createRoute({
@@ -69,9 +86,15 @@ describe("Home landing face-lift", () => {
     const router = createRouter({ routeTree, history });
     const { container } = render(<RouterProvider router={router} />);
     await router.load();
+
+    const greeting = await screen.findByTestId("home-greeting");
+    expect(greeting.textContent?.trim()).toBe(HOME_GREETING);
+
     const text = container.textContent || "";
     for (const banned of BANNED) {
       expect(text.toLowerCase()).not.toContain(banned.toLowerCase());
     }
+    // No legacy footer credits on home
+    expect(screen.queryByTestId("home-footer-credits")).toBeNull();
   });
 });

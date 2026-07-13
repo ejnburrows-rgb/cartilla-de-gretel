@@ -225,7 +225,7 @@ function ImprimirPage() {
           className="text-center text-xs text-foreground/40 pt-2"
           aria-label="Pie de página"
         >
-          La Cartilla de Gretel · Leonor Lopetegui · LANY BOOKS LLC · ISBN 0-971-8696-8-5
+          La Cartilla de Gretel · Leonor Lopetegui · ISBN 0-971-8696-8-5
         </footer>
       </main>
     </div>

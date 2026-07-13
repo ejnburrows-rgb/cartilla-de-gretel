@@ -1,32 +1,49 @@
 /**
  * @vitest-environment jsdom
  */
-import { describe, it, expect, afterEach } from "vitest";
+import { describe, it, expect, afterEach, vi } from "vitest";
 import { render, cleanup, screen } from "@testing-library/react";
 import { BookHeroGretel, GRETEL_HERO_SCENE } from "../BookHeroGretel";
 
+vi.mock("@/lib/gretel-voice", async (importOriginal) => {
+  const actual = await importOriginal<typeof import("@/lib/gretel-voice")>();
+  return {
+    ...actual,
+    speakAsGretel: vi.fn(() => Promise.resolve()),
+    cancelGretelSpeech: vi.fn(),
+    isGretelVoiceMuted: () => true,
+  };
+});
+
+vi.mock("@/lib/gretel-bus", () => ({
+  gretelEvent: vi.fn(),
+  onGretelEvent: () => () => {},
+}));
+
 afterEach(() => cleanup());
 
-describe("BookHeroGretel — full pose library + book plate", () => {
-  it("uses garden scene plate AND a living pose from the library (not scarce sticker)", () => {
-    render(<BookHeroGretel size="md" />);
-    const hero = screen.getByTestId("book-hero-gretel");
-    expect(hero.getAttribute("data-sticker")).toBe("false");
-    expect(hero.getAttribute("data-pose-library")).toBe("full");
+describe("BookHeroGretel — real GretelPresence (not static swap)", () => {
+  it("embeds GretelPresence system with data-sticker=false", () => {
+    render(<BookHeroGretel size="md" autoIntro={false} />);
+    const frame = screen.getByTestId("book-hero-gretel-frame");
+    expect(frame.getAttribute("data-sticker")).toBe("false");
+    expect(frame.getAttribute("data-gretel-system")).toBe("presence");
 
-    const scene = hero.querySelector(".book-hero-gretel__scene");
+    const scene = frame.querySelector(".book-hero-gretel__scene");
     expect(scene?.getAttribute("src")).toBe(GRETEL_HERO_SCENE);
 
-    const pose = screen.getByTestId("book-hero-gretel-pose");
-    expect(pose.getAttribute("src")).toMatch(/poses\/gretel-wave/);
+    // Real presence host (not 3-frame only wave cycle component)
+    const host = screen.getByTestId("book-hero-gretel");
+    expect(host.getAttribute("data-gretel-system")).toBe("presence");
+    expect(host.getAttribute("data-variant")).toBe("home");
+    expect(host.getAttribute("data-sticker")).toBe("false");
   });
 
-  it("grounds the figure with frame matte + contact shadow", () => {
-    const { container } = render(<BookHeroGretel size="lg" caption="Hola" />);
+  it("grounds the figure with frame matte + vignette", () => {
+    const { container } = render(<BookHeroGretel size="lg" autoIntro={false} />);
     expect(container.querySelector(".book-hero-gretel__frame")).toBeTruthy();
     expect(container.querySelector(".book-hero-gretel__ground")).toBeTruthy();
     expect(container.querySelector(".book-hero-gretel__vignette")).toBeTruthy();
-    expect(container.querySelector(".book-hero-gretel__figure-shadow")).toBeTruthy();
-    expect(screen.getByText("Hola")).toBeTruthy();
+    expect(container.querySelector(".book-hero-gretel__presence-wrap")).toBeTruthy();
   });
 });

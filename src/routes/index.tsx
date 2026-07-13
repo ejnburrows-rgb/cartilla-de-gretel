@@ -2,7 +2,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { gretelEvent } from "@/lib/gretel-bus";
 import { BookHeroGretel } from "@/components/intro/BookHeroGretel";
+import { HOME_GREETING } from "@/lib/gretel-voice";
 import "@/styles/home-hero.css";
+import "@/styles/gretel-presence.css";
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -11,20 +13,18 @@ export const Route = createFileRoute("/")({
       { title: "La Cartilla de Gretel" },
       {
         name: "description",
-        content: "Libro de lectura para estudiantes de K-2 en Miami-Dade.",
+        content: "La Cartilla de Gretel — aprendamos a leer juntos.",
       },
     ],
   }),
 });
 
 /**
- * Public home face-lift — book pastel wash, full-scene Gretel hero,
- * high-contrast dual Entrar cards (student / teacher).
+ * Public home — GretelPresence (real living host) + sole approved greeting
+ * + high-contrast dual Entrar cards.
  *
- * Contrast pairs (primary CTAs):
- * - Student: #ffffff on #e11d48 (rose-600) — solid saturated fill
- * - Teacher: #ffffff on #0369a1 (sky-700) — solid saturated fill
- * Never light-gray-on-cream ghost buttons.
+ * Hero copy lock (operator): ONLY HOME_GREETING. No fabricated captions,
+ * poetry, publisher credits, or sticker Gretel.
  */
 function Landing() {
   useEffect(() => {
@@ -36,16 +36,9 @@ function Landing() {
       <div className="home-landing__wash" aria-hidden />
 
       <div className="home-landing__inner">
-        <section className="home-landing__panel" aria-labelledby="home-title">
-          <p className="home-landing__eyebrow">Bienvenidos</p>
-          <h1 id="home-title" className="home-landing__title">
-            La Cartilla
-            <br />
-            <span>de Gretel</span>
-          </h1>
-          <p className="home-landing__lead">
-            Un libro de lectura cálido y colorido para los más pequeños — letras
-            claras, arte fiel y mucha imaginación.
+        <section className="home-landing__panel" aria-labelledby="home-greeting">
+          <p id="home-greeting" className="home-landing__greeting" data-testid="home-greeting">
+            {HOME_GREETING}
           </p>
 
           <div className="home-landing__actions" role="navigation" aria-label="Entrar">
@@ -76,19 +69,9 @@ function Landing() {
         </section>
 
         <div className="home-landing__hero-col">
-          <BookHeroGretel
-            size="lg"
-            caption="Gretel te espera en el jardín de las letras"
-            objectPosition="center 20%"
-          />
+          <BookHeroGretel size="lg" objectPosition="center 20%" autoIntro />
         </div>
       </div>
-
-      <p className="home-landing__footer" data-testid="home-footer-credits">
-        <strong>Leonor Lopetegui</strong>
-        {" · "}
-        LANY Books
-      </p>
     </main>
   );
 }

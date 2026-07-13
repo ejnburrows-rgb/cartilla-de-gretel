@@ -5,15 +5,15 @@
  *   - breath / soft sway on figure
  *   - blink layer (closed-idle) when idle
  *   - talk frame cycle while TTS runs
+ *   - soft multi-frame idle dwell (idle / talk-0 / settle / talk)
  *
- * Contextual body poses (NOT scarce 3-file system):
- *   welcome/wave, settle, point, cheer, encourage/miss, talk multi-frame, exit
- *
- * Primary lesson host — never a corner sticker.
+ * Used on lessons AND home hero — never a cheap 3-static-frame swap,
+ * never a corner sticker.
  */
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Volume2, VolumeX } from "lucide-react";
 import {
+  buildHomeIntroLines,
   buildLessonIntroLines,
   buildMissLine,
   buildSuccessLine,
@@ -34,12 +34,22 @@ import {
 } from "./gretelPoses";
 
 export type GretelPresenceProps = {
-  lesson: IntroCatalogSlice;
+  /**
+   * Lesson catalog slice for lesson intros. Optional when `variant="home"`.
+   */
+  lesson?: IntroCatalogSlice;
   /** Optional printed instruction to speak after intro (real book text only). */
   instruction?: string | null;
   className?: string;
-  /** Auto-play short lesson intro once on mount. */
+  /** Auto-play short intro once on mount. */
   autoIntro?: boolean;
+  /**
+   * `lesson` (default) = lesson intro lines from catalog.
+   * `home` = approved home greeting only (HOME_GREETING).
+   */
+  variant?: "lesson" | "home";
+  /** Hide mute chrome (e.g. minimal home embed). Default false. */
+  hideChrome?: boolean;
 };
 
 export function GretelPresence({
@@ -47,6 +57,8 @@ export function GretelPresence({
   instruction,
   className = "",
   autoIntro = true,
+  variant = "lesson",
+  hideChrome = false,
 }: GretelPresenceProps) {
   const [entered, setEntered] = useState(false);
   const [speaking, setSpeaking] = useState(false);
@@ -79,7 +91,7 @@ export function GretelPresence({
     setMuted(isGretelVoiceMuted());
     setReduced(prefersReducedMotion());
     const t = requestAnimationFrame(() => setEntered(true));
-    // Enter: settle → welcome wave → idle (full library, not single idle)
+    // Enter: settle → welcome wave → idle (full library)
     setPoseHeld("settling", 700);
     const w = setTimeout(() => setPoseHeld("welcome", reduced ? 600 : 1600), 720);
     return () => {
@@ -89,13 +101,14 @@ export function GretelPresence({
     };
   }, [reduced, setPoseHeld]);
 
-  // Multi-frame cycle for wave / cheer / talk / point-left
+  // Multi-frame cycle for wave / cheer / talk / idle dwell / point-left
   useEffect(() => {
     const frames = getGretelPoseFrames(pose);
     if (!Array.isArray(frames) || frames.length < 2 || reduced) {
       setFrameIdx(0);
       return;
     }
+    // While speaking, talk frames cycle fast; idle dwell is slow
     const ms = poseFrameMs(pose);
     const id = setInterval(() => {
       setFrameIdx((i) => (i + 1) % frames.length);
@@ -152,24 +165,27 @@ export function GretelPresence({
     [setPoseHeld],
   );
 
-  // Lesson intro once
+  // Intro once — home greeting OR lesson catalog lines
   useEffect(() => {
     if (!autoIntro || introDone.current) return;
+    if (variant === "lesson" && !lesson) return;
     introDone.current = true;
     let cancelled = false;
     (async () => {
       await new Promise((r) => setTimeout(r, 500));
       if (cancelled) return;
-      // Wave welcome before speech
       setPoseHeld("welcome", 1200);
       await new Promise((r) => setTimeout(r, reduced ? 400 : 900));
       if (cancelled) return;
-      const lines = buildLessonIntroLines(lesson);
+      const lines =
+        variant === "home"
+          ? buildHomeIntroLines()
+          : buildLessonIntroLines(lesson!);
       for (const line of lines) {
         if (cancelled) return;
         await runSpeech(line);
       }
-      if (instruction?.trim() && !cancelled) {
+      if (variant === "lesson" && instruction?.trim() && !cancelled) {
         setPoseHeld("pointing", 1800);
         await runSpeech(instruction.trim());
       }
@@ -179,10 +195,11 @@ export function GretelPresence({
       cancelled = true;
       cancelGretelSpeech();
     };
-  }, [autoIntro, lesson, instruction, runSpeech, setPoseHeld, reduced]);
+  }, [autoIntro, lesson, instruction, runSpeech, setPoseHeld, reduced, variant]);
 
-  // Bus: full pose repertoire for real student moments
+  // Bus: full pose repertoire for real student moments (lesson only)
   useEffect(() => {
+    if (variant === "home") return;
     return onGretelEvent((type) => {
       const mapped = poseForBusEvent(type);
       if (type === "answer:correct" || type === "activity:complete" || type === "lesson:complete") {
@@ -216,13 +233,11 @@ export function GretelPresence({
         return;
       }
     });
-  }, [runSpeech, setPoseHeld]);
+  }, [runSpeech, setPoseHeld, variant]);
 
-  // Exit wave on unmount
   useEffect(() => {
     return () => {
       cancelGretelSpeech();
-      // Fire-and-forget pose for any still-mounted sibling paths
       poseRef.current = "exiting";
     };
   }, []);
@@ -258,13 +273,18 @@ export function GretelPresence({
         pose === "encouraging" ? "gretel-presence--no" : "",
         pose === "waving" || pose === "welcome" ? "gretel-presence--wave" : "",
         pose === "pointing" || pose === "pointingLeft" ? "gretel-presence--point" : "",
+        variant === "home" ? "gretel-presence--home" : "",
         className,
       ]
         .filter(Boolean)
         .join(" ")}
       aria-label="Gretel, la guía de la cartilla"
+      data-testid={variant === "home" ? "book-hero-gretel" : "gretel-presence"}
+      data-sticker="false"
+      data-gretel-system="presence"
       data-pose={pose}
       data-pose-src={bodySrc}
+      data-variant={variant}
     >
       <div className="gretel-presence__stage">
         <span className="gretel-presence__shadow" aria-hidden />
@@ -276,15 +296,14 @@ export function GretelPresence({
             .filter(Boolean)
             .join(" ")}
         >
-          {/* Contextual full-body pose (crossfade via CSS opacity on key change) */}
           <img
             key={bodySrc}
             src={bodySrc}
             alt=""
             className="gretel-presence__layer gretel-presence__base gretel-presence__base--pose"
+            data-testid={variant === "home" ? "book-hero-gretel-pose" : undefined}
             draggable={false}
           />
-          {/* Blink layer on idle-family — continuous life, not pose roulette alone */}
           <img
             src={blinkSrc}
             alt=""
@@ -299,19 +318,21 @@ export function GretelPresence({
         </div>
       </div>
 
-      <div className="gretel-presence__chrome">
-        <p className="gretel-presence__name">Gretel</p>
-        <button
-          type="button"
-          onClick={toggleMute}
-          className="gretel-presence__mute"
-          aria-pressed={muted}
-          aria-label={muted ? "Activar voz de Gretel" : "Silenciar voz de Gretel"}
-        >
-          {muted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
-          <span>{muted ? "Sin voz" : "Con voz"}</span>
-        </button>
-      </div>
+      {!hideChrome ? (
+        <div className="gretel-presence__chrome">
+          <p className="gretel-presence__name">Gretel</p>
+          <button
+            type="button"
+            onClick={toggleMute}
+            className="gretel-presence__mute"
+            aria-pressed={muted}
+            aria-label={muted ? "Activar voz de Gretel" : "Silenciar voz de Gretel"}
+          >
+            {muted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+            <span>{muted ? "Sin voz" : "Con voz"}</span>
+          </button>
+        </div>
+      ) : null}
     </aside>
   );
 }
