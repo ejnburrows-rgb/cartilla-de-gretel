@@ -21,10 +21,12 @@ describe('GretelMachine', () => {
   });
 
   it('gretelReducer: handles legal transitions', () => {
-    expect(gretelReducer('boot', { type: 'INIT' })).toBe('idle');
+    expect(gretelReducer('boot', { type: 'INIT' })).toBe('settling');
+    expect(gretelReducer('settling', { type: 'IDLE' })).toBe('idle');
     expect(gretelReducer('idle', { type: 'SPEAK_START' })).toBe('talking');
     expect(gretelReducer('talking', { type: 'SPEAK_STOP' })).toBe('idle');
     expect(gretelReducer('idle', { type: 'WAVE' })).toBe('waving');
+    expect(gretelReducer('idle', { type: 'EXIT' })).toBe('exiting');
   });
 
   it('gretelReducer: applies conflict policy (heal to idle) on illegal transitions', () => {

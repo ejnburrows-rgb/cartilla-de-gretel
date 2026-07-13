@@ -2,7 +2,7 @@ import React, { useState, useEffect, forwardRef, useImperativeHandle, useRef } f
 import { motion, AnimatePresence } from "framer-motion";
 import { speak } from "@/lib/speak";
 import { useGretelAnimation } from "./useGretelAnimation";
-import { getGretelPoseFrames } from "./gretelPoses";
+import { getGretelPoseFrames, type GretelPoseKey } from "./gretelPoses";
 import { Sparkles, Star } from "lucide-react";
 
 export interface GretelLiveAvatarRef {
@@ -147,8 +147,14 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
     const [frameIndex, setFrameIndex] = useState(0);
     const sparkleIdCounter = useRef(0);
 
+    /* Pose key: right-side bubble → point-left (G-04); else machine state. */
+    const poseKey: GretelPoseKey =
+      machineState === "pointing" && bubblePosition === "right"
+        ? "pointingLeft"
+        : machineState;
+
     /* ── Frame Cycling for Array Poses ── */
-    const frames = getGretelPoseFrames(machineState);
+    const frames = getGretelPoseFrames(poseKey);
 
     useEffect(() => {
       if (Array.isArray(frames)) {
@@ -165,9 +171,9 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
       } else {
         setFrameIndex(0);
       }
-    }, [frames, machineState]);
+    }, [frames, poseKey]);
 
-    const activeSrc = Array.isArray(frames) ? frames[frameIndex] : frames;
+    const activeSrc = Array.isArray(frames) ? frames[frameIndex % frames.length] : frames;
 
     /* ── Sparkle burst ── */
     const generateSparkles = () => {
@@ -233,8 +239,17 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
         const detail = (e as CustomEvent<{ text?: string }>).detail;
         celebrate(detail?.text);
       };
+      const handleExit = () => {
+        send({ type: "EXIT" });
+      };
       window.addEventListener("gretel:celebrate", handleCelebrate);
-      return () => window.removeEventListener("gretel:celebrate", handleCelebrate);
+      window.addEventListener("gretel:exit", handleExit);
+      return () => {
+        window.removeEventListener("gretel:celebrate", handleCelebrate);
+        window.removeEventListener("gretel:exit", handleExit);
+        // Lesson leave: play exit wave frame (G-03)
+        send({ type: "EXIT" });
+      };
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 

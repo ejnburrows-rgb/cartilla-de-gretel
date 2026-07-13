@@ -1,0 +1,77 @@
+{
+  "generatedAt": "2026-07-13T15:30:00.000Z",
+  "branch": "feat/frame-requests-fulfillment",
+  "baselineMain": "ba90ad9",
+  "frames": [
+    {
+      "id": "G-01",
+      "result": "satisfied-replacement",
+      "asset": "public/cartilla/images/gretel/poses/gretel-closed-idle.webp",
+      "method": "source-image-edit",
+      "source": "public/cartilla/images/gretel/poses/gretel-idle.webp",
+      "rejectedExisting": "public/cartilla/images/gretel/poses/gretel-blink.webp",
+      "rejectReason": "1024x1024 square crop does not match idle 666x1000 full-body identity/proportions"
+    },
+    {
+      "id": "G-02",
+      "result": "satisfied",
+      "asset": "public/cartilla/images/gretel/poses/gretel-settle.webp",
+      "method": "source-image-edit",
+      "source": "public/cartilla/images/gretel/poses/gretel-idle.webp"
+    },
+    {
+      "id": "G-03",
+      "result": "satisfied",
+      "asset": "public/cartilla/images/gretel/poses/gretel-wave-exit.webp",
+      "method": "existing-verify",
+      "source": "public/cartilla/images/gretel/poses/gretel-wave-2.webp"
+    },
+    {
+      "id": "G-04",
+      "result": "satisfied",
+      "asset": "public/cartilla/images/gretel/poses/gretel-point-left.webp",
+      "method": "source-image-edit",
+      "source": "public/cartilla/images/gretel/poses/gretel-point.webp",
+      "backupFlip": "public/cartilla/images/gretel/poses/gretel-point-left-flip.webp"
+    },
+    {
+      "id": "S-01",
+      "result": "satisfied",
+      "asset": "public/cartilla/art/faithful/vocal-o/oso-blink.webp",
+      "method": "source-image-edit",
+      "source": "public/cartilla/art/faithful/vocal-o/oso.webp",
+      "layoutSrc": "/cartilla/art/faithful/vocal-o/oso.webp"
+    },
+    {
+      "id": "S-02",
+      "result": "satisfied",
+      "asset": "public/cartilla/art/faithful/leccion-7-m/mono-blink.webp",
+      "method": "deterministic-edit",
+      "source": "public/cartilla/art/faithful/leccion-7-m/mono.webp",
+      "layoutSrc": "/cartilla/art/faithful/leccion-7-m/mono.webp"
+    },
+    {
+      "id": "S-03",
+      "result": "partial",
+      "asset": "public/cartilla/art/faithful/leccion-8-p/papa-blink.webp",
+      "method": "source-image-edit",
+      "source": "public/cartilla/art/faithful/leccion-8-p/papa.webp",
+      "layoutSrc": "/cartilla/art/faithful/leccion-8-p/papa.webp",
+      "note": "FRAME-REQUESTS named pollito/gallina; those crops do not exist under leccion-8-p"
+    },
+    {
+      "id": "S-04",
+      "result": "partial",
+      "asset": "public/cartilla/art/faithful/leccion-9-s/sapo-blink.webp",
+      "method": "source-image-edit",
+      "source": "public/cartilla/art/faithful/leccion-9-s/sapo.webp",
+      "note": "FRAME-REQUESTS named serpiente; no serpiente crop in leccion-9-s"
+    },
+    {
+      "id": "F-01",
+      "result": "skipped",
+      "method": "unresolved",
+      "note": "Optional isolation skipped — HD flipchart pages are full-page scenes without clean hero masks"
+    }
+  ]
+}
