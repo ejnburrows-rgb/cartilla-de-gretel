@@ -27,17 +27,8 @@ function write(set: Set<number>) {
 export function isLessonCompleted(n: number): boolean {
   return read().has(n);
 }
-/**
- * Sequential unlock (must complete L(n-1) before opening Ln).
- *
- * DEMO OVERRIDE: demo/full-show walkthrough unlocks every lesson so the
- * operator can jump to any of the 24 lessons without grinding L1→L23.
- * Product sequential gate remains one line away (set to false).
- */
-const DEMO_UNLOCK_ALL = true;
-
+/** Sequential unlock: L1 open; Ln requires L(n-1) completed. */
 export function isLessonUnlocked(n: number): boolean {
-  if (DEMO_UNLOCK_ALL) return true;
   if (n <= 1) return true;
   return read().has(n - 1);
 }

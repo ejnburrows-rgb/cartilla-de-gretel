@@ -43,9 +43,12 @@ function LoginPage() {
     try {
       setStudentSession(null); // Clear student session on teacher login
 
-      // Demo/seed lane (VITE_ALLOW_DEMO_MODE only): accept known seed teachers
-      // so presentation + CRM work without cloud credentials on preview/demo.
-      if (mode === "login" && import.meta.env.VITE_ALLOW_DEMO_MODE === "true") {
+      // Demo/seed lane: never in production builds; preview/dev only when env set.
+      if (
+        mode === "login" &&
+        !import.meta.env.PROD &&
+        import.meta.env.VITE_ALLOW_DEMO_MODE === "true"
+      ) {
         try {
           signInSeedTeacher(email, password);
           navigate({ to: "/cartilla/teacher" });
