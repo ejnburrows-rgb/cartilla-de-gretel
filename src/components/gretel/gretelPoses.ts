@@ -1,53 +1,281 @@
 import type { GretelState } from "./gretelMachine";
 
 /**
- * Real Gretel pose art (owner-supplied, background-removed), one file per
- * FSM state that needs a distinct look. States without a dedicated pose
- * (blinking, boot, error) fall back to idle in getGretelPose() below.
+ * Full Gretel pose library — owner-supplied art under
+ * public/cartilla/images/gretel/poses/. Every usable file is mapped to a
+ * product moment. Empty/stub/wrong-canvas assets are listed but not wired.
+ *
+ * Identity lock: Gretel — blonde, red bow, blue jumper, orange-stripe shirt, no freckles.
  */
+
+const P = "/cartilla/images/gretel/poses";
+
+/** Canonical pose keys used by presence + live avatar. */
+export type GretelPoseKey =
+  | GretelState
+  | "settling"
+  | "exiting"
+  | "pointingLeft"
+  | "encouraging" // gentle miss / try-again (settle art)
+  | "welcome"; // wave family for home / lesson open
+
 /**
- * Pose paths. FRAME-REQUESTS fulfillment:
- * - blinking → true closed-eye idle (gretel-closed-idle.webp). Legacy
- *   gretel-blink.webp is square/mismatch vs idle and is NOT regenerated.
- * - settling / exiting / pointingLeft are additive true frames.
+ * Pose paths. Multi-frame arrays cycle for smoother animation.
+ * FRAME-REQUESTS: G-01 closed-idle, G-02 settle, G-03 wave-exit, G-04 point-left.
  */
-export const GRETEL_POSES: Partial<Record<GretelState | "settling" | "exiting" | "pointingLeft", string | string[]>> = {
-  idle: "/cartilla/images/gretel/poses/gretel-idle.webp",
+export const GRETEL_POSES: Record<GretelPoseKey, string | string[]> = {
+  boot: `${P}/gretel-idle.webp`,
+  idle: `${P}/gretel-idle.webp`,
   /** True closed-eye matching idle canvas (666×1000). */
-  blinking: "/cartilla/images/gretel/poses/gretel-closed-idle.webp",
-  /** Enter-scene settle / land. */
-  settling: "/cartilla/images/gretel/poses/gretel-settle.webp",
-  /** Lesson exit / goodbye wave (selected from wave-2). */
-  exiting: "/cartilla/images/gretel/poses/gretel-wave-exit.webp",
+  blinking: `${P}/gretel-closed-idle.webp`,
+  /** Enter-scene settle / land / think. */
+  settling: `${P}/gretel-settle.webp`,
+  /** Gentle miss / try-again — settle is sympathetic, not angry. */
+  encouraging: `${P}/gretel-settle.webp`,
+  /** Lesson exit / goodbye. */
+  exiting: `${P}/gretel-wave-exit.webp`,
+  /** Home + lesson welcome. */
+  welcome: [
+    `${P}/gretel-wave.webp`,
+    `${P}/gretel-wave-1.webp`,
+    `${P}/gretel-wave-2.webp`,
+  ],
   waving: [
-    "/cartilla/images/gretel/poses/gretel-wave.webp",
-    "/cartilla/images/gretel/poses/gretel-wave-1.webp",
-    "/cartilla/images/gretel/poses/gretel-wave-2.webp",
+    `${P}/gretel-wave.webp`,
+    `${P}/gretel-wave-1.webp`,
+    `${P}/gretel-wave-2.webp`,
   ],
-  pointing: "/cartilla/images/gretel/poses/gretel-point.webp",
-  /** Mirror of point for right-side bubble layouts. */
-  pointingLeft: "/cartilla/images/gretel/poses/gretel-point-left.webp",
-  cheering: [
-    "/cartilla/images/gretel/poses/gretel-cheer.webp",
-    "/cartilla/images/gretel/poses/gretel-cheer-1.webp",
+  pointing: `${P}/gretel-point.webp`,
+  /** Mirror point for right-side bubble / exercise on right. */
+  pointingLeft: [
+    `${P}/gretel-point-left.webp`,
+    `${P}/gretel-point-left-flip.webp`,
   ],
+  cheering: [`${P}/gretel-cheer.webp`, `${P}/gretel-cheer-1.webp`],
+  /**
+   * Talk cycle: talk-0 is idle-identical base; talk-1/2 + talk.webp add mouth
+   * openness. Cycle all for richer speech while TTS runs.
+   */
   talking: [
-    "/cartilla/images/gretel/poses/gretel-talk-0.webp",
-    "/cartilla/images/gretel/poses/gretel-talk-1.webp",
-    "/cartilla/images/gretel/poses/gretel-talk-2.webp",
+    `${P}/gretel-talk-0.webp`,
+    `${P}/gretel-talk-1.webp`,
+    `${P}/gretel-talk-2.webp`,
+    `${P}/gretel-talk.webp`,
   ],
+  error: `${P}/gretel-idle.webp`,
 };
 
-/** Kept for any old call site still importing the single-image constant. */
-export const GRETEL_ORIGINAL_ARTWORK = "/cartilla/images/gretel/poses/gretel-idle.webp";
+/** Explicit inventory for tests / PR table (every file under poses/ + heroes). */
+export type GretelAssetRow = {
+  path: string;
+  pose: string;
+  usable: boolean;
+  wired: boolean;
+  notes: string;
+};
 
-export type GretelPoseKey = GretelState | "settling" | "exiting" | "pointingLeft";
+export const GRETEL_ASSET_INVENTORY: GretelAssetRow[] = [
+  {
+    path: `${P}/gretel-idle.webp`,
+    pose: "idle",
+    usable: true,
+    wired: true,
+    notes: "Living base; continuous breath",
+  },
+  {
+    path: `${P}/gretel-closed-idle.webp`,
+    pose: "blink / closed-eye idle (G-01)",
+    usable: true,
+    wired: true,
+    notes: "Blink layer; matches idle canvas",
+  },
+  {
+    path: `${P}/gretel-blink.webp`,
+    pose: "blink (legacy)",
+    usable: false,
+    wired: false,
+    notes: "REJECTED — wrong canvas 1024² vs idle 666×1000",
+  },
+  {
+    path: `${P}/gretel-settle.webp`,
+    pose: "settle / think / miss (G-02)",
+    usable: true,
+    wired: true,
+    notes: "Enter settle + encouraging miss",
+  },
+  {
+    path: `${P}/gretel-wave.webp`,
+    pose: "wave-0",
+    usable: true,
+    wired: true,
+    notes: "Welcome / wave cycle",
+  },
+  {
+    path: `${P}/gretel-wave-1.webp`,
+    pose: "wave-1",
+    usable: true,
+    wired: true,
+    notes: "Welcome / wave cycle",
+  },
+  {
+    path: `${P}/gretel-wave-2.webp`,
+    pose: "wave-2",
+    usable: true,
+    wired: true,
+    notes: "Welcome / wave cycle",
+  },
+  {
+    path: `${P}/gretel-wave-exit.webp`,
+    pose: "exit wave (G-03)",
+    usable: true,
+    wired: true,
+    notes: "Lesson leave goodbye",
+  },
+  {
+    path: `${P}/gretel-point.webp`,
+    pose: "point right",
+    usable: true,
+    wired: true,
+    notes: "Hint / exercise point",
+  },
+  {
+    path: `${P}/gretel-point-left.webp`,
+    pose: "point left (G-04)",
+    usable: true,
+    wired: true,
+    notes: "Point when content is on the right",
+  },
+  {
+    path: `${P}/gretel-point-left-flip.webp`,
+    pose: "point left alt",
+    usable: true,
+    wired: true,
+    notes: "Second frame in pointingLeft cycle",
+  },
+  {
+    path: `${P}/gretel-cheer.webp`,
+    pose: "cheer-0",
+    usable: true,
+    wired: true,
+    notes: "Success / celebrate",
+  },
+  {
+    path: `${P}/gretel-cheer-1.webp`,
+    pose: "cheer-1",
+    usable: true,
+    wired: true,
+    notes: "Success / celebrate",
+  },
+  {
+    path: `${P}/gretel-talk-0.webp`,
+    pose: "talk-0",
+    usable: true,
+    wired: true,
+    notes: "Talk cycle (near-idle mouth closed)",
+  },
+  {
+    path: `${P}/gretel-talk-1.webp`,
+    pose: "talk-1",
+    usable: true,
+    wired: true,
+    notes: "Talk cycle open mouth",
+  },
+  {
+    path: `${P}/gretel-talk-2.webp`,
+    pose: "talk-2",
+    usable: true,
+    wired: true,
+    notes: "Talk cycle mid mouth",
+  },
+  {
+    path: `${P}/gretel-talk.webp`,
+    pose: "talk base",
+    usable: true,
+    wired: true,
+    notes: "Talk cycle extra frame",
+  },
+  {
+    path: "/cartilla/images/gretel/gretel-original.png",
+    pose: "source reference",
+    usable: false,
+    wired: false,
+    notes: "Unused — source/reference PNG, not a product pose frame",
+  },
+  {
+    path: "/art/hd/gretel-authentic.jpg",
+    pose: "home garden scene",
+    usable: true,
+    wired: true,
+    notes: "Home book-plate scene background",
+  },
+];
+
+export const GRETEL_ORIGINAL_ARTWORK = `${P}/gretel-idle.webp`;
+
+/** Every usable pose path currently wired into GRETEL_POSES. */
+export function allWiredPosePaths(): string[] {
+  const out = new Set<string>();
+  for (const v of Object.values(GRETEL_POSES)) {
+    if (Array.isArray(v)) v.forEach((p) => out.add(p));
+    else out.add(v);
+  }
+  return [...out];
+}
 
 export function getGretelPoseFrames(state: GretelPoseKey): string | string[] {
-  return GRETEL_POSES[state] ?? (GRETEL_POSES.idle as string);
+  return GRETEL_POSES[state] ?? GRETEL_POSES.idle;
 }
 
 export function getGretelPose(state: GretelPoseKey): string {
   const pose = GRETEL_POSES[state] ?? GRETEL_POSES.idle;
-  return Array.isArray(pose) ? pose[0] : (pose as string);
+  return Array.isArray(pose) ? pose[0] : pose;
+}
+
+/** Frame interval (ms) for multi-frame pose families. */
+export function poseFrameMs(state: GretelPoseKey): number {
+  switch (state) {
+    case "talking":
+      return 120;
+    case "waving":
+    case "welcome":
+      return 220;
+    case "cheering":
+      return 160;
+    case "pointingLeft":
+      return 400;
+    default:
+      return 180;
+  }
+}
+
+/**
+ * Map product bus moments → pose family.
+ * Used by GretelPresence (primary lesson host).
+ */
+export function poseForBusEvent(
+  type: string,
+): GretelPoseKey | null {
+  switch (type) {
+    case "lesson:start":
+    case "mount":
+      return "welcome";
+    case "answer:correct":
+    case "activity:complete":
+    case "lesson:complete":
+      return "cheering";
+    case "answer:wrong":
+      return "encouraging";
+    case "hint:show":
+      return "pointing";
+    case "hint:hide":
+      return "idle";
+    case "page-flip":
+      return "settling";
+    case "talk:start":
+      return "talking";
+    case "talk:stop":
+      return "idle";
+    default:
+      return null;
+  }
 }

@@ -1,9 +1,11 @@
 /**
  * FaithfulPageRenderer wires Colorea → PaintCanvas, Dibuja → DibujaHost,
  * Encierra/Une → LassoConnect (not tap fallback / cheap string).
+ *
+ * @vitest-environment jsdom
  */
-import { describe, it, expect, vi, beforeEach } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
+import { render, screen, cleanup } from "@testing-library/react";
 import { FaithfulPageRenderer } from "../FaithfulPageRenderer";
 import type { PageRegion } from "@/lib/book-faithful";
 
@@ -23,6 +25,54 @@ vi.mock("@/lib/gretel-speak", () => ({
 vi.mock("@/hooks/useReducedMotion", () => ({
   useReducedMotion: () => true,
 }));
+
+vi.mock("@/lib/piano-audio", () => ({
+  playCorrectChord: vi.fn(),
+  playWrongBuzz: vi.fn(),
+}));
+
+/** jsdom canvas stub so PaintCanvas mount does not hang under parallel workers. */
+function installCanvasMock() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (HTMLCanvasElement.prototype as any).getContext = function () {
+    return {
+      setTransform: vi.fn(),
+      scale: vi.fn(),
+      save: vi.fn(),
+      restore: vi.fn(),
+      beginPath: vi.fn(),
+      arc: vi.fn(),
+      fill: vi.fn(),
+      stroke: vi.fn(),
+      clearRect: vi.fn(),
+      drawImage: vi.fn(),
+      createRadialGradient: () => ({ addColorStop: vi.fn() }),
+      fillRect: vi.fn(),
+      getImageData: vi.fn(() => ({
+        data: new Uint8ClampedArray(4),
+        width: 1,
+        height: 1,
+      })),
+      putImageData: vi.fn(),
+      canvas: this,
+      globalCompositeOperation: "source-over",
+      fillStyle: "#000",
+      imageSmoothingEnabled: true,
+      imageSmoothingQuality: "high",
+    };
+  };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (HTMLCanvasElement.prototype as any).toDataURL = vi.fn(
+    () => "data:image/png;base64,mock",
+  );
+}
+
+beforeEach(() => {
+  installCanvasMock();
+  vi.clearAllMocks();
+});
+
+afterEach(() => cleanup());
 
 function paintRegions(): PageRegion[] {
   return [
@@ -108,10 +158,6 @@ function encierraRegions(): PageRegion[] {
 }
 
 describe("FaithfulPageRenderer mechanic hosts", () => {
-  beforeEach(() => {
-    vi.clearAllMocks();
-  });
-
   it("paint-box → PaintCanvas with Colorea verb (not tap)", () => {
     render(
       <FaithfulPageRenderer

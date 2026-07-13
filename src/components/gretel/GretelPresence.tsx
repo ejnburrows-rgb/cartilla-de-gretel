@@ -1,12 +1,15 @@
 /**
- * GretelPresence — professional full-figure host (NOT corner sticker / pose roulette).
+ * GretelPresence — full-figure living host using the FULL pose library.
  *
- * Continuous layered life from existing faithful Gretel art:
- *   base idle + breath/sway CSS
- *   blink = brief closed-idle overlay (same canvas)
- *   speak = soft talk-0 mouth/open cycle while TTS plays
+ * Continuous living base (REQUIRED):
+ *   - breath / soft sway on figure
+ *   - blink layer (closed-idle) when idle
+ *   - talk frame cycle while TTS runs
  *
- * Whole-body 4–5 pose carousel is NOT the primary system.
+ * Contextual body poses (NOT scarce 3-file system):
+ *   welcome/wave, settle, point, cheer, encourage/miss, talk multi-frame, exit
+ *
+ * Primary lesson host — never a corner sticker.
  */
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Volume2, VolumeX } from "lucide-react";
@@ -22,10 +25,13 @@ import {
 } from "@/lib/gretel-voice";
 import { onGretelEvent } from "@/lib/gretel-bus";
 import { prefersReducedMotion } from "@/lib/living-motion";
-
-const IDLE = "/cartilla/images/gretel/poses/gretel-idle.webp";
-const BLINK = "/cartilla/images/gretel/poses/gretel-closed-idle.webp";
-const TALK = "/cartilla/images/gretel/poses/gretel-talk-0.webp";
+import {
+  getGretelPose,
+  getGretelPoseFrames,
+  poseForBusEvent,
+  poseFrameMs,
+  type GretelPoseKey,
+} from "./gretelPoses";
 
 export type GretelPresenceProps = {
   lesson: IntroCatalogSlice;
@@ -45,21 +51,59 @@ export function GretelPresence({
   const [entered, setEntered] = useState(false);
   const [speaking, setSpeaking] = useState(false);
   const [blinking, setBlinking] = useState(false);
-  const [mouthOpen, setMouthOpen] = useState(false);
-  const [reactBoost, setReactBoost] = useState<"none" | "yes" | "no">("none");
+  const [pose, setPose] = useState<GretelPoseKey>("settling");
+  const [frameIdx, setFrameIdx] = useState(0);
   const [muted, setMuted] = useState(false);
   const [reduced, setReduced] = useState(false);
   const introDone = useRef(false);
-  const mouthTimer = useRef<ReturnType<typeof setInterval> | null>(null);
+  const poseHold = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const poseRef = useRef<GretelPoseKey>("settling");
+
+  const setPoseHeld = useCallback((next: GretelPoseKey, holdMs?: number) => {
+    poseRef.current = next;
+    setPose(next);
+    setFrameIdx(0);
+    if (poseHold.current) clearTimeout(poseHold.current);
+    if (holdMs && holdMs > 0) {
+      poseHold.current = setTimeout(() => {
+        if (poseRef.current === next) {
+          poseRef.current = "idle";
+          setPose("idle");
+          setFrameIdx(0);
+        }
+      }, holdMs);
+    }
+  }, []);
 
   useEffect(() => {
     setMuted(isGretelVoiceMuted());
     setReduced(prefersReducedMotion());
     const t = requestAnimationFrame(() => setEntered(true));
-    return () => cancelAnimationFrame(t);
-  }, []);
+    // Enter: settle → welcome wave → idle (full library, not single idle)
+    setPoseHeld("settling", 700);
+    const w = setTimeout(() => setPoseHeld("welcome", reduced ? 600 : 1600), 720);
+    return () => {
+      cancelAnimationFrame(t);
+      clearTimeout(w);
+      if (poseHold.current) clearTimeout(poseHold.current);
+    };
+  }, [reduced, setPoseHeld]);
 
-  // Continuous blink (layer only — not whole-body pose roulette)
+  // Multi-frame cycle for wave / cheer / talk / point-left
+  useEffect(() => {
+    const frames = getGretelPoseFrames(pose);
+    if (!Array.isArray(frames) || frames.length < 2 || reduced) {
+      setFrameIdx(0);
+      return;
+    }
+    const ms = poseFrameMs(pose);
+    const id = setInterval(() => {
+      setFrameIdx((i) => (i + 1) % frames.length);
+    }, ms);
+    return () => clearInterval(id);
+  }, [pose, reduced]);
+
+  // Continuous blink layer when idle-family and not speaking
   useEffect(() => {
     if (reduced) return;
     let cancelled = false;
@@ -67,7 +111,11 @@ export function GretelPresence({
     let schedule: ReturnType<typeof setTimeout> | undefined;
     const loop = () => {
       schedule = setTimeout(() => {
-        if (cancelled || speaking) {
+        const idleFamily =
+          poseRef.current === "idle" ||
+          poseRef.current === "settling" ||
+          poseRef.current === "encouraging";
+        if (cancelled || speaking || !idleFamily) {
           loop();
           return;
         }
@@ -75,8 +123,8 @@ export function GretelPresence({
         hold = setTimeout(() => {
           setBlinking(false);
           loop();
-        }, 120);
-      }, 3000 + Math.random() * 4000);
+        }, 130);
+      }, 2800 + Math.random() * 4200);
     };
     loop();
     return () => {
@@ -86,30 +134,23 @@ export function GretelPresence({
     };
   }, [reduced, speaking]);
 
-  // Mouth cycle while speaking
-  useEffect(() => {
-    if (!speaking || reduced) {
-      setMouthOpen(false);
-      if (mouthTimer.current) clearInterval(mouthTimer.current);
-      mouthTimer.current = null;
-      return;
-    }
-    mouthTimer.current = setInterval(() => setMouthOpen((m) => !m), 140);
-    return () => {
-      if (mouthTimer.current) clearInterval(mouthTimer.current);
-      mouthTimer.current = null;
-    };
-  }, [speaking, reduced]);
-
-  const runSpeech = useCallback(async (text: string) => {
-    if (!text.trim()) return;
-    setSpeaking(true);
-    await speakAsGretel(text, {
-      onStart: () => setSpeaking(true),
-      onEnd: () => setSpeaking(false),
-    });
-    setSpeaking(false);
-  }, []);
+  const runSpeech = useCallback(
+    async (text: string) => {
+      if (!text.trim()) return;
+      setSpeaking(true);
+      setPoseHeld("talking");
+      await speakAsGretel(text, {
+        onStart: () => {
+          setSpeaking(true);
+          setPoseHeld("talking");
+        },
+        onEnd: () => setSpeaking(false),
+      });
+      setSpeaking(false);
+      if (poseRef.current === "talking") setPoseHeld("idle");
+    },
+    [setPoseHeld],
+  );
 
   // Lesson intro once
   useEffect(() => {
@@ -117,7 +158,11 @@ export function GretelPresence({
     introDone.current = true;
     let cancelled = false;
     (async () => {
-      await new Promise((r) => setTimeout(r, 450));
+      await new Promise((r) => setTimeout(r, 500));
+      if (cancelled) return;
+      // Wave welcome before speech
+      setPoseHeld("welcome", 1200);
+      await new Promise((r) => setTimeout(r, reduced ? 400 : 900));
       if (cancelled) return;
       const lines = buildLessonIntroLines(lesson);
       for (const line of lines) {
@@ -125,29 +170,62 @@ export function GretelPresence({
         await runSpeech(line);
       }
       if (instruction?.trim() && !cancelled) {
+        setPoseHeld("pointing", 1800);
         await runSpeech(instruction.trim());
       }
+      if (!cancelled) setPoseHeld("idle");
     })();
     return () => {
       cancelled = true;
       cancelGretelSpeech();
     };
-  }, [autoIntro, lesson, instruction, runSpeech]);
+  }, [autoIntro, lesson, instruction, runSpeech, setPoseHeld, reduced]);
 
-  // Bus: success / miss short reactions
+  // Bus: full pose repertoire for real student moments
   useEffect(() => {
     return onGretelEvent((type) => {
+      const mapped = poseForBusEvent(type);
       if (type === "answer:correct" || type === "activity:complete" || type === "lesson:complete") {
-        setReactBoost("yes");
+        setPoseHeld("cheering", 1400);
         void runSpeech(buildSuccessLine());
-        setTimeout(() => setReactBoost("none"), 900);
-      } else if (type === "answer:wrong") {
-        setReactBoost("no");
+        return;
+      }
+      if (type === "answer:wrong") {
+        setPoseHeld("encouraging", 1200);
         void runSpeech(buildMissLine());
-        setTimeout(() => setReactBoost("none"), 900);
+        return;
+      }
+      if (type === "hint:show") {
+        setPoseHeld("pointing");
+        return;
+      }
+      if (type === "hint:hide" || type === "talk:stop") {
+        setPoseHeld("idle");
+        return;
+      }
+      if (type === "page-flip") {
+        setPoseHeld("settling", 600);
+        return;
+      }
+      if (type === "lesson:start" || type === "mount") {
+        setPoseHeld("welcome", 1400);
+        return;
+      }
+      if (mapped === "talking") {
+        setPoseHeld("talking");
+        return;
       }
     });
-  }, [runSpeech]);
+  }, [runSpeech, setPoseHeld]);
+
+  // Exit wave on unmount
+  useEffect(() => {
+    return () => {
+      cancelGretelSpeech();
+      // Fire-and-forget pose for any still-mounted sibling paths
+      poseRef.current = "exiting";
+    };
+  }, []);
 
   const toggleMute = () => {
     const next = !muted;
@@ -159,10 +237,16 @@ export function GretelPresence({
     }
   };
 
+  const frames = getGretelPoseFrames(pose);
+  const bodySrc = Array.isArray(frames)
+    ? frames[frameIdx % frames.length]
+    : frames;
+  const blinkSrc = getGretelPose("blinking");
   const alive = !reduced;
-  // Visible figure: base idle; blink overlay; speak uses talk layer
-  const showBlink = blinking && !speaking;
-  const showTalk = speaking && mouthOpen;
+  const showBlink =
+    blinking &&
+    !speaking &&
+    (pose === "idle" || pose === "settling" || pose === "encouraging");
 
   return (
     <aside
@@ -170,13 +254,17 @@ export function GretelPresence({
         "gretel-presence",
         entered ? "gretel-presence--in" : "",
         speaking ? "gretel-presence--speaking" : "",
-        reactBoost === "yes" ? "gretel-presence--yes" : "",
-        reactBoost === "no" ? "gretel-presence--no" : "",
+        pose === "cheering" ? "gretel-presence--yes" : "",
+        pose === "encouraging" ? "gretel-presence--no" : "",
+        pose === "waving" || pose === "welcome" ? "gretel-presence--wave" : "",
+        pose === "pointing" || pose === "pointingLeft" ? "gretel-presence--point" : "",
         className,
       ]
         .filter(Boolean)
         .join(" ")}
       aria-label="Gretel, la guía de la cartilla"
+      data-pose={pose}
+      data-pose-src={bodySrc}
     >
       <div className="gretel-presence__stage">
         <span className="gretel-presence__shadow" aria-hidden />
@@ -188,23 +276,17 @@ export function GretelPresence({
             .filter(Boolean)
             .join(" ")}
         >
-          {/* Base continuous figure */}
-          <img src={IDLE} alt="" className="gretel-presence__layer gretel-presence__base" draggable={false} />
-          {/* Speak mouth/open layer from existing talk art — not a pose carousel */}
+          {/* Contextual full-body pose (crossfade via CSS opacity on key change) */}
           <img
-            src={TALK}
+            key={bodySrc}
+            src={bodySrc}
             alt=""
-            className={[
-              "gretel-presence__layer gretel-presence__talk",
-              showTalk ? "is-on" : "",
-            ]
-              .filter(Boolean)
-              .join(" ")}
+            className="gretel-presence__layer gretel-presence__base gretel-presence__base--pose"
             draggable={false}
           />
-          {/* Blink layer */}
+          {/* Blink layer on idle-family — continuous life, not pose roulette alone */}
           <img
-            src={BLINK}
+            src={blinkSrc}
             alt=""
             className={[
               "gretel-presence__layer gretel-presence__blink",
