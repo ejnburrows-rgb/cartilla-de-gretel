@@ -90,6 +90,20 @@
   opacity: 1;
 }
 
+/* Soft crossfade when body pose src changes (not hard sticker pop) */
+.gretel-presence__base--pose {
+  animation: gretel-presence-pose-in 0.32s ease-out;
+}
+
+@keyframes gretel-presence-pose-in {
+  from {
+    opacity: 0.35;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .gretel-presence__talk,
 .gretel-presence__blink {
   z-index: 2;
@@ -100,6 +114,44 @@
 .gretel-presence__talk.is-on,
 .gretel-presence__blink.is-on {
   opacity: 1;
+}
+
+.gretel-presence--wave .gretel-presence__figure--alive {
+  animation: gretel-presence-wave 1.1s ease-in-out infinite;
+}
+
+.gretel-presence--point .gretel-presence__figure--alive {
+  animation: gretel-presence-point 1.4s ease-in-out infinite;
+}
+
+@keyframes gretel-presence-wave {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1.2deg);
+  }
+  50% {
+    transform: translateY(-4px) rotate(1.6deg);
+  }
+}
+
+@keyframes gretel-presence-point {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  50% {
+    transform: translateX(3px) rotate(0.8deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gretel-presence__figure--alive,
+  .gretel-presence--speaking .gretel-presence__figure--alive,
+  .gretel-presence--wave .gretel-presence__figure--alive,
+  .gretel-presence--point .gretel-presence__figure--alive,
+  .gretel-presence__base--pose {
+    animation: none !important;
+  }
 }
 
 .gretel-presence__chrome {
