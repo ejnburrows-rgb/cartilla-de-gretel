@@ -118,7 +118,7 @@ export function IntroSplash({
           animate="visible"
           transition={heroTransition}
         >
-          <img src="/cartilla/images/gretel/happy.webp" alt="Gretel" className="w-20 h-20 mx-auto mb-4 object-contain" />
+          <img src="/cartilla/images/gretel/poses/gretel-wave.webp" alt="Gretel" className="w-20 h-20 mx-auto mb-4 object-contain" />
           <p className="text-xs font-black uppercase tracking-[0.3em] text-[hsl(24,98%,50%)]">
             Bienvenidos a
           </p>

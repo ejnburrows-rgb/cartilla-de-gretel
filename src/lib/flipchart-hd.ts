@@ -11,7 +11,7 @@ export type FlipchartPage = {
   flipchartPage: number;
   /** Lesson number this page belongs to (1-24) */
   lesson: number;
-  /** Relative path from public root, e.g. "art/hd/page-1.png" */
+  /** Relative path from public root, e.g. "cartilla/art/hd/flipchart/page-001.jpg" */
   path: string;
   type: string;
   status: string;

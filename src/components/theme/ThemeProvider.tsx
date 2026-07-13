@@ -37,14 +37,16 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     if (typeof document === "undefined") return;
     const root = document.documentElement;
     // Clear all previous theme classes
-    root.classList.remove("theme-light", "theme-dark", "theme-high-contrast", "theme-dyslexia");
+    root.classList.remove("theme-light", "theme-dark", "theme-high-contrast", "theme-dyslexia", "dark");
     
     if (theme === "light") {
       root.classList.add("theme-light");
     } else if (theme === "dark") {
-      root.classList.add("theme-dark");
+      // theme-dark drives CSS custom properties; also set Tailwind's `dark`
+      // class so dark: utilities (student workbook / flipbook chrome) apply.
+      root.classList.add("theme-dark", "dark");
     } else if (theme === "high-contrast") {
-      root.classList.add("theme-high-contrast");
+      root.classList.add("theme-high-contrast", "dark");
     } else if (theme === "dyslexia-friendly") {
       root.classList.add("theme-dyslexia");
     }
