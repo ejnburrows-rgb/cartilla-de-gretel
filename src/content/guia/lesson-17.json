@@ -1,20 +1,20 @@
 {
   "lessonId": 17,
   "objectives": [
-    "AWAITING-SOURCE-SCAN"
+    "AWAITING-SOURCE-SCAN — no Teacher's Guide book scan exists for this lesson. docs/Transcripción Integral_ La cartilla de Gretel - Guía del profesor.txt (the source used for Lecciones 1-15) stops mid-Lección 15 and does not cover Lección 17. Only student workbook pages (public/cartilla/images/source/r/r-page-37.jpg through r-page-40.jpg) were available this session."
   ],
-  "motivation": "AWAITING-SOURCE-SCAN",
-  "script": "AWAITING-SOURCE-SCAN",
+  "motivation": "AWAITING-SOURCE-SCAN — same reason as objectives.",
+  "script": "AWAITING-SOURCE-SCAN — same reason as objectives.",
   "evaluationRef": {
-    "page": null,
-    "note": "AWAITING-SOURCE-SCAN"
+    "page": 17,
+    "note": "AWAITING-SOURCE-SCAN — the page number follows the same lessonId pattern used in every other lesson, but the verbatim evaluation instruction line requires the Teacher's Guide book, which was not scanned/uploaded for this lesson."
   },
   "rhyme": {
-    "title": null,
-    "text": "AWAITING-SOURCE-SCAN"
+    "title": "La rosca de Manolo",
+    "text": "La r para la rama\npara el roer del ratón\ny para el rabo del mono\nrisueño y remolón.\n\nPara la rueda redonda\nla risa de tío Rolo\nla rana, el remo, la rosa\ny la rosca de Manolo."
   },
   "provenance": {
-    "source": "AWAITING-SOURCE-SCAN",
+    "source": "public/cartilla/images/source/r/r-page-39.jpg (real student workbook scan, rhyme page — transcribed word-for-word). Objectives/motivation/script/evaluation note NOT sourced: no Teacher's Guide scan exists for this lesson.",
     "verified": false
   }
 }

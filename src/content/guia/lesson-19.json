@@ -1,20 +1,20 @@
 {
   "lessonId": 19,
   "objectives": [
-    "AWAITING-SOURCE-SCAN"
+    "AWAITING-SOURCE-SCAN — no Teacher's Guide book scan exists for this lesson. docs/Transcripción Integral_ La cartilla de Gretel - Guía del profesor.txt (the source used for Lecciones 1-15) stops mid-Lección 15 and does not cover Lección 19. Only student workbook pages (public/cartilla/images/source/g/g-page-43.jpg through g-page-46.jpg) were available this session."
   ],
-  "motivation": "AWAITING-SOURCE-SCAN",
-  "script": "AWAITING-SOURCE-SCAN",
+  "motivation": "AWAITING-SOURCE-SCAN — same reason as objectives.",
+  "script": "AWAITING-SOURCE-SCAN — same reason as objectives.",
   "evaluationRef": {
-    "page": null,
-    "note": "AWAITING-SOURCE-SCAN"
+    "page": 19,
+    "note": "AWAITING-SOURCE-SCAN — the page number follows the same lessonId pattern used in every other lesson, but the verbatim evaluation instruction line requires the Teacher's Guide book, which was not scanned/uploaded for this lesson."
   },
   "rhyme": {
-    "title": null,
-    "text": "AWAITING-SOURCE-SCAN"
+    "title": "El gato enamorado",
+    "text": "Mi gato Goloso\nse enamoró\nde Musulunga\ny la engatusó.\n\n-Gatita gordita\ngatita, mi amor\neste gusanito\nes para los dos."
   },
   "provenance": {
-    "source": "AWAITING-SOURCE-SCAN",
+    "source": "public/cartilla/images/source/g/g-page-45.jpg (real student workbook scan, rhyme page — transcribed word-for-word). Objectives/motivation/script/evaluation note NOT sourced: no Teacher's Guide scan exists for this lesson.",
     "verified": false
   }
 }

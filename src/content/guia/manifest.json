@@ -67,7 +67,7 @@
     },
     "17": {
       "file": "lesson-17.json",
-      "status": "missing_content"
+      "status": "rhyme_only_no_teacher_guide_source"
     },
     "18": {
       "file": "lesson-18.json",
@@ -75,27 +75,27 @@
     },
     "19": {
       "file": "lesson-19.json",
-      "status": "missing_content"
+      "status": "rhyme_only_no_teacher_guide_source"
     },
     "20": {
       "file": "lesson-20.json",
-      "status": "missing_content"
+      "status": "rhyme_only_no_teacher_guide_source"
     },
     "21": {
       "file": "lesson-21.json",
-      "status": "missing_content"
+      "status": "rhyme_only_no_teacher_guide_source"
     },
     "22": {
       "file": "lesson-22.json",
-      "status": "missing_content"
+      "status": "rhyme_only_no_teacher_guide_source"
     },
     "23": {
       "file": "lesson-23.json",
-      "status": "missing_content"
+      "status": "rhyme_only_no_teacher_guide_source"
     },
     "24": {
       "file": "lesson-24.json",
-      "status": "missing_content"
+      "status": "rhyme_only_no_teacher_guide_source"
     }
   }
 }

@@ -2,106 +2,83 @@ import { getBookPageImage } from "@/lib/bookImages";
 
 export const lesson19 = [
   {
-    id: "l19-p73-letter-tracing",
+    id: "l19-p67-picture-vocab",
     lessonNumber: 19,
-    pageNumber: 73,
-    kind: "letter-tracing",
-    title: "Escribe con tu mejor letra — G g",
-    prompt: "Traza la letra G mayúscula y la g minúscula. Luego haz un dibujo de una palabra que comienza con g.",
+    pageNumber: 67,
+    kind: "listen-and-tap",
+    title: "Gg",
+    prompt: "Presiona el dibujo de la palabra que escuchas.",
     items: [
-      { id: "letter-G", label: "G" },
-      { id: "letter-g", label: "g" }
+      { id: "img-gaveta", label: "gaveta" },
+      { id: "img-gusano", label: "gusano" },
+      { id: "img-goloso", label: "Goloso" },
+      { id: "img-gorra", label: "gorra" },
+      { id: "img-mago", label: "mago" }
     ],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Students trace uppercase and lowercase g.",
-    sourcePage: getBookPageImage(73)
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "Transcribed verbatim from public/cartilla/images/source/g/g-page-43.jpg (real scan).",
+    sourcePage: getBookPageImage(67)
   },
   {
-    id: "l19-p74-syllable-circle",
+    id: "l19-p68-syllable-tap",
     lessonNumber: 19,
-    pageNumber: 74,
-    kind: "drag-syllable-to-slot",
-    title: "Encierra la sílaba — G g",
-    prompt: "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
-    items: [
-      { id: "syl-ga", label: "ga" },
-      { id: "syl-go", label: "go" },
-      { id: "syl-gu", label: "gu" }
-    ],
-    targets: [
-      { id: "slot-ga", label: "ga", coordinatesVerified: false, acceptsItemId: "syl-ga" },
-      { id: "slot-go", label: "go", coordinatesVerified: false, acceptsItemId: "syl-go" },
-      { id: "slot-gu", label: "gu", coordinatesVerified: false, acceptsItemId: "syl-gu" }
-    ],
-    wordBank: [
-      "garras", "gasolina", "gato", "paga", "ganas", "maga", "goma", "gorra", "lago", "gota", "mago", "goloso", "gusano", "gula", "agudo", "mangú", "laguna", "aguja"
-    ],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded syllable circle for g.",
-    sourcePage: getBookPageImage(74)
-  },
-  {
-    id: "l19-p75-syllable-tap",
-    lessonNumber: 19,
-    pageNumber: 75,
+    pageNumber: 68,
     kind: "read-aloud",
-    title: "Sílabas con G — página Gg",
-    prompt: "Toca cada sílaba para escucharla. Repite en voz alta.",
+    title: "Gg",
+    prompt: "ga go gu",
     items: [
       { id: "ra-ga", label: "ga" },
       { id: "ra-go", label: "go" },
       { id: "ra-gu", label: "gu" }
     ],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded syllable tap for g.",
-    sourcePage: getBookPageImage(75)
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "Transcribed verbatim from public/cartilla/images/source/g/g-page-44.jpg (real scan).",
+    sourcePage: getBookPageImage(68)
   },
   {
-    id: "l19-p75-word-bank",
+    id: "l19-p68-word-bank",
     lessonNumber: 19,
-    pageNumber: 75,
+    pageNumber: 68,
     kind: "listen-and-tap",
-    title: "Palabras con G",
-    prompt: "Toca cada palabra para escucharla.",
+    title: "Palabras",
+    prompt: "Palabras",
     items: [
-      { id: "w-gato-0", label: "gato" },
-      { id: "w-gustavo-1", label: "Gustavo" },
-      { id: "w-gotero-2", label: "gotero" },
-      { id: "w-goma-3", label: "goma" },
-      { id: "w-mago-4", label: "mago" },
-      { id: "w-laguna-5", label: "laguna" },
-      { id: "w-magali-6", label: "Magali" },
-      { id: "w-lago-7", label: "lago" },
-      { id: "w-golosina-8", label: "golosina" },
-      { id: "w-ganas-9", label: "ganas" },
-      { id: "w-agua-10", label: "agua" },
-      { id: "w-gorra-11", label: "gorra" },
-      { id: "w-gusta-12", label: "gusta" },
-      { id: "w-gusano-13", label: "gusano" },
-      { id: "w-gondola-14", label: "góndola" }
+      { id: "w-gato", label: "gato" },
+      { id: "w-goma", label: "goma" },
+      { id: "w-magali", label: "Magali" },
+      { id: "w-ganas", label: "ganas" },
+      { id: "w-gusta", label: "gusta" },
+      { id: "w-gustavo", label: "Gustavo" },
+      { id: "w-mago", label: "mago" },
+      { id: "w-lago", label: "lago" },
+      { id: "w-agua", label: "agua" },
+      { id: "w-gusano", label: "gusano" },
+      { id: "w-gotero", label: "gotero" },
+      { id: "w-laguna", label: "laguna" },
+      { id: "w-golosina", label: "golosina" },
+      { id: "w-gorra", label: "gorra" },
+      { id: "w-gondola", label: "góndola" }
     ],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded word bank for g.",
-    sourcePage: getBookPageImage(75)
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "Word list transcribed verbatim from public/cartilla/images/source/g/g-page-44.jpg (real scan). No highlighted sight-word bar was present on this page.",
+    sourcePage: getBookPageImage(68)
   },
   {
-    id: "l19-p75-mini-story",
+    id: "l19-p68-mini-story",
     lessonNumber: 19,
-    pageNumber: 75,
+    pageNumber: 68,
     kind: "mini-story",
-    title: "Mini-cuento",
-    prompt: "Lee el mini-cuento del cuaderno con tu maestro.",
+    title: "Cuento",
+    prompt: "Cuento",
     items: [
       { id: "story-g-1", label: "El gato de Magali bebe agua en el lago." },
       { id: "story-g-2", label: "Magali le pone una gorra a su gato Goloso." },
@@ -113,138 +90,83 @@ export const lesson19 = [
       { id: "story-g-8", label: "Musulunga." }
     ],
     targets: [],
-    sightWords: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded mini-story for g.",
-    sourcePage: getBookPageImage(75)
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "Reading passage transcribed verbatim from public/cartilla/images/source/g/g-page-44.jpg (real scan).",
+    sourcePage: getBookPageImage(68)
   },
   {
-    id: "l19-p76-fill-in-blank",
+    id: "l19-p69-rhyme",
     lessonNumber: 19,
-    pageNumber: 76,
-    kind: "drag-syllable-to-slot",
-    title: "Completa las palabras — G g",
-    prompt: "Arrastra la sílaba correcta para completar cada palabra.",
+    pageNumber: 69,
+    kind: "mini-story",
+    title: "El gato enamorado",
+    prompt: "Rima",
     items: [
-      { id: "syl-gu-0", label: "gu" },
-      { id: "syl-go-1", label: "go" },
-      { id: "syl-ga-2", label: "ga" }
+      { id: "rhyme-g-1", label: "Mi gato Goloso" },
+      { id: "rhyme-g-2", label: "se enamoró" },
+      { id: "rhyme-g-3", label: "de Musulunga" },
+      { id: "rhyme-g-4", label: "y la engatusó." },
+      { id: "rhyme-g-5", label: "-Gatita gordita" },
+      { id: "rhyme-g-6", label: "gatita, mi amor" },
+      { id: "rhyme-g-7", label: "este gusanito" },
+      { id: "rhyme-g-8", label: "es para los dos." }
+    ],
+    targets: [],
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "Rhyme transcribed verbatim from public/cartilla/images/source/g/g-page-45.jpg (real scan).",
+    sourcePage: getBookPageImage(69)
+  },
+  {
+    id: "l19-p70-fill-in-blank",
+    lessonNumber: 19,
+    pageNumber: 70,
+    kind: "drag-syllable-to-slot",
+    title: "Completa las palabras con la sílaba correcta.",
+    prompt: "Completa las palabras con la sílaba correcta.",
+    items: [
+      { id: "syl-ga", label: "ga" },
+      { id: "syl-go", label: "go" },
+      { id: "syl-gu", label: "gu" }
     ],
     targets: [
-      {
-        id: "blank-aguja-0",
-        label: "a___ja",
-        hint: "gu - go",
-        correctSyllable: "gu",
-        fullWord: "aguja",
-        coordinatesVerified: false,
-        acceptsItemId: "syl-gu-0"
-      },
-      {
-        id: "blank-ganas-1",
-        label: "___nas",
-        hint: "ga - go",
-        correctSyllable: "ga",
-        fullWord: "ganas",
-        coordinatesVerified: false,
-        acceptsItemId: "syl-ga-2"
-      },
-      {
-        id: "blank-mago-2",
-        label: "ma___",
-        hint: "go - gu",
-        correctSyllable: "go",
-        fullWord: "mago",
-        coordinatesVerified: false,
-        acceptsItemId: "syl-go-1"
-      },
-      {
-        id: "blank-gato-3",
-        label: "___to",
-        hint: "ga - gu",
-        correctSyllable: "ga",
-        fullWord: "gato",
-        coordinatesVerified: false,
-        acceptsItemId: "syl-ga-2"
-      },
-      {
-        id: "blank-goma-4",
-        label: "___ma",
-        hint: "gu - go",
-        correctSyllable: "go",
-        fullWord: "goma",
-        coordinatesVerified: false,
-        acceptsItemId: "syl-go-1"
-      },
-      {
-        id: "blank-lago-5",
-        label: "la___",
-        hint: "go - ga",
-        correctSyllable: "go",
-        fullWord: "lago",
-        coordinatesVerified: false,
-        acceptsItemId: "syl-go-1"
-      }
+      { id: "blank-aguja", label: "a___ja", hint: "gu - go", correctSyllable: "gu", fullWord: "aguja", coordinatesVerified: false, acceptsItemId: "syl-gu" },
+      { id: "blank-ganas", label: "___nas", hint: "ga - go", correctSyllable: "ga", fullWord: "ganas", coordinatesVerified: false, acceptsItemId: "syl-ga" },
+      { id: "blank-mago", label: "ma___", hint: "go - gu", correctSyllable: "go", fullWord: "mago", coordinatesVerified: false, acceptsItemId: "syl-go" },
+      { id: "blank-gato", label: "___to", hint: "ga - gu", correctSyllable: "ga", fullWord: "gato", coordinatesVerified: false, acceptsItemId: "syl-ga" },
+      { id: "blank-goma", label: "___ma", hint: "gu - go", correctSyllable: "go", fullWord: "goma", coordinatesVerified: false, acceptsItemId: "syl-go" },
+      { id: "blank-lago", label: "la___", hint: "go - ga", correctSyllable: "go", fullWord: "lago", coordinatesVerified: false, acceptsItemId: "syl-go" }
     ],
     exercises: [
-      {
-        partial: "a___ja",
-        choices: ["gu","go"],
-        answer: "gu",
-        fullWord: "aguja"
-      },
-      {
-        partial: "___nas",
-        choices: ["ga","go"],
-        answer: "ga",
-        fullWord: "ganas"
-      },
-      {
-        partial: "ma___",
-        choices: ["go","gu"],
-        answer: "go",
-        fullWord: "mago"
-      },
-      {
-        partial: "___to",
-        choices: ["ga","gu"],
-        answer: "ga",
-        fullWord: "gato"
-      },
-      {
-        partial: "___ma",
-        choices: ["gu","go"],
-        answer: "go",
-        fullWord: "goma"
-      },
-      {
-        partial: "la___",
-        choices: ["go","ga"],
-        answer: "go",
-        fullWord: "lago"
-      }
+      { partial: "a___ja", choices: ["gu", "go"], answer: "gu", fullWord: "aguja" },
+      { partial: "___nas", choices: ["ga", "go"], answer: "ga", fullWord: "ganas" },
+      { partial: "ma___", choices: ["go", "gu"], answer: "go", fullWord: "mago" },
+      { partial: "___to", choices: ["ga", "gu"], answer: "ga", fullWord: "gato" },
+      { partial: "___ma", choices: ["gu", "go"], answer: "go", fullWord: "goma" },
+      { partial: "la___", choices: ["go", "ga"], answer: "go", fullWord: "lago" }
     ],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded fill-in-the-blank for g.",
-    sourcePage: getBookPageImage(76)
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "Fill-in-blank transcribed verbatim from public/cartilla/images/source/g/g-page-46.jpg (real scan; physical page 70, 'Lección 19' confirmed printed on the page).",
+    sourcePage: getBookPageImage(70)
   },
   {
-    id: "l19-p76-write-sentences",
+    id: "l19-p70-write-sentences",
     lessonNumber: 19,
-    pageNumber: 76,
+    pageNumber: 70,
     kind: "letter-tracing",
     title: "Escribe oraciones. Usa las sílabas que aprendiste.",
-    prompt: "Escribe oraciones usando las sílabas que aprendiste.",
+    prompt: "Escribe oraciones. Usa las sílabas que aprendiste.",
     items: [],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Sentence writing lines.",
-    sourcePage: getBookPageImage(76)
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "Sentence writing lines, confirmed present on public/cartilla/images/source/g/g-page-46.jpg (real scan).",
+    sourcePage: getBookPageImage(70)
   }
 ];

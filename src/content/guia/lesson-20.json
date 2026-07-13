@@ -1,20 +1,20 @@
 {
   "lessonId": 20,
   "objectives": [
-    "AWAITING-SOURCE-SCAN"
+    "AWAITING-SOURCE-SCAN — no Teacher's Guide book scan exists for this lesson. docs/Transcripción Integral_ La cartilla de Gretel - Guía del profesor.txt (the source used for Lecciones 1-15) stops mid-Lección 15 and does not cover Lección 20. Only student workbook pages (public/cartilla/images/source/f/f-page-46.jpg through f-page-49.jpg) were available this session."
   ],
-  "motivation": "AWAITING-SOURCE-SCAN",
-  "script": "AWAITING-SOURCE-SCAN",
+  "motivation": "AWAITING-SOURCE-SCAN — same reason as objectives.",
+  "script": "AWAITING-SOURCE-SCAN — same reason as objectives.",
   "evaluationRef": {
-    "page": null,
-    "note": "AWAITING-SOURCE-SCAN"
+    "page": 20,
+    "note": "AWAITING-SOURCE-SCAN — the page number follows the same lessonId pattern used in every other lesson, but the verbatim evaluation instruction line requires the Teacher's Guide book, which was not scanned/uploaded for this lesson."
   },
   "rhyme": {
-    "title": null,
-    "text": "AWAITING-SOURCE-SCAN"
+    "title": "A la fiesta",
+    "text": "A la fiesta de familia\ntía Fela va a invitar\nlas velitas del pastel\nFefita va a apagar.\n\nFu, fu... apaga la vela\nfa, fa... la vela no es mía\nfe, fe... apaga la vela\nfi, fi... la vela es de tía."
   },
   "provenance": {
-    "source": "AWAITING-SOURCE-SCAN",
+    "source": "public/cartilla/images/source/f/f-page-48.jpg (real student workbook scan, rhyme page — transcribed word-for-word). Objectives/motivation/script/evaluation note NOT sourced: no Teacher's Guide scan exists for this lesson.",
     "verified": false
   }
 }
