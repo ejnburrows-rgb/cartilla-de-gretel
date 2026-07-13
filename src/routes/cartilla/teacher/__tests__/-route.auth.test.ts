@@ -29,6 +29,10 @@ vi.mock("@/lib/student-session", () => ({
   getStudentSession: () => null,
 }));
 
+vi.mock("@/lib/seed-data", () => ({
+  isSeedSessionActive: () => false,
+}));
+
 async function loadRoute() {
   const mod = await import("../route");
   return mod.Route;
