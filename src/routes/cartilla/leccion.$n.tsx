@@ -68,15 +68,19 @@ function Leccion() {
   );
 
   const fetchProgress = useServerFn(getMyProgress);
-  const { data: progressData } = useQuery({
+  const { data: progressData, isFetched, isError } = useQuery({
     queryKey: ["my-progress", session?.studentId],
     queryFn: () =>
       session
         ? fetchProgress({ data: { studentId: session.studentId, studentCode: session.studentCode } })
         : Promise.resolve(null),
     enabled: !!session,
+    // Never block the workbook forever when Supabase is down / session is stale.
+    retry: 1,
   });
-  const progressReady = !session || progressData !== undefined;
+  // Without a session, render immediately. With a session, wait until the
+  // query settles (success OR error) so a dead backend can't blank the page.
+  const progressReady = !session || isFetched || isError;
   const initialPage = useMemo(() => {
     if (!session) return 0;
     const lessonProgress =
