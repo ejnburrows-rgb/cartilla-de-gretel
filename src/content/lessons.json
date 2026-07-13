@@ -292,7 +292,8 @@
       },
       {
         "word": "uña",
-        "emoji": "💅"
+        "emoji": "💅",
+        "illustrationSrc": "/cartilla/art/faithful/vocal-u/uña.webp"
       },
       {
         "word": "uno",
@@ -330,7 +331,8 @@
       {
         "word": "uña",
         "emoji": "💅",
-        "startsWithVowel": true
+        "startsWithVowel": true,
+        "illustrationSrc": "/cartilla/art/faithful/vocal-u/uña.webp"
       },
       {
         "word": "árbol",

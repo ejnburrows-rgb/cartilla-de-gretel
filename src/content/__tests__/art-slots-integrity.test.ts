@@ -72,4 +72,13 @@ describe("workbook art slots integrity", () => {
     expect(raw).not.toContain("leccion-1/ola.webp");
     expect(raw).not.toContain("vocal-i/iguana.webp");
   });
+
+  it("uña recovered from lineart u-page-17 is wired and non-empty", () => {
+    const abs = join(publicRoot, "cartilla/art/faithful/vocal-u/uña.webp");
+    expect(existsSync(abs)).toBe(true);
+    expect(statSync(abs).size).toBeGreaterThanOrEqual(MIN_BYTES);
+    const lessons = readFileSync(join(process.cwd(), "src/content/lessons.json"), "utf8");
+    expect(lessons).toContain("vocal-u/uña.webp");
+  });
 });
+
