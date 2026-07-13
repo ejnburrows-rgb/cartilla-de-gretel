@@ -2,7 +2,7 @@
  * Adapters from FaithfulPage region shapes → professional activity hosts.
  * Keeps printed verbs honest; does not invent lesson text.
  */
-import type { PageRegion, PageGridCell } from "@/lib/book-faithful";
+import type { PageRegion, PageGridCell, PageRegionType } from "@/lib/book-faithful";
 import { PaintCanvas } from "./PaintCanvas";
 import { DibujaHost, type DibujaPickOption } from "./DibujaHost";
 import { LassoConnect, type LassoTarget, type LassoVerbFamily } from "./LassoConnect";
@@ -20,6 +20,66 @@ function verbFromText(text?: string): LassoVerbFamily {
   if (t.includes("empareja")) return "empareja";
   if (t.includes("une") || t.includes("traza una línea") || t.includes("traza una linea")) return "une";
   return "encierra";
+}
+
+/**
+ * Interactive host chosen for a region. Used by FaithfulPageRenderer and
+ * integrity tests so Colorea never silently falls back to tap-select.
+ */
+export type FaithfulHost =
+  | "paint"
+  | "dibuja"
+  | "lasso-mark"
+  | "lasso-pair"
+  | "tap-grid"
+  | "tap-pick"
+  | "fill-blank"
+  | "trace"
+  | "static";
+
+/**
+ * Pure mechanic routing: region type + printed instruction → host component.
+ * paint-box always paints; draw-box always Dibuja; Encierra/Une/match → lasso.
+ */
+export function resolveFaithfulHost(
+  regionType: PageRegionType,
+  precedingInstruction?: string,
+): FaithfulHost {
+  switch (regionType) {
+    case "paint-box":
+      return "paint";
+    case "draw-box":
+      // Dibuja / "Haz un dibujo" freehand — never tap fallback
+      return "dibuja";
+    case "illustration-slot":
+      return instructionSuggestsColorea(precedingInstruction) ? "paint" : "static";
+    case "picture-grid":
+      if (instructionSuggestsLasso(precedingInstruction)) return "lasso-mark";
+      if (instructionSuggestsColorea(precedingInstruction)) return "paint";
+      return "tap-grid";
+    case "syllable-match":
+    case "vowel-line-match":
+      return "lasso-mark";
+    case "vowel-match-all":
+      return "lasso-pair";
+    case "vowel-pick-one":
+      return "tap-pick";
+    case "fill-in-blank":
+      return "fill-blank";
+    case "writing-line":
+      return "trace";
+    default:
+      return "static";
+  }
+}
+
+/** Printed color-in verb for the paint host (never renamed to "Toca"). */
+export function printedPaintVerb(text?: string): string {
+  if (!text) return "Colorea";
+  const t = text.toLowerCase();
+  if (t.includes("colorea") || t.includes("colorear")) return "Colorea";
+  if (/\bpinta\b/.test(t)) return "Pinta";
+  return "Colorea";
 }
 
 /** Collect pick options from lesson catalog vocab (in-repo art only). */
@@ -64,18 +124,21 @@ export function PaintFromRegion({
   lessonId,
   illustrationSrc,
   illustrationAlt,
+  instruction,
 }: {
   region: PageRegion;
   lessonId?: string;
   illustrationSrc?: string;
   illustrationAlt?: string;
+  /** Printed instruction (or region.text) — keeps Colorea/Pinta verb honest. */
+  instruction?: string;
 }) {
   return (
     <PaintCanvas
       pageKey={pageKey(lessonId, region.id)}
       illustrationSrc={illustrationSrc ?? region.illustrationSrc}
       illustrationAlt={illustrationAlt ?? region.caption ?? region.text ?? ""}
-      verbLabel="Colorea"
+      verbLabel={printedPaintVerb(instruction ?? region.text)}
       lessonId={lessonId}
     />
   );
@@ -281,7 +344,12 @@ export function instructionSuggestsLasso(text?: string): boolean {
 export function instructionSuggestsColorea(text?: string): boolean {
   if (!text) return false;
   const t = text.toLowerCase();
-  return t.includes("colorea") || t.includes("colorear");
+  // Printed color-in verbs only — not reading sentences like "Pepe pinta un pino."
+  return (
+    t.includes("colorea") ||
+    t.includes("colorear") ||
+    /\bpinta\s+(el|la|los|las|este|esta|estos|estas)\b/.test(t)
+  );
 }
 
 export function instructionSuggestsDibuja(text?: string): boolean {
