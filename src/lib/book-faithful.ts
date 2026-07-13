@@ -58,7 +58,8 @@ export type PageRegionType =
 	| "vocab-grid"
 	| "tracing-line"
 	| "writing-line" // ruled handwriting line (solid baseline + dashed teal midline), optional model letters
-	| "draw-box" // empty bordered box for "haz un dibujo"
+	| "draw-box" // empty bordered box for "haz un dibujo" / Dibuja
+	| "paint-box" // freehand Colorea paint surface (illustration + brush layer)
 	| "picture-grid" // grid of illustration cells (e.g. "marca con una x")
 	| "syllable-bubble"
 	| "sentence-line"

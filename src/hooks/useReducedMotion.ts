@@ -5,6 +5,7 @@ export function useReducedMotion(): boolean {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
+    if (typeof window.matchMedia !== "function") return;
 
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     setReduced(mediaQuery.matches);

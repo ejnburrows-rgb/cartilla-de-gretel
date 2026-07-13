@@ -6,8 +6,9 @@ import type { PhysicalPage, WorkbookObject } from "@/content/workbook/types";
 import { TapSelect } from "@/cartilla/interactions/TapSelect";
 import { TapToHear } from "@/cartilla/interactions/TapToHear";
 import { DragPlace } from "@/cartilla/interactions/DragPlace";
-import { PairMatch } from "@/cartilla/interactions/PairMatch";
-import { MarkCircle } from "@/cartilla/interactions/MarkCircle";
+import { LassoConnectFromWorkbook } from "@/cartilla/interactions/LassoConnect";
+import { PaintCanvas } from "@/cartilla/interactions/PaintCanvas";
+import { DibujaHost } from "@/cartilla/interactions/DibujaHost";
 import { emitProgressEvent } from "@/lib/progress-events";
 import { getWorkbookPageFallbackChain } from "@/lib/bookImages";
 
@@ -228,7 +229,38 @@ export function LivingWorkbookPage({
   };
 
   let interactionSlot: ReactNode = null;
-  if (interactionKind !== "none" && interactiveObjects.length > 0) {
+  const pageKey = `lwp-${page.pageNumber ?? page.id}`;
+  const lessonId = page.lessonNumber != null ? String(page.lessonNumber) : undefined;
+
+  if (interactionKind === "paint") {
+    const art = interactiveObjects.find((o) => o.src) ?? page.objects.find((o) => o.src);
+    interactionSlot = (
+      <PaintCanvas
+        pageKey={pageKey}
+        illustrationSrc={art?.src}
+        illustrationAlt={art?.alt ?? art?.text ?? ""}
+        verbLabel="Colorea"
+        lessonId={lessonId}
+        onComplete={handleComplete}
+      />
+    );
+  } else if (interactionKind === "dibuja") {
+    const picks = interactiveObjects.map((o, i) => ({
+      id: o.id,
+      caption: o.alt ?? o.text ?? o.id,
+      illustrationSrc: o.src,
+      correct: Boolean((o.interaction?.data as { correct?: boolean } | undefined)?.correct) || i === 0,
+    }));
+    interactionSlot = (
+      <DibujaHost
+        pageKey={pageKey}
+        hint={page.instruction}
+        lessonId={lessonId}
+        pickOptions={picks}
+        onComplete={handleComplete}
+      />
+    );
+  } else if (interactionKind !== "none" && interactiveObjects.length > 0) {
     const shared = {
       objects: interactiveObjects,
       onResult: handleResult,
@@ -247,10 +279,27 @@ export function LivingWorkbookPage({
         interactionSlot = <DragPlace {...shared} />;
         break;
       case "pair-match":
-        interactionSlot = <PairMatch {...shared} />;
+        // Production default: cinematic Gretel lasso (PairMatch kept in repo as fallback)
+        interactionSlot = (
+          <LassoConnectFromWorkbook
+            {...shared}
+            pageKey={pageKey}
+            mode="pair"
+            instruction={page.instruction}
+            lessonId={lessonId}
+          />
+        );
         break;
       case "mark-circle":
-        interactionSlot = <MarkCircle {...shared} />;
+        interactionSlot = (
+          <LassoConnectFromWorkbook
+            {...shared}
+            pageKey={pageKey}
+            mode="mark"
+            instruction={page.instruction}
+            lessonId={lessonId}
+          />
+        );
         break;
     }
   }

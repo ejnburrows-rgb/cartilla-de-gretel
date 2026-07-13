@@ -5,11 +5,13 @@
  * interaction kind, loaded straight from the committed
  * workbook-manifest.json (via getWorkbookPage) — not synthetic fixtures.
  * Proves the manifest's real answer/target data actually grades correctly
- * through LivingWorkbookPage + each interaction component, for every one
- * of the 5 interaction kinds the engine supports.
+ * through LivingWorkbookPage + each interaction component.
+ *
+ * pair-match / mark-circle production default is LassoConnect (cinematic rope);
+ * MarkCircle/PairMatch remain in-repo as internal fallbacks.
  */
-import { describe, it, expect, vi, beforeEach } from "vitest";
-import { render, fireEvent, cleanup } from "@testing-library/react";
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
+import { render, fireEvent, cleanup, act } from "@testing-library/react";
 import { LivingWorkbookPage } from "../LivingWorkbookPage";
 import { getWorkbookPage, clearWorkbookManifestCache } from "@/content/workbook/loader";
 
@@ -20,32 +22,62 @@ vi.mock("@/lib/piano-audio", () => ({
 vi.mock("@/lib/gretel-bus", () => ({
   gretelEvent: vi.fn(),
 }));
+vi.mock("@/lib/gretel-tts", () => ({
+  speakGretelPhrase: vi.fn(),
+}));
+
+import { playCorrectChord } from "@/lib/piano-audio";
 
 beforeEach(() => {
   clearWorkbookManifestCache();
   cleanup();
+  vi.clearAllMocks();
   window.matchMedia =
     window.matchMedia ??
     ((query: string) =>
       ({
-        matches: false,
+        matches: true, // reduced-motion: short lasso timers in tests
         media: query,
         addEventListener: vi.fn(),
         removeEventListener: vi.fn(),
       }) as unknown as MediaQueryList);
+  Element.prototype.getBoundingClientRect = function () {
+    return {
+      x: 0,
+      y: 0,
+      top: 10,
+      left: 10,
+      bottom: 110,
+      right: 110,
+      width: 100,
+      height: 100,
+      toJSON: () => ({}),
+    } as DOMRect;
+  };
 });
 
+afterEach(() => cleanup());
+
+async function flushLasso(ms = 500) {
+  await act(async () => {
+    await new Promise((r) => setTimeout(r, ms));
+  });
+}
+
 describe("LivingWorkbookPage — real manifest pages grade correctly", () => {
-  it("MarkCircle: page 4 (picture-grid) grades a real correct cell as correct", () => {
+  it("MarkCircle → LassoConnect: page 4 (picture-grid) grades a real correct cell as correct", async () => {
     const page = getWorkbookPage(4);
     expect(page).not.toBeNull();
     const onResult = vi.fn();
     const { container } = render(
       <LivingWorkbookPage page={page!} onInteractionResult={onResult} />,
     );
-    const firstChoice = container.querySelector(".lwp-mark-circle");
+    // Production default is cinematic lasso, not the old .lwp-mark-circle chip
+    const firstChoice = container.querySelector(".am-lasso__target");
     expect(firstChoice).not.toBeNull();
     fireEvent.click(firstChoice!);
+    await flushLasso(600);
+    expect(playCorrectChord).toHaveBeenCalled();
     expect(onResult).toHaveBeenCalledWith(
       expect.objectContaining({ objectId: "p4-cell-0", result: "correct" }),
     );
@@ -68,17 +100,19 @@ describe("LivingWorkbookPage — real manifest pages grade correctly", () => {
     expect(onComplete).toHaveBeenCalled();
   });
 
-  it("PairMatch: page 3 (vowel-match-all) grades a real matching pair as correct", () => {
+  it("PairMatch → LassoConnect: page 3 (vowel-match-all) grades a real matching pair as correct", async () => {
     const page = getWorkbookPage(3);
     expect(page).not.toBeNull();
     const onResult = vi.fn();
-    render(<LivingWorkbookPage page={page!} onInteractionResult={onResult} />);
-    const left = document.querySelector(".lwp-pair-match__left");
-    const right = document.querySelector(".lwp-pair-match__right");
-    expect(left).not.toBeNull();
-    expect(right).not.toBeNull();
-    fireEvent.click(left!);
-    fireEvent.click(right!);
+    const { container } = render(
+      <LivingWorkbookPage page={page!} onInteractionResult={onResult} />,
+    );
+    const targets = container.querySelectorAll(".am-lasso__target");
+    expect(targets.length).toBeGreaterThanOrEqual(2);
+    fireEvent.click(targets[0]!);
+    fireEvent.click(targets[1]!);
+    await flushLasso(600);
+    expect(playCorrectChord).toHaveBeenCalled();
     expect(onResult).toHaveBeenCalled();
   });
 
