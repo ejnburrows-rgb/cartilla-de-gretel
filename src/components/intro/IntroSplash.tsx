@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { type CSSProperties, type ReactNode } from "react";
+import { BookHeroGretel } from "./BookHeroGretel";
 
 export interface PastelStop {
   hex: string;
@@ -117,12 +118,14 @@ export function IntroSplash({
           initial="hidden"
           animate="visible"
           transition={heroTransition}
+          className="flex w-full max-w-md flex-col items-center"
         >
-          <img src="/cartilla/images/gretel/poses/gretel-wave.webp" alt="Gretel" className="w-20 h-20 mx-auto mb-4 object-contain" />
-          <p className="text-xs font-black uppercase tracking-[0.3em] text-[hsl(24,98%,50%)]">
+          {/* Full painted garden scene — not a transparent pose sticker */}
+          <BookHeroGretel size="md" objectPosition="center 20%" />
+          <p className="mt-5 text-xs font-black uppercase tracking-[0.3em] text-[hsl(24,98%,50%)]">
             Bienvenidos a
           </p>
-          <h1 className="mt-4 text-6xl font-black leading-[0.95] text-[hsl(200,98%,39%)] sm:text-7xl md:text-8xl">
+          <h1 className="mt-3 text-5xl font-black leading-[0.95] text-[hsl(200,98%,39%)] sm:text-6xl md:text-7xl">
             La Cartilla
             <br />
             <span className="text-[hsl(24,98%,50%)]">de Gretel</span>

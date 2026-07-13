@@ -1,12 +1,11 @@
 import { createFileRoute, Link, redirect } from "@tanstack/react-router";
 import { Lock } from "lucide-react";
 import { getStudentSession } from "@/lib/student-session";
-import "@/styles/interactive-exercises.css";
-import "@/styles/gretel.css";
+import { BookHeroGretel } from "@/components/intro/BookHeroGretel";
+import "@/styles/home-hero.css";
 
 export const Route = createFileRoute("/cartilla/")({
   beforeLoad: () => {
-    // If the student is already logged in, skip the splash screen and go straight to their lessons.
     const session = getStudentSession();
     if (session) {
       throw redirect({ to: "/cartilla/lecciones" });
@@ -14,93 +13,60 @@ export const Route = createFileRoute("/cartilla/")({
   },
   component: CartillaSplash,
   head: () => ({
-    meta: [
-      { title: "Entrar — La Cartilla de Gretel" },
-    ],
+    meta: [{ title: "Entrar — La Cartilla de Gretel" }],
   }),
 });
 
 function CartillaSplash() {
   return (
-    <main className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-center" style={{ background: "radial-gradient(circle, #e5c531 0%, #0d6b38 100%)" }}>
-      <style>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-20px); }
-        }
-      `}</style>
-      {/* 3D CSS Garden Background Elements */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        {/* Sun */}
-        <div className="absolute top-10 right-10 w-32 h-32 bg-yellow-300 rounded-full blur-xl opacity-80 animate-pulse" />
-        <div className="absolute top-12 right-12 w-28 h-28 bg-yellow-400 rounded-full" />
-        
-        {/* Clouds */}
-        <div className="absolute top-20 left-10 w-48 h-16 bg-white/80 rounded-full blur-md animate-[float_10s_ease-in-out_infinite]" />
-        <div className="absolute top-40 right-1/4 w-32 h-12 bg-white/70 rounded-full blur-md animate-[float_14s_ease-in-out_infinite_reverse]" />
-        
-        {/* Rolling Hills (CSS curves) */}
-        <div className="absolute bottom-0 left-0 right-0 h-[40vh] bg-emerald-400 [clip-path:ellipse(120%_100%_at_50%_100%)] shadow-inner" />
-        <div className="absolute bottom-0 left-[-20%] right-[-20%] h-[30vh] bg-green-500 [clip-path:ellipse(100%_100%_at_20%_100%)] opacity-80" />
-        <div className="absolute bottom-0 left-[-20%] right-[-20%] h-[25vh] bg-emerald-600 [clip-path:ellipse(100%_100%_at_80%_100%)] opacity-60" />
-      </div>
+    <main className="home-landing" data-testid="cartilla-splash">
+      <div className="home-landing__wash" aria-hidden />
 
-      {/* Main Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center space-y-8 mt-10">
-        
-        {/* Bouncing Welcome Text */}
-        <div className="flex space-x-2">
-          {"GRETEL".split("").map((letter, i) => (
-            <span
-              key={i}
-              className="font-fredoka text-6xl md:text-8xl font-black text-white drop-shadow-[0_8px_8px_rgba(0,0,0,0.3)] animate-bounce"
-              style={{
-                animationDelay: `${i * 0.1}s`,
-                WebkitTextStroke: "3px hsl(var(--primary))"
-              }}
+      <div className="home-landing__inner" style={{ maxWidth: 720 }}>
+        <section className="home-landing__panel" style={{ textAlign: "center" }}>
+          <p className="home-landing__eyebrow">¡Bienvenidos!</p>
+          <h1 className="home-landing__title" style={{ textAlign: "center" }}>
+            La Cartilla
+            <br />
+            <span>de Gretel</span>
+          </h1>
+          <p className="home-landing__lead" style={{ marginInline: "auto", textAlign: "center" }}>
+            El mundo mágico de las letras — listo para leer en clase o en casa.
+          </p>
+
+          <div className="home-landing__hero-col" style={{ marginTop: "1.25rem" }}>
+            <BookHeroGretel
+              size="md"
+              objectPosition="center 20%"
+              alt="Gretel te da la bienvenida en el jardín"
+            />
+          </div>
+
+          <div className="home-landing__actions" style={{ maxWidth: 360, marginInline: "auto" }}>
+            <Link
+              to="/cartilla/unirse"
+              className="home-landing__cta home-landing__cta--student"
+              data-testid="cartilla-splash-enter"
             >
-              {letter}
-            </span>
-          ))}
-        </div>
-
-        <h2 className="font-fredoka text-2xl md:text-3xl font-bold text-white drop-shadow-md text-center max-w-md px-4">
-          ¡Bienvenidos al mundo mágico de las letras!
-        </h2>
-
-        {/* Gretel Mascot Image */}
-        <div className="relative w-64 h-64 md:w-80 md:h-80 animate-[float_6s_ease-in-out_infinite]">
-          <img 
-            src="/cartilla/images/gretel/poses/gretel-wave.webp" 
-            alt="Gretel saludando"
-            className="w-full h-full object-contain drop-shadow-2xl"
-          />
-        </div>
-
-        {/* Big Student "Entrar" Button */}
-        <Link
-          to="/cartilla/unirse"
-          className="group relative inline-flex items-center justify-center px-12 py-6 font-fredoka font-black text-3xl text-white transition-all duration-200 bg-primary rounded-full hover:bg-primary/90 focus:outline-none focus:ring-4 focus:ring-primary/50 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.3)] active:translate-y-0"
-        >
-          <span className="relative">¡ENTRAR!</span>
-          <div className="absolute inset-0 h-full w-full rounded-full border-4 border-white/20 opacity-0 group-hover:opacity-100 group-hover:animate-ping" />
-        </Link>
+              ¡Entrar!
+            </Link>
+          </div>
+        </section>
       </div>
 
-      {/* Help + subtle teacher padlock */}
       <div className="absolute bottom-6 inset-x-0 z-20 flex items-center justify-between px-6">
         <Link
           to="/cartilla/ayuda"
-          className="min-h-12 min-w-12 px-4 py-3 bg-white/25 hover:bg-white/45 backdrop-blur-sm rounded-full text-white font-bold transition shadow-sm inline-flex items-center focus-visible:outline focus-visible:outline-4 focus-visible:outline-yellow-300"
+          className="min-h-12 px-4 py-3 rounded-full bg-white/80 hover:bg-white border border-[rgba(23,49,59,0.12)] text-[color:var(--home-ink,#17313b)] font-bold shadow-sm transition"
           aria-label="Ayuda"
         >
           Ayuda
         </Link>
         <Link
           to="/cartilla/teacher"
-          className="min-h-12 min-w-12 p-3 bg-white/20 hover:bg-white/40 backdrop-blur-sm rounded-full text-white/70 hover:text-white transition shadow-sm inline-flex items-center justify-center focus-visible:outline focus-visible:outline-4 focus-visible:outline-yellow-300"
-          aria-label="Acceso Profesores"
-          title="Acceso Profesores"
+          className="min-h-12 min-w-12 p-3 rounded-full bg-white/80 hover:bg-white border border-[rgba(23,49,59,0.12)] text-[color:var(--home-ink,#17313b)] transition shadow-sm inline-flex items-center justify-center"
+          aria-label="Acceso profesores"
+          title="Acceso profesores"
         >
           <Lock className="w-5 h-5" aria-hidden="true" />
         </Link>
