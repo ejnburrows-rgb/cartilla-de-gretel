@@ -12,13 +12,19 @@
 // invented.
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
+import { z } from "zod";
 import { BookOpen, Rows3, Home, ClipboardCheck, Music, UserPlus } from "lucide-react";
 import { CATALOG } from "@/lib/lesson-catalog";
 import { getTeacherFolderData } from "@/content/teacher-folder-data";
 import { AssignActivityModal } from "@/components/teacher/AssignActivityModal";
 import type { FolderKey } from "@/lib/folder-assignments.functions";
 
+const FOLDER_KEYS = ["guia", "tablas", "tareas", "evaluaciones", "poemas"] as const;
+
+// Optional ?folder= so other pages (teacher home) can deep-link straight
+// into one of the 5 folders instead of landing on the picker every time.
 export const Route = createFileRoute("/cartilla/teacher/guia/")({
+  validateSearch: z.object({ folder: z.enum(FOLDER_KEYS).optional() }),
   component: TeacherGuiaFolders,
   head: () => ({ meta: [{ title: "Guía del profesor — La Cartilla de Gretel" }] }),
 });
@@ -70,7 +76,8 @@ const FOLDERS: FolderDef[] = [
 ];
 
 function TeacherGuiaFolders() {
-  const [openFolder, setOpenFolder] = useState<FolderKey | null>(null);
+  const { folder: folderFromUrl } = Route.useSearch();
+  const [openFolder, setOpenFolder] = useState<FolderKey | null>(folderFromUrl ?? null);
   const [assigning, setAssigning] = useState<{ folderKey: FolderKey; lessonId: string; label: string } | null>(null);
 
   const folder = FOLDERS.find((f) => f.key === openFolder);

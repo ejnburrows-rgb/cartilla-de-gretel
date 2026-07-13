@@ -1,5 +1,6 @@
 import { createFileRoute, Outlet, Link, useLocation, redirect } from "@tanstack/react-router";
-import { Users, BarChart3, FileSpreadsheet, MonitorPlay, BookOpen, LogOut } from "lucide-react";
+import { useState } from "react";
+import { Users, GraduationCap, FileSpreadsheet, MonitorPlay, BookOpen, LogOut, HelpCircle, Menu, X } from "lucide-react";
 import { getStudentSession } from "@/lib/student-session";
 import { supabase } from "@/integrations/supabase/client";
 import { hasTeacherOrAdminRole } from "@/lib/auth-role";
@@ -53,8 +54,23 @@ async function signOut() {
   window.location.assign("/login");
 }
 
+// The teacher lane's real "task menu" — every nav item here maps to an
+// actual, working destination. Kept as one list so the desktop bar and the
+// mobile drawer below always stay in sync (previously "Present" pointed at
+// the student lesson list and "Progress" at a disconnected legacy page —
+// both silent dead-ends a teacher had no way to know were wrong).
+const NAV_ITEMS: Array<{ to: string; icon: React.ReactNode; label: string; match: string }> = [
+  { to: "/cartilla/teacher/crm", icon: <GraduationCap className="w-4 h-4" />, label: "Clase", match: "/crm" },
+  { to: "/cartilla/teacher/roster", icon: <Users className="w-4 h-4" />, label: "Alumnos", match: "/roster" },
+  { to: "/cartilla/teacher/guia", icon: <BookOpen className="w-4 h-4" />, label: "Guía", match: "/guia" },
+  { to: "/cartilla/presentar/1", icon: <MonitorPlay className="w-4 h-4" />, label: "Presentar", match: "/presentar" },
+  { to: "/cartilla/teacher/reportes", icon: <FileSpreadsheet className="w-4 h-4" />, label: "Reportes", match: "/reportes" },
+  { to: "/cartilla/teacher/ayuda", icon: <HelpCircle className="w-4 h-4" />, label: "Ayuda", match: "/ayuda" },
+];
+
 function TeacherLayout() {
   const location = useLocation();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // If we are in presentation mode, don't show the nav.
   if (location.pathname.includes("/proyectar")) {
@@ -71,53 +87,31 @@ function TeacherLayout() {
       <div className="absolute top-0 left-0 right-0 h-[500px] bg-gradient-to-b from-[hsl(197,41%,90%)]/50 to-transparent pointer-events-none -z-10" />
 
       <header className="bg-white/70 backdrop-blur-xl border-b border-stone-200/50 sticky top-0 z-30 shadow-sm no-print transition-all duration-300">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-vowel-a to-vowel-o flex items-center justify-center text-white font-black shadow-[inset_0_2px_4px_rgba(255,255,255,0.3),0_4px_10px_rgba(249,115,22,0.3)] ring-1 ring-white/50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+          <div className="flex items-center gap-3 min-w-0">
+            <div className="w-9 h-9 shrink-0 rounded-xl bg-gradient-to-br from-vowel-a to-vowel-o flex items-center justify-center text-white font-black shadow-[inset_0_2px_4px_rgba(255,255,255,0.3),0_4px_10px_rgba(249,115,22,0.3)] ring-1 ring-white/50">
               G
             </div>
-            <div className="flex flex-col">
-              <span className="text-sm font-black text-stone-800 leading-tight">
+            <div className="flex flex-col min-w-0">
+              <span className="text-sm font-black text-stone-800 leading-tight truncate">
                 La Cartilla de Gretel
               </span>
               <span className="text-[10px] font-bold tracking-widest uppercase text-stone-400 leading-tight">
-                Teacher CRM
+                Panel del Docente
               </span>
             </div>
           </div>
 
-          <nav className="hidden sm:flex items-center gap-6">
-            <NavLink
-              to="/cartilla/teacher/roster"
-              icon={<Users className="w-4 h-4" />}
-              label="Roster"
-              active={location.pathname.includes("/roster")}
-            />
-            {/* Progress can just be a placeholder pointing to reports or missing for now if not explicitly requested, but we will add the link */}
-            <NavLink
-              to="/cartilla/teacher/progreso"
-              icon={<BarChart3 className="w-4 h-4" />}
-              label="Progress"
-              active={location.pathname.includes("/progreso")}
-            />
-            <NavLink
-              to="/cartilla/teacher/reportes"
-              icon={<FileSpreadsheet className="w-4 h-4" />}
-              label="Reports"
-              active={location.pathname.includes("/reportes")}
-            />
-            <NavLink
-              to="/cartilla/teacher/guia"
-              icon={<BookOpen className="w-4 h-4" />}
-              label="Guía"
-              active={location.pathname.includes("/guia")}
-            />
-            <NavLink
-              to="/cartilla/lecciones"
-              icon={<MonitorPlay className="w-4 h-4" />}
-              label="Present"
-              active={false}
-            />
+          <nav className="hidden md:flex items-center gap-5">
+            {NAV_ITEMS.map((item) => (
+              <NavLink
+                key={item.to}
+                to={item.to}
+                icon={item.icon}
+                label={item.label}
+                active={location.pathname.includes(item.match)}
+              />
+            ))}
             <button
               type="button"
               onClick={() => void signOut()}
@@ -127,10 +121,47 @@ function TeacherLayout() {
               <LogOut className="w-4 h-4" /> Salir
             </button>
           </nav>
+
+          <button
+            type="button"
+            className="md:hidden min-h-11 min-w-11 flex items-center justify-center rounded-xl border border-stone-200 text-stone-600"
+            aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
+            aria-expanded={mobileMenuOpen}
+            onClick={() => setMobileMenuOpen((open) => !open)}
+          >
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
         </div>
+
+        {mobileMenuOpen && (
+          <nav className="md:hidden border-t border-stone-200/70 bg-white/95 px-4 py-3 space-y-1">
+            {NAV_ITEMS.map((item) => (
+              <Link
+                key={item.to}
+                to={item.to}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`flex items-center gap-3 min-h-12 px-3 rounded-xl text-sm font-bold ${
+                  location.pathname.includes(item.match)
+                    ? "bg-stone-800 text-white"
+                    : "text-stone-600 hover:bg-stone-100"
+                }`}
+              >
+                {item.icon}
+                {item.label}
+              </Link>
+            ))}
+            <button
+              type="button"
+              onClick={() => void signOut()}
+              className="w-full flex items-center gap-3 min-h-12 px-3 rounded-xl text-sm font-bold text-stone-500 hover:bg-stone-100"
+            >
+              <LogOut className="w-4 h-4" /> Salir
+            </button>
+          </nav>
+        )}
       </header>
 
-      <main className="flex-1 w-full max-w-6xl mx-auto p-6">
+      <main className="flex-1 w-full max-w-6xl mx-auto p-4 sm:p-6">
         <Outlet />
       </main>
     </div>

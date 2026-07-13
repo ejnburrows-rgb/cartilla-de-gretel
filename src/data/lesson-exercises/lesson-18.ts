@@ -2,60 +2,33 @@ import { getBookPageImage } from "@/lib/bookImages";
 
 export const lesson18 = [
   {
-    id: "l18-p69-letter-tracing",
+    id: "l18-p63-picture-vocab",
     lessonNumber: 18,
-    pageNumber: 69,
-    kind: "letter-tracing",
-    title: "Escribe con tu mejor letra — rr",
-    prompt: "Traza la letra rr mayúscula y la rr minúscula. Luego haz un dibujo de una palabra que comienza con rr.",
+    pageNumber: 63,
+    kind: "listen-and-tap",
+    title: "rr",
+    prompt: "Presiona el dibujo de la palabra que escuchas.",
     items: [
-      { id: "letter-rr", label: "rr" },
-      { id: "letter-rr", label: "rr" }
+      { id: "img-burro", label: "burro" },
+      { id: "img-carrusel", label: "carrusel" },
+      { id: "img-torre", label: "torre" },
+      { id: "img-barril", label: "barril" },
+      { id: "img-tierra", label: "Tierra" }
     ],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Students trace uppercase and lowercase rr.",
-    sourcePage: getBookPageImage(69)
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "Transcribed verbatim from public/cartilla/images/source/rr/rr-page-40.jpg (real scan).",
+    sourcePage: getBookPageImage(63)
   },
   {
-    id: "l18-p70-syllable-circle",
+    id: "l18-p64-syllable-tap",
     lessonNumber: 18,
-    pageNumber: 70,
-    kind: "drag-syllable-to-slot",
-    title: "Encierra la sílaba — rr",
-    prompt: "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
-    items: [
-      { id: "syl-rra", label: "rra" },
-      { id: "syl-rre", label: "rre" },
-      { id: "syl-rri", label: "rri" },
-      { id: "syl-rro", label: "rro" },
-      { id: "syl-rru", label: "rru" }
-    ],
-    targets: [
-      { id: "slot-rra", label: "rra", coordinatesVerified: false, acceptsItemId: "syl-rra" },
-      { id: "slot-rre", label: "rre", coordinatesVerified: false, acceptsItemId: "syl-rre" },
-      { id: "slot-rri", label: "rri", coordinatesVerified: false, acceptsItemId: "syl-rri" },
-      { id: "slot-rro", label: "rro", coordinatesVerified: false, acceptsItemId: "syl-rro" },
-      { id: "slot-rru", label: "rru", coordinatesVerified: false, acceptsItemId: "syl-rru" }
-    ],
-    wordBank: [
-      "barra", "amarra", "pizarra", "Porra", "arrasar", "perra", "torre", "amarre", "arrebatado", "barre", "arrebatar", "arrepiente", "arriba", "arrima", "parrilla", "perrita", "barril", "carrito", "carro", "arroyo", "burro", "perro", "amarro", "tarro", "arruga", "arrugado", "arrullo", "verruga", "arrullar", "arrullador"
-    ],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded syllable circle for rr.",
-    sourcePage: getBookPageImage(70)
-  },
-  {
-    id: "l18-p71-syllable-tap",
-    lessonNumber: 18,
-    pageNumber: 71,
+    pageNumber: 64,
     kind: "read-aloud",
-    title: "Sílabas con RR — página rr",
-    prompt: "Toca cada sílaba para escucharla. Repite en voz alta.",
+    title: "rr",
+    prompt: "rra rre rri rro rru",
     items: [
       { id: "ra-rra", label: "rra" },
       { id: "ra-rre", label: "rre" },
@@ -64,193 +37,138 @@ export const lesson18 = [
       { id: "ra-rru", label: "rru" }
     ],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded syllable tap for rr.",
-    sourcePage: getBookPageImage(71)
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "Transcribed verbatim from public/cartilla/images/source/rr/rr-page-41.jpg (real scan).",
+    sourcePage: getBookPageImage(64)
   },
   {
-    id: "l18-p71-word-bank",
+    id: "l18-p64-word-bank",
     lessonNumber: 18,
-    pageNumber: 71,
+    pageNumber: 64,
     kind: "listen-and-tap",
-    title: "Palabras con RR",
-    prompt: "Toca cada palabra para escucharla.",
+    title: "Palabras",
+    prompt: "Palabras",
     items: [
-      { id: "w-tarro-0", label: "tarro" },
-      { id: "w-perro-1", label: "perro" },
-      { id: "w-barro-2", label: "barro" },
-      { id: "w-arroba-3", label: "arroba" },
-      { id: "w-arriba-4", label: "arriba" },
-      { id: "w-burro-5", label: "burro" },
-      { id: "w-amarro-6", label: "amarro" },
-      { id: "w-arrebato-7", label: "arrebato" },
-      { id: "w-parra-8", label: "parra" },
-      { id: "w-arruina-9", label: "arruina" },
-      { id: "w-tierra-10", label: "tierra" },
-      { id: "w-carrusel-11", label: "carrusel" },
-      { id: "w-torre-12", label: "torre" },
-      { id: "w-burrito-13", label: "burrito" },
-      { id: "w-carro-14", label: "carro" }
+      { id: "w-tarro", label: "tarro" },
+      { id: "w-perro", label: "perro" },
+      { id: "w-barro", label: "barro" },
+      { id: "w-arroba", label: "arroba" },
+      { id: "w-arriba", label: "arriba" },
+      { id: "w-burro", label: "burro" },
+      { id: "w-amarro", label: "amarro" },
+      { id: "w-arrebato", label: "arrebato" },
+      { id: "w-parra", label: "parra" },
+      { id: "w-arruina", label: "arruina" },
+      { id: "w-tierra", label: "tierra" },
+      { id: "w-carrusel", label: "carrusel" },
+      { id: "w-torre", label: "torre" },
+      { id: "w-burrito", label: "burrito" },
+      { id: "w-carro", label: "carro" }
     ],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded word bank for rr.",
-    sourcePage: getBookPageImage(71)
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "Word list transcribed verbatim from public/cartilla/images/source/rr/rr-page-41.jpg (real scan).",
+    sourcePage: getBookPageImage(64)
   },
   {
-    id: "l18-p71-mini-story",
+    id: "l18-p64-mini-story",
     lessonNumber: 18,
-    pageNumber: 71,
+    pageNumber: 64,
     kind: "mini-story",
-    title: "Mini-cuento",
-    prompt: "Lee el mini-cuento del cuaderno con tu maestro.",
+    title: "Cuento",
+    prompt: "Cuento",
     items: [
-      { id: "story-rr-1", label: "Rode tiene un perro. Es un perro alemán." },
-      { id: "story-rr-2", label: "El perro de Rode tiene una tina de barro." },
-      { id: "story-rr-3", label: "La tina de barro está en el piso." },
-      { id: "story-rr-4", label: "Rosi amarra el perro en la mata." },
-      { id: "story-rr-5", label: "El perro no muerde. El perro Tito mueve el" },
-      { id: "story-rr-6", label: "rabo. Tito arruinó el carro de rosas." }
+      { id: "story-rr-1", label: "Rode tiene un perro. Es un perro" },
+      { id: "story-rr-2", label: "alemán. El perro de Rode tiene una tina" },
+      { id: "story-rr-3", label: "de barro. La tina de barro está en el" },
+      { id: "story-rr-4", label: "piso. Rosi amarra el perro en la mata." },
+      { id: "story-rr-5", label: "El perro no muerde. El perro Tito mueve" },
+      { id: "story-rr-6", label: "el rabo. Tito arruinó el carro de rosas." }
     ],
     targets: [],
-    sightWords: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded mini-story for rr.",
-    sourcePage: getBookPageImage(71)
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "Reading passage transcribed verbatim from public/cartilla/images/source/rr/rr-page-41.jpg (real scan).",
+    sourcePage: getBookPageImage(64)
   },
   {
-    id: "l18-p72-fill-in-blank",
+    id: "l18-p65-rhyme",
     lessonNumber: 18,
-    pageNumber: 72,
-    kind: "drag-syllable-to-slot",
-    title: "Completa las palabras — rr",
-    prompt: "Arrastra la sílaba correcta para completar cada palabra.",
+    pageNumber: 65,
+    kind: "mini-story",
+    title: "¡Rápido arriba!",
+    prompt: "Rima",
     items: [
-      { id: "syl-rra-0", label: "rra" },
-      { id: "syl-rro-1", label: "rro" },
-      { id: "syl-rre-2", label: "rre" },
-      { id: "syl-rri-3", label: "rri" },
-      { id: "syl-rru-4", label: "rru" }
+      { id: "rhyme-rr-1", label: "Barri el burrito" },
+      { id: "rhyme-rr-2", label: "sube a la loma." },
+      { id: "rhyme-rr-3", label: "Perri el perrito" },
+      { id: "rhyme-rr-4", label: "roba mi bola." },
+      { id: "rhyme-rr-5", label: "Mi burro lindo" },
+      { id: "rhyme-rr-6", label: "muy bien mandado." },
+      { id: "rhyme-rr-7", label: "Mi perro Perri" },
+      { id: "rhyme-rr-8", label: "arrebatado." }
+    ],
+    targets: [],
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "Rhyme transcribed verbatim from public/cartilla/images/source/rr/rr-page-42.jpg (real scan).",
+    sourcePage: getBookPageImage(65)
+  },
+  {
+    id: "l18-p66-fill-in-blank",
+    lessonNumber: 18,
+    pageNumber: 66,
+    kind: "drag-syllable-to-slot",
+    title: "Completa las palabras con la sílaba correcta.",
+    prompt: "Completa las palabras con la sílaba correcta.",
+    items: [
+      { id: "syl-rra", label: "rra" },
+      { id: "syl-rre", label: "rre" },
+      { id: "syl-rri", label: "rri" },
+      { id: "syl-rro", label: "rro" },
+      { id: "syl-rru", label: "rru" }
     ],
     targets: [
-      {
-        id: "blank-perro-0",
-        label: "pe___",
-        hint: "rra - rro",
-        correctSyllable: "rro",
-        fullWord: "perro",
-        coordinatesVerified: false,
-        acceptsItemId: "syl-rro-1"
-      },
-      {
-        id: "blank-barre-1",
-        label: "ba___",
-        hint: "rre - rri",
-        correctSyllable: "rre",
-        fullWord: "barre",
-        coordinatesVerified: false,
-        acceptsItemId: "syl-rre-2"
-      },
-      {
-        id: "blank-torre-2",
-        label: "to___",
-        hint: "rro - rre",
-        correctSyllable: "rre",
-        fullWord: "torre",
-        coordinatesVerified: false,
-        acceptsItemId: "syl-rre-2"
-      },
-      {
-        id: "blank-burro-3",
-        label: "bu___",
-        hint: "rro - rru",
-        correctSyllable: "rro",
-        fullWord: "burro",
-        coordinatesVerified: false,
-        acceptsItemId: "syl-rro-1"
-      },
-      {
-        id: "blank-carro-4",
-        label: "ca___",
-        hint: "rro - rru",
-        correctSyllable: "rro",
-        fullWord: "carro",
-        coordinatesVerified: false,
-        acceptsItemId: "syl-rro-1"
-      },
-      {
-        id: "blank-amarro-5",
-        label: "ama___",
-        hint: "rru - rro",
-        correctSyllable: "rro",
-        fullWord: "amarro",
-        coordinatesVerified: false,
-        acceptsItemId: "syl-rro-1"
-      }
+      { id: "blank-perro", label: "pe___", hint: "rra - rro", correctSyllable: "rro", fullWord: "perro", coordinatesVerified: false, acceptsItemId: "syl-rro" },
+      { id: "blank-barre", label: "ba___", hint: "rre - rri", correctSyllable: "rre", fullWord: "barre", coordinatesVerified: false, acceptsItemId: "syl-rre" },
+      { id: "blank-torre", label: "to___", hint: "rro - rre", correctSyllable: "rre", fullWord: "torre", coordinatesVerified: false, acceptsItemId: "syl-rre" },
+      { id: "blank-burro", label: "bu___", hint: "rro - rru", correctSyllable: "rro", fullWord: "burro", coordinatesVerified: false, acceptsItemId: "syl-rro" },
+      { id: "blank-carro", label: "ca___", hint: "rro - rru", correctSyllable: "rro", fullWord: "carro", coordinatesVerified: false, acceptsItemId: "syl-rro" },
+      { id: "blank-amarro", label: "ama___", hint: "rru - rro", correctSyllable: "rro", fullWord: "amarro", coordinatesVerified: false, acceptsItemId: "syl-rro" }
     ],
     exercises: [
-      {
-        partial: "pe___",
-        choices: ["rra","rro"],
-        answer: "rro",
-        fullWord: "perro"
-      },
-      {
-        partial: "ba___",
-        choices: ["rre","rri"],
-        answer: "rre",
-        fullWord: "barre"
-      },
-      {
-        partial: "to___",
-        choices: ["rro","rre"],
-        answer: "rre",
-        fullWord: "torre"
-      },
-      {
-        partial: "bu___",
-        choices: ["rro","rru"],
-        answer: "rro",
-        fullWord: "burro"
-      },
-      {
-        partial: "ca___",
-        choices: ["rro","rru"],
-        answer: "rro",
-        fullWord: "carro"
-      },
-      {
-        partial: "ama___",
-        choices: ["rru","rro"],
-        answer: "rro",
-        fullWord: "amarro"
-      }
+      { partial: "pe___", choices: ["rra", "rro"], answer: "rro", fullWord: "perro" },
+      { partial: "ba___", choices: ["rre", "rri"], answer: "rre", fullWord: "barre" },
+      { partial: "to___", choices: ["rro", "rre"], answer: "rre", fullWord: "torre" },
+      { partial: "bu___", choices: ["rro", "rru"], answer: "rro", fullWord: "burro" },
+      { partial: "ca___", choices: ["rro", "rru"], answer: "rro", fullWord: "carro" },
+      { partial: "ama___", choices: ["rru", "rro"], answer: "rro", fullWord: "amarro" }
     ],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Scaffolded fill-in-the-blank for rr.",
-    sourcePage: getBookPageImage(72)
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "Fill-in-blank transcribed verbatim from public/cartilla/images/source/rr/rr-page-43.jpg (real scan; physical page 66, 'Lección 18' confirmed printed on the page).",
+    sourcePage: getBookPageImage(66)
   },
   {
-    id: "l18-p72-write-sentences",
+    id: "l18-p66-write-sentences",
     lessonNumber: 18,
-    pageNumber: 72,
+    pageNumber: 66,
     kind: "letter-tracing",
     title: "Escribe oraciones. Usa las sílabas que aprendiste.",
-    prompt: "Escribe oraciones usando las sílabas que aprendiste.",
+    prompt: "Escribe oraciones. Usa las sílabas que aprendiste.",
     items: [],
     targets: [],
-    sourceStatus: "scaffold",
-    transcriptionStatus: "needs-source-verification",
-    studentFacingStatus: "pending",
-    teacherNotes: "Sentence writing lines.",
-    sourcePage: getBookPageImage(72)
+    sourceStatus: "verified",
+    transcriptionStatus: "verified",
+    studentFacingStatus: "ready",
+    teacherNotes: "Sentence writing lines, confirmed present on public/cartilla/images/source/rr/rr-page-43.jpg (real scan).",
+    sourcePage: getBookPageImage(66)
   }
 ];
