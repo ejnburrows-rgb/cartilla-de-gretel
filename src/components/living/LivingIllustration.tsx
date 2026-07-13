@@ -8,6 +8,7 @@ import {
   nextBlinkDelayMs,
   prefersReducedMotion,
 } from "@/lib/living-motion";
+import { resolveTrueBlinkFrame } from "@/lib/living-blink-map";
 
 export interface LivingIllustrationProps {
   src: string;
@@ -27,6 +28,7 @@ export function LivingIllustration({
 }: LivingIllustrationProps) {
   const [reduced, setReduced] = useState(false);
   const [blinking, setBlinking] = useState(false);
+  const trueBlink = resolveTrueBlinkFrame(src);
 
   useEffect(() => {
     setReduced(prefersReducedMotion());
@@ -63,27 +65,30 @@ export function LivingIllustration({
   }, [forceStatic, reduced, src]);
 
   const alive = !forceStatic && !reduced;
+  // Prefer true blink frame when mapped; else soft lid overlay (unchanged timing).
+  const displaySrc = blinking && trueBlink ? trueBlink : src;
+  const useLidOverlay = alive && blinking && !trueBlink;
 
   return (
     <span
       className={[
         "living-illustration",
         alive ? "living-illustration--alive" : "",
-        blinking ? "living-illustration--blink" : "",
+        useLidOverlay ? "living-illustration--blink" : "",
         className,
       ]
         .filter(Boolean)
         .join(" ")}
     >
       <img
-        src={src}
+        src={displaySrc}
         alt={alt}
         loading={loading}
         draggable={false}
         className="living-illustration__art"
       />
-      {/* Soft eyelid plane — composes over existing pixels; not a redrawn face. */}
-      {alive ? (
+      {/* Soft eyelid plane only when no true blink frame is registered. */}
+      {useLidOverlay ? (
         <span className="living-illustration__lids" aria-hidden="true" />
       ) : null}
     </span>

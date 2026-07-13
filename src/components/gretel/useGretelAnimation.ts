@@ -93,10 +93,15 @@ export function useGretelAnimation(): GretelAnimationHook {
     let isCancelled = false;
 
     // Reset back to idle automatically for transient states like pointing/waving/cheering
-    if (["pointing", "waving", "cheering"].includes(machineState)) {
+    if (["pointing", "waving", "cheering", "exiting"].includes(machineState)) {
       timerRef.current = setTimeout(() => {
         if (!isCancelled) dispatch({ type: "IDLE" });
-      }, 2000);
+      }, machineState === "exiting" ? 900 : 2000);
+    } else if (machineState === "settling") {
+      // Enter settle hold (G-02) then idle
+      timerRef.current = setTimeout(() => {
+        if (!isCancelled) dispatch({ type: "IDLE" });
+      }, 680);
     } else if (machineState === "blinking") {
       // Blink is fast
       timerRef.current = setTimeout(() => {
