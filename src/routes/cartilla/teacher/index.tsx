@@ -122,8 +122,8 @@ function TeacherHub() {
   return (
     <div className="w-full space-y-10 pb-16">
       <header>
-        <h1 className="text-3xl sm:text-4xl font-black text-stone-800">Panel del Docente</h1>
-        <p className="text-stone-500 font-bold mt-1">
+        <h1 className="teacher-chrome__title text-3xl sm:text-4xl font-black">Panel del Docente</h1>
+        <p className="text-[var(--tc-ink-soft)] font-bold mt-1">
           Todo lo que necesitas para dar clase con La Cartilla de Gretel, en un solo lugar.
         </p>
       </header>
@@ -133,8 +133,7 @@ function TeacherHub() {
           <Link
             key={entry.title}
             to={entry.to as never}
-            className="rounded-3xl p-5 border-2 shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all bg-white"
-            style={{ borderColor: entry.accent + "30" }}
+            className="teacher-chrome__card rounded-3xl p-5 hover:-translate-y-1 hover:shadow-lg transition-all"
           >
             <div
               className="w-11 h-11 rounded-2xl flex items-center justify-center text-white mb-3 shadow-md"
@@ -142,15 +141,15 @@ function TeacherHub() {
             >
               {entry.icon}
             </div>
-            <h2 className="font-black text-lg text-stone-800">{entry.title}</h2>
-            <p className="text-xs font-medium text-stone-500 mt-1 leading-snug">{entry.description}</p>
+            <h2 className="font-black text-lg text-[var(--tc-ink)]">{entry.title}</h2>
+            <p className="text-xs font-medium text-[var(--tc-ink-soft)] mt-1 leading-snug">{entry.description}</p>
           </Link>
         ))}
       </section>
 
       <section>
-        <h2 className="text-xl font-black text-stone-800 mb-1">Materiales de la Guía</h2>
-        <p className="text-sm font-bold text-stone-500 mb-6">
+        <h2 className="teacher-chrome__title text-xl font-black mb-1">Materiales de la Guía</h2>
+        <p className="text-sm font-bold text-[var(--tc-ink-soft)] mb-6">
           Toca una carpeta para ver las 24 lecciones dentro de esa categoría.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
