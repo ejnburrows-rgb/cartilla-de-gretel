@@ -45,6 +45,16 @@ describe("release integration — workbook + lessons", () => {
     }
   });
 
+  it("L21–L24 include the closing catalog page (78/82/86/90) even when inventory is short", () => {
+    // Inventory historically listed only 3 of 4 printed pages for these
+    // lessons — buildPageArray must pad from the catalog so the closing
+    // page with a verified layout is not silently dropped.
+    expect(buildPageArray(21)).toHaveLength(4);
+    expect(buildPageArray(22)).toHaveLength(4);
+    expect(buildPageArray(23)).toHaveLength(4);
+    expect(buildPageArray(24)).toHaveLength(4);
+  });
+
   it("fallback chain prefers improved art then lineart then scan", () => {
     const chain = getWorkbookPageFallbackChain(4);
     expect(chain.length).toBeGreaterThanOrEqual(2);

@@ -1,5 +1,5 @@
 import type { CSSProperties, ReactNode } from "react";
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import "@/styles/living-workbook.css";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import type { PhysicalPage, WorkbookObject } from "@/content/workbook/types";
@@ -9,6 +9,24 @@ import { DragPlace } from "@/cartilla/interactions/DragPlace";
 import { PairMatch } from "@/cartilla/interactions/PairMatch";
 import { MarkCircle } from "@/cartilla/interactions/MarkCircle";
 import { emitProgressEvent } from "@/lib/progress-events";
+import { getWorkbookPageFallbackChain } from "@/lib/bookImages";
+
+/** Known non-page placeholders that must NOT stand in for real page art. */
+const PLACEHOLDER_BACKGROUNDS = new Set([
+  "/art/hd/gretel-authentic.jpg",
+  "art/hd/gretel-authentic.jpg",
+  "/cartilla/images/gretel/gretel-authentic.jpg",
+]);
+
+function isPlaceholderBackground(src: string | null | undefined): boolean {
+  if (!src) return true;
+  const clean = src.replace(/^\//, "");
+  return (
+    PLACEHOLDER_BACKGROUNDS.has(src) ||
+    PLACEHOLDER_BACKGROUNDS.has(`/${clean}`) ||
+    clean.includes("gretel-authentic")
+  );
+}
 
 export type InteractionResult = { objectId: string; result: "correct" | "wrong" };
 
@@ -74,6 +92,53 @@ function BackgroundPendingPlaceholder() {
     <div className="lwp-bg-pending" role="img" aria-label="Fondo de la página aún no disponible">
       <span>fondo pendiente</span>
     </div>
+  );
+}
+
+/**
+ * Page background with HD → lineart → source-scan fallback.
+ * Rejects known non-page placeholders (e.g. gretel-authentic garden photo)
+ * so unscanned pages never show invented/wrong art as if they were the page.
+ */
+function PageBackground({
+  pageNumber,
+  preferred,
+  contentStrength,
+}: {
+  pageNumber: number | null;
+  preferred: string | null;
+  contentStrength: boolean;
+}) {
+  const chain = useMemo(() => {
+    const fallback =
+      pageNumber !== null ? getWorkbookPageFallbackChain(pageNumber) : [];
+    const preferredOk = preferred && !isPlaceholderBackground(preferred) ? preferred : null;
+    const ordered = preferredOk
+      ? [preferredOk, ...fallback.filter((p) => p !== preferredOk)]
+      : fallback;
+    return Array.from(new Set(ordered));
+  }, [pageNumber, preferred]);
+
+  const [index, setIndex] = useState(0);
+  useEffect(() => {
+    setIndex(0);
+  }, [pageNumber, preferred]);
+
+  const src = index < chain.length ? chain[index]! : null;
+  if (!src) return <BackgroundPendingPlaceholder />;
+
+  return (
+    <img
+      key={src}
+      src={src}
+      alt=""
+      className={`lwp-page__bg${contentStrength ? " lwp-page__bg--content" : ""}`}
+      draggable={false}
+      aria-hidden="true"
+      loading="lazy"
+      decoding="async"
+      onError={() => setIndex((i) => i + 1)}
+    />
   );
 }
 
@@ -194,24 +259,16 @@ export function LivingWorkbookPage({
     <div className={`lwp-page${className ? ` ${className}` : ""}`} data-status={page.status}>
       {page.instruction && <p className="lwp-page__instruction">{page.instruction}</p>}
       <div className="lwp-page__canvas">
-        {page.backgroundSrc ? (
-          <img
-            src={page.backgroundSrc}
-            alt=""
-            // A page with no separate objects has nothing else to show —
-            // the background IS the real content (e.g. a full-page scan
-            // fallback), so it renders at full strength. Pages that layer
-            // real illustration objects on top get the soft, blurred
-            // ambient treatment so those objects stay legible.
-            className={`lwp-page__bg${page.objects.length === 0 ? " lwp-page__bg--content" : ""}`}
-            draggable={false}
-            aria-hidden="true"
-            loading="lazy"
-            decoding="async"
-          />
-        ) : (
-          <BackgroundPendingPlaceholder />
-        )}
+        <PageBackground
+          pageNumber={page.pageNumber}
+          preferred={page.backgroundSrc}
+          // A page with no separate objects has nothing else to show —
+          // the background IS the real content (e.g. a full-page scan
+          // fallback), so it renders at full strength. Pages that layer
+          // real illustration objects on top get the soft, blurred
+          // ambient treatment so those objects stay legible.
+          contentStrength={page.objects.length === 0}
+        />
         {staticObjects.map((object) => (
           <StaticObject key={object.id} object={object} motionOn={motionOn} />
         ))}
