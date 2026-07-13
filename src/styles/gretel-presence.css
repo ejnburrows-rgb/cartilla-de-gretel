@@ -249,9 +249,14 @@
   }
 }
 
-/* Lesson layout: full host panel, not corner badge */
+/* Lesson layout: full host panel, not corner badge.
+ * grid-template-columns must stay explicit even in the single-column
+ * (mobile) case — an implicit auto-sized grid track lets its child grow to
+ * its own content's minimum intrinsic width instead of shrinking to fit,
+ * blowing the workbook page out past the viewport on narrow screens. */
 .gretel-presence-layout {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 1rem;
   width: 100%;
   align-items: end;

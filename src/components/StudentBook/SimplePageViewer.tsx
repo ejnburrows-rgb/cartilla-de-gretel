@@ -196,33 +196,33 @@ export function SimplePageViewer({
         )}
       </div>
 
-      <div className="mt-8 flex items-center justify-center gap-6 z-20 no-print">
+      <div className="mt-8 flex w-full items-center justify-center gap-2 sm:gap-6 z-20 no-print">
         <button
           type="button"
           onClick={() => hasPrev && goTo(currentIndex - 1, "prev")}
           disabled={!hasPrev || isFlipping || !!crossfade}
-          className={`flex items-center justify-center gap-2 px-5 py-2.5 rounded-full font-bold transition-all border ${
+          className={`flex items-center justify-center gap-1.5 sm:gap-2 px-3 py-2 sm:px-5 sm:py-2.5 rounded-full font-bold transition-all border shrink-0 ${
             hasPrev
               ? "bg-white text-stone-700 hover:bg-stone-50 border-stone-300 shadow-sm"
               : "bg-stone-100 text-stone-400 border-stone-200 cursor-not-allowed opacity-50"
           }`}
         >
-          <ChevronLeft className="w-4 h-4" /> Anterior
+          <ChevronLeft className="w-4 h-4 shrink-0" /> <span className="hidden sm:inline">Anterior</span>
         </button>
-        <div className="text-sm font-bold text-stone-700 bg-white px-4 py-2 rounded-full border border-stone-200 shadow-sm">
+        <div className="text-xs sm:text-sm font-bold text-stone-700 bg-white px-3 py-2 sm:px-4 rounded-full border border-stone-200 shadow-sm shrink-0 whitespace-nowrap">
           Página {currentIndex + 1} de {pages.length}
         </div>
         <button
           type="button"
           onClick={() => hasNext && goTo(currentIndex + 1, "next")}
           disabled={!hasNext || isFlipping || !!crossfade}
-          className={`flex items-center justify-center gap-2 px-5 py-2.5 rounded-full font-bold transition-all border ${
+          className={`flex items-center justify-center gap-1.5 sm:gap-2 px-3 py-2 sm:px-5 sm:py-2.5 rounded-full font-bold transition-all border shrink-0 ${
             hasNext
               ? "bg-white text-stone-700 hover:bg-stone-50 border-stone-300 shadow-sm"
               : "bg-stone-100 text-stone-400 border-stone-200 cursor-not-allowed opacity-50"
           }`}
         >
-          Siguiente <ChevronRight className="w-4 h-4" />
+          <span className="hidden sm:inline">Siguiente</span> <ChevronRight className="w-4 h-4 shrink-0" />
         </button>
       </div>
     </div>
