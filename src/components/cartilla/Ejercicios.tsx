@@ -6,7 +6,7 @@ import { recordEvent, useStudentSession } from "@/lib/student-session";
 import { supabase } from "@/integrations/supabase/client";
 import { gretelEvent } from "@/lib/gretel-bus";
 
-type Word = { word: string; emoji?: string };
+type Word = { word: string; emoji?: string; illustrationSrc?: string };
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -169,7 +169,10 @@ export function SyllableTap({
   );
 }
 
-/** Match emoji to word */
+/**
+ * Match word ↔ picture. Prefer real illustrationSrc; never show emoji as
+ * object/picture substitutes (launch bar: no emoji object hints).
+ */
 export function WordMatch({
   words,
   color,
@@ -180,7 +183,12 @@ export function WordMatch({
   lessonId?: string;
 }) {
   const { play, playingText } = useAudio();
-  const items = useMemo(() => words.filter((w) => w.emoji).slice(0, 4), [words]);
+  // Prefer items with real art; fall back to word-only tiles (honest, no emoji)
+  const items = useMemo(() => {
+    const withArt = words.filter((w) => w.illustrationSrc).slice(0, 4);
+    if (withArt.length >= 2) return withArt;
+    return words.filter((w) => w.word?.trim()).slice(0, 4);
+  }, [words]);
   const [picked, setPicked] = useState<string | null>(null);
   const [matched, setMatched] = useState<Set<string>>(new Set());
   const [attempts, setAttempts] = useState(0);
@@ -188,8 +196,6 @@ export function WordMatch({
   const [feedback, setFeedback] = useState<{
     kind: "ok" | "no";
     word: string;
-    emoji?: string;
-    correctEmoji?: string;
   } | null>(null);
   const loggedRound = useRef(false);
   const shuffled = useMemo(() => shuffle(items), [items]);
@@ -201,11 +207,9 @@ export function WordMatch({
     setPicked(w);
     setFeedback(null);
   };
-  const onEmoji = (target: string) => {
+  const onPicture = (target: string) => {
     if (!picked) return;
     setAttempts((a) => a + 1);
-    const pickedItem = items.find((i) => i.word === picked);
-    const targetItem = items.find((i) => i.word === target);
     if (picked === target) {
       setHits((h) => h + 1);
       setMatched((m) => {
@@ -223,7 +227,7 @@ export function WordMatch({
         return next;
       });
       gretelEvent("answer:correct");
-      setFeedback({ kind: "ok", word: picked, emoji: pickedItem?.emoji });
+      setFeedback({ kind: "ok", word: picked });
       play(target);
       setPicked(null);
       setTimeout(
@@ -235,8 +239,6 @@ export function WordMatch({
       setFeedback({
         kind: "no",
         word: picked,
-        emoji: targetItem?.emoji,
-        correctEmoji: pickedItem?.emoji,
       });
       setPicked(null);
     }
@@ -262,7 +264,7 @@ export function WordMatch({
   const acc = attempts > 0 ? Math.round((hits / attempts) * 100) : null;
 
   return (
-    <div className="rounded-2xl border-2 border-foreground/10 bg-card p-4">
+    <div className="rounded-2xl border-2 border-foreground/10 bg-card p-4" data-emoji-objects="false">
       <div className="flex items-center justify-between mb-3">
         <h3 className="font-bold">Une la palabra con su dibujo</h3>
         <div className="flex items-center gap-3">
@@ -305,16 +307,30 @@ export function WordMatch({
           {shuffled.map((w) => (
             <button
               key={w.word}
+              type="button"
               disabled={matched.has(w.word)}
-              onClick={() => onEmoji(w.word)}
+              onClick={() => onPicture(w.word)}
+              aria-label={w.illustrationSrc ? `Dibujo de ${w.word}` : `Ilustración pendiente: ${w.word}`}
               className={cn(
-                "w-full text-3xl py-2 rounded-xl border-2 transition",
+                "w-full min-h-[3.25rem] rounded-xl border-2 transition overflow-hidden flex items-center justify-center bg-white",
                 matched.has(w.word)
                   ? "opacity-40"
                   : "border-foreground/10 hover:bg-secondary active:scale-95",
               )}
             >
-              {w.emoji}
+              {w.illustrationSrc ? (
+                <img
+                  src={w.illustrationSrc}
+                  alt=""
+                  className="max-h-14 w-auto object-contain p-1"
+                  loading="lazy"
+                  draggable={false}
+                />
+              ) : (
+                <span className="text-[11px] font-bold text-stone-400 px-2 text-center">
+                  pendiente
+                </span>
+              )}
             </button>
           ))}
         </div>
@@ -325,9 +341,7 @@ export function WordMatch({
             <Check className="w-4 h-4" /> ¡Correcto!
           </div>
           <p className="text-sm text-foreground/80 mt-1">
-            <strong>«{feedback.word}»</strong>{" "}
-            {feedback.emoji && <span className="text-lg align-middle">{feedback.emoji}</span>} —
-            uniste bien la palabra con su dibujo.
+            <strong>«{feedback.word}»</strong> — uniste bien la palabra con su dibujo.
           </p>
         </div>
       )}
@@ -337,12 +351,8 @@ export function WordMatch({
             <X className="w-4 h-4" /> No coinciden
           </div>
           <p className="text-sm text-foreground/80 mt-1">
-            <strong>«{feedback.word}»</strong>{" "}
-            {feedback.correctEmoji && (
-              <span className="text-lg align-middle">{feedback.correctEmoji}</span>
-            )}{" "}
-            no es ese dibujo. Lee la palabra otra vez, separa sus sílabas y busca el dibujo que la
-            representa.
+            <strong>«{feedback.word}»</strong> no es ese dibujo. Lee la palabra otra vez, separa
+            sus sílabas y busca el dibujo que la representa.
           </p>
           <button
             onClick={() => play(feedback.word)}

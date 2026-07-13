@@ -96,12 +96,18 @@ export function StudentExercisePane({
     return ["a", "e", "i", "o", "u"];
   })();
 
-  const words: Array<{ word: string; emoji?: string }> = (() => {
+  const words: Array<{ word: string; emoji?: string; illustrationSrc?: string }> = (() => {
     if (entry.kind === "consonant") {
-      return entry.data.vocab;
+      return entry.data.vocab.map((v) => ({
+        word: v.word,
+        illustrationSrc: v.illustrationSrc,
+      }));
     }
     if (entry.kind === "vowel") {
-      return entry.lesson.vocab.slice(0, 4);
+      return entry.lesson.vocab.slice(0, 4).map((v) => ({
+        word: v.word,
+        illustrationSrc: v.illustrationSrc,
+      }));
     }
     return [
       { word: "ala" },
