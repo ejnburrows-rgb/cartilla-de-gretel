@@ -136,8 +136,10 @@ export async function speak(text: string): Promise<void> {
         }
         u.lang = "es-MX";
       }
-      u.rate = 0.88;
-      u.pitch = 1.05;
+      // Slightly brighter default Spanish TTS (Gretel host uses gretel-voice.ts
+      // with stronger little-girl pitch). No voice-clone path — Web Speech only.
+      u.rate = 0.95;
+      u.pitch = 1.25;
       u.volume = 1;
       synth.speak(u);
     } catch {
