@@ -5,6 +5,7 @@ import { RouterProvider } from "@tanstack/react-router";
 import { getRouter } from "./router";
 import "./styles.css";
 import "./styles/living-art.css";
+import "./styles/gretel-presence.css";
 
 const router = getRouter();
 

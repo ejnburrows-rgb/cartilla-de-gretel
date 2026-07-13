@@ -16,7 +16,7 @@ import { gretelEvent } from "@/lib/gretel-bus";
 
 import { SimplePageViewer } from "@/components/StudentBook/SimplePageViewer";
 import { buildPageArray } from "@/utils/buildPageArray";
-import { GretelLiveAvatar } from "@/components/gretel/GretelLiveAvatar";
+import { GretelPresence } from "@/components/gretel/GretelPresence";
 import { GardenScene } from "@/components/cartilla/GardenScene";
 import "@/styles/interactive-exercises.css";
 import "@/styles/gretel.css";
@@ -197,17 +197,28 @@ function Leccion() {
               </div>
             )}
             {progressReady && (
-              <div className="relative w-full">
+              <div className="gretel-presence-layout w-full">
                 <SimplePageViewer
                   key={n}
                   pages={pages}
                   initialPage={initialPage}
                   onPageChange={handlePageChange}
                 />
-                {/* Gretel grounded at the page shelf — not a free-floating sticker */}
-                <div className="gretel-scene-anchor">
-                  <GretelLiveAvatar size="md" bubblePosition="left" />
-                </div>
+                {/* Full-presence host — continuous layered life + little-girl Spanish TTS */}
+                {entry && (
+                  <GretelPresence
+                    key={`gretel-${n}`}
+                    lesson={{
+                      n: entry.n,
+                      kind: entry.kind,
+                      title: entry.title,
+                      subtitle: entry.subtitle,
+                      letter: entry.kind === "consonant" ? entry.letter : undefined,
+                      vowel: entry.kind === "vowel" ? entry.vowel : undefined,
+                    }}
+                    autoIntro
+                  />
+                )}
               </div>
             )}
           </GardenScene>
