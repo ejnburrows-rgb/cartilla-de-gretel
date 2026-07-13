@@ -27,10 +27,10 @@ export const SENTENCES_BY_LESSON: Record<number, Sentence[]> = {
 	17: [sentence("Rita rema en la r\u00eda."), sentence("El oro es de Romo."), sentence("Rita y Romo r\u00eden.")],
 	18: [sentence("El perro corre al carro."), sentence("La torre tiene un burro."), sentence("El carro pas\u00f3 al perro.")],
 	19: [sentence("El gato come goma."), sentence("Gabo gana el gusano."), sentence("El gusano sale del agua.")],
-	20: [sentence("La foca firma su nombre."), sentence("Fito sale a la fila."), sentence("El fuego es de la foca.")],
-	21: [sentence("La jirafa juega al jote."), sentence("Juan tiene un jarro."), sentence("El jefe ama a Juan.")],
+	20: [sentence("Felo toma una foto."), sentence("La familia come fideos."), sentence("La funda es de Felo.")],
+	21: [sentence("Jesús toma jugo."), sentence("La jarra tiene ajo."), sentence("La jicotea es de Jesús.")],
 	22: [sentence("La casa es de Coco."), sentence("Cami toma un caf\u00e9."), sentence("Coco y Cami cantan.")],
-	23: [sentence("El yate va con Yola."), sentence("La yegua ama al yo-yo."), sentence("Yola y el yate yendo lejos.")],
+	23: [sentence("Yayita juega con el yoyo."), sentence("La yema es de Yayita."), sentence("El yate de Yayita.")],
 	24: [sentence("El zorro come zumo."), sentence("Zoe usa zapatos azules."), sentence("El zorro y Zoe corren.")],
 };
 

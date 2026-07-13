@@ -22,14 +22,14 @@ export const WORD_BANK_BY_LESSON: Record<number, string[]> = {
 	14: ["\u00f1ame", "ni\u00f1o", "ca\u00f1a", "mu\u00f1eca", "pi\u00f1a", "a\u00f1o", "da\u00f1o"],
 	15: ["bala", "bebe", "bici", "bota", "buho", "boca", "banco", "besos"],
 	16: ["vaca", "vela", "vino", "voto", "v\u00fado", "vivo", "vena", "viaje"],
-	17: ["raro", "remo", "rito", "rosa", "ruta", "rama", "reto", "rojo"],
-	18: ["carro", "perro", "torre", "burro", "jarra", "barro", "corre", "horror"],
-	19: ["gato", "goma", "gusano", "gota", "gala", "gancho", "gusto", "globo"],
-	20: ["faro", "feo", "fila", "foca", "fuego", "fama", "foto", "fino"],
-	21: ["jarro", "jefe", "jirafa", "jota", "jugo", "jaba", "jueves", "joya"],
-	22: ["casa", "cola", "cuna", "copa", "cama", "cabo", "coco", "culebra"],
-	23: ["yate", "yegua", "yoyo", "yuca", "yema", "ya", "yendo"],
-	24: ["zapato", "zorro", "zumo", "zona", "zeta", "zarz\u00f3n", "zueco"],
+	17: ["rana", "remos", "Rita", "rosa", "rueda", "rama", "rito", "rojo"],
+	18: ["burro", "carrusel", "torre", "barril", "Tierra", "carro", "perro", "barro"],
+	19: ["gaveta", "gusano", "Goloso", "gorra", "mago", "gato", "gota", "gusto"],
+	20: ["foto", "fideos", "familia", "Felo", "funda", "fama", "fino", "fila"],
+	21: ["jicotea", "jugo", "Jesús", "ajo", "jarra", "jefe", "joven", "jueves"],
+	22: ["cuna", "conejo", "casa", "cubo", "Catalina", "cama", "copa", "cola"],
+	23: ["yate", "yema", "Yayita", "mayúscula", "yoyo", "ya", "yendo"],
+	24: ["zapato", "zig-zag", "zorro", "zepelín", "Zulema", "zona", "zumo"],
 };
 
 export function wordsForLesson(n: number): string[] {
