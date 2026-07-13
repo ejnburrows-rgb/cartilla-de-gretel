@@ -51,8 +51,17 @@ const MOTION_KINDS = new Set(["none", "float", "bob", "breathe", "blink"]);
 function mechanicToInteractionKind(
   interaction: ManifestInteraction | undefined,
   hasAudio: boolean,
+  instruction?: string,
 ): InteractionKind {
-  if (!interaction) return "none";
+  if (!interaction) {
+    // Printed-verb fallback when census mechanic is absent (page-layouts bridge)
+    const t = (instruction ?? "").toLowerCase();
+    if (t.includes("colorea") || t.includes("colorear") || /\bpinta\s+(el|la|los|las)\b/.test(t)) {
+      return "paint";
+    }
+    if (t.includes("dibuja") || t.includes("haz un dibujo")) return "dibuja";
+    return "none";
+  }
   switch (interaction.mechanic) {
     case "select":
       return (interaction.answers?.length ?? 0) > 1 ? "mark-circle" : "tap-select";
@@ -66,8 +75,15 @@ function mechanicToInteractionKind(
     case "order":
     case "trace":
     case "none":
-    default:
+    default: {
+      // Census may use "none" while instruction still carries a printed verb
+      const t = (instruction ?? "").toLowerCase();
+      if (t.includes("colorea") || t.includes("colorear") || /\bpinta\s+(el|la|los|las)\b/.test(t)) {
+        return "paint";
+      }
+      if (t.includes("dibuja") || t.includes("haz un dibujo")) return "dibuja";
       return "none";
+    }
   }
 }
 
@@ -155,7 +171,7 @@ function toEngineObject(
 
 export function manifestPageToEnginePage(page: ManifestPage): PhysicalPage {
   const hasAudio = Boolean(page.audio?.length) || page.objects.some((o) => o.audioId);
-  const kind = mechanicToInteractionKind(page.interaction, hasAudio);
+  const kind = mechanicToInteractionKind(page.interaction, hasAudio, page.instruction);
   return {
     id: `page-${page.physicalPage}`,
     pageNumber: page.physicalPage,

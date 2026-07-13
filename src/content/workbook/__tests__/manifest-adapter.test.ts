@@ -121,6 +121,38 @@ describe("manifestPageToEnginePage", () => {
     expect(obj?.interaction?.kind).toBe("tap-to-hear");
   });
 
+  it("maps Colorea instruction to paint when mechanic is absent", () => {
+    const engine = manifestPageToEnginePage({
+      physicalPage: 50,
+      lesson: 12,
+      instruction: "Colorea el dibujo de la rosa.",
+      objects: [
+        {
+          id: "rosa",
+          type: "illustration",
+          asset: "/cartilla/art/faithful/leccion-17-r/rosa.webp",
+          x: 10,
+          y: 10,
+          width: 40,
+          interactive: true,
+        },
+      ],
+      status: "mapped",
+    });
+    expect(engine.interaction?.kind).toBe("paint");
+  });
+
+  it("maps Haz un dibujo instruction to dibuja when mechanic is absent", () => {
+    const engine = manifestPageToEnginePage({
+      physicalPage: 19,
+      lesson: 7,
+      instruction: "Haz un dibujo que represente una palabra que comienza con m.",
+      objects: [],
+      status: "mapped",
+    });
+    expect(engine.interaction?.kind).toBe("dibuja");
+  });
+
   it("maps select mechanic with more than one answer to mark-circle instead of tap-select", () => {
     const engine = manifestPageToEnginePage({
       physicalPage: 1,

@@ -18,8 +18,7 @@ import {
   LassoVowelLineMatch,
   LassoVowelMatchAll,
   PaintFromRegion,
-  instructionSuggestsColorea,
-  instructionSuggestsLasso,
+  resolveFaithfulHost,
 } from "@/cartilla/interactions/faithfulAdapters";
 
 /**
@@ -280,27 +279,35 @@ function RegionView({
   /** Picture-grid cells from the same page (for Dibuja pick-mode options). */
   siblingCells?: PageGridCell[];
 }) {
+  // Host chosen once so Colorea never silently becomes tap-select, and
+  // Encierra / Une always stay on LassoConnect when interactive.
+  const host = interactive
+    ? resolveFaithfulHost(region.regionType, precedingInstruction)
+    : "static";
+
   switch (region.regionType) {
     case "illustration-slot":
-      // Colorea: freehand paint on the illustration when the printed verb says so
-      if (interactive && instructionSuggestsColorea(precedingInstruction)) {
+      if (host === "paint") {
         return (
           <PaintFromRegion
             region={region}
             lessonId={lessonId}
             illustrationSrc={region.illustrationSrc}
             illustrationAlt={region.caption ?? region.illustrationWord}
+            instruction={precedingInstruction}
           />
         );
       }
       return <IllustrationSlot region={region} />;
     case "paint-box":
+      // Always PaintCanvas when interactive — never tap fallback
       return interactive ? (
         <PaintFromRegion
           region={region}
           lessonId={lessonId}
           illustrationSrc={region.illustrationSrc}
           illustrationAlt={region.caption ?? region.text}
+          instruction={precedingInstruction ?? region.text}
         />
       ) : (
         <div className="fp-draw-box" aria-label={region.text ?? "Colorea"}>
@@ -311,7 +318,7 @@ function RegionView({
         </div>
       );
     case "picture-grid":
-      if (interactive && instructionSuggestsLasso(precedingInstruction)) {
+      if (host === "lasso-mark") {
         return (
           <LassoPictureGrid
             region={region}
@@ -320,7 +327,7 @@ function RegionView({
           />
         );
       }
-      if (interactive && instructionSuggestsColorea(precedingInstruction)) {
+      if (host === "paint") {
         // Colorea on a grid: paint the first colorable illustration cell as stage
         const cell = (region.cells ?? []).find((c) => c.illustrationSrc) ?? region.cells?.[0];
         return (
@@ -329,6 +336,7 @@ function RegionView({
             lessonId={lessonId}
             illustrationSrc={cell?.illustrationSrc}
             illustrationAlt={cell?.caption}
+            instruction={precedingInstruction}
           />
         );
       }
