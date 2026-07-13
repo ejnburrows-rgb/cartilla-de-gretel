@@ -1,11 +1,12 @@
 /**
- * PdfPage — renders a single workbook page as the original scanned image.
+ * PdfPage — renders a single workbook page image via the art fallback chain:
+ *   1. HD colorized art
+ *   2. Clean transparent lineart
+ *   3. Raw source scan
  *
- * Pages 1-92: 2550×3301 color scans from /cartilla/art/color/workbook/
- *
- * The scanned art is the source of truth. WorkbookPageRenderer is not used.
+ * Never invents content — if every candidate 404s, shows an honest pending state.
  */
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { getBookPageImage, getWorkbookPageFallbackChain } from "@/lib/bookImages";
 
 export function prefetchPage(pageNumber: number) {
@@ -23,27 +24,29 @@ interface PdfPageProps {
 
 export function PdfPage({ pageNumber, className = "" }: PdfPageProps) {
   const safe = Math.max(1, Math.min(pageNumber, 95));
-  const chain = getWorkbookPageFallbackChain(safe);
+  const chain = useMemo(() => getWorkbookPageFallbackChain(safe), [safe]);
 
-  const [src, setSrc] = useState<string | null>(chain[0] ?? null);
+  const [chainIndex, setChainIndex] = useState(0);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    const nextChain = getWorkbookPageFallbackChain(Math.max(1, Math.min(pageNumber, 95)));
-    setSrc(nextChain[0] ?? null);
+    setChainIndex(0);
     setLoaded(false);
-  }, [pageNumber]);
+  }, [safe]);
+
+  const src = chainIndex < chain.length ? (chain[chainIndex] ?? null) : null;
 
   return (
     <div
       className={`pdf-page-wrapper relative flex items-center justify-center overflow-hidden bg-white select-none ${className}`}
       aria-label={`Página ${safe} del libro`}
     >
-      {!loaded && (
+      {!loaded && src && (
         <div className="absolute inset-0 bg-stone-100 animate-pulse" />
       )}
       {src ? (
         <img
+          key={src}
           src={src}
           alt={`Página ${safe} del libro`}
           className={`w-full h-full object-contain transition-opacity duration-300 ${loaded ? "opacity-100" : "opacity-0"}`}
@@ -51,13 +54,8 @@ export function PdfPage({ pageNumber, className = "" }: PdfPageProps) {
           loading="lazy"
           onLoad={() => setLoaded(true)}
           onError={() => {
-            const currentIdx = chain.indexOf(src);
-            if (currentIdx >= 0 && currentIdx + 1 < chain.length) {
-              setSrc(chain[currentIdx + 1]!);
-            } else {
-              setSrc(null);
-              setLoaded(false);
-            }
+            setLoaded(false);
+            setChainIndex((i) => i + 1);
           }}
         />
       ) : (

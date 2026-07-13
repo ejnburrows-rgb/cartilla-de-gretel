@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import type { ReactNode } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { gretelEvent } from "@/components/gretel/gretelEvents";
+import { gretelEvent } from "@/lib/gretel-bus";
 
 /** Canonical home for this type. */
 export interface WorkbookPageEntry {

@@ -127,7 +127,7 @@ export type PageRegion = {
 	label?: string;
 	/**
 	 * Faithful COLOR illustration cropped from the original artwork.
-	 * Path under /public (e.g. "/cartilla/art/faithful/2/oso.webp"), produced
+	 * Path under /public (e.g. "/cartilla/art/faithful/vocal-o/oso.webp"), produced
 	 * by the art pipeline (see public/cartilla/art/faithful/manifest.json).
 	 * When absent on an illustration-slot, the renderer shows an explicit
 	 * "art pending" marker — never an invented drawing.

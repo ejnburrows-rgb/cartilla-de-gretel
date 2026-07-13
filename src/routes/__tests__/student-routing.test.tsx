@@ -20,13 +20,27 @@ const signOutMock = vi.fn();
 const getSessionMock = vi.fn();
 
 vi.mock("@/integrations/supabase/client", () => ({
+  isSupabaseConfigured: false,
   supabase: {
     auth: {
       signOut: (...args: any[]) => signOutMock(...args),
       getSession: () => getSessionMock(),
       onAuthStateChange: () => ({ data: { subscription: { unsubscribe: vi.fn() } } }),
     },
+    rpc: async () => ({ data: false, error: null }),
   },
+}));
+
+vi.mock("@/lib/seed-data", async (importOriginal) => {
+  const actual = await importOriginal<typeof import("@/lib/seed-data")>();
+  return {
+    ...actual,
+    isSeedSessionActive: () => false,
+  };
+});
+
+vi.mock("@/lib/auth-role", () => ({
+  hasTeacherOrAdminRole: async () => false,
 }));
 
 vi.mock("@/lib/useServerFn", () => ({
@@ -111,6 +125,25 @@ describe("Student-Teacher Routing Isolation", () => {
 
       expect(caught).toBeDefined();
       expect(caught.options.to).toBe("/cartilla/lecciones");
+    });
+
+    it("(b2) blocks unauthenticated visitors from teacher presentation route", async () => {
+      getStudentSessionMock.mockReturnValue(null);
+      getSessionMock.mockResolvedValue({ data: { session: null } });
+      // Force a fresh module evaluation so beforeLoad uses current mocks.
+      vi.resetModules();
+      const mod = await import("../cartilla/presentar.$n");
+      const Route = mod.Route;
+
+      let caught: any;
+      try {
+        await Route.options.beforeLoad!({ params: { n: "1" }, location: { href: "" } } as any);
+      } catch (e) {
+        caught = e;
+      }
+
+      expect(caught).toBeDefined();
+      expect(caught?.options?.to ?? caught?.to).toBe("/login");
     });
   });
 

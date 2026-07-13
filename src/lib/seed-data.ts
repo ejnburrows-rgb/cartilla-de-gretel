@@ -23,12 +23,11 @@ export const SEED_STUDENT_ACCESS = [] as const;
 const AUTH_KEY = "cartilla.seed.teacher.v1";
 const STATE_KEY = "cartilla.seed.state.v1";
 
-/** Demo/seed mode is gated by VITE_ALLOW_DEMO_MODE so it can never activate
- * in a production build regardless of any stray localStorage flag — set
- * this env var to "true" scoped to Vercel's Preview environment only (never
- * Production) to keep the demo lane reachable there. Absent/unset (the
- * default everywhere, including a fresh production build) means disabled. */
+/** Demo/seed mode is hard-disabled in production builds (import.meta.env.PROD).
+ * Even if VITE_ALLOW_DEMO_MODE is set on a host, PROD builds never activate it.
+ * Preview/dev only when VITE_ALLOW_DEMO_MODE === "true". */
 function demoModeAllowed(): boolean {
+  if (import.meta.env.PROD) return false;
   return import.meta.env.VITE_ALLOW_DEMO_MODE === "true";
 }
 
@@ -39,7 +38,16 @@ function demoModeAllowed(): boolean {
 export function isSeedSessionActive(): boolean {
   if (typeof window === "undefined") return false;
   if (!demoModeAllowed()) return false;
-  return !!localStorage.getItem(AUTH_KEY);
+  // Node 26 / some test runners expose window without a usable localStorage
+  // (ExperimentalWarning: localStorage is not available). Never throw here —
+  // a storage failure means "no seed session", not a crash of the teacher gate.
+  try {
+    const store = globalThis.localStorage;
+    if (!store || typeof store.getItem !== "function") return false;
+    return !!store.getItem(AUTH_KEY);
+  } catch {
+    return false;
+  }
 }
 
 type SeedTeacherId = (typeof SEED_TEACHERS)[number]["id"];
