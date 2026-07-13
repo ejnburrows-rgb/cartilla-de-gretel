@@ -26,17 +26,16 @@ import {
   getFlipchartPageSrc,
   type FlipchartPage,
 } from "@/lib/flipchart-hd";
+import { FLIPCHART_FLIP_MS, flipchartFlipTransforms } from "@/lib/living-motion";
 import { BookPageImage } from "./BookPageImage";
 
 interface FlipchartHdPanelProps {
   lessonNumber: number;
 }
 
-const FLIP_MS = 1100; // must match .flipchart-flip-wrapper's CSS transition duration
-
 /** Source scans are stored inverted; correct for on-screen presentation only. */
 const FLIPCHART_ORIENTATION_CLASS =
-  "[&_img]:rotate-180 [&_img]:origin-center";
+  "[&_img]:rotate-180 [&_img]:origin-center living-flipchart-face";
 
 function FlipchartFace({ page }: { page?: FlipchartPage }) {
   if (!page) return <div className="w-full h-full bg-surface" />;
@@ -79,17 +78,18 @@ export function FlipchartHdPanel({ lessonNumber }: FlipchartHdPanelProps) {
     (index: number, direction: "next" | "prev") => {
       if (isFlipping || pages.length === 0) return;
       if (index < 0 || index >= pages.length) return;
+      const { start, end } = flipchartFlipTransforms(direction);
       setFlipDirection(direction);
       setIsFlipping(true);
-      setFlipTransform(direction === "next" ? "rotateX(0deg)" : "rotateX(-180deg)");
+      setFlipTransform(start);
 
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
-          setFlipTransform(direction === "next" ? "rotateX(-180deg)" : "rotateX(0deg)");
+          setFlipTransform(end);
         });
       });
 
-      setTimeout(() => afterFlip(index), FLIP_MS);
+      setTimeout(() => afterFlip(index), FLIPCHART_FLIP_MS);
     },
     [afterFlip, isFlipping, pages.length],
   );

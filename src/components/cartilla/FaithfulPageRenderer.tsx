@@ -13,6 +13,7 @@ import {
 import { WorkbookLetterTrace } from "./WorkbookLetterTrace";
 import { getLetterTemplate } from "./letter-stroke-templates";
 import { DrawBoxCanvas } from "./DrawBoxCanvas";
+import { LivingIllustration } from "@/components/living/LivingIllustration";
 
 /**
  * Per-lesson garden background overrides. The CSS default is gretel-authentic.jpg
@@ -87,7 +88,7 @@ function IllustrationSlot({ region }: { region: PageRegion }) {
   if (region.illustrationSrc) {
     return (
       <div className="fp-illustration">
-        <img src={region.illustrationSrc} alt={caption ?? ""} loading="lazy" />
+        <LivingIllustration src={region.illustrationSrc} alt={caption ?? ""} loading="lazy" />
         {caption ? <span className="fp-illustration__caption">{caption}</span> : null}
       </div>
     );
@@ -120,7 +121,7 @@ function PictureGrid({ region }: { region: PageRegion }) {
       {cells.map((cell, i) => (
         <div key={i} className="fp-picture-grid__cell" style={{ ["--float-delay" as string]: floatDelay(i) }}>
           {cell.illustrationSrc ? (
-            <img src={cell.illustrationSrc} alt={cell.caption ?? ""} loading="lazy" />
+            <LivingIllustration src={cell.illustrationSrc} alt={cell.caption ?? ""} loading="lazy" />
           ) : (
             <div className="fp-art-pending" role="img" aria-label={cell.caption ? `Ilustración pendiente: ${cell.caption}` : "Ilustración pendiente"}>
               {cell.caption ? <span className="fp-art-pending__word">{cell.caption}</span> : null}
@@ -175,7 +176,7 @@ function VowelMatchCell({ cell, isExample, index }: { cell: PageGridCell; isExam
       style={{ ["--float-delay" as string]: floatDelay(index) }} 
     >
       {cell.illustrationSrc ? (
-        <img src={cell.illustrationSrc} alt={cell.caption ?? ""} loading="lazy" />
+        <LivingIllustration src={cell.illustrationSrc} alt={cell.caption ?? ""} loading="lazy" />
       ) : (
         <div className="fp-art-pending" role="img" aria-label={cell.caption ? `Ilustración pendiente: ${cell.caption}` : "Ilustración pendiente"}>
           {cell.caption ? <span className="fp-art-pending__word">{cell.caption}</span> : null}
@@ -211,7 +212,7 @@ function VowelPickOne({ region }: { region: PageRegion }) {
           {row.cells.map((cell, j) => (
             <div key={j} className="fp-vowel-pick__cell" style={{ ["--float-delay" as string]: floatDelay(i * 3 + j) }}>
               {cell.illustrationSrc ? (
-                <img src={cell.illustrationSrc} alt={cell.caption ?? ""} loading="lazy" />
+                <LivingIllustration src={cell.illustrationSrc} alt={cell.caption ?? ""} loading="lazy" />
               ) : (
                 <div className="fp-art-pending" role="img" aria-label={cell.caption ? `Ilustración pendiente: ${cell.caption}` : "Ilustración pendiente"}>
                   {cell.caption ? <span className="fp-art-pending__word">{cell.caption}</span> : null}
