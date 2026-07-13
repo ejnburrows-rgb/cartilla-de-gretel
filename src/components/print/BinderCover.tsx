@@ -92,7 +92,7 @@ export function BinderCover() {
       </div>
 
       <div style={footerLabelStyle}>
-        Edición de Soporte Impreso · LANY BOOKS LLC · ISBN 0-971-8696-8-5
+        Edición de Soporte Impreso · ISBN 0-971-8696-8-5
       </div>
     </section>
   );

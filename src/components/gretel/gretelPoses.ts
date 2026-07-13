@@ -25,7 +25,17 @@ export type GretelPoseKey =
  */
 export const GRETEL_POSES: Record<GretelPoseKey, string | string[]> = {
   boot: `${P}/gretel-idle.webp`,
-  idle: `${P}/gretel-idle.webp`,
+  /**
+   * Living idle — soft multi-frame cycle from the full library (not a
+   * 3-file slideshow). Combined with CSS breath + blink overlay in
+   * GretelPresence. Frames are near-rest poses so motion stays natural.
+   */
+  idle: [
+    `${P}/gretel-idle.webp`,
+    `${P}/gretel-talk-0.webp`,
+    `${P}/gretel-settle.webp`,
+    `${P}/gretel-talk.webp`,
+  ],
   /** True closed-eye matching idle canvas (666×1000). */
   blinking: `${P}/gretel-closed-idle.webp`,
   /** Enter-scene settle / land / think. */
@@ -243,6 +253,9 @@ export function poseFrameMs(state: GretelPoseKey): number {
       return 160;
     case "pointingLeft":
       return 400;
+    case "idle":
+      // Slow soft dwell so idle multi-frame reads as life, not a flipbook
+      return 2800;
     default:
       return 180;
   }

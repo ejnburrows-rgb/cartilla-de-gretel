@@ -56,13 +56,16 @@ describe("Gretel full pose library inventory", () => {
     expect(blinkRow?.wired).toBe(false);
   });
 
-  it("multi-frame families cycle for wave/cheer/talk", () => {
+  it("multi-frame families cycle for wave/cheer/talk/idle", () => {
     expect(Array.isArray(getGretelPoseFrames("waving"))).toBe(true);
     expect((getGretelPoseFrames("waving") as string[]).length).toBeGreaterThanOrEqual(3);
     expect((getGretelPoseFrames("cheering") as string[]).length).toBeGreaterThanOrEqual(2);
     expect((getGretelPoseFrames("talking") as string[]).length).toBeGreaterThanOrEqual(3);
     expect((getGretelPoseFrames("welcome") as string[]).length).toBeGreaterThanOrEqual(3);
     expect((getGretelPoseFrames("pointingLeft") as string[]).length).toBeGreaterThanOrEqual(2);
+    // Idle is multi-frame (not a single static cheap loop)
+    expect(Array.isArray(getGretelPoseFrames("idle"))).toBe(true);
+    expect((getGretelPoseFrames("idle") as string[]).length).toBeGreaterThanOrEqual(3);
   });
 
   it("maps product moments to pose families", () => {

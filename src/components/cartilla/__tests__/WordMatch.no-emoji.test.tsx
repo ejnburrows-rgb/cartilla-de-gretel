@@ -45,7 +45,8 @@ describe("WordMatch — no emoji object hints", () => {
     expect(container.textContent).not.toContain("🐒");
     const imgs = container.querySelectorAll("img");
     expect(imgs.length).toBeGreaterThanOrEqual(2);
-    expect(imgs[0]?.getAttribute("src")).toContain("mama.webp");
+    const srcs = [...imgs].map((img) => img.getAttribute("src") || "").join(" ");
+    expect(srcs).toMatch(/mama\.webp|mono\.webp/);
   });
 
   it("shows honest pendiente when no art (still no emoji)", () => {

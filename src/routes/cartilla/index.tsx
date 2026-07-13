@@ -1,7 +1,9 @@
 import { createFileRoute, Link, redirect } from "@tanstack/react-router";
 import { getStudentSession } from "@/lib/student-session";
 import { BookHeroGretel } from "@/components/intro/BookHeroGretel";
+import { HOME_GREETING } from "@/lib/gretel-voice";
 import "@/styles/home-hero.css";
+import "@/styles/gretel-presence.css";
 
 export const Route = createFileRoute("/cartilla/")({
   beforeLoad: () => {
@@ -22,26 +24,18 @@ function CartillaSplash() {
       <div className="home-landing__wash" aria-hidden />
 
       <div className="home-landing__inner" style={{ maxWidth: 720 }}>
-        <section className="home-landing__panel" style={{ textAlign: "center" }}>
-          <p className="home-landing__eyebrow">¡Bienvenidos!</p>
-          <h1 className="home-landing__title" style={{ textAlign: "center" }}>
-            La Cartilla
-            <br />
-            <span>de Gretel</span>
-          </h1>
+        <section className="home-landing__panel" style={{ textAlign: "center" }} aria-labelledby="cartilla-greeting">
           <p
-            className="home-landing__lead"
+            id="cartilla-greeting"
+            className="home-landing__greeting"
             style={{ marginInline: "auto", textAlign: "center" }}
+            data-testid="cartilla-greeting"
           >
-            El mundo mágico de las letras — listo para leer en clase o en casa.
+            {HOME_GREETING}
           </p>
 
           <div className="home-landing__hero-col" style={{ marginTop: "1.15rem" }}>
-            <BookHeroGretel
-              size="md"
-              objectPosition="center 18%"
-              alt="Gretel te da la bienvenida en el jardín"
-            />
+            <BookHeroGretel size="md" objectPosition="center 18%" autoIntro={false} />
           </div>
 
           <div
@@ -53,7 +47,7 @@ function CartillaSplash() {
               className="home-landing__cta home-landing__cta--student"
               data-testid="cartilla-splash-enter"
             >
-              ¡Entrar como estudiante!
+              Entrar como estudiante
             </Link>
             <Link
               to="/login"

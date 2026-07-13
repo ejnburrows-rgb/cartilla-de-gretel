@@ -114,7 +114,7 @@ export function BinderSheet({ entry, pageNumber }: BinderSheetProps) {
 
       {/* ── Elegant Footer ── */}
       <footer style={elegantFooterStyle}>
-        La Cartilla de Gretel · Leonor Lopetegui · LANY BOOKS LLC · ISBN 0-971-8696-8-5
+        La Cartilla de Gretel · Leonor Lopetegui · ISBN 0-971-8696-8-5
       </footer>
     </section>
   );

@@ -107,6 +107,44 @@
   pointer-events: none;
 }
 
+/* Real GretelPresence host inside the book plate */
+.book-hero-gretel__presence-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  pointer-events: auto;
+  padding: 0 0.5rem 0.25rem;
+}
+
+.book-hero-gretel__presence {
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+  padding-bottom: 0.25rem;
+}
+
+.book-hero-gretel__presence .gretel-presence__stage {
+  max-height: min(48vh, 380px);
+}
+
+.book-hero-gretel__presence.gretel-presence--home {
+  opacity: 1;
+  transform: none;
+}
+
+.home-landing__greeting {
+  margin: 0 0 1.5rem;
+  font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
+  font-size: clamp(1.25rem, 2.6vw, 1.75rem);
+  font-weight: 800;
+  line-height: 1.35;
+  color: var(--home-ink);
+  max-width: 28rem;
+}
+
 .book-hero-gretel__figure-shadow {
   position: absolute;
   bottom: 7%;
