@@ -387,11 +387,12 @@
     "src": "/cartilla/art/faithful/leccion-19-c/casa.webp",
     "sourceFlipchartPage": "c-page-52.jpg",
     "cropBox": [
-      1530,
-      1225,
-      730,
-      660
-    ]
+      1540,
+      1300,
+      660,
+      540
+    ],
+    "sourceNote": "house with trees (verify existing)"
   },
   {
     "slug": "ola",
@@ -714,15 +715,15 @@
   {
     "slug": "pez",
     "word": "pez",
-    "lessonNumber": 8,
-    "pageNumber": null,
-    "src": "/cartilla/art/faithful/leccion-8-p/pez.webp",
-    "sourceFlipchartPage": "p-page-11.jpg",
+    "lessonNumber": 1,
+    "pageNumber": 16,
+    "src": "/cartilla/art/faithful/leccion-1/pez.webp",
+    "sourceFlipchartPage": "u-page-16.jpg",
     "cropBox": [
-      806,
-      1094,
-      575,
-      398
+      718,
+      350,
+      254,
+      235
     ]
   },
   {
@@ -1288,16 +1289,17 @@
   {
     "slug": "cuna",
     "word": "cuna",
-    "lessonNumber": 19,
+    "lessonNumber": 22,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-19-c/cuna.webp",
     "sourceFlipchartPage": "c-page-52.jpg",
     "cropBox": [
-      1378,
-      1094,
-      574,
-      398
-    ]
+      120,
+      1300,
+      660,
+      540
+    ],
+    "sourceNote": "baby crib (re-crop correct subject)"
   },
   {
     "slug": "camisa",
@@ -1321,11 +1323,12 @@
     "src": "/cartilla/art/faithful/leccion-22-y/yoyo.webp",
     "sourceFlipchartPage": "y-page-55.jpg",
     "cropBox": [
-      1391,
-      2266,
-      609,
-      516
-    ]
+      1260,
+      2100,
+      700,
+      600
+    ],
+    "sourceNote": "yo-yo toy"
   },
   {
     "slug": "yate",
@@ -1335,11 +1338,12 @@
     "src": "/cartilla/art/faithful/leccion-22-y/yate.webp",
     "sourceFlipchartPage": "y-page-55.jpg",
     "cropBox": [
-      86,
-      1430,
-      651,
-      408
-    ]
+      120,
+      1320,
+      660,
+      520
+    ],
+    "sourceNote": "yacht (re-verify)"
   },
   {
     "slug": "yegua",
@@ -1358,16 +1362,17 @@
   {
     "slug": "yema",
     "word": "yema",
-    "lessonNumber": 22,
+    "lessonNumber": 23,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-22-y/yema.webp",
     "sourceFlipchartPage": "y-page-55.jpg",
     "cropBox": [
-      230,
-      1492,
-      574,
-      398
-    ]
+      900,
+      1380,
+      560,
+      420
+    ],
+    "sourceNote": "fried egg yolk"
   },
   {
     "slug": "zapato",
@@ -1377,11 +1382,12 @@
     "src": "/cartilla/art/faithful/leccion-23-z/zapato.webp",
     "sourceFlipchartPage": "z-page-58.jpg",
     "cropBox": [
-      101,
-      1289,
-      610,
-      579
-    ]
+      120,
+      1320,
+      660,
+      520
+    ],
+    "sourceNote": "purple shoe (re-verify)"
   },
   {
     "slug": "zanahoria",
@@ -1433,11 +1439,12 @@
     "src": "/cartilla/art/faithful/leccion-23-z/zorro.webp",
     "sourceFlipchartPage": "z-page-58.jpg",
     "cropBox": [
-      1680,
-      1170,
-      555,
-      680
-    ]
+      1540,
+      1320,
+      680,
+      540
+    ],
+    "sourceNote": "fox (re-verify)"
   },
   {
     "slug": "traje",
@@ -1468,20 +1475,6 @@
     ]
   },
   {
-    "slug": "pez",
-    "word": "pez",
-    "lessonNumber": 1,
-    "pageNumber": 16,
-    "src": "/cartilla/art/faithful/leccion-1/pez.webp",
-    "sourceFlipchartPage": "u-page-16.jpg",
-    "cropBox": [
-      718,
-      350,
-      254,
-      235
-    ]
-  },
-  {
     "slug": "aguila",
     "word": "águila",
     "lessonNumber": 1,
@@ -1494,5 +1487,365 @@
       252,
       236
     ]
+  },
+  {
+    "slug": "gaveta",
+    "word": "gaveta",
+    "lessonNumber": 19,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-19-g/gaveta.webp",
+    "sourceFlipchartPage": "g-page-43.jpg",
+    "cropBox": [
+      120,
+      1280,
+      700,
+      620
+    ],
+    "sourceNote": "open drawer with papers"
+  },
+  {
+    "slug": "gusano",
+    "word": "gusano",
+    "lessonNumber": 19,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-19-g/gusano.webp",
+    "sourceFlipchartPage": "g-page-43.jpg",
+    "cropBox": [
+      820,
+      1480,
+      640,
+      360
+    ],
+    "sourceNote": "green worm (re-crop tight, correct subject)"
+  },
+  {
+    "slug": "goloso",
+    "word": "Goloso",
+    "lessonNumber": 19,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-19-g/goloso.webp",
+    "sourceFlipchartPage": "g-page-43.jpg",
+    "cropBox": [
+      1560,
+      1300,
+      680,
+      560
+    ],
+    "sourceNote": "cat Goloso with necktie"
+  },
+  {
+    "slug": "gorra",
+    "word": "gorra",
+    "lessonNumber": 19,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-19-g/gorra.webp",
+    "sourceFlipchartPage": "g-page-43.jpg",
+    "cropBox": [
+      300,
+      2140,
+      680,
+      560
+    ],
+    "sourceNote": "striped baseball cap"
+  },
+  {
+    "slug": "mago",
+    "word": "mago",
+    "lessonNumber": 19,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-19-g/mago.webp",
+    "sourceFlipchartPage": "g-page-43.jpg",
+    "cropBox": [
+      1220,
+      2100,
+      900,
+      700
+    ],
+    "sourceNote": "magician with rabbit and hat"
+  },
+  {
+    "slug": "foto",
+    "word": "foto",
+    "lessonNumber": 20,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-20-f/foto.webp",
+    "sourceFlipchartPage": "f-page-46.jpg",
+    "cropBox": [
+      140,
+      1320,
+      640,
+      540
+    ],
+    "sourceNote": "framed portrait photo"
+  },
+  {
+    "slug": "fideos",
+    "word": "fideos",
+    "lessonNumber": 20,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-20-f/fideos.webp",
+    "sourceFlipchartPage": "f-page-46.jpg",
+    "cropBox": [
+      860,
+      1300,
+      620,
+      560
+    ],
+    "sourceNote": "man eating noodles/fideos"
+  },
+  {
+    "slug": "familia",
+    "word": "familia",
+    "lessonNumber": 20,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-20-f/familia.webp",
+    "sourceFlipchartPage": "f-page-46.jpg",
+    "cropBox": [
+      1580,
+      1300,
+      680,
+      560
+    ],
+    "sourceNote": "family of four"
+  },
+  {
+    "slug": "felo",
+    "word": "Felo",
+    "lessonNumber": 20,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-20-f/felo.webp",
+    "sourceFlipchartPage": "f-page-46.jpg",
+    "cropBox": [
+      220,
+      2200,
+      820,
+      640
+    ],
+    "sourceNote": "man on red tractor Felo"
+  },
+  {
+    "slug": "funda",
+    "word": "funda",
+    "lessonNumber": 20,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-20-f/funda.webp",
+    "sourceFlipchartPage": "f-page-46.jpg",
+    "cropBox": [
+      1280,
+      2180,
+      720,
+      560
+    ],
+    "sourceNote": "yellow pillowcase/funda"
+  },
+  {
+    "slug": "jirafa",
+    "word": "jirafa",
+    "lessonNumber": 21,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-21-j/jirafa.webp",
+    "sourceFlipchartPage": "j-page-49.jpg",
+    "cropBox": [
+      60,
+      100,
+      1050,
+      1100
+    ],
+    "sourceNote": "giraffe with glasses (top scene)"
+  },
+  {
+    "slug": "jicotea",
+    "word": "jicotea",
+    "lessonNumber": 21,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-21-j/jicotea.webp",
+    "sourceFlipchartPage": "j-page-49.jpg",
+    "cropBox": [
+      120,
+      1300,
+      640,
+      520
+    ],
+    "sourceNote": "turtle jicotea"
+  },
+  {
+    "slug": "jugo",
+    "word": "jugo",
+    "lessonNumber": 21,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-21-j/jugo.webp",
+    "sourceFlipchartPage": "j-page-49.jpg",
+    "cropBox": [
+      860,
+      1280,
+      620,
+      520
+    ],
+    "sourceNote": "glass of juice with orange"
+  },
+  {
+    "slug": "jesus",
+    "word": "Jesús",
+    "lessonNumber": 21,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-21-j/jesus.webp",
+    "sourceFlipchartPage": "j-page-49.jpg",
+    "cropBox": [
+      1520,
+      1240,
+      700,
+      580
+    ],
+    "sourceNote": "boy Jesús with oversized pencil"
+  },
+  {
+    "slug": "ajo",
+    "word": "ajo",
+    "lessonNumber": 21,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-21-j/ajo.webp",
+    "sourceFlipchartPage": "j-page-49.jpg",
+    "cropBox": [
+      280,
+      2180,
+      620,
+      520
+    ],
+    "sourceNote": "garlic bulb"
+  },
+  {
+    "slug": "jarra",
+    "word": "jarra",
+    "lessonNumber": 21,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-21-j/jarra.webp",
+    "sourceFlipchartPage": "j-page-49.jpg",
+    "cropBox": [
+      1180,
+      2100,
+      700,
+      620
+    ],
+    "sourceNote": "pink pitcher jarra"
+  },
+  {
+    "slug": "conejo",
+    "word": "conejo",
+    "lessonNumber": 22,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-19-c/conejo.webp",
+    "sourceFlipchartPage": "c-page-52.jpg",
+    "cropBox": [
+      900,
+      1280,
+      560,
+      540
+    ],
+    "sourceNote": "rabbit with bowtie"
+  },
+  {
+    "slug": "cubo",
+    "word": "cubo",
+    "lessonNumber": 22,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-19-c/cubo.webp",
+    "sourceFlipchartPage": "c-page-52.jpg",
+    "cropBox": [
+      320,
+      2120,
+      640,
+      600
+    ],
+    "sourceNote": "green bucket cubo"
+  },
+  {
+    "slug": "catalina",
+    "word": "Catalina",
+    "lessonNumber": 22,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-19-c/catalina.webp",
+    "sourceFlipchartPage": "c-page-52.jpg",
+    "cropBox": [
+      1280,
+      2080,
+      720,
+      660
+    ],
+    "sourceNote": "hen Catalina"
+  },
+  {
+    "slug": "yayita",
+    "word": "Yayita",
+    "lessonNumber": 23,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-22-y/yayita.webp",
+    "sourceFlipchartPage": "y-page-55.jpg",
+    "cropBox": [
+      1560,
+      1260,
+      660,
+      560
+    ],
+    "sourceNote": "blue octopus-like Yayita character"
+  },
+  {
+    "slug": "mayuscula",
+    "word": "mayúscula",
+    "lessonNumber": 23,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-22-y/mayuscula.webp",
+    "sourceFlipchartPage": "y-page-55.jpg",
+    "cropBox": [
+      220,
+      2100,
+      780,
+      640
+    ],
+    "sourceNote": "decorated capital Y with girl"
+  },
+  {
+    "slug": "zigzag",
+    "word": "zig-zag",
+    "lessonNumber": 24,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-23-z/zigzag.webp",
+    "sourceFlipchartPage": "z-page-58.jpg",
+    "cropBox": [
+      900,
+      1360,
+      560,
+      440
+    ],
+    "sourceNote": "zigzag chevron graphic"
+  },
+  {
+    "slug": "zepelin",
+    "word": "zepelín",
+    "lessonNumber": 24,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-23-z/zepelin.webp",
+    "sourceFlipchartPage": "z-page-58.jpg",
+    "cropBox": [
+      240,
+      2100,
+      760,
+      600
+    ],
+    "sourceNote": "zeppelin airship"
+  },
+  {
+    "slug": "zulema",
+    "word": "Zulema",
+    "lessonNumber": 24,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-23-z/zulema.webp",
+    "sourceFlipchartPage": "z-page-58.jpg",
+    "cropBox": [
+      1240,
+      2080,
+      780,
+      700
+    ],
+    "sourceNote": "girl Zulema with pinwheel"
   }
 ]
