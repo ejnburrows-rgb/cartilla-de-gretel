@@ -7,11 +7,11 @@ import { hasTeacherOrAdminRole } from "@/lib/auth-role";
 import { isSeedSessionActive } from "@/lib/seed-data";
 import { TeacherPresentationShell } from "@/components/cartilla/TeacherPresentationShell";
 import { FlipchartHdPanel } from "@/components/cartilla/FlipchartHdPanel";
-import "@/styles/kiosko.css";
+import { getFlipchartPagesForLesson } from "@/lib/flipchart-hd";
 
 /**
  * Teacher-only classroom presentation route.
- * Shows the real HD flipchart scans (FlipchartHdPanel) — never student workbook pages.
+ * HD flipchart plates only (FlipchartHdPanel) — never the student workbook shell.
  * Gate mirrors /cartilla/teacher: seed demo session OR signed-in teacher/admin role.
  */
 export const Route = createFileRoute("/cartilla/presentar/$n")({
@@ -21,12 +21,11 @@ export const Route = createFileRoute("/cartilla/presentar/$n")({
       { title: `Presentando Lección ${params.n} — La Cartilla de Gretel` },
       {
         name: "description",
-        content: "Proyector del flipchart del maestro con navegación y puntero láser.",
+        content: "Proyector profesional del flipchart del maestro con navegación y puntero.",
       },
     ],
   }),
   beforeLoad: async ({ params }) => {
-    // Students never enter the teacher presentation surface.
     if (getStudentSession()) {
       throw redirect({ to: "/cartilla/lecciones" });
     }
@@ -36,7 +35,6 @@ export const Route = createFileRoute("/cartilla/presentar/$n")({
       throw redirect({ to: "/cartilla/teacher" });
     }
 
-    // Local demo/seed lane (env-gated) — same bypass as /cartilla/teacher.
     if (isSeedSessionActive()) return;
 
     const { data } = await supabase.auth.getSession();
@@ -63,8 +61,9 @@ function PresentarLesson() {
     [n],
   );
 
+  const sheetCount = useMemo(() => getFlipchartPagesForLesson(n).length, [n]);
+
   const handleExit = () => {
-    // Stay in the teacher lane — never drop into the student workbook.
     navigate({ to: "/cartilla/teacher" });
   };
 
@@ -73,28 +72,19 @@ function PresentarLesson() {
   const accentColor = entry.color || "#c98c4f";
 
   return (
-    <TeacherPresentationShell accentColor={accentColor} onExit={handleExit}>
-      <div className="w-full h-full flex flex-col items-center justify-center gap-3 p-2 sm:p-4 relative z-10 min-h-0">
-        {/* Compact lesson chrome — keeps HD flipchart as large as possible */}
-        <div className="w-full max-w-4xl shrink-0 flex justify-between items-center text-stone-800 bg-white/90 backdrop-blur px-4 py-2 rounded-2xl shadow-sm border border-stone-200">
-          <div className="text-left min-w-0">
-            <span
-              className="text-[10px] font-black uppercase tracking-widest"
-              style={{ color: accentColor }}
-            >
-              Lección {n} · Flipchart
-            </span>
-            <h2 className="text-base sm:text-lg font-black text-stone-800 truncate">
-              {entry.title}
-            </h2>
-          </div>
-        </div>
-
-        {/* Real teacher flipchart only — presentation lane, not student workbook */}
-        <div className="flex-1 min-h-0 w-full flex items-center justify-center">
-          <FlipchartHdPanel lessonNumber={n} />
-        </div>
-      </div>
+    <TeacherPresentationShell
+      accentColor={accentColor}
+      onExit={handleExit}
+      eyebrow={`Lección ${n} · Flipchart`}
+      title={entry.title}
+      subtitle={
+        sheetCount > 0
+          ? `${sheetCount} láminas HD · Proyector del maestro`
+          : "Proyector del maestro"
+      }
+    >
+      {/* Full-bleed board — no nested max-width chrome bars */}
+      <FlipchartHdPanel lessonNumber={n} accentColor={accentColor} />
     </TeacherPresentationShell>
   );
 }

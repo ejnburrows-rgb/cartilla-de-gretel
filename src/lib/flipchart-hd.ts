@@ -28,6 +28,27 @@ export function getFlipchartPageSrc(page: FlipchartPage): string {
   return `/${page.path}`;
 }
 
+/**
+ * True when the path points at the HD flipchart plate directory
+ * (public/cartilla/art/hd/flipchart/). Source/raw scans must never be
+ * preferred when an HD plate exists in teacher-flipchart.json.
+ */
+export function isHdFlipchartPath(src: string): boolean {
+  const clean = src.replace(/^\//, "").toLowerCase();
+  return (
+    clean.startsWith("cartilla/art/hd/flipchart/") ||
+    clean.includes("/art/hd/flipchart/")
+  );
+}
+
+/** Prefer HD path for a lesson's first plate; null if none authored. */
+export function getPreferredFlipchartSrcForLesson(lessonNumber: number): string | null {
+  const pages = getFlipchartPagesForLesson(lessonNumber);
+  if (pages.length === 0) return null;
+  const src = getFlipchartPageSrc(pages[0]!);
+  return isHdFlipchartPath(src) ? src : src;
+}
+
 /** Return all flipchart pages that belong to the given lesson. */
 export function getFlipchartPagesForLesson(lessonNumber: number): FlipchartPage[] {
   return FLIPCHART_PAGES.filter((p) => p.lesson === lessonNumber);

@@ -1,49 +1,66 @@
-import { useState, useEffect, useRef } from "react";
-import { Maximize2, Minimize2, MousePointerClick, X } from "lucide-react";
+/**
+ * TeacherPresentationShell — full-viewport CRM-grade classroom presenter.
+ * Warm book palette (not dark navy SaaS). Stage is the hero; chrome is
+ * light and finger-friendly. Used by /cartilla/presentar/$n only.
+ */
+import { useState, useEffect, useRef, type CSSProperties, type ReactNode } from "react";
+import { Maximize2, Minimize2, MousePointerClick, X, Focus } from "lucide-react";
+import "@/styles/flipchart-presenter.css";
 
 interface TeacherPresentationShellProps {
-  children: React.ReactNode;
+  children: ReactNode;
   accentColor?: string;
   onExit?: () => void;
+  /** Lesson title, e.g. "Vocal O o" */
   title?: string;
+  /** Secondary line, e.g. "Flipchart del maestro · Lección 2" */
   subtitle?: string;
+  /** Short eyebrow, e.g. "Lección 2" */
+  eyebrow?: string;
 }
 
-const shellClass = "fixed inset-0 w-screen h-screen overflow-hidden bg-stone-950 text-white flex flex-col z-50 select-none font-sans";
-const headerClass = "no-print absolute top-6 inset-x-6 max-w-5xl mx-auto bg-stone-900/80 border border-white/10 rounded-3xl p-4 flex items-center justify-between shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-xl transition-all duration-500 z-50";
-const actionBtnClass = "px-4 py-2.5 rounded-2xl border border-white/5 bg-white/5 hover:bg-white/15 hover:border-white/10 font-bold text-xs flex items-center gap-2 transition-all cursor-pointer";
-const laserActiveBtnClass = "px-4 py-2.5 rounded-2xl border font-bold text-xs flex items-center gap-2 transition-all cursor-pointer shadow-lg";
-
-export function TeacherPresentationShell({ children, accentColor, onExit }: TeacherPresentationShellProps) {
+export function TeacherPresentationShell({
+  children,
+  accentColor = "#c98c4f",
+  onExit,
+  title = "Presentación del flipchart",
+  subtitle = "Proyector del maestro",
+  eyebrow = "Panel del docente",
+}: TeacherPresentationShellProps) {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [laserPointer, setLaserPointer] = useState(false);
   const [laserPos, setLaserPos] = useState({ x: -100, y: -100 });
+  const [focusMode, setFocusMode] = useState(false);
   const [isIdle, setIsIdle] = useState(false);
-  const idleTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const idleTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // 1. Fullscreen Toggle
   const toggleFullscreen = () => {
     if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen().then(() => setIsFullscreen(true)).catch(() => {});
+      document.documentElement
+        .requestFullscreen()
+        .then(() => setIsFullscreen(true))
+        .catch(() => {});
     } else {
-      document.exitFullscreen().then(() => setIsFullscreen(false)).catch(() => {});
+      document
+        .exitFullscreen()
+        .then(() => setIsFullscreen(false))
+        .catch(() => {});
     }
   };
 
-  // Sync fullscreen state if changed externally
   useEffect(() => {
     const handleFsChange = () => setIsFullscreen(!!document.fullscreenElement);
     document.addEventListener("fullscreenchange", handleFsChange);
     return () => document.removeEventListener("fullscreenchange", handleFsChange);
   }, []);
 
-  // 2. Idle control bar hiding
   const resetIdleTimer = () => {
     setIsIdle(false);
     if (idleTimerRef.current) clearTimeout(idleTimerRef.current);
+    // In focus mode, hide header after idle so the chart dominates
     idleTimerRef.current = setTimeout(() => {
-      setIsIdle(true);
-    }, 3000);
+      if (focusMode) setIsIdle(true);
+    }, 2800);
   };
 
   useEffect(() => {
@@ -55,88 +72,93 @@ export function TeacherPresentationShell({ children, accentColor, onExit }: Teac
       window.removeEventListener("touchstart", resetIdleTimer);
       if (idleTimerRef.current) clearTimeout(idleTimerRef.current);
     };
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [focusMode]);
 
-  // 3. Laser Pointer position tracker
   const handleMouseMove = (e: React.MouseEvent) => {
-    if (laserPointer) {
-      setLaserPos({ x: e.clientX, y: e.clientY });
-    }
+    if (laserPointer) setLaserPos({ x: e.clientX, y: e.clientY });
   };
 
-  // Strict double-brace JSX styling ban compliance
-  const activeLaserStyle = {
-    borderColor: accentColor,
-    backgroundColor: `${accentColor}20`,
-    color: accentColor,
-  };
+  const shellStyle = {
+    ["--fc-accent-live" as string]: accentColor,
+  } as CSSProperties;
 
-  const laserPointerDotStyle = {
-    left: `${laserPos.x}px`,
-    top: `${laserPos.y}px`,
-    boxShadow: `0 0 20px 4px ${accentColor}`,
+  const laserStyle: CSSProperties = {
+    left: laserPos.x,
+    top: laserPos.y,
     backgroundColor: accentColor,
+    boxShadow: `0 0 18px 4px ${accentColor}`,
   };
 
-  const headerOpacityClass = isIdle ? "opacity-0 pointer-events-none" : "opacity-100";
+  const focusClass = focusMode || isIdle ? " is-focus" : "";
 
   return (
-    <div className={shellClass} onMouseMove={handleMouseMove}>
-      {/* Laser Pointer overlay */}
-      {laserPointer && (
-        <div 
-          className="fixed pointer-events-none w-6 h-6 rounded-full -translate-x-1/2 -translate-y-1/2 z-40 transition-all duration-75"
-          style={laserPointerDotStyle}
-        />
-      )}
+    <div
+      className={`fc-presenter${focusClass}`}
+      style={shellStyle}
+      data-accent=""
+      data-testid="teacher-presenter-shell"
+      onMouseMove={handleMouseMove}
+    >
+      {laserPointer && <div className="fc-presenter__laser" style={laserStyle} aria-hidden />}
 
-      {/* Slide Navigation Header */}
-      <header className={`${headerClass} ${headerOpacityClass}`}>
-        <div className="flex items-center gap-3">
+      <header className="fc-presenter__header" data-testid="teacher-presenter-header">
+        <div className="fc-presenter__brand">
           <button
+            type="button"
             onClick={onExit}
-            className="p-3 rounded-2xl border border-white/10 hover:bg-red-500/20 hover:border-red-500/30 text-white/80 transition-all cursor-pointer"
-            aria-label="Salir de la presentación"
+            className="fc-presenter__exit"
+            aria-label="Volver al panel del docente"
           >
-            <X className="w-5 h-5" />
+            <X className="w-5 h-5" aria-hidden />
           </button>
-          <div>
-            <span className="text-[10px] font-bold uppercase tracking-wider text-white/40 block">
-              Pantalla del Maestro
-            </span>
-            <span className="text-xs font-bold text-white">Presentación en Pizarra Digital</span>
+          <div className="fc-presenter__titles">
+            <span className="fc-presenter__eyebrow">{eyebrow}</span>
+            <h1 className="fc-presenter__title">{title}</h1>
+            {subtitle ? <p className="fc-presenter__subtitle">{subtitle}</p> : null}
           </div>
         </div>
 
-        {/* Display actions */}
-        <div className="flex items-center gap-2">
+        <div className="fc-presenter__actions">
           <button
-            onClick={() => setLaserPointer(!laserPointer)}
-            className={laserPointer ? laserActiveBtnClass : actionBtnClass}
-            style={laserPointer ? activeLaserStyle : undefined}
-            aria-label="Alternar puntero láser interactivo"
+            type="button"
+            onClick={() => setLaserPointer((v) => !v)}
+            className={`fc-presenter__btn${laserPointer ? " is-active" : ""}`}
+            aria-pressed={laserPointer}
+            aria-label="Alternar puntero láser"
           >
-            <MousePointerClick className="w-4 h-4" />
-            Puntero Láser
+            <MousePointerClick className="w-4 h-4" aria-hidden />
+            <span className="hidden sm:inline">Puntero</span>
           </button>
-
           <button
+            type="button"
+            onClick={() => setFocusMode((v) => !v)}
+            className={`fc-presenter__btn${focusMode ? " is-active" : ""}`}
+            aria-pressed={focusMode}
+            aria-label="Modo proyección sin cromo"
+          >
+            <Focus className="w-4 h-4" aria-hidden />
+            <span className="hidden sm:inline">Enfoque</span>
+          </button>
+          <button
+            type="button"
             onClick={toggleFullscreen}
-            className={actionBtnClass}
+            className="fc-presenter__btn"
             aria-label="Alternar pantalla completa"
           >
-            {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
-            Pantalla Completa
+            {isFullscreen ? (
+              <Minimize2 className="w-4 h-4" aria-hidden />
+            ) : (
+              <Maximize2 className="w-4 h-4" aria-hidden />
+            )}
+            <span className="hidden sm:inline">Pantalla completa</span>
           </button>
         </div>
       </header>
 
-      {/* Main canvas — portrait-friendly (real flipchart pages are portrait,
-          not 16:9). Full available viewport so HD scans stay presentation-sized. */}
-      <main className="flex-1 w-full min-h-0 flex items-center justify-center px-3 pb-3 pt-20 select-none relative">
-        <div className="w-full h-full max-w-[1200px] bg-stone-900/80 border border-white/10 rounded-3xl overflow-hidden shadow-2xl flex items-center justify-center relative min-h-0">
-          {children}
-        </div>
+      {/* Full-width stage — no max-w postage stamp */}
+      <main className="fc-presenter__main" data-testid="teacher-presenter-stage">
+        <div className="fc-presenter__stage">{children}</div>
       </main>
     </div>
   );
