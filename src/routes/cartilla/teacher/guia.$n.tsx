@@ -51,7 +51,7 @@ function TeacherGuideLeccion() {
       {/* Top action row */}
       <div className="flex items-center justify-between no-print shrink-0 px-2">
         <Link
-          to="/cartilla/teacher/progreso"
+          to="/cartilla/teacher/crm"
           className="flex items-center gap-1.5 text-xs font-bold text-stone-500 hover:text-stone-800 transition-colors"
         >
           <ChevronLeft className="w-4 h-4" />

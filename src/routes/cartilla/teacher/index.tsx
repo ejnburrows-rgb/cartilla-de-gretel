@@ -1,107 +1,178 @@
 /**
- * Teacher Resource Hub — "Google Workspace" Drive view
+ * Teacher home — the first thing a teacher sees after signing in. Two
+ * layers: a row of primary task entry points (every core teacher task
+ * reachable in one click from here), then the 5 guide folders, each
+ * deep-linking into the real, working /cartilla/teacher/guia hub. The
+ * folders used to link to /cartilla/teacher/recursos/$recursoId, a dead end
+ * that asked the operator to upload PDFs that were never coming — replaced
+ * with real, already-built content (rhymes, evaluation page references,
+ * syllable tables) sourced from the same guia data everywhere else uses.
  */
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Folder, FolderOpen, FileText } from "lucide-react";
+import {
+  GraduationCap,
+  BookOpen,
+  MonitorPlay,
+  FileSpreadsheet,
+  HelpCircle,
+  Rows3,
+  Home,
+  ClipboardCheck,
+  Music,
+} from "lucide-react";
 
 export const Route = createFileRoute("/cartilla/teacher/")({
   component: TeacherHub,
-  head: () => ({
-    meta: [{ title: "Recursos del Maestro — La Cartilla de Gretel" }],
-  }),
+  head: () => ({ meta: [{ title: "Panel del Docente — La Cartilla de Gretel" }] }),
 });
+
+interface EntryPoint {
+  title: string;
+  description: string;
+  to: string;
+  icon: React.ReactNode;
+  accent: string;
+}
+
+const ENTRY_POINTS: EntryPoint[] = [
+  {
+    title: "Clase",
+    description: "Crea o abre una clase, agrega alumnos, asigna lecciones.",
+    to: "/cartilla/teacher/crm",
+    icon: <GraduationCap className="w-6 h-6" />,
+    accent: "#0f766e",
+  },
+  {
+    title: "Guía",
+    description: "Guía del profesor, tablas, tareas, evaluaciones y poemas — lección por lección.",
+    to: "/cartilla/teacher/guia",
+    icon: <BookOpen className="w-6 h-6" />,
+    accent: "#4f46e5",
+  },
+  {
+    title: "Presentar",
+    description: "Abre el flipchart para proyectar la lección frente a la clase.",
+    to: "/cartilla/presentar/1",
+    icon: <MonitorPlay className="w-6 h-6" />,
+    accent: "#d97706",
+  },
+  {
+    title: "Reportes",
+    description: "Progreso por alumno y por lección, reporte imprimible y exportación CSV.",
+    to: "/cartilla/teacher/reportes",
+    icon: <FileSpreadsheet className="w-6 h-6" />,
+    accent: "#9333ea",
+  },
+  {
+    title: "Ayuda",
+    description: "Cómo usar la app: clase, asignar, presentar, guía y progreso, paso a paso.",
+    to: "/cartilla/teacher/ayuda",
+    icon: <HelpCircle className="w-6 h-6" />,
+    accent: "#dc2626",
+  },
+];
 
 interface DriveFolder {
   title: string;
   color: string;
   iconColor: string;
-  to: string;
+  icon: React.ReactNode;
+  folderKey: "guia" | "tablas" | "tareas" | "evaluaciones" | "poemas";
 }
 
 const FOLDERS: DriveFolder[] = [
   {
-    title: "Rimas Reproducible Enriquecimiento",
-    color: "bg-[#1e40af]", // Solid Blue
-    iconColor: "text-blue-200",
-    to: "/cartilla/teacher/recursos/rimas",
-  },
-  {
-    title: "Respuestas de las Evaluaciones",
-    color: "bg-[#eab308]", // Solid Yellow
-    iconColor: "text-yellow-100",
-    to: "/cartilla/teacher/recursos/respuestas",
-  },
-  {
-    title: "Evaluaciones Reproducibles",
-    color: "bg-[#dc2626]", // Solid Red
-    iconColor: "text-red-200",
-    to: "/cartilla/teacher/recursos/evaluaciones",
-  },
-  {
-    title: "Blackline Masters tablas silábicas",
-    color: "bg-[#9333ea]", // Solid Purple
-    iconColor: "text-purple-200",
-    to: "/cartilla/teacher/recursos/blacklines",
-  },
-  {
     title: "Guía del Profesor",
-    color: "bg-[#16a34a]", // Solid Green for the newly provided text
+    color: "bg-[#16a34a]",
     iconColor: "text-green-200",
-    to: "/cartilla/teacher/guide",
-  }
+    icon: <BookOpen className="w-10 h-10" />,
+    folderKey: "guia",
+  },
+  {
+    title: "Tablas Silábicas y de Vocales",
+    color: "bg-[#059669]",
+    iconColor: "text-emerald-200",
+    icon: <Rows3 className="w-10 h-10" />,
+    folderKey: "tablas",
+  },
+  {
+    title: "Tareas para el Hogar",
+    color: "bg-[#d97706]",
+    iconColor: "text-amber-100",
+    icon: <Home className="w-10 h-10" />,
+    folderKey: "tareas",
+  },
+  {
+    title: "Evaluaciones",
+    color: "bg-[#9333ea]",
+    iconColor: "text-purple-200",
+    icon: <ClipboardCheck className="w-10 h-10" />,
+    folderKey: "evaluaciones",
+  },
+  {
+    title: "Poemas y Audio",
+    color: "bg-[#e11d48]",
+    iconColor: "text-rose-200",
+    icon: <Music className="w-10 h-10" />,
+    folderKey: "poemas",
+  },
 ];
 
 function TeacherHub() {
   return (
-    <div 
-      className="w-full min-h-screen flex flex-col items-center justify-start py-16 px-4 sm:px-8 -mx-6 -my-6"
-      style={{
-        background: "radial-gradient(ellipse 120% 80% at 50% -10%, #fdf3e0 0%, #f5e8c8 60%, #ecdaaa 100%)",
-        minHeight: "calc(100vh - 64px)", 
-      }}
-    >
-      <div className="text-center mb-16 relative z-10 drop-shadow-sm">
-        <h1 className="text-5xl md:text-6xl font-black tracking-tight mb-4" style={{ color: "#3b2a12" }}>
-          Recursos del Maestro
-        </h1>
-        <p className="text-xl md:text-2xl font-bold" style={{ color: "#7a6040" }}>
-          ¡Selecciona una carpeta para abrir los materiales!
+    <div className="w-full space-y-10 pb-16">
+      <header>
+        <h1 className="text-3xl sm:text-4xl font-black text-stone-800">Panel del Docente</h1>
+        <p className="text-stone-500 font-bold mt-1">
+          Todo lo que necesitas para dar clase con La Cartilla de Gretel, en un solo lugar.
         </p>
-      </div>
+      </header>
 
-      <div className="w-full max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 sm:gap-12 pb-20">
-        {FOLDERS.map((folder) => (
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        {ENTRY_POINTS.map((entry) => (
           <Link
-            key={folder.title}
-            to={folder.to as any}
-            className="group relative flex flex-col w-full pt-10 cursor-pointer transition-transform duration-300 hover:-translate-y-4 hover:scale-[1.05] hover:rotate-1"
+            key={entry.title}
+            to={entry.to as never}
+            className="rounded-3xl p-5 border-2 shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all bg-white"
+            style={{ borderColor: entry.accent + "30" }}
           >
-            {/* Playful Folder Tab */}
-            <div 
-              className={`absolute top-0 left-6 w-1/2 h-14 ${folder.color} rounded-t-3xl z-0 shadow-inner`} 
-              style={{ filter: "brightness(0.85)" }} 
-            />
-            
-            {/* Folder Front/Body */}
-            <div 
-              className={`relative z-10 w-full min-h-[220px] ${folder.color} rounded-3xl rounded-tl-md shadow-[0_20px_40px_-10px_rgba(0,0,0,0.4),inset_0_6px_20px_rgba(255,255,255,0.4)] flex flex-col items-center justify-center p-5 overflow-visible border-b-4 border-black/20`}
+            <div
+              className="w-11 h-11 rounded-2xl flex items-center justify-center text-white mb-3 shadow-md"
+              style={{ background: entry.accent }}
             >
-              {/* Fun shadow and light glare */}
-              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/30 to-transparent pointer-events-none rounded-3xl" />
-              
-              {/* White Sticker Label (expands naturally) */}
-              <div className="bg-white/95 rounded-2xl shadow-lg w-full flex flex-col items-center justify-center p-4 text-center border-4 border-stone-100 z-20 group-hover:bg-white transition-colors rotate-[-2deg] group-hover:rotate-0 duration-300">
-                <h2 
-                  className="text-xl sm:text-2xl font-black leading-tight uppercase"
-                  style={{ color: "#3b2a12" }}
-                >
-                  {folder.title}
-                </h2>
-              </div>
+              {entry.icon}
             </div>
+            <h2 className="font-black text-lg text-stone-800">{entry.title}</h2>
+            <p className="text-xs font-medium text-stone-500 mt-1 leading-snug">{entry.description}</p>
           </Link>
         ))}
-      </div>
+      </section>
+
+      <section>
+        <h2 className="text-xl font-black text-stone-800 mb-1">Materiales de la Guía</h2>
+        <p className="text-sm font-bold text-stone-500 mb-6">
+          Toca una carpeta para ver las 24 lecciones dentro de esa categoría.
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+          {FOLDERS.map((folder) => (
+            <Link
+              key={folder.title}
+              to="/cartilla/teacher/guia"
+              search={{ folder: folder.folderKey }}
+              className="group relative flex flex-col w-full pt-6 cursor-pointer transition-transform duration-300 hover:-translate-y-2 hover:scale-[1.03]"
+            >
+              <div
+                className={`relative z-10 w-full min-h-[160px] ${folder.color} rounded-3xl shadow-md flex flex-col items-center justify-center p-5 gap-3 border-b-4 border-black/20`}
+              >
+                <div className={folder.iconColor}>{folder.icon}</div>
+                <h3 className="text-sm sm:text-base font-black leading-tight uppercase text-white text-center">
+                  {folder.title}
+                </h3>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
