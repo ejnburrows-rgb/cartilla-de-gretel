@@ -30,15 +30,17 @@ export function syllableAudioPath(syllable: string): string {
 }
 
 // UI cue audio (page turn, success, gentle nudge). Real recordings only.
+// Paths point at files that exist under public/audio/ (and public/audio/feel/).
+// Missing /audio/ui/* placeholders were never shipped — repointed for demo polish.
 export const UI_CUE_AUDIO = {
-	pageTurn:       "/audio/ui/page-turn.mp3",
-	pageTurnSoft:   "/audio/ui/page-turn-soft.mp3",
-	success:        "/audio/ui/success.mp3",
-	nudgeGentle:    "/audio/ui/nudge-gentle.mp3",
-	streakChime:    "/audio/ui/streak-chime.mp3",
-	streakCheer:    "/audio/ui/streak-cheer.mp3",
-	streakFanfare:  "/audio/ui/streak-fanfare.mp3",
-	ambientClass:   "/audio/ui/ambient-classroom.mp3",
+	pageTurn:       "/audio/page-turn.mp3",
+	pageTurnSoft:   "/audio/page-turn-soft.mp3",
+	success:        "/audio/feel/success.mp3",
+	nudgeGentle:    "/audio/feel/tap.mp3",
+	streakChime:    "/audio/feel/chime.mp3",
+	streakCheer:    "/audio/feel/sparkle.mp3",
+	streakFanfare:  "/audio/feel/success.mp3",
+	ambientClass:   "/audio/ambient-classroom.mp3",
 } as const;
 
 export type UiCueId = keyof typeof UI_CUE_AUDIO;

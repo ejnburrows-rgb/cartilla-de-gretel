@@ -71,7 +71,7 @@ function CartillaSplash() {
         {/* Gretel Mascot Image */}
         <div className="relative w-64 h-64 md:w-80 md:h-80 animate-[float_6s_ease-in-out_infinite]">
           <img 
-            src="/cartilla/art/faithful/gretel-poses/gretel-book-right.png" 
+            src="/cartilla/images/gretel/poses/gretel-wave.webp" 
             alt="Gretel saludando"
             className="w-full h-full object-contain drop-shadow-2xl"
           />

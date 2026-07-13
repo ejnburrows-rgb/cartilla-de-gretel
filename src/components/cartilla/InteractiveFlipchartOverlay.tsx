@@ -15,28 +15,10 @@ export function InteractiveFlipchartOverlay({ pageNumber, words }: InteractiveFl
 
   const handleTap = async (word: string, index: number) => {
     setAnimatingIdx(index);
-    // Attempt to play mp3 first if exists, fallback to native TTS
-    const audioUrl = `/cartilla/audio/words/${word.toLowerCase()}.mp3`;
-    const audio = new Audio(audioUrl);
-    
-    let played = false;
-    try {
-      played = await new Promise((resolve, reject) => {
-        audio.oncanplaythrough = () => {
-          audio.play().then(() => resolve(true)).catch(reject);
-        };
-        audio.onerror = reject;
-        setTimeout(() => reject(new Error("timeout")), 1000);
-        audio.load();
-      });
-    } catch {
-      played = false;
-    }
-
-    if (!played) {
-      await speak(word);
-    }
-    
+    // Word mp3 library is not shipped (public/cartilla/audio/words/ absent).
+    // Use TTS only — never hit a missing URL (avoids demo console 404 spam).
+    // When real kid-voice recordings land, wire them via audio-manifest.
+    await speak(word);
     setAnimatingIdx(null);
   };
 

@@ -44,7 +44,7 @@ function Landing() {
       <div 
         className="absolute inset-0 z-0 bg-cover bg-center"
         style={{ 
-          backgroundImage: "url('/cartilla/images/family-garden-bg.jpeg')",
+          backgroundImage: "url('/art/hd/garden/base.jpg')",
           filter: "blur(12px) brightness(0.7)"
         }}
       />
