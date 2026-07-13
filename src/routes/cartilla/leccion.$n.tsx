@@ -197,18 +197,20 @@ function Leccion() {
               </div>
             )}
             {progressReady && (
-              <SimplePageViewer
-                key={n}
-                pages={pages}
-                initialPage={initialPage}
-                onPageChange={handlePageChange}
-              />
+              <div className="relative w-full">
+                <SimplePageViewer
+                  key={n}
+                  pages={pages}
+                  initialPage={initialPage}
+                  onPageChange={handlePageChange}
+                />
+                {/* Gretel grounded at the page shelf — not a free-floating sticker */}
+                <div className="gretel-scene-anchor">
+                  <GretelLiveAvatar size="md" bubblePosition="left" />
+                </div>
+              </div>
             )}
           </GardenScene>
-        </div>
-
-        <div className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-[100] pointer-events-none">
-          <GretelLiveAvatar size="md" bubblePosition="left" />
         </div>
       </main>
       <nav className="fixed bottom-0 inset-x-0 p-3 bg-background/95 backdrop-blur border-t-2 border-foreground/10">

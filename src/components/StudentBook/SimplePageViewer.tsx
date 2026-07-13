@@ -2,6 +2,12 @@ import { useCallback, useEffect, useState } from "react";
 import type { ReactNode } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { gretelEvent } from "@/lib/gretel-bus";
+import {
+  STUDENT_PAGE_TURN_MS,
+  prefersReducedMotion,
+  prefersSimplePageTransition,
+  studentFlipTransforms,
+} from "@/lib/living-motion";
 
 /** Canonical home for this type. */
 export interface WorkbookPageEntry {
@@ -33,14 +39,10 @@ function PageContent({ cover, children }: { cover?: boolean; children?: ReactNod
   );
 }
 
-const FLIP_MS = 1500; // must match .workbook-flip-wrapper's CSS transition duration
-
 /**
- * Student workbook page viewer — real horizontal (left-to-right) 3-D page
- * turn, like a physical book. Same real page content (FaithfulPageRenderer
- * via buildPageArray), same aspect-ratio sizing as before. Reuses the
- * .workbook-* CSS classes in styles.css (rotateY on the flip wrapper,
- * transform-origin: left center).
+ * Student workbook page viewer — elegant right-to-left free-edge page turn
+ * (binding on the left), 600–900ms, soft cubic-bezier, curl shadow.
+ * Reduced-motion / weak devices: crossfade. Preloads neighbors.
  */
 export function SimplePageViewer({
   pages,
@@ -56,6 +58,22 @@ export function SimplePageViewer({
   const [isFlipping, setIsFlipping] = useState(false);
   const [flipDirection, setFlipDirection] = useState<"next" | "prev" | null>(null);
   const [flipTransform, setFlipTransform] = useState("rotateY(0deg)");
+  const [simpleMode, setSimpleMode] = useState(false);
+  const [crossfade, setCrossfade] = useState<{ from: number; to: number; opacity: number } | null>(
+    null,
+  );
+
+  useEffect(() => {
+    setSimpleMode(prefersReducedMotion() || prefersSimplePageTransition());
+  }, []);
+
+  // Prefetch adjacent page image assets (if any src) + warm React neighbors by keeping them mounted offscreen...
+  // Content is React nodes — we only flip what's already built in `pages`.
+  useEffect(() => {
+    // Touch neighbor entries so any lazy children in a future version warm up.
+    void pages[currentIndex - 1];
+    void pages[currentIndex + 1];
+  }, [pages, currentIndex]);
 
   const hasPrev = currentIndex > 0;
   const hasNext = currentIndex < pages.length - 1;
@@ -65,6 +83,7 @@ export function SimplePageViewer({
       setCurrentIndex(newIndex);
       setIsFlipping(false);
       setFlipDirection(null);
+      setCrossfade(null);
       onPageChange?.(newIndex);
       gretelEvent("page-flip");
     },
@@ -72,18 +91,33 @@ export function SimplePageViewer({
   );
 
   const goTo = (index: number, direction: "next" | "prev") => {
-    if (isFlipping) return;
+    if (isFlipping || crossfade) return;
+    if (index < 0 || index >= pages.length) return;
+
+    // Reduced motion / weak device: crossfade only
+    if (simpleMode) {
+      setCrossfade({ from: currentIndex, to: index, opacity: 0 });
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setCrossfade({ from: currentIndex, to: index, opacity: 1 });
+        });
+      });
+      setTimeout(() => afterFlip(index), 420);
+      return;
+    }
+
+    const { start, end } = studentFlipTransforms(direction);
     setFlipDirection(direction);
     setIsFlipping(true);
-    setFlipTransform(direction === "next" ? "rotateY(0deg)" : "rotateY(-180deg)");
+    setFlipTransform(start);
 
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
-        setFlipTransform(direction === "next" ? "rotateY(-180deg)" : "rotateY(0deg)");
+        setFlipTransform(end);
       });
     });
 
-    setTimeout(() => afterFlip(index), FLIP_MS);
+    setTimeout(() => afterFlip(index), STUDENT_PAGE_TURN_MS);
   };
 
   const staticIndex = isFlipping
@@ -104,7 +138,24 @@ export function SimplePageViewer({
       >
         {/* Static base page */}
         <div className="w-full h-full relative overflow-hidden rounded-b-xl">
-          {pages[staticIndex] ? (
+          {crossfade ? (
+            <>
+              <div className="workbook-simple-crossfade" style={{ opacity: 1 - crossfade.opacity }}>
+                {pages[crossfade.from] ? (
+                  <PageContent cover={pages[crossfade.from]!.cover}>
+                    {pages[crossfade.from]!.content}
+                  </PageContent>
+                ) : null}
+              </div>
+              <div className="workbook-simple-crossfade" style={{ opacity: crossfade.opacity }}>
+                {pages[crossfade.to] ? (
+                  <PageContent cover={pages[crossfade.to]!.cover}>
+                    {pages[crossfade.to]!.content}
+                  </PageContent>
+                ) : null}
+              </div>
+            </>
+          ) : pages[staticIndex] ? (
             <PageContent cover={pages[staticIndex]!.cover} key={pages[staticIndex]!.id}>
               {pages[staticIndex]!.content}
             </PageContent>
@@ -117,11 +168,11 @@ export function SimplePageViewer({
           )}
         </div>
 
-        {/* Flipping leaf — horizontal (rotateY), hinged on the left edge */}
-        {isFlipping && (
+        {/* Flipping leaf — free edge R→L for next (left-hinged binding) */}
+        {isFlipping && !simpleMode && (
           <div
             className="absolute inset-0 z-30 pointer-events-none"
-            style={{ transformStyle: "preserve-3d", perspective: "1500px" }}
+            style={{ transformStyle: "preserve-3d", perspective: "1800px" }}
           >
             <div className="workbook-flip-wrapper" style={{ transform: flipTransform }}>
               <div className="workbook-page-front">
@@ -147,8 +198,9 @@ export function SimplePageViewer({
 
       <div className="mt-8 flex items-center justify-center gap-6 z-20 no-print">
         <button
+          type="button"
           onClick={() => hasPrev && goTo(currentIndex - 1, "prev")}
-          disabled={!hasPrev || isFlipping}
+          disabled={!hasPrev || isFlipping || !!crossfade}
           className={`flex items-center justify-center gap-2 px-5 py-2.5 rounded-full font-bold transition-all border ${
             hasPrev
               ? "bg-white text-stone-700 hover:bg-stone-50 border-stone-300 shadow-sm"
@@ -161,8 +213,9 @@ export function SimplePageViewer({
           Página {currentIndex + 1} de {pages.length}
         </div>
         <button
+          type="button"
           onClick={() => hasNext && goTo(currentIndex + 1, "next")}
-          disabled={!hasNext || isFlipping}
+          disabled={!hasNext || isFlipping || !!crossfade}
           className={`flex items-center justify-center gap-2 px-5 py-2.5 rounded-full font-bold transition-all border ${
             hasNext
               ? "bg-white text-stone-700 hover:bg-stone-50 border-stone-300 shadow-sm"

@@ -1,0 +1,237 @@
+/* Living art — compose/transform existing pixels only. No recolor of source art. */
+
+.living-illustration {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  vertical-align: middle;
+  transform-origin: 50% 85%;
+}
+
+.living-illustration__art {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Soft lids: cream paper-tone gradient so blink reads without inventing line art. */
+.living-illustration__lids {
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  top: 8%;
+  height: 28%;
+  border-radius: 50% 50% 40% 40% / 60% 60% 40% 40%;
+  background: linear-gradient(
+    to bottom,
+    rgba(250, 245, 235, 0.92) 0%,
+    rgba(250, 245, 235, 0.55) 55%,
+    transparent 100%
+  );
+  opacity: 0;
+  transform: scaleY(0.15);
+  transform-origin: top center;
+  pointer-events: none;
+  transition: opacity 80ms ease, transform 80ms ease;
+}
+
+.living-illustration--blink .living-illustration__lids {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.living-illustration--alive {
+  animation: living-breathe 4.2s ease-in-out infinite;
+}
+
+@keyframes living-breathe {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-2px) scale(1.012);
+  }
+}
+
+/* Picture-grid cells: keep layout, animate the living wrapper inside */
+.fp-illustration .living-illustration,
+.fp-picture-grid__cell .living-illustration {
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Gretel grounded ── */
+.gretel-grounded {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: auto;
+  transform-origin: 50% 100%;
+}
+
+.gretel-grounded__shadow {
+  position: absolute;
+  bottom: 2%;
+  left: 50%;
+  width: 58%;
+  height: 10%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(40, 28, 18, 0.35) 0%,
+    rgba(40, 28, 18, 0.12) 45%,
+    transparent 70%
+  );
+  filter: blur(2px);
+  z-index: 0;
+  pointer-events: none;
+  animation: gretel-shadow-breathe 4.2s ease-in-out infinite;
+}
+
+.gretel-grounded__body {
+  position: relative;
+  z-index: 1;
+}
+
+.gretel-grounded__pose {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+}
+
+@keyframes gretel-shadow-breathe {
+  0%,
+  100% {
+    transform: translateX(-50%) scaleX(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateX(-50%) scaleX(0.92);
+    opacity: 0.7;
+  }
+}
+
+/* Enter / exit from scene */
+.gretel-grounded--enter {
+  animation: gretel-enter 680ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes gretel-enter {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Lesson scene: Gretel stands on the page shelf, not a floating sticker */
+.gretel-scene-anchor {
+  position: absolute;
+  right: 0.25rem;
+  bottom: 0.25rem;
+  z-index: 40;
+  width: min(38%, 11rem);
+  max-width: 180px;
+  pointer-events: none;
+}
+
+.gretel-scene-anchor .gretel-grounded {
+  pointer-events: auto;
+  width: 100%;
+}
+
+/* ── Elegant student page turn (right→left free edge) ── */
+.workbook-flip-wrapper {
+  transition: transform 780ms cubic-bezier(0.22, 1, 0.36, 1) !important;
+  will-change: transform;
+}
+
+.workbook-shadow-overlay {
+  background: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 0.18) 0%,
+    rgba(0, 0, 0, 0.06) 35%,
+    transparent 70%
+  ) !important;
+  transition: opacity 780ms cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+.workbook-page-front::after,
+.workbook-page-back::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.07) 0%,
+    transparent 12%,
+    transparent 88%,
+    rgba(0, 0, 0, 0.04) 100%
+  );
+  z-index: 5;
+}
+
+/* Simple fallback (weak devices / reduced motion) */
+.workbook-simple-crossfade {
+  position: absolute;
+  inset: 0;
+  transition: opacity 420ms ease;
+}
+
+/* ── Elegant teacher flipchart vertical flip ── */
+.flipchart-flip-wrapper {
+  transition: transform 820ms cubic-bezier(0.22, 1, 0.36, 1) !important;
+  will-change: transform;
+}
+
+.flipchart-shadow-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.06) 40%,
+    transparent 75%
+  ) !important;
+  transition: opacity 820ms cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+.living-flipchart-face {
+  animation: living-breathe 5.5s ease-in-out infinite;
+  transform-origin: 50% 50%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .living-illustration--alive,
+  .living-flipchart-face,
+  .gretel-grounded__shadow,
+  .gretel-grounded--enter {
+    animation: none !important;
+  }
+
+  .living-illustration__lids {
+    display: none !important;
+  }
+
+  .workbook-flip-wrapper,
+  .flipchart-flip-wrapper {
+    transition: none !important;
+  }
+}
