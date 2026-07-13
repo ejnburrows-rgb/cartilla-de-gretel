@@ -1,19 +1,26 @@
 import type { ReactNode } from "react";
 import { getPageLayout, type PageGridCell, type PageRegion } from "@/lib/book-faithful";
+// PageGridCell used by RegionView siblingCells for Dibuja pick options
 import { PageFrame } from "./PageFrame";
 import { CATALOG } from "@/lib/lesson-catalog";
 import {
   InteractivePictureGrid,
   InteractiveVowelPickOne,
-  InteractiveVowelMatchAll,
-  InteractiveVowelLineMatch,
-  InteractiveSyllableMatch,
   InteractiveFillInBlank,
 } from "./InteractivePageExercises";
 import { WorkbookLetterTrace } from "./WorkbookLetterTrace";
 import { getLetterTemplate } from "./letter-stroke-templates";
-import { DrawBoxCanvas } from "./DrawBoxCanvas";
 import { LivingIllustration } from "@/components/living/LivingIllustration";
+import {
+  DibujaFromRegion,
+  LassoPictureGrid,
+  LassoSyllableMatch,
+  LassoVowelLineMatch,
+  LassoVowelMatchAll,
+  PaintFromRegion,
+  instructionSuggestsColorea,
+  instructionSuggestsLasso,
+} from "@/cartilla/interactions/faithfulAdapters";
 
 /**
  * Per-lesson garden background overrides. The CSS default is gretel-authentic.jpg
@@ -255,20 +262,76 @@ function RegionView({
   interactive,
   accent,
   lessonId,
+  lessonNumber,
   resolvedModelText,
+  precedingInstruction,
+  siblingCells,
 }: {
   region: PageRegion;
   interactive?: boolean;
   accent?: string;
   lessonId?: string;
+  lessonNumber?: number;
   /** writing-line only: region.modelText, or inherited from the preceding
    * writing-line sibling when this region is the blank "trace it again" line. */
   resolvedModelText?: string;
+  /** Most recent instruction text on this page (for verb-honest mechanic routing). */
+  precedingInstruction?: string;
+  /** Picture-grid cells from the same page (for Dibuja pick-mode options). */
+  siblingCells?: PageGridCell[];
 }) {
   switch (region.regionType) {
     case "illustration-slot":
+      // Colorea: freehand paint on the illustration when the printed verb says so
+      if (interactive && instructionSuggestsColorea(precedingInstruction)) {
+        return (
+          <PaintFromRegion
+            region={region}
+            lessonId={lessonId}
+            illustrationSrc={region.illustrationSrc}
+            illustrationAlt={region.caption ?? region.illustrationWord}
+          />
+        );
+      }
       return <IllustrationSlot region={region} />;
+    case "paint-box":
+      return interactive ? (
+        <PaintFromRegion
+          region={region}
+          lessonId={lessonId}
+          illustrationSrc={region.illustrationSrc}
+          illustrationAlt={region.caption ?? region.text}
+        />
+      ) : (
+        <div className="fp-draw-box" aria-label={region.text ?? "Colorea"}>
+          {region.illustrationSrc ? (
+            <img src={region.illustrationSrc} alt={region.caption ?? ""} loading="lazy" />
+          ) : null}
+          {region.text ? <span className="fp-draw-box__hint">{region.text}</span> : null}
+        </div>
+      );
     case "picture-grid":
+      if (interactive && instructionSuggestsLasso(precedingInstruction)) {
+        return (
+          <LassoPictureGrid
+            region={region}
+            lessonId={lessonId}
+            instruction={precedingInstruction}
+          />
+        );
+      }
+      if (interactive && instructionSuggestsColorea(precedingInstruction)) {
+        // Colorea on a grid: paint the first colorable illustration cell as stage
+        const cell = (region.cells ?? []).find((c) => c.illustrationSrc) ?? region.cells?.[0];
+        return (
+          <PaintFromRegion
+            region={region}
+            lessonId={lessonId}
+            illustrationSrc={cell?.illustrationSrc}
+            illustrationAlt={cell?.caption}
+          />
+        );
+      }
       return interactive ? (
         <InteractivePictureGrid region={region} accent={accent ?? "hsl(230 75% 58%)"} lessonId={lessonId} />
       ) : (
@@ -276,7 +339,11 @@ function RegionView({
       );
     case "vowel-line-match":
       return interactive ? (
-        <InteractiveVowelLineMatch region={region} accent={accent ?? "hsl(230 75% 58%)"} lessonId={lessonId} />
+        <LassoVowelLineMatch
+          region={region}
+          lessonId={lessonId}
+          instruction={precedingInstruction}
+        />
       ) : (
         <VowelLineMatch region={region} />
       );
@@ -288,13 +355,21 @@ function RegionView({
       );
     case "vowel-match-all":
       return interactive ? (
-        <InteractiveVowelMatchAll region={region} accent={accent ?? "hsl(230 75% 58%)"} lessonId={lessonId} />
+        <LassoVowelMatchAll
+          region={region}
+          lessonId={lessonId}
+          instruction={precedingInstruction}
+        />
       ) : (
         <VowelMatchAll region={region} />
       );
     case "syllable-match":
       return interactive ? (
-        <InteractiveSyllableMatch region={region} accent={accent ?? "hsl(230 75% 58%)"} lessonId={lessonId} />
+        <LassoSyllableMatch
+          region={region}
+          lessonId={lessonId}
+          instruction={precedingInstruction}
+        />
       ) : (
         <SyllableMatch region={region} />
       );
@@ -347,7 +422,12 @@ function RegionView({
     }
     case "draw-box":
       return interactive ? (
-        <DrawBoxCanvas regionId={region.id} hint={region.text} lessonId={lessonId} />
+        <DibujaFromRegion
+          region={region}
+          lessonId={lessonId}
+          lessonNumber={lessonNumber}
+          siblingCells={siblingCells}
+        />
       ) : (
         <div className="fp-draw-box" aria-label={region.text ?? "Espacio para dibujar"}>
           {region.text ? <span className="fp-draw-box__hint">{region.text}</span> : null}
@@ -394,12 +474,19 @@ export function FaithfulPageRenderer({
   // model letter from its immediately preceding writing-line sibling so both
   // repetitions are traceable, not just the first.
   let lastWritingLineModelText: string | undefined;
+  let lastInstructionText: string | undefined;
 
   // If every writing-line on this page hides (no real template), the
   // "Traza con tu mejor letra." instruction that precedes them would be
   // left dangling with nothing to write on — hide it too in that case.
   const pageHasTraceableWritingLine = ordered.some(
     (r) => r.regionType === "writing-line" && getLetterTemplate(r.modelText) !== null,
+  );
+
+  // Sibling picture-grid cells on this page — used by DibujaHost pick mode
+  // so options stay lesson-faithful (never random clipart).
+  const siblingCells: PageGridCell[] = ordered.flatMap((r) =>
+    r.regionType === "picture-grid" ? (r.cells ?? []) : [],
   );
 
   return (
@@ -413,6 +500,9 @@ export function FaithfulPageRenderer({
         ) {
           return null;
         }
+        if (region.regionType === "instruction" && region.text) {
+          lastInstructionText = region.text;
+        }
         let resolvedModelText: string | undefined;
         if (region.regionType === "writing-line") {
           resolvedModelText = region.modelText || lastWritingLineModelText;
@@ -425,7 +515,10 @@ export function FaithfulPageRenderer({
             interactive={interactive}
             accent={accent}
             lessonId={lessonId}
+            lessonNumber={lessonNumber}
             resolvedModelText={resolvedModelText}
+            precedingInstruction={lastInstructionText}
+            siblingCells={siblingCells}
           />
         );
       })}

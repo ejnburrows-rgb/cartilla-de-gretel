@@ -49,6 +49,8 @@ export type InteractionKind =
   | "drag-place"
   | "pair-match"
   | "mark-circle"
+  | "paint"
+  | "dibuja"
   | "none";
 
 /**
