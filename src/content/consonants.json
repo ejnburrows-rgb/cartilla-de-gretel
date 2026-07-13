@@ -749,14 +749,18 @@
         "illustrationSrc": "/cartilla/art/faithful/leccion-17-r/rana.webp"
       },
       {
+        "word": "remos",
+        "emoji": "🚣",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-17-r/remo.webp"
+      },
+      {
+        "word": "Rita",
+        "emoji": "👧"
+      },
+      {
         "word": "rosa",
         "emoji": "🌹",
         "illustrationSrc": "/cartilla/art/faithful/leccion-17-r/rosa.webp"
-      },
-      {
-        "word": "remo",
-        "emoji": "🚣",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-17-r/remo.webp"
       },
       {
         "word": "rueda",
@@ -766,44 +770,24 @@
     ],
     "examples": {
       "ra": [
-        "cara",
-        "rama",
-        "Rafa",
-        "rana",
-        "rato"
+        "rana"
       ],
       "re": [
-        "pera",
-        "reto",
-        "Rena",
-        "remo",
-        "redondo"
+        "remos"
       ],
       "ri": [
-        "pira",
-        "risa",
-        "Ricki",
-        "rico",
-        "ritmo"
+        "Rita"
       ],
       "ro": [
-        "loro",
-        "rosa",
-        "Romina",
-        "rojo",
-        "rosado"
+        "rosa"
       ],
       "ru": [
-        "puro",
-        "ruta",
-        "Rubi",
-        "rubio",
         "rueda"
       ]
     },
     "sentences": [
       "La rana ríe.",
-      "Rosa toma una pera."
+      "Rita toma la rosa."
     ]
   },
   {
@@ -820,66 +804,49 @@
     ],
     "vocab": [
       {
-        "word": "perro",
-        "emoji": "🐶",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/perro.webp"
-      },
-      {
-        "word": "carro",
-        "emoji": "🚗",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-1/carro.webp"
-      },
-      {
         "word": "burro",
         "emoji": "🫏",
         "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/burro.webp"
       },
       {
-        "word": "guitarra",
-        "emoji": "🎸",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/guitarra.webp"
+        "word": "carrusel",
+        "emoji": "🎠"
+      },
+      {
+        "word": "torre",
+        "emoji": "🗼",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/torre.webp"
+      },
+      {
+        "word": "barril",
+        "emoji": "🛢",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/barril.webp"
+      },
+      {
+        "word": "Tierra",
+        "emoji": "🌍"
       }
     ],
     "examples": {
       "rra": [
-        "barra",
-        "tierra",
-        "guitarra",
-        "carretera",
-        "agarra"
+        "Tierra"
       ],
       "rre": [
-        "perro",
-        "torre",
-        "carrera",
-        "correo",
-        "corre"
+        "torre"
       ],
       "rri": [
-        "arriba",
-        "carrito",
-        "barrio",
-        "burrito",
-        "horrible"
+        "barril"
       ],
       "rro": [
-        "carro",
-        "burro",
-        "morro",
-        "cigarro",
-        "hierro"
+        "burro"
       ],
       "rru": [
-        "arruga",
-        "borrumba",
-        "arrullo",
-        "arruina",
-        "arrullo"
+        "carrusel"
       ]
     },
     "sentences": [
-      "El perro corre por la torre.",
-      "El carro va por la carretera."
+      "El burro pasa la torre.",
+      "El barril está en la tierra."
     ]
   },
   {
@@ -896,66 +863,45 @@
     ],
     "vocab": [
       {
-        "word": "gato",
-        "emoji": "🐱",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-19-g/gato.webp"
-      },
-      {
-        "word": "galleta",
-        "emoji": "🍪",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-19-g/galleta.webp"
-      },
-      {
-        "word": "guitarra",
-        "emoji": "🎸",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-19-g/guitarra.webp"
+        "word": "gaveta",
+        "emoji": "🗄"
       },
       {
         "word": "gusano",
         "emoji": "🐛",
         "illustrationSrc": "/cartilla/art/faithful/leccion-19-g/gusano.webp"
+      },
+      {
+        "word": "Goloso",
+        "emoji": "😋"
+      },
+      {
+        "word": "gorra",
+        "emoji": "🧢"
+      },
+      {
+        "word": "mago",
+        "emoji": "🧙"
       }
     ],
     "examples": {
       "ga": [
-        "gato",
-        "gana",
-        "Gabi",
-        "ganso",
-        "galleta"
+        "gaveta"
       ],
-      "gue": [
-        "guerra",
-        "guepardo",
-        "Miguel",
-        "guía",
-        "manguera"
-      ],
-      "gui": [
-        "guitarra",
-        "guiño",
-        "águila",
-        "guisante",
-        "Guille"
-      ],
+      "gue": [],
+      "gui": [],
       "go": [
-        "gota",
-        "gola",
-        "Goyo",
-        "golfo",
-        "gorrión"
+        "Goloso",
+        "gorra",
+        "mago"
       ],
       "gu": [
-        "gusto",
-        "gula",
-        "Gus",
-        "gusano",
-        "guardia"
+        "gusano"
       ]
     },
     "sentences": [
-      "El gato toca la guitarra.",
-      "Miguel juega con su gato."
+      "El gusano es de Goloso.",
+      "El mago tiene gorra."
     ]
   },
   {
@@ -972,65 +918,46 @@
     ],
     "vocab": [
       {
-        "word": "faro",
-        "emoji": "🗼",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-20-f/faro.webp"
+        "word": "foto",
+        "emoji": "📷"
       },
       {
-        "word": "fiesta",
-        "emoji": "🎉",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-20-f/fiesta.webp"
+        "word": "fideos",
+        "emoji": "🍜"
       },
       {
-        "word": "foca",
-        "emoji": "🦭"
+        "word": "familia",
+        "emoji": "👨‍👩‍👧"
       },
       {
-        "word": "fuente",
-        "emoji": "⛲",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-20-f/fuente.webp"
+        "word": "Felo",
+        "emoji": "👦"
+      },
+      {
+        "word": "funda",
+        "emoji": "📱"
       }
     ],
     "examples": {
       "fa": [
-        "fama",
-        "faro",
-        "Fabi",
-        "falda",
         "familia"
       ],
       "fe": [
-        "feo",
-        "fecha",
-        "Felipe",
-        "feria",
-        "fenómeno"
+        "Felo"
       ],
       "fi": [
-        "fila",
-        "fino",
-        "Fifi",
-        "fiera",
-        "fiesta"
+        "fideos"
       ],
       "fo": [
-        "foca",
-        "foto",
-        "Foco",
-        "forma",
-        "fondo"
+        "foto"
       ],
       "fu": [
-        "fuma",
-        "fuente",
-        "Fufu",
-        "futuro",
-        "fuerza"
+        "funda"
       ]
     },
     "sentences": [
-      "La foca está en la fila.",
-      "Felipe toma una foto."
+      "La familia de Felo.",
+      "Felo toma una foto."
     ]
   },
   {
@@ -1047,62 +974,46 @@
     ],
     "vocab": [
       {
-        "word": "jabón",
-        "emoji": "🧼"
+        "word": "jicotea",
+        "emoji": "🐢"
       },
       {
-        "word": "jirafa",
-        "emoji": "🦒"
+        "word": "jugo",
+        "emoji": "🧃"
       },
       {
-        "word": "joya",
-        "emoji": "💎"
+        "word": "Jesús",
+        "emoji": "👦"
       },
       {
-        "word": "juguete",
-        "emoji": "🧸"
+        "word": "ajo",
+        "emoji": "🧄"
+      },
+      {
+        "word": "jarra",
+        "emoji": "🏺"
       }
     ],
     "examples": {
       "ja": [
-        "jabón",
-        "jaula",
-        "Javi",
-        "jamón",
         "jarra"
       ],
       "je": [
-        "jefe",
-        "jeringa",
-        "Jenny",
-        "jerga",
-        "jersey"
+        "Jesús"
       ],
       "ji": [
-        "jirafa",
-        "jinete",
-        "Jimena",
-        "Jimmy",
-        "jícara"
+        "jicotea"
       ],
       "jo": [
-        "jota",
-        "joven",
-        "Jorge",
-        "joya",
-        "jorobado"
+        "ajo"
       ],
       "ju": [
-        "jugo",
-        "junto",
-        "Julia",
-        "juguete",
-        "Juan"
+        "jugo"
       ]
     },
     "sentences": [
-      "Julia juega con la jirafa.",
-      "Jorge toma jugo."
+      "Jesús toma jugo.",
+      "La jarra tiene ajo."
     ]
   },
   {
@@ -1119,63 +1030,45 @@
     ],
     "vocab": [
       {
+        "word": "cuna",
+        "emoji": "🛏"
+      },
+      {
+        "word": "conejo",
+        "emoji": "🐰"
+      },
+      {
         "word": "casa",
         "emoji": "🏠",
         "illustrationSrc": "/cartilla/art/faithful/leccion-19-c/casa.webp"
       },
       {
-        "word": "queso",
-        "emoji": "🧀"
+        "word": "cubo",
+        "emoji": "🧊"
       },
       {
-        "word": "coco",
-        "emoji": "🥥"
-      },
-      {
-        "word": "cuchara",
-        "emoji": "🥄"
+        "word": "Catalina",
+        "emoji": "👧"
       }
     ],
     "examples": {
       "ca": [
         "casa",
-        "cama",
-        "Cami",
-        "carro",
-        "calle"
+        "Catalina"
       ],
-      "que": [
-        "queso",
-        "queja",
-        "Quique",
-        "querer",
-        "queremos"
-      ],
-      "qui": [
-        "quita",
-        "quince",
-        "Quirino",
-        "química",
-        "quiosco"
-      ],
+      "que": [],
+      "qui": [],
       "co": [
-        "coco",
-        "cosa",
-        "Coco",
-        "comida",
-        "color"
+        "conejo"
       ],
       "cu": [
         "cuna",
-        "cuento",
-        "Cuca",
-        "cuchara",
-        "cuerpo"
+        "cubo"
       ]
     },
     "sentences": [
-      "Cami come queso en la casa.",
-      "Quique quiere una cuchara."
+      "Catalina tiene casa.",
+      "El conejo está en la cuna."
     ]
   },
   {
@@ -1197,59 +1090,43 @@
         "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yate.webp"
       },
       {
-        "word": "yegua",
-        "emoji": "🐴"
+        "word": "yema",
+        "emoji": "🥚",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yema.webp"
+      },
+      {
+        "word": "Yayita",
+        "emoji": "👧"
+      },
+      {
+        "word": "mayúscula",
+        "emoji": "🔤"
       },
       {
         "word": "yoyo",
         "emoji": "🪀",
         "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yoyo.webp"
-      },
-      {
-        "word": "yuca",
-        "emoji": "🌿"
       }
     ],
     "examples": {
       "ya": [
         "yate",
-        "yarda",
-        "Yamila",
-        "yantar",
-        "rayar"
+        "Yayita"
       ],
       "ye": [
-        "yegua",
-        "yeso",
-        "Yeni",
-        "yerno",
-        "ayer"
+        "yema"
       ],
-      "yi": [
-        "yip",
-        "yiddish",
-        "yiyo",
-        "yiteo",
-        "yindi"
-      ],
+      "yi": [],
       "yo": [
-        "yoyo",
-        "yodo",
-        "yoga",
-        "Yoli",
-        "yogur"
+        "yoyo"
       ],
       "yu": [
-        "yuca",
-        "yugo",
-        "Yuli",
-        "yunque",
-        "ayuda"
+        "mayúscula"
       ]
     },
     "sentences": [
-      "Yo tomo yogur.",
-      "Yoli juega con el yoyo."
+      "Yayita juega con el yoyo.",
+      "La yema es de Yayita."
     ]
   },
   {
@@ -1271,59 +1148,41 @@
         "illustrationSrc": "/cartilla/art/faithful/leccion-23-z/zapato.webp"
       },
       {
-        "word": "zanahoria",
-        "emoji": "🥕"
-      },
-      {
-        "word": "cine",
-        "emoji": "🎬"
+        "word": "zig-zag",
+        "emoji": "⚡"
       },
       {
         "word": "zorro",
         "emoji": "🦊",
         "illustrationSrc": "/cartilla/art/faithful/leccion-23-z/zorro.webp"
+      },
+      {
+        "word": "zepelín",
+        "emoji": "🎈"
+      },
+      {
+        "word": "Zulema",
+        "emoji": "👧"
       }
     ],
     "examples": {
       "za": [
         "zapato",
-        "zanahoria",
-        "Zaida",
-        "zapallo",
-        "zarpa"
+        "zig-zag",
+        "zepelín"
       ],
-      "ce": [
-        "cesta",
-        "cero",
-        "Cecilia",
-        "celda",
-        "ceniza"
-      ],
-      "ci": [
-        "cine",
-        "circo",
-        "Cintia",
-        "ciruela",
-        "cima"
-      ],
+      "ce": [],
+      "ci": [],
       "zo": [
-        "zorro",
-        "zona",
-        "Zoraida",
-        "zorrito",
-        "buzo"
+        "zorro"
       ],
       "zu": [
-        "zumo",
-        "zumba",
-        "Zulema",
-        "azúcar",
-        "zurdo"
+        "Zulema"
       ]
     },
     "sentences": [
-      "El zorro come zanahoria.",
-      "Cecilia toma zumo."
+      "El zorro de Zulema.",
+      "Zulema tiene un zapato."
     ]
   }
 ]

@@ -91,8 +91,8 @@ describe("Student-Teacher Routing Isolation", () => {
   it("(a) student login lands on /cartilla/lecciones", async () => {
     const { history } = renderWithRouter(["/cartilla/unirse"]);
     await waitFor(() => expect(history.location.pathname).toBe("/cartilla/unirse"));
-    
-    const codeInput = await screen.findByRole("textbox") as HTMLInputElement;
+    // Join form can lag under full-suite parallel load — wait for real markup.
+    const codeInput = (await screen.findByRole("textbox", {}, { timeout: 10_000 })) as HTMLInputElement;
     fireEvent.change(codeInput, { target: { value: "ABC123" } });
     
     const submitBtn = document.querySelector('button[type="submit"]');
