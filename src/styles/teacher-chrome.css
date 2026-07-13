@@ -1,0 +1,63 @@
+/**
+ * Teacher CRM chrome — book-warm palette, shared with the flipchart
+ * presenter (src/styles/flipchart-presenter.css) so a teacher never sees a
+ * jarring switch from "Presentar" back into the panel. Applies to the
+ * teacher lane shell + the Guía/Ayuda content that lives inside it.
+ */
+
+.teacher-chrome {
+  --tc-paper: #fff8e7;
+  --tc-paper-soft: #fbf3e3;
+  --tc-ink: #17313b;
+  --tc-ink-soft: rgba(23, 49, 59, 0.62);
+  --tc-ink-faint: rgba(23, 49, 59, 0.4);
+  --tc-border: rgba(23, 49, 59, 0.14);
+  --tc-wash: #eef4de;
+  --tc-accent: #c98c4f;
+  --tc-card-shadow: 0 14px 32px -18px rgba(23, 49, 59, 0.22), 0 2px 8px -4px rgba(95, 167, 119, 0.14);
+
+  color: var(--tc-ink);
+  font-family: var(--font-book-faithful, system-ui, sans-serif);
+  background:
+    radial-gradient(120% 60% at 10% 0%, rgba(95, 167, 119, 0.1), transparent 55%),
+    radial-gradient(90% 50% at 90% 0%, rgba(201, 140, 79, 0.1), transparent 50%),
+    var(--tc-paper);
+}
+
+.teacher-chrome__header {
+  background: rgba(255, 248, 231, 0.85);
+  border-bottom: 1px solid var(--tc-border);
+  backdrop-filter: blur(14px);
+}
+
+.teacher-chrome__brand-mark {
+  background: linear-gradient(135deg, #5fa777, #3d7a5c);
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.35), 0 4px 10px rgba(61, 122, 92, 0.28);
+}
+
+.teacher-chrome h1,
+.teacher-chrome h2,
+.teacher-chrome__title {
+  font-family: var(--font-book-title, ui-rounded, system-ui, sans-serif);
+}
+
+.teacher-chrome__card {
+  background: #fff;
+  border: 1.5px solid var(--tc-border);
+  box-shadow: var(--tc-card-shadow);
+}
+
+.teacher-chrome__nav-link {
+  color: var(--tc-ink-soft);
+  border-color: transparent;
+}
+
+.teacher-chrome__nav-link:hover {
+  color: var(--tc-ink);
+  border-color: var(--tc-border);
+}
+
+.teacher-chrome__nav-link.is-active {
+  color: var(--tc-ink);
+  border-color: var(--tc-accent);
+}

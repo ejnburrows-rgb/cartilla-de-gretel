@@ -85,8 +85,8 @@ function TeacherGuiaFolders() {
   return (
     <div className="max-w-5xl mx-auto space-y-8">
       <header>
-        <h1 className="text-2xl font-black text-stone-800">Guía del profesor</h1>
-        <p className="text-stone-500 font-medium">
+        <h1 className="teacher-chrome__title text-2xl font-black">Guía del profesor</h1>
+        <p className="text-[var(--tc-ink-soft)] font-medium">
           Todo el material del maestro, organizado en 5 carpetas. Toca una carpeta para ver las 24 lecciones.
         </p>
       </header>
@@ -105,19 +105,19 @@ function TeacherGuiaFolders() {
             >
               {f.icon}
             </div>
-            <h2 className="font-black text-lg text-stone-800">{f.label}</h2>
-            <p className="text-sm font-medium text-stone-500 mt-1">{f.description}</p>
+            <h2 className="font-black text-lg text-[var(--tc-ink)]">{f.label}</h2>
+            <p className="text-sm font-medium text-[var(--tc-ink-soft)] mt-1">{f.description}</p>
           </button>
         ))}
       </div>
 
       {folder && (
-        <div className="rounded-3xl border-2 p-6" style={{ borderColor: folder.color + "40" }}>
+        <div className="teacher-chrome__card rounded-3xl p-6">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="font-black text-xl text-stone-800 flex items-center gap-2">
+            <h2 className="font-black text-xl text-[var(--tc-ink)] flex items-center gap-2">
               <span style={{ color: folder.color }}>{folder.icon}</span> {folder.label}
             </h2>
-            <button onClick={() => setOpenFolder(null)} className="text-sm font-bold text-stone-400 hover:text-stone-700">
+            <button onClick={() => setOpenFolder(null)} className="text-sm font-bold text-[var(--tc-ink-faint)] hover:text-[var(--tc-ink)]">
               Cerrar
             </button>
           </div>
@@ -192,7 +192,7 @@ function FolderLessonRow({
   } else {
     content = data.rhymeTitle ? (
       <span>
-        "{data.rhymeTitle}" <span className="text-stone-400 font-medium">· audio: pendiente (no existe grabación aún)</span>
+        "{data.rhymeTitle}" <span className="text-[var(--tc-ink-faint)] font-medium">· audio: pendiente (no existe grabación aún)</span>
       </span>
     ) : (
       <span className="text-amber-600 font-bold">AWAITING-SOURCE-SCAN — poema aún no transcrito.</span>
@@ -201,7 +201,7 @@ function FolderLessonRow({
   }
 
   return (
-    <div className="flex items-center gap-3 rounded-2xl border border-stone-100 px-4 py-3 hover:bg-stone-50">
+    <div className="flex items-center gap-3 rounded-2xl border border-[var(--tc-border)] px-4 py-3 hover:bg-white/60">
       <span
         className="w-8 h-8 shrink-0 rounded-full flex items-center justify-center text-xs font-black text-white"
         style={{ background: accent }}
@@ -209,8 +209,8 @@ function FolderLessonRow({
         {entry.n}
       </span>
       <div className="flex-1 min-w-0">
-        <p className="text-sm font-black text-stone-800">{entry.title}</p>
-        <p className="text-sm text-stone-600">{content}</p>
+        <p className="text-sm font-black text-[var(--tc-ink)]">{entry.title}</p>
+        <p className="text-sm text-[var(--tc-ink-soft)]">{content}</p>
       </div>
       <button
         onClick={() => onAssign(activityLabel)}

@@ -5,6 +5,7 @@ import { getStudentSession } from "@/lib/student-session";
 import { supabase } from "@/integrations/supabase/client";
 import { hasTeacherOrAdminRole } from "@/lib/auth-role";
 import { isSeedSessionActive } from "@/lib/seed-data";
+import "@/styles/teacher-chrome.css";
 
 // Every /cartilla/teacher/* page nests under this route via <Outlet/>, so
 // this is the single real gate for the whole teacher lane. Previously this
@@ -75,28 +76,25 @@ function TeacherLayout() {
   // If we are in presentation mode, don't show the nav.
   if (location.pathname.includes("/proyectar")) {
     return (
-      <div className="cartilla-crm-theme">
+      <div className="teacher-chrome">
         <Outlet />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-stone-50 text-stone-800 cartilla-crm-theme flex flex-col font-sans relative overflow-hidden">
-      {/* Subtle ambient background glow */}
-      <div className="absolute top-0 left-0 right-0 h-[500px] bg-gradient-to-b from-[hsl(197,41%,90%)]/50 to-transparent pointer-events-none -z-10" />
-
-      <header className="bg-white/70 backdrop-blur-xl border-b border-stone-200/50 sticky top-0 z-30 shadow-sm no-print transition-all duration-300">
+    <div className="teacher-chrome min-h-screen flex flex-col relative overflow-hidden">
+      <header className="teacher-chrome__header sticky top-0 z-30 no-print transition-all duration-300">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3 min-w-0">
-            <div className="w-9 h-9 shrink-0 rounded-xl bg-gradient-to-br from-vowel-a to-vowel-o flex items-center justify-center text-white font-black shadow-[inset_0_2px_4px_rgba(255,255,255,0.3),0_4px_10px_rgba(249,115,22,0.3)] ring-1 ring-white/50">
+            <div className="teacher-chrome__brand-mark w-9 h-9 shrink-0 rounded-xl flex items-center justify-center text-white font-black ring-1 ring-white/50">
               G
             </div>
             <div className="flex flex-col min-w-0">
-              <span className="text-sm font-black text-stone-800 leading-tight truncate">
+              <span className="teacher-chrome__title text-sm font-black leading-tight truncate">
                 La Cartilla de Gretel
               </span>
-              <span className="text-[10px] font-bold tracking-widest uppercase text-stone-400 leading-tight">
+              <span className="text-[10px] font-bold tracking-widest uppercase text-[var(--tc-ink-faint)] leading-tight">
                 Panel del Docente
               </span>
             </div>
@@ -115,7 +113,7 @@ function TeacherLayout() {
             <button
               type="button"
               onClick={() => void signOut()}
-              className="flex items-center gap-2 text-sm font-bold text-stone-500 hover:text-stone-800 py-5 border-b-2 border-transparent hover:border-stone-300 transition-all duration-200"
+              className="flex items-center gap-2 text-sm font-bold text-[var(--tc-ink-soft)] hover:text-[var(--tc-ink)] py-5 border-b-2 border-transparent hover:border-[var(--tc-border)] transition-all duration-200"
               title="Cerrar sesión"
             >
               <LogOut className="w-4 h-4" /> Salir
@@ -124,7 +122,7 @@ function TeacherLayout() {
 
           <button
             type="button"
-            className="md:hidden min-h-11 min-w-11 flex items-center justify-center rounded-xl border border-stone-200 text-stone-600"
+            className="md:hidden min-h-11 min-w-11 flex items-center justify-center rounded-xl border border-[var(--tc-border)] text-[var(--tc-ink-soft)]"
             aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={mobileMenuOpen}
             onClick={() => setMobileMenuOpen((open) => !open)}
@@ -134,7 +132,7 @@ function TeacherLayout() {
         </div>
 
         {mobileMenuOpen && (
-          <nav className="md:hidden border-t border-stone-200/70 bg-white/95 px-4 py-3 space-y-1">
+          <nav className="md:hidden border-t border-[var(--tc-border)] bg-[var(--tc-paper-soft)]/95 px-4 py-3 space-y-1">
             {NAV_ITEMS.map((item) => (
               <Link
                 key={item.to}
@@ -142,8 +140,8 @@ function TeacherLayout() {
                 onClick={() => setMobileMenuOpen(false)}
                 className={`flex items-center gap-3 min-h-12 px-3 rounded-xl text-sm font-bold ${
                   location.pathname.includes(item.match)
-                    ? "bg-stone-800 text-white"
-                    : "text-stone-600 hover:bg-stone-100"
+                    ? "bg-[var(--tc-ink)] text-white"
+                    : "text-[var(--tc-ink-soft)] hover:bg-white/60"
                 }`}
               >
                 {item.icon}
@@ -153,7 +151,7 @@ function TeacherLayout() {
             <button
               type="button"
               onClick={() => void signOut()}
-              className="w-full flex items-center gap-3 min-h-12 px-3 rounded-xl text-sm font-bold text-stone-500 hover:bg-stone-100"
+              className="w-full flex items-center gap-3 min-h-12 px-3 rounded-xl text-sm font-bold text-[var(--tc-ink-soft)] hover:bg-white/60"
             >
               <LogOut className="w-4 h-4" /> Salir
             </button>
@@ -187,10 +185,8 @@ function NavLink({
   return (
     <Link
       to={to}
-      className={`flex items-center gap-2 text-sm font-bold transition-all duration-200 py-5 border-b-2 ${
-        active
-          ? "border-vowel-a text-stone-900"
-          : "border-transparent text-stone-500 hover:text-stone-800 hover:border-stone-300"
+      className={`teacher-chrome__nav-link flex items-center gap-2 text-sm font-bold transition-all duration-200 py-5 border-b-2 ${
+        active ? "is-active" : ""
       }`}
     >
       {icon}

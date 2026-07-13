@@ -45,10 +45,10 @@ const SECTIONS: Section[] = [
     body: (
       <>
         <p>
-          Entra en <code className="px-1.5 py-0.5 bg-stone-100 rounded font-mono text-sm">/login</code> con
+          Entra en <code className="px-1.5 py-0.5 bg-[var(--tc-paper-soft)] rounded font-mono text-sm">/login</code> con
           tu correo y contraseña de docente. Esa pantalla es solo para maestros — los estudiantes nunca
           usan este formulario, ellos entran con un código de clase en{" "}
-          <code className="px-1.5 py-0.5 bg-stone-100 rounded font-mono text-sm">/cartilla/unirse</code>.
+          <code className="px-1.5 py-0.5 bg-[var(--tc-paper-soft)] rounded font-mono text-sm">/cartilla/unirse</code>.
         </p>
         <p>
           Una vez dentro, todo el panel del docente vive bajo <strong>Panel del Docente</strong>. La
@@ -89,7 +89,7 @@ const SECTIONS: Section[] = [
       <>
         <p>
           Dentro de una clase, agrega estudiantes por nombre — no necesitan correo ni contraseña. Cada
-          estudiante entra después en <code className="px-1.5 py-0.5 bg-stone-100 rounded font-mono text-sm">/cartilla/unirse</code> con
+          estudiante entra después en <code className="px-1.5 py-0.5 bg-[var(--tc-paper-soft)] rounded font-mono text-sm">/cartilla/unirse</code> con
           el código de la clase y toca su propio nombre en la lista.
         </p>
         <p>
@@ -283,9 +283,9 @@ function TeacherAyudaPage() {
   return (
     <div className="w-full max-w-4xl mx-auto space-y-8 pb-16">
       <header className="space-y-2">
-        <p className="text-sm font-bold uppercase tracking-wide text-stone-500">Panel del Docente</p>
-        <h1 className="text-3xl sm:text-4xl font-black text-stone-800">Ayuda para el Docente</h1>
-        <p className="text-lg text-stone-600 font-medium">
+        <p className="text-sm font-bold uppercase tracking-wide text-[var(--tc-ink-faint)]">Panel del Docente</p>
+        <h1 className="teacher-chrome__title text-3xl sm:text-4xl font-black">Ayuda para el Docente</h1>
+        <p className="text-lg text-[var(--tc-ink-soft)] font-medium">
           Cómo usar La Cartilla de Gretel para dar clase, de principio a fin.
         </p>
       </header>
@@ -295,7 +295,7 @@ function TeacherAyudaPage() {
           <a
             key={section.id}
             href={`#${section.id}`}
-            className="px-3 py-2 rounded-xl bg-stone-100 hover:bg-stone-200 text-xs font-bold text-stone-700 transition-colors"
+            className="px-3 py-2 rounded-xl bg-white hover:bg-[var(--tc-paper-soft)] text-xs font-bold text-[var(--tc-ink)] border border-[var(--tc-border)] transition-colors"
           >
             {section.number}. {section.title}
           </a>
@@ -307,10 +307,9 @@ function TeacherAyudaPage() {
           <section
             key={section.id}
             id={section.id}
-            className="scroll-mt-24 rounded-3xl border-2 bg-white p-6 space-y-3 shadow-sm"
-            style={{ borderColor: section.accent + "30" }}
+            className="teacher-chrome__card scroll-mt-24 rounded-3xl p-6 space-y-3"
           >
-            <h2 className="text-xl font-black text-stone-800 flex items-center gap-3">
+            <h2 className="teacher-chrome__title text-xl font-black flex items-center gap-3">
               <span
                 className="w-9 h-9 shrink-0 rounded-xl flex items-center justify-center text-white"
                 style={{ background: section.accent }}
@@ -319,7 +318,7 @@ function TeacherAyudaPage() {
               </span>
               {section.number}. {section.title}
             </h2>
-            <div className="text-stone-700 leading-relaxed font-medium space-y-3">{section.body}</div>
+            <div className="text-[var(--tc-ink)] leading-relaxed font-medium space-y-3">{section.body}</div>
           </section>
         ))}
       </div>
@@ -333,13 +332,13 @@ function TeacherAyudaPage() {
         </Link>
         <Link
           to="/cartilla/teacher/crm"
-          className="min-h-12 inline-flex items-center px-5 py-3 rounded-2xl border-2 border-stone-300 font-bold"
+          className="min-h-12 inline-flex items-center px-5 py-3 rounded-2xl border-2 border-[var(--tc-border)] font-bold text-[var(--tc-ink)]"
         >
           Ir a Clase
         </Link>
         <Link
           to="/cartilla/teacher/guia"
-          className="min-h-12 inline-flex items-center px-5 py-3 rounded-2xl border-2 border-stone-300 font-bold"
+          className="min-h-12 inline-flex items-center px-5 py-3 rounded-2xl border-2 border-[var(--tc-border)] font-bold text-[var(--tc-ink)]"
         >
           Ir a la Guía
         </Link>
