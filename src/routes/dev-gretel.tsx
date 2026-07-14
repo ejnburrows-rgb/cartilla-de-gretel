@@ -7,6 +7,11 @@ export const Route = createFileRoute('/dev-gretel')({
 });
 
 function DevGretelDemo() {
+  if (!import.meta.env.DEV) return null;
+  return <DevGretelDemoInner />;
+}
+
+function DevGretelDemoInner() {
   const { currentPose, machineState, send, isRecovering } = useGretelAnimation();
 
   const handleEvent = (type: GretelEvent['type']) => {
