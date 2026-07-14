@@ -312,12 +312,7 @@ html.a11y-contrast .kid-card {
         hsl(28 45% 35%) 12px
       ),
       /* Warm oak base */
-      linear-gradient(
-        180deg,
-        hsl(28 50% 40%) 0%,
-        hsl(25 48% 45%) 50%,
-        hsl(22 45% 50%) 100%
-      );
+        linear-gradient(180deg, hsl(28 50% 40%) 0%, hsl(25 48% 45%) 50%, hsl(22 45% 50%) 100%);
   }
 
   .desk-scene::before {
@@ -326,17 +321,9 @@ html.a11y-contrast .kid-card {
     inset: 0;
     background:
       /* Ambient lighting from top-left */
-      radial-gradient(
-        ellipse at 20% 20%,
-        hsl(35 60% 70% / 0.15) 0%,
-        transparent 50%
-      ),
+      radial-gradient(ellipse at 20% 20%, hsl(35 60% 70% / 0.15) 0%, transparent 50%),
       /* Subtle vignette */
-      radial-gradient(
-        ellipse at 50% 50%,
-        transparent 60%,
-        hsl(20 40% 20% / 0.3) 100%
-      );
+        radial-gradient(ellipse at 50% 50%, transparent 60%, hsl(20 40% 20% / 0.3) 100%);
     pointer-events: none;
   }
 
@@ -347,11 +334,7 @@ html.a11y-contrast .kid-card {
     left: 0;
     right: 0;
     height: 8px;
-    background: linear-gradient(
-      180deg,
-      hsl(20 40% 25%) 0%,
-      hsl(18 38% 20%) 100%
-    );
+    background: linear-gradient(180deg, hsl(20 40% 25%) 0%, hsl(18 38% 20%) 100%);
     box-shadow: 0 -4px 12px hsl(20 40% 20% / 0.4);
     pointer-events: none;
   }
@@ -400,11 +383,11 @@ html.a11y-contrast .kid-card {
   position: relative;
   width: 100%;
   max-width: 500px;
-  background: #fdfdfd;
+  background: var(--book-paper, #fdfdfd);
   border-radius: 0 0 16px 16px;
-  box-shadow: 
-    0 1px 1px rgba(0,0,0,0.05),
-    0 10px 30px rgba(0,0,0,0.08);
+  box-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.05),
+    0 10px 30px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-top: none;
 }
@@ -427,7 +410,7 @@ html.a11y-contrast .kid-card {
   width: 24px;
   background: linear-gradient(to bottom, #9ca3af, #d1d5db, #6b7280);
   border-radius: 6px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.22);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.22);
 }
 
 .workbook-flip-wrapper {
@@ -449,7 +432,7 @@ html.a11y-contrast .kid-card {
   backface-visibility: hidden;
   border-radius: 0 0 12px 12px;
   overflow: hidden;
-  background: #fff;
+  background: var(--color-card, #fff);
 }
 
 .workbook-page-back {
@@ -457,16 +440,16 @@ html.a11y-contrast .kid-card {
      face must pre-rotate on the same axis the parent turns on, or it reads
      upside-down instead of correctly mirrored. */
   transform: rotateY(180deg);
-  background: #fafafa;
+  background: color-mix(in srgb, var(--color-card, #fff) 96%, #000);
   /* subtle paper back shadows */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, transparent 8%);
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 0%, transparent 8%);
 }
 
 .workbook-shadow-overlay {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: rgba(0,0,0,0.04);
+  background: rgba(0, 0, 0, 0.04);
   z-index: 10;
   transition: opacity 0.6s ease;
 }
@@ -519,7 +502,7 @@ html.a11y-contrast .kid-card {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.15), transparent);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.15), transparent);
   z-index: 20;
 }
 
@@ -546,7 +529,9 @@ html.a11y-contrast .kid-card {
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+    U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
   font-family: "Andika";
@@ -554,7 +539,9 @@ html.a11y-contrast .kid-card {
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  unicode-range:
+    U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
 }
 @font-face {
   font-family: "Andika";
@@ -562,7 +549,9 @@ html.a11y-contrast .kid-card {
   font-weight: 700;
   font-style: normal;
   font-display: swap;
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+    U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
   font-family: "Andika";
@@ -570,7 +559,9 @@ html.a11y-contrast .kid-card {
   font-weight: 700;
   font-style: normal;
   font-display: swap;
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  unicode-range:
+    U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
 }
 
 :root {
@@ -582,15 +573,27 @@ html.a11y-contrast .kid-card {
   /* Interior worksheet palette — green & cream kid-friendly aesthetic
      (owner-directed repaint, superseding the earlier teal/white book-exact
      palette; variable names kept as-is to avoid touching every consumer). */
-  --book-teal: #5fa777;          /* signature garden green: sidebar, borders, guides */
-  --book-teal-deep: #3d7a5c;     /* darker green for text-on-cream accents */
-  --book-paper: #fbf3e0;         /* warm cream page */
-  --book-ink: #2b2a22;           /* warm near-black body + headings */
-  --book-ink-soft: #8a8272;      /* warm secondary/footer gray */
-  --book-guide: #a8d9b5;         /* dashed handwriting midline */
+  --book-teal: #5fa777; /* signature garden green: sidebar, borders, guides */
+  --book-teal-deep: #3d7a5c; /* darker green for text-on-cream accents */
+  --book-paper: #fbf3e0; /* warm cream page */
+  --book-ink: #2b2a22; /* warm near-black body + headings */
+  --book-ink-soft: #8a8272; /* warm secondary/footer gray */
+  --book-guide: #a8d9b5; /* dashed handwriting midline */
 
   /* Gretel brand (app shell / character moments — NOT the worksheet interior) */
   --gretel-blue: #1f5fa8;
   --gretel-orange: #e8792a;
   --gretel-red: #e0331f;
+
+  /* ── Interaction-state semantics ──────────────────────────────────
+   * Single source of truth for correct/incorrect feedback used across
+   * the interaction layer (interactive-exercises.css, activity-mechanics.css).
+   * Tokenizing avoids the 8+ scattered hardcoded hex duplicates that were
+   * the root cause of inconsistent feedback colors (colorization pass #70).
+   * Values deliberately match WCAG AA contrast on white backgrounds.
+   */
+  --color-correct: #10b981; /* emerald — correct answer / caught / linked */
+  --color-correct-fg: #ffffff; /* text/icon on --color-correct */
+  --color-incorrect: #f43f5e; /* rose — wrong answer / missed */
+  --color-incorrect-fg: #ffffff; /* text/icon on --color-incorrect */
 }
