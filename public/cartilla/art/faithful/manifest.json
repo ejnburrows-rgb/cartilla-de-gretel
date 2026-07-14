@@ -1452,13 +1452,10 @@
     "lessonNumber": 1,
     "pageNumber": 16,
     "src": "/cartilla/art/faithful/leccion-1/traje.webp",
-    "sourceFlipchartPage": "u-page-16.jpg",
-    "cropBox": [
-      718,
-      598,
-      254,
-      232
-    ]
+    "sourceFlipchartPage": "page-008.jpg",
+    "cropBox": null,
+    "provenanceStatus": "RECOLORED-FROM-FLIPCHART-2026",
+    "note": "Student-book source (u-page-16.jpg) is a grayscale/duotone scan. Recropped in color from the real flipchart 'uniforme' cell (page-008.jpg, same illustration, upside-down orientation corrected), which is the identical illustration used for the same object."
   },
   {
     "slug": "arco",
