@@ -78,7 +78,9 @@ describe("workbook-manifest.json — real content integrity", () => {
         if (!fs.existsSync(fullPath)) {
           missing.push(`physicalPage ${page.physicalPage}: ${ref} (missing)`);
         } else if (fs.statSync(fullPath).size < MIN_BYTES) {
-          missing.push(`physicalPage ${page.physicalPage}: ${ref} (${fs.statSync(fullPath).size}b, empty/stub)`);
+          missing.push(
+            `physicalPage ${page.physicalPage}: ${ref} (${fs.statSync(fullPath).size}b, empty/stub)`,
+          );
         }
       }
     }

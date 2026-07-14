@@ -83,7 +83,10 @@ function checkImagePath(where, assetPath) {
   if (!fs.existsSync(full)) {
     err(where, `references missing file "${assetPath}"`);
   } else if (!fileExistsUnderPublic(assetPath)) {
-    err(where, `references empty/stub file "${assetPath}" (${fs.statSync(full).size}b, below ${MIN_BYTES}b floor)`);
+    err(
+      where,
+      `references empty/stub file "${assetPath}" (${fs.statSync(full).size}b, below ${MIN_BYTES}b floor)`,
+    );
   }
 }
 
