@@ -64,7 +64,10 @@ describe("workbook-manifest.json — real content integrity", () => {
     }
   });
 
-  it("every referenced background and asset path resolves to a real file on disk", () => {
+  it("every referenced background and asset path resolves to a real, non-empty file on disk", () => {
+    // Same MIN_BYTES floor as art-slots-integrity.test.ts — a 0-byte or
+    // near-empty stub is not a real asset, and must never be referenced.
+    const MIN_BYTES = 1500;
     const missing: string[] = [];
     for (const page of parsedManifest.pages) {
       const refs: string[] = [];
@@ -72,7 +75,11 @@ describe("workbook-manifest.json — real content integrity", () => {
       for (const object of page.objects) if (object.asset) refs.push(object.asset);
       for (const ref of refs) {
         const fullPath = path.join(repoRoot, "public", ref);
-        if (!fs.existsSync(fullPath)) missing.push(`physicalPage ${page.physicalPage}: ${ref}`);
+        if (!fs.existsSync(fullPath)) {
+          missing.push(`physicalPage ${page.physicalPage}: ${ref} (missing)`);
+        } else if (fs.statSync(fullPath).size < MIN_BYTES) {
+          missing.push(`physicalPage ${page.physicalPage}: ${ref} (${fs.statSync(fullPath).size}b, empty/stub)`);
+        }
       }
     }
     expect(missing).toEqual([]);
