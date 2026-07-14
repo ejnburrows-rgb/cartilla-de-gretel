@@ -1,7 +1,9 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { GraduationCap, ArrowLeft, Loader2 } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
+import { supabase, isSupabaseConfigured } from "@/integrations/supabase/client";
+import { setStudentSession } from "@/lib/student-session";
+import { signInSeedTeacher } from "@/lib/seed-data";
 
 export const Route = createFileRoute("/login")({
   component: LoginPage,
@@ -16,8 +18,19 @@ function LoginPage() {
   const [fullName, setFullName] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [unauthorized, setUnauthorized] = useState(false);
 
   useEffect(() => {
+    // The teacher route guard sets this flag and redirects here when a
+    // signed-in session has no teacher/admin role at all — sign that
+    // session out (a role-less session can't do anything anyway) instead
+    // of bouncing back to /cartilla/teacher and looping forever.
+    if (typeof window !== "undefined" && sessionStorage.getItem("cartilla.auth.unauthorized")) {
+      sessionStorage.removeItem("cartilla.auth.unauthorized");
+      setUnauthorized(true);
+      supabase.auth.signOut();
+      return;
+    }
     supabase.auth.getSession().then(({ data }) => {
       if (data.session) navigate({ to: "/cartilla/teacher" });
     });
@@ -28,6 +41,26 @@ function LoginPage() {
     setBusy(true);
     setError(null);
     try {
+      setStudentSession(null); // Clear student session on teacher login
+
+      // Demo/seed lane: never in production builds; preview/dev only when env set.
+      if (
+        mode === "login" &&
+        !import.meta.env.PROD &&
+        import.meta.env.VITE_ALLOW_DEMO_MODE === "true"
+      ) {
+        try {
+          signInSeedTeacher(email, password);
+          navigate({ to: "/cartilla/teacher" });
+          return;
+        } catch {
+          // Not a seed credential — fall through to Supabase when configured.
+          if (!isSupabaseConfigured) {
+            throw new Error("Credenciales inválidas (modo demo).");
+          }
+        }
+      }
+
       if (mode === "signup") {
         const { error: err } = await supabase.auth.signUp({
           email,
@@ -71,6 +104,13 @@ function LoginPage() {
             : "Crea tu cuenta para empezar a organizar clases."}
         </p>
       </header>
+
+      {unauthorized && (
+        <div className="mt-6 text-sm text-destructive font-bold bg-destructive/10 border-2 border-destructive/20 rounded-xl px-4 py-3">
+          Tu cuenta no tiene permiso de maestro o administrador. Contacta al administrador de la
+          escuela.
+        </div>
+      )}
 
       <form onSubmit={submit} className="mt-8 space-y-3">
         {mode === "signup" && (

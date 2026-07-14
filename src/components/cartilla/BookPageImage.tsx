@@ -1,12 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 interface BookPageImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   wrapperClassName?: string;
+  fallbackSrcs?: string[];
 }
 
-export function BookPageImage({ src, alt, className = "", wrapperClassName = "", ...props }: BookPageImageProps) {
+export function BookPageImage({ src, fallbackSrcs = [], alt, className = "", wrapperClassName = "", ...props }: BookPageImageProps) {
+  const [currentSrc, setCurrentSrc] = useState(src);
+  const [fallbackIndex, setFallbackIndex] = useState(-1);
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
+
+  useEffect(() => {
+    setCurrentSrc(src);
+    setFallbackIndex(-1);
+    setHasError(false);
+    setIsLoaded(false);
+  }, [src]);
 
   return (
     <div className={`relative w-full h-full flex items-center justify-center overflow-hidden bg-surface rounded-sm drop-shadow-md border border-border ${wrapperClassName}`}>
@@ -15,13 +25,12 @@ export function BookPageImage({ src, alt, className = "", wrapperClassName = "",
       )}
       
       {hasError ? (
-        <div className="absolute inset-0 z-0 flex flex-col items-center justify-center bg-stone-100 text-stone-400">
-          <span className="text-2xl mb-2">📄</span>
-          <span className="text-sm font-medium">No se pudo cargar la imagen</span>
+        <div className="absolute inset-0 z-0 flex flex-col items-center justify-center bg-[#fff8e7] text-stone-500">
+          <span className="text-sm font-bold">Imagen no disponible</span>
         </div>
       ) : (
         <img
-          src={src}
+          src={currentSrc}
           alt={alt}
           className={`w-full h-full object-contain relative z-10 transition-opacity duration-300 ${
             isLoaded ? "opacity-100" : "opacity-0"
@@ -33,8 +42,14 @@ export function BookPageImage({ src, alt, className = "", wrapperClassName = "",
             props.onLoad?.(e);
           }}
           onError={(e) => {
-            setHasError(true);
-            props.onError?.(e);
+            if (fallbackIndex + 1 < fallbackSrcs.length) {
+              const nextIdx = fallbackIndex + 1;
+              setCurrentSrc(fallbackSrcs[nextIdx]);
+              setFallbackIndex(nextIdx);
+            } else {
+              setHasError(true);
+              props.onError?.(e);
+            }
           }}
           {...props}
         />

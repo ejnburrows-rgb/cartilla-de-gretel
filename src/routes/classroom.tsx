@@ -31,7 +31,7 @@ function ClassroomPage() {
             La Cartilla de Gretel
           </h1>
           <p className="mt-6 text-base font-bold text-[hsl(28,30%,18%)]/70">
-            Para el maestro · LANY Books LLC
+            Para el maestro
           </p>
         </div>
       ),

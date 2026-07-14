@@ -11,7 +11,7 @@ export const Route = createFileRoute("/cartilla/teacher/paginas/$n")({
   beforeLoad: ({ params }) => {
     const n = Number(params.n);
     if (!Number.isFinite(n) || !CATALOG.find((e) => e.n === n)) {
-      throw redirect({ to: "/cartilla/lecciones" });
+      throw redirect({ to: "/cartilla/teacher" });
     }
   },
 });
@@ -89,9 +89,10 @@ function PaginasLeccion() {
         {/* Overlay controls */}
         <div className="absolute top-4 left-4 flex items-center gap-3 opacity-50 hover:opacity-100 transition-opacity z-50">
           <Link
-            to="/cartilla/lecciones"
+            to="/cartilla/teacher/guia/$n"
+            params={{ n: String(n) }}
             className="p-3 bg-stone-800 text-white rounded-full hover:bg-stone-700"
-            title="Volver al selector"
+            title="Volver a la guía de esta lección"
           >
             <X className="w-6 h-6" />
           </Link>

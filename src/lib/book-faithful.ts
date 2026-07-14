@@ -58,7 +58,8 @@ export type PageRegionType =
 	| "vocab-grid"
 	| "tracing-line"
 	| "writing-line" // ruled handwriting line (solid baseline + dashed teal midline), optional model letters
-	| "draw-box" // empty bordered box for "haz un dibujo"
+	| "draw-box" // empty bordered box for "haz un dibujo" / Dibuja
+	| "paint-box" // freehand Colorea paint surface (illustration + brush layer)
 	| "picture-grid" // grid of illustration cells (e.g. "marca con una x")
 	| "syllable-bubble"
 	| "sentence-line"
@@ -127,7 +128,7 @@ export type PageRegion = {
 	label?: string;
 	/**
 	 * Faithful COLOR illustration cropped from the original artwork.
-	 * Path under /public (e.g. "/cartilla/art/faithful/2/oso.webp"), produced
+	 * Path under /public (e.g. "/cartilla/art/faithful/vocal-o/oso.webp"), produced
 	 * by the art pipeline (see public/cartilla/art/faithful/manifest.json).
 	 * When absent on an illustration-slot, the renderer shows an explicit
 	 * "art pending" marker — never an invented drawing.

@@ -66,7 +66,12 @@ export default defineConfig({
     setupFiles: "./src/test/setup.ts",
   },
   esbuild: {
-    drop: ["console", "debugger"],
+    // Only strip debugger statements and no-op console.log/debug/info calls.
+    // console.warn/console.error must survive into production — several
+    // "never a silent fallback" behaviors (TTS voice fallback, etc.) rely on
+    // console.warn actually firing in shipped code, not just in dev.
+    drop: ["debugger"],
+    pure: ["console.log", "console.debug", "console.info"],
   },
   build: {
     minify: "esbuild",

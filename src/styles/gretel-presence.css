@@ -1,0 +1,283 @@
+/* Full-presence Gretel host — continuous life, not corner sticker */
+
+.gretel-presence {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  max-width: 22rem;
+  margin: 0 auto;
+  padding: 0.5rem 0.75rem 0.25rem;
+  opacity: 0;
+  transform: translateY(36px) scale(0.94);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gretel-presence--in {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Home embed: always visible inside book plate (no extra slide-up delay stack) */
+.gretel-presence--home {
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.gretel-presence--home.gretel-presence--in {
+  opacity: 1;
+  transform: none;
+}
+
+.gretel-presence__stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  max-height: min(52vh, 420px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.gretel-presence__shadow {
+  position: absolute;
+  bottom: 4%;
+  left: 50%;
+  width: 62%;
+  height: 9%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(40, 28, 18, 0.38) 0%,
+    rgba(40, 28, 18, 0.12) 50%,
+    transparent 72%
+  );
+  filter: blur(2px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.gretel-presence__figure {
+  position: relative;
+  z-index: 1;
+  width: 92%;
+  height: 100%;
+  transform-origin: 50% 100%;
+}
+
+.gretel-presence__figure--alive {
+  animation: gretel-presence-breathe 4.4s ease-in-out infinite;
+}
+
+.gretel-presence--speaking .gretel-presence__figure--alive {
+  animation: gretel-presence-speak-sway 1.1s ease-in-out infinite;
+}
+
+.gretel-presence--yes .gretel-presence__figure {
+  animation: gretel-presence-yes 0.7s ease-out;
+}
+
+.gretel-presence--no .gretel-presence__figure {
+  animation: gretel-presence-no 0.55s ease-out;
+}
+
+.gretel-presence__layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+.gretel-presence__base {
+  z-index: 1;
+  opacity: 1;
+}
+
+/* Soft crossfade when body pose src changes (not hard sticker pop) */
+.gretel-presence__base--pose {
+  animation: gretel-presence-pose-in 0.32s ease-out;
+}
+
+@keyframes gretel-presence-pose-in {
+  from {
+    opacity: 0.35;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.gretel-presence__talk,
+.gretel-presence__blink {
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 90ms linear;
+}
+
+.gretel-presence__talk.is-on,
+.gretel-presence__blink.is-on {
+  opacity: 1;
+}
+
+.gretel-presence--wave .gretel-presence__figure--alive {
+  animation: gretel-presence-wave 1.1s ease-in-out infinite;
+}
+
+.gretel-presence--point .gretel-presence__figure--alive {
+  animation: gretel-presence-point 1.4s ease-in-out infinite;
+}
+
+@keyframes gretel-presence-wave {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1.2deg);
+  }
+  50% {
+    transform: translateY(-4px) rotate(1.6deg);
+  }
+}
+
+@keyframes gretel-presence-point {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  50% {
+    transform: translateX(3px) rotate(0.8deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gretel-presence__figure--alive,
+  .gretel-presence--speaking .gretel-presence__figure--alive,
+  .gretel-presence--wave .gretel-presence__figure--alive,
+  .gretel-presence--point .gretel-presence__figure--alive,
+  .gretel-presence__base--pose {
+    animation: none !important;
+  }
+}
+
+.gretel-presence__chrome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: 100%;
+  margin-top: 0.35rem;
+  padding: 0 0.25rem;
+}
+
+.gretel-presence__name {
+  font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: #3a281e;
+}
+
+.gretel-presence__mute {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 2.5rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  border: 2px solid rgba(58, 40, 30, 0.15);
+  background: rgba(255, 255, 255, 0.92);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #3a281e;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.gretel-presence__mute:hover {
+  background: #fff;
+  border-color: rgba(58, 40, 30, 0.28);
+}
+
+@keyframes gretel-presence-breathe {
+  0%,
+  100% {
+    transform: translateY(0) scale(1) rotate(-0.4deg);
+  }
+  50% {
+    transform: translateY(-3px) scale(1.015) rotate(0.4deg);
+  }
+}
+
+@keyframes gretel-presence-speak-sway {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-0.8deg);
+  }
+  50% {
+    transform: translateY(-2px) rotate(0.8deg);
+  }
+}
+
+@keyframes gretel-presence-yes {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.06) translateY(-6px);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes gretel-presence-no {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+/* Lesson layout: full host panel, not corner badge.
+ * grid-template-columns must stay explicit even in the single-column
+ * (mobile) case — an implicit auto-sized grid track lets its child grow to
+ * its own content's minimum intrinsic width instead of shrinking to fit,
+ * blowing the workbook page out past the viewport on narrow screens. */
+.gretel-presence-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+  width: 100%;
+  align-items: end;
+}
+
+@media (min-width: 900px) {
+  .gretel-presence-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(16rem, 22rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gretel-presence {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+  .gretel-presence__figure--alive,
+  .gretel-presence--speaking .gretel-presence__figure--alive,
+  .gretel-presence--yes .gretel-presence__figure,
+  .gretel-presence--no .gretel-presence__figure {
+    animation: none !important;
+  }
+}

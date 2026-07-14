@@ -1,5 +1,5 @@
 import { createFileRoute, Link, useNavigate, redirect } from "@tanstack/react-router";
-import { Printer, ChevronLeft } from "lucide-react";
+import { Printer, ChevronLeft, MonitorPlay, BookOpenCheck, FolderOpen } from "lucide-react";
 import { CATALOG } from "@/lib/lesson-catalog";
 import { GuideLayout } from "@/content/guides/GuideLayout";
 
@@ -51,20 +51,43 @@ function TeacherGuideLeccion() {
       {/* Top action row */}
       <div className="flex items-center justify-between no-print shrink-0 px-2">
         <Link
-          to="/cartilla/teacher/progreso"
-          className="flex items-center gap-1.5 text-xs font-bold text-stone-500 hover:text-stone-800 transition-colors"
+          to="/cartilla/teacher/crm"
+          className="flex items-center gap-1.5 text-xs font-bold text-[var(--tc-ink-soft)] hover:text-[var(--tc-ink)] transition-colors"
         >
           <ChevronLeft className="w-4 h-4" />
           Volver al Panel
         </Link>
-        
-        <button
-          onClick={() => window.print()}
-          className="flex items-center gap-2 px-4 py-2 bg-stone-100 hover:bg-stone-200 text-stone-700 rounded-xl text-sm font-bold border border-stone-200 transition-all shadow-sm"
-        >
-          <Printer className="w-4 h-4" />
-          Imprimir Guía
-        </button>
+
+        <div className="flex items-center gap-2">
+          <Link
+            to="/cartilla/teacher/guia"
+            className="flex items-center gap-1.5 px-3 py-2 bg-white hover:bg-[var(--tc-paper-soft)] text-[var(--tc-ink)] rounded-xl text-xs font-bold border border-[var(--tc-border)] transition-all"
+          >
+            <FolderOpen className="w-3.5 h-3.5" /> Carpetas
+          </Link>
+          <Link
+            to="/cartilla/teacher/paginas/$n"
+            params={{ n: String(n) }}
+            className="flex items-center gap-1.5 px-3 py-2 bg-white hover:bg-[var(--tc-paper-soft)] text-[var(--tc-ink)] rounded-xl text-xs font-bold border border-[var(--tc-border)] transition-all"
+          >
+            <BookOpenCheck className="w-3.5 h-3.5" /> Actividades del estudiante
+          </Link>
+          <Link
+            to="/cartilla/presentar/$n"
+            params={{ n: String(n) }}
+            className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold border transition-all"
+            style={{ background: accentColor, color: "white", borderColor: accentColor }}
+          >
+            <MonitorPlay className="w-3.5 h-3.5" /> Presentar flipchart
+          </Link>
+          <button
+            onClick={() => window.print()}
+            className="flex items-center gap-2 px-4 py-2 bg-white hover:bg-[var(--tc-paper-soft)] text-[var(--tc-ink)] rounded-xl text-sm font-bold border border-[var(--tc-border)] transition-all shadow-sm"
+          >
+            <Printer className="w-4 h-4" />
+            Imprimir Guía
+          </button>
+        </div>
       </div>
 
       {/* Full Master-Detail Curriculum Layout */}
@@ -78,8 +101,8 @@ function TeacherGuideLeccion() {
             <GuideComponent />
           ) : (
             <div className="text-center py-20">
-              <h2 className="text-xl font-bold text-stone-400 mb-2">Archivo HTML Pendiente</h2>
-              <p className="text-stone-500 max-w-md mx-auto">
+              <h2 className="text-xl font-bold text-[var(--tc-ink-faint)] mb-2">Archivo HTML Pendiente</h2>
+              <p className="text-[var(--tc-ink-soft)] max-w-md mx-auto">
                 La guía para la lección {n} aún no ha sido transcrita o no se encuentra el componente.
               </p>
             </div>

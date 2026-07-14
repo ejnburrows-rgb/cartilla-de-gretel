@@ -1,0 +1,224 @@
+/* Living Workbook Page engine — data-driven page/object/interaction rendering.
+   See src/content/workbook/types.ts for the schema these classes render. */
+
+.lwp-page {
+  width: 100%;
+}
+
+.lwp-page__instruction {
+  font-family: var(--font-book-faithful, inherit);
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  color: hsl(var(--foreground));
+}
+
+.lwp-page__canvas {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 2px solid hsl(var(--border));
+  background: hsl(var(--card));
+}
+
+/* Soft, low-opacity treatment — matches the book-faithful garden
+   background convention (see faithful-page.css's .faithful-page--garden::before):
+   blurred + low-opacity so real illustrations layered on top stay legible,
+   never a full-strength competing image. */
+.lwp-page__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 68%;
+  opacity: 0.22;
+  filter: blur(2px) saturate(0.8) brightness(1.06);
+}
+
+/* When the background IS the page's only real content (e.g. a full-page
+   scan fallback with no separate objects yet), it must render crisp and
+   full-strength — the soft/blurred treatment above would make the only
+   real content on the page nearly invisible. */
+.lwp-page__bg--content {
+  object-position: center;
+  opacity: 1;
+  filter: none;
+}
+
+.lwp-bg-pending {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: repeating-linear-gradient(
+    45deg,
+    hsl(var(--muted)),
+    hsl(var(--muted)) 10px,
+    hsl(var(--background)) 10px,
+    hsl(var(--background)) 20px
+  );
+  color: hsl(var(--muted-foreground));
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.lwp-object {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.lwp-object__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.lwp-object__text {
+  font-family: var(--font-book-faithful, inherit);
+  text-align: center;
+}
+
+/* ── Shared interactive tap-target base ─────────────────────────────── */
+.lwp-tap-select__choice,
+.lwp-tap-to-hear,
+.lwp-drag-place__draggable,
+.lwp-drag-place__target,
+.lwp-pair-match__left,
+.lwp-pair-match__right,
+.lwp-mark-circle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  cursor: pointer;
+  min-width: 44px;
+  min-height: 44px;
+  touch-action: none;
+}
+
+.lwp-tap-select__choice:focus-visible,
+.lwp-tap-to-hear:focus-visible,
+.lwp-drag-place__draggable:focus-visible,
+.lwp-drag-place__target:focus-visible,
+.lwp-pair-match__left:focus-visible,
+.lwp-pair-match__right:focus-visible,
+.lwp-mark-circle:focus-visible {
+  outline: 3px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+.lwp-tap-select__img,
+.lwp-tap-to-hear__img,
+.lwp-drag-place__img,
+.lwp-pair-match__img,
+.lwp-mark-circle__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Correct / wrong feedback */
+.lwp-tap-select__choice.is-correct,
+.lwp-drag-place__target.is-filled,
+.lwp-pair-match__right.is-matched {
+  border-color: hsl(var(--success, 145 65% 42%));
+  background: hsl(var(--success, 145 65% 42%) / 0.12);
+}
+
+.lwp-tap-select__choice.is-wrong,
+.lwp-drag-place__target.is-wrong,
+.lwp-pair-match__right.is-wrong,
+.lwp-mark-circle.is-wrong {
+  border-color: hsl(var(--destructive));
+  animation: lwp-shake 0.4s ease-in-out;
+}
+
+.lwp-drag-place__target.is-over,
+.lwp-pair-match__right.is-over {
+  border-color: hsl(var(--primary));
+  background: hsl(var(--primary) / 0.08);
+}
+
+.lwp-drag-place__draggable.is-selected,
+.lwp-pair-match__left.is-selected {
+  border-color: hsl(var(--primary));
+}
+
+.lwp-mark-circle__ring {
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  pointer-events: none;
+}
+
+.lwp-mark-circle.is-marked .lwp-mark-circle__ring {
+  border-color: hsl(var(--success, 145 65% 42%));
+}
+
+.lwp-tap-to-hear__badge {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: hsl(var(--primary) / 0.4);
+}
+
+.lwp-tap-to-hear.is-playing .lwp-tap-to-hear__badge {
+  animation: lwp-pulse 0.6s ease-in-out;
+}
+
+/* ── Ambient motion keyframes (used only when !prefers-reduced-motion,
+     gated in LivingWorkbookPage via inline styles) ─────────────────── */
+@keyframes lwp-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6%); }
+}
+
+@keyframes lwp-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4%); }
+}
+
+@keyframes lwp-breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+@keyframes lwp-blink {
+  0%, 90%, 100% { opacity: 1; }
+  95% { opacity: 0.2; }
+}
+
+@keyframes lwp-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+@keyframes lwp-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.6); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lwp-tap-select__choice.is-wrong,
+  .lwp-drag-place__target.is-wrong,
+  .lwp-pair-match__right.is-wrong,
+  .lwp-mark-circle.is-wrong,
+  .lwp-tap-to-hear.is-playing .lwp-tap-to-hear__badge {
+    animation: none;
+  }
+}

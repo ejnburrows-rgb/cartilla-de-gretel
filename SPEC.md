@@ -781,7 +781,142 @@ only grading — no invented "correct drawing") wired into
 `FaithfulPageRenderer.tsx`'s `"draw-box"` case for `interactive` mode;
 teacher preview keeps the static placeholder. CSS added to
 `faithful-page.css`. `pnpm tsc --noEmit` and `pnpm build` both clean.
-Committed `e484cfb`, pushed to `claude/branch-status-review-iz7j6j`, opened
-as PR #139 (not yet merged — contains the new Supabase migration from Round
-3, which is a genuine Supabase/production fork per CLAUDE.md; holding for
-owner sign-off rather than self-merging).
+Committed `e484cfb`, merged via PR #139 — owner corrected in real time that
+pre-approved-flow PRs (already merged the same way for #135/#137/#138) don't
+wait on a fresh sign-off; merged and production-verified same turn.
+
+**Follow-up defect, self-caught and fixed same turn:** PR #139's draw-box
+wiring only added `DrawBoxCanvas.tsx` and imported it — the actual
+`case "draw-box"` switch branch was never updated to render it, so
+interactive mode kept showing the old static placeholder (unused import
+only). Caught by checking the merged production bundle for the
+`fp-draw-box--interactive` class string and finding it absent. Fixed in
+PR #142 (4-line diff), reverified the string present in a fresh local build
+before committing, then confirmed live in production via exact content-hash
+match on the `route-binder`/`content-bundle` chunks against that local
+build.
+
+Also fixed: `validate-content.mjs` threw a false-positive warning
+("totalPages says 60, but lessons[].pages lists 65") because it summed
+`lessons[].pages` without deduplicating flipchart pages intentionally shared
+across lessons (review spreads) — 65 raw listings, 60 unique files, which is
+exactly what totalPages says. Fixed to count unique files (PR #143).
+
+Anti-Gravity's UNREADABLE violation (previous update) self-corrected on its
+own branch: commit `9e7d4f5` reverts all 54 destructive overwrites while
+keeping the 2 legitimate new instruction additions. That branch (including
+the revert) was merged to main via PR #141, along with an unrelated batch of
+~2000 extracted `.webp` crops and duplicate data files
+(`src/content/page-layouts.json`, `src/content/page-inventory.json`) that
+nothing in `src/` imports — confirmed inert (not a live-content risk), just
+unused clutter. Not cleaned up this turn; flagged as low-priority follow-up.
+
+**Real content gap found and closed, PR #145:** re-auditing every page for
+orphaned instructions (a trailing `instruction` region with nothing after
+it) found 2 — real book pages 22 (Lección 7, M) and 26 (Lección 8, P), both
+"Escribe oraciones. Usa las sílabas que aprendiste." with zero region behind
+it. Verified directly against `m-page-11.jpg`/`p-page-14.jpg`: both show 4
+real blank ruled lines, no printed model text (genuine free composition, not
+missing transcription). Added `p21-draw`/`p25-draw` `draw-box` regions,
+reusing `DrawBoxCanvas` — same freehand-capture, completion-only pattern as
+every other draw-box, no invented sentence content. Re-ran the orphan check
+across all 90 pages after the fix: zero remain.
+
+**Canon-rework paper-action sweep, closed:** searched all region `text`
+fields for other paper-only verbs (recortar, pegar, colorear, doblar,
+pintar, subrayar) — none found. The 3 other repeating region types with no
+dedicated interactive case (`title`, `syllable-bubble`, `vocab-grid`)
+checked directly: all are pure static display text (the big letter, the
+syllable list, the vocab word list on each consonant's first page) matching
+the book's real static layout — not paper actions, correctly non-interactive
+via the renderer's default text fallback. No further conversion gaps found.
+`pnpm tsc --noEmit` + `pnpm build` clean; merged via PR #145.
+
+## Update — real regression found: console.warn/error was stripped from the entire production build
+
+While trying to prove the TTS "never a silent fallback" warning (see Round 3
+above) actually fires, found `vite.config.ts` had `esbuild.drop: ["console",
+"debugger"]` at the config root — this deletes **every** `console.warn`/
+`console.error` call app-wide, in both `vite build` and the Vitest
+transform (the `esbuild` field isn't scoped to `build:` only). Verified
+directly: none of the fallback-warning strings existed anywhere in
+`dist/assets/*.js` before the fix. This means the Round 3 TTS fallback
+logging has never actually reached production despite passing typecheck/
+build the whole time — a real, previously-undetected regression, not a
+theoretical risk.
+
+**Fix (PR #147):** narrowed to `drop: ["debugger"]` + `pure: ["console.log",
+"console.debug", "console.info"]`, leaving `console.warn`/`console.error`
+untouched everywhere. Added 4 new tests to `speak.test.ts` — isolated via
+`vi.resetModules()` + a fresh dynamic import per test (the warning only
+fires once per module instance) — asserting `console.warn` is actually
+called with the right message, both when no neutral LatAm voice exists and
+when no Spanish voice exists at all. Confirmed these tests **failed** (0
+calls recorded) before the fix and **passed** after. Rebuilt and confirmed
+the warning strings now exist in the shipped bundle. `pnpm tsc --noEmit`,
+`node scripts/validate-content.mjs`, and the full suite (211 passed, 2
+expected fail) all clean.
+
+## Merge reconciliation — `claude/branch-status-review-iz7j6j` vs `main` (this turn)
+
+This branch had drifted 90 commits behind `main` and carried its own copy of
+the same "import DrawBoxCanvas but never wire the `draw-box` case" bug
+described above (commit `e484cfb` locally) — `main` had already fixed this
+via `DibujaFromRegion` (PR #142) and gone on to replace the draw-box
+mechanic entirely with the Lasso/Dibuja adapters. Resolved the merge by
+keeping `main`'s `FaithfulPageRenderer.tsx` (DibujaFromRegion path) and
+dropping the redundant local `DrawBoxCanvas` import; `DrawBoxCanvas.tsx`
+itself is left in place (unused) rather than deleted, per the no-delete
+rule. SPEC.md conflict resolved in favor of `main`'s narrative (verified
+accurate against `main`'s own commit history: PR #139 is in fact merged).
+
+## Login end-to-end test plan — READY, blocked only on migration confirmation
+
+Owner is applying the Supabase migration (`20260709191308_class_code_tap_
+name_login.sql`) directly via GitHub Settings + a manual Action re-run. The
+moment that's confirmed applied, run this exact sequence and report each
+step's real result (not just "should work"):
+
+**Primary verification path — direct API calls (works regardless of this
+sandbox's Chromium/proxy limitation, and is a stronger proof than a UI
+click-through since it exercises the real RPCs against the real database):**
+1. `POST {VITE_SUPABASE_URL}/rest/v1/rpc/list_class_students` with
+   `apikey`/`Authorization: Bearer {VITE_SUPABASE_PUBLISHABLE_KEY}` and body
+   `{"p_join_code": "<a real class's join code>"}` — expect a JSON array of
+   `{student_id, display_name}` rows, no sensitive fields, for a class that
+   actually has students.
+2. `POST .../rpc/enter_class_as_student` with
+   `{"p_join_code": "...", "p_student_id": "<one of the ids from step 1>"}`
+   — expect the 5-field session shape (`student_id, student_name,
+   student_code, class_id, class_name`), matching `join_class`'s existing
+   shape.
+3. Using the returned `student_id`/`student_code`, call
+   `.../rpc/log_student_progress` for one lesson/exercise with a real
+   score, then `.../rpc/get_student_progress` and confirm the event is
+   present.
+4. As the teacher (authenticated session), call `getClassProgress`'s
+   underlying `exercise_attempt_summary` query (or load
+   `/cartilla/teacher/reportes`, pick the class + student) and confirm the
+   just-logged attempt shows up in the per-exercise-type table.
+
+**Secondary path — real UI click-through (attempt again once the migration
+is live; this sandbox's Chromium couldn't complete outbound HTTPS through
+its proxy earlier this session, worth re-testing rather than assuming it's
+still broken):**
+1. Teacher: log in, create/open a class, copy its join code
+   (`/cartilla/teacher/clase/{id}`, the code shown at the top).
+2. Student: go to `/cartilla/unirse`, type the join code, submit — expect
+   the tap-name roster screen, not a typed-code field.
+3. Tap a real student name — expect redirect to `/cartilla/lecciones` with
+   a welcome/continue state, not an error.
+4. Open any lesson (e.g. `/cartilla/leccion/2`), complete one graded
+   interactive exercise (tap the right answer in a picture-grid/vowel-pick
+   region) — expect Gretel's correct/wrong reaction to fire and the score
+   to be recorded (no console errors).
+5. Teacher: `/cartilla/teacher/reportes`, select the same class + student —
+   expect the just-completed exercise's hits/attempts to appear in the
+   per-exercise-type table, matching what was actually done in step 4.
+
+Both paths report PASS/FAIL per numbered step, not a single pass/fail for
+the whole flow — if step 3 fails but 1-2 passed, that's exactly the
+information needed to isolate where the migration or the RPC logic broke.

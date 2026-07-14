@@ -2,7 +2,7 @@ import React, { useState, useEffect, forwardRef, useImperativeHandle, useRef } f
 import { motion, AnimatePresence } from "framer-motion";
 import { speak } from "@/lib/speak";
 import { useGretelAnimation } from "./useGretelAnimation";
-import { getGretelPoseFrames } from "./gretelPoses";
+import { getGretelPoseFrames, type GretelPoseKey } from "./gretelPoses";
 import { Sparkles, Star } from "lucide-react";
 
 export interface GretelLiveAvatarRef {
@@ -147,8 +147,14 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
     const [frameIndex, setFrameIndex] = useState(0);
     const sparkleIdCounter = useRef(0);
 
+    /* Pose key: right-side bubble → point-left (G-04); else machine state. */
+    const poseKey: GretelPoseKey =
+      machineState === "pointing" && bubblePosition === "right"
+        ? "pointingLeft"
+        : machineState;
+
     /* ── Frame Cycling for Array Poses ── */
-    const frames = getGretelPoseFrames(machineState);
+    const frames = getGretelPoseFrames(poseKey);
 
     useEffect(() => {
       if (Array.isArray(frames)) {
@@ -165,9 +171,9 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
       } else {
         setFrameIndex(0);
       }
-    }, [frames, machineState]);
+    }, [frames, poseKey]);
 
-    const activeSrc = Array.isArray(frames) ? frames[frameIndex] : frames;
+    const activeSrc = Array.isArray(frames) ? frames[frameIndex % frames.length] : frames;
 
     /* ── Sparkle burst ── */
     const generateSparkles = () => {
@@ -233,23 +239,33 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
         const detail = (e as CustomEvent<{ text?: string }>).detail;
         celebrate(detail?.text);
       };
+      const handleExit = () => {
+        send({ type: "EXIT" });
+      };
       window.addEventListener("gretel:celebrate", handleCelebrate);
-      return () => window.removeEventListener("gretel:celebrate", handleCelebrate);
+      window.addEventListener("gretel:exit", handleExit);
+      return () => {
+        window.removeEventListener("gretel:celebrate", handleCelebrate);
+        window.removeEventListener("gretel:exit", handleExit);
+        // Lesson leave: play exit wave frame (G-03)
+        send({ type: "EXIT" });
+      };
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
-      <div className={`relative flex items-center justify-center ${className}`}>
+      <div className={`gretel-grounded gretel-grounded--enter relative flex items-center justify-center ${className}`}>
+        {/* Soft contact shadow — anchors her to the scene (not a floating sticker) */}
+        <span className="gretel-grounded__shadow" aria-hidden="true" />
 
-        {/* ── Warm halo glow behind Gretel ── */}
+        {/* Warm ambient glow (behind body, above ground shadow) */}
         <motion.div
           animate={getShadowAnimation(machineState)}
           transition={{ duration: machineState === "cheering" ? 0.8 : 3, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute rounded-full"
-          style={{ width: "70%", height: "70%", background: "radial-gradient(circle, rgba(251,191,36,0.15) 0%, transparent 70%)" }}
+          className="absolute rounded-full z-0"
+          style={{ width: "70%", height: "55%", top: "12%", background: "radial-gradient(circle, rgba(251,191,36,0.14) 0%, transparent 70%)" }}
         />
 
-        {/* ── Sparkle particles ── */}
         <AnimatePresence>
           {sparkles.map((s) => (
             <motion.div
@@ -272,7 +288,6 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
           ))}
         </AnimatePresence>
 
-        {/* ── Floating hearts (on encourage) ── */}
         <AnimatePresence>
           {hearts.map((h) => (
             <motion.div
@@ -288,45 +303,33 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
           ))}
         </AnimatePresence>
 
-        {/* Feedback is spoken via TTS — no visible bubble that blocks content. */}
         {bubbleText && (
           <span className="sr-only" aria-live="polite">
             {bubbleText}
           </span>
         )}
 
-        {/* ── Gretel's body — the living, breathing avatar ── */}
+        {/* Body: ground-anchored, origin bottom; poses crossfade (no hard swap) */}
         <motion.div
           animate={getBodyAnimation(machineState)}
           transition={getBodyTransition(machineState)}
-          className={`relative ${SIZES[size]} origin-bottom select-none`}
-          style={{ filter: "drop-shadow(0 8px 16px rgba(0,0,0,0.2))" }}
+          className={`gretel-grounded__body relative ${SIZES[size]} origin-bottom select-none`}
         >
-          {/* Inner subtle secondary motion layer — slight skew for liveliness */}
-          <motion.div
-            animate={{
-              skewX: machineState === "cheering" ? [-1, 1, -1] : [-0.3, 0.3, -0.3],
-              skewY: machineState === "talking" ? [-0.5, 0.5, -0.5] : [0, 0, 0],
-            }}
-            transition={{
-              duration: machineState === "cheering" ? 0.4 : 5,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="h-full w-full"
-          >
-            <div className="relative aspect-[3/4] h-full mx-auto">
+          <div className="relative aspect-[3/4] h-full mx-auto">
+            <AnimatePresence mode="sync" initial={false}>
               <motion.img
+                key={activeSrc}
                 src={activeSrc}
                 alt="Gretel"
-                initial={{ opacity: 0.7, scale: 0.97 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.2 }}
-                className="h-full w-full object-contain"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                className="gretel-grounded__pose h-full w-full object-contain object-bottom"
                 draggable={false}
               />
-            </div>
-          </motion.div>
+            </AnimatePresence>
+          </div>
         </motion.div>
       </div>
     );

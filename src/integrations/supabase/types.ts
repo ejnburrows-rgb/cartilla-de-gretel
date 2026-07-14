@@ -46,6 +46,50 @@ export type Database = {
           },
         ];
       };
+      folder_assignments: {
+        Row: {
+          activity_label: string;
+          class_id: string;
+          created_at: string;
+          folder_key: string;
+          id: string;
+          lesson_id: string;
+          student_ids: string[] | null;
+          target_scope: string;
+          teacher_id: string;
+        };
+        Insert: {
+          activity_label: string;
+          class_id: string;
+          created_at?: string;
+          folder_key: string;
+          id?: string;
+          lesson_id: string;
+          student_ids?: string[] | null;
+          target_scope: string;
+          teacher_id: string;
+        };
+        Update: {
+          activity_label?: string;
+          class_id?: string;
+          created_at?: string;
+          folder_key?: string;
+          id?: string;
+          lesson_id?: string;
+          student_ids?: string[] | null;
+          target_scope?: string;
+          teacher_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "folder_assignments_class_id_fkey";
+            columns: ["class_id"];
+            isOneToOne: false;
+            referencedRelation: "classes";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
       classes: {
         Row: {
           created_at: string;
@@ -137,25 +181,31 @@ export type Database = {
       };
       students: {
         Row: {
+          archived_at: string | null;
           class_id: string;
           created_at: string;
           display_name: string;
           id: string;
           student_code: string;
+          teacher_notes: string | null;
         };
         Insert: {
+          archived_at?: string | null;
           class_id: string;
           created_at?: string;
           display_name: string;
           id?: string;
           student_code: string;
+          teacher_notes?: string | null;
         };
         Update: {
+          archived_at?: string | null;
           class_id?: string;
           created_at?: string;
           display_name?: string;
           id?: string;
           student_code?: string;
+          teacher_notes?: string | null;
         };
         Relationships: [
           {
@@ -180,6 +230,7 @@ export type Database = {
           best_total: number | null;
           total_attempts: number;
           time_seconds: number;
+          last_page: number | null;
         };
         Insert: {
           id?: string;
@@ -193,6 +244,7 @@ export type Database = {
           best_total?: number | null;
           total_attempts?: number;
           time_seconds?: number;
+          last_page?: number | null;
         };
         Update: {
           id?: string;
@@ -206,6 +258,7 @@ export type Database = {
           best_total?: number | null;
           total_attempts?: number;
           time_seconds?: number;
+          last_page?: number | null;
         };
         Relationships: [
           {
@@ -400,6 +453,24 @@ export type Database = {
           class_name: string;
         }[];
       };
+      get_student_folder_assignments: {
+        Args: {
+          p_class_id: string;
+          p_student_id: string;
+          p_student_code: string;
+        };
+        Returns: {
+          id: string;
+          class_id: string;
+          teacher_id: string;
+          folder_key: string;
+          lesson_id: string;
+          activity_label: string;
+          target_scope: string;
+          student_ids: string[] | null;
+          created_at: string;
+        }[];
+      };
       log_student_progress: {
         Args: {
           p_student_id: string;
@@ -410,6 +481,15 @@ export type Database = {
           p_total: number | null;
           p_time_seconds: number | null;
           p_meta: Json | null;
+        };
+        Returns: Json;
+      };
+      save_last_page: {
+        Args: {
+          p_student_id: string;
+          p_student_code: string;
+          p_lesson_id: string;
+          p_page: number;
         };
         Returns: Json;
       };

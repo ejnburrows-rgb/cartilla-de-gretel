@@ -1,10 +1,12 @@
 export type GretelState =
   | "boot"
+  | "settling"
   | "idle"
   | "blinking"
   | "talking"
   | "waving"
   | "pointing"
+  | "exiting"
   | "cheering"
   | "error";
 
@@ -17,6 +19,7 @@ export type GretelEvent =
   | { type: "WAVE" }
   | { type: "POINT" }
   | { type: "CHEER" }
+  | { type: "EXIT" }
   | { type: "ASSET_ERROR" }
   | { type: "RESET" };
 
@@ -27,8 +30,10 @@ export function canTransition(from: GretelState, event: GretelEvent): boolean {
   switch (from) {
     case "boot":
       return event.type === "INIT";
+    case "settling":
+      return ["IDLE", "ASSET_ERROR"].includes(event.type);
     case "idle":
-      return ["BLINK", "SPEAK_START", "WAVE", "POINT", "CHEER", "ASSET_ERROR"].includes(event.type);
+      return ["BLINK", "SPEAK_START", "WAVE", "POINT", "CHEER", "EXIT", "ASSET_ERROR"].includes(event.type);
     case "blinking":
       return ["IDLE", "ASSET_ERROR"].includes(event.type);
     case "talking":
@@ -36,6 +41,7 @@ export function canTransition(from: GretelState, event: GretelEvent): boolean {
     case "waving":
     case "pointing":
     case "cheering":
+    case "exiting":
       return ["IDLE", "ASSET_ERROR", "SPEAK_START", "SPEAK_STOP"].includes(event.type);
     case "error":
       return ["RESET", "ASSET_ERROR"].includes(event.type);
@@ -57,7 +63,13 @@ export function gretelReducer(state: GretelState, event: GretelEvent): GretelSta
   let nextState = state;
   switch (state) {
     case "boot":
-      if (event.type === "INIT") nextState = "idle";
+      // Enter settle frame first, then idle (G-02).
+      if (event.type === "INIT") nextState = "settling";
+      break;
+
+    case "settling":
+      if (event.type === "IDLE") nextState = "idle";
+      if (event.type === "ASSET_ERROR") nextState = "error";
       break;
 
     case "idle":
@@ -66,6 +78,7 @@ export function gretelReducer(state: GretelState, event: GretelEvent): GretelSta
       if (event.type === "WAVE") nextState = "waving";
       if (event.type === "POINT") nextState = "pointing";
       if (event.type === "CHEER") nextState = "cheering";
+      if (event.type === "EXIT") nextState = "exiting";
       if (event.type === "ASSET_ERROR") nextState = "error";
       break;
 
@@ -82,6 +95,7 @@ export function gretelReducer(state: GretelState, event: GretelEvent): GretelSta
     case "waving":
     case "pointing":
     case "cheering":
+    case "exiting":
       if (event.type === "IDLE") nextState = "idle";
       if (event.type === "ASSET_ERROR") nextState = "error";
       break;

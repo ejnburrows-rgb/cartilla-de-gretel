@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { type CSSProperties, type ReactNode } from "react";
+import { BookHeroGretel } from "./BookHeroGretel";
 
 export interface PastelStop {
   hex: string;
@@ -117,28 +118,14 @@ export function IntroSplash({
           initial="hidden"
           animate="visible"
           transition={heroTransition}
+          className="flex w-full max-w-md flex-col items-center"
         >
-          <img src="/cartilla/images/gretel/happy.webp" alt="Gretel" className="w-20 h-20 mx-auto mb-4 object-contain" />
-          <p className="text-xs font-black uppercase tracking-[0.3em] text-[hsl(24,98%,50%)]">
-            Bienvenidos a
+          {/* Real GretelPresence host — not a static pose swap */}
+          <BookHeroGretel size="md" objectPosition="center 20%" autoIntro={false} />
+          <p className="mt-6 max-w-xl text-lg font-extrabold leading-relaxed text-[hsl(28,30%,18%)]">
+            Bienvenidos a la Cartilla de Gretel. Vamos a aprender a leer juntos.
           </p>
-          <h1 className="mt-4 text-6xl font-black leading-[0.95] text-[hsl(200,98%,39%)] sm:text-7xl md:text-8xl">
-            La Cartilla
-            <br />
-            <span className="text-[hsl(24,98%,50%)]">de Gretel</span>
-          </h1>
         </motion.div>
-
-        <motion.p
-          variants={fadeUpVariants}
-          initial="hidden"
-          animate="visible"
-          transition={fadeUpTransition}
-          className="mt-8 max-w-xl text-lg font-semibold leading-relaxed text-[hsl(28,30%,18%)]/72"
-        >
-          Un libro de lectura para los más pequeños — colores suaves, letras
-          grandes y mucha imaginación.
-        </motion.p>
 
         {children ? (
           <div className="mt-6 w-full max-w-xl">{children}</div>

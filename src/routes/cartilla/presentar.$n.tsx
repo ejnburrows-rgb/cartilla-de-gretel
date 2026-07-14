@@ -1,39 +1,70 @@
 import { useMemo } from "react";
 import { createFileRoute, redirect, useNavigate } from "@tanstack/react-router";
 import { CATALOG, type CatalogEntry } from "@/lib/lesson-catalog";
+import { getStudentSession } from "@/lib/student-session";
+import { supabase } from "@/integrations/supabase/client";
+import { hasTeacherOrAdminRole } from "@/lib/auth-role";
+import { isSeedSessionActive } from "@/lib/seed-data";
 import { TeacherPresentationShell } from "@/components/cartilla/TeacherPresentationShell";
 import { FlipchartHdPanel } from "@/components/cartilla/FlipchartHdPanel";
-import { GardenScene } from "@/components/cartilla/GardenScene";
-import "@/styles/kiosko.css";
+import { getFlipchartPagesForLesson } from "@/lib/flipchart-hd";
 
+/**
+ * Teacher-only classroom presentation route.
+ * HD flipchart plates only (FlipchartHdPanel) — never the student workbook shell.
+ * Gate mirrors /cartilla/teacher: seed demo session OR signed-in teacher/admin role.
+ */
 export const Route = createFileRoute("/cartilla/presentar/$n")({
   component: PresentarLesson,
   head: ({ params }) => ({
     meta: [
       { title: `Presentando Lección ${params.n} — La Cartilla de Gretel` },
-      { name: "description", content: "Proyector interactivo de lección con control remoto y puntero láser." },
+      {
+        name: "description",
+        content: "Proyector profesional del flipchart del maestro con navegación y puntero.",
+      },
     ],
   }),
-  beforeLoad: ({ params }) => {
+  beforeLoad: async ({ params }) => {
+    if (getStudentSession()) {
+      throw redirect({ to: "/cartilla/lecciones" });
+    }
+
     const n = Number(params.n);
     if (!Number.isFinite(n) || !CATALOG.find((e) => e.n === n)) {
-      throw redirect({ to: "/cartilla/lecciones" });
+      throw redirect({ to: "/cartilla/teacher" });
+    }
+
+    if (isSeedSessionActive()) return;
+
+    const { data } = await supabase.auth.getSession();
+    if (!data.session) {
+      throw redirect({ to: "/login" });
+    }
+    const hasRole = await hasTeacherOrAdminRole(data.session.user.id);
+    if (!hasRole) {
+      if (typeof window !== "undefined") {
+        sessionStorage.setItem("cartilla.auth.unauthorized", "1");
+      }
+      throw redirect({ to: "/login" });
     }
   },
 });
 
-export function PresentarLesson() {
+function PresentarLesson() {
   const { n: nParam } = Route.useParams();
   const navigate = useNavigate();
   const n = Number(nParam);
 
   const entry = useMemo<CatalogEntry | undefined>(
     () => CATALOG.find((e) => e.n === n),
-    [n]
+    [n],
   );
 
+  const sheetCount = useMemo(() => getFlipchartPagesForLesson(n).length, [n]);
+
   const handleExit = () => {
-    navigate({ to: "/cartilla/leccion/$n", params: { n: String(n) } });
+    navigate({ to: "/cartilla/teacher" });
   };
 
   if (!entry) return null;
@@ -41,26 +72,19 @@ export function PresentarLesson() {
   const accentColor = entry.color || "#c98c4f";
 
   return (
-    <TeacherPresentationShell accentColor={accentColor} onExit={handleExit}>
-      <GardenScene>
-        <div className="w-full h-full flex flex-col items-center justify-between p-8 relative z-10">
-
-          {/* Top Info bar — the flipchart panel below shows its own page count */}
-          <div className="w-full flex justify-between items-center text-stone-800 z-50 bg-white/80 backdrop-blur px-6 py-3 rounded-2xl shadow-sm border border-stone-200">
-            <div className="text-left">
-              <span className="text-[10px] font-black uppercase tracking-widest" style={{ color: accentColor }}>
-                Lección {n}
-              </span>
-              <h2 className="text-lg font-black text-stone-800">{entry.title}</h2>
-            </div>
-          </div>
-
-          {/* Real teacher flipchart, presentation lane only — not the student workbook */}
-          <div className="flex-1 flex items-center justify-center p-4 w-full">
-            <FlipchartHdPanel lessonNumber={n} />
-          </div>
-        </div>
-      </GardenScene>
+    <TeacherPresentationShell
+      accentColor={accentColor}
+      onExit={handleExit}
+      eyebrow={`Lección ${n} · Flipchart`}
+      title={entry.title}
+      subtitle={
+        sheetCount > 0
+          ? `${sheetCount} láminas HD · Proyector del maestro`
+          : "Proyector del maestro"
+      }
+    >
+      {/* Full-bleed board — no nested max-width chrome bars */}
+      <FlipchartHdPanel lessonNumber={n} accentColor={accentColor} />
     </TeacherPresentationShell>
   );
 }

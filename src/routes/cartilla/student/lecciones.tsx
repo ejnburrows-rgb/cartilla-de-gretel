@@ -20,7 +20,6 @@ import { BookArtFigure } from "@/components/cartilla/BookArtFigure";
 import { InstallPrompt } from "@/components/cartilla/InstallPrompt";
 import { PageBackground } from "@/components/art/PageBackground";
 import { SparkleField } from "@/components/art/SparkleField";
-import { GretelMascot } from "@/components/gretel/GretelMascot";
 import "@/styles/cartilla-student.css";
 
 // Search param validation without zod
@@ -379,14 +378,7 @@ function Lecciones() {
         </div>
       </section>
       <InstallPrompt />
-      <div className="fixed bottom-4 right-4 z-40">
-        <GretelMascot
-          pose="welcome"
-          text="¡Start here!\nAbre tu libro o continúa con la siguiente lección."
-          bubblePosition="left"
-          showCloseButton={true}
-        />
-      </div>
+      {/* Corner sticker Gretel removed — full-presence Gretel lives on the lesson page. */}
     </div>
   );
 }

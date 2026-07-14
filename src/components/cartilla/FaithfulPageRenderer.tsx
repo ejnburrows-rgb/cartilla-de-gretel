@@ -1,18 +1,25 @@
 import type { ReactNode } from "react";
 import { getPageLayout, type PageGridCell, type PageRegion } from "@/lib/book-faithful";
+// PageGridCell used by RegionView siblingCells for Dibuja pick options
 import { PageFrame } from "./PageFrame";
 import { CATALOG } from "@/lib/lesson-catalog";
 import {
   InteractivePictureGrid,
   InteractiveVowelPickOne,
-  InteractiveVowelMatchAll,
-  InteractiveVowelLineMatch,
-  InteractiveSyllableMatch,
   InteractiveFillInBlank,
 } from "./InteractivePageExercises";
 import { WorkbookLetterTrace } from "./WorkbookLetterTrace";
 import { getLetterTemplate } from "./letter-stroke-templates";
-import { DrawBoxCanvas } from "./DrawBoxCanvas";
+import { LivingIllustration } from "@/components/living/LivingIllustration";
+import {
+  DibujaFromRegion,
+  LassoPictureGrid,
+  LassoSyllableMatch,
+  LassoVowelLineMatch,
+  LassoVowelMatchAll,
+  PaintFromRegion,
+  resolveFaithfulHost,
+} from "@/cartilla/interactions/faithfulAdapters";
 
 /**
  * Per-lesson garden background overrides. The CSS default is gretel-authentic.jpg
@@ -87,7 +94,7 @@ function IllustrationSlot({ region }: { region: PageRegion }) {
   if (region.illustrationSrc) {
     return (
       <div className="fp-illustration">
-        <img src={region.illustrationSrc} alt={caption ?? ""} loading="lazy" />
+        <LivingIllustration src={region.illustrationSrc} alt={caption ?? ""} loading="lazy" />
         {caption ? <span className="fp-illustration__caption">{caption}</span> : null}
       </div>
     );
@@ -120,7 +127,7 @@ function PictureGrid({ region }: { region: PageRegion }) {
       {cells.map((cell, i) => (
         <div key={i} className="fp-picture-grid__cell" style={{ ["--float-delay" as string]: floatDelay(i) }}>
           {cell.illustrationSrc ? (
-            <img src={cell.illustrationSrc} alt={cell.caption ?? ""} loading="lazy" />
+            <LivingIllustration src={cell.illustrationSrc} alt={cell.caption ?? ""} loading="lazy" />
           ) : (
             <div className="fp-art-pending" role="img" aria-label={cell.caption ? `Ilustración pendiente: ${cell.caption}` : "Ilustración pendiente"}>
               {cell.caption ? <span className="fp-art-pending__word">{cell.caption}</span> : null}
@@ -175,7 +182,7 @@ function VowelMatchCell({ cell, isExample, index }: { cell: PageGridCell; isExam
       style={{ ["--float-delay" as string]: floatDelay(index) }} 
     >
       {cell.illustrationSrc ? (
-        <img src={cell.illustrationSrc} alt={cell.caption ?? ""} loading="lazy" />
+        <LivingIllustration src={cell.illustrationSrc} alt={cell.caption ?? ""} loading="lazy" />
       ) : (
         <div className="fp-art-pending" role="img" aria-label={cell.caption ? `Ilustración pendiente: ${cell.caption}` : "Ilustración pendiente"}>
           {cell.caption ? <span className="fp-art-pending__word">{cell.caption}</span> : null}
@@ -211,7 +218,7 @@ function VowelPickOne({ region }: { region: PageRegion }) {
           {row.cells.map((cell, j) => (
             <div key={j} className="fp-vowel-pick__cell" style={{ ["--float-delay" as string]: floatDelay(i * 3 + j) }}>
               {cell.illustrationSrc ? (
-                <img src={cell.illustrationSrc} alt={cell.caption ?? ""} loading="lazy" />
+                <LivingIllustration src={cell.illustrationSrc} alt={cell.caption ?? ""} loading="lazy" />
               ) : (
                 <div className="fp-art-pending" role="img" aria-label={cell.caption ? `Ilustración pendiente: ${cell.caption}` : "Ilustración pendiente"}>
                   {cell.caption ? <span className="fp-art-pending__word">{cell.caption}</span> : null}
@@ -254,20 +261,85 @@ function RegionView({
   interactive,
   accent,
   lessonId,
+  lessonNumber,
   resolvedModelText,
+  precedingInstruction,
+  siblingCells,
 }: {
   region: PageRegion;
   interactive?: boolean;
   accent?: string;
   lessonId?: string;
+  lessonNumber?: number;
   /** writing-line only: region.modelText, or inherited from the preceding
    * writing-line sibling when this region is the blank "trace it again" line. */
   resolvedModelText?: string;
+  /** Most recent instruction text on this page (for verb-honest mechanic routing). */
+  precedingInstruction?: string;
+  /** Picture-grid cells from the same page (for Dibuja pick-mode options). */
+  siblingCells?: PageGridCell[];
 }) {
+  // Host chosen once so Colorea never silently becomes tap-select, and
+  // Encierra / Une always stay on LassoConnect when interactive.
+  const host = interactive
+    ? resolveFaithfulHost(region.regionType, precedingInstruction)
+    : "static";
+
   switch (region.regionType) {
     case "illustration-slot":
+      if (host === "paint") {
+        return (
+          <PaintFromRegion
+            region={region}
+            lessonId={lessonId}
+            illustrationSrc={region.illustrationSrc}
+            illustrationAlt={region.caption ?? region.illustrationWord}
+            instruction={precedingInstruction}
+          />
+        );
+      }
       return <IllustrationSlot region={region} />;
+    case "paint-box":
+      // Always PaintCanvas when interactive — never tap fallback
+      return interactive ? (
+        <PaintFromRegion
+          region={region}
+          lessonId={lessonId}
+          illustrationSrc={region.illustrationSrc}
+          illustrationAlt={region.caption ?? region.text}
+          instruction={precedingInstruction ?? region.text}
+        />
+      ) : (
+        <div className="fp-draw-box" aria-label={region.text ?? "Colorea"}>
+          {region.illustrationSrc ? (
+            <img src={region.illustrationSrc} alt={region.caption ?? ""} loading="lazy" />
+          ) : null}
+          {region.text ? <span className="fp-draw-box__hint">{region.text}</span> : null}
+        </div>
+      );
     case "picture-grid":
+      if (host === "lasso-mark") {
+        return (
+          <LassoPictureGrid
+            region={region}
+            lessonId={lessonId}
+            instruction={precedingInstruction}
+          />
+        );
+      }
+      if (host === "paint") {
+        // Colorea on a grid: paint the first colorable illustration cell as stage
+        const cell = (region.cells ?? []).find((c) => c.illustrationSrc) ?? region.cells?.[0];
+        return (
+          <PaintFromRegion
+            region={region}
+            lessonId={lessonId}
+            illustrationSrc={cell?.illustrationSrc}
+            illustrationAlt={cell?.caption}
+            instruction={precedingInstruction}
+          />
+        );
+      }
       return interactive ? (
         <InteractivePictureGrid region={region} accent={accent ?? "hsl(230 75% 58%)"} lessonId={lessonId} />
       ) : (
@@ -275,7 +347,11 @@ function RegionView({
       );
     case "vowel-line-match":
       return interactive ? (
-        <InteractiveVowelLineMatch region={region} accent={accent ?? "hsl(230 75% 58%)"} lessonId={lessonId} />
+        <LassoVowelLineMatch
+          region={region}
+          lessonId={lessonId}
+          instruction={precedingInstruction}
+        />
       ) : (
         <VowelLineMatch region={region} />
       );
@@ -287,13 +363,21 @@ function RegionView({
       );
     case "vowel-match-all":
       return interactive ? (
-        <InteractiveVowelMatchAll region={region} accent={accent ?? "hsl(230 75% 58%)"} lessonId={lessonId} />
+        <LassoVowelMatchAll
+          region={region}
+          lessonId={lessonId}
+          instruction={precedingInstruction}
+        />
       ) : (
         <VowelMatchAll region={region} />
       );
     case "syllable-match":
       return interactive ? (
-        <InteractiveSyllableMatch region={region} accent={accent ?? "hsl(230 75% 58%)"} lessonId={lessonId} />
+        <LassoSyllableMatch
+          region={region}
+          lessonId={lessonId}
+          instruction={precedingInstruction}
+        />
       ) : (
         <SyllableMatch region={region} />
       );
@@ -345,7 +429,14 @@ function RegionView({
       );
     }
     case "draw-box":
-      return (
+      return interactive ? (
+        <DibujaFromRegion
+          region={region}
+          lessonId={lessonId}
+          lessonNumber={lessonNumber}
+          siblingCells={siblingCells}
+        />
+      ) : (
         <div className="fp-draw-box" aria-label={region.text ?? "Espacio para dibujar"}>
           {region.text ? <span className="fp-draw-box__hint">{region.text}</span> : null}
         </div>
@@ -391,12 +482,19 @@ export function FaithfulPageRenderer({
   // model letter from its immediately preceding writing-line sibling so both
   // repetitions are traceable, not just the first.
   let lastWritingLineModelText: string | undefined;
+  let lastInstructionText: string | undefined;
 
   // If every writing-line on this page hides (no real template), the
   // "Traza con tu mejor letra." instruction that precedes them would be
   // left dangling with nothing to write on — hide it too in that case.
   const pageHasTraceableWritingLine = ordered.some(
     (r) => r.regionType === "writing-line" && getLetterTemplate(r.modelText) !== null,
+  );
+
+  // Sibling picture-grid cells on this page — used by DibujaHost pick mode
+  // so options stay lesson-faithful (never random clipart).
+  const siblingCells: PageGridCell[] = ordered.flatMap((r) =>
+    r.regionType === "picture-grid" ? (r.cells ?? []) : [],
   );
 
   return (
@@ -410,6 +508,9 @@ export function FaithfulPageRenderer({
         ) {
           return null;
         }
+        if (region.regionType === "instruction" && region.text) {
+          lastInstructionText = region.text;
+        }
         let resolvedModelText: string | undefined;
         if (region.regionType === "writing-line") {
           resolvedModelText = region.modelText || lastWritingLineModelText;
@@ -422,7 +523,10 @@ export function FaithfulPageRenderer({
             interactive={interactive}
             accent={accent}
             lessonId={lessonId}
+            lessonNumber={lessonNumber}
             resolvedModelText={resolvedModelText}
+            precedingInstruction={lastInstructionText}
+            siblingCells={siblingCells}
           />
         );
       })}

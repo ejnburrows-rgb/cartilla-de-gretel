@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { createFileRoute, Link, useNavigate, redirect } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@/lib/useServerFn";
@@ -8,6 +8,7 @@ import { useLessonProgress, isLessonUnlocked, markLessonCompleted } from "@/lib/
 import { recordEvent, useStudentSession } from "@/lib/student-session";
 import { LessonTimer } from "@/components/cartilla/LessonTimer";
 import { listMyAssignments } from "@/lib/assignments.functions";
+import { getMyProgress, saveLastPage } from "@/lib/student.functions";
 import { useLanguage } from "@/context/LanguageContext";
 import { LanguageToggle } from "@/components/LanguageToggle";
 import { sCopy } from "@/content/student-copy";
@@ -15,7 +16,7 @@ import { gretelEvent } from "@/lib/gretel-bus";
 
 import { SimplePageViewer } from "@/components/StudentBook/SimplePageViewer";
 import { buildPageArray } from "@/utils/buildPageArray";
-import { GretelLiveAvatar } from "@/components/gretel/GretelLiveAvatar";
+import { GretelPresence } from "@/components/gretel/GretelPresence";
 import { GardenScene } from "@/components/cartilla/GardenScene";
 import "@/styles/interactive-exercises.css";
 import "@/styles/gretel.css";
@@ -66,8 +67,82 @@ function Leccion() {
     [assignments, n],
   );
 
+  const fetchProgress = useServerFn(getMyProgress);
+  const { data: progressData, isFetched, isError } = useQuery({
+    queryKey: ["my-progress", session?.studentId],
+    queryFn: () =>
+      session
+        ? fetchProgress({ data: { studentId: session.studentId, studentCode: session.studentCode } })
+        : Promise.resolve(null),
+    enabled: !!session,
+    // Never block the workbook forever when Supabase is down / session is stale.
+    retry: 1,
+  });
+  // Without a session, render immediately. With a session, wait until the
+  // query settles (success OR error) so a dead backend can't blank the page.
+  const progressReady = !session || isFetched || isError;
+  const initialPage = useMemo(() => {
+    if (!session) return 0;
+    const lessonProgress =
+      (progressData as { lessonProgress?: Array<{ lesson_id: string; last_page?: number | null }> } | null)
+        ?.lessonProgress ?? [];
+    const row = lessonProgress.find((p) => p.lesson_id === String(n));
+    return row?.last_page ?? 0;
+  }, [session, progressData, n]);
+
+  const saveLastPageFn = useServerFn(saveLastPage);
+  const handlePageChange = (index: number) => {
+    if (!session) return;
+    void saveLastPageFn({
+      data: {
+        studentId: session.studentId,
+        studentCode: session.studentCode,
+        lessonId: String(n),
+        page: index,
+      },
+    }).catch(() => {
+      // Best-effort: last-page persistence is a resume convenience, never
+      // blocks reading. getMyProgress remains the source of truth next load.
+    });
+  };
+
   const unlocked = typeof window === "undefined" || isLessonUnlocked(n);
   const startedAt = useRef<number>(Date.now());
+
+  // Gretel must never be covered by the fixed bottom nav (hard rule — see
+  // "Characters must be ALIVE" in CLAUDE.md). The nav is viewport-fixed, so a
+  // one-time bottom-padding buffer on <main> only protects the very end of
+  // the page, not the mid-scroll moment the Gretel panel itself passes behind
+  // that same strip. Measure the real overlap on every scroll/resize and
+  // fade the nav out whenever it would visually intersect her panel.
+  const gretelWrapRef = useRef<HTMLDivElement>(null);
+  const navRef = useRef<HTMLElement>(null);
+  const [navObscuresGretel, setNavObscuresGretel] = useState(false);
+
+  useEffect(() => {
+    let rafId = 0;
+    const measure = () => {
+      rafId = 0;
+      const gretelEl = gretelWrapRef.current;
+      const navEl = navRef.current;
+      if (!gretelEl || !navEl) return;
+      const g = gretelEl.getBoundingClientRect();
+      const nv = navEl.getBoundingClientRect();
+      const overlapY = Math.min(g.bottom, nv.bottom) - Math.max(g.top, nv.top);
+      setNavObscuresGretel(overlapY > 0 && g.height > 0);
+    };
+    const onScrollOrResize = () => {
+      if (!rafId) rafId = requestAnimationFrame(measure);
+    };
+    measure();
+    window.addEventListener("scroll", onScrollOrResize, { passive: true });
+    window.addEventListener("resize", onScrollOrResize);
+    return () => {
+      window.removeEventListener("scroll", onScrollOrResize);
+      window.removeEventListener("resize", onScrollOrResize);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
+  }, [n]);
 
   useEffect(() => {
     if (entry && !unlocked) navigate({ to: "/cartilla/lecciones" });
@@ -149,22 +224,50 @@ function Leccion() {
             {!session && (
               <div className="fixed top-4 left-4 z-[200]">
                 <Link
-                  to="/cartilla/teacher/lecciones"
+                  to="/cartilla/lecciones"
                   className="inline-flex items-center gap-2 px-4 py-2 bg-stone-800/90 hover:bg-stone-800 text-white font-bold rounded-xl shadow-lg backdrop-blur transition hover:-translate-y-0.5"
                 >
-                  <ArrowLeft className="w-4 h-4" /> Salir al CRM
+                  <ArrowLeft className="w-4 h-4" /> Volver a mis lecciones
                 </Link>
               </div>
             )}
-            <SimplePageViewer pages={pages} initialPage={0} />
+            {progressReady && (
+              <div className="gretel-presence-layout w-full">
+                <SimplePageViewer
+                  key={n}
+                  pages={pages}
+                  initialPage={initialPage}
+                  onPageChange={handlePageChange}
+                />
+                {/* Full-presence host — continuous layered life + little-girl Spanish TTS */}
+                {entry && (
+                  <div ref={gretelWrapRef}>
+                    <GretelPresence
+                      key={`gretel-${n}`}
+                      lesson={{
+                        n: entry.n,
+                        kind: entry.kind,
+                        title: entry.title,
+                        subtitle: entry.subtitle,
+                        letter: entry.kind === "consonant" ? entry.letter : undefined,
+                        vowel: entry.kind === "vowel" ? entry.vowel : undefined,
+                      }}
+                      autoIntro
+                    />
+                  </div>
+                )}
+              </div>
+            )}
           </GardenScene>
         </div>
-
-        <div className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-[100] pointer-events-none">
-          <GretelLiveAvatar size="md" bubblePosition="left" />
-        </div>
       </main>
-      <nav className="fixed bottom-0 inset-x-0 p-3 bg-background/95 backdrop-blur border-t-2 border-foreground/10">
+      <nav
+        ref={navRef}
+        aria-hidden={navObscuresGretel}
+        className={`fixed bottom-0 inset-x-0 p-3 bg-background/95 backdrop-blur border-t-2 border-foreground/10 transition-opacity duration-200 ${
+          navObscuresGretel ? "opacity-0 pointer-events-none" : "opacity-100"
+        }`}
+      >
         <div className="max-w-3xl mx-auto flex items-center justify-between gap-3">
           <button
             onClick={() =>

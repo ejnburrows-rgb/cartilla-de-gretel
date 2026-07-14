@@ -1,0 +1,103 @@
+{
+  "generatedAt": "2026-07-13T00:00:00.000Z",
+  "worker": "C",
+  "branch": "demo/full-show-jul13",
+  "note": "Template-literal path builders (feel-bus, bookImages, audio-manifest voice/silaba) are not missing files — they construct URLs at runtime. Only concrete broken refs are listed below.",
+  "remaps": [
+    {
+      "old": "/audio/ui/page-turn.mp3",
+      "new": "/audio/page-turn.mp3",
+      "where": "src/content/audio-manifest.ts"
+    },
+    {
+      "old": "/audio/ui/page-turn-soft.mp3",
+      "new": "/audio/page-turn-soft.mp3",
+      "where": "src/content/audio-manifest.ts"
+    },
+    {
+      "old": "/audio/ui/success.mp3",
+      "new": "/audio/feel/success.mp3",
+      "where": "src/content/audio-manifest.ts"
+    },
+    {
+      "old": "/audio/ui/nudge-gentle.mp3",
+      "new": "/audio/feel/tap.mp3",
+      "where": "src/content/audio-manifest.ts"
+    },
+    {
+      "old": "/audio/ui/streak-chime.mp3",
+      "new": "/audio/feel/chime.mp3",
+      "where": "src/content/audio-manifest.ts"
+    },
+    {
+      "old": "/audio/ui/streak-cheer.mp3",
+      "new": "/audio/feel/sparkle.mp3",
+      "where": "src/content/audio-manifest.ts"
+    },
+    {
+      "old": "/audio/ui/streak-fanfare.mp3",
+      "new": "/audio/feel/success.mp3",
+      "where": "src/content/audio-manifest.ts"
+    },
+    {
+      "old": "/audio/ui/ambient-classroom.mp3",
+      "new": "/audio/ambient-classroom.mp3",
+      "where": "src/content/audio-manifest.ts"
+    },
+    {
+      "old": "/cartilla/images/gretel/happy.webp",
+      "new": "/cartilla/images/gretel/poses/gretel-wave.webp",
+      "where": "src/components/intro/IntroSplash.tsx"
+    },
+    {
+      "old": "/cartilla/art/faithful/gretel-poses/gretel-book-right.png",
+      "new": "/cartilla/images/gretel/poses/gretel-wave.webp",
+      "where": "src/routes/cartilla/index.tsx"
+    },
+    {
+      "old": "/cartilla/images/family-garden-bg.jpeg",
+      "new": "/art/hd/garden/base.jpg",
+      "where": "src/routes/index.tsx"
+    },
+    {
+      "old": "art/hd/page-1.png",
+      "new": "cartilla/art/hd/workbook/page-001.png",
+      "where": "src/data/workbook-interactions.json (cover interaction)"
+    },
+    {
+      "old": "/cartilla/art/faithful/2/oso.webp",
+      "new": "/cartilla/art/faithful/vocal-o/oso.webp",
+      "where": "src/lib/book-faithful.ts (comment example only)"
+    }
+  ],
+  "assetDoesNotExist": [
+    {
+      "path": "/cartilla/audio/words/*.mp3",
+      "status": "ASSET-DOES-NOT-EXIST",
+      "where": "src/components/cartilla/InteractiveFlipchartOverlay.tsx",
+      "mitigation": "Removed speculative mp3 fetch; uses TTS speak() only until real recordings land."
+    },
+    {
+      "path": "/audio/voz/<letter>/<slug>.mp3",
+      "status": "ASSET-DOES-NOT-EXIST",
+      "where": "src/content/audio-manifest.ts path convention",
+      "mitigation": "By design — engine returns silence until kid-voice recordings exist. Not fabricated."
+    },
+    {
+      "path": "/audio/silaba/<slug>.mp3",
+      "status": "ASSET-DOES-NOT-EXIST",
+      "where": "src/content/audio-manifest.ts path convention",
+      "mitigation": "By design — same silence policy."
+    },
+    {
+      "path": "public/art/hd/page-1.png",
+      "status": "ASSET-DOES-NOT-EXIST",
+      "note": "HD remaster set starts at page-2.png; cover uses cartilla/art/hd/workbook/page-001.png"
+    }
+  ],
+  "demoMode": {
+    "flag": "VITE_ALLOW_DEMO_MODE",
+    "buildStatus": "OFF",
+    "evidence": "import.meta.env.VITE_ALLOW_DEMO_MODE === 'true' required; unset in this environment; seed/demo session cannot activate."
+  }
+}

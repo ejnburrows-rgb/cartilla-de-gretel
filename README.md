@@ -71,7 +71,7 @@ Released under the MIT License. See [LICENSE](LICENSE).
 - Contributors: Aída Fernández, Silvia Diez
 - Illustrator: Estela de Armas Plasencia
 - Digital adaptation: Emilio José Novo
-- Published by LANY Books LLC
+- Digital edition of La Cartilla de Gretel
 
 ## Command Center Automation
 
