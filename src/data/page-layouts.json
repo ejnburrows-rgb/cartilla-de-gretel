@@ -55,7 +55,6 @@
             },
             {
               "caption": "remolino",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-1/remolino.webp",
               "correct": false
             },
             {
@@ -142,7 +141,6 @@
                 },
                 {
                   "caption": "manzana",
-                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/manzana.webp",
                   "correct": false
                 },
                 {
@@ -161,7 +159,6 @@
                 },
                 {
                   "caption": "árbol",
-                  "illustrationSrc": "/cartilla/art/faithful/vocal-a/arbol.webp",
                   "correct": false
                 },
                 {
@@ -176,7 +173,6 @@
               "cells": [
                 {
                   "caption": "taza",
-                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/taza.webp",
                   "correct": false
                 },
                 {
@@ -186,7 +182,6 @@
                 },
                 {
                   "caption": "pera",
-                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/pera.webp",
                   "correct": false
                 }
               ]
@@ -537,7 +532,6 @@
             },
             {
               "caption": "árbol",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/arbol.webp",
               "correct": true
             },
             {
@@ -575,7 +569,6 @@
             },
             {
               "caption": "aguja",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/aguja.webp",
               "correct": true
             },
             {
@@ -626,7 +619,6 @@
             },
             {
               "caption": "aguja",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/aguja.webp",
               "correct": true
             },
             {
@@ -641,7 +633,6 @@
             },
             {
               "caption": "remolino",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-1/remolino.webp",
               "correct": false
             }
           ]
@@ -751,7 +742,6 @@
             },
             {
               "caption": "aguja",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/aguja.webp",
               "correct": false
             },
             {
@@ -1170,7 +1160,6 @@
             },
             {
               "caption": "árbol",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/arbol.webp",
               "correct": true
             },
             {
@@ -1834,8 +1823,7 @@
               },
               {
                 "word": "pera",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-1/pera.webp"
+                "correct": true
               }
             ],
             [
@@ -1921,8 +1909,7 @@
               },
               {
                 "word": "pera",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-1/pera.webp"
+                "correct": false
               },
               {
                 "word": "pala",
@@ -5278,8 +5265,7 @@
             [
               {
                 "word": "pera",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-1/pera.webp"
+                "correct": false
               },
               {
                 "word": "rama",
@@ -5321,8 +5307,7 @@
               },
               {
                 "word": "pera",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-1/pera.webp"
+                "correct": true
               },
               {
                 "word": "Rafa",
@@ -5379,8 +5364,7 @@
               },
               {
                 "word": "pera",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-1/pera.webp"
+                "correct": false
               }
             ]
           ]
