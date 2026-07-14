@@ -6,8 +6,9 @@ import { playObjectAudio, type InteractionProps } from "./shared";
  * no right/wrong answer to explore audio), so `onComplete` fires once every
  * object has been tapped at least once, letting a parent page still track
  * "did the student engage with this page" without inventing a pass/fail.
- * `object.audio.src === ""` safely no-ops per the project's audio convention
- * — the object still gets its tap/playing visual feedback either way.
+ * `playObjectAudio` (shared.ts) plays a recorded cue when one exists and
+ * falls back to real TTS otherwise — tapping is always audible, never a
+ * silent no-op.
  */
 export function TapToHear({ objects, onComplete, onAudioPlayed, reducedMotion }: InteractionProps) {
   const [playedIds, setPlayedIds] = useState<Set<string>>(new Set());

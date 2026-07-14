@@ -857,6 +857,19 @@ the warning strings now exist in the shipped bundle. `pnpm tsc --noEmit`,
 `node scripts/validate-content.mjs`, and the full suite (211 passed, 2
 expected fail) all clean.
 
+## Merge reconciliation — `claude/branch-status-review-iz7j6j` vs `main` (this turn)
+
+This branch had drifted 90 commits behind `main` and carried its own copy of
+the same "import DrawBoxCanvas but never wire the `draw-box` case" bug
+described above (commit `e484cfb` locally) — `main` had already fixed this
+via `DibujaFromRegion` (PR #142) and gone on to replace the draw-box
+mechanic entirely with the Lasso/Dibuja adapters. Resolved the merge by
+keeping `main`'s `FaithfulPageRenderer.tsx` (DibujaFromRegion path) and
+dropping the redundant local `DrawBoxCanvas` import; `DrawBoxCanvas.tsx`
+itself is left in place (unused) rather than deleted, per the no-delete
+rule. SPEC.md conflict resolved in favor of `main`'s narrative (verified
+accurate against `main`'s own commit history: PR #139 is in fact merged).
+
 ## Login end-to-end test plan — READY, blocked only on migration confirmation
 
 Owner is applying the Supabase migration (`20260709191308_class_code_tap_

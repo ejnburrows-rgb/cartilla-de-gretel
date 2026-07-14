@@ -29,6 +29,11 @@ export const Route = createFileRoute("/dev-workbook-manifest")({
  * — never invented content.
  */
 function DevWorkbookManifestSandbox() {
+  if (!import.meta.env.DEV) return null;
+  return <DevWorkbookManifestSandboxInner />;
+}
+
+function DevWorkbookManifestSandboxInner() {
   const [pageInput, setPageInput] = useState("1");
   const [loadedPage, setLoadedPage] = useState(Number(pageInput));
   const [events, setEvents] = useState<ProgressEvent[]>([]);

@@ -43,9 +43,14 @@ function warn(where, msg) {
   warnings.push(`${where}: ${msg}`);
 }
 
+// Same MIN_BYTES floor as art-slots-integrity.test.ts / manifest-integrity.test.ts —
+// a 0-byte or near-empty stub is not a real asset.
+const MIN_BYTES = 1500;
+
 function fileExistsUnderPublic(assetPath) {
   const clean = assetPath.startsWith("/") ? assetPath.slice(1) : assetPath;
-  return fs.existsSync(path.join(rootDir, "public", clean));
+  const full = path.join(rootDir, "public", clean);
+  return fs.existsSync(full) && fs.statSync(full).size >= MIN_BYTES;
 }
 
 // ---------------------------------------------------------------------------
@@ -73,8 +78,15 @@ const REGION_REQUIRED_FIELDS = {
 
 function checkImagePath(where, assetPath) {
   if (!assetPath) return;
-  if (!fileExistsUnderPublic(assetPath)) {
+  const clean = assetPath.startsWith("/") ? assetPath.slice(1) : assetPath;
+  const full = path.join(rootDir, "public", clean);
+  if (!fs.existsSync(full)) {
     err(where, `references missing file "${assetPath}"`);
+  } else if (!fileExistsUnderPublic(assetPath)) {
+    err(
+      where,
+      `references empty/stub file "${assetPath}" (${fs.statSync(full).size}b, below ${MIN_BYTES}b floor)`,
+    );
   }
 }
 

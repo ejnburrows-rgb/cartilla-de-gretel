@@ -163,6 +163,11 @@ function ResultLog({ label, log, done }: { label: string; log: string[]; done: b
 }
 
 function DevLivingWorkbookSandbox() {
+  if (!import.meta.env.DEV) return null;
+  return <DevLivingWorkbookSandboxInner />;
+}
+
+function DevLivingWorkbookSandboxInner() {
   const [logs, setLogs] = useState<Record<string, string[]>>({});
   const [done, setDone] = useState<Record<string, boolean>>({});
 
