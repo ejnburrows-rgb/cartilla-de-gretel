@@ -1,0 +1,1028 @@
+{
+  "generated": "2026-07-14",
+  "total_branches": 146,
+  "report": [
+    {
+      "branch": "art/batch2-wire-in",
+      "sha": "83ce8e9bb8",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "1 of 7 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "art/batch3-wire-in",
+      "sha": "e3ce7377dc",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "3 of 19 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "art/batch4-wire-in",
+      "sha": "53dd8d8252",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "4 of 20 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "art/final-6-words",
+      "sha": "09a81d8724",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "1 of 7 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "art/leccion1-batch",
+      "sha": "5862f9279d",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "3 of 6 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "art/urna-una-fixes",
+      "sha": "f4962816ac",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "1 of 2 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "art/vocab-vowels",
+      "sha": "52cc117530",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "19 of 68 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "art/vocab-vowels-fixed",
+      "sha": "418f19d880",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 32 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "art/wire-final-6-words",
+      "sha": "f74b22ba8c",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "1 of 8 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "chore/archive-orphaned-teacher-v2",
+      "sha": "3db3caced3",
+      "classification": "ALREADY-IN-MAIN",
+      "evidence": "commit is an ancestor of main (literal git history)",
+      "disposition": "DELETE-RECOMMENDED (blocked: git proxy returns 403 on ref deletion; no GitHub API delete-branch tool available \u2014 owner needs to delete manually via GitHub UI or with their own gh CLI)"
+    },
+    {
+      "branch": "chore/ci-ghost-verify",
+      "sha": "0b2e05f05b",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 1 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "chore/gha-startup-probe",
+      "sha": "8b9a377404",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 25 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "chore/gitignore-prod-secrets",
+      "sha": "3a70d5e547",
+      "classification": "ALREADY-IN-MAIN",
+      "evidence": "all 1 touched file(s) byte-identical to current main (squash-merged elsewhere)",
+      "disposition": "DELETE-RECOMMENDED (blocked: git proxy returns 403 on ref deletion; no GitHub API delete-branch tool available \u2014 owner needs to delete manually via GitHub UI or with their own gh CLI)"
+    },
+    {
+      "branch": "chore/remove-inert-duplicate-files",
+      "sha": "ab95f36bfb",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "2236 of 2237 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "claude/branch-status-review-iz7j6j",
+      "sha": "c4dd38fed2",
+      "classification": "ALREADY-IN-MAIN",
+      "evidence": "commit is an ancestor of main (literal git history)",
+      "disposition": "KEEP \u2014 this session's designated working branch, not a stray feature branch"
+    },
+    {
+      "branch": "claude/la-cartilla-notion-connector-0rqv7b",
+      "sha": "59f6a71f84",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 9 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "claude/paperback-to-crm-digitization-0vaqwi",
+      "sha": "2c9449f3c5",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "1 of 439 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "demo/full-show-jul13",
+      "sha": "3a7a4b82f3",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "23 of 43 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "docs/agents-contract-and-art-backlog",
+      "sha": "c7b03921d7",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "1 of 2 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "docs/always-answer-and-ask",
+      "sha": "7a06da83c9",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 1 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "docs/antigravity-prompt-format",
+      "sha": "e924f85290",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 1 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "docs/art-backlog-full-reaudit",
+      "sha": "795114ce35",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 1 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "docs/close-art-backlog",
+      "sha": "fe65e9f714",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 1 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "docs/colorful-games-direction",
+      "sha": "bcc392564a",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 2 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "docs/concise-answers",
+      "sha": "ca1d795c57",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 1 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "docs/decide-dont-bounce-back",
+      "sha": "69de1a2763",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 1 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "docs/frame-requests-status",
+      "sha": "d19094e0ad",
+      "classification": "ALREADY-IN-MAIN",
+      "evidence": "all 1 touched file(s) byte-identical to current main (squash-merged elsewhere)",
+      "disposition": "DELETE-RECOMMENDED (blocked: git proxy returns 403 on ref deletion; no GitHub API delete-branch tool available \u2014 owner needs to delete manually via GitHub UI or with their own gh CLI)"
+    },
+    {
+      "branch": "docs/interactive-redesign-decisions",
+      "sha": "ac5b2414d8",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 1 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "docs/lasso-interaction-mockup",
+      "sha": "5e1c461649",
+      "classification": "ALREADY-IN-MAIN",
+      "evidence": "all 1 touched file(s) byte-identical to current main (squash-merged elsewhere)",
+      "disposition": "DELETE-RECOMMENDED (blocked: git proxy returns 403 on ref deletion; no GitHub API delete-branch tool available \u2014 owner needs to delete manually via GitHub UI or with their own gh CLI)"
+    },
+    {
+      "branch": "docs/login-e2e-test-plan",
+      "sha": "55b470c979",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 1 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "docs/memorize-owner-feedback-garden-gretel",
+      "sha": "b29367c997",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 1 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "docs/refresh-operator-needs",
+      "sha": "a02d91db4b",
+      "classification": "ALREADY-IN-MAIN",
+      "evidence": "all 2 touched file(s) byte-identical to current main (squash-merged elsewhere)",
+      "disposition": "DELETE-RECOMMENDED (blocked: git proxy returns 403 on ref deletion; no GitHub API delete-branch tool available \u2014 owner needs to delete manually via GitHub UI or with their own gh CLI)"
+    },
+    {
+      "branch": "docs/spec-close-sentence-writing-gap",
+      "sha": "de8ba8825f",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 1 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "docs/spec-update-turn-close",
+      "sha": "2b6a171b9d",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 1 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "docs/status-report-format",
+      "sha": "b18f69a085",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 1 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "docs/talk-plain-language",
+      "sha": "059f0216f0",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 1 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "docs/update-status-interactive-exercises",
+      "sha": "d988a50189",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 1 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "docs/wording-change-note",
+      "sha": "24b6517257",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 1 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "facelift-and-activity-fixes",
+      "sha": "787982396c",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "28 of 37 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/activity-mechanics-professional",
+      "sha": "fe498b32fe",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "18 of 24 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/aesthetics-flipchart-crm-polish",
+      "sha": "f78e816f88",
+      "classification": "ALREADY-IN-MAIN",
+      "evidence": "all 8 touched file(s) byte-identical to current main (squash-merged elsewhere)",
+      "disposition": "DELETE-RECOMMENDED (blocked: git proxy returns 403 on ref deletion; no GitHub API delete-branch tool available \u2014 owner needs to delete manually via GitHub UI or with their own gh CLI)"
+    },
+    {
+      "branch": "feat/art-extraction-consonants",
+      "sha": "884dcda3dd",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "77 of 101 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/art-vocales",
+      "sha": "3567bc83b9",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 37 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/consonant-art-l10-l12",
+      "sha": "935d0434ef",
+      "classification": "ALREADY-IN-MAIN",
+      "evidence": "commit is an ancestor of main (literal git history)",
+      "disposition": "DELETE-RECOMMENDED (blocked: git proxy returns 403 on ref deletion; no GitHub API delete-branch tool available \u2014 owner needs to delete manually via GitHub UI or with their own gh CLI)"
+    },
+    {
+      "branch": "feat/consonant-art-l13-l14",
+      "sha": "2000954210",
+      "classification": "ALREADY-IN-MAIN",
+      "evidence": "commit is an ancestor of main (literal git history)",
+      "disposition": "DELETE-RECOMMENDED (blocked: git proxy returns 403 on ref deletion; no GitHub API delete-branch tool available \u2014 owner needs to delete manually via GitHub UI or with their own gh CLI)"
+    },
+    {
+      "branch": "feat/consonant-art-l13-l16",
+      "sha": "3a7f6a974c",
+      "classification": "ALREADY-IN-MAIN",
+      "evidence": "commit is an ancestor of main (literal git history)",
+      "disposition": "DELETE-RECOMMENDED (blocked: git proxy returns 403 on ref deletion; no GitHub API delete-branch tool available \u2014 owner needs to delete manually via GitHub UI or with their own gh CLI)"
+    },
+    {
+      "branch": "feat/consonant-art-l15-l16",
+      "sha": "21264afa46",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "6 of 370 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/consonant-art-l17-l20",
+      "sha": "084cf96fc8",
+      "classification": "ALREADY-IN-MAIN",
+      "evidence": "commit is an ancestor of main (literal git history)",
+      "disposition": "DELETE-RECOMMENDED (blocked: git proxy returns 403 on ref deletion; no GitHub API delete-branch tool available \u2014 owner needs to delete manually via GitHub UI or with their own gh CLI)"
+    },
+    {
+      "branch": "feat/consonant-art-l21-l24",
+      "sha": "d07966788f",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 19 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/consonant-art-l7-mama-mono",
+      "sha": "b1513393b6",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "1 of 6 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/consonant-art-lane1-l8-l11",
+      "sha": "29cbd98ca8",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "2 of 8 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/consonant-vocab-art-partial",
+      "sha": "00f017ac6f",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 1 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/content-extraction",
+      "sha": "81915ada89",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "5 of 232 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/crm-supabase-migration",
+      "sha": "6d3a31bebc",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 10 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/elearning-crm-ui",
+      "sha": "ba5cf807d9",
+      "classification": "ALREADY-IN-MAIN",
+      "evidence": "commit is an ancestor of main (literal git history)",
+      "disposition": "DELETE-RECOMMENDED (blocked: git proxy returns 403 on ref deletion; no GitHub API delete-branch tool available \u2014 owner needs to delete manually via GitHub UI or with their own gh CLI)"
+    },
+    {
+      "branch": "feat/faithful-page-pilot",
+      "sha": "27892af4ae",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "1 of 6 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/faithful-page-premium-pass",
+      "sha": "3c144aeb17",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 1 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/faithful-pages",
+      "sha": "179c812fc3",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "30 of 44 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/flipbook-garden-scene",
+      "sha": "2ea6b07790",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 3 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/frame-requests-fulfillment",
+      "sha": "73599d964c",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "40 of 41 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/functional-crm-completion",
+      "sha": "1e4c2d3326",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "44 of 53 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/gretel-full-pose-library",
+      "sha": "6c2ab89bd4",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "1 of 8 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/gretel-full-presence-voice",
+      "sha": "f3f7eba224",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "3 of 7 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/gretel-premium-polish",
+      "sha": "18c2dc8d83",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "5 of 7 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/gretel-real-avatar",
+      "sha": "e13896cb15",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 13 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/gretel-spoken-feedback",
+      "sha": "34224099b8",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "1 of 3 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/grok-final-cartilla",
+      "sha": "360ce4051b",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 274 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/guia-json-clean",
+      "sha": "e30c400de9",
+      "classification": "ALREADY-IN-MAIN",
+      "evidence": "commit is an ancestor of main (literal git history)",
+      "disposition": "DELETE-RECOMMENDED (blocked: git proxy returns 403 on ref deletion; no GitHub API delete-branch tool available \u2014 owner needs to delete manually via GitHub UI or with their own gh CLI)"
+    },
+    {
+      "branch": "feat/home-face-lift-book-pastel",
+      "sha": "2846d5a82a",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 4 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/home-hero-gretel-no-sticker",
+      "sha": "876b0c63e2",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "1 of 7 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/illustration-motion-everywhere",
+      "sha": "3b44148850",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 2 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/interactive-page-exercises",
+      "sha": "d6d469ae72",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 4 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/interactive-schema-correctness",
+      "sha": "dbfa31f9eb",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 2 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/juego-payaso-chano",
+      "sha": "d48cc9d5ee",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 8 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/lessons-17-24-completion",
+      "sha": "91eaee62e9",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "14 of 15 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/lineart-fallback-chain",
+      "sha": "3abfc23ffb",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "4 of 6 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/living-art",
+      "sha": "3305cdbbbb",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "4 of 12 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/living-workbook-engine",
+      "sha": "5d83f77401",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 12 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/living-workbook-pipeline",
+      "sha": "3795e813d3",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 12 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/merge-correctness-with-latest-main",
+      "sha": "59e0a136af",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 2 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/page-paper-garden-tint",
+      "sha": "a94659aa72",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 3 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/real-garden-art-background",
+      "sha": "0170bc08b7",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "2 of 3 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/remaining-hd-art-slots-sprint",
+      "sha": "3c9fb59ae3",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "32 of 35 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/sentence-writing-draw-box",
+      "sha": "e4be945477",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 1 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/syllable-match-fill-in-blank-interactive",
+      "sha": "2b84570cab",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 6 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/teacher-chrome-book-warmth",
+      "sha": "5fd782a076",
+      "classification": "ALREADY-IN-MAIN",
+      "evidence": "all 6 touched file(s) byte-identical to current main (squash-merged elsewhere)",
+      "disposition": "DELETE-RECOMMENDED (blocked: git proxy returns 403 on ref deletion; no GitHub API delete-branch tool available \u2014 owner needs to delete manually via GitHub UI or with their own gh CLI)"
+    },
+    {
+      "branch": "feat/teacher-complete-package",
+      "sha": "eca451cdac",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "17 of 23 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/teacher-crm-overhaul",
+      "sha": "80e7bd6f5a",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 8 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/teacher-reconstructed-view",
+      "sha": "ce4d5d7543",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 4 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/ui-dark-mode-i18n",
+      "sha": "519e07b415",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "29 of 1771 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/unified-art-manifest",
+      "sha": "81f7be8d4a",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "73 of 84 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/verify-and-wire-consonants",
+      "sha": "f1c95a8f45",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "68 of 92 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/vocab-art-wiring",
+      "sha": "1b95a96200",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 1 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/vocab-real-art",
+      "sha": "22fd674dec",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "2 of 6 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/workbook-manifest-pipeline",
+      "sha": "fe288f4a51",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "21 of 35 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "feat/workbook-scan-cleanup",
+      "sha": "b7ba458a9b",
+      "classification": "ALREADY-IN-MAIN",
+      "evidence": "all 190 touched file(s) byte-identical to current main (squash-merged elsewhere)",
+      "disposition": "DELETE-RECOMMENDED (blocked: git proxy returns 403 on ref deletion; no GitHub API delete-branch tool available \u2014 owner needs to delete manually via GitHub UI or with their own gh CLI)"
+    },
+    {
+      "branch": "feature/docs-proposals",
+      "sha": "958ba5ee45",
+      "classification": "ALREADY-IN-MAIN",
+      "evidence": "all 2 touched file(s) byte-identical to current main (squash-merged elsewhere)",
+      "disposition": "DELETE-RECOMMENDED (blocked: git proxy returns 403 on ref deletion; no GitHub API delete-branch tool available \u2014 owner needs to delete manually via GitHub UI or with their own gh CLI)"
+    },
+    {
+      "branch": "feature/gretel-poses",
+      "sha": "fbf83724cf",
+      "classification": "ALREADY-IN-MAIN",
+      "evidence": "all 6 touched file(s) byte-identical to current main (squash-merged elsewhere)",
+      "disposition": "DELETE-RECOMMENDED (blocked: git proxy returns 403 on ref deletion; no GitHub API delete-branch tool available \u2014 owner needs to delete manually via GitHub UI or with their own gh CLI)"
+    },
+    {
+      "branch": "fix-instruction-verbs",
+      "sha": "5b854ba94f",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 1 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "fix-validators",
+      "sha": "60e485c8c7",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "6 of 2184 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "fix-vocabulary-crops",
+      "sha": "768ebab0da",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 17 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "fix/abanico-wrong-crop",
+      "sha": "a782cdec9e",
+      "classification": "ALREADY-IN-MAIN",
+      "evidence": "all 2 touched file(s) byte-identical to current main (squash-merged elsewhere)",
+      "disposition": "DELETE-RECOMMENDED (blocked: git proxy returns 403 on ref deletion; no GitHub API delete-branch tool available \u2014 owner needs to delete manually via GitHub UI or with their own gh CLI)"
+    },
+    {
+      "branch": "fix/ardilla-crop",
+      "sha": "3a30832571",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 2 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "fix/art-abanico-manual",
+      "sha": "4395fd0592",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 14 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "fix/art-abeja-maiz-manual",
+      "sha": "28540ccaa5",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 2 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "fix/art-crop-tighten-batch",
+      "sha": "6722d91cf7",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "1 of 6 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "fix/art-escalera-manual",
+      "sha": "915beff2d8",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 1 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "fix/art-extraction-batch",
+      "sha": "1b62bdf3c7",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 65 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "fix/art-globo-pera-final",
+      "sha": "39af92a0af",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 2 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "fix/audit-mobile-overflow-lesson15-sync",
+      "sha": "223720de76",
+      "classification": "ALREADY-IN-MAIN",
+      "evidence": "all 2 touched file(s) byte-identical to current main (squash-merged elsewhere)",
+      "disposition": "DELETE-RECOMMENDED (blocked: git proxy returns 403 on ref deletion; no GitHub API delete-branch tool available \u2014 owner needs to delete manually via GitHub UI or with their own gh CLI)"
+    },
+    {
+      "branch": "fix/bad-art-crops",
+      "sha": "417d31736e",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "6 of 8 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "fix/colorea-paint-routing",
+      "sha": "a666dc0bf6",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "5 of 6 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "fix/colorize-grayscale-illustrations",
+      "sha": "ad5e731954",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "3 of 4 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "fix/console-warn-stripped-from-build",
+      "sha": "935fc81e50",
+      "classification": "ALREADY-IN-MAIN",
+      "evidence": "all 2 touched file(s) byte-identical to current main (squash-merged elsewhere)",
+      "disposition": "DELETE-RECOMMENDED (blocked: git proxy returns 403 on ref deletion; no GitHub API delete-branch tool available \u2014 owner needs to delete manually via GitHub UI or with their own gh CLI)"
+    },
+    {
+      "branch": "fix/consonant-vocab-book-match",
+      "sha": "736a220e1d",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "6 of 7 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "fix/consonants-vocab-and-teacher-guide",
+      "sha": "db7fd645cf",
+      "classification": "ALREADY-IN-MAIN",
+      "evidence": "all 3 touched file(s) byte-identical to current main (squash-merged elsewhere)",
+      "disposition": "DELETE-RECOMMENDED (blocked: git proxy returns 403 on ref deletion; no GitHub API delete-branch tool available \u2014 owner needs to delete manually via GitHub UI or with their own gh CLI)"
+    },
+    {
+      "branch": "fix/draw-box-wiring",
+      "sha": "248ef2392a",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 1 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "fix/gretel-liveavatar-bubble",
+      "sha": "1517f4eeae",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 1 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "fix/gretel-nav-overlap",
+      "sha": "557c61c7f8",
+      "classification": "ALREADY-IN-MAIN",
+      "evidence": "all 1 touched file(s) byte-identical to current main (squash-merged elsewhere)",
+      "disposition": "DELETE-RECOMMENDED (blocked: git proxy returns 403 on ref deletion; no GitHub API delete-branch tool available \u2014 owner needs to delete manually via GitHub UI or with their own gh CLI)"
+    },
+    {
+      "branch": "fix/home-gretel-presence-no-hallucinations",
+      "sha": "2ceeec4ac7",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "24 of 25 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "fix/lane-b-piano-buildword-motion",
+      "sha": "ed4a1be3af",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "2 of 6 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "fix/launch-qa-emoji-object-hints",
+      "sha": "76fcb4034c",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "3 of 4 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "fix/leftover-escoba-ref",
+      "sha": "24af9b9f1c",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 1 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "fix/production-hardening",
+      "sha": "b7f31ff0e5",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "12 of 27 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "fix/recover-weak-crops-lineart",
+      "sha": "a69c25c3d8",
+      "classification": "ALREADY-IN-MAIN",
+      "evidence": "all 3 touched file(s) byte-identical to current main (squash-merged elsewhere)",
+      "disposition": "DELETE-RECOMMENDED (blocked: git proxy returns 403 on ref deletion; no GitHub API delete-branch tool available \u2014 owner needs to delete manually via GitHub UI or with their own gh CLI)"
+    },
+    {
+      "branch": "fix/redirect-remaining-lane-a-links",
+      "sha": "e54c9bfd24",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "2 of 7 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "fix/remove-garden-flowers",
+      "sha": "1d50be5aca",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "1 of 2 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "fix/rescue-155-and-cleanup",
+      "sha": "2780026739",
+      "classification": "ALREADY-IN-MAIN",
+      "evidence": "commit is an ancestor of main (literal git history)",
+      "disposition": "DELETE-RECOMMENDED (blocked: git proxy returns 403 on ref deletion; no GitHub API delete-branch tool available \u2014 owner needs to delete manually via GitHub UI or with their own gh CLI)"
+    },
+    {
+      "branch": "fix/rr-digraph-tracing",
+      "sha": "e0a1f9913b",
+      "classification": "ALREADY-IN-MAIN",
+      "evidence": "all 2 touched file(s) byte-identical to current main (squash-merged elsewhere)",
+      "disposition": "DELETE-RECOMMENDED (blocked: git proxy returns 403 on ref deletion; no GitHub API delete-branch tool available \u2014 owner needs to delete manually via GitHub UI or with their own gh CLI)"
+    },
+    {
+      "branch": "fix/student-login-dead-link",
+      "sha": "95af5827ca",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "2 of 4 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "fix/student-routing-v2",
+      "sha": "c42cf99321",
+      "classification": "ALREADY-IN-MAIN",
+      "evidence": "commit is an ancestor of main (literal git history)",
+      "disposition": "DELETE-RECOMMENDED (blocked: git proxy returns 403 on ref deletion; no GitHub API delete-branch tool available \u2014 owner needs to delete manually via GitHub UI or with their own gh CLI)"
+    },
+    {
+      "branch": "fix/teacher-flipchart-shows-real-flipchart",
+      "sha": "4fbefe878e",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "1 of 4 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "fix/validator-false-positive-v2",
+      "sha": "5fc5f5805f",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 1 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "fix/validator-shared-pages-false-positive",
+      "sha": "46558e9c7d",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 2 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "fix/vowel-workbook-page-inventory",
+      "sha": "ec8482e64e",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 1 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "fix/wire-real-art-vocab-game",
+      "sha": "b696c1d742",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 1 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "fix/workbook-art-slots-in-repo",
+      "sha": "fbd3bb5261",
+      "classification": "NEEDS-REVIEW",
+      "evidence": "6 of 10 touched file(s) match main \u2014 partial overlap, not conclusive",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "grok-final/cloud-preview",
+      "sha": "da184f15bd",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 280 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "grok-final/validation",
+      "sha": "498835e3f5",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 286 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "grok-swarm/activities",
+      "sha": "d0d2cb5896",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 38 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "grok-swarm/art-color",
+      "sha": "3e4dec62a0",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 145 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "grok-swarm/crm",
+      "sha": "9f06456b9b",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 8 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "grok-swarm/presentation",
+      "sha": "cafdd5c3f9",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 60 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "grok-swarm/validation",
+      "sha": "2714dbfeed",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 12 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "grok-swarm/workbook",
+      "sha": "65cb41ff1c",
+      "classification": "UNIQUE-VALUABLE",
+      "evidence": "0 of 8 touched file(s) match main \u2014 no evidence of supersession",
+      "disposition": "KEEP \u2014 owner decision"
+    },
+    {
+      "branch": "ops/confirm-bootstrap-teacher-login-mrjpm67o",
+      "sha": "62200473e2",
+      "classification": "ALREADY-IN-MAIN",
+      "evidence": "all 1 touched file(s) byte-identical to current main (squash-merged elsewhere)",
+      "disposition": "DELETE-RECOMMENDED (blocked: git proxy returns 403 on ref deletion; no GitHub API delete-branch tool available \u2014 owner needs to delete manually via GitHub UI or with their own gh CLI)"
+    }
+  ]
+}
