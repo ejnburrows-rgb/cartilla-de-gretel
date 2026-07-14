@@ -47,13 +47,16 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-a/abanico.webp",
-    "sourceFlipchartPage": "a-page-4.jpg",
+    "sourceFlipchartPage": null,
     "cropBox": [
-      249,
-      2549,
-      449,
-      329
-    ]
+      190,
+      1470,
+      550,
+      515
+    ],
+    "source": "public/cartilla/images/source/a/a-page-4.jpg",
+    "provenanceStatus": "FIXED-2026-WRONG-CROP",
+    "note": "Was showing the ala (wings) crop by mistake. Re-cropped from the real source page a-page-4.jpg, top-left cell (the fan next to anillo/araña, matching the printed abanico/anillo/araña/ala/aro/Ana grid)."
   },
   {
     "slug": "alas",
