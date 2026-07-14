@@ -1,6 +1,7 @@
 import type { WorkbookObject } from "@/content/workbook/types";
 import { gretelEvent } from "@/lib/gretel-bus";
 import { playCorrectChord, playWrongBuzz } from "@/lib/piano-audio";
+import { speak } from "@/lib/speak";
 
 /** Common props every interaction component receives from LivingWorkbookPage.
  * Each interaction owns its own reading of `object.interaction?.data` — see
@@ -9,8 +10,8 @@ export interface InteractionProps {
   objects: WorkbookObject[];
   onResult?: (r: { objectId: string; result: "correct" | "wrong" }) => void;
   onComplete?: () => void;
-  /** Fired only when a real audio cue actually played (non-empty src) —
-   * used by TapToHear for the audio_played progress event. */
+  /** Fired whenever something audible was attempted (recorded cue or TTS
+   * fallback) — used by TapToHear for the audio_played progress event. */
   onAudioPlayed?: (objectId: string) => void;
   reducedMotion: boolean;
 }
@@ -28,18 +29,35 @@ export function fireWrongFeedback() {
   gretelEvent("answer:wrong");
 }
 
-/** Plays an object's real audio cue if one exists; silently no-ops
- * otherwise (the established "safe until real audio lands" convention).
- * Returns whether a real cue was actually played, so callers can decide
+/** Plays an object's real recorded audio cue when one exists (`audio.src`
+ * non-empty); otherwise — or if the recorded file fails to load/decode —
+ * falls back to the same Web Speech TTS voice used everywhere else in the
+ * app (src/lib/speak.ts: real Spanish voice, little-girl pitch, no AI
+ * voice clone). Tapping to listen must always be audible, never a silent
+ * no-op — recorded audio is preferred when it exists, TTS is the honest
+ * fallback until real recordings land for every word.
+ * Returns whether something audible was attempted, so callers can decide
  * whether this counts as a real audio_played progress event. */
 export function playObjectAudio(object: WorkbookObject): boolean {
   const src = object.audio?.src;
-  if (!src) return false;
-  const audio = new Audio(src);
-  audio.play().catch(() => {
-    /* autoplay/user-gesture rejections are expected on some browsers — ignore */
-  });
-  return true;
+  const fallbackText = object.audio?.label || object.text || object.alt;
+  let spoken = false;
+  const speakFallback = () => {
+    if (spoken || !fallbackText) return;
+    spoken = true;
+    void speak(fallbackText);
+  };
+  if (src) {
+    const audio = new Audio(src);
+    audio.addEventListener("error", speakFallback);
+    audio.play().catch(speakFallback);
+    return true;
+  }
+  if (fallbackText) {
+    speakFallback();
+    return true;
+  }
+  return false;
 }
 
 /** dnd-kit sensors covering mouse, touch, and keyboard, shared by every
