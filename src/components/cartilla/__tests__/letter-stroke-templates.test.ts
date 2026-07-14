@@ -20,17 +20,34 @@ function realModelTexts(): string[] {
 }
 
 describe("getLetterTemplate — no silent wrong-shape fallback", () => {
-  it("Ñ and rr (upper and lower) have no template — must return null, never a substitute", () => {
+  it("Ñ and rr (lowercase digraph) have no template — must return null, never a substitute", () => {
     expect(getLetterTemplate("Ñ")).toBeNull();
     expect(getLetterTemplate("ñ")).toBeNull();
-    expect(getLetterTemplate("RR")).toBeNull();
     expect(getLetterTemplate("rr")).toBeNull();
+  });
+
+  it("RR (uppercase digraph) traces as the real R template placed twice, not a guessed shape", () => {
+    const result = getLetterTemplate("RR");
+    expect(result).not.toBeNull();
+    expect(result).not.toBe(LETTER_TEMPLATES.A);
+    expect(result).not.toBe(LETTER_TEMPLATES.R);
+    // 6 strokes: R's own 3 strokes, twice (left copy + right copy).
+    expect(result!.length).toBe(LETTER_TEMPLATES.R.length * 2);
+    // Every checkpoint in every stroke must fit the SVG viewport (0-100 x 0-120).
+    for (const stroke of result!) {
+      for (const pt of stroke) {
+        expect(pt.x).toBeGreaterThanOrEqual(0);
+        expect(pt.x).toBeLessThanOrEqual(100);
+        expect(pt.y).toBeGreaterThanOrEqual(0);
+        expect(pt.y).toBeLessThanOrEqual(120);
+      }
+    }
   });
 
   it("never silently substitutes the 'A' template (or any other letter's template) for a letter with no real template", () => {
     // This is the exact historical regression: tracing used to fall back to
     // drawing the letter "A"'s shape for any letter without a real template.
-    const untemplatedLetters = ["Ñ", "ñ", "RR", "rr"];
+    const untemplatedLetters = ["Ñ", "ñ", "rr"];
     for (const letter of untemplatedLetters) {
       const result = getLetterTemplate(letter);
       expect(result).not.toBe(LETTER_TEMPLATES.A);
@@ -49,6 +66,13 @@ describe("getLetterTemplate — no silent wrong-shape fallback", () => {
         // not a fallback masquerading as one.
         continue;
       }
+      const isDoubledUpperDigraph =
+        text === text.toUpperCase() && text.length === 2 && text[0] === text[1];
+      if (isDoubledUpperDigraph) {
+        // A doubled-uppercase digraph (RR) is a derived shape, not the base
+        // letter's own template object — checked in its own dedicated test.
+        continue;
+      }
       // If a template IS returned, it must be the template keyed to this
       // exact letter (case-insensitive) — never a different letter's shape.
       const expected = LETTER_TEMPLATES[text.toUpperCase()];
@@ -56,20 +80,24 @@ describe("getLetterTemplate — no silent wrong-shape fallback", () => {
     }
 
     // Lock in the specific known-missing set so this test fails loudly
-    // (rather than silently passing) the moment real Ñ/rr templates arrive —
-    // that's a real content addition to celebrate, not a silent drift. The
-    // digraphs (Ñ, rr) are always missing; lowercase letters whose shape
-    // genuinely differs from their uppercase are intentionally untemplated
-    // too (see CASE_SHAPE_MATCHES_UPPER) — both are correct nulls, not bugs.
+    // (rather than silently passing) the moment a real ñ/rr (lowercase)
+    // template arrives — that's a real content addition to celebrate, not a
+    // silent drift. Ñ/ñ and lowercase rr are always missing; lowercase
+    // letters whose shape genuinely differs from their uppercase are
+    // intentionally untemplated too (see CASE_SHAPE_MATCHES_UPPER) — both are
+    // correct nulls, not bugs. Uppercase RR is NOT in this missing set — it's
+    // a derived digraph of the real, already-verified R template.
     const CASE_SHAPE_MATCHES_UPPER = new Set(["O", "U", "C", "S", "V", "Z"]);
     const expectedMissing = modelTexts.filter((t) => {
       const isLower = t === t.toLowerCase() && t !== t.toUpperCase();
-      return t.toUpperCase() === "Ñ" || t.toUpperCase() === "RR" || (isLower && !CASE_SHAPE_MATCHES_UPPER.has(t.toUpperCase()));
+      return t.toUpperCase() === "Ñ" || (t.toUpperCase() === "RR" && isLower) || (isLower && !CASE_SHAPE_MATCHES_UPPER.has(t.toUpperCase()));
     });
     const missing = modelTexts.filter((t) => getLetterTemplate(t) === null);
     expect(new Set(missing)).toEqual(new Set(expectedMissing));
-    // The digraphs specifically must always be in that missing set.
-    expect(missing).toEqual(expect.arrayContaining(["Ñ", "ñ", "RR", "rr"]));
+    // Ñ/ñ and lowercase rr specifically must always be in that missing set;
+    // uppercase RR must NOT be (it now has a derived digraph template).
+    expect(missing).toEqual(expect.arrayContaining(["Ñ", "ñ", "rr"]));
+    expect(missing).not.toEqual(expect.arrayContaining(["RR"]));
   });
 
   it("lowercase letters with a genuinely different shape than their uppercase (a, e, i, m, p, t, d, l, n, b, r, g, f, j, y) are not templated yet — correctly null, never guessed", () => {

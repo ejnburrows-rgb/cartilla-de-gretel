@@ -147,18 +147,45 @@ export const LETTER_TEMPLATES: Record<string, Point[][]> = {
 const CASE_SHAPE_MATCHES_UPPER = new Set(["O", "U", "C", "S", "V", "Z"]);
 
 /**
+ * A doubled-uppercase digraph (e.g. "RR") traced as its already-verified
+ * single letterform placed twice, scaled down and spaced side by side. This
+ * is not a guessed shape — it's the same real, already-audited stroke path
+ * reused twice, which is exactly how a doubled letter is written.
+ */
+function buildDigraphTemplate(base: Point[][]): Point[][] {
+  const SCALE = 0.55;
+  const ORIGIN_CENTER = 50;
+  const place = (offsetCenter: number) => (pt: Point): Point => ({
+    x: (pt.x - ORIGIN_CENTER) * SCALE + offsetCenter,
+    y: pt.y,
+  });
+  return [
+    ...base.map((stroke) => stroke.map(place(25))),
+    ...base.map((stroke) => stroke.map(place(75))),
+  ];
+}
+
+/**
  * Returns the trace template for a printed model letter, or null when there is
- * no faithful template yet. Digraphs/diacritics with no unambiguous
- * single-glyph stroke path (RR, Ñ) intentionally return null, as does any
- * lowercase letter whose shape isn't a same-topology match for its uppercase
- * (see CASE_SHAPE_MATCHES_UPPER) — both fall back to the static writing line
- * rather than trace a guessed shape.
+ * no faithful template yet. A doubled-uppercase digraph (RR) is derived from
+ * its real single-letter template (see buildDigraphTemplate). A lowercase
+ * digraph (rr) still needs the underlying lowercase letter's own shape, which
+ * isn't templated (see CASE_SHAPE_MATCHES_UPPER), so it correctly returns
+ * null, as does Ñ/ñ (no unambiguous single-glyph stroke path exists for it
+ * yet) — both fall back to the static writing line rather than trace a
+ * guessed shape.
  */
 export function getLetterTemplate(modelText: string | undefined | null): Point[][] | null {
   if (!modelText) return null;
   const trimmed = modelText.trim();
   const isLower = trimmed === trimmed.toLowerCase() && trimmed !== trimmed.toUpperCase();
   const key = trimmed.toUpperCase();
+
+  if (!isLower && key.length === 2 && key[0] === key[1]) {
+    const base = LETTER_TEMPLATES[key[0]];
+    return base ? buildDigraphTemplate(base) : null;
+  }
+
   if (isLower && !CASE_SHAPE_MATCHES_UPPER.has(key)) return null;
   return LETTER_TEMPLATES[key] ?? null;
 }
