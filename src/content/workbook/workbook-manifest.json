@@ -279,16 +279,17 @@
           "word": "manzana",
           "interactive": true
         },
-        {
-          "id": "p2-a-2",
-          "type": "illustration",
-          "x": 67,
-          "y": 8,
-          "width": 30,
-          "height": 20,
-          "word": "libro",
-          "interactive": true
-        },
+         {
+           "id": "p2-a-2",
+           "type": "illustration",
+           "asset": "/cartilla/art/faithful/leccion-1/libro.webp",
+           "x": 67,
+           "y": 8,
+           "width": 30,
+           "height": 20,
+           "word": "libro",
+           "interactive": true
+         },
         {
           "id": "p2-other-0",
           "type": "illustration",
@@ -355,16 +356,17 @@
           "word": "pera",
           "interactive": false
         },
-        {
-          "id": "p2-other-6",
-          "type": "illustration",
-          "x": 3,
-          "y": 74,
-          "width": 30,
-          "height": 18,
-          "word": "pájaro",
-          "interactive": false
-        },
+         {
+           "id": "p2-other-6",
+           "type": "illustration",
+           "asset": "/cartilla/art/faithful/leccion-1/pajaro.webp",
+           "x": 3,
+           "y": 74,
+           "width": 30,
+           "height": 18,
+           "word": "pájaro",
+           "interactive": false
+         },
         {
           "id": "p2-other-7",
           "type": "illustration",
@@ -409,16 +411,17 @@
           "interactive": false,
           "asset": "/cartilla/art/faithful/leccion-1/globo.webp"
         },
-        {
-          "id": "p2-other-11",
-          "type": "illustration",
-          "x": 67,
-          "y": 94,
-          "width": 30,
-          "height": 18,
-          "word": "dulce",
-          "interactive": false
-        }
+         {
+           "id": "p2-other-11",
+           "type": "illustration",
+           "asset": "/cartilla/art/faithful/leccion-1/dulce.webp",
+           "x": 67,
+           "y": 94,
+           "width": 30,
+           "height": 18,
+           "word": "dulce",
+           "interactive": false
+         }
       ],
       "status": "complete",
       "source": "src/data/page-layouts.json page 2 (Lección 1), row 'a' only — already-verified faithful transcription (rows e/i/o shown as static real content, not part of this page's single graded interaction)"

@@ -413,9 +413,14 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-1/pajaro.webp",
-    "sourceFlipchartPage": null,
-    "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "sourceFlipchartPage": "page-003.jpg",
+    "cropBox": [
+      530,
+      1380,
+      360,
+      360
+    ],
+    "provenanceStatus": "BACKFILLED-2026-FROM-FLIPCHART-PAGE-003"
   },
   {
     "slug": "remolino",
@@ -447,9 +452,14 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-1/dulce.webp",
-    "sourceFlipchartPage": null,
-    "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "sourceFlipchartPage": "page-003.jpg",
+    "cropBox": [
+      190,
+      200,
+      620,
+      540
+    ],
+    "provenanceStatus": "BACKFILLED-2026-FROM-FLIPCHART-PAGE-003"
   },
   {
     "slug": "globo",
@@ -467,9 +477,14 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-1/libro.webp",
-    "sourceFlipchartPage": null,
-    "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "sourceFlipchartPage": "page-003.jpg",
+    "cropBox": [
+      180,
+      50,
+      620,
+      540
+    ],
+    "provenanceStatus": "BACKFILLED-2026-FROM-FLIPCHART-PAGE-003"
   },
   {
     "slug": "maiz",
