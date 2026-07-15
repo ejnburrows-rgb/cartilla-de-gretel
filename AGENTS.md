@@ -161,7 +161,7 @@ and the human give orders.
 
 ## Jules Boundary Rules
 - Do ONLY the task in the prompt. Nothing extra, no "improvements" I did not ask for.
-- Never merge, close, or approve pull requests. Open the PR and STOP.
+- Agents verify their own work (build, typecheck, tests, browser check, screenshot proof), merge their branch into main themselves, push, delete the branch, and continue to the next task. They stop only on a real blocker or when the plan is complete. EJN reviews after the fact.
 - Never delete files, remove security settings, disable checks, or change configs unless the task explicitly says to.
 - Touch no more than 5 files per task. If the task needs more, stop and say so.
 - If the plan changes while working, stop and explain instead of continuing.
