@@ -64,7 +64,7 @@
 - **Goal:** Create a polished opening splash screen before login/join (imperative, phone and desktop) using existing approved art only.
 - **Exact expected files or area:** `src/routes/index.tsx`, `src/styles.css` (maximum five files).
 - **Done when:** The splash screen renders beautifully on both mobile and desktop before login.
-- **Status:** NOT STARTED
+- **Status:** DONE
 - **Browser check:** EJN opens the root URL on their phone and laptop and sees the polished splash screen with correct art.
 
 ### Task 3.2: Hide Unfinished Gretel Avatar Element

@@ -35,42 +35,34 @@ function Landing() {
     <main className="home-landing" data-testid="home-landing">
       <div className="home-landing__wash" aria-hidden />
 
-      <div className="home-landing__inner">
-        <section className="home-landing__panel" aria-labelledby="home-greeting">
+      <div className="home-splash__inner">
+        <div className="home-splash__hero-wrap">
+          <BookHeroGretel size="lg" objectPosition="center 20%" autoIntro />
+        </div>
+
+        <section className="home-landing__panel home-splash__panel" aria-labelledby="home-greeting">
           <p id="home-greeting" className="home-landing__greeting" data-testid="home-greeting">
             {HOME_GREETING}
           </p>
 
-          <div className="home-landing__actions" role="navigation" aria-label="Entrar">
+          <div className="home-landing__actions--stack" role="navigation" aria-label="Entrar">
             <Link
               to="/cartilla/unirse"
-              className="home-entry-card home-entry-card--student"
+              className="home-landing__cta home-landing__cta--student"
               data-testid="home-cta-student"
             >
-              <span className="home-entry-card__label">Estudiantes</span>
-              <p className="home-entry-card__title">Código de clase y lecciones</p>
-              <span className="home-landing__cta home-landing__cta--student">
-                Entrar como estudiante
-              </span>
+              Entrar como estudiante
             </Link>
 
             <Link
               to="/login"
-              className="home-entry-card home-entry-card--teacher"
+              className="home-landing__cta home-landing__cta--teacher"
               data-testid="home-cta-teacher"
             >
-              <span className="home-entry-card__label">Maestros</span>
-              <p className="home-entry-card__title">Portal, clases y flipchart</p>
-              <span className="home-landing__cta home-landing__cta--teacher">
-                Entrar como maestro
-              </span>
+              Entrar como maestro
             </Link>
           </div>
         </section>
-
-        <div className="home-landing__hero-col">
-          <BookHeroGretel size="lg" objectPosition="center 20%" autoIntro />
-        </div>
       </div>
     </main>
   );

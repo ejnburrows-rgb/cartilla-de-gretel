@@ -284,23 +284,36 @@
   pointer-events: none;
 }
 
-.home-landing__inner {
+/* Splash layout for root index (Task 3.1) */
+.home-splash__inner {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 1180px;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
   flex: 1;
+  text-align: center;
 }
 
 @media (min-width: 960px) {
-  .home-landing__inner {
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-    gap: 2.25rem;
+  .home-splash__inner {
+    max-width: 720px;
+    gap: 2rem;
   }
+}
+
+.home-splash__panel {
+  width: 100%;
+}
+
+.home-splash__hero-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .home-landing__panel {
