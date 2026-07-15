@@ -2,6 +2,11 @@
 
 ## RECOVERED
 - `public/cartilla/art/faithful/leccion-1/ojos.webp`
+  - **Correction: this entry is stale.** The file does not exist on disk
+    (checked directly — no `ojos.webp` anywhere under
+    `public/cartilla/art/faithful/leccion-1/`). Whatever recovery was
+    recorded here either never landed or was lost in a later change. Treat
+    `leccion-1/ojos.webp` as still missing, not recovered.
   - Source blob: `cf0d6c7d4792d6d9154102f29b8e08b4dd706275`
   - Source commit: Historic blob (previously added to git history)
   - Processing performed: Extracted exact original blob, verified visually as green eyes.
@@ -44,16 +49,24 @@
 - `public/cartilla/art/faithful/leccion-24-k-w-x/koala.webp`
   - Locations searched: Git history blobs for `koala.webp`, `koala.png`, `hd` and `raw` folders.
 
+## RESOLVED SINCE THIS AUDIT
+- `leccion-1/dulce.webp`, `leccion-1/libro.webp`, `leccion-1/pajaro.webp` —
+  **no longer rejected/missing.** A later commit ("Fill last 3 workbook
+  slots: libro, pajaro, dulce (lesson 1)") added real, correct crop files
+  for all three — confirmed on disk (real WebP images, 7-20KB each, not
+  stubs). Left out of the "REJECTED CANDIDATES" list below because that
+  rejection no longer applies to the current files at these paths.
+
 ## REJECTED CANDIDATES
 - `leccion-1/carro.webp`
   - Rejection reason: Candidate blobs are either a stock vector image or a fragment showing '9' and 'e', not the faithful scan.
+  - Still missing — confirmed no file exists at this path.
 - `leccion-1/casa.webp`
   - Rejection reason: Candidate blobs show letters 'ca', 'co', 'CO', 'CU' or a man with a rake, not a house.
-- `leccion-1/dulce.webp`
-  - Rejection reason: Candidate blobs show the text "Lección" and a blank space.
+  - Still missing at this exact path — confirmed no file exists here. Note:
+    a working `casa` illustration for the C lesson lives at a different
+    path, `leccion-19-c/casa.webp` — see `ART_BACKLOG.md` for that history;
+    this entry is specifically about the `leccion-1/casa.webp` path.
 - `leccion-1/iglesia.webp`
   - Rejection reason: Candidate blobs show a fragment of a roof in black-and-white.
-- `leccion-1/libro.webp`
-  - Rejection reason: Candidate blobs show a grayscale book, not the faithful color scan.
-- `leccion-1/pajaro.webp`
-  - Rejection reason: Candidate blobs show a bear with a bee, or a uniform suit.
+  - Still missing — confirmed no file exists at this path.

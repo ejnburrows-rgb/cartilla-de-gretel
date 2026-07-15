@@ -1,4 +1,15 @@
 # Content Extraction & Asset Pipeline Status
+
+**Correction: this entire table is stale, from an early extraction pass.**
+Every row below says "UNREADABLE" / "text to be supplied" for Task 1
+(Text). That is no longer true — `src/data/page-layouts.json` now has real,
+complete, transcribed Spanish text for all 90 workbook pages. Do not use
+this table's "Task 1 (Text)" column as a status source; check
+`page-layouts.json` directly instead. The "Task 2 (Images)" asset counts
+below were not individually re-verified in this pass — treat those as
+historical too, not confirmed current, and check `public/cartilla/art/faithful/manifest.json`
+for the current art status instead.
+
 ## Audit Table
 | Source Image Path | Target JSON | Task 1 (Text) | Task 2 (Images) | Commit ID | Notes |
 | :--- | :--- | :--- | :--- | :--- | :--- |

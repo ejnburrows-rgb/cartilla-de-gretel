@@ -2,7 +2,12 @@
 
 ## Architecture
 Spanish literacy app for K-3 early readers using React, TanStack Router, Vite, TypeScript, and AudioContext / Web Speech API.
-The student view is located under `/cartilla/student/leccion/$n` and the teacher view under `/cartilla/teacher/`.
+**Correction:** the real, live student view is `/cartilla/leccion/$n`
+(reached via `/` → `/cartilla/unirse` → `/cartilla/lecciones`), and the
+teacher view is under `/cartilla/teacher/`. The `/cartilla/student/leccion/$n`
+path named above does not exist; a whole separate `/cartilla/student/*`
+subtree does exist in the repo but is an orphaned duplicate — no link,
+`navigate()`, or `redirect()` anywhere in the app points at it.
 
 ## Milestones
 | # | Name | Scope | Dependencies | Status |
@@ -43,8 +48,12 @@ The student view is located under `/cartilla/student/leccion/$n` and the teacher
 
 ### Page Flip
 - Swipe actions: `useSwipe` detects gestures (up/down/left/right) on touch/pointer devices.
-- `StudentWorkbookFlip`: upward vertical flip with spiral binding, responding to swipe up/down.
-- `BookPageFlip`: horizontal layout book page flip, responding to swipe left/right.
+- `StudentWorkbookFlip`: **does not exist.** It was deleted in the July 12
+  rewrite (see SPEC.md, "the two-file deletion + module-flow rebuild" —
+  "`StudentWorkbookFlip.tsx` (deleted this batch)"). Listed here only so a
+  future search doesn't waste time looking for it.
+- `BookPageFlip`: the real, current page-flip component — horizontal layout
+  book page flip, responding to swipe left/right.
 
 ### Teacher 4-Squares Guide
 - Route: `/cartilla/teacher/guia/$n`.
@@ -69,6 +78,6 @@ never-delete-files rule) but are dead code — not reachable by a student:
 ## Code Layout
 - Mascot: `src/components/gretel/`
 - Piano: `src/components/cartilla/PianoPronunciation.tsx`, `src/hooks/useSpeechRecognition.ts`, `src/lib/piano-audio.ts`
-- Page Flip: `src/components/StudentBook/StudentWorkbookFlip.tsx`, `src/components/cartilla/BookPageFlip.tsx`, `src/hooks/useSwipe.ts`
+- Page Flip: `src/components/cartilla/BookPageFlip.tsx` (the real component — `src/components/StudentBook/StudentWorkbookFlip.tsx` above does not exist, see correction above), `src/hooks/useSwipe.ts`
 - Teacher Guide: `src/routes/cartilla/teacher/guia.$n.tsx`, `src/components/teacher/TeacherGuidePanel.tsx`
 - Drag-and-Drop: `src/components/activities/DragMatchPairs.tsx`, `src/components/activities/DragSyllableOrder.tsx`, `src/components/activities/DragLetterTrace.tsx`, `src/components/activities/ActivityCarousel.tsx`

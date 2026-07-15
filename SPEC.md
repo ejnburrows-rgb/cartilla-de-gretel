@@ -161,9 +161,17 @@ page-audited — that is the one real remaining unknown.
 | L | Objectives | Procedure | Vocab/Poem | Assessment | Overall |
 |---|---|---|---|---|---|
 | 1 | Real | Real | Real | Real | **DONE** |
-| 2-15 | Real | Real | Stub | Stub | PARTIAL |
-| 16-20 (V,R,rr,G,F) | Stub | Stub | Stub | Stub | **MISSING** |
-| 21-24 (J,C,Y,Z) | Real (terse) | Real (terse) | Stub | Stub | PARTIAL |
+| 2-16 | Real | Real | Stub | Stub | PARTIAL |
+| 17-24 (R,rr,G,F,J,C,Y,Z) | Stub | Stub | Stub | Stub | **MISSING** |
+
+**Correction:** an earlier version of this table split the row at "16-20"
+and separately claimed 21-24 had "Real (terse)" objectives/procedure. Both
+were wrong — checked directly against `src/content/guides/lesson-N.tsx`:
+L16 has real, full Objectives + Procedure (103 lines, same pattern as
+L2-15); L17 through L24 (not just 17-20) are all identical 6-line stubs
+delegating to `PartialLessonGuide`, with Objectives and Procedure both
+literally marked `SOURCE-NOT-IN-REPO`. The table above reflects what's
+actually in the files.
 
 ## Interaction-type coverage (against the brief's "drag-and-drop, fill-in-blank, matching, tracing" requirement)
 

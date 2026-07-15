@@ -32,8 +32,9 @@ the operator's Notion agent and is the shared source of truth between us.
   discipline).
 
 ## Standing orders (memorized July 2026)
-Agents open pull requests and STOP. Only EJN merges. See AGENTS.md — its
-rules override this file wherever they conflict.
+Agents create a branch, open a pull request, SHOW THE WORK, and STOP. Only
+EJN approves and merges pull requests. AGENTS.md overrides every
+conflicting instruction in this repository.
 
 ## Automatic per-turn rule — Anti-Gravity check-in (memorized July 2026)
 At the START of every single turn — no matter what the owner's message says,
@@ -145,9 +146,10 @@ Teachers create classes, assign students, and track progress via Supabase.
   option). Wasting the owner's time asking them to choose between two
   options when I can actually judge which is better is exactly what NOT
   to do.
-- **Standing orders on merging (memorized July 2026):** Agents open pull
-  requests and STOP. Only EJN merges. See AGENTS.md — its rules override
-  this file wherever they conflict.
+- **Standing orders on merging (memorized July 2026):** Agents create a
+  branch, open a pull request, SHOW THE WORK, and STOP. Only EJN approves
+  and merges pull requests. AGENTS.md overrides every conflicting
+  instruction in this repository.
 - **Always show 3-5 pages of progress (memorized July 2026):** whenever
   work touches pages/visual content, show the owner 3-5 real
   screenshots/pages actually worked on (not just a text description) so
@@ -238,9 +240,10 @@ relaying anything I haven't personally checked.
 - Don't ask the owner small clarifying questions when a reasonable default
   exists — pick it, act, and say what you picked. Save questions for real
   decisions only.
-- **Standing orders on merging (memorized July 2026):** Agents open pull
-  requests and STOP. Only EJN merges. See AGENTS.md — its rules override
-  this file wherever they conflict.
+- **Standing orders on merging (memorized July 2026):** Agents create a
+  branch, open a pull request, SHOW THE WORK, and STOP. Only EJN approves
+  and merges pull requests. AGENTS.md overrides every conflicting
+  instruction in this repository.
 
 ## Reading Experience Redesign (memorized July 2026)
 The owner rejected the reconstructed-page look: it read as a "cheap scan,"
