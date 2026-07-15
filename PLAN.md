@@ -48,7 +48,14 @@ missing/invalid packages. Pick one package manager (the team develops with
 **Done when:** a fresh `git clone` + `npm ci` (or `pnpm install --frozen-lockfile`,
 whichever is chosen) succeeds with no errors, and the next push shows a green
 "Verify" check on GitHub.
-**Status: NOT STARTED**
+**Status: IN PROGRESS — install/typecheck/build fixed and verified locally
+(chose `pnpm`, matching `AGENTS.md`); `pnpm install --frozen-lockfile`,
+`pnpm run typecheck`, and `pnpm run build` all pass clean. The GitHub
+"Verify" check will still show red until Task 3 lands — both workflows now
+run `pnpm run lint` as a required step, and lint still has its pre-existing
+7,097 problems (unchanged by this task, confirmed same count before and
+after). Not marking this DONE since the literal "green check" criterion
+isn't met yet; the install-step bug this task targeted is fixed.**
 
 ### Task 2 — Fix the 4 failing tests (Gretel hero + art-manifest integrity)
 **Goal:** `pnpm test` currently reports 4 failed / 471 passed. Two causes:
