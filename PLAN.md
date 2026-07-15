@@ -80,7 +80,7 @@
 - **Goal:** Transplant existing colored art into every matching workbook slot (copy existing files only). Correct wrong abeja image. Connect existing remolino, oruga, and aguja art.
 - **Exact expected files or area:** `public/cartilla/art/faithful/manifest.json`, relevant `src/data/*` mappings (maximum five files).
 - **Done when:** All specified art is correctly wired and displays on the corresponding pages.
-- **Status:** NOT STARTED
+- **Status:** COMPLETED
 - **Browser check:** EJN goes to the workbook pages for abeja, remolino, oruga, and aguja and sees the correct colored art.
 
 ### Task 4.2: Reader Layouts (Student & Teacher)
