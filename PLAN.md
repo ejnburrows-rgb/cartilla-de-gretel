@@ -55,7 +55,7 @@
 - **Goal:** Allow authorized administrative viewing of other teachers' data and create the missing `lesson_verifications` migration and policies.
 - **Exact expected files or area:** `supabase/migrations/*`, admin dashboard components (maximum five files).
 - **Done when:** Admins can view all data and `lesson_verifications` table is active with strict RLS.
-- **Status:** NOT STARTED
+- **Status:** BLOCKED - Sandbox lacks live internet to authenticate against Supabase endpoints. Needs cloud env keys or a live environment.
 - **Browser check:** EJN logs in as an Admin and can view data from multiple teachers without breaking isolation for regular teachers.
 
 ## PHASE 3: Splash Screen and Avatar Hiding
