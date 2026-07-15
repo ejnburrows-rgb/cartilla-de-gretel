@@ -71,7 +71,7 @@
 - **Goal:** Hide every unfinished Gretel avatar element without deleting Gretel files.
 - **Exact expected files or area:** `src/components/cartilla/GretelLiveAvatar.tsx`, `src/components/cartilla/GretelStage.tsx` (maximum five files).
 - **Done when:** The avatar is completely hidden from the UI but the code remains intact.
-- **Status:** NOT STARTED
+- **Status:** DONE
 - **Browser check:** EJN navigates the app and confirms Gretel is nowhere to be seen on any screen.
 
 ## PHASE 4: Art and Reader
