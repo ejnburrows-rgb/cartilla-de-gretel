@@ -4,6 +4,9 @@ import { PolishedPage } from "./PolishedPage";
 import { StudentBookToolbar } from "./StudentBookToolbar";
 import { speak } from "@/lib/speak";
 import { FlipErrorBoundary } from "./FlipErrorBoundary";
+import { supabase } from "@/integrations/supabase/client";
+import { hasTeacherOrAdminRole } from "@/lib/auth-role";
+import { isSeedSessionActive } from "@/lib/seed-data";
 
 // Lazy-load the flipbook so `react-pageflip` (which touches browser-only APIs
 // at import time) never evaluates during SSR. Combined with the `mounted` gate
@@ -27,10 +30,22 @@ export function BookReader({ initialPage = 1 }: BookReaderProps) {
   // reader instead of white-screening the whole route.
   const [flipFailed, setFlipFailed] = useState(false);
 
+  const [isTeacher, setIsTeacher] = useState(false);
+
   // Only render the client-only flipbook after mount so `react-pageflip`
   // is never requested on the server.
   useEffect(() => {
     setMounted(true);
+    
+    if (isSeedSessionActive()) {
+      setIsTeacher(true);
+      return;
+    }
+    supabase.auth.getSession().then(({ data }) => {
+      if (data.session?.user) {
+        hasTeacherOrAdminRole(data.session.user.id).then(setIsTeacher);
+      }
+    });
   }, []);
 
   const totalPages = 95;
@@ -87,7 +102,7 @@ export function BookReader({ initialPage = 1 }: BookReaderProps) {
         currentPage={currentPage}
         totalPages={totalPages}
         onPageChange={setCurrentPage}
-        onPrint={handlePrint}
+        onPrint={isTeacher ? handlePrint : undefined}
         onAudio={handleAudio}
       />
 

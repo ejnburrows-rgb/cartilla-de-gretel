@@ -5,7 +5,7 @@ interface StudentBookToolbarProps {
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
-  onPrint: () => void;
+  onPrint?: () => void;
   onAudio?: () => void;
 }
 
@@ -103,14 +103,16 @@ export function StudentBookToolbar({ currentPage, totalPages, onPageChange, onPr
             Escuchar
           </button>
         )}
-        <button
-          onClick={onPrint}
-          className="px-4 py-2 rounded-xl bg-amber-800 hover:bg-amber-900 text-white font-bold text-xs inline-flex items-center gap-2 shadow hover:scale-[1.02] active:scale-95 transition"
-          aria-label="Imprimir libro de trabajo"
-        >
-          <Printer className="w-4 h-4" />
-          Imprimir / PDF
-        </button>
+        {onPrint && (
+          <button
+            onClick={onPrint}
+            className="px-4 py-2 rounded-xl bg-amber-800 hover:bg-amber-900 text-white font-bold text-xs inline-flex items-center gap-2 shadow hover:scale-[1.02] active:scale-95 transition"
+            aria-label="Imprimir libro de trabajo"
+          >
+            <Printer className="w-4 h-4" />
+            Imprimir / PDF
+          </button>
+        )}
       </div>
     </div>
   );
