@@ -4,7 +4,6 @@ import { BookOpen, GraduationCap, Presentation } from "lucide-react";
 import { getCartillaCrmCssVars, getLessonPageNumbers } from "@/lib/cartilla-crm-theme";
 import { VerifiedWorkbookPages } from "@/components/cartilla/VerifiedWorkbookPages";
 import type { WorkbookPageContent } from "@/lib/book-faithful";
-import { GretelMascot } from "@/components/gretel/GretelMascot";
 
 type StudentWorkbookShellProps = {
   lessonNumber: number;
@@ -52,9 +51,6 @@ export function StudentWorkbookShell({
               <span className="rounded-full bg-[var(--cartilla-accent)] px-3 py-1 text-xs font-black uppercase tracking-wide text-white shadow-sm">Lección {lessonNumber}</span>
               <span className="rounded-full border border-white/65 bg-white/78 px-3 py-1 text-xs font-black text-[var(--cartilla-title-ink)]">Páginas {pages}</span>
               <span className="rounded-full border border-white/65 bg-[#fffaf0]/86 px-3 py-1 text-xs font-black text-foreground/60">Libro real + CRM</span>
-            </div>
-            <div className="absolute top-0 right-4 hidden sm:block">
-              <GretelMascot pose="read" className="scale-75 origin-top-right" />
             </div>
             <h1 className="mt-3 text-3xl font-black leading-tight text-[var(--cartilla-title-ink)] sm:text-5xl">{title}</h1>
             {subtitle && <p className="mt-1 text-base font-bold text-foreground/65">{subtitle}</p>}

@@ -49,49 +49,18 @@ export function PolishedPage({ pageNumber, className = "" }: PolishedPageProps) 
     color: activeColor,
   };
 
-  const tabStyle = {
-    backgroundColor: activeColor,
-    borderColor: `${activeColor}40`,
-  };
-
   const isFirstOfLesson = useMemo(() => {
     if (!entry) return false;
     const start = parseInt((entry.pages || "").split("-")[0] || "1", 10);
     return start === pageNumber;
   }, [entry, pageNumber]);
 
-  const tabLetter = useMemo(() => {
-    if (!entry) return "";
-    return entry.kind === "consonant"
-      ? (entry.letter || "")
-      : entry.kind === "vowel"
-        ? (entry.vowel || "")
-        : String(entry.n);
-  }, [entry]);
-
   return (
     <div
       className={`polished-page w-full h-full px-8 py-6 transition-all duration-350 relative flex flex-col justify-between ${className}`}
       style={containerStyle}
     >
-      {/* Interactive side tab strips */}
-      {entry && (
-        <div
-          className={`absolute top-[25%] z-20 w-8 h-20 flex flex-col items-center justify-center shadow-md select-none border-stone-200/20 text-white font-black uppercase text-[10px] tracking-wider transition-transform hover:scale-105 duration-200 ${
-            isEven
-              ? "left-0 rounded-r-xl border-r border-y"
-              : "right-0 rounded-l-xl border-l border-y"
-          }`}
-          style={tabStyle}
-        >
-          <span className={isEven ? "pl-0.5" : "pr-0.5"}>{tabLetter}</span>
-          <span className={`text-[8px] opacity-75 ${isEven ? "pl-0.5" : "pr-0.5"}`}>
-            L{entry.n}
-          </span>
-        </div>
-      )}
-
-      {/* Page Header */}
+    {/* Page Header */}
       <div className="w-full flex justify-between items-start border-b border-stone-200/50 pb-3 mb-2">
         {isFirstOfLesson && entry ? (
           <div>

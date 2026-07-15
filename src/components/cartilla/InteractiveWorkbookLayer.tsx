@@ -12,7 +12,6 @@ import { cn } from "@/lib/utils";
 import { speak } from "@/lib/speak";
 
 import { PdfPage } from "@/components/cartilla/PdfPage";
-import { GretelMascot, type GretelPose } from "@/components/gretel/GretelMascot";
 import { DragBuildWord } from "@/components/cartilla/DragBuildWord";
 import { getLesson } from "@/content/lesson-meta";
 import { exerciseForPage, type ExerciseSeed } from "@/content/exercise-seed";
@@ -79,13 +78,11 @@ function SyllableTapActivity({
   pageNumber,
   accent,
   onComplete,
-  onGretelPose,
 }: {
   exercise: ExerciseSeed;
   pageNumber: number;
   accent: string;
   onComplete?: () => void;
-  onGretelPose: (s: GretelPose) => void;
 }) {
   const [tapped, setTapped] = useState<Set<string>>(new Set());
   const items = exercise.syllables || [];
@@ -93,8 +90,6 @@ function SyllableTapActivity({
   const handleTap = useCallback(
     (label: string) => {
       speak(label);
-      onGretelPose("celebrate");
-      setTimeout(() => onGretelPose("welcome"), 1400);
       setTapped((prev) => {
         const next = new Set(prev);
         next.add(label);
@@ -102,7 +97,7 @@ function SyllableTapActivity({
         return next;
       });
     },
-    [items.length, onComplete, onGretelPose],
+    [items.length, onComplete],
   );
 
   const allDone = items.length > 0 && tapped.size >= items.length;
@@ -150,13 +145,11 @@ function WordMatchActivity({
   pageNumber,
   accent,
   onComplete,
-  onGretelPose,
 }: {
   exercise: ExerciseSeed;
   pageNumber: number;
   accent: string;
   onComplete?: () => void;
-  onGretelPose: (s: GretelPose) => void;
 }) {
   const [tapped, setTapped] = useState<Set<string>>(new Set());
   const items = exercise.pairs || [];
@@ -165,8 +158,6 @@ function WordMatchActivity({
   const handleTap = useCallback(
     (label: string) => {
       speak(label);
-      onGretelPose("celebrate");
-      setTimeout(() => onGretelPose("welcome"), 1400);
       setTapped((prev) => {
         const next = new Set(prev);
         next.add(label);
@@ -174,7 +165,7 @@ function WordMatchActivity({
         return next;
       });
     },
-    [items.length, onComplete, onGretelPose],
+    [items.length, onComplete],
   );
 
   return (
@@ -210,13 +201,11 @@ function ReadAloudActivity({
   pageNumber,
   accent,
   onComplete,
-  onGretelPose,
 }: {
   exercise: ExerciseSeed;
   pageNumber: number;
   accent: string;
   onComplete?: () => void;
-  onGretelPose: (s: GretelPose) => void;
 }) {
   const [tapped, setTapped] = useState<Set<string>>(new Set());
   const items = exercise.words || [];
@@ -224,8 +213,6 @@ function ReadAloudActivity({
   const handleTap = useCallback(
     (label: string) => {
       speak(label);
-      onGretelPose("celebrate");
-      setTimeout(() => onGretelPose("welcome"), 1400);
       setTapped((prev) => {
         const next = new Set(prev);
         next.add(label);
@@ -233,7 +220,7 @@ function ReadAloudActivity({
         return next;
       });
     },
-    [items.length, onComplete, onGretelPose],
+    [items.length, onComplete],
   );
 
   const allDone = items.length > 0 && tapped.size >= items.length;
@@ -271,19 +258,17 @@ function ActivityCard({
   pageNumber,
   accent,
   onComplete,
-  onGretelPose,
 }: {
   exercise: ExerciseSeed;
   pageNumber: number;
   accent: string;
   onComplete?: () => void;
-  onGretelPose: (s: GretelPose) => void;
 }) {
   switch (exercise.kind) {
     case "syllable-tap":
-      return <SyllableTapActivity exercise={exercise} pageNumber={pageNumber} accent={accent} onComplete={onComplete} onGretelPose={onGretelPose} />;
+      return <SyllableTapActivity exercise={exercise} pageNumber={pageNumber} accent={accent} onComplete={onComplete} />;
     case "word-match":
-      return <WordMatchActivity exercise={exercise} pageNumber={pageNumber} accent={accent} onComplete={onComplete} onGretelPose={onGretelPose} />;
+      return <WordMatchActivity exercise={exercise} pageNumber={pageNumber} accent={accent} onComplete={onComplete} />;
     case "drag-build":
       return (
         <div className="rounded-[1.75rem] border-2 border-foreground/10 bg-white/90 shadow-xl shadow-primary/5 p-5 overflow-hidden">
@@ -291,11 +276,11 @@ function ActivityCard({
         </div>
       );
     case "reading":
-      return <ReadAloudActivity exercise={exercise} pageNumber={pageNumber} accent={accent} onComplete={onComplete} onGretelPose={onGretelPose} />;
+      return <ReadAloudActivity exercise={exercise} pageNumber={pageNumber} accent={accent} onComplete={onComplete} />;
     case "intro":
       return (
         <div className="rounded-[1.75rem] border-2 border-foreground/10 bg-white/90 shadow-xl shadow-primary/5 p-5">
-          <h3 className="font-black text-xl text-center text-foreground/90">{exercise.instructionEs}</h3>
+          <h3 className="text-black text-xl text-center text-foreground/90">{exercise.instructionEs}</h3>
         </div>
       );
     default:
@@ -311,7 +296,6 @@ export function InteractiveWorkbookLayer({
   onComplete: onLayerComplete,
 }: Props) {
   const [completed, setCompleted] = useState(false);
-  const [gretelPose, setGretelPose] = useState<GretelPose>("welcome");
 
   const activePage = activePageNumber ?? pageNumbers[0];
   const exercise = exerciseForPage(activePage);
@@ -331,17 +315,12 @@ export function InteractiveWorkbookLayer({
         <div className="h-px flex-1" style={gradientLeft(accent)} />
       </div>
 
-      <div className="flex justify-center mb-6">
-        <GretelMascot pose={gretelPose} />
-      </div>
-
       <div className="space-y-3">
         <ActivityCard
           exercise={exercise}
           pageNumber={activePage}
           accent={accent}
           onComplete={() => { setCompleted(true); onLayerComplete?.(); }}
-          onGretelPose={setGretelPose}
         />
         {completed && (
           <motion.div
