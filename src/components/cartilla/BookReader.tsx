@@ -44,6 +44,8 @@ export function BookReader({ initialPage = 1 }: BookReaderProps) {
     supabase.auth.getSession().then(({ data }) => {
       if (data.session?.user) {
         hasTeacherOrAdminRole(data.session.user.id).then(setIsTeacher);
+      } else {
+        setIsTeacher(false);
       }
     });
   }, []);
