@@ -30,7 +30,7 @@ export function BookReader({ initialPage = 1 }: BookReaderProps) {
   // reader instead of white-screening the whole route.
   const [flipFailed, setFlipFailed] = useState(false);
 
-  const [isTeacher, setIsTeacher] = useState(false);
+  const [isTeacher, setIsTeacher] = useState<boolean | null>(null);
 
   // Only render the client-only flipbook after mount so `react-pageflip`
   // is never requested on the server.
@@ -93,7 +93,9 @@ export function BookReader({ initialPage = 1 }: BookReaderProps) {
     </div>
   );
 
-  const showHorizontal = !flipFailed;
+  if (isTeacher === null) return flipbookFallback;
+
+  const showHorizontal = !flipFailed && !isTeacher;
 
   return (
     <div className="w-full flex flex-col min-h-screen">
