@@ -41,7 +41,7 @@ whichever is chosen) succeeds with no errors, and the next push shows a green
 (a) `BookHeroGretel.tsx` no longer renders `data-testid="book-hero-gretel"`
 or a `.book-hero-gretel__presence-wrap` element that its own tests expect —
 component and test drifted apart in a later edit; (b) the art-manifest
-integrity test lists 13 real broken paths (see Task 11/12 below) — those
+integrity test lists 13 real broken paths (see Task 13/14 below) — those
 13 failures are a duplicate signal of the art-gap work in Priority 4, not a
 separate bug to fix here.
 **Files:** `src/components/intro/BookHeroGretel.tsx`,
@@ -49,7 +49,7 @@ separate bug to fix here.
 `src/routes/__tests__/-home-landing.test.tsx`
 **Done when:** `pnpm test` shows 0 failed test files for the Gretel-hero
 tests (the manifest-integrity test will go green automatically once Task
-11/12 are done, not from this task).
+13/14 are done, not from this task).
 **Status: NOT STARTED**
 
 ### Task 3 — Get `pnpm run lint` to exit 0
@@ -93,14 +93,57 @@ regenerate `types.ts` so the `as any` cast can be removed.
 `src/lib/lesson-verification.functions.ts`
 **Done when:** `pnpm run typecheck` passes with the `as any` cast removed,
 and a real query against `lesson_verifications` succeeds against the live
-Supabase project (needs live credentials — see Task 6).
+Supabase project (needs live credentials — see Task 8).
+**Status: NOT STARTED**
+
+### Task 6 — Hide Gretel avatar
+**Goal:** No half-built Gretel avatar/hero element (`GretelPresence`,
+`GretelLiveAvatar`, `GretelCelebration`, `BookHeroGretel`) is visible
+anywhere in the app — student, teacher, or login screens. Hide or unmount
+the rendering of these UI elements; do **not** delete the component files,
+data, or assets — the full living-character version is still planned, it
+is just ON HOLD for now (see the bottom of this plan). This is a visibility
+change only.
+**Files:** the shared mount points for these components — starting point
+per the last audit: `src/components/gretel/GretelPresence.tsx`,
+`src/components/intro/BookHeroGretel.tsx`,
+`src/components/gretel/GretelCelebration.tsx` (confirm every route-level
+mount point at execution time; split into further ≤5-file sub-tasks if more
+call sites are found, same pattern as Task 14/21 below)
+**Done when:** clicking through every screen (landing, login, join,
+student lessons, teacher hub/CRM/roster/guía/presentar) shows no Gretel
+avatar or hero element anywhere, and `pnpm run typecheck` + `pnpm test` +
+`pnpm build` all still pass.
+**Status: NOT STARTED**
+
+### Task 7 — Splash screen
+**Goal:** A polished opening splash screen shows first, before login/join,
+on both the student and teacher paths — it is the first thing anyone sees
+when the app loads — then transitions cleanly into the current start
+screen. A splash component (`CartillaSplash`, route `/cartilla`) already
+exists in the repo but is not wired into the live entry path today — the
+real first screen is `/` (`Landing`), which goes straight to the
+"Estudiantes"/"Maestros" buttons with no splash first. Check whether
+`CartillaSplash` is reusable as-is or needs rework, then wire it (or a
+rebuilt version) as the true first screen shown on load, ahead of `/`. Use
+**only** existing colored art already in the repo (art transplant rule —
+no generation, no cropping, no redrawing); reuse an already-cropped/painted
+asset already wired elsewhere (e.g. the garden/`gretel-authentic.jpg` art
+already used on the landing hero) rather than sourcing anything new.
+**Files:** `src/routes/cartilla/index.tsx` (existing `CartillaSplash`),
+`src/routes/index.tsx` (`Landing`), plus the splash component's own file
+(confirm exact path at execution time)
+**Done when:** opening the app (a cold load at `/`) shows the splash
+screen first; it transitions cleanly into the current start screen; and it
+looks finished, not half-built, on both a laptop-width and a phone-width
+viewport, checked in-browser.
 **Status: NOT STARTED**
 
 ---
 
 ## Priority 2 — Supabase auth + teacher accounts + add students
 
-### Task 6 — Get live Supabase credentials into a working environment
+### Task 8 — Get live Supabase credentials into a working environment
 **Goal:** No `VITE_SUPABASE_URL` / `VITE_SUPABASE_PUBLISHABLE_KEY` exist in
 this sandbox — confirmed via `env | grep SUPABASE` (empty) and no `.env`/
 `.env.local` file anywhere in the repo, only `.env.example`. The client
@@ -114,11 +157,11 @@ anywhere discoverable in the repo.
 Supabase-backed sign-in (not the "not configured" state).
 **Status: NOT STARTED**
 
-### Task 7 — Live-verify teacher signup → class → add-students
+### Task 9 — Live-verify teacher signup → class → add-students
 **Goal:** Code review already confirms this chain is real (`src/routes/login.tsx`
 real `supabase.auth.signUp`/`signInWithPassword`; `src/lib/teacher.functions.ts`
 `createClass()`/`addStudents()` insert real rows scoped to `teacher_id`).
-It has never been run against a live project in a session. Once Task 6 is
+It has never been run against a live project in a session. Once Task 8 is
 done, confirm it live.
 **Files:** none (browser verification only)
 **Done when:** create a teacher account, create a class, add 2 students in
@@ -129,7 +172,7 @@ the browser; confirm the rows exist via the Supabase table editor.
 
 ## Priority 3 — Student actions reflected in teacher account; multi-teacher isolation
 
-### Task 8 — Live-verify student progress reaches the teacher dashboard
+### Task 10 — Live-verify student progress reaches the teacher dashboard
 **Goal:** Code review confirms an unbroken chain: student join
 (`src/routes/cartilla/unirse.tsx` → `enter_class_as_student` RPC) → activity
 completion (`log_student_progress` RPC → `progress_events` /
@@ -142,7 +185,7 @@ completion (`log_student_progress` RPC → `progress_events` /
 teacher's roster/progreso/reportes screens and see it reflected.
 **Status: NOT STARTED**
 
-### Task 9 — Live-verify multi-teacher data isolation
+### Task 11 — Live-verify multi-teacher data isolation
 **Goal:** Code review confirms isolation is enforced twice — client queries
 filter `.eq('teacher_id', userId)` everywhere, and RLS policies
 independently restrict `classes`/`students`/all 4 progress tables to
@@ -159,7 +202,7 @@ teacher's classes/students appear nowhere in the second teacher's UI.
 
 ## Priority 4 — Student workbook: transplant existing colored illustrations
 
-### Task 10 — Wire the 3 confirmed-good, currently-unwired crops
+### Task 12 — Wire the 3 confirmed-good, currently-unwired crops
 **Goal:** `remolino.webp` (leccion-1), `oruga.webp` (vocal-o), and
 `aguja.webp` (vocal-a) already exist as correct, verified crops in
 `public/cartilla/art/faithful/` with real `faithful/manifest.json` entries,
@@ -171,7 +214,7 @@ lessons in the browser; remolino/oruga/aguja render instead of the blank
 "art pending" placeholder.
 **Status: NOT STARTED**
 
-### Task 11 — Fix the live wrong-art bug: `vocal-a/abeja.webp`
+### Task 13 — Fix the live wrong-art bug: `vocal-a/abeja.webp`
 **Goal:** This file is wired and currently shown to students in the vowel-A
 lesson, but it does not show a bee — it's an unrelated color fragment. This
 is worse than a gap because it's live and wrong, not just missing. As an
@@ -187,7 +230,7 @@ already exists locally) and re-wire it.
 the current wrong image).
 **Status: NOT STARTED**
 
-### Task 12 — Re-crop the remaining "file exists but wrong" words
+### Task 14 — Re-crop the remaining "file exists but wrong" words
 **Goal:** `arbol.webp`, `ardilla.webp` (vocal-a), `ojos.webp` (vocal-o),
 `iguana.webp`, `igual.webp` (vocal-i), `ola.webp` (leccion-1), and
 `erizo.webp` (vocal-e, real hedgehog art but badly cut off) all have a
@@ -206,22 +249,32 @@ sub-tasks of ≤5 files to stay under the file cap)
 its labeled word, checked by eye against the printed caption.
 **Status: NOT STARTED**
 
-### Task 13 — Confirm the page-flip mechanism itself
+### Task 15 — Confirm and polish the page-flip mechanism: slow, elegant, book-like page-turn
 **Goal:** Docs (`PROJECT.md`, `SPEC.md`, `CLAUDE.md`, several `.agents/*`
 files) reference a `StudentWorkbookFlip` component as load-bearing — it
 does not exist anywhere in `src/` (confirmed by search). The actual live
 component is `BookPageFlip` (`src/components/.../BookPageFlip.tsx`, appears
 in the production build output). Confirm this is genuinely the current
 flip mechanism (not another dead duplicate) and that it renders wired
-illustrations correctly across a few lessons.
-**Files:** none (verification only); correct the stale `StudentWorkbookFlip`
-references in `SPEC.md`/`PROJECT.md` if confirmed dead
+illustrations correctly across a few lessons. **On top of that
+confirmation, the page flip itself must be a SLOW, ELEGANT, book-like
+page-turn animation** — a page visibly curls/turns like a real book, not
+an instant swap or a slide — and it must stay smooth (no stutter or jank)
+on a modest school computer, not just a high-end dev machine. If the
+current `BookPageFlip` behavior is an instant swap or a plain slide instead
+of a visible curl/turn, upgrading the animation itself is part of this
+task, not a separate one.
+**Files:** none (verification only) if the current animation already meets
+the bar; correct the stale `StudentWorkbookFlip` references in
+`SPEC.md`/`PROJECT.md` if confirmed dead
 **Done when:** open 3 different lessons' pages in the student workbook in
-the browser, confirm the page-flip animation works and illustrations
-display correctly inside the flipped page.
+the browser and turn a page: the transition is a slow, elegant, book-like
+curl/turn (not an instant swap or slide), illustrations display correctly
+inside the flipped page, and the animation stays smooth with no stutter on
+a modest/older school computer, not only a fast dev machine.
 **Status: NOT STARTED**
 
-### Task 14 — Consonant-lesson vocab gap: leave as-is, re-verify only
+### Task 16 — Consonant-lesson vocab gap: leave as-is, re-verify only
 **Goal:** 28 of 31 missing `consonants.json` illustration words have a
 manifest entry and file, but every one sampled (15+) shows the wrong
 subject — traced to the crop tool grabbing a fixed pixel region off the
@@ -244,7 +297,7 @@ against their lesson's raw source pages; confirm none were missed.
 
 ## Priority 5 — Flipchart complete
 
-### Task 15 — Resolve the duplicate flipchart scan sets
+### Task 17 — Resolve the duplicate flipchart scan sets
 **Goal:** Two separate full-page flipchart scan sets exist:
 `public/cartilla/art/hd/flipchart/` (+ `raw/flipchart/`, 62 pages each) and
 `public/cartilla/images/teacher-flipchart/` (62 pages, different naming).
@@ -259,7 +312,7 @@ correctly in the browser, and the code comment/doc note states unambiguously
 which folder is the real source.
 **Status: NOT STARTED**
 
-### Task 16 — Map all 90 workbook pages to their flipchart page scan
+### Task 18 — Map all 90 workbook pages to their flipchart page scan
 **Goal:** With 90 workbook pages and 62 flipchart scans, confirm every
 workbook page has a corresponding flipchart scan, and explicitly log any
 workbook page that genuinely has none (front matter, covers, or similar —
@@ -274,7 +327,7 @@ or an explicit "no flipchart scan for this page" note in the manifest.
 
 ## Priority 6 — All lessons with activities wired
 
-### Task 17 — Resolve the ActivityCarousel contradiction (needs the owner)
+### Task 19 — Resolve the ActivityCarousel contradiction (needs the owner)
 **Goal:** `CLAUDE.md`'s "Visual direction" section and `SPEC.md` both
 describe `ActivityCarousel.tsx` (word matching, syllable ordering, piano
 pronunciation) as currently live "under every vowel lesson." It is not —
@@ -292,7 +345,7 @@ wording) is the real target for the student lesson screen. Follow-up tasks
 get scoped once that's answered.
 **Status: NOT STARTED — OPERATOR INPUT NEEDED**
 
-### Task 18 — Fill Teacher's Guide content for Lessons 17-24
+### Task 20 — Fill Teacher's Guide content for Lessons 17-24
 **Goal:** `src/content/guides/lesson-17.tsx` through `lesson-24.tsx` are
 6-line stubs rendering `PartialLessonGuide` with objectives and procedure
 both marked `SOURCE-NOT-IN-REPO`. This is real, transcribable content that
@@ -305,7 +358,7 @@ in 2 batches of 4 to stay under the file cap)
 objectives and procedure text instead of the stub message.
 **Status: NOT STARTED — needs real source content (Notion pull or book scan)**
 
-### Task 19 — Archive the orphaned duplicate student/print/session routes
+### Task 21 — Archive the orphaned duplicate student/print/session routes
 **Goal:** Multiple complete, parallel implementations of the same features
 exist but are unreachable from any real click-path: the entire
 `/cartilla/student/*` subtree duplicates `/cartilla/lecciones` +
@@ -325,7 +378,7 @@ sub-tasks at execution time
 confirms zero remaining imports of the moved files.
 **Status: NOT STARTED**
 
-### Task 20 — Smoke-test all 24 lessons' interactive regions
+### Task 22 — Smoke-test all 24 lessons' interactive regions
 **Goal:** The grading/interaction engine (`FaithfulPageRenderer.tsx` +
 `buildPageArray.tsx`) is generic and lesson-agnostic in code, and was
 verified in-browser for lessons 1, 2, and 7 in an earlier session. The
@@ -336,11 +389,11 @@ least one exercise per lesson has been tapped both correctly and
 incorrectly to confirm grading fires and Gretel reacts.
 **Status: NOT STARTED**
 
-### Task 21 — Correct the stale docs found during this audit
+### Task 23 — Correct the stale docs found during this audit
 **Goal:** Several docs actively mislead about current app state and will
 cost a future session real time re-discovering the same things: `CLAUDE.md`'s
 "Visual direction" section (ActivityCarousel claimed live, isn't —
-resolved by Task 17's answer first), `SPEC.md`'s 3-tab-flow description and
+resolved by Task 19's answer first), `SPEC.md`'s 3-tab-flow description and
 its wrong teacher-guide status table for L16/L21-24, `CONTENT-SPEC.md`
 (entirely superseded — every row says text is "UNREADABLE," but
 `page-layouts.json` has full transcriptions for all 90 pages),
@@ -357,13 +410,18 @@ current repo actually shows.
 
 ## ON HOLD — do not schedule until the owner asks
 
-- Gretel living-avatar polish beyond the 7 frames already wired (blink/talk/
-  wave/cheer refinement, placement audit beyond what's already fixed)
+- **Gretel living-character work.** Task 6 above only hides the current
+  half-built avatar/hero UI — it does not cancel or replace this. The full
+  living-character version (richer animation beyond the 7 frames already
+  wired: blink/talk/wave/cheer refinement, placement audit beyond what's
+  already fixed) stays ON HOLD until the owner asks for it; when it's
+  built, it replaces the hidden elements from Task 6, it doesn't restart
+  from scratch.
 - Gretel TTS voice polish / real recorded human voice
 - Garden background rollout beyond the current interim `gretel-authentic.jpg`
   soft background
 - Full "channel" (Activities/games section) redesign — separate from Task
-  17's yes/no decision; the actual rebuild stays on hold either way, per
+  19's yes/no decision; the actual rebuild stays on hold either way, per
   the owner's own standing instruction not to start it unprompted
 - Removing the stray empty `cartilla-de-gretel/` directory and the
   `public/cartilla/art/illustrations/` folder (70 unreferenced
