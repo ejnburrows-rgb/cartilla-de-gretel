@@ -107,7 +107,7 @@ function generateSyllableMatchPage(pageId: number, data: ConsonantData, manifest
 
     // Get 3 incorrect words from OTHER syllables
     const otherSyllables = data.syllables.filter((s) => s !== syl);
-    let incorrectWords: string[] = [];
+    const incorrectWords: string[] = [];
     for (const os of otherSyllables) {
       if (data.examples[os]) {
         incorrectWords.push(...data.examples[os]);
@@ -116,7 +116,9 @@ function generateSyllableMatchPage(pageId: number, data: ConsonantData, manifest
     const bad3 = getRandom(incorrectWords, 3);
 
     // Look up illustrationSrc
-    const getSrc = (w: string) => manifest.find((m) => m.word.toLowerCase() === w.toLowerCase() || m.slug === w.toLowerCase())?.src;
+    const getSrc = (w: string) =>
+      manifest.find((m) => m.word.toLowerCase() === w.toLowerCase() || m.slug === w.toLowerCase())
+        ?.src;
 
     // Create 2 rows of 3 words
     const row1 = [
@@ -162,7 +164,10 @@ function generateFillInBlankPage(pageId: number, data: ConsonantData, manifest: 
       ...getRandom(data.syllables, 2, blankSyl).map((s) => ({ text: s })),
     ].sort(() => 0.5 - Math.random());
 
-    const illustrationSrc = manifest.find((m) => m.word.toLowerCase() === vocab.word.toLowerCase() || m.slug === vocab.word.toLowerCase())?.src;
+    const illustrationSrc = manifest.find(
+      (m) =>
+        m.word.toLowerCase() === vocab.word.toLowerCase() || m.slug === vocab.word.toLowerCase(),
+    )?.src;
 
     fillItems.push({
       wordBox: vocab.word,
@@ -247,7 +252,12 @@ function generateReadingPage(pageId: number, data: ConsonantData) {
 async function main() {
   const consonants: ConsonantData[] = JSON.parse(fs.readFileSync(CONSONANTS_PATH, "utf-8"));
   const layouts = JSON.parse(fs.readFileSync(PAGE_LAYOUTS_PATH, "utf-8"));
-  const manifest = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), "public/cartilla/art/faithful/manifest.json"), "utf-8"));
+  const manifest = JSON.parse(
+    fs.readFileSync(
+      path.resolve(process.cwd(), "public/cartilla/art/faithful/manifest.json"),
+      "utf-8",
+    ),
+  );
 
   for (const item of consonants) {
     // Only process lessons 7 to 24
@@ -255,17 +265,19 @@ async function main() {
 
     const pageNumbers = parsePageRange(item.pages);
     if (pageNumbers.length !== 4) {
-      console.warn(`Lesson ${item.lesson} (${item.letter}) does not have exactly 4 pages! Found ${pageNumbers.length}. Using first 4 or padding.`);
+      console.warn(
+        `Lesson ${item.lesson} (${item.letter}) does not have exactly 4 pages! Found ${pageNumbers.length}. Using first 4 or padding.`,
+      );
     }
 
-    const p1 = pageNumbers[0] || (item.lesson * 4);
+    const p1 = pageNumbers[0] || item.lesson * 4;
     const p2 = pageNumbers[1] || p1 + 1;
     const p3 = pageNumbers[2] || p1 + 2;
     const p4 = pageNumbers[3] || p1 + 3;
 
     // 1. Writing
     layouts.pages[p1.toString()] = generateWritingPage(p1, item.letter);
-    
+
     // 2. Syllable Match
     layouts.pages[p2.toString()] = generateSyllableMatchPage(p2, item, manifest);
 

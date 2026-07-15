@@ -3,7 +3,7 @@
  * Thin progress bar component that accepts 0–100 value and an accent colour.
  */
 interface StudentProgressBarProps {
-  value: number;        // 0–100
+  value: number; // 0–100
   color?: string;
   className?: string;
   label?: string;

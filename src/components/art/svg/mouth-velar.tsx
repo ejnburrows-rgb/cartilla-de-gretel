@@ -15,11 +15,7 @@ const AIRFLOW = "#90cdf4";
 const CAVITY = "#fdf0f0";
 const THROAT = "#f5dada";
 
-export function MouthVelar({
-  size,
-  className,
-  animated = false,
-}: MouthVelarProps) {
+export function MouthVelar({ size, className, animated = false }: MouthVelarProps) {
   const sizeProps: React.CSSProperties | undefined = size
     ? { width: size, height: size }
     : undefined;
@@ -196,10 +192,7 @@ export function MouthVelar({
 
       {/* Airflow — blocked at velar closure, builds behind */}
       <g stroke={AIRFLOW} strokeWidth="1.5" opacity="0.5" fill="none">
-        <path
-          d="M162 135 Q158 120 155 105 Q152 95 152 85"
-          strokeDasharray="4 3"
-        />
+        <path d="M162 135 Q158 120 155 105 Q152 95 152 85" strokeDasharray="4 3" />
         {/* Blocked indicator */}
         <line x1="150" y1="56" x2="156" y2="62" />
         <line x1="156" y1="56" x2="150" y2="62" />

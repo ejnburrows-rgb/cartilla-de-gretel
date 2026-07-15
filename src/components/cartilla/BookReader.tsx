@@ -36,7 +36,7 @@ export function BookReader({ initialPage = 1 }: BookReaderProps) {
   // is never requested on the server.
   useEffect(() => {
     setMounted(true);
-    
+
     if (isSeedSessionActive()) {
       setIsTeacher(true);
       return;
@@ -111,10 +111,7 @@ export function BookReader({ initialPage = 1 }: BookReaderProps) {
         <main className="flex-1 w-full max-w-2xl mx-auto px-2 md:px-4 py-6 md:py-8 flex flex-col items-center justify-center">
           {showHorizontal ? (
             mounted ? (
-              <FlipErrorBoundary
-                fallback={verticalReader}
-                onError={() => setFlipFailed(true)}
-              >
+              <FlipErrorBoundary fallback={verticalReader} onError={() => setFlipFailed(true)}>
                 <Suspense fallback={flipbookFallback}>
                   <BookPageFlip
                     currentPage={currentPage}

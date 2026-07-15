@@ -29,12 +29,7 @@ const fallbackStyle: React.CSSProperties = {
   fontSize: 14,
 };
 
-export function PictureScene({
-  k,
-  size,
-  className,
-  animated = false,
-}: PictureSceneProps) {
+export function PictureScene({ k, size, className, animated = false }: PictureSceneProps) {
   const Component = PICTURE_REGISTRY[k];
 
   const baseClass = ["art-picture-scene", className].filter(Boolean).join(" ");
@@ -51,11 +46,5 @@ export function PictureScene({
     );
   }
 
-  return (
-    <Component
-      className={baseClass}
-      style={sizeStyle}
-      animated={animated}
-    />
-  );
+  return <Component className={baseClass} style={sizeStyle} animated={animated} />;
 }

@@ -46,7 +46,10 @@ import { PictureShoe } from "./picture-shoe";
  * Maps picture keys (format: "letter-word") to their SVG component.
  * Used by PictureScene and art-registry for lookup.
  */
-export const PICTURE_REGISTRY: Record<string, ComponentType<{ animated?: boolean; className?: string; style?: React.CSSProperties }>> = {
+export const PICTURE_REGISTRY: Record<
+  string,
+  ComponentType<{ animated?: boolean; className?: string; style?: React.CSSProperties }>
+> = {
   "o-oso": PictureBear,
   "v-vaca": PictureCow,
   "g-gato": PictureCat,

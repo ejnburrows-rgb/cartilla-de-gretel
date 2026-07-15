@@ -11,31 +11,34 @@ export function useLongPress({ onLongPress, onClick, threshold = 600 }: UseLongP
   const startCoords = useRef<{ x: number; y: number } | null>(null);
   const isLongPressActive = useRef(false);
 
-  const start = useCallback((event: any) => {
-    isLongPressActive.current = false;
-    let clientX = 0;
-    let clientY = 0;
+  const start = useCallback(
+    (event: any) => {
+      isLongPressActive.current = false;
+      let clientX = 0;
+      let clientY = 0;
 
-    if (event.touches) {
-      if (event.touches.length === 0) return;
-      clientX = event.touches[0].clientX;
-      clientY = event.touches[0].clientY;
-    } else {
-      clientX = event.clientX;
-      clientY = event.clientY;
-    }
+      if (event.touches) {
+        if (event.touches.length === 0) return;
+        clientX = event.touches[0].clientX;
+        clientY = event.touches[0].clientY;
+      } else {
+        clientX = event.clientX;
+        clientY = event.clientY;
+      }
 
-    startCoords.current = { x: clientX, y: clientY };
+      startCoords.current = { x: clientX, y: clientY };
 
-    if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
+      if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
 
-    const cachedEvent = { ...event, target: event.target };
+      const cachedEvent = { ...event, target: event.target };
 
-    timeoutRef.current = window.setTimeout(() => {
-      isLongPressActive.current = true;
-      onLongPress(cachedEvent);
-    }, threshold);
-  }, [onLongPress, threshold]);
+      timeoutRef.current = window.setTimeout(() => {
+        isLongPressActive.current = true;
+        onLongPress(cachedEvent);
+      }, threshold);
+    },
+    [onLongPress, threshold],
+  );
 
   const move = useCallback((event: any) => {
     if (!startCoords.current || isLongPressActive.current) return;
@@ -64,18 +67,21 @@ export function useLongPress({ onLongPress, onClick, threshold = 600 }: UseLongP
     }
   }, []);
 
-  const end = useCallback((event: any) => {
-    if (timeoutRef.current) {
-      window.clearTimeout(timeoutRef.current);
-      timeoutRef.current = null;
-    }
+  const end = useCallback(
+    (event: any) => {
+      if (timeoutRef.current) {
+        window.clearTimeout(timeoutRef.current);
+        timeoutRef.current = null;
+      }
 
-    if (!isLongPressActive.current && onClick) {
-      onClick(event);
-    }
+      if (!isLongPressActive.current && onClick) {
+        onClick(event);
+      }
 
-    startCoords.current = null;
-  }, [onClick]);
+      startCoords.current = null;
+    },
+    [onClick],
+  );
 
   return {
     onMouseDown: start,

@@ -24,14 +24,14 @@ export const lesson06 = [
       { id: "img-abeja-12", label: "abeja" },
       { id: "img-uniforme-13", label: "uniforme" },
       { id: "img-insecto-14", label: "insecto" },
-      { id: "img-uno-15", label: "uno" }
+      { id: "img-uno-15", label: "uno" },
     ],
     targets: [],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded exercise for U u.",
-    sourcePage: getBookPageImage(22)
+    sourcePage: getBookPageImage(22),
   },
   {
     id: "l6-p23-draw-line",
@@ -48,14 +48,14 @@ export const lesson06 = [
       { id: "img-unicornio-4", label: "unicornio" },
       { id: "img-uña-5", label: "uña" },
       { id: "img-estrella-6", label: "estrella" },
-      { id: "img-iman-7", label: "imán" }
+      { id: "img-iman-7", label: "imán" },
     ],
     targets: [],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded exercise for U u.",
-    sourcePage: getBookPageImage(23)
+    sourcePage: getBookPageImage(23),
   },
   {
     id: "l6-p24-letter-tracing",
@@ -66,13 +66,13 @@ export const lesson06 = [
     prompt: "Haz un dibujo que represente una palabra que comienza con u.",
     items: [
       { id: "letter-U", label: "U" },
-      { id: "letter-u", label: "u" }
+      { id: "letter-u", label: "u" },
     ],
     targets: [],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded letter tracing for U u.",
-    sourcePage: getBookPageImage(24)
-  }
+    sourcePage: getBookPageImage(24),
+  },
 ];

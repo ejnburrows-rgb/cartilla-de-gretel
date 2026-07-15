@@ -13,7 +13,7 @@ export const localMonitor = {
 
     try {
       const logs: LocalErrorLog[] = JSON.parse(localStorage.getItem(LOCAL_MONITOR_KEY) ?? "[]");
-      
+
       const newLog: LocalErrorLog = {
         message: typeof error === "string" ? error : error.message,
         stack: typeof error === "string" ? undefined : error.stack,
@@ -24,7 +24,9 @@ export const localMonitor = {
       // Add to beginning of logs array and keep last 50 entries
       const updatedLogs = [newLog, ...logs].slice(0, 50);
       localStorage.setItem(LOCAL_MONITOR_KEY, JSON.stringify(updatedLogs));
-    } catch {}
+    } catch {
+      // ignore
+    }
   },
 
   getErrors(): LocalErrorLog[] {
@@ -39,6 +41,6 @@ export const localMonitor = {
   clearErrors() {
     if (typeof window === "undefined") return;
     localStorage.removeItem(LOCAL_MONITOR_KEY);
-  }
+  },
 };
 export type LocalMonitor = typeof localMonitor;

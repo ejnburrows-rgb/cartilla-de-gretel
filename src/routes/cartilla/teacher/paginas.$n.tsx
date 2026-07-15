@@ -106,7 +106,9 @@ function PaginasLeccion() {
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
             className={`flex items-center gap-2 px-4 py-3 font-bold rounded-full transition-colors ${
-              sidebarOpen ? "bg-orange-500 text-white" : "bg-stone-800 text-white hover:bg-stone-700"
+              sidebarOpen
+                ? "bg-orange-500 text-white"
+                : "bg-stone-800 text-white hover:bg-stone-700"
             }`}
           >
             <BookOpen className="w-5 h-5" />
@@ -145,7 +147,8 @@ function PaginasLeccion() {
 
         {/* Page indicator */}
         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 bg-black/50 text-white font-bold rounded-full text-sm z-50">
-          Lección {n} — Pág. {pageIndex + 1} / {globalPageNumbers.length} (página {currentGlobalPage} del libro)
+          Lección {n} — Pág. {pageIndex + 1} / {globalPageNumbers.length} (página{" "}
+          {currentGlobalPage} del libro)
         </div>
       </main>
 
@@ -154,7 +157,10 @@ function PaginasLeccion() {
         <aside className="w-full md:w-96 bg-white border-l border-stone-200 flex flex-col h-full z-10 shadow-2xl">
           <div className="p-4 border-b border-stone-200 flex justify-between items-center bg-stone-50">
             <h2 className="text-lg font-black text-stone-800">Notas para L{n}</h2>
-            <button onClick={() => setSidebarOpen(false)} className="text-stone-400 hover:text-stone-600">
+            <button
+              onClick={() => setSidebarOpen(false)}
+              className="text-stone-400 hover:text-stone-600"
+            >
               <X className="w-5 h-5" />
             </button>
           </div>

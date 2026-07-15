@@ -9,19 +9,19 @@
 // pose-only cues, never speech.
 
 export type GretelBusEvent =
-  | "lesson:start"    // wave → idle
-  | "answer:correct"  // cheer 2s → idle
-  | "answer:wrong"    // point 2s → idle
-  | "hint:show"       // point, held until hint:hide
-  | "hint:hide"       // return to idle
+  | "lesson:start" // wave → idle
+  | "answer:correct" // cheer 2s → idle
+  | "answer:wrong" // point 2s → idle
+  | "hint:show" // point, held until hint:hide
+  | "hint:hide" // return to idle
   | "lesson:complete" // cheer 3s → idle
   | "activity:complete" // cheer
-  | "talk:start"      // enter talking loop
-  | "talk:stop"       // return to idle
-  | "mount"           // component mount — pose cue only, never speech
-  | "page-flip"       // turning page — pose cue only, never speech
-  | "nudge";          // DEPRECATED — kept for type compat, MUST NOT be dispatched
-                      // (the 10s timer in useGretelEvents that fired this is gone)
+  | "talk:start" // enter talking loop
+  | "talk:stop" // return to idle
+  | "mount" // component mount — pose cue only, never speech
+  | "page-flip" // turning page — pose cue only, never speech
+  | "nudge"; // DEPRECATED — kept for type compat, MUST NOT be dispatched
+// (the 10s timer in useGretelEvents that fired this is gone)
 
 const CHANNEL = "gretel:bus";
 
@@ -30,9 +30,7 @@ export function gretelEvent(type: GretelBusEvent): void {
   window.dispatchEvent(new CustomEvent(CHANNEL, { detail: { type } }));
 }
 
-export function onGretelEvent(
-  handler: (type: GretelBusEvent) => void,
-): () => void {
+export function onGretelEvent(handler: (type: GretelBusEvent) => void): () => void {
   if (typeof window === "undefined") return () => {};
   const listener = (e: Event) => {
     const type = (e as CustomEvent<{ type: GretelBusEvent }>).detail?.type;

@@ -5,7 +5,14 @@ interface BookPageImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   fallbackSrcs?: string[];
 }
 
-export function BookPageImage({ src, fallbackSrcs = [], alt, className = "", wrapperClassName = "", ...props }: BookPageImageProps) {
+export function BookPageImage({
+  src,
+  fallbackSrcs = [],
+  alt,
+  className = "",
+  wrapperClassName = "",
+  ...props
+}: BookPageImageProps) {
   const [currentSrc, setCurrentSrc] = useState(src);
   const [fallbackIndex, setFallbackIndex] = useState(-1);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -19,11 +26,13 @@ export function BookPageImage({ src, fallbackSrcs = [], alt, className = "", wra
   }, [src]);
 
   return (
-    <div className={`relative w-full h-full flex items-center justify-center overflow-hidden bg-surface rounded-sm drop-shadow-md border border-border ${wrapperClassName}`}>
+    <div
+      className={`relative w-full h-full flex items-center justify-center overflow-hidden bg-surface rounded-sm drop-shadow-md border border-border ${wrapperClassName}`}
+    >
       {!isLoaded && !hasError && (
         <div className="absolute inset-0 z-0 bg-stone-200 animate-pulse" />
       )}
-      
+
       {hasError ? (
         <div className="absolute inset-0 z-0 flex flex-col items-center justify-center bg-[#fff8e7] text-stone-500">
           <span className="text-sm font-bold">Imagen no disponible</span>

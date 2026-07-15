@@ -1,10 +1,10 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const tgPath = path.join(__dirname, '../src/data/teacher-guide.json');
-const tg = JSON.parse(fs.readFileSync(tgPath, 'utf8'));
+const tgPath = path.join(__dirname, "../src/data/teacher-guide.json");
+const tg = JSON.parse(fs.readFileSync(tgPath, "utf8"));
 
-tg.lessons.forEach(l => {
+tg.lessons.forEach((l) => {
   l.needsReview = true;
   if (!Array.isArray(l.vocabulary)) {
     l.vocabulary = l.vocabulary ? [l.vocabulary] : [];
@@ -21,10 +21,10 @@ tg.lessons.forEach(l => {
   if (l.objectives && !Array.isArray(l.objectives)) {
     l.objectives = [l.objectives];
   }
-  
+
   if (l.lesson !== undefined && l.id === undefined) {
-      l.id = l.lesson;
+    l.id = l.lesson;
   }
 });
 
-fs.writeFileSync(tgPath, JSON.stringify(tg, null, 2) + '\n');
+fs.writeFileSync(tgPath, JSON.stringify(tg, null, 2) + "\n");

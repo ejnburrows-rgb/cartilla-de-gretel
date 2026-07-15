@@ -167,9 +167,7 @@ function Practica() {
           <Zap className="w-4 h-4" /> {t.practicaRapida[lang]}
         </div>
         <h1 className="text-3xl sm:text-4xl font-bold mt-3">{t.drillSilabas[lang]}</h1>
-        <p className="text-foreground/70 mt-1">
-          {t.escuchaToca[lang]}
-        </p>
+        <p className="text-foreground/70 mt-1">{t.escuchaToca[lang]}</p>
       </header>
 
       {phase === "setup" && (
@@ -187,7 +185,8 @@ function Practica() {
                       : "border-foreground/10 hover:bg-secondary"
                   }`}
                 >
-                  {d}{t.s[lang]}
+                  {d}
+                  {t.s[lang]}
                 </button>
               ))}
             </div>
@@ -216,7 +215,9 @@ function Practica() {
                 {t.todasLecciones[lang]}
               </button>
             </div>
-            <p className="text-[11px] text-foreground/50 mt-2">{pool.length} {t.silabasPool[lang]}</p>
+            <p className="text-[11px] text-foreground/50 mt-2">
+              {pool.length} {t.silabasPool[lang]}
+            </p>
           </div>
           <button
             onClick={start}
@@ -235,7 +236,8 @@ function Practica() {
             <span
               className={`text-2xl font-bold ${secondsLeft <= 10 ? "text-destructive animate-pulse" : ""}`}
             >
-              {secondsLeft}{t.s[lang]}
+              {secondsLeft}
+              {t.s[lang]}
             </span>
             <span className="text-success">
               ✓ {hits} <span className="text-destructive ml-2">✗ {misses}</span>

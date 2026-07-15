@@ -13,11 +13,7 @@ export function TutorialHand({ x, y }: TutorialHandProps) {
   };
 
   return (
-    <div
-      style={handStyle}
-      className="tutorial-hand no-print"
-      aria-hidden="true"
-    >
+    <div style={handStyle} className="tutorial-hand no-print" aria-hidden="true">
       {/* Premium vector pointing finger hand drawing */}
       <svg viewBox="0 0 100 100" className="w-12 h-12 select-none filter drop-shadow-md">
         <path

@@ -37,7 +37,9 @@ export function CinemaNarrativeDrawer({ entry, isOpen, onToggle }: CinemaNarrati
       </button>
 
       {/* Drawer Content */}
-      <div className={`flex-1 overflow-y-auto p-6 space-y-6 ${isOpen ? "opacity-100" : "opacity-0 pointer-events-none"} transition-opacity duration-200`}>
+      <div
+        className={`flex-1 overflow-y-auto p-6 space-y-6 ${isOpen ? "opacity-100" : "opacity-0 pointer-events-none"} transition-opacity duration-200`}
+      >
         {/* Header */}
         <div>
           <span className="text-[10px] font-bold uppercase tracking-wider text-foreground/40">
@@ -62,9 +64,7 @@ export function CinemaNarrativeDrawer({ entry, isOpen, onToggle }: CinemaNarrati
                 <div className="font-bold text-sm" style={textStyle}>
                   {entry.lesson.characterName}
                 </div>
-                <div className="text-xs text-foreground/70 mt-1">
-                  {entry.lesson.characterDesc}
-                </div>
+                <div className="text-xs text-foreground/70 mt-1">{entry.lesson.characterDesc}</div>
               </div>
             </div>
 
@@ -74,7 +74,10 @@ export function CinemaNarrativeDrawer({ entry, isOpen, onToggle }: CinemaNarrati
               </h3>
               <ul className="grid grid-cols-2 gap-2" role="list">
                 {entry.lesson.vocab.map((item, idx) => (
-                  <li key={idx} className="flex items-center gap-2 p-2 bg-foreground/5 rounded-xl text-xs font-medium">
+                  <li
+                    key={idx}
+                    className="flex items-center gap-2 p-2 bg-foreground/5 rounded-xl text-xs font-medium"
+                  >
                     <span className="capitalize">{item.word}</span>
                   </li>
                 ))}
@@ -92,7 +95,11 @@ export function CinemaNarrativeDrawer({ entry, isOpen, onToggle }: CinemaNarrati
               </h3>
               <div className="flex flex-wrap gap-1.5" role="region" aria-label="Sílabas">
                 {entry.data.syllables.map((syl, idx) => (
-                  <span key={idx} className="px-2.5 py-1 rounded-lg text-xs font-bold text-white uppercase tracking-wider" style={toggleBtnBg}>
+                  <span
+                    key={idx}
+                    className="px-2.5 py-1 rounded-lg text-xs font-bold text-white uppercase tracking-wider"
+                    style={toggleBtnBg}
+                  >
                     {syl}
                   </span>
                 ))}
@@ -108,11 +115,18 @@ export function CinemaNarrativeDrawer({ entry, isOpen, onToggle }: CinemaNarrati
                 {Object.entries(entry.data.examples).map(([syl, words]) => (
                   <div key={syl} className="p-3 rounded-2xl border" style={cardBgStyle}>
                     <div className="text-[10px] font-bold uppercase tracking-wider text-foreground/50 mb-1">
-                      Con sílaba <span className="underline" style={textStyle}>{syl.toUpperCase()}</span>:
+                      Con sílaba{" "}
+                      <span className="underline" style={textStyle}>
+                        {syl.toUpperCase()}
+                      </span>
+                      :
                     </div>
                     <div className="flex flex-wrap gap-2">
                       {words.map((w, wIdx) => (
-                        <span key={wIdx} className="text-xs font-semibold px-2 py-0.5 bg-foreground/5 rounded-lg capitalize">
+                        <span
+                          key={wIdx}
+                          className="text-xs font-semibold px-2 py-0.5 bg-foreground/5 rounded-lg capitalize"
+                        >
                           {w}
                         </span>
                       ))}
@@ -129,8 +143,14 @@ export function CinemaNarrativeDrawer({ entry, isOpen, onToggle }: CinemaNarrati
               </h3>
               <ol className="space-y-2" role="list">
                 {entry.data.sentences.map((sent, idx) => (
-                  <li key={idx} className="flex gap-2.5 items-start text-xs leading-relaxed p-2.5 bg-foreground/5 rounded-xl">
-                    <span className="w-4 h-4 shrink-0 rounded-full flex items-center justify-center text-[10px] text-white font-bold" style={toggleBtnBg}>
+                  <li
+                    key={idx}
+                    className="flex gap-2.5 items-start text-xs leading-relaxed p-2.5 bg-foreground/5 rounded-xl"
+                  >
+                    <span
+                      className="w-4 h-4 shrink-0 rounded-full flex items-center justify-center text-[10px] text-white font-bold"
+                      style={toggleBtnBg}
+                    >
                       {idx + 1}
                     </span>
                     <span>{sent}</span>
@@ -143,7 +163,10 @@ export function CinemaNarrativeDrawer({ entry, isOpen, onToggle }: CinemaNarrati
 
         {entry.kind === "intro" && (
           <div className="text-xs text-foreground/75 leading-relaxed space-y-2">
-            <p>Esta es la lección introductoria de la cartilla. Prepárese para guiar a los estudiantes en su emocionante viaje por la lectura interactiva.</p>
+            <p>
+              Esta es la lección introductoria de la cartilla. Prepárese para guiar a los
+              estudiantes en su emocionante viaje por la lectura interactiva.
+            </p>
           </div>
         )}
       </div>

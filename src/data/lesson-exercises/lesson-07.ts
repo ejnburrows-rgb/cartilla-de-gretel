@@ -10,14 +10,14 @@ export const lesson07 = [
     prompt: "Haz un dibujo que represente una palabra que comienza con m.",
     items: [
       { id: "letter-M", label: "M" },
-      { id: "letter-m", label: "m" }
+      { id: "letter-m", label: "m" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
     teacherNotes: "Students trace uppercase M and lowercase m.",
-    sourcePage: getBookPageImage(25)
+    sourcePage: getBookPageImage(25),
   },
   {
     id: "l7-p26-syllable-circle",
@@ -31,27 +31,52 @@ export const lesson07 = [
       { id: "syl-me", label: "me" },
       { id: "syl-mi", label: "mi" },
       { id: "syl-mo", label: "mo" },
-      { id: "syl-mu", label: "mu" }
+      { id: "syl-mu", label: "mu" },
     ],
     targets: [
       { id: "slot-ma", label: "ma", coordinatesVerified: false, acceptsItemId: "syl-ma" },
       { id: "slot-me", label: "me", coordinatesVerified: false, acceptsItemId: "syl-me" },
       { id: "slot-mi", label: "mi", coordinatesVerified: false, acceptsItemId: "syl-mi" },
       { id: "slot-mo", label: "mo", coordinatesVerified: false, acceptsItemId: "syl-mo" },
-      { id: "slot-mu", label: "mu", coordinatesVerified: false, acceptsItemId: "syl-mu" }
+      { id: "slot-mu", label: "mu", coordinatesVerified: false, acceptsItemId: "syl-mu" },
     ],
     wordBank: [
-      "mami", "ama", "mamá", "mima", "Coloma", "Manolo",
-      "media", "Memo", "melón", "mesa", "meta", "Meme",
-      "mío", "amigo", "mima", "mira", "misa", "Mimí",
-      "amo", "Memo", "mono", "como", "moneda", "moto",
-      "mulo", "muleta", "muro", "mudo", "mujer", "Mumi"
+      "mami",
+      "ama",
+      "mamá",
+      "mima",
+      "Coloma",
+      "Manolo",
+      "media",
+      "Memo",
+      "melón",
+      "mesa",
+      "meta",
+      "Meme",
+      "mío",
+      "amigo",
+      "mima",
+      "mira",
+      "misa",
+      "Mimí",
+      "amo",
+      "Memo",
+      "mono",
+      "como",
+      "moneda",
+      "moto",
+      "mulo",
+      "muleta",
+      "muro",
+      "mudo",
+      "mujer",
+      "Mumi",
     ],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
     teacherNotes: "Verified syllable circle for Mm. Need to map slot coordinates.",
-    sourcePage: getBookPageImage(26)
+    sourcePage: getBookPageImage(26),
   },
   {
     id: "l7-p27-syllable-tap",
@@ -65,14 +90,14 @@ export const lesson07 = [
       { id: "ra-me", label: "me" },
       { id: "ra-mi", label: "mi" },
       { id: "ra-mo", label: "mo" },
-      { id: "ra-mu", label: "mu" }
+      { id: "ra-mu", label: "mu" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
     teacherNotes: "Verified syllable tap for Mm.",
-    sourcePage: getBookPageImage(27)
+    sourcePage: getBookPageImage(27),
   },
   {
     id: "l7-p27-word-bank",
@@ -96,14 +121,14 @@ export const lesson07 = [
       { id: "w-mimame", label: "mímame" },
       { id: "w-mia", label: "mía" },
       { id: "w-mima", label: "mima" },
-      { id: "w-amame", label: "ámame" }
+      { id: "w-amame", label: "ámame" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
     teacherNotes: "Verified word bank for Mm.",
-    sourcePage: getBookPageImage(27)
+    sourcePage: getBookPageImage(27),
   },
   {
     id: "l7-p27-mini-story",
@@ -118,17 +143,15 @@ export const lesson07 = [
       { id: "story-m-3", label: "Mamá ama a Meme y a Mimí." },
       { id: "story-m-4", label: "Memo ama a Mumi." },
       { id: "story-m-5", label: "Mamá mía ámame. Mímame a mí." },
-      { id: "story-m-6", label: "Mi mamá me mima." }
+      { id: "story-m-6", label: "Mi mamá me mima." },
     ],
     targets: [],
-    sightWords: [
-      "y"
-    ],
+    sightWords: ["y"],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
     teacherNotes: "Verified mini-story for Mm.",
-    sourcePage: getBookPageImage(27)
+    sourcePage: getBookPageImage(27),
   },
   {
     id: "l7-p28-fill-in-blank",
@@ -145,7 +168,7 @@ export const lesson07 = [
       { id: "syl-mu", label: "mu" },
       { id: "syl-mi-accent", label: "mí" },
       { id: "syl-ma-accent", label: "má" },
-      { id: "syl-mu-cap", label: "Mu" }
+      { id: "syl-mu-cap", label: "Mu" },
     ],
     targets: [
       {
@@ -155,7 +178,7 @@ export const lesson07 = [
         correctSyllable: "mo",
         fullWord: "amo",
         coordinatesVerified: false,
-        acceptsItemId: "syl-mo"
+        acceptsItemId: "syl-mo",
       },
       {
         id: "blank-memo",
@@ -164,7 +187,7 @@ export const lesson07 = [
         correctSyllable: "mo",
         fullWord: "Memo",
         coordinatesVerified: false,
-        acceptsItemId: "syl-mo"
+        acceptsItemId: "syl-mo",
       },
       {
         id: "blank-mama",
@@ -173,7 +196,7 @@ export const lesson07 = [
         correctSyllable: "má",
         fullWord: "mamá",
         coordinatesVerified: false,
-        acceptsItemId: "syl-ma-accent"
+        acceptsItemId: "syl-ma-accent",
       },
       {
         id: "blank-mima",
@@ -182,7 +205,7 @@ export const lesson07 = [
         correctSyllable: "ma",
         fullWord: "mima",
         coordinatesVerified: false,
-        acceptsItemId: "syl-ma"
+        acceptsItemId: "syl-ma",
       },
       {
         id: "blank-mumi",
@@ -191,7 +214,7 @@ export const lesson07 = [
         correctSyllable: "Mu",
         fullWord: "Mumi",
         coordinatesVerified: false,
-        acceptsItemId: "syl-mu-cap"
+        acceptsItemId: "syl-mu-cap",
       },
       {
         id: "blank-mio",
@@ -200,52 +223,52 @@ export const lesson07 = [
         correctSyllable: "mí",
         fullWord: "mío",
         coordinatesVerified: false,
-        acceptsItemId: "syl-mi-accent"
-      }
+        acceptsItemId: "syl-mi-accent",
+      },
     ],
     exercises: [
       {
         partial: "a___",
         choices: ["mo", "mu"],
         answer: "mo",
-        fullWord: "amo"
+        fullWord: "amo",
       },
       {
         partial: "Me___",
         choices: ["mo", "mu"],
         answer: "mo",
-        fullWord: "Memo"
+        fullWord: "Memo",
       },
       {
         partial: "ma___",
         choices: ["mi", "má"],
         answer: "má",
-        fullWord: "mamá"
+        fullWord: "mamá",
       },
       {
         partial: "mi___",
         choices: ["ma", "mu"],
         answer: "ma",
-        fullWord: "mima"
+        fullWord: "mima",
       },
       {
         partial: "___mi",
         choices: ["mi", "Mu"],
         answer: "Mu",
-        fullWord: "Mumi"
+        fullWord: "Mumi",
       },
       {
         partial: "___o",
         choices: ["mí", "mo"],
         answer: "mí",
-        fullWord: "mío"
-      }
+        fullWord: "mío",
+      },
     ],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
     teacherNotes: "Verified fill-in-the-blank for Mm.",
-    sourcePage: getBookPageImage(28)
+    sourcePage: getBookPageImage(28),
   },
   {
     id: "l7-p28-write-sentences",
@@ -260,6 +283,6 @@ export const lesson07 = [
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
     teacherNotes: "Sentence writing lines.",
-    sourcePage: getBookPageImage(28)
-  }
+    sourcePage: getBookPageImage(28),
+  },
 ];

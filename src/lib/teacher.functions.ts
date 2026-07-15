@@ -55,8 +55,13 @@ type TeacherStudentWithClass = {
  * "lessons completed" never disagrees between screens. */
 async function fetchProgressStats(
   studentIds: string[],
-): Promise<Record<string, { lessons: number; lastSeen: string | null; completionPercent: number }>> {
-  const stats: Record<string, { lessons: number; lastSeen: string | null; completionPercent: number }> = {};
+): Promise<
+  Record<string, { lessons: number; lastSeen: string | null; completionPercent: number }>
+> {
+  const stats: Record<
+    string,
+    { lessons: number; lastSeen: string | null; completionPercent: number }
+  > = {};
   if (studentIds.length === 0) return stats;
 
   const { data: rows, error } = await supabase
@@ -616,9 +621,7 @@ export async function getWeeklyActivity(
 export async function getAllTeacherStudents(
   input: Call<{ includeArchived?: boolean } | Record<string, never>>,
 ) {
-  const opts = z
-    .object({ includeArchived: z.boolean().optional() })
-    .parse(input.data ?? {});
+  const opts = z.object({ includeArchived: z.boolean().optional() }).parse(input.data ?? {});
   const { userId } = await requireTeacher();
   let q = supabase
     .from("students")
@@ -652,4 +655,3 @@ export async function getAllTeacherStudents(
     completionPercent: progressStats[s.id]?.completionPercent ?? 0,
   }));
 }
-

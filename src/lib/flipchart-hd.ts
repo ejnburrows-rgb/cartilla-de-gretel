@@ -19,9 +19,9 @@ export type FlipchartPage = {
 };
 
 /** All 62 HD flipchart pages, sorted by flipchartPage ascending. */
-export const FLIPCHART_PAGES: FlipchartPage[] = (
-  flipchartData.pages as FlipchartPage[]
-).sort((a, b) => a.flipchartPage - b.flipchartPage);
+export const FLIPCHART_PAGES: FlipchartPage[] = (flipchartData.pages as FlipchartPage[]).sort(
+  (a, b) => a.flipchartPage - b.flipchartPage,
+);
 
 /** Return the absolute URL path for a flipchart page (leading slash). */
 export function getFlipchartPageSrc(page: FlipchartPage): string {
@@ -35,10 +35,7 @@ export function getFlipchartPageSrc(page: FlipchartPage): string {
  */
 export function isHdFlipchartPath(src: string): boolean {
   const clean = src.replace(/^\//, "").toLowerCase();
-  return (
-    clean.startsWith("cartilla/art/hd/flipchart/") ||
-    clean.includes("/art/hd/flipchart/")
-  );
+  return clean.startsWith("cartilla/art/hd/flipchart/") || clean.includes("/art/hd/flipchart/");
 }
 
 /** Prefer HD path for a lesson's first plate; null if none authored. */

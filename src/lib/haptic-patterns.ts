@@ -21,5 +21,7 @@ export function triggerHaptic(kind: HapticKind) {
   try {
     const pattern = HAPTIC_PATTERNS[kind];
     navigator.vibrate(pattern);
-  } catch {}
+  } catch {
+    // ignore
+  }
 }

@@ -24,7 +24,7 @@ export function KpiStrip({
           <div className="text-2xl font-bold text-[#3a322b]">{activeStudents}</div>
         </div>
       </div>
-      
+
       <div className="crm-card flex items-center gap-4">
         <div className="w-12 h-12 rounded-full bg-[#d4e4ea] text-[#2c4c5b] flex items-center justify-center">
           <TrendingUp className="w-6 h-6" />

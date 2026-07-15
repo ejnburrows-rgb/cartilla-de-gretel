@@ -33,9 +33,11 @@ export function GretelFeedback({ isCorrect, message, children }: GretelFeedbackP
 
   if (isCorrect === null) return null;
 
-  const feedbackMessage = message || (isCorrect
-    ? "¡Excelente trabajo! ¡Sigue así, lo estás haciendo de maravilla!"
-    : "Buen intento. ¡No te rindas, inténtalo de nuevo y lo lograrás!");
+  const feedbackMessage =
+    message ||
+    (isCorrect
+      ? "¡Excelente trabajo! ¡Sigue así, lo estás haciendo de maravilla!"
+      : "Buen intento. ¡No te rindas, inténtalo de nuevo y lo lograrás!");
 
   return (
     <div className={wrapperClass}>

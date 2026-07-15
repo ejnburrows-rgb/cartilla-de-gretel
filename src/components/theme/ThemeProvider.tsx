@@ -37,8 +37,14 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     if (typeof document === "undefined") return;
     const root = document.documentElement;
     // Clear all previous theme classes
-    root.classList.remove("theme-light", "theme-dark", "theme-high-contrast", "theme-dyslexia", "dark");
-    
+    root.classList.remove(
+      "theme-light",
+      "theme-dark",
+      "theme-high-contrast",
+      "theme-dyslexia",
+      "dark",
+    );
+
     if (theme === "light") {
       root.classList.add("theme-light");
     } else if (theme === "dark") {

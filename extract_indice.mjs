@@ -1,16 +1,20 @@
-import { getDocument, GlobalWorkerOptions } from 'pdfjs-dist/legacy/build/pdf.mjs';
-import { readFileSync } from 'fs';
-import { resolve } from 'path';
-import { fileURLToPath } from 'url';
+import { getDocument, GlobalWorkerOptions } from "pdfjs-dist/legacy/build/pdf.mjs";
+import { readFileSync } from "fs";
+import { resolve } from "path";
+import { fileURLToPath } from "url";
 
-const __dirname = fileURLToPath(new URL('.', import.meta.url));
-const workerPath = resolve(__dirname, 'node_modules/.pnpm/pdfjs-dist@5.7.284/node_modules/pdfjs-dist/legacy/build/pdf.worker.mjs');
-GlobalWorkerOptions.workerSrc = new URL(`file://${workerPath.replace(/\\/g, '/')}`).href;
+const __dirname = fileURLToPath(new URL(".", import.meta.url));
+const workerPath = resolve(
+  __dirname,
+  "node_modules/.pnpm/pdfjs-dist@5.7.284/node_modules/pdfjs-dist/legacy/build/pdf.worker.mjs",
+);
+GlobalWorkerOptions.workerSrc = new URL(`file://${workerPath.replace(/\\/g, "/")}`).href;
 
-const data = new Uint8Array(readFileSync('./public/book/book.pdf'));
-const pdf = await getDocument({ data, useSystemFonts: true, disableFontFace: true, verbosity: 0 }).promise;
+const data = new Uint8Array(readFileSync("./public/book/book.pdf"));
+const pdf = await getDocument({ data, useSystemFonts: true, disableFontFace: true, verbosity: 0 })
+  .promise;
 
-console.log('Total pages:', pdf.numPages);
+console.log("Total pages:", pdf.numPages);
 
 // Look at pages around the intro / vowel transitions and first consonant
 // Pages 1-5: opening/indice
@@ -30,7 +34,14 @@ const pagesToCheck = [
 for (const pageNum of pagesToCheck) {
   const page = await pdf.getPage(pageNum);
   const tc = await page.getTextContent();
-  const items = tc.items.map(i => ({ str: i.str, x: Math.round(i.transform[4]), y: Math.round(i.transform[5]) }));
-  const allText = items.map(i => i.str).join(' ').slice(0, 200);
+  const items = tc.items.map((i) => ({
+    str: i.str,
+    x: Math.round(i.transform[4]),
+    y: Math.round(i.transform[5]),
+  }));
+  const allText = items
+    .map((i) => i.str)
+    .join(" ")
+    .slice(0, 200);
   console.log(`PAGE ${pageNum}: ${allText}`);
 }

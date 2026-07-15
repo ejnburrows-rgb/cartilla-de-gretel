@@ -21,7 +21,7 @@ export function StoryIntro({
   const [currentLineIdx, setCurrentLineIdx] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
-  
+
   const handleSkip = () => {
     onComplete(true);
   };
@@ -57,7 +57,7 @@ export function StoryIntro({
 
   const nextTextLine = () => {
     if (currentLineIdx < storyLines.length - 1) {
-      setCurrentLineIdx(prev => prev + 1);
+      setCurrentLineIdx((prev) => prev + 1);
     } else {
       setIsFinished(true);
     }
@@ -68,7 +68,7 @@ export function StoryIntro({
   return (
     <div className="w-full relative bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')] bg-[#e6ccb2] rounded-[2rem] p-6 sm:p-8 shadow-inner border-[8px] border-[#bc6c25] flex flex-col items-center justify-center min-h-[60vh] overflow-hidden mb-12 animate-in fade-in zoom-in-95 duration-500">
       {/* Skip Button */}
-      <button 
+      <button
         onClick={handleSkip}
         className="absolute top-4 right-4 z-30 flex items-center gap-1 px-4 py-2 bg-white/70 hover:bg-white rounded-full text-sm font-bold text-stone-700 transition shadow-sm border border-stone-200"
       >
@@ -89,12 +89,12 @@ export function StoryIntro({
         </div>
       ) : (
         <div className="flex-1 flex flex-col items-center justify-center p-8 w-full z-10">
-           <div 
-             key={currentLineIdx}
-             className="text-3xl sm:text-5xl font-black text-center text-[#603813] leading-snug max-w-2xl animate-in fade-in slide-in-from-bottom-4 duration-500"
-           >
-             {storyLines[currentLineIdx]}
-           </div>
+          <div
+            key={currentLineIdx}
+            className="text-3xl sm:text-5xl font-black text-center text-[#603813] leading-snug max-w-2xl animate-in fade-in slide-in-from-bottom-4 duration-500"
+          >
+            {storyLines[currentLineIdx]}
+          </div>
         </div>
       )}
 
@@ -120,8 +120,8 @@ export function StoryIntro({
 
       {/* Mascot Overlay */}
       <div className="absolute bottom-2 right-4 z-20 pointer-events-none">
-        <GretelMascot 
-          pose={isFinished ? "celebrate" : "welcome"} 
+        <GretelMascot
+          pose={isFinished ? "celebrate" : "welcome"}
           className="w-32 h-32 sm:w-48 sm:h-48 drop-shadow-2xl"
         />
       </div>

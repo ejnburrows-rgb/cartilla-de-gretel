@@ -58,16 +58,13 @@ export function GretelPresence({
     };
   }, []);
 
-  const runSpeech = useCallback(
-    async (text: string) => {
-      if (!text.trim()) return;
-      await speakAsGretel(text, {
-        onStart: () => {},
-        onEnd: () => {},
-      });
-    },
-    []
-  );
+  const runSpeech = useCallback(async (text: string) => {
+    if (!text.trim()) return;
+    await speakAsGretel(text, {
+      onStart: () => {},
+      onEnd: () => {},
+    });
+  }, []);
 
   // Intro once — home greeting OR lesson catalog lines
   useEffect(() => {
@@ -80,10 +77,7 @@ export function GretelPresence({
       if (cancelled) return;
       await new Promise((r) => setTimeout(r, 900));
       if (cancelled) return;
-      const lines =
-        variant === "home"
-          ? buildHomeIntroLines()
-          : buildLessonIntroLines(lesson!);
+      const lines = variant === "home" ? buildHomeIntroLines() : buildLessonIntroLines(lesson!);
       for (const line of lines) {
         if (cancelled) return;
         await runSpeech(line);

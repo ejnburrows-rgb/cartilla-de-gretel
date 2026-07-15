@@ -19,7 +19,7 @@ function main() {
     process.exit(1);
   }
 
-  const files = fs.readdirSync(DIST_ASSETS_DIR).filter(file => file.endsWith(".js"));
+  const files = fs.readdirSync(DIST_ASSETS_DIR).filter((file) => file.endsWith(".js"));
 
   if (files.length === 0) {
     console.error("❌ Error: No JS files found in dist/assets.");
@@ -30,12 +30,10 @@ function main() {
   let hasErrors = false;
 
   console.log("\n------------------------------------------------------------");
-  console.log(
-    `${"File name".padEnd(40)} | ${"Raw Size".padEnd(10)} | ${"Gzip Size".padEnd(10)}`
-  );
+  console.log(`${"File name".padEnd(40)} | ${"Raw Size".padEnd(10)} | ${"Gzip Size".padEnd(10)}`);
   console.log("------------------------------------------------------------");
 
-  files.forEach(file => {
+  files.forEach((file) => {
     const filePath = path.join(DIST_ASSETS_DIR, file);
     const content = fs.readFileSync(filePath);
     const rawSize = content.length;
@@ -48,11 +46,13 @@ function main() {
     const gzipSizeKb = (gzipSize / 1024).toFixed(2);
 
     console.log(
-      `${file.padEnd(40)} | ${`${rawSizeKb} KB`.padEnd(10)} | ${`${gzipSizeKb} KB`.padEnd(10)}`
+      `${file.padEnd(40)} | ${`${rawSizeKb} KB`.padEnd(10)} | ${`${gzipSizeKb} KB`.padEnd(10)}`,
     );
 
     if (gzipSize / 1024 > BUDGET_SINGLE_CHUNK_KB) {
-      console.error(`   🛑 BUDGET EXCEEDED: ${file} is ${gzipSizeKb} KB gzipped (Limit: ${BUDGET_SINGLE_CHUNK_KB} KB)`);
+      console.error(
+        `   🛑 BUDGET EXCEEDED: ${file} is ${gzipSizeKb} KB gzipped (Limit: ${BUDGET_SINGLE_CHUNK_KB} KB)`,
+      );
       hasErrors = true;
     }
   });
@@ -64,7 +64,9 @@ function main() {
   console.log("------------------------------------------------------------\n");
 
   if (totalSizeGzipBytes / 1024 > BUDGET_TOTAL_JS_KB) {
-    console.error(`🛑 TOTAL BUDGET EXCEEDED: Total size is ${totalSizeGzipKb} KB (Limit: ${BUDGET_TOTAL_JS_KB} KB)`);
+    console.error(
+      `🛑 TOTAL BUDGET EXCEEDED: Total size is ${totalSizeGzipKb} KB (Limit: ${BUDGET_TOTAL_JS_KB} KB)`,
+    );
     hasErrors = true;
   }
 

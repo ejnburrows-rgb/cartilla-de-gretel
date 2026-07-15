@@ -38,7 +38,12 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
-export function DragMatchPairs({ pairs, lessonId, color = "#f97316", onComplete }: DragMatchPairsProps) {
+export function DragMatchPairs({
+  pairs,
+  lessonId,
+  color = "#f97316",
+  onComplete,
+}: DragMatchPairsProps) {
   const [shuffledWords, setShuffledWords] = useState<string[]>([]);
   const [shuffledEmojis, setShuffledEmojis] = useState<Pair[]>([]);
   const [matches, setMatches] = useState<Record<string, string>>({}); // word -> emoji
@@ -47,7 +52,7 @@ export function DragMatchPairs({ pairs, lessonId, color = "#f97316", onComplete 
 
   const sensors = useSensors(
     useSensor(MouseSensor, { activationConstraint: { distance: 5 } }),
-    useSensor(TouchSensor, { activationConstraint: { distance: 5 } })
+    useSensor(TouchSensor, { activationConstraint: { distance: 5 } }),
   );
 
   // Initialize and shuffle
@@ -70,7 +75,7 @@ export function DragMatchPairs({ pairs, lessonId, color = "#f97316", onComplete 
       window.dispatchEvent(
         new CustomEvent("gretel:celebrate", {
           detail: { text: "¡Excelente! Has emparejado todo correctamente." },
-        })
+        }),
       );
       if (lessonId) {
         recordEvent({
@@ -119,7 +124,9 @@ export function DragMatchPairs({ pairs, lessonId, color = "#f97316", onComplete 
       <div className="flex items-center justify-between pb-3 border-b border-stone-200/40">
         <div>
           <h3 className="text-lg font-black text-stone-800">Emparejar Palabras</h3>
-          <p className="text-xs font-bold text-stone-500">Arrastra la palabra hasta su dibujo correspondiente.</p>
+          <p className="text-xs font-bold text-stone-500">
+            Arrastra la palabra hasta su dibujo correspondiente.
+          </p>
         </div>
         <button
           onClick={resetGame}
@@ -134,7 +141,9 @@ export function DragMatchPairs({ pairs, lessonId, color = "#f97316", onComplete 
         <div className="grid grid-cols-2 gap-8 items-start">
           {/* Left Column: Words */}
           <div className="space-y-4">
-            <h4 className="text-xs font-black tracking-wider text-stone-400 uppercase text-center">Palabras</h4>
+            <h4 className="text-xs font-black tracking-wider text-stone-400 uppercase text-center">
+              Palabras
+            </h4>
             <div className="space-y-3">
               {shuffledWords.map((word) => {
                 const isMatched = !!matches[word];
@@ -153,7 +162,9 @@ export function DragMatchPairs({ pairs, lessonId, color = "#f97316", onComplete 
 
           {/* Right Column: Emojis */}
           <div className="space-y-4">
-            <h4 className="text-xs font-black tracking-wider text-stone-400 uppercase text-center">Dibujos</h4>
+            <h4 className="text-xs font-black tracking-wider text-stone-400 uppercase text-center">
+              Dibujos
+            </h4>
             <div className="space-y-3">
               {shuffledEmojis.map((pair, i) => {
                 // Find if a word has matched this emoji
@@ -188,7 +199,17 @@ export function DragMatchPairs({ pairs, lessonId, color = "#f97316", onComplete 
 }
 
 // Draggable word card component
-function DraggableWordCard({ word, isMatched, color, isWrong }: { word: string; isMatched: boolean; color: string; isWrong: boolean }) {
+function DraggableWordCard({
+  word,
+  isMatched,
+  color,
+  isWrong,
+}: {
+  word: string;
+  isMatched: boolean;
+  color: string;
+  isWrong: boolean;
+}) {
   const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
     id: `word-${word}`,
     data: { word },
@@ -203,7 +224,13 @@ function DraggableWordCard({ word, isMatched, color, isWrong }: { word: string; 
   };
 
   return (
-    <div ref={setNodeRef} style={style} {...listeners} {...attributes} className="relative select-none">
+    <div
+      ref={setNodeRef}
+      style={style}
+      {...listeners}
+      {...attributes}
+      className="relative select-none"
+    >
       <motion.div
         animate={isWrong ? { x: [-10, 10, -8, 8, -5, 5, 0] } : {}}
         transition={{ duration: 0.5 }}
@@ -211,8 +238,8 @@ function DraggableWordCard({ word, isMatched, color, isWrong }: { word: string; 
           isMatched
             ? "bg-stone-100 border-stone-200 text-stone-300 pointer-events-none line-through"
             : isDragging
-            ? "shadow-lg scale-105 z-50 border-dashed"
-            : "bg-white shadow-sm border-stone-200 hover:border-stone-400 hover:scale-[1.02]"
+              ? "shadow-lg scale-105 z-50 border-dashed"
+              : "bg-white shadow-sm border-stone-200 hover:border-stone-400 hover:scale-[1.02]"
         }`}
         style={{
           borderColor: isDragging ? color : undefined,
@@ -251,8 +278,8 @@ function DroppableEmojiCard({
         matchedWord
           ? "bg-emerald-50/50 border-emerald-500 shadow-sm"
           : isOver
-          ? "bg-stone-50 border-dashed"
-          : "bg-white border-stone-200 shadow-sm"
+            ? "bg-stone-50 border-dashed"
+            : "bg-white border-stone-200 shadow-sm"
       }`}
       style={{
         borderColor: isOver ? color : matchedWord ? undefined : undefined,
@@ -294,8 +321,8 @@ function DroppableEmojiCard({
                 isWrong
                   ? "bg-rose-50 border-rose-300 text-rose-500"
                   : isOver
-                  ? "bg-stone-50 border-stone-400 text-stone-600"
-                  : "bg-stone-50/50 border-stone-200 text-stone-400"
+                    ? "bg-stone-50 border-stone-400 text-stone-600"
+                    : "bg-stone-50/50 border-stone-200 text-stone-400"
               }`}
             >
               Soltar aquí

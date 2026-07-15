@@ -194,7 +194,11 @@ export function DibujaHost({
     lastRef.current = next;
     pointsRef.current += 1;
     // Throttle React updates so we re-enable Listo without thrashing every move
-    if (pointsRef.current === 3 || pointsRef.current === MIN_STROKE_POINTS || pointsRef.current % 8 === 0) {
+    if (
+      pointsRef.current === 3 ||
+      pointsRef.current === MIN_STROKE_POINTS ||
+      pointsRef.current % 8 === 0
+    ) {
       setStrokePoints(pointsRef.current);
     }
   };
@@ -260,7 +264,12 @@ export function DibujaHost({
           kind: "exercise",
           score: 1,
           total: 1,
-          meta: { exercise: `dibuja_pick_${pageKey}`, completed: true, mode: "pick", choice: opt.id },
+          meta: {
+            exercise: `dibuja_pick_${pageKey}`,
+            completed: true,
+            mode: "pick",
+            choice: opt.id,
+          },
         });
       }
       onComplete?.();
@@ -269,11 +278,14 @@ export function DibujaHost({
       setShakeId(opt.id);
       playWrongBuzz();
       gretelEvent("answer:wrong");
-      window.setTimeout(() => {
-        setShakeId(null);
-        setPickGrade(null);
-        setPickedId(null);
-      }, reducedMotion ? 200 : 480);
+      window.setTimeout(
+        () => {
+          setShakeId(null);
+          setPickGrade(null);
+          setPickedId(null);
+        },
+        reducedMotion ? 200 : 480,
+      );
     }
   };
 
@@ -305,7 +317,9 @@ export function DibujaHost({
           onClick={() => setMode("pick")}
           aria-pressed={mode === "pick"}
           disabled={usablePicks.length < 2}
-          title={usablePicks.length < 2 ? "Aún no hay dibujos para elegir en esta página" : undefined}
+          title={
+            usablePicks.length < 2 ? "Aún no hay dibujos para elegir en esta página" : undefined
+          }
         >
           <Images className="w-4 h-4" /> Elegir el dibujo
         </button>
@@ -352,10 +366,20 @@ export function DibujaHost({
               >
                 <Eraser className="w-4 h-4" />
               </button>
-              <button type="button" className="am-dibuja__tool" onClick={undoDraw} aria-label="Deshacer">
+              <button
+                type="button"
+                className="am-dibuja__tool"
+                onClick={undoDraw}
+                aria-label="Deshacer"
+              >
                 <RotateCcw className="w-4 h-4" />
               </button>
-              <button type="button" className="am-dibuja__tool" onClick={clearDraw} aria-label="Limpiar">
+              <button
+                type="button"
+                className="am-dibuja__tool"
+                onClick={clearDraw}
+                aria-label="Limpiar"
+              >
                 Limpiar
               </button>
               <button
@@ -377,9 +401,7 @@ export function DibujaHost({
       ) : (
         <div className="am-dibuja__pick" role="listbox" aria-label="Elige el dibujo correcto">
           {usablePicks.length < 2 ? (
-            <p className="am-dibuja__pick-empty">
-              Usa el modo Dibujar para esta página.
-            </p>
+            <p className="am-dibuja__pick-empty">Usa el modo Dibujar para esta página.</p>
           ) : (
             usablePicks.map((opt) => {
               const selected = pickedId === opt.id;
@@ -401,7 +423,12 @@ export function DibujaHost({
                   onClick={() => onPick(opt)}
                 >
                   {opt.illustrationSrc ? (
-                    <img src={opt.illustrationSrc} alt={opt.caption} loading="lazy" draggable={false} />
+                    <img
+                      src={opt.illustrationSrc}
+                      alt={opt.caption}
+                      loading="lazy"
+                      draggable={false}
+                    />
                   ) : (
                     <span className="am-dibuja__card-word">{opt.caption}</span>
                   )}

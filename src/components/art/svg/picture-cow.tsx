@@ -67,8 +67,24 @@ export function PictureCow({ animated = false, ...props }: PictureCowProps) {
       <rect x="35" y="108" width="3" height="18" rx="1" fill="#c9a87c" />
       <rect x="60" y="108" width="3" height="18" rx="1" fill="#c9a87c" />
       {/* Fence rails */}
-      <line x1="10" y1="113" x2="63" y2="113" stroke="#c9a87c" strokeWidth="2" strokeLinecap="round" />
-      <line x1="10" y1="120" x2="63" y2="120" stroke="#c9a87c" strokeWidth="2" strokeLinecap="round" />
+      <line
+        x1="10"
+        y1="113"
+        x2="63"
+        y2="113"
+        stroke="#c9a87c"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+      <line
+        x1="10"
+        y1="120"
+        x2="63"
+        y2="120"
+        stroke="#c9a87c"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
 
       {/* === COW === */}
       {/* Body */}
@@ -92,7 +108,13 @@ export function PictureCow({ animated = false, ...props }: PictureCowProps) {
       <rect x="131" y="173" width="9" height="4" rx="2" fill="#6b5b4f" />
 
       {/* Tail */}
-      <path d="M143 135 Q155 130 150 120" fill="none" stroke="#f5f5f0" strokeWidth="2.5" strokeLinecap="round" />
+      <path
+        d="M143 135 Q155 130 150 120"
+        fill="none"
+        stroke="#f5f5f0"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+      />
       <ellipse cx="150" cy="118" rx="3" ry="4" fill="#4a4a4a" />
 
       {/* Udder */}
@@ -108,8 +130,20 @@ export function PictureCow({ animated = false, ...props }: PictureCowProps) {
       <ellipse cx="91" cy="116" rx="4" ry="2.5" fill="#f0c8c8" transform="rotate(30 91 116)" />
 
       {/* Horns */}
-      <path d="M70 113 Q68 105 72 102" fill="none" stroke="#e8d8a0" strokeWidth="2.5" strokeLinecap="round" />
-      <path d="M86 112 Q88 104 84 101" fill="none" stroke="#e8d8a0" strokeWidth="2.5" strokeLinecap="round" />
+      <path
+        d="M70 113 Q68 105 72 102"
+        fill="none"
+        stroke="#e8d8a0"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M86 112 Q88 104 84 101"
+        fill="none"
+        stroke="#e8d8a0"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+      />
 
       {/* Muzzle */}
       <ellipse cx="72" cy="134" rx="10" ry="7" fill="#f0d0c0" />
@@ -130,18 +164,55 @@ export function PictureCow({ animated = false, ...props }: PictureCowProps) {
       <ellipse cx="75" cy="134" rx="2" ry="1.5" fill="#c9a090" />
 
       {/* Mouth */}
-      <path d="M68 138 Q72 141 76 138" fill="none" stroke="#a08070" strokeWidth="1" strokeLinecap="round" />
+      <path
+        d="M68 138 Q72 141 76 138"
+        fill="none"
+        stroke="#a08070"
+        strokeWidth="1"
+        strokeLinecap="round"
+      />
 
       {/* Bell */}
       <line x1="78" y1="142" x2="78" y2="148" stroke="#c9a87c" strokeWidth="1.2" />
-      <circle cx="78" cy="150" r="4" fill="#f5d060" stroke="var(--art-primary, #c98c4f)" strokeWidth="1" />
+      <circle
+        cx="78"
+        cy="150"
+        r="4"
+        fill="#f5d060"
+        stroke="var(--art-primary, #c98c4f)"
+        strokeWidth="1"
+      />
       <circle cx="78" cy="151" r="1" fill="var(--art-primary, #c98c4f)" />
 
       {/* === FOREGROUND: Flowers and grass === */}
-      <path d="M15,175 Q17,168 19,175" fill="none" stroke="#6db386" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M45,180 Q47,173 49,180" fill="none" stroke="#6db386" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M160,182 Q162,175 164,182" fill="none" stroke="#6db386" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M200,178 Q202,171 204,178" fill="none" stroke="#6db386" strokeWidth="1.5" strokeLinecap="round" />
+      <path
+        d="M15,175 Q17,168 19,175"
+        fill="none"
+        stroke="#6db386"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M45,180 Q47,173 49,180"
+        fill="none"
+        stroke="#6db386"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M160,182 Q162,175 164,182"
+        fill="none"
+        stroke="#6db386"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M200,178 Q202,171 204,178"
+        fill="none"
+        stroke="#6db386"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
 
       {/* Daisies */}
       <circle cx="25" cy="170" r="3.5" fill="#ffffff" />

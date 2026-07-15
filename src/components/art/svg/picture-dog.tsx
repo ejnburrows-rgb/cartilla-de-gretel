@@ -27,10 +27,46 @@ export function PictureDog({ animated = false, ...props }: PictureDogProps) {
       <circle cx="30" cy="28" r="18" fill="#fce588" opacity="0.85" />
       <circle cx="30" cy="28" r="13" fill="#fef3c0" />
       {/* Sun rays */}
-      <line x1="30" y1="6" x2="30" y2="12" stroke="#fce588" strokeWidth="2" strokeLinecap="round" opacity="0.6" />
-      <line x1="12" y1="18" x2="16" y2="22" stroke="#fce588" strokeWidth="2" strokeLinecap="round" opacity="0.6" />
-      <line x1="48" y1="18" x2="44" y2="22" stroke="#fce588" strokeWidth="2" strokeLinecap="round" opacity="0.6" />
-      <line x1="8" y1="34" x2="14" y2="32" stroke="#fce588" strokeWidth="2" strokeLinecap="round" opacity="0.6" />
+      <line
+        x1="30"
+        y1="6"
+        x2="30"
+        y2="12"
+        stroke="#fce588"
+        strokeWidth="2"
+        strokeLinecap="round"
+        opacity="0.6"
+      />
+      <line
+        x1="12"
+        y1="18"
+        x2="16"
+        y2="22"
+        stroke="#fce588"
+        strokeWidth="2"
+        strokeLinecap="round"
+        opacity="0.6"
+      />
+      <line
+        x1="48"
+        y1="18"
+        x2="44"
+        y2="22"
+        stroke="#fce588"
+        strokeWidth="2"
+        strokeLinecap="round"
+        opacity="0.6"
+      />
+      <line
+        x1="8"
+        y1="34"
+        x2="14"
+        y2="32"
+        stroke="#fce588"
+        strokeWidth="2"
+        strokeLinecap="round"
+        opacity="0.6"
+      />
 
       {/* Clouds */}
       <ellipse cx="130" cy="25" rx="22" ry="9" fill="#ffffff" opacity="0.75" />
@@ -39,22 +75,121 @@ export function PictureDog({ animated = false, ...props }: PictureDogProps) {
 
       {/* === MIDGROUND: Fence === */}
       {/* Fence pickets */}
-      <rect x="0" y="85" width="7" height="28" rx="2" fill="#f0e4d0" stroke="#dcd0b8" strokeWidth="0.8" />
-      <rect x="12" y="85" width="7" height="28" rx="2" fill="#f0e4d0" stroke="#dcd0b8" strokeWidth="0.8" />
-      <rect x="24" y="85" width="7" height="28" rx="2" fill="#f0e4d0" stroke="#dcd0b8" strokeWidth="0.8" />
-      <rect x="36" y="85" width="7" height="28" rx="2" fill="#f0e4d0" stroke="#dcd0b8" strokeWidth="0.8" />
-      <rect x="48" y="85" width="7" height="28" rx="2" fill="#f0e4d0" stroke="#dcd0b8" strokeWidth="0.8" />
-      <rect x="60" y="85" width="7" height="28" rx="2" fill="#f0e4d0" stroke="#dcd0b8" strokeWidth="0.8" />
+      <rect
+        x="0"
+        y="85"
+        width="7"
+        height="28"
+        rx="2"
+        fill="#f0e4d0"
+        stroke="#dcd0b8"
+        strokeWidth="0.8"
+      />
+      <rect
+        x="12"
+        y="85"
+        width="7"
+        height="28"
+        rx="2"
+        fill="#f0e4d0"
+        stroke="#dcd0b8"
+        strokeWidth="0.8"
+      />
+      <rect
+        x="24"
+        y="85"
+        width="7"
+        height="28"
+        rx="2"
+        fill="#f0e4d0"
+        stroke="#dcd0b8"
+        strokeWidth="0.8"
+      />
+      <rect
+        x="36"
+        y="85"
+        width="7"
+        height="28"
+        rx="2"
+        fill="#f0e4d0"
+        stroke="#dcd0b8"
+        strokeWidth="0.8"
+      />
+      <rect
+        x="48"
+        y="85"
+        width="7"
+        height="28"
+        rx="2"
+        fill="#f0e4d0"
+        stroke="#dcd0b8"
+        strokeWidth="0.8"
+      />
+      <rect
+        x="60"
+        y="85"
+        width="7"
+        height="28"
+        rx="2"
+        fill="#f0e4d0"
+        stroke="#dcd0b8"
+        strokeWidth="0.8"
+      />
       {/* Fence rails */}
       <line x1="0" y1="92" x2="67" y2="92" stroke="#dcd0b8" strokeWidth="2" />
       <line x1="0" y1="105" x2="67" y2="105" stroke="#dcd0b8" strokeWidth="2" />
 
       {/* Right fence section */}
-      <rect x="178" y="85" width="7" height="28" rx="2" fill="#f0e4d0" stroke="#dcd0b8" strokeWidth="0.8" />
-      <rect x="190" y="85" width="7" height="28" rx="2" fill="#f0e4d0" stroke="#dcd0b8" strokeWidth="0.8" />
-      <rect x="202" y="85" width="7" height="28" rx="2" fill="#f0e4d0" stroke="#dcd0b8" strokeWidth="0.8" />
-      <rect x="214" y="85" width="7" height="28" rx="2" fill="#f0e4d0" stroke="#dcd0b8" strokeWidth="0.8" />
-      <rect x="226" y="85" width="7" height="28" rx="2" fill="#f0e4d0" stroke="#dcd0b8" strokeWidth="0.8" />
+      <rect
+        x="178"
+        y="85"
+        width="7"
+        height="28"
+        rx="2"
+        fill="#f0e4d0"
+        stroke="#dcd0b8"
+        strokeWidth="0.8"
+      />
+      <rect
+        x="190"
+        y="85"
+        width="7"
+        height="28"
+        rx="2"
+        fill="#f0e4d0"
+        stroke="#dcd0b8"
+        strokeWidth="0.8"
+      />
+      <rect
+        x="202"
+        y="85"
+        width="7"
+        height="28"
+        rx="2"
+        fill="#f0e4d0"
+        stroke="#dcd0b8"
+        strokeWidth="0.8"
+      />
+      <rect
+        x="214"
+        y="85"
+        width="7"
+        height="28"
+        rx="2"
+        fill="#f0e4d0"
+        stroke="#dcd0b8"
+        strokeWidth="0.8"
+      />
+      <rect
+        x="226"
+        y="85"
+        width="7"
+        height="28"
+        rx="2"
+        fill="#f0e4d0"
+        stroke="#dcd0b8"
+        strokeWidth="0.8"
+      />
       <line x1="178" y1="92" x2="240" y2="92" stroke="#dcd0b8" strokeWidth="2" />
       <line x1="178" y1="105" x2="240" y2="105" stroke="#dcd0b8" strokeWidth="2" />
 
@@ -76,7 +211,13 @@ export function PictureDog({ animated = false, ...props }: PictureDogProps) {
 
       {/* === DOG === */}
       {/* Tail (wagging up) */}
-      <path d="M162 120 Q170 100 175 95 Q178 92 176 90" fill="none" stroke="#e8c878" strokeWidth="4" strokeLinecap="round" />
+      <path
+        d="M162 120 Q170 100 175 95 Q178 92 176 90"
+        fill="none"
+        stroke="#e8c878"
+        strokeWidth="4"
+        strokeLinecap="round"
+      />
 
       {/* Body */}
       <ellipse cx="125" cy="130" rx="35" ry="20" fill="#f0d078" />
@@ -122,8 +263,20 @@ export function PictureDog({ animated = false, ...props }: PictureDogProps) {
       <circle cx="93" cy="106" r="1.2" fill="#ffffff" />
 
       {/* Eyebrows */}
-      <path d="M73 103 Q78 101 83 103" fill="none" stroke="#c9a040" strokeWidth="1.2" strokeLinecap="round" />
-      <path d="M87 102 Q92 100 97 102" fill="none" stroke="#c9a040" strokeWidth="1.2" strokeLinecap="round" />
+      <path
+        d="M73 103 Q78 101 83 103"
+        fill="none"
+        stroke="#c9a040"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+      />
+      <path
+        d="M87 102 Q92 100 97 102"
+        fill="none"
+        stroke="#c9a040"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+      />
 
       {/* Nose */}
       <ellipse cx="78" cy="115" rx="4" ry="3" fill="#4a3a30" />
@@ -135,7 +288,13 @@ export function PictureDog({ animated = false, ...props }: PictureDogProps) {
       <ellipse cx="78" cy="124" rx="3" ry="4" fill="#f0a0a0" />
 
       {/* Collar */}
-      <path d="M74 126 Q85 132 96 126" fill="none" stroke="#e06050" strokeWidth="3" strokeLinecap="round" />
+      <path
+        d="M74 126 Q85 132 96 126"
+        fill="none"
+        stroke="#e06050"
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
       {/* Tag */}
       <circle cx="85" cy="132" r="3" fill="var(--art-primary, #c98c4f)" />
 
@@ -148,11 +307,41 @@ export function PictureDog({ animated = false, ...props }: PictureDogProps) {
       <ellipse cx="167" cy="154" rx="3" ry="2" fill="#f0a0a8" opacity="0.5" />
 
       {/* === FOREGROUND: Grass and details === */}
-      <path d="M10,178 Q12,171 14,178" fill="none" stroke="#6db386" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M50,182 Q52,175 54,182" fill="none" stroke="#6db386" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M80,180 Q82,173 84,180" fill="none" stroke="#6db386" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M190,178 Q192,171 194,178" fill="none" stroke="#6db386" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M220,180 Q222,173 224,180" fill="none" stroke="#6db386" strokeWidth="1.5" strokeLinecap="round" />
+      <path
+        d="M10,178 Q12,171 14,178"
+        fill="none"
+        stroke="#6db386"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M50,182 Q52,175 54,182"
+        fill="none"
+        stroke="#6db386"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M80,180 Q82,173 84,180"
+        fill="none"
+        stroke="#6db386"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M190,178 Q192,171 194,178"
+        fill="none"
+        stroke="#6db386"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M220,180 Q222,173 224,180"
+        fill="none"
+        stroke="#6db386"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
 
       {/* Small daisies */}
       <circle cx="35" cy="172" r="3" fill="#ffffff" />
@@ -166,7 +355,14 @@ export function PictureDog({ animated = false, ...props }: PictureDogProps) {
       {/* Butterfly */}
       <ellipse cx="55" cy="60" rx="4" ry="2.5" fill="#f0c8e0" transform="rotate(-25 55 60)" />
       <ellipse cx="60" cy="59" rx="4" ry="2.5" fill="#e8b8d8" transform="rotate(25 60 59)" />
-      <line x1="57.5" y1="59" x2="57.5" y2="63" stroke="var(--art-primary, #c98c4f)" strokeWidth="0.5" />
+      <line
+        x1="57.5"
+        y1="59"
+        x2="57.5"
+        y2="63"
+        stroke="var(--art-primary, #c98c4f)"
+        strokeWidth="0.5"
+      />
     </svg>
   );
 }

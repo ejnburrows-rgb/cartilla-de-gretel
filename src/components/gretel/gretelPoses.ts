@@ -45,22 +45,11 @@ export const GRETEL_POSES: Record<GretelPoseKey, string | string[]> = {
   /** Lesson exit / goodbye. */
   exiting: `${P}/gretel-wave-exit.webp`,
   /** Home + lesson welcome. */
-  welcome: [
-    `${P}/gretel-wave.webp`,
-    `${P}/gretel-wave-1.webp`,
-    `${P}/gretel-wave-2.webp`,
-  ],
-  waving: [
-    `${P}/gretel-wave.webp`,
-    `${P}/gretel-wave-1.webp`,
-    `${P}/gretel-wave-2.webp`,
-  ],
+  welcome: [`${P}/gretel-wave.webp`, `${P}/gretel-wave-1.webp`, `${P}/gretel-wave-2.webp`],
+  waving: [`${P}/gretel-wave.webp`, `${P}/gretel-wave-1.webp`, `${P}/gretel-wave-2.webp`],
   pointing: `${P}/gretel-point.webp`,
   /** Mirror point for right-side bubble / exercise on right. */
-  pointingLeft: [
-    `${P}/gretel-point-left.webp`,
-    `${P}/gretel-point-left-flip.webp`,
-  ],
+  pointingLeft: [`${P}/gretel-point-left.webp`, `${P}/gretel-point-left-flip.webp`],
   cheering: [`${P}/gretel-cheer.webp`, `${P}/gretel-cheer-1.webp`],
   /**
    * Talk cycle: talk-0 is idle-identical base; talk-1/2 + talk.webp add mouth
@@ -265,9 +254,7 @@ export function poseFrameMs(state: GretelPoseKey): number {
  * Map product bus moments → pose family.
  * Used by GretelPresence (primary lesson host).
  */
-export function poseForBusEvent(
-  type: string,
-): GretelPoseKey | null {
+export function poseForBusEvent(type: string): GretelPoseKey | null {
   switch (type) {
     case "lesson:start":
     case "mount":

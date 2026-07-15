@@ -99,9 +99,7 @@ export function LessonBinderSheet({ entry, pageNumber }: LessonBinderSheetProps)
       <header style={header}>
         <div>
           <h2 style={title}>{entry.title}</h2>
-          <p style={headerSubtitleStyle}>
-            Cuaderno Especial Docente · Lección {entry.n}
-          </p>
+          <p style={headerSubtitleStyle}>Cuaderno Especial Docente · Lección {entry.n}</p>
         </div>
         <div style={badge}>Pág. {pageNumber}</div>
       </header>
@@ -135,4 +133,3 @@ export function LessonBinderSheet({ entry, pageNumber }: LessonBinderSheetProps)
   );
 }
 export type LessonBinderSheet = typeof LessonBinderSheet;
-

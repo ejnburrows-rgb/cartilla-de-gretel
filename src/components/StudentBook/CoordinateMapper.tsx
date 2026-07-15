@@ -33,7 +33,7 @@ export function CoordinateMapper({ pageNumber }: { pageNumber: number }) {
     const rect = containerRef.current.getBoundingClientRect();
     const x = ((e.clientX - rect.left) / rect.width) * 100;
     const y = ((e.clientY - rect.top) / rect.height) * 100;
-    
+
     setIsDrawing(true);
     setStartPos({ x, y });
     setBox({ x, y, w: 0, h: 0 });
@@ -76,7 +76,7 @@ export function CoordinateMapper({ pageNumber }: { pageNumber: number }) {
   };
 
   return (
-    <div 
+    <div
       ref={containerRef}
       className="absolute inset-0 z-50 bg-black/10 cursor-crosshair touch-none"
       onPointerDown={handlePointerDown}
@@ -102,23 +102,26 @@ export function CoordinateMapper({ pageNumber }: { pageNumber: number }) {
       )}
 
       {/* Floating Output Panel */}
-      <div 
+      <div
         className="absolute top-4 left-4 bg-slate-900/95 backdrop-blur-md text-slate-100 p-4 rounded-xl shadow-2xl border border-slate-700/50 w-80 pointer-events-auto flex flex-col gap-3"
         onPointerDown={(e) => e.stopPropagation()} // Prevent drawing when interacting with UI
       >
         <div className="flex items-center justify-between">
           <h3 className="font-bold text-sm text-red-400">Mapper Mode: Página {pageNumber}</h3>
-          <button onClick={() => setIsActive(false)} className="text-slate-400 hover:text-white transition-colors">
+          <button
+            onClick={() => setIsActive(false)}
+            className="text-slate-400 hover:text-white transition-colors"
+          >
             <X className="w-4 h-4" />
           </button>
         </div>
-        
+
         <pre className="text-xs font-mono bg-slate-950 p-3 rounded-lg overflow-x-auto border border-slate-800 text-emerald-400 select-all">
           {generatedJson}
         </pre>
 
         {box && (
-          <button 
+          <button
             onClick={copyToClipboard}
             className="flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold py-2 rounded-lg transition-colors w-full"
           >

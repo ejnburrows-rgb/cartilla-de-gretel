@@ -44,11 +44,21 @@ function WavySidebar() {
   );
 }
 
-export function PageFrame({ pageNumber, lessonNumber, children, className, garden, gardenBg }: PageFrameProps) {
+export function PageFrame({
+  pageNumber,
+  lessonNumber,
+  children,
+  className,
+  garden,
+  gardenBg,
+}: PageFrameProps) {
   const classes = ["faithful-page", garden ? "faithful-page--garden" : "", className ?? ""]
     .filter(Boolean)
     .join(" ");
-  const style = garden && gardenBg ? ({ "--garden-page-bg": `url('${gardenBg}')` } as React.CSSProperties) : undefined;
+  const style =
+    garden && gardenBg
+      ? ({ "--garden-page-bg": `url('${gardenBg}')` } as React.CSSProperties)
+      : undefined;
   return (
     <div className={classes} style={style}>
       <div className="faithful-page__sidebar">

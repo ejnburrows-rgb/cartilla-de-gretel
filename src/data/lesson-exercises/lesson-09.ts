@@ -10,14 +10,14 @@ export const lesson09 = [
     prompt: "Haz un dibujo que represente una palabra que comienza con s.",
     items: [
       { id: "letter-S", label: "S" },
-      { id: "letter-s", label: "s" }
+      { id: "letter-s", label: "s" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
     teacherNotes: "Students trace uppercase S and lowercase s.",
-    sourcePage: getBookPageImage(33)
+    sourcePage: getBookPageImage(33),
   },
   {
     id: "l9-p34-syllable-circle",
@@ -31,27 +31,52 @@ export const lesson09 = [
       { id: "syl-se", label: "se" },
       { id: "syl-si", label: "si" },
       { id: "syl-so", label: "so" },
-      { id: "syl-su", label: "su" }
+      { id: "syl-su", label: "su" },
     ],
     targets: [
       { id: "slot-sa", label: "sa", coordinatesVerified: false, acceptsItemId: "syl-sa" },
       { id: "slot-se", label: "se", coordinatesVerified: false, acceptsItemId: "syl-se" },
       { id: "slot-si", label: "si", coordinatesVerified: false, acceptsItemId: "syl-si" },
       { id: "slot-so", label: "so", coordinatesVerified: false, acceptsItemId: "syl-so" },
-      { id: "slot-su", label: "su", coordinatesVerified: false, acceptsItemId: "syl-su" }
+      { id: "slot-su", label: "su", coordinatesVerified: false, acceptsItemId: "syl-su" },
     ],
     wordBank: [
-      "masa", "casa", "pesa", "sala", "mesa", "sapo",
-      "sello", "pase", "caseta", "seca", "semilla", "secante",
-      "silla", "casita", "cosita", "pasito", "osito", "sitio",
-      "paso", "sopa", "soga", "oso", "toso", "puso",
-      "suyo", "suma", "Susi", "supo", "sube", "sudor"
+      "masa",
+      "casa",
+      "pesa",
+      "sala",
+      "mesa",
+      "sapo",
+      "sello",
+      "pase",
+      "caseta",
+      "seca",
+      "semilla",
+      "secante",
+      "silla",
+      "casita",
+      "cosita",
+      "pasito",
+      "osito",
+      "sitio",
+      "paso",
+      "sopa",
+      "soga",
+      "oso",
+      "toso",
+      "puso",
+      "suyo",
+      "suma",
+      "Susi",
+      "supo",
+      "sube",
+      "sudor",
     ],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
     teacherNotes: "Scaffolded syllable circle for S.",
-    sourcePage: getBookPageImage(34)
+    sourcePage: getBookPageImage(34),
   },
   {
     id: "l9-p35-syllable-tap",
@@ -65,14 +90,14 @@ export const lesson09 = [
       { id: "ra-se", label: "se" },
       { id: "ra-si", label: "si" },
       { id: "ra-so", label: "so" },
-      { id: "ra-su", label: "su" }
+      { id: "ra-su", label: "su" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
     teacherNotes: "Scaffolded syllable tap for S.",
-    sourcePage: getBookPageImage(35)
+    sourcePage: getBookPageImage(35),
   },
   {
     id: "l9-p35-word-bank",
@@ -96,14 +121,14 @@ export const lesson09 = [
       { id: "w-supe", label: "supe" },
       { id: "w-sisi", label: "Sisi" },
       { id: "w-ese", label: "ese" },
-      { id: "w-esa", label: "esa" }
+      { id: "w-esa", label: "esa" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
     teacherNotes: "Scaffolded word bank for S.",
-    sourcePage: getBookPageImage(35)
+    sourcePage: getBookPageImage(35),
   },
   {
     id: "l9-p35-mini-story",
@@ -119,17 +144,15 @@ export const lesson09 = [
       { id: "story-s-4", label: "Sisi pasa la sopa a mamá." },
       { id: "story-s-5", label: "Ese sapo es de Sisi. Es el sapo Samapo." },
       { id: "story-s-6", label: "Sisi pasa el sapo a Pepe." },
-      { id: "story-s-7", label: "Pepe puso un sapo en la mesa." }
+      { id: "story-s-7", label: "Pepe puso un sapo en la mesa." },
     ],
     targets: [],
-    sightWords: [
-      "es", "de", "un", "está", "en", "la", "el"
-    ],
+    sightWords: ["es", "de", "un", "está", "en", "la", "el"],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
     teacherNotes: "Scaffolded mini-story for S.",
-    sourcePage: getBookPageImage(35)
+    sourcePage: getBookPageImage(35),
   },
   {
     id: "l9-p36-fill-in-blank",
@@ -144,7 +167,7 @@ export const lesson09 = [
       { id: "syl-si", label: "sí" },
       { id: "syl-so", label: "so" },
       { id: "syl-su", label: "su" },
-      { id: "syl-sa-accent", label: "sá" }
+      { id: "syl-sa-accent", label: "sá" },
     ],
     targets: [
       {
@@ -154,7 +177,7 @@ export const lesson09 = [
         correctSyllable: "sa",
         fullWord: "sapo",
         coordinatesVerified: false,
-        acceptsItemId: "syl-sa"
+        acceptsItemId: "syl-sa",
       },
       {
         id: "blank-puso",
@@ -163,7 +186,7 @@ export const lesson09 = [
         correctSyllable: "so",
         fullWord: "puso",
         coordinatesVerified: false,
-        acceptsItemId: "syl-so"
+        acceptsItemId: "syl-so",
       },
       {
         id: "blank-masa",
@@ -172,7 +195,7 @@ export const lesson09 = [
         correctSyllable: "sa",
         fullWord: "masa",
         coordinatesVerified: false,
-        acceptsItemId: "syl-sa"
+        acceptsItemId: "syl-sa",
       },
       {
         id: "blank-asi",
@@ -181,7 +204,7 @@ export const lesson09 = [
         correctSyllable: "sí",
         fullWord: "así",
         coordinatesVerified: false,
-        acceptsItemId: "syl-si"
+        acceptsItemId: "syl-si",
       },
       {
         id: "blank-supo",
@@ -190,7 +213,7 @@ export const lesson09 = [
         correctSyllable: "su",
         fullWord: "supo",
         coordinatesVerified: false,
-        acceptsItemId: "syl-su"
+        acceptsItemId: "syl-su",
       },
       {
         id: "blank-pase",
@@ -199,52 +222,52 @@ export const lesson09 = [
         correctSyllable: "se",
         fullWord: "pase",
         coordinatesVerified: false,
-        acceptsItemId: "syl-se"
-      }
+        acceptsItemId: "syl-se",
+      },
     ],
     exercises: [
       {
         partial: "___po",
         choices: ["sa", "sá"],
         answer: "sa",
-        fullWord: "sapo"
+        fullWord: "sapo",
       },
       {
         partial: "pu___",
         choices: ["so", "se"],
         answer: "so",
-        fullWord: "puso"
+        fullWord: "puso",
       },
       {
         partial: "ma___",
         choices: ["sa", "su"],
         answer: "sa",
-        fullWord: "masa"
+        fullWord: "masa",
       },
       {
         partial: "a___",
         choices: ["sí", "so"],
         answer: "sí",
-        fullWord: "así"
+        fullWord: "así",
       },
       {
         partial: "___po",
         choices: ["su", "sa"],
         answer: "su",
-        fullWord: "supo"
+        fullWord: "supo",
       },
       {
         partial: "pa___",
         choices: ["se", "si"],
         answer: "se",
-        fullWord: "pase"
-      }
+        fullWord: "pase",
+      },
     ],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
     teacherNotes: "Scaffolded fill-in-the-blank for S.",
-    sourcePage: getBookPageImage(36)
+    sourcePage: getBookPageImage(36),
   },
   {
     id: "l9-p36-write-sentences",
@@ -259,6 +282,6 @@ export const lesson09 = [
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
     teacherNotes: "Sentence writing lines.",
-    sourcePage: getBookPageImage(36)
-  }
+    sourcePage: getBookPageImage(36),
+  },
 ];

@@ -108,9 +108,7 @@ async function assertIsolated(label, queryFactory) {
       `RLS LEAK on ${label}: Teacher B received ${Array.isArray(data) ? data.length : 1} row(s)`,
     );
   }
-  log(
-    `OK ${label}: empty=${empty} rlsDenied=${rlsDenied} status=${status ?? "n/a"}`,
-  );
+  log(`OK ${label}: empty=${empty} rlsDenied=${rlsDenied} status=${status ?? "n/a"}`);
 }
 
 // 4–7. Attempt reads of Teacher A data as Teacher B

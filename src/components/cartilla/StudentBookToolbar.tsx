@@ -1,5 +1,14 @@
 import { useState, useEffect } from "react";
-import { Printer, Sun, Moon, Sparkles, Type, ChevronLeft, ChevronRight, Volume2 } from "lucide-react";
+import {
+  Printer,
+  Sun,
+  Moon,
+  Sparkles,
+  Type,
+  ChevronLeft,
+  ChevronRight,
+  Volume2,
+} from "lucide-react";
 
 interface StudentBookToolbarProps {
   currentPage: number;
@@ -9,13 +18,23 @@ interface StudentBookToolbarProps {
   onAudio?: () => void;
 }
 
-const toolbarClass = "student-toolbar no-print sticky top-0 z-40 w-full bg-white/90 backdrop-blur-md border-b-2 border-stone-150 px-4 py-3 flex flex-wrap items-center justify-between gap-3 shadow-sm";
+const toolbarClass =
+  "student-toolbar no-print sticky top-0 z-40 w-full bg-white/90 backdrop-blur-md border-b-2 border-stone-150 px-4 py-3 flex flex-wrap items-center justify-between gap-3 shadow-sm";
 const btnGroupClass = "flex items-center gap-1.5";
-const iconBtnClass = "p-2 rounded-xl border border-stone-200 hover:bg-stone-50 text-stone-600 transition hover:scale-105 active:scale-95";
-const activeIconBtnClass = "p-2 rounded-xl border border-amber-300 bg-amber-50 text-amber-900 transition font-bold";
-const navBtnClass = "px-3 py-1.5 rounded-xl bg-amber-900 text-white font-bold text-xs hover:bg-amber-850 disabled:opacity-40 transition flex items-center gap-1";
+const iconBtnClass =
+  "p-2 rounded-xl border border-stone-200 hover:bg-stone-50 text-stone-600 transition hover:scale-105 active:scale-95";
+const activeIconBtnClass =
+  "p-2 rounded-xl border border-amber-300 bg-amber-50 text-amber-900 transition font-bold";
+const navBtnClass =
+  "px-3 py-1.5 rounded-xl bg-amber-900 text-white font-bold text-xs hover:bg-amber-850 disabled:opacity-40 transition flex items-center gap-1";
 
-export function StudentBookToolbar({ currentPage, totalPages, onPageChange, onPrint, onAudio }: StudentBookToolbarProps) {
+export function StudentBookToolbar({
+  currentPage,
+  totalPages,
+  onPageChange,
+  onPrint,
+  onAudio,
+}: StudentBookToolbarProps) {
   const [theme, setTheme] = useState<string>("default");
 
   // Handle local theme switches
@@ -76,7 +95,7 @@ export function StudentBookToolbar({ currentPage, totalPages, onPageChange, onPr
         >
           <ChevronLeft className="w-4 h-4" /> Prev
         </button>
-        
+
         <span className="text-sm font-bold text-stone-600 font-mono">
           Pág. {currentPage} / {totalPages}
         </span>

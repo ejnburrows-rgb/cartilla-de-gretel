@@ -2,11 +2,11 @@ import { triggerHaptic, HapticKind } from "./haptic-patterns";
 
 export interface FeelEventDetail {
   kind: string;
-  meta?: any;
+  meta?: unknown;
 }
 
 export const feelBus = {
-  emit(kind: string, meta?: any) {
+  emit(kind: string, meta?: unknown) {
     if (typeof window === "undefined") return;
     const event = new CustomEvent("cartilla:feel", {
       detail: { kind, meta },
@@ -52,7 +52,11 @@ if (typeof window !== "undefined") {
 
       const audio = new Audio(src);
       audio.volume = volume;
-      audio.play().catch(() => {});
-    } catch {}
+      audio.play().catch(() => {
+        /* ignore */
+      });
+    } catch {
+      // ignore
+    }
   });
 }

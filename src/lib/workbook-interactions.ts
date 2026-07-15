@@ -192,8 +192,7 @@ export function getPageInteractionSet(
       (i) => i.sourceStatus === "verified" || i.sourceStatus === "book-derived",
     ).length,
     pendingArtCount: interactions.filter((i) => i.sourceStatus === "needs-art-mapping").length,
-    pendingTranscriptionCount: interactions.filter(
-      (i) => i.sourceStatus === "needs-transcription",
-    ).length,
+    pendingTranscriptionCount: interactions.filter((i) => i.sourceStatus === "needs-transcription")
+      .length,
   };
 }

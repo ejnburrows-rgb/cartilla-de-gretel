@@ -58,10 +58,23 @@ function fileExistsUnderPublic(assetPath) {
 // ---------------------------------------------------------------------------
 
 const KNOWN_REGION_TYPES = new Set([
-  "title", "instruction", "vocab-grid", "tracing-line", "writing-line",
-  "draw-box", "picture-grid", "syllable-bubble", "sentence-line",
-  "illustration-slot", "syllable-match", "fill-in-blank",
-  "vowel-line-match", "vowel-pick-one", "vowel-match-all", "reading-sentences", "footer",
+  "title",
+  "instruction",
+  "vocab-grid",
+  "tracing-line",
+  "writing-line",
+  "draw-box",
+  "picture-grid",
+  "syllable-bubble",
+  "sentence-line",
+  "illustration-slot",
+  "syllable-match",
+  "fill-in-blank",
+  "vowel-line-match",
+  "vowel-pick-one",
+  "vowel-match-all",
+  "reading-sentences",
+  "footer",
 ]);
 
 const REGION_REQUIRED_FIELDS = {
@@ -200,7 +213,10 @@ function validatePageInventory() {
       }
     });
     if (typeof val.totalPages === "number" && uniquePageFiles.size !== val.totalPages) {
-      warn(where, `totalPages says ${val.totalPages}, but lessons[].pages lists ${uniquePageFiles.size} unique page files (some lessons share pages, e.g. review spreads, so this counts each file once)`);
+      warn(
+        where,
+        `totalPages says ${val.totalPages}, but lessons[].pages lists ${uniquePageFiles.size} unique page files (some lessons share pages, e.g. review spreads, so this counts each file once)`,
+      );
     }
   }
 }

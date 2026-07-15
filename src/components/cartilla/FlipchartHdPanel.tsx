@@ -137,11 +137,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor }: FlipchartHdPanel
     );
   }
 
-  const staticIdx = isFlipping
-    ? flipDirection === "prev"
-      ? safeIdx - 1
-      : safeIdx + 1
-    : safeIdx;
+  const staticIdx = isFlipping ? (flipDirection === "prev" ? safeIdx - 1 : safeIdx + 1) : safeIdx;
   const flipFrontIdx = isFlipping ? (flipDirection === "next" ? safeIdx : safeIdx - 1) : -1;
   const flipBackIdx = isFlipping ? (flipDirection === "next" ? safeIdx + 1 : safeIdx) : -1;
 

@@ -8,8 +8,7 @@ export const Route = createFileRoute("/intro")({
       { title: "La Cartilla de Gretel — Bienvenidos" },
       {
         name: "description",
-        content:
-          "Pantalla de bienvenida con la paleta pastel de La Cartilla de Gretel.",
+        content: "Pantalla de bienvenida con la paleta pastel de La Cartilla de Gretel.",
       },
     ],
   }),
@@ -18,9 +17,6 @@ export const Route = createFileRoute("/intro")({
 function IntroPage() {
   const navigate = useNavigate();
   return (
-    <IntroSplash
-      ctaLabel="Comenzar"
-      onContinue={() => navigate({ to: "/cartilla/lecciones" })}
-    />
+    <IntroSplash ctaLabel="Comenzar" onContinue={() => navigate({ to: "/cartilla/lecciones" })} />
   );
 }

@@ -1,6 +1,16 @@
 import { createFileRoute, Outlet, Link, useLocation, redirect } from "@tanstack/react-router";
 import { useState } from "react";
-import { Users, GraduationCap, FileSpreadsheet, MonitorPlay, BookOpen, LogOut, HelpCircle, Menu, X } from "lucide-react";
+import {
+  Users,
+  GraduationCap,
+  FileSpreadsheet,
+  MonitorPlay,
+  BookOpen,
+  LogOut,
+  HelpCircle,
+  Menu,
+  X,
+} from "lucide-react";
 import { getStudentSession } from "@/lib/student-session";
 import { supabase } from "@/integrations/supabase/client";
 import { hasTeacherOrAdminRole } from "@/lib/auth-role";
@@ -61,12 +71,42 @@ async function signOut() {
 // the student lesson list and "Progress" at a disconnected legacy page —
 // both silent dead-ends a teacher had no way to know were wrong).
 const NAV_ITEMS: Array<{ to: string; icon: React.ReactNode; label: string; match: string }> = [
-  { to: "/cartilla/teacher/crm", icon: <GraduationCap className="w-4 h-4" />, label: "Clase", match: "/crm" },
-  { to: "/cartilla/teacher/roster", icon: <Users className="w-4 h-4" />, label: "Alumnos", match: "/roster" },
-  { to: "/cartilla/teacher/guia", icon: <BookOpen className="w-4 h-4" />, label: "Guía", match: "/guia" },
-  { to: "/cartilla/presentar/1", icon: <MonitorPlay className="w-4 h-4" />, label: "Presentar", match: "/presentar" },
-  { to: "/cartilla/teacher/reportes", icon: <FileSpreadsheet className="w-4 h-4" />, label: "Reportes", match: "/reportes" },
-  { to: "/cartilla/teacher/ayuda", icon: <HelpCircle className="w-4 h-4" />, label: "Ayuda", match: "/ayuda" },
+  {
+    to: "/cartilla/teacher/crm",
+    icon: <GraduationCap className="w-4 h-4" />,
+    label: "Clase",
+    match: "/crm",
+  },
+  {
+    to: "/cartilla/teacher/roster",
+    icon: <Users className="w-4 h-4" />,
+    label: "Alumnos",
+    match: "/roster",
+  },
+  {
+    to: "/cartilla/teacher/guia",
+    icon: <BookOpen className="w-4 h-4" />,
+    label: "Guía",
+    match: "/guia",
+  },
+  {
+    to: "/cartilla/presentar/1",
+    icon: <MonitorPlay className="w-4 h-4" />,
+    label: "Presentar",
+    match: "/presentar",
+  },
+  {
+    to: "/cartilla/teacher/reportes",
+    icon: <FileSpreadsheet className="w-4 h-4" />,
+    label: "Reportes",
+    match: "/reportes",
+  },
+  {
+    to: "/cartilla/teacher/ayuda",
+    icon: <HelpCircle className="w-4 h-4" />,
+    label: "Ayuda",
+    match: "/ayuda",
+  },
 ];
 
 function TeacherLayout() {

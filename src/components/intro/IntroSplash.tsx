@@ -92,11 +92,7 @@ export interface IntroSplashProps {
  *
  * Lane-lock note: does NOT touch Reader.tsx, _authenticated/**, or supabase/**.
  */
-export function IntroSplash({
-  onContinue,
-  ctaLabel = "Continuar",
-  children,
-}: IntroSplashProps) {
+export function IntroSplash({ onContinue, ctaLabel = "Continuar", children }: IntroSplashProps) {
   return (
     <main
       className="relative min-h-screen overflow-hidden px-4 py-10"
@@ -127,9 +123,7 @@ export function IntroSplash({
           </p>
         </motion.div>
 
-        {children ? (
-          <div className="mt-6 w-full max-w-xl">{children}</div>
-        ) : null}
+        {children ? <div className="mt-6 w-full max-w-xl">{children}</div> : null}
 
         <motion.div
           variants={fadeUpVariants}
@@ -142,15 +136,12 @@ export function IntroSplash({
             type="button"
             onClick={onContinue}
             className="min-h-14 rounded-full bg-[hsl(24,98%,50%)] px-10 py-4 text-base font-black uppercase tracking-widest text-white shadow-[0_18px_36px_hsl(24_98%_50%/0.28)] transition hover:-translate-y-0.5 hover:shadow-[0_22px_44px_hsl(24_98%_50%/0.34)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[hsl(200,98%,39%)]"
->
-             {ctaLabel}
-           </button>
+          >
+            {ctaLabel}
+          </button>
         </motion.div>
 
-        <div
-          aria-label="Paleta de la Cartilla"
-          className="mt-16 flex gap-2"
-        >
+        <div aria-label="Paleta de la Cartilla" className="mt-16 flex gap-2">
           {CARTILLA_PASTEL_PALETTE.map((stop) => (
             <span
               key={stop.hex}

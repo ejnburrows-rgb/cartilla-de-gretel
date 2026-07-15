@@ -193,7 +193,9 @@ function Practica() {
       {phase === "setup" && (
         <section className="mt-8 kid-card p-5 space-y-4" aria-label="Configuración de práctica">
           <div>
-            <div className="text-sm font-bold mb-2" id="duration-label">Duración máxima</div>
+            <div className="text-sm font-bold mb-2" id="duration-label">
+              Duración máxima
+            </div>
             <div className="flex gap-2" role="group" aria-labelledby="duration-label">
               {DURATIONS.map((d) => (
                 <button
@@ -212,7 +214,9 @@ function Practica() {
             </div>
           </div>
           <div>
-            <div className="text-sm font-bold mb-2" id="scope-label">Alcance</div>
+            <div className="text-sm font-bold mb-2" id="scope-label">
+              Alcance
+            </div>
             <div className="flex gap-2" role="group" aria-labelledby="scope-label">
               <button
                 onClick={() => setScope("unlocked")}
@@ -263,8 +267,7 @@ function Practica() {
               {secondsLeft}s
             </span>
             <span className="text-success" aria-live="polite">
-              ✓ {hits}{" "}
-              <span className="text-destructive ml-2">✗ {misses}</span>
+              ✓ {hits} <span className="text-destructive ml-2">✗ {misses}</span>
             </span>
           </div>
           <div className="h-2 bg-secondary rounded-full overflow-hidden border border-foreground/10 mb-2">
@@ -343,15 +346,24 @@ function Practica() {
           </h2>
           <div className="grid grid-cols-3 gap-3 text-sm">
             <div className="rounded-xl bg-secondary p-3">
-              <div className="text-2xl font-bold text-success" aria-label={`${hits} aciertos`}>{hits}</div>
+              <div className="text-2xl font-bold text-success" aria-label={`${hits} aciertos`}>
+                {hits}
+              </div>
               <div className="text-xs text-foreground/60">Aciertos</div>
             </div>
             <div className="rounded-xl bg-secondary p-3">
-              <div className="text-2xl font-bold text-destructive" aria-label={`${misses} errores`}>{misses}</div>
+              <div className="text-2xl font-bold text-destructive" aria-label={`${misses} errores`}>
+                {misses}
+              </div>
               <div className="text-xs text-foreground/60">Errores</div>
             </div>
             <div className="rounded-xl bg-secondary p-3">
-              <div className="text-2xl font-bold text-primary" aria-label={`${accuracy}% precisión`}>{accuracy}%</div>
+              <div
+                className="text-2xl font-bold text-primary"
+                aria-label={`${accuracy}% precisión`}
+              >
+                {accuracy}%
+              </div>
               <div className="text-xs text-foreground/60">Precisión</div>
             </div>
           </div>

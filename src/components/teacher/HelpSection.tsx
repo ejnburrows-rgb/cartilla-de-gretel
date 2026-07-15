@@ -11,7 +11,7 @@ export function HelpSection() {
         <HelpCircle className="w-5 h-5" />
         <h2 className="font-bold text-lg">{t("helpTitle", lang)}</h2>
       </div>
-      
+
       <ul className="space-y-3 text-sm text-foreground/80">
         <li className="flex gap-2">
           <span className="font-bold text-primary mt-0.5">•</span>

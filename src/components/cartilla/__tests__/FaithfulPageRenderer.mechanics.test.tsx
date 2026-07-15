@@ -62,9 +62,7 @@ function installCanvasMock() {
     };
   };
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  (HTMLCanvasElement.prototype as any).toDataURL = vi.fn(
-    () => "data:image/png;base64,mock",
-  );
+  (HTMLCanvasElement.prototype as any).toDataURL = vi.fn(() => "data:image/png;base64,mock");
 }
 
 beforeEach(() => {

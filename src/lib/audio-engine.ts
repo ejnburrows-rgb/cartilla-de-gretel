@@ -54,17 +54,23 @@ export const audioEngine = {
       const src = soft ? "/audio/page-turn-soft.mp3" : "/audio/page-turn.mp3";
       const audio = new Audio(src);
       audio.volume = this.getVolume();
-      audio.play().catch(() => {});
+      audio.play().catch(() => {
+        /* ignore */
+      });
 
       // Resume ambient after short flip timeout
       if (ambientWasPlaying && ambientAudio) {
         setTimeout(() => {
           if (!this.isMuted()) {
-            ambientAudio?.play().catch(() => {});
+            ambientAudio?.play().catch(() => {
+              /* ignore */
+            });
           }
         }, 600);
       }
-    } catch {}
+    } catch {
+      // ignore
+    }
   },
 
   toggleAmbient(active: boolean) {
@@ -79,16 +85,20 @@ export const audioEngine = {
       localStorage.setItem(AMBIENT_ACTIVE_KEY, String(active));
 
       if (active && !this.isMuted()) {
-        ambientAudio.play().catch(() => {});
+        ambientAudio.play().catch(() => {
+          /* ignore */
+        });
       } else {
         ambientAudio.pause();
       }
-    } catch {}
+    } catch {
+      // ignore
+    }
   },
 
   isAmbientPlaying(): boolean {
     if (typeof window === "undefined") return false;
     return localStorage.getItem(AMBIENT_ACTIVE_KEY) === "true" && !this.isMuted();
-  }
+  },
 };
 export type AudioEngine = typeof audioEngine;

@@ -264,7 +264,10 @@ export function WordMatch({
   const acc = attempts > 0 ? Math.round((hits / attempts) * 100) : null;
 
   return (
-    <div className="rounded-2xl border-2 border-foreground/10 bg-card p-4" data-emoji-objects="false">
+    <div
+      className="rounded-2xl border-2 border-foreground/10 bg-card p-4"
+      data-emoji-objects="false"
+    >
       <div className="flex items-center justify-between mb-3">
         <h3 className="font-bold">Une la palabra con su dibujo</h3>
         <div className="flex items-center gap-3">
@@ -295,7 +298,7 @@ export function WordMatch({
                   : picked === w.word
                     ? "scale-[1.02]"
                     : "hover:bg-secondary",
-                playingText === w.word && "animate-pulse ring-4 ring-current"
+                playingText === w.word && "animate-pulse ring-4 ring-current",
               )}
               style={{ borderColor: color, color: matched.has(w.word) ? undefined : color }}
             >
@@ -310,7 +313,9 @@ export function WordMatch({
               type="button"
               disabled={matched.has(w.word)}
               onClick={() => onPicture(w.word)}
-              aria-label={w.illustrationSrc ? `Dibujo de ${w.word}` : `Ilustración pendiente: ${w.word}`}
+              aria-label={
+                w.illustrationSrc ? `Dibujo de ${w.word}` : `Ilustración pendiente: ${w.word}`
+              }
               className={cn(
                 "w-full min-h-[3.25rem] rounded-xl border-2 transition overflow-hidden flex items-center justify-center bg-white",
                 matched.has(w.word)
@@ -351,8 +356,8 @@ export function WordMatch({
             <X className="w-4 h-4" /> No coinciden
           </div>
           <p className="text-sm text-foreground/80 mt-1">
-            <strong>«{feedback.word}»</strong> no es ese dibujo. Lee la palabra otra vez, separa
-            sus sílabas y busca el dibujo que la representa.
+            <strong>«{feedback.word}»</strong> no es ese dibujo. Lee la palabra otra vez, separa sus
+            sílabas y busca el dibujo que la representa.
           </p>
           <button
             onClick={() => play(feedback.word)}
@@ -442,4 +447,3 @@ export function TeacherAnswerKey({ items }: { items: Array<{ q: string; a: strin
     </div>
   );
 }
-

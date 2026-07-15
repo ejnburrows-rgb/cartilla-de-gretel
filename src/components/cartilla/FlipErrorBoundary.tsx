@@ -32,7 +32,6 @@ export class FlipErrorBoundary extends React.Component<
 
   componentDidCatch(error: Error, info: React.ErrorInfo) {
     if (import.meta.env.DEV) {
-      // eslint-disable-next-line no-console
       console.error("[FlipErrorBoundary] flipbook crashed:", error, info);
     }
     this.props.onError?.(error);

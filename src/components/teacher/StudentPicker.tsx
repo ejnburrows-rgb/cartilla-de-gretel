@@ -6,8 +6,10 @@ interface StudentPickerProps {
   onSelectionChange: (classId: string, studentId: string | null) => void;
 }
 
-const dropdownClass = "w-full sm:w-64 px-4 py-2.5 rounded-xl border border-stone-200 bg-white text-stone-800 font-bold shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition-shadow text-sm cursor-pointer";
-const labelClass = "block text-[10px] font-bold text-stone-500 uppercase tracking-widest mb-1.5 ml-1";
+const dropdownClass =
+  "w-full sm:w-64 px-4 py-2.5 rounded-xl border border-stone-200 bg-white text-stone-800 font-bold shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition-shadow text-sm cursor-pointer";
+const labelClass =
+  "block text-[10px] font-bold text-stone-500 uppercase tracking-widest mb-1.5 ml-1";
 
 export function StudentPicker({ onSelectionChange }: StudentPickerProps) {
   const [selectedClassId, setSelectedClassId] = useState<string>("");
@@ -57,11 +59,7 @@ export function StudentPicker({ onSelectionChange }: StudentPickerProps) {
         {loadingClasses ? (
           <div className="text-sm font-bold text-stone-400 py-2">Cargando clases...</div>
         ) : (
-          <select
-            value={selectedClassId}
-            onChange={handleClassChange}
-            className={dropdownClass}
-          >
+          <select value={selectedClassId} onChange={handleClassChange} className={dropdownClass}>
             {classes?.map((c) => (
               <option key={c.id} value={c.id}>
                 {c.name} ({c.student_count} alumnos)

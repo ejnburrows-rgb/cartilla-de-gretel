@@ -13,7 +13,12 @@ const ART_ROOT = "public/cartilla/art/extracted";
 
 export const PDF_EXTRACTION_MANIFEST: ExtractionPage[] = Array.from({ length: 92 }, (_, index) => {
   const pageNumber = index + 1;
-  const lessonId = pageNumber <= 3 ? 1 : pageNumber <= 18 ? Math.ceil((pageNumber - 3) / 3) + 1 : Math.min(24, Math.ceil((pageNumber - 18) / 4) + 6);
+  const lessonId =
+    pageNumber <= 3
+      ? 1
+      : pageNumber <= 18
+        ? Math.ceil((pageNumber - 3) / 3) + 1
+        : Math.min(24, Math.ceil((pageNumber - 18) / 4) + 6);
   const slug = String(pageNumber).padStart(2, "0");
   return {
     pageNumber,

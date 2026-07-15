@@ -30,7 +30,7 @@ export function MarkPicturesBySound({ targetVowel, items, onComplete }: MarkPict
         window.dispatchEvent(
           new CustomEvent("gretel:celebrate", {
             detail: { text: "¡Muy bien! Encontraste todas las correctas." },
-          })
+          }),
         );
         gretelEvent("activity:complete");
         onComplete();
@@ -49,7 +49,7 @@ export function MarkPicturesBySound({ targetVowel, items, onComplete }: MarkPict
       window.dispatchEvent(
         new CustomEvent("gretel:celebrate", {
           detail: { text: "Inténtalo de nuevo." },
-        })
+        }),
       );
       setTimeout(() => setWrongId(null), 600);
     }

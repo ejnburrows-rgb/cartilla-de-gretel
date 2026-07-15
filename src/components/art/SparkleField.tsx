@@ -36,11 +36,7 @@ const COLORS = [
 ] as const;
 
 export function SparkleField({ animated = false, className, ...rest }: SparkleFieldProps) {
-  const baseClass = [
-    "art-sparkle-field",
-    animated ? "art-sparkle-field--animated" : "",
-    className,
-  ]
+  const baseClass = ["art-sparkle-field", animated ? "art-sparkle-field--animated" : "", className]
     .filter(Boolean)
     .join(" ");
 
@@ -59,7 +55,9 @@ export function SparkleField({ animated = false, className, ...rest }: SparkleFi
           d={diamondPath(sp.cx, sp.cy, sp.s)}
           fill={COLORS[i % COLORS.length]}
           opacity={0.5 + (i % 4) * 0.1}
-          style={animated ? ({ "--sparkle-delay": `${sp.delay}s` } as React.CSSProperties) : undefined}
+          style={
+            animated ? ({ "--sparkle-delay": `${sp.delay}s` } as React.CSSProperties) : undefined
+          }
         />
       ))}
     </svg>

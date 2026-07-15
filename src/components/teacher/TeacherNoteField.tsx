@@ -8,7 +8,11 @@ export interface TeacherNoteFieldProps {
   className?: string;
 }
 
-export function TeacherNoteField({ lessonId, studentId = "general", className }: TeacherNoteFieldProps) {
+export function TeacherNoteField({
+  lessonId,
+  studentId = "general",
+  className,
+}: TeacherNoteFieldProps) {
   // Use state only since no localStorage/sessionStorage is allowed per conventions
   const [note, setNote] = useState("");
   const [isSaved, setIsSaved] = useState(false);
@@ -20,7 +24,10 @@ export function TeacherNoteField({ lessonId, studentId = "general", className }:
 
   return (
     <div className={cn("p-5 bg-stone-50 border-2 border-stone-200/60 rounded-2xl mt-6", className)}>
-      <label htmlFor={`teacher-note-${lessonId}`} className="flex items-center gap-2 font-bold text-stone-700 mb-3 text-lg">
+      <label
+        htmlFor={`teacher-note-${lessonId}`}
+        className="flex items-center gap-2 font-bold text-stone-700 mb-3 text-lg"
+      >
         <PenLine className="w-5 h-5" /> Notas del Estudiante
       </label>
       <div className="relative">

@@ -5,28 +5,31 @@ export function usePageFlip(durationMs = 520) {
   const [direction, setDirection] = useState<"next" | "prev">("next");
   const onCompleteRef = useRef<(() => void) | null>(null);
 
-  const flip = useCallback((dir: "next" | "prev", onComplete: () => void) => {
-    if (isFlipping) return;
-    setDirection(dir);
-    setIsFlipping(true);
-    onCompleteRef.current = onComplete;
+  const flip = useCallback(
+    (dir: "next" | "prev", onComplete: () => void) => {
+      if (isFlipping) return;
+      setDirection(dir);
+      setIsFlipping(true);
+      onCompleteRef.current = onComplete;
 
-    // Safety fallback timer to prevent locks in case transitionend does not fire
-    const timer = setTimeout(() => {
-      setIsFlipping((curr) => {
-        if (curr) {
-          if (onCompleteRef.current) {
-            onCompleteRef.current();
-            onCompleteRef.current = null;
+      // Safety fallback timer to prevent locks in case transitionend does not fire
+      const timer = setTimeout(() => {
+        setIsFlipping((curr) => {
+          if (curr) {
+            if (onCompleteRef.current) {
+              onCompleteRef.current();
+              onCompleteRef.current = null;
+            }
+            return false;
           }
-          return false;
-        }
-        return curr;
-      });
-    }, durationMs + 80);
+          return curr;
+        });
+      }, durationMs + 80);
 
-    return () => clearTimeout(timer);
-  }, [isFlipping, durationMs]);
+      return () => clearTimeout(timer);
+    },
+    [isFlipping, durationMs],
+  );
 
   // Hook handles transitionend directly, making commits highly responsive and fluid
   const handleTransitionEnd = useCallback((e: React.TransitionEvent<HTMLDivElement>) => {

@@ -8,7 +8,10 @@ interface InteractiveFlipchartOverlayProps {
   words: { word: string; emoji?: string; illustrationSrc?: string }[];
 }
 
-export function InteractiveFlipchartOverlay({ pageNumber, words }: InteractiveFlipchartOverlayProps) {
+export function InteractiveFlipchartOverlay({
+  pageNumber,
+  words,
+}: InteractiveFlipchartOverlayProps) {
   const [animatingIdx, setAnimatingIdx] = useState<number | null>(null);
 
   void pageNumber;

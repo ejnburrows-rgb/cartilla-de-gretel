@@ -64,7 +64,7 @@ export const translations = {
     helpProgress: "Progress report: Check stats in the Progress tab.",
     helpLanguage: "Switch language: Use the ES/EN button at the top.",
     helpTheme: "Dark mode: Use the moon/sun button at the top to toggle theme.",
-  }
+  },
 };
 
 export function t(key: keyof typeof translations.es, lang: Language) {

@@ -10,14 +10,14 @@ export const lesson15 = [
     prompt: "Haz un dibujo que represente una palabra que comienza con b.",
     items: [
       { id: "letter-B", label: "B" },
-      { id: "letter-b", label: "b" }
+      { id: "letter-b", label: "b" },
     ],
     targets: [],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Students trace uppercase B and lowercase b.",
-    sourcePage: getBookPageImage(57)
+    sourcePage: getBookPageImage(57),
   },
   {
     id: "l15-p58-syllable-circle",
@@ -31,27 +31,52 @@ export const lesson15 = [
       { id: "syl-be", label: "be" },
       { id: "syl-bi", label: "bi" },
       { id: "syl-bo", label: "bo" },
-      { id: "syl-bu", label: "bu" }
+      { id: "syl-bu", label: "bu" },
     ],
     targets: [
       { id: "slot-ba", label: "ba", coordinatesVerified: false, acceptsItemId: "syl-ba" },
       { id: "slot-be", label: "be", coordinatesVerified: false, acceptsItemId: "syl-be" },
       { id: "slot-bi", label: "bi", coordinatesVerified: false, acceptsItemId: "syl-bi" },
       { id: "slot-bo", label: "bo", coordinatesVerified: false, acceptsItemId: "syl-bo" },
-      { id: "slot-bu", label: "bu", coordinatesVerified: false, acceptsItemId: "syl-bu" }
+      { id: "slot-bu", label: "bu", coordinatesVerified: false, acceptsItemId: "syl-bu" },
     ],
     wordBank: [
-      "baño", "bala", "batir", "batea", "abanico", "loba",
-      "sube", "Bebo", "bebé", "abeja", "nube", "cubeta",
-      "bebida", "cabito", "bicicleta", "bisagra", "bisonte", "cubito",
-      "lobo", "bonita", "tubo", "bodega", "bola", "botella",
-      "burro", "aburre", "aburrido", "bulla", "abuso", "buche"
+      "baño",
+      "bala",
+      "batir",
+      "batea",
+      "abanico",
+      "loba",
+      "sube",
+      "Bebo",
+      "bebé",
+      "abeja",
+      "nube",
+      "cubeta",
+      "bebida",
+      "cabito",
+      "bicicleta",
+      "bisagra",
+      "bisonte",
+      "cubito",
+      "lobo",
+      "bonita",
+      "tubo",
+      "bodega",
+      "bola",
+      "botella",
+      "burro",
+      "aburre",
+      "aburrido",
+      "bulla",
+      "abuso",
+      "buche",
     ],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded syllable circle for B.",
-    sourcePage: getBookPageImage(58)
+    sourcePage: getBookPageImage(58),
   },
   {
     id: "l15-p59-syllable-tap",
@@ -65,14 +90,14 @@ export const lesson15 = [
       { id: "ra-be", label: "be" },
       { id: "ra-bi", label: "bi" },
       { id: "ra-bo", label: "bo" },
-      { id: "ra-bu", label: "bu" }
+      { id: "ra-bu", label: "bu" },
     ],
     targets: [],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded syllable tap for B.",
-    sourcePage: getBookPageImage(59)
+    sourcePage: getBookPageImage(59),
   },
   {
     id: "l15-p59-word-bank",
@@ -96,14 +121,14 @@ export const lesson15 = [
       { id: "w-batea", label: "batea" },
       { id: "w-cubito", label: "cubito" },
       { id: "w-bote", label: "bote" },
-      { id: "w-nube", label: "nube" }
+      { id: "w-nube", label: "nube" },
     ],
     targets: [],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded word bank for B.",
-    sourcePage: getBookPageImage(59)
+    sourcePage: getBookPageImage(59),
   },
   {
     id: "l15-p59-mini-story",
@@ -119,17 +144,15 @@ export const lesson15 = [
       { id: "story-b-4", label: "La bola sube a la nube." },
       { id: "story-b-5", label: "Pepito batea la bola con el bate." },
       { id: "story-b-6", label: "La bola sube y sube alto también." },
-      { id: "story-b-7", label: "Pepito es bueno en la pelota." }
+      { id: "story-b-7", label: "Pepito es bueno en la pelota." },
     ],
     targets: [],
-    sightWords: [
-      "alto", "con", "bueno"
-    ],
+    sightWords: ["alto", "con", "bueno"],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded mini-story for B.",
-    sourcePage: getBookPageImage(59)
+    sourcePage: getBookPageImage(59),
   },
   {
     id: "l15-p60-fill-in-blank",
@@ -143,7 +166,7 @@ export const lesson15 = [
       { id: "syl-be", label: "be" },
       { id: "syl-bi", label: "bi" },
       { id: "syl-bo", label: "bo" },
-      { id: "syl-bu", label: "bu" }
+      { id: "syl-bu", label: "bu" },
     ],
     targets: [
       {
@@ -153,7 +176,7 @@ export const lesson15 = [
         correctSyllable: "bo",
         fullWord: "cubo",
         coordinatesVerified: false,
-        acceptsItemId: "syl-bo"
+        acceptsItemId: "syl-bo",
       },
       {
         id: "blank-bolo",
@@ -162,7 +185,7 @@ export const lesson15 = [
         correctSyllable: "bo",
         fullWord: "bolo",
         coordinatesVerified: false,
-        acceptsItemId: "syl-bo"
+        acceptsItemId: "syl-bo",
       },
       {
         id: "blank-cubito",
@@ -171,7 +194,7 @@ export const lesson15 = [
         correctSyllable: "bi",
         fullWord: "cubito",
         coordinatesVerified: false,
-        acceptsItemId: "syl-bi"
+        acceptsItemId: "syl-bi",
       },
       {
         id: "blank-batido",
@@ -180,7 +203,7 @@ export const lesson15 = [
         correctSyllable: "ba",
         fullWord: "batido",
         coordinatesVerified: false,
-        acceptsItemId: "syl-ba"
+        acceptsItemId: "syl-ba",
       },
       {
         id: "blank-burro",
@@ -189,7 +212,7 @@ export const lesson15 = [
         correctSyllable: "bu",
         fullWord: "burro",
         coordinatesVerified: false,
-        acceptsItemId: "syl-bu"
+        acceptsItemId: "syl-bu",
       },
       {
         id: "blank-nube",
@@ -198,52 +221,52 @@ export const lesson15 = [
         correctSyllable: "be",
         fullWord: "nube",
         coordinatesVerified: false,
-        acceptsItemId: "syl-be"
-      }
+        acceptsItemId: "syl-be",
+      },
     ],
     exercises: [
       {
         partial: "cu___",
         choices: ["bu", "bo"],
         answer: "bo",
-        fullWord: "cubo"
+        fullWord: "cubo",
       },
       {
         partial: "___lo",
         choices: ["bo", "be"],
         answer: "bo",
-        fullWord: "bolo"
+        fullWord: "bolo",
       },
       {
         partial: "cu___to",
         choices: ["bo", "bi"],
         answer: "bi",
-        fullWord: "cubito"
+        fullWord: "cubito",
       },
       {
         partial: "___tido",
         choices: ["be", "ba"],
         answer: "ba",
-        fullWord: "batido"
+        fullWord: "batido",
       },
       {
         partial: "___rro",
         choices: ["ba", "bu"],
         answer: "bu",
-        fullWord: "burro"
+        fullWord: "burro",
       },
       {
         partial: "nu___",
         choices: ["be", "bi"],
         answer: "be",
-        fullWord: "nube"
-      }
+        fullWord: "nube",
+      },
     ],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded fill-in-the-blank for B.",
-    sourcePage: getBookPageImage(60)
+    sourcePage: getBookPageImage(60),
   },
   {
     id: "l15-p60-write-sentences",
@@ -258,6 +281,6 @@ export const lesson15 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Sentence writing lines.",
-    sourcePage: getBookPageImage(60)
-  }
+    sourcePage: getBookPageImage(60),
+  },
 ];

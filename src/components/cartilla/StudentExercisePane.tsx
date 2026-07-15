@@ -53,7 +53,7 @@ export function StudentExercisePane({
   onAllCompleted,
 }: StudentExercisePaneProps) {
   const STORAGE_KEY = `cartilla.exercise-done.v1.${lessonId}`;
-  
+
   const [completed, setCompleted] = useState<Set<ExerciseId>>(() => {
     if (typeof window === "undefined") return new Set();
     try {
@@ -92,7 +92,8 @@ export function StudentExercisePane({
   // Derive syllables + words from workbook data only
   const syllables: string[] = (() => {
     if (entry.kind === "consonant") return entry.data.syllables;
-    if (entry.kind === "vowel") return [entry.vowel, ...["a", "e", "i", "o", "u"].filter((v) => v !== entry.vowel)];
+    if (entry.kind === "vowel")
+      return [entry.vowel, ...["a", "e", "i", "o", "u"].filter((v) => v !== entry.vowel)];
     return ["a", "e", "i", "o", "u"];
   })();
 
@@ -109,12 +110,7 @@ export function StudentExercisePane({
         illustrationSrc: v.illustrationSrc,
       }));
     }
-    return [
-      { word: "ala" },
-      { word: "oso" },
-      { word: "uva" },
-      { word: "isla" },
-    ];
+    return [{ word: "ala" }, { word: "oso" }, { word: "uva" }, { word: "isla" }];
   })();
 
   // Book sentences (workbook-derived, from consonants.json)
@@ -133,12 +129,12 @@ export function StudentExercisePane({
     {
       id: "syllable_tap",
       label: "S\u00edlabas",
-      node: <SyllableTap syllables={syllables} color={accent} lessonId={lessonId} />
+      node: <SyllableTap syllables={syllables} color={accent} lessonId={lessonId} />,
     },
     {
       id: "word_match",
       label: "Palabras",
-      node: <WordMatch words={words} color={accent} lessonId={lessonId} />
+      node: <WordMatch words={words} color={accent} lessonId={lessonId} />,
     },
     {
       id: "drag_build_word",
@@ -150,7 +146,7 @@ export function StudentExercisePane({
           lessonId={lessonId}
           onComplete={() => markDone("drag_build_word")}
         />
-      )
+      ),
     },
     sentences.length > 0
       ? {
@@ -158,7 +154,10 @@ export function StudentExercisePane({
           label: "Leer",
           node: (
             <section className="space-y-3">
-              <div className="text-xs font-black uppercase tracking-[0.18em]" style={{ color: accent }}>
+              <div
+                className="text-xs font-black uppercase tracking-[0.18em]"
+                style={{ color: accent }}
+              >
                 Lee con el maestro
               </div>
               <ol className="space-y-2.5 rounded-3xl border border-stone-200 bg-white/85 p-5 text-base font-bold text-amber-950 shadow-[0_18px_42px_rgba(50,30,10,0.07)]">
@@ -183,7 +182,7 @@ export function StudentExercisePane({
                 Ya leí ✓
               </button>
             </section>
-          )
+          ),
         }
       : {
           id: "reading_sentences",
@@ -197,7 +196,7 @@ export function StudentExercisePane({
             >
               Listo ✓
             </button>
-          )
+          ),
         },
   ];
 
@@ -235,11 +234,7 @@ function ProgressDots({
   accent: string;
 }) {
   return (
-    <div
-      className="progress-dots"
-      role="group"
-      aria-label="Progreso de ejercicios"
-    >
+    <div className="progress-dots" role="group" aria-label="Progreso de ejercicios">
       {ids.map((id) => (
         <div
           key={id}

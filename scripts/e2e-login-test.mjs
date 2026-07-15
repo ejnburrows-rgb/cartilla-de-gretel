@@ -22,7 +22,9 @@ const KEY = process.env.VITE_SUPABASE_PUBLISHABLE_KEY;
 const joinCode = process.argv[2];
 
 if (!URL || !KEY) {
-  console.error("FAIL — missing VITE_SUPABASE_URL / VITE_SUPABASE_PUBLISHABLE_KEY in the environment.");
+  console.error(
+    "FAIL — missing VITE_SUPABASE_URL / VITE_SUPABASE_PUBLISHABLE_KEY in the environment.",
+  );
   process.exit(1);
 }
 if (!joinCode) {
@@ -60,23 +62,40 @@ async function main() {
   // Step 1 — list_class_students: real roster, no sensitive fields.
   const roster = await rpc("list_class_students", { p_join_code: joinCode });
   const rosterOk = roster.ok && Array.isArray(roster.body) && roster.body.length > 0;
-  report(1, rosterOk, `list_class_students returned ${rosterOk ? roster.body.length + " student(s)" : JSON.stringify(roster.body)}`);
+  report(
+    1,
+    rosterOk,
+    `list_class_students returned ${rosterOk ? roster.body.length + " student(s)" : JSON.stringify(roster.body)}`,
+  );
   if (!rosterOk) return finish();
 
   const student = roster.body[0];
   if (!("student_id" in student) || !("display_name" in student) || "student_code" in student) {
-    report(1, false, "roster row shape wrong — must be exactly {student_id, display_name}, no student_code");
+    report(
+      1,
+      false,
+      "roster row shape wrong — must be exactly {student_id, display_name}, no student_code",
+    );
     return finish();
   }
 
   // Step 2 — enter_class_as_student: full session shape.
-  const enter = await rpc("enter_class_as_student", { p_join_code: joinCode, p_student_id: student.student_id });
+  const enter = await rpc("enter_class_as_student", {
+    p_join_code: joinCode,
+    p_student_id: student.student_id,
+  });
   const session = Array.isArray(enter.body) ? enter.body[0] : enter.body;
   const sessionOk =
     enter.ok &&
     session &&
-    ["student_id", "student_name", "student_code", "class_id", "class_name"].every((k) => k in session);
-  report(2, sessionOk, `enter_class_as_student returned ${sessionOk ? `session for "${session.student_name}"` : JSON.stringify(enter.body)}`);
+    ["student_id", "student_name", "student_code", "class_id", "class_name"].every(
+      (k) => k in session,
+    );
+  report(
+    2,
+    sessionOk,
+    `enter_class_as_student returned ${sessionOk ? `session for "${session.student_name}"` : JSON.stringify(enter.body)}`,
+  );
   if (!sessionOk) return finish();
 
   // Step 3 — log one clearly-labeled test progress event, then read it back.
@@ -90,12 +109,25 @@ async function main() {
     p_time_seconds: null,
     p_meta: { exercise: "e2e_test_probe" },
   });
-  report(3, logRes.ok, `log_student_progress ${logRes.ok ? "accepted" : "rejected: " + JSON.stringify(logRes.body)}`);
+  report(
+    3,
+    logRes.ok,
+    `log_student_progress ${logRes.ok ? "accepted" : "rejected: " + JSON.stringify(logRes.body)}`,
+  );
 
-  const progress = await rpc("get_student_progress", { p_student_id: session.student_id, p_student_code: session.student_code });
+  const progress = await rpc("get_student_progress", {
+    p_student_id: session.student_id,
+    p_student_code: session.student_code,
+  });
   const events = progress.body?.events ?? [];
-  const found = Array.isArray(events) && events.some((e) => e.lesson_id === "0" || e.meta?.exercise === "e2e_test_probe");
-  report("3b", progress.ok && found, `get_student_progress ${found ? "shows the just-logged test event" : "does NOT show it — " + JSON.stringify(progress.body)}`);
+  const found =
+    Array.isArray(events) &&
+    events.some((e) => e.lesson_id === "0" || e.meta?.exercise === "e2e_test_probe");
+  report(
+    "3b",
+    progress.ok && found,
+    `get_student_progress ${found ? "shows the just-logged test event" : "does NOT show it — " + JSON.stringify(progress.body)}`,
+  );
 
   finish();
 }
@@ -104,7 +136,9 @@ function finish() {
   console.log("");
   console.log(failures === 0 ? "ALL STEPS PASSED" : `${failures} STEP(S) FAILED — see above`);
   console.log("");
-  console.log("Not automated (needs a real logged-in teacher session): open /cartilla/teacher/reportes,");
+  console.log(
+    "Not automated (needs a real logged-in teacher session): open /cartilla/teacher/reportes,",
+  );
   console.log("pick this class + student, and confirm the just-logged test attempt appears in the");
   console.log("per-exercise-type table before doing the real in-browser walkthrough.");
   process.exit(failures === 0 ? 0 : 1);

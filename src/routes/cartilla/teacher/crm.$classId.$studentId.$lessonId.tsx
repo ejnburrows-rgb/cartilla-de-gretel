@@ -34,10 +34,20 @@ function LeccionDetail() {
     [progress, lessonId],
   );
 
-  const completed = lessonEvents.some((e: { event_kind: string }) => e.event_kind === "lesson_completed");
-  const exerciseEvents = lessonEvents.filter((e: { event_kind: string }) => e.event_kind === "exercise");
-  const totalScore = exerciseEvents.reduce((sum: number, e: { score: number | null }) => sum + (e.score ?? 0), 0);
-  const totalPossible = exerciseEvents.reduce((sum: number, e: { total: number | null }) => sum + (e.total ?? 0), 0);
+  const completed = lessonEvents.some(
+    (e: { event_kind: string }) => e.event_kind === "lesson_completed",
+  );
+  const exerciseEvents = lessonEvents.filter(
+    (e: { event_kind: string }) => e.event_kind === "exercise",
+  );
+  const totalScore = exerciseEvents.reduce(
+    (sum: number, e: { score: number | null }) => sum + (e.score ?? 0),
+    0,
+  );
+  const totalPossible = exerciseEvents.reduce(
+    (sum: number, e: { total: number | null }) => sum + (e.total ?? 0),
+    0,
+  );
   const accuracy = totalPossible > 0 ? Math.round((totalScore / totalPossible) * 100) : null;
   const totalTimeSecs = lessonEvents
     .filter((e: { event_kind: string }) => e.event_kind === "time")
@@ -66,7 +76,9 @@ function LeccionDetail() {
       ) : (
         <>
           <header className="flex items-center gap-3">
-            <h1 className="text-3xl font-black text-stone-800">{entry?.title ?? `Lección ${lessonId}`}</h1>
+            <h1 className="text-3xl font-black text-stone-800">
+              {entry?.title ?? `Lección ${lessonId}`}
+            </h1>
             {completed && (
               <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#dce7d5] text-[#2c3e20] text-xs font-black rounded-full uppercase tracking-wide">
                 <CheckCircle2 className="w-3.5 h-3.5" /> Completada
@@ -80,8 +92,12 @@ function LeccionDetail() {
                 <Award className="w-5 h-5" />
               </div>
               <div>
-                <div className="text-2xl font-black text-stone-800">{accuracy !== null ? `${accuracy}%` : "—"}</div>
-                <div className="text-[10px] font-bold text-stone-500 uppercase tracking-wider">Precisión</div>
+                <div className="text-2xl font-black text-stone-800">
+                  {accuracy !== null ? `${accuracy}%` : "—"}
+                </div>
+                <div className="text-[10px] font-bold text-stone-500 uppercase tracking-wider">
+                  Precisión
+                </div>
               </div>
             </div>
             <div className="bg-white border border-stone-200 rounded-2xl p-5 flex items-center gap-3">
@@ -89,8 +105,12 @@ function LeccionDetail() {
                 <Clock className="w-5 h-5" />
               </div>
               <div>
-                <div className="text-2xl font-black text-stone-800">{Math.round(totalTimeSecs / 60)} min</div>
-                <div className="text-[10px] font-bold text-stone-500 uppercase tracking-wider">Tiempo total</div>
+                <div className="text-2xl font-black text-stone-800">
+                  {Math.round(totalTimeSecs / 60)} min
+                </div>
+                <div className="text-[10px] font-bold text-stone-500 uppercase tracking-wider">
+                  Tiempo total
+                </div>
               </div>
             </div>
             <div className="bg-white border border-stone-200 rounded-2xl p-5">
@@ -105,7 +125,9 @@ function LeccionDetail() {
 
           <section className="bg-white border border-stone-200 rounded-3xl overflow-hidden">
             <div className="p-6 border-b border-stone-200">
-              <h2 className="text-sm font-black text-stone-700 uppercase tracking-wider">Intentos de actividad</h2>
+              <h2 className="text-sm font-black text-stone-700 uppercase tracking-wider">
+                Intentos de actividad
+              </h2>
             </div>
             <div className="overflow-x-auto">
               <table className="w-full text-sm text-left">
@@ -133,7 +155,9 @@ function LeccionDetail() {
                         <td className="p-3 pl-6 font-mono text-xs">
                           {new Date(e.created_at).toLocaleString()}
                         </td>
-                        <td className="p-3 font-bold">{EVENT_KIND_LABELS[e.event_kind] ?? e.event_kind}</td>
+                        <td className="p-3 font-bold">
+                          {EVENT_KIND_LABELS[e.event_kind] ?? e.event_kind}
+                        </td>
                         <td className="p-3">
                           {e.event_kind === "exercise" && (e.total ?? 0) > 0
                             ? `${e.score}/${e.total} (${Math.round(((e.score ?? 0) / (e.total ?? 1)) * 100)}%)`

@@ -15,8 +15,7 @@ export const Route = createFileRoute("/cartilla/student/libro-vivo")({
       { title: "Libro vivo — La Cartilla de Gretel" },
       {
         name: "description",
-        content:
-          "Páginas del manifiesto oficial renderizadas con el motor LivingWorkbookPage.",
+        content: "Páginas del manifiesto oficial renderizadas con el motor LivingWorkbookPage.",
       },
     ],
   }),
@@ -34,7 +33,7 @@ function LibroVivoPage() {
     if (typeof window === "undefined") return available[0] ?? 1;
     const q = new URLSearchParams(window.location.search).get("p");
     const n = Number(q);
-    return Number.isFinite(n) && available.includes(n) ? n : available[0] ?? 1;
+    return Number.isFinite(n) && available.includes(n) ? n : (available[0] ?? 1);
   });
 
   useEffect(() => {
@@ -69,8 +68,8 @@ function LibroVivoPage() {
       <main className="flex-1 px-4 py-6 max-w-3xl w-full mx-auto space-y-4">
         <h1 className="text-2xl font-black">Libro vivo</h1>
         <p className="text-stone-600 text-sm">
-          Motor canónico LivingWorkbookPage con las páginas reales del manifiesto.
-          Las interacciones declaradas como «none» se muestran sin ejercicio inventado.
+          Motor canónico LivingWorkbookPage con las páginas reales del manifiesto. Las interacciones
+          declaradas como «none» se muestran sin ejercicio inventado.
         </p>
 
         <label className="block text-sm font-bold">

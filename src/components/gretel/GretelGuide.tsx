@@ -7,9 +7,7 @@ interface GretelGuideProps {
   bubblePosition?: "left" | "right" | "top";
 }
 
-export function GretelGuide({
-  className = "",
-}: GretelGuideProps) {
+export function GretelGuide({ className = "" }: GretelGuideProps) {
   const { currentPose, machineState, speechText, send } = useGretelEvents();
   const [reducedMotion, setReducedMotion] = useState(false);
 
@@ -28,7 +26,12 @@ export function GretelGuide({
   let motionClass = "";
   let shadowMotionClass = "";
   if (!reducedMotion) {
-    if (machineState === "idle" || machineState === "talking" || machineState === "boot" || machineState === "blinking") {
+    if (
+      machineState === "idle" ||
+      machineState === "talking" ||
+      machineState === "boot" ||
+      machineState === "blinking"
+    ) {
       motionClass = "animate-gretel-bob";
       shadowMotionClass = "animate-gretel-shadow-bob";
     } else if (machineState === "waving") {
@@ -57,7 +60,10 @@ export function GretelGuide({
         <div className={`gretel-contact-shadow ${shadowMotionClass}`} />
         <div
           className={`relative h-full w-full origin-bottom select-none ${motionClass}`}
-          style={{ filter: "drop-shadow(0 10px 10px rgba(20, 20, 30, 0.28)) drop-shadow(0 2px 3px rgba(20, 20, 30, 0.18))" }}
+          style={{
+            filter:
+              "drop-shadow(0 10px 10px rgba(20, 20, 30, 0.28)) drop-shadow(0 2px 3px rgba(20, 20, 30, 0.18))",
+          }}
         >
           <img
             key={currentPose}

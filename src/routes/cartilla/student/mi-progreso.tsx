@@ -7,16 +7,7 @@
  */
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import {
-  ArrowLeft,
-  Award,
-  BookOpen,
-  Clock,
-  Download,
-  Flame,
-  Sparkles,
-  Target,
-} from "lucide-react";
+import { ArrowLeft, Award, BookOpen, Clock, Download, Flame, Sparkles, Target } from "lucide-react";
 import { getMyProgress } from "@/lib/student.functions";
 import { getStudentSession } from "@/lib/student-session";
 import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
@@ -67,10 +58,10 @@ function MyProgress() {
 
   // Build summary from cloud events OR fall back to local exercise-stats
   const summary = useMemo(() => {
-    let completedSet = new Set<string>([...completed].map(String));
-    let exByLesson: Record<string, { score: number; total: number; runs: number }> = {};
+    const completedSet = new Set<string>([...completed].map(String));
+    const exByLesson: Record<string, { score: number; total: number; runs: number }> = {};
     let timeTotal = 0;
-    let badges: string[] = [];
+    const badges: string[] = [];
     let streakDays = 0;
 
     if (cloudData) {
@@ -189,9 +180,7 @@ function MyProgress() {
       <header className="mt-6 flex items-start justify-between gap-3 flex-wrap">
         <div>
           <h1 className="text-3xl sm:text-4xl font-bold">
-            {cloudData
-              ? `Hola, ${cloudData.student.display_name}`
-              : "Mi progreso"}
+            {cloudData ? `Hola, ${cloudData.student.display_name}` : "Mi progreso"}
           </h1>
           {cloudData ? (
             <p className="text-sm text-foreground/60 mt-1">
@@ -252,8 +241,15 @@ function MyProgress() {
       )}
 
       {/* ── Stats grid ── */}
-      <section className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3" aria-label="Resumen de progreso">
-        <Stat icon={BookOpen} label="Lecciones" value={`${summary.completedSet.size}/${TOTAL_LESSONS}`} />
+      <section
+        className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3"
+        aria-label="Resumen de progreso"
+      >
+        <Stat
+          icon={BookOpen}
+          label="Lecciones"
+          value={`${summary.completedSet.size}/${TOTAL_LESSONS}`}
+        />
         <Stat icon={Target} label="Ejercicios" value={String(totalExercises)} />
         <Stat icon={Clock} label="Tiempo" value={fmtMin(summary.timeTotal)} />
         {summary.streakDays > 0 ? (
@@ -309,11 +305,7 @@ function MyProgress() {
       {/* ── CSS-only bar chart ── */}
       <section className="mt-6 kid-card p-4" aria-label="Gráfica de aciertos por lección">
         <h2 className="font-bold mb-4">Aciertos por lección (%)</h2>
-        <div
-          className="css-bar-chart"
-          role="list"
-          aria-label="Barras de aciertos por lección"
-        >
+        <div className="css-bar-chart" role="list" aria-label="Barras de aciertos por lección">
           {chartBars.map(({ label, pct, color }) => (
             <div
               key={label}

@@ -62,11 +62,41 @@ export function PictureShoe({ animated = false, ...props }: PictureShoeProps) {
       <line x1="80" y1="145" x2="80" y2="200" stroke="#a1887f" strokeWidth="0.8" opacity="0.3" />
       <line x1="160" y1="145" x2="160" y2="200" stroke="#a1887f" strokeWidth="0.8" opacity="0.3" />
       {/* Wood grain lines */}
-      <path d="M10 160 Q40 158 70 160" fill="none" stroke="#a1887f" strokeWidth="0.5" opacity="0.3" />
-      <path d="M90 170 Q120 168 150 170" fill="none" stroke="#a1887f" strokeWidth="0.5" opacity="0.3" />
-      <path d="M170 165 Q200 163 230 165" fill="none" stroke="#a1887f" strokeWidth="0.5" opacity="0.3" />
-      <path d="M20 180 Q50 178 75 180" fill="none" stroke="#a1887f" strokeWidth="0.5" opacity="0.25" />
-      <path d="M100 185 Q130 183 155 185" fill="none" stroke="#a1887f" strokeWidth="0.5" opacity="0.25" />
+      <path
+        d="M10 160 Q40 158 70 160"
+        fill="none"
+        stroke="#a1887f"
+        strokeWidth="0.5"
+        opacity="0.3"
+      />
+      <path
+        d="M90 170 Q120 168 150 170"
+        fill="none"
+        stroke="#a1887f"
+        strokeWidth="0.5"
+        opacity="0.3"
+      />
+      <path
+        d="M170 165 Q200 163 230 165"
+        fill="none"
+        stroke="#a1887f"
+        strokeWidth="0.5"
+        opacity="0.3"
+      />
+      <path
+        d="M20 180 Q50 178 75 180"
+        fill="none"
+        stroke="#a1887f"
+        strokeWidth="0.5"
+        opacity="0.25"
+      />
+      <path
+        d="M100 185 Q130 183 155 185"
+        fill="none"
+        stroke="#a1887f"
+        strokeWidth="0.5"
+        opacity="0.25"
+      />
 
       {/* Shoe shadow on floor */}
       <ellipse cx="125" cy="147" rx="55" ry="5" fill="#8d6e63" opacity="0.15" />
@@ -79,11 +109,51 @@ export function PictureShoe({ animated = false, ...props }: PictureShoeProps) {
         strokeWidth="1"
       />
       {/* Sole tread detail */}
-      <line x1="80" y1="146" x2="80" y2="143" stroke="#e0e0e0" strokeWidth="1.5" strokeLinecap="round" />
-      <line x1="100" y1="146" x2="100" y2="142" stroke="#e0e0e0" strokeWidth="1.5" strokeLinecap="round" />
-      <line x1="120" y1="146" x2="120" y2="142" stroke="#e0e0e0" strokeWidth="1.5" strokeLinecap="round" />
-      <line x1="140" y1="146" x2="140" y2="142" stroke="#e0e0e0" strokeWidth="1.5" strokeLinecap="round" />
-      <line x1="160" y1="146" x2="160" y2="143" stroke="#e0e0e0" strokeWidth="1.5" strokeLinecap="round" />
+      <line
+        x1="80"
+        y1="146"
+        x2="80"
+        y2="143"
+        stroke="#e0e0e0"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+      <line
+        x1="100"
+        y1="146"
+        x2="100"
+        y2="142"
+        stroke="#e0e0e0"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+      <line
+        x1="120"
+        y1="146"
+        x2="120"
+        y2="142"
+        stroke="#e0e0e0"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+      <line
+        x1="140"
+        y1="146"
+        x2="140"
+        y2="142"
+        stroke="#e0e0e0"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+      <line
+        x1="160"
+        y1="146"
+        x2="160"
+        y2="143"
+        stroke="#e0e0e0"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
 
       {/* Shoe body - main red shape */}
       <path
@@ -121,11 +191,7 @@ export function PictureShoe({ animated = false, ...props }: PictureShoeProps) {
       />
 
       {/* Inner shoe darkness */}
-      <path
-        d="M72 88 Q78 78 95 74 L120 76 Q128 80 132 86"
-        fill="#4a1010"
-        opacity="0.3"
-      />
+      <path d="M72 88 Q78 78 95 74 L120 76 Q128 80 132 86" fill="#4a1010" opacity="0.3" />
 
       {/* Lace eyelets */}
       <circle cx="98" cy="84" r="2.5" fill="#4a1010" stroke="#b71c1c" strokeWidth="1" />
@@ -143,7 +209,16 @@ export function PictureShoe({ animated = false, ...props }: PictureShoeProps) {
           strokeLinecap="round"
         />
         {/* Lace end / aglet */}
-        <rect x="78" y="49" width="5" height="7" rx="2" fill="#e0e0e0" stroke="#bdbdbd" strokeWidth="0.5" />
+        <rect
+          x="78"
+          y="49"
+          width="5"
+          height="7"
+          rx="2"
+          fill="#e0e0e0"
+          stroke="#bdbdbd"
+          strokeWidth="0.5"
+        />
       </g>
 
       {/* Untied laces - right lace */}
@@ -156,12 +231,33 @@ export function PictureShoe({ animated = false, ...props }: PictureShoeProps) {
           strokeLinecap="round"
         />
         {/* Lace end / aglet */}
-        <rect x="135" y="45" width="5" height="7" rx="2" fill="#e0e0e0" stroke="#bdbdbd" strokeWidth="0.5" />
+        <rect
+          x="135"
+          y="45"
+          width="5"
+          height="7"
+          rx="2"
+          fill="#e0e0e0"
+          stroke="#bdbdbd"
+          strokeWidth="0.5"
+        />
       </g>
 
       {/* Cross lace between eyelets */}
-      <path d="M100 84 Q108 78 118 82" fill="none" stroke="#ffffff" strokeWidth="1.5" opacity="0.8" />
-      <path d="M108 82 Q118 78 128 84" fill="none" stroke="#ffffff" strokeWidth="1.5" opacity="0.8" />
+      <path
+        d="M100 84 Q108 78 118 82"
+        fill="none"
+        stroke="#ffffff"
+        strokeWidth="1.5"
+        opacity="0.8"
+      />
+      <path
+        d="M108 82 Q118 78 128 84"
+        fill="none"
+        stroke="#ffffff"
+        strokeWidth="1.5"
+        opacity="0.8"
+      />
 
       {/* Shoe body highlight */}
       <path
@@ -192,7 +288,11 @@ export function PictureShoe({ animated = false, ...props }: PictureShoeProps) {
       </g>
 
       {/* Small heart decoration near shoe */}
-      <path d="M200 130 Q203 125 206 130 Q209 125 212 130 Q206 138 200 130 Z" fill="#ef9a9a" opacity="0.4" />
+      <path
+        d="M200 130 Q203 125 206 130 Q209 125 212 130 Q206 138 200 130 Z"
+        fill="#ef9a9a"
+        opacity="0.4"
+      />
 
       {/* Ambient sparkle dots */}
       <circle cx="30" cy="30" r="1.5" fill="var(--art-accent, #d4a76a)" opacity="0.3" />

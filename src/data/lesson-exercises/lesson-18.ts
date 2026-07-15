@@ -13,14 +13,15 @@ export const lesson18 = [
       { id: "img-carrusel", label: "carrusel" },
       { id: "img-torre", label: "torre" },
       { id: "img-barril", label: "barril" },
-      { id: "img-tierra", label: "Tierra" }
+      { id: "img-tierra", label: "Tierra" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Transcribed verbatim from public/cartilla/images/source/rr/rr-page-40.jpg (real scan).",
-    sourcePage: getBookPageImage(63)
+    teacherNotes:
+      "Transcribed verbatim from public/cartilla/images/source/rr/rr-page-40.jpg (real scan).",
+    sourcePage: getBookPageImage(63),
   },
   {
     id: "l18-p64-syllable-tap",
@@ -34,14 +35,15 @@ export const lesson18 = [
       { id: "ra-rre", label: "rre" },
       { id: "ra-rri", label: "rri" },
       { id: "ra-rro", label: "rro" },
-      { id: "ra-rru", label: "rru" }
+      { id: "ra-rru", label: "rru" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Transcribed verbatim from public/cartilla/images/source/rr/rr-page-41.jpg (real scan).",
-    sourcePage: getBookPageImage(64)
+    teacherNotes:
+      "Transcribed verbatim from public/cartilla/images/source/rr/rr-page-41.jpg (real scan).",
+    sourcePage: getBookPageImage(64),
   },
   {
     id: "l18-p64-word-bank",
@@ -65,14 +67,15 @@ export const lesson18 = [
       { id: "w-carrusel", label: "carrusel" },
       { id: "w-torre", label: "torre" },
       { id: "w-burrito", label: "burrito" },
-      { id: "w-carro", label: "carro" }
+      { id: "w-carro", label: "carro" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Word list transcribed verbatim from public/cartilla/images/source/rr/rr-page-41.jpg (real scan).",
-    sourcePage: getBookPageImage(64)
+    teacherNotes:
+      "Word list transcribed verbatim from public/cartilla/images/source/rr/rr-page-41.jpg (real scan).",
+    sourcePage: getBookPageImage(64),
   },
   {
     id: "l18-p64-mini-story",
@@ -87,14 +90,15 @@ export const lesson18 = [
       { id: "story-rr-3", label: "de barro. La tina de barro está en el" },
       { id: "story-rr-4", label: "piso. Rosi amarra el perro en la mata." },
       { id: "story-rr-5", label: "El perro no muerde. El perro Tito mueve" },
-      { id: "story-rr-6", label: "el rabo. Tito arruinó el carro de rosas." }
+      { id: "story-rr-6", label: "el rabo. Tito arruinó el carro de rosas." },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Reading passage transcribed verbatim from public/cartilla/images/source/rr/rr-page-41.jpg (real scan).",
-    sourcePage: getBookPageImage(64)
+    teacherNotes:
+      "Reading passage transcribed verbatim from public/cartilla/images/source/rr/rr-page-41.jpg (real scan).",
+    sourcePage: getBookPageImage(64),
   },
   {
     id: "l18-p65-rhyme",
@@ -111,14 +115,15 @@ export const lesson18 = [
       { id: "rhyme-rr-5", label: "Mi burro lindo" },
       { id: "rhyme-rr-6", label: "muy bien mandado." },
       { id: "rhyme-rr-7", label: "Mi perro Perri" },
-      { id: "rhyme-rr-8", label: "arrebatado." }
+      { id: "rhyme-rr-8", label: "arrebatado." },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Rhyme transcribed verbatim from public/cartilla/images/source/rr/rr-page-42.jpg (real scan).",
-    sourcePage: getBookPageImage(65)
+    teacherNotes:
+      "Rhyme transcribed verbatim from public/cartilla/images/source/rr/rr-page-42.jpg (real scan).",
+    sourcePage: getBookPageImage(65),
   },
   {
     id: "l18-p66-fill-in-blank",
@@ -132,15 +137,63 @@ export const lesson18 = [
       { id: "syl-rre", label: "rre" },
       { id: "syl-rri", label: "rri" },
       { id: "syl-rro", label: "rro" },
-      { id: "syl-rru", label: "rru" }
+      { id: "syl-rru", label: "rru" },
     ],
     targets: [
-      { id: "blank-perro", label: "pe___", hint: "rra - rro", correctSyllable: "rro", fullWord: "perro", coordinatesVerified: false, acceptsItemId: "syl-rro" },
-      { id: "blank-barre", label: "ba___", hint: "rre - rri", correctSyllable: "rre", fullWord: "barre", coordinatesVerified: false, acceptsItemId: "syl-rre" },
-      { id: "blank-torre", label: "to___", hint: "rro - rre", correctSyllable: "rre", fullWord: "torre", coordinatesVerified: false, acceptsItemId: "syl-rre" },
-      { id: "blank-burro", label: "bu___", hint: "rro - rru", correctSyllable: "rro", fullWord: "burro", coordinatesVerified: false, acceptsItemId: "syl-rro" },
-      { id: "blank-carro", label: "ca___", hint: "rro - rru", correctSyllable: "rro", fullWord: "carro", coordinatesVerified: false, acceptsItemId: "syl-rro" },
-      { id: "blank-amarro", label: "ama___", hint: "rru - rro", correctSyllable: "rro", fullWord: "amarro", coordinatesVerified: false, acceptsItemId: "syl-rro" }
+      {
+        id: "blank-perro",
+        label: "pe___",
+        hint: "rra - rro",
+        correctSyllable: "rro",
+        fullWord: "perro",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-rro",
+      },
+      {
+        id: "blank-barre",
+        label: "ba___",
+        hint: "rre - rri",
+        correctSyllable: "rre",
+        fullWord: "barre",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-rre",
+      },
+      {
+        id: "blank-torre",
+        label: "to___",
+        hint: "rro - rre",
+        correctSyllable: "rre",
+        fullWord: "torre",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-rre",
+      },
+      {
+        id: "blank-burro",
+        label: "bu___",
+        hint: "rro - rru",
+        correctSyllable: "rro",
+        fullWord: "burro",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-rro",
+      },
+      {
+        id: "blank-carro",
+        label: "ca___",
+        hint: "rro - rru",
+        correctSyllable: "rro",
+        fullWord: "carro",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-rro",
+      },
+      {
+        id: "blank-amarro",
+        label: "ama___",
+        hint: "rru - rro",
+        correctSyllable: "rro",
+        fullWord: "amarro",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-rro",
+      },
     ],
     exercises: [
       { partial: "pe___", choices: ["rra", "rro"], answer: "rro", fullWord: "perro" },
@@ -148,13 +201,14 @@ export const lesson18 = [
       { partial: "to___", choices: ["rro", "rre"], answer: "rre", fullWord: "torre" },
       { partial: "bu___", choices: ["rro", "rru"], answer: "rro", fullWord: "burro" },
       { partial: "ca___", choices: ["rro", "rru"], answer: "rro", fullWord: "carro" },
-      { partial: "ama___", choices: ["rru", "rro"], answer: "rro", fullWord: "amarro" }
+      { partial: "ama___", choices: ["rru", "rro"], answer: "rro", fullWord: "amarro" },
     ],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Fill-in-blank transcribed verbatim from public/cartilla/images/source/rr/rr-page-43.jpg (real scan; physical page 66, 'Lección 18' confirmed printed on the page).",
-    sourcePage: getBookPageImage(66)
+    teacherNotes:
+      "Fill-in-blank transcribed verbatim from public/cartilla/images/source/rr/rr-page-43.jpg (real scan; physical page 66, 'Lección 18' confirmed printed on the page).",
+    sourcePage: getBookPageImage(66),
   },
   {
     id: "l18-p66-write-sentences",
@@ -168,7 +222,8 @@ export const lesson18 = [
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Sentence writing lines, confirmed present on public/cartilla/images/source/rr/rr-page-43.jpg (real scan).",
-    sourcePage: getBookPageImage(66)
-  }
+    teacherNotes:
+      "Sentence writing lines, confirmed present on public/cartilla/images/source/rr/rr-page-43.jpg (real scan).",
+    sourcePage: getBookPageImage(66),
+  },
 ];

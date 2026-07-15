@@ -41,9 +41,7 @@ export function PdfPage({ pageNumber, className = "" }: PdfPageProps) {
       className={`pdf-page-wrapper relative flex items-center justify-center overflow-hidden bg-white select-none ${className}`}
       aria-label={`Página ${safe} del libro`}
     >
-      {!loaded && src && (
-        <div className="absolute inset-0 bg-stone-100 animate-pulse" />
-      )}
+      {!loaded && src && <div className="absolute inset-0 bg-stone-100 animate-pulse" />}
       {src ? (
         <img
           key={src}

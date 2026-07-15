@@ -59,13 +59,7 @@ export function SuccessPulse({ children, active, onComplete }: SuccessPulseProps
           top: `calc(50% + ${sp.y}px - 6px)`,
           transform: `scale(${sp.scale})`,
         };
-        return (
-          <div
-            key={sp.id}
-            className="feel-sparkle-particle"
-            style={style}
-          />
-        );
+        return <div key={sp.id} className="feel-sparkle-particle" style={style} />;
       })}
     </div>
   );

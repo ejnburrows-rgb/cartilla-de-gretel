@@ -27,7 +27,9 @@ function Autora() {
             >
               <ArrowLeft className="w-4 h-4" /> {t.cartilla[lang]}
             </Link>
-            <div className="hidden sm:block"><LanguageToggle /></div>
+            <div className="hidden sm:block">
+              <LanguageToggle />
+            </div>
           </div>
           <p
             className="hidden md:block text-[11px] tracking-[0.45em] uppercase text-[hsl(25,25%,35%)]"
@@ -126,12 +128,7 @@ function Autora() {
 
       <section className="max-w-5xl mx-auto px-6 py-24">
         <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-4 text-sm">
-          {[
-            t.premio1[lang],
-            t.premio2[lang],
-            t.premio3[lang],
-            t.premio4[lang],
-          ].map((h) => (
+          {[t.premio1[lang], t.premio2[lang], t.premio3[lang], t.premio4[lang]].map((h) => (
             <li key={h} className="flex gap-3 items-start text-[hsl(25,25%,22%)]">
               <Award className="w-4 h-4 mt-1 text-[hsl(15,55%,38%)] shrink-0" />
               <span className="italic">{h}</span>

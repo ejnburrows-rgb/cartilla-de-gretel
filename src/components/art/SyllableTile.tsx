@@ -20,11 +20,7 @@ export function SyllableTile({
   className,
   ...rest
 }: SyllableTileProps) {
-  const baseClass = [
-    "art-syllable-tile",
-    active ? "art-syllable-tile--active" : "",
-    className,
-  ]
+  const baseClass = ["art-syllable-tile", active ? "art-syllable-tile--active" : "", className]
     .filter(Boolean)
     .join(" ");
 
@@ -56,12 +52,7 @@ export function SyllableTile({
             stitchTiles="stitch"
             result="noise"
           />
-          <feColorMatrix
-            type="saturate"
-            values="0"
-            in="noise"
-            result="mono"
-          />
+          <feColorMatrix type="saturate" values="0" in="noise" result="mono" />
           <feBlend in="SourceGraphic" in2="mono" mode="multiply" />
         </filter>
 
@@ -76,15 +67,7 @@ export function SyllableTile({
       </defs>
 
       {/* Card shadow */}
-      <rect
-        x="4"
-        y="6"
-        width="112"
-        height="70"
-        rx="14"
-        ry="14"
-        fill="#00000012"
-      />
+      <rect x="4" y="6" width="112" height="70" rx="14" ry="14" fill="#00000012" />
 
       {/* Main card body */}
       <rect

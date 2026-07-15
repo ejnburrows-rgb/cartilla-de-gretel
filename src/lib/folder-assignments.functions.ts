@@ -50,10 +50,9 @@ const createSchema = z
     targetScope: z.enum(["class", "students"]),
     studentIds: z.array(z.string().uuid()).optional(),
   })
-  .refine(
-    (d) => (d.targetScope === "class" ? true : !!d.studentIds && d.studentIds.length > 0),
-    { message: "Selecciona al menos un estudiante." },
-  );
+  .refine((d) => (d.targetScope === "class" ? true : !!d.studentIds && d.studentIds.length > 0), {
+    message: "Selecciona al menos un estudiante.",
+  });
 
 /** Teacher: assign a folder activity to the whole class or selected students. */
 export async function createFolderAssignment(input: Call<z.infer<typeof createSchema>>) {

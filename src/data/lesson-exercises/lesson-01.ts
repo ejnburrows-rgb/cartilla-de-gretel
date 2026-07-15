@@ -7,7 +7,8 @@ export const lesson01 = [
     pageNumber: 7,
     kind: "listen-and-tap",
     title: "Presiona los dibujos",
-    prompt: "Presiona los dibujos de las palabras en cada línea horizontal que comienzan con el mismo sonido.",
+    prompt:
+      "Presiona los dibujos de las palabras en cada línea horizontal que comienzan con el mismo sonido.",
     items: [
       { id: "img-abrigo-0", label: "abrigo" },
       { id: "img-imán-1", label: "imán" },
@@ -28,14 +29,14 @@ export const lesson01 = [
       { id: "img-ojo-16", label: "ojo" },
       { id: "img-elote-17", label: "elote" },
       { id: "img-abeja-18", label: "abeja" },
-      { id: "img-olla-19", label: "olla" }
+      { id: "img-olla-19", label: "olla" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
     teacherNotes: "Scaffolded exercise for Lesson 1.",
-    sourcePage: getBookPageImage(7)
+    sourcePage: getBookPageImage(7),
   },
   {
     id: "l1-p8-circle-vowel",
@@ -64,14 +65,14 @@ export const lesson01 = [
       { id: "item-u-16", label: "u" },
       { id: "item-uniforme-17", label: "uniforme" },
       { id: "item-globo-18", label: "globo" },
-      { id: "item-dulce-19", label: "dulce" }
+      { id: "item-dulce-19", label: "dulce" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
     teacherNotes: "Scaffolded exercise for Lesson 1.",
-    sourcePage: getBookPageImage(8)
+    sourcePage: getBookPageImage(8),
   },
   {
     id: "l1-p9-draw-line",
@@ -90,14 +91,14 @@ export const lesson01 = [
       { id: "item-uno-6", label: "uno" },
       { id: "item-ocho-7", label: "ocho" },
       { id: "item-araña-8", label: "araña" },
-      { id: "item-escoba-9", label: "escoba" }
+      { id: "item-escoba-9", label: "escoba" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
     teacherNotes: "Scaffolded exercise for Lesson 1.",
-    sourcePage: getBookPageImage(9)
+    sourcePage: getBookPageImage(9),
   },
   {
     id: "l1-p10-mark-x",
@@ -122,13 +123,13 @@ export const lesson01 = [
       { id: "img-araña-12", label: "araña" },
       { id: "img-oso-13", label: "oso" },
       { id: "img-uniforme-14", label: "uniforme" },
-      { id: "img-ojo-15", label: "ojo" }
+      { id: "img-ojo-15", label: "ojo" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
     teacherNotes: "Scaffolded exercise for O o.",
-    sourcePage: getBookPageImage(10)
-  }
+    sourcePage: getBookPageImage(10),
+  },
 ];

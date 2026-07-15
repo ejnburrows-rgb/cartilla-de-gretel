@@ -10,10 +10,18 @@ const assets = remasterInventory.assets as RemasterAsset[];
 
 export function getDeadlineRemasterQueue(limit = 12): RemasterBatchItem[] {
   const reviewable = assets
-    .filter((asset) => asset.remasteredPathV2 || asset.cleanupStatus === "needs review" || asset.cleanupStatus === "cleaned")
+    .filter(
+      (asset) =>
+        asset.remasteredPathV2 ||
+        asset.cleanupStatus === "needs review" ||
+        asset.cleanupStatus === "cleaned",
+    )
     .map((asset) => ({
       ...asset,
-      priority: asset.approvalStatus === "rejected" ? "correction-needed" as const : "review-now" as const,
+      priority:
+        asset.approvalStatus === "rejected"
+          ? ("correction-needed" as const)
+          : ("review-now" as const),
       label: getRemasterPresentation(asset).label,
     }));
 
@@ -41,14 +49,31 @@ export function getDeadlineRemasterQueue(limit = 12): RemasterBatchItem[] {
 export function getDeadlineRemasterSummary() {
   const total = assets.length;
   const usableNow = assets.filter(
-    (asset) => asset.remasteredPathV2 || asset.cleanupStatus === "needs review" || asset.cleanupStatus === "cleaned" || asset.approvalStatus === "approved",
+    (asset) =>
+      asset.remasteredPathV2 ||
+      asset.cleanupStatus === "needs review" ||
+      asset.cleanupStatus === "cleaned" ||
+      asset.approvalStatus === "approved",
   ).length;
   const approvedStudent = assets.filter((asset) => asset.approvedForStudent).length;
   const approvedTeacher = assets.filter((asset) => asset.approvedForTeacher).length;
   const needsCorrection = assets.filter((asset) => asset.approvalStatus === "rejected").length;
-  const studentPending = assets.filter((asset) => asset.type === "student-workbook" && asset.cleanupStatus === "pending").length;
-  const teacherPending = assets.filter((asset) => asset.type === "teacher-flipchart" && asset.cleanupStatus === "pending").length;
+  const studentPending = assets.filter(
+    (asset) => asset.type === "student-workbook" && asset.cleanupStatus === "pending",
+  ).length;
+  const teacherPending = assets.filter(
+    (asset) => asset.type === "teacher-flipchart" && asset.cleanupStatus === "pending",
+  ).length;
   const v2 = assets.filter((asset) => Boolean(asset.remasteredPathV2)).length;
 
-  return { total, usableNow, approvedStudent, approvedTeacher, needsCorrection, studentPending, teacherPending, v2 };
+  return {
+    total,
+    usableNow,
+    approvedStudent,
+    approvedTeacher,
+    needsCorrection,
+    studentPending,
+    teacherPending,
+    v2,
+  };
 }

@@ -4,8 +4,9 @@ import { FaithfulPageRenderer } from "@/components/cartilla/FaithfulPageRenderer
 import { PdfPage } from "@/components/cartilla/PdfPage";
 
 const PILOT_PAGES = [
-  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45,
-  20, 22, 47, 49, 51, 53, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90,
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 23, 25, 27, 29, 31, 33, 35,
+  37, 39, 41, 43, 45, 20, 22, 47, 49, 51, 53, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67,
+  68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90,
 ];
 
 /** Lesson number for a given book page: intro=1 (pp1-3), vowels 2-6 (pp4-18,
@@ -44,8 +45,8 @@ function PilotFaithfulPage() {
           Página faithful vs. scan original — página {pageNumber}
         </h1>
         <p className="mt-1 text-sm text-foreground/60">
-          Vista previa de las páginas reconstruidas (texto verificado + arte a color).
-          Las páginas sin diseño verificado muestran “en preparación”.
+          Vista previa de las páginas reconstruidas (texto verificado + arte a color). Las páginas
+          sin diseño verificado muestran “en preparación”.
         </p>
 
         <div className="mt-4 flex flex-wrap gap-2">
@@ -71,7 +72,10 @@ function PilotFaithfulPage() {
               Faithful HTML (new)
             </h2>
             <div className="overflow-hidden rounded-xl border border-foreground/10">
-              <FaithfulPageRenderer pageNumber={pageNumber} lessonNumber={lessonForPage(pageNumber)} />
+              <FaithfulPageRenderer
+                pageNumber={pageNumber}
+                lessonNumber={lessonForPage(pageNumber)}
+              />
             </div>
           </div>
           <div>

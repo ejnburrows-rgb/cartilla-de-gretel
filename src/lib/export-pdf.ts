@@ -16,17 +16,17 @@ export function exportLessonPdf(lessonId: string) {
   // In a more complex setup, this might open a new window with the print view
   // and trigger print there. For now, if we are on the print view, just print.
   // Otherwise, we navigate to the print view.
-  if (window.location.pathname.includes('/print/')) {
+  if (window.location.pathname.includes("/print/")) {
     triggerPrint();
   } else {
-    window.open(`/print/${lessonId}`, '_blank');
+    window.open(`/print/${lessonId}`, "_blank");
   }
 }
 
 export function exportFullBinderPdf() {
-  if (window.location.pathname.includes('/print/binder')) {
+  if (window.location.pathname.includes("/print/binder")) {
     triggerPrint();
   } else {
-    window.open('/print/binder', '_blank');
+    window.open("/print/binder", "_blank");
   }
 }

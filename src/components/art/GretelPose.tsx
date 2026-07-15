@@ -8,12 +8,7 @@ interface GretelPoseProps {
   animated?: boolean;
 }
 
-export function GretelPose({
-  pose,
-  size,
-  className,
-  animated = false,
-}: GretelPoseProps) {
+export function GretelPose({ pose, size, className, animated = false }: GretelPoseProps) {
   return (
     <div className="gretel-pose-container">
       <Gretel pose={pose} size={size} className={className} animated={animated} />

@@ -101,7 +101,11 @@ function IllustrationSlot({ region }: { region: PageRegion }) {
   }
   // No faithful crop yet — explicit marker, NEVER an invented drawing.
   return (
-    <div className="fp-art-pending" role="img" aria-label={caption ? `Ilustración pendiente: ${caption}` : "Ilustración pendiente"}>
+    <div
+      className="fp-art-pending"
+      role="img"
+      aria-label={caption ? `Ilustración pendiente: ${caption}` : "Ilustración pendiente"}
+    >
       {caption ? <span className="fp-art-pending__word">{caption}</span> : null}
       <span>ilustración pendiente</span>
     </div>
@@ -125,11 +129,25 @@ function PictureGrid({ region }: { region: PageRegion }) {
       style={{ gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))` }}
     >
       {cells.map((cell, i) => (
-        <div key={i} className="fp-picture-grid__cell" style={{ ["--float-delay" as string]: floatDelay(i) }}>
+        <div
+          key={i}
+          className="fp-picture-grid__cell"
+          style={{ ["--float-delay" as string]: floatDelay(i) }}
+        >
           {cell.illustrationSrc ? (
-            <LivingIllustration src={cell.illustrationSrc} alt={cell.caption ?? ""} loading="lazy" />
+            <LivingIllustration
+              src={cell.illustrationSrc}
+              alt={cell.caption ?? ""}
+              loading="lazy"
+            />
           ) : (
-            <div className="fp-art-pending" role="img" aria-label={cell.caption ? `Ilustración pendiente: ${cell.caption}` : "Ilustración pendiente"}>
+            <div
+              className="fp-art-pending"
+              role="img"
+              aria-label={
+                cell.caption ? `Ilustración pendiente: ${cell.caption}` : "Ilustración pendiente"
+              }
+            >
               {cell.caption ? <span className="fp-art-pending__word">{cell.caption}</span> : null}
               <span>pendiente</span>
             </div>
@@ -168,23 +186,39 @@ function FillInBlank({ region }: { region: PageRegion }) {
         <div key={i} className="fp-fill-in-blank__item">
           <span className="fp-fill-in-blank__wordbox">{item.wordBox}</span>
           <span className="fp-fill-in-blank__blank">{item.blank}</span>
-          <span className="fp-fill-in-blank__choices">{item.choices.map((c) => c.text).join(" - ")}</span>
+          <span className="fp-fill-in-blank__choices">
+            {item.choices.map((c) => c.text).join(" - ")}
+          </span>
         </div>
       ))}
     </div>
   );
 }
 
-function VowelMatchCell({ cell, isExample, index }: { cell: PageGridCell; isExample: boolean; index: number }) {
+function VowelMatchCell({
+  cell,
+  isExample,
+  index,
+}: {
+  cell: PageGridCell;
+  isExample: boolean;
+  index: number;
+}) {
   return (
     <div
       className={`fp-vowel-match__cell${isExample ? " fp-vowel-match__cell--example" : ""}`}
-      style={{ ["--float-delay" as string]: floatDelay(index) }} 
+      style={{ ["--float-delay" as string]: floatDelay(index) }}
     >
       {cell.illustrationSrc ? (
         <LivingIllustration src={cell.illustrationSrc} alt={cell.caption ?? ""} loading="lazy" />
       ) : (
-        <div className="fp-art-pending" role="img" aria-label={cell.caption ? `Ilustración pendiente: ${cell.caption}` : "Ilustración pendiente"}>
+        <div
+          className="fp-art-pending"
+          role="img"
+          aria-label={
+            cell.caption ? `Ilustración pendiente: ${cell.caption}` : "Ilustración pendiente"
+          }
+        >
           {cell.caption ? <span className="fp-art-pending__word">{cell.caption}</span> : null}
           <span>pendiente</span>
         </div>
@@ -198,11 +232,21 @@ function VowelLineMatch({ region }: { region: PageRegion }) {
   return (
     <div className="fp-vowel-match">
       {cells.slice(0, 4).map((cell, i) => (
-        <VowelMatchCell key={i} index={i} cell={cell} isExample={Boolean(region.exampleCaption) && cell.caption === region.exampleCaption} />
+        <VowelMatchCell
+          key={i}
+          index={i}
+          cell={cell}
+          isExample={Boolean(region.exampleCaption) && cell.caption === region.exampleCaption}
+        />
       ))}
       <div className="fp-vowel-match__letters">{region.letterPair}</div>
       {cells.slice(4, 8).map((cell, i) => (
-        <VowelMatchCell key={i + 4} index={i + 4} cell={cell} isExample={Boolean(region.exampleCaption) && cell.caption === region.exampleCaption} />
+        <VowelMatchCell
+          key={i + 4}
+          index={i + 4}
+          cell={cell}
+          isExample={Boolean(region.exampleCaption) && cell.caption === region.exampleCaption}
+        />
       ))}
     </div>
   );
@@ -216,12 +260,30 @@ function VowelPickOne({ region }: { region: PageRegion }) {
         <div key={i} className="fp-vowel-pick__row">
           <span className="fp-vowel-pick__letter">{row.letter}</span>
           {row.cells.map((cell, j) => (
-            <div key={j} className="fp-vowel-pick__cell" style={{ ["--float-delay" as string]: floatDelay(i * 3 + j) }}>
+            <div
+              key={j}
+              className="fp-vowel-pick__cell"
+              style={{ ["--float-delay" as string]: floatDelay(i * 3 + j) }}
+            >
               {cell.illustrationSrc ? (
-                <LivingIllustration src={cell.illustrationSrc} alt={cell.caption ?? ""} loading="lazy" />
+                <LivingIllustration
+                  src={cell.illustrationSrc}
+                  alt={cell.caption ?? ""}
+                  loading="lazy"
+                />
               ) : (
-                <div className="fp-art-pending" role="img" aria-label={cell.caption ? `Ilustración pendiente: ${cell.caption}` : "Ilustración pendiente"}>
-                  {cell.caption ? <span className="fp-art-pending__word">{cell.caption}</span> : null}
+                <div
+                  className="fp-art-pending"
+                  role="img"
+                  aria-label={
+                    cell.caption
+                      ? `Ilustración pendiente: ${cell.caption}`
+                      : "Ilustración pendiente"
+                  }
+                >
+                  {cell.caption ? (
+                    <span className="fp-art-pending__word">{cell.caption}</span>
+                  ) : null}
                   <span>pendiente</span>
                 </div>
               )}
@@ -240,11 +302,20 @@ function VowelMatchAll({ region }: { region: PageRegion }) {
       {pairs.map((pair, i) => (
         <div key={i} className="fp-vowel-match-all__row">
           <span className="fp-vowel-match-all__letter">{pair.letter}</span>
-          <div className="fp-vowel-match-all__cell" style={{ ["--float-delay" as string]: floatDelay(i) }}>
+          <div
+            className="fp-vowel-match-all__cell"
+            style={{ ["--float-delay" as string]: floatDelay(i) }}
+          >
             {pair.illustrationSrc ? (
               <img src={pair.illustrationSrc} alt={pair.caption ?? ""} loading="lazy" />
             ) : (
-              <div className="fp-art-pending" role="img" aria-label={pair.caption ? `Ilustración pendiente: ${pair.caption}` : "Ilustración pendiente"}>
+              <div
+                className="fp-art-pending"
+                role="img"
+                aria-label={
+                  pair.caption ? `Ilustración pendiente: ${pair.caption}` : "Ilustración pendiente"
+                }
+              >
                 {pair.caption ? <span className="fp-art-pending__word">{pair.caption}</span> : null}
                 <span>pendiente</span>
               </div>
@@ -341,7 +412,11 @@ function RegionView({
         );
       }
       return interactive ? (
-        <InteractivePictureGrid region={region} accent={accent ?? "hsl(230 75% 58%)"} lessonId={lessonId} />
+        <InteractivePictureGrid
+          region={region}
+          accent={accent ?? "hsl(230 75% 58%)"}
+          lessonId={lessonId}
+        />
       ) : (
         <PictureGrid region={region} />
       );
@@ -357,7 +432,11 @@ function RegionView({
       );
     case "vowel-pick-one":
       return interactive ? (
-        <InteractiveVowelPickOne region={region} accent={accent ?? "hsl(230 75% 58%)"} lessonId={lessonId} />
+        <InteractiveVowelPickOne
+          region={region}
+          accent={accent ?? "hsl(230 75% 58%)"}
+          lessonId={lessonId}
+        />
       ) : (
         <VowelPickOne region={region} />
       );
@@ -383,7 +462,11 @@ function RegionView({
       );
     case "fill-in-blank":
       return interactive ? (
-        <InteractiveFillInBlank region={region} accent={accent ?? "hsl(230 75% 58%)"} lessonId={lessonId} />
+        <InteractiveFillInBlank
+          region={region}
+          accent={accent ?? "hsl(230 75% 58%)"}
+          lessonId={lessonId}
+        />
       ) : (
         <FillInBlank region={region} />
       );
@@ -423,7 +506,9 @@ function RegionView({
       }
       return (
         <div className="fp-writing-line">
-          {region.modelText ? <span className="fp-writing-line__model">{region.modelText}</span> : null}
+          {region.modelText ? (
+            <span className="fp-writing-line__model">{region.modelText}</span>
+          ) : null}
           <span className="fp-writing-line__rule" aria-hidden="true" />
         </div>
       );
@@ -466,7 +551,11 @@ export function FaithfulPageRenderer({
   if (!layout) {
     if (fallback !== undefined) return <>{fallback}</>;
     return (
-      <PageFrame pageNumber={pageNumber} lessonNumber={lessonNumber} className="faithful-page--pending">
+      <PageFrame
+        pageNumber={pageNumber}
+        lessonNumber={lessonNumber}
+        className="faithful-page--pending"
+      >
         <p>Página en preparación</p>
       </PageFrame>
     );
@@ -498,7 +587,12 @@ export function FaithfulPageRenderer({
   );
 
   return (
-    <PageFrame pageNumber={pageNumber} lessonNumber={lessonNumber} garden={interactive} gardenBg={gardenBg}>
+    <PageFrame
+      pageNumber={pageNumber}
+      lessonNumber={lessonNumber}
+      garden={interactive}
+      gardenBg={gardenBg}
+    >
       {ordered.map((region) => {
         if (
           interactive &&

@@ -99,11 +99,7 @@ export function GretelCelebration() {
             className="flex flex-col items-center justify-center p-6 rounded-3xl bg-white/95 backdrop-blur-md shadow-2xl border-4 border-amber-300 pointer-events-auto select-none"
             style={{ minWidth: "260px" }}
           >
-            <GretelLiveAvatar
-              ref={avatarRef}
-              bubblePosition="top"
-              className="scale-110 mb-4"
-            />
+            <GretelLiveAvatar ref={avatarRef} bubblePosition="top" className="scale-110 mb-4" />
           </motion.div>
         </div>
       )}

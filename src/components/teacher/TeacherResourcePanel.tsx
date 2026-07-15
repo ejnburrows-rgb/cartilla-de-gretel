@@ -14,7 +14,8 @@ export function TeacherResourcePanel({ resourceId, onClose }: TeacherResourcePan
   if (!resource) return null;
 
   // Bilingual fallback
-  const getField = (field: { es: any; en: any }) => field[lang] ?? field[lang === "es" ? "en" : "es"];
+  const getField = (field: { es: any; en: any }) =>
+    field[lang] ?? field[lang === "es" ? "en" : "es"];
 
   const title = getField(resource.title);
   const summary = getField(resource.summary);
@@ -63,7 +64,9 @@ export function TeacherResourcePanel({ resourceId, onClose }: TeacherResourcePan
             </h3>
             <ul className="list-inside list-disc space-y-1 text-sm font-medium text-stone-700">
               {whenToUse.map((item, idx) => (
-                <li key={idx} className="leading-relaxed">{item}</li>
+                <li key={idx} className="leading-relaxed">
+                  {item}
+                </li>
               ))}
             </ul>
           </div>
@@ -76,7 +79,9 @@ export function TeacherResourcePanel({ resourceId, onClose }: TeacherResourcePan
             </h3>
             <ul className="list-inside list-disc space-y-1 text-sm font-medium text-stone-700">
               {howItWorks.map((item, idx) => (
-                <li key={idx} className="leading-relaxed">{item}</li>
+                <li key={idx} className="leading-relaxed">
+                  {item}
+                </li>
               ))}
             </ul>
           </div>
@@ -89,7 +94,9 @@ export function TeacherResourcePanel({ resourceId, onClose }: TeacherResourcePan
             </h3>
             <ul className="list-inside list-disc space-y-1 text-sm font-medium text-amber-800">
               {teacherTips.map((item, idx) => (
-                <li key={idx} className="leading-relaxed">{item}</li>
+                <li key={idx} className="leading-relaxed">
+                  {item}
+                </li>
               ))}
             </ul>
           </div>

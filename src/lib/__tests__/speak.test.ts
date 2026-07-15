@@ -178,7 +178,11 @@ describe("Speak API - no-voice / wrong-dialect fallback is never silent", () => 
   function installMocks() {
     originalNavigator = globalThis.navigator;
     Object.defineProperty(globalThis, "navigator", {
-      value: { get onLine() { return true; } },
+      value: {
+        get onLine() {
+          return true;
+        },
+      },
       writable: true,
       configurable: true,
     });

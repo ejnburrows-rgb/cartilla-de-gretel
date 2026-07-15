@@ -66,24 +66,120 @@ export function PictureSun({ animated = false, ...props }: PictureSunProps) {
       {/* Wavy sun rays */}
       <g className={animated ? "ps-rays" : undefined} opacity="0.7">
         {/* 8 wavy rays around the sun */}
-        <path d="M120 28 Q124 18 120 8" fill="none" stroke="#ffcc33" strokeWidth="4" strokeLinecap="round" />
-        <path d="M155 43 Q165 35 172 28" fill="none" stroke="#ffcc33" strokeWidth="4" strokeLinecap="round" />
-        <path d="M170 78 Q180 78 190 78" fill="none" stroke="#ffcc33" strokeWidth="4" strokeLinecap="round" />
-        <path d="M155 113 Q165 121 172 128" fill="none" stroke="#ffcc33" strokeWidth="4" strokeLinecap="round" />
-        <path d="M120 128 Q124 138 120 148" fill="none" stroke="#ffcc33" strokeWidth="4" strokeLinecap="round" />
-        <path d="M85 113 Q75 121 68 128" fill="none" stroke="#ffcc33" strokeWidth="4" strokeLinecap="round" />
-        <path d="M70 78 Q60 78 50 78" fill="none" stroke="#ffcc33" strokeWidth="4" strokeLinecap="round" />
-        <path d="M85 43 Q75 35 68 28" fill="none" stroke="#ffcc33" strokeWidth="4" strokeLinecap="round" />
+        <path
+          d="M120 28 Q124 18 120 8"
+          fill="none"
+          stroke="#ffcc33"
+          strokeWidth="4"
+          strokeLinecap="round"
+        />
+        <path
+          d="M155 43 Q165 35 172 28"
+          fill="none"
+          stroke="#ffcc33"
+          strokeWidth="4"
+          strokeLinecap="round"
+        />
+        <path
+          d="M170 78 Q180 78 190 78"
+          fill="none"
+          stroke="#ffcc33"
+          strokeWidth="4"
+          strokeLinecap="round"
+        />
+        <path
+          d="M155 113 Q165 121 172 128"
+          fill="none"
+          stroke="#ffcc33"
+          strokeWidth="4"
+          strokeLinecap="round"
+        />
+        <path
+          d="M120 128 Q124 138 120 148"
+          fill="none"
+          stroke="#ffcc33"
+          strokeWidth="4"
+          strokeLinecap="round"
+        />
+        <path
+          d="M85 113 Q75 121 68 128"
+          fill="none"
+          stroke="#ffcc33"
+          strokeWidth="4"
+          strokeLinecap="round"
+        />
+        <path
+          d="M70 78 Q60 78 50 78"
+          fill="none"
+          stroke="#ffcc33"
+          strokeWidth="4"
+          strokeLinecap="round"
+        />
+        <path
+          d="M85 43 Q75 35 68 28"
+          fill="none"
+          stroke="#ffcc33"
+          strokeWidth="4"
+          strokeLinecap="round"
+        />
 
         {/* Secondary shorter rays between main rays */}
-        <path d="M138 34 Q144 26 148 18" fill="none" stroke="#ffd966" strokeWidth="3" strokeLinecap="round" />
-        <path d="M164 58 Q174 52 182 48" fill="none" stroke="#ffd966" strokeWidth="3" strokeLinecap="round" />
-        <path d="M164 98 Q174 104 182 108" fill="none" stroke="#ffd966" strokeWidth="3" strokeLinecap="round" />
-        <path d="M138 122 Q144 130 148 138" fill="none" stroke="#ffd966" strokeWidth="3" strokeLinecap="round" />
-        <path d="M102 122 Q96 130 92 138" fill="none" stroke="#ffd966" strokeWidth="3" strokeLinecap="round" />
-        <path d="M76 98 Q66 104 58 108" fill="none" stroke="#ffd966" strokeWidth="3" strokeLinecap="round" />
-        <path d="M76 58 Q66 52 58 48" fill="none" stroke="#ffd966" strokeWidth="3" strokeLinecap="round" />
-        <path d="M102 34 Q96 26 92 18" fill="none" stroke="#ffd966" strokeWidth="3" strokeLinecap="round" />
+        <path
+          d="M138 34 Q144 26 148 18"
+          fill="none"
+          stroke="#ffd966"
+          strokeWidth="3"
+          strokeLinecap="round"
+        />
+        <path
+          d="M164 58 Q174 52 182 48"
+          fill="none"
+          stroke="#ffd966"
+          strokeWidth="3"
+          strokeLinecap="round"
+        />
+        <path
+          d="M164 98 Q174 104 182 108"
+          fill="none"
+          stroke="#ffd966"
+          strokeWidth="3"
+          strokeLinecap="round"
+        />
+        <path
+          d="M138 122 Q144 130 148 138"
+          fill="none"
+          stroke="#ffd966"
+          strokeWidth="3"
+          strokeLinecap="round"
+        />
+        <path
+          d="M102 122 Q96 130 92 138"
+          fill="none"
+          stroke="#ffd966"
+          strokeWidth="3"
+          strokeLinecap="round"
+        />
+        <path
+          d="M76 98 Q66 104 58 108"
+          fill="none"
+          stroke="#ffd966"
+          strokeWidth="3"
+          strokeLinecap="round"
+        />
+        <path
+          d="M76 58 Q66 52 58 48"
+          fill="none"
+          stroke="#ffd966"
+          strokeWidth="3"
+          strokeLinecap="round"
+        />
+        <path
+          d="M102 34 Q96 26 92 18"
+          fill="none"
+          stroke="#ffd966"
+          strokeWidth="3"
+          strokeLinecap="round"
+        />
       </g>
 
       {/* Sun body */}
@@ -104,16 +200,64 @@ export function PictureSun({ animated = false, ...props }: PictureSunProps) {
       <circle cx="136" cy="82" r="4" fill="#f0a060" opacity="0.5" />
 
       {/* Wide happy smile */}
-      <path d="M110 85 Q120 96 130 85" fill="#f08030" stroke="#d06020" strokeWidth="1.5" strokeLinecap="round" />
+      <path
+        d="M110 85 Q120 96 130 85"
+        fill="#f08030"
+        stroke="#d06020"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
 
       {/* Rainbow arc at bottom */}
       <g className={animated ? "ps-rainbow" : undefined}>
-        <path d="M40 185 Q120 120 200 185" fill="none" stroke="#ff8a8a" strokeWidth="5" strokeLinecap="round" opacity="0.6" />
-        <path d="M45 185 Q120 125 195 185" fill="none" stroke="#ffc97a" strokeWidth="4" strokeLinecap="round" opacity="0.6" />
-        <path d="M50 185 Q120 130 190 185" fill="none" stroke="#fff08a" strokeWidth="4" strokeLinecap="round" opacity="0.6" />
-        <path d="M55 185 Q120 135 185 185" fill="none" stroke="#8affa0" strokeWidth="3.5" strokeLinecap="round" opacity="0.5" />
-        <path d="M60 185 Q120 140 180 185" fill="none" stroke="#8ac8ff" strokeWidth="3" strokeLinecap="round" opacity="0.5" />
-        <path d="M65 185 Q120 145 175 185" fill="none" stroke="#c08aff" strokeWidth="2.5" strokeLinecap="round" opacity="0.4" />
+        <path
+          d="M40 185 Q120 120 200 185"
+          fill="none"
+          stroke="#ff8a8a"
+          strokeWidth="5"
+          strokeLinecap="round"
+          opacity="0.6"
+        />
+        <path
+          d="M45 185 Q120 125 195 185"
+          fill="none"
+          stroke="#ffc97a"
+          strokeWidth="4"
+          strokeLinecap="round"
+          opacity="0.6"
+        />
+        <path
+          d="M50 185 Q120 130 190 185"
+          fill="none"
+          stroke="#fff08a"
+          strokeWidth="4"
+          strokeLinecap="round"
+          opacity="0.6"
+        />
+        <path
+          d="M55 185 Q120 135 185 185"
+          fill="none"
+          stroke="#8affa0"
+          strokeWidth="3.5"
+          strokeLinecap="round"
+          opacity="0.5"
+        />
+        <path
+          d="M60 185 Q120 140 180 185"
+          fill="none"
+          stroke="#8ac8ff"
+          strokeWidth="3"
+          strokeLinecap="round"
+          opacity="0.5"
+        />
+        <path
+          d="M65 185 Q120 145 175 185"
+          fill="none"
+          stroke="#c08aff"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          opacity="0.4"
+        />
       </g>
 
       {/* Cloud 1 - left */}

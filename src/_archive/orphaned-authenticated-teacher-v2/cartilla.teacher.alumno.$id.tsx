@@ -97,7 +97,8 @@ function StudentDetail() {
       <header className="mt-6">
         <h1 className="text-3xl sm:text-4xl font-bold">{data.student.display_name}</h1>
         <p className="text-sm text-foreground/60 mt-1">
-          {t.codigoPersonal[lang]} <span className="font-mono font-bold">{data.student.student_code}</span>
+          {t.codigoPersonal[lang]}{" "}
+          <span className="font-mono font-bold">{data.student.student_code}</span>
         </p>
       </header>
 
@@ -152,7 +153,9 @@ function StudentDetail() {
                     )}
                     {ex && (
                       <span className="ml-2">
-                        · {ex.runs} {ex.runs > 1 ? t.ejercicioPlural[lang] : t.ejercicioSingular[lang]} ({pct}% {t.acierto[lang]})
+                        · {ex.runs}{" "}
+                        {ex.runs > 1 ? t.ejercicioPlural[lang] : t.ejercicioSingular[lang]} ({pct}%{" "}
+                        {t.acierto[lang]})
                       </span>
                     )}
                   </div>
@@ -202,12 +205,15 @@ function StudentDetail() {
   );
 }
 
-function labelEvent(e: {
-  event_kind: string;
-  score: number | null;
-  total: number | null;
-  time_seconds: number | null;
-}, lang: "es" | "en") {
+function labelEvent(
+  e: {
+    event_kind: string;
+    score: number | null;
+    total: number | null;
+    time_seconds: number | null;
+  },
+  lang: "es" | "en",
+) {
   const t = tCopy;
   switch (e.event_kind) {
     case "lesson_completed":

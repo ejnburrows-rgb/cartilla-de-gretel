@@ -15,11 +15,7 @@ const AIRFLOW = "#90cdf4";
 const CAVITY = "#fdf0f0";
 const THROAT = "#f5dada";
 
-export function MouthFricative({
-  size,
-  className,
-  animated = false,
-}: MouthFricativeProps) {
+export function MouthFricative({ size, className, animated = false }: MouthFricativeProps) {
   const sizeProps: React.CSSProperties | undefined = size
     ? { width: size, height: size }
     : undefined;
@@ -203,11 +199,7 @@ export function MouthFricative({
           opacity="0.7"
         />
         {/* Second turbulent stream */}
-        <path
-          d="M55 70 Q48 66 42 64 Q36 62 28 60"
-          strokeDasharray="3 2"
-          opacity="0.6"
-        />
+        <path d="M55 70 Q48 66 42 64 Q36 62 28 60" strokeDasharray="3 2" opacity="0.6" />
       </g>
 
       {/* Turbulence swirls at constriction exit */}

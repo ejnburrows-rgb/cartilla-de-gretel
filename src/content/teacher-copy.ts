@@ -278,9 +278,18 @@ export const tCopy = {
   s: { es: "s", en: "s" },
   volverDashboard: { es: "Volver al panel", en: "Back to dashboard" },
   todosLosAlumnos: { es: "Todos los Alumnos", en: "All Students" },
-  vistaGeneralAlumnos: { es: "Vista general del avance de tus alumnos en todas las clases.", en: "Overview of your students' progress across all classes." },
-  aunNoHayEstudiantes: { es: "Aún no hay estudiantes en tu clase.", en: "No students in your class yet." },
-  anadeEstudiantes: { es: "Añade estudiantes en el panel principal para ver su progreso aquí.", en: "Add students in the main dashboard to see their progress here." },
+  vistaGeneralAlumnos: {
+    es: "Vista general del avance de tus alumnos en todas las clases.",
+    en: "Overview of your students' progress across all classes.",
+  },
+  aunNoHayEstudiantes: {
+    es: "Aún no hay estudiantes en tu clase.",
+    en: "No students in your class yet.",
+  },
+  anadeEstudiantes: {
+    es: "Añade estudiantes en el panel principal para ver su progreso aquí.",
+    en: "Add students in the main dashboard to see their progress here.",
+  },
   nunca: { es: "Nunca", en: "Never" },
   leccionesCompletadas: { es: "Lecciones completadas", en: "Completed lessons" },
 };

@@ -66,12 +66,7 @@ export function LetterMonogram({
         { cx: 175, cy: 155, s: 7 },
         { cx: 160, cy: 80, s: 5 },
       ].map((sp, i) => (
-        <path
-          key={i}
-          d={starAt(sp.cx, sp.cy, sp.s)}
-          fill={color}
-          opacity={0.35 + (i % 3) * 0.1}
-        />
+        <path key={i} d={starAt(sp.cx, sp.cy, sp.s)} fill={color} opacity={0.35 + (i % 3) * 0.1} />
       ))}
     </svg>
   );

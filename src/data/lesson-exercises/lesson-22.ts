@@ -13,14 +13,15 @@ export const lesson22 = [
       { id: "img-conejo", label: "conejo" },
       { id: "img-casa", label: "casa" },
       { id: "img-cubo", label: "cubo" },
-      { id: "img-catalina", label: "Catalina" }
+      { id: "img-catalina", label: "Catalina" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Transcribed verbatim from public/cartilla/images/source/c/c-page-52.jpg (real scan).",
-    sourcePage: getBookPageImage(79)
+    teacherNotes:
+      "Transcribed verbatim from public/cartilla/images/source/c/c-page-52.jpg (real scan).",
+    sourcePage: getBookPageImage(79),
   },
   {
     id: "l22-p80-syllable-tap",
@@ -32,14 +33,15 @@ export const lesson22 = [
     items: [
       { id: "ra-ca", label: "ca" },
       { id: "ra-co", label: "co" },
-      { id: "ra-cu", label: "cu" }
+      { id: "ra-cu", label: "cu" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Transcribed verbatim from public/cartilla/images/source/c/c-page-53.jpg (real scan).",
-    sourcePage: getBookPageImage(80)
+    teacherNotes:
+      "Transcribed verbatim from public/cartilla/images/source/c/c-page-53.jpg (real scan).",
+    sourcePage: getBookPageImage(80),
   },
   {
     id: "l22-p80-word-bank",
@@ -63,14 +65,15 @@ export const lesson22 = [
       { id: "w-saco", label: "saco" },
       { id: "w-roca", label: "roca" },
       { id: "w-cumbia", label: "cumbia" },
-      { id: "w-colonia", label: "colonia" }
+      { id: "w-colonia", label: "colonia" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Word list transcribed verbatim from public/cartilla/images/source/c/c-page-53.jpg (real scan).",
-    sourcePage: getBookPageImage(80)
+    teacherNotes:
+      "Word list transcribed verbatim from public/cartilla/images/source/c/c-page-53.jpg (real scan).",
+    sourcePage: getBookPageImage(80),
   },
   {
     id: "l22-p80-mini-story",
@@ -86,14 +89,15 @@ export const lesson22 = [
       { id: "story-c-4", label: "campo, vive con Doña María, su mamá." },
       { id: "story-c-5", label: "Cuco Casanova juega con los niños y" },
       { id: "story-c-6", label: "los cuida también. Todos en la casa de" },
-      { id: "story-c-7", label: "Paco aman a Cuco." }
+      { id: "story-c-7", label: "Paco aman a Cuco." },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Reading passage transcribed verbatim from public/cartilla/images/source/c/c-page-53.jpg (real scan).",
-    sourcePage: getBookPageImage(80)
+    teacherNotes:
+      "Reading passage transcribed verbatim from public/cartilla/images/source/c/c-page-53.jpg (real scan).",
+    sourcePage: getBookPageImage(80),
   },
   {
     id: "l22-p81-rhyme",
@@ -106,14 +110,15 @@ export const lesson22 = [
       { id: "rhyme-c-1", label: "Cuco tiene caramelos" },
       { id: "rhyme-c-2", label: "caramelitos de miel" },
       { id: "rhyme-c-3", label: "Cuco reparte cariño" },
-      { id: "rhyme-c-4", label: "y caramelos también." }
+      { id: "rhyme-c-4", label: "y caramelos también." },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Rhyme transcribed verbatim from public/cartilla/images/source/c/c-page-54.jpg (real scan).",
-    sourcePage: getBookPageImage(81)
+    teacherNotes:
+      "Rhyme transcribed verbatim from public/cartilla/images/source/c/c-page-54.jpg (real scan).",
+    sourcePage: getBookPageImage(81),
   },
   {
     id: "l22-p82-fill-in-blank",
@@ -125,15 +130,63 @@ export const lesson22 = [
     items: [
       { id: "syl-co-0", label: "co" },
       { id: "syl-cu-1", label: "cu" },
-      { id: "syl-ca-2", label: "ca" }
+      { id: "syl-ca-2", label: "ca" },
     ],
     targets: [
-      { id: "blank-coma-0", label: "___ma", hint: "co - cu", correctSyllable: "co", fullWord: "coma", coordinatesVerified: false, acceptsItemId: "syl-co-0" },
-      { id: "blank-cosa-1", label: "___sa", hint: "co - ca", correctSyllable: "co", fullWord: "cosa", coordinatesVerified: false, acceptsItemId: "syl-co-0" },
-      { id: "blank-saca-2", label: "sa___", hint: "ca - co", correctSyllable: "ca", fullWord: "saca", coordinatesVerified: false, acceptsItemId: "syl-ca-2" },
-      { id: "blank-cola-3", label: "___la", hint: "ca - co", correctSyllable: "co", fullWord: "cola", coordinatesVerified: false, acceptsItemId: "syl-co-0" },
-      { id: "blank-loca-4", label: "lo___", hint: "co - ca", correctSyllable: "ca", fullWord: "loca", coordinatesVerified: false, acceptsItemId: "syl-ca-2" },
-      { id: "blank-cubo-5", label: "___bo", hint: "co - cu", correctSyllable: "cu", fullWord: "cubo", coordinatesVerified: false, acceptsItemId: "syl-cu-1" }
+      {
+        id: "blank-coma-0",
+        label: "___ma",
+        hint: "co - cu",
+        correctSyllable: "co",
+        fullWord: "coma",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-co-0",
+      },
+      {
+        id: "blank-cosa-1",
+        label: "___sa",
+        hint: "co - ca",
+        correctSyllable: "co",
+        fullWord: "cosa",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-co-0",
+      },
+      {
+        id: "blank-saca-2",
+        label: "sa___",
+        hint: "ca - co",
+        correctSyllable: "ca",
+        fullWord: "saca",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-ca-2",
+      },
+      {
+        id: "blank-cola-3",
+        label: "___la",
+        hint: "ca - co",
+        correctSyllable: "co",
+        fullWord: "cola",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-co-0",
+      },
+      {
+        id: "blank-loca-4",
+        label: "lo___",
+        hint: "co - ca",
+        correctSyllable: "ca",
+        fullWord: "loca",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-ca-2",
+      },
+      {
+        id: "blank-cubo-5",
+        label: "___bo",
+        hint: "co - cu",
+        correctSyllable: "cu",
+        fullWord: "cubo",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-cu-1",
+      },
     ],
     exercises: [
       { partial: "___ma", choices: ["co", "cu"], answer: "co", fullWord: "coma" },
@@ -141,13 +194,14 @@ export const lesson22 = [
       { partial: "sa___", choices: ["ca", "co"], answer: "ca", fullWord: "saca" },
       { partial: "___la", choices: ["ca", "co"], answer: "co", fullWord: "cola" },
       { partial: "lo___", choices: ["co", "ca"], answer: "ca", fullWord: "loca" },
-      { partial: "___bo", choices: ["co", "cu"], answer: "cu", fullWord: "cubo" }
+      { partial: "___bo", choices: ["co", "cu"], answer: "cu", fullWord: "cubo" },
     ],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
-    teacherNotes: "UNREADABLE-SCAN — no source scan was provided for this lesson's fill-in-blank page (physical page 82, per consonants.json's pages \"79-82\"); only 3 scans exist for c/ (page-52, 53, 54). This entry is unverified scaffold content carried over as-is; left pending, not promoted to ready.",
-    sourcePage: getBookPageImage(82)
+    teacherNotes:
+      "UNREADABLE-SCAN — no source scan was provided for this lesson's fill-in-blank page (physical page 82, per consonants.json's pages \"79-82\"); only 3 scans exist for c/ (page-52, 53, 54). This entry is unverified scaffold content carried over as-is; left pending, not promoted to ready.",
+    sourcePage: getBookPageImage(82),
   },
   {
     id: "l22-p82-write-sentences",
@@ -161,7 +215,8 @@ export const lesson22 = [
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
-    teacherNotes: "UNREADABLE-SCAN — no source scan was provided for physical page 82 (see fill-in-blank entry above for the same lesson/page).",
-    sourcePage: getBookPageImage(82)
-  }
+    teacherNotes:
+      "UNREADABLE-SCAN — no source scan was provided for physical page 82 (see fill-in-blank entry above for the same lesson/page).",
+    sourcePage: getBookPageImage(82),
+  },
 ];

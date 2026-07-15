@@ -55,7 +55,8 @@ export function PerfPanel() {
     setErrorsCount(0);
   };
 
-  const lcpCheck = lcp !== null ? checkPerfMetric("LCP", lcp) : { passed: true, message: "Measuring..." };
+  const lcpCheck =
+    lcp !== null ? checkPerfMetric("LCP", lcp) : { passed: true, message: "Measuring..." };
   const tbtCheck = checkPerfMetric("TBT", tbt);
 
   if (!isOpen) {

@@ -7,11 +7,17 @@ import pageLayouts from "@/data/page-layouts.json";
 // data file so this test fails the moment new lesson content adds a letter
 // this suite doesn't know about, rather than silently going stale.
 function realModelTexts(): string[] {
-  const pages = (pageLayouts as { pages: Record<string, { regions: Array<Record<string, unknown>> }> }).pages;
+  const pages = (
+    pageLayouts as { pages: Record<string, { regions: Array<Record<string, unknown>> }> }
+  ).pages;
   const found = new Set<string>();
   for (const page of Object.values(pages)) {
     for (const region of page.regions) {
-      if (region.regionType === "writing-line" && typeof region.modelText === "string" && region.modelText) {
+      if (
+        region.regionType === "writing-line" &&
+        typeof region.modelText === "string" &&
+        region.modelText
+      ) {
         found.add(region.modelText);
       }
     }
@@ -90,7 +96,11 @@ describe("getLetterTemplate — no silent wrong-shape fallback", () => {
     const CASE_SHAPE_MATCHES_UPPER = new Set(["O", "U", "C", "S", "V", "Z"]);
     const expectedMissing = modelTexts.filter((t) => {
       const isLower = t === t.toLowerCase() && t !== t.toUpperCase();
-      return t.toUpperCase() === "Ñ" || (t.toUpperCase() === "RR" && isLower) || (isLower && !CASE_SHAPE_MATCHES_UPPER.has(t.toUpperCase()));
+      return (
+        t.toUpperCase() === "Ñ" ||
+        (t.toUpperCase() === "RR" && isLower) ||
+        (isLower && !CASE_SHAPE_MATCHES_UPPER.has(t.toUpperCase()))
+      );
     });
     const missing = modelTexts.filter((t) => getLetterTemplate(t) === null);
     expect(new Set(missing)).toEqual(new Set(expectedMissing));
@@ -101,7 +111,23 @@ describe("getLetterTemplate — no silent wrong-shape fallback", () => {
   });
 
   it("lowercase letters with a genuinely different shape than their uppercase (a, e, i, m, p, t, d, l, n, b, r, g, f, j, y) are not templated yet — correctly null, never guessed", () => {
-    const untemplatedLowercase = ["a", "e", "i", "m", "p", "t", "d", "l", "n", "b", "r", "g", "f", "j", "y"];
+    const untemplatedLowercase = [
+      "a",
+      "e",
+      "i",
+      "m",
+      "p",
+      "t",
+      "d",
+      "l",
+      "n",
+      "b",
+      "r",
+      "g",
+      "f",
+      "j",
+      "y",
+    ];
     for (const letter of untemplatedLowercase) {
       expect(getLetterTemplate(letter)).toBeNull();
     }

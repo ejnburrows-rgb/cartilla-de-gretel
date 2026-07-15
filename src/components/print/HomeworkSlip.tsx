@@ -66,13 +66,18 @@ export function HomeworkSlip({ entry, pageNumber }: HomeworkSlipProps) {
 
       <div style={detailsStyle}>
         <div>
-          <strong className="text-stone-850">Lección / Lesson: </strong> {entry.title} (págs. {entry.pages})
+          <strong className="text-stone-850">Lección / Lesson: </strong> {entry.title} (págs.{" "}
+          {entry.pages})
         </div>
         <div className="mt-1">
-          <span className="font-bold text-stone-850">Español: </span> Repase la página de caligrafía y practique lectura en voz alta con su hijo durante 10 minutos. Firme abajo cuando termine.
+          <span className="font-bold text-stone-850">Español: </span> Repase la página de caligrafía
+          y practique lectura en voz alta con su hijo durante 10 minutos. Firme abajo cuando
+          termine.
         </div>
         <div className="mt-0.5 italic text-stone-600">
-          <span className="font-bold not-italic text-stone-700">English: </span> Please review the handwriting page and practice aloud reading with your child for 10 minutes. Sign below upon completion.
+          <span className="font-bold not-italic text-stone-700">English: </span> Please review the
+          handwriting page and practice aloud reading with your child for 10 minutes. Sign below
+          upon completion.
         </div>
       </div>
 

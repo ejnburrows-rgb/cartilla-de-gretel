@@ -18,7 +18,8 @@ function verbFromText(text?: string): LassoVerbFamily {
   if (t.includes("enlaza")) return "enlaza";
   if (t.includes("conecta")) return "conecta";
   if (t.includes("empareja")) return "empareja";
-  if (t.includes("une") || t.includes("traza una línea") || t.includes("traza una linea")) return "une";
+  if (t.includes("une") || t.includes("traza una línea") || t.includes("traza una linea"))
+    return "une";
   return "encierra";
 }
 

@@ -11,7 +11,9 @@ export function BadgeGrid({ earnedIds }: BadgeGridProps) {
     if (isEarned) {
       feelBus.emit("chime");
       if ("speechSynthesis" in window) {
-        const utterance = new SpeechSynthesisUtterance(`¡Insignia ${badge.name}! ${badge.description}`);
+        const utterance = new SpeechSynthesisUtterance(
+          `¡Insignia ${badge.name}! ${badge.description}`,
+        );
         utterance.lang = "es-ES";
         utterance.rate = 1.0;
         window.speechSynthesis.cancel();
@@ -28,7 +30,9 @@ export function BadgeGrid({ earnedIds }: BadgeGridProps) {
         <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
           <Award className="w-4 h-4" />
         </div>
-        <h3 className="font-bold text-lg text-foreground font-fredoka">Insignias y Logros ({earnedIds.length} / 7)</h3>
+        <h3 className="font-bold text-lg text-foreground font-fredoka">
+          Insignias y Logros ({earnedIds.length} / 7)
+        </h3>
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -44,18 +48,18 @@ export function BadgeGrid({ earnedIds }: BadgeGridProps) {
                   : "bg-secondary/30 border-dashed border-foreground/10 opacity-60"
               }`}
               style={{
-                borderColor: isEarned ? badge.color : "transparent"
+                borderColor: isEarned ? badge.color : "transparent",
               }}
             >
               {/* Badge Circular Emblem */}
-              <div 
+              <div
                 className={`w-16 h-16 rounded-full flex items-center justify-center border-4 relative mb-3 overflow-hidden shadow-inner ${
                   isEarned
                     ? "bg-white scale-100 rotate-0 hover:rotate-6 duration-200"
                     : "bg-black/10 border-gray-300"
                 }`}
                 style={{
-                  borderColor: isEarned ? badge.color : "rgb(209, 213, 219)"
+                  borderColor: isEarned ? badge.color : "rgb(209, 213, 219)",
                 }}
               >
                 {/* Glossy overlay effect for premium look */}

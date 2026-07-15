@@ -138,7 +138,12 @@ export function DrawBoxCanvas({ regionId, hint, lessonId }: DrawBoxCanvasProps) 
                 />
               ))}
             </div>
-            <button type="button" onClick={clearCanvas} className="fp-draw-box__btn" aria-label="Borrar">
+            <button
+              type="button"
+              onClick={clearCanvas}
+              className="fp-draw-box__btn"
+              aria-label="Borrar"
+            >
               <Eraser className="w-4 h-4" />
             </button>
             <button

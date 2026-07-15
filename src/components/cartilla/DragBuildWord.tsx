@@ -83,9 +83,10 @@ type Action =
 function buildTray(word: string): string[] {
   // Add 1â€"3 distractor letters
   const alpha = "aeioumsptdlnbvrfgjcyz";
-  const extras = shuffle(
-    alpha.split("").filter((c) => !word.includes(c)),
-  ).slice(0, Math.min(3, Math.max(1, 4 - word.length)));
+  const extras = shuffle(alpha.split("").filter((c) => !word.includes(c))).slice(
+    0,
+    Math.min(3, Math.max(1, 4 - word.length)),
+  );
   return shuffle([...word.split(""), ...extras]);
 }
 
@@ -136,7 +137,15 @@ function reducer(state: DragBuildWordState, action: Action): DragBuildWordState 
 }
 
 // â"€â"€ Subcomponents â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
-function DraggableLetter({ letter, trayIdx, used, accent, disabled, selectedTray, onTrayKeyDown }: any) {
+function DraggableLetter({
+  letter,
+  trayIdx,
+  used,
+  accent,
+  disabled,
+  selectedTray,
+  onTrayKeyDown,
+}: any) {
   const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
     id: `tray-${trayIdx}`,
     data: { trayIdx, letter },
@@ -147,7 +156,9 @@ function DraggableLetter({ letter, trayIdx, used, accent, disabled, selectedTray
     color: accent,
     borderColor: accent,
     backgroundColor: `${accent}12`,
-    transform: transform ? `translate3d(${Math.round(transform.x)}px, ${Math.round(transform.y)}px, 0)` : undefined,
+    transform: transform
+      ? `translate3d(${Math.round(transform.x)}px, ${Math.round(transform.y)}px, 0)`
+      : undefined,
     zIndex: isDragging ? 9999 : undefined,
     opacity: isDragging ? 0.35 : used ? 0.18 : 1,
     scale: isDragging ? 0.9 : 1,
@@ -193,11 +204,7 @@ function DroppableSlot({ slotIdx, filled, accent, wrongSlot, selectedTray, onSlo
       style={{ color: accent, borderColor: filled ? accent : undefined }}
       tabIndex={selectedTray !== null && filled === null ? 0 : -1}
       onKeyDown={(e) => onSlotKeyDown(e, slotIdx)}
-      aria-label={
-        filled
-          ? `Casilla ${slotIdx + 1}: ${filled}`
-          : `Casilla ${slotIdx + 1}: vacía`
-      }
+      aria-label={filled ? `Casilla ${slotIdx + 1}: ${filled}` : `Casilla ${slotIdx + 1}: vacía`}
     >
       {filled ?? <span className="text-foreground/20 text-sm">_</span>}
     </div>
@@ -229,7 +236,7 @@ export function DragBuildWord({ words, accent, lessonId, onComplete }: DragBuild
   const sensors = useSensors(
     useSensor(MouseSensor, { activationConstraint: { distance: 5 } }),
     useSensor(TouchSensor, { activationConstraint: { distance: 5 } }),
-    useSensor(KeyboardSensor)
+    useSensor(KeyboardSensor),
   );
 
   // Clear wrong animation after 400ms
@@ -356,11 +363,7 @@ export function DragBuildWord({ words, accent, lessonId, onComplete }: DragBuild
 
       <DndContext sensors={sensors} onDragStart={onDragStart} onDragEnd={onDragEnd}>
         {/* Slots */}
-        <div
-          className="drag-build-word__slots"
-          role="group"
-          aria-label="Casillas de la palabra"
-        >
+        <div className="drag-build-word__slots" role="group" aria-label="Casillas de la palabra">
           {state.slots.map((filled, slotIdx) => (
             <DroppableSlot
               key={slotIdx}
@@ -381,11 +384,7 @@ export function DragBuildWord({ words, accent, lessonId, onComplete }: DragBuild
         />
 
         {/* Tray */}
-        <div
-          className="drag-build-word__tray"
-          role="group"
-          aria-label="Letras disponibles"
-        >
+        <div className="drag-build-word__tray" role="group" aria-label="Letras disponibles">
           {state.tray.map((letter, trayIdx) => (
             <DraggableLetter
               key={trayIdx}
@@ -409,4 +408,3 @@ export function DragBuildWord({ words, accent, lessonId, onComplete }: DragBuild
     </div>
   );
 }
-

@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 const lessonsDir = path.join(__dirname, "..", "src", "data", "lessons");
-const files = fs.readdirSync(lessonsDir).filter(f => f.endsWith(".ts"));
+const files = fs.readdirSync(lessonsDir).filter((f) => f.endsWith(".ts"));
 
 for (const file of files) {
   const filePath = path.join(lessonsDir, file);
@@ -16,22 +16,24 @@ for (const file of files) {
   // Find blocks and replace sourcePage
   let updatedContent = "";
   let lastPageNumber = null;
-  const lines = content.split('\n');
+  const lines = content.split("\n");
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
     const pageMatch = line.match(/pageNumber:\s*(\d+)/);
     if (pageMatch) {
       lastPageNumber = pageMatch[1];
     }
-    
+
     if (line.match(/sourcePage:\s*""/) || line.match(/sourcePage:\s*"\/art\/hd\/page-\d+\.png"/)) {
       if (lastPageNumber !== null) {
-        updatedContent += line.replace(/sourcePage:\s*".*"/, `sourcePage: getBookPageImage(${lastPageNumber})`) + '\n';
+        updatedContent +=
+          line.replace(/sourcePage:\s*".*"/, `sourcePage: getBookPageImage(${lastPageNumber})`) +
+          "\n";
       } else {
-        updatedContent += line + '\n';
+        updatedContent += line + "\n";
       }
     } else {
-      updatedContent += line + '\n';
+      updatedContent += line + "\n";
     }
   }
 

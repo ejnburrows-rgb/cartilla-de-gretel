@@ -1,5 +1,13 @@
 import { Link } from "@tanstack/react-router";
-import { BookOpen, LayoutDashboard, Users, Settings, GraduationCap, FileSpreadsheet, CircleHelp } from "lucide-react";
+import {
+  BookOpen,
+  LayoutDashboard,
+  Users,
+  Settings,
+  GraduationCap,
+  FileSpreadsheet,
+  CircleHelp,
+} from "lucide-react";
 
 export function Sidebar() {
   // Hoisted styles to satisfy the JSX double-brace styling ban
@@ -23,32 +31,32 @@ export function Sidebar() {
         >
           <LayoutDashboard className="w-5 h-5" /> Tablero
         </Link>
-        <Link 
-          to="/cartilla/teacher/roster" 
+        <Link
+          to="/cartilla/teacher/roster"
           activeProps={{ className: activeCls }}
           inactiveProps={{ className: inactiveCls }}
           className="flex items-center gap-3 px-3 py-2 rounded-xl font-bold text-sm transition-colors"
         >
           <Users className="w-5 h-5" /> Alumnos
         </Link>
-        <Link 
-          to="/cartilla/teacher/progreso" 
+        <Link
+          to="/cartilla/teacher/progreso"
           activeProps={{ className: activeCls }}
           inactiveProps={{ className: inactiveCls }}
           className="flex items-center gap-3 px-3 py-2 rounded-xl font-bold text-sm transition-colors"
         >
           <BookOpen className="w-5 h-5" /> Progreso
         </Link>
-        <Link 
-          to="/cartilla/teacher/lecciones" 
+        <Link
+          to="/cartilla/teacher/lecciones"
           activeProps={{ className: activeCls }}
           inactiveProps={{ className: inactiveCls }}
           className="flex items-center gap-3 px-3 py-2 rounded-xl font-bold text-sm transition-colors"
         >
           <BookOpen className="w-5 h-5" /> Lecciones
         </Link>
-        <Link 
-          to="/cartilla/teacher/reportes" 
+        <Link
+          to="/cartilla/teacher/reportes"
           activeProps={{ className: activeCls }}
           inactiveProps={{ className: inactiveCls }}
           className="flex items-center gap-3 px-3 py-2 rounded-xl font-bold text-sm transition-colors"
@@ -65,7 +73,7 @@ export function Sidebar() {
         </Link>
       </nav>
       <div className="p-4 border-t border-[#e8e2d9]">
-        <Link 
+        <Link
           to="/cartilla"
           className="flex items-center gap-3 px-3 py-2 text-[#7a7065] hover:bg-[#f2d8d8] hover:text-[hsl(354,78%,35%)] rounded-xl font-bold text-sm transition-colors min-h-11"
         >

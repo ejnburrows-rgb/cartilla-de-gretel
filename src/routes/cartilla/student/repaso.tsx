@@ -7,22 +7,10 @@
  */
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo } from "react";
-import {
-  ArrowLeft,
-  AlertTriangle,
-  BookOpen,
-  Sparkles,
-  RotateCcw,
-  Clock,
-} from "lucide-react";
+import { ArrowLeft, AlertTriangle, BookOpen, Sparkles, RotateCcw, Clock } from "lucide-react";
 import { CATALOG } from "@/lib/lesson-catalog";
 import { useLessonProgress } from "@/lib/lesson-progress";
-import {
-  useExerciseStats,
-  isLessonWeak,
-  lessonAccuracy,
-  resetStats,
-} from "@/lib/exercise-stats";
+import { useExerciseStats, isLessonWeak, lessonAccuracy, resetStats } from "@/lib/exercise-stats";
 import { BookArtFigure } from "@/components/cartilla/BookArtFigure";
 import "@/styles/cartilla-student.css";
 
@@ -49,9 +37,7 @@ function Repaso() {
       .slice(0, 5)
       .map(({ entry }) => entry);
     return withTimestamp;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [stats]);
-
 
   const weak = CATALOG.filter((e) => isLessonWeak(String(e.n), stats));
   const pending = CATALOG.filter(
@@ -180,11 +166,7 @@ function Section({
                     className="w-full h-28 flex items-center justify-center"
                     style={{ backgroundColor: `${entry.color}15` }}
                   >
-                    <BookArtFigure
-                      lesson={entry.n}
-                      role="character"
-                      className="h-24 w-auto"
-                    />
+                    <BookArtFigure lesson={entry.n} role="character" className="h-24 w-auto" />
                   </div>
 
                   <div className="p-4 flex flex-col gap-2 flex-1">
@@ -198,7 +180,10 @@ function Section({
                         </span>
                       )}
                     </div>
-                    <h3 className="text-base font-bold leading-tight" style={{ color: entry.color }}>
+                    <h3
+                      className="text-base font-bold leading-tight"
+                      style={{ color: entry.color }}
+                    >
                       {entry.title}
                     </h3>
                     <p className="text-sm text-foreground/70 line-clamp-2">{entry.subtitle}</p>

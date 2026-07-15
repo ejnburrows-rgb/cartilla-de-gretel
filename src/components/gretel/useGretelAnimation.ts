@@ -1,13 +1,10 @@
 import { useEffect, useReducer, useRef, useState, useCallback } from "react";
-import {
-  gretelReducer,
-  GretelState,
-  GretelEvent,
-} from "./gretelMachine";
+import { gretelReducer, GretelState, GretelEvent } from "./gretelMachine";
 import { getGretelPose, getGretelPoseFrames } from "./gretelPoses";
 
 const failedUrls = new Set<string>();
-const TRANSPARENT_SPACER = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+const TRANSPARENT_SPACER =
+  "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
 
 export interface GretelAnimationHook {
   currentPose: string;
@@ -40,7 +37,7 @@ export function useGretelAnimation(): GretelAnimationHook {
       if (typeof pose === "string") {
         failedUrls.add(pose);
       } else {
-        pose.forEach(p => failedUrls.add(p));
+        pose.forEach((p) => failedUrls.add(p));
       }
     }
     dispatch(event);
@@ -94,9 +91,12 @@ export function useGretelAnimation(): GretelAnimationHook {
 
     // Reset back to idle automatically for transient states like pointing/waving/cheering
     if (["pointing", "waving", "cheering", "exiting"].includes(machineState)) {
-      timerRef.current = setTimeout(() => {
-        if (!isCancelled) dispatch({ type: "IDLE" });
-      }, machineState === "exiting" ? 900 : 2000);
+      timerRef.current = setTimeout(
+        () => {
+          if (!isCancelled) dispatch({ type: "IDLE" });
+        },
+        machineState === "exiting" ? 900 : 2000,
+      );
     } else if (machineState === "settling") {
       // Enter settle hold (G-02) then idle
       timerRef.current = setTimeout(() => {
@@ -134,4 +134,3 @@ export function useGretelAnimation(): GretelAnimationHook {
     isSpeaking,
   };
 }
-

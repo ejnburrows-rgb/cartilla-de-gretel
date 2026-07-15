@@ -93,5 +93,11 @@ fs.writeFileSync(
   reportPath,
   JSON.stringify({ base: BASE, generatedAt: new Date().toISOString(), results }, null, 2),
 );
-console.log(JSON.stringify({ reportPath, count: results.length, failures: results.filter((r) => r.status !== "ok") }, null, 2));
+console.log(
+  JSON.stringify(
+    { reportPath, count: results.length, failures: results.filter((r) => r.status !== "ok") },
+    null,
+    2,
+  ),
+);
 process.exit(results.some((r) => r.status === "error") ? 1 : 0);

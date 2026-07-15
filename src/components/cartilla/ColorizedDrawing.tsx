@@ -85,7 +85,10 @@ export function ColorizedDrawing({
       className={`relative inline-flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-2xl border bg-white p-1 transition duration-200 ${className}`}
       style={shellStyle}
     >
-      <span className="pointer-events-none absolute left-2 top-2 h-2.5 w-2.5 rounded-full" style={accentStyle} />
+      <span
+        className="pointer-events-none absolute left-2 top-2 h-2.5 w-2.5 rounded-full"
+        style={accentStyle}
+      />
       <span className="pointer-events-none absolute right-2 top-2 h-1.5 w-1.5 rounded-full bg-white/80" />
       <span className="flex items-center justify-center rounded-xl bg-white/58 p-1.5 backdrop-blur-sm">
         <MonochromeDrawing word={word} size={size} />

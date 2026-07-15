@@ -66,7 +66,15 @@ export function GretelIdle({ animated = false, ...props }: GretelIdleProps) {
         strokeLinecap="round"
       />
       {/* Center seam detail */}
-      <line x1="100" y1="158" x2="100" y2="245" stroke="var(--art-primary, #c98c4f)" strokeWidth="0.8" opacity="0.4" />
+      <line
+        x1="100"
+        y1="158"
+        x2="100"
+        y2="245"
+        stroke="var(--art-primary, #c98c4f)"
+        strokeWidth="0.8"
+        opacity="0.4"
+      />
 
       {/* === ARMS (at sides) === */}
       {/* Left arm */}
@@ -129,8 +137,20 @@ export function GretelIdle({ animated = false, ...props }: GretelIdleProps) {
         fill="url(#idle-hair)"
       />
       {/* Side hair wisps */}
-      <path d="M64 75 Q60 85 63 95" fill="none" stroke="#8B5E3C" strokeWidth="4" strokeLinecap="round" />
-      <path d="M136 75 Q140 85 137 95" fill="none" stroke="#8B5E3C" strokeWidth="4" strokeLinecap="round" />
+      <path
+        d="M64 75 Q60 85 63 95"
+        fill="none"
+        stroke="#8B5E3C"
+        strokeWidth="4"
+        strokeLinecap="round"
+      />
+      <path
+        d="M136 75 Q140 85 137 95"
+        fill="none"
+        stroke="#8B5E3C"
+        strokeWidth="4"
+        strokeLinecap="round"
+      />
 
       {/* === EYES === */}
       {/* Left eye - sclera */}
@@ -142,7 +162,13 @@ export function GretelIdle({ animated = false, ...props }: GretelIdleProps) {
       {/* Left eye - highlight */}
       <circle cx="86" cy="87" r="2" fill="white" opacity="0.9" />
       {/* Left eye - lashes */}
-      <path d="M75 82 Q80 78 84 79 Q88 78 93 82" fill="none" stroke="#5c3d2e" strokeWidth="2" strokeLinecap="round" />
+      <path
+        d="M75 82 Q80 78 84 79 Q88 78 93 82"
+        fill="none"
+        stroke="#5c3d2e"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
 
       {/* Right eye - sclera */}
       <ellipse cx="116" cy="88" rx="9" ry="10" fill="white" />
@@ -153,11 +179,29 @@ export function GretelIdle({ animated = false, ...props }: GretelIdleProps) {
       {/* Right eye - highlight */}
       <circle cx="118" cy="87" r="2" fill="white" opacity="0.9" />
       {/* Right eye - lashes */}
-      <path d="M107 82 Q112 78 116 79 Q120 78 125 82" fill="none" stroke="#5c3d2e" strokeWidth="2" strokeLinecap="round" />
+      <path
+        d="M107 82 Q112 78 116 79 Q120 78 125 82"
+        fill="none"
+        stroke="#5c3d2e"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
 
       {/* === EYEBROWS === */}
-      <path d="M76 76 Q84 72 92 75" fill="none" stroke="#7A4E2E" strokeWidth="1.8" strokeLinecap="round" />
-      <path d="M108 75 Q116 72 124 76" fill="none" stroke="#7A4E2E" strokeWidth="1.8" strokeLinecap="round" />
+      <path
+        d="M76 76 Q84 72 92 75"
+        fill="none"
+        stroke="#7A4E2E"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
+      <path
+        d="M108 75 Q116 72 124 76"
+        fill="none"
+        stroke="#7A4E2E"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
 
       {/* === NOSE === */}
       <ellipse cx="100" cy="100" rx="3" ry="2.5" fill="#e8bf94" />

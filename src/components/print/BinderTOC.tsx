@@ -109,7 +109,7 @@ export function BinderTOC() {
                 </span>
               </span>
               <span style={pageColStyle}>p. {entry.pages}</span>
-              <span style={checkColStyle}>[  ]</span>
+              <span style={checkColStyle}>[ ]</span>
             </div>
           ))}
         </div>

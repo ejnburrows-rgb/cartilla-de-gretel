@@ -6,7 +6,12 @@ interface TutorialSpotlightProps {
 }
 
 export function TutorialSpotlight({ targetSelector, onChangeCoords }: TutorialSpotlightProps) {
-  const [coords, setCoords] = useState<{ x: number; y: number; width: number; height: number } | null>(null);
+  const [coords, setCoords] = useState<{
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+  } | null>(null);
 
   const measureTarget = useCallback(() => {
     if (!targetSelector) {
@@ -34,7 +39,7 @@ export function TutorialSpotlight({ targetSelector, onChangeCoords }: TutorialSp
       width: rect.width,
       height: rect.height,
     });
-    
+
     onChangeCoords(x, y);
   }, [targetSelector, onChangeCoords]);
 
@@ -62,11 +67,7 @@ export function TutorialSpotlight({ targetSelector, onChangeCoords }: TutorialSp
   };
 
   return (
-    <div
-      style={spotlightStyle}
-      className="tutorial-spotlight-cutout no-print"
-      aria-hidden="true"
-    />
+    <div style={spotlightStyle} className="tutorial-spotlight-cutout no-print" aria-hidden="true" />
   );
 }
 export type TutorialSpotlight = typeof TutorialSpotlight;

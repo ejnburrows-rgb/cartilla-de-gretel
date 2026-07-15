@@ -38,15 +38,15 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname  = path.dirname(__filename);
+const __dirname = path.dirname(__filename);
 
 // ── Config ──────────────────────────────────────────────────────────────────
 
-const DEFAULT_WIDTH = 2550;  // 8.5 inches @ 300 dpi
+const DEFAULT_WIDTH = 2550; // 8.5 inches @ 300 dpi
 
-const RAW_ROOT  = path.resolve(__dirname, "../public/cartilla/art/raw");
-const HD_ROOT   = path.resolve(__dirname, "../public/cartilla/art/hd");
-const MANIFEST  = path.resolve(__dirname, "../public/cartilla/art/manifest.json");
+const RAW_ROOT = path.resolve(__dirname, "../public/cartilla/art/raw");
+const HD_ROOT = path.resolve(__dirname, "../public/cartilla/art/hd");
+const MANIFEST = path.resolve(__dirname, "../public/cartilla/art/manifest.json");
 
 // Unsharp mask: sigma / strength / threshold
 // These values are calibrated for scanned book pages (~300 dpi input).
@@ -59,14 +59,14 @@ const JPEG_QUALITY = 92;
 
 // ── CLI args ─────────────────────────────────────────────────────────────────
 
-const args      = process.argv.slice(2);
-const docIdx    = args.indexOf("--doc");
+const args = process.argv.slice(2);
+const docIdx = args.indexOf("--doc");
 const targetDoc = docIdx !== -1 ? args[docIdx + 1] : null;
 
-const widthIdx  = args.indexOf("--width");
-const width     = widthIdx !== -1 ? parseInt(args[widthIdx + 1]) || DEFAULT_WIDTH : DEFAULT_WIDTH;
-const force     = args.includes("--force");
-const noPng     = args.includes("--no-png");
+const widthIdx = args.indexOf("--width");
+const width = widthIdx !== -1 ? parseInt(args[widthIdx + 1]) || DEFAULT_WIDTH : DEFAULT_WIDTH;
+const force = args.includes("--force");
+const noPng = args.includes("--no-png");
 
 // ── Load sharp ───────────────────────────────────────────────────────────────
 
@@ -100,8 +100,8 @@ function getRawPages(docKey) {
  */
 async function polishPage(rawPath, hdDir, pageNum, totalPages) {
   const pageName = path.basename(rawPath, ".png"); // "page-001"
-  const outJpg   = path.join(hdDir, `${pageName}.jpg`);
-  const outPng   = path.join(hdDir, `${pageName}.png`);
+  const outJpg = path.join(hdDir, `${pageName}.jpg`);
+  const outPng = path.join(hdDir, `${pageName}.png`);
 
   const bothExist = fs.existsSync(outJpg) && (noPng || fs.existsSync(outPng));
   if (!force && bothExist) {
@@ -117,23 +117,21 @@ async function polishPage(rawPath, hdDir, pageNum, totalPages) {
   // only has so much information; beyond 4× Lanczos diverges.
   const targetW = Math.min(width, srcW * 4);
 
-  process.stdout.write(
-    `   🔬 ${pageNum}/${totalPages}  ${srcW}×${srcH} → ${targetW}px…\r`
-  );
+  process.stdout.write(`   🔬 ${pageNum}/${totalPages}  ${srcW}×${srcH} → ${targetW}px…\r`);
 
   // Common pipeline: resize (Lanczos) → unsharp mask
   const pipeline = sharp(rawPath)
     .resize(targetW, null, {
-      kernel: "lanczos3",  // Best quality for scanned art
+      kernel: "lanczos3", // Best quality for scanned art
       fastShrinkOnLoad: false,
     })
     .sharpen({
-      sigma:     UNSHARP.sigma,
-      m1:        UNSHARP.strength,  // amount for "flat" areas
-      m2:        UNSHARP.strength,  // amount for "jagged" areas
-      x1:        2,                 // controls sharpening boundary
-      y2:        10,                // controls sharpening intensity
-      y3:        20,
+      sigma: UNSHARP.sigma,
+      m1: UNSHARP.strength, // amount for "flat" areas
+      m2: UNSHARP.strength, // amount for "jagged" areas
+      x1: 2, // controls sharpening boundary
+      y2: 10, // controls sharpening intensity
+      y3: 20,
     })
     // Normalise scan white-point (safe, style-faithful — only moves
     // darkest/lightest pixels to 0/255 without touching mid-tones)
@@ -147,10 +145,7 @@ async function polishPage(rawPath, hdDir, pageNum, totalPages) {
 
   // Write lossless PNG unless --no-png
   if (!noPng) {
-    await pipeline
-      .clone()
-      .png({ compressionLevel: 7, adaptiveFiltering: true })
-      .toFile(outPng);
+    await pipeline.clone().png({ compressionLevel: 7, adaptiveFiltering: true }).toFile(outPng);
   }
 
   return { jpg: outJpg, png: noPng ? null : outPng };
@@ -210,8 +205,7 @@ function buildManifest(results) {
   const workbook = results.find((r) => r.docKey === "workbook");
   if (workbook) {
     // Public URL for each page (relative to /public/)
-    const url = (p) =>
-      "/cartilla/art/hd/workbook/" + path.basename(p).replace(".png", ".jpg");
+    const url = (p) => "/cartilla/art/hd/workbook/" + path.basename(p).replace(".png", ".jpg");
 
     if (workbook.pages[0]?.jpg) {
       manifest.cover = url(workbook.pages[0].jpg);
@@ -220,11 +214,11 @@ function buildManifest(results) {
     // Pages 2–25 → lessons 1–24
     for (let lesson = 1; lesson <= 24; lesson++) {
       const pageIdx = lesson; // 0-indexed: page[0]=cover, page[1]=lesson 1
-      const entry   = workbook.pages[pageIdx];
+      const entry = workbook.pages[pageIdx];
       if (entry?.jpg) {
         manifest.lessons[String(lesson)] = {
           pageThumb: url(entry.jpg),
-          pages:     [url(entry.jpg)],
+          pages: [url(entry.jpg)],
         };
       }
     }
@@ -233,7 +227,7 @@ function buildManifest(results) {
   fs.writeFileSync(MANIFEST, JSON.stringify(manifest, null, 2), "utf-8");
   console.log(`\n📋  Manifest written → ${path.relative(process.cwd(), MANIFEST)}`);
   console.log(
-    `    cover: ${manifest.cover || "(none)"} | lessons: ${Object.keys(manifest.lessons).length}`
+    `    cover: ${manifest.cover || "(none)"} | lessons: ${Object.keys(manifest.lessons).length}`,
   );
 }
 
@@ -254,14 +248,10 @@ async function main() {
     evals: true,
   });
 
-  const targets = targetDoc
-    ? docKeys.filter((k) => k === targetDoc)
-    : docKeys;
+  const targets = targetDoc ? docKeys.filter((k) => k === targetDoc) : docKeys;
 
   if (targetDoc && targets.length === 0) {
-    console.error(
-      `❌  Unknown doc "${targetDoc}". Valid keys: ${docKeys.join(", ")}`
-    );
+    console.error(`❌  Unknown doc "${targetDoc}". Valid keys: ${docKeys.join(", ")}`);
     process.exit(1);
   }
 
@@ -272,7 +262,7 @@ async function main() {
 
   // Rebuild manifest whenever workbook was processed
   const didWorkbook = results.some((r) => r.docKey === "workbook" && r.pages.length > 0);
-  const allResults  = didWorkbook
+  const allResults = didWorkbook
     ? results
     : (() => {
         // Load existing workbook data from HD dir for manifest-only rebuild

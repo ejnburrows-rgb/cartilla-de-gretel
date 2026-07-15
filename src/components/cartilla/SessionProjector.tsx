@@ -2,7 +2,7 @@ import React, { Suspense, useMemo } from "react";
 import type { CatalogEntry } from "@/lib/lesson-catalog";
 
 const LazyPdfPage = React.lazy(() =>
-  import("@/components/cartilla/PdfPage").then((module) => ({ default: module.PdfPage }))
+  import("@/components/cartilla/PdfPage").then((module) => ({ default: module.PdfPage })),
 );
 import { FlipBoard } from "@/components/cartilla/FlipBoard";
 

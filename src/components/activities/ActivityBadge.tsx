@@ -1,9 +1,4 @@
-import {
-  ACTIVITY_REGISTRY,
-  activitySolid,
-  activityTint,
-  type ActivityKind,
-} from "./activityIcons";
+import { ACTIVITY_REGISTRY, activitySolid, activityTint, type ActivityKind } from "./activityIcons";
 
 export type ActivityBadgeVariant = "tint" | "solid";
 export type ActivityBadgeSize = "sm" | "md" | "lg";
@@ -47,17 +42,13 @@ export function ActivityBadge({
 }: ActivityBadgeProps) {
   const spec = ACTIVITY_REGISTRY[kind];
   const Icon = spec.Icon;
-  const colorClass =
-    variant === "solid" ? activitySolid(spec.tone) : activityTint(spec.tone);
+  const colorClass = variant === "solid" ? activitySolid(spec.tone) : activityTint(spec.tone);
   const boxClass = SIZE_TO_BOX[size];
   const iconSize = SIZE_TO_ICON_PX[size];
   const labelSize = SIZE_TO_LABEL[size];
 
   return (
-    <span
-      className={"inline-flex items-center gap-3 " + className}
-      data-activity={kind}
-    >
+    <span className={"inline-flex items-center gap-3 " + className} data-activity={kind}>
       <span
         aria-hidden
         className={
@@ -71,10 +62,7 @@ export function ActivityBadge({
       </span>
       {showLabel ? (
         <span
-          className={
-            "font-black uppercase tracking-wider text-[hsl(28,30%,18%)]/85 " +
-            labelSize
-          }
+          className={"font-black uppercase tracking-wider text-[hsl(28,30%,18%)]/85 " + labelSize}
         >
           {spec.label}
         </span>

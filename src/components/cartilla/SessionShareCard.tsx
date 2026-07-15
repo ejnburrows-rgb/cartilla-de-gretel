@@ -121,14 +121,7 @@ export function SessionShareCard() {
             {qrGrid.map((row, y) =>
               row.map((active, x) =>
                 active ? (
-                  <rect
-                    key={`${x}-${y}`}
-                    x={x}
-                    y={y}
-                    width={1}
-                    height={1}
-                    fill="#3A281E"
-                  />
+                  <rect key={`${x}-${y}`} x={x} y={y} width={1} height={1} fill="#3A281E" />
                 ) : null,
               ),
             )}

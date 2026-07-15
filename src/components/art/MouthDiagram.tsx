@@ -28,12 +28,7 @@ const MOUTH_MAP: Record<MouthKind, MouthComponent> = {
   trill: MouthTrill,
 };
 
-export function MouthDiagram({
-  k,
-  size,
-  className,
-  animated = false,
-}: MouthDiagramProps) {
+export function MouthDiagram({ k, size, className, animated = false }: MouthDiagramProps) {
   const Component = MOUTH_MAP[k];
 
   if (!Component) {

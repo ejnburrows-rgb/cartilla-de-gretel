@@ -49,7 +49,10 @@ describe("/cartilla/teacher/ayuda — teacher how-to page", () => {
       "Orden típico de una clase con esta app",
     ];
     for (const title of expectedTitles) {
-      const heading = screen.getByRole("heading", { level: 2, name: new RegExp(escapeRegExp(title)) });
+      const heading = screen.getByRole("heading", {
+        level: 2,
+        name: new RegExp(escapeRegExp(title)),
+      });
       expect(heading).toBeTruthy();
     }
   });

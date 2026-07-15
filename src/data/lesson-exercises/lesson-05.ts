@@ -16,14 +16,14 @@ export const lesson05 = [
       { id: "img-unicornio-4", label: "unicornio" },
       { id: "img-uña-5", label: "uña" },
       { id: "img-estrella-6", label: "estrella" },
-      { id: "img-iman-7", label: "imán" }
+      { id: "img-iman-7", label: "imán" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
     teacherNotes: "Scaffolded exercise for U u.",
-    sourcePage: getBookPageImage(23)
+    sourcePage: getBookPageImage(23),
   },
   {
     id: "l5-p24-letter-tracing",
@@ -34,14 +34,14 @@ export const lesson05 = [
     prompt: "Haz un dibujo que represente una palabra que comienza con u.",
     items: [
       { id: "letter-U-0", label: "U" },
-      { id: "letter-u-1", label: "u" }
+      { id: "letter-u-1", label: "u" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
     teacherNotes: "Scaffolded letter tracing for U u.",
-    sourcePage: getBookPageImage(24)
+    sourcePage: getBookPageImage(24),
   },
   {
     id: "l5-p25-letter-tracing",
@@ -52,14 +52,14 @@ export const lesson05 = [
     prompt: "Haz un dibujo que represente una palabra que comienza con m.",
     items: [
       { id: "letter-M-0", label: "M" },
-      { id: "letter-m-1", label: "m" }
+      { id: "letter-m-1", label: "m" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
     teacherNotes: "Scaffolded letter tracing for M m.",
-    sourcePage: getBookPageImage(25)
+    sourcePage: getBookPageImage(25),
   },
   {
     id: "l5-p26-syllable-circle",
@@ -73,7 +73,7 @@ export const lesson05 = [
       { id: "syl-me-1", label: "me" },
       { id: "syl-mi-2", label: "mi" },
       { id: "syl-mo-3", label: "mo" },
-      { id: "syl-mu-4", label: "mu" }
+      { id: "syl-mu-4", label: "mu" },
     ],
     targets: [
       { id: "word-mami-0", label: "mami" },
@@ -105,12 +105,12 @@ export const lesson05 = [
       { id: "word-muro-26", label: "muro" },
       { id: "word-mudo-27", label: "mudo" },
       { id: "word-mujer-28", label: "mujer" },
-      { id: "word-Mumi-29", label: "Mumi" }
+      { id: "word-Mumi-29", label: "Mumi" },
     ],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
     teacherNotes: "Scaffolded exercise for syllables.",
-    sourcePage: getBookPageImage(26)
-  }
+    sourcePage: getBookPageImage(26),
+  },
 ];

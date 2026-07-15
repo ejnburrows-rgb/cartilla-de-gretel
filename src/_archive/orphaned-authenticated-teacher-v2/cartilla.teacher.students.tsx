@@ -48,10 +48,15 @@ function StudentsOverview() {
       >
         <ArrowLeft className="w-4 h-4" /> {t.volverDashboard[lang]}
       </Link>
-      
+
       <header className="mt-4 mb-8">
-        <h1 className="text-3xl sm:text-4xl font-black text-stone-800 font-fredoka">{t.todosLosAlumnos[lang] ?? "Todos los Alumnos"}</h1>
-        <p className="text-sm font-bold text-stone-500 mt-1">{t.vistaGeneralAlumnos[lang] ?? "Vista general del avance de tus alumnos en todas las clases."}</p>
+        <h1 className="text-3xl sm:text-4xl font-black text-stone-800 font-fredoka">
+          {t.todosLosAlumnos[lang] ?? "Todos los Alumnos"}
+        </h1>
+        <p className="text-sm font-bold text-stone-500 mt-1">
+          {t.vistaGeneralAlumnos[lang] ??
+            "Vista general del avance de tus alumnos en todas las clases."}
+        </p>
       </header>
 
       {sortedStudents.length === 0 ? (
@@ -59,14 +64,17 @@ function StudentsOverview() {
           <div className="w-16 h-16 bg-stone-100 text-stone-400 rounded-2xl flex items-center justify-center mx-auto mb-4">
             <User className="w-8 h-8" />
           </div>
-          <h2 className="text-xl font-black text-stone-800 font-fredoka mb-2">{t.aunNoHayEstudiantes[lang] ?? "Aún no hay estudiantes en tu clase."}</h2>
+          <h2 className="text-xl font-black text-stone-800 font-fredoka mb-2">
+            {t.aunNoHayEstudiantes[lang] ?? "Aún no hay estudiantes en tu clase."}
+          </h2>
           <p className="text-sm font-bold text-stone-500">
-            {t.anadeEstudiantes[lang] ?? "Añade estudiantes en el panel principal para ver su progreso aquí."}
+            {t.anadeEstudiantes[lang] ??
+              "Añade estudiantes en el panel principal para ver su progreso aquí."}
           </p>
         </div>
       ) : (
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {sortedStudents.map(s => (
+          {sortedStudents.map((s) => (
             <li key={s.id}>
               <Link
                 to="/cartilla/teacher/alumno/$id"
@@ -86,15 +94,20 @@ function StudentsOverview() {
                       {s.lastSeen ? new Date(s.lastSeen).toLocaleDateString() : t.nunca[lang]}
                     </div>
                   </div>
-                  
+
                   <div className="space-y-2 mt-auto">
                     <div className="flex justify-between text-xs font-black text-stone-600">
-                      <span className="flex items-center gap-1"><BookOpen className="w-4 h-4 text-[#8da47e]"/> {t.leccionesCompletadas[lang]}</span>
-                      <span>{s.lessons} / {TOTAL_LESSONS}</span>
+                      <span className="flex items-center gap-1">
+                        <BookOpen className="w-4 h-4 text-[#8da47e]" />{" "}
+                        {t.leccionesCompletadas[lang]}
+                      </span>
+                      <span>
+                        {s.lessons} / {TOTAL_LESSONS}
+                      </span>
                     </div>
                     <div className="h-3.5 w-full bg-stone-100 rounded-full overflow-hidden border border-stone-200/50">
-                      <div 
-                        className="h-full bg-gradient-to-r from-[#a3bd93] to-[#8da47e] transition-all duration-500 ease-out" 
+                      <div
+                        className="h-full bg-gradient-to-r from-[#a3bd93] to-[#8da47e] transition-all duration-500 ease-out"
                         style={{ width: `${Math.min(100, (s.lessons / TOTAL_LESSONS) * 100)}%` }}
                       />
                     </div>

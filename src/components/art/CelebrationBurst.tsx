@@ -23,9 +23,18 @@ const PARTICLES = Array.from({ length: PARTICLE_COUNT }, (_, i) => {
 });
 
 const BURST_COLORS = [
-  "#ffd43b", "#40c057", "#228be6", "#e64980",
-  "#f59f00", "#7950f2", "#ff6b6b", "#20c997",
-  "#fab005", "#4c6ef5", "#f06595", "#12b886",
+  "#ffd43b",
+  "#40c057",
+  "#228be6",
+  "#e64980",
+  "#f59f00",
+  "#7950f2",
+  "#ff6b6b",
+  "#20c997",
+  "#fab005",
+  "#4c6ef5",
+  "#f06595",
+  "#12b886",
 ] as const;
 
 /* Mini shape renderers */
@@ -65,20 +74,10 @@ export function CelebrationBurst({ active = false, className, ...rest }: Celebra
         const color = BURST_COLORS[i % BURST_COLORS.length];
 
         return (
-          <g
-            key={i}
-            className="art-burst-particle"
-            style={particleStyle}
-          >
-            {p.shape === 0 && (
-              <path d={starPath(150, 150)} fill={color} />
-            )}
-            {p.shape === 1 && (
-              <circle cx={150} cy={150} r={5} fill={color} />
-            )}
-            {p.shape === 2 && (
-              <path d={diamondPath(150, 150)} fill={color} />
-            )}
+          <g key={i} className="art-burst-particle" style={particleStyle}>
+            {p.shape === 0 && <path d={starPath(150, 150)} fill={color} />}
+            {p.shape === 1 && <circle cx={150} cy={150} r={5} fill={color} />}
+            {p.shape === 2 && <path d={diamondPath(150, 150)} fill={color} />}
           </g>
         );
       })}

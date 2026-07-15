@@ -41,7 +41,7 @@ const threeColGridStyle: React.CSSProperties = {
 export function SesionInteractiva() {
   const { n: nParam } = Route.useParams();
   const n = Number(nParam);
-  
+
   const entry = useMemo(() => {
     return CATALOG.find((e) => e.n === n) || CATALOG[0]!;
   }, [n]);
@@ -76,9 +76,7 @@ export function SesionInteractiva() {
               Consola del Profesor
             </span>
             <div className="flex items-center gap-2">
-              <h1 className="text-base font-bold text-stone-800">
-                {entry.title}
-              </h1>
+              <h1 className="text-base font-bold text-stone-800">{entry.title}</h1>
               <span className="text-xs font-bold font-mono" style={activeColor}>
                 págs. {entry.pages}
               </span>
@@ -107,11 +105,7 @@ export function SesionInteractiva() {
 
           {/* Column 2 — Projector */}
           <main className="w-full">
-            <SessionProjector
-              entry={entry}
-              activeStepIdx={stepIdx}
-              key={stepIdx}
-            />
+            <SessionProjector entry={entry} activeStepIdx={stepIdx} key={stepIdx} />
           </main>
 
           {/* Column 3 — Teacher Docks */}

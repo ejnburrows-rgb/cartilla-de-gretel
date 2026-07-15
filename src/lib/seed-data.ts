@@ -125,7 +125,11 @@ function generateSeedEvents(
 ): SeedEvent[] {
   const events: SeedEvent[] = [];
   const scoreFor = (kind: typeof opts.scoreQuality) =>
-    kind === "high" ? { score: 9, total: 10 } : kind === "medium" ? { score: 6, total: 10 } : { score: 3, total: 10 };
+    kind === "high"
+      ? { score: 9, total: 10 }
+      : kind === "medium"
+        ? { score: 6, total: 10 }
+        : { score: 3, total: 10 };
 
   completedLessons.forEach((lessonNum, i) => {
     const daysAgo = opts.lastActiveDaysAgo + (completedLessons.length - i) * 2;
@@ -642,25 +646,24 @@ export function getSeedClassProgress(classId: string) {
     recentEvents,
     attentionByStudent,
     perStudentExercise: {} as Record<string, Record<string, { hits: number; attempts: number }>>,
-    perStudent: classStudents
-      .map((s) => ({
-        id: s.id,
-        name: s.display_name,
-        lessonsCount: new Set(
+    perStudent: classStudents.map((s) => ({
+      id: s.id,
+      name: s.display_name,
+      lessonsCount: new Set(
+        events
+          .filter((e) => e.student_id === s.id && e.event_kind === "lesson_completed")
+          .map((e) => e.lesson_id),
+      ).size,
+      completedLessonIds: Array.from(
+        new Set(
           events
             .filter((e) => e.student_id === s.id && e.event_kind === "lesson_completed")
             .map((e) => e.lesson_id),
-        ).size,
-        completedLessonIds: Array.from(
-          new Set(
-            events
-              .filter((e) => e.student_id === s.id && e.event_kind === "lesson_completed")
-              .map((e) => e.lesson_id),
-          ),
         ),
-        accuracy: null,
-        timeSeconds: 0,
-      })),
+      ),
+      accuracy: null,
+      timeSeconds: 0,
+    })),
     perLesson: Object.fromEntries(
       Object.entries(perLesson).map(([lesson, row]) => [
         lesson,

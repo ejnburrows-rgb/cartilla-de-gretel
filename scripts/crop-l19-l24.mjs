@@ -359,7 +359,11 @@ async function cropOne(spec) {
   if (PROBE) {
     fs.mkdirSync(outProbe, { recursive: true });
     const probePath = path.join(outProbe, `${spec.slug}.jpg`);
-    await sharp(srcPath).extract(box).resize({ width: 400 }).jpeg({ quality: 85 }).toFile(probePath);
+    await sharp(srcPath)
+      .extract(box)
+      .resize({ width: 400 })
+      .jpeg({ quality: 85 })
+      .toFile(probePath);
     return { slug: spec.slug, probe: probePath, box, page: `${meta.width}x${meta.height}` };
   }
 
@@ -392,7 +396,10 @@ async function main() {
     console.log("OK", e.slug, e.outputPixels || e.box, e.bytes || "");
   }
   const reportPath = path.join(ROOT, "generated/agent2-crop-report.json");
-  fs.writeFileSync(reportPath, JSON.stringify({ mode: PROBE ? "probe" : "crop", entries }, null, 2));
+  fs.writeFileSync(
+    reportPath,
+    JSON.stringify({ mode: PROBE ? "probe" : "crop", entries }, null, 2),
+  );
   console.log("Wrote", reportPath, entries.length);
 }
 

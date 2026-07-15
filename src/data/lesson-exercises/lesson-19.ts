@@ -13,14 +13,15 @@ export const lesson19 = [
       { id: "img-gusano", label: "gusano" },
       { id: "img-goloso", label: "Goloso" },
       { id: "img-gorra", label: "gorra" },
-      { id: "img-mago", label: "mago" }
+      { id: "img-mago", label: "mago" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Transcribed verbatim from public/cartilla/images/source/g/g-page-43.jpg (real scan).",
-    sourcePage: getBookPageImage(67)
+    teacherNotes:
+      "Transcribed verbatim from public/cartilla/images/source/g/g-page-43.jpg (real scan).",
+    sourcePage: getBookPageImage(67),
   },
   {
     id: "l19-p68-syllable-tap",
@@ -32,14 +33,15 @@ export const lesson19 = [
     items: [
       { id: "ra-ga", label: "ga" },
       { id: "ra-go", label: "go" },
-      { id: "ra-gu", label: "gu" }
+      { id: "ra-gu", label: "gu" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Transcribed verbatim from public/cartilla/images/source/g/g-page-44.jpg (real scan).",
-    sourcePage: getBookPageImage(68)
+    teacherNotes:
+      "Transcribed verbatim from public/cartilla/images/source/g/g-page-44.jpg (real scan).",
+    sourcePage: getBookPageImage(68),
   },
   {
     id: "l19-p68-word-bank",
@@ -63,14 +65,15 @@ export const lesson19 = [
       { id: "w-laguna", label: "laguna" },
       { id: "w-golosina", label: "golosina" },
       { id: "w-gorra", label: "gorra" },
-      { id: "w-gondola", label: "góndola" }
+      { id: "w-gondola", label: "góndola" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Word list transcribed verbatim from public/cartilla/images/source/g/g-page-44.jpg (real scan). No highlighted sight-word bar was present on this page.",
-    sourcePage: getBookPageImage(68)
+    teacherNotes:
+      "Word list transcribed verbatim from public/cartilla/images/source/g/g-page-44.jpg (real scan). No highlighted sight-word bar was present on this page.",
+    sourcePage: getBookPageImage(68),
   },
   {
     id: "l19-p68-mini-story",
@@ -87,14 +90,15 @@ export const lesson19 = [
       { id: "story-g-5", label: "ven el agua. A Magali le gusta el agua." },
       { id: "story-g-6", label: "Goloso y Musulunga van a la laguna." },
       { id: "story-g-7", label: "Goloso le regala un gusanito rosadito a" },
-      { id: "story-g-8", label: "Musulunga." }
+      { id: "story-g-8", label: "Musulunga." },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Reading passage transcribed verbatim from public/cartilla/images/source/g/g-page-44.jpg (real scan).",
-    sourcePage: getBookPageImage(68)
+    teacherNotes:
+      "Reading passage transcribed verbatim from public/cartilla/images/source/g/g-page-44.jpg (real scan).",
+    sourcePage: getBookPageImage(68),
   },
   {
     id: "l19-p69-rhyme",
@@ -111,14 +115,15 @@ export const lesson19 = [
       { id: "rhyme-g-5", label: "-Gatita gordita" },
       { id: "rhyme-g-6", label: "gatita, mi amor" },
       { id: "rhyme-g-7", label: "este gusanito" },
-      { id: "rhyme-g-8", label: "es para los dos." }
+      { id: "rhyme-g-8", label: "es para los dos." },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Rhyme transcribed verbatim from public/cartilla/images/source/g/g-page-45.jpg (real scan).",
-    sourcePage: getBookPageImage(69)
+    teacherNotes:
+      "Rhyme transcribed verbatim from public/cartilla/images/source/g/g-page-45.jpg (real scan).",
+    sourcePage: getBookPageImage(69),
   },
   {
     id: "l19-p70-fill-in-blank",
@@ -130,15 +135,63 @@ export const lesson19 = [
     items: [
       { id: "syl-ga", label: "ga" },
       { id: "syl-go", label: "go" },
-      { id: "syl-gu", label: "gu" }
+      { id: "syl-gu", label: "gu" },
     ],
     targets: [
-      { id: "blank-aguja", label: "a___ja", hint: "gu - go", correctSyllable: "gu", fullWord: "aguja", coordinatesVerified: false, acceptsItemId: "syl-gu" },
-      { id: "blank-ganas", label: "___nas", hint: "ga - go", correctSyllable: "ga", fullWord: "ganas", coordinatesVerified: false, acceptsItemId: "syl-ga" },
-      { id: "blank-mago", label: "ma___", hint: "go - gu", correctSyllable: "go", fullWord: "mago", coordinatesVerified: false, acceptsItemId: "syl-go" },
-      { id: "blank-gato", label: "___to", hint: "ga - gu", correctSyllable: "ga", fullWord: "gato", coordinatesVerified: false, acceptsItemId: "syl-ga" },
-      { id: "blank-goma", label: "___ma", hint: "gu - go", correctSyllable: "go", fullWord: "goma", coordinatesVerified: false, acceptsItemId: "syl-go" },
-      { id: "blank-lago", label: "la___", hint: "go - ga", correctSyllable: "go", fullWord: "lago", coordinatesVerified: false, acceptsItemId: "syl-go" }
+      {
+        id: "blank-aguja",
+        label: "a___ja",
+        hint: "gu - go",
+        correctSyllable: "gu",
+        fullWord: "aguja",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-gu",
+      },
+      {
+        id: "blank-ganas",
+        label: "___nas",
+        hint: "ga - go",
+        correctSyllable: "ga",
+        fullWord: "ganas",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-ga",
+      },
+      {
+        id: "blank-mago",
+        label: "ma___",
+        hint: "go - gu",
+        correctSyllable: "go",
+        fullWord: "mago",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-go",
+      },
+      {
+        id: "blank-gato",
+        label: "___to",
+        hint: "ga - gu",
+        correctSyllable: "ga",
+        fullWord: "gato",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-ga",
+      },
+      {
+        id: "blank-goma",
+        label: "___ma",
+        hint: "gu - go",
+        correctSyllable: "go",
+        fullWord: "goma",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-go",
+      },
+      {
+        id: "blank-lago",
+        label: "la___",
+        hint: "go - ga",
+        correctSyllable: "go",
+        fullWord: "lago",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-go",
+      },
     ],
     exercises: [
       { partial: "a___ja", choices: ["gu", "go"], answer: "gu", fullWord: "aguja" },
@@ -146,13 +199,14 @@ export const lesson19 = [
       { partial: "ma___", choices: ["go", "gu"], answer: "go", fullWord: "mago" },
       { partial: "___to", choices: ["ga", "gu"], answer: "ga", fullWord: "gato" },
       { partial: "___ma", choices: ["gu", "go"], answer: "go", fullWord: "goma" },
-      { partial: "la___", choices: ["go", "ga"], answer: "go", fullWord: "lago" }
+      { partial: "la___", choices: ["go", "ga"], answer: "go", fullWord: "lago" },
     ],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Fill-in-blank transcribed verbatim from public/cartilla/images/source/g/g-page-46.jpg (real scan; physical page 70, 'Lección 19' confirmed printed on the page).",
-    sourcePage: getBookPageImage(70)
+    teacherNotes:
+      "Fill-in-blank transcribed verbatim from public/cartilla/images/source/g/g-page-46.jpg (real scan; physical page 70, 'Lección 19' confirmed printed on the page).",
+    sourcePage: getBookPageImage(70),
   },
   {
     id: "l19-p70-write-sentences",
@@ -166,7 +220,8 @@ export const lesson19 = [
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Sentence writing lines, confirmed present on public/cartilla/images/source/g/g-page-46.jpg (real scan).",
-    sourcePage: getBookPageImage(70)
-  }
+    teacherNotes:
+      "Sentence writing lines, confirmed present on public/cartilla/images/source/g/g-page-46.jpg (real scan).",
+    sourcePage: getBookPageImage(70),
+  },
 ];

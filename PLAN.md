@@ -32,7 +32,7 @@
 - **Goal:** Reduce lint problems in the files touched by each task.
 - **Exact expected files or area:** Application files failing `pnpm lint` (maximum five files per pass).
 - **Done when:** `pnpm lint` returns no errors in the newly modified files.
-- **Status:** NOT STARTED
+- **Status:** DONE
 - **Browser check:** EJN can see the CI/CD pipeline lint step pass without errors.
 
 ## PHASE 2: Supabase and Data Flows

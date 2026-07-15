@@ -76,7 +76,10 @@ export function DrawOla({ size = 120, ...props }: DrawingProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 100 100" {...props}>
       {/* Wave shape */}
-      <path d="M 10,75 C 30,75 40,65 50,50 C 60,35 70,25 82,30 C 90,34 92,45 88,52 C 84,58 76,60 70,55" {...strokeStyle} />
+      <path
+        d="M 10,75 C 30,75 40,65 50,50 C 60,35 70,25 82,30 C 90,34 92,45 88,52 C 84,58 76,60 70,55"
+        {...strokeStyle}
+      />
       <path d="M 82,30 Q 72,15 60,25" {...strokeStyle} />
       {/* Additional crests */}
       <path d="M 10,85 C 35,85 45,80 55,70 C 65,60 75,55 85,60" {...strokeStyle} />
@@ -93,7 +96,10 @@ export function DrawOlla({ size = 120, ...props }: DrawingProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 100 100" {...props}>
       {/* Pot Body */}
-      <path d="M 20,45 L 23,78 C 24,84 30,88 38,88 L 62,88 C 70,88 76,84 77,78 L 80,45 Z" {...strokeStyle} />
+      <path
+        d="M 20,45 L 23,78 C 24,84 30,88 38,88 L 62,88 C 70,88 76,84 77,78 L 80,45 Z"
+        {...strokeStyle}
+      />
       {/* Rim */}
       <rect x="16" y="38" width="68" height="7" rx="3.5" {...strokeStyle} />
       {/* Left Handle */}
@@ -115,10 +121,16 @@ export function DrawArbol({ size = 120, ...props }: DrawingProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 100 100" {...props}>
       {/* Trunk */}
-      <path d="M 45,55 L 43,88 C 43,88 35,90 35,92 L 65,92 C 65,90 57,88 57,88 L 55,55" {...strokeStyle} />
+      <path
+        d="M 45,55 L 43,88 C 43,88 35,90 35,92 L 65,92 C 65,90 57,88 57,88 L 55,55"
+        {...strokeStyle}
+      />
       <path d="M 48,68 Q 50,75 52,82" {...strokeStyle} />
       {/* Leaves canopy */}
-      <path d="M 50,15 C 38,15 30,22 30,32 C 20,32 15,42 20,52 C 25,60 35,58 40,55 C 45,62 55,62 60,55 C 65,58 75,60 80,52 C 85,42 80,32 70,32 C 70,22 62,15 50,15 Z" {...strokeStyle} />
+      <path
+        d="M 50,15 C 38,15 30,22 30,32 C 20,32 15,42 20,52 C 25,60 35,58 40,55 C 45,62 55,62 60,55 C 65,58 75,60 80,52 C 85,42 80,32 70,32 C 70,22 62,15 50,15 Z"
+        {...strokeStyle}
+      />
       {/* Apple/Fruit outlines */}
       <circle cx="38" cy="34" r="3.5" {...strokeStyle} />
       <circle cx="62" cy="38" r="3.5" {...strokeStyle} />
@@ -131,7 +143,10 @@ export function DrawAvion({ size = 120, ...props }: DrawingProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 100 100" {...props}>
       {/* Fuselage */}
-      <path d="M 85,40 C 90,45 65,65 40,65 C 22,65 10,58 10,50 C 10,42 22,35 40,35 C 65,35 80,35 85,40 Z" {...strokeStyle} />
+      <path
+        d="M 85,40 C 90,45 65,65 40,65 C 22,65 10,58 10,50 C 10,42 22,35 40,35 C 65,35 80,35 85,40 Z"
+        {...strokeStyle}
+      />
       {/* Tail Fin */}
       <path d="M 18,37 L 10,18 C 8,14 14,14 18,18 L 26,35" {...strokeStyle} />
       {/* Left Wing (Backwards view) */}
@@ -179,7 +194,10 @@ export function DrawAla({ size = 120, ...props }: DrawingProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 100 100" {...props}>
       {/* Wing shape */}
-      <path d="M 85,25 C 75,25 50,35 30,50 C 15,62 10,75 22,78 C 30,80 40,72 55,60 C 70,48 85,35 90,30 Z" {...strokeStyle} />
+      <path
+        d="M 85,25 C 75,25 50,35 30,50 C 15,62 10,75 22,78 C 30,80 40,72 55,60 C 70,48 85,35 90,30 Z"
+        {...strokeStyle}
+      />
       {/* Feathers */}
       <path d="M 30,50 Q 25,62 32,64" {...strokeStyle} />
       <path d="M 42,42 Q 35,58 45,58" {...strokeStyle} />
@@ -252,7 +270,10 @@ export function DrawEstrella({ size = 120, ...props }: DrawingProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 100 100" {...props}>
       {/* Star outline */}
-      <path d="M 50,10 L 62,35 L 90,38 L 68,57 L 74,85 L 50,70 L 26,85 L 32,57 L 10,38 L 38,35 Z" {...strokeStyle} />
+      <path
+        d="M 50,10 L 62,35 L 90,38 L 68,57 L 74,85 L 50,70 L 26,85 L 32,57 L 10,38 L 38,35 Z"
+        {...strokeStyle}
+      />
       {/* Cute eyes */}
       <circle cx="43" cy="46" r="2" fill="#1c1917" />
       <circle cx="57" cy="46" r="2" fill="#1c1917" />
@@ -322,7 +343,10 @@ export function DrawIguana({ size = 120, ...props }: DrawingProps) {
       {/* Head */}
       <path d="M 22,60 C 15,55 12,42 22,40 C 30,38 35,48 30,56 Z" {...strokeStyle} />
       {/* Spines along back */}
-      <path d="M 36,49 L 38,44 L 42,49 L 45,43 L 49,48 L 52,43 L 56,48 L 59,44 L 63,49" {...strokeStyle} />
+      <path
+        d="M 36,49 L 38,44 L 42,49 L 45,43 L 49,48 L 52,43 L 56,48 L 59,44 L 63,49"
+        {...strokeStyle}
+      />
       {/* Legs */}
       <path d="M 28,61 Q 25,75 22,74" {...strokeStyle} />
       <path d="M 64,59 Q 68,75 72,74" {...strokeStyle} />
@@ -338,12 +362,20 @@ export function DrawIman({ size = 120, ...props }: DrawingProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 100 100" {...props}>
       {/* Horseshoe magnet */}
-      <path d="M 30,25 L 30,55 C 30,72 70,72 70,55 L 70,25 L 56,25 L 56,53 C 56,60 44,60 44,53 L 44,25 Z" fill="#ffffff" {...baseStrokeStyle} />
+      <path
+        d="M 30,25 L 30,55 C 30,72 70,72 70,55 L 70,25 L 56,25 L 56,53 C 56,60 44,60 44,53 L 44,25 Z"
+        fill="#ffffff"
+        {...baseStrokeStyle}
+      />
       {/* Polar ends markings (North / South lines) */}
       <line x1="30" y1="36" x2="44" y2="36" {...strokeStyle} />
       <line x1="56" y1="36" x2="70" y2="36" {...strokeStyle} />
-      <text x="33" y="32" fontSize="9" fontWeight="bold" fill="#1c1917">N</text>
-      <text x="60" y="32" fontSize="9" fontWeight="bold" fill="#1c1917">S</text>
+      <text x="33" y="32" fontSize="9" fontWeight="bold" fill="#1c1917">
+        N
+      </text>
+      <text x="60" y="32" fontSize="9" fontWeight="bold" fill="#1c1917">
+        S
+      </text>
       {/* Magnetic sparks */}
       <path d="M 25,18 L 30,12 L 35,18" {...strokeStyle} />
       <path d="M 65,18 L 70,12 L 75,18" {...strokeStyle} />
@@ -382,7 +414,10 @@ export function DrawUna({ size = 120, ...props }: DrawingProps) {
       {/* Finger outline */}
       <path d="M 36,90 L 36,44 C 36,28 64,28 64,44 L 64,90" {...strokeStyle} />
       {/* Nail outline */}
-      <path d="M 40,48 C 40,36 60,36 60,48 L 60,70 C 60,74 58,76 50,76 C 42,76 40,74 40,70 Z" {...strokeStyle} />
+      <path
+        d="M 40,48 C 40,36 60,36 60,48 L 60,70 C 60,74 58,76 50,76 C 42,76 40,74 40,70 Z"
+        {...strokeStyle}
+      />
       {/* Cuticle line */}
       <path d="M 40,70 Q 50,73 60,70" {...strokeStyle} />
       {/* Shine highlights */}
@@ -395,7 +430,11 @@ export function DrawUno({ size = 120, ...props }: DrawingProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 100 100" {...props}>
       {/* Number 1 block */}
-      <path d="M 36,28 L 54,16 L 54,80 L 64,80 L 64,88 L 36,88 L 36,80 L 46,80 L 46,28 Z" fill="#ffffff" {...baseStrokeStyle} />
+      <path
+        d="M 36,28 L 54,16 L 54,80 L 64,80 L 64,88 L 36,88 L 36,80 L 46,80 L 46,28 Z"
+        fill="#ffffff"
+        {...baseStrokeStyle}
+      />
     </svg>
   );
 }
@@ -404,7 +443,11 @@ export function DrawUrna({ size = 120, ...props }: DrawingProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 100 100" {...props}>
       {/* Urn Amphora body */}
-      <path d="M 50,18 C 30,18 20,40 20,58 C 20,74 35,88 50,88 C 65,88 80,74 80,58 C 80,40 70,18 50,18 Z" fill="#ffffff" {...baseStrokeStyle} />
+      <path
+        d="M 50,18 C 30,18 20,40 20,58 C 20,74 35,88 50,88 C 65,88 80,74 80,58 C 80,40 70,18 50,18 Z"
+        fill="#ffffff"
+        {...baseStrokeStyle}
+      />
       {/* Neck / Rim */}
       <rect x="36" y="10" width="28" height="8" rx="2" {...strokeStyle} />
       {/* Left Handle */}
@@ -438,7 +481,10 @@ export function DrawMama({ size = 120, ...props }: DrawingProps) {
       {/* Smile */}
       <path d="M 44,54 Q 50,60 56,54" {...strokeStyle} />
       {/* Neck */}
-      <path d="M 44,65 L 44,82 C 44,82 30,86 28,88 L 72,88 C 70,86 56,82 56,82 L 56,65" {...strokeStyle} />
+      <path
+        d="M 44,65 L 44,82 C 44,82 30,86 28,88 L 72,88 C 70,86 56,82 56,82 L 56,65"
+        {...strokeStyle}
+      />
     </svg>
   );
 }
@@ -474,7 +520,11 @@ export function DrawMimo({ size = 120, ...props }: DrawingProps) {
       {/* Happy smile */}
       <path d="M 44,46 Q 50,52 56,46" {...strokeStyle} />
       {/* Striped shirt torso */}
-      <path d="M 32,56 C 32,56 22,64 16,74 L 24,78 L 32,68 L 32,90 L 68,90 L 68,68 L 76,78 L 84,74 C 78,64 68,56 68,56 Z" fill="#ffffff" {...baseStrokeStyle} />
+      <path
+        d="M 32,56 C 32,56 22,64 16,74 L 24,78 L 32,68 L 32,90 L 68,90 L 68,68 L 76,78 L 84,74 C 78,64 68,56 68,56 Z"
+        fill="#ffffff"
+        {...baseStrokeStyle}
+      />
       {/* Shirt Stripes */}
       <line x1="32" y1="64" x2="68" y2="64" {...strokeStyle} />
       <line x1="32" y1="74" x2="68" y2="74" {...strokeStyle} />
@@ -494,7 +544,11 @@ export function DrawMono({ size = 120, ...props }: DrawingProps) {
       <circle cx="77" cy="46" r="10" {...strokeStyle} />
       <circle cx="77" cy="46" r="5" {...strokeStyle} />
       {/* Inner face shape (heart/banana outline) */}
-      <path d="M 50,38 C 42,32 30,38 34,54 C 38,68 62,68 66,54 C 70,38 58,32 50,38 Z" fill="#ffffff" {...baseStrokeStyle} />
+      <path
+        d="M 50,38 C 42,32 30,38 34,54 C 38,68 62,68 66,54 C 70,38 58,32 50,38 Z"
+        fill="#ffffff"
+        {...baseStrokeStyle}
+      />
       {/* Eyes */}
       <circle cx="43" cy="44" r="2.5" fill="#1c1917" />
       <circle cx="57" cy="44" r="2.5" fill="#1c1917" />
@@ -556,36 +610,36 @@ export function DrawFallback({ word, size = 120, ...props }: DrawingProps & { wo
 
 const DRAWING_REGISTRY: Record<string, React.ComponentType<any>> = {
   // O oso
-  "oso": DrawOso,
-  "ojo": DrawOjo,
-  "ola": DrawOla,
-  "olla": DrawOlla,
+  oso: DrawOso,
+  ojo: DrawOjo,
+  ola: DrawOla,
+  olla: DrawOlla,
   // A árbol
-  "árbol": DrawArbol,
-  "avión": DrawAvion,
-  "abeja": DrawAbeja,
-  "ala": DrawAla,
+  árbol: DrawArbol,
+  avión: DrawAvion,
+  abeja: DrawAbeja,
+  ala: DrawAla,
   // E elefante
-  "elefante": DrawElefante,
-  "escoba": DrawEscoba,
-  "espejo": DrawEspejo,
-  "estrella": DrawEstrella,
+  elefante: DrawElefante,
+  escoba: DrawEscoba,
+  espejo: DrawEspejo,
+  estrella: DrawEstrella,
   // I iglú
-  "iglú": DrawIglu,
-  "isla": DrawIsla,
-  "iguana": DrawIguana,
-  "imán": DrawIman,
+  iglú: DrawIglu,
+  isla: DrawIsla,
+  iguana: DrawIguana,
+  imán: DrawIman,
   // U uvas
-  "uvas": DrawUvas,
-  "uña": DrawUna,
-  "uno": DrawUno,
-  "urna": DrawUrna,
+  uvas: DrawUvas,
+  uña: DrawUna,
+  uno: DrawUno,
+  urna: DrawUrna,
   // M consonant
-  "mamá": DrawMama,
-  "mesa": DrawMesa,
-  "mimo": DrawMimo,
-  "mono": DrawMono,
-  "mulo": DrawMulo,
+  mamá: DrawMama,
+  mesa: DrawMesa,
+  mimo: DrawMimo,
+  mono: DrawMono,
+  mulo: DrawMulo,
 };
 
 interface MonochromeDrawingProps extends DrawingProps {

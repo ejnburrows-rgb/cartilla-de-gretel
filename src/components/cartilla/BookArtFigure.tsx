@@ -6,7 +6,6 @@
 import type React from "react";
 import { useBookArt } from "@/hooks/useBookArt";
 
-
 type Role = "character" | "cover" | "page-thumb";
 
 interface BookArtFigureProps {
@@ -20,12 +19,7 @@ interface BookArtFigureProps {
 export function BookArtFigure({ lesson, role, className = "", alt, style }: BookArtFigureProps) {
   const art = useBookArt(lesson);
 
-  const src =
-    role === "cover"
-      ? art.cover
-      : role === "page-thumb"
-        ? art.pageThumb
-        : art.character;
+  const src = role === "cover" ? art.cover : role === "page-thumb" ? art.pageThumb : art.character;
 
   const defaultAlt =
     role === "cover"
@@ -55,13 +49,7 @@ export function BookArtFigure({ lesson, role, className = "", alt, style }: Book
 
   return (
     <figure className={`book-art-figure ${className}`} style={style} aria-label={alt ?? defaultAlt}>
-      <img
-        src={src}
-        alt={alt ?? defaultAlt}
-        loading="lazy"
-        decoding="async"
-        draggable={false}
-      />
+      <img src={src} alt={alt ?? defaultAlt} loading="lazy" decoding="async" draggable={false} />
     </figure>
   );
 }

@@ -49,9 +49,7 @@ function BrandingPage() {
         </div>
         <div>
           <h1 className="text-3xl font-bold">{t.marcaTextos[lang]}</h1>
-          <p className="text-foreground/70 mt-1">
-            {t.fuenteUnica[lang]}
-          </p>
+          <p className="text-foreground/70 mt-1">{t.fuenteUnica[lang]}</p>
         </div>
       </header>
 
@@ -72,7 +70,8 @@ function BrandingPage() {
           {t.comoCambiarDesc1[lang]}{" "}
           <code className="font-mono bg-background px-1.5 py-0.5 rounded">src/lib/branding.ts</code>
           {t.comoCambiarDesc2[lang]}{" "}
-          <code className="font-mono bg-background px-1.5 py-0.5 rounded">BRANDING</code> {t.comoCambiarDesc3[lang]}{" "}
+          <code className="font-mono bg-background px-1.5 py-0.5 rounded">BRANDING</code>{" "}
+          {t.comoCambiarDesc3[lang]}{" "}
           <code className="font-mono bg-background px-1.5 py-0.5 rounded">
             public/manifest.webmanifest
           </code>

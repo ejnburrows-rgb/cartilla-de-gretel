@@ -54,7 +54,8 @@ export class ErrorBoundary extends Component<Props, State> {
             </svg>
             <h1 className="perf-error-boundary-title">¡Ups! Algo salió mal</h1>
             <p className="perf-error-boundary-description">
-              Ha ocurrido un error inesperado al cargar la aplicación. Hemos guardado el reporte del error para revisarlo localmente.
+              Ha ocurrido un error inesperado al cargar la aplicación. Hemos guardado el reporte del
+              error para revisarlo localmente.
             </p>
             <div className="perf-error-boundary-btn-row">
               <button

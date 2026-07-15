@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { LivingWorkbookPage, type InteractionResult } from "@/components/cartilla/LivingWorkbookPage";
+import {
+  LivingWorkbookPage,
+  type InteractionResult,
+} from "@/components/cartilla/LivingWorkbookPage";
 import { TapToHear } from "@/cartilla/interactions/TapToHear";
 import { MarkCircle } from "@/cartilla/interactions/MarkCircle";
 import type { PhysicalPage, WorkbookObject } from "@/content/workbook/types";
@@ -121,13 +124,13 @@ const SAMPLE_PAGES: PhysicalPage[] = [
       },
       {
         id: "right-woof",
-        text: "\"Woof\"",
+        text: '"Woof"',
         box: { xPct: 70, yPct: 25, wPct: 22, hPct: 22 },
         interaction: { kind: "pair-match", data: { role: "right", pairId: "dog" } },
       },
       {
         id: "right-meow",
-        text: "\"Meow\"",
+        text: '"Meow"',
         box: { xPct: 70, yPct: 55, wPct: 22, hPct: 22 },
         interaction: { kind: "pair-match", data: { role: "right", pairId: "cat" } },
       },
@@ -139,22 +142,59 @@ const SAMPLE_PAGES: PhysicalPage[] = [
  * page record to demonstrate (tap-to-hear, mark-circle) — same components
  * LivingWorkbookPage would dispatch to, wired directly for this sandbox. */
 const TAP_TO_HEAR_OBJECTS: WorkbookObject[] = [
-  { id: "hear-a", text: "🔔", box: { xPct: 5, yPct: 10, wPct: 25, hPct: 80 }, audio: { src: "", label: "campana (sample, no audio file yet)" } },
-  { id: "hear-b", text: "🎵", box: { xPct: 37, yPct: 10, wPct: 25, hPct: 80 }, audio: { src: "", label: "nota (sample, no audio file yet)" } },
-  { id: "hear-c", text: "🥁", box: { xPct: 69, yPct: 10, wPct: 25, hPct: 80 }, audio: { src: "", label: "tambor (sample, no audio file yet)" } },
+  {
+    id: "hear-a",
+    text: "🔔",
+    box: { xPct: 5, yPct: 10, wPct: 25, hPct: 80 },
+    audio: { src: "", label: "campana (sample, no audio file yet)" },
+  },
+  {
+    id: "hear-b",
+    text: "🎵",
+    box: { xPct: 37, yPct: 10, wPct: 25, hPct: 80 },
+    audio: { src: "", label: "nota (sample, no audio file yet)" },
+  },
+  {
+    id: "hear-c",
+    text: "🥁",
+    box: { xPct: 69, yPct: 10, wPct: 25, hPct: 80 },
+    audio: { src: "", label: "tambor (sample, no audio file yet)" },
+  },
 ];
 
 const MARK_CIRCLE_OBJECTS: WorkbookObject[] = [
-  { id: "mark-a", text: "🍎", box: { xPct: 5, yPct: 10, wPct: 20, hPct: 80 }, interaction: { kind: "mark-circle", data: { correct: true } } },
-  { id: "mark-b", text: "🚗", box: { xPct: 28, yPct: 10, wPct: 20, hPct: 80 }, interaction: { kind: "mark-circle", data: { correct: false } } },
-  { id: "mark-c", text: "🍌", box: { xPct: 51, yPct: 10, wPct: 20, hPct: 80 }, interaction: { kind: "mark-circle", data: { correct: true } } },
-  { id: "mark-d", text: "🚲", box: { xPct: 74, yPct: 10, wPct: 20, hPct: 80 }, interaction: { kind: "mark-circle", data: { correct: false } } },
+  {
+    id: "mark-a",
+    text: "🍎",
+    box: { xPct: 5, yPct: 10, wPct: 20, hPct: 80 },
+    interaction: { kind: "mark-circle", data: { correct: true } },
+  },
+  {
+    id: "mark-b",
+    text: "🚗",
+    box: { xPct: 28, yPct: 10, wPct: 20, hPct: 80 },
+    interaction: { kind: "mark-circle", data: { correct: false } },
+  },
+  {
+    id: "mark-c",
+    text: "🍌",
+    box: { xPct: 51, yPct: 10, wPct: 20, hPct: 80 },
+    interaction: { kind: "mark-circle", data: { correct: true } },
+  },
+  {
+    id: "mark-d",
+    text: "🚲",
+    box: { xPct: 74, yPct: 10, wPct: 20, hPct: 80 },
+    interaction: { kind: "mark-circle", data: { correct: false } },
+  },
 ];
 
 function ResultLog({ label, log, done }: { label: string; log: string[]; done: boolean }) {
   return (
     <div className="text-xs font-mono mt-2 text-foreground/70">
-      <div className="font-bold">{label}: {done ? "✅ complete" : "in progress"}</div>
+      <div className="font-bold">
+        {label}: {done ? "✅ complete" : "in progress"}
+      </div>
       {log.slice(-4).map((line, i) => (
         <div key={i}>{line}</div>
       ))}
@@ -197,7 +237,9 @@ function DevLivingWorkbookSandboxInner() {
         return (
           <section key={page.id}>
             <h2 className="text-lg font-bold mb-1">{page.id}</h2>
-            <p className="text-xs text-foreground/50 mb-2">interaction: {page.interaction?.kind} · source: {page.source}</p>
+            <p className="text-xs text-foreground/50 mb-2">
+              interaction: {page.interaction?.kind} · source: {page.source}
+            </p>
             <LivingWorkbookPage page={page} {...handlers} />
             <ResultLog label={page.id} log={logs[page.id] ?? []} done={Boolean(done[page.id])} />
           </section>
@@ -207,7 +249,8 @@ function DevLivingWorkbookSandboxInner() {
       <section>
         <h2 className="text-lg font-bold mb-1">bonus: tap-to-hear (standalone proof)</h2>
         <p className="text-xs text-foreground/50 mb-2">
-          audio.src is "" for all three — safe no-op per project convention; tapping still gives visual feedback.
+          audio.src is "" for all three — safe no-op per project convention; tapping still gives
+          visual feedback.
         </p>
         <div className="relative w-full" style={{ aspectRatio: "4 / 1.2" }}>
           <TapToHear
@@ -227,12 +270,19 @@ function DevLivingWorkbookSandboxInner() {
             objects={MARK_CIRCLE_OBJECTS}
             reducedMotion={false}
             onResult={(r) =>
-              setLogs((prev) => ({ ...prev, "mark-circle": [...(prev["mark-circle"] ?? []), `${r.objectId}: ${r.result}`] }))
+              setLogs((prev) => ({
+                ...prev,
+                "mark-circle": [...(prev["mark-circle"] ?? []), `${r.objectId}: ${r.result}`],
+              }))
             }
             onComplete={() => setDone((prev) => ({ ...prev, "mark-circle": true }))}
           />
         </div>
-        <ResultLog label="mark-circle" log={logs["mark-circle"] ?? []} done={Boolean(done["mark-circle"])} />
+        <ResultLog
+          label="mark-circle"
+          log={logs["mark-circle"] ?? []}
+          done={Boolean(done["mark-circle"])}
+        />
       </section>
     </div>
   );

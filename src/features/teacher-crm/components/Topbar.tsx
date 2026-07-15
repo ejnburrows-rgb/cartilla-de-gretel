@@ -6,9 +6,9 @@ export function Topbar() {
       <div className="flex-1 max-w-md">
         <div className="relative">
           <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-[#7a7065]" />
-          <input 
-            type="text" 
-            placeholder="Buscar alumno, lección o tarea..." 
+          <input
+            type="text"
+            placeholder="Buscar alumno, lección o tarea..."
             className="w-full pl-9 pr-4 py-2 bg-[#fdfbf7] border border-[#e8e2d9] rounded-lg text-sm focus:outline-none focus:border-[#8da47e] focus:ring-1 focus:ring-[#8da47e]"
           />
         </div>

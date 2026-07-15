@@ -13,10 +13,7 @@ import { useEffect, useState } from "react";
 export type ArtManifest = {
   builtAt?: string;
   cover: string;
-  lessons: Record<
-    string,
-    { character?: string; pageThumb?: string; pages?: string[] }
-  >;
+  lessons: Record<string, { character?: string; pageThumb?: string; pages?: string[] }>;
 };
 
 const MANIFEST_URL = "/cartilla/art/manifest.json";
@@ -92,4 +89,3 @@ export function useBookArt(lessonN: number): BookArtResult {
 export function getManifestSync(): ArtManifest | null {
   return _cache;
 }
-

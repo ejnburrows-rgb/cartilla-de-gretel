@@ -63,7 +63,14 @@ vi.mock("@tanstack/react-query", () => ({
   useMutation: () => ({ mutate: vi.fn(), isPending: false }),
 }));
 
-import { createMemoryHistory, createRouter, RouterProvider, createRootRouteWithContext, createRoute, Outlet } from "@tanstack/react-router";
+import {
+  createMemoryHistory,
+  createRouter,
+  RouterProvider,
+  createRootRouteWithContext,
+  createRoute,
+  Outlet,
+} from "@tanstack/react-router";
 import { Route as LoginRoute } from "../login";
 import { Route as UnirseRoute } from "../cartilla/unirse";
 import { Route as PresentarRoute } from "../cartilla/presentar.$n";
@@ -72,8 +79,16 @@ function renderWithRouter(initialEntries: string[]) {
   const history = createMemoryHistory({ initialEntries });
 
   const rootRoute = createRootRouteWithContext<{ queryClient: any }>()({ component: Outlet });
-  const loginRoute = createRoute({ getParentRoute: () => rootRoute, path: "/login", component: LoginRoute.options.component });
-  const unirseRoute = createRoute({ getParentRoute: () => rootRoute, path: "/cartilla/unirse", component: UnirseRoute.options.component });
+  const loginRoute = createRoute({
+    getParentRoute: () => rootRoute,
+    path: "/login",
+    component: LoginRoute.options.component,
+  });
+  const unirseRoute = createRoute({
+    getParentRoute: () => rootRoute,
+    path: "/cartilla/unirse",
+    component: UnirseRoute.options.component,
+  });
 
   const routeTree = rootRoute.addChildren([loginRoute, unirseRoute]);
   const router = createRouter({ routeTree, history, context: { queryClient: {} as any } });
@@ -92,23 +107,26 @@ describe("Student-Teacher Routing Isolation", () => {
     const { history } = renderWithRouter(["/cartilla/unirse"]);
     await waitFor(() => expect(history.location.pathname).toBe("/cartilla/unirse"));
     // Join form can lag under full-suite parallel load — wait for real markup.
-    const codeInput = (await screen.findByRole("textbox", {}, { timeout: 10_000 })) as HTMLInputElement;
+    const codeInput = (await screen.findByRole(
+      "textbox",
+      {},
+      { timeout: 10_000 },
+    )) as HTMLInputElement;
     fireEvent.change(codeInput, { target: { value: "ABC123" } });
-    
+
     const submitBtn = document.querySelector('button[type="submit"]');
-    const form = submitBtn?.closest('form');
+    const form = submitBtn?.closest("form");
     if (form) {
       await fireEvent.submit(form);
     }
-    
+
     const studentBtn = await screen.findByText("Student 1");
     await fireEvent.click(studentBtn);
-    
+
     await waitFor(() => {
       expect(history.location.pathname).toBe("/cartilla/lecciones");
     });
   });
-
 
   describe("presentar.$n.tsx route guard", () => {
     it("(b) blocks student session from teacher presentation route", async () => {
@@ -151,11 +169,11 @@ describe("Student-Teacher Routing Isolation", () => {
     it("(c) teacher login clears student session", async () => {
       const { history } = renderWithRouter(["/login"]);
       await waitFor(() => expect(history.location.pathname).toBe("/login"));
-      
+
       const submitBtn = await screen.findByRole("button", { name: /entrar/i });
       const form = submitBtn.closest("form");
       await fireEvent.submit(form!);
-      
+
       await waitFor(() => {
         expect(setStudentSessionMock).toHaveBeenCalledWith(null);
       });
@@ -164,21 +182,21 @@ describe("Student-Teacher Routing Isolation", () => {
     it("(c) student login clears teacher session", async () => {
       const { history } = renderWithRouter(["/cartilla/unirse"]);
       await waitFor(() => expect(history.location.pathname).toBe("/cartilla/unirse"));
-      
+
       // Step 1: Submit join code form
-      const codeInput = await screen.findByRole("textbox") as HTMLInputElement;
+      const codeInput = (await screen.findByRole("textbox")) as HTMLInputElement;
       fireEvent.change(codeInput, { target: { value: "ABC123" } });
-      
+
       const submitBtn = document.querySelector('button[type="submit"]');
-      const form = submitBtn?.closest('form');
+      const form = submitBtn?.closest("form");
       if (form) {
         await fireEvent.submit(form);
       }
-      
+
       // Step 2: Click student name to login
       const studentBtn = await screen.findByText("Student 1");
       await fireEvent.click(studentBtn);
-      
+
       await waitFor(() => {
         expect(signOutMock).toHaveBeenCalled();
       });

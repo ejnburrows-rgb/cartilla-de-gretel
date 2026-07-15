@@ -23,14 +23,21 @@ function EstudianteDetail() {
 
   const isSeed = useMemo(() => isSeedSessionActive(), []);
 
-  const { data: progress, isLoading: loadingProgress, refetch } = useQuery({
+  const {
+    data: progress,
+    isLoading: loadingProgress,
+    refetch,
+  } = useQuery({
     queryKey: ["crm-estudiante", studentId, isSeed],
     queryFn: () => fetchCrmStudentProgress(studentId, isSeed),
   });
 
   const { data: assignments } = useQuery({
     queryKey: ["crm-estudiante-assignments", classId, isSeed],
-    queryFn: () => (isSeed ? Promise.resolve(listSeedAssignments(classId)) : listAssignments({ data: { classId } })),
+    queryFn: () =>
+      isSeed
+        ? Promise.resolve(listSeedAssignments(classId))
+        : listAssignments({ data: { classId } }),
   });
 
   const assignedLessonIds = useMemo(
@@ -54,7 +61,9 @@ function EstudianteDetail() {
       id: progress.student.id,
       name: progress.student.display_name,
       progress: summary.completionPercent,
-      lastActive: summary.lastActiveAt ? new Date(summary.lastActiveAt).toLocaleDateString() : "Nunca",
+      lastActive: summary.lastActiveAt
+        ? new Date(summary.lastActiveAt).toLocaleDateString()
+        : "Nunca",
       teacher_notes: progress.student.teacher_notes ?? undefined,
     };
   }, [progress, summary]);
@@ -88,9 +97,12 @@ function EstudianteDetail() {
           <div className="space-y-6">
             <header className="flex items-center justify-between">
               <div>
-                <h1 className="text-3xl font-black text-stone-800">{progress.student.display_name}</h1>
+                <h1 className="text-3xl font-black text-stone-800">
+                  {progress.student.display_name}
+                </h1>
                 <p className="text-sm font-bold text-stone-500 mt-1">
-                  Código: <span className="font-mono text-vowel-e">{progress.student.student_code}</span>
+                  Código:{" "}
+                  <span className="font-mono text-vowel-e">{progress.student.student_code}</span>
                 </p>
               </div>
               <Link

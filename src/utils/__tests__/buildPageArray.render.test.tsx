@@ -18,24 +18,28 @@ afterEach(() => cleanup());
 describe("all 24 lessons render without error (approval-walkthrough sweep)", () => {
   for (const entry of CATALOG) {
     // L2 (and dense vowel pages) can exceed the default 5s under parallel load.
-    it(`Lección ${entry.n} (${entry.title}) — every real page renders cleanly`, { timeout: 15_000 }, () => {
-      const pages = buildPageArray(entry.n);
-      expect(pages.length).toBeGreaterThan(0);
+    it(
+      `Lección ${entry.n} (${entry.title}) — every real page renders cleanly`,
+      { timeout: 15_000 },
+      () => {
+        const pages = buildPageArray(entry.n);
+        expect(pages.length).toBeGreaterThan(0);
 
-      const consoleError = vi.spyOn(console, "error").mockImplementation(() => {});
-      try {
-        for (const page of pages) {
-          let container: HTMLElement;
-          expect(() => {
-            ({ container } = render(page.content));
-          }).not.toThrow();
-          const text = container!.textContent ?? "";
-          expect(text).not.toContain("Página en preparación");
+        const consoleError = vi.spyOn(console, "error").mockImplementation(() => {});
+        try {
+          for (const page of pages) {
+            let container: HTMLElement;
+            expect(() => {
+              ({ container } = render(page.content));
+            }).not.toThrow();
+            const text = container!.textContent ?? "";
+            expect(text).not.toContain("Página en preparación");
+          }
+        } finally {
+          expect(consoleError).not.toHaveBeenCalled();
+          consoleError.mockRestore();
         }
-      } finally {
-        expect(consoleError).not.toHaveBeenCalled();
-        consoleError.mockRestore();
-      }
-    });
+      },
+    );
   }
 });

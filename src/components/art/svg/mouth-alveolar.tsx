@@ -15,11 +15,7 @@ const AIRFLOW = "#90cdf4";
 const CAVITY = "#fdf0f0";
 const THROAT = "#f5dada";
 
-export function MouthAlveolar({
-  size,
-  className,
-  animated = false,
-}: MouthAlveolarProps) {
+export function MouthAlveolar({ size, className, animated = false }: MouthAlveolarProps) {
   const sizeProps: React.CSSProperties | undefined = size
     ? { width: size, height: size }
     : undefined;

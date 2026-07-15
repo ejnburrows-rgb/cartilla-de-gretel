@@ -68,11 +68,17 @@ function Leccion() {
   );
 
   const fetchProgress = useServerFn(getMyProgress);
-  const { data: progressData, isFetched, isError } = useQuery({
+  const {
+    data: progressData,
+    isFetched,
+    isError,
+  } = useQuery({
     queryKey: ["my-progress", session?.studentId],
     queryFn: () =>
       session
-        ? fetchProgress({ data: { studentId: session.studentId, studentCode: session.studentCode } })
+        ? fetchProgress({
+            data: { studentId: session.studentId, studentCode: session.studentCode },
+          })
         : Promise.resolve(null),
     enabled: !!session,
     // Never block the workbook forever when Supabase is down / session is stale.
@@ -84,8 +90,11 @@ function Leccion() {
   const initialPage = useMemo(() => {
     if (!session) return 0;
     const lessonProgress =
-      (progressData as { lessonProgress?: Array<{ lesson_id: string; last_page?: number | null }> } | null)
-        ?.lessonProgress ?? [];
+      (
+        progressData as {
+          lessonProgress?: Array<{ lesson_id: string; last_page?: number | null }>;
+        } | null
+      )?.lessonProgress ?? [];
     const row = lessonProgress.find((p) => p.lesson_id === String(n));
     return row?.last_page ?? 0;
   }, [session, progressData, n]);
@@ -201,7 +210,8 @@ function Leccion() {
           <div className="mt-3 rounded-xl border-2 border-primary/30 bg-primary/5 px-3 py-2 text-xs font-bold text-primary inline-flex items-start gap-2">
             <ClipboardList className="w-4 h-4 shrink-0 mt-0.5" />
             <span>
-              {t.tareaAsignada[lang]}{assignment.title ? `: ${assignment.title}` : ""}.
+              {t.tareaAsignada[lang]}
+              {assignment.title ? `: ${assignment.title}` : ""}.
               {assignment.due_at &&
                 ` ${t.entrega[lang]} ${new Date(assignment.due_at).toLocaleDateString()}.`}
               {assignment.time_limit_seconds &&
@@ -277,7 +287,8 @@ function Leccion() {
             }
             className="px-5 py-3 rounded-2xl border-2 border-foreground/15 font-bold hover:bg-secondary"
           >
-            <ArrowLeft className="w-5 h-5 inline mr-1" /> {n > 1 ? t.anterior[lang] : t.indice[lang]}
+            <ArrowLeft className="w-5 h-5 inline mr-1" />{" "}
+            {n > 1 ? t.anterior[lang] : t.indice[lang]}
           </button>
           <button
             onClick={goNext}

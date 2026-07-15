@@ -97,7 +97,13 @@ export function PictureBear({ animated = false, ...props }: PictureBearProps) {
       <ellipse cx="120" cy="115" rx="4" ry="3" fill="#5c3d2e" />
 
       {/* Mouth */}
-      <path d="M117 118 Q120 122 123 118" fill="none" stroke="#5c3d2e" strokeWidth="1.2" strokeLinecap="round" />
+      <path
+        d="M117 118 Q120 122 123 118"
+        fill="none"
+        stroke="#5c3d2e"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+      />
 
       {/* Rosy cheeks */}
       <circle cx="105" cy="114" r="3.5" fill="#f4a0a0" opacity="0.5" />
@@ -105,11 +111,41 @@ export function PictureBear({ animated = false, ...props }: PictureBearProps) {
 
       {/* === FOREGROUND: Flowers and grass === */}
       {/* Grass tufts */}
-      <path d="M20,175 Q22,168 24,175" fill="none" stroke="#6db386" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M26,177 Q28,170 30,177" fill="none" stroke="#6db386" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M75,178 Q77,171 79,178" fill="none" stroke="#6db386" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M160,176 Q162,169 164,176" fill="none" stroke="#6db386" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M215,178 Q217,171 219,178" fill="none" stroke="#6db386" strokeWidth="1.5" strokeLinecap="round" />
+      <path
+        d="M20,175 Q22,168 24,175"
+        fill="none"
+        stroke="#6db386"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M26,177 Q28,170 30,177"
+        fill="none"
+        stroke="#6db386"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M75,178 Q77,171 79,178"
+        fill="none"
+        stroke="#6db386"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M160,176 Q162,169 164,176"
+        fill="none"
+        stroke="#6db386"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M215,178 Q217,171 219,178"
+        fill="none"
+        stroke="#6db386"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
 
       {/* Flowers left */}
       <circle cx="70" cy="162" r="4" fill="#f9c3d1" />

@@ -7,17 +7,18 @@ export const lesson08 = [
     pageNumber: 29,
     kind: "letter-tracing",
     title: "Escribe con tu mejor letra — P p",
-    prompt: "Traza la letra P mayúscula y la p minúscula. Luego haz un dibujo de una palabra que comienza con p.",
+    prompt:
+      "Traza la letra P mayúscula y la p minúscula. Luego haz un dibujo de una palabra que comienza con p.",
     items: [
       { id: "letter-P", label: "P" },
-      { id: "letter-p", label: "p" }
+      { id: "letter-p", label: "p" },
     ],
     targets: [],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Students trace uppercase P and lowercase p.",
-    sourcePage: getBookPageImage(29)
+    sourcePage: getBookPageImage(29),
   },
   {
     id: "l8-p30-syllable-circle",
@@ -31,27 +32,52 @@ export const lesson08 = [
       { id: "syl-pe", label: "pe" },
       { id: "syl-pi", label: "pi" },
       { id: "syl-po", label: "po" },
-      { id: "syl-pu", label: "pu" }
+      { id: "syl-pu", label: "pu" },
     ],
     targets: [
       { id: "slot-pa", label: "pa", coordinatesVerified: false, acceptsItemId: "syl-pa" },
       { id: "slot-pe", label: "pe", coordinatesVerified: false, acceptsItemId: "syl-pe" },
       { id: "slot-pi", label: "pi", coordinatesVerified: false, acceptsItemId: "syl-pi" },
       { id: "slot-po", label: "po", coordinatesVerified: false, acceptsItemId: "syl-po" },
-      { id: "slot-pu", label: "pu", coordinatesVerified: false, acceptsItemId: "syl-pu" }
+      { id: "slot-pu", label: "pu", coordinatesVerified: false, acceptsItemId: "syl-pu" },
     ],
     wordBank: [
-      "papá", "pupa", "mapa", "Papo", "¡upa!", "pala",
-      "Pepe", "pelo", "tapete", "pesa", "pelota", "chupete",
-      "pipo", "Pupi", "Mupi", "papi", "Mapi", "pío",
-      "pomo", "polo", "sapo", "mapo", "tapo", "Pepo",
-      "puso", "Pupa", "puma", "apura", "Pupi", "púa"
+      "papá",
+      "pupa",
+      "mapa",
+      "Papo",
+      "¡upa!",
+      "pala",
+      "Pepe",
+      "pelo",
+      "tapete",
+      "pesa",
+      "pelota",
+      "chupete",
+      "pipo",
+      "Pupi",
+      "Mupi",
+      "papi",
+      "Mapi",
+      "pío",
+      "pomo",
+      "polo",
+      "sapo",
+      "mapo",
+      "tapo",
+      "Pepo",
+      "puso",
+      "Pupa",
+      "puma",
+      "apura",
+      "Pupi",
+      "púa",
     ],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded syllable circle for P.",
-    sourcePage: getBookPageImage(30)
+    sourcePage: getBookPageImage(30),
   },
   {
     id: "l8-p31-syllable-tap",
@@ -65,14 +91,14 @@ export const lesson08 = [
       { id: "ra-pe", label: "pe" },
       { id: "ra-pi", label: "pi" },
       { id: "ra-po", label: "po" },
-      { id: "ra-pu", label: "pu" }
+      { id: "ra-pu", label: "pu" },
     ],
     targets: [],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded syllable tap for P.",
-    sourcePage: getBookPageImage(31)
+    sourcePage: getBookPageImage(31),
   },
   {
     id: "l8-p31-word-bank",
@@ -96,14 +122,14 @@ export const lesson08 = [
       { id: "w-pie", label: "pie" },
       { id: "w-pua", label: "púa" },
       { id: "w-pomo", label: "pomo" },
-      { id: "w-pepo", label: "Pepo" }
+      { id: "w-pepo", label: "Pepo" },
     ],
     targets: [],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded word bank for P.",
-    sourcePage: getBookPageImage(31)
+    sourcePage: getBookPageImage(31),
   },
   {
     id: "l8-p31-mini-story",
@@ -117,17 +143,15 @@ export const lesson08 = [
       { id: "story-p-2", label: "Pupi ama a papá." },
       { id: "story-p-3", label: "Yo amo a mamá y a papá." },
       { id: "story-p-4", label: "Mi papá ama a Pupi." },
-      { id: "story-p-5", label: "Papá y mamá me aman." }
+      { id: "story-p-5", label: "Papá y mamá me aman." },
     ],
     targets: [],
-    sightWords: [
-      "yo", "y", "a", "me", "Mi"
-    ],
+    sightWords: ["yo", "y", "a", "me", "Mi"],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded mini-story for P.",
-    sourcePage: getBookPageImage(31)
+    sourcePage: getBookPageImage(31),
   },
   {
     id: "l8-p32-fill-in-blank",
@@ -145,7 +169,7 @@ export const lesson08 = [
       { id: "syl-pi-accent", label: "pí" },
       { id: "syl-po", label: "po" },
       { id: "syl-pu", label: "pu" },
-      { id: "syl-Ma-cap", label: "Ma" }
+      { id: "syl-Ma-cap", label: "Ma" },
     ],
     targets: [
       {
@@ -155,7 +179,7 @@ export const lesson08 = [
         correctSyllable: "pá",
         fullWord: "papá",
         coordinatesVerified: false,
-        acceptsItemId: "syl-pa-accent"
+        acceptsItemId: "syl-pa-accent",
       },
       {
         id: "blank-mapa",
@@ -164,7 +188,7 @@ export const lesson08 = [
         correctSyllable: "pa",
         fullWord: "mapa",
         coordinatesVerified: false,
-        acceptsItemId: "syl-pa"
+        acceptsItemId: "syl-pa",
       },
       {
         id: "blank-puma",
@@ -173,7 +197,7 @@ export const lesson08 = [
         correctSyllable: "pu",
         fullWord: "puma",
         coordinatesVerified: false,
-        acceptsItemId: "syl-pu"
+        acceptsItemId: "syl-pu",
       },
       {
         id: "blank-mapi",
@@ -182,7 +206,7 @@ export const lesson08 = [
         correctSyllable: "pi",
         fullWord: "Mapi",
         coordinatesVerified: false,
-        acceptsItemId: "syl-pi"
+        acceptsItemId: "syl-pi",
       },
       {
         id: "blank-pio",
@@ -191,7 +215,7 @@ export const lesson08 = [
         correctSyllable: "pí",
         fullWord: "pío",
         coordinatesVerified: false,
-        acceptsItemId: "syl-pi-accent"
+        acceptsItemId: "syl-pi-accent",
       },
       {
         id: "blank-pepe",
@@ -200,52 +224,52 @@ export const lesson08 = [
         correctSyllable: "Pe",
         fullWord: "Pepe",
         coordinatesVerified: false,
-        acceptsItemId: "syl-Pe-cap"
-      }
+        acceptsItemId: "syl-Pe-cap",
+      },
     ],
     exercises: [
       {
         partial: "pa___",
         choices: ["pa", "pá"],
         answer: "pá",
-        fullWord: "papá"
+        fullWord: "papá",
       },
       {
         partial: "ma___",
         choices: ["pa", "po"],
         answer: "pa",
-        fullWord: "mapa"
+        fullWord: "mapa",
       },
       {
         partial: "___ma",
         choices: ["pe", "pu"],
         answer: "pu",
-        fullWord: "puma"
+        fullWord: "puma",
       },
       {
         partial: "Ma___",
         choices: ["pi", "po"],
         answer: "pi",
-        fullWord: "Mapi"
+        fullWord: "Mapi",
       },
       {
         partial: "___o",
         choices: ["pí", "po"],
         answer: "pí",
-        fullWord: "pío"
+        fullWord: "pío",
       },
       {
         partial: "___pe",
         choices: ["Pe", "pe"],
         answer: "Pe",
-        fullWord: "Pepe"
-      }
+        fullWord: "Pepe",
+      },
     ],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded fill-in-the-blank for P.",
-    sourcePage: getBookPageImage(32)
+    sourcePage: getBookPageImage(32),
   },
   {
     id: "l8-p32-write-sentences",
@@ -260,6 +284,6 @@ export const lesson08 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Sentence writing lines.",
-    sourcePage: getBookPageImage(32)
-  }
+    sourcePage: getBookPageImage(32),
+  },
 ];

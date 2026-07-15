@@ -13,14 +13,15 @@ export const lesson21 = [
       { id: "img-jugo", label: "jugo" },
       { id: "img-jesus", label: "Jesús" },
       { id: "img-ajo", label: "ajo" },
-      { id: "img-jarra", label: "jarra" }
+      { id: "img-jarra", label: "jarra" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Transcribed verbatim from public/cartilla/images/source/j/j-page-49.jpg (real scan).",
-    sourcePage: getBookPageImage(75)
+    teacherNotes:
+      "Transcribed verbatim from public/cartilla/images/source/j/j-page-49.jpg (real scan).",
+    sourcePage: getBookPageImage(75),
   },
   {
     id: "l21-p76-syllable-tap",
@@ -34,14 +35,15 @@ export const lesson21 = [
       { id: "ra-je", label: "je" },
       { id: "ra-ji", label: "ji" },
       { id: "ra-jo", label: "jo" },
-      { id: "ra-ju", label: "ju" }
+      { id: "ra-ju", label: "ju" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Transcribed verbatim from public/cartilla/images/source/j/j-page-50.jpg (real scan).",
-    sourcePage: getBookPageImage(76)
+    teacherNotes:
+      "Transcribed verbatim from public/cartilla/images/source/j/j-page-50.jpg (real scan).",
+    sourcePage: getBookPageImage(76),
   },
   {
     id: "l21-p76-word-bank",
@@ -65,14 +67,15 @@ export const lesson21 = [
       { id: "w-jose", label: "José" },
       { id: "w-julia", label: "Julia" },
       { id: "w-jarro", label: "jarro" },
-      { id: "w-joven", label: "joven" }
+      { id: "w-joven", label: "joven" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Word list transcribed verbatim from public/cartilla/images/source/j/j-page-50.jpg (real scan).",
-    sourcePage: getBookPageImage(76)
+    teacherNotes:
+      "Word list transcribed verbatim from public/cartilla/images/source/j/j-page-50.jpg (real scan).",
+    sourcePage: getBookPageImage(76),
   },
   {
     id: "l21-p76-mini-story",
@@ -88,14 +91,15 @@ export const lesson21 = [
       { id: "story-j-4", label: "con jabón. José y Josefa juegan en la" },
       { id: "story-j-5", label: "laguna. Jabela es una jicotea. A Jabela" },
       { id: "story-j-6", label: "le gusta la laguna. A Jabela no le gusta" },
-      { id: "story-j-7", label: "le espuma de jabón." }
+      { id: "story-j-7", label: "le espuma de jabón." },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Reading passage transcribed verbatim from public/cartilla/images/source/j/j-page-50.jpg (real scan). 'le espuma' is printed as-is on the page (likely a book erratum for 'la espuma') — reproduced verbatim, not corrected.",
-    sourcePage: getBookPageImage(76)
+    teacherNotes:
+      "Reading passage transcribed verbatim from public/cartilla/images/source/j/j-page-50.jpg (real scan). 'le espuma' is printed as-is on the page (likely a book erratum for 'la espuma') — reproduced verbatim, not corrected.",
+    sourcePage: getBookPageImage(76),
   },
   {
     id: "l21-p77-rhyme",
@@ -112,14 +116,15 @@ export const lesson21 = [
       { id: "rhyme-j-5", label: "Se mete en el jaulón" },
       { id: "rhyme-j-6", label: "no le gusta el agua pura" },
       { id: "rhyme-j-7", label: "ni la espuma de jabón" },
-      { id: "rhyme-j-8", label: "a mi jicotea dura." }
+      { id: "rhyme-j-8", label: "a mi jicotea dura." },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Rhyme transcribed verbatim from public/cartilla/images/source/j/j-page-51.jpg (real scan).",
-    sourcePage: getBookPageImage(77)
+    teacherNotes:
+      "Rhyme transcribed verbatim from public/cartilla/images/source/j/j-page-51.jpg (real scan).",
+    sourcePage: getBookPageImage(77),
   },
   {
     id: "l21-p78-fill-in-blank",
@@ -133,15 +138,63 @@ export const lesson21 = [
       { id: "syl-jo-1", label: "jo" },
       { id: "syl-ju-2", label: "ju" },
       { id: "syl-je-3", label: "je" },
-      { id: "syl-ji-4", label: "ji" }
+      { id: "syl-ji-4", label: "ji" },
     ],
     targets: [
-      { id: "blank-jaba-0", label: "___ba", hint: "ja - jo", correctSyllable: "ja", fullWord: "jaba", coordinatesVerified: false, acceptsItemId: "syl-ja-0" },
-      { id: "blank-jugo-1", label: "___go", hint: "ju - je", correctSyllable: "ju", fullWord: "jugo", coordinatesVerified: false, acceptsItemId: "syl-ju-2" },
-      { id: "blank-jamon-2", label: "___món", hint: "ja - ju", correctSyllable: "ja", fullWord: "jamón", coordinatesVerified: false, acceptsItemId: "syl-ja-0" },
-      { id: "blank-jefe-3", label: "___fe", hint: "je - ja", correctSyllable: "je", fullWord: "jefe", coordinatesVerified: false, acceptsItemId: "syl-je-3" },
-      { id: "blank-jugar-4", label: "___gar", hint: "ju - je", correctSyllable: "ju", fullWord: "jugar", coordinatesVerified: false, acceptsItemId: "syl-ju-2" },
-      { id: "blank-jutia-5", label: "___tía", hint: "ju - ji", correctSyllable: "ju", fullWord: "jutía", coordinatesVerified: false, acceptsItemId: "syl-ju-2" }
+      {
+        id: "blank-jaba-0",
+        label: "___ba",
+        hint: "ja - jo",
+        correctSyllable: "ja",
+        fullWord: "jaba",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-ja-0",
+      },
+      {
+        id: "blank-jugo-1",
+        label: "___go",
+        hint: "ju - je",
+        correctSyllable: "ju",
+        fullWord: "jugo",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-ju-2",
+      },
+      {
+        id: "blank-jamon-2",
+        label: "___món",
+        hint: "ja - ju",
+        correctSyllable: "ja",
+        fullWord: "jamón",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-ja-0",
+      },
+      {
+        id: "blank-jefe-3",
+        label: "___fe",
+        hint: "je - ja",
+        correctSyllable: "je",
+        fullWord: "jefe",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-je-3",
+      },
+      {
+        id: "blank-jugar-4",
+        label: "___gar",
+        hint: "ju - je",
+        correctSyllable: "ju",
+        fullWord: "jugar",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-ju-2",
+      },
+      {
+        id: "blank-jutia-5",
+        label: "___tía",
+        hint: "ju - ji",
+        correctSyllable: "ju",
+        fullWord: "jutía",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-ju-2",
+      },
     ],
     exercises: [
       { partial: "___ba", choices: ["ja", "jo"], answer: "ja", fullWord: "jaba" },
@@ -149,13 +202,14 @@ export const lesson21 = [
       { partial: "___món", choices: ["ja", "ju"], answer: "ja", fullWord: "jamón" },
       { partial: "___fe", choices: ["je", "ja"], answer: "je", fullWord: "jefe" },
       { partial: "___gar", choices: ["ju", "je"], answer: "ju", fullWord: "jugar" },
-      { partial: "___tía", choices: ["ju", "ji"], answer: "ju", fullWord: "jutía" }
+      { partial: "___tía", choices: ["ju", "ji"], answer: "ju", fullWord: "jutía" },
     ],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
-    teacherNotes: "UNREADABLE-SCAN — no source scan was provided for this lesson's fill-in-blank page (physical page 78, per consonants.json's pages \"75-78\"); only 3 scans exist for j/ (page-49, 50, 51). This entry is unverified scaffold content carried over as-is; left pending, not promoted to ready.",
-    sourcePage: getBookPageImage(78)
+    teacherNotes:
+      "UNREADABLE-SCAN — no source scan was provided for this lesson's fill-in-blank page (physical page 78, per consonants.json's pages \"75-78\"); only 3 scans exist for j/ (page-49, 50, 51). This entry is unverified scaffold content carried over as-is; left pending, not promoted to ready.",
+    sourcePage: getBookPageImage(78),
   },
   {
     id: "l21-p78-write-sentences",
@@ -169,7 +223,8 @@ export const lesson21 = [
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
-    teacherNotes: "UNREADABLE-SCAN — no source scan was provided for physical page 78 (see fill-in-blank entry above for the same lesson/page).",
-    sourcePage: getBookPageImage(78)
-  }
+    teacherNotes:
+      "UNREADABLE-SCAN — no source scan was provided for physical page 78 (see fill-in-blank entry above for the same lesson/page).",
+    sourcePage: getBookPageImage(78),
+  },
 ];

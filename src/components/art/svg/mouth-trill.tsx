@@ -15,11 +15,7 @@ const AIRFLOW = "#90cdf4";
 const CAVITY = "#fdf0f0";
 const THROAT = "#f5dada";
 
-export function MouthTrill({
-  size,
-  className,
-  animated = false,
-}: MouthTrillProps) {
+export function MouthTrill({ size, className, animated = false }: MouthTrillProps) {
   const sizeProps: React.CSSProperties | undefined = size
     ? { width: size, height: size }
     : undefined;

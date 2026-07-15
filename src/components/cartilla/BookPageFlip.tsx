@@ -25,7 +25,7 @@ const Page = React.forwardRef<HTMLDivElement, { pageNum: number; className?: str
         <BookPage pageNumber={pageNum} active={true} />
       </div>
     );
-  }
+  },
 );
 Page.displayName = "Page";
 
@@ -34,7 +34,7 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
   const pagesArray = Array.from({ length: totalPages }, (_, i) => i + 1);
   const [currentIndex, setCurrentIndex] = useState(Math.max(0, currentPage - 1));
   const [isFlipping, setIsFlipping] = useState(false);
-  const [flipDirection, setFlipDirection] = useState<'next' | 'prev' | null>(null);
+  const [flipDirection, setFlipDirection] = useState<"next" | "prev" | null>(null);
   const [flipStarted, setFlipStarted] = useState(false);
 
   const pointerStartX = useRef<number | null>(null);
@@ -67,52 +67,61 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
     }
   }, []);
 
-  const completeFlip = useCallback((nextIndex: number) => {
-    setCurrentIndex(nextIndex);
-    setIsFlipping(false);
-    setFlipDirection(null);
-    setFlipStarted(false);
-    onPageChange(nextIndex + 1);
-    gretelEvent("page-flip");
-    const upcoming = [nextIndex + 2, nextIndex + 3].filter(n => n <= totalPages);
-    if (upcoming.length) {
-      const srcs = upcoming.map(n => getBookPageImage(n)).filter(Boolean) as string[];
-      preloadSpread(srcs);
-    }
-  }, [onPageChange, totalPages]);
-
-  const handleTransitionEnd = useCallback((e: React.TransitionEvent<HTMLDivElement>) => {
-    if (e.propertyName === "transform") {
-      clearFlipTimer();
-      if (flipDirection === 'next') {
-        completeFlip(currentIndex + 1);
-      } else if (flipDirection === 'prev') {
-        completeFlip(currentIndex - 1);
+  const completeFlip = useCallback(
+    (nextIndex: number) => {
+      setCurrentIndex(nextIndex);
+      setIsFlipping(false);
+      setFlipDirection(null);
+      setFlipStarted(false);
+      onPageChange(nextIndex + 1);
+      gretelEvent("page-flip");
+      const upcoming = [nextIndex + 2, nextIndex + 3].filter((n) => n <= totalPages);
+      if (upcoming.length) {
+        const srcs = upcoming.map((n) => getBookPageImage(n)).filter(Boolean) as string[];
+        preloadSpread(srcs);
       }
-    }
-  }, [flipDirection, currentIndex, completeFlip, clearFlipTimer]);
+    },
+    [onPageChange, totalPages],
+  );
 
-  const triggerFlip = useCallback((dir: 'next' | 'prev') => {
-    if (isFlipping) return;
-    setFlipDirection(dir);
-    setIsFlipping(true);
-    setFlipStarted(false);
-
-    if (reducedMotion.current) {
-      const nextIndex = dir === 'next' ? currentIndex + 1 : currentIndex - 1;
-      completeFlip(nextIndex);
-      return;
-    }
-
-    flipTimerRef.current = setTimeout(() => {
-      clearFlipTimer();
-      if (dir === 'next') {
-        completeFlip(currentIndex + 1);
-      } else {
-        completeFlip(currentIndex - 1);
+  const handleTransitionEnd = useCallback(
+    (e: React.TransitionEvent<HTMLDivElement>) => {
+      if (e.propertyName === "transform") {
+        clearFlipTimer();
+        if (flipDirection === "next") {
+          completeFlip(currentIndex + 1);
+        } else if (flipDirection === "prev") {
+          completeFlip(currentIndex - 1);
+        }
       }
-    }, FLIP_DURATION + 100);
-  }, [isFlipping, currentIndex, completeFlip, clearFlipTimer]);
+    },
+    [flipDirection, currentIndex, completeFlip, clearFlipTimer],
+  );
+
+  const triggerFlip = useCallback(
+    (dir: "next" | "prev") => {
+      if (isFlipping) return;
+      setFlipDirection(dir);
+      setIsFlipping(true);
+      setFlipStarted(false);
+
+      if (reducedMotion.current) {
+        const nextIndex = dir === "next" ? currentIndex + 1 : currentIndex - 1;
+        completeFlip(nextIndex);
+        return;
+      }
+
+      flipTimerRef.current = setTimeout(() => {
+        clearFlipTimer();
+        if (dir === "next") {
+          completeFlip(currentIndex + 1);
+        } else {
+          completeFlip(currentIndex - 1);
+        }
+      }, FLIP_DURATION + 100);
+    },
+    [isFlipping, currentIndex, completeFlip, clearFlipTimer],
+  );
 
   useEffect(() => {
     if (isFlipping && !flipStarted && flipPageRef.current) {
@@ -125,12 +134,12 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
 
   const handlePrev = useCallback(() => {
     if (!hasPrev || isFlipping) return;
-    triggerFlip('prev');
+    triggerFlip("prev");
   }, [hasPrev, isFlipping, triggerFlip]);
 
   const handleNext = useCallback(() => {
     if (!hasNext || isFlipping) return;
-    triggerFlip('next');
+    triggerFlip("next");
   }, [hasNext, isFlipping, triggerFlip]);
 
   const onPointerDown = (e: React.PointerEvent) => {
@@ -158,28 +167,43 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
     );
   }
 
-  const staticIndex = isFlipping && flipDirection === 'prev'
-    ? currentIndex - 1
-    : (isFlipping && flipDirection === 'next' ? currentIndex + 1 : currentIndex);
-  const flipFrontIndex = isFlipping ? (flipDirection === 'next' ? currentIndex : currentIndex - 1) : -1;
-  const flipBackIndex  = isFlipping ? (flipDirection === 'next' ? currentIndex + 1 : currentIndex)  : -1;
+  const staticIndex =
+    isFlipping && flipDirection === "prev"
+      ? currentIndex - 1
+      : isFlipping && flipDirection === "next"
+        ? currentIndex + 1
+        : currentIndex;
+  const flipFrontIndex = isFlipping
+    ? flipDirection === "next"
+      ? currentIndex
+      : currentIndex - 1
+    : -1;
+  const flipBackIndex = isFlipping
+    ? flipDirection === "next"
+      ? currentIndex + 1
+      : currentIndex
+    : -1;
 
   const flipTransform = flipStarted
-    ? (flipDirection === 'next'
+    ? flipDirection === "next"
       ? `rotateY(-180deg)`
-      : flipDirection === 'prev'
+      : flipDirection === "prev"
         ? `rotateY(180deg)`
-        : `rotateY(0deg)`)
+        : `rotateY(0deg)`
     : `rotateY(0deg)`;
 
-  const curlMaskStyle: React.CSSProperties = isFlipping ? {
-    maskImage: flipDirection === 'next'
-      ? 'linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 30%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0) 100%)'
-      : 'linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 30%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0) 100%)',
-    WebkitMaskImage: flipDirection === 'next'
-      ? 'linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 30%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0) 100%)'
-      : 'linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 30%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0) 100%)',
-  } : {};
+  const curlMaskStyle: React.CSSProperties = isFlipping
+    ? {
+        maskImage:
+          flipDirection === "next"
+            ? "linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 30%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0) 100%)"
+            : "linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 30%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0) 100%)",
+        WebkitMaskImage:
+          flipDirection === "next"
+            ? "linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 30%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0) 100%)"
+            : "linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 30%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0) 100%)",
+      }
+    : {};
 
   return (
     <div
@@ -187,11 +211,13 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
       style={{ background: "radial-gradient(circle, #e5c531 0%, #0d6b38 100%)" }}
     >
       {/* Hill silhouette */}
-      <div
-        className="absolute inset-x-0 pointer-events-none"
-        style={{ top: "28%", height: "30%" }}
-      >
-        <svg viewBox="0 0 1200 200" preserveAspectRatio="none" className="w-full h-full" aria-hidden>
+      <div className="absolute inset-x-0 pointer-events-none" style={{ top: "28%", height: "30%" }}>
+        <svg
+          viewBox="0 0 1200 200"
+          preserveAspectRatio="none"
+          className="w-full h-full"
+          aria-hidden
+        >
           <ellipse cx="250" cy="200" rx="380" ry="160" fill="#7aaa5e" opacity="0.7" />
           <ellipse cx="780" cy="200" rx="500" ry="140" fill="#6a9a52" opacity="0.6" />
           <ellipse cx="1050" cy="200" rx="300" ry="120" fill="#8dba70" opacity="0.5" />
@@ -205,14 +231,16 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
       />
       {/* Desk grain lines */}
       <div className="absolute bottom-0 inset-x-0 h-24 pointer-events-none overflow-hidden opacity-20">
-        {[4, 10, 16, 22].map(t => (
+        {[4, 10, 16, 22].map((t) => (
           <div key={t} className="absolute inset-x-0 h-px bg-black" style={{ bottom: `${t}%` }} />
         ))}
       </div>
 
       {/* Book shadow */}
-      <div className="pointer-events-none absolute h-6 w-[70%] max-w-xs rounded-[50%] bg-black/25 blur-xl z-0"
-           style={{ bottom: "calc(6rem + 0px)", left: "50%", transform: "translateX(-50%)" }} />
+      <div
+        className="pointer-events-none absolute h-6 w-[70%] max-w-xs rounded-[50%] bg-black/25 blur-xl z-0"
+        style={{ bottom: "calc(6rem + 0px)", left: "50%", transform: "translateX(-50%)" }}
+      />
 
       {/* Book container */}
       <div
@@ -227,33 +255,42 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
         >
           {/* Static backing page */}
           <div className="absolute inset-0 overflow-hidden">
-            {pagesArray[staticIndex] !== undefined
-              ? <Page pageNum={pagesArray[staticIndex]} />
-              : <div className="w-full h-full bg-surface" />}
+            {pagesArray[staticIndex] !== undefined ? (
+              <Page pageNum={pagesArray[staticIndex]} />
+            ) : (
+              <div className="w-full h-full bg-surface" />
+            )}
           </div>
 
           {/* Flipping page */}
           {isFlipping && (
             <div
               ref={flipPageRef}
-              className={`page-flip absolute inset-0 ${flipDirection === 'next' ? 'flipping-right-to-left' : ''}`}
+              className={`page-flip absolute inset-0 ${flipDirection === "next" ? "flipping-right-to-left" : ""}`}
               style={{
                 transform: flipTransform,
                 transition: `transform ${FLIP_DURATION}ms ${EASE_CUBIC}`,
                 transformStyle: "preserve-3d",
-                transformOrigin: flipDirection === 'next' ? 'left center' : 'right center',
+                transformOrigin: flipDirection === "next" ? "left center" : "right center",
               }}
               onTransitionEnd={handleTransitionEnd}
             >
               <div className="page-front absolute inset-0 overflow-hidden" style={curlMaskStyle}>
-                {pagesArray[flipFrontIndex] !== undefined
-                  ? <Page pageNum={pagesArray[flipFrontIndex]} />
-                  : <div className="w-full h-full bg-surface" />}
+                {pagesArray[flipFrontIndex] !== undefined ? (
+                  <Page pageNum={pagesArray[flipFrontIndex]} />
+                ) : (
+                  <div className="w-full h-full bg-surface" />
+                )}
               </div>
-              <div className="page-back absolute inset-0 overflow-hidden" style={{ transform: "rotateY(180deg)" }}>
-                {pagesArray[flipBackIndex] !== undefined
-                  ? <Page pageNum={pagesArray[flipBackIndex]} />
-                  : <div className="w-full h-full bg-surface" />}
+              <div
+                className="page-back absolute inset-0 overflow-hidden"
+                style={{ transform: "rotateY(180deg)" }}
+              >
+                {pagesArray[flipBackIndex] !== undefined ? (
+                  <Page pageNum={pagesArray[flipBackIndex]} />
+                ) : (
+                  <div className="w-full h-full bg-surface" />
+                )}
               </div>
             </div>
           )}
@@ -263,11 +300,12 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
             <div
               className="absolute inset-y-0 w-20 pointer-events-none z-20"
               style={{
-                right: flipDirection === 'next' ? 0 : 'auto',
-                left: flipDirection === 'prev' ? 0 : 'auto',
-                background: flipDirection === 'next'
-                  ? "linear-gradient(to left, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.1) 40%, transparent 100%)"
-                  : "linear-gradient(to right, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.1) 40%, transparent 100%)",
+                right: flipDirection === "next" ? 0 : "auto",
+                left: flipDirection === "prev" ? 0 : "auto",
+                background:
+                  flipDirection === "next"
+                    ? "linear-gradient(to left, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.1) 40%, transparent 100%)"
+                    : "linear-gradient(to right, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.1) 40%, transparent 100%)",
               }}
             />
           )}

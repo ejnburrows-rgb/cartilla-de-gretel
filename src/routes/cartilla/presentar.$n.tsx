@@ -56,10 +56,7 @@ function PresentarLesson() {
   const navigate = useNavigate();
   const n = Number(nParam);
 
-  const entry = useMemo<CatalogEntry | undefined>(
-    () => CATALOG.find((e) => e.n === n),
-    [n],
-  );
+  const entry = useMemo<CatalogEntry | undefined>(() => CATALOG.find((e) => e.n === n), [n]);
 
   const sheetCount = useMemo(() => getFlipchartPagesForLesson(n).length, [n]);
 

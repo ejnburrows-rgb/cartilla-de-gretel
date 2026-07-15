@@ -3,7 +3,6 @@ import React from "react";
 export function Lesson1Guide() {
   return (
     <div className="space-y-12">
-      
       {/* OBJETIVOS */}
       <section id="objetivos" className="scroll-mt-24">
         <h2 className="text-2xl font-black text-stone-800 mb-6 flex items-center gap-3">
@@ -26,7 +25,8 @@ export function Lesson1Guide() {
             <li className="flex items-start gap-3">
               <span className="w-2 h-2 rounded-full bg-orange-400 mt-2 shrink-0"></span>
               <span className="text-stone-700 leading-relaxed font-medium">
-                Produce palabras con los mismos sonidos iniciales y asocia sonidos iniciales con los símbolos de las vocales "a", "e", "i", "o", "u".
+                Produce palabras con los mismos sonidos iniciales y asocia sonidos iniciales con los
+                símbolos de las vocales "a", "e", "i", "o", "u".
               </span>
             </li>
             <li className="flex items-start gap-3">
@@ -52,14 +52,20 @@ export function Lesson1Guide() {
         </h2>
         <div className="space-y-6 text-stone-700 leading-relaxed font-medium">
           <p>
-            El maestro invitará a los estudiantes a observar la ilustración inicial de <strong>"Las hermanitas vocales"</strong>.
+            El maestro invitará a los estudiantes a observar la ilustración inicial de{" "}
+            <strong>"Las hermanitas vocales"</strong>.
           </p>
           <div className="bg-stone-50 border border-stone-200 rounded-2xl p-6">
             <ol className="list-decimal list-inside space-y-4">
               <li>Participarán en actividades orales introductorias.</li>
-              <li>Identificarán los sonidos de cada una de las vocales a través de la lectura visual.</li>
+              <li>
+                Identificarán los sonidos de cada una de las vocales a través de la lectura visual.
+              </li>
               <li>Leerán el vocabulario asociado a las ilustraciones de la lección.</li>
-              <li>Completarán los ejercicios de escritura y lenguaje en su libro de actividades impreso.</li>
+              <li>
+                Completarán los ejercicios de escritura y lenguaje en su libro de actividades
+                impreso.
+              </li>
             </ol>
           </div>
         </div>
@@ -75,21 +81,38 @@ export function Lesson1Guide() {
         </p>
         <div className="bg-blue-50 border border-blue-100 rounded-2xl p-6 text-center">
           <p className="text-blue-900 font-bold italic">
-            Cinco hermanitas<br />
-            todas aplicadas<br />
-            las cinco bonitas<br />
+            Cinco hermanitas
+            <br />
+            todas aplicadas
+            <br />
+            las cinco bonitas
+            <br />
             nunca están calladas.
           </p>
-          <p className="text-stone-500 text-sm mt-2 not-italic">"Cinco hermanitas" — Reproducible Rhyme 1.</p>
+          <p className="text-stone-500 text-sm mt-2 not-italic">
+            "Cinco hermanitas" — Reproducible Rhyme 1.
+          </p>
         </div>
         <div className="mt-4">
-          <p className="text-xs font-black uppercase tracking-wide text-stone-400 mb-2">Palabras iniciales por vocal</p>
+          <p className="text-xs font-black uppercase tracking-wide text-stone-400 mb-2">
+            Palabras iniciales por vocal
+          </p>
           <div className="flex flex-wrap gap-2">
-            <span className="px-2.5 py-1 rounded-full bg-blue-50 text-blue-900 text-sm font-bold border border-blue-100">avión (a)</span>
-            <span className="px-2.5 py-1 rounded-full bg-blue-50 text-blue-900 text-sm font-bold border border-blue-100">escoba (e)</span>
-            <span className="px-2.5 py-1 rounded-full bg-blue-50 text-blue-900 text-sm font-bold border border-blue-100">imán (i)</span>
-            <span className="px-2.5 py-1 rounded-full bg-blue-50 text-blue-900 text-sm font-bold border border-blue-100">olla (o)</span>
-            <span className="px-2.5 py-1 rounded-full bg-blue-50 text-blue-900 text-sm font-bold border border-blue-100">uña (u)</span>
+            <span className="px-2.5 py-1 rounded-full bg-blue-50 text-blue-900 text-sm font-bold border border-blue-100">
+              avión (a)
+            </span>
+            <span className="px-2.5 py-1 rounded-full bg-blue-50 text-blue-900 text-sm font-bold border border-blue-100">
+              escoba (e)
+            </span>
+            <span className="px-2.5 py-1 rounded-full bg-blue-50 text-blue-900 text-sm font-bold border border-blue-100">
+              imán (i)
+            </span>
+            <span className="px-2.5 py-1 rounded-full bg-blue-50 text-blue-900 text-sm font-bold border border-blue-100">
+              olla (o)
+            </span>
+            <span className="px-2.5 py-1 rounded-full bg-blue-50 text-blue-900 text-sm font-bold border border-blue-100">
+              uña (u)
+            </span>
           </div>
         </div>
       </section>
@@ -101,11 +124,11 @@ export function Lesson1Guide() {
         </h2>
         <div className="bg-purple-50 border border-purple-100 rounded-2xl p-6">
           <p className="text-purple-900 font-medium">
-            Verifique la correcta identificación auditiva y visual de las 5 vocales antes de proceder a la Lección 2.
+            Verifique la correcta identificación auditiva y visual de las 5 vocales antes de
+            proceder a la Lección 2.
           </p>
         </div>
       </section>
-
     </div>
   );
 }

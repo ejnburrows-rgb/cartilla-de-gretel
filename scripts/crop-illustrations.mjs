@@ -27,9 +27,10 @@ const rootDir = path.resolve(__dirname, "..");
 
 const args = process.argv.slice(2);
 const manifestIdx = args.indexOf("--manifest");
-const manifestPath = manifestIdx !== -1
-  ? path.resolve(args[manifestIdx + 1])
-  : path.join(__dirname, "crop-manifest.json");
+const manifestPath =
+  manifestIdx !== -1
+    ? path.resolve(args[manifestIdx + 1])
+    : path.join(__dirname, "crop-manifest.json");
 const force = args.includes("--force");
 
 function loadManifest() {
@@ -54,8 +55,12 @@ function validateEntry(entry, i) {
 }
 
 async function cropOne(entry) {
-  const sourcePath = path.isAbsolute(entry.source) ? entry.source : path.join(rootDir, entry.source);
-  const outputPath = path.isAbsolute(entry.output) ? entry.output : path.join(rootDir, entry.output);
+  const sourcePath = path.isAbsolute(entry.source)
+    ? entry.source
+    : path.join(rootDir, entry.source);
+  const outputPath = path.isAbsolute(entry.output)
+    ? entry.output
+    : path.join(rootDir, entry.output);
 
   if (!fs.existsSync(sourcePath)) {
     return { slug: entry.slug, status: "missing-source", detail: entry.source };
@@ -115,12 +120,19 @@ async function main() {
   }
   if (byStatus["missing-source"] || byStatus["invalid-entry"] || byStatus.error) {
     console.log("\nNeeds attention:");
-    for (const r of [...(byStatus["missing-source"] ?? []), ...(byStatus["invalid-entry"] ?? []), ...(byStatus.error ?? [])]) {
+    for (const r of [
+      ...(byStatus["missing-source"] ?? []),
+      ...(byStatus["invalid-entry"] ?? []),
+      ...(byStatus.error ?? []),
+    ]) {
       console.log(`  ✗ ${r.slug} — ${r.status}: ${r.detail}`);
     }
   }
 
-  const failed = (byStatus["missing-source"]?.length ?? 0) + (byStatus["invalid-entry"]?.length ?? 0) + (byStatus.error?.length ?? 0);
+  const failed =
+    (byStatus["missing-source"]?.length ?? 0) +
+    (byStatus["invalid-entry"]?.length ?? 0) +
+    (byStatus.error?.length ?? 0);
   process.exit(failed > 0 ? 1 : 0);
 }
 

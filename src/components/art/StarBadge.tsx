@@ -11,8 +11,7 @@ interface StarBadgeProps extends React.SVGProps<SVGSVGElement> {
 }
 
 /* 5-pointed star centred at (50,50) r=42 */
-const STAR_PATH =
-  "M50 8 L61 36 L92 36 L67 56 L76 86 L50 68 L24 86 L33 56 L8 36 L39 36 Z";
+const STAR_PATH = "M50 8 L61 36 L92 36 L67 56 L76 86 L50 68 L24 86 L33 56 L8 36 L39 36 Z";
 
 export function StarBadge({
   filled = false,
@@ -67,13 +66,7 @@ export function StarBadge({
         </>
       ) : (
         /* Empty outline star */
-        <path
-          d={STAR_PATH}
-          fill="none"
-          stroke="#b0b0b0"
-          strokeWidth="2.5"
-          strokeLinejoin="round"
-        />
+        <path d={STAR_PATH} fill="none" stroke="#b0b0b0" strokeWidth="2.5" strokeLinejoin="round" />
       )}
     </svg>
   );

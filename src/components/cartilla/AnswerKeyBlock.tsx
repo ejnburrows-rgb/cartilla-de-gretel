@@ -90,27 +90,34 @@ export function AnswerKeyBlock({ entry, pageNumber }: AnswerKeyBlockProps) {
   // Extract syllables, words, and sentences
   const syllables: string[] =
     entry.kind === "consonant"
-      ? (entry.data?.syllables || [])
+      ? entry.data?.syllables || []
       : entry.kind === "vowel"
         ? [entry.vowel, ...["a", "e", "i", "o", "u"].filter((v) => v !== entry.vowel)]
         : ["a", "e", "i", "o", "u"];
 
   const words: string[] =
     entry.kind === "consonant"
-      ? (entry.data?.examples ? Object.values(entry.data.examples).flat().slice(0, 6) : [])
+      ? entry.data?.examples
+        ? Object.values(entry.data.examples).flat().slice(0, 6)
+        : []
       : entry.kind === "vowel"
         ? (entry.lesson?.vocab || []).slice(0, 6).map((v) => v.word)
         : ["ala", "oso", "uva", "isla", "era"];
 
   const sentences: string[] =
     entry.kind === "consonant"
-      ? (entry.data?.sentences || [])
+      ? entry.data?.sentences || []
       : entry.kind === "vowel"
         ? [`${entry.lesson?.characterName || ""}. ${entry.lesson?.characterDesc || ""}`]
         : ["Las cinco vocales son a, e, i, o, u. Repite conmigo: a, e, i, o, u."];
 
-  const isScaffold = (Array.isArray(interactionsData.interactions) ? (interactionsData.interactions as any[]) : []).some(
-    (i) => i && (i.lessonNumber === entry.n || i.lessonId === String(entry.n)) && i.sourceStatus === "scaffold"
+  const isScaffold = (
+    Array.isArray(interactionsData.interactions) ? (interactionsData.interactions as any[]) : []
+  ).some(
+    (i) =>
+      i &&
+      (i.lessonNumber === entry.n || i.lessonId === String(entry.n)) &&
+      i.sourceStatus === "scaffold",
   );
 
   return (
@@ -122,100 +129,113 @@ export function AnswerKeyBlock({ entry, pageNumber }: AnswerKeyBlockProps) {
 
       <div style={contentStyle}>
         {isScaffold ? (
-          <div style={{
-            flex: 1,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            border: "2px dashed #b7e4c7",
-            borderRadius: "0.5rem",
-            backgroundColor: "#f4fbf7",
-            padding: "1rem",
-            textAlign: "center",
-            color: "#2d6a4f",
-            fontSize: "0.75rem",
-            fontWeight: "bold"
-          }}>
+          <div
+            style={{
+              flex: 1,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              border: "2px dashed #b7e4c7",
+              borderRadius: "0.5rem",
+              backgroundColor: "#f4fbf7",
+              padding: "1rem",
+              textAlign: "center",
+              color: "#2d6a4f",
+              fontSize: "0.75rem",
+              fontWeight: "bold",
+            }}
+          >
             [ Ejercicio pendiente de verificación — Lección {entry.n} ]
           </div>
         ) : (
           <>
-        {kind === "intro" && (
-          <>
-            <div>
-              <span style={boldLabelStyle}>Actividad: </span> Presentación de la lección e historia del personaje.
-            </div>
-            <div>
-              <span style={boldLabelStyle}>Instrucciones de Escritura: </span> El alumno debe trazar la letra o vocal en la cuadrícula punteada siguiendo el orden correcto de trazo del maestro.
-            </div>
-            <div>
-              <span style={boldLabelStyle}>Foco fonético: </span> Reconocimiento sonoro inicial de las grafías principales:{" "}
-              <span className="font-mono font-bold">{syllables.join(", ")}</span>.
-            </div>
-          </>
-        )}
+            {kind === "intro" && (
+              <>
+                <div>
+                  <span style={boldLabelStyle}>Actividad: </span> Presentación de la lección e
+                  historia del personaje.
+                </div>
+                <div>
+                  <span style={boldLabelStyle}>Instrucciones de Escritura: </span> El alumno debe
+                  trazar la letra o vocal en la cuadrícula punteada siguiendo el orden correcto de
+                  trazo del maestro.
+                </div>
+                <div>
+                  <span style={boldLabelStyle}>Foco fonético: </span> Reconocimiento sonoro inicial
+                  de las grafías principales:{" "}
+                  <span className="font-mono font-bold">{syllables.join(", ")}</span>.
+                </div>
+              </>
+            )}
 
-        {kind === "syllable_tap" && (
-          <>
-            <div>
-              <span style={boldLabelStyle}>Actividad: </span> Identificación auditiva y lectura de sílabas.
-            </div>
-            <div>
-              <span style={boldLabelStyle}>Respuestas de Escritura: </span> Se espera que el estudiante rellene las sílabas correspondientes:
-            </div>
-            <ul style={bulletListStyle}>
-              {syllables.map((s) => (
-                <li key={s}>
-                  Letra / Sonido <span className="font-bold">{s}</span>
-                </li>
-              ))}
-            </ul>
-          </>
-        )}
+            {kind === "syllable_tap" && (
+              <>
+                <div>
+                  <span style={boldLabelStyle}>Actividad: </span> Identificación auditiva y lectura
+                  de sílabas.
+                </div>
+                <div>
+                  <span style={boldLabelStyle}>Respuestas de Escritura: </span> Se espera que el
+                  estudiante rellene las sílabas correspondientes:
+                </div>
+                <ul style={bulletListStyle}>
+                  {syllables.map((s) => (
+                    <li key={s}>
+                      Letra / Sonido <span className="font-bold">{s}</span>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
 
-        {kind === "word_match" && (
-          <>
-            <div>
-              <span style={boldLabelStyle}>Actividad: </span> Asociación de vocabulario visual con la sílaba inicial.
-            </div>
-            <div>
-              <span style={boldLabelStyle}>Respuestas correctas de unión (Líneas): </span>
-            </div>
-            <ul style={bulletListStyle}>
-              {words.slice(0, 4).map((w) => {
-                // Find matching starting syllable
-                const match = syllables.find((s) => w.toLowerCase().startsWith(s.toLowerCase())) || syllables[0];
-                return (
-                  <li key={w}>
-                    <span className="font-bold capitalize">{w}</span> une con la sílaba{" "}
-                    <span className="font-mono font-bold text-emerald-800">[{match}]</span>
-                  </li>
-                );
-              })}
-            </ul>
-          </>
-        )}
+            {kind === "word_match" && (
+              <>
+                <div>
+                  <span style={boldLabelStyle}>Actividad: </span> Asociación de vocabulario visual
+                  con la sílaba inicial.
+                </div>
+                <div>
+                  <span style={boldLabelStyle}>Respuestas correctas de unión (Líneas): </span>
+                </div>
+                <ul style={bulletListStyle}>
+                  {words.slice(0, 4).map((w) => {
+                    // Find matching starting syllable
+                    const match =
+                      syllables.find((s) => w.toLowerCase().startsWith(s.toLowerCase())) ||
+                      syllables[0];
+                    return (
+                      <li key={w}>
+                        <span className="font-bold capitalize">{w}</span> une con la sílaba{" "}
+                        <span className="font-mono font-bold text-emerald-800">[{match}]</span>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </>
+            )}
 
-        {kind === "reading" && (
-          <>
-            <div>
-              <span style={boldLabelStyle}>Actividad: </span> Lectura guiada grupal y caligrafía.
-            </div>
-            <div>
-              <span style={boldLabelStyle}>Texto de lectura / dictado de oraciones: </span>
-            </div>
-            <ul style={bulletListStyle}>
-              {sentences.map((sentence, idx) => (
-                <li key={idx} className="italic text-emerald-950">
-                  &ldquo;{sentence}&rdquo;
-                </li>
-              ))}
-            </ul>
-            <div className="mt-1">
-              <span style={boldLabelStyle}>Caligrafía: </span> Copia manuscrita del estudiante en las guías pautadas.
-            </div>
-          </>
-        )}
+            {kind === "reading" && (
+              <>
+                <div>
+                  <span style={boldLabelStyle}>Actividad: </span> Lectura guiada grupal y
+                  caligrafía.
+                </div>
+                <div>
+                  <span style={boldLabelStyle}>Texto de lectura / dictado de oraciones: </span>
+                </div>
+                <ul style={bulletListStyle}>
+                  {sentences.map((sentence, idx) => (
+                    <li key={idx} className="italic text-emerald-950">
+                      &ldquo;{sentence}&rdquo;
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-1">
+                  <span style={boldLabelStyle}>Caligrafía: </span> Copia manuscrita del estudiante
+                  en las guías pautadas.
+                </div>
+              </>
+            )}
           </>
         )}
       </div>

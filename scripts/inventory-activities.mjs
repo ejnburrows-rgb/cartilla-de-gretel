@@ -74,9 +74,7 @@ function inventoryLessonExerciseFile(n) {
   const text = fs.readFileSync(file, "utf8");
   const kinds = [...text.matchAll(/\bkind:\s*["']([^"']+)["']/g)].map((m) => m[1]);
   const statuses = [...text.matchAll(/studentFacingStatus:\s*["']([^"']+)["']/g)].map((m) => m[1]);
-  const placeholderCount = (
-    text.match(/Pr[oó]ximamente|coming.?soon/gi) || []
-  ).length;
+  const placeholderCount = (text.match(/Pr[oó]ximamente|coming.?soon/gi) || []).length;
   const notReady = statuses.filter((s) => s !== "ready").length;
   const disabledCount = (text.match(/disabled:\s*true/g) || []).length + notReady;
   return {

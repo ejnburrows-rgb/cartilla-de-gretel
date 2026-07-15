@@ -30,25 +30,25 @@ function playChime() {
     const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
     if (!AudioCtx) return;
     const ctx = new AudioCtx();
-    
+
     // Play a nice double-tone clean chime
     const playTone = (freq: number, start: number, duration: number) => {
       const osc = ctx.createOscillator();
       const gain = ctx.createGain();
       osc.type = "sine";
       osc.frequency.setValueAtTime(freq, ctx.currentTime + start);
-      
+
       gain.gain.setValueAtTime(0, ctx.currentTime + start);
       gain.gain.linearRampToValueAtTime(0.3, ctx.currentTime + start + 0.05);
       gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + start + duration);
-      
+
       osc.connect(gain);
       gain.connect(ctx.destination);
       osc.start(ctx.currentTime + start);
       osc.stop(ctx.currentTime + start + duration);
     };
 
-    playTone(523.25, 0, 0.8);   // C5
+    playTone(523.25, 0, 0.8); // C5
     playTone(659.25, 0.15, 1.0); // E5
   } catch {
     /* ignore fallback */
@@ -121,7 +121,7 @@ export function SessionTimer() {
       <h3 className="text-xs font-bold uppercase tracking-wider text-stone-500 mb-2">
         Tiempo de Clase
       </h3>
-      
+
       <div className="relative w-36 h-36 flex items-center justify-center mb-3">
         <svg className="w-full h-full">
           <circle
@@ -163,7 +163,11 @@ export function SessionTimer() {
           className="flex items-center justify-center p-3 rounded-full bg-amber-800 hover:bg-amber-900 text-white shadow-md active:scale-95 transition"
           aria-label={isRunning ? "Pausar cronómetro" : "Iniciar cronómetro"}
         >
-          {isRunning ? <Pause className="w-5 h-5 fill-white" /> : <Play className="w-5 h-5 fill-white" />}
+          {isRunning ? (
+            <Pause className="w-5 h-5 fill-white" />
+          ) : (
+            <Play className="w-5 h-5 fill-white" />
+          )}
         </button>
 
         <button

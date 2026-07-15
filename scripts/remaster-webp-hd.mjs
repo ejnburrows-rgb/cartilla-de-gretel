@@ -32,12 +32,11 @@ async function processWorkbook() {
   const dstDir = path.join(PUBLIC, "art", "remastered");
   await mkdir(dstDir, { recursive: true });
 
-  const files = (await readdir(srcDir))
-    .filter((f) => f.endsWith(".png"))
-    .sort();
+  const files = (await readdir(srcDir)).filter((f) => f.endsWith(".png")).sort();
 
   console.log(`\n── workbook: ${files.length} pages → ${dstDir}`);
-  let ok = 0, skip = 0;
+  let ok = 0,
+    skip = 0;
   const start = Date.now();
 
   for (const file of files) {
@@ -47,7 +46,11 @@ async function processWorkbook() {
     const srcPath = path.join(srcDir, file);
     const dstPath = path.join(dstDir, dstName);
 
-    if (existsSync(dstPath)) { skip++; process.stdout.write("·"); continue; }
+    if (existsSync(dstPath)) {
+      skip++;
+      process.stdout.write("·");
+      continue;
+    }
 
     try {
       await sharp(srcPath).webp(WEBP_OPTIONS).toFile(dstPath);
@@ -55,13 +58,15 @@ async function processWorkbook() {
       process.stdout.write("✓");
       if ((ok + skip) % 20 === 0) {
         const pct = Math.round(((ok + skip) / files.length) * 100);
-        process.stdout.write(` ${pct}% (${((Date.now()-start)/1000).toFixed(1)}s)\n`);
+        process.stdout.write(` ${pct}% (${((Date.now() - start) / 1000).toFixed(1)}s)\n`);
       }
     } catch (err) {
       console.error(`\nERROR ${file}:`, err.message);
     }
   }
-  console.log(`\n  Done: ${ok} converted, ${skip} skipped (${((Date.now()-start)/1000).toFixed(1)}s)`);
+  console.log(
+    `\n  Done: ${ok} converted, ${skip} skipped (${((Date.now() - start) / 1000).toFixed(1)}s)`,
+  );
 }
 
 async function processFlipchartPages() {
@@ -69,12 +74,11 @@ async function processFlipchartPages() {
   const dstDir = path.join(PUBLIC, "art", "remastered", "flipchart");
   await mkdir(dstDir, { recursive: true });
 
-  const files = (await readdir(srcDir))
-    .filter((f) => f.endsWith(".png"))
-    .sort();
+  const files = (await readdir(srcDir)).filter((f) => f.endsWith(".png")).sort();
 
   console.log(`\n── flipchart: ${files.length} pages → ${dstDir}`);
-  let ok = 0, skip = 0;
+  let ok = 0,
+    skip = 0;
   const start = Date.now();
 
   for (const file of files) {
@@ -83,7 +87,11 @@ async function processFlipchartPages() {
     const srcPath = path.join(srcDir, file);
     const dstPath = path.join(dstDir, dstName);
 
-    if (existsSync(dstPath)) { skip++; process.stdout.write("·"); continue; }
+    if (existsSync(dstPath)) {
+      skip++;
+      process.stdout.write("·");
+      continue;
+    }
 
     try {
       await sharp(srcPath).webp(WEBP_OPTIONS).toFile(dstPath);
@@ -91,13 +99,15 @@ async function processFlipchartPages() {
       process.stdout.write("✓");
       if ((ok + skip) % 20 === 0) {
         const pct = Math.round(((ok + skip) / files.length) * 100);
-        process.stdout.write(` ${pct}% (${((Date.now()-start)/1000).toFixed(1)}s)\n`);
+        process.stdout.write(` ${pct}% (${((Date.now() - start) / 1000).toFixed(1)}s)\n`);
       }
     } catch (err) {
       console.error(`\nERROR ${file}:`, err.message);
     }
   }
-  console.log(`\n  Done: ${ok} converted, ${skip} skipped (${((Date.now()-start)/1000).toFixed(1)}s)`);
+  console.log(
+    `\n  Done: ${ok} converted, ${skip} skipped (${((Date.now() - start) / 1000).toFixed(1)}s)`,
+  );
 }
 
 async function main() {
@@ -109,4 +119,7 @@ async function main() {
   console.log("\n✅  All done. Update getBookPageImage() to use /art/remastered/page-N.webp");
 }
 
-main().catch((err) => { console.error("Fatal:", err); process.exit(1); });
+main().catch((err) => {
+  console.error("Fatal:", err);
+  process.exit(1);
+});

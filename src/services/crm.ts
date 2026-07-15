@@ -86,5 +86,5 @@ export const crmService = {
     }
     saveState(state);
     return p;
-  }
+  },
 };

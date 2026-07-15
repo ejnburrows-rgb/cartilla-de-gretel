@@ -1,11 +1,6 @@
 import bindings from "@/content/page-bindings.json";
 
-export type PageBindingKind =
-  | "intro"
-  | "syllable-tap"
-  | "word-match"
-  | "drag-build"
-  | "reading";
+export type PageBindingKind = "intro" | "syllable-tap" | "word-match" | "drag-build" | "reading";
 
 export type PageBinding = {
   lessonN: number;

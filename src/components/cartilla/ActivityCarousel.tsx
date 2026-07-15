@@ -45,14 +45,16 @@ export function ActivityCarousel({
   // Map tabs to metadata, in the order this lesson's `activities` specifies
   const tabMeta: Record<TabType, { label: string; icon: ReactElement; disabled?: boolean }> = {
     silabas: { label: "Sílabas", icon: <Volume2 className="w-4 h-4" /> },
-    palabras: { label: "Emparejar", icon: <Grid className="w-4 h-4" />, disabled: pairs.length === 0 },
+    palabras: {
+      label: "Emparejar",
+      icon: <Grid className="w-4 h-4" />,
+      disabled: pairs.length === 0,
+    },
     armar: { label: "Armar", icon: <Puzzle className="w-4 h-4" /> },
     trazar: { label: "Trazar", icon: <PenTool className="w-4 h-4" /> },
     piano: { label: "Piano", icon: <Music className="w-4 h-4" /> },
   };
-  const tabs = activities
-    .map((id) => ({ id, ...tabMeta[id] }))
-    .filter((t) => !t.disabled);
+  const tabs = activities.map((id) => ({ id, ...tabMeta[id] })).filter((t) => !t.disabled);
 
   // Mark tab complete
   const handleCompleteTab = (tabId: TabType) => {
@@ -73,11 +75,7 @@ export function ActivityCarousel({
       case "silabas":
         return (
           <div className="py-2">
-            <SyllableTap
-              syllables={syllables}
-              color={color}
-              lessonId={lessonId}
-            />
+            <SyllableTap syllables={syllables} color={color} lessonId={lessonId} />
             {/* Simple complete button for SyllableTap since it's a practice game */}
             <div className="mt-6 flex justify-center">
               <button
@@ -156,8 +154,12 @@ export function ActivityCarousel({
             <Sparkles className="h-5 w-5 text-white" />
           </span>
           <div>
-            <h3 className="font-display text-lg font-black leading-tight text-stone-900">¡A jugar!</h3>
-            <p className="text-xs font-bold text-stone-500">{doneCount} de {tabs.length} completados</p>
+            <h3 className="font-display text-lg font-black leading-tight text-stone-900">
+              ¡A jugar!
+            </h3>
+            <p className="text-xs font-bold text-stone-500">
+              {doneCount} de {tabs.length} completados
+            </p>
           </div>
         </div>
       </div>

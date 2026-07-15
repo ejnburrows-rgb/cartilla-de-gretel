@@ -87,9 +87,7 @@ export function BinderSheet({ entry, pageNumber }: BinderSheetProps) {
       <header style={headerStyle}>
         <div>
           <h2 style={titleStyle}>{entry.title}</h2>
-          <p style={headerSubtitleStyle}>
-            Carpeta del Docente · Lección {entry.n}
-          </p>
+          <p style={headerSubtitleStyle}>Carpeta del Docente · Lección {entry.n}</p>
         </div>
         <div style={badgeStyle}>Pág. {pageNumber}</div>
       </header>

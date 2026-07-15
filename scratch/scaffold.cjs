@@ -1,14 +1,14 @@
-const fs = require('fs');
+const fs = require("fs");
 
 const letters = [
-  { L: 'T', l: 't', syls: ['ta','te','ti','to','tu'] },     // L9
-  { L: 'L', l: 'l', syls: ['la','le','li','lo','lu'] },     // L10
-  { L: 'N', l: 'n', syls: ['na','ne','ni','no','nu'] },     // L11
-  { L: 'D', l: 'd', syls: ['da','de','di','do','du'] },     // L12
-  { L: 'R', l: 'r', syls: ['ra','re','ri','ro','ru'] },     // L13
-  { L: 'F', l: 'f', syls: ['fa','fe','fi','fo','fu'] },     // L14
-  { L: 'B', l: 'b', syls: ['ba','be','bi','bo','bu'] },     // L15
-  { L: 'C', l: 'c', syls: ['ca','co','cu'] }                // L16
+  { L: "T", l: "t", syls: ["ta", "te", "ti", "to", "tu"] }, // L9
+  { L: "L", l: "l", syls: ["la", "le", "li", "lo", "lu"] }, // L10
+  { L: "N", l: "n", syls: ["na", "ne", "ni", "no", "nu"] }, // L11
+  { L: "D", l: "d", syls: ["da", "de", "di", "do", "du"] }, // L12
+  { L: "R", l: "r", syls: ["ra", "re", "ri", "ro", "ru"] }, // L13
+  { L: "F", l: "f", syls: ["fa", "fe", "fi", "fo", "fu"] }, // L14
+  { L: "B", l: "b", syls: ["ba", "be", "bi", "bo", "bu"] }, // L15
+  { L: "C", l: "c", syls: ["ca", "co", "cu"] }, // L16
 ];
 
 const PENDIENTE = "PENDIENTE — requiere verificación con PDF";
@@ -17,8 +17,8 @@ const PENDIENTE = "PENDIENTE — requiere verificación con PDF";
 for (let i = 0; i < letters.length; i++) {
   const ln = i + 9;
   const m = letters[i];
-  
-  const content = `export const lesson${ln.toString().padStart(2, '0')} = [
+
+  const content = `export const lesson${ln.toString().padStart(2, "0")} = [
   {
     id: "l${ln}-pX-letter-tracing",
     lessonNumber: ${ln},
@@ -45,10 +45,10 @@ for (let i = 0; i < letters.length; i++) {
     title: "${PENDIENTE}",
     prompt: "${PENDIENTE}",
     items: [
-      ${m.syls.map(s => `{ id: "syl-${s}", label: "${s}" }`).join(',\n      ')}
+      ${m.syls.map((s) => `{ id: "syl-${s}", label: "${s}" }`).join(",\n      ")}
     ],
     targets: [
-      ${m.syls.map(s => `{ id: "slot-${s}", label: "${s}", coordinatesVerified: false, acceptsItemId: "syl-${s}" }`).join(',\n      ')}
+      ${m.syls.map((s) => `{ id: "slot-${s}", label: "${s}", coordinatesVerified: false, acceptsItemId: "syl-${s}" }`).join(",\n      ")}
     ],
     wordBank: [
       "${PENDIENTE}"
@@ -67,7 +67,7 @@ for (let i = 0; i < letters.length; i++) {
     title: "${PENDIENTE}",
     prompt: "${PENDIENTE}",
     items: [
-      ${m.syls.map(s => `{ id: "ra-${s}", label: "${s}" }`).join(',\n      ')}
+      ${m.syls.map((s) => `{ id: "ra-${s}", label: "${s}" }`).join(",\n      ")}
     ],
     targets: [],
     sourceStatus: "scaffold",
@@ -121,7 +121,7 @@ for (let i = 0; i < letters.length; i++) {
     title: "${PENDIENTE}",
     prompt: "${PENDIENTE}",
     items: [
-      ${m.syls.map(s => `{ id: "syl-${s}", label: "${s}" }`).join(',\n      ')}
+      ${m.syls.map((s) => `{ id: "syl-${s}", label: "${s}" }`).join(",\n      ")}
     ],
     targets: [
       {
@@ -150,32 +150,39 @@ for (let i = 0; i < letters.length; i++) {
   }
 ];
 `;
-  fs.writeFileSync(`src/data/lessons/lesson-${ln.toString().padStart(2, '0')}.ts`, content);
+  fs.writeFileSync(`src/data/lessons/lesson-${ln.toString().padStart(2, "0")}.ts`, content);
 }
 
 // 2. Update consonants.json
-const consPath = 'src/content/consonants.json';
-let cons = JSON.parse(fs.readFileSync(consPath, 'utf8'));
+const consPath = "src/content/consonants.json";
+let cons = JSON.parse(fs.readFileSync(consPath, "utf8"));
 
 // Filter out 9 to 16
-const newCons = cons.filter(c => c.lesson < 9 || c.lesson > 16);
+const newCons = cons.filter((c) => c.lesson < 9 || c.lesson > 16);
 
 const l9_16 = letters.map((m, i) => {
   const ln = i + 9;
-  const startPage = 27 + (i * 4);
+  const startPage = 27 + i * 4;
   return {
     letter: m.l,
     lesson: ln,
-    pages: `${startPage}-${startPage+3}`,
-    color: "#" + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0'),
+    pages: `${startPage}-${startPage + 3}`,
+    color:
+      "#" +
+      Math.floor(Math.random() * 16777215)
+        .toString(16)
+        .padStart(6, "0"),
     syllables: m.syls,
-    examples: m.syls.reduce((acc, s) => { acc[s] = [PENDIENTE]; return acc; }, {}),
-    sentences: [PENDIENTE]
+    examples: m.syls.reduce((acc, s) => {
+      acc[s] = [PENDIENTE];
+      return acc;
+    }, {}),
+    sentences: [PENDIENTE],
   };
 });
 
 newCons.push(...l9_16);
-newCons.sort((a,b) => a.lesson - b.lesson);
+newCons.sort((a, b) => a.lesson - b.lesson);
 fs.writeFileSync(consPath, JSON.stringify(newCons, null, 2));
 
 console.log("Done scaffolding files.");

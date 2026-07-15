@@ -21,11 +21,7 @@ export function GretelReaction() {
     } as React.CSSProperties;
 
     return (
-      <div
-        key={i}
-        style={particleStyle}
-        className={`sparkle-particle sparkle-${(i % 6) + 1}`}
-      />
+      <div key={i} style={particleStyle} className={`sparkle-particle sparkle-${(i % 6) + 1}`} />
     );
   });
 

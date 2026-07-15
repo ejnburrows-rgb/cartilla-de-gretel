@@ -20,14 +20,7 @@ export type ActivityKind =
   | "sing"
   | "trace";
 
-export type ActivityTone =
-  | "a"
-  | "e"
-  | "i"
-  | "o"
-  | "u"
-  | "primary"
-  | "warning";
+export type ActivityTone = "a" | "e" | "i" | "o" | "u" | "primary" | "warning";
 
 export interface ActivitySpec {
   Icon: LucideIcon;

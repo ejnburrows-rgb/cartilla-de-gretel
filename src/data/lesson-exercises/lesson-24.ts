@@ -13,14 +13,15 @@ export const lesson24 = [
       { id: "img-zigzag", label: "zig-zag" },
       { id: "img-zorro", label: "zorro" },
       { id: "img-zepelin", label: "zepelín" },
-      { id: "img-zulema", label: "Zulema" }
+      { id: "img-zulema", label: "Zulema" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Transcribed verbatim from public/cartilla/images/source/z/z-page-58.jpg (real scan).",
-    sourcePage: getBookPageImage(87)
+    teacherNotes:
+      "Transcribed verbatim from public/cartilla/images/source/z/z-page-58.jpg (real scan).",
+    sourcePage: getBookPageImage(87),
   },
   {
     id: "l24-p88-syllable-tap",
@@ -34,14 +35,15 @@ export const lesson24 = [
       { id: "ra-ze", label: "ze" },
       { id: "ra-zi", label: "zi" },
       { id: "ra-zo", label: "zo" },
-      { id: "ra-zu", label: "zu" }
+      { id: "ra-zu", label: "zu" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Transcribed verbatim from public/cartilla/images/source/z/z-page-59.jpg (real scan).",
-    sourcePage: getBookPageImage(88)
+    teacherNotes:
+      "Transcribed verbatim from public/cartilla/images/source/z/z-page-59.jpg (real scan).",
+    sourcePage: getBookPageImage(88),
   },
   {
     id: "l24-p88-word-bank",
@@ -65,14 +67,15 @@ export const lesson24 = [
       { id: "w-zumo", label: "zumo" },
       { id: "w-azucar", label: "azúcar" },
       { id: "w-zepelin", label: "zepelín" },
-      { id: "w-azucarado", label: "azucarado" }
+      { id: "w-azucarado", label: "azucarado" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Word list transcribed verbatim from public/cartilla/images/source/z/z-page-59.jpg (real scan).",
-    sourcePage: getBookPageImage(88)
+    teacherNotes:
+      "Word list transcribed verbatim from public/cartilla/images/source/z/z-page-59.jpg (real scan).",
+    sourcePage: getBookPageImage(88),
   },
   {
     id: "l24-p88-mini-story",
@@ -87,14 +90,15 @@ export const lesson24 = [
       { id: "story-z-3", label: "Ella bebe el zumo y se pone sus zapatos" },
       { id: "story-z-4", label: "azules." },
       { id: "story-z-5", label: "Zila va con Zulema, van en un carro con" },
-      { id: "story-z-6", label: "ruedas de calabazas." }
+      { id: "story-z-6", label: "ruedas de calabazas." },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Reading passage transcribed verbatim from public/cartilla/images/source/z/z-page-59.jpg (real scan).",
-    sourcePage: getBookPageImage(88)
+    teacherNotes:
+      "Reading passage transcribed verbatim from public/cartilla/images/source/z/z-page-59.jpg (real scan).",
+    sourcePage: getBookPageImage(88),
   },
   {
     id: "l24-p89-rhyme",
@@ -111,14 +115,15 @@ export const lesson24 = [
       { id: "rhyme-z-5", label: "Compra ricas zarzamoras" },
       { id: "rhyme-z-6", label: "zumo de zapote y miel" },
       { id: "rhyme-z-7", label: "en su carro-calabaza" },
-      { id: "rhyme-z-8", label: "Zulema rueda muy bien." }
+      { id: "rhyme-z-8", label: "Zulema rueda muy bien." },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Rhyme transcribed verbatim from public/cartilla/images/source/z/z-page-60.jpg (real scan).",
-    sourcePage: getBookPageImage(89)
+    teacherNotes:
+      "Rhyme transcribed verbatim from public/cartilla/images/source/z/z-page-60.jpg (real scan).",
+    sourcePage: getBookPageImage(89),
   },
   {
     id: "l24-p90-fill-in-blank",
@@ -134,15 +139,63 @@ export const lesson24 = [
       { id: "syl-zu-3", label: "zu" },
       { id: "syl-zu-4", label: "zú" },
       { id: "syl-Zo-5", label: "Zo" },
-      { id: "syl-Zi-6", label: "Zi" }
+      { id: "syl-Zi-6", label: "Zi" },
     ],
     targets: [
-      { id: "blank-zapato-0", label: "___pato", hint: "za - zo", correctSyllable: "za", fullWord: "zapato", coordinatesVerified: false, acceptsItemId: "syl-za-0" },
-      { id: "blank-zeta-1", label: "___ta", hint: "za - ze", correctSyllable: "ze", fullWord: "zeta", coordinatesVerified: false, acceptsItemId: "syl-ze-2" },
-      { id: "blank-zumo-2", label: "___mo", hint: "zo - zu", correctSyllable: "zu", fullWord: "zumo", coordinatesVerified: false, acceptsItemId: "syl-zu-3" },
-      { id: "blank-lazo-3", label: "la___", hint: "zo - zú", correctSyllable: "zo", fullWord: "lazo", coordinatesVerified: false, acceptsItemId: "syl-zo-1" },
-      { id: "blank-azules-4", label: "a___les", hint: "zu - za", correctSyllable: "zu", fullWord: "azules", coordinatesVerified: false, acceptsItemId: "syl-zu-3" },
-      { id: "blank-zita-5", label: "___ta", hint: "Zo - Zi", correctSyllable: "Zi", fullWord: "Zita", coordinatesVerified: false, acceptsItemId: "syl-Zi-6" }
+      {
+        id: "blank-zapato-0",
+        label: "___pato",
+        hint: "za - zo",
+        correctSyllable: "za",
+        fullWord: "zapato",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-za-0",
+      },
+      {
+        id: "blank-zeta-1",
+        label: "___ta",
+        hint: "za - ze",
+        correctSyllable: "ze",
+        fullWord: "zeta",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-ze-2",
+      },
+      {
+        id: "blank-zumo-2",
+        label: "___mo",
+        hint: "zo - zu",
+        correctSyllable: "zu",
+        fullWord: "zumo",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-zu-3",
+      },
+      {
+        id: "blank-lazo-3",
+        label: "la___",
+        hint: "zo - zú",
+        correctSyllable: "zo",
+        fullWord: "lazo",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-zo-1",
+      },
+      {
+        id: "blank-azules-4",
+        label: "a___les",
+        hint: "zu - za",
+        correctSyllable: "zu",
+        fullWord: "azules",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-zu-3",
+      },
+      {
+        id: "blank-zita-5",
+        label: "___ta",
+        hint: "Zo - Zi",
+        correctSyllable: "Zi",
+        fullWord: "Zita",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-Zi-6",
+      },
     ],
     exercises: [
       { partial: "___pato", choices: ["za", "zo"], answer: "za", fullWord: "zapato" },
@@ -150,13 +203,14 @@ export const lesson24 = [
       { partial: "___mo", choices: ["zo", "zu"], answer: "zu", fullWord: "zumo" },
       { partial: "la___", choices: ["zo", "zú"], answer: "zo", fullWord: "lazo" },
       { partial: "a___les", choices: ["zu", "za"], answer: "zu", fullWord: "azules" },
-      { partial: "___ta", choices: ["Zo", "Zi"], answer: "Zi", fullWord: "Zita" }
+      { partial: "___ta", choices: ["Zo", "Zi"], answer: "Zi", fullWord: "Zita" },
     ],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
-    teacherNotes: "UNREADABLE-SCAN — no source scan was provided for this lesson's fill-in-blank page (physical page 90, per consonants.json's pages \"87-90\"); only 3 scans exist for z/ (page-58, 59, 60). This entry is unverified scaffold content carried over as-is; left pending, not promoted to ready.",
-    sourcePage: getBookPageImage(90)
+    teacherNotes:
+      "UNREADABLE-SCAN — no source scan was provided for this lesson's fill-in-blank page (physical page 90, per consonants.json's pages \"87-90\"); only 3 scans exist for z/ (page-58, 59, 60). This entry is unverified scaffold content carried over as-is; left pending, not promoted to ready.",
+    sourcePage: getBookPageImage(90),
   },
   {
     id: "l24-p90-write-sentences",
@@ -170,7 +224,8 @@ export const lesson24 = [
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
-    teacherNotes: "UNREADABLE-SCAN — no source scan was provided for physical page 90 (see fill-in-blank entry above for the same lesson/page).",
-    sourcePage: getBookPageImage(90)
-  }
+    teacherNotes:
+      "UNREADABLE-SCAN — no source scan was provided for physical page 90 (see fill-in-blank entry above for the same lesson/page).",
+    sourcePage: getBookPageImage(90),
+  },
 ];

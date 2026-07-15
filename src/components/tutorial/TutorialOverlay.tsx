@@ -26,10 +26,7 @@ export function TutorialOverlay() {
   if (!isActive) return null;
 
   return (
-    <div
-      className="tutorial-overlay-container no-print"
-      role="presentation"
-    >
+    <div className="tutorial-overlay-container no-print" role="presentation">
       {/* 1. Backdrop Spotlight Mask */}
       <TutorialSpotlight
         targetSelector={currentStep.targetSelector}

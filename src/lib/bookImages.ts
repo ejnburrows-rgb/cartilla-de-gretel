@@ -76,12 +76,9 @@ export function getWorkbookPageFallbackChain(
 
   // 3. Raw source scan
   if (resolvedSource) {
-    const rawPath = resolvedSource.startsWith("/")
-      ? resolvedSource
-      : `/${resolvedSource}`;
+    const rawPath = resolvedSource.startsWith("/") ? resolvedSource : `/${resolvedSource}`;
     chain.push(rawPath);
   }
 
   return Array.from(new Set(chain));
 }
-

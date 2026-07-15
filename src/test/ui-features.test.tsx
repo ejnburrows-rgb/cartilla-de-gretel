@@ -7,19 +7,27 @@ import { ThemeToggle } from "../components/ThemeToggle";
 import { LanguageToggle } from "../components/LanguageToggle";
 import { LanguageProvider } from "../context/LanguageContext";
 
-const localStorageMock = (function() {
+const localStorageMock = (function () {
   let store: Record<string, string> = {};
   return {
-    getItem(key: string) { return store[key] || null; },
-    setItem(key: string, value: string) { store[key] = value.toString(); },
-    clear() { store = {}; },
-    removeItem(key: string) { delete store[key]; }
+    getItem(key: string) {
+      return store[key] || null;
+    },
+    setItem(key: string, value: string) {
+      store[key] = value.toString();
+    },
+    clear() {
+      store = {};
+    },
+    removeItem(key: string) {
+      delete store[key];
+    },
   };
 })();
 
-Object.defineProperty(global, 'localStorage', {
+Object.defineProperty(global, "localStorage", {
   value: localStorageMock,
-  writable: true
+  writable: true,
 });
 
 describe("UI Features", () => {
@@ -32,15 +40,15 @@ describe("UI Features", () => {
     it("persists theme to localStorage and applies class to document", () => {
       render(<ThemeToggle />);
       const btn = screen.getByRole("button");
-      
+
       // Default is light (or depends on prefers-color-scheme, which is mocked or undefined here)
       // Since window.matchMedia might be undefined, it falls back to 'light'
-      
+
       // Click toggles it (if it was light, it becomes dark)
       fireEvent.click(btn);
       const afterClick = document.documentElement.classList.contains("dark");
       expect(localStorage.getItem("reader.theme")).toBe(afterClick ? '"dark"' : '"light"');
-      
+
       // Click again
       fireEvent.click(btn);
       expect(document.documentElement.classList.contains("dark")).toBe(!afterClick);
@@ -53,15 +61,15 @@ describe("UI Features", () => {
       render(
         <LanguageProvider>
           <LanguageToggle />
-        </LanguageProvider>
+        </LanguageProvider>,
       );
-      
+
       const btn = screen.getByText("ES");
-      
+
       fireEvent.click(btn);
       expect(screen.getByText("EN")).toBeDefined();
       expect(localStorage.getItem("cartilla_lang")).toBe("en");
-      
+
       fireEvent.click(screen.getByText("EN"));
       expect(screen.getByText("ES")).toBeDefined();
       expect(localStorage.getItem("cartilla_lang")).toBe("es");

@@ -70,7 +70,15 @@ export function GretelCheer({ animated = false, ...props }: GretelCheerProps) {
         strokeWidth="2"
         strokeLinecap="round"
       />
-      <line x1="100" y1="158" x2="100" y2="245" stroke="var(--art-primary, #c98c4f)" strokeWidth="0.8" opacity="0.4" />
+      <line
+        x1="100"
+        y1="158"
+        x2="100"
+        y2="245"
+        stroke="var(--art-primary, #c98c4f)"
+        strokeWidth="0.8"
+        opacity="0.4"
+      />
 
       {/* === LEFT ARM (raised up triumphantly) === */}
       <path
@@ -97,12 +105,22 @@ export function GretelCheer({ animated = false, ...props }: GretelCheerProps) {
       <g filter="url(#cheer-glow)">
         <path d="M22 70 L25 62 L28 70 L25 78 Z" fill="var(--art-primary, #c98c4f)" opacity="0.9">
           {animated && (
-            <animate attributeName="opacity" values="0.9;0.3;0.9" dur="1.2s" repeatCount="indefinite" />
+            <animate
+              attributeName="opacity"
+              values="0.9;0.3;0.9"
+              dur="1.2s"
+              repeatCount="indefinite"
+            />
           )}
         </path>
         <path d="M18 75 L22 72 L26 75 L22 78 Z" fill="var(--art-accent, #d4a76a)" opacity="0.7">
           {animated && (
-            <animate attributeName="opacity" values="0.7;0.2;0.7" dur="0.9s" repeatCount="indefinite" />
+            <animate
+              attributeName="opacity"
+              values="0.7;0.2;0.7"
+              dur="0.9s"
+              repeatCount="indefinite"
+            />
           )}
         </path>
         <circle cx="30" cy="65" r="2" fill="var(--art-primary, #c98c4f)" opacity="0.8">
@@ -113,14 +131,28 @@ export function GretelCheer({ animated = false, ...props }: GretelCheerProps) {
       </g>
       {/* Right sparkles */}
       <g filter="url(#cheer-glow)">
-        <path d="M172 70 L175 62 L178 70 L175 78 Z" fill="var(--art-primary, #c98c4f)" opacity="0.9">
+        <path
+          d="M172 70 L175 62 L178 70 L175 78 Z"
+          fill="var(--art-primary, #c98c4f)"
+          opacity="0.9"
+        >
           {animated && (
-            <animate attributeName="opacity" values="0.9;0.3;0.9" dur="1.1s" repeatCount="indefinite" />
+            <animate
+              attributeName="opacity"
+              values="0.9;0.3;0.9"
+              dur="1.1s"
+              repeatCount="indefinite"
+            />
           )}
         </path>
         <path d="M174 75 L178 72 L182 75 L178 78 Z" fill="var(--art-accent, #d4a76a)" opacity="0.7">
           {animated && (
-            <animate attributeName="opacity" values="0.7;0.2;0.7" dur="0.8s" repeatCount="indefinite" />
+            <animate
+              attributeName="opacity"
+              values="0.7;0.2;0.7"
+              dur="0.8s"
+              repeatCount="indefinite"
+            />
           )}
         </path>
         <circle cx="170" cy="65" r="2" fill="var(--art-primary, #c98c4f)" opacity="0.8">
@@ -166,8 +198,20 @@ export function GretelCheer({ animated = false, ...props }: GretelCheerProps) {
         d="M62 72 Q70 50 100 45 Q130 50 138 72 Q130 62 100 58 Q70 62 62 72 Z"
         fill="url(#cheer-hair)"
       />
-      <path d="M64 75 Q60 85 63 95" fill="none" stroke="#8B5E3C" strokeWidth="4" strokeLinecap="round" />
-      <path d="M136 75 Q140 85 137 95" fill="none" stroke="#8B5E3C" strokeWidth="4" strokeLinecap="round" />
+      <path
+        d="M64 75 Q60 85 63 95"
+        fill="none"
+        stroke="#8B5E3C"
+        strokeWidth="4"
+        strokeLinecap="round"
+      />
+      <path
+        d="M136 75 Q140 85 137 95"
+        fill="none"
+        stroke="#8B5E3C"
+        strokeWidth="4"
+        strokeLinecap="round"
+      />
 
       {/* === EYES (squinted with joy) === */}
       <path
@@ -190,8 +234,20 @@ export function GretelCheer({ animated = false, ...props }: GretelCheerProps) {
       <path d="M124 85 L126 82" stroke="#5c3d2e" strokeWidth="1.5" strokeLinecap="round" />
 
       {/* === EYEBROWS (raised high) === */}
-      <path d="M76 72 Q84 67 92 71" fill="none" stroke="#7A4E2E" strokeWidth="1.8" strokeLinecap="round" />
-      <path d="M108 71 Q116 67 124 72" fill="none" stroke="#7A4E2E" strokeWidth="1.8" strokeLinecap="round" />
+      <path
+        d="M76 72 Q84 67 92 71"
+        fill="none"
+        stroke="#7A4E2E"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
+      <path
+        d="M108 71 Q116 67 124 72"
+        fill="none"
+        stroke="#7A4E2E"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
 
       {/* === NOSE === */}
       <ellipse cx="100" cy="100" rx="3" ry="2.5" fill="#e8bf94" />

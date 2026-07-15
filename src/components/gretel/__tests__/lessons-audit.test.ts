@@ -55,7 +55,7 @@ const lessons = {
 describe("Lessons Data Structural Hardening", () => {
   Object.entries(lessons).forEach(([numStr, lessonArray]) => {
     const lessonNum = parseInt(numStr, 10);
-    
+
     describe(`Lesson ${lessonNum}`, () => {
       it("should be a valid array", () => {
         expect(Array.isArray(lessonArray)).toBe(true);
@@ -64,7 +64,7 @@ describe("Lessons Data Structural Hardening", () => {
 
       lessonArray.forEach((item: any, idx: number) => {
         const prefix = `Item ${idx} (id: ${item?.id})`;
-        
+
         it(`${prefix} should have all required fields and valid page references`, () => {
           // Check required fields
           const required = [
@@ -82,7 +82,7 @@ describe("Lessons Data Structural Hardening", () => {
             "teacherNotes",
             "sourcePage",
           ];
-          
+
           required.forEach((field) => {
             expect(item, `${prefix} is missing field: ${field}`).toHaveProperty(field);
           });

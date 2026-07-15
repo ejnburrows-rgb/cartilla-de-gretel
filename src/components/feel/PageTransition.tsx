@@ -6,11 +6,7 @@ interface PageTransitionProps {
 }
 
 export function PageTransition({ children, className = "" }: PageTransitionProps) {
-  return (
-    <div className={`feel-page-transition-container ${className}`}>
-      {children}
-    </div>
-  );
+  return <div className={`feel-page-transition-container ${className}`}>{children}</div>;
 }
 
 export default PageTransition;

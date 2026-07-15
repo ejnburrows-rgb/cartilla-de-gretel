@@ -14,13 +14,15 @@ const options = {
   savePath: outDir,
   format: "jpg",
   width: 2450,
-  height: 3128
+  height: 3128,
 };
 
 const storeAsImage = fromPath(pdfPath, options);
-storeAsImage(1).then((resolve) => {
-  console.log("Page 1 is now converted as image");
-  return resolve;
-}).catch((error) => {
-  console.error("Error converting page:", error);
-});
+storeAsImage(1)
+  .then((resolve) => {
+    console.log("Page 1 is now converted as image");
+    return resolve;
+  })
+  .catch((error) => {
+    console.error("Error converting page:", error);
+  });

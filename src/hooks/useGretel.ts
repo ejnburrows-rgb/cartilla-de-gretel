@@ -1,7 +1,15 @@
 import { useState, useEffect, useCallback } from "react";
 import { announceToScreenReader } from "@/components/a11y/LiveRegion";
 
-export type GretelOutcome = "correct" | "streak" | "lesson-complete" | "start" | "try-again" | "thinking" | "happy" | "idle";
+export type GretelOutcome =
+  | "correct"
+  | "streak"
+  | "lesson-complete"
+  | "start"
+  | "try-again"
+  | "thinking"
+  | "happy"
+  | "idle";
 
 export interface GretelSpeakDetail {
   outcome: GretelOutcome;
@@ -15,21 +23,27 @@ export function useGretel() {
   const [outcome, setOutcomeState] = useState<GretelOutcome>("happy");
   const [isVisible, setIsVisible] = useState<boolean>(true);
 
-  const trigger = useCallback((newOutcome: GretelOutcome, opts?: { phrase: string; subtitle?: string; duration?: number }) => {
-    setOutcomeState(newOutcome);
-    if (opts?.phrase) {
-      setLastPhrase({ phrase: opts.phrase, subtitle: opts.subtitle });
-      
-      // Auto screen reader announcements
-      announceToScreenReader(opts.phrase);
+  const trigger = useCallback(
+    (
+      newOutcome: GretelOutcome,
+      opts?: { phrase: string; subtitle?: string; duration?: number },
+    ) => {
+      setOutcomeState(newOutcome);
+      if (opts?.phrase) {
+        setLastPhrase({ phrase: opts.phrase, subtitle: opts.subtitle });
 
-      const duration = opts.duration ?? 3500;
-      const timer = setTimeout(() => {
-        setLastPhrase(null);
-      }, duration);
-      return () => clearTimeout(timer);
-    }
-  }, []);
+        // Auto screen reader announcements
+        announceToScreenReader(opts.phrase);
+
+        const duration = opts.duration ?? 3500;
+        const timer = setTimeout(() => {
+          setLastPhrase(null);
+        }, duration);
+        return () => clearTimeout(timer);
+      }
+    },
+    [],
+  );
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -41,7 +55,7 @@ export function useGretel() {
       trigger(detail.outcome, {
         phrase: detail.phrase,
         subtitle: detail.subtitle,
-        duration: detail.duration
+        duration: detail.duration,
       });
     };
 

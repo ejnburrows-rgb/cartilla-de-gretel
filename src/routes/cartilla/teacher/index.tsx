@@ -142,7 +142,9 @@ function TeacherHub() {
               {entry.icon}
             </div>
             <h2 className="font-black text-lg text-[var(--tc-ink)]">{entry.title}</h2>
-            <p className="text-xs font-medium text-[var(--tc-ink-soft)] mt-1 leading-snug">{entry.description}</p>
+            <p className="text-xs font-medium text-[var(--tc-ink-soft)] mt-1 leading-snug">
+              {entry.description}
+            </p>
           </Link>
         ))}
       </section>

@@ -70,12 +70,12 @@ function TeacherDashboard() {
         </Link>
         <div className="flex items-center gap-3">
           <LanguageToggle />
-        <button
-          onClick={signOut}
-          className="text-sm inline-flex items-center gap-1 text-foreground/60 hover:text-destructive"
-        >
-          <LogOut className="w-4 h-4" /> {t.salir[lang]}
-        </button>
+          <button
+            onClick={signOut}
+            className="text-sm inline-flex items-center gap-1 text-foreground/60 hover:text-destructive"
+          >
+            <LogOut className="w-4 h-4" /> {t.salir[lang]}
+          </button>
         </div>
       </div>
 
@@ -133,9 +133,7 @@ function TeacherDashboard() {
       <section className="mt-6 space-y-3">
         {isLoading && <div className="text-foreground/60 text-sm">{t.cargando[lang]}</div>}
         {classes?.length === 0 && (
-          <div className="kid-card p-6 text-center text-foreground/60">
-            {t.sinClases[lang]}
-          </div>
+          <div className="kid-card p-6 text-center text-foreground/60">{t.sinClases[lang]}</div>
         )}
         {classes?.map((c) => (
           <div
@@ -149,7 +147,8 @@ function TeacherDashboard() {
                   <Users className="w-3 h-3" /> {c.student_count} {t.alumnosCount[lang]}
                 </span>
                 <span>
-                  {t.codigo[lang]} <span className="font-mono font-bold tracking-wider">{c.join_code}</span>
+                  {t.codigo[lang]}{" "}
+                  <span className="font-mono font-bold tracking-wider">{c.join_code}</span>
                 </span>
               </div>
             </Link>
@@ -164,8 +163,7 @@ function TeacherDashboard() {
               </button>
               <button
                 onClick={() => {
-                  if (confirm(t.eliminarClase[lang].replace("{name}", c.name)))
-                    delMut.mutate(c.id);
+                  if (confirm(t.eliminarClase[lang].replace("{name}", c.name))) delMut.mutate(c.id);
                 }}
                 className="p-2 rounded-lg hover:bg-destructive/10 text-destructive"
                 aria-label="Eliminar"

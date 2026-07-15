@@ -12,7 +12,9 @@ export function StickerReel({ earnedIds }: StickerReelProps) {
       feelBus.emit("sparkle");
       // Trigger a speaking voice reading the sticker description
       if ("speechSynthesis" in window) {
-        const utterance = new SpeechSynthesisUtterance(`¡Pegatina ${sticker.name}! ${sticker.description}`);
+        const utterance = new SpeechSynthesisUtterance(
+          `¡Pegatina ${sticker.name}! ${sticker.description}`,
+        );
         utterance.lang = "es-ES";
         utterance.rate = 1.0;
         window.speechSynthesis.cancel();
@@ -27,12 +29,14 @@ export function StickerReel({ earnedIds }: StickerReelProps) {
     <div className="w-full py-6 px-4 rounded-3xl bg-gradient-to-b from-[#fdf6e2] to-[#f5e6be] border-4 border-[#d5be88] shadow-inner relative overflow-hidden">
       {/* Wooden texture details */}
       <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#804000_1px,transparent_1px)] [background-size:16px_16px]"></div>
-      
+
       <div className="flex items-center gap-2 mb-4">
         <div className="w-8 h-8 rounded-full bg-amber-500/20 flex items-center justify-center text-amber-700">
           <Sparkles className="w-4 h-4 animate-pulse" />
         </div>
-        <h3 className="font-bold text-lg text-amber-950 font-fredoka">Álbum de Pegatinas ({earnedIds.length} / 24)</h3>
+        <h3 className="font-bold text-lg text-amber-950 font-fredoka">
+          Álbum de Pegatinas ({earnedIds.length} / 24)
+        </h3>
       </div>
 
       {/* Horizontal shelf layout */}
@@ -45,7 +49,7 @@ export function StickerReel({ earnedIds }: StickerReelProps) {
               onClick={() => handleStickerClick(sticker, isEarned)}
               className="flex-shrink-0 w-24 flex flex-col items-center snap-center cursor-pointer group"
             >
-              <div 
+              <div
                 className={`relative w-20 h-20 rounded-2xl flex items-center justify-center border-4 transition-all duration-300 ${
                   isEarned
                     ? "bg-white/95 scale-100 hover:scale-110 hover:-rotate-3 active:scale-95 shadow-md hover:shadow-xl"
@@ -53,9 +57,9 @@ export function StickerReel({ earnedIds }: StickerReelProps) {
                 }`}
                 style={{
                   borderColor: isEarned ? sticker.color : "rgb(209, 213, 219)",
-                  boxShadow: isEarned 
+                  boxShadow: isEarned
                     ? `0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px ${sticker.color}40`
-                    : undefined
+                    : undefined,
                 }}
               >
                 {isEarned ? (

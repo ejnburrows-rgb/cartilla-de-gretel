@@ -16,7 +16,12 @@ interface AssignActivityModalProps {
   onClose: () => void;
 }
 
-export function AssignActivityModal({ folderKey, lessonId, activityLabel, onClose }: AssignActivityModalProps) {
+export function AssignActivityModal({
+  folderKey,
+  lessonId,
+  activityLabel,
+  onClose,
+}: AssignActivityModalProps) {
   const qc = useQueryClient();
   const fetchClasses = useServerFn(listClasses);
   const fetchClass = useServerFn(getClass);
@@ -69,7 +74,11 @@ export function AssignActivityModal({ folderKey, lessonId, activityLabel, onClos
             <h2 className="text-lg font-black text-stone-800">Asignar actividad</h2>
             <p className="text-sm font-medium text-stone-500">{activityLabel}</p>
           </div>
-          <button onClick={onClose} className="text-stone-400 hover:text-stone-700" aria-label="Cerrar">
+          <button
+            onClick={onClose}
+            className="text-stone-400 hover:text-stone-700"
+            aria-label="Cerrar"
+          >
             <X className="w-5 h-5" />
           </button>
         </div>
@@ -80,14 +89,19 @@ export function AssignActivityModal({ folderKey, lessonId, activityLabel, onClos
               <Check className="w-6 h-6" />
             </div>
             <p className="font-bold text-stone-700">Asignado correctamente.</p>
-            <button onClick={onClose} className="px-6 py-2 rounded-full bg-stone-800 text-white font-bold text-sm">
+            <button
+              onClick={onClose}
+              className="px-6 py-2 rounded-full bg-stone-800 text-white font-bold text-sm"
+            >
               Cerrar
             </button>
           </div>
         ) : (
           <>
             <div>
-              <label className="text-xs font-black uppercase tracking-wide text-stone-500 mb-1 block">Clase</label>
+              <label className="text-xs font-black uppercase tracking-wide text-stone-500 mb-1 block">
+                Clase
+              </label>
               <select
                 value={classId}
                 onChange={(e) => setClassId(e.target.value)}
@@ -103,7 +117,9 @@ export function AssignActivityModal({ folderKey, lessonId, activityLabel, onClos
             </div>
 
             <div className="space-y-2">
-              <label className="text-xs font-black uppercase tracking-wide text-stone-500 block">Asignar a</label>
+              <label className="text-xs font-black uppercase tracking-wide text-stone-500 block">
+                Asignar a
+              </label>
               <div className="flex gap-2">
                 <button
                   onClick={() => setScope("class")}
@@ -124,7 +140,10 @@ export function AssignActivityModal({ folderKey, lessonId, activityLabel, onClos
               <div className="max-h-48 overflow-y-auto space-y-1 border-2 border-stone-100 rounded-xl p-2">
                 {classDetailQuery.isLoading && <Loader2 className="w-4 h-4 animate-spin mx-auto" />}
                 {(classDetailQuery.data?.students ?? []).map((s) => (
-                  <label key={s.id} className="flex items-center gap-2 px-2 py-1.5 rounded-lg hover:bg-stone-50 cursor-pointer">
+                  <label
+                    key={s.id}
+                    className="flex items-center gap-2 px-2 py-1.5 rounded-lg hover:bg-stone-50 cursor-pointer"
+                  >
                     <input
                       type="checkbox"
                       checked={selectedIds.has(s.id)}
@@ -143,7 +162,9 @@ export function AssignActivityModal({ folderKey, lessonId, activityLabel, onClos
 
             <button
               onClick={() => mutation.mutate()}
-              disabled={!classId || (scope === "students" && selectedIds.size === 0) || mutation.isPending}
+              disabled={
+                !classId || (scope === "students" && selectedIds.size === 0) || mutation.isPending
+              }
               className="w-full py-3 rounded-full bg-primary text-primary-foreground font-black disabled:opacity-40 inline-flex items-center justify-center gap-2"
             >
               {mutation.isPending ? <Loader2 className="w-4 h-4 animate-spin" /> : "Asignar"}

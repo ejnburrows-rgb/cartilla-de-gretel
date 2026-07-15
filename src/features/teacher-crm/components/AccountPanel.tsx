@@ -65,7 +65,10 @@ export function AccountPanel({ student, onUpdate }: AccountPanelProps) {
             <span className="text-[#0ea5e9]">{student.progress}%</span>
           </div>
           <div className="h-4 w-full bg-[#e0f2fe] rounded-full overflow-hidden shadow-inner">
-            <div className="h-full bg-gradient-to-r from-[#38bdf8] to-[#0284c7] rounded-full transition-all duration-1000" style={{ width: `${student.progress}%` }} />
+            <div
+              className="h-full bg-gradient-to-r from-[#38bdf8] to-[#0284c7] rounded-full transition-all duration-1000"
+              style={{ width: `${student.progress}%` }}
+            />
           </div>
         </div>
 
@@ -76,7 +79,7 @@ export function AccountPanel({ student, onUpdate }: AccountPanelProps) {
               <MessageSquare className="w-4 h-4" /> Comentarios del Maestro
             </label>
           </div>
-          <textarea 
+          <textarea
             placeholder="Añade un comentario sobre el progreso o áreas de mejora..."
             value={notes}
             onChange={(e) => {
@@ -87,7 +90,7 @@ export function AccountPanel({ student, onUpdate }: AccountPanelProps) {
           />
           {isEditingNotes && (
             <div className="flex justify-end mt-2">
-              <button 
+              <button
                 onClick={handleSave}
                 className="flex items-center gap-1 px-4 py-2 bg-[#ca8a04] hover:bg-[#a16207] text-white text-xs font-black rounded-xl shadow-sm transition"
               >
@@ -96,7 +99,6 @@ export function AccountPanel({ student, onUpdate }: AccountPanelProps) {
             </div>
           )}
         </div>
-
       </div>
     </div>
   );

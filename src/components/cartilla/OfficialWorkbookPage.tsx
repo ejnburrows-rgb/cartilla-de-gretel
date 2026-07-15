@@ -24,18 +24,22 @@ export function OfficialWorkbookPage({
   runtimePdfAvailable = false,
 }: OfficialWorkbookPageProps) {
   const hasConnectedPdf = runtimePdfAvailable || source.status === "pdf-available";
-  const chain = source.fallbackChain && source.fallbackChain.length > 0
-    ? source.fallbackChain
-    : [source.imageRef, source.originalImageRef].filter(Boolean) as string[];
-  const [activeImage, setActiveImage] = useState(chain[0] ?? source.imageRef ?? source.originalImageRef ?? "");
+  const chain =
+    source.fallbackChain && source.fallbackChain.length > 0
+      ? source.fallbackChain
+      : ([source.imageRef, source.originalImageRef].filter(Boolean) as string[]);
+  const [activeImage, setActiveImage] = useState(
+    chain[0] ?? source.imageRef ?? source.originalImageRef ?? "",
+  );
   const [width, setWidth] = useState<number>(980);
   const [loadError, setLoadError] = useState<string | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const nextChain = source.fallbackChain && source.fallbackChain.length > 0
-      ? source.fallbackChain
-      : [source.imageRef, source.originalImageRef].filter(Boolean) as string[];
+    const nextChain =
+      source.fallbackChain && source.fallbackChain.length > 0
+        ? source.fallbackChain
+        : ([source.imageRef, source.originalImageRef].filter(Boolean) as string[]);
     setActiveImage(nextChain[0] ?? source.imageRef ?? source.originalImageRef ?? "");
   }, [source.fallbackChain, source.imageRef, source.originalImageRef]);
 

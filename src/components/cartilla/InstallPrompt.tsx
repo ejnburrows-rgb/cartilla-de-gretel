@@ -43,7 +43,7 @@ export function InstallPrompt() {
 
     // Wait for the user to respond to the prompt
     const { outcome } = await promptEvent.userChoice;
-    
+
     if (outcome === "accepted") {
       // Reset prompt event
       setPromptEvent(null);
@@ -71,7 +71,8 @@ export function InstallPrompt() {
         {promptEvent ? (
           <>
             <p className="text-stone-600 dark:text-stone-300 text-sm mb-6 max-w-sm">
-              Descarga la aplicación oficial de la Cartilla de Gretel para poder acceder a tus lecciones y ejercicios interactivos sin conexión a internet.
+              Descarga la aplicación oficial de la Cartilla de Gretel para poder acceder a tus
+              lecciones y ejercicios interactivos sin conexión a internet.
             </p>
 
             {/* Actions */}
@@ -93,7 +94,8 @@ export function InstallPrompt() {
         ) : isIOS ? (
           <>
             <p className="text-stone-600 dark:text-stone-300 text-sm mb-6 max-w-sm">
-              Instala la aplicación en tu iPhone o iPad para poder abrirla en pantalla completa y trabajar sin conexión.
+              Instala la aplicación en tu iPhone o iPad para poder abrirla en pantalla completa y
+              trabajar sin conexión.
             </p>
 
             {/* iOS Instructions */}
@@ -105,7 +107,9 @@ export function InstallPrompt() {
                 <div>
                   <p className="text-xs font-semibold text-stone-850 dark:text-stone-200">Paso 1</p>
                   <p className="text-xs text-stone-500 dark:text-stone-400">
-                    Toca el botón <strong className="text-stone-700 dark:text-stone-300">Compartir</strong> en la barra inferior de Safari.
+                    Toca el botón{" "}
+                    <strong className="text-stone-700 dark:text-stone-300">Compartir</strong> en la
+                    barra inferior de Safari.
                   </p>
                 </div>
               </div>
@@ -117,7 +121,11 @@ export function InstallPrompt() {
                 <div>
                   <p className="text-xs font-semibold text-stone-850 dark:text-stone-200">Paso 2</p>
                   <p className="text-xs text-stone-500 dark:text-stone-400">
-                    Selecciona <strong className="text-stone-700 dark:text-stone-300">Añadir a pantalla de inicio</strong> en la lista de opciones.
+                    Selecciona{" "}
+                    <strong className="text-stone-700 dark:text-stone-300">
+                      Añadir a pantalla de inicio
+                    </strong>{" "}
+                    en la lista de opciones.
                   </p>
                 </div>
               </div>

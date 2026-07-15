@@ -8,7 +8,11 @@ export const Route = createFileRoute("/cartilla/sesiones")({
   head: () => ({
     meta: [
       { title: "Consola de Sesiones Docentes — La Cartilla de Gretel" },
-      { name: "description", content: "Elige una de las 24 lecciones para lanzar la consola interactiva de clase en vivo." },
+      {
+        name: "description",
+        content:
+          "Elige una de las 24 lecciones para lanzar la consola interactiva de clase en vivo.",
+      },
     ],
   }),
 });
@@ -41,7 +45,8 @@ export function SesionesDashboard() {
           Consola Docente de Sesiones en Vivo
         </h1>
         <p className="text-foreground/60 text-sm mt-1">
-          Elige una lección para abrir el panel de control de la clase: proyector PDF, temporizador, audio narrador y controles de accesibilidad.
+          Elige una lección para abrir el panel de control de la clase: proyector PDF, temporizador,
+          audio narrador y controles de accesibilidad.
         </p>
       </header>
 
@@ -63,9 +68,7 @@ export function SesionesDashboard() {
                   <span className="text-[10px] font-bold uppercase tracking-wider text-stone-400">
                     Lección {entry.n}
                   </span>
-                  <span className="text-[10px] font-bold text-stone-400">
-                    págs. {entry.pages}
-                  </span>
+                  <span className="text-[10px] font-bold text-stone-400">págs. {entry.pages}</span>
                 </div>
 
                 <h2 className="text-lg font-bold leading-snug group-hover:text-amber-800 transition">
@@ -87,7 +90,11 @@ export function SesionesDashboard() {
                   <BookOpen className="w-6 h-6" style={colorStyle} />
                 )}
                 <span className="text-[10px] font-bold tracking-wider" style={colorStyle}>
-                  {entry.kind === "intro" ? "INTRO" : entry.kind === "vowel" ? "VOCAL" : "CONSONANTE"}
+                  {entry.kind === "intro"
+                    ? "INTRO"
+                    : entry.kind === "vowel"
+                      ? "VOCAL"
+                      : "CONSONANTE"}
                 </span>
               </div>
 

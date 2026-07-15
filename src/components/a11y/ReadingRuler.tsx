@@ -52,13 +52,7 @@ export function ReadingRuler() {
     top: `${topPos}px`,
   };
 
-  return (
-    <div
-      style={rulerStyle}
-      className="reading-ruler"
-      aria-hidden="true"
-    />
-  );
+  return <div style={rulerStyle} className="reading-ruler" aria-hidden="true" />;
 }
 
 // Global toggler helper

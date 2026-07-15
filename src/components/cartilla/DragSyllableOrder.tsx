@@ -149,7 +149,12 @@ interface SyllableItem {
   text: string;
 }
 
-export function DragSyllableOrder({ words, lessonId, color = "#f97316", onComplete }: DragSyllableOrderProps) {
+export function DragSyllableOrder({
+  words,
+  lessonId,
+  color = "#f97316",
+  onComplete,
+}: DragSyllableOrderProps) {
   const [wordIdx, setWordIdx] = useState(0);
   const [items, setItems] = useState<SyllableItem[]>([]);
   const [isCorrect, setIsCorrect] = useState(false);
@@ -159,7 +164,7 @@ export function DragSyllableOrder({ words, lessonId, color = "#f97316", onComple
     useSensor(PointerSensor),
     useSensor(KeyboardSensor, {
       coordinateGetter: sortableKeyboardCoordinates,
-    })
+    }),
   );
 
   const currentWordData = words[wordIdx % words.length];
@@ -168,7 +173,7 @@ export function DragSyllableOrder({ words, lessonId, color = "#f97316", onComple
 
   const initWord = useCallback((word: string) => {
     const syllables = splitIntoSyllables(word);
-    
+
     // Scramble until they don't match the target order
     let scrambled = shuffle(syllables);
     if (syllables.length > 1) {
@@ -207,7 +212,7 @@ export function DragSyllableOrder({ words, lessonId, color = "#f97316", onComple
           window.dispatchEvent(
             new CustomEvent("gretel:celebrate", {
               detail: { text: `¡Fantástico! Formaste la palabra: ${targetWord}` },
-            })
+            }),
           );
         } else {
           // Play a intermediate movement note
@@ -270,7 +275,12 @@ export function DragSyllableOrder({ words, lessonId, color = "#f97316", onComple
             className="w-24 h-24 bg-white/80 rounded-2xl border border-stone-200/60 flex items-center justify-center text-5xl shadow-sm select-none overflow-hidden"
           >
             {currentWordData?.illustrationSrc ? (
-              <img src={currentWordData.illustrationSrc} alt={currentWordData.word} className="w-full h-full object-contain p-1.5" loading="lazy" />
+              <img
+                src={currentWordData.illustrationSrc}
+                alt={currentWordData.word}
+                className="w-full h-full object-contain p-1.5"
+                loading="lazy"
+              />
             ) : (
               currentWordData?.emoji
             )}
@@ -282,7 +292,13 @@ export function DragSyllableOrder({ words, lessonId, color = "#f97316", onComple
           <SortableContext items={items.map((i) => i.id)} strategy={horizontalListSortingStrategy}>
             <div className="flex gap-3 items-center justify-center p-4 bg-stone-50/50 border border-stone-200/40 rounded-2xl min-w-[280px]">
               {items.map((item) => (
-                <SortableSyllableTile key={item.id} id={item.id} text={item.text} isCorrect={isCorrect} color={color} />
+                <SortableSyllableTile
+                  key={item.id}
+                  id={item.id}
+                  text={item.text}
+                  isCorrect={isCorrect}
+                  color={color}
+                />
               ))}
             </div>
           </SortableContext>
@@ -335,7 +351,9 @@ function SortableSyllableTile({
   isCorrect: boolean;
   color: string;
 }) {
-  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id });
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
+    id,
+  });
 
   const style = {
     transform: CSS.Transform.toString(transform),
@@ -369,8 +387,8 @@ function SortableSyllableTile({
           isCorrect
             ? "bg-emerald-500 border-emerald-600 text-white"
             : isDragging
-            ? "bg-white border-dashed shadow-lg scale-105 z-50"
-            : "bg-white border-stone-200 hover:border-stone-400 hover:scale-[1.02]"
+              ? "bg-white border-dashed shadow-lg scale-105 z-50"
+              : "bg-white border-stone-200 hover:border-stone-400 hover:scale-[1.02]"
         }`}
         style={{
           borderColor: isDragging ? color : isCorrect ? undefined : undefined,

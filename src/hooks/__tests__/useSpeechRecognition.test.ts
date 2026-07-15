@@ -26,7 +26,7 @@ describe("useSpeechRecognition Hook and MockSpeechRecognition", () => {
 
   it("should transition to listening state asynchronously", async () => {
     const { result } = renderHook(() => useSpeechRecognition());
-    
+
     act(() => {
       result.current.startListening();
     });

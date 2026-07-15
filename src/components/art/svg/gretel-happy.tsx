@@ -63,7 +63,15 @@ export function GretelHappy({ animated = false, ...props }: GretelHappyProps) {
         strokeLinecap="round"
       />
       {/* Center seam */}
-      <line x1="100" y1="158" x2="100" y2="245" stroke="var(--art-primary, #c98c4f)" strokeWidth="0.8" opacity="0.4" />
+      <line
+        x1="100"
+        y1="158"
+        x2="100"
+        y2="245"
+        stroke="var(--art-primary, #c98c4f)"
+        strokeWidth="0.8"
+        opacity="0.4"
+      />
 
       {/* === LEFT ARM (at side) === */}
       <path
@@ -139,8 +147,20 @@ export function GretelHappy({ animated = false, ...props }: GretelHappyProps) {
         d="M62 72 Q70 50 100 45 Q130 50 138 72 Q130 62 100 58 Q70 62 62 72 Z"
         fill="url(#happy-hair)"
       />
-      <path d="M64 75 Q60 85 63 95" fill="none" stroke="#8B5E3C" strokeWidth="4" strokeLinecap="round" />
-      <path d="M136 75 Q140 85 137 95" fill="none" stroke="#8B5E3C" strokeWidth="4" strokeLinecap="round" />
+      <path
+        d="M64 75 Q60 85 63 95"
+        fill="none"
+        stroke="#8B5E3C"
+        strokeWidth="4"
+        strokeLinecap="round"
+      />
+      <path
+        d="M136 75 Q140 85 137 95"
+        fill="none"
+        stroke="#8B5E3C"
+        strokeWidth="4"
+        strokeLinecap="round"
+      />
 
       {/* === EYES (squinted happy) === */}
       {/* Left eye - happy squint arc */}
@@ -167,8 +187,20 @@ export function GretelHappy({ animated = false, ...props }: GretelHappyProps) {
       <path d="M124 85 L126 82" stroke="#5c3d2e" strokeWidth="1.5" strokeLinecap="round" />
 
       {/* === EYEBROWS (raised joyfully) === */}
-      <path d="M76 74 Q84 69 92 73" fill="none" stroke="#7A4E2E" strokeWidth="1.8" strokeLinecap="round" />
-      <path d="M108 73 Q116 69 124 74" fill="none" stroke="#7A4E2E" strokeWidth="1.8" strokeLinecap="round" />
+      <path
+        d="M76 74 Q84 69 92 73"
+        fill="none"
+        stroke="#7A4E2E"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
+      <path
+        d="M108 73 Q116 69 124 74"
+        fill="none"
+        stroke="#7A4E2E"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
 
       {/* === NOSE === */}
       <ellipse cx="100" cy="100" rx="3" ry="2.5" fill="#e8bf94" />
@@ -194,11 +226,7 @@ export function GretelHappy({ animated = false, ...props }: GretelHappyProps) {
         strokeLinecap="round"
       />
       {/* Smile highlight */}
-      <path
-        d="M92 108 Q100 114 108 108"
-        fill="white"
-        opacity="0.3"
-      />
+      <path d="M92 108 Q100 114 108 108" fill="white" opacity="0.3" />
 
       {/* === EARS === */}
       <ellipse cx="62" cy="90" rx="5" ry="7" fill="#f5d0a9" />

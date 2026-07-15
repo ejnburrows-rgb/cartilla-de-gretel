@@ -1,6 +1,15 @@
 import { useState, useEffect, useMemo } from "react";
 import { Link } from "@tanstack/react-router";
-import { BarChart3, MonitorPlay, Printer, GraduationCap, PlusCircle, AlertCircle, User, CheckCircle } from "lucide-react";
+import {
+  BarChart3,
+  MonitorPlay,
+  Printer,
+  GraduationCap,
+  PlusCircle,
+  AlertCircle,
+  User,
+  CheckCircle,
+} from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 
 import "../../styles/teacher-crm.css";
@@ -12,7 +21,13 @@ import { Sidebar } from "./components/Sidebar";
 import { TaskList } from "./components/TaskList";
 import { Topbar } from "./components/Topbar";
 
-import { listClasses, getClass, createClass, addStudents, updateStudent } from "@/lib/teacher.functions";
+import {
+  listClasses,
+  getClass,
+  createClass,
+  addStudents,
+  updateStudent,
+} from "@/lib/teacher.functions";
 import { needsAttention } from "@/lib/progress-calculation";
 import {
   listSeedClasses,
@@ -35,7 +50,11 @@ export function TeacherCrmShell() {
   const isSeed = useMemo(() => isSeedSessionActive(), []);
 
   // 1. Query Classes
-  const { data: realClasses, isLoading: loadingRealClasses, refetch: refetchRealClasses } = useQuery({
+  const {
+    data: realClasses,
+    isLoading: loadingRealClasses,
+    refetch: refetchRealClasses,
+  } = useQuery({
     queryKey: ["crm-classes"],
     queryFn: () => listClasses(),
     enabled: !isSeed,
@@ -61,7 +80,11 @@ export function TeacherCrmShell() {
   }, [classesList, selectedClassId]);
 
   // 2. Query Students for Selected Class
-  const { data: realClassData, isLoading: loadingRealStudents, refetch: refetchRealStudents } = useQuery({
+  const {
+    data: realClassData,
+    isLoading: loadingRealStudents,
+    refetch: refetchRealStudents,
+  } = useQuery({
     queryKey: ["crm-students", selectedClassId],
     queryFn: () => getClass({ data: { id: selectedClassId } }),
     enabled: !isSeed && !!selectedClassId,
@@ -94,7 +117,11 @@ export function TeacherCrmShell() {
   // student.
   const dashboardStudents = useMemo<DashboardStudent[]>(() => {
     return studentsList.map((s) => {
-      const withStats = s as { lessons?: number; completionPercent?: number; teacher_notes?: string | null };
+      const withStats = s as {
+        lessons?: number;
+        completionPercent?: number;
+        teacher_notes?: string | null;
+      };
       const progressPct = isSeed
         ? Math.round(((withStats.lessons ?? 0) / 24) * 100)
         : (withStats.completionPercent ?? 0);
@@ -206,7 +233,7 @@ export function TeacherCrmShell() {
   };
 
   return (
-    <div 
+    <div
       className="crm-app"
       style={{
         background: "radial-gradient(circle at top left, #fdf3e0 0%, #f5e8c8 50%, #ecdaaa 100%)",
@@ -215,19 +242,24 @@ export function TeacherCrmShell() {
       <Sidebar />
       <main className="crm-main flex-1 flex flex-col h-screen overflow-hidden">
         <Topbar />
-        
+
         <div className="crm-content flex-1 overflow-y-auto p-6 space-y-6">
           {/* Top Actions & Class Selector Bar */}
           <section className="rounded-3xl border-4 border-white bg-white/60 backdrop-blur-md p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative overflow-hidden">
             <div className="absolute -right-10 -top-10 w-40 h-40 bg-[hsl(48,100%,80%)] rounded-full blur-3xl opacity-50 pointer-events-none" />
             <div className="absolute right-20 -bottom-10 w-32 h-32 bg-[hsl(198,78%,80%)] rounded-full blur-3xl opacity-50 pointer-events-none" />
-            
+
             <div className="flex flex-wrap items-center justify-between gap-4 relative z-10">
               <div>
-                <p className="text-xs font-black uppercase tracking-[0.2em] text-[#d97706]">Módulo para Profesores</p>
-                <h1 className="mt-1 text-4xl font-black text-[#3b2a12] font-fredoka drop-shadow-sm">Centro de Control</h1>
+                <p className="text-xs font-black uppercase tracking-[0.2em] text-[#d97706]">
+                  Módulo para Profesores
+                </p>
+                <h1 className="mt-1 text-4xl font-black text-[#3b2a12] font-fredoka drop-shadow-sm">
+                  Centro de Control
+                </h1>
                 <p className="mt-2 text-sm font-bold text-[#7a6040] max-w-lg">
-                  Gestiona clases, revisa el progreso del cuaderno y prepara reportes de aula de forma fácil y divertida.
+                  Gestiona clases, revisa el progreso del cuaderno y prepara reportes de aula de
+                  forma fácil y divertida.
                 </p>
               </div>
 
@@ -235,7 +267,9 @@ export function TeacherCrmShell() {
                 {/* Selector */}
                 {classesList.length > 0 && (
                   <div className="flex items-center gap-3 bg-white/80 p-2 pl-4 rounded-2xl shadow-sm border border-stone-200">
-                    <span className="text-xs font-black text-stone-500 uppercase tracking-widest">Tu Clase:</span>
+                    <span className="text-xs font-black text-stone-500 uppercase tracking-widest">
+                      Tu Clase:
+                    </span>
                     <select
                       value={selectedClassId}
                       onChange={(e) => {
@@ -283,14 +317,18 @@ export function TeacherCrmShell() {
 
           {/* Messages Alert */}
           {msg && (
-            <div 
+            <div
               className={`p-4 rounded-2xl border text-xs font-bold flex items-center gap-2 animate-in fade-in duration-200 ${
-                msg.type === "success" 
-                  ? "bg-[hsl(145,60%,97%)] border-[hsl(145,60%,90%)] text-[hsl(145,65%,25%)]" 
+                msg.type === "success"
+                  ? "bg-[hsl(145,60%,97%)] border-[hsl(145,60%,90%)] text-[hsl(145,65%,25%)]"
                   : "bg-[hsl(354,78%,97%)] border-[hsl(354,78%,90%)] text-[hsl(354,78%,35%)]"
               }`}
             >
-              {msg.type === "success" ? <CheckCircle className="w-5 h-5" /> : <AlertCircle className="w-5 h-5" />}
+              {msg.type === "success" ? (
+                <CheckCircle className="w-5 h-5" />
+              ) : (
+                <AlertCircle className="w-5 h-5" />
+              )}
               <span>{msg.text}</span>
             </div>
           )}
@@ -298,7 +336,7 @@ export function TeacherCrmShell() {
           {/* Load / Empty States */}
           {loadingClasses ? (
             <div className="p-12 text-center font-bold text-stone-400 animate-pulse bg-white border border-stone-200 rounded-[2rem]">
-               Cargando tablero CRM...
+              Cargando tablero CRM...
             </div>
           ) : classesList.length === 0 ? (
             /* Honest Empty State: No Classes */
@@ -307,13 +345,18 @@ export function TeacherCrmShell() {
                 <GraduationCap className="w-9 h-9" />
               </div>
               <div>
-                <h2 className="text-3xl font-black text-[#3b2a12] font-fredoka">¡Bienvenido al CRM de Gretel!</h2>
+                <h2 className="text-3xl font-black text-[#3b2a12] font-fredoka">
+                  ¡Bienvenido al CRM de Gretel!
+                </h2>
                 <p className="text-sm font-bold text-[#7a6040] mt-2 leading-relaxed max-w-sm mx-auto">
                   Crea una clase para empezar a añadir estudiantes y seguir su progreso mágicamente.
                 </p>
               </div>
 
-              <form onSubmit={handleCreateClass} className="flex gap-3 max-w-md mx-auto justify-center items-center mt-6">
+              <form
+                onSubmit={handleCreateClass}
+                className="flex gap-3 max-w-md mx-auto justify-center items-center mt-6"
+              >
                 <input
                   type="text"
                   value={newClassName}
@@ -346,12 +389,17 @@ export function TeacherCrmShell() {
               <div>
                 <h2 className="text-3xl font-black text-[#3b2a12] font-fredoka">No hay alumnos</h2>
                 <p className="text-sm font-bold text-[#7a6040] mt-2 leading-relaxed max-w-sm mx-auto">
-                  Código de unión para tu clase: <br/>
-                  <strong className="font-mono text-[#0284c7] text-2xl bg-[#e0f2fe] px-4 py-2 rounded-xl mt-2 inline-block shadow-inner">{activeClass?.join_code}</strong>
+                  Código de unión para tu clase: <br />
+                  <strong className="font-mono text-[#0284c7] text-2xl bg-[#e0f2fe] px-4 py-2 rounded-xl mt-2 inline-block shadow-inner">
+                    {activeClass?.join_code}
+                  </strong>
                 </p>
               </div>
 
-              <form onSubmit={handleAddStudent} className="flex gap-3 max-w-md mx-auto justify-center items-center mt-6">
+              <form
+                onSubmit={handleAddStudent}
+                className="flex gap-3 max-w-md mx-auto justify-center items-center mt-6"
+              >
                 <input
                   type="text"
                   value={newStudentName}
@@ -390,10 +438,7 @@ export function TeacherCrmShell() {
                   />
                 </div>
                 <div className="space-y-6">
-                  <AccountPanel
-                    student={selectedStudent}
-                    onUpdate={handleUpdateStudent}
-                  />
+                  <AccountPanel student={selectedStudent} onUpdate={handleUpdateStudent} />
                   {isSeed ? (
                     <div className="bg-white rounded-3xl border border-stone-100 p-6 text-sm font-bold text-stone-400 text-center">
                       Las asignaciones reales no están disponibles en modo de práctica local.

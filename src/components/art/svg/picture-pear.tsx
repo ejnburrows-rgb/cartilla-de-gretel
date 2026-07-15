@@ -106,8 +106,20 @@ export function PicturePear({ animated = false, ...props }: PicturePearProps) {
           strokeWidth="1"
         />
         {/* Leaf vein */}
-        <path d="M132 53 Q145 42 158 48" fill="none" stroke="#2e7d32" strokeWidth="0.8" opacity="0.5" />
-        <path d="M140 48 Q142 44 146 42" fill="none" stroke="#2e7d32" strokeWidth="0.5" opacity="0.4" />
+        <path
+          d="M132 53 Q145 42 158 48"
+          fill="none"
+          stroke="#2e7d32"
+          strokeWidth="0.8"
+          opacity="0.5"
+        />
+        <path
+          d="M140 48 Q142 44 146 42"
+          fill="none"
+          stroke="#2e7d32"
+          strokeWidth="0.5"
+          opacity="0.4"
+        />
       </g>
 
       {/* Leaf 2 - left of pear */}
@@ -118,7 +130,13 @@ export function PicturePear({ animated = false, ...props }: PicturePearProps) {
           stroke="#388e3c"
           strokeWidth="1"
         />
-        <path d="M106 49 Q95 38 84 42" fill="none" stroke="#2e7d32" strokeWidth="0.8" opacity="0.5" />
+        <path
+          d="M106 49 Q95 38 84 42"
+          fill="none"
+          stroke="#2e7d32"
+          strokeWidth="0.8"
+          opacity="0.5"
+        />
       </g>
 
       {/* Pear stem */}
@@ -162,10 +180,24 @@ export function PicturePear({ animated = false, ...props }: PicturePearProps) {
         />
 
         {/* Pear highlight / shine */}
-        <ellipse cx="112" cy="100" rx="6" ry="12" fill="#ffffff" opacity="0.3" transform="rotate(-15 112 100)" />
+        <ellipse
+          cx="112"
+          cy="100"
+          rx="6"
+          ry="12"
+          fill="#ffffff"
+          opacity="0.3"
+          transform="rotate(-15 112 100)"
+        />
 
         {/* Pear bottom dimple */}
-        <path d="M116 168 Q120 172 124 168" fill="none" stroke="#8a9a25" strokeWidth="1" opacity="0.5" />
+        <path
+          d="M116 168 Q120 172 124 168"
+          fill="none"
+          stroke="#8a9a25"
+          strokeWidth="1"
+          opacity="0.5"
+        />
 
         {/* Subtle speckle details */}
         <circle cx="115" cy="130" r="0.8" fill="#8a9a25" opacity="0.3" />
@@ -184,7 +216,12 @@ export function PicturePear({ animated = false, ...props }: PicturePearProps) {
       </g>
 
       {/* Ground suggestion */}
-      <path d="M0 190 Q60 182 120 188 Q180 182 240 190 L240 200 L0 200 Z" fill="#a5d6a7" opacity="0.3" rx="8" />
+      <path
+        d="M0 190 Q60 182 120 188 Q180 182 240 190 L240 200 L0 200 Z"
+        fill="#a5d6a7"
+        opacity="0.3"
+        rx="8"
+      />
     </svg>
   );
 }

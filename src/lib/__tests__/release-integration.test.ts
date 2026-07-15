@@ -32,9 +32,9 @@ describe("release integration — workbook + lessons", () => {
       expect(page, `page ${n}`).toBeTruthy();
       expect(page!.pageNumber).toBe(n);
       // background may be scan fallback; must not invent interaction content
-      expect(page!.interaction?.kind === undefined || typeof page!.interaction?.kind === "string").toBe(
-        true,
-      );
+      expect(
+        page!.interaction?.kind === undefined || typeof page!.interaction?.kind === "string",
+      ).toBe(true);
     }
   });
 
@@ -60,8 +60,8 @@ describe("release integration — workbook + lessons", () => {
     expect(chain.length).toBeGreaterThanOrEqual(2);
     expect(chain[0]).toMatch(/art\/hd\/workbook\/page-004\.(png|jpg)|art\/color\/workbook/);
     // scan or lineart appears later
-    expect(chain.some((p) => p.includes("lineart") || p.includes("source") || p.includes("images"))).toBe(
-      true,
-    );
+    expect(
+      chain.some((p) => p.includes("lineart") || p.includes("source") || p.includes("images")),
+    ).toBe(true);
   });
 });

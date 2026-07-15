@@ -10,14 +10,14 @@ export const lesson13 = [
     prompt: "Haz un dibujo que represente una palabra que comienza con n.",
     items: [
       { id: "letter-N", label: "N" },
-      { id: "letter-n", label: "n" }
+      { id: "letter-n", label: "n" },
     ],
     targets: [],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Students trace uppercase N and lowercase n.",
-    sourcePage: getBookPageImage(49)
+    sourcePage: getBookPageImage(49),
   },
   {
     id: "l13-p50-syllable-circle",
@@ -31,27 +31,52 @@ export const lesson13 = [
       { id: "syl-ne", label: "ne" },
       { id: "syl-ni", label: "ni" },
       { id: "syl-no", label: "no" },
-      { id: "syl-nu", label: "nu" }
+      { id: "syl-nu", label: "nu" },
     ],
     targets: [
       { id: "slot-na", label: "na", coordinatesVerified: false, acceptsItemId: "syl-na" },
       { id: "slot-ne", label: "ne", coordinatesVerified: false, acceptsItemId: "syl-ne" },
       { id: "slot-ni", label: "ni", coordinatesVerified: false, acceptsItemId: "syl-ni" },
       { id: "slot-no", label: "no", coordinatesVerified: false, acceptsItemId: "syl-no" },
-      { id: "slot-nu", label: "nu", coordinatesVerified: false, acceptsItemId: "syl-nu" }
+      { id: "slot-nu", label: "nu", coordinatesVerified: false, acceptsItemId: "syl-nu" },
     ],
     wordBank: [
-      "nata", "nariz", "tina", "nada", "Napi", "lana",
-      "Nena", "negro", "Nela", "tenedor", "negar", "Nenita",
-      "nido", "niño", "poni", "sonido", "anida", "Nino",
-      "mono", "Nora", "pino", "Nono", "noche", "mano",
-      "nudo", "menudo", "nulo", "Anuca", "anudo", "nube"
+      "nata",
+      "nariz",
+      "tina",
+      "nada",
+      "Napi",
+      "lana",
+      "Nena",
+      "negro",
+      "Nela",
+      "tenedor",
+      "negar",
+      "Nenita",
+      "nido",
+      "niño",
+      "poni",
+      "sonido",
+      "anida",
+      "Nino",
+      "mono",
+      "Nora",
+      "pino",
+      "Nono",
+      "noche",
+      "mano",
+      "nudo",
+      "menudo",
+      "nulo",
+      "Anuca",
+      "anudo",
+      "nube",
     ],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded syllable circle for N.",
-    sourcePage: getBookPageImage(50)
+    sourcePage: getBookPageImage(50),
   },
   {
     id: "l13-p51-syllable-tap",
@@ -65,14 +90,14 @@ export const lesson13 = [
       { id: "ra-ne", label: "ne" },
       { id: "ra-ni", label: "ni" },
       { id: "ra-no", label: "no" },
-      { id: "ra-nu", label: "nu" }
+      { id: "ra-nu", label: "nu" },
     ],
     targets: [],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded syllable tap for N.",
-    sourcePage: getBookPageImage(51)
+    sourcePage: getBookPageImage(51),
   },
   {
     id: "l13-p51-word-bank",
@@ -96,14 +121,14 @@ export const lesson13 = [
       { id: "w-nata", label: "nata" },
       { id: "w-mono", label: "mono" },
       { id: "w-luna", label: "luna" },
-      { id: "w-neli", label: "Neli" }
+      { id: "w-neli", label: "Neli" },
     ],
     targets: [],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded word bank for N.",
-    sourcePage: getBookPageImage(51)
+    sourcePage: getBookPageImage(51),
   },
   {
     id: "l13-p51-mini-story",
@@ -118,17 +143,15 @@ export const lesson13 = [
       { id: "story-n-3", label: "Napi tiene pelo." },
       { id: "story-n-4", label: "Tono le pone la tina a Napi en el piso." },
       { id: "story-n-5", label: "Nono no le pone nada a esa tina." },
-      { id: "story-n-6", label: "Esa tina no tiene nada." }
+      { id: "story-n-6", label: "Esa tina no tiene nada." },
     ],
     targets: [],
-    sightWords: [
-      "esa", "a"
-    ],
+    sightWords: ["esa", "a"],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded mini-story for N.",
-    sourcePage: getBookPageImage(51)
+    sourcePage: getBookPageImage(51),
   },
   {
     id: "l13-p52-fill-in-blank",
@@ -142,7 +165,7 @@ export const lesson13 = [
       { id: "syl-ne", label: "ne" },
       { id: "syl-ni", label: "ni" },
       { id: "syl-no", label: "no" },
-      { id: "syl-nu", label: "nu" }
+      { id: "syl-nu", label: "nu" },
     ],
     targets: [
       {
@@ -152,7 +175,7 @@ export const lesson13 = [
         correctSyllable: "ni",
         fullWord: "nido",
         coordinatesVerified: false,
-        acceptsItemId: "syl-ni"
+        acceptsItemId: "syl-ni",
       },
       {
         id: "blank-tina",
@@ -161,7 +184,7 @@ export const lesson13 = [
         correctSyllable: "na",
         fullWord: "tina",
         coordinatesVerified: false,
-        acceptsItemId: "syl-na"
+        acceptsItemId: "syl-na",
       },
       {
         id: "blank-suena",
@@ -170,7 +193,7 @@ export const lesson13 = [
         correctSyllable: "na",
         fullWord: "suena",
         coordinatesVerified: false,
-        acceptsItemId: "syl-na"
+        acceptsItemId: "syl-na",
       },
       {
         id: "blank-mono",
@@ -179,7 +202,7 @@ export const lesson13 = [
         correctSyllable: "no",
         fullWord: "mono",
         coordinatesVerified: false,
-        acceptsItemId: "syl-no"
+        acceptsItemId: "syl-no",
       },
       {
         id: "blank-sano",
@@ -188,7 +211,7 @@ export const lesson13 = [
         correctSyllable: "no",
         fullWord: "sano",
         coordinatesVerified: false,
-        acceptsItemId: "syl-no"
+        acceptsItemId: "syl-no",
       },
       {
         id: "blank-pone",
@@ -197,52 +220,52 @@ export const lesson13 = [
         correctSyllable: "ne",
         fullWord: "pone",
         coordinatesVerified: false,
-        acceptsItemId: "syl-ne"
-      }
+        acceptsItemId: "syl-ne",
+      },
     ],
     exercises: [
       {
         partial: "___do",
         choices: ["no", "ni"],
         answer: "ni",
-        fullWord: "nido"
+        fullWord: "nido",
       },
       {
         partial: "ti___",
         choices: ["nu", "na"],
         answer: "na",
-        fullWord: "tina"
+        fullWord: "tina",
       },
       {
         partial: "sue___",
         choices: ["ni", "na"],
         answer: "na",
-        fullWord: "suena"
+        fullWord: "suena",
       },
       {
         partial: "mo___",
         choices: ["no", "ne"],
         answer: "no",
-        fullWord: "mono"
+        fullWord: "mono",
       },
       {
         partial: "sa___",
         choices: ["no", "nu"],
         answer: "no",
-        fullWord: "sano"
+        fullWord: "sano",
       },
       {
         partial: "po___",
         choices: ["ne", "ni"],
         answer: "ne",
-        fullWord: "pone"
-      }
+        fullWord: "pone",
+      },
     ],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded fill-in-the-blank for N.",
-    sourcePage: getBookPageImage(52)
+    sourcePage: getBookPageImage(52),
   },
   {
     id: "l13-p52-write-sentences",
@@ -257,6 +280,6 @@ export const lesson13 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Sentence writing lines.",
-    sourcePage: getBookPageImage(52)
-  }
+    sourcePage: getBookPageImage(52),
+  },
 ];

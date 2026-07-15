@@ -119,11 +119,17 @@ export async function speak(text: string): Promise<void> {
       const synth = window.speechSynthesis;
       synth.cancel();
       const u = new SpeechSynthesisUtterance(text);
-      
+
       // Dispatch events for Gretel Mascot
       u.onstart = () => window.dispatchEvent(new CustomEvent("gretel:speak_start"));
-      u.onend = () => { window.dispatchEvent(new CustomEvent("gretel:speak_stop")); resolve(); };
-      u.onerror = () => { window.dispatchEvent(new CustomEvent("gretel:speak_stop")); resolve(); };
+      u.onend = () => {
+        window.dispatchEvent(new CustomEvent("gretel:speak_stop"));
+        resolve();
+      };
+      u.onerror = () => {
+        window.dispatchEvent(new CustomEvent("gretel:speak_stop"));
+        resolve();
+      };
 
       const voice = getVoice();
       if (voice) {
@@ -132,7 +138,9 @@ export async function speak(text: string): Promise<void> {
       } else {
         if (!loggedFallback) {
           loggedFallback = true;
-          console.warn("[TTS] No Spanish voice available on this device at all — using es-MX as a lang hint with no voice object.");
+          console.warn(
+            "[TTS] No Spanish voice available on this device at all — using es-MX as a lang hint with no voice object.",
+          );
         }
         u.lang = "es-MX";
       }
@@ -160,8 +168,14 @@ export async function speakVowel(v: string): Promise<void> {
 
       // Dispatch events for Gretel Mascot
       u.onstart = () => window.dispatchEvent(new CustomEvent("gretel:speak_start"));
-      u.onend = () => { window.dispatchEvent(new CustomEvent("gretel:speak_stop")); resolve(); };
-      u.onerror = () => { window.dispatchEvent(new CustomEvent("gretel:speak_stop")); resolve(); };
+      u.onend = () => {
+        window.dispatchEvent(new CustomEvent("gretel:speak_stop"));
+        resolve();
+      };
+      u.onerror = () => {
+        window.dispatchEvent(new CustomEvent("gretel:speak_stop"));
+        resolve();
+      };
 
       const voice = getVoice();
       if (voice) {
@@ -170,7 +184,9 @@ export async function speakVowel(v: string): Promise<void> {
       } else {
         if (!loggedFallback) {
           loggedFallback = true;
-          console.warn("[TTS] No Spanish voice available on this device at all — using es-MX as a lang hint with no voice object.");
+          console.warn(
+            "[TTS] No Spanish voice available on this device at all — using es-MX as a lang hint with no voice object.",
+          );
         }
         u.lang = "es-MX";
       }

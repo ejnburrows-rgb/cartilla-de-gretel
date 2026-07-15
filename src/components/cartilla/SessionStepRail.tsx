@@ -25,7 +25,12 @@ const CONSONANT_STEPS: SessionStep[] = [
   { id: "intro", label: "Presentación", desc: "Trazado e Intro", icon: BookOpen },
   { id: "syllable-tap", label: "Toque de Sílabas", desc: "Lectura de Sílabas", icon: Layers },
   { id: "word-match", label: "Aparear Palabras", desc: "Vocabulario Ilustrado", icon: HelpCircle },
-  { id: "drag-build", label: "Construir Palabras", desc: "Construcción Ortográfica", icon: HelpCircle },
+  {
+    id: "drag-build",
+    label: "Construir Palabras",
+    desc: "Construcción Ortográfica",
+    icon: HelpCircle,
+  },
   { id: "reading", label: "Lectura", desc: "Lectura de Oraciones", icon: Type },
 ];
 
@@ -93,7 +98,8 @@ export function SessionStepRail({ entry, activeStepIdx, onStepChange }: SessionS
           Pasos de la Clase
         </span>
         <p className="text-xs text-stone-500 mt-1">
-          Usa <kbd className="bg-stone-200 px-1 rounded">↑/↓</kbd> o números <kbd className="bg-stone-200 px-1 rounded">1-{steps.length}</kbd>
+          Usa <kbd className="bg-stone-200 px-1 rounded">↑/↓</kbd> o números{" "}
+          <kbd className="bg-stone-200 px-1 rounded">1-{steps.length}</kbd>
         </p>
       </div>
 
@@ -115,9 +121,7 @@ export function SessionStepRail({ entry, activeStepIdx, onStepChange }: SessionS
             >
               <div
                 className={`p-1.5 rounded-lg shrink-0 mt-0.5 ${
-                  isActive
-                    ? "bg-amber-800 text-white"
-                    : "bg-stone-100 text-stone-500"
+                  isActive ? "bg-amber-800 text-white" : "bg-stone-100 text-stone-500"
                 }`}
               >
                 <StepIcon className="w-4 h-4" />
@@ -130,9 +134,7 @@ export function SessionStepRail({ entry, activeStepIdx, onStepChange }: SessionS
                 >
                   {idx + 1}. {step.label}
                 </div>
-                <div className="text-[10px] text-stone-500 truncate mt-0.5">
-                  {step.desc}
-                </div>
+                <div className="text-[10px] text-stone-500 truncate mt-0.5">{step.desc}</div>
               </div>
               {isActive && (
                 <ArrowRight className="w-3.5 h-3.5 text-amber-800 shrink-0 ml-auto mt-2" />

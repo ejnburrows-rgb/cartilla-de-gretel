@@ -31,7 +31,9 @@ export function AnalyticsPanel({ classId, isSeed }: AnalyticsPanelProps) {
           <div className="h-48 flex items-end justify-between gap-2 border-b border-[#e8e2d9] pb-2">
             {days.map((day, i) => {
               const heightPct = Math.round((day.count / maxCount) * 100);
-              const barStyle: React.CSSProperties = { height: `${Math.max(heightPct, day.count > 0 ? 6 : 2)}%` };
+              const barStyle: React.CSSProperties = {
+                height: `${Math.max(heightPct, day.count > 0 ? 6 : 2)}%`,
+              };
               return (
                 <div
                   key={i}

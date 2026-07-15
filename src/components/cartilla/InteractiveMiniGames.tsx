@@ -37,7 +37,7 @@ export function SpeechRecognitionExercise({
         const current = event.resultIndex;
         const result = event.results[current][0].transcript;
         setTranscript(result);
-        
+
         // Simple fuzzy match: check if the target word is within the recognized string
         const cleanTarget = targetWord.toLowerCase().trim();
         const cleanResult = result.toLowerCase().trim();
@@ -54,10 +54,10 @@ export function SpeechRecognitionExercise({
         setIsListening(false);
       };
       rec.onend = () => setIsListening(false);
-      
+
       recognitionRef.current = rec;
     }
-    
+
     return () => {
       if (recognitionRef.current) recognitionRef.current.stop();
     };
@@ -84,24 +84,40 @@ export function SpeechRecognitionExercise({
   return (
     <div className="rounded-2xl border-2 border-foreground/10 bg-card p-6 flex flex-col items-center">
       <h3 className="font-bold text-xl mb-6 text-center">Di la palabra en voz alta</h3>
-      
+
       <div className="text-6xl mb-4 drop-shadow-md">{emoji}</div>
-      <div className="text-4xl font-black mb-8" style={{ color }}>{targetWord}</div>
+      <div className="text-4xl font-black mb-8" style={{ color }}>
+        {targetWord}
+      </div>
 
       <button
         onClick={toggleListen}
         className={cn(
           "w-24 h-24 rounded-full flex items-center justify-center text-white transition-all shadow-xl mb-4",
-          isListening ? "animate-pulse scale-110 bg-red-500 shadow-[0_0_30px_rgba(239,68,68,0.6)]" : "hover:scale-105",
-          feedback === "ok" ? "bg-success scale-110" : feedback === "no" ? "bg-destructive" : ""
+          isListening
+            ? "animate-pulse scale-110 bg-red-500 shadow-[0_0_30px_rgba(239,68,68,0.6)]"
+            : "hover:scale-105",
+          feedback === "ok" ? "bg-success scale-110" : feedback === "no" ? "bg-destructive" : "",
         )}
         style={{ backgroundColor: !isListening && !feedback ? color : undefined }}
       >
-        {feedback === "ok" ? <Check className="w-12 h-12" /> : feedback === "no" ? <X className="w-12 h-12" /> : isListening ? <Mic className="w-12 h-12" /> : <MicOff className="w-12 h-12" />}
+        {feedback === "ok" ? (
+          <Check className="w-12 h-12" />
+        ) : feedback === "no" ? (
+          <X className="w-12 h-12" />
+        ) : isListening ? (
+          <Mic className="w-12 h-12" />
+        ) : (
+          <MicOff className="w-12 h-12" />
+        )}
       </button>
 
       <div className="h-8 flex items-center justify-center text-sm font-bold text-foreground/60">
-        {isListening ? "Escuchando..." : transcript ? `Escuché: "${transcript}"` : "Toca el micrófono y habla"}
+        {isListening
+          ? "Escuchando..."
+          : transcript
+            ? `Escuché: "${transcript}"`
+            : "Toca el micrófono y habla"}
       </div>
 
       {!recognitionRef.current && (
@@ -112,9 +128,21 @@ export function SpeechRecognitionExercise({
 
       {/* Debug Buttons - Remove in strict production */}
       <div className="mt-8 flex gap-2 border-t pt-4 border-foreground/10 w-full justify-center opacity-50 hover:opacity-100 transition-opacity">
-        <span className="text-[10px] font-bold uppercase mr-2 self-center text-foreground/50">Debug Mode:</span>
-        <button onClick={() => simulate(true)} className="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-md font-bold hover:bg-green-200">Simulate Success</button>
-        <button onClick={() => simulate(false)} className="px-2 py-1 bg-red-100 text-red-800 text-xs rounded-md font-bold hover:bg-red-200">Simulate Fail</button>
+        <span className="text-[10px] font-bold uppercase mr-2 self-center text-foreground/50">
+          Debug Mode:
+        </span>
+        <button
+          onClick={() => simulate(true)}
+          className="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-md font-bold hover:bg-green-200"
+        >
+          Simulate Success
+        </button>
+        <button
+          onClick={() => simulate(false)}
+          className="px-2 py-1 bg-red-100 text-red-800 text-xs rounded-md font-bold hover:bg-red-200"
+        >
+          Simulate Fail
+        </button>
       </div>
     </div>
   );
@@ -151,7 +179,7 @@ export function LetterTracing({ letter, color }: { letter: string; color: string
     const canvas = canvasRef.current;
     if (!canvas) return { x: 0, y: 0 };
     const rect = canvas.getBoundingClientRect();
-    
+
     // Scale coordinates if css width !== canvas width
     const scaleX = canvas.width / rect.width;
     const scaleY = canvas.height / rect.height;
@@ -167,7 +195,7 @@ export function LetterTracing({ letter, color }: { letter: string; color: string
 
     return {
       x: (clientX - rect.left) * scaleX,
-      y: (clientY - rect.top) * scaleY
+      y: (clientY - rect.top) * scaleY,
     };
   };
 
@@ -190,7 +218,7 @@ export function LetterTracing({ letter, color }: { letter: string; color: string
     if (ctx) {
       ctx.lineTo(x, y);
       ctx.stroke();
-      setProgress(p => Math.min(p + 1, 100));
+      setProgress((p) => Math.min(p + 1, 100));
     }
   };
 
@@ -207,14 +235,14 @@ export function LetterTracing({ letter, color }: { letter: string; color: string
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
+
     // Redraw faint letter
     ctx.font = "bold 200px 'Comic Sans MS', 'Chalkboard SE', sans-serif";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillStyle = "rgba(0,0,0,0.05)";
     ctx.fillText(letter, canvas.width / 2, canvas.height / 2);
-    
+
     // Reset path style
     ctx.beginPath();
     ctx.lineCap = "round";
@@ -228,12 +256,18 @@ export function LetterTracing({ letter, color }: { letter: string; color: string
     <div className="rounded-2xl border-2 border-foreground/10 bg-card p-6 flex flex-col items-center">
       <div className="flex items-center justify-between w-full mb-4">
         <h3 className="font-bold text-xl">Traza la letra</h3>
-        <button onClick={clearCanvas} className="text-xs font-bold text-foreground/50 hover:text-foreground inline-flex items-center gap-1">
+        <button
+          onClick={clearCanvas}
+          className="text-xs font-bold text-foreground/50 hover:text-foreground inline-flex items-center gap-1"
+        >
           <RotateCcw className="w-3.5 h-3.5" /> Borrar
         </button>
       </div>
-      
-      <div className="relative border-4 border-dashed rounded-3xl overflow-hidden bg-white touch-none" style={{ borderColor: color }}>
+
+      <div
+        className="relative border-4 border-dashed rounded-3xl overflow-hidden bg-white touch-none"
+        style={{ borderColor: color }}
+      >
         <canvas
           ref={canvasRef}
           width={300}
@@ -251,7 +285,9 @@ export function LetterTracing({ letter, color }: { letter: string; color: string
         {progress > 50 && (
           <div className="absolute inset-0 bg-success/20 flex flex-col items-center justify-center animate-in fade-in zoom-in pointer-events-none">
             <Check className="w-24 h-24 text-success drop-shadow-md" />
-            <span className="font-black text-success text-2xl drop-shadow-sm mt-2">¡Excelente!</span>
+            <span className="font-black text-success text-2xl drop-shadow-sm mt-2">
+              ¡Excelente!
+            </span>
           </div>
         )}
       </div>
@@ -260,11 +296,19 @@ export function LetterTracing({ letter, color }: { letter: string; color: string
 }
 
 // --- 3. Audio Multiple Choice ---
-export function AudioMultipleChoice({ targetWord, options, color }: { targetWord: string; options: Word[]; color: string }) {
+export function AudioMultipleChoice({
+  targetWord,
+  options,
+  color,
+}: {
+  targetWord: string;
+  options: Word[];
+  color: string;
+}) {
   const { play, playingText } = useAudio();
   const [feedback, setFeedback] = useState<"ok" | "no" | null>(null);
   const [picked, setPicked] = useState<string | null>(null);
-  
+
   // Scramble options once
   const scrambled = useRef([...options].sort(() => 0.5 - Math.random())).current;
 
@@ -282,12 +326,12 @@ export function AudioMultipleChoice({ targetWord, options, color }: { targetWord
   return (
     <div className="rounded-2xl border-2 border-foreground/10 bg-card p-6 flex flex-col items-center">
       <h3 className="font-bold text-xl mb-6">Escucha y selecciona la imagen correcta</h3>
-      
+
       <button
         onClick={() => play(targetWord, true)}
         className={cn(
           "w-24 h-24 rounded-full flex items-center justify-center text-white transition-all shadow-xl mb-8 active:scale-95",
-          playingText === targetWord ? "animate-pulse ring-8 ring-offset-4" : "hover:scale-105"
+          playingText === targetWord ? "animate-pulse ring-8 ring-offset-4" : "hover:scale-105",
         )}
         style={{ backgroundColor: color, "--tw-ring-color": color } as any}
       >
@@ -302,8 +346,12 @@ export function AudioMultipleChoice({ targetWord, options, color }: { targetWord
             onClick={() => handlePick(opt.word)}
             className={cn(
               "aspect-square rounded-2xl flex items-center justify-center text-6xl bg-white border-4 transition-all hover:scale-[1.02]",
-              picked === opt.word && feedback === "no" ? "border-destructive bg-destructive/10 grayscale" : "border-foreground/10 shadow-sm",
-              picked === opt.word && feedback === "ok" ? "border-success bg-success/10 scale-105 shadow-xl" : ""
+              picked === opt.word && feedback === "no"
+                ? "border-destructive bg-destructive/10 grayscale"
+                : "border-foreground/10 shadow-sm",
+              picked === opt.word && feedback === "ok"
+                ? "border-success bg-success/10 scale-105 shadow-xl"
+                : "",
             )}
           >
             {opt.emoji || "?"}
@@ -340,7 +388,7 @@ export function DragDropMatch({ words, color }: { words: Word[]; color: string }
     e.preventDefault();
     const droppedWord = e.dataTransfer.getData("text/plain");
     if (droppedWord === targetWord) {
-      setMatches(prev => ({ ...prev, [targetWord]: targetWord }));
+      setMatches((prev) => ({ ...prev, [targetWord]: targetWord }));
       gretelEvent("answer:correct");
     } else {
       gretelEvent("answer:wrong");
@@ -359,7 +407,10 @@ export function DragDropMatch({ words, color }: { words: Word[]; color: string }
     <div className="rounded-2xl border-2 border-foreground/10 bg-card p-6 flex flex-col items-center">
       <div className="flex items-center justify-between w-full mb-6">
         <h3 className="font-bold text-xl">Arrastra la palabra a su dibujo</h3>
-        <button onClick={() => setMatches({})} className="text-xs font-bold text-foreground/50 hover:text-foreground inline-flex items-center gap-1">
+        <button
+          onClick={() => setMatches({})}
+          className="text-xs font-bold text-foreground/50 hover:text-foreground inline-flex items-center gap-1"
+        >
           <RotateCcw className="w-3.5 h-3.5" /> Reiniciar
         </button>
       </div>
@@ -377,9 +428,14 @@ export function DragDropMatch({ words, color }: { words: Word[]; color: string }
                 onDragEnd={() => setDraggedWord(null)}
                 className={cn(
                   "p-4 rounded-xl border-2 font-black text-center text-xl transition-all select-none",
-                  isMatched ? "opacity-0 pointer-events-none" : "cursor-grab active:cursor-grabbing hover:scale-[1.02] bg-white shadow-sm"
+                  isMatched
+                    ? "opacity-0 pointer-events-none"
+                    : "cursor-grab active:cursor-grabbing hover:scale-[1.02] bg-white shadow-sm",
                 )}
-                style={{ borderColor: !isMatched ? color : "transparent", color: !isMatched ? color : "transparent" }}
+                style={{
+                  borderColor: !isMatched ? color : "transparent",
+                  color: !isMatched ? color : "transparent",
+                }}
               >
                 {w.word}
               </div>
@@ -398,8 +454,10 @@ export function DragDropMatch({ words, color }: { words: Word[]; color: string }
                 onDragOver={handleDragOver}
                 className={cn(
                   "p-4 rounded-xl border-4 border-dashed flex items-center justify-center transition-all min-h-[4rem] text-4xl",
-                  isMatched ? "bg-success/10 border-success/30 shadow-inner" : "bg-stone-50 border-stone-200",
-                  draggedWord === w.word && !isMatched ? "bg-blue-50 border-blue-300" : "" // Slight hint
+                  isMatched
+                    ? "bg-success/10 border-success/30 shadow-inner"
+                    : "bg-stone-50 border-stone-200",
+                  draggedWord === w.word && !isMatched ? "bg-blue-50 border-blue-300" : "", // Slight hint
                 )}
               >
                 {isMatched ? (

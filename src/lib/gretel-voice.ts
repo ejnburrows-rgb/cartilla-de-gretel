@@ -174,8 +174,7 @@ export async function speakAsGretel(
  * Sole approved home-hero spoken + written line (operator lock).
  * No other home hero captions/subtitles/credits.
  */
-export const HOME_GREETING =
-  "Bienvenidos a la Cartilla de Gretel. Vamos a aprender a leer juntos.";
+export const HOME_GREETING = "Bienvenidos a la Cartilla de Gretel. Vamos a aprender a leer juntos.";
 
 export function buildHomeIntroLines(): string[] {
   return [HOME_GREETING];

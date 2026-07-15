@@ -27,7 +27,8 @@ function isExpired(response, maxAgeMs) {
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAMES.appShell)
+    caches
+      .open(CACHE_NAMES.appShell)
       .then((cache) => {
         return Promise.allSettled(
           PRECACHE_URLS.map((url) =>
@@ -38,28 +39,29 @@ self.addEventListener("install", (event) => {
                 }
                 return null;
               })
-              .catch(() => null)
-          )
+              .catch(() => null),
+          ),
         );
       })
-      .then(() => self.skipWaiting())
+      .then(() => self.skipWaiting()),
   );
 });
 
 self.addEventListener("activate", (event) => {
   const activeCaches = Object.values(CACHE_NAMES);
   event.waitUntil(
-    caches.keys()
+    caches
+      .keys()
       .then((keys) => {
         return Promise.all(
           keys.map((key) => {
             if (!activeCaches.includes(key)) {
               return caches.delete(key);
             }
-          })
+          }),
         );
       })
-      .then(() => self.clients.claim())
+      .then(() => self.clients.claim()),
   );
 });
 
@@ -72,7 +74,10 @@ self.addEventListener("fetch", (event) => {
   if (url.origin !== self.location.origin) return;
 
   const path = url.pathname;
-  const isHtml = request.mode === "navigate" || path.endsWith(".html") || (!path.includes(".") && !path.startsWith("/api/"));
+  const isHtml =
+    request.mode === "navigate" ||
+    path.endsWith(".html") ||
+    (!path.includes(".") && !path.startsWith("/api/"));
 
   // 1. HTML Strategy: Network-first, fall back to cache, fall back to /offline.html
   if (isHtml) {
@@ -96,7 +101,7 @@ self.addEventListener("fetch", (event) => {
               });
             });
           });
-        })
+        }),
     );
     return;
   }
@@ -112,7 +117,7 @@ self.addEventListener("fetch", (event) => {
             return fresh;
           });
         });
-      })
+      }),
     );
     return;
   }
@@ -128,7 +133,7 @@ self.addEventListener("fetch", (event) => {
             return fresh;
           });
         });
-      })
+      }),
     );
     return;
   }
@@ -152,7 +157,7 @@ self.addEventListener("fetch", (event) => {
           }
           return fetchPromise;
         });
-      })
+      }),
     );
     return;
   }
@@ -174,7 +179,7 @@ self.addEventListener("fetch", (event) => {
             })
             .catch(() => cached);
         });
-      })
+      }),
     );
     return;
   }
@@ -196,6 +201,6 @@ self.addEventListener("fetch", (event) => {
         }
         return fetchPromise;
       });
-    })
+    }),
   );
 });

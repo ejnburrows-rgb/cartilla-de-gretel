@@ -1,13 +1,16 @@
-import fs from 'fs';
-import path from 'path';
+import fs from "fs";
+import path from "path";
 
 // Resolve paths using import.meta.dirname for ESM
-const inventoryPath = path.resolve(import.meta.dirname, '../src/data/page-inventory.json');
-const workbookBasePath = path.resolve(import.meta.dirname, '../public/cartilla/images/source');
-const flipchartBasePath = path.resolve(import.meta.dirname, '../public/cartilla/images/teacher-flipchart');
+const inventoryPath = path.resolve(import.meta.dirname, "../src/data/page-inventory.json");
+const workbookBasePath = path.resolve(import.meta.dirname, "../public/cartilla/images/source");
+const flipchartBasePath = path.resolve(
+  import.meta.dirname,
+  "../public/cartilla/images/teacher-flipchart",
+);
 
 // Read JSON
-const rawData = fs.readFileSync(inventoryPath, 'utf-8');
+const rawData = fs.readFileSync(inventoryPath, "utf-8");
 const inventory = JSON.parse(rawData);
 
 const missingFiles: string[] = [];
@@ -60,23 +63,23 @@ const findDuplicates = (arr: string[]) => {
 const duplicateWorkbookPages = findDuplicates(allWorkbookPages);
 const duplicateFlipchartPages = findDuplicates(allFlipchartPages);
 
-console.log('--- Missing Files ---');
+console.log("--- Missing Files ---");
 if (missingFiles.length === 0) {
-  console.log('None.');
+  console.log("None.");
 } else {
-  missingFiles.forEach(msg => console.log(msg));
+  missingFiles.forEach((msg) => console.log(msg));
 }
 
-console.log('\n--- Duplicate Workbook Pages ---');
+console.log("\n--- Duplicate Workbook Pages ---");
 if (duplicateWorkbookPages.length === 0) {
-  console.log('None.');
+  console.log("None.");
 } else {
-  duplicateWorkbookPages.forEach(p => console.log(p));
+  duplicateWorkbookPages.forEach((p) => console.log(p));
 }
 
-console.log('\n--- Duplicate Flipchart Pages ---');
+console.log("\n--- Duplicate Flipchart Pages ---");
 if (duplicateFlipchartPages.length === 0) {
-  console.log('None.');
+  console.log("None.");
 } else {
-  duplicateFlipchartPages.forEach(p => console.log(p));
+  duplicateFlipchartPages.forEach((p) => console.log(p));
 }

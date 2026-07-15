@@ -45,7 +45,9 @@ export function PrintBinder({ lessonId }: PrintBinderProps) {
   }, []);
 
   if (loading) {
-    return <div className="p-8 text-center text-foreground/50">Cargando páginas para imprimir...</div>;
+    return (
+      <div className="p-8 text-center text-foreground/50">Cargando páginas para imprimir...</div>
+    );
   }
 
   // Fallback to Live-PDF
@@ -54,8 +56,8 @@ export function PrintBinder({ lessonId }: PrintBinderProps) {
   }
 
   // Filter pages by lessonId if provided
-  const pagesToRender = lessonId 
-    ? manifest.pages.filter(p => p.lessonId === lessonId)
+  const pagesToRender = lessonId
+    ? manifest.pages.filter((p) => p.lessonId === lessonId)
     : manifest.pages;
 
   if (pagesToRender.length === 0) {
@@ -69,9 +71,9 @@ export function PrintBinder({ lessonId }: PrintBinderProps) {
       {pagesToRender.map((page, index) => {
         const isFirstOfLesson = page.lessonId !== currentLessonId;
         currentLessonId = page.lessonId;
-        
-        const entry = CATALOG.find(c => String(c.n) === page.lessonId);
-        
+
+        const entry = CATALOG.find((c) => String(c.n) === page.lessonId);
+
         return (
           <div key={`${page.lessonId}-${page.pageNumber}`} className={pageWrapperClass}>
             <div className={headerClass}>
@@ -86,9 +88,7 @@ export function PrintBinder({ lessonId }: PrintBinderProps) {
             <div className={imageContainerClass}>
               <img src={page.imagePath} alt={`Página ${page.pageNumber}`} className={imageClass} />
             </div>
-            <div className={footerClass}>
-              Página {page.pageNumber}
-            </div>
+            <div className={footerClass}>Página {page.pageNumber}</div>
           </div>
         );
       })}
@@ -98,9 +98,9 @@ export function PrintBinder({ lessonId }: PrintBinderProps) {
 
 function LivePdfFallback({ lessonId }: { lessonId?: string }) {
   const pagesToRender = [];
-  
+
   if (lessonId) {
-    const entry = CATALOG.find(c => String(c.n) === lessonId);
+    const entry = CATALOG.find((c) => String(c.n) === lessonId);
     if (entry) {
       const parts = entry.pages.split("-");
       const start = parseInt(parts[0] || "1", 10);
@@ -140,11 +140,9 @@ function LivePdfFallback({ lessonId }: { lessonId?: string }) {
               )}
             </div>
             <div className={imageContainerClass}>
-               <PdfPage pageNumber={page.pageNumber} className="w-full h-full" />
+              <PdfPage pageNumber={page.pageNumber} className="w-full h-full" />
             </div>
-            <div className={footerClass}>
-              Página {page.pageNumber}
-            </div>
+            <div className={footerClass}>Página {page.pageNumber}</div>
           </div>
         );
       })}

@@ -29,7 +29,11 @@ interface SVGWorkbookLineProps {
 
 export function SVGWorkbookLine({ text, dotted = false }: SVGWorkbookLineProps) {
   return (
-    <svg viewBox="0 0 400 45" className="w-full h-12 overflow-visible select-none" style={bookFrameStyle}>
+    <svg
+      viewBox="0 0 400 45"
+      className="w-full h-12 overflow-visible select-none"
+      style={bookFrameStyle}
+    >
       {/* Top guideline */}
       <line x1="0" y1="10" x2="400" y2="10" {...guideStroke} />
       {/* Dashed middle guideline */}
@@ -110,9 +114,21 @@ export function SVGTracingLetter({ letter }: SVGTracingLetterProps) {
 
       {/* Stroke directional guides based on letter type */}
       {isVowel ? (
-        <path d="M 50,15 L 50,25 M 50,15 L 45,20 M 50,15 L 55,20" stroke="#0ea5e9" strokeWidth="2.5" strokeLinecap="round" fill="none" />
+        <path
+          d="M 50,15 L 50,25 M 50,15 L 45,20 M 50,15 L 55,20"
+          stroke="#0ea5e9"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          fill="none"
+        />
       ) : (
-        <path d="M 30,20 L 30,80 M 30,20 L 25,30 M 30,20 L 35,30" stroke="#10b981" strokeWidth="2.5" strokeLinecap="round" fill="none" />
+        <path
+          d="M 30,20 L 30,80 M 30,20 L 25,30 M 30,20 L 35,30"
+          stroke="#10b981"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          fill="none"
+        />
       )}
     </svg>
   );
@@ -198,15 +214,29 @@ export function WorkbookPageRenderer({ pageNumber }: WorkbookPageRendererProps) 
 
             <div className="grid grid-cols-5 gap-3 mt-4">
               {["a", "e", "i", "o", "u"].map((v) => (
-                <div key={v} className="flex flex-col items-center p-2 bg-white border border-stone-200 rounded-xl">
+                <div
+                  key={v}
+                  className="flex flex-col items-center p-2 bg-white border border-stone-200 rounded-xl"
+                >
                   <span className="text-3xl font-black font-fredoka text-stone-800 uppercase">
                     {v}
                   </span>
-                  <span className="text-lg font-bold font-fredoka text-stone-400 mt-1">
-                    {v}
-                  </span>
+                  <span className="text-lg font-bold font-fredoka text-stone-400 mt-1">{v}</span>
                   <div className="w-12 h-12 mt-2 opacity-80">
-                    <MonochromeDrawing word={v === "a" ? "árbol" : v === "e" ? "escoba" : v === "i" ? "iglú" : v === "o" ? "oso" : "uvas"} size={44} />
+                    <MonochromeDrawing
+                      word={
+                        v === "a"
+                          ? "árbol"
+                          : v === "e"
+                            ? "escoba"
+                            : v === "i"
+                              ? "iglú"
+                              : v === "o"
+                                ? "oso"
+                                : "uvas"
+                      }
+                      size={44}
+                    />
                   </div>
                 </div>
               ))}
@@ -236,7 +266,10 @@ export function WorkbookPageRenderer({ pageNumber }: WorkbookPageRendererProps) 
             {/* Vowels list */}
             <div className="flex flex-col space-y-6">
               {["a", "e", "i", "o", "u"].map((v) => (
-                <div key={v} className="w-10 h-10 rounded-full border-2 border-stone-800 flex items-center justify-center font-black font-fredoka text-lg text-stone-800 bg-white">
+                <div
+                  key={v}
+                  className="w-10 h-10 rounded-full border-2 border-stone-800 flex items-center justify-center font-black font-fredoka text-lg text-stone-800 bg-white"
+                >
                   {v.toUpperCase()}
                 </div>
               ))}
@@ -245,7 +278,10 @@ export function WorkbookPageRenderer({ pageNumber }: WorkbookPageRendererProps) 
             {/* Illustration anchors */}
             <div className="flex flex-col space-y-6">
               {["oso", "árbol", "uvas", "iglú", "escoba"].map((w) => (
-                <div key={w} className="w-12 h-10 border border-stone-200 rounded-lg flex items-center justify-center bg-white p-1">
+                <div
+                  key={w}
+                  className="w-12 h-10 border border-stone-200 rounded-lg flex items-center justify-center bg-white p-1"
+                >
                   <MonochromeDrawing word={w} size={36} />
                 </div>
               ))}
@@ -277,9 +313,7 @@ export function WorkbookPageRenderer({ pageNumber }: WorkbookPageRendererProps) 
                 <span className="text-[10px] font-black text-stone-400 uppercase tracking-wider block">
                   Vocal {vowel.toUpperCase()}
                 </span>
-                <h2 className="text-xl font-black font-fredoka text-stone-800">
-                  {entry.title}
-                </h2>
+                <h2 className="text-xl font-black font-fredoka text-stone-800">{entry.title}</h2>
               </div>
               <SVGTracingLetter letter={vowel.toUpperCase()} />
             </div>
@@ -291,7 +325,10 @@ export function WorkbookPageRenderer({ pageNumber }: WorkbookPageRendererProps) 
             {/* Grid of monochrome vocabulary drawings */}
             <div className="grid grid-cols-2 gap-4">
               {vocabList.slice(0, 4).map((v) => (
-                <div key={v.word} className="bg-white border border-stone-200/80 rounded-2xl p-4 flex flex-col items-center text-center shadow-sm">
+                <div
+                  key={v.word}
+                  className="bg-white border border-stone-200/80 rounded-2xl p-4 flex flex-col items-center text-center shadow-sm"
+                >
                   <div className="w-16 h-16 flex items-center justify-center opacity-90 mb-2">
                     <MonochromeDrawing word={v.word} size={64} />
                   </div>
@@ -328,8 +365,14 @@ export function WorkbookPageRenderer({ pageNumber }: WorkbookPageRendererProps) 
                   Minúscula
                 </span>
                 <div className="space-y-2">
-                  <SVGWorkbookLine text={`${vowel}  ${vowel}  ${vowel}  ${vowel}  ${vowel}  ${vowel}  ${vowel}`} dotted />
-                  <SVGWorkbookLine text={`${vowel}  ${vowel}  ${vowel}  ${vowel}  ${vowel}  ${vowel}  ${vowel}`} dotted />
+                  <SVGWorkbookLine
+                    text={`${vowel}  ${vowel}  ${vowel}  ${vowel}  ${vowel}  ${vowel}  ${vowel}`}
+                    dotted
+                  />
+                  <SVGWorkbookLine
+                    text={`${vowel}  ${vowel}  ${vowel}  ${vowel}  ${vowel}  ${vowel}  ${vowel}`}
+                    dotted
+                  />
                   <SVGWorkbookLine text="" />
                 </div>
               </div>
@@ -339,8 +382,14 @@ export function WorkbookPageRenderer({ pageNumber }: WorkbookPageRendererProps) 
                   Mayúscula
                 </span>
                 <div className="space-y-2">
-                  <SVGWorkbookLine text={`${vowel.toUpperCase()}  ${vowel.toUpperCase()}  ${vowel.toUpperCase()}  ${vowel.toUpperCase()}  ${vowel.toUpperCase()}`} dotted />
-                  <SVGWorkbookLine text={`${vowel.toUpperCase()}  ${vowel.toUpperCase()}  ${vowel.toUpperCase()}  ${vowel.toUpperCase()}  ${vowel.toUpperCase()}`} dotted />
+                  <SVGWorkbookLine
+                    text={`${vowel.toUpperCase()}  ${vowel.toUpperCase()}  ${vowel.toUpperCase()}  ${vowel.toUpperCase()}  ${vowel.toUpperCase()}`}
+                    dotted
+                  />
+                  <SVGWorkbookLine
+                    text={`${vowel.toUpperCase()}  ${vowel.toUpperCase()}  ${vowel.toUpperCase()}  ${vowel.toUpperCase()}  ${vowel.toUpperCase()}`}
+                    dotted
+                  />
                   <SVGWorkbookLine text="" />
                 </div>
               </div>
@@ -367,7 +416,10 @@ export function WorkbookPageRenderer({ pageNumber }: WorkbookPageRendererProps) 
 
           <div className="space-y-4">
             {(entry.lesson?.vocab || []).slice(0, 3).map((item) => (
-              <div key={item.word} className="flex items-center gap-4 bg-white border border-stone-200/80 rounded-2xl p-3">
+              <div
+                key={item.word}
+                className="flex items-center gap-4 bg-white border border-stone-200/80 rounded-2xl p-3"
+              >
                 <div className="w-12 h-12 border border-stone-200 rounded-xl flex items-center justify-center p-1 bg-stone-50">
                   <MonochromeDrawing word={item.word} size={36} />
                 </div>
@@ -399,17 +451,26 @@ export function WorkbookPageRenderer({ pageNumber }: WorkbookPageRendererProps) 
     const sentences = data.sentences || [];
 
     // Check if the lesson is scaffolded / pending
-    const isPending = !data || !data.examples || syllables.length === 0 || 
-                      Object.values(data.examples).every(arr => !arr || arr.length === 0 || (typeof arr[0] === 'string' && arr[0].includes("PENDIENTE")));
+    const isPending =
+      !data ||
+      !data.examples ||
+      syllables.length === 0 ||
+      Object.values(data.examples).every(
+        (arr) =>
+          !arr || arr.length === 0 || (typeof arr[0] === "string" && arr[0].includes("PENDIENTE")),
+      );
 
     if (isPending) {
       return (
         <div className="w-full h-full flex flex-col items-center justify-center p-8 bg-stone-50 border border-stone-200/50 rounded-2xl">
           <div className="text-center p-8 border-2 border-dashed border-stone-200 rounded-xl bg-white max-w-sm shadow-sm">
             <div className="text-4xl mb-4">🚧</div>
-            <h2 className="text-xl font-black font-fredoka text-stone-800 mb-2">Lección en Construcción</h2>
+            <h2 className="text-xl font-black font-fredoka text-stone-800 mb-2">
+              Lección en Construcción
+            </h2>
             <p className="text-sm text-stone-500 font-semibold mb-4">
-              El material didáctico para la letra <strong>{letter.toUpperCase()}</strong> está pendiente de digitalización.
+              El material didáctico para la letra <strong>{letter.toUpperCase()}</strong> está
+              pendiente de digitalización.
             </p>
             <div className="text-[10px] font-black text-stone-400 uppercase tracking-widest">
               Próximamente
@@ -422,7 +483,11 @@ export function WorkbookPageRenderer({ pageNumber }: WorkbookPageRendererProps) 
     // Consonant Page 1 (A): Syllable Matrix & Vocabulary
     if (subpage === 0) {
       // Find vocabulary words matching starting syllables
-      const vocabItems = data.examples ? Object.values(data.examples).flatMap((arr) => arr || []).slice(0, 4) : [];
+      const vocabItems = data.examples
+        ? Object.values(data.examples)
+            .flatMap((arr) => arr || [])
+            .slice(0, 4)
+        : [];
 
       return (
         <div className="w-full h-full flex flex-col justify-between p-8 bg-stone-50 border border-stone-200/50 rounded-2xl">
@@ -452,13 +517,17 @@ export function WorkbookPageRenderer({ pageNumber }: WorkbookPageRendererProps) 
             </div>
 
             <p className="text-xs text-stone-500 font-semibold mb-6">
-              Une la consonante con las vocales para crear sílabas. Observa las palabras representadas.
+              Une la consonante con las vocales para crear sílabas. Observa las palabras
+              representadas.
             </p>
 
             {/* Vector Vocabulary outlines */}
             <div className="grid grid-cols-2 gap-3">
               {vocabItems.map((word) => (
-                <div key={word} className="bg-white border border-stone-200/80 rounded-xl p-3 flex flex-col items-center text-center shadow-sm">
+                <div
+                  key={word}
+                  className="bg-white border border-stone-200/80 rounded-xl p-3 flex flex-col items-center text-center shadow-sm"
+                >
                   <div className="w-14 h-14 flex items-center justify-center opacity-90 mb-1">
                     <MonochromeDrawing word={word} size={50} />
                   </div>
@@ -486,7 +555,8 @@ export function WorkbookPageRenderer({ pageNumber }: WorkbookPageRendererProps) 
               Caligrafía de Sílabas
             </h2>
             <p className="text-xs text-stone-500 font-semibold mb-6">
-              Traza la consonante {letter.toUpperCase()} y las sílabas correspondientes con lápiz grafito.
+              Traza la consonante {letter.toUpperCase()} y las sílabas correspondientes con lápiz
+              grafito.
             </p>
 
             <div className="space-y-6">
@@ -495,7 +565,10 @@ export function WorkbookPageRenderer({ pageNumber }: WorkbookPageRendererProps) 
                   Letras {letter.toUpperCase()} y {letter}
                 </span>
                 <div className="space-y-2">
-                  <SVGWorkbookLine text={`${letter.toUpperCase()} ${letter}   ${letter.toUpperCase()} ${letter}   ${letter.toUpperCase()} ${letter}   ${letter.toUpperCase()} ${letter}`} dotted />
+                  <SVGWorkbookLine
+                    text={`${letter.toUpperCase()} ${letter}   ${letter.toUpperCase()} ${letter}   ${letter.toUpperCase()} ${letter}   ${letter.toUpperCase()} ${letter}`}
+                    dotted
+                  />
                   <SVGWorkbookLine text="" />
                 </div>
               </div>
@@ -540,13 +613,19 @@ export function WorkbookPageRenderer({ pageNumber }: WorkbookPageRendererProps) 
               {columns.map((syl) => {
                 const words = Array.isArray(examplesMap[syl]) ? examplesMap[syl] : [];
                 return (
-                  <div key={syl} className="bg-white border border-stone-200/80 rounded-xl p-2 flex flex-col items-center">
+                  <div
+                    key={syl}
+                    className="bg-white border border-stone-200/80 rounded-xl p-2 flex flex-col items-center"
+                  >
                     <div className="w-8 h-8 rounded-full border border-stone-300 bg-stone-50 flex items-center justify-center font-black font-fredoka text-[10px] text-stone-800 mb-2">
                       {syl}
                     </div>
                     <div className="space-y-2 text-center w-full">
                       {words.slice(0, 3).map((w) => (
-                        <div key={w} className="text-[10px] font-bold font-fredoka text-stone-700 truncate border-b border-stone-100 pb-1 capitalize">
+                        <div
+                          key={w}
+                          className="text-[10px] font-bold font-fredoka text-stone-700 truncate border-b border-stone-100 pb-1 capitalize"
+                        >
                           {w}
                         </div>
                       ))}
@@ -569,7 +648,9 @@ export function WorkbookPageRenderer({ pageNumber }: WorkbookPageRendererProps) 
       const mainSentence = sentences[0] || "";
       const secondarySentence = sentences[1] || "";
       // Find a vocabulary key that we have illustrations for
-      const illustrationWord = (data.examples ? Object.values(data.examples).flatMap((arr) => arr || [])[0] : null) || "oso";
+      const illustrationWord =
+        (data.examples ? Object.values(data.examples).flatMap((arr) => arr || [])[0] : null) ||
+        "oso";
 
       return (
         <div className="w-full h-full flex flex-col justify-between p-8 bg-stone-50 border border-stone-200/50 rounded-2xl">
@@ -620,9 +701,7 @@ export function WorkbookPageRenderer({ pageNumber }: WorkbookPageRendererProps) 
     <div className="w-full h-full flex flex-col justify-between items-center p-8 bg-stone-50 border border-stone-200/50 rounded-2xl">
       <div className="text-center my-auto">
         <h2 className="text-xl font-bold font-fredoka text-stone-600">Página {pageNumber}</h2>
-        <p className="text-xs text-stone-400 font-semibold mt-1">
-          Material del Cuaderno de Gretel
-        </p>
+        <p className="text-xs text-stone-400 font-semibold mt-1">Material del Cuaderno de Gretel</p>
       </div>
       <div className="text-[10px] text-stone-400 font-bold">Leonor Lopetegui</div>
     </div>

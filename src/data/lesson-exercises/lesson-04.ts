@@ -24,14 +24,14 @@ export const lesson04 = [
       { id: "img-uña-12", label: "uña" },
       { id: "img-igual-13", label: "igual" },
       { id: "img-insecto-14", label: "insecto" },
-      { id: "img-olla-15", label: "olla" }
+      { id: "img-olla-15", label: "olla" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
     teacherNotes: "Scaffolded exercise for I i.",
-    sourcePage: getBookPageImage(19)
+    sourcePage: getBookPageImage(19),
   },
   {
     id: "l4-p20-draw-line",
@@ -47,14 +47,14 @@ export const lesson04 = [
       { id: "img-indio-3", label: "indio" },
       { id: "img-uña-4", label: "uña" },
       { id: "img-iguana-5", label: "iguana" },
-      { id: "img-abeja-6", label: "abeja" }
+      { id: "img-abeja-6", label: "abeja" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
     teacherNotes: "Scaffolded exercise for I i.",
-    sourcePage: getBookPageImage(20)
+    sourcePage: getBookPageImage(20),
   },
   {
     id: "l4-p21-letter-tracing",
@@ -65,14 +65,14 @@ export const lesson04 = [
     prompt: "Haz un dibujo que represente una palabra que comienza con i.",
     items: [
       { id: "letter-I-0", label: "I" },
-      { id: "letter-i-1", label: "i" }
+      { id: "letter-i-1", label: "i" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
     teacherNotes: "Scaffolded letter tracing for I i.",
-    sourcePage: getBookPageImage(21)
+    sourcePage: getBookPageImage(21),
   },
   {
     id: "l4-p22-mark-x",
@@ -97,13 +97,13 @@ export const lesson04 = [
       { id: "img-abeja-12", label: "abeja" },
       { id: "img-uniforme-13", label: "uniforme" },
       { id: "img-insecto-14", label: "insecto" },
-      { id: "img-uno-15", label: "uno" }
+      { id: "img-uno-15", label: "uno" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
     teacherNotes: "Scaffolded exercise for U u.",
-    sourcePage: getBookPageImage(22)
-  }
+    sourcePage: getBookPageImage(22),
+  },
 ];

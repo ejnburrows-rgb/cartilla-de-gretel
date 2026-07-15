@@ -59,9 +59,11 @@ export function GretelFeedback({
 }) {
   useEffect(() => {
     if (state === "ok") {
-      window.dispatchEvent(new CustomEvent("gretel:celebrate", {
-        detail: { text: "¡Muy bien! ¡Excelente trabajo!" }
-      }));
+      window.dispatchEvent(
+        new CustomEvent("gretel:celebrate", {
+          detail: { text: "¡Muy bien! ¡Excelente trabajo!" },
+        }),
+      );
     }
   }, [state]);
 
@@ -73,7 +75,11 @@ export function GretelFeedback({
           initial={feedbackInitial}
           animate={state === "ok" ? okPanelAnimate : retryPanelAnimate}
           exit={feedbackExit}
-          transition={state === "ok" ? { type: "spring", stiffness: 260, damping: 20 } : { ...feedbackTransition, x: { duration: 0.34 } }}
+          transition={
+            state === "ok"
+              ? { type: "spring", stiffness: 260, damping: 20 }
+              : { ...feedbackTransition, x: { duration: 0.34 } }
+          }
           className="fixed inset-x-0 bottom-0 z-50 flex items-end justify-center px-4 pb-5 pointer-events-none sm:inset-0 sm:items-center sm:pb-0"
         >
           <motion.div
@@ -89,11 +95,19 @@ export function GretelFeedback({
             {state === "ok" && <CelebrationBurst />}
             <GretelAvatar mood={state} />
             <div className="relative z-10 min-w-0 flex-1">
-              <div className="text-xl font-black leading-tight sm:text-2xl" style={titleStyle(state)}>
+              <div
+                className="text-xl font-black leading-tight sm:text-2xl"
+                style={titleStyle(state)}
+              >
                 {state === "ok" ? "¡Muy bien!" : "Intenta otra vez"}
               </div>
-              <div className="mt-0.5 text-sm font-semibold leading-snug sm:text-base" style={bodyStyle(state)}>
-                {state === "ok" ? "Lo hiciste con cuidado. Sigue con la siguiente." : "No pasa nada. Limpia los espacios y prueba otra vez."}
+              <div
+                className="mt-0.5 text-sm font-semibold leading-snug sm:text-base"
+                style={bodyStyle(state)}
+              >
+                {state === "ok"
+                  ? "Lo hiciste con cuidado. Sigue con la siguiente."
+                  : "No pasa nada. Limpia los espacios y prueba otra vez."}
               </div>
             </div>
             <button
@@ -126,7 +140,10 @@ function GretelAvatar({ mood }: { mood: "ok" | "x" }) {
     >
       <motion.div
         className="absolute -inset-2 rounded-full border-2 border-white/70"
-        animate={{ scale: mood === "ok" ? [0.8, 1.25, 1.05] : [1, 1.08, 1], opacity: [0.7, 0.2, 0.35] }}
+        animate={{
+          scale: mood === "ok" ? [0.8, 1.25, 1.05] : [1, 1.08, 1],
+          opacity: [0.7, 0.2, 0.35],
+        }}
         transition={{ duration: 0.72, ease: "easeOut" }}
       />
       {mood === "ok" ? (

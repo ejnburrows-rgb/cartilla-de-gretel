@@ -66,7 +66,15 @@ export function GretelEncouraging({ animated = false, ...props }: GretelEncourag
         strokeLinecap="round"
       />
       {/* Center seam detail */}
-      <line x1="100" y1="162" x2="100" y2="249" stroke="var(--art-primary, #c98c4f)" strokeWidth="0.8" opacity="0.4" />
+      <line
+        x1="100"
+        y1="162"
+        x2="100"
+        y2="249"
+        stroke="var(--art-primary, #c98c4f)"
+        strokeWidth="0.8"
+        opacity="0.4"
+      />
 
       {/* === ARMS (extended forward in encouragement) === */}
       {/* Left arm */}
@@ -79,7 +87,7 @@ export function GretelEncouraging({ animated = false, ...props }: GretelEncourag
       />
       {/* Left hand */}
       <circle cx="42" cy="200" r="8" fill="#f5d0a9" />
-      
+
       {/* Right arm */}
       <path
         d="M130 165 Q155 180 158 200"
@@ -130,8 +138,20 @@ export function GretelEncouraging({ animated = false, ...props }: GretelEncourag
         fill="url(#encouraging-hair)"
       />
       {/* Side hair wisps */}
-      <path d="M64 77 Q60 87 63 97" fill="none" stroke="#8B5E3C" strokeWidth="4" strokeLinecap="round" />
-      <path d="M136 77 Q140 87 137 97" fill="none" stroke="#8B5E3C" strokeWidth="4" strokeLinecap="round" />
+      <path
+        d="M64 77 Q60 87 63 97"
+        fill="none"
+        stroke="#8B5E3C"
+        strokeWidth="4"
+        strokeLinecap="round"
+      />
+      <path
+        d="M136 77 Q140 87 137 97"
+        fill="none"
+        stroke="#8B5E3C"
+        strokeWidth="4"
+        strokeLinecap="round"
+      />
 
       {/* === EYES (Warm squint / smile) === */}
       {/* Left eye */}
@@ -152,8 +172,20 @@ export function GretelEncouraging({ animated = false, ...props }: GretelEncourag
       />
 
       {/* === EYEBROWS (raised happily) === */}
-      <path d="M76 78 Q84 72 92 76" fill="none" stroke="#7A4E2E" strokeWidth="1.8" strokeLinecap="round" />
-      <path d="M108 76 Q116 72 124 78" fill="none" stroke="#7A4E2E" strokeWidth="1.8" strokeLinecap="round" />
+      <path
+        d="M76 78 Q84 72 92 76"
+        fill="none"
+        stroke="#7A4E2E"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
+      <path
+        d="M108 76 Q116 72 124 78"
+        fill="none"
+        stroke="#7A4E2E"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
 
       {/* === NOSE === */}
       <ellipse cx="100" cy="101" rx="3" ry="2.5" fill="#e8bf94" />
@@ -179,10 +211,7 @@ export function GretelEncouraging({ animated = false, ...props }: GretelEncourag
         strokeLinecap="round"
       />
       {/* Tongue detail */}
-      <path
-        d="M92 115 Q100 112 108 115 Q100 124 92 115"
-        fill="#e8a0a0"
-      />
+      <path d="M92 115 Q100 112 108 115 Q100 124 92 115" fill="#e8a0a0" />
 
       {/* === EARS === */}
       <ellipse cx="62" cy="92" rx="5" ry="7" fill="#f5d0a9" />

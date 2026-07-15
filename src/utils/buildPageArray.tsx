@@ -49,8 +49,9 @@ function PendingPageShell({
  * length so every printed page with a verified layout still appears.
  */
 export function buildPageArray(lessonId: number): WorkbookPageEntry[] {
-  const lessonEntry = (pageInventory.workbook.lessons as Array<{ lessonId: number; pages: string[] }>)
-    .find((l) => l.lessonId === lessonId);
+  const lessonEntry = (
+    pageInventory.workbook.lessons as Array<{ lessonId: number; pages: string[] }>
+  ).find((l) => l.lessonId === lessonId);
 
   const paths: string[] = lessonEntry?.pages ?? [];
 
@@ -107,14 +108,7 @@ export function buildPageArray(lessonId: number): WorkbookPageEntry[] {
         cover: i === 0,
         src,
         content: isAnimated ? (
-          <video
-            src={src}
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover"
-          />
+          <video src={src} autoPlay loop muted playsInline className="w-full h-full object-cover" />
         ) : (
           <img
             src={src}

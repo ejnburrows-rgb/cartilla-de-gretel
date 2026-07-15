@@ -81,4 +81,3 @@ describe("workbook art slots integrity", () => {
     expect(lessons).toContain("vocal-u/uña.webp");
   });
 });
-

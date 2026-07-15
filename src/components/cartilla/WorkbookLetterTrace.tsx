@@ -12,11 +12,7 @@ import { useMemo, useRef, useState } from "react";
 import { playNote, playCorrectChord } from "@/lib/piano-audio";
 import { recordEvent } from "@/lib/student-session";
 import { gretelEvent } from "@/lib/gretel-bus";
-import {
-  getLetterTemplate,
-  distanceToStroke,
-  type Point,
-} from "./letter-stroke-templates";
+import { getLetterTemplate, distanceToStroke, type Point } from "./letter-stroke-templates";
 
 const VIEW_W = 100;
 const VIEW_H = 120;
@@ -32,7 +28,11 @@ interface WorkbookLetterTraceProps {
 
 type Status = "idle" | "tracing" | "done";
 
-export function WorkbookLetterTrace({ modelText, accent = "#3FA9A6", lessonId }: WorkbookLetterTraceProps) {
+export function WorkbookLetterTrace({
+  modelText,
+  accent = "#3FA9A6",
+  lessonId,
+}: WorkbookLetterTraceProps) {
   const strokes = useMemo(() => getLetterTemplate(modelText), [modelText]);
 
   const [strokeIdx, setStrokeIdx] = useState(0);
@@ -243,14 +243,22 @@ export function WorkbookLetterTrace({ modelText, accent = "#3FA9A6", lessonId }:
 
       <div className="fp-trace__footer">
         <div className="fp-trace__progress" aria-hidden="true">
-          <span className="fp-trace__progress-fill" style={{ width: `${progress}%`, backgroundColor: accent }} />
+          <span
+            className="fp-trace__progress-fill"
+            style={{ width: `${progress}%`, backgroundColor: accent }}
+          />
         </div>
         {offFlash && status !== "done" && (
           <span className="fp-trace__hint fp-trace__hint--off">Sigue la línea de la letra</span>
         )}
         {status === "done" && <span className="fp-trace__hint fp-trace__hint--ok">¡Muy bien!</span>}
         {status !== "idle" && (
-          <button type="button" className="fp-trace__reset" onClick={reset} aria-label="Reiniciar el trazo">
+          <button
+            type="button"
+            className="fp-trace__reset"
+            onClick={reset}
+            aria-label="Reiniciar el trazo"
+          >
             ↺
           </button>
         )}

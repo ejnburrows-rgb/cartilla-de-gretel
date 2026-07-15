@@ -13,7 +13,7 @@ export const Route = createFileRoute("/cartilla/teacher/lecciones")({
 
 function TeacherLeccionesPage() {
   return (
-    <div 
+    <div
       className="crm-app flex h-screen"
       style={{
         background: "radial-gradient(circle at top left, #fdf3e0 0%, #f5e8c8 50%, #ecdaaa 100%)",

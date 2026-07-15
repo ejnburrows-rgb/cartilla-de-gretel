@@ -15,11 +15,7 @@ const AIRFLOW = "#90cdf4";
 const CAVITY = "#fdf0f0";
 const THROAT = "#f5dada";
 
-export function MouthBilabial({
-  size,
-  className,
-  animated = false,
-}: MouthBilabialProps) {
+export function MouthBilabial({ size, className, animated = false }: MouthBilabialProps) {
   const sizeProps: React.CSSProperties | undefined = size
     ? { width: size, height: size }
     : undefined;

@@ -43,7 +43,10 @@ function census() {
         if (instructionSuggestsLasso(r.text) && /encierra/i.test(r.text)) {
           encierraPages.push(Number(pn));
         }
-        if (instructionSuggestsLasso(r.text) && (/\bune\b/i.test(r.text) || /traza una l[ií]nea/i.test(r.text))) {
+        if (
+          instructionSuggestsLasso(r.text) &&
+          (/\bune\b/i.test(r.text) || /traza una l[ií]nea/i.test(r.text))
+        ) {
           unePages.push(Number(pn));
         }
       }
@@ -87,9 +90,7 @@ describe("faithful mechanic routing (Colorea / Dibuja / Lasso)", () => {
   });
 
   it("Colorea instruction on illustration-slot / picture-grid → paint (not tap)", () => {
-    expect(resolveFaithfulHost("illustration-slot", "Colorea el dibujo de la rosa.")).toBe(
-      "paint",
-    );
+    expect(resolveFaithfulHost("illustration-slot", "Colorea el dibujo de la rosa.")).toBe("paint");
     expect(resolveFaithfulHost("picture-grid", "Colorea los dibujos correctos.")).toBe("paint");
     expect(resolveFaithfulHost("picture-grid", "Pinta el dibujo de la casa.")).toBe("paint");
     // Without Colorea verb, picture-grid stays tap (Marca / Presiona)
@@ -100,7 +101,10 @@ describe("faithful mechanic routing (Colorea / Dibuja / Lasso)", () => {
   it("draw-box always resolves to DibujaHost (≥25 printed draw boxes)", () => {
     expect(resolveFaithfulHost("draw-box")).toBe("dibuja");
     expect(
-      resolveFaithfulHost("draw-box", "Haz un dibujo que represente una palabra que comienza con m."),
+      resolveFaithfulHost(
+        "draw-box",
+        "Haz un dibujo que represente una palabra que comienza con m.",
+      ),
     ).toBe("dibuja");
     const { drawBoxIds } = census();
     expect(drawBoxIds.length).toBeGreaterThanOrEqual(25);
@@ -111,14 +115,11 @@ describe("faithful mechanic routing (Colorea / Dibuja / Lasso)", () => {
       resolveFaithfulHost("syllable-match", "Encierra en un círculo la sílaba correspondiente."),
     ).toBe("lasso-mark");
     expect(
-      resolveFaithfulHost(
-        "vowel-line-match",
-        "Traza una línea desde la vocal Oo hasta el dibujo.",
-      ),
+      resolveFaithfulHost("vowel-line-match", "Traza una línea desde la vocal Oo hasta el dibujo."),
     ).toBe("lasso-mark");
-    expect(
-      resolveFaithfulHost("vowel-match-all", "Une cada vocal con su dibujo."),
-    ).toBe("lasso-pair");
+    expect(resolveFaithfulHost("vowel-match-all", "Une cada vocal con su dibujo.")).toBe(
+      "lasso-pair",
+    );
     expect(
       resolveFaithfulHost("picture-grid", "Encierra en un círculo los dibujos correctos."),
     ).toBe("lasso-mark");

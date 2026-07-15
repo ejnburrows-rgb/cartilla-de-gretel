@@ -128,11 +128,7 @@ export function ExerciseHandout({ entry, pageNumber }: ExerciseHandoutProps) {
   const shuffledSyllables = [...syllables].sort((a, b) => b.localeCompare(a));
 
   const targetChar =
-    entry.kind === "consonant"
-      ? entry.letter
-      : entry.kind === "vowel"
-        ? entry.vowel
-        : "V";
+    entry.kind === "consonant" ? entry.letter : entry.kind === "vowel" ? entry.vowel : "V";
 
   return (
     <div style={containerStyle}>

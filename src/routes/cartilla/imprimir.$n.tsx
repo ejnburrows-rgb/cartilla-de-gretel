@@ -51,17 +51,23 @@ function ImprimirPage() {
 
   const dragWord: string =
     entry.kind === "consonant"
-      ? Object.values(entry.data.examples).flat()[0] ?? "sol"
+      ? (Object.values(entry.data.examples).flat()[0] ?? "sol")
       : entry.kind === "vowel"
-        ? entry.lesson.vocab[0]?.word ?? "ola"
+        ? (entry.lesson.vocab[0]?.word ?? "ola")
         : "ala";
 
-  const isPendingLesson = entry.kind === "consonant" && 
-    (entry.data.syllables.length === 0 || Object.values(entry.data.examples).every(arr => arr.length === 0 || arr[0].includes("PENDIENTE")));
+  const isPendingLesson =
+    entry.kind === "consonant" &&
+    (entry.data.syllables.length === 0 ||
+      Object.values(entry.data.examples).every(
+        (arr) => arr.length === 0 || arr[0].includes("PENDIENTE"),
+      ));
 
-  const isScaffold = isPendingLesson || (interactionsData.interactions as any[]).some(
-    (i) => (i.lessonNumber === n || i.lessonId === String(n)) && i.sourceStatus === "scaffold"
-  );
+  const isScaffold =
+    isPendingLesson ||
+    (interactionsData.interactions as any[]).some(
+      (i) => (i.lessonNumber === n || i.lessonId === String(n)) && i.sourceStatus === "scaffold",
+    );
 
   return (
     <div className="min-h-screen bg-white">
@@ -92,7 +98,14 @@ function ImprimirPage() {
           className="print-only"
           style={{ borderBottom: `3px solid ${entry.color}`, paddingBottom: "0.5rem" }}
         >
-          <div style={{ fontSize: "0.7rem", fontWeight: 700, color: entry.color, textTransform: "uppercase" }}>
+          <div
+            style={{
+              fontSize: "0.7rem",
+              fontWeight: 700,
+              color: entry.color,
+              textTransform: "uppercase",
+            }}
+          >
             La Cartilla de Gretel · Lección {n} · Páginas {entry.pages}
           </div>
           <h1 style={{ fontSize: "1.5rem", fontWeight: 800, color: entry.color, margin: 0 }}>
@@ -126,105 +139,102 @@ function ImprimirPage() {
             </div>
           ) : (
             <>
-          {/* 1 — Ejercicio A: rodea la sílaba */}
-          <div>
-            <h2 className="font-bold text-lg mb-3" style={{ color: entry.color }}>
-              A. Rodea la sílaba que escuches
-            </h2>
-            <p className="text-sm text-foreground/60 mb-3 no-print">
-              (Usa este ejercicio en clase: el maestro dice una sílaba, el alumno la rodea.)
-            </p>
-            <div className="flex flex-wrap gap-3">
-              {syllables.map((s) => (
-                <div
-                  key={s}
-                  className="w-16 h-16 rounded-2xl border-2 flex items-center justify-center text-2xl font-bold"
-                  style={{ borderColor: `${entry.color}60`, color: entry.color }}
-                  aria-label={`Sílaba ${s}`}
-                >
-                  {s}
+              {/* 1 — Ejercicio A: rodea la sílaba */}
+              <div>
+                <h2 className="font-bold text-lg mb-3" style={{ color: entry.color }}>
+                  A. Rodea la sílaba que escuches
+                </h2>
+                <p className="text-sm text-foreground/60 mb-3 no-print">
+                  (Usa este ejercicio en clase: el maestro dice una sílaba, el alumno la rodea.)
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  {syllables.map((s) => (
+                    <div
+                      key={s}
+                      className="w-16 h-16 rounded-2xl border-2 flex items-center justify-center text-2xl font-bold"
+                      style={{ borderColor: `${entry.color}60`, color: entry.color }}
+                      aria-label={`Sílaba ${s}`}
+                    >
+                      {s}
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </div>
+              </div>
 
-          {/* 2 — Ejercicio B: une la palabra */}
-          <div>
-            <h2 className="font-bold text-lg mb-3" style={{ color: entry.color }}>
-              B. Une la palabra con su sílaba inicial
-            </h2>
-            <div className="grid grid-cols-2 gap-x-8 gap-y-3">
-              {words.slice(0, 4).map((w) => (
-                <div
-                  key={w}
-                  className="flex items-center gap-3"
-                  aria-label={`Palabra: ${w}`}
-                >
-                  <span className="font-bold text-lg flex-1">{w}</span>
-                  <div
-                    className="h-px border-t-2 border-dashed flex-1"
-                    style={{ borderColor: `${entry.color}50` }}
-                    aria-hidden
-                  />
-                  <div
-                    className="w-12 h-10 rounded-xl border-2 flex items-center justify-center text-lg font-bold"
-                    style={{ borderColor: `${entry.color}60`, color: entry.color }}
-                    aria-label="Espacio para respuesta"
-                  />
+              {/* 2 — Ejercicio B: une la palabra */}
+              <div>
+                <h2 className="font-bold text-lg mb-3" style={{ color: entry.color }}>
+                  B. Une la palabra con su sílaba inicial
+                </h2>
+                <div className="grid grid-cols-2 gap-x-8 gap-y-3">
+                  {words.slice(0, 4).map((w) => (
+                    <div key={w} className="flex items-center gap-3" aria-label={`Palabra: ${w}`}>
+                      <span className="font-bold text-lg flex-1">{w}</span>
+                      <div
+                        className="h-px border-t-2 border-dashed flex-1"
+                        style={{ borderColor: `${entry.color}50` }}
+                        aria-hidden
+                      />
+                      <div
+                        className="w-12 h-10 rounded-xl border-2 flex items-center justify-center text-lg font-bold"
+                        style={{ borderColor: `${entry.color}60`, color: entry.color }}
+                        aria-label="Espacio para respuesta"
+                      />
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-            <div className="mt-2 text-xs text-foreground/50 no-print">
-              Sílabas para unir: {syllables.join(", ")}
-            </div>
-          </div>
+                <div className="mt-2 text-xs text-foreground/50 no-print">
+                  Sílabas para unir: {syllables.join(", ")}
+                </div>
+              </div>
 
-          {/* 3 — Ejercicio C: arma la palabra */}
-          <div>
-            <h2 className="font-bold text-lg mb-3" style={{ color: entry.color }}>
-              C. Ordena las letras y forma la palabra
-            </h2>
-            <div className="flex flex-col gap-6">
-              {[dragWord, ...(words[1] ? [words[1]] : [])].map((targetWord) => {
-                const shuffled = [...targetWord.split("")].sort(() => Math.random() - 0.5);
-                return (
-                  <div key={targetWord}>
-                    <div className="flex gap-2 mb-3">
-                      {shuffled.map((letter, i) => (
-                        <div
-                          key={i}
-                          className="w-12 h-12 rounded-xl border-2 flex items-center justify-center text-xl font-bold"
-                          style={{ borderColor: entry.color, color: entry.color, backgroundColor: `${entry.color}12` }}
-                          aria-label={`Letra desordenada: ${letter}`}
-                        >
-                          {letter}
+              {/* 3 — Ejercicio C: arma la palabra */}
+              <div>
+                <h2 className="font-bold text-lg mb-3" style={{ color: entry.color }}>
+                  C. Ordena las letras y forma la palabra
+                </h2>
+                <div className="flex flex-col gap-6">
+                  {[dragWord, ...(words[1] ? [words[1]] : [])].map((targetWord) => {
+                    const shuffled = [...targetWord.split("")].sort(() => Math.random() - 0.5);
+                    return (
+                      <div key={targetWord}>
+                        <div className="flex gap-2 mb-3">
+                          {shuffled.map((letter, i) => (
+                            <div
+                              key={i}
+                              className="w-12 h-12 rounded-xl border-2 flex items-center justify-center text-xl font-bold"
+                              style={{
+                                borderColor: entry.color,
+                                color: entry.color,
+                                backgroundColor: `${entry.color}12`,
+                              }}
+                              aria-label={`Letra desordenada: ${letter}`}
+                            >
+                              {letter}
+                            </div>
+                          ))}
                         </div>
-                      ))}
-                    </div>
-                    <div className="flex gap-2">
-                      {targetWord.split("").map((_, i) => (
-                        <div
-                          key={i}
-                          className="w-12 h-12 rounded-xl border-2 border-dashed"
-                          style={{ borderColor: `${entry.color}50` }}
-                          aria-label={`Casilla ${i + 1} para escribir`}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+                        <div className="flex gap-2">
+                          {targetWord.split("").map((_, i) => (
+                            <div
+                              key={i}
+                              className="w-12 h-12 rounded-xl border-2 border-dashed"
+                              style={{ borderColor: `${entry.color}50` }}
+                              aria-label={`Casilla ${i + 1} para escribir`}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
             </>
           )}
         </section>
 
         {/* Footer */}
-        <footer
-          className="text-center text-xs text-foreground/40 pt-2"
-          aria-label="Pie de página"
-        >
+        <footer className="text-center text-xs text-foreground/40 pt-2" aria-label="Pie de página">
           La Cartilla de Gretel · Leonor Lopetegui · ISBN 0-971-8696-8-5
         </footer>
       </main>

@@ -200,8 +200,8 @@ function ClassDetail() {
           </button>
         </div>
         <p className="text-xs text-foreground/50 mt-2">
-          {t.comparteCodigo[lang]}{" "}
-          <span className="font-bold">/cartilla/unirse</span> {t.juntoCon[lang]}
+          {t.comparteCodigo[lang]} <span className="font-bold">/cartilla/unirse</span>{" "}
+          {t.juntoCon[lang]}
         </p>
       </header>
 
@@ -220,9 +220,7 @@ function ClassDetail() {
             <BarChart3 className="w-4 h-4" /> {t.alumnosCompletaron[lang]}
           </h2>
           <SimpleBarChart bars={lessonChart} max={data.students.length || 1} />
-          <p className="text-[11px] text-foreground/50 mt-2">
-            {t.subtituloPromedio[lang]}
-          </p>
+          <p className="text-[11px] text-foreground/50 mt-2">{t.subtituloPromedio[lang]}</p>
         </section>
       )}
 
@@ -230,9 +228,7 @@ function ClassDetail() {
         <h2 className="font-bold mb-3 inline-flex items-center gap-2">
           <ClipboardList className="w-4 h-4" /> {t.tareasAsignadas[lang]}
         </h2>
-        <p className="text-xs text-foreground/60 mb-3">
-          {t.asignaLecciones[lang]}
-        </p>
+        <p className="text-xs text-foreground/60 mb-3">{t.asignaLecciones[lang]}</p>
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -340,14 +336,20 @@ function ClassDetail() {
                       )}
                       {overview && (
                         <span className="font-bold text-primary">
-                          {t.completadasCount[lang].replace("{completed}", String(overview.completed)).replace("{assigned}", String(overview.assigned))}
+                          {t.completadasCount[lang]
+                            .replace("{completed}", String(overview.completed))
+                            .replace("{assigned}", String(overview.assigned))}
                         </span>
                       )}
                       {overview && overview.late > 0 && (
-                        <span className="font-bold text-warning">{overview.late} {t.tarde[lang]}</span>
+                        <span className="font-bold text-warning">
+                          {overview.late} {t.tarde[lang]}
+                        </span>
                       )}
                       {overview?.accuracy != null && (
-                        <span>{Math.round(overview.accuracy * 100)}% {t.acierto[lang]}</span>
+                        <span>
+                          {Math.round(overview.accuracy * 100)}% {t.acierto[lang]}
+                        </span>
                       )}
                     </div>
                   </div>
@@ -371,9 +373,7 @@ function ClassDetail() {
         <h2 className="font-bold mb-2 inline-flex items-center gap-2">
           <Search className="w-4 h-4" /> {t.buscarCodigo[lang]}
         </h2>
-        <p className="text-xs text-foreground/60 mb-2">
-          {t.siOlvido[lang]}
-        </p>
+        <p className="text-xs text-foreground/60 mb-2">{t.siOlvido[lang]}</p>
         <form onSubmit={runSearch} className="flex gap-2 flex-wrap">
           <input
             value={searchQ}
@@ -427,9 +427,7 @@ function ClassDetail() {
           <textarea
             value={bulkNames}
             onChange={(e) => setBulkNames(e.target.value)}
-            placeholder={
-              t.unNombre[lang]
-            }
+            placeholder={t.unNombre[lang]}
             rows={4}
             className="w-full px-4 py-3 rounded-xl border-2 border-foreground/10 bg-background focus:border-primary outline-none font-mono text-sm"
           />
@@ -452,7 +450,9 @@ function ClassDetail() {
       </section>
 
       <section className="mt-6">
-        <h2 className="font-bold mb-3 text-lg">{t.alumnosHeader[lang]} ({data.students.length})</h2>
+        <h2 className="font-bold mb-3 text-lg">
+          {t.alumnosHeader[lang]} ({data.students.length})
+        </h2>
         {data.students.length === 0 ? (
           <div className="kid-card p-6 text-center text-foreground/60">
             {t.alumnosSinAlumnos[lang]}
@@ -472,11 +472,18 @@ function ClassDetail() {
                       {t.codigo[lang]} <span className="font-mono font-bold">{s.student_code}</span>
                     </span>
                     <span className="inline-flex items-center gap-1">
-                      <BookOpen className="w-3 h-3" /> {t.leccionesCompletadas[lang].replace("{completed}", String(s.lessons)).replace("{total}", String(TOTAL_LESSONS))}
+                      <BookOpen className="w-3 h-3" />{" "}
+                      {t.leccionesCompletadas[lang]
+                        .replace("{completed}", String(s.lessons))
+                        .replace("{total}", String(TOTAL_LESSONS))}
                     </span>
-                    <span>{s.events} {t.eventos[lang]}</span>
+                    <span>
+                      {s.events} {t.eventos[lang]}
+                    </span>
                     {s.lastSeen && (
-                      <span>· {t.ultimaActividad[lang]} {new Date(s.lastSeen).toLocaleDateString()}</span>
+                      <span>
+                        · {t.ultimaActividad[lang]} {new Date(s.lastSeen).toLocaleDateString()}
+                      </span>
                     )}
                   </div>
                 </Link>

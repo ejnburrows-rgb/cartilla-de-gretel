@@ -91,9 +91,7 @@ export function BinderCover() {
         </div>
       </div>
 
-      <div style={footerLabelStyle}>
-        Edición de Soporte Impreso · ISBN 0-971-8696-8-5
-      </div>
+      <div style={footerLabelStyle}>Edición de Soporte Impreso · ISBN 0-971-8696-8-5</div>
     </section>
   );
 }

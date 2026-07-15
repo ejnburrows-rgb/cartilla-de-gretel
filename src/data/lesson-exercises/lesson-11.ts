@@ -10,14 +10,14 @@ export const lesson11 = [
     prompt: "Haz un dibujo que represente una palabra que comienza con d.",
     items: [
       { id: "letter-D", label: "D" },
-      { id: "letter-d", label: "d" }
+      { id: "letter-d", label: "d" },
     ],
     targets: [],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Students trace uppercase D and lowercase d.",
-    sourcePage: getBookPageImage(41)
+    sourcePage: getBookPageImage(41),
   },
   {
     id: "l11-p42-syllable-circle",
@@ -31,27 +31,52 @@ export const lesson11 = [
       { id: "syl-de", label: "de" },
       { id: "syl-di", label: "di" },
       { id: "syl-do", label: "do" },
-      { id: "syl-du", label: "du" }
+      { id: "syl-du", label: "du" },
     ],
     targets: [
       { id: "slot-da", label: "da", coordinatesVerified: false, acceptsItemId: "syl-da" },
       { id: "slot-de", label: "de", coordinatesVerified: false, acceptsItemId: "syl-de" },
       { id: "slot-di", label: "di", coordinatesVerified: false, acceptsItemId: "syl-di" },
       { id: "slot-do", label: "do", coordinatesVerified: false, acceptsItemId: "syl-do" },
-      { id: "slot-du", label: "du", coordinatesVerified: false, acceptsItemId: "syl-du" }
+      { id: "slot-du", label: "du", coordinatesVerified: false, acceptsItemId: "syl-du" },
     ],
     wordBank: [
-      "dame", "Ada", "Made", "duda", "dado", "poda",
-      "dedo", "además", "deme", "modelo", "pide", "debajo",
-      "dime", "Adi", "dice", "dinero", "día", "Didi",
-      "dado", "podo", "doce", "dedo", "modo", "mudo",
-      "Duma", "duro", "duda", "durazno", "maduro", "ducha"
+      "dame",
+      "Ada",
+      "Made",
+      "duda",
+      "dado",
+      "poda",
+      "dedo",
+      "además",
+      "deme",
+      "modelo",
+      "pide",
+      "debajo",
+      "dime",
+      "Adi",
+      "dice",
+      "dinero",
+      "día",
+      "Didi",
+      "dado",
+      "podo",
+      "doce",
+      "dedo",
+      "modo",
+      "mudo",
+      "Duma",
+      "duro",
+      "duda",
+      "durazno",
+      "maduro",
+      "ducha",
     ],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded syllable circle for D.",
-    sourcePage: getBookPageImage(42)
+    sourcePage: getBookPageImage(42),
   },
   {
     id: "l11-p43-syllable-tap",
@@ -65,14 +90,14 @@ export const lesson11 = [
       { id: "ra-de", label: "de" },
       { id: "ra-di", label: "di" },
       { id: "ra-do", label: "do" },
-      { id: "ra-du", label: "du" }
+      { id: "ra-du", label: "du" },
     ],
     targets: [],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded syllable tap for D.",
-    sourcePage: getBookPageImage(43)
+    sourcePage: getBookPageImage(43),
   },
   {
     id: "l11-p43-word-bank",
@@ -96,14 +121,14 @@ export const lesson11 = [
       { id: "w-de", label: "de" },
       { id: "w-duda", label: "duda" },
       { id: "w-mudo", label: "mudo" },
-      { id: "w-dunia", label: "Dunia" }
+      { id: "w-dunia", label: "Dunia" },
     ],
     targets: [],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded word bank for D.",
-    sourcePage: getBookPageImage(43)
+    sourcePage: getBookPageImage(43),
   },
   {
     id: "l11-p43-mini-story",
@@ -119,17 +144,15 @@ export const lesson11 = [
       { id: "story-d-4", label: "Dunia pone los dados en el pomo." },
       { id: "story-d-5", label: "– Dunia dame el pomo." },
       { id: "story-d-6", label: "El pomo de Dunia está en la mesa." },
-      { id: "story-d-7", label: "– Ada, ¿Dónde está Dunia?" }
+      { id: "story-d-7", label: "– Ada, ¿Dónde está Dunia?" },
     ],
     targets: [],
-    sightWords: [
-      "son", "están"
-    ],
+    sightWords: ["son", "están"],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded mini-story for D.",
-    sourcePage: getBookPageImage(43)
+    sourcePage: getBookPageImage(43),
   },
   {
     id: "l11-p44-fill-in-blank",
@@ -144,7 +167,7 @@ export const lesson11 = [
       { id: "syl-di", label: "di" },
       { id: "syl-do", label: "do" },
       { id: "syl-du", label: "du" },
-      { id: "syl-du-cap", label: "Du" }
+      { id: "syl-du-cap", label: "Du" },
     ],
     targets: [
       {
@@ -154,7 +177,7 @@ export const lesson11 = [
         correctSyllable: "de",
         fullWord: "dedo",
         coordinatesVerified: false,
-        acceptsItemId: "syl-de"
+        acceptsItemId: "syl-de",
       },
       {
         id: "blank-mide",
@@ -163,7 +186,7 @@ export const lesson11 = [
         correctSyllable: "de",
         fullWord: "mide",
         coordinatesVerified: false,
-        acceptsItemId: "syl-de"
+        acceptsItemId: "syl-de",
       },
       {
         id: "blank-mudo",
@@ -172,7 +195,7 @@ export const lesson11 = [
         correctSyllable: "do",
         fullWord: "mudo",
         coordinatesVerified: false,
-        acceptsItemId: "syl-do"
+        acceptsItemId: "syl-do",
       },
       {
         id: "blank-ada",
@@ -181,7 +204,7 @@ export const lesson11 = [
         correctSyllable: "da",
         fullWord: "Ada",
         coordinatesVerified: false,
-        acceptsItemId: "syl-da"
+        acceptsItemId: "syl-da",
       },
       {
         id: "blank-pide",
@@ -190,7 +213,7 @@ export const lesson11 = [
         correctSyllable: "de",
         fullWord: "pide",
         coordinatesVerified: false,
-        acceptsItemId: "syl-de"
+        acceptsItemId: "syl-de",
       },
       {
         id: "blank-duma",
@@ -199,52 +222,52 @@ export const lesson11 = [
         correctSyllable: "Du",
         fullWord: "Duma",
         coordinatesVerified: false,
-        acceptsItemId: "syl-du-cap"
-      }
+        acceptsItemId: "syl-du-cap",
+      },
     ],
     exercises: [
       {
         partial: "___do",
         choices: ["di", "de"],
         answer: "de",
-        fullWord: "dedo"
+        fullWord: "dedo",
       },
       {
         partial: "mi___",
         choices: ["di", "de"],
         answer: "de",
-        fullWord: "mide"
+        fullWord: "mide",
       },
       {
         partial: "mu___",
         choices: ["do", "du"],
         answer: "do",
-        fullWord: "mudo"
+        fullWord: "mudo",
       },
       {
         partial: "A___",
         choices: ["de", "da"],
         answer: "da",
-        fullWord: "Ada"
+        fullWord: "Ada",
       },
       {
         partial: "pi___",
         choices: ["de", "di"],
         answer: "de",
-        fullWord: "pide"
+        fullWord: "pide",
       },
       {
         partial: "___ma",
         choices: ["Du", "do"],
         answer: "Du",
-        fullWord: "Duma"
-      }
+        fullWord: "Duma",
+      },
     ],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded fill-in-the-blank for D.",
-    sourcePage: getBookPageImage(44)
+    sourcePage: getBookPageImage(44),
   },
   {
     id: "l11-p44-write-sentences",
@@ -259,6 +282,6 @@ export const lesson11 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Sentence writing lines.",
-    sourcePage: getBookPageImage(44)
-  }
+    sourcePage: getBookPageImage(44),
+  },
 ];

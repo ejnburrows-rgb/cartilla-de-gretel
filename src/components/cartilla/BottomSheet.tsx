@@ -138,9 +138,7 @@ export function BottomSheet({ isOpen, onClose, children }: BottomSheetProps) {
             <div style={handleContainerStyle}>
               <div style={handleStyle} />
             </div>
-            <div style={sheetContentStyle}>
-              {children}
-            </div>
+            <div style={sheetContentStyle}>{children}</div>
           </motion.div>
         </>
       )}

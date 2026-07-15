@@ -4,8 +4,7 @@
  * Timing/breath amplitude are unchanged (living-motion.ts).
  */
 export const TRUE_BLINK_FRAMES: Readonly<Record<string, string>> = {
-  "/cartilla/art/faithful/vocal-o/oso.webp":
-    "/cartilla/art/faithful/vocal-o/oso-blink.webp",
+  "/cartilla/art/faithful/vocal-o/oso.webp": "/cartilla/art/faithful/vocal-o/oso-blink.webp",
   "/cartilla/art/faithful/leccion-7-m/mono.webp":
     "/cartilla/art/faithful/leccion-7-m/mono-blink.webp",
   "/cartilla/art/faithful/leccion-8-p/papa.webp":

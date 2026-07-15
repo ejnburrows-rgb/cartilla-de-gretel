@@ -21,7 +21,15 @@ export type ActivityId = "silabas" | "palabras" | "armar" | "trazar" | "piano";
 export const DEFAULT_ACTIVITIES: ActivityId[] = ["silabas", "palabras", "armar", "trazar", "piano"];
 
 export type CatalogEntry =
-  | { n: number; kind: "intro"; title: string; subtitle: string; pages: string; color: string; activities?: ActivityId[] }
+  | {
+      n: number;
+      kind: "intro";
+      title: string;
+      subtitle: string;
+      pages: string;
+      color: string;
+      activities?: ActivityId[];
+    }
   | {
       n: number;
       kind: "vowel";

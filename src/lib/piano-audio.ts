@@ -37,7 +37,7 @@ export function playNote(freq: number, duration = 0.8) {
     { freqMult: 1, type: "sine" as OscillatorType, gainVal: 0.5, decayMult: 1.0 },
     { freqMult: 2, type: "triangle" as OscillatorType, gainVal: 0.15, decayMult: 0.7 },
     { freqMult: 3, type: "sine" as OscillatorType, gainVal: 0.08, decayMult: 0.5 },
-    { freqMult: 4, type: "sine" as OscillatorType, gainVal: 0.04, decayMult: 0.3 }
+    { freqMult: 4, type: "sine" as OscillatorType, gainVal: 0.04, decayMult: 0.3 },
   ];
 
   harmonics.forEach(({ freqMult, type, gainVal, decayMult }) => {
@@ -59,23 +59,26 @@ export function playNote(freq: number, duration = 0.8) {
   });
 
   // Explicitly disconnect all nodes after playback finishes to prevent memory/audio leaks
-  setTimeout(() => {
-    activeNodes.forEach((node) => {
-      try {
-        node.disconnect();
-      } catch (e) {
-        // Ignore if already disconnected
-      }
-    });
-  }, duration * 1000 + 100);
+  setTimeout(
+    () => {
+      activeNodes.forEach((node) => {
+        try {
+          node.disconnect();
+        } catch (e) {
+          // Ignore if already disconnected
+        }
+      });
+    },
+    duration * 1000 + 100,
+  );
 }
 
 export function playCorrectChord() {
   const ctx = getAudioContext();
   if (!ctx) return;
-  
+
   // Play C Major arpeggio/chord
-  const frequencies = [261.63, 329.63, 392.00, 523.25]; // C4, E4, G4, C5
+  const frequencies = [261.63, 329.63, 392.0, 523.25]; // C4, E4, G4, C5
   frequencies.forEach((freq, index) => {
     setTimeout(() => {
       playNote(freq, 1.2);
@@ -124,8 +127,8 @@ export const NOTE_FREQS = {
   D: 293.66,
   E: 329.63,
   F: 349.23,
-  G: 392.00,
-  A: 440.00,
+  G: 392.0,
+  A: 440.0,
   B: 493.88,
   C5: 523.25,
 };

@@ -275,7 +275,7 @@ function Lecciones() {
       <section className="px-4 pb-20 max-w-5xl mx-auto w-full relative z-10">
         <div className="bg-white/80 backdrop-blur-md rounded-3xl p-6 md:p-10 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border-4 border-white relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-[#fde047] to-[#fef08a] rounded-full blur-3xl opacity-40 -z-10 -translate-y-1/2 translate-x-1/2" />
-          
+
           <h2 className="text-3xl md:text-5xl font-black mb-2 text-[#3b2a12] font-fredoka flex items-center gap-3">
             <Sparkles className="w-8 h-8 text-[#eab308]" /> El Mapa de Gretel
           </h2>
@@ -288,11 +288,11 @@ function Lecciones() {
               const done = isCompleted(entry.n);
               const unlocked = isUnlocked(entry.n);
               const active = entry.n === activeLesson.n;
-              
+
               // Gamification: Randomize 1-3 stars if completed, 0 otherwise for demo
               // Real data could pull from progress events
-              const stars = done ? (entry.n % 3) + 1 : 0; 
-              
+              const stars = done ? (entry.n % 3) + 1 : 0;
+
               return (
                 <li key={entry.n} className="list-none relative group">
                   {/* Connecting Line (except last) */}
@@ -309,7 +309,7 @@ function Lecciones() {
                           : "opacity-60 cursor-not-allowed bg-stone-100 grayscale-[0.5]"
                     }`}
                     style={{
-                      borderColor: active || unlocked ? entry.color : '#cbd5e1',
+                      borderColor: active || unlocked ? entry.color : "#cbd5e1",
                       backgroundColor: active ? `${entry.color}15` : undefined,
                     }}
                     onClick={() => {
@@ -341,20 +341,20 @@ function Lecciones() {
                       )}
                     </div>
 
-                    <span 
+                    <span
                       className="text-xs md:text-sm font-black uppercase tracking-widest px-2 text-center truncate w-full"
-                      style={{ color: unlocked ? entry.color : '#64748b' }}
+                      style={{ color: unlocked ? entry.color : "#64748b" }}
                     >
                       Nivel {entry.n}
                     </span>
-                    
+
                     {/* Star Rewards */}
                     {unlocked && (
                       <div className="flex gap-0.5 mt-1 absolute -bottom-3 bg-white px-2 py-1 rounded-full shadow-md border-2 border-stone-100">
                         {[1, 2, 3].map((starIdx) => (
-                          <svg 
-                            key={starIdx} 
-                            className={`w-3 h-3 md:w-4 md:h-4 ${starIdx <= stars ? 'text-[#eab308] fill-[#eab308]' : 'text-stone-200 fill-stone-100'}`} 
+                          <svg
+                            key={starIdx}
+                            className={`w-3 h-3 md:w-4 md:h-4 ${starIdx <= stars ? "text-[#eab308] fill-[#eab308]" : "text-stone-200 fill-stone-100"}`}
                             viewBox="0 0 24 24"
                           >
                             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
@@ -363,7 +363,7 @@ function Lecciones() {
                       </div>
                     )}
                   </button>
-                  
+
                   {/* Title Tooltip on Hover */}
                   {unlocked && (
                     <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-stone-900 text-white text-xs font-bold px-3 py-1.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-30 shadow-xl">

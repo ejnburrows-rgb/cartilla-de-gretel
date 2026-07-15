@@ -15,9 +15,7 @@ async function main() {
     return;
   }
 
-  const files = getFilesRecursively(ILLUSTRATIONS_DIR).filter(f =>
-    /\.(png|jpg|jpeg)$/i.test(f)
-  );
+  const files = getFilesRecursively(ILLUSTRATIONS_DIR).filter((f) => /\.(png|jpg|jpeg)$/i.test(f));
 
   if (files.length === 0) {
     console.log("ℹ️ No source illustrations (*.png, *.jpg, *.jpeg) found. Pipeline complete.");
@@ -28,7 +26,9 @@ async function main() {
   try {
     sharp = (await import("sharp")).default;
   } catch (e) {
-    console.warn("⚠️ 'sharp' module is not installed. WebP/AVIF generation and blur-up placeholders will be skipped.");
+    console.warn(
+      "⚠️ 'sharp' module is not installed. WebP/AVIF generation and blur-up placeholders will be skipped.",
+    );
     console.warn("   To enable, run: npm install sharp --save-dev");
     return;
   }
@@ -48,17 +48,13 @@ async function main() {
     try {
       // 1. Generate WebP
       if (!fs.existsSync(webpPath)) {
-        await sharp(filePath)
-          .webp({ quality: 80 })
-          .toFile(webpPath);
+        await sharp(filePath).webp({ quality: 80 }).toFile(webpPath);
         console.log(`   ✓ Generated WebP: ${baseName}.webp`);
       }
 
       // 2. Generate AVIF
       if (!fs.existsSync(avifPath)) {
-        await sharp(filePath)
-          .avif({ quality: 65 })
-          .toFile(avifPath);
+        await sharp(filePath).avif({ quality: 65 }).toFile(avifPath);
         console.log(`   ✓ Generated AVIF: ${baseName}.avif`);
       }
 
@@ -76,7 +72,7 @@ async function main() {
           src: relativePath,
           width: 16,
           height: 16,
-          blurDataUrl: dataUrl
+          blurDataUrl: dataUrl,
         };
 
         fs.writeFileSync(blurJsonPath, JSON.stringify(placeholderData, null, 2), "utf-8");
@@ -93,7 +89,7 @@ async function main() {
 function getFilesRecursively(dir) {
   let results = [];
   const list = fs.readdirSync(dir);
-  list.forEach(file => {
+  list.forEach((file) => {
     const filePath = path.join(dir, file);
     const stat = fs.statSync(filePath);
     if (stat && stat.isDirectory()) {
@@ -105,7 +101,7 @@ function getFilesRecursively(dir) {
   return results;
 }
 
-main().catch(err => {
+main().catch((err) => {
   console.error("Fatal error in image pipeline:", err);
   process.exit(1);
 });

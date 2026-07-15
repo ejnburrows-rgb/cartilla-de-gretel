@@ -78,7 +78,11 @@ function mechanicToInteractionKind(
     default: {
       // Census may use "none" while instruction still carries a printed verb
       const t = (instruction ?? "").toLowerCase();
-      if (t.includes("colorea") || t.includes("colorear") || /\bpinta\s+(el|la|los|las)\b/.test(t)) {
+      if (
+        t.includes("colorea") ||
+        t.includes("colorear") ||
+        /\bpinta\s+(el|la|los|las)\b/.test(t)
+      ) {
         return "paint";
       }
       if (t.includes("dibuja") || t.includes("haz un dibujo")) return "dibuja";

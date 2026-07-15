@@ -22,7 +22,7 @@ export function SwipeDismiss({ children, onDismiss, className = "" }: SwipeDismi
     if (!isDragging) return;
 
     const dx = e.clientX - startX.current;
-    
+
     // Apply elastic resistance
     const resistance = Math.sign(dx) * Math.pow(Math.abs(dx), 0.85);
     setOffsetX(resistance);
@@ -53,7 +53,9 @@ export function SwipeDismiss({ children, onDismiss, className = "" }: SwipeDismi
   const style = {
     transform: `translateX(${offsetX}px)`,
     opacity: isDragging ? Math.max(0.4, 1 - Math.abs(offsetX) / 300) : 1,
-    transition: isDragging ? "none" : "transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease",
+    transition: isDragging
+      ? "none"
+      : "transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease",
   };
 
   return (

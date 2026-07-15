@@ -10,14 +10,14 @@ export const lesson03 = [
     prompt: "Haz un dibujo que represente una palabra que comienza con a.",
     items: [
       { id: "letter-A-0", label: "A" },
-      { id: "letter-a-1", label: "a" }
+      { id: "letter-a-1", label: "a" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
     teacherNotes: "Scaffolded letter tracing for A a.",
-    sourcePage: getBookPageImage(15)
+    sourcePage: getBookPageImage(15),
   },
   {
     id: "l3-p16-mark-x",
@@ -42,14 +42,14 @@ export const lesson03 = [
       { id: "img-escuela-12", label: "escuela" },
       { id: "img-uniforme-13", label: "uniforme" },
       { id: "img-espejo-14", label: "espejo" },
-      { id: "img-uno-15", label: "uno" }
+      { id: "img-uno-15", label: "uno" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
     teacherNotes: "Scaffolded exercise for E e.",
-    sourcePage: getBookPageImage(16)
+    sourcePage: getBookPageImage(16),
   },
   {
     id: "l3-p17-draw-line",
@@ -66,14 +66,14 @@ export const lesson03 = [
       { id: "img-elote-4", label: "elote" },
       { id: "img-escalera-5", label: "escalera" },
       { id: "img-estrella-6", label: "estrella" },
-      { id: "img-abrigo-7", label: "abrigo" }
+      { id: "img-abrigo-7", label: "abrigo" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
     teacherNotes: "Scaffolded exercise for E e.",
-    sourcePage: getBookPageImage(17)
+    sourcePage: getBookPageImage(17),
   },
   {
     id: "l3-p18-letter-tracing",
@@ -84,13 +84,13 @@ export const lesson03 = [
     prompt: "Haz un dibujo que represente una palabra que comienza con e.",
     items: [
       { id: "letter-E-0", label: "E" },
-      { id: "letter-e-1", label: "e" }
+      { id: "letter-e-1", label: "e" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
     teacherNotes: "Scaffolded letter tracing for E e.",
-    sourcePage: getBookPageImage(18)
-  }
+    sourcePage: getBookPageImage(18),
+  },
 ];

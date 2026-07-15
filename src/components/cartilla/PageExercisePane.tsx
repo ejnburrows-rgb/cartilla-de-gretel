@@ -12,10 +12,15 @@ interface Props {
 function PaneHeader({ color, label }: { color: string; label: string }) {
   return (
     <div className="flex items-center gap-3">
-      <div className="flex items-center justify-center w-6 h-6 rounded-full shadow-sm" style={{ backgroundColor: color }}>
+      <div
+        className="flex items-center justify-center w-6 h-6 rounded-full shadow-sm"
+        style={{ backgroundColor: color }}
+      >
         <span className="text-[10px] font-black text-white">1</span>
       </div>
-      <h3 className="text-base font-black tracking-tight" style={{ color }}>{label}</h3>
+      <h3 className="text-base font-black tracking-tight" style={{ color }}>
+        {label}
+      </h3>
     </div>
   );
 }
@@ -53,7 +58,7 @@ export function PageExercisePane({ pageNumber }: Props): ReactNode {
   }
 
   if (exercise.kind === "word-match") {
-    const words = exercise.pairs?.map(p => ({ word: p.word })) || [];
+    const words = exercise.pairs?.map((p) => ({ word: p.word })) || [];
     if (words.length < 2) return null;
     return (
       <section className="mt-6 w-full space-y-4">

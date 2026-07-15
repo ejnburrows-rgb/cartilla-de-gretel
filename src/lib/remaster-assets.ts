@@ -57,7 +57,8 @@ export function getBestDisplayPath(originalPath?: string | null, mode: QualityMo
 
   if (mode === "projection" && asset.remasteredPathV2) return publicAsset(asset.remasteredPathV2);
   if (asset.approvalStatus === "approved") return publicAsset(asset.remasteredPath);
-  if (asset.cleanupStatus === "cleaned" || asset.cleanupStatus === "needs review") return publicAsset(asset.remasteredPathV2 ?? asset.remasteredPath);
+  if (asset.cleanupStatus === "cleaned" || asset.cleanupStatus === "needs review")
+    return publicAsset(asset.remasteredPathV2 ?? asset.remasteredPath);
 
   return publicAsset(originalPath);
 }
@@ -96,7 +97,8 @@ export function getRemasterPresentation(asset?: RemasterAsset | null): RemasterP
     return {
       status: "needs-correction",
       label: "Needs correction",
-      description: "Inventory marks the remaster rejected; keep the source scan visible for reference.",
+      description:
+        "Inventory marks the remaster rejected; keep the source scan visible for reference.",
       bestPath: publicAsset(asset.originalSourcePath),
       bestSource: "original",
     };
@@ -112,11 +114,16 @@ export function getRemasterPresentation(asset?: RemasterAsset | null): RemasterP
     };
   }
 
-  if (asset.cleanupStatus === "cleaned" || asset.cleanupStatus === "approved" || asset.approvalStatus === "approved") {
+  if (
+    asset.cleanupStatus === "cleaned" ||
+    asset.cleanupStatus === "approved" ||
+    asset.approvalStatus === "approved"
+  ) {
     return {
       status: "cleaned-image",
       label: "Cleaned image",
-      description: "Basic cleaned image is available, but student/teacher approval must come from inventory flags.",
+      description:
+        "Basic cleaned image is available, but student/teacher approval must come from inventory flags.",
       bestPath: publicAsset(asset.remasteredPath),
       bestSource: "cleaned",
     };
@@ -136,7 +143,8 @@ export function getQualityLabel(originalPath?: string | null, mode: QualityMode 
   if (!asset || mode === "source") return "Original scan";
   const presentation = getRemasterPresentation(asset);
   if (mode === "projection") return presentation.label;
-  if (asset.cleanupStatus === "cleaned" || asset.approvalStatus === "approved") return "Cleaned image";
+  if (asset.cleanupStatus === "cleaned" || asset.approvalStatus === "approved")
+    return "Cleaned image";
   return "Original scan";
 }
 

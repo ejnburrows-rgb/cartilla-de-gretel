@@ -3,11 +3,7 @@
  * Breath + occasional eyelid overlay blink. Never redraws / regenerates art.
  */
 import { useEffect, useState } from "react";
-import {
-  BLINK_HOLD_MS,
-  nextBlinkDelayMs,
-  prefersReducedMotion,
-} from "@/lib/living-motion";
+import { BLINK_HOLD_MS, nextBlinkDelayMs, prefersReducedMotion } from "@/lib/living-motion";
 import { resolveTrueBlinkFrame } from "@/lib/living-blink-map";
 
 export interface LivingIllustrationProps {
@@ -88,9 +84,7 @@ export function LivingIllustration({
         className="living-illustration__art"
       />
       {/* Soft eyelid plane only when no true blink frame is registered. */}
-      {useLidOverlay ? (
-        <span className="living-illustration__lids" aria-hidden="true" />
-      ) : null}
+      {useLidOverlay ? <span className="living-illustration__lids" aria-hidden="true" /> : null}
     </span>
   );
 }

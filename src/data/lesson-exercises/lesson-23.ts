@@ -13,14 +13,15 @@ export const lesson23 = [
       { id: "img-yema", label: "yema" },
       { id: "img-yayita", label: "Yayita" },
       { id: "img-mayuscula", label: "mayúscula" },
-      { id: "img-yoyo", label: "yoyo" }
+      { id: "img-yoyo", label: "yoyo" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Transcribed verbatim from public/cartilla/images/source/y/y-page-55.jpg (real scan).",
-    sourcePage: getBookPageImage(83)
+    teacherNotes:
+      "Transcribed verbatim from public/cartilla/images/source/y/y-page-55.jpg (real scan).",
+    sourcePage: getBookPageImage(83),
   },
   {
     id: "l23-p84-syllable-tap",
@@ -34,14 +35,15 @@ export const lesson23 = [
       { id: "ra-ye", label: "ye" },
       { id: "ra-yi", label: "yi" },
       { id: "ra-yo", label: "yo" },
-      { id: "ra-yu", label: "yu" }
+      { id: "ra-yu", label: "yu" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Transcribed verbatim from public/cartilla/images/source/y/y-page-56.jpg (real scan).",
-    sourcePage: getBookPageImage(84)
+    teacherNotes:
+      "Transcribed verbatim from public/cartilla/images/source/y/y-page-56.jpg (real scan).",
+    sourcePage: getBookPageImage(84),
   },
   {
     id: "l23-p84-word-bank",
@@ -65,14 +67,15 @@ export const lesson23 = [
       { id: "w-mayito", label: "Mayito" },
       { id: "w-joya", label: "joya" },
       { id: "w-yucateco", label: "yucateco" },
-      { id: "w-yeso", label: "yeso" }
+      { id: "w-yeso", label: "yeso" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Word list transcribed verbatim from public/cartilla/images/source/y/y-page-56.jpg (real scan).",
-    sourcePage: getBookPageImage(84)
+    teacherNotes:
+      "Word list transcribed verbatim from public/cartilla/images/source/y/y-page-56.jpg (real scan).",
+    sourcePage: getBookPageImage(84),
   },
   {
     id: "l23-p84-mini-story",
@@ -89,14 +92,15 @@ export const lesson23 = [
       { id: "story-y-5", label: "guacamole. A Yayo le gusta el arroz con" },
       { id: "story-y-6", label: "yemas de huevos también. Su mamá le" },
       { id: "story-y-7", label: "dio el arroz con yemas de huevos ayer." },
-      { id: "story-y-8", label: "Yayo se lo comió todo." }
+      { id: "story-y-8", label: "Yayo se lo comió todo." },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Reading passage transcribed verbatim from public/cartilla/images/source/y/y-page-56.jpg (real scan).",
-    sourcePage: getBookPageImage(84)
+    teacherNotes:
+      "Reading passage transcribed verbatim from public/cartilla/images/source/y/y-page-56.jpg (real scan).",
+    sourcePage: getBookPageImage(84),
   },
   {
     id: "l23-p85-rhyme",
@@ -110,17 +114,18 @@ export const lesson23 = [
       { id: "rhyme-y-2", label: "de Cayo Hueso a Yateras" },
       { id: "rhyme-y-3", label: "Yayo va con sus amigas" },
       { id: "rhyme-y-4", label: "sus amigas yucatecas." },
-      { id: "rhyme-y-5", label: "En su yate \"Cayo Largo\"" },
+      { id: "rhyme-y-5", label: 'En su yate "Cayo Largo"' },
       { id: "rhyme-y-6", label: "ayer vino a Yucatán" },
       { id: "rhyme-y-7", label: "con una soga de yute" },
-      { id: "rhyme-y-8", label: "Yayo lo pudo amarrar." }
+      { id: "rhyme-y-8", label: "Yayo lo pudo amarrar." },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Rhyme transcribed verbatim from public/cartilla/images/source/y/y-page-57.jpg (real scan).",
-    sourcePage: getBookPageImage(85)
+    teacherNotes:
+      "Rhyme transcribed verbatim from public/cartilla/images/source/y/y-page-57.jpg (real scan).",
+    sourcePage: getBookPageImage(85),
   },
   {
     id: "l23-p86-write-sentences",
@@ -134,7 +139,8 @@ export const lesson23 = [
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
-    teacherNotes: "UNREADABLE-SCAN — no source scan was provided for physical page 86 (see fill-in-blank entry above for the same lesson/page).",
-    sourcePage: getBookPageImage(86)
-  }
+    teacherNotes:
+      "UNREADABLE-SCAN — no source scan was provided for physical page 86 (see fill-in-blank entry above for the same lesson/page).",
+    sourcePage: getBookPageImage(86),
+  },
 ];

@@ -24,7 +24,11 @@ function CartillaSplash() {
       <div className="home-landing__wash" aria-hidden />
 
       <div className="home-landing__inner" style={{ maxWidth: 720 }}>
-        <section className="home-landing__panel" style={{ textAlign: "center" }} aria-labelledby="cartilla-greeting">
+        <section
+          className="home-landing__panel"
+          style={{ textAlign: "center" }}
+          aria-labelledby="cartilla-greeting"
+        >
           <p
             id="cartilla-greeting"
             className="home-landing__greeting"

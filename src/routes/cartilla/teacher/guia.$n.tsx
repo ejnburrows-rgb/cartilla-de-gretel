@@ -14,11 +14,11 @@ export const Route = createFileRoute("/cartilla/teacher/guia/$n")({
   head: ({ params }) => {
     const n = Number(params.n);
     const catalogEntry = CATALOG.find((e) => e.n === n);
-    const title = catalogEntry ? `${catalogEntry.title} — Guía del Maestro` : `Lección ${n} — Guía del Maestro`;
+    const title = catalogEntry
+      ? `${catalogEntry.title} — Guía del Maestro`
+      : `Lección ${n} — Guía del Maestro`;
     return {
-      meta: [
-        { title: `${title} — La Cartilla de Gretel` },
-      ],
+      meta: [{ title: `${title} — La Cartilla de Gretel` }],
     };
   },
   beforeLoad: ({ params }) => {
@@ -92,8 +92,8 @@ function TeacherGuideLeccion() {
 
       {/* Full Master-Detail Curriculum Layout */}
       <div className="flex-1 min-h-0">
-        <GuideLayout 
-          selectedLesson={n} 
+        <GuideLayout
+          selectedLesson={n}
           onSelectLesson={handleSelectLesson}
           accentColor={accentColor}
         >
@@ -101,9 +101,12 @@ function TeacherGuideLeccion() {
             <GuideComponent />
           ) : (
             <div className="text-center py-20">
-              <h2 className="text-xl font-bold text-[var(--tc-ink-faint)] mb-2">Archivo HTML Pendiente</h2>
+              <h2 className="text-xl font-bold text-[var(--tc-ink-faint)] mb-2">
+                Archivo HTML Pendiente
+              </h2>
               <p className="text-[var(--tc-ink-soft)] max-w-md mx-auto">
-                La guía para la lección {n} aún no ha sido transcrita o no se encuentra el componente.
+                La guía para la lección {n} aún no ha sido transcrita o no se encuentra el
+                componente.
               </p>
             </div>
           )}

@@ -9,7 +9,7 @@ export async function logLessonVerification(
     studentId: string;
     teacherId: string;
     verified: boolean;
-  }>
+  }>,
 ) {
   const data = z
     .object({
@@ -30,7 +30,7 @@ export async function logLessonVerification(
         verified: data.verified,
         timestamp: new Date().toISOString(),
       },
-      { onConflict: "lesson_number, student_id" }
+      { onConflict: "lesson_number, student_id" },
     )
     .select()
     .single();
@@ -43,7 +43,7 @@ export async function getLessonVerification(
   input: Call<{
     lessonNumber: number;
     studentId: string;
-  }>
+  }>,
 ) {
   const data = z
     .object({
@@ -60,13 +60,17 @@ export async function getLessonVerification(
     .maybeSingle();
 
   if (error) throw new Error(error.message);
-  return result as unknown as { verified: boolean; lesson_number: number; student_id: string } | null;
+  return result as unknown as {
+    verified: boolean;
+    lesson_number: number;
+    student_id: string;
+  } | null;
 }
 
 export async function getAllStudentVerifications(
   input: Call<{
     studentId: string;
-  }>
+  }>,
 ) {
   const data = z
     .object({
@@ -80,5 +84,9 @@ export async function getAllStudentVerifications(
     .eq("student_id", data.studentId);
 
   if (error) throw new Error(error.message);
-  return result as unknown as Array<{ verified: boolean; lesson_number: number; student_id: string }>;
+  return result as unknown as Array<{
+    verified: boolean;
+    lesson_number: number;
+    student_id: string;
+  }>;
 }

@@ -69,7 +69,8 @@ export function OfficialWorkbookLessonView({
 
   if (sources.length === 0) return null;
 
-  const isDoublePage = mode === "teacher" ? false : (twoPageMode && sources.length > 1 && !isFullscreen);
+  const isDoublePage =
+    mode === "teacher" ? false : twoPageMode && sources.length > 1 && !isFullscreen;
   const leftSource = sources[selectedIdx] ?? sources[0];
   const rightSource = selectedIdx + 1 < sources.length ? sources[selectedIdx + 1] : null;
   const verticalDirection = selectedIdx > prevSelectedIdx ? 1 : -1;

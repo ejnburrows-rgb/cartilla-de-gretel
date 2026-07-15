@@ -395,7 +395,9 @@ export function LassoConnect({
     if (busy || completed) return;
     if (mode === "mark") {
       if (marked.has(target.id)) return;
-      const isCorrect = target.correct !== false && (target.correct === true || targets.every((t) => t.correct === undefined));
+      const isCorrect =
+        target.correct !== false &&
+        (target.correct === true || targets.every((t) => t.correct === undefined));
       // Prefer explicit correct flags when present
       const hasFlags = targets.some((t) => t.correct !== undefined);
       const ok = hasFlags ? Boolean(target.correct) : true;
@@ -459,7 +461,8 @@ export function LassoConnect({
       left?.pairId && right.pairId
         ? left.pairId === right.pairId
         : left?.correct !== false && right.correct !== false && left?.id !== right.id
-          ? Boolean(right.correct ?? true) && (left?.pairId === right.pairId || (!left?.pairId && !right.pairId))
+          ? Boolean(right.correct ?? true) &&
+            (left?.pairId === right.pairId || (!left?.pairId && !right.pairId))
           : false;
 
     // Prefer pairId match when available
@@ -536,8 +539,24 @@ export function LassoConnect({
                 <stop offset="100%" stopColor="#8b6914" />
               </linearGradient>
             </defs>
-            <ellipse cx="20" cy="20" rx="14" ry="10" fill="none" stroke="url(#ropeGradCoil)" strokeWidth="4" />
-            <ellipse cx="20" cy="20" rx="8" ry="5.5" fill="none" stroke="url(#ropeGradCoil)" strokeWidth="3" />
+            <ellipse
+              cx="20"
+              cy="20"
+              rx="14"
+              ry="10"
+              fill="none"
+              stroke="url(#ropeGradCoil)"
+              strokeWidth="4"
+            />
+            <ellipse
+              cx="20"
+              cy="20"
+              rx="8"
+              ry="5.5"
+              fill="none"
+              stroke="url(#ropeGradCoil)"
+              strokeWidth="3"
+            />
           </svg>
         </div>
 
@@ -561,7 +580,14 @@ export function LassoConnect({
           {/* Settled pair links — draped curves, never straight connectors */}
           {Object.entries(linkPaths).map(([id, d]) => (
             <g key={id} className="am-lasso__link">
-              <path d={d} fill="none" stroke="#6b4423" strokeWidth="7" strokeLinecap="round" opacity="0.35" />
+              <path
+                d={d}
+                fill="none"
+                stroke="#6b4423"
+                strokeWidth="7"
+                strokeLinecap="round"
+                opacity="0.35"
+              />
               <path
                 d={d}
                 fill="none"
@@ -584,7 +610,14 @@ export function LassoConnect({
           {/* Active flight rope */}
           {ropePath && (
             <g className="am-lasso__flight">
-              <path d={ropePath} fill="none" stroke="#5c3d2e" strokeWidth="8" strokeLinecap="round" opacity="0.3" />
+              <path
+                d={ropePath}
+                fill="none"
+                stroke="#5c3d2e"
+                strokeWidth="8"
+                strokeLinecap="round"
+                opacity="0.3"
+              />
               <path
                 d={ropePath}
                 fill="none"
@@ -613,15 +646,16 @@ export function LassoConnect({
             const linked = isLinked(t.id);
             const held = heldLeft === t.id;
             const wrong = wrongId === t.id;
-            const style = absoluteLayout && t.box
-              ? {
-                  position: "absolute" as const,
-                  left: `${t.box.xPct}%`,
-                  top: `${t.box.yPct}%`,
-                  width: `${t.box.wPct}%`,
-                  height: `${t.box.hPct}%`,
-                }
-              : { ["--stagger" as string]: `${i * 40}ms` };
+            const style =
+              absoluteLayout && t.box
+                ? {
+                    position: "absolute" as const,
+                    left: `${t.box.xPct}%`,
+                    top: `${t.box.yPct}%`,
+                    width: `${t.box.wPct}%`,
+                    height: `${t.box.hPct}%`,
+                  }
+                : { ["--stagger" as string]: `${i * 40}ms` };
             return (
               <button
                 key={t.id}

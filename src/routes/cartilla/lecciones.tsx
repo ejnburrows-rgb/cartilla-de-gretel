@@ -50,7 +50,7 @@ function Lecciones() {
     <div className="min-h-screen bg-stone-50 overflow-hidden relative pb-32">
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-orange-100/50 to-transparent pointer-events-none" />
-      
+
       <header className="px-4 pt-8 pb-4 max-w-2xl mx-auto relative z-10 text-center">
         <div className="flex items-center justify-between mb-8">
           <Link
@@ -61,13 +61,11 @@ function Lecciones() {
           </Link>
           <LanguageToggle />
         </div>
-        
+
         <h1 className="text-3xl sm:text-4xl font-black leading-tight text-stone-800">
           Tu Camino de Aprendizaje
         </h1>
-        <p className="text-stone-500 font-medium mt-2">
-          {t.aprendePaso[lang]}
-        </p>
+        <p className="text-stone-500 font-medium mt-2">{t.aprendePaso[lang]}</p>
 
         {/* Progress Bar */}
         <div className="mt-8 max-w-sm mx-auto bg-white p-4 rounded-2xl shadow-sm border border-stone-200">
@@ -75,12 +73,14 @@ function Lecciones() {
             <span className="text-orange-500 uppercase tracking-widest text-[10px]">
               {t.progreso[lang]}
             </span>
-            <span className="text-stone-800">{doneCount} / {TOTAL_LESSONS}</span>
+            <span className="text-stone-800">
+              {doneCount} / {TOTAL_LESSONS}
+            </span>
           </div>
           <div className="h-4 bg-stone-100 rounded-full overflow-hidden border border-stone-200 shadow-inner">
-            <div 
-              className="h-full bg-gradient-to-r from-orange-400 to-orange-500 transition-all duration-1000" 
-              style={{ width: `${pct}%` }} 
+            <div
+              className="h-full bg-gradient-to-r from-orange-400 to-orange-500 transition-all duration-1000"
+              style={{ width: `${pct}%` }}
             />
           </div>
         </div>
@@ -94,15 +94,15 @@ function Lecciones() {
           {CATALOG.map((entry, i) => {
             const done = isCompleted(entry.n);
             const unlocked = isUnlocked(entry.n);
-            
+
             // Calculate a zig-zag offset (Duolingo style)
             const offsetX = Math.sin(i * 1.5) * 80;
-            
+
             const nodeColor = entry.color || "#f97316";
-            
+
             return (
-              <div 
-                key={entry.n} 
+              <div
+                key={entry.n}
                 className="relative flex flex-col items-center group z-10"
                 style={{ transform: `translateX(${offsetX}px)` }}
               >
@@ -111,24 +111,24 @@ function Lecciones() {
                     to="/cartilla/leccion/$n"
                     params={{ n: String(entry.n) }}
                     className={`relative w-24 h-24 rounded-full flex flex-col items-center justify-center text-white font-black text-2xl transition-all duration-300 shadow-xl border-b-8 active:border-b-0 active:translate-y-2 hover:scale-105 ${done ? "opacity-100" : "animate-bounce"}`}
-                    style={{ 
+                    style={{
                       backgroundColor: nodeColor,
-                      borderColor: "rgba(0,0,0,0.2)"
+                      borderColor: "rgba(0,0,0,0.2)",
                     }}
                   >
                     {done ? <Check className="w-10 h-10 drop-shadow-md" /> : <span>{entry.n}</span>}
-                    
+
                     {/* Floating Label */}
-                    <div className={`absolute top-full mt-3 px-4 py-1.5 bg-white rounded-xl shadow-md border border-stone-200 text-xs font-black uppercase tracking-wider text-stone-700 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity`}>
+                    <div
+                      className={`absolute top-full mt-3 px-4 py-1.5 bg-white rounded-xl shadow-md border border-stone-200 text-xs font-black uppercase tracking-wider text-stone-700 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity`}
+                    >
                       {entry.title}
                     </div>
                   </Link>
                 ) : (
-                  <div 
-                    className="relative w-20 h-20 rounded-full bg-stone-200 flex items-center justify-center shadow-inner border-4 border-stone-100 cursor-not-allowed opacity-80"
-                  >
+                  <div className="relative w-20 h-20 rounded-full bg-stone-200 flex items-center justify-center shadow-inner border-4 border-stone-100 cursor-not-allowed opacity-80">
                     <Lock className="w-8 h-8 text-stone-400" />
-                    
+
                     {/* Floating Label */}
                     <div className="absolute top-full mt-3 px-3 py-1 bg-stone-100 rounded-lg text-[10px] font-bold text-stone-400 whitespace-nowrap">
                       Bloqueado

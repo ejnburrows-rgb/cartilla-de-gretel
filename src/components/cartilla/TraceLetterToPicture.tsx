@@ -20,7 +20,11 @@ interface Point {
   y: number;
 }
 
-export function TraceLetterToPicture({ sourceLetter, items, onComplete }: TraceLetterToPictureProps) {
+export function TraceLetterToPicture({
+  sourceLetter,
+  items,
+  onComplete,
+}: TraceLetterToPictureProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const letterRef = useRef<HTMLDivElement>(null);
   const itemsRef = useRef<Record<string, HTMLDivElement | null>>({});
@@ -40,7 +44,7 @@ export function TraceLetterToPicture({ sourceLetter, items, onComplete }: TraceL
         window.dispatchEvent(
           new CustomEvent("gretel:celebrate", {
             detail: { text: "¡Muy bien! Uniste la letra correctamente." },
-          })
+          }),
         );
         gretelEvent("activity:complete");
         onComplete();
@@ -64,7 +68,7 @@ export function TraceLetterToPicture({ sourceLetter, items, onComplete }: TraceL
     if (containerRef.current && letterRef.current) {
       const containerRect = containerRef.current.getBoundingClientRect();
       const center = getElementCenter(letterRef.current, containerRect);
-      
+
       setIsDragging(true);
       setStartPoint(center);
       setCurrentPoint({
@@ -76,7 +80,7 @@ export function TraceLetterToPicture({ sourceLetter, items, onComplete }: TraceL
 
   const handlePointerMove = (e: React.PointerEvent) => {
     if (!isDragging || !containerRef.current || !startPoint) return;
-    
+
     const containerRect = containerRef.current.getBoundingClientRect();
     setCurrentPoint({
       x: e.clientX - containerRect.left,
@@ -125,7 +129,7 @@ export function TraceLetterToPicture({ sourceLetter, items, onComplete }: TraceL
         window.dispatchEvent(
           new CustomEvent("gretel:celebrate", {
             detail: { text: "Inténtalo de nuevo." },
-          })
+          }),
         );
         setTimeout(() => setWrongShake(false), 500);
         setCurrentPoint(null);

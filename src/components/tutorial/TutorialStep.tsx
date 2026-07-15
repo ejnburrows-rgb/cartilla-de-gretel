@@ -152,11 +152,7 @@ export function TutorialStep({
       </p>
 
       <div style={actionRowStyle}>
-        <button
-          onClick={onSkip}
-          style={skipBtnStyle}
-          className="hover:underline"
-        >
+        <button onClick={onSkip} style={skipBtnStyle} className="hover:underline">
           Omitir tutorial
         </button>
 

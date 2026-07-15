@@ -14,7 +14,11 @@ interface GardenSceneProps {
 
 function Butterfly({ delay }: { delay: number }) {
   return (
-    <div className="garden-butterfly" style={{ ["--drift-delay" as string]: `${delay}s` }} aria-hidden="true">
+    <div
+      className="garden-butterfly"
+      style={{ ["--drift-delay" as string]: `${delay}s` }}
+      aria-hidden="true"
+    >
       <svg width="40" height="34" viewBox="0 0 40 34">
         <g className="garden-butterfly__wing">
           <ellipse cx="12" cy="14" rx="11" ry="9" fill="#f5d547" />
@@ -32,7 +36,11 @@ function Butterfly({ delay }: { delay: number }) {
 
 function Dragonfly({ delay }: { delay: number }) {
   return (
-    <div className="garden-dragonfly" style={{ ["--drift-delay" as string]: `${delay}s` }} aria-hidden="true">
+    <div
+      className="garden-dragonfly"
+      style={{ ["--drift-delay" as string]: `${delay}s` }}
+      aria-hidden="true"
+    >
       <svg width="34" height="18" viewBox="0 0 34 18">
         <g className="garden-dragonfly__wing">
           <ellipse cx="14" cy="6" rx="10" ry="3.5" fill="#3fa9a6" opacity="0.75" />

@@ -142,16 +142,16 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
   ({ className = "", size = "md", bubblePosition = "top" }, ref) => {
     const { currentPose, machineState, send, isSpeaking } = useGretelAnimation();
     const [bubbleText, setBubbleText] = useState<string | null>(null);
-    const [sparkles, setSparkles] = useState<{ id: number; x: number; y: number; color: string }[]>([]);
+    const [sparkles, setSparkles] = useState<{ id: number; x: number; y: number; color: string }[]>(
+      [],
+    );
     const [hearts, setHearts] = useState<{ id: number; x: number; delay: number }[]>([]);
     const [frameIndex, setFrameIndex] = useState(0);
     const sparkleIdCounter = useRef(0);
 
     /* Pose key: right-side bubble → point-left (G-04); else machine state. */
     const poseKey: GretelPoseKey =
-      machineState === "pointing" && bubblePosition === "right"
-        ? "pointingLeft"
-        : machineState;
+      machineState === "pointing" && bubblePosition === "right" ? "pointingLeft" : machineState;
 
     /* ── Frame Cycling for Array Poses ── */
     const frames = getGretelPoseFrames(poseKey);
@@ -163,7 +163,7 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
         if (machineState === "waving") speed = 200;
         if (machineState === "cheering") speed = 150;
         if (machineState === "talking") speed = 120;
-        
+
         const interval = setInterval(() => {
           setFrameIndex((prev) => (prev + 1) % frames.length);
         }, speed);
@@ -211,7 +211,8 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
     };
 
     const celebrate = async (customText?: string) => {
-      const text = customText || CONGRATULATIONS[Math.floor(Math.random() * CONGRATULATIONS.length)];
+      const text =
+        customText || CONGRATULATIONS[Math.floor(Math.random() * CONGRATULATIONS.length)];
       send({ type: "CHEER" });
       generateSparkles();
       await speakMessage(text);
@@ -254,16 +255,27 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
     }, []);
 
     return (
-      <div className={`gretel-grounded gretel-grounded--enter relative flex items-center justify-center ${className}`}>
+      <div
+        className={`gretel-grounded gretel-grounded--enter relative flex items-center justify-center ${className}`}
+      >
         {/* Soft contact shadow — anchors her to the scene (not a floating sticker) */}
         <span className="gretel-grounded__shadow" aria-hidden="true" />
 
         {/* Warm ambient glow (behind body, above ground shadow) */}
         <motion.div
           animate={getShadowAnimation(machineState)}
-          transition={{ duration: machineState === "cheering" ? 0.8 : 3, repeat: Infinity, ease: "easeInOut" }}
+          transition={{
+            duration: machineState === "cheering" ? 0.8 : 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
           className="absolute rounded-full z-0"
-          style={{ width: "70%", height: "55%", top: "12%", background: "radial-gradient(circle, rgba(251,191,36,0.14) 0%, transparent 70%)" }}
+          style={{
+            width: "70%",
+            height: "55%",
+            top: "12%",
+            background: "radial-gradient(circle, rgba(251,191,36,0.14) 0%, transparent 70%)",
+          }}
         />
 
         <AnimatePresence>
@@ -333,7 +345,7 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
         </motion.div>
       </div>
     );
-  }
+  },
 );
 
 GretelLiveAvatar.displayName = "GretelLiveAvatar";

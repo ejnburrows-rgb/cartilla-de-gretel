@@ -57,11 +57,7 @@ try {
   const cons = JSON.parse(raw);
   if (Array.isArray(cons)) {
     for (const c of cons) {
-      if (
-        c &&
-        typeof c.lesson === "number" &&
-        typeof c.pages === "string"
-      ) {
+      if (c && typeof c.lesson === "number" && typeof c.pages === "string") {
         LESSON_RANGES[c.lesson] = c.pages;
       }
     }

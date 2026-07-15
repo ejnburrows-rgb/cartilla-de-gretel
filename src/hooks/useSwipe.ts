@@ -26,29 +26,32 @@ export function useSwipe({ onSwipe, minDistance = 30 }: UseSwipeOptions) {
     // Tracing moved coordinates if necessary
   }, []);
 
-  const onPointerUp = useCallback((event: React.PointerEvent) => {
-    if (!startRef.current) return;
+  const onPointerUp = useCallback(
+    (event: React.PointerEvent) => {
+      if (!startRef.current) return;
 
-    const dx = event.clientX - startRef.current.x;
-    const dy = event.clientY - startRef.current.y;
-    const distance = Math.sqrt(dx * dx + dy * dy);
-    const duration = Date.now() - startRef.current.time;
+      const dx = event.clientX - startRef.current.x;
+      const dy = event.clientY - startRef.current.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      const duration = Date.now() - startRef.current.time;
 
-    startRef.current = null;
+      startRef.current = null;
 
-    if (distance < minDistance || duration === 0) return;
+      if (distance < minDistance || duration === 0) return;
 
-    const velocity = distance / duration;
-    let direction: "left" | "right" | "up" | "down";
+      const velocity = distance / duration;
+      let direction: "left" | "right" | "up" | "down";
 
-    if (Math.abs(dx) > Math.abs(dy)) {
-      direction = dx < 0 ? "left" : "right";
-    } else {
-      direction = dy < 0 ? "up" : "down";
-    }
+      if (Math.abs(dx) > Math.abs(dy)) {
+        direction = dx < 0 ? "left" : "right";
+      } else {
+        direction = dy < 0 ? "up" : "down";
+      }
 
-    onSwipe({ direction, distance, velocity });
-  }, [onSwipe, minDistance]);
+      onSwipe({ direction, distance, velocity });
+    },
+    [onSwipe, minDistance],
+  );
 
   return {
     onPointerDown,

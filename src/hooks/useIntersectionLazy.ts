@@ -6,7 +6,7 @@ export interface UseIntersectionLazyOptions extends IntersectionObserverInit {
 
 export function useIntersectionLazy(
   elementRef: RefObject<Element | null>,
-  options: UseIntersectionLazyOptions = {}
+  options: UseIntersectionLazyOptions = {},
 ): boolean {
   const { root = null, rootMargin = "0px", threshold = 0, triggerOnce = true } = options;
   const [isIntersecting, setIsIntersecting] = useState(false);
@@ -23,7 +23,7 @@ export function useIntersectionLazy(
           observer.unobserve(element);
         }
       },
-      { root, rootMargin, threshold }
+      { root, rootMargin, threshold },
     );
 
     observer.observe(element);

@@ -63,7 +63,9 @@ describe("InteractiveVowelPickOne — real drag/tap grading", () => {
   });
 
   it("grades a correct placement immediately: chime + Gretel correct, not yet complete", () => {
-    const { getAllByRole } = render(<InteractiveVowelPickOne region={region} accent="#000" lessonId="2" />);
+    const { getAllByRole } = render(
+      <InteractiveVowelPickOne region={region} accent="#000" lessonId="2" />,
+    );
     const letters = getAllByRole("button", { name: /^Vocal/ });
     fireEvent.click(letters[0]); // select row 0's "o"
     const osoCell = getAllByRole("button", { name: "oso" })[0];
@@ -75,7 +77,9 @@ describe("InteractiveVowelPickOne — real drag/tap grading", () => {
   });
 
   it("bounces back a wrong placement: buzz + Gretel wrong, row stays open to retry", () => {
-    const { getAllByRole } = render(<InteractiveVowelPickOne region={region} accent="#000" lessonId="2" />);
+    const { getAllByRole } = render(
+      <InteractiveVowelPickOne region={region} accent="#000" lessonId="2" />,
+    );
     const letters = getAllByRole("button", { name: /^Vocal/ });
     fireEvent.click(letters[0]); // select row 0's "o"
     const alaCell = getAllByRole("button", { name: "ala" })[0];
@@ -93,7 +97,9 @@ describe("InteractiveVowelPickOne — real drag/tap grading", () => {
   });
 
   it("completes and records the exercise only once every row is correctly matched", () => {
-    const { getAllByRole } = render(<InteractiveVowelPickOne region={region} accent="#000" lessonId="2" />);
+    const { getAllByRole } = render(
+      <InteractiveVowelPickOne region={region} accent="#000" lessonId="2" />,
+    );
     let letters = getAllByRole("button", { name: /^Vocal/ });
     fireEvent.click(letters[0]);
     fireEvent.click(getAllByRole("button", { name: "oso" })[0]);

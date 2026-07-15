@@ -3,7 +3,13 @@
  */
 import { describe, it, expect, beforeEach, vi } from "vitest";
 import { supabase } from "@/integrations/supabase/client";
-import { joinClass, logProgress, getMyProgress, listClassStudents, enterClassAsStudent } from "../student.functions";
+import {
+  joinClass,
+  logProgress,
+  getMyProgress,
+  listClassStudents,
+  enterClassAsStudent,
+} from "../student.functions";
 
 vi.mock("@/integrations/supabase/client", () => {
   const mockSingle = vi.fn();
@@ -56,7 +62,9 @@ describe("student.functions tests", () => {
     });
 
     it("should throw error when Supabase RPC fails", async () => {
-      const mockSingle = vi.fn().mockResolvedValue({ data: null, error: { message: "Invalid code" } });
+      const mockSingle = vi
+        .fn()
+        .mockResolvedValue({ data: null, error: { message: "Invalid code" } });
       vi.mocked(supabase.rpc).mockReturnValue({ single: mockSingle } as any);
 
       await expect(
@@ -65,7 +73,7 @@ describe("student.functions tests", () => {
             joinCode: "FAIL12",
             studentCode: "FAIL1",
           },
-        })
+        }),
       ).rejects.toThrow("Invalid code");
     });
   });
@@ -105,7 +113,7 @@ describe("student.functions tests", () => {
             lessonId: "1",
             kind: "lesson_completed",
           },
-        })
+        }),
       ).rejects.toThrow();
     });
   });

@@ -125,17 +125,22 @@ export function SimplePageViewer({
       ? currentIndex - 1
       : currentIndex + 1
     : currentIndex;
-  const flipFrontIndex = isFlipping ? (flipDirection === "next" ? currentIndex : currentIndex - 1) : -1;
-  const flipBackIndex = isFlipping ? (flipDirection === "next" ? currentIndex + 1 : currentIndex) : -1;
+  const flipFrontIndex = isFlipping
+    ? flipDirection === "next"
+      ? currentIndex
+      : currentIndex - 1
+    : -1;
+  const flipBackIndex = isFlipping
+    ? flipDirection === "next"
+      ? currentIndex + 1
+      : currentIndex
+    : -1;
 
   const current = pages[currentIndex];
 
   return (
     <div className="relative mx-auto flex w-full max-w-lg flex-col items-center">
-      <div
-        className="workbook-container"
-        style={{ aspectRatio: singleAspectRatio ?? "3 / 4" }}
-      >
+      <div className="workbook-container" style={{ aspectRatio: singleAspectRatio ?? "3 / 4" }}>
         {/* Static base page */}
         <div className="w-full h-full relative overflow-hidden rounded-b-xl">
           {crossfade ? (
@@ -177,19 +182,29 @@ export function SimplePageViewer({
             <div className="workbook-flip-wrapper" style={{ transform: flipTransform }}>
               <div className="workbook-page-front">
                 {pages[flipFrontIndex] ? (
-                  <PageContent cover={pages[flipFrontIndex]!.cover}>{pages[flipFrontIndex]!.content}</PageContent>
+                  <PageContent cover={pages[flipFrontIndex]!.cover}>
+                    {pages[flipFrontIndex]!.content}
+                  </PageContent>
                 ) : (
                   <div className="w-full h-full bg-surface" />
                 )}
-                <div className="workbook-shadow-overlay" style={{ opacity: flipDirection === "next" ? 1 : 0 }} />
+                <div
+                  className="workbook-shadow-overlay"
+                  style={{ opacity: flipDirection === "next" ? 1 : 0 }}
+                />
               </div>
               <div className="workbook-page-back">
                 {pages[flipBackIndex] ? (
-                  <PageContent cover={pages[flipBackIndex]!.cover}>{pages[flipBackIndex]!.content}</PageContent>
+                  <PageContent cover={pages[flipBackIndex]!.cover}>
+                    {pages[flipBackIndex]!.content}
+                  </PageContent>
                 ) : (
                   <div className="w-full h-full bg-surface" />
                 )}
-                <div className="workbook-shadow-overlay" style={{ opacity: flipDirection === "prev" ? 1 : 0 }} />
+                <div
+                  className="workbook-shadow-overlay"
+                  style={{ opacity: flipDirection === "prev" ? 1 : 0 }}
+                />
               </div>
             </div>
           </div>
@@ -207,7 +222,8 @@ export function SimplePageViewer({
               : "bg-stone-100 text-stone-400 border-stone-200 cursor-not-allowed opacity-50"
           }`}
         >
-          <ChevronLeft className="w-4 h-4 shrink-0" /> <span className="hidden sm:inline">Anterior</span>
+          <ChevronLeft className="w-4 h-4 shrink-0" />{" "}
+          <span className="hidden sm:inline">Anterior</span>
         </button>
         <div className="text-xs sm:text-sm font-bold text-stone-700 bg-white px-3 py-2 sm:px-4 rounded-full border border-stone-200 shadow-sm shrink-0 whitespace-nowrap">
           Página {currentIndex + 1} de {pages.length}
@@ -222,7 +238,8 @@ export function SimplePageViewer({
               : "bg-stone-100 text-stone-400 border-stone-200 cursor-not-allowed opacity-50"
           }`}
         >
-          <span className="hidden sm:inline">Siguiente</span> <ChevronRight className="w-4 h-4 shrink-0" />
+          <span className="hidden sm:inline">Siguiente</span>{" "}
+          <ChevronRight className="w-4 h-4 shrink-0" />
         </button>
       </div>
     </div>

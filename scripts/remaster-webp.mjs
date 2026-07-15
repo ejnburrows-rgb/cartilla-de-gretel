@@ -38,16 +38,14 @@ const JOBS = [
 
 const WEBP_OPTIONS = {
   quality: 90,
-  effort: 6,       // 0-6; 6 = best compression (slower but smaller)
+  effort: 6, // 0-6; 6 = best compression (slower but smaller)
   lossless: false,
 };
 
 async function processJob(job) {
   await mkdir(job.dst, { recursive: true });
 
-  const files = (await readdir(job.src))
-    .filter((f) => f.endsWith(".png"))
-    .sort();
+  const files = (await readdir(job.src)).filter((f) => f.endsWith(".png")).sort();
 
   console.log(`\n── ${job.label}: ${files.length} pages → ${job.dst}`);
 
@@ -67,9 +65,7 @@ async function processJob(job) {
     }
 
     try {
-      const info = await sharp(srcPath)
-        .webp(WEBP_OPTIONS)
-        .toFile(dstPath);
+      const info = await sharp(srcPath).webp(WEBP_OPTIONS).toFile(dstPath);
 
       ok++;
       process.stdout.write("✓");

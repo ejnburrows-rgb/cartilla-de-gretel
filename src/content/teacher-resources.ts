@@ -16,7 +16,7 @@ export type TeacherResourceMeta = {
 
 export const TEACHER_RESOURCES: TeacherResourceMeta[] = [];
 export function getTeacherResource(id: string): TeacherResourceMeta | null {
-  return TEACHER_RESOURCES.find(r => r.id === id) ?? null;
+  return TEACHER_RESOURCES.find((r) => r.id === id) ?? null;
 }
 
 // Seed data

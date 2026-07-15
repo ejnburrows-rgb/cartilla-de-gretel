@@ -16,14 +16,14 @@ export const lesson02 = [
       { id: "img-olla-4", label: "olla" },
       { id: "img-ola-5", label: "ola" },
       { id: "img-oso-6", label: "oso" },
-      { id: "img-alas-7", label: "alas" }
+      { id: "img-alas-7", label: "alas" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
     teacherNotes: "Scaffolded exercise for O o.",
-    sourcePage: getBookPageImage(11)
+    sourcePage: getBookPageImage(11),
   },
   {
     id: "l2-p12-letter-tracing",
@@ -34,14 +34,14 @@ export const lesson02 = [
     prompt: "Haz un dibujo que represente una palabra que comienza con o.",
     items: [
       { id: "letter-O-0", label: "O" },
-      { id: "letter-o-1", label: "o" }
+      { id: "letter-o-1", label: "o" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
     teacherNotes: "Scaffolded letter tracing for O o.",
-    sourcePage: getBookPageImage(12)
+    sourcePage: getBookPageImage(12),
   },
   {
     id: "l2-p13-mark-x",
@@ -66,14 +66,14 @@ export const lesson02 = [
       { id: "img-ojo-12", label: "ojo" },
       { id: "img-avion-13", label: "avión" },
       { id: "img-aguja-14", label: "aguja" },
-      { id: "img-oso-15", label: "oso" }
+      { id: "img-oso-15", label: "oso" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
     teacherNotes: "Scaffolded exercise for A a.",
-    sourcePage: getBookPageImage(13)
+    sourcePage: getBookPageImage(13),
   },
   {
     id: "l2-p14-draw-line",
@@ -90,13 +90,13 @@ export const lesson02 = [
       { id: "img-aguja-4", label: "aguja" },
       { id: "img-elote-5", label: "elote" },
       { id: "img-avion-6", label: "avión" },
-      { id: "img-aro-7", label: "aro" }
+      { id: "img-aro-7", label: "aro" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
     teacherNotes: "Scaffolded exercise for A a.",
-    sourcePage: getBookPageImage(14)
-  }
+    sourcePage: getBookPageImage(14),
+  },
 ];

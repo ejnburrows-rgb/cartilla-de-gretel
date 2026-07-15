@@ -55,25 +55,37 @@ function main() {
   for (const entry of artManifest) {
     const { slug, cropBox, sourceFlipchartPage, src } = entry;
     if (!cropBox || !sourceFlipchartPage) {
-      needsOperator.push({ slug, reason: "no cropBox/sourceFlipchartPage recorded in manifest.json — was cropped by hand before this tooling existed" });
+      needsOperator.push({
+        slug,
+        reason:
+          "no cropBox/sourceFlipchartPage recorded in manifest.json — was cropped by hand before this tooling existed",
+      });
       continue;
     }
     const sourceFull = fileIndex.get(sourceFlipchartPage);
     if (!sourceFull) {
-      needsOperator.push({ slug, reason: `sourceFlipchartPage "${sourceFlipchartPage}" not found under public/cartilla/images/source/**` });
+      needsOperator.push({
+        slug,
+        reason: `sourceFlipchartPage "${sourceFlipchartPage}" not found under public/cartilla/images/source/**`,
+      });
       continue;
     }
     const [x, y, width, height] = cropBox;
     cropManifest.push({
       slug,
       source: path.relative(rootDir, sourceFull),
-      x, y, width, height,
+      x,
+      y,
+      width,
+      height,
       output: `public/cartilla/art/extracted/${slug}.webp`,
     });
   }
 
   fs.writeFileSync(cropManifestOut, JSON.stringify(cropManifest, null, 2) + "\n");
-  console.log(`✓ wrote ${cropManifest.length} entries → ${path.relative(rootDir, cropManifestOut)}`);
+  console.log(
+    `✓ wrote ${cropManifest.length} entries → ${path.relative(rootDir, cropManifestOut)}`,
+  );
 
   if (needsOperator.length > 0) {
     const body = [
@@ -87,7 +99,9 @@ function main() {
       "",
     ].join("\n");
     fs.writeFileSync(operatorNeedsOut, body);
-    console.log(`✓ wrote ${needsOperator.length} unresolvable entries → ${path.relative(rootDir, operatorNeedsOut)}`);
+    console.log(
+      `✓ wrote ${needsOperator.length} unresolvable entries → ${path.relative(rootDir, operatorNeedsOut)}`,
+    );
   } else if (fs.existsSync(operatorNeedsOut)) {
     fs.rmSync(operatorNeedsOut);
   }

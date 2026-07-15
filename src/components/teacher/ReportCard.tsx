@@ -1,6 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import { getStudentProgress, getClassProgress } from "@/lib/teacher.functions";
-import { ClipboardList, Award, BookOpen, Clock, AlertTriangle, FileSpreadsheet, Check } from "lucide-react";
+import {
+  ClipboardList,
+  Award,
+  BookOpen,
+  Clock,
+  AlertTriangle,
+  FileSpreadsheet,
+  Check,
+} from "lucide-react";
 import { TOTAL_LESSONS } from "@/lib/lesson-catalog";
 interface ReportCardProps {
   classId: string;
@@ -8,7 +16,8 @@ interface ReportCardProps {
 }
 
 const cardClass = "bg-white border border-stone-200 rounded-3xl p-6 shadow-sm";
-const metricBoxClass = "flex items-center gap-4 p-4 rounded-2xl bg-stone-50 border border-stone-100 hover:bg-stone-100/50 transition-colors";
+const metricBoxClass =
+  "flex items-center gap-4 p-4 rounded-2xl bg-stone-50 border border-stone-100 hover:bg-stone-100/50 transition-colors";
 const metricValClass = "text-2xl font-black text-stone-800";
 const metricLblClass = "text-[10px] font-bold text-stone-500 uppercase tracking-widest";
 const headerTitleClass = "text-2xl font-black text-stone-800 flex items-center gap-2";
@@ -52,14 +61,16 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
   // ── Render Individual Student Report ──
   if (studentId && studentData) {
     const { student, class: classObj, events } = studentData;
-    
+
     // Aggregations
     const completedLessons = events.filter((e: any) => e.event_kind === "lesson_completed");
     const exerciseEvents = events.filter((e: any) => e.event_kind === "exercise");
     const totalScore = exerciseEvents.reduce((sum: number, e: any) => sum + (e.score || 0), 0);
     const totalPossible = exerciseEvents.reduce((sum: number, e: any) => sum + (e.total || 0), 0);
     const accuracy = totalPossible > 0 ? Math.round((totalScore / totalPossible) * 100) : null;
-    const totalTimeSecs = events.filter((e: any) => e.event_kind === "time").reduce((sum: number, e: any) => sum + (e.time_seconds || 0), 0);
+    const totalTimeSecs = events
+      .filter((e: any) => e.event_kind === "time")
+      .reduce((sum: number, e: any) => sum + (e.time_seconds || 0), 0);
     const totalTimeMins = Math.round(totalTimeSecs / 60);
 
     return (
@@ -71,7 +82,11 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
               Reporte de Logros: {student.display_name}
             </h2>
             <p className="text-xs font-bold text-stone-500 mt-1">
-              Código Alumno: <span className="font-mono text-stone-700 bg-stone-100 px-1.5 py-0.5 rounded">{student.student_code}</span> | Clase: {classObj?.name}
+              Código Alumno:{" "}
+              <span className="font-mono text-stone-700 bg-stone-100 px-1.5 py-0.5 rounded">
+                {student.student_code}
+              </span>{" "}
+              | Clase: {classObj?.name}
             </p>
           </div>
           <div className="text-right">
@@ -116,7 +131,9 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
 
         {/* Activity Logs / IEP details */}
         <div>
-          <h3 className="text-sm font-black text-stone-700 uppercase tracking-wider mb-3">Historial de Progreso Reciente</h3>
+          <h3 className="text-sm font-black text-stone-700 uppercase tracking-wider mb-3">
+            Historial de Progreso Reciente
+          </h3>
           <div className="overflow-x-auto border border-stone-200 rounded-2xl">
             <table className="w-full text-sm text-left">
               <thead className="bg-stone-50 text-stone-600 font-bold border-b border-stone-200">
@@ -130,12 +147,14 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
               <tbody className="divide-y divide-stone-150">
                 {events.slice(0, 10).map((e: any) => (
                   <tr key={e.id}>
-                    <td className="p-3 font-mono text-xs">{new Date(e.created_at).toLocaleDateString()}</td>
+                    <td className="p-3 font-mono text-xs">
+                      {new Date(e.created_at).toLocaleDateString()}
+                    </td>
                     <td className="p-3 capitalize font-bold text-stone-700">{e.event_kind}</td>
                     <td className="p-3">Lección {e.lesson_id}</td>
                     <td className="p-3">
                       {e.event_kind === "exercise" && e.total > 0
-                        ? `${e.score}/${e.total} (${Math.round((e.score/e.total)*100)}%)`
+                        ? `${e.score}/${e.total} (${Math.round((e.score / e.total) * 100)}%)`
                         : e.event_kind === "time"
                           ? `${e.time_seconds} seg`
                           : "Completada"}
@@ -181,7 +200,9 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
         {/* Student metrics table */}
         <div className="space-y-6">
           <div className="flex items-center justify-between">
-            <h3 className="text-sm font-black text-stone-700 uppercase tracking-wider">Desempeño Individual por Alumno</h3>
+            <h3 className="text-sm font-black text-stone-700 uppercase tracking-wider">
+              Desempeño Individual por Alumno
+            </h3>
           </div>
           <div className="overflow-x-auto border border-stone-200 rounded-2xl">
             <table className="w-full text-sm text-left">
@@ -219,15 +240,21 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
         {/* Per-exercise-type right/wrong breakdown */}
         <div className="space-y-6 mt-12">
           <div className="flex items-center justify-between">
-            <h3 className="text-sm font-black text-stone-700 uppercase tracking-wider">Aciertos por Tipo de Ejercicio</h3>
+            <h3 className="text-sm font-black text-stone-700 uppercase tracking-wider">
+              Aciertos por Tipo de Ejercicio
+            </h3>
           </div>
           <div className="overflow-x-auto border border-stone-200 rounded-2xl">
             <table className="w-full text-sm text-left">
               <thead className="bg-stone-50 text-stone-600 font-bold border-b border-stone-200">
                 <tr>
-                  <th className="p-3 sticky left-0 z-10 bg-stone-50 shadow-[2px_0_4px_rgba(0,0,0,0.02)]">Alumno</th>
+                  <th className="p-3 sticky left-0 z-10 bg-stone-50 shadow-[2px_0_4px_rgba(0,0,0,0.02)]">
+                    Alumno
+                  </th>
                   {exerciseKinds.map((kind) => (
-                    <th key={kind} className="p-3 text-center min-w-[7rem]">{EXERCISE_KIND_LABELS[kind] ?? kind}</th>
+                    <th key={kind} className="p-3 text-center min-w-[7rem]">
+                      {EXERCISE_KIND_LABELS[kind] ?? kind}
+                    </th>
                   ))}
                 </tr>
               </thead>
@@ -252,7 +279,10 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
                 })}
                 {(perStudent.length === 0 || exerciseKinds.length === 0) && (
                   <tr>
-                    <td colSpan={exerciseKinds.length + 1} className="p-8 text-center font-bold text-stone-400">
+                    <td
+                      colSpan={exerciseKinds.length + 1}
+                      className="p-8 text-center font-bold text-stone-400"
+                    >
                       Todavía no hay intentos de ejercicios registrados en esta clase.
                     </td>
                   </tr>
@@ -265,15 +295,21 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
         {/* 24-Lesson Grid */}
         <div className="space-y-6 mt-12">
           <div className="flex items-center justify-between">
-            <h3 className="text-sm font-black text-stone-700 uppercase tracking-wider">Matriz de Lecciones Completadas</h3>
+            <h3 className="text-sm font-black text-stone-700 uppercase tracking-wider">
+              Matriz de Lecciones Completadas
+            </h3>
           </div>
           <div className="overflow-x-auto border border-stone-200 rounded-2xl">
             <table className="w-full text-sm text-left">
               <thead className="bg-stone-50 text-stone-600 font-bold border-b border-stone-200">
                 <tr>
-                  <th className="p-3 sticky left-0 z-10 bg-stone-50 shadow-[2px_0_4px_rgba(0,0,0,0.02)]">Alumno</th>
+                  <th className="p-3 sticky left-0 z-10 bg-stone-50 shadow-[2px_0_4px_rgba(0,0,0,0.02)]">
+                    Alumno
+                  </th>
                   {Array.from({ length: TOTAL_LESSONS }).map((_, i) => (
-                    <th key={i} className="p-3 text-center min-w-[2.5rem] font-mono text-xs">L{i + 1}</th>
+                    <th key={i} className="p-3 text-center min-w-[2.5rem] font-mono text-xs">
+                      L{i + 1}
+                    </th>
                   ))}
                 </tr>
               </thead>
@@ -303,7 +339,10 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
                 })}
                 {perStudent.length === 0 && (
                   <tr>
-                    <td colSpan={TOTAL_LESSONS + 1} className="p-8 text-center font-bold text-stone-400">
+                    <td
+                      colSpan={TOTAL_LESSONS + 1}
+                      className="p-8 text-center font-bold text-stone-400"
+                    >
                       No hay alumnos registrados.
                     </td>
                   </tr>

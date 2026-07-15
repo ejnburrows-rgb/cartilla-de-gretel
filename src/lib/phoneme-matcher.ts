@@ -12,24 +12,24 @@ export function normalizeSpanishPhonemes(text: string): string {
     .replace(/[\u0300-\u036f]/g, "");
 
   // 2. Remove punctuation
-  normalized = normalized.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "").trim();
+  normalized = normalized.replace(/[.,/#!$%^&*;:{}=\-_`~()]/g, "").trim();
 
   // 3. Apply common phoneme substitutions
   normalized = normalized
-    .replace(/ll/g, "y")      // yeísmo
-    .replace(/v/g, "b")       // b/v equivalence
-    .replace(/z/g, "s")       // seseo
-    .replace(/qu/g, "k")      // qu -> k
-    .replace(/ce/g, "se")     // ce -> se
-    .replace(/ci/g, "si")     // ci -> si
-    .replace(/ca/g, "ka")     // ca -> ka
-    .replace(/co/g, "ko")     // co -> ko
-    .replace(/cu/g, "ku")     // cu -> ku
-    .replace(/c/g, "k")       // any remaining c -> k
-    .replace(/ge/g, "je")     // ge -> je
-    .replace(/gi/g, "ji")     // gi -> ji
-    .replace(/h/g, "")        // silent h
-    .replace(/rr/g, "r");     // rr/r equivalence (kids struggle with rolled R)
+    .replace(/ll/g, "y") // yeísmo
+    .replace(/v/g, "b") // b/v equivalence
+    .replace(/z/g, "s") // seseo
+    .replace(/qu/g, "k") // qu -> k
+    .replace(/ce/g, "se") // ce -> se
+    .replace(/ci/g, "si") // ci -> si
+    .replace(/ca/g, "ka") // ca -> ka
+    .replace(/co/g, "ko") // co -> ko
+    .replace(/cu/g, "ku") // cu -> ku
+    .replace(/c/g, "k") // any remaining c -> k
+    .replace(/ge/g, "je") // ge -> je
+    .replace(/gi/g, "ji") // gi -> ji
+    .replace(/h/g, "") // silent h
+    .replace(/rr/g, "r"); // rr/r equivalence (kids struggle with rolled R)
 
   return normalized;
 }
@@ -51,7 +51,7 @@ export function matchesSyllablePhonetically(targetSyllable: string, transcript: 
     return true;
   }
 
-  // Also check if the exact string is embedded inside a word 
+  // Also check if the exact string is embedded inside a word
   // (e.g. STT heard "lamamá" for "ma")
   const fullTranscriptPhoneme = normalizeSpanishPhonemes(transcript);
   if (fullTranscriptPhoneme.includes(targetPhoneme)) {

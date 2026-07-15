@@ -39,7 +39,9 @@ function JoinPage() {
       setRoster(students);
       setStep("pick");
     } catch (err) {
-      setError(err instanceof Error ? err.message : lang === "es" ? "Error desconocido" : "Unknown error");
+      setError(
+        err instanceof Error ? err.message : lang === "es" ? "Error desconocido" : "Unknown error",
+      );
     } finally {
       setBusy(false);
     }
@@ -54,7 +56,9 @@ function JoinPage() {
       setStudentSession(res);
       navigate({ to: "/cartilla/lecciones" });
     } catch (err) {
-      setError(err instanceof Error ? err.message : lang === "es" ? "Error desconocido" : "Unknown error");
+      setError(
+        err instanceof Error ? err.message : lang === "es" ? "Error desconocido" : "Unknown error",
+      );
     } finally {
       setBusy(false);
     }
@@ -67,17 +71,20 @@ function JoinPage() {
   };
 
   return (
-    <main className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-center py-10" style={{ background: "radial-gradient(circle, #e5c531 0%, #0d6b38 100%)" }}>
+    <main
+      className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-center py-10"
+      style={{ background: "radial-gradient(circle, #e5c531 0%, #0d6b38 100%)" }}
+    >
       {/* 3D CSS Garden Background Elements */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {/* Sun */}
         <div className="absolute top-10 right-10 w-32 h-32 bg-yellow-300 rounded-full blur-xl opacity-80 animate-pulse" />
         <div className="absolute top-12 right-12 w-28 h-28 bg-yellow-400 rounded-full" />
-        
+
         {/* Clouds */}
         <div className="absolute top-20 left-10 w-48 h-16 bg-white/80 rounded-full blur-md animate-[float_10s_ease-in-out_infinite]" />
         <div className="absolute top-40 right-1/4 w-32 h-12 bg-white/70 rounded-full blur-md animate-[float_14s_ease-in-out_infinite_reverse]" />
-        
+
         {/* Rolling Hills (CSS curves) */}
         <div className="absolute bottom-0 left-0 right-0 h-[40vh] bg-emerald-400 [clip-path:ellipse(120%_100%_at_50%_100%)] shadow-inner" />
         <div className="absolute bottom-0 left-[-20%] right-[-20%] h-[30vh] bg-green-500 [clip-path:ellipse(100%_100%_at_20%_100%)] opacity-80" />
@@ -102,17 +109,20 @@ function JoinPage() {
             <div className="mx-auto w-16 h-16 rounded-[1.5rem] bg-gradient-to-br from-[#ea580c] to-[#c2410c] text-white flex items-center justify-center shadow-inner mb-4">
               <KeyRound className="w-8 h-8" />
             </div>
-            <h1 className="text-3xl font-black font-fredoka text-[#3b2a12]">{t.soyEstudiante[lang]}</h1>
-            <p className="text-sm font-bold text-[#7a6040] mt-2">
-              {t.pideleMaestra[lang]}
-            </p>
+            <h1 className="text-3xl font-black font-fredoka text-[#3b2a12]">
+              {t.soyEstudiante[lang]}
+            </h1>
+            <p className="text-sm font-bold text-[#7a6040] mt-2">{t.pideleMaestra[lang]}</p>
           </header>
 
           {session ? (
             <div className="text-center bg-white/60 rounded-3xl p-6 border-2 border-white">
-              <p className="font-black text-xl text-[#3b2a12] mb-1">{t.holaName[lang].replace("{name}", session.studentName)}!</p>
+              <p className="font-black text-xl text-[#3b2a12] mb-1">
+                {t.holaName[lang].replace("{name}", session.studentName)}!
+              </p>
               <p className="text-sm font-bold text-stone-500 mb-6">
-                {t.estasEnClase[lang]} <strong className="text-primary">{session.className}</strong>.
+                {t.estasEnClase[lang]} <strong className="text-primary">{session.className}</strong>
+                .
               </p>
               <div className="flex flex-col gap-3">
                 <Link
@@ -162,7 +172,9 @@ function JoinPage() {
             </form>
           ) : (
             <div className="space-y-5">
-              <h2 className="text-center text-xl font-black text-[#3b2a12]">{t.elijeTuNombre[lang]}</h2>
+              <h2 className="text-center text-xl font-black text-[#3b2a12]">
+                {t.elijeTuNombre[lang]}
+              </h2>
 
               {error && (
                 <div className="bg-red-50 text-red-600 font-bold text-sm text-center py-3 px-4 rounded-2xl border-2 border-red-100">

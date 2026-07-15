@@ -30,12 +30,7 @@ const GRETEL_MAP: Record<GretelPoseKind, GretelComponent> = {
   encouraging: GretelEncouraging,
 };
 
-export function Gretel({
-  pose,
-  size,
-  className,
-  animated = false,
-}: GretelProps) {
+export function Gretel({ pose, size, className, animated = false }: GretelProps) {
   const Component = GRETEL_MAP[pose];
 
   if (!Component) {

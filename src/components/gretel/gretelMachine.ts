@@ -33,7 +33,9 @@ export function canTransition(from: GretelState, event: GretelEvent): boolean {
     case "settling":
       return ["IDLE", "ASSET_ERROR"].includes(event.type);
     case "idle":
-      return ["BLINK", "SPEAK_START", "WAVE", "POINT", "CHEER", "EXIT", "ASSET_ERROR"].includes(event.type);
+      return ["BLINK", "SPEAK_START", "WAVE", "POINT", "CHEER", "EXIT", "ASSET_ERROR"].includes(
+        event.type,
+      );
     case "blinking":
       return ["IDLE", "ASSET_ERROR"].includes(event.type);
     case "talking":
@@ -56,7 +58,9 @@ export function canTransition(from: GretelState, event: GretelEvent): boolean {
  */
 export function gretelReducer(state: GretelState, event: GretelEvent): GretelState {
   if (!canTransition(state, event)) {
-    console.warn(`[GretelMachine] Illegal transition from '${state}' with event '${event.type}'. Healing to 'idle'.`);
+    console.warn(
+      `[GretelMachine] Illegal transition from '${state}' with event '${event.type}'. Healing to 'idle'.`,
+    );
     return state === "error" ? "error" : "idle";
   }
 

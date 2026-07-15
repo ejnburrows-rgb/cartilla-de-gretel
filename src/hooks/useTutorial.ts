@@ -11,31 +11,36 @@ export const TUTORIAL_STEPS: TutorialStepType[] = [
   {
     targetSelector: ".pdf-page-wrapper",
     title: "¡Te doy la bienvenida a la Cartilla de Gretel!",
-    description: "Esta es tu Cartilla interactiva. Aquí leeremos juntos historias increíbles y aprenderemos sílabas divertidas.",
+    description:
+      "Esta es tu Cartilla interactiva. Aquí leeremos juntos historias increíbles y aprenderemos sílabas divertidas.",
     position: "bottom",
   },
   {
     targetSelector: ".exercise-handout-box, .student-exercise-pane, [role='tabpanel']",
     title: "Área de Práctica",
-    description: "En este espacio harás ejercicios táctiles: trazar letras, formar palabras y unir sílabas para subir de nivel.",
+    description:
+      "En este espacio harás ejercicios táctiles: trazar letras, formar palabras y unir sílabas para subir de nivel.",
     position: "top",
   },
   {
     targetSelector: ".gretel-avatar-container",
     title: "Gretel Asistente",
-    description: "Yo estaré aquí para darte ánimos, guiarte en tus trazos y celebrar a lo grande cada uno de tus aciertos.",
+    description:
+      "Yo estaré aquí para darte ánimos, guiarte en tus trazos y celebrar a lo grande cada uno de tus aciertos.",
     position: "top",
   },
   {
     targetSelector: ".no-print button, .kiosko-huge-arrow, .navigation-overlay-box",
     title: "Cambiar de Página",
-    description: "Usa los botones para avanzar o retroceder páginas, o desliza tu dedo de izquierda a derecha en tu iPad o tableta.",
+    description:
+      "Usa los botones para avanzar o retroceder páginas, o desliza tu dedo de izquierda a derecha en tu iPad o tableta.",
     position: "top",
   },
   {
     targetSelector: "",
     title: "¡Todo Listo!",
-    description: "Toca cualquier sílaba o letra de la pantalla para comenzar esta aventura literaria. ¡A leer!",
+    description:
+      "Toca cualquier sílaba o letra de la pantalla para comenzar esta aventura literaria. ¡A leer!",
     position: "center",
   },
 ];

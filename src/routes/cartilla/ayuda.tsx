@@ -9,8 +9,7 @@ export const Route = createFileRoute("/cartilla/ayuda")({
       { title: "Ayuda — La Cartilla de Gretel" },
       {
         name: "description",
-        content:
-          "Instrucciones en español e inglés para estudiantes, familias y docentes.",
+        content: "Instrucciones en español e inglés para estudiantes, familias y docentes.",
       },
     ],
   }),
@@ -79,8 +78,7 @@ const COPY = {
     },
     en: {
       title: "Help for teachers",
-      intro:
-        "The teacher CRM is separate from the student lane and the flipchart presenter.",
+      intro: "The teacher CRM is separate from the student lane and the flipchart presenter.",
       steps: [
         "Sign in as a teacher at /login (do not use a student class code).",
         "Create or select a class. Share the join code with families.",
@@ -114,7 +112,11 @@ function AyudaPage() {
             <ArrowLeft className="w-5 h-5" aria-hidden="true" />
             {lang === "es" ? "Volver" : "Back"}
           </Link>
-          <div className="flex gap-2" role="group" aria-label={lang === "es" ? "Idioma" : "Language"}>
+          <div
+            className="flex gap-2"
+            role="group"
+            aria-label={lang === "es" ? "Idioma" : "Language"}
+          >
             {(["es", "en"] as const).map((code) => (
               <button
                 key={code}
@@ -201,12 +203,8 @@ function AyudaPage() {
             {lang === "es" ? "Autora" : "Author"}: Leonor Lopetegui ·{" "}
             {lang === "es" ? "Ilustradora" : "Illustrator"}: Estela de Armas Plasencia
           </p>
-          <p>
-            {lang === "es" ? "Colaboradoras" : "Contributors"}: Silvia Diez, Aída Fernández
-          </p>
-          <p>
-            {lang === "es" ? "Adaptación digital" : "Digital adaptation"}: Emilio José Novo
-          </p>
+          <p>{lang === "es" ? "Colaboradoras" : "Contributors"}: Silvia Diez, Aída Fernández</p>
+          <p>{lang === "es" ? "Adaptación digital" : "Digital adaptation"}: Emilio José Novo</p>
         </section>
 
         <nav className="flex flex-wrap gap-3 pb-10">

@@ -78,7 +78,11 @@ const FOLDERS: FolderDef[] = [
 function TeacherGuiaFolders() {
   const { folder: folderFromUrl } = Route.useSearch();
   const [openFolder, setOpenFolder] = useState<FolderKey | null>(folderFromUrl ?? null);
-  const [assigning, setAssigning] = useState<{ folderKey: FolderKey; lessonId: string; label: string } | null>(null);
+  const [assigning, setAssigning] = useState<{
+    folderKey: FolderKey;
+    lessonId: string;
+    label: string;
+  } | null>(null);
 
   const folder = FOLDERS.find((f) => f.key === openFolder);
 
@@ -87,7 +91,8 @@ function TeacherGuiaFolders() {
       <header>
         <h1 className="teacher-chrome__title text-2xl font-black">Guía del profesor</h1>
         <p className="text-[var(--tc-ink-soft)] font-medium">
-          Todo el material del maestro, organizado en 5 carpetas. Toca una carpeta para ver las 24 lecciones.
+          Todo el material del maestro, organizado en 5 carpetas. Toca una carpeta para ver las 24
+          lecciones.
         </p>
       </header>
 
@@ -117,7 +122,10 @@ function TeacherGuiaFolders() {
             <h2 className="font-black text-xl text-[var(--tc-ink)] flex items-center gap-2">
               <span style={{ color: folder.color }}>{folder.icon}</span> {folder.label}
             </h2>
-            <button onClick={() => setOpenFolder(null)} className="text-sm font-bold text-[var(--tc-ink-faint)] hover:text-[var(--tc-ink)]">
+            <button
+              onClick={() => setOpenFolder(null)}
+              className="text-sm font-bold text-[var(--tc-ink-faint)] hover:text-[var(--tc-ink)]"
+            >
               Cerrar
             </button>
           </div>
@@ -129,7 +137,9 @@ function TeacherGuiaFolders() {
                 entry={entry}
                 folderKey={folder.key}
                 accent={folder.color}
-                onAssign={(label) => setAssigning({ folderKey: folder.key, lessonId: String(entry.n), label })}
+                onAssign={(label) =>
+                  setAssigning({ folderKey: folder.key, lessonId: String(entry.n), label })
+                }
               />
             ))}
           </div>
@@ -166,36 +176,54 @@ function FolderLessonRow({
 
   if (folderKey === "guia") {
     content = (
-      <Link to="/cartilla/teacher/guia/$n" params={{ n: String(entry.n) }} className="underline decoration-dotted">
+      <Link
+        to="/cartilla/teacher/guia/$n"
+        params={{ n: String(entry.n) }}
+        className="underline decoration-dotted"
+      >
         Ver guion completo de la lección
       </Link>
     );
     activityLabel = `Guía del profesor — Lección ${entry.n} (${entry.title})`;
   } else if (folderKey === "tablas") {
-    const syllables = entry.kind === "consonant" ? entry.data.syllables.join(" · ") : entry.kind === "vowel" ? `Vocal ${entry.vowel.toUpperCase()}` : "a · e · i · o · u";
+    const syllables =
+      entry.kind === "consonant"
+        ? entry.data.syllables.join(" · ")
+        : entry.kind === "vowel"
+          ? `Vocal ${entry.vowel.toUpperCase()}`
+          : "a · e · i · o · u";
     content = <span className="font-mono font-bold">{syllables}</span>;
     activityLabel = `Tabla silábica — Lección ${entry.n} (${syllables})`;
   } else if (folderKey === "tareas") {
     content = data.rhymeTitle ? (
       <span>Refuerzo de sílabas + practicar en casa la rima "{data.rhymeTitle}".</span>
     ) : (
-      <span className="text-amber-600 font-bold">AWAITING-SOURCE-SCAN — tarea aún no transcrita.</span>
+      <span className="text-amber-600 font-bold">
+        AWAITING-SOURCE-SCAN — tarea aún no transcrita.
+      </span>
     );
     activityLabel = `Tarea para el hogar — Lección ${entry.n}`;
   } else if (folderKey === "evaluaciones") {
     content = data.evaluationPage ? (
       <span>Evaluación, página {data.evaluationPage}.</span>
     ) : (
-      <span className="text-amber-600 font-bold">AWAITING-SOURCE-SCAN — evaluación aún no transcrita.</span>
+      <span className="text-amber-600 font-bold">
+        AWAITING-SOURCE-SCAN — evaluación aún no transcrita.
+      </span>
     );
     activityLabel = `Evaluación — Lección ${entry.n} (página ${data.evaluationPage ?? "?"})`;
   } else {
     content = data.rhymeTitle ? (
       <span>
-        "{data.rhymeTitle}" <span className="text-[var(--tc-ink-faint)] font-medium">· audio: pendiente (no existe grabación aún)</span>
+        "{data.rhymeTitle}"{" "}
+        <span className="text-[var(--tc-ink-faint)] font-medium">
+          · audio: pendiente (no existe grabación aún)
+        </span>
       </span>
     ) : (
-      <span className="text-amber-600 font-bold">AWAITING-SOURCE-SCAN — poema aún no transcrito.</span>
+      <span className="text-amber-600 font-bold">
+        AWAITING-SOURCE-SCAN — poema aún no transcrito.
+      </span>
     );
     activityLabel = `Poema — Lección ${entry.n} (${data.rhymeTitle ?? "sin título"})`;
   }

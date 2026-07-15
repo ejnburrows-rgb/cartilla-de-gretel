@@ -64,7 +64,11 @@ export function ClassRoster() {
   const isSeed = useMemo(() => isSeedSessionActive(), []);
 
   // 1. Fetch Classes
-  const { data: realClasses, isLoading: loadingRealClasses, refetch: refetchRealClasses } = useQuery({
+  const {
+    data: realClasses,
+    isLoading: loadingRealClasses,
+    refetch: refetchRealClasses,
+  } = useQuery({
     queryKey: ["roster-classes"],
     queryFn: () => listClasses(),
     enabled: !isSeed,
@@ -90,7 +94,11 @@ export function ClassRoster() {
   }, [classesList, selectedClassId]);
 
   // 2. Fetch Students for Selected Class
-  const { data: realClassData, isLoading: loadingRealStudents, refetch: refetchRealStudents } = useQuery({
+  const {
+    data: realClassData,
+    isLoading: loadingRealStudents,
+    refetch: refetchRealStudents,
+  } = useQuery({
     queryKey: ["roster-students", selectedClassId, showArchived],
     queryFn: () => getClass({ data: { id: selectedClassId, includeArchived: showArchived } }),
     enabled: !isSeed && !!selectedClassId,
@@ -174,7 +182,8 @@ export function ClassRoster() {
   };
 
   const handleDeleteStudent = async (studentId: string, name: string) => {
-    if (!window.confirm(`¿Seguro que deseas eliminar a ${name}? Se perderá todo su progreso.`)) return;
+    if (!window.confirm(`¿Seguro que deseas eliminar a ${name}? Se perderá todo su progreso.`))
+      return;
     setBusy(true);
     try {
       if (isSeed) {
@@ -245,14 +254,18 @@ export function ClassRoster() {
     <div className="space-y-6">
       {/* Messages banner */}
       {msg && (
-        <div 
+        <div
           className={`p-4 rounded-2xl border text-sm font-bold flex items-center gap-2 animate-in fade-in duration-200 ${
-            msg.type === "success" 
-              ? "bg-[hsl(145,60%,97%)] border-[hsl(145,60%,90%)] text-[hsl(145,65%,25%)]" 
+            msg.type === "success"
+              ? "bg-[hsl(145,60%,97%)] border-[hsl(145,60%,90%)] text-[hsl(145,65%,25%)]"
               : "bg-[hsl(354,78%,97%)] border-[hsl(354,78%,90%)] text-[hsl(354,78%,35%)]"
           }`}
         >
-          {msg.type === "success" ? <CheckCircle className="w-5 h-5" /> : <AlertCircle className="w-5 h-5" />}
+          {msg.type === "success" ? (
+            <CheckCircle className="w-5 h-5" />
+          ) : (
+            <AlertCircle className="w-5 h-5" />
+          )}
           <span>{msg.text}</span>
         </div>
       )}
@@ -261,7 +274,9 @@ export function ClassRoster() {
       <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between p-5 bg-[hsl(48,100%,96%)] border border-[hsl(28,30%,18%)]/8 rounded-[2rem] shadow-sm">
         <div className="flex-1 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
           <div className="flex flex-col">
-            <span className="text-[10px] font-bold text-stone-500 uppercase tracking-widest ml-1 mb-1">Clase Activa</span>
+            <span className="text-[10px] font-bold text-stone-500 uppercase tracking-widest ml-1 mb-1">
+              Clase Activa
+            </span>
             {loadingClasses ? (
               <span className="text-sm text-stone-400 font-bold px-3 py-2">Cargando...</span>
             ) : classesList.length === 0 ? (
@@ -282,8 +297,12 @@ export function ClassRoster() {
           </div>
           {activeClass && (
             <div className="flex flex-col mt-2 sm:mt-4 ml-1">
-              <span className="text-[10px] font-black text-stone-400 uppercase tracking-widest">Código de la clase</span>
-              <span className="text-lg font-black text-vowel-e font-mono mt-0.5">{activeClass.join_code}</span>
+              <span className="text-[10px] font-black text-stone-400 uppercase tracking-widest">
+                Código de la clase
+              </span>
+              <span className="text-lg font-black text-vowel-e font-mono mt-0.5">
+                {activeClass.join_code}
+              </span>
             </div>
           )}
         </div>
@@ -291,7 +310,9 @@ export function ClassRoster() {
         {/* Create Class Form */}
         <form onSubmit={handleCreateClass} className="flex gap-2 items-end">
           <div className="flex flex-col">
-            <span className="text-[10px] font-bold text-stone-500 uppercase tracking-widest ml-1 mb-1">Nueva clase</span>
+            <span className="text-[10px] font-bold text-stone-500 uppercase tracking-widest ml-1 mb-1">
+              Nueva clase
+            </span>
             <input
               type="text"
               value={newClassName}
@@ -321,15 +342,24 @@ export function ClassRoster() {
             <GraduationCap className="w-9 h-9" />
           </div>
           <div>
-            <h2 className="text-2xl font-black text-stone-800 font-fredoka">Aún no tienes clases creadas</h2>
+            <h2 className="text-2xl font-black text-stone-800 font-fredoka">
+              Aún no tienes clases creadas
+            </h2>
             <p className="text-sm font-semibold text-stone-500 mt-2 max-w-sm mx-auto leading-relaxed">
-              Crea tu primera clase usando el formulario de arriba para comenzar a gestionar alumnos y ver el progreso.
+              Crea tu primera clase usando el formulario de arriba para comenzar a gestionar alumnos
+              y ver el progreso.
             </p>
           </div>
-          <div className="p-4 rounded-2xl bg-[hsl(354,78%,98%)] border text-left text-xs text-[hsl(354,78%,35%)] font-bold flex items-start gap-3" style={alertBoxStyle}>
+          <div
+            className="p-4 rounded-2xl bg-[hsl(354,78%,98%)] border text-left text-xs text-[hsl(354,78%,35%)] font-bold flex items-start gap-3"
+            style={alertBoxStyle}
+          >
             <AlertCircle className="w-4 h-4 mt-0.5 shrink-0" />
             <p>
-              <strong>Nota sobre la cuenta:</strong> {isSeed ? "Estás operando en modo local (sin Supabase). Todos los datos se guardan de manera segura en la memoria de este navegador." : "Tu cuenta de maestro está vinculada a la nube. El progreso se sincronizará automáticamente."}
+              <strong>Nota sobre la cuenta:</strong>{" "}
+              {isSeed
+                ? "Estás operando en modo local (sin Supabase). Todos los datos se guardan de manera segura en la memoria de este navegador."
+                : "Tu cuenta de maestro está vinculada a la nube. El progreso se sincronizará automáticamente."}
             </p>
           </div>
         </div>
@@ -344,16 +374,23 @@ export function ClassRoster() {
             <User className="w-9 h-9" />
           </div>
           <div>
-            <h2 className="text-2xl font-black text-stone-800 font-fredoka">Esta clase está vacía</h2>
+            <h2 className="text-2xl font-black text-stone-800 font-fredoka">
+              Esta clase está vacía
+            </h2>
             <p className="text-sm font-semibold text-stone-500 mt-2 leading-relaxed">
-              Pídeles a tus alumnos que entren a <strong className="text-vowel-i">/cartilla/unirse</strong> y escriban el código de clase <strong className="font-mono text-vowel-e">{activeClass?.join_code}</strong>.
+              Pídeles a tus alumnos que entren a{" "}
+              <strong className="text-vowel-i">/cartilla/unirse</strong> y escriban el código de
+              clase <strong className="font-mono text-vowel-e">{activeClass?.join_code}</strong>.
             </p>
             <p className="text-xs font-bold text-stone-400 mt-1.5">
               O añade un alumno manualmente en el siguiente formulario.
             </p>
           </div>
 
-          <form onSubmit={handleAddStudent} className="flex gap-2 max-w-md mx-auto justify-center items-center">
+          <form
+            onSubmit={handleAddStudent}
+            className="flex gap-2 max-w-md mx-auto justify-center items-center"
+          >
             <input
               type="text"
               value={newStudentName}
@@ -383,7 +420,7 @@ export function ClassRoster() {
                 Lista oficial de alumnos inscritos en {activeClass?.name}.
               </p>
             </div>
-            
+
             {/* Quick Add Form inside Header */}
             <form onSubmit={handleAddStudent} className="flex gap-2 items-center w-full sm:w-auto">
               <input
@@ -435,106 +472,112 @@ export function ClassRoster() {
               Ningún alumno coincide con &quot;{searchQuery}&quot;.
             </div>
           ) : (
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm">
-              <thead className="bg-stone-50/70 text-stone-500 font-bold uppercase tracking-wider text-[10px] border-b border-stone-200">
-                <tr>
-                  <th className="p-4 pl-6">Alumno</th>
-                  <th className="p-4">Código Personal</th>
-                  <th className="p-4">Lecciones Completas</th>
-                  <th className="p-4">Última Actividad</th>
-                  <th className="p-4 pr-6 text-right">Acciones</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-stone-100 bg-white">
-                {studentsList.map((s) => (
-                  <tr
-                    key={s.id}
-                    className={`hover:bg-stone-50/50 transition-colors group ${s.archived_at ? "opacity-50" : ""}`}
-                  >
-                    <td className="p-4 pl-6">
-                      <div className="flex items-center gap-3">
-                        <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[hsl(28,87%,88%)] to-[hsl(48,95%,85%)] flex items-center justify-center text-orange-800 shadow-inner shrink-0">
-                          <User className="w-4 h-4" />
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-sm">
+                <thead className="bg-stone-50/70 text-stone-500 font-bold uppercase tracking-wider text-[10px] border-b border-stone-200">
+                  <tr>
+                    <th className="p-4 pl-6">Alumno</th>
+                    <th className="p-4">Código Personal</th>
+                    <th className="p-4">Lecciones Completas</th>
+                    <th className="p-4">Última Actividad</th>
+                    <th className="p-4 pr-6 text-right">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-stone-100 bg-white">
+                  {studentsList.map((s) => (
+                    <tr
+                      key={s.id}
+                      className={`hover:bg-stone-50/50 transition-colors group ${s.archived_at ? "opacity-50" : ""}`}
+                    >
+                      <td className="p-4 pl-6">
+                        <div className="flex items-center gap-3">
+                          <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[hsl(28,87%,88%)] to-[hsl(48,95%,85%)] flex items-center justify-center text-orange-800 shadow-inner shrink-0">
+                            <User className="w-4 h-4" />
+                          </div>
+                          {editingId === s.id ? (
+                            <input
+                              type="text"
+                              value={editingName}
+                              onChange={(e) => setEditingName(e.target.value)}
+                              onBlur={() => handleSaveRename(s.id)}
+                              onKeyDown={(e) => {
+                                if (e.key === "Enter") handleSaveRename(s.id);
+                                if (e.key === "Escape") setEditingId(null);
+                              }}
+                              autoFocus
+                              maxLength={50}
+                              className="font-extrabold text-stone-800 text-sm px-2 py-1 rounded-lg border-2 border-vowel-a focus:outline-none w-40"
+                            />
+                          ) : (
+                            <button
+                              type="button"
+                              onClick={() => startEditing(s)}
+                              disabled={isSeed}
+                              className="font-extrabold text-stone-800 text-sm text-left hover:underline decoration-dotted underline-offset-2 disabled:no-underline disabled:cursor-default cursor-pointer"
+                              title={isSeed ? undefined : "Editar nombre"}
+                            >
+                              {s.display_name}
+                              {s.archived_at && (
+                                <span className="ml-2 text-[10px] font-black uppercase tracking-wide text-stone-400 align-middle">
+                                  Archivado
+                                </span>
+                              )}
+                            </button>
+                          )}
                         </div>
-                        {editingId === s.id ? (
-                          <input
-                            type="text"
-                            value={editingName}
-                            onChange={(e) => setEditingName(e.target.value)}
-                            onBlur={() => handleSaveRename(s.id)}
-                            onKeyDown={(e) => {
-                              if (e.key === "Enter") handleSaveRename(s.id);
-                              if (e.key === "Escape") setEditingId(null);
-                            }}
-                            autoFocus
-                            maxLength={50}
-                            className="font-extrabold text-stone-800 text-sm px-2 py-1 rounded-lg border-2 border-vowel-a focus:outline-none w-40"
-                          />
-                        ) : (
+                      </td>
+                      <td className="p-4">
+                        <span className="text-xs font-mono font-bold text-stone-600 bg-stone-100 px-2 py-0.5 rounded border border-stone-200/50">
+                          {s.student_code}
+                        </span>
+                      </td>
+                      <td className="p-4">
+                        <div className="flex items-center gap-1.5 text-xs font-bold text-stone-600">
+                          <Award className="w-4 h-4 text-emerald-500" /> {s.lessons} lecciones
+                        </div>
+                      </td>
+                      <td className="p-4 text-stone-600 font-semibold text-xs">
+                        {s.lastSeen
+                          ? new Date(s.lastSeen).toLocaleDateString()
+                          : "Ninguna registrada"}
+                      </td>
+                      <td className="p-4 pr-6 text-right">
+                        <div className="flex items-center justify-end gap-1">
                           <button
-                            type="button"
                             onClick={() => startEditing(s)}
-                            disabled={isSeed}
-                            className="font-extrabold text-stone-800 text-sm text-left hover:underline decoration-dotted underline-offset-2 disabled:no-underline disabled:cursor-default cursor-pointer"
-                            title={isSeed ? undefined : "Editar nombre"}
+                            disabled={busy || isSeed}
+                            className="p-2 text-stone-400 hover:text-vowel-a hover:bg-[hsl(48,100%,97%)] rounded-xl transition duration-200 cursor-pointer disabled:opacity-50"
+                            title="Renombrar Alumno"
                           >
-                            {s.display_name}
-                            {s.archived_at && (
-                              <span className="ml-2 text-[10px] font-black uppercase tracking-wide text-stone-400 align-middle">
-                                Archivado
-                              </span>
+                            <Pencil className="w-4 h-4" />
+                          </button>
+                          <button
+                            onClick={() => handleArchiveToggle(s)}
+                            disabled={busy || isSeed}
+                            className="p-2 text-stone-400 hover:text-vowel-o hover:bg-[hsl(198,78%,97%)] rounded-xl transition duration-200 cursor-pointer disabled:opacity-50"
+                            title={s.archived_at ? "Restaurar Alumno" : "Archivar Alumno"}
+                          >
+                            {s.archived_at ? (
+                              <ArchiveRestore className="w-4 h-4" />
+                            ) : (
+                              <Archive className="w-4 h-4" />
                             )}
                           </button>
-                        )}
-                      </div>
-                    </td>
-                    <td className="p-4">
-                      <span className="text-xs font-mono font-bold text-stone-600 bg-stone-100 px-2 py-0.5 rounded border border-stone-200/50">
-                        {s.student_code}
-                      </span>
-                    </td>
-                    <td className="p-4">
-                      <div className="flex items-center gap-1.5 text-xs font-bold text-stone-600">
-                        <Award className="w-4 h-4 text-emerald-500" /> {s.lessons} lecciones
-                      </div>
-                    </td>
-                    <td className="p-4 text-stone-600 font-semibold text-xs">
-                      {s.lastSeen ? new Date(s.lastSeen).toLocaleDateString() : "Ninguna registrada"}
-                    </td>
-                    <td className="p-4 pr-6 text-right">
-                      <div className="flex items-center justify-end gap-1">
-                        <button
-                          onClick={() => startEditing(s)}
-                          disabled={busy || isSeed}
-                          className="p-2 text-stone-400 hover:text-vowel-a hover:bg-[hsl(48,100%,97%)] rounded-xl transition duration-200 cursor-pointer disabled:opacity-50"
-                          title="Renombrar Alumno"
-                        >
-                          <Pencil className="w-4 h-4" />
-                        </button>
-                        <button
-                          onClick={() => handleArchiveToggle(s)}
-                          disabled={busy || isSeed}
-                          className="p-2 text-stone-400 hover:text-vowel-o hover:bg-[hsl(198,78%,97%)] rounded-xl transition duration-200 cursor-pointer disabled:opacity-50"
-                          title={s.archived_at ? "Restaurar Alumno" : "Archivar Alumno"}
-                        >
-                          {s.archived_at ? <ArchiveRestore className="w-4 h-4" /> : <Archive className="w-4 h-4" />}
-                        </button>
-                        <button
-                          onClick={() => handleDeleteStudent(s.id, s.display_name)}
-                          disabled={busy}
-                          className="p-2 text-stone-400 hover:text-[hsl(354,78%,56%)] hover:bg-[hsl(354,78%,98%)] rounded-xl transition duration-200 cursor-pointer disabled:opacity-50"
-                          title="Eliminar Alumno"
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                          <button
+                            onClick={() => handleDeleteStudent(s.id, s.display_name)}
+                            disabled={busy}
+                            className="p-2 text-stone-400 hover:text-[hsl(354,78%,56%)] hover:bg-[hsl(354,78%,98%)] rounded-xl transition duration-200 cursor-pointer disabled:opacity-50"
+                            title="Eliminar Alumno"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           )}
         </div>
       )}

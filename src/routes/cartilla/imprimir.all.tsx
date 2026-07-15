@@ -64,9 +64,9 @@ function LessonWorksheet({ entry }: { entry: CatalogEntry }) {
 
   const dragWord: string = useMemo(() => {
     return entry.kind === "consonant"
-      ? Object.values(entry.data.examples).flat()[0] ?? "sol"
+      ? (Object.values(entry.data.examples).flat()[0] ?? "sol")
       : entry.kind === "vowel"
-        ? entry.lesson.vocab[0]?.word ?? "ola"
+        ? (entry.lesson.vocab[0]?.word ?? "ola")
         : "ala";
   }, [entry]);
 
@@ -74,7 +74,11 @@ function LessonWorksheet({ entry }: { entry: CatalogEntry }) {
   const titleStyle = { color: entry.color };
   const badgeStyle = { borderColor: `${entry.color}60`, color: entry.color };
   const dashedStyle = { borderColor: `${entry.color}50` };
-  const shuffledStyle = { borderColor: entry.color, color: entry.color, backgroundColor: `${entry.color}12` };
+  const shuffledStyle = {
+    borderColor: entry.color,
+    color: entry.color,
+    backgroundColor: `${entry.color}12`,
+  };
 
   return (
     <div className="worksheet-page border-b-2 border-dashed border-stone-200 pb-12 print:border-none print:pb-0">
@@ -96,7 +100,6 @@ function LessonWorksheet({ entry }: { entry: CatalogEntry }) {
 
       {/* Worksheets */}
       <div className="border-2 rounded-3xl p-6 space-y-6" style={borderStyle}>
-        
         {/* A. Rodea la sílaba */}
         <div>
           <h3 className="font-bold text-base mb-2" style={titleStyle}>
@@ -139,9 +142,14 @@ function LessonWorksheet({ entry }: { entry: CatalogEntry }) {
           <div className="flex flex-col gap-4">
             {[dragWord, ...(words[1] ? [words[1]] : [])].map((targetWord, idx) => {
               // Deterministic shuffle for printing consistency
-              const shuffled = [...targetWord.split("")].sort((a, b) => a.charCodeAt(0) - b.charCodeAt(0));
+              const shuffled = [...targetWord.split("")].sort(
+                (a, b) => a.charCodeAt(0) - b.charCodeAt(0),
+              );
               return (
-                <div key={`${targetWord}-${idx}`} className="flex flex-col sm:flex-row sm:items-center gap-3">
+                <div
+                  key={`${targetWord}-${idx}`}
+                  className="flex flex-col sm:flex-row sm:items-center gap-3"
+                >
                   <div className="flex gap-1.5">
                     {shuffled.map((letter, i) => (
                       <div
@@ -168,7 +176,6 @@ function LessonWorksheet({ entry }: { entry: CatalogEntry }) {
             })}
           </div>
         </div>
-
       </div>
 
       {/* Sheet Footer */}

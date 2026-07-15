@@ -46,19 +46,15 @@ export function PianoPronunciation({
   onComplete,
   locale = "es-MX",
 }: PianoPronunciationProps) {
-  const {
-    isListening,
-    transcript,
-    startListening,
-    stopListening,
-    isSupported,
-    error,
-  } = useSpeechRecognition({ lang: locale });
+  const { isListening, transcript, startListening, stopListening, isSupported, error } =
+    useSpeechRecognition({ lang: locale });
 
   const [activeKeyIdx, setActiveKeyIdx] = useState<number | null>(null);
   const [keyStates, setKeyStates] = useState<Record<number, "idle" | "correct" | "incorrect">>({});
   const [completedSet, setCompletedSet] = useState<Set<string>>(new Set());
-  const [helperText, setHelperText] = useState("Toca 'Escuchar' y luego el micrófono para repetir.");
+  const [helperText, setHelperText] = useState(
+    "Toca 'Escuchar' y luego el micrófono para repetir.",
+  );
 
   // Map each syllable to a piano key index/frequency
   const pianoKeys = syllables.slice(0, 8).map((syllable, index) => ({
@@ -89,11 +85,13 @@ export function PianoPronunciation({
         return next;
       });
       setHelperText(`¡Excelente! Dijiste: "${transcript}"`);
-      
+
       // Dispatch Gretel live celebration
-      window.dispatchEvent(new CustomEvent("gretel:celebrate", {
-        detail: { text: `¡Muy bien pronunciado! Dijiste "${matchSyllable}"` }
-      }));
+      window.dispatchEvent(
+        new CustomEvent("gretel:celebrate", {
+          detail: { text: `¡Muy bien pronunciado! Dijiste "${matchSyllable}"` },
+        }),
+      );
 
       // Log progress
       recordEvent({
@@ -101,7 +99,7 @@ export function PianoPronunciation({
         kind: "exercise",
         score: completedSet.size + 1,
         total: pianoKeys.length,
-        meta: { exercise: "piano_pronunciation", syllable: matchSyllable, completed: true }
+        meta: { exercise: "piano_pronunciation", syllable: matchSyllable, completed: true },
       });
 
       setTimeout(() => {
@@ -119,7 +117,7 @@ export function PianoPronunciation({
         }
       });
       setKeyStates(updatedStates);
-      
+
       setTimeout(() => {
         setKeyStates({});
       }, 1000);
@@ -170,7 +168,9 @@ export function PianoPronunciation({
     <div className="w-full p-6 bg-gradient-to-b from-stone-100 to-stone-200 rounded-3xl border border-stone-300 shadow-xl my-6 max-w-2xl mx-auto flex flex-col items-center">
       {/* Title */}
       <h3 className="text-2xl font-black text-stone-800 mb-2 font-display">El Piano Hablador</h3>
-      <p className="text-xs text-stone-500 font-bold mb-4 uppercase tracking-wider">Pronuncia las sílabas para tocar las notas</p>
+      <p className="text-xs text-stone-500 font-bold mb-4 uppercase tracking-wider">
+        Pronuncia las sílabas para tocar las notas
+      </p>
 
       {/* Helper text display */}
       <div className="w-full bg-white/80 backdrop-blur border border-stone-200/50 rounded-2xl p-3 text-center mb-6 min-h-[50px] flex items-center justify-center">
@@ -203,9 +203,9 @@ export function PianoPronunciation({
                 transition={{ duration: state === "correct" ? 0.3 : 0.4 }}
                 style={{ flex: "1 1 0%", transformOrigin: "top" }}
                 className={cn(
-                    "mx-[2px] first:ml-0 last:mr-0 h-72 rounded-b-xl relative select-none cursor-pointer group",
-                    state === "correct" && "key-bounce",
-                    state === "incorrect" && "key-shake"
+                  "mx-[2px] first:ml-0 last:mr-0 h-72 rounded-b-xl relative select-none cursor-pointer group",
+                  state === "correct" && "key-bounce",
+                  state === "incorrect" && "key-shake",
                 )}
                 onClick={() => listenToSyllable(key.syllable, index)}
               >
@@ -216,7 +216,8 @@ export function PianoPronunciation({
                     "group-active:pt-2 group-active:pb-2 group-active:shadow-sm",
                     isActive && "scale-y-[0.98]",
                     state === "correct" && "shadow-[0_0_18px_rgba(16,185,129,0.7)]",
-                    state === "incorrect" && "bg-red-400 border-red-500 shadow-[0_0_10px_rgba(239,68,68,0.5)]"
+                    state === "incorrect" &&
+                      "bg-red-400 border-red-500 shadow-[0_0_10px_rgba(239,68,68,0.5)]",
                   )}
                   style={
                     state === "incorrect"
@@ -279,7 +280,9 @@ export function PianoPronunciation({
       <div className="mt-8 flex flex-col items-center gap-4">
         {!isSupported ? (
           <div className="text-xs font-bold text-red-500 text-center bg-red-50 p-2.5 rounded-xl border border-red-200">
-            ⚠️ La entrada de micrófono no es compatible con este navegador.<br />Prueba con Google Chrome o Safari.
+            ⚠️ La entrada de micrófono no es compatible con este navegador.
+            <br />
+            Prueba con Google Chrome o Safari.
           </div>
         ) : (
           <div className="flex flex-col items-center gap-2">
@@ -290,7 +293,7 @@ export function PianoPronunciation({
                 "w-16 h-16 rounded-full flex items-center justify-center text-white transition-all shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 cursor-pointer",
                 isListening
                   ? "bg-red-500 hover:bg-red-600 animate-pulse focus:ring-red-400"
-                  : "bg-primary hover:bg-primary-hover focus:ring-amber-300"
+                  : "bg-primary hover:bg-primary-hover focus:ring-amber-300",
               )}
               style={!isListening ? { backgroundColor: color } : {}}
               title={isListening ? "Detener micrófono" : "Comenzar micrófono"}
@@ -307,7 +310,9 @@ export function PianoPronunciation({
         <div className="w-56 mt-2 flex flex-col items-center gap-1.5">
           <div className="flex justify-between w-full text-xs font-bold text-stone-600">
             <span>Progreso</span>
-            <span>{completedSet.size} de {pianoKeys.length}</span>
+            <span>
+              {completedSet.size} de {pianoKeys.length}
+            </span>
           </div>
           <div className="w-full h-3 bg-stone-300/60 border border-stone-400/10 rounded-full overflow-hidden">
             <motion.div

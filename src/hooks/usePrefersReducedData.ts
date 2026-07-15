@@ -5,7 +5,10 @@ export function usePrefersReducedData(): boolean {
     if (typeof window === "undefined") return false;
 
     // Check navigator.connection.saveData (Save-Data)
-    const conn = (navigator as any).connection || (navigator as any).mozConnection || (navigator as any).webkitConnection;
+    const conn =
+      (navigator as any).connection ||
+      (navigator as any).mozConnection ||
+      (navigator as any).webkitConnection;
     const saveData = conn ? !!conn.saveData : false;
 
     // Check media query prefers-reduced-data
@@ -19,9 +22,12 @@ export function usePrefersReducedData(): boolean {
     if (typeof window === "undefined") return;
 
     const mediaQuery = window.matchMedia("(prefers-reduced-data: reduce)");
-    
+
     const handleChange = () => {
-      const conn = (navigator as any).connection || (navigator as any).mozConnection || (navigator as any).webkitConnection;
+      const conn =
+        (navigator as any).connection ||
+        (navigator as any).mozConnection ||
+        (navigator as any).webkitConnection;
       const saveData = conn ? !!conn.saveData : false;
       setPrefersReduced(saveData || mediaQuery.matches);
     };
@@ -34,7 +40,10 @@ export function usePrefersReducedData(): boolean {
     }
 
     // Listen for changes to navigator.connection if supported
-    const conn = (navigator as any).connection || (navigator as any).mozConnection || (navigator as any).webkitConnection;
+    const conn =
+      (navigator as any).connection ||
+      (navigator as any).mozConnection ||
+      (navigator as any).webkitConnection;
     if (conn && conn.addEventListener) {
       conn.addEventListener("change", handleChange);
     }

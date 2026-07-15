@@ -111,8 +111,7 @@ function PageBackground({
   contentStrength: boolean;
 }) {
   const chain = useMemo(() => {
-    const fallback =
-      pageNumber !== null ? getWorkbookPageFallbackChain(pageNumber) : [];
+    const fallback = pageNumber !== null ? getWorkbookPageFallbackChain(pageNumber) : [];
     const preferredOk = preferred && !isPlaceholderBackground(preferred) ? preferred : null;
     const ordered = preferredOk
       ? [preferredOk, ...fallback.filter((p) => p !== preferredOk)]
@@ -249,7 +248,8 @@ export function LivingWorkbookPage({
       id: o.id,
       caption: o.alt ?? o.text ?? o.id,
       illustrationSrc: o.src,
-      correct: Boolean((o.interaction?.data as { correct?: boolean } | undefined)?.correct) || i === 0,
+      correct:
+        Boolean((o.interaction?.data as { correct?: boolean } | undefined)?.correct) || i === 0,
     }));
     interactionSlot = (
       <DibujaHost

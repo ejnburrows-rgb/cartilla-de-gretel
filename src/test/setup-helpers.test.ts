@@ -76,7 +76,12 @@ describe("setup.ts gesture helpers", () => {
 
       expect(events).toHaveLength(2);
       expect(events[0]).toEqual({ type: "pointerdown", clientX: 10, clientY: 20, time: startTime });
-      expect(events[1]).toEqual({ type: "pointerup", clientX: 100, clientY: 200, time: startTime + 150 });
+      expect(events[1]).toEqual({
+        type: "pointerup",
+        clientX: 100,
+        clientY: 200,
+        time: startTime + 150,
+      });
       expect(endTime - startTime).toBe(150);
     });
   });
@@ -149,7 +154,12 @@ describe("setup.ts gesture helpers", () => {
 
       expect(events).toHaveLength(2);
       expect(events[0]).toEqual({ type: "touchstart", clientX: 50, clientY: 60, time: startTime });
-      expect(events[1]).toEqual({ type: "touchend", clientX: 500, clientY: 600, time: startTime + 200 });
+      expect(events[1]).toEqual({
+        type: "touchend",
+        clientX: 500,
+        clientY: 600,
+        time: startTime + 200,
+      });
       expect(endTime - startTime).toBe(200);
     });
   });
@@ -215,10 +225,18 @@ describe("setup.ts gesture helpers", () => {
       vi.useFakeTimers();
       const windowEvents: any[] = [];
       const onStart = (e: any) => {
-        windowEvents.push({ type: e.type, clientX: e.touches[0].clientX, clientY: e.touches[0].clientY });
+        windowEvents.push({
+          type: e.type,
+          clientX: e.touches[0].clientX,
+          clientY: e.touches[0].clientY,
+        });
       };
       const onEnd = (e: any) => {
-        windowEvents.push({ type: e.type, clientX: e.changedTouches[0].clientX, clientY: e.changedTouches[0].clientY });
+        windowEvents.push({
+          type: e.type,
+          clientX: e.changedTouches[0].clientX,
+          clientY: e.changedTouches[0].clientY,
+        });
       };
 
       window.addEventListener("touchstart", onStart);
@@ -237,10 +255,18 @@ describe("setup.ts gesture helpers", () => {
       vi.useFakeTimers();
       const windowEvents: any[] = [];
       const onStart = (e: any) => {
-        windowEvents.push({ type: e.type, clientX: e.touches[0].clientX, clientY: e.touches[0].clientY });
+        windowEvents.push({
+          type: e.type,
+          clientX: e.touches[0].clientX,
+          clientY: e.touches[0].clientY,
+        });
       };
       const onEnd = (e: any) => {
-        windowEvents.push({ type: e.type, clientX: e.changedTouches[0].clientX, clientY: e.changedTouches[0].clientY });
+        windowEvents.push({
+          type: e.type,
+          clientX: e.changedTouches[0].clientX,
+          clientY: e.changedTouches[0].clientY,
+        });
       };
 
       window.addEventListener("touchstart", onStart);

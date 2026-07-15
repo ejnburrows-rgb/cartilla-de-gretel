@@ -23,7 +23,9 @@ function TeacherPrint() {
       >
         <Printer className="w-10 h-10" style={{ color: "#b8311a" }} />
       </div>
-      <h1 className="text-4xl font-black mb-4" style={{ color: "#4a1009" }}>Imprimir</h1>
+      <h1 className="text-4xl font-black mb-4" style={{ color: "#4a1009" }}>
+        Imprimir
+      </h1>
       <p className="text-lg font-semibold" style={{ color: "#b8311a" }}>
         PLACEHOLDER_CONTENT — Las fichas de trabajo imprimibles estarán disponibles próximamente.
       </p>

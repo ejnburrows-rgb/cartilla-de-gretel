@@ -63,7 +63,9 @@ function ReporteFamilias() {
 
   if (isLoading || !progress || !summary) {
     return (
-      <div className="p-12 text-center font-bold text-stone-400 animate-pulse">Cargando reporte...</div>
+      <div className="p-12 text-center font-bold text-stone-400 animate-pulse">
+        Cargando reporte...
+      </div>
     );
   }
 
@@ -96,13 +98,17 @@ function ReporteFamilias() {
 
         <section className="grid grid-cols-3 gap-4 text-center">
           <div className="p-4 bg-[hsl(145,60%,97%)] rounded-2xl border border-[hsl(145,60%,90%)]">
-            <div className="text-3xl font-black text-[hsl(145,65%,25%)]">{summary.completedLessons}</div>
+            <div className="text-3xl font-black text-[hsl(145,65%,25%)]">
+              {summary.completedLessons}
+            </div>
             <div className="text-[10px] font-black uppercase tracking-wider text-stone-500 mt-1">
               de {TOTAL_LESSONS} lecciones completas
             </div>
           </div>
           <div className="p-4 bg-[hsl(198,78%,97%)] rounded-2xl border border-[hsl(198,78%,90%)]">
-            <div className="text-3xl font-black text-[hsl(198,78%,35%)]">{summary.completionPercent}%</div>
+            <div className="text-3xl font-black text-[hsl(198,78%,35%)]">
+              {summary.completionPercent}%
+            </div>
             <div className="text-[10px] font-black uppercase tracking-wider text-stone-500 mt-1">
               del programa
             </div>
@@ -116,7 +122,9 @@ function ReporteFamilias() {
         </section>
 
         <section>
-          <h2 className="text-xs font-black uppercase tracking-wider text-stone-500 mb-2">Lección actual</h2>
+          <h2 className="text-xs font-black uppercase tracking-wider text-stone-500 mb-2">
+            Lección actual
+          </h2>
           <p className="text-lg font-bold text-stone-800">
             {currentLesson ? currentLesson.title : "¡Ha completado todo el programa!"}
           </p>

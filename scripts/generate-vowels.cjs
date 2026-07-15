@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = require("fs");
 
 function createLesson1() {
   const content = `import { getBookPageImage } from "@/lib/bookImages";
@@ -51,7 +51,7 @@ export const lesson01 = [
   }
 ];
 `;
-  fs.writeFileSync('src/data/lessons/lesson-01.ts', content);
+  fs.writeFileSync("src/data/lessons/lesson-01.ts", content);
 }
 
 function createVowelLesson(lNum, startPage, letterCap, letterLow) {
@@ -61,7 +61,7 @@ function createVowelLesson(lNum, startPage, letterCap, letterLow) {
 
   const content = `import { getBookPageImage } from "@/lib/bookImages";
 
-export const lesson${lNum.toString().padStart(2, '0')} = [
+export const lesson${lNum.toString().padStart(2, "0")} = [
   {
     id: "l${lNum}-p${p1}-mark-x",
     lessonNumber: ${lNum},
@@ -118,12 +118,12 @@ export const lesson${lNum.toString().padStart(2, '0')} = [
   if (lNum === 2) {
     finalContent = finalContent.replace("dibujos de las palabras que", "dibujos que");
   }
-  fs.writeFileSync(`src/data/lessons/lesson-${lNum.toString().padStart(2, '0')}.ts`, finalContent);
+  fs.writeFileSync(`src/data/lessons/lesson-${lNum.toString().padStart(2, "0")}.ts`, finalContent);
 }
 
 createLesson1();
-createVowelLesson(2, 10, 'O', 'o');
-createVowelLesson(3, 13, 'A', 'a');
-createVowelLesson(4, 16, 'E', 'e');
-createVowelLesson(5, 19, 'I', 'i');
-createVowelLesson(6, 22, 'U', 'u');
+createVowelLesson(2, 10, "O", "o");
+createVowelLesson(3, 13, "A", "a");
+createVowelLesson(4, 16, "E", "e");
+createVowelLesson(5, 19, "I", "i");
+createVowelLesson(6, 22, "U", "u");

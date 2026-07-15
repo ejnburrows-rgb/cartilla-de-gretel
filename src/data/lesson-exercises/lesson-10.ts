@@ -7,17 +7,18 @@ export const lesson10 = [
     pageNumber: 37,
     kind: "letter-tracing",
     title: "Escribe con tu mejor letra — T t",
-    prompt: "Traza la letra T mayúscula y la t minúscula. Luego haz un dibujo de una palabra que comienza con t.",
+    prompt:
+      "Traza la letra T mayúscula y la t minúscula. Luego haz un dibujo de una palabra que comienza con t.",
     items: [
       { id: "letter-T", label: "T" },
-      { id: "letter-t", label: "t" }
+      { id: "letter-t", label: "t" },
     ],
     targets: [],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Students trace uppercase T and lowercase t.",
-    sourcePage: getBookPageImage(37)
+    sourcePage: getBookPageImage(37),
   },
   {
     id: "l10-p38-syllable-circle",
@@ -25,33 +26,58 @@ export const lesson10 = [
     pageNumber: 38,
     kind: "drag-syllable-to-slot",
     title: "Encierra la sílaba — T t",
-    prompt: "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
+    prompt:
+      "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
     items: [
       { id: "syl-ta", label: "ta" },
       { id: "syl-te", label: "te" },
       { id: "syl-ti", label: "ti" },
       { id: "syl-to", label: "to" },
-      { id: "syl-tu", label: "tu" }
+      { id: "syl-tu", label: "tu" },
     ],
     targets: [
       { id: "slot-ta", label: "ta", coordinatesVerified: false, acceptsItemId: "syl-ta" },
       { id: "slot-te", label: "te", coordinatesVerified: false, acceptsItemId: "syl-te" },
       { id: "slot-ti", label: "ti", coordinatesVerified: false, acceptsItemId: "syl-ti" },
       { id: "slot-to", label: "to", coordinatesVerified: false, acceptsItemId: "syl-to" },
-      { id: "slot-tu", label: "tu", coordinatesVerified: false, acceptsItemId: "syl-tu" }
+      { id: "slot-tu", label: "tu", coordinatesVerified: false, acceptsItemId: "syl-tu" },
     ],
     wordBank: [
-      "tapa", "Mota", "Tota", "seta", "peseta", "pata",
-      "tema", "tomate", "mete", "teme", "Teté", "tapete",
-      "Tito", "Piti", "timón", "tina", "Poti", "tipi",
-      "topo", "moto", "pato", "toma", "sapito",
-      "tupe", "tubo", "tulipán", "tuna", "tuba", "Matute"
+      "tapa",
+      "Mota",
+      "Tota",
+      "seta",
+      "peseta",
+      "pata",
+      "tema",
+      "tomate",
+      "mete",
+      "teme",
+      "Teté",
+      "tapete",
+      "Tito",
+      "Piti",
+      "timón",
+      "tina",
+      "Poti",
+      "tipi",
+      "topo",
+      "moto",
+      "pato",
+      "toma",
+      "sapito",
+      "tupe",
+      "tubo",
+      "tulipán",
+      "tuna",
+      "tuba",
+      "Matute",
     ],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded syllable circle for T.",
-    sourcePage: getBookPageImage(38)
+    sourcePage: getBookPageImage(38),
   },
   {
     id: "l10-p39-syllable-tap",
@@ -65,14 +91,14 @@ export const lesson10 = [
       { id: "ra-te", label: "te" },
       { id: "ra-ti", label: "ti" },
       { id: "ra-to", label: "to" },
-      { id: "ra-tu", label: "tu" }
+      { id: "ra-tu", label: "tu" },
     ],
     targets: [],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded syllable tap for T.",
-    sourcePage: getBookPageImage(39)
+    sourcePage: getBookPageImage(39),
   },
   {
     id: "l10-p39-word-bank",
@@ -99,14 +125,14 @@ export const lesson10 = [
       { id: "w-peseta", label: "peseta" },
       { id: "w-tomate", label: "tomate" },
       { id: "w-poti", label: "Poti" },
-      { id: "w-pato", label: "pato" }
+      { id: "w-pato", label: "pato" },
     ],
     targets: [],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded word bank for T.",
-    sourcePage: getBookPageImage(39)
+    sourcePage: getBookPageImage(39),
   },
   {
     id: "l10-p39-mini-story",
@@ -122,17 +148,15 @@ export const lesson10 = [
       { id: "story-t-4", label: "El pomo tiene sopa. El pomo tiene tapa." },
       { id: "story-t-5", label: "Tito tapa el pomo." },
       { id: "story-t-6", label: "—¡No Tito, no, no tapes el pomo!" },
-      { id: "story-t-7", label: "Papá tapa la sopa." }
+      { id: "story-t-7", label: "Papá tapa la sopa." },
     ],
     targets: [],
-    sightWords: [
-      "tiene", "patio", "no"
-    ],
+    sightWords: ["tiene", "patio", "no"],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded mini-story for T.",
-    sourcePage: getBookPageImage(39)
+    sourcePage: getBookPageImage(39),
   },
   {
     id: "l10-p40-fill-in-blank",
@@ -147,7 +171,7 @@ export const lesson10 = [
       { id: "syl-tu", label: "tu" },
       { id: "syl-ti", label: "ti" },
       { id: "syl-pe", label: "pe" },
-      { id: "syl-pi", label: "pi" }
+      { id: "syl-pi", label: "pi" },
     ],
     targets: [
       {
@@ -157,7 +181,7 @@ export const lesson10 = [
         correctSyllable: "to",
         fullWord: "toma",
         coordinatesVerified: false,
-        acceptsItemId: "syl-to"
+        acceptsItemId: "syl-to",
       },
       {
         id: "blank-mata",
@@ -166,7 +190,7 @@ export const lesson10 = [
         correctSyllable: "ta",
         fullWord: "mata",
         coordinatesVerified: false,
-        acceptsItemId: "syl-ta"
+        acceptsItemId: "syl-ta",
       },
       {
         id: "blank-topo",
@@ -175,7 +199,7 @@ export const lesson10 = [
         correctSyllable: "to",
         fullWord: "topo",
         coordinatesVerified: false,
-        acceptsItemId: "syl-to"
+        acceptsItemId: "syl-to",
       },
       {
         id: "blank-tomate",
@@ -184,7 +208,7 @@ export const lesson10 = [
         correctSyllable: "to",
         fullWord: "tomate",
         coordinatesVerified: false,
-        acceptsItemId: "syl-to"
+        acceptsItemId: "syl-to",
       },
       {
         id: "blank-tupe",
@@ -193,7 +217,7 @@ export const lesson10 = [
         correctSyllable: "tu",
         fullWord: "tupe",
         coordinatesVerified: false,
-        acceptsItemId: "syl-tu"
+        acceptsItemId: "syl-tu",
       },
       {
         id: "blank-tipi",
@@ -202,52 +226,52 @@ export const lesson10 = [
         correctSyllable: "ti",
         fullWord: "tipi",
         coordinatesVerified: false,
-        acceptsItemId: "syl-ti"
-      }
+        acceptsItemId: "syl-ti",
+      },
     ],
     exercises: [
       {
         partial: "___ma",
         choices: ["to", "ta"],
         answer: "to",
-        fullWord: "toma"
+        fullWord: "toma",
       },
       {
         partial: "ma___",
         choices: ["ta", "ti"],
         answer: "ta",
-        fullWord: "mata"
+        fullWord: "mata",
       },
       {
         partial: "___po",
         choices: ["tu", "to"],
         answer: "to",
-        fullWord: "topo"
+        fullWord: "topo",
       },
       {
         partial: "___mate",
         choices: ["to", "tu"],
         answer: "to",
-        fullWord: "tomate"
+        fullWord: "tomate",
       },
       {
         partial: "___pe",
         choices: ["ti", "tu"],
         answer: "tu",
-        fullWord: "tupe"
+        fullWord: "tupe",
       },
       {
         partial: "___pi",
         choices: ["to", "ti"],
         answer: "ti",
-        fullWord: "tipi"
-      }
+        fullWord: "tipi",
+      },
     ],
     sourceStatus: "scaffold",
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Scaffolded fill-in-the-blank for T.",
-    sourcePage: getBookPageImage(40)
+    sourcePage: getBookPageImage(40),
   },
   {
     id: "l10-p40-write-sentences",
@@ -262,6 +286,6 @@ export const lesson10 = [
     transcriptionStatus: "needs-source-verification",
     studentFacingStatus: "pending",
     teacherNotes: "Sentence writing lines.",
-    sourcePage: getBookPageImage(40)
-  }
+    sourcePage: getBookPageImage(40),
+  },
 ];

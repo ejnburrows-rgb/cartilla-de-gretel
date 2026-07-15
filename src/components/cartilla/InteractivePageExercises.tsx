@@ -26,7 +26,11 @@ function ArtOrPending({ cell }: { cell: PageGridCell }) {
     return <img src={cell.illustrationSrc} alt={cell.caption ?? ""} loading="lazy" />;
   }
   return (
-    <div className="fp-art-pending" role="img" aria-label={cell.caption ? `Ilustración pendiente: ${cell.caption}` : "Ilustración pendiente"}>
+    <div
+      className="fp-art-pending"
+      role="img"
+      aria-label={cell.caption ? `Ilustración pendiente: ${cell.caption}` : "Ilustración pendiente"}
+    >
       {cell.caption ? <span className="fp-art-pending__word">{cell.caption}</span> : null}
       <span>pendiente</span>
     </div>
@@ -137,7 +141,11 @@ export function InteractivePictureGrid({ region, accent, lessonId }: ExercisePro
   return (
     <div className="fp-ix-grid" style={{ ["--ix-accent" as string]: accent }}>
       {rows.map((row, r) => (
-        <div key={r} className="fp-ix-row" style={{ gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))` }}>
+        <div
+          key={r}
+          className="fp-ix-row"
+          style={{ gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))` }}
+        >
           {row.map((cell, c) => {
             const i = r * columns + c;
             return (
@@ -155,7 +163,12 @@ export function InteractivePictureGrid({ region, accent, lessonId }: ExercisePro
         </div>
       ))}
       <div className="fp-ix-check-row">
-        <button type="button" className="fp-ix-check-btn" onClick={check} disabled={graded || picked.size === 0}>
+        <button
+          type="button"
+          className="fp-ix-check-btn"
+          onClick={check}
+          disabled={graded || picked.size === 0}
+        >
           Comprobar
         </button>
       </div>
@@ -187,7 +200,9 @@ function DraggableVowelLetter({
   });
 
   const style: React.CSSProperties = {
-    transform: transform ? `translate3d(${Math.round(transform.x)}px, ${Math.round(transform.y)}px, 0)` : undefined,
+    transform: transform
+      ? `translate3d(${Math.round(transform.x)}px, ${Math.round(transform.y)}px, 0)`
+      : undefined,
     zIndex: isDragging ? 999 : undefined,
     opacity: locked ? 0.35 : 1,
   };
@@ -233,7 +248,10 @@ function DroppableVowelCell({
   disabled: boolean;
   onTap: () => void;
 }) {
-  const { isOver, setNodeRef } = useDroppable({ id: `vp-cell-${rowIdx}-${cellIdx}`, data: { rowIdx, cellIdx } });
+  const { isOver, setNodeRef } = useDroppable({
+    id: `vp-cell-${rowIdx}-${cellIdx}`,
+    data: { rowIdx, cellIdx },
+  });
   const flagged = cell.correct === undefined;
   const classes = [
     "fp-ix-cell",
@@ -506,7 +524,12 @@ export function InteractiveSyllableMatch({ region, accent, lessonId }: ExerciseP
         </div>
       </div>
       <div className="fp-ix-check-row">
-        <button type="button" className="fp-ix-check-btn" onClick={check} disabled={graded || picked.size === 0}>
+        <button
+          type="button"
+          className="fp-ix-check-btn"
+          onClick={check}
+          disabled={graded || picked.size === 0}
+        >
           Comprobar
         </button>
       </div>
@@ -598,7 +621,11 @@ export function InteractiveFillInBlank({ region, accent, lessonId }: ExercisePro
           type="button"
           className="fp-ix-check-btn"
           onClick={check}
-          disabled={graded || Object.keys(picked).length < items.filter((it) => it.choices.some((c) => c.correct)).length}
+          disabled={
+            graded ||
+            Object.keys(picked).length <
+              items.filter((it) => it.choices.some((c) => c.correct)).length
+          }
         >
           Comprobar
         </button>
@@ -659,7 +686,12 @@ export function InteractiveVowelLineMatch({ region, accent, lessonId }: Exercise
         ))}
       </div>
       <div className="fp-ix-check-row">
-        <button type="button" className="fp-ix-check-btn" onClick={check} disabled={graded || picked.size === 0}>
+        <button
+          type="button"
+          className="fp-ix-check-btn"
+          onClick={check}
+          disabled={graded || picked.size === 0}
+        >
           Comprobar
         </button>
       </div>

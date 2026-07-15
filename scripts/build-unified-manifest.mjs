@@ -189,7 +189,9 @@ function resolveIllustrationPaths(contentManifest, illustrationsMap) {
     }
   }
 
-  console.log(`[manifest] Illustration paths: ${alreadySet} resolved, ${total - alreadySet} still null out of ${total} total`);
+  console.log(
+    `[manifest] Illustration paths: ${alreadySet} resolved, ${total - alreadySet} still null out of ${total} total`,
+  );
   return contentManifest;
 }
 
@@ -302,7 +304,7 @@ function rebuildTeacherFlipchartJson() {
   const data = { pages };
   fs.writeFileSync(outPath, JSON.stringify(data, null, 2));
   console.log(
-    `[manifest] Rebuilt teacher-flipchart.json with ${pages.length} pages and lesson mappings`
+    `[manifest] Rebuilt teacher-flipchart.json with ${pages.length} pages and lesson mappings`,
   );
 }
 
@@ -327,7 +329,9 @@ function main() {
       console.warn(`[manifest] Failed to parse content manifest: ${e.message}`);
     }
   } else {
-    console.log(`[manifest] No content manifest found at ${contentManifestPath}, building without it`);
+    console.log(
+      `[manifest] No content manifest found at ${contentManifestPath}, building without it`,
+    );
   }
 
   // Build unified manifest
@@ -340,7 +344,7 @@ function main() {
     `[manifest] Wrote unified manifest to ${MANIFEST_OUT}`,
     `(${Object.keys(manifest.lessons).length} workbook lessons,`,
     `${Object.keys(manifest.flipchart.lessons).length} flipchart lessons,`,
-    `${manifest.illustrations.totalFiles} illustrations)`
+    `${manifest.illustrations.totalFiles} illustrations)`,
   );
 
   // Rebuild teacher-flipchart.json with lesson mappings

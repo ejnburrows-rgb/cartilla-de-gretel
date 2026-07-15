@@ -36,30 +36,21 @@ function Repaso() {
           <div className="flex items-center gap-3">
             <LanguageToggle />
             <button
-            type="button"
-            onClick={() => {
-              if (
-                window.confirm(
-                  t.olvidarResultados[lang]
-                )
-              )
-                resetStats();
-            }}
-            className="inline-flex items-center gap-1.5 text-xs font-bold text-foreground/60 hover:text-destructive"
-          >
-            <RotateCcw className="w-3.5 h-3.5" /> {t.reiniciarRepaso[lang]}
-          </button>
+              type="button"
+              onClick={() => {
+                if (window.confirm(t.olvidarResultados[lang])) resetStats();
+              }}
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-foreground/60 hover:text-destructive"
+            >
+              <RotateCcw className="w-3.5 h-3.5" /> {t.reiniciarRepaso[lang]}
+            </button>
           </div>
         </div>
         <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-primary mb-1">
           <Sparkles className="w-3.5 h-3.5" /> {t.modoRepaso[lang]}
         </div>
-        <h1 className="text-3xl sm:text-4xl font-bold leading-tight">
-          {t.practicaFalta[lang]}
-        </h1>
-        <p className="text-foreground/70 mt-1">
-          {t.mostramosPrimero[lang]}
-        </p>
+        <h1 className="text-3xl sm:text-4xl font-bold leading-tight">{t.practicaFalta[lang]}</h1>
+        <p className="text-foreground/70 mt-1">{t.mostramosPrimero[lang]}</p>
       </header>
 
       <main className="px-4 pb-24 max-w-5xl mx-auto space-y-8">

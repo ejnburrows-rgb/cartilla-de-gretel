@@ -96,24 +96,18 @@ describe("DibujaHost — dual mode", () => {
   afterEach(() => cleanup());
 
   it("fine-pointer default is pick mode", () => {
-    render(
-      <DibujaHost pageKey="d1" pickOptions={picks} initialMode="pick" lessonId="2" />,
-    );
+    render(<DibujaHost pageKey="d1" pickOptions={picks} initialMode="pick" lessonId="2" />);
     expect(screen.getByRole("listbox", { name: /Elige el dibujo/i })).toBeTruthy();
     expect(screen.getByText("Dibuja")).toBeTruthy();
   });
 
   it("touch path can default to draw mode", () => {
-    render(
-      <DibujaHost pageKey="d2" pickOptions={picks} initialMode="draw" lessonId="2" />,
-    );
+    render(<DibujaHost pageKey="d2" pickOptions={picks} initialMode="draw" lessonId="2" />);
     expect(screen.getByLabelText(/Área para dibujar/i)).toBeTruthy();
   });
 
   it("toggle switches both ways", () => {
-    render(
-      <DibujaHost pageKey="d3" pickOptions={picks} initialMode="draw" lessonId="2" />,
-    );
+    render(<DibujaHost pageKey="d3" pickOptions={picks} initialMode="draw" lessonId="2" />);
     fireEvent.click(screen.getByRole("button", { name: /Elegir el dibujo/i }));
     expect(screen.getByRole("listbox")).toBeTruthy();
     fireEvent.click(screen.getByRole("button", { name: /Dibujar/i }));
@@ -121,9 +115,7 @@ describe("DibujaHost — dual mode", () => {
   });
 
   it("pick mode grades correct and wrong", () => {
-    render(
-      <DibujaHost pageKey="d4" pickOptions={picks} initialMode="pick" lessonId="2" />,
-    );
+    render(<DibujaHost pageKey="d4" pickOptions={picks} initialMode="pick" lessonId="2" />);
     fireEvent.click(screen.getByRole("option", { name: /ala/i }));
     expect(playWrongBuzz).toHaveBeenCalled();
     expect(gretelEvent).toHaveBeenCalledWith("answer:wrong");
@@ -136,9 +128,7 @@ describe("DibujaHost — dual mode", () => {
   });
 
   it("draw mode completes without requiring a correct drawing", () => {
-    render(
-      <DibujaHost pageKey="d5" pickOptions={picks} initialMode="draw" lessonId="2" />,
-    );
+    render(<DibujaHost pageKey="d5" pickOptions={picks} initialMode="draw" lessonId="2" />);
     const canvas = screen.getByLabelText(/Área para dibujar/i);
     // Simulate enough points for non-trivial stroke
     fireEvent.pointerDown(canvas, { clientX: 10, clientY: 10, pointerId: 1, buttons: 1 });

@@ -559,12 +559,7 @@ export function PaintCanvas({
           >
             Limpiar
           </button>
-          <button
-            type="button"
-            className="am-paint__done"
-            onClick={finish}
-            disabled={!hasPaint}
-          >
+          <button type="button" className="am-paint__done" onClick={finish} disabled={!hasPaint}>
             <Check className="w-4 h-4" /> Listo
           </button>
         </div>

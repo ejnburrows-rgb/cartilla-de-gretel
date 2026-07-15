@@ -13,7 +13,9 @@ export interface SpeechRecognitionOptions {
   lang?: string;
 }
 
-export function useSpeechRecognition(options?: SpeechRecognitionOptions): UseSpeechRecognitionReturn {
+export function useSpeechRecognition(
+  options?: SpeechRecognitionOptions,
+): UseSpeechRecognitionReturn {
   const [isListening, setIsListening] = useState(false);
   const [transcript, setTranscript] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -26,7 +28,7 @@ export function useSpeechRecognition(options?: SpeechRecognitionOptions): UseSpe
     if (typeof window !== "undefined") {
       const SpeechRecognition =
         (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
-      
+
       if (SpeechRecognition) {
         setIsSupported(true);
         const recognition = new SpeechRecognition();

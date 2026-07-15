@@ -76,13 +76,7 @@ export function Confetti({ active, onComplete }: ConfettiProps) {
           animationDelay: `${p.delayMs}ms`,
         } as React.CSSProperties;
 
-        return (
-          <div
-            key={p.id}
-            className="feel-confetti-particle"
-            style={style}
-          />
-        );
+        return <div key={p.id} className="feel-confetti-particle" style={style} />;
       })}
     </div>
   );

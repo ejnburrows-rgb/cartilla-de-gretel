@@ -23,8 +23,7 @@ function isNeutralLatAm(lang: string): boolean {
 // just the same kind of heuristic every device voice-picker uses).
 const FEMALE_NAME_HINTS =
   /(sabina|dalia|elvira|ximena|helena|paulina|mónica|monica|lucia|lucía|laura|sara|camila|valentina|isabela|marisol|conchita|penélope|penelope|lupe|karen|carla|renata|victoria|antonia|yolanda|miriam|marina|candela|female|mujer|niña)/i;
-const MALE_NAME_HINTS =
-  /(diego|jorge|carlos|enrique|miguel|pablo|javier|juan(?!ita)|male|hombre)/i;
+const MALE_NAME_HINTS = /(diego|jorge|carlos|enrique|miguel|pablo|javier|juan(?!ita)|male|hombre)/i;
 
 interface Candidate {
   key: string;
@@ -67,7 +66,8 @@ function buildCandidates(voices: SpeechSynthesisVoice[]): Candidate[] {
 
   const candidates: Candidate[] = [];
   let n = 1;
-  const localeLabel = (v: SpeechSynthesisVoice) => (isNeutralLatAm(v.lang) ? v.lang : `${v.lang} (no es neutro LatAm)`);
+  const localeLabel = (v: SpeechSynthesisVoice) =>
+    isNeutralLatAm(v.lang) ? v.lang : `${v.lang} (no es neutro LatAm)`;
 
   baseVoices.forEach((v, i) => {
     // Natural (production-matching) version of every base voice.
@@ -162,13 +162,19 @@ function VoiceAudition() {
         </div>
 
         {!ready ? (
-          <p className="text-stone-400 font-medium">Cargando voces disponibles en este navegador…</p>
+          <p className="text-stone-400 font-medium">
+            Cargando voces disponibles en este navegador…
+          </p>
         ) : candidates.length === 0 ? (
           <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6 text-amber-900">
-            <p className="font-black mb-2">Este navegador no tiene ninguna voz en español instalada.</p>
-            <p className="text-sm">Prueba a abrir esta misma página en Chrome o Edge, o revisa la
-            sección de voces del sistema operativo. Si el problema persiste, ver la nota honesta
-            más abajo sobre las opciones de pago.</p>
+            <p className="font-black mb-2">
+              Este navegador no tiene ninguna voz en español instalada.
+            </p>
+            <p className="text-sm">
+              Prueba a abrir esta misma página en Chrome o Edge, o revisa la sección de voces del
+              sistema operativo. Si el problema persiste, ver la nota honesta más abajo sobre las
+              opciones de pago.
+            </p>
           </div>
         ) : (
           <div className="space-y-3 mb-8">
@@ -200,18 +206,17 @@ function VoiceAudition() {
           <p className="font-black text-stone-800">Honestidad, no promesas:</p>
           <p>
             Las voces gratuitas incorporadas del navegador (arriba) son voces de mujer adulta —
-            ninguna suena genuinamente como una niña pequeña, ni afinando el tono. Es un límite
-            real de lo que el navegador ofrece gratis, no algo que se pueda arreglar con más
-            código.
+            ninguna suena genuinamente como una niña pequeña, ni afinando el tono. Es un límite real
+            de lo que el navegador ofrece gratis, no algo que se pueda arreglar con más código.
           </p>
           <p>
             Lo que SÍ sonaría como una niña de verdad: (1) un servicio de voz pagado con voces
             infantiles reales — por ejemplo ElevenLabs (voces por suscripción, desde unos $5–22
             USD/mes) o Google Cloud / Azure Neural TTS (se cobra por caracteres leídos, típicamente
-            unos $4–16 USD por cada millón de caracteres, que para esta app es un costo pequeño
-            pero real cada mes); o (2) grabar la voz real de una niña y usar esos audios
-            grabados en vez de texto-a-voz. Ninguna de las dos opciones se ha contratado ni
-            pagado — es tu decisión, no la mía.
+            unos $4–16 USD por cada millón de caracteres, que para esta app es un costo pequeño pero
+            real cada mes); o (2) grabar la voz real de una niña y usar esos audios grabados en vez
+            de texto-a-voz. Ninguna de las dos opciones se ha contratado ni pagado — es tu decisión,
+            no la mía.
           </p>
         </div>
       </div>

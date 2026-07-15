@@ -13,14 +13,15 @@ export const lesson17 = [
       { id: "img-remos", label: "remos" },
       { id: "img-rita", label: "Rita" },
       { id: "img-rosa", label: "rosa" },
-      { id: "img-rueda", label: "rueda" }
+      { id: "img-rueda", label: "rueda" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Transcribed verbatim from public/cartilla/images/source/r/r-page-37.jpg (real scan).",
-    sourcePage: getBookPageImage(59)
+    teacherNotes:
+      "Transcribed verbatim from public/cartilla/images/source/r/r-page-37.jpg (real scan).",
+    sourcePage: getBookPageImage(59),
   },
   {
     id: "l17-p60-syllable-tap",
@@ -34,14 +35,15 @@ export const lesson17 = [
       { id: "ra-re", label: "re" },
       { id: "ra-ri", label: "ri" },
       { id: "ra-ro", label: "ro" },
-      { id: "ra-ru", label: "ru" }
+      { id: "ra-ru", label: "ru" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Transcribed verbatim from public/cartilla/images/source/r/r-page-38.jpg (real scan).",
-    sourcePage: getBookPageImage(60)
+    teacherNotes:
+      "Transcribed verbatim from public/cartilla/images/source/r/r-page-38.jpg (real scan).",
+    sourcePage: getBookPageImage(60),
   },
   {
     id: "l17-p60-word-bank",
@@ -65,15 +67,16 @@ export const lesson17 = [
       { id: "w-rosado", label: "rosado" },
       { id: "w-rulo", label: "rulo" },
       { id: "w-rolo", label: "Rolo" },
-      { id: "w-rebano", label: "rebaño" }
+      { id: "w-rebano", label: "rebaño" },
     ],
     targets: [],
     sightWords: ["bien"],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Word list + sight word 'bien' transcribed verbatim from public/cartilla/images/source/r/r-page-38.jpg (real scan).",
-    sourcePage: getBookPageImage(60)
+    teacherNotes:
+      "Word list + sight word 'bien' transcribed verbatim from public/cartilla/images/source/r/r-page-38.jpg (real scan).",
+    sourcePage: getBookPageImage(60),
   },
   {
     id: "l17-p60-mini-story",
@@ -88,15 +91,16 @@ export const lesson17 = [
       { id: "story-r-3", label: "un bolo. El bolo se rompe y Roberto se" },
       { id: "story-r-4", label: "ríe. Rolo se ríe también." },
       { id: "story-r-5", label: "Rita le da al bolo. Rita se ríe." },
-      { id: "story-r-6", label: "Rolo y Roberto se ríen también." }
+      { id: "story-r-6", label: "Rolo y Roberto se ríen también." },
     ],
     targets: [],
     sightWords: ["bien"],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Reading passage transcribed verbatim from public/cartilla/images/source/r/r-page-38.jpg (real scan).",
-    sourcePage: getBookPageImage(60)
+    teacherNotes:
+      "Reading passage transcribed verbatim from public/cartilla/images/source/r/r-page-38.jpg (real scan).",
+    sourcePage: getBookPageImage(60),
   },
   {
     id: "l17-p61-rhyme",
@@ -113,14 +117,15 @@ export const lesson17 = [
       { id: "rhyme-r-5", label: "Para la rueda redonda" },
       { id: "rhyme-r-6", label: "la risa de tío Rolo" },
       { id: "rhyme-r-7", label: "la rana, el remo, la rosa" },
-      { id: "rhyme-r-8", label: "y la rosca de Manolo." }
+      { id: "rhyme-r-8", label: "y la rosca de Manolo." },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Rhyme transcribed verbatim from public/cartilla/images/source/r/r-page-39.jpg (real scan).",
-    sourcePage: getBookPageImage(61)
+    teacherNotes:
+      "Rhyme transcribed verbatim from public/cartilla/images/source/r/r-page-39.jpg (real scan).",
+    sourcePage: getBookPageImage(61),
   },
   {
     id: "l17-p62-fill-in-blank",
@@ -134,15 +139,63 @@ export const lesson17 = [
       { id: "syl-re", label: "re" },
       { id: "syl-ri", label: "ri" },
       { id: "syl-ro", label: "ro" },
-      { id: "syl-ru", label: "ru" }
+      { id: "syl-ru", label: "ru" },
     ],
     targets: [
-      { id: "blank-rana", label: "___na", hint: "ru - ra", correctSyllable: "ra", fullWord: "rana", coordinatesVerified: false, acceptsItemId: "syl-ra" },
-      { id: "blank-rita", label: "___ta", hint: "Ri - re", correctSyllable: "ri", fullWord: "Rita", coordinatesVerified: false, acceptsItemId: "syl-ri" },
-      { id: "blank-ruta", label: "___ta", hint: "ru - ra", correctSyllable: "ru", fullWord: "ruta", coordinatesVerified: false, acceptsItemId: "syl-ru" },
-      { id: "blank-remo", label: "___mo", hint: "re - ro", correctSyllable: "re", fullWord: "remo", coordinatesVerified: false, acceptsItemId: "syl-re" },
-      { id: "blank-rosa", label: "___sa", hint: "ro - ri", correctSyllable: "ro", fullWord: "rosa", coordinatesVerified: false, acceptsItemId: "syl-ro" },
-      { id: "blank-rubio", label: "___bio", hint: "re - ru", correctSyllable: "ru", fullWord: "rubio", coordinatesVerified: false, acceptsItemId: "syl-ru" }
+      {
+        id: "blank-rana",
+        label: "___na",
+        hint: "ru - ra",
+        correctSyllable: "ra",
+        fullWord: "rana",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-ra",
+      },
+      {
+        id: "blank-rita",
+        label: "___ta",
+        hint: "Ri - re",
+        correctSyllable: "ri",
+        fullWord: "Rita",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-ri",
+      },
+      {
+        id: "blank-ruta",
+        label: "___ta",
+        hint: "ru - ra",
+        correctSyllable: "ru",
+        fullWord: "ruta",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-ru",
+      },
+      {
+        id: "blank-remo",
+        label: "___mo",
+        hint: "re - ro",
+        correctSyllable: "re",
+        fullWord: "remo",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-re",
+      },
+      {
+        id: "blank-rosa",
+        label: "___sa",
+        hint: "ro - ri",
+        correctSyllable: "ro",
+        fullWord: "rosa",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-ro",
+      },
+      {
+        id: "blank-rubio",
+        label: "___bio",
+        hint: "re - ru",
+        correctSyllable: "ru",
+        fullWord: "rubio",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-ru",
+      },
     ],
     exercises: [
       { partial: "___na", choices: ["ru", "ra"], answer: "ra", fullWord: "rana" },
@@ -150,13 +203,14 @@ export const lesson17 = [
       { partial: "___ta", choices: ["ru", "ra"], answer: "ru", fullWord: "ruta" },
       { partial: "___mo", choices: ["re", "ro"], answer: "re", fullWord: "remo" },
       { partial: "___sa", choices: ["ro", "ri"], answer: "ro", fullWord: "rosa" },
-      { partial: "___bio", choices: ["re", "ru"], answer: "ru", fullWord: "rubio" }
+      { partial: "___bio", choices: ["re", "ru"], answer: "ru", fullWord: "rubio" },
     ],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Fill-in-blank transcribed verbatim from public/cartilla/images/source/r/r-page-40.jpg (real scan; physical page 62 confirmed printed on the page).",
-    sourcePage: getBookPageImage(62)
+    teacherNotes:
+      "Fill-in-blank transcribed verbatim from public/cartilla/images/source/r/r-page-40.jpg (real scan; physical page 62 confirmed printed on the page).",
+    sourcePage: getBookPageImage(62),
   },
   {
     id: "l17-p62-write-sentences",
@@ -170,7 +224,8 @@ export const lesson17 = [
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Sentence writing lines, confirmed present on public/cartilla/images/source/r/r-page-40.jpg (real scan).",
-    sourcePage: getBookPageImage(62)
-  }
+    teacherNotes:
+      "Sentence writing lines, confirmed present on public/cartilla/images/source/r/r-page-40.jpg (real scan).",
+    sourcePage: getBookPageImage(62),
+  },
 ];

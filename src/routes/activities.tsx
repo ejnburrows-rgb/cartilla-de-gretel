@@ -1,10 +1,7 @@
 import { useState, useMemo } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ActivityBadge } from "../components/activities/ActivityBadge";
-import {
-  ALL_ACTIVITY_KINDS,
-  ACTIVITY_REGISTRY,
-} from "../components/activities/activityIcons";
+import { ALL_ACTIVITY_KINDS, ACTIVITY_REGISTRY } from "../components/activities/activityIcons";
 import { InteractiveWorkbookLayer } from "../components/cartilla/InteractiveWorkbookLayer";
 import interactionsData from "../data/workbook-interactions.json";
 import { CATALOG } from "../lib/lesson-catalog";
@@ -18,8 +15,7 @@ export const Route = createFileRoute("/activities")({
       { title: "La Cartilla de Gretel — Actividades" },
       {
         name: "description",
-        content:
-          "Explora y practica las actividades interactivas del cuaderno de La Cartilla.",
+        content: "Explora y practica las actividades interactivas del cuaderno de La Cartilla.",
       },
     ],
   }),
@@ -46,7 +42,7 @@ function ActivitiesPreview() {
       (i) =>
         i.sourceStatus === "verified" ||
         i.sourceStatus === "book-derived" ||
-        (i.kind === "mini-story" && i.sourceStatus === "needs-transcription")
+        (i.kind === "mini-story" && i.sourceStatus === "needs-transcription"),
     );
 
     for (const inter of visibleInteractions) {
@@ -58,7 +54,7 @@ function ActivitiesPreview() {
         const color = catalogEntry?.color ?? "#14343d";
 
         const count = visibleInteractions.filter(
-          (i) => i.lessonNumber === inter.lessonNumber && i.pageNumber === inter.pageNumber
+          (i) => i.lessonNumber === inter.lessonNumber && i.pageNumber === inter.pageNumber,
         ).length;
 
         list.push({
@@ -82,7 +78,7 @@ function ActivitiesPreview() {
     setActivePage(pageNum);
     setActiveColor(color);
     setActiveTitle(title);
-    
+
     // Smooth scroll to top of workspace
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -130,9 +126,7 @@ function ActivitiesPreview() {
                       Lección {activeLesson} · {activeTitle}
                     </span>
                   </div>
-                  <h2 className="text-2xl font-black text-stone-900 mt-1">
-                    Arena de Práctica
-                  </h2>
+                  <h2 className="text-2xl font-black text-stone-900 mt-1">Arena de Práctica</h2>
                 </div>
                 <button
                   onClick={handleBackToGrid}
@@ -167,9 +161,9 @@ function ActivitiesPreview() {
                   <Sparkles className="w-7 h-7 text-amber-500 animate-pulse" />
                 </h1>
                 <p className="max-w-2xl text-base font-bold text-[hsl(28,30%,18%)]/65">
-                  Los 8 tipos de actividad que aparecen en La Cartilla de Gretel. Cada
-                  tipo tiene su propio ícono y color para que el estudiante reconozca
-                  de un vistazo qué va a hacer.
+                  Los 8 tipos de actividad que aparecen en La Cartilla de Gretel. Cada tipo tiene su
+                  propio ícono y color para que el estudiante reconozca de un vistazo qué va a
+                  hacer.
                 </p>
               </div>
 
@@ -177,7 +171,7 @@ function ActivitiesPreview() {
               <section className="rounded-3xl border border-white/60 bg-white/40 p-6 shadow-xl backdrop-blur-md relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-amber-200/20 rounded-full blur-3xl -z-10" />
                 <div className="absolute bottom-0 left-0 w-40 h-40 bg-teal-200/10 rounded-full blur-3xl -z-10" />
-                
+
                 <div className="flex items-center gap-2 mb-4">
                   <BookOpen className="w-5 h-5 text-amber-600" />
                   <h2 className="text-xl font-black text-[hsl(197,41%,22%)]">
@@ -185,7 +179,8 @@ function ActivitiesPreview() {
                   </h2>
                 </div>
                 <p className="text-sm font-semibold text-stone-600 mb-6 max-w-xl">
-                  Selecciona cualquiera de las páginas del cuaderno con actividades interactivas listas para jugar, escuchar audios y interactuar con la mascota Gretel.
+                  Selecciona cualquiera de las páginas del cuaderno con actividades interactivas
+                  listas para jugar, escuchar audios y interactuar con la mascota Gretel.
                 </p>
 
                 <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
@@ -199,7 +194,7 @@ function ActivitiesPreview() {
                           page.lessonNumber,
                           page.pageNumber,
                           page.color,
-                          page.lessonTitle
+                          page.lessonTitle,
                         )
                       }
                       className="group flex flex-col justify-between items-start text-left p-5 rounded-2xl bg-white/70 border border-stone-200/60 shadow-sm hover:shadow-md transition-all relative overflow-hidden"
@@ -261,9 +256,7 @@ function ActivitiesPreview() {
 
               <div className="grid gap-6 md:grid-cols-2">
                 <section className="rounded-2xl border border-[hsl(28,30%,18%)]/10 bg-white/70 p-6 shadow-sm backdrop-blur">
-                  <h2 className="mb-3 text-lg font-black text-[hsl(197,41%,22%)]">
-                    Tamaños
-                  </h2>
+                  <h2 className="mb-3 text-lg font-black text-[hsl(197,41%,22%)]">Tamaños</h2>
                   <div className="flex flex-wrap items-center gap-6">
                     <ActivityBadge kind="read" size="sm" />
                     <ActivityBadge kind="read" size="md" />
@@ -291,7 +284,9 @@ function ActivitiesPreview() {
 
               <footer className="mt-12 text-xs font-bold text-[hsl(28,30%,18%)]/45 flex items-center gap-2">
                 <Trophy className="w-3.5 h-3.5" />
-                <span>{Object.keys(ACTIVITY_REGISTRY).length} tipos registrados · lucide-react</span>
+                <span>
+                  {Object.keys(ACTIVITY_REGISTRY).length} tipos registrados · lucide-react
+                </span>
               </footer>
             </motion.div>
           )}

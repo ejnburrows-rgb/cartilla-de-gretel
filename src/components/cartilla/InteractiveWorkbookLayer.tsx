@@ -1,13 +1,7 @@
 ﻿import type { CSSProperties } from "react";
 import { useMemo, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  Volume2,
-  CheckCircle2,
-  BookOpenCheck,
-  Trophy,
-  ChevronRight,
-} from "lucide-react";
+import { Volume2, CheckCircle2, BookOpenCheck, Trophy, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { speak } from "@/lib/speak";
 
@@ -110,7 +104,9 @@ function SyllableTapActivity({
             {exercise.instructionEs}
           </h3>
         </div>
-        {allDone && <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" aria-label="Completado" />}
+        {allDone && (
+          <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" aria-label="Completado" />
+        )}
       </div>
       <div className="px-4 py-4">
         <HdPageArt pageNumber={pageNumber} />
@@ -118,11 +114,36 @@ function SyllableTapActivity({
           {items.map((label, i) => {
             const done = tapped.has(label);
             return (
-              <motion.div key={label} custom={i} variants={chipVariants} initial="hidden" animate="visible" className="relative">
-                <motion.div className="absolute inset-0 rounded-3xl pointer-events-none" style={{ backgroundColor: done ? "#34d399" : accent }} variants={pulseVariants} initial="initial" animate={done ? "tap" : "initial"} transition={{ duration: 0.5 }} />
-                <button type="button" onClick={() => handleTap(label)} className={cn("relative min-w-[5.5rem] min-h-[5.5rem] sm:min-w-[7rem] sm:min-h-[7rem] rounded-3xl border-[3px] font-black text-3xl sm:text-4xl transition-all flex flex-col items-center justify-center gap-2 shadow-md active:scale-95", done ? "border-emerald-400 bg-emerald-50 text-emerald-800" : "border-foreground/15 bg-white hover:scale-105 text-foreground")}>
+              <motion.div
+                key={label}
+                custom={i}
+                variants={chipVariants}
+                initial="hidden"
+                animate="visible"
+                className="relative"
+              >
+                <motion.div
+                  className="absolute inset-0 rounded-3xl pointer-events-none"
+                  style={{ backgroundColor: done ? "#34d399" : accent }}
+                  variants={pulseVariants}
+                  initial="initial"
+                  animate={done ? "tap" : "initial"}
+                  transition={{ duration: 0.5 }}
+                />
+                <button
+                  type="button"
+                  onClick={() => handleTap(label)}
+                  className={cn(
+                    "relative min-w-[5.5rem] min-h-[5.5rem] sm:min-w-[7rem] sm:min-h-[7rem] rounded-3xl border-[3px] font-black text-3xl sm:text-4xl transition-all flex flex-col items-center justify-center gap-2 shadow-md active:scale-95",
+                    done
+                      ? "border-emerald-400 bg-emerald-50 text-emerald-800"
+                      : "border-foreground/15 bg-white hover:scale-105 text-foreground",
+                  )}
+                >
                   {label}
-                  <Volume2 className={cn("w-3.5 h-3.5", done ? "text-emerald-400" : "text-foreground/25")} />
+                  <Volume2
+                    className={cn("w-3.5 h-3.5", done ? "text-emerald-400" : "text-foreground/25")}
+                  />
                 </button>
               </motion.div>
             );
@@ -130,7 +151,12 @@ function SyllableTapActivity({
         </div>
         <AnimatePresence>
           {allDone && (
-            <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="mt-4 rounded-3xl border-2 border-emerald-300 bg-emerald-50 px-4 py-3 text-center text-sm font-black text-emerald-800">
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              className="mt-4 rounded-3xl border-2 border-emerald-300 bg-emerald-50 px-4 py-3 text-center text-sm font-black text-emerald-800"
+            >
               ¡Gran trabajo!
             </motion.div>
           )}
@@ -172,7 +198,9 @@ function WordMatchActivity({
     <div className="rounded-[1.75rem] border-2 border-foreground/10 bg-white/90 shadow-xl shadow-primary/5 overflow-hidden">
       <div className="px-4 py-3 flex items-center gap-3" style={borderStyle(accent)}>
         <div className="flex-1 min-w-0">
-          <h3 className="font-black text-lg text-foreground/90 leading-tight">{exercise.instructionEs}</h3>
+          <h3 className="font-black text-lg text-foreground/90 leading-tight">
+            {exercise.instructionEs}
+          </h3>
         </div>
         {allDone && <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />}
       </div>
@@ -182,8 +210,24 @@ function WordMatchActivity({
           {items.map((item, i) => {
             const done = tapped.has(item.word);
             return (
-              <motion.div key={item.word} custom={i} variants={chipVariants} initial="hidden" animate="visible">
-                <button type="button" onClick={() => handleTap(item.word)} className={cn("min-w-[6rem] min-h-[3.5rem] px-5 py-3 rounded-2xl border-[3px] font-black text-xl transition-all flex items-center gap-2 shadow active:scale-95", done ? "text-white border-transparent" : "border-foreground/15 bg-white hover:scale-105 text-foreground")} style={done ? { backgroundColor: BRAND.gold, borderColor: BRAND.brown } : {}}>
+              <motion.div
+                key={item.word}
+                custom={i}
+                variants={chipVariants}
+                initial="hidden"
+                animate="visible"
+              >
+                <button
+                  type="button"
+                  onClick={() => handleTap(item.word)}
+                  className={cn(
+                    "min-w-[6rem] min-h-[3.5rem] px-5 py-3 rounded-2xl border-[3px] font-black text-xl transition-all flex items-center gap-2 shadow active:scale-95",
+                    done
+                      ? "text-white border-transparent"
+                      : "border-foreground/15 bg-white hover:scale-105 text-foreground",
+                  )}
+                  style={done ? { backgroundColor: BRAND.gold, borderColor: BRAND.brown } : {}}
+                >
                   {done && <CheckCircle2 className="w-4 h-4 shrink-0" />}
                   {item.word}
                 </button>
@@ -229,7 +273,9 @@ function ReadAloudActivity({
     <div className="rounded-[1.75rem] border-2 border-foreground/10 bg-white/90 shadow-xl shadow-primary/5 overflow-hidden">
       <div className="px-4 py-3 flex items-center gap-3" style={borderStyle(accent)}>
         <div className="flex-1 min-w-0">
-          <h3 className="font-black text-lg text-foreground/90 leading-tight">{exercise.instructionEs}</h3>
+          <h3 className="font-black text-lg text-foreground/90 leading-tight">
+            {exercise.instructionEs}
+          </h3>
         </div>
         {allDone && <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />}
       </div>
@@ -239,9 +285,28 @@ function ReadAloudActivity({
           {items.map((item, i) => {
             const done = tapped.has(item);
             return (
-              <motion.div key={item} custom={i} variants={chipVariants} initial="hidden" animate="visible">
-                <button type="button" onClick={() => handleTap(item)} className={cn("flex items-center gap-3 rounded-2xl border-[3px] font-bold transition-all active:scale-[0.98] text-left shadow-sm px-6 py-4 sm:px-8 sm:py-5 text-2xl sm:text-3xl font-extrabold", done ? "border-emerald-300 bg-emerald-50 text-emerald-800" : "border-foreground/12 bg-white hover:bg-foreground/4 text-foreground")}>
-                  {done ? <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" /> : <Volume2 className="w-4 h-4 shrink-0 text-foreground/30" />}
+              <motion.div
+                key={item}
+                custom={i}
+                variants={chipVariants}
+                initial="hidden"
+                animate="visible"
+              >
+                <button
+                  type="button"
+                  onClick={() => handleTap(item)}
+                  className={cn(
+                    "flex items-center gap-3 rounded-2xl border-[3px] font-bold transition-all active:scale-[0.98] text-left shadow-sm px-6 py-4 sm:px-8 sm:py-5 text-2xl sm:text-3xl font-extrabold",
+                    done
+                      ? "border-emerald-300 bg-emerald-50 text-emerald-800"
+                      : "border-foreground/12 bg-white hover:bg-foreground/4 text-foreground",
+                  )}
+                >
+                  {done ? (
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
+                  ) : (
+                    <Volume2 className="w-4 h-4 shrink-0 text-foreground/30" />
+                  )}
                   <span>{item}</span>
                 </button>
               </motion.div>
@@ -266,9 +331,23 @@ function ActivityCard({
 }) {
   switch (exercise.kind) {
     case "syllable-tap":
-      return <SyllableTapActivity exercise={exercise} pageNumber={pageNumber} accent={accent} onComplete={onComplete} />;
+      return (
+        <SyllableTapActivity
+          exercise={exercise}
+          pageNumber={pageNumber}
+          accent={accent}
+          onComplete={onComplete}
+        />
+      );
     case "word-match":
-      return <WordMatchActivity exercise={exercise} pageNumber={pageNumber} accent={accent} onComplete={onComplete} />;
+      return (
+        <WordMatchActivity
+          exercise={exercise}
+          pageNumber={pageNumber}
+          accent={accent}
+          onComplete={onComplete}
+        />
+      );
     case "drag-build":
       return (
         <div className="rounded-[1.75rem] border-2 border-foreground/10 bg-white/90 shadow-xl shadow-primary/5 p-5 overflow-hidden">
@@ -276,11 +355,20 @@ function ActivityCard({
         </div>
       );
     case "reading":
-      return <ReadAloudActivity exercise={exercise} pageNumber={pageNumber} accent={accent} onComplete={onComplete} />;
+      return (
+        <ReadAloudActivity
+          exercise={exercise}
+          pageNumber={pageNumber}
+          accent={accent}
+          onComplete={onComplete}
+        />
+      );
     case "intro":
       return (
         <div className="rounded-[1.75rem] border-2 border-foreground/10 bg-white/90 shadow-xl shadow-primary/5 p-5">
-          <h3 className="text-black text-xl text-center text-foreground/90">{exercise.instructionEs}</h3>
+          <h3 className="text-black text-xl text-center text-foreground/90">
+            {exercise.instructionEs}
+          </h3>
         </div>
       );
     default:
@@ -320,7 +408,10 @@ export function InteractiveWorkbookLayer({
           exercise={exercise}
           pageNumber={activePage}
           accent={accent}
-          onComplete={() => { setCompleted(true); onLayerComplete?.(); }}
+          onComplete={() => {
+            setCompleted(true);
+            onLayerComplete?.();
+          }}
         />
         {completed && (
           <motion.div
@@ -340,4 +431,3 @@ export function InteractiveWorkbookLayer({
     </section>
   );
 }
-

@@ -60,7 +60,7 @@ export function PolishedPage({ pageNumber, className = "" }: PolishedPageProps) 
       className={`polished-page w-full h-full px-8 py-6 transition-all duration-350 relative flex flex-col justify-between ${className}`}
       style={containerStyle}
     >
-    {/* Page Header */}
+      {/* Page Header */}
       <div className="w-full flex justify-between items-start border-b border-stone-200/50 pb-3 mb-2">
         {isFirstOfLesson && entry ? (
           <div>

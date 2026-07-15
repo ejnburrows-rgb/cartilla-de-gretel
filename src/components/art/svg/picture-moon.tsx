@@ -104,13 +104,41 @@ export function PictureMoon({ animated = false, ...props }: PictureMoonProps) {
 
       {/* Moon's peaceful face */}
       {/* Closed sleepy eye */}
-      <path d="M102 85 Q107 82 112 85" fill="none" stroke="#c49a3c" strokeWidth="1.8" strokeLinecap="round" />
+      <path
+        d="M102 85 Q107 82 112 85"
+        fill="none"
+        stroke="#c49a3c"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
       {/* Little eyelashes */}
-      <line x1="103" y1="84" x2="101" y2="82" stroke="#c49a3c" strokeWidth="1" strokeLinecap="round" />
-      <line x1="107" y1="82.5" x2="107" y2="80" stroke="#c49a3c" strokeWidth="1" strokeLinecap="round" />
+      <line
+        x1="103"
+        y1="84"
+        x2="101"
+        y2="82"
+        stroke="#c49a3c"
+        strokeWidth="1"
+        strokeLinecap="round"
+      />
+      <line
+        x1="107"
+        y1="82.5"
+        x2="107"
+        y2="80"
+        stroke="#c49a3c"
+        strokeWidth="1"
+        strokeLinecap="round"
+      />
 
       {/* Gentle smile */}
-      <path d="M100 97 Q107 104 114 97" fill="none" stroke="#c49a3c" strokeWidth="1.6" strokeLinecap="round" />
+      <path
+        d="M100 97 Q107 104 114 97"
+        fill="none"
+        stroke="#c49a3c"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
 
       {/* Rosy cheek on moon */}
       <circle cx="97" cy="94" r="3.5" fill="#f0a0a0" opacity="0.35" />
@@ -130,7 +158,11 @@ export function PictureMoon({ animated = false, ...props }: PictureMoonProps) {
       </g>
 
       {/* Subtle hills silhouette at bottom */}
-      <path d="M0 185 Q40 160 80 180 Q120 165 160 178 Q200 158 240 175 L240 200 L0 200 Z" fill="#252050" opacity="0.5" />
+      <path
+        d="M0 185 Q40 160 80 180 Q120 165 160 178 Q200 158 240 175 L240 200 L0 200 Z"
+        fill="#252050"
+        opacity="0.5"
+      />
     </svg>
   );
 }

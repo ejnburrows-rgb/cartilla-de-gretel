@@ -13,14 +13,15 @@ export const lesson20 = [
       { id: "img-fideos", label: "fideos" },
       { id: "img-familia", label: "familia" },
       { id: "img-felo", label: "Felo" },
-      { id: "img-funda", label: "funda" }
+      { id: "img-funda", label: "funda" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Transcribed verbatim from public/cartilla/images/source/f/f-page-46.jpg (real scan).",
-    sourcePage: getBookPageImage(71)
+    teacherNotes:
+      "Transcribed verbatim from public/cartilla/images/source/f/f-page-46.jpg (real scan).",
+    sourcePage: getBookPageImage(71),
   },
   {
     id: "l20-p72-syllable-tap",
@@ -34,14 +35,15 @@ export const lesson20 = [
       { id: "ra-fe", label: "fe" },
       { id: "ra-fi", label: "fi" },
       { id: "ra-fo", label: "fo" },
-      { id: "ra-fu", label: "fu" }
+      { id: "ra-fu", label: "fu" },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Transcribed verbatim from public/cartilla/images/source/f/f-page-47.jpg (real scan).",
-    sourcePage: getBookPageImage(72)
+    teacherNotes:
+      "Transcribed verbatim from public/cartilla/images/source/f/f-page-47.jpg (real scan).",
+    sourcePage: getBookPageImage(72),
   },
   {
     id: "l20-p72-word-bank",
@@ -65,15 +67,16 @@ export const lesson20 = [
       { id: "w-falso", label: "falso" },
       { id: "w-fortuna", label: "fortuna" },
       { id: "w-ofelia", label: "Ofelia" },
-      { id: "w-foca", label: "foca" }
+      { id: "w-foca", label: "foca" },
     ],
     targets: [],
     sightWords: ["hay"],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Word list + sight word 'hay' transcribed verbatim from public/cartilla/images/source/f/f-page-47.jpg (real scan).",
-    sourcePage: getBookPageImage(72)
+    teacherNotes:
+      "Word list + sight word 'hay' transcribed verbatim from public/cartilla/images/source/f/f-page-47.jpg (real scan).",
+    sourcePage: getBookPageImage(72),
   },
   {
     id: "l20-p72-mini-story",
@@ -88,15 +91,16 @@ export const lesson20 = [
       { id: "story-f-3", label: "ganado. Felo arrea el ganado con" },
       { id: "story-f-4", label: "una fusta. El ganado vale una fortuna." },
       { id: "story-f-5", label: "Es un ganado de fama. Felo pone" },
-      { id: "story-f-6", label: "todo el ganado en fila." }
+      { id: "story-f-6", label: "todo el ganado en fila." },
     ],
     targets: [],
     sightWords: ["hay"],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Reading passage transcribed verbatim from public/cartilla/images/source/f/f-page-47.jpg (real scan).",
-    sourcePage: getBookPageImage(72)
+    teacherNotes:
+      "Reading passage transcribed verbatim from public/cartilla/images/source/f/f-page-47.jpg (real scan).",
+    sourcePage: getBookPageImage(72),
   },
   {
     id: "l20-p73-rhyme",
@@ -113,14 +117,15 @@ export const lesson20 = [
       { id: "rhyme-f-5", label: "Fu, fu... apaga la vela" },
       { id: "rhyme-f-6", label: "fa, fa... la vela no es mía" },
       { id: "rhyme-f-7", label: "fe, fe... apaga la vela" },
-      { id: "rhyme-f-8", label: "fi, fi... la vela es de tía." }
+      { id: "rhyme-f-8", label: "fi, fi... la vela es de tía." },
     ],
     targets: [],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Rhyme transcribed verbatim from public/cartilla/images/source/f/f-page-48.jpg (real scan).",
-    sourcePage: getBookPageImage(73)
+    teacherNotes:
+      "Rhyme transcribed verbatim from public/cartilla/images/source/f/f-page-48.jpg (real scan).",
+    sourcePage: getBookPageImage(73),
   },
   {
     id: "l20-p74-fill-in-blank",
@@ -134,15 +139,63 @@ export const lesson20 = [
       { id: "syl-fe", label: "fe" },
       { id: "syl-fi", label: "fi" },
       { id: "syl-fo", label: "fo" },
-      { id: "syl-fu", label: "fu" }
+      { id: "syl-fu", label: "fu" },
     ],
     targets: [
-      { id: "blank-fama", label: "___ma", hint: "fa - fo", correctSyllable: "fa", fullWord: "fama", coordinatesVerified: false, acceptsItemId: "syl-fa" },
-      { id: "blank-fila", label: "___la", hint: "fi - fe", correctSyllable: "fi", fullWord: "fila", coordinatesVerified: false, acceptsItemId: "syl-fi" },
-      { id: "blank-telefono", label: "telé___no", hint: "fo - fu", correctSyllable: "fo", fullWord: "teléfono", coordinatesVerified: false, acceptsItemId: "syl-fo" },
-      { id: "blank-foca", label: "___ca", hint: "fo - fi", correctSyllable: "fo", fullWord: "foca", coordinatesVerified: false, acceptsItemId: "syl-fo" },
-      { id: "blank-fecha", label: "___cha", hint: "fe - fu", correctSyllable: "fe", fullWord: "fecha", coordinatesVerified: false, acceptsItemId: "syl-fe" },
-      { id: "blank-foto", label: "___to", hint: "fo - fi", correctSyllable: "fo", fullWord: "foto", coordinatesVerified: false, acceptsItemId: "syl-fo" }
+      {
+        id: "blank-fama",
+        label: "___ma",
+        hint: "fa - fo",
+        correctSyllable: "fa",
+        fullWord: "fama",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-fa",
+      },
+      {
+        id: "blank-fila",
+        label: "___la",
+        hint: "fi - fe",
+        correctSyllable: "fi",
+        fullWord: "fila",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-fi",
+      },
+      {
+        id: "blank-telefono",
+        label: "telé___no",
+        hint: "fo - fu",
+        correctSyllable: "fo",
+        fullWord: "teléfono",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-fo",
+      },
+      {
+        id: "blank-foca",
+        label: "___ca",
+        hint: "fo - fi",
+        correctSyllable: "fo",
+        fullWord: "foca",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-fo",
+      },
+      {
+        id: "blank-fecha",
+        label: "___cha",
+        hint: "fe - fu",
+        correctSyllable: "fe",
+        fullWord: "fecha",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-fe",
+      },
+      {
+        id: "blank-foto",
+        label: "___to",
+        hint: "fo - fi",
+        correctSyllable: "fo",
+        fullWord: "foto",
+        coordinatesVerified: false,
+        acceptsItemId: "syl-fo",
+      },
     ],
     exercises: [
       { partial: "___ma", choices: ["fa", "fo"], answer: "fa", fullWord: "fama" },
@@ -150,13 +203,14 @@ export const lesson20 = [
       { partial: "telé___no", choices: ["fo", "fu"], answer: "fo", fullWord: "teléfono" },
       { partial: "___ca", choices: ["fo", "fi"], answer: "fo", fullWord: "foca" },
       { partial: "___cha", choices: ["fe", "fu"], answer: "fe", fullWord: "fecha" },
-      { partial: "___to", choices: ["fo", "fi"], answer: "fo", fullWord: "foto" }
+      { partial: "___to", choices: ["fo", "fi"], answer: "fo", fullWord: "foto" },
     ],
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Fill-in-blank transcribed verbatim from public/cartilla/images/source/f/f-page-49.jpg (real scan; physical page 74, 'Lección 2[0]' confirmed printed on the page).",
-    sourcePage: getBookPageImage(74)
+    teacherNotes:
+      "Fill-in-blank transcribed verbatim from public/cartilla/images/source/f/f-page-49.jpg (real scan; physical page 74, 'Lección 2[0]' confirmed printed on the page).",
+    sourcePage: getBookPageImage(74),
   },
   {
     id: "l20-p74-write-sentences",
@@ -170,7 +224,8 @@ export const lesson20 = [
     sourceStatus: "verified",
     transcriptionStatus: "verified",
     studentFacingStatus: "ready",
-    teacherNotes: "Sentence writing lines, confirmed present on public/cartilla/images/source/f/f-page-49.jpg (real scan).",
-    sourcePage: getBookPageImage(74)
-  }
+    teacherNotes:
+      "Sentence writing lines, confirmed present on public/cartilla/images/source/f/f-page-49.jpg (real scan).",
+    sourcePage: getBookPageImage(74),
+  },
 ];

@@ -42,7 +42,13 @@ interface ClaseProgressData {
   attentionByStudent: Record<string, { flagged: boolean; reasons: string[] } | undefined>;
   perLesson: Record<string, { completedBy: number; accuracy: number | null } | undefined>;
   recentEvents: RecentEvent[];
-  perStudent: Array<{ id: string; name: string; lessonsCount: number; accuracy: number | null; timeSeconds: number }>;
+  perStudent: Array<{
+    id: string;
+    name: string;
+    lessonsCount: number;
+    accuracy: number | null;
+    timeSeconds: number;
+  }>;
 }
 
 async function fetchClaseData(classId: string, isSeed: boolean): Promise<ClaseData> {
@@ -73,7 +79,9 @@ async function fetchClaseData(classId: string, isSeed: boolean): Promise<ClaseDa
 }
 
 async function fetchClaseProgress(classId: string, isSeed: boolean): Promise<ClaseProgressData> {
-  const raw = isSeed ? getSeedClassProgress(classId) : await getClassProgress({ data: { id: classId } });
+  const raw = isSeed
+    ? getSeedClassProgress(classId)
+    : await getClassProgress({ data: { id: classId } });
   return {
     attentionByStudent: raw.attentionByStudent,
     perLesson: raw.perLesson,
@@ -122,10 +130,7 @@ function ClaseOverview() {
   return (
     <div className="w-full space-y-6">
       <CrmBreadcrumbs
-        items={[
-          { label: "Panel", to: "/cartilla/teacher/crm" },
-          { label: className },
-        ]}
+        items={[{ label: "Panel", to: "/cartilla/teacher/crm" }, { label: className }]}
       />
 
       {loading ? (
@@ -143,7 +148,9 @@ function ClaseOverview() {
               </p>
             </div>
             <button
-              onClick={() => progressData && exportClassProgressCsv(className, students, progressData)}
+              onClick={() =>
+                progressData && exportClassProgressCsv(className, students, progressData)
+              }
               className="px-4 py-2 bg-stone-800 hover:bg-stone-900 text-white font-bold text-sm rounded-xl shadow-sm inline-flex items-center gap-2 transition"
             >
               <FileSpreadsheet className="w-4 h-4" /> Exportar CSV
@@ -181,7 +188,10 @@ function ClaseOverview() {
             </h2>
             <div className="flex items-end gap-1.5">
               {lessonBars.map((bar) => (
-                <div key={bar.lessonNumber} className="flex-1 flex flex-col items-center gap-1 group relative">
+                <div
+                  key={bar.lessonNumber}
+                  className="flex-1 flex flex-col items-center gap-1 group relative"
+                >
                   <div className="w-full h-24 bg-stone-100 rounded-t-md flex items-end overflow-hidden">
                     <div
                       className="w-full bg-[#8da47e] rounded-t-md transition-all"
@@ -209,7 +219,10 @@ function ClaseOverview() {
             ) : (
               <ul className="space-y-2">
                 {progressData!.recentEvents.map((e, i) => (
-                  <li key={i} className="flex items-center justify-between text-sm py-2 border-b border-stone-100 last:border-0">
+                  <li
+                    key={i}
+                    className="flex items-center justify-between text-sm py-2 border-b border-stone-100 last:border-0"
+                  >
                     <span className="font-bold text-stone-700">
                       {e.studentName}{" "}
                       <span className="font-medium text-stone-500">
@@ -247,14 +260,18 @@ function ClaseOverview() {
                   <div>
                     <div className="font-bold text-stone-800">{s.display_name}</div>
                     <div className="text-xs font-bold text-stone-400 mt-0.5">
-                      {s.completionPercent !== null ? `${s.completionPercent}% completado` : `${s.lessons} lecciones`}
+                      {s.completionPercent !== null
+                        ? `${s.completionPercent}% completado`
+                        : `${s.lessons} lecciones`}
                     </div>
                   </div>
                   <ArrowRight className="w-4 h-4 text-stone-300 group-hover:text-vowel-a group-hover:translate-x-1 transition-all" />
                 </Link>
               ))}
               {students.length === 0 && (
-                <div className="p-8 text-center text-sm font-bold text-stone-400">Sin alumnos todavía.</div>
+                <div className="p-8 text-center text-sm font-bold text-stone-400">
+                  Sin alumnos todavía.
+                </div>
               )}
             </div>
           </section>

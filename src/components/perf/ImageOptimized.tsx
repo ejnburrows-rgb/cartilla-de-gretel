@@ -28,18 +28,10 @@ export function ImageOptimized({
   const webpSrc = src.replace(/\.(png|jpg|jpeg)$/i, ".webp");
 
   return (
-    <div
-      ref={containerRef}
-      className={`image-optimized-container ${containerClassName}`}
-    >
+    <div ref={containerRef} className={`image-optimized-container ${containerClassName}`}>
       {/* Blur-up placeholder */}
       {blurDataUrl && !isLoaded && (
-        <img
-          src={blurDataUrl}
-          alt=""
-          aria-hidden="true"
-          className="image-optimized-blur"
-        />
+        <img src={blurDataUrl} alt="" aria-hidden="true" className="image-optimized-blur" />
       )}
 
       {isIntersecting && (

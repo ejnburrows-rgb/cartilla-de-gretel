@@ -26,7 +26,10 @@ import { recordEvent } from "@/lib/student-session";
 function installCanvasMock() {
   const store = new Map<HTMLCanvasElement, ImageData>();
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  (HTMLCanvasElement.prototype as any).getContext = function (this: HTMLCanvasElement, type: string) {
+  (HTMLCanvasElement.prototype as any).getContext = function (
+    this: HTMLCanvasElement,
+    type: string,
+  ) {
     if (type !== "2d") return null;
     const canvas = this;
     const ctx = {

@@ -19,7 +19,11 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { assetPath } from "@/lib/assets";
-import { getRemasterPresentation, type RemasterAsset, type RemasterPresentation } from "@/lib/remaster-assets";
+import {
+  getRemasterPresentation,
+  type RemasterAsset,
+  type RemasterPresentation,
+} from "@/lib/remaster-assets";
 import remasterInventory from "@/data/remaster-inventory.json";
 
 type Decision = "approve" | "reject" | "tune" | null;
@@ -58,11 +62,16 @@ function filename(path: string) {
 }
 
 function statusBadgeStyle(presentation: RemasterPresentation) {
-  if (presentation.status === "approved-student") return "bg-emerald-500/15 text-emerald-300 border-emerald-500/30";
-  if (presentation.status === "approved-teacher") return "bg-teal-500/15 text-teal-300 border-teal-500/30";
-  if (presentation.status === "projection-candidate") return "bg-indigo-500/15 text-indigo-300 border-indigo-500/30";
-  if (presentation.status === "cleaned-image") return "bg-sky-500/15 text-sky-300 border-sky-500/30";
-  if (presentation.status === "needs-correction") return "bg-red-500/15 text-red-300 border-red-500/30";
+  if (presentation.status === "approved-student")
+    return "bg-emerald-500/15 text-emerald-300 border-emerald-500/30";
+  if (presentation.status === "approved-teacher")
+    return "bg-teal-500/15 text-teal-300 border-teal-500/30";
+  if (presentation.status === "projection-candidate")
+    return "bg-indigo-500/15 text-indigo-300 border-indigo-500/30";
+  if (presentation.status === "cleaned-image")
+    return "bg-sky-500/15 text-sky-300 border-sky-500/30";
+  if (presentation.status === "needs-correction")
+    return "bg-red-500/15 text-red-300 border-red-500/30";
   return "bg-neutral-800 text-neutral-400 border-neutral-700";
 }
 
@@ -98,17 +107,33 @@ function ReviewImagePanel({
   }[tone];
 
   return (
-    <section className={cn("flex min-h-0 flex-col overflow-hidden rounded-xl border bg-neutral-950", toneClasses)}>
-      <div className={cn("flex shrink-0 items-center justify-between border-b border-current/20 px-3 py-2 text-[11px] font-bold", toneClasses)}>
+    <section
+      className={cn(
+        "flex min-h-0 flex-col overflow-hidden rounded-xl border bg-neutral-950",
+        toneClasses,
+      )}
+    >
+      <div
+        className={cn(
+          "flex shrink-0 items-center justify-between border-b border-current/20 px-3 py-2 text-[11px] font-bold",
+          toneClasses,
+        )}
+      >
         <span className="flex items-center gap-1.5">
           <Image className="h-3.5 w-3.5" />
           {title}
         </span>
-        <span className="rounded border border-current/20 bg-current/10 px-2 py-0.5 text-[9px] font-mono">{badge}</span>
+        <span className="rounded border border-current/20 bg-current/10 px-2 py-0.5 text-[9px] font-mono">
+          {badge}
+        </span>
       </div>
       <div className="flex min-h-0 flex-1 items-center justify-center overflow-hidden bg-neutral-950 p-2">
         {src ? (
-          <img src={src} alt={title} className="max-h-full max-w-full rounded-sm object-contain drop-shadow-lg" />
+          <img
+            src={src}
+            alt={title}
+            className="max-h-full max-w-full rounded-sm object-contain drop-shadow-lg"
+          />
         ) : (
           <div className="flex flex-col items-center gap-2 text-center text-[11px] text-neutral-600">
             <Clock className="h-6 w-6 text-neutral-800" />
@@ -128,9 +153,7 @@ function isTypingTarget(target: EventTarget | null) {
   );
 }
 
-export const Route = createFileRoute(
-  "/_authenticated/cartilla/teacher/remaster-review"
-)({
+export const Route = createFileRoute("/_authenticated/cartilla/teacher/remaster-review")({
   component: RemasterReview,
   head: () => ({
     meta: [{ title: "Revisión de Remasterización — La Cartilla de Gretel" }],
@@ -138,10 +161,7 @@ export const Route = createFileRoute(
 });
 
 function RemasterReview() {
-  const assets = useMemo(
-    () => remasterInventory.assets as RemasterAsset[],
-    []
-  );
+  const assets = useMemo(() => remasterInventory.assets as RemasterAsset[], []);
 
   const reviewableAssets = useMemo(
     () =>
@@ -152,54 +172,44 @@ function RemasterReview() {
             asset.cleanupStatus === "needs review" ||
             asset.cleanupStatus === "cleaned" ||
             asset.cleanupStatus === "approved" ||
-            asset.approvalStatus !== "pending"
+            asset.approvalStatus !== "pending",
         ),
-    [assets]
+    [assets],
   );
 
   const [selectedAssetIndex, setSelectedAssetIndex] = useState(() => {
-    const reviewIdx = assets.findIndex(
-      (a) => a.cleanupStatus === "needs review"
-    );
+    const reviewIdx = assets.findIndex((a) => a.cleanupStatus === "needs review");
     return reviewIdx !== -1 ? reviewIdx : 0;
   });
 
   const [searchQuery, setSearchQuery] = useState("");
-  const [filterType, setFilterType] = useState<"all" | "student" | "teacher">(
-    "all"
-  );
+  const [filterType, setFilterType] = useState<"all" | "student" | "teacher">("all");
   const [filterDecision, setFilterDecision] = useState<
     "all" | "undecided" | "approve" | "reject" | "tune"
   >("all");
 
-  const [decisions, setDecisions] = useState<Record<string, AssetDecision>>(
-    () => loadDecisions()
-  );
+  const [decisions, setDecisions] = useState<Record<string, AssetDecision>>(() => loadDecisions());
 
   const getDecision = useCallback(
-    (path: string): AssetDecision =>
-      decisions[path] ?? { decision: null, tuningNotes: "" },
-    [decisions]
+    (path: string): AssetDecision => decisions[path] ?? { decision: null, tuningNotes: "" },
+    [decisions],
   );
 
-  const setDecision = useCallback(
-    (path: string, decision: Decision) => {
-      setDecisions((prev) => {
-        const next = {
-          ...prev,
-          [path]: {
-            ...prev[path],
-            decision,
-            tuningNotes: prev[path]?.tuningNotes ?? "",
-            decidedAt: new Date().toISOString(),
-          },
-        };
-        saveDecisions(next);
-        return next;
-      });
-    },
-    []
-  );
+  const setDecision = useCallback((path: string, decision: Decision) => {
+    setDecisions((prev) => {
+      const next = {
+        ...prev,
+        [path]: {
+          ...prev[path],
+          decision,
+          tuningNotes: prev[path]?.tuningNotes ?? "",
+          decidedAt: new Date().toISOString(),
+        },
+      };
+      saveDecisions(next);
+      return next;
+    });
+  }, []);
 
   const setTuningNotes = useCallback((path: string, notes: string) => {
     setDecisions((prev) => {
@@ -217,34 +227,40 @@ function RemasterReview() {
   }, []);
 
   const selectedAsset = assets[selectedAssetIndex];
-  const selectedDecision = selectedAsset
-    ? getDecision(selectedAsset.originalSourcePath)
-    : null;
-  const selectedPresentation = selectedAsset
-    ? getRemasterPresentation(selectedAsset)
-    : null;
+  const selectedDecision = selectedAsset ? getDecision(selectedAsset.originalSourcePath) : null;
+  const selectedPresentation = selectedAsset ? getRemasterPresentation(selectedAsset) : null;
 
   const stats = useMemo(() => {
     const total = assets.length;
-    const projection = assets.filter((a) => getRemasterPresentation(a).status === "projection-candidate").length;
-    const cleaned = assets.filter((a) => getRemasterPresentation(a).status === "cleaned-image").length;
+    const projection = assets.filter(
+      (a) => getRemasterPresentation(a).status === "projection-candidate",
+    ).length;
+    const cleaned = assets.filter(
+      (a) => getRemasterPresentation(a).status === "cleaned-image",
+    ).length;
     const approvedStudent = assets.filter((a) => a.approvedForStudent).length;
     const approvedTeacher = assets.filter((a) => a.approvedForTeacher).length;
-    const needsCorrection = assets.filter((a) => getRemasterPresentation(a).status === "needs-correction").length;
+    const needsCorrection = assets.filter(
+      (a) => getRemasterPresentation(a).status === "needs-correction",
+    ).length;
     const pending = assets.filter((a) => a.cleanupStatus === "pending").length;
-    const decided = Object.values(decisions).filter(
-      (d) => d.decision !== null
-    ).length;
-    const approved = Object.values(decisions).filter(
-      (d) => d.decision === "approve"
-    ).length;
-    const rejected = Object.values(decisions).filter(
-      (d) => d.decision === "reject"
-    ).length;
-    const tuning = Object.values(decisions).filter(
-      (d) => d.decision === "tune"
-    ).length;
-    return { total, projection, cleaned, approvedStudent, approvedTeacher, needsCorrection, pending, decided, approved, rejected, tuning };
+    const decided = Object.values(decisions).filter((d) => d.decision !== null).length;
+    const approved = Object.values(decisions).filter((d) => d.decision === "approve").length;
+    const rejected = Object.values(decisions).filter((d) => d.decision === "reject").length;
+    const tuning = Object.values(decisions).filter((d) => d.decision === "tune").length;
+    return {
+      total,
+      projection,
+      cleaned,
+      approvedStudent,
+      approvedTeacher,
+      needsCorrection,
+      pending,
+      decided,
+      approved,
+      rejected,
+      tuning,
+    };
   }, [assets, decisions]);
 
   const filteredAssets = useMemo(() => {
@@ -281,15 +297,13 @@ function RemasterReview() {
   }, [filteredAssets]);
 
   const currentFilteredIdx = filteredAssets.findIndex(
-    (x) => x.originalIndex === selectedAssetIndex
+    (x) => x.originalIndex === selectedAssetIndex,
   );
 
   const pendingFilteredAssets = useMemo(
     () =>
-      filteredAssets.filter(
-        ({ asset }) => getDecision(asset.originalSourcePath).decision === null
-      ),
-    [filteredAssets, getDecision]
+      filteredAssets.filter(({ asset }) => getDecision(asset.originalSourcePath).decision === null),
+    [filteredAssets, getDecision],
   );
 
   const goToFilteredAsset = useCallback(
@@ -298,16 +312,15 @@ function RemasterReview() {
       const next = filteredAssets[currentFilteredIdx + offset];
       if (next) setSelectedAssetIndex(next.originalIndex);
     },
-    [currentFilteredIdx, filteredAssets]
+    [currentFilteredIdx, filteredAssets],
   );
 
   const goToNextPending = useCallback(() => {
     if (pendingFilteredAssets.length === 0) return;
 
     const next =
-      pendingFilteredAssets.find(
-        ({ originalIndex }) => originalIndex > selectedAssetIndex
-      ) ?? pendingFilteredAssets[0];
+      pendingFilteredAssets.find(({ originalIndex }) => originalIndex > selectedAssetIndex) ??
+      pendingFilteredAssets[0];
     setSelectedAssetIndex(next.originalIndex);
   }, [pendingFilteredAssets, selectedAssetIndex]);
 
@@ -363,12 +376,9 @@ function RemasterReview() {
   };
 
   const decisionBadge = (d: Decision) => {
-    if (d === "approve")
-      return "bg-emerald-500/20 text-emerald-300 border-emerald-500/30";
-    if (d === "reject")
-      return "bg-red-500/20 text-red-300 border-red-500/30";
-    if (d === "tune")
-      return "bg-amber-500/20 text-amber-300 border-amber-500/30";
+    if (d === "approve") return "bg-emerald-500/20 text-emerald-300 border-emerald-500/30";
+    if (d === "reject") return "bg-red-500/20 text-red-300 border-red-500/30";
+    if (d === "tune") return "bg-amber-500/20 text-amber-300 border-amber-500/30";
     return "bg-neutral-800 text-neutral-500 border-neutral-700";
   };
 
@@ -379,8 +389,7 @@ function RemasterReview() {
     return "Sin decisión";
   };
 
-  const currentFilteredPosition =
-    currentFilteredIdx === -1 ? 0 : currentFilteredIdx + 1;
+  const currentFilteredPosition = currentFilteredIdx === -1 ? 0 : currentFilteredIdx + 1;
 
   return (
     <div className="flex flex-col min-h-screen bg-neutral-900 text-neutral-100 font-sans">
@@ -398,8 +407,8 @@ function RemasterReview() {
               Revisión de imágenes y remaster
             </h1>
             <p className="text-[11px] text-neutral-400 truncate">
-              Original scan, cleaned image, projection candidate, and inventory approvals. Decisiones guardadas en
-              el navegador.
+              Original scan, cleaned image, projection candidate, and inventory approvals.
+              Decisiones guardadas en el navegador.
             </p>
           </div>
         </div>
@@ -428,9 +437,7 @@ function RemasterReview() {
           </span>
           <span className="px-2.5 py-1 rounded-full bg-neutral-800 border border-neutral-700 text-neutral-300">
             Pendientes visibles:{" "}
-            <span className="text-white font-bold">
-              {pendingFilteredAssets.length}
-            </span>
+            <span className="text-white font-bold">{pendingFilteredAssets.length}</span>
           </span>
           <button
             onClick={goToNextPending}
@@ -451,7 +458,11 @@ function RemasterReview() {
       <div className="px-6 py-1.5 bg-neutral-950 border-b border-neutral-800/50 flex items-center gap-2 text-[10px] text-neutral-600">
         <Info className="h-3 w-3 text-neutral-700" />
         <span>
-          Teclas: <kbd className="px-1 bg-neutral-800 rounded text-neutral-400">1</kbd> Aprobar <kbd className="px-1 bg-neutral-800 rounded text-neutral-400">2</kbd> Rechazar <kbd className="px-1 bg-neutral-800 rounded text-neutral-400">3</kbd> Ajustar <kbd className="px-1 bg-neutral-800 rounded text-neutral-400">N</kbd> Siguiente pendiente <kbd className="px-1 bg-neutral-800 rounded text-neutral-400">ArrowUp/Down</kbd> Navegar
+          Teclas: <kbd className="px-1 bg-neutral-800 rounded text-neutral-400">1</kbd> Aprobar{" "}
+          <kbd className="px-1 bg-neutral-800 rounded text-neutral-400">2</kbd> Rechazar{" "}
+          <kbd className="px-1 bg-neutral-800 rounded text-neutral-400">3</kbd> Ajustar{" "}
+          <kbd className="px-1 bg-neutral-800 rounded text-neutral-400">N</kbd> Siguiente pendiente{" "}
+          <kbd className="px-1 bg-neutral-800 rounded text-neutral-400">ArrowUp/Down</kbd> Navegar
         </span>
       </div>
 
@@ -478,7 +489,7 @@ function RemasterReview() {
                     "py-1 text-[10px] font-bold rounded capitalize",
                     filterType === t
                       ? "bg-indigo-600 text-white"
-                      : "text-neutral-400 hover:text-neutral-200"
+                      : "text-neutral-400 hover:text-neutral-200",
                   )}
                 >
                   {t === "all" ? "Todos" : t === "student" ? "Alumno" : "Maestro"}
@@ -499,22 +510,18 @@ function RemasterReview() {
               ).map(([val, label]) => (
                 <button
                   key={val}
-                  onClick={() =>
-                    setFilterDecision(
-                      filterDecision === val ? "all" : val
-                    )
-                  }
+                  onClick={() => setFilterDecision(filterDecision === val ? "all" : val)}
                   className={cn(
                     "px-2 py-0.5 rounded border text-[10px] font-semibold transition-colors",
                     filterDecision === val
                       ? val === "approve"
                         ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/30"
                         : val === "reject"
-                        ? "bg-red-500/20 text-red-300 border-red-500/30"
-                        : val === "tune"
-                        ? "bg-amber-500/20 text-amber-300 border-amber-500/30"
-                        : "bg-indigo-500/20 text-indigo-300 border-indigo-500/30"
-                      : "border-neutral-800 text-neutral-400 hover:bg-neutral-800"
+                          ? "bg-red-500/20 text-red-300 border-red-500/30"
+                          : val === "tune"
+                            ? "bg-amber-500/20 text-amber-300 border-amber-500/30"
+                            : "bg-indigo-500/20 text-indigo-300 border-indigo-500/30"
+                      : "border-neutral-800 text-neutral-400 hover:bg-neutral-800",
                   )}
                 >
                   {label}
@@ -537,8 +544,7 @@ function RemasterReview() {
               </span>
               <button
                 disabled={
-                  currentFilteredIdx === -1 ||
-                  currentFilteredIdx >= filteredAssets.length - 1
+                  currentFilteredIdx === -1 || currentFilteredIdx >= filteredAssets.length - 1
                 }
                 onClick={() => goToFilteredAsset("next")}
                 className="p-1 rounded hover:bg-neutral-800 disabled:opacity-30 transition-colors"
@@ -550,9 +556,7 @@ function RemasterReview() {
 
           <div className="flex-1 overflow-y-auto p-2 space-y-1">
             {filteredAssets.length === 0 ? (
-              <div className="text-center py-8 text-xs text-neutral-500">
-                Sin coincidencias
-              </div>
+              <div className="text-center py-8 text-xs text-neutral-500">Sin coincidencias</div>
             ) : (
               groupedFilteredAssets.map((group) => (
                 <div key={group.label} className="space-y-1">
@@ -571,7 +575,7 @@ function RemasterReview() {
                           "w-full text-left p-2.5 rounded-lg flex items-center justify-between gap-2 text-xs border transition-all",
                           isSelected
                             ? "bg-indigo-600/10 border-indigo-500/30 text-white font-bold"
-                            : "border-transparent bg-neutral-900/40 hover:bg-neutral-900 hover:border-neutral-800 text-neutral-400 hover:text-neutral-200"
+                            : "border-transparent bg-neutral-900/40 hover:bg-neutral-900 hover:border-neutral-800 text-neutral-400 hover:text-neutral-200",
                         )}
                       >
                         <div className="min-w-0 flex-1">
@@ -588,7 +592,7 @@ function RemasterReview() {
                           <span
                             className={cn(
                               "px-1.5 py-0.5 rounded-full text-[8px] font-bold uppercase tracking-wider border",
-                              statusBadgeStyle(presentation)
+                              statusBadgeStyle(presentation),
                             )}
                           >
                             {presentation.label}
@@ -597,14 +601,10 @@ function RemasterReview() {
                             <span
                               className={cn(
                                 "px-1.5 py-0.5 rounded-full text-[8px] font-bold uppercase tracking-wider border",
-                                decisionBadge(d)
+                                decisionBadge(d),
                               )}
                             >
-                              {d === "approve"
-                                ? "OK"
-                                : d === "reject"
-                                ? "NO"
-                                : "Tune"}
+                              {d === "approve" ? "OK" : d === "reject" ? "NO" : "Tune"}
                             </span>
                           )}
                         </div>
@@ -626,13 +626,20 @@ function RemasterReview() {
                 </h2>
                 <div className="mt-0.5 flex items-center gap-3 text-[10px] text-neutral-400 flex-wrap">
                   <span>
-                    Tipo: <strong className="text-neutral-200">{selectedAsset.type === "student-workbook" ? "Cuaderno Alumno" : "Flipchart Maestro"}</strong>
+                    Tipo:{" "}
+                    <strong className="text-neutral-200">
+                      {selectedAsset.type === "student-workbook"
+                        ? "Cuaderno Alumno"
+                        : "Flipchart Maestro"}
+                    </strong>
                   </span>
                   <span>
-                    Inventory status: <strong className="text-indigo-300">{selectedPresentation?.label}</strong>
+                    Inventory status:{" "}
+                    <strong className="text-indigo-300">{selectedPresentation?.label}</strong>
                   </span>
                   <span>
-                    Best available: <strong className="text-neutral-200">{selectedPresentation?.bestSource}</strong>
+                    Best available:{" "}
+                    <strong className="text-neutral-200">{selectedPresentation?.bestSource}</strong>
                   </span>
                   {selectedAsset.notes && (
                     <span>
@@ -645,7 +652,7 @@ function RemasterReview() {
               <span
                 className={cn(
                   "flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border",
-                  decisionBadge(selectedDecision?.decision ?? null)
+                  decisionBadge(selectedDecision?.decision ?? null),
                 )}
               >
                 {selectedDecision?.decision === "approve" ? (
@@ -670,7 +677,13 @@ function RemasterReview() {
               />
               <ReviewImagePanel
                 title="Cleaned image"
-                badge={selectedAsset.cleanupStatus === "cleaned" || selectedAsset.cleanupStatus === "needs review" || selectedAsset.cleanupStatus === "approved" ? "cleaned" : "not processed"}
+                badge={
+                  selectedAsset.cleanupStatus === "cleaned" ||
+                  selectedAsset.cleanupStatus === "needs review" ||
+                  selectedAsset.cleanupStatus === "approved"
+                    ? "cleaned"
+                    : "not processed"
+                }
                 src={
                   selectedAsset.cleanupStatus === "cleaned" ||
                   selectedAsset.cleanupStatus === "needs review" ||
@@ -684,20 +697,32 @@ function RemasterReview() {
               <ReviewImagePanel
                 title={selectedPresentation?.label ?? "Projection candidate"}
                 badge={selectedAsset.remasteredPathV2 ? "candidate" : "no candidate"}
-                src={selectedAsset.remasteredPathV2 ? publicAsset(selectedAsset.remasteredPathV2) : undefined}
+                src={
+                  selectedAsset.remasteredPathV2
+                    ? publicAsset(selectedAsset.remasteredPathV2)
+                    : undefined
+                }
                 emptyText="Projection candidate not available"
                 tone={
                   selectedPresentation?.status === "needs-correction"
                     ? "correction"
-                    : selectedPresentation?.status === "approved-student" || selectedPresentation?.status === "approved-teacher"
-                    ? "approved"
-                    : "projection"
+                    : selectedPresentation?.status === "approved-student" ||
+                        selectedPresentation?.status === "approved-teacher"
+                      ? "approved"
+                      : "projection"
                 }
               />
               <div className="rounded-xl border border-neutral-800 bg-neutral-950 px-4 py-3 xl:col-span-3">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div>
-                    <div className={cn("inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-black", selectedPresentation ? statusBadgeStyle(selectedPresentation) : "border-neutral-700 text-neutral-400")}>
+                    <div
+                      className={cn(
+                        "inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-black",
+                        selectedPresentation
+                          ? statusBadgeStyle(selectedPresentation)
+                          : "border-neutral-700 text-neutral-400",
+                      )}
+                    >
                       <CheckCircle2 className="h-3.5 w-3.5" />
                       {selectedPresentation?.label}
                     </div>
@@ -706,8 +731,26 @@ function RemasterReview() {
                     </p>
                   </div>
                   <div className="text-right text-[10px] text-neutral-500">
-                    <div>Approved for student: <strong className={selectedAsset.approvedForStudent ? "text-emerald-300" : "text-neutral-300"}>{selectedAsset.approvedForStudent ? "yes" : "no"}</strong></div>
-                    <div>Approved for teacher: <strong className={selectedAsset.approvedForTeacher ? "text-teal-300" : "text-neutral-300"}>{selectedAsset.approvedForTeacher ? "yes" : "no"}</strong></div>
+                    <div>
+                      Approved for student:{" "}
+                      <strong
+                        className={
+                          selectedAsset.approvedForStudent ? "text-emerald-300" : "text-neutral-300"
+                        }
+                      >
+                        {selectedAsset.approvedForStudent ? "yes" : "no"}
+                      </strong>
+                    </div>
+                    <div>
+                      Approved for teacher:{" "}
+                      <strong
+                        className={
+                          selectedAsset.approvedForTeacher ? "text-teal-300" : "text-neutral-300"
+                        }
+                      >
+                        {selectedAsset.approvedForTeacher ? "yes" : "no"}
+                      </strong>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -715,24 +758,94 @@ function RemasterReview() {
 
             <div className="border-t border-neutral-800 bg-neutral-950 p-4 flex gap-4 shrink-0">
               <div className="flex flex-col gap-2 shrink-0">
-                <p className="text-[10px] font-bold text-neutral-500 uppercase tracking-wider">Decisión V2 (local)</p>
+                <p className="text-[10px] font-bold text-neutral-500 uppercase tracking-wider">
+                  Decisión V2 (local)
+                </p>
                 <div className="flex gap-2">
-                  <button onClick={() => setDecision(selectedAsset.originalSourcePath, selectedDecision?.decision === "approve" ? null : "approve")} className={cn("flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-bold border transition-all", selectedDecision?.decision === "approve" ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/40 shadow-lg shadow-emerald-900/30" : "bg-neutral-900 text-neutral-400 border-neutral-800 hover:border-emerald-500/30 hover:text-emerald-400")}><ThumbsUp className="h-4 w-4" />Aprobar V2 <kbd className="ml-1 text-[9px] opacity-50 bg-neutral-800 px-1 rounded">1</kbd></button>
-                  <button onClick={() => setDecision(selectedAsset.originalSourcePath, selectedDecision?.decision === "reject" ? null : "reject")} className={cn("flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-bold border transition-all", selectedDecision?.decision === "reject" ? "bg-red-500/20 text-red-300 border-red-500/40 shadow-lg shadow-red-900/30" : "bg-neutral-900 text-neutral-400 border-neutral-800 hover:border-red-500/30 hover:text-red-400")}><ThumbsDown className="h-4 w-4" />Rechazar <kbd className="ml-1 text-[9px] opacity-50 bg-neutral-800 px-1 rounded">2</kbd></button>
-                  <button onClick={() => setDecision(selectedAsset.originalSourcePath, selectedDecision?.decision === "tune" ? null : "tune")} className={cn("flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-bold border transition-all", selectedDecision?.decision === "tune" ? "bg-amber-500/20 text-amber-300 border-amber-500/40 shadow-lg shadow-amber-900/30" : "bg-neutral-900 text-neutral-400 border-neutral-800 hover:border-amber-500/30 hover:text-amber-400")}><Wrench className="h-4 w-4" />Necesita Ajuste <kbd className="ml-1 text-[9px] opacity-50 bg-neutral-800 px-1 rounded">3</kbd></button>
+                  <button
+                    onClick={() =>
+                      setDecision(
+                        selectedAsset.originalSourcePath,
+                        selectedDecision?.decision === "approve" ? null : "approve",
+                      )
+                    }
+                    className={cn(
+                      "flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-bold border transition-all",
+                      selectedDecision?.decision === "approve"
+                        ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/40 shadow-lg shadow-emerald-900/30"
+                        : "bg-neutral-900 text-neutral-400 border-neutral-800 hover:border-emerald-500/30 hover:text-emerald-400",
+                    )}
+                  >
+                    <ThumbsUp className="h-4 w-4" />
+                    Aprobar V2{" "}
+                    <kbd className="ml-1 text-[9px] opacity-50 bg-neutral-800 px-1 rounded">1</kbd>
+                  </button>
+                  <button
+                    onClick={() =>
+                      setDecision(
+                        selectedAsset.originalSourcePath,
+                        selectedDecision?.decision === "reject" ? null : "reject",
+                      )
+                    }
+                    className={cn(
+                      "flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-bold border transition-all",
+                      selectedDecision?.decision === "reject"
+                        ? "bg-red-500/20 text-red-300 border-red-500/40 shadow-lg shadow-red-900/30"
+                        : "bg-neutral-900 text-neutral-400 border-neutral-800 hover:border-red-500/30 hover:text-red-400",
+                    )}
+                  >
+                    <ThumbsDown className="h-4 w-4" />
+                    Rechazar{" "}
+                    <kbd className="ml-1 text-[9px] opacity-50 bg-neutral-800 px-1 rounded">2</kbd>
+                  </button>
+                  <button
+                    onClick={() =>
+                      setDecision(
+                        selectedAsset.originalSourcePath,
+                        selectedDecision?.decision === "tune" ? null : "tune",
+                      )
+                    }
+                    className={cn(
+                      "flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-bold border transition-all",
+                      selectedDecision?.decision === "tune"
+                        ? "bg-amber-500/20 text-amber-300 border-amber-500/40 shadow-lg shadow-amber-900/30"
+                        : "bg-neutral-900 text-neutral-400 border-neutral-800 hover:border-amber-500/30 hover:text-amber-400",
+                    )}
+                  >
+                    <Wrench className="h-4 w-4" />
+                    Necesita Ajuste{" "}
+                    <kbd className="ml-1 text-[9px] opacity-50 bg-neutral-800 px-1 rounded">3</kbd>
+                  </button>
                 </div>
-                {selectedDecision?.decidedAt && <p className="text-[9px] text-neutral-600">Decidido: {new Date(selectedDecision.decidedAt).toLocaleString("es-MX")}</p>}
+                {selectedDecision?.decidedAt && (
+                  <p className="text-[9px] text-neutral-600">
+                    Decidido: {new Date(selectedDecision.decidedAt).toLocaleString("es-MX")}
+                  </p>
+                )}
               </div>
 
               <div className="flex-1 flex flex-col gap-1.5">
-                <p className="text-[10px] font-bold text-neutral-500 uppercase tracking-wider">Notas de Ajuste (se guardan localmente)</p>
-                <textarea value={selectedDecision?.tuningNotes ?? ""} onChange={(e) => setTuningNotes(selectedAsset.originalSourcePath, e.target.value)} placeholder="Describe qué necesita ajuste: contraste, saturación, líneas, bordes, ruido..." rows={3} className="w-full bg-neutral-900 border border-neutral-800 rounded-lg px-3 py-2 text-[11px] text-neutral-200 placeholder-neutral-600 focus:outline-none focus:border-amber-500/40 resize-none transition-colors" />
-                <p className="text-[9px] text-neutral-700">Las notas NO modifican el inventario JSON. Usa "Exportar JSON" para obtener un resumen de decisiones.</p>
+                <p className="text-[10px] font-bold text-neutral-500 uppercase tracking-wider">
+                  Notas de Ajuste (se guardan localmente)
+                </p>
+                <textarea
+                  value={selectedDecision?.tuningNotes ?? ""}
+                  onChange={(e) => setTuningNotes(selectedAsset.originalSourcePath, e.target.value)}
+                  placeholder="Describe qué necesita ajuste: contraste, saturación, líneas, bordes, ruido..."
+                  rows={3}
+                  className="w-full bg-neutral-900 border border-neutral-800 rounded-lg px-3 py-2 text-[11px] text-neutral-200 placeholder-neutral-600 focus:outline-none focus:border-amber-500/40 resize-none transition-colors"
+                />
+                <p className="text-[9px] text-neutral-700">
+                  Las notas NO modifican el inventario JSON. Usa "Exportar JSON" para obtener un
+                  resumen de decisiones.
+                </p>
               </div>
             </div>
           </main>
         ) : (
-          <div className="flex-1 bg-neutral-900 flex items-center justify-center text-neutral-500 text-sm">Selecciona una página para comparar</div>
+          <div className="flex-1 bg-neutral-900 flex items-center justify-center text-neutral-500 text-sm">
+            Selecciona una página para comparar
+          </div>
         )}
       </div>
     </div>

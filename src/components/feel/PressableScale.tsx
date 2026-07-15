@@ -6,7 +6,12 @@ interface PressableScaleProps extends React.HTMLAttributes<HTMLDivElement> {
   onClick?: (event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>) => void;
 }
 
-export function PressableScale({ children, onClick, className = "", ...props }: PressableScaleProps) {
+export function PressableScale({
+  children,
+  onClick,
+  className = "",
+  ...props
+}: PressableScaleProps) {
   const [isKeyboardActive, setIsKeyboardActive] = useState(false);
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {

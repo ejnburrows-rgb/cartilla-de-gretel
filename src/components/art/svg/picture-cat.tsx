@@ -31,7 +31,16 @@ export function PictureCat({ animated = false, ...props }: PictureCatProps) {
       {/* === Window frame === */}
       <rect x="30" y="15" width="180" height="140" rx="6" fill="url(#cat-outside)" />
       {/* Window frame border */}
-      <rect x="30" y="15" width="180" height="140" rx="6" fill="none" stroke="#d4c4a8" strokeWidth="4" />
+      <rect
+        x="30"
+        y="15"
+        width="180"
+        height="140"
+        rx="6"
+        fill="none"
+        stroke="#d4c4a8"
+        strokeWidth="4"
+      />
       {/* Window cross beams */}
       <line x1="120" y1="15" x2="120" y2="155" stroke="#d4c4a8" strokeWidth="3" />
       <line x1="30" y1="85" x2="210" y2="85" stroke="#d4c4a8" strokeWidth="3" />
@@ -54,7 +63,12 @@ export function PictureCat({ animated = false, ...props }: PictureCatProps) {
       <path d="M30 15 Q42 20 40 45 Q38 65 30 85" fill="none" stroke="#d4a0b0" strokeWidth="1" />
       {/* Right curtain */}
       <path d="M210 15 Q202 15 204 40 Q206 70 210 85 L210 15" fill="#e8b8c8" opacity="0.7" />
-      <path d="M210 15 Q198 20 200 45 Q202 65 210 85" fill="none" stroke="#d4a0b0" strokeWidth="1" />
+      <path
+        d="M210 15 Q198 20 200 45 Q202 65 210 85"
+        fill="none"
+        stroke="#d4a0b0"
+        strokeWidth="1"
+      />
 
       {/* === Windowsill === */}
       <rect x="22" y="152" width="196" height="10" rx="3" fill="#d4c4a8" />
@@ -67,11 +81,29 @@ export function PictureCat({ animated = false, ...props }: PictureCatProps) {
       {/* Soil */}
       <ellipse cx="47" cy="153" rx="6" ry="2" fill="#8b6b50" />
       {/* Plant leaves */}
-      <path d="M47 149 Q42 135 47 130" fill="none" stroke="#6db386" strokeWidth="1.5" strokeLinecap="round" />
+      <path
+        d="M47 149 Q42 135 47 130"
+        fill="none"
+        stroke="#6db386"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
       <ellipse cx="45" cy="130" rx="5" ry="3" fill="#80c49a" transform="rotate(-20 45 130)" />
-      <path d="M47 149 Q52 132 48 125" fill="none" stroke="#6db386" strokeWidth="1.5" strokeLinecap="round" />
+      <path
+        d="M47 149 Q52 132 48 125"
+        fill="none"
+        stroke="#6db386"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
       <ellipse cx="49" cy="125" rx="5" ry="3" fill="#8cc9a0" transform="rotate(15 49 125)" />
-      <path d="M47 149 Q47 138 44 133" fill="none" stroke="#6db386" strokeWidth="1.2" strokeLinecap="round" />
+      <path
+        d="M47 149 Q47 138 44 133"
+        fill="none"
+        stroke="#6db386"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+      />
       <ellipse cx="43" cy="133" rx="4" ry="2.5" fill="#6db386" transform="rotate(-5 43 133)" />
       {/* Small flower */}
       <circle cx="48" cy="123" r="3" fill="#f9c3d1" />
@@ -79,17 +111,53 @@ export function PictureCat({ animated = false, ...props }: PictureCatProps) {
 
       {/* === CAT === */}
       {/* Tail */}
-      <path d="M165 148 Q180 130 185 115 Q188 105 182 102" fill="none" stroke="#e8a050" strokeWidth="4" strokeLinecap="round" />
+      <path
+        d="M165 148 Q180 130 185 115 Q188 105 182 102"
+        fill="none"
+        stroke="#e8a050"
+        strokeWidth="4"
+        strokeLinecap="round"
+      />
       {/* Tail stripes */}
-      <path d="M176 123 Q179 120 181 118" fill="none" stroke="#c98040" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M180 114 Q182 111 183 108" fill="none" stroke="#c98040" strokeWidth="1.5" strokeLinecap="round" />
+      <path
+        d="M176 123 Q179 120 181 118"
+        fill="none"
+        stroke="#c98040"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M180 114 Q182 111 183 108"
+        fill="none"
+        stroke="#c98040"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
 
       {/* Body */}
       <ellipse cx="140" cy="140" rx="24" ry="16" fill="#f0a848" />
       {/* Body stripes */}
-      <path d="M130 130 Q132 138 130 146" fill="none" stroke="#c98040" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M138 128 Q140 138 138 148" fill="none" stroke="#c98040" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M148 129 Q150 138 148 147" fill="none" stroke="#c98040" strokeWidth="1.5" strokeLinecap="round" />
+      <path
+        d="M130 130 Q132 138 130 146"
+        fill="none"
+        stroke="#c98040"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M138 128 Q140 138 138 148"
+        fill="none"
+        stroke="#c98040"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M148 129 Q150 138 148 147"
+        fill="none"
+        stroke="#c98040"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
 
       {/* Belly */}
       <ellipse cx="140" cy="145" rx="14" ry="8" fill="#fce0b8" />
@@ -114,9 +182,27 @@ export function PictureCat({ animated = false, ...props }: PictureCatProps) {
       <polygon points="121,104 126,94 128,104" fill="#f0c8a8" />
 
       {/* Face stripes */}
-      <path d="M100 118 Q105 120 108 118" fill="none" stroke="#c98040" strokeWidth="1.2" strokeLinecap="round" />
-      <path d="M122 117 Q125 120 130 118" fill="none" stroke="#c98040" strokeWidth="1.2" strokeLinecap="round" />
-      <path d="M113 109 Q115 112 117 109" fill="none" stroke="#c98040" strokeWidth="1.2" strokeLinecap="round" />
+      <path
+        d="M100 118 Q105 120 108 118"
+        fill="none"
+        stroke="#c98040"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+      />
+      <path
+        d="M122 117 Q125 120 130 118"
+        fill="none"
+        stroke="#c98040"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+      />
+      <path
+        d="M113 109 Q115 112 117 109"
+        fill="none"
+        stroke="#c98040"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+      />
 
       {/* Eyes */}
       <ellipse cx="108" cy="120" rx="4.5" ry="5" fill="#ffffff" />
@@ -134,7 +220,13 @@ export function PictureCat({ animated = false, ...props }: PictureCatProps) {
 
       {/* Mouth */}
       <path d="M115 128 L115 131" fill="none" stroke="#a08070" strokeWidth="0.8" />
-      <path d="M112 131 Q115 133 118 131" fill="none" stroke="#a08070" strokeWidth="0.8" strokeLinecap="round" />
+      <path
+        d="M112 131 Q115 133 118 131"
+        fill="none"
+        stroke="#a08070"
+        strokeWidth="0.8"
+        strokeLinecap="round"
+      />
 
       {/* Whiskers */}
       <line x1="96" y1="125" x2="107" y2="127" stroke="#d0b898" strokeWidth="0.8" />
@@ -152,8 +244,19 @@ export function PictureCat({ animated = false, ...props }: PictureCatProps) {
 
       {/* Small ball of yarn on floor */}
       <circle cx="195" cy="182" r="8" fill="#e8a0b8" />
-      <path d="M190 178 Q195 182 192 186 Q196 184 200 186 Q198 180 193 178" fill="none" stroke="#d08898" strokeWidth="0.8" />
-      <path d="M203 182 Q210 180 215 184" fill="none" stroke="#e8a0b8" strokeWidth="1.5" strokeLinecap="round" />
+      <path
+        d="M190 178 Q195 182 192 186 Q196 184 200 186 Q198 180 193 178"
+        fill="none"
+        stroke="#d08898"
+        strokeWidth="0.8"
+      />
+      <path
+        d="M203 182 Q210 180 215 184"
+        fill="none"
+        stroke="#e8a0b8"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
     </svg>
   );
 }

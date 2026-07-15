@@ -12,7 +12,12 @@ interface DragLetterTraceProps {
   onComplete?: () => void;
 }
 
-export function DragLetterTrace({ letter, color = "#f97316", lessonId, onComplete }: DragLetterTraceProps) {
+export function DragLetterTrace({
+  letter,
+  color = "#f97316",
+  lessonId,
+  onComplete,
+}: DragLetterTraceProps) {
   const targetLetter = letter.toUpperCase().trim();
   const strokes = LETTER_TEMPLATES[targetLetter] ?? null;
 
@@ -101,7 +106,7 @@ export function DragLetterTrace({ letter, color = "#f97316", lessonId, onComplet
           window.dispatchEvent(
             new CustomEvent("gretel:celebrate", {
               detail: { text: `¡Felicidades! Trazaste la letra ${targetLetter} muy bien.` },
-            })
+            }),
           );
           if (lessonId) {
             recordEvent({
@@ -133,7 +138,9 @@ export function DragLetterTrace({ letter, color = "#f97316", lessonId, onComplet
       <div className="flex items-center justify-between pb-3 border-b border-stone-200/40">
         <div>
           <h3 className="text-lg font-black text-stone-800">Trazar Letra</h3>
-          <p className="text-xs font-bold text-stone-500">Sigue los puntos verdes para trazar la letra.</p>
+          <p className="text-xs font-bold text-stone-500">
+            Sigue los puntos verdes para trazar la letra.
+          </p>
         </div>
         <button
           onClick={resetGame}
@@ -190,7 +197,9 @@ export function DragLetterTrace({ letter, color = "#f97316", lessonId, onComplet
             {/* 3. Current Active Stroke */}
             {currentStrokePoints.length > 0 && (
               <path
-                d={currentStrokePoints.map((p, i) => `${i === 0 ? "M" : "L"} ${p.x} ${p.y}`).join(" ")}
+                d={currentStrokePoints
+                  .map((p, i) => `${i === 0 ? "M" : "L"} ${p.x} ${p.y}`)
+                  .join(" ")}
                 fill="none"
                 stroke={color}
                 strokeWidth="10"
@@ -204,7 +213,8 @@ export function DragLetterTrace({ letter, color = "#f97316", lessonId, onComplet
               strokes.map((stroke, sIdx) =>
                 stroke.map((p, pIdx) => {
                   const isCompleted =
-                    sIdx < currentStrokeIdx || (sIdx === currentStrokeIdx && pIdx < currentPointIdx);
+                    sIdx < currentStrokeIdx ||
+                    (sIdx === currentStrokeIdx && pIdx < currentPointIdx);
                   const isActiveTarget = sIdx === currentStrokeIdx && pIdx === currentPointIdx;
 
                   if (isCompleted) return null;
@@ -216,12 +226,14 @@ export function DragLetterTrace({ letter, color = "#f97316", lessonId, onComplet
                       cy={p.y}
                       r={isActiveTarget ? "5.5" : "3.5"}
                       className={`${
-                        isActiveTarget ? "fill-emerald-500 stroke-white stroke-2 animate-ping-slow" : "fill-stone-300"
+                        isActiveTarget
+                          ? "fill-emerald-500 stroke-white stroke-2 animate-ping-slow"
+                          : "fill-stone-300"
                       }`}
                       style={{ transformOrigin: `${p.x}px ${p.y}px` }}
                     />
                   );
-                })
+                }),
               )}
 
             {/* Pulsing indicator overlay on target point */}
@@ -260,7 +272,9 @@ export function DragLetterTrace({ letter, color = "#f97316", lessonId, onComplet
           className="p-3 bg-emerald-50 border border-emerald-200 rounded-xl flex items-center justify-center gap-2"
         >
           <Award className="w-5 h-5 text-emerald-600 shrink-0" />
-          <span className="text-sm font-black text-emerald-800">¡Trazo completado! Excelente 🎉</span>
+          <span className="text-sm font-black text-emerald-800">
+            ¡Trazo completado! Excelente 🎉
+          </span>
         </motion.div>
       )}
     </div>

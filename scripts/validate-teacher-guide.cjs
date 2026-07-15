@@ -1,15 +1,15 @@
-const fs = require('fs');
-const path = require('path');
-const Ajv = require('ajv');
+const fs = require("fs");
+const path = require("path");
+const Ajv = require("ajv");
 
 const ajv = new Ajv({ allErrors: true });
 
-const schemaPath = path.join(__dirname, '../src/data/teacher-guide.schema.json');
-const dataPath = path.join(__dirname, '../src/data/teacher-guide.json');
+const schemaPath = path.join(__dirname, "../src/data/teacher-guide.schema.json");
+const dataPath = path.join(__dirname, "../src/data/teacher-guide.json");
 
 try {
-  const schema = JSON.parse(fs.readFileSync(schemaPath, 'utf8'));
-  const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+  const schema = JSON.parse(fs.readFileSync(schemaPath, "utf8"));
+  const data = JSON.parse(fs.readFileSync(dataPath, "utf8"));
 
   const validate = ajv.compile(schema);
   const valid = validate(data);

@@ -34,7 +34,10 @@ export function exportClassProgressCsv(
     const timeMins = Math.round(s.timeSeconds / 60);
     csv += `"${s.name}",${s.lessonsCount},${accuracy},${timeMins}\n`;
   });
-  const safeName = className.toLowerCase().replace(/\s+/g, "_").replace(/[^a-z0-9_]/g, "");
+  const safeName = className
+    .toLowerCase()
+    .replace(/\s+/g, "_")
+    .replace(/[^a-z0-9_]/g, "");
   downloadCsv(csv, `reporte_clase_${safeName || "sin_nombre"}.csv`);
 }
 
@@ -52,6 +55,9 @@ export function exportStudentProgressCsv(studentName: string, events: StudentEve
   events.forEach((e) => {
     csv += `${new Date(e.created_at).toLocaleDateString()},${e.event_kind},${e.lesson_id},${e.score || 0},${e.total || 0},${e.time_seconds || 0}\n`;
   });
-  const safeName = studentName.toLowerCase().replace(/\s+/g, "_").replace(/[^a-z0-9_]/g, "");
+  const safeName = studentName
+    .toLowerCase()
+    .replace(/\s+/g, "_")
+    .replace(/[^a-z0-9_]/g, "");
   downloadCsv(csv, `reporte_${safeName || "alumno"}.csv`);
 }

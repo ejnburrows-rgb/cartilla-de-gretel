@@ -96,7 +96,10 @@ function MyProgress() {
     return { completed, exByLesson, timeTotal, badges, level, weak };
   }, [data]);
 
-  const rewards = useRewards(summary ? Array.from(summary.completed).map(Number) : [], summary?.exByLesson);
+  const rewards = useRewards(
+    summary ? Array.from(summary.completed).map(Number) : [],
+    summary?.exByLesson,
+  );
 
   const exportCSV = () => {
     if (!data || !summary) return;
@@ -154,7 +157,9 @@ function MyProgress() {
 
       <header className="mt-6 flex items-start justify-between gap-3 flex-wrap">
         <div>
-          <h1 className="text-3xl sm:text-4xl font-bold">{t.holaName[lang].replace("{name}", data.student.display_name)}</h1>
+          <h1 className="text-3xl sm:text-4xl font-bold">
+            {t.holaName[lang].replace("{name}", data.student.display_name)}
+          </h1>
           <p className="text-sm text-foreground/60 mt-1">
             {t.clase[lang]} <strong>{data.class?.name ?? "—"}</strong> · {t.tuCodigo[lang]}{" "}
             <span className="font-mono font-bold">{data.student.student_code}</span>
@@ -188,9 +193,7 @@ function MyProgress() {
           <h2 className="font-bold inline-flex items-center gap-2 text-warning">
             <Sparkles className="w-4 h-4" /> {t.teConvieneRepasar[lang]}
           </h2>
-          <p className="text-sm text-foreground/70 mt-1">
-            {t.tuvisteErrores[lang]}
-          </p>
+          <p className="text-sm text-foreground/70 mt-1">{t.tuvisteErrores[lang]}</p>
           <div className="mt-3 flex flex-wrap gap-2">
             {summary.weak.map((n) => {
               const entry = CATALOG.find((e) => String(e.n) === n);
@@ -224,12 +227,18 @@ function MyProgress() {
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="kid-card p-4">
-            <h3 className="font-bold text-foreground/80 mb-3 text-sm uppercase tracking-wider">Tus Stickers</h3>
+            <h3 className="font-bold text-foreground/80 mb-3 text-sm uppercase tracking-wider">
+              Tus Stickers
+            </h3>
             <div className="flex flex-wrap gap-2">
-              {rewards.allStickers.map(s => {
+              {rewards.allStickers.map((s) => {
                 const earned = rewards.stickers.includes(s.lessonId);
                 return (
-                  <div key={s.id} className={`w-12 h-12 flex items-center justify-center rounded-xl text-2xl transition-all duration-300 ${earned ? "bg-secondary scale-100 opacity-100" : "bg-foreground/5 scale-95 opacity-40 grayscale"}`} title={s.name}>
+                  <div
+                    key={s.id}
+                    className={`w-12 h-12 flex items-center justify-center rounded-xl text-2xl transition-all duration-300 ${earned ? "bg-secondary scale-100 opacity-100" : "bg-foreground/5 scale-95 opacity-40 grayscale"}`}
+                    title={s.name}
+                  >
                     {s.emoji}
                   </div>
                 );
@@ -237,15 +246,25 @@ function MyProgress() {
             </div>
           </div>
           <div className="kid-card p-4">
-            <h3 className="font-bold text-foreground/80 mb-3 text-sm uppercase tracking-wider">Tus Trofeos</h3>
+            <h3 className="font-bold text-foreground/80 mb-3 text-sm uppercase tracking-wider">
+              Tus Trofeos
+            </h3>
             <div className="grid grid-cols-1 gap-2">
-              {rewards.allBadges.map(b => {
+              {rewards.allBadges.map((b) => {
                 const earned = rewards.badges.includes(b.id);
                 return (
-                  <div key={b.id} className={`flex items-center gap-3 p-2 rounded-xl transition-all ${earned ? "bg-amber-100/50" : "opacity-50 grayscale"}`}>
+                  <div
+                    key={b.id}
+                    className={`flex items-center gap-3 p-2 rounded-xl transition-all ${earned ? "bg-amber-100/50" : "opacity-50 grayscale"}`}
+                  >
                     <div className="text-3xl">{b.emoji}</div>
                     <div>
-                      <div className="font-bold text-sm" style={{ color: earned ? b.color : "inherit" }}>{b.name}</div>
+                      <div
+                        className="font-bold text-sm"
+                        style={{ color: earned ? b.color : "inherit" }}
+                      >
+                        {b.name}
+                      </div>
                       <div className="text-xs text-foreground/60">{b.description}</div>
                     </div>
                   </div>
@@ -285,7 +304,11 @@ function MyProgress() {
                     ) : (
                       <span>{t.pendiente[lang]}</span>
                     )}
-                    {pct !== null && <span className="ml-2">· {pct}% {t.acierto[lang]}</span>}
+                    {pct !== null && (
+                      <span className="ml-2">
+                        · {pct}% {t.acierto[lang]}
+                      </span>
+                    )}
                   </div>
                 </div>
               </Link>
@@ -318,5 +341,3 @@ function Stat({
     </div>
   );
 }
-
-

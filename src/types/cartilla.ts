@@ -5,19 +5,19 @@
  */
 
 export type {
-	BookFaithfulLesson,
-	SightWordEntry,
-	EditorialNote,
-	BookMeta,
-	ClosingExerciseKind,
+  BookFaithfulLesson,
+  SightWordEntry,
+  EditorialNote,
+  BookMeta,
+  ClosingExerciseKind,
 } from "@/lib/book-faithful";
 
 export type {
-	VowelLesson,
-	VocabWord,
-	MatchPair,
-	CheckboxItem,
-	MiamiQuestion,
+  VowelLesson,
+  VocabWord,
+  MatchPair,
+  CheckboxItem,
+  MiamiQuestion,
 } from "@/lib/cartilla-content";
 
 export type { CatalogEntry, ConsonantLessonData } from "@/lib/lesson-catalog";

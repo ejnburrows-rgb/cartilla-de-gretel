@@ -59,16 +59,38 @@ export function PicturePineapple({ animated = false, ...props }: PicturePineappl
       <circle cx="200" cy="30" r="35" fill="#fff9c4" opacity="0.5" />
 
       {/* Distant palm frond - left background */}
-      <path d="M0 80 Q10 60 25 70 Q15 55 30 50 Q20 45 32 35" fill="none" stroke="#a5d6a7" strokeWidth="3" strokeLinecap="round" opacity="0.3" />
+      <path
+        d="M0 80 Q10 60 25 70 Q15 55 30 50 Q20 45 32 35"
+        fill="none"
+        stroke="#a5d6a7"
+        strokeWidth="3"
+        strokeLinecap="round"
+        opacity="0.3"
+      />
 
       {/* Distant palm frond - right background */}
-      <path d="M240 70 Q228 55 215 65 Q225 48 210 42" fill="none" stroke="#a5d6a7" strokeWidth="2.5" strokeLinecap="round" opacity="0.25" />
+      <path
+        d="M240 70 Q228 55 215 65 Q225 48 210 42"
+        fill="none"
+        stroke="#a5d6a7"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        opacity="0.25"
+      />
 
       {/* Pineapple shadow */}
       <ellipse cx="120" cy="185" rx="35" ry="6" fill="#bdbdbd" opacity="0.2" />
 
       {/* Pineapple body - oval shape */}
-      <ellipse cx="120" cy="132" rx="34" ry="50" fill="url(#piBodyGrad)" stroke="#e65100" strokeWidth="1.5" />
+      <ellipse
+        cx="120"
+        cy="132"
+        rx="34"
+        ry="50"
+        fill="url(#piBodyGrad)"
+        stroke="#e65100"
+        strokeWidth="1.5"
+      />
 
       {/* Diamond crosshatch texture pattern */}
       {/* Diagonal lines going right */}
@@ -100,24 +122,90 @@ export function PicturePineapple({ animated = false, ...props }: PicturePineappl
       <circle cx="126" cy="150" r="1.5" fill="#e8a000" opacity="0.4" />
 
       {/* Body highlight */}
-      <ellipse cx="108" cy="118" rx="10" ry="22" fill="#ffffff" opacity="0.15" transform="rotate(-10 108 118)" />
+      <ellipse
+        cx="108"
+        cy="118"
+        rx="10"
+        ry="22"
+        fill="#ffffff"
+        opacity="0.15"
+        transform="rotate(-10 108 118)"
+      />
 
       {/* Crown of leaves - back layer */}
       <g className={animated ? "pi-leaf2" : undefined}>
-        <path d="M120 85 Q95 40 80 15" fill="none" stroke="url(#piLeafGrad)" strokeWidth="5" strokeLinecap="round" />
-        <path d="M120 85 Q145 40 160 15" fill="none" stroke="url(#piLeafGrad)" strokeWidth="5" strokeLinecap="round" />
-        <path d="M120 85 Q85 50 65 35" fill="none" stroke="#558b2f" strokeWidth="4" strokeLinecap="round" opacity="0.7" />
-        <path d="M120 85 Q155 50 175 35" fill="none" stroke="#558b2f" strokeWidth="4" strokeLinecap="round" opacity="0.7" />
+        <path
+          d="M120 85 Q95 40 80 15"
+          fill="none"
+          stroke="url(#piLeafGrad)"
+          strokeWidth="5"
+          strokeLinecap="round"
+        />
+        <path
+          d="M120 85 Q145 40 160 15"
+          fill="none"
+          stroke="url(#piLeafGrad)"
+          strokeWidth="5"
+          strokeLinecap="round"
+        />
+        <path
+          d="M120 85 Q85 50 65 35"
+          fill="none"
+          stroke="#558b2f"
+          strokeWidth="4"
+          strokeLinecap="round"
+          opacity="0.7"
+        />
+        <path
+          d="M120 85 Q155 50 175 35"
+          fill="none"
+          stroke="#558b2f"
+          strokeWidth="4"
+          strokeLinecap="round"
+          opacity="0.7"
+        />
       </g>
 
       {/* Crown of leaves - front layer */}
       <g className={animated ? "pi-leaf1" : undefined}>
-        <path d="M120 85 Q110 55 100 25" fill="none" stroke="#7cb342" strokeWidth="5.5" strokeLinecap="round" />
-        <path d="M120 85 Q130 55 140 25" fill="none" stroke="#7cb342" strokeWidth="5.5" strokeLinecap="round" />
-        <path d="M120 85 Q118 50 120 20" fill="none" stroke="#8bc34a" strokeWidth="4.5" strokeLinecap="round" />
+        <path
+          d="M120 85 Q110 55 100 25"
+          fill="none"
+          stroke="#7cb342"
+          strokeWidth="5.5"
+          strokeLinecap="round"
+        />
+        <path
+          d="M120 85 Q130 55 140 25"
+          fill="none"
+          stroke="#7cb342"
+          strokeWidth="5.5"
+          strokeLinecap="round"
+        />
+        <path
+          d="M120 85 Q118 50 120 20"
+          fill="none"
+          stroke="#8bc34a"
+          strokeWidth="4.5"
+          strokeLinecap="round"
+        />
         {/* Small inner leaves */}
-        <path d="M120 85 Q105 60 95 45" fill="none" stroke="#689f38" strokeWidth="3" strokeLinecap="round" opacity="0.8" />
-        <path d="M120 85 Q135 60 145 45" fill="none" stroke="#689f38" strokeWidth="3" strokeLinecap="round" opacity="0.8" />
+        <path
+          d="M120 85 Q105 60 95 45"
+          fill="none"
+          stroke="#689f38"
+          strokeWidth="3"
+          strokeLinecap="round"
+          opacity="0.8"
+        />
+        <path
+          d="M120 85 Q135 60 145 45"
+          fill="none"
+          stroke="#689f38"
+          strokeWidth="3"
+          strokeLinecap="round"
+          opacity="0.8"
+        />
       </g>
 
       {/* Tropical sparkle details */}
@@ -128,7 +216,11 @@ export function PicturePineapple({ animated = false, ...props }: PicturePineappl
       </g>
 
       {/* Ground / table surface */}
-      <path d="M0 185 Q60 180 120 183 Q180 180 240 185 L240 200 L0 200 Z" fill="#ffe0b2" opacity="0.5" />
+      <path
+        d="M0 185 Q60 180 120 183 Q180 180 240 185 L240 200 L0 200 Z"
+        fill="#ffe0b2"
+        opacity="0.5"
+      />
       <line x1="0" y1="185" x2="240" y2="185" stroke="#d7ccc8" strokeWidth="1" opacity="0.3" />
     </svg>
   );

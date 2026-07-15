@@ -39,10 +39,7 @@ const pageVariants = {
  * Lane-lock note: this component does NOT modify Reader.tsx or anything
  * under src/routes/_authenticated/**.
  */
-export function ClassroomBookFlip({
-  pages,
-  initialIndex = 0,
-}: ClassroomBookFlipProps) {
+export function ClassroomBookFlip({ pages, initialIndex = 0 }: ClassroomBookFlipProps) {
   const [index, setIndex] = useState(initialIndex);
   const [direction, setDirection] = useState<1 | -1>(1);
 

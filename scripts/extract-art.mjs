@@ -27,39 +27,36 @@ import { spawnSync } from "child_process";
 import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname  = path.dirname(__filename);
+const __dirname = path.dirname(__filename);
 
 // ── Config ──────────────────────────────────────────────────────────────────
 
 const DEFAULT_DPI = 300;
 
 const SOURCE_PDFs = {
-  workbook: path.resolve(
-    __dirname,
-    "../../Cartilla 1 Interactivos/La cartilla Workbook.pdf"
-  ),
+  workbook: path.resolve(__dirname, "../../Cartilla 1 Interactivos/La cartilla Workbook.pdf"),
   flipchart: path.resolve(
     __dirname,
-    "../../Cartilla 1 Interactivos/La Cartilla de Gretel Flip Chart.pdf"
+    "../../Cartilla 1 Interactivos/La Cartilla de Gretel Flip Chart.pdf",
   ),
   evals: path.resolve(
     __dirname,
-    "../../Cartilla 1 Interactivos/La Cartilla Eval Master 7-24 - Copy.pdf"
+    "../../Cartilla 1 Interactivos/La Cartilla Eval Master 7-24 - Copy.pdf",
   ),
 };
 
-const RAW_OUT   = path.resolve(__dirname, "../public/cartilla/art/raw");
+const RAW_OUT = path.resolve(__dirname, "../public/cartilla/art/raw");
 const SWIFT_RENDERER = path.resolve(__dirname, "pdf-to-png.swift");
 
 // ── CLI args ─────────────────────────────────────────────────────────────────
 
-const args      = process.argv.slice(2);
-const pdfIdx    = args.indexOf("--pdf");
+const args = process.argv.slice(2);
+const pdfIdx = args.indexOf("--pdf");
 const targetPdf = pdfIdx !== -1 ? args[pdfIdx + 1] : null;
 
-const dpiIdx    = args.indexOf("--dpi");
-const dpi       = dpiIdx !== -1 ? parseInt(args[dpiIdx + 1]) || DEFAULT_DPI : DEFAULT_DPI;
-const force     = args.includes("--force");
+const dpiIdx = args.indexOf("--dpi");
+const dpi = dpiIdx !== -1 ? parseInt(args[dpiIdx + 1]) || DEFAULT_DPI : DEFAULT_DPI;
+const force = args.includes("--force");
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -85,9 +82,7 @@ function extractPdf(docKey, pdfPath) {
 
   // If not --force, count how many pages already exist and skip if complete
   if (!force) {
-    const existing = fs
-      .readdirSync(outDir)
-      .filter((f) => /^page-\d{3}\.png$/.test(f));
+    const existing = fs.readdirSync(outDir).filter((f) => /^page-\d{3}\.png$/.test(f));
     if (existing.length > 0) {
       console.log(`   ⏭  ${existing.length} pages already in cache (use --force to re-render)`);
       return { docKey, pages: existing.length };
@@ -95,15 +90,11 @@ function extractPdf(docKey, pdfPath) {
   }
 
   // Run the Swift renderer — it writes pages to outDir and logs progress to stderr
-  const result = spawnSync(
-    "swift",
-    [SWIFT_RENDERER, pdfPath, outDir, String(dpi)],
-    {
-      stdio: ["ignore", "pipe", "pipe"],
-      encoding: "utf8",
-      maxBuffer: 64 * 1024 * 1024, // 64 MB
-    }
-  );
+  const result = spawnSync("swift", [SWIFT_RENDERER, pdfPath, outDir, String(dpi)], {
+    stdio: ["ignore", "pipe", "pipe"],
+    encoding: "utf8",
+    maxBuffer: 64 * 1024 * 1024, // 64 MB
+  });
 
   // Swift logs progress to stderr; relay it
   if (result.stderr) {
@@ -117,9 +108,7 @@ function extractPdf(docKey, pdfPath) {
     throw new Error(`Swift renderer exited with status ${result.status}`);
   }
 
-  const pages = fs
-    .readdirSync(outDir)
-    .filter((f) => /^page-\d{3}\.png$/.test(f)).length;
+  const pages = fs.readdirSync(outDir).filter((f) => /^page-\d{3}\.png$/.test(f)).length;
 
   console.log(`   ✓  ${pages} pages → ${path.relative(process.cwd(), outDir)}`);
   return { docKey, pages };
@@ -154,14 +143,12 @@ async function main() {
 
   if (targetPdf && !SOURCE_PDFs[targetPdf]) {
     console.error(
-      `❌  Unknown PDF key "${targetPdf}". Valid keys: ${Object.keys(SOURCE_PDFs).join(", ")}`
+      `❌  Unknown PDF key "${targetPdf}". Valid keys: ${Object.keys(SOURCE_PDFs).join(", ")}`,
     );
     process.exit(1);
   }
 
-  const entries = targetPdf
-    ? [[targetPdf, SOURCE_PDFs[targetPdf]]]
-    : Object.entries(SOURCE_PDFs);
+  const entries = targetPdf ? [[targetPdf, SOURCE_PDFs[targetPdf]]] : Object.entries(SOURCE_PDFs);
 
   const results = [];
   for (const [key, pdfPath] of entries) {

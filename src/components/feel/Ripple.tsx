@@ -72,13 +72,7 @@ export function Ripple() {
           width: `${ripple.size}px`,
           height: `${ripple.size}px`,
         };
-        return (
-          <span
-            key={ripple.id}
-            className="feel-ripple-effect"
-            style={style}
-          />
-        );
+        return <span key={ripple.id} className="feel-ripple-effect" style={style} />;
       })}
     </div>
   );

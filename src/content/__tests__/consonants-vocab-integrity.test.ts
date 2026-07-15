@@ -50,10 +50,7 @@ describe("consonants.json vocab vs book (L17–L24)", () => {
   });
 
   it("lesson-exercises L20 picture-vocab still agrees with consonants.json", () => {
-    const src = readFileSync(
-      join(process.cwd(), "src/data/lesson-exercises/lesson-20.ts"),
-      "utf8",
-    );
+    const src = readFileSync(join(process.cwd(), "src/data/lesson-exercises/lesson-20.ts"), "utf8");
     for (const w of BOOK_PICTURE_VOCAB[20]) {
       expect(src).toContain(`label: "${w}"`);
     }

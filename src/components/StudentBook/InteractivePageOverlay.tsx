@@ -3,13 +3,19 @@ import { getInteractionsForPage } from "@/lib/workbook-interactions";
 import { gretelEvent } from "@/lib/gretel-bus";
 import { Check } from "lucide-react";
 
-export function InteractivePageOverlay({ lessonNumber, pageNumber }: { lessonNumber?: number; pageNumber: number }) {
+export function InteractivePageOverlay({
+  lessonNumber,
+  pageNumber,
+}: {
+  lessonNumber?: number;
+  pageNumber: number;
+}) {
   const [tappedTargets, setTappedTargets] = useState<Record<string, boolean>>({});
 
   if (!lessonNumber) return null;
 
   const interactions = getInteractionsForPage(lessonNumber, pageNumber);
-  
+
   if (interactions.length === 0) return null;
 
   return (
@@ -18,7 +24,11 @@ export function InteractivePageOverlay({ lessonNumber, pageNumber }: { lessonNum
         <React.Fragment key={interaction.id}>
           {interaction.targets.map((target) => {
             // Only render targets that have verified coordinates
-            if (!target.coordinatesVerified || target.xPercent === undefined || target.yPercent === undefined) {
+            if (
+              !target.coordinatesVerified ||
+              target.xPercent === undefined ||
+              target.yPercent === undefined
+            ) {
               return null;
             }
 
@@ -28,8 +38,8 @@ export function InteractivePageOverlay({ lessonNumber, pageNumber }: { lessonNum
               <div
                 key={target.id}
                 className={`absolute border-[3px] border-dashed pointer-events-auto cursor-pointer transition-all duration-500 hover:scale-110 rounded-xl shadow-lg flex items-center justify-center ${
-                  isTapped 
-                    ? "border-emerald-500 bg-emerald-500/40 shadow-[0_0_20px_rgba(16,185,129,0.5)]" 
+                  isTapped
+                    ? "border-emerald-500 bg-emerald-500/40 shadow-[0_0_20px_rgba(16,185,129,0.5)]"
                     : "border-orange-500/70 bg-orange-500/20 hover:bg-orange-500/40 hover:border-orange-500 animate-pulse"
                 }`}
                 style={{

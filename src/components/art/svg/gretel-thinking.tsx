@@ -62,7 +62,15 @@ export function GretelThinking({ animated = false, ...props }: GretelThinkingPro
         strokeWidth="2"
         strokeLinecap="round"
       />
-      <line x1="100" y1="158" x2="100" y2="245" stroke="var(--art-primary, #c98c4f)" strokeWidth="0.8" opacity="0.4" />
+      <line
+        x1="100"
+        y1="158"
+        x2="100"
+        y2="245"
+        stroke="var(--art-primary, #c98c4f)"
+        strokeWidth="0.8"
+        opacity="0.4"
+      />
 
       {/* === RIGHT ARM (at side relaxed) === */}
       <path
@@ -125,8 +133,20 @@ export function GretelThinking({ animated = false, ...props }: GretelThinkingPro
           d="M62 72 Q70 50 100 45 Q130 50 138 72 Q130 62 100 58 Q70 62 62 72 Z"
           fill="url(#think-hair)"
         />
-        <path d="M64 75 Q60 85 63 95" fill="none" stroke="#8B5E3C" strokeWidth="4" strokeLinecap="round" />
-        <path d="M136 75 Q140 85 137 95" fill="none" stroke="#8B5E3C" strokeWidth="4" strokeLinecap="round" />
+        <path
+          d="M64 75 Q60 85 63 95"
+          fill="none"
+          stroke="#8B5E3C"
+          strokeWidth="4"
+          strokeLinecap="round"
+        />
+        <path
+          d="M136 75 Q140 85 137 95"
+          fill="none"
+          stroke="#8B5E3C"
+          strokeWidth="4"
+          strokeLinecap="round"
+        />
 
         {/* === EYES (looking upward) === */}
         {/* Left eye */}
@@ -134,18 +154,42 @@ export function GretelThinking({ animated = false, ...props }: GretelThinkingPro
         <circle cx="84" cy="84" r="6" fill="#5c3d2e" />
         <circle cx="84" cy="84" r="3" fill="#2d1f17" />
         <circle cx="86" cy="82" r="2" fill="white" opacity="0.9" />
-        <path d="M75 82 Q80 78 84 79 Q88 78 93 82" fill="none" stroke="#5c3d2e" strokeWidth="2" strokeLinecap="round" />
+        <path
+          d="M75 82 Q80 78 84 79 Q88 78 93 82"
+          fill="none"
+          stroke="#5c3d2e"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
 
         {/* Right eye */}
         <ellipse cx="116" cy="88" rx="9" ry="10" fill="white" />
         <circle cx="116" cy="84" r="6" fill="#5c3d2e" />
         <circle cx="116" cy="84" r="3" fill="#2d1f17" />
         <circle cx="118" cy="82" r="2" fill="white" opacity="0.9" />
-        <path d="M107 82 Q112 78 116 79 Q120 78 125 82" fill="none" stroke="#5c3d2e" strokeWidth="2" strokeLinecap="round" />
+        <path
+          d="M107 82 Q112 78 116 79 Q120 78 125 82"
+          fill="none"
+          stroke="#5c3d2e"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
 
         {/* === EYEBROWS (one raised thoughtfully) === */}
-        <path d="M76 74 Q84 72 92 75" fill="none" stroke="#7A4E2E" strokeWidth="1.8" strokeLinecap="round" />
-        <path d="M108 73 Q116 69 124 74" fill="none" stroke="#7A4E2E" strokeWidth="2" strokeLinecap="round" />
+        <path
+          d="M76 74 Q84 72 92 75"
+          fill="none"
+          stroke="#7A4E2E"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+        />
+        <path
+          d="M108 73 Q116 69 124 74"
+          fill="none"
+          stroke="#7A4E2E"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
 
         {/* === NOSE === */}
         <ellipse cx="100" cy="100" rx="3" ry="2.5" fill="#e8bf94" />
@@ -184,17 +228,32 @@ export function GretelThinking({ animated = false, ...props }: GretelThinkingPro
       <g opacity="0.6">
         <circle cx="140" cy="48" r="4" fill="var(--art-accent, #d4a76a)">
           {animated && (
-            <animate attributeName="opacity" values="0.6;0.2;0.6" dur="2s" repeatCount="indefinite" />
+            <animate
+              attributeName="opacity"
+              values="0.6;0.2;0.6"
+              dur="2s"
+              repeatCount="indefinite"
+            />
           )}
         </circle>
         <circle cx="150" cy="35" r="6" fill="var(--art-accent, #d4a76a)">
           {animated && (
-            <animate attributeName="opacity" values="0.5;0.15;0.5" dur="2.3s" repeatCount="indefinite" />
+            <animate
+              attributeName="opacity"
+              values="0.5;0.15;0.5"
+              dur="2.3s"
+              repeatCount="indefinite"
+            />
           )}
         </circle>
         <circle cx="162" cy="20" r="9" fill="var(--art-accent, #d4a76a)">
           {animated && (
-            <animate attributeName="opacity" values="0.4;0.1;0.4" dur="2.6s" repeatCount="indefinite" />
+            <animate
+              attributeName="opacity"
+              values="0.4;0.1;0.4"
+              dur="2.6s"
+              repeatCount="indefinite"
+            />
           )}
         </circle>
       </g>

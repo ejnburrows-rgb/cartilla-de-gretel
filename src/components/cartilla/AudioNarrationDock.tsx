@@ -50,11 +50,13 @@ function getSpokenText(entry: CatalogEntry, stepIdx: number): string {
 
 // Custom Spanish syllable-by-syllable spacing algorithm
 function spaceSyllables(text: string): string {
-  return text
-    // Replace consonant-vowel combinations with space-separated syllables
-    .replace(/([aeiouáéíóúü])([bcdfghjklmnñpqrstvwxyz][aeiouáéíóúü])/gi, "$1 · $2")
-    // Keep it clean
-    .toLowerCase();
+  return (
+    text
+      // Replace consonant-vowel combinations with space-separated syllables
+      .replace(/([aeiouáéíóúü])([bcdfghjklmnñpqrstvwxyz][aeiouáéíóúü])/gi, "$1 · $2")
+      // Keep it clean
+      .toLowerCase()
+  );
 }
 
 export function AudioNarrationDock({ entry, activeStepIdx }: AudioNarrationDockProps) {

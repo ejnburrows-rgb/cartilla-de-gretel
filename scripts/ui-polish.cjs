@@ -1,12 +1,15 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const clasePath = path.join(__dirname, 'src/routes/_authenticated/cartilla.teacher.clase.$id.tsx');
-let clase = fs.readFileSync(clasePath, 'utf8');
+const clasePath = path.join(__dirname, "src/routes/_authenticated/cartilla.teacher.clase.$id.tsx");
+let clase = fs.readFileSync(clasePath, "utf8");
 
 // Import teacher-guide
-if (!clase.includes('import teacherGuide')) {
-  clase = clase.replace('import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";', 'import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";\nimport teacherGuide from "@/data/teacher-guide.json";');
+if (!clase.includes("import teacherGuide")) {
+  clase = clase.replace(
+    'import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";',
+    'import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";\nimport teacherGuide from "@/data/teacher-guide.json";',
+  );
 }
 
 // 1. Loading Skeleton
@@ -53,9 +56,15 @@ clase = clase.replace(emptyOriginal, emptyState);
 
 // 3 & 4. Sorting & Current Lesson Title & Date Format
 // Sorting: replace data.students.map with [...data.students].sort((a,b) => a.display_name.localeCompare(b.display_name)).map
-clase = clase.replace('{data.students.map((s) => (', '{[...data.students].sort((a, b) => a.display_name.localeCompare(b.display_name)).map((s) => {\n              const curNum = Math.min(s.lessons + 1, 24);\n              const curTitle = teacherGuide.lessons.find((l: any) => l.id === curNum || l.lesson === curNum)?.title || `L${curNum}`;\n              return (');
+clase = clase.replace(
+  "{data.students.map((s) => (",
+  "{[...data.students].sort((a, b) => a.display_name.localeCompare(b.display_name)).map((s) => {\n              const curNum = Math.min(s.lessons + 1, 24);\n              const curTitle = teacherGuide.lessons.find((l: any) => l.id === curNum || l.lesson === curNum)?.title || `L${curNum}`;\n              return (",
+);
 // Replace the closing of the map
-clase = clase.replace('</button>\n              </div>\n            ))}\n          </div>', '</button>\n              </div>\n            );\n            })}\n          </div>');
+clase = clase.replace(
+  "</button>\n              </div>\n            ))}\n          </div>",
+  "</button>\n              </div>\n            );\n            })}\n          </div>",
+);
 
 // Replace {s.lessons}/{TOTAL_LESSONS} lecciones with Lección actual: {curTitle}
 const lessonIndicatorOriginal = `<span className="inline-flex items-center gap-1">\n                      <BookOpen className="w-3 h-3" /> {s.lessons}/{TOTAL_LESSONS} lecciones\n                    </span>`;
@@ -63,7 +72,10 @@ const lessonIndicatorNew = `<span className="inline-flex items-center gap-1">\n 
 clase = clase.replace(lessonIndicatorOriginal, lessonIndicatorNew);
 
 // Fix date locale in clase
-clase = clase.replace('new Date(s.lastSeen).toLocaleDateString()', "new Date(s.lastSeen).toLocaleDateString('es-MX', { dateStyle: 'long' })");
+clase = clase.replace(
+  "new Date(s.lastSeen).toLocaleDateString()",
+  "new Date(s.lastSeen).toLocaleDateString('es-MX', { dateStyle: 'long' })",
+);
 
 // 5. Imprimir lista button
 const printBtn = `        <button
@@ -73,32 +85,62 @@ const printBtn = `        <button
           <ClipboardList className="w-4 h-4" /> Imprimir lista
         </button>
       </div>`;
-clase = clase.replace('</button>\n      </div>', '</button>\n' + printBtn);
+clase = clase.replace("</button>\n      </div>", "</button>\n" + printBtn);
 
 // Add print:hidden to <header> sections that shouldn't print, and the add forms
-clase = clase.replace('<Link\n        to="/cartilla/teacher"', '<Link\n        to="/cartilla/teacher"\n        className="print:hidden inline-flex items-center gap-2 text-sm font-bold text-foreground/60 hover:text-foreground"');
-clase = clase.replace('className="inline-flex items-center gap-2 text-sm font-bold text-foreground/60 hover:text-foreground"', '');
-clase = clase.replace('<section className="mt-6 kid-card p-4">', '<section className="print:hidden mt-6 kid-card p-4">'); // Do this for the 3 forms
-clase = clase.replace('<section className="mt-6 kid-card p-4">', '<section className="print:hidden mt-6 kid-card p-4">');
-clase = clase.replace('<section className="mt-6 kid-card p-4">', '<section className="print:hidden mt-6 kid-card p-4">');
+clase = clase.replace(
+  '<Link\n        to="/cartilla/teacher"',
+  '<Link\n        to="/cartilla/teacher"\n        className="print:hidden inline-flex items-center gap-2 text-sm font-bold text-foreground/60 hover:text-foreground"',
+);
+clase = clase.replace(
+  'className="inline-flex items-center gap-2 text-sm font-bold text-foreground/60 hover:text-foreground"',
+  "",
+);
+clase = clase.replace(
+  '<section className="mt-6 kid-card p-4">',
+  '<section className="print:hidden mt-6 kid-card p-4">',
+); // Do this for the 3 forms
+clase = clase.replace(
+  '<section className="mt-6 kid-card p-4">',
+  '<section className="print:hidden mt-6 kid-card p-4">',
+);
+clase = clase.replace(
+  '<section className="mt-6 kid-card p-4">',
+  '<section className="print:hidden mt-6 kid-card p-4">',
+);
 
 fs.writeFileSync(clasePath, clase);
 
 // TASK 2
-const alumnoPath = path.join(__dirname, 'src/routes/_authenticated/cartilla.teacher.alumno.$id.tsx');
-let alumno = fs.readFileSync(alumnoPath, 'utf8');
+const alumnoPath = path.join(
+  __dirname,
+  "src/routes/_authenticated/cartilla.teacher.alumno.$id.tsx",
+);
+let alumno = fs.readFileSync(alumnoPath, "utf8");
 
 // Imports
-if (!alumno.includes('import teacherGuide')) {
-  alumno = alumno.replace('import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";', 'import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";\nimport teacherGuide from "@/data/teacher-guide.json";\nimport { useState, useEffect } from "react";');
+if (!alumno.includes("import teacherGuide")) {
+  alumno = alumno.replace(
+    'import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";',
+    'import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";\nimport teacherGuide from "@/data/teacher-guide.json";\nimport { useState, useEffect } from "react";',
+  );
 }
 
 // Date format
-alumno = alumno.replace('{new Date(e.created_at).toLocaleString()}', "{new Date(e.created_at).toLocaleDateString('es-MX', { dateStyle: 'long' })}");
+alumno = alumno.replace(
+  "{new Date(e.created_at).toLocaleString()}",
+  "{new Date(e.created_at).toLocaleDateString('es-MX', { dateStyle: 'long' })}",
+);
 
 // Lesson progress title
-alumno = alumno.replace('const pct = ex ? Math.round((ex.score / ex.total) * 100) : null;', 'const pct = ex ? Math.round((ex.score / ex.total) * 100) : null;\n            const tgTitle = teacherGuide.lessons.find((l: any) => String(l.id) === String(entry.n) || String(l.lesson) === String(entry.n))?.title || entry.title;');
-alumno = alumno.replace('<div className="font-bold text-sm truncate">{entry.title}</div>', '<div className="font-bold text-sm truncate">{tgTitle}</div>');
+alumno = alumno.replace(
+  "const pct = ex ? Math.round((ex.score / ex.total) * 100) : null;",
+  "const pct = ex ? Math.round((ex.score / ex.total) * 100) : null;\n            const tgTitle = teacherGuide.lessons.find((l: any) => String(l.id) === String(entry.n) || String(l.lesson) === String(entry.n))?.title || entry.title;",
+);
+alumno = alumno.replace(
+  '<div className="font-bold text-sm truncate">{entry.title}</div>',
+  '<div className="font-bold text-sm truncate">{tgTitle}</div>',
+);
 
 // Notes textarea
 const notesState = `  const [notes, setNotes] = useState("");
@@ -111,7 +153,10 @@ const notesState = `  const [notes, setNotes] = useState("");
     setNotes(val);
     localStorage.setItem(\`gretel-notes-\${id}\`, val);
   };`;
-alumno = alumno.replace('const { data, isLoading } = useQuery', notesState + '\n\n  const { data, isLoading } = useQuery');
+alumno = alumno.replace(
+  "const { data, isLoading } = useQuery",
+  notesState + "\n\n  const { data, isLoading } = useQuery",
+);
 
 const notesSection = `      <section className="mt-8">
         <label htmlFor="teacher-notes" className="block font-bold mb-3 text-lg">Notas del maestro</label>
@@ -129,4 +174,4 @@ const notesSection = `      <section className="mt-8">
 alumno = alumno.replace('<section className="mt-8">', notesSection);
 
 fs.writeFileSync(alumnoPath, alumno);
-console.log('Update script completed successfully.');
+console.log("Update script completed successfully.");
