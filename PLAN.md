@@ -48,7 +48,7 @@
 - **Goal:** Adding students correctly assigns them to the teacher's account; enforce strict isolation of each teacher's private data.
 - **Exact expected files or area:** `supabase/migrations/*`, `src/lib/teacher.functions.ts` (maximum five files).
 - **Done when:** RLS policies prevent Teacher A from seeing Teacher B's students, and new students appear correctly.
-- **Status:** NOT STARTED
+- **Status:** BLOCKED - Sandbox lacks live internet to authenticate against Supabase endpoints. Needs cloud env keys or a live environment.
 - **Browser check:** EJN can log in as Teacher A, add a student, and confirm that Teacher B cannot see this student.
 
 ### Task 2.3: Admin Viewing & lesson_verifications Migration
