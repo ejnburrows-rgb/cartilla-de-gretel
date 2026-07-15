@@ -205,7 +205,8 @@
           "width": 22,
           "height": 16,
           "word": "ojos",
-          "interactive": true
+          "interactive": true,
+          "asset": "/cartilla/art/faithful/leccion-1/ojos.webp"
         },
         {
           "id": "p1-cell-17",
@@ -383,7 +384,8 @@
           "width": 30,
           "height": 18,
           "word": "carro",
-          "interactive": false
+          "interactive": false,
+          "asset": "/cartilla/art/faithful/leccion-1/carro.webp"
         },
         {
           "id": "p2-other-9",
@@ -404,7 +406,8 @@
           "width": 30,
           "height": 18,
           "word": "globo",
-          "interactive": false
+          "interactive": false,
+          "asset": "/cartilla/art/faithful/leccion-1/globo.webp"
         },
         {
           "id": "p2-other-11",
@@ -744,7 +747,8 @@
           "width": 22,
           "height": 16,
           "word": "ojos",
-          "interactive": true
+          "interactive": true,
+          "asset": "/cartilla/art/faithful/leccion-2/ojos.webp"
         }
       ],
       "status": "complete",
@@ -797,7 +801,8 @@
           "width": 22,
           "height": 16,
           "word": "ojos",
-          "interactive": true
+          "interactive": true,
+          "asset": "/cartilla/art/faithful/leccion-2/ojos.webp"
         },
         {
           "id": "p5-cell-3",
@@ -1016,7 +1021,8 @@
           "width": 22,
           "height": 16,
           "word": "ardilla",
-          "interactive": true
+          "interactive": true,
+          "asset": "/cartilla/art/faithful/leccion-3/ardilla.webp"
         },
         {
           "id": "p7-cell-12",
@@ -1026,7 +1032,8 @@
           "width": 22,
           "height": 16,
           "word": "ojos",
-          "interactive": true
+          "interactive": true,
+          "asset": "/cartilla/art/faithful/leccion-3/ojos.webp"
         },
         {
           "id": "p7-cell-13",
@@ -1262,7 +1269,8 @@
           "width": 22,
           "height": 16,
           "word": "erizo",
-          "interactive": true
+          "interactive": true,
+          "asset": "/cartilla/art/faithful/leccion-4/erizo.webp"
         },
         {
           "id": "p10-cell-6",
@@ -1434,7 +1442,8 @@
           "width": 22,
           "height": 16,
           "word": "erizo",
-          "interactive": true
+          "interactive": true,
+          "asset": "/cartilla/art/faithful/leccion-4/erizo.webp"
         },
         {
           "id": "p11-cell-4",
@@ -1542,7 +1551,8 @@
           "width": 22,
           "height": 16,
           "word": "iguana",
-          "interactive": true
+          "interactive": true,
+          "asset": "/cartilla/art/faithful/leccion-5/iguana.webp"
         },
         {
           "id": "p13-cell-3",
@@ -1662,7 +1672,8 @@
           "width": 22,
           "height": 16,
           "word": "igual",
-          "interactive": true
+          "interactive": true,
+          "asset": "/cartilla/art/faithful/leccion-5/igual.webp"
         },
         {
           "id": "p13-cell-14",
@@ -1747,7 +1758,8 @@
           "width": 22,
           "height": 16,
           "word": "igual",
-          "interactive": true
+          "interactive": true,
+          "asset": "/cartilla/art/faithful/leccion-5/igual.webp"
         },
         {
           "id": "p14-cell-4",
@@ -1779,7 +1791,8 @@
           "width": 22,
           "height": 16,
           "word": "iguana",
-          "interactive": true
+          "interactive": true,
+          "asset": "/cartilla/art/faithful/leccion-5/iguana.webp"
         },
         {
           "id": "p14-cell-7",
@@ -6997,7 +7010,8 @@
           "height": 40,
           "word": "carro",
           "audioId": "carro",
-          "interactive": true
+          "interactive": true,
+          "asset": "/cartilla/art/faithful/leccion-18-c/carro.webp"
         },
         {
           "id": "p66-word-2",
