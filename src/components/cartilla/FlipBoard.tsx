@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { PdfPage } from "@/components/cartilla/PdfPage";
 import { usePageFlip } from "@/hooks/usePageFlip";
+import "@/styles/cartilla-polish.css";
 
 // Hoisted Styles for double-brace JSX styling ban compliance
 const boardContainerStyle: React.CSSProperties = {

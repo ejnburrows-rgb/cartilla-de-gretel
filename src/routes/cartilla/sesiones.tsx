@@ -87,7 +87,7 @@ export function SesionesDashboard() {
                   <BookOpen className="w-6 h-6" style={colorStyle} />
                 )}
                 <span className="text-[10px] font-bold tracking-wider" style={colorStyle}>
-                  {entry.kind.toUpperCase()}
+                  {entry.kind === "intro" ? "INTRO" : entry.kind === "vowel" ? "VOCAL" : "CONSONANTE"}
                 </span>
               </div>
 
