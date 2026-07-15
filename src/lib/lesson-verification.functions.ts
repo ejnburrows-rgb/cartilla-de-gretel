@@ -21,7 +21,7 @@ export async function logLessonVerification(
     .parse(input.data);
 
   const { data: result, error } = await supabase
-    .from("lesson_verifications" as any)
+    .from("lesson_verifications")
     .upsert(
       {
         lesson_number: data.lessonNumber,
@@ -53,7 +53,7 @@ export async function getLessonVerification(
     .parse(input.data);
 
   const { data: result, error } = await supabase
-    .from("lesson_verifications" as any)
+    .from("lesson_verifications")
     .select("*")
     .eq("lesson_number", data.lessonNumber)
     .eq("student_id", data.studentId)
@@ -79,7 +79,7 @@ export async function getAllStudentVerifications(
     .parse(input.data);
 
   const { data: result, error } = await supabase
-    .from("lesson_verifications" as any)
+    .from("lesson_verifications")
     .select("*")
     .eq("student_id", data.studentId);
 

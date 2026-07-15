@@ -362,6 +362,41 @@ export type Database = {
           },
         ];
       };
+      lesson_verifications: {
+        Row: {
+          id: string;
+          lesson_number: number;
+          student_id: string;
+          teacher_id: string;
+          verified: boolean;
+          timestamp: string;
+        };
+        Insert: {
+          id?: string;
+          lesson_number: number;
+          student_id: string;
+          teacher_id: string;
+          verified?: boolean;
+          timestamp?: string;
+        };
+        Update: {
+          id?: string;
+          lesson_number?: number;
+          student_id?: string;
+          teacher_id?: string;
+          verified?: boolean;
+          timestamp?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "lesson_verifications_student_id_fkey";
+            columns: ["student_id"];
+            isOneToOne: false;
+            referencedRelation: "students";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
       user_roles: {
         Row: {
           created_at: string;
