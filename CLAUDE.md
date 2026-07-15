@@ -31,56 +31,9 @@ the operator's Notion agent and is the shared source of truth between us.
 - Do not re-read all pages mid-session; once per session is enough (token
   discipline).
 
-## Standing orders — effective immediately, permanent (memorized July 2026)
-The owner is done with waiting, "checking now" narration, and premature
-BLOCKED ON YOU flags. These rules end that, permanently:
-1. **Pre-authorized, forever** — never ask again for: reading anything,
-   running scripts/tests/validators, committing and pushing to the working
-   branch, opening and merging PRs per the established flow, re-running
-   builds or workflows, writing docs/status files, retrying failures. If
-   it's inside the lane and the locked rules, do it without asking.
-2. **BLOCKED ON YOU is a last resort.** Before using it, try every
-   alternative route and list what was tried and exactly why each one is
-   IMPOSSIBLE — not slow, not indirect, IMPOSSIBLE. "The normal path is
-   broken" is not blocked; find the other path first.
-3. Applies directly to CI/infra failures: if the normal automated path
-   (e.g. a GitHub Action) is broken, bypass it and use the direct
-   equivalent (CLI linked to the project, direct execution with
-   credentials already configured in the environment) rather than waiting
-   for the owner to fix the automation. Never print, log, or commit any
-   secret. The broken automation becomes a cleanup item, not a blocker.
-4. **Never idle.** If one item is truly blocked, mark it in one line and
-   immediately pull the next item from the backlog. A blocked item never
-   stops the session — there is always real work available.
-5. **No narration turns.** "Checking now / investigating / confirming" is
-   not output. Work silently, batch the steps, report RESULTS only, in the
-   digest format: DONE / LIVE-VERIFIED / FAILED / BLOCKED (with the
-   impossibility proof) / NEXT 3.
-6. Still absolute, never overridden by speed: no invented content, no
-   touching forbidden paths, no force-push, no printing secrets.
-
-## Silent running — final operating mode (memorized July 2026)
-1. **Zero questions.** Never ask the owner anything mid-session. No "unless
-   you redirect me," no "want me to...", no options, no confirmations, no
-   permission requests. Decide using this precedence: Notion Hub canon >
-   CLAUDE.md > SPEC.md. If something is genuinely ambiguous, pick the most
-   book-faithful, launch-spec-aligned option, record the decision in ONE
-   line in the digest, and keep going. The owner overrules later if needed.
-2. **OPERATOR-QUEUE replaces questions.** Anything that truly requires the
-   owner (credentials, Settings screens, physical scans, sign-offs) goes as
-   one line in an OPERATOR-QUEUE section at the END of the digest — never a
-   pause, never a question. Nothing new enters this queue without an
-   impossibility proof (see standing order #2 above).
-3. **Run the whole backlog without stopping.** Pre-approved, start to
-   finish, no pause between items. Work until nothing unblocked remains,
-   then output exactly "ALL UNBLOCKED WORK COMPLETE" + final digest +
-   OPERATOR-QUEUE. That is the only stopping condition.
-4. **What the owner still personally owns** (never self-declare, never ask
-   about mid-work): final matches-the-book sign-off, crop approvals, launch
-   declaration. Build everything to done; the owner reviews in batches at
-   the end.
-5. Unchanged and absolute: no invented content, forbidden paths untouched,
-   digest format, no narration turns, no secrets in output.
+## Standing orders (memorized July 2026)
+Agents open pull requests and STOP. Only EJN merges. See AGENTS.md — its
+rules override this file wherever they conflict.
 
 ## Automatic per-turn rule — Anti-Gravity check-in (memorized July 2026)
 At the START of every single turn — no matter what the owner's message says,
@@ -192,39 +145,9 @@ Teachers create classes, assign students, and track progress via Supabase.
   option). Wasting the owner's time asking them to choose between two
   options when I can actually judge which is better is exactly what NOT
   to do.
-- **Recommend and execute — never ask permission for the obvious (memorized
-  July 2026):** when I can determine with full confidence that an action
-  is the right call and will not break anything, **state the recommendation
-  as fact and do it** — do not end with "want me to merge?" / "say the word"
-  / "your call?" The owner banned permission-seeking on safe, recommended
-  next steps. Only pause for owner input on genuine forks (money, legal,
-  env secrets they alone hold).
-  Wrong: "Merge PR #110 when you're ready?" Right: "Merging PR #110 now —
-  one-file bubble fix, typecheck clean, matches #109."
-- **No visual sign-off gate — including for visual/palette/animation
-  changes (memorized July 2026, supersedes the "visual art approval"
-  carve-out above):** the owner explicitly banned pausing for a visual
-  "does this look right?" check whenever I'm 100% confident the result
-  matches what they explicitly asked for — verify it myself (in-browser,
-  screenshots if useful to confirm to myself), then ship it, same as any
-  other confident recommend-and-execute call. Do NOT wait on the owner's
-  reply before merging a visual PR I'm confident matches spec. This does
-  NOT cover genuinely new, undirected creative choices (e.g. picking an
-  illustration style nobody asked for) — only changes that implement an
-  explicit, already-given instruction.
-- **Stop holding off, even on my own creative calls — no exceptions
-  (memorized July 2026, third time the owner has said this, supersedes the
-  "undirected creative choices" carve-out above):** the owner explicitly
-  said "screw the sign-off rules" — as long as a change is safe and in
-  line with what the owner has already said (the established look, the
-  established patterns, real derived art not invented art, working code),
-  merge it myself without waiting for review or asking "should I merge?" —
-  including self-initiated creative extensions of already-approved work
-  (e.g. extending an approved per-vowel-lesson background technique to the
-  remaining lessons using the lesson's own already-defined accent color).
-  Only genuine forks — money, legal, secrets/env vars only the owner
-  holds — still pause. Do not open a PR and then wait; open it and merge
-  it in the same turn once checks are green.
+- **Standing orders on merging (memorized July 2026):** Agents open pull
+  requests and STOP. Only EJN merges. See AGENTS.md — its rules override
+  this file wherever they conflict.
 - **Always show 3-5 pages of progress (memorized July 2026):** whenever
   work touches pages/visual content, show the owner 3-5 real
   screenshots/pages actually worked on (not just a text description) so
@@ -315,18 +238,9 @@ relaying anything I haven't personally checked.
 - Don't ask the owner small clarifying questions when a reasonable default
   exists — pick it, act, and say what you picked. Save questions for real
   decisions only.
-- **No pilot sign-off gate — finish the entire project (memorized July
-  2026):** the owner explicitly ended the "pilot one lesson, wait for
-  verdict, then batch" discipline. Do not stop and wait for approval on a
-  pilot lesson/module before continuing to the rest. Build, verify (typecheck
-  + build + real in-browser check), commit, and keep going through the full
-  scope autonomously. This does NOT override the mission brief's own
-  explicit stop conditions (Supabase/production data, secrets/keys,
-  deletions beyond what's been approved, spending money, genuine scope
-  changes) — those are still real forks that need the owner's input. But
-  "does this pilot look right to you?" is no longer one of them — verify it
-  yourself to the same bar, then proceed to the next lesson/batch without
-  pausing.
+- **Standing orders on merging (memorized July 2026):** Agents open pull
+  requests and STOP. Only EJN merges. See AGENTS.md — its rules override
+  this file wherever they conflict.
 
 ## Reading Experience Redesign (memorized July 2026)
 The owner rejected the reconstructed-page look: it read as a "cheap scan,"
@@ -372,43 +286,35 @@ not a real product. Decisions made, now locked in:
   get all the real art in place first, tackle instruction-text rewording
   as a later, separate pass.
 
-## Visual direction — REVERSED the book-palette-only call above (memorized
-## July 2026)
-There is a whole separate, already-live "Actividades" section
-(`ActivityCarousel.tsx`, rendered from `leccion.$n.tsx` under every vowel
-lesson) with real games already built: word matching, syllable ordering,
-letter tracing, and a piano-style pronunciation game using voice
-(`PianoPronunciation.tsx` + `useSpeechRecognition.ts`). It's colorful,
-uses rounded chip buttons, and has the Gretel character present. The owner
-saw the plain teal/white book-faithful mockup, compared it to this
-already-familiar colorful style, and rejected it as "cheap." Asked
-directly, the owner confirmed:
-- **The new tap-to-circle/pick-one page exercises must match the existing
-  colorful games style** (bright accent colors, rounded chip buttons,
-  Gretel present) — NOT the strict teal/white book-faithful look. This
-  reverses the "palette stays book-faithful only" line above — that
-  decision is superseded.
-- **The existing games currently use emoji** (🍎, 🐘, etc., via each vocab
-  word's `emoji` field, consumed in `ActivityCarousel.tsx`'s `pairs`
-  derivation) instead of real book art. Owner wants these **replaced with
-  real cropped book illustrations** — matches the "never invented art"
-  rule already enforced everywhere else. This is new art-pipeline work,
-  not yet scoped into `ART_BACKLOG.md`.
-- **Not yet decided**: whether the existing games (piano/matching/
-  syllable-order/trace) stay as a separate section below the workbook page
-  (current layout) or get woven directly into the on-page exercises
-  instead. Owner wants to see Lección 1 with both pieces together before
-  deciding the general rule — don't build a structural merge yet.
-- The book-faithful teal/white treatment is **not thrown out** — it still
-  governs the page's own frame/illustrations/text fidelity. What changes
-  is the *interaction/feedback* layer: chips, colors, motion should match
-  the games' established, already-approved visual language rather than
-  staying monochrome-teal.
-- **July 2026 owner directive:** the Activities/games section (the owner
-  calls it "the channel") must be **REVAMPED COMPLETELY** when the owner
-  asks for it. Do not start the revamp unprompted, and do not sink time
-  into incremental patches to the current carousel in the meantime — when
-  the owner says go, it's a full redesign, not a touch-up.
+## Visual direction — ActivityCarousel is REMOVED and ON HOLD, not live
+## (corrected July 2026)
+**Correction to an earlier version of this section**, which described an
+"already-live 'Actividades' section (`ActivityCarousel.tsx`, rendered from
+`leccion.$n.tsx` under every vowel lesson)." That stopped being true in the
+July 12 rewrite: the owner rejected showing generic games unattended
+(SPEC.md, "'Ejercicios Interactivos' step removed from every lesson"), and
+`leccion.$n.tsx` now renders only the book's real pages, one at a time — no
+tabs, no games carousel, no `ActivityCarousel` reference anywhere in that
+route. `ActivityCarousel.tsx` and its game components (`SyllableTap`,
+`DragMatchPairs`, `DragBuildWord`, `DragLetterTrace`, `PianoPronunciation`)
+still exist in the repo per the never-delete-files rule, but they are
+**unwired dead code**, not rendered anywhere a student can reach.
+
+The owner's stated visual preferences below are kept for whenever this work
+resumes — they describe a past design discussion, not the current app:
+- The owner compared an early teal/white book-faithful mockup for on-page
+  exercises to this same (then-live) colorful games style and preferred the
+  colorful one (bright accent colors, rounded chip buttons, Gretel present)
+  over the strict teal/white look, for that mockup decision.
+- The old carousel's games used emoji (🍎, 🐘, etc.) instead of real book
+  art; if/when this section is rebuilt, it should use real cropped book
+  illustrations instead, matching the "never invented art" rule.
+- **July 2026 owner directive, still in force:** the Activities/games
+  section (the owner calls it "the channel") must be **REVAMPED
+  COMPLETELY** when the owner asks for it. Do not start the revamp
+  unprompted, and do not spend time patching the old, unwired carousel in
+  the meantime — when the owner says go, it's a full redesign from
+  scratch, not a resurrection of the old component.
 
 ## Owner rejected the garden/Gretel work as half-assed (memorized July 2026)
 The owner reviewed the garden-scene frame (PR #88) and Gretel polish (PR #87)

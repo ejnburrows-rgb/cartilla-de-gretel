@@ -52,12 +52,19 @@ The student view is located under `/cartilla/student/leccion/$n` and the teacher
 - Includes tip, FYI, and warning callout blocks.
 - Supports print view via CSS `@media print`.
 
-### Drag-and-Drop Activities & ActivityCarousel
+### Drag-and-Drop Activities & ActivityCarousel — REMOVED and ON HOLD, not live
+**Correction:** `ActivityCarousel` and the games below were unwired from
+every lesson in the July 2026 rewrite (see SPEC.md, "'Ejercicios
+Interactivos' step removed from every lesson" and "Lesson-structure canon
+change: 2-tab layout retired, book pages ARE the lesson"). The current
+lesson route (`leccion.$n.tsx`) renders the book's real pages directly, no
+tabs, no carousel. The components below still exist in the repo (per the
+never-delete-files rule) but are dead code — not reachable by a student:
 - Games implemented using `@dnd-kit/core` with touch and pointer support:
   - `DragMatchPairs`: drag syllables to match illustrations or word-to-word matching.
   - `DragSyllableOrder`: drag syllables in a horizontal tray to order them and form words.
   - `DragLetterTrace`: drag pencil icon or trace letters on a dashed path.
-- `ActivityCarousel`: A tabbed slider or carousel wrapper housing the interactive activities for a lesson.
+- `ActivityCarousel`: A tabbed slider or carousel wrapper that used to house these activities for a lesson.
 
 ## Code Layout
 - Mascot: `src/components/gretel/`

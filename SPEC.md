@@ -190,6 +190,15 @@ genuine stroke-following, **not** tap-to-complete. It is currently wired only
 into `ActivityCarousel.tsx` (the games section), not into the student
 workbook.
 
+**Later correction (see the "'Ejercicios Interactivos' step removed"
+update further down this file):** `ActivityCarousel.tsx` was itself
+unwired from every lesson shortly after this was written. It is no longer
+"the games section" a student can reach — it is REMOVED and ON HOLD, left
+in the repo unwired per the never-delete-files rule. Real tracing did
+still land in the actual student workbook, just via a different,
+purpose-built component (`WorkbookLetterTrace.tsx`, see the Phase-2
+tracing progress note below), not via `ActivityCarousel`.
+
 The real, narrower gaps (what Phase 2 tracing work actually addresses):
 1. The engine is not wired into the student workbook `writing-line` region.
 2. Grading is loose: it only checks proximity to the *next* checkpoint, not
@@ -274,6 +283,18 @@ The real, narrower gaps (what Phase 2 tracing work actually addresses):
    verified tracing/grading/picture-grid functionality depends on, for a
    stylistic preference that wasn't blocking real value. Flagged here rather
    than silently decided.
+
+**Later correction — this 3-step flow no longer exists.** Item 5 above was
+superseded twice by later entries in this same file: first by "Update —
+'Ejercicios Interactivos' step removed from every lesson" (the third tab,
+`ActivityCarousel`-driven, was cut to 2 tabs), then by "Update —
+Lesson-structure canon change: 2-tab layout retired, book pages ARE the
+lesson" (the remaining 2 tabs were also removed). The real, current design:
+`leccion.$n.tsx` renders the lesson's real book pages directly, one at a
+time, in book order — no tabs, no `ActivityCarousel`, no invented
+sections/screens around them. `ActivityCarousel.tsx` is REMOVED and ON
+HOLD (left in the repo unwired, not deleted, per the never-delete-files
+rule), not live.
 
 ## Update — teacher guides: real Notion source found + a real routing bug fixed
 
