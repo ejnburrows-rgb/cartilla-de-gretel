@@ -41,21 +41,21 @@
 - **Goal:** Ensure Supabase authentication is working live and teacher accounts are functioning.
 - **Exact expected files or area:** `src/routes/login.tsx`, `src/lib/teacher.functions.ts` (maximum five files).
 - **Done when:** A teacher can log in against the live Supabase environment.
-- **Status:** BLOCKED - Sandbox lacks live internet to authenticate against Supabase endpoints. Needs cloud env keys or a live environment.
+- **Status:** BLOCKED - Sandbox lacks live internet access to authenticate against Supabase endpoints. Needs live environment or cloud keys.
 - **Browser check:** EJN can log in on the preview URL using test teacher credentials and reach the dashboard.
 
 ### Task 2.2: Adding Students & Strict Isolation
 - **Goal:** Adding students correctly assigns them to the teacher's account; enforce strict isolation of each teacher's private data.
 - **Exact expected files or area:** `supabase/migrations/*`, `src/lib/teacher.functions.ts` (maximum five files).
 - **Done when:** RLS policies prevent Teacher A from seeing Teacher B's students, and new students appear correctly.
-- **Status:** BLOCKED - Sandbox lacks live internet to authenticate against Supabase endpoints. Needs cloud env keys or a live environment.
+- **Status:** BLOCKED - Sandbox lacks live internet access to authenticate against Supabase endpoints. Needs live environment or cloud keys.
 - **Browser check:** EJN can log in as Teacher A, add a student, and confirm that Teacher B cannot see this student.
 
 ### Task 2.3: Admin Viewing & lesson_verifications Migration
 - **Goal:** Allow authorized administrative viewing of other teachers' data and create the missing `lesson_verifications` migration and policies.
 - **Exact expected files or area:** `supabase/migrations/*`, admin dashboard components (maximum five files).
 - **Done when:** Admins can view all data and `lesson_verifications` table is active with strict RLS.
-- **Status:** BLOCKED - Sandbox lacks live internet to authenticate against Supabase endpoints. Needs cloud env keys or a live environment.
+- **Status:** BLOCKED - Sandbox lacks live internet access to authenticate against Supabase endpoints. Needs live environment or cloud keys.
 - **Browser check:** EJN logs in as an Admin and can view data from multiple teachers without breaking isolation for regular teachers.
 
 ## PHASE 3: Splash Screen and Avatar Hiding
@@ -87,7 +87,7 @@
 - **Goal:** Full 95-page student reader (horizontal), teacher reader vertical, selected automatically by role, no visible orientation toggle.
 - **Exact expected files or area:** `src/components/cartilla/LivingWorkbookPage.tsx`, reader routing components (maximum five files).
 - **Done when:** Students see the horizontal view and teachers see the vertical view automatically.
-- **Status:** NOT STARTED
+- **Status:** COMPLETED
 - **Browser check:** EJN logs in as a student on a tablet and sees horizontal orientation; logs in as a teacher and sees vertical orientation.
 
 ### Task 4.3: Physical-Book Page-Turn Animation
