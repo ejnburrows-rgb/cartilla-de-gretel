@@ -94,7 +94,7 @@
 - **Goal:** Implement a slow, elegant, physical-book page-turn animation (visibly curls and turns, never slides/swaps instantly).
 - **Exact expected files or area:** Reader CSS, page transition component (maximum five files).
 - **Done when:** Navigating pages triggers a smooth curling animation on modest hardware.
-- **Status:** NOT STARTED
+- **Status:** COMPLETED
 - **Browser check:** EJN clicks "Next Page" and sees the page physically curl and turn like a real book.
 
 ### Task 4.4: Student Escuchar Option
