@@ -76,7 +76,7 @@
 
 ## PHASE 4: Art and Reader
 
-### Task 4.1: Transplant Colored Art & Fix specific images
+### Task 4.1: Transplant Colored Art & Fix specific images (COMPLETED)
 - **Goal:** Transplant existing colored art into every matching workbook slot (copy existing files only). Correct wrong abeja image. Connect existing remolino, oruga, and aguja art.
 - **Exact expected files or area:** `public/cartilla/art/faithful/manifest.json`, relevant `src/data/*` mappings (maximum five files).
 - **Done when:** All specified art is correctly wired and displays on the corresponding pages.
