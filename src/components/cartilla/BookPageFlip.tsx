@@ -32,15 +32,17 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
   const [currentIndex, setCurrentIndex] = useState(Math.max(0, currentPage - 1));
   const [isFlipping, setIsFlipping] = useState(false);
   const [flipDirection, setFlipDirection] = useState<'next' | 'prev' | null>(null);
-  const [flipTransform, setFlipTransform] = useState('rotateY(0deg)');
+  const [flipProgress, setFlipProgress] = useState(0);
 
-  // Swipe tracking
   const pointerStartX = useRef<number | null>(null);
   const SWIPE_THRESHOLD = 50;
+  const flipTimerRef = useRef<ReturnType<typeof requestAnimationFrame> | null>(null);
+  const reducedMotion = useRef(false);
 
   useEffect(() => {
     setMounted(true);
     gretelEvent("mount");
+    reducedMotion.current = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   }, []);
 
   useEffect(() => {
@@ -54,13 +56,38 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
   const hasPrev = currentIndex > 0;
   const hasNext = currentIndex < pagesArray.length - 1;
 
+  const easeInOutCubic = (t: number) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+  const animateFlip = useCallback((duration: number, onComplete: () => void) => {
+    const start = performance.now();
+    const tick = (now: number) => {
+      const elapsed = now - start;
+      const raw = Math.min(elapsed / duration, 1);
+      setFlipProgress(easeInOutCubic(raw));
+      if (raw < 1) {
+        flipTimerRef.current = requestAnimationFrame(tick);
+      } else {
+        setFlipProgress(0);
+        onComplete();
+      }
+    };
+    flipTimerRef.current = requestAnimationFrame(tick);
+  }, []);
+
   const handlePrev = useCallback(() => {
     if (!hasPrev || isFlipping) return;
     setFlipDirection('prev');
     setIsFlipping(true);
-    setFlipTransform('rotateY(-180deg)');
-    requestAnimationFrame(() => requestAnimationFrame(() => setFlipTransform('rotateY(0deg)')));
-    setTimeout(() => {
+    if (reducedMotion.current) {
+      const nextIndex = currentIndex - 1;
+      setCurrentIndex(nextIndex);
+      setIsFlipping(false);
+      setFlipDirection(null);
+      onPageChange(nextIndex + 1);
+      gretelEvent("page-flip");
+      return;
+    }
+    animateFlip(1000, () => {
       const nextIndex = currentIndex - 1;
       setCurrentIndex(nextIndex);
       setIsFlipping(false);
@@ -72,16 +99,23 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
         const srcs = upcoming.map(n => getBookPageImage(n)).filter(Boolean) as string[];
         preloadSpread(srcs);
       }
-    }, 1500);
-  }, [hasPrev, isFlipping, currentIndex, onPageChange, totalPages]);
+    });
+  }, [hasPrev, isFlipping, currentIndex, onPageChange, totalPages, animateFlip]);
 
   const handleNext = useCallback(() => {
     if (!hasNext || isFlipping) return;
     setFlipDirection('next');
     setIsFlipping(true);
-    setFlipTransform('rotateY(0deg)');
-    requestAnimationFrame(() => requestAnimationFrame(() => setFlipTransform('rotateY(-180deg)')));
-    setTimeout(() => {
+    if (reducedMotion.current) {
+      const nextIndex = currentIndex + 1;
+      setCurrentIndex(nextIndex);
+      setIsFlipping(false);
+      setFlipDirection(null);
+      onPageChange(nextIndex + 1);
+      gretelEvent("page-flip");
+      return;
+    }
+    animateFlip(1000, () => {
       const nextIndex = currentIndex + 1;
       setCurrentIndex(nextIndex);
       setIsFlipping(false);
@@ -93,8 +127,8 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
         const srcs = upcoming.map(n => getBookPageImage(n)).filter(Boolean) as string[];
         preloadSpread(srcs);
       }
-    }, 1500);
-  }, [hasNext, isFlipping, currentIndex, onPageChange, totalPages]);
+    });
+  }, [hasNext, isFlipping, currentIndex, onPageChange, totalPages, animateFlip]);
 
   const onPointerDown = (e: React.PointerEvent) => {
     pointerStartX.current = e.clientX;
@@ -106,6 +140,12 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
     if (delta < -SWIPE_THRESHOLD) handleNext();
     else if (delta > SWIPE_THRESHOLD) handlePrev();
   };
+
+  useEffect(() => {
+    return () => {
+      if (flipTimerRef.current) cancelAnimationFrame(flipTimerRef.current);
+    };
+  }, []);
 
   if (!mounted) {
     return (
@@ -120,6 +160,25 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
     : (isFlipping && flipDirection === 'next' ? currentIndex + 1 : currentIndex);
   const flipFrontIndex = isFlipping ? (flipDirection === 'next' ? currentIndex : currentIndex - 1) : -1;
   const flipBackIndex  = isFlipping ? (flipDirection === 'next' ? currentIndex + 1 : currentIndex)  : -1;
+
+  const getFlipTransform = () => {
+    if (!isFlipping) return 'rotateY(0deg)';
+    const angle = flipProgress * 180;
+    const lift = Math.sin(flipProgress * Math.PI) * 4;
+    if (flipDirection === 'next') {
+      return `rotateY(${-angle}deg) rotateX(${lift}deg)`;
+    }
+    return `rotateY(${angle}deg) rotateX(${lift}deg)`;
+  };
+
+  const curlMaskStyle: React.CSSProperties = isFlipping ? {
+    maskImage: flipDirection === 'next'
+      ? 'linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 45%, rgba(0,0,0,0) 100%)'
+      : 'linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 45%, rgba(0,0,0,0) 100%)',
+    WebkitMaskImage: flipDirection === 'next'
+      ? 'linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 45%, rgba(0,0,0,0) 100%)'
+      : 'linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 45%, rgba(0,0,0,0) 100%)',
+  } : {};
 
   return (
     <div
@@ -176,9 +235,14 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
           {isFlipping && (
             <div
               className={`page-flip absolute inset-0 ${flipDirection === 'next' ? 'flipping-right-to-left' : ''}`}
-              style={{ transform: flipTransform, transition: "transform 1500ms cubic-bezier(0.4,0,0.2,1)", transformStyle: "preserve-3d" }}
+              style={{
+                transform: getFlipTransform(),
+                transition: "none",
+                transformStyle: "preserve-3d",
+                transformOrigin: flipDirection === 'next' ? 'left center' : 'right center',
+              }}
             >
-              <div className="page-front absolute inset-0 overflow-hidden">
+              <div className="page-front absolute inset-0 overflow-hidden" style={curlMaskStyle}>
                 {pagesArray[flipFrontIndex] !== undefined
                   ? <Page pageNum={pagesArray[flipFrontIndex]} />
                   : <div className="w-full h-full bg-surface" />}
@@ -194,13 +258,13 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
           {/* Page curl shadow overlay */}
           {isFlipping && (
             <div
-              className="absolute inset-y-0 w-12 pointer-events-none z-20"
+              className="absolute inset-y-0 w-16 pointer-events-none z-20"
               style={{
                 right: flipDirection === 'next' ? 0 : 'auto',
                 left: flipDirection === 'prev' ? 0 : 'auto',
                 background: flipDirection === 'next'
-                  ? "linear-gradient(to left, rgba(0,0,0,0.18) 0%, transparent 100%)"
-                  : "linear-gradient(to right, rgba(0,0,0,0.18) 0%, transparent 100%)",
+                  ? "linear-gradient(to left, rgba(0,0,0,0.25) 0%, transparent 100%)"
+                  : "linear-gradient(to right, rgba(0,0,0,0.25) 0%, transparent 100%)",
               }}
             />
           )}

@@ -2,9 +2,7 @@ import { useState, useMemo, useEffect, lazy, Suspense } from "react";
 import { CATALOG } from "@/lib/lesson-catalog";
 import { PolishedPage } from "./PolishedPage";
 import { StudentBookToolbar } from "./StudentBookToolbar";
-import { RingTabNav } from "./RingTabNav";
 import { speak } from "@/lib/speak";
-import { GretelMascot } from "@/components/gretel/GretelMascot";
 import { FlipErrorBoundary } from "./FlipErrorBoundary";
 
 // Lazy-load the flipbook so `react-pageflip` (which touches browser-only APIs
@@ -93,13 +91,8 @@ export function BookReader({ initialPage = 1 }: BookReaderProps) {
         onAudio={handleAudio}
       />
 
-      {/* Main Page Layout Container — ring-tab rail + book */}
+      {/* Main Page Layout Container */}
       <div className="flex-1 w-full max-w-5xl mx-auto flex flex-col md:flex-row md:items-start md:justify-center gap-2 md:gap-4 px-2 md:px-4">
-        <RingTabNav
-          currentPage={currentPage}
-          onSelect={setCurrentPage}
-          className="md:sticky md:top-24 md:max-h-[78vh]"
-        />
         <main className="flex-1 w-full max-w-2xl mx-auto px-2 md:px-4 py-6 md:py-8 flex flex-col items-center justify-center">
           {showHorizontal ? (
             mounted ? (
@@ -122,16 +115,6 @@ export function BookReader({ initialPage = 1 }: BookReaderProps) {
             verticalReader
           )}
         </main>
-      </div>
-
-      {/* Mascot Integration */}
-      <div className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50">
-        <GretelMascot
-          pose="read"
-          text="¡Vamos a leer!\nPasa las páginas para explorar el libro."
-          bubblePosition="left"
-          showCloseButton={true}
-        />
       </div>
     </div>
   );
