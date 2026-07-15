@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { recordEvent, useStudentSession } from "@/lib/student-session";
 import { supabase } from "@/integrations/supabase/client";
 import { gretelEvent } from "@/lib/gretel-bus";
+import { EscucharInstruccionButton } from "./EscucharInstruccionButton";
 
 type Word = { word: string; emoji?: string; illustrationSrc?: string };
 
@@ -94,7 +95,10 @@ export function SyllableTap({
   return (
     <div className="rounded-2xl border-2 border-foreground/10 bg-card p-4">
       <div className="flex items-center justify-between mb-3">
-        <h3 className="font-bold">Toca la sílaba que escuches</h3>
+        <div className="flex items-center gap-2">
+          <h3 className="font-bold">Toca la sílaba que escuches</h3>
+          <EscucharInstruccionButton text="Toca la sílaba que escuches" />
+        </div>
         <span className="text-xs font-bold text-foreground/60">
           {score} / {tries}
         </span>
@@ -269,7 +273,10 @@ export function WordMatch({
       data-emoji-objects="false"
     >
       <div className="flex items-center justify-between mb-3">
-        <h3 className="font-bold">Une la palabra con su dibujo</h3>
+        <div className="flex items-center gap-2">
+          <h3 className="font-bold">Une la palabra con la imagen</h3>
+          <EscucharInstruccionButton text="Une la palabra con la imagen" />
+        </div>
         <div className="flex items-center gap-3">
           {acc !== null && (
             <span className="text-xs font-bold text-foreground/60">
