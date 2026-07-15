@@ -41,7 +41,7 @@
 - **Goal:** Ensure Supabase authentication is working live and teacher accounts are functioning.
 - **Exact expected files or area:** `src/routes/login.tsx`, `src/lib/teacher.functions.ts` (maximum five files).
 - **Done when:** A teacher can log in against the live Supabase environment.
-- **Status:** NOT STARTED
+- **Status:** BLOCKED - Sandbox lacks live internet to authenticate against Supabase endpoints. Needs cloud env keys or a live environment.
 - **Browser check:** EJN can log in on the preview URL using test teacher credentials and reach the dashboard.
 
 ### Task 2.2: Adding Students & Strict Isolation
