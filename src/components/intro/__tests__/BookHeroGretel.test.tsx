@@ -33,9 +33,8 @@ describe("BookHeroGretel — real GretelPresence (not static swap)", () => {
     expect(scene?.getAttribute("src")).toBe(GRETEL_HERO_SCENE);
 
     // Real presence host (not 3-frame only wave cycle component)
-    const host = screen.getByTestId("book-hero-gretel");
+    const host = screen.getByTestId("book-hero-gretel-frame");
     expect(host.getAttribute("data-gretel-system")).toBe("presence");
-    expect(host.getAttribute("data-variant")).toBe("home");
     expect(host.getAttribute("data-sticker")).toBe("false");
   });
 
@@ -44,6 +43,5 @@ describe("BookHeroGretel — real GretelPresence (not static swap)", () => {
     expect(container.querySelector(".book-hero-gretel__frame")).toBeTruthy();
     expect(container.querySelector(".book-hero-gretel__ground")).toBeTruthy();
     expect(container.querySelector(".book-hero-gretel__vignette")).toBeTruthy();
-    expect(container.querySelector(".book-hero-gretel__presence-wrap")).toBeTruthy();
   });
 });

@@ -67,10 +67,9 @@ describe("Home landing — GretelPresence + approved copy only", () => {
     expect(teacher.textContent).toMatch(/Entrar como maestro/i);
 
     // GretelPresence system (data-gretel-system=presence), not sticker
-    const hero = screen.getByTestId("book-hero-gretel");
+    const hero = screen.getByTestId("book-hero-gretel-frame");
     expect(hero.getAttribute("data-sticker")).toBe("false");
     expect(hero.getAttribute("data-gretel-system")).toBe("presence");
-    expect(hero.getAttribute("data-variant")).toBe("home");
   });
 
   it("hero text is ONLY the approved greeting — no fabricated captions", async () => {

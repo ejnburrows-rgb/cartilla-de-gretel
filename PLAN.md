@@ -25,7 +25,7 @@
 - **Goal:** Fix the 4 failing tests in the test suite.
 - **Exact expected files or area:** Affected test files, e.g. `*.test.ts` (maximum five application files).
 - **Done when:** `pnpm test` reports all tests passing.
-- **Status:** NOT STARTED
+- **Status:** DONE
 - **Browser check:** EJN can view the test output in the CI/CD pipeline or run `pnpm test` to see 100% passing.
 
 ### Task 1.3: Resolve Lint Problems
