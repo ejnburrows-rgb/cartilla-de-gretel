@@ -22,7 +22,6 @@ export function useBookDimensions(): {
     img.onload = () => {
       const w = img.naturalWidth;
       const h = img.naturalHeight;
-      console.log(`[flipbook] probe natural size: ${w}×${h}`);
       const singleAspect = w / h;
       const spreadAspect = (2 * w) / h;
       setDims({ singleAspect, spreadAspect });
