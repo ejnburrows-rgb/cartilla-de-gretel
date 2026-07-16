@@ -5,8 +5,9 @@
  * Source scans are never the designed primary when HD paths exist in
  * teacher-flipchart.json (getFlipchartPageSrc).
  *
- * ORIENTATION: Source JPGs are stored pixel-upside-down; CSS rotate(180deg)
- * restores upright presentation (see flipchart-presenter.css .fc-board__face img).
+ * ORIENTATION: fixed 2026-07-16 — all 62 source JPGs were flipped vertically
+ * (mirrored top-to-bottom, not simply rotated) and were losslessly re-flipped
+ * in place with jpegtran; no CSS transform is needed or applied anymore.
  *
  * Vertical top-hinged flip timing from living-motion (unchanged curves).
  */

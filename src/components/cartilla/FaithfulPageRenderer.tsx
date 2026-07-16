@@ -11,6 +11,7 @@ import {
 import { WorkbookLetterTrace } from "./WorkbookLetterTrace";
 import { getLetterTemplate } from "./letter-stroke-templates";
 import { LivingIllustration } from "@/components/living/LivingIllustration";
+import { EscucharInstruccionButton } from "./EscucharInstruccionButton";
 import {
   DibujaFromRegion,
   LassoPictureGrid,
@@ -475,6 +476,9 @@ function RegionView({
         <p className="fp-region--instruction">
           {region.label ? <span className="fp-label">{region.label} </span> : null}
           {region.text}
+          {interactive && region.text ? (
+            <EscucharInstruccionButton text={region.text} className="fp-instruction__escuchar" />
+          ) : null}
         </p>
       );
     case "writing-line": {

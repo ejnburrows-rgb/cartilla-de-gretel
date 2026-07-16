@@ -151,6 +151,10 @@
 .fp-region--instruction .fp-label {
   font-weight: 700;
 }
+.fp-instruction__escuchar {
+  margin-left: 0.5em;
+  vertical-align: middle;
+}
 .fp-region--vocab-grid,
 .fp-region--sentence-line,
 .fp-region--footer {
