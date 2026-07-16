@@ -126,7 +126,7 @@
 - **Goal:** Add Escuchar (listen) option for children who cannot read.
 - **Exact expected files or area:** Student exercise components, TTS trigger component (maximum five files).
 - **Done when:** An audio playback button correctly reads the instructions aloud.
-- **Status:** NOT STARTED
+- **Status:** DONE. The Escuchar button already existed (`EscucharInstruccionButton.tsx` + `useAudio` hook) but was only wired into the games/activities section (`Ejercicios.tsx`, `DragBuildWord.tsx`, `StudentExercisePane.tsx`), not the real on-page workbook exercises. Added it to `FaithfulPageRenderer.tsx`'s `instruction` region (interactive/student mode only, never on the teacher's read-only preview) so every printed instruction line on every workbook page now has a listen button right next to it — reusing the existing component/hook, no new TTS mechanism invented. Verified: `pnpm run typecheck` clean; live in-browser on Lección 1 — button renders inline next to the instruction text with no overlap, click fires with no console errors beyond the known font-block. Screenshot: `SCREENSHOTS/escuchar-button-lesson1.png`.
 - **Browser check:** EJN taps the Escuchar button and hears the instructions spoken clearly.
 
 ## PHASE 5: Flipchart and Lessons
