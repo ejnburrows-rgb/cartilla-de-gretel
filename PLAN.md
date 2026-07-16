@@ -210,7 +210,50 @@
 - **Goal:** Final phone and desktop verification of everything built.
 - **Exact expected files or area:** Entire application (Review).
 - **Done when:** All features render beautifully and function correctly across mobile and desktop.
-- **Status:** NOT STARTED
+- **Status:** DONE for the surfaces checked (see caveat).
+  Systematically walked 12 golden-path URLs (splash, login, student join,
+  teacher dashboard/roster/reportes/guía/progreso, flipchart, imprimir/all,
+  student lecciones index, lesson 1, lesson 17) at both 1280×800 (desktop)
+  and 390×844 (phone), screenshotting each and checking for real console
+  errors. Found and fixed 4 real bugs:
+  1. **Duplicate array entries** in `consonants.json` (`dama`/`mira`/`tina`
+     each listed twice under one syllable) — caused a real React duplicate-
+     key console warning on the Imprimir page. Removed the dupes.
+  2. **Header/back-button visual collision** on `/cartilla/leccion/$n` for
+     the no-session case — the fixed "Volver a mis lecciones" pill (a real,
+     intentional fallback shown when there's no student session, not dead
+     code) visually overlapped the in-flow header's language toggle/timer/
+     lesson counter on narrow viewports. Fixed with conditional header
+     top-padding (`pt-4` with a session, `pt-20` without).
+  3. **Reportes and Progreso pages were completely non-functional in demo
+     mode** — `StudentPicker.tsx` and `progreso.tsx` both called the real,
+     Supabase-only `listClasses()`/`getClass()` directly with no seed-data
+     fallback (unlike `ClassRoster.tsx`/`TeacherCrmShell.tsx`, which already
+     had one), so the class dropdown was stuck on "Cargando clases..."
+     forever whenever there's no live Supabase connection. `ReportCard.tsx`
+     had the identical gap one layer down (`getStudentProgress`/
+     `getClassProgress`). Applied the same `isSeed` fallback pattern
+     (`listSeedClasses`/`getSeedClass`/`getSeedClassProgress`/
+     `getSeedTeacherStudentProgress`) to all three files. Verified live:
+     Reportes now shows real per-student metrics matching the roster
+     exactly (Sofía 18 lessons, Mateo 10, etc.).
+  4. **All 92 pages of the actual printable workbook scans**
+     (`public/cartilla/art/hd/workbook/page-*.jpg` + the 44 `.png`
+     duplicates) **were stored vertically flipped** — the same root-cause
+     defect as the flipchart bug (PR #213), a completely separate set of
+     files. Confirmed on pages 1, 20, 50, and 92 (start/middle/end).
+     Fixed losslessly: `jpegtran -flip vertical` for the JPGs (same tool as
+     the flipchart fix), a plain re-save for the lossless PNGs. This was a
+     genuinely broken, student/teacher-facing feature — the "Imprimir"
+     printable worksheets for all 24 lessons showed mirrored, unreadable
+     text (e.g. "Este libro pertenece a" backwards) before this fix.
+  Verified: `pnpm run typecheck`/`build`/`test` all clean after every fix
+  (475/477, 2 expected fail). Screenshots: `SCREENSHOTS/7.1-final-qa/`
+  (desktop/ and phone/ subfolders, 12-13 pages each).
+  **Caveat:** this confirms the 12 checked surfaces are clean, not an
+  exhaustive audit of every route (CRM student drill-down pages, print
+  binder, individual `imprimir/$n` per-lesson pages, etc. were not
+  individually walked this pass).
 - **Browser check:** EJN tests the preview URL on both an iPhone and a desktop browser and finds zero layout or functional bugs.
 
 ## ON HOLD

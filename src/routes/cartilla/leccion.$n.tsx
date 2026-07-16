@@ -182,7 +182,7 @@ function Leccion() {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <header className="px-4 pt-4 max-w-3xl w-full mx-auto">
+      <header className={`px-4 max-w-3xl w-full mx-auto ${session ? "pt-4" : "pt-20"}`}>
         <div className="flex items-center justify-between gap-3 mb-3 flex-wrap">
           <Link
             to="/cartilla/lecciones"

@@ -1,0 +1,146 @@
+[
+  {
+    "viewport": "desktop",
+    "name": "01-splash-landing",
+    "url": "http://localhost:5173/",
+    "errors": []
+  },
+  {
+    "viewport": "desktop",
+    "name": "02-login",
+    "url": "http://localhost:5173/login",
+    "errors": []
+  },
+  {
+    "viewport": "desktop",
+    "name": "03-student-join",
+    "url": "http://localhost:5173/cartilla/unirse",
+    "errors": []
+  },
+  {
+    "viewport": "desktop",
+    "name": "04-teacher-dashboard",
+    "url": "http://localhost:5173/cartilla/teacher",
+    "errors": []
+  },
+  {
+    "viewport": "desktop",
+    "name": "05-teacher-roster",
+    "url": "http://localhost:5173/cartilla/teacher/roster",
+    "errors": []
+  },
+  {
+    "viewport": "desktop",
+    "name": "06-teacher-reportes",
+    "url": "http://localhost:5173/cartilla/teacher/reportes",
+    "errors": []
+  },
+  {
+    "viewport": "desktop",
+    "name": "07-teacher-guia",
+    "url": "http://localhost:5173/cartilla/teacher/guia",
+    "errors": []
+  },
+  {
+    "viewport": "desktop",
+    "name": "08-flipchart-lesson1",
+    "url": "http://localhost:5173/cartilla/presentar/1",
+    "errors": []
+  },
+  {
+    "viewport": "desktop",
+    "name": "09-imprimir-all",
+    "url": "http://localhost:5173/cartilla/imprimir/all",
+    "errors": []
+  },
+  {
+    "viewport": "desktop",
+    "name": "10-student-lecciones",
+    "url": "http://localhost:5173/cartilla/lecciones",
+    "errors": []
+  },
+  {
+    "viewport": "desktop",
+    "name": "11-student-leccion1",
+    "url": "http://localhost:5173/cartilla/leccion/1",
+    "errors": []
+  },
+  {
+    "viewport": "desktop",
+    "name": "12-student-leccion17",
+    "url": "http://localhost:5173/cartilla/leccion/17",
+    "errors": []
+  },
+  {
+    "viewport": "phone",
+    "name": "01-splash-landing",
+    "url": "http://localhost:5173/",
+    "errors": []
+  },
+  {
+    "viewport": "phone",
+    "name": "02-login",
+    "url": "http://localhost:5173/login",
+    "errors": []
+  },
+  {
+    "viewport": "phone",
+    "name": "03-student-join",
+    "url": "http://localhost:5173/cartilla/unirse",
+    "errors": []
+  },
+  {
+    "viewport": "phone",
+    "name": "04-teacher-dashboard",
+    "url": "http://localhost:5173/cartilla/teacher",
+    "errors": []
+  },
+  {
+    "viewport": "phone",
+    "name": "05-teacher-roster",
+    "url": "http://localhost:5173/cartilla/teacher/roster",
+    "errors": []
+  },
+  {
+    "viewport": "phone",
+    "name": "06-teacher-reportes",
+    "url": "http://localhost:5173/cartilla/teacher/reportes",
+    "errors": []
+  },
+  {
+    "viewport": "phone",
+    "name": "07-teacher-guia",
+    "url": "http://localhost:5173/cartilla/teacher/guia",
+    "errors": []
+  },
+  {
+    "viewport": "phone",
+    "name": "08-flipchart-lesson1",
+    "url": "http://localhost:5173/cartilla/presentar/1",
+    "errors": []
+  },
+  {
+    "viewport": "phone",
+    "name": "09-imprimir-all",
+    "url": "http://localhost:5173/cartilla/imprimir/all",
+    "errors": []
+  },
+  {
+    "viewport": "phone",
+    "name": "10-student-lecciones",
+    "url": "http://localhost:5173/cartilla/lecciones",
+    "errors": []
+  },
+  {
+    "viewport": "phone",
+    "name": "11-student-leccion1",
+    "url": "http://localhost:5173/cartilla/leccion/1",
+    "errors": []
+  },
+  {
+    "viewport": "phone",
+    "name": "12-student-leccion17",
+    "url": "http://localhost:5173/cartilla/leccion/17",
+    "errors": []
+  }
+]

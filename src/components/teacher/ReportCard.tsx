@@ -1,5 +1,11 @@
+import { useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getStudentProgress, getClassProgress } from "@/lib/teacher.functions";
+import {
+  isSeedSessionActive,
+  getSeedTeacherStudentProgress,
+  getSeedClassProgress,
+} from "@/lib/seed-data";
 import {
   ClipboardList,
   Award,
@@ -34,19 +40,49 @@ const EXERCISE_KIND_LABELS: Record<string, string> = {
 };
 
 export function ReportCard({ classId, studentId }: ReportCardProps) {
+  // Synchronously detect local seed teacher session — getStudentProgress/
+  // getClassProgress are real Supabase-only calls with no demo-mode fallback
+  // of their own, so this component needs the same isSeed pattern used by
+  // ClassRoster.tsx / TeacherCrmShell.tsx elsewhere in the CRM.
+  const isSeed = useMemo(() => isSeedSessionActive(), []);
+
   // 1. Fetch Student Progress if selected
-  const { data: studentData, isLoading: loadingStudent } = useQuery({
+  const { data: realStudentData, isLoading: loadingRealStudent } = useQuery({
     queryKey: ["teacher-student-progress", studentId],
     queryFn: () => getStudentProgress({ data: { id: studentId! } }),
-    enabled: !!studentId,
+    enabled: !isSeed && !!studentId,
   });
 
+  const seedStudentData = useMemo(() => {
+    if (!isSeed || !studentId) return null;
+    try {
+      return getSeedTeacherStudentProgress(studentId);
+    } catch {
+      return null;
+    }
+  }, [isSeed, studentId]);
+
+  const studentData = isSeed ? seedStudentData : realStudentData;
+  const loadingStudent = !isSeed && loadingRealStudent;
+
   // 2. Fetch Class Progress if no student selected
-  const { data: classProgressData, isLoading: loadingClass } = useQuery({
+  const { data: realClassProgressData, isLoading: loadingRealClass } = useQuery({
     queryKey: ["teacher-class-progress", classId],
     queryFn: () => getClassProgress({ data: { id: classId } }),
-    enabled: !studentId && !!classId,
+    enabled: !isSeed && !studentId && !!classId,
   });
+
+  const seedClassProgressData = useMemo(() => {
+    if (!isSeed || studentId || !classId) return null;
+    try {
+      return getSeedClassProgress(classId);
+    } catch {
+      return null;
+    }
+  }, [isSeed, studentId, classId]);
+
+  const classProgressData = isSeed ? seedClassProgressData : realClassProgressData;
+  const loadingClass = !isSeed && loadingRealClass;
 
   const loading = studentId ? loadingStudent : loadingClass;
 

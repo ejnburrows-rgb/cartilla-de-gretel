@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { listClasses, getClass } from "@/lib/teacher.functions";
+import { isSeedSessionActive, listSeedClasses, getSeedClass } from "@/lib/seed-data";
 
 interface StudentPickerProps {
   onSelectionChange: (classId: string, studentId: string | null) => void;
@@ -15,18 +16,48 @@ export function StudentPicker({ onSelectionChange }: StudentPickerProps) {
   const [selectedClassId, setSelectedClassId] = useState<string>("");
   const [selectedStudentId, setSelectedStudentId] = useState<string | null>(null);
 
+  // Synchronously detect if we are using the local seed teacher session — same
+  // pattern as ClassRoster.tsx, needed because listClasses/getClass are real
+  // Supabase-only calls with no demo-mode fallback of their own.
+  const isSeed = useMemo(() => isSeedSessionActive(), []);
+
   // 1. Fetch Classes
-  const { data: classes, isLoading: loadingClasses } = useQuery({
+  const { data: realClasses, isLoading: loadingRealClasses } = useQuery({
     queryKey: ["teacher-classes"],
     queryFn: () => listClasses(),
+    enabled: !isSeed,
   });
 
+  const seedClasses = useMemo(() => {
+    if (!isSeed) return [];
+    try {
+      return listSeedClasses();
+    } catch {
+      return [];
+    }
+  }, [isSeed]);
+
+  const classes = isSeed ? seedClasses : realClasses;
+  const loadingClasses = !isSeed && loadingRealClasses;
+
   // 2. Fetch Students for Selected Class
-  const { data: classData, isLoading: loadingStudents } = useQuery({
+  const { data: realClassData, isLoading: loadingRealStudents } = useQuery({
     queryKey: ["teacher-class-students", selectedClassId],
     queryFn: () => getClass({ data: { id: selectedClassId } }),
-    enabled: !!selectedClassId,
+    enabled: !isSeed && !!selectedClassId,
   });
+
+  const seedClassData = useMemo(() => {
+    if (!isSeed || !selectedClassId) return null;
+    try {
+      return getSeedClass(selectedClassId);
+    } catch {
+      return null;
+    }
+  }, [isSeed, selectedClassId]);
+
+  const classData = isSeed ? seedClassData : realClassData;
+  const loadingStudents = !isSeed && loadingRealStudents;
 
   // Set default class on load
   useEffect(() => {
