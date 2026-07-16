@@ -5,11 +5,56 @@
   - Source blob: `cf0d6c7d4792d6d9154102f29b8e08b4dd706275`
   - Source commit: Historic blob (previously added to git history)
   - Processing performed: Extracted exact original blob, verified visually as green eyes.
+  - **2026-07-16 update:** this recovery was documented here but the file was
+    never actually re-materialized on disk, and `manifest.json`/`page-layouts.json`
+    still pointed at a different, bad stub file (`vocal-o/ojos.webp`, 780 bytes,
+    visually near-blank). Re-extracted the same blob, placed it at this path,
+    corrected `manifest.json`'s `src`, and wired it into all 4 real slot
+    instances (student workbook pages 1, 4, 5, 7). Verified live in-browser.
 
 - `public/cartilla/art/faithful/leccion-1/oruga.webp`
   - Source blob: `8941582b380f7b0e8204c593e3d04b60192b18cf`
   - Source commit: Historic blob (from `vocal-o/oruga.webp`)
   - Processing performed: Copied from already-recovered `vocal-o/oruga.webp` (visually confirmed caterpillar).
+  - **2026-07-16 update:** `vocal-o/oruga.webp` is on disk and real; wired it
+    into the one real empty slot instance that needed it (student workbook
+    page 7). Verified live in-browser.
+
+## STILL PENDING despite existing on-disk files — bad crops, not wiring gaps
+A 2026-07-16 pass found 30 empty illustration-slot instances (17 unique words)
+across the student workbook. `manifest.json` metadata suggested most already
+had usable art; direct visual inspection of every candidate file (not just
+byte-size/existence checks) found most were unusable:
+- **Wrong content entirely**: `leccion-1/libro.webp` (a letter/grid fragment,
+  not a book — matches this doc's own earlier REJECTED-CANDIDATES note),
+  `leccion-1/dulce.webp` (mirrored instruction text, not candy — also matches
+  an earlier REJECTED-CANDIDATES note), `extracted/pajaro.webp` (a coat, not
+  a bird — also previously rejected).
+- **Blank/near-blank stubs** (well under any usable size): `vocal-i/igual.webp`
+  (72b), `vocal-i/iguana.webp` (352b), `leccion-1/globo.webp` (608b, thin line
+  fragment), `vocal-a/ardilla.webp` (898b, partial shape fragment).
+- **Washed-out / uncolored, shape-recognizable but not real color art**:
+  `leccion-1/manzana.webp` (gray, not red), `leccion-1/pera.webp` (pale,
+  nearly white), `leccion-1/pajaro.webp` (grayscale sketch), `vocal-a/arbol.webp`
+  (partial gray sketch), `vocal-e/erizo.webp` (tiny partial texture crop).
+  A cleaner `extracted/manzana.webp` git-history blob exists but is still
+  gray, not red — same verdict.
+- **Real art exists but isn't a clean single-item crop**: `extracted/arbol.webp`,
+  `extracted/ardilla.webp`, and `extracted/iguana.webp` are all an identical
+  187×175 crop window from what looks like a shared sprite sheet — each shows
+  the right subject plus 2-3 unrelated neighboring items bleeding into frame.
+  Wiring these as-is would show a jumbled multi-item image in a single-item
+  slot. Needs an actual re-crop (out of scope for a wiring-only pass — this is
+  new art-extraction work, not a JSON fix).
+- **Borderline, held back on the project's own quality gate**: a cleaner
+  `extracted/taza.webp` git-history blob (1050 bytes) is visually a real,
+  correctly-shaped mug crop, but falls under the 1500-byte "stub" floor this
+  repo's own `validate-content.mjs` / `art-slots-integrity.test.ts` enforce.
+  Not overridden here on a single visual judgment call — flagged for a human
+  or a follow-up pass to explicitly bless (raise the floor for this one file,
+  or accept a slightly-under-floor real crop) rather than silently bypassed.
+
+All of the above stay showing the honest "ilustración pendiente" placeholder.
 
 - `public/cartilla/art/faithful/leccion-22-g-j/gato.webp`
   - Source blob: `fdc667d1e8b14be65b1b465177614b6bfe356cd9`

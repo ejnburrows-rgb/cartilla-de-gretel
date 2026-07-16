@@ -277,6 +277,36 @@ words confirmed to have no illustration anywhere in the physical book are
 still `arco`, `pez`, `traje`, `águila`, `urna` (see "Confirmed NOT to
 exist" below) — those stay as "art pending," which is correct.
 
+## Correction (2026-07-16) — "fully closed out" above does not match reality
+
+A fresh audit (verifying `page-layouts.json`/`manifest.json` directly, not
+taking this doc's claim on faith) found `arbol`, `iguana`, `igual`, `erizo`,
+`globo`, `ardilla`, and `ojos` were **not actually wired** on `main` as of
+2026-07-16, despite this section's claim they were "fixed and merged
+directly to main." Direct visual inspection of the actual files at their
+manifest paths found: `vocal-a/arbol.webp` is a partial gray sketch fragment,
+`vocal-i/igual.webp` and `vocal-i/iguana.webp` are near-blank stubs (72b/352b),
+`vocal-e/erizo.webp` is a tiny partial texture crop, `leccion-1/globo.webp`
+and `vocal-a/ardilla.webp` are thin-fragment stubs. None of these match "a
+full, clean, tight" crop as this section describes. `ojos` was genuinely
+recovered (real, correct green-eyes art) but the recovered file was never
+actually placed at its expected path or wired — see `MISSING_ASSETS.md` and
+`PLAN.md` Task 4.1b, fixed 2026-07-16. `pera`'s "contrast fixed" claim also
+doesn't match current reality — the live file is pale/washed-out, not a
+corrected-contrast version.
+
+**What IS confirmed real and useful**: the claimed source scan,
+`public/cartilla/art/hd/workbook/page-009.jpg`, does exist in the repo and
+does show the Vocal A picture-grid page — a legitimate source for a real
+re-crop pass of `arbol`/`ardilla`/`igual`/`iguana`/`erizo`/`globo` (and
+likely others on the same page). That re-crop was apparently never actually
+done (or was done and lost) despite this section's claim. This is real,
+scoped, un-started work for whoever picks up art extraction next — not a
+JSON-wiring fix like the `ojos` case, since it requires opening the actual
+scan, locating each item's real pixel bounds, and exporting a clean single-
+item crop per word. Flagging here rather than repeating the same
+"claimed done, wasn't verified" mistake this correction is fixing.
+
 ## Update — full re-audit of all 51 wired crops, real work reopened
 
 The "no open art-extraction work" line below is **no longer true** — a full,

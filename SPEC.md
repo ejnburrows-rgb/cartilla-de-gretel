@@ -69,8 +69,7 @@ them correctly) — an art-pipeline task, not a UI task.
    bottom of this file.
 3. **Corrections to an earlier automated pass**: an initial audit reported
    "772 illustration slots, 285 filled (36.9%)" — this was wrong (it counted
-   all `caption`/text fields, not actual illustration slots). Direct recount:
-   **155 real illustration slots, 138 filled (89%)**.
+   all `caption`/text fields, not actual illustration slots).
 
    **Recount method (reproducible):** an illustration slot is any object that
    can hold an `illustrationSrc`, reached through exactly three paths in
@@ -80,10 +79,20 @@ them correctly) — an art-pipeline task, not a UI task.
    itself), (b) each entry in a region's `cells[]` array (picture-grid,
    vowel-line-match), (c) each `cell` in a region's `vowelRows[*].cells[]`
    (vowel-pick-one). A slot counts as "filled" when its `illustrationSrc` is
-   truthy. Counting only these three paths yields 155 total / 138 filled.
-   Counting every object with a `caption` field instead (the earlier error)
-   inflates the denominator with text-only captions. Both an independent
-   Python walk and a JS walk over the same paths agree on 155/138.
+   truthy. Both an independent Python walk and a JS walk over the same paths
+   agree on the count below.
+
+   **Current count (2026-07-16, re-verified by hand): 155 total / 131
+   filled (85%).** This document previously said "138 filled" — that was
+   stale. A later audit found 30 empty slot-instances (17 unique words) whose
+   crop files supposedly already existed per `manifest.json`; on direct visual
+   inspection, most of those files turned out to be bad crops (blank stubs,
+   wrong content entirely, or unusably washed-out/grayscale fragments), not
+   the real usable art the manifest metadata implied. Only 3 words
+   (`remolino`, `oruga`, `aguja`, 6 slot-instances) were verified as real,
+   correct, recognizable art and wired in. The other 14 words stay showing
+   the honest "ilustración pendiente" placeholder rather than displaying
+   wrong/misleading art — see `ART_BACKLOG.md` for the full per-word verdict.
 
 ## Sources of truth used for this audit
 - `src/data/page-layouts.json` — per-page extracted text + region data (90/90 pages present)
