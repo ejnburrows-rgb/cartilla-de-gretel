@@ -9,7 +9,7 @@
 - **Workbook Engine:** 90-page manifest and living workbook engine built. Fallback chain for lineart to source scan integrated.
 - **Blocked/Pending Findings:** 
   - Cloud release scripts blocked on lack of fixture credentials (`E2E_TEACHER_A_PASSWORD`).
-  - Activities incomplete: Lessons 1-5, 7, 9 ready; 6, 8, 10-24 pending.
+  - **Correction (verified live in-browser):** the "Lessons 1-5, 7, 9 ready; 6, 8, 10-24 pending" claim was stale. It was based on `src/data/lesson-exercises/*.ts`, a separate, disconnected data source consumed only by `src/routes/cartilla/teacher/guide.tsx` (already flagged elsewhere as an orphaned duplicate route with no inbound link) plus two audit test files — not by the real, live student lesson route. The real content source is `src/data/page-layouts.json` + `FaithfulPageRenderer`, which powers `/cartilla/leccion/$n`. Directly verified live (unlocked via `cartilla.lesson-progress.v1` in localStorage, screenshotted): Lesson 6 (vowel U, pages 16-18, real illustrated tap-exercise), Lesson 8 (consonant P, pages 23-26, real letter tracing + draw prompt), Lesson 10 (consonant T, pages 31-34, same pattern), Lesson 17 (consonant R, pages 59-62, real vocab: rana/remos/Rita/rosa), Lesson 24 (consonant Z, pages 87-90, real vocab: zapato/zig-zag/zorro/zepelín) — all render with no console errors beyond the known, pre-existing, environment-only Google Fonts network block. All 24 lessons are already connected and navigable with faithful content; there is no real work left here. `lesson-exercises/*.ts` was left untouched — it's dead code feeding a dead route, not a live gap.
   - `progreso.tsx` still lets teacher manually toggle lesson completion via disconnected local-only `crmService`.
 
 ## PHASE 1: Build Health
@@ -55,7 +55,7 @@
 - **Goal:** Allow authorized administrative viewing of other teachers' data and create the missing `lesson_verifications` migration and policies.
 - **Exact expected files or area:** `supabase/migrations/*`, admin dashboard components (maximum five files).
 - **Done when:** Admins can view all data and `lesson_verifications` table is active with strict RLS.
-- **Status:** BLOCKED - Sandbox lacks live internet access to authenticate against Supabase endpoints. Needs live environment or cloud keys.
+- **Status:** PARTIALLY DONE. The `lesson_verifications` migration half is done: `supabase/migrations/20260715140000_lesson_verifications.sql` creates the table with teacher-scoped RLS (select/insert/update/delete, matching the existing progress-table pattern), `src/integrations/supabase/types.ts` updated to match, and the `as any` casts in `src/lib/lesson-verification.functions.ts` removed — `pnpm run typecheck` passes clean. **Not run against any live database** (file + local validation only, per instructions; no Docker/Postgres available in this sandbox for a full local `supabase db reset` check — validated by structurally mirroring an already-applied migration's exact syntax instead). The admin-viewing-other-teachers'-data half is still BLOCKED — same reason as Task 2.1/2.2, needs live Supabase access, and is real, unbuilt feature work besides.
 - **Browser check:** EJN logs in as an Admin and can view data from multiple teachers without breaking isolation for regular teachers.
 
 ## PHASE 3: Splash Screen and Avatar Hiding
@@ -110,15 +110,15 @@
 - **Goal:** Complete the teacher flipchart view so it is fully functional for classroom projection.
 - **Exact expected files or area:** `src/routes/cartilla/teacher/flipchart.tsx`, flipchart components (maximum five files).
 - **Done when:** The flipchart displays lessons correctly in the teacher lane.
-- **Status:** NOT STARTED
+- **Status:** COMPLETED for its core job — pre-existing. **Correction:** `src/routes/cartilla/teacher/flipchart.tsx` doesn't exist; the real, live flipchart is `/cartilla/presentar/$n` (`FlipchartHdPanel` + `TeacherPresentationShell`). Verified live (demo teacher login): real HD plates render, page navigation, laser pointer, focus mode, and fullscreen all work — see `SCREENSHOTS/6.3-flipchart-still-works.png`. **Known, separately-tracked gap (not fixed here, out of this task's CRM/lesson-exercise scope):** the source flipchart HD scan images themselves have a pre-existing orientation bug (text/art render upside-down) already documented in `SPEC.md` — an art-asset issue, not a CRM/routing one. **Real feature gap vs. the now-archived duplicate console:** no audio narration, accessibility panel, share card, or timer on the real flipchart — see the archive README for details; porting those is genuine new feature work, not done here.
 - **Browser check:** EJN opens the flipchart in the teacher dashboard and clicks through the presentation slides.
 
 ### Task 5.2: Connect All Sourced Lessons and Activities
 - **Goal:** Connect all sourced lessons and activities (do not invent Teacher's Guide or lesson content). Ensure missing lessons (6, 8, 10-24) are wired correctly.
 - **Exact expected files or area:** `src/data/page-layouts.json`, activity routing files (maximum five files).
 - **Done when:** All 24 lessons and their activities are navigable and contain faithful content.
-- **Status:** NOT STARTED
-- **Browser check:** EJN clicks into Lesson 24 and verifies the exercises and pages load correctly.
+- **Status:** COMPLETED — pre-existing, verified live. See the corrected "Blocked/Pending Findings" note above: the "6, 8, 10-24 pending" claim was stale (based on a disconnected data file feeding an orphaned route, not the real lesson pipeline). Directly checked 5 lessons across the range (6, 8, 10, 17, 24) live in-browser with real content and zero console errors. No code changed for this task.
+- **Browser check:** EJN clicks into Lesson 24 and verifies the exercises and pages load correctly. (Confirmed: real vocab zapato/zig-zag/zorro/zepelín, Traza-tu-mejor-letra tracing, draw prompt, all rendering.)
 
 ## PHASE 6: Dead-Code Cleanup
 *(Note: Cleanup tasks that delete code run only AFTER the live flows they duplicate are verified working)*
@@ -141,8 +141,8 @@
 - **Goal:** Remove the duplicate flipchart console, keeping exactly one working flipchart.
 - **Exact expected files or area:** Legacy flipchart routes/components (maximum five files).
 - **Done when:** Duplicate flipchart code is gone and the canonical flipchart remains untouched.
-- **Status:** NOT STARTED
-- **Browser check:** EJN verifies there is only one "Flipchart" option in the teacher menu.
+- **Status:** DONE. `/cartilla/sesiones` + `/cartilla/sesion/$n` (and the 8 components/lib file they alone used: `SessionStepRail`, `SessionProjector`, `SessionTimer`, `AudioNarrationDock`, `AccessibilityPanel`, `SessionShareCard`, `FlipBoard`, `session-store.ts`) archived to `src/_archive/orphaned-sesiones-flipchart-console/` (moved, not deleted, with a README explaining why). Confirmed via grep that nothing else imported any of them before moving. `/cartilla/sesiones` now returns a real 404, confirmed live. The real flipchart re-verified working after the move (typecheck/build/tests all clean, and `/cartilla/presentar/17` re-checked live in-browser, unchanged).
+- **Browser check:** EJN verifies there is only one "Flipchart" option in the teacher menu. (Confirmed: `TeacherCrmShell.tsx`/`teacher/guia.$n.tsx`/`teacher/paginas.$n.tsx` all link only to `/cartilla/presentar/$n`; `/cartilla/sesiones` 404s.)
 
 ### Task 6.4: Redirect Dead-End Routes
 - **Goal:** Remove or REDIRECT the confirmed dead-end route so every path a user can reach leads to a real working screen.
