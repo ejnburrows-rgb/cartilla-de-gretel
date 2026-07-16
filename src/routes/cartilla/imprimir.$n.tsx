@@ -11,6 +11,9 @@ import { ArrowLeft, Printer } from "lucide-react";
 import { CATALOG, type CatalogEntry } from "@/lib/lesson-catalog";
 import { PdfPage } from "@/components/cartilla/PdfPage";
 import interactionsData from "@/data/workbook-interactions.json";
+import { supabase } from "@/integrations/supabase/client";
+import { hasTeacherOrAdminRole } from "@/lib/auth-role";
+import { isSeedSessionActive } from "@/lib/seed-data";
 import "@/styles/cartilla-student.css";
 
 export const Route = createFileRoute("/cartilla/imprimir/$n")({
@@ -18,10 +21,21 @@ export const Route = createFileRoute("/cartilla/imprimir/$n")({
   head: ({ params }) => ({
     meta: [{ title: `Imprimir Lección ${params.n} — La Cartilla de Gretel` }],
   }),
-  beforeLoad: ({ params }) => {
+  beforeLoad: async ({ params }) => {
     const n = Number(params.n);
     if (!Number.isFinite(n) || !CATALOG.find((e) => e.n === n)) {
       throw redirect({ to: "/cartilla/lecciones" });
+    }
+
+    // Teacher-only: Imprimir/PDF is a teacher tool, same gate as /cartilla/presentar/$n.
+    if (isSeedSessionActive()) return;
+    const { data } = await supabase.auth.getSession();
+    if (!data.session) {
+      throw redirect({ to: "/login" });
+    }
+    const hasRole = await hasTeacherOrAdminRole(data.session.user.id);
+    if (!hasRole) {
+      throw redirect({ to: "/login" });
     }
   },
 });

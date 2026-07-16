@@ -10,6 +10,7 @@ import {
   HelpCircle,
   Menu,
   X,
+  Printer,
 } from "lucide-react";
 import { getStudentSession } from "@/lib/student-session";
 import { supabase } from "@/integrations/supabase/client";
@@ -94,6 +95,12 @@ const NAV_ITEMS: Array<{ to: string; icon: React.ReactNode; label: string; match
     icon: <MonitorPlay className="w-4 h-4" />,
     label: "Presentar",
     match: "/presentar",
+  },
+  {
+    to: "/cartilla/imprimir/all",
+    icon: <Printer className="w-4 h-4" />,
+    label: "Imprimir",
+    match: "/imprimir",
   },
   {
     to: "/cartilla/teacher/reportes",

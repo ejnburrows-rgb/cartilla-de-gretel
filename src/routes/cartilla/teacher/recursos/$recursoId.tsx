@@ -1,8 +1,16 @@
-import { createFileRoute, Link, useParams } from "@tanstack/react-router";
+import { createFileRoute, Link, redirect, useParams } from "@tanstack/react-router";
 import { Folder, ArrowLeft, UploadCloud } from "lucide-react";
 import { useState, useEffect } from "react";
 
+// Confirmed dead end: expects PDFs at public/teacher/*.pdf that were never
+// delivered (see teacher/index.tsx's own comment about this route being
+// deprecated, replaced with real, already-built content). Nothing links
+// here anymore, but a stale bookmark or typed URL should land on a real,
+// working screen instead of an empty "Esperando el PDF" state.
 export const Route = createFileRoute("/cartilla/teacher/recursos/$recursoId")({
+  beforeLoad: () => {
+    throw redirect({ to: "/cartilla/teacher/guia" });
+  },
   component: RecursoViewer,
 });
 

@@ -1,8 +1,11 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, redirect } from "@tanstack/react-router";
 import { useMemo } from "react";
 import { ArrowLeft, Printer } from "lucide-react";
 import { CATALOG, type CatalogEntry } from "@/lib/lesson-catalog";
 import { PdfPage } from "@/components/cartilla/PdfPage";
+import { supabase } from "@/integrations/supabase/client";
+import { hasTeacherOrAdminRole } from "@/lib/auth-role";
+import { isSeedSessionActive } from "@/lib/seed-data";
 import "@/styles/student-print.css";
 
 export const Route = createFileRoute("/cartilla/imprimir/all")({
@@ -10,6 +13,18 @@ export const Route = createFileRoute("/cartilla/imprimir/all")({
   head: () => ({
     meta: [{ title: "Cuaderno Completo Para Imprimir (24 Lecciones) — La Cartilla de Gretel" }],
   }),
+  beforeLoad: async () => {
+    // Teacher-only: Imprimir/PDF is a teacher tool, same gate as /cartilla/presentar/$n.
+    if (isSeedSessionActive()) return;
+    const { data } = await supabase.auth.getSession();
+    if (!data.session) {
+      throw redirect({ to: "/login" });
+    }
+    const hasRole = await hasTeacherOrAdminRole(data.session.user.id);
+    if (!hasRole) {
+      throw redirect({ to: "/login" });
+    }
+  },
 });
 
 function ImprimirAllPage() {
