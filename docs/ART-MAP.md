@@ -177,7 +177,7 @@ Existen varios espacios en el vocabulario sin ilustración asignada. Estos puede
 | Palabra sin Ilustración | Lección | Posible Archivo Origen (Transplant Source) |
 |---|---|---|
 | **iguana** | i | `/cartilla/art/faithful/leccion-5/iguana.webp` (Usado) |
-| **ojo** | o | `/cartilla/art/faithful/leccion-2/ojos.webp` |
+| **ojo** | o | `/cartilla/art/faithful/leccion-2/ojos.webp` (Usado) |
 | **ola** | o | `/cartilla/art/faithful/leccion-1/ola.webp` (Usado) |
 | **urna** | u | AWAITING-ART |
 | **moto** | m | `/cartilla/art/faithful/leccion-7-m/moto.webp` (Usado) |
