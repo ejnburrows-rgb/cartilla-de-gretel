@@ -134,8 +134,8 @@
 - **Goal:** Consolidate the 4 print implementations into one teacher-only Imprimir/PDF implementation.
 - **Exact expected files or area:** Print utility files, teacher report components (maximum five files).
 - **Done when:** Only one print trigger exists in the teacher UI and generates a clean PDF.
-- **Status:** NOT STARTED
-- **Browser check:** EJN clicks "Imprimir" on a student report and gets a properly formatted print dialog.
+- **Status:** DONE. Kept `/cartilla/imprimir/$n` + `/cartilla/imprimir/all` (already the most complete of the 4 — real `CATALOG`-driven worksheets, not thin wrappers): added the missing teacher-only auth gate (none of the 4 had one before) and a real "Imprimir" nav entry in `teacher/route.tsx` (nothing linked to any of the 4 before this). Archived the other 3 — `/cartilla/binder` cluster, `/print/*` cluster, `teacher/print.tsx` placeholder — to `src/_archive/orphaned-print-implementations/` with a README, after confirming via grep none were linked from anywhere and typecheck/build/tests all stayed clean. Also found (not archived, out of scope — a separate pre-existing dead pocket, not one of the 4 named implementations): `src/components/print/AnswerKeyBlock.tsx`/`ExerciseHandout.tsx`/`HomeworkSlip.tsx`, zero importers anywhere.
+- **Browser check:** EJN clicks "Imprimir" on the teacher nav and gets a properly formatted printable worksheet for all 24 lessons — see `SCREENSHOTS/6.2-teacher-nav-imprimir.png` and `SCREENSHOTS/6.2-imprimir-all-working.png`.
 
 ### Task 6.3: Remove Duplicate Flipchart Console
 - **Goal:** Remove the duplicate flipchart console, keeping exactly one working flipchart.
@@ -148,8 +148,8 @@
 - **Goal:** Remove or REDIRECT the confirmed dead-end route so every path a user can reach leads to a real working screen.
 - **Exact expected files or area:** Dead-end routing files (maximum five files).
 - **Done when:** Users are seamlessly routed away from dead ends to functional areas.
-- **Status:** NOT STARTED
-- **Browser check:** EJN tries to manually enter a dead-end URL and gets redirected to the dashboard or a working page.
+- **Status:** DONE. `src/routes/cartilla/teacher/recursos/$recursoId.tsx` (expected PDFs at `public/teacher/*.pdf` that were never delivered) now redirects to `/cartilla/teacher/guia` via `beforeLoad`, per its own sibling route's comment about being deprecated in favor of real content. Verified live: `/cartilla/teacher/recursos/rimas` lands on the real Guía screen, not the old empty "Esperando el PDF" state.
+- **Browser check:** EJN tries to manually enter a dead-end URL and gets redirected to the dashboard or a working page. See `SCREENSHOTS/6.4-deadend-redirect.png`.
 
 ## PHASE 7: Final Verification
 
