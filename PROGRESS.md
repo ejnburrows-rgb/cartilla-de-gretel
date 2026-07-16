@@ -12,3 +12,6 @@
 
 - [x] Task 5.1: Complete Teacher Flipchart - Created flipchart selection view linking to the presentation viewer.
 - [x] Task 5.2: Connect all sourced lessons and activities. Ensured missing lessons 6, 8, 10-24 are wired.
+
+- [x] Documentation Job A: Completed TEACHER-HOWTO.md explaining login, class joining, assignments, flipchart, and curriculum for non-technical users.
+- [x] Documentation Job B: Completed CONTENT-STATUS.md and ART-MAP.md auditing exact lesson statuses, HD asset locations, and open art slots.
