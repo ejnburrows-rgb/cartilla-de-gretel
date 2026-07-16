@@ -18,8 +18,36 @@
 - **Goal:** Repair the broken clean-install (stale lockfile) so the Verify check on GitHub passes again.
 - **Exact expected files or area:** `package-lock.json` or `pnpm-lock.yaml`, `package.json`
 - **Done when:** `pnpm install` runs cleanly without stale lockfile warnings and GitHub Verify action turns green.
-- **Status:** NOT STARTED
-- **Browser check:** EJN can look at the GitHub PR status and see a green checkmark for the Verify step.
+- **Status:** DONE (the clean-install/lockfile part) + a related lint-blocker fixed; **lint step will still show red** (see caveat).
+  Root cause: `package-lock.json` (July 10) was stale vs. `package.json`/
+  `pnpm-lock.yaml` (July 15+), and `.github/workflows/verify.yml` +
+  `cartilla-ci.yml` both ran `npm ci`/`npm install` against it — while the
+  project's own `build` script (`package.json`) internally calls
+  `pnpm check:sanity`/`pnpm validate:content`, meaning even a successful
+  `npm ci` would later fail requiring pnpm anyway. Fixed by switching both
+  workflows and `vercel.json` to `pnpm install --frozen-lockfile` /
+  `pnpm run build` (added `pnpm/action-setup@v4`, pinned major version 10;
+  added a `packageManager` field to `package.json`) — this is the same fix
+  from a prior, since-closed PR (#209), re-applied because it never reached
+  `main`. Verified: `pnpm install --frozen-lockfile` runs clean with zero
+  warnings (`SCREENSHOTS/1.1-pnpm-install-proof.txt`); `pnpm run
+  typecheck`/`build`/`test` all clean (475/477, 2 expected fail).
+  Along the way, found and fixed a second real blocker for a green Verify:
+  `temp_BookPageFlip.tsx` (a stray, accidentally-committed UTF-16 scratch
+  file at the repo root, from an unrelated July 15 commit) was hard-crashing
+  ESLint with a parsing error; also found `eslint.config.js` never excluded
+  `src/_archive/**` the way `tsconfig.json` does, so every archived cleanup
+  folder from this session was being linted too. Fixed both (archived the 3
+  stray root files to `src/_archive/orphaned-root-scratch-files/` with a
+  README; added `src/_archive/**` to ESLint's ignores).
+  **Caveat — lint will still fail in CI**: after both fixes, `pnpm lint`
+  still reports 198 pre-existing problems (mostly `@typescript-eslint/no-
+  explicit-any` and Prettier formatting) spread across dozens of unrelated
+  files repo-wide. This is real, substantial, separate debt — not something
+  to bundle into a lockfile fix — and is the same backlog Task 1.3 already
+  covers at file-touched-per-task scope, not repo-wide. Verify's lint step
+  will only go fully green once that broader cleanup happens.
+- **Browser check:** EJN can look at the GitHub PR status and see a green checkmark for the Verify step. (Typecheck/build/test steps will pass; the lint step needs the separate Task 1.3-style cleanup to also go green — see caveat above.)
 
 ### Task 1.2: Fix Failing Tests
 - **Goal:** Fix the 4 failing tests in the test suite.
