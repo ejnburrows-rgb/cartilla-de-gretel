@@ -127,8 +127,8 @@
 - **Goal:** Remove the entire unreachable parallel student-screen subtree.
 - **Exact expected files or area:** `src/routes/cartilla/student-legacy/*` or equivalent obsolete folders (maximum five files per task).
 - **Done when:** The legacy student subtree is deleted and tests still pass.
-- **Status:** NOT STARTED
-- **Browser check:** EJN verifies the app works normally and the legacy route URLs return a 404.
+- **Status:** DONE. `src/routes/cartilla/student-legacy/*` doesn't exist; the real cluster was `src/routes/cartilla/student/*` (8 files) plus the root-level `/cartilla/libro` redirect stub that pointed only into it, plus `BookReader.tsx`/`FlipErrorBoundary.tsx` (used only by the archived `student/libro.tsx` — confirmed via grep). All 11 files archived (moved, not deleted) to `src/_archive/orphaned-student-subtree/` across 3 commits of ≤5 files each, with a README. Verified the real live student path first (lessons 6, 8, 10, 17, 24 all render correctly on `/cartilla/leccion/$n`) before archiving anything, per the cleanup-after-verification rule. After archiving: `pnpm run typecheck`/`pnpm run build`/`pnpm test` (475/477, 2 expected fail, unchanged) all clean; live-confirmed `/cartilla/student/lecciones` and `/cartilla/libro` both now 404, and the real `/cartilla/lecciones` path still renders correctly.
+- **Browser check:** EJN verifies the app works normally and the legacy route URLs return a 404. See `SCREENSHOTS/6.1-student-subtree-404.png`.
 
 ### Task 6.2: Consolidate Print Implementations
 - **Goal:** Consolidate the 4 print implementations into one teacher-only Imprimir/PDF implementation.
