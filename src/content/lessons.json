@@ -160,7 +160,8 @@
       },
       {
         "word": "iguana",
-        "emoji": "🦎"
+        "emoji": "🦎",
+        "illustrationSrc": "/cartilla/art/faithful/vocal-i/iguana.webp"
       },
       {
         "word": "imán",
@@ -224,11 +225,13 @@
       },
       {
         "word": "ojo",
-        "emoji": "👁️"
+        "emoji": "👁️",
+        "illustrationSrc": "/cartilla/art/faithful/vocal-o/ojos.webp"
       },
       {
         "word": "ola",
-        "emoji": "🌊"
+        "emoji": "🌊",
+        "illustrationSrc": "/cartilla/art/faithful/vocal-o/ola.webp"
       },
       {
         "word": "olla",

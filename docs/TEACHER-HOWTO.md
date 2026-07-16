@@ -1,75 +1,47 @@
-# Guía de Uso para el Maestro
+# Ayuda para el Docente
 
-¡Bienvenido a La Cartilla de Gretel! Esta guía está diseñada para ayudarte a utilizar las herramientas digitales que acompañan a la cartilla. No necesitas experiencia técnica; la plataforma es intuitiva y está pensada para facilitar tu trabajo en el aula.
+¡Bienvenido a La Cartilla de Gretel! Esta guía está diseñada para ayudarte a utilizar las herramientas digitales.
 
-Aquí aprenderás a configurar tus clases, invitar a tus alumnos, revisar su progreso y utilizar los materiales de apoyo.
+## Cómo entrar
 
----
+Para empezar, necesitas tu cuenta de maestro. Ingresa a la plataforma y selecciona el botón de acceso.
 
-## 1. Cómo acceder y crear tu clase
+## Cómo crear o abrir una clase
 
-Para empezar, necesitas tu cuenta de maestro y un espacio digital para tus alumnos.
+Una vez dentro, puedes [Ir a Clase](/cartilla/teacher/crm) para crear tu grupo.
 
-1. **Ingresa a la plataforma:** Ve a la página principal y selecciona **Acceso del maestro** (o visita directamente la página de inicio de sesión).
-2. **Crea tu cuenta:** Si es tu primera vez, elige la opción para crear una cuenta nueva. Solo necesitas un correo electrónico y una contraseña.
-3. **Crea una clase:** Una vez dentro del Panel del Maestro, busca el botón para crear una nueva clase (con el ícono "+"). Ponle un nombre fácil de reconocer, por ejemplo: "Primero A" o "Grupo Matutino".
-4. **Obtén tu código de clase:** Al crear la clase, el sistema te dará un **Código de Clase** (un código corto). Anótalo, porque se lo darás a tus alumnos para que puedan unirse.
+## Cómo agregar estudiantes / código de unión
 
----
+Al crear tu clase recibirás un código. Compártelo con tus estudiantes para que puedan unirse.
 
-## 2. Cómo se unen los alumnos a tu clase
+## Cómo asignar lecciones o actividades
 
-Tus alumnos usarán el código que les diste para entrar a su propio espacio.
+Puedes [Ir a la Guía](/cartilla/teacher/guia) para enviar actividades a todos o a estudiantes individuales.
 
-1. **Página de ingreso para alumnos:** Pídeles a tus alumnos (o a sus padres) que vayan a la opción **Unirse a una clase** en la plataforma.
-2. **Usar el código:** Deberán escribir el **Código de Clase** que les compartiste.
-3. **Registro del alumno:** Después de ingresar el código, el alumno solo necesita escribir su nombre. ¡Y listo! Ya estarán dentro de tu clase y aparecerán automáticamente en tu Panel del Maestro.
+## Cómo presentar el flipchart
 
----
+Utiliza la función de proyector para mostrar las láminas en alta definición a todo el grupo.
 
-## 3. Cómo asignar lecciones y revisar el progreso de cada niño
+## Cómo ver progreso por estudiante y por lección
 
-Desde tu Panel del Maestro, puedes tener el control total de lo que hace cada estudiante.
+Haz clic en el nombre de cualquier estudiante en tu clase para ver sus resultados por lección.
 
-**Para ver el progreso:**
-- En tu panel, selecciona tu clase. Verás la lista de todos tus alumnos.
-- Haz clic en el nombre de cualquier alumno para abrir su tablero personal.
-- Allí podrás ver métricas clave, las lecciones que ha completado y si necesita atención especial en algún tema.
+## Cómo usar la Guía del profesor por lección
 
-**Para asignar actividades:**
-- Entra a la sección de **Guía del profesor**.
-- Navega por las lecciones y usa el botón de asignación para enviar actividades específicas a toda la clase o a alumnos individuales. Estas tareas aparecerán en la pantalla de los niños cuando ellos ingresen.
+La guía está dividida en 5 carpetas (objetivos, tablas, tareas, evaluaciones, y poemas).
 
----
+## Cómo el estudiante usa el cuaderno (para poder guiarlo)
 
-## 4. Cómo usar el Rotafolio (Flipchart) en clase
+El estudiante usa la app para completar actividades interactivas basadas en el método onomatopéyico.
 
-El "Flipchart" es un proyector digital diseñado para que lo muestres a toda la clase (por ejemplo, en un televisor o cañón proyector).
+## Qué NO hacer
 
-1. En tu panel, selecciona la opción **Seleccionar Flipchart**.
-2. Elige la lección que vas a enseñar ese día.
-3. La pantalla cambiará a modo proyector. Verás las láminas en alta definición.
-4. Usa los controles para avanzar o retroceder de lámina, y utiliza el puntero digital para guiar la atención de los niños mientras explicas o lees. ¡Es como tener el libro gigante en la pantalla!
+No elimines estudiantes a mitad del año ni borres las asignaciones pasadas, ya que se perderá el progreso.
 
----
+## Orden típico de una clase con esta app
 
-## 5. Cómo usar los materiales de la Guía del Profesor
+1. Presenta el flipchart.
+2. Realiza las actividades grupales.
+3. Asigna la práctica individual.
 
-Todo el material de apoyo que necesitas está digitalizado y organizado en cinco carpetas de colores, dentro de la sección **Guía del profesor**:
-
-- 📘 **Carpeta 1: Guía del profesor**
-  Aquí encontrarás los objetivos, la motivación y el guion paso a paso de cada lección (qué decir y cómo explicarlo).
-- 📗 **Carpeta 2: Tablas silábicas y de vocales**
-  Contiene las sílabas o vocales específicas que se enseñan en la lección actual.
-- 📙 **Carpeta 3: Tareas para el hogar**
-  Incluye las actividades de refuerzo y las rimas para que los niños practiquen en casa.
-- 💜 **Carpeta 4: Evaluaciones**
-  Aquí podrás ver la página de evaluación correspondiente a cada lección para medir el aprendizaje.
-- 📕 **Carpeta 5: Poemas y audio**
-  Encontrarás el poema de cada lección para leerlo con la clase y disfrutar del ritmo y la musicalidad.
-
-Solo haz clic en cualquiera de estas carpetas, elige la lección que estás trabajando y tendrás todo el material a la mano.
-
----
-
-*¡Gracias por enseñar con La Cartilla de Gretel! Esperamos que esta herramienta haga tus clases más dinámicas y divertidas.*
+**Nota sobre lecciones avanzadas:** Algunas lecciones (17-24) carecen de contenido digital oficial porque están SOURCE-NOT-IN-REPO.

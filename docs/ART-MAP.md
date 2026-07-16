@@ -176,38 +176,38 @@ Existen varios espacios en el vocabulario sin ilustración asignada. Estos puede
 
 | Palabra sin Ilustración | Lección | Posible Archivo Origen (Transplant Source) |
 |---|---|---|
-| **iguana** | i | `/cartilla/art/faithful/leccion-5/iguana.webp` (UNUSED) |
+| **iguana** | i | `/cartilla/art/faithful/leccion-5/iguana.webp` (Usado) |
 | **ojo** | o | `/cartilla/art/faithful/leccion-2/ojos.webp` |
-| **ola** | o | `/cartilla/art/faithful/leccion-1/ola.webp` (UNUSED) |
-| **urna** | u | *Ninguno encontrado* |
-| **moto** | m | `/cartilla/art/faithful/leccion-7-m/moto.webp` (UNUSED) |
-| **mapa** | m | `/cartilla/art/faithful/leccion-7-m/mapa.webp` (UNUSED) |
-| **pino** | p | `/cartilla/art/faithful/leccion-8-p/pino.webp` (UNUSED) |
-| **pulpo** | p | `/cartilla/art/faithful/leccion-8-p/pulpo.webp` (UNUSED) |
-| **sol** | s | `/cartilla/art/faithful/leccion-9-s/sol.webp` (UNUSED) |
-| **silla** | s | `/cartilla/art/faithful/leccion-9-s/silla.webp` (UNUSED) |
-| **tapa** | t | `/cartilla/art/faithful/leccion-10-t/tapa.webp` (UNUSED) |
-| **tomate** | t | `/cartilla/art/faithful/leccion-10-t/tomate.webp` (UNUSED) |
-| **tina** | t | `/cartilla/art/faithful/leccion-10-t/tina.webp` (UNUSED) |
-| **tulipán** | t | `/cartilla/art/faithful/leccion-10-t/tulipan.webp` (UNUSED) |
-| **delfín** | d | `/cartilla/art/faithful/leccion-11-d/delfin.webp` (UNUSED) |
-| **dona** | d | `/cartilla/art/faithful/leccion-11-d/dona.webp` (UNUSED) |
-| **ducha** | d | `/cartilla/art/faithful/leccion-11-d/ducha.webp` (UNUSED) |
-| **luna** | l | `/cartilla/art/faithful/leccion-12-l/luna.webp` (UNUSED) |
-| **lobo** | l | `/cartilla/art/faithful/leccion-12-l/lobo.webp` (UNUSED) |
-| **loro** | l | `/cartilla/art/faithful/leccion-12-l/loro.webp` (UNUSED) |
-| **lupa** | l | `/cartilla/art/faithful/leccion-12-l/lupa.webp` (UNUSED) |
-| **nariz** | n | `/cartilla/art/faithful/leccion-13-n/nariz.webp` (UNUSED) |
-| **nube** | n | `/cartilla/art/faithful/leccion-13-n/nube.webp` (UNUSED) |
-| **nata** | n | `/cartilla/art/faithful/leccion-13-n/nata.webp` (UNUSED) |
-| **piña** | ñ | `/cartilla/art/faithful/leccion-14-n/pina.webp` (UNUSED) |
-| **muñeca** | ñ | `/cartilla/art/faithful/leccion-14-n/muneca.webp` (UNUSED) |
-| **niño** | ñ | `/cartilla/art/faithful/leccion-14-n/nino.webp` (UNUSED) |
-| **barco** | b | `/cartilla/art/faithful/leccion-15-b/barco.webp` (UNUSED) |
-| **bici** | b | `/cartilla/art/faithful/leccion-15-b/bici.webp` (UNUSED) |
-| **vaca** | v | `/cartilla/art/faithful/leccion-16-v/vaca.webp` (UNUSED) |
-| **vino** | v | `/cartilla/art/faithful/leccion-16-v/vino.webp` (UNUSED) |
-| **volcán** | v | `/cartilla/art/faithful/leccion-16-v/volcan.webp` (UNUSED) |
-| **Rita** | r | *Ninguno encontrado* |
-| **carrusel** | rr | *Ninguno encontrado* |
-| **Tierra** | rr | *Ninguno encontrado* |
+| **ola** | o | `/cartilla/art/faithful/leccion-1/ola.webp` (Usado) |
+| **urna** | u | AWAITING-ART |
+| **moto** | m | `/cartilla/art/faithful/leccion-7-m/moto.webp` (Usado) |
+| **mapa** | m | `/cartilla/art/faithful/leccion-7-m/mapa.webp` (Usado) |
+| **pino** | p | `/cartilla/art/faithful/leccion-8-p/pino.webp` (Usado) |
+| **pulpo** | p | `/cartilla/art/faithful/leccion-8-p/pulpo.webp` (Usado) |
+| **sol** | s | `/cartilla/art/faithful/leccion-9-s/sol.webp` (Usado) |
+| **silla** | s | `/cartilla/art/faithful/leccion-9-s/silla.webp` (Usado) |
+| **tapa** | t | `/cartilla/art/faithful/leccion-10-t/tapa.webp` (Usado) |
+| **tomate** | t | `/cartilla/art/faithful/leccion-10-t/tomate.webp` (Usado) |
+| **tina** | t | `/cartilla/art/faithful/leccion-10-t/tina.webp` (Usado) |
+| **tulipán** | t | `/cartilla/art/faithful/leccion-10-t/tulipan.webp` (Usado) |
+| **delfín** | d | `/cartilla/art/faithful/leccion-11-d/delfin.webp` (Usado) |
+| **dona** | d | `/cartilla/art/faithful/leccion-11-d/dona.webp` (Usado) |
+| **ducha** | d | `/cartilla/art/faithful/leccion-11-d/ducha.webp` (Usado) |
+| **luna** | l | `/cartilla/art/faithful/leccion-12-l/luna.webp` (Usado) |
+| **lobo** | l | `/cartilla/art/faithful/leccion-12-l/lobo.webp` (Usado) |
+| **loro** | l | `/cartilla/art/faithful/leccion-12-l/loro.webp` (Usado) |
+| **lupa** | l | `/cartilla/art/faithful/leccion-12-l/lupa.webp` (Usado) |
+| **nariz** | n | `/cartilla/art/faithful/leccion-13-n/nariz.webp` (Usado) |
+| **nube** | n | `/cartilla/art/faithful/leccion-13-n/nube.webp` (Usado) |
+| **nata** | n | `/cartilla/art/faithful/leccion-13-n/nata.webp` (Usado) |
+| **piña** | ñ | `/cartilla/art/faithful/leccion-14-n/pina.webp` (Usado) |
+| **muñeca** | ñ | `/cartilla/art/faithful/leccion-14-n/muneca.webp` (Usado) |
+| **niño** | ñ | `/cartilla/art/faithful/leccion-14-n/nino.webp` (Usado) |
+| **barco** | b | `/cartilla/art/faithful/leccion-15-b/barco.webp` (Usado) |
+| **bici** | b | `/cartilla/art/faithful/leccion-15-b/bici.webp` (Usado) |
+| **vaca** | v | `/cartilla/art/faithful/leccion-16-v/vaca.webp` (Usado) |
+| **vino** | v | `/cartilla/art/faithful/leccion-16-v/vino.webp` (Usado) |
+| **volcán** | v | `/cartilla/art/faithful/leccion-16-v/volcan.webp` (Usado) |
+| **Rita** | r | AWAITING-ART |
+| **carrusel** | rr | AWAITING-ART |
+| **Tierra** | rr | AWAITING-ART |
