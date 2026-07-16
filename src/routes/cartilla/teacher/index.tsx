@@ -52,7 +52,7 @@ const ENTRY_POINTS: EntryPoint[] = [
   {
     title: "Presentar",
     description: "Abre el flipchart para proyectar la lección frente a la clase.",
-    to: "/cartilla/presentar/1",
+    to: "/cartilla/teacher/flipchart",
     icon: <MonitorPlay className="w-6 h-6" />,
     accent: "#d97706",
   },

@@ -24,6 +24,7 @@ import { OrderedExercises } from "@/components/cartilla/OrderedExercises";
 import { LessonTimer } from "@/components/cartilla/LessonTimer";
 import type { CatalogEntry } from "@/lib/lesson-catalog";
 import { gretelEvent } from "@/lib/gretel-bus";
+import { EscucharInstruccionButton } from "./EscucharInstruccionButton";
 import "@/styles/cartilla-student.css";
 
 const EXERCISE_IDS = [
@@ -154,11 +155,14 @@ export function StudentExercisePane({
           label: "Leer",
           node: (
             <section className="space-y-3">
-              <div
-                className="text-xs font-black uppercase tracking-[0.18em]"
-                style={{ color: accent }}
-              >
-                Lee con el maestro
+              <div className="flex items-center gap-2">
+                <div
+                  className="text-xs font-black uppercase tracking-[0.18em]"
+                  style={{ color: accent }}
+                >
+                  Lee con el maestro
+                </div>
+                <EscucharInstruccionButton text="Lee con el maestro" className="scale-75" />
               </div>
               <ol className="space-y-2.5 rounded-3xl border border-stone-200 bg-white/85 p-5 text-base font-bold text-amber-950 shadow-[0_18px_42px_rgba(50,30,10,0.07)]">
                 {sentences.map((s, i) => (

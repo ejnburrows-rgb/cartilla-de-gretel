@@ -1,4 +1,4 @@
-﻿/**
+/**
  * DragBuildWord.tsx  â€" Lane A
  *
  * Drag (pointer-events API via @dnd-kit) letter tiles from a tray onto word slots.
@@ -12,6 +12,7 @@ import { useCallback, useEffect, useMemo, useReducer, useRef, useState } from "r
 import { RotateCcw, Volume2 } from "lucide-react";
 import { useAudio } from "@/hooks/useAudio";
 import { recordEvent } from "@/lib/student-session";
+import { EscucharInstruccionButton } from "./EscucharInstruccionButton";
 import { gretelEvent } from "@/lib/gretel-bus";
 
 import { GretelFeedback } from "@/components/cartilla/GretelFeedback";
@@ -342,7 +343,10 @@ export function DragBuildWord({ words, accent, lessonId, onComplete }: DragBuild
       aria-label="Arrastra las letras para formar la palabra"
     >
       <div className="flex items-center justify-between mb-3">
-        <h3 className="font-bold">Forma la palabra</h3>
+        <div className="flex items-center gap-2">
+          <h3 className="font-bold">Forma la palabra</h3>
+          <EscucharInstruccionButton text="Forma la palabra" />
+        </div>
         <div className="flex gap-2">
           <button
             onClick={() => play(state.target)}
