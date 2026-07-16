@@ -55,6 +55,7 @@
             },
             {
               "caption": "remolino",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/remolino.webp",
               "correct": false
             },
             {
@@ -95,6 +96,7 @@
             },
             {
               "caption": "ojos",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/ojos.webp",
               "correct": true
             },
             {
@@ -369,6 +371,7 @@
             },
             {
               "caption": "ojos",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/ojos.webp",
               "correct": true
             }
           ]
@@ -404,6 +407,7 @@
             },
             {
               "caption": "ojos",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/ojos.webp",
               "correct": true
             },
             {
@@ -508,6 +512,7 @@
             },
             {
               "caption": "oruga",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oruga.webp",
               "correct": false
             },
             {
@@ -560,6 +565,7 @@
             },
             {
               "caption": "ojos",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/ojos.webp",
               "correct": false
             },
             {
@@ -569,6 +575,7 @@
             },
             {
               "caption": "aguja",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/aguja.webp",
               "correct": true
             },
             {
@@ -619,6 +626,7 @@
             },
             {
               "caption": "aguja",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/aguja.webp",
               "correct": true
             },
             {
@@ -633,6 +641,7 @@
             },
             {
               "caption": "remolino",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/remolino.webp",
               "correct": false
             }
           ]
@@ -742,6 +751,7 @@
             },
             {
               "caption": "aguja",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/aguja.webp",
               "correct": false
             },
             {

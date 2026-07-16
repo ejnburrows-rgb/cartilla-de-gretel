@@ -82,6 +82,31 @@
 - **Done when:** All specified art is correctly wired and displays on the corresponding pages.
 - **Status:** COMPLETED
 - **Browser check:** EJN goes to the workbook pages for abeja, remolino, oruga, and aguja and sees the correct colored art.
+- **2026-07-16 addendum:** a fresh audit found 30 empty illustration slots (17
+  unique words) beyond abeja/remolino/oruga/aguja. `remolino`/`oruga`/`aguja`
+  were confirmed already correctly wired from this task; `ojos` was found
+  documented as "recovered" in `MISSING_ASSETS.md` but never actually wired —
+  fixed (see Task 4.1b below). The other 13 words were checked individually
+  and found to be bad crops (wrong content, blank stubs, washed-out/uncolored,
+  or multi-item sprite-sheet fragments needing a real re-crop) — see
+  `MISSING_ASSETS.md`'s "STILL PENDING" section for the per-word verdict.
+  These stay showing the honest "ilustración pendiente" placeholder rather
+  than displaying wrong or misleading art.
+
+### Task 4.1b: Wire the ojos.webp recovery that was documented but never applied
+- **Goal:** `MISSING_ASSETS.md` already documented a real, verified git-history
+  recovery for `leccion-1/ojos.webp` (green eyes) — but the file was never
+  actually placed on disk, and `manifest.json`/`page-layouts.json` still
+  pointed at a different, bad stub (`vocal-o/ojos.webp`, 780 bytes, near-blank).
+- **Status:** DONE. Re-extracted the same git blob (`cf0d6c7d...`), placed it
+  at `public/cartilla/art/faithful/leccion-1/ojos.webp`, corrected
+  `manifest.json`'s `src` + provenance, and wired `illustrationSrc` into all 4
+  real empty slot instances (student workbook pages 1, 4, 5, 7). Verified:
+  `pnpm run typecheck`/`build`/`test` all clean; live in-browser on Lección 1 —
+  the "ojos pendiente" placeholder now shows real green-eyes art, no console
+  errors beyond the known font-block. Screenshot: `art-wire-lesson1-final.png`.
+- **Browser check:** EJN opens Lección 1 and sees real eyes art where "ojos
+  pendiente" used to show.
 
 ### Task 4.2: Reader Layouts (Student & Teacher)
 - **Goal:** Full 95-page student reader (horizontal), teacher reader vertical, selected automatically by role, no visible orientation toggle.
