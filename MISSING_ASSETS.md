@@ -1,5 +1,47 @@
 # Missing Assets Audit
 
+## RESOLVED 2026-07-17 — student-side "still gray" bug (root cause + fix)
+Owner reported the student pages were still missing color after an earlier
+pass (the pass below, dated 2026-07-16, only wired empty slots — it never
+colored anything). Root-caused and fixed properly this time:
+
+**What was wrong:** the book prints these pages in gray/teal duotone. There
+is no color version of the book's own drawings anywhere in the repo. Two
+distinct bugs existed on top of that:
+1. 13 words (`manzana`, `libro`, `árbol`, `taza`, `pera`, `pájaro`, `globo`,
+   `dulce`, `ola`, `ardilla`, `erizo`, `iguana`, `igual`) had **empty**
+   `illustrationSrc` slots — these showed "ilustración pendiente".
+2. A second, larger group had a **filled but still-gray** `illustrationSrc`
+   (so they never showed as "pendiente" and were invisible to the earlier
+   pass): `uniforme`, `iglú`, `abeja`, `aguja`, `escalera`, `escuela`,
+   `maíz`, `arco`, `pez`, `remolino`, `niño`(via `niñito`), plus one
+   consonant-lesson word (`vela`) that had a real color flipchart crop
+   available but was never used.
+3. Two of the gray-and-filled files (`vocal-e/escalera.webp`,
+   `vocal-e/escuela.webp`) were not the book's drawings at all — one was an
+   unrelated stock-photo-style ladder image, the other a generic clipart
+   schoolhouse+kids graphic. Both replaced with real crops of the book's
+   own drawings (student workbook page-010/012 grids), colored.
+4. A third bug, found while tracing the above: several consonant-lesson
+   vocab words in `consonants.json` / `page-layouts.json` (`tapa`, `tomate`,
+   `tina`, `tulipán`, `dona`, `lobo`, `loro`, `vaca`, `vino`, `volcán`,
+   `pino`, `bici`, `yegua`) had `illustrationSrc` pointing at crops that
+   were either blank or showed unrelated handwriting-practice text — because
+   **these words don't exist as pictures anywhere in this book at all**
+   (verified by inspecting every real source page for lessons P/T/D/L/B/V/Y).
+   Whoever built the vocab lists picked letter-appropriate words without
+   checking they were actually illustrated in this specific book. Fix:
+   removed the bad `illustrationSrc` so the app's existing emoji fallback
+   renders instead of broken/wrong content — no invented art added.
+
+**Fix applied:** cropped the real drawings from the HD workbook/flipchart
+scans and added color while preserving the exact line art (never redrawn),
+same technique as the 2026-07-16 recovery. All new/replaced files verified
+live in-browser (Lección 1, Vocal A/E/I pages): 0 "ilustración pendiente"
+placeholders, 0 gray-only real-word cells remaining on those pages.
+
+Branch: `fix/student-art-color`.
+
 ## RECOVERED
 - `public/cartilla/art/faithful/leccion-1/ojos.webp`
   - Source blob: `cf0d6c7d4792d6d9154102f29b8e08b4dd706275`

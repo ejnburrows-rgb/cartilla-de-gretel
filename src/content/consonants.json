@@ -99,8 +99,7 @@
       },
       {
         "word": "pino",
-        "emoji": "🌲",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-8-p/pino.webp"
+        "emoji": "🌲"
       },
       {
         "word": "pulpo",
@@ -241,23 +240,19 @@
     "vocab": [
       {
         "word": "tapa",
-        "emoji": "🫙",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tapa.webp"
+        "emoji": "🫙"
       },
       {
         "word": "tomate",
-        "emoji": "🍅",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tomate.webp"
+        "emoji": "🍅"
       },
       {
         "word": "tina",
-        "emoji": "🛁",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tina.webp"
+        "emoji": "🛁"
       },
       {
         "word": "tulipán",
-        "emoji": "🌷",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tulipan.webp"
+        "emoji": "🌷"
       }
     ],
     "examples": {
@@ -326,8 +321,7 @@
       },
       {
         "word": "dona",
-        "emoji": "🍩",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/dona.webp"
+        "emoji": "🍩"
       },
       {
         "word": "ducha",
@@ -396,13 +390,11 @@
       },
       {
         "word": "lobo",
-        "emoji": "🐺",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/lobo.webp"
+        "emoji": "🐺"
       },
       {
         "word": "loro",
-        "emoji": "🦜",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/loro.webp"
+        "emoji": "🦜"
       },
       {
         "word": "lupa",
@@ -629,8 +621,7 @@
       },
       {
         "word": "bici",
-        "emoji": "🚲",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-15-b/bici.webp"
+        "emoji": "🚲"
       },
       {
         "word": "bota",
@@ -695,8 +686,7 @@
     "vocab": [
       {
         "word": "vaca",
-        "emoji": "🐄",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/vaca.webp"
+        "emoji": "🐄"
       },
       {
         "word": "vela",
@@ -705,13 +695,11 @@
       },
       {
         "word": "vino",
-        "emoji": "🍷",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/vino.webp"
+        "emoji": "🍷"
       },
       {
         "word": "volcán",
-        "emoji": "🌋",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/volcan.webp"
+        "emoji": "🌋"
       }
     ],
     "examples": {

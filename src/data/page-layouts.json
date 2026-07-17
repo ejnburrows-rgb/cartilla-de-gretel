@@ -143,10 +143,12 @@
                 },
                 {
                   "caption": "manzana",
+                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/manzana.webp",
                   "correct": false
                 },
                 {
                   "caption": "libro",
+                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/libro.webp",
                   "correct": false
                 }
               ]
@@ -161,6 +163,7 @@
                 },
                 {
                   "caption": "árbol",
+                  "illustrationSrc": "/cartilla/art/faithful/vocal-a/arbol.webp",
                   "correct": false
                 },
                 {
@@ -175,6 +178,7 @@
               "cells": [
                 {
                   "caption": "taza",
+                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/taza.webp",
                   "correct": false
                 },
                 {
@@ -184,6 +188,7 @@
                 },
                 {
                   "caption": "pera",
+                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/pera.webp",
                   "correct": false
                 }
               ]
@@ -193,6 +198,7 @@
               "cells": [
                 {
                   "caption": "pájaro",
+                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/pajaro.webp",
                   "correct": false
                 },
                 {
@@ -217,10 +223,12 @@
                 },
                 {
                   "caption": "globo",
+                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/globo.webp",
                   "correct": false
                 },
                 {
                   "caption": "dulce",
+                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/dulce.webp",
                   "correct": false
                 }
               ]
@@ -297,6 +305,7 @@
           "cells": [
             {
               "caption": "ola",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-o/ola.webp",
               "correct": true
             },
             {
@@ -422,6 +431,7 @@
             },
             {
               "caption": "ola",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-o/ola.webp",
               "correct": true
             },
             {
@@ -537,6 +547,7 @@
             },
             {
               "caption": "árbol",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/arbol.webp",
               "correct": true
             },
             {
@@ -561,6 +572,7 @@
             },
             {
               "caption": "ardilla",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/ardilla.webp",
               "correct": true
             },
             {
@@ -742,6 +754,7 @@
             },
             {
               "caption": "erizo",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-e/erizo.webp",
               "correct": true
             },
             {
@@ -832,6 +845,7 @@
             },
             {
               "caption": "erizo",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-e/erizo.webp",
               "correct": true
             },
             {
@@ -937,6 +951,7 @@
             },
             {
               "caption": "iguana",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iguana.webp",
               "correct": true
             },
             {
@@ -966,6 +981,7 @@
             },
             {
               "caption": "ola",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-o/ola.webp",
               "correct": false
             },
             {
@@ -990,6 +1006,7 @@
             },
             {
               "caption": "igual",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/igual.webp",
               "correct": true
             },
             {
@@ -1040,6 +1057,7 @@
             },
             {
               "caption": "igual",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/igual.webp",
               "correct": true
             },
             {
@@ -1054,6 +1072,7 @@
             },
             {
               "caption": "iguana",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iguana.webp",
               "correct": true
             },
             {
@@ -1170,6 +1189,7 @@
             },
             {
               "caption": "árbol",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/arbol.webp",
               "correct": true
             },
             {
@@ -1871,8 +1891,7 @@
               },
               {
                 "word": "pino",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-8-p/pino.webp"
+                "correct": true
               }
             ],
             [
@@ -2567,8 +2586,7 @@
             [
               {
                 "word": "tapa",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tapa.webp"
+                "correct": true
               },
               {
                 "word": "Teté",
@@ -2609,8 +2627,7 @@
               },
               {
                 "word": "tapa",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tapa.webp"
+                "correct": false
               },
               {
                 "word": "tela",
@@ -2647,8 +2664,7 @@
               },
               {
                 "word": "tina",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tina.webp"
+                "correct": true
               },
               {
                 "word": "tipo",
@@ -2658,8 +2674,7 @@
             [
               {
                 "word": "tapa",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tapa.webp"
+                "correct": false
               },
               {
                 "word": "Tito",
@@ -2682,8 +2697,7 @@
             [
               {
                 "word": "tomate",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tomate.webp"
+                "correct": true
               },
               {
                 "word": "topo",
@@ -2691,8 +2705,7 @@
               },
               {
                 "word": "tina",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tina.webp"
+                "correct": false
               }
             ],
             [
@@ -2735,8 +2748,7 @@
             [
               {
                 "word": "tulipán",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tulipan.webp"
+                "correct": true
               },
               {
                 "word": "tipo",
@@ -3068,8 +3080,7 @@
             [
               {
                 "word": "dona",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/dona.webp"
+                "correct": true
               },
               {
                 "word": "dado",
@@ -3456,8 +3467,7 @@
               },
               {
                 "word": "lobo",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/lobo.webp"
+                "correct": true
               },
               {
                 "word": "loma",
@@ -3744,8 +3754,7 @@
               },
               {
                 "word": "tina",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tina.webp"
+                "correct": true
               },
               {
                 "word": "sonido",
@@ -3778,8 +3787,7 @@
             [
               {
                 "word": "tina",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tina.webp"
+                "correct": false
               },
               {
                 "word": "Nela",
@@ -3826,8 +3834,7 @@
               },
               {
                 "word": "tina",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tina.webp"
+                "correct": false
               }
             ]
           ]
@@ -3862,13 +3869,11 @@
               },
               {
                 "word": "pino",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-8-p/pino.webp"
+                "correct": true
               },
               {
                 "word": "tina",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-10-t/tina.webp"
+                "correct": false
               }
             ]
           ]
@@ -4578,8 +4583,7 @@
             [
               {
                 "word": "bici",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-15-b/bici.webp"
+                "correct": true
               },
               {
                 "word": "biberón",
@@ -4892,8 +4896,7 @@
               },
               {
                 "word": "vaca",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/vaca.webp"
+                "correct": true
               },
               {
                 "word": "vela",
@@ -4932,8 +4935,7 @@
               },
               {
                 "word": "vaca",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/vaca.webp"
+                "correct": false
               },
               {
                 "word": "verde",
@@ -4966,8 +4968,7 @@
             [
               {
                 "word": "vino",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/vino.webp"
+                "correct": true
               },
               {
                 "word": "vida",
@@ -5005,8 +5006,7 @@
             [
               {
                 "word": "volcán",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-16-v/volcan.webp"
+                "correct": true
               },
               {
                 "word": "vapor",
@@ -5369,8 +5369,7 @@
               },
               {
                 "word": "loro",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/loro.webp"
+                "correct": false
               },
               {
                 "word": "pera",
@@ -5394,8 +5393,7 @@
               },
               {
                 "word": "loro",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/loro.webp"
+                "correct": true
               },
               {
                 "word": "rosa",
@@ -7600,8 +7598,7 @@
               },
               {
                 "word": "yegua",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yegua.webp"
+                "correct": false
               }
             ],
             [
@@ -7634,8 +7631,7 @@
               },
               {
                 "word": "yegua",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-22-y/yegua.webp"
+                "correct": true
               },
               {
                 "word": "yeso",
