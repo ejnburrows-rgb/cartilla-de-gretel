@@ -382,7 +382,7 @@ html.a11y-contrast .kid-card {
   perspective: 1500px;
   position: relative;
   width: 100%;
-  max-width: 500px;
+  max-width: 100%;
   background: var(--book-paper, #fdfdfd);
   border-radius: 0 0 16px 16px;
   box-shadow:

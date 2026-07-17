@@ -18,8 +18,26 @@ import { SimplePageViewer } from "@/components/StudentBook/SimplePageViewer";
 import { buildPageArray } from "@/utils/buildPageArray";
 import { GretelPresence } from "@/components/gretel/GretelPresence";
 import { GardenScene } from "@/components/cartilla/GardenScene";
+import { ActivityCarousel } from "@/components/cartilla/ActivityCarousel";
 import "@/styles/interactive-exercises.css";
 import "@/styles/gretel.css";
+
+// PLACEMENT PREVIEW (owner-gated, July 2026) — Lección 1 only. Real words +
+// illustrationSrc already wired on this lesson's own workbook page
+// (src/data/page-layouts.json), reused here rather than invented. Syllables
+// are the five vowels themselves, matching this lesson's real subtitle
+// ("Las cinco vocales: a, e, i, o, u"). Not rolled out further until the
+// owner picks a placement (separate section vs. woven into the page).
+const LECCION_1_PREVIEW_WORDS = [
+  { word: "abanico", emoji: "🪭", illustrationSrc: "/cartilla/art/faithful/vocal-a/abanico.webp" },
+  { word: "anillo", emoji: "💍", illustrationSrc: "/cartilla/art/faithful/vocal-a/anillo.webp" },
+  { word: "araña", emoji: "🕷️", illustrationSrc: "/cartilla/art/faithful/vocal-a/arana.webp" },
+  { word: "avión", emoji: "✈️", illustrationSrc: "/cartilla/art/faithful/vocal-a/avion.webp" },
+  { word: "imán", emoji: "🧲", illustrationSrc: "/cartilla/art/faithful/vocal-i/iman.webp" },
+  { word: "isla", emoji: "🏝️", illustrationSrc: "/cartilla/art/faithful/vocal-i/isla.webp" },
+  { word: "oso", emoji: "🐻", illustrationSrc: "/cartilla/art/faithful/vocal-o/oso.webp" },
+];
+const LECCION_1_PREVIEW_SYLLABLES = ["a", "e", "i", "o", "u"];
 
 export const Route = createFileRoute("/cartilla/leccion/$n")({
   component: Leccion,
@@ -220,7 +238,7 @@ function Leccion() {
           </div>
         )}
       </header>
-      <main className="flex-1 px-4 pt-6 pb-28 max-w-5xl w-full mx-auto flex flex-col items-center">
+      <main className="flex-1 px-4 pt-6 pb-28 max-w-7xl w-full mx-auto flex flex-col items-center">
         <div className="w-full max-w-3xl text-left mb-4">
           <div className="text-xs font-bold uppercase tracking-wide text-foreground/50">
             {t.leccion[lang]} {n} · {t.paginas[lang].toLowerCase()} {entry.pages}
@@ -269,6 +287,22 @@ function Leccion() {
               </div>
             )}
           </GardenScene>
+
+          {/* Placement preview — Lección 1 only, see comment near the top of
+              this file. Owner reviews this before any wider rollout. */}
+          {progressReady && entry && n === 1 && (
+            <div className="w-full max-w-3xl mx-auto mt-6">
+              <ActivityCarousel
+                lessonNumber={n}
+                syllables={LECCION_1_PREVIEW_SYLLABLES}
+                words={LECCION_1_PREVIEW_WORDS}
+                letter=""
+                color={entry.color}
+                lessonId={String(n)}
+                activities={entry.activities}
+              />
+            </div>
+          )}
         </div>
       </main>
       <nav

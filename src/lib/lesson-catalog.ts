@@ -78,6 +78,13 @@ function vowelEntry(v: VowelLesson): CatalogEntry {
   };
 }
 
+// Per-lesson activity picks (owner decision, July 2026):
+//   - Lección 1 (vowel overview, before any single vowel is taught in
+//     isolation): lighter touch — only Sílabas + Emparejar.
+//   - Lecciones 2-6 (vowels) and 7-24 (consonants): all 5 activities, same
+//     as DEFAULT_ACTIVITIES, so no override needed for those.
+const LECCION_1_ACTIVITIES: ActivityId[] = ["silabas", "palabras"];
+
 export const CATALOG: CatalogEntry[] = [
   {
     n: 1,
@@ -86,6 +93,7 @@ export const CATALOG: CatalogEntry[] = [
     subtitle: "Las cinco vocales: a, e, i, o, u",
     pages: "1-3",
     color: "hsl(230 75% 58%)",
+    activities: LECCION_1_ACTIVITIES,
   },
   ...vowelLessons.map(vowelEntry),
   ...consonants.map<CatalogEntry>((c) => ({
