@@ -1,10 +1,9 @@
 import { useState, useEffect, useMemo } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import { Check, X } from "lucide-react";
-import { listClasses, getClass } from "@/lib/teacher.functions";
-import { isSeedSessionActive, listSeedClasses, getSeedClass } from "@/lib/seed-data";
-import { crmService } from "@/services/crm";
+import { Check } from "lucide-react";
+import { listClasses, getClassProgress } from "@/lib/teacher.functions";
+import { isSeedSessionActive, listSeedClasses, getSeedClassProgress } from "@/lib/seed-data";
 import { TOTAL_LESSONS } from "@/lib/lesson-catalog";
 
 export const Route = createFileRoute("/cartilla/teacher/progreso")({
@@ -14,13 +13,15 @@ export const Route = createFileRoute("/cartilla/teacher/progreso")({
   }),
 });
 
+type StudentProgressRow = { id: string; name: string; completedLessonIds: string[] };
+
 function TeacherProgressPage() {
   const [selectedClassId, setSelectedClassId] = useState<string>("");
-  const [refreshKey, setRefreshKey] = useState(0); // Trigger re-render on local storage update
 
   // Synchronously detect if we are using the local seed teacher session — same
-  // pattern as ClassRoster.tsx, needed because listClasses/getClass are real
-  // Supabase-only calls with no demo-mode fallback of their own.
+  // pattern as ClassRoster.tsx / ReportCard.tsx, needed because listClasses and
+  // getClassProgress are real Supabase-only calls with no demo-mode fallback of
+  // their own.
   const isSeed = useMemo(() => isSeedSessionActive(), []);
 
   // 1. Fetch Classes
@@ -42,24 +43,28 @@ function TeacherProgressPage() {
   const classes = isSeed ? seedClasses : realClasses;
   const loadingClasses = !isSeed && loadingRealClasses;
 
-  // 2. Fetch Students for Selected Class
-  const { data: realClassData, isLoading: loadingRealStudents } = useQuery({
-    queryKey: ["teacher-class-students", selectedClassId],
-    queryFn: () => getClass({ data: { id: selectedClassId } }),
+  // 2. Fetch REAL per-student progress for the selected class. This replaces the
+  // old local-only crmService toggle: the grid is now a read-only reflection of
+  // the lessons each student has actually completed (logged to Supabase / seed
+  // store as they work), same data source the Reportes page uses.
+  const { data: realClassProgress, isLoading: loadingRealProgress } = useQuery({
+    queryKey: ["teacher-class-progress", selectedClassId],
+    queryFn: () => getClassProgress({ data: { id: selectedClassId } }),
     enabled: !isSeed && !!selectedClassId,
   });
 
-  const seedClassData = useMemo(() => {
+  const seedClassProgress = useMemo(() => {
     if (!isSeed || !selectedClassId) return null;
     try {
-      return getSeedClass(selectedClassId);
+      return getSeedClassProgress(selectedClassId);
     } catch {
       return null;
     }
   }, [isSeed, selectedClassId]);
 
-  const classData = isSeed ? seedClassData : realClassData;
-  const loadingStudents = !isSeed && loadingRealStudents;
+  const classProgress = isSeed ? seedClassProgress : realClassProgress;
+  const loadingProgress = !isSeed && loadingRealProgress;
+  const perStudent: StudentProgressRow[] = classProgress?.perStudent ?? [];
 
   // Default class
   useEffect(() => {
@@ -68,25 +73,13 @@ function TeacherProgressPage() {
     }
   }, [classes, selectedClassId]);
 
-  useEffect(() => {
-    const handleUpdate = () => setRefreshKey((k) => k + 1);
-    window.addEventListener("cartilla-crm-updated", handleUpdate);
-    return () => window.removeEventListener("cartilla-crm-updated", handleUpdate);
-  }, []);
-
-  const handleToggle = (studentId: string, lessonNum: number) => {
-    crmService.toggleLeccion(studentId, lessonNum);
-  };
-
-  const allProgresos = crmService.getAllProgresos();
-
   return (
     <div className="w-full space-y-6">
       <header className="no-print">
         <h1 className="text-3xl font-black text-stone-800">Progreso de la Clase</h1>
         <p className="text-sm font-bold text-stone-500 mt-1">
-          Marca manualmente las lecciones completadas por cada alumno. Toca en una celda para
-          alternar.
+          Lecciones que cada alumno ha completado, registradas automáticamente a medida que
+          trabajan.
         </p>
       </header>
 
@@ -114,18 +107,18 @@ function TeacherProgressPage() {
         </div>
       </div>
 
-      {loadingStudents ? (
+      {loadingProgress ? (
         <div className="p-12 text-center font-bold text-stone-400 animate-pulse bg-white border border-stone-200 rounded-[2rem]">
-          Cargando listado de alumnos...
+          Cargando progreso de la clase...
         </div>
-      ) : classData?.students?.length === 0 ? (
+      ) : perStudent.length === 0 ? (
         <div className="p-12 text-center bg-white border border-stone-200 rounded-[2rem]">
           <h2 className="text-xl font-bold text-stone-800">No hay alumnos</h2>
           <p className="text-stone-500 mt-2">
-            Agrega alumnos a esta clase desde el Roster para marcar su progreso.
+            Agrega alumnos a esta clase desde el Roster para ver su progreso.
           </p>
         </div>
-      ) : classData?.students ? (
+      ) : (
         <div className="bg-white border border-stone-200 rounded-[2rem] shadow-xs overflow-x-auto">
           <table className="w-full text-left text-sm whitespace-nowrap">
             <thead className="bg-stone-50/70 text-stone-500 font-bold uppercase tracking-wider text-[10px] border-b border-stone-200">
@@ -141,34 +134,34 @@ function TeacherProgressPage() {
               </tr>
             </thead>
             <tbody className="divide-y divide-stone-100 bg-white">
-              {classData.students.map((s) => {
-                const prog =
-                  allProgresos.find((p) => p.alumnoId === s.id)?.leccionesCompletadas || [];
+              {perStudent.map((s) => {
+                const prog = s.completedLessonIds ?? [];
                 return (
                   <tr key={s.id} className="hover:bg-stone-50/50 transition-colors">
                     <td className="p-4 pl-6 font-extrabold text-stone-800 sticky left-0 z-10 bg-white shadow-[2px_0_4px_rgba(0,0,0,0.02)]">
-                      {s.display_name}
+                      {s.name}
                     </td>
                     {Array.from({ length: TOTAL_LESSONS }).map((_, i) => {
                       const l = i + 1;
-                      const isComplete = prog.includes(l);
+                      const isComplete = prog.includes(String(l));
                       return (
                         <td key={l} className="p-2 text-center">
-                          <button
-                            onClick={() => handleToggle(s.id, l)}
-                            className={`w-10 h-10 min-w-[48px] min-h-[48px] m-auto rounded-xl flex items-center justify-center transition-all cursor-pointer ${
+                          <div
+                            className={`w-10 h-10 m-auto rounded-xl flex items-center justify-center ${
                               isComplete
-                                ? "bg-emerald-100 text-emerald-600 shadow-sm scale-100"
-                                : "bg-stone-100 text-stone-300 hover:bg-stone-200 scale-95 hover:scale-100"
+                                ? "bg-emerald-100 text-emerald-600 shadow-sm"
+                                : "bg-stone-100 text-stone-300"
                             }`}
-                            aria-label={`Marcar lección ${l} de ${s.display_name}`}
+                            aria-label={`Lección ${l} de ${s.name}: ${
+                              isComplete ? "completada" : "pendiente"
+                            }`}
                           >
                             {isComplete ? (
                               <Check className="w-5 h-5" />
                             ) : (
-                              <X className="w-4 h-4 opacity-0 hover:opacity-100" />
+                              <span className="text-stone-300">—</span>
                             )}
-                          </button>
+                          </div>
                         </td>
                       );
                     })}
@@ -178,7 +171,7 @@ function TeacherProgressPage() {
             </tbody>
           </table>
         </div>
-      ) : null}
+      )}
     </div>
   );
 }
