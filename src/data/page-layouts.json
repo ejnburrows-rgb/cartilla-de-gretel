@@ -1416,8 +1416,7 @@
               },
               {
                 "word": "mapa",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/mapa.webp"
+                "correct": true
               }
             ],
             [
@@ -1526,13 +1525,11 @@
               },
               {
                 "word": "moto",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/moto.webp"
+                "correct": true
               },
               {
                 "word": "mapa",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/mapa.webp"
+                "correct": false
               }
             ],
             [
@@ -1829,8 +1826,7 @@
               },
               {
                 "word": "pulpo",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-8-p/pulpo.webp"
+                "correct": false
               }
             ]
           ]
@@ -2324,8 +2320,7 @@
               },
               {
                 "word": "sol",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-9-s/sol.webp"
+                "correct": true
               }
             ],
             [
@@ -2372,8 +2367,7 @@
               },
               {
                 "word": "sol",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-9-s/sol.webp"
+                "correct": false
               },
               {
                 "word": "sala",
@@ -3008,8 +3002,7 @@
               },
               {
                 "word": "delfín",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/delfin.webp"
+                "correct": true
               },
               {
                 "word": "dedo",
@@ -3064,8 +3057,7 @@
               },
               {
                 "word": "ducha",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/ducha.webp"
+                "correct": false
               }
             ]
           ]
@@ -3136,8 +3128,7 @@
               },
               {
                 "word": "delfín",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-11-d/delfin.webp"
+                "correct": false
               },
               {
                 "word": "Dina",
@@ -3368,8 +3359,7 @@
               },
               {
                 "word": "lupa",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/lupa.webp"
+                "correct": false
               },
               {
                 "word": "Lupe",
@@ -3406,8 +3396,7 @@
               },
               {
                 "word": "lupa",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/lupa.webp"
+                "correct": false
               },
               {
                 "word": "Lela",
@@ -3485,8 +3474,7 @@
               },
               {
                 "word": "luna",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/luna.webp"
+                "correct": false
               }
             ]
           ]
@@ -3501,8 +3489,7 @@
             [
               {
                 "word": "lupa",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-12-l/lupa.webp"
+                "correct": true
               },
               {
                 "word": "lista",
@@ -3738,13 +3725,11 @@
               },
               {
                 "word": "nata",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-13-n/nata.webp"
+                "correct": true
               },
               {
                 "word": "nariz",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-13-n/nariz.webp"
+                "correct": true
               }
             ],
             [
@@ -3864,8 +3849,7 @@
             [
               {
                 "word": "nariz",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-13-n/nariz.webp"
+                "correct": false
               },
               {
                 "word": "pino",
@@ -4167,15 +4151,13 @@
               },
               {
                 "word": "muñeca",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-14-n/muneca.webp"
+                "correct": true
               }
             ],
             [
               {
                 "word": "piña",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-14-n/pina.webp"
+                "correct": false
               },
               {
                 "word": "muñido",
@@ -4275,8 +4257,7 @@
             [
               {
                 "word": "muñeca",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-14-n/muneca.webp"
+                "correct": false
               },
               {
                 "word": "ñu",

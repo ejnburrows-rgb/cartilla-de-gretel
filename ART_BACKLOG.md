@@ -1,5 +1,65 @@
 # Art backlog — current, authoritative
 
+## RESOLVED 2026-07-17 (second pass) — the "FULL AUDIT COMPLETE" claim below was also stale; found and fixed 15 more wrong-content words live on `main`
+
+Despite this file's own "🎉 FULL AUDIT COMPLETE" section further down claiming
+the 45-word emergency list was fully resolved, a fresh full-resolution visual
+re-check of every one of the (then-)65 `illustrationSrc` entries actually
+wired in `src/content/consonants.json` on `main` — not taken on this file's
+word, opened pixel-by-pixel — found **15 words still showing wrong content**,
+live, right now, to students:
+- `moto` → floral decoration, `mapa` → blank pink rounded rectangle,
+  `pulpo` → a man in a wrestling singlet, `sol` → an abstract corner
+  fragment, `silla` → a girl in a green dress, `delfín` → a dice fragment +
+  stray text, `ducha` → a bird/flamingo, `luna` → high-heel shoes + a
+  suitcase (this is the file that produced the "left bottom finger" report
+  that started this session's whole investigation), `lupa` → a spider,
+  `nariz` → a leaf/orange fragment, `nube` → a person + blue-square
+  fragment, `nata` → the same bird's-nest image as `nido` (not cream),
+  `piña` → a frog-eye fragment, `muñeca` → an ostrich, `barco` → a shoe
+  fragment. `pez` was a 16th case — not blank/wrong exactly, but wired to a
+  bad `leccion-8-p/pez.webp` crop when a real, correct, already-verified
+  fish crop existed at `leccion-1/pez.webp` (from the `u-page-16.jpg`
+  distractor-cell recovery documented lower in this file) — just never
+  pointed at it.
+
+All 15 confirmed against this file's own "31 words confirmed genuinely
+absent" list further down (which lists `moto`, `mapa`, `pulpo`, `sol`,
+`silla`, `delfín`, `ducha`, `luna`, `lupa`, `nariz`, `nube`, `nata`, `piña`,
+`muñeca`, `barco` by name) — that list was right, but the "safe fix already
+shipped" claim attached to it was not actually reflected in `consonants.json`
+on `main`. Root cause, same as everywhere else in this file's history:
+"documented as done" and "verified against the live file" are not the same
+claim, and only the second one is trustworthy.
+
+**Fix applied**: removed the 15 wrong `illustrationSrc` values (safe,
+unambiguous correctness fix, no owner sign-off needed — this only stops
+active harm by falling back to emoji) from both `consonants.json` and
+`page-layouts.json` (which had 12 of the same 15 duplicated into
+picture-grid/syllable-match cells — same "wired in two places" pattern as
+the `yegua` bug from the first pass). `pez` was repointed, not removed,
+since a real correct crop already existed.
+
+**3 more real crops found and wired while investigating neighboring
+lessons**: `torre` (a blue/purple watchtower, was showing a market-stall
+canopy) and `barril` (a wooden barrel, was showing a house fragment) — both
+found on `rr-page-40.jpg`, real Lección 18 (RR) content, previously never
+correctly cropped. `bota` (a red cowboy boot, was showing a house
+fragment) — found on `b-page-31.jpg`, real Lección 15 (B) content.
+
+Verified: `pnpm run typecheck` / `build` / `test` all clean (477 pass / 2
+expected fail, unchanged baseline). Live in-browser check of all 9 affected
+consonant lessons (M, P, S, D, L, N, Ñ, B, RR) — see
+`SCREENSHOTS/student-art-color/AUDIT2-*.png`.
+
+**Still not independently re-verified in this pass**: the mascot/character-
+name words (`Goloso`, `Catalina`, `Yayita`, `Felo`, `Jesús`, `Zulema`,
+`zorro`, `zepelín`) — these are plausible as intentional cartoon-mascot art
+rather than literal-object art, and none showed an obviously wrong subject,
+but they were not cross-checked against a specific source page the way the
+15 confirmed-wrong words were. Lower priority; flag if a future pass finds
+time.
+
 ## RESOLVED 2026-07-17 — the no-real-source consonant words, finally fixed
 This doc already correctly identified (see "Checked the final 6 words" and
 surrounding sections) that `tapa`, `tomate`, `tina`, `tulipán`, `dona`,
