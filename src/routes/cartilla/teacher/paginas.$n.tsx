@@ -1,10 +1,17 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createFileRoute, Link, useNavigate, redirect } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Maximize, Minimize, X, BookOpen, ScanLine } from "lucide-react";
 import { CATALOG } from "@/lib/lesson-catalog";
 import { getLessonPageNumbers } from "@/lib/cartilla-crm-theme";
 import { TeacherNoteField } from "@/components/teacher/TeacherNoteField";
 import { FaithfulPageRenderer } from "@/components/cartilla/FaithfulPageRenderer";
+import { ELEGANT_EASE, prefersReducedMotion } from "@/lib/living-motion";
+
+// Elegant vertical (top-hinged) page turn for the teacher page-by-page view,
+// matching the flipchart's vertical feel. Single-element half-flip: the page
+// tilts edge-on, content swaps while it's invisible, then tilts back — robust
+// for the heavy FaithfulPageRenderer (no double mount / backface tricks).
+const PAGINAS_TURN_HALF_MS = 300;
 
 export const Route = createFileRoute("/cartilla/teacher/paginas/$n")({
   component: PaginasLeccion,
@@ -31,10 +38,49 @@ function PaginasLeccion() {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
+  // Vertical page-turn animation state
+  const [turnTransform, setTurnTransform] = useState("rotateX(0deg)");
+  const [isTurning, setIsTurning] = useState(false);
+  const turnTimers = useRef<number[]>([]);
+
   // Reset to first page when lesson changes
   useEffect(() => {
     setPageIndex(0);
+    setTurnTransform("rotateX(0deg)");
+    setIsTurning(false);
   }, [n]);
+
+  // Clear any pending turn timers on unmount
+  useEffect(() => {
+    return () => {
+      turnTimers.current.forEach((t) => window.clearTimeout(t));
+    };
+  }, []);
+
+  // Top-hinged half-flip: tilt away → swap page at the midpoint → tilt back.
+  const turnToIndex = useCallback(
+    (nextIndex: number, direction: "next" | "prev") => {
+      if (isTurning) return;
+      if (prefersReducedMotion()) {
+        setPageIndex(nextIndex);
+        return;
+      }
+      setIsTurning(true);
+      // "next" lifts the top edge away (negative), "prev" the reverse.
+      setTurnTransform(direction === "next" ? "rotateX(-90deg)" : "rotateX(90deg)");
+      const t1 = window.setTimeout(() => {
+        setPageIndex(nextIndex);
+        setTurnTransform(direction === "next" ? "rotateX(90deg)" : "rotateX(-90deg)");
+        // Next frame, settle back to flat so the incoming page eases in.
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => setTurnTransform("rotateX(0deg)"));
+        });
+      }, PAGINAS_TURN_HALF_MS);
+      const t2 = window.setTimeout(() => setIsTurning(false), PAGINAS_TURN_HALF_MS * 2);
+      turnTimers.current.push(t1, t2);
+    },
+    [isTurning],
+  );
 
   const currentGlobalPage = globalPageNumbers[pageIndex] ?? globalPageNumbers[0] ?? 1;
 
@@ -60,7 +106,7 @@ function PaginasLeccion() {
 
   const goNext = () => {
     if (pageIndex < globalPageNumbers.length - 1) {
-      setPageIndex((i) => i + 1);
+      turnToIndex(pageIndex + 1, "next");
     } else if (n < CATALOG.length) {
       navigate({ to: "/cartilla/teacher/paginas/$n", params: { n: String(n + 1) } });
     }
@@ -68,7 +114,7 @@ function PaginasLeccion() {
 
   const goPrev = () => {
     if (pageIndex > 0) {
-      setPageIndex((i) => i - 1);
+      turnToIndex(pageIndex - 1, "prev");
     } else if (n > 1) {
       navigate({ to: "/cartilla/teacher/paginas/$n", params: { n: String(n - 1) } });
     }
@@ -78,10 +124,20 @@ function PaginasLeccion() {
 
   return (
     <div className="fixed inset-0 bg-stone-900 flex flex-col md:flex-row overflow-hidden font-display select-none">
-      <main className="flex-1 relative flex items-center justify-center bg-[#1a1a1a]">
+      <main
+        className="flex-1 relative flex items-center justify-center bg-[#1a1a1a]"
+        style={{ perspective: "1800px" }}
+      >
         <div
           className="relative h-[85vh] max-w-full shadow-2xl overflow-hidden rounded-sm"
-          style={{ aspectRatio: "612 / 792" }}
+          style={{
+            aspectRatio: "612 / 792",
+            transform: turnTransform,
+            transformOrigin: "top center",
+            transition: `transform ${PAGINAS_TURN_HALF_MS}ms ${ELEGANT_EASE}`,
+            willChange: "transform",
+            backfaceVisibility: "hidden",
+          }}
         >
           <FaithfulPageRenderer pageNumber={currentGlobalPage} lessonNumber={n} />
         </div>

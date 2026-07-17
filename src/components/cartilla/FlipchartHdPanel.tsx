@@ -154,12 +154,6 @@ export function FlipchartHdPanel({ lessonNumber, accentColor }: FlipchartHdPanel
       data-hd-primary="true"
     >
       <div className="fc-board__easel" data-testid="flipchart-stage">
-        <div className="fc-board__rail" aria-hidden>
-          {Array.from({ length: 7 }).map((_, i) => (
-            <span key={i} className="fc-board__rail-dot" />
-          ))}
-        </div>
-
         <div className="fc-board__page">
           <div className="fc-board__page-inner">
             <div className="w-full h-full absolute inset-0">
