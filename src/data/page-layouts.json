@@ -294,7 +294,7 @@
           "order": 0,
           "fontRole": "body",
           "label": "Instrucciones:",
-          "text": "Marca con una x los dibujos que comienzan con O o."
+          "text": "Presiona los dibujos que comienzan con O o."
         },
         {
           "id": "p4-grid",
@@ -506,7 +506,7 @@
           "order": 0,
           "fontRole": "body",
           "label": "Instrucciones:",
-          "text": "Marca con una x los dibujos de las palabras que comienzan con A a."
+          "text": "Presiona los dibujos de las palabras que comienzan con A a."
         },
         {
           "id": "p7-grid",
@@ -718,7 +718,7 @@
           "order": 0,
           "fontRole": "body",
           "label": "Instrucciones:",
-          "text": "Marca con una x los dibujos de las palabras que comienzan con E e."
+          "text": "Presiona los dibujos de las palabras que comienzan con E e."
         },
         {
           "id": "p10-grid",
@@ -930,7 +930,7 @@
           "order": 0,
           "fontRole": "body",
           "label": "Instrucciones:",
-          "text": "Marca con una x los dibujos de las palabras que comienzan con I i."
+          "text": "Presiona los dibujos de las palabras que comienzan con I i."
         },
         {
           "id": "p13-grid",
@@ -1142,7 +1142,7 @@
           "order": 0,
           "fontRole": "body",
           "label": "Instrucciones:",
-          "text": "Marca con una x los dibujos de las palabras que comienzan con U u."
+          "text": "Presiona los dibujos de las palabras que comienzan con U u."
         },
         {
           "id": "p16-grid",
@@ -1395,7 +1395,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Encierra en un círculo la sílaba correspondiente."
+          "text": "Presiona la sílaba correspondiente."
         },
         {
           "id": "p20-ma",
@@ -1791,7 +1791,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Encierra en un círculo la sílaba correspondiente."
+          "text": "Presiona la sílaba correspondiente."
         },
         {
           "id": "p24-pa",
@@ -2186,7 +2186,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Encierra en un círculo la sílaba correspondiente."
+          "text": "Presiona la sílaba correspondiente."
         },
         {
           "id": "p28-sa",
@@ -2568,7 +2568,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Encierra en un círculo la sílaba correspondiente."
+          "text": "Presiona la sílaba correspondiente."
         },
         {
           "id": "p32-ta",
@@ -2947,7 +2947,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Encierra en un círculo la sílaba correspondiente."
+          "text": "Presiona la sílaba correspondiente."
         },
         {
           "id": "p36-da",
@@ -3329,7 +3329,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Encierra en un círculo la sílaba correspondiente."
+          "text": "Presiona la sílaba correspondiente."
         },
         {
           "id": "p40-la",
@@ -3708,7 +3708,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Encierra en un círculo la sílaba correspondiente."
+          "text": "Presiona la sílaba correspondiente."
         },
         {
           "id": "p44-na",
@@ -4093,7 +4093,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Encierra en un círculo la sílaba correspondiente."
+          "text": "Presiona la sílaba correspondiente."
         },
         {
           "id": "p48-ña",
@@ -4477,7 +4477,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Encierra en un círculo la sílaba correspondiente."
+          "text": "Presiona la sílaba correspondiente."
         },
         {
           "id": "p52-ba",
@@ -4861,7 +4861,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Encierra en un círculo la sílaba correspondiente."
+          "text": "Presiona la sílaba correspondiente."
         },
         {
           "id": "p56-va",
@@ -5244,7 +5244,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Encierra en un círculo la sílaba correspondiente."
+          "text": "Presiona la sílaba correspondiente."
         },
         {
           "id": "p60-ra",
@@ -5629,7 +5629,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Encierra en un círculo la sílaba correspondiente."
+          "text": "Presiona la sílaba correspondiente."
         },
         {
           "id": "p64-rra",
@@ -6019,7 +6019,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Encierra en un círculo la sílaba correspondiente."
+          "text": "Presiona la sílaba correspondiente."
         },
         {
           "id": "p68-ga",
@@ -6404,7 +6404,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Encierra en un círculo la sílaba correspondiente."
+          "text": "Presiona la sílaba correspondiente."
         },
         {
           "id": "p72-fa",
@@ -6793,7 +6793,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Encierra en un círculo la sílaba correspondiente."
+          "text": "Presiona la sílaba correspondiente."
         },
         {
           "id": "p76-ja",
@@ -7176,7 +7176,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Encierra en un círculo la sílaba correspondiente."
+          "text": "Presiona la sílaba correspondiente."
         },
         {
           "id": "p80-ca",
@@ -7558,7 +7558,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Encierra en un círculo la sílaba correspondiente."
+          "text": "Presiona la sílaba correspondiente."
         },
         {
           "id": "p84-ya",
@@ -7941,7 +7941,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Encierra en un círculo la sílaba correspondiente."
+          "text": "Presiona la sílaba correspondiente."
         },
         {
           "id": "p88-za",

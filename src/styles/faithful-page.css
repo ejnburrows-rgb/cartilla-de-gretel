@@ -39,6 +39,10 @@
     url("/cartilla/images/garden/grass-left.webp") left bottom / 18% auto no-repeat,
     url("/cartilla/images/garden/grass-right.webp") right bottom / 18% auto no-repeat,
     linear-gradient(180deg, var(--book-paper) 60%, #eef4de 100%);
+  /* Kid's pencil cursor on the student page only (--garden is never passed
+   * on teacher preview surfaces — see the comment above this rule). Hotspot
+   * (2, 34) lands on the pencil's graphite tip. */
+  cursor: url("/cartilla/images/ui/pencil-cursor.svg") 2 34, pointer;
 }
 /* The painted garden layer — sits above the gradient but below all content.
  * Positioned to show the lower garden/foliage area of the painting rather

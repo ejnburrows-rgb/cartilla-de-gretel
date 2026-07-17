@@ -363,14 +363,26 @@ not a real product. Decisions made, now locked in:
   exception — see "Characters must be ALIVE": living creatures in book
   illustrations may get generated blink frames derived from the real book
   art.)
-- **Wording will need to change, but not yet.** The book's printed
-  instructions say things like "Circula los dibujos" (circle the
-  pictures) — that verb doesn't make sense once it's a tap/click
-  interaction on a screen. Eventually these need to become
-  computer-appropriate verbs (e.g. "Presiona los dibujos" instead of
-  "Circula los dibujos"). Owner's call: **don't touch the wording yet** —
-  get all the real art in place first, tackle instruction-text rewording
-  as a later, separate pass.
+- **Instruction wording — DONE (memorized July 2026, supersedes the
+  "don't touch yet" note below).** The book's printed instructions say
+  things like "Marca con una X los dibujos" and "Encierra en un círculo la
+  sílaba" — verbs that don't make sense once it's a tap interaction on a
+  screen. All on-screen instruction text in `src/data/page-layouts.json`
+  is now reworded to the tap-appropriate verb "Presiona": all 5 "Marca con
+  una X los dibujos..." (vowel picture-grid pages) → "Presiona los
+  dibujos..."; all 18 "Encierra en un círculo la sílaba correspondiente."
+  (syllable-match pages) → "Presiona la sílaba correspondiente." This is
+  the on-screen instruction only — the book's own printed page still says
+  what it says; comments in `book-faithful.ts` / `InteractivePageExercises.tsx`
+  / `MarkCircle.tsx` referencing "Encierra" describe the region's origin in
+  the physical book, not live behavior, and were left alone on purpose.
+  The routing logic (`resolveFaithfulHost` in `faithfulAdapters.tsx`) does
+  NOT key off instruction text for `syllable-match` (always routes to
+  `lasso-mark` regardless of wording), so this was a pure content change,
+  zero behavior risk. One test (`faithful-mechanic-routing.test.ts`) had a
+  literal `/encierra/i` census check as a stale-content guard — updated to
+  check for `/presiona la s[ií]laba/i` instead, same invariant (≥15 pages),
+  new wording.
 
 ## Visual direction — REVERSED the book-palette-only call above (memorized
 ## July 2026)
