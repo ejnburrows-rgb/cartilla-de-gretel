@@ -52,13 +52,16 @@ expected fail, unchanged baseline). Live in-browser check of all 9 affected
 consonant lessons (M, P, S, D, L, N, Ñ, B, RR) — see
 `SCREENSHOTS/student-art-color/AUDIT2-*.png`.
 
-**Still not independently re-verified in this pass**: the mascot/character-
-name words (`Goloso`, `Catalina`, `Yayita`, `Felo`, `Jesús`, `Zulema`,
-`zorro`, `zepelín`) — these are plausible as intentional cartoon-mascot art
-rather than literal-object art, and none showed an obviously wrong subject,
-but they were not cross-checked against a specific source page the way the
-15 confirmed-wrong words were. Lower priority; flag if a future pass finds
-time.
+**Mascot/character-name words — cross-checked, all correct (2026-07-17,
+same day, later pass)**: `Goloso` (g-page-43.jpg — bear/gopher in a striped
+tie, matches), `Catalina` (c-page-52.jpg — a hen, matches), `Felo`
+(f-page-46.jpg — man on a red tractor, matches), `Jesús` (j-page-49.jpg —
+boy holding a giant pencil, matches), `Zulema` (z-page-58.jpg — girl in a
+purple hood, matches), `zorro` (same page — a fox, matches), `zepelín`
+(same page — a red/yellow blimp, matches), `Yayita` (y-page-55.jpg — a
+blue octopus with a bow, matches) and `mayúscula` (same page — the letter
+Y with two kids, matches). All 8 opened directly against their real source
+page, not assumed. No action needed.
 
 ## RESOLVED 2026-07-17 — the no-real-source consonant words, finally fixed
 This doc already correctly identified (see "Checked the final 6 words" and
@@ -308,6 +311,23 @@ message. Last verified: July 2026, against `src/data/page-layouts.json` and
 ## ⚠️ BRANCH SAFETY WARNINGS — read before merging anything
 
 ### DO NOT MERGE these branches
+- `feat/content-extraction` (currently at `81915ad`) — **stale and
+  regressive, verified 2026-07-17, not a viable source of art.** Diverged
+  from `main` 222 commits ago (main only has 15 commits of its own since
+  the same point) — this predates essentially all of this session's real
+  fixes. Directly opened its versions of `vocal-a/arbol.webp` and
+  `vocal-u/uniforme.webp`: both are the exact broken/uncolored versions
+  that were already found and replaced on `main` (partial-fragment crop,
+  gray/uncolored suit). A full stat diff against `main` shows dozens more
+  faithful-art files shrunk back down to old broken-stub byte sizes
+  (`aguja`, `ardilla`, `iguana`, `igual`, `oruga`, `escoba`, `uña`, etc.)
+  and several good files on `main` deleted outright (`ola.webp`,
+  `zorro.webp`, `jirafa.webp`, `mayuscula.webp`, `yayita.webp`, `jesus.webp`,
+  `jicotea.webp`, `jugo.webp`, `ajo.webp`, `jarra.webp`, `zepelin.webp`,
+  `zigzag.webp`, `zulema.webp`, `funda.webp`, plus the 4 Gretel `*-blink.webp`
+  frames). Merging or cherry-picking any art file from this branch would be
+  a straight regression. Do not merge; do not pull individual files from it
+  without re-verifying each one is actually newer/better, not older/worse.
 - `fix-vocabulary-crops` — contains bot-generated heuristic re-crops of
   13 backlog words. These would OVERWRITE hand-verified art with bot
   versions. The hand-verified crops already on main are correct.
