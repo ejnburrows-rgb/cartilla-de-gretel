@@ -1,5 +1,27 @@
 # Art backlog — current, authoritative
 
+## RESOLVED 2026-07-17 — the no-real-source consonant words, finally fixed
+This doc already correctly identified (see "Checked the final 6 words" and
+surrounding sections) that `tapa`, `tomate`, `tina`, `tulipán`, `dona`,
+`lobo`, `loro`, `vaca`, `vino`, `volcán`, `yegua`, `bici`, `pino` have no
+real picture anywhere in this book — but the broken `illustrationSrc`
+values were never actually removed from `consonants.json` /
+`page-layouts.json`, so the app kept shipping garbage crops (blank canvases
+or fragments of unrelated handwriting-practice text) instead of falling
+back to the existing emoji. Fixed in `fix/student-art-color`: removed the
+bad `illustrationSrc` from all 13 words (22 instances across
+`page-layouts.json` + the `consonants.json` vocab entries) — emoji fallback
+now renders honestly instead of broken content. Separately, real
+gray-but-correct book drawings that had never been colored (`uniforme`,
+`iglú`, `abeja`, `aguja`, `escalera`, `escuela`, `maíz`, `arco`, `pez`,
+`remolino`, `niño`) were cropped fresh and colored; `vela` (V lesson) had a
+real color flipchart crop available and was wired in. Two files
+(`vocal-e/escalera.webp`, `vocal-e/escuela.webp`) turned out to be an
+unrelated stock photo and generic clipart respectively — both replaced with
+real book-drawing crops. See `MISSING_ASSETS.md` for full detail.
+This does NOT cover the separate "confirmed wrong subject" backlog below
+(mono/sapo/sopa/dado/foca/zapato/etc.) — that remains open, untouched.
+
 ## 🚨 UPDATE (July 2026) — emergency re-audit: the "already verified good" set was WRONG too; scope is much bigger than documented, safe fix already shipped
 
 Triggered by directly opening `mono.webp` again (previously claimed "confirmed
