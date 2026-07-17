@@ -139,7 +139,7 @@ export function SimplePageViewer({
   const current = pages[currentIndex];
 
   return (
-    <div className="relative mx-auto flex w-full max-w-lg flex-col items-center">
+    <div className="relative mx-auto flex w-full max-w-4xl flex-col items-center">
       <div className="workbook-container" style={{ aspectRatio: singleAspectRatio ?? "3 / 4" }}>
         {/* Static base page */}
         <div className="w-full h-full relative overflow-hidden rounded-b-xl">
