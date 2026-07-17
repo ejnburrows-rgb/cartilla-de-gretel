@@ -1,6 +1,6 @@
 /**
- * Locks Colorea / Dibuja / Encierra / Une host routing so paint never
- * silently becomes tap-select, and draw-box stays on DibujaHost.
+ * Locks Colorea / Dibuja / Presiona(syllable) / Une host routing so paint
+ * never silently becomes tap-select, and draw-box stays on DibujaHost.
  */
 import { describe, it, expect } from "vitest";
 import pageLayouts from "@/data/page-layouts.json";
@@ -40,7 +40,10 @@ function census() {
         lastInstr = r.text;
         if (instructionSuggestsColorea(r.text)) coloreaPages.push(Number(pn));
         if (instructionSuggestsDibuja(r.text)) dibujaPages.push(Number(pn));
-        if (instructionSuggestsLasso(r.text) && /encierra/i.test(r.text)) {
+        // "Encierra en un círculo" was reworded to "Presiona" (tap-appropriate
+        // verb, July 2026 owner decision) — track the syllable-match pages by
+        // the new wording rather than the retired verb.
+        if (/presiona la s[ií]laba/i.test(r.text)) {
           encierraPages.push(Number(pn));
         }
         if (
