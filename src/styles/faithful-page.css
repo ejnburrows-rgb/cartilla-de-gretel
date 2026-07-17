@@ -50,8 +50,11 @@
   background-image: var(--garden-page-bg);
   background-size: cover;
   background-position: center 68%;
-  opacity: 0.22;
-  filter: blur(2px) saturate(0.8) brightness(1.06);
+  /* Richer but subtle (owner-approved 7/2026): more colour presence than the
+   * old washed-out 0.22/blur-2px/desat-0.8, while a white content panel keeps
+   * the exercises fully readable on top (see .faithful-page__body below). */
+  opacity: 0.4;
+  filter: blur(0.5px) saturate(1.05) brightness(1.04);
   pointer-events: none;
   z-index: 0;
 }

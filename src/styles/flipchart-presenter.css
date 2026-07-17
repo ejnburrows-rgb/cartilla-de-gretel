@@ -224,29 +224,6 @@
   overflow: hidden;
 }
 
-/* Soft top rail — board presence without photocopy spiral / wood scan frame */
-.fc-board__rail {
-  flex: 0 0 auto;
-  height: 14px;
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--fc-accent) 55%, #5c4033) 0%,
-    color-mix(in srgb, var(--fc-accent) 30%, #8b6914) 100%
-  );
-  border-bottom: 1px solid rgba(23, 49, 59, 0.12);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.45rem;
-}
-.fc-board__rail-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 999px;
-  background: rgba(255, 248, 231, 0.55);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2);
-}
-
 .fc-board__page {
   position: relative;
   flex: 1 1 auto;
