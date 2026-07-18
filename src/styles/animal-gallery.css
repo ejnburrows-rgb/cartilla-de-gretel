@@ -1,0 +1,142 @@
+/* animal-gallery.css — styles for the "Conoce a los animales" showcase page
+ * (src/routes/cartilla/animales.tsx).
+ *
+ * Card look intentionally matches the existing colorful games/activity chips
+ * (rounded, bright per-card accent, soft shadow) rather than the strict
+ * teal/white book-faithful chrome — per the owner's locked "match the existing
+ * colorful games style" direction. The ambient float reuses the same gentle
+ * keyframe the faithful picture-grid cells use (duplicated here, not imported,
+ * so this page never depends on a student-only stylesheet), with a per-card
+ * delay so the grid never moves in lockstep, and is fully disabled under
+ * prefers-reduced-motion. */
+
+.animal-gallery {
+  --ag-paper: #fffdf8;
+  min-height: 100dvh;
+  background: linear-gradient(180deg, #f4fbf3 0%, #fef9ef 100%);
+  padding: clamp(1rem, 3vw, 2.5rem) clamp(0.75rem, 3vw, 2rem) 5rem;
+}
+
+.animal-gallery__head {
+  max-width: 60rem;
+  margin: 0 auto clamp(1.25rem, 3vw, 2.25rem);
+  text-align: center;
+}
+
+.animal-gallery__title {
+  font-family: "Andika", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.6rem, 4.5vw, 2.6rem);
+  color: #1f3d2b;
+  margin: 0.25rem 0 0.35rem;
+}
+
+.animal-gallery__subtitle {
+  font-family: "Andika", system-ui, sans-serif;
+  font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+  color: #4a6b53;
+  margin: 0;
+}
+
+.animal-gallery__grid {
+  max-width: 66rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(clamp(9rem, 28vw, 12rem), 1fr));
+  gap: clamp(0.75rem, 2.5vw, 1.4rem);
+}
+
+.animal-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--ag-paper);
+  border: 3px solid color-mix(in srgb, var(--ag-accent, #2a9d8f) 55%, white);
+  border-radius: 1.25rem;
+  padding: 0.9rem 0.75rem 0.75rem;
+  box-shadow: 0 10px 22px rgba(28, 25, 23, 0.08);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.animal-card__tap {
+  appearance: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0;
+}
+
+.animal-card__tap:hover .animal-card__img,
+.animal-card__tap:focus-visible .animal-card__img {
+  transform: scale(1.06);
+}
+
+.animal-card__tap:focus-visible {
+  outline: 3px solid var(--ag-accent, #2a9d8f);
+  outline-offset: 4px;
+  border-radius: 0.9rem;
+}
+
+.animal-card__imgwrap {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--ag-accent, #2a9d8f) 10%, white);
+  overflow: hidden;
+}
+
+.animal-card__img {
+  max-width: 88%;
+  max-height: 88%;
+  object-fit: contain;
+  transition: transform 0.18s ease;
+  animation: agFloat 5.5s ease-in-out infinite;
+  animation-delay: var(--ag-float-delay, 0s);
+}
+
+.animal-card__word {
+  font-family: "Andika", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(1rem, 3vw, 1.35rem);
+  text-transform: capitalize;
+  color: #24352b;
+  letter-spacing: 0.01em;
+}
+
+.animal-card__link {
+  margin-top: 0.6rem;
+  font-family: "Andika", system-ui, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--ag-accent, #2a9d8f);
+  text-decoration: none;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--ag-accent, #2a9d8f) 12%, white);
+  transition: background 0.15s ease;
+}
+
+.animal-card__link:hover,
+.animal-card__link:focus-visible {
+  background: color-mix(in srgb, var(--ag-accent, #2a9d8f) 24%, white);
+}
+
+@keyframes agFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-3px) rotate(1deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animal-card__img {
+    animation: none !important;
+  }
+}

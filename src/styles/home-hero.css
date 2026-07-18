@@ -560,3 +560,30 @@
     transform: none;
   }
 }
+
+/* Quiet, low-emphasis secondary link under the two primary Entrar CTAs —
+ * routes to the animals showcase (/cartilla/animales). Deliberately
+ * understated so it never competes with the locked minimal hero. */
+.home-landing__animals-link {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--home-ink, #3a4a3f);
+  opacity: 0.78;
+  text-decoration: none;
+  border-bottom: 2px dotted currentColor;
+  padding-bottom: 1px;
+  transition: opacity 0.15s ease;
+}
+
+.home-landing__animals-link:hover,
+.home-landing__animals-link:focus-visible {
+  opacity: 1;
+}
+
+.home-landing__animals-link:focus-visible {
+  outline: 3px solid var(--home-accent-sun, #f6a13a);
+  outline-offset: 3px;
+  border-radius: 4px;
+}

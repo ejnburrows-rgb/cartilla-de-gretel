@@ -46,12 +46,28 @@ export function collectSrcs(obj, into = new Set()) {
   return into;
 }
 
-/** Every wired illustrationSrc across the three live data files. */
+/**
+ * Pull every `/cartilla/art/faithful/....webp` path out of a .ts source file by
+ * regex. Used for animal-gallery.ts, which isn't JSON so collectSrcs can't walk
+ * it — but its curated crops must be held to the same no-grayscale bar as any
+ * other wired art (a future gallery-ONLY image that isn't referenced elsewhere
+ * would otherwise escape the color check).
+ */
+function collectSrcsFromTs(rel, into) {
+  const text = fs.readFileSync(path.join(rootDir, rel), "utf8");
+  const re = /["'`](\/cartilla\/art\/faithful\/[^"'`]+\.webp)["'`]/g;
+  let m;
+  while ((m = re.exec(text)) !== null) into.add(m[1]);
+  return into;
+}
+
+/** Every wired illustrationSrc across the live data files + the animal gallery. */
 export function collectWiredSrcs() {
   const set = new Set();
   collectSrcs(readJson("src/content/consonants.json"), set);
   collectSrcs(readJson("src/content/lessons.json"), set);
   collectSrcs(readJson("src/data/page-layouts.json"), set);
+  collectSrcsFromTs("src/content/animal-gallery.ts", set);
   return [...set].sort();
 }
 
