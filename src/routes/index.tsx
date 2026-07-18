@@ -62,6 +62,14 @@ function Landing() {
               Entrar como maestro
             </Link>
           </div>
+
+          <Link
+            to="/cartilla/animales"
+            className="home-landing__animals-link"
+            data-testid="home-link-animals"
+          >
+            Conoce a los animales 🐾
+          </Link>
         </section>
       </div>
     </main>

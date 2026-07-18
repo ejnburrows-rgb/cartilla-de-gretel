@@ -112,7 +112,7 @@ them correctly) — an art-pipeline task, not a UI task.
 | Illustration slots, real art | **138 / 155 (89%)** |
 | Illustration slots, still pending | **17 / 155 (11%)** |
 | Lessons with illustration-slot pages at all | 6 of 24 (Lección 1 + all 5 vowels — this matches the real book's structure; consonant lesson pages don't have picture-grid exercises in the printed book) |
-| Consonant-lesson vocab card art (separate UI feature, not a printed-page element) | 29 / 72 (40%) |
+| Consonant-lesson vocab card art (separate UI feature, not a printed-page element) | **53 / 80 (66%)** — corrected 2026-07-18; the remaining 27 are all confirmed genuinely absent from this book's illustrations (page-by-page verified, enforced by `scripts/validate-art-color.mjs`'s `CONFIRMED_ABSENT` list), not a gap |
 | Vowel-lesson vocab card art | 19 / 20 (95%) |
 | Manifest crop entries with full source provenance (traceable to a scan) | 58 / 107 (54%) |
 | Manifest crop entries with NO recorded provenance | 49 / 107 (46%) — asset exists, but "traceable to source scan" (your Definition-of-Done requirement) is not yet true for these |
@@ -148,14 +148,14 @@ them correctly) — an art-pipeline task, not a UI task.
 | 14 | Consonante Ñ | 47-50 | 4/4 | n/a | 0/4 | TEXT DONE, art done — all 4 words (piña/muñeca/niño confirmed absent) |
 | 15 | Consonante B | 51-54 | 4/4 | n/a | 2/4 | TEXT DONE, art done (barco/bici confirmed absent) |
 | 16 | Consonante V | 55-58 | 4/4 | n/a | 0/4 | TEXT DONE, art done — all 4 words (vaca/vino/volcán confirmed absent) |
-| 17 | Consonante R | 59-62 | 4/4 | n/a | 4/4 | DONE |
-| 18 | Consonante rr | 63-66 | 4/4 | n/a | 4/4 | DONE |
-| 19 | Consonante G | 67-70 | 4/4 | n/a | 4/4 | DONE |
-| 20 | Consonante F | 71-74 | 4/4 | n/a | 3/4 | TEXT DONE, art done (foca confirmed absent) |
-| 21 | Consonante J | 75-78 | 4/4 | n/a | 0/4 | TEXT DONE, vocab art not yet audited (jabón/jirafa/joya/juguete) |
-| 22 | Consonante C | 79-82 | 4/4 | n/a | 1/4 | TEXT DONE, art done (casa fixed this session; queso/coco/cuchara not yet audited) |
-| 23 | Consonante Y | 83-86 | 4/4 | n/a | 2/4 | TEXT DONE, art done (yate/yoyo fixed this session; yegua confirmed absent) |
-| 24 | Consonante Z | 87-90 | 4/4 | n/a | 1/4 | TEXT DONE, art done (zapato fixed this session; zanahoria confirmed absent; cine not yet audited) |
+| 17 | Consonante R | 59-62 | 5/5 | n/a | 5/5 | DONE — vocab grew to 5 words (Rita found+cropped+wired 2026-07-18, was never extracted before) |
+| 18 | Consonante rr | 63-66 | 5/5 | n/a | 5/5 | DONE — vocab grew to 5 words (carrusel + Tierra found+cropped+wired 2026-07-18, were never extracted before) |
+| 19 | Consonante G | 67-70 | 5/5 | n/a | 5/5 | DONE |
+| 20 | Consonante F | 71-74 | 5/5 | n/a | 5/5 | DONE — current vocab is foto/fideos/familia/Felo/funda (foca is no longer a live word; the old note about it being "confirmed absent" is moot, not wrong) |
+| 21 | Consonante J | 75-78 | 5/5 | n/a | 5/5 | DONE — audited 2026-07-18 (jicotea/jugo/Jesús/ajo/jarra all verified correct + colored; this row's old word list (jabón/jirafa/joya/juguete) was stale, not the live vocab) |
+| 22 | Consonante C | 79-82 | 5/5 | n/a | 5/5 | DONE — audited 2026-07-18 (cuna/conejo/casa/cubo/Catalina all verified correct + colored; old word list (queso/coco/cuchara) was stale) |
+| 23 | Consonante Y | 83-86 | 5/5 | n/a | 5/5 | DONE — audited 2026-07-18 (yate/yema/Yayita/mayúscula/yoyo all verified correct + colored; old word list (yegua) was stale) |
+| 24 | Consonante Z | 87-90 | 5/5 | n/a | 5/5 | DONE — audited 2026-07-18 (zapato/zig-zag/zorro/zepelín/Zulema all verified correct + colored; old word list (zanahoria/cine) was stale) |
 
 **Note on "art done" above**: means every word in that lesson has either a
 real verified crop or a confirmed-absent finding (checked page-by-page against

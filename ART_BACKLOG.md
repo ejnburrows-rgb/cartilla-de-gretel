@@ -1,5 +1,113 @@
 # Art backlog — current, authoritative
 
+## Found during this PR's own pre-merge review (2026-07-18) — 2 real defects, excluded from the new animal gallery, real re-crop work still open
+Before merging the "Conoce a los animales" showcase page, opened every one of
+its 19 curated crops at full resolution (not just in the small card grid) as
+an independent check. Two failed:
+- **`leccion-18-rr/perro.webp` is the wrong species** — it shows a donkey/
+  horse (long ears, mane, brown fur), not a dog. This file is also wired
+  pre-existing (not introduced by this PR) into `src/data/page-layouts.json`
+  and `src/content/workbook/workbook-manifest.json` as the "perro" distractor
+  cell on the real digitized page 64 (RR syllable-match) — so this is live,
+  active harm to a real student exercise today, not just a new-page issue.
+  Left the existing wiring alone rather than stripping the `asset`/
+  `illustrationSrc` field there (unlike the vocab-card emoji-fallback cases
+  elsewhere in this file, a syllable-match grid cell needs *some* image to
+  stay laid out correctly — pulling it blind risks a worse, broken-looking
+  page). **Needs a real re-crop of an actual dog from the RR lesson's real
+  source scan** before it can be trusted anywhere, including back in the
+  animal gallery.
+- **`leccion-17-r/rana.webp` is a bad crop** — the frog itself is genuinely
+  correct, but the crop is too loose at the top: it's cut off mid-body and a
+  stray red numeral fragment from a neighboring page-number cell bleeds in.
+  Less severe than `perro` (right animal, wrong bounds), so left as-is in
+  `src/content/consonants.json`'s vocab game (still recognizably a frog, not
+  actively wrong content) but excluded from the new hand-verified animal
+  gallery, which holds a stricter bar. **Needs a tighter re-crop** — this
+  checkout only has `public/cartilla/art/hd/lineart/r-page-37.png` (grayscale
+  lineart) for the R lesson, no full-color source page, so a real re-crop
+  needs whoever has the color scan for lección 17.
+
+Both excluded from `src/content/animal-gallery.ts` before merge (was 19
+entries, is now 17) and guarded by a new test case in
+`src/content/__tests__/animal-gallery.test.ts` so neither file can silently
+sneak back into the gallery under a different word/entry.
+
+## ⭐ CANONICAL — colorization state is now MACHINE-ENFORCED (2026-07-18)
+
+Every prose "done/absent" claim in the dated sections below has, historically,
+turned out to drift from the actual data. That loop is now closed by a real
+guard instead of a doc:
+
+- **`scripts/validate-art-color.mjs`** runs in the build (`pnpm build` →
+  `validate:art-color`, so it gates CI) and is mirrored by
+  `src/content/__tests__/art-color-completeness.test.ts` (runs in `pnpm test`).
+  The two import the same lists/functions so they cannot drift.
+- It reads **actual pixels** and fails the build if any wired `illustrationSrc`
+  is **grayscale** (the exact bug — gray art passing size/existence checks —
+  that produced every "still not colored" surprise below).
+- It fails the build if any consonant vocab word falls back to an emoji with no
+  illustration **and** is not on the `CONFIRMED_ABSENT` list in that script.
+
+**`CONFIRMED_ABSENT` (27 words) is the single source of truth** for "this word
+has no picture anywhere in this book edition" — verified 2026-07-18 by opening
+every real source page per lesson (not from prior docs): `moto, mapa` (M);
+`pino, pulpo` (P); `sol, silla` (S); `tapa, tomate, tina, tulipán` (T —
+`t-page-17` is a pure word-list page, no picture panel); `delfín, dona, ducha`
+(D); `luna, lobo, loro, lupa` (L); `nariz, nube, nata` (N); `piña, muñeca` (Ñ);
+`barco, bici` (B); `vaca, vino, volcán` (V). These correctly show the emoji
+fallback. To change any of these, edit the list in `validate-art-color.mjs` —
+the doc follows the code, never the reverse.
+
+**Not covered (lessons not built yet, so not a live gap):** the CH/LL/H/K/W/X
+words (`caballo, cama, chaleco, chile, fila, llanta, llave, gota, hielo, hoja,
+kiwi, koala`) — their lessons aren't wired into `consonants.json` at all, so
+there is nothing to colorize until those lessons exist.
+
+The dated history below is kept for provenance but is **no longer the
+authority** — the guard is.
+
+---
+
+## RESOLVED 2026-07-18 — colorization pass: 1 real gray fix, 3 new words found+wired, 15 confirmed genuinely absent (closes the "15-word" list from the 2026-07-17 second pass below)
+
+Ran an automated saturation/hue scan (not eyeballing) across all 167 wired
+`.webp` crops in `public/cartilla/art/faithful/` to catch any still-gray
+line art. Only one live-wired file came back truly grayscale (R≈G≈B, not
+just pale): `vocal-u/uña.webp`. Traced it to its only two appearances in
+the book (`u-page-16.jpg`, `u-page-17.jpg`, both "marca con X"/"traza
+línea" exercise pages) — both are genuinely teal/gray duotone by the
+book's own design, same pattern already established for `arco`/`pez`/
+`traje`. No colored version exists anywhere else in the book. Re-cropped
+clean from the source scan (the previously-wired file was additionally
+degraded — dithered pure black/white, likely from an old B&W-mode scan
+pass — not real gray) and hand-colorized: skin-tone gradient mapped from
+the original line-art luminance for the fingertip, pale pink flood-filled
+into the enclosed nail oval. Same treatment as the already-shipped
+`uniforme`/`abeja`/etc. colorizations, keeping the exact line art.
+
+**The "15-word" open list from the 2026-07-17 pass below (`moto`, `mapa`,
+`pulpo`, `sol`, `silla`, `delfín`, `ducha`, `luna`, `lupa`, `nariz`,
+`nube`, `nata`, `piña`, `muñeca`, `barco`) — CONFIRMED GENUINELY ABSENT.**
+Opened every real source page for lessons M, P, S, D, L, N, Ñ, B (all 4-6
+pages per lesson, not just the vocab page) directly, word by word. None of
+these 15 words appear as an illustrated picture anywhere in their lesson's
+real source scans — they're syllable-example words in the `examples`
+field that were never actually illustrated in this book edition, not
+crops that exist but are mis-pointed. Correct to keep showing the emoji
+fallback; nothing to extract. (Also re-confirmed already-fixed: `sapo`,
+`sopa`, `dado`, `mono`, `rosa`, `remo` are all correct, real, live — no
+action needed, contradicts stale notes elsewhere in this file.)
+
+**3 new words found and wired** (existed in real color on their source
+page, just never cropped before — not part of the 15-word list above):
+`Rita` (r-page-37, girl with two butterflies — leccion-17-r/rita.webp),
+`carrusel` and `Tierra` (both rr-page-40 — leccion-18-rr/carrusel.webp,
+leccion-18-rr/tierra.webp). All 3 added to `src/content/consonants.json`.
+
+Verified: `pnpm tsc --noEmit` / `pnpm test` (477 pass, 2 expected fail,
+unchanged baseline) / `pnpm build` all clean.
+
 ## RESOLVED 2026-07-17 (second pass) — the "FULL AUDIT COMPLETE" claim below was also stale; found and fixed 15 more wrong-content words live on `main`
 
 Despite this file's own "🎉 FULL AUDIT COMPLETE" section further down claiming

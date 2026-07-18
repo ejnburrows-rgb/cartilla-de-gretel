@@ -29,6 +29,7 @@ import { Route as CartillaMiProgresoRouteImport } from './routes/cartilla/mi-pro
 import { Route as CartillaLeccionesRouteImport } from './routes/cartilla/lecciones'
 import { Route as CartillaAyudaRouteImport } from './routes/cartilla/ayuda'
 import { Route as CartillaAutoraRouteImport } from './routes/cartilla/autora'
+import { Route as CartillaAnimalesRouteImport } from './routes/cartilla/animales'
 import { Route as CartillaTeacherRouteRouteImport } from './routes/cartilla/teacher/route'
 import { Route as CartillaTeacherIndexRouteImport } from './routes/cartilla/teacher/index'
 import { Route as CartillaTeacherRosterRouteImport } from './routes/cartilla/teacher/roster'
@@ -155,6 +156,11 @@ const CartillaAyudaRoute = CartillaAyudaRouteImport.update({
 const CartillaAutoraRoute = CartillaAutoraRouteImport.update({
   id: '/cartilla/autora',
   path: '/cartilla/autora',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CartillaAnimalesRoute = CartillaAnimalesRouteImport.update({
+  id: '/cartilla/animales',
+  path: '/cartilla/animales',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CartillaTeacherRouteRoute = CartillaTeacherRouteRouteImport.update({
@@ -315,6 +321,7 @@ export interface FileRoutesByFullPath {
   '/intro': typeof IntroRoute
   '/login': typeof LoginRoute
   '/cartilla/teacher': typeof CartillaTeacherRouteRouteWithChildren
+  '/cartilla/animales': typeof CartillaAnimalesRoute
   '/cartilla/autora': typeof CartillaAutoraRoute
   '/cartilla/ayuda': typeof CartillaAyudaRoute
   '/cartilla/lecciones': typeof CartillaLeccionesRoute
@@ -363,6 +370,7 @@ export interface FileRoutesByTo {
   '/dev-workbook-manifest': typeof DevWorkbookManifestRoute
   '/intro': typeof IntroRoute
   '/login': typeof LoginRoute
+  '/cartilla/animales': typeof CartillaAnimalesRoute
   '/cartilla/autora': typeof CartillaAutoraRoute
   '/cartilla/ayuda': typeof CartillaAyudaRoute
   '/cartilla/lecciones': typeof CartillaLeccionesRoute
@@ -410,6 +418,7 @@ export interface FileRoutesById {
   '/intro': typeof IntroRoute
   '/login': typeof LoginRoute
   '/cartilla/teacher': typeof CartillaTeacherRouteRouteWithChildren
+  '/cartilla/animales': typeof CartillaAnimalesRoute
   '/cartilla/autora': typeof CartillaAutoraRoute
   '/cartilla/ayuda': typeof CartillaAyudaRoute
   '/cartilla/lecciones': typeof CartillaLeccionesRoute
@@ -461,6 +470,7 @@ export interface FileRouteTypes {
     | '/intro'
     | '/login'
     | '/cartilla/teacher'
+    | '/cartilla/animales'
     | '/cartilla/autora'
     | '/cartilla/ayuda'
     | '/cartilla/lecciones'
@@ -509,6 +519,7 @@ export interface FileRouteTypes {
     | '/dev-workbook-manifest'
     | '/intro'
     | '/login'
+    | '/cartilla/animales'
     | '/cartilla/autora'
     | '/cartilla/ayuda'
     | '/cartilla/lecciones'
@@ -555,6 +566,7 @@ export interface FileRouteTypes {
     | '/intro'
     | '/login'
     | '/cartilla/teacher'
+    | '/cartilla/animales'
     | '/cartilla/autora'
     | '/cartilla/ayuda'
     | '/cartilla/lecciones'
@@ -605,6 +617,7 @@ export interface RootRouteChildren {
   IntroRoute: typeof IntroRoute
   LoginRoute: typeof LoginRoute
   CartillaTeacherRouteRoute: typeof CartillaTeacherRouteRouteWithChildren
+  CartillaAnimalesRoute: typeof CartillaAnimalesRoute
   CartillaAutoraRoute: typeof CartillaAutoraRoute
   CartillaAyudaRoute: typeof CartillaAyudaRoute
   CartillaLeccionesRoute: typeof CartillaLeccionesRoute
@@ -763,6 +776,13 @@ declare module '@tanstack/react-router' {
       path: '/cartilla/autora'
       fullPath: '/cartilla/autora'
       preLoaderRoute: typeof CartillaAutoraRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cartilla/animales': {
+      id: '/cartilla/animales'
+      path: '/cartilla/animales'
+      fullPath: '/cartilla/animales'
+      preLoaderRoute: typeof CartillaAnimalesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cartilla/teacher': {
@@ -1055,6 +1075,7 @@ const rootRouteChildren: RootRouteChildren = {
   IntroRoute: IntroRoute,
   LoginRoute: LoginRoute,
   CartillaTeacherRouteRoute: CartillaTeacherRouteRouteWithChildren,
+  CartillaAnimalesRoute: CartillaAnimalesRoute,
   CartillaAutoraRoute: CartillaAutoraRoute,
   CartillaAyudaRoute: CartillaAyudaRoute,
   CartillaLeccionesRoute: CartillaLeccionesRoute,
