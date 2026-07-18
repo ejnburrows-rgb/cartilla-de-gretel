@@ -6,6 +6,8 @@ import { useExerciseStats, isLessonWeak, lessonAccuracy, resetStats } from "@/li
 import { useLanguage } from "@/context/LanguageContext";
 import { LanguageToggle } from "@/components/LanguageToggle";
 import { sCopy } from "@/content/student-copy";
+import { GardenBackdrop } from "@/components/cartilla/GardenBackdrop";
+import { KidButton } from "@/components/ui/KidButton";
 
 export const Route = createFileRoute("/cartilla/repaso")({
   component: Repaso,
@@ -24,58 +26,62 @@ function Repaso() {
   );
 
   return (
-    <div className="min-h-screen bg-background">
-      <header className="px-4 pt-5 pb-4 max-w-5xl mx-auto">
-        <div className="flex items-center justify-between gap-3 mb-4 flex-wrap">
-          <Link
-            to="/cartilla/lecciones"
-            className="inline-flex items-center gap-2 text-sm font-bold text-foreground/70 hover:text-foreground"
-          >
-            <ArrowLeft className="w-4 h-4" /> {t.lecciones[lang]}
-          </Link>
-          <div className="flex items-center gap-3">
-            <LanguageToggle />
-            <button
-              type="button"
-              onClick={() => {
-                if (window.confirm(t.olvidarResultados[lang])) resetStats();
-              }}
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-foreground/60 hover:text-destructive"
+    <div className="min-h-screen relative">
+      <GardenBackdrop variant="soft" />
+      <div className="relative z-10">
+        <header className="px-4 pt-5 pb-4 max-w-5xl mx-auto">
+          <div className="flex items-center justify-between gap-3 mb-4 flex-wrap">
+            <Link
+              to="/cartilla/lecciones"
+              className="inline-flex items-center gap-2 text-sm font-bold text-foreground/70 hover:text-foreground"
             >
-              <RotateCcw className="w-3.5 h-3.5" /> {t.reiniciarRepaso[lang]}
-            </button>
+              <ArrowLeft className="w-4 h-4" /> {t.lecciones[lang]}
+            </Link>
+            <div className="flex items-center gap-3">
+              <LanguageToggle />
+              <KidButton
+                type="button"
+                variant="outline"
+                onClick={() => {
+                  if (window.confirm(t.olvidarResultados[lang])) resetStats();
+                }}
+                className="!px-3 !py-1.5 !text-xs !bg-white/50 hover:!bg-red-50 hover:!text-red-600 hover:!border-red-200"
+              >
+                <RotateCcw className="w-3.5 h-3.5" /> {t.reiniciarRepaso[lang]}
+              </KidButton>
+            </div>
           </div>
-        </div>
-        <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-primary mb-1">
-          <Sparkles className="w-3.5 h-3.5" /> {t.modoRepaso[lang]}
-        </div>
-        <h1 className="text-3xl sm:text-4xl font-bold leading-tight">{t.practicaFalta[lang]}</h1>
-        <p className="text-foreground/70 mt-1">{t.mostramosPrimero[lang]}</p>
-      </header>
+          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-primary mb-1">
+            <Sparkles className="w-3.5 h-3.5" /> {t.modoRepaso[lang]}
+          </div>
+          <h1 className="text-3xl sm:text-4xl font-bold leading-tight">{t.practicaFalta[lang]}</h1>
+          <p className="text-foreground/70 mt-1">{t.mostramosPrimero[lang]}</p>
+        </header>
 
-      <main className="px-4 pb-24 max-w-5xl mx-auto space-y-8">
-        <Section
-          title={t.paraReforzar[lang]}
-          icon={<AlertTriangle className="w-4 h-4" />}
-          tone="text-destructive"
-          emptyText={t.bienHechoRepaso[lang]}
-          entries={weak}
-          stats={stats}
-          showAccuracy
-          lang={lang}
-          t={t}
-        />
-        <Section
-          title={t.pendientes[lang]}
-          icon={<BookOpen className="w-4 h-4" />}
-          tone="text-primary"
-          emptyText={t.hasCompletado[lang]}
-          entries={pending}
-          stats={stats}
-          lang={lang}
-          t={t}
-        />
-      </main>
+        <main className="px-4 pb-24 max-w-5xl mx-auto space-y-8">
+          <Section
+            title={t.paraReforzar[lang]}
+            icon={<AlertTriangle className="w-4 h-4" />}
+            tone="text-destructive"
+            emptyText={t.bienHechoRepaso[lang]}
+            entries={weak}
+            stats={stats}
+            showAccuracy
+            lang={lang}
+            t={t}
+          />
+          <Section
+            title={t.pendientes[lang]}
+            icon={<BookOpen className="w-4 h-4" />}
+            tone="text-primary"
+            emptyText={t.hasCompletado[lang]}
+            entries={pending}
+            stats={stats}
+            lang={lang}
+            t={t}
+          />
+        </main>
+      </div>
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Shimmer } from "@/components/feel/Shimmer";
 
 interface BookPageImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   wrapperClassName?: string;
@@ -30,7 +31,9 @@ export function BookPageImage({
       className={`relative w-full h-full flex items-center justify-center overflow-hidden bg-surface rounded-sm drop-shadow-md border border-border ${wrapperClassName}`}
     >
       {!isLoaded && !hasError && (
-        <div className="absolute inset-0 z-0 bg-stone-200 animate-pulse" />
+        <div className="absolute inset-0 z-0 bg-stone-100/50">
+          <Shimmer />
+        </div>
       )}
 
       {hasError ? (

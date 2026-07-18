@@ -9,6 +9,9 @@ import { useStudentSession } from "@/lib/student-session";
 import { useLanguage } from "@/context/LanguageContext";
 import { LanguageToggle } from "@/components/LanguageToggle";
 import { sCopy } from "@/content/student-copy";
+import { GardenBackdrop } from "@/components/cartilla/GardenBackdrop";
+import { GretelPresence } from "@/components/gretel/GretelPresence";
+import { playUiTick } from "@/lib/piano-audio";
 
 export const Route = createFileRoute("/cartilla/lecciones")({
   component: Lecciones,
@@ -48,8 +51,9 @@ function Lecciones() {
 
   return (
     <div className="min-h-screen bg-stone-50 overflow-hidden relative pb-32">
+      <GretelPresence variant="home" className="fixed bottom-0 right-0 z-50 pointer-events-none" />
       {/* Background decoration */}
-      <div className="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-orange-100/50 to-transparent pointer-events-none" />
+      <GardenBackdrop variant="soft" />
 
       <header className="px-4 pt-8 pb-4 max-w-2xl mx-auto relative z-10 text-center">
         <div className="flex items-center justify-between mb-8">
@@ -88,7 +92,7 @@ function Lecciones() {
 
       <main className="px-4 max-w-2xl mx-auto relative mt-12">
         {/* The Path Line */}
-        <div className="absolute top-0 bottom-0 left-1/2 w-4 bg-stone-200 rounded-full -translate-x-1/2 opacity-50 shadow-inner"></div>
+        <div className="absolute top-0 bottom-0 left-1/2 w-4 bg-[var(--book-teal)] rounded-full -translate-x-1/2 opacity-50 shadow-inner"></div>
 
         <div className="flex flex-col items-center gap-10">
           {CATALOG.map((entry, i) => {
@@ -110,10 +114,12 @@ function Lecciones() {
                   <Link
                     to="/cartilla/leccion/$n"
                     params={{ n: String(entry.n) }}
-                    className={`relative w-24 h-24 rounded-full flex flex-col items-center justify-center text-white font-black text-2xl transition-all duration-300 shadow-xl border-b-8 active:border-b-0 active:translate-y-2 hover:scale-105 ${done ? "opacity-100" : "animate-bounce"}`}
+                    onClick={() => playUiTick()}
+                    className={`relative w-24 h-24 rounded-[var(--student-radius,999px)] flex flex-col items-center justify-center text-white font-black text-2xl transition-all duration-300 shadow-xl border-b-8 active:border-b-0 active:translate-y-2 hover:scale-105 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 ${done ? "opacity-100" : "pulse-soft"}`}
                     style={{
                       backgroundColor: nodeColor,
-                      borderColor: "rgba(0,0,0,0.2)",
+                      borderColor: `color-mix(in srgb, ${nodeColor} 20%, black)`,
+                      animationDelay: `${i * 0.15}s`,
                     }}
                   >
                     {done ? <Check className="w-10 h-10 drop-shadow-md" /> : <span>{entry.n}</span>}
@@ -126,7 +132,7 @@ function Lecciones() {
                     </div>
                   </Link>
                 ) : (
-                  <div className="relative w-20 h-20 rounded-full bg-stone-200 flex items-center justify-center shadow-inner border-4 border-stone-100 cursor-not-allowed opacity-80">
+                  <div className="relative w-20 h-20 rounded-full bg-[var(--book-paper)] flex items-center justify-center shadow-sm border-4 border-[var(--book-teal)] cursor-not-allowed opacity-80">
                     <Lock className="w-8 h-8 text-stone-400" />
 
                     {/* Floating Label */}

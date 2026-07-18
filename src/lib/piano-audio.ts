@@ -11,6 +11,8 @@ function getAudioContext(): AudioContext | null {
   return audioCtx;
 }
 
+import { audioEngine } from "./audio-engine";
+
 export function playNote(freq: number, duration = 0.8) {
   const ctx = getAudioContext();
   if (!ctx) return;
@@ -132,3 +134,9 @@ export const NOTE_FREQS = {
   B: 493.88,
   C5: 523.25,
 };
+
+export function playUiTick() {
+  if (typeof window === "undefined" || audioEngine.isMuted()) return;
+  // A soft, short tick using a high note (e.g., C6)
+  playNote(1046.5, 0.15);
+}

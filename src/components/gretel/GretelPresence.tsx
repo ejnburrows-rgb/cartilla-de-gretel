@@ -140,7 +140,9 @@ export function GretelPresence({
     >
       {!hideChrome ? (
         <div className="gretel-presence__chrome">
-          <p className="gretel-presence__name">Gretel</p>
+          <p className="gretel-presence__name px-3 py-1 bg-white text-stone-700 font-bold text-xs rounded-full border shadow-sm">
+            Gretel
+          </p>
           <button
             type="button"
             onClick={toggleMute}

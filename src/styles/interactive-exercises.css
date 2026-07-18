@@ -72,8 +72,9 @@
   box-shadow: 0 3px 10px -6px rgba(0, 0, 0, 0.25);
 }
 .fp-ix-cell:hover {
-  transform: translateY(-1px) scale(1.02);
+  transform: translateY(-1px) scale(0.97);
   border-color: var(--ix-accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--ix-accent) 30%, transparent);
 }
 .fp-ix-cell img {
   max-width: 100%;
