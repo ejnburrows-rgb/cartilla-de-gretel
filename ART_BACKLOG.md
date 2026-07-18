@@ -1,37 +1,60 @@
 # Art backlog — current, authoritative
 
-## Found during this PR's own pre-merge review (2026-07-18) — 2 real defects, excluded from the new animal gallery, real re-crop work still open
+## RESOLVED 2026-07-18 (follow-up) — perro was a mislabeled burro crop (real book has no dog art here); rana re-cropped clean from the real color source
+Follow-up to the pre-merge review below: found the real, full-color source
+pages this checkout has under `public/cartilla/images/source-original/` (not
+just the `hd/lineart` grayscale scans) and ran both defects to ground.
+
+- **`perro` was never a real crop — it was `burro` (donkey) mislabeled.**
+  Traced `leccion-18-rr/perro.webp`'s `sourceFlipchartPage` in the manifest
+  (`rr-page-40.jpg`) to the real color source
+  (`public/cartilla/images/source-original/rr/rr-page-40.jpg`) and the
+  illustration at that crop box is printed with the caption **"burro"**, not
+  "perro" — a real donkey, correctly cropped, just wired under the wrong
+  word. Checked both real physical pages that reference "perro"
+  (`hd/workbook/page-064.jpg` and `page-066.jpg`, book pages 64 and 66,
+  lección 17/18): both are plain word-matching/fill-in-blank text exercises
+  with **no picture panel at all** — this book edition has no dog
+  illustration anywhere in these lessons. So there is nothing to re-crop;
+  "perro" is correctly a text/emoji-only word, same status as the
+  CONFIRMED_ABSENT vocab words elsewhere in this file. Fixed:
+  - Moved the file to
+    `_needs-recrop/perro-actually-shows-burro-donkey.webp` (kept, not
+    deleted, per the never-delete rule) and removed its now-wrong manifest
+    entry.
+  - Removed the `illustrationSrc`/`asset` pointing at it from
+    `src/data/page-layouts.json` (2 spots: the p64 `rre` syllable-match cell,
+    the p65 fill-in-blank item) and `src/content/workbook/workbook-manifest.json`
+    (2 spots: `p64-syl-1-0-0`, `p66-word-0`), changing those cells' `type`
+    from `illustration` to `word` — matching how every other real
+    non-illustrated distractor word in the same arrays (`barrio`, `cigarro`,
+    `burro` itself in the page-65 fill-in-blank) already renders correctly
+    today, so this is a same-pattern fix, not new UI.
+- **`rana` re-cropped clean.** The real color source
+  (`public/cartilla/images/source-original/r/r-page-37.jpg`) has a tight,
+  correctly-isolated frog illustration — the old crop's problem was purely a
+  bad crop box (it started a few pixels into the decorative red "R" letter's
+  tail-swash above the frog cell, which is what the "stray red numeral"
+  actually was). Re-cropped at `[60, 1325, 630, 500]` on that source (was
+  `[231, 1095, 575, 398]`) — full frog, no bleed, no text. Verified with
+  `validate-art-color.mjs`'s own color-spread check (spread 156, comfortably
+  above the 6.0 grayscale threshold) and in-browser.
+
+Both fixes verified: `pnpm typecheck` / `pnpm test` / `pnpm build` clean.
+`rana` is back in `src/content/animal-gallery.ts`; `perro` stays excluded
+(correctly — there's no real crop to include). The bad-crop-file test guard
+in `src/content/__tests__/animal-gallery.test.ts` was updated to match.
+
+## Found during this PR's own pre-merge review (2026-07-18) — 2 real defects, excluded from the new animal gallery (see follow-up above — both now resolved)
 Before merging the "Conoce a los animales" showcase page, opened every one of
 its 19 curated crops at full resolution (not just in the small card grid) as
-an independent check. Two failed:
-- **`leccion-18-rr/perro.webp` is the wrong species** — it shows a donkey/
-  horse (long ears, mane, brown fur), not a dog. This file is also wired
-  pre-existing (not introduced by this PR) into `src/data/page-layouts.json`
-  and `src/content/workbook/workbook-manifest.json` as the "perro" distractor
-  cell on the real digitized page 64 (RR syllable-match) — so this is live,
-  active harm to a real student exercise today, not just a new-page issue.
-  Left the existing wiring alone rather than stripping the `asset`/
-  `illustrationSrc` field there (unlike the vocab-card emoji-fallback cases
-  elsewhere in this file, a syllable-match grid cell needs *some* image to
-  stay laid out correctly — pulling it blind risks a worse, broken-looking
-  page). **Needs a real re-crop of an actual dog from the RR lesson's real
-  source scan** before it can be trusted anywhere, including back in the
-  animal gallery.
-- **`leccion-17-r/rana.webp` is a bad crop** — the frog itself is genuinely
-  correct, but the crop is too loose at the top: it's cut off mid-body and a
-  stray red numeral fragment from a neighboring page-number cell bleeds in.
-  Less severe than `perro` (right animal, wrong bounds), so left as-is in
-  `src/content/consonants.json`'s vocab game (still recognizably a frog, not
-  actively wrong content) but excluded from the new hand-verified animal
-  gallery, which holds a stricter bar. **Needs a tighter re-crop** — this
-  checkout only has `public/cartilla/art/hd/lineart/r-page-37.png` (grayscale
-  lineart) for the R lesson, no full-color source page, so a real re-crop
-  needs whoever has the color scan for lección 17.
-
-Both excluded from `src/content/animal-gallery.ts` before merge (was 19
-entries, is now 17) and guarded by a new test case in
-`src/content/__tests__/animal-gallery.test.ts` so neither file can silently
-sneak back into the gallery under a different word/entry.
+an independent check. Two failed — `leccion-18-rr/perro.webp` was the wrong
+species (a donkey, not a dog) and `leccion-17-r/rana.webp` was a bad crop (cut
+off, a stray fragment bleeding in from a neighboring cell). Both excluded from
+`src/content/animal-gallery.ts` before merge (was 19 entries, briefly 17) and
+guarded by a new test case in `src/content/__tests__/animal-gallery.test.ts`
+so neither file could silently sneak back into the gallery under a different
+word/entry while the real fix was pending.
 
 ## ⭐ CANONICAL — colorization state is now MACHINE-ENFORCED (2026-07-18)
 

@@ -51,14 +51,16 @@ describe("animal-gallery integrity", () => {
     }
   });
 
-  it("never links to the specific bad crop files found during this file's own review", () => {
-    // leccion-18-rr/perro.webp is a donkey/horse, not a dog (wrong species).
-    // leccion-17-r/rana.webp is a bad crop — the frog is cut off and a stray
-    // red numeral fragment bleeds in from a neighboring cell. Both need a real
-    // re-crop (see ART_BACKLOG.md) before "perro"/"rana" can rejoin this
-    // gallery — this guard stops either bad file sneaking back in under a
-    // different word/entry in the meantime.
-    const bannedCrops = ["leccion-18-rr/perro.webp", "leccion-17-r/rana.webp"];
+  it("never links to the specific bad crop file found during this file's own review", () => {
+    // leccion-18-rr/perro.webp was actually a photo of a donkey ("burro"),
+    // not a dog — the real book has no dog illustration in lessons 17/18 at
+    // all. The file was moved to
+    // _needs-recrop/perro-actually-shows-burro-donkey.webp; this guard stops
+    // it sneaking back into the gallery under a different word/entry.
+    // (leccion-17-r/rana.webp was also flagged here for a bad crop, but has
+    // since been re-cropped clean from the real source page and rejoined the
+    // gallery above — see ART_BACKLOG.md.)
+    const bannedCrops = ["leccion-18-rr/perro.webp"];
     for (const a of ANIMAL_GALLERY) {
       for (const bad of bannedCrops) {
         expect(a.illustrationSrc.endsWith(bad), `${a.word} uses a known-bad crop (${bad})`).toBe(

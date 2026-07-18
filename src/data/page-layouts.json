@@ -5680,8 +5680,7 @@
             [
               {
                 "word": "perro",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/perro.webp"
+                "correct": true
               },
               {
                 "word": "barrio",
@@ -5844,7 +5843,6 @@
           "fillItems": [
             {
               "wordBox": "perro",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/perro.webp",
               "blank": "rro",
               "choices": [
                 {

@@ -1214,10 +1214,10 @@
     "src": "/cartilla/art/faithful/leccion-17-r/rana.webp",
     "sourceFlipchartPage": "r-page-37.jpg",
     "cropBox": [
-      231,
-      1095,
-      575,
-      398
+      60,
+      1325,
+      630,
+      500
     ]
   },
   {
@@ -1246,20 +1246,6 @@
       1300,
       590,
       580
-    ]
-  },
-  {
-    "slug": "perro",
-    "word": "perro",
-    "lessonNumber": 18,
-    "pageNumber": null,
-    "src": "/cartilla/art/faithful/leccion-18-rr/perro.webp",
-    "sourceFlipchartPage": "rr-page-40.jpg",
-    "cropBox": [
-      230,
-      1094,
-      574,
-      398
     ]
   },
   {
