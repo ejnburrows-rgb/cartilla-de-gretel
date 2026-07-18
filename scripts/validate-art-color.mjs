@@ -1,0 +1,224 @@
+#!/usr/bin/env node
+/**
+ * scripts/validate-art-color.mjs
+ *
+ * The colorization invariant this repo kept losing. Existence/size validators
+ * (validate-content.mjs, art-slots-integrity.test.ts) pass on a fully-formed
+ * *grayscale* webp, so uncolored book drawings (uña, uniforme, abeja, ...)
+ * shipped invisibly again and again. This reads actual pixels and fails on:
+ *
+ *   1. COLOR       — any wired illustrationSrc that is grayscale, not colored.
+ *   2. COMPLETENESS — any consonant vocab word that fell back to an emoji with
+ *                     no illustration and no explicit "not in the book" triage.
+ *
+ * Runs in the build chain (package.json "build" → "validate:art-color") so it
+ * gates CI, and its lists/functions are imported by
+ * src/content/__tests__/art-color-completeness.test.ts so the test and the
+ * build check can never drift.
+ *
+ * Uses sharp for pixel decoding (webp-capable; the canvas dep is not, in this
+ * build).
+ */
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import sharp from "sharp";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const rootDir = path.resolve(__dirname, "..");
+const publicRoot = path.join(rootDir, "public");
+
+function readJson(rel) {
+  return JSON.parse(fs.readFileSync(path.join(rootDir, rel), "utf8"));
+}
+
+/** Recursively gather every `illustrationSrc` string in a data blob. */
+export function collectSrcs(obj, into = new Set()) {
+  if (!obj || typeof obj !== "object") return into;
+  if (Array.isArray(obj)) {
+    for (const v of obj) collectSrcs(v, into);
+    return into;
+  }
+  for (const [k, v] of Object.entries(obj)) {
+    if (k === "illustrationSrc" && typeof v === "string") into.add(v);
+    else collectSrcs(v, into);
+  }
+  return into;
+}
+
+/** Every wired illustrationSrc across the three live data files. */
+export function collectWiredSrcs() {
+  const set = new Set();
+  collectSrcs(readJson("src/content/consonants.json"), set);
+  collectSrcs(readJson("src/content/lessons.json"), set);
+  collectSrcs(readJson("src/data/page-layouts.json"), set);
+  return [...set].sort();
+}
+
+/**
+ * Mean per-pixel channel spread over non-background pixels. Grayscale ⇒ R≈G≈B ⇒
+ * ~0. Any real color (including the book's teal duotone pages) scores well
+ * above the threshold. Calibrated against every currently-wired crop: the
+ * lowest colored crop scores ~10; pure grayscale scores ~0. Threshold 6 sits in
+ * that gap.
+ */
+export const COLOR_MIN_SPREAD = 6;
+
+/**
+ * Slugs the book itself prints as a genuinely uncolorable grayscale drawing may
+ * be listed here to bypass the color check. EMPTY on purpose: the pages once
+ * assumed duotone (arco/pez/traje) are actually teal-colored, and uña has been
+ * colorized — none need an exception. Kept as the documented escape hatch so a
+ * future real grayscale-only drawing has a home instead of someone lowering the
+ * threshold for everything.
+ */
+export const DUOTONE_ALLOWLIST = new Set([]);
+
+export async function meanColorSpread(rel) {
+  const abs = path.join(publicRoot, rel.replace(/^\//, ""));
+  const { data, info } = await sharp(abs)
+    .resize(140, 140, { fit: "inside" })
+    .raw()
+    .toBuffer({ resolveWithObject: true });
+  const ch = info.channels;
+  let sum = 0;
+  let n = 0;
+  for (let i = 0; i < data.length; i += ch) {
+    const r = data[i];
+    const g = data[i + 1];
+    const b = data[i + 2];
+    if (r > 245 && g > 245 && b > 245) continue; // skip white background
+    if (ch === 4 && data[i + 3] < 20) continue; // skip transparent
+    sum += Math.max(Math.abs(r - g), Math.abs(g - b), Math.abs(r - b));
+    n++;
+  }
+  return n ? sum / n : 0;
+}
+
+/** Returns the list of wired srcs that are grayscale (violations). */
+export async function findGrayscaleArt() {
+  const gray = [];
+  await Promise.all(
+    collectWiredSrcs().map(async (rel) => {
+      const slug =
+        rel
+          .split("/")
+          .pop()
+          ?.replace(/\.\w+$/, "") ?? rel;
+      if (DUOTONE_ALLOWLIST.has(slug)) return;
+      const spread = await meanColorSpread(rel);
+      if (spread < COLOR_MIN_SPREAD) gray.push({ rel, spread });
+    }),
+  );
+  return gray;
+}
+
+/**
+ * Consonant vocab words that appear (as text) in a lesson but have NO
+ * illustration anywhere in this book edition — verified by opening every real
+ * source page for the lesson, not from prior docs. They correctly fall back to
+ * emoji.
+ */
+export const CONFIRMED_ABSENT = new Set([
+  // L7 M (m-page-8 picture panel: mamá/mono/... only)
+  "moto",
+  "mapa",
+  // L8 P
+  "pino",
+  "pulpo",
+  // L9 S
+  "sol",
+  "silla",
+  // L10 T (t-page-17 is a pure word-list page — no picture panel at all)
+  "tapa",
+  "tomate",
+  "tina",
+  "tulipán",
+  // L11 D
+  "delfín",
+  "dona",
+  "ducha",
+  // L12 L (l-page-22 panel: maleta/lata/Luli/loma/Lala)
+  "luna",
+  "lobo",
+  "loro",
+  "lupa",
+  // L13 N (n-page-25 panel: nido/nudo/mono/Napi/tenedor)
+  "nariz",
+  "nube",
+  "nata",
+  // L14 Ñ (ñ-page-28 panel: piñata/Ñuno/niñito/moño/Meñe)
+  "piña",
+  "muñeca",
+  // L15 B (b-page-31 panel: Beba/Bubi/bate/bota/bebita)
+  "barco",
+  "bici",
+  // L16 V (v-page-34 panel: vaso/vela/Vita/pavo/Vuli)
+  "vaca",
+  "vino",
+  "volcán",
+]);
+
+/** Emoji-only consonant vocab words that are not on CONFIRMED_ABSENT. */
+export function findUntriagedGaps() {
+  const consonants = readJson("src/content/consonants.json");
+  const untriaged = [];
+  for (const lesson of consonants) {
+    for (const v of lesson.vocab ?? []) {
+      if (!v.illustrationSrc && !CONFIRMED_ABSENT.has(v.word)) {
+        untriaged.push(`L${lesson.lesson}:${v.word}`);
+      }
+    }
+  }
+  return untriaged;
+}
+
+/** CONFIRMED_ABSENT entries that are actually wired now (stale list entries). */
+export function findStaleAbsent() {
+  const consonants = readJson("src/content/consonants.json");
+  const wired = new Set();
+  for (const lesson of consonants) {
+    for (const v of lesson.vocab ?? []) {
+      if (v.illustrationSrc) wired.add(v.word);
+    }
+  }
+  return [...CONFIRMED_ABSENT].filter((w) => wired.has(w));
+}
+
+// ── Run as a build gate when invoked directly ────────────────────────────────
+async function main() {
+  const errors = [];
+
+  const gray = await findGrayscaleArt();
+  for (const { rel, spread } of gray) {
+    errors.push(`GRAYSCALE art wired: ${rel} (spread ${spread.toFixed(1)} < ${COLOR_MIN_SPREAD})`);
+  }
+
+  for (const gap of findUntriagedGaps()) {
+    errors.push(
+      `UNTRIAGED emoji-only vocab: ${gap} — crop the real book art or add to CONFIRMED_ABSENT`,
+    );
+  }
+
+  for (const stale of findStaleAbsent()) {
+    errors.push(`STALE CONFIRMED_ABSENT entry (it is wired now): ${stale}`);
+  }
+
+  if (errors.length) {
+    console.error("✗ validate-art-color: colorization invariant violated\n");
+    for (const e of errors) console.error("  - " + e);
+    console.error(`\n${errors.length} problem(s).`);
+    process.exit(1);
+  }
+  console.log(
+    `✓ validate-art-color: ${collectWiredSrcs().length} wired crops all colored; ` +
+      `${CONFIRMED_ABSENT.size} emoji-only words triaged as genuinely absent.`,
+  );
+}
+
+if (import.meta.url === `file://${process.argv[1]}`) {
+  main().catch((e) => {
+    console.error("validate-art-color crashed:", e);
+    process.exit(1);
+  });
+}

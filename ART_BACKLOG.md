@@ -1,5 +1,41 @@
 # Art backlog — current, authoritative
 
+## ⭐ CANONICAL — colorization state is now MACHINE-ENFORCED (2026-07-18)
+
+Every prose "done/absent" claim in the dated sections below has, historically,
+turned out to drift from the actual data. That loop is now closed by a real
+guard instead of a doc:
+
+- **`scripts/validate-art-color.mjs`** runs in the build (`pnpm build` →
+  `validate:art-color`, so it gates CI) and is mirrored by
+  `src/content/__tests__/art-color-completeness.test.ts` (runs in `pnpm test`).
+  The two import the same lists/functions so they cannot drift.
+- It reads **actual pixels** and fails the build if any wired `illustrationSrc`
+  is **grayscale** (the exact bug — gray art passing size/existence checks —
+  that produced every "still not colored" surprise below).
+- It fails the build if any consonant vocab word falls back to an emoji with no
+  illustration **and** is not on the `CONFIRMED_ABSENT` list in that script.
+
+**`CONFIRMED_ABSENT` (27 words) is the single source of truth** for "this word
+has no picture anywhere in this book edition" — verified 2026-07-18 by opening
+every real source page per lesson (not from prior docs): `moto, mapa` (M);
+`pino, pulpo` (P); `sol, silla` (S); `tapa, tomate, tina, tulipán` (T —
+`t-page-17` is a pure word-list page, no picture panel); `delfín, dona, ducha`
+(D); `luna, lobo, loro, lupa` (L); `nariz, nube, nata` (N); `piña, muñeca` (Ñ);
+`barco, bici` (B); `vaca, vino, volcán` (V). These correctly show the emoji
+fallback. To change any of these, edit the list in `validate-art-color.mjs` —
+the doc follows the code, never the reverse.
+
+**Not covered (lessons not built yet, so not a live gap):** the CH/LL/H/K/W/X
+words (`caballo, cama, chaleco, chile, fila, llanta, llave, gota, hielo, hoja,
+kiwi, koala`) — their lessons aren't wired into `consonants.json` at all, so
+there is nothing to colorize until those lessons exist.
+
+The dated history below is kept for provenance but is **no longer the
+authority** — the guard is.
+
+---
+
 ## RESOLVED 2026-07-18 — colorization pass: 1 real gray fix, 3 new words found+wired, 15 confirmed genuinely absent (closes the "15-word" list from the 2026-07-17 second pass below)
 
 Ran an automated saturation/hue scan (not eyeballing) across all 167 wired
