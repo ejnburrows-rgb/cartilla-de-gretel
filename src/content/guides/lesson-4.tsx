@@ -1,4 +1,5 @@
 import React from "react";
+import { VocabularyList } from "./VocabularyList";
 
 export function Lesson4Guide() {
   return (
@@ -81,6 +82,7 @@ export function Lesson4Guide() {
         <h2 className="text-2xl font-black text-stone-800 mb-6 flex items-center gap-3">
           <span className="text-blue-500">3.</span> Vocabulario y Poema
         </h2>
+        <VocabularyList lessonNumber={4} />
         <div>
           <p className="text-stone-600 mb-4">
             <strong>Palabras que riman:</strong> Ee, revés, vez.

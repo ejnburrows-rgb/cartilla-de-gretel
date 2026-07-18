@@ -1,5 +1,6 @@
 import React from "react";
 import { getGuiaLesson, getRhymeTitle, getRhymeText } from "@/content/guia/loader";
+import { VocabularyList } from "./VocabularyList";
 
 /**
  * Shared renderer for lessons whose printed Teacher's Guide (Leonor
@@ -52,6 +53,7 @@ export function PartialLessonGuide({ lessonId }: { lessonId: number }) {
         <h2 className="text-2xl font-black text-stone-800 mb-6 flex items-center gap-3">
           <span className="text-blue-500">3.</span> Vocabulario y Poema
         </h2>
+        <VocabularyList lessonNumber={lessonId} />
         {rhymeTitle && rhymeText ? (
           <div className="bg-blue-50/50 border border-blue-100 rounded-2xl p-6">
             <h3 className="font-black text-lg text-stone-800 mb-3">{rhymeTitle}</h3>
