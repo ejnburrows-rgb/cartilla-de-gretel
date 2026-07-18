@@ -7,7 +7,13 @@
 // is not trustworthy on its own — several entries whose slug/word looked like a
 // real animal (lobo, loro, vaca, delfín, yegua, cisne) actually point at
 // mislabeled garbage crops (a drinking glass, dice, a blank page, a girl's
-// hair, the octopus mascot, the fox again). Every `src` below was opened and
+// hair, the octopus mascot, the fox again). Two more were caught the same way
+// during this file's own review pass and excluded before merge: `perro`
+// (leccion-18-rr/perro.webp is actually a donkey/horse, wrong species) and
+// `rana` (leccion-17-r/rana.webp is a bad crop — the frog is cut off and a
+// stray red numeral fragment from a neighboring cell bleeds in at the top).
+// Both are logged in ART_BACKLOG.md as real re-crop work, not invented here.
+// Every `src` below was opened and
 // visually confirmed to depict the labeled animal before being added here, and
 // `src/content/__tests__/animal-gallery.test.ts` enforces that each file exists
 // and is genuinely colored (not a grayscale/stub) so a future bad crop can't
@@ -46,8 +52,6 @@ export const ANIMAL_GALLERY: AnimalGalleryEntry[] = [
   { word: "mono", illustrationSrc: "/cartilla/art/faithful/leccion-7-m/mono.webp", lessonNumber: 7, accent: "#E63946" },
   { word: "pez", illustrationSrc: "/cartilla/art/faithful/leccion-1/pez.webp", lessonNumber: 8, accent: "#F4A261" },
   { word: "sapo", illustrationSrc: "/cartilla/art/faithful/leccion-9-s/sapo.webp", lessonNumber: 9, accent: "#2A9D8F" },
-  { word: "rana", illustrationSrc: "/cartilla/art/faithful/leccion-17-r/rana.webp", lessonNumber: 17, accent: "#E63946" },
-  { word: "perro", illustrationSrc: "/cartilla/art/faithful/leccion-18-rr/perro.webp", lessonNumber: 18, accent: "#F4A261" },
   { word: "gusano", illustrationSrc: "/cartilla/art/faithful/leccion-19-g/gusano.webp", lessonNumber: 19, accent: "#2A9D8F" },
   { word: "jirafa", illustrationSrc: "/cartilla/art/faithful/leccion-21-j/jirafa.webp", lessonNumber: 21, accent: "#8338EC" },
   { word: "jicotea", illustrationSrc: "/cartilla/art/faithful/leccion-21-j/jicotea.webp", lessonNumber: 21, accent: "#8338EC" },

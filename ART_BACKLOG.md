@@ -1,5 +1,38 @@
 # Art backlog — current, authoritative
 
+## Found during this PR's own pre-merge review (2026-07-18) — 2 real defects, excluded from the new animal gallery, real re-crop work still open
+Before merging the "Conoce a los animales" showcase page, opened every one of
+its 19 curated crops at full resolution (not just in the small card grid) as
+an independent check. Two failed:
+- **`leccion-18-rr/perro.webp` is the wrong species** — it shows a donkey/
+  horse (long ears, mane, brown fur), not a dog. This file is also wired
+  pre-existing (not introduced by this PR) into `src/data/page-layouts.json`
+  and `src/content/workbook/workbook-manifest.json` as the "perro" distractor
+  cell on the real digitized page 64 (RR syllable-match) — so this is live,
+  active harm to a real student exercise today, not just a new-page issue.
+  Left the existing wiring alone rather than stripping the `asset`/
+  `illustrationSrc` field there (unlike the vocab-card emoji-fallback cases
+  elsewhere in this file, a syllable-match grid cell needs *some* image to
+  stay laid out correctly — pulling it blind risks a worse, broken-looking
+  page). **Needs a real re-crop of an actual dog from the RR lesson's real
+  source scan** before it can be trusted anywhere, including back in the
+  animal gallery.
+- **`leccion-17-r/rana.webp` is a bad crop** — the frog itself is genuinely
+  correct, but the crop is too loose at the top: it's cut off mid-body and a
+  stray red numeral fragment from a neighboring page-number cell bleeds in.
+  Less severe than `perro` (right animal, wrong bounds), so left as-is in
+  `src/content/consonants.json`'s vocab game (still recognizably a frog, not
+  actively wrong content) but excluded from the new hand-verified animal
+  gallery, which holds a stricter bar. **Needs a tighter re-crop** — this
+  checkout only has `public/cartilla/art/hd/lineart/r-page-37.png` (grayscale
+  lineart) for the R lesson, no full-color source page, so a real re-crop
+  needs whoever has the color scan for lección 17.
+
+Both excluded from `src/content/animal-gallery.ts` before merge (was 19
+entries, is now 17) and guarded by a new test case in
+`src/content/__tests__/animal-gallery.test.ts` so neither file can silently
+sneak back into the gallery under a different word/entry.
+
 ## ⭐ CANONICAL — colorization state is now MACHINE-ENFORCED (2026-07-18)
 
 Every prose "done/absent" claim in the dated sections below has, historically,
