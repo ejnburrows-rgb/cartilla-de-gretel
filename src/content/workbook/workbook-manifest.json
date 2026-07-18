@@ -6710,8 +6710,7 @@
         },
         {
           "id": "p64-syl-1-0-0",
-          "type": "illustration",
-          "asset": "/cartilla/art/faithful/leccion-18-rr/perro.webp",
+          "type": "word",
           "x": 3,
           "y": 25.5,
           "width": 14.42,
@@ -6982,8 +6981,7 @@
       "objects": [
         {
           "id": "p66-word-0",
-          "type": "illustration",
-          "asset": "/cartilla/art/faithful/leccion-18-rr/perro.webp",
+          "type": "word",
           "x": 15,
           "y": 25,
           "width": 16,
