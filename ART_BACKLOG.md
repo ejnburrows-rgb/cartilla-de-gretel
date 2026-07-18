@@ -1,5 +1,44 @@
 # Art backlog — current, authoritative
 
+## RESOLVED 2026-07-18 — colorization pass: 1 real gray fix, 3 new words found+wired, 15 confirmed genuinely absent (closes the "15-word" list from the 2026-07-17 second pass below)
+
+Ran an automated saturation/hue scan (not eyeballing) across all 167 wired
+`.webp` crops in `public/cartilla/art/faithful/` to catch any still-gray
+line art. Only one live-wired file came back truly grayscale (R≈G≈B, not
+just pale): `vocal-u/uña.webp`. Traced it to its only two appearances in
+the book (`u-page-16.jpg`, `u-page-17.jpg`, both "marca con X"/"traza
+línea" exercise pages) — both are genuinely teal/gray duotone by the
+book's own design, same pattern already established for `arco`/`pez`/
+`traje`. No colored version exists anywhere else in the book. Re-cropped
+clean from the source scan (the previously-wired file was additionally
+degraded — dithered pure black/white, likely from an old B&W-mode scan
+pass — not real gray) and hand-colorized: skin-tone gradient mapped from
+the original line-art luminance for the fingertip, pale pink flood-filled
+into the enclosed nail oval. Same treatment as the already-shipped
+`uniforme`/`abeja`/etc. colorizations, keeping the exact line art.
+
+**The "15-word" open list from the 2026-07-17 pass below (`moto`, `mapa`,
+`pulpo`, `sol`, `silla`, `delfín`, `ducha`, `luna`, `lupa`, `nariz`,
+`nube`, `nata`, `piña`, `muñeca`, `barco`) — CONFIRMED GENUINELY ABSENT.**
+Opened every real source page for lessons M, P, S, D, L, N, Ñ, B (all 4-6
+pages per lesson, not just the vocab page) directly, word by word. None of
+these 15 words appear as an illustrated picture anywhere in their lesson's
+real source scans — they're syllable-example words in the `examples`
+field that were never actually illustrated in this book edition, not
+crops that exist but are mis-pointed. Correct to keep showing the emoji
+fallback; nothing to extract. (Also re-confirmed already-fixed: `sapo`,
+`sopa`, `dado`, `mono`, `rosa`, `remo` are all correct, real, live — no
+action needed, contradicts stale notes elsewhere in this file.)
+
+**3 new words found and wired** (existed in real color on their source
+page, just never cropped before — not part of the 15-word list above):
+`Rita` (r-page-37, girl with two butterflies — leccion-17-r/rita.webp),
+`carrusel` and `Tierra` (both rr-page-40 — leccion-18-rr/carrusel.webp,
+leccion-18-rr/tierra.webp). All 3 added to `src/content/consonants.json`.
+
+Verified: `pnpm tsc --noEmit` / `pnpm test` (477 pass, 2 expected fail,
+unchanged baseline) / `pnpm build` all clean.
+
 ## RESOLVED 2026-07-17 (second pass) — the "FULL AUDIT COMPLETE" claim below was also stale; found and fixed 15 more wrong-content words live on `main`
 
 Despite this file's own "🎉 FULL AUDIT COMPLETE" section further down claiming

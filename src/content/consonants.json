@@ -754,7 +754,8 @@
       },
       {
         "word": "Rita",
-        "emoji": "👧"
+        "emoji": "👧",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-17-r/rita.webp"
       },
       {
         "word": "rosa",
@@ -809,7 +810,8 @@
       },
       {
         "word": "carrusel",
-        "emoji": "🎠"
+        "emoji": "🎠",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/carrusel.webp"
       },
       {
         "word": "torre",
@@ -823,7 +825,8 @@
       },
       {
         "word": "Tierra",
-        "emoji": "🌍"
+        "emoji": "🌍",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/tierra.webp"
       }
     ],
     "examples": {
