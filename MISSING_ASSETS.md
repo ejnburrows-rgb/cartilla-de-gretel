@@ -104,8 +104,16 @@ All of the above stay showing the honest "ilustración pendiente" placeholder.
   - Processing performed: Extracted exact original blob, verified visually as color illustration of two cats.
 
 ## PENDING — NO VERIFIED SOURCE FOUND
-- `public/cartilla/art/faithful/leccion-1/abeja.webp`
-  - Locations searched: Git history blobs for `abeja.webp`, `abeja.png`, `hd` and `raw` folders.
+
+**RESOLVED 2026-07-18, stale entry removed**: `leccion-1/abeja.webp` used to be
+listed here, but "abeja" is live and correctly colored at a different path,
+`public/cartilla/art/faithful/vocal-a/abeja.webp` (wired in `src/content/lessons.json`,
+confirmed a real yellow/black bee visually and enforced by
+`scripts/validate-art-color.mjs`'s color guard). This search list was for the
+old `leccion-1/` path specifically and never got updated once the word moved —
+same "documented as done ≠ verified against the live file" trap as everywhere
+else in this project's history.
+
 - `public/cartilla/art/faithful/leccion-18-c/caballo.webp`
   - Locations searched: Git history blobs for `caballo.webp`, `caballo.png`, `hd` and `raw` folders.
 - `public/cartilla/art/faithful/leccion-18-c/cama.webp`
