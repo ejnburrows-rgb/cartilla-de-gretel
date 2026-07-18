@@ -14,15 +14,8 @@ import { LanguageToggle } from "@/components/LanguageToggle";
 import { sCopy } from "@/content/student-copy";
 import { gretelEvent } from "@/lib/gretel-bus";
 
-import { SimplePageViewer } from "@/components/StudentBook/SimplePageViewer";
 import { CurlPageViewer } from "@/components/StudentBook/CurlPageViewer";
 import { buildPageArray } from "@/utils/buildPageArray";
-
-// PILOT (July 2026) — real paper-curl viewer (react-pageflip), verified only
-// on Lección 1 so far. Every other lesson stays on the proven SimplePageViewer
-// until the curl is confirmed solid across lesson content, viewport sizes,
-// and interactive exercise types. Expand this set as each lesson is checked.
-const CURL_PILOT_LESSONS = new Set([1]);
 import { GretelPresence } from "@/components/gretel/GretelPresence";
 import { GardenScene } from "@/components/cartilla/GardenScene";
 import { ActivityCarousel } from "@/components/cartilla/ActivityCarousel";
@@ -268,21 +261,12 @@ function Leccion() {
             )}
             {progressReady && (
               <div className="gretel-presence-layout w-full">
-                {CURL_PILOT_LESSONS.has(n) ? (
-                  <CurlPageViewer
-                    key={n}
-                    pages={pages}
-                    initialPage={initialPage}
-                    onPageChange={handlePageChange}
-                  />
-                ) : (
-                  <SimplePageViewer
-                    key={n}
-                    pages={pages}
-                    initialPage={initialPage}
-                    onPageChange={handlePageChange}
-                  />
-                )}
+                <CurlPageViewer
+                  key={n}
+                  pages={pages}
+                  initialPage={initialPage}
+                  onPageChange={handlePageChange}
+                />
                 {/* Full-presence host — continuous layered life + little-girl Spanish TTS */}
                 {entry && (
                   <div ref={gretelWrapRef}>
