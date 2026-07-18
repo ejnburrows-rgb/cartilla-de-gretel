@@ -8,6 +8,9 @@ import { DragLetterTrace } from "@/components/cartilla/DragLetterTrace";
 import { PianoPronunciation } from "@/components/cartilla/PianoPronunciation";
 import { DEFAULT_ACTIVITIES, type ActivityId } from "@/lib/lesson-catalog";
 import "@/styles/cartilla-student.css";
+import { KidButton } from "@/components/ui/KidButton";
+import { SuccessPulse } from "@/components/feel/SuccessPulse";
+import { playUiTick } from "@/lib/piano-audio";
 
 interface ActivityCarouselProps {
   lessonNumber: number;
@@ -173,7 +176,10 @@ export function ActivityCarousel({
           return (
             <motion.button
               key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
+              onClick={() => {
+                playUiTick();
+                setActiveTab(tab.id);
+              }}
               whileTap={{ scale: 0.94 }}
               className="channel-tab relative flex flex-1 items-center justify-center gap-2 rounded-2xl px-4 py-3.5 text-sm font-black transition-colors select-none"
               style={

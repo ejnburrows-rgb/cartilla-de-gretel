@@ -11,6 +11,10 @@ import { downloadCSV, toCSV } from "@/lib/csv";
 import { useLanguage } from "@/context/LanguageContext";
 import { LanguageToggle } from "@/components/LanguageToggle";
 import { sCopy } from "@/content/student-copy";
+import { GardenBackdrop } from "@/components/cartilla/GardenBackdrop";
+import { KidButton } from "@/components/ui/KidButton";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Shimmer } from "@/components/feel/Shimmer";
 
 export const Route = createFileRoute("/cartilla/mi-progreso")({
   component: MyProgress,
@@ -120,8 +124,20 @@ function MyProgress() {
 
   if (loading)
     return (
-      <main className="min-h-screen flex items-center justify-center text-foreground/50">
-        {t.cargando[lang]}
+      <main className="min-h-screen relative px-4 py-6 max-w-4xl mx-auto">
+        <GardenBackdrop variant="soft" />
+        <div className="relative z-10 flex flex-col gap-6 max-w-2xl mx-auto mt-10">
+          <Skeleton className="h-10 w-48 rounded-xl" />
+          <Skeleton className="h-32 w-full rounded-2xl relative overflow-hidden">
+            <Shimmer />
+          </Skeleton>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <Skeleton className="h-24 rounded-2xl" />
+            <Skeleton className="h-24 rounded-2xl" />
+            <Skeleton className="h-24 rounded-2xl" />
+            <Skeleton className="h-24 rounded-2xl" />
+          </div>
+        </div>
       </main>
     );
   if (error)
@@ -144,178 +160,183 @@ function MyProgress() {
   });
 
   return (
-    <main className="min-h-screen bg-background px-4 py-6 max-w-4xl mx-auto">
-      <div className="flex items-center justify-between gap-3 flex-wrap">
-        <Link
-          to="/cartilla"
-          className="inline-flex items-center gap-2 text-sm font-bold text-foreground/60 hover:text-foreground"
-        >
-          <ArrowLeft className="w-4 h-4" /> {t.cartilla[lang]}
-        </Link>
-        <LanguageToggle />
-      </div>
-
-      <header className="mt-6 flex items-start justify-between gap-3 flex-wrap">
-        <div>
-          <h1 className="text-3xl sm:text-4xl font-bold">
-            {t.holaName[lang].replace("{name}", data.student.display_name)}
-          </h1>
-          <p className="text-sm text-foreground/60 mt-1">
-            {t.clase[lang]} <strong>{data.class?.name ?? "—"}</strong> · {t.tuCodigo[lang]}{" "}
-            <span className="font-mono font-bold">{data.student.student_code}</span>
-          </p>
+    <main className="min-h-screen relative px-4 py-6 max-w-4xl mx-auto">
+      <GardenBackdrop variant="soft" />
+      <div className="relative z-10">
+        <div className="flex items-center justify-between gap-3 flex-wrap">
+          <Link
+            to="/cartilla"
+            className="inline-flex items-center gap-2 text-sm font-bold text-foreground/60 hover:text-foreground"
+          >
+            <ArrowLeft className="w-4 h-4" /> {t.cartilla[lang]}
+          </Link>
+          <LanguageToggle />
         </div>
-        <button
-          onClick={exportCSV}
-          className="inline-flex items-center gap-1.5 text-sm px-3 py-2 rounded-xl border-2 border-foreground/10 hover:bg-secondary font-bold"
-        >
-          <Download className="w-4 h-4" /> CSV
-        </button>
-      </header>
 
-      <section className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
-        <Stat
-          icon={BookOpen}
-          label={t.lecciones[lang]}
-          value={`${summary.completed.size}/${TOTAL_LESSONS}`}
-        />
-        <Stat
-          icon={Target}
-          label={t.ejercicios[lang]}
-          value={String(Object.values(summary.exByLesson).reduce((a, s) => a + s.runs, 0))}
-        />
-        <Stat icon={Clock} label={t.tiempo[lang]} value={fmtMin(summary.timeTotal)} />
-        <Stat icon={Award} label={t.insignias[lang]} value={String(summary.badges.length)} />
-      </section>
+        <header className="mt-6 flex items-start justify-between gap-3 flex-wrap">
+          <div>
+            <h1 className="text-3xl sm:text-4xl font-bold">
+              {t.holaName[lang].replace("{name}", data.student.display_name)}
+            </h1>
+            <p className="text-sm text-foreground/60 mt-1">
+              {t.clase[lang]} <strong>{data.class?.name ?? "—"}</strong> · {t.tuCodigo[lang]}{" "}
+              <span className="font-mono font-bold">{data.student.student_code}</span>
+            </p>
+          </div>
+          <KidButton
+            variant="outline"
+            accent="var(--book-teal)"
+            onClick={exportCSV}
+            className="!px-3 !py-2 !text-sm"
+          >
+            <Download className="w-4 h-4" /> CSV
+          </KidButton>
+        </header>
 
-      {summary.weak.length > 0 && (
-        <section className="mt-6 rounded-2xl border-2 border-warning/30 bg-warning/5 p-4">
-          <h2 className="font-bold inline-flex items-center gap-2 text-warning">
-            <Sparkles className="w-4 h-4" /> {t.teConvieneRepasar[lang]}
+        <section className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <Stat
+            icon={BookOpen}
+            label={t.lecciones[lang]}
+            value={`${summary.completed.size}/${TOTAL_LESSONS}`}
+          />
+          <Stat
+            icon={Target}
+            label={t.ejercicios[lang]}
+            value={String(Object.values(summary.exByLesson).reduce((a, s) => a + s.runs, 0))}
+          />
+          <Stat icon={Clock} label={t.tiempo[lang]} value={fmtMin(summary.timeTotal)} />
+          <Stat icon={Award} label={t.insignias[lang]} value={String(summary.badges.length)} />
+        </section>
+
+        {summary.weak.length > 0 && (
+          <section className="mt-6 rounded-2xl border-2 border-warning/30 bg-warning/5 p-4">
+            <h2 className="font-bold inline-flex items-center gap-2 text-warning">
+              <Sparkles className="w-4 h-4" /> {t.teConvieneRepasar[lang]}
+            </h2>
+            <p className="text-sm text-foreground/70 mt-1">{t.tuvisteErrores[lang]}</p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {summary.weak.map((n) => {
+                const entry = CATALOG.find((e) => String(e.n) === n);
+                if (!entry) return null;
+                return (
+                  <Link
+                    key={n}
+                    to="/cartilla/leccion/$n"
+                    params={{ n }}
+                    className="px-3 py-1.5 rounded-full text-xs font-bold border-2"
+                    style={{ borderColor: entry.color, color: entry.color }}
+                  >
+                    L{entry.n} — {entry.title}
+                  </Link>
+                );
+              })}
+            </div>
+            <Link
+              to="/cartilla/repaso"
+              className="mt-3 inline-flex items-center gap-1 text-sm font-bold text-primary hover:underline"
+            >
+              {t.irRepaso[lang]}
+            </Link>
+          </section>
+        )}
+
+        {/* Trophy Case & Sticker Book */}
+        <section className="mt-6">
+          <h2 className="font-bold mb-3 text-lg flex items-center gap-2">
+            <Award className="w-5 h-5 text-amber-500" /> Colección de Logros
           </h2>
-          <p className="text-sm text-foreground/70 mt-1">{t.tuvisteErrores[lang]}</p>
-          <div className="mt-3 flex flex-wrap gap-2">
-            {summary.weak.map((n) => {
-              const entry = CATALOG.find((e) => String(e.n) === n);
-              if (!entry) return null;
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="kid-card p-4">
+              <h3 className="font-bold text-foreground/80 mb-3 text-sm uppercase tracking-wider">
+                Tus Stickers
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {rewards.allStickers.map((s) => {
+                  const earned = rewards.stickers.includes(s.lessonId);
+                  return (
+                    <div
+                      key={s.id}
+                      className={`w-12 h-12 flex items-center justify-center rounded-xl text-2xl transition-all duration-300 ${earned ? "bg-secondary scale-100 opacity-100" : "bg-foreground/5 scale-95 opacity-40 grayscale"}`}
+                      title={s.name}
+                    >
+                      {s.emoji}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            <div className="kid-card p-4">
+              <h3 className="font-bold text-foreground/80 mb-3 text-sm uppercase tracking-wider">
+                Tus Trofeos
+              </h3>
+              <div className="grid grid-cols-1 gap-2">
+                {rewards.allBadges.map((b) => {
+                  const earned = rewards.badges.includes(b.id);
+                  return (
+                    <div
+                      key={b.id}
+                      className={`flex items-center gap-3 p-2 rounded-xl transition-all ${earned ? "bg-amber-100/50" : "opacity-50 grayscale"}`}
+                    >
+                      <div className="text-3xl">{b.emoji}</div>
+                      <div>
+                        <div
+                          className="font-bold text-sm"
+                          style={{ color: earned ? b.color : "inherit" }}
+                        >
+                          {b.name}
+                        </div>
+                        <div className="text-xs text-foreground/60">{b.description}</div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="mt-6 kid-card p-4">
+          <h2 className="font-bold mb-3">{t.aciertosPorLeccion[lang]}</h2>
+          <SimpleBarChart bars={chartBars} max={100} formatValue={(v) => `${v}%`} />
+        </section>
+
+        <section className="mt-6">
+          <h2 className="font-bold mb-3 text-lg">{t.tus24Lecciones[lang]}</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            {CATALOG.map((entry) => {
+              const isDone = summary.completed.has(String(entry.n));
+              const ex = summary.exByLesson[String(entry.n)];
+              const pct = ex && ex.total > 0 ? Math.round((ex.score / ex.total) * 100) : null;
               return (
                 <Link
-                  key={n}
                   to="/cartilla/leccion/$n"
-                  params={{ n }}
-                  className="px-3 py-1.5 rounded-full text-xs font-bold border-2"
-                  style={{ borderColor: entry.color, color: entry.color }}
+                  params={{ n: String(entry.n) }}
+                  key={entry.n}
+                  className="kid-card p-3 flex items-center gap-3 hover:-translate-y-0.5 transition"
+                  style={{ borderLeftWidth: 4, borderLeftColor: entry.color }}
                 >
-                  L{entry.n} — {entry.title}
+                  <div className="text-xs font-bold w-8 text-foreground/50">{entry.n}</div>
+                  <div className="flex-1 min-w-0">
+                    <div className="font-bold text-sm truncate">{entry.title}</div>
+                    <div className="text-xs text-foreground/60 mt-0.5">
+                      {isDone ? (
+                        <span className="text-success font-bold">✔ {t.completada[lang]}</span>
+                      ) : (
+                        <span>{t.pendiente[lang]}</span>
+                      )}
+                      {pct !== null && (
+                        <span className="ml-2">
+                          · {pct}% {t.acierto[lang]}
+                        </span>
+                      )}
+                    </div>
+                  </div>
                 </Link>
               );
             })}
           </div>
-          <Link
-            to="/cartilla/repaso"
-            className="mt-3 inline-flex items-center gap-1 text-sm font-bold text-primary hover:underline"
-          >
-            {t.irRepaso[lang]}
-          </Link>
         </section>
-      )}
-
-      {/* Trophy Case & Sticker Book */}
-      <section className="mt-6">
-        <h2 className="font-bold mb-3 text-lg flex items-center gap-2">
-          <Award className="w-5 h-5 text-amber-500" /> Colección de Logros
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div className="kid-card p-4">
-            <h3 className="font-bold text-foreground/80 mb-3 text-sm uppercase tracking-wider">
-              Tus Stickers
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {rewards.allStickers.map((s) => {
-                const earned = rewards.stickers.includes(s.lessonId);
-                return (
-                  <div
-                    key={s.id}
-                    className={`w-12 h-12 flex items-center justify-center rounded-xl text-2xl transition-all duration-300 ${earned ? "bg-secondary scale-100 opacity-100" : "bg-foreground/5 scale-95 opacity-40 grayscale"}`}
-                    title={s.name}
-                  >
-                    {s.emoji}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-          <div className="kid-card p-4">
-            <h3 className="font-bold text-foreground/80 mb-3 text-sm uppercase tracking-wider">
-              Tus Trofeos
-            </h3>
-            <div className="grid grid-cols-1 gap-2">
-              {rewards.allBadges.map((b) => {
-                const earned = rewards.badges.includes(b.id);
-                return (
-                  <div
-                    key={b.id}
-                    className={`flex items-center gap-3 p-2 rounded-xl transition-all ${earned ? "bg-amber-100/50" : "opacity-50 grayscale"}`}
-                  >
-                    <div className="text-3xl">{b.emoji}</div>
-                    <div>
-                      <div
-                        className="font-bold text-sm"
-                        style={{ color: earned ? b.color : "inherit" }}
-                      >
-                        {b.name}
-                      </div>
-                      <div className="text-xs text-foreground/60">{b.description}</div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="mt-6 kid-card p-4">
-        <h2 className="font-bold mb-3">{t.aciertosPorLeccion[lang]}</h2>
-        <SimpleBarChart bars={chartBars} max={100} formatValue={(v) => `${v}%`} />
-      </section>
-
-      <section className="mt-6">
-        <h2 className="font-bold mb-3 text-lg">{t.tus24Lecciones[lang]}</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-          {CATALOG.map((entry) => {
-            const isDone = summary.completed.has(String(entry.n));
-            const ex = summary.exByLesson[String(entry.n)];
-            const pct = ex && ex.total > 0 ? Math.round((ex.score / ex.total) * 100) : null;
-            return (
-              <Link
-                to="/cartilla/leccion/$n"
-                params={{ n: String(entry.n) }}
-                key={entry.n}
-                className="kid-card p-3 flex items-center gap-3 hover:-translate-y-0.5 transition"
-                style={{ borderLeftWidth: 4, borderLeftColor: entry.color }}
-              >
-                <div className="text-xs font-bold w-8 text-foreground/50">{entry.n}</div>
-                <div className="flex-1 min-w-0">
-                  <div className="font-bold text-sm truncate">{entry.title}</div>
-                  <div className="text-xs text-foreground/60 mt-0.5">
-                    {isDone ? (
-                      <span className="text-success font-bold">✔ {t.completada[lang]}</span>
-                    ) : (
-                      <span>{t.pendiente[lang]}</span>
-                    )}
-                    {pct !== null && (
-                      <span className="ml-2">
-                        · {pct}% {t.acierto[lang]}
-                      </span>
-                    )}
-                  </div>
-                </div>
-              </Link>
-            );
-          })}
-        </div>
-      </section>
+      </div>
     </main>
   );
 }
