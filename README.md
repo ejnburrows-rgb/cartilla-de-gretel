@@ -1,40 +1,54 @@
 # La Cartilla de Gretel
 
-A digital edition and classroom platform for *La Cartilla de Gretel*, the Spanish early-literacy workbook by Leonor Lopetegui. It pairs a faithful digital workbook for students with a teacher dashboard for managing classes, assignments, and progress.
+A digital literacy program and classroom platform for *La Cartilla de Gretel*, the Spanish early-literacy workbook by Leonor Lopetegui. It pairs a faithful digital workbook for students with a teacher dashboard for managing classes, assignments, and progress.
 
-**Live:** https://cartilla-de-gretel.vercel.app
+## What is it?
 
-## Features
+La Cartilla de Gretel provides a complete suite for teaching early Spanish literacy:
 
-- **Student workbook** — page-faithful lessons following the book's vowel and consonant order, with light interactive activities.
-- **Teacher dashboard** — classes, students, join codes, assignments, and progress tracking.
-- **Classroom view** — a presentation-friendly flip book for teaching at the front of the room.
+- **Student Reader:** A digital, interactive 24-lesson workbook following the original book's vowel and consonant order, with engaging activities.
+- **Teacher Flipchart:** A presentation-friendly digital flipchart allowing teachers to project lessons at the front of the classroom.
+- **Teacher CRM:** A powerful dashboard for managing classes, generating join codes for students, assigning activities, and tracking student progress over time.
 
-### Status Highlights
-- All 24 core lessons (vowels and consonants) are fully digitized with faithful layouts and interactive elements.
-- The Teacher CRM includes a centralized curriculum catalog.
-- Fully integrated with Supabase.
+## Project Structure Overview
 
-## Tech stack
+- `src/components/` - React components for the UI, including the student reader (`cartilla/`), teacher CRM (`teacher/`), and games (`games/`).
+- `src/features/` - Core feature logic, like the Teacher CRM.
+- `src/routes/` - TanStack Router page definitions for both student and teacher views.
+- `src/content/` - Lesson definitions, guides, word banks, and metadata.
+- `src/lib/` - Utility functions, state management, and core business logic (e.g., student progress, text-to-speech).
+- `docs/` - Documentation files, including the Quick Start Guide for teachers.
+- `public/` - Static assets, images, and audio files.
 
-- Vite + React + TypeScript
-- TanStack Router
-- Tailwind CSS
-- Supabase (authentication and data)
-- Deployed on Vercel
+## Running Locally
 
-## Getting started
+Ensure you have Node.js and `pnpm` installed.
 
+### Install dependencies
 ```bash
-npm install
-npm run dev
+pnpm install
 ```
 
-To build and preview a production bundle:
-
+### Start the development server
 ```bash
-npm run build
-npm run preview
+pnpm run dev
+```
+
+### Run tests
+```bash
+pnpm test
+# or
+npx vitest run
+```
+
+### Build for production
+```bash
+pnpm run build
+```
+
+To preview the built app locally:
+```bash
+pnpm run preview
 ```
 
 ## Environment variables
@@ -52,7 +66,7 @@ Apply the SQL migrations in `supabase/migrations/` before using the teacher and 
 
 Deployed on Vercel using the Vite preset:
 
-- Build command: `npm run build`
+- Build command: `pnpm run build`
 - Output directory: `dist`
 
 `vercel.json` handles single-page-app route rewrites.
@@ -72,29 +86,3 @@ Released under the MIT License. See [LICENSE](LICENSE).
 - Illustrator: Estela de Armas Plasencia
 - Digital adaptation: Emilio José Novo
 - Digital edition of La Cartilla de Gretel
-
-## Command Center Automation
-
-The `scripts/regenerate-command-center.js` script pulls live data from GitHub and Vercel APIs and injects it into `educrm-command-center.html` on every push to `main`. This is triggered by `.github/workflows/regenerate-command-center.yml`.
-
-### Required GitHub Secrets
-
-Add these in **Settings → Secrets and variables → Actions**:
-
-| Secret | How to get it |
-|---|---|
-| `VERCEL_TOKEN` | vercel.com → Account Settings → Tokens → Create token |
-| `VERCEL_PROJECT_ID` | vercel.com → Project → Settings → General → Project ID |
-| `VERCEL_TEAM_ID` | vercel.com → Team Settings → General → Team ID (only if using a team) |
-
-`GITHUB_TOKEN` is provided automatically by GitHub Actions — no setup needed.
-
-### What gets injected
-
-- Latest commit hash and message
-- Open PR count and list
-- Branch list
-- Latest Vercel deploy status and URL
-- Timestamp of last regeneration
-
-Data is embedded as a JSON comment block (`<!-- COMMAND-CENTER-DATA ... -->`) inside `educrm-command-center.html` and also written to `data-*` attributes on existing KPI elements if present.
