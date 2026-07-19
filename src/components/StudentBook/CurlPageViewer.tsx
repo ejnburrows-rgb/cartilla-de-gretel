@@ -4,7 +4,13 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import HTMLFlipBook from "react-pageflip";
 import { gretelEvent } from "@/lib/gretel-bus";
 import { STUDENT_PAGE_TURN_MS, prefersReducedMotion } from "@/lib/living-motion";
+import { KidButton } from "@/components/ui/KidButton";
 import type { SimplePageViewerProps, WorkbookPageEntry } from "./SimplePageViewer";
+
+interface CurlPageViewerProps extends SimplePageViewerProps {
+  /** Lesson's own accent color for the Anterior/Siguiente pills. Defaults to book-teal. */
+  accent?: string;
+}
 
 const FlipBook = HTMLFlipBook as any;
 
@@ -43,7 +49,8 @@ export function CurlPageViewer({
   initialPage = 0,
   singleAspectRatio,
   onPageChange,
-}: SimplePageViewerProps) {
+  accent = "var(--book-teal)",
+}: CurlPageViewerProps) {
   useEffect(() => {
     gretelEvent("mount");
   }, []);
@@ -150,35 +157,38 @@ export function CurlPageViewer({
       </div>
 
       <div className="mt-8 flex w-full items-center justify-center gap-2 sm:gap-6 z-20 no-print">
-        <button
-          type="button"
+        <KidButton
+          variant="outline"
+          accent={accent}
+          sound={false}
           onClick={() => hasPrev && handlePrev()}
           disabled={!hasPrev}
-          className={`flex items-center justify-center gap-1.5 sm:gap-2 px-3 py-2 sm:px-5 sm:py-2.5 rounded-full font-bold transition-all border shrink-0 ${
-            hasPrev
-              ? "bg-white text-stone-700 hover:bg-stone-50 border-stone-300 shadow-sm"
-              : "bg-stone-100 text-stone-400 border-stone-200 cursor-not-allowed opacity-50"
-          }`}
+          className="!px-3 sm:!px-5 !py-2 sm:!py-2.5 gap-1.5 sm:gap-2 shrink-0"
         >
           <ChevronLeft className="w-4 h-4 shrink-0" />{" "}
           <span className="hidden sm:inline">Anterior</span>
-        </button>
-        <div className="text-xs sm:text-sm font-bold text-stone-700 bg-white px-3 py-2 sm:px-4 rounded-full border border-stone-200 shadow-sm shrink-0 whitespace-nowrap">
+        </KidButton>
+        <div
+          className="text-xs sm:text-sm font-bold px-3 py-2 sm:px-4 rounded-full border shrink-0 whitespace-nowrap"
+          style={{
+            color: "var(--book-ink, #2b2a22)",
+            background: "var(--book-paper, #fbf3e0)",
+            borderColor: `color-mix(in srgb, ${accent} 25%, transparent)`,
+          }}
+        >
           Página {currentIndex + 1} de {pages.length}
         </div>
-        <button
-          type="button"
+        <KidButton
+          variant="outline"
+          accent={accent}
+          sound={false}
           onClick={() => hasNext && handleNext()}
           disabled={!hasNext}
-          className={`flex items-center justify-center gap-1.5 sm:gap-2 px-3 py-2 sm:px-5 sm:py-2.5 rounded-full font-bold transition-all border shrink-0 ${
-            hasNext
-              ? "bg-white text-stone-700 hover:bg-stone-50 border-stone-300 shadow-sm"
-              : "bg-stone-100 text-stone-400 border-stone-200 cursor-not-allowed opacity-50"
-          }`}
+          className="!px-3 sm:!px-5 !py-2 sm:!py-2.5 gap-1.5 sm:gap-2 shrink-0"
         >
           <span className="hidden sm:inline">Siguiente</span>{" "}
           <ChevronRight className="w-4 h-4 shrink-0" />
-        </button>
+        </KidButton>
       </div>
     </div>
   );

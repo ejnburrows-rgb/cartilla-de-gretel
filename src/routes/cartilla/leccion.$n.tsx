@@ -19,6 +19,7 @@ import { buildPageArray } from "@/utils/buildPageArray";
 import { GretelPresence } from "@/components/gretel/GretelPresence";
 import { GardenScene } from "@/components/cartilla/GardenScene";
 import { ActivityCarousel } from "@/components/cartilla/ActivityCarousel";
+import { KidButton } from "@/components/ui/KidButton";
 import "@/styles/interactive-exercises.css";
 import "@/styles/gretel.css";
 
@@ -225,7 +226,14 @@ function Leccion() {
           />
         </div>
         {assignment && (
-          <div className="mt-3 rounded-xl border-2 border-primary/30 bg-primary/5 px-3 py-2 text-xs font-bold text-primary inline-flex items-start gap-2">
+          <div
+            className="mt-3 rounded-xl border-2 px-3 py-2 text-xs font-bold inline-flex items-start gap-2"
+            style={{
+              borderColor: `color-mix(in srgb, ${entry.color} 30%, transparent)`,
+              background: `color-mix(in srgb, ${entry.color} 5%, transparent)`,
+              color: entry.color,
+            }}
+          >
             <ClipboardList className="w-4 h-4 shrink-0 mt-0.5" />
             <span>
               {t.tareaAsignada[lang]}
@@ -266,6 +274,7 @@ function Leccion() {
                   pages={pages}
                   initialPage={initialPage}
                   onPageChange={handlePageChange}
+                  accent={entry.color}
                 />
                 {/* Full-presence host — continuous layered life + little-girl Spanish TTS */}
                 {entry && (
@@ -313,22 +322,19 @@ function Leccion() {
         }`}
       >
         <div className="max-w-3xl mx-auto flex items-center justify-between gap-3">
-          <button
+          <KidButton
+            variant="outline"
+            accent={entry.color}
             onClick={() =>
               n > 1
                 ? navigate({ to: "/cartilla/leccion/$n", params: { n: String(n - 1) } })
                 : navigate({ to: "/cartilla/lecciones" })
             }
-            className="px-5 py-3 rounded-2xl border-2 border-foreground/15 font-bold hover:bg-secondary"
           >
             <ArrowLeft className="w-5 h-5 inline mr-1" />{" "}
             {n > 1 ? t.anterior[lang] : t.indice[lang]}
-          </button>
-          <button
-            onClick={goNext}
-            disabled={isLast && done}
-            className="px-6 py-3 rounded-2xl bg-primary text-primary-foreground font-bold text-lg disabled:opacity-40 hover:translate-y-px"
-          >
+          </KidButton>
+          <KidButton accent={entry.color} onClick={goNext} disabled={isLast && done}>
             {isLast
               ? done
                 ? t.terminado[lang]
@@ -337,7 +343,7 @@ function Leccion() {
                 ? t.siguiente[lang]
                 : t.marcarSiguiente[lang]}{" "}
             <ArrowRight className="w-5 h-5 inline ml-1" />
-          </button>
+          </KidButton>
         </div>
       </nav>
     </div>

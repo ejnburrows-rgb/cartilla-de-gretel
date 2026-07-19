@@ -6,6 +6,9 @@ import { playUiTick } from "@/lib/piano-audio";
 export interface KidButtonProps extends HTMLMotionProps<"button"> {
   variant?: "solid" | "outline";
   accent?: string;
+  /** Set false where the action already has its own sound (e.g. page-turn),
+   * so the tap tick doesn't stack on top of it. Defaults to true. */
+  sound?: boolean;
 }
 
 export const KidButton = React.forwardRef<HTMLButtonElement, KidButtonProps>(
@@ -14,6 +17,7 @@ export const KidButton = React.forwardRef<HTMLButtonElement, KidButtonProps>(
       className = "",
       variant = "solid",
       accent = "var(--student-accent, var(--book-teal))",
+      sound = true,
       onClick,
       children,
       ...props
@@ -21,7 +25,7 @@ export const KidButton = React.forwardRef<HTMLButtonElement, KidButtonProps>(
     ref,
   ) => {
     const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-      playUiTick();
+      if (sound) playUiTick();
       if (onClick) onClick(e);
     };
 

@@ -48,6 +48,27 @@
   border-radius: 0.75rem;
   width: 100%;
   height: 100%;
+  background: color-mix(in srgb, var(--book-teal, #5fa777) 8%, white);
+}
+
+.feel-anim-shimmer {
+  background-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--book-teal, #5fa777) 18%, white) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: feel-shimmer-sweep 1.6s ease-in-out infinite;
+}
+
+@keyframes feel-shimmer-sweep {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 /* 5. SuccessPulse & Sparkles */
