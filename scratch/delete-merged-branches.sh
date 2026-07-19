@@ -1,8 +1,15 @@
 #!/usr/bin/env bash
-# Deletes the 117 branches verified as fully merged into main (exact SHA match to a merged PR),
-# plus 16 branches behind PRs that were explicitly closed without merging (real rejected/
-# superseded proposals — see the block near the end of this file for the list and the one
-# excluded branch, feat/content-extraction, which stays).
+# Deletes all 169 branches confirmed safe after a full inventory + salvage review:
+#   117 exact-merged (byte-identical to a merged PR's head commit)
+#  + 16 closed-without-merging (real rejected/superseded proposals)
+#  +   6 "diverged" branches (merged once, received more commits after — each
+#        individually reviewed this session; nothing left worth porting, see
+#        inline comments below)
+#  +  30 never-had-a-PR branches (salvage-scanned for real art/content first —
+#        see inline comments below for what was checked and why nothing ported)
+# After running this, the repo should have exactly 4 branches left: main,
+# feat/content-extraction (excluded on purpose — the live Anti-Gravity
+# channel), and the 2 currently-open PR branches.
 # Run from a machine with the GitHub CLI (gh) authenticated, or paste into GitHub's web UI one by one.
 set -e
 REPO=ejnburrows-rgb/cartilla-de-gretel
@@ -145,3 +152,79 @@ gh api -X DELETE "repos/$REPO/git/refs/heads/feat/living-workbook-pipeline"
 gh api -X DELETE "repos/$REPO/git/refs/heads/feat/teacher-crm-overhaul"
 gh api -X DELETE "repos/$REPO/git/refs/heads/feat/ui-dark-mode-i18n"
 gh api -X DELETE "repos/$REPO/git/refs/heads/feat/workbook-manifest-pipeline"
+
+# --- The 6 "diverged" branches (merged once, then received more commits after).
+# Each individually reviewed this session; nothing left worth porting:
+#   - claude/colorization-ni7494: its 2 real unique commits (vocab lists,
+#     perro/rana) were independently verified and already ported to main
+#     (commits fbdcd83, 0ea083a). Nothing left on the branch.
+#   - claude/continue-previous-session-4q4ncd: its 1 unique commit (garden-
+#     world UI) was already manually ported to main (commits b37656b, ffafc77).
+#   - main-11903241481115466817: its 1 "new" commit is empty (no file changes).
+#   - feat/recovery-plan: its PLAN.md is an OLDER, less complete version than
+#     what's already on main — porting it would be a regression.
+#   - claude/branch-status-review-iz7j6j, feat/unified-art-manifest: ancient
+#     branches (diff 1100-1900 files vs main); the handful of "missing" words
+#     found only exist under an abandoned old lesson-numbering scheme and
+#     aren't needed by the current curriculum (confirmed via consonants.json).
+gh api -X DELETE "repos/$REPO/git/refs/heads/claude/colorization-ni7494"
+gh api -X DELETE "repos/$REPO/git/refs/heads/claude/continue-previous-session-4q4ncd"
+gh api -X DELETE "repos/$REPO/git/refs/heads/main-11903241481115466817"
+gh api -X DELETE "repos/$REPO/git/refs/heads/feat/recovery-plan"
+gh api -X DELETE "repos/$REPO/git/refs/heads/claude/branch-status-review-iz7j6j"
+gh api -X DELETE "repos/$REPO/git/refs/heads/feat/unified-art-manifest"
+
+# --- The 30 never-had-a-PR branches. Salvage-scanned before adding here:
+#   - feature/gretel-poses: its only asset (garden background jpgs) is
+#     generic AI-clipart flower/meadow art — the exact "little girl CRM"
+#     look already explicitly rejected by the owner (PR #88/#93 feedback).
+#     Not real book art. Not ported.
+#   - The 14 art-extraction/consonant-art/vocab-crop branches below: spot-
+#     checked several of their crops directly (moto.webp = a floral border
+#     decoration, vaca.webp = a drinking-glass fragment) — these are the
+#     same already-documented-and-rejected "best effort heuristic" batch
+#     from commit bb3a458 (see ART_BACKLOG.md's "confirmed BAD, not just
+#     unverified" section). Not ported.
+#   - facelift-and-activity-fixes, fix-instruction-verbs,
+#     feat/crm-supabase-migration, fix/qa-audit,
+#     fix/validator-shared-pages-false-positive, chore/ci-ghost-verify,
+#     chore/gha-startup-probe: all ancient (1100-2200 files diff vs main);
+#     each describes work (instruction wording, Supabase CRM migration,
+#     workbook art) that main's current, more complete implementation
+#     already supersedes.
+#   - The 8 grok-swarm/grok-final branches: a separate, never-reviewed
+#     multi-agent experiment; several commits self-flag "HARD_BLOCKED".
+# (demo/full-show-jul13 is handled above in the closed-unmerged-16 block —
+# it was PR #174, "do not merge" in its own title.)
+gh api -X DELETE "repos/$REPO/git/refs/heads/feature/gretel-poses"
+gh api -X DELETE "repos/$REPO/git/refs/heads/art/batch3-wire-in"
+gh api -X DELETE "repos/$REPO/git/refs/heads/art/final-6-words"
+gh api -X DELETE "repos/$REPO/git/refs/heads/art/vocab-vowels"
+gh api -X DELETE "repos/$REPO/git/refs/heads/art/vocab-vowels-fixed"
+gh api -X DELETE "repos/$REPO/git/refs/heads/feat/art-extraction-consonants"
+gh api -X DELETE "repos/$REPO/git/refs/heads/feat/art-vocales"
+gh api -X DELETE "repos/$REPO/git/refs/heads/feat/consonant-art-l13-l14"
+gh api -X DELETE "repos/$REPO/git/refs/heads/feat/consonant-art-l13-l16"
+gh api -X DELETE "repos/$REPO/git/refs/heads/feat/consonant-art-l15-l16"
+gh api -X DELETE "repos/$REPO/git/refs/heads/feat/consonant-art-l17-l20"
+gh api -X DELETE "repos/$REPO/git/refs/heads/feat/consonant-art-l21-l24"
+gh api -X DELETE "repos/$REPO/git/refs/heads/feat/verify-and-wire-consonants"
+gh api -X DELETE "repos/$REPO/git/refs/heads/fix-vocabulary-crops"
+gh api -X DELETE "repos/$REPO/git/refs/heads/fix/art-extraction-batch"
+gh api -X DELETE "repos/$REPO/git/refs/heads/facelift-and-activity-fixes"
+gh api -X DELETE "repos/$REPO/git/refs/heads/fix-instruction-verbs"
+gh api -X DELETE "repos/$REPO/git/refs/heads/feat/crm-supabase-migration"
+gh api -X DELETE "repos/$REPO/git/refs/heads/fix/qa-audit"
+gh api -X DELETE "repos/$REPO/git/refs/heads/fix/validator-shared-pages-false-positive"
+gh api -X DELETE "repos/$REPO/git/refs/heads/chore/ci-ghost-verify"
+gh api -X DELETE "repos/$REPO/git/refs/heads/chore/gha-startup-probe"
+gh api -X DELETE "repos/$REPO/git/refs/heads/grok-final/cloud-preview"
+gh api -X DELETE "repos/$REPO/git/refs/heads/grok-final/validation"
+gh api -X DELETE "repos/$REPO/git/refs/heads/grok-swarm/activities"
+gh api -X DELETE "repos/$REPO/git/refs/heads/grok-swarm/art-color"
+gh api -X DELETE "repos/$REPO/git/refs/heads/grok-swarm/crm"
+gh api -X DELETE "repos/$REPO/git/refs/heads/grok-swarm/presentation"
+gh api -X DELETE "repos/$REPO/git/refs/heads/grok-swarm/validation"
+gh api -X DELETE "repos/$REPO/git/refs/heads/grok-swarm/workbook"
+
+echo "All 169 branches processed. Remaining after this: main, feat/content-extraction, and the 2 open-PR branches (task-blocked-wrong-repo-16942958078693082538, main-11580880407568310308)."
