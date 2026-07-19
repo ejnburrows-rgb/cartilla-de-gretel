@@ -1,4 +1,5 @@
 import React from "react";
+import { VocabularyList } from "./VocabularyList";
 
 export function Lesson8Guide() {
   return (
@@ -93,6 +94,7 @@ export function Lesson8Guide() {
         <h2 className="text-2xl font-black text-stone-800 mb-6 flex items-center gap-3">
           <span className="text-blue-500">3.</span> Vocabulario y Poema
         </h2>
+        <VocabularyList lessonNumber={8} />
         <div>
           <div className="mb-4">
             <p className="text-xs font-black uppercase tracking-wide text-stone-400 mb-2">
