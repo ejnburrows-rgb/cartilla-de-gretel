@@ -1,0 +1,14 @@
+/* STEP 1 safety net — see src/lib/art-blend.ts.
+ * Only images flagged as an opaque white-paper box get multiply, so the white
+ * rectangle drops out on light/coloured backgrounds. Transparent (cleaned) or
+ * full-bleed art is never flagged, so it is never darkened. */
+img[data-art-opaque="true"] {
+  mix-blend-mode: multiply;
+}
+
+/* Reduced-transparency / forced-colors users: don't blend (keeps max legibility). */
+@media (forced-colors: active) {
+  img[data-art-opaque="true"] {
+    mix-blend-mode: normal;
+  }
+}

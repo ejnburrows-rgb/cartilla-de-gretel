@@ -411,15 +411,15 @@
 }
 .fp-picture-grid__cell {
   aspect-ratio: 1 / 1;
-  border: 1.5px solid rgba(95, 167, 119, 0.55);
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.6);
-  box-shadow: 0 1px 3px -1px rgba(31, 41, 55, 0.1);
+  border: 1.5px solid rgba(95, 167, 119, 0.5);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.66);
+  box-shadow: 0 3px 8px -4px rgba(31, 41, 55, 0.16);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: 1cqw;
+  padding: 7%;
 }
 .fp-picture-grid__cell img {
   max-width: 100%;
