@@ -1,0 +1,859 @@
+{
+  "$schema": "color-quality QA pass/fail per published faithful crop + Gretel pose cutout",
+  "generatedBy": "manual visual QA (contact sheets + full-res zoom + source comparison)",
+  "population": 181,
+  "pass": 121,
+  "fail": 60,
+  "criteria": [
+    "colors match the book original (verified against public/art/hd/gretel-authentic.jpg for Gretel; book scan pages for crops)",
+    "clean paint - no bleed, white gaps, or flat fills where the original has shading",
+    "complete crop - no cut-off limbs, no background chunks, clean edges"
+  ],
+  "note": "Task brief cited Gretel canon colors dress #E2574C / hair #B5793A which do not match the real book painting (public/art/hd/gretel-authentic.jpg: blonde hair, navy dress with orange floral trim). Judged poses against the actual source painting instead; all 17 pass. Flagging the hex mismatch for the operator to reconcile with Notion Hub canon.",
+  "results": [
+    {
+      "file": "public/cartilla/art/faithful/vocal-a/abanico.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-a/abeja.webp",
+      "verdict": "FAIL",
+      "reason": "Monochrome gold/ochre tint, no real multi-color paint (should be yellow/black bee)",
+      "wasWiredInProduction": true
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-a/aguja.webp",
+      "verdict": "FAIL",
+      "reason": "Near-blank; essentially uncolored line art, no fill",
+      "wasWiredInProduction": true
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-a/alas.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-a/anillo.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-a/arana.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-a/arbol.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-a/ardilla.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-a/aro.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-a/avion.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-e/elefante.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-e/erizo.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-e/escalera.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-e/escoba.webp",
+      "verdict": "FAIL",
+      "reason": "Background chunk contamination: flat lime-green rectangle + unrelated peach blob behind the broom, not part of the subject",
+      "wasWiredInProduction": true
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-e/escuela.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-e/espejo.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-e/estrella.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-i/iglesia.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-i/iglu.webp",
+      "verdict": "FAIL",
+      "reason": "Essentially uncolored/grayscale line art, minimal color saturation",
+      "wasWiredInProduction": true
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-i/igual.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-i/iguana.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-i/iman.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-i/indio.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-i/insecto.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-i/invierno.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-i/isla.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-o/ocho.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-o/ojos.webp",
+      "verdict": "FAIL",
+      "reason": "Wrong crop: solid teal color block, does not resemble eyes at all",
+      "wasWiredInProduction": true
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-o/ola.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-o/olla.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-o/oreja.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-o/oruga.webp",
+      "verdict": "FAIL",
+      "reason": "Monochrome sage/gray tone, undercolored (should be vivid caterpillar coloring)",
+      "wasWiredInProduction": true
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-o/oso-blink.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-o/oso.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-o/oveja.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-u/unicornio.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-u/uniforme.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-u/uno.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-u/uvas.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-u/uña.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-1/abeja_wb.webp",
+      "verdict": "FAIL",
+      "reason": "Blank white image, no content at all",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-1/abrigo.webp",
+      "verdict": "FAIL",
+      "reason": "Unrecognizable abstract color smear, wrong/no content",
+      "wasWiredInProduction": true
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-1/aguila.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-1/arco.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-1/carro.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-1/dulce.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-1/globo.webp",
+      "verdict": "FAIL",
+      "reason": "Paint bleed: stray red line runs edge-to-edge across the top, not part of the balloon",
+      "wasWiredInProduction": true
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-1/libro.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-1/maiz.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-1/manzana.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-1/ojos.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-1/ola.webp",
+      "verdict": "FAIL",
+      "reason": "Monochrome gray/mauve tone, no blue at all (wrong color for a wave)",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-1/pajaro.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-1/pera.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-1/pez.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-1/remolino.webp",
+      "verdict": "FAIL",
+      "reason": "Incomplete crop: swirl cut off at edge plus a stray unrelated green fragment",
+      "wasWiredInProduction": true
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-1/taza.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-1/traje.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-2/ojos.webp",
+      "verdict": "FAIL",
+      "reason": "Wrong crop: solid teal color block, not eyes",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-3/ardilla.webp",
+      "verdict": "FAIL",
+      "reason": "Wrong crop: solid teal color sliver, not a squirrel",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-3/ojos.webp",
+      "verdict": "FAIL",
+      "reason": "Wrong crop: solid teal color block, not eyes",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-4/erizo.webp",
+      "verdict": "FAIL",
+      "reason": "Mostly blank; tiny cut-off corner fragment only, incomplete crop",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-5/igual.webp",
+      "verdict": "FAIL",
+      "reason": "Blank white image, no content",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-5/iguana.webp",
+      "verdict": "FAIL",
+      "reason": "Blank white image, just two stray black marks",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-7-m/mama.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-7-m/mapa.webp",
+      "verdict": "FAIL",
+      "reason": "Blank pale pink smear, no map content",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-7-m/mono-blink.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-7-m/mono.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-7-m/moto.webp",
+      "verdict": "FAIL",
+      "reason": "Wrong content: decorative floral border, not a motorcycle",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-8-p/papa-blink.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-8-p/papa.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-8-p/pez.webp",
+      "verdict": "FAIL",
+      "reason": "Mostly blank; tiny unrelated striped fragment, incomplete/wrong crop",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-8-p/pino.webp",
+      "verdict": "FAIL",
+      "reason": "Wrong content: black silhouette blob, not a pine tree",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-8-p/pulpo.webp",
+      "verdict": "FAIL",
+      "reason": "Wrong content: shows a person's arm/torso, not an octopus",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-9-s/sapo-blink.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-9-s/sapo.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-9-s/silla.webp",
+      "verdict": "FAIL",
+      "reason": "Wrong content: a girl character, not a chair",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-9-s/sol.webp",
+      "verdict": "FAIL",
+      "reason": "Wrong/fragment content, not a recognizable sun",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-9-s/sopa.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-10-t/tapa.webp",
+      "verdict": "FAIL",
+      "reason": "Not an illustration: crop of a printed word-list column",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-10-t/tina.webp",
+      "verdict": "FAIL",
+      "reason": "Not an illustration: crop of a printed word-list column",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-10-t/tomate.webp",
+      "verdict": "FAIL",
+      "reason": "Not an illustration: crop of a printed word-list column",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-10-t/tulipan.webp",
+      "verdict": "FAIL",
+      "reason": "Not an illustration: crop of a printed word-list column",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-11-d/dado.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-11-d/delfin.webp",
+      "verdict": "FAIL",
+      "reason": "Wrong content: partial dice shape (bleed from dado crop), not a dolphin",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-11-d/dona.webp",
+      "verdict": "FAIL",
+      "reason": "Blank; only a tiny stray mark",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-11-d/ducha.webp",
+      "verdict": "FAIL",
+      "reason": "Wrong content: colorful bird/parrot shape, not a shower",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-12-l/lobo.webp",
+      "verdict": "FAIL",
+      "reason": "Wrong/abstract content: black zigzag over a blue blob, not a wolf",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-12-l/loro.webp",
+      "verdict": "FAIL",
+      "reason": "Blank; only a stray line fragment",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-12-l/luna.webp",
+      "verdict": "FAIL",
+      "reason": "Wrong content: shoes and a suitcase, not the moon",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-12-l/lupa.webp",
+      "verdict": "FAIL",
+      "reason": "Wrong content: an orange box/suitcase, not a magnifying glass",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-13-n/nariz.webp",
+      "verdict": "FAIL",
+      "reason": "Wrong content: fruit (orange/banana), not a nose",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-13-n/nata.webp",
+      "verdict": "FAIL",
+      "reason": "Wrong content: a bird's nest (duplicate of nido), not cream",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-13-n/nido.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-13-n/nube.webp",
+      "verdict": "FAIL",
+      "reason": "Wrong content: a gem and a hand fragment, not a cloud",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-14-n/muneca.webp",
+      "verdict": "FAIL",
+      "reason": "Wrong content: an ostrich, not a doll",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-14-n/nino.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-14-n/pina.webp",
+      "verdict": "FAIL",
+      "reason": "Wrong/fragment content: scattered color specks, not a pineapple",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-15-b/barco.webp",
+      "verdict": "FAIL",
+      "reason": "Wrong/fragment content: a hat fragment, not a boat",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-15-b/bebe.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-15-b/bici.webp",
+      "verdict": "FAIL",
+      "reason": "Mostly blank; tiny fragment only",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-15-b/bota.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-16-v/vaca.webp",
+      "verdict": "FAIL",
+      "reason": "Wrong/fragment content: black blob outline, not a cow",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-16-v/vela.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-16-v/vino.webp",
+      "verdict": "FAIL",
+      "reason": "Wrong/fragment content, not recognizable as wine",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-16-v/volcan.webp",
+      "verdict": "FAIL",
+      "reason": "Wrong content: a drinking glass, not a volcano",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-17-r/rana.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-17-r/remo.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-17-r/rita.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-17-r/rosa.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-17-r/rueda.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-18-c/carro.webp",
+      "verdict": "FAIL",
+      "reason": "Wrong content: a donkey/camel leg and body, not a car",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-18-rr/barril.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-18-rr/burro.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-18-rr/carro.webp",
+      "verdict": "FAIL",
+      "reason": "Wrong content: a donkey/camel leg and body, not a car",
+      "wasWiredInProduction": true
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-18-rr/carrusel.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-18-rr/guitarra.webp",
+      "verdict": "FAIL",
+      "reason": "Wrong content: a dog/bear wearing a striped tie, not a guitar",
+      "wasWiredInProduction": true
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-18-rr/perro.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-18-rr/tierra.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-18-rr/torre.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-19-c/camisa.webp",
+      "verdict": "FAIL",
+      "reason": "Wrong content: duplicate of the crib (cuna) image, not a shirt",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-19-c/casa.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-19-c/catalina.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-19-c/conejo.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-19-c/cono.webp",
+      "verdict": "FAIL",
+      "reason": "Wrong content: duplicate rabbit-ears fragment from conejo, not a cone",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-19-c/cubo.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-19-c/cuna.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-19-g/galleta.webp",
+      "verdict": "FAIL",
+      "reason": "Wrong content: duplicate of the drawer (gaveta) image, not a cookie",
+      "wasWiredInProduction": true
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-19-g/gato.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-19-g/gaveta.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-19-g/goloso.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-19-g/gorra.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-19-g/guitarra.webp",
+      "verdict": "FAIL",
+      "reason": "Wrong content: duplicate of the goloso dog-with-tie image, not a guitar",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-19-g/gusano.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-19-g/mago.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-20-f/familia.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-20-f/faro.webp",
+      "verdict": "FAIL",
+      "reason": "Wrong content: duplicate of the foto portrait image, not a lighthouse",
+      "wasWiredInProduction": true
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-20-f/felo.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-20-f/fideos.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-20-f/fiesta.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-20-f/foca.webp",
+      "verdict": "FAIL",
+      "reason": "Wrong content: duplicate of the fideos image, not a seal",
+      "wasWiredInProduction": true
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-20-f/foto.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-20-f/fuente.webp",
+      "verdict": "FAIL",
+      "reason": "Wrong/fragment content, not a recognizable fountain",
+      "wasWiredInProduction": true
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-20-f/funda.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-21-j/ajo.webp",
+      "verdict": "FAIL",
+      "reason": "Content does not read as garlic: an abstract plant/hair-like burst shape",
+      "wasWiredInProduction": true
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-21-j/jarra.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-21-j/jesus.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-21-j/jicotea.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-21-j/jirafa.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-21-j/jugo.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-22-y/mayuscula.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-22-y/yate.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-22-y/yayita.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-22-y/yegua.webp",
+      "verdict": "FAIL",
+      "reason": "Wrong content: cut-off fragment of the yayita octopus image, not a mare",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-22-y/yema.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-22-y/yoyo.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-23-z/cepillo.webp",
+      "verdict": "FAIL",
+      "reason": "Wrong content: duplicate of the zapato shoe image, not a brush",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-23-z/cisne.webp",
+      "verdict": "FAIL",
+      "reason": "Wrong content: fragment of the zorro fox image, not a swan",
+      "wasWiredInProduction": false
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-23-z/zanahoria.webp",
+      "verdict": "FAIL",
+      "reason": "Wrong content: duplicate zigzag fragment, not a carrot",
+      "wasWiredInProduction": true
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-23-z/zapato.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-23-z/zepelin.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-23-z/zigzag.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-23-z/zorro.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-23-z/zulema.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/images/gretel/poses/gretel-blink.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/images/gretel/poses/gretel-cheer-1.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/images/gretel/poses/gretel-cheer.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/images/gretel/poses/gretel-closed-idle.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/images/gretel/poses/gretel-idle.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/images/gretel/poses/gretel-point-left-flip.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/images/gretel/poses/gretel-point-left.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/images/gretel/poses/gretel-point.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/images/gretel/poses/gretel-settle.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/images/gretel/poses/gretel-talk-0.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/images/gretel/poses/gretel-talk-1.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/images/gretel/poses/gretel-talk-2.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/images/gretel/poses/gretel-talk.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/images/gretel/poses/gretel-wave-1.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/images/gretel/poses/gretel-wave-2.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/images/gretel/poses/gretel-wave-exit.webp",
+      "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/images/gretel/poses/gretel-wave.webp",
+      "verdict": "PASS"
+    }
+  ]
+}

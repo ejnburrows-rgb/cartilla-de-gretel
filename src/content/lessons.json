@@ -20,8 +20,7 @@
       },
       {
         "word": "abeja",
-        "emoji": "🐝",
-        "illustrationSrc": "/cartilla/art/faithful/vocal-a/abeja.webp"
+        "emoji": "🐝"
       },
       {
         "word": "ala",
@@ -85,8 +84,7 @@
       },
       {
         "word": "escoba",
-        "emoji": "🧹",
-        "illustrationSrc": "/cartilla/art/faithful/vocal-e/escoba.webp"
+        "emoji": "🧹"
       },
       {
         "word": "espejo",
@@ -150,8 +148,7 @@
     "vocab": [
       {
         "word": "iglú",
-        "emoji": "🛖",
-        "illustrationSrc": "/cartilla/art/faithful/vocal-i/iglu.webp"
+        "emoji": "🛖"
       },
       {
         "word": "isla",
@@ -225,8 +222,7 @@
       },
       {
         "word": "ojo",
-        "emoji": "👁️",
-        "illustrationSrc": "/cartilla/art/faithful/vocal-o/ojos.webp"
+        "emoji": "👁️"
       },
       {
         "word": "ola",
