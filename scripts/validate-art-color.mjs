@@ -173,6 +173,10 @@ export const CONFIRMED_ABSENT = new Set([
   "vaca",
   "vino",
   "volcán",
+  // L21 J — the only crop attempt on disk (leccion-21-j/ajo.webp) is an
+  // abstract plant/hair-like burst shape, not garlic; color-QA (2026-07)
+  // failed it and pulled it from live use.
+  "ajo",
 ]);
 
 /** Emoji-only consonant vocab words that are not on CONFIRMED_ABSENT. */

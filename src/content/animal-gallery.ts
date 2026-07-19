@@ -42,7 +42,6 @@ export interface AnimalGalleryEntry {
 
 export const ANIMAL_GALLERY: AnimalGalleryEntry[] = [
   // Vowel-lesson animals
-  { word: "abeja", illustrationSrc: "/cartilla/art/faithful/vocal-a/abeja.webp", lessonNumber: 3, accent: "#E63946" },
   { word: "araña", illustrationSrc: "/cartilla/art/faithful/vocal-a/arana.webp", lessonNumber: 3, accent: "#E63946" },
   { word: "ardilla", illustrationSrc: "/cartilla/art/faithful/vocal-a/ardilla.webp", lessonNumber: 3, accent: "#E63946" },
   { word: "águila", illustrationSrc: "/cartilla/art/faithful/leccion-1/aguila.webp", lessonNumber: 3, accent: "#E63946" },

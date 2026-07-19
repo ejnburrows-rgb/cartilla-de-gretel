@@ -24,7 +24,6 @@
         {
           "id": "p1-cell-0",
           "type": "illustration",
-          "asset": "/cartilla/art/faithful/leccion-1/abrigo.webp",
           "x": 3,
           "y": 6,
           "width": 22,
@@ -101,7 +100,6 @@
         {
           "id": "p1-cell-7",
           "type": "illustration",
-          "asset": "/cartilla/art/faithful/leccion-1/remolino.webp",
           "x": 75,
           "y": 24,
           "width": 22,
@@ -221,7 +219,6 @@
         {
           "id": "p1-cell-18",
           "type": "illustration",
-          "asset": "/cartilla/art/faithful/vocal-a/abeja.webp",
           "x": 51,
           "y": 78,
           "width": 22,
@@ -523,7 +520,6 @@
         {
           "id": "p3-pic-e",
           "type": "illustration",
-          "asset": "/cartilla/art/faithful/vocal-e/escoba.webp",
           "x": 55,
           "y": 57,
           "width": 30,
@@ -578,7 +574,6 @@
         {
           "id": "p4-cell-0",
           "type": "illustration",
-          "asset": "/cartilla/art/faithful/leccion-1/ola.webp",
           "x": 3,
           "y": 6,
           "width": 22,
@@ -589,7 +584,6 @@
         {
           "id": "p4-cell-1",
           "type": "illustration",
-          "asset": "/cartilla/art/faithful/vocal-i/iglu.webp",
           "x": 27,
           "y": 6,
           "width": 22,
@@ -774,7 +768,6 @@
         {
           "id": "p5-cell-0",
           "type": "illustration",
-          "asset": "/cartilla/art/faithful/vocal-i/iglu.webp",
           "x": 3,
           "y": 6,
           "width": 22,
@@ -828,7 +821,6 @@
         {
           "id": "p5-cell-5",
           "type": "illustration",
-          "asset": "/cartilla/art/faithful/leccion-1/ola.webp",
           "x": 27,
           "y": 24,
           "width": 22,
@@ -905,7 +897,6 @@
         {
           "id": "p7-cell-1",
           "type": "illustration",
-          "asset": "/cartilla/art/faithful/vocal-o/oruga.webp",
           "x": 27,
           "y": 6,
           "width": 22,
@@ -949,7 +940,6 @@
         {
           "id": "p7-cell-5",
           "type": "illustration",
-          "asset": "/cartilla/art/faithful/vocal-a/abeja.webp",
           "x": 27,
           "y": 24,
           "width": 22,
@@ -1046,7 +1036,6 @@
         {
           "id": "p7-cell-14",
           "type": "illustration",
-          "asset": "/cartilla/art/faithful/vocal-a/aguja.webp",
           "x": 51,
           "y": 60,
           "width": 22,
@@ -1097,7 +1086,6 @@
         {
           "id": "p8-cell-1",
           "type": "illustration",
-          "asset": "/cartilla/art/faithful/vocal-i/iglu.webp",
           "x": 27,
           "y": 6,
           "width": 22,
@@ -1119,7 +1107,6 @@
         {
           "id": "p8-cell-3",
           "type": "illustration",
-          "asset": "/cartilla/art/faithful/vocal-a/abeja.webp",
           "x": 75,
           "y": 6,
           "width": 22,
@@ -1130,7 +1117,6 @@
         {
           "id": "p8-cell-4",
           "type": "illustration",
-          "asset": "/cartilla/art/faithful/vocal-a/aguja.webp",
           "x": 3,
           "y": 24,
           "width": 22,
@@ -1163,7 +1149,6 @@
         {
           "id": "p8-cell-7",
           "type": "illustration",
-          "asset": "/cartilla/art/faithful/leccion-1/remolino.webp",
           "x": 75,
           "y": 24,
           "width": 22,
@@ -1217,7 +1202,6 @@
         {
           "id": "p10-cell-1",
           "type": "illustration",
-          "asset": "/cartilla/art/faithful/vocal-i/iglu.webp",
           "x": 27,
           "y": 6,
           "width": 22,
@@ -1271,7 +1255,6 @@
         {
           "id": "p10-cell-6",
           "type": "illustration",
-          "asset": "/cartilla/art/faithful/vocal-a/abeja.webp",
           "x": 51,
           "y": 24,
           "width": 22,
@@ -1282,7 +1265,6 @@
         {
           "id": "p10-cell-7",
           "type": "illustration",
-          "asset": "/cartilla/art/faithful/vocal-a/aguja.webp",
           "x": 75,
           "y": 24,
           "width": 22,
@@ -1293,7 +1275,6 @@
         {
           "id": "p10-cell-8",
           "type": "illustration",
-          "asset": "/cartilla/art/faithful/vocal-e/escoba.webp",
           "x": 3,
           "y": 42,
           "width": 22,
@@ -1422,7 +1403,6 @@
         {
           "id": "p11-cell-2",
           "type": "illustration",
-          "asset": "/cartilla/art/faithful/vocal-a/abeja.webp",
           "x": 51,
           "y": 6,
           "width": 22,
@@ -1476,7 +1456,6 @@
         {
           "id": "p11-cell-7",
           "type": "illustration",
-          "asset": "/cartilla/art/faithful/leccion-1/abrigo.webp",
           "x": 75,
           "y": 24,
           "width": 22,
@@ -1519,7 +1498,6 @@
         {
           "id": "p13-cell-0",
           "type": "illustration",
-          "asset": "/cartilla/art/faithful/vocal-i/iglu.webp",
           "x": 3,
           "y": 6,
           "width": 22,
@@ -1606,7 +1584,6 @@
         {
           "id": "p13-cell-8",
           "type": "illustration",
-          "asset": "/cartilla/art/faithful/leccion-1/ola.webp",
           "x": 3,
           "y": 42,
           "width": 22,
@@ -1735,7 +1712,6 @@
         {
           "id": "p14-cell-2",
           "type": "illustration",
-          "asset": "/cartilla/art/faithful/vocal-i/iglu.webp",
           "x": 51,
           "y": 6,
           "width": 22,
@@ -1788,7 +1764,6 @@
         {
           "id": "p14-cell-7",
           "type": "illustration",
-          "asset": "/cartilla/art/faithful/vocal-a/abeja.webp",
           "x": 75,
           "y": 24,
           "width": 22,
@@ -1959,7 +1934,6 @@
         {
           "id": "p16-cell-12",
           "type": "illustration",
-          "asset": "/cartilla/art/faithful/vocal-a/abeja.webp",
           "x": 3,
           "y": 60,
           "width": 22,
@@ -6700,7 +6674,6 @@
         {
           "id": "p64-syl-0-1-2",
           "type": "illustration",
-          "asset": "/cartilla/art/faithful/leccion-18-rr/carro.webp",
           "x": 82.58,
           "y": 10,
           "width": 14.42,
@@ -6842,7 +6815,6 @@
         {
           "id": "p64-syl-3-0-1",
           "type": "illustration",
-          "asset": "/cartilla/art/faithful/leccion-18-rr/carro.webp",
           "x": 18.92,
           "y": 56.5,
           "width": 14.42,
@@ -6999,8 +6971,7 @@
           "height": 40,
           "word": "carro",
           "audioId": "carro",
-          "interactive": true,
-          "asset": "/cartilla/art/faithful/leccion-18-c/carro.webp"
+          "interactive": true
         },
         {
           "id": "p66-word-2",
@@ -7017,7 +6988,6 @@
         {
           "id": "p66-word-3",
           "type": "illustration",
-          "asset": "/cartilla/art/faithful/leccion-18-rr/guitarra.webp",
           "x": 69,
           "y": 25,
           "width": 16,
@@ -7409,7 +7379,6 @@
         {
           "id": "p70-word-1",
           "type": "illustration",
-          "asset": "/cartilla/art/faithful/leccion-19-g/galleta.webp",
           "x": 33,
           "y": 25,
           "width": 16,
@@ -7421,7 +7390,6 @@
         {
           "id": "p70-word-2",
           "type": "illustration",
-          "asset": "/cartilla/art/faithful/leccion-19-g/guitarra.webp",
           "x": 51,
           "y": 25,
           "width": 16,
@@ -7812,7 +7780,6 @@
         {
           "id": "p74-word-0",
           "type": "illustration",
-          "asset": "/cartilla/art/faithful/leccion-20-f/faro.webp",
           "x": 15,
           "y": 25,
           "width": 22,
@@ -7836,7 +7803,6 @@
         {
           "id": "p74-word-2",
           "type": "illustration",
-          "asset": "/cartilla/art/faithful/leccion-20-f/fuente.webp",
           "x": 63,
           "y": 25,
           "width": 22,
