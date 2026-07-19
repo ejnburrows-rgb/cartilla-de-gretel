@@ -1,6 +1,42 @@
 # Art backlog — current, authoritative
 
-## RESOLVED 2026-07-18 (follow-up) — perro was a mislabeled burro crop (real book has no dog art here); rana re-cropped clean from the real color source
+## RESOLVED 2026-07-19 — the "no dog art in these lessons" conclusion below was wrong; a real perro illustration exists on rr-page-42
+The 2026-07-18 entry below only checked `rr-page-40.jpg` (the vocab-grid
+source, confirmed a mislabeled burro) and the two plain-text workbook pages
+— it never checked the surrounding rhyme pages in
+`public/cartilla/images/source-original/rr/`. `rr-page-42.jpg` is a painted
+rhyme illustration ("¡Rápido arriba!": *"Perri el perrito roba mi bola"*)
+showing a real dog stealing a ball, alongside the donkey ("Barri el
+burrito") from the rr-page-40 vocab cell. Opened the full-resolution source
+page directly and confirmed it in-browser: a genuine, book-faithful dog
+illustration, not the flat vocab-grid icon style but real and correct.
+
+- Cropped `perro` from `rr-page-42.jpg` and wired it to
+  `leccion-18-rr/perro.webp` (the same shared path the earlier entry had
+  emptied out — no page-layouts.json/consonants.json changes needed, since
+  neither ever carried an `illustrationSrc` for this word to begin with;
+  confirmed by grep before wiring).
+- Ran it through `scripts/art-pipeline/clean-art.mjs` like every other
+  faithful asset. Note: the flood-fill background removal correctly left the
+  scene intact (grass/flowers, not a plain white paper background) — this
+  crop is a painted scene panel, not an isolated white-background icon, so
+  there's nothing to key transparency off; that's expected, not a bug.
+- Re-added `perro` to `src/content/animal-gallery.ts` (back to 19 entries)
+  after direct visual re-verification of both the source page and the
+  cleaned crop.
+- `rana` needed no change — the 2026-07-18 entry below already fixed it
+  correctly and it's still in place.
+- The bad-crop-file test guard in
+  `src/content/__tests__/animal-gallery.test.ts` (which banned
+  `leccion-18-rr/perro.webp` by path) has been removed — a path ban can't
+  distinguish a fixed file from the original bad one; that's a semantic
+  check, which is what this pass is.
+
+Verified: `pnpm tsc --noEmit` / `pnpm test` / `pnpm build` clean; in-browser
+check of the animal gallery (`/cartilla/animales`) and lesson 18's teacher
+guide vocabulary chips.
+
+## RESOLVED 2026-07-18 (follow-up) — perro was a mislabeled burro crop (real book has no dog art here — SUPERSEDED, see above); rana re-cropped clean from the real color source
 Follow-up to the pre-merge review below: found the real, full-color source
 pages this checkout has under `public/cartilla/images/source-original/` (not
 just the `hd/lineart` grayscale scans) and ran both defects to ground.

@@ -9,19 +9,16 @@
 // mislabeled garbage crops (a drinking glass, dice, a blank page, a girl's
 // hair, the octopus mascot, the fox again). Two more were caught the same way
 // during this file's own review pass: `perro` was wired to
-// leccion-18-rr/perro.webp, which is actually a photo of a donkey — traced to
-// its real source (rr-page-40.jpg) and confirmed the picture is labeled
-// "burro" there, not "perro"; the real book has no dog illustration anywhere
-// in lessons 17/18 (both physical pages that mention "perro" are plain
-// word-matching text, no picture panel). That file has been moved to
-// `_needs-recrop/perro-actually-shows-burro-donkey.webp`, its wiring removed
-// from page-layouts.json/workbook-manifest.json, and `perro` excluded here —
-// there's real book art to invent, so it's correctly absent, not a re-crop
-// task. `rana` had a real, correct frog but a bad crop (cut off, a stray red
-// numeral fragment bled in from the neighboring cell) — re-cropped clean from
-// the real color source (public/cartilla/images/source-original/r/r-page-37.jpg)
-// and is back in the gallery below. Every `src` below was opened and
-// visually confirmed to depict the labeled animal before being added here, and
+// leccion-18-rr/perro.webp, which turned out to actually be a photo of a
+// donkey (traced to rr-page-40.jpg, labeled "burro" there) — but a real dog
+// illustration does exist nearby, on rr-page-42.jpg (a painted rhyme scene,
+// "Perri el perrito"), and has since been cropped and wired in, so `perro` is
+// back below. `rana` had a real, correct frog but a bad crop (cut off, a
+// stray red numeral fragment bled in from the neighboring cell) — re-cropped
+// clean from the real color source
+// (public/cartilla/images/source-original/r/r-page-37.jpg) and is back in the
+// gallery below. See ART_BACKLOG.md for the full resolution history. Every
+// `src` below was opened and
 // `src/content/__tests__/animal-gallery.test.ts` enforces that each file exists
 // and is genuinely colored (not a grayscale/stub) so a future bad crop can't
 // silently slip in.
@@ -60,6 +57,7 @@ export const ANIMAL_GALLERY: AnimalGalleryEntry[] = [
   { word: "pez", illustrationSrc: "/cartilla/art/faithful/leccion-1/pez.webp", lessonNumber: 8, accent: "#F4A261" },
   { word: "sapo", illustrationSrc: "/cartilla/art/faithful/leccion-9-s/sapo.webp", lessonNumber: 9, accent: "#2A9D8F" },
   { word: "rana", illustrationSrc: "/cartilla/art/faithful/leccion-17-r/rana.webp", lessonNumber: 17, accent: "#E63946" },
+  { word: "perro", illustrationSrc: "/cartilla/art/faithful/leccion-18-rr/perro.webp", lessonNumber: 18, accent: "#F4A261" },
   { word: "gusano", illustrationSrc: "/cartilla/art/faithful/leccion-19-g/gusano.webp", lessonNumber: 19, accent: "#2A9D8F" },
   { word: "jirafa", illustrationSrc: "/cartilla/art/faithful/leccion-21-j/jirafa.webp", lessonNumber: 21, accent: "#8338EC" },
   { word: "jicotea", illustrationSrc: "/cartilla/art/faithful/leccion-21-j/jicotea.webp", lessonNumber: 21, accent: "#8338EC" },
