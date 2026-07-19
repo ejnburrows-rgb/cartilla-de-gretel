@@ -4,6 +4,7 @@ import { GraduationCap, ArrowLeft, Loader2 } from "lucide-react";
 import { supabase, isSupabaseConfigured } from "@/integrations/supabase/client";
 import { setStudentSession } from "@/lib/student-session";
 import { signInSeedTeacher } from "@/lib/seed-data";
+import "@/styles/teacher-chrome.css";
 
 export const Route = createFileRoute("/login")({
   component: LoginPage,
@@ -84,91 +85,94 @@ function LoginPage() {
   };
 
   return (
-    <main className="min-h-screen bg-background px-4 py-8 max-w-md mx-auto">
-      <Link
-        to="/cartilla"
-        className="inline-flex items-center gap-2 text-sm font-bold text-foreground/60 hover:text-foreground"
-      >
-        <ArrowLeft className="w-4 h-4" /> Cartilla
-      </Link>
-      <header className="mt-8 text-center">
-        <div className="mx-auto w-14 h-14 rounded-2xl bg-primary text-primary-foreground flex items-center justify-center">
-          <GraduationCap className="w-7 h-7" />
-        </div>
-        <h1 className="mt-4 text-3xl font-bold">
-          {mode === "login" ? "Acceso del maestro" : "Crear cuenta de maestro"}
-        </h1>
-        <p className="text-sm text-foreground/60 mt-1">
-          {mode === "login"
-            ? "Entra para gestionar tus clases y alumnos."
-            : "Crea tu cuenta para empezar a organizar clases."}
-        </p>
-      </header>
+    <main className="teacher-chrome min-h-screen px-4 py-8">
+      <div className="max-w-md mx-auto">
+        <Link
+          to="/cartilla"
+          className="inline-flex items-center gap-2 text-sm font-bold text-[var(--tc-ink-soft)] hover:text-[var(--tc-ink)] transition-colors"
+        >
+          <ArrowLeft className="w-4 h-4" /> Cartilla
+        </Link>
+        <header className="mt-8 text-center">
+          <div className="teacher-chrome__brand-mark mx-auto w-14 h-14 rounded-2xl text-white flex items-center justify-center">
+            <GraduationCap className="w-7 h-7" />
+          </div>
+          <h1 className="mt-4 text-3xl font-black text-[var(--tc-ink)]">
+            {mode === "login" ? "Acceso del maestro" : "Crear cuenta de maestro"}
+          </h1>
+          <p className="text-sm font-bold text-[var(--tc-ink-soft)] mt-1">
+            {mode === "login"
+              ? "Entra para gestionar tus clases y alumnos."
+              : "Crea tu cuenta para empezar a organizar clases."}
+          </p>
+        </header>
 
-      {unauthorized && (
-        <div className="mt-6 text-sm text-destructive font-bold bg-destructive/10 border-2 border-destructive/20 rounded-xl px-4 py-3">
-          Tu cuenta no tiene permiso de maestro o administrador. Contacta al administrador de la
-          escuela.
-        </div>
-      )}
+        {unauthorized && (
+          <div className="mt-6 text-sm text-destructive font-bold bg-destructive/10 border-2 border-destructive/20 rounded-2xl px-4 py-3">
+            Tu cuenta no tiene permiso de maestro o administrador. Contacta al administrador de la
+            escuela.
+          </div>
+        )}
 
-      <form onSubmit={submit} className="mt-8 space-y-3">
-        {mode === "signup" && (
+        <form onSubmit={submit} className="mt-8 space-y-3">
+          {mode === "signup" && (
+            <input
+              type="text"
+              value={fullName}
+              onChange={(e) => setFullName(e.target.value)}
+              placeholder="Nombre completo"
+              className="w-full px-5 py-4 rounded-2xl border-2 border-[var(--tc-border)] bg-white text-[var(--tc-ink)] text-sm font-bold shadow-inner focus:border-[var(--tc-accent)] outline-none"
+              required
+            />
+          )}
           <input
-            type="text"
-            value={fullName}
-            onChange={(e) => setFullName(e.target.value)}
-            placeholder="Nombre completo"
-            className="w-full px-4 py-3 rounded-xl border-2 border-foreground/10 bg-card focus:border-primary outline-none"
+            type="email"
+            autoComplete="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="correo@escuela.com"
+            className="w-full px-5 py-4 rounded-2xl border-2 border-[var(--tc-border)] bg-white text-[var(--tc-ink)] text-sm font-bold shadow-inner focus:border-[var(--tc-accent)] outline-none"
             required
           />
-        )}
-        <input
-          type="email"
-          autoComplete="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="correo@escuela.com"
-          className="w-full px-4 py-3 rounded-xl border-2 border-foreground/10 bg-card focus:border-primary outline-none"
-          required
-        />
-        <input
-          type="password"
-          autoComplete={mode === "login" ? "current-password" : "new-password"}
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Contraseña"
-          minLength={6}
-          className="w-full px-4 py-3 rounded-xl border-2 border-foreground/10 bg-card focus:border-primary outline-none"
-          required
-        />
-        {error && <div className="text-sm text-destructive font-bold">{error}</div>}
+          <input
+            type="password"
+            autoComplete={mode === "login" ? "current-password" : "new-password"}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Contraseña"
+            minLength={6}
+            className="w-full px-5 py-4 rounded-2xl border-2 border-[var(--tc-border)] bg-white text-[var(--tc-ink)] text-sm font-bold shadow-inner focus:border-[var(--tc-accent)] outline-none"
+            required
+          />
+          {error && <div className="text-sm text-destructive font-bold">{error}</div>}
+          <button
+            type="submit"
+            disabled={busy}
+            className="w-full py-4 rounded-2xl text-white font-black text-sm shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition disabled:opacity-50 disabled:translate-y-0 inline-flex items-center justify-center gap-2"
+            style={{ background: "linear-gradient(135deg, #5fa777, #3d7a5c)" }}
+          >
+            {busy && <Loader2 className="w-4 h-4 animate-spin" />}
+            {mode === "login" ? "Entrar" : "Crear cuenta"}
+          </button>
+        </form>
+
         <button
-          type="submit"
-          disabled={busy}
-          className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-bold disabled:opacity-50 inline-flex items-center justify-center gap-2"
+          onClick={() => {
+            setError(null);
+            setMode((m) => (m === "login" ? "signup" : "login"));
+          }}
+          className="mt-4 w-full text-sm font-bold text-[var(--tc-ink-soft)] hover:text-[var(--tc-ink)] transition-colors"
         >
-          {busy && <Loader2 className="w-4 h-4 animate-spin" />}
-          {mode === "login" ? "Entrar" : "Crear cuenta"}
+          {mode === "login" ? "¿No tienes cuenta? Crear una" : "¿Ya tienes cuenta? Entrar"}
         </button>
-      </form>
 
-      <button
-        onClick={() => {
-          setError(null);
-          setMode((m) => (m === "login" ? "signup" : "login"));
-        }}
-        className="mt-4 w-full text-sm text-foreground/60 hover:text-primary"
-      >
-        {mode === "login" ? "¿No tienes cuenta? Crear una" : "¿Ya tienes cuenta? Entrar"}
-      </button>
-
-      <p className="mt-8 text-center text-xs text-foreground/50">
-        ¿Eres estudiante?{" "}
-        <Link to="/cartilla/unirse" className="underline font-bold">
-          Únete a una clase
-        </Link>
-      </p>
+        <p className="mt-8 text-center text-xs font-bold text-[var(--tc-ink-faint)]">
+          ¿Eres estudiante?{" "}
+          <Link to="/cartilla/unirse" className="underline font-bold text-[var(--tc-ink-soft)]">
+            Únete a una clase
+          </Link>
+        </p>
+      </div>
     </main>
   );
 }
