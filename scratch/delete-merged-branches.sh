@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
-# Deletes the 117 branches verified as fully merged into main (exact SHA match to a merged PR).
+# Deletes the 117 branches verified as fully merged into main (exact SHA match to a merged PR),
+# plus 16 branches behind PRs that were explicitly closed without merging (real rejected/
+# superseded proposals — see the block near the end of this file for the list and the one
+# excluded branch, feat/content-extraction, which stays).
 # Run from a machine with the GitHub CLI (gh) authenticated, or paste into GitHub's web UI one by one.
 set -e
 REPO=ejnburrows-rgb/cartilla-de-gretel
@@ -120,3 +123,25 @@ gh api -X DELETE "repos/$REPO/git/refs/heads/fix/workbook-art-slots-in-repo"
 gh api -X DELETE "repos/$REPO/git/refs/heads/ops/confirm-bootstrap-teacher-login-mrjpm67o"
 gh api -X DELETE "repos/$REPO/git/refs/heads/qa/task-7.1-final-verification"
 gh api -X DELETE "repos/$REPO/git/refs/heads/test-downloads-component-6857359563983852859"
+
+# --- The 16 branches behind closed-and-explicitly-rejected/superseded PRs.
+# Confirmed each still exists as a remote branch (git ls-remote) and that its
+# PR was closed without merging. NOTE: feat/content-extraction is EXCLUDED —
+# its PR (#140) was also closed unmerged, but this branch is CLAUDE.md's live
+# Anti-Gravity channel (checked every turn), not abandoned work.
+gh api -X DELETE "repos/$REPO/git/refs/heads/antigravity/cartilla-missing-assets-recovery"
+gh api -X DELETE "repos/$REPO/git/refs/heads/chore/remove-inert-duplicate-files"
+gh api -X DELETE "repos/$REPO/git/refs/heads/claude/cartilla-gretel-audit-9il1mp"
+gh api -X DELETE "repos/$REPO/git/refs/heads/claude/la-cartilla-notion-connector-0rqv7b"
+gh api -X DELETE "repos/$REPO/git/refs/heads/claude/paperback-to-crm-digitization-0vaqwi"
+gh api -X DELETE "repos/$REPO/git/refs/heads/demo/full-show-jul13"
+gh api -X DELETE "repos/$REPO/git/refs/heads/feat/faithful-page-pilot"
+gh api -X DELETE "repos/$REPO/git/refs/heads/feat/functional-crm-completion"
+gh api -X DELETE "repos/$REPO/git/refs/heads/feat/grok-final-cartilla"
+gh api -X DELETE "repos/$REPO/git/refs/heads/feat/interactive-schema-correctness"
+gh api -X DELETE "repos/$REPO/git/refs/heads/feat/lineart-fallback-chain"
+gh api -X DELETE "repos/$REPO/git/refs/heads/feat/living-workbook-engine"
+gh api -X DELETE "repos/$REPO/git/refs/heads/feat/living-workbook-pipeline"
+gh api -X DELETE "repos/$REPO/git/refs/heads/feat/teacher-crm-overhaul"
+gh api -X DELETE "repos/$REPO/git/refs/heads/feat/ui-dark-mode-i18n"
+gh api -X DELETE "repos/$REPO/git/refs/heads/feat/workbook-manifest-pipeline"
