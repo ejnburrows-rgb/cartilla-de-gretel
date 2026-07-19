@@ -9,7 +9,7 @@
     "clean paint - no bleed, white gaps, or flat fills where the original has shading",
     "complete crop - no cut-off limbs, no background chunks, clean edges"
   ],
-  "note": "Task brief cited Gretel canon colors dress #E2574C / hair #B5793A which do not match the real book painting (public/art/hd/gretel-authentic.jpg: blonde hair, navy dress with orange floral trim). Judged poses against the actual source painting instead; all 17 pass. Flagging the hex mismatch for the operator to reconcile with Notion Hub canon.",
+  "note": "Task brief cited Gretel canon colors dress #E2574C / hair #B5793A which do not match the real book painting (public/art/hd/gretel-authentic.jpg: blonde hair, navy dress with orange floral trim). Judged poses against the actual source painting instead; all 17 pass. Flagging the hex mismatch for the operator to reconcile with Notion Hub canon. wasWiredInProduction=true means the FAIL crop was referenced by src/data/page-layouts.json, src/content/lessons.json, src/content/consonants.json, src/content/animal-gallery.ts, and/or src/content/workbook/workbook-manifest.json (the dev-only LivingWorkbookPage sandbox engine) — all references have been stripped back to pendiente/emoji/no-entry.",
   "results": [
     {
       "file": "public/cartilla/art/faithful/vocal-a/abanico.webp",
@@ -237,7 +237,7 @@
       "file": "public/cartilla/art/faithful/leccion-1/ola.webp",
       "verdict": "FAIL",
       "reason": "Monochrome gray/mauve tone, no blue at all (wrong color for a wave)",
-      "wasWiredInProduction": false
+      "wasWiredInProduction": true
     },
     {
       "file": "public/cartilla/art/faithful/leccion-1/pajaro.webp",
@@ -549,7 +549,7 @@
       "file": "public/cartilla/art/faithful/leccion-18-c/carro.webp",
       "verdict": "FAIL",
       "reason": "Wrong content: a donkey/camel leg and body, not a car",
-      "wasWiredInProduction": false
+      "wasWiredInProduction": true
     },
     {
       "file": "public/cartilla/art/faithful/leccion-18-rr/barril.webp",
@@ -645,7 +645,7 @@
       "file": "public/cartilla/art/faithful/leccion-19-g/guitarra.webp",
       "verdict": "FAIL",
       "reason": "Wrong content: duplicate of the goloso dog-with-tie image, not a guitar",
-      "wasWiredInProduction": false
+      "wasWiredInProduction": true
     },
     {
       "file": "public/cartilla/art/faithful/leccion-19-g/gusano.webp",
