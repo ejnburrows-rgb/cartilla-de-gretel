@@ -22,13 +22,20 @@ import {
 } from "../../../scripts/validate-art-color.mjs";
 
 describe("art color guard — no grayscale art ships to students", () => {
-  it("every wired illustrationSrc is actually colored, not grayscale", async () => {
-    const gray = await findGrayscaleArt();
-    expect(
-      gray.map((g) => `${g.rel} (spread ${g.spread.toFixed(1)})`),
-      "grayscale art still wired",
-    ).toEqual([]);
-  });
+  it(
+    "every wired illustrationSrc is actually colored, not grayscale",
+    async () => {
+      const gray = await findGrayscaleArt();
+      expect(
+        gray.map((g) => `${g.rel} (spread ${g.spread.toFixed(1)})`),
+        "grayscale art still wired",
+      ).toEqual([]);
+    },
+    // Decodes ~100 real images concurrently (sharp/libvips) — fast in
+    // isolation (~1.5s) but the default 5s timeout intermittently trips
+    // under full-suite load when other test files are competing for CPU.
+    15000,
+  );
 
   it("actually has crops to check (guard is wired to real data)", () => {
     expect(collectWiredSrcs().length).toBeGreaterThan(50);
