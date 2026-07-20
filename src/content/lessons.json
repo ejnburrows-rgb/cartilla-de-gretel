@@ -148,7 +148,8 @@
     "vocab": [
       {
         "word": "iglú",
-        "emoji": "🛖"
+        "emoji": "🛖",
+        "illustrationSrc": "/cartilla/art/faithful/vocal-i/iglu.webp"
       },
       {
         "word": "isla",
@@ -222,7 +223,8 @@
       },
       {
         "word": "ojo",
-        "emoji": "👁️"
+        "emoji": "👁️",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-1/ojos.webp"
       },
       {
         "word": "ola",

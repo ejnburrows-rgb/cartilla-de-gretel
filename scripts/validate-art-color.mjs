@@ -8,8 +8,11 @@
  * shipped invisibly again and again. This reads actual pixels and fails on:
  *
  *   1. COLOR       — any wired illustrationSrc that is grayscale, not colored.
- *   2. COMPLETENESS — any consonant vocab word that fell back to an emoji with
- *                     no illustration and no explicit "not in the book" triage.
+ *   2. COMPLETENESS — any consonant OR vowel vocab word that fell back to an
+ *                     emoji with no illustration and no explicit "not in the
+ *                     book" triage. (Vowel-lesson coverage added 2026-07 —
+ *                     it was missing before and let real gaps like abeja/
+ *                     escoba/iglú/ojo sit untracked in production.)
  *
  * Runs in the build chain (package.json "build" → "validate:art-color") so it
  * gates CI, and its lists/functions are imported by
@@ -130,10 +133,10 @@ export async function findGrayscaleArt() {
 }
 
 /**
- * Consonant vocab words that appear (as text) in a lesson but have NO
- * illustration anywhere in this book edition — verified by opening every real
- * source page for the lesson, not from prior docs. They correctly fall back to
- * emoji.
+ * Consonant AND vowel vocab words that appear (as text) in a lesson but have
+ * NO colored illustration anywhere in this book edition — verified by opening
+ * every real source page for the lesson, not from prior docs. They correctly
+ * fall back to emoji.
  */
 export const CONFIRMED_ABSENT = new Set([
   // L7 M (m-page-8 picture panel: mamá/mono/... only)
@@ -177,12 +180,34 @@ export const CONFIRMED_ABSENT = new Set([
   // abstract plant/hair-like burst shape, not garlic; color-QA (2026-07)
   // failed it and pulled it from live use.
   "ajo",
+  // Vowel A — checked all 3 real source pages (a-page-4/5/6.jpg). "abeja" is
+  // this lesson's mascot ("La Abeja Cantora") but only appears as an
+  // uncolored distractor icon on cross-vowel trace-line exercise pages
+  // (a-page-5.jpg "Lección 3", i-page-14.jpg "Lección 5") — no colored
+  // illustration of her exists in the available scans.
+  "abeja",
+  // Vowel E — checked both real source pages. e-page-5.jpg's own colored
+  // vocab grid is elefante/espejo/Ema/estrella/erizo/escalera (no escoba);
+  // escoba only appears, uncolored, as a distractor on e-page-10.jpg's
+  // grayscale mark-with-X page.
+  "escoba",
+  // Vowel U — checked all 4 real source pages (u-page-7/16/17/18.jpg).
+  // "urna" does not appear anywhere in the available scans at all, not even
+  // grayscale.
+  "urna",
 ]);
 
-/** Emoji-only consonant vocab words that are not on CONFIRMED_ABSENT. */
+/**
+ * Emoji-only vocab words that are not on CONFIRMED_ABSENT, across BOTH
+ * consonant lessons (src/content/consonants.json) AND vowel lessons
+ * (src/content/lessons.json). The vowel-lesson half was missing entirely
+ * until this pass — that blind spot is exactly how abeja/escoba/iglú/ojo
+ * sat emoji-only in production with nothing catching it. Never scan just
+ * one file again.
+ */
 export function findUntriagedGaps() {
-  const consonants = readJson("src/content/consonants.json");
   const untriaged = [];
+  const consonants = readJson("src/content/consonants.json");
   for (const lesson of consonants) {
     for (const v of lesson.vocab ?? []) {
       if (!v.illustrationSrc && !CONFIRMED_ABSENT.has(v.word)) {
@@ -190,14 +215,28 @@ export function findUntriagedGaps() {
       }
     }
   }
+  const vowels = readJson("src/content/lessons.json");
+  for (const lesson of vowels) {
+    for (const v of lesson.vocab ?? []) {
+      if (!v.illustrationSrc && !CONFIRMED_ABSENT.has(v.word)) {
+        untriaged.push(`V:${lesson.vowel}:${v.word}`);
+      }
+    }
+  }
   return untriaged;
 }
 
-/** CONFIRMED_ABSENT entries that are actually wired now (stale list entries). */
+/** CONFIRMED_ABSENT entries that are actually wired now (stale list entries), across both consonant and vowel lessons. */
 export function findStaleAbsent() {
-  const consonants = readJson("src/content/consonants.json");
   const wired = new Set();
+  const consonants = readJson("src/content/consonants.json");
   for (const lesson of consonants) {
+    for (const v of lesson.vocab ?? []) {
+      if (v.illustrationSrc) wired.add(v.word);
+    }
+  }
+  const vowels = readJson("src/content/lessons.json");
+  for (const lesson of vowels) {
     for (const v of lesson.vocab ?? []) {
       if (v.illustrationSrc) wired.add(v.word);
     }

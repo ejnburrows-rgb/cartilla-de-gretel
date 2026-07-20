@@ -304,7 +304,8 @@
             },
             {
               "caption": "iglú",
-              "correct": false
+              "correct": false,
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iglu.webp"
             },
             {
               "caption": "oso",
@@ -399,7 +400,8 @@
           "cells": [
             {
               "caption": "iglú",
-              "correct": false
+              "correct": false,
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iglu.webp"
             },
             {
               "caption": "oveja",
@@ -612,7 +614,8 @@
             },
             {
               "caption": "iglú",
-              "correct": false
+              "correct": false,
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iglu.webp"
             },
             {
               "caption": "alas",
@@ -719,7 +722,8 @@
             },
             {
               "caption": "iglú",
-              "correct": true
+              "correct": true,
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iglu.webp"
             },
             {
               "caption": "maíz",
@@ -920,7 +924,8 @@
           "cells": [
             {
               "caption": "iglú",
-              "correct": true
+              "correct": true,
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iglu.webp"
             },
             {
               "caption": "pez",
@@ -1030,7 +1035,8 @@
             },
             {
               "caption": "iglú",
-              "correct": true
+              "correct": true,
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iglu.webp"
             },
             {
               "caption": "igual",
