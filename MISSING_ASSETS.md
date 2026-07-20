@@ -108,10 +108,20 @@ Only **`globo`** (`leccion-1/globo.webp`) is still genuinely broken — it
 QA-FAILed for a real paint-bleed defect (a stray red line across the top,
 unrelated to the balloon) and was pulled from live use this session, so it
 is back to showing the honest pendiente placeholder rather than the bad
-crop. It's tracked in the current session's "remaining page-layout gap"
-list alongside 10 similar consonant-lesson words (see the session's plan
-doc / commit history for the full list) — same crop-from-real-source-page
-methodology, not yet executed for `globo` specifically.
+crop.
+
+**2026-07-20, page-layout gap batch:** worked the page-layout-only gap list
+(`aguja`, `oruga`, `abrigo`, `globo`, `remolino`, `carro`, `guitarra`,
+`galleta`, `faro`, `foca`, `fuente`, `zanahoria`). `carro` fixed — a real
+PASS-graded crop (`leccion-1/carro.webp`) was sitting unused, now wired.
+`guitarra`/`galleta`/`faro`/`foca`/`fuente`/`zanahoria` turned out not to be
+art gaps at all — they only appear in text-only exercises (no picture-grid
+cell, no `illustrationSrc` field in that schema). `abrigo`/`aguja`/`remolino`
+have real grayscale book line art (exact page + crop box now documented in
+`ART_BACKLOG.md`) but need coloring, not just wiring — out of scope for this
+pass. `oruga` and `globo` still have no located clean source; see
+`ART_BACKLOG.md`'s 2026-07-20 section for the full trail (including which
+62 flipchart pages remain unchecked).
 
 - `public/cartilla/art/faithful/leccion-22-g-j/gato.webp`
   - Source blob: `fdc667d1e8b14be65b1b465177614b6bfe356cd9`
