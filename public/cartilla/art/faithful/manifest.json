@@ -5,13 +5,15 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-i/iglu.webp",
-    "sourceFlipchartPage": "i-page-14.jpg",
+    "source": "public/cartilla/images/source-original/i/i-page-6.jpg",
     "cropBox": [
-      910,
-      431,
-      336,
-      227
-    ]
+      935,
+      1420,
+      590,
+      500
+    ],
+    "provenanceStatus": "FIXED-2026-WRONG-PAGE",
+    "note": "Old sourceFlipchartPage (i-page-14.jpg) was a grayscale trace-line exercise page, not the colored vocab grid — that's why the old crop was uncolored and QA-failed. Re-cropped from the real colored source, i-page-6.jpg (imán/iglú/indio/insecto/isla/Irma grid)."
   },
   {
     "slug": "oso",
