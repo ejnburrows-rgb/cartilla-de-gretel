@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as IntroRouteImport } from './routes/intro'
+import { Route as EntrarRouteImport } from './routes/entrar'
 import { Route as DevWorkbookManifestRouteImport } from './routes/dev-workbook-manifest'
 import { Route as DevLivingWorkbookRouteImport } from './routes/dev-living-workbook'
 import { Route as DevGretelRouteImport } from './routes/dev-gretel'
@@ -66,6 +67,11 @@ const LoginRoute = LoginRouteImport.update({
 const IntroRoute = IntroRouteImport.update({
   id: '/intro',
   path: '/intro',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EntrarRoute = EntrarRouteImport.update({
+  id: '/entrar',
+  path: '/entrar',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DevWorkbookManifestRoute = DevWorkbookManifestRouteImport.update({
@@ -318,6 +324,7 @@ export interface FileRoutesByFullPath {
   '/dev-gretel': typeof DevGretelRoute
   '/dev-living-workbook': typeof DevLivingWorkbookRoute
   '/dev-workbook-manifest': typeof DevWorkbookManifestRoute
+  '/entrar': typeof EntrarRoute
   '/intro': typeof IntroRoute
   '/login': typeof LoginRoute
   '/cartilla/teacher': typeof CartillaTeacherRouteRouteWithChildren
@@ -368,6 +375,7 @@ export interface FileRoutesByTo {
   '/dev-gretel': typeof DevGretelRoute
   '/dev-living-workbook': typeof DevLivingWorkbookRoute
   '/dev-workbook-manifest': typeof DevWorkbookManifestRoute
+  '/entrar': typeof EntrarRoute
   '/intro': typeof IntroRoute
   '/login': typeof LoginRoute
   '/cartilla/animales': typeof CartillaAnimalesRoute
@@ -415,6 +423,7 @@ export interface FileRoutesById {
   '/dev-gretel': typeof DevGretelRoute
   '/dev-living-workbook': typeof DevLivingWorkbookRoute
   '/dev-workbook-manifest': typeof DevWorkbookManifestRoute
+  '/entrar': typeof EntrarRoute
   '/intro': typeof IntroRoute
   '/login': typeof LoginRoute
   '/cartilla/teacher': typeof CartillaTeacherRouteRouteWithChildren
@@ -467,6 +476,7 @@ export interface FileRouteTypes {
     | '/dev-gretel'
     | '/dev-living-workbook'
     | '/dev-workbook-manifest'
+    | '/entrar'
     | '/intro'
     | '/login'
     | '/cartilla/teacher'
@@ -517,6 +527,7 @@ export interface FileRouteTypes {
     | '/dev-gretel'
     | '/dev-living-workbook'
     | '/dev-workbook-manifest'
+    | '/entrar'
     | '/intro'
     | '/login'
     | '/cartilla/animales'
@@ -563,6 +574,7 @@ export interface FileRouteTypes {
     | '/dev-gretel'
     | '/dev-living-workbook'
     | '/dev-workbook-manifest'
+    | '/entrar'
     | '/intro'
     | '/login'
     | '/cartilla/teacher'
@@ -614,6 +626,7 @@ export interface RootRouteChildren {
   DevGretelRoute: typeof DevGretelRoute
   DevLivingWorkbookRoute: typeof DevLivingWorkbookRoute
   DevWorkbookManifestRoute: typeof DevWorkbookManifestRoute
+  EntrarRoute: typeof EntrarRoute
   IntroRoute: typeof IntroRoute
   LoginRoute: typeof LoginRoute
   CartillaTeacherRouteRoute: typeof CartillaTeacherRouteRouteWithChildren
@@ -650,6 +663,13 @@ declare module '@tanstack/react-router' {
       path: '/intro'
       fullPath: '/intro'
       preLoaderRoute: typeof IntroRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/entrar': {
+      id: '/entrar'
+      path: '/entrar'
+      fullPath: '/entrar'
+      preLoaderRoute: typeof EntrarRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dev-workbook-manifest': {
@@ -1072,6 +1092,7 @@ const rootRouteChildren: RootRouteChildren = {
   DevGretelRoute: DevGretelRoute,
   DevLivingWorkbookRoute: DevLivingWorkbookRoute,
   DevWorkbookManifestRoute: DevWorkbookManifestRoute,
+  EntrarRoute: EntrarRoute,
   IntroRoute: IntroRoute,
   LoginRoute: LoginRoute,
   CartillaTeacherRouteRoute: CartillaTeacherRouteRouteWithChildren,

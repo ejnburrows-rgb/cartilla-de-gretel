@@ -1,0 +1,282 @@
+/* welcome-splash.css — "¡Bienvenidos!" first screen
+ * (src/components/intro/WelcomeSplash.tsx, src/routes/index.tsx).
+ *
+ * Self-contained: this stylesheet is only imported by WelcomeSplash. Layered
+ * cutout animation only (transform/opacity on real pixels) — no new art,
+ * no filters that repaint anything. Fully disabled under
+ * prefers-reduced-motion (both the JS timers gate themselves off, and this
+ * stylesheet hard-disables any animation left running as a second guard). */
+
+.wc-splash {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  overflow: hidden;
+  isolation: isolate;
+  background: #dff0d8; /* meadow-green fallback while the bg photo loads */
+}
+
+.wc-splash__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  z-index: 0;
+}
+
+.wc-splash__sky-wash {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(20, 46, 30, 0.32) 0%, rgba(20, 46, 30, 0) 22%, rgba(20, 46, 30, 0) 68%, rgba(20, 46, 30, 0.22) 100%);
+}
+
+/* ── Headline ─────────────────────────────────────────────────── */
+.wc-splash__headline {
+  position: relative;
+  z-index: 20;
+  text-align: center;
+  padding: clamp(1.25rem, 4vh, 2.5rem) 1rem 0;
+}
+
+.wc-splash__title {
+  margin: 0;
+  font-family: var(--font-book-title, "Fredoka", ui-rounded, system-ui, sans-serif);
+  font-weight: 800;
+  font-size: clamp(2.4rem, 9vw, 4.5rem);
+  color: #fffbea;
+  text-shadow:
+    0 2px 0 #d4711f,
+    0 5px 18px rgba(43, 27, 10, 0.45);
+  letter-spacing: 0.01em;
+}
+
+.wc-splash__subtitle {
+  margin: 0.15rem 0 0;
+  font-family: var(--font-book-title, "Fredoka", ui-rounded, system-ui, sans-serif);
+  font-weight: 600;
+  font-size: clamp(1rem, 3vw, 1.4rem);
+  color: #fdf3da;
+  text-shadow: 0 2px 10px rgba(30, 20, 8, 0.5);
+}
+
+/* ── Stage (the meadow floor where everyone stands) ──────────────── */
+.wc-splash__stage {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  min-height: 46vh;
+  margin-top: clamp(0.5rem, 2vh, 1.5rem);
+}
+
+.wc-critter {
+  position: absolute;
+  display: flex;
+  align-items: flex-end;
+  pointer-events: none;
+}
+
+.wc-critter__breath {
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+  height: 100%;
+  transform-origin: 50% 100%;
+}
+
+.wc-critter__breath--live {
+  animation: wcBreathe 5.2s ease-in-out infinite;
+  animation-delay: var(--wc-breath-delay, 0s);
+}
+
+.wc-critter__img {
+  display: block;
+  height: 100%;
+  width: auto;
+  filter: drop-shadow(0 6px 5px rgba(20, 30, 15, 0.22));
+}
+
+.wc-critter__blinkband {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 100% 100%;
+  clip-path: inset(0 0 68% 0);
+  transform-origin: 50% 16%;
+  transform: scaleY(1);
+  opacity: 0;
+  transition: transform 70ms ease-in, opacity 70ms ease-in;
+}
+
+.wc-critter__blinkband--closed {
+  opacity: 1;
+  transform: scaleY(0.08);
+}
+
+/* ── Gretel ───────────────────────────────────────────────────── */
+.wc-gretel-slot {
+  position: absolute;
+  left: 50%;
+  bottom: -1%;
+  height: 78%;
+  transform: translateX(-50%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.wc-gretel {
+  position: relative;
+  height: 100%;
+  width: fit-content;
+  margin: 0 auto;
+  filter: drop-shadow(0 14px 10px rgba(20, 30, 15, 0.28));
+  transform-origin: 50% 100%;
+}
+
+.wc-gretel--live {
+  animation: wcBreathe 6s ease-in-out infinite;
+}
+
+.wc-gretel--greet {
+  transition: transform 0.35s ease-out;
+  transform: scale(1.035) translateY(-1.5%) rotate(-1.4deg);
+}
+
+.wc-gretel__layer {
+  display: block;
+  height: 100%;
+  width: auto;
+}
+
+.wc-gretel__layer--blink,
+.wc-gretel__layer--gesture {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+  opacity: 0;
+  transition: opacity 65ms ease-in;
+}
+
+/* gretel-closed-idle.webp's real pixels are correct (eyes shut, same pose/
+ * canvas as idle), but the file itself has an opaque black canvas instead
+ * of real transparency around Gretel (verified with sharp: alpha=255
+ * everywhere). idle.webp is a clean, pixel-aligned cutout of the same
+ * pose, so its alpha channel is reused here as a mask — only the pixels
+ * inside Gretel's own silhouette are ever shown from the blink frame, and
+ * the black canvas around her is masked away. Still just real pixels
+ * recombined by CSS, no new art. */
+.wc-gretel__layer--blink {
+  -webkit-mask-image: url("/cartilla/images/gretel/poses/gretel-idle.webp");
+  mask-image: url("/cartilla/images/gretel/poses/gretel-idle.webp");
+  -webkit-mask-mode: alpha;
+  mask-mode: alpha;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: bottom center;
+  mask-position: bottom center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.wc-gretel__layer--on {
+  opacity: 1;
+}
+
+/* ── Entrar CTA ───────────────────────────────────────────────── */
+.wc-splash__cta-wrap {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  padding: clamp(0.75rem, 3vh, 1.5rem) 1rem clamp(1.25rem, 4vh, 2.25rem);
+}
+
+.wc-splash__cta {
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: var(--font-book-title, "Fredoka", ui-rounded, system-ui, sans-serif);
+  font-weight: 800;
+  font-size: clamp(1.25rem, 4vw, 1.75rem);
+  color: #ffffff;
+  background: linear-gradient(180deg, #ff8a3d 0%, #e8792a 100%);
+  padding: 0.85em 3.2em;
+  border-radius: 999px;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.5) inset,
+    0 12px 26px -8px rgba(120, 50, 5, 0.55);
+  border: 3px solid rgba(255, 255, 255, 0.9);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+
+.wc-splash__cta:hover,
+.wc-splash__cta:focus-visible {
+  transform: translateY(-2px) scale(1.03);
+  background: linear-gradient(180deg, #ff9950 0%, #f18434 100%);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.5) inset,
+    0 16px 30px -8px rgba(120, 50, 5, 0.62);
+}
+
+.wc-splash__cta:focus-visible {
+  outline: 3px solid #fff3d6;
+  outline-offset: 3px;
+}
+
+.wc-splash__cta:active {
+  transform: translateY(0) scale(0.99);
+}
+
+/* ── Shared breathing keyframe ────────────────────────────────── */
+@keyframes wcBreathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.018);
+  }
+}
+
+/* ── Small screens: keep the stage from getting too cramped ─────── */
+@media (max-width: 420px) {
+  .wc-splash__stage {
+    min-height: 42vh;
+  }
+  .wc-splash__cta {
+    padding: 0.8em 2.6em;
+  }
+}
+
+/* ── Reduced motion: hard-disable everything above, second guard on
+ * top of the JS timers already gating themselves off. ─────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .wc-critter__breath,
+  .wc-gretel,
+  .wc-splash__cta {
+    animation: none !important;
+    transition: none !important;
+  }
+  .wc-gretel--greet {
+    transform: none !important;
+  }
+  .wc-critter__blinkband {
+    display: none !important;
+  }
+  .wc-gretel__layer--blink,
+  .wc-gretel__layer--gesture {
+    transition: none !important;
+  }
+}

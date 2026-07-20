@@ -46,17 +46,17 @@ const BANNED = [
   "Gretel te espera",
 ];
 
-describe("Home landing — GretelPresence + approved copy only", () => {
+describe("Entrar (post-splash landing) — GretelPresence + approved copy only", () => {
   it("renders high-contrast Entrar + real GretelPresence (not sticker/static-only)", async () => {
-    const { Route: IndexRoute } = await import("../index");
+    const { Route: IndexRoute } = await import("../entrar");
     const rootRoute = createRootRoute();
     const indexRoute = createRoute({
       getParentRoute: () => rootRoute,
-      path: "/",
+      path: "/entrar",
       component: IndexRoute.options.component!,
     });
     const routeTree = rootRoute.addChildren([indexRoute]);
-    const history = createMemoryHistory({ initialEntries: ["/"] });
+    const history = createMemoryHistory({ initialEntries: ["/entrar"] });
     const router = createRouter({ routeTree, history });
     render(<RouterProvider router={router} />);
     await router.load();
@@ -73,15 +73,15 @@ describe("Home landing — GretelPresence + approved copy only", () => {
   });
 
   it("hero text is ONLY the approved greeting — no fabricated captions", async () => {
-    const { Route: IndexRoute } = await import("../index");
+    const { Route: IndexRoute } = await import("../entrar");
     const rootRoute = createRootRoute();
     const indexRoute = createRoute({
       getParentRoute: () => rootRoute,
-      path: "/",
+      path: "/entrar",
       component: IndexRoute.options.component!,
     });
     const routeTree = rootRoute.addChildren([indexRoute]);
-    const history = createMemoryHistory({ initialEntries: ["/"] });
+    const history = createMemoryHistory({ initialEntries: ["/entrar"] });
     const router = createRouter({ routeTree, history });
     const { container } = render(<RouterProvider router={router} />);
     await router.load();
