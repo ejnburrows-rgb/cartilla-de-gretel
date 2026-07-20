@@ -105,18 +105,26 @@ guard instead of a doc:
 - It reads **actual pixels** and fails the build if any wired `illustrationSrc`
   is **grayscale** (the exact bug — gray art passing size/existence checks —
   that produced every "still not colored" surprise below).
-- It fails the build if any consonant vocab word falls back to an emoji with no
-  illustration **and** is not on the `CONFIRMED_ABSENT` list in that script.
+- It fails the build if any consonant **or vowel** vocab word falls back to an
+  emoji with no illustration **and** is not on the `CONFIRMED_ABSENT` list in
+  that script. (**2026-07-20**: extended to also scan vowel-lesson vocab,
+  `src/content/lessons.json` — it previously only scanned consonants, which
+  is exactly how `abeja`/`escoba`/`iglú`/`ojo` sat as untracked gaps.)
 
-**`CONFIRMED_ABSENT` (27 words) is the single source of truth** for "this word
+**`CONFIRMED_ABSENT` (31 words) is the single source of truth** for "this word
 has no picture anywhere in this book edition" — verified 2026-07-18 by opening
 every real source page per lesson (not from prior docs): `moto, mapa` (M);
 `pino, pulpo` (P); `sol, silla` (S); `tapa, tomate, tina, tulipán` (T —
 `t-page-17` is a pure word-list page, no picture panel); `delfín, dona, ducha`
 (D); `luna, lobo, loro, lupa` (L); `nariz, nube, nata` (N); `piña, muñeca` (Ñ);
-`barco, bici` (B); `vaca, vino, volcán` (V). These correctly show the emoji
-fallback. To change any of these, edit the list in `validate-art-color.mjs` —
-the doc follows the code, never the reverse.
+`barco, bici` (B); `vaca, vino, volcán` (V); `ajo` (J — added 2026-07-19,
+color-QA found the only crop attempt is an abstract shape, not garlic);
+`abeja` (A), `escoba` (E), `urna` (U) (added 2026-07-20 once vowel-lesson
+scanning existed to catch them — each only appears as an uncolored
+distractor icon on unrelated cross-vowel exercise pages, or not at all).
+These correctly show the emoji fallback. To change any of these, edit the
+list in `validate-art-color.mjs` — the doc follows the code, never the
+reverse.
 
 **Not covered (lessons not built yet, so not a live gap):** the CH/LL/H/K/W/X
 words (`caballo, cama, chaleco, chile, fila, llanta, llave, gota, hielo, hoja,
