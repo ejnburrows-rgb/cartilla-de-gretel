@@ -4,6 +4,8 @@ A digital edition and classroom platform for *La Cartilla de Gretel*, the Spanis
 
 **Live:** https://cartilla-de-gretel.vercel.app
 
+> **Working on this project (human or AI agent)? Read [`AGENTS.md`](AGENTS.md) first — it is the single source of truth for how we work here.** Current state of the work lives in [`docs/STATUS.md`](docs/STATUS.md).
+
 ## Features
 
 - **Student workbook** — page-faithful lessons following the book's vowel and consonant order, with light interactive activities.
