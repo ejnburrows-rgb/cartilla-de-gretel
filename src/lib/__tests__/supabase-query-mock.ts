@@ -26,6 +26,8 @@ export function makeQueryBuilder<T>(result: QueryResult<T>) {
     "in",
     "order",
     "is",
+    "ilike",
+    "gte",
     "insert",
     "upsert",
     "update",
