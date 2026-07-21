@@ -87,7 +87,11 @@ async function fetchProgressStats(
 
 function makeCode(len: number) {
   let s = "";
-  for (let i = 0; i < len; i++) s += ALPHABET[Math.floor(Math.random() * ALPHABET.length)];
+  const randomValues = new Uint32Array(len);
+  crypto.getRandomValues(randomValues);
+  for (let i = 0; i < len; i++) {
+    s += ALPHABET[randomValues[i] % ALPHABET.length];
+  }
   return s;
 }
 
