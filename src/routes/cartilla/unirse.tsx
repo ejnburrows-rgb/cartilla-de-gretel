@@ -6,7 +6,6 @@ import { listClassStudents, enterClassAsStudent } from "@/lib/student.functions"
 import { setStudentSession, useStudentSession } from "@/lib/student-session";
 import { supabase } from "@/integrations/supabase/client";
 import { useLanguage } from "@/context/LanguageContext";
-import { LanguageToggle } from "@/components/LanguageToggle";
 import { GardenBackdrop } from "@/components/cartilla/GardenBackdrop";
 import { sCopy } from "@/content/student-copy";
 import "@/styles/interactive-exercises.css";
@@ -83,9 +82,6 @@ function JoinPage() {
           >
             <ArrowLeft className="w-4 h-4" /> Atrás
           </Link>
-          <div className="bg-white/40 hover:bg-white/60 backdrop-blur rounded-full px-2 py-1 transition shadow-sm">
-            <LanguageToggle />
-          </div>
         </div>
 
         <div className="bg-white/80 backdrop-blur-md rounded-[2.5rem] p-8 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] border-4 border-white">

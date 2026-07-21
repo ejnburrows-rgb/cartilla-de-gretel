@@ -6,7 +6,6 @@ import { speak } from "@/lib/speak";
 import { useLessonProgress } from "@/lib/lesson-progress";
 import { recordEvent } from "@/lib/student-session";
 import { useLanguage } from "@/context/LanguageContext";
-import { LanguageToggle } from "@/components/LanguageToggle";
 import { sCopy } from "@/content/student-copy";
 import { GardenBackdrop } from "@/components/cartilla/GardenBackdrop";
 import { KidButton } from "@/components/ui/KidButton";
@@ -163,7 +162,6 @@ function Practica() {
           >
             <ArrowLeft className="w-4 h-4" /> {t.cartilla[lang]}
           </Link>
-          <LanguageToggle />
         </div>
 
         <header className="mt-6 text-center">

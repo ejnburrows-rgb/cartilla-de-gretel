@@ -10,7 +10,6 @@ import { LessonTimer } from "@/components/cartilla/LessonTimer";
 import { listMyAssignments } from "@/lib/assignments.functions";
 import { getMyProgress, saveLastPage } from "@/lib/student.functions";
 import { useLanguage } from "@/context/LanguageContext";
-import { LanguageToggle } from "@/components/LanguageToggle";
 import { sCopy } from "@/content/student-copy";
 import { gretelEvent } from "@/lib/gretel-bus";
 
@@ -210,7 +209,6 @@ function Leccion() {
             <ArrowLeft className="w-4 h-4" /> {t.indice[lang]}
           </Link>
           <div className="flex items-center gap-3">
-            <LanguageToggle />
             <div className="flex items-center gap-2">
               <LessonTimer limitSeconds={assignment?.time_limit_seconds ?? null} />
               <span className="text-xs font-bold text-foreground/60">

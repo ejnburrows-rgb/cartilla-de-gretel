@@ -9,7 +9,6 @@ import { useRewards } from "@/lib/rewards";
 import { motion } from "framer-motion";
 import { downloadCSV, toCSV } from "@/lib/csv";
 import { useLanguage } from "@/context/LanguageContext";
-import { LanguageToggle } from "@/components/LanguageToggle";
 import { sCopy } from "@/content/student-copy";
 import { GardenBackdrop } from "@/components/cartilla/GardenBackdrop";
 import { KidButton } from "@/components/ui/KidButton";
@@ -170,7 +169,6 @@ function MyProgress() {
           >
             <ArrowLeft className="w-4 h-4" /> {t.cartilla[lang]}
           </Link>
-          <LanguageToggle />
         </div>
 
         <header className="mt-6 flex items-start justify-between gap-3 flex-wrap">
