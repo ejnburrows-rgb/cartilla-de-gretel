@@ -26,10 +26,6 @@ export function GardenBackdrop({ variant = "default", className = "" }: GardenBa
         <div className="absolute top-10 right-10 w-32 h-32 bg-yellow-300 rounded-full blur-xl opacity-80 animate-pulse" />
         <div className="absolute top-12 right-12 w-28 h-28 bg-yellow-400 rounded-full" />
 
-        {/* Clouds */}
-        <div className="absolute top-20 left-10 w-48 h-16 bg-white/80 rounded-full blur-md animate-[float_10s_ease-in-out_infinite]" />
-        <div className="absolute top-40 right-1/4 w-32 h-12 bg-white/70 rounded-full blur-md animate-[float_14s_ease-in-out_infinite_reverse]" />
-
         {/* Rolling Hills (CSS curves) */}
         <div className="absolute bottom-0 left-0 right-0 h-[40vh] bg-emerald-400 [clip-path:ellipse(120%_100%_at_50%_100%)] shadow-inner" />
         <div className="absolute bottom-0 left-[-20%] right-[-20%] h-[30vh] bg-green-500 [clip-path:ellipse(100%_100%_at_20%_100%)] opacity-80" />
