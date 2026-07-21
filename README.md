@@ -27,17 +27,21 @@ A digital edition and classroom platform for *La Cartilla de Gretel*, the Spanis
 
 ## Getting started
 
+This project uses [pnpm](https://pnpm.io/) (a fast package manager).
+
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 To build and preview a production bundle:
 
 ```bash
-npm run build
-npm run preview
+pnpm build
+pnpm preview
 ```
+
+New teacher? See the plain-Spanish quick-start: [`docs/GUIA-RAPIDA-DOCENTE.md`](docs/GUIA-RAPIDA-DOCENTE.md).
 
 ## Environment variables
 
@@ -54,7 +58,7 @@ Apply the SQL migrations in `supabase/migrations/` before using the teacher and 
 
 Deployed on Vercel using the Vite preset:
 
-- Build command: `npm run build`
+- Build command: `pnpm build`
 - Output directory: `dist`
 
 `vercel.json` handles single-page-app route rewrites.

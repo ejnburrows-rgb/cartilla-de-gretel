@@ -4,6 +4,32 @@ Honest current state. Updated 2026-07-21. Read this before starting work.
 
 ---
 
+## Wave 1 review + Wave 2 staging (2026-07-21)
+
+- **Open pull requests handled:** #233 (empty wrong-repo placeholder) closed;
+  #232 (docs, built on a stale `main`) closed without merging — merging would
+  have reverted the AGENTS.md documentation standard — but its accurate
+  Spanish teacher guide was preserved as `docs/GUIA-RAPIDA-DOCENTE.md` and its
+  `npm`→`pnpm` README fixes re-applied. No other PRs were open.
+- **Wave 1 (#239 Supabase go-live kit, #240 teacher-CRM test coverage):
+  BLOCKED, not by the work.** The background agent (Jules) generated the code
+  for both but reported it "was unable to push the branch ... to GitHub," so
+  no PRs exist to review. This is a Jules→GitHub push/permission problem. To
+  unblock: grant the Jules GitHub app push access to this repo, or push the
+  branches manually from the task links in the issue comments, then the PRs
+  will appear for review.
+- **Wave 2 is STAGED, not launched.** Because Wave 1 is not complete, no
+  `jules` label was applied to any Wave 2 issue. Issues ready to run once
+  Wave 1 finishes: #243 (landing redo — Gretel alone), #244 (remove English
+  toggle), #163 (theme-toggle accessibility), #164 (dark-mode contrast),
+  #165 (homepage theme control). Wave 3: #245 (lint pass). Each is scoped to
+  a distinct set of files so the whole wave can run in parallel safely.
+- **Owner decisions recorded:** landing = Gretel alone (no new art); UI going
+  Spanish-only (English toggle removed, #162 closed); admin dashboard
+  deferred post-launch; lint deferred to Wave 3.
+
+---
+
 ## Full sweep analysis (2026-07-21)
 
 A whole-project review done against the real code (not from documents).
