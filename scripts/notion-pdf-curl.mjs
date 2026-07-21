@@ -8,7 +8,7 @@
 //   3. For S3 URLs missing a signature, ask /api/v3/getSignedFileUrls.
 //
 // Diagnostics written to $DEBUG_DIR (default .cartilla-import/debug):
-//   curl-summary.json, curl-html.txt, curl-chunk.json
+//   curl-summary-<id>.json, curl-html-<id>.txt, curl-chunk-<id>.json
 //
 // Exit codes: 0 ok | 1 args | 2 no valid PDF
 
@@ -61,7 +61,10 @@ function finish(code, reason) {
   summary.exitCode = code;
   summary.exitReason = reason;
   summary.endedAt = new Date().toISOString();
-  fs.writeFileSync(path.join(DEBUG_DIR, "curl-summary.json"), JSON.stringify(summary, null, 2));
+  fs.writeFileSync(
+    path.join(DEBUG_DIR, `curl-summary-${idNoDash}.json`),
+    JSON.stringify(summary, null, 2),
+  );
   process.exit(code);
 }
 
@@ -74,7 +77,7 @@ async function tryHtmlScrape() {
       redirect: "follow",
     });
     const html = await res.text();
-    fs.writeFileSync(path.join(DEBUG_DIR, "curl-html.txt"), html.slice(0, 300000));
+    fs.writeFileSync(path.join(DEBUG_DIR, `curl-html-${idNoDash}.txt`), html.slice(0, 300000));
     const re =
       /https:\/\/(?:prod-files-secure[^"\s\\<>]+|[^"\s\\<>]+\.pdf[^"\s\\<>]*|file\.notion\.so[^"\s\\<>]+|www\.notion\.so\/signed[^"\s\\<>]+)/gi;
     const ms = [...html.matchAll(re)].map((m) => m[0]);
@@ -105,7 +108,7 @@ async function tryLoadPageChunk() {
       }),
     });
     const text = await res.text();
-    fs.writeFileSync(path.join(DEBUG_DIR, "curl-chunk.json"), text.slice(0, 500000));
+    fs.writeFileSync(path.join(DEBUG_DIR, `curl-chunk-${idNoDash}.json`), text.slice(0, 500000));
     if (!res.ok) {
       summary.attempts.push({ kind: "loadPageChunk", status: res.status });
       return [];
