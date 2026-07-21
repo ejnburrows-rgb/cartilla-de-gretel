@@ -20,15 +20,18 @@ Honest current state. Updated 2026-07-21. Read this before starting work.
   tests (suite now 545 passing). The **Jules→GitHub push problem remains
   unresolved** — until the Jules GitHub app is granted push access to this
   repo, any future Jules-assigned task will generate code it cannot push.
-- **Wave 2 is STAGED, not launched.** `jules` was NOT applied to any Wave 2
-  issue: launching into a push-blocked pipeline would produce no PRs, and the
-  landing redo (#243) is creative work the owner rejected once and should
-  sign off on before it is auto-built. Ready issues (each scoped to a distinct
-  file set for safe parallel runs): #243 (landing redo — Gretel alone), #244
-  (remove English toggle), #163 (theme-toggle accessibility), #164 (dark-mode
-  contrast), #165 (homepage theme control). Wave 3: #245 (lint pass). These
-  can be completed directly (as Wave 1 was) or handed to Jules once its push
-  access is fixed.
+- **Wave 2: four of five items COMPLETE (done directly).** Because the Jules
+  pipeline still can't push, the mechanical Wave 2 items were implemented and
+  merged directly: #244 remove English toggle (Spanish-only UI, PR #251), #163
+  theme-toggle accessibility (44px + aria-label, PR #250), #164 dark-mode
+  contrast (readable `unirse` header + separated card tokens, PR #252), #165
+  homepage theme toggle (PR #253). Full suite now 546 passing.
+- **Only the landing redo (#243) remains, and it is HELD for owner sign-off.**
+  It is the creative splash the owner rejected once; the approved direction is
+  Gretel-alone on existing art, but it should be reviewed before merge rather
+  than auto-built. Wave 3: #245 (lint pass) still open.
+- **Jules push is still broken.** Any future Jules-assigned task will generate
+  code it cannot push until the Jules GitHub app is granted push access.
 - **Owner decisions recorded:** landing = Gretel alone (no new art); UI going
   Spanish-only (English toggle removed, #162 closed); admin dashboard
   deferred post-launch; lint deferred to Wave 3.

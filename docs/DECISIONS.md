@@ -4,6 +4,16 @@ A dated, plain-language log of technical decisions. One line each: what was
 decided and why. Newest at the bottom. This is a duty, not optional (see the
 DOCUMENTATION DUTY section of `AGENTS.md`).
 
+- **2026-07-21 — Wave 2 mechanical items completed directly (owner chose "B").**
+  Since Jules still can't push, the four non-creative Wave 2 issues were built
+  and merged directly: #163 (theme-toggle a11y, PR #250), #244 (remove English
+  toggle → Spanish-only, PR #251), #164 (dark-mode contrast on `unirse` +
+  `.dark` card tokens, PR #252), #165 (homepage theme toggle, PR #253). Suite
+  at 546 passing. The landing redo (#243) is intentionally NOT built yet — it
+  is the previously-rejected creative splash and needs the owner's eyes before
+  merge. For #164, the "styles.css only" constraint was relaxed to also edit
+  `unirse.tsx` (the collision reason had cleared once #244 merged, and a
+  CSS-only override of hardcoded colors would have been a fragile hack).
 - **2026-07-21 — Wave 1 completed directly (Jules push was broken).** The
   background agent could not push its generated branches to GitHub, so both
   Wave 1 tasks were implemented and merged directly: #239 Supabase go-live kit
