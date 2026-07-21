@@ -30,7 +30,8 @@
     "art:polish:force": "node scripts/polish-art.mjs --force",
     "art:pipeline": "node scripts/extract-art.mjs && node scripts/polish-art.mjs",
     "art:pipeline:force": "node scripts/extract-art.mjs --force && node scripts/polish-art.mjs --force",
-    "test": "vitest run"
+    "test": "vitest run",
+    "smoke:supabase": "node scripts/smoke-supabase.mjs"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
