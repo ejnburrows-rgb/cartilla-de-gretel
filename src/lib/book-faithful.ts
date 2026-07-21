@@ -343,6 +343,22 @@ function sourceTextBlocksForImage(imageRef: string | null): string[] {
   return Array.from(new Set(blocks.filter((line) => line.length > 0)));
 }
 
+function hasSourceReference(scaffold: RawPageScaffold | undefined): boolean {
+  return Boolean(
+    scaffold &&
+    ((scaffold.sourcePages?.length ?? 0) > 0 ||
+      (scaffold.originalImages?.length ?? 0) > 0 ||
+      (scaffold.remasteredImages?.length ?? 0) > 0),
+  );
+}
+
+function hasVerifiedInventoryScan(sourceAsset: SourceArtAsset | undefined): boolean {
+  return Boolean(
+    sourceAsset?.sourceStatus === "verified-source-image" ||
+    sourceAsset?.verificationStatus === "source page scan connected",
+  );
+}
+
 function statusForTextBlocks(
   textBlocks: string[],
   scaffold: RawPageScaffold | undefined,
@@ -350,17 +366,7 @@ function statusForTextBlocks(
 ) {
   if (textBlocks.length > 0) return "verified" satisfies WorkbookTranscriptionStatus;
   const sourceAsset = imageRef ? sourceAssetByPath.get(imageRef) : undefined;
-  const hasSourceRef = Boolean(
-    scaffold &&
-    ((scaffold.sourcePages?.length ?? 0) > 0 ||
-      (scaffold.originalImages?.length ?? 0) > 0 ||
-      (scaffold.remasteredImages?.length ?? 0) > 0),
-  );
-  const hasInventoryScan = Boolean(
-    sourceAsset?.sourceStatus === "verified-source-image" ||
-    sourceAsset?.verificationStatus === "source page scan connected",
-  );
-  return hasSourceRef || hasInventoryScan
+  return hasSourceReference(scaffold) || hasVerifiedInventoryScan(sourceAsset)
     ? "partial"
     : ("missing" satisfies WorkbookTranscriptionStatus);
 }
