@@ -4,6 +4,30 @@ A dated, plain-language log of technical decisions. One line each: what was
 decided and why. Newest at the bottom. This is a duty, not optional (see the
 DOCUMENTATION DUTY section of `AGENTS.md`).
 
+- **2026-07-21 — Wave 1 review + owner decisions applied; Wave 2 staged.**
+  - **Landing screen:** approved direction is Gretel alone using existing
+    approved art — no animal crowd, no newly commissioned painting. Filed as
+    Wave 2 issue #243.
+  - **English toggle:** removed entirely so the interface is Spanish-only
+    (matches the "no English in student UI" rule), instead of finishing the
+    half-done translation. QA issue #162 closed as resolved-by-removal; the
+    removal is Wave 2 issue #244.
+  - **QA bugs #163 (theme-toggle accessibility), #164 (dark-mode contrast),
+    #165 (homepage theme control)** folded into Wave 2 with full self-contained
+    prompts, each scoped to a different file so they never collide.
+  - **Admin cross-teacher dashboard:** deferred post-launch. Not scoped, not
+    filed.
+  - **Lint cleanup (~362 problems):** deferred to Wave 3 as a single careful,
+    behavior-preserving pass (issue #245). No auto-fixing done now.
+  - **Stray pull requests:** #233 (empty wrong-repo placeholder) closed;
+    #232 (README + teacher guide, built on a stale `main`) closed without
+    merging because it would have reverted recent docs work — its accurate
+    teacher guide was salvaged to `docs/GUIA-RAPIDA-DOCENTE.md` and its
+    `npm`→`pnpm` README fixes re-applied on current `main`.
+  - **Wave 2 launch gating:** NOT launched. Wave 1 (#239, #240) is not yet
+    complete — the background agent generated the code but could not push its
+    branches to GitHub, so no Wave 1 PR exists. Wave 2 issues stay labeled
+    `wave-2` (and `wave-3` for lint); none were promoted to `jules`.
 - **2026-07-21 — Full sweep completed; execution plan created.** Reviewed the
   whole project, wrote the analysis into `docs/STATUS.md`, and filed the
   agent-doable remaining work as GitHub issues (Wave 1 = label `jules`,
