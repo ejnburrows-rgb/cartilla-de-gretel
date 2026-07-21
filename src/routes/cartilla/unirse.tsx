@@ -39,9 +39,7 @@ function JoinPage() {
       setRoster(students);
       setStep("pick");
     } catch (err) {
-      setError(
-        err instanceof Error ? err.message : lang === "es" ? "Error desconocido" : "Unknown error",
-      );
+      setError(err instanceof Error ? err.message : "Error desconocido");
     } finally {
       setBusy(false);
     }
@@ -56,9 +54,7 @@ function JoinPage() {
       setStudentSession(res);
       navigate({ to: "/cartilla/lecciones" });
     } catch (err) {
-      setError(
-        err instanceof Error ? err.message : lang === "es" ? "Error desconocido" : "Unknown error",
-      );
+      setError(err instanceof Error ? err.message : "Error desconocido");
     } finally {
       setBusy(false);
     }

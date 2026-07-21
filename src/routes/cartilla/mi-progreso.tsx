@@ -52,7 +52,7 @@ function MyProgress() {
     if (!s) return;
     getMyProgress({ data: { studentId: s.studentId, studentCode: s.studentCode } })
       .then((r) => setData(r as never))
-      .catch((e) => setError(e instanceof Error ? e.message : "Error"))
+      .catch((e) => setError(e instanceof Error ? e.message : "Error desconocido"))
       .finally(() => setLoading(false));
   }, []);
 
