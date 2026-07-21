@@ -36,7 +36,8 @@ export function ThemeToggle() {
     <button
       onClick={toggle}
       title={theme === "dark" ? "Modo claro" : "Modo oscuro"}
-      className="text-xs px-2 py-1 rounded-md border border-border hover:bg-muted"
+      aria-label={theme === "dark" ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
+      className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-border text-lg leading-none hover:bg-muted"
     >
       {theme === "dark" ? "☀" : "☾"}
     </button>
