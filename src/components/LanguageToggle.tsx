@@ -7,9 +7,5 @@ import { ThemeToggle } from "./ThemeToggle";
 // The name and path are kept so the routes that render <LanguageToggle />
 // keep working without changes.
 export function LanguageToggle() {
-  return (
-    <div className="flex items-center gap-3">
-      <ThemeToggle />
-    </div>
-  );
+  return <ThemeToggle />;
 }

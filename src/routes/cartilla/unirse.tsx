@@ -93,10 +93,10 @@ function JoinPage() {
             <div className="mx-auto w-16 h-16 rounded-[1.5rem] bg-gradient-to-br from-[#ea580c] to-[#c2410c] text-white flex items-center justify-center shadow-inner mb-4">
               <KeyRound className="w-8 h-8" />
             </div>
-            <h1 className="text-3xl font-black font-fredoka text-foreground">
+            <h1 className="text-3xl font-black font-fredoka text-[#3b2a12]">
               {t.soyEstudiante[lang]}
             </h1>
-            <p className="text-sm font-bold text-muted-foreground mt-2">{t.pideleMaestra[lang]}</p>
+            <p className="text-sm font-bold text-[#7a6040] mt-2">{t.pideleMaestra[lang]}</p>
           </header>
 
           {session ? (
