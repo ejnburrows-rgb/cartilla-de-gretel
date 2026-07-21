@@ -101,3 +101,16 @@ DOCUMENTATION DUTY section of `AGENTS.md`).
   `getSeedClassProgress()` now aggregates score/total/time from seed events
   the same way the live `getClassProgress()` does, instead of hardcoding
   null/zero — the first task completed by the new worker loop.
+- **2026-07-21 — Added grading regression coverage for all 24 lessons (S2).**
+  Chose to drive the test off the real content data
+  (`page-layouts.json` via `getWorkbookPagesForLesson`/`getPageLayout`) rather
+  than mounting each `Interactive*`/`Lasso*` React component per exercise:
+  the actual risk this task targets is a broken answer key in the content,
+  not drift in the (small, stable, already-covered-elsewhere) grading
+  components, and a data-level test runs all 385 assertions in about a
+  second. Also added explicit "answer key is structurally valid" assertions
+  (exactly one correct choice per `vowel-pick-one` row / `fill-in-blank`
+  item, at least one correct entry per `picture-grid`/`vowel-line-match`/
+  `syllable-match` group) after finding that flipping a `correct: true` flag
+  to `false` without an accompanying structural check silently made that row
+  "ungraded" instead of failing.

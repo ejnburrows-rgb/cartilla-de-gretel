@@ -41,7 +41,7 @@ real minutes, and the "Aciertos por Tipo de Ejercicio" grid shows numbers.
 Proof: screenshot of the demo class report with populated numbers + `pnpm test` output.
 
 ### S2 — Assert grading across all 24 lessons
-Status: NOT STARTED
+Status: DONE
 Files: `src/lib/__tests__/` (new or extended test file), read-only: lesson content + grading logic
 
 Background: Only lesson 1 grading was hand-verified in the audit. Add Vitest
