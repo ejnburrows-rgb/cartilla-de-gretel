@@ -15,9 +15,12 @@
   --home-sky: #c5e4ff;
   --home-lavender: #e4d4ff;
   --home-peach: #ffd4b8;
-  /* Primary CTAs — saturated, white labels (high contrast) */
-  --home-cta-student-bg: #e11d48;
-  --home-cta-student-bg-hover: #be123c;
+  /* Primary CTAs — saturated, white labels (high contrast).
+     Student uses the app's primary indigo (matches the --primary token and
+     the rest of the student flow, e.g. /cartilla/unirse) instead of an
+     alarm-red that read as an error color. */
+  --home-cta-student-bg: #4f46e5;
+  --home-cta-student-bg-hover: #4338ca;
   --home-cta-student-fg: #ffffff;
   --home-cta-teacher-bg: #0369a1;
   --home-cta-teacher-bg-hover: #075985;
