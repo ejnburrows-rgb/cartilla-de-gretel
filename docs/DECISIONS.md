@@ -124,3 +124,15 @@ DOCUMENTATION DUTY section of `AGENTS.md`).
   code but have zero importers anywhere in `src`, so no student screen can
   render them; left them in place as a follow-up cleanup item rather than
   widen this task's diff to files with no reachable user impact.
+- **2026-07-21 — Closed T1 (flipchart multi-slide decks) with no code
+  change; documented art-limited lessons instead.** Investigation showed
+  `FlipchartHdPanel.tsx` already correctly renders and navigates multi-page
+  decks for any lesson with more than one flipchart page — lessons 7–24
+  already had this working. Lessons 1–6 show only one page because the
+  source 62-page flipchart PDF genuinely has only one physical page for
+  each of them, not because of a bug or a hardcoded slice; there is no
+  additional flipchart art anywhere in the repo to add. Rather than force a
+  change onto working code, recorded the art-limited lessons (1–6) in
+  `REPORT.md` per the task's own "if a lesson genuinely has only one
+  faithful slide available, leave it and note which lessons are
+  art-limited" instruction.

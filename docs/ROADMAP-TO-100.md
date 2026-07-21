@@ -70,7 +70,7 @@ Proof: before/after grep output + a screenshot of any screen that changed.
 ## TEACHER SIDE
 
 ### T1 — Complete the classroom flipchart deck beyond lesson 1
-Status: NOT STARTED
+Status: DONE
 Files: flipchart route `src/routes/cartilla/presentar/$n.tsx` + its slide data source
 
 Background: The projector flipchart renders, but lesson 1 showed only "Sheet 1 of
