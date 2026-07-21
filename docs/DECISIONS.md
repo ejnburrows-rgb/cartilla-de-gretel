@@ -4,6 +4,14 @@ A dated, plain-language log of technical decisions. One line each: what was
 decided and why. Newest at the bottom. This is a duty, not optional (see the
 DOCUMENTATION DUTY section of `AGENTS.md`).
 
+- **2026-07-21 — Wave 1 completed directly (Jules push was broken).** The
+  background agent could not push its generated branches to GitHub, so both
+  Wave 1 tasks were implemented and merged directly: #239 Supabase go-live kit
+  (PR #247) and #240 teacher-CRM test coverage (PR #248, +12 tests, suite 545).
+  `jules` was deliberately NOT applied to the Wave 2 issues: the Jules pipeline
+  still cannot push, and the landing redo (#243) needs the owner's creative
+  sign-off before any auto-build. Wave 2 stays staged for either direct
+  completion or Jules once its GitHub push access is fixed.
 - **2026-07-21 — Wave 1 review + owner decisions applied; Wave 2 staged.**
   - **Landing screen:** approved direction is Gretel alone using existing
     approved art — no animal crowd, no newly commissioned painting. Filed as

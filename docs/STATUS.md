@@ -12,18 +12,23 @@ Honest current state. Updated 2026-07-21. Read this before starting work.
   Spanish teacher guide was preserved as `docs/GUIA-RAPIDA-DOCENTE.md` and its
   `npm`→`pnpm` README fixes re-applied. No other PRs were open.
 - **Wave 1 (#239 Supabase go-live kit, #240 teacher-CRM test coverage):
-  BLOCKED, not by the work.** The background agent (Jules) generated the code
-  for both but reported it "was unable to push the branch ... to GitHub," so
-  no PRs exist to review. This is a Jules→GitHub push/permission problem. To
-  unblock: grant the Jules GitHub app push access to this repo, or push the
-  branches manually from the task links in the issue comments, then the PRs
-  will appear for review.
-- **Wave 2 is STAGED, not launched.** Because Wave 1 is not complete, no
-  `jules` label was applied to any Wave 2 issue. Issues ready to run once
-  Wave 1 finishes: #243 (landing redo — Gretel alone), #244 (remove English
-  toggle), #163 (theme-toggle accessibility), #164 (dark-mode contrast),
-  #165 (homepage theme control). Wave 3: #245 (lint pass). Each is scoped to
-  a distinct set of files so the whole wave can run in parallel safely.
+  COMPLETE.** The background agent (Jules) generated the code for both but
+  reported it "was unable to push the branch ... to GitHub," so its work never
+  reached the repo. To keep things moving, both tasks were completed
+  directly and merged (PR #247 → #239, PR #248 → #240): `docs/SUPABASE-SETUP.md`
+  + `scripts/smoke-supabase.mjs` (`pnpm smoke:supabase`), and 12 new teacher-CRM
+  tests (suite now 545 passing). The **Jules→GitHub push problem remains
+  unresolved** — until the Jules GitHub app is granted push access to this
+  repo, any future Jules-assigned task will generate code it cannot push.
+- **Wave 2 is STAGED, not launched.** `jules` was NOT applied to any Wave 2
+  issue: launching into a push-blocked pipeline would produce no PRs, and the
+  landing redo (#243) is creative work the owner rejected once and should
+  sign off on before it is auto-built. Ready issues (each scoped to a distinct
+  file set for safe parallel runs): #243 (landing redo — Gretel alone), #244
+  (remove English toggle), #163 (theme-toggle accessibility), #164 (dark-mode
+  contrast), #165 (homepage theme control). Wave 3: #245 (lint pass). These
+  can be completed directly (as Wave 1 was) or handed to Jules once its push
+  access is fixed.
 - **Owner decisions recorded:** landing = Gretel alone (no new art); UI going
   Spanish-only (English toggle removed, #162 closed); admin dashboard
   deferred post-launch; lint deferred to Wave 3.
