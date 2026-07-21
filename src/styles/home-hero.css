@@ -22,8 +22,10 @@
   --home-cta-student-bg: #4f46e5;
   --home-cta-student-bg-hover: #4338ca;
   --home-cta-student-fg: #ffffff;
-  --home-cta-teacher-bg: #0369a1;
-  --home-cta-teacher-bg-hover: #075985;
+  /* Teacher keeps its own green identity (matches the teacher login at
+     /login), distinct from the student indigo. */
+  --home-cta-teacher-bg: #3d7a5c;
+  --home-cta-teacher-bg-hover: #2f5f47;
   --home-cta-teacher-fg: #ffffff;
   --home-accent-bow: #dc2626;
   --home-accent-jumper: #2563eb;
