@@ -17,6 +17,10 @@ import {
   updateStudent,
   archiveStudent,
   getStudentProgress,
+  getClassProgress,
+  findStudentsByName,
+  getWeeklyActivity,
+  getAllTeacherStudents,
 } from "../teacher.functions";
 import { makeQueryBuilder, ok, fail, authedUser, signedOut } from "./supabase-query-mock";
 
@@ -265,6 +269,155 @@ describe("teacher.functions tests", () => {
       expect(result.events).toHaveLength(1);
       expect(result.lessonProgress).toEqual([]);
       expect(result.summary).toBeDefined();
+    });
+  });
+
+  describe("getClassProgress", () => {
+    it("rejects an id that is not a UUID before touching the database", async () => {
+      await expect(getClassProgress({ data: { id: "not-a-uuid" } })).rejects.toThrow();
+      expect(supabase.from).not.toHaveBeenCalled();
+    });
+
+    it("throws when the class isn't owned by this teacher", async () => {
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      const notOwned = makeQueryBuilder(ok(null));
+      vi.mocked(supabase.from).mockReturnValueOnce(notOwned as any);
+
+      await expect(getClassProgress({ data: { id: CLASS_ID } })).rejects.toThrow(
+        "Clase no encontrada o sin permiso.",
+      );
+    });
+
+    it("returns the empty progress shape when the class has no students", async () => {
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      const ownsClass = makeQueryBuilder(ok({ id: CLASS_ID }));
+      const noStudents = makeQueryBuilder(ok([]));
+      vi.mocked(supabase.from)
+        .mockReturnValueOnce(ownsClass as any)
+        .mockReturnValueOnce(noStudents as any);
+
+      const result = await getClassProgress({ data: { id: CLASS_ID } });
+
+      expect(result.perStudent).toEqual([]);
+      expect(result.assignments).toEqual([]);
+      expect(result.recentEvents).toEqual([]);
+      expect(result.perLesson).toEqual({});
+      expect(result.attentionByStudent).toEqual({});
+    });
+  });
+
+  describe("findStudentsByName", () => {
+    it("rejects an empty search string without querying", async () => {
+      await expect(findStudentsByName({ data: { q: "   " } })).rejects.toThrow();
+      expect(supabase.from).not.toHaveBeenCalled();
+    });
+
+    it("throws when no teacher is signed in", async () => {
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(signedOut as any);
+      await expect(findStudentsByName({ data: { q: "Ana" } })).rejects.toThrow(
+        "Debes iniciar sesión",
+      );
+      expect(supabase.from).not.toHaveBeenCalled();
+    });
+
+    it("returns the matching students and filters by name", async () => {
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      const rows = [{ id: STUDENT_ID, display_name: "Ana", student_code: "AB123", class_id: CLASS_ID }];
+      const builder = makeQueryBuilder(ok(rows));
+      vi.mocked(supabase.from).mockReturnValueOnce(builder as any);
+
+      const result = await findStudentsByName({ data: { q: "Ana" } });
+
+      expect(result).toEqual(rows);
+      expect(builder.ilike).toHaveBeenCalledWith("display_name", "%Ana%");
+    });
+  });
+
+  describe("getWeeklyActivity", () => {
+    it("throws when the class isn't owned by this teacher", async () => {
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      const notOwned = makeQueryBuilder(ok(null));
+      vi.mocked(supabase.from).mockReturnValueOnce(notOwned as any);
+
+      await expect(getWeeklyActivity({ data: { classId: CLASS_ID } })).rejects.toThrow(
+        "Clase no encontrada o sin permiso.",
+      );
+    });
+
+    it("returns 7 day buckets, all zero, when there are no students", async () => {
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      const ownsClass = makeQueryBuilder(ok({ id: CLASS_ID }));
+      const noStudents = makeQueryBuilder(ok([]));
+      vi.mocked(supabase.from)
+        .mockReturnValueOnce(ownsClass as any)
+        .mockReturnValueOnce(noStudents as any);
+
+      const result = await getWeeklyActivity({ data: { classId: CLASS_ID } });
+
+      expect(result).toHaveLength(7);
+      expect(result.every((d) => d.count === 0)).toBe(true);
+      expect(result.every((d) => typeof d.label === "string")).toBe(true);
+    });
+
+    it("counts real events into the 7-day window", async () => {
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      const ownsClass = makeQueryBuilder(ok({ id: CLASS_ID }));
+      const students = makeQueryBuilder(ok([{ id: "s1" }]));
+      const events = makeQueryBuilder(ok([{ created_at: new Date().toISOString() }]));
+      vi.mocked(supabase.from)
+        .mockReturnValueOnce(ownsClass as any)
+        .mockReturnValueOnce(students as any)
+        .mockReturnValueOnce(events as any);
+
+      const result = await getWeeklyActivity({ data: { classId: CLASS_ID } });
+
+      expect(result).toHaveLength(7);
+      expect(result.reduce((sum, d) => sum + d.count, 0)).toBe(1);
+    });
+  });
+
+  describe("getAllTeacherStudents", () => {
+    it("throws when no teacher is signed in", async () => {
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(signedOut as any);
+      await expect(getAllTeacherStudents({ data: {} })).rejects.toThrow("Debes iniciar sesión");
+    });
+
+    it("returns an empty list when the teacher has no students", async () => {
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      const noStudents = makeQueryBuilder(ok([]));
+      vi.mocked(supabase.from).mockReturnValueOnce(noStudents as any);
+
+      const result = await getAllTeacherStudents({ data: {} });
+      expect(result).toEqual([]);
+    });
+
+    it("attaches an event count per student and hides archived by default", async () => {
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      const student = {
+        id: STUDENT_ID,
+        display_name: "Ana",
+        student_code: "AB123",
+        created_at: "2026-01-01",
+        class_id: CLASS_ID,
+        archived_at: null,
+        teacher_notes: null,
+      };
+      const studentsBuilder = makeQueryBuilder(ok([student]));
+      const eventsBuilder = makeQueryBuilder(
+        ok([{ student_id: STUDENT_ID }, { student_id: STUDENT_ID }]),
+      );
+      const lessonProgressBuilder = makeQueryBuilder(ok([]));
+      vi.mocked(supabase.from)
+        .mockReturnValueOnce(studentsBuilder as any)
+        .mockReturnValueOnce(eventsBuilder as any)
+        .mockReturnValueOnce(lessonProgressBuilder as any);
+
+      const result = await getAllTeacherStudents({ data: {} });
+
+      expect(result).toHaveLength(1);
+      expect(result[0].id).toBe(STUDENT_ID);
+      expect(result[0].events).toBe(2);
+      expect(studentsBuilder.is).toHaveBeenCalledWith("archived_at", null);
     });
   });
 });
