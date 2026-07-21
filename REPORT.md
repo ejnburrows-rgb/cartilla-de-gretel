@@ -2,6 +2,28 @@
 
 One line per completed task from `docs/ROADMAP-TO-100.md`, newest first.
 
+- **T1 — Complete the classroom flipchart deck beyond lesson 1**: investigated
+  and found the multi-slide mechanism was already fully built and working —
+  `FlipchartHdPanel.tsx` (rendering `src/data/teacher-flipchart.json` via
+  `getFlipchartPagesForLesson` in `src/lib/flipchart-hd.ts`, a separate data
+  source from the student workbook's `page-layouts.json` — the teacher
+  flipchart and student workbook are deliberately never mixed, per
+  `docs/PROJECT-CANON.md`) already has working prev/next buttons, keyboard
+  arrow nav, and a thumbnail filmstrip for any lesson with more than one
+  page. "Sheet 1 of 1" on lesson 1 was never a bug: the source 62-page
+  flipchart PDF genuinely has only one physical page for lessons 1–6.
+  Confirmed the counts against `teacher-flipchart.json` (lessons 1–6: 1 page
+  each; lessons 7–24: 3 pages each) and against the 62 files on disk under
+  `public/cartilla/art/hd/flipchart/` — no unused flipchart art exists
+  anywhere that could add pages to 1–6. No code change was needed; verified
+  live in the browser (seed teacher login) that lesson 7 flips through all
+  3 real HD láminas via "Siguiente"/"Anterior" ("Hoja 1 de 3" → "Hoja 2 de
+  3" → "Hoja 3 de 3", with "Siguiente" correctly disabled on the last
+  sheet), and that lesson 1 correctly shows its single real sheet ("Hoja 1
+  de 1") without any broken/empty state.
+  **Art-limited lessons (only 1 flipchart page in the source PDF, no
+  additional art available to add): 1, 2, 3, 4, 5, 6.** Lessons 7–24 already
+  have and correctly present all 3 of their flipchart pages.
 - **S3 — Scan and remove any residual English in the student-facing UI**:
   swept all 17 student routes under `src/routes/cartilla/**` (excluding
   `teacher/**`), `src/content/student-copy.ts`, and their shared components.

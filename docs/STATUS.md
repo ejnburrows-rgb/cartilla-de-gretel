@@ -173,6 +173,15 @@ The rest is owner-decision work, listed in `docs/DECISIONS.md`.
   unconditional English labels on the internal `pilot-faithful` preview
   route. `ThemeSwitcher.tsx`/`lib/locale.ts` still carry unused ES/EN-toggle
   code with zero importers — flagged as follow-up cleanup, not a live bug.
+- **2026-07-21 — Confirmed the classroom flipchart's multi-slide deck
+  already works for 18 of 24 lessons.** `FlipchartHdPanel.tsx` already has
+  full working prev/next, keyboard nav, and a thumbnail filmstrip; "Sheet 1
+  of 1" on lesson 1 was never a bug — the source 62-page flipchart PDF
+  genuinely has only one physical page for lessons 1–6 (verified against
+  `teacher-flipchart.json` and the 62 files on disk). Lessons 7–24 already
+  flip through all 3 of their real HD pages correctly, verified live in the
+  browser. Lessons 1–6 are art-limited and documented as such in
+  `REPORT.md`; no additional flipchart art exists to add.
 
 ## IN PROGRESS / PARTIAL
 
