@@ -155,6 +155,14 @@ The rest is owner-decision work, listed in `docs/DECISIONS.md`.
   way the live `getClassProgress()` does, so the demo-mode class report
   shows real percentages, minutes, and per-exercise hit/attempt counts
   instead of always "—" / "0 mins".
+- **2026-07-21 — Grading now has automated coverage across all 24 lessons.**
+  Previously only lesson 1's grading had been hand-verified. New
+  `src/lib/__tests__/lesson-grading.test.ts` walks every lesson's real content
+  (`page-layouts.json` via `getWorkbookPagesForLesson`/`getPageLayout`) and
+  asserts each gradable exercise's answer key is structurally valid and
+  grades a correct answer as correct and a wrong one as wrong. Verified it
+  actually catches regressions by deliberately breaking one lesson's answer
+  key, confirming the test failed, then reverting.
 
 ## IN PROGRESS / PARTIAL
 
