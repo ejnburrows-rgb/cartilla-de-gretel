@@ -18,7 +18,7 @@ Verify bar for every task: `pnpm typecheck && pnpm test && pnpm build` green.
 ## STUDENT SIDE
 
 ### S1 — Teacher demo reports show real numbers instead of "—" / "0 mins"
-Status: NOT STARTED
+Status: DONE
 Files: `src/lib/seed-data.ts` (+ read-only reference `src/lib/teacher.functions.ts`, `src/components/teacher/ReportCard.tsx`)
 
 Background: In demo mode the class report shows "Precisión General: —", "Tiempo

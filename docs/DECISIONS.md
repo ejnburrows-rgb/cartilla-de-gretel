@@ -90,3 +90,14 @@ DOCUMENTATION DUTY section of `AGENTS.md`).
 - **Earlier — Gretel is a fixed-corner, event-driven guide.**
   `GretelLiveAvatar` places her in a screen corner so she never covers
   content, and she only speaks in reaction to real student events.
+- **2026-07-21 — Self-driving worker loop adopted (`LOOP-CLAUDE.md` +
+  `docs/ROADMAP-TO-100.md`).** Jules can't push to this repo, so the
+  autonomous queue runs on Claude Code instead; it auto-merges a task's PR
+  once the verify bar (`pnpm typecheck && pnpm test && pnpm build`) is
+  green. Backend provisioning and creative sign-offs are kept out of the
+  loop in `docs/OWNER-MANUAL-STEPS.md`; the ~362-item lint cleanup (#245)
+  is deliberately excluded from the autonomous queue too.
+- **2026-07-21 — Fixed seed-mode teacher reports showing "—" / "0 mins".**
+  `getSeedClassProgress()` now aggregates score/total/time from seed events
+  the same way the live `getClassProgress()` does, instead of hardcoding
+  null/zero — the first task completed by the new worker loop.

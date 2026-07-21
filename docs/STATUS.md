@@ -148,6 +148,13 @@ The rest is owner-decision work, listed in `docs/DECISIONS.md`.
   lesson-verification), plus the flaky art-color test stabilized.
 - **Dead-code cleanup** (legacy student subtree, duplicate print + flipchart
   implementations) archived to `src/_archive/`, no longer reachable.
+- **Demo-mode teacher reports now show real numbers.** `getSeedClassProgress()`
+  in `src/lib/seed-data.ts` previously hardcoded `accuracy: null`,
+  `timeSeconds: 0`, and an empty exercise breakdown even though the seed
+  events already carried real scores and time. It now aggregates the same
+  way the live `getClassProgress()` does, so the demo-mode class report
+  shows real percentages, minutes, and per-exercise hit/attempt counts
+  instead of always "—" / "0 mins".
 
 ## IN PROGRESS / PARTIAL
 
