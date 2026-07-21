@@ -4,8 +4,8 @@
 // Run the moment the PR #139 migration SQL has been applied to the live
 // database:
 //
-//   VITE_SUPABASE_URL=https://xxx.supabase.co \
-//   VITE_SUPABASE_PUBLISHABLE_KEY=xxx \
+//   VITE_SUPABASE_URL=https://YOUR-PROJECT.supabase.co \
+//   VITE_SUPABASE_PUBLISHABLE_KEY=YOUR_SUPABASE_ANON_OR_PUBLISHABLE_KEY \
 //   node scripts/e2e-login-test.mjs <REAL_CLASS_JOIN_CODE>
 //
 // Reports PASS/FAIL per step (not one verdict for the whole flow), so a
