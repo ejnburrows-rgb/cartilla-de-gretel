@@ -54,7 +54,7 @@ if you deliberately break one lesson's answer key (verify that, then revert).
 Proof: `pnpm test` output showing the new tests, plus the deliberate-break check.
 
 ### S3 — Scan and remove any residual English in the student-facing UI
-Status: NOT STARTED
+Status: DONE
 Files: student routes under `src/routes/cartilla/**`, `src/content/student-copy.*`
 
 Background: `AGENTS.md` forbids English text in the student UI (the English

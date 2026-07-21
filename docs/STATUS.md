@@ -163,6 +163,16 @@ The rest is owner-decision work, listed in `docs/DECISIONS.md`.
   grades a correct answer as correct and a wrong one as wrong. Verified it
   actually catches regressions by deliberately breaking one lesson's answer
   key, confirming the test failed, then reverting.
+- **2026-07-21 — Residual English removed from the student UI.** `ayuda.tsx`
+  had its own working ES/EN toggle, independent of and unaffected by the
+  earlier app-wide toggle removal (#162/#251), publicly reachable with no
+  login — it is now Spanish-only. Also fixed dormant English error-fallback
+  strings in `mi-progreso.tsx`, `unirse.tsx`, and the globally-mounted
+  `SkipLink.tsx` that could only surface for a returning user with a stale
+  `localStorage` language flag from before the toggle was removed, and two
+  unconditional English labels on the internal `pilot-faithful` preview
+  route. `ThemeSwitcher.tsx`/`lib/locale.ts` still carry unused ES/EN-toggle
+  code with zero importers — flagged as follow-up cleanup, not a live bug.
 
 ## IN PROGRESS / PARTIAL
 

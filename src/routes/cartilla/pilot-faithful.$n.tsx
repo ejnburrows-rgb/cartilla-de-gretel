@@ -69,7 +69,7 @@ function PilotFaithfulPage() {
         <div className="mt-6 grid gap-6 sm:grid-cols-2">
           <div>
             <h2 className="mb-2 text-xs font-bold uppercase tracking-wide text-foreground/50">
-              Faithful HTML (new)
+              HTML fiel (nuevo)
             </h2>
             <div className="overflow-hidden rounded-xl border border-foreground/10">
               <FaithfulPageRenderer
@@ -80,7 +80,7 @@ function PilotFaithfulPage() {
           </div>
           <div>
             <h2 className="mb-2 text-xs font-bold uppercase tracking-wide text-foreground/50">
-              Original scan
+              Escaneo original
             </h2>
             <div className="aspect-[2550/3301] overflow-hidden rounded-xl border border-foreground/10">
               <PdfPage pageNumber={pageNumber} className="h-full w-full" />

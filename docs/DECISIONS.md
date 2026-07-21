@@ -114,3 +114,13 @@ DOCUMENTATION DUTY section of `AGENTS.md`).
   `syllable-match` group) after finding that flipping a `correct: true` flag
   to `false` without an accompanying structural check silently made that row
   "ungraded" instead of failing.
+- **2026-07-21 — Removed `ayuda.tsx`'s standalone ES/EN toggle (S3), left
+  `ThemeSwitcher.tsx`/`lib/locale.ts` alone.** The audit found `ayuda.tsx`
+  running its own local language switch that the earlier #162/#251 English
+  removal never touched (it predates/parallels the app-wide
+  `LanguageContext`, not gated by it) — deleted the `en` copy branch and
+  toggle UI rather than keep dead-weight bilingual data around. By contrast,
+  `ThemeSwitcher.tsx` and `lib/locale.ts` also contain leftover ES/EN-toggle
+  code but have zero importers anywhere in `src`, so no student screen can
+  render them; left them in place as a follow-up cleanup item rather than
+  widen this task's diff to files with no reachable user impact.
