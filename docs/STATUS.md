@@ -2,6 +2,78 @@
 
 Honest current state. Updated 2026-07-21. Read this before starting work.
 
+---
+
+## Full sweep analysis (2026-07-21)
+
+A whole-project review done against the real code (not from documents).
+Brutally honest, plain language.
+
+### 1. DONE — genuinely works end to end
+- **Public reading mode** — the app loads and the 24 lessons work without any
+  backend configured (the Supabase client degrades gracefully via
+  `isSupabaseConfigured`).
+- **24-lesson student workbook** — page-faithful rendering, all six exercise
+  types, tracing, listen ("Escuchar") button, real-time grading, and the
+  Gretel guide reacting to real student events.
+- **Teacher flipchart** for whole-class presentation.
+- **Art color quality** — all 164 crops + 17 Gretel poses graded; failures
+  pulled back to honest "pendiente"; a build-time validator guards it.
+- **Automated test suite** — 533 unit tests pass (+2 intentionally-skipped).
+- **Secrets hygiene** — verified: no keys in code; Supabase keys load from
+  env vars only; `.env*` is git-ignored; `.env.example` holds placeholders.
+
+### 2. HALF-DONE — started, incomplete
+- **Teacher/student cloud backend** — fully written (auth, classes, join
+  codes, progress, row-level-security migrations) but NEVER run against a
+  real database. Code-complete, unverified live. This is the biggest gap.
+- **English (EN) language toggle** — exists but only partially translates the
+  UI, leaving mixed Spanish/English screens (already filed as issue #162).
+  This also sits oddly against the AGENTS.md rule "no English in student UI."
+- **Illustration coverage** — most cells show real book art; `abrigo`,
+  `aguja`, `remolino` still need coloring (source located, see
+  `ART_BACKLOG.md`); `oruga`/`globo` have no located source.
+- **Welcome/landing screen** — a version shipped and was rejected by the
+  owner; a redo brief exists but has not been executed.
+
+### 3. BROKEN OR RISKY
+- **Secrets/live-data:** none found — this area is clean (good).
+- **CI "BuildFailed" workflow fails on every commit, including on `main`.**
+  It is a ghost/orphaned workflow (its registered path is literally
+  `BuildFailed` with no matching file in `.github/workflows/`). Harmless to
+  the build itself, but it masks real failures and looks broken. Not fixable
+  by a code change — needs the owner to delete it in GitHub's Actions UI.
+- **Lint debt:** ~362 problems (≈321 errors, ≈41 warnings). Not a crash risk,
+  but real quality drift; bulk auto-fixing carries its own behavior-change
+  risk, so it needs a careful pass, not a blind one.
+- **Open QA bugs (#162–#165):** incomplete i18n, dark-mode contrast gaps, a
+  too-small theme toggle missing an accessible name, and missing theme
+  controls on the homepage. Real launch-quality issues, already filed.
+
+### 4. MISSING FOR LAUNCH (before a real person could use it)
+- A live Supabase project with the two env values set, and the migrations
+  applied and verified — nothing cloud-related has run live.
+- A landing screen the owner approves (first impression).
+- The accessibility/i18n QA bugs (#162–#165) resolved, or a decision to ship
+  without them.
+- The ghost CI workflow removed so "is the build healthy?" is answerable.
+
+### Recommendation — single best path to launch, in order
+1. **Stand up Supabase and verify it live** (owner supplies credentials; the
+   new "go-live kit" issue prepares the guide + a one-command check). Nothing
+   else about the teacher product is real until this is done.
+2. **Decide and ship the landing screen** (owner picks the creative
+   direction; a ready brief exists).
+3. **Clear the launch-quality QA bugs (#162–#165)** and remove the ghost CI
+   workflow so the repo reads as healthy.
+4. **Then** harden: lint pass, more test coverage, an end-to-end smoke test.
+
+The execution plan for the parts a background coding agent can do safely is
+filed as GitHub issues (Wave 1 = label `jules`, Wave 2 = label `wave-2`).
+The rest is owner-decision work, listed in `docs/DECISIONS.md`.
+
+---
+
 > Plain-language note: this is the real picture, not a wish-list. "Verified"
 > means someone actually ran it or looked at it, not that a document claimed
 > it was done.

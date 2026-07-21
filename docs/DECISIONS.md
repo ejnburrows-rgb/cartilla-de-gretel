@@ -4,6 +4,17 @@ A dated, plain-language log of technical decisions. One line each: what was
 decided and why. Newest at the bottom. This is a duty, not optional (see the
 DOCUMENTATION DUTY section of `AGENTS.md`).
 
+- **2026-07-21 — Full sweep completed; execution plan created.** Reviewed the
+  whole project, wrote the analysis into `docs/STATUS.md`, and filed the
+  agent-doable remaining work as GitHub issues (Wave 1 = label `jules`,
+  #239 Supabase go-live kit and #240 teacher-CRM test coverage; Wave 2 =
+  label `wave-2`, #241 student end-to-end smoke test). Owner-decision items
+  (live Supabase credentials, landing-screen direction, admin dashboard,
+  ghost CI workflow, lint pass, the i18n/theme QA bugs #162–#165) were kept
+  out of the auto-run list on purpose. To honor both "each issue updates
+  STATUS" and "same-wave tasks never touch the same file," each issue writes
+  its done-note to its own `docs/status-updates/<slug>.md` fragment, which is
+  consolidated afterward.
 - **2026-07-21 — Adopted the AGENTS.md documentation standard.** `AGENTS.md`
   is now the single source of truth every agent reads; `CLAUDE.md` and
   `GEMINI.md` are one-line pointers to it. The owner's full accumulated rules
