@@ -4,7 +4,6 @@ import { CATALOG } from "@/lib/lesson-catalog";
 import { useLessonProgress } from "@/lib/lesson-progress";
 import { useExerciseStats, isLessonWeak, lessonAccuracy, resetStats } from "@/lib/exercise-stats";
 import { useLanguage } from "@/context/LanguageContext";
-import { LanguageToggle } from "@/components/LanguageToggle";
 import { sCopy } from "@/content/student-copy";
 import { GardenBackdrop } from "@/components/cartilla/GardenBackdrop";
 import { KidButton } from "@/components/ui/KidButton";
@@ -38,7 +37,6 @@ function Repaso() {
               <ArrowLeft className="w-4 h-4" /> {t.lecciones[lang]}
             </Link>
             <div className="flex items-center gap-3">
-              <LanguageToggle />
               <KidButton
                 type="button"
                 variant="outline"

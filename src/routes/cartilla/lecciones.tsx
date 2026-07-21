@@ -7,7 +7,6 @@ import { hydrateLessonProgress, useLessonProgress } from "@/lib/lesson-progress"
 import { getMyProgress } from "@/lib/student.functions";
 import { useStudentSession } from "@/lib/student-session";
 import { useLanguage } from "@/context/LanguageContext";
-import { LanguageToggle } from "@/components/LanguageToggle";
 import { sCopy } from "@/content/student-copy";
 import { GardenBackdrop } from "@/components/cartilla/GardenBackdrop";
 import { GretelPresence } from "@/components/gretel/GretelPresence";
@@ -63,7 +62,6 @@ function Lecciones() {
           >
             <ArrowLeft className="w-5 h-5" /> {t.cartilla[lang]}
           </Link>
-          <LanguageToggle />
         </div>
 
         <h1 className="text-3xl sm:text-4xl font-black leading-tight text-stone-800">
