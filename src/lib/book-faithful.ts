@@ -365,6 +365,32 @@ function statusForTextBlocks(
     : ("missing" satisfies WorkbookTranscriptionStatus);
 }
 
+function buildPageFromScaffold(
+  pageNumber: number,
+  lessonNumber: number,
+  pageRole: WorkbookPageRole,
+  scaffold: RawPageScaffold | undefined,
+): WorkbookPageContent {
+  const imageScanReference = scaffold
+    ? firstReference(scaffold.remasteredImages, scaffold.originalImages, scaffold.sourcePages)
+    : null;
+  const explicitTextBlocks = stringifyTextBlocks(scaffold?.textBlocks);
+  const inventoryTextBlocks = sourceTextBlocksForImage(imageScanReference);
+  const verifiedTextBlocks =
+    explicitTextBlocks.length > 0 ? explicitTextBlocks : inventoryTextBlocks;
+  return {
+    pageNumber,
+    lessonNumber,
+    pageRole,
+    pageType: "workbook-page",
+    verifiedTextBlocks,
+    imageScanReference,
+    sourceScaffoldPosition: scaffold?.position ?? null,
+    sourceRawLabel: scaffold?.rawLabel ?? null,
+    transcriptionStatus: statusForTextBlocks(verifiedTextBlocks, scaffold, imageScanReference),
+  };
+}
+
 export function getWorkbookPagesForLesson(lessonNumber: number): WorkbookPageContent[] {
   const entry = CATALOG.find((item) => item.n === lessonNumber);
   if (!entry) return [];
@@ -373,25 +399,7 @@ export function getWorkbookPagesForLesson(lessonNumber: number): WorkbookPageCon
   const pageRole = getBookSectionForLesson(lessonNumber);
 
   return pageNumbers.map((pageNumber, index) => {
-    const scaffold = scaffolds[index];
-    const imageScanReference = scaffold
-      ? firstReference(scaffold.remasteredImages, scaffold.originalImages, scaffold.sourcePages)
-      : null;
-    const explicitTextBlocks = stringifyTextBlocks(scaffold?.textBlocks);
-    const inventoryTextBlocks = sourceTextBlocksForImage(imageScanReference);
-    const verifiedTextBlocks =
-      explicitTextBlocks.length > 0 ? explicitTextBlocks : inventoryTextBlocks;
-    return {
-      pageNumber,
-      lessonNumber,
-      pageRole,
-      pageType: "workbook-page",
-      verifiedTextBlocks,
-      imageScanReference,
-      sourceScaffoldPosition: scaffold?.position ?? null,
-      sourceRawLabel: scaffold?.rawLabel ?? null,
-      transcriptionStatus: statusForTextBlocks(verifiedTextBlocks, scaffold, imageScanReference),
-    };
+    return buildPageFromScaffold(pageNumber, lessonNumber, pageRole, scaffolds[index]);
   });
 }
 
