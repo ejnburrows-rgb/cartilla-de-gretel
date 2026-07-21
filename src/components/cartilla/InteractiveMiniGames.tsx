@@ -127,23 +127,25 @@ export function SpeechRecognitionExercise({
       )}
 
       {/* Debug Buttons - Remove in strict production */}
-      <div className="mt-8 flex gap-2 border-t pt-4 border-foreground/10 w-full justify-center opacity-50 hover:opacity-100 transition-opacity">
-        <span className="text-[10px] font-bold uppercase mr-2 self-center text-foreground/50">
-          Debug Mode:
-        </span>
-        <button
-          onClick={() => simulate(true)}
-          className="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-md font-bold hover:bg-green-200"
-        >
-          Simulate Success
-        </button>
-        <button
-          onClick={() => simulate(false)}
-          className="px-2 py-1 bg-red-100 text-red-800 text-xs rounded-md font-bold hover:bg-red-200"
-        >
-          Simulate Fail
-        </button>
-      </div>
+      {import.meta.env.DEV && (
+        <div className="mt-8 flex gap-2 border-t pt-4 border-foreground/10 w-full justify-center opacity-50 hover:opacity-100 transition-opacity">
+          <span className="text-[10px] font-bold uppercase mr-2 self-center text-foreground/50">
+            Debug Mode:
+          </span>
+          <button
+            onClick={() => simulate(true)}
+            className="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-md font-bold hover:bg-green-200"
+          >
+            Simulate Success
+          </button>
+          <button
+            onClick={() => simulate(false)}
+            className="px-2 py-1 bg-red-100 text-red-800 text-xs rounded-md font-bold hover:bg-red-200"
+          >
+            Simulate Fail
+          </button>
+        </div>
+      )}
     </div>
   );
 }
