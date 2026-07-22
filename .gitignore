@@ -52,3 +52,8 @@ public/cartilla/art/restored/
 /test-results/
 /playwright-report/
 tests/e2e/__screenshots__/
+# local tooling / scratch (not project assets)
+bin/
+.kilo/
+temp_slots.json
+public/cartilla/art/test-overlays/
