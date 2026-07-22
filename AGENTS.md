@@ -206,7 +206,7 @@ the step because the tool is missing.**
 ### The shared art contract (the only interface between agents)
 
 - Crop faithful COLOR illustrations from the flipchart scans — **no redraw,
-  no AI generation, no color changes, no invented art, ever.**
+  no color changes, no invented art, ever.**
 - **Crop tight:** no neighboring word's label bleeding in, no oversized
   blank canvas. When unsure of the cell boundary, crop tighter, not looser —
   bleed-in is the single most common rejection reason.
@@ -219,6 +219,48 @@ the step because the tool is missing.**
   `{ slug, word, lessonNumber, pageNumber, src, sourceFlipchartPage, cropBox }`.
 - Only produce words that already appear as captions in
   `page-layouts.json` (check `ART_BACKLOG.md`); don't introduce new words.
+- **Pixel-cleanup restoration is allowed on top of a faithful crop** — see
+  the Faithful Restoration Standard below. It never replaces the crop-first
+  workflow above; it's an optional cleanup pass on art that already passed
+  it.
+
+### The Faithful Restoration Standard (approved by the owner, EJN, 2026-07-21)
+
+This supersedes the old blanket "no AI-touched art" wording wherever it
+appeared. The principle is unchanged in spirit: **restoration cleans; it
+never invents.** Zero changes to Estela de Armas Plasencia's artwork — no
+drastic changes, no AI slop.
+
+**Allowed — pixel cleanup only, applied to an already-faithful crop:**
+- 4x upscaling
+- JPEG-noise and scan-speckle removal
+- Paper-shadow removal
+- Background white-balance to the clean warm cream
+- Palette normalization so pages read consistently (same hues, just
+  cleaner — never a new palette)
+
+**Still banned — automatic rejection:**
+- Generative fill, img2img redraws, style transfer, or any "beautify /
+  enhance" filter that reinvents detail rather than cleaning existing
+  pixels
+- Anything that adds, moves, or reshapes any line, face, or object not in
+  the original
+- Over-smoothing that turns the linework plastic
+- Any generation of new art
+
+**Mandatory acceptance test, per image, before a restored file can replace
+or sit alongside a faithful crop:** downscale the restored image to the
+original's size and overlay it on the original at 50% opacity — every
+line must align exactly (same shapes, same faces, same proportions).
+Produce an overlay PNG plus an edge-map diff score per image; any drift
+means reject that image and redo it with gentler settings. A tool used for
+this pass (including ESRGAN-family upscalers) is judged by whether its
+*output* passes this alignment test on every image, not by whether it is
+internally "generative" — if it can't pass the overlay test on real scans
+here, it doesn't get used, full stop. Never touch or overwrite an original
+or a raw source scan — restored output lives at a mirrored path,
+originals stay untouched. Include sample overlay proofs in every PR that
+adds restored art.
 
 ---
 
@@ -272,7 +314,14 @@ the step because the tool is missing.**
   installing new dependencies or services.
 - **Never use AI-generated or invented art.** Only real hand-drawn artwork
   cropped from the authentic book scans. No emojis as stand-ins for real
-  book art unless explicitly allowed.
+  book art unless explicitly allowed. **Restoration is different from
+  generation and is allowed, strictly under the Faithful Restoration
+  Standard** (see the shared art contract above) — pixel cleanup only
+  (upscale, noise/speckle removal, shadow removal, white-balance, palette
+  normalization), every output verified against the original with an
+  overlay/edge-diff acceptance test before it ships. Generative fill,
+  redraws, style transfer, or anything that adds/moves/reshapes a line,
+  face, or object stays banned, no exceptions.
 - **Hard "never" list:** never edit `src/routeTree.gen.ts` by hand; never
   hardcode Supabase keys or `localhost` URLs (use `import.meta.env`); never
   put English text in the student-facing UI; never alter the book's original

@@ -136,3 +136,25 @@ DOCUMENTATION DUTY section of `AGENTS.md`).
   `REPORT.md` per the task's own "if a lesson genuinely has only one
   faithful slide available, leave it and note which lessons are
   art-limited" instruction.
+- **2026-07-22 — Adopted the Faithful Restoration Standard; kept a stricter
+  gate on generative upscalers than the request literally described.**
+  Owner confirmed (in chat, after being challenged directly) approval for
+  pixel-cleanup restoration on top of already-faithful crops: upscaling,
+  noise/speckle/shadow removal, white-balance, palette normalization — all
+  gated by a mandatory per-image overlay/edge-diff acceptance test against
+  the original. Wrote this into `AGENTS.md` (the shared art contract +
+  safety rules), the only file in the repo that states the art rule
+  directly (`CLAUDE.md`/`GEMINI.md` just point to it; `.kilocode/skills`
+  has no art rules; `docs/PROJECT-CANON.md`/`docs/ART-MAP.md` only
+  reference the rule narratively and needed no edits). One deliberate
+  divergence from the literal request: the requested wording listed
+  Real-ESRGAN under "allowed" while banning "generative fill" in the same
+  breath — Real-ESRGAN is itself a generative model, so that framing was
+  self-contradictory. The rule as written instead judges any tool
+  (ESRGAN-family included) strictly by whether its *output* passes the
+  overlay/edge-diff test on every image, not by whether it's internally
+  generative — a stricter, more honest, still-compliant version of the
+  same standard. No restoration pipeline exists yet (that's a separate,
+  much larger follow-up); this change only updates the governing rule
+  text, verified with the full `pnpm typecheck && pnpm test && pnpm build`
+  bar before merging.
