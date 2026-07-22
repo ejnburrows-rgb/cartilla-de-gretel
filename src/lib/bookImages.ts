@@ -18,8 +18,13 @@ const COLOR_SCAN_COUNT = 92;
  * (art/restore-<batch> PRs). Restoration CLEANS, never INVENTS — every file
  * here passed the overlay/edge-drift acceptance test (see AGENTS.md).
  */
-const RESTORED_PAGES: ReadonlySet<number> = new Set(
-  Array.from({ length: 42 }, (_, i) => i + 1),
+const RESTORED_PAGE_EXT: ReadonlyMap<number, "png" | "jpg"> = new Map(
+  Array.from({ length: 58 }, (_, i) => {
+    const page = i + 1;
+    // Restored output mirrors each source slot's format: pages 1-44 have png
+    // sources, 45+ exist only as jpg.
+    return [page, page <= 44 ? "png" : "jpg"] as const;
+  }),
 );
 
 /**
@@ -27,8 +32,9 @@ const RESTORED_PAGES: ReadonlySet<number> = new Set(
  * committed restored file yet.
  */
 export function getRestoredPageImage(pageNumber: number): string | null {
-  if (RESTORED_PAGES.has(pageNumber)) {
-    return `/cartilla/art/restored/workbook/page-${zeroPad(pageNumber)}.png`;
+  const ext = RESTORED_PAGE_EXT.get(pageNumber);
+  if (ext) {
+    return `/cartilla/art/restored/workbook/page-${zeroPad(pageNumber)}.${ext}`;
   }
   return null;
 }
