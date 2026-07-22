@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mic, MicOff, Volume2, CheckCircle } from "lucide-react";
 import { useSpeechRecognition } from "@/hooks/useSpeechRecognition";
@@ -57,14 +57,22 @@ export function PianoPronunciation({
   );
 
   // Map each syllable to a piano key index/frequency
-  const pianoKeys = syllables.slice(0, 8).map((syllable, index) => ({
-    syllable,
-    frequency: PIANO_NOTES[index % PIANO_NOTES.length],
-  }));
+  const pianoKeys = useMemo(
+    () =>
+      syllables.slice(0, 8).map((syllable, index) => ({
+        syllable,
+        frequency: PIANO_NOTES[index % PIANO_NOTES.length],
+      })),
+    [syllables],
+  );
 
-  // Match mic transcript to syllables
+  // Match mic transcript to syllables. Guarded by lastProcessedTranscript so
+  // the full dependency list can't re-process a transcript when completedSet
+  // updates — matching the original run-once-per-new-transcript semantics.
+  const lastProcessedTranscript = useRef<string | null>(null);
   useEffect(() => {
-    if (!transcript) return;
+    if (!transcript || lastProcessedTranscript.current === transcript) return;
+    lastProcessedTranscript.current = transcript;
     // Find matching syllable using phonetic fuzzing
     let matchIdx = -1;
     for (let i = 0; i < pianoKeys.length; i++) {
@@ -122,7 +130,7 @@ export function PianoPronunciation({
         setKeyStates({});
       }, 1000);
     }
-  }, [transcript]);
+  }, [transcript, completedSet, lessonId, pianoKeys]);
 
   // Check if all syllables are done
   useEffect(() => {

@@ -10,8 +10,8 @@ describe("Speak API - Voice Caching and Offline Support", () => {
   let originalSpeechSynthesisUtterance: typeof window.SpeechSynthesisUtterance;
   let originalNavigator: typeof navigator;
 
-  let mockVoices: any[] = [];
-  let spokenUtterance: any = null;
+  let mockVoices: Partial<SpeechSynthesisVoice>[] = [];
+  let spokenUtterance: SpeechSynthesisUtterance | null = null;
   let onlineState = true;
 
   beforeEach(() => {
@@ -55,7 +55,7 @@ describe("Speak API - Voice Caching and Offline Support", () => {
     originalSpeechSynthesisUtterance = window.SpeechSynthesisUtterance;
     class MockSpeechSynthesisUtterance {
       text: string;
-      voice: any = null;
+      voice: Partial<SpeechSynthesisVoice> | null = null;
       lang = "";
       rate = 1.0;
       pitch = 1.0;
@@ -117,7 +117,7 @@ describe("Speak API - Voice Caching and Offline Support", () => {
     await speak("Hola, ¿cómo estás?");
 
     expect(spokenUtterance).not.toBeNull();
-    expect(spokenUtterance.voice?.name).toBe("Google español");
+    expect(spokenUtterance!.voice?.name).toBe("Google español");
 
     // Clear spokenUtterance, modify mockVoices list to show that getVoices is bypassed due to caching
     spokenUtterance = null;
@@ -126,14 +126,14 @@ describe("Speak API - Voice Caching and Offline Support", () => {
     await speak("Segunda frase");
     expect(spokenUtterance).not.toBeNull();
     // Should still use cached "Google español" voice
-    expect(spokenUtterance.voice?.name).toBe("Google español");
+    expect(spokenUtterance!.voice?.name).toBe("Google español");
   });
 
   it("should invalidate the voice cache and select the local voice when transition to offline occurs", async () => {
     // First call online to populate cache
     onlineState = true;
     await speak("Hola online");
-    expect(spokenUtterance.voice?.name).toBe("Google español");
+    expect(spokenUtterance!.voice?.name).toBe("Google español");
 
     // Transition offline
     onlineState = false;
@@ -142,14 +142,14 @@ describe("Speak API - Voice Caching and Offline Support", () => {
     await speak("Hola offline");
     expect(spokenUtterance).not.toBeNull();
     // Cache must have been invalidated and updated to prioritize the local voice
-    expect(spokenUtterance.voice?.name).toBe("Microsoft Sabina");
+    expect(spokenUtterance!.voice?.name).toBe("Microsoft Sabina");
   });
 
   it("should invalidate the voice cache and select the online voice when transition back to online occurs", async () => {
     // First call offline to populate cache with Microsoft Sabina
     onlineState = false;
     await speak("Hola offline");
-    expect(spokenUtterance.voice?.name).toBe("Microsoft Sabina");
+    expect(spokenUtterance!.voice?.name).toBe("Microsoft Sabina");
 
     // Transition online
     onlineState = true;
@@ -158,7 +158,7 @@ describe("Speak API - Voice Caching and Offline Support", () => {
     await speak("Hola online de nuevo");
     expect(spokenUtterance).not.toBeNull();
     // Cache must have been invalidated and updated to prioritize the online voice again
-    expect(spokenUtterance.voice?.name).toBe("Google español");
+    expect(spokenUtterance!.voice?.name).toBe("Google español");
   });
 });
 
@@ -172,8 +172,8 @@ describe("Speak API - no-voice / wrong-dialect fallback is never silent", () => 
   let originalSpeechSynthesis: typeof window.speechSynthesis;
   let originalSpeechSynthesisUtterance: typeof window.SpeechSynthesisUtterance;
   let originalNavigator: typeof navigator;
-  let mockVoices: any[] = [];
-  let spokenUtterance: any = null;
+  let mockVoices: Partial<SpeechSynthesisVoice>[] = [];
+  let spokenUtterance: SpeechSynthesisUtterance | null = null;
 
   function installMocks() {
     originalNavigator = globalThis.navigator;
@@ -211,7 +211,7 @@ describe("Speak API - no-voice / wrong-dialect fallback is never silent", () => 
     originalSpeechSynthesisUtterance = window.SpeechSynthesisUtterance;
     class MockSpeechSynthesisUtterance {
       text: string;
-      voice: any = null;
+      voice: Partial<SpeechSynthesisVoice> | null = null;
       lang = "";
       rate = 1.0;
       pitch = 1.0;
@@ -271,7 +271,7 @@ describe("Speak API - no-voice / wrong-dialect fallback is never silent", () => 
     await freshSpeak("Hola, ¿cómo estás?");
 
     expect(spokenUtterance).not.toBeNull();
-    expect(spokenUtterance.voice?.name).toBe("Google español");
+    expect(spokenUtterance!.voice?.name).toBe("Google español");
     expect(warnSpy).toHaveBeenCalledTimes(1);
     expect(warnSpy.mock.calls[0][0]).toMatch(
       /No neutral Latin American Spanish voice.*Falling back to "Google español" \(es-ES\)/,
@@ -302,8 +302,8 @@ describe("Speak API - no-voice / wrong-dialect fallback is never silent", () => 
     await freshSpeak("Hola sin voz en español");
 
     expect(spokenUtterance).not.toBeNull();
-    expect(spokenUtterance.voice).toBeNull();
-    expect(spokenUtterance.lang).toBe("es-MX");
+    expect(spokenUtterance!.voice).toBeNull();
+    expect(spokenUtterance!.lang).toBe("es-MX");
     expect(warnSpy).toHaveBeenCalledTimes(1);
     expect(warnSpy.mock.calls[0][0]).toMatch(
       /No Spanish voice available on this device at all.*es-MX as a lang hint/,
@@ -319,8 +319,8 @@ describe("Speak API - no-voice / wrong-dialect fallback is never silent", () => 
     await freshSpeakVowel("a");
 
     expect(spokenUtterance).not.toBeNull();
-    expect(spokenUtterance.voice).toBeNull();
-    expect(spokenUtterance.lang).toBe("es-MX");
+    expect(spokenUtterance!.voice).toBeNull();
+    expect(spokenUtterance!.lang).toBe("es-MX");
     expect(warnSpy).toHaveBeenCalledTimes(1);
   });
 });

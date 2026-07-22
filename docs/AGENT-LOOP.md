@@ -194,11 +194,15 @@ files.**
       `ayuda.tsx` ES/EN toggle removed, plus dormant English fallbacks in `mi-progreso`/`unirse`/
       `SkipLink`/`pilot-faithful`). The orphaned ES/EN-toggle machinery (`ThemeSwitcher`, `locale`,
       `LanguageToggle`) was then archived to `src/_archive/` (PRs #292, #295).
-- [~] **D6. Lint pass (#245)** — **safe subset DONE** (PRs #305, #308: prettier-only formatting, 396 → 277
-      problems). Remaining 277 are judgment-call rules (`no-explicit-any`, `react-hooks/exhaustive-deps`,
-      `rules-of-hooks`) — **IN the autonomous queue (owner decision 2026-07-22):** fix per-site,
-      behavior-preserving; no mass-autofix, no rule disables, no eslint-disable blankets; verify bar green
-      after each chunk. The agent runs this alone; the owner reviews the final product only.
+- [x] **D6. Lint pass (#245)** — **DONE 2026-07-22.** All 277 judgment-call problems fixed per-site,
+      behavior-preserving (no mass-autofix, no rule disables): `no-explicit-any` ×221 (typed Supabase test
+      mocks via `as never`, structural types for Web Speech / react-pageflip / rewards stats / report rows),
+      `rules-of-hooks` ×6 (PerfPanel split into gated wrapper + inner component; usePageBinding aliased to
+      pure `getPageBinding`), `exhaustive-deps` ×17 of 18 (ref-capture patterns preserve run-once semantics).
+      **Lint now 0 errors.** Remaining 24 warnings: 23 `react-refresh/only-export-components` (out of the
+      approved scope) + 1 `exhaustive-deps` inside `GretelLiveAvatar.tsx` (NEVER-touch list — left alone).
+      Also deleted `scripts/ui-polish2.cjs` (unparseable dead one-shot codemod; its target file no longer
+      exists).
 - [ ] **D7. Admin cross-teacher dashboard** — **APPROVED (owner, 2026-07-22): scope and build it.** Build
       demo-lane first (no live-DB dependency to render); wire live data after D2 lands. Genuinely unbuilt
       today (no admin-viewing components, no RLS-bypass policy).
@@ -224,6 +228,10 @@ files.**
 ---
 
 ## STATUS LOG (append one dated line per merged PR; newest at top)
+- 2026-07-22 — **D6 lint pass DONE:** 277 → 0 errors, per-site and behavior-preserving. 24 warnings
+  remain by design (react-refresh out of scope; one exhaustive-deps inside the NEVER-touch
+  GretelLiveAvatar). Verify bar green (typecheck · 1058 unit · build). Also merged in parallel:
+  Jules security-audit doc (#316) and the final branch-inventory report (#329, 239 → 82 branches).
 - 2026-07-22 — **B7 flipchart lane DONE:** all 62 HD láminas pixel-cleaned (62/62 acceptance pass,
   cleanup only — no recolor/reinterpretation), restored mirror served first, originals untouched.
   Banned five (abrigo/aguja/remolino/oruga/globo) confirmed still pendiente. **Task B complete.**

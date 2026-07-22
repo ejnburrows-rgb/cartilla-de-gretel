@@ -10,9 +10,7 @@ import { test, expect } from "@playwright/test";
 // and the seed-auth key in localStorage. signInSeedTeacher() sets that key to a
 // teacher id; seeding it directly here is exactly what a real demo login does,
 // without driving the login form (covered separately by the app's unit tests).
-test("demo teacher opens the CRM and sees the seed class and its roster", async ({
-  page,
-}) => {
+test("demo teacher opens the CRM and sees the seed class and its roster", async ({ page }) => {
   await page.addInitScript(() => {
     // Value + key confirmed in src/lib/seed-data.ts (AUTH_KEY, SEED_TEACHERS[0].id).
     localStorage.setItem("cartilla.seed.teacher.v1", "seed-teacher-leonor");

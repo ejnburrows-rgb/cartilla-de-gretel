@@ -71,7 +71,6 @@ function StaticObject({ object, motionOn }: { object: WorkbookObject; motionOn: 
       aria-hidden={!object.text && !object.alt ? true : undefined}
     >
       {object.src && (
-        // eslint-disable-next-line jsx-a11y/img-redundant-alt
         <img
           src={object.src}
           alt={object.alt ?? ""}

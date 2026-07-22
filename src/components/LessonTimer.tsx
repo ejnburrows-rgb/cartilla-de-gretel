@@ -57,7 +57,7 @@ export function LessonTimer({
   useEffect(() => {
     setSeconds(storage.get(storeKey, 0));
     firedRef.current = false;
-  }, [unitKey]);
+  }, [storeKey]);
 
   useEffect(() => {
     if (!running) return;

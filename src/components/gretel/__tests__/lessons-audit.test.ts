@@ -62,7 +62,7 @@ describe("Lessons Data Structural Hardening", () => {
         expect(lessonArray.length).toBeGreaterThan(0);
       });
 
-      lessonArray.forEach((item: any, idx: number) => {
+      lessonArray.forEach((item: Record<string, unknown>, idx: number) => {
         const prefix = `Item ${idx} (id: ${item?.id})`;
 
         it(`${prefix} should have all required fields and valid page references`, () => {
@@ -95,7 +95,7 @@ describe("Lessons Data Structural Hardening", () => {
           expect(item.pageNumber, `${prefix} invalid pageNumber`).toBeLessThanOrEqual(94);
 
           // Check sourcePage matches getBookPageImage(pageNumber)
-          const expectedSourcePage = getBookPageImage(item.pageNumber);
+          const expectedSourcePage = getBookPageImage(item.pageNumber as number);
           expect(item.sourcePage, `${prefix} sourcePage mismatch`).toBe(expectedSourcePage);
         });
       });

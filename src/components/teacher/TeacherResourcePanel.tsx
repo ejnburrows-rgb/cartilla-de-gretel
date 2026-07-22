@@ -14,15 +14,15 @@ export function TeacherResourcePanel({ resourceId, onClose }: TeacherResourcePan
   if (!resource) return null;
 
   // Bilingual fallback
-  const getField = (field: { es: any; en: any }) =>
+  const getField = <T,>(field: { es?: T; en?: T }): T | undefined =>
     field[lang] ?? field[lang === "es" ? "en" : "es"];
 
   const title = getField(resource.title);
   const summary = getField(resource.summary);
   const objective = getField(resource.objective);
-  const whenToUse = getField(resource.whenToUse) as string[];
-  const howItWorks = getField(resource.howItWorks) as string[];
-  const teacherTips = getField(resource.teacherTips) as string[];
+  const whenToUse = getField(resource.whenToUse) ?? [];
+  const howItWorks = getField(resource.howItWorks) ?? [];
+  const teacherTips = getField(resource.teacherTips) ?? [];
 
   // Warn if missing in current language
   if (!resource.title[lang] && (resource.title.es || resource.title.en)) {

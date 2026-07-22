@@ -82,7 +82,9 @@ export function StudentExercisePane({
       const next = new Set([...prev, id]);
       try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify([...next]));
-      } catch {}
+      } catch {
+        /* localStorage unavailable (private mode) - progress just not persisted */
+      }
       return next;
     });
     gretelEvent("answer:correct");

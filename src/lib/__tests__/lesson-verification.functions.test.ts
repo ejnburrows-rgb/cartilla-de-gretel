@@ -26,7 +26,7 @@ describe("lesson-verification.functions tests", () => {
     it("upserts on the (lesson_number, student_id) key and returns the row", async () => {
       const row = { verified: true, lesson_number: 7, student_id: STUDENT_ID };
       const builder = makeQueryBuilder(ok(row));
-      vi.mocked(supabase.from).mockReturnValue(builder as any);
+      vi.mocked(supabase.from).mockReturnValue(builder as never);
 
       const result = await logLessonVerification({
         data: { lessonNumber: 7, studentId: STUDENT_ID, teacherId: TEACHER_ID, verified: true },
@@ -56,7 +56,7 @@ describe("lesson-verification.functions tests", () => {
 
     it("throws when Supabase errors", async () => {
       const builder = makeQueryBuilder(fail("boom"));
-      vi.mocked(supabase.from).mockReturnValue(builder as any);
+      vi.mocked(supabase.from).mockReturnValue(builder as never);
 
       await expect(
         logLessonVerification({
@@ -69,7 +69,7 @@ describe("lesson-verification.functions tests", () => {
   describe("getLessonVerification", () => {
     it("returns null when no verification row exists yet", async () => {
       const builder = makeQueryBuilder(ok(null));
-      vi.mocked(supabase.from).mockReturnValue(builder as any);
+      vi.mocked(supabase.from).mockReturnValue(builder as never);
 
       const result = await getLessonVerification({
         data: { lessonNumber: 8, studentId: STUDENT_ID },
@@ -94,7 +94,7 @@ describe("lesson-verification.functions tests", () => {
         { verified: false, lesson_number: 8, student_id: STUDENT_ID },
       ];
       const builder = makeQueryBuilder(ok(rows));
-      vi.mocked(supabase.from).mockReturnValue(builder as any);
+      vi.mocked(supabase.from).mockReturnValue(builder as never);
 
       const result = await getAllStudentVerifications({ data: { studentId: STUDENT_ID } });
 
@@ -104,7 +104,7 @@ describe("lesson-verification.functions tests", () => {
 
     it("throws when Supabase errors", async () => {
       const builder = makeQueryBuilder(fail("db down"));
-      vi.mocked(supabase.from).mockReturnValue(builder as any);
+      vi.mocked(supabase.from).mockReturnValue(builder as never);
 
       await expect(getAllStudentVerifications({ data: { studentId: STUDENT_ID } })).rejects.toThrow(
         "db down",

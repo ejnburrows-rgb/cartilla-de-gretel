@@ -1,6 +1,6 @@
 import React from "react";
 
-interface ShimmerProps extends React.HTMLAttributes<HTMLDivElement> {}
+type ShimmerProps = React.HTMLAttributes<HTMLDivElement>;
 
 export function Shimmer({ className = "", ...props }: ShimmerProps) {
   return (

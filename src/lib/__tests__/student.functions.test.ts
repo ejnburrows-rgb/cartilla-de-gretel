@@ -39,7 +39,7 @@ describe("student.functions tests", () => {
       };
 
       const mockSingle = vi.fn().mockResolvedValue({ data: mockResult, error: null });
-      vi.mocked(supabase.rpc).mockReturnValue({ single: mockSingle } as any);
+      vi.mocked(supabase.rpc).mockReturnValue({ single: mockSingle } as never);
 
       const result = await joinClass({
         data: {
@@ -65,7 +65,7 @@ describe("student.functions tests", () => {
       const mockSingle = vi
         .fn()
         .mockResolvedValue({ data: null, error: { message: "Invalid code" } });
-      vi.mocked(supabase.rpc).mockReturnValue({ single: mockSingle } as any);
+      vi.mocked(supabase.rpc).mockReturnValue({ single: mockSingle } as never);
 
       await expect(
         joinClass({
@@ -80,7 +80,7 @@ describe("student.functions tests", () => {
 
   describe("logProgress", () => {
     it("should succeed when Supabase RPC succeeds with valid data", async () => {
-      vi.mocked(supabase.rpc).mockResolvedValue({ error: null } as any);
+      vi.mocked(supabase.rpc).mockResolvedValue({ error: null } as never);
 
       const result = await logProgress({
         data: {
@@ -124,7 +124,7 @@ describe("student.functions tests", () => {
         { student_id: "11111111-1111-1111-1111-111111111111", display_name: "Ana" },
         { student_id: "22222222-2222-2222-2222-222222222222", display_name: "Beto" },
       ];
-      vi.mocked(supabase.rpc).mockResolvedValue({ data: mockRoster, error: null } as any);
+      vi.mocked(supabase.rpc).mockResolvedValue({ data: mockRoster, error: null } as never);
 
       const result = await listClassStudents({ data: { joinCode: "demo12" } });
 
@@ -138,13 +138,16 @@ describe("student.functions tests", () => {
     });
 
     it("should throw when the join code matches no class (empty roster)", async () => {
-      vi.mocked(supabase.rpc).mockResolvedValue({ data: [], error: null } as any);
+      vi.mocked(supabase.rpc).mockResolvedValue({ data: [], error: null } as never);
 
       await expect(listClassStudents({ data: { joinCode: "NOPE1" } })).rejects.toThrow();
     });
 
     it("should throw when Supabase RPC errors", async () => {
-      vi.mocked(supabase.rpc).mockResolvedValue({ data: null, error: { message: "boom" } } as any);
+      vi.mocked(supabase.rpc).mockResolvedValue({
+        data: null,
+        error: { message: "boom" },
+      } as never);
 
       await expect(listClassStudents({ data: { joinCode: "DEMO12" } })).rejects.toThrow("boom");
     });
@@ -160,7 +163,7 @@ describe("student.functions tests", () => {
         class_name: "Clase Demo",
       };
       const mockSingle = vi.fn().mockResolvedValue({ data: mockResult, error: null });
-      vi.mocked(supabase.rpc).mockReturnValue({ single: mockSingle } as any);
+      vi.mocked(supabase.rpc).mockReturnValue({ single: mockSingle } as never);
 
       const result = await enterClassAsStudent({
         data: { joinCode: "demo12", studentId: mockResult.student_id },
@@ -181,7 +184,7 @@ describe("student.functions tests", () => {
 
     it("should throw when the tapped student does not belong to this class", async () => {
       const mockSingle = vi.fn().mockResolvedValue({ data: null, error: null });
-      vi.mocked(supabase.rpc).mockReturnValue({ single: mockSingle } as any);
+      vi.mocked(supabase.rpc).mockReturnValue({ single: mockSingle } as never);
 
       await expect(
         enterClassAsStudent({
@@ -203,7 +206,7 @@ describe("student.functions tests", () => {
         events: [],
         lessonProgress: [],
       };
-      vi.mocked(supabase.rpc).mockResolvedValue({ data: mockPayload, error: null } as any);
+      vi.mocked(supabase.rpc).mockResolvedValue({ data: mockPayload, error: null } as never);
 
       const result = await getMyProgress({
         data: {

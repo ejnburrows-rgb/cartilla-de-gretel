@@ -18,13 +18,15 @@ export function useInstallPrompt() {
   useEffect(() => {
     // Check if running on iOS Safari
     const ua = window.navigator.userAgent;
-    const isIOSDevice = /iPad|iPhone|iPod/.test(ua) && !(window as any).MSStream;
+    const isIOSDevice =
+      /iPad|iPhone|iPod/.test(ua) && !(window as Window & { MSStream?: unknown }).MSStream;
     setIsIOS(isIOSDevice);
 
     // Check if already in standalone mode
     const checkStandalone = () => {
       const isDisplayStandalone = window.matchMedia("(display-mode: standalone)").matches;
-      const isStandalonePWA = (window.navigator as any).standalone === true;
+      const isStandalonePWA =
+        (window.navigator as Navigator & { standalone?: boolean }).standalone === true;
       return isDisplayStandalone || isStandalonePWA;
     };
 

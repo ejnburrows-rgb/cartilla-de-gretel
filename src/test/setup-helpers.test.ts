@@ -12,7 +12,7 @@ import {
 
 describe("setup.ts gesture helpers", () => {
   let element: HTMLDivElement;
-  let events: any[] = [];
+  let events: Record<string, unknown>[] = [];
 
   beforeEach(() => {
     element = document.createElement("div");
@@ -90,7 +90,7 @@ describe("setup.ts gesture helpers", () => {
     it.fails("should simulate touch swipe events under real timers", async () => {
       vi.useRealTimers();
 
-      element.addEventListener("touchstart", (e: any) => {
+      element.addEventListener("touchstart", (e: TouchEvent) => {
         const touch = e.touches[0];
         events.push({
           type: e.type,
@@ -98,7 +98,7 @@ describe("setup.ts gesture helpers", () => {
           clientY: touch.clientY,
         });
       });
-      element.addEventListener("touchend", (e: any) => {
+      element.addEventListener("touchend", (e: TouchEvent) => {
         const touch = e.changedTouches[0];
         events.push({
           type: e.type,
@@ -123,7 +123,7 @@ describe("setup.ts gesture helpers", () => {
     it("should simulate touch swipe events and advance time correctly under fake timers", async () => {
       vi.useFakeTimers();
 
-      element.addEventListener("touchstart", (e: any) => {
+      element.addEventListener("touchstart", (e: TouchEvent) => {
         const touch = e.touches[0];
         events.push({
           type: e.type,
@@ -132,7 +132,7 @@ describe("setup.ts gesture helpers", () => {
           time: Date.now(),
         });
       });
-      element.addEventListener("touchend", (e: any) => {
+      element.addEventListener("touchend", (e: TouchEvent) => {
         const touch = e.changedTouches[0];
         events.push({
           type: e.type,
@@ -223,15 +223,15 @@ describe("setup.ts gesture helpers", () => {
 
     it("should correctly trigger simulateWindowSwipeNext", async () => {
       vi.useFakeTimers();
-      const windowEvents: any[] = [];
-      const onStart = (e: any) => {
+      const windowEvents: Record<string, unknown>[] = [];
+      const onStart = (e: TouchEvent) => {
         windowEvents.push({
           type: e.type,
           clientX: e.touches[0].clientX,
           clientY: e.touches[0].clientY,
         });
       };
-      const onEnd = (e: any) => {
+      const onEnd = (e: TouchEvent) => {
         windowEvents.push({
           type: e.type,
           clientX: e.changedTouches[0].clientX,
@@ -253,15 +253,15 @@ describe("setup.ts gesture helpers", () => {
 
     it("should correctly trigger simulateWindowSwipePrev", async () => {
       vi.useFakeTimers();
-      const windowEvents: any[] = [];
-      const onStart = (e: any) => {
+      const windowEvents: Record<string, unknown>[] = [];
+      const onStart = (e: TouchEvent) => {
         windowEvents.push({
           type: e.type,
           clientX: e.touches[0].clientX,
           clientY: e.touches[0].clientY,
         });
       };
-      const onEnd = (e: any) => {
+      const onEnd = (e: TouchEvent) => {
         windowEvents.push({
           type: e.type,
           clientX: e.changedTouches[0].clientX,

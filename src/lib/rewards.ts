@@ -1,5 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { recordEvent } from "./student-session";
+
+/** Per-exercise local stat snapshot (see exercise-stats). */
+export type ExerciseStatLike = {
+  attempts?: number;
+  hits?: number;
+  completedRounds?: number;
+};
+
+/** Loose local-stats blob; badge checks read it structurally per shape. */
+export type LocalStatsLike = Record<string, unknown> | null;
 
 export interface Sticker {
   lessonId: number;
@@ -17,7 +27,7 @@ export interface Badge {
   color: string;
   description: string;
   condition: string;
-  isUnlocked: (completedIds: number[], stats: any) => boolean;
+  isUnlocked: (completedIds: number[], stats: LocalStatsLike) => boolean;
 }
 
 // 24 beautifully designed themed stickers (one per lesson)
@@ -272,8 +282,8 @@ export const BADGES: Badge[] = [
     condition: "Acierto perfecto en algún ejercicio",
     isUnlocked: (_, stats) => {
       if (!stats) return false;
-      return Object.values(stats).some((lesson: any) =>
-        Object.values(lesson).some((ex: any) => ex.attempts > 0 && ex.hits === ex.attempts),
+      return (Object.values(stats) as Record<string, ExerciseStatLike>[]).some((lesson) =>
+        Object.values(lesson).some((ex) => (ex.attempts ?? 0) > 0 && ex.hits === ex.attempts),
       );
     },
   },
@@ -287,15 +297,15 @@ export const BADGES: Badge[] = [
     isUnlocked: (_, stats) => {
       // In the absence of a complete streak tracker, we can unlock this if they have done exercises in at least 2 distinct runs/sessions.
       if (!stats) return false;
-      const count = Object.values(stats).reduce((acc: number, lesson: any) => {
-        return (
-          acc +
-          Object.values(lesson).reduce(
-            (acc2: number, ex: any) => acc2 + (ex.completedRounds || 0),
-            0,
-          )
-        );
-      }, 0);
+      const count = (Object.values(stats) as Record<string, ExerciseStatLike>[]).reduce(
+        (acc: number, lesson) => {
+          return (
+            acc +
+            Object.values(lesson).reduce((acc2: number, ex) => acc2 + (ex.completedRounds || 0), 0)
+          );
+        },
+        0,
+      );
       return count >= 2;
     },
   },
@@ -370,7 +380,7 @@ export function saveEarnedBadge(badgeId: string) {
 export const getUnlockedStickers = getEarnedStickers;
 export const getUnlockedBadges = getEarnedBadges;
 
-export function checkAndAwardRewards(completedLessons: number[], localStats: any) {
+export function checkAndAwardRewards(completedLessons: number[], localStats: LocalStatsLike) {
   // 1. Award stickers for completed lessons
   completedLessons.forEach((id) => {
     saveEarnedSticker(id);
@@ -385,13 +395,23 @@ export function checkAndAwardRewards(completedLessons: number[], localStats: any
 }
 
 // React Hook
-export function useRewards(completedLessons: number[] = [], localStats: any = null) {
+export function useRewards(completedLessons: number[] = [], localStats: LocalStatsLike = null) {
   const [stickers, setStickers] = useState<number[]>([]);
   const [badges, setBadges] = useState<string[]>([]);
 
+  // Callers pass fresh array/object literals each render, so the effect keys
+  // on VALUE identity (count + serialized stats) — the original semantics —
+  // while refs carry the latest data without widening the dependency list.
+  const completedRef = useRef(completedLessons);
+  completedRef.current = completedLessons;
+  const statsRef = useRef(localStats);
+  statsRef.current = localStats;
+  const completedCount = completedLessons.length;
+  const statsSnapshot = JSON.stringify(localStats);
+
   useEffect(() => {
     // Run an initial check and award cycle
-    checkAndAwardRewards(completedLessons, localStats);
+    checkAndAwardRewards(completedRef.current, statsRef.current);
 
     const load = () => {
       setStickers(getEarnedStickers());
@@ -411,7 +431,7 @@ export function useRewards(completedLessons: number[] = [], localStats: any = nu
       window.removeEventListener("storage", h);
       window.removeEventListener("cartilla:rewards-changed", h);
     };
-  }, [completedLessons.length, JSON.stringify(localStats)]);
+  }, [completedCount, statsSnapshot]);
 
   return {
     stickers,

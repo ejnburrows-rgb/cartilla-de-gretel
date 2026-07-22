@@ -1,10 +1,10 @@
 import { useCallback, useRef } from "react";
 
-export function useDoubleTap(onDoubleTap: (event: any) => void, delayMs = 300) {
+export function useDoubleTap<E>(onDoubleTap: (event: E) => void, delayMs = 300) {
   const lastTapRef = useRef<number>(0);
 
   const handleTap = useCallback(
-    (event: any) => {
+    (event: E) => {
       const now = Date.now();
       const timeSinceLastTap = now - lastTapRef.current;
 

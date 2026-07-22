@@ -50,10 +50,13 @@ function PaginasLeccion() {
     setIsTurning(false);
   }, [n]);
 
-  // Clear any pending turn timers on unmount
+  // Clear any pending turn timers on unmount. The ref object is captured
+  // once so cleanup reads the same timer list the effect saw (the ref's
+  // .current may be reassigned by later turns).
   useEffect(() => {
+    const timers = turnTimers.current;
     return () => {
-      turnTimers.current.forEach((t) => window.clearTimeout(t));
+      timers.forEach((t) => window.clearTimeout(t));
     };
   }, []);
 

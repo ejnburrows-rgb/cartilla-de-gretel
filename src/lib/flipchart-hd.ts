@@ -32,7 +32,10 @@ export const FLIPCHART_PAGES: FlipchartPage[] = (flipchartData.pages as Flipchar
  * is served first and the hd/ originals remain untouched on disk.
  */
 export function getFlipchartPageSrc(page: FlipchartPage): string {
-  const restored = page.path.replace(/^cartilla\/art\/hd\/flipchart\//, "cartilla/art/restored/flipchart/");
+  const restored = page.path.replace(
+    /^cartilla\/art\/hd\/flipchart\//,
+    "cartilla/art/restored/flipchart/",
+  );
   return `/${restored}`;
 }
 

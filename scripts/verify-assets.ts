@@ -19,7 +19,7 @@ const allFlipchartPages: string[] = [];
 
 // Check workbook pages
 if (inventory.workbook && inventory.workbook.lessons) {
-  inventory.workbook.lessons.forEach((lesson: any) => {
+  inventory.workbook.lessons.forEach((lesson: { lessonId?: number | string; pages?: string[] }) => {
     if (lesson.pages) {
       lesson.pages.forEach((page: string) => {
         allWorkbookPages.push(page);
@@ -34,17 +34,19 @@ if (inventory.workbook && inventory.workbook.lessons) {
 
 // Check flipchart pages
 if (inventory.flipchart && inventory.flipchart.lessons) {
-  inventory.flipchart.lessons.forEach((lesson: any) => {
-    if (lesson.pages) {
-      lesson.pages.forEach((page: string) => {
-        allFlipchartPages.push(page);
-        const fullPath = path.join(flipchartBasePath, page);
-        if (!fs.existsSync(fullPath)) {
-          missingFiles.push(`Missing Flipchart File (Lesson ${lesson.lessonId}): ${page}`);
-        }
-      });
-    }
-  });
+  inventory.flipchart.lessons.forEach(
+    (lesson: { lessonId?: number | string; pages?: string[] }) => {
+      if (lesson.pages) {
+        lesson.pages.forEach((page: string) => {
+          allFlipchartPages.push(page);
+          const fullPath = path.join(flipchartBasePath, page);
+          if (!fs.existsSync(fullPath)) {
+            missingFiles.push(`Missing Flipchart File (Lesson ${lesson.lessonId}): ${page}`);
+          }
+        });
+      }
+    },
+  );
 }
 
 // Check for duplicates

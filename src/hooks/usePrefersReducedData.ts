@@ -1,14 +1,27 @@
 import { useEffect, useState } from "react";
 
+/** Non-standard Network Information API surface (Save-Data). */
+type NetworkInformationLike = {
+  saveData?: boolean;
+  addEventListener?: (type: string, listener: () => void) => void;
+  removeEventListener?: (type: string, listener: () => void) => void;
+};
+
+function getConnection(): NetworkInformationLike | undefined {
+  const nav = navigator as Navigator & {
+    connection?: NetworkInformationLike;
+    mozConnection?: NetworkInformationLike;
+    webkitConnection?: NetworkInformationLike;
+  };
+  return nav.connection || nav.mozConnection || nav.webkitConnection;
+}
+
 export function usePrefersReducedData(): boolean {
   const [prefersReduced, setPrefersReduced] = useState(() => {
     if (typeof window === "undefined") return false;
 
     // Check navigator.connection.saveData (Save-Data)
-    const conn =
-      (navigator as any).connection ||
-      (navigator as any).mozConnection ||
-      (navigator as any).webkitConnection;
+    const conn = getConnection();
     const saveData = conn ? !!conn.saveData : false;
 
     // Check media query prefers-reduced-data
@@ -24,10 +37,7 @@ export function usePrefersReducedData(): boolean {
     const mediaQuery = window.matchMedia("(prefers-reduced-data: reduce)");
 
     const handleChange = () => {
-      const conn =
-        (navigator as any).connection ||
-        (navigator as any).mozConnection ||
-        (navigator as any).webkitConnection;
+      const conn = getConnection();
       const saveData = conn ? !!conn.saveData : false;
       setPrefersReduced(saveData || mediaQuery.matches);
     };
@@ -40,10 +50,7 @@ export function usePrefersReducedData(): boolean {
     }
 
     // Listen for changes to navigator.connection if supported
-    const conn =
-      (navigator as any).connection ||
-      (navigator as any).mozConnection ||
-      (navigator as any).webkitConnection;
+    const conn = getConnection();
     if (conn && conn.addEventListener) {
       conn.addEventListener("change", handleChange);
     }

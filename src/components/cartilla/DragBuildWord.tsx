@@ -146,7 +146,15 @@ function DraggableLetter({
   disabled,
   selectedTray,
   onTrayKeyDown,
-}: any) {
+}: {
+  letter: string;
+  trayIdx: number;
+  used: boolean;
+  accent: string;
+  disabled: boolean;
+  selectedTray: number | null;
+  onTrayKeyDown: (e: React.KeyboardEvent, trayIdx: number) => void;
+}) {
   const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
     id: `tray-${trayIdx}`,
     data: { trayIdx, letter },
@@ -187,7 +195,21 @@ function DraggableLetter({
   );
 }
 
-function DroppableSlot({ slotIdx, filled, accent, wrongSlot, selectedTray, onSlotKeyDown }: any) {
+function DroppableSlot({
+  slotIdx,
+  filled,
+  accent,
+  wrongSlot,
+  selectedTray,
+  onSlotKeyDown,
+}: {
+  slotIdx: number;
+  filled: string | null;
+  accent: string;
+  wrongSlot: number | null;
+  selectedTray: number | null;
+  onSlotKeyDown: (e: React.KeyboardEvent, slotIdx: number) => void;
+}) {
   const { isOver, setNodeRef } = useDroppable({
     id: `slot-${slotIdx}`,
     data: { slotIdx },
@@ -272,7 +294,7 @@ export function DragBuildWord({ words, accent, lessonId, onComplete }: DragBuild
       setFeedbackState("ok");
       onComplete?.();
     }
-  }, [state.completed, state.target, state.attempts, lessonId, onComplete]);
+  }, [state.completed, state.target, state.attempts, lessonId, onComplete, play]);
 
   const handleDrop = useCallback(
     (slotIdx: number, trayIdx: number) => {

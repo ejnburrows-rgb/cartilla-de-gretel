@@ -75,6 +75,8 @@ export function ClassRoster() {
   });
 
   const seedClasses = useMemo(() => {
+    // busy is referenced so mutations bump this memo and reread seed storage.
+    void busy;
     if (!isSeed) return [];
     try {
       return listSeedClasses() as RosterClass[];
@@ -83,7 +85,10 @@ export function ClassRoster() {
     }
   }, [isSeed, busy]);
 
-  const classesList: RosterClass[] = isSeed ? seedClasses : (realClasses ?? []);
+  const classesList: RosterClass[] = useMemo(
+    () => (isSeed ? seedClasses : (realClasses ?? [])),
+    [isSeed, seedClasses, realClasses],
+  );
   const loadingClasses = !isSeed && loadingRealClasses;
 
   // Set default class
@@ -105,6 +110,7 @@ export function ClassRoster() {
   });
 
   const seedClassData = useMemo(() => {
+    void busy;
     if (!isSeed || !selectedClassId) return null;
     try {
       return getSeedClass(selectedClassId);

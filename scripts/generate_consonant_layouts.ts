@@ -87,8 +87,12 @@ function generateWritingPage(pageId: number, letter: string) {
   };
 }
 
-function generateSyllableMatchPage(pageId: number, data: ConsonantData, manifest: any[]) {
-  const regions: any[] = [
+function generateSyllableMatchPage(
+  pageId: number,
+  data: ConsonantData,
+  manifest: Record<string, unknown>[],
+) {
+  const regions: Record<string, unknown>[] = [
     {
       id: `p${pageId}-instr`,
       regionType: "instruction",
@@ -145,7 +149,11 @@ function generateSyllableMatchPage(pageId: number, data: ConsonantData, manifest
   return { regions };
 }
 
-function generateFillInBlankPage(pageId: number, data: ConsonantData, manifest: any[]) {
+function generateFillInBlankPage(
+  pageId: number,
+  data: ConsonantData,
+  manifest: Record<string, unknown>[],
+) {
   const fillItems = [];
 
   for (const vocab of data.vocab.slice(0, 5)) {
@@ -201,7 +209,7 @@ function generateReadingPage(pageId: number, data: ConsonantData) {
   const upper = data.letter.toUpperCase();
   const lower = data.letter.toLowerCase();
 
-  const regions: any[] = [
+  const regions: Record<string, unknown>[] = [
     {
       id: `p${pageId}-title`,
       regionType: "title",

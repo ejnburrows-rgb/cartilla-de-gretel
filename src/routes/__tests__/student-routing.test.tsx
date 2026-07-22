@@ -1,6 +1,7 @@
 /**
  * @vitest-environment jsdom
  */
+import type React from "react";
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen, waitFor, fireEvent } from "@testing-library/react";
 
@@ -12,7 +13,7 @@ const setStudentSessionMock = vi.fn();
 
 vi.mock("@/lib/student-session", () => ({
   getStudentSession: () => getStudentSessionMock(),
-  setStudentSession: (s: any) => setStudentSessionMock(s),
+  setStudentSession: (s: unknown) => setStudentSessionMock(s),
   useStudentSession: () => getStudentSessionMock(),
 }));
 
@@ -23,7 +24,7 @@ vi.mock("@/integrations/supabase/client", () => ({
   isSupabaseConfigured: false,
   supabase: {
     auth: {
-      signOut: (...args: any[]) => signOutMock(...args),
+      signOut: (...args: unknown[]) => signOutMock(...args),
       getSession: () => getSessionMock(),
       onAuthStateChange: () => ({ data: { subscription: { unsubscribe: vi.fn() } } }),
     },
@@ -49,11 +50,11 @@ vi.mock("@/lib/useServerFn", () => ({
 
 vi.mock("@/context/LanguageContext", () => ({
   useLanguage: () => ({ t: (k: string) => k, language: "es" }),
-  LanguageProvider: ({ children }: any) => <>{children}</>,
+  LanguageProvider: ({ children }: { children?: React.ReactNode }) => <>{children}</>,
 }));
 
 vi.mock("@tanstack/react-query", () => ({
-  QueryClientProvider: ({ children }: any) => <>{children}</>,
+  QueryClientProvider: ({ children }: { children?: React.ReactNode }) => <>{children}</>,
   QueryClient: vi.fn().mockImplementation(() => ({
     mount: vi.fn(),
     unmount: vi.fn(),
@@ -78,7 +79,7 @@ import { Route as PresentarRoute } from "../cartilla/presentar.$n";
 function renderWithRouter(initialEntries: string[]) {
   const history = createMemoryHistory({ initialEntries });
 
-  const rootRoute = createRootRouteWithContext<{ queryClient: any }>()({ component: Outlet });
+  const rootRoute = createRootRouteWithContext<{ queryClient: unknown }>()({ component: Outlet });
   const loginRoute = createRoute({
     getParentRoute: () => rootRoute,
     path: "/login",
@@ -91,7 +92,7 @@ function renderWithRouter(initialEntries: string[]) {
   });
 
   const routeTree = rootRoute.addChildren([loginRoute, unirseRoute]);
-  const router = createRouter({ routeTree, history, context: { queryClient: {} as any } });
+  const router = createRouter({ routeTree, history, context: { queryClient: {} } });
   render(<RouterProvider router={router} />);
   return { router, history };
 }
@@ -134,15 +135,15 @@ describe("Student-Teacher Routing Isolation", () => {
       const mod = await import("../cartilla/presentar.$n");
       const Route = mod.Route;
 
-      let caught: any;
+      let caught: { options?: { to?: string }; to?: string } | undefined;
       try {
-        await Route.options.beforeLoad!({ params: { n: "1" }, location: { href: "" } } as any);
+        await Route.options.beforeLoad!({ params: { n: "1" }, location: { href: "" } } as never);
       } catch (e) {
-        caught = e;
+        caught = e as typeof caught;
       }
 
       expect(caught).toBeDefined();
-      expect(caught.options.to).toBe("/cartilla/lecciones");
+      expect(caught?.options?.to).toBe("/cartilla/lecciones");
     });
 
     it("(b2) blocks unauthenticated visitors from teacher presentation route", async () => {
@@ -153,11 +154,11 @@ describe("Student-Teacher Routing Isolation", () => {
       const mod = await import("../cartilla/presentar.$n");
       const Route = mod.Route;
 
-      let caught: any;
+      let caught: { options?: { to?: string }; to?: string } | undefined;
       try {
-        await Route.options.beforeLoad!({ params: { n: "1" }, location: { href: "" } } as any);
+        await Route.options.beforeLoad!({ params: { n: "1" }, location: { href: "" } } as never);
       } catch (e) {
-        caught = e;
+        caught = e as typeof caught;
       }
 
       expect(caught).toBeDefined();

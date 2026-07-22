@@ -43,7 +43,7 @@ function TeacherGuideLeccion() {
 
   // Dynamically resolve the correct component for the lesson
   const componentKey = `/src/content/guides/lesson-${n}.tsx`;
-  const mod = guideModules[componentKey] as any;
+  const mod = guideModules[componentKey] as Record<string, React.ComponentType> | undefined;
   const GuideComponent = mod ? mod[`Lesson${n}Guide`] : null;
 
   return (

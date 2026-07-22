@@ -1,9 +1,21 @@
 import { useCallback, useRef } from "react";
+import type * as React from "react";
+
+type PressEvent = React.MouseEvent | React.TouchEvent;
 
 export interface UseLongPressOptions {
   threshold?: number;
-  onLongPress: (event: any) => void;
-  onClick?: (event: any) => void;
+  onLongPress: (event: PressEvent) => void;
+  onClick?: (event: PressEvent) => void;
+}
+
+/** Read the press coordinates from a mouse or touch event; null if no touch. */
+function getPressCoords(event: PressEvent): { x: number; y: number } | null {
+  if ("touches" in event) {
+    if (event.touches.length === 0) return null;
+    return { x: event.touches[0]!.clientX, y: event.touches[0]!.clientY };
+  }
+  return { x: event.clientX, y: event.clientY };
 }
 
 export function useLongPress({ onLongPress, onClick, threshold = 600 }: UseLongPressOptions) {
@@ -12,21 +24,12 @@ export function useLongPress({ onLongPress, onClick, threshold = 600 }: UseLongP
   const isLongPressActive = useRef(false);
 
   const start = useCallback(
-    (event: any) => {
+    (event: PressEvent) => {
       isLongPressActive.current = false;
-      let clientX = 0;
-      let clientY = 0;
+      const coords = getPressCoords(event);
+      if (!coords) return;
 
-      if (event.touches) {
-        if (event.touches.length === 0) return;
-        clientX = event.touches[0].clientX;
-        clientY = event.touches[0].clientY;
-      } else {
-        clientX = event.clientX;
-        clientY = event.clientY;
-      }
-
-      startCoords.current = { x: clientX, y: clientY };
+      startCoords.current = coords;
 
       if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
 
@@ -40,23 +43,14 @@ export function useLongPress({ onLongPress, onClick, threshold = 600 }: UseLongP
     [onLongPress, threshold],
   );
 
-  const move = useCallback((event: any) => {
+  const move = useCallback((event: PressEvent) => {
     if (!startCoords.current || isLongPressActive.current) return;
 
-    let clientX = 0;
-    let clientY = 0;
+    const coords = getPressCoords(event);
+    if (!coords) return;
 
-    if (event.touches) {
-      if (event.touches.length === 0) return;
-      clientX = event.touches[0].clientX;
-      clientY = event.touches[0].clientY;
-    } else {
-      clientX = event.clientX;
-      clientY = event.clientY;
-    }
-
-    const dx = clientX - startCoords.current.x;
-    const dy = clientY - startCoords.current.y;
+    const dx = coords.x - startCoords.current.x;
+    const dy = coords.y - startCoords.current.y;
     const distance = Math.sqrt(dx * dx + dy * dy);
 
     if (distance > 10) {
@@ -68,7 +62,7 @@ export function useLongPress({ onLongPress, onClick, threshold = 600 }: UseLongP
   }, []);
 
   const end = useCallback(
-    (event: any) => {
+    (event: PressEvent) => {
       if (timeoutRef.current) {
         window.clearTimeout(timeoutRef.current);
         timeoutRef.current = null;

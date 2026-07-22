@@ -3,7 +3,10 @@ let audioCtx: AudioContext | null = null;
 function getAudioContext(): AudioContext | null {
   if (typeof window === "undefined") return null;
   if (!audioCtx) {
-    audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
+    audioCtx = new (
+      window.AudioContext ||
+      (window as Window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext!
+    )();
   }
   if (audioCtx.state === "suspended") {
     audioCtx.resume();
@@ -28,7 +31,7 @@ export function playNote(freq: number, duration = 0.8) {
   masterGain.gain.exponentialRampToValueAtTime(0.001, now + duration);
   masterGain.connect(ctx.destination);
 
-  const activeNodes: any[] = [masterGain];
+  const activeNodes: AudioNode[] = [masterGain];
 
   // Rich harmonic setup to synthesize a pleasant piano timbre:
   // - 1st: Fundamental (sine) -> strong
@@ -119,7 +122,9 @@ export function playWrongBuzz() {
       osc.disconnect();
       filter.disconnect();
       gain.disconnect();
-    } catch (e) {}
+    } catch {
+      /* node already stopped/disconnected - safe to ignore */
+    }
   }, 400);
 }
 

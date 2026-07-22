@@ -79,7 +79,13 @@ function ImprimirPage() {
 
   const isScaffold =
     isPendingLesson ||
-    (interactionsData.interactions as any[]).some(
+    (
+      interactionsData.interactions as {
+        lessonNumber?: number;
+        lessonId?: string;
+        sourceStatus?: string;
+      }[]
+    ).some(
       (i) => (i.lessonNumber === n || i.lessonId === String(n)) && i.sourceStatus === "scaffold",
     );
 
