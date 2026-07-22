@@ -21,16 +21,25 @@ that would reintroduce English into the UI.
   controls). Superseded by the theme-only `ThemeToggle`; had no importers.
 - **`locale.ts`** — an EN/ES locale helper (localStorage `cartilla_lang`, string
   lookups) tied to that toggle; had no importers.
+- **`LanguageToggle.tsx`** — a back-compat shim already gutted to render only
+  `<ThemeToggle />` (the ES/EN switch was removed). Kept "so routes that render
+  `<LanguageToggle />` keep working", but no live route renders it anymore — its
+  only remaining references are (a) already-archived code
+  (`../orphaned-authenticated-teacher-v2/cartilla.teacher.tsx`, whose
+  `@/components/LanguageToggle` import is now a harmless dangling reference in
+  retired, non-compiled code) and (b) a stale comment in
+  `src/test/ui-features.test.tsx`. Archived here to finish removing the dead
+  English-toggle machinery. The live theme control is `ThemeToggle`.
 
 ## Not moved (still live)
 
 - `src/context/LanguageContext` — still imported in ~16 places; the active
   language context (defaults to `es`). Untouched.
 - `src/components/theme/ThemeProvider.tsx` and the theme system — still used.
-- `src/components/LanguageToggle.tsx` — already gutted to render only the theme
-  toggle; left in place because archived code still references it. Separate
-  follow-up if desired.
+- `src/components/ThemeToggle.tsx` — the real dark/light theme control; still
+  imported by `Reader.tsx`, `routes/index.tsx`, etc. Untouched.
 
-Nothing outside this folder imported the two files moved here, so archiving them
-is behavior-preserving (`src/_archive/**` is excluded from `tsconfig`, so these
-are not compiled).
+Nothing outside this folder imported the files moved here (only already-archived
+code and a comment referenced `LanguageToggle`), so archiving them is
+behavior-preserving (`src/_archive/**` is excluded from `tsconfig`, so these are
+not compiled).
