@@ -10,9 +10,7 @@ describe("lesson-catalog", () => {
   it("covers lesson numbers 1..24 with no gaps or duplicates", () => {
     const numbers = CATALOG.map((e) => e.n);
     expect(new Set(numbers).size).toBe(numbers.length); // unique
-    expect([...numbers].sort((a, b) => a - b)).toEqual(
-      Array.from({ length: 24 }, (_, i) => i + 1),
-    );
+    expect([...numbers].sort((a, b) => a - b)).toEqual(Array.from({ length: 24 }, (_, i) => i + 1));
   });
 
   it("is sorted ascending by lesson number", () => {

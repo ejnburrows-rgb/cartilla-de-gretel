@@ -625,7 +625,8 @@ export function getSeedClassProgress(classId: string) {
   // "time" events, per student, plus a per-exercise-type hits/attempts
   // breakdown from each event's meta.exercise — so the demo lane's report
   // shows real numbers instead of always "—" / "0 mins".
-  const scoreTotalTimeByStudent: Record<string, { score: number; total: number; time: number }> = {};
+  const scoreTotalTimeByStudent: Record<string, { score: number; total: number; time: number }> =
+    {};
   const perStudentExercise: Record<string, Record<string, { hits: number; attempts: number }>> = {};
   classStudents.forEach((s) => {
     scoreTotalTimeByStudent[s.id] = { score: 0, total: 0, time: 0 };
@@ -681,7 +682,11 @@ export function getSeedClassProgress(classId: string) {
     attentionByStudent,
     perStudentExercise,
     perStudent: classStudents.map((s) => {
-      const { score, total, time } = scoreTotalTimeByStudent[s.id] ?? { score: 0, total: 0, time: 0 };
+      const { score, total, time } = scoreTotalTimeByStudent[s.id] ?? {
+        score: 0,
+        total: 0,
+        time: 0,
+      };
       return {
         id: s.id,
         name: s.display_name,

@@ -19,7 +19,12 @@ export function VocabularyList({ lessonNumber }: { lessonNumber: number }) {
   const entry = CATALOG.find((e) => e.n === lessonNumber);
   if (!entry) return null;
 
-  const vocab = entry.kind === "vowel" ? entry.lesson.vocab : entry.kind === "consonant" ? entry.data.vocab : [];
+  const vocab =
+    entry.kind === "vowel"
+      ? entry.lesson.vocab
+      : entry.kind === "consonant"
+        ? entry.data.vocab
+        : [];
   if (vocab.length === 0) return null;
 
   return (

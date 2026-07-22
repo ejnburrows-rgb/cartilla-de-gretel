@@ -1,14 +1,14 @@
-import React, { useEffect, useState, useRef, useCallback } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { BookPage } from './BookPage';
-import { getBookPageImage } from '@/lib/bookImages';
-import { preloadSpread } from '@/utils/preloadSpread';
-import { gretelEvent } from '@/components/gretel/gretelEvents';
+import React, { useEffect, useState, useRef, useCallback } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { BookPage } from "./BookPage";
+import { getBookPageImage } from "@/lib/bookImages";
+import { preloadSpread } from "@/utils/preloadSpread";
+import { gretelEvent } from "@/components/gretel/gretelEvents";
 // @ts-ignore
-import HTMLFlipBook from 'react-pageflip';
+import HTMLFlipBook from "react-pageflip";
 
 const FlipBook = HTMLFlipBook as any;
-const flipBookStyle: React.CSSProperties = { background: 'transparent' };
+const flipBookStyle: React.CSSProperties = { background: "transparent" };
 
 interface BookPageFlipProps {
   currentPage: number;
@@ -21,7 +21,7 @@ const Page = React.forwardRef<HTMLDivElement, { pageNum: number; className?: str
     return (
       <div
         {...props}
-        className={`page bg-surface relative overflow-hidden h-full w-full ${className || ''}`}
+        className={`page bg-surface relative overflow-hidden h-full w-full ${className || ""}`}
         ref={ref}
       >
         <BookPage pageNumber={pageNum} active={true} />
@@ -37,18 +37,20 @@ const Page = React.forwardRef<HTMLDivElement, { pageNum: number; className?: str
     );
   },
 );
-Page.displayName = 'Page';
+Page.displayName = "Page";
 
 export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPageFlipProps) {
   const [mounted, setMounted] = useState(false);
   const pagesArray = Array.from({ length: totalPages }, (_, i) => i + 1);
   const bookRef = useRef<any>(null);
   const reducedMotion = useRef(false);
-  useEffect(() => { reducedMotion.current = window.matchMedia('(prefers-reduced-motion: reduce)').matches; }, []);
+  useEffect(() => {
+    reducedMotion.current = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  }, []);
 
   useEffect(() => {
     setMounted(true);
-    gretelEvent('mount');
+    gretelEvent("mount");
   }, []);
 
   const getApi = (): any | null => {
@@ -74,17 +76,20 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
     }
   }, [currentPage, mounted]);
 
-  const onFlip = useCallback((e: any) => {
-    if (!e || typeof e.data !== 'number') return;
-    const nextIndex = e.data;
-    onPageChange(nextIndex + 1);
-    gretelEvent('page-flip');
-    const upcoming = [nextIndex + 2, nextIndex + 3].filter((n) => n <= totalPages);
-    if (upcoming.length) {
-      const srcs = upcoming.map((n) => getBookPageImage(n)).filter(Boolean) as string[];
-      preloadSpread(srcs);
-    }
-  }, [onPageChange, totalPages]);
+  const onFlip = useCallback(
+    (e: any) => {
+      if (!e || typeof e.data !== "number") return;
+      const nextIndex = e.data;
+      onPageChange(nextIndex + 1);
+      gretelEvent("page-flip");
+      const upcoming = [nextIndex + 2, nextIndex + 3].filter((n) => n <= totalPages);
+      if (upcoming.length) {
+        const srcs = upcoming.map((n) => getBookPageImage(n)).filter(Boolean) as string[];
+        preloadSpread(srcs);
+      }
+    },
+    [onPageChange, totalPages],
+  );
 
   const handlePrev = useCallback(() => {
     const api = getApi();
@@ -118,10 +123,10 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
   return (
     <div
       className="book-scene relative w-full select-none py-10 px-4 flex flex-col items-center"
-      style={{ background: 'radial-gradient(circle, #e5c531 0%, #0d6b38 100%)' }}
+      style={{ background: "radial-gradient(circle, #e5c531 0%, #0d6b38 100%)" }}
     >
       {/* Hill silhouette */}
-      <div className="absolute inset-x-0 pointer-events-none" style={{ top: '28%', height: '30%' }}>
+      <div className="absolute inset-x-0 pointer-events-none" style={{ top: "28%", height: "30%" }}>
         <svg
           viewBox="0 0 1200 200"
           preserveAspectRatio="none"
@@ -137,7 +142,7 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
       {/* Desk surface under book */}
       <div
         className="absolute bottom-0 inset-x-0 h-24 pointer-events-none"
-        style={{ background: 'linear-gradient(180deg, #b8895a 0%, #9a6e42 100%)' }}
+        style={{ background: "linear-gradient(180deg, #b8895a 0%, #9a6e42 100%)" }}
       />
       {/* Desk grain lines */}
       <div className="absolute bottom-0 inset-x-0 h-24 pointer-events-none overflow-hidden opacity-20">
@@ -149,7 +154,7 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
       {/* Book shadow */}
       <div
         className="pointer-events-none absolute h-6 w-[70%] max-w-xs rounded-[50%] bg-black/25 blur-xl z-0"
-        style={{ bottom: 'calc(6rem + 0px)', left: '50%', transform: 'translateX(-50%)' }}
+        style={{ bottom: "calc(6rem + 0px)", left: "50%", transform: "translateX(-50%)" }}
       />
 
       <div className="relative z-10 w-full drop-shadow-2xl mx-auto">

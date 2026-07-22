@@ -26,10 +26,9 @@ describe("animal-gallery integrity", () => {
       expect(a.illustrationSrc.startsWith("/cartilla/art/faithful/"), a.word).toBe(true);
       const abs = join(publicRoot, a.illustrationSrc.replace(/^\//, ""));
       expect(existsSync(abs), `${a.word} missing ${a.illustrationSrc}`).toBe(true);
-      expect(
-        statSync(abs).size,
-        `${a.word} stub ${a.illustrationSrc}`,
-      ).toBeGreaterThanOrEqual(MIN_BYTES);
+      expect(statSync(abs).size, `${a.word} stub ${a.illustrationSrc}`).toBeGreaterThanOrEqual(
+        MIN_BYTES,
+      );
     }
   });
 

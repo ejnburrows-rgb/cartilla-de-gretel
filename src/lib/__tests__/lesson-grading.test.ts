@@ -104,7 +104,9 @@ function evaluateVowelPickOneRows(
   return { gradable, allCorrect };
 }
 
-function correctVowelPickOnePicks(rows: Array<{ letter: string; cells: PageGridCell[] }>): number[] {
+function correctVowelPickOnePicks(
+  rows: Array<{ letter: string; cells: PageGridCell[] }>,
+): number[] {
   return rows.map((row) => row.cells.findIndex((cell) => cell.correct));
 }
 
@@ -211,7 +213,9 @@ describe("lesson grading — real content across all 24 lessons", () => {
             gradedRegionCount++;
             it(`fill-in-blank region "${region.id}" has exactly one correct choice per item`, () => {
               items.forEach((item) => {
-                const correctCount = item.choices.filter((choice) => choice.correct === true).length;
+                const correctCount = item.choices.filter(
+                  (choice) => choice.correct === true,
+                ).length;
                 expect(correctCount).toBe(1);
               });
             });

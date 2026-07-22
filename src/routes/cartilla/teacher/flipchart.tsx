@@ -12,7 +12,7 @@ export const Route = createFileRoute("/cartilla/teacher/flipchart")({
 
 function TeacherFlipchartPage() {
   const navigate = useNavigate();
-  
+
   return (
     <div
       className="crm-app flex h-screen"
@@ -28,7 +28,7 @@ function TeacherFlipchartPage() {
         >
           <ArrowLeft className="w-4 h-4" /> Volver al panel
         </button>
-        
+
         <div className="pt-8 h-full">
           <LessonCatalog />
         </div>

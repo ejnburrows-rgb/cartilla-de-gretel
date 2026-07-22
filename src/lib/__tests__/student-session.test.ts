@@ -52,9 +52,7 @@ describe("student-session", () => {
     });
 
     it("does not record local stats for non-exercise events, and never throws without a session", () => {
-      expect(() =>
-        recordEvent({ lessonId: "1", kind: "lesson_completed" }),
-      ).not.toThrow();
+      expect(() => recordEvent({ lessonId: "1", kind: "lesson_completed" })).not.toThrow();
       expect(getStats()).toEqual({});
     });
 
