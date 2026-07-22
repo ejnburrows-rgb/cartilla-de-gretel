@@ -57,6 +57,10 @@ changes. No AI slop.
   Every line must align exactly — same shapes, faces, proportions.
 - Produce an overlay PNG **and** an edge-map diff score per image. **Any drift = reject and redo gentler.**
 - Include sample overlay proofs in every PR.
+- **A tool is judged by its output, not its internals.** ESRGAN-family upscalers are themselves
+  "generative," so a tool is allowed iff its *output* passes this overlay/edge-diff test on every real
+  scan — never by whether the model is internally generative. If it can't pass the overlay test here, it
+  is not used, full stop. (This is the wording adopted into `AGENTS.md` on 2026-07-22.)
 
 ---
 
@@ -105,15 +109,16 @@ files.**
 
 ## TASK QUEUE (work top-down; check off as merged)
 
-### TASK A — Rewrite agent rules to the Faithful Restoration Standard  *(first; one small PR; branch `rules/faithful-restoration`)*
-- [ ] Grep every rules/memory file agents read: `AGENTS.md`, `CLAUDE.md`, `.kilocode/**`, `.kilo/**`,
-      `docs/PROJECT-CANON.md`, `docs/DECISIONS.md`, `docs/image-restoration-workflow.md`.
-- [ ] In each, **replace the blanket "no AI-touched art" ban** with the Faithful Restoration Standard
-      above (generation stays banned; restoration is approved per EJN 2026-07-21). Keep every other rule
-      intact.
-- [ ] Update the `pnpm validate:art-color` validator (`scripts/validate-art-color.mjs`) so it accepts
-      files under `restored/` that have passed the acceptance test, and still rejects unfaithful art.
-- [ ] Verify bar green + screenshot of the diff/README rendering. Merge.
+### TASK A — Rewrite agent rules to the Faithful Restoration Standard  ✅ **DONE on `main` 2026-07-22**
+- [x] Grep every rules/memory file agents read. Result: `AGENTS.md` is the only file that states the art
+      rule directly; `CLAUDE.md`/`GEMINI.md` just point to it; `.kilocode/skills` has no art rules;
+      `docs/PROJECT-CANON.md`/`docs/ART-MAP.md` only reference it narratively and needed no edits.
+- [x] The Faithful Restoration Standard is written into `AGENTS.md` (shared art contract + safety rules)
+      and recorded in `docs/DECISIONS.md` (2026-07-22). Generation stays banned; pixel-cleanup restoration
+      approved per EJN.
+- [ ] **Deferred to Task B (not yet needed):** update `scripts/validate-art-color.mjs` to accept
+      `restored/` files that pass the acceptance test. No restoration pipeline / `restored/` files exist
+      yet, so the validator stays as-is until B0 lands.
 
 ### TASK B — Restoration pipeline  *(parallel batches; branch `art/restore-<batch>`)*
 - [ ] **B0. Build the pipeline script** `scripts/restore-art.mjs` (node) — runs ONLY the allowed ops
@@ -160,4 +165,7 @@ files.**
 ---
 
 ## STATUS LOG (append one dated line per merged PR; newest at top)
+- 2026-07-22 — Task A verified already complete on `main` (Faithful Restoration Standard in AGENTS.md +
+  DECISIONS.md). No redundant PR opened; loop file updated to check it off and adopt the "judged by
+  output" tool-neutral wording. Next unblocked task: **B0 — build `scripts/restore-art.mjs`.**
 - 2026-07-21 — AGENT-LOOP.md created; queue initialized. No tasks merged yet.
