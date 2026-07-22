@@ -11,11 +11,12 @@ import {
   Menu,
   X,
   Printer,
+  ShieldCheck,
 } from "lucide-react";
 import { getStudentSession } from "@/lib/student-session";
 import { supabase } from "@/integrations/supabase/client";
 import { hasTeacherOrAdminRole } from "@/lib/auth-role";
-import { isSeedSessionActive } from "@/lib/seed-data";
+import { isSeedSessionActive, isSeedAdmin } from "@/lib/seed-data";
 import "@/styles/teacher-chrome.css";
 
 // Every /cartilla/teacher/* page nests under this route via <Outlet/>, so
@@ -120,6 +121,20 @@ function TeacherLayout() {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  // Admin-only entry (D7): visible only to the demo-lane admin account for
+  // now; the live 'admin' role wiring lands after D2.
+  const navItems = isSeedAdmin()
+    ? [
+        ...NAV_ITEMS,
+        {
+          to: "/cartilla/teacher/admin",
+          icon: <ShieldCheck className="w-4 h-4" />,
+          label: "Dirección",
+          match: "/admin",
+        },
+      ]
+    : NAV_ITEMS;
+
   // If we are in presentation mode, don't show the nav.
   if (location.pathname.includes("/proyectar")) {
     return (
@@ -148,7 +163,7 @@ function TeacherLayout() {
           </div>
 
           <nav className="hidden md:flex items-center gap-5">
-            {NAV_ITEMS.map((item) => (
+            {navItems.map((item) => (
               <NavLink
                 key={item.to}
                 to={item.to}
@@ -180,7 +195,7 @@ function TeacherLayout() {
 
         {mobileMenuOpen && (
           <nav className="md:hidden border-t border-[var(--tc-border)] bg-[var(--tc-paper-soft)]/95 px-4 py-3 space-y-1">
-            {NAV_ITEMS.map((item) => (
+            {navItems.map((item) => (
               <Link
                 key={item.to}
                 to={item.to}

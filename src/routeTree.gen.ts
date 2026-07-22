@@ -41,6 +41,7 @@ import { Route as CartillaTeacherGuideRouteImport } from './routes/cartilla/teac
 import { Route as CartillaTeacherFlipchartRouteImport } from './routes/cartilla/teacher/flipchart'
 import { Route as CartillaTeacherCrmRouteImport } from './routes/cartilla/teacher/crm'
 import { Route as CartillaTeacherAyudaRouteImport } from './routes/cartilla/teacher/ayuda'
+import { Route as CartillaTeacherAdminRouteImport } from './routes/cartilla/teacher/admin'
 import { Route as CartillaPresentarNRouteImport } from './routes/cartilla/presentar.$n'
 import { Route as CartillaPilotFaithfulNRouteImport } from './routes/cartilla/pilot-faithful.$n'
 import { Route as CartillaLeccionNRouteImport } from './routes/cartilla/leccion.$n'
@@ -221,6 +222,11 @@ const CartillaTeacherAyudaRoute = CartillaTeacherAyudaRouteImport.update({
   path: '/ayuda',
   getParentRoute: () => CartillaTeacherRouteRoute,
 } as any)
+const CartillaTeacherAdminRoute = CartillaTeacherAdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => CartillaTeacherRouteRoute,
+} as any)
 const CartillaPresentarNRoute = CartillaPresentarNRouteImport.update({
   id: '/cartilla/presentar/$n',
   path: '/cartilla/presentar/$n',
@@ -345,6 +351,7 @@ export interface FileRoutesByFullPath {
   '/cartilla/leccion/$n': typeof CartillaLeccionNRoute
   '/cartilla/pilot-faithful/$n': typeof CartillaPilotFaithfulNRoute
   '/cartilla/presentar/$n': typeof CartillaPresentarNRoute
+  '/cartilla/teacher/admin': typeof CartillaTeacherAdminRoute
   '/cartilla/teacher/ayuda': typeof CartillaTeacherAyudaRoute
   '/cartilla/teacher/crm': typeof CartillaTeacherCrmRouteWithChildren
   '/cartilla/teacher/flipchart': typeof CartillaTeacherFlipchartRoute
@@ -395,6 +402,7 @@ export interface FileRoutesByTo {
   '/cartilla/leccion/$n': typeof CartillaLeccionNRoute
   '/cartilla/pilot-faithful/$n': typeof CartillaPilotFaithfulNRoute
   '/cartilla/presentar/$n': typeof CartillaPresentarNRoute
+  '/cartilla/teacher/admin': typeof CartillaTeacherAdminRoute
   '/cartilla/teacher/ayuda': typeof CartillaTeacherAyudaRoute
   '/cartilla/teacher/flipchart': typeof CartillaTeacherFlipchartRoute
   '/cartilla/teacher/guide': typeof CartillaTeacherGuideRoute
@@ -444,6 +452,7 @@ export interface FileRoutesById {
   '/cartilla/leccion/$n': typeof CartillaLeccionNRoute
   '/cartilla/pilot-faithful/$n': typeof CartillaPilotFaithfulNRoute
   '/cartilla/presentar/$n': typeof CartillaPresentarNRoute
+  '/cartilla/teacher/admin': typeof CartillaTeacherAdminRoute
   '/cartilla/teacher/ayuda': typeof CartillaTeacherAyudaRoute
   '/cartilla/teacher/crm': typeof CartillaTeacherCrmRouteWithChildren
   '/cartilla/teacher/flipchart': typeof CartillaTeacherFlipchartRoute
@@ -497,6 +506,7 @@ export interface FileRouteTypes {
     | '/cartilla/leccion/$n'
     | '/cartilla/pilot-faithful/$n'
     | '/cartilla/presentar/$n'
+    | '/cartilla/teacher/admin'
     | '/cartilla/teacher/ayuda'
     | '/cartilla/teacher/crm'
     | '/cartilla/teacher/flipchart'
@@ -547,6 +557,7 @@ export interface FileRouteTypes {
     | '/cartilla/leccion/$n'
     | '/cartilla/pilot-faithful/$n'
     | '/cartilla/presentar/$n'
+    | '/cartilla/teacher/admin'
     | '/cartilla/teacher/ayuda'
     | '/cartilla/teacher/flipchart'
     | '/cartilla/teacher/guide'
@@ -595,6 +606,7 @@ export interface FileRouteTypes {
     | '/cartilla/leccion/$n'
     | '/cartilla/pilot-faithful/$n'
     | '/cartilla/presentar/$n'
+    | '/cartilla/teacher/admin'
     | '/cartilla/teacher/ayuda'
     | '/cartilla/teacher/crm'
     | '/cartilla/teacher/flipchart'
@@ -875,6 +887,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CartillaTeacherAyudaRouteImport
       parentRoute: typeof CartillaTeacherRouteRoute
     }
+    '/cartilla/teacher/admin': {
+      id: '/cartilla/teacher/admin'
+      path: '/admin'
+      fullPath: '/cartilla/teacher/admin'
+      preLoaderRoute: typeof CartillaTeacherAdminRouteImport
+      parentRoute: typeof CartillaTeacherRouteRoute
+    }
     '/cartilla/presentar/$n': {
       id: '/cartilla/presentar/$n'
       path: '/cartilla/presentar/$n'
@@ -1049,6 +1068,7 @@ const CartillaTeacherCrmRouteWithChildren =
   CartillaTeacherCrmRoute._addFileChildren(CartillaTeacherCrmRouteChildren)
 
 interface CartillaTeacherRouteRouteChildren {
+  CartillaTeacherAdminRoute: typeof CartillaTeacherAdminRoute
   CartillaTeacherAyudaRoute: typeof CartillaTeacherAyudaRoute
   CartillaTeacherCrmRoute: typeof CartillaTeacherCrmRouteWithChildren
   CartillaTeacherFlipchartRoute: typeof CartillaTeacherFlipchartRoute
@@ -1065,6 +1085,7 @@ interface CartillaTeacherRouteRouteChildren {
 }
 
 const CartillaTeacherRouteRouteChildren: CartillaTeacherRouteRouteChildren = {
+  CartillaTeacherAdminRoute: CartillaTeacherAdminRoute,
   CartillaTeacherAyudaRoute: CartillaTeacherAyudaRoute,
   CartillaTeacherCrmRoute: CartillaTeacherCrmRouteWithChildren,
   CartillaTeacherFlipchartRoute: CartillaTeacherFlipchartRoute,
