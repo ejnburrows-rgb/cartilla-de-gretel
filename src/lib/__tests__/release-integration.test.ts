@@ -58,7 +58,9 @@ describe("release integration — workbook + lessons", () => {
   it("fallback chain prefers improved art then lineart then scan", () => {
     const chain = getWorkbookPageFallbackChain(4);
     expect(chain.length).toBeGreaterThanOrEqual(2);
-    expect(chain[0]).toMatch(/art\/hd\/workbook\/page-004\.(png|jpg)|art\/color\/workbook/);
+    expect(chain[0]).toMatch(
+      /art\/(restored|hd)\/workbook\/page-004\.(png|jpg)|art\/color\/workbook/,
+    );
     // scan or lineart appears later
     expect(
       chain.some((p) => p.includes("lineart") || p.includes("source") || p.includes("images")),

@@ -184,10 +184,16 @@ async function acceptance(srcPath, restoredBuf, origW, origH, proofsDir, thresho
       .ensureAlpha(0.5)
       .png()
       .toBuffer();
-    const overlay = await sharp(srcPath)
+    // sharp applies composite AFTER resize within one pipeline, so the
+    // composite must run at full size in its own pass and the proof shrink
+    // in a second pass (otherwise the 900px base rejects the full-size top).
+    const composited = await sharp(srcPath)
       .resize(origW, origH, { fit: "fill" })
       .composite([{ input: top, blend: "over" }])
-      // keep proofs small so they are cheap to commit as evidence
+      .png()
+      .toBuffer();
+    // keep proofs small so they are cheap to commit as evidence
+    const overlay = await sharp(composited)
       .resize({ width: Math.min(origW, 900) })
       .png()
       .toBuffer();

@@ -133,8 +133,11 @@ files.**
       test (downscale + 50% overlay + edge-map drift) on every output and fails the batch if any image
       drifts over `--threshold`. Free tools only ($0): sharp bundled, Real-ESRGAN optional. Sample run
       5/5 pass (drift 0.005–0.012 vs 0.06). See `docs/restore-art.md` + `docs/restore-art-proofs/`.
-- [ ] **B1. Batch L1–L4** workbook art → restore → acceptance 100% → wire restored files into their exact
-      page slots → verify bar → browser screenshot → PR → merge.
+- [x] **B1. Batch L1–L4** workbook art → restore → acceptance 100% → wire restored files into their exact
+      page slots → verify bar → browser screenshot → PR → merge. **DONE 2026-07-22:** pages 1–12 restored
+      (drift 0.0018–0.0291, all ≤ 0.06, 12/12 pass), committed under `public/cartilla/art/restored/workbook/`
+      and wired restored-first via `getRestoredPageImage()` in `src/lib/bookImages.ts` (strict 1:1, chain
+      falls back to hd → lineart → scan untouched). Overlay proofs in `docs/restore-art-proofs/b1/`.
 - [ ] **B2. Batch L5–L8**  (same protocol)
 - [ ] **B3. Batch L9–L12**
 - [ ] **B4. Batch L13–L16**
@@ -211,6 +214,12 @@ files.**
 ---
 
 ## STATUS LOG (append one dated line per merged PR; newest at top)
+- 2026-07-22 — **B1 art batch L1–L4 DONE:** pages 1–12 restored via `scripts/restore-art.mjs` (12/12
+  acceptance pass, drift 0.0018–0.0291 vs 0.06 threshold), restored files committed and wired restored-first
+  into the workbook fallback chain (`getRestoredPageImage`). Also fixed a latent pipeline bug (sharp runs
+  `composite` after `resize` in one pipeline, so the overlay proof step crashed on images wider than 900px —
+  split into two passes) and removed the shebang from `validate-art-color.mjs` (vite 7's inline transform
+  keeps it mid-module → SyntaxError in `pnpm test`). Verify bar green: typecheck ✓ · 1058 unit ✓ · build ✓.
 - 2026-07-22 — **Owner prereqs + queue updated:** Supabase project is LIVE (owner set `VITE_SUPABASE_URL`
   + `VITE_SUPABASE_PUBLISHABLE_KEY` in Vercel) → **D1/D2 unblocked**. **D7 approved** to scope and build
   (demo lane first). **D6's remaining 277 lint problems moved INTO the autonomous queue** (owner decision;
