@@ -182,6 +182,16 @@ The rest is owner-decision work, listed in `docs/DECISIONS.md`.
   flip through all 3 of their real HD pages correctly, verified live in the
   browser. Lessons 1–6 are art-limited and documented as such in
   `REPORT.md`; no additional flipchart art exists to add.
+- **2026-07-22 — Adopted the Faithful Restoration Standard for art (owner
+  approval, 2026-07-22).** `AGENTS.md` now allows pixel-cleanup restoration
+  (upscaling, noise/scan-speckle removal, shadow removal, white-balance,
+  palette normalization) on top of an already-faithful crop, gated by a
+  mandatory per-image overlay/edge-diff acceptance test against the
+  original. This supersedes the old blanket "no AI-touched art" wording —
+  generation, redraws, style transfer, and anything that adds/moves/
+  reshapes a line, face, or object stay banned with no exceptions; only the
+  crop-first, never-invent-art principle is unchanged. No restoration
+  pipeline exists yet; this commit only updates the rule text.
 
 ## IN PROGRESS / PARTIAL
 
