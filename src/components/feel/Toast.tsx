@@ -16,8 +16,8 @@ export function Toast() {
       if (detail.kind === "toast" && detail.meta) {
         const newToast: ToastMessage = {
           id: nextId.current++,
-          es: (detail.meta as any).es || "",
-          en: (detail.meta as any).en || "",
+          es: (detail.meta as { es?: string }).es || "",
+          en: (detail.meta as { en?: string }).en || "",
         };
         setToasts((prev) => [...prev, newToast]);
 

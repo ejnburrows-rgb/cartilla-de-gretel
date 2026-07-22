@@ -1,4 +1,10 @@
 import { useEffect, useRef, useState, useCallback } from "react";
+import {
+  getSpeechRecognitionCtor,
+  type SpeechRecognitionErrorEventLike,
+  type SpeechRecognitionEventLike,
+  type SpeechRecognitionLike,
+} from "@/lib/speech-recognition-types";
 
 export interface UseSpeechRecognitionReturn {
   isListening: boolean;
@@ -21,20 +27,22 @@ export function useSpeechRecognition(
   const [error, setError] = useState<string | null>(null);
   const [isSupported, setIsSupported] = useState(false);
 
-  const recognitionRef = useRef<any>(null);
+  const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
   const lang = options?.lang || "es-MX";
+  // The recognizer is constructed once; later lang changes are applied by the
+  // [lang] effect below, so the init effect only needs the initial value.
+  const initialLangRef = useRef(lang);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const SpeechRecognition =
-        (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+      const SpeechRecognition = getSpeechRecognitionCtor();
 
       if (SpeechRecognition) {
         setIsSupported(true);
         const recognition = new SpeechRecognition();
         recognition.continuous = false;
         recognition.interimResults = false;
-        recognition.lang = lang;
+        recognition.lang = initialLangRef.current;
 
         recognition.onstart = () => {
           setIsListening(true);
@@ -42,14 +50,14 @@ export function useSpeechRecognition(
           setTranscript("");
         };
 
-        recognition.onresult = (event: any) => {
+        recognition.onresult = (event: SpeechRecognitionEventLike) => {
           const result = event.results[event.results.length - 1];
           if (result && result[0]) {
             setTranscript(result[0].transcript);
           }
         };
 
-        recognition.onerror = (event: any) => {
+        recognition.onerror = (event: SpeechRecognitionErrorEventLike) => {
           console.warn("[SpeechRecognition Error]", event.error);
           setError(event.error);
           setIsListening(false);

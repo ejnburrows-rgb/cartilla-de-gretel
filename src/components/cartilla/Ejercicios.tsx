@@ -37,7 +37,12 @@ export function SyllableTap({
     target: string;
   } | null>(null);
   const { play, playingText } = useAudio();
-  const choices = useMemo(() => shuffle(syllables), [target, syllables]);
+  const choices = useMemo(() => {
+    // Reference target so the deps list is honest: a new round (new target)
+    // must reshuffle the answer buttons even though the pool is unchanged.
+    void target;
+    return shuffle(syllables);
+  }, [target, syllables]);
   const lastLogged = useRef(0);
 
   // Log a snapshot every 5 attempts and a final snapshot on unmount.

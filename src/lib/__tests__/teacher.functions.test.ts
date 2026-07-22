@@ -38,12 +38,12 @@ describe("teacher.functions tests", () => {
 
   describe("listClasses", () => {
     it("throws when no teacher is signed in", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(signedOut as any);
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(signedOut as never);
       await expect(listClasses()).rejects.toThrow("Debes iniciar sesión");
     });
 
     it("attaches a student_count per class from a second query", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
       const classesBuilder = makeQueryBuilder(
         ok([{ id: CLASS_ID, name: "Clase A", join_code: "ABC123", created_at: "2026-01-01" }]),
       );
@@ -51,8 +51,8 @@ describe("teacher.functions tests", () => {
         ok([{ class_id: CLASS_ID }, { class_id: CLASS_ID }]),
       );
       vi.mocked(supabase.from)
-        .mockReturnValueOnce(classesBuilder as any)
-        .mockReturnValueOnce(studentsBuilder as any);
+        .mockReturnValueOnce(classesBuilder as never)
+        .mockReturnValueOnce(studentsBuilder as never);
 
       const result = await listClasses();
 
@@ -68,9 +68,9 @@ describe("teacher.functions tests", () => {
     });
 
     it("skips the student-count query entirely when there are no classes", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
       const classesBuilder = makeQueryBuilder(ok([]));
-      vi.mocked(supabase.from).mockReturnValueOnce(classesBuilder as any);
+      vi.mocked(supabase.from).mockReturnValueOnce(classesBuilder as never);
 
       const result = await listClasses();
       expect(result).toEqual([]);
@@ -85,23 +85,23 @@ describe("teacher.functions tests", () => {
     });
 
     it("creates the class with a generated join code", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
       const row = { id: CLASS_ID, name: "Clase A", join_code: "XYZ789" };
       const insertBuilder = makeQueryBuilder(ok(row));
-      vi.mocked(supabase.from).mockReturnValueOnce(insertBuilder as any);
+      vi.mocked(supabase.from).mockReturnValueOnce(insertBuilder as never);
 
       const result = await createClass({ data: { name: "Clase A" } });
       expect(result).toEqual(row);
     });
 
     it("retries on a join_code collision instead of failing immediately", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
       const collision = makeQueryBuilder(fail("duplicate key value violates join_code unique"));
       const row = { id: CLASS_ID, name: "Clase A", join_code: "NEW123" };
       const success = makeQueryBuilder(ok(row));
       vi.mocked(supabase.from)
-        .mockReturnValueOnce(collision as any)
-        .mockReturnValueOnce(success as any);
+        .mockReturnValueOnce(collision as never)
+        .mockReturnValueOnce(success as never);
 
       const result = await createClass({ data: { name: "Clase A" } });
       expect(result).toEqual(row);
@@ -111,9 +111,9 @@ describe("teacher.functions tests", () => {
 
   describe("deleteClass", () => {
     it("throws when the class isn't owned by this teacher", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
       const notOwned = makeQueryBuilder(ok(null));
-      vi.mocked(supabase.from).mockReturnValue(notOwned as any);
+      vi.mocked(supabase.from).mockReturnValue(notOwned as never);
 
       await expect(deleteClass({ data: { id: CLASS_ID } })).rejects.toThrow(
         "Clase no encontrada o sin permiso.",
@@ -121,12 +121,12 @@ describe("teacher.functions tests", () => {
     });
 
     it("deletes once ownership is confirmed", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
       const ownsClass = makeQueryBuilder(ok({ id: CLASS_ID }));
       const deleteBuilder = makeQueryBuilder(ok(null));
       vi.mocked(supabase.from)
-        .mockReturnValueOnce(ownsClass as any)
-        .mockReturnValueOnce(deleteBuilder as any);
+        .mockReturnValueOnce(ownsClass as never)
+        .mockReturnValueOnce(deleteBuilder as never);
 
       const result = await deleteClass({ data: { id: CLASS_ID } });
       expect(deleteBuilder.delete).toHaveBeenCalled();
@@ -141,7 +141,7 @@ describe("teacher.functions tests", () => {
     });
 
     it("inserts one row per name with a generated student_code", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
       const ownsClass = makeQueryBuilder(ok({ id: CLASS_ID }));
       const inserted = [
         { id: STUDENT_ID, display_name: "Ana", class_id: CLASS_ID },
@@ -149,8 +149,8 @@ describe("teacher.functions tests", () => {
       ];
       const insertBuilder = makeQueryBuilder(ok(inserted));
       vi.mocked(supabase.from)
-        .mockReturnValueOnce(ownsClass as any)
-        .mockReturnValueOnce(insertBuilder as any);
+        .mockReturnValueOnce(ownsClass as never)
+        .mockReturnValueOnce(insertBuilder as never);
 
       const result = await addStudents({ data: { classId: CLASS_ID, names: ["Ana", "Beto"] } });
 
@@ -164,9 +164,9 @@ describe("teacher.functions tests", () => {
 
   describe("deleteStudent", () => {
     it("throws when the student isn't found or not owned by this teacher", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
       const notFound = makeQueryBuilder(ok(null));
-      vi.mocked(supabase.from).mockReturnValue(notFound as any);
+      vi.mocked(supabase.from).mockReturnValue(notFound as never);
 
       await expect(deleteStudent({ data: { id: STUDENT_ID } })).rejects.toThrow(
         "Alumno no encontrado o sin permiso.",
@@ -174,14 +174,14 @@ describe("teacher.functions tests", () => {
     });
 
     it("deletes once ownership is confirmed", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
       const ownsStudent = makeQueryBuilder(
         ok({ id: STUDENT_ID, classes: { id: CLASS_ID, teacher_id: authedUser().data.user.id } }),
       );
       const deleteBuilder = makeQueryBuilder(ok(null));
       vi.mocked(supabase.from)
-        .mockReturnValueOnce(ownsStudent as any)
-        .mockReturnValueOnce(deleteBuilder as any);
+        .mockReturnValueOnce(ownsStudent as never)
+        .mockReturnValueOnce(deleteBuilder as never);
 
       const result = await deleteStudent({ data: { id: STUDENT_ID } });
       expect(deleteBuilder.delete).toHaveBeenCalled();
@@ -191,11 +191,11 @@ describe("teacher.functions tests", () => {
 
   describe("updateStudent", () => {
     it("short-circuits to {ok:true} without a query when nothing changed", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
       const ownsStudent = makeQueryBuilder(
         ok({ id: STUDENT_ID, classes: { id: CLASS_ID, teacher_id: authedUser().data.user.id } }),
       );
-      vi.mocked(supabase.from).mockReturnValueOnce(ownsStudent as any);
+      vi.mocked(supabase.from).mockReturnValueOnce(ownsStudent as never);
 
       const result = await updateStudent({ data: { id: STUDENT_ID } });
       expect(result).toEqual({ ok: true });
@@ -203,14 +203,14 @@ describe("teacher.functions tests", () => {
     });
 
     it("updates display_name when provided", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
       const ownsStudent = makeQueryBuilder(
         ok({ id: STUDENT_ID, classes: { id: CLASS_ID, teacher_id: authedUser().data.user.id } }),
       );
       const updateBuilder = makeQueryBuilder(ok(null));
       vi.mocked(supabase.from)
-        .mockReturnValueOnce(ownsStudent as any)
-        .mockReturnValueOnce(updateBuilder as any);
+        .mockReturnValueOnce(ownsStudent as never)
+        .mockReturnValueOnce(updateBuilder as never);
 
       const result = await updateStudent({ data: { id: STUDENT_ID, displayName: "Nuevo Nombre" } });
 
@@ -221,14 +221,14 @@ describe("teacher.functions tests", () => {
 
   describe("archiveStudent", () => {
     it("sets archived_at once ownership is confirmed", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
       const ownsStudent = makeQueryBuilder(
         ok({ id: STUDENT_ID, classes: { id: CLASS_ID, teacher_id: authedUser().data.user.id } }),
       );
       const updateBuilder = makeQueryBuilder(ok(null));
       vi.mocked(supabase.from)
-        .mockReturnValueOnce(ownsStudent as any)
-        .mockReturnValueOnce(updateBuilder as any);
+        .mockReturnValueOnce(ownsStudent as never)
+        .mockReturnValueOnce(updateBuilder as never);
 
       const result = await archiveStudent({ data: { id: STUDENT_ID } });
 
@@ -241,9 +241,9 @@ describe("teacher.functions tests", () => {
 
   describe("getStudentProgress", () => {
     it("throws when the student isn't owned by this teacher", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
       const notFound = makeQueryBuilder(ok(null));
-      vi.mocked(supabase.from).mockReturnValue(notFound as any);
+      vi.mocked(supabase.from).mockReturnValue(notFound as never);
 
       await expect(getStudentProgress({ data: { id: STUDENT_ID } })).rejects.toThrow(
         "Alumno no encontrado o sin permiso.",
@@ -251,7 +251,7 @@ describe("teacher.functions tests", () => {
     });
 
     it("assembles student + events + lessonProgress + summary", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
       const ownsStudent = makeQueryBuilder(
         ok({
           id: STUDENT_ID,
@@ -268,9 +268,9 @@ describe("teacher.functions tests", () => {
       );
       const lessonProgressBuilder = makeQueryBuilder(ok([]));
       vi.mocked(supabase.from)
-        .mockReturnValueOnce(ownsStudent as any)
-        .mockReturnValueOnce(eventsBuilder as any)
-        .mockReturnValueOnce(lessonProgressBuilder as any);
+        .mockReturnValueOnce(ownsStudent as never)
+        .mockReturnValueOnce(eventsBuilder as never)
+        .mockReturnValueOnce(lessonProgressBuilder as never);
 
       const result = await getStudentProgress({ data: { id: STUDENT_ID } });
 
@@ -289,9 +289,9 @@ describe("teacher.functions tests", () => {
     });
 
     it("throws when the class isn't owned by this teacher", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
       const notOwned = makeQueryBuilder(ok(null));
-      vi.mocked(supabase.from).mockReturnValueOnce(notOwned as any);
+      vi.mocked(supabase.from).mockReturnValueOnce(notOwned as never);
 
       await expect(getClassProgress({ data: { id: CLASS_ID } })).rejects.toThrow(
         "Clase no encontrada o sin permiso.",
@@ -299,12 +299,12 @@ describe("teacher.functions tests", () => {
     });
 
     it("returns the empty progress shape when the class has no students", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
       const ownsClass = makeQueryBuilder(ok({ id: CLASS_ID }));
       const noStudents = makeQueryBuilder(ok([]));
       vi.mocked(supabase.from)
-        .mockReturnValueOnce(ownsClass as any)
-        .mockReturnValueOnce(noStudents as any);
+        .mockReturnValueOnce(ownsClass as never)
+        .mockReturnValueOnce(noStudents as never);
 
       const result = await getClassProgress({ data: { id: CLASS_ID } });
 
@@ -323,7 +323,7 @@ describe("teacher.functions tests", () => {
     });
 
     it("throws when no teacher is signed in", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(signedOut as any);
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(signedOut as never);
       await expect(findStudentsByName({ data: { q: "Ana" } })).rejects.toThrow(
         "Debes iniciar sesión",
       );
@@ -331,12 +331,12 @@ describe("teacher.functions tests", () => {
     });
 
     it("returns the matching students and filters by name", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
       const rows = [
         { id: STUDENT_ID, display_name: "Ana", student_code: "AB123", class_id: CLASS_ID },
       ];
       const builder = makeQueryBuilder(ok(rows));
-      vi.mocked(supabase.from).mockReturnValueOnce(builder as any);
+      vi.mocked(supabase.from).mockReturnValueOnce(builder as never);
 
       const result = await findStudentsByName({ data: { q: "Ana" } });
 
@@ -347,9 +347,9 @@ describe("teacher.functions tests", () => {
 
   describe("getWeeklyActivity", () => {
     it("throws when the class isn't owned by this teacher", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
       const notOwned = makeQueryBuilder(ok(null));
-      vi.mocked(supabase.from).mockReturnValueOnce(notOwned as any);
+      vi.mocked(supabase.from).mockReturnValueOnce(notOwned as never);
 
       await expect(getWeeklyActivity({ data: { classId: CLASS_ID } })).rejects.toThrow(
         "Clase no encontrada o sin permiso.",
@@ -357,12 +357,12 @@ describe("teacher.functions tests", () => {
     });
 
     it("returns 7 day buckets, all zero, when there are no students", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
       const ownsClass = makeQueryBuilder(ok({ id: CLASS_ID }));
       const noStudents = makeQueryBuilder(ok([]));
       vi.mocked(supabase.from)
-        .mockReturnValueOnce(ownsClass as any)
-        .mockReturnValueOnce(noStudents as any);
+        .mockReturnValueOnce(ownsClass as never)
+        .mockReturnValueOnce(noStudents as never);
 
       const result = await getWeeklyActivity({ data: { classId: CLASS_ID } });
 
@@ -372,14 +372,14 @@ describe("teacher.functions tests", () => {
     });
 
     it("counts real events into the 7-day window", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
       const ownsClass = makeQueryBuilder(ok({ id: CLASS_ID }));
       const students = makeQueryBuilder(ok([{ id: "s1" }]));
       const events = makeQueryBuilder(ok([{ created_at: new Date().toISOString() }]));
       vi.mocked(supabase.from)
-        .mockReturnValueOnce(ownsClass as any)
-        .mockReturnValueOnce(students as any)
-        .mockReturnValueOnce(events as any);
+        .mockReturnValueOnce(ownsClass as never)
+        .mockReturnValueOnce(students as never)
+        .mockReturnValueOnce(events as never);
 
       const result = await getWeeklyActivity({ data: { classId: CLASS_ID } });
 
@@ -390,21 +390,21 @@ describe("teacher.functions tests", () => {
 
   describe("getAllTeacherStudents", () => {
     it("throws when no teacher is signed in", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(signedOut as any);
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(signedOut as never);
       await expect(getAllTeacherStudents({ data: {} })).rejects.toThrow("Debes iniciar sesión");
     });
 
     it("returns an empty list when the teacher has no students", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
       const noStudents = makeQueryBuilder(ok([]));
-      vi.mocked(supabase.from).mockReturnValueOnce(noStudents as any);
+      vi.mocked(supabase.from).mockReturnValueOnce(noStudents as never);
 
       const result = await getAllTeacherStudents({ data: {} });
       expect(result).toEqual([]);
     });
 
     it("attaches an event count per student and hides archived by default", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
       const student = {
         id: STUDENT_ID,
         display_name: "Ana",
@@ -420,9 +420,9 @@ describe("teacher.functions tests", () => {
       );
       const lessonProgressBuilder = makeQueryBuilder(ok([]));
       vi.mocked(supabase.from)
-        .mockReturnValueOnce(studentsBuilder as any)
-        .mockReturnValueOnce(eventsBuilder as any)
-        .mockReturnValueOnce(lessonProgressBuilder as any);
+        .mockReturnValueOnce(studentsBuilder as never)
+        .mockReturnValueOnce(eventsBuilder as never)
+        .mockReturnValueOnce(lessonProgressBuilder as never);
 
       const result = await getAllTeacherStudents({ data: {} });
 

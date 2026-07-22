@@ -107,7 +107,7 @@ function ClaseOverview() {
 
   const loading = loadingClass || loadingProgress;
   const className = classData?.className ?? "Clase";
-  const students = classData?.students ?? [];
+  const students = useMemo(() => classData?.students ?? [], [classData]);
 
   const attentionList = useMemo(() => {
     if (!progressData) return [];

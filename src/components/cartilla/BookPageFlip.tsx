@@ -2,12 +2,17 @@ import React, { useEffect, useState, useRef, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { BookPage } from "./BookPage";
 import { getBookPageImage } from "@/lib/bookImages";
+import type {
+  FlipBookComponent,
+  FlipBookHandle,
+  FlipEvent,
+  PageFlipApi,
+} from "@/lib/pageflip-types";
 import { preloadSpread } from "@/utils/preloadSpread";
 import { gretelEvent } from "@/components/gretel/gretelEvents";
-// @ts-ignore
 import HTMLFlipBook from "react-pageflip";
 
-const FlipBook = HTMLFlipBook as any;
+const FlipBook = HTMLFlipBook as unknown as FlipBookComponent;
 const flipBookStyle: React.CSSProperties = { background: "transparent" };
 
 interface BookPageFlipProps {
@@ -42,7 +47,7 @@ Page.displayName = "Page";
 export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPageFlipProps) {
   const [mounted, setMounted] = useState(false);
   const pagesArray = Array.from({ length: totalPages }, (_, i) => i + 1);
-  const bookRef = useRef<any>(null);
+  const bookRef = useRef<FlipBookHandle | null>(null);
   const reducedMotion = useRef(false);
   useEffect(() => {
     reducedMotion.current = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -53,7 +58,7 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
     gretelEvent("mount");
   }, []);
 
-  const getApi = (): any | null => {
+  const getApi = (): PageFlipApi | null => {
     try {
       const api = bookRef.current?.pageFlip?.();
       return api ?? null;
@@ -77,7 +82,7 @@ export function BookPageFlip({ currentPage, totalPages, onPageChange }: BookPage
   }, [currentPage, mounted]);
 
   const onFlip = useCallback(
-    (e: any) => {
+    (e: FlipEvent) => {
       if (!e || typeof e.data !== "number") return;
       const nextIndex = e.data;
       onPageChange(nextIndex + 1);

@@ -38,7 +38,14 @@ function ActivitiesPreview() {
     }> = [];
     const seen = new Set<string>();
 
-    const visibleInteractions = (interactionsData.interactions as any[]).filter(
+    const visibleInteractions = (
+      interactionsData.interactions as {
+        sourceStatus?: string;
+        kind?: string;
+        lessonNumber: number;
+        pageNumber: number;
+      }[]
+    ).filter(
       (i) =>
         i.sourceStatus === "verified" ||
         i.sourceStatus === "book-derived" ||

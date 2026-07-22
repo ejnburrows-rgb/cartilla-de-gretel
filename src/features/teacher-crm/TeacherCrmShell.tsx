@@ -61,6 +61,8 @@ export function TeacherCrmShell() {
   });
 
   const seedClasses = useMemo(() => {
+    // busy is referenced so mutations bump this memo and reread seed storage.
+    void busy;
     if (!isSeed) return [];
     try {
       return listSeedClasses();
@@ -69,7 +71,10 @@ export function TeacherCrmShell() {
     }
   }, [isSeed, busy]);
 
-  const classesList = isSeed ? seedClasses : (realClasses ?? []);
+  const classesList = useMemo(
+    () => (isSeed ? seedClasses : (realClasses ?? [])),
+    [isSeed, seedClasses, realClasses],
+  );
   const loadingClasses = !isSeed && loadingRealClasses;
 
   // Set default class ID
@@ -91,6 +96,7 @@ export function TeacherCrmShell() {
   });
 
   const seedClassData = useMemo(() => {
+    void busy;
     if (!isSeed || !selectedClassId) return null;
     try {
       return getSeedClass(selectedClassId);

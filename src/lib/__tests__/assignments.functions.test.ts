@@ -26,20 +26,20 @@ describe("assignments.functions tests", () => {
 
   describe("listAssignments", () => {
     it("throws when no teacher is signed in", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(signedOut as any);
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(signedOut as never);
       await expect(listAssignments({ data: { classId: CLASS_ID } })).rejects.toThrow(
         "Debes iniciar sesión",
       );
     });
 
     it("returns the class's assignments newest-first once ownership is confirmed", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
       const ownsClass = makeQueryBuilder(ok({ id: CLASS_ID }));
       const rows = [{ id: ASSIGNMENT_ID, class_id: CLASS_ID, lesson_id: "7" }];
       const listBuilder = makeQueryBuilder(ok(rows));
       vi.mocked(supabase.from)
-        .mockReturnValueOnce(ownsClass as any)
-        .mockReturnValueOnce(listBuilder as any);
+        .mockReturnValueOnce(ownsClass as never)
+        .mockReturnValueOnce(listBuilder as never);
 
       const result = await listAssignments({ data: { classId: CLASS_ID } });
 
@@ -50,12 +50,12 @@ describe("assignments.functions tests", () => {
 
   describe("createAssignment", () => {
     it("turns a duplicate (class, lesson) Postgres error into a friendly message", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
       const ownsClass = makeQueryBuilder(ok({ id: CLASS_ID }));
       const insertBuilder = makeQueryBuilder(fail("duplicate key value", "23505"));
       vi.mocked(supabase.from)
-        .mockReturnValueOnce(ownsClass as any)
-        .mockReturnValueOnce(insertBuilder as any);
+        .mockReturnValueOnce(ownsClass as never)
+        .mockReturnValueOnce(insertBuilder as never);
 
       await expect(
         createAssignment({ data: { classId: CLASS_ID, lessonId: "7" } }),
@@ -63,13 +63,13 @@ describe("assignments.functions tests", () => {
     });
 
     it("creates the assignment on success", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
       const ownsClass = makeQueryBuilder(ok({ id: CLASS_ID }));
       const row = { id: ASSIGNMENT_ID, class_id: CLASS_ID, lesson_id: "7", title: null };
       const insertBuilder = makeQueryBuilder(ok(row));
       vi.mocked(supabase.from)
-        .mockReturnValueOnce(ownsClass as any)
-        .mockReturnValueOnce(insertBuilder as any);
+        .mockReturnValueOnce(ownsClass as never)
+        .mockReturnValueOnce(insertBuilder as never);
 
       const result = await createAssignment({ data: { classId: CLASS_ID, lessonId: "7" } });
       expect(result).toEqual(row);
@@ -88,7 +88,7 @@ describe("assignments.functions tests", () => {
   describe("deleteAssignment", () => {
     it("throws when the assignment doesn't exist", async () => {
       const notFound = makeQueryBuilder(ok(null));
-      vi.mocked(supabase.from).mockReturnValue(notFound as any);
+      vi.mocked(supabase.from).mockReturnValue(notFound as never);
 
       await expect(deleteAssignment({ data: { id: ASSIGNMENT_ID } })).rejects.toThrow(
         "Tarea no encontrada.",
@@ -96,14 +96,14 @@ describe("assignments.functions tests", () => {
     });
 
     it("deletes once found and owned by this teacher", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
       const readBuilder = makeQueryBuilder(ok({ id: ASSIGNMENT_ID, class_id: CLASS_ID }));
       const ownsClass = makeQueryBuilder(ok({ id: CLASS_ID }));
       const deleteBuilder = makeQueryBuilder(ok(null));
       vi.mocked(supabase.from)
-        .mockReturnValueOnce(readBuilder as any)
-        .mockReturnValueOnce(ownsClass as any)
-        .mockReturnValueOnce(deleteBuilder as any);
+        .mockReturnValueOnce(readBuilder as never)
+        .mockReturnValueOnce(ownsClass as never)
+        .mockReturnValueOnce(deleteBuilder as never);
 
       const result = await deleteAssignment({ data: { id: ASSIGNMENT_ID } });
 
@@ -115,7 +115,7 @@ describe("assignments.functions tests", () => {
   describe("listMyAssignments", () => {
     it("calls the student RPC with an uppercased code", async () => {
       const rows = [{ id: ASSIGNMENT_ID }];
-      vi.mocked(supabase.rpc).mockResolvedValue(ok(rows) as any);
+      vi.mocked(supabase.rpc).mockResolvedValue(ok(rows) as never);
 
       const result = await listMyAssignments({
         data: { classId: CLASS_ID, studentId: STUDENT_ID, studentCode: "abcd" },
@@ -130,7 +130,7 @@ describe("assignments.functions tests", () => {
     });
 
     it("throws when the RPC errors", async () => {
-      vi.mocked(supabase.rpc).mockResolvedValue(fail("nope") as any);
+      vi.mocked(supabase.rpc).mockResolvedValue(fail("nope") as never);
       await expect(
         listMyAssignments({
           data: { classId: CLASS_ID, studentId: STUDENT_ID, studentCode: "abcd" },

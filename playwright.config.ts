@@ -3,8 +3,7 @@ import { defineConfig } from "@playwright/test";
 // The execution environment provides Chromium at this path and sets
 // PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD — we never run `playwright install`.
 const CHROMIUM =
-  process.env.PLAYWRIGHT_CHROMIUM_PATH ||
-  "/opt/pw-browsers/chromium-1194/chrome-linux/chrome";
+  process.env.PLAYWRIGHT_CHROMIUM_PATH || "/opt/pw-browsers/chromium-1194/chrome-linux/chrome";
 
 export default defineConfig({
   testDir: "./tests/e2e",

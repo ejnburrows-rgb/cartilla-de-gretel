@@ -142,7 +142,13 @@ export function ExerciseHandout({ entry, pageNumber }: ExerciseHandoutProps) {
         : "V";
 
   const isScaffold = (
-    Array.isArray(interactionsData.interactions) ? (interactionsData.interactions as any[]) : []
+    Array.isArray(interactionsData.interactions)
+      ? (interactionsData.interactions as {
+          lessonNumber?: number;
+          lessonId?: string;
+          sourceStatus?: string;
+        }[])
+      : []
   ).some(
     (i) =>
       i &&

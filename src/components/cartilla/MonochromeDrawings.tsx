@@ -608,7 +608,7 @@ export function DrawFallback({ word, size = 120, ...props }: DrawingProps & { wo
   );
 }
 
-const DRAWING_REGISTRY: Record<string, React.ComponentType<any>> = {
+const DRAWING_REGISTRY: Record<string, React.ComponentType<DrawingProps>> = {
   // O oso
   oso: DrawOso,
   ojo: DrawOjo,

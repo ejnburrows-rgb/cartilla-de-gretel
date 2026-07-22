@@ -3,9 +3,13 @@ import { localMonitor } from "../../lib/local-monitor";
 import { checkPerfMetric, PERF_BUDGETS } from "../../lib/perf-budget";
 
 export function PerfPanel() {
-  // Only render in dev mode
+  // Only render in dev mode. The gate lives in this wrapper so the inner
+  // component can call hooks unconditionally (rules-of-hooks).
   if (!import.meta.env.DEV) return null;
+  return <PerfPanelInner />;
+}
 
+function PerfPanelInner() {
   const [lcp, setLcp] = useState<number | null>(null);
   const [tbt, setTbt] = useState<number>(0);
   const [errorsCount, setErrorsCount] = useState(0);
@@ -26,7 +30,9 @@ export function PerfPanel() {
         }
       });
       lcpObserver.observe({ type: "largest-contentful-paint", buffered: true });
-    } catch {}
+    } catch {
+      /* PerformanceObserver entry type unsupported in this browser */
+    }
 
     // 3. Estimate TBT via Long Tasks
     let tbtObserver: PerformanceObserver | null = null;
@@ -42,7 +48,9 @@ export function PerfPanel() {
         setTbt((prev) => prev + blockTime);
       });
       tbtObserver.observe({ type: "longtask", buffered: true });
-    } catch {}
+    } catch {
+      /* PerformanceObserver entry type unsupported in this browser */
+    }
 
     return () => {
       lcpObserver?.disconnect();

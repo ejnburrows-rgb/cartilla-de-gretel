@@ -30,8 +30,12 @@ function installCanvasMock() {
     this: HTMLCanvasElement,
     type: string,
   ) {
+    return makeMockContext(this, type);
+  };
+  // Plain parameter instead of a `this` alias (no-this-alias): the nested
+  // mock methods need the element while binding their own `this`.
+  function makeMockContext(canvas: HTMLCanvasElement, type: string) {
     if (type !== "2d") return null;
-    const canvas = this;
     const ctx = {
       setTransform: vi.fn(),
       scale: vi.fn(),
@@ -82,7 +86,7 @@ function installCanvasMock() {
       imageSmoothingQuality: "high",
     };
     return ctx;
-  };
+  }
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (HTMLCanvasElement.prototype as any).toDataURL = vi.fn(() => "data:image/png;base64,mock");
 }

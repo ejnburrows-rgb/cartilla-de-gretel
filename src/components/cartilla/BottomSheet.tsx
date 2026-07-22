@@ -82,7 +82,7 @@ export function BottomSheet({ isOpen, onClose, children }: BottomSheetProps) {
     };
   }, [isOpen]);
 
-  const handleDragEnd = (_event: any, info: PanInfo) => {
+  const handleDragEnd = (_event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
     const currentY = info.point.y;
     const viewportHeight = window.innerHeight;
     const relativeY = currentY / viewportHeight; // Value between 0.0 and 1.0

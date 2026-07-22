@@ -15,15 +15,19 @@ export function useIdleCallback(callback: () => void, timeoutMs = 2000) {
       callbackRef.current();
     };
 
-    if ("requestIdleCallback" in window) {
-      handle = (window as any).requestIdleCallback(runCallback, { timeout: timeoutMs });
+    const idleWindow = window as Window & {
+      requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
+      cancelIdleCallback?: (handle: number) => void;
+    };
+    if (idleWindow.requestIdleCallback) {
+      handle = idleWindow.requestIdleCallback(runCallback, { timeout: timeoutMs });
     } else {
       handle = setTimeout(runCallback, 1) as unknown as number;
     }
 
     return () => {
-      if ("cancelIdleCallback" in window) {
-        (window as any).cancelIdleCallback(handle);
+      if (idleWindow.cancelIdleCallback) {
+        idleWindow.cancelIdleCallback(handle);
       } else {
         clearTimeout(handle);
       }

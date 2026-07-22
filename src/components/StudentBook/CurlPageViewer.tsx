@@ -3,6 +3,12 @@ import type { ReactNode } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import HTMLFlipBook from "react-pageflip";
 import { gretelEvent } from "@/lib/gretel-bus";
+import type {
+  FlipBookComponent,
+  FlipBookHandle,
+  FlipEvent,
+  PageFlipApi,
+} from "@/lib/pageflip-types";
 import { STUDENT_PAGE_TURN_MS, prefersReducedMotion } from "@/lib/living-motion";
 import { KidButton } from "@/components/ui/KidButton";
 import type { SimplePageViewerProps, WorkbookPageEntry } from "./SimplePageViewer";
@@ -12,7 +18,7 @@ interface CurlPageViewerProps extends SimplePageViewerProps {
   accent?: string;
 }
 
-const FlipBook = HTMLFlipBook as any;
+const FlipBook = HTMLFlipBook as unknown as FlipBookComponent;
 
 const Page = forwardRef<HTMLDivElement, { entry?: WorkbookPageEntry }>(({ entry }, ref) => {
   return (
@@ -56,7 +62,7 @@ export function CurlPageViewer({
   }, []);
 
   const wrapRef = useRef<HTMLDivElement>(null);
-  const bookRef = useRef<any>(null);
+  const bookRef = useRef<FlipBookHandle | null>(null);
   const [size, setSize] = useState<{ w: number; h: number } | null>(null);
   const [mounted, setMounted] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
@@ -82,7 +88,7 @@ export function CurlPageViewer({
     return () => ro.disconnect();
   }, []);
 
-  const getApi = useCallback((): any | null => {
+  const getApi = useCallback((): PageFlipApi | null => {
     try {
       return bookRef.current?.pageFlip?.() ?? null;
     } catch {
@@ -102,7 +108,7 @@ export function CurlPageViewer({
   }, [getApi]);
 
   const onFlip = useCallback(
-    (e: any) => {
+    (e: FlipEvent) => {
       const idx = typeof e?.data === "number" ? e.data : null;
       if (idx === null) return;
       setCurrentIndex(idx);

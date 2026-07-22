@@ -28,6 +28,27 @@ const metricValClass = "text-2xl font-black text-stone-800";
 const metricLblClass = "text-[10px] font-bold text-stone-500 uppercase tracking-widest";
 const headerTitleClass = "text-2xl font-black text-stone-800 flex items-center gap-2";
 
+/** Structural shape of a student progress event row (seed or live query). */
+type ReportEvent = {
+  id?: string;
+  created_at?: string;
+  event_kind?: string;
+  lesson_id?: string | number;
+  score?: number | null;
+  total?: number | null;
+  time_seconds?: number | null;
+};
+
+/** Structural shape of a per-student aggregate row from class progress. */
+type PerStudentRow = {
+  id: string;
+  name: string;
+  lessonsCount: number;
+  accuracy: number | null;
+  timeSeconds: number;
+  completedLessonIds?: string[];
+};
+
 const EXERCISE_KIND_LABELS: Record<string, string> = {
   picture_grid: "Marca la imagen",
   vowel_pick_one: "Elige la vocal",
@@ -99,14 +120,20 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
     const { student, class: classObj, events } = studentData;
 
     // Aggregations
-    const completedLessons = events.filter((e: any) => e.event_kind === "lesson_completed");
-    const exerciseEvents = events.filter((e: any) => e.event_kind === "exercise");
-    const totalScore = exerciseEvents.reduce((sum: number, e: any) => sum + (e.score || 0), 0);
-    const totalPossible = exerciseEvents.reduce((sum: number, e: any) => sum + (e.total || 0), 0);
+    const completedLessons = events.filter((e: ReportEvent) => e.event_kind === "lesson_completed");
+    const exerciseEvents = events.filter((e: ReportEvent) => e.event_kind === "exercise");
+    const totalScore = exerciseEvents.reduce(
+      (sum: number, e: ReportEvent) => sum + (e.score || 0),
+      0,
+    );
+    const totalPossible = exerciseEvents.reduce(
+      (sum: number, e: ReportEvent) => sum + (e.total || 0),
+      0,
+    );
     const accuracy = totalPossible > 0 ? Math.round((totalScore / totalPossible) * 100) : null;
     const totalTimeSecs = events
-      .filter((e: any) => e.event_kind === "time")
-      .reduce((sum: number, e: any) => sum + (e.time_seconds || 0), 0);
+      .filter((e: ReportEvent) => e.event_kind === "time")
+      .reduce((sum: number, e: ReportEvent) => sum + (e.time_seconds || 0), 0);
     const totalTimeMins = Math.round(totalTimeSecs / 60);
 
     return (
@@ -181,16 +208,16 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
                 </tr>
               </thead>
               <tbody className="divide-y divide-stone-150">
-                {events.slice(0, 10).map((e: any) => (
+                {events.slice(0, 10).map((e: ReportEvent) => (
                   <tr key={e.id}>
                     <td className="p-3 font-mono text-xs">
-                      {new Date(e.created_at).toLocaleDateString()}
+                      {new Date(e.created_at ?? 0).toLocaleDateString()}
                     </td>
                     <td className="p-3 capitalize font-bold text-stone-700">{e.event_kind}</td>
                     <td className="p-3">Lección {e.lesson_id}</td>
                     <td className="p-3">
-                      {e.event_kind === "exercise" && e.total > 0
-                        ? `${e.score}/${e.total} (${Math.round((e.score / e.total) * 100)}%)`
+                      {e.event_kind === "exercise" && (e.total ?? 0) > 0
+                        ? `${e.score ?? 0}/${e.total} (${Math.round(((e.score ?? 0) / (e.total ?? 1)) * 100)}%)`
                         : e.event_kind === "time"
                           ? `${e.time_seconds} seg`
                           : "Completada"}
@@ -216,7 +243,7 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
   if (classProgressData) {
     const { perStudent, perLesson, perStudentExercise, assignments } = classProgressData;
     const exerciseKinds = Array.from(
-      new Set(Object.values(perStudentExercise ?? {}).flatMap((row: any) => Object.keys(row))),
+      new Set(Object.values(perStudentExercise ?? {}).flatMap((row) => Object.keys(row ?? {}))),
     ).sort();
 
     return (
@@ -251,7 +278,7 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
                 </tr>
               </thead>
               <tbody className="divide-y divide-stone-150">
-                {perStudent.map((s: any) => (
+                {perStudent.map((s: PerStudentRow) => (
                   <tr key={s.id}>
                     <td className="p-3 font-bold text-stone-800">{s.name}</td>
                     <td className="p-3">{s.lessonsCount}</td>
@@ -295,7 +322,7 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
                 </tr>
               </thead>
               <tbody className="divide-y divide-stone-150">
-                {perStudent.map((s: any) => {
+                {perStudent.map((s: PerStudentRow) => {
                   const row = perStudentExercise?.[s.id] ?? {};
                   return (
                     <tr key={s.id}>
@@ -350,7 +377,7 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
                 </tr>
               </thead>
               <tbody className="divide-y divide-stone-150">
-                {perStudent.map((s: any) => {
+                {perStudent.map((s: PerStudentRow) => {
                   const prog: string[] = s.completedLessonIds ?? [];
                   return (
                     <tr key={s.id} className="hover:bg-stone-50/50 transition-colors">

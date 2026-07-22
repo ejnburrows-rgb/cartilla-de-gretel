@@ -26,7 +26,7 @@ describe("folder-assignments.functions tests", () => {
 
   describe("createFolderAssignment", () => {
     it("throws when no teacher is signed in, before ever touching the table", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(signedOut as any);
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(signedOut as never);
 
       await expect(
         createFolderAssignment({
@@ -57,7 +57,7 @@ describe("folder-assignments.functions tests", () => {
     });
 
     it("inserts the assignment once class ownership is confirmed", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
       const ownsClass = makeQueryBuilder(ok({ id: CLASS_ID }));
       const row = {
         id: ASSIGNMENT_ID,
@@ -72,8 +72,8 @@ describe("folder-assignments.functions tests", () => {
       };
       const insertBuilder = makeQueryBuilder(ok(row));
       vi.mocked(supabase.from)
-        .mockReturnValueOnce(ownsClass as any)
-        .mockReturnValueOnce(insertBuilder as any);
+        .mockReturnValueOnce(ownsClass as never)
+        .mockReturnValueOnce(insertBuilder as never);
 
       const result = await createFolderAssignment({
         data: {
@@ -92,9 +92,9 @@ describe("folder-assignments.functions tests", () => {
     });
 
     it("throws when the class isn't found or isn't owned by this teacher", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
       const notOwned = makeQueryBuilder(ok(null));
-      vi.mocked(supabase.from).mockReturnValue(notOwned as any);
+      vi.mocked(supabase.from).mockReturnValue(notOwned as never);
 
       await expect(
         createFolderAssignment({
@@ -112,13 +112,13 @@ describe("folder-assignments.functions tests", () => {
 
   describe("listFolderAssignments", () => {
     it("lists newest-first once ownership is confirmed", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
       const ownsClass = makeQueryBuilder(ok({ id: CLASS_ID }));
       const rows = [{ id: ASSIGNMENT_ID, class_id: CLASS_ID }];
       const listBuilder = makeQueryBuilder(ok(rows));
       vi.mocked(supabase.from)
-        .mockReturnValueOnce(ownsClass as any)
-        .mockReturnValueOnce(listBuilder as any);
+        .mockReturnValueOnce(ownsClass as never)
+        .mockReturnValueOnce(listBuilder as never);
 
       const result = await listFolderAssignments({ data: { classId: CLASS_ID } });
 
@@ -127,12 +127,12 @@ describe("folder-assignments.functions tests", () => {
     });
 
     it("returns an empty array rather than null when there are no rows", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
       const ownsClass = makeQueryBuilder(ok({ id: CLASS_ID }));
       const listBuilder = makeQueryBuilder(ok(null));
       vi.mocked(supabase.from)
-        .mockReturnValueOnce(ownsClass as any)
-        .mockReturnValueOnce(listBuilder as any);
+        .mockReturnValueOnce(ownsClass as never)
+        .mockReturnValueOnce(listBuilder as never);
 
       const result = await listFolderAssignments({ data: { classId: CLASS_ID } });
       expect(result).toEqual([]);
@@ -141,9 +141,9 @@ describe("folder-assignments.functions tests", () => {
 
   describe("deleteFolderAssignment", () => {
     it("throws when the assignment doesn't exist", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
       const notFound = makeQueryBuilder(ok(null));
-      vi.mocked(supabase.from).mockReturnValue(notFound as any);
+      vi.mocked(supabase.from).mockReturnValue(notFound as never);
 
       await expect(deleteFolderAssignment({ data: { id: ASSIGNMENT_ID } })).rejects.toThrow(
         "Tarea no encontrada.",
@@ -151,14 +151,14 @@ describe("folder-assignments.functions tests", () => {
     });
 
     it("deletes once found and owned", async () => {
-      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
       const readBuilder = makeQueryBuilder(ok({ id: ASSIGNMENT_ID, class_id: CLASS_ID }));
       const ownsClass = makeQueryBuilder(ok({ id: CLASS_ID }));
       const deleteBuilder = makeQueryBuilder(ok(null));
       vi.mocked(supabase.from)
-        .mockReturnValueOnce(readBuilder as any)
-        .mockReturnValueOnce(ownsClass as any)
-        .mockReturnValueOnce(deleteBuilder as any);
+        .mockReturnValueOnce(readBuilder as never)
+        .mockReturnValueOnce(ownsClass as never)
+        .mockReturnValueOnce(deleteBuilder as never);
 
       const result = await deleteFolderAssignment({ data: { id: ASSIGNMENT_ID } });
 
@@ -171,7 +171,7 @@ describe("folder-assignments.functions tests", () => {
   describe("getMyFolderAssignments", () => {
     it("calls the student RPC with an uppercased code and returns rows", async () => {
       const rows = [{ id: ASSIGNMENT_ID }];
-      vi.mocked(supabase.rpc).mockResolvedValue(ok(rows) as any);
+      vi.mocked(supabase.rpc).mockResolvedValue(ok(rows) as never);
 
       const result = await getMyFolderAssignments({
         data: { classId: CLASS_ID, studentId: STUDENT_ID, studentCode: "abcd" },
@@ -186,7 +186,7 @@ describe("folder-assignments.functions tests", () => {
     });
 
     it("throws when the RPC errors", async () => {
-      vi.mocked(supabase.rpc).mockResolvedValue(fail("nope") as any);
+      vi.mocked(supabase.rpc).mockResolvedValue(fail("nope") as never);
 
       await expect(
         getMyFolderAssignments({

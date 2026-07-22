@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { MessageSquare, User, Save, Clock } from "lucide-react";
 import type { DashboardStudent } from "./PipelineBoard";
 
@@ -11,12 +11,19 @@ export function AccountPanel({ student, onUpdate }: AccountPanelProps) {
   const [notes, setNotes] = useState("");
   const [isEditingNotes, setIsEditingNotes] = useState(false);
 
+  // Reset the notes draft only when the SELECTED student changes (by id) —
+  // not on every parent re-render — so in-progress edits aren't clobbered.
+  // The ref carries the latest student without widening the effect deps.
+  const studentRef = useRef(student);
+  studentRef.current = student;
+  const studentId = student?.id;
   useEffect(() => {
-    if (student) {
-      setNotes(student.teacher_notes || "");
+    const current = studentRef.current;
+    if (current) {
+      setNotes(current.teacher_notes || "");
       setIsEditingNotes(false);
     }
-  }, [student?.id]);
+  }, [studentId]);
 
   const handleSave = () => {
     if (student && onUpdate) {

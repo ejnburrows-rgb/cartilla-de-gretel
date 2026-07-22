@@ -112,7 +112,13 @@ export function AnswerKeyBlock({ entry, pageNumber }: AnswerKeyBlockProps) {
         : ["Las cinco vocales son a, e, i, o, u. Repite conmigo: a, e, i, o, u."];
 
   const isScaffold = (
-    Array.isArray(interactionsData.interactions) ? (interactionsData.interactions as any[]) : []
+    Array.isArray(interactionsData.interactions)
+      ? (interactionsData.interactions as {
+          lessonNumber?: number;
+          lessonId?: string;
+          sourceStatus?: string;
+        }[])
+      : []
   ).some(
     (i) =>
       i &&

@@ -1,3 +1,9 @@
+import {
+  getSpeechRecognitionCtor,
+  type SpeechRecognitionErrorEventLike,
+  type SpeechRecognitionEventLike,
+  type SpeechRecognitionLike,
+} from "@/lib/speech-recognition-types";
 import { useEffect, useState, useRef } from "react";
 import { Mic, MicOff, Check, X, RotateCcw, Volume2 } from "lucide-react";
 import { useAudio } from "@/hooks/useAudio";
@@ -19,12 +25,11 @@ export function SpeechRecognitionExercise({
   const [isListening, setIsListening] = useState(false);
   const [transcript, setTranscript] = useState("");
   const [feedback, setFeedback] = useState<"ok" | "no" | null>(null);
-  const recognitionRef = useRef<any>(null);
+  const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
 
   useEffect(() => {
     // Check if SpeechRecognition API is available
-    const SpeechRecognition =
-      (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+    const SpeechRecognition = getSpeechRecognitionCtor();
 
     if (SpeechRecognition) {
       const rec = new SpeechRecognition();
@@ -33,9 +38,9 @@ export function SpeechRecognitionExercise({
       rec.lang = "es-ES"; // Set to Spanish
 
       rec.onstart = () => setIsListening(true);
-      rec.onresult = (event: any) => {
+      rec.onresult = (event: SpeechRecognitionEventLike) => {
         const current = event.resultIndex;
-        const result = event.results[current][0].transcript;
+        const result = event.results[current]?.[0]?.transcript ?? "";
         setTranscript(result);
 
         // Simple fuzzy match: check if the target word is within the recognized string
@@ -49,7 +54,7 @@ export function SpeechRecognitionExercise({
           gretelEvent("answer:wrong");
         }
       };
-      rec.onerror = (e: any) => {
+      rec.onerror = (e: SpeechRecognitionErrorEventLike) => {
         console.error("Speech Recognition Error:", e);
         setIsListening(false);
       };
@@ -335,7 +340,7 @@ export function AudioMultipleChoice({
           "w-24 h-24 rounded-full flex items-center justify-center text-white transition-all shadow-xl mb-8 active:scale-95",
           playingText === targetWord ? "animate-pulse ring-8 ring-offset-4" : "hover:scale-105",
         )}
-        style={{ backgroundColor: color, "--tw-ring-color": color } as any}
+        style={{ backgroundColor: color, "--tw-ring-color": color } as React.CSSProperties}
       >
         <Volume2 className="w-12 h-12" />
       </button>
