@@ -18,24 +18,23 @@ next unblocked task. It repeats until every box is checked or it hits a real blo
 
 - **Push-capable worker (e.g. Claude Code with write access):** do the full loop — branch, commit, push,
   open PR, squash-merge when the verify bar is green, then continue.
-- **Jules, or ANY agent without push access:** as of 2026-07-21 the Jules GitHub app **cannot push to this
-  repo**. Do **all the same analysis and work**, but write your output as **draft files under
-  `drafts/jules/<task>/` plus a written report** (what you changed, the exact diff, verify output, and
-  screenshots). **Never** attempt to push or open a PR. A human copies your draft in once push access is
-  granted. **Prerequisite to fix this:** the owner must add the Jules GitHub app with **write/push**
-  permission to this repo (GitHub → repo → Settings → Integrations/GitHub Apps) and re-run the task.
+- **Jules (read-only — permanent):** the Jules GitHub app cannot push and will **not** be granted push
+  access — never ask the owner to grant it. Jules works only tasks assigned to it via GitHub issues
+  labeled `jules` (QA, tests, audits, a11y, report-only work), following the strict RULES block inside
+  each issue: only the assigned task, no new dependencies/config/infra, no recommendations, no invented
+  work, stop in one sentence if blocked. Jules PRs are verified and merged by a push-capable agent —
+  never merged unreviewed.
 
 ---
 
 ## OWNER-ONLY PREREQUISITES (agents cannot do these — they need accounts/secrets)
 
-These unblock the teacher/student **cloud** tasks. Agents write and verify the code; only the owner can
-create accounts and hold secrets.
-
-1. **Supabase project** — create it, then put `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY` into
-   Vercel env + a local `.env`. Follow `docs/SUPABASE-SETUP.md`. Verify with `pnpm smoke:supabase`.
-2. **Grant Jules push access** (see WHO RUNS THIS) if you want Jules working in the background.
-3. **Welcome/landing splash (#243)** stays owner-only — no agent touches it.
+1. **Supabase project — ✅ DONE (owner, 2026-07-22).** The owner created the project and set
+   `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY` in Vercel. **D1/D2 are unblocked.** Runners:
+   to verify locally, ask the owner once in-session to paste the two values into a local `.env` (they are
+   the public URL + publishable key), then run `pnpm smoke:supabase`; otherwise verify against the
+   deployed preview. Setup reference: `docs/SUPABASE-SETUP.md`.
+2. **Welcome/landing splash (#243)** stays owner-only — no agent touches it.
 
 ---
 
@@ -161,12 +160,13 @@ files.**
 
 ### TASK D — Finish the rest of the product  *(after A; backend items need the owner prereqs)*
 - [ ] **D1. Student cloud save** — verify lesson grading/progress writes to Supabase and reloads on another
-      device. Branch `feat/student-cloud-progress`. **BLOCKED (owner):** needs the Supabase prereq — the
-      code path exists but has never run against a live DB.
+      device. Branch `feat/student-cloud-progress`. **UNBLOCKED 2026-07-22:** the owner's Supabase project
+      is live (see prerequisites) — the code path exists but has never run against the live DB; prove it
+      end to end.
 - [ ] **D2. Teacher backend go-live** — run the full teacher CRM against a real Supabase DB (auth, classes,
       join codes, roster, RLS). Remove reliance on the demo/seed lane for real use. Branch
-      `feat/teacher-backend-live`. **BLOCKED (owner):** needs the Supabase prereq. *(Join/student codes are
-      now crypto-secure — PR #300.)*
+      `feat/teacher-backend-live`. **UNBLOCKED 2026-07-22:** the owner's Supabase project is live (see
+      prerequisites). *(Join/student codes are now crypto-secure — PR #300.)*
 - [~] **D3. Reports precision + time** — **DEMO path DONE (PR #279):** `getSeedClassProgress()` now
       aggregates real accuracy % and minutes and a per-exercise-type breakdown (was `—` / `0 mins`). The
       **live** path (`getClassProgress` against Supabase) already computes the same and is verified by
@@ -183,10 +183,12 @@ files.**
       `LanguageToggle`) was then archived to `src/_archive/` (PRs #292, #295).
 - [~] **D6. Lint pass (#245)** — **safe subset DONE** (PRs #305, #308: prettier-only formatting, 396 → 277
       problems). Remaining 277 are judgment-call rules (`no-explicit-any`, `react-hooks/exhaustive-deps`,
-      `rules-of-hooks`) — fix per-site, behavior-preserving, owner-supervised. Deliberately kept out of the
-      autonomous loop.
-- [ ] **D7. Admin cross-teacher dashboard** — **BLOCKED (owner):** genuinely unbuilt (no admin-viewing
-      components, no RLS-bypass policy). Needs the owner to confirm it's still wanted before scoping.
+      `rules-of-hooks`) — **IN the autonomous queue (owner decision 2026-07-22):** fix per-site,
+      behavior-preserving; no mass-autofix, no rule disables, no eslint-disable blankets; verify bar green
+      after each chunk. The agent runs this alone; the owner reviews the final product only.
+- [ ] **D7. Admin cross-teacher dashboard** — **APPROVED (owner, 2026-07-22): scope and build it.** Build
+      demo-lane first (no live-DB dependency to render); wire live data after D2 lands. Genuinely unbuilt
+      today (no admin-viewing components, no RLS-bypass policy).
 - [x] **T2. Student happy-path E2E smoke test (#304, issue #241) — DONE on `main` 2026-07-22.** Playwright
       spec seeds progress, opens Lesson 1, taps a picture cell, presses Comprobar, asserts a visible grading
       reaction + disabled check button. `pnpm test:e2e` runs green (16.6s) in a browser-capable env; screenshot
@@ -209,6 +211,11 @@ files.**
 ---
 
 ## STATUS LOG (append one dated line per merged PR; newest at top)
+- 2026-07-22 — **Owner prereqs + queue updated:** Supabase project is LIVE (owner set `VITE_SUPABASE_URL`
+  + `VITE_SUPABASE_PUBLISHABLE_KEY` in Vercel) → **D1/D2 unblocked**. **D7 approved** to scope and build
+  (demo lane first). **D6's remaining 277 lint problems moved INTO the autonomous queue** (owner decision;
+  per-site, behavior-preserving). **Jules redefined:** read-only labeled-issue lane, never ask for push
+  access; its PRs are verified/merged by a push-capable agent.
 - 2026-07-22 — **T3 teacher CRM E2E smoke test DONE** (#311): new Playwright spec drives the demo/seed
   teacher into `/cartilla/teacher/crm` and asserts the seed class + roster render (teacher route gate +
   seed auth + CRM shell + D3 aggregation in one pass). E2E webServer set to `VITE_ALLOW_DEMO_MODE=true`
