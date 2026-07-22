@@ -54,6 +54,7 @@ function parseArgs(argv) {
     threshold: 0.06,
     limit: Infinity,
     dry: false,
+    gentle: false,
   };
   for (let i = 2; i < argv.length; i++) {
     const k = argv[i];
@@ -66,6 +67,7 @@ function parseArgs(argv) {
     else if (k === "--threshold") (a.threshold = Number(v)), i++;
     else if (k === "--limit") (a.limit = Number(v)), i++;
     else if (k === "--dry") a.dry = true;
+    else if (k === "--gentle") a.gentle = true;
   }
   a.proofs ??= path.join(a.out, "_proofs");
   return a;
@@ -95,7 +97,7 @@ async function listImages(dir) {
 }
 
 // ── the restoration pass (allowed ops only) ────────────────────────────────
-async function restore(srcPath, { upscale, maxDim }) {
+async function restore(srcPath, { upscale, maxDim, gentle }) {
   const original = sharp(srcPath, { failOn: "none" });
   const meta = await original.metadata();
   const w = meta.width ?? 0;
@@ -130,11 +132,12 @@ async function restore(srcPath, { upscale, maxDim }) {
 
   // 2. Gentle scan-speckle / JPEG-noise removal (median 1 — does not move lines).
   // 3. Paper-shadow removal + white-balance via level normalize.
-  // 4. Mild, hue-preserving palette normalization (linear tighten, saturation kept ~1).
+  //    Default: full normalize (best for high-contrast line art / crops).
+  //    --gentle: wide-percentile normalize (2..98) so soft watercolour washes
+  //    keep their tonality instead of getting over-contrasted (no AI slop).
   let pipe = sharp(buf)
     .median(1)
-    .normalise() // stretch levels: lifts paper shadow, balances toward clean white
-    .modulate({ saturation: 1.0, brightness: 1.0 }); // hue-preserving no-op guard
+    .normalise(gentle ? { lower: 2, upper: 98 } : undefined);
 
   const isPng = /\.png$/i.test(srcPath);
   const outBuf = await (isPng
@@ -203,7 +206,7 @@ async function main() {
     process.exit(2);
   }
   console.log(
-    `restore-art: ${images.length} image(s) · upscale ${a.upscale}x · threshold ${a.threshold} · resrgan ${process.env.RESRGAN_BIN ? "on" : "off (sharp lanczos)"}${a.dry ? " · DRY" : ""}`,
+    `restore-art: ${images.length} image(s) · upscale ${a.upscale}x · ${a.gentle ? "gentle" : "standard"} · threshold ${a.threshold} · resrgan ${process.env.RESRGAN_BIN ? "on" : "off (sharp lanczos)"}${a.dry ? " · DRY" : ""}`,
   );
 
   const report = [];
