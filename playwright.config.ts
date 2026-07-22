@@ -27,9 +27,13 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: "pnpm dev --port 5173 --host 127.0.0.1",
+    // Demo/seed lane on: lets the teacher smoke test drive the seed CRM without
+    // a live Supabase. It's dev-only and never affects a production build
+    // (seed-data.ts hard-disables demo mode under import.meta.env.PROD), and it
+    // leaves the student smoke test unaffected (that lane isn't demo-gated).
+    command: "VITE_ALLOW_DEMO_MODE=true pnpm dev --port 5173 --host 127.0.0.1",
     url: "http://127.0.0.1:5173",
-    reuseExistingServer: true,
+    reuseExistingServer: false,
     timeout: 120_000,
   },
 });
