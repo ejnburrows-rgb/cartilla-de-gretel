@@ -198,6 +198,9 @@ files.**
 ---
 
 ## STATUS LOG (append one dated line per merged PR; newest at top)
+- 2026-07-22 — **D6 lint — safe subset extended** (#308): prettier-formatted `scripts/restore-art.mjs`
+  (formatting-only, out of app graph, typecheck clean). Lint 291 → 277. Remaining 277 are judgment-call
+  rules (`no-explicit-any`, `exhaustive-deps`, `rules-of-hooks`) held for a supervised per-site pass.
 - 2026-07-22 — **Loop docs consolidated.** This file (`docs/AGENT-LOOP.md`) is now the single canonical
   self-driving loop doc. `docs/ROADMAP-TO-100.md` (S1–T1) and root `LOOP-CLAUDE.md` are now short pointers
   here; their content is folded into Tasks C/D and the "verified strong already" note above.
