@@ -83,11 +83,12 @@
   align-items: end;
 }
 
-@media (min-width: 900px) {
-  .gretel-presence-layout {
-    grid-template-columns: minmax(0, 1fr) minmax(16rem, 22rem);
-  }
-}
+/* Single column at every width, on purpose. The character figure was removed
+ * from GretelPresence (it now renders only the small name+mute chrome), so a
+ * reserved desktop side column left a large empty band of garden scene beside
+ * the workbook — it read as an unfinished "green void". Keeping one column lets
+ * the workbook (capped at max-w-4xl, mx-auto) sit centered on the garden scene
+ * with balanced margins, and the Gretel chrome centers just below it. */
 
 @media (prefers-reduced-motion: reduce) {
   .gretel-presence {
