@@ -1,0 +1,150 @@
+{
+  "generatedAt": "2026-07-22T18:52:54.611Z",
+  "threshold": 0.06,
+  "results": [
+    {
+      "src": ".b5-src\\page-059.jpg",
+      "out": "public\\cartilla\\art\\restored\\workbook\\page-059.jpg",
+      "origSize": "2550x3301",
+      "restoredSize": "3090x4000",
+      "drift": 0.023,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b5\\page-059.overlay.png"
+    },
+    {
+      "src": ".b5-src\\page-060.jpg",
+      "out": "public\\cartilla\\art\\restored\\workbook\\page-060.jpg",
+      "origSize": "2550x3301",
+      "restoredSize": "3090x4000",
+      "drift": 0.0154,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b5\\page-060.overlay.png"
+    },
+    {
+      "src": ".b5-src\\page-061.jpg",
+      "out": "public\\cartilla\\art\\restored\\workbook\\page-061.jpg",
+      "origSize": "2550x3301",
+      "restoredSize": "3090x4000",
+      "drift": 0.0115,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b5\\page-061.overlay.png"
+    },
+    {
+      "src": ".b5-src\\page-062.jpg",
+      "out": "public\\cartilla\\art\\restored\\workbook\\page-062.jpg",
+      "origSize": "2550x3301",
+      "restoredSize": "3090x4000",
+      "drift": 0.0113,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b5\\page-062.overlay.png"
+    },
+    {
+      "src": ".b5-src\\page-063.jpg",
+      "out": "public\\cartilla\\art\\restored\\workbook\\page-063.jpg",
+      "origSize": "2550x3301",
+      "restoredSize": "3090x4000",
+      "drift": 0.0175,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b5\\page-063.overlay.png"
+    },
+    {
+      "src": ".b5-src\\page-064.jpg",
+      "out": "public\\cartilla\\art\\restored\\workbook\\page-064.jpg",
+      "origSize": "2550x3301",
+      "restoredSize": "3090x4000",
+      "drift": 0.0147,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b5\\page-064.overlay.png"
+    },
+    {
+      "src": ".b5-src\\page-065.jpg",
+      "out": "public\\cartilla\\art\\restored\\workbook\\page-065.jpg",
+      "origSize": "2550x3301",
+      "restoredSize": "3090x4000",
+      "drift": 0.0108,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b5\\page-065.overlay.png"
+    },
+    {
+      "src": ".b5-src\\page-066.jpg",
+      "out": "public\\cartilla\\art\\restored\\workbook\\page-066.jpg",
+      "origSize": "2550x3301",
+      "restoredSize": "3090x4000",
+      "drift": 0.0123,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b5\\page-066.overlay.png"
+    },
+    {
+      "src": ".b5-src\\page-067.jpg",
+      "out": "public\\cartilla\\art\\restored\\workbook\\page-067.jpg",
+      "origSize": "2550x3301",
+      "restoredSize": "3090x4000",
+      "drift": 0.0204,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b5\\page-067.overlay.png"
+    },
+    {
+      "src": ".b5-src\\page-068.jpg",
+      "out": "public\\cartilla\\art\\restored\\workbook\\page-068.jpg",
+      "origSize": "2550x3301",
+      "restoredSize": "3090x4000",
+      "drift": 0.015,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b5\\page-068.overlay.png"
+    },
+    {
+      "src": ".b5-src\\page-069.jpg",
+      "out": "public\\cartilla\\art\\restored\\workbook\\page-069.jpg",
+      "origSize": "2550x3301",
+      "restoredSize": "3090x4000",
+      "drift": 0.0113,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b5\\page-069.overlay.png"
+    },
+    {
+      "src": ".b5-src\\page-070.jpg",
+      "out": "public\\cartilla\\art\\restored\\workbook\\page-070.jpg",
+      "origSize": "2550x3301",
+      "restoredSize": "3090x4000",
+      "drift": 0.009,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b5\\page-070.overlay.png"
+    },
+    {
+      "src": ".b5-src\\page-071.jpg",
+      "out": "public\\cartilla\\art\\restored\\workbook\\page-071.jpg",
+      "origSize": "2550x3301",
+      "restoredSize": "3090x4000",
+      "drift": 0.0262,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b5\\page-071.overlay.png"
+    },
+    {
+      "src": ".b5-src\\page-072.jpg",
+      "out": "public\\cartilla\\art\\restored\\workbook\\page-072.jpg",
+      "origSize": "2550x3301",
+      "restoredSize": "3090x4000",
+      "drift": 0.0151,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b5\\page-072.overlay.png"
+    },
+    {
+      "src": ".b5-src\\page-073.jpg",
+      "out": "public\\cartilla\\art\\restored\\workbook\\page-073.jpg",
+      "origSize": "2550x3301",
+      "restoredSize": "3090x4000",
+      "drift": 0.0111,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b5\\page-073.overlay.png"
+    },
+    {
+      "src": ".b5-src\\page-074.jpg",
+      "out": "public\\cartilla\\art\\restored\\workbook\\page-074.jpg",
+      "origSize": "2550x3301",
+      "restoredSize": "3090x4000",
+      "drift": 0.0107,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b5\\page-074.overlay.png"
+    }
+  ]
+}
