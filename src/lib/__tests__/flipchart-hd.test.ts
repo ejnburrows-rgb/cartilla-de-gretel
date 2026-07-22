@@ -17,7 +17,7 @@ describe("flipchart-hd — HD-first presentation assets", () => {
     expect(page).toBeTruthy();
     const src = getFlipchartPageSrc(page!);
     expect(isHdFlipchartPath(src)).toBe(true);
-    expect(src).toMatch(/\/cartilla\/art\/hd\/flipchart\/page-\d+\.jpg$/i);
+    expect(src).toMatch(/\/cartilla\/art\/(restored|hd)\/flipchart\/page-\d+\.jpg$/i);
   });
 
   it("lesson pages prefer HD plate paths", () => {

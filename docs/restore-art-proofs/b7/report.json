@@ -1,0 +1,564 @@
+{
+  "generatedAt": "2026-07-22T19:04:35.524Z",
+  "threshold": 0.06,
+  "results": [
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-001.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-001.jpg",
+      "origSize": "2550x3344",
+      "restoredSize": "3050x4000",
+      "drift": 0.0168,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-001.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-002.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-002.jpg",
+      "origSize": "2550x3427",
+      "restoredSize": "2976x4000",
+      "drift": 0.0208,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-002.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-003.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-003.jpg",
+      "origSize": "2550x3556",
+      "restoredSize": "2868x4000",
+      "drift": 0.0164,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-003.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-004.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-004.jpg",
+      "origSize": "2550x3436",
+      "restoredSize": "2969x4000",
+      "drift": 0.0176,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-004.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-005.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-005.jpg",
+      "origSize": "2550x3458",
+      "restoredSize": "2950x4000",
+      "drift": 0.0203,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-005.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-006.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-006.jpg",
+      "origSize": "2550x3483",
+      "restoredSize": "2929x4000",
+      "drift": 0.0175,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-006.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-007.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-007.jpg",
+      "origSize": "2550x3458",
+      "restoredSize": "2950x4000",
+      "drift": 0.0209,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-007.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-008.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-008.jpg",
+      "origSize": "2550x3184",
+      "restoredSize": "3204x4000",
+      "drift": 0.0184,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-008.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-009.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-009.jpg",
+      "origSize": "2550x3423",
+      "restoredSize": "2980x4000",
+      "drift": 0.0168,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-009.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-010.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-010.jpg",
+      "origSize": "2550x3531",
+      "restoredSize": "2889x4000",
+      "drift": 0.014,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-010.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-011.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-011.jpg",
+      "origSize": "2550x3690",
+      "restoredSize": "2764x4000",
+      "drift": 0.0142,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-011.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-012.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-012.jpg",
+      "origSize": "2550x3531",
+      "restoredSize": "2889x4000",
+      "drift": 0.015,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-012.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-013.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-013.jpg",
+      "origSize": "2550x3251",
+      "restoredSize": "3137x4000",
+      "drift": 0.0125,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-013.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-014.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-014.jpg",
+      "origSize": "2550x3440",
+      "restoredSize": "2965x4000",
+      "drift": 0.0124,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-014.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-015.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-015.jpg",
+      "origSize": "2550x3423",
+      "restoredSize": "2980x4000",
+      "drift": 0.0172,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-015.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-016.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-016.jpg",
+      "origSize": "2550x3458",
+      "restoredSize": "2950x4000",
+      "drift": 0.0185,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-016.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-017.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-017.jpg",
+      "origSize": "2550x3483",
+      "restoredSize": "2929x4000",
+      "drift": 0.0099,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-017.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-018.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-018.jpg",
+      "origSize": "2550x3401",
+      "restoredSize": "2999x4000",
+      "drift": 0.0148,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-018.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-019.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-019.jpg",
+      "origSize": "2550x3322",
+      "restoredSize": "3070x4000",
+      "drift": 0.0177,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-019.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-020.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-020.jpg",
+      "origSize": "2550x3436",
+      "restoredSize": "2969x4000",
+      "drift": 0.0122,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-020.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-021.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-021.jpg",
+      "origSize": "2550x3292",
+      "restoredSize": "3098x4000",
+      "drift": 0.0165,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-021.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-022.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-022.jpg",
+      "origSize": "2550x3378",
+      "restoredSize": "3020x4000",
+      "drift": 0.0138,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-022.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-023.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-023.jpg",
+      "origSize": "2550x3344",
+      "restoredSize": "3050x4000",
+      "drift": 0.0179,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-023.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-024.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-024.jpg",
+      "origSize": "2550x3458",
+      "restoredSize": "2950x4000",
+      "drift": 0.0135,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-024.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-025.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-025.jpg",
+      "origSize": "2550x3134",
+      "restoredSize": "3255x4000",
+      "drift": 0.0175,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-025.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-026.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-026.jpg",
+      "origSize": "2550x3378",
+      "restoredSize": "3020x4000",
+      "drift": 0.0139,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-026.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-027.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-027.jpg",
+      "origSize": "2550x3494",
+      "restoredSize": "2919x4000",
+      "drift": 0.0154,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-027.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-028.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-028.jpg",
+      "origSize": "2550x3344",
+      "restoredSize": "3050x4000",
+      "drift": 0.015,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-028.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-029.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-029.jpg",
+      "origSize": "2550x3251",
+      "restoredSize": "3137x4000",
+      "drift": 0.0226,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-029.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-030.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-030.jpg",
+      "origSize": "2550x3378",
+      "restoredSize": "3020x4000",
+      "drift": 0.0144,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-030.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-031.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-031.jpg",
+      "origSize": "2550x3267",
+      "restoredSize": "3122x4000",
+      "drift": 0.0152,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-031.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-032.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-032.jpg",
+      "origSize": "2550x3276",
+      "restoredSize": "3114x4000",
+      "drift": 0.0124,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-032.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-033.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-033.jpg",
+      "origSize": "2550x3436",
+      "restoredSize": "2969x4000",
+      "drift": 0.0137,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-033.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-034.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-034.jpg",
+      "origSize": "2550x3412",
+      "restoredSize": "2989x4000",
+      "drift": 0.019,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-034.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-035.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-035.jpg",
+      "origSize": "2550x3259",
+      "restoredSize": "3130x4000",
+      "drift": 0.0182,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-035.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-036.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-036.jpg",
+      "origSize": "2550x3436",
+      "restoredSize": "2969x4000",
+      "drift": 0.0107,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-036.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-037.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-037.jpg",
+      "origSize": "2550x3401",
+      "restoredSize": "2999x4000",
+      "drift": 0.0178,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-037.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-038.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-038.jpg",
+      "origSize": "2550x3401",
+      "restoredSize": "2999x4000",
+      "drift": 0.0148,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-038.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-039.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-039.jpg",
+      "origSize": "2550x3276",
+      "restoredSize": "3114x4000",
+      "drift": 0.0146,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-039.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-040.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-040.jpg",
+      "origSize": "2550x3447",
+      "restoredSize": "2959x4000",
+      "drift": 0.0143,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-040.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-041.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-041.jpg",
+      "origSize": "2550x3209",
+      "restoredSize": "3179x4000",
+      "drift": 0.0148,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-041.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-042.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-042.jpg",
+      "origSize": "2550x3458",
+      "restoredSize": "2950x4000",
+      "drift": 0.0194,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-042.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-043.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-043.jpg",
+      "origSize": "2550x3334",
+      "restoredSize": "3059x4000",
+      "drift": 0.019,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-043.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-044.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-044.jpg",
+      "origSize": "2550x3412",
+      "restoredSize": "2989x4000",
+      "drift": 0.0209,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-044.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-045.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-045.jpg",
+      "origSize": "2550x3284",
+      "restoredSize": "3106x4000",
+      "drift": 0.0156,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-045.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-046.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-046.jpg",
+      "origSize": "2550x3436",
+      "restoredSize": "2969x4000",
+      "drift": 0.0159,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-046.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-047.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-047.jpg",
+      "origSize": "2550x3267",
+      "restoredSize": "3122x4000",
+      "drift": 0.0178,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-047.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-048.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-048.jpg",
+      "origSize": "2550x3401",
+      "restoredSize": "2999x4000",
+      "drift": 0.0164,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-048.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-049.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-049.jpg",
+      "origSize": "2550x3367",
+      "restoredSize": "3029x4000",
+      "drift": 0.0182,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-049.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-050.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-050.jpg",
+      "origSize": "2550x3389",
+      "restoredSize": "3010x4000",
+      "drift": 0.0144,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-050.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-051.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-051.jpg",
+      "origSize": "2550x3359",
+      "restoredSize": "3037x4000",
+      "drift": 0.0137,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-051.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-052.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-052.jpg",
+      "origSize": "2550x3447",
+      "restoredSize": "2959x4000",
+      "drift": 0.017,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-052.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-053.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-053.jpg",
+      "origSize": "2550x3355",
+      "restoredSize": "3040x4000",
+      "drift": 0.0214,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-053.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-054.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-054.jpg",
+      "origSize": "2550x3305",
+      "restoredSize": "3086x4000",
+      "drift": 0.0174,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-054.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-055.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-055.jpg",
+      "origSize": "2550x3401",
+      "restoredSize": "2999x4000",
+      "drift": 0.0159,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-055.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-056.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-056.jpg",
+      "origSize": "2550x3401",
+      "restoredSize": "2999x4000",
+      "drift": 0.0133,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-056.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-057.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-057.jpg",
+      "origSize": "2550x3311",
+      "restoredSize": "3081x4000",
+      "drift": 0.0171,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-057.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-058.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-058.jpg",
+      "origSize": "2550x3412",
+      "restoredSize": "2989x4000",
+      "drift": 0.0201,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-058.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-059.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-059.jpg",
+      "origSize": "2550x3311",
+      "restoredSize": "3081x4000",
+      "drift": 0.0187,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-059.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-060.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-060.jpg",
+      "origSize": "2550x3367",
+      "restoredSize": "3029x4000",
+      "drift": 0.0149,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-060.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-061.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-061.jpg",
+      "origSize": "2550x3355",
+      "restoredSize": "3040x4000",
+      "drift": 0.0156,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-061.overlay.png"
+    },
+    {
+      "src": "public\\cartilla\\art\\hd\\flipchart\\page-062.jpg",
+      "out": "public\\cartilla\\art\\restored\\flipchart\\page-062.jpg",
+      "origSize": "2550x3348",
+      "restoredSize": "3047x4000",
+      "drift": 0.015,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b7\\page-062.overlay.png"
+    }
+  ]
+}

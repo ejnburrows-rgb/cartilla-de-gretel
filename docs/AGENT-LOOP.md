@@ -150,9 +150,12 @@ files.**
 - [x] **B6. Batch L21–L24** — **DONE 2026-07-22:** pages 75–90 (jpg sources), 16/16 acceptance pass,
       wired (`RESTORED_PAGE_EXT` 1–90 — every mapped workbook page slot now has restored art). Proofs in
       `docs/restore-art-proofs/b6/`.
-- [ ] **B7. Flipchart lane** (`public/cartilla/**` HD láminas) — cleanup only, never recolor or
-      reinterpret; it is already full color.
-- [ ] `abrigo, aguja, remolino, oruga, globo` — confirm still `pendiente`, do NOT restore/fabricate.
+- [x] **B7. Flipchart lane** (`public/cartilla/**` HD láminas) — cleanup only, never recolor or
+      reinterpret; it is already full color. **DONE 2026-07-22:** all 62 plates cleaned, 62/62 acceptance
+      pass, restored mirror committed under `art/restored/flipchart/` and served first by
+      `getFlipchartPageSrc` (originals untouched). Proofs in `docs/restore-art-proofs/b7/`.
+- [x] `abrigo, aguja, remolino, oruga, globo` — confirmed still `pendiente` 2026-07-22 (visible as
+      dashed "pendiente" cells in Lesson 1; nothing restored or fabricated for them in B1–B7).
 
 ### TASK C — Born-digital presentation  ✅ **DONE on `main` 2026-07-22 (PRs #287–#290)**
 - [x] Cut-out treatment / kill the "scanned page pasted on screen" look — the faithful renderer already
@@ -221,6 +224,9 @@ files.**
 ---
 
 ## STATUS LOG (append one dated line per merged PR; newest at top)
+- 2026-07-22 — **B7 flipchart lane DONE:** all 62 HD láminas pixel-cleaned (62/62 acceptance pass,
+  cleanup only — no recolor/reinterpretation), restored mirror served first, originals untouched.
+  Banned five (abrigo/aguja/remolino/oruga/globo) confirmed still pendiente. **Task B complete.**
 - 2026-07-22 — **B6 art batch L21–L24 DONE:** pages 75–90 restored (16/16 pass). All 90 mapped workbook
   page slots now carry acceptance-tested restored art. Verify bar green.
 - 2026-07-22 — **B5 art batch L17–L20 DONE:** pages 59–74 restored (16/16 pass), wired. Verify bar green.

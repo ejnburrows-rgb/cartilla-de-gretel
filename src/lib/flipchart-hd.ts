@@ -23,19 +23,33 @@ export const FLIPCHART_PAGES: FlipchartPage[] = (flipchartData.pages as Flipchar
   (a, b) => a.flipchartPage - b.flipchartPage,
 );
 
-/** Return the absolute URL path for a flipchart page (leading slash). */
+/**
+ * Return the absolute URL path for a flipchart page (leading slash).
+ *
+ * All 62 HD plates have a pixel-cleaned, acceptance-tested restored mirror
+ * committed under /cartilla/art/restored/flipchart/ (B7, same filenames,
+ * strict 1:1 — cleanup only, never recolored or reinterpreted), so restored
+ * is served first and the hd/ originals remain untouched on disk.
+ */
 export function getFlipchartPageSrc(page: FlipchartPage): string {
-  return `/${page.path}`;
+  const restored = page.path.replace(/^cartilla\/art\/hd\/flipchart\//, "cartilla/art/restored/flipchart/");
+  return `/${restored}`;
 }
 
 /**
- * True when the path points at the HD flipchart plate directory
- * (public/cartilla/art/hd/flipchart/). Source/raw scans must never be
+ * True when the path points at an HD flipchart plate directory — the original
+ * (public/cartilla/art/hd/flipchart/) or its restored mirror
+ * (public/cartilla/art/restored/flipchart/). Source/raw scans must never be
  * preferred when an HD plate exists in teacher-flipchart.json.
  */
 export function isHdFlipchartPath(src: string): boolean {
   const clean = src.replace(/^\//, "").toLowerCase();
-  return clean.startsWith("cartilla/art/hd/flipchart/") || clean.includes("/art/hd/flipchart/");
+  return (
+    clean.startsWith("cartilla/art/hd/flipchart/") ||
+    clean.includes("/art/hd/flipchart/") ||
+    clean.startsWith("cartilla/art/restored/flipchart/") ||
+    clean.includes("/art/restored/flipchart/")
+  );
 }
 
 /** Prefer HD path for a lesson's first plate; null if none authored. */

@@ -44,7 +44,7 @@ describe("FlipchartHdPanel — CRM-grade presenter board", () => {
     // Lesson 2 may or may not have plates depending on catalog — if present, HD
     if (face) {
       const src = face.getAttribute("data-flipchart-src") ?? "";
-      expect(src).toContain("/cartilla/art/hd/flipchart/");
+      expect(src).toMatch(/\/cartilla\/art\/(restored|hd)\/flipchart\//);
       expect(face.getAttribute("data-hd")).toBe("true");
     } else {
       expect(screen.getByTestId("flipchart-empty")).toBeTruthy();
