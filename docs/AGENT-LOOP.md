@@ -182,15 +182,25 @@ files.**
       event back — round-trip PASS. RLS is active (the anon client only sees its own student's rows). No
       code fix was needed; the previously-unproven live path works. Test row cleaned up; DB left pristine.
       Screenshot proof waived by owner 2026-07-22.
-- [ ] **D2. Teacher backend go-live** — run the full teacher CRM against a real Supabase DB (auth, classes,
-      join codes, roster, RLS). Remove reliance on the demo/seed lane for real use. Branch
-      `feat/teacher-backend-live`. **UNBLOCKED 2026-07-22:** the owner's Supabase project is live (see
-      prerequisites). *(Join/student codes are now crypto-secure — PR #300.)*
-- [~] **D3. Reports precision + time** — **DEMO path DONE (PR #279):** `getSeedClassProgress()` now
-      aggregates real accuracy % and minutes and a per-exercise-type breakdown (was `—` / `0 mins`). The
-      **live** path (`getClassProgress` against Supabase) already computes the same and is verified by
-      tests, but is unproven end-to-end until D2's Supabase go-live. Effectively complete pending the
-      backend.
+- [x] **D2. Teacher backend go-live — DONE 2026-07-22. Proven against the live Supabase project**
+      (`rckarlopnickdyyjfbas`). A real authenticated teacher (Supabase `signInWithPassword`; the
+      `handle_new_user` trigger auto-assigns the `teacher` role + profile on account creation) ran the full
+      live `teacher.functions` path: **class creation** (`classes.insert` with a crypto join code),
+      **listClasses** (RLS-scoped to `teacher_id = auth.uid()`), **roster** (`students.insert` +
+      read-back), and the join code worked for a fresh anon student (`list_class_students`). **RLS
+      isolation verified** — the new teacher saw *only* its own class and none of the 3 seeded classes
+      owned by other teachers (foreign-rows visible = 0). **Demo/seed lane is already dev-only** and needs
+      no change: `demoModeAllowed()` returns false under `import.meta.env.PROD` and only activates on
+      `VITE_ALLOW_DEMO_MODE === "true"` in dev/preview, so real (production) use always hits live Supabase.
+      No code fix was required; the previously-unproven live path works. Test teacher/class/student were
+      created for the proof and fully removed afterward (DB back to 3 classes / 7 students / 8 events).
+      Screenshot proof waived by owner 2026-07-22.
+- [x] **D3. Reports precision + time — DONE 2026-07-22.** DEMO path was already done (PR #279); with D2
+      live, the **live** report path is now confirmed end-to-end: a student logged graded exercises (7/8)
+      and 180s of time via the live RPCs, and the owning teacher read those `progress_events` back
+      (RLS lets a teacher see their own students' rows) — the report inputs computed **real accuracy 88%
+      and 3 minutes** (was `—` / `0 mins` before). `getClassProgress`'s aggregation was already unit-tested;
+      this closes the "unproven end-to-end" gap. Test data cleaned up.
 - [x] **D4. Flipchart slides — DONE as far as the source art allows (PR #282).** The multi-slide flipchart
       already works (prev/next, keyboard, filmstrip). Lessons **7–24 present all 3 real HD láminas**;
       lessons **1–6 are art-limited** — the source 62-page flipchart PDF genuinely has only ONE physical
@@ -238,6 +248,13 @@ files.**
 ---
 
 ## STATUS LOG (append one dated line per merged PR; newest at top)
+- 2026-07-22 — **D2 teacher backend go-live + D3 live reports DONE:** proven against the live Supabase
+  project. An authenticated teacher created a class (crypto join code), listed classes (RLS-scoped),
+  built a roster, and the join code worked for a fresh anon student; **RLS isolation verified** (teacher
+  saw 0 foreign classes). Demo/seed lane already dev-only (`demoModeAllowed()` false under PROD), so real
+  use hits live Supabase — no change needed. **D3:** a student logged graded work (7/8) + 180s; the teacher
+  read it back and the report computed **real 88% accuracy / 3 min** (was —/0). No code fix required; all
+  test data removed (DB back to 3 classes / 7 students / 8 events). Verify bar green. Screenshot waived.
 - 2026-07-22 — **D1 student cloud save DONE:** proven end-to-end against the live Supabase project. Grading
   writes (`log_student_progress`) and cross-device read-back (`get_student_progress`, consumed by
   `mi-progreso.tsx`) both work with the app's real anon key + RPCs; a graded event written on one client was
