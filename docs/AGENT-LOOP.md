@@ -203,9 +203,13 @@ files.**
       approved scope) + 1 `exhaustive-deps` inside `GretelLiveAvatar.tsx` (NEVER-touch list — left alone).
       Also deleted `scripts/ui-polish2.cjs` (unparseable dead one-shot codemod; its target file no longer
       exists).
-- [ ] **D7. Admin cross-teacher dashboard** — **APPROVED (owner, 2026-07-22): scope and build it.** Build
-      demo-lane first (no live-DB dependency to render); wire live data after D2 lands. Genuinely unbuilt
-      today (no admin-viewing components, no RLS-bypass policy).
+- [~] **D7. Admin cross-teacher dashboard** — **DEMO LANE DONE 2026-07-22.** New route
+      `/cartilla/teacher/admin` ("Dirección"), gated to the demo admin account (`isSeedAdmin`, Leonor) and
+      linked in the teacher nav only for that account. Cross-teacher roll-up (`getSeedAdminOverview`)
+      reuses `getSeedClassProgress` per class so admin numbers always match each teacher's own CRM. Second
+      seed teacher (Emilio) got a demo class (3 students, varied progress) with a storage migration so
+      older demo states aren't reset. 5 new unit tests. **Remaining:** wire the live path (real `admin`
+      role + cross-teacher queries under RLS) after D2's Supabase go-live.
 - [x] **T2. Student happy-path E2E smoke test (#304, issue #241) — DONE on `main` 2026-07-22.** Playwright
       spec seeds progress, opens Lesson 1, taps a picture cell, presses Comprobar, asserts a visible grading
       reaction + disabled check button. `pnpm test:e2e` runs green (16.6s) in a browser-capable env; screenshot
@@ -228,6 +232,11 @@ files.**
 ---
 
 ## STATUS LOG (append one dated line per merged PR; newest at top)
+- 2026-07-22 — **D7 admin dashboard (demo lane) DONE:** `/cartilla/teacher/admin` with global tiles +
+  per-teacher class tables, admin-gated, roll-up reuses per-class CRM aggregation. Emilio seed class added
+  with migration. 1091 unit tests green. Live wiring waits on D2. Also this session: **branch
+  consolidation finished (92 → 1, only `main` remains)** — see `docs/BRANCH-CONSOLIDATION-REPORT.md` (#332);
+  Jules PRs #316/#317/#318 verified + merged.
 - 2026-07-22 — **D6 lint pass DONE:** 277 → 0 errors, per-site and behavior-preserving. 24 warnings
   remain by design (react-refresh out of scope; one exhaustive-deps inside the NEVER-touch
   GretelLiveAvatar). Verify bar green (typecheck · 1058 unit · build). Also merged in parallel:

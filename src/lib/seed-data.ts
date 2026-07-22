@@ -188,6 +188,68 @@ function generateSeedEvents(
   return events;
 }
 
+/** Second seed teacher's class — gives the admin cross-teacher dashboard a
+ * real spread to aggregate in the demo lane (D7). Kept as its own slice so
+ * readState() can migrate older stored demo states that predate it. */
+const EMILIO_CLASS_ID = "seed-class-emilio";
+function emilioSlice(): Pick<SeedState, "classes" | "students" | "events"> {
+  const students: SeedStudent[] = [
+    {
+      id: "seed-student-lucas",
+      class_id: EMILIO_CLASS_ID,
+      display_name: "Lucas Herrera",
+      student_code: "LUCAS",
+      created_at: daysAgoIso(30),
+    },
+    {
+      id: "seed-student-emma",
+      class_id: EMILIO_CLASS_ID,
+      display_name: "Emma Delgado",
+      student_code: "EMMAD",
+      created_at: daysAgoIso(28),
+    },
+    {
+      id: "seed-student-nico",
+      class_id: EMILIO_CLASS_ID,
+      display_name: "Nicolás Peña",
+      student_code: "NICOP",
+      created_at: daysAgoIso(25),
+    },
+  ];
+  const events: SeedEvent[] = [
+    // Lucas — steady, 7/24 completed, medium scores.
+    ...generateSeedEvents(
+      "seed-student-lucas",
+      Array.from({ length: 7 }, (_, i) => i + 1),
+      [8],
+      { lastActiveDaysAgo: 1, scoreQuality: "medium" },
+    ),
+    // Emma — strong starter, 4 completed, high scores.
+    ...generateSeedEvents("seed-student-emma", [1, 2, 3, 4], [5], {
+      lastActiveDaysAgo: 0,
+      scoreQuality: "high",
+    }),
+    // Nicolás — needs attention: low scores, inactive 12 days.
+    ...generateSeedEvents("seed-student-nico", [1], [2], {
+      lastActiveDaysAgo: 12,
+      scoreQuality: "low",
+    }),
+  ];
+  return {
+    classes: [
+      {
+        id: EMILIO_CLASS_ID,
+        teacher_id: "seed-teacher-emilio",
+        name: "Clase de Emilio (Demo)",
+        join_code: "EMIL12",
+        created_at: daysAgoIso(30),
+      },
+    ],
+    students,
+    events,
+  };
+}
+
 function initialState(): SeedState {
   const classId = "seed-class-demo";
   const students: SeedStudent[] = [
@@ -257,6 +319,7 @@ function initialState(): SeedState {
     // Camila — needs attention: brand new, zero activity at all.
   ];
 
+  const emilio = emilioSlice();
   return {
     classes: [
       {
@@ -266,9 +329,10 @@ function initialState(): SeedState {
         join_code: "DEMO12",
         created_at: daysAgoIso(60),
       },
+      ...emilio.classes,
     ],
-    students,
-    events,
+    students: [...students, ...emilio.students],
+    events: [...events, ...emilio.events],
     assignments: [
       {
         id: "seed-assignment-1",
@@ -289,12 +353,23 @@ function readState(): SeedState {
     const raw = localStorage.getItem(STATE_KEY);
     if (raw) {
       const parsed = JSON.parse(raw) as Partial<SeedState>;
-      return {
+      const state: SeedState = {
         classes: parsed.classes ?? [],
         students: parsed.students ?? [],
         events: parsed.events ?? [],
         assignments: parsed.assignments ?? [],
       };
+      // Migration: demo states stored before the admin dashboard existed
+      // lack the second teacher's class — append it once so the
+      // cross-teacher view always has data without resetting user edits.
+      if (!state.classes.some((c) => c.id === EMILIO_CLASS_ID)) {
+        const emilio = emilioSlice();
+        state.classes.push(...emilio.classes);
+        state.students.push(...emilio.students);
+        state.events.push(...emilio.events);
+        writeState(state);
+      }
+      return state;
     }
   } catch {
     /* reset below */
@@ -738,6 +813,113 @@ export function getSeedClassProgress(classId: string) {
       };
     }),
     totalLessons: TOTAL_LESSONS,
+  };
+}
+
+/** The demo lane's admin: the workbook's author account. The live path will
+ * use a real 'admin' role via has_role once D2's Supabase go-live lands. */
+const SEED_ADMIN_ID: SeedTeacherId = "seed-teacher-leonor";
+
+export function isSeedAdmin(): boolean {
+  if (!isSeedSessionActive()) return false;
+  return getSeedTeacher()?.id === SEED_ADMIN_ID;
+}
+
+export type AdminClassSummary = {
+  classId: string;
+  className: string;
+  joinCode: string;
+  studentCount: number;
+  /** 0..1 or null when no scored exercises yet */
+  accuracy: number | null;
+  totalMinutes: number;
+  lessonsCompleted: number;
+  attentionCount: number;
+};
+
+export type AdminTeacherSummary = {
+  teacherId: string;
+  teacherName: string;
+  classes: AdminClassSummary[];
+  studentCount: number;
+  accuracy: number | null;
+  attentionCount: number;
+};
+
+export type AdminOverview = {
+  teachers: AdminTeacherSummary[];
+  totals: {
+    teacherCount: number;
+    classCount: number;
+    studentCount: number;
+    accuracy: number | null;
+    attentionCount: number;
+  };
+};
+
+/** Cross-teacher aggregation for the admin dashboard (demo lane, D7).
+ * Reuses getSeedClassProgress so every number matches what each teacher
+ * sees on their own CRM — the admin view is a roll-up, never a fork. */
+export function getSeedAdminOverview(): AdminOverview {
+  const state = readState();
+  let globalScore = 0;
+  let globalTotal = 0;
+
+  const teachers: AdminTeacherSummary[] = SEED_TEACHERS.map((t) => {
+    const classes = state.classes
+      .filter((c) => c.teacher_id === t.id)
+      .map((c): AdminClassSummary => {
+        const progress = getSeedClassProgress(c.id);
+        const classEvents = state.events.filter((e) =>
+          state.students.some((s) => s.class_id === c.id && s.id === e.student_id),
+        );
+        const score = classEvents
+          .filter((e) => e.event_kind === "exercise")
+          .reduce((sum, e) => sum + (e.score ?? 0), 0);
+        const total = classEvents
+          .filter((e) => e.event_kind === "exercise")
+          .reduce((sum, e) => sum + (e.total ?? 0), 0);
+        globalScore += score;
+        globalTotal += total;
+        return {
+          classId: c.id,
+          className: c.name,
+          joinCode: c.join_code,
+          studentCount: progress.perStudent.length,
+          accuracy: total > 0 ? score / total : null,
+          totalMinutes: Math.round(
+            progress.perStudent.reduce((sum, s) => sum + s.timeSeconds, 0) / 60,
+          ),
+          lessonsCompleted: progress.perStudent.reduce((sum, s) => sum + s.lessonsCount, 0),
+          attentionCount: Object.values(progress.attentionByStudent).filter((a) => a.flagged)
+            .length,
+        };
+      });
+
+    const studentCount = classes.reduce((sum, c) => sum + c.studentCount, 0);
+    const scored = classes.filter((c) => c.accuracy !== null);
+    return {
+      teacherId: t.id,
+      teacherName: t.name,
+      classes,
+      studentCount,
+      accuracy:
+        scored.length > 0
+          ? scored.reduce((sum, c) => sum + (c.accuracy ?? 0), 0) / scored.length
+          : null,
+      attentionCount: classes.reduce((sum, c) => sum + c.attentionCount, 0),
+    };
+  });
+
+  return {
+    teachers,
+    totals: {
+      teacherCount: teachers.length,
+      classCount: teachers.reduce((sum, t) => sum + t.classes.length, 0),
+      studentCount: teachers.reduce((sum, t) => sum + t.studentCount, 0),
+      accuracy: globalTotal > 0 ? globalScore / globalTotal : null,
+      attentionCount: teachers.reduce((sum, t) => sum + t.attentionCount, 0),
+    },
   };
 }
 
