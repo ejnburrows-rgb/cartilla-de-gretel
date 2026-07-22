@@ -1,0 +1,132 @@
+{
+  "generatedAt": "2026-07-22T18:37:38.564Z",
+  "threshold": 0.06,
+  "results": [
+    {
+      "src": ".b2-src\\page-013.png",
+      "out": "public\\cartilla\\art\\restored\\workbook\\page-013.png",
+      "origSize": "2550x3301",
+      "restoredSize": "3090x4000",
+      "drift": 0.0186,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b2\\page-013.overlay.png"
+    },
+    {
+      "src": ".b2-src\\page-014.png",
+      "out": "public\\cartilla\\art\\restored\\workbook\\page-014.png",
+      "origSize": "2550x3301",
+      "restoredSize": "3090x4000",
+      "drift": 0.0107,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b2\\page-014.overlay.png"
+    },
+    {
+      "src": ".b2-src\\page-015.png",
+      "out": "public\\cartilla\\art\\restored\\workbook\\page-015.png",
+      "origSize": "2550x3301",
+      "restoredSize": "3090x4000",
+      "drift": 0.026,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b2\\page-015.overlay.png"
+    },
+    {
+      "src": ".b2-src\\page-016.png",
+      "out": "public\\cartilla\\art\\restored\\workbook\\page-016.png",
+      "origSize": "2550x3301",
+      "restoredSize": "3090x4000",
+      "drift": 0.0156,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b2\\page-016.overlay.png"
+    },
+    {
+      "src": ".b2-src\\page-017.png",
+      "out": "public\\cartilla\\art\\restored\\workbook\\page-017.png",
+      "origSize": "2550x3301",
+      "restoredSize": "3090x4000",
+      "drift": 0.0102,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b2\\page-017.overlay.png"
+    },
+    {
+      "src": ".b2-src\\page-018.png",
+      "out": "public\\cartilla\\art\\restored\\workbook\\page-018.png",
+      "origSize": "2550x3301",
+      "restoredSize": "3090x4000",
+      "drift": 0.0234,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b2\\page-018.overlay.png"
+    },
+    {
+      "src": ".b2-src\\page-019.png",
+      "out": "public\\cartilla\\art\\restored\\workbook\\page-019.png",
+      "origSize": "2550x3301",
+      "restoredSize": "3090x4000",
+      "drift": 0.0169,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b2\\page-019.overlay.png"
+    },
+    {
+      "src": ".b2-src\\page-020.png",
+      "out": "public\\cartilla\\art\\restored\\workbook\\page-020.png",
+      "origSize": "2550x3301",
+      "restoredSize": "3090x4000",
+      "drift": 0.01,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b2\\page-020.overlay.png"
+    },
+    {
+      "src": ".b2-src\\page-021.png",
+      "out": "public\\cartilla\\art\\restored\\workbook\\page-021.png",
+      "origSize": "2550x3301",
+      "restoredSize": "3090x4000",
+      "drift": 0.0111,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b2\\page-021.overlay.png"
+    },
+    {
+      "src": ".b2-src\\page-022.png",
+      "out": "public\\cartilla\\art\\restored\\workbook\\page-022.png",
+      "origSize": "2550x3301",
+      "restoredSize": "3090x4000",
+      "drift": 0.0093,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b2\\page-022.overlay.png"
+    },
+    {
+      "src": ".b2-src\\page-023.png",
+      "out": "public\\cartilla\\art\\restored\\workbook\\page-023.png",
+      "origSize": "2550x3301",
+      "restoredSize": "3090x4000",
+      "drift": 0.0114,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b2\\page-023.overlay.png"
+    },
+    {
+      "src": ".b2-src\\page-024.png",
+      "out": "public\\cartilla\\art\\restored\\workbook\\page-024.png",
+      "origSize": "2550x3301",
+      "restoredSize": "3090x4000",
+      "drift": 0.0124,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b2\\page-024.overlay.png"
+    },
+    {
+      "src": ".b2-src\\page-025.png",
+      "out": "public\\cartilla\\art\\restored\\workbook\\page-025.png",
+      "origSize": "2550x3301",
+      "restoredSize": "3090x4000",
+      "drift": 0.0101,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b2\\page-025.overlay.png"
+    },
+    {
+      "src": ".b2-src\\page-026.png",
+      "out": "public\\cartilla\\art\\restored\\workbook\\page-026.png",
+      "origSize": "2550x3301",
+      "restoredSize": "3090x4000",
+      "drift": 0.0091,
+      "pass": true,
+      "proof": "docs\\restore-art-proofs\\b2\\page-026.overlay.png"
+    }
+  ]
+}

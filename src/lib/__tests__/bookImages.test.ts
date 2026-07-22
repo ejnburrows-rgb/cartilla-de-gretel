@@ -28,8 +28,8 @@ describe("bookImages Art Fallback Chain", () => {
 
   it("resolves restored art only for pages with committed restored files", () => {
     expect(getRestoredPageImage(1)).toBe("/cartilla/art/restored/workbook/page-001.png");
-    expect(getRestoredPageImage(12)).toBe("/cartilla/art/restored/workbook/page-012.png");
-    expect(getRestoredPageImage(13)).toBeNull();
+    expect(getRestoredPageImage(26)).toBe("/cartilla/art/restored/workbook/page-026.png");
+    expect(getRestoredPageImage(27)).toBeNull();
   });
 
   it("prefers restored art at the head of the chain for restored pages", () => {
