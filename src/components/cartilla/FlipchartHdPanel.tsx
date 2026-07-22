@@ -20,6 +20,7 @@ import {
   type FlipchartPage,
 } from "@/lib/flipchart-hd";
 import { FLIPCHART_FLIP_MS, flipchartFlipTransforms } from "@/lib/living-motion";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 import "@/styles/flipchart-presenter.css";
 
 interface FlipchartHdPanelProps {
@@ -50,6 +51,7 @@ function FlipchartFace({ page }: { page?: FlipchartPage }) {
 
 export function FlipchartHdPanel({ lessonNumber, accentColor }: FlipchartHdPanelProps) {
   const pages: FlipchartPage[] = getFlipchartPagesForLesson(lessonNumber);
+  const reducedMotion = useReducedMotion();
   const [selectedIdx, setSelectedIdx] = useState(0);
   const [isFlipping, setIsFlipping] = useState(false);
   const [flipDirection, setFlipDirection] = useState<"next" | "prev" | null>(null);
@@ -75,8 +77,12 @@ export function FlipchartHdPanel({ lessonNumber, accentColor }: FlipchartHdPanel
     (index: number, direction: "next" | "prev") => {
       if (isFlipping || pages.length === 0) return;
       if (index < 0 || index >= pages.length) return;
-      // Instant jump for filmstrip far jumps (skip mid-flip when |delta| > 1)
-      if (Math.abs(index - safeIdx) > 1) {
+      // Instant jump — no rotateX flip — for filmstrip far jumps (|delta| > 1)
+      // and whenever the viewer prefers reduced motion. Without the reduced-
+      // motion case the CSS transition is already suppressed (living-art.css),
+      // but the JS still held `isFlipping` for FLIPCHART_FLIP_MS, leaving an
+      // ~820ms dead, unresponsive pause with the nav disabled on every turn.
+      if (reducedMotion || Math.abs(index - safeIdx) > 1) {
         setSelectedIdx(index);
         return;
       }
@@ -93,7 +99,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor }: FlipchartHdPanel
 
       setTimeout(() => afterFlip(index), FLIPCHART_FLIP_MS);
     },
-    [afterFlip, isFlipping, pages.length, safeIdx],
+    [afterFlip, isFlipping, pages.length, safeIdx, reducedMotion],
   );
 
   const handlePrev = useCallback(() => {
