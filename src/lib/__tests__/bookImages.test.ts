@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   getBookPageImage,
   getLineartPathFromSource,
+  getRestoredPageImage,
   getWorkbookPageFallbackChain,
 } from "@/lib/bookImages";
 
@@ -25,10 +26,23 @@ describe("bookImages Art Fallback Chain", () => {
     expect(getLineartPathFromSource(null)).toBeNull();
   });
 
+  it("resolves restored art only for pages with committed restored files", () => {
+    expect(getRestoredPageImage(1)).toBe("/cartilla/art/restored/workbook/page-001.png");
+    expect(getRestoredPageImage(12)).toBe("/cartilla/art/restored/workbook/page-012.png");
+    expect(getRestoredPageImage(13)).toBeNull();
+  });
+
+  it("prefers restored art at the head of the chain for restored pages", () => {
+    const chain = getWorkbookPageFallbackChain(4, "cartilla/images/source/a/a-page-4.jpg");
+    expect(chain[0]).toBe("/cartilla/art/restored/workbook/page-004.png");
+    expect(chain[1]).toBe("/cartilla/art/hd/workbook/page-004.png");
+  });
+
   it("builds the ordered sequence: HD colorized art -> Clean transparent lineart -> Raw source scan", () => {
     const chain = getWorkbookPageFallbackChain(4, "cartilla/images/source/a/a-page-4.jpg");
-    expect(chain[0]).toBe("/cartilla/art/hd/workbook/page-004.png");
-    expect(chain[1]).toBe("/cartilla/art/hd/workbook/page-004.jpg");
+    expect(chain[0]).toBe("/cartilla/art/restored/workbook/page-004.png");
+    expect(chain[1]).toBe("/cartilla/art/hd/workbook/page-004.png");
+    expect(chain[2]).toBe("/cartilla/art/hd/workbook/page-004.jpg");
     expect(chain).toContain("/cartilla/art/hd/lineart/a-page-4.png");
     expect(chain).toContain("/cartilla/images/source/a/a-page-4.jpg");
     // Ensure order is HD -> lineart -> raw scan
@@ -40,7 +54,8 @@ describe("bookImages Art Fallback Chain", () => {
 
   it("resolves source scan from catalog when sourceScanPath is not passed", () => {
     const chain = getWorkbookPageFallbackChain(7);
-    expect(chain[0]).toBe("/cartilla/art/hd/workbook/page-007.png");
+    expect(chain[0]).toBe("/cartilla/art/restored/workbook/page-007.png");
+    expect(chain[1]).toBe("/cartilla/art/hd/workbook/page-007.png");
     expect(chain).toContain("/cartilla/art/hd/lineart/a-page-4.png");
     expect(chain).toContain("/cartilla/images/source/a/a-page-4.jpg");
   });

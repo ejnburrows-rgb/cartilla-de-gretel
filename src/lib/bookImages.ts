@@ -12,6 +12,25 @@ import { getFullWorkbookPages } from "./book-faithful";
 
 const COLOR_SCAN_COUNT = 92;
 
+/**
+ * Pages whose restored (pixel-cleaned, acceptance-tested) art is committed
+ * under /cartilla/art/restored/workbook/. Extended batch by batch
+ * (art/restore-<batch> PRs). Restoration CLEANS, never INVENTS — every file
+ * here passed the overlay/edge-drift acceptance test (see AGENTS.md).
+ */
+const RESTORED_PAGES: ReadonlySet<number> = new Set([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
+
+/**
+ * Returns the restored art path for a page, or null if the page has no
+ * committed restored file yet.
+ */
+export function getRestoredPageImage(pageNumber: number): string | null {
+  if (RESTORED_PAGES.has(pageNumber)) {
+    return `/cartilla/art/restored/workbook/page-${zeroPad(pageNumber)}.png`;
+  }
+  return null;
+}
+
 function zeroPad(n: number): string {
   return String(n).padStart(3, "0");
 }
@@ -55,6 +74,12 @@ export function getWorkbookPageFallbackChain(
   const chain: string[] = [];
   const safePage = Math.max(1, Math.min(pageNumber, 95));
   const padded = zeroPad(safePage);
+
+  // 0. Restored art (pixel-cleaned, acceptance-tested) when committed
+  const restored = getRestoredPageImage(safePage);
+  if (restored) {
+    chain.push(restored);
+  }
 
   // 1. HD colorized art
   chain.push(`/cartilla/art/hd/workbook/page-${padded}.png`);

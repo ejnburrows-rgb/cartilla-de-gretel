@@ -1,6 +1,9 @@
-#!/usr/bin/env node
 /**
  * scripts/validate-art-color.mjs
+ *
+ * (No shebang: this file is imported by art-color-completeness.test.ts, and
+ * vite's inline module transform leaves a mid-file shebang in place, which is
+ * a parse error. It is always invoked as `node scripts/validate-art-color.mjs`.)
  *
  * The colorization invariant this repo kept losing. Existence/size validators
  * (validate-content.mjs, art-slots-integrity.test.ts) pass on a fully-formed
