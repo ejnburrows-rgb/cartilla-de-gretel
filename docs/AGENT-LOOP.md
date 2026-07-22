@@ -181,11 +181,16 @@ files.**
       `ayuda.tsx` ES/EN toggle removed, plus dormant English fallbacks in `mi-progreso`/`unirse`/
       `SkipLink`/`pilot-faithful`). The orphaned ES/EN-toggle machinery (`ThemeSwitcher`, `locale`,
       `LanguageToggle`) was then archived to `src/_archive/` (PRs #292, #295).
-- [ ] **D6. Lint pass (#245)** — clear the ~396 lint problems (355 errors, 41 warnings) without behavior
-      change. Branch `chore/lint`. Owner-supervised, behavior-preserving; deliberately kept out of the
+- [~] **D6. Lint pass (#245)** — **safe subset DONE** (PRs #305, #308: prettier-only formatting, 396 → 277
+      problems). Remaining 277 are judgment-call rules (`no-explicit-any`, `react-hooks/exhaustive-deps`,
+      `rules-of-hooks`) — fix per-site, behavior-preserving, owner-supervised. Deliberately kept out of the
       autonomous loop.
 - [ ] **D7. Admin cross-teacher dashboard** — **BLOCKED (owner):** genuinely unbuilt (no admin-viewing
       components, no RLS-bypass policy). Needs the owner to confirm it's still wanted before scoping.
+- [x] **T2. Student happy-path E2E smoke test (#304, issue #241) — DONE on `main` 2026-07-22.** Playwright
+      spec seeds progress, opens Lesson 1, taps a picture cell, presses Comprobar, asserts a visible grading
+      reaction + disabled check button. `pnpm test:e2e` runs green (16.6s) in a browser-capable env; screenshot
+      proof at `tests/e2e/__screenshots__/lesson-1-graded.png`. Unit `pnpm test` excludes it (stays 1056).
 
 ### Not a task — verified strong already
 - **Grading correctness** is guarded by a test asserting every gradable region across all 24 lessons
@@ -198,6 +203,10 @@ files.**
 ---
 
 ## STATUS LOG (append one dated line per merged PR; newest at top)
+- 2026-07-22 — **T2 student E2E smoke test DONE** (#304): environment recovered (vite dev no longer
+  SIGTERM-killed), so `pnpm test:e2e` now runs **green (1 passed, 16.6s)** against current `main`. Full verify
+  bar re-confirmed (typecheck clean · 1056 unit passed · build ✓). Marked ready + squash-merged. Screenshot
+  proof `tests/e2e/__screenshots__/lesson-1-graded.png` shows the graded Lesson 1 grid.
 - 2026-07-22 — **D6 lint — safe subset extended** (#308): prettier-formatted `scripts/restore-art.mjs`
   (formatting-only, out of app graph, typecheck clean). Lint 291 → 277. Remaining 277 are judgment-call
   rules (`no-explicit-any`, `exhaustive-deps`, `rules-of-hooks`) held for a supervised per-site pass.
