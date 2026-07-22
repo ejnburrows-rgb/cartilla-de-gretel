@@ -36,7 +36,9 @@ describe("Downloads component", () => {
 
     // Check inner text and elements
     expect(screen.getByText("PDF")).toBeInTheDocument();
-    expect(screen.getByText("Libro del alumno completo, listo para leer o descargar")).toBeInTheDocument();
+    expect(
+      screen.getByText("Libro del alumno completo, listo para leer o descargar"),
+    ).toBeInTheDocument();
     expect(screen.getByText("↓ Descargar")).toBeInTheDocument();
   });
 });

@@ -57,7 +57,13 @@ describe("teacher.functions tests", () => {
       const result = await listClasses();
 
       expect(result).toEqual([
-        { id: CLASS_ID, name: "Clase A", join_code: "ABC123", created_at: "2026-01-01", student_count: 2 },
+        {
+          id: CLASS_ID,
+          name: "Clase A",
+          join_code: "ABC123",
+          created_at: "2026-01-01",
+          student_count: 2,
+        },
       ]);
     });
 
@@ -93,7 +99,9 @@ describe("teacher.functions tests", () => {
       const collision = makeQueryBuilder(fail("duplicate key value violates join_code unique"));
       const row = { id: CLASS_ID, name: "Clase A", join_code: "NEW123" };
       const success = makeQueryBuilder(ok(row));
-      vi.mocked(supabase.from).mockReturnValueOnce(collision as any).mockReturnValueOnce(success as any);
+      vi.mocked(supabase.from)
+        .mockReturnValueOnce(collision as any)
+        .mockReturnValueOnce(success as any);
 
       const result = await createClass({ data: { name: "Clase A" } });
       expect(result).toEqual(row);
@@ -255,7 +263,9 @@ describe("teacher.functions tests", () => {
           classes: { id: CLASS_ID, name: "Clase A" },
         }),
       );
-      const eventsBuilder = makeQueryBuilder(ok([{ id: "e1", lesson_id: "1", event_kind: "answer_correct" }]));
+      const eventsBuilder = makeQueryBuilder(
+        ok([{ id: "e1", lesson_id: "1", event_kind: "answer_correct" }]),
+      );
       const lessonProgressBuilder = makeQueryBuilder(ok([]));
       vi.mocked(supabase.from)
         .mockReturnValueOnce(ownsStudent as any)
@@ -322,7 +332,9 @@ describe("teacher.functions tests", () => {
 
     it("returns the matching students and filters by name", async () => {
       vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as any);
-      const rows = [{ id: STUDENT_ID, display_name: "Ana", student_code: "AB123", class_id: CLASS_ID }];
+      const rows = [
+        { id: STUDENT_ID, display_name: "Ana", student_code: "AB123", class_id: CLASS_ID },
+      ];
       const builder = makeQueryBuilder(ok(rows));
       vi.mocked(supabase.from).mockReturnValueOnce(builder as any);
 

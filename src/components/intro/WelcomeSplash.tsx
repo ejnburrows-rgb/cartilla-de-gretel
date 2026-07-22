@@ -325,7 +325,9 @@ function CritterFigure({ critter, motionOn }: { critter: Critter; motionOn: bool
   // When clipBottomPct is set, the source image is rendered taller than the
   // visible box and the overflow is clipped, so a printed word baked under
   // an illustration (real pixels) never floats loose in the meadow.
-  const oversizeHeight = critter.clipBottomPct ? `${100 / (1 - critter.clipBottomPct / 100)}%` : "100%";
+  const oversizeHeight = critter.clipBottomPct
+    ? `${100 / (1 - critter.clipBottomPct / 100)}%`
+    : "100%";
   const flipTransform = critter.flip ? "scaleX(-1)" : undefined;
 
   return (
@@ -403,7 +405,12 @@ function GretelFigure({ motionOn }: { motionOn: boolean }) {
       className={`wc-gretel${motionOn ? " wc-gretel--live" : ""}${greeting ? " wc-gretel--greet" : ""}`}
       data-testid="wc-gretel"
     >
-      <img src={GRETEL_IDLE} alt="Gretel" className="wc-gretel__layer wc-gretel__layer--idle" draggable={false} />
+      <img
+        src={GRETEL_IDLE}
+        alt="Gretel"
+        className="wc-gretel__layer wc-gretel__layer--idle"
+        draggable={false}
+      />
       <img
         src={GRETEL_BLINK}
         alt=""

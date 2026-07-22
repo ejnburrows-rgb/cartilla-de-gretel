@@ -22,7 +22,11 @@ const WHITE_SAT = 18;
 let canvas: HTMLCanvasElement | null = null;
 let ctx: CanvasRenderingContext2D | null = null;
 
-function corner(img: HTMLImageElement, sx: number, sy: number): [number, number, number, number] | null {
+function corner(
+  img: HTMLImageElement,
+  sx: number,
+  sy: number,
+): [number, number, number, number] | null {
   if (!canvas) {
     canvas = document.createElement("canvas");
     canvas.width = 3;

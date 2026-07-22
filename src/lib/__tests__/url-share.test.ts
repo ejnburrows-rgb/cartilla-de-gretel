@@ -1,10 +1,5 @@
 import { describe, it, expect } from "vitest";
-import {
-  encodeShareToken,
-  decodeShareToken,
-  shareUrl,
-  isShareToken,
-} from "../url-share";
+import { encodeShareToken, decodeShareToken, shareUrl, isShareToken } from "../url-share";
 
 describe("url-share tokens", () => {
   it("round-trips kind + id through encode/decode", () => {

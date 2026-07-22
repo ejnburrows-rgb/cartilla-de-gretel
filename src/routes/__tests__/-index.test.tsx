@@ -44,7 +44,7 @@ async function renderSplash() {
   await router.load();
 }
 
-describe("Welcome splash (\"/\") — first screen before the existing landing", () => {
+describe('Welcome splash ("/") — first screen before the existing landing', () => {
   it("shows the Bienvenidos headline, subtitle, and a single Entrar button to /entrar", async () => {
     await renderSplash();
 
@@ -101,7 +101,9 @@ describe("Welcome splash (\"/\") — first screen before the existing landing", 
     await renderSplash();
     const splash = await screen.findByTestId("welcome-splash");
     const imgs = Array.from(splash.querySelectorAll<HTMLImageElement>("img"));
-    const faithfulImgs = imgs.filter((img) => img.getAttribute("src")?.includes("/cartilla/art/faithful/"));
+    const faithfulImgs = imgs.filter((img) =>
+      img.getAttribute("src")?.includes("/cartilla/art/faithful/"),
+    );
     expect(faithfulImgs.length).toBeGreaterThan(0);
     for (const img of faithfulImgs) {
       const src = img.getAttribute("src")!;
@@ -109,7 +111,9 @@ describe("Welcome splash (\"/\") — first screen before the existing landing", 
       expect(passSet.has(relFile)).toBe(true);
     }
 
-    const poseImgs = imgs.filter((img) => img.getAttribute("src")?.includes("/cartilla/images/gretel/poses/"));
+    const poseImgs = imgs.filter((img) =>
+      img.getAttribute("src")?.includes("/cartilla/images/gretel/poses/"),
+    );
     expect(poseImgs.length).toBeGreaterThan(0);
     for (const img of poseImgs) {
       const src = img.getAttribute("src")!;

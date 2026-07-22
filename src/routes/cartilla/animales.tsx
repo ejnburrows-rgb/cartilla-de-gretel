@@ -2,10 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useRef } from "react";
 import { ArrowLeft } from "lucide-react";
 import { ANIMAL_GALLERY } from "@/content/animal-gallery";
-import {
-  GretelLiveAvatar,
-  type GretelLiveAvatarRef,
-} from "@/components/gretel/GretelLiveAvatar";
+import { GretelLiveAvatar, type GretelLiveAvatarRef } from "@/components/gretel/GretelLiveAvatar";
 import "@/styles/animal-gallery.css";
 
 export const Route = createFileRoute("/cartilla/animales")({
@@ -48,9 +45,7 @@ function AnimalGalleryPage() {
 
       <header className="animal-gallery__head">
         <h1 className="animal-gallery__title">Conoce a los animales</h1>
-        <p className="animal-gallery__subtitle">
-          Toca cada animal para escuchar su nombre.
-        </p>
+        <p className="animal-gallery__subtitle">Toca cada animal para escuchar su nombre.</p>
       </header>
 
       <ul className="animal-gallery__grid" role="list">
@@ -95,10 +90,7 @@ function AnimalGalleryPage() {
       </ul>
 
       {/* Fixed-corner living host — never overlaps the grid content. */}
-      <div
-        className="fixed bottom-3 right-3 z-40 pointer-events-none no-print"
-        aria-hidden="true"
-      >
+      <div className="fixed bottom-3 right-3 z-40 pointer-events-none no-print" aria-hidden="true">
         <GretelLiveAvatar ref={gretelRef} size="sm" bubblePosition="left" />
       </div>
     </main>
