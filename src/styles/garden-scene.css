@@ -33,6 +33,13 @@
   inset: 0;
   pointer-events: none;
   z-index: 0;
+  /* Slight parallax on page movement: the decorative critter layer drifts
+   * horizontally as the student turns pages (--garden-parallax = page index,
+   * set imperatively by the lesson route so the workbook/flip never
+   * re-renders). Capped and eased so it reads as gentle depth, not motion. */
+  transform: translate3d(calc(clamp(-4, var(--garden-parallax, 0), 4) * -7px), 0, 0);
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
 }
 
 .garden-scene__content {
@@ -119,5 +126,10 @@
   .garden-butterfly__wing,
   .garden-dragonfly__wing {
     animation: none !important;
+  }
+  /* No page-movement parallax under reduced motion. */
+  .garden-scene__critters {
+    transform: none !important;
+    transition: none !important;
   }
 }

@@ -117,8 +117,13 @@ function Leccion() {
     return row?.last_page ?? 0;
   }, [session, progressData, n]);
 
+  const gardenRef = useRef<HTMLDivElement>(null);
   const saveLastPageFn = useServerFn(saveLastPage);
   const handlePageChange = (index: number) => {
+    // Slight page-movement parallax on the garden scene — set imperatively so
+    // the workbook and its interactive flip never re-render. CSS caps + eases
+    // it and disables it under prefers-reduced-motion (garden-scene.css).
+    gardenRef.current?.style.setProperty("--garden-parallax", String(index));
     if (!session) return;
     void saveLastPageFn({
       data: {
@@ -254,7 +259,7 @@ function Leccion() {
         {/* The lesson IS the book's own pages, one at a time, in order — no
             invented sections/tabs/screens around them (locked canon 7/9). */}
         <div className="w-full">
-          <GardenScene>
+          <GardenScene ref={gardenRef}>
             {!session && (
               <div className="fixed top-4 left-4 z-[200]">
                 <Link
