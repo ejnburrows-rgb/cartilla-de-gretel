@@ -7,6 +7,11 @@ This file is a **self-driving loop**. An agent reads it top to bottom, does the 
 proves it, opens/merges a PR, flips the checkbox, appends a status-log line, and immediately picks the
 next unblocked task. It repeats until every box is checked or it hits a real blocker.
 
+> **This is the single canonical loop doc.** `docs/ROADMAP-TO-100.md` and root `LOOP-CLAUDE.md` are now
+> pointers here. `docs/ACTION-PROMPTS.md` is the same queue as copy-paste, one-prompt-at-a-time blocks.
+> Owner-only setup detail lives in `docs/OWNER-MANUAL-STEPS.md`. Checkbox legend: `[x]` done · `[~]`
+> effectively done pending a blocker · `[ ]` not started.
+
 ---
 
 ## WHO RUNS THIS (read first)
@@ -116,16 +121,19 @@ files.**
 - [x] The Faithful Restoration Standard is written into `AGENTS.md` (shared art contract + safety rules)
       and recorded in `docs/DECISIONS.md` (2026-07-22). Generation stays banned; pixel-cleanup restoration
       approved per EJN.
-- [ ] **Deferred to Task B (not yet needed):** update `scripts/validate-art-color.mjs` to accept
-      `restored/` files that pass the acceptance test. No restoration pipeline / `restored/` files exist
-      yet, so the validator stays as-is until B0 lands.
+- [ ] **Deferred to a Task B batch (not yet needed):** update `scripts/validate-art-color.mjs` to accept
+      `restored/` files that pass the acceptance test. B0 (the pipeline) has landed, but no `restored/`
+      files are wired into page slots yet, so the validator stays as-is until the first batch (B1) wires
+      restored art in.
 
 ### TASK B — Restoration pipeline  *(parallel batches; branch `art/restore-<batch>`)*
-- [ ] **B0. Build the pipeline script** `scripts/restore-art.mjs` (node) — runs ONLY the allowed ops
-      (Real-ESRGAN 4× → denoise/speckle → paper-shadow removal → white-balance → palette normalize),
-      writes to a mirrored `restored/` path, then runs the automated acceptance test (downscale+overlay+
-      edge-map diff) on every output and fails the batch if any image drifts. **Free tools only**
-      (Real-ESRGAN local binary or pip package + sharp/ImageMagick/Pillow). $0 — no paid APIs.
+- [x] **B0. Build the pipeline script** — ✅ **DONE on `main` 2026-07-22 (PR #291).** `scripts/restore-art.mjs`
+      runs ONLY the allowed non-generative ops (opt-in Real-ESRGAN via `RESRGAN_BIN` else sharp Lanczos →
+      median denoise → level-normalize white-balance/paper-shadow → palette normalize), writes to a
+      git-ignored mirrored `restored/` path (originals never touched), then runs the automated acceptance
+      test (downscale + 50% overlay + edge-map drift) on every output and fails the batch if any image
+      drifts over `--threshold`. Free tools only ($0): sharp bundled, Real-ESRGAN optional. Sample run
+      5/5 pass (drift 0.005–0.012 vs 0.06). See `docs/restore-art.md` + `docs/restore-art-proofs/`.
 - [ ] **B1. Batch L1–L4** workbook art → restore → acceptance 100% → wire restored files into their exact
       page slots → verify bar → browser screenshot → PR → merge.
 - [ ] **B2. Batch L5–L8**  (same protocol)
@@ -137,35 +145,73 @@ files.**
       reinterpret; it is already full color.
 - [ ] `abrigo, aguja, remolino, oruga, globo` — confirm still `pendiente`, do NOT restore/fabricate.
 
-### TASK C — Born-digital presentation  *(own branch `feat/born-digital`; wire per page as its restored art lands)*
-- [ ] Cut-out treatment: illustrations sit as individual elements on the clean warm-cream background. Kill
-      the "scanned page pasted on screen" look — no visible page edges, perforations, spiral binding, or
-      paper texture anywhere.
-- [ ] All text is real web type — never letters baked into images.
-- [ ] Depth: soft shadow under each illustration; slight parallax on page movement.
-- [ ] Micro-motion ONLY on animals/objects inside activity illustrations (pose-frame flutter/float/blink).
-      **Do NOT touch Gretel, her animation state machine, or the welcome splash (#243 — owner-only).**
-- [ ] Page turns slow, elegant, physical: **horizontal for students, vertical for teachers**, selected
-      automatically by role, no orientation toggle, respect `prefers-reduced-motion`.
+### TASK C — Born-digital presentation  ✅ **DONE on `main` 2026-07-22 (PRs #287–#290)**
+- [x] Cut-out treatment / kill the "scanned page pasted on screen" look — the faithful renderer already
+      draws a clean digital book frame (no scanned page); the student workbook is now **centered on the
+      garden scene** with the empty desktop "green void" removed (PR #287). *(True alpha cut-outs aren't
+      possible — the crops are opaque rectangles — so illustrations get an honest card-lift instead.)*
+- [x] All text is real web type — already true (FaithfulPageRenderer draws text; no baked-in letters).
+- [x] Depth: **warm card-lift shadow** under each illustration (PR #288) + **slight garden parallax on
+      page movement** (PR #290, imperative CSS var so the flip never re-renders).
+- [x] Micro-motion on illustration cells (ambient float, `prefers-reduced-motion`-guarded) — already
+      present. Gretel, her state machine, and the welcome splash (#243) were NOT touched.
+- [x] Page turns: **horizontal for students** (react-pageflip curl), **vertical for teachers**
+      (`FlipchartHdPanel` rotateX flip), auto-selected by surface/role, no toggle — this architecture
+      already existed; added the missing `prefers-reduced-motion` handling to the teacher flip (PR #289).
 
 ### TASK D — Finish the rest of the product  *(after A; backend items need the owner prereqs)*
 - [ ] **D1. Student cloud save** — verify lesson grading/progress writes to Supabase and reloads on another
-      device. Branch `feat/student-cloud-progress`. (Needs Supabase prereq.)
+      device. Branch `feat/student-cloud-progress`. **BLOCKED (owner):** needs the Supabase prereq — the
+      code path exists but has never run against a live DB.
 - [ ] **D2. Teacher backend go-live** — run the full teacher CRM against a real Supabase DB (auth, classes,
       join codes, roster, RLS). Remove reliance on the demo/seed lane for real use. Branch
-      `feat/teacher-backend-live`. (Needs Supabase prereq.)
-- [ ] **D3. Reports precision + time** — the reports panel shows accuracy `—` and time `0 mins`; capture
-      per-exercise accuracy and elapsed time at grade-time and surface them. Branch `feat/reports-metrics`.
-- [ ] **D4. Flipchart slides for all 24 lessons** — only some lessons have real láminas; complete the deck
-      (cleanup-only art, faithful). Branch `feat/flipchart-coverage`.
-- [ ] **D5. English-toggle remnants (#162)** — ensure student UI is Spanish-only; remove leftover mixed
-      strings. Branch `chore/spanish-only`.
-- [ ] **D6. Lint pass (#245)** — clear the ~360 lint problems without behavior change. Branch `chore/lint`.
+      `feat/teacher-backend-live`. **BLOCKED (owner):** needs the Supabase prereq. *(Join/student codes are
+      now crypto-secure — PR #300.)*
+- [~] **D3. Reports precision + time** — **DEMO path DONE (PR #279):** `getSeedClassProgress()` now
+      aggregates real accuracy % and minutes and a per-exercise-type breakdown (was `—` / `0 mins`). The
+      **live** path (`getClassProgress` against Supabase) already computes the same and is verified by
+      tests, but is unproven end-to-end until D2's Supabase go-live. Effectively complete pending the
+      backend.
+- [x] **D4. Flipchart slides — DONE as far as the source art allows (PR #282).** The multi-slide flipchart
+      already works (prev/next, keyboard, filmstrip). Lessons **7–24 present all 3 real HD láminas**;
+      lessons **1–6 are art-limited** — the source 62-page flipchart PDF genuinely has only ONE physical
+      page each, and no unused flipchart art exists to add. Not a code gap. *(Teacher flip also now
+      respects reduced motion — PR #289.)*
+- [x] **D5. Spanish-only (#162) — DONE.** Residual English swept from the student UI (PR #281:
+      `ayuda.tsx` ES/EN toggle removed, plus dormant English fallbacks in `mi-progreso`/`unirse`/
+      `SkipLink`/`pilot-faithful`). The orphaned ES/EN-toggle machinery (`ThemeSwitcher`, `locale`,
+      `LanguageToggle`) was then archived to `src/_archive/` (PRs #292, #295).
+- [ ] **D6. Lint pass (#245)** — clear the ~396 lint problems (355 errors, 41 warnings) without behavior
+      change. Branch `chore/lint`. Owner-supervised, behavior-preserving; deliberately kept out of the
+      autonomous loop.
+- [ ] **D7. Admin cross-teacher dashboard** — **BLOCKED (owner):** genuinely unbuilt (no admin-viewing
+      components, no RLS-bypass policy). Needs the owner to confirm it's still wanted before scoping.
+
+### Not a task — verified strong already
+- **Grading correctness** is guarded by a test asserting every gradable region across all 24 lessons
+  (PR #280). The wider `src/lib` pure-logic layer is now well covered — the unit suite is **1,056+
+  passing** (exercise-stats, lesson-progress, student-session, lesson-catalog, syllabification, seeded
+  RNG, phoneme-matcher, csv, url-share, adaptive, badges, profile, page-progress, audio-engine,
+  workbook-interactions, date-helpers). *(Folded in from the retired `docs/ROADMAP-TO-100.md`, which
+  tracked S1→D3, S2→this line, S3→D5, T1→D4.)*
 
 ---
 
 ## STATUS LOG (append one dated line per merged PR; newest at top)
+- 2026-07-22 — **Loop docs consolidated.** This file (`docs/AGENT-LOOP.md`) is now the single canonical
+  self-driving loop doc. `docs/ROADMAP-TO-100.md` (S1–T1) and root `LOOP-CLAUDE.md` are now short pointers
+  here; their content is folded into Tasks C/D and the "verified strong already" note above.
+- 2026-07-22 — **Task C (born-digital) DONE** — workbook centered (#287), card-lift depth (#288), teacher
+  flip reduced-motion (#289), garden parallax (#290). Real web type + role-based turns already existed.
+- 2026-07-22 — **B0 restoration pipeline merged** (#291): `scripts/restore-art.mjs` + acceptance test +
+  proofs. Next unblocked art task: **B1 — batch L1–L4** (restore → acceptance 100% → wire → screenshot → PR).
+- 2026-07-22 — **PR queue triaged (22 → 0 open).** Reapplied the valuable stale Jules PRs on current
+  `main` and closed the duplicates: security (#300: crypto-secure join/student codes + chart XSS),
+  tests (#301: audio-engine/workbook-interactions/startOfWeek), refactor (#302: book-faithful helpers),
+  script (#303: notion-curl diagnostics). Dead ES/EN-toggle machinery archived (#292, #295).
+- 2026-07-22 — **D5 Spanish-only DONE** (#281), **D4 flipchart DONE-as-art-allows** (#282), **D3 demo
+  reports DONE** (#279), **S2 grading coverage** (#280).
 - 2026-07-22 — Task A verified already complete on `main` (Faithful Restoration Standard in AGENTS.md +
   DECISIONS.md). No redundant PR opened; loop file updated to check it off and adopt the "judged by
-  output" tool-neutral wording. Next unblocked task: **B0 — build `scripts/restore-art.mjs`.**
+  output" tool-neutral wording.
 - 2026-07-21 — AGENT-LOOP.md created; queue initialized. No tasks merged yet.
