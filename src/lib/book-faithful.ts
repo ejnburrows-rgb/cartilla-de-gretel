@@ -343,6 +343,22 @@ function sourceTextBlocksForImage(imageRef: string | null): string[] {
   return Array.from(new Set(blocks.filter((line) => line.length > 0)));
 }
 
+function hasSourceReference(scaffold: RawPageScaffold | undefined): boolean {
+  return Boolean(
+    scaffold &&
+    ((scaffold.sourcePages?.length ?? 0) > 0 ||
+      (scaffold.originalImages?.length ?? 0) > 0 ||
+      (scaffold.remasteredImages?.length ?? 0) > 0),
+  );
+}
+
+function hasVerifiedInventoryScan(sourceAsset: SourceArtAsset | undefined): boolean {
+  return Boolean(
+    sourceAsset?.sourceStatus === "verified-source-image" ||
+    sourceAsset?.verificationStatus === "source page scan connected",
+  );
+}
+
 function statusForTextBlocks(
   textBlocks: string[],
   scaffold: RawPageScaffold | undefined,
@@ -350,19 +366,35 @@ function statusForTextBlocks(
 ) {
   if (textBlocks.length > 0) return "verified" satisfies WorkbookTranscriptionStatus;
   const sourceAsset = imageRef ? sourceAssetByPath.get(imageRef) : undefined;
-  const hasSourceRef = Boolean(
-    scaffold &&
-    ((scaffold.sourcePages?.length ?? 0) > 0 ||
-      (scaffold.originalImages?.length ?? 0) > 0 ||
-      (scaffold.remasteredImages?.length ?? 0) > 0),
-  );
-  const hasInventoryScan = Boolean(
-    sourceAsset?.sourceStatus === "verified-source-image" ||
-    sourceAsset?.verificationStatus === "source page scan connected",
-  );
-  return hasSourceRef || hasInventoryScan
+  return hasSourceReference(scaffold) || hasVerifiedInventoryScan(sourceAsset)
     ? "partial"
     : ("missing" satisfies WorkbookTranscriptionStatus);
+}
+
+function buildPageFromScaffold(
+  pageNumber: number,
+  lessonNumber: number,
+  pageRole: WorkbookPageRole,
+  scaffold: RawPageScaffold | undefined,
+): WorkbookPageContent {
+  const imageScanReference = scaffold
+    ? firstReference(scaffold.remasteredImages, scaffold.originalImages, scaffold.sourcePages)
+    : null;
+  const explicitTextBlocks = stringifyTextBlocks(scaffold?.textBlocks);
+  const inventoryTextBlocks = sourceTextBlocksForImage(imageScanReference);
+  const verifiedTextBlocks =
+    explicitTextBlocks.length > 0 ? explicitTextBlocks : inventoryTextBlocks;
+  return {
+    pageNumber,
+    lessonNumber,
+    pageRole,
+    pageType: "workbook-page",
+    verifiedTextBlocks,
+    imageScanReference,
+    sourceScaffoldPosition: scaffold?.position ?? null,
+    sourceRawLabel: scaffold?.rawLabel ?? null,
+    transcriptionStatus: statusForTextBlocks(verifiedTextBlocks, scaffold, imageScanReference),
+  };
 }
 
 export function getWorkbookPagesForLesson(lessonNumber: number): WorkbookPageContent[] {
@@ -372,27 +404,9 @@ export function getWorkbookPagesForLesson(lessonNumber: number): WorkbookPageCon
   const pageNumbers = getLessonPageNumbers(entry.pages);
   const pageRole = getBookSectionForLesson(lessonNumber);
 
-  return pageNumbers.map((pageNumber, index) => {
-    const scaffold = scaffolds[index];
-    const imageScanReference = scaffold
-      ? firstReference(scaffold.remasteredImages, scaffold.originalImages, scaffold.sourcePages)
-      : null;
-    const explicitTextBlocks = stringifyTextBlocks(scaffold?.textBlocks);
-    const inventoryTextBlocks = sourceTextBlocksForImage(imageScanReference);
-    const verifiedTextBlocks =
-      explicitTextBlocks.length > 0 ? explicitTextBlocks : inventoryTextBlocks;
-    return {
-      pageNumber,
-      lessonNumber,
-      pageRole,
-      pageType: "workbook-page",
-      verifiedTextBlocks,
-      imageScanReference,
-      sourceScaffoldPosition: scaffold?.position ?? null,
-      sourceRawLabel: scaffold?.rawLabel ?? null,
-      transcriptionStatus: statusForTextBlocks(verifiedTextBlocks, scaffold, imageScanReference),
-    };
-  });
+  return pageNumbers.map((pageNumber, index) =>
+    buildPageFromScaffold(pageNumber, lessonNumber, pageRole, scaffolds[index]),
+  );
 }
 
 type PageLayouts = {
