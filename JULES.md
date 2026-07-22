@@ -1,5 +1,14 @@
 # JULES.md — La Cartilla de Gretel · Documentation Lane
 
+> **2026-07-21 — Autonomous finish loop.** The full self-driving task queue for finishing this product
+> (art restoration, born-digital presentation, backend go-live, reports, flipchart) now lives in
+> **`docs/AGENT-LOOP.md`**, with one-prompt-at-a-time versions in **`docs/ACTION-PROMPTS.md`**.
+> **Jules still cannot push to this repo** (its GitHub app lacks write access), so for any task in that
+> loop Jules must output **draft files under `drafts/jules/<task>/` plus a written report** (diff, verify
+> output, screenshots) and **never push or open a PR**. The owner must grant the Jules GitHub app
+> push/write access before Jules work can land. Your safe docs-only lane below still applies to
+> documentation tasks.
+
 You are Jules. Your lane in this repo is DOCUMENTATION ONLY. Another agent is executing PLAN.md app work on main at the same time — you must NEVER touch app code, so there are zero conflicts.
 
 ## Hard rules
