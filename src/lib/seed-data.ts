@@ -358,7 +358,13 @@ export function createSeedClass(name: string) {
     id: `seed-class-${crypto.randomUUID()}`,
     teacher_id: teacher.id,
     name,
-    join_code: Math.random().toString(36).slice(2, 8).toUpperCase(),
+    join_code: (() => {
+      // Secure, unguessable demo join code (matches the crypto codes used in
+      // the live teacher path).
+      const arr = new Uint32Array(1);
+      crypto.getRandomValues(arr);
+      return arr[0].toString(36).padStart(6, "0").slice(0, 6).toUpperCase();
+    })(),
     created_at: nowIso(),
   };
   state.classes.unshift(row);
