@@ -31,6 +31,7 @@
     "art:pipeline": "node scripts/extract-art.mjs && node scripts/polish-art.mjs",
     "art:pipeline:force": "node scripts/extract-art.mjs --force && node scripts/polish-art.mjs --force",
     "test": "vitest run",
+    "test:e2e": "playwright test",
     "smoke:supabase": "node scripts/smoke-supabase.mjs"
   },
   "dependencies": {
@@ -95,6 +96,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.32.0",
+    "@playwright/test": "1.52.0",
     "@tanstack/router-plugin": "^1.167.28",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
