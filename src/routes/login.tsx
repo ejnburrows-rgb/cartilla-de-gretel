@@ -116,34 +116,52 @@ function LoginPage() {
 
         <form onSubmit={submit} className="mt-8 space-y-3">
           {mode === "signup" && (
+            <div>
+              <label htmlFor="full-name" className="sr-only">
+                Nombre completo
+              </label>
+              <input
+                id="full-name"
+                type="text"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
+                placeholder="Nombre completo"
+                className="w-full px-5 py-4 rounded-2xl border-2 border-[var(--tc-border)] bg-white text-[var(--tc-ink)] text-sm font-bold shadow-inner focus:border-[var(--tc-accent)] outline-none"
+                required
+              />
+            </div>
+          )}
+          <div>
+            <label htmlFor="email" className="sr-only">
+              Correo electrónico
+            </label>
             <input
-              type="text"
-              value={fullName}
-              onChange={(e) => setFullName(e.target.value)}
-              placeholder="Nombre completo"
+              id="email"
+              type="email"
+              autoComplete="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="correo@escuela.com"
               className="w-full px-5 py-4 rounded-2xl border-2 border-[var(--tc-border)] bg-white text-[var(--tc-ink)] text-sm font-bold shadow-inner focus:border-[var(--tc-accent)] outline-none"
               required
             />
-          )}
-          <input
-            type="email"
-            autoComplete="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="correo@escuela.com"
-            className="w-full px-5 py-4 rounded-2xl border-2 border-[var(--tc-border)] bg-white text-[var(--tc-ink)] text-sm font-bold shadow-inner focus:border-[var(--tc-accent)] outline-none"
-            required
-          />
-          <input
-            type="password"
-            autoComplete={mode === "login" ? "current-password" : "new-password"}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Contraseña"
-            minLength={6}
-            className="w-full px-5 py-4 rounded-2xl border-2 border-[var(--tc-border)] bg-white text-[var(--tc-ink)] text-sm font-bold shadow-inner focus:border-[var(--tc-accent)] outline-none"
-            required
-          />
+          </div>
+          <div>
+            <label htmlFor="password" className="sr-only">
+              Contraseña
+            </label>
+            <input
+              id="password"
+              type="password"
+              autoComplete={mode === "login" ? "current-password" : "new-password"}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Contraseña"
+              minLength={6}
+              className="w-full px-5 py-4 rounded-2xl border-2 border-[var(--tc-border)] bg-white text-[var(--tc-ink)] text-sm font-bold shadow-inner focus:border-[var(--tc-accent)] outline-none"
+              required
+            />
+          </div>
           {error && <div className="text-sm text-destructive font-bold">{error}</div>}
           <button
             type="submit"
