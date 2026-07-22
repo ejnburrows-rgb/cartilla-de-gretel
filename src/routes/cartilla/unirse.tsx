@@ -118,10 +118,14 @@ function JoinPage() {
           ) : step === "code" ? (
             <form onSubmit={submitCode} className="space-y-5">
               <div>
-                <label className="text-xs font-black text-stone-500 uppercase tracking-widest ml-4 mb-2 block">
+                <label
+                  htmlFor="join-code"
+                  className="text-xs font-black text-stone-500 uppercase tracking-widest ml-4 mb-2 block"
+                >
                   {t.codigoClase[lang]}
                 </label>
                 <input
+                  id="join-code"
                   value={joinCode}
                   onChange={(e) => setJoinCode(e.target.value.toUpperCase())}
                   placeholder="ABC123"

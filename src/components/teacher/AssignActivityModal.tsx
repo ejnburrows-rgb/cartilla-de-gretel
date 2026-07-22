@@ -99,10 +99,14 @@ export function AssignActivityModal({
         ) : (
           <>
             <div>
-              <label className="text-xs font-black uppercase tracking-wide text-stone-500 mb-1 block">
+              <label
+                htmlFor="assign-class-select"
+                className="text-xs font-black uppercase tracking-wide text-stone-500 mb-1 block"
+              >
                 Clase
               </label>
               <select
+                id="assign-class-select"
                 value={classId}
                 onChange={(e) => setClassId(e.target.value)}
                 className="w-full rounded-xl border-2 border-stone-200 px-3 py-2 font-medium"

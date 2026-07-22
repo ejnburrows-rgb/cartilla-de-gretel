@@ -274,15 +274,19 @@ export function ClassRoster() {
       <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between p-5 bg-[hsl(48,100%,96%)] border border-[hsl(28,30%,18%)]/8 rounded-[2rem] shadow-sm">
         <div className="flex-1 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
           <div className="flex flex-col">
-            <span className="text-[10px] font-bold text-stone-500 uppercase tracking-widest ml-1 mb-1">
+            <label
+              htmlFor="active-class-select"
+              className="text-[10px] font-bold text-stone-500 uppercase tracking-widest ml-1 mb-1"
+            >
               Clase Activa
-            </span>
+            </label>
             {loadingClasses ? (
               <span className="text-sm text-stone-400 font-bold px-3 py-2">Cargando...</span>
             ) : classesList.length === 0 ? (
               <span className="text-sm text-stone-400 font-bold px-3 py-2 italic">Sin clases</span>
             ) : (
               <select
+                id="active-class-select"
                 value={selectedClassId}
                 onChange={(e) => setSelectedClassId(e.target.value)}
                 className="px-4 py-2.5 rounded-2xl border-2 border-[hsl(28,30%,18%)]/10 bg-white text-stone-800 font-extrabold text-sm focus:outline-none focus:border-vowel-a shadow-xs cursor-pointer"
@@ -310,10 +314,14 @@ export function ClassRoster() {
         {/* Create Class Form */}
         <form onSubmit={handleCreateClass} className="flex gap-2 items-end">
           <div className="flex flex-col">
-            <span className="text-[10px] font-bold text-stone-500 uppercase tracking-widest ml-1 mb-1">
+            <label
+              htmlFor="new-class-name"
+              className="text-[10px] font-bold text-stone-500 uppercase tracking-widest ml-1 mb-1"
+            >
               Nueva clase
-            </span>
+            </label>
             <input
+              id="new-class-name"
               type="text"
               value={newClassName}
               onChange={(e) => setNewClassName(e.target.value)}
@@ -391,7 +399,11 @@ export function ClassRoster() {
             onSubmit={handleAddStudent}
             className="flex gap-2 max-w-md mx-auto justify-center items-center"
           >
+            <label htmlFor="new-student-name-empty" className="sr-only">
+              Nombre del alumno
+            </label>
             <input
+              id="new-student-name-empty"
               type="text"
               value={newStudentName}
               onChange={(e) => setNewStudentName(e.target.value)}
@@ -423,7 +435,11 @@ export function ClassRoster() {
 
             {/* Quick Add Form inside Header */}
             <form onSubmit={handleAddStudent} className="flex gap-2 items-center w-full sm:w-auto">
+              <label htmlFor="add-student-name" className="sr-only">
+                Añadir alumno nuevo
+              </label>
               <input
+                id="add-student-name"
                 type="text"
                 value={newStudentName}
                 onChange={(e) => setNewStudentName(e.target.value)}
@@ -445,8 +461,12 @@ export function ClassRoster() {
 
           <div className="p-4 border-b border-stone-200 flex flex-col sm:flex-row gap-3 items-stretch sm:items-center justify-between bg-white">
             <div className="relative flex-1 max-w-sm">
+              <label htmlFor="search-student" className="sr-only">
+                Buscar alumno por nombre
+              </label>
               <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-stone-400" />
               <input
+                id="search-student"
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -455,8 +475,12 @@ export function ClassRoster() {
               />
             </div>
             {!isSeed && (
-              <label className="flex items-center gap-2 text-xs font-bold text-stone-500 cursor-pointer whitespace-nowrap">
+              <label
+                htmlFor="show-archived"
+                className="flex items-center gap-2 text-xs font-bold text-stone-500 cursor-pointer whitespace-nowrap"
+              >
                 <input
+                  id="show-archived"
                   type="checkbox"
                   checked={showArchived}
                   onChange={(e) => setShowArchived(e.target.checked)}
