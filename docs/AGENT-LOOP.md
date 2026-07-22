@@ -172,10 +172,16 @@ files.**
       already existed; added the missing `prefers-reduced-motion` handling to the teacher flip (PR #289).
 
 ### TASK D — Finish the rest of the product  *(after A; backend items need the owner prereqs)*
-- [ ] **D1. Student cloud save** — verify lesson grading/progress writes to Supabase and reloads on another
-      device. Branch `feat/student-cloud-progress`. **UNBLOCKED 2026-07-22:** the owner's Supabase project
-      is live (see prerequisites) — the code path exists but has never run against the live DB; prove it
-      end to end.
+- [x] **D1. Student cloud save — DONE 2026-07-22. Proven end-to-end against the live Supabase project**
+      (`rckarlopnickdyyjfbas`). The write path (`recordEvent` → `logProgress` → `log_student_progress` RPC,
+      fired on every graded exercise / lesson-complete / time event whenever a student session exists) and
+      the read path (`mi-progreso.tsx` → `getMyProgress` → `get_student_progress` RPC, consumed on mount)
+      both run correctly against the real DB. Verified with the app's own anon publishable key + RPCs: a
+      joined student wrote a graded exercise on one client, and a **fresh** client (a second device only
+      needs the class join code + tap-your-name to re-derive the same `studentId`/`studentCode`) read the
+      event back — round-trip PASS. RLS is active (the anon client only sees its own student's rows). No
+      code fix was needed; the previously-unproven live path works. Test row cleaned up; DB left pristine.
+      Screenshot proof waived by owner 2026-07-22.
 - [ ] **D2. Teacher backend go-live** — run the full teacher CRM against a real Supabase DB (auth, classes,
       join codes, roster, RLS). Remove reliance on the demo/seed lane for real use. Branch
       `feat/teacher-backend-live`. **UNBLOCKED 2026-07-22:** the owner's Supabase project is live (see
@@ -232,6 +238,11 @@ files.**
 ---
 
 ## STATUS LOG (append one dated line per merged PR; newest at top)
+- 2026-07-22 — **D1 student cloud save DONE:** proven end-to-end against the live Supabase project. Grading
+  writes (`log_student_progress`) and cross-device read-back (`get_student_progress`, consumed by
+  `mi-progreso.tsx`) both work with the app's real anon key + RPCs; a graded event written on one client was
+  read back from a fresh client (PASS). RLS active; no code fix needed (path was unproven, not broken). Test
+  row cleaned up. Verify bar green. Screenshot waived by owner.
 - 2026-07-22 — **D7 admin dashboard (demo lane) DONE:** `/cartilla/teacher/admin` with global tiles +
   per-teacher class tables, admin-gated, roll-up reuses per-class CRM aggregation. Emilio seed class added
   with migration. 1091 unit tests green. Live wiring waits on D2. Also this session: **branch
