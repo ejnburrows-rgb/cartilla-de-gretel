@@ -191,6 +191,12 @@ files.**
       spec seeds progress, opens Lesson 1, taps a picture cell, presses Comprobar, asserts a visible grading
       reaction + disabled check button. `pnpm test:e2e` runs green (16.6s) in a browser-capable env; screenshot
       proof at `tests/e2e/__screenshots__/lesson-1-graded.png`. Unit `pnpm test` excludes it (stays 1056).
+- [x] **T3. Teacher CRM happy-path E2E smoke test (#311) — DONE on `main` 2026-07-22.** Playwright spec
+      seeds the demo teacher session, opens `/cartilla/teacher/crm`, asserts the teacher chrome, the seed
+      class option, and a seeded roster student render — covering the teacher route gate + seed auth + CRM
+      shell (and surfacing the D3 report aggregation) in one browser pass. E2E webServer now runs with
+      `VITE_ALLOW_DEMO_MODE=true` (dev-only; PROD hard-disables demo). Screenshot proof
+      `tests/e2e/__screenshots__/teacher-crm.png`. `pnpm test:e2e` = **2 passed**.
 
 ### Not a task — verified strong already
 - **Grading correctness** is guarded by a test asserting every gradable region across all 24 lessons
@@ -203,6 +209,10 @@ files.**
 ---
 
 ## STATUS LOG (append one dated line per merged PR; newest at top)
+- 2026-07-22 — **T3 teacher CRM E2E smoke test DONE** (#311): new Playwright spec drives the demo/seed
+  teacher into `/cartilla/teacher/crm` and asserts the seed class + roster render (teacher route gate +
+  seed auth + CRM shell + D3 aggregation in one pass). E2E webServer set to `VITE_ALLOW_DEMO_MODE=true`
+  (dev-only). `pnpm test:e2e` = 2 passed; typecheck/unit(1056)/build green. Screenshot proof captured.
 - 2026-07-22 — **T2 student E2E smoke test DONE** (#304): environment recovered (vite dev no longer
   SIGTERM-killed), so `pnpm test:e2e` now runs **green (1 passed, 16.6s)** against current `main`. Full verify
   bar re-confirmed (typecheck clean · 1056 unit passed · build ✓). Marked ready + squash-merged. Screenshot
