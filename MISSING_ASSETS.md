@@ -98,6 +98,31 @@ byte-size/existence checks) found most were unusable:
 
 All of the above stay showing the honest "ilustración pendiente" placeholder.
 
+**2026-07-20 correction:** the above described state as of 2026-07-16.
+Re-verified against the current repo + the color-QA pass's `qa-results.json`
+(committed 2026-07-19): 12 of these 13 words now have real, re-cropped,
+PASS-graded, wired art — `libro`, `dulce`, `igual`, `iguana`, `ardilla`
+(vocal-a), `manzana`, `pera`, `pajaro`, `erizo` (vocal-e), `taza`, `arbol`
+are all wired and correct in `page-layouts.json`/`consonants.json` today.
+Only **`globo`** (`leccion-1/globo.webp`) is still genuinely broken — it
+QA-FAILed for a real paint-bleed defect (a stray red line across the top,
+unrelated to the balloon) and was pulled from live use this session, so it
+is back to showing the honest pendiente placeholder rather than the bad
+crop.
+
+**2026-07-20, page-layout gap batch:** worked the page-layout-only gap list
+(`aguja`, `oruga`, `abrigo`, `globo`, `remolino`, `carro`, `guitarra`,
+`galleta`, `faro`, `foca`, `fuente`, `zanahoria`). `carro` fixed — a real
+PASS-graded crop (`leccion-1/carro.webp`) was sitting unused, now wired.
+`guitarra`/`galleta`/`faro`/`foca`/`fuente`/`zanahoria` turned out not to be
+art gaps at all — they only appear in text-only exercises (no picture-grid
+cell, no `illustrationSrc` field in that schema). `abrigo`/`aguja`/`remolino`
+have real grayscale book line art (exact page + crop box now documented in
+`ART_BACKLOG.md`) but need coloring, not just wiring — out of scope for this
+pass. `oruga` and `globo` still have no located clean source; see
+`ART_BACKLOG.md`'s 2026-07-20 section for the full trail (including which
+62 flipchart pages remain unchecked).
+
 - `public/cartilla/art/faithful/leccion-22-g-j/gato.webp`
   - Source blob: `fdc667d1e8b14be65b1b465177614b6bfe356cd9`
   - Source commit: Historic blob (from `leccion-19-g/gato.webp`)

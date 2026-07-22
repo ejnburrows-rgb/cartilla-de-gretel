@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { forwardRef, type ReactNode } from "react";
 import "@/styles/garden-scene.css";
 
 /**
@@ -53,9 +53,12 @@ function Dragonfly({ delay }: { delay: number }) {
   );
 }
 
-export function GardenScene({ children, className }: GardenSceneProps) {
+export const GardenScene = forwardRef<HTMLDivElement, GardenSceneProps>(function GardenScene(
+  { children, className },
+  ref,
+) {
   return (
-    <div className={`garden-scene p-5 sm:p-9 mb-12 ${className ?? ""}`}>
+    <div ref={ref} className={`garden-scene p-5 sm:p-9 mb-12 ${className ?? ""}`}>
       <div className="garden-scene__critters">
         <Butterfly delay={0} />
         <Dragonfly delay={2.4} />
@@ -63,4 +66,4 @@ export function GardenScene({ children, className }: GardenSceneProps) {
       <div className="garden-scene__content">{children}</div>
     </div>
   );
-}
+});

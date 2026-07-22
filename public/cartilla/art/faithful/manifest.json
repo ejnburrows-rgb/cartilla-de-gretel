@@ -5,13 +5,15 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-i/iglu.webp",
-    "sourceFlipchartPage": "i-page-14.jpg",
+    "source": "public/cartilla/images/source-original/i/i-page-6.jpg",
     "cropBox": [
-      910,
-      431,
-      336,
-      227
-    ]
+      935,
+      1420,
+      590,
+      500
+    ],
+    "provenanceStatus": "FIXED-2026-WRONG-PAGE",
+    "note": "Old sourceFlipchartPage (i-page-14.jpg) was a grayscale trace-line exercise page, not the colored vocab grid — that's why the old crop was uncolored and QA-failed. Re-cropped from the real colored source, i-page-6.jpg (imán/iglú/indio/insecto/isla/Irma grid)."
   },
   {
     "slug": "oso",
@@ -1848,5 +1850,16 @@
       700
     ],
     "sourceNote": "girl Zulema with pinwheel"
+  },
+  {
+    "slug": "carro-leccion1",
+    "word": "carro",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-1/carro.webp",
+    "source": null,
+    "cropBox": null,
+    "provenanceStatus": "PASS-VERIFIED-2026-QA",
+    "note": "No recorded crop provenance (predates manifest tracking); a 2026-07-15 commit message claimed it was transplanted from leccion-18-rr/carro.webp, but that file is a mismatched donkey/camel leg crop (confirmed FAIL in qa-results.json) — the two files are NOT identical despite the commit message. This file was independently visually re-verified 2026-07-20: a genuine, clean, colorful vintage-car illustration, PASS-graded. Wired onto the page-layouts.json carro cell (previously unwired/pendiente despite this real crop sitting unused on disk)."
   }
 ]

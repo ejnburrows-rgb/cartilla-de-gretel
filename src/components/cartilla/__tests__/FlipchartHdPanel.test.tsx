@@ -68,6 +68,21 @@ describe("FlipchartHdPanel — CRM-grade presenter board", () => {
     expect(screen.getByTestId("flipchart-counter").textContent).toBeTruthy();
     void before;
   });
+
+  // useReducedMotion is mocked to true at the top of this file, so page turns
+  // must be instant: no rotateX flip layer, no ~820ms isFlipping dead period.
+  it("under reduced motion, advances instantly with no flip layer", () => {
+    // Lesson 7+ has multiple flipchart plates (1-6 are single-plate).
+    const { container } = render(<FlipchartHdPanel lessonNumber={7} />);
+    if (container.querySelector('[data-testid="flipchart-empty"]')) return;
+    const counter = screen.getByTestId("flipchart-counter");
+    expect(counter.textContent).toMatch(/Hoja 1 de/);
+    fireEvent.click(screen.getByLabelText(/Lámina siguiente/i));
+    // Synchronously on the next page — no waiting out the flip timer.
+    expect(screen.getByTestId("flipchart-counter").textContent).toMatch(/Hoja 2 de/);
+    // The animated 3D flip layer must never have been mounted.
+    expect(container.querySelector(".flipchart-flip-wrapper")).toBeNull();
+  });
 });
 
 describe("TeacherPresentationShell — book-warm presenter chrome", () => {

@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, Award, BookOpen, Mail, ExternalLink } from "lucide-react";
 import portrait from "@/assets/autora-portrait.png";
 import { useLanguage } from "@/context/LanguageContext";
-import { LanguageToggle } from "@/components/LanguageToggle";
 import { sCopy } from "@/content/student-copy";
 
 export const Route = createFileRoute("/cartilla/autora")({
@@ -27,9 +26,6 @@ function Autora() {
             >
               <ArrowLeft className="w-4 h-4" /> {t.cartilla[lang]}
             </Link>
-            <div className="hidden sm:block">
-              <LanguageToggle />
-            </div>
           </div>
           <p
             className="hidden md:block text-[11px] tracking-[0.45em] uppercase text-[hsl(25,25%,35%)]"

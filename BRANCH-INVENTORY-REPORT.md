@@ -2,6 +2,17 @@
 
 _Generated 2026-07-22 by the branch-inventory pass (`claude/branch-inventory-report`)._
 
+> **UPDATE — cleanup executed.** Since this report was first written, the
+> deletion was run from a session that had GitHub delete permission. Verified:
+> the repo dropped from **239 → 83** live branches. The authoritative script
+> that was actually run is `scratch/delete-merged-branches.sh` in `main` — a
+> later, more thorough pass (169 branches: 117 exact-merged + 16
+> closed-without-merge + 6 diverged + 30 never-had-a-PR, each salvage-reviewed).
+> The pile counts below reflect *this* session's independent, more conservative
+> pass (167 provably-merged only); both are honest snapshots — trust the script
+> in `main` for the exact executed set. The remaining ~83 branches are mostly
+> new work created after this inventory (the repo churns fast).
+
 ## Plain-language summary (for the owner)
 
 Over months of AI-assisted work this repository piled up **239 branches** — a

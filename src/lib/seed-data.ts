@@ -358,7 +358,13 @@ export function createSeedClass(name: string) {
     id: `seed-class-${crypto.randomUUID()}`,
     teacher_id: teacher.id,
     name,
-    join_code: Math.random().toString(36).slice(2, 8).toUpperCase(),
+    join_code: (() => {
+      // Secure, unguessable demo join code (matches the crypto codes used in
+      // the live teacher path).
+      const arr = new Uint32Array(1);
+      crypto.getRandomValues(arr);
+      return arr[0].toString(36).padStart(6, "0").slice(0, 6).toUpperCase();
+    })(),
     created_at: nowIso(),
   };
   state.classes.unshift(row);
@@ -614,6 +620,35 @@ export function getSeedClassProgress(classId: string) {
   const assignments = state.assignments.filter((a) => a.class_id === classId);
   const classStudents = state.students.filter((s) => s.class_id === classId);
 
+  // Same aggregation as the live getClassProgress() in teacher.functions.ts:
+  // accumulate score/total from "exercise" events and elapsed time from
+  // "time" events, per student, plus a per-exercise-type hits/attempts
+  // breakdown from each event's meta.exercise — so the demo lane's report
+  // shows real numbers instead of always "—" / "0 mins".
+  const scoreTotalTimeByStudent: Record<string, { score: number; total: number; time: number }> =
+    {};
+  const perStudentExercise: Record<string, Record<string, { hits: number; attempts: number }>> = {};
+  classStudents.forEach((s) => {
+    scoreTotalTimeByStudent[s.id] = { score: 0, total: 0, time: 0 };
+    perStudentExercise[s.id] = {};
+  });
+  events.forEach((e) => {
+    const bucket = scoreTotalTimeByStudent[e.student_id];
+    if (!bucket) return;
+    if (e.event_kind === "exercise") {
+      bucket.score += e.score ?? 0;
+      bucket.total += e.total ?? 0;
+      const exerciseKind =
+        typeof e.meta?.exercise === "string" ? (e.meta.exercise as string) : "exercise";
+      const cell = (perStudentExercise[e.student_id][exerciseKind] ??= { hits: 0, attempts: 0 });
+      cell.hits += e.score ?? 0;
+      cell.attempts += e.total ?? 0;
+    }
+    if (e.event_kind === "time") {
+      bucket.time += e.time_seconds ?? 0;
+    }
+  });
+
   const recentEvents = events
     .slice()
     .sort((a, b) => b.created_at.localeCompare(a.created_at))
@@ -645,25 +680,32 @@ export function getSeedClassProgress(classId: string) {
   return {
     recentEvents,
     attentionByStudent,
-    perStudentExercise: {} as Record<string, Record<string, { hits: number; attempts: number }>>,
-    perStudent: classStudents.map((s) => ({
-      id: s.id,
-      name: s.display_name,
-      lessonsCount: new Set(
-        events
-          .filter((e) => e.student_id === s.id && e.event_kind === "lesson_completed")
-          .map((e) => e.lesson_id),
-      ).size,
-      completedLessonIds: Array.from(
-        new Set(
+    perStudentExercise,
+    perStudent: classStudents.map((s) => {
+      const { score, total, time } = scoreTotalTimeByStudent[s.id] ?? {
+        score: 0,
+        total: 0,
+        time: 0,
+      };
+      return {
+        id: s.id,
+        name: s.display_name,
+        lessonsCount: new Set(
           events
             .filter((e) => e.student_id === s.id && e.event_kind === "lesson_completed")
             .map((e) => e.lesson_id),
+        ).size,
+        completedLessonIds: Array.from(
+          new Set(
+            events
+              .filter((e) => e.student_id === s.id && e.event_kind === "lesson_completed")
+              .map((e) => e.lesson_id),
+          ),
         ),
-      ),
-      accuracy: null,
-      timeSeconds: 0,
-    })),
+        accuracy: total > 0 ? score / total : null,
+        timeSeconds: time,
+      };
+    }),
     perLesson: Object.fromEntries(
       Object.entries(perLesson).map(([lesson, row]) => [
         lesson,

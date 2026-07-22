@@ -22,9 +22,15 @@ generated/prod-teacher-creds*
 generated/*.local.json
 generated/vercel-*.env.local
 
+# Restoration pipeline bulk output (scripts/restore-art.mjs). The mirrored
+# restored art can be large; batch PRs (art/restore-<batch>) wire in the
+# specific restored files they need. Committed proofs live in docs/restore-art-proofs/.
+public/cartilla/art/restored/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
+!.vscode/mcp.json
 .idea
 .DS_Store
 *.suo
@@ -41,3 +47,8 @@ generated/vercel-*.env.local
 /*.pdf
 *.pdf
 .env*
+
+# Playwright E2E output
+/test-results/
+/playwright-report/
+tests/e2e/__screenshots__/

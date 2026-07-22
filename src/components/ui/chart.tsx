@@ -68,12 +68,14 @@ const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
     return null;
   }
 
+  // Render the generated CSS as a text child instead of dangerouslySetInnerHTML
+  // so React escapes it — closes a DOM-XSS vector if a chart id or theme color
+  // ever came from untrusted input.
   return (
-    <style
-      dangerouslySetInnerHTML={{
-        __html: Object.entries(THEMES)
-          .map(
-            ([theme, prefix]) => `
+    <style>
+      {Object.entries(THEMES)
+        .map(
+          ([theme, prefix]) => `
 ${prefix} [data-chart=${id}] {
 ${colorConfig
   .map(([key, itemConfig]) => {
@@ -83,10 +85,9 @@ ${colorConfig
   .join("\n")}
 }
 `,
-          )
-          .join("\n"),
-      }}
-    />
+        )
+        .join("\n")}
+    </style>
   );
 };
 

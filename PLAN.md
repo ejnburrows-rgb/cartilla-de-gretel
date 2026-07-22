@@ -41,12 +41,16 @@
   stray root files to `src/_archive/orphaned-root-scratch-files/` with a
   README; added `src/_archive/**` to ESLint's ignores).
   **Caveat — lint will still fail in CI**: after both fixes, `pnpm lint`
-  still reports 198 pre-existing problems (mostly `@typescript-eslint/no-
-  explicit-any` and Prettier formatting) spread across dozens of unrelated
+  reported 198 pre-existing problems at the time (mostly `@typescript-eslint/
+  no-explicit-any` and Prettier formatting) spread across dozens of unrelated
   files repo-wide. This is real, substantial, separate debt — not something
   to bundle into a lockfile fix — and is the same backlog Task 1.3 already
   covers at file-touched-per-task scope, not repo-wide. Verify's lint step
   will only go fully green once that broader cleanup happens.
+  **2026-07-20 update:** the count has grown as the repo has grown — `pnpm
+  lint` now reports 362 problems (321 errors, 41 warnings), not 198. Same
+  caveat, same out-of-scope reasoning, just recording the real current
+  number instead of a stale one.
 - **Browser check:** EJN can look at the GitHub PR status and see a green checkmark for the Verify step. (Typecheck/build/test steps will pass; the lint step needs the separate Task 1.3-style cleanup to also go green — see caveat above.)
 
 ### Task 1.2: Fix Failing Tests
@@ -92,14 +96,24 @@
 - **Goal:** Create a polished opening splash screen before login/join (imperative, phone and desktop) using existing approved art only.
 - **Exact expected files or area:** `src/routes/index.tsx`, `src/styles.css` (maximum five files).
 - **Done when:** The splash screen renders beautifully on both mobile and desktop before login.
-- **Status:** DONE
-- **Browser check:** EJN opens the root URL on their phone and laptop and sees the polished splash screen with correct art.
+- **Status:** NOT DONE — stale. This entry described the July-15 landing-page
+  refactor, which was never actually a distinct pre-login splash gate. A
+  real splash was built 2026-07-19 (`src/components/intro/WelcomeSplash.tsx`,
+  commit `681694a`) but the owner rejected it outright as an assembled
+  animal-crop collage. Root cause + a ready-to-paste redo brief are recorded
+  in the session plan; not yet re-attempted. `src/routes/index.tsx` now
+  renders the splash, `src/routes/entrar.tsx` holds the original dual
+  student/teacher landing (unaffected, still fine).
+- **Browser check:** EJN opens the root URL on their phone and laptop and sees a polished splash screen — not yet true.
 
 ### Task 3.2: Hide Unfinished Gretel Avatar Element
 - **Goal:** Hide every unfinished Gretel avatar element without deleting Gretel files.
 - **Exact expected files or area:** `src/components/cartilla/GretelLiveAvatar.tsx`, `src/components/cartilla/GretelStage.tsx` (maximum five files).
 - **Done when:** The avatar is completely hidden from the UI but the code remains intact.
-- **Status:** DONE
+- **Status:** DONE — file paths in this entry were wrong (corrected
+  2026-07-20): the real files are `src/components/gretel/GretelLiveAvatar.tsx`
+  and `src/components/gretel/GretelStage.tsx`, not `src/components/cartilla/`.
+  Both still unconditionally `return null`, confirmed current.
 - **Browser check:** EJN navigates the app and confirms Gretel is nowhere to be seen on any screen.
 
 ## PHASE 4: Art and Reader

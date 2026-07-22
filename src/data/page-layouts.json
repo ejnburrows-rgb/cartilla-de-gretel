@@ -20,7 +20,6 @@
           "cells": [
             {
               "caption": "abrigo",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-1/abrigo.webp",
               "correct": true
             },
             {
@@ -55,7 +54,6 @@
             },
             {
               "caption": "remolino",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-1/remolino.webp",
               "correct": false
             },
             {
@@ -106,7 +104,6 @@
             },
             {
               "caption": "abeja",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/abeja.webp",
               "correct": false
             },
             {
@@ -208,7 +205,7 @@
                 },
                 {
                   "caption": "carro",
-                  "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/carro.webp",
+                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/carro.webp",
                   "correct": false
                 }
               ]
@@ -223,7 +220,6 @@
                 },
                 {
                   "caption": "globo",
-                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/globo.webp",
                   "correct": false
                 },
                 {
@@ -273,7 +269,6 @@
             {
               "letter": "e",
               "caption": "escoba",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-e/escoba.webp",
               "correct": true
             },
             {
@@ -310,8 +305,8 @@
             },
             {
               "caption": "iglú",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iglu.webp",
-              "correct": false
+              "correct": false,
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iglu.webp"
             },
             {
               "caption": "oso",
@@ -406,8 +401,8 @@
           "cells": [
             {
               "caption": "iglú",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iglu.webp",
-              "correct": false
+              "correct": false,
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iglu.webp"
             },
             {
               "caption": "oveja",
@@ -522,7 +517,6 @@
             },
             {
               "caption": "oruga",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oruga.webp",
               "correct": false
             },
             {
@@ -542,7 +536,6 @@
             },
             {
               "caption": "abeja",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/abeja.webp",
               "correct": true
             },
             {
@@ -587,7 +580,6 @@
             },
             {
               "caption": "aguja",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/aguja.webp",
               "correct": true
             },
             {
@@ -623,8 +615,8 @@
             },
             {
               "caption": "iglú",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iglu.webp",
-              "correct": false
+              "correct": false,
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iglu.webp"
             },
             {
               "caption": "alas",
@@ -633,12 +625,10 @@
             },
             {
               "caption": "abeja",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/abeja.webp",
               "correct": true
             },
             {
               "caption": "aguja",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/aguja.webp",
               "correct": true
             },
             {
@@ -653,7 +643,6 @@
             },
             {
               "caption": "remolino",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-1/remolino.webp",
               "correct": false
             }
           ]
@@ -734,8 +723,8 @@
             },
             {
               "caption": "iglú",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iglu.webp",
-              "correct": true
+              "correct": true,
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iglu.webp"
             },
             {
               "caption": "maíz",
@@ -759,17 +748,14 @@
             },
             {
               "caption": "abeja",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/abeja.webp",
               "correct": false
             },
             {
               "caption": "aguja",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/aguja.webp",
               "correct": false
             },
             {
               "caption": "escoba",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-e/escoba.webp",
               "correct": true
             },
             {
@@ -840,7 +826,6 @@
             },
             {
               "caption": "abeja",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/abeja.webp",
               "correct": false
             },
             {
@@ -865,7 +850,6 @@
             },
             {
               "caption": "abrigo",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-1/abrigo.webp",
               "correct": false
             }
           ]
@@ -941,8 +925,8 @@
           "cells": [
             {
               "caption": "iglú",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iglu.webp",
-              "correct": true
+              "correct": true,
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iglu.webp"
             },
             {
               "caption": "pez",
@@ -1052,8 +1036,8 @@
             },
             {
               "caption": "iglú",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iglu.webp",
-              "correct": true
+              "correct": true,
+              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iglu.webp"
             },
             {
               "caption": "igual",
@@ -1077,7 +1061,6 @@
             },
             {
               "caption": "abeja",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/abeja.webp",
               "correct": false
             }
           ]
@@ -1208,8 +1191,7 @@
               "illustrationSrc": "/cartilla/art/faithful/leccion-1/aguila.webp"
             },
             {
-              "caption": "abeja",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/abeja.webp"
+              "caption": "abeja"
             },
             {
               "caption": "traje",
@@ -5655,8 +5637,7 @@
             [
               {
                 "word": "guitarra",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/guitarra.webp"
+                "correct": true
               },
               {
                 "word": "barrio",
@@ -5664,8 +5645,7 @@
               },
               {
                 "word": "carro",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/carro.webp"
+                "correct": false
               }
             ]
           ]
@@ -5736,8 +5716,7 @@
               },
               {
                 "word": "guitarra",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/guitarra.webp"
+                "correct": false
               },
               {
                 "word": "barrio",
@@ -5761,8 +5740,7 @@
               },
               {
                 "word": "carro",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/carro.webp"
+                "correct": true
               },
               {
                 "word": "barra",
@@ -5780,8 +5758,7 @@
               },
               {
                 "word": "guitarra",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/guitarra.webp"
+                "correct": false
               }
             ]
           ]
@@ -5814,8 +5791,7 @@
               },
               {
                 "word": "guitarra",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/guitarra.webp"
+                "correct": false
               },
               {
                 "word": "cigarro",
@@ -5859,7 +5835,6 @@
             },
             {
               "wordBox": "carro",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/carro.webp",
               "blank": "rro",
               "choices": [
                 {
@@ -6114,8 +6089,7 @@
               },
               {
                 "word": "guitarra",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-18-rr/guitarra.webp"
+                "correct": true
               }
             ],
             [
@@ -6182,8 +6156,7 @@
             [
               {
                 "word": "galleta",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-19-g/galleta.webp"
+                "correct": false
               },
               {
                 "word": "gusto",
@@ -6414,8 +6387,7 @@
             [
               {
                 "word": "faro",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-20-f/faro.webp"
+                "correct": true
               },
               {
                 "word": "foto",
@@ -6495,8 +6467,7 @@
               },
               {
                 "word": "foca",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-20-f/foca.webp"
+                "correct": false
               },
               {
                 "word": "fila",
@@ -6539,8 +6510,7 @@
               },
               {
                 "word": "foca",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-20-f/foca.webp"
+                "correct": true
               }
             ],
             [
@@ -6578,15 +6548,13 @@
               },
               {
                 "word": "fuente",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-20-f/fuente.webp"
+                "correct": true
               }
             ],
             [
               {
                 "word": "faro",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-20-f/faro.webp"
+                "correct": false
               },
               {
                 "word": "fenómeno",
@@ -7960,8 +7928,7 @@
               },
               {
                 "word": "zanahoria",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-23-z/zanahoria.webp"
+                "correct": true
               }
             ],
             [

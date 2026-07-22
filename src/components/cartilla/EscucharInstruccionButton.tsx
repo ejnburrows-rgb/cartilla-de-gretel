@@ -1,7 +1,13 @@
 import { Volume2 } from "lucide-react";
 import { useAudio } from "@/hooks/useAudio";
 
-export function EscucharInstruccionButton({ text, className }: { text: string; className?: string }) {
+export function EscucharInstruccionButton({
+  text,
+  className,
+}: {
+  text: string;
+  className?: string;
+}) {
   const { play, playingText } = useAudio();
   const isPlaying = playingText === text;
 

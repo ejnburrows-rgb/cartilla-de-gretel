@@ -4,8 +4,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, it, expect, beforeEach } from "vitest";
 import { ThemeToggle } from "../components/ThemeToggle";
-import { LanguageToggle } from "../components/LanguageToggle";
-import { LanguageProvider } from "../context/LanguageContext";
 
 const localStorageMock = (function () {
   let store: Record<string, string> = {};
@@ -56,23 +54,22 @@ describe("UI Features", () => {
     });
   });
 
-  describe("Language Toggle", () => {
-    it("switches language and persists to localStorage", () => {
-      render(
-        <LanguageProvider>
-          <LanguageToggle />
-        </LanguageProvider>,
-      );
+  // The English (ES/EN) language toggle was removed: the interface is
+  // Spanish-only (see AGENTS.md). LanguageToggle now renders only the theme
+  // toggle, so there is no language-switch behavior left to test here.
 
-      const btn = screen.getByText("ES");
+  describe("ThemeToggle accessibility", () => {
+    it("exposes an accessible name so screen readers can announce it", () => {
+      render(<ThemeToggle />);
+      const btn = screen.getByRole("button", { name: /modo (claro|oscuro)/i });
+      expect(btn.getAttribute("aria-label")).toMatch(/modo (claro|oscuro)/i);
+    });
 
-      fireEvent.click(btn);
-      expect(screen.getByText("EN")).toBeDefined();
-      expect(localStorage.getItem("cartilla_lang")).toBe("en");
-
-      fireEvent.click(screen.getByText("EN"));
-      expect(screen.getByText("ES")).toBeDefined();
-      expect(localStorage.getItem("cartilla_lang")).toBe("es");
+    it("uses a large enough tap target (44x44px via h-11 w-11)", () => {
+      render(<ThemeToggle />);
+      const btn = screen.getByRole("button", { name: /modo (claro|oscuro)/i });
+      expect(btn.className).toContain("h-11");
+      expect(btn.className).toContain("w-11");
     });
   });
 });

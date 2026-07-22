@@ -10,7 +10,6 @@ import { LessonTimer } from "@/components/cartilla/LessonTimer";
 import { listMyAssignments } from "@/lib/assignments.functions";
 import { getMyProgress, saveLastPage } from "@/lib/student.functions";
 import { useLanguage } from "@/context/LanguageContext";
-import { LanguageToggle } from "@/components/LanguageToggle";
 import { sCopy } from "@/content/student-copy";
 import { gretelEvent } from "@/lib/gretel-bus";
 
@@ -118,8 +117,13 @@ function Leccion() {
     return row?.last_page ?? 0;
   }, [session, progressData, n]);
 
+  const gardenRef = useRef<HTMLDivElement>(null);
   const saveLastPageFn = useServerFn(saveLastPage);
   const handlePageChange = (index: number) => {
+    // Slight page-movement parallax on the garden scene — set imperatively so
+    // the workbook and its interactive flip never re-render. CSS caps + eases
+    // it and disables it under prefers-reduced-motion (garden-scene.css).
+    gardenRef.current?.style.setProperty("--garden-parallax", String(index));
     if (!session) return;
     void saveLastPageFn({
       data: {
@@ -210,7 +214,6 @@ function Leccion() {
             <ArrowLeft className="w-4 h-4" /> {t.indice[lang]}
           </Link>
           <div className="flex items-center gap-3">
-            <LanguageToggle />
             <div className="flex items-center gap-2">
               <LessonTimer limitSeconds={assignment?.time_limit_seconds ?? null} />
               <span className="text-xs font-bold text-foreground/60">
@@ -256,7 +259,7 @@ function Leccion() {
         {/* The lesson IS the book's own pages, one at a time, in order — no
             invented sections/tabs/screens around them (locked canon 7/9). */}
         <div className="w-full">
-          <GardenScene>
+          <GardenScene ref={gardenRef}>
             {!session && (
               <div className="fixed top-4 left-4 z-[200]">
                 <Link

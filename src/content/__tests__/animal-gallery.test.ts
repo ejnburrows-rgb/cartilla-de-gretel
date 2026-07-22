@@ -26,10 +26,9 @@ describe("animal-gallery integrity", () => {
       expect(a.illustrationSrc.startsWith("/cartilla/art/faithful/"), a.word).toBe(true);
       const abs = join(publicRoot, a.illustrationSrc.replace(/^\//, ""));
       expect(existsSync(abs), `${a.word} missing ${a.illustrationSrc}`).toBe(true);
-      expect(
-        statSync(abs).size,
-        `${a.word} stub ${a.illustrationSrc}`,
-      ).toBeGreaterThanOrEqual(MIN_BYTES);
+      expect(statSync(abs).size, `${a.word} stub ${a.illustrationSrc}`).toBeGreaterThanOrEqual(
+        MIN_BYTES,
+      );
     }
   });
 
@@ -51,24 +50,17 @@ describe("animal-gallery integrity", () => {
     }
   });
 
-  it("never links to the specific bad crop file found during this file's own review", () => {
-    // leccion-18-rr/perro.webp was actually a photo of a donkey ("burro"),
-    // not a dog — the real book has no dog illustration in lessons 17/18 at
-    // all. The file was moved to
-    // _needs-recrop/perro-actually-shows-burro-donkey.webp; this guard stops
-    // it sneaking back into the gallery under a different word/entry.
-    // (leccion-17-r/rana.webp was also flagged here for a bad crop, but has
-    // since been re-cropped clean from the real source page and rejoined the
-    // gallery above — see ART_BACKLOG.md.)
-    const bannedCrops = ["leccion-18-rr/perro.webp"];
-    for (const a of ANIMAL_GALLERY) {
-      for (const bad of bannedCrops) {
-        expect(a.illustrationSrc.endsWith(bad), `${a.word} uses a known-bad crop (${bad})`).toBe(
-          false,
-        );
-      }
-    }
-  });
+  // NOTE: a prior revision of this file banned leccion-18-rr/perro.webp and
+  // leccion-17-r/rana.webp by path — both were found wrong during earlier
+  // review (perro was really the burro/donkey cell mislabeled; rana had a
+  // numeral fragment bled in from a neighboring cell). Both have since been
+  // re-cropped clean from their real source pages (rr-page-42's "Perri el
+  // perrito" rhyme scene for perro; r-page-37 for rana) and re-verified
+  // visually — see ART_BACKLOG.md. The path-ban is removed rather than kept
+  // stale, since banning by path can't distinguish a fixed file from the
+  // original bad one; "is this actually the right animal" is a semantic
+  // check no structural test can make — that's what the visual QA pass in
+  // ART_BACKLOG.md's history is for.
 
   it("every card links to a real lesson (1–24) and carries a hex accent", () => {
     for (const a of ANIMAL_GALLERY) {

@@ -169,8 +169,12 @@ async function processOne(srcAbs) {
   const cw = maxX - minX + 1;
   const chh = maxY - minY + 1;
 
-  let img = sharp(Buffer.from(data), { raw: { width: w, height: h, channels: ch } })
-    .extract({ left: minX, top: minY, width: cw, height: chh });
+  let img = sharp(Buffer.from(data), { raw: { width: w, height: h, channels: ch } }).extract({
+    left: minX,
+    top: minY,
+    width: cw,
+    height: chh,
+  });
 
   // upscale small art (lanczos) + sharpen; cap the scale and final size
   const longNow = Math.max(cw, chh);

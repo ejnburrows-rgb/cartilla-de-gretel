@@ -1,6 +1,42 @@
 # Art backlog — current, authoritative
 
-## RESOLVED 2026-07-18 (follow-up) — perro was a mislabeled burro crop (real book has no dog art here); rana re-cropped clean from the real color source
+## RESOLVED 2026-07-19 — the "no dog art in these lessons" conclusion below was wrong; a real perro illustration exists on rr-page-42
+The 2026-07-18 entry below only checked `rr-page-40.jpg` (the vocab-grid
+source, confirmed a mislabeled burro) and the two plain-text workbook pages
+— it never checked the surrounding rhyme pages in
+`public/cartilla/images/source-original/rr/`. `rr-page-42.jpg` is a painted
+rhyme illustration ("¡Rápido arriba!": *"Perri el perrito roba mi bola"*)
+showing a real dog stealing a ball, alongside the donkey ("Barri el
+burrito") from the rr-page-40 vocab cell. Opened the full-resolution source
+page directly and confirmed it in-browser: a genuine, book-faithful dog
+illustration, not the flat vocab-grid icon style but real and correct.
+
+- Cropped `perro` from `rr-page-42.jpg` and wired it to
+  `leccion-18-rr/perro.webp` (the same shared path the earlier entry had
+  emptied out — no page-layouts.json/consonants.json changes needed, since
+  neither ever carried an `illustrationSrc` for this word to begin with;
+  confirmed by grep before wiring).
+- Ran it through `scripts/art-pipeline/clean-art.mjs` like every other
+  faithful asset. Note: the flood-fill background removal correctly left the
+  scene intact (grass/flowers, not a plain white paper background) — this
+  crop is a painted scene panel, not an isolated white-background icon, so
+  there's nothing to key transparency off; that's expected, not a bug.
+- Re-added `perro` to `src/content/animal-gallery.ts` (back to 19 entries)
+  after direct visual re-verification of both the source page and the
+  cleaned crop.
+- `rana` needed no change — the 2026-07-18 entry below already fixed it
+  correctly and it's still in place.
+- The bad-crop-file test guard in
+  `src/content/__tests__/animal-gallery.test.ts` (which banned
+  `leccion-18-rr/perro.webp` by path) has been removed — a path ban can't
+  distinguish a fixed file from the original bad one; that's a semantic
+  check, which is what this pass is.
+
+Verified: `pnpm tsc --noEmit` / `pnpm test` / `pnpm build` clean; in-browser
+check of the animal gallery (`/cartilla/animales`) and lesson 18's teacher
+guide vocabulary chips.
+
+## RESOLVED 2026-07-18 (follow-up) — perro was a mislabeled burro crop (real book has no dog art here — SUPERSEDED, see above); rana re-cropped clean from the real color source
 Follow-up to the pre-merge review below: found the real, full-color source
 pages this checkout has under `public/cartilla/images/source-original/` (not
 just the `hd/lineart` grayscale scans) and ran both defects to ground.
@@ -69,18 +105,26 @@ guard instead of a doc:
 - It reads **actual pixels** and fails the build if any wired `illustrationSrc`
   is **grayscale** (the exact bug — gray art passing size/existence checks —
   that produced every "still not colored" surprise below).
-- It fails the build if any consonant vocab word falls back to an emoji with no
-  illustration **and** is not on the `CONFIRMED_ABSENT` list in that script.
+- It fails the build if any consonant **or vowel** vocab word falls back to an
+  emoji with no illustration **and** is not on the `CONFIRMED_ABSENT` list in
+  that script. (**2026-07-20**: extended to also scan vowel-lesson vocab,
+  `src/content/lessons.json` — it previously only scanned consonants, which
+  is exactly how `abeja`/`escoba`/`iglú`/`ojo` sat as untracked gaps.)
 
-**`CONFIRMED_ABSENT` (27 words) is the single source of truth** for "this word
+**`CONFIRMED_ABSENT` (31 words) is the single source of truth** for "this word
 has no picture anywhere in this book edition" — verified 2026-07-18 by opening
 every real source page per lesson (not from prior docs): `moto, mapa` (M);
 `pino, pulpo` (P); `sol, silla` (S); `tapa, tomate, tina, tulipán` (T —
 `t-page-17` is a pure word-list page, no picture panel); `delfín, dona, ducha`
 (D); `luna, lobo, loro, lupa` (L); `nariz, nube, nata` (N); `piña, muñeca` (Ñ);
-`barco, bici` (B); `vaca, vino, volcán` (V). These correctly show the emoji
-fallback. To change any of these, edit the list in `validate-art-color.mjs` —
-the doc follows the code, never the reverse.
+`barco, bici` (B); `vaca, vino, volcán` (V); `ajo` (J — added 2026-07-19,
+color-QA found the only crop attempt is an abstract shape, not garlic);
+`abeja` (A), `escoba` (E), `urna` (U) (added 2026-07-20 once vowel-lesson
+scanning existed to catch them — each only appears as an uncolored
+distractor icon on unrelated cross-vowel exercise pages, or not at all).
+These correctly show the emoji fallback. To change any of these, edit the
+list in `validate-art-color.mjs` — the doc follows the code, never the
+reverse.
 
 **Not covered (lessons not built yet, so not a live gap):** the CH/LL/H/K/W/X
 words (`caballo, cama, chaleco, chile, fila, llanta, llave, gota, hielo, hoja,
@@ -705,6 +749,67 @@ Add a manifest entry for each new/fixed file:
   "src": "/cartilla/art/faithful/vocal-a/aguja.webp",
   "sourceFlipchartPage": null, "cropBox": null }
 ```
+
+## 2026-07-20 — page-layout art gap batch (carro fixed, 5 words need coloring)
+
+Worked the "12-word page-layout gap" list from the session plan
+(`aguja`, `oruga`, `abrigo`, `globo`, `remolino`, `carro`, `guitarra`,
+`galleta`, `faro`, `foca`, `fuente`, `zanahoria`) against real source pages.
+Findings:
+
+**Not actually art gaps — no picture-grid cell exists for these at all**:
+`guitarra`, `galleta`, `faro`, `foca`, `fuente`, `zanahoria`. Checked every
+occurrence in `src/data/page-layouts.json`: they only appear as `"word"` /
+`"wordBox"` entries in syllable-match and fill-in-blank text exercises,
+never as a `"caption"` picture-grid cell. Those exercise types have no
+`illustrationSrc` field in their schema — nothing to wire, nothing missing.
+
+**`carro` — FIXED.** A real, clean, PASS-graded crop
+(`leccion-1/carro.webp`, a colorful vintage yellow car) was sitting on disk
+unused — the wired file at the time was `leccion-18-rr/carro.webp`, which
+is actually a mismatched donkey/camel-leg crop (confirmed FAIL, wrong
+content) despite a stale July 15 commit message claiming they were the same
+file transplanted. Wired `leccion-1/carro.webp` onto the `pages.2`
+vowel-pick-one "o" row cell in `page-layouts.json`. No new crop needed.
+
+**`abrigo`, `aguja`, `remolino` — real grayscale line art located, needs
+coloring (not a wiring job).** All three already had a wired-but-defective
+attempt from the July 17 recoloring pass (commit `20339c0`) — that's why
+they show as FAIL in `qa-results.json` (near-blank/uncolored for aguja,
+edge-cut-off-plus-stray-fragment for remolino, abstract-smear-wrong-content
+for abrigo). No intermediate "colored full page" source survived that pass
+to re-crop from, so fixing these means re-coloring from the grayscale
+originals, not just re-cropping — out of scope for a wiring-only pass, same
+boundary this doc has already drawn elsewhere. Precise real source
+locations for a future coloring pass:
+- `abrigo` (hooded winter jacket) — `public/cartilla/images/source-original/e/e-page-11.jpg`
+  (native 1275x1650), bottom-right cell, crop box approx `[750, 1150, 320, 320]`.
+  Distractor icon on the E-lesson "mark the E words" page, grayscale only,
+  never colored anywhere in the book.
+- `aguja` (needle + thread) — `public/cartilla/images/source-original/a/a-page-5.jpg`
+  (native 1275x1650), middle row, right column, crop box approx `[970, 750, 300, 300]`.
+  Same page type as abrigo — distractor icon, grayscale only.
+- `remolino` (spiral/swirl) — same page, `a-page-5.jpg`, bottom row middle
+  column, crop box approx `[970, 1140, 300, 300]`. The existing defective
+  `leccion-1/remolino.webp` is visibly the same swirl shape already
+  (partially) colored teal/blue — re-crop wider from this exact region and
+  redo the fill cleanly (no edge cut-off, no stray fragment bleeding in from
+  the neighboring cell) rather than starting over blind.
+
+**`oruga`, `globo` — no clean source located.** Checked all 15 vowel-lesson
+workbook pages (a-page-4/5/6, e-page-10/11/12, i-page-13/14/15,
+o-page-3/4/5, u-page-16/17/18) directly, page by page — no caterpillar
+shape (oruga) or balloon shape (globo) appears anywhere, grayscale or
+color. `oruga`'s existing `vocal-o/oruga.webp` and `globo`'s existing
+`leccion-1/globo.webp` were both produced by the same July 17 recoloring
+commit, so real source material existed for whoever did that pass, but
+where it came from is not recorded (no `sourceFlipchartPage`/`cropBox` in
+`manifest.json`, both `provenanceStatus: PROVENANCE-UNKNOWN`) and it isn't
+among the 15 pages checked here. Only the 62-page teacher flipchart
+(`public/cartilla/images/teacher-flipchart/`) remains unchecked as a
+possible source — untitled filenames (`teacher-page-01.jpg` etc.), would
+need a page-by-page visual scan to search, not done this pass. Both stay
+honestly "pendiente" until that source is found or the pass is done.
 
 ## How to submit
 Push to a fresh branch off current `main`, open a PR against this repo.
