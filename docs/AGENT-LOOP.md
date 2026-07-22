@@ -140,7 +140,8 @@ files.**
       falls back to hd → lineart → scan untouched). Overlay proofs in `docs/restore-art-proofs/b1/`.
 - [x] **B2. Batch L5–L8**  (same protocol) — **DONE 2026-07-22:** pages 13–26 restored, 14/14 acceptance
       pass (drift 0.0091–0.0260), wired via `RESTORED_PAGES` 1–26. Proofs in `docs/restore-art-proofs/b2/`.
-- [ ] **B3. Batch L9–L12**
+- [x] **B3. Batch L9–L12** — **DONE 2026-07-22:** pages 27–42, 16/16 acceptance pass, wired
+      (`RESTORED_PAGES` 1–42). Proofs in `docs/restore-art-proofs/b3/`.
 - [ ] **B4. Batch L13–L16**
 - [ ] **B5. Batch L17–L20**
 - [ ] **B6. Batch L21–L24**
@@ -215,6 +216,8 @@ files.**
 ---
 
 ## STATUS LOG (append one dated line per merged PR; newest at top)
+- 2026-07-22 — **B3 art batch L9–L12 DONE:** pages 27–42 restored (16/16 pass), wired restored-first
+  (`RESTORED_PAGES` 1–42). Verify bar green.
 - 2026-07-22 — **B2 art batch L5–L8 DONE:** pages 13–26 restored (14/14 acceptance pass, drift
   0.0091–0.0260 vs 0.06), committed + wired restored-first (`RESTORED_PAGES` now 1–26). Verify bar green.
   (Screenshot proof waived by owner for this loop session — "disregard screenshots and keep moving".)

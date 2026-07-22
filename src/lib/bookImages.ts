@@ -19,7 +19,7 @@ const COLOR_SCAN_COUNT = 92;
  * here passed the overlay/edge-drift acceptance test (see AGENTS.md).
  */
 const RESTORED_PAGES: ReadonlySet<number> = new Set(
-  Array.from({ length: 26 }, (_, i) => i + 1),
+  Array.from({ length: 42 }, (_, i) => i + 1),
 );
 
 /**
