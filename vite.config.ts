@@ -3,7 +3,7 @@
 import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
 import viteReact from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
-import { defineConfig } from "vitest/config";
+import { defineConfig, configDefaults } from "vitest/config";
 import tsConfigPaths from "vite-tsconfig-paths";
 import { gzipSync, brotliCompressSync } from "zlib";
 
@@ -64,6 +64,9 @@ export default defineConfig({
     globals: true,
     environment: "jsdom",
     setupFiles: "./src/test/setup.ts",
+    // Playwright E2E specs live in tests/e2e and must not be run by Vitest
+    // (they use @playwright/test, not the jsdom unit runner).
+    exclude: [...configDefaults.exclude, "tests/e2e/**"],
   },
   esbuild: {
     // Only strip debugger statements and no-op console.log/debug/info calls.

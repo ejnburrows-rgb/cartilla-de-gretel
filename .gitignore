@@ -47,3 +47,8 @@ public/cartilla/art/restored/
 /*.pdf
 *.pdf
 .env*
+
+# Playwright E2E output
+/test-results/
+/playwright-report/
+tests/e2e/__screenshots__/
