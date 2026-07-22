@@ -59,13 +59,13 @@ function parseArgs(argv) {
   for (let i = 2; i < argv.length; i++) {
     const k = argv[i];
     const v = argv[i + 1];
-    if (k === "--src") (a.src = v), i++;
-    else if (k === "--out") (a.out = v), i++;
-    else if (k === "--proofs") (a.proofs = v), i++;
-    else if (k === "--upscale") (a.upscale = Number(v)), i++;
-    else if (k === "--max-dim") (a.maxDim = Number(v)), i++;
-    else if (k === "--threshold") (a.threshold = Number(v)), i++;
-    else if (k === "--limit") (a.limit = Number(v)), i++;
+    if (k === "--src") ((a.src = v), i++);
+    else if (k === "--out") ((a.out = v), i++);
+    else if (k === "--proofs") ((a.proofs = v), i++);
+    else if (k === "--upscale") ((a.upscale = Number(v)), i++);
+    else if (k === "--max-dim") ((a.maxDim = Number(v)), i++);
+    else if (k === "--threshold") ((a.threshold = Number(v)), i++);
+    else if (k === "--limit") ((a.limit = Number(v)), i++);
     else if (k === "--dry") a.dry = true;
     else if (k === "--gentle") a.gentle = true;
   }
@@ -140,9 +140,10 @@ async function restore(srcPath, { upscale, maxDim, gentle }) {
     .normalise(gentle ? { lower: 2, upper: 98 } : undefined);
 
   const isPng = /\.png$/i.test(srcPath);
-  const outBuf = await (isPng
-    ? pipe.png({ compressionLevel: 9 })
-    : pipe.jpeg({ quality: 92, chromaSubsampling: "4:4:4" })
+  const outBuf = await (
+    isPng
+      ? pipe.png({ compressionLevel: 9 })
+      : pipe.jpeg({ quality: 92, chromaSubsampling: "4:4:4" })
   ).toBuffer();
 
   return { outBuf, origW: w, origH: h, restW: curW, restH: curH, format: meta.format };
@@ -220,7 +221,15 @@ async function main() {
         await fs.mkdir(path.dirname(outPath), { recursive: true });
         await fs.writeFile(outPath, outBuf);
       }
-      const acc = await acceptance(srcPath, outBuf, origW, origH, path.resolve(a.proofs), a.threshold, a.dry);
+      const acc = await acceptance(
+        srcPath,
+        outBuf,
+        origW,
+        origH,
+        path.resolve(a.proofs),
+        a.threshold,
+        a.dry,
+      );
       report.push({
         src: path.relative(process.cwd(), srcPath),
         out: a.dry ? null : path.relative(process.cwd(), outPath),
@@ -239,7 +248,11 @@ async function main() {
       }
     } catch (e) {
       failed++;
-      report.push({ src: path.relative(process.cwd(), srcPath), error: String(e.message || e), pass: false });
+      report.push({
+        src: path.relative(process.cwd(), srcPath),
+        error: String(e.message || e),
+        pass: false,
+      });
       console.log(`  ✗ ${rel}  ERROR ${e.message || e}`);
     }
   }
@@ -248,12 +261,18 @@ async function main() {
     await fs.mkdir(path.resolve(a.proofs), { recursive: true });
     await fs.writeFile(
       path.join(path.resolve(a.proofs), "report.json"),
-      JSON.stringify({ generatedAt: new Date().toISOString(), threshold: a.threshold, results: report }, null, 2),
+      JSON.stringify(
+        { generatedAt: new Date().toISOString(), threshold: a.threshold, results: report },
+        null,
+        2,
+      ),
     );
   }
 
   const passed = report.length - failed;
-  console.log(`\nrestore-art: ${passed}/${report.length} passed, ${failed} rejected. Proofs: ${a.proofs}`);
+  console.log(
+    `\nrestore-art: ${passed}/${report.length} passed, ${failed} rejected. Proofs: ${a.proofs}`,
+  );
   process.exit(failed > 0 ? 1 : 0);
 }
 
