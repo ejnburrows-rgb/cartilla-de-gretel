@@ -18,7 +18,9 @@ const COLOR_SCAN_COUNT = 92;
  * (art/restore-<batch> PRs). Restoration CLEANS, never INVENTS — every file
  * here passed the overlay/edge-drift acceptance test (see AGENTS.md).
  */
-const RESTORED_PAGES: ReadonlySet<number> = new Set([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
+const RESTORED_PAGES: ReadonlySet<number> = new Set(
+  Array.from({ length: 26 }, (_, i) => i + 1),
+);
 
 /**
  * Returns the restored art path for a page, or null if the page has no

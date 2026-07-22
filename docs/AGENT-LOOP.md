@@ -138,7 +138,8 @@ files.**
       (drift 0.0018–0.0291, all ≤ 0.06, 12/12 pass), committed under `public/cartilla/art/restored/workbook/`
       and wired restored-first via `getRestoredPageImage()` in `src/lib/bookImages.ts` (strict 1:1, chain
       falls back to hd → lineart → scan untouched). Overlay proofs in `docs/restore-art-proofs/b1/`.
-- [ ] **B2. Batch L5–L8**  (same protocol)
+- [x] **B2. Batch L5–L8**  (same protocol) — **DONE 2026-07-22:** pages 13–26 restored, 14/14 acceptance
+      pass (drift 0.0091–0.0260), wired via `RESTORED_PAGES` 1–26. Proofs in `docs/restore-art-proofs/b2/`.
 - [ ] **B3. Batch L9–L12**
 - [ ] **B4. Batch L13–L16**
 - [ ] **B5. Batch L17–L20**
@@ -214,6 +215,9 @@ files.**
 ---
 
 ## STATUS LOG (append one dated line per merged PR; newest at top)
+- 2026-07-22 — **B2 art batch L5–L8 DONE:** pages 13–26 restored (14/14 acceptance pass, drift
+  0.0091–0.0260 vs 0.06), committed + wired restored-first (`RESTORED_PAGES` now 1–26). Verify bar green.
+  (Screenshot proof waived by owner for this loop session — "disregard screenshots and keep moving".)
 - 2026-07-22 — **B1 art batch L1–L4 DONE:** pages 1–12 restored via `scripts/restore-art.mjs` (12/12
   acceptance pass, drift 0.0018–0.0291 vs 0.06 threshold), restored files committed and wired restored-first
   into the workbook fallback chain (`getRestoredPageImage`). Also fixed a latent pipeline bug (sharp runs
