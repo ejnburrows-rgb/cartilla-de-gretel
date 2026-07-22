@@ -1,0 +1,33 @@
+{
+  "generatedAt": "2026-07-22T03:35:04.833Z",
+  "threshold": 0.06,
+  "results": [
+    {
+      "src": "public/cartilla/art/hd/workbook/Flow_202606171952_10_opt.png",
+      "out": "../../../tmp/claude-0/restored-bulk2/Flow_202606171952_10_opt.png",
+      "origSize": "800x863",
+      "restoredSize": "1600x1726",
+      "drift": 0.0064,
+      "pass": true,
+      "proof": "../../../tmp/claude-0/proofs-raw/Flow_202606171952_10_opt.overlay.png"
+    },
+    {
+      "src": "public/cartilla/art/hd/workbook/Flow_202606171952_11_opt.png",
+      "out": "../../../tmp/claude-0/restored-bulk2/Flow_202606171952_11_opt.png",
+      "origSize": "800x822",
+      "restoredSize": "1600x1644",
+      "drift": 0.0052,
+      "pass": true,
+      "proof": "../../../tmp/claude-0/proofs-raw/Flow_202606171952_11_opt.overlay.png"
+    },
+    {
+      "src": "public/cartilla/art/hd/workbook/Flow_202606171952_12_opt.png",
+      "out": "../../../tmp/claude-0/restored-bulk2/Flow_202606171952_12_opt.png",
+      "origSize": "800x731",
+      "restoredSize": "1600x1462",
+      "drift": 0.0122,
+      "pass": true,
+      "proof": "../../../tmp/claude-0/proofs-raw/Flow_202606171952_12_opt.overlay.png"
+    }
+  ]
+}
