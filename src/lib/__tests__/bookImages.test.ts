@@ -30,8 +30,8 @@ describe("bookImages Art Fallback Chain", () => {
     expect(getRestoredPageImage(1)).toBe("/cartilla/art/restored/workbook/page-001.png");
     expect(getRestoredPageImage(44)).toBe("/cartilla/art/restored/workbook/page-044.png");
     expect(getRestoredPageImage(45)).toBe("/cartilla/art/restored/workbook/page-045.jpg");
-    expect(getRestoredPageImage(58)).toBe("/cartilla/art/restored/workbook/page-058.jpg");
-    expect(getRestoredPageImage(59)).toBeNull();
+    expect(getRestoredPageImage(74)).toBe("/cartilla/art/restored/workbook/page-074.jpg");
+    expect(getRestoredPageImage(75)).toBeNull();
   });
 
   it("prefers restored art at the head of the chain for restored pages", () => {

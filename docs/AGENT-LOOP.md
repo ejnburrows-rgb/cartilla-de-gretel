@@ -145,7 +145,8 @@ files.**
 - [x] **B4. Batch L13–L16** — **DONE 2026-07-22:** pages 43–58, 16/16 acceptance pass. Pages 45+ have
       jpg-only sources, so the restored wiring is now extension-aware (`RESTORED_PAGE_EXT`). Proofs in
       `docs/restore-art-proofs/b4/`.
-- [ ] **B5. Batch L17–L20**
+- [x] **B5. Batch L17–L20** — **DONE 2026-07-22:** pages 59–74 (all jpg sources), 16/16 acceptance pass,
+      wired (`RESTORED_PAGE_EXT` 1–74). Proofs in `docs/restore-art-proofs/b5/`.
 - [ ] **B6. Batch L21–L24**
 - [ ] **B7. Flipchart lane** (`public/cartilla/**` HD láminas) — cleanup only, never recolor or
       reinterpret; it is already full color.
@@ -218,6 +219,7 @@ files.**
 ---
 
 ## STATUS LOG (append one dated line per merged PR; newest at top)
+- 2026-07-22 — **B5 art batch L17–L20 DONE:** pages 59–74 restored (16/16 pass), wired. Verify bar green.
 - 2026-07-22 — **B4 art batch L13–L16 DONE:** pages 43–58 restored (16/16 pass). Sources for pages 45+
   are jpg-only, so `getRestoredPageImage` became extension-aware (`RESTORED_PAGE_EXT` map). Verify bar green.
 - 2026-07-22 — **B3 art batch L9–L12 DONE:** pages 27–42 restored (16/16 pass), wired restored-first

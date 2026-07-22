@@ -19,7 +19,7 @@ const COLOR_SCAN_COUNT = 92;
  * here passed the overlay/edge-drift acceptance test (see AGENTS.md).
  */
 const RESTORED_PAGE_EXT: ReadonlyMap<number, "png" | "jpg"> = new Map(
-  Array.from({ length: 58 }, (_, i) => {
+  Array.from({ length: 74 }, (_, i) => {
     const page = i + 1;
     // Restored output mirrors each source slot's format: pages 1-44 have png
     // sources, 45+ exist only as jpg.
