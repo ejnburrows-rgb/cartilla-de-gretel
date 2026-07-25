@@ -213,6 +213,10 @@ the step because the tool is missing.**
 
 ### The shared art contract (the quality bar for all art work)
 
+- **Scope: this contract governs BOOK CONTENT art** — everything rendered
+  inside lessons, workbook cells, and the flipchart. Non-lesson scene art
+  (splash, app chrome) is governed by the "Generated scene art" section
+  below (owner decision, 2026-07-25).
 - Crop faithful COLOR illustrations from the flipchart scans — **no redraw,
   no color changes, no invented art, ever.**
 - **Crop tight:** no neighboring word's label bleeding in, no oversized
@@ -270,6 +274,43 @@ or a raw source scan — restored output lives at a mirrored path,
 originals stay untouched. Include sample overlay proofs in every PR that
 adds restored art.
 
+### Generated scene art — splash & app chrome (owner decision, 2026-07-25)
+
+The owner has REVOKED the blanket "never AI-generated art" rule for
+non-lesson surfaces, after the cutout-collage splash was rejected as
+unprofessional ("stickers on a page"). The reality: the repo's faithful
+crops come from mid-century flat-print scans in several different styles
+and resolutions, and no layout technique can fuse them into one cohesive
+modern scene. Cohesive scene art must be generated.
+
+- **Where generated art is ALLOWED:** the welcome splash (`/`), decorative
+  app backgrounds, celebration/empty states, and marketing surfaces.
+- **Where it stays BANNED — no exceptions:** anything inside lesson
+  content. Workbook cells, `page-layouts.json` `illustrationSrc` entries,
+  the flipchart, and anything rendered by `FaithfulPageRenderer` remain
+  faithful-crop-only under the shared art contract and the Faithful
+  Restoration Standard above. Generated art may never stand in for one of
+  Estela de Armas Plasencia's book illustrations or a labeled vocab cell.
+- **Quality bar for generated scenes:** one cohesive storybook-style
+  illustration (never a collage of parts); characters should match the
+  book's real cast as closely as possible — Gretel especially (red hair
+  bow, blonde wavy hair, orange striped tee, blue pinafore dress with
+  flower-trimmed hem, white socks, black mary-jane shoes) — perfect
+  fidelity is not required, but the cast must be recognizable; warm,
+  welcoming, crowded-garden mood per the owner's approved references.
+- **No text baked into generated images.** Generators mangle lettering.
+  All headlines, titles, and buttons are rendered as real HTML/CSS/SVG on
+  top of the image.
+- **Storage and labeling:** generated files live at
+  `public/cartilla/art/generated/<purpose>/<name>.webp` with an entry in
+  `public/cartilla/art/generated/manifest.json`:
+  `{ name, purpose, tool, date, approvedBy }`. Never place generated files
+  under `art/faithful/`, and never point the faithful-art validators at
+  `art/generated/`.
+- **Owner approval is mandatory, per image.** The owner personally
+  generates or approves every generated image before it merges — attach
+  the image in the PR and do not auto-merge splash/scene-art PRs.
+
 ---
 
 ## GIT RULES
@@ -320,16 +361,17 @@ adds restored art.
 - **Human sign-off required, no exceptions**, for: sign-in/auth changes,
   payments, real student/client data, going live, deleting data, and
   installing new dependencies or services.
-- **Never use AI-generated or invented art.** Only real hand-drawn artwork
-  cropped from the authentic book scans. No emojis as stand-ins for real
-  book art unless explicitly allowed. **Restoration is different from
-  generation and is allowed, strictly under the Faithful Restoration
-  Standard** (see the shared art contract above) — pixel cleanup only
-  (upscale, noise/speckle removal, shadow removal, white-balance, palette
-  normalization), every output verified against the original with an
-  overlay/edge-diff acceptance test before it ships. Generative fill,
-  redraws, style transfer, or anything that adds/moves/reshapes a line,
-  face, or object stays banned, no exceptions.
+- **Art rules are surface-scoped (owner decision, 2026-07-25).** Inside
+  lesson content (workbook cells, flipchart, `page-layouts.json`,
+  `FaithfulPageRenderer`): only real hand-drawn artwork cropped from the
+  authentic book scans — no invented art, no emojis as stand-ins, with
+  pixel-cleanup restoration allowed strictly under the Faithful Restoration
+  Standard (overlay/edge-diff verified per image). On non-lesson surfaces
+  (welcome splash, app backgrounds, celebration screens): AI-generated
+  scene art is ALLOWED under the "Generated scene art" rules in the art
+  section above — owner approves every image before merge, files live under
+  `art/generated/` with a manifest entry, and generated art never crosses
+  into lesson content.
 - **Hard "never" list:** never edit `src/routeTree.gen.ts` by hand; never
   hardcode Supabase keys or `localhost` URLs (use `import.meta.env`); never
   put English text in the student-facing UI; never alter the book's original

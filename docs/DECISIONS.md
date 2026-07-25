@@ -313,3 +313,30 @@ DOCUMENTATION DUTY section of `AGENTS.md`).
   those coincident checkpoints exist and are still graded in order. Verify bar
   green (typecheck, lint 0 errors, 1108 tests / 2 expected fail, build) plus
   browser proof in SCREENSHOTS/input-adaptive-trace/ for both modes.
+
+- **2026-07-25 — AI-generated scene art APPROVED for the splash and app
+  chrome; the cutout-collage approach is retired (owner decision).** The
+  rebuilt crowd splash assembled from faithful crops was rejected by the
+  owner as unprofessional — "stickers on a page." Honest root cause: the
+  never-invent-art rule left only ~102 tight crops taken from mid-century
+  flat-print scans (multiple print styles, palettes, halftone textures, and
+  resolutions) plus the modern soft-painted Gretel poses — three-plus
+  incompatible illustration styles that no amount of layering, shadows, or
+  overlap can fuse into one cohesive scene. The rule made the approved
+  target look (a warm, crowded, storybook-cover welcome matching the
+  owner's reference mockups) literally unachievable with repo assets, so
+  the owner changed the rule. New policy written into `AGENTS.md`
+  ("Generated scene art" section + the scoped safety rule): AI-generated
+  scene art is ALLOWED for the welcome splash, decorative backgrounds,
+  celebration screens, and marketing surfaces, with guardrails — the cast
+  must match the book's real characters as closely as possible (perfect
+  fidelity not required), no text baked into generated images (headlines
+  are real HTML/CSS on top), files live under
+  `public/cartilla/art/generated/` with a manifest recording purpose, tool,
+  and date, the owner personally approves every generated image before
+  merge, and generated art may NEVER stand in for book illustrations inside
+  lesson content — the faithful-crop contract and Faithful Restoration
+  Standard remain fully in force there. Both prior splash directions are
+  superseded: #243's "Gretel alone" and the crowd-of-cutouts. The approved
+  direction is a single cohesive AI-generated crowded-garden welcome scene,
+  generated/approved by the owner, wired in by Claude.
