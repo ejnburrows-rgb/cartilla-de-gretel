@@ -263,7 +263,7 @@ verify bar is green.
       art/flipchart assets, image sizing/format checks, preload only what the first screen needs.
       Zero behavior or visual change; re-verify all four themes and reduced motion; before/after
       numbers in the PR body. *Auto-merge.*
-- [ ] **E5. Housekeeping (#348).** Archive the dead theme files (`src/styles/design-system.css`,
+- [x] **E5. Housekeeping (#348).** Archive the dead theme files (`src/styles/design-system.css`,
       `src/styles/themes.css` — imported nowhere per the #336 phase-0 audit) to `src/_archive/` with
       a README note; live `styles.css` untouched. Delete the stale merged branches so only `main`
       remains, verifying each is fully merged first. *Auto-merge.*
@@ -286,6 +286,15 @@ verify bar is green.
 ---
 
 ## STATUS LOG (append one dated line per merged PR; newest at top)
+- 2026-07-25 — **E5 housekeeping — archival DONE, branch deletion BLOCKED.** `design-system.css` and
+  `themes.css` re-verified as imported nowhere outside `src/_archive/` and moved to
+  `src/_archive/orphaned-theme-files/` with a README; live `styles.css` untouched. Branch cleanup: 7 of the
+  8 named branches were verified content-merged via `git cherry` and are safe to delete, but **every
+  deletion fails with HTTP 403 from the git proxy** — the same environment limit already recorded in
+  `docs/STATUS.md`, so it stays an owner click in the GitHub UI. **`claude/repos-progress-action-plan-hgdybu`
+  must NOT be deleted** — it is genuinely unmerged: `deploy.ps1`, `extract.cjs`, `files.txt` and `imgsize.ps1`
+  are still at main's root and its `_archive/root-scratch-2026-07-24/` work never landed. Verify bar green:
+  typecheck · lint 0 errors · 1114 unit · build.
 - 2026-07-25 — **E1 pencil cursor DONE (#349).** Student screens under `/cartilla` now use a hand-built
   SVG pencil cursor in the book palette; teacher/admin/projector screens and `/`+`/entrar` keep the normal
   arrow; every `a11y-*` mode and `forced-colors` keeps the system cursor; links/inputs/disabled controls
