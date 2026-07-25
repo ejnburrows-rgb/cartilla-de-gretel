@@ -421,6 +421,87 @@ export function getLetterTemplate(modelText: string | undefined | null): Point[]
   return LETTER_TEMPLATES[key] ?? null;
 }
 
+/* ── Tap-mode shared logic ───────────────────────────────────────────────
+ * A mouse cannot comfortably hold a button down and follow a curve — that is
+ * a pen gesture, not a mouse gesture. So on a mouse-primary device the SAME
+ * letter and the SAME stroke templates are graded by tapping the checkpoints
+ * in order instead of dragging through them. Everything below is pure
+ * (no React), and is shared by BOTH WorkbookLetterTrace and DragLetterTrace so
+ * the two can never drift apart — the same rule that already governs the
+ * templates themselves.
+ */
+
+/** One checkpoint located within the whole template, in writing order. */
+export type CheckpointRef = {
+  strokeIdx: number;
+  pointIdx: number;
+  point: Point;
+  /** 1-based position across the entire letter, for the child-facing number. */
+  order: number;
+};
+
+/** Every checkpoint of a template, flattened into strict writing order. */
+export function flattenCheckpoints(strokes: Point[][]): CheckpointRef[] {
+  const out: CheckpointRef[] = [];
+  strokes.forEach((stroke, strokeIdx) => {
+    stroke.forEach((point, pointIdx) => {
+      out.push({ strokeIdx, pointIdx, point, order: out.length + 1 });
+    });
+  });
+  return out;
+}
+
+/** Position within a tap-mode trace. */
+export type TapPosition = { strokeIdx: number; pointIdx: number };
+
+/** True when (strokeIdx, pointIdx) is exactly the checkpoint due next. */
+export function isActiveCheckpoint(pos: TapPosition, strokeIdx: number, pointIdx: number): boolean {
+  return pos.strokeIdx === strokeIdx && pos.pointIdx === pointIdx;
+}
+
+/** True when this checkpoint was already tapped (earlier in writing order). */
+export function isCheckpointDone(pos: TapPosition, strokeIdx: number, pointIdx: number): boolean {
+  return strokeIdx < pos.strokeIdx || (strokeIdx === pos.strokeIdx && pointIdx < pos.pointIdx);
+}
+
+export type TapAdvance =
+  /** Correct tap, more checkpoints remain in this stroke. */
+  | { kind: "point"; next: TapPosition }
+  /** Correct tap, that stroke is now finished and another follows. */
+  | { kind: "stroke"; next: TapPosition }
+  /** Correct tap on the final checkpoint of the final stroke. */
+  | { kind: "complete" }
+  /** Not the checkpoint that was due. */
+  | { kind: "wrong" };
+
+/**
+ * Pure state transition for a tap. Returns what the tap did so the caller can
+ * update its own drawing and fire its own completion events — the two
+ * components keep their existing, different event payloads, but share this
+ * ordering logic exactly.
+ */
+export function advanceTap(
+  strokes: Point[][],
+  pos: TapPosition,
+  tapped: { strokeIdx: number; pointIdx: number },
+): TapAdvance {
+  if (!isActiveCheckpoint(pos, tapped.strokeIdx, tapped.pointIdx)) return { kind: "wrong" };
+
+  const stroke = strokes[pos.strokeIdx];
+  if (!stroke) return { kind: "wrong" };
+
+  const nextPointIdx = pos.pointIdx + 1;
+  if (nextPointIdx < stroke.length) {
+    return { kind: "point", next: { strokeIdx: pos.strokeIdx, pointIdx: nextPointIdx } };
+  }
+
+  const nextStrokeIdx = pos.strokeIdx + 1;
+  if (nextStrokeIdx < strokes.length) {
+    return { kind: "stroke", next: { strokeIdx: nextStrokeIdx, pointIdx: 0 } };
+  }
+  return { kind: "complete" };
+}
+
 /** Distance from point p to the segment ab (all in viewport units). */
 export function distanceToSegment(p: Point, a: Point, b: Point): number {
   const abx = b.x - a.x;

@@ -239,3 +239,35 @@ DOCUMENTATION DUTY section of `AGENTS.md`).
   crop — flagged for the owner as a content decision rather than slipped in as
   an art fix. Verify bar green (typecheck, lint, 1091 tests, build, both
   content and art-color validators; wired crops 101 -> 102).
+
+- **2026-07-25 — Letter tracing is now input-adaptive (drag on touch, tap on
+  mouse).** The owner confirmed the trace is genuinely hard with a mouse:
+  holding a button down while following a curved path is a pen gesture, not a
+  mouse gesture. Rather than replace the trace, the input device now decides
+  how the SAME letter and the SAME stroke templates are graded. Detection is
+  `matchMedia("(pointer: coarse)")` vs `"(pointer: fine)"` only — never
+  user-agent sniffing — re-checked on `change`, and it deliberately falls back
+  to drag whenever matchMedia is missing or throws, so a detection failure can
+  never degrade the touch experience. A hybrid reporting both coarse and fine
+  keeps the drag trace. Touch behaviour is untouched: same visuals, same
+  path-following grader, same penalties. On mouse, the checkpoints are shown
+  one at a time in stroke order, numbered, and the child clicks each; the path
+  draws itself progressively so correct letter formation and direction are
+  still taught. Wrong clicks give gentle feedback and are counted ONCE per
+  checkpoint — no penalty spiral — mirroring the drag grader, which likewise
+  counts one penalty per contiguous off-path excursion rather than per frame.
+  Both components route completion through a single shared function, so the
+  Gretel events and the `recordEvent` payload are identical in either mode
+  (`meta.exercise` stays `workbook_letter_trace` / `drag_letter_trace`, with no
+  extra fields, so progress logging genuinely cannot tell them apart). Shared
+  logic lives in `letter-stroke-templates.ts` (pure ordering helpers) and
+  `useLetterTraceInput.ts` (the detection hook + tap state machine), imported
+  by BOTH WorkbookLetterTrace and DragLetterTrace so the two cannot drift —
+  the existing rule for these files. **One real bug was caught only by
+  clicking through the running app:** closed letterforms (O) end exactly where
+  they start and M's strokes share endpoints, so a later checkpoint's
+  invisible hit area rendered on top of the active dot and swallowed the
+  click. Fixed by drawing the active dot last; a regression test now asserts
+  those coincident checkpoints exist and are still graded in order. Verify bar
+  green (typecheck, lint 0 errors, 1108 tests / 2 expected fail, build) plus
+  browser proof in SCREENSHOTS/input-adaptive-trace/ for both modes.
