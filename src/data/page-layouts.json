@@ -269,7 +269,8 @@
             {
               "letter": "e",
               "caption": "escoba",
-              "correct": true
+              "correct": true,
+              "illustrationSrc": "/cartilla/art/faithful/vocal-e/escoba.webp"
             },
             {
               "letter": "u",
@@ -756,7 +757,8 @@
             },
             {
               "caption": "escoba",
-              "correct": true
+              "correct": true,
+              "illustrationSrc": "/cartilla/art/faithful/vocal-e/escoba.webp"
             },
             {
               "caption": "unicornio",

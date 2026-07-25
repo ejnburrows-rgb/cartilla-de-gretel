@@ -214,3 +214,28 @@ DOCUMENTATION DUTY section of `AGENTS.md`).
   `abrigo`/`aguja`/`remolino` are **blocked**, not pending-wiring: their
   located source is grayscale and would need coloring, which the art contract
   bans outright. Verify bar green (typecheck, lint, 1091 tests, build).
+
+- **2026-07-25 — Art extraction reassigned to Claude by the owner; teacher
+  flipchart searched; `escoba` fixed.** The owner directed that art-extraction
+  work be done here rather than handed to Antigravity, superseding the
+  DIVISION OF LABOR note in AGENTS.md for this work. Findings, in order of
+  importance. (1) **The art gap was being mis-counted.** A naive count of
+  `page-layouts.json` suggests ~498 of 700 caption cells lack art; that is
+  wrong, because ~480 of them are `syllable-match` cells — pure text exercises
+  whose schema has no `illustrationSrc` field at all. The real gap was **18
+  cells across 7 distinct words**. (2) **The 62-page teacher flipchart, the
+  last unsearched color source (explicitly left open by the 2026-07-20
+  backlog entry), has now been scanned page by page.** (3) **`escoba` FIXED** —
+  found in real color on `teacher-page-03.jpg`, the labeled cell under the e.
+  Its old crop came from a *grayscale workbook* page, the same root cause
+  already documented for `iglu`; the "background contamination" it QA-failed
+  for is in fact the illustration's own printed green backing panel. Re-cropped
+  tight, run through `clean-art.mjs`, wired to both cells, QA flipped to PASS,
+  verified rendering in the app. (4) **The other 6 words are confirmed
+  sourceless** — no labeled vocab cell for `abeja`, `aguja`, `remolino`,
+  `abrigo`, `oruga` or `globo` on any of the 62 pages. Deliberately NOT used:
+  the decorative bees in the p60 `Zz` header, because passing one illustration
+  off as the book's labeled `abeja` cell is misrepresentation, not a faithful
+  crop — flagged for the owner as a content decision rather than slipped in as
+  an art fix. Verify bar green (typecheck, lint, 1091 tests, build, both
+  content and art-color validators; wired crops 101 -> 102).

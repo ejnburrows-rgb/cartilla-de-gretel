@@ -2,8 +2,8 @@
   "$schema": "color-quality QA pass/fail per published faithful crop + Gretel pose cutout",
   "generatedBy": "manual visual QA (contact sheets + full-res zoom + source comparison)",
   "population": 181,
-  "pass": 121,
-  "fail": 60,
+  "pass": 122,
+  "fail": 59,
   "criteria": [
     "colors match the book original (verified against public/art/hd/gretel-authentic.jpg for Gretel; book scan pages for crops)",
     "clean paint - no bleed, white gaps, or flat fills where the original has shading",
@@ -69,8 +69,8 @@
     },
     {
       "file": "public/cartilla/art/faithful/vocal-e/escoba.webp",
-      "verdict": "FAIL",
-      "reason": "Background chunk contamination: flat lime-green rectangle + unrelated peach blob behind the broom, not part of the subject",
+      "verdict": "PASS",
+      "reason": "Re-cropped 2026-07-25 from the real colored teacher flipchart (teacher-page-03.jpg, labeled 'escoba' cell). Complete broom, tight to the illustration's own green panel, no label or neighbouring-cell bleed. The green panel is part of the printed art, not contamination.",
       "wasWiredInProduction": true
     },
     {

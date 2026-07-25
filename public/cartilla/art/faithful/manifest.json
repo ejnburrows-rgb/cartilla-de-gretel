@@ -376,13 +376,16 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-e/escoba.webp",
-    "sourceFlipchartPage": "e-page-10.jpg",
+    "source": "public/cartilla/images/teacher-flipchart/teacher-page-03.jpg",
+    "sourceFlipchartPage": "teacher-page-03.jpg",
     "cropBox": [
-      137,
-      976,
-      252,
-      234
-    ]
+      478,
+      744,
+      172,
+      220
+    ],
+    "provenanceStatus": "FIXED-2026-WRONG-PAGE",
+    "note": "Old sourceFlipchartPage (e-page-10.jpg) was a grayscale workbook exercise page, not a colored vocab source — that's why the old crop QA-failed for background contamination. Re-cropped from the real colored teacher flipchart page 3 ('Las hermanitas vocales'), the labeled 'escoba' cell under the e. The lime-green panel is part of the printed illustration, not contamination."
   },
   {
     "slug": "casa",
