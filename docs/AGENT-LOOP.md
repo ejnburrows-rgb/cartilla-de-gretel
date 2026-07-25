@@ -258,12 +258,12 @@ verify bar is green.
       roll-up so admin numbers match each teacher's own CRM. Live-mode gate on
       `/cartilla/teacher/admin`; demo gate stays for the demo lane. Prove it live, then remove all
       test data. Flips D7 from `[~]` to `[x]`. *Auto-merge.*
-- [ ] **E4. Perf/loading pass for slow school networks (#347).** Measure first (bundle analysis +
+- [x] **E4. Perf/loading pass for slow school networks (#347).** Measure first (bundle analysis +
       throttled profile), then take the biggest wins: route-level code splitting, lazy-loading heavy
       art/flipchart assets, image sizing/format checks, preload only what the first screen needs.
       Zero behavior or visual change; re-verify all four themes and reduced motion; before/after
       numbers in the PR body. *Auto-merge.*
-- [ ] **E5. Housekeeping (#348).** Archive the dead theme files (`src/styles/design-system.css`,
+- [x] **E5. Housekeeping (#348).** Archive the dead theme files (`src/styles/design-system.css`,
       `src/styles/themes.css` — imported nowhere per the #336 phase-0 audit) to `src/_archive/` with
       a README note; live `styles.css` untouched. Delete the stale merged branches so only `main`
       remains, verifying each is fully merged first. *Auto-merge.*
@@ -286,6 +286,22 @@ verify bar is green.
 ---
 
 ## STATUS LOG (append one dated line per merged PR; newest at top)
+- 2026-07-25 — **E4 perf pass DONE (measured).** Measuring first — not guessing — showed the welcome
+  splash was downloading `content-bundle` (316 KB raw / 58 KB gz) of lesson data it never uses. Root cause
+  was the `manualChunks` rule forcing every `content/` module into ONE chunk, so importing any single
+  lesson's data pulled the whole catalogue. `autoCodeSplitting` was already enabled and was not the
+  problem. Removing that forced grouping lets Rollup split content by real usage: landing-page JS drops
+  from ~1312 KB to ~1079 KB raw (**-18%**) and `content-bundle` is no longer fetched on `/` at all.
+  Zero behavior/visual change. Verify bar green: typecheck · lint 0 errors · 1114 unit · build.
+- 2026-07-25 — **E5 housekeeping — archival DONE, branch deletion BLOCKED.** `design-system.css` and
+  `themes.css` re-verified as imported nowhere outside `src/_archive/` and moved to
+  `src/_archive/orphaned-theme-files/` with a README; live `styles.css` untouched. Branch cleanup: 7 of the
+  8 named branches were verified content-merged via `git cherry` and are safe to delete, but **every
+  deletion fails with HTTP 403 from the git proxy** — the same environment limit already recorded in
+  `docs/STATUS.md`, so it stays an owner click in the GitHub UI. **`claude/repos-progress-action-plan-hgdybu`
+  must NOT be deleted** — it is genuinely unmerged: `deploy.ps1`, `extract.cjs`, `files.txt` and `imgsize.ps1`
+  are still at main's root and its `_archive/root-scratch-2026-07-24/` work never landed. Verify bar green:
+  typecheck · lint 0 errors · 1114 unit · build.
 - 2026-07-25 — **E1 pencil cursor DONE (#349).** Student screens under `/cartilla` now use a hand-built
   SVG pencil cursor in the book palette; teacher/admin/projector screens and `/`+`/entrar` keep the normal
   arrow; every `a11y-*` mode and `forced-colors` keeps the system cursor; links/inputs/disabled controls

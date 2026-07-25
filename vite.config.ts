@@ -109,9 +109,12 @@ export default defineConfig({
           if (id.includes("routes/cartilla/binder") || id.includes("components/print")) {
             return "route-binder";
           }
-          if (id.includes("content/") || id.includes("lesson-catalog") || id.includes("seed")) {
-            return "content-bundle";
-          }
+          // NOTE: lesson content is deliberately NOT forced into one chunk.
+          // Grouping every `content/` module together meant that importing a
+          // single lesson's data pulled the whole catalogue, so the welcome
+          // splash — which needs no lesson content at all — still downloaded
+          // it on first load. Letting Rollup split content by actual usage
+          // keeps the first screen small on a slow school network.
         },
       },
     },
