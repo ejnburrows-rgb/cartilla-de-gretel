@@ -209,6 +209,62 @@ html.a11y-contrast .kid-card {
   box-shadow: 0 4px 0 hsl(0 0% 0%);
 }
 
+/* ─── Classic pencil cursor — student screens only (issue #346) ─────
+ * Toggled by src/components/StudentCursor.tsx via src/lib/student-cursor.ts,
+ * so teacher/admin screens keep the normal arrow. The pencil is a hand-built
+ * inline SVG (app iconography, not book art) in the book's own palette: gold
+ * barrel, warm wood, red eraser, with a white outer edge so it stays visible
+ * on both the cream pages and the darker garden scenes. The hotspot sits on
+ * the graphite tip at the pencil's lower-left. */
+html.student-pencil,
+html.student-pencil body {
+  cursor:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cg transform='rotate(45 14 14)' stroke='%232b2b2b' stroke-width='1.1' stroke-linejoin='round'%3E%3Cpath d='M10.5 5.2a3.5 3.5 0 0 1 7 0V8h-7z' fill='%23e35d4a'/%3E%3Crect x='10.5' y='8' width='7' height='2.2' fill='%23cbd5e1'/%3E%3Crect x='10.5' y='10.2' width='7' height='9.8' fill='%23e8a820'/%3E%3Cpath d='M10.5 20h7L14 25.6z' fill='%23f5d6a0'/%3E%3Cpath d='M12.4 23h3.2L14 25.6z' fill='%233a3a3a' stroke='none'/%3E%3C/g%3E%3C/svg%3E")
+      6 22,
+    auto;
+}
+
+/* Anything clickable still says "you can click me". */
+html.student-pencil a,
+html.student-pencil button,
+html.student-pencil summary,
+html.student-pencil [role="button"],
+html.student-pencil [role="link"],
+html.student-pencil label,
+html.student-pencil select {
+  cursor: pointer;
+}
+
+html.student-pencil input,
+html.student-pencil textarea {
+  cursor: text;
+}
+
+html.student-pencil :disabled,
+html.student-pencil [aria-disabled="true"] {
+  cursor: not-allowed;
+}
+
+/* Accessibility modes always keep the predictable system cursor. */
+html.student-pencil.a11y-contrast,
+html.student-pencil.a11y-contrast body,
+html.student-pencil.a11y-dyslexia,
+html.student-pencil.a11y-dyslexia body,
+html.student-pencil.a11y-large,
+html.student-pencil.a11y-large body,
+html.student-pencil.a11y-xlarge,
+html.student-pencil.a11y-xlarge body {
+  cursor: auto;
+}
+
+/* Forced-colors users get the system cursor too. */
+@media (forced-colors: active) {
+  html.student-pencil,
+  html.student-pencil body {
+    cursor: auto;
+  }
+}
+
 /* ─── Premium classroom polish ───────────────────────────────────── */
 @layer base {
   body {
