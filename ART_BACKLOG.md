@@ -1,5 +1,57 @@
 # Art backlog — current, authoritative
 
+## 2026-07-25 — the 62-page teacher flipchart has now been searched (closes the last open lead); escoba FIXED, 6 words confirmed genuinely absent
+
+The 2026-07-20 entry below left one lead open: "Only the 62-page teacher
+flipchart (`public/cartilla/images/teacher-flipchart/`) remains unchecked as a
+possible source ... not done this pass." **That scan is now done** — all 62
+pages reviewed visually, page by page, via contact sheets.
+
+First, a correction to how the gap was being counted. The real illustration
+gap is **18 cells across only 7 distinct words**, not the ~498 "missing
+caption cells" a naive count of `page-layouts.json` suggests. The other ~480
+are `syllable-match` word cells — pure text exercises ("Presiona la sílaba
+correspondiente") whose schema has no `illustrationSrc` field at all. That
+matches the 2026-07-20 finding below and is not a gap. The 7 words are:
+`abeja` (7 cells), `aguja` (3), `remolino` (2), `abrigo` (2), `escoba` (2),
+`oruga` (1), `globo` (1).
+
+**`escoba` — FIXED.** Found in real color on `teacher-page-03.jpg` ("Las
+hermanitas vocales"), the labeled `escoba` cell under the **e**. The old crop
+was taken from `e-page-10.jpg`, a *grayscale workbook exercise* page — the
+exact same root cause already documented for `iglu` ("old sourceFlipchartPage
+was a grayscale trace-line exercise page, not the colored vocab grid"). That
+is why it QA-failed for "background chunk contamination": the flat lime-green
+rectangle it was penalised for **is part of the printed illustration**, an
+intentional backing panel, plainly visible in the color source. Re-cropped
+tight to that panel (`cropBox [478, 744, 172, 220]`), run through
+`clean-art.mjs` like every other faithful asset, wired to both cells
+(`pages.3` vowel-match-all "e" row, `pages.10` picture-grid), QA flipped to
+PASS, and verified rendering in the running app. Superseded original is
+preserved at `_needs-recrop/escoba.webp`.
+
+**`abeja`, `aguja`, `remolino`, `abrigo`, `oruga`, `globo` — confirmed
+genuinely absent from the flipchart.** None appears as a labeled vocab cell on
+any of the 62 pages. The vowel vocab pages carry a different word set
+(p05 `a`: abanico/anillo/araña/ala/aro/Ana; p06 `e`:
+elefante/espejo/Ema/estrella/erizo/escalera; p07 `i`; p08 `u`; p04 `o`) — no
+bee, needle, swirl, coat, caterpillar or balloon among them.
+
+One near-miss worth recording so nobody re-opens it as a find: **p60 (`Zz`)
+has decorative bees** in its header art for the "zzz" sound. It was *not*
+used for `abeja`. It is a different illustration from the book's labeled
+abeja cell (the workbook's is a specific cartoon bee with a face and shoes on
+`a-page-5.jpg`), and passing one illustration off as another is
+misrepresentation, not a faithful crop. If the owner decides a generic-bee
+substitution is acceptable, that is a content decision to make explicitly —
+not something to slip in as an art fix.
+
+With the flipchart now searched, these 6 words have **no known color source
+anywhere in the scanned material**. They stay honestly "pendiente" unless new
+source scans are added. `abrigo`/`aguja`/`remolino` remain additionally
+blocked by the coloring ban (their only known source is grayscale line art,
+and coloring it would be inventing color).
+
 ## RESOLVED 2026-07-19 — the "no dog art in these lessons" conclusion below was wrong; a real perro illustration exists on rr-page-42
 The 2026-07-18 entry below only checked `rr-page-40.jpg` (the vocab-grid
 source, confirmed a mislabeled burro) and the two plain-text workbook pages

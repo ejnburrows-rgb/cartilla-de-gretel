@@ -75,11 +75,13 @@ Brutally honest, plain language.
 - **English (EN) language toggle** — exists but only partially translates the
   UI, leaving mixed Spanish/English screens (already filed as issue #162).
   This also sits oddly against the AGENTS.md rule "no English in student UI."
-- **Illustration coverage** — measured 2026-07-25: **498 of 700** caption
-  cells (71%) still show "pendiente"; 135 faithful crops exist. `abrigo`,
-  `aguja`, `remolino` have located source but it is grayscale and would need
-  coloring, which the art contract bans; `oruga`/`globo` have no located
-  source. See KNOWN ISSUES for the full numbers.
+- **Illustration coverage** — down to **16 cells across 6 words**
+  (`abeja`, `aguja`, `remolino`, `abrigo`, `oruga`, `globo`). `escoba` was
+  fixed 2026-07-25 from the teacher flipchart. All 6 remaining words are
+  confirmed to have no color source anywhere in the scanned material, so they
+  stay honestly "pendiente". An earlier "498 of 700 cells / 71%" figure in
+  this file was **wrong** — it counted `syllable-match` text cells, which have
+  no illustration slot at all. See KNOWN ISSUES and `ART_BACKLOG.md`.
 - **Welcome/landing screen** — a version shipped and was rejected by the
   owner; a redo brief exists but has not been executed.
 
@@ -241,19 +243,21 @@ The rest is owner-decision work, listed in `docs/DECISIONS.md`.
 
 ## KNOWN ISSUES
 
-- **Illustration coverage is the biggest remaining product gap.** Measured
-  2026-07-25 against `src/data/page-layouts.json`: **498 of 700** caption/word
-  cells (**71%**) carry no `illustrationSrc` and therefore render the honest
-  "pendiente" placeholder. Only **135** faithful crops exist in
-  `public/cartilla/art/faithful/manifest.json`, against **94** source scan
-  files across 26 letter folders in
-  `public/cartilla/images/source-original/`. This is art-extraction work
-  (Antigravity's lane per AGENTS.md), not a wiring fix.
-- **`abrigo` / `aguja` / `remolino` are blocked, not pending-wiring.** The
-  located source art is grayscale line art and would need *coloring* to match
-  the book's colour cells — but the art contract bans colour changes and
-  invented art outright. They cannot be completed without either a genuine
-  colour source or an explicit owner decision to relax that rule.
+- **Illustration coverage — now down to 16 cells / 6 words, all confirmed
+  sourceless.** (Corrects an earlier figure in this file: a first pass counted
+  "498 of 700 caption cells missing art / 71%". That count was wrong. ~480 of
+  those are `syllable-match` cells — pure text exercises whose schema has no
+  `illustrationSrc` field at all, so they are not a gap.) The real gap was
+  **18 cells across 7 distinct words**; `escoba` was fixed 2026-07-25, leaving
+  **16 cells / 6 words**: `abeja` (7 cells), `aguja` (3), `remolino` (2),
+  `abrigo` (2), `oruga` (1), `globo` (1). The 62-page teacher flipchart — the
+  last unsearched color source — has now been scanned page by page, and none
+  of these 6 appears as a labeled vocab cell anywhere. They have **no known
+  color source in the scanned material** and stay honestly "pendiente" unless
+  new scans are added. See `ART_BACKLOG.md` 2026-07-25 for the full record.
+- **`abrigo` / `aguja` / `remolino` are additionally blocked by the coloring
+  ban.** Their only known source is grayscale line art, and coloring it would
+  be inventing color — banned by the art contract outright.
 - **24 lint warnings remain (0 errors — `pnpm lint` exits green).** 23 are
   `react-refresh/only-export-components` spread across 17 files (a hot-reload
   DX hint with no runtime effect; clearing them means splitting 17 working
