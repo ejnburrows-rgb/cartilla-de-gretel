@@ -1,6 +1,17 @@
 # STATUS — La Cartilla de Gretel
 
-Honest current state. Updated 2026-07-21. Read this before starting work.
+Honest current state. Updated 2026-07-25. Read this before starting work.
+
+> **2026-07-25 reconciliation.** Three items this file listed as NOT STARTED or
+> as open issues had in fact shipped, and the numbers had drifted. Corrected
+> below and recorded here so the history is visible:
+> - **Live Supabase run — now DONE.** Proven end to end by #334 (student cloud
+>   save) and #335 (teacher backend + live reports), both against the real
+>   project, with test data removed afterward.
+> - **Admin cross-teacher dashboard — now DONE**, shipped in #333.
+> - **Lint — was recorded as ~362 problems (≈321 errors).** Actual today:
+>   **0 errors, 24 warnings**, and `pnpm lint` exits green.
+> - **Book-realism refresh — DONE**, shipped in #336 (see DONE below).
 
 ---
 
@@ -64,9 +75,11 @@ Brutally honest, plain language.
 - **English (EN) language toggle** — exists but only partially translates the
   UI, leaving mixed Spanish/English screens (already filed as issue #162).
   This also sits oddly against the AGENTS.md rule "no English in student UI."
-- **Illustration coverage** — most cells show real book art; `abrigo`,
-  `aguja`, `remolino` still need coloring (source located, see
-  `ART_BACKLOG.md`); `oruga`/`globo` have no located source.
+- **Illustration coverage** — measured 2026-07-25: **498 of 700** caption
+  cells (71%) still show "pendiente"; 135 faithful crops exist. `abrigo`,
+  `aguja`, `remolino` have located source but it is grayscale and would need
+  coloring, which the art contract bans; `oruga`/`globo` have no located
+  source. See KNOWN ISSUES for the full numbers.
 - **Welcome/landing screen** — a version shipped and was rejected by the
   owner; a redo brief exists but has not been executed.
 
@@ -77,9 +90,9 @@ Brutally honest, plain language.
   `BuildFailed` with no matching file in `.github/workflows/`). Harmless to
   the build itself, but it masks real failures and looks broken. Not fixable
   by a code change — needs the owner to delete it in GitHub's Actions UI.
-- **Lint debt:** ~362 problems (≈321 errors, ≈41 warnings). Not a crash risk,
-  but real quality drift; bulk auto-fixing carries its own behavior-change
-  risk, so it needs a careful pass, not a blind one.
+- **Lint debt: cleared 2026-07-25.** `pnpm lint` now exits green with 0 errors
+  and 24 remaining warnings — see KNOWN ISSUES for why those 24 are a
+  deliberate hold rather than drift.
 - **Open QA bugs (#162–#165):** incomplete i18n, dark-mode contrast gaps, a
   too-small theme toggle missing an accessible name, and missing theme
   controls on the homepage. Real launch-quality issues, already filed.
@@ -114,6 +127,21 @@ The rest is owner-decision work, listed in `docs/DECISIONS.md`.
 
 ## DONE (verified in code / in the running app)
 
+- **Live Supabase, proven end to end (#334, #335).** Student cloud save, and
+  the teacher backend (auth, class creation, join codes, roster, RLS
+  isolation) plus live report precision/time, all verified against the real
+  project using the app's own auth and queries. Test data removed afterward.
+- **Admin cross-teacher dashboard (#333).**
+- **Classic-book realism refresh (#336).** Warm palette (orange `#d4541a`
+  primary, green `#2a7d4f`, gold `#e8a820`, warm ink/chrome) replacing the
+  cool indigo/stone that read as washed-out; self-hosted Fredoka + Lora;
+  hardback cover, paper fibre texture, gutter/outer tone gradient and a
+  progress-driven page-edge stack on the student reader; richer (no longer
+  desaturated) page art; 24 per-lesson accent colours, each WCAG-AA on cream
+  and white. All four themes and reduced-motion re-verified.
+- **All fonts self-hosted — no Google Fonts dependency.** Andika, Fredoka,
+  Lora, Caveat and OpenDyslexic all ship as local woff2, so type renders on
+  the classroom network where Google Fonts is blocked.
 - **24-lesson student workbook.** All lessons (5 vowels + consonants) render
   as page-faithful digital pages with real book text and fonts, tap-to-answer
   exercises across all six question types (picture-grid, pick-one, match-all,
@@ -207,24 +235,32 @@ The rest is owner-decision work, listed in `docs/DECISIONS.md`.
 
 ## NOT STARTED
 
-- **Live Supabase run.** Teacher sign-in, class management, join-by-code, and
-  progress sync are code-complete but have never been run against a real
-  Supabase project in any session. This needs the owner's project
-  credentials (`VITE_SUPABASE_URL`, `VITE_SUPABASE_PUBLISHABLE_KEY`) and a
-  first-time migration apply. Treat the first live run as real first-time
-  risk, not a formality.
-- **Admin cross-teacher dashboard.** Confirmed genuinely unbuilt (no
-  admin-viewing components, no security policy for it). Needs the owner to
-  confirm it is still wanted before scoping.
 - **`oruga` / `globo` art.** No clean source located after checking all 15
   vowel-lesson workbook pages; the 62-page teacher flipchart is the only
   unchecked source. Both stay "pendiente" for now.
 
 ## KNOWN ISSUES
 
-- **Lint noise.** `pnpm lint` currently reports ~362 problems (≈321 errors,
-  ≈41 warnings). Real drift; not urgent, but should be cleaned up before any
-  "production-quality" claim.
+- **Illustration coverage is the biggest remaining product gap.** Measured
+  2026-07-25 against `src/data/page-layouts.json`: **498 of 700** caption/word
+  cells (**71%**) carry no `illustrationSrc` and therefore render the honest
+  "pendiente" placeholder. Only **135** faithful crops exist in
+  `public/cartilla/art/faithful/manifest.json`, against **94** source scan
+  files across 26 letter folders in
+  `public/cartilla/images/source-original/`. This is art-extraction work
+  (Antigravity's lane per AGENTS.md), not a wiring fix.
+- **`abrigo` / `aguja` / `remolino` are blocked, not pending-wiring.** The
+  located source art is grayscale line art and would need *coloring* to match
+  the book's colour cells — but the art contract bans colour changes and
+  invented art outright. They cannot be completed without either a genuine
+  colour source or an explicit owner decision to relax that rule.
+- **24 lint warnings remain (0 errors — `pnpm lint` exits green).** 23 are
+  `react-refresh/only-export-components` spread across 17 files (a hot-reload
+  DX hint with no runtime effect; clearing them means splitting 17 working
+  files, i.e. a broad refactor). The 1 remaining
+  `react-hooks/exhaustive-deps` sits in `GretelLiveAvatar.tsx` — the Gretel
+  animation state machine, which AGENTS.md forbids touching without explicit
+  written approval. Both are deliberate holds, not drift.
 - **CI "BuildFailed" workflow fails on every commit, including on `main`
   itself.** It is an orphaned workflow reference, not a real build failure —
   safe to disregard as a merge blocker. Cleaning it up is a housekeeping item.

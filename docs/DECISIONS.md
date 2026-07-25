@@ -183,3 +183,34 @@ DOCUMENTATION DUTY section of `AGENTS.md`).
   `src/_archive/orphaned-flip-engines/`. Verified: typecheck + build clean,
   tests 1091 pass / 2 expected fail, all 4 themes flip correctly, all fonts
   load locally with 0 Google-Fonts requests. Branch pushed for owner review.
+
+- **2026-07-25 — Font self-hosting completed, lint cleared, STATUS.md
+  reconciled.** Three follow-ups after the book-realism refresh (#336).
+  (1) **Fonts:** `public/fonts/OpenDyslexic.woff2` was a 16-byte placeholder
+  containing the literal text "DUMMY FONT DATA", and the only `@font-face`
+  declaring it lived in `src/styles/themes.css`, which nothing imports — so
+  `html.a11y-dyslexia` had *never* actually rendered OpenDyslexic and silently
+  fell back to Comic Sans/Verdana. Replaced with the real OFL font (regular,
+  bold, italic) and declared the face in the live `styles.css`; verified in a
+  browser that the dyslexia mode now renders genuine OpenDyslexic. Caveat (the
+  tracing-line handwriting face) was still loaded from Google Fonts, which is
+  blocked on the classroom network, so it was self-hosted too and the
+  `<link>` tags removed from `index.html`. All five faces (Andika, Fredoka,
+  Lora, Caveat, OpenDyslexic) now load locally with **0 Google-Fonts
+  requests**. Also aligned the PWA `theme-color` meta to the new `#d4541a`
+  primary (it still carried the retired `#c98c4f` tan).
+  (2) **Lint:** all 36 errors were prettier formatting introduced by the #336
+  edits; fixed, so `pnpm lint` exits green. The 24 remaining warnings are a
+  deliberate hold, not drift: 23 `react-refresh/only-export-components` across
+  17 files would require splitting working files (a broad refactor AGENTS.md
+  says not to do unopposed), and the 1 `react-hooks/exhaustive-deps` sits in
+  `GretelLiveAvatar.tsx` — the Gretel animation state machine, which AGENTS.md
+  forbids touching without explicit written approval.
+  (3) **STATUS.md:** reconciled against what actually merged — Live Supabase
+  run and the admin dashboard were listed NOT STARTED but shipped in
+  #334/#335 and #333; lint was recorded at ~362 problems vs 0 errors today.
+  Added measured art coverage (498/700 caption cells, 71%, still "pendiente"
+  against 135 faithful crops) as the top remaining gap, and recorded that
+  `abrigo`/`aguja`/`remolino` are **blocked**, not pending-wiring: their
+  located source is grayscale and would need coloring, which the art contract
+  bans outright. Verify bar green (typecheck, lint, 1091 tests, build).
