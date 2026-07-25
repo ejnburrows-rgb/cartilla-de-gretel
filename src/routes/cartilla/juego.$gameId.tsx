@@ -5,7 +5,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import { GameShell } from "@/components/cartilla/games/GameShell";
 import { PayasoChano } from "@/components/cartilla/games/PayasoChano";
+import { SyllableBuilder } from "@/components/cartilla/games/SyllableBuilder";
 import { PAYASO_CHANO_SS } from "@/content/games/payaso-chano-ss";
+import { SYLLABLE_BUILDER_PILOT } from "@/content/games/syllable-builder-pilot";
 import type { GameContent } from "@/lib/games/gameContent";
 
 export const Route = createFileRoute("/cartilla/juego/$gameId")({
@@ -14,12 +16,16 @@ export const Route = createFileRoute("/cartilla/juego/$gameId")({
 
 const GAMES: Record<string, GameContent> = {
   [PAYASO_CHANO_SS.id]: PAYASO_CHANO_SS,
+  // Syllable word-builder pilot: one vowel lesson + m + p (issue #344).
+  ...Object.fromEntries(SYLLABLE_BUILDER_PILOT.map((g) => [g.id, g])),
 };
 
 function renderGame(content: GameContent) {
   switch (content.type) {
     case "payaso-chano":
       return <PayasoChano content={content} />;
+    case "lectura-silabas":
+      return <SyllableBuilder content={content} />;
     default:
       return null;
   }
