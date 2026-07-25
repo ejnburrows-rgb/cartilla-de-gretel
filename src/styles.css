@@ -729,10 +729,59 @@ html.a11y-contrast .kid-card {
     U+A720-A7FF;
 }
 
+/* Caveat — the handwriting face used for tracing lines. Self-hosted (SIL OFL)
+   so the tracing guides render in class, where Google Fonts is blocked. */
+@font-face {
+  font-family: "Caveat";
+  src: url("/fonts/caveat-latin.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+    U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Caveat";
+  src: url("/fonts/caveat-latin-ext.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range:
+    U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+
+/* OpenDyslexic — the accessibility face behind `html.a11y-dyslexia`. It is
+   declared here, in the live stylesheet, because the only previous @font-face
+   sat in a file nothing imports, so the dyslexia mode silently fell back to
+   Comic Sans/Verdana. The Latin subset covers Spanish (ñ á é í ó ú ü ¿ ¡). */
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("/fonts/opendyslexic-400-latin.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("/fonts/opendyslexic-700-latin.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("/fonts/opendyslexic-400-italic-latin.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
 :root {
-  /* Fonts — all self-hosted (Andika, Fredoka, Lora, OpenDyslexic), so nothing
-     depends on the blocked Google Fonts network. Century Gothic is gone: it
-     does not exist on student Chromebooks/tablets and only ever fell back. */
+  /* Fonts — all self-hosted (Andika, Fredoka, Lora, Caveat, OpenDyslexic), so
+     nothing depends on the blocked Google Fonts network. Century Gothic is
+     gone: it does not exist on student Chromebooks/tablets and only fell back. */
   --font-book-faithful: "Andika", "Segoe UI", ui-rounded, system-ui, sans-serif;
   --font-book-title: "Fredoka", ui-rounded, system-ui, sans-serif;
   --font-book-serif: "Lora", Georgia, "Times New Roman", serif;

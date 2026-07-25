@@ -44,11 +44,13 @@ function EdgeStack({ side, count }: { side: "left" | "right"; count: number }) {
         <span
           key={i}
           className="book-edge-sliver"
-          style={{
-            [side]: `${i * 1.7}px`,
-            top: `${i * 0.6}px`,
-            bottom: `${i * 0.6}px`,
-          } as CSSProperties}
+          style={
+            {
+              [side]: `${i * 1.7}px`,
+              top: `${i * 0.6}px`,
+              bottom: `${i * 0.6}px`,
+            } as CSSProperties
+          }
         />
       ))}
     </div>
@@ -159,37 +161,37 @@ export function CurlPageViewer({
           style={{ aspectRatio: singleAspectRatio ?? "3 / 4" }}
         >
           {mounted && size ? (
-          <FlipBook
-            key={pages.map((p) => p.id).join("|")}
-            ref={bookRef}
-            width={size.w}
-            height={size.h}
-            size="fixed"
-            minWidth={size.w}
-            maxWidth={size.w}
-            minHeight={size.h}
-            maxHeight={size.h}
-            startPage={Math.min(Math.max(0, initialPage), Math.max(0, pages.length - 1))}
-            showCover={false}
-            usePortrait={true}
-            drawShadow={true}
-            maxShadowOpacity={0.4}
-            // The underlying page-flip library throws "Invalid flipping
-            // time" if this is <= 0 — 1ms is imperceptible (matches
-            // prefers-reduced-motion intent) without crashing the book.
-            flippingTime={reducedMotion ? 1 : STUDENT_PAGE_TURN_MS}
-            useMouseEvents={false}
-            clickEventForward={true}
-            disableFlipByClick={false}
-            mobileScrollSupport={true}
-            className="w-full h-full rounded-b-xl overflow-hidden"
-            style={{}}
-            onFlip={onFlip}
-          >
-            {pages.map((entry) => (
-              <Page key={entry.id} entry={entry} />
-            ))}
-          </FlipBook>
+            <FlipBook
+              key={pages.map((p) => p.id).join("|")}
+              ref={bookRef}
+              width={size.w}
+              height={size.h}
+              size="fixed"
+              minWidth={size.w}
+              maxWidth={size.w}
+              minHeight={size.h}
+              maxHeight={size.h}
+              startPage={Math.min(Math.max(0, initialPage), Math.max(0, pages.length - 1))}
+              showCover={false}
+              usePortrait={true}
+              drawShadow={true}
+              maxShadowOpacity={0.4}
+              // The underlying page-flip library throws "Invalid flipping
+              // time" if this is <= 0 — 1ms is imperceptible (matches
+              // prefers-reduced-motion intent) without crashing the book.
+              flippingTime={reducedMotion ? 1 : STUDENT_PAGE_TURN_MS}
+              useMouseEvents={false}
+              clickEventForward={true}
+              disableFlipByClick={false}
+              mobileScrollSupport={true}
+              className="w-full h-full rounded-b-xl overflow-hidden"
+              style={{}}
+              onFlip={onFlip}
+            >
+              {pages.map((entry) => (
+                <Page key={entry.id} entry={entry} />
+              ))}
+            </FlipBook>
           ) : (
             <div className="w-full h-full bg-surface rounded-b-xl" />
           )}
