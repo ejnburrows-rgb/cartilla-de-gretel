@@ -5,6 +5,7 @@ import { Outlet, Link, createRootRouteWithContext, useRouter } from "@tanstack/r
 import { ServiceWorkerRegister } from "@/components/ServiceWorkerRegister";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { SkipLink } from "@/components/a11y/SkipLink";
+import { StudentCursor } from "@/components/StudentCursor";
 
 function NotFoundComponent() {
   return (
@@ -108,6 +109,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <LanguageProvider>
         <ServiceWorkerRegister />
+        <StudentCursor />
         <SkipLink />
         <div id="main-content" tabIndex={-1}>
           <Outlet />

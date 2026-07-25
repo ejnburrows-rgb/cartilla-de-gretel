@@ -237,6 +237,44 @@ files.**
       `VITE_ALLOW_DEMO_MODE=true` (dev-only; PROD hard-disables demo). Screenshot proof
       `tests/e2e/__screenshots__/teacher-crm.png`. `pnpm test:e2e` = **2 passed**.
 
+### TASK E — Pilot launch queue (2026-07-25)
+
+The owner's pilot-launch queue, implementing the 2026-07-25 decisions in `docs/DECISIONS.md`.
+Tasks E2 and E6 are **owner-review** — open the PR, do **not** merge. The rest auto-merge when the
+verify bar is green.
+
+- [ ] **E1. Pencil cursor on student screens (#346).** Classic pencil cursor on student-facing
+      screens; teacher/admin keep the normal arrow; all `html.a11y-*` modes and forced-colors keep
+      the standard cursor; interactive elements keep pointer/text/not-allowed states; touch devices
+      unaffected. *Auto-merge.*
+- [ ] **E2. Syllable word-builder, 3-lesson pilot (#344).** Drag syllable tiles to build words
+      (ma + má → mamá) — the digital form of the book's own syllabic method and the first production
+      exercise beyond tracing. Scope: one vowel lesson + m + p. Existing PASS art only; honest
+      `pendiente` where art is missing. Works with touch **and** mouse; respects reduced motion;
+      grading fires the same `recordEvent`/Gretel event-bus patterns as existing exercises.
+      **OPEN PR, DO NOT MERGE — owner reviews.**
+- [ ] **E3. D7 live admin dashboard wiring (#343).** Wire the live path now that D2 proved the live
+      backend: real `admin` role, cross-teacher queries under RLS, reusing the `getSeedAdminOverview`
+      roll-up so admin numbers match each teacher's own CRM. Live-mode gate on
+      `/cartilla/teacher/admin`; demo gate stays for the demo lane. Prove it live, then remove all
+      test data. Flips D7 from `[~]` to `[x]`. *Auto-merge.*
+- [ ] **E4. Perf/loading pass for slow school networks (#347).** Measure first (bundle analysis +
+      throttled profile), then take the biggest wins: route-level code splitting, lazy-loading heavy
+      art/flipchart assets, image sizing/format checks, preload only what the first screen needs.
+      Zero behavior or visual change; re-verify all four themes and reduced motion; before/after
+      numbers in the PR body. *Auto-merge.*
+- [ ] **E5. Housekeeping (#348).** Archive the dead theme files (`src/styles/design-system.css`,
+      `src/styles/themes.css` — imported nowhere per the #336 phase-0 audit) to `src/_archive/` with
+      a README note; live `styles.css` untouched. Delete the stale merged branches so only `main`
+      remains, verifying each is fully merged first. *Auto-merge.*
+- [ ] **E6. Welcome splash wiring (#345). CONDITIONAL.** Direction (owner decision 2026-07-25,
+      supersedes #243 "Gretel alone" and the cutout collage): ONE cohesive **AI-generated**
+      crowded-garden welcome scene on `/`. The image is generated and approved by the **owner** — no
+      agent generates it. If an owner-approved image exists under `public/cartilla/art/generated/`
+      with a manifest entry, wire it in: full-scene background, headline as real HTML/CSS text (never
+      baked into the image), one "Entrar" button → `/entrar`, Spanish only, reduced motion respected.
+      **OPEN PR, DO NOT MERGE — owner visual review required** (this screen was rejected once).
+
 ### Not a task — verified strong already
 - **Grading correctness** is guarded by a test asserting every gradable region across all 24 lessons
   (PR #280). The wider `src/lib` pure-logic layer is now well covered — the unit suite is **1,056+
