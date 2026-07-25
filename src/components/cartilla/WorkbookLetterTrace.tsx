@@ -8,11 +8,18 @@
 // genuinely means "stayed on the letter." Reports through the same pipeline as
 // the other interactive exercises (recordEvent + gretelEvent); student
 // workbook only.
-import { useMemo, useRef, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import { playNote, playCorrectChord } from "@/lib/piano-audio";
 import { recordEvent } from "@/lib/student-session";
 import { gretelEvent } from "@/lib/gretel-bus";
-import { getLetterTemplate, distanceToStroke, type Point } from "./letter-stroke-templates";
+import {
+  getLetterTemplate,
+  distanceToStroke,
+  isActiveCheckpoint,
+  isCheckpointDone,
+  type Point,
+} from "./letter-stroke-templates";
+import { useLetterTapTrace, useTraceInputMode } from "./useLetterTraceInput";
 
 const VIEW_W = 100;
 const VIEW_H = 120;
@@ -48,13 +55,65 @@ export function WorkbookLetterTrace({
   const reportedRef = useRef(false);
   const wrongFiredRef = useRef(false);
 
+  // Which gesture this device gets. Touch keeps the drag trace exactly as it
+  // was; a mouse taps the checkpoints in order instead (see
+  // useLetterTraceInput.ts for why). Hooks stay above the early return below.
+  const inputMode = useTraceInputMode();
+
+  /**
+   * Single grading + reporting path, shared by BOTH modes so the completion
+   * events are byte-for-byte the same shape — Gretel reactions and progress
+   * logging cannot tell which input the child used. `slipCount` is off-path
+   * excursions when dragging, fumbled checkpoints when tapping; both are
+   * counted once per incident, never per frame or per repeated tap.
+   */
+  const report = useCallback(
+    (slipCount: number) => {
+      const score = Math.max(0, 1 - slipCount * 0.25);
+      const passed = score >= 0.75;
+      gretelEvent(passed ? "answer:correct" : "answer:wrong");
+      gretelEvent("activity:complete");
+      if (!reportedRef.current) {
+        reportedRef.current = true;
+        recordEvent({
+          lessonId: lessonId ?? "unknown",
+          kind: "exercise",
+          score: passed ? 1 : 0,
+          total: 1,
+          meta: {
+            exercise: "workbook_letter_trace",
+            letter: modelText,
+            slips: slipCount,
+            quality: score,
+            completed: true,
+          },
+        });
+      }
+    },
+    [lessonId, modelText],
+  );
+
+  const onTapComplete = useCallback(
+    (fumbles: number) => {
+      setStatus("done");
+      playCorrectChord();
+      report(fumbles);
+    },
+    [report],
+  );
+
+  const tap = useLetterTapTrace({
+    strokes,
+    onComplete: onTapComplete,
+    onCorrectTap: (idx) => playNote(261.63 + idx * 15, 0.08),
+    onWrongTap: () => gretelEvent("answer:wrong"),
+  });
+
   // Guard: no faithful template (digraphs RR / Ñ, or a blank practice line) —
   // the caller falls back to a static line, but never render a broken trace.
   if (!strokes) return null;
 
   const totalPoints = strokes.reduce((n, s) => n + s.length, 0);
-  const donePoints = completed.reduce((n, s) => n + s.length, 0) + current.length;
-  const progress = Math.min(100, Math.round((donePoints / totalPoints) * 100));
   const nextCheckpoint = strokes[strokeIdx]?.[pointIdx];
 
   function toViewport(e: React.PointerEvent<SVGSVGElement>): Point {
@@ -69,27 +128,7 @@ export function WorkbookLetterTrace({
     setStatus("done");
     playCorrectChord();
     // Real score: clean trace = 1.0; each off-path excursion costs 0.25, min 0.
-    const s = slipsRef.current;
-    const score = Math.max(0, 1 - s * 0.25);
-    const passed = score >= 0.75;
-    gretelEvent(passed ? "answer:correct" : "answer:wrong");
-    gretelEvent("activity:complete");
-    if (!reportedRef.current) {
-      reportedRef.current = true;
-      recordEvent({
-        lessonId: lessonId ?? "unknown",
-        kind: "exercise",
-        score: passed ? 1 : 0,
-        total: 1,
-        meta: {
-          exercise: "workbook_letter_trace",
-          letter: modelText,
-          slips: s,
-          quality: score,
-          completed: true,
-        },
-      });
-    }
+    report(slipsRef.current);
   }
 
   function handlePointerDown(e: React.PointerEvent<SVGSVGElement>) {
@@ -178,19 +217,46 @@ export function WorkbookLetterTrace({
     offActiveRef.current = false;
     reportedRef.current = false;
     wrongFiredRef.current = false;
+    tap.reset();
   }
 
+  // ── Tap mode (mouse-primary): same letter, same template, tapped in order ──
+  const isTap = inputMode === "tap";
+  const shownCompleted = isTap ? tap.completedStrokes : completed;
+  const shownCurrent = isTap ? tap.currentStrokePoints : current;
+  const shownStatus: Status = isTap
+    ? tap.finished
+      ? "done"
+      : shownCompleted.length || shownCurrent.length
+        ? "tracing"
+        : "idle"
+    : status;
+  const shownSlips = isTap ? tap.wrongCheckpoints : slips;
+  const shownOff = isTap ? tap.wrongFlash : offFlash;
+  const shownDone = shownCompleted.reduce((n, s) => n + s.length, 0) + shownCurrent.length;
+  const shownProgress = Math.min(100, Math.round((shownDone / totalPoints) * 100));
+  const activePoint = strokes[tap.position.strokeIdx]?.[tap.position.pointIdx];
+
   return (
-    <div className="fp-trace" data-status={status} data-slips={slips}>
+    <div
+      className="fp-trace"
+      data-status={shownStatus}
+      data-slips={shownSlips}
+      data-mode={inputMode}
+    >
       <svg
         viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
         className="fp-trace__svg"
-        onPointerDown={handlePointerDown}
-        onPointerMove={handlePointerMove}
-        onPointerUp={handlePointerUp}
-        onPointerCancel={handlePointerUp}
+        onPointerDown={isTap ? undefined : handlePointerDown}
+        onPointerMove={isTap ? undefined : handlePointerMove}
+        onPointerUp={isTap ? undefined : handlePointerUp}
+        onPointerCancel={isTap ? undefined : handlePointerUp}
         role="img"
-        aria-label={`Traza la letra ${modelText}`}
+        aria-label={
+          isTap
+            ? `Toca los puntos en orden para formar la letra ${modelText}`
+            : `Traza la letra ${modelText}`
+        }
       >
         {/* Guide outline (dotted) */}
         {strokes.map((stroke, sIdx) => (
@@ -206,7 +272,7 @@ export function WorkbookLetterTrace({
           />
         ))}
         {/* Completed strokes */}
-        {completed.map((stroke, sIdx) => (
+        {shownCompleted.map((stroke, sIdx) => (
           <path
             key={`done-${sIdx}`}
             d={stroke.map((pt, i) => `${i === 0 ? "M" : "L"} ${pt.x} ${pt.y}`).join(" ")}
@@ -217,10 +283,12 @@ export function WorkbookLetterTrace({
             strokeLinejoin="round"
           />
         ))}
-        {/* Active stroke in progress */}
-        {current.length > 0 && (
+        {/* Active stroke in progress — in tap mode this is what draws the
+            letter progressively as each dot is hit, so the child still sees
+            the correct formation and direction. */}
+        {shownCurrent.length > 0 && (
           <path
-            d={current.map((pt, i) => `${i === 0 ? "M" : "L"} ${pt.x} ${pt.y}`).join(" ")}
+            d={shownCurrent.map((pt, i) => `${i === 0 ? "M" : "L"} ${pt.x} ${pt.y}`).join(" ")}
             fill="none"
             stroke={accent}
             strokeWidth="9"
@@ -228,8 +296,85 @@ export function WorkbookLetterTrace({
             strokeLinejoin="round"
           />
         )}
-        {/* Next-checkpoint indicator */}
-        {status !== "done" && nextCheckpoint && (
+
+        {/* Tap mode: every remaining checkpoint is a target. The still-to-come
+            ones are drawn FIRST and the active one LAST, on purpose: closed
+            letterforms (O) end exactly where they start, and M's strokes share
+            endpoints, so a later checkpoint's invisible hit area can sit right
+            on top of the active dot. Drawing the active dot last guarantees it
+            always wins the hit test. */}
+        {isTap && !tap.finished && (
+          <>
+            {strokes.map((stroke, sIdx) =>
+              stroke.map((pt, pIdx) => {
+                if (isCheckpointDone(tap.position, sIdx, pIdx)) return null;
+                if (isActiveCheckpoint(tap.position, sIdx, pIdx)) return null;
+                return (
+                  <g
+                    key={`tap-${sIdx}-${pIdx}`}
+                    role="button"
+                    tabIndex={-1}
+                    aria-label={`Punto ${pIdx + 1}`}
+                    className="fp-trace__dot"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => tap.tapCheckpoint(sIdx, pIdx)}
+                  >
+                    <circle cx={pt.x} cy={pt.y} r="7" fill="transparent" />
+                    <circle
+                      cx={pt.x}
+                      cy={pt.y}
+                      r={4}
+                      fill="#ffffff"
+                      stroke="#c7d6d5"
+                      strokeWidth={1.5}
+                    />
+                  </g>
+                );
+              }),
+            )}
+            {activePoint && (
+              <g
+                role="button"
+                tabIndex={0}
+                aria-label={`Punto ${tap.position.pointIdx + 1}, toca aquí`}
+                className="fp-trace__dot fp-trace__dot--active"
+                style={{ cursor: "pointer" }}
+                onClick={() => tap.tapCheckpoint(tap.position.strokeIdx, tap.position.pointIdx)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    tap.tapCheckpoint(tap.position.strokeIdx, tap.position.pointIdx);
+                  }
+                }}
+              >
+                {/* generous invisible hit area — small targets are hard for kids */}
+                <circle cx={activePoint.x} cy={activePoint.y} r="10" fill="transparent" />
+                <circle
+                  cx={activePoint.x}
+                  cy={activePoint.y}
+                  r={6.5}
+                  fill={shownOff ? "#e11d48" : accent}
+                  stroke="#ffffff"
+                  strokeWidth={1.8}
+                />
+                <text
+                  x={activePoint.x}
+                  y={activePoint.y + 2.6}
+                  textAnchor="middle"
+                  fontSize="7"
+                  fontWeight="700"
+                  fill="#ffffff"
+                  pointerEvents="none"
+                >
+                  {tap.position.pointIdx + 1}
+                </text>
+              </g>
+            )}
+          </>
+        )}
+
+        {/* Drag mode: next-checkpoint indicator (unchanged) */}
+        {!isTap && status !== "done" && nextCheckpoint && (
           <circle
             cx={nextCheckpoint.x}
             cy={nextCheckpoint.y}
@@ -245,14 +390,21 @@ export function WorkbookLetterTrace({
         <div className="fp-trace__progress" aria-hidden="true">
           <span
             className="fp-trace__progress-fill"
-            style={{ width: `${progress}%`, backgroundColor: accent }}
+            style={{ width: `${shownProgress}%`, backgroundColor: accent }}
           />
         </div>
-        {offFlash && status !== "done" && (
-          <span className="fp-trace__hint fp-trace__hint--off">Sigue la línea de la letra</span>
+        {shownOff && shownStatus !== "done" && (
+          <span className="fp-trace__hint fp-trace__hint--off">
+            {isTap ? "Toca el punto que brilla" : "Sigue la línea de la letra"}
+          </span>
         )}
-        {status === "done" && <span className="fp-trace__hint fp-trace__hint--ok">¡Muy bien!</span>}
-        {status !== "idle" && (
+        {!shownOff && isTap && shownStatus !== "done" && (
+          <span className="fp-trace__hint">Toca los puntos en orden</span>
+        )}
+        {shownStatus === "done" && (
+          <span className="fp-trace__hint fp-trace__hint--ok">¡Muy bien!</span>
+        )}
+        {shownStatus !== "idle" && (
           <button
             type="button"
             className="fp-trace__reset"
