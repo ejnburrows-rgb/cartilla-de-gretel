@@ -239,3 +239,46 @@ DOCUMENTATION DUTY section of `AGENTS.md`).
   crop — flagged for the owner as a content decision rather than slipped in as
   an art fix. Verify bar green (typecheck, lint, 1091 tests, build, both
   content and art-color validators; wired crops 101 -> 102).
+
+- **2026-07-25 — Owner launch decisions: classroom pilot, pre-deploy
+  blockers, activity roadmap, Jules lane.** Recorded from the owner's review
+  session (after a read-only comparison of the app against Lexia Core5,
+  Lalilo, Duolingo ABC, Amira, and ABCmouse):
+  (1) **Deployment target: a real classroom pilot first**, not a public
+  launch. Pilot devices include BOTH touch tablets and mice, so mouse
+  usability is launch-critical.
+  (2) **Splash: the previously-rejected "/" splash may NOT ship.** The #243
+  Gretel-alone redo is promoted from held to a **pre-deploy blocker** and is
+  released for execution — but the resulting PR still requires the owner's
+  visual review before merge (it was rejected once).
+  (3) **Tracing: input-adaptive letter tracing is a pre-deploy blocker.**
+  Touch keeps the current drag-trace unchanged; mouse gets tap-the-dots-in-
+  order on the same stroke templates, firing identical grading/Gretel/progress
+  events. The drag-only trace is confirmed too hard with a mouse.
+  (4) **Syllable word-builder is promoted to pre-deploy.** Drag syllable
+  tiles to build words (ma+má → mamá) — the digital form of the book's own
+  syllabic method and the app's first production (not recognition) exercise
+  beyond tracing. Scope: a 3-lesson pilot (one vowel lesson + m + p lessons),
+  existing PASS art only, owner review before merge.
+  (5) **Student-side cursor becomes a classic pencil** (UI chrome, not book
+  art — the never-invent-art rule protects the book's illustrations, not app
+  iconography). Teacher/admin screens keep normal cursors; a11y modes keep
+  the standard cursor.
+  (6) **Teacher dashboard parity matters.** Lesson assignment is a pilot
+  candidate (assignments backend modules already exist with tests; UI wiring
+  to be verified read-only before scoping). Skill-gap flags and printable
+  reports are post-pilot. Lexia-style adaptive branching is post-launch.
+  (7) **Activity roadmap beyond the word-builder:** listen-and-pick (TTS
+  plays a syllable/word, student taps it — reuses the existing Escuchar
+  engine) is the next candidate. **Rejected:** read-aloud speech-AI
+  (Amira-style; not free) and points/badges gamification (clashes with the
+  classic-book identity — Gretel's event-driven reactions already cover
+  encouragement).
+  (8) **Jules is a QA/audit-and-report lane only.** Its GitHub push access
+  will not be pursued; it is assigned read-only QA sweeps and
+  accessibility/performance audits whose deliverable is a written report,
+  executed by others. (Antigravity's retirement and this lane were written
+  into AGENTS.md DIVISION OF LABOR via PR #339 the same day.)
+  (9) **Recommended non-blockers approved:** perf/loading pass targeting
+  slow school networks, dead-theme-file archival, stale-branch cleanup, and
+  the ghost "BuildFailed" workflow deletion (owner UI click).
