@@ -243,7 +243,7 @@ The owner's pilot-launch queue, implementing the 2026-07-25 decisions in `docs/D
 Tasks E2 and E6 are **owner-review** — open the PR, do **not** merge. The rest auto-merge when the
 verify bar is green.
 
-- [ ] **E1. Pencil cursor on student screens (#346).** Classic pencil cursor on student-facing
+- [x] **E1. Pencil cursor on student screens (#346).** Classic pencil cursor on student-facing
       screens; teacher/admin keep the normal arrow; all `html.a11y-*` modes and forced-colors keep
       the standard cursor; interactive elements keep pointer/text/not-allowed states; touch devices
       unaffected. *Auto-merge.*
@@ -286,6 +286,13 @@ verify bar is green.
 ---
 
 ## STATUS LOG (append one dated line per merged PR; newest at top)
+- 2026-07-25 — **E1 pencil cursor DONE (#349).** Student screens under `/cartilla` now use a hand-built
+  SVG pencil cursor in the book palette; teacher/admin/projector screens and `/`+`/entrar` keep the normal
+  arrow; every `a11y-*` mode and `forced-colors` keeps the system cursor; links/inputs/disabled controls
+  keep pointer/text/not-allowed. Routing rule is a pure unit-tested helper (`src/lib/student-cursor.ts`)
+  toggled onto `<html>` by a root-level component, alongside the a11y classes. Writing the test caught a
+  real prefix bug (`/cartillas-otra-cosa` matched `/cartilla`) — now segment-bounded. Verified in a real
+  browser on all four surfaces. Verify bar green: typecheck · lint 0 errors · 1114 unit · build.
 - 2026-07-22 — **D2 teacher backend go-live + D3 live reports DONE:** proven against the live Supabase
   project. An authenticated teacher created a class (crypto join code), listed classes (RLS-scoped),
   built a roster, and the join code worked for a fresh anon student; **RLS isolation verified** (teacher
