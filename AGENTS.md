@@ -123,9 +123,9 @@ for it and may be stale the moment `main` (the primary code line) moves.
   if a task turns out to need more than ~5 files than expected.
 - **Owner does no manual work.** The owner is not a programmer and does not
   crop images, edit JSON, or run terminal commands. Everything is automated
-  or done with coding tools. When another agent (e.g. Antigravity) is
-  needed, hand over a complete, paste-ready prompt — never ask the owner to
-  do production steps by hand.
+  or done with coding tools. When another agent is needed, hand over a
+  complete, paste-ready prompt — never ask the owner to do production steps
+  by hand.
 - **Never stall.** If one item is genuinely blocked, say so in one line and
   move to the next unblocked piece of work; always leave a concrete next
   step, never idle.
@@ -186,24 +186,32 @@ the step because the tool is missing.**
 
 ## DIVISION OF LABOR (multi-agent)
 
-- **Antigravity: art-extraction only.** Its entire job is producing real,
-  tightly-cropped color illustration files from the physical book's
-  flipchart scans and wiring them into the shared manifest (see the art
-  contract below). It does **not** own the student path, activities,
-  gamification, or any UI/UX decision — those belong to Claude. Suggestions
-  are welcome; silent implementation is not.
-- **Claude: everything else** — app code, database schema, page content
+- **Antigravity: retired from this project (owner decision, 2026-07-25).**
+  Do not assign work to Antigravity, wait on it, or write prompts for it.
+  Its former lane — art extraction — now belongs to Claude, which has proven
+  the full pipeline end to end (see `escoba`, PR #338, and the 2026-07-25
+  entry in `docs/DECISIONS.md`). References to an "Antigravity lane" in
+  older code comments and docs are historical only; Claude owns those
+  surfaces now.
+- **Claude: everything** — app code, database schema, page content
   (`src/data/page-layouts.json`), teacher CRM, student activities, grading,
-  Supabase, routing, styling.
+  Supabase, routing, styling, **and art extraction** under the shared art
+  contract below. The contract's quality bar is unchanged; only the
+  assignee changed.
+- **Jules: audit-and-report lane only.** Independent, read-mostly work
+  (security audits, dependency reviews, test-coverage reports) delivered as
+  documents or paste-back patches. Known limitation (see `docs/STATUS.md`):
+  the Jules GitHub app cannot push branches to this repo, so only assign
+  Jules tasks whose output the owner can paste back or Claude can re-apply.
 - **Before starting ANY work, every time:** `git fetch origin && git reset
   --hard origin/main` (or a fresh clone) so you're never building on a stale
   base. `ART_BACKLOG.md` (repo root) is the authoritative list of art still
   needed.
 - **Only Claude touches `src/data/page-layouts.json`** (the page-content
-  schema: text, layout, grading). Antigravity produces image files and
-  manifest entries; Claude wires the `illustrationSrc` references in.
+  schema: text, layout, grading). Claude now also produces the image files
+  and manifest entries and wires the `illustrationSrc` references in.
 
-### The shared art contract (the only interface between agents)
+### The shared art contract (the quality bar for all art work)
 
 - Crop faithful COLOR illustrations from the flipchart scans — **no redraw,
   no color changes, no invented art, ever.**
