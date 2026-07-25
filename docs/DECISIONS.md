@@ -158,3 +158,28 @@ DOCUMENTATION DUTY section of `AGENTS.md`).
   much larger follow-up); this change only updates the governing rule
   text, verified with the full `pnpm typecheck && pnpm test && pnpm build`
   bar before merging.
+
+- **2026-07-25 — Book-realism refresh (student reader look & feel).** Goal:
+  make the student book read as a classic hardback while feeling
+  student-friendly in colour. Phase-0 audit corrected several assumptions
+  before any code changed: `design-system.css` and `themes.css` are imported
+  nowhere (dead files — the `#d4541a`/`#c98c4f` "competing palettes" never
+  loaded), `ThemeProvider` is never mounted (its `theme-*` classes are inert),
+  the live palette is the shadcn token set in `styles.css`, the live student
+  reader is `CurlPageViewer` (react-pageflip, 780ms, 1500px→now 1300px) not
+  the 1100ms `BookPageFlip` or the 1.5s `flipbook-3d.css` engine (both
+  orphaned), and the working themes are `.dark` + `html.a11y-*` in `styles.css`
+  (left untouched, high-contrast stays WCAG AAA). Decisions: (1) `styles.css`
+  is the single palette source of truth — warmed to orange `#d4541a` primary,
+  green `#2a7d4f`, gold `#e8a820`, warm brown ink and warm chrome (no more cool
+  stone/indigo); (2) self-host Fredoka (display) + Lora (book serif) as woff2
+  alongside Andika/OpenDyslexic, drop the non-existent Century Gothic; (3) real
+  paper: fibre texture, gutter/outer tone gradient, a hardback cover + a
+  progress-driven page-edge stack on `CurlPageViewer`; (4) raise the washed-out
+  living-workbook art (opacity .22→.32, saturate .8→1.05, blur 2→1px) and give
+  "pending" art a warm honest placeholder; (5) 24 per-lesson accent colours
+  (`src/lib/lesson-accents.ts`), each WCAG-AA on cream and white, fed through
+  the catalog's `entry.color`; (6) archive the 3 orphaned flip files to
+  `src/_archive/orphaned-flip-engines/`. Verified: typecheck + build clean,
+  tests 1091 pass / 2 expected fail, all 4 themes flip correctly, all fonts
+  load locally with 0 Google-Fonts requests. Branch pushed for owner review.
