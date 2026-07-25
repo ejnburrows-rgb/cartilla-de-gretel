@@ -1,5 +1,6 @@
 import { lessons as vowelLessons, type VowelLesson } from "@/lib/cartilla-content";
 import consonantsData from "@/content/consonants.json";
+import { getLessonAccent } from "@/lib/lesson-accents";
 
 export type ConsonantLessonData = {
   letter: string;
@@ -72,7 +73,7 @@ function vowelEntry(v: VowelLesson): CatalogEntry {
     title: `Vocal ${v.vowel.toUpperCase()} ${v.vowel}`,
     subtitle: v.characterName,
     pages: VOWEL_PAGES[v.vowel] ?? "",
-    color: v.color,
+    color: getLessonAccent(n),
     vowel: v.vowel,
     lesson: v,
   };
@@ -92,7 +93,7 @@ export const CATALOG: CatalogEntry[] = [
     title: "Introducción de las vocales",
     subtitle: "Las cinco vocales: a, e, i, o, u",
     pages: "1-3",
-    color: "hsl(230 75% 58%)",
+    color: getLessonAccent(1),
     activities: LECCION_1_ACTIVITIES,
   },
   ...vowelLessons.map(vowelEntry),
@@ -102,7 +103,7 @@ export const CATALOG: CatalogEntry[] = [
     title: `Letra ${c.letter.toUpperCase()} ${c.letter}`,
     subtitle: `Sílabas: ${c.syllables.join(" · ")}`,
     pages: c.pages,
-    color: c.color,
+    color: getLessonAccent(c.lesson),
     letter: c.letter,
     data: c,
   })),

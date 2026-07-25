@@ -55,7 +55,7 @@ export function SVGWorkbookLine({ text, dotted = false }: SVGWorkbookLineProps) 
         x="15"
         y="32"
         fontSize="22"
-        fontFamily="Century Gothic, Gill Sans, Trebuchet MS, sans-serif"
+        fontFamily="Andika, 'Gill Sans', 'Trebuchet MS', sans-serif"
         className={dotted ? dottedTextClass : solidTextClass}
         letterSpacing="4"
       >
@@ -86,7 +86,7 @@ export function SVGTracingLetter({ letter }: SVGTracingLetterProps) {
         x="50"
         y="72"
         fontSize="64"
-        fontFamily="Century Gothic, Gill Sans, Trebuchet MS, sans-serif"
+        fontFamily="Andika, 'Gill Sans', 'Trebuchet MS', sans-serif"
         fontWeight="bold"
         fill="none"
         stroke="#e2e8f0"
@@ -101,7 +101,7 @@ export function SVGTracingLetter({ letter }: SVGTracingLetterProps) {
         x="50"
         y="72"
         fontSize="64"
-        fontFamily="Century Gothic, Gill Sans, Trebuchet MS, sans-serif"
+        fontFamily="Andika, 'Gill Sans', 'Trebuchet MS', sans-serif"
         fontWeight="bold"
         fill="none"
         stroke="#78716c"

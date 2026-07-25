@@ -33,8 +33,11 @@
   height: 100%;
   object-fit: cover;
   object-position: center 68%;
-  opacity: 0.22;
-  filter: blur(2px) saturate(0.8) brightness(1.06);
+  /* Let the real illustration read as colourful art while foreground content
+     stays legible: fuller opacity, full saturation, only the lightest blur.
+     (Was opacity .22 / blur 2px / saturate .8 — that washed the art out.) */
+  opacity: 0.32;
+  filter: blur(1px) saturate(1.05) brightness(1.03);
 }
 
 /* When the background IS the page's only real content (e.g. a full-page
@@ -47,24 +50,48 @@
   filter: none;
 }
 
+/* Honest "art pending" placeholder — warm, friendly and on-brand, but still
+   plainly unfinished (never disguised as real art). A soft cream-to-gold wash
+   with a dashed warm border and a small label reads as "a picture will live
+   here", not as a finished illustration. */
 .lwp-bg-pending {
   position: absolute;
   inset: 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: repeating-linear-gradient(
-    45deg,
-    hsl(var(--muted)),
-    hsl(var(--muted)) 10px,
-    hsl(var(--background)) 10px,
-    hsl(var(--background)) 20px
-  );
-  color: hsl(var(--muted-foreground));
+  gap: 0.35rem;
+  padding: 0.75rem;
+  background:
+    radial-gradient(circle at 50% 38%, hsl(var(--warning) / 0.16), transparent 60%),
+    linear-gradient(160deg, hsl(var(--secondary) / 0.55), hsl(var(--card)));
+  border: 2px dashed hsl(var(--primary) / 0.32);
+  border-radius: 12px;
+  color: hsl(var(--primary));
+  font-family: var(--font-book-title, "Fredoka", ui-rounded, sans-serif);
   font-size: 0.85rem;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+/* Small drawn "picture frame" mark (not an emoji, not stand-in art) — a warm
+   rounded square with a dot + horizon line, reading as an empty picture slot. */
+.lwp-bg-pending::before {
+  content: "";
+  width: 1.5rem;
+  height: 1.25rem;
+  border: 2px solid hsl(var(--primary) / 0.5);
+  border-radius: 5px;
+  background:
+    radial-gradient(circle at 32% 34%, hsl(var(--warning) / 0.9) 0 3px, transparent 4px),
+    linear-gradient(
+      to top,
+      hsl(var(--brand-green) / 0.55) 0 35%,
+      transparent 35%
+    );
+  opacity: 0.8;
 }
 
 .lwp-object {

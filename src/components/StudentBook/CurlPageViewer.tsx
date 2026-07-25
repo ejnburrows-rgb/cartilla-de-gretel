@@ -1,5 +1,5 @@
 import { forwardRef, useCallback, useEffect, useRef, useState } from "react";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import HTMLFlipBook from "react-pageflip";
 import { gretelEvent } from "@/lib/gretel-bus";
@@ -25,13 +25,35 @@ const Page = forwardRef<HTMLDivElement, { entry?: WorkbookPageEntry }>(({ entry 
     <div
       ref={ref}
       data-density={entry?.cover ? "hard" : "soft"}
-      className="relative flex h-full w-full flex-col overflow-hidden bg-surface"
+      className="book-paper-surface relative flex h-full w-full flex-col overflow-hidden"
     >
       <div className="flex-1 w-full h-full p-0">{entry?.content}</div>
     </div>
   );
 });
 Page.displayName = "CurlPage";
+
+/** Thin stacked slivers along an outer/spine edge that give the book real
+ * thickness. The two stacks shift as the reader progresses — the right (unread)
+ * stack thins out while the left (read) stack fills in. */
+function EdgeStack({ side, count }: { side: "left" | "right"; count: number }) {
+  const n = Math.max(0, Math.min(6, count));
+  return (
+    <div className={`book-edge-stack book-edge-stack--${side}`} aria-hidden>
+      {Array.from({ length: n }, (_, i) => (
+        <span
+          key={i}
+          className="book-edge-sliver"
+          style={{
+            [side]: `${i * 1.7}px`,
+            top: `${i * 0.6}px`,
+            bottom: `${i * 0.6}px`,
+          } as CSSProperties}
+        />
+      ))}
+    </div>
+  );
+}
 
 /**
  * Real paper-curl student page viewer — same props contract as
@@ -120,12 +142,23 @@ export function CurlPageViewer({
 
   return (
     <div className="relative mx-auto flex w-full max-w-4xl flex-col items-center">
-      <div
-        ref={wrapRef}
-        className="workbook-container"
-        style={{ aspectRatio: singleAspectRatio ?? "3 / 4" }}
-      >
-        {mounted && size ? (
+      <div className="book-shell">
+        {(() => {
+          const frac = pages.length > 1 ? currentIndex / (pages.length - 1) : 0;
+          const left = Math.round(frac * 6);
+          return (
+            <>
+              <EdgeStack side="left" count={left} />
+              <EdgeStack side="right" count={6 - left} />
+            </>
+          );
+        })()}
+        <div
+          ref={wrapRef}
+          className="workbook-container relative z-[1]"
+          style={{ aspectRatio: singleAspectRatio ?? "3 / 4" }}
+        >
+          {mounted && size ? (
           <FlipBook
             key={pages.map((p) => p.id).join("|")}
             ref={bookRef}
@@ -157,9 +190,10 @@ export function CurlPageViewer({
               <Page key={entry.id} entry={entry} />
             ))}
           </FlipBook>
-        ) : (
-          <div className="w-full h-full bg-surface rounded-b-xl" />
-        )}
+          ) : (
+            <div className="w-full h-full bg-surface rounded-b-xl" />
+          )}
+        </div>
       </div>
 
       <div className="mt-8 flex w-full items-center justify-center gap-2 sm:gap-6 z-20 no-print">

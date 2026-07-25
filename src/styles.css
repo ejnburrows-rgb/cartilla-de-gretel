@@ -62,31 +62,41 @@
 :root {
   --radius: 0.625rem;
 
-  /* Cartilla — kid-first, Spanish literacy K-3 (HSL triplets) */
-  --background: 48 100% 97%;
-  --foreground: 230 35% 18%;
-  --card: 0 0% 100%;
-  --card-foreground: 230 35% 18%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 230 35% 18%;
-  --primary: 230 75% 58%;
+  /* Cartilla — kid-first, Spanish literacy K-3 (HSL triplets).
+     Palette single source of truth: warm cream paper, warm brown ink, a
+     saturated orange primary (#d4541a), forest-green success (#2a7d4f) and a
+     gold highlight (#e8a820). The old indigo primary + cool-gray chrome were
+     the "washed out / dull" culprits, so every neutral below is warmed toward
+     the paper instead of the old blue-grey stone. */
+  --background: 40 56% 96%; /* warm cream page */
+  --foreground: 30 52% 13%; /* warm brown-black ink (#2c1f0e) */
+  --card: 42 60% 99%; /* near-white warm paper */
+  --card-foreground: 30 52% 13%;
+  --popover: 42 60% 99%;
+  --popover-foreground: 30 52% 13%;
+  --primary: 18 79% 47%; /* warm orange-red #d4541a — energetic, child-safe */
   --primary-foreground: 0 0% 100%;
-  --secondary: 48 95% 88%;
-  --secondary-foreground: 230 35% 18%;
-  --muted: 210 40% 96.1%;
-  --muted-foreground: 215.4 16.3% 46.9%;
-  --accent: 210 40% 96.1%;
-  --accent-foreground: 222.2 47.4% 11.2%;
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 214.3 31.8% 91.4%;
-  --input: 214.3 31.8% 91.4%;
-  --ring: 222.2 84% 4.9%;
+  --secondary: 44 84% 88%; /* warm pale gold */
+  --secondary-foreground: 30 52% 13%;
+  --muted: 40 34% 92%; /* warm light stone (was cool blue-grey) */
+  --muted-foreground: 32 20% 38%; /* warm muted brown */
+  --accent: 40 44% 90%; /* warm subtle surface (hover/rails) */
+  --accent-foreground: 30 52% 16%;
+  --destructive: 0 74% 52%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 36 30% 84%; /* warm border (was cool stone-300) */
+  --input: 36 30% 84%;
+  --ring: 18 79% 47%; /* orange focus ring (was near-black navy) */
 
-  --success: 145 65% 42%;
+  --success: 151 49% 33%; /* forest green #2a7d4f — Spanish-literacy accent */
   --success-foreground: 0 0% 100%;
-  --warning: 38 92% 50%;
-  --warning-foreground: 230 35% 18%;
+  --warning: 38 82% 52%; /* gold #e8a820 — reward/highlight */
+  --warning-foreground: 30 52% 13%;
+
+  /* Named brand aliases (for surfaces that want the accent green or gold
+     directly rather than via the semantic success/warning roles). */
+  --brand-green: 151 49% 33%;
+  --brand-gold: 38 82% 52%;
 
   --vowel-a: 354 78% 56%;
   --vowel-e: 28 87% 60%;
@@ -204,9 +214,9 @@ html.a11y-contrast .kid-card {
   body {
     min-height: 100vh;
     background:
-      radial-gradient(circle at 15% 10%, hsl(var(--vowel-i) / 0.18), transparent 28rem),
-      radial-gradient(circle at 85% 5%, hsl(var(--vowel-e) / 0.16), transparent 26rem),
-      linear-gradient(180deg, hsl(var(--background)), hsl(var(--secondary) / 0.18));
+      radial-gradient(circle at 15% 10%, hsl(var(--warning) / 0.16), transparent 28rem),
+      radial-gradient(circle at 85% 5%, hsl(var(--primary) / 0.12), transparent 26rem),
+      linear-gradient(180deg, hsl(var(--background)), hsl(var(--secondary) / 0.22));
   }
 
   button,
@@ -382,10 +392,14 @@ html.a11y-contrast .kid-card {
 
 /* ── Vertical Spiral Workbook Flip Styles ── */
 .workbook-container {
-  perspective: 1500px;
+  perspective: 1300px;
   position: relative;
   width: 100%;
   max-width: 100%;
+  /* Classic-book body voice: page prose reads in the warm Lora serif, while
+     letter-formation content keeps its explicit Andika and tiles/buttons keep
+     Fredoka (both set their own font, so they win over this inherited default). */
+  font-family: var(--font-book-serif);
   background: var(--book-paper, #fdfdfd);
   border-radius: 0 0 16px 16px;
   box-shadow:
@@ -424,6 +438,8 @@ html.a11y-contrast .kid-card {
   transform-origin: left center;
   /* Elegant R→L free-edge turn — 780ms; living-art.css may refine */
   transition: transform 780ms cubic-bezier(0.22, 1, 0.36, 1);
+  /* Hint the compositor so the 3D turn stays on the GPU (no layout thrash). */
+  will-change: transform;
 }
 
 .workbook-page-front,
@@ -457,6 +473,82 @@ html.a11y-contrast .kid-card {
   transition: opacity 0.6s ease;
 }
 
+/* ── Classic-book paper realism ──────────────────────────────────────────
+   Real-paper surface for the student reader: a warm cream base, a faint fibre
+   speckle (inline SVG feTurbulence — free and lightweight, ~1 tile), and a
+   tone gradient that is brighter at the outer (right) edge and deepens warmly
+   into the gutter (left binding). Letter content and art sit on top of this. */
+.book-paper-surface {
+  background-color: var(--book-paper, #fbf3e0);
+  background-image:
+    url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='140'%20height='140'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.85'%20numOctaves='2'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='saturate'%20values='0'/%3E%3C/filter%3E%3Crect%20width='140'%20height='140'%20filter='url(%23n)'%20opacity='0.05'/%3E%3C/svg%3E"),
+    linear-gradient(
+      to right,
+      rgba(60, 40, 10, 0.14) 0%,
+      rgba(60, 40, 10, 0) 9%,
+      rgba(255, 252, 242, 0) 74%,
+      rgba(255, 253, 245, 0.6) 100%
+    );
+  background-repeat: repeat, no-repeat;
+  background-size:
+    140px 140px,
+    100% 100%;
+}
+
+/* Hardback shell — a warm board + spine wrapping the turning pages, plus the
+   page-edge stack that gives the book real thickness. The inner
+   .workbook-container (which react-pageflip measures) is untouched; the shell
+   only adds a cover border and the edge slivers that peek past the page. */
+.book-shell {
+  position: relative;
+  width: 100%;
+  padding: 7px 13px 15px 13px;
+  border-radius: 10px 13px 13px 10px;
+  background:
+    linear-gradient(180deg, hsl(28 42% 34%), hsl(26 40% 28%));
+  box-shadow:
+    0 2px 0 hsl(26 40% 22%),
+    0 18px 40px rgba(60, 40, 10, 0.32);
+}
+
+/* the spine, a slightly darker band along the binding edge */
+.book-shell::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  bottom: 8px;
+  left: 4px;
+  width: 6px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, hsl(26 44% 22%), hsl(28 40% 32%));
+  pointer-events: none;
+}
+
+.book-edge-stack {
+  position: absolute;
+  top: 12px;
+  bottom: 18px;
+  width: 12px;
+  pointer-events: none;
+  z-index: 0;
+}
+.book-edge-stack--right {
+  right: 1px;
+}
+.book-edge-stack--left {
+  left: 1px;
+}
+.book-edge-sliver {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  border-radius: 1px;
+  /* warm paper edge, top-lit */
+  background: linear-gradient(to bottom, #f3e9cf, #dccca6 60%, #cbb98f);
+  box-shadow: 0 0 0 0.5px rgba(60, 40, 10, 0.08);
+}
+
 /* ── Teacher Flip Chart — vertical (top-hinged) page flip ──
    Same technique as .workbook-flip-wrapper, rotated to the X axis so pages
    flip up and over the top like a real easel flip chart, not left-right
@@ -469,6 +561,7 @@ html.a11y-contrast .kid-card {
   transform-origin: center top;
   /* Vertical easel flip — elegant 820ms */
   transition: transform 820ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
 }
 
 .flipchart-page-front,
@@ -567,10 +660,82 @@ html.a11y-contrast .kid-card {
     U+A720-A7FF;
 }
 
+/* Fredoka — rounded display face for titles, letters and lesson tiles.
+   Self-hosted (SIL OFL) so it renders offline; Google Fonts is blocked in
+   the classroom network. It is a variable font, so one file covers the
+   300–700 weights the UI asks for. Latin + Latin-Ext cover Spanish. */
+@font-face {
+  font-family: "Fredoka";
+  src: url("/fonts/fredoka-latin.woff2") format("woff2");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+    U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Fredoka";
+  src: url("/fonts/fredoka-latin-ext.woff2") format("woff2");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range:
+    U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+
+/* Lora — warm open-licensed serif (SIL OFL) for book body copy. It gives the
+   pages the "classic book" ink-on-paper feel the rounded display font can't.
+   Self-hosted for the same offline reason; variable file covers 400–700. */
+@font-face {
+  font-family: "Lora";
+  src: url("/fonts/lora-400-latin.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+    U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Lora";
+  src: url("/fonts/lora-400-latin-ext.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range:
+    U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+@font-face {
+  font-family: "Lora";
+  src: url("/fonts/lora-italic-latin.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: italic;
+  font-display: swap;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+    U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Lora";
+  src: url("/fonts/lora-italic-latin-ext.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: italic;
+  font-display: swap;
+  unicode-range:
+    U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+
 :root {
-  /* Fonts */
-  --font-book-faithful: "Andika", "Century Gothic", "Segoe UI", ui-rounded, system-ui, sans-serif;
+  /* Fonts — all self-hosted (Andika, Fredoka, Lora, OpenDyslexic), so nothing
+     depends on the blocked Google Fonts network. Century Gothic is gone: it
+     does not exist on student Chromebooks/tablets and only ever fell back. */
+  --font-book-faithful: "Andika", "Segoe UI", ui-rounded, system-ui, sans-serif;
   --font-book-title: "Fredoka", ui-rounded, system-ui, sans-serif;
+  --font-book-serif: "Lora", Georgia, "Times New Roman", serif;
   --font-book-hand: "Caveat", "Segoe Script", cursive;
 
   /* Interior worksheet palette — green & cream kid-friendly aesthetic
