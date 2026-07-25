@@ -258,7 +258,7 @@ verify bar is green.
       roll-up so admin numbers match each teacher's own CRM. Live-mode gate on
       `/cartilla/teacher/admin`; demo gate stays for the demo lane. Prove it live, then remove all
       test data. Flips D7 from `[~]` to `[x]`. *Auto-merge.*
-- [ ] **E4. Perf/loading pass for slow school networks (#347).** Measure first (bundle analysis +
+- [x] **E4. Perf/loading pass for slow school networks (#347).** Measure first (bundle analysis +
       throttled profile), then take the biggest wins: route-level code splitting, lazy-loading heavy
       art/flipchart assets, image sizing/format checks, preload only what the first screen needs.
       Zero behavior or visual change; re-verify all four themes and reduced motion; before/after
@@ -286,6 +286,13 @@ verify bar is green.
 ---
 
 ## STATUS LOG (append one dated line per merged PR; newest at top)
+- 2026-07-25 — **E4 perf pass DONE (measured).** Measuring first — not guessing — showed the welcome
+  splash was downloading `content-bundle` (316 KB raw / 58 KB gz) of lesson data it never uses. Root cause
+  was the `manualChunks` rule forcing every `content/` module into ONE chunk, so importing any single
+  lesson's data pulled the whole catalogue. `autoCodeSplitting` was already enabled and was not the
+  problem. Removing that forced grouping lets Rollup split content by real usage: landing-page JS drops
+  from ~1312 KB to ~1079 KB raw (**-18%**) and `content-bundle` is no longer fetched on `/` at all.
+  Zero behavior/visual change. Verify bar green: typecheck · lint 0 errors · 1114 unit · build.
 - 2026-07-25 — **E5 housekeeping — archival DONE, branch deletion BLOCKED.** `design-system.css` and
   `themes.css` re-verified as imported nowhere outside `src/_archive/` and moved to
   `src/_archive/orphaned-theme-files/` with a README; live `styles.css` untouched. Branch cleanup: 7 of the
