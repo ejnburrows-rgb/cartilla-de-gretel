@@ -1,0 +1,17 @@
+{
+  "$comment": "Generated scene art — splash and app chrome ONLY. See AGENTS.md, section 'Generated scene art' (owner decision 2026-07-25). Never used inside lesson content: workbook cells, page-layouts.json illustrationSrc, the flipchart and anything drawn by FaithfulPageRenderer stay faithful-crop-only. Add one entry per approved image; the owner generates and approves the image, agents only wire it.",
+  "scenes": [
+    {
+      "slug": "welcome-splash",
+      "purpose": "welcome-splash",
+      "src": "/cartilla/art/generated/welcome-splash.webp",
+      "srcSmall": "/cartilla/art/generated/welcome-splash-900.webp",
+      "width": 1536,
+      "height": 1024,
+      "tool": "owner-supplied generated image",
+      "createdAt": "2026-07-25",
+      "reviewedBy": "EJN",
+      "notes": "Owner-generated and owner-approved crowded-garden welcome scene: Gretel front and centre holding the book, surrounded by the book's characters. Delivered as PNG (3.5 MB, 1536x1024) and re-encoded to webp at two widths for the landing page — format/compression only, the artwork itself is unaltered. Headline text is NOT baked in; '¡Bienvenidos!' and the Entrar button are real HTML/CSS."
+    }
+  ]
+}
