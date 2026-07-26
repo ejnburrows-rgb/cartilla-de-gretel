@@ -16,6 +16,12 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { isSeedAdmin, isSeedSessionActive } from "@/lib/seed-data";
+import {
+  buildRecentAccuracies,
+  checkNeedsAttention,
+  summarizeStudentProgress,
+  type LessonProgressRow,
+} from "@/lib/progress-calculation";
 import type { AdminClassSummary, AdminOverview, AdminTeacherSummary } from "@/lib/seed-data";
 
 /** True when the signed-in user actually holds the 'admin' role. */
@@ -76,6 +82,8 @@ type EventRow = {
   total: number | null;
   time_seconds: number | null;
   lesson_id: string | null;
+  meta: unknown;
+  created_at: string;
 };
 
 /** A teacher's display name, best-effort — profiles may not carry one. */
@@ -87,13 +95,21 @@ type ProfileRow = { id: string; full_name: string | null };
  * render a misleading half-empty dashboard.
  */
 export async function getLiveAdminOverview(): Promise<AdminOverview | null> {
-  const [classesRes, studentsRes, eventsRes, profilesRes] = await Promise.all([
+  const [classesRes, studentsRes, eventsRes, profilesRes, lessonProgressRes] = await Promise.all([
     supabase.from("classes").select("id, name, join_code, teacher_id"),
     supabase.from("students").select("id, class_id"),
+    // Newest-first, because buildRecentAccuracies keeps only the newest attempt
+    // at each activity — the same ordering getClassProgress uses.
     supabase
       .from("progress_events")
-      .select("student_id, event_kind, score, total, time_seconds, lesson_id"),
+      .select("student_id, event_kind, score, total, time_seconds, lesson_id, meta, created_at")
+      .order("created_at", { ascending: false }),
     supabase.from("profiles").select("id, full_name"),
+    // Drives "last active" through the same summarizeStudentProgress the
+    // teacher's own screens use, rather than a second interpretation of it.
+    supabase
+      .from("student_lesson_progress")
+      .select("student_id, lesson_id, status, completed_at, last_active_at, last_page"),
   ]);
 
   if (classesRes.error || studentsRes.error || eventsRes.error) return null;
@@ -102,6 +118,9 @@ export async function getLiveAdminOverview(): Promise<AdminOverview | null> {
   const students = (studentsRes.data ?? []) as StudentRow[];
   const events = (eventsRes.data ?? []) as EventRow[];
   const profiles = (profilesRes.data ?? []) as ProfileRow[];
+  const lessonProgress = (lessonProgressRes.data ?? []) as Array<
+    LessonProgressRow & { student_id: string }
+  >;
 
   const nameByTeacher = new Map(profiles.map((p) => [p.id, p.full_name ?? ""]));
   const studentsByClass = new Map<string, StudentRow[]>();
@@ -117,8 +136,31 @@ export async function getLiveAdminOverview(): Promise<AdminOverview | null> {
     eventsByStudent.set(e.student_id, list);
   }
 
+  // "Needs attention", computed exactly as each teacher's own class overview
+  // computes it: the same checkNeedsAttention rule, fed by the same two shared
+  // helpers (buildRecentAccuracies for recent scores, summarizeStudentProgress
+  // for last activity). The admin view is a roll-up of the teacher's numbers,
+  // so this must never become a second opinion about the same child.
+  const lessonRowsByStudent = new Map<string, LessonProgressRow[]>();
+  for (const row of lessonProgress) {
+    const list = lessonRowsByStudent.get(row.student_id) ?? [];
+    list.push(row);
+    lessonRowsByStudent.set(row.student_id, list);
+  }
+  const allStudentIds = students.map((s) => s.id);
+  const recentAccuracies = buildRecentAccuracies(events, allStudentIds);
+  const flaggedStudents = new Set<string>();
+  for (const id of allStudentIds) {
+    const { flagged } = checkNeedsAttention({
+      lastActiveAt: summarizeStudentProgress(lessonRowsByStudent.get(id) ?? []).lastActiveAt,
+      recentAccuracies: recentAccuracies[id] ?? [],
+    });
+    if (flagged) flaggedStudents.add(id);
+  }
+
   let globalScore = 0;
   let globalTotal = 0;
+  let globalAttention = 0;
 
   const byTeacher = new Map<string, AdminClassSummary[]>();
   for (const c of classes) {
@@ -143,6 +185,9 @@ export async function getLiveAdminOverview(): Promise<AdminOverview | null> {
     globalScore += score;
     globalTotal += total;
 
+    const classAttention = roster.filter((s) => flaggedStudents.has(s.id)).length;
+    globalAttention += classAttention;
+
     const summary: AdminClassSummary = {
       classId: c.id,
       className: c.name,
@@ -151,10 +196,7 @@ export async function getLiveAdminOverview(): Promise<AdminOverview | null> {
       accuracy: total > 0 ? score / total : null,
       totalMinutes: Math.round(seconds / 60),
       lessonsCompleted: completedLessons.size,
-      // Attention flagging is a per-student CRM judgement; the live lane does
-      // not guess at it here rather than show a number that disagrees with the
-      // teacher's own view.
-      attentionCount: 0,
+      attentionCount: classAttention,
     };
     const list = byTeacher.get(c.teacher_id) ?? [];
     list.push(summary);
@@ -173,7 +215,7 @@ export async function getLiveAdminOverview(): Promise<AdminOverview | null> {
           scored.length > 0
             ? scored.reduce((sum, c) => sum + (c.accuracy ?? 0), 0) / scored.length
             : null,
-        attentionCount: 0,
+        attentionCount: teacherClasses.reduce((sum, c) => sum + c.attentionCount, 0),
       };
     },
   );
@@ -185,7 +227,7 @@ export async function getLiveAdminOverview(): Promise<AdminOverview | null> {
       classCount: classes.length,
       studentCount: students.length,
       accuracy: globalTotal > 0 ? globalScore / globalTotal : null,
-      attentionCount: 0,
+      attentionCount: globalAttention,
     },
   };
 }

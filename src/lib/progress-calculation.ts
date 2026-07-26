@@ -131,6 +131,61 @@ export function checkNeedsAttention(
   return { flagged: reasons.length > 0, reasons };
 }
 
+/** A progress_events row, as much of it as the attention rule needs. */
+export interface AccuracyEventRow {
+  student_id: string;
+  lesson_id: string | null;
+  event_kind: string;
+  score: number | null;
+  total: number | null;
+  meta?: unknown;
+}
+
+/** How many recent scores the attention rule looks at per student. */
+export const RECENT_ACCURACY_WINDOW = 5;
+
+/**
+ * The `recentAccuracies` half of `checkNeedsAttention`'s input, built from raw
+ * progress events.
+ *
+ * Extracted so the teacher's own class overview and the cross-teacher admin
+ * roll-up compute it with the same code rather than two hand-copied loops. That
+ * matters more than it looks: the admin view is a roll-up of what each teacher
+ * sees, so if these ever drifted, the two screens would disagree about the same
+ * child, and neither number could be trusted.
+ *
+ * `events` MUST be ordered newest-first (`created_at desc`). Only the newest
+ * attempt at each (student, lesson, exercise) counts — a child who redoes an
+ * activity replaces their old score instead of stacking another one — and only
+ * scored attempts (`total > 0`) count at all.
+ */
+export function buildRecentAccuracies(
+  events: AccuracyEventRow[],
+  studentIds: string[],
+): Record<string, number[]> {
+  const byStudent: Record<string, number[]> = {};
+  for (const id of studentIds) byStudent[id] = [];
+
+  const seen = new Set<string>();
+  for (const e of events) {
+    if (e.event_kind !== "exercise") continue;
+    const bucket = byStudent[e.student_id];
+    if (!bucket) continue;
+
+    const meta = (e.meta ?? {}) as Record<string, unknown>;
+    const exercise = typeof meta.exercise === "string" ? meta.exercise : "exercise";
+    const key = `${e.student_id}:${e.lesson_id}:${exercise}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+
+    const total = e.total ?? 0;
+    if (total > 0 && bucket.length < RECENT_ACCURACY_WINDOW) {
+      bucket.push((e.score ?? 0) / total);
+    }
+  }
+  return byStudent;
+}
+
 export type TileStatus = LessonStatus;
 
 export interface LessonTileState {

@@ -381,3 +381,20 @@ DOCUMENTATION DUTY section of `AGENTS.md`).
   `service_role` keep it, so the owner still runs it from the SQL editor. The
   student RPCs keep their `anon` grants on purpose — children use the app
   without logging in (#363).
+- **2026-07-26 — The admin "needs attention" count reuses the teacher's own
+  calculation rather than reimplementing it.** The cross-teacher roll-up
+  reported `0`, which asserted that no child needed help. The obvious fix —
+  calling `getClassProgress` per class — is impossible: it begins with
+  `ensureTeacherOwnsClass`, so it rejects an admin reading another teacher's
+  class. Loosening that guard was rejected, because the same helper also
+  protects the write paths (`deleteClass`, `addStudents`, `updateStudent`), and
+  widening it for a read would have weakened writes at the app layer. Instead
+  the shared half of the rule was extracted: `buildRecentAccuracies` now lives
+  in `progress-calculation.ts`, and both `getClassProgress` and
+  `getLiveAdminOverview` feed it into the same `checkNeedsAttention`, with
+  `lastActiveAt` from the same `summarizeStudentProgress`. Both screens now run
+  identical code, so they cannot drift into disagreeing about the same child —
+  which was the whole reason this number was left undone until it could be done
+  properly. Verified live: 6 of 7 students flagged with real reasons, the one
+  recently-active student with a perfect score correctly not flagged, and the
+  global tile equal to the sum of the per-class counts (#364).

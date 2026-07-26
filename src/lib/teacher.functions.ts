@@ -3,6 +3,7 @@ import { supabase } from "@/integrations/supabase/client";
 import {
   summarizeStudentProgress,
   checkNeedsAttention,
+  buildRecentAccuracies,
   type LessonProgressRow,
 } from "@/lib/progress-calculation";
 
@@ -394,7 +395,6 @@ export async function getClassProgress(input: Call<{ id: string }>) {
     { id: string; name: string; lessons: Set<string>; score: number; total: number; time: number }
   > = {};
   const perLesson: Record<string, { score: number; total: number; completedBy: Set<string> }> = {};
-  const recentAccuraciesByStudent: Record<string, number[]> = {};
   const latestExercise = new Set<string>();
   (students ?? []).forEach((s: { id: string; display_name: string }) => {
     perStudent[s.id] = {
@@ -405,7 +405,6 @@ export async function getClassProgress(input: Call<{ id: string }>) {
       total: 0,
       time: 0,
     };
-    recentAccuraciesByStudent[s.id] = [];
   });
   const recentEvents: Array<{
     studentId: string;
@@ -453,10 +452,6 @@ export async function getClassProgress(input: Call<{ id: string }>) {
         ps.total += e.total ?? 0;
         pl.score += e.score ?? 0;
         pl.total += e.total ?? 0;
-        const bucket = recentAccuraciesByStudent[e.student_id];
-        if (bucket && (e.total ?? 0) > 0 && bucket.length < 5) {
-          bucket.push((e.score ?? 0) / (e.total ?? 1));
-        }
       }
       if (e.event_kind === "time") {
         ps.time += e.time_seconds ?? 0;
@@ -505,6 +500,9 @@ export async function getClassProgress(input: Call<{ id: string }>) {
   }
 
   const progressStats = await fetchProgressStats(ids);
+  // Shared with the cross-teacher admin roll-up so the two screens cannot
+  // disagree about the same child (see buildRecentAccuracies).
+  const recentAccuraciesByStudent = buildRecentAccuracies(events ?? [], ids);
   const attentionByStudent: Record<string, { flagged: boolean; reasons: string[] }> = {};
   for (const id of ids) {
     attentionByStudent[id] = checkNeedsAttention({

@@ -97,14 +97,11 @@ function AdminDashboard() {
           label="Precisión global"
           value={pct(totals.accuracy)}
         />
-        {/* Live lane does not compute attention yet. Showing "0" would claim
-            nobody needs help, which is a stronger statement than "unknown" —
-            so it stays "—" until the real calculation lands. */}
         <StatTile
           icon={<AlertCircle className="w-5 h-5" />}
           label="Necesitan atención"
-          value={isSeed ? String(totals.attentionCount) : "—"}
-          warn={isSeed && totals.attentionCount > 0}
+          value={String(totals.attentionCount)}
+          warn={totals.attentionCount > 0}
         />
       </div>
 
@@ -179,9 +176,7 @@ function AdminDashboard() {
       ))}
 
       <p className="text-xs font-bold text-stone-400 text-center">
-        {isSeed
-          ? "Vista de demostración con datos locales."
-          : "Datos reales de todas las clases. La columna de atención todavía no se calcula aquí."}{" "}
+        {isSeed ? "Vista de demostración con datos locales." : "Datos reales de todas las clases."}{" "}
         <Link to="/cartilla/teacher/crm" className="underline hover:text-stone-600">
           Volver a mi clase
         </Link>
