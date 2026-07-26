@@ -27,9 +27,17 @@ Honest current state. Updated 2026-07-26. Read this before starting work.
 >   real children's names in any class using join code GRETEL or NOVO26. EXECUTE
 >   revoked from PUBLIC/`anon`/`authenticated`; verified an anonymous call now
 >   gets "permission denied" and the student lane still works (#363).
-> - **Owner action outstanding:** leaked-password protection is **disabled** in
->   Supabase Auth. One toggle, and worth doing.
-> - Suite: **1151 passing**, lint 0 errors, build green. The owner's account is
+> - **Leaked-password protection: NOT available on this plan.** Supabase gates
+>   the HaveIBeenPwned breach check behind Pro and above; this project is on the
+>   Free plan and the control is locked. Mitigated in the app instead —
+>   `src/lib/password-strength.ts` rejects short, common, sequential,
+>   repeated-character, and self-identifying (own email/name) passwords at
+>   sign-up, minimum length 10. Not equivalent to a breach check, and
+>   client-side, so it guards against accidental weak choices rather than a
+>   determined API caller. Optional free hardening still available in the
+>   dashboard: Supabase's own password-requirements settings (minimum length +
+>   required character classes) are server-enforced and included on the Free plan.
+> - Suite: **1168 passing**, lint 0 errors, build green. The owner's account is
 >   the only holder of the `admin` role. No test data left in the database
 >   (3 classes / 7 students / 8 progress events).
 
