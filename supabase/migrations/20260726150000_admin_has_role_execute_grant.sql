@@ -1,0 +1,28 @@
+-- Let signed-in users call public.has_role from the client (D7 live lane).
+--
+-- WHY THIS EXISTS
+-- The admin RLS policies added in 20260725120000_admin_cross_teacher_read.sql
+-- work, because a policy evaluates has_role server-side as the policy owner.
+-- The *client* call does not: has_role was created without an EXECUTE grant,
+-- so its ACL was `postgres | service_role` only. Every other client-facing RPC
+-- (list_class_students, log_student_progress, get_student_progress) is granted
+-- to anon + authenticated; has_role was missed.
+--
+-- The symptom was silent. isLiveAdmin() calls supabase.rpc("has_role", ...)
+-- and returns false on error, so a genuine admin was reported as "not an
+-- admin" and the cross-teacher dashboard would never activate for anyone —
+-- with no visible failure, because the permission error was swallowed.
+--
+-- SAFETY NOTES
+--   * EXECUTE only, to `authenticated` only. anon is deliberately excluded:
+--     an unauthenticated visitor has no role to check.
+--   * has_role is SECURITY DEFINER and only reads public.user_roles. It grants
+--     no data access by itself; the RLS policies remain the gate on every row.
+--   * A signed-in user can ask whether an arbitrary user id holds a role. That
+--     is a boolean probe, not data. If that is ever unwanted, the tighter shape
+--     is a parameterless `is_current_user_admin()` wrapper pinned to
+--     auth.uid(), which would let this grant be revoked.
+--   * Reversible: `revoke execute on function public.has_role(uuid, app_role)
+--     from authenticated;`
+
+grant execute on function public.has_role(uuid, public.app_role) to authenticated;
