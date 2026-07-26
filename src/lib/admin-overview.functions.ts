@@ -13,7 +13,9 @@
 // policies are scoped to `teacher_id = auth.uid()`. Those policies are
 // SELECT-only: an admin can read every class but cannot modify another
 // teacher's data.
+import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { isSeedAdmin, isSeedSessionActive } from "@/lib/seed-data";
 import type { AdminClassSummary, AdminOverview, AdminTeacherSummary } from "@/lib/seed-data";
 
 /** True when the signed-in user actually holds the 'admin' role. */
@@ -24,6 +26,45 @@ export async function isLiveAdmin(userId: string): Promise<boolean> {
   });
   if (error) return false;
   return data === true;
+}
+
+/** Same check for whoever is signed in right now, so callers do not each have
+ * to fetch the user first. False when nobody is signed in. */
+export async function isCurrentUserLiveAdmin(): Promise<boolean> {
+  const { data, error } = await supabase.auth.getUser();
+  if (error || !data.user) return false;
+  return isLiveAdmin(data.user.id);
+}
+
+/**
+ * "Should this person see the Dirección (principal) area?" — for both lanes.
+ *
+ * The demo lane answers synchronously from local storage, so it must not wait
+ * on a round-trip. A real session cannot be answered synchronously (the role
+ * lives in the database), so it starts false and flips to true once the check
+ * returns. Starting false is the safe direction: the entry appears when
+ * confirmed rather than flashing for teachers who are not admins.
+ */
+export function useIsAdmin(): boolean {
+  const seedAdmin = isSeedSessionActive() && isSeedAdmin();
+  const [liveAdmin, setLiveAdmin] = useState(false);
+
+  useEffect(() => {
+    if (isSeedSessionActive()) return; // demo lane already answered
+    let active = true;
+    isCurrentUserLiveAdmin()
+      .then((ok) => {
+        if (active) setLiveAdmin(ok);
+      })
+      .catch(() => {
+        if (active) setLiveAdmin(false);
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  return seedAdmin || liveAdmin;
 }
 
 type ClassRow = { id: string; name: string; join_code: string; teacher_id: string };

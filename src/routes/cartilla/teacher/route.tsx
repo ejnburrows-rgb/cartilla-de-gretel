@@ -16,7 +16,8 @@ import {
 import { getStudentSession } from "@/lib/student-session";
 import { supabase } from "@/integrations/supabase/client";
 import { hasTeacherOrAdminRole } from "@/lib/auth-role";
-import { isSeedSessionActive, isSeedAdmin } from "@/lib/seed-data";
+import { isSeedSessionActive } from "@/lib/seed-data";
+import { useIsAdmin } from "@/lib/admin-overview.functions";
 import "@/styles/teacher-chrome.css";
 
 // Every /cartilla/teacher/* page nests under this route via <Outlet/>, so
@@ -120,10 +121,12 @@ const NAV_ITEMS: Array<{ to: string; icon: React.ReactNode; label: string; match
 function TeacherLayout() {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const isAdmin = useIsAdmin();
 
-  // Admin-only entry (D7): visible only to the demo-lane admin account for
-  // now; the live 'admin' role wiring lands after D2.
-  const navItems = isSeedAdmin()
+  // Admin-only entry (D7): the demo admin account, or a real account holding
+  // the 'admin' role. useIsAdmin answers the demo lane synchronously and the
+  // real lane once the role check returns.
+  const navItems = isAdmin
     ? [
         ...NAV_ITEMS,
         {
