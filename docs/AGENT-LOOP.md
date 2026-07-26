@@ -234,9 +234,19 @@ files.**
       *silently*. Both migrations are applied to the live project and proven: an admin reads across teachers
       with real teacher names resolving, **cannot** write to another teacher's data, and a plain teacher
       remains fully isolated (0 foreign rows). Proof accounts removed; the owner's account holds `admin`.
-      **Remaining:** flip the route gate on `/cartilla/teacher/admin` (it still redirects non-demo sessions,
-      so the live dashboard is not reachable yet) and compute `attentionCount` in the live lane instead of
-      the hardcoded `0`. Stays `[~]` until those land.
+      **ROUTE GATE DONE 2026-07-26 (#361).** The page opens for the demo admin *or* a real account holding
+      the role; `beforeLoad` is async (the role lives in the DB) and fails closed — no session, no role, or
+      an errored role check all return the visitor to their own CRM. The `Dirección` entry appears for both
+      via `useIsAdmin`, starting hidden so it appears when confirmed rather than flashing for non-admins.
+      Live `attentionCount` renders as `—`, not `0`, since `0` would falsely claim nobody needs help. Six
+      gate tests added. Browser proof was not possible — the sandbox proxy blocks Chromium from reaching
+      Supabase (certificate verification was not disabled to force it) — so the gate is covered by tests
+      plus the live reads already verified directly against the DB.
+      **Remaining (the only open piece):** compute `attentionCount` for the live lane. Deliberately left
+      undone rather than guessed: the demo lane derives it from `needsAttention({completionPercent,
+      lastActiveAt})`, and the roll-up must reuse whatever the teacher's own CRM computes, or admin numbers
+      will contradict the teacher's screen — the exact thing this dashboard was built to avoid. Stays `[~]`
+      until that lands.
 - [x] **T2. Student happy-path E2E smoke test (#304, issue #241) — DONE on `main` 2026-07-22.** Playwright
       spec seeds progress, opens Lesson 1, taps a picture cell, presses Comprobar, asserts a visible grading
       reaction + disabled check button. `pnpm test:e2e` runs green (16.6s) in a browser-capable env; screenshot
@@ -297,6 +307,13 @@ verify bar is green.
 ---
 
 ## STATUS LOG (append one dated line per merged PR; newest at top)
+- 2026-07-26 — **D7 route gate DONE** (#361): the Dirección page now opens for a real account holding the
+  `admin` role, not just the demo account, and reads live cross-teacher data. Async gate, fails closed;
+  menu entry via `useIsAdmin` (starts hidden, so no flash for non-admins); live attention shows `—` rather
+  than a false `0`. +6 gate tests (1141 total), lint 0 errors, build green. No screenshot — the sandbox
+  proxy blocks Chromium from reaching Supabase, so proof is the gate tests plus the direct live reads from
+  #355. **Only D7 piece left:** live `attentionCount`, left undone rather than guessed so admin numbers
+  cannot contradict each teacher's own CRM.
 - 2026-07-26 — **D7 live data path DONE** (#355): six SELECT-only admin RLS policies applied to the live
   project + the missing `EXECUTE` grant on `has_role`. Two silent-failure bugs caught only by running it
   live: `profiles` had no admin policy (every teacher would have rendered as the `"Maestro"` fallback), and
