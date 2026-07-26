@@ -21,7 +21,7 @@
 --     condition, reusing the existing security-definer helper rather than
 --     querying user_roles inline (which would recurse through RLS).
 --   * REVERSIBLE. Every policy is dropped by name first, so re-running is
---     safe, and dropping the five policies below fully reverts this change.
+--     safe, and dropping the six policies below fully reverts this change.
 --
 -- The 'admin' role is granted manually by the owner in the database; nothing
 -- in the app can promote an account to admin.
@@ -49,4 +49,14 @@ create policy "student progress admin read" on public.student_lesson_progress fo
 -- exercise_attempt_summary -------------------------------------------------
 drop policy if exists "exercise summary admin read" on public.exercise_attempt_summary;
 create policy "exercise summary admin read" on public.exercise_attempt_summary for select
+  using (public.has_role(auth.uid(), 'admin'));
+
+-- profiles -----------------------------------------------------------------
+-- The roll-up reads profiles to label each teacher. Without this policy the
+-- only visible profile row is the admin's own (`profiles self read` is
+-- `auth.uid() = id`), so every other teacher would fall back to "Maestro" —
+-- correct numbers under identical labels, and silently, because RLS returns
+-- an empty set rather than an error.
+drop policy if exists "profiles admin read" on public.profiles;
+create policy "profiles admin read" on public.profiles for select
   using (public.has_role(auth.uid(), 'admin'));
