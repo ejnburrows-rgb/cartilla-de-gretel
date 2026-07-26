@@ -224,8 +224,19 @@ files.**
       linked in the teacher nav only for that account. Cross-teacher roll-up (`getSeedAdminOverview`)
       reuses `getSeedClassProgress` per class so admin numbers always match each teacher's own CRM. Second
       seed teacher (Emilio) got a demo class (3 students, varied progress) with a storage migration so
-      older demo states aren't reset. 5 new unit tests. **Remaining:** wire the live path (real `admin`
-      role + cross-teacher queries under RLS) after D2's Supabase go-live.
+      older demo states aren't reset. 5 new unit tests.
+      **LIVE DATA PATH DONE 2026-07-26 (#355).** Investigating the live lane turned up that there was no
+      admin read path in the database at all — every policy was scoped to `teacher_id = auth.uid()`, so the
+      `admin` role saw exactly what a teacher saw. Six SELECT-only policies now grant cross-teacher reads
+      (`classes`, `students`, `progress_events`, `student_lesson_progress`, `exercise_attempt_summary`,
+      `profiles`), plus a missing `EXECUTE` grant on `has_role` — without which `isLiveAdmin()` failed with
+      `permission denied` and, because it returns `false` on error, reported every real admin as not-an-admin
+      *silently*. Both migrations are applied to the live project and proven: an admin reads across teachers
+      with real teacher names resolving, **cannot** write to another teacher's data, and a plain teacher
+      remains fully isolated (0 foreign rows). Proof accounts removed; the owner's account holds `admin`.
+      **Remaining:** flip the route gate on `/cartilla/teacher/admin` (it still redirects non-demo sessions,
+      so the live dashboard is not reachable yet) and compute `attentionCount` in the live lane instead of
+      the hardcoded `0`. Stays `[~]` until those land.
 - [x] **T2. Student happy-path E2E smoke test (#304, issue #241) — DONE on `main` 2026-07-22.** Playwright
       spec seeds progress, opens Lesson 1, taps a picture cell, presses Comprobar, asserts a visible grading
       reaction + disabled check button. `pnpm test:e2e` runs green (16.6s) in a browser-capable env; screenshot
@@ -286,6 +297,14 @@ verify bar is green.
 ---
 
 ## STATUS LOG (append one dated line per merged PR; newest at top)
+- 2026-07-26 — **D7 live data path DONE** (#355): six SELECT-only admin RLS policies applied to the live
+  project + the missing `EXECUTE` grant on `has_role`. Two silent-failure bugs caught only by running it
+  live: `profiles` had no admin policy (every teacher would have rendered as the `"Maestro"` fallback), and
+  `has_role` was not client-executable (`isLiveAdmin()` swallowed the permission error and reported every
+  admin as not-an-admin). Proven end to end — admin reads across teachers with real names, cannot write to
+  another teacher's data, plain teacher still sees 0 foreign rows. Proof accounts removed; owner holds
+  `admin`; DB back to 3 classes / 7 students / 8 events. **Remaining for D7:** the route gate and live
+  `attentionCount`. Verify bar green. Screenshot waived by owner.
 - 2026-07-25 — **E4 perf pass DONE (measured).** Measuring first — not guessing — showed the welcome
   splash was downloading `content-bundle` (316 KB raw / 58 KB gz) of lesson data it never uses. Root cause
   was the `manualChunks` rule forcing every `content/` module into ONE chunk, so importing any single
