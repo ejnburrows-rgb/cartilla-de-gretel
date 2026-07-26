@@ -1,21 +1,26 @@
 import { createFileRoute, Link, redirect } from "@tanstack/react-router";
 import { useMemo } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { ShieldCheck, Users, GraduationCap, AlertCircle, Clock, BookOpen } from "lucide-react";
 import { getSeedAdminOverview, isSeedAdmin, isSeedSessionActive } from "@/lib/seed-data";
+import { getLiveAdminOverview, isCurrentUserLiveAdmin } from "@/lib/admin-overview.functions";
 
-// D7 — admin cross-teacher dashboard (demo lane).
-// Nests under /cartilla/teacher so the teacher-lane gate already ran; this
-// beforeLoad only adds the admin check on top. Demo lane only for now: the
-// live path (real 'admin' role + cross-teacher queries under RLS) is wired
-// after D2's Supabase go-live, per docs/AGENT-LOOP.md.
+// D7 — admin cross-teacher dashboard. Nests under /cartilla/teacher so the
+// teacher-lane gate already ran; this beforeLoad only adds the admin check on
+// top. Both lanes are live: the demo account reads seeded data, a real account
+// holding the 'admin' role reads the database through the admin SELECT-only
+// policies (supabase/migrations/20260725120000_admin_cross_teacher_read.sql).
 export const Route = createFileRoute("/cartilla/teacher/admin")({
-  beforeLoad: () => {
-    if (isSeedSessionActive() && !isSeedAdmin()) {
-      throw redirect({ to: "/cartilla/teacher/crm" });
+  beforeLoad: async () => {
+    if (isSeedSessionActive()) {
+      // Demo lane answers locally — no round-trip.
+      if (!isSeedAdmin()) throw redirect({ to: "/cartilla/teacher/crm" });
+      return;
     }
-    if (!isSeedSessionActive()) {
-      // Live sessions have no admin surface yet (pre-D2) — keep teachers on
-      // their own CRM instead of showing an empty page.
+    // Real session: the role lives in the database, so this has to be awaited.
+    // Teachers without the role go back to their own CRM rather than being
+    // shown an empty page.
+    if (!(await isCurrentUserLiveAdmin())) {
       throw redirect({ to: "/cartilla/teacher/crm" });
     }
   },
@@ -30,7 +35,28 @@ function pct(v: number | null): string {
 }
 
 function AdminDashboard() {
-  const overview = useMemo(() => getSeedAdminOverview(), []);
+  const isSeed = useMemo(() => isSeedSessionActive(), []);
+
+  // Demo lane reads local seeded data; a real session reads the database.
+  const seedOverview = useMemo(() => (isSeed ? getSeedAdminOverview() : null), [isSeed]);
+  const { data: liveOverview, isLoading } = useQuery({
+    queryKey: ["admin-overview-live"],
+    queryFn: () => getLiveAdminOverview(),
+    enabled: !isSeed,
+  });
+
+  const overview = isSeed ? seedOverview : (liveOverview ?? null);
+
+  if (!overview) {
+    return (
+      <div className="w-full py-16 text-center text-sm font-bold text-stone-400">
+        {isLoading
+          ? "Cargando la vista de dirección..."
+          : "No se pudo cargar la vista de dirección."}
+      </div>
+    );
+  }
+
   const { totals, teachers } = overview;
 
   return (
@@ -42,7 +68,9 @@ function AdminDashboard() {
         <div>
           <h1 className="text-2xl font-black text-[var(--tc-ink)]">Panel de Dirección</h1>
           <p className="text-xs font-bold text-[var(--tc-ink-faint)] uppercase tracking-widest">
-            Vista global de todos los maestros (modo demo)
+            {isSeed
+              ? "Vista global de todos los maestros (modo demo)"
+              : "Vista global de todos los maestros"}
           </p>
         </div>
       </div>
@@ -69,11 +97,14 @@ function AdminDashboard() {
           label="Precisión global"
           value={pct(totals.accuracy)}
         />
+        {/* Live lane does not compute attention yet. Showing "0" would claim
+            nobody needs help, which is a stronger statement than "unknown" —
+            so it stays "—" until the real calculation lands. */}
         <StatTile
           icon={<AlertCircle className="w-5 h-5" />}
           label="Necesitan atención"
-          value={String(totals.attentionCount)}
-          warn={totals.attentionCount > 0}
+          value={isSeed ? String(totals.attentionCount) : "—"}
+          warn={isSeed && totals.attentionCount > 0}
         />
       </div>
 
@@ -148,8 +179,9 @@ function AdminDashboard() {
       ))}
 
       <p className="text-xs font-bold text-stone-400 text-center">
-        Vista de demostración con datos locales. La conexión a datos reales llega con la puesta en
-        marcha del servidor (D2).{" "}
+        {isSeed
+          ? "Vista de demostración con datos locales."
+          : "Datos reales de todas las clases. La columna de atención todavía no se calcula aquí."}{" "}
         <Link to="/cartilla/teacher/crm" className="underline hover:text-stone-600">
           Volver a mi clase
         </Link>
