@@ -4,6 +4,7 @@ import { GraduationCap, ArrowLeft, Loader2 } from "lucide-react";
 import { supabase, isSupabaseConfigured } from "@/integrations/supabase/client";
 import { setStudentSession } from "@/lib/student-session";
 import { signInSeedTeacher } from "@/lib/seed-data";
+import { checkNewPassword, MIN_NEW_PASSWORD_LENGTH } from "@/lib/password-strength";
 import "@/styles/teacher-chrome.css";
 
 export const Route = createFileRoute("/login")({
@@ -63,6 +64,12 @@ function LoginPage() {
       }
 
       if (mode === "signup") {
+        // Weak-password check on NEW passwords only. Deliberately not applied
+        // when signing in: a teacher whose password predates these rules must
+        // still be able to type it and get in.
+        const strength = checkNewPassword(password, { email, fullName });
+        if (!strength.ok) throw new Error(strength.message);
+
         const { error: err } = await supabase.auth.signUp({
           email,
           password,
@@ -157,10 +164,19 @@ function LoginPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Contraseña"
-              minLength={6}
+              // Only the longer rule applies to a NEW password. Signing in
+              // keeps Supabase's own minimum of 6, so a teacher with an older
+              // password is never blocked from typing it.
+              minLength={mode === "signup" ? MIN_NEW_PASSWORD_LENGTH : 6}
               className="w-full px-5 py-4 rounded-2xl border-2 border-[var(--tc-border)] bg-white text-[var(--tc-ink)] text-sm font-bold shadow-inner focus:border-[var(--tc-accent)] outline-none"
               required
             />
+            {mode === "signup" && (
+              <p className="mt-2 ml-1 text-xs font-bold text-[var(--tc-ink-faint)]">
+                Al menos {MIN_NEW_PASSWORD_LENGTH} caracteres. Evita contraseñas comunes: tres
+                palabras que solo tú recuerdes funcionan muy bien.
+              </p>
+            )}
           </div>
           {error && <div className="text-sm text-destructive font-bold">{error}</div>}
           <button

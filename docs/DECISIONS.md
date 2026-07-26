@@ -398,3 +398,21 @@ DOCUMENTATION DUTY section of `AGENTS.md`).
   properly. Verified live: 6 of 7 students flagged with real reasons, the one
   recently-active student with a perfect score correctly not flagged, and the
   global tile equal to the sum of the per-class counts (#364).
+- **2026-07-26 — Weak passwords are blocked in the app, because the breach check
+  costs money.** Supabase can reject passwords found in the HaveIBeenPwned
+  corpus, but it is Pro-plan-and-above and this project is on the Free plan —
+  confirmed in the dashboard, where the control is locked ("Only available on Pro
+  plan and above"). Since teacher accounts reach real children's records, leaving
+  a 6-character minimum with no other check was the weakest link, so
+  `src/lib/password-strength.ts` now rejects new passwords that are too short
+  (minimum 10), on a list of a few hundred commonly-chosen passwords (English,
+  Spanish, school-context and product-specific), a common word merely padded with
+  digits or punctuation, a single repeated character, a simple sequence, or the
+  teacher's own email or name. Honest about its limits: a few hundred entries is
+  not hundreds of millions, and it runs in the browser, so it guards against a
+  teacher *accidentally* picking "escuela123" rather than against someone calling
+  the auth API directly — which is the real risk here. Applied to sign-up only,
+  never to sign-in: enforcing it at sign-in would lock out teachers whose
+  existing password predates the rule, so the shared password field keeps
+  Supabase's minimum of 6 when logging in. If the project ever moves to Pro, turn
+  the Supabase setting on and keep this as a first line of defence.
