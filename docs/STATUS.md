@@ -11,10 +11,15 @@ Honest current state. Updated 2026-07-26. Read this before starting work.
 >   silently treated as not-an-admin. Applied and proven live: admin reads
 >   across teachers, cannot write, plain teacher still sees zero foreign rows.
 > - **The Dirección page now opens for a real admin** (#361), not just the demo
->   account, and reads live data. Its "needs attention" figure shows `—`, not
->   `0`, because that number is not computed in the live lane yet and `0` would
->   falsely claim nobody needs help. **That figure is the only piece of D7 still
->   open.**
+>   account, and reads live data.
+> - **D7 is COMPLETE** (#364). Its last piece, the live "needs attention" count,
+>   is now a real figure rather than a dash. It reuses the teacher's own
+>   calculation instead of a second one: `buildRecentAccuracies` was extracted so
+>   both the teacher's class overview and the admin roll-up feed the same
+>   `checkNeedsAttention`. The two screens cannot disagree about the same child.
+>   Live check: 6 of 7 students flagged with real reasons, and the global tile
+>   equals the sum of the per-class counts. **Every item in the AGENT-LOOP task
+>   queue is now checked off.**
 > - **SECURITY — fixed:** `seed_cartilla_classroom_for_teacher` was callable by
 >   anyone on the internet (permissions sat at the Postgres default, which grants
 >   EXECUTE to PUBLIC). It grants the `teacher` role to any account named by
@@ -24,7 +29,7 @@ Honest current state. Updated 2026-07-26. Read this before starting work.
 >   gets "permission denied" and the student lane still works (#363).
 > - **Owner action outstanding:** leaked-password protection is **disabled** in
 >   Supabase Auth. One toggle, and worth doing.
-> - Suite: **1141 passing**, lint 0 errors, build green. The owner's account is
+> - Suite: **1151 passing**, lint 0 errors, build green. The owner's account is
 >   the only holder of the `admin` role. No test data left in the database
 >   (3 classes / 7 students / 8 progress events).
 

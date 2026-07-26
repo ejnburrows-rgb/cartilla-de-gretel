@@ -219,7 +219,7 @@ files.**
       approved scope) + 1 `exhaustive-deps` inside `GretelLiveAvatar.tsx` (NEVER-touch list — left alone).
       Also deleted `scripts/ui-polish2.cjs` (unparseable dead one-shot codemod; its target file no longer
       exists).
-- [~] **D7. Admin cross-teacher dashboard** — **DEMO LANE DONE 2026-07-22.** New route
+- [x] **D7. Admin cross-teacher dashboard — COMPLETE 2026-07-26.** **DEMO LANE DONE 2026-07-22.** New route
       `/cartilla/teacher/admin` ("Dirección"), gated to the demo admin account (`isSeedAdmin`, Leonor) and
       linked in the teacher nav only for that account. Cross-teacher roll-up (`getSeedAdminOverview`)
       reuses `getSeedClassProgress` per class so admin numbers always match each teacher's own CRM. Second
@@ -242,11 +242,16 @@ files.**
       gate tests added. Browser proof was not possible — the sandbox proxy blocks Chromium from reaching
       Supabase (certificate verification was not disabled to force it) — so the gate is covered by tests
       plus the live reads already verified directly against the DB.
-      **Remaining (the only open piece):** compute `attentionCount` for the live lane. Deliberately left
-      undone rather than guessed: the demo lane derives it from `needsAttention({completionPercent,
-      lastActiveAt})`, and the roll-up must reuse whatever the teacher's own CRM computes, or admin numbers
-      will contradict the teacher's screen — the exact thing this dashboard was built to avoid. Stays `[~]`
-      until that lands.
+      **LIVE `attentionCount` DONE 2026-07-26 (#364) — D7 IS COMPLETE.** The roll-up no longer reports `0`.
+      It could not simply call `getClassProgress`, which begins with `ensureTeacherOwnsClass` and so rejects
+      an admin reading another teacher's class; loosening that guard was rejected because the same helper
+      also protects the write paths. Instead the shared rule was extracted: `buildRecentAccuracies` now lives
+      in `progress-calculation.ts` and **both** `getClassProgress` and `getLiveAdminOverview` feed it into the
+      same `checkNeedsAttention`, with `lastActiveAt` from the same `summarizeStudentProgress`. The two
+      screens therefore run identical code and cannot drift into disagreeing about the same child. Verified
+      against the live DB: 6 of 7 students flagged with real reasons ("Sin actividad registrada", "Sin
+      actividad hace 7+ días"), the one recently-active student with a perfect score correctly not flagged,
+      and the global tile equals the sum of the per-class counts. +10 unit tests (1151 total).
 - [x] **T2. Student happy-path E2E smoke test (#304, issue #241) — DONE on `main` 2026-07-22.** Playwright
       spec seeds progress, opens Lesson 1, taps a picture cell, presses Comprobar, asserts a visible grading
       reaction + disabled check button. `pnpm test:e2e` runs green (16.6s) in a browser-capable env; screenshot
@@ -307,6 +312,15 @@ verify bar is green.
 ---
 
 ## STATUS LOG (append one dated line per merged PR; newest at top)
+- 2026-07-26 — **D7 COMPLETE** (#364): the live "needs attention" count is real, so the whole task queue is
+  now checked off. It could not just call `getClassProgress` (that starts with `ensureTeacherOwnsClass`, which
+  rejects an admin reading another teacher's class, and loosening it would have weakened the write paths too).
+  Instead `buildRecentAccuracies` was extracted into `progress-calculation.ts` and **both** the teacher's class
+  overview and the admin roll-up now feed it into the same `checkNeedsAttention`, with `lastActiveAt` from the
+  same `summarizeStudentProgress` — identical code, so the two screens cannot disagree about a child. Live
+  check: 6 of 7 students flagged with real reasons, the one recently-active student with a perfect score
+  correctly not flagged, global tile equals the sum of per-class counts. +10 tests (1151), lint 0 errors,
+  build green.
 - 2026-07-26 — **D7 route gate DONE** (#361): the Dirección page now opens for a real account holding the
   `admin` role, not just the demo account, and reads live cross-teacher data. Async gate, fails closed;
   menu entry via `useIsAdmin` (starts hidden, so no flash for non-admins); live attention shows `—` rather
