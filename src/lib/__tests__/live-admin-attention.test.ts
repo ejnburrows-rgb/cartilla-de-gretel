@@ -108,15 +108,25 @@ describe("buildRecentAccuracies — the shared half of the attention rule", () =
 
 // ---------------------------------------------------------------------------
 
-/** Minimal stand-in for the chained supabase query builder. */
-function stubTables(tables: Record<string, unknown[]>) {
+/**
+ * Minimal stand-in for the chained supabase query builder, including `.range()`
+ * so the paged reads behave like the real thing. `errors` marks a table whose
+ * read should fail.
+ */
+function stubTables(tables: Record<string, unknown[]>, errors: string[] = []) {
   from.mockImplementation((table: string) => {
     const rows = tables[table] ?? [];
-    const result = { data: rows, error: null };
+    const failed = errors.includes(table);
+    const resultFor = (slice: unknown[]) => ({
+      data: failed ? null : slice,
+      error: failed ? { message: `stubbed failure reading ${table}` } : null,
+    });
     const builder = {
       select: () => builder,
-      order: () => result,
-      then: (resolve: (v: unknown) => void) => resolve(result),
+      order: () => builder,
+      // A page: the real client returns at most (to - from + 1) rows.
+      range: (fromIdx: number, toIdx: number) => resultFor(rows.slice(fromIdx, toIdx + 1)),
+      then: (resolve: (v: unknown) => void) => resolve(resultFor(rows)),
     };
     return builder;
   });
@@ -230,5 +240,79 @@ describe("getLiveAdminOverview — attention rolls up from the same rule", () =>
     const { getLiveAdminOverview } = await import("../admin-overview.functions");
     const overview = await getLiveAdminOverview();
     expect(overview!.totals.attentionCount).toBe(0);
+  });
+});
+
+describe("getLiveAdminOverview — fails loudly instead of publishing wrong numbers", () => {
+  beforeEach(() => {
+    vi.resetModules();
+    from.mockReset();
+  });
+
+  const base = () => ({
+    classes: [{ id: "c1", name: "Clase A", join_code: "AAA111", teacher_id: "t1" }],
+    students: [{ id: "s1", class_id: "c1" }],
+    progress_events: [ev({ student_id: "s1", score: 4, total: 4 })],
+    profiles: [{ id: "t1", full_name: "Maestra Uno" }],
+    student_lesson_progress: [
+      {
+        student_id: "s1",
+        lesson_id: "1",
+        status: "in_progress",
+        completed_at: null,
+        last_active_at: new Date().toISOString(),
+        last_page: 1,
+      },
+    ],
+  });
+
+  it("returns null when the lesson-progress read fails", async () => {
+    // The dangerous case: continuing here would strip every student's
+    // last-active date and flag the whole school as inactive.
+    stubTables(base(), ["student_lesson_progress"]);
+    const { getLiveAdminOverview } = await import("../admin-overview.functions");
+    expect(await getLiveAdminOverview()).toBeNull();
+  });
+
+  it("returns null when the events read fails", async () => {
+    stubTables(base(), ["progress_events"]);
+    const { getLiveAdminOverview } = await import("../admin-overview.functions");
+    expect(await getLiveAdminOverview()).toBeNull();
+  });
+
+  it("returns null when the classes or students read fails", async () => {
+    stubTables(base(), ["classes"]);
+    const { getLiveAdminOverview } = await import("../admin-overview.functions");
+    expect(await getLiveAdminOverview()).toBeNull();
+
+    vi.resetModules();
+    stubTables(base(), ["students"]);
+    const again = await import("../admin-overview.functions");
+    expect(await again.getLiveAdminOverview()).toBeNull();
+  });
+
+  it("still renders when only the teacher names fail, since no figure depends on them", async () => {
+    stubTables(base(), ["profiles"]);
+    const { getLiveAdminOverview } = await import("../admin-overview.functions");
+    const overview = await getLiveAdminOverview();
+
+    expect(overview).not.toBeNull();
+    expect(overview!.totals.studentCount).toBe(1);
+    expect(overview!.teachers[0].teacherName).toBe("Maestro"); // fallback label
+  });
+
+  it("reads past a single page rather than silently truncating", async () => {
+    // 2,400 events across 3 pages of 1,000. An unpaged read would have stopped
+    // at the first page and lost the rest, changing every derived figure.
+    const many = Array.from({ length: 2400 }, (_, i) =>
+      ev({ student_id: "s1", event_kind: "time", time_seconds: 60, meta: { exercise: `t${i}` } }),
+    );
+    stubTables({ ...base(), progress_events: many });
+
+    const { getLiveAdminOverview } = await import("../admin-overview.functions");
+    const overview = await getLiveAdminOverview();
+
+    // 2,400 minutes of recorded time only adds up if every page was read.
+    expect(overview!.teachers[0].classes[0].totalMinutes).toBe(2400);
   });
 });
