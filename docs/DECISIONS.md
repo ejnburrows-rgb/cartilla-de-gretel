@@ -340,3 +340,44 @@ DOCUMENTATION DUTY section of `AGENTS.md`).
   superseded: #243's "Gretel alone" and the crowd-of-cutouts. The approved
   direction is a single cohesive AI-generated crowded-garden welcome scene,
   generated/approved by the owner, wired in by Claude.
+- **2026-07-26 — Admin can read across teachers, read-only, and the role check
+  was actually broken.** The cross-teacher Dirección dashboard could never have
+  worked live: every rule on the teaching tables was scoped to
+  `teacher_id = auth.uid()`, so a user holding the `admin` role saw exactly what
+  a teacher saw. Six SELECT-only rules were added (`classes`, `students`,
+  `progress_events`, `student_lesson_progress`, `exercise_attempt_summary`,
+  `profiles`) so an admin can look at every class but cannot change another
+  teacher's data. `profiles` was included deliberately — without it the only
+  visible profile is the admin's own, and every teacher would have rendered
+  under the "Maestro" fallback: right numbers, identical labels. Running it live
+  also exposed that `has_role` had no EXECUTE grant, so the client call was
+  refused; because `isLiveAdmin()` returns false on error, every real admin was
+  reported as not-an-admin *silently*. EXECUTE was granted to `authenticated`
+  only. Applied to the live project and proven: admin reads across teachers,
+  cannot write, plain teacher still sees zero foreign rows (#355).
+- **2026-07-26 — Dirección opens for real admins; its attention count stays a
+  dash rather than a false zero.** The page previously redirected every real
+  session away, so only the demo account could reach it. The gate now allows the
+  demo admin or a real account holding the role, is async (the role lives in the
+  database), and fails closed — no session, no role, or an errored check all
+  return the visitor to their own CRM. The live "needs attention" figure renders
+  as `—`, not `0`, because `0` asserts that nobody needs help, which is a
+  stronger and false claim. It was deliberately not computed: the demo lane
+  derives it from `needsAttention({completionPercent, lastActiveAt})`, and the
+  roll-up must reuse whatever each teacher's own CRM computes, or the admin view
+  will contradict the teacher's screen — the exact problem this dashboard exists
+  to avoid (#361).
+- **2026-07-26 — The classroom seeding function is no longer callable by the
+  public.** `seed_cartilla_classroom_for_teacher` is a one-time owner setup tool
+  that nothing in `src/` calls, but its permissions sat at the Postgres default,
+  which grants EXECUTE to PUBLIC. With the publishable key that ships in every
+  browser, anyone on the internet could call it: it grants the `teacher` role to
+  any account named by email, creates classes and students under a real teacher,
+  and — because its student insert ends in `do update set display_name` — would
+  overwrite real children's names in any existing class using join code GRETEL
+  or NOVO26. It also revealed whether an email had an account. EXECUTE was
+  revoked from PUBLIC, `anon` and `authenticated`; revoking only `anon` would
+  have done nothing, since the PUBLIC grant covers every role. `postgres` and
+  `service_role` keep it, so the owner still runs it from the SQL editor. The
+  student RPCs keep their `anon` grants on purpose — children use the app
+  without logging in (#363).

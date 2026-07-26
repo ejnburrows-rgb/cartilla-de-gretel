@@ -1,0 +1,50 @@
+-- Stop the public from calling the classroom seeding function.
+--
+-- WHAT WAS WRONG
+-- public.seed_cartilla_classroom_for_teacher(text, text) is a one-time setup
+-- tool the owner runs after creating a teacher's login. It is not called
+-- anywhere in the application. But its permissions were left at the Postgres
+-- default, so its ACL read:
+--
+--   =X/postgres | postgres=X/postgres | anon=X/postgres
+--   | authenticated=X/postgres | service_role=X/postgres
+--
+-- The leading `=X/postgres` is EXECUTE granted to PUBLIC. Combined with the
+-- publishable key that ships in every visitor's browser, that made the
+-- function callable over the REST API by anyone on the internet, signed in or
+-- not. Verified live before this migration: an anonymous caller got the
+-- function's own "No Supabase auth user found" error, i.e. the permission
+-- check passed and only the argument lookup failed.
+--
+-- Because the function is SECURITY DEFINER, a stranger who called it could:
+--   * grant the `teacher` role to any account they could name by email
+--     (`insert into user_roles ... 'teacher'`);
+--   * create classes and students under a real teacher's account;
+--   * RENAME REAL CHILDREN'S RECORDS — the students insert ends with
+--     `on conflict (class_id, student_code) do update set display_name =
+--     excluded.display_name`, so calling it against an existing class with the
+--     join code GRETEL or NOVO26 overwrites the names already there;
+--   * use it as an email oracle, since the error message distinguishes "no
+--     such account" from every other outcome.
+--
+-- THE FIX
+-- Revoke EXECUTE from PUBLIC, anon and authenticated. Revoking only anon would
+-- have achieved nothing, because the PUBLIC grant covers every role.
+--
+-- WHAT STILL WORKS
+--   * The owner keeps running it from the Supabase SQL editor / dashboard,
+--     which connects as a superuser, not as `anon` or `authenticated`.
+--   * service_role keeps EXECUTE, for server-side use.
+--   * No application behaviour changes: nothing in src/ references this
+--     function.
+--   * The student lane is untouched. Students legitimately use the app without
+--     logging in (class code + tap your name), so join_class,
+--     list_class_students, enter_class_as_student, log_student_progress,
+--     get_student_progress and save_last_page keep their anon grants. Only the
+--     seeding tool is locked down.
+--
+-- Reversible: re-grant EXECUTE to the roles above if it is ever needed.
+
+revoke execute on function public.seed_cartilla_classroom_for_teacher(text, text) from public;
+revoke execute on function public.seed_cartilla_classroom_for_teacher(text, text) from anon;
+revoke execute on function public.seed_cartilla_classroom_for_teacher(text, text) from authenticated;

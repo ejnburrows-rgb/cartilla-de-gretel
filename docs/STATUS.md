@@ -1,6 +1,32 @@
 # STATUS — La Cartilla de Gretel
 
-Honest current state. Updated 2026-07-25. Read this before starting work.
+Honest current state. Updated 2026-07-26. Read this before starting work.
+
+> **2026-07-26 — admin dashboard is live, and a public hole was closed.**
+> - **Cross-teacher admin reads work against the real database** (#355). This
+>   was not a wiring job: there was no admin read path at all — every rule was
+>   scoped to the signed-in teacher, so the `admin` role saw only its own rows.
+>   Six read-only rules were added, plus a missing EXECUTE grant on `has_role`
+>   without which the client's role check was refused and *every* real admin was
+>   silently treated as not-an-admin. Applied and proven live: admin reads
+>   across teachers, cannot write, plain teacher still sees zero foreign rows.
+> - **The Dirección page now opens for a real admin** (#361), not just the demo
+>   account, and reads live data. Its "needs attention" figure shows `—`, not
+>   `0`, because that number is not computed in the live lane yet and `0` would
+>   falsely claim nobody needs help. **That figure is the only piece of D7 still
+>   open.**
+> - **SECURITY — fixed:** `seed_cartilla_classroom_for_teacher` was callable by
+>   anyone on the internet (permissions sat at the Postgres default, which grants
+>   EXECUTE to PUBLIC). It grants the `teacher` role to any account named by
+>   email, creates classes/students under a real teacher, and would overwrite
+>   real children's names in any class using join code GRETEL or NOVO26. EXECUTE
+>   revoked from PUBLIC/`anon`/`authenticated`; verified an anonymous call now
+>   gets "permission denied" and the student lane still works (#363).
+> - **Owner action outstanding:** leaked-password protection is **disabled** in
+>   Supabase Auth. One toggle, and worth doing.
+> - Suite: **1141 passing**, lint 0 errors, build green. The owner's account is
+>   the only holder of the `admin` role. No test data left in the database
+>   (3 classes / 7 students / 8 progress events).
 
 > **2026-07-25 reconciliation.** Three items this file listed as NOT STARTED or
 > as open issues had in fact shipped, and the numbers had drifted. Corrected
