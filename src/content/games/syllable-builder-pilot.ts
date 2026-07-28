@@ -11,9 +11,18 @@
 // wired to a bad image — the exercise shows an honest "pendiente" card for any
 // word without art, and a test enforces the PASS rule.
 //
-// The decoy tiles are real syllables from the same lesson's own words, never
-// invented ones, so the child is never asked to reject a syllable the book has
-// not taught them yet.
+// DECOY RULE: a decoy tile — any tile the lesson's own words do not use — may
+// only come from letter families the book has already taught by that lesson.
+// In practice that means the five vowels, plus the lesson's own consonant
+// family (ma/me/mi/mo/mu for the m lesson, pa/pe/pi/po/pu for p). A child must
+// never be asked to reject a syllable they have not been taught, because the
+// rejection teaches nothing — it is a guess. `decoys-taught-only.test.ts`
+// enforces this so it cannot regress.
+//
+// This rule previously read "real syllables from the same lesson's own words".
+// The vowel lesson broke it in both directions: `sa` and `lo` appear in none of
+// its words AND belong to the s and l families, which the book does not reach
+// until lessons 9 and 11.
 import type { GameContent } from "@/lib/games/gameContent";
 
 const ART = "/cartilla/art/faithful";
@@ -35,7 +44,11 @@ export const SILABAS_VOCAL_O: GameContent = {
     { word: "ola", syllables: ["o", "la"], imageUrl: `${ART}/vocal-o/ola.webp` },
     { word: "oveja", syllables: ["o", "ve", "ja"], imageUrl: `${ART}/vocal-o/oveja.webp` },
   ],
-  tiles: ["o", "so", "la", "ve", "ja", "sa", "lo"],
+  // Decoys are the other vowels. This is a vowel lesson, so the five vowels are
+  // the only material the child has been taught; the previous decoys (`sa`,
+  // `lo`) came from the s and l families, which the book does not reach until
+  // lessons 9 and 11.
+  tiles: ["o", "so", "la", "ve", "ja", "a", "e"],
 };
 
 export const SILABAS_M: GameContent = {
