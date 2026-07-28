@@ -241,7 +241,9 @@ const CartillaLeccionNRoute = CartillaLeccionNRouteImport.update({
   id: '/cartilla/leccion/$n',
   path: '/cartilla/leccion/$n',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() =>
+  import('./routes/cartilla/leccion.$n.lazy').then((d) => d.Route),
+)
 const CartillaJuegoGameIdRoute = CartillaJuegoGameIdRouteImport.update({
   id: '/cartilla/juego/$gameId',
   path: '/cartilla/juego/$gameId',
