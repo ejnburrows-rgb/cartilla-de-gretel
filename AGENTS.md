@@ -103,6 +103,33 @@ for it and may be stale the moment `main` (the primary code line) moves.
 
 ---
 
+## TOOL POLICY
+
+**Any agent may do any work here.** No lane is reserved for a particular
+tool, and no tool is banned. The owner switches between Claude, Antigravity,
+Kilo and others depending on which has capacity at the time; the rules in
+this file apply to the *work*, never to which tool is doing it.
+
+- Do not wait on, defer to, or write handoff prompts for a specific named
+  tool. If you can do the task under the rules below, do it.
+- Older docs and code comments referring to an "Antigravity lane", a
+  "Claude-only" file, or Antigravity being retired are **historical only**
+  and no longer apply.
+- One exception, and it is a capability limit rather than a policy:
+  **Jules cannot push branches to this repo** (see `docs/STATUS.md`). Give
+  Jules only work whose output can be pasted back or re-applied by another
+  agent.
+- If you genuinely cannot complete something — no terminal, no browser, no
+  credit left — say so in one line, write the next step down, and stop.
+  Never guess your way through it and never fake the result.
+
+**Before starting ANY work, every time:** `git fetch origin && git reset
+--hard origin/main` (or a fresh clone) so you're never building on a stale
+base. `ART_BACKLOG.md` (repo root) is the authoritative list of art still
+needed.
+
+---
+
 ## HOW WE WORK
 
 - **Simplest thing that works.** Prefer the smallest high-quality change
@@ -137,79 +164,56 @@ binding, not optional background.
 
 ---
 
-## AI SKILLS WORKFLOW (Engineering Team Protocol)
+## WORKFLOW — mandatory every session
 
-This section operationalizes "HOW WE WORK" above using Claude Code skills as
-a full-stack team, each with a defined moment to act. Invoke the relevant
-skill yourself — never wait to be asked. The owner is the client, not the
-project manager. **If a listed skill isn't installed in this environment,
-say so once and apply its underlying principle manually anyway — never skip
-the step because the tool is missing.**
+These are behaviours, not tools. Some environments package them as named
+skills or commands; if yours does, use them. If yours doesn't, do the same
+thing by hand — **never skip a step because the tool isn't there, and don't
+spend turns hunting for a tool that doesn't exist in your environment.**
 
-- **Always on:** keep replies short and plain-language (jargon defined in
-  parentheses, per the owner's communication style already established
-  above) — for readability, not to save tokens.
-- **Task arrives, before code:** a vague request gets clarifying questions
-  one at a time until the spec is clear; a new feature gets options explored
-  before committing to one; then a step-by-step plan is written and approved
-  before implementation starts (this is the existing "no spec, no build"
-  rule in `docs/PROJECT-CANON.md` — nothing new, just named). A large or
-  unfamiliar area of the codebase gets an orienting pass first rather than
-  diving in blind.
-- **While building:** write the failing test first for new functionality
-  where practical; anything unexpected gets root-caused systematically, not
-  guessed-and-retried; once a feature works, simplify it before showing it
-  (remove dead code, reduce duplication, right-size the abstraction — same
-  bar as the GIT RULES section's "smallest high-quality change").
-- **Before calling anything done (hard gate, in order):** (1) verify with
-  real evidence, never assert without running it — this is the existing
-  "prove it runs" rule above, restated; (2) for UI changes, click through the
-  real running app and capture a real screenshot of the final state, not a
-  description; (3) review your own diff critically before presenting it,
-  and fix what you find. Only then give the plain-language report with
-  proof attached.
-- **Continuous improvement:** if the owner corrects the same thing twice,
-  that correction becomes a permanent, written rule (in this file or a
-  project doc) rather than being re-explained every session.
-- **Domain-specific defaults** (apply automatically whenever a task matches,
-  across any repo, unless that repo's own AGENTS.md/PROJECT-CANON says
-  otherwise): forms validate on both the client and the server with inline
-  errors and disabled-while-saving submit buttons; dashboards get responsive
-  layouts (down to 375px width), loading skeletons, and friendly empty
-  states with a real next action; shared data shapes get one validation
-  schema reused by both client and server, rejecting unknown fields; client-
-  or owner-facing reports lead with summary numbers that reconcile exactly
-  and offer a clean CSV export; recurring events that spawn follow-up work
-  never create duplicates and always respect existing ownership.
+**Before writing code:**
+- Vague request → ask clarifying questions, one at a time, until the spec is
+  clear. No spec, no build.
+- New feature → explore a couple of options before committing to one.
+- Then write a short step-by-step plan and get it approved before starting.
+- Unfamiliar area of the codebase → take one orienting pass before diving in.
+
+**While building:**
+- Write the failing test first for new functionality, where practical.
+- Anything unexpected → find the root cause. Never guess-and-retry twice.
+- Once it works, simplify before showing it: remove dead code, cut
+  duplication, right-size the abstraction.
+
+**Before calling anything done — hard gate, in order:**
+1. Verify with real evidence. Never assert something works without running it.
+2. For UI changes, click through the real running app and capture a real
+   screenshot of the final state — not a description.
+3. Review your own diff critically and fix what you find.
+
+Then give a plain-language report with the proof attached.
+
+**Continuous improvement:** if the owner corrects the same thing twice, write
+that correction into this file or a project doc so it never needs repeating.
+
+**Domain defaults** (apply automatically when a task matches, unless a repo
+says otherwise): forms validate on both client and server with inline errors
+and disabled-while-saving submit buttons; dashboards are responsive down to
+375px with loading skeletons and friendly empty states that offer a real next
+action; shared data shapes get one validation schema reused by client and
+server, rejecting unknown fields; client-facing reports lead with summary
+numbers that reconcile exactly and offer a clean CSV export; recurring events
+that spawn follow-up work never create duplicates and always respect existing
+ownership.
 
 ---
 
-## DIVISION OF LABOR (multi-agent)
+## ART OWNERSHIP
 
-- **Antigravity: retired from this project (owner decision, 2026-07-25).**
-  Do not assign work to Antigravity, wait on it, or write prompts for it.
-  Its former lane — art extraction — now belongs to Claude, which has proven
-  the full pipeline end to end (see `escoba`, PR #338, and the 2026-07-25
-  entry in `docs/DECISIONS.md`). References to an "Antigravity lane" in
-  older code comments and docs are historical only; Claude owns those
-  surfaces now.
-- **Claude: everything** — app code, database schema, page content
-  (`src/data/page-layouts.json`), teacher CRM, student activities, grading,
-  Supabase, routing, styling, **and art extraction** under the shared art
-  contract below. The contract's quality bar is unchanged; only the
-  assignee changed.
-- **Jules: audit-and-report lane only.** Independent, read-mostly work
-  (security audits, dependency reviews, test-coverage reports) delivered as
-  documents or paste-back patches. Known limitation (see `docs/STATUS.md`):
-  the Jules GitHub app cannot push branches to this repo, so only assign
-  Jules tasks whose output the owner can paste back or Claude can re-apply.
-- **Before starting ANY work, every time:** `git fetch origin && git reset
-  --hard origin/main` (or a fresh clone) so you're never building on a stale
-  base. `ART_BACKLOG.md` (repo root) is the authoritative list of art still
-  needed.
-- **Only Claude touches `src/data/page-layouts.json`** (the page-content
-  schema: text, layout, grading). Claude now also produces the image files
-  and manifest entries and wires the `illustrationSrc` references in.
+- **`src/data/page-layouts.json`** (the page-content schema: text, layout,
+  grading) is a high-risk file. Whoever edits it also produces the matching
+  image files and manifest entries and wires the `illustrationSrc`
+  references in — never leave those out of sync.
+- All art work follows the shared art contract below, whichever agent does it.
 
 ### The shared art contract (the quality bar for all art work)
 
@@ -377,7 +381,7 @@ modern scene. Cohesive scene art must be generated.
   put English text in the student-facing UI; never alter the book's original
   Spanish reading content; never change lesson letter assignments or page
   ranges; never touch the Gretel animation state machine without explicit
-  written approval.
+  written approval; never invent links, names, or numbers.
 - **Data survives outside the database too.** Where a real backup/export
   path exists (e.g. a teacher's CSV export of class progress), treat keeping
   it current as part of the safety net, not an optional extra — a database
@@ -410,40 +414,3 @@ At the end of every work session, this is **not optional**:
 - **`SPEC.md`** — the product specification.
 - **`ART_BACKLOG.md`** — the authoritative list of art still needed.
 - **`PLAN.md` / `PROGRESS.md`** — the active plan and running work log.
-
----
-
-# ENGINEERING TEAM PROTOCOL — mandatory, every session, no exceptions
-You operate as EJN's full-stack development team. Each skill is a team
-member with a defined moment to act. YOU decide when to invoke each —
-never wait to be asked. EJN is the owner, not the project manager.
-## Always on: caveman (lite) — short replies. Use it for readability, not
-token savings.
-## Task arrives (BEFORE code):
-- Vague request -> grill-me: one question at a time until spec is clear.
-- New feature -> brainstorming to explore options.
-- Then ALWAYS writing-plans: step-by-step plan; wait for approval.
-- Large/unfamiliar codebase -> run npx repomix first to orient in one shot.
-## While building (DURING):
-- test-driven-development: failing test first for any new feature.
-- git-guardrails: destructive git blocked; plain push/merge allowed.
-- Anything unexpected -> systematic-debugging; never guess-retry twice.
-- Feature works -> code-simplifier before showing anything.
-## Before "done" (END — hard gate, in order):
-1. verification-before-completion — no "done" without evidence.
-2. webapp-testing — click through the real app; capture the proof
-   screenshot of the final visible result.
-3. requesting-code-review — hostile review of your own diff; fix findings.
-Then: plain-language report with proof attached.
-## Continuous improvement: corrected twice on the same thing ->
-skill-creator turns it into a permanent skill.
-## Domain skills (auto-apply on match): contact-form, auth-login,
-dashboard-layout, data-validation, client-report, auto-followup,
-plain-language-explainer.
-## Safety (non-negotiable): no secrets in code; .env in .gitignore; never
-touch anything named -live (work in -dev only); never hand-build login;
-weekly backup check + CSV export outside the database; main always
-working; never invent links/names/numbers; commits authored
-EJN <ejnburrows@gmail.com>. If a listed skill is missing in this
-environment, say so once and apply its principle manually — never skip
-the step.
