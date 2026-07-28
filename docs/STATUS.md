@@ -37,7 +37,15 @@ Honest current state. Updated 2026-07-26. Read this before starting work.
 >   determined API caller. Optional free hardening still available in the
 >   dashboard: Supabase's own password-requirements settings (minimum length +
 >   required character classes) are server-enforced and included on the Free plan.
-> - Suite: **1168 passing**, lint 0 errors, build green. The owner's account is
+> - **Teacher accounts can now be deleted** from Dirección, via the
+>   `delete-teacher` Edge Function (deleting a login needs the service-role key,
+>   which cannot be in the browser). It refuses to delete a teacher who still
+>   owns classes unless explicitly confirmed, and reports how many classes and
+>   students would go — `classes.teacher_id` has no foreign key to the login, so
+>   deleting the account alone would orphan children's records. Server-side
+>   guards: admin-only, no self-deletion, cannot remove the last admin. Student
+>   and class deletion already existed in the class roster.
+> - Suite: **1174 passing**, lint 0 errors, build green. The owner's account is
 >   the only holder of the `admin` role. No test data left in the database
 >   (3 classes / 7 students / 8 progress events).
 

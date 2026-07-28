@@ -1,9 +1,11 @@
 import { createFileRoute, Link, redirect } from "@tanstack/react-router";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { ShieldCheck, Users, GraduationCap, AlertCircle, Clock, BookOpen } from "lucide-react";
 import { getSeedAdminOverview, isSeedAdmin, isSeedSessionActive } from "@/lib/seed-data";
 import { getLiveAdminOverview, isCurrentUserLiveAdmin } from "@/lib/admin-overview.functions";
+import { supabase } from "@/integrations/supabase/client";
+import { DeleteTeacherButton } from "@/components/teacher/DeleteTeacherButton";
 
 // D7 — admin cross-teacher dashboard. Nests under /cartilla/teacher so the
 // teacher-lane gate already ran; this beforeLoad only adds the admin check on
@@ -39,11 +41,30 @@ function AdminDashboard() {
 
   // Demo lane reads local seeded data; a real session reads the database.
   const seedOverview = useMemo(() => (isSeed ? getSeedAdminOverview() : null), [isSeed]);
-  const { data: liveOverview, isLoading } = useQuery({
+  const {
+    data: liveOverview,
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: ["admin-overview-live"],
     queryFn: () => getLiveAdminOverview(),
     enabled: !isSeed,
   });
+
+  // Needed only to hide the delete control on the admin's own row. The server
+  // rejects self-deletion regardless; this just avoids offering a button that
+  // is guaranteed to fail.
+  const [currentUserId, setCurrentUserId] = useState<string | null>(null);
+  useEffect(() => {
+    if (isSeed) return;
+    let active = true;
+    supabase.auth.getUser().then(({ data }) => {
+      if (active) setCurrentUserId(data.user?.id ?? null);
+    });
+    return () => {
+      active = false;
+    };
+  }, [isSeed]);
 
   const overview = isSeed ? seedOverview : (liveOverview ?? null);
 
@@ -119,13 +140,24 @@ function AdminDashboard() {
                 alumno{t.studentCount === 1 ? "" : "s"} · precisión media {pct(t.accuracy)}
               </p>
             </div>
-            {t.attentionCount > 0 && (
-              <span className="inline-flex items-center gap-1.5 text-xs font-black px-3 py-1.5 rounded-full bg-amber-100 text-amber-800 border border-amber-200">
-                <AlertCircle className="w-3.5 h-3.5" />
-                {t.attentionCount} alumno{t.attentionCount === 1 ? "" : "s"} necesita
-                {t.attentionCount === 1 ? "" : "n"} atención
-              </span>
-            )}
+            <div className="flex items-center gap-3">
+              {t.attentionCount > 0 && (
+                <span className="inline-flex items-center gap-1.5 text-xs font-black px-3 py-1.5 rounded-full bg-amber-100 text-amber-800 border border-amber-200">
+                  <AlertCircle className="w-3.5 h-3.5" />
+                  {t.attentionCount} alumno{t.attentionCount === 1 ? "" : "s"} necesita
+                  {t.attentionCount === 1 ? "" : "n"} atención
+                </span>
+              )}
+              {/* Live sessions only — the demo lane has no real accounts to
+                  remove — and never on the admin's own row. */}
+              {!isSeed && currentUserId && t.teacherId !== currentUserId && (
+                <DeleteTeacherButton
+                  teacherId={t.teacherId}
+                  teacherName={t.teacherName}
+                  onDeleted={() => refetch()}
+                />
+              )}
+            </div>
           </div>
 
           {t.classes.length === 0 ? (

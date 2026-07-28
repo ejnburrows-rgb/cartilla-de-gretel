@@ -416,3 +416,22 @@ DOCUMENTATION DUTY section of `AGENTS.md`).
   existing password predates the rule, so the shared password field keeps
   Supabase's minimum of 6 when logging in. If the project ever moves to Pro, turn
   the Supabase setting on and keep this as a first line of defence.
+- **2026-07-26 — Deleting a teacher account is a server function, and it refuses
+  to quietly take children's work with it.** Removing a login needs the
+  service-role key, which must never reach a browser, so it lives in the
+  `delete-teacher` Edge Function rather than in the client like the existing
+  student and class deletes. Investigating it surfaced the reason it could not be
+  a simple `deleteUser` call: `classes.teacher_id` has **no foreign key** to the
+  login, so deleting the account alone would leave the classes — and every
+  student and progress row cascading under them — owned by a user that no longer
+  exists, invisible to everyone and impossible to clean up from the app. So the
+  function refuses to delete a teacher who still owns classes unless the caller
+  explicitly asks for those classes too, and its refusal reports exactly how many
+  classes and students that means. The UI shows those numbers and requires the
+  admin to type the teacher's name, because a plain "are you sure?" gets clicked
+  through and there is no undo. Also guarded server-side, never in the UI alone:
+  the caller must hold the `admin` role (checked against the database, never
+  trusted from the request), nobody can delete their own account, and the last
+  remaining admin cannot be removed. `profiles` and `user_roles` are cleared
+  explicitly since they do not cascade from `auth.users`. Verified against the
+  live project across all seven cases, with zero orphaned rows afterward.
