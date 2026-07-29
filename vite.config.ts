@@ -87,6 +87,18 @@ export default defineConfig({
           if (id.includes("node_modules/react") || id.includes("node_modules/react-dom")) {
             return "react-vendor";
           }
+          if (id.includes("node_modules/lucide-react")) {
+            return "lucide";
+          }
+          if (id.includes("node_modules/pdfjs-dist") || id.includes("node_modules/react-pdf")) {
+            return "pdf-vendor";
+          }
+          if (id.includes("node_modules/@supabase")) {
+            return "supabase";
+          }
+          if (id.includes("node_modules/recharts")) {
+            return "recharts";
+          }
           if (
             id.includes("node_modules/@tanstack/react-router") ||
             id.includes("node_modules/@tanstack/router-core") ||
