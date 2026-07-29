@@ -176,6 +176,20 @@ The rest is owner-decision work, listed in `docs/DECISIONS.md`.
 
 ## DONE (verified in code / in the running app)
 
+- **The two flows that matter are covered by browser tests.** The Playwright
+  suite now walks the teacher lane (create a class → read its join code → add a
+  student → see that child's progress) and the student lane (join with the class
+  code → tap your name → open the assigned lesson → finish it → the progress is
+  saved and is still there after a reload). Four specs, green. Two real bugs
+  were found by writing them and are fixed in the same change: creating a class
+  in the demo lane left the teacher staring at "create your first class" until a
+  manual reload, and the lesson's bottom bar sat *underneath* the page content,
+  so an "ilustración pendiente" placeholder could swallow the tap on "Marcar y
+  siguiente" and stop a child finishing a lesson. Two steps are still not
+  automated — see `docs/SCRUB-REPORT.md`: the teacher cannot create an
+  assignment on the demo lane (that panel is wired to Supabase only, and seed
+  class ids are not UUIDs), and the student lane has no demo branch at all, so
+  its specs run against a six-RPC fake rather than a real database.
 - **Live Supabase, proven end to end (#334, #335).** Student cloud save, and
   the teacher backend (auth, class creation, join codes, roster, RLS
   isolation) plus live report precision/time, all verified against the real

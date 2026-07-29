@@ -30,7 +30,20 @@ export default defineConfig({
     // a live Supabase. It's dev-only and never affects a production build
     // (seed-data.ts hard-disables demo mode under import.meta.env.PROD), and it
     // leaves the student smoke test unaffected (that lane isn't demo-gated).
-    command: "VITE_ALLOW_DEMO_MODE=true pnpm dev --port 5173 --host 127.0.0.1",
+    //
+    // The two Supabase vars are pinned to a dead local address on purpose. A
+    // developer's .env points at the LIVE project, which holds real children's
+    // records — pointing the E2E app at it would mean tests writing to it. The
+    // student specs fake those calls at the network layer instead (see
+    // tests/e2e/support/fake-supabase.ts); this makes the app still count as
+    // "configured", so the real code paths run, while nothing can leave the
+    // machine. It also makes CI (where there is no .env at all) behave
+    // identically to a local run.
+    command:
+      "VITE_ALLOW_DEMO_MODE=true " +
+      "VITE_SUPABASE_URL=http://127.0.0.1:54321 " +
+      "VITE_SUPABASE_PUBLISHABLE_KEY=sb_publishable_e2e_not_a_real_key " +
+      "pnpm dev --port 5173 --host 127.0.0.1",
     url: "http://127.0.0.1:5173",
     reuseExistingServer: false,
     timeout: 120_000,
