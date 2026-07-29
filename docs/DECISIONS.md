@@ -471,3 +471,21 @@ DOCUMENTATION DUTY section of `AGENTS.md`).
   real code paths run, and CI (which has no `.env`) now behaves the same as a
   local run. The fake also throws if anything ever addresses a real Supabase
   host, so this cannot regress quietly.
+- **2026-07-29 — one art list, derived from the code rather than merged by
+  hand.** `docs/MISSING_ASSETS.md` and `docs/ART_BACKLOG.md` overlapped and
+  contradicted each other, so neither could be worked from. Rather than
+  reconcile two documents against each other, the real gap was recomputed from
+  `page-layouts.json`, the files on disk and `qa-results.json`, and written to
+  `docs/ILUSTRACIONES-QUE-FALTAN.md`; the old two are kept as history with a
+  banner saying so, and `AGENTS.md` now points at the new file. The answer is
+  **16 cells across 6 words** (`abeja`, `aguja`, `abrigo`, `remolino`, `globo`,
+  `oruga`), and there are zero broken image references anywhere in the app. Two
+  errors in the old backlog are corrected: its "18 cells / 7 words" double-counts
+  `escoba`, which the same entry reports as fixed; and its reason for discounting
+  ~480 `syllable-match` cells ("the schema has no `illustrationSrc` field") is
+  wrong — the field exists and is populated on some of them, but the renderer
+  draws those cells as text and never shows a pendiente placeholder, which is the
+  actual reason they are not a gap. Separately flagged, not changed:
+  `vocal-i/iglu.webp` is wired and rendering on six pages while carrying a QA
+  verdict of FAIL, and the QA run post-dates the file, so it is a live defect
+  rather than a stale result.
