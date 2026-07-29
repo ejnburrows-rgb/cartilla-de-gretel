@@ -38,3 +38,21 @@ jobs:
 
       - name: Build
         run: pnpm run build
+
+      - name: Dependency audit (warning only)
+        run: pnpm audit --audit-level moderate || true
+
+  secret-scan:
+    name: Secret scan (gitleaks)
+    runs-on: ubuntu-latest
+    steps:
+      # Full history so gitleaks can scan past commits too, not just the diff.
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # gitleaks is free for repos under personal accounts (no license needed).
+      - name: Run gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
