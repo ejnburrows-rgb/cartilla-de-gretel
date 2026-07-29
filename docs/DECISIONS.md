@@ -435,6 +435,23 @@ DOCUMENTATION DUTY section of `AGENTS.md`).
   remaining admin cannot be removed. `profiles` and `user_roles` are cleared
   explicitly since they do not cascade from `auth.users`. Verified against the
   live project across all seven cases, with zero orphaned rows afterward.
+- **2026-07-29 — A branch is only "merged" if two independent signals agree.**
+  Re-inventorying the 30 leftover branches surfaced a trap worth recording. This
+  repo squash-merges, so a merged branch's commits never literally appear on
+  `main` and `git branch --merged` reports nothing at all — it would say every
+  branch is unmerged and delete none of them. The obvious replacement, GitHub's
+  pull-request list, has its own trap: the `merged` boolean in that response
+  reads `false` even for requests that plainly landed (#371 among them). Trusting
+  it would say every branch is unmerged too. The field that tells the truth is
+  `merged_at`. Because both of the easy signals fail in the *same* direction on
+  this repo, no branch is treated as safe on one signal alone: it needs a pull
+  request with a real `merged_at` **and** its squash commit found on `main` by
+  its `(#NNN)` suffix. All 25 passed both; the record is in
+  `docs/BRANCH-INVENTORY-REPORT.md`. Deletion itself is not run from the
+  automated environment — `git push --delete` returns HTTP 403 from the git
+  proxy and the available GitHub tools can create refs but not remove them — so
+  the pass produces a verified script for the owner to run rather than pretending
+  the cleanup happened.
 - **2026-07-29 — one art list, derived from the code rather than merged by
   hand.** `docs/MISSING_ASSETS.md` and `docs/ART_BACKLOG.md` overlapped and
   contradicted each other, so neither could be worked from. Rather than
