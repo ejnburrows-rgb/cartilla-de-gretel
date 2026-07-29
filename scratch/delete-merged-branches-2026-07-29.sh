@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Deletes the 25 branches whose work is already on `main`, as verified on
+# Deletes the 29 branches whose work is already on `main`, as verified on
 # 2026-07-29. See docs/BRANCH-INVENTORY-REPORT.md, section "Re-inventory —
 # 2026-07-29", for the full record.
 #
@@ -26,6 +26,7 @@ del docs/allow-generated-splash-art            # PR #342
 del docs/d7-gate-done                          # PR #362
 del docs/d7-live-db-status                     # PR #360
 del docs/owner-launch-decisions                # PR #340
+del docs/reconcile-e2-e3-status                # PR #375
 del docs/retire-antigravity                    # PR #339
 del docs/stale-claims-cleanup                  # PR #370
 del docs/tool-agnostic-agents                  # PR #369
@@ -42,7 +43,10 @@ del feat/teacher-backend-live                  # PR #335
 del feat/welcome-splash-scene-wiring           # PR #354
 del fix/admin-overview-paging                  # PR #365
 del fix/lock-down-seeding-function             # PR #363
+del fix/word-builder-decoys                    # PR #373
+del perf/lazy-route-split                      # PR #372
 del perf/slow-network-loading                  # PR #353
+del task-2-enforcement-layer                   # PR #377
 
 # ---------------------------------------------------------------------------
 # NOT deleted — these need an owner decision first. Uncomment to include.
@@ -52,10 +56,9 @@ del perf/slow-network-loading                  # PR #353
 # del feat/professional-prelogin-splash        # PR #374 withdrawn; would only remove live splash files
 # del claude/repos-progress-action-plan-hgdybu # superseded by #371 + five-day-stale doc edits
 
-# Pile C — open pull requests. Do NOT delete while the request is open.
-# perf/lazy-route-split        -> PR #372 (draft)
-# fix/word-builder-decoys      -> PR #373 (draft)
-# docs/reconcile-e2-e3-status  -> PR #375 (draft)
+# Pile C — open pull request. Do NOT delete while the request is open.
+# claude/branch-inventory-report-2c93h5 -> PR #376 (this report). Delete it
+# after #376 merges.
 
 echo "Done. Remaining branches:"
 gh api "repos/$REPO/branches?per_page=100" --jq '.[].name'

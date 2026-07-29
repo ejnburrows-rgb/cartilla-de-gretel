@@ -315,8 +315,8 @@ The rest is owner-decision work, listed in `docs/DECISIONS.md`.
 - **CI "BuildFailed" workflow fails on every commit, including on `main`
   itself.** It is an orphaned workflow reference, not a real build failure —
   safe to disregard as a merge blocker. Cleaning it up is a housekeeping item.
-- **25 merged branches need deleting on GitHub.** Re-inventoried 2026-07-29:
-  31 branches remain on the server, 25 of them already fully in `main` (each
+- **29 merged branches need deleting on GitHub.** Re-inventoried 2026-07-29:
+  33 branches remain on the server, 29 of them already fully in `main` (each
   verified twice — a merged pull request with that branch as head, and its
   squash commit found on `main`). The two branches named here previously
   (`claude/finish-app-batch1`, `claude/page-layout-art-gap`) are already gone.

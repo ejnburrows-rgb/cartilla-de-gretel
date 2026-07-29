@@ -316,18 +316,23 @@ rebuilt from scratch against the live server today.
 
 ## Plain-language summary (for the owner)
 
-The branch list is now **31 branches**, down from 239. Of those:
+The branch list is now **33 branches**, down from 239. Of those:
 
 | Pile | What it means | Count | Action |
 |---|---|---|---|
 | `main` | The real app. | 1 | Never touch |
-| **A — Safe to delete** | Its change is already in `main`. Deleting the branch loses nothing; GitHub can restore it for 90 days. | **25** | Delete |
+| **A — Safe to delete** | Its change is already in `main`. Deleting the branch loses nothing; GitHub can restore it for 90 days. | **29** | Delete |
 | **B — Not merged, needs your call** | Carries work that never went into `main`. | **2** | Read the two lines below and say delete or keep |
-| **C — Open requests** | Waiting on you. | **3** | Merge or close |
+| **C — Open requests** | Waiting on you. | **1** | This report's own request |
 
 **Nothing is at risk.** Every branch in Pile A was checked twice: it was the
 head of a pull request that GitHub records as merged, *and* that request's
-commit was found by name on `main`. Both checks passed for all 25.
+commit was found by name on `main`. Both checks passed for all 29.
+
+> **Updated later the same day.** The inventory was taken with four requests
+> still open. All four merged while this report was in review — #372, #373,
+> #375 and #377 — so their branches moved from Pile C to Pile A and were
+> re-verified by the same two checks. Pile C is now just this report.
 
 > **Deletion could not be executed from this session.** `git push origin
 > --delete` returns **HTTP 403** from the git proxy in this environment, and the
@@ -348,7 +353,7 @@ required instead, and a branch had to pass **both**:
 2. The resulting squash commit is present on `main`, found by searching for its
    `(#NNN)` suffix.
 
-## Pile A — Safe to delete (25 branches, already in `main`)
+## Pile A — Safe to delete (29 branches, already in `main`)
 
 | Branch | Merged PR | Merged on | Head |
 |---|---|---|---|
@@ -360,6 +365,7 @@ required instead, and a branch had to pass **both**:
 | `docs/d7-gate-done` | #362 | 2026-07-26 | 601c360 |
 | `docs/d7-live-db-status` | #360 | 2026-07-26 | 5a0dc59 |
 | `docs/owner-launch-decisions` | #340 | 2026-07-25 | 0c0f00c |
+| `docs/reconcile-e2-e3-status` | #375 | 2026-07-29 | afb1642 |
 | `docs/retire-antigravity` | #339 | 2026-07-25 | ba92758 |
 | `docs/stale-claims-cleanup` | #370 | 2026-07-29 | 7c1ef28 |
 | `docs/tool-agnostic-agents` | #369 | 2026-07-28 | ffebc03 |
@@ -376,7 +382,10 @@ required instead, and a branch had to pass **both**:
 | `feat/welcome-splash-scene-wiring` | #354 | 2026-07-25 | 8593714 |
 | `fix/admin-overview-paging` | #365 | 2026-07-26 | 54a5db9 |
 | `fix/lock-down-seeding-function` | #363 | 2026-07-26 | e96205f |
+| `fix/word-builder-decoys` | #373 | 2026-07-29 | 305ef18 |
+| `perf/lazy-route-split` | #372 | 2026-07-29 | 8ef3534 |
 | `perf/slow-network-loading` | #353 | 2026-07-25 | ffbfa0f |
+| `task-2-enforcement-layer` | #377 | 2026-07-29 | e366ed3 |
 
 ## Pile B — Not merged, owner's call (2 branches)
 
@@ -385,13 +394,17 @@ required instead, and a branch had to pass **both**:
 | `feat/professional-prelogin-splash` | Was PR **#374**, which you closed as *"Withdrawn — built on outdated direction; no changes merged."* Compared against `main` today, the branch's only remaining effect would be to **delete** the live `WelcomeSplash.tsx` and `welcome-splash.css` (212 lines). It has nothing to give back. | **Delete.** Merging it would remove working splash code. Related to issue #356, which stays untouched — deleting a dead branch does not touch the artwork decision. |
 | `claude/repos-progress-action-plan-hgdybu` | One commit from 2026-07-24 that archived the stray root files into `_archive/root-scratch-2026-07-24/` and edited `STATUS.md` + `OWNER-MANUAL-STEPS.md`. The root-file cleanup was done differently and landed in **#371**; the doc edits are five days stale and both files have been rewritten since. | **Delete.** Superseded on both halves. |
 
-## Pile C — Open requests (3, waiting on you)
+## Pile C — Open requests (1)
 
-| PR | Branch | State | Recommendation |
-|---|---|---|---|
-| **#372** | `perf/lazy-route-split` | Draft | **Close.** It measures out as a no-op on first paint and says so; the three findings in its description are the real deliverable and are already written down. Keeping the refactor buys nothing. |
-| **#373** | `fix/word-builder-decoys` | Draft | **Your call — one question.** The vowel lesson's decoys were `sa` and `lo`, from letter families the book doesn't teach until lessons 9 and 11. The fix swaps them for `a` and `e`. Say whether you want `a, e` or all four remaining vowels (`a, e, i, u`), and it ships. |
-| **#375** | `docs/reconcile-e2-e3-status` | Draft | **Merge.** Docs only — two finished items were still marked "not started". |
+Only this report. The four requests that were open when the inventory was taken
+have all merged:
+
+| PR | Branch | Outcome |
+|---|---|---|
+| **#372** | `perf/lazy-route-split` | Merged. The recommendation here was to close it — it measures as a no-op on first paint — but the owner merged it, so the branch is now Pile A. The measurement findings in its description stand either way. |
+| **#373** | `fix/word-builder-decoys` | Merged as written: the vowel lesson's decoys are now `a` and `e` instead of `sa` and `lo`, which came from letter families the book does not teach until lessons 9 and 11. The open question — whether to use all four remaining vowels instead — was answered by merging the two-vowel version. |
+| **#375** | `docs/reconcile-e2-e3-status` | Merged. |
+| **#377** | `task-2-enforcement-layer` | Merged. Added the pull-request template, Dependabot config and CI security notes. |
 
 ## Do the deletion (one command)
 
@@ -401,23 +414,22 @@ From any machine signed in to GitHub with the `gh` command:
 bash scratch/delete-merged-branches-2026-07-29.sh
 ```
 
-It deletes the 25 Pile-A branches. Pile B and the open-request branches are
+It deletes the 29 Pile-A branches. Pile B and the open-request branches are
 listed in the script as commented-out lines, so nothing goes without a decision.
-Afterwards the repo should show **6 branches**: `main`, the two Pile-B branches
-if you kept them, and the three open-request branches.
+Afterwards the repo should show **4 branches**: `main`, this report's own branch,
+and the two Pile-B branches if you kept them.
 
 ## Handoff
 
 **For the next session:**
 
 > Re-read `docs/BRANCH-INVENTORY-REPORT.md`, section "Re-inventory — 2026-07-29".
-> Check whether the 25 Pile-A branches are gone (`git ls-remote --heads origin |
+> Check whether the 29 Pile-A branches are gone (`git ls-remote --heads origin |
 > wc -l`). If they are still there, branch deletion is still blocked by the git
 > proxy 403 — report it, do not retry in a loop. If the owner has answered on
 > Pile B or on PRs #372/#373, carry out their answer. Do not delete any branch
 > that is not in Pile A without a fresh two-signal check (`merged_at` on the PR
 > **and** the `(#NNN)` squash commit found on `main`).
 
-**For the owner:** the four things only you can decide are in Piles B and C
-above — delete the two dead branches, close #372, answer the one decoy question
-on #373, merge #375.
+**For the owner:** everything in Pile C is done. What is left is Pile B — say
+delete or keep on the two dead branches — and running the deletion script.
