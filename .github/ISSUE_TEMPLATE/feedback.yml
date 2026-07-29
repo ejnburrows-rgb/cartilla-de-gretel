@@ -1,0 +1,61 @@
+name: Feedback del cliente
+description: Captura un comentario, captura de pantalla o nota de voz del cliente.
+title: '[FEEDBACK] '
+labels: ['feedback']
+body:
+  - type: input
+    id: project
+    attributes:
+      label: Proyecto
+      description: ¿A qué proyecto pertenece este comentario?
+      placeholder: ej. La Cartilla de Gretel
+    validations:
+      required: true
+  - type: input
+    id: page
+    attributes:
+      label: Página o pantalla
+      description: ¿En qué parte del sitio o app ocurrió?
+      placeholder: ej. Página de bienvenida, lección 3
+    validations:
+      required: true
+  - type: textarea
+    id: verbatim
+    attributes:
+      label: Texto exacto del cliente (en español)
+      description: Pegue aquí lo que dijo o escribió el cliente.
+    validations:
+      required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: Resumen en una línea
+      description: Traducción corta o resumen del punto.
+    validations:
+      required: true
+  - type: dropdown
+    id: type
+    attributes:
+      label: Tipo
+      options:
+        - texto
+        - diseno
+        - funciona mal
+        - decision
+    validations:
+      required: true
+  - type: dropdown
+    id: tier
+    attributes:
+      label: Importancia
+      options:
+        - Blocker (impide la entrega)
+        - High (necesario para calidad profesional)
+        - Cleanup (cosmético)
+    validations:
+      required: true
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: Captura de pantalla o enlace
+      description: Arrastre una imagen o pegue un enlace.
