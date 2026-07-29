@@ -273,17 +273,26 @@ verify bar is green.
       screens; teacher/admin keep the normal arrow; all `html.a11y-*` modes and forced-colors keep
       the standard cursor; interactive elements keep pointer/text/not-allowed states; touch devices
       unaffected. *Auto-merge.*
-- [ ] **E2. Syllable word-builder, 3-lesson pilot (#344).** Drag syllable tiles to build words
+- [x] **E2. Syllable word-builder, 3-lesson pilot (#344) — ON `main`, verified 2026-07-28.** Drag syllable tiles to build words
       (ma + má → mamá) — the digital form of the book's own syllabic method and the first production
       exercise beyond tracing. Scope: one vowel lesson + m + p. Existing PASS art only; honest
       `pendiente` where art is missing. Works with touch **and** mouse; respects reduced motion;
       grading fires the same `recordEvent`/Gretel event-bus patterns as existing exercises.
-      **OPEN PR, DO NOT MERGE — owner reviews.**
-- [ ] **E3. D7 live admin dashboard wiring (#343).** Wire the live path now that D2 proved the live
+      **OPEN PR, DO NOT MERGE — owner reviews.** *(That instruction was written before the
+      work landed. It is on `main` now: `src/content/games/syllable-builder-pilot.ts` holds the three
+      lessons, `src/lib/games/syllable-builder.ts` the grading, and `src/routes/cartilla/juego.$gameId.tsx`
+      registers them via `SYLLABLE_BUILDER_PILOT`, so the exercise is reachable. Covered by
+      `syllable-builder.test.ts`. One open follow-up in PR #373: the vowel lesson's decoy tiles used `sa`
+      and `lo`, from families the book does not teach until lessons 9 and 11.)*
+- [x] **E3. D7 live admin dashboard wiring (#343) — DONE 2026-07-26.** Wire the live path now that D2 proved the live
       backend: real `admin` role, cross-teacher queries under RLS, reusing the `getSeedAdminOverview`
       roll-up so admin numbers match each teacher's own CRM. Live-mode gate on
       `/cartilla/teacher/admin`; demo gate stays for the demo lane. Prove it live, then remove all
       test data. Flips D7 from `[~]` to `[x]`. *Auto-merge.*
+      **Shipped in #355 (six SELECT-only admin policies + the missing `EXECUTE` grant on `has_role`),
+      #361 (the route gate, so a real admin can open the page) and #364 (the live attention count).
+      D7 was flipped to `[x]` at the time; this entry was simply left behind — it tracked the same
+      work.** Proven against the live project and test data removed; see the D7 entry above for detail.
 - [x] **E4. Perf/loading pass for slow school networks (#347).** Measure first (bundle analysis +
       throttled profile), then take the biggest wins: route-level code splitting, lazy-loading heavy
       art/flipchart assets, image sizing/format checks, preload only what the first screen needs.
@@ -312,6 +321,12 @@ verify bar is green.
 ---
 
 ## STATUS LOG (append one dated line per merged PR; newest at top)
+- 2026-07-28 — **Queue reconciled: E2 and E3 were shipped but still read as not started.** Both were
+  `[ ]` while their work sits on `main` — E3's own D7 twin was already `[x]`. A stale "not started" box
+  misleads exactly as badly as an overclaim: the next agent rebuilds work that exists. E2 verified by
+  following the code (content + grading + `juego.$gameId` registration + tests), E3 by its shipped PRs
+  (#355, #361, #364). Also merged today: #370 (README dead link) and #371 (35 stray root files into
+  docs/scratch/scripts, plus a vendor chunk split measured neutral for first paint: 1,081 → 1,078 kB).
 - 2026-07-26 — **D7 COMPLETE** (#364): the live "needs attention" count is real, so the whole task queue is
   now checked off. It could not just call `getClassProgress` (that starts with `ensureTeacherOwnsClass`, which
   rejects an admin reading another teacher's class, and loosening it would have weakened the write paths too).
