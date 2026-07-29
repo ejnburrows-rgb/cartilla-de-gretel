@@ -1,4 +1,10 @@
-# Art backlog — current, authoritative
+# Art backlog — superseded history
+
+> **HISTORY — do not work from this file.** These are dated corrections,
+> newest first, where later entries reverse earlier ones (including sections
+> titled "FULL AUDIT COMPLETE" that are retracted further down). The single
+> live list of art still needed is **`docs/ILUSTRACIONES-QUE-FALTAN.md`**.
+
 
 ## 2026-07-25 — the 62-page teacher flipchart has now been searched (closes the last open lead); escoba FIXED, 6 words confirmed genuinely absent
 

@@ -125,8 +125,8 @@ this file apply to the *work*, never to which tool is doing it.
 
 **Before starting ANY work, every time:** `git fetch origin && git reset
 --hard origin/main` (or a fresh clone) so you're never building on a stale
-base. `ART_BACKLOG.md` (repo root) is the authoritative list of art still
-needed.
+base. `docs/ILUSTRACIONES-QUE-FALTAN.md` is the authoritative list of art still
+needed (it replaced `docs/ART_BACKLOG.md`, which is kept as history).
 
 ---
 
@@ -234,7 +234,7 @@ ownership.
 - Add one entry to `public/cartilla/art/faithful/manifest.json`:
   `{ slug, word, lessonNumber, pageNumber, src, sourceFlipchartPage, cropBox }`.
 - Only produce words that already appear as captions in
-  `page-layouts.json` (check `ART_BACKLOG.md`); don't introduce new words.
+  `page-layouts.json` (check `docs/ILUSTRACIONES-QUE-FALTAN.md`); don't introduce new words.
 - **Pixel-cleanup restoration is allowed on top of a faithful crop** — see
   the Faithful Restoration Standard below. It never replaces the crop-first
   workflow above; it's an optional cleanup pass on art that already passed
@@ -401,7 +401,7 @@ At the end of every work session, this is **not optional**:
 1. Update **`docs/STATUS.md`** so it reflects the real current state.
 2. Log any technical decision in **`docs/DECISIONS.md`** as one dated,
    plain-language line (what was decided and why).
-3. Keep `ART_BACKLOG.md` current if any art work happened.
+3. Keep `docs/ILUSTRACIONES-QUE-FALTAN.md` current if any art work happened.
 
 ---
 
@@ -412,5 +412,7 @@ At the end of every work session, this is **not optional**:
 - **`docs/STATUS.md`** — honest current state of the work.
 - **`docs/DECISIONS.md`** — dated log of technical decisions.
 - **`SPEC.md`** — the product specification.
-- **`ART_BACKLOG.md`** — the authoritative list of art still needed.
+- **`docs/ILUSTRACIONES-QUE-FALTAN.md`** — the authoritative list of art still
+  needed. `docs/ART_BACKLOG.md` and `docs/MISSING_ASSETS.md` are superseded
+  history; do not work from them.
 - **`PLAN.md` / `PROGRESS.md`** — the active plan and running work log.

@@ -1,5 +1,10 @@
 # Missing Assets Audit
 
+> **HISTORY — do not work from this file.** This is an incident log of art
+> problems and the fixes applied to them; every item in it is closed. The
+> single live list of art still needed is **`docs/ILUSTRACIONES-QUE-FALTAN.md`**.
+
+
 ## RESOLVED 2026-07-17 — student-side "still gray" bug (root cause + fix)
 Owner reported the student pages were still missing color after an earlier
 pass (the pass below, dated 2026-07-16, only wired empty slots — it never
