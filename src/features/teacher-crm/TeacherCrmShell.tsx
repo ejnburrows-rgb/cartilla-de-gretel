@@ -49,6 +49,21 @@ export function TeacherCrmShell() {
   // Synchronously detect local seed teacher session
   const isSeed = useMemo(() => isSeedSessionActive(), []);
 
+  // Bumped every time the demo/seed store is written. The seed layer already
+  // announces its own writes with a "cartilla:seed-data" event; listening to it
+  // is what makes a newly created class or student show up straight away.
+  // (Before this, the reads below keyed off `busy`, but the seed branches are
+  // synchronous — React batches the true/false pair into no visible change, so
+  // the dashboard kept showing "create your first class" until a manual
+  // reload, and a teacher could easily create the same class twice.)
+  const [seedVersion, setSeedVersion] = useState(0);
+  useEffect(() => {
+    if (!isSeed) return;
+    const bump = () => setSeedVersion((v) => v + 1);
+    window.addEventListener("cartilla:seed-data", bump);
+    return () => window.removeEventListener("cartilla:seed-data", bump);
+  }, [isSeed]);
+
   // 1. Query Classes
   const {
     data: realClasses,
@@ -61,15 +76,15 @@ export function TeacherCrmShell() {
   });
 
   const seedClasses = useMemo(() => {
-    // busy is referenced so mutations bump this memo and reread seed storage.
-    void busy;
+    // seedVersion is referenced so every write to the seed store rereads it.
+    void seedVersion;
     if (!isSeed) return [];
     try {
       return listSeedClasses();
     } catch {
       return [];
     }
-  }, [isSeed, busy]);
+  }, [isSeed, seedVersion]);
 
   const classesList = useMemo(
     () => (isSeed ? seedClasses : (realClasses ?? [])),
@@ -96,14 +111,14 @@ export function TeacherCrmShell() {
   });
 
   const seedClassData = useMemo(() => {
-    void busy;
+    void seedVersion;
     if (!isSeed || !selectedClassId) return null;
     try {
       return getSeedClass(selectedClassId);
     } catch {
       return null;
     }
-  }, [isSeed, selectedClassId, busy]);
+  }, [isSeed, selectedClassId, seedVersion]);
 
   const activeClass = classesList.find((c) => c.id === selectedClassId);
 

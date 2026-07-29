@@ -452,3 +452,22 @@ DOCUMENTATION DUTY section of `AGENTS.md`).
   proxy and the available GitHub tools can create refs but not remove them — so
   the pass produces a verified script for the owner to run rather than pretending
   the cleanup happened.
+- **2026-07-29 — The student end-to-end tests run against a fake database, on
+  purpose, and the test app is pinned away from the live project.** The teacher
+  side has a real demo lane (localStorage), so its browser test drives the true
+  screens with nothing stubbed. The student side has no such lane —
+  `src/lib/student.functions.ts` always calls Supabase — so joining a class,
+  reading assignments and saving progress cannot be exercised without a
+  database. Three options existed: use the live project, run one locally, or
+  fake it. The live project holds real children's records and is off-limits;
+  Docker is not available in the agent environment, so `supabase start` is out.
+  So the student specs intercept the six student RPCs at the network layer
+  (`tests/e2e/support/fake-supabase.ts`): the routes, components, zod schemas
+  and RPC payloads are all the real production code, and only the database is a
+  fixture. Separately, the Playwright web server now pins
+  `VITE_SUPABASE_URL`/`VITE_SUPABASE_PUBLISHABLE_KEY` to a dead local address,
+  because a developer's `.env` points at the live project and an unguarded test
+  run would otherwise write to it; the app still counts as "configured", so the
+  real code paths run, and CI (which has no `.env`) now behaves the same as a
+  local run. The fake also throws if anything ever addresses a real Supabase
+  host, so this cannot regress quietly.

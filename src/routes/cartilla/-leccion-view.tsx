@@ -307,10 +307,17 @@ export function Leccion() {
           )}
         </div>
       </main>
+      {/* z-50 keeps this bar above the page body. The garden page body is
+          `position: relative; z-index: 1` (faithful-page.css), so without an
+          explicit z-index this fixed bar painted *underneath* the lesson
+          content: an "ilustración pendiente" placeholder sitting at the foot
+          of a page swallowed the taps on "Marcar y siguiente", leaving the
+          child unable to finish the lesson. The fade-out below still hides the
+          bar whenever it would cover Gretel. */}
       <nav
         ref={navRef}
         aria-hidden={navObscuresGretel}
-        className={`fixed bottom-0 inset-x-0 p-3 bg-background/95 backdrop-blur border-t-2 border-foreground/10 transition-opacity duration-200 ${
+        className={`fixed bottom-0 inset-x-0 z-50 p-3 bg-background/95 backdrop-blur border-t-2 border-foreground/10 transition-opacity duration-200 ${
           navObscuresGretel ? "opacity-0 pointer-events-none" : "opacity-100"
         }`}
       >
