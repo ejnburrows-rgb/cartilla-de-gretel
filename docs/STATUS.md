@@ -329,7 +329,15 @@ The rest is owner-decision work, listed in `docs/DECISIONS.md`.
 - **CI "BuildFailed" workflow fails on every commit, including on `main`
   itself.** It is an orphaned workflow reference, not a real build failure —
   safe to disregard as a merge blocker. Cleaning it up is a housekeeping item.
-- **Two merged branches need deleting on GitHub:**
-  `claude/finish-app-batch1` and `claude/page-layout-art-gap`. Branch
-  deletion from the automated environment fails with an HTTP 403 from the git
-  proxy, so this is a manual click in GitHub.
+- **29 merged branches need deleting on GitHub.** Re-inventoried 2026-07-29:
+  33 branches remain on the server, 29 of them already fully in `main` (each
+  verified twice — a merged pull request with that branch as head, and its
+  squash commit found on `main`). The two branches named here previously
+  (`claude/finish-app-batch1`, `claude/page-layout-art-gap`) are already gone.
+  Branch deletion from the automated environment still fails with an HTTP 403
+  from the git proxy, and the GitHub tools available there can create refs but
+  not delete them, so this stays an owner-side step: run
+  `scratch/delete-merged-branches-2026-07-29.sh` from a machine signed in with
+  the GitHub CLI. Full list, plus the 2 unmerged branches and 3 open pull
+  requests that need an owner decision, in
+  `docs/BRANCH-INVENTORY-REPORT.md` → "Re-inventory — 2026-07-29".

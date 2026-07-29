@@ -16,13 +16,19 @@
 // In practice that means the five vowels, plus the lesson's own consonant
 // family (ma/me/mi/mo/mu for the m lesson, pa/pe/pi/po/pu for p). A child must
 // never be asked to reject a syllable they have not been taught, because the
-// rejection teaches nothing — it is a guess. `decoys-taught-only.test.ts`
-// enforces this so it cannot regress.
+// rejection teaches nothing — it is a guess. `__tests__/taught-order.test.ts`
+// enforces this so it cannot regress, reading the teaching order out of
+// `lesson-meta.ts` rather than keeping a second copy of it here.
 //
 // This rule previously read "real syllables from the same lesson's own words".
 // The vowel lesson broke it in both directions: `sa` and `lo` appear in none of
 // its words AND belong to the s and l families, which the book does not reach
-// until lessons 9 and 11.
+// until lessons 9 and 12.
+//
+// The rule governs DECOYS only. A lesson's own words may still need a syllable
+// from later on — "oso" needs `so` (lesson 9) at a lesson-2 vowel lesson — and
+// those word lists are the owner's, not ours. The test pins them as a reviewed
+// set instead of failing on them.
 import type { GameContent } from "@/lib/games/gameContent";
 
 const ART = "/cartilla/art/faithful";
@@ -45,9 +51,10 @@ export const SILABAS_VOCAL_O: GameContent = {
     { word: "oveja", syllables: ["o", "ve", "ja"], imageUrl: `${ART}/vocal-o/oveja.webp` },
   ],
   // Decoys are the other vowels. This is a vowel lesson, so the five vowels are
-  // the only material the child has been taught; the previous decoys (`sa`,
-  // `lo`) came from the s and l families, which the book does not reach until
-  // lessons 9 and 11.
+  // the only material the child has been taught — all five arrive together in
+  // lesson 1, "Las hermanitas vocales". The previous decoys (`sa`, `lo`) came
+  // from the s and l families, which the book does not reach until lessons 9
+  // and 12.
   tiles: ["o", "so", "la", "ve", "ja", "a", "e"],
 };
 
