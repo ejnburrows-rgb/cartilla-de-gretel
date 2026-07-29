@@ -39,15 +39,20 @@ jobs:
       - name: Build
         run: pnpm run build
 
-      # Security note: GitHub's native secret scanning is paid on private repos.
-      # gitleaks should be added as a free replacement. Until then, this CI blocks
-      # on a simple regex scan for common secret patterns in the PR diff.
-      - name: Surface scan for secret-like strings in diff
-        if: github.event_name == 'pull_request'
-        run: |
-          git fetch origin ${{ github.base_ref }}
-          git diff origin/${{ github.base_ref }} -- . | grep -Ei '(api[_-]?key|secret|token|password|private[_-]?key|connection[_-]?string)' || true
-          echo "If any secret-like strings appeared above, block the PR and investigate."
-
       - name: Dependency audit (warning only)
         run: pnpm audit --audit-level moderate || true
+
+  secret-scan:
+    name: Secret scan (gitleaks)
+    runs-on: ubuntu-latest
+    steps:
+      # Full history so gitleaks can scan past commits too, not just the diff.
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # gitleaks is free for repos under personal accounts (no license needed).
+      - name: Run gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
