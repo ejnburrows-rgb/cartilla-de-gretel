@@ -2,6 +2,7 @@ import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
 import {
   summarizeStudentProgress,
+  completedLessonIds,
   checkNeedsAttention,
   buildRecentAccuracies,
   type LessonProgressRow,
@@ -54,14 +55,25 @@ type TeacherStudentWithClass = {
  * student's rows through the one shared progress-calculation module — the
  * same source every surface (roster, dashboard, student detail) reads, so
  * "lessons completed" never disagrees between screens. */
-async function fetchProgressStats(
-  studentIds: string[],
-): Promise<
-  Record<string, { lessons: number; lastSeen: string | null; completionPercent: number }>
+async function fetchProgressStats(studentIds: string[]): Promise<
+  Record<
+    string,
+    {
+      lessons: number;
+      lastSeen: string | null;
+      completionPercent: number;
+      completedLessonIds: string[];
+    }
+  >
 > {
   const stats: Record<
     string,
-    { lessons: number; lastSeen: string | null; completionPercent: number }
+    {
+      lessons: number;
+      lastSeen: string | null;
+      completionPercent: number;
+      completedLessonIds: string[];
+    }
   > = {};
   if (studentIds.length === 0) return stats;
 
@@ -81,6 +93,7 @@ async function fetchProgressStats(
       lessons: summary.completedLessons,
       lastSeen: summary.lastActiveAt,
       completionPercent: summary.completionPercent,
+      completedLessonIds: Array.from(completedLessonIds(byStudent[id] ?? [])),
     };
   }
   return stats;
@@ -392,15 +405,18 @@ export async function getClassProgress(input: Call<{ id: string }>) {
 
   const perStudent: Record<
     string,
-    { id: string; name: string; lessons: Set<string>; score: number; total: number; time: number }
+    { id: string; name: string; score: number; total: number; time: number }
   > = {};
-  const perLesson: Record<string, { score: number; total: number; completedBy: Set<string> }> = {};
+  // completedBy is filled in below from progressStats (student_lesson_progress
+  // via progress-calculation.ts), not from "lesson_completed" events — same
+  // rule as everywhere else, so this can't disagree with the student's own
+  // completion status.
+  const perLesson: Record<string, { score: number; total: number }> = {};
   const latestExercise = new Set<string>();
   (students ?? []).forEach((s: { id: string; display_name: string }) => {
     perStudent[s.id] = {
       id: s.id,
       name: s.display_name,
-      lessons: new Set(),
       score: 0,
       total: 0,
       time: 0,
@@ -439,11 +455,7 @@ export async function getClassProgress(input: Call<{ id: string }>) {
           createdAt: e.created_at,
         });
       }
-      const pl = (perLesson[e.lesson_id] ??= { score: 0, total: 0, completedBy: new Set() });
-      if (e.event_kind === "lesson_completed") {
-        ps.lessons.add(e.lesson_id);
-        pl.completedBy.add(e.student_id);
-      }
+      const pl = (perLesson[e.lesson_id] ??= { score: 0, total: 0 });
       if (e.event_kind === "exercise") {
         const key = `${e.student_id}:${e.lesson_id}:${exerciseName(e)}`;
         if (latestExercise.has(key)) return;
@@ -511,14 +523,25 @@ export async function getClassProgress(input: Call<{ id: string }>) {
     });
   }
 
+  // completedBy per lesson, inverted from each student's own completedLessonIds
+  // (progress-calculation.ts) rather than counted from "lesson_completed"
+  // events — the 24-lesson grid and this per-lesson count must never disagree
+  // about the same student.
+  const completedByLesson: Record<string, number> = {};
+  for (const id of ids) {
+    for (const lessonId of progressStats[id]?.completedLessonIds ?? []) {
+      completedByLesson[lessonId] = (completedByLesson[lessonId] ?? 0) + 1;
+    }
+  }
+
   return {
     recentEvents,
     attentionByStudent,
     perStudent: Object.values(perStudent).map((s) => ({
       id: s.id,
       name: s.name,
-      lessonsCount: s.lessons.size,
-      completedLessonIds: Array.from(s.lessons),
+      lessonsCount: progressStats[s.id]?.lessons ?? 0,
+      completedLessonIds: progressStats[s.id]?.completedLessonIds ?? [],
       accuracy: s.total > 0 ? s.score / s.total : null,
       timeSeconds: s.time,
     })),
@@ -526,7 +549,7 @@ export async function getClassProgress(input: Call<{ id: string }>) {
       Object.entries(perLesson).map(([k, v]) => [
         k,
         {
-          completedBy: v.completedBy.size,
+          completedBy: completedByLesson[k] ?? 0,
           accuracy: v.total > 0 ? v.score / v.total : null,
         },
       ]),

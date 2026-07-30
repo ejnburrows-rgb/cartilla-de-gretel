@@ -19,6 +19,7 @@ import { isSeedAdmin, isSeedSessionActive } from "@/lib/seed-data";
 import {
   buildRecentAccuracies,
   checkNeedsAttention,
+  completedLessonIds,
   summarizeStudentProgress,
   type LessonProgressRow,
 } from "@/lib/progress-calculation";
@@ -232,7 +233,12 @@ export async function getLiveAdminOverview(): Promise<AdminOverview | null> {
     let score = 0;
     let total = 0;
     let seconds = 0;
-    const completedLessons = new Set<string>();
+    // Same rule as every teacher's own class overview: completed lessons come
+    // from each student's own student_lesson_progress rows via
+    // progress-calculation.ts, never a separate "lesson_completed" event
+    // count — the admin roll-up is a sum of what each teacher already sees,
+    // not a second opinion about the same child.
+    let lessonsCompleted = 0;
 
     for (const s of roster) {
       for (const e of eventsByStudent.get(s.id) ?? []) {
@@ -241,10 +247,8 @@ export async function getLiveAdminOverview(): Promise<AdminOverview | null> {
           total += e.total ?? 0;
         }
         seconds += e.time_seconds ?? 0;
-        if (e.event_kind === "lesson_completed" && e.lesson_id) {
-          completedLessons.add(`${s.id}:${e.lesson_id}`);
-        }
       }
+      lessonsCompleted += completedLessonIds(lessonRowsByStudent.get(s.id) ?? []).size;
     }
     globalScore += score;
     globalTotal += total;
@@ -259,7 +263,7 @@ export async function getLiveAdminOverview(): Promise<AdminOverview | null> {
       studentCount: roster.length,
       accuracy: total > 0 ? score / total : null,
       totalMinutes: Math.round(seconds / 60),
-      lessonsCompleted: completedLessons.size,
+      lessonsCompleted,
       attentionCount: classAttention,
     };
     const list = byTeacher.get(c.teacher_id) ?? [];

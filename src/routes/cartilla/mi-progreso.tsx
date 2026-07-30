@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { ArrowLeft, Award, BookOpen, Clock, Download, Sparkles, Target } from "lucide-react";
 import { getProgressWithSession } from "@/lib/secure-student-access";
 import { getStudentSession, useStudentSession } from "@/lib/student-session";
+import { completedLessonIds, type LessonProgressRow } from "@/lib/progress-calculation";
 import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
 import { SimpleBarChart } from "@/components/cartilla/SimpleBarChart";
 import { useRewards } from "@/lib/rewards";
@@ -57,14 +58,18 @@ function MyProgress() {
 
   const summary = useMemo(() => {
     if (!data) return null;
-    const completed = new Set<string>();
+    // Completion comes only from the shared progress-calculation module, fed
+    // by this student's own student_lesson_progress rows — the same source
+    // the teacher's roster and student-detail pages use, never a separate
+    // "lesson_completed" event scan, so this page can't disagree with them.
+    const lessonProgress = (data as { lessonProgress?: LessonProgressRow[] }).lessonProgress ?? [];
+    const completed = completedLessonIds(lessonProgress);
     const exByLesson: Record<string, { score: number; total: number; runs: number }> = {};
     const latestExerciseKeys = new Set<string>();
     let timeTotal = 0;
     const badges: string[] = [];
     let level: string | null = null;
     for (const e of data.events) {
-      if (e.event_kind === "lesson_completed") completed.add(e.lesson_id);
       if (
         e.event_kind === "exercise" &&
         typeof e.score === "number" &&
@@ -85,13 +90,6 @@ function MyProgress() {
       if (e.event_kind === "badge") badges.push(String((e.meta ?? {}).name ?? "Insignia"));
       if (e.event_kind === "level" && !level) level = String((e.meta ?? {}).level ?? "—");
     }
-    const dbCompleted = (
-      (data as { lessonProgress?: Array<{ lesson_id: string; status: string }> }).lessonProgress ??
-      []
-    )
-      .filter((row) => row.status === "completed")
-      .map((row) => row.lesson_id);
-    dbCompleted.forEach((lessonId) => completed.add(lessonId));
     const weak = Object.entries(exByLesson)
       .filter(([, s]) => s.total >= 3 && s.score / s.total < 0.7)
       .map(([lesson]) => lesson);

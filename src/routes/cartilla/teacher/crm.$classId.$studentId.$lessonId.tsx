@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Clock, Award, CheckCircle2 } from "lucide-react";
 import { isSeedSessionActive } from "@/lib/seed-data";
 import { fetchCrmStudentProgress } from "@/lib/crm-student-progress";
+import { computeLessonStatus } from "@/lib/progress-calculation";
 import { CATALOG } from "@/lib/lesson-catalog";
 import { CrmBreadcrumbs } from "@/features/teacher-crm/components/CrmBreadcrumbs";
 
@@ -34,9 +35,13 @@ function LeccionDetail() {
     [progress, lessonId],
   );
 
-  const completed = lessonEvents.some(
-    (e: { event_kind: string }) => e.event_kind === "lesson_completed",
+  // Same rule as the roster and the student's own progress page: completion
+  // comes from this lesson's student_lesson_progress row, never from scanning
+  // for a "lesson_completed" event — so this page can't disagree with either.
+  const lessonProgressRow = (progress?.lessonProgress ?? []).find(
+    (row) => row.lesson_id === lessonId,
   );
+  const completed = computeLessonStatus(lessonProgressRow) === "completed";
   const exerciseEvents = lessonEvents.filter(
     (e: { event_kind: string }) => e.event_kind === "exercise",
   );

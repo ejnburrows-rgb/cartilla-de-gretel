@@ -314,6 +314,64 @@ describe("teacher.functions tests", () => {
       expect(result.perLesson).toEqual({});
       expect(result.attentionByStudent).toEqual({});
     });
+
+    // Item 3 (progress-calculation.ts as the one source of truth): a stray
+    // "lesson_completed" event with no matching student_lesson_progress row
+    // (e.g. a write that updated progress_events but not the status table)
+    // must NOT be counted as completed — completion comes only from the
+    // status row, same rule this test's fixture also checks against
+    // getSeedClassProgress/getSeedTeacherStudentProgress in
+    // progress-consistency.test.ts.
+    it("ignores a lesson_completed event with no matching status row", async () => {
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
+      const STUDENT_A = "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa";
+      const STUDENT_B = "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb";
+
+      const ownsClass = makeQueryBuilder(ok({ id: CLASS_ID }));
+      const students = makeQueryBuilder(
+        ok([
+          { id: STUDENT_A, display_name: "Ana" },
+          { id: STUDENT_B, display_name: "Beto" },
+        ]),
+      );
+      const events = makeQueryBuilder(
+        ok([
+          // Stray: no student_lesson_progress row exists for B/lesson 3 below.
+          {
+            student_id: STUDENT_B,
+            lesson_id: "3",
+            event_kind: "lesson_completed",
+            score: null,
+            total: null,
+            time_seconds: null,
+            meta: null,
+            created_at: "2026-07-01T00:00:00Z",
+          },
+        ]),
+      );
+      const exerciseSummaries = makeQueryBuilder(ok([]));
+      const assignments = makeQueryBuilder(ok([]));
+      const lessonProgressRows = makeQueryBuilder(
+        ok([{ student_id: STUDENT_A, lesson_id: "1", status: "completed" }]),
+      );
+      vi.mocked(supabase.from)
+        .mockReturnValueOnce(ownsClass as never)
+        .mockReturnValueOnce(students as never)
+        .mockReturnValueOnce(events as never)
+        .mockReturnValueOnce(exerciseSummaries as never)
+        .mockReturnValueOnce(assignments as never)
+        .mockReturnValueOnce(lessonProgressRows as never);
+
+      const result = await getClassProgress({ data: { id: CLASS_ID } });
+
+      const a = result.perStudent.find((s) => s.id === STUDENT_A);
+      const b = result.perStudent.find((s) => s.id === STUDENT_B);
+      expect(a?.lessonsCount).toBe(1);
+      expect(a?.completedLessonIds).toEqual(["1"]);
+      expect(b?.lessonsCount).toBe(0);
+      expect(b?.completedLessonIds).toEqual([]);
+      expect(result.perLesson["3"]?.completedBy).toBe(0);
+    });
   });
 
   describe("findStudentsByName", () => {

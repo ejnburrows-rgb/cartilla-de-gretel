@@ -1,5 +1,10 @@
 import { TOTAL_LESSONS } from "@/lib/lesson-catalog";
-import { checkNeedsAttention } from "@/lib/progress-calculation";
+import {
+  checkNeedsAttention,
+  completedLessonIds,
+  summarizeStudentProgress,
+  type LessonProgressRow,
+} from "@/lib/progress-calculation";
 
 export const SEED_TEACHERS = [
   {
@@ -626,32 +631,17 @@ export function listSeedStudentAssignments(input: {
     .sort((a, b) => b.created_at.localeCompare(a.created_at));
 }
 
-export function getSeedStudentProgress(studentId: string) {
-  const state = readState();
-  const student = state.students.find((s) => s.id === studentId);
-  if (!student) throw new Error("Alumno no encontrado.");
-  const cls = state.classes.find((c) => c.id === student.class_id) ?? null;
-  const events = state.events.filter((e) => e.student_id === studentId);
-  return {
-    student: { display_name: student.display_name, student_code: student.student_code },
-    class: cls ? { name: cls.name } : null,
-    events,
-    lessonProgress: Array.from(
-      new Set(events.filter((e) => e.event_kind === "lesson_completed").map((e) => e.lesson_id)),
-    ).map((lesson_id) => ({ lesson_id, status: "completed" })),
-  };
-}
-
-export function getSeedTeacherStudentProgress(id: string) {
-  const state = readState();
-  const student = state.students.find((s) => s.id === id);
-  if (!student) throw new Error("Alumno no encontrado.");
-  const cls = state.classes.find((c) => c.id === student.class_id) ?? null;
-  const events = state.events.filter((e) => e.student_id === id);
-
-  const lessonIds = new Set(events.map((e) => e.lesson_id));
-  const lessonProgress = Array.from(lessonIds).map((lesson_id) => {
-    const lessonEvents = events.filter((e) => e.lesson_id === lesson_id);
+/** The one rule for turning a seed student's raw events into lesson-status
+ * rows shaped like the real `student_lesson_progress` table, so every seed
+ * surface that needs "is this lesson completed" runs it through
+ * progress-calculation.ts instead of re-deriving its own opinion from events.
+ * `studentEvents` must already be filtered to the one student. */
+function deriveSeedLessonProgress(
+  studentEvents: Array<{ event_kind: string; lesson_id: string; created_at: string }>,
+): LessonProgressRow[] {
+  const lessonIds = new Set(studentEvents.map((e) => e.lesson_id));
+  return Array.from(lessonIds).map((lesson_id) => {
+    const lessonEvents = studentEvents.filter((e) => e.lesson_id === lesson_id);
     const completed = lessonEvents.some((e) => e.event_kind === "lesson_completed");
     const lastActive = lessonEvents
       .map((e) => e.created_at)
@@ -663,6 +653,15 @@ export function getSeedTeacherStudentProgress(id: string) {
       last_active_at: lastActive ?? null,
     };
   });
+}
+
+export function getSeedTeacherStudentProgress(id: string) {
+  const state = readState();
+  const student = state.students.find((s) => s.id === id);
+  if (!student) throw new Error("Alumno no encontrado.");
+  const cls = state.classes.find((c) => c.id === student.class_id) ?? null;
+  const events = state.events.filter((e) => e.student_id === id);
+  const lessonProgress = deriveSeedLessonProgress(events);
 
   return {
     student: {
@@ -675,6 +674,7 @@ export function getSeedTeacherStudentProgress(id: string) {
     class: cls,
     events,
     lessonProgress,
+    summary: summarizeStudentProgress(lessonProgress),
     assignments: cls ? state.assignments.filter((a) => a.class_id === cls.id) : [],
   };
 }
@@ -683,10 +683,11 @@ export function getSeedClassProgress(classId: string) {
   const state = readState();
   const studentIds = state.students.filter((s) => s.class_id === classId).map((s) => s.id);
   const events = state.events.filter((e) => studentIds.includes(e.student_id));
-  const perLesson: Record<string, { score: number; total: number; completedBy: Set<string> }> = {};
+  // completedBy is derived below from each student's own completedLessonIds
+  // (progress-calculation.ts), not tracked here from "lesson_completed" events.
+  const perLesson: Record<string, { score: number; total: number }> = {};
   events.forEach((e) => {
-    const row = (perLesson[e.lesson_id] ??= { score: 0, total: 0, completedBy: new Set() });
-    if (e.event_kind === "lesson_completed") row.completedBy.add(e.student_id);
+    const row = (perLesson[e.lesson_id] ??= { score: 0, total: 0 });
     if (e.event_kind === "exercise") {
       row.score += e.score ?? 0;
       row.total += e.total ?? 0;
@@ -752,6 +753,22 @@ export function getSeedClassProgress(classId: string) {
     attentionByStudent[s.id] = checkNeedsAttention({ lastActiveAt, recentAccuracies });
   });
 
+  // Same rule as the live getClassProgress(): derive each student's completed
+  // lessons through progress-calculation.ts from their own lesson-status rows,
+  // never a separate "lesson_completed" event count, so the class roster and
+  // that student's own detail page can't disagree.
+  const completedIdsByStudent: Record<string, Set<string>> = {};
+  for (const s of classStudents) {
+    const studentEvents = events.filter((e) => e.student_id === s.id);
+    completedIdsByStudent[s.id] = completedLessonIds(deriveSeedLessonProgress(studentEvents));
+  }
+  const completedByLesson: Record<string, number> = {};
+  for (const ids of Object.values(completedIdsByStudent)) {
+    for (const lessonId of ids) {
+      completedByLesson[lessonId] = (completedByLesson[lessonId] ?? 0) + 1;
+    }
+  }
+
   return {
     recentEvents,
     attentionByStudent,
@@ -762,21 +779,12 @@ export function getSeedClassProgress(classId: string) {
         total: 0,
         time: 0,
       };
+      const completed = completedIdsByStudent[s.id] ?? new Set<string>();
       return {
         id: s.id,
         name: s.display_name,
-        lessonsCount: new Set(
-          events
-            .filter((e) => e.student_id === s.id && e.event_kind === "lesson_completed")
-            .map((e) => e.lesson_id),
-        ).size,
-        completedLessonIds: Array.from(
-          new Set(
-            events
-              .filter((e) => e.student_id === s.id && e.event_kind === "lesson_completed")
-              .map((e) => e.lesson_id),
-          ),
-        ),
+        lessonsCount: completed.size,
+        completedLessonIds: Array.from(completed),
         accuracy: total > 0 ? score / total : null,
         timeSeconds: time,
       };
@@ -785,7 +793,7 @@ export function getSeedClassProgress(classId: string) {
       Object.entries(perLesson).map(([lesson, row]) => [
         lesson,
         {
-          completedBy: row.completedBy.size,
+          completedBy: completedByLesson[lesson] ?? 0,
           accuracy: row.total > 0 ? row.score / row.total : null,
         },
       ]),

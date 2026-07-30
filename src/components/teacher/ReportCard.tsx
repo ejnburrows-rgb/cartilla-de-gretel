@@ -16,6 +16,7 @@ import {
   Check,
 } from "lucide-react";
 import { TOTAL_LESSONS } from "@/lib/lesson-catalog";
+import { summarizeStudentProgress, type LessonProgressRow } from "@/lib/progress-calculation";
 interface ReportCardProps {
   classId: string;
   studentId: string | null;
@@ -118,9 +119,13 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
   // ── Render Individual Student Report ──
   if (studentId && studentData) {
     const { student, class: classObj, events } = studentData;
+    const lessonProgress = (studentData as { lessonProgress?: LessonProgressRow[] }).lessonProgress;
 
-    // Aggregations
-    const completedLessons = events.filter((e: ReportEvent) => e.event_kind === "lesson_completed");
+    // Aggregations — completed-lesson count comes from the shared
+    // progress-calculation module (student_lesson_progress rows), the same
+    // source the roster and the student's own page use, never a separate
+    // "lesson_completed" event count.
+    const completedLessonsCount = summarizeStudentProgress(lessonProgress ?? []).completedLessons;
     const exerciseEvents = events.filter((e: ReportEvent) => e.event_kind === "exercise");
     const totalScore = exerciseEvents.reduce(
       (sum: number, e: ReportEvent) => sum + (e.score || 0),
@@ -166,7 +171,7 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
               <BookOpen className="w-6 h-6" />
             </div>
             <div>
-              <div className={metricValClass}>{completedLessons.length}</div>
+              <div className={metricValClass}>{completedLessonsCount}</div>
               <div className={metricLblClass}>Lecciones Completas</div>
             </div>
           </div>

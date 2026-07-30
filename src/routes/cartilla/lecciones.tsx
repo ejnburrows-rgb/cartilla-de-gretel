@@ -4,6 +4,7 @@ import { ArrowLeft, BookOpen, Check, Lock, RotateCcw, Sparkles, Zap } from "luci
 import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
 import { hydrateLessonProgress, useLessonProgress } from "@/lib/lesson-progress";
 import { getProgressWithSession } from "@/lib/secure-student-access";
+import { completedLessonIds, type LessonProgressRow } from "@/lib/progress-calculation";
 import { useStudentSession } from "@/lib/student-session";
 import { useLanguage } from "@/context/LanguageContext";
 import { sCopy } from "@/content/student-copy";
@@ -26,20 +27,15 @@ function Lecciones() {
     if (!session) return;
     getProgressWithSession(session, session.studentId)
       .then((data) => {
-        const fromRows = (
-          (data as { lessonProgress?: Array<{ lesson_id: string; status: string }> })
-            .lessonProgress ?? []
-        )
-          .filter((row) => row.status === "completed")
-          .map((row) => Number(row.lesson_id))
+        // Same rule as every other progress surface: completion comes from
+        // student_lesson_progress via progress-calculation.ts, never a
+        // separate "lesson_completed" event scan.
+        const lessonProgress =
+          (data as { lessonProgress?: LessonProgressRow[] }).lessonProgress ?? [];
+        const completedIds = Array.from(completedLessonIds(lessonProgress))
+          .map(Number)
           .filter((n) => Number.isFinite(n));
-        const fromEvents = (
-          (data as { events?: Array<{ lesson_id: string; event_kind: string }> }).events ?? []
-        )
-          .filter((event) => event.event_kind === "lesson_completed")
-          .map((event) => Number(event.lesson_id))
-          .filter((n) => Number.isFinite(n));
-        hydrateLessonProgress(Array.from(new Set([...fromRows, ...fromEvents])));
+        hydrateLessonProgress(completedIds);
       })
       .catch(() => undefined);
   }, [session]);
