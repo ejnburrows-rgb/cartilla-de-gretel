@@ -6,8 +6,12 @@
 /** Soft cubic used for elegant page / flipchart turns (not linear, not springy). */
 export const ELEGANT_EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
 
-/** Student workbook page-turn duration (ms). Spec: 600–900ms. */
-export const STUDENT_PAGE_TURN_MS = 780;
+/**
+ * Student workbook page-turn duration (ms).
+ * Keep navigation quick and functional: the previous 780ms theatrical curl
+ * made every exercise page feel blocked after the child pressed Next.
+ */
+export const STUDENT_PAGE_TURN_MS = 220;
 
 /** Teacher flipchart vertical flip duration (ms). */
 export const FLIPCHART_FLIP_MS = 820;
