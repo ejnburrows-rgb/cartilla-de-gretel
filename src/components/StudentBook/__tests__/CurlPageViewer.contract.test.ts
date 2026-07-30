@@ -1,0 +1,40 @@
+import { describe, expect, it } from "vitest";
+import {
+  PRINTED_PAGE_HEIGHT,
+  PRINTED_PAGE_WIDTH,
+  SINGLE_PAGE_ASPECT_RATIO,
+  SPREAD_ASPECT_RATIO,
+  SPREAD_BREAKPOINT_PX,
+  clampPageIndex,
+  visiblePageLabel,
+} from "../CurlPageViewer";
+
+describe("CurlPageViewer physical contracts", () => {
+  it("uses the verified 612 × 792 printed trim for single pages and spreads", () => {
+    expect(PRINTED_PAGE_WIDTH).toBe(612);
+    expect(PRINTED_PAGE_HEIGHT).toBe(792);
+    expect(SINGLE_PAGE_ASPECT_RATIO).toBe("612 / 792");
+    expect(SPREAD_ASPECT_RATIO).toBe("1224 / 792");
+  });
+
+  it("keeps the responsive spread threshold explicit", () => {
+    expect(SPREAD_BREAKPOINT_PX).toBe(760);
+  });
+
+  it("clamps stale saved progress to a real page", () => {
+    expect(clampPageIndex(-4, 4)).toBe(0);
+    expect(clampPageIndex(99, 4)).toBe(3);
+    expect(clampPageIndex(2, 4)).toBe(2);
+    expect(clampPageIndex(1, 0)).toBe(0);
+  });
+
+  it("describes one visible page on portrait screens", () => {
+    expect(visiblePageLabel(1, 4, false)).toBe("Página 2 de 4");
+  });
+
+  it("describes both visible leaves in a desktop spread", () => {
+    expect(visiblePageLabel(0, 4, true)).toBe("Páginas 1–2 de 4");
+    expect(visiblePageLabel(2, 4, true)).toBe("Páginas 3–4 de 4");
+    expect(visiblePageLabel(4, 5, true)).toBe("Página 5 de 5");
+  });
+});
