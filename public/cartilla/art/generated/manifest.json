@@ -1,5 +1,5 @@
 {
-  "$comment": "Generated scene art — splash and app chrome ONLY. See AGENTS.md, section 'Generated scene art' (owner decision 2026-07-25). Never used inside lesson content: workbook cells, page-layouts.json illustrationSrc, the flipchart and anything drawn by FaithfulPageRenderer stay faithful-crop-only. Add one entry per approved image; the owner generates and approves the image, agents only wire it.",
+  "$comment": "Generated art registry. Scene art remains outside lesson content by default. The six lesson-replacement entries below are a specific owner-approved exception dated 2026-07-29 for words proven to have no authentic color source in the workbook or 62-page flipchart.",
   "scenes": [
     {
       "slug": "welcome-splash",
@@ -10,8 +10,15 @@
       "height": 1024,
       "tool": "owner-supplied generated image",
       "createdAt": "2026-07-25",
-      "reviewedBy": "EJN",
-      "notes": "Owner-generated and owner-approved crowded-garden welcome scene: Gretel front and centre holding the book, surrounded by the book's characters. Delivered as PNG (3.5 MB, 1536x1024) and re-encoded to webp at two widths for the landing page — format/compression only, the artwork itself is unaltered. Headline text is NOT baked in; '¡Bienvenidos!' and the Entrar button are real HTML/CSS."
+      "reviewedBy": "EJN"
     }
+  ],
+  "lessonReplacements": [
+    { "slug": "abeja", "src": "/cartilla/art/generated/lesson-replacements/abeja.svg", "tool": "AI-generated vector", "createdAt": "2026-07-29", "approvedBy": "EJN" },
+    { "slug": "aguja", "src": "/cartilla/art/generated/lesson-replacements/aguja.svg", "tool": "AI-generated vector", "createdAt": "2026-07-29", "approvedBy": "EJN" },
+    { "slug": "abrigo", "src": "/cartilla/art/generated/lesson-replacements/abrigo.svg", "tool": "AI-generated vector", "createdAt": "2026-07-29", "approvedBy": "EJN" },
+    { "slug": "remolino", "src": "/cartilla/art/generated/lesson-replacements/remolino.svg", "tool": "AI-generated vector", "createdAt": "2026-07-29", "approvedBy": "EJN" },
+    { "slug": "globo", "src": "/cartilla/art/generated/lesson-replacements/globo.svg", "tool": "AI-generated vector", "createdAt": "2026-07-29", "approvedBy": "EJN" },
+    { "slug": "oruga", "src": "/cartilla/art/generated/lesson-replacements/oruga.svg", "tool": "AI-generated vector", "createdAt": "2026-07-29", "approvedBy": "EJN" }
   ]
 }
