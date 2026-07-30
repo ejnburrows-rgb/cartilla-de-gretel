@@ -1,5 +1,5 @@
 {
-  "$comment": "Generated art registry. Scene art remains outside lesson content by default. The six lesson-replacement entries below are a specific owner-approved exception dated 2026-07-29 for words proven to have no authentic color source in the workbook or 62-page flipchart.",
+  "$comment": "Generated art registry. Scene art remains outside lesson content by default. Lesson replacements are owner-approved exceptions for words with no usable authentic color source.",
   "scenes": [
     {
       "slug": "welcome-splash",
@@ -19,6 +19,7 @@
     { "slug": "abrigo", "src": "/cartilla/art/generated/lesson-replacements/abrigo.svg", "tool": "AI-generated vector", "createdAt": "2026-07-29", "approvedBy": "EJN" },
     { "slug": "remolino", "src": "/cartilla/art/generated/lesson-replacements/remolino.svg", "tool": "AI-generated vector", "createdAt": "2026-07-29", "approvedBy": "EJN" },
     { "slug": "globo", "src": "/cartilla/art/generated/lesson-replacements/globo.svg", "tool": "AI-generated vector", "createdAt": "2026-07-29", "approvedBy": "EJN" },
-    { "slug": "oruga", "src": "/cartilla/art/generated/lesson-replacements/oruga.svg", "tool": "AI-generated vector", "createdAt": "2026-07-29", "approvedBy": "EJN" }
+    { "slug": "oruga", "src": "/cartilla/art/generated/lesson-replacements/oruga.svg", "tool": "AI-generated vector", "createdAt": "2026-07-29", "approvedBy": "EJN" },
+    { "slug": "iglu", "src": "/cartilla/art/generated/lesson-replacements/iglu.svg", "tool": "AI-generated image, deterministic resize/encode", "createdAt": "2026-07-29", "approvedBy": "EJN", "replaces": "/cartilla/art/faithful/vocal-i/iglu.webp" }
   ]
 }

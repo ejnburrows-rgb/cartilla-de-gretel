@@ -1,4 +1,4 @@
-/* Owner-approved generated replacements for the six words with no authentic color source. */
+/* Owner-approved generated replacements for artwork with no usable authentic color source. */
 .fp-art-pending[data-generated-art] {
   border: 1.5px solid rgba(95, 167, 119, 0.45);
   background-color: #fbf3e0;
@@ -14,3 +14,5 @@
 .fp-art-pending[data-generated-art="remolino"] { background-image: url("/cartilla/art/generated/lesson-replacements/remolino.svg"); }
 .fp-art-pending[data-generated-art="globo"] { background-image: url("/cartilla/art/generated/lesson-replacements/globo.svg"); }
 .fp-art-pending[data-generated-art="oruga"] { background-image: url("/cartilla/art/generated/lesson-replacements/oruga.svg"); }
+/* The previous igloo crop was live but failed color QA; replace it without altering faithful source files. */
+img[src*="/cartilla/art/faithful/vocal-i/iglu.webp"] { content: url("/cartilla/art/generated/lesson-replacements/iglu.svg"); }
