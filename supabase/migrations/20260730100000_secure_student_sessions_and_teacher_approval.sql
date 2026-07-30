@@ -113,6 +113,7 @@ declare
   v_class record;
   v_student record;
   v_token text;
+  v_expires_at timestamptz;
 begin
   select id, name into v_class
   from public.classes
@@ -135,9 +136,10 @@ begin
   end if;
 
   v_token := encode(gen_random_bytes(32), 'hex');
+  v_expires_at := now() + interval '45 minutes';
 
   insert into public.student_sessions(class_id, student_id, session_token_hash, expires_at)
-  values (v_class.id, v_student.id, encode(digest(v_token, 'sha256'), 'hex'), now() + interval '45 minutes');
+  values (v_class.id, v_student.id, encode(digest(v_token, 'sha256'), 'hex'), v_expires_at);
 
   return query select
     v_student.id,
@@ -145,7 +147,7 @@ begin
     v_class.id,
     v_class.name,
     v_token,
-    now() + interval '45 minutes';
+    v_expires_at;
 end;
 $$;
 
@@ -190,7 +192,7 @@ begin
   end if;
 
   loop
-    v_new := upper(substr(encode(gen_random_bytes(8), 'base32'), 1, 6));
+    v_new := upper(substr(encode(gen_random_bytes(8), 'hex'), 1, 6));
     exit when not exists (select 1 from public.classes where join_code = v_new);
   end loop;
 
