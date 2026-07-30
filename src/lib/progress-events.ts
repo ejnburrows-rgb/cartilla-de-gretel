@@ -1,12 +1,12 @@
 import { getStudentSession } from "./student-session";
-import { logProgress } from "./student.functions";
+import { isSessionActive, logProgressWithSession } from "./secure-student-access";
 import type { InteractionKind } from "@/content/workbook/types";
 
 /**
  * CRM plumbing for the living-workbook-page engine's interactions. Reuses
- * the existing student_progress store exactly as-is (log_student_progress
- * RPC via logProgress — see src/lib/student.functions.ts) rather than
- * redesigning any tables: every manifest-specific field (physicalPage,
+ * the existing student_progress store exactly as-is (log_student_progress_secure
+ * RPC via logProgressWithSession — see src/lib/secure-student-access.ts) rather
+ * than redesigning any tables: every manifest-specific field (physicalPage,
  * mechanic, attempt) rides in that RPC's existing free-form `meta` bag,
  * the same pattern InteractivePageExercises.tsx already uses for its own
  * per-exercise metadata.
@@ -95,24 +95,21 @@ export async function flushProgressEvents(): Promise<void> {
   if (typeof navigator !== "undefined" && navigator.onLine === false) return;
 
   const session = getStudentSession();
-  if (!session) return; // stays queued until a real session exists
+  if (!session || !isSessionActive(session)) return; // stays queued until a real, active session exists
 
   const remaining: ProgressEvent[] = [];
   for (const event of queue) {
     try {
-      await logProgress({
-        data: {
-          studentId: session.studentId,
-          studentCode: session.studentCode,
-          lessonId: event.lesson !== null ? String(event.lesson) : "0",
-          kind: "exercise",
-          meta: {
-            exercise: `workbook_manifest_${event.type}`,
-            physicalPage: event.physicalPage,
-            mechanic: event.mechanic,
-            attempt: event.attempt,
-            progressEventType: event.type,
-          },
+      await logProgressWithSession(session, {
+        studentId: session.studentId,
+        lessonId: event.lesson !== null ? String(event.lesson) : "0",
+        kind: "exercise",
+        meta: {
+          exercise: `workbook_manifest_${event.type}`,
+          physicalPage: event.physicalPage,
+          mechanic: event.mechanic,
+          attempt: event.attempt,
+          progressEventType: event.type,
         },
       });
     } catch (err) {

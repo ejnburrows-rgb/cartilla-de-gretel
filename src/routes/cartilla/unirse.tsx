@@ -2,7 +2,8 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { useServerFn } from "@/lib/useServerFn";
 import { ArrowLeft, Loader2, LogOut, KeyRound } from "lucide-react";
-import { listClassStudents, enterClassAsStudent } from "@/lib/student.functions";
+import { listClassStudents } from "@/lib/student.functions";
+import { enterClassWithScopedSession } from "@/lib/secure-student-access";
 import { setStudentSession, useStudentSession } from "@/lib/student-session";
 import { supabase } from "@/integrations/supabase/client";
 import { useLanguage } from "@/context/LanguageContext";
@@ -22,7 +23,7 @@ function JoinPage() {
   const t = sCopy;
   const navigate = useNavigate();
   const listStudents = useServerFn(listClassStudents);
-  const enterClass = useServerFn(enterClassAsStudent);
+  const enterClass = useServerFn(enterClassWithScopedSession);
   const session = useStudentSession();
   const [step, setStep] = useState<Step>("code");
   const [joinCode, setJoinCode] = useState("");
@@ -50,7 +51,7 @@ function JoinPage() {
     setError(null);
     try {
       await supabase.auth.signOut(); // Ensure no teacher session remains
-      const res = await enterClass({ data: { joinCode, studentId } });
+      const res = await enterClass({ joinCode, studentId });
       setStudentSession(res);
       navigate({ to: "/cartilla/lecciones" });
     } catch (err) {

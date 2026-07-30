@@ -1,23 +1,28 @@
 import { useEffect, useState } from "react";
-import { logProgress } from "@/lib/student.functions";
+import {
+  isSessionActive,
+  logProgressWithSession,
+  type ScopedStudentSession,
+} from "@/lib/secure-student-access";
 import { recordExerciseStat } from "@/lib/exercise-stats";
 
-export type StudentSession = {
-  studentId: string;
-  studentName: string;
-  studentCode: string;
-  classId: string;
-  className: string;
-};
+/** A scoped, expiring session — never a reusable student_code. See secure-student-access.ts. */
+export type StudentSession = ScopedStudentSession;
 
 const KEY = "cartilla.student-session.v1";
 
+/** Returns the stored session, or null if there is none or it has expired. */
 export function getStudentSession(): StudentSession | null {
   if (typeof window === "undefined") return null;
   try {
     const raw = localStorage.getItem(KEY);
     if (!raw) return null;
-    return JSON.parse(raw) as StudentSession;
+    const session = JSON.parse(raw) as StudentSession;
+    if (!isSessionActive(session)) {
+      localStorage.removeItem(KEY);
+      return null;
+    }
+    return session;
   } catch {
     return null;
   }
@@ -71,11 +76,8 @@ export function recordEvent(input: LogInput) {
   }
   const s = getStudentSession();
   if (!s) return;
-  logProgress({
-    data: {
-      studentId: s.studentId,
-      studentCode: s.studentCode,
-      ...input,
-    },
+  logProgressWithSession(s, {
+    studentId: s.studentId,
+    ...input,
   }).catch((err) => console.warn("recordEvent failed", err));
 }

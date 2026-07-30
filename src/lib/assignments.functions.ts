@@ -101,23 +101,8 @@ export async function deleteAssignment(input: Call<{ id: string }>) {
   return { ok: true };
 }
 
-/** Student session: list assignments only after validating the student's personal class code. */
-export async function listMyAssignments(
-  input: Call<{ classId: string; studentId: string; studentCode: string }>,
-) {
-  const data = z
-    .object({
-      classId: z.string().uuid(),
-      studentId: z.string().uuid(),
-      studentCode: z.string().trim().min(4).max(10),
-    })
-    .parse(input.data);
-
-  const { data: rows, error } = await supabase.rpc("get_student_assignments", {
-    p_class_id: data.classId,
-    p_student_id: data.studentId,
-    p_student_code: data.studentCode.toUpperCase(),
-  });
-  if (error) throw new Error(error.message || "No se pudieron cargar las tareas.");
-  return rows ?? [];
-}
+// Student session: listing a student's own assignments moved to
+// getMyAssignmentsWithSession in src/lib/secure-student-access.ts, which
+// authorizes with the scoped session token instead of the reusable
+// student_code this used to take. See
+// src/_archive/insecure-student-code-rpcs.ts for the retired version.

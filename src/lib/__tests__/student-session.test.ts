@@ -1,17 +1,33 @@
 /**
  * @vitest-environment jsdom
  */
-import { describe, it, expect, beforeEach } from "vitest";
-import { getStudentSession, setStudentSession, recordEvent } from "../student-session";
+import { describe, it, expect, beforeEach, vi } from "vitest";
+import {
+  getStudentSession,
+  setStudentSession,
+  recordEvent,
+  type StudentSession,
+} from "../student-session";
 import { getStats } from "../exercise-stats";
 
-const SAMPLE = {
-  studentId: "s1",
-  studentName: "Sofía",
-  studentCode: "SOFIA",
-  classId: "c1",
-  className: "Clase Demo",
-};
+vi.mock("../secure-student-access", async () => {
+  const actual = await vi.importActual<typeof import("../secure-student-access")>(
+    "../secure-student-access",
+  );
+  return { ...actual, logProgressWithSession: vi.fn() };
+});
+
+function futureSession(overrides: Partial<StudentSession> = {}): StudentSession {
+  return {
+    studentId: "s1",
+    studentName: "Sofía",
+    classId: "c1",
+    className: "Clase Demo",
+    sessionToken: "s".repeat(64),
+    expiresAt: new Date(Date.now() + 30 * 60_000).toISOString(),
+    ...overrides,
+  };
+}
 
 beforeEach(() => {
   localStorage.clear();
@@ -22,13 +38,14 @@ describe("student-session", () => {
     expect(getStudentSession()).toBeNull();
   });
 
-  it("round-trips a session through set/get", () => {
-    setStudentSession(SAMPLE);
-    expect(getStudentSession()).toEqual(SAMPLE);
+  it("round-trips an active session through set/get", () => {
+    const sample = futureSession();
+    setStudentSession(sample);
+    expect(getStudentSession()).toEqual(sample);
   });
 
   it("clears the session when set to null", () => {
-    setStudentSession(SAMPLE);
+    setStudentSession(futureSession());
     setStudentSession(null);
     expect(getStudentSession()).toBeNull();
   });
@@ -36,6 +53,13 @@ describe("student-session", () => {
   it("returns null for corrupt stored JSON", () => {
     localStorage.setItem("cartilla.student-session.v1", "{not json");
     expect(getStudentSession()).toBeNull();
+  });
+
+  it("treats an expired session as no session and clears storage", () => {
+    const expired = futureSession({ expiresAt: new Date(Date.now() - 1000).toISOString() });
+    setStudentSession(expired);
+    expect(getStudentSession()).toBeNull();
+    expect(localStorage.getItem("cartilla.student-session.v1")).toBeNull();
   });
 
   describe("recordEvent", () => {

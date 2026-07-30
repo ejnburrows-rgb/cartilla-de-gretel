@@ -3,12 +3,13 @@ import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 vi.mock("../student-session", () => ({
   getStudentSession: vi.fn(),
 }));
-vi.mock("../student.functions", () => ({
-  logProgress: vi.fn(),
+vi.mock("../secure-student-access", () => ({
+  logProgressWithSession: vi.fn(),
+  isSessionActive: vi.fn(() => true),
 }));
 
 import { getStudentSession } from "../student-session";
-import { logProgress } from "../student.functions";
+import { logProgressWithSession } from "../secure-student-access";
 import {
   emitProgressEvent,
   flushProgressEvents,
@@ -19,9 +20,10 @@ import {
 const session = {
   studentId: "s1",
   studentName: "Ana",
-  studentCode: "ABC123",
   classId: "c1",
   className: "Clase 1",
+  sessionToken: "s".repeat(64),
+  expiresAt: new Date(Date.now() + 30 * 60_000).toISOString(),
 };
 
 function setOnline(value: boolean) {
@@ -32,7 +34,7 @@ describe("progress-events", () => {
   beforeEach(() => {
     clearProgressEventsQueue();
     vi.mocked(getStudentSession).mockReturnValue(null);
-    vi.mocked(logProgress).mockReset();
+    vi.mocked(logProgressWithSession).mockReset();
     setOnline(true);
   });
 
@@ -48,8 +50,8 @@ describe("progress-events", () => {
     expect(queued[0].physicalPage).toBe(1);
   });
 
-  it("flushes and clears the queue once a real session exists and logProgress succeeds", async () => {
-    vi.mocked(logProgress).mockResolvedValue({ ok: true });
+  it("flushes and clears the queue once a real session exists and logProgressWithSession succeeds", async () => {
+    vi.mocked(logProgressWithSession).mockResolvedValue({ ok: true });
     emitProgressEvent({
       type: "answer_correct",
       physicalPage: 3,
@@ -59,13 +61,13 @@ describe("progress-events", () => {
     });
     vi.mocked(getStudentSession).mockReturnValue(session);
     await flushProgressEvents();
-    expect(logProgress).toHaveBeenCalledTimes(1);
+    expect(logProgressWithSession).toHaveBeenCalledTimes(1);
     expect(getQueuedProgressEvents()).toHaveLength(0);
   });
 
-  it("keeps an event queued when logProgress rejects (real retry, not fire-and-forget)", async () => {
+  it("keeps an event queued when logProgressWithSession rejects (real retry, not fire-and-forget)", async () => {
     vi.mocked(getStudentSession).mockReturnValue(session);
-    vi.mocked(logProgress).mockRejectedValue(new Error("network down"));
+    vi.mocked(logProgressWithSession).mockRejectedValue(new Error("network down"));
     emitProgressEvent({
       type: "page_completed",
       physicalPage: 5,
@@ -86,11 +88,11 @@ describe("progress-events", () => {
       mechanic: "mark-circle",
     });
     expect(getQueuedProgressEvents()).toHaveLength(1);
-    expect(logProgress).not.toHaveBeenCalled();
+    expect(logProgressWithSession).not.toHaveBeenCalled();
   });
 
   it("re-flushes automatically when the browser fires the 'online' event", async () => {
-    vi.mocked(logProgress).mockResolvedValue({ ok: true });
+    vi.mocked(logProgressWithSession).mockResolvedValue({ ok: true });
     setOnline(false);
     emitProgressEvent({
       type: "audio_played",
@@ -98,12 +100,12 @@ describe("progress-events", () => {
       lesson: 4,
       mechanic: "tap-to-hear",
     });
-    expect(logProgress).not.toHaveBeenCalled();
+    expect(logProgressWithSession).not.toHaveBeenCalled();
 
     vi.mocked(getStudentSession).mockReturnValue(session);
     setOnline(true);
     window.dispatchEvent(new Event("online"));
-    await vi.waitFor(() => expect(logProgress).toHaveBeenCalledTimes(1));
+    await vi.waitFor(() => expect(logProgressWithSession).toHaveBeenCalledTimes(1));
     expect(getQueuedProgressEvents()).toHaveLength(0);
   });
 });

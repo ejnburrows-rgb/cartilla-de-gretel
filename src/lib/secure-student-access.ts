@@ -207,3 +207,44 @@ export async function getProgressWithSession(
   if (error) throw new StudentAccessError();
   return data ?? { events: [], lessonProgress: [] };
 }
+
+/** Saves the reader's current page, scoped to the session's own child. */
+export async function saveLastPageWithSession(
+  session: ScopedStudentSession | null,
+  input: { studentId: string; lessonId: string; page: number },
+): Promise<{ ok: true }> {
+  assertSessionScope(session, { studentId: input.studentId });
+  const { error } = await supabase.rpc("save_last_page_secure", {
+    p_student_id: input.studentId,
+    p_class_id: session.classId,
+    p_session_token: session.sessionToken,
+    p_lesson_id: input.lessonId,
+    p_page: input.page,
+  });
+  if (error) throw new StudentAccessError();
+  return { ok: true };
+}
+
+export type StudentAssignmentRow = {
+  id: string;
+  lesson_id: string;
+  title: string | null;
+  due_at: string | null;
+  time_limit_seconds: number | null;
+  created_at: string;
+};
+
+/** Lists the session's own child's assignments. Never another child's. */
+export async function getMyAssignmentsWithSession(
+  session: ScopedStudentSession | null,
+  studentId: string,
+): Promise<StudentAssignmentRow[]> {
+  assertSessionScope(session, { studentId });
+  const { data, error } = await supabase.rpc("get_student_assignments_secure", {
+    p_class_id: session.classId,
+    p_student_id: studentId,
+    p_session_token: session.sessionToken,
+  });
+  if (error) throw new StudentAccessError();
+  return (data ?? []) as StudentAssignmentRow[];
+}

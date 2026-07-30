@@ -3,12 +3,7 @@
  */
 import { describe, it, expect, beforeEach, vi } from "vitest";
 import { supabase } from "@/integrations/supabase/client";
-import {
-  listAssignments,
-  createAssignment,
-  deleteAssignment,
-  listMyAssignments,
-} from "../assignments.functions";
+import { listAssignments, createAssignment, deleteAssignment } from "../assignments.functions";
 import { makeQueryBuilder, ok, fail, authedUser, signedOut } from "./supabase-query-mock";
 
 vi.mock("@/integrations/supabase/client", () => ({
@@ -16,7 +11,6 @@ vi.mock("@/integrations/supabase/client", () => ({
 }));
 
 const CLASS_ID = "11111111-1111-1111-1111-111111111111";
-const STUDENT_ID = "22222222-2222-2222-2222-222222222222";
 const ASSIGNMENT_ID = "33333333-3333-3333-3333-333333333333";
 
 describe("assignments.functions tests", () => {
@@ -109,33 +103,6 @@ describe("assignments.functions tests", () => {
 
       expect(deleteBuilder.delete).toHaveBeenCalled();
       expect(result).toEqual({ ok: true });
-    });
-  });
-
-  describe("listMyAssignments", () => {
-    it("calls the student RPC with an uppercased code", async () => {
-      const rows = [{ id: ASSIGNMENT_ID }];
-      vi.mocked(supabase.rpc).mockResolvedValue(ok(rows) as never);
-
-      const result = await listMyAssignments({
-        data: { classId: CLASS_ID, studentId: STUDENT_ID, studentCode: "abcd" },
-      });
-
-      expect(supabase.rpc).toHaveBeenCalledWith("get_student_assignments", {
-        p_class_id: CLASS_ID,
-        p_student_id: STUDENT_ID,
-        p_student_code: "ABCD",
-      });
-      expect(result).toEqual(rows);
-    });
-
-    it("throws when the RPC errors", async () => {
-      vi.mocked(supabase.rpc).mockResolvedValue(fail("nope") as never);
-      await expect(
-        listMyAssignments({
-          data: { classId: CLASS_ID, studentId: STUDENT_ID, studentCode: "abcd" },
-        }),
-      ).rejects.toThrow("nope");
     });
   });
 });

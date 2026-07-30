@@ -1,10 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect } from "react";
-import { useServerFn } from "@/lib/useServerFn";
 import { ArrowLeft, BookOpen, Check, Lock, RotateCcw, Sparkles, Zap } from "lucide-react";
 import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
 import { hydrateLessonProgress, useLessonProgress } from "@/lib/lesson-progress";
-import { getMyProgress } from "@/lib/student.functions";
+import { getProgressWithSession } from "@/lib/secure-student-access";
 import { useStudentSession } from "@/lib/student-session";
 import { useLanguage } from "@/context/LanguageContext";
 import { sCopy } from "@/content/student-copy";
@@ -21,12 +20,11 @@ function Lecciones() {
   const { lang } = useLanguage();
   const t = sCopy;
   const session = useStudentSession();
-  const fetchMyProgress = useServerFn(getMyProgress);
   const { isCompleted, isUnlocked, completed, reset } = useLessonProgress();
 
   useEffect(() => {
     if (!session) return;
-    fetchMyProgress({ data: { studentId: session.studentId, studentCode: session.studentCode } })
+    getProgressWithSession(session, session.studentId)
       .then((data) => {
         const fromRows = (
           (data as { lessonProgress?: Array<{ lesson_id: string; status: string }> })
@@ -44,7 +42,7 @@ function Lecciones() {
         hydrateLessonProgress(Array.from(new Set([...fromRows, ...fromEvents])));
       })
       .catch(() => undefined);
-  }, [fetchMyProgress, session]);
+  }, [session]);
   const doneCount = [...completed].filter((n) => n >= 1 && n <= TOTAL_LESSONS).length;
   const pct = Math.round((doneCount / TOTAL_LESSONS) * 100);
 

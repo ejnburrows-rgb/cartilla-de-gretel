@@ -528,6 +528,59 @@ export type Database = {
         };
         Returns: Json;
       };
+      // The four entries below mirror RPCs defined in the prepared-but-not-yet-applied
+      // migrations 20260730100002_secure_progress_rpcs_and_invitations.sql and
+      // 20260730100004_secure_student_assignments_rpc.sql. They are hand-added (not
+      // generated from the live database, since those migrations have not been applied
+      // there) so src/lib/secure-student-access.ts typechecks. Regenerate this file for
+      // real once the migration is applied, and this comment/section can go.
+      log_student_progress_secure: {
+        Args: {
+          p_student_id: string;
+          p_class_id: string;
+          p_session_token: string;
+          p_lesson_id: string;
+          p_event_kind: string;
+          p_score: number | null;
+          p_total: number | null;
+          p_time_seconds: number | null;
+          p_meta: Json | null;
+        };
+        Returns: undefined;
+      };
+      get_student_progress_secure: {
+        Args: {
+          p_student_id: string;
+          p_class_id: string;
+          p_session_token: string;
+        };
+        Returns: Json;
+      };
+      save_last_page_secure: {
+        Args: {
+          p_student_id: string;
+          p_class_id: string;
+          p_session_token: string;
+          p_lesson_id: string;
+          p_page: number;
+        };
+        Returns: undefined;
+      };
+      get_student_assignments_secure: {
+        Args: {
+          p_class_id: string;
+          p_student_id: string;
+          p_session_token: string;
+        };
+        Returns: {
+          id: string;
+          lesson_id: string;
+          title: string | null;
+          due_at: string | null;
+          time_limit_seconds: number | null;
+          created_at: string;
+        }[];
+      };
     };
     Enums: {
       app_role: "teacher" | "admin";

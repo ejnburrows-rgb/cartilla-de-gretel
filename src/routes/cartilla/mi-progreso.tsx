@@ -1,8 +1,8 @@
 ﻿import { createFileRoute, Link, redirect } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { ArrowLeft, Award, BookOpen, Clock, Download, Sparkles, Target } from "lucide-react";
-import { getMyProgress } from "@/lib/student.functions";
-import { getStudentSession } from "@/lib/student-session";
+import { getProgressWithSession } from "@/lib/secure-student-access";
+import { getStudentSession, useStudentSession } from "@/lib/student-session";
 import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
 import { SimpleBarChart } from "@/components/cartilla/SimpleBarChart";
 import { useRewards } from "@/lib/rewards";
@@ -39,9 +39,8 @@ type Event = {
 function MyProgress() {
   const { lang } = useLanguage();
   const t = sCopy;
+  const session = useStudentSession();
   const [data, setData] = useState<{
-    student: { display_name: string; student_code: string };
-    class: { name: string } | null;
     events: Event[];
   } | null>(null);
   const [loading, setLoading] = useState(true);
@@ -50,7 +49,7 @@ function MyProgress() {
   useEffect(() => {
     const s = getStudentSession();
     if (!s) return;
-    getMyProgress({ data: { studentId: s.studentId, studentCode: s.studentCode } })
+    getProgressWithSession(s, s.studentId)
       .then((r) => setData(r as never))
       .catch((e) => setError(e instanceof Error ? e.message : "Error desconocido"))
       .finally(() => setLoading(false));
@@ -118,7 +117,13 @@ function MyProgress() {
         porcentaje: ex && ex.total > 0 ? Math.round((ex.score / ex.total) * 100) + "%" : "",
       };
     });
-    downloadCSV(`mi-progreso-${data.student.student_code}.csv`, toCSV(rows));
+    const nameSlug = (session?.studentName ?? "estudiante")
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[̀-ͯ]/g, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+    downloadCSV(`mi-progreso-${nameSlug || "estudiante"}.csv`, toCSV(rows));
   };
 
   if (loading)
@@ -174,11 +179,10 @@ function MyProgress() {
         <header className="mt-6 flex items-start justify-between gap-3 flex-wrap">
           <div>
             <h1 className="text-3xl sm:text-4xl font-bold">
-              {t.holaName[lang].replace("{name}", data.student.display_name)}
+              {t.holaName[lang].replace("{name}", session?.studentName ?? "")}
             </h1>
             <p className="text-sm text-foreground/60 mt-1">
-              {t.clase[lang]} <strong>{data.class?.name ?? "—"}</strong> · {t.tuCodigo[lang]}{" "}
-              <span className="font-mono font-bold">{data.student.student_code}</span>
+              {t.clase[lang]} <strong>{session?.className ?? "—"}</strong>
             </p>
           </div>
           <KidButton

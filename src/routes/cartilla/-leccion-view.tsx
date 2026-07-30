@@ -1,14 +1,16 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useNavigate, useParams } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import { useServerFn } from "@/lib/useServerFn";
 import { ArrowLeft, ArrowRight, ClipboardList } from "lucide-react";
 import { CATALOG, TOTAL_LESSONS, type CatalogEntry } from "@/lib/lesson-catalog";
 import { useLessonProgress, isLessonUnlocked, markLessonCompleted } from "@/lib/lesson-progress";
 import { recordEvent, useStudentSession } from "@/lib/student-session";
 import { LessonTimer } from "@/components/cartilla/LessonTimer";
-import { listMyAssignments } from "@/lib/assignments.functions";
-import { getMyProgress, saveLastPage } from "@/lib/student.functions";
+import {
+  getMyAssignmentsWithSession,
+  getProgressWithSession,
+  saveLastPageWithSession,
+} from "@/lib/secure-student-access";
 import { useLanguage } from "@/context/LanguageContext";
 import { sCopy } from "@/content/student-copy";
 import { gretelEvent } from "@/lib/gretel-bus";
@@ -55,19 +57,10 @@ export function Leccion() {
   // shell around them changed (see SimplePageViewer).
   const pages = useMemo(() => buildPageArray(n), [n]);
 
-  const fetchAssignments = useServerFn(listMyAssignments);
   const { data: assignments } = useQuery({
     queryKey: ["my-assignments", session?.classId],
     queryFn: () =>
-      session
-        ? fetchAssignments({
-            data: {
-              classId: session.classId,
-              studentId: session.studentId,
-              studentCode: session.studentCode,
-            },
-          })
-        : Promise.resolve([]),
+      session ? getMyAssignmentsWithSession(session, session.studentId) : Promise.resolve([]),
     enabled: !!session,
   });
   const assignment = useMemo(
@@ -75,7 +68,6 @@ export function Leccion() {
     [assignments, n],
   );
 
-  const fetchProgress = useServerFn(getMyProgress);
   const {
     data: progressData,
     isFetched,
@@ -83,11 +75,7 @@ export function Leccion() {
   } = useQuery({
     queryKey: ["my-progress", session?.studentId],
     queryFn: () =>
-      session
-        ? fetchProgress({
-            data: { studentId: session.studentId, studentCode: session.studentCode },
-          })
-        : Promise.resolve(null),
+      session ? getProgressWithSession(session, session.studentId) : Promise.resolve(null),
     enabled: !!session,
     // Never block the workbook forever when Supabase is down / session is stale.
     retry: 1,
@@ -108,23 +96,19 @@ export function Leccion() {
   }, [session, progressData, n]);
 
   const gardenRef = useRef<HTMLDivElement>(null);
-  const saveLastPageFn = useServerFn(saveLastPage);
   const handlePageChange = (index: number) => {
     // Slight page-movement parallax on the garden scene — set imperatively so
     // the workbook and its interactive flip never re-render. CSS caps + eases
     // it and disables it under prefers-reduced-motion (garden-scene.css).
     gardenRef.current?.style.setProperty("--garden-parallax", String(index));
     if (!session) return;
-    void saveLastPageFn({
-      data: {
-        studentId: session.studentId,
-        studentCode: session.studentCode,
-        lessonId: String(n),
-        page: index,
-      },
+    void saveLastPageWithSession(session, {
+      studentId: session.studentId,
+      lessonId: String(n),
+      page: index,
     }).catch(() => {
       // Best-effort: last-page persistence is a resume convenience, never
-      // blocks reading. getMyProgress remains the source of truth next load.
+      // blocks reading. getProgressWithSession remains the source of truth next load.
     });
   };
 
