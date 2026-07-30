@@ -1,16 +1,26 @@
-name: Cartilla CI
+name: Cartilla PR Verification
 
 on:
   pull_request:
+    branches:
+      - main
   push:
     branches:
       - main
   workflow_dispatch:
 
+permissions:
+  contents: read
+
+concurrency:
+  group: cartilla-pr-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  validate:
-    name: Validate Cartilla
+  verify:
+    name: Full release gate
     runs-on: ubuntu-latest
+    timeout-minutes: 35
 
     steps:
       - name: Checkout
@@ -27,8 +37,17 @@ jobs:
           node-version: 22
           cache: pnpm
 
-      - name: Install dependencies
+      - name: Deterministic dependency install
         run: pnpm install --frozen-lockfile
+
+      - name: Content validator
+        run: pnpm run validate:content
+
+      - name: Art color validator
+        run: pnpm run validate:art-color
+
+      - name: Asset and lesson sanity validator
+        run: pnpm run check:sanity
 
       - name: Typecheck
         run: pnpm run typecheck
@@ -36,22 +55,37 @@ jobs:
       - name: Lint
         run: pnpm run lint
 
-      - name: Build
+      - name: Unit tests
+        run: pnpm run test
+
+      - name: Production build
         run: pnpm run build
 
-      - name: Dependency audit (warning only)
-        run: pnpm audit --audit-level moderate || true
+      - name: Bundle budget
+        run: node scripts/check-bundle-budget.mjs
+
+      - name: Playwright browser smoke tests
+        run: pnpm run test:e2e
+
+      - name: Upload failure evidence
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cartilla-failure-evidence
+          path: |
+            test-results/**
+            playwright-report/**
+            dist/**
+          if-no-files-found: ignore
 
   secret-scan:
-    name: Secret scan (gitleaks)
+    name: Secret scan
     runs-on: ubuntu-latest
     steps:
-      # Full history so gitleaks can scan past commits too, not just the diff.
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # gitleaks is free for repos under personal accounts (no license needed).
       - name: Run gitleaks
         uses: gitleaks/gitleaks-action@v2
         env:
