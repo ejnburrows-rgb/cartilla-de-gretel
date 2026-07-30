@@ -21,6 +21,14 @@ export const Route = createFileRoute("/cartilla/pilot-faithful/$n")({
   component: PilotFaithfulPage,
   beforeLoad: ({ params }) => {
     const n = Number(params.n);
+    // Dev/QA-only comparison tool (faithful render vs. raw scan) — never a
+    // real student or teacher destination. Production-disable it, but land
+    // a deep link on the real lesson for that book page instead of a dead
+    // end, so an old bookmark or shared link still goes somewhere real.
+    if (import.meta.env.PROD) {
+      const lesson = Number.isFinite(n) ? lessonForPage(n) : 1;
+      throw redirect({ to: "/cartilla/leccion/$n", params: { n: String(lesson) } });
+    }
     if (!Number.isFinite(n) || !PILOT_PAGES.includes(n)) {
       throw redirect({ to: "/cartilla/pilot-faithful/$n", params: { n: "1" } });
     }

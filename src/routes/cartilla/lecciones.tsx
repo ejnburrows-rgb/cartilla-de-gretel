@@ -1,9 +1,21 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect } from "react";
-import { ArrowLeft, BookOpen, Check, Lock, RotateCcw, Sparkles, Zap } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import {
+  ArrowLeft,
+  Check,
+  ClipboardList,
+  Dumbbell,
+  Lock,
+  PlayCircle,
+  TrendingUp,
+} from "lucide-react";
 import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
 import { hydrateLessonProgress, useLessonProgress } from "@/lib/lesson-progress";
-import { getProgressWithSession } from "@/lib/secure-student-access";
+import {
+  getMyAssignmentsWithSession,
+  getProgressWithSession,
+  type StudentAssignmentRow,
+} from "@/lib/secure-student-access";
 import { completedLessonIds, type LessonProgressRow } from "@/lib/progress-calculation";
 import { useStudentSession } from "@/lib/student-session";
 import { useLanguage } from "@/context/LanguageContext";
@@ -21,7 +33,8 @@ function Lecciones() {
   const { lang } = useLanguage();
   const t = sCopy;
   const session = useStudentSession();
-  const { isCompleted, isUnlocked, completed, reset } = useLessonProgress();
+  const { isCompleted, isUnlocked, completed } = useLessonProgress();
+  const [assignment, setAssignment] = useState<StudentAssignmentRow | null>(null);
 
   useEffect(() => {
     if (!session) return;
@@ -38,9 +51,18 @@ function Lecciones() {
         hydrateLessonProgress(completedIds);
       })
       .catch(() => undefined);
+    getMyAssignmentsWithSession(session, session.studentId)
+      .then((rows) => setAssignment(rows[0] ?? null))
+      .catch(() => setAssignment(null));
   }, [session]);
   const doneCount = [...completed].filter((n) => n >= 1 && n <= TOTAL_LESSONS).length;
   const pct = Math.round((doneCount / TOTAL_LESSONS) * 100);
+
+  // "Continuar": the first unlocked lesson the student hasn't finished yet.
+  const nextLesson = useMemo(
+    () => CATALOG.find((entry) => isUnlocked(entry.n) && !isCompleted(entry.n)),
+    [isUnlocked, isCompleted],
+  );
 
   return (
     <div className="min-h-screen bg-stone-50 overflow-hidden relative pb-32">
@@ -80,6 +102,51 @@ function Lecciones() {
             />
           </div>
         </div>
+
+        {/* Quick actions: the four things a student does most from here. */}
+        <nav
+          aria-label="Accesos rápidos"
+          className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl mx-auto"
+        >
+          {nextLesson && (
+            <Link
+              to="/cartilla/leccion/$n"
+              params={{ n: String(nextLesson.n) }}
+              onClick={() => playUiTick()}
+              className="flex flex-col items-center gap-1.5 py-3 px-2 rounded-2xl bg-white border border-stone-200 shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all"
+            >
+              <PlayCircle className="w-5 h-5 text-orange-500" />
+              <span className="text-xs font-black text-stone-700">Continuar</span>
+            </Link>
+          )}
+          {assignment && (
+            <Link
+              to="/cartilla/leccion/$n"
+              params={{ n: assignment.lesson_id }}
+              onClick={() => playUiTick()}
+              className="flex flex-col items-center gap-1.5 py-3 px-2 rounded-2xl bg-white border border-stone-200 shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all"
+            >
+              <ClipboardList className="w-5 h-5 text-amber-500" />
+              <span className="text-xs font-black text-stone-700">Tu Tarea</span>
+            </Link>
+          )}
+          <Link
+            to="/cartilla/practica"
+            onClick={() => playUiTick()}
+            className="flex flex-col items-center gap-1.5 py-3 px-2 rounded-2xl bg-white border border-stone-200 shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all"
+          >
+            <Dumbbell className="w-5 h-5 text-teal-600" />
+            <span className="text-xs font-black text-stone-700">Practicar</span>
+          </Link>
+          <Link
+            to="/cartilla/mi-progreso"
+            onClick={() => playUiTick()}
+            className="flex flex-col items-center gap-1.5 py-3 px-2 rounded-2xl bg-white border border-stone-200 shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all"
+          >
+            <TrendingUp className="w-5 h-5 text-purple-500" />
+            <span className="text-xs font-black text-stone-700">Progreso</span>
+          </Link>
+        </nav>
       </header>
 
       <main className="px-4 max-w-2xl mx-auto relative mt-12">

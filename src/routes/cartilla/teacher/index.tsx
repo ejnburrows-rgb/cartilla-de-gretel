@@ -19,6 +19,8 @@ import {
   Home,
   ClipboardCheck,
   Music,
+  Users,
+  Printer,
 } from "lucide-react";
 
 export const Route = createFileRoute("/cartilla/teacher/")({
@@ -43,6 +45,13 @@ const ENTRY_POINTS: EntryPoint[] = [
     accent: "#0f766e",
   },
   {
+    title: "Alumnos",
+    description: "Lista completa de estudiantes de todas tus clases, con sus códigos.",
+    to: "/cartilla/teacher/roster",
+    icon: <Users className="w-6 h-6" />,
+    accent: "#0891b2",
+  },
+  {
     title: "Guía",
     description: "Guía del profesor, tablas, tareas, evaluaciones y poemas — lección por lección.",
     to: "/cartilla/teacher/guia",
@@ -55,6 +64,13 @@ const ENTRY_POINTS: EntryPoint[] = [
     to: "/cartilla/teacher/flipchart",
     icon: <MonitorPlay className="w-6 h-6" />,
     accent: "#d97706",
+  },
+  {
+    title: "Imprimir",
+    description: "Materiales listos para imprimir: páginas del libro y hojas de trabajo.",
+    to: "/cartilla/imprimir/all",
+    icon: <Printer className="w-6 h-6" />,
+    accent: "#65a30d",
   },
   {
     title: "Reportes",
@@ -128,7 +144,7 @@ function TeacherHub() {
         </p>
       </header>
 
-      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {ENTRY_POINTS.map((entry) => (
           <Link
             key={entry.title}

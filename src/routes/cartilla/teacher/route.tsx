@@ -1,16 +1,13 @@
 import { createFileRoute, Outlet, Link, useLocation, redirect } from "@tanstack/react-router";
 import { useState } from "react";
 import {
-  Users,
   GraduationCap,
   FileSpreadsheet,
-  MonitorPlay,
   BookOpen,
+  Home,
   LogOut,
-  HelpCircle,
   Menu,
   X,
-  Printer,
   ShieldCheck,
 } from "lucide-react";
 import { getStudentSession } from "@/lib/student-session";
@@ -86,55 +83,55 @@ async function signOut() {
   window.location.assign("/login");
 }
 
-// The teacher lane's real "task menu" — every nav item here maps to an
-// actual, working destination. Kept as one list so the desktop bar and the
-// mobile drawer below always stay in sync (previously "Present" pointed at
-// the student lesson list and "Progress" at a disconnected legacy page —
-// both silent dead-ends a teacher had no way to know were wrong).
-const NAV_ITEMS: Array<{ to: string; icon: React.ReactNode; label: string; match: string }> = [
+// The teacher lane's real, top-level task menu — four buckets, each landing
+// on an actual, working destination. Nested tasks (Alumnos, Presentar,
+// Imprimir, Ayuda) moved off the fixed bar onto the Inicio hub's own entry
+// points (see teacher/index.tsx) rather than disappearing — a fixed bar
+// crowded with 7+ items didn't fit a tablet in a real classroom, but every
+// page it pointed at still needs one click of reach from somewhere.
+type NavItem = {
+  to: string;
+  icon: React.ReactNode;
+  label: string;
+  /** Path substrings that count as "on this section". Ignored when exact is set. */
+  matches: string[];
+  /** Active only on an exact pathname match — for Inicio, whose own path is a
+   * prefix of every other section's path. */
+  exact?: boolean;
+};
+
+const NAV_ITEMS: NavItem[] = [
+  {
+    to: "/cartilla/teacher",
+    icon: <Home className="w-4 h-4" />,
+    label: "Inicio",
+    matches: [],
+    exact: true,
+  },
   {
     to: "/cartilla/teacher/crm",
     icon: <GraduationCap className="w-4 h-4" />,
-    label: "Clase",
-    match: "/crm",
-  },
-  {
-    to: "/cartilla/teacher/roster",
-    icon: <Users className="w-4 h-4" />,
-    label: "Alumnos",
-    match: "/roster",
+    label: "Clases",
+    matches: ["/crm", "/roster"],
   },
   {
     to: "/cartilla/teacher/guia",
     icon: <BookOpen className="w-4 h-4" />,
-    label: "Guía",
-    match: "/guia",
-  },
-  {
-    to: "/cartilla/presentar/1",
-    icon: <MonitorPlay className="w-4 h-4" />,
-    label: "Presentar",
-    match: "/presentar",
-  },
-  {
-    to: "/cartilla/imprimir/all",
-    icon: <Printer className="w-4 h-4" />,
-    label: "Imprimir",
-    match: "/imprimir",
+    label: "Contenido",
+    matches: ["/guia", "/flipchart", "/presentar", "/imprimir", "/paginas"],
   },
   {
     to: "/cartilla/teacher/reportes",
     icon: <FileSpreadsheet className="w-4 h-4" />,
-    label: "Reportes",
-    match: "/reportes",
-  },
-  {
-    to: "/cartilla/teacher/ayuda",
-    icon: <HelpCircle className="w-4 h-4" />,
-    label: "Ayuda",
-    match: "/ayuda",
+    label: "Informes",
+    matches: ["/reportes"],
   },
 ];
+
+function isNavItemActive(pathname: string, item: NavItem): boolean {
+  if (item.exact) return pathname === item.to || pathname === `${item.to}/`;
+  return item.matches.some((m) => pathname.includes(m));
+}
 
 function TeacherLayout() {
   const location = useLocation();
@@ -151,7 +148,7 @@ function TeacherLayout() {
           to: "/cartilla/teacher/admin",
           icon: <ShieldCheck className="w-4 h-4" />,
           label: "Dirección",
-          match: "/admin",
+          matches: ["/admin"],
         },
       ]
     : NAV_ITEMS;
@@ -190,7 +187,7 @@ function TeacherLayout() {
                 to={item.to}
                 icon={item.icon}
                 label={item.label}
-                active={location.pathname.includes(item.match)}
+                active={isNavItemActive(location.pathname, item)}
               />
             ))}
             <button
@@ -222,7 +219,7 @@ function TeacherLayout() {
                 to={item.to}
                 onClick={() => setMobileMenuOpen(false)}
                 className={`flex items-center gap-3 min-h-12 px-3 rounded-xl text-sm font-bold ${
-                  location.pathname.includes(item.match)
+                  isNavItemActive(location.pathname, item)
                     ? "bg-[var(--tc-ink)] text-white"
                     : "text-[var(--tc-ink-soft)] hover:bg-white/60"
                 }`}
