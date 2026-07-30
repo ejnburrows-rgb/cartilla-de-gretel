@@ -12,7 +12,9 @@ function walk(dir) {
 }
 
 const jsFiles = walk(DIST).filter((file) => file.endsWith(".js"));
-const initialFiles = jsFiles.filter((file) => !file.includes("lazy") && !file.includes("teacher") && !file.includes("admin"));
+const initialFiles = jsFiles.filter(
+  (file) => !file.includes("lazy") && !file.includes("teacher") && !file.includes("admin"),
+);
 const initialBytes = initialFiles.reduce((sum, file) => sum + statSync(file).size, 0);
 
 console.log(`Initial JavaScript estimate: ${initialBytes} bytes`);

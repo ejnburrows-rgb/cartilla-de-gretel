@@ -13,7 +13,11 @@ const NOW = Date.parse("2026-07-30T12:00:00Z");
 describe("resolveTeacherAccessState", () => {
   it("shows loading while the check is running", () => {
     expect(
-      resolveTeacherAccessState({ isLoading: true, hasSession: false, hasTeacherOrAdminRole: false }),
+      resolveTeacherAccessState({
+        isLoading: true,
+        hasSession: false,
+        hasTeacherOrAdminRole: false,
+      }),
     ).toBe("loading");
   });
 

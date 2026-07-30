@@ -28,16 +28,31 @@ function WavySidebar() {
   );
 }
 
-export function PageFrame({ pageNumber, lessonNumber, children, className, garden, gardenBg }: PageFrameProps) {
+export function PageFrame({
+  pageNumber,
+  lessonNumber,
+  children,
+  className,
+  garden,
+  gardenBg,
+}: PageFrameProps) {
   const frameRef = useRef<HTMLDivElement>(null);
-  const classes = ["faithful-page", garden ? "faithful-page--garden" : "", className ?? ""].filter(Boolean).join(" ");
-  const style = garden && gardenBg ? ({ "--garden-page-bg": `url('${gardenBg}')` } as React.CSSProperties) : undefined;
+  const classes = ["faithful-page", garden ? "faithful-page--garden" : "", className ?? ""]
+    .filter(Boolean)
+    .join(" ");
+  const style =
+    garden && gardenBg
+      ? ({ "--garden-page-bg": `url('${gardenBg}')` } as React.CSSProperties)
+      : undefined;
 
   useEffect(() => {
     const root = frameRef.current;
     if (!root) return;
     for (const marker of root.querySelectorAll<HTMLElement>(".fp-art-pending")) {
-      const word = marker.querySelector<HTMLElement>(".fp-art-pending__word")?.textContent?.trim().toLowerCase();
+      const word = marker
+        .querySelector<HTMLElement>(".fp-art-pending__word")
+        ?.textContent?.trim()
+        .toLowerCase();
       if (!word || !GENERATED_REPLACEMENTS.has(word)) continue;
       marker.dataset.generatedArt = word;
       marker.setAttribute("aria-label", word);
@@ -46,10 +61,18 @@ export function PageFrame({ pageNumber, lessonNumber, children, className, garde
 
   return (
     <div ref={frameRef} className={classes} style={style}>
-      <div className="faithful-page__sidebar"><WavySidebar /></div>
+      <div className="faithful-page__sidebar">
+        <WavySidebar />
+      </div>
       <div className="faithful-page__body">{children}</div>
-      {typeof pageNumber === "number" && <div className="faithful-page__pagenum" aria-label={`Página ${pageNumber}`}><span>{pageNumber}</span></div>}
-      {typeof lessonNumber === "number" && <div className="faithful-page__lesson">Lección {lessonNumber}</div>}
+      {typeof pageNumber === "number" && (
+        <div className="faithful-page__pagenum" aria-label={`Página ${pageNumber}`}>
+          <span>{pageNumber}</span>
+        </div>
+      )}
+      {typeof lessonNumber === "number" && (
+        <div className="faithful-page__lesson">Lección {lessonNumber}</div>
+      )}
     </div>
   );
 }

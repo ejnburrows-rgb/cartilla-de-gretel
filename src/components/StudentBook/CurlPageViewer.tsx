@@ -3,7 +3,12 @@ import type { CSSProperties } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import HTMLFlipBook from "react-pageflip";
 import { gretelEvent } from "@/lib/gretel-bus";
-import type { FlipBookComponent, FlipBookHandle, FlipEvent, PageFlipApi } from "@/lib/pageflip-types";
+import type {
+  FlipBookComponent,
+  FlipBookHandle,
+  FlipEvent,
+  PageFlipApi,
+} from "@/lib/pageflip-types";
 import { STUDENT_PAGE_TURN_MS, prefersReducedMotion } from "@/lib/living-motion";
 import { KidButton } from "@/components/ui/KidButton";
 import type { SimplePageViewerProps, WorkbookPageEntry } from "./SimplePageViewer";
@@ -28,7 +33,9 @@ export function visiblePageLabel(currentIndex: number, pageCount: number, spread
   if (!spread) return `Página ${currentIndex + 1} de ${pageCount}`;
   const first = currentIndex + 1;
   const last = Math.min(currentIndex + 2, pageCount);
-  return first === last ? `Página ${first} de ${pageCount}` : `Páginas ${first}–${last} de ${pageCount}`;
+  return first === last
+    ? `Página ${first} de ${pageCount}`
+    : `Páginas ${first}–${last} de ${pageCount}`;
 }
 
 const Page = forwardRef<HTMLDivElement, { entry?: WorkbookPageEntry }>(({ entry }, ref) => (
@@ -50,7 +57,9 @@ function EdgeStack({ side, count }: { side: "left" | "right"; count: number }) {
         <span
           key={i}
           className="book-edge-sliver"
-          style={{ [side]: `${i * 1.7}px`, top: `${i * 0.6}px`, bottom: `${i * 0.6}px` } as CSSProperties}
+          style={
+            { [side]: `${i * 1.7}px`, top: `${i * 0.6}px`, bottom: `${i * 0.6}px` } as CSSProperties
+          }
         />
       ))}
     </div>
@@ -135,13 +144,20 @@ export function CurlPageViewer({
         {(() => {
           const frac = pages.length > 1 ? currentIndex / (pages.length - 1) : 0;
           const left = Math.round(frac * 6);
-          return <><EdgeStack side="left" count={left} /><EdgeStack side="right" count={6 - left} /></>;
+          return (
+            <>
+              <EdgeStack side="left" count={left} />
+              <EdgeStack side="right" count={6 - left} />
+            </>
+          );
         })()}
         <div
           ref={wrapRef}
           className="workbook-container relative z-[1]"
           style={{
-            aspectRatio: spread ? SPREAD_ASPECT_RATIO : (singleAspectRatio ?? SINGLE_PAGE_ASPECT_RATIO),
+            aspectRatio: spread
+              ? SPREAD_ASPECT_RATIO
+              : (singleAspectRatio ?? SINGLE_PAGE_ASPECT_RATIO),
             perspective: spread ? "2200px" : "1600px",
             background: "#fffaf0",
           }}
@@ -171,21 +187,48 @@ export function CurlPageViewer({
               style={{}}
               onFlip={onFlip}
             >
-              {pages.map((entry) => <Page key={entry.id} entry={entry} />)}
+              {pages.map((entry) => (
+                <Page key={entry.id} entry={entry} />
+              ))}
             </FlipBook>
-          ) : <div className="h-full w-full rounded-b-xl bg-[#fffaf0]" />}
+          ) : (
+            <div className="h-full w-full rounded-b-xl bg-[#fffaf0]" />
+          )}
         </div>
       </div>
 
       <div className="no-print z-20 mt-8 flex w-full items-center justify-center gap-2 sm:gap-6">
-        <KidButton variant="outline" accent={accent} sound={false} onClick={() => hasPrev && handlePrev()} disabled={!hasPrev} className="!px-3 !py-2 sm:!px-5 sm:!py-2.5 gap-1.5 sm:gap-2 shrink-0">
-          <ChevronLeft className="h-4 w-4 shrink-0" /> <span className="hidden sm:inline">Anterior</span>
+        <KidButton
+          variant="outline"
+          accent={accent}
+          sound={false}
+          onClick={() => hasPrev && handlePrev()}
+          disabled={!hasPrev}
+          className="!px-3 !py-2 sm:!px-5 sm:!py-2.5 gap-1.5 sm:gap-2 shrink-0"
+        >
+          <ChevronLeft className="h-4 w-4 shrink-0" />{" "}
+          <span className="hidden sm:inline">Anterior</span>
         </KidButton>
-        <div className="shrink-0 whitespace-nowrap rounded-full border px-3 py-2 text-xs font-bold sm:px-4 sm:text-sm" style={{ color: "var(--book-ink, #2b2a22)", background: "#fffaf0", borderColor: `color-mix(in srgb, ${accent} 35%, transparent)` }}>
+        <div
+          className="shrink-0 whitespace-nowrap rounded-full border px-3 py-2 text-xs font-bold sm:px-4 sm:text-sm"
+          style={{
+            color: "var(--book-ink, #2b2a22)",
+            background: "#fffaf0",
+            borderColor: `color-mix(in srgb, ${accent} 35%, transparent)`,
+          }}
+        >
           {visiblePageLabel(currentIndex, pages.length, spread)}
         </div>
-        <KidButton variant="outline" accent={accent} sound={false} onClick={() => hasNext && handleNext()} disabled={!hasNext} className="!px-3 !py-2 sm:!px-5 sm:!py-2.5 gap-1.5 sm:gap-2 shrink-0">
-          <span className="hidden sm:inline">Siguiente</span> <ChevronRight className="h-4 w-4 shrink-0" />
+        <KidButton
+          variant="outline"
+          accent={accent}
+          sound={false}
+          onClick={() => hasNext && handleNext()}
+          disabled={!hasNext}
+          className="!px-3 !py-2 sm:!px-5 sm:!py-2.5 gap-1.5 sm:gap-2 shrink-0"
+        >
+          <span className="hidden sm:inline">Siguiente</span>{" "}
+          <ChevronRight className="h-4 w-4 shrink-0" />
         </KidButton>
       </div>
     </div>

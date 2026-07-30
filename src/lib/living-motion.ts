@@ -38,7 +38,10 @@ export function prefersSimplePageTransition(): boolean {
   try {
     const coarse = window.matchMedia("(pointer: coarse)").matches;
     const noHover = window.matchMedia("(hover: none)").matches;
-    const cores = typeof navigator !== "undefined" && navigator.hardwareConcurrency ? navigator.hardwareConcurrency : 8;
+    const cores =
+      typeof navigator !== "undefined" && navigator.hardwareConcurrency
+        ? navigator.hardwareConcurrency
+        : 8;
     if (cores > 0 && cores < 4) return true;
     if (coarse && noHover && cores <= 4) return true;
   } catch {
