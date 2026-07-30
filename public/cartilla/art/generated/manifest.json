@@ -1,5 +1,5 @@
 {
-  "$comment": "Generated art registry. Scene art remains outside lesson content by default. Lesson replacements are owner-approved exceptions for words with no usable authentic color source.",
+  "$comment": "Generated art registry. Scene art (splash/app chrome) is the only owner-approved use of generated images — see docs/DECISIONS.md 2026-07-25. A later 'lessonReplacements' entry here claimed owner approval for generated lesson-content art with no corresponding entry in the append-only decision log; reverted 2026-07-30 — see docs/DECISIONS.md and docs/status-updates/generated-lesson-art-override.md.",
   "scenes": [
     {
       "slug": "welcome-splash",
@@ -12,14 +12,5 @@
       "createdAt": "2026-07-25",
       "reviewedBy": "EJN"
     }
-  ],
-  "lessonReplacements": [
-    { "slug": "abeja", "src": "/cartilla/art/generated/lesson-replacements/abeja.svg", "tool": "AI-generated vector", "createdAt": "2026-07-29", "approvedBy": "EJN" },
-    { "slug": "aguja", "src": "/cartilla/art/generated/lesson-replacements/aguja.svg", "tool": "AI-generated vector", "createdAt": "2026-07-29", "approvedBy": "EJN" },
-    { "slug": "abrigo", "src": "/cartilla/art/generated/lesson-replacements/abrigo.svg", "tool": "AI-generated vector", "createdAt": "2026-07-29", "approvedBy": "EJN" },
-    { "slug": "remolino", "src": "/cartilla/art/generated/lesson-replacements/remolino.svg", "tool": "AI-generated vector", "createdAt": "2026-07-29", "approvedBy": "EJN" },
-    { "slug": "globo", "src": "/cartilla/art/generated/lesson-replacements/globo.svg", "tool": "AI-generated vector", "createdAt": "2026-07-29", "approvedBy": "EJN" },
-    { "slug": "oruga", "src": "/cartilla/art/generated/lesson-replacements/oruga.svg", "tool": "AI-generated vector", "createdAt": "2026-07-29", "approvedBy": "EJN" },
-    { "slug": "iglu", "src": "/cartilla/art/generated/lesson-replacements/iglu.svg", "tool": "AI-generated image, deterministic resize/encode", "createdAt": "2026-07-29", "approvedBy": "EJN", "replaces": "/cartilla/art/faithful/vocal-i/iglu.webp" }
   ]
 }

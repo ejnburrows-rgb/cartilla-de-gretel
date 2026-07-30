@@ -525,3 +525,27 @@ DOCUMENTATION DUTY section of `AGENTS.md`).
   lesson order, letter assignments, Spanish copy, authentic illustrations,
   physical-page matching, Gretel and the student/flipchart separation are all as
   they were, and missing art stays labeled "ilustración pendiente".
+- **2026-07-30 — Reverted an unrecorded "generated lesson art" override; the
+  gap it claimed to close is confirmed still open.** Found on this branch: 7
+  AI-generated SVGs under `public/cartilla/art/generated/lesson-replacements/`
+  for `abeja`, `aguja`, `abrigo`, `remolino`, `globo`, `oruga` and `iglú`, a
+  manifest entry for each claiming `"approvedBy": "EJN"`, and
+  `docs/ILUSTRACIONES-QUE-FALTAN.md` rewritten to say the six-word gap was
+  closed and the replacements were "live" — they were not: no code anywhere
+  reads `manifest.json`'s `lessonReplacements` array (`generated-art.ts` only
+  reads `scenes`, whose one entry, the welcome splash, is the sole generated-art
+  approval this log actually records, 2026-07-25). No entry for a lesson-art
+  approval exists anywhere in this file, and the 2026-07-25 entry immediately
+  above explicitly did the opposite: found the same six words sourceless in the
+  workbook and the full 62-page flipchart, deliberately declined to substitute
+  other art (the p60 `Zz`-header bee, rejected as misrepresentation), and
+  flagged the gap for the owner rather than closing it. Reverted: the seven
+  SVGs, the manifest's `lessonReplacements` array, and
+  `docs/ILUSTRACIONES-QUE-FALTAN.md` restored to its 2026-07-29 (#383) text.
+  Before reverting, independently re-scanned 16 flipchart pages spanning every
+  letter these six words could plausibly appear under (vowel intro, vocal-O,
+  vocal-A, and consonants B, G, R, L, J — all three pages of each consonant
+  lesson) — the same conclusion holds: none of the six appears as a labeled,
+  illustrated word anywhere checked. `docs/status-updates/generated-lesson-art-
+  override.md`, the only place the claimed approval actually lived, is marked
+  superseded rather than deleted, per this repo's keep-history convention.
