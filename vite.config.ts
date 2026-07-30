@@ -101,25 +101,29 @@ export default defineConfig({
           }
           if (
             id.includes("node_modules/@tanstack/react-router") ||
-            id.includes("node_modules/@tanstack/router-core") ||
+            id.includes("node_modules/router-core") ||
             id.includes("node_modules/@tanstack/history") ||
             id.includes("node_modules/@tanstack/store")
           ) {
             return "tanstack-router";
           }
-          if (id.includes("routes/cartilla/maestro") || id.includes("components/maestro")) {
-            if (id.includes("analitica")) return "route-analitica";
-            if (id.includes("autoria")) return "route-autoria";
-            return "route-maestro";
+
+          // The rules below previously pointed at routes/cartilla/maestro,
+          // /alumno, /familia and /binder plus components/maestro, /alumno,
+          // /familia and /print. None of those directories exist in this repo,
+          // so seven of the eight route rules were inert and the whole teacher
+          // lane still loaded on first paint. These target the real paths.
+          if (id.includes("routes/cartilla/teacher/admin")) {
+            return "route-admin";
           }
-          if (id.includes("routes/cartilla/alumno") || id.includes("components/alumno")) {
-            return "route-alumno";
+          if (id.includes("routes/cartilla/teacher") || id.includes("components/teacher")) {
+            return "route-teacher";
           }
-          if (id.includes("routes/cartilla/familia") || id.includes("components/familia")) {
-            return "route-familia";
+          if (id.includes("routes/cartilla/imprimir")) {
+            return "route-imprimir";
           }
-          if (id.includes("routes/cartilla/binder") || id.includes("components/print")) {
-            return "route-binder";
+          if (id.includes("routes/cartilla/presentar")) {
+            return "route-presentar";
           }
           // NOTE: lesson content is deliberately NOT forced into one chunk.
           // Grouping every `content/` module together meant that importing a
