@@ -297,6 +297,7 @@ export function TeacherCrmShell() {
                         setSelectedClassId(e.target.value);
                         setSelectedStudentId(null);
                       }}
+                      aria-label="Tu clase"
                       className="px-4 py-2 rounded-xl border-2 border-[hsl(28,30%,18%)]/10 bg-white text-stone-800 font-bold text-sm focus:outline-none focus:border-[#d97706] cursor-pointer transition-colors shadow-sm"
                     >
                       {classesList.map((c) => (

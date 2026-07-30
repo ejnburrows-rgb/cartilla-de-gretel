@@ -91,6 +91,7 @@ export function LessonCatalog() {
             <input
               type="text"
               placeholder="Buscar por letra o número..."
+              aria-label="Buscar por letra o número"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full pl-12 pr-4 py-4 rounded-full border-2 border-white bg-white/60 focus:bg-white shadow-sm font-bold text-stone-700 placeholder:text-stone-400 outline-none focus:ring-4 focus:ring-[#ea580c]/20 transition-all text-lg"

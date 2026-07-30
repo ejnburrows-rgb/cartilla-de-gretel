@@ -118,9 +118,9 @@ export function IntroSplash({ onContinue, ctaLabel = "Continuar", children }: In
         >
           {/* Real GretelPresence host — not a static pose swap */}
           <BookHeroGretel size="md" objectPosition="center 20%" autoIntro={false} />
-          <p className="mt-6 max-w-xl text-lg font-extrabold leading-relaxed text-[hsl(28,30%,18%)]">
+          <h1 className="mt-6 max-w-xl text-lg font-extrabold leading-relaxed text-[hsl(28,30%,18%)]">
             Bienvenidos a la Cartilla de Gretel. Vamos a aprender a leer juntos.
-          </p>
+          </h1>
         </motion.div>
 
         {children ? <div className="mt-6 w-full max-w-xl">{children}</div> : null}

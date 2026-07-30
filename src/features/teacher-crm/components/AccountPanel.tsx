@@ -82,11 +82,15 @@ export function AccountPanel({ student, onUpdate }: AccountPanelProps) {
         {/* Teacher Notes Area */}
         <div className="bg-[#fefce8] p-4 rounded-2xl border border-[#fef08a]">
           <div className="flex justify-between items-center mb-2">
-            <label className="flex items-center gap-2 text-xs font-black text-[#a16207] uppercase tracking-wider">
+            <label
+              htmlFor="teacher-notes"
+              className="flex items-center gap-2 text-xs font-black text-[#a16207] uppercase tracking-wider"
+            >
               <MessageSquare className="w-4 h-4" /> Comentarios del Maestro
             </label>
           </div>
           <textarea
+            id="teacher-notes"
             placeholder="Añade un comentario sobre el progreso o áreas de mejora..."
             value={notes}
             onChange={(e) => {

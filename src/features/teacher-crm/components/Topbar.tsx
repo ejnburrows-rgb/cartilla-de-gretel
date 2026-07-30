@@ -9,6 +9,7 @@ export function Topbar() {
           <input
             type="text"
             placeholder="Buscar alumno, lección o tarea..."
+            aria-label="Buscar alumno, lección o tarea"
             className="w-full pl-9 pr-4 py-2 bg-[#fdfbf7] border border-[#e8e2d9] rounded-lg text-sm focus:outline-none focus:border-[#8da47e] focus:ring-1 focus:ring-[#8da47e]"
           />
         </div>

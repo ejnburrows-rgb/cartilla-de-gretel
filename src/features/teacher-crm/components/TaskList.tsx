@@ -81,6 +81,7 @@ export function TaskList({ classId }: TaskListProps) {
             <div className="space-y-3">
               <select
                 value={lessonN}
+                aria-label="Lección a asignar"
                 onChange={(e) => setLessonN(e.target.value)}
                 className="w-full text-sm font-bold bg-[#f1f5f9] border border-[#cbd5e1] rounded-xl px-3 py-2 text-[#334155] focus:outline-none focus:border-[#6366f1]"
               >
