@@ -52,6 +52,8 @@ export type FakeSupabase = {
   events: ProgressEvent[];
   /** Last page saved per `${studentId}:${lessonId}`. */
   lastPages: Map<string, number>;
+  /** Session tokens issued by enter_class_as_student, keyed by student id. */
+  sessionTokens: Map<string, string>;
   callsTo(fn: string): Array<Record<string, unknown>>;
 };
 
@@ -76,6 +78,7 @@ export async function installFakeSupabase(
     calls: [],
     events: [],
     lastPages: new Map(),
+    sessionTokens: new Map(),
     callsTo(fn) {
       return this.calls.filter((c) => c.fn === fn).map((c) => c.body);
     },
@@ -120,28 +123,37 @@ export async function installFakeSupabase(
       }
 
       // Step 2 of join: the child taps their name and enters the class.
-      // Called through .single(), so PostgREST returns a bare object.
+      // Called through .single(), so PostgREST returns a bare object. Mirrors
+      // the secure enter_class_as_student in
+      // supabase/migrations/20260730100000_secure_student_sessions_and_teacher_approval.sql:
+      // a scoped session token, never the reusable student_code.
       case "enter_class_as_student": {
         const student = setup.students.find((s) => s.id === body.p_student_id);
         if (!codeMatches(body.p_join_code) || !student) {
           return json(route, { message: "Código de clase o estudiante inválido." }, 400);
         }
+        const token = `fake-session-${student.id}-${fake.calls.length}`;
+        fake.sessionTokens.set(student.id, token);
         return json(route, {
           student_id: student.id,
           student_name: student.name,
-          student_code: student.code,
           class_id: setup.classId,
           class_name: setup.className,
+          student_session_token: token,
+          expires_at: new Date(Date.now() + 45 * 60_000).toISOString(),
         });
       }
 
       // What the teacher assigned — drives the "Tarea asignada" banner.
-      case "get_student_assignments": {
+      // Mirrors get_student_assignments_secure (session-token authorized).
+      case "get_student_assignments_secure": {
+        if (fake.sessionTokens.get(String(body.p_student_id)) !== body.p_session_token) {
+          return json(route, { message: "No se pudieron cargar las tareas." }, 400);
+        }
         return json(
           route,
           (setup.assignments ?? []).map((a) => ({
             id: a.id,
-            class_id: setup.classId,
             lesson_id: a.lessonId,
             title: a.title,
             due_at: a.dueAt ?? null,
@@ -151,14 +163,15 @@ export async function installFakeSupabase(
         );
       }
 
-      // The child's saved progress. Shaped exactly as the real RPC returns it:
-      // an `events` list plus a derived `lessonProgress` roll-up carrying the
-      // resume page, which is what /cartilla/lecciones rehydrates from.
-      case "get_student_progress": {
+      // The child's saved progress. Mirrors get_student_progress_secure:
+      // {events, lessonProgress} only — no student_code, ever.
+      case "get_student_progress_secure": {
+        if (fake.sessionTokens.get(String(body.p_student_id)) !== body.p_session_token) {
+          return json(route, { message: "No se pudo cargar el progreso." }, 400);
+        }
         const mine = fake.events.filter((e) => e.student_id === body.p_student_id);
         const lessonIds = Array.from(new Set(mine.map((e) => e.lesson_id)));
         return json(route, {
-          student: { display_name: "", student_code: String(body.p_student_code ?? "") },
           events: mine,
           lessonProgress: lessonIds.map((lesson_id) => ({
             lesson_id,
@@ -172,9 +185,13 @@ export async function installFakeSupabase(
         });
       }
 
-      // A save. Recorded so the next get_student_progress returns it, which is
-      // how "progress survives a reload" is proven rather than assumed.
-      case "log_student_progress": {
+      // A save. Recorded so the next get_student_progress_secure returns it,
+      // which is how "progress survives a reload" is proven rather than
+      // assumed. Mirrors log_student_progress_secure.
+      case "log_student_progress_secure": {
+        if (fake.sessionTokens.get(String(body.p_student_id)) !== body.p_session_token) {
+          return json(route, { message: "No se pudo guardar el progreso." }, 400);
+        }
         fake.events.unshift({
           id: `evt-${fake.events.length + 1}`,
           student_id: String(body.p_student_id ?? ""),
@@ -189,7 +206,10 @@ export async function installFakeSupabase(
         return json(route, null);
       }
 
-      case "save_last_page": {
+      case "save_last_page_secure": {
+        if (fake.sessionTokens.get(String(body.p_student_id)) !== body.p_session_token) {
+          return json(route, { message: "No se pudo guardar la página." }, 400);
+        }
         fake.lastPages.set(
           `${String(body.p_student_id)}:${String(body.p_lesson_id)}`,
           Number(body.p_page ?? 0),

@@ -74,32 +74,35 @@ test("student joins a class, opens the assigned lesson, finishes it, and the pro
   // now — so the unlock rule is exercised too, not just the save.
   await expect(page).toHaveURL(/\/cartilla\/leccion\/2/, { timeout: 20_000 });
 
-  // ---- 5. The save really went to the backend, with the right shape. ----
+  // ---- 5. The save really went to the backend, with the right shape —
+  //         session token, never the reusable student_code.
   await expect
-    .poll(() => backend.callsTo("log_student_progress").length, { timeout: 10_000 })
+    .poll(() => backend.callsTo("log_student_progress_secure").length, { timeout: 10_000 })
     .toBeGreaterThan(0);
 
   const completions = backend
-    .callsTo("log_student_progress")
+    .callsTo("log_student_progress_secure")
     .filter((c) => c.p_event_kind === "lesson_completed");
   expect(completions).toHaveLength(1);
   expect(completions[0]).toMatchObject({
     p_student_id: CLASS.students[0].id,
-    p_student_code: CLASS.students[0].code,
+    p_class_id: CLASS.classId,
     p_lesson_id: "1",
     p_event_kind: "lesson_completed",
   });
+  expect(completions[0].p_session_token).toBeTruthy();
+  expect(JSON.stringify(completions[0])).not.toContain("student_code");
 
   // ---- 6. Survives a reload — and specifically from the backend, not from
   //         the browser. Wiping the local progress key first means the only
   //         way lesson 1 can still read as done is the rehydrate that
-  //         /cartilla/lecciones does from get_student_progress.
+  //         /cartilla/lecciones does from get_student_progress_secure.
   await page.evaluate((key) => localStorage.removeItem(key), LESSON_PROGRESS_KEY);
   await page.goto("/cartilla/lecciones");
   await page.reload();
 
   await expect(page.getByText("1 / 24")).toBeVisible({ timeout: 20_000 });
-  expect(backend.callsTo("get_student_progress").length).toBeGreaterThan(0);
+  expect(backend.callsTo("get_student_progress_secure").length).toBeGreaterThan(0);
 
   await page.screenshot({
     path: "tests/e2e/__screenshots__/student-progress-after-reload.png",

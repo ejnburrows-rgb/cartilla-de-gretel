@@ -108,23 +108,23 @@ export default defineConfig({
             return "tanstack-router";
           }
 
-          // The rules below previously pointed at routes/cartilla/maestro,
-          // /alumno, /familia and /binder plus components/maestro, /alumno,
-          // /familia and /print. None of those directories exist in this repo,
-          // so seven of the eight route rules were inert and the whole teacher
-          // lane still loaded on first paint. These target the real paths.
-          if (id.includes("routes/cartilla/teacher/admin")) {
-            return "route-admin";
-          }
-          if (id.includes("routes/cartilla/teacher") || id.includes("components/teacher")) {
-            return "route-teacher";
-          }
-          if (id.includes("routes/cartilla/imprimir")) {
-            return "route-imprimir";
-          }
-          if (id.includes("routes/cartilla/presentar")) {
-            return "route-presentar";
-          }
+          // EXPERIMENT: the route-admin/route-teacher/route-imprimir/
+          // route-presentar rules below (previously pointing at nonexistent
+          // maestro/alumno/familia/binder paths, then repointed at the real
+          // ones) force EVERY module under those paths into one named chunk
+          // each. That name-forcing turned out actively harmful: shared,
+          // generic modules (e.g. living-motion.ts, used by KidButton and
+          // dozens of unrelated pages) that Rollup would otherwise place in
+          // their own small shared chunk get swept into "route-teacher"
+          // instead whenever anything teacher-side also uses them, which
+          // then makes "route-teacher" (~1 MB) a transitive dependency of
+          // nearly the whole app and forces the browser to modulepreload it
+          // from the root index.html — verified: initial JS (script +
+          // modulepreload bytes) measured 2,105.9 kB with these rules active,
+          // vs 1,079.2 kB on the pre-manualChunks-fix baseline. Removing them
+          // and trusting the TanStack Router plugin's own autoCodeSplitting
+          // (already enabled above) to split each route's component lazily
+          // is the fix under test here.
           // NOTE: lesson content is deliberately NOT forced into one chunk.
           // Grouping every `content/` module together meant that importing a
           // single lesson's data pulled the whole catalogue, so the welcome
