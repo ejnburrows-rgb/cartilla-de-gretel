@@ -581,6 +581,12 @@ export type Database = {
           created_at: string;
         }[];
       };
+      accept_teacher_invitation: {
+        Args: {
+          p_invitation_code: string;
+        };
+        Returns: string;
+      };
     };
     Enums: {
       app_role: "teacher" | "admin";

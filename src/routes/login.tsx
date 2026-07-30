@@ -5,12 +5,27 @@ import { supabase, isSupabaseConfigured } from "@/integrations/supabase/client";
 import { setStudentSession } from "@/lib/student-session";
 import { signInSeedTeacher } from "@/lib/seed-data";
 import { checkNewPassword, MIN_NEW_PASSWORD_LENGTH } from "@/lib/password-strength";
+import { acceptTeacherInvitation } from "@/lib/teacher-invitations.functions";
+import {
+  consumeTeacherAccessNotice,
+  TEACHER_ACCESS_MESSAGES,
+  type HandoffTeacherAccessState,
+} from "@/lib/teacher-access-state";
+import { TeacherAccessNotice } from "@/components/teacher/TeacherAccessNotice";
 import "@/styles/teacher-chrome.css";
 
 export const Route = createFileRoute("/login")({
   component: LoginPage,
   head: () => ({ meta: [{ title: "Acceso del maestro — La Cartilla de Gretel" }] }),
 });
+
+/** Invitation links land here as /login?invite=CODE. Read once, at module
+ * scope, since the code is only ever needed from the URL a user actually
+ * arrived on — never persisted or re-derived. */
+function getInviteCodeFromUrl(): string | null {
+  if (typeof window === "undefined") return null;
+  return new URLSearchParams(window.location.search).get("invite");
+}
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -20,17 +35,23 @@ function LoginPage() {
   const [fullName, setFullName] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [unauthorized, setUnauthorized] = useState(false);
+  const [notice, setNotice] = useState<HandoffTeacherAccessState | null>(null);
+  const [inviteScreen, setInviteScreen] = useState<
+    "invalid_invitation" | "expired_invitation" | null
+  >(null);
+  const inviteCode = getInviteCodeFromUrl();
 
   useEffect(() => {
-    // The teacher route guard sets this flag and redirects here when a
-    // signed-in session has no teacher/admin role at all — sign that
-    // session out (a role-less session can't do anything anyway) instead
-    // of bouncing back to /cartilla/teacher and looping forever.
-    if (typeof window !== "undefined" && sessionStorage.getItem("cartilla.auth.unauthorized")) {
-      sessionStorage.removeItem("cartilla.auth.unauthorized");
-      setUnauthorized(true);
-      supabase.auth.signOut();
+    // The teacher route guard hands off exactly one of these states and
+    // redirects here (see setTeacherAccessNotice). "unauthorized" means a
+    // signed-in session genuinely has no teacher/admin role — sign it out (it
+    // can't do anything anyway) instead of bouncing back to /cartilla/teacher
+    // and looping forever. "retry" means the check itself failed (network),
+    // so the session is left alone and the notice offers a retry instead.
+    const state = consumeTeacherAccessNotice();
+    if (state) {
+      setNotice(state);
+      if (state === "unauthorized") supabase.auth.signOut();
       return;
     }
     supabase.auth.getSession().then(({ data }) => {
@@ -83,6 +104,26 @@ function LoginPage() {
         const { error: err } = await supabase.auth.signInWithPassword({ email, password });
         if (err) throw err;
       }
+
+      if (inviteCode) {
+        try {
+          await acceptTeacherInvitation(inviteCode);
+        } catch (inviteErr) {
+          const message = inviteErr instanceof Error ? inviteErr.message : "";
+          if (message === "Invitación vencida") {
+            setInviteScreen("expired_invitation");
+            return;
+          }
+          if (message === "Invitación inválida") {
+            setInviteScreen("invalid_invitation");
+            return;
+          }
+          // Any other failure (e.g. email confirmation still pending) — the
+          // account exists but isn't a teacher yet; let the normal
+          // unauthorized path handle it next time the teacher lane loads.
+        }
+      }
+
       navigate({ to: "/cartilla/teacher" });
     } catch (err) {
       setError(err instanceof Error ? err.message : "Error desconocido");
@@ -90,6 +131,15 @@ function LoginPage() {
       setBusy(false);
     }
   };
+
+  if (notice === "retry") {
+    return (
+      <TeacherAccessNotice state="retry" onRetry={() => navigate({ to: "/cartilla/teacher" })} />
+    );
+  }
+  if (inviteScreen) {
+    return <TeacherAccessNotice state={inviteScreen} />;
+  }
 
   return (
     <main className="teacher-chrome min-h-screen px-4 py-8">
@@ -114,10 +164,21 @@ function LoginPage() {
           </p>
         </header>
 
-        {unauthorized && (
-          <div className="mt-6 text-sm text-destructive font-bold bg-destructive/10 border-2 border-destructive/20 rounded-2xl px-4 py-3">
-            Tu cuenta no tiene permiso de maestro o administrador. Contacta al administrador de la
-            escuela.
+        {notice === "unauthorized" && (
+          <div
+            role="alert"
+            className="mt-6 text-sm text-destructive font-bold bg-destructive/10 border-2 border-destructive/20 rounded-2xl px-4 py-3"
+          >
+            {TEACHER_ACCESS_MESSAGES.unauthorized} Contacta al administrador de la escuela.
+          </div>
+        )}
+
+        {inviteCode && !notice && (
+          <div
+            role="status"
+            className="mt-6 text-sm font-bold text-[var(--tc-ink-soft)] bg-white/60 border-2 border-[var(--tc-border)] rounded-2xl px-4 py-3"
+          >
+            {TEACHER_ACCESS_MESSAGES.pending_approval}
           </div>
         )}
 

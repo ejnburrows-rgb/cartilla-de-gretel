@@ -18,6 +18,8 @@ import { supabase } from "@/integrations/supabase/client";
 import { hasTeacherOrAdminRole } from "@/lib/auth-role";
 import { isSeedSessionActive } from "@/lib/seed-data";
 import { useIsAdmin } from "@/lib/admin-overview.functions";
+import { setTeacherAccessNotice } from "@/lib/teacher-access-state";
+import { TeacherAccessNotice } from "@/components/teacher/TeacherAccessNotice";
 import "@/styles/teacher-chrome.css";
 
 // Every /cartilla/teacher/* page nests under this route via <Outlet/>, so
@@ -44,22 +46,38 @@ export const Route = createFileRoute("/cartilla/teacher")({
     if (studentSession) {
       throw redirect({ to: "/cartilla/lecciones" });
     }
-    const { data } = await supabase.auth.getSession();
-    if (!data.session) {
+
+    let session: Awaited<ReturnType<typeof supabase.auth.getSession>>["data"]["session"];
+    try {
+      const { data } = await supabase.auth.getSession();
+      session = data.session;
+    } catch {
+      // Never treat a failed check as "allowed" — fail closed and let the
+      // teacher retry instead of silently blocking the whole lane.
+      setTeacherAccessNotice("retry");
       throw redirect({ to: "/login" });
     }
-    const hasRole = await hasTeacherOrAdminRole(data.session.user.id);
+    if (!session) {
+      throw redirect({ to: "/login" });
+    }
+
+    let hasRole: boolean;
+    try {
+      hasRole = await hasTeacherOrAdminRole(session.user.id);
+    } catch {
+      setTeacherAccessNotice("retry");
+      throw redirect({ to: "/login" });
+    }
     if (!hasRole) {
-      try {
-        if (typeof window !== "undefined" && window.sessionStorage) {
-          window.sessionStorage.setItem("cartilla.auth.unauthorized", "1");
-        }
-      } catch {
-        /* storage unavailable in some test runners — still redirect */
-      }
+      // No source of a real "approval request" record exists yet (see
+      // docs/DECISIONS.md), so a signed-in account with no role is reported
+      // as unauthorized rather than guessing it's "pending" — that only
+      // shows up today via the pre-login invitation-link banner on /login.
+      setTeacherAccessNotice("unauthorized");
       throw redirect({ to: "/login" });
     }
   },
+  pendingComponent: () => <TeacherAccessNotice state="loading" />,
   component: TeacherLayout,
 });
 

@@ -1,5 +1,12 @@
-import { describe, it, expect } from "vitest";
-import { resolveTeacherAccessState } from "../teacher-access-state";
+/**
+ * @vitest-environment jsdom
+ */
+import { describe, it, expect, beforeEach } from "vitest";
+import {
+  resolveTeacherAccessState,
+  setTeacherAccessNotice,
+  consumeTeacherAccessNotice,
+} from "../teacher-access-state";
 
 const NOW = Date.parse("2026-07-30T12:00:00Z");
 
@@ -69,5 +76,26 @@ describe("resolveTeacherAccessState", () => {
     expect(resolveTeacherAccessState({ hasSession: true, hasTeacherOrAdminRole: true })).toBe(
       "authorized",
     );
+  });
+});
+
+describe("teacher access notice handoff", () => {
+  beforeEach(() => {
+    sessionStorage.clear();
+  });
+
+  it("hands a state off across a redirect exactly once", () => {
+    setTeacherAccessNotice("retry");
+    expect(consumeTeacherAccessNotice()).toBe("retry");
+    expect(consumeTeacherAccessNotice()).toBeNull();
+  });
+
+  it("returns null when nothing was handed off", () => {
+    expect(consumeTeacherAccessNotice()).toBeNull();
+  });
+
+  it("ignores a corrupt/unexpected stored value", () => {
+    sessionStorage.setItem("cartilla.auth.state", "not-a-real-state");
+    expect(consumeTeacherAccessNotice()).toBeNull();
   });
 });

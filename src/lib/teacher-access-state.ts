@@ -65,3 +65,43 @@ export const TEACHER_ACCESS_MESSAGES: Record<TeacherAccessState, string> = {
   unauthorized: "Esta cuenta no tiene acceso docente.",
   retry: "No pudimos comprobar tu acceso. Intenta de nuevo.",
 };
+
+// The states above that only ever show up on /login (never "loading" or
+// "authorized", which never survive a redirect) are handed off from the
+// /cartilla/teacher route guard via sessionStorage — same mechanism the old
+// "cartilla.auth.unauthorized" flag used, generalized to every state.
+export type HandoffTeacherAccessState = Exclude<TeacherAccessState, "loading" | "authorized">;
+
+const HANDOFF_KEY = "cartilla.auth.state";
+
+export function setTeacherAccessNotice(state: HandoffTeacherAccessState) {
+  try {
+    if (typeof window !== "undefined" && window.sessionStorage) {
+      window.sessionStorage.setItem(HANDOFF_KEY, state);
+    }
+  } catch {
+    /* storage unavailable in some test runners — the redirect still happens */
+  }
+}
+
+/** Reads and clears the handed-off state, so a page refresh doesn't re-show it. */
+export function consumeTeacherAccessNotice(): HandoffTeacherAccessState | null {
+  if (typeof window === "undefined" || !window.sessionStorage) return null;
+  try {
+    const raw = window.sessionStorage.getItem(HANDOFF_KEY);
+    if (!raw) return null;
+    window.sessionStorage.removeItem(HANDOFF_KEY);
+    if (
+      raw === "pending_approval" ||
+      raw === "invalid_invitation" ||
+      raw === "expired_invitation" ||
+      raw === "unauthorized" ||
+      raw === "retry"
+    ) {
+      return raw;
+    }
+    return null;
+  } catch {
+    return null;
+  }
+}
