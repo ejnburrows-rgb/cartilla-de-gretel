@@ -14,18 +14,30 @@ interface CurlPageViewerProps extends SimplePageViewerProps {
 
 const FlipBook = HTMLFlipBook as unknown as FlipBookComponent;
 
+export const PRINTED_PAGE_WIDTH = 612;
+export const PRINTED_PAGE_HEIGHT = 792;
+export const SPREAD_BREAKPOINT_PX = 760;
+export const SINGLE_PAGE_ASPECT_RATIO = `${PRINTED_PAGE_WIDTH} / ${PRINTED_PAGE_HEIGHT}`;
+export const SPREAD_ASPECT_RATIO = `${PRINTED_PAGE_WIDTH * 2} / ${PRINTED_PAGE_HEIGHT}`;
+
+export function clampPageIndex(index: number, pageCount: number): number {
+  return Math.min(Math.max(0, index), Math.max(0, pageCount - 1));
+}
+
+export function visiblePageLabel(currentIndex: number, pageCount: number, spread: boolean): string {
+  if (!spread) return `Página ${currentIndex + 1} de ${pageCount}`;
+  const first = currentIndex + 1;
+  const last = Math.min(currentIndex + 2, pageCount);
+  return first === last ? `Página ${first} de ${pageCount}` : `Páginas ${first}–${last} de ${pageCount}`;
+}
+
 const Page = forwardRef<HTMLDivElement, { entry?: WorkbookPageEntry }>(({ entry }, ref) => (
   <div
     ref={ref}
     data-density={entry?.cover ? "hard" : "soft"}
     className="book-paper-surface relative flex h-full w-full flex-col overflow-hidden"
   >
-    <div
-      className="h-full w-full flex-1 p-0"
-      style={{ filter: "saturate(1.14) contrast(1.045)" }}
-    >
-      {entry?.content}
-    </div>
+    <div className="h-full w-full flex-1 p-0">{entry?.content}</div>
   </div>
 ));
 Page.displayName = "CurlPage";
@@ -61,12 +73,13 @@ export function CurlPageViewer({
 }: CurlPageViewerProps) {
   useEffect(() => gretelEvent("mount"), []);
 
+  const safeInitialPage = clampPageIndex(initialPage, pages.length);
   const wrapRef = useRef<HTMLDivElement>(null);
   const bookRef = useRef<FlipBookHandle | null>(null);
   const [size, setSize] = useState<BookSize | null>(null);
   const [mounted, setMounted] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(Math.max(0, initialPage));
+  const [currentIndex, setCurrentIndex] = useState(safeInitialPage);
 
   useEffect(() => {
     setMounted(true);
@@ -79,7 +92,7 @@ export function CurlPageViewer({
     const measure = () => {
       const rect = el.getBoundingClientRect();
       if (rect.width <= 0 || rect.height <= 0) return;
-      const spread = rect.width >= 760;
+      const spread = rect.width >= SPREAD_BREAKPOINT_PX;
       setSize({
         pageW: Math.round(spread ? rect.width / 2 : rect.width),
         pageH: Math.round(rect.height),
@@ -100,22 +113,21 @@ export function CurlPageViewer({
     }
   }, []);
 
+  const spread = size?.spread ?? false;
   const hasPrev = currentIndex > 0;
-  const hasNext = currentIndex < pages.length - 1;
+  const hasNext = spread ? currentIndex + 2 < pages.length : currentIndex < pages.length - 1;
   const handlePrev = useCallback(() => getApi()?.flipPrev?.(), [getApi]);
   const handleNext = useCallback(() => getApi()?.flipNext?.(), [getApi]);
   const onFlip = useCallback(
     (e: FlipEvent) => {
-      const idx = typeof e?.data === "number" ? e.data : null;
+      const idx = typeof e?.data === "number" ? clampPageIndex(e.data, pages.length) : null;
       if (idx === null) return;
       setCurrentIndex(idx);
       onPageChange?.(idx);
       gretelEvent("page-flip");
     },
-    [onPageChange],
+    [onPageChange, pages.length],
   );
-
-  const spread = size?.spread ?? false;
 
   return (
     <div className="relative mx-auto flex w-full max-w-6xl flex-col items-center">
@@ -129,7 +141,7 @@ export function CurlPageViewer({
           ref={wrapRef}
           className="workbook-container relative z-[1]"
           style={{
-            aspectRatio: spread ? "3 / 2" : (singleAspectRatio ?? "3 / 4"),
+            aspectRatio: spread ? SPREAD_ASPECT_RATIO : (singleAspectRatio ?? SINGLE_PAGE_ASPECT_RATIO),
             perspective: spread ? "2200px" : "1600px",
             background: "#fffaf0",
           }}
@@ -145,8 +157,8 @@ export function CurlPageViewer({
               maxWidth={size.pageW}
               minHeight={size.pageH}
               maxHeight={size.pageH}
-              startPage={Math.min(Math.max(0, initialPage), Math.max(0, pages.length - 1))}
-              showCover={true}
+              startPage={clampPageIndex(currentIndex, pages.length)}
+              showCover={false}
               usePortrait={!size.spread}
               drawShadow={true}
               maxShadowOpacity={0.58}
@@ -170,7 +182,7 @@ export function CurlPageViewer({
           <ChevronLeft className="h-4 w-4 shrink-0" /> <span className="hidden sm:inline">Anterior</span>
         </KidButton>
         <div className="shrink-0 whitespace-nowrap rounded-full border px-3 py-2 text-xs font-bold sm:px-4 sm:text-sm" style={{ color: "var(--book-ink, #2b2a22)", background: "#fffaf0", borderColor: `color-mix(in srgb, ${accent} 35%, transparent)` }}>
-          Página {currentIndex + 1} de {pages.length}
+          {visiblePageLabel(currentIndex, pages.length, spread)}
         </div>
         <KidButton variant="outline" accent={accent} sound={false} onClick={() => hasNext && handleNext()} disabled={!hasNext} className="!px-3 !py-2 sm:!px-5 sm:!py-2.5 gap-1.5 sm:gap-2 shrink-0">
           <span className="hidden sm:inline">Siguiente</span> <ChevronRight className="h-4 w-4 shrink-0" />
