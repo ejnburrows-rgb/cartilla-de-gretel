@@ -36,9 +36,9 @@ describe("living-motion core policy", () => {
     expect(t.end).toBe("rotateX(-180deg)");
   });
 
-  it("timings sit in elegant windows", () => {
-    expect(STUDENT_PAGE_TURN_MS).toBeGreaterThanOrEqual(600);
-    expect(STUDENT_PAGE_TURN_MS).toBeLessThanOrEqual(900);
+  it("student navigation stays quick while flipchart motion stays deliberate", () => {
+    expect(STUDENT_PAGE_TURN_MS).toBeGreaterThanOrEqual(150);
+    expect(STUDENT_PAGE_TURN_MS).toBeLessThanOrEqual(300);
     expect(FLIPCHART_FLIP_MS).toBeGreaterThanOrEqual(600);
     expect(FLIPCHART_FLIP_MS).toBeLessThanOrEqual(1100);
     expect(BLINK_HOLD_MS).toBeLessThan(200);
