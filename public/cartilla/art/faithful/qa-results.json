@@ -2,8 +2,8 @@
   "$schema": "color-quality QA pass/fail per published faithful crop + Gretel pose cutout",
   "generatedBy": "manual visual QA (contact sheets + full-res zoom + source comparison)",
   "population": 181,
-  "pass": 122,
-  "fail": 59,
+  "pass": 123,
+  "fail": 58,
   "criteria": [
     "colors match the book original (verified against public/art/hd/gretel-authentic.jpg for Gretel; book scan pages for crops)",
     "clean paint - no bleed, white gaps, or flat fills where the original has shading",
@@ -91,8 +91,8 @@
     },
     {
       "file": "public/cartilla/art/faithful/vocal-i/iglu.webp",
-      "verdict": "FAIL",
-      "reason": "Essentially uncolored/grayscale line art, minimal color saturation",
+      "verdict": "PASS",
+      "reason": "Authentic color crop verified against teacher flip-chart page 7; crop [960,1530,600,570].",
       "wasWiredInProduction": true
     },
     {
