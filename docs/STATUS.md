@@ -2,6 +2,10 @@
 
 Honest current state. Updated 2026-08-08. Read this before starting work.
 
+> **2026-08-08 — Final student-audio removal is implemented on `feat/storybook-stage-page-turn` (draft PR #400).**
+> - The remaining global Gretel voice toggle and all Gretel browser-speech entry points are removed/silent, including on the lesson index.
+> - The final preview build is READY; production remains untouched.
+
 > **2026-08-08 — Workbook visibility, silence, pencil cursor, and lasso repair are implemented on `feat/storybook-stage-page-turn` (draft PR #400).**
 > - Desktop spreads now size to the usable viewport above the fixed navigation instead of extending beneath it.
 > - Student book speech, sound effects, ambient audio, page turns, and instruction speaker controls are intentionally silent.
