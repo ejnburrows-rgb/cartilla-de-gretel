@@ -125,8 +125,10 @@ this file apply to the *work*, never to which tool is doing it.
 
 **Before starting ANY work, every time:** `git fetch origin && git reset
 --hard origin/main` (or a fresh clone) so you're never building on a stale
-base. `docs/ILUSTRACIONES-QUE-FALTAN.md` is the authoritative list of art still
-needed (it replaced `docs/ART_BACKLOG.md`, which is kept as history).
+base. For any lesson-art task, read `docs/AUTHENTIC-FLIPCHART-ART-AUDIT.md`
+first. It overrides stale missing-art, generated-art, provenance, crop-manifest,
+PR, and issue claims. A missing source record never authorizes new, recolored,
+or generated lesson art.
 
 ---
 
