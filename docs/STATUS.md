@@ -1,6 +1,13 @@
 # STATUS — La Cartilla de Gretel
 
-Honest current state. Updated 2026-07-26. Read this before starting work.
+Honest current state. Updated 2026-08-08. Read this before starting work.
+
+> **2026-08-08 — authentic flip-chart art repair is active on branch `repair/authentic-flipchart-art`.**
+> - The workbook-first method is now the first instruction in `AGENTS.md`.
+> - `iglú` was recovered as the identical color drawing from teacher flip-chart page 7, cropped from the HD source at `[960,1530,600,570]`, wired through the existing asset path, and QA-graded PASS.
+> - Exact workbook templates are recorded for `abeja`, `aguja`, `abrigo`, `oruga`, `globo`, and `remolino`. All 62 teacher pages were checked by full-page visual review, SIFT/RANSAC matching, multi-scale edge matching, and OCR. No literal match has yet passed visual confirmation, so these six remain honest pending slots—no generated or recolored substitute is active.
+> - Seven generated lesson substitutes and seven defective unused faithful files were removed only after runtime-reference verification. Authoritative teacher pages, workbook scans, active faithful art, and the generated welcome scene were preserved.
+> - Current evidence and exact workbook crop boxes live in `docs/AUTHENTIC-FLIPCHART-ART-AUDIT.md`. This repair is not merged to `main` or production.
 
 > **2026-07-26 — admin dashboard is live, and a public hole was closed.**
 > - **Cross-teacher admin reads work against the real database** (#355). This
