@@ -1,5 +1,5 @@
 {
-  "$comment": "Generated scene art registry. Generated lesson-art substitutions are prohibited and none are active.",
+  "$comment": "Generated scene art registry. Lesson-content substitutes are prohibited; obsolete generated replacements were removed after usage verification.",
   "scenes": [
     {
       "slug": "welcome-splash",
@@ -11,65 +11,6 @@
       "tool": "owner-supplied generated image",
       "createdAt": "2026-07-25",
       "reviewedBy": "EJN"
-    }
-  ],
-  "retiredLessonReplacementFiles": [
-    {
-      "slug": "abeja",
-      "src": "/cartilla/art/generated/lesson-replacements/abeja.svg",
-      "tool": "AI-generated vector",
-      "createdAt": "2026-07-29",
-      "approvedBy": "EJN",
-      "status": "inactive — pending authentic source verification"
-    },
-    {
-      "slug": "aguja",
-      "src": "/cartilla/art/generated/lesson-replacements/aguja.svg",
-      "tool": "AI-generated vector",
-      "createdAt": "2026-07-29",
-      "approvedBy": "EJN",
-      "status": "inactive — pending authentic source verification"
-    },
-    {
-      "slug": "abrigo",
-      "src": "/cartilla/art/generated/lesson-replacements/abrigo.svg",
-      "tool": "AI-generated vector",
-      "createdAt": "2026-07-29",
-      "approvedBy": "EJN",
-      "status": "inactive — pending authentic source verification"
-    },
-    {
-      "slug": "remolino",
-      "src": "/cartilla/art/generated/lesson-replacements/remolino.svg",
-      "tool": "AI-generated vector",
-      "createdAt": "2026-07-29",
-      "approvedBy": "EJN",
-      "status": "inactive — pending authentic source verification"
-    },
-    {
-      "slug": "globo",
-      "src": "/cartilla/art/generated/lesson-replacements/globo.svg",
-      "tool": "AI-generated vector",
-      "createdAt": "2026-07-29",
-      "approvedBy": "EJN",
-      "status": "inactive — pending authentic source verification"
-    },
-    {
-      "slug": "oruga",
-      "src": "/cartilla/art/generated/lesson-replacements/oruga.svg",
-      "tool": "AI-generated vector",
-      "createdAt": "2026-07-29",
-      "approvedBy": "EJN",
-      "status": "inactive — pending authentic source verification"
-    },
-    {
-      "slug": "iglu",
-      "src": "/cartilla/art/generated/lesson-replacements/iglu.svg",
-      "tool": "AI-generated image, deterministic resize/encode",
-      "createdAt": "2026-07-29",
-      "approvedBy": "EJN",
-      "replaces": "/cartilla/art/faithful/vocal-i/iglu.webp",
-      "status": "inactive — pending authentic source verification"
     }
   ]
 }
