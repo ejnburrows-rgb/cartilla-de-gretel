@@ -1,5 +1,6 @@
-import { forwardRef, type ReactNode } from "react";
+import { forwardRef, type CSSProperties, type ReactNode } from "react";
 import "@/styles/garden-scene.css";
+import "@/styles/storybook-stage.css";
 
 /**
  * Soft garden frame around the student workbook, replacing the old
@@ -53,12 +54,37 @@ function Dragonfly({ delay }: { delay: number }) {
   );
 }
 
+function FolkFlower({ flower, center }: { flower: string; center: string }) {
+  const style = { "--flower": flower, "--center": center } as CSSProperties;
+  return (
+    <span className="storybook-flower" style={style} aria-hidden="true">
+      {Array.from({ length: 6 }, (_, index) => (
+        <i key={index} style={{ "--petal-turn": `${index * 60}deg` } as CSSProperties} />
+      ))}
+    </span>
+  );
+}
+
+function FolkFlowerGarland({ side }: { side: "top" | "bottom" }) {
+  return (
+    <div className={`storybook-stage__garland storybook-stage__garland--${side}`} aria-hidden="true">
+      <span className="storybook-leaf" />
+      <FolkFlower flower="#e52d3c" center="#f8cf2d" />
+      <FolkFlower flower="#f14d8a" center="#fff3a6" />
+      <span className="storybook-leaf" />
+      <FolkFlower flower="#1553b7" center="#f8cf2d" />
+    </div>
+  );
+}
+
 export const GardenScene = forwardRef<HTMLDivElement, GardenSceneProps>(function GardenScene(
   { children, className },
   ref,
 ) {
   return (
-    <div ref={ref} className={`garden-scene p-5 sm:p-9 mb-12 ${className ?? ""}`}>
+    <div ref={ref} className={`garden-scene storybook-stage p-5 sm:p-9 mb-12 ${className ?? ""}`}>
+      <FolkFlowerGarland side="top" />
+      <FolkFlowerGarland side="bottom" />
       <div className="garden-scene__critters">
         <Butterfly delay={0} />
         <Dragonfly delay={2.4} />
