@@ -1,5 +1,26 @@
 # AGENTS.md — La Cartilla de Gretel
 
+## FIRST RULE FOR ANY WORKBOOK ILLUSTRATION TASK
+
+**Do this before reading an art backlog, manifest, crop record, generated-art
+folder, or “missing” report:**
+
+1. Open the original student-workbook page and identify the exact drawing
+   that belongs in the activity.
+2. Search all 62 authoritative files
+   `public/cartilla/images/teacher-flipchart/teacher-page-01.jpg` through
+   `teacher-page-62.jpg` for that identical drawing in color.
+3. Crop that authentic teacher drawing and wire it into the existing student
+   slot without changing the layout, interaction, answer visibility, or
+   curriculum.
+
+No crop coordinates, missing provenance, a failed old asset, or a file named
+“missing” is evidence that the artwork is absent. Never generate, redraw,
+recolor, vectorize, or substitute lesson artwork. If all 62 pages have not
+been checked against the workbook drawing itself, the audit is not complete.
+Start with `docs/AUTHENTIC-FLIPCHART-ART-AUDIT.md` for the current evidence.
+
+
 **This file is the single source of truth for every AI agent working on
 this project (Claude, Gemini, Antigravity, Jules, Kilo, and any other).
 Read it fully before doing anything. `CLAUDE.md` and `GEMINI.md` are just
