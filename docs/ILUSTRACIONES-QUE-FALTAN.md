@@ -1,26 +1,22 @@
-# Ilustraciones que requieren reparación
+# Illustration status — focused authentic-art repair
 
-**Current authoritative evidence:** `docs/AUTHENTIC-FLIPCHART-ART-AUDIT.md`.
+**Current source of truth:** `docs/AUTHENTIC-FLIPCHART-ART-AUDIT.md`
 
-The first rule is workbook drawing → identical color drawing in all 62 teacher pages → existing digital slot. Missing metadata never authorizes generated, recolored, emoji, clip-art, or visually similar lesson artwork.
+No cell in the focused seven-drawing audit remains blank.
 
-## Verified repair
+| Drawing | Student pages | Final source | Status |
+|---|---|---|---|
+| aro | 1, 7, 8 | authentic teacher page 5 crop | wired |
+| iglú | 4, 5, 8, 10, 13, 14 | authentic teacher page 7 crop | wired |
+| abrigo | 1, 11 | exact workbook crop | wired |
+| globo | 2 | exact workbook crop | wired |
+| abeja | 1, 7, 8, 10, 11, 14, 16 | exact workbook crop | wired |
+| oruga | 7 | exact workbook crop | wired |
+| aguja | 7, 8, 10 | exact workbook crop | wired |
 
-| Word | Student pages | Final asset | Teacher source | Status |
-|---|---|---|---|---|
-| iglú | 4, 5, 8, 10, 13, 14 | `public/cartilla/art/faithful/vocal-i/iglu.webp` | teacher page 7, HD crop `[960,1530,600,570]` | Authentic crop applied and QA PASS. |
-| aro | 1, 7, 8 | `public/cartilla/art/faithful/vocal-a/aro.webp` | teacher page 5, HD crop `[870,2580,780,660]` | Legacy `remolino` name corrected; complete authentic crop applied and browser-verified. |
+The complete 62-page teacher flip chart does not contain the last five exact
+student-book drawings. They are not “missing source”; they are student-book-only
+distractors. Do not restart generated-art, recoloring, or look-alike work.
 
-## Exact workbook templates recorded; teacher match unresolved
-
-| Word | Student pages | Workbook source and crop |
-|---|---|---|
-| abrigo | 1, 11 | `page-003.png [230,800,440,520]` |
-| globo | 2 | `page-004.png [1740,2985,580,515]` |
-| abeja | 1, 7, 8, 10, 11, 14, 16 | `page-009.png [720,1420,580,560]` |
-| oruga | 7 | `page-009.png [720,800,580,570]` |
-| aguja | 7, 8, 10 | `page-009.png [1350,2650,575,590]` |
-
-All 62 teacher pages and all 62 HD duplicates were checked using the exact workbook drawings plus full-page visual review, SIFT/RANSAC, edge-template matching, and OCR. No identical source crop has passed visual confirmation for these five. They account for 14 visible cells and remain neutral pending slots without answer words or substitutes.
-
-Generated lesson substitutes and the six defective unused faithful files were removed after runtime-reference verification. The former `remolino` target must not be reopened: it was the workbook's `aro`, now mapped to teacher page 5. Historical `ART_BACKLOG.md` and `MISSING_ASSETS.md` are not work queues.
+Older unresolved lists below this point were removed because they caused agents
+to repeat a completed audit.
