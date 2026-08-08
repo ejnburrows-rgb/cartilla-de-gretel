@@ -6,7 +6,9 @@
 folder, or “missing” report:**
 
 1. Open the original student-workbook page and identify the exact drawing
-   that belongs in the activity.
+   that belongs in the activity. Treat a legacy code caption or filename as
+   a hypothesis—not as proof of the object name. The printed workbook drawing
+   controls (for example, two legacy `remolino` cells were actually `aro`).
 2. Search all 62 authoritative files
    `public/cartilla/images/teacher-flipchart/teacher-page-01.jpg` through
    `teacher-page-62.jpg` for that identical drawing in color.
