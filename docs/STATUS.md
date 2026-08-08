@@ -2,6 +2,11 @@
 
 Honest current state. Updated 2026-08-08. Read this before starting work.
 
+> **2026-08-08 — Storybook-stage visual polish is implemented on `feat/storybook-stage-page-turn` (draft PR #400).**
+> - The student lesson shell changed; protected authentic curriculum illustrations, page layouts, and answer logic did not.
+> - Desktop turns use fixed trim-ratio dimensions and a turn lock; mobile and reduced-motion readers use the existing stable non-3D viewer.
+> - Browser preview verified the lesson shell, next/previous loop, turn lock, and picture-selection state. Production remains untouched pending review.
+
 > **2026-08-08 — focused workbook-art repair is implemented on `repair/authentic-flipchart-art`.**
 > - The first rule in `AGENTS.md` now records the verified two-source model: a complete 62-page flip chart and a separate 92-page student book.
 > - `aro` and `iglú` use identical authentic teacher-color crops from pages 5 and 7.
