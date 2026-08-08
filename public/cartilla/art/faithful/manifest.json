@@ -1,5 +1,85 @@
 [
   {
+    "slug": "abrigo",
+    "word": "abrigo",
+    "lessonNumber": 1,
+    "pageNumber": 1,
+    "src": "/cartilla/art/faithful/leccion-1/abrigo.webp",
+    "source": "public/cartilla/art/restored/workbook/page-003.png",
+    "cropBox": [
+      230,
+      800,
+      440,
+      520
+    ],
+    "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
+    "note": "Exact lossless student-workbook drawing. Exhaustive 62-page teacher search confirmed no identical flip-chart counterpart."
+  },
+  {
+    "slug": "globo",
+    "word": "globo",
+    "lessonNumber": 1,
+    "pageNumber": 2,
+    "src": "/cartilla/art/faithful/leccion-1/globo.webp",
+    "source": "public/cartilla/art/restored/workbook/page-004.png",
+    "cropBox": [
+      1740,
+      2985,
+      580,
+      515
+    ],
+    "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
+    "note": "Exact lossless student-workbook drawing. Exhaustive 62-page teacher search confirmed no identical flip-chart counterpart."
+  },
+  {
+    "slug": "abeja",
+    "word": "abeja",
+    "lessonNumber": null,
+    "pageNumber": 7,
+    "src": "/cartilla/art/faithful/vocal-a/abeja.webp",
+    "source": "public/cartilla/art/restored/workbook/page-009.png",
+    "cropBox": [
+      720,
+      1420,
+      580,
+      560
+    ],
+    "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
+    "note": "Exact lossless student-workbook drawing. Exhaustive 62-page teacher search confirmed no identical flip-chart counterpart."
+  },
+  {
+    "slug": "oruga",
+    "word": "oruga",
+    "lessonNumber": null,
+    "pageNumber": 7,
+    "src": "/cartilla/art/faithful/vocal-o/oruga.webp",
+    "source": "public/cartilla/art/restored/workbook/page-009.png",
+    "cropBox": [
+      720,
+      800,
+      580,
+      570
+    ],
+    "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
+    "note": "Exact lossless student-workbook drawing. Exhaustive 62-page teacher search confirmed no identical flip-chart counterpart."
+  },
+  {
+    "slug": "aguja",
+    "word": "aguja",
+    "lessonNumber": null,
+    "pageNumber": 7,
+    "src": "/cartilla/art/faithful/vocal-a/aguja.webp",
+    "source": "public/cartilla/art/restored/workbook/page-009.png",
+    "cropBox": [
+      1350,
+      2650,
+      575,
+      590
+    ],
+    "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
+    "note": "Exact lossless student-workbook drawing. Exhaustive 62-page teacher search confirmed no identical flip-chart counterpart."
+  },
+  {
     "slug": "iglu",
     "word": "iglú",
     "lessonNumber": null,
