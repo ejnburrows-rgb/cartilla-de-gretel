@@ -171,7 +171,7 @@ export function CurlPageViewer({
 
   if (simpleMode) {
     return (
-      <div className="storybook-simple-reader">
+      <div ref={wrapRef} className="storybook-simple-reader">
         <SimplePageViewer
           key={`simple-${pages.map((page) => page.id).join("|")}`}
           pages={pages}
