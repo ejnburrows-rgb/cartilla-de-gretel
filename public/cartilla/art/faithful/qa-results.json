@@ -1,15 +1,15 @@
 {
   "$schema": "color-quality QA pass/fail per published faithful crop + Gretel pose cutout",
   "generatedBy": "manual visual QA (contact sheets + full-res zoom + source comparison)",
-  "population": 174,
-  "pass": 123,
+  "population": 179,
+  "pass": 128,
   "fail": 51,
   "criteria": [
     "colors match the book original (verified against public/art/hd/gretel-authentic.jpg for Gretel; book scan pages for crops)",
     "clean paint - no bleed, white gaps, or flat fills where the original has shading",
     "complete crop - no cut-off limbs, no background chunks, clean edges"
   ],
-  "note": "Task brief cited Gretel canon colors dress #E2574C / hair #B5793A which do not match the real book painting (public/art/hd/gretel-authentic.jpg: blonde hair, navy dress with orange floral trim). Judged poses against the actual source painting instead; all 17 pass. Flagging the hex mismatch for the operator to reconcile with Notion Hub canon. wasWiredInProduction=true means the FAIL crop was referenced by src/data/page-layouts.json, src/content/lessons.json, src/content/consonants.json, src/content/animal-gallery.ts, and/or src/content/workbook/workbook-manifest.json (the dev-only LivingWorkbookPage sandbox engine) — all references have been stripped back to pendiente/emoji/no-entry. On 2026-08-08, seven proven-dead defective files (the six unresolved repair targets plus blank abeja_wb) were removed after confirming zero runtime references; their workbook drawings remain preserved in restored source pages.",
+  "note": "Task brief cited Gretel canon colors dress #E2574C / hair #B5793A which do not match the real book painting (public/art/hd/gretel-authentic.jpg: blonde hair, navy dress with orange floral trim). Judged poses against the actual source painting instead; all 17 pass. Flagging the hex mismatch for the operator to reconcile with Notion Hub canon. wasWiredInProduction=true means the FAIL crop was referenced by src/data/page-layouts.json, src/content/lessons.json, src/content/consonants.json, src/content/animal-gallery.ts, and/or src/content/workbook/workbook-manifest.json (the dev-only LivingWorkbookPage sandbox engine) — all references have been stripped back to pendiente/emoji/no-entry. On 2026-08-08, the focused seven-drawing repair retained authentic teacher crops for aro/iglú and restored five exact student-workbook crops after proving those drawings do not occur in the separate complete 62-page flip chart. Generated substitutes remain inactive.",
   "results": [
     {
       "file": "public/cartilla/art/faithful/vocal-a/abanico.webp",
@@ -812,6 +812,36 @@
     {
       "file": "public/cartilla/images/gretel/poses/gretel-wave.webp",
       "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-1/abrigo.webp",
+      "verdict": "PASS",
+      "reason": "Exact lossless crop from the authoritative student-workbook page; drawing and crop box verified. No generated, redrawn, or recolored content.",
+      "wasWiredInProduction": true
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-1/globo.webp",
+      "verdict": "PASS",
+      "reason": "Exact lossless crop from the authoritative student-workbook page; drawing and crop box verified. No generated, redrawn, or recolored content.",
+      "wasWiredInProduction": true
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-a/abeja.webp",
+      "verdict": "PASS",
+      "reason": "Exact lossless crop from the authoritative student-workbook page; drawing and crop box verified. No generated, redrawn, or recolored content.",
+      "wasWiredInProduction": true
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-o/oruga.webp",
+      "verdict": "PASS",
+      "reason": "Exact lossless crop from the authoritative student-workbook page; drawing and crop box verified. No generated, redrawn, or recolored content.",
+      "wasWiredInProduction": true
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-a/aguja.webp",
+      "verdict": "PASS",
+      "reason": "Exact lossless crop from the authoritative student-workbook page; drawing and crop box verified. No generated, redrawn, or recolored content.",
+      "wasWiredInProduction": true
     }
   ]
 }
