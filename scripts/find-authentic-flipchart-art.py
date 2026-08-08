@@ -31,18 +31,43 @@ TARGETS = {
     "iglu": ROOT / "public/cartilla/art/faithful/vocal-i/iglu.webp",
 }
 
-# Two bad assets have mechanically recorded grayscale workbook-source crops.
-# Prefer those as matching templates because they preserve the original line art.
-KNOWN_WORKBOOK_TEMPLATES = {
-    "abeja": {
-        "source": ROOT / "public/cartilla/images/source/a/a-page-4.jpg",
-        "box": (1459, 2580, 400, 279),
-    },
-    "abrigo": {
-        "source": ROOT / "public/cartilla/images/source/a/a-page-4.jpg",
-        "box": (237, 1119, 451, 341),
-    },
-}
+# Use the original student-workbook drawings as the matching templates.
++# App physical pages are offset by two front-matter scans in the restored
++# workbook set (for example, printed page 1 is restored page-003.png).
++# These boxes are tight cell interiors and deliberately exclude instructions,
++# answer words, and neighboring pictures.
++KNOWN_WORKBOOK_TEMPLATES = {
++    "abrigo": {
++        "source": ROOT / "public/cartilla/art/restored/workbook/page-003.png",
++        "box": (230, 800, 440, 520),
++        "student_page": 1,
++    },
++    "abeja": {
++        "source": ROOT / "public/cartilla/art/restored/workbook/page-009.png",
++        "box": (720, 1420, 580, 560),
++        "student_page": 7,
++    },
++    "globo": {
++        "source": ROOT / "public/cartilla/art/restored/workbook/page-004.png",
++        "box": (1740, 2985, 580, 515),
++        "student_page": 2,
++    },
++    "oruga": {
++        "source": ROOT / "public/cartilla/art/restored/workbook/page-009.png",
++        "box": (720, 800, 580, 570),
++        "student_page": 7,
++    },
++    "aguja": {
++        "source": ROOT / "public/cartilla/art/restored/workbook/page-009.png",
++        "box": (1350, 2650, 575, 590),
++        "student_page": 7,
++    },
++    "remolino": {
++        "source": ROOT / "public/cartilla/art/restored/workbook/page-009.png",
++        "box": (1350, 800, 575, 570),
++        "student_page": 7,
++    },
++}
 
 
 def load_gray(path: Path) -> np.ndarray | None:
