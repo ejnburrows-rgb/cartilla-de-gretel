@@ -25,7 +25,7 @@ TARGETS = {
     "abeja": ROOT / "public/cartilla/art/faithful/vocal-a/abeja.webp",
     "aguja": ROOT / "public/cartilla/art/faithful/vocal-a/aguja.webp",
     "abrigo": ROOT / "public/cartilla/art/faithful/leccion-1/abrigo.webp",
-    "remolino": ROOT / "public/cartilla/art/faithful/leccion-1/remolino.webp",
+    "aro": ROOT / "public/cartilla/art/faithful/vocal-a/aro.webp",
     "globo": ROOT / "public/cartilla/art/faithful/leccion-1/globo.webp",
     "oruga": ROOT / "public/cartilla/art/faithful/vocal-o/oruga.webp",
     "iglu": ROOT / "public/cartilla/art/faithful/vocal-i/iglu.webp",
@@ -62,7 +62,9 @@ KNOWN_WORKBOOK_TEMPLATES = {
         "box": (1350, 2650, 575, 590),
         "student_page": 7,
     },
-    "remolino": {
+    "aro": {
+        # Legacy UI data called this drawing "remolino"; the printed workbook
+        # and teacher-page-05 identify it as the same drawing labeled "aro".
         "source": ROOT / "public/cartilla/art/restored/workbook/page-009.png",
         "box": (1350, 800, 575, 570),
         "student_page": 7,
