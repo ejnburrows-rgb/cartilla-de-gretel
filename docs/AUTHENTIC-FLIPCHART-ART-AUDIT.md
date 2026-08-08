@@ -15,7 +15,7 @@ This focused audit covered the seven reported defects. It does not recertify eve
 | Word | Student pages | Activity | Final asset | Teacher source | Result |
 |---|---|---|---|---|---|
 | iglú | 4, 5, 8, 10, 13, 14 | picture selection / vowel matching | `public/cartilla/art/faithful/vocal-i/iglu.webp` | `public/cartilla/art/hd/flipchart/page-007.jpg`, crop `[960,1530,600,570]` | Exact colored drawing confirmed; printed word excluded; QA PASS. |
-| aro | 1, 8 | picture selection / vowel matching | `public/cartilla/art/faithful/vocal-a/aro.webp` | `public/cartilla/images/teacher-flipchart/teacher-page-05.jpg` | The two cells were mislabeled `remolino`; their workbook drawing is the same ring shown as the labeled `aro` on teacher page 5. |
+| aro | 1, 7, 8 | picture selection / vowel matching | `public/cartilla/art/faithful/vocal-a/aro.webp` | `public/cartilla/art/hd/flipchart/page-005.jpg`, crop `[870,2580,780,660]` | The page-1 and page-8 cells were mislabeled `remolino`; all `aro` uses now share the complete authentic teacher-page crop. |
 
 Machine confirmation against the 1208-pixel teacher export also produced 83 good SIFT matches and 73 geometrically consistent inliers on `teacher-page-07.jpg`. No other page was competitive.
 
@@ -66,4 +66,20 @@ The reusable audit command is `python scripts/find-authentic-flipchart-art.py`. 
 
 ## Preserved behavior and scope
 
-No page layout, coordinates, activity logic, answer visibility, renderer, navigation, authentication, database, curriculum, or responsive behavior was changed. The five unresolved cells remain honest pending slots. Main and production remain untouched.
+## Preview verification
+
+- Repository: `ejnburrows-rgb/cartilla-de-gretel`
+- Branch: `repair/authentic-flipchart-art`
+- Last app-changing commit: `2fefc27adfafa3f25ca2d98d3b009bea438da0d4`
+- READY preview: `https://cartilla-de-gretel-jofk8wk64-ejns-projects-1b938dd2.vercel.app`
+- Vercel build: completed successfully.
+- Browser route: `/cartilla/leccion/1` loaded with meaningful workbook content and no application error overlay.
+- `aro.webp`: direct preview reports 780×660 and visually shows the complete teacher-page-5 drawing without the printed word.
+- Interaction: clicking the rendered `aro` changed its parent from `fp-ix-cell` to `fp-ix-cell picked`.
+- Browser application errors: none. Vercel runtime errors for the checked route/time window: none.
+- `iglú.webp`: direct preview reports 600×570 and visually matches the teacher-page-7 crop.
+- Lesson 3 is progress-locked in the anonymous preview, so its page-7/page-8 reuse was verified from the canonical layout data and shared asset path, not by mutating student progress.
+
+## Preserved behavior and scope
+
+No page layout, coordinates, activity logic, answer visibility, renderer, navigation, authentication, database, curriculum, or responsive behavior was changed. The five unresolved drawings account for 14 visible cells and remain honest pending slots. Main and production remain untouched.
