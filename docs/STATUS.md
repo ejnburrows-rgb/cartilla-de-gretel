@@ -5,7 +5,9 @@ Honest current state. Updated 2026-08-08. Read this before starting work.
 > **2026-08-08 — authentic flip-chart art repair is active on branch `repair/authentic-flipchart-art`.**
 > - The workbook-first method is now the first instruction in `AGENTS.md`.
 > - `iglú` was recovered as the identical color drawing from teacher flip-chart page 7, cropped from the HD source at `[960,1530,600,570]`, wired through the existing asset path, and QA-graded PASS.
-> - Exact workbook templates are recorded for `abeja`, `aguja`, `abrigo`, `oruga`, `globo`, and `remolino`. All 62 teacher pages were checked by full-page visual review, SIFT/RANSAC matching, multi-scale edge matching, and OCR. No literal match has yet passed visual confirmation, so these six remain honest pending slots—no generated or recolored substitute is active.
+> - The two legacy `remolino` cells were a naming error: the printed workbook drawing is `aro`. Both cells now use the complete authentic teacher-page-5 crop at `[870,2580,780,660]`.
+> - The READY Vercel preview for commit `2fefc27` renders the complete `aro`, and clicking it changes the workbook cell to the selected state. No app console/runtime error was found.
+> - Five exact workbook drawings remain source-unresolved: `abeja`, `aguja`, `abrigo`, `oruga`, and `globo` (14 visible cells). All 62 teacher pages and all 62 HD duplicates were checked; no identical drawing passed visual confirmation. They remain neutral pending slots without answer words or substitutes.
 > - Seven generated lesson substitutes and seven defective unused faithful files were removed only after runtime-reference verification. Authoritative teacher pages, workbook scans, active faithful art, and the generated welcome scene were preserved.
 > - Current evidence and exact workbook crop boxes live in `docs/AUTHENTIC-FLIPCHART-ART-AUDIT.md`. This repair is not merged to `main` or production.
 
@@ -129,13 +131,13 @@ Brutally honest, plain language.
 - **English (EN) language toggle** — exists but only partially translates the
   UI, leaving mixed Spanish/English screens (already filed as issue #162).
   This also sits oddly against the AGENTS.md rule "no English in student UI."
-- **Illustration coverage** — down to **16 cells across 6 words**
-  (`abeja`, `aguja`, `remolino`, `abrigo`, `oruga`, `globo`). `escoba` was
-  fixed 2026-07-25 from the teacher flipchart. All 6 remaining words are
-  confirmed to have no color source anywhere in the scanned material, so they
-  stay honestly "pendiente". An earlier "498 of 700 cells / 71%" figure in
-  this file was **wrong** — it counted `syllable-match` text cells, which have
-  no illustration slot at all. See KNOWN ISSUES and `ART_BACKLOG.md`.
+- **Illustration coverage** — down to **14 cells across 5 source-unresolved words**
+  (`abeja`, `aguja`, `abrigo`, `oruga`, `globo`). `escoba` was fixed
+  2026-07-25; `iglú` and the falsely named `remolino`/`aro` were recovered
+  from teacher pages 7 and 5 on the repair branch. The remaining five stay
+  honestly pending because no identical drawing has passed full 62-page visual
+  confirmation. See `docs/AUTHENTIC-FLIPCHART-ART-AUDIT.md`; older art backlog
+  documents are historical only.
 - **Welcome/landing screen** — a version shipped and was rejected by the
   owner; a redo brief exists but has not been executed.
 
@@ -293,39 +295,26 @@ The rest is owner-decision work, listed in `docs/DECISIONS.md`.
 
 ## IN PROGRESS / PARTIAL
 
-- **Illustration coverage.** Most cells show real cropped book art; a small
-  number honestly show "pendiente." Specifically `abrigo`, `aguja`, and
-  `remolino` have real grayscale book line art located (exact page + crop box
-  recorded in `ART_BACKLOG.md`) but still need coloring — that is new
-  art-extraction work, not a wiring fix.
+- **Illustration coverage.** Most cells show real cropped book art; 14 cells
+  across `abeja`, `aguja`, `abrigo`, `oruga`, and `globo` honestly
+  remain pending. Their exact workbook drawings and crop boxes are recorded in
+  `docs/AUTHENTIC-FLIPCHART-ART-AUDIT.md`. Do not color, generate, or
+  substitute them; a source must be the identical authentic teacher drawing.
 - **Welcome / landing screen.** A "¡Bienvenidos!" splash shipped and was then
   rejected by the owner as not good enough. A diagnosis and a ready-to-paste
   redo brief exist (see the plan file referenced in `PROGRESS.md`); the redo
   itself has not been executed.
 
-## NOT STARTED
-
-- **`oruga` / `globo` art.** No clean source located after checking all 15
-  vowel-lesson workbook pages; the 62-page teacher flipchart is the only
-  unchecked source. Both stay "pendiente" for now.
-
 ## KNOWN ISSUES
 
-- **Illustration coverage — now down to 16 cells / 6 words, all confirmed
-  sourceless.** (Corrects an earlier figure in this file: a first pass counted
-  "498 of 700 caption cells missing art / 71%". That count was wrong. ~480 of
-  those are `syllable-match` cells — pure text exercises whose schema has no
-  `illustrationSrc` field at all, so they are not a gap.) The real gap was
-  **18 cells across 7 distinct words**; `escoba` was fixed 2026-07-25, leaving
-  **16 cells / 6 words**: `abeja` (7 cells), `aguja` (3), `remolino` (2),
-  `abrigo` (2), `oruga` (1), `globo` (1). The 62-page teacher flipchart — the
-  last unsearched color source — has now been scanned page by page, and none
-  of these 6 appears as a labeled vocab cell anywhere. They have **no known
-  color source in the scanned material** and stay honestly "pendiente" unless
-  new scans are added. See `ART_BACKLOG.md` 2026-07-25 for the full record.
-- **`abrigo` / `aguja` / `remolino` are additionally blocked by the coloring
-  ban.** Their only known source is grayscale line art, and coloring it would
-  be inventing color — banned by the art contract outright.
+- **Illustration coverage — 14 cells / 5 source-unresolved words.** A former
+  count of 16 included two cells incorrectly named `remolino`; the printed
+  workbook proves both are `aro`, now repaired from teacher page 5. The
+  remaining cells are `abeja` (7), `aguja` (3), `abrigo` (2), `oruga`
+  (1), and `globo` (1). All 62 teacher pages and their 62 HD duplicates were
+  checked using the exact workbook drawings. None of the five has an identical
+  visually confirmed teacher match, so the cells remain neutral pending slots.
+  See `docs/AUTHENTIC-FLIPCHART-ART-AUDIT.md` for the current record.
 - **24 lint warnings remain (0 errors — `pnpm lint` exits green).** 23 are
   `react-refresh/only-export-components` spread across 17 files (a hot-reload
   DX hint with no runtime effect; clearing them means splitting 17 working
