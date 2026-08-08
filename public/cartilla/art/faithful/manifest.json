@@ -277,13 +277,16 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-a/aro.webp",
-    "sourceFlipchartPage": "a-page-4.jpg",
+    "sourceFlipchartPage": 5,
     "cropBox": [
-      846,
-      2249,
-      741,
-      526
-    ]
+      870,
+      2580,
+      780,
+      660
+    ],
+    "source": "public/cartilla/art/hd/flipchart/page-005.jpg",
+    "provenanceStatus": "VERIFIED-AUTHENTIC-FLIPCHART-2026-08-08",
+    "note": "Exact authentic colored aro crop from teacher flip-chart page 5. The legacy student cells captioned remolino were verified as the same aro drawing and now reference this asset."
   },
   {
     "slug": "iman",
