@@ -1,5 +1,5 @@
 {
-  "$comment": "Generated art registry. Scene art remains outside lesson content by default. Lesson replacements are owner-approved exceptions for words with no usable authentic color source.",
+  "$comment": "Generated scene art registry. Generated lesson-art substitutions are prohibited and none are active.",
   "scenes": [
     {
       "slug": "welcome-splash",
@@ -13,13 +13,63 @@
       "reviewedBy": "EJN"
     }
   ],
-  "lessonReplacements": [
-    { "slug": "abeja", "src": "/cartilla/art/generated/lesson-replacements/abeja.svg", "tool": "AI-generated vector", "createdAt": "2026-07-29", "approvedBy": "EJN" },
-    { "slug": "aguja", "src": "/cartilla/art/generated/lesson-replacements/aguja.svg", "tool": "AI-generated vector", "createdAt": "2026-07-29", "approvedBy": "EJN" },
-    { "slug": "abrigo", "src": "/cartilla/art/generated/lesson-replacements/abrigo.svg", "tool": "AI-generated vector", "createdAt": "2026-07-29", "approvedBy": "EJN" },
-    { "slug": "remolino", "src": "/cartilla/art/generated/lesson-replacements/remolino.svg", "tool": "AI-generated vector", "createdAt": "2026-07-29", "approvedBy": "EJN" },
-    { "slug": "globo", "src": "/cartilla/art/generated/lesson-replacements/globo.svg", "tool": "AI-generated vector", "createdAt": "2026-07-29", "approvedBy": "EJN" },
-    { "slug": "oruga", "src": "/cartilla/art/generated/lesson-replacements/oruga.svg", "tool": "AI-generated vector", "createdAt": "2026-07-29", "approvedBy": "EJN" },
-    { "slug": "iglu", "src": "/cartilla/art/generated/lesson-replacements/iglu.svg", "tool": "AI-generated image, deterministic resize/encode", "createdAt": "2026-07-29", "approvedBy": "EJN", "replaces": "/cartilla/art/faithful/vocal-i/iglu.webp" }
+  "retiredLessonReplacementFiles": [
+    {
+      "slug": "abeja",
+      "src": "/cartilla/art/generated/lesson-replacements/abeja.svg",
+      "tool": "AI-generated vector",
+      "createdAt": "2026-07-29",
+      "approvedBy": "EJN",
+      "status": "inactive — pending authentic source verification"
+    },
+    {
+      "slug": "aguja",
+      "src": "/cartilla/art/generated/lesson-replacements/aguja.svg",
+      "tool": "AI-generated vector",
+      "createdAt": "2026-07-29",
+      "approvedBy": "EJN",
+      "status": "inactive — pending authentic source verification"
+    },
+    {
+      "slug": "abrigo",
+      "src": "/cartilla/art/generated/lesson-replacements/abrigo.svg",
+      "tool": "AI-generated vector",
+      "createdAt": "2026-07-29",
+      "approvedBy": "EJN",
+      "status": "inactive — pending authentic source verification"
+    },
+    {
+      "slug": "remolino",
+      "src": "/cartilla/art/generated/lesson-replacements/remolino.svg",
+      "tool": "AI-generated vector",
+      "createdAt": "2026-07-29",
+      "approvedBy": "EJN",
+      "status": "inactive — pending authentic source verification"
+    },
+    {
+      "slug": "globo",
+      "src": "/cartilla/art/generated/lesson-replacements/globo.svg",
+      "tool": "AI-generated vector",
+      "createdAt": "2026-07-29",
+      "approvedBy": "EJN",
+      "status": "inactive — pending authentic source verification"
+    },
+    {
+      "slug": "oruga",
+      "src": "/cartilla/art/generated/lesson-replacements/oruga.svg",
+      "tool": "AI-generated vector",
+      "createdAt": "2026-07-29",
+      "approvedBy": "EJN",
+      "status": "inactive — pending authentic source verification"
+    },
+    {
+      "slug": "iglu",
+      "src": "/cartilla/art/generated/lesson-replacements/iglu.svg",
+      "tool": "AI-generated image, deterministic resize/encode",
+      "createdAt": "2026-07-29",
+      "approvedBy": "EJN",
+      "replaces": "/cartilla/art/faithful/vocal-i/iglu.webp",
+      "status": "inactive — pending authentic source verification"
+    }
   ]
 }
