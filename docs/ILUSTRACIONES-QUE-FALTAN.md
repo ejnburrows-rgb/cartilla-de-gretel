@@ -9,7 +9,7 @@ The first rule is workbook drawing → identical color drawing in all 62 teacher
 | Word | Student pages | Final asset | Teacher source | Status |
 |---|---|---|---|---|
 | iglú | 4, 5, 8, 10, 13, 14 | `public/cartilla/art/faithful/vocal-i/iglu.webp` | teacher page 7, HD crop `[960,1530,600,570]` | Authentic crop applied and QA PASS. |
-| aro | 1, 8 | `public/cartilla/art/faithful/vocal-a/aro.webp` | teacher page 5, HD crop `[870,2580,780,660]` | Legacy `remolino` name corrected; complete authentic crop applied and browser-verified. |
+| aro | 1, 7, 8 | `public/cartilla/art/faithful/vocal-a/aro.webp` | teacher page 5, HD crop `[870,2580,780,660]` | Legacy `remolino` name corrected; complete authentic crop applied and browser-verified. |
 
 ## Exact workbook templates recorded; teacher match unresolved
 
