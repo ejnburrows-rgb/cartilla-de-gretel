@@ -188,10 +188,10 @@
 .fp-ix-cell.graded-wrong .fp-ix-cell__badge {
   opacity: 1;
   transform: scale(1);
-  background: var(--color-incorrect, #f43f5e);
+  background: #d59a36;
 }
 .fp-ix-cell.graded-wrong .fp-ix-cell__badge::after {
-  content: "✕";
+  content: "";
 }
 .fp-ix-cell.graded-wrong {
   animation: fpIxShake 0.4s ease;
@@ -504,8 +504,8 @@
 }
 .fp-ix-syllable__word.graded-missed {
   border-style: dashed;
-  border-color: var(--color-incorrect, #f43f5e);
-  color: var(--color-incorrect, #f43f5e);
+  border-color: #c4862b;
+  color: #8c5a15;
   animation: fpIxMissedPulse 1.1s ease-in-out 2;
 }
 .fp-ix-syllable__word:disabled {
@@ -586,10 +586,10 @@
   color: var(--color-correct-fg, #fff);
 }
 .fp-ix-fill__choice.graded-wrong {
-  background: var(--color-incorrect, #f43f5e);
-  border-color: var(--color-incorrect, #f43f5e);
-  color: var(--color-incorrect-fg, #fff);
-  animation: fpIxShake 0.4s ease;
+  background: #fff3d1;
+  border-color: #c4862b;
+  color: #6f4815;
+  animation: fpIxBounceBack 0.4s ease;
 }
 .fp-ix-fill__choice:disabled {
   cursor: default;
