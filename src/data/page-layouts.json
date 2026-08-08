@@ -53,8 +53,9 @@
               "correct": true
             },
             {
-              "caption": "remolino",
-              "correct": false
+              "caption": "aro",
+              "correct": false,
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/aro.webp"
             },
             {
               "caption": "escalera",
@@ -643,8 +644,9 @@
               "illustrationSrc": "/cartilla/art/faithful/leccion-1/pez.webp"
             },
             {
-              "caption": "remolino",
-              "correct": false
+              "caption": "aro",
+              "correct": false,
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/aro.webp"
             }
           ]
         }
