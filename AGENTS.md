@@ -1,5 +1,35 @@
 # AGENTS.md — La Cartilla de Gretel
 
+## FIRST RULE FOR ANY WORKBOOK ILLUSTRATION TASK
+
+**Read this before any art backlog, manifest, crop record, generated-art folder,
+or “missing” report:**
+
+The product has two separate authoritative sources: a **62-page teacher flip
+chart** and a **92-page student book**. The publisher describes the student
+activities as reinforcing the flip chart; it does not say every student-book
+distractor is repeated in color. The complete local teacher set has been
+confirmed twice (low-resolution and HD), with a 62/62 page identity map.
+
+For each workbook picture:
+
+1. Open the original student-workbook page and identify the exact drawing.
+   Legacy captions and filenames are hypotheses only; the printed drawing
+   controls (for example, legacy `remolino` cells were actually `aro`).
+2. Search all 62 teacher files for that identical drawing in color.
+3. If the identical teacher drawing exists, crop it cleanly and use it.
+4. If exhaustive visual and machine checks prove it does **not** exist in the
+   flip chart, use a lossless crop of the exact original student-workbook
+   drawing. Never leave the cell blank, reveal the answer word, generate,
+   redraw, recolor, vectorize, or use a look-alike.
+5. Wire only that asset into the existing slot. Do not alter layout,
+   interaction, answer visibility, curriculum, authentication, or data logic.
+
+Current source mapping and proof are in
+`docs/AUTHENTIC-FLIPCHART-ART-AUDIT.md`. Read it immediately after this file;
+it overrides every older missing-art list, generated-art record, crop manifest,
+issue, PR description, and stale provenance claim.
+
 **This file is the single source of truth for every AI agent working on
 this project (Claude, Gemini, Antigravity, Jules, Kilo, and any other).
 Read it fully before doing anything. `CLAUDE.md` and `GEMINI.md` are just
@@ -125,8 +155,10 @@ this file apply to the *work*, never to which tool is doing it.
 
 **Before starting ANY work, every time:** `git fetch origin && git reset
 --hard origin/main` (or a fresh clone) so you're never building on a stale
-base. `docs/ILUSTRACIONES-QUE-FALTAN.md` is the authoritative list of art still
-needed (it replaced `docs/ART_BACKLOG.md`, which is kept as history).
+base. For any lesson-art task, read `docs/AUTHENTIC-FLIPCHART-ART-AUDIT.md`
+first. It overrides stale missing-art, generated-art, provenance, crop-manifest,
+PR, and issue claims. A missing source record never authorizes new, recolored,
+or generated lesson art.
 
 ---
 

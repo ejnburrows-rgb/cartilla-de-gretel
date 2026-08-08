@@ -1,5 +1,5 @@
 {
-  "_comment": "CANONICAL faithful page layouts — the single source of truth for the student CRM view, student workbook, and teacher flipbook. Each page is an ordered list of regions; text regions hold VERIFIED transcriptions (checked against the official workbook), picture cells / illustration slots hold `illustrationSrc` paths to faithful COLOR crops from the art pipeline (public/cartilla/art/faithful/manifest.json). A page absent here has no verified layout yet and renders its surface's existing fallback. NOTHING here is placeholder or invented — pages are added lesson-by-lesson only after the owner verifies them. Pictures without a real crop show an explicit 'pendiente' marker, never an invented drawing.",
+  "_comment": "CANONICAL faithful page layouts — the single source of truth for the student CRM view, student workbook, and teacher flipbook. Each page is an ordered list of regions; text regions hold VERIFIED transcriptions checked against the official workbook. Picture cells use source-faithful crops: the identical teacher-color drawing when the flip chart contains it, otherwise the exact original student-workbook drawing. Never generate, redraw, or guess colors. A page absent here uses its existing fallback.",
   "_status": "ALL 24 LESSONS complete for their writing page + core letter/syllables/sentences page: Lecciones 2-6 (vowels O,A,E,I,U) + Lecciones 7-24 (consonants M,P,S,T,D,L,N,Ñ,B,V,R,rr,G,F,J,C,Y,Z). Every lesson's matching (circle-the-syllable / trace-a-line) and fill-in-the-blank pages are intentionally deferred — same policy applied consistently throughout, since those are picture- or interactive-layout-driven and not yet worth building faithfully. All text transcribed from the owner-uploaded workbook PDF and cross-checked page-by-page; picture-grid illustrations show honest 'pendiente' markers pending the art pipeline. AWAITING OWNER VERIFICATION before this is considered final.",
   "pages": {
     "1": {
@@ -20,7 +20,8 @@
           "cells": [
             {
               "caption": "abrigo",
-              "correct": true
+              "correct": true,
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/abrigo.webp"
             },
             {
               "caption": "imán",
@@ -53,8 +54,9 @@
               "correct": true
             },
             {
-              "caption": "remolino",
-              "correct": false
+              "caption": "aro",
+              "correct": false,
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/aro.webp"
             },
             {
               "caption": "escalera",
@@ -104,7 +106,8 @@
             },
             {
               "caption": "abeja",
-              "correct": false
+              "correct": false,
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/abeja.webp"
             },
             {
               "caption": "olla",
@@ -220,7 +223,8 @@
                 },
                 {
                   "caption": "globo",
-                  "correct": false
+                  "correct": false,
+                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/globo.webp"
                 },
                 {
                   "caption": "dulce",
@@ -518,7 +522,8 @@
             },
             {
               "caption": "oruga",
-              "correct": false
+              "correct": false,
+              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oruga.webp"
             },
             {
               "caption": "aro",
@@ -537,7 +542,8 @@
             },
             {
               "caption": "abeja",
-              "correct": true
+              "correct": true,
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/abeja.webp"
             },
             {
               "caption": "árbol",
@@ -581,7 +587,8 @@
             },
             {
               "caption": "aguja",
-              "correct": true
+              "correct": true,
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/aguja.webp"
             },
             {
               "caption": "aro",
@@ -626,11 +633,13 @@
             },
             {
               "caption": "abeja",
-              "correct": true
+              "correct": true,
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/abeja.webp"
             },
             {
               "caption": "aguja",
-              "correct": true
+              "correct": true,
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/aguja.webp"
             },
             {
               "caption": "maíz",
@@ -643,8 +652,9 @@
               "illustrationSrc": "/cartilla/art/faithful/leccion-1/pez.webp"
             },
             {
-              "caption": "remolino",
-              "correct": false
+              "caption": "aro",
+              "correct": false,
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/aro.webp"
             }
           ]
         }
@@ -749,11 +759,13 @@
             },
             {
               "caption": "abeja",
-              "correct": false
+              "correct": false,
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/abeja.webp"
             },
             {
               "caption": "aguja",
-              "correct": false
+              "correct": false,
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/aguja.webp"
             },
             {
               "caption": "escoba",
@@ -828,7 +840,8 @@
             },
             {
               "caption": "abeja",
-              "correct": false
+              "correct": false,
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/abeja.webp"
             },
             {
               "caption": "erizo",
@@ -852,7 +865,8 @@
             },
             {
               "caption": "abrigo",
-              "correct": false
+              "correct": false,
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/abrigo.webp"
             }
           ]
         }
@@ -1063,7 +1077,8 @@
             },
             {
               "caption": "abeja",
-              "correct": false
+              "correct": false,
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/abeja.webp"
             }
           ]
         }
@@ -1193,7 +1208,8 @@
               "illustrationSrc": "/cartilla/art/faithful/leccion-1/aguila.webp"
             },
             {
-              "caption": "abeja"
+              "caption": "abeja",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-a/abeja.webp"
             },
             {
               "caption": "traje",

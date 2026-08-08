@@ -1,18 +1,10 @@
-/* Owner-approved generated replacements for artwork with no usable authentic color source. */
-.fp-art-pending[data-generated-art] {
-  border: 1.5px solid rgba(95, 167, 119, 0.45);
-  background-color: #fbf3e0;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  color: transparent;
+/* Lesson-content generation is prohibited.
+ *
+ * Former replacement SVGs remain on disk only for dependency audit. They are
+ * deliberately not referenced here. An unresolved art slot stays neutral and
+ * does not display its vocabulary word, so a picture-selection activity does
+ * not reveal an answer.
+ */
+.fp-art-pending__word {
+  display: none;
 }
-.fp-art-pending[data-generated-art] > * { display: none; }
-.fp-art-pending[data-generated-art="abeja"] { background-image: url("/cartilla/art/generated/lesson-replacements/abeja.svg"); }
-.fp-art-pending[data-generated-art="aguja"] { background-image: url("/cartilla/art/generated/lesson-replacements/aguja.svg"); }
-.fp-art-pending[data-generated-art="abrigo"] { background-image: url("/cartilla/art/generated/lesson-replacements/abrigo.svg"); }
-.fp-art-pending[data-generated-art="remolino"] { background-image: url("/cartilla/art/generated/lesson-replacements/remolino.svg"); }
-.fp-art-pending[data-generated-art="globo"] { background-image: url("/cartilla/art/generated/lesson-replacements/globo.svg"); }
-.fp-art-pending[data-generated-art="oruga"] { background-image: url("/cartilla/art/generated/lesson-replacements/oruga.svg"); }
-/* The previous igloo crop was live but failed color QA; replace it without altering faithful source files. */
-img[src*="/cartilla/art/faithful/vocal-i/iglu.webp"] { content: url("/cartilla/art/generated/lesson-replacements/iglu.svg"); }

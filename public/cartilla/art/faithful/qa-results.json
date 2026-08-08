@@ -1,31 +1,19 @@
 {
   "$schema": "color-quality QA pass/fail per published faithful crop + Gretel pose cutout",
   "generatedBy": "manual visual QA (contact sheets + full-res zoom + source comparison)",
-  "population": 181,
-  "pass": 122,
-  "fail": 59,
+  "population": 179,
+  "pass": 128,
+  "fail": 51,
   "criteria": [
     "colors match the book original (verified against public/art/hd/gretel-authentic.jpg for Gretel; book scan pages for crops)",
     "clean paint - no bleed, white gaps, or flat fills where the original has shading",
     "complete crop - no cut-off limbs, no background chunks, clean edges"
   ],
-  "note": "Task brief cited Gretel canon colors dress #E2574C / hair #B5793A which do not match the real book painting (public/art/hd/gretel-authentic.jpg: blonde hair, navy dress with orange floral trim). Judged poses against the actual source painting instead; all 17 pass. Flagging the hex mismatch for the operator to reconcile with Notion Hub canon. wasWiredInProduction=true means the FAIL crop was referenced by src/data/page-layouts.json, src/content/lessons.json, src/content/consonants.json, src/content/animal-gallery.ts, and/or src/content/workbook/workbook-manifest.json (the dev-only LivingWorkbookPage sandbox engine) — all references have been stripped back to pendiente/emoji/no-entry.",
+  "note": "Task brief cited Gretel canon colors dress #E2574C / hair #B5793A which do not match the real book painting (public/art/hd/gretel-authentic.jpg: blonde hair, navy dress with orange floral trim). Judged poses against the actual source painting instead; all 17 pass. Flagging the hex mismatch for the operator to reconcile with Notion Hub canon. wasWiredInProduction=true means the FAIL crop was referenced by src/data/page-layouts.json, src/content/lessons.json, src/content/consonants.json, src/content/animal-gallery.ts, and/or src/content/workbook/workbook-manifest.json (the dev-only LivingWorkbookPage sandbox engine) — all references have been stripped back to pendiente/emoji/no-entry. On 2026-08-08, the focused seven-drawing repair retained authentic teacher crops for aro/iglú and restored five exact student-workbook crops after proving those drawings do not occur in the separate complete 62-page flip chart. Generated substitutes remain inactive.",
   "results": [
     {
       "file": "public/cartilla/art/faithful/vocal-a/abanico.webp",
       "verdict": "PASS"
-    },
-    {
-      "file": "public/cartilla/art/faithful/vocal-a/abeja.webp",
-      "verdict": "FAIL",
-      "reason": "Monochrome gold/ochre tint, no real multi-color paint (should be yellow/black bee)",
-      "wasWiredInProduction": true
-    },
-    {
-      "file": "public/cartilla/art/faithful/vocal-a/aguja.webp",
-      "verdict": "FAIL",
-      "reason": "Near-blank; essentially uncolored line art, no fill",
-      "wasWiredInProduction": true
     },
     {
       "file": "public/cartilla/art/faithful/vocal-a/alas.webp",
@@ -91,8 +79,8 @@
     },
     {
       "file": "public/cartilla/art/faithful/vocal-i/iglu.webp",
-      "verdict": "FAIL",
-      "reason": "Essentially uncolored/grayscale line art, minimal color saturation",
+      "verdict": "PASS",
+      "reason": "Authentic color crop verified against teacher flip-chart page 7; crop [960,1530,600,570].",
       "wasWiredInProduction": true
     },
     {
@@ -146,12 +134,6 @@
       "verdict": "PASS"
     },
     {
-      "file": "public/cartilla/art/faithful/vocal-o/oruga.webp",
-      "verdict": "FAIL",
-      "reason": "Monochrome sage/gray tone, undercolored (should be vivid caterpillar coloring)",
-      "wasWiredInProduction": true
-    },
-    {
       "file": "public/cartilla/art/faithful/vocal-o/oso-blink.webp",
       "verdict": "PASS"
     },
@@ -184,18 +166,6 @@
       "verdict": "PASS"
     },
     {
-      "file": "public/cartilla/art/faithful/leccion-1/abeja_wb.webp",
-      "verdict": "FAIL",
-      "reason": "Blank white image, no content at all",
-      "wasWiredInProduction": false
-    },
-    {
-      "file": "public/cartilla/art/faithful/leccion-1/abrigo.webp",
-      "verdict": "FAIL",
-      "reason": "Unrecognizable abstract color smear, wrong/no content",
-      "wasWiredInProduction": true
-    },
-    {
       "file": "public/cartilla/art/faithful/leccion-1/aguila.webp",
       "verdict": "PASS"
     },
@@ -210,12 +180,6 @@
     {
       "file": "public/cartilla/art/faithful/leccion-1/dulce.webp",
       "verdict": "PASS"
-    },
-    {
-      "file": "public/cartilla/art/faithful/leccion-1/globo.webp",
-      "verdict": "FAIL",
-      "reason": "Paint bleed: stray red line runs edge-to-edge across the top, not part of the balloon",
-      "wasWiredInProduction": true
     },
     {
       "file": "public/cartilla/art/faithful/leccion-1/libro.webp",
@@ -250,12 +214,6 @@
     {
       "file": "public/cartilla/art/faithful/leccion-1/pez.webp",
       "verdict": "PASS"
-    },
-    {
-      "file": "public/cartilla/art/faithful/leccion-1/remolino.webp",
-      "verdict": "FAIL",
-      "reason": "Incomplete crop: swirl cut off at edge plus a stray unrelated green fragment",
-      "wasWiredInProduction": true
     },
     {
       "file": "public/cartilla/art/faithful/leccion-1/taza.webp",
@@ -854,6 +812,36 @@
     {
       "file": "public/cartilla/images/gretel/poses/gretel-wave.webp",
       "verdict": "PASS"
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-1/abrigo.webp",
+      "verdict": "PASS",
+      "reason": "Exact lossless crop from the authoritative student-workbook page; drawing and crop box verified. No generated, redrawn, or recolored content.",
+      "wasWiredInProduction": true
+    },
+    {
+      "file": "public/cartilla/art/faithful/leccion-1/globo.webp",
+      "verdict": "PASS",
+      "reason": "Exact lossless crop from the authoritative student-workbook page; drawing and crop box verified. No generated, redrawn, or recolored content.",
+      "wasWiredInProduction": true
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-a/abeja.webp",
+      "verdict": "PASS",
+      "reason": "Exact lossless crop from the authoritative student-workbook page; drawing and crop box verified. No generated, redrawn, or recolored content.",
+      "wasWiredInProduction": true
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-o/oruga.webp",
+      "verdict": "PASS",
+      "reason": "Exact lossless crop from the authoritative student-workbook page; drawing and crop box verified. No generated, redrawn, or recolored content.",
+      "wasWiredInProduction": true
+    },
+    {
+      "file": "public/cartilla/art/faithful/vocal-a/aguja.webp",
+      "verdict": "PASS",
+      "reason": "Exact lossless crop from the authoritative student-workbook page; drawing and crop box verified. No generated, redrawn, or recolored content.",
+      "wasWiredInProduction": true
     }
   ]
 }

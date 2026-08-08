@@ -1,19 +1,100 @@
 [
   {
+    "slug": "abrigo",
+    "word": "abrigo",
+    "lessonNumber": 1,
+    "pageNumber": 1,
+    "src": "/cartilla/art/faithful/leccion-1/abrigo.webp",
+    "source": "public/cartilla/art/restored/workbook/page-003.png",
+    "cropBox": [
+      230,
+      800,
+      440,
+      520
+    ],
+    "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
+    "note": "Exact lossless student-workbook drawing. Exhaustive 62-page teacher search confirmed no identical flip-chart counterpart."
+  },
+  {
+    "slug": "globo",
+    "word": "globo",
+    "lessonNumber": 1,
+    "pageNumber": 2,
+    "src": "/cartilla/art/faithful/leccion-1/globo.webp",
+    "source": "public/cartilla/art/restored/workbook/page-004.png",
+    "cropBox": [
+      1740,
+      2985,
+      580,
+      515
+    ],
+    "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
+    "note": "Exact lossless student-workbook drawing. Exhaustive 62-page teacher search confirmed no identical flip-chart counterpart."
+  },
+  {
+    "slug": "abeja",
+    "word": "abeja",
+    "lessonNumber": null,
+    "pageNumber": 7,
+    "src": "/cartilla/art/faithful/vocal-a/abeja.webp",
+    "source": "public/cartilla/art/restored/workbook/page-009.png",
+    "cropBox": [
+      720,
+      1420,
+      580,
+      560
+    ],
+    "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
+    "note": "Exact lossless student-workbook drawing. Exhaustive 62-page teacher search confirmed no identical flip-chart counterpart."
+  },
+  {
+    "slug": "oruga",
+    "word": "oruga",
+    "lessonNumber": null,
+    "pageNumber": 7,
+    "src": "/cartilla/art/faithful/vocal-o/oruga.webp",
+    "source": "public/cartilla/art/restored/workbook/page-009.png",
+    "cropBox": [
+      720,
+      800,
+      580,
+      570
+    ],
+    "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
+    "note": "Exact lossless student-workbook drawing. Exhaustive 62-page teacher search confirmed no identical flip-chart counterpart."
+  },
+  {
+    "slug": "aguja",
+    "word": "aguja",
+    "lessonNumber": null,
+    "pageNumber": 7,
+    "src": "/cartilla/art/faithful/vocal-a/aguja.webp",
+    "source": "public/cartilla/art/restored/workbook/page-009.png",
+    "cropBox": [
+      1350,
+      2650,
+      575,
+      590
+    ],
+    "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
+    "note": "Exact lossless student-workbook drawing. Exhaustive 62-page teacher search confirmed no identical flip-chart counterpart."
+  },
+  {
     "slug": "iglu",
     "word": "iglú",
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-i/iglu.webp",
-    "source": "public/cartilla/images/source-original/i/i-page-6.jpg",
+    "source": "public/cartilla/art/hd/flipchart/page-007.jpg",
     "cropBox": [
-      935,
-      1420,
-      590,
-      500
+      960,
+      1530,
+      600,
+      570
     ],
-    "provenanceStatus": "FIXED-2026-WRONG-PAGE",
-    "note": "Old sourceFlipchartPage (i-page-14.jpg) was a grayscale trace-line exercise page, not the colored vocab grid — that's why the old crop was uncolored and QA-failed. Re-cropped from the real colored source, i-page-6.jpg (imán/iglú/indio/insecto/isla/Irma grid)."
+    "provenanceStatus": "VERIFIED-AUTHENTIC-FLIPCHART-2026-08-08",
+    "note": "Exact authentic colored iglú crop from teacher flip-chart page 7. No generated replacement or recoloring.",
+    "sourceFlipchartPage": 7
   },
   {
     "slug": "oso",
@@ -276,13 +357,16 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-a/aro.webp",
-    "sourceFlipchartPage": "a-page-4.jpg",
+    "sourceFlipchartPage": 5,
     "cropBox": [
-      846,
-      2249,
-      741,
-      526
-    ]
+      870,
+      2580,
+      780,
+      660
+    ],
+    "source": "public/cartilla/art/hd/flipchart/page-005.jpg",
+    "provenanceStatus": "VERIFIED-AUTHENTIC-FLIPCHART-2026-08-08",
+    "note": "Exact authentic colored aro crop from teacher flip-chart page 5. The legacy student cells captioned remolino were verified as the same aro drawing and now reference this asset."
   },
   {
     "slug": "iman",
@@ -327,20 +411,6 @@
     ]
   },
   {
-    "slug": "abrigo",
-    "word": "abrigo",
-    "lessonNumber": null,
-    "pageNumber": null,
-    "src": "/cartilla/art/faithful/leccion-1/abrigo.webp",
-    "sourceFlipchartPage": "a-page-4.jpg",
-    "cropBox": [
-      237,
-      1119,
-      451,
-      341
-    ]
-  },
-  {
     "slug": "iglesia",
     "word": "iglesia",
     "lessonNumber": null,
@@ -359,16 +429,6 @@
     "sourceFlipchartPage": null,
     "cropBox": null,
     "provenanceStatus": "RECOVERED-2026-FROM-GIT-HISTORY-BLOB-cf0d6c7d"
-  },
-  {
-    "slug": "oruga",
-    "word": "oruga",
-    "lessonNumber": null,
-    "pageNumber": null,
-    "src": "/cartilla/art/faithful/vocal-o/oruga.webp",
-    "sourceFlipchartPage": null,
-    "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
   },
   {
     "slug": "escoba",
@@ -428,16 +488,6 @@
     "provenanceStatus": "BACKFILLED-2026-FROM-FLIPCHART-PAGE-003"
   },
   {
-    "slug": "remolino",
-    "word": "remolino",
-    "lessonNumber": null,
-    "pageNumber": null,
-    "src": "/cartilla/art/faithful/leccion-1/remolino.webp",
-    "sourceFlipchartPage": null,
-    "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
-  },
-  {
     "slug": "carro",
     "word": "carro",
     "lessonNumber": 18,
@@ -467,16 +517,6 @@
     "provenanceStatus": "BACKFILLED-2026-FROM-FLIPCHART-PAGE-003"
   },
   {
-    "slug": "globo",
-    "word": "globo",
-    "lessonNumber": null,
-    "pageNumber": null,
-    "src": "/cartilla/art/faithful/leccion-1/globo.webp",
-    "sourceFlipchartPage": null,
-    "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
-  },
-  {
     "slug": "libro",
     "word": "libro",
     "lessonNumber": null,
@@ -503,20 +543,6 @@
       2549,
       448,
       319
-    ]
-  },
-  {
-    "slug": "abeja",
-    "word": "abeja",
-    "lessonNumber": null,
-    "pageNumber": null,
-    "src": "/cartilla/art/faithful/vocal-a/abeja.webp",
-    "sourceFlipchartPage": "a-page-4.jpg",
-    "cropBox": [
-      1459,
-      2580,
-      400,
-      279
     ]
   },
   {
@@ -600,16 +626,6 @@
       240,
       216
     ]
-  },
-  {
-    "slug": "aguja",
-    "word": "aguja",
-    "lessonNumber": null,
-    "pageNumber": null,
-    "src": "/cartilla/art/faithful/vocal-a/aguja.webp",
-    "sourceFlipchartPage": null,
-    "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
   },
   {
     "slug": "anillo",

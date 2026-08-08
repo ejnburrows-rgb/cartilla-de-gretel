@@ -489,3 +489,4 @@ DOCUMENTATION DUTY section of `AGENTS.md`).
   `vocal-i/iglu.webp` is wired and rendering on six pages while carrying a QA
   verdict of FAIL, and the QA run post-dates the file, so it is a live defect
   rather than a stale result.
+- **2026-08-08 — Workbook art repair uses only the original workbook drawing matched to the identical color drawing in all 62 teacher flip-chart pages; missing metadata never authorizes generated/recolored substitutes, and proven-dead substitutes are removed only after runtime-reference verification.**

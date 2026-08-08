@@ -1,6 +1,13 @@
 # STATUS — La Cartilla de Gretel
 
-Honest current state. Updated 2026-07-26. Read this before starting work.
+Honest current state. Updated 2026-08-08. Read this before starting work.
+
+> **2026-08-08 — focused workbook-art repair is implemented on `repair/authentic-flipchart-art`.**
+> - The first rule in `AGENTS.md` now records the verified two-source model: a complete 62-page flip chart and a separate 92-page student book.
+> - `aro` and `iglú` use identical authentic teacher-color crops from pages 5 and 7.
+> - `abeja`, `aguja`, `abrigo`, `oruga`, and `globo` do not occur as identical drawings in the complete flip chart; all 14 formerly blank cells now use lossless crops of the exact original student-book drawings.
+> - No generated, redrawn, recolored, or look-alike lesson art is active. Layouts, interactions, and hidden answers are unchanged.
+> - Current mapping and crop evidence live in `docs/AUTHENTIC-FLIPCHART-ART-AUDIT.md`. This repair is not merged to `main` or production.
 
 > **2026-07-26 — admin dashboard is live, and a public hole was closed.**
 > - **Cross-teacher admin reads work against the real database** (#355). This
@@ -122,13 +129,6 @@ Brutally honest, plain language.
 - **English (EN) language toggle** — exists but only partially translates the
   UI, leaving mixed Spanish/English screens (already filed as issue #162).
   This also sits oddly against the AGENTS.md rule "no English in student UI."
-- **Illustration coverage** — down to **16 cells across 6 words**
-  (`abeja`, `aguja`, `remolino`, `abrigo`, `oruga`, `globo`). `escoba` was
-  fixed 2026-07-25 from the teacher flipchart. All 6 remaining words are
-  confirmed to have no color source anywhere in the scanned material, so they
-  stay honestly "pendiente". An earlier "498 of 700 cells / 71%" figure in
-  this file was **wrong** — it counted `syllable-match` text cells, which have
-  no illustration slot at all. See KNOWN ISSUES and `ART_BACKLOG.md`.
 - **Welcome/landing screen** — a version shipped and was rejected by the
   owner; a redo brief exists but has not been executed.
 
@@ -286,39 +286,16 @@ The rest is owner-decision work, listed in `docs/DECISIONS.md`.
 
 ## IN PROGRESS / PARTIAL
 
-- **Illustration coverage.** Most cells show real cropped book art; a small
-  number honestly show "pendiente." Specifically `abrigo`, `aguja`, and
-  `remolino` have real grayscale book line art located (exact page + crop box
-  recorded in `ART_BACKLOG.md`) but still need coloring — that is new
-  art-extraction work, not a wiring fix.
+- **Illustration coverage.** The focused seven-drawing repair has no blank cells.
+  Shared drawings use teacher-color crops; workbook-only distractors use exact
+  lossless student-book crops. See `docs/AUTHENTIC-FLIPCHART-ART-AUDIT.md`.
 - **Welcome / landing screen.** A "¡Bienvenidos!" splash shipped and was then
   rejected by the owner as not good enough. A diagnosis and a ready-to-paste
   redo brief exist (see the plan file referenced in `PROGRESS.md`); the redo
   itself has not been executed.
 
-## NOT STARTED
-
-- **`oruga` / `globo` art.** No clean source located after checking all 15
-  vowel-lesson workbook pages; the 62-page teacher flipchart is the only
-  unchecked source. Both stay "pendiente" for now.
-
 ## KNOWN ISSUES
 
-- **Illustration coverage — now down to 16 cells / 6 words, all confirmed
-  sourceless.** (Corrects an earlier figure in this file: a first pass counted
-  "498 of 700 caption cells missing art / 71%". That count was wrong. ~480 of
-  those are `syllable-match` cells — pure text exercises whose schema has no
-  `illustrationSrc` field at all, so they are not a gap.) The real gap was
-  **18 cells across 7 distinct words**; `escoba` was fixed 2026-07-25, leaving
-  **16 cells / 6 words**: `abeja` (7 cells), `aguja` (3), `remolino` (2),
-  `abrigo` (2), `oruga` (1), `globo` (1). The 62-page teacher flipchart — the
-  last unsearched color source — has now been scanned page by page, and none
-  of these 6 appears as a labeled vocab cell anywhere. They have **no known
-  color source in the scanned material** and stay honestly "pendiente" unless
-  new scans are added. See `ART_BACKLOG.md` 2026-07-25 for the full record.
-- **`abrigo` / `aguja` / `remolino` are additionally blocked by the coloring
-  ban.** Their only known source is grayscale line art, and coloring it would
-  be inventing color — banned by the art contract outright.
 - **24 lint warnings remain (0 errors — `pnpm lint` exits green).** 23 are
   `react-refresh/only-export-components` spread across 17 files (a hot-reload
   DX hint with no runtime effect; clearing them means splitting 17 working

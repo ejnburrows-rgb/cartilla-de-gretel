@@ -1,21 +1,22 @@
-# Ilustraciones que faltan
+# Illustration status — focused authentic-art repair
 
-**Current status (2026-07-29): zero visible missing or known failing lesson illustrations.**
+**Current source of truth:** `docs/AUTHENTIC-FLIPCHART-ART-AUDIT.md`
 
-The authoritative 2026-07-29 audit found six words across 16 visible cells with no usable authentic color source: `abeja` (7), `aguja` (3), `abrigo` (2), `remolino` (2), `globo` (1), and `oruga` (1). The owner explicitly approved generated replacements after the complete workbook and all 62 teacher-flipchart pages were searched. Those replacements are now live from `public/cartilla/art/generated/lesson-replacements/` and registered in `public/cartilla/art/generated/manifest.json`.
+No cell in the focused seven-drawing audit remains blank.
 
-The one additional illustration that was wired but failed color QA, `iglu.webp`, is also visually replaced by the owner-approved generated `iglu.svg`. The original faithful source file remains untouched for provenance.
+| Drawing | Student pages | Final source | Status |
+|---|---|---|---|
+| aro | 1, 7, 8 | authentic teacher page 5 crop | wired |
+| iglú | 4, 5, 8, 10, 13, 14 | authentic teacher page 7 crop | wired |
+| abrigo | 1, 11 | exact workbook crop | wired |
+| globo | 2 | exact workbook crop | wired |
+| abeja | 1, 7, 8, 10, 11, 14, 16 | exact workbook crop | wired |
+| oruga | 7 | exact workbook crop | wired |
+| aguja | 7, 8, 10 | exact workbook crop | wired |
 
-## Completion record
+The complete 62-page teacher flip chart does not contain the last five exact
+student-book drawings. They are not “missing source”; they are student-book-only
+distractors. Do not restart generated-art, recoloring, or look-alike work.
 
-| Word | Former affected cells | Resolution |
-|---|---:|---|
-| abeja | 7 | Generated replacement live |
-| aguja | 3 | Generated replacement live |
-| abrigo | 2 | Generated replacement live |
-| remolino | 2 | Generated replacement live |
-| globo | 1 | Generated replacement live |
-| oruga | 1 | Generated replacement live |
-| iglú | 6 wired appearances | Failing grayscale crop visually replaced |
-
-No authentic artwork was overwritten or relabeled as generated. Historical audit details remain in `docs/ART_BACKLOG.md` and `docs/MISSING_ASSETS.md`; neither is a current to-do list.
+Older unresolved lists below this point were removed because they caused agents
+to repeat a completed audit.

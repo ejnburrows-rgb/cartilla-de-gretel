@@ -10,7 +10,8 @@
  * *grayscale* webp, so uncolored book drawings (uña, uniforme, abeja, ...)
  * shipped invisibly again and again. This reads actual pixels and fails on:
  *
- *   1. COLOR       — any wired illustrationSrc that is grayscale, not colored.
+ *   1. COLOR       — any wired illustrationSrc that is grayscale without
+ *                     verified exact-workbook provenance.
  *   2. COMPLETENESS — any consonant OR vowel vocab word that fell back to an
  *                     emoji with no illustration and no explicit "not in the
  *                     book" triage. (Vowel-lesson coverage added 2026-07 —
@@ -96,6 +97,17 @@ export const COLOR_MIN_SPREAD = 6;
  */
 export const DUOTONE_ALLOWLIST = new Set([]);
 
+/**
+ * Exact student-book drawings that do not have an identical counterpart in the
+ * separate 62-page flip chart. This set is derived from the audited manifest,
+ * so a filename alone can never bypass the color gate.
+ */
+export const VERIFIED_WORKBOOK_CROPS = new Set(
+  readJson("public/cartilla/art/faithful/manifest.json")
+    .filter((entry) => entry.provenanceStatus === "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08")
+    .map((entry) => entry.src),
+);
+
 export async function meanColorSpread(rel) {
   const abs = path.join(publicRoot, rel.replace(/^\//, ""));
   const { data, info } = await sharp(abs)
@@ -117,7 +129,7 @@ export async function meanColorSpread(rel) {
   return n ? sum / n : 0;
 }
 
-/** Returns the list of wired srcs that are grayscale (violations). */
+/** Returns wired grayscale srcs lacking an audited exact-workbook exception. */
 export async function findGrayscaleArt() {
   const gray = [];
   await Promise.all(
@@ -127,7 +139,7 @@ export async function findGrayscaleArt() {
           .split("/")
           .pop()
           ?.replace(/\.\w+$/, "") ?? rel;
-      if (DUOTONE_ALLOWLIST.has(slug)) return;
+      if (DUOTONE_ALLOWLIST.has(slug) || VERIFIED_WORKBOOK_CROPS.has(rel)) return;
       const spread = await meanColorSpread(rel);
       if (spread < COLOR_MIN_SPREAD) gray.push({ rel, spread });
     }),
@@ -267,13 +279,13 @@ async function main() {
   }
 
   if (errors.length) {
-    console.error("✗ validate-art-color: colorization invariant violated\n");
+    console.error("✗ validate-art-color: source/color invariant violated\n");
     for (const e of errors) console.error("  - " + e);
     console.error(`\n${errors.length} problem(s).`);
     process.exit(1);
   }
   console.log(
-    `✓ validate-art-color: ${collectWiredSrcs().length} wired crops all colored; ` +
+    `✓ validate-art-color: ${collectWiredSrcs().length} wired crops are colored or exact-workbook verified; ` +
       `${CONFIRMED_ABSENT.size} emoji-only words triaged as genuinely absent.`,
   );
 }
