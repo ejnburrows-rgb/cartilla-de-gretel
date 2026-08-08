@@ -1,21 +1,23 @@
-# Ilustraciones que faltan
+# Ilustraciones que requieren reparación
 
-**Current status (2026-07-29): zero visible missing or known failing lesson illustrations.**
+**Current authoritative rule:** see `docs/AUTHENTIC-FLIPCHART-ART-AUDIT.md`.
 
-The authoritative 2026-07-29 audit found six words across 16 visible cells with no usable authentic color source: `abeja` (7), `aguja` (3), `abrigo` (2), `remolino` (2), `globo` (1), and `oruga` (1). The owner explicitly approved generated replacements after the complete workbook and all 62 teacher-flipchart pages were searched. Those replacements are now live from `public/cartilla/art/generated/lesson-replacements/` and registered in `public/cartilla/art/generated/manifest.json`.
+Lesson artwork must be a faithful crop from the 62 teacher flip-chart source pages. A missing crop entry, provenance record, or crop coordinate never authorizes generated, recolored, emoji, clip-art, or visually similar substitute artwork.
 
-The one additional illustration that was wired but failed color QA, `iglu.webp`, is also visually replaced by the owner-approved generated `iglu.svg`. The original faithful source file remains untouched for provenance.
+## Verified repair source
 
-## Completion record
+| Word | Live asset | Teacher source | Status |
+|---|---|---|---|
+| iglú | `public/cartilla/art/faithful/vocal-i/iglu.webp` | `public/cartilla/art/hd/flipchart/page-007.jpg`, crop `960,1530,600,570` | Authentic source found; repair required. |
 
-| Word | Former affected cells | Resolution |
-|---|---:|---|
-| abeja | 7 | Generated replacement live |
-| aguja | 3 | Generated replacement live |
-| abrigo | 2 | Generated replacement live |
-| remolino | 2 | Generated replacement live |
-| globo | 1 | Generated replacement live |
-| oruga | 1 | Generated replacement live |
-| iglú | 6 wired appearances | Failing grayscale crop visually replaced |
+## Requires literal source matching before repair
 
-No authentic artwork was overwritten or relabeled as generated. Historical audit details remain in `docs/ART_BACKLOG.md` and `docs/MISSING_ASSETS.md`; neither is a current to-do list.
+`abeja`, `aguja`, `abrigo`, `oruga`, `globo`, and `remolino`.
+
+These words must remain without a lesson-art substitute until a visually verified identical source crop is recorded. Their former generated-replacement records are invalid for lesson content and must not be used.
+
+## Existing live visual-QA failures
+
+The current `public/cartilla/art/faithful/qa-results.json` contains additional assets marked FAIL and wired in production. They require the same source-first audit. Do not batch-replace, delete, or regenerate them.
+
+Historical backlog and generated-art notes are not current instructions.
