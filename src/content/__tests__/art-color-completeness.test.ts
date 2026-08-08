@@ -1,6 +1,6 @@
 // @vitest-environment node
 /**
- * Art color + completeness guard (fast local mirror of the build gate).
+ * Art source/color + completeness guard (fast local mirror of the build gate).
  *
  * The actual invariant lives in scripts/validate-art-color.mjs and runs in the
  * build (package.json "build" → "validate:art-color"), so it gates CI. This test
@@ -21,12 +21,12 @@ import {
   collectWiredSrcs,
 } from "../../../scripts/validate-art-color.mjs";
 
-describe("art color guard — no grayscale art ships to students", () => {
-  it("every wired illustrationSrc is actually colored, not grayscale", async () => {
+describe("art source/color guard — grayscale requires exact-workbook provenance", () => {
+  it("every wired grayscale illustrationSrc has audited exact-workbook provenance", async () => {
     const gray = await findGrayscaleArt();
     expect(
       gray.map((g) => `${g.rel} (spread ${g.spread.toFixed(1)})`),
-      "grayscale art still wired",
+      "unverified grayscale art still wired",
     ).toEqual([]);
   }, 15000); // under full-suite load when other test files are competing for CPU. // isolation (~1.5s) but the default 5s timeout intermittently trips // Decodes ~100 real images concurrently (sharp/libvips) — fast in
 
