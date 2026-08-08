@@ -20,7 +20,9 @@ No crop coordinates, missing provenance, a failed old asset, or a file named
 “missing” is evidence that the artwork is absent. Never generate, redraw,
 recolor, vectorize, or substitute lesson artwork. If all 62 pages have not
 been checked against the workbook drawing itself, the audit is not complete.
-Start with `docs/AUTHENTIC-FLIPCHART-ART-AUDIT.md` for the current evidence.
+For the active repair branch, read `docs/CHATGPT-CONTINUATION-AUTHENTIC-ART.md`
+immediately after this file, then use `docs/AUTHENTIC-FLIPCHART-ART-AUDIT.md`
+for the current evidence. These files override every older art backlog.
 
 
 **This file is the single source of truth for every AI agent working on
