@@ -490,3 +490,5 @@ DOCUMENTATION DUTY section of `AGENTS.md`).
   verdict of FAIL, and the QA run post-dates the file, so it is a live defect
   rather than a stale result.
 - **2026-08-08 — Workbook art repair uses only the original workbook drawing matched to the identical color drawing in all 62 teacher flip-chart pages; missing metadata never authorizes generated/recolored substitutes, and proven-dead substitutes are removed only after runtime-reference verification.**
+
+- **2026-08-08 — Storybook presentation is shared app chrome, not curriculum art.** The student reader may use the glossy stage, dimensional frame, floral border decoration, tactile controls, and page-turn treatment, but the protected workbook and flip-chart illustrations stay exact source assets with their existing layouts and hidden-answer behavior. Desktop uses a locked, fixed-size 3D turn; compact and reduced-motion readers use the stable non-3D viewer.
