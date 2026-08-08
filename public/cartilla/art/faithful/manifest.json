@@ -328,20 +328,6 @@
     ]
   },
   {
-    "slug": "abrigo",
-    "word": "abrigo",
-    "lessonNumber": null,
-    "pageNumber": null,
-    "src": "/cartilla/art/faithful/leccion-1/abrigo.webp",
-    "sourceFlipchartPage": "a-page-4.jpg",
-    "cropBox": [
-      237,
-      1119,
-      451,
-      341
-    ]
-  },
-  {
     "slug": "iglesia",
     "word": "iglesia",
     "lessonNumber": null,
@@ -360,16 +346,6 @@
     "sourceFlipchartPage": null,
     "cropBox": null,
     "provenanceStatus": "RECOVERED-2026-FROM-GIT-HISTORY-BLOB-cf0d6c7d"
-  },
-  {
-    "slug": "oruga",
-    "word": "oruga",
-    "lessonNumber": null,
-    "pageNumber": null,
-    "src": "/cartilla/art/faithful/vocal-o/oruga.webp",
-    "sourceFlipchartPage": null,
-    "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
   },
   {
     "slug": "escoba",
@@ -429,16 +405,6 @@
     "provenanceStatus": "BACKFILLED-2026-FROM-FLIPCHART-PAGE-003"
   },
   {
-    "slug": "remolino",
-    "word": "remolino",
-    "lessonNumber": null,
-    "pageNumber": null,
-    "src": "/cartilla/art/faithful/leccion-1/remolino.webp",
-    "sourceFlipchartPage": null,
-    "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
-  },
-  {
     "slug": "carro",
     "word": "carro",
     "lessonNumber": 18,
@@ -468,16 +434,6 @@
     "provenanceStatus": "BACKFILLED-2026-FROM-FLIPCHART-PAGE-003"
   },
   {
-    "slug": "globo",
-    "word": "globo",
-    "lessonNumber": null,
-    "pageNumber": null,
-    "src": "/cartilla/art/faithful/leccion-1/globo.webp",
-    "sourceFlipchartPage": null,
-    "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
-  },
-  {
     "slug": "libro",
     "word": "libro",
     "lessonNumber": null,
@@ -504,20 +460,6 @@
       2549,
       448,
       319
-    ]
-  },
-  {
-    "slug": "abeja",
-    "word": "abeja",
-    "lessonNumber": null,
-    "pageNumber": null,
-    "src": "/cartilla/art/faithful/vocal-a/abeja.webp",
-    "sourceFlipchartPage": "a-page-4.jpg",
-    "cropBox": [
-      1459,
-      2580,
-      400,
-      279
     ]
   },
   {
@@ -601,16 +543,6 @@
       240,
       216
     ]
-  },
-  {
-    "slug": "aguja",
-    "word": "aguja",
-    "lessonNumber": null,
-    "pageNumber": null,
-    "src": "/cartilla/art/faithful/vocal-a/aguja.webp",
-    "sourceFlipchartPage": null,
-    "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
   },
   {
     "slug": "anillo",
