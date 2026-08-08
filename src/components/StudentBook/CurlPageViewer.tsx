@@ -92,14 +92,18 @@ export function CurlPageViewer({
     const el = wrapRef.current;
     if (!el) return;
     const measure = () => {
-      const width = el.getBoundingClientRect().width;
-      if (width <= 0) return;
-      const spread = width >= SPREAD_BREAKPOINT_PX;
-      const pageW = Math.round(spread ? width / 2 : width);
-      // The page height must derive from the printed trim, never a previous
-      // portrait container measurement. That former dependency was the source
-      // of the desktop jump and clipping when the layout switched to a spread.
-      const pageH = Math.round(pageW * (PRINTED_PAGE_HEIGHT / PRINTED_PAGE_WIDTH));
+      const rect = el.getBoundingClientRect();
+      if (rect.width <= 0) return;
+      const spread = rect.width >= SPREAD_BREAKPOINT_PX;
+      const trimRatio = PRINTED_PAGE_HEIGHT / PRINTED_PAGE_WIDTH;
+      // A fixed bottom navigation bar used to sit on top of a width-first book.
+      // Size the live page from the usable viewport height first so a settled
+      // spread is fully visible instead of appearing cut off below the fold.
+      const navigationAllowance = 104;
+      const availablePageHeight = Math.max(320, window.innerHeight - rect.top - navigationAllowance);
+      const widthLimit = spread ? rect.width / 2 : rect.width;
+      const pageW = Math.floor(Math.min(widthLimit, availablePageHeight / trimRatio));
+      const pageH = Math.round(pageW * trimRatio);
       setSize((previous) =>
         previous &&
         previous.pageW === pageW &&
@@ -112,7 +116,11 @@ export function CurlPageViewer({
     measure();
     const ro = new ResizeObserver(measure);
     ro.observe(el);
-    return () => ro.disconnect();
+    window.addEventListener("resize", measure);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", measure);
+    };
   }, []);
 
   const getApi = useCallback((): PageFlipApi | null => {
@@ -195,6 +203,8 @@ export function CurlPageViewer({
           ref={wrapRef}
           className="workbook-container relative z-[1]"
           style={{
+            width: size ? `${size.spread ? size.pageW * 2 : size.pageW}px` : "100%",
+            maxWidth: "100%",
             aspectRatio: spread ? SPREAD_ASPECT_RATIO : (singleAspectRatio ?? SINGLE_PAGE_ASPECT_RATIO),
             perspective: spread ? "2200px" : "1600px",
             background: "#fffaf0",
