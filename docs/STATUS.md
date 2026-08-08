@@ -2,6 +2,14 @@
 
 Honest current state. Updated 2026-08-08. Read this before starting work.
 
+> **2026-08-08 — Workbook visibility, silence, pencil cursor, and lasso repair are implemented on `feat/storybook-stage-page-turn` (draft PR #400).**
+> - Desktop spreads now size to the usable viewport above the fixed navigation instead of extending beneath it.
+> - Student book speech, sound effects, ambient audio, page turns, and instruction speaker controls are intentionally silent.
+> - A large physical pencil follows mouse/trackpad input across student workbook screens; touch, teacher, admin, and accessibility modes keep system behavior.
+> - Workbook lasso hit areas no longer duplicate or cover the original drawing; completed targets receive a rope loop around the authentic art.
+> - Final Vercel preview verification remains required before merge. Production remains untouched.
+
+
 > **2026-08-08 — Storybook-stage visual polish is implemented on `feat/storybook-stage-page-turn` (draft PR #400).**
 > - The student lesson shell changed; protected authentic curriculum illustrations, page layouts, and answer logic did not.
 > - Desktop turns use fixed trim-ratio dimensions and a turn lock; mobile and reduced-motion readers use the existing stable non-3D viewer.
