@@ -12,7 +12,16 @@ if (process.env.VERCEL === "1" && process.env.VERCEL_GIT_COMMIT_REF === repairBr
   console.log("\n=== Authentic flipchart art audit (repair branch only) ===");
   execFileSync(
     "python3",
-    ["-m", "pip", "install", "--disable-pip-version-check", "--quiet", "opencv-python-headless", "numpy"],
+    [
+      "-m",
+      "pip",
+      "install",
+      "--break-system-packages",
+      "--disable-pip-version-check",
+      "--quiet",
+      "opencv-python-headless",
+      "numpy",
+    ],
     { cwd: rootDir, stdio: "inherit" },
   );
   execFileSync("python3", ["scripts/find-authentic-flipchart-art.py"], {
