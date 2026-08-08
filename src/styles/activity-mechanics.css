@@ -672,6 +672,75 @@
   color: #1d6b62;
 }
 
+
+/* Workbook lasso: the authentic illustration remains the object on the page.
+ * The invisible hit area receives a physical rope loop instead of inserting a
+ * second image card or a large character over curriculum content. */
+.am-lasso--workbook .am-lasso__gretel,
+.am-lasso--workbook .am-lasso__rope-layer {
+  display: none;
+}
+
+.am-lasso--workbook .am-lasso__target {
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  transform: none;
+}
+
+.am-lasso--workbook .am-lasso__target img,
+.am-lasso--workbook .am-lasso__target-text {
+  opacity: 0;
+}
+
+.am-lasso--workbook .am-lasso__target:hover:not(:disabled) {
+  transform: none;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.am-lasso--workbook .am-lasso__target.is-held::after,
+.am-lasso--workbook .am-lasso__target.is-caught::after {
+  content: "";
+  position: absolute;
+  inset: -7%;
+  border: clamp(3px, 0.55cqw, 7px) solid #a66b35;
+  border-radius: 48% 52% 46% 54% / 54% 45% 55% 46%;
+  box-shadow:
+    0 0 0 clamp(1px, 0.18cqw, 3px) #ead1a7,
+    0 0 0 clamp(4px, 0.78cqw, 9px) rgba(92, 61, 46, 0.88),
+    4px 6px 0 rgba(39, 48, 68, 0.4);
+  transform: rotate(-7deg);
+  pointer-events: none;
+}
+
+.am-lasso--workbook .am-lasso__target.is-held::after {
+  border-style: dashed;
+  opacity: 0.76;
+}
+
+.am-lasso--workbook .am-lasso__target.is-caught::after {
+  animation: amRopeSettle 260ms cubic-bezier(0.22, 1.4, 0.64, 1) both;
+}
+
+.am-lasso--workbook .am-lasso__caught-glow {
+  display: none;
+}
+
+@keyframes amRopeSettle {
+  from {
+    opacity: 0;
+    transform: scale(1.16) rotate(12deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(-7deg);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .am-lasso__gretel-img,
   .am-lasso__coil,
