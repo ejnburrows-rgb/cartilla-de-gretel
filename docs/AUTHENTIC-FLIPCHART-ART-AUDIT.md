@@ -15,6 +15,7 @@ This focused audit covered the seven reported defects. It does not recertify eve
 | Word | Student pages | Activity | Final asset | Teacher source | Result |
 |---|---|---|---|---|---|
 | iglú | 4, 5, 8, 10, 13, 14 | picture selection / vowel matching | `public/cartilla/art/faithful/vocal-i/iglu.webp` | `public/cartilla/art/hd/flipchart/page-007.jpg`, crop `[960,1530,600,570]` | Exact colored drawing confirmed; printed word excluded; QA PASS. |
+| aro | 1, 8 | picture selection / vowel matching | `public/cartilla/art/faithful/vocal-a/aro.webp` | `public/cartilla/images/teacher-flipchart/teacher-page-05.jpg` | The two cells were mislabeled `remolino`; their workbook drawing is the same ring shown as the labeled `aro` on teacher page 5. |
 
 Machine confirmation against the 1208-pixel teacher export also produced 83 good SIFT matches and 73 geometrically consistent inliers on `teacher-page-07.jpg`. No other page was competitive.
 
@@ -23,10 +24,13 @@ Machine confirmation against the 1208-pixel teacher export also produced 83 good
 | Word | Student page | Original bad asset | Teacher page found | Problem | Correct repair |
 |---|---:|---|---:|---|---|
 | iglú | 4 (also reused on 5, 8, 10, 13, 14) | `public/cartilla/art/faithful/vocal-i/iglu.webp` | 7 | Grayscale / under-colored workbook crop had been treated as missing color. | Replaced the existing binary with the authentic teacher-page crop; layout and references unchanged. |
+| aro | 1, 8 | no illustration asset: cells were captioned `remolino` | 5 | Incorrect object name made the real source unsearchable. | Corrected both cells to `aro` and wired the existing authentic `aro.webp`; layout and interaction unchanged. |
 
 ## C. False missing
 
 `iglú` was recoverable from teacher page 7 even though prior records treated it as a color gap. Its exact source page and crop are now recorded in both the faithful manifest and QA record.
+
+`aro` was falsely treated as a separate `remolino` target. The original student-page transcription identifies both disputed cells as `aro`, and teacher page 5 carries the identical color drawing. The cells now use the existing authentic `aro.webp` asset.
 
 No other item is classified false-missing until an identical teacher drawing passes visual confirmation.
 
@@ -47,7 +51,6 @@ These are unresolved matches, not authorization for substitutes.
 | abeja | 1, 7, 8, 10, 11, 14, 16 | `public/cartilla/art/restored/workbook/page-009.png` | `[720,1420,580,560]` | No identical teacher drawing visually confirmed; decorative bees on teacher page 60 are different drawings and were rejected. |
 | oruga | 7 | `public/cartilla/art/restored/workbook/page-009.png` | `[720,800,580,570]` | No identical teacher drawing visually confirmed; teacher page 7's labeled `insecto` is a different drawing and was rejected. |
 | aguja | 7, 8, 10 | `public/cartilla/art/restored/workbook/page-009.png` | `[1350,2650,575,590]` | No identical teacher drawing visually confirmed. |
-| remolino | 1, 8 | `public/cartilla/art/restored/workbook/page-009.png` | `[1350,800,575,570]` | No identical teacher drawing visually confirmed. |
 
 Evidence checked for every unresolved item:
 
@@ -63,4 +66,4 @@ The reusable audit command is `python scripts/find-authentic-flipchart-art.py`. 
 
 ## Preserved behavior and scope
 
-No page layout, coordinates, activity logic, answer visibility, renderer, navigation, authentication, database, curriculum, or responsive behavior was changed. The six unresolved cells remain honest pending slots. Main and production remain untouched.
+No page layout, coordinates, activity logic, answer visibility, renderer, navigation, authentication, database, curriculum, or responsive behavior was changed. The five unresolved cells remain honest pending slots. Main and production remain untouched.
