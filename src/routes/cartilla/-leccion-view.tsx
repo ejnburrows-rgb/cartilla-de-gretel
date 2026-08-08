@@ -194,8 +194,8 @@ export function Leccion() {
   };
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
-      <header className={`px-4 max-w-3xl w-full mx-auto ${session ? "pt-4" : "pt-20"}`}>
+    <div className="storybook-lesson min-h-screen bg-background flex flex-col">
+      <header className={`storybook-lesson__header px-4 max-w-3xl w-full mx-auto ${session ? "pt-4" : "pt-20"}`}>
         <div className="flex items-center justify-between gap-3 mb-3 flex-wrap">
           <Link
             to="/cartilla/lecciones"
@@ -239,7 +239,7 @@ export function Leccion() {
           </div>
         )}
       </header>
-      <main className="flex-1 px-4 pt-6 pb-28 max-w-7xl w-full mx-auto flex flex-col items-center">
+      <main className="storybook-lesson__main flex-1 px-4 pt-6 pb-28 max-w-7xl w-full mx-auto flex flex-col items-center">
         <div className="w-full max-w-3xl text-left mb-4">
           <div className="text-xs font-bold uppercase tracking-wide text-foreground/50">
             {t.leccion[lang]} {n} · {t.paginas[lang].toLowerCase()} {entry.pages}
@@ -254,7 +254,7 @@ export function Leccion() {
               <div className="fixed top-4 left-4 z-[200]">
                 <Link
                   to="/cartilla/lecciones"
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-stone-800/90 hover:bg-stone-800 text-white font-bold rounded-xl shadow-lg backdrop-blur transition hover:-translate-y-0.5"
+                  className="storybook-lesson__return inline-flex items-center gap-2 px-4 py-2 bg-stone-800/90 hover:bg-stone-800 text-white font-bold rounded-xl shadow-lg backdrop-blur transition hover:-translate-y-0.5"
                 >
                   <ArrowLeft className="w-4 h-4" /> Volver a mis lecciones
                 </Link>
@@ -317,7 +317,7 @@ export function Leccion() {
       <nav
         ref={navRef}
         aria-hidden={navObscuresGretel}
-        className={`fixed bottom-0 inset-x-0 z-50 p-3 bg-background/95 backdrop-blur border-t-2 border-foreground/10 transition-opacity duration-200 ${
+        className={`storybook-lesson__nav fixed bottom-0 inset-x-0 z-50 p-3 bg-background/95 backdrop-blur border-t-2 border-foreground/10 transition-opacity duration-200 ${
           navObscuresGretel ? "opacity-0 pointer-events-none" : "opacity-100"
         }`}
       >
