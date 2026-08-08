@@ -2,28 +2,33 @@
 
 ## FIRST RULE FOR ANY WORKBOOK ILLUSTRATION TASK
 
-**Do this before reading an art backlog, manifest, crop record, generated-art
-folder, or “missing” report:**
+**Read this before any art backlog, manifest, crop record, generated-art folder,
+or “missing” report:**
 
-1. Open the original student-workbook page and identify the exact drawing
-   that belongs in the activity. Treat a legacy code caption or filename as
-   a hypothesis—not as proof of the object name. The printed workbook drawing
-   controls (for example, two legacy `remolino` cells were actually `aro`).
-2. Search all 62 authoritative files
-   `public/cartilla/images/teacher-flipchart/teacher-page-01.jpg` through
-   `teacher-page-62.jpg` for that identical drawing in color.
-3. Crop that authentic teacher drawing and wire it into the existing student
-   slot without changing the layout, interaction, answer visibility, or
-   curriculum.
+The product has two separate authoritative sources: a **62-page teacher flip
+chart** and a **92-page student book**. The publisher describes the student
+activities as reinforcing the flip chart; it does not say every student-book
+distractor is repeated in color. The complete local teacher set has been
+confirmed twice (low-resolution and HD), with a 62/62 page identity map.
 
-No crop coordinates, missing provenance, a failed old asset, or a file named
-“missing” is evidence that the artwork is absent. Never generate, redraw,
-recolor, vectorize, or substitute lesson artwork. If all 62 pages have not
-been checked against the workbook drawing itself, the audit is not complete.
-For the active repair branch, read `docs/CHATGPT-CONTINUATION-AUTHENTIC-ART.md`
-immediately after this file, then use `docs/AUTHENTIC-FLIPCHART-ART-AUDIT.md`
-for the current evidence. These files override every older art backlog.
+For each workbook picture:
 
+1. Open the original student-workbook page and identify the exact drawing.
+   Legacy captions and filenames are hypotheses only; the printed drawing
+   controls (for example, legacy `remolino` cells were actually `aro`).
+2. Search all 62 teacher files for that identical drawing in color.
+3. If the identical teacher drawing exists, crop it cleanly and use it.
+4. If exhaustive visual and machine checks prove it does **not** exist in the
+   flip chart, use a lossless crop of the exact original student-workbook
+   drawing. Never leave the cell blank, reveal the answer word, generate,
+   redraw, recolor, vectorize, or use a look-alike.
+5. Wire only that asset into the existing slot. Do not alter layout,
+   interaction, answer visibility, curriculum, authentication, or data logic.
+
+Current source mapping and proof are in
+`docs/AUTHENTIC-FLIPCHART-ART-AUDIT.md`. Read it immediately after this file;
+it overrides every older missing-art list, generated-art record, crop manifest,
+issue, PR description, and stale provenance claim.
 
 **This file is the single source of truth for every AI agent working on
 this project (Claude, Gemini, Antigravity, Jules, Kilo, and any other).
