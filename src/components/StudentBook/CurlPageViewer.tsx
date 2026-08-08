@@ -4,9 +4,9 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import HTMLFlipBook from "react-pageflip";
 import { gretelEvent } from "@/lib/gretel-bus";
 import type { FlipBookComponent, FlipBookHandle, FlipEvent, PageFlipApi } from "@/lib/pageflip-types";
-import { STUDENT_PAGE_TURN_MS, prefersReducedMotion } from "@/lib/living-motion";
+import { prefersReducedMotion } from "@/lib/living-motion";
 import { KidButton } from "@/components/ui/KidButton";
-import type { SimplePageViewerProps, WorkbookPageEntry } from "./SimplePageViewer";
+import { SimplePageViewer, type SimplePageViewerProps, type WorkbookPageEntry } from "./SimplePageViewer";
 
 interface CurlPageViewerProps extends SimplePageViewerProps {
   accent?: string;
@@ -19,6 +19,7 @@ export const PRINTED_PAGE_HEIGHT = 792;
 export const SPREAD_BREAKPOINT_PX = 760;
 export const SINGLE_PAGE_ASPECT_RATIO = `${PRINTED_PAGE_WIDTH} / ${PRINTED_PAGE_HEIGHT}`;
 export const SPREAD_ASPECT_RATIO = `${PRINTED_PAGE_WIDTH * 2} / ${PRINTED_PAGE_HEIGHT}`;
+const DESKTOP_PAGE_TURN_MS = 420;
 
 export function clampPageIndex(index: number, pageCount: number): number {
   return Math.min(Math.max(0, index), Math.max(0, pageCount - 1));
@@ -80,6 +81,7 @@ export function CurlPageViewer({
   const [mounted, setMounted] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(safeInitialPage);
+  const [isTurning, setIsTurning] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -90,14 +92,22 @@ export function CurlPageViewer({
     const el = wrapRef.current;
     if (!el) return;
     const measure = () => {
-      const rect = el.getBoundingClientRect();
-      if (rect.width <= 0 || rect.height <= 0) return;
-      const spread = rect.width >= SPREAD_BREAKPOINT_PX;
-      setSize({
-        pageW: Math.round(spread ? rect.width / 2 : rect.width),
-        pageH: Math.round(rect.height),
-        spread,
-      });
+      const width = el.getBoundingClientRect().width;
+      if (width <= 0) return;
+      const spread = width >= SPREAD_BREAKPOINT_PX;
+      const pageW = Math.round(spread ? width / 2 : width);
+      // The page height must derive from the printed trim, never a previous
+      // portrait container measurement. That former dependency was the source
+      // of the desktop jump and clipping when the layout switched to a spread.
+      const pageH = Math.round(pageW * (PRINTED_PAGE_HEIGHT / PRINTED_PAGE_WIDTH));
+      setSize((previous) =>
+        previous &&
+        previous.pageW === pageW &&
+        previous.pageH === pageH &&
+        previous.spread === spread
+          ? previous
+          : { pageW, pageH, spread },
+      );
     };
     measure();
     const ro = new ResizeObserver(measure);
@@ -114,20 +124,64 @@ export function CurlPageViewer({
   }, []);
 
   const spread = size?.spread ?? false;
+  const simpleMode = reducedMotion || !spread;
   const hasPrev = currentIndex > 0;
-  const hasNext = spread ? currentIndex + 2 < pages.length : currentIndex < pages.length - 1;
-  const handlePrev = useCallback(() => getApi()?.flipPrev?.(), [getApi]);
-  const handleNext = useCallback(() => getApi()?.flipNext?.(), [getApi]);
-  const onFlip = useCallback(
-    (e: FlipEvent) => {
-      const idx = typeof e?.data === "number" ? clampPageIndex(e.data, pages.length) : null;
-      if (idx === null) return;
-      setCurrentIndex(idx);
-      onPageChange?.(idx);
+  const hasNext = currentIndex + 2 < pages.length;
+
+  const reportPageChange = useCallback(
+    (index: number) => {
+      const next = clampPageIndex(index, pages.length);
+      setCurrentIndex(next);
+      onPageChange?.(next);
       gretelEvent("page-flip");
     },
     [onPageChange, pages.length],
   );
+
+  const startTurn = useCallback(
+    (direction: "next" | "prev") => {
+      if (isTurning || simpleMode) return;
+      const api = getApi();
+      if (!api) return;
+      setIsTurning(true);
+      if (direction === "next") api.flipNext?.();
+      else api.flipPrev?.();
+      // A defensive release avoids trapping navigation if a third-party flip
+      // event is interrupted by a resize. Normal turns release in onFlip.
+      window.setTimeout(() => setIsTurning(false), DESKTOP_PAGE_TURN_MS + 180);
+    },
+    [getApi, isTurning, simpleMode],
+  );
+
+  const handlePrev = useCallback(() => {
+    if (hasPrev) startTurn("prev");
+  }, [hasPrev, startTurn]);
+  const handleNext = useCallback(() => {
+    if (hasNext) startTurn("next");
+  }, [hasNext, startTurn]);
+  const onFlip = useCallback(
+    (e: FlipEvent) => {
+      const idx = typeof e?.data === "number" ? clampPageIndex(e.data, pages.length) : null;
+      if (idx === null) return;
+      setIsTurning(false);
+      reportPageChange(idx);
+    },
+    [pages.length, reportPageChange],
+  );
+
+  if (simpleMode) {
+    return (
+      <div className="storybook-simple-reader">
+        <SimplePageViewer
+          key={`simple-${pages.map((page) => page.id).join("|")}`}
+          pages={pages}
+          initialPage={currentIndex}
+          singleAspectRatio={singleAspectRatio ?? SINGLE_PAGE_ASPECT_RATIO}
+          onPageChange={reportPageChange}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="relative mx-auto flex w-full max-w-6xl flex-col items-center">
@@ -148,7 +202,7 @@ export function CurlPageViewer({
         >
           {mounted && size ? (
             <FlipBook
-              key={`${pages.map((p) => p.id).join("|")}-${size.spread ? "spread" : "single"}`}
+              key={`${pages.map((p) => p.id).join("|")}-${size.pageW}x${size.pageH}-spread`}
               ref={bookRef}
               width={size.pageW}
               height={size.pageH}
@@ -162,10 +216,10 @@ export function CurlPageViewer({
               usePortrait={!size.spread}
               drawShadow={true}
               maxShadowOpacity={0.58}
-              flippingTime={reducedMotion ? 1 : STUDENT_PAGE_TURN_MS}
+              flippingTime={DESKTOP_PAGE_TURN_MS}
               useMouseEvents={false}
               clickEventForward={true}
-              disableFlipByClick={false}
+              disableFlipByClick={true}
               mobileScrollSupport={true}
               className="h-full w-full overflow-hidden rounded-b-xl"
               style={{}}
@@ -178,13 +232,13 @@ export function CurlPageViewer({
       </div>
 
       <div className="no-print z-20 mt-8 flex w-full items-center justify-center gap-2 sm:gap-6">
-        <KidButton variant="outline" accent={accent} sound={false} onClick={() => hasPrev && handlePrev()} disabled={!hasPrev} className="!px-3 !py-2 sm:!px-5 sm:!py-2.5 gap-1.5 sm:gap-2 shrink-0">
+        <KidButton variant="outline" accent={accent} sound={false} onClick={handlePrev} disabled={!hasPrev || isTurning} className="!px-3 !py-2 sm:!px-5 sm:!py-2.5 gap-1.5 sm:gap-2 shrink-0">
           <ChevronLeft className="h-4 w-4 shrink-0" /> <span className="hidden sm:inline">Anterior</span>
         </KidButton>
         <div className="shrink-0 whitespace-nowrap rounded-full border px-3 py-2 text-xs font-bold sm:px-4 sm:text-sm" style={{ color: "var(--book-ink, #2b2a22)", background: "#fffaf0", borderColor: `color-mix(in srgb, ${accent} 35%, transparent)` }}>
           {visiblePageLabel(currentIndex, pages.length, spread)}
         </div>
-        <KidButton variant="outline" accent={accent} sound={false} onClick={() => hasNext && handleNext()} disabled={!hasNext} className="!px-3 !py-2 sm:!px-5 sm:!py-2.5 gap-1.5 sm:gap-2 shrink-0">
+        <KidButton variant="outline" accent={accent} sound={false} onClick={handleNext} disabled={!hasNext || isTurning} className="!px-3 !py-2 sm:!px-5 sm:!py-2.5 gap-1.5 sm:gap-2 shrink-0">
           <span className="hidden sm:inline">Siguiente</span> <ChevronRight className="h-4 w-4 shrink-0" />
         </KidButton>
       </div>
