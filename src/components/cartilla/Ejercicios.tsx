@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Check, RotateCcw, Eye, EyeOff, Volume2, X } from "lucide-react";
-import { useAudio } from "@/hooks/useAudio";
+import { Check, RotateCcw, Eye, EyeOff, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { recordEvent, useStudentSession } from "@/lib/student-session";
 import { supabase } from "@/integrations/supabase/client";
@@ -36,7 +35,6 @@ export function SyllableTap({
     picked: string;
     target: string;
   } | null>(null);
-  const { play, playingText } = useAudio();
   const choices = useMemo(() => {
     // Reference target so the deps list is honest: a new round (new target)
     // must reshuffle the answer buttons even though the pool is unchanged.
@@ -88,12 +86,10 @@ export function SyllableTap({
       setScore((x) => x + 1);
       setFeedback({ kind: "ok", picked: s, target });
       gretelEvent("answer:correct");
-      play(s);
       setTimeout(next, 1200);
     } else {
       setFeedback({ kind: "no", picked: s, target });
       gretelEvent("answer:wrong");
-      play(target);
     }
   };
 
@@ -101,20 +97,12 @@ export function SyllableTap({
     <div className="rounded-2xl border-2 border-foreground/10 bg-card p-4">
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2">
-          <h3 className="font-bold">Toca la sílaba que escuches</h3>
-          <EscucharInstruccionButton text="Toca la sílaba que escuches" />
+          <h3 className="font-bold">Toca la sílaba: <span className="text-primary">{target.toUpperCase()}</span></h3>
         </div>
         <span className="text-xs font-bold text-foreground/60">
           {score} / {tries}
         </span>
       </div>
-      <button
-        onClick={() => play(target)}
-        className={`mb-3 inline-flex items-center gap-2 px-4 py-2 rounded-xl text-white font-bold ${playingText === target ? "animate-pulse ring-4 ring-white" : ""}`}
-        style={{ backgroundColor: color }}
-      >
-        <Volume2 className="w-4 h-4" /> Escuchar
-      </button>
       <div className="flex flex-wrap gap-2">
         {choices.map((s) => (
           <button
@@ -146,15 +134,9 @@ export function SyllableTap({
           </div>
           <p className="text-sm text-foreground/80 mt-1">
             Tocaste <strong>«{feedback.picked}»</strong>. La sílaba correcta era{" "}
-            <strong>«{feedback.target}»</strong>. Vuelve a escuchar y fíjate en el sonido inicial.
+            <strong>«{feedback.target}»</strong>. Prueba otra vez con calma.
           </p>
           <div className="mt-2 flex gap-2">
-            <button
-              onClick={() => play(feedback.target)}
-              className="inline-flex items-center gap-1 text-xs font-bold text-primary"
-            >
-              <Volume2 className="w-3.5 h-3.5" /> Escuchar «{feedback.target}»
-            </button>
             <button
               onClick={next}
               className="text-xs font-bold text-foreground/60 hover:text-foreground"
@@ -191,7 +173,6 @@ export function WordMatch({
   color: string;
   lessonId?: string;
 }) {
-  const { play, playingText } = useAudio();
   // Prefer items with real art; fall back to word-only tiles (honest, no emoji)
   const items = useMemo(() => {
     const withArt = words.filter((w) => w.illustrationSrc).slice(0, 4);
@@ -237,7 +218,6 @@ export function WordMatch({
       });
       gretelEvent("answer:correct");
       setFeedback({ kind: "ok", word: picked });
-      play(target);
       setPicked(null);
       setTimeout(
         () => setFeedback((f) => (f?.kind === "ok" && f.word === target ? null : f)),
@@ -310,7 +290,6 @@ export function WordMatch({
                   : picked === w.word
                     ? "scale-[1.02]"
                     : "hover:bg-secondary",
-                playingText === w.word && "animate-pulse ring-4 ring-current",
               )}
               style={{ borderColor: color, color: matched.has(w.word) ? undefined : color }}
             >
@@ -371,12 +350,6 @@ export function WordMatch({
             <strong>«{feedback.word}»</strong> no es ese dibujo. Lee la palabra otra vez, separa sus
             sílabas y busca el dibujo que la representa.
           </p>
-          <button
-            onClick={() => play(feedback.word)}
-            className="mt-2 inline-flex items-center gap-1 text-xs font-bold text-primary"
-          >
-            <Volume2 className="w-3.5 h-3.5" /> Escuchar «{feedback.word}»
-          </button>
         </div>
       )}
       {allDone && (
