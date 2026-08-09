@@ -15,29 +15,10 @@ import { gretelEvent } from "@/lib/gretel-bus";
 
 import { CurlPageViewer } from "@/components/StudentBook/CurlPageViewer";
 import { buildPageArray } from "@/utils/buildPageArray";
-import { GretelPresence } from "@/components/gretel/GretelPresence";
 import { GardenScene } from "@/components/cartilla/GardenScene";
-import { ActivityCarousel } from "@/components/cartilla/ActivityCarousel";
 import { KidButton } from "@/components/ui/KidButton";
 import "@/styles/interactive-exercises.css";
 import "@/styles/gretel.css";
-
-// PLACEMENT PREVIEW (owner-gated, July 2026) — Lección 1 only. Real words +
-// illustrationSrc already wired on this lesson's own workbook page
-// (src/data/page-layouts.json), reused here rather than invented. Syllables
-// are the five vowels themselves, matching this lesson's real subtitle
-// ("Las cinco vocales: a, e, i, o, u"). Not rolled out further until the
-// owner picks a placement (separate section vs. woven into the page).
-const LECCION_1_PREVIEW_WORDS = [
-  { word: "abanico", emoji: "🪭", illustrationSrc: "/cartilla/art/faithful/vocal-a/abanico.webp" },
-  { word: "anillo", emoji: "💍", illustrationSrc: "/cartilla/art/faithful/vocal-a/anillo.webp" },
-  { word: "araña", emoji: "🕷️", illustrationSrc: "/cartilla/art/faithful/vocal-a/arana.webp" },
-  { word: "avión", emoji: "✈️", illustrationSrc: "/cartilla/art/faithful/vocal-a/avion.webp" },
-  { word: "imán", emoji: "🧲", illustrationSrc: "/cartilla/art/faithful/vocal-i/iman.webp" },
-  { word: "isla", emoji: "🏝️", illustrationSrc: "/cartilla/art/faithful/vocal-i/isla.webp" },
-  { word: "oso", emoji: "🐻", illustrationSrc: "/cartilla/art/faithful/vocal-o/oso.webp" },
-];
-const LECCION_1_PREVIEW_SYLLABLES = ["a", "e", "i", "o", "u"];
 
 export function Leccion() {
   const { lang } = useLanguage();
@@ -269,42 +250,10 @@ export function Leccion() {
                   onPageChange={handlePageChange}
                   accent={entry.color}
                 />
-                {/* Full-presence host — continuous layered life + little-girl Spanish TTS */}
-                {entry && (
-                  <div ref={gretelWrapRef}>
-                    <GretelPresence
-                      key={`gretel-${n}`}
-                      lesson={{
-                        n: entry.n,
-                        kind: entry.kind,
-                        title: entry.title,
-                        subtitle: entry.subtitle,
-                        letter: entry.kind === "consonant" ? entry.letter : undefined,
-                        vowel: entry.kind === "vowel" ? entry.vowel : undefined,
-                      }}
-                      autoIntro
-                    />
-                  </div>
-                )}
               </div>
             )}
           </GardenScene>
 
-          {/* Placement preview — Lección 1 only, see comment near the top of
-              this file. Owner reviews this before any wider rollout. */}
-          {progressReady && entry && n === 1 && (
-            <div className="w-full max-w-3xl mx-auto mt-6">
-              <ActivityCarousel
-                lessonNumber={n}
-                syllables={LECCION_1_PREVIEW_SYLLABLES}
-                words={LECCION_1_PREVIEW_WORDS}
-                letter=""
-                color={entry.color}
-                lessonId={String(n)}
-                activities={entry.activities}
-              />
-            </div>
-          )}
         </div>
       </main>
       {/* z-50 keeps this bar above the page body. The garden page body is
