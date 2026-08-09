@@ -23,48 +23,6 @@ import {
 } from "@/cartilla/interactions/faithfulAdapters";
 
 /**
- * Per-lesson garden background overrides. The CSS default is gretel-authentic.jpg
- * (set on .faithful-page--garden in faithful-page.css). Add an entry here when
- * a dedicated lesson background arrives from the image-gen pipeline — just the
- * URL path, no `url()` wrapper needed. Hot-swappable without any other change.
- *
- * LESSON NUMBERS confirmed from src/lib/lesson-catalog.ts CATALOG:
- *   2 = Vocal A, 3 = Vocal E, 4 = Vocal I, 5 = Vocal O, 6 = Vocal U
- *
- * Lessons 1 and 7-24 (Lección 1 intro + all 18 consonants) use
- * `leccion-N.jpg` — the same real base.jpg garden painting used for the
- * vowel lessons, with a subtle color wash matching that lesson's own accent
- * color from consonants.json (same derive-from-real-art technique, not new
- * art). Generated once directly; no image-gen dependency.
- */
-const LESSON_GARDEN_BG: Record<number, string> = {
-  1: "/art/hd/garden/leccion-1.jpg",
-  2: "/art/hd/garden/vocal-a.jpg",
-  3: "/art/hd/garden/vocal-e.jpg",
-  4: "/art/hd/garden/vocal-i.jpg",
-  5: "/art/hd/garden/vocal-o.jpg",
-  6: "/art/hd/garden/vocal-u.jpg",
-  7: "/art/hd/garden/leccion-7.jpg",
-  8: "/art/hd/garden/leccion-8.jpg",
-  9: "/art/hd/garden/leccion-9.jpg",
-  10: "/art/hd/garden/leccion-10.jpg",
-  11: "/art/hd/garden/leccion-11.jpg",
-  12: "/art/hd/garden/leccion-12.jpg",
-  13: "/art/hd/garden/leccion-13.jpg",
-  14: "/art/hd/garden/leccion-14.jpg",
-  15: "/art/hd/garden/leccion-15.jpg",
-  16: "/art/hd/garden/leccion-16.jpg",
-  17: "/art/hd/garden/leccion-17.jpg",
-  18: "/art/hd/garden/leccion-18.jpg",
-  19: "/art/hd/garden/leccion-19.jpg",
-  20: "/art/hd/garden/leccion-20.jpg",
-  21: "/art/hd/garden/leccion-21.jpg",
-  22: "/art/hd/garden/leccion-22.jpg",
-  23: "/art/hd/garden/leccion-23.jpg",
-  24: "/art/hd/garden/leccion-24.jpg",
-};
-
-/**
  * Renders a workbook page from its faithful, verified region layout
  * (src/data/page-layouts.json) — real text in the book's font + real COLOR
  * illustrations cropped from the original artwork. This is the single renderer
@@ -568,7 +526,6 @@ export function FaithfulPageRenderer({
   const ordered = [...layout].sort((a, b) => a.order - b.order);
   const accent = lessonNumber ? CATALOG.find((e) => e.n === lessonNumber)?.color : undefined;
   const lessonId = lessonNumber ? String(lessonNumber) : undefined;
-  const gardenBg = lessonNumber ? LESSON_GARDEN_BG[lessonNumber] : undefined;
 
   // Every letter's writing-line pair is [model line with modelText, blank
   // "trace it again" line with no modelText] — the blank one inherits the
@@ -594,8 +551,6 @@ export function FaithfulPageRenderer({
     <PageFrame
       pageNumber={pageNumber}
       lessonNumber={lessonNumber}
-      garden={interactive}
-      gardenBg={gardenBg}
     >
       {ordered.map((region) => {
         if (
