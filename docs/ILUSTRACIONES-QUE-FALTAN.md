@@ -26,3 +26,7 @@ to repeat a completed audit.
 Lessons 1–5 use the already-audited authentic sources above. This review batch
 adds no art, no generated alternatives, and no new illustration status entries.
 The next work begins only after the owner visually approves this batch.
+
+## 2026-08-09 display correction
+
+The Lesson 1 `traje` slot reuses the existing mapped authentic `uniforme` asset. This was a source-wiring and presentation fix only: no new artwork was made, and unverified answer-key metadata no longer applies grayscale or opacity to any original illustration.
