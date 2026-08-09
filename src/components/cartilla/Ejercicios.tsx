@@ -4,7 +4,6 @@ import { cn } from "@/lib/utils";
 import { recordEvent, useStudentSession } from "@/lib/student-session";
 import { supabase } from "@/integrations/supabase/client";
 import { gretelEvent } from "@/lib/gretel-bus";
-import { EscucharInstruccionButton } from "./EscucharInstruccionButton";
 
 type Word = { word: string; emoji?: string; illustrationSrc?: string };
 
@@ -152,7 +151,7 @@ export function SyllableTap({
             <Check className="w-4 h-4" /> ¡Correcto!
           </div>
           <p className="text-sm text-foreground/80 mt-1">
-            <strong>«{feedback.target}»</strong> es la sílaba que sonaba. ¡Buen oído!
+            <strong>«{feedback.target}»</strong> es la sílaba indicada. ¡Muy bien!
           </p>
         </div>
       )}
