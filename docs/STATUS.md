@@ -1,6 +1,11 @@
 # STATUS — La Cartilla de Gretel
 
-Honest current state. Updated 2026-08-08. Read this before starting work.
+Honest current state. Updated 2026-08-09. Read this before starting work.
+
+> **2026-08-09 — Faithful artwork display repair is verified on `feat/faithful-cartilla-restoration-l1-l5`.**
+> - The Lesson 1 `traje` slot now uses the already-mapped authentic `uniforme` artwork from the flip chart; no illustration was redrawn or recolored.
+> - Unverified answer-key metadata no longer dims or grayscales original book art; it is shown at its source color and full opacity.
+> - Remaining student-workbook sound and character-event triggers were removed. The reader stays silent.
 
 > **2026-08-08 — focused workbook-art repair is implemented on `repair/authentic-flipchart-art`.**
 > - The first rule in `AGENTS.md` now records the verified two-source model: a complete 62-page flip chart and a separate 92-page student book.
