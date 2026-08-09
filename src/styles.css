@@ -900,3 +900,15 @@ html.student-pencil.a11y-xlarge .student-pencil-cursor { display: none; }
   --color-incorrect: #f43f5e; /* rose — wrong answer / missed */
   --color-incorrect-fg: #ffffff; /* text/icon on --color-incorrect */
 }
+
+/* Quiet reader reset: preserve only the original page art. */
+.book-shell {
+  padding: 4px;
+  border-radius: 3px;
+  background: #d7d0c3;
+  box-shadow: 0 12px 28px rgba(42, 34, 24, 0.18);
+}
+.book-shell::before { display: none; }
+.book-edge-sliver { background: #f7f2e8; box-shadow: none; }
+.book-paper-surface { background: #fffdf7; background-image: none; }
+.workbook-container::before { display: none; }
