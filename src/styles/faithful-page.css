@@ -8,63 +8,13 @@
   position: relative;
   width: 100%;
   aspect-ratio: 612 / 792; /* US-Letter, matches the printed book trim */
-  background:
-    radial-gradient(140% 100% at 15% 0%, rgba(95, 167, 119, 0.05), transparent 55%),
-    var(--book-paper);
+  background: var(--book-paper);
   color: var(--book-ink);
   font-family: var(--font-book-faithful);
   border: 1px solid rgba(95, 167, 119, 0.22);
-  border-radius: 12px;
+  border-radius: 0;
   overflow: hidden;
   container-type: inline-size;
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.6) inset,
-    0 1px 2px rgba(31, 41, 55, 0.04),
-    0 8px 24px -12px rgba(31, 41, 55, 0.18),
-    0 2px 8px -4px rgba(95, 167, 119, 0.12);
-}
-
-/* Student workbook only (garden={true}, tied to FaithfulPageRenderer's
- * `interactive` flag) — the page paper gets real painted garden art from
- * the book's source painting as a soft background layer; two small real-art
- * corner flourishes anchor the bottom. Teacher preview surfaces never pass
- * `garden`, so they stay pure white, unchanged.
- *
- * --garden-page-bg: CSS custom property for the painting URL, set here to
- * the interim gretel-authentic.jpg (full garden scene). Override per-lesson
- * via inline style on PageFrame once dedicated lesson backgrounds arrive. */
-.faithful-page--garden {
-  --garden-page-bg: url("/art/hd/gretel-authentic.jpg");
-  background:
-    url("/cartilla/images/garden/grass-left.webp") left bottom / 18% auto no-repeat,
-    url("/cartilla/images/garden/grass-right.webp") right bottom / 18% auto no-repeat,
-    linear-gradient(180deg, var(--book-paper) 60%, #eef4de 100%);
-  /* Kid's pencil cursor on the student page only (--garden is never passed
-   * on teacher preview surfaces — see the comment above this rule). Hotspot
-   * (2, 34) lands on the pencil's graphite tip. */
-  cursor: url("/cartilla/images/ui/pencil-cursor.svg") 2 34, pointer;
-}
-/* The painted garden layer — sits above the gradient but below all content.
- * Positioned to show the lower garden/foliage area of the painting rather
- * than Gretel's figure. Blurred + low-opacity so exercises stay readable. */
-.faithful-page--garden::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: var(--garden-page-bg);
-  background-size: cover;
-  background-position: center 68%;
-  /* Richer but subtle (owner-approved 7/2026): more colour presence than the
-   * old washed-out 0.22/blur-2px/desat-0.8, while a white content panel keeps
-   * the exercises fully readable on top (see .faithful-page__body below). */
-  opacity: 0.4;
-  filter: blur(0.5px) saturate(1.05) brightness(1.04);
-  pointer-events: none;
-  z-index: 0;
-}
-.faithful-page--garden .faithful-page__body {
-  position: relative;
-  z-index: 1;
 }
 
 /* Wavy teal sidebar down the left edge */
@@ -638,34 +588,6 @@
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-}
-
-/* Ambient float for every static illustration cell (teacher flipbook/paginas
- * preview and any student page not covered by an interactive component) —
- * same keyframe/timing as the interactive cells' fpIxFloat
- * (interactive-exercises.css), duplicated here rather than imported so this
- * teacher-reachable stylesheet never depends on a file scoped "student
- * workbook only". Per-cell delay comes from --float-delay (see
- * FaithfulPageRenderer.tsx's floatDelay helper) so a grid never moves in
- * lockstep. */
-@keyframes fpFaithfulFloat {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-2.5px) rotate(1deg); }
-}
-.fp-picture-grid__cell img,
-.fp-vowel-match__cell img,
-.fp-vowel-pick__cell img,
-.fp-vowel-match-all__cell img {
-  animation: fpFaithfulFloat 5.5s ease-in-out infinite;
-  animation-delay: var(--float-delay, 0s);
-}
-@media (prefers-reduced-motion: reduce) {
-  .fp-picture-grid__cell img,
-  .fp-vowel-match__cell img,
-  .fp-vowel-pick__cell img,
-  .fp-vowel-match-all__cell img {
-    animation: none !important;
-  }
 }
 
 .fp-vowel-match-all__cell .fp-art-pending {
