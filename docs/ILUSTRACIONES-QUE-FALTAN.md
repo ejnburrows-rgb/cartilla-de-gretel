@@ -20,3 +20,9 @@ distractors. Do not restart generated-art, recoloring, or look-alike work.
 
 Older unresolved lists below this point were removed because they caused agents
 to repeat a completed audit.
+
+## Lessons 1–5 restoration gate
+
+Lessons 1–5 use the already-audited authentic sources above. This review batch
+adds no art, no generated alternatives, and no new illustration status entries.
+The next work begins only after the owner visually approves this batch.
