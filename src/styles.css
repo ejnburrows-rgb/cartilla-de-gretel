@@ -209,43 +209,72 @@ html.a11y-contrast .kid-card {
   box-shadow: 0 4px 0 hsl(0 0% 0%);
 }
 
-/* ─── Classic pencil cursor — student screens only (issue #346) ─────
- * Toggled by src/components/StudentCursor.tsx via src/lib/student-cursor.ts,
- * so teacher/admin screens keep the normal arrow. The pencil is a hand-built
- * inline SVG (app iconography, not book art) in the book's own palette: gold
- * barrel, warm wood, red eraser, with a white outer edge so it stays visible
- * on both the cream pages and the darker garden scenes. The hotspot sits on
- * the graphite tip at the pencil's lower-left. */
-html.student-pencil,
-html.student-pencil body {
-  cursor:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cg transform='rotate(45 14 14)' stroke='%232b2b2b' stroke-width='1.1' stroke-linejoin='round'%3E%3Cpath d='M10.5 5.2a3.5 3.5 0 0 1 7 0V8h-7z' fill='%23e35d4a'/%3E%3Crect x='10.5' y='8' width='7' height='2.2' fill='%23cbd5e1'/%3E%3Crect x='10.5' y='10.2' width='7' height='9.8' fill='%23e8a820'/%3E%3Cpath d='M10.5 20h7L14 25.6z' fill='%23f5d6a0'/%3E%3Cpath d='M12.4 23h3.2L14 25.6z' fill='%233a3a3a' stroke='none'/%3E%3C/g%3E%3C/svg%3E")
-      6 22,
-    auto;
-}
+/* ─── Large pencil cursor — student screens only ──────────────────────
+ * A single physical pencil follows mouse/trackpad input across the student
+ * reader. Touch, teacher, and accessibility surfaces retain system behavior. */
+@media (any-pointer: fine) {
+  html.student-pencil,
+  html.student-pencil body,
+  html.student-pencil a,
+  html.student-pencil button,
+  html.student-pencil summary,
+  html.student-pencil [role="button"],
+  html.student-pencil [role="link"],
+  html.student-pencil label,
+  html.student-pencil select {
+    cursor: none !important;
+  }
 
-/* Anything clickable still says "you can click me". */
-html.student-pencil a,
-html.student-pencil button,
-html.student-pencil summary,
-html.student-pencil [role="button"],
-html.student-pencil [role="link"],
-html.student-pencil label,
-html.student-pencil select {
-  cursor: pointer;
+  .student-pencil-cursor {
+    position: fixed;
+    z-index: 2147483647;
+    width: 34px;
+    height: 142px;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(-5px, -123px) rotate(42deg);
+    transform-origin: 50% 100%;
+    transition: opacity 90ms ease;
+    filter: drop-shadow(4px 6px 0 rgba(39, 48, 68, 0.48));
+  }
+
+  .student-pencil-cursor.is-visible { opacity: 1; }
+
+  .student-pencil-cursor > span {
+    position: absolute;
+    left: 50%;
+    display: block;
+    transform: translateX(-50%);
+  }
+
+  .student-pencil-cursor__eraser {
+    top: 0; width: 28px; height: 17px; border: 3px solid #273044;
+    border-radius: 9px 9px 3px 3px;
+    background: linear-gradient(90deg, #f25c61, #ff8d8a 48%, #d94049);
+  }
+  .student-pencil-cursor__band {
+    top: 16px; width: 30px; height: 10px; border: 3px solid #273044;
+    background: linear-gradient(90deg, #9eb8cf, #e9f7ff 48%, #79a0be);
+  }
+  .student-pencil-cursor__barrel {
+    top: 25px; width: 30px; height: 81px; border: 3px solid #273044; border-radius: 2px;
+    background:
+      linear-gradient(90deg, transparent 0 24%, rgba(255,255,255,.45) 25% 33%, transparent 34% 65%, rgba(135,86,12,.26) 66% 74%, transparent 75%),
+      linear-gradient(90deg, #efaa16, #ffd34c 48%, #df8f08);
+  }
+  .student-pencil-cursor__wood {
+    top: 102px; width: 30px; height: 26px; clip-path: polygon(0 0, 100% 0, 50% 100%);
+    border: 3px solid #273044; background: linear-gradient(90deg, #cb8e48, #ffe1a1 50%, #b57435);
+  }
+  .student-pencil-cursor__lead {
+    top: 124px; width: 11px; height: 14px; clip-path: polygon(50% 100%, 0 0, 100% 0);
+    background: #273044;
+  }
 }
 
 html.student-pencil input,
-html.student-pencil textarea {
-  cursor: text;
-}
+html.student-pencil textarea { cursor: text; }
 
-html.student-pencil :disabled,
-html.student-pencil [aria-disabled="true"] {
-  cursor: not-allowed;
-}
-
-/* Accessibility modes always keep the predictable system cursor. */
 html.student-pencil.a11y-contrast,
 html.student-pencil.a11y-contrast body,
 html.student-pencil.a11y-dyslexia,
@@ -253,16 +282,17 @@ html.student-pencil.a11y-dyslexia body,
 html.student-pencil.a11y-large,
 html.student-pencil.a11y-large body,
 html.student-pencil.a11y-xlarge,
-html.student-pencil.a11y-xlarge body {
-  cursor: auto;
-}
+html.student-pencil.a11y-xlarge body { cursor: auto !important; }
 
-/* Forced-colors users get the system cursor too. */
+html.student-pencil.a11y-contrast .student-pencil-cursor,
+html.student-pencil.a11y-dyslexia .student-pencil-cursor,
+html.student-pencil.a11y-large .student-pencil-cursor,
+html.student-pencil.a11y-xlarge .student-pencil-cursor { display: none; }
+
 @media (forced-colors: active) {
   html.student-pencil,
-  html.student-pencil body {
-    cursor: auto;
-  }
+  html.student-pencil body { cursor: auto !important; }
+  .student-pencil-cursor { display: none; }
 }
 
 /* ─── Premium classroom polish ───────────────────────────────────── */
