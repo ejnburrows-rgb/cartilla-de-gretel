@@ -912,3 +912,11 @@ html.student-pencil.a11y-xlarge .student-pencil-cursor { display: none; }
 .book-edge-sliver { background: #f7f2e8; box-shadow: none; }
 .book-paper-surface { background: #fffdf7; background-image: none; }
 .workbook-container::before { display: none; }
+
+/* Student reader uses the standard pointer; the oversized decorative pencil is removed. */
+html.student-pencil,
+html.student-pencil body,
+html.student-pencil a,
+html.student-pencil button,
+html.student-pencil [role="button"] { cursor: auto !important; }
+.student-pencil-cursor { display: none !important; }
