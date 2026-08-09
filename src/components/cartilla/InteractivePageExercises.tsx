@@ -13,8 +13,6 @@ import {
 import "@/styles/interactive-exercises.css";
 import type { PageGridCell, PageRegion } from "@/lib/book-faithful";
 import { recordEvent } from "@/lib/student-session";
-import { gretelEvent } from "@/lib/gretel-bus";
-import { playCorrectChord, playWrongBuzz } from "@/lib/piano-audio";
 
 /** Pseudo-random per-cell animation offset so a grid never floats in lockstep. */
 function floatDelay(index: number): string {
@@ -121,8 +119,8 @@ export function InteractivePictureGrid({ region, accent, lessonId }: ExercisePro
       const g = gradeOf(picked.has(i), cell.correct);
       if (g === "wrong" || g === "missed") allCorrect = false;
     });
-    gretelEvent(allCorrect ? "answer:correct" : "answer:wrong");
-    gretelEvent("activity:complete");
+
+
     if (lessonId) {
       const gradable = cells.filter((c) => c.correct !== undefined).length;
       recordEvent({
@@ -301,7 +299,7 @@ export function InteractiveVowelPickOne({ region, accent, lessonId }: ExercisePr
   useEffect(() => {
     if (rows.length > 0 && correctRows.size === rows.length && !completed) {
       setCompleted(true);
-      gretelEvent("activity:complete");
+
       if (lessonId) {
         recordEvent({
           lessonId,
@@ -320,12 +318,12 @@ export function InteractiveVowelPickOne({ region, accent, lessonId }: ExercisePr
     if (cell?.correct) {
       setCorrectRows((prev) => new Set(prev).add(rowIdx));
       setSelectedRow(null);
-      playCorrectChord();
-      gretelEvent("answer:correct");
+
+
     } else {
       setWrongFlash({ row: rowIdx, cell: cellIdx });
-      playWrongBuzz();
-      gretelEvent("answer:wrong");
+
+
       setTimeout(() => setWrongFlash(null), 400);
     }
   };
@@ -338,8 +336,8 @@ export function InteractiveVowelPickOne({ region, accent, lessonId }: ExercisePr
     if (activeRow !== overRow) {
       // Dropped on a different row's picture — not a valid target, bounce back.
       setWrongFlash({ row: activeRow, cell: -1 });
-      playWrongBuzz();
-      gretelEvent("answer:wrong");
+
+
       setTimeout(() => setWrongFlash(null), 400);
       return;
     }
@@ -392,9 +390,9 @@ export function InteractiveVowelMatchAll({ region, accent, lessonId }: ExerciseP
     const next = new Set(linked);
     next.add(i);
     setLinked(next);
-    gretelEvent("answer:correct");
+
     if (next.size === pairs.length) {
-      gretelEvent("activity:complete");
+
       if (lessonId) {
         recordEvent({
           lessonId,
@@ -466,8 +464,8 @@ export function InteractiveSyllableMatch({ region, accent, lessonId }: ExerciseP
         if (g === "wrong" || g === "missed") allCorrect = false;
       });
     });
-    gretelEvent(allCorrect ? "answer:correct" : "answer:wrong");
-    gretelEvent("activity:complete");
+
+
     if (lessonId) {
       recordEvent({
         lessonId,
@@ -559,8 +557,8 @@ export function InteractiveFillInBlank({ region, accent, lessonId }: ExercisePro
       const chosen = picked[i];
       if (chosen === undefined || !item.choices[chosen]?.correct) allCorrect = false;
     });
-    gretelEvent(allCorrect ? "answer:correct" : "answer:wrong");
-    gretelEvent("activity:complete");
+
+
     if (lessonId) {
       recordEvent({
         lessonId,
@@ -657,8 +655,8 @@ export function InteractiveVowelLineMatch({ region, accent, lessonId }: Exercise
       const g = gradeOf(picked.has(i), cell.correct);
       if (g === "wrong" || g === "missed") allCorrect = false;
     });
-    gretelEvent(allCorrect ? "answer:correct" : "answer:wrong");
-    gretelEvent("activity:complete");
+
+
     if (lessonId) {
       recordEvent({
         lessonId,
