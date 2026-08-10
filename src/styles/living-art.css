@@ -235,3 +235,76 @@
     transition: none !important;
   }
 }
+
+/* ── Faithful curriculum artwork presentation ─────────────────────────────
+ * The workbook drawings are printed curriculum art, not app cards. Keep their
+ * pixels completely unchanged and let them sit directly on the paper. This
+ * deliberately overrides the older born-digital tile treatment on lesson pages.
+ */
+.faithful-page .living-illustration--alive {
+  animation: none !important;
+  transform: none !important;
+}
+
+.faithful-page .living-illustration__lids {
+  display: none !important;
+}
+
+.faithful-page .fp-picture-grid__cell,
+.faithful-page .fp-vowel-match__cell,
+.faithful-page .fp-vowel-pick__cell,
+.faithful-page .fp-vowel-match-all__cell,
+.faithful-page .fp-ix-cell {
+  background: transparent !important;
+  border-color: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 2% !important;
+}
+
+.faithful-page .fp-picture-grid__cell,
+.faithful-page .fp-vowel-match__cell,
+.faithful-page .fp-vowel-pick__cell,
+.faithful-page .fp-vowel-match-all__cell {
+  overflow: visible !important;
+}
+
+.faithful-page .fp-picture-grid__cell img,
+.faithful-page .fp-vowel-match__cell img,
+.faithful-page .fp-vowel-pick__cell img,
+.faithful-page .fp-vowel-match-all__cell img,
+.faithful-page .fp-ix-cell img,
+.faithful-page .fp-illustration img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  filter: none !important;
+  animation: none !important;
+  transform: none !important;
+}
+
+/* Keep interaction affordances outside the artwork itself. */
+.faithful-page .fp-ix-cell:hover,
+.faithful-page .fp-ix-cell:focus-visible,
+.faithful-page .fp-ix-cell.picked,
+.faithful-page .fp-ix-cell.graded-correct,
+.faithful-page .fp-ix-cell.graded-wrong,
+.faithful-page .fp-ix-cell.graded-missed {
+  background: color-mix(in srgb, var(--ix-accent) 7%, transparent) !important;
+  border-radius: 10px !important;
+}
+
+.faithful-page .fp-ix-cell:hover,
+.faithful-page .fp-ix-cell:focus-visible,
+.faithful-page .fp-ix-cell.picked {
+  outline: 2px solid color-mix(in srgb, var(--ix-accent) 70%, transparent);
+  outline-offset: 2px;
+}
+
+/* The rope/lasso graphic is app decoration and visually competes with the
+ * authentic drawing. Selection remains clear through the neutral outline. */
+.faithful-page .fp-ix-cell__lasso {
+  display: none !important;
+}
