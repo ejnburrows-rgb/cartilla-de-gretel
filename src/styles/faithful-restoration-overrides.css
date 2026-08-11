@@ -119,8 +119,31 @@
   animation: none;
 }
 
-.fp-ix-check-btn {
+/* Remaining activity controls should read like workbook marks, not app pills.
+ * Keep the same hit areas and mechanics while removing invented filled-color chrome. */
+.fp-ix-check-btn,
+.fp-ix-pick__letter,
+.fp-ix-letter-btn {
+  color: var(--book-ink, #1f2937);
+  background: transparent;
+  border: 1.5px solid var(--book-ink-soft, #6b7280);
+  border-radius: 2px;
   box-shadow: none;
+}
+
+.fp-ix-check-btn {
+  padding: 1.4cqw 3.2cqw;
+}
+
+.fp-ix-check-btn:hover {
+  filter: none;
+  border-color: var(--book-ink, #1f2937);
+}
+
+.fp-ix-match-row.linked .fp-ix-letter-btn {
+  color: var(--book-ink, #1f2937);
+  background: transparent;
+  border-color: var(--book-pencil, #4b5563);
 }
 
 .fp-ix-pick__letter--draggable.is-dragging {
@@ -129,5 +152,13 @@
 }
 
 .fp-ix-pick__letter--draggable.is-selected {
-  box-shadow: 0 0 0 2px var(--ix-accent);
+  box-shadow: 0 0 0 2px var(--book-pencil, #4b5563);
+}
+
+.fp-ix-cell--droppable.is-over {
+  outline-color: var(--book-pencil, #4b5563);
+}
+
+.fp-ix-track__line {
+  stroke: var(--book-pencil, #4b5563);
 }
