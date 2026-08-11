@@ -48,19 +48,26 @@ export function getRemasterAssetByOriginal(path?: string | null) {
   return assets.find((asset) => asset.originalSourcePath === path);
 }
 
+/**
+ * Resolve artwork for the student workbook.
+ *
+ * HARD RULE: a cleaned/projection candidate is not student-visible until the
+ * inventory explicitly marks it approvedForStudent. This prevents review
+ * candidates or invented/experimental colour treatments from leaking into the
+ * workbook. Teacher review metadata remains available through
+ * getRemasterPresentation().
+ */
 export function getBestDisplayPath(originalPath?: string | null, mode: QualityMode = "projection") {
   if (!originalPath) return undefined;
   if (mode === "source") return publicAsset(originalPath);
 
   const asset = getRemasterAssetByOriginal(originalPath);
-  if (!asset) return publicAsset(originalPath);
+  if (!asset || !asset.approvedForStudent) return publicAsset(originalPath);
 
-  if (mode === "projection" && asset.remasteredPathV2) return publicAsset(asset.remasteredPathV2);
-  if (asset.approvalStatus === "approved") return publicAsset(asset.remasteredPath);
-  if (asset.cleanupStatus === "cleaned" || asset.cleanupStatus === "needs review")
-    return publicAsset(asset.remasteredPathV2 ?? asset.remasteredPath);
-
-  return publicAsset(originalPath);
+  if (mode === "projection" && asset.remasteredPathV2) {
+    return publicAsset(asset.remasteredPathV2);
+  }
+  return publicAsset(asset.remasteredPathV2 ?? asset.remasteredPath);
 }
 
 export function getRemasterPresentation(asset?: RemasterAsset | null): RemasterPresentation {
