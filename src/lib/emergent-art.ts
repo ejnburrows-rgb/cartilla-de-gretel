@@ -3,12 +3,12 @@ import type { PageGridCell, PageRegion } from "@/lib/book-faithful";
 /**
  * Emergent artwork integration layer.
  *
- * Only mappings explicitly recorded by Emergent's own lesson data are active.
- * The donor PNGs live under /public/cartilla/art/emergent and the canonical
- * Cartilla layout/curriculum remains untouched. Unknown later-letter assets
- * stay inactive rather than being guessed from filenames such as d_0.png.
+ * Candidate donor PNGs live under /public/cartilla/art/emergent. They are NOT
+ * automatically trusted for student display. A candidate becomes active only
+ * after the exact drawing and intended palette have been checked against the
+ * authentic student workbook plus a verified teacher/source color donor.
  */
-const EMERGENT_ART_BY_WORD: Readonly<Record<string, string>> = {
+const EMERGENT_ART_CANDIDATES_BY_WORD: Readonly<Record<string, string>> = {
   // O
   olla: "/cartilla/art/emergent/o_0.png",
   oto: "/cartilla/art/emergent/o_1.png",
@@ -76,6 +76,14 @@ const EMERGENT_ART_BY_WORD: Readonly<Record<string, string>> = {
   tuto: "/cartilla/art/emergent/t_4.png",
 };
 
+/**
+ * Source-backed approval gate. Keep this empty until a candidate has been
+ * visually proven against the authentic drawing and an authoritative color
+ * reference. This prevents attractive-but-invented color from leaking into the
+ * student workbook merely because a filename/word happens to match.
+ */
+const VERIFIED_EMERGENT_WORDS: ReadonlySet<string> = new Set<string>();
+
 function normalizeWord(value?: string | null): string {
   return (value ?? "")
     .trim()
@@ -87,7 +95,8 @@ function normalizeWord(value?: string | null): string {
 
 export function getEmergentArtPath(word?: string | null): string | undefined {
   const key = normalizeWord(word);
-  return key ? EMERGENT_ART_BY_WORD[key] : undefined;
+  if (!key || !VERIFIED_EMERGENT_WORDS.has(key)) return undefined;
+  return EMERGENT_ART_CANDIDATES_BY_WORD[key];
 }
 
 export function resolveEmergentArt(
@@ -134,9 +143,8 @@ function resolveRegion(region: PageRegion): PageRegion {
 }
 
 /**
- * Apply the donor color layer without mutating canonical page-layout data.
- * A fresh object graph is returned so tests and other callers cannot observe
- * accidental mutations of the imported JSON singleton.
+ * Apply only source-verified donor color without mutating canonical page-layout
+ * data. Until a candidate is verified, canonical authentic artwork wins.
  */
 export function applyEmergentArtToRegions(regions: PageRegion[]): PageRegion[] {
   return regions.map(resolveRegion);
