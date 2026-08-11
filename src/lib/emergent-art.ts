@@ -85,17 +85,28 @@ const EMERGENT_ART_CANDIDATES_BY_WORD: Readonly<Record<string, string>> = {
 const VERIFIED_EMERGENT_WORDS: ReadonlySet<string> = new Set<string>();
 
 /**
- * Canonical mappings known to be mismatched or still lacking source proof.
- * Never let them reach the student workbook until the exact drawing and source
- * have been verified. The student sees an honest pending-art state instead of
- * a plausible-but-unproven substitute.
+ * Canonical mappings known to be mismatched or explicitly marked
+ * PROVENANCE-UNKNOWN in the faithful-art manifest. Never let them reach the
+ * student workbook until the exact drawing and source have been verified.
+ * The student sees an honest pending-art state instead of a plausible-but-
+ * unproven substitute.
  */
 const BLOCKED_CANONICAL_FALLBACKS: Readonly<Record<string, ReadonlySet<string>>> = {
   traje: new Set([
     "/cartilla/art/faithful/vocal-u/uniforme.webp",
     "/cartilla/art/faithful/leccion-1/traje.webp",
   ]),
+  iglesia: new Set(["/cartilla/art/faithful/vocal-i/iglesia.webp"]),
+  ola: new Set(["/cartilla/art/faithful/leccion-1/ola.webp"]),
+  ardilla: new Set(["/cartilla/art/faithful/vocal-a/ardilla.webp"]),
   escuela: new Set(["/cartilla/art/faithful/vocal-e/escuela.webp"]),
+  igual: new Set(["/cartilla/art/faithful/vocal-i/igual.webp"]),
+  iguana: new Set(["/cartilla/art/faithful/vocal-i/iguana.webp"]),
+  invierno: new Set(["/cartilla/art/faithful/vocal-i/invierno.webp"]),
+  anillo: new Set(["/cartilla/art/faithful/vocal-a/anillo.webp"]),
+  manzana: new Set(["/cartilla/art/faithful/leccion-1/manzana.webp"]),
+  pera: new Set(["/cartilla/art/faithful/leccion-1/pera.webp"]),
+  taza: new Set(["/cartilla/art/faithful/leccion-1/taza.webp"]),
 };
 
 function normalizeWord(value?: string | null): string {
