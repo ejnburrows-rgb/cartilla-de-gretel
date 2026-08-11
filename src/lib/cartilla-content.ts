@@ -1,5 +1,6 @@
 import lessonsData from "@/content/lessons.json";
 import miamiData from "@/content/miami-dade.json";
+import { resolveEmergentArt } from "@/lib/emergent-art";
 
 export type VocabWord = { word: string; emoji: string; illustrationSrc?: string };
 export type MatchPair = { left: string; right: string; pairId: number };
@@ -37,16 +38,27 @@ function loadOverride<T>(key: string, fallback: T): T {
   }
 }
 
-export const lessons = loadOverride<VowelLesson[]>(
-  LESSONS_OVERRIDE_KEY,
-  lessonsData as VowelLesson[],
+function withEmergentArt(input: VowelLesson[]): VowelLesson[] {
+  return input.map((lesson) => ({
+    ...lesson,
+    vocab: lesson.vocab.map((item) => ({
+      ...item,
+      illustrationSrc: resolveEmergentArt(item.word, item.illustrationSrc),
+    })),
+  }));
+}
+
+const baseLessons = withEmergentArt(lessonsData as VowelLesson[]);
+
+export const lessons = withEmergentArt(
+  loadOverride<VowelLesson[]>(LESSONS_OVERRIDE_KEY, baseLessons),
 );
 export const miami = loadOverride<MiamiQuestion[]>(
   MIAMI_OVERRIDE_KEY,
   miamiData as MiamiQuestion[],
 );
 
-export const defaultLessons = lessonsData as VowelLesson[];
+export const defaultLessons = baseLessons;
 export const defaultMiami = miamiData as MiamiQuestion[];
 
 const stripDiacritics = (s: string) =>
