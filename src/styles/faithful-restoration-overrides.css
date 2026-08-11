@@ -123,7 +123,9 @@
  * Keep the same hit areas and mechanics while removing invented filled-color chrome. */
 .fp-ix-check-btn,
 .fp-ix-pick__letter,
-.fp-ix-letter-btn {
+.fp-ix-letter-btn,
+.fp-ix-syllable__label,
+.fp-ix-syllable__word {
   color: var(--book-ink, #1f2937);
   background: transparent;
   border: 1.5px solid var(--book-ink-soft, #6b7280);
@@ -135,15 +137,29 @@
   padding: 1.4cqw 3.2cqw;
 }
 
-.fp-ix-check-btn:hover {
+.fp-ix-check-btn:hover,
+.fp-ix-syllable__word:hover {
   filter: none;
+  transform: none;
   border-color: var(--book-ink, #1f2937);
 }
 
-.fp-ix-match-row.linked .fp-ix-letter-btn {
+.fp-ix-match-row.linked .fp-ix-letter-btn,
+.fp-ix-syllable__word.picked,
+.fp-ix-syllable__word.graded-correct,
+.fp-ix-syllable__word.graded-missed {
   color: var(--book-ink, #1f2937);
   background: transparent;
   border-color: var(--book-pencil, #4b5563);
+}
+
+.fp-ix-syllable__word.graded-missed {
+  border-style: dashed;
+}
+
+.fp-ix-syllable__img {
+  border-radius: 0;
+  filter: none;
 }
 
 .fp-ix-pick__letter--draggable.is-dragging {
