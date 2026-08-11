@@ -85,12 +85,17 @@ const EMERGENT_ART_CANDIDATES_BY_WORD: Readonly<Record<string, string>> = {
 const VERIFIED_EMERGENT_WORDS: ReadonlySet<string> = new Set<string>();
 
 /**
- * Canonical mappings that are already known to show the wrong subject.
- * Never let a known mismatch reach the student workbook while the exact
- * authentic replacement is still pending.
+ * Canonical mappings known to be mismatched or still lacking source proof.
+ * Never let them reach the student workbook until the exact drawing and source
+ * have been verified. The student sees an honest pending-art state instead of
+ * a plausible-but-unproven substitute.
  */
 const BLOCKED_CANONICAL_FALLBACKS: Readonly<Record<string, ReadonlySet<string>>> = {
-  traje: new Set(["/cartilla/art/faithful/vocal-u/uniforme.webp"]),
+  traje: new Set([
+    "/cartilla/art/faithful/vocal-u/uniforme.webp",
+    "/cartilla/art/faithful/leccion-1/traje.webp",
+  ]),
+  escuela: new Set(["/cartilla/art/faithful/vocal-e/escuela.webp"]),
 };
 
 function normalizeWord(value?: string | null): string {
