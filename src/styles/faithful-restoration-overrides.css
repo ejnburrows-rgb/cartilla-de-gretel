@@ -1,0 +1,34 @@
+/* Lessons 1–5 faithful restoration overrides.
+ * Keep the printed workbook visually flat and source-led: no floating-card depth,
+ * glossy gradients, or decorative chrome added around authentic lesson artwork.
+ */
+
+.faithful-page__pagenum {
+  background: var(--book-teal);
+  box-shadow: none;
+}
+
+.fp-illustration img {
+  border-radius: 0;
+  filter: none;
+}
+
+.fp-picture-grid__cell {
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.fp-art-pending {
+  border-radius: 0;
+  background: transparent;
+}
+
+/* Keep full authentic art visible inside workbook activity cells. */
+.fp-picture-grid__cell img,
+.fp-illustration img {
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
