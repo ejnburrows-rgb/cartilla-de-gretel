@@ -52,3 +52,82 @@
   object-fit: contain;
   object-position: center;
 }
+
+/* Interactive Lessons 1–5 should still behave like a printed workbook.
+ * Keep the mechanics, but remove floating art, app-card depth, bouncy feedback,
+ * and arcade-style badges so the original illustration remains the focus. */
+.game-pic-float,
+.fp-ix-cell img,
+.fp-ix-cell.picked img,
+.fp-ix-match-row.linked .fp-ix-match-cell img {
+  animation: none !important;
+  transform: none !important;
+  filter: none !important;
+}
+
+.fp-ix-cell {
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  transition: border-color 0.15s ease;
+}
+
+.fp-ix-cell:hover,
+.fp-ix-cell.picked,
+.fp-ix-match-row.linked .fp-ix-match-cell {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Selection mark: a restrained pencil-like oval rather than a thrown-rope effect. */
+.fp-ix-cell__lasso {
+  inset: -4%;
+  width: 108%;
+  height: 108%;
+  transform: rotate(-2deg) scale(1);
+  transition: opacity 0.12s ease;
+}
+
+.fp-ix-cell__lasso ellipse {
+  stroke: var(--book-pencil, #4b5563);
+  stroke-width: 2.5;
+  stroke-dasharray: none;
+  stroke-dashoffset: 0;
+  transition: none;
+}
+
+.fp-ix-cell.picked .fp-ix-cell__lasso,
+.fp-ix-cell.graded-missed .fp-ix-cell__lasso {
+  transform: rotate(-2deg) scale(1);
+  transition: opacity 0.12s ease;
+}
+
+.fp-ix-cell.graded-missed .fp-ix-cell__lasso ellipse {
+  stroke: var(--book-pencil, #4b5563);
+  stroke-dasharray: 7 6;
+}
+
+/* Do not cover authentic art with floating green/red app badges. */
+.fp-ix-cell__badge {
+  display: none;
+}
+
+.fp-ix-cell.graded-wrong,
+.fp-ix-cell--droppable.graded-wrong-flash,
+.fp-ix-syllable__word.graded-missed,
+.fp-ix-fill__choice.graded-wrong {
+  animation: none;
+}
+
+.fp-ix-check-btn {
+  box-shadow: none;
+}
+
+.fp-ix-pick__letter--draggable.is-dragging {
+  box-shadow: none;
+  scale: 1;
+}
+
+.fp-ix-pick__letter--draggable.is-selected {
+  box-shadow: 0 0 0 2px var(--ix-accent);
+}
