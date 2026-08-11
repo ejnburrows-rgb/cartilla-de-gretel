@@ -116,6 +116,7 @@ const BLOCKED_CANONICAL_FALLBACKS: Readonly<Record<string, ReadonlySet<string>>>
   // small to plausibly describe the displayed illustration. Gate them until
   // the exact workbook drawing + teacher/source donor are independently proven.
   estrella: new Set(["/cartilla/art/faithful/vocal-e/estrella.webp"]),
+  alas: new Set(["/cartilla/art/faithful/vocal-a/alas.webp"]),
   arana: new Set(["/cartilla/art/faithful/vocal-a/arana.webp"]),
   insecto: new Set(["/cartilla/art/faithful/vocal-i/insecto.webp"]),
   isla: new Set(["/cartilla/art/faithful/vocal-i/isla.webp"]),
