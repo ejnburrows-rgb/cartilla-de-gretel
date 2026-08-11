@@ -3,6 +3,7 @@ import sourceArtInventory from "@/data/source-art-inventory.json";
 import pageLayouts from "@/data/page-layouts.json";
 import { getBookSectionForLesson, getLessonPageNumbers } from "@/lib/cartilla-crm-theme";
 import { CATALOG } from "@/lib/lesson-catalog";
+import { applyEmergentArtToRegions } from "@/lib/emergent-art";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -424,7 +425,7 @@ const canonicalLayouts = pageLayouts as unknown as PageLayouts;
  */
 export function getPageLayout(pageNumber: number): PageRegion[] | null {
   const entry = canonicalLayouts.pages[String(pageNumber)];
-  return entry ? entry.regions : null;
+  return entry ? applyEmergentArtToRegions(entry.regions) : null;
 }
 
 /** True if a faithful, verified layout exists for this page. */
