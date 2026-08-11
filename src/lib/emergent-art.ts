@@ -84,6 +84,15 @@ const EMERGENT_ART_CANDIDATES_BY_WORD: Readonly<Record<string, string>> = {
  */
 const VERIFIED_EMERGENT_WORDS: ReadonlySet<string> = new Set<string>();
 
+/**
+ * Canonical mappings that are already known to show the wrong subject.
+ * Never let a known mismatch reach the student workbook while the exact
+ * authentic replacement is still pending.
+ */
+const BLOCKED_CANONICAL_FALLBACKS: Readonly<Record<string, ReadonlySet<string>>> = {
+  traje: new Set(["/cartilla/art/faithful/vocal-u/uniforme.webp"]),
+};
+
 function normalizeWord(value?: string | null): string {
   return (value ?? "")
     .trim()
@@ -91,6 +100,13 @@ function normalizeWord(value?: string | null): string {
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .replace(/[^a-z0-9]/g, "");
+}
+
+function getSafeFallback(word?: string | null, fallback?: string): string | undefined {
+  if (!fallback) return undefined;
+  const key = normalizeWord(word);
+  if (BLOCKED_CANONICAL_FALLBACKS[key]?.has(fallback)) return undefined;
+  return fallback;
 }
 
 export function getEmergentArtPath(word?: string | null): string | undefined {
@@ -103,7 +119,7 @@ export function resolveEmergentArt(
   word?: string | null,
   fallback?: string,
 ): string | undefined {
-  return getEmergentArtPath(word) ?? fallback;
+  return getEmergentArtPath(word) ?? getSafeFallback(word, fallback);
 }
 
 function resolveCell(cell: PageGridCell): PageGridCell {
