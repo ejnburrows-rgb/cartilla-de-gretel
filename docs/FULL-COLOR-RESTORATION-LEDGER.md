@@ -110,8 +110,12 @@ Current safety baseline: automatic synthetic workbook color fallbacks are disabl
 
 ## Current sequential pass
 
-Lesson 1 pages 1–3 have now had their live mapping layer inspected. Unverified Emergent substitutions remain fully disabled. Known provenance-unknown/mismatched faithful assets are gated, and the latest pass also gates faithful assets whose manifest metadata is not source-proven and contains implausible crop dimensions (including estrella, araña, insecto, isla, ocho, oreja, uno, avión), plus ojos because repository-history recovery alone does not establish authentic source provenance. These pages remain `needs correction` until every remaining visible illustration on each page is positively matched to the printed workbook drawing and a verified source/color donor.
+Lesson 1 pages 1–3 have had their live picture mappings inspected. Unverified imported color substitutions remain fully disabled. Known mismatched or unproven faithful assets are gated, including assets with implausible crop dimensions and `ojos`, whose recovery from repository history alone does not prove authentic source provenance.
+
+Lesson 2 page `o/o-page-3.jpg` is now in progress. Its live `ola` picture was still able to display through `/cartilla/art/faithful/vocal-o/ola.webp` even though `ola` had already been classified as unproven. That alternate live path is now gated as well, so the student page cannot show the questionable colored `ola` substitute while source proof is pending.
+
+All four pages remain `needs correction` until every remaining visible illustration on each page is positively matched to the printed workbook drawing and a verified source/color donor.
 
 ## Next sequence
 
-Continue Lesson 1 pages 1–3 by positively proving the remaining live illustration paths, then move to Lesson 2 / `o/o-page-3.jpg` and continue sequentially through the workbook.
+Finish the remaining live illustration checks for Lesson 2 / `o/o-page-3.jpg`, then continue through `o/o-page-4.jpg` and `o/o-page-5.jpg`, followed by Lesson 3, without restarting the full audit.
