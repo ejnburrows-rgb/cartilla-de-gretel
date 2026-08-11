@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import "@/styles/faithful-page.css";
+import "@/styles/faithful-restoration-overrides.css";
 
 interface PageFrameProps {
   pageNumber?: number;
