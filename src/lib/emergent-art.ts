@@ -85,11 +85,12 @@ const EMERGENT_ART_CANDIDATES_BY_WORD: Readonly<Record<string, string>> = {
 const VERIFIED_EMERGENT_WORDS: ReadonlySet<string> = new Set<string>();
 
 /**
- * Canonical mappings known to be mismatched or explicitly marked
- * PROVENANCE-UNKNOWN in the faithful-art manifest. Never let them reach the
- * student workbook until the exact drawing and source have been verified.
- * The student sees an honest pending-art state instead of a plausible-but-
- * unproven substitute.
+ * Canonical mappings known to be mismatched, explicitly marked
+ * PROVENANCE-UNKNOWN, recovered without source proof, or backed only by
+ * implausible/tiny crop metadata in the faithful-art manifest. Never let them
+ * reach the student workbook until the exact drawing and source palette have
+ * been verified. The student sees an honest pending-art state instead of a
+ * plausible-but-unproven substitute.
  */
 const BLOCKED_CANONICAL_FALLBACKS: Readonly<Record<string, ReadonlySet<string>>> = {
   traje: new Set([
@@ -107,6 +108,22 @@ const BLOCKED_CANONICAL_FALLBACKS: Readonly<Record<string, ReadonlySet<string>>>
   manzana: new Set(["/cartilla/art/faithful/leccion-1/manzana.webp"]),
   pera: new Set(["/cartilla/art/faithful/leccion-1/pera.webp"]),
   taza: new Set(["/cartilla/art/faithful/leccion-1/taza.webp"]),
+
+  // Manifest entries below are not source-proven and carry crop boxes too
+  // small to plausibly describe the displayed illustration. Gate them until
+  // the exact workbook drawing + teacher/source donor are independently proven.
+  estrella: new Set(["/cartilla/art/faithful/vocal-e/estrella.webp"]),
+  arana: new Set(["/cartilla/art/faithful/vocal-a/arana.webp"]),
+  insecto: new Set(["/cartilla/art/faithful/vocal-i/insecto.webp"]),
+  isla: new Set(["/cartilla/art/faithful/vocal-i/isla.webp"]),
+  ocho: new Set(["/cartilla/art/faithful/vocal-o/ocho.webp"]),
+  oreja: new Set(["/cartilla/art/faithful/vocal-o/oreja.webp"]),
+  uno: new Set(["/cartilla/art/faithful/vocal-u/uno.webp"]),
+  avion: new Set(["/cartilla/art/faithful/vocal-a/avion.webp"]),
+
+  // Recovered from repository history is not equivalent to authentic source
+  // provenance. Keep hidden until the original workbook/teacher source proves it.
+  ojos: new Set(["/cartilla/art/faithful/leccion-1/ojos.webp"]),
 };
 
 function normalizeWord(value?: string | null): string {
