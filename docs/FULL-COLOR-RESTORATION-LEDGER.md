@@ -108,6 +108,10 @@ Current safety baseline: automatic synthetic workbook color fallbacks are disabl
 - Needs correction/source verification: 87
 - Total: 87
 
+## Current sequential pass
+
+Lesson 1 pages 1–3 have now had their live mapping layer inspected. Unverified Emergent substitutions remain fully disabled. Known provenance-unknown/mismatched faithful assets are gated, and the latest pass also gates faithful assets whose manifest metadata is not source-proven and contains implausible crop dimensions (including estrella, araña, insecto, isla, ocho, oreja, uno, avión), plus ojos because repository-history recovery alone does not establish authentic source provenance. These pages remain `needs correction` until every remaining visible illustration on each page is positively matched to the printed workbook drawing and a verified source/color donor.
+
 ## Next sequence
 
-Start with Lesson 1 / `vocales` and continue sequentially. For each page, verify the full-page source plus every active illustration mapping before changing its status.
+Continue Lesson 1 pages 1–3 by positively proving the remaining live illustration paths, then move to Lesson 2 / `o/o-page-3.jpg` and continue sequentially through the workbook.
