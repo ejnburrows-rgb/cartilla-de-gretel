@@ -98,7 +98,10 @@ const BLOCKED_CANONICAL_FALLBACKS: Readonly<Record<string, ReadonlySet<string>>>
     "/cartilla/art/faithful/leccion-1/traje.webp",
   ]),
   iglesia: new Set(["/cartilla/art/faithful/vocal-i/iglesia.webp"]),
-  ola: new Set(["/cartilla/art/faithful/leccion-1/ola.webp"]),
+  ola: new Set([
+    "/cartilla/art/faithful/leccion-1/ola.webp",
+    "/cartilla/art/faithful/vocal-o/ola.webp",
+  ]),
   ardilla: new Set(["/cartilla/art/faithful/vocal-a/ardilla.webp"]),
   escuela: new Set(["/cartilla/art/faithful/vocal-e/escuela.webp"]),
   igual: new Set(["/cartilla/art/faithful/vocal-i/igual.webp"]),
