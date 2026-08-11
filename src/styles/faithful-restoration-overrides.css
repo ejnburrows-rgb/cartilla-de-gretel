@@ -3,6 +3,10 @@
  * glossy gradients, or decorative chrome added around authentic lesson artwork.
  */
 
+.faithful-page__sidebar {
+  filter: none;
+}
+
 .faithful-page__pagenum {
   background: var(--book-teal);
   box-shadow: none;
@@ -19,6 +23,17 @@
   box-shadow: none;
 }
 
+/* Vowel activities use the original workbook art as the visual focus.
+ * Remove the born-digital lifted-card treatment while retaining the printed
+ * activity boundaries and all existing interaction behavior. */
+.fp-vowel-match__cell,
+.fp-vowel-pick__cell,
+.fp-vowel-match-all__cell {
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
 .fp-art-pending {
   border-radius: 0;
   background: transparent;
@@ -26,9 +41,14 @@
 
 /* Keep full authentic art visible inside workbook activity cells. */
 .fp-picture-grid__cell img,
-.fp-illustration img {
+.fp-illustration img,
+.fp-vowel-match__cell img,
+.fp-vowel-pick__cell img,
+.fp-vowel-match-all__cell img {
   width: auto;
   height: auto;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
   object-position: center;
 }
