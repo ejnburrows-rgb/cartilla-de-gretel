@@ -1,6 +1,7 @@
 import { lessons as vowelLessons, type VowelLesson } from "@/lib/cartilla-content";
 import consonantsData from "@/content/consonants.json";
 import { getLessonAccent } from "@/lib/lesson-accents";
+import { resolveEmergentArt } from "@/lib/emergent-art";
 
 export type ConsonantLessonData = {
   letter: string;
@@ -54,7 +55,13 @@ export type CatalogEntry =
       activities?: ActivityId[];
     };
 
-const consonants = consonantsData as unknown as ConsonantLessonData[];
+const consonants = (consonantsData as unknown as ConsonantLessonData[]).map((lesson) => ({
+  ...lesson,
+  vocab: lesson.vocab.map((item) => ({
+    ...item,
+    illustrationSrc: resolveEmergentArt(item.word, item.illustrationSrc),
+  })),
+}));
 
 const VOWEL_LESSON_NUMBER: Record<string, number> = { o: 2, a: 3, e: 4, i: 5, u: 6 };
 const VOWEL_PAGES: Record<string, string> = {
