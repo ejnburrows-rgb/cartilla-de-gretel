@@ -87,10 +87,12 @@ const VERIFIED_EMERGENT_WORDS: ReadonlySet<string> = new Set<string>();
 /**
  * Canonical mappings known to be mismatched, explicitly marked
  * PROVENANCE-UNKNOWN, recovered without source proof, absent from the current
- * provenance manifest, or backed only by implausible/tiny crop metadata in the
- * faithful-art manifest. Never let them reach the student workbook until the
- * exact drawing and source palette have been verified. The student sees an
- * honest pending-art state instead of a plausible-but-unproven substitute.
+ * provenance manifest, or otherwise not yet positively source-proven. Never
+ * let them reach the student workbook until the exact drawing and source palette
+ * have been verified. Assets with named source pages plus a PASS verdict from
+ * the repository's full-resolution source-comparison QA are allowed even when
+ * old manifest crop metadata is malformed; those bad metadata numbers alone do
+ * not override the actual source comparison.
  */
 const BLOCKED_CANONICAL_FALLBACKS: Readonly<Record<string, ReadonlySet<string>>> = {
   traje: new Set([
@@ -119,16 +121,6 @@ const BLOCKED_CANONICAL_FALLBACKS: Readonly<Record<string, ReadonlySet<string>>>
   pez: new Set(["/cartilla/art/faithful/leccion-1/pez.webp"]),
   uniforme: new Set(["/cartilla/art/faithful/vocal-u/uniforme.webp"]),
   una: new Set(["/cartilla/art/faithful/vocal-u/uña.webp"]),
-  escalera: new Set(["/cartilla/art/faithful/vocal-e/escalera.webp"]),
-  estrella: new Set(["/cartilla/art/faithful/vocal-e/estrella.webp"]),
-  alas: new Set(["/cartilla/art/faithful/vocal-a/alas.webp"]),
-  arana: new Set(["/cartilla/art/faithful/vocal-a/arana.webp"]),
-  insecto: new Set(["/cartilla/art/faithful/vocal-i/insecto.webp"]),
-  isla: new Set(["/cartilla/art/faithful/vocal-i/isla.webp"]),
-  ocho: new Set(["/cartilla/art/faithful/vocal-o/ocho.webp"]),
-  oreja: new Set(["/cartilla/art/faithful/vocal-o/oreja.webp"]),
-  uno: new Set(["/cartilla/art/faithful/vocal-u/uno.webp"]),
-  avion: new Set(["/cartilla/art/faithful/vocal-a/avion.webp"]),
   ojos: new Set(["/cartilla/art/faithful/leccion-1/ojos.webp"]),
   casa: new Set(["/cartilla/art/faithful/leccion-19-c/casa.webp"]),
   carro: new Set(["/cartilla/art/faithful/leccion-18-rr/carro.webp"]),
