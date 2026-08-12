@@ -117,6 +117,7 @@ const BLOCKED_CANONICAL_FALLBACKS: Readonly<Record<string, ReadonlySet<string>>>
   oveja: new Set(["/cartilla/art/faithful/vocal-o/oveja.webp"]),
   olla: new Set(["/cartilla/art/faithful/vocal-o/olla.webp"]),
   uvas: new Set(["/cartilla/art/faithful/vocal-u/uvas.webp"]),
+  una: new Set(["/cartilla/art/faithful/vocal-u/uña.webp"]),
   iman: new Set(["/cartilla/art/faithful/vocal-i/iman.webp"]),
   indio: new Set(["/cartilla/art/faithful/vocal-i/indio.webp"]),
   escalera: new Set(["/cartilla/art/faithful/vocal-e/escalera.webp"]),
