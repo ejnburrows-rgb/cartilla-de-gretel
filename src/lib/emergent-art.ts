@@ -126,17 +126,14 @@ const SOURCE_BACKED_REPLACEMENTS: Readonly<Record<string, string>> = {
  * source-comparison QA are allowed even if legacy manifest crop metadata is
  * incomplete or malformed. A known-bad alternate path remains blocked even
  * when a different crop for the same word has passed source comparison.
+ *
+ * iglesia and ojos were independently verified at full resolution in repository
+ * history; traje/uniforme uses the identical teacher flipchart uniforme donor;
+ * uña intentionally uses the authentic grayscale-only student source. Those
+ * source-backed paths therefore must remain visible rather than being suppressed.
  */
 const BLOCKED_CANONICAL_FALLBACKS: Readonly<Record<string, ReadonlySet<string>>> = {
-  traje: new Set([
-    "/cartilla/art/faithful/vocal-u/uniforme.webp",
-    "/cartilla/art/faithful/leccion-1/traje.webp",
-  ]),
-  iglesia: new Set(["/cartilla/art/faithful/vocal-i/iglesia.webp"]),
   ola: new Set(["/cartilla/art/faithful/leccion-1/ola.webp"]),
-  uniforme: new Set(["/cartilla/art/faithful/vocal-u/uniforme.webp"]),
-  una: new Set(["/cartilla/art/faithful/vocal-u/uña.webp"]),
-  ojos: new Set(["/cartilla/art/faithful/leccion-1/ojos.webp"]),
   carro: new Set(["/cartilla/art/faithful/leccion-18-rr/carro.webp"]),
 };
 
