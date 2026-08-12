@@ -111,6 +111,8 @@ const SOURCE_BACKED_REPLACEMENTS: Readonly<Record<string, string>> = {
   "/cartilla/art/faithful/leccion-4/erizo.webp": "/cartilla/art/faithful/vocal-e/erizo.webp",
   "/cartilla/art/faithful/leccion-5/igual.webp": "/cartilla/art/faithful/vocal-i/igual.webp",
   "/cartilla/art/faithful/leccion-5/iguana.webp": "/cartilla/art/faithful/vocal-i/iguana.webp",
+  "/cartilla/art/faithful/leccion-8-p/pez.webp": "/cartilla/art/faithful/leccion-1/pez.webp",
+  "/cartilla/art/faithful/leccion-18-c/carro.webp": "/cartilla/art/faithful/leccion-1/carro.webp",
 };
 
 /**
