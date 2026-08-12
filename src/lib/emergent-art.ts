@@ -1,4 +1,5 @@
 import type { PageGridCell, PageRegion } from "@/lib/book-faithful";
+import faithfulManifest from "../../public/cartilla/art/faithful/manifest.json";
 import qaResults from "../../public/cartilla/art/faithful/qa-results.json";
 
 /**
@@ -99,6 +100,14 @@ const QA_FAILED_FAITHFUL_PATHS: ReadonlySet<string> = new Set(
     .map((result) => result.file.replace(/^public/, "")),
 );
 
+type FaithfulManifestEntry = { src?: string; provenanceStatus?: string | null };
+const PROVENANCE_UNKNOWN_FAITHFUL_PATHS: ReadonlySet<string> = new Set(
+  (faithfulManifest as FaithfulManifestEntry[])
+    .filter((entry) => entry.provenanceStatus === "PROVENANCE-UNKNOWN")
+    .map((entry) => entry.src)
+    .filter((src): src is string => typeof src === "string" && src.startsWith("/cartilla/art/")),
+);
+
 /**
  * Exact same-word faithful replacements for known bad crop paths. Each target
  * is independently marked PASS by the repository's full-resolution source
@@ -130,8 +139,10 @@ const SOURCE_BACKED_REPLACEMENTS: Readonly<Record<string, string>> = {
  *
  * Faithful crops with a PASS verdict in the repository's full-resolution
  * source-comparison QA are allowed even if legacy manifest crop metadata is
- * incomplete or malformed. A known-bad alternate path remains blocked even
- * when a different crop for the same word has passed source comparison.
+ * incomplete or malformed, but an explicit PROVENANCE-UNKNOWN manifest verdict
+ * now overrides that legacy PASS and blocks the asset until source proof exists.
+ * A known-bad alternate path remains blocked even when a different crop for the
+ * same word has passed source comparison.
  *
  * iglesia and ojos were independently verified at full resolution in repository
  * history; traje/uniforme uses the identical teacher flipchart uniforme donor;
@@ -168,7 +179,8 @@ function normalizeWord(value?: string | null): string {
 function isBlockedStudentArtPath(path: string): boolean {
   return (
     BLOCKED_STUDENT_ART_PREFIXES.some((prefix) => path.startsWith(prefix)) ||
-    QA_FAILED_FAITHFUL_PATHS.has(path)
+    QA_FAILED_FAITHFUL_PATHS.has(path) ||
+    PROVENANCE_UNKNOWN_FAITHFUL_PATHS.has(path)
   );
 }
 
