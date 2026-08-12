@@ -117,6 +117,14 @@ const BLOCKED_CANONICAL_FALLBACKS: Readonly<Record<string, ReadonlySet<string>>>
   maiz: new Set(["/cartilla/art/faithful/leccion-1/maiz.webp"]),
   arco: new Set(["/cartilla/art/faithful/leccion-1/arco.webp"]),
 
+  // O-lesson fallbacks below point at filenames that look plausible, but the
+  // manifest does not carry an authentic-source verification status for them.
+  // A filename alone is not proof, so keep them off student pages until the
+  // exact workbook drawing and teacher/source donor are verified.
+  oso: new Set(["/cartilla/art/faithful/vocal-o/oso.webp"]),
+  oveja: new Set(["/cartilla/art/faithful/vocal-o/oveja.webp"]),
+  olla: new Set(["/cartilla/art/faithful/vocal-o/olla.webp"]),
+
   // Manifest entries below are not source-proven and carry crop boxes too
   // small to plausibly describe the displayed illustration. Gate them until
   // the exact workbook drawing + teacher/source donor are independently proven.
