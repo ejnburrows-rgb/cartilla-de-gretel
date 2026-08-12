@@ -154,10 +154,10 @@ const BLOCKED_CANONICAL_FALLBACKS: Readonly<Record<string, ReadonlySet<string>>>
   // provenance. Keep hidden until the original workbook/teacher source proves it.
   ojos: new Set(["/cartilla/art/faithful/leccion-1/ojos.webp"]),
 
-  // This later-lesson asset is explicitly still marked "verify existing" in
-  // the provenance manifest. Do not show it as approved color until its exact
-  // workbook drawing and teacher/source donor are checked.
+  // Later-lesson manifest entries without an explicit verified source status
+  // must not be treated as approved color merely because they have crop data.
   casa: new Set(["/cartilla/art/faithful/leccion-19-c/casa.webp"]),
+  carro: new Set(["/cartilla/art/faithful/leccion-18-rr/carro.webp"]),
 };
 
 function normalizeWord(value?: string | null): string {
