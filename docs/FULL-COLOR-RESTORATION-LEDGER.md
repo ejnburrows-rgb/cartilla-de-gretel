@@ -120,6 +120,8 @@ Repository history provides direct source evidence for the remaining early-vowel
 
 A later Ñ-page inspection found a live semantic substitution: the word `moño` was mapped to `leccion-7-m/mono.webp`, the authentic `mono` (monkey) crop. Because `moño` and `mono` are different workbook drawings and no exact source-proven `moño` crop has been established, that word/path pair is now blocked at runtime. The page shows an honest art-pending slot instead of a monkey falsely presented as `moño`; no generated or recolored replacement was introduced.
 
+The current vowel pass also corrected stale live answer-state mappings on the source-transcribed O, A, E, and U picture activities. The printed instruction and exact pictured word make these states unambiguous: O now marks `oveja`/`oreja` as O and rejects `arco`/`alas`; the A line-match now accepts `aro`; E now accepts `elefante` and rejects `iglú`/`indio`; and the U grid now accepts `unicornio`, `uvas`, and `uno` while rejecting its non-U distractors. This changes only student grading behavior; it does not recolor, substitute, move, or regenerate artwork.
+
 No page has been promoted to complete yet because the full page-level acceptance gate has not been satisfied. The count therefore remains 87 until entire pages, not individual assets, have been positively verified.
 
 ## Next sequence
