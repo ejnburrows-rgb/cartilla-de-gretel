@@ -4,7 +4,12 @@ import { resolveEmergentArt } from "@/lib/emergent-art";
 
 export type VocabWord = { word: string; emoji: string; illustrationSrc?: string };
 export type MatchPair = { left: string; right: string; pairId: number };
-export type CheckboxItem = { word: string; emoji: string; startsWithVowel: boolean };
+export type CheckboxItem = {
+  word: string;
+  emoji: string;
+  startsWithVowel: boolean;
+  illustrationSrc?: string;
+};
 export type VowelLesson = {
   id: string;
   vowel: string;
@@ -42,6 +47,10 @@ function withEmergentArt(input: VowelLesson[]): VowelLesson[] {
   return input.map((lesson) => ({
     ...lesson,
     vocab: lesson.vocab.map((item) => ({
+      ...item,
+      illustrationSrc: resolveEmergentArt(item.word, item.illustrationSrc),
+    })),
+    checkboxItems: lesson.checkboxItems.map((item) => ({
       ...item,
       illustrationSrc: resolveEmergentArt(item.word, item.illustrationSrc),
     })),
