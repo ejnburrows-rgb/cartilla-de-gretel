@@ -111,23 +111,11 @@ const BLOCKED_CANONICAL_FALLBACKS: Readonly<Record<string, ReadonlySet<string>>>
   manzana: new Set(["/cartilla/art/faithful/leccion-1/manzana.webp"]),
   pera: new Set(["/cartilla/art/faithful/leccion-1/pera.webp"]),
   taza: new Set(["/cartilla/art/faithful/leccion-1/taza.webp"]),
-
-  // These current live fallbacks have no provenance-manifest entry at all.
-  // Gate them rather than treating an untracked crop as source-faithful.
   maiz: new Set(["/cartilla/art/faithful/leccion-1/maiz.webp"]),
   arco: new Set(["/cartilla/art/faithful/leccion-1/arco.webp"]),
-
-  // O-lesson fallbacks below point at filenames that look plausible, but the
-  // manifest does not carry an authentic-source verification status for them.
-  // A filename alone is not proof, so keep them off student pages until the
-  // exact workbook drawing and teacher/source donor are verified.
   oso: new Set(["/cartilla/art/faithful/vocal-o/oso.webp"]),
   oveja: new Set(["/cartilla/art/faithful/vocal-o/oveja.webp"]),
   olla: new Set(["/cartilla/art/faithful/vocal-o/olla.webp"]),
-
-  // Additional vowel-page fallbacks with plausible crop coordinates but no
-  // explicit provenanceStatus. Until the exact drawing and palette are proven,
-  // keep these colored substitutions off student pages.
   uvas: new Set(["/cartilla/art/faithful/vocal-u/uvas.webp"]),
   iman: new Set(["/cartilla/art/faithful/vocal-i/iman.webp"]),
   indio: new Set(["/cartilla/art/faithful/vocal-i/indio.webp"]),
@@ -136,10 +124,6 @@ const BLOCKED_CANONICAL_FALLBACKS: Readonly<Record<string, ReadonlySet<string>>>
   espejo: new Set(["/cartilla/art/faithful/vocal-e/espejo.webp"]),
   erizo: new Set(["/cartilla/art/faithful/vocal-e/erizo.webp"]),
   unicornio: new Set(["/cartilla/art/faithful/vocal-u/unicornio.webp"]),
-
-  // Manifest entries below are not source-proven and carry crop boxes too
-  // small to plausibly describe the displayed illustration. Gate them until
-  // the exact workbook drawing + teacher/source donor are independently proven.
   estrella: new Set(["/cartilla/art/faithful/vocal-e/estrella.webp"]),
   alas: new Set(["/cartilla/art/faithful/vocal-a/alas.webp"]),
   arana: new Set(["/cartilla/art/faithful/vocal-a/arana.webp"]),
@@ -149,16 +133,23 @@ const BLOCKED_CANONICAL_FALLBACKS: Readonly<Record<string, ReadonlySet<string>>>
   oreja: new Set(["/cartilla/art/faithful/vocal-o/oreja.webp"]),
   uno: new Set(["/cartilla/art/faithful/vocal-u/uno.webp"]),
   avion: new Set(["/cartilla/art/faithful/vocal-a/avion.webp"]),
-
-  // Recovered from repository history is not equivalent to authentic source
-  // provenance. Keep hidden until the original workbook/teacher source proves it.
   ojos: new Set(["/cartilla/art/faithful/leccion-1/ojos.webp"]),
-
-  // Later-lesson manifest entries without an explicit verified source status
-  // must not be treated as approved color merely because they have crop data.
   casa: new Set(["/cartilla/art/faithful/leccion-19-c/casa.webp"]),
   carro: new Set(["/cartilla/art/faithful/leccion-18-rr/carro.webp"]),
 };
+
+/**
+ * Entire asset families that are never acceptable as an automatic student
+ * fallback. These are generated/remastered lanes, not authenticated source art.
+ * Keeping this check centralized prevents a later page mapping from bypassing
+ * the source rules simply by pointing at one of these folders.
+ */
+const BLOCKED_STUDENT_ART_PREFIXES = [
+  "/cartilla/art/emergent/",
+  "/cartilla/art/hd/workbook/",
+  "/cartilla/art/color/workbook/",
+  "/cartilla/art/remastered/",
+] as const;
 
 function normalizeWord(value?: string | null): string {
   return (value ?? "")
@@ -169,8 +160,13 @@ function normalizeWord(value?: string | null): string {
     .replace(/[^a-z0-9]/g, "");
 }
 
+function isBlockedStudentArtPath(path: string): boolean {
+  return BLOCKED_STUDENT_ART_PREFIXES.some((prefix) => path.startsWith(prefix));
+}
+
 function getSafeFallback(word?: string | null, fallback?: string): string | undefined {
   if (!fallback) return undefined;
+  if (isBlockedStudentArtPath(fallback)) return undefined;
   const key = normalizeWord(word);
   if (BLOCKED_CANONICAL_FALLBACKS[key]?.has(fallback)) return undefined;
   return fallback;
