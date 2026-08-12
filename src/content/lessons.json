@@ -236,7 +236,8 @@
       },
       {
         "word": "ojo",
-        "emoji": "👁️"
+        "emoji": "👁️",
+        "illustrationSrc": "/cartilla/art/faithful/leccion-1/ojos.webp"
       },
       {
         "word": "ola",
@@ -308,7 +309,8 @@
       },
       {
         "word": "uña",
-        "emoji": "💅"
+        "emoji": "💅",
+        "illustrationSrc": "/cartilla/art/faithful/vocal-u/uña.webp"
       },
       {
         "word": "uno",
