@@ -166,6 +166,77 @@ const BLOCKED_EXACT_WORD_PATH_PAIRS: ReadonlySet<string> = new Set([
 ]);
 
 /**
+ * Source-transcribed vowel pages had several stale answer flags that contradicted
+ * their own printed instruction and pictured word. Keep the correction here at
+ * the final runtime gate so students cannot be mis-graded while the canonical
+ * layout file retains the original source transcription for audit comparison.
+ * No drawing, crop, color, caption, or page order is changed by this map.
+ */
+const VERIFIED_CELL_CORRECTNESS_BY_REGION: Readonly<Record<string, Readonly<Record<string, boolean>>>> = {
+  "p4-grid": {
+    ola: true,
+    "iglú": false,
+    oso: true,
+    "maíz": false,
+    arco: false,
+    oveja: true,
+    alas: false,
+    oreja: true,
+    olla: true,
+    uvas: false,
+    ocho: true,
+    uno: false,
+    "araña": false,
+    traje: false,
+    ojos: true,
+  },
+  "p8-match": {
+    oso: false,
+    "iglú": false,
+    alas: true,
+    abeja: true,
+    aguja: true,
+    "maíz": false,
+    pez: false,
+    aro: true,
+  },
+  "p10-grid": {
+    elefante: true,
+    "iglú": false,
+    "maíz": false,
+    indio: false,
+    escalera: true,
+    erizo: true,
+    abeja: false,
+    aguja: false,
+    escoba: true,
+    unicornio: false,
+    estrella: true,
+    "águila": false,
+    escuela: true,
+    traje: false,
+    espejo: true,
+    uno: false,
+  },
+  "p16-grid": {
+    unicornio: true,
+    oveja: false,
+    pez: false,
+    arco: false,
+    uvas: true,
+    estrella: false,
+    traje: false,
+    elefante: false,
+    "árbol": false,
+    uno: true,
+    oso: false,
+    "águila": false,
+    abeja: false,
+    insecto: false,
+  },
+};
+
+/**
  * Entire asset families that are never acceptable as an automatic student
  * fallback. These are generated/remastered lanes, not authenticated source art.
  * Keeping this check centralized prevents a later page mapping from bypassing
@@ -223,21 +294,24 @@ export function resolveEmergentArt(
   return getEmergentArtPath(word) ?? getSafeFallback(word, fallback);
 }
 
-function resolveCell(cell: PageGridCell): PageGridCell {
+function resolveCell(cell: PageGridCell, correctness?: Readonly<Record<string, boolean>>): PageGridCell {
+  const sourceCorrect = cell.caption ? correctness?.[cell.caption] : undefined;
   return {
     ...cell,
+    ...(sourceCorrect === undefined ? {} : { correct: sourceCorrect }),
     illustrationSrc: resolveEmergentArt(cell.caption, cell.illustrationSrc),
   };
 }
 
 function resolveRegion(region: PageRegion): PageRegion {
+  const verifiedCorrectness = VERIFIED_CELL_CORRECTNESS_BY_REGION[region.id];
   return {
     ...region,
     illustrationSrc: resolveEmergentArt(
       region.caption ?? region.illustrationWord,
       region.illustrationSrc,
     ),
-    cells: region.cells?.map(resolveCell),
+    cells: region.cells?.map((cell) => resolveCell(cell, verifiedCorrectness)),
     matchRows: region.matchRows?.map((row) =>
       row.map((entry) => ({
         ...entry,
@@ -250,7 +324,7 @@ function resolveRegion(region: PageRegion): PageRegion {
     })),
     vowelRows: region.vowelRows?.map((row) => ({
       ...row,
-      cells: row.cells.map(resolveCell),
+      cells: row.cells.map((cell) => resolveCell(cell)),
     })),
     vowelPairs: region.vowelPairs?.map((pair) => ({
       ...pair,
