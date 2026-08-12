@@ -9,11 +9,9 @@ import { CATALOG } from "@/lib/lesson-catalog";
  * to introduce — 0 of 24 lessons had one (see SPEC.md's status table).
  *
  * Sourced from src/lib/lesson-catalog.ts's CATALOG (the same vocab data
- * already used by ActivityCarousel and verified this session against the
- * real book pages), NOT a new data source — so this can never drift from
- * what students actually see, and never invents anything: a word with no
- * illustrationSrc shows its emoji fallback exactly like everywhere else in
- * the app, it's never silently hidden or replaced.
+ * already used by ActivityCarousel and verified against the real book pages).
+ * A word with no source-backed illustration is shown as text only. Emoji or
+ * other pictorial substitutes are intentionally not used as fake workbook art.
  */
 export function VocabularyList({ lessonNumber }: { lessonNumber: number }) {
   const entry = CATALOG.find((e) => e.n === lessonNumber);
@@ -46,11 +44,7 @@ export function VocabularyList({ lessonNumber }: { lessonNumber: number }) {
                 loading="eager"
                 decoding="async"
               />
-            ) : (
-              <span className="text-3xl" aria-hidden>
-                {v.emoji}
-              </span>
-            )}
+            ) : null}
             <span className="font-bold capitalize text-stone-800">{v.word}</span>
           </div>
         ))}
