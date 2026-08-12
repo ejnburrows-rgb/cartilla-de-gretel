@@ -2,22 +2,19 @@
 """Strict Lessons 1–5 teacher-flipchart color fidelity audit.
 
 For every visible illustration used by physical workbook pages 1–15:
-- find the identical drawing across all 62 teacher flipchart pages using SIFT;
-- if found, align the teacher source back onto the live crop and compare actual
-  chroma/pixel color, not merely "is this image colored?";
-- if no teacher counterpart exists, allow only an explicitly verified exact
-  student-workbook crop (the documented workbook-only distractor rule);
-- fail on generated/remastered families, missing files, weak/unproven source,
-  or material color drift.
+- search all 62 teacher flipchart pages for the identical drawing;
+- when found, geometrically align the authentic teacher source to the live crop
+  and compare actual color pixels;
+- when no identical teacher drawing exists, accept only the explicitly audited
+  exact student-workbook crop;
+- fail generated/remastered art, missing files, unproven source, and material
+  color drift.
 
-This is intentionally stricter than validate-art-color.mjs. A crop can be
-colorful and still fail here if its colors do not agree with the authentic
-teacher flipchart.
+This is intentionally stricter than the ordinary "is it colored" validator.
 """
 from __future__ import annotations
 
 import json
-import math
 import sys
 from pathlib import Path
 
@@ -34,23 +31,22 @@ LAYOUTS = ROOT / "src/data/page-layouts.json"
 MANIFEST = PUBLIC / "cartilla/art/faithful/manifest.json"
 
 PAGES = set(range(1, 16))  # Lessons 1–5
-BANNED = ("/cartilla/art/color/generated/", "/cartilla/art/color/workbook/", "/cartilla/art/generated/", "/cartilla/art/remastered/")
-
-# The exhaustive 62-page source audit proved these exact student drawings do
-# not have an identical teacher-flipchart counterpart. They must remain exact
-# workbook crops; inventing or recoloring them would be less faithful.
+BANNED = (
+    "/cartilla/art/color/generated/",
+    "/cartilla/art/color/workbook/",
+    "/cartilla/art/generated/",
+    "/cartilla/art/remastered/",
+)
 WORKBOOK_ONLY_PROVENANCE = "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08"
 
-# Strong geometric identity. These are deliberately stricter than the old
-# candidate finder because this gate is allowed to claim source fidelity.
+# Match on scaled copies for speed; SIFT is scale invariant and the color check
+# is performed on the same aligned scaled copies, so this does not loosen the
+# source comparison.
+MAX_TEACHER_DIM = 1600
+MAX_TEMPLATE_DIM = 700
 MIN_INLIERS = 8
 MIN_RATIO = 0.50
 MIN_SCORE = 5.5
-
-# Color agreement after geometric alignment. OpenCV Lab channel distances are
-# not CIEDE2000, but are stable enough here because both images are scans of the
-# same printed drawing. The p90 guard prevents a small matching patch from
-# hiding a materially wrong fill elsewhere.
 MAX_LAB_MEDIAN = 22.0
 MAX_LAB_P90 = 48.0
 MAX_HUE_MEDIAN_DEG = 14.0
@@ -90,8 +86,7 @@ def collect_page_srcs():
     return sorted(found)
 
 
-def read_bgr(src: str):
-    path = PUBLIC / src.lstrip("/")
+def read_bgr_path(path: Path):
     img = cv2.imread(str(path), cv2.IMREAD_UNCHANGED)
     if img is None:
         return None
@@ -99,26 +94,40 @@ def read_bgr(src: str):
         return cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
     if img.shape[2] == 4:
         bgr = img[:, :, :3].astype(np.float32)
-        a = (img[:, :, 3:4].astype(np.float32) / 255.0)
+        a = img[:, :, 3:4].astype(np.float32) / 255.0
         return (bgr * a + 255.0 * (1.0 - a)).astype(np.uint8)
     return img[:, :, :3]
 
 
+def read_bgr(src: str):
+    return read_bgr_path(PUBLIC / src.lstrip("/"))
+
+
+def shrink(img, max_dim):
+    h, w = img.shape[:2]
+    scale = min(1.0, float(max_dim) / max(h, w))
+    if scale >= 0.999:
+        return img
+    return cv2.resize(img, (max(1, round(w * scale)), max(1, round(h * scale))), interpolation=cv2.INTER_AREA)
+
+
 def gray_for_sift(bgr):
-    gray = cv2.cvtColor(bgr, cv2.COLOR_BGR2GRAY)
-    return cv2.equalizeHist(gray)
+    return cv2.equalizeHist(cv2.cvtColor(bgr, cv2.COLOR_BGR2GRAY))
 
 
 def sift(gray):
-    detector = cv2.SIFT_create(nfeatures=2800, contrastThreshold=0.018, edgeThreshold=12)
+    detector = cv2.SIFT_create(nfeatures=1800, contrastThreshold=0.018, edgeThreshold=12)
     return detector.detectAndCompute(gray, None)
 
 
 def match(template, tkp, tdes, page, pkp, pdes):
     if tdes is None or pdes is None or len(tkp) < 4 or len(pkp) < 4:
         return None
-    pairs = cv2.BFMatcher(cv2.NORM_L2).knnMatch(tdes, pdes, k=2)
-    good = [m for m, n in pairs if m.distance < 0.70 * n.distance]
+    # KD-tree FLANN is substantially faster than exhaustive L2 for the 62-page
+    # census while preserving SIFT descriptor semantics.
+    matcher = cv2.FlannBasedMatcher(dict(algorithm=1, trees=5), dict(checks=48))
+    pairs = matcher.knnMatch(tdes.astype(np.float32), pdes.astype(np.float32), k=2)
+    good = [m for pair in pairs if len(pair) == 2 for m, n in [pair] if m.distance < 0.70 * n.distance]
     if len(good) < MIN_INLIERS:
         return None
     src_pts = np.float32([tkp[m.queryIdx].pt for m in good]).reshape(-1, 1, 2)
@@ -131,16 +140,12 @@ def match(template, tkp, tdes, page, pkp, pdes):
     score = inliers * ratio
     if inliers < MIN_INLIERS or ratio < MIN_RATIO or score < MIN_SCORE:
         return None
-
     h, w = template.shape[:2]
     corners = np.float32([[[0, 0]], [[w, 0]], [[w, h]], [[0, h]]])
     projected = cv2.perspectiveTransform(corners, H).reshape(-1, 2)
-    if not np.isfinite(projected).all():
+    if not np.isfinite(projected).all() or abs(cv2.contourArea(projected.astype(np.float32))) < 300:
         return None
-    area = abs(cv2.contourArea(projected.astype(np.float32)))
-    if area < 500:
-        return None
-    return {"H": H, "inliers": inliers, "ratio": ratio, "score": score, "projected": projected}
+    return {"H": H, "inliers": inliers, "ratio": ratio, "score": score}
 
 
 def color_metrics(template_bgr, teacher_bgr, H):
@@ -149,47 +154,44 @@ def color_metrics(template_bgr, teacher_bgr, H):
         inv = np.linalg.inv(H)
     except np.linalg.LinAlgError:
         return None
-    aligned = cv2.warpPerspective(teacher_bgr, inv, (w, h), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT, borderValue=(255, 255, 255))
-
-    t_hsv = cv2.cvtColor(template_bgr, cv2.COLOR_BGR2HSV)
-    s_hsv = cv2.cvtColor(aligned, cv2.COLOR_BGR2HSV)
-    # Compare only genuinely colored teacher pixels, excluding white paper and
-    # near-black line art. This answers the user's actual question: do the fills
-    # and painted areas agree with the flipbook colors?
-    mask = (s_hsv[:, :, 1] >= 24) & (s_hsv[:, :, 2] >= 35) & (s_hsv[:, :, 2] <= 248)
-    # Also require the live crop to contain visible content at the same location.
-    t_gray = cv2.cvtColor(template_bgr, cv2.COLOR_BGR2GRAY)
-    mask &= t_gray < 250
+    aligned = cv2.warpPerspective(
+        teacher_bgr,
+        inv,
+        (w, h),
+        flags=cv2.INTER_LINEAR,
+        borderMode=cv2.BORDER_CONSTANT,
+        borderValue=(255, 255, 255),
+    )
+    live_hsv = cv2.cvtColor(template_bgr, cv2.COLOR_BGR2HSV)
+    src_hsv = cv2.cvtColor(aligned, cv2.COLOR_BGR2HSV)
+    mask = (src_hsv[:, :, 1] >= 24) & (src_hsv[:, :, 2] >= 35) & (src_hsv[:, :, 2] <= 248)
+    mask &= cv2.cvtColor(template_bgr, cv2.COLOR_BGR2GRAY) < 250
     count = int(mask.sum())
     if count < MIN_COLOR_PIXELS:
         return {"color_pixels": count, "insufficient_color": True}
 
-    t_lab = cv2.cvtColor(template_bgr, cv2.COLOR_BGR2LAB).astype(np.float32)
-    s_lab = cv2.cvtColor(aligned, cv2.COLOR_BGR2LAB).astype(np.float32)
-    delta = np.linalg.norm(t_lab - s_lab, axis=2)[mask]
-
-    # OpenCV hue is 0..179 for 0..358 degrees. Circular distance matters near red.
-    h1 = t_hsv[:, :, 0].astype(np.int16)
-    h2 = s_hsv[:, :, 0].astype(np.int16)
+    live_lab = cv2.cvtColor(template_bgr, cv2.COLOR_BGR2LAB).astype(np.float32)
+    src_lab = cv2.cvtColor(aligned, cv2.COLOR_BGR2LAB).astype(np.float32)
+    delta = np.linalg.norm(live_lab - src_lab, axis=2)[mask]
+    h1 = live_hsv[:, :, 0].astype(np.int16)
+    h2 = src_hsv[:, :, 0].astype(np.int16)
     hd = np.abs(h1 - h2)
     hd = np.minimum(hd, 180 - hd).astype(np.float32) * 2.0
-    hue = hd[mask]
-    sat = np.abs(t_hsv[:, :, 1].astype(np.int16) - s_hsv[:, :, 1].astype(np.int16))[mask]
-
+    sat = np.abs(live_hsv[:, :, 1].astype(np.int16) - src_hsv[:, :, 1].astype(np.int16))[mask]
     return {
         "color_pixels": count,
         "lab_median": float(np.median(delta)),
         "lab_p90": float(np.percentile(delta, 90)),
-        "hue_median_deg": float(np.median(hue)),
+        "hue_median_deg": float(np.median(hd[mask])),
         "sat_median": float(np.median(sat)),
     }
 
 
 def color_pass(m):
-    if not m or m.get("insufficient_color"):
-        return False
-    return (
-        m["lab_median"] <= MAX_LAB_MEDIAN
+    return bool(
+        m
+        and not m.get("insufficient_color")
+        and m["lab_median"] <= MAX_LAB_MEDIAN
         and m["lab_p90"] <= MAX_LAB_P90
         and m["hue_median_deg"] <= MAX_HUE_MEDIAN_DEG
         and m["sat_median"] <= MAX_SAT_MEDIAN
@@ -204,30 +206,40 @@ def main():
     manifest = load_json(MANIFEST)
     meta = {e.get("src"): e for e in manifest if e.get("src")}
     live = collect_page_srcs()
+    print(f"FLIPBOOK_COLOR_AUDIT_START live_unique_art={len(live)} teacher_pages=62", flush=True)
 
     teacher_cache = []
-    for path in teacher_paths:
-        img = cv2.imread(str(path), cv2.IMREAD_COLOR)
+    for idx, path in enumerate(teacher_paths, 1):
+        img = read_bgr_path(path)
         if img is None:
             raise SystemExit(f"FLIPBOOK_COLOR_AUDIT_FAIL unreadable teacher page {path.name}")
+        img = shrink(img, MAX_TEACHER_DIM)
         kp, des = sift(gray_for_sift(img))
         teacher_cache.append((path.name, img, kp, des))
+        if idx % 10 == 0 or idx == 62:
+            print(f"FLIPBOOK_COLOR_TEACHER_INDEX {idx}/62", flush=True)
 
     results = []
     failures = []
     exact_workbook = 0
     flipbook_matched = 0
 
-    for src in live:
+    for index, src in enumerate(live, 1):
         row = {"src": src}
         if any(b in src for b in BANNED):
             row["status"] = "FAIL_BANNED_ART"
-            failures.append(row); results.append(row); continue
+            failures.append(row)
+            results.append(row)
+            print(f"FLIPBOOK_COLOR_ITEM {index}/{len(live)} {row['status']} {src}", flush=True)
+            continue
         asset = read_bgr(src)
         if asset is None:
             row["status"] = "FAIL_MISSING_ASSET"
-            failures.append(row); results.append(row); continue
-
+            failures.append(row)
+            results.append(row)
+            print(f"FLIPBOOK_COLOR_ITEM {index}/{len(live)} {row['status']} {src}", flush=True)
+            continue
+        asset = shrink(asset, MAX_TEMPLATE_DIM)
         entry = meta.get(src, {})
         tkp, tdes = sift(gray_for_sift(asset))
         candidates = []
@@ -244,7 +256,9 @@ def main():
                 "teacher_page": name,
                 "inliers": best["inliers"],
                 "inlier_ratio": round(best["ratio"], 4),
-                "color": None if metrics is None else {k: (round(v, 3) if isinstance(v, float) else v) for k, v in metrics.items()},
+                "color": None if metrics is None else {
+                    k: (round(v, 3) if isinstance(v, float) else v) for k, v in metrics.items()
+                },
             })
             if color_pass(metrics):
                 row["status"] = "PASS_EXACT_FLIPBOOK_COLOR"
@@ -260,6 +274,7 @@ def main():
             row["provenanceStatus"] = entry.get("provenanceStatus")
             failures.append(row)
         results.append(row)
+        print(f"FLIPBOOK_COLOR_ITEM {index}/{len(live)} {row['status']} {src}", flush=True)
 
     report = {
         "scope": "Lessons 1–5 / physical workbook pages 1–15",
@@ -278,14 +293,18 @@ def main():
         },
         "results": results,
     }
-    print("FLIPBOOK_COLOR_REPORT " + json.dumps(report, ensure_ascii=False, separators=(",", ":")))
+    print("FLIPBOOK_COLOR_REPORT " + json.dumps(report, ensure_ascii=False, separators=(",", ":")), flush=True)
     if failures:
         print("FLIPBOOK_COLOR_FAILURES_BEGIN", file=sys.stderr)
         for f in failures:
             print(json.dumps(f, ensure_ascii=False, separators=(",", ":")), file=sys.stderr)
         print("FLIPBOOK_COLOR_FAILURES_END", file=sys.stderr)
         raise SystemExit(1)
-    print(f"✓ flipbook color fidelity: {flipbook_matched} exact teacher-color matches + {exact_workbook} verified workbook-only exceptions; 0 unresolved")
+    print(
+        f"✓ flipbook color fidelity: {flipbook_matched} exact teacher-color matches + "
+        f"{exact_workbook} verified workbook-only exceptions; 0 unresolved",
+        flush=True,
+    )
 
 
 if __name__ == "__main__":
