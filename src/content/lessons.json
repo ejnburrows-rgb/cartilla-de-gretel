@@ -49,22 +49,26 @@
       {
         "word": "árbol",
         "emoji": "🌳",
-        "startsWithVowel": true
+        "startsWithVowel": true,
+        "illustrationSrc": "/cartilla/art/faithful/vocal-a/arbol.webp"
       },
       {
         "word": "avión",
         "emoji": "✈️",
-        "startsWithVowel": true
+        "startsWithVowel": true,
+        "illustrationSrc": "/cartilla/art/faithful/vocal-a/avion.webp"
       },
       {
         "word": "elefante",
         "emoji": "🐘",
-        "startsWithVowel": false
+        "startsWithVowel": false,
+        "illustrationSrc": "/cartilla/art/faithful/vocal-e/elefante.webp"
       },
       {
         "word": "escoba",
         "emoji": "🧹",
-        "startsWithVowel": false
+        "startsWithVowel": false,
+        "illustrationSrc": "/cartilla/art/faithful/vocal-e/escoba.webp"
       }
     ]
   },
@@ -119,7 +123,8 @@
       {
         "word": "elefante",
         "emoji": "🐘",
-        "startsWithVowel": true
+        "startsWithVowel": true,
+        "illustrationSrc": "/cartilla/art/faithful/vocal-e/elefante.webp"
       },
       {
         "word": "escoba",
@@ -130,12 +135,14 @@
       {
         "word": "árbol",
         "emoji": "🌳",
-        "startsWithVowel": false
+        "startsWithVowel": false,
+        "illustrationSrc": "/cartilla/art/faithful/vocal-a/arbol.webp"
       },
       {
         "word": "avión",
         "emoji": "✈️",
-        "startsWithVowel": false
+        "startsWithVowel": false,
+        "illustrationSrc": "/cartilla/art/faithful/vocal-a/avion.webp"
       }
     ]
   },
@@ -190,22 +197,26 @@
       {
         "word": "iglú",
         "emoji": "🛖",
-        "startsWithVowel": true
+        "startsWithVowel": true,
+        "illustrationSrc": "/cartilla/art/faithful/vocal-i/iglu.webp"
       },
       {
         "word": "isla",
         "emoji": "🏝️",
-        "startsWithVowel": true
+        "startsWithVowel": true,
+        "illustrationSrc": "/cartilla/art/faithful/vocal-i/isla.webp"
       },
       {
         "word": "árbol",
         "emoji": "🌳",
-        "startsWithVowel": false
+        "startsWithVowel": false,
+        "illustrationSrc": "/cartilla/art/faithful/vocal-a/arbol.webp"
       },
       {
         "word": "avión",
         "emoji": "✈️",
-        "startsWithVowel": false
+        "startsWithVowel": false,
+        "illustrationSrc": "/cartilla/art/faithful/vocal-a/avion.webp"
       }
     ]
   },
@@ -225,8 +236,7 @@
       },
       {
         "word": "ojo",
-        "emoji": "👁️",
-        "illustrationSrc": "/cartilla/art/faithful/leccion-1/ojos.webp"
+        "emoji": "👁️"
       },
       {
         "word": "ola",
@@ -260,7 +270,8 @@
       {
         "word": "oso",
         "emoji": "🐻",
-        "startsWithVowel": true
+        "startsWithVowel": true,
+        "illustrationSrc": "/cartilla/art/faithful/vocal-o/oso.webp"
       },
       {
         "word": "ojo",
@@ -270,12 +281,14 @@
       {
         "word": "árbol",
         "emoji": "🌳",
-        "startsWithVowel": false
+        "startsWithVowel": false,
+        "illustrationSrc": "/cartilla/art/faithful/vocal-a/arbol.webp"
       },
       {
         "word": "avión",
         "emoji": "✈️",
-        "startsWithVowel": false
+        "startsWithVowel": false,
+        "illustrationSrc": "/cartilla/art/faithful/vocal-a/avion.webp"
       }
     ]
   },
@@ -295,8 +308,7 @@
       },
       {
         "word": "uña",
-        "emoji": "💅",
-        "illustrationSrc": "/cartilla/art/faithful/vocal-u/uña.webp"
+        "emoji": "💅"
       },
       {
         "word": "uno",
@@ -329,23 +341,25 @@
       {
         "word": "uvas",
         "emoji": "🍇",
-        "startsWithVowel": true
+        "startsWithVowel": true,
+        "illustrationSrc": "/cartilla/art/faithful/vocal-u/uvas.webp"
       },
       {
         "word": "uña",
         "emoji": "💅",
-        "startsWithVowel": true,
-        "illustrationSrc": "/cartilla/art/faithful/vocal-u/uña.webp"
+        "startsWithVowel": true
       },
       {
         "word": "árbol",
         "emoji": "🌳",
-        "startsWithVowel": false
+        "startsWithVowel": false,
+        "illustrationSrc": "/cartilla/art/faithful/vocal-a/arbol.webp"
       },
       {
         "word": "avión",
         "emoji": "✈️",
-        "startsWithVowel": false
+        "startsWithVowel": false,
+        "illustrationSrc": "/cartilla/art/faithful/vocal-a/avion.webp"
       }
     ]
   }
