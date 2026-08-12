@@ -133,6 +133,9 @@ const BLOCKED_CANONICAL_FALLBACKS: Readonly<Record<string, ReadonlySet<string>>>
   indio: new Set(["/cartilla/art/faithful/vocal-i/indio.webp"]),
   escalera: new Set(["/cartilla/art/faithful/vocal-e/escalera.webp"]),
   elefante: new Set(["/cartilla/art/faithful/vocal-e/elefante.webp"]),
+  espejo: new Set(["/cartilla/art/faithful/vocal-e/espejo.webp"]),
+  erizo: new Set(["/cartilla/art/faithful/vocal-e/erizo.webp"]),
+  unicornio: new Set(["/cartilla/art/faithful/vocal-u/unicornio.webp"]),
 
   // Manifest entries below are not source-proven and carry crop boxes too
   // small to plausibly describe the displayed illustration. Gate them until
