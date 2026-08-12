@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "pnpm check:sanity && pnpm validate:content && pnpm validate:art-color && pnpm audit:restoration && vite build",
+    "build": "pnpm check:sanity && pnpm validate:content && pnpm validate:art-color && pnpm audit:restoration && pnpm audit:flipbook-color && vite build",
     "preview": "vite preview --host 127.0.0.1",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
@@ -15,6 +15,7 @@
     "validate:content": "node scripts/validate-content.mjs",
     "validate:art-color": "node scripts/validate-art-color.mjs",
     "audit:restoration": "node scripts/audit-full-restoration.mjs",
+    "audit:flipbook-color": "python3 scripts/audit-flipbook-color-fidelity.py",
     "validate:activities-content": "node scripts/validate-activities-content.mjs",
     "validate:manifest": "node scripts/validate-workbook-manifest.mjs src/content/workbook/workbook-manifest.json",
     "build:manifest": "node scripts/build-workbook-manifest.mjs",
