@@ -39,8 +39,6 @@ const exactWorkbook = new Set(
     .filter((e) => e?.provenanceStatus === "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08")
     .map((e) => e.src),
 );
-// Historical source-proven binaries restored on this branch. They predate the
-// newer manifest provenance field but are documented in the current source audit.
 const documentedSourceProven = new Set([
   "/cartilla/art/faithful/leccion-1/ojos.webp",
   "/cartilla/art/faithful/vocal-i/iglesia.webp",
@@ -82,9 +80,6 @@ function collectVisibleSlots(pageNumber, regions) {
           add(`${region.id}.vowelPairs[${i}]`, cell.caption, cell.illustrationSrc, true);
         }
         break;
-      // These exercise types are text-led in the live renderer. An optional
-      // illustrationSrc is audited when present but its absence is not a blank
-      // visible art slot.
       case "syllable-match":
         for (const [ri, row] of (region.matchRows ?? []).entries()) {
           for (const [ci, cell] of row.entries()) {
@@ -105,18 +100,18 @@ function collectVisibleSlots(pageNumber, regions) {
 async function main() {
   const issues = [];
   const pages = Object.entries(layouts)
-    .map(([n, regions]) => ({ pageNumber: Number(n), regions }))
+    .map(([n, page]) => ({
+      pageNumber: Number(n),
+      regions: Array.isArray(page) ? page : (page?.regions ?? []),
+    }))
     .sort((a, b) => a.pageNumber - b.pageNumber);
 
-  // Canonical layout census must be continuous. The live renderer is keyed by
-  // physical page number, so a hole means a real page would fall back/pending.
   if (!pages.length) issues.push({ type: "PAGE-CENSUS", detail: "no page layouts found" });
   const maxPage = pages.at(-1)?.pageNumber ?? 0;
   for (let n = 1; n <= maxPage; n++) {
     if (!Object.hasOwn(layouts, String(n))) issues.push({ type: "PAGE-CENSUS", page: n, detail: "missing canonical page layout" });
   }
 
-  // The user-facing workbook inventory must contain only real source files.
   let inventoryCount = 0;
   for (const lesson of inventory) {
     for (const rel of lesson.pages ?? []) {
