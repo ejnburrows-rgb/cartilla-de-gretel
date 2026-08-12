@@ -1,4 +1,5 @@
 import type { PageGridCell, PageRegion } from "@/lib/book-faithful";
+import qaResults from "../../public/cartilla/art/faithful/qa-results.json";
 
 /**
  * Emergent artwork integration layer.
@@ -85,6 +86,20 @@ const EMERGENT_ART_CANDIDATES_BY_WORD: Readonly<Record<string, string>> = {
 const VERIFIED_EMERGENT_WORDS: ReadonlySet<string> = new Set<string>();
 
 /**
+ * Full-resolution artwork QA is the repository's source-comparison record.
+ * Every crop already marked FAIL there is unsafe for student display, regardless
+ * of which lesson/page mapping happens to reference it. Derive this set directly
+ * from the QA file so new FAIL verdicts automatically become runtime blocks.
+ */
+type ArtQaResult = { file: string; verdict: string };
+type ArtQaData = { results: ArtQaResult[] };
+const QA_FAILED_FAITHFUL_PATHS: ReadonlySet<string> = new Set(
+  ((qaResults as ArtQaData).results ?? [])
+    .filter((result) => result.verdict === "FAIL")
+    .map((result) => result.file.replace(/^public/, "")),
+);
+
+/**
  * Canonical mappings known to be mismatched, explicitly marked
  * PROVENANCE-UNKNOWN, recovered without source proof, or otherwise not yet
  * positively source-proven. Never let them reach the student workbook until
@@ -132,7 +147,10 @@ function normalizeWord(value?: string | null): string {
 }
 
 function isBlockedStudentArtPath(path: string): boolean {
-  return BLOCKED_STUDENT_ART_PREFIXES.some((prefix) => path.startsWith(prefix));
+  return (
+    BLOCKED_STUDENT_ART_PREFIXES.some((prefix) => path.startsWith(prefix)) ||
+    QA_FAILED_FAITHFUL_PATHS.has(path)
+  );
 }
 
 function getSafeFallback(word?: string | null, fallback?: string): string | undefined {
