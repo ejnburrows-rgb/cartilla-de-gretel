@@ -113,6 +113,7 @@ const SOURCE_BACKED_REPLACEMENTS: Readonly<Record<string, string>> = {
   "/cartilla/art/faithful/leccion-5/iguana.webp": "/cartilla/art/faithful/vocal-i/iguana.webp",
   "/cartilla/art/faithful/leccion-8-p/pez.webp": "/cartilla/art/faithful/leccion-1/pez.webp",
   "/cartilla/art/faithful/leccion-18-c/carro.webp": "/cartilla/art/faithful/leccion-1/carro.webp",
+  "/cartilla/art/faithful/leccion-18-rr/carro.webp": "/cartilla/art/faithful/leccion-1/carro.webp",
 };
 
 /**
@@ -136,7 +137,6 @@ const BLOCKED_CANONICAL_FALLBACKS: Readonly<Record<string, ReadonlySet<string>>>
   uniforme: new Set(["/cartilla/art/faithful/vocal-u/uniforme.webp"]),
   una: new Set(["/cartilla/art/faithful/vocal-u/uña.webp"]),
   ojos: new Set(["/cartilla/art/faithful/leccion-1/ojos.webp"]),
-  casa: new Set(["/cartilla/art/faithful/leccion-19-c/casa.webp"]),
   carro: new Set(["/cartilla/art/faithful/leccion-18-rr/carro.webp"]),
 };
 
