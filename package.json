@@ -15,7 +15,7 @@
     "validate:content": "node scripts/validate-content.mjs",
     "validate:art-color": "node scripts/validate-art-color.mjs",
     "audit:restoration": "node scripts/audit-full-restoration.mjs",
-    "audit:flipbook-color": "python3 -m pip install --quiet opencv-python-headless==4.10.0.84 && python3 scripts/audit-flipbook-color-fidelity.py",
+    "audit:flipbook-color": "uv run --with opencv-python-headless==4.10.0.84 python scripts/audit-flipbook-color-fidelity.py",
     "validate:activities-content": "node scripts/validate-activities-content.mjs",
     "validate:manifest": "node scripts/validate-workbook-manifest.mjs src/content/workbook/workbook-manifest.json",
     "build:manifest": "node scripts/build-workbook-manifest.mjs",
