@@ -84,7 +84,8 @@
       },
       {
         "word": "escoba",
-        "emoji": "🧹"
+        "emoji": "🧹",
+        "illustrationSrc": "/cartilla/art/faithful/vocal-e/escoba.webp"
       },
       {
         "word": "espejo",
@@ -123,7 +124,8 @@
       {
         "word": "escoba",
         "emoji": "🧹",
-        "startsWithVowel": true
+        "startsWithVowel": true,
+        "illustrationSrc": "/cartilla/art/faithful/vocal-e/escoba.webp"
       },
       {
         "word": "árbol",
