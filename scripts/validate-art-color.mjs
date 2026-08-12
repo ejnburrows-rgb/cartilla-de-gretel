@@ -201,11 +201,6 @@ export const CONFIRMED_ABSENT = new Set([
   // (a-page-5.jpg "Lección 3", i-page-14.jpg "Lección 5") — no colored
   // illustration of her exists in the available scans.
   "abeja",
-  // Vowel E — checked both real source pages. e-page-5.jpg's own colored
-  // vocab grid is elefante/espejo/Ema/estrella/erizo/escalera (no escoba);
-  // escoba only appears, uncolored, as a distractor on e-page-10.jpg's
-  // grayscale mark-with-X page.
-  "escoba",
   // Vowel U — checked all 4 real source pages (u-page-7/16/17/18.jpg).
   // "urna" does not appear anywhere in the available scans at all, not even
   // grayscale.
