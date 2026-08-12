@@ -28,6 +28,31 @@ const layouts = readJson("src/data/page-layouts.json").pages ?? {};
 const inventory = readJson("src/data/page-inventory.json").workbook?.lessons ?? [];
 const qa = readJson("public/cartilla/art/faithful/qa-results.json");
 const manifest = readJson("public/cartilla/art/faithful/manifest.json");
+const ledgerText = fs.readFileSync(path.join(root, "docs/FULL-COLOR-RESTORATION-LEDGER.md"), "utf8");
+
+const LEDGER_STATUSES = new Set([
+  "source-faithful color complete",
+  "authentic monochrome intentionally retained",
+  "needs correction",
+]);
+
+function readLedgerStatusCounts() {
+  const counts = {
+    "source-faithful color complete": 0,
+    "authentic monochrome intentionally retained": 0,
+    "needs correction": 0,
+  };
+  let total = 0;
+  for (const line of ledgerText.split(/\r?\n/)) {
+    const match = line.match(/^\|\s*\d+\s*\|\s*[^|]+\|\s*([^|]+?)\s*\|$/);
+    if (!match) continue;
+    const status = match[1].trim();
+    if (!LEDGER_STATUSES.has(status)) continue;
+    counts[status]++;
+    total++;
+  }
+  return { counts, total };
+}
 
 const qaBySrc = new Map(
   (qa.results ?? []).map((r) => ["/" + String(r.file ?? "").replace(/^public\//, ""), r]),
@@ -135,6 +160,14 @@ async function main() {
     }
   }
 
+  const ledger = readLedgerStatusCounts();
+  if (ledger.total !== inventoryCount) {
+    issues.push({
+      type: "LEDGER-CENSUS",
+      detail: `ledger has ${ledger.total} workbook rows but inventory has ${inventoryCount}`,
+    });
+  }
+
   const slots = pages.flatMap((p) => collectVisibleSlots(p.pageNumber, p.regions));
   const grayscale = new Map((await findGrayscaleArt()).map((x) => [x.rel, x.spread]));
   const pageIssues = new Map();
@@ -200,36 +233,26 @@ async function main() {
   }
 
   const unresolvedPages = [...pageIssues.keys()].sort((a, b) => a - b);
-  const completePages = pages.map((p) => p.pageNumber).filter((n) => !pageIssues.has(n));
-
-  // A source-safe page is classified as monochrome-retained if at least one
-  // required visible illustration is genuinely grayscale. Since the checks
-  // above fail any unapproved grayscale crop, every such page here is an
-  // audited exact-workbook/source-proven exception. All other source-safe
-  // pages have their color-restoration requirement satisfied (including pages
-  // that are text/tracing-only and therefore require no illustration color).
-  const sourceFaithfulColorPages = [];
-  const authenticMonochromePages = [];
-  for (const pageNumber of completePages) {
-    const required = slots.filter((s) => s.pageNumber === pageNumber && s.required && s.src);
-    const hasRetainedMonochrome = required.some((s) => grayscale.has(s.src));
-    if (hasRetainedMonochrome) authenticMonochromePages.push(pageNumber);
-    else sourceFaithfulColorPages.push(pageNumber);
-  }
+  const sourceSafePages = pages.map((p) => p.pageNumber).filter((n) => !pageIssues.has(n));
+  const ledgerNeedsCorrection = ledger.counts["needs correction"];
+  const ledgerColorComplete = ledger.counts["source-faithful color complete"];
+  const ledgerMonochromeComplete = ledger.counts["authentic monochrome intentionally retained"];
+  const restorationComplete = issues.length === 0 && ledgerNeedsCorrection === 0;
 
   const report = {
     canonicalLayoutPages: pages.length,
     canonicalMaxPage: maxPage,
     inventorySourcePages: inventoryCount,
+    inventoryLedgerPages: ledger.total,
     visibleIllustrationSlots: slots.filter((s) => s.required).length,
-    sourceSafePages: completePages.length,
-    sourceFaithfulColorPages: sourceFaithfulColorPages.length,
-    authenticMonochromePages: authenticMonochromePages.length,
-    sourceFaithfulColorPageNumbers: sourceFaithfulColorPages,
-    authenticMonochromePageNumbers: authenticMonochromePages,
-    unresolvedPages: unresolvedPages.length,
-    unresolvedPageNumbers: unresolvedPages,
-    issues: issues.length,
+    rendererSourceSafePages: sourceSafePages.length,
+    rendererUnresolvedPages: unresolvedPages.length,
+    rendererUnresolvedPageNumbers: unresolvedPages,
+    ledgerColorComplete,
+    ledgerMonochromeComplete,
+    ledgerNeedsCorrection,
+    restorationComplete,
+    safetyIssues: issues.length,
   };
 
   console.log("FULL_RESTORATION_REPORT " + JSON.stringify(report));
@@ -240,7 +263,13 @@ async function main() {
     process.exit(1);
   }
 
-  console.log(`✓ full restoration gate: ${pages.length}/${pages.length} canonical pages source-safe; 0 unresolved`);
+  if (restorationComplete) {
+    console.log(`✓ full restoration gate: ${ledger.total}/${ledger.total} workbook pages source-verified; 0 unresolved`);
+  } else {
+    console.log(
+      `↪ restoration safety gate passes, but completion remains open: ${ledgerNeedsCorrection}/${ledger.total} workbook pages still need correction/source verification`,
+    );
+  }
 }
 
 main().catch((error) => {
