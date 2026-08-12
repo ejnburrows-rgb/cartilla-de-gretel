@@ -54,13 +54,19 @@ function publicExists(src) {
 
 function collectVisibleSlots(pageNumber, regions) {
   const slots = [];
-  const add = (where, caption, src, required = true) => slots.push({ pageNumber, where, caption: caption ?? "", src, required });
+  const add = (where, caption, src, required = true) =>
+    slots.push({ pageNumber, where, caption: caption ?? "", src, required });
 
   for (const region of regions ?? []) {
     switch (region.regionType) {
       case "illustration-slot":
       case "paint-box":
-        add(region.id, region.caption ?? region.illustrationWord ?? region.text, region.illustrationSrc, true);
+        add(
+          region.id,
+          region.caption ?? region.illustrationWord ?? region.text,
+          region.illustrationSrc,
+          true,
+        );
         break;
       case "picture-grid":
       case "vowel-line-match":
@@ -83,13 +89,17 @@ function collectVisibleSlots(pageNumber, regions) {
       case "syllable-match":
         for (const [ri, row] of (region.matchRows ?? []).entries()) {
           for (const [ci, cell] of row.entries()) {
-            if (cell.illustrationSrc) add(`${region.id}.matchRows[${ri}][${ci}]`, cell.word, cell.illustrationSrc, false);
+            if (cell.illustrationSrc) {
+              add(`${region.id}.matchRows[${ri}][${ci}]`, cell.word, cell.illustrationSrc, false);
+            }
           }
         }
         break;
       case "fill-in-blank":
         for (const [i, item] of (region.fillItems ?? []).entries()) {
-          if (item.illustrationSrc) add(`${region.id}.fillItems[${i}]`, item.wordBox, item.illustrationSrc, false);
+          if (item.illustrationSrc) {
+            add(`${region.id}.fillItems[${i}]`, item.wordBox, item.illustrationSrc, false);
+          }
         }
         break;
     }
@@ -109,7 +119,9 @@ async function main() {
   if (!pages.length) issues.push({ type: "PAGE-CENSUS", detail: "no page layouts found" });
   const maxPage = pages.at(-1)?.pageNumber ?? 0;
   for (let n = 1; n <= maxPage; n++) {
-    if (!Object.hasOwn(layouts, String(n))) issues.push({ type: "PAGE-CENSUS", page: n, detail: "missing canonical page layout" });
+    if (!Object.hasOwn(layouts, String(n))) {
+      issues.push({ type: "PAGE-CENSUS", page: n, detail: "missing canonical page layout" });
+    }
   }
 
   let inventoryCount = 0;
@@ -117,7 +129,9 @@ async function main() {
     for (const rel of lesson.pages ?? []) {
       inventoryCount++;
       const src = `/cartilla/images/source/${rel}`;
-      if (!publicExists(src)) issues.push({ type: "MISSING-SOURCE-PAGE", lesson: lesson.lessonId, src });
+      if (!publicExists(src)) {
+        issues.push({ type: "MISSING-SOURCE-PAGE", lesson: lesson.lessonId, src });
+      }
     }
   }
 
@@ -132,26 +146,39 @@ async function main() {
 
   for (const slot of slots) {
     if (!slot.src) {
-      if (slot.required) notePageIssue(slot.pageNumber, {
-        type: "BLANK-VISIBLE-ART",
-        page: slot.pageNumber,
-        where: slot.where,
-        caption: slot.caption,
-      });
+      if (slot.required) {
+        notePageIssue(slot.pageNumber, {
+          type: "BLANK-VISIBLE-ART",
+          page: slot.pageNumber,
+          where: slot.where,
+          caption: slot.caption,
+        });
+      }
       continue;
     }
     if (/\/cartilla\/art\/(?:color\/generated|color\/workbook|generated|remastered)\//.test(slot.src)) {
-      notePageIssue(slot.pageNumber, { type: "BANNED-ART-FAMILY", page: slot.pageNumber, where: slot.where, src: slot.src });
+      notePageIssue(slot.pageNumber, {
+        type: "BANNED-ART-FAMILY",
+        page: slot.pageNumber,
+        where: slot.where,
+        src: slot.src,
+      });
       continue;
     }
     if (!publicExists(slot.src)) {
-      notePageIssue(slot.pageNumber, { type: "MISSING-ART-FILE", page: slot.pageNumber, where: slot.where, src: slot.src });
+      notePageIssue(slot.pageNumber, {
+        type: "MISSING-ART-FILE",
+        page: slot.pageNumber,
+        where: slot.where,
+        src: slot.src,
+      });
       continue;
     }
 
     const q = qaBySrc.get(slot.src);
     const m = manifestBySrc.get(slot.src);
-    const sourceProven = q?.verdict === "PASS" || exactWorkbook.has(slot.src) || documentedSourceProven.has(slot.src);
+    const sourceProven =
+      q?.verdict === "PASS" || exactWorkbook.has(slot.src) || documentedSourceProven.has(slot.src);
     if (!sourceProven) {
       notePageIssue(slot.pageNumber, {
         type: q?.verdict === "FAIL" ? "QA-FAILED-ART" : "UNPROVEN-ART",
@@ -174,12 +201,32 @@ async function main() {
 
   const unresolvedPages = [...pageIssues.keys()].sort((a, b) => a - b);
   const completePages = pages.map((p) => p.pageNumber).filter((n) => !pageIssues.has(n));
+
+  // A source-safe page is classified as monochrome-retained if at least one
+  // required visible illustration is genuinely grayscale. Since the checks
+  // above fail any unapproved grayscale crop, every such page here is an
+  // audited exact-workbook/source-proven exception. All other source-safe
+  // pages have their color-restoration requirement satisfied (including pages
+  // that are text/tracing-only and therefore require no illustration color).
+  const sourceFaithfulColorPages = [];
+  const authenticMonochromePages = [];
+  for (const pageNumber of completePages) {
+    const required = slots.filter((s) => s.pageNumber === pageNumber && s.required && s.src);
+    const hasRetainedMonochrome = required.some((s) => grayscale.has(s.src));
+    if (hasRetainedMonochrome) authenticMonochromePages.push(pageNumber);
+    else sourceFaithfulColorPages.push(pageNumber);
+  }
+
   const report = {
     canonicalLayoutPages: pages.length,
     canonicalMaxPage: maxPage,
     inventorySourcePages: inventoryCount,
     visibleIllustrationSlots: slots.filter((s) => s.required).length,
     sourceSafePages: completePages.length,
+    sourceFaithfulColorPages: sourceFaithfulColorPages.length,
+    authenticMonochromePages: authenticMonochromePages.length,
+    sourceFaithfulColorPageNumbers: sourceFaithfulColorPages,
+    authenticMonochromePageNumbers: authenticMonochromePages,
     unresolvedPages: unresolvedPages.length,
     unresolvedPageNumbers: unresolvedPages,
     issues: issues.length,
