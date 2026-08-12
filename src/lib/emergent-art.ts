@@ -155,6 +155,17 @@ const BLOCKED_CANONICAL_FALLBACKS: Readonly<Record<string, ReadonlySet<string>>>
 };
 
 /**
+ * Exact word/path mismatches that must never render as if they were authentic.
+ * Keep accents here: `moño` and `mono` intentionally normalize to the same
+ * search key elsewhere, but they depict different things. The Ñ exercise was
+ * pointing `moño` at the verified `mono` (monkey) crop; until an exact source
+ * `moño` drawing is proven, the honest student rendering is an art-pending slot.
+ */
+const BLOCKED_EXACT_WORD_PATH_PAIRS: ReadonlySet<string> = new Set([
+  "moño|/cartilla/art/faithful/leccion-7-m/mono.webp",
+]);
+
+/**
  * Entire asset families that are never acceptable as an automatic student
  * fallback. These are generated/remastered lanes, not authenticated source art.
  * Keeping this check centralized prevents a later page mapping from bypassing
@@ -176,6 +187,10 @@ function normalizeWord(value?: string | null): string {
     .replace(/[^a-z0-9]/g, "");
 }
 
+function exactWordPathKey(word?: string | null, path?: string): string {
+  return `${(word ?? "").trim().toLocaleLowerCase("es")}|${path ?? ""}`;
+}
+
 function isBlockedStudentArtPath(path: string): boolean {
   return (
     BLOCKED_STUDENT_ART_PREFIXES.some((prefix) => path.startsWith(prefix)) ||
@@ -186,6 +201,7 @@ function isBlockedStudentArtPath(path: string): boolean {
 
 function getSafeFallback(word?: string | null, fallback?: string): string | undefined {
   if (!fallback) return undefined;
+  if (BLOCKED_EXACT_WORD_PATH_PAIRS.has(exactWordPathKey(word, fallback))) return undefined;
   const replacement = SOURCE_BACKED_REPLACEMENTS[fallback];
   if (replacement && !isBlockedStudentArtPath(replacement)) return replacement;
   if (isBlockedStudentArtPath(fallback)) return undefined;
