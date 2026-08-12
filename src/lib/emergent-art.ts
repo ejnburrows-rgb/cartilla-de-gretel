@@ -86,11 +86,11 @@ const VERIFIED_EMERGENT_WORDS: ReadonlySet<string> = new Set<string>();
 
 /**
  * Canonical mappings known to be mismatched, explicitly marked
- * PROVENANCE-UNKNOWN, recovered without source proof, or backed only by
- * implausible/tiny crop metadata in the faithful-art manifest. Never let them
- * reach the student workbook until the exact drawing and source palette have
- * been verified. The student sees an honest pending-art state instead of a
- * plausible-but-unproven substitute.
+ * PROVENANCE-UNKNOWN, recovered without source proof, absent from the current
+ * provenance manifest, or backed only by implausible/tiny crop metadata in the
+ * faithful-art manifest. Never let them reach the student workbook until the
+ * exact drawing and source palette have been verified. The student sees an
+ * honest pending-art state instead of a plausible-but-unproven substitute.
  */
 const BLOCKED_CANONICAL_FALLBACKS: Readonly<Record<string, ReadonlySet<string>>> = {
   traje: new Set([
@@ -111,6 +111,11 @@ const BLOCKED_CANONICAL_FALLBACKS: Readonly<Record<string, ReadonlySet<string>>>
   manzana: new Set(["/cartilla/art/faithful/leccion-1/manzana.webp"]),
   pera: new Set(["/cartilla/art/faithful/leccion-1/pera.webp"]),
   taza: new Set(["/cartilla/art/faithful/leccion-1/taza.webp"]),
+
+  // These current live fallbacks have no provenance-manifest entry at all.
+  // Gate them rather than treating an untracked crop as source-faithful.
+  maiz: new Set(["/cartilla/art/faithful/leccion-1/maiz.webp"]),
+  arco: new Set(["/cartilla/art/faithful/leccion-1/arco.webp"]),
 
   // Manifest entries below are not source-proven and carry crop boxes too
   // small to plausibly describe the displayed illustration. Gate them until
