@@ -100,6 +100,20 @@ const QA_FAILED_FAITHFUL_PATHS: ReadonlySet<string> = new Set(
 );
 
 /**
+ * Exact same-word faithful replacements for known bad crop paths. Each target
+ * is independently marked PASS by the repository's full-resolution source
+ * comparison. This restores authentic visible art instead of leaving a blank,
+ * while still refusing generated/recolored substitutes.
+ */
+const SOURCE_BACKED_REPLACEMENTS: Readonly<Record<string, string>> = {
+  "/cartilla/art/faithful/leccion-1/ola.webp": "/cartilla/art/faithful/vocal-o/ola.webp",
+  "/cartilla/art/faithful/leccion-3/ardilla.webp": "/cartilla/art/faithful/vocal-a/ardilla.webp",
+  "/cartilla/art/faithful/leccion-4/erizo.webp": "/cartilla/art/faithful/vocal-e/erizo.webp",
+  "/cartilla/art/faithful/leccion-5/igual.webp": "/cartilla/art/faithful/vocal-i/igual.webp",
+  "/cartilla/art/faithful/leccion-5/iguana.webp": "/cartilla/art/faithful/vocal-i/iguana.webp",
+};
+
+/**
  * Canonical mappings known to be mismatched, explicitly marked
  * PROVENANCE-UNKNOWN, recovered without source proof, or otherwise not yet
  * positively source-proven. Never let them reach the student workbook until
@@ -155,6 +169,8 @@ function isBlockedStudentArtPath(path: string): boolean {
 
 function getSafeFallback(word?: string | null, fallback?: string): string | undefined {
   if (!fallback) return undefined;
+  const replacement = SOURCE_BACKED_REPLACEMENTS[fallback];
+  if (replacement && !isBlockedStudentArtPath(replacement)) return replacement;
   if (isBlockedStudentArtPath(fallback)) return undefined;
   const key = normalizeWord(word);
   if (BLOCKED_CANONICAL_FALLBACKS[key]?.has(fallback)) return undefined;
