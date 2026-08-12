@@ -7,6 +7,7 @@ import { DragBuildWord } from "@/components/cartilla/DragBuildWord";
 import { DragLetterTrace } from "@/components/cartilla/DragLetterTrace";
 import { PianoPronunciation } from "@/components/cartilla/PianoPronunciation";
 import { DEFAULT_ACTIVITIES, type ActivityId } from "@/lib/lesson-catalog";
+import { resolveEmergentArt } from "@/lib/emergent-art";
 import "@/styles/cartilla-student.css";
 import { KidButton } from "@/components/ui/KidButton";
 import { SuccessPulse } from "@/components/feel/SuccessPulse";
@@ -39,10 +40,19 @@ export function ActivityCarousel({
   const [activeTab, setActiveTab] = useState<TabType>(activities[0] ?? "silabas");
   const [completedTabs, setCompletedTabs] = useState<Set<TabType>>(new Set());
 
+  // Run lesson vocab through the same source-provenance gate used by workbook
+  // page regions before any illustration can become a student-visible target.
+  // This closes the alternate activity path that could otherwise reuse a raw
+  // illustrationSrc that the faithful page renderer intentionally blocked.
+  const sourceBackedWords = words.map((word) => ({
+    ...word,
+    illustrationSrc: resolveEmergentArt(word.word, word.illustrationSrc),
+  }));
+
   // Only source-backed illustrations may become student-visible matching targets.
   // Emoji values remain legacy data identifiers in older content, but must never
   // stand in for missing/unverified workbook artwork.
-  const pairs = words
+  const pairs = sourceBackedWords
     .filter(
       (w) =>
         typeof w.illustrationSrc === "string" &&
