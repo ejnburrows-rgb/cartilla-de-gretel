@@ -110,12 +110,12 @@ Current safety baseline: automatic synthetic workbook color fallbacks are disabl
 
 ## Current sequential pass
 
-Lesson 1 pages 1–3 have had their live picture mappings inspected. Unverified imported color substitutions remain fully disabled. Known mismatched or unproven faithful assets are gated, including assets with implausible crop dimensions and `ojos`, whose recovery from repository history alone does not prove authentic source provenance.
+Lesson 1 pages 1–3 and the early vowel pages have had their live picture mappings inspected. Unverified imported color substitutions remain fully disabled. Provenance-unknown, repository-history-only, generated/remastered, and hand-colored assets remain gated.
 
-Lesson 2 page `o/o-page-3.jpg` is now in progress. Its live `ola` picture was still able to display through `/cartilla/art/faithful/vocal-o/ola.webp` even though `ola` had already been classified as unproven. That alternate live path is now gated as well, so the student page cannot show the questionable colored `ola` substitute while source proof is pending.
+The safety gate had also become over-conservative: it hid several faithful crops solely because legacy manifest crop-box metadata was malformed even though the repository's full-resolution QA records those crops as PASS after comparison with named authentic source pages. This pass restored student-visible use of the source-backed `ocho`, `oreja`, `estrella`, `escalera`, `araña`, `insecto`, `isla`, `uno`, `avión`, `árbol`, `maíz`, `arco`, and `pez` faithful assets. The Emergent/generated candidates remain disabled; these restorations use only the existing faithful assets.
 
-All four pages remain `needs correction` until every remaining visible illustration on each page is positively matched to the printed workbook drawing and a verified source/color donor.
+`iglesia`, `ojos`, `uniforme`, `uña`, `ola`, and other mappings without acceptable current provenance remain blocked. No page has been promoted to complete yet because the full page-level acceptance gate has not been satisfied.
 
 ## Next sequence
 
-Finish the remaining live illustration checks for Lesson 2 / `o/o-page-3.jpg`, then continue through `o/o-page-4.jpg` and `o/o-page-5.jpg`, followed by Lesson 3, without restarting the full audit.
+Finish the remaining unresolved early-vowel mappings page by page, starting with Lesson 2's O pages, then continue through A/E/I/U. Promote a page only when every live illustration and the printed layout are positively source-verified.
