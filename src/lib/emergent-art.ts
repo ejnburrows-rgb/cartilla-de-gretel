@@ -125,6 +125,15 @@ const BLOCKED_CANONICAL_FALLBACKS: Readonly<Record<string, ReadonlySet<string>>>
   oveja: new Set(["/cartilla/art/faithful/vocal-o/oveja.webp"]),
   olla: new Set(["/cartilla/art/faithful/vocal-o/olla.webp"]),
 
+  // Additional vowel-page fallbacks with plausible crop coordinates but no
+  // explicit provenanceStatus. Until the exact drawing and palette are proven,
+  // keep these colored substitutions off student pages.
+  uvas: new Set(["/cartilla/art/faithful/vocal-u/uvas.webp"]),
+  iman: new Set(["/cartilla/art/faithful/vocal-i/iman.webp"]),
+  indio: new Set(["/cartilla/art/faithful/vocal-i/indio.webp"]),
+  escalera: new Set(["/cartilla/art/faithful/vocal-e/escalera.webp"]),
+  elefante: new Set(["/cartilla/art/faithful/vocal-e/elefante.webp"]),
+
   // Manifest entries below are not source-proven and carry crop boxes too
   // small to plausibly describe the displayed illustration. Gate them until
   // the exact workbook drawing + teacher/source donor are independently proven.
