@@ -1,3 +1,4 @@
+import { resolveEmergentArt } from "@/lib/emergent-art";
 import type {
   ManifestInteraction,
   ManifestObject,
@@ -153,9 +154,10 @@ function toEngineObject(
 ): WorkbookObject {
   const isInteractive = Boolean(object.interactive) && kind !== "none";
   const data = isInteractive ? buildObjectInteractionData(kind, object, interaction) : undefined;
+  const safeAsset = resolveEmergentArt(object.word, object.asset);
   return {
     id: object.id,
-    ...(object.asset ? { src: object.asset } : {}),
+    ...(safeAsset ? { src: safeAsset } : {}),
     box: {
       xPct: object.x,
       yPct: object.y,
