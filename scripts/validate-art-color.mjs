@@ -88,14 +88,16 @@ export function collectWiredSrcs() {
 export const COLOR_MIN_SPREAD = 6;
 
 /**
- * Slugs the book itself prints as a genuinely uncolorable grayscale drawing may
- * be listed here to bypass the color check. EMPTY on purpose: the pages once
- * assumed duotone (arco/pez/traje) are actually teal-colored, and uña has been
- * colorized — none need an exception. Kept as the documented escape hatch so a
- * future real grayscale-only drawing has a home instead of someone lowering the
- * threshold for everything.
+ * Slugs whose exact student-workbook drawing is intentionally retained in
+ * monochrome because the audited source search found no identical teacher
+ * flipchart color donor. These remain source-faithful by design; adding a slug
+ * here requires explicit repository provenance, never a convenience exception.
+ *
+ * uña was independently verified as the genuine student-book crop, and the
+ * repository source audit records no identical color counterpart. The former
+ * hand-colored version is therefore invalid; authentic monochrome is correct.
  */
-export const DUOTONE_ALLOWLIST = new Set([]);
+export const DUOTONE_ALLOWLIST = new Set(["uña"]);
 
 /**
  * Exact student-book drawings that do not have an identical counterpart in the
