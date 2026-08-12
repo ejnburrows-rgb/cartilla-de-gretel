@@ -86,13 +86,14 @@ const VERIFIED_EMERGENT_WORDS: ReadonlySet<string> = new Set<string>();
 
 /**
  * Canonical mappings known to be mismatched, explicitly marked
- * PROVENANCE-UNKNOWN, recovered without source proof, absent from the current
- * provenance manifest, or otherwise not yet positively source-proven. Never
- * let them reach the student workbook until the exact drawing and source palette
- * have been verified. Assets with named source pages plus a PASS verdict from
- * the repository's full-resolution source-comparison QA are allowed even when
- * old manifest crop metadata is malformed; those bad metadata numbers alone do
- * not override the actual source comparison.
+ * PROVENANCE-UNKNOWN, recovered without source proof, or otherwise not yet
+ * positively source-proven. Never let them reach the student workbook until
+ * the exact drawing and source palette have been verified.
+ *
+ * Faithful crops with a PASS verdict in the repository's full-resolution
+ * source-comparison QA are allowed even if legacy manifest crop metadata is
+ * incomplete or malformed. A known-bad alternate path remains blocked even
+ * when a different crop for the same word has passed source comparison.
  */
 const BLOCKED_CANONICAL_FALLBACKS: Readonly<Record<string, ReadonlySet<string>>> = {
   traje: new Set([
@@ -100,21 +101,7 @@ const BLOCKED_CANONICAL_FALLBACKS: Readonly<Record<string, ReadonlySet<string>>>
     "/cartilla/art/faithful/leccion-1/traje.webp",
   ]),
   iglesia: new Set(["/cartilla/art/faithful/vocal-i/iglesia.webp"]),
-  ola: new Set([
-    "/cartilla/art/faithful/leccion-1/ola.webp",
-    "/cartilla/art/faithful/vocal-o/ola.webp",
-  ]),
-  ardilla: new Set(["/cartilla/art/faithful/vocal-a/ardilla.webp"]),
-  escuela: new Set(["/cartilla/art/faithful/vocal-e/escuela.webp"]),
-  igual: new Set(["/cartilla/art/faithful/vocal-i/igual.webp"]),
-  iguana: new Set(["/cartilla/art/faithful/vocal-i/iguana.webp"]),
-  invierno: new Set(["/cartilla/art/faithful/vocal-i/invierno.webp"]),
-  anillo: new Set(["/cartilla/art/faithful/vocal-a/anillo.webp"]),
-  manzana: new Set(["/cartilla/art/faithful/leccion-1/manzana.webp"]),
-  libro: new Set(["/cartilla/art/faithful/leccion-1/libro.webp"]),
-  pera: new Set(["/cartilla/art/faithful/leccion-1/pera.webp"]),
-  taza: new Set(["/cartilla/art/faithful/leccion-1/taza.webp"]),
-  dulce: new Set(["/cartilla/art/faithful/leccion-1/dulce.webp"]),
+  ola: new Set(["/cartilla/art/faithful/leccion-1/ola.webp"]),
   uniforme: new Set(["/cartilla/art/faithful/vocal-u/uniforme.webp"]),
   una: new Set(["/cartilla/art/faithful/vocal-u/uña.webp"]),
   ojos: new Set(["/cartilla/art/faithful/leccion-1/ojos.webp"]),
