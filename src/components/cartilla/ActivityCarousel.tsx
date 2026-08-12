@@ -39,10 +39,20 @@ export function ActivityCarousel({
   const [activeTab, setActiveTab] = useState<TabType>(activities[0] ?? "silabas");
   const [completedTabs, setCompletedTabs] = useState<Set<TabType>>(new Set());
 
-  // Derive matching pairs from words
+  // Only source-backed illustrations may become student-visible matching targets.
+  // Emoji values remain legacy data identifiers in older content, but must never
+  // stand in for missing/unverified workbook artwork.
   const pairs = words
-    .filter((w) => typeof w.emoji === "string" && w.emoji.trim() !== "")
-    .map((w) => ({ word: w.word, emoji: w.emoji as string, illustrationSrc: w.illustrationSrc }))
+    .filter(
+      (w) =>
+        typeof w.illustrationSrc === "string" &&
+        w.illustrationSrc.trim() !== "",
+    )
+    .map((w, index) => ({
+      word: w.word,
+      emoji: `source-art-${lessonNumber}-${index}`,
+      illustrationSrc: w.illustrationSrc,
+    }))
     .slice(0, 4); // Keep to a max of 4 pairs for a balanced layout
 
   // Map tabs to metadata, in the order this lesson's `activities` specifies
@@ -232,7 +242,7 @@ export function ActivityCarousel({
 
       {/* Step track */}
       <div className="flex items-center justify-center gap-1.5 pt-1">
-        {tabs.map((tab, i) => {
+        {tabs.map((tab) => {
           const isDone = completedTabs.has(tab.id);
           const isActive = activeTab === tab.id;
           return (
