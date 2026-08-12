@@ -114,8 +114,10 @@ Lesson 1 pages 1–3 and the early vowel pages have had their live picture mappi
 
 The safety gate had also become over-conservative: it hid several faithful crops solely because legacy manifest crop-box metadata was malformed even though the repository's full-resolution QA records those crops as PASS after comparison with named authentic source pages. This pass restored student-visible use of the source-backed `ocho`, `oreja`, `estrella`, `escalera`, `araña`, `insecto`, `isla`, `uno`, `avión`, `árbol`, `maíz`, `arco`, and `pez` faithful assets. The Emergent/generated candidates remain disabled; these restorations use only the existing faithful assets.
 
-`iglesia`, `ojos`, `uniforme`, `uña`, `ola`, and other mappings without acceptable current provenance remain blocked. No page has been promoted to complete yet because the full page-level acceptance gate has not been satisfied.
+The latest source-safety pass also restored `casa` from its QA-PASS faithful crop tied to `c-page-52.jpg`, and redirects both known bad RR `carro` crop paths to the independently QA-PASS `leccion-1/carro.webp` same-word source-backed artwork. No generated or recolored substitute was enabled.
+
+`iglesia`, `ojos`, `uniforme`, `uña`, `traje`, and other mappings without acceptable current provenance remain blocked. No page has been promoted to complete yet because the full page-level acceptance gate has not been satisfied.
 
 ## Next sequence
 
-Finish the remaining unresolved early-vowel mappings page by page, starting with Lesson 2's O pages, then continue through A/E/I/U. Promote a page only when every live illustration and the printed layout are positively source-verified.
+Continue page-by-page through the remaining unresolved early-vowel mappings, then M/P/S and onward. Promote a page only when every live illustration and the printed layout are positively source-verified.
