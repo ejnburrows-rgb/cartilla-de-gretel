@@ -110,14 +110,16 @@ Current safety baseline: automatic synthetic workbook color fallbacks are disabl
 
 ## Current sequential pass
 
-Lesson 1 pages 1–3 and the early vowel pages have had their live picture mappings inspected. Unverified imported color substitutions remain fully disabled. Provenance-unknown, repository-history-only, generated/remastered, and hand-colored assets remain gated.
+Lesson 1 pages 1–3 and the early vowel pages have had their live picture mappings inspected. Unverified imported color substitutions remain fully disabled. Generated/remastered and unproven hand-colored assets remain gated.
 
 The safety gate had also become over-conservative: it hid several faithful crops solely because legacy manifest crop-box metadata was malformed even though the repository's full-resolution QA records those crops as PASS after comparison with named authentic source pages. This pass restored student-visible use of the source-backed `ocho`, `oreja`, `estrella`, `escalera`, `araña`, `insecto`, `isla`, `uno`, `avión`, `árbol`, `maíz`, `arco`, and `pez` faithful assets. The Emergent/generated candidates remain disabled; these restorations use only the existing faithful assets.
 
-The latest source-safety pass also restored `casa` from its QA-PASS faithful crop tied to `c-page-52.jpg`, and redirects both known bad RR `carro` crop paths to the independently QA-PASS `leccion-1/carro.webp` same-word source-backed artwork. No generated or recolored substitute was enabled.
+The source-safety pass also restored `casa` from its QA-PASS faithful crop tied to `c-page-52.jpg`, and redirects both known bad RR `carro` crop paths to the independently QA-PASS `leccion-1/carro.webp` same-word source-backed artwork. No generated or recolored substitute was enabled.
 
-`iglesia`, `ojos`, `uniforme`, `uña`, `traje`, and other mappings without acceptable current provenance remain blocked. No page has been promoted to complete yet because the full page-level acceptance gate has not been satisfied.
+Repository history provides direct source evidence for the remaining early-vowel cases integrated in the current branch: `iglesia` and `ojos` were individually checked at full resolution against real source pages; `traje`/`uniforme` uses the identical flipchart `uniforme` drawing as the color donor; and `uña` is the genuine student-workbook crop with no identical teacher color counterpart, so its authentic monochrome form is intentionally retained. The runtime source gate now permits those exact faithful paths while continuing to reject generated/remastered families and known bad alternates. The build validator has an explicit `uña` monochrome exception rather than weakening the grayscale threshold globally.
+
+No page has been promoted to complete yet because the full page-level acceptance gate has not been satisfied. The count therefore remains 87 until entire pages, not individual assets, have been positively verified.
 
 ## Next sequence
 
-Continue page-by-page through the remaining unresolved early-vowel mappings, then M/P/S and onward. Promote a page only when every live illustration and the printed layout are positively source-verified.
+Finish page-level verification of the early vowel pages using the now-integrated source-proven artwork, then continue sequentially through M/P/S and onward. Promote a page only when every live illustration and the printed layout are positively source-verified.
