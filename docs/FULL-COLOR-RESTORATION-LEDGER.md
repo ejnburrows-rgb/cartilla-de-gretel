@@ -118,6 +118,8 @@ The source-safety pass also restored `casa` from its QA-PASS faithful crop tied 
 
 Repository history provides direct source evidence for the remaining early-vowel cases integrated in the current branch: `iglesia` and `ojos` were individually checked at full resolution against real source pages; `traje`/`uniforme` uses the identical flipchart `uniforme` drawing as the color donor; and `uña` is the genuine student-workbook crop with no identical teacher color counterpart, so its authentic monochrome form is intentionally retained. The runtime source gate now permits those exact faithful paths while continuing to reject generated/remastered families and known bad alternates. The build validator has an explicit `uña` monochrome exception rather than weakening the grayscale threshold globally.
 
+A later Ñ-page inspection found a live semantic substitution: the word `moño` was mapped to `leccion-7-m/mono.webp`, the authentic `mono` (monkey) crop. Because `moño` and `mono` are different workbook drawings and no exact source-proven `moño` crop has been established, that word/path pair is now blocked at runtime. The page shows an honest art-pending slot instead of a monkey falsely presented as `moño`; no generated or recolored replacement was introduced.
+
 No page has been promoted to complete yet because the full page-level acceptance gate has not been satisfied. The count therefore remains 87 until entire pages, not individual assets, have been positively verified.
 
 ## Next sequence
