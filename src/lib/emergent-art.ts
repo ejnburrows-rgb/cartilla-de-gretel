@@ -104,9 +104,15 @@ const QA_FAILED_FAITHFUL_PATHS: ReadonlySet<string> = new Set(
  * is independently marked PASS by the repository's full-resolution source
  * comparison. This restores authentic visible art instead of leaving a blank,
  * while still refusing generated/recolored substitutes.
+ *
+ * The legacy `traje.webp` file was a recolored derivative. The printed student
+ * drawing is the same `uniforme` illustration already located in the authentic
+ * teacher flipchart, so every runtime `traje` fallback is redirected to that
+ * actual teacher-color crop instead of displaying a recolored copy.
  */
 const SOURCE_BACKED_REPLACEMENTS: Readonly<Record<string, string>> = {
   "/cartilla/art/faithful/leccion-1/ola.webp": "/cartilla/art/faithful/vocal-o/ola.webp",
+  "/cartilla/art/faithful/leccion-1/traje.webp": "/cartilla/art/faithful/vocal-u/uniforme.webp",
   "/cartilla/art/faithful/leccion-3/ardilla.webp": "/cartilla/art/faithful/vocal-a/ardilla.webp",
   "/cartilla/art/faithful/leccion-4/erizo.webp": "/cartilla/art/faithful/vocal-e/erizo.webp",
   "/cartilla/art/faithful/leccion-5/igual.webp": "/cartilla/art/faithful/vocal-i/igual.webp",
