@@ -417,6 +417,27 @@ type PageLayouts = {
 const canonicalLayouts = pageLayouts as unknown as PageLayouts;
 
 /**
+ * The printed O activity on workbook page 4 has eight O targets. A stale data
+ * regression inverted four of them in page-layouts.json (arco/alas vs.
+ * oveja/oreja). Keep the live shared layout source-faithful at the access
+ * boundary until the large canonical JSON is safely regenerated.
+ */
+function applyVerifiedWorkbookCorrections(pageNumber: number, regions: PageRegion[]): PageRegion[] {
+  if (pageNumber !== 4) return regions;
+
+  const oTargets = new Set(["ola", "oso", "oveja", "oreja", "olla", "ocho", "ojos"]);
+  return regions.map((region) => {
+    if (region.id !== "p4-grid" || !region.cells) return region;
+    return {
+      ...region,
+      cells: region.cells.map((cell) =>
+        cell.caption ? { ...cell, correct: oTargets.has(cell.caption) } : cell,
+      ),
+    };
+  });
+}
+
+/**
  * Faithful-HTML region layout for a page, if one has been authored & verified.
  * Canonical source: src/data/page-layouts.json (one shared file that drives the
  * student CRM view, student workbook, and teacher flipbook — same content, same
@@ -425,7 +446,9 @@ const canonicalLayouts = pageLayouts as unknown as PageLayouts;
  */
 export function getPageLayout(pageNumber: number): PageRegion[] | null {
   const entry = canonicalLayouts.pages[String(pageNumber)];
-  return entry ? applyEmergentArtToRegions(entry.regions) : null;
+  return entry
+    ? applyEmergentArtToRegions(applyVerifiedWorkbookCorrections(pageNumber, entry.regions))
+    : null;
 }
 
 /** True if a faithful, verified layout exists for this page. */
