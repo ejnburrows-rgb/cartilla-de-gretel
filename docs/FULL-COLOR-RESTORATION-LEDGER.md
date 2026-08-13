@@ -128,6 +128,8 @@ The three known teal-block `ojos` files have now also been physically repaired, 
 
 On the current head, the shared `getPageLayout()` boundary now enforces the verified workbook answer states for O page 4, A page 8, E page 10, U page 16, and M page 20 before any renderer sees the stale JSON flags. This closes the previously documented regression in active student grading without altering artwork or page order; `miel` is rejected for `me`, and only the source-correct vowel targets are graded as correct.
 
+The active vowel lesson content now also points `abeja`, `ojos`, and the authentic workbook-only monochrome `uña` directly to their source-proven faithful assets. Separately, the picture-matching renderer no longer displays an emoji when a pair has no verified `illustrationSrc`; that slot now stays visually neutral until authentic source art is proven. This removes a remaining synthetic picture substitution without inventing replacement art.
+
 No page has been promoted to complete yet because the full page-level acceptance gate has not been satisfied. The count therefore remains 87 until entire pages, not individual assets, have been positively verified.
 
 ## Next sequence
