@@ -121,6 +121,9 @@ const PROVENANCE_UNKNOWN_FAITHFUL_PATHS: ReadonlySet<string> = new Set(
  */
 const SOURCE_BACKED_REPLACEMENTS: Readonly<Record<string, string>> = {
   "/cartilla/art/faithful/leccion-1/ola.webp": "/cartilla/art/faithful/vocal-o/ola.webp",
+  "/cartilla/art/faithful/vocal-o/ojos.webp": "/cartilla/art/faithful/leccion-1/ojos.webp",
+  "/cartilla/art/faithful/leccion-2/ojos.webp": "/cartilla/art/faithful/leccion-1/ojos.webp",
+  "/cartilla/art/faithful/leccion-3/ojos.webp": "/cartilla/art/faithful/leccion-1/ojos.webp",
   "/cartilla/art/faithful/leccion-1/traje.webp": "/cartilla/art/faithful/vocal-u/uniforme.webp",
   "/cartilla/art/faithful/leccion-3/ardilla.webp": "/cartilla/art/faithful/vocal-a/ardilla.webp",
   "/cartilla/art/faithful/leccion-4/erizo.webp": "/cartilla/art/faithful/vocal-e/erizo.webp",
@@ -237,6 +240,20 @@ const VERIFIED_CELL_CORRECTNESS_BY_REGION: Readonly<Record<string, Readonly<Reco
 };
 
 /**
+ * The M syllable page also carried one stale grading flag: `miel` was marked as
+ * a `me` answer. Keep this at the same final runtime gate as the vowel fixes so
+ * the source-transcribed page cannot mis-grade the student while artwork and
+ * printed order remain unchanged.
+ */
+const VERIFIED_SYLLABLE_CORRECTNESS_BY_REGION: Readonly<
+  Record<string, Readonly<Record<string, boolean>>>
+> = {
+  "p20-me": {
+    miel: false,
+  },
+};
+
+/**
  * Entire asset families that are never acceptable as an automatic student
  * fallback. These are generated/remastered lanes, not authenticated source art.
  * Keeping this check centralized prevents a later page mapping from bypassing
@@ -305,6 +322,7 @@ function resolveCell(cell: PageGridCell, correctness?: Readonly<Record<string, b
 
 function resolveRegion(region: PageRegion): PageRegion {
   const verifiedCorrectness = VERIFIED_CELL_CORRECTNESS_BY_REGION[region.id];
+  const verifiedSyllableCorrectness = VERIFIED_SYLLABLE_CORRECTNESS_BY_REGION[region.id];
   return {
     ...region,
     illustrationSrc: resolveEmergentArt(
@@ -315,6 +333,9 @@ function resolveRegion(region: PageRegion): PageRegion {
     matchRows: region.matchRows?.map((row) =>
       row.map((entry) => ({
         ...entry,
+        ...(verifiedSyllableCorrectness?.[entry.word] === undefined
+          ? {}
+          : { correct: verifiedSyllableCorrectness[entry.word] }),
         illustrationSrc: resolveEmergentArt(entry.word, entry.illustrationSrc),
       })),
     ),
