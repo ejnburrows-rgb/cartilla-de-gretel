@@ -160,14 +160,14 @@ export function DragMatchPairs({
             </div>
           </div>
 
-          {/* Right Column: Emojis */}
+          {/* Right Column: Picture targets */}
           <div className="space-y-4">
             <h4 className="text-xs font-black tracking-wider text-stone-400 uppercase text-center">
               Dibujos
             </h4>
             <div className="space-y-3">
               {shuffledEmojis.map((pair, i) => {
-                // Find if a word has matched this emoji
+                // Find if a word has matched this target
                 const matchedWord = Object.keys(matches).find((k) => matches[k] === pair.emoji);
                 return (
                   <DroppableEmojiCard
@@ -252,7 +252,7 @@ function DraggableWordCard({
   );
 }
 
-// Droppable emoji target card component
+// Droppable picture target card component
 function DroppableEmojiCard({
   pair,
   matchedWord,
@@ -286,7 +286,7 @@ function DroppableEmojiCard({
         boxShadow: isOver ? `0 0 12px ${color}22` : undefined,
       }}
     >
-      {/* Picture display */}
+      {/* Picture display: never substitute an emoji for unverified/missing source art. */}
       {pair.illustrationSrc ? (
         <img
           src={pair.illustrationSrc}
@@ -296,9 +296,11 @@ function DroppableEmojiCard({
           loading="lazy"
         />
       ) : (
-        <span className="text-3xl select-none" role="img" aria-label="dibujo">
-          {pair.emoji}
-        </span>
+        <span
+          className="w-10 h-10 rounded-md border border-dashed border-stone-300 bg-stone-50"
+          aria-label="Ilustración pendiente de verificación"
+          title="Ilustración pendiente de verificación"
+        />
       )}
 
       {/* Drop slot zone */}
