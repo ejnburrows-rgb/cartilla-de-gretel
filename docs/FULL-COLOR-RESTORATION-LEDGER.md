@@ -126,6 +126,8 @@ This run extended the source-safety repair for `ojos`: every known failed same-w
 
 The three known teal-block `ojos` files have now also been physically repaired, not merely redirected: each public path contains the same source-verified `leccion-1/ojos.webp` drawing, while the failed original blobs are preserved under `_needs-recrop` for provenance. This prevents any alternate runtime path from surfacing the bad teal block without deleting the historical source material.
 
+On the current head, the shared `getPageLayout()` boundary now enforces the verified workbook answer states for O page 4, A page 8, E page 10, U page 16, and M page 20 before any renderer sees the stale JSON flags. This closes the previously documented regression in active student grading without altering artwork or page order; `miel` is rejected for `me`, and only the source-correct vowel targets are graded as correct.
+
 No page has been promoted to complete yet because the full page-level acceptance gate has not been satisfied. The count therefore remains 87 until entire pages, not individual assets, have been positively verified.
 
 ## Next sequence
