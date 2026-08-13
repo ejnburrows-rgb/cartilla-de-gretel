@@ -417,23 +417,39 @@ type PageLayouts = {
 const canonicalLayouts = pageLayouts as unknown as PageLayouts;
 
 /**
- * The printed O activity on workbook page 4 has eight O targets. A stale data
- * regression inverted four of them in page-layouts.json (arco/alas vs.
- * oveja/oreja). Keep the live shared layout source-faithful at the access
- * boundary until the large canonical JSON is safely regenerated.
+ * Source-verified corrections for stale answer flags still present in the
+ * large canonical layout JSON. These only change grading state; artwork,
+ * drawing order and page layout remain untouched.
  */
 function applyVerifiedWorkbookCorrections(pageNumber: number, regions: PageRegion[]): PageRegion[] {
-  if (pageNumber !== 4) return regions;
+  const correctCaptionsByRegion: Record<string, Set<string>> = {
+    "p4-grid": new Set(["ola", "oso", "oveja", "oreja", "olla", "ocho", "ojos"]),
+    "p8-match": new Set(["alas", "abeja", "aguja", "aro"]),
+    "p10-grid": new Set(["elefante", "escalera", "erizo", "escoba", "estrella", "escuela", "espejo"]),
+    "p16-grid": new Set(["unicornio", "uvas", "uno"]),
+  };
 
-  const oTargets = new Set(["ola", "oso", "oveja", "oreja", "olla", "ocho", "ojos"]);
   return regions.map((region) => {
-    if (region.id !== "p4-grid" || !region.cells) return region;
-    return {
-      ...region,
-      cells: region.cells.map((cell) =>
-        cell.caption ? { ...cell, correct: oTargets.has(cell.caption) } : cell,
-      ),
-    };
+    const verified = correctCaptionsByRegion[region.id];
+    if (verified && region.cells) {
+      return {
+        ...region,
+        cells: region.cells.map((cell) =>
+          cell.caption ? { ...cell, correct: verified.has(cell.caption) } : cell,
+        ),
+      };
+    }
+
+    if (pageNumber === 20 && region.id === "p20-me" && region.matchRows) {
+      return {
+        ...region,
+        matchRows: region.matchRows.map((row) =>
+          row.map((entry) => (entry.word === "miel" ? { ...entry, correct: false } : entry)),
+        ),
+      };
+    }
+
+    return region;
   });
 }
 
