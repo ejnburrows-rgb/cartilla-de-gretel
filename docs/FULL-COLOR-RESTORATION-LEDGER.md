@@ -124,6 +124,8 @@ The current vowel pass also corrected stale live answer-state mappings on the so
 
 This run extended the source-safety repair for `ojos`: every known failed same-word crop path (`vocal-o/ojos.webp`, `leccion-2/ojos.webp`, and `leccion-3/ojos.webp`) now redirects to the independently QA-PASS and repository-verified `leccion-1/ojos.webp` crop instead of becoming a blank or exposing the teal-block failures. The M syllable activity also had a live grading defect corrected at the runtime gate: `miel` is no longer accepted as a `me` answer. Neither change invents artwork or changes workbook order.
 
+The three known teal-block `ojos` files have now also been physically repaired, not merely redirected: each public path contains the same source-verified `leccion-1/ojos.webp` drawing, while the failed original blobs are preserved under `_needs-recrop` for provenance. This prevents any alternate runtime path from surfacing the bad teal block without deleting the historical source material.
+
 No page has been promoted to complete yet because the full page-level acceptance gate has not been satisfied. The count therefore remains 87 until entire pages, not individual assets, have been positively verified.
 
 ## Next sequence
