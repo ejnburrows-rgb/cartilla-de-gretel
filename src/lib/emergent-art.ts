@@ -101,9 +101,25 @@ const QA_FAILED_FAITHFUL_PATHS: ReadonlySet<string> = new Set(
 );
 
 type FaithfulManifestEntry = { src?: string; provenanceStatus?: string | null };
+
+/**
+ * A small number of faithful crops predate complete manifest bookkeeping but
+ * were later positively verified at full resolution in repository history.
+ * Keep those exact paths visible while leaving every other PROVENANCE-UNKNOWN
+ * asset blocked. `iglesia.webp` was explicitly verified and wired in commit
+ * 426b34c9, then restored again from that source-backed history in d2d93a23.
+ */
+const REPOSITORY_VERIFIED_HISTORY_PATHS: ReadonlySet<string> = new Set([
+  "/cartilla/art/faithful/vocal-i/iglesia.webp",
+]);
+
 const PROVENANCE_UNKNOWN_FAITHFUL_PATHS: ReadonlySet<string> = new Set(
   (faithfulManifest as FaithfulManifestEntry[])
-    .filter((entry) => entry.provenanceStatus === "PROVENANCE-UNKNOWN")
+    .filter(
+      (entry) =>
+        entry.provenanceStatus === "PROVENANCE-UNKNOWN" &&
+        !REPOSITORY_VERIFIED_HISTORY_PATHS.has(entry.src ?? ""),
+    )
     .map((entry) => entry.src)
     .filter((src): src is string => typeof src === "string" && src.startsWith("/cartilla/art/")),
 );
