@@ -26,17 +26,11 @@ export const FLIPCHART_PAGES: FlipchartPage[] = (flipchartData.pages as Flipchar
 /**
  * Return the absolute URL path for a flipchart page (leading slash).
  *
- * All 62 HD plates have a pixel-cleaned, acceptance-tested restored mirror
- * committed under /cartilla/art/restored/flipchart/ (B7, same filenames,
- * strict 1:1 — cleanup only, never recolored or reinterpreted), so restored
- * is served first and the hd/ originals remain untouched on disk.
+ * Use the catalogued original HD color source. Cleanup belongs to display
+ * geometry, not a remastered derivative that could alter the source palette.
  */
 export function getFlipchartPageSrc(page: FlipchartPage): string {
-  const restored = page.path.replace(
-    /^cartilla\/art\/hd\/flipchart\//,
-    "cartilla/art/restored/flipchart/",
-  );
-  return `/${restored}`;
+  return `/${page.path.replace(/^\//, "")}`;
 }
 
 /**

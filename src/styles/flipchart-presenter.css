@@ -262,15 +262,15 @@
   justify-content: center;
   background: #fffef9;
 }
-.fc-board__face img {
+.fc-board__face .fc-plate {
   width: 100%;
   height: 100%;
   object-fit: contain;
   object-position: center;
-  /* Prefer content; slight scale hides thin dirty outer scan edges when present */
-  transform: scale(1.02);
-  transform-origin: center;
-  filter: contrast(1.02) saturate(1.04);
+  display: block;
+  transform: none;
+  filter: none;
+  mix-blend-mode: normal;
 }
 
 /* Controls — large, classroom finger-friendly */
@@ -368,10 +368,13 @@
   opacity: 0.72;
   transition: opacity 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
 }
-.fc-board__thumb img {
+.fc-board__thumb .fc-plate {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  display: block;
+  filter: none;
+  mix-blend-mode: normal;
 }
 .fc-board__thumb:hover {
   opacity: 1;

@@ -21,6 +21,7 @@ import {
 } from "@/lib/flipchart-hd";
 import { FLIPCHART_FLIP_MS, flipchartFlipTransforms } from "@/lib/living-motion";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { FlipchartPlate } from "./FlipchartPlate";
 import "@/styles/flipchart-presenter.css";
 
 interface FlipchartHdPanelProps {
@@ -38,13 +39,7 @@ function FlipchartFace({ page }: { page?: FlipchartPage }) {
       data-hd={isHdFlipchartPath(src) ? "true" : "false"}
       data-flipchart-src={src}
     >
-      <img
-        src={src}
-        alt={`Lámina ${page.flipchartPage} del flipchart`}
-        loading="eager"
-        decoding="async"
-        draggable={false}
-      />
+      <FlipchartPlate page={page} />
     </div>
   );
 }
@@ -238,7 +233,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor }: FlipchartHdPanel
               onClick={() => goTo(i, i > safeIdx ? "next" : "prev")}
               aria-label={`Ir a hoja ${i + 1}`}
             >
-              <img src={getFlipchartPageSrc(p)} alt="" loading="lazy" draggable={false} />
+              <FlipchartPlate page={p} decorative />
             </button>
           ))}
         </div>

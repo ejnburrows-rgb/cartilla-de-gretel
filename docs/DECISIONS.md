@@ -495,3 +495,5 @@ DOCUMENTATION DUTY section of `AGENTS.md`).
 - **2026-08-09 — Original artwork is never visually suppressed for missing answer-key metadata.** A cell may stay non-interactive until its answer key is verified, but its authentic illustration stays unfiltered and full-opacity; the student reader has no feedback-sound or character-event calls.
 
 - **2026-09-08 — Repair from the existing source pages.** Use lossless teacher-color crops where the identical drawing exists and exact student crops otherwise; verify new workbook-only records against all 62 teacher hashes and source pixels. Correct the page 7 bear slot to the printed original.
+
+- 2026-09-08: Use original HD teacher colors and per-page SVG display frames instead of color-altered derivatives and uniform zoom. This preserves source pixels but does not complete the native digital reconstruction or full-color workbook requirement.

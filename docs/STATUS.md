@@ -344,3 +344,8 @@ Commit `7a417c2` deployed successfully (READY). Full build, content/art validati
 ### Source-color display correction — 2026-09-08
 
 Rechecked all 45 newly cropped image files: decoded pixels are identical to their source rectangles. Found that runtime `mix-blend-mode: multiply` was tinting those exact files against cream paper. Faithful image paths now render with normal blending. The owner's colored-apple requirement remains open: the available grayscale crop is not accepted as the final deliverable; the red archived derivative has not been proven against a colored source. Do not claim the apple fixed or all illustrations color-complete.
+
+
+### Flipchart display cleanup — 2026-09-08
+
+Prepared page-specific display frames for all 62 original HD color plates, shared by presentation faces and thumbnails. Removed contrast/saturation filters and the arbitrary zoom; source images are unchanged. This is scan-margin cleanup, not a completed native digital reconstruction. Some scan shadows overlap printed art and require further review. The full-color apple and remaining grayscale workbook illustrations remain unresolved. The owner explicitly authorized pushing this checkpoint to the existing restoration branch. Preview build and signed-in classroom screenshot verification are pending.
