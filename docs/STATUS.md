@@ -339,3 +339,8 @@ The rest is owner-decision work, listed in `docs/DECISIONS.md`.
 ### Verified preview — 2026-09-08
 
 Commit `7a417c2` deployed successfully (READY). Full build, content/art validation and the 53-image source audit passed. Browser inspection confirmed restored illustrations on lessons 1–5, including page 1's single eye and page 7's bear. Lesson navigation was exercised in a guest preview; no real student records were used. Preview: https://cartilla-de-gretel-go9vzi20r-ejns-projects-1b938dd2.vercel.app/cartilla/leccion/1 . This is a verified preview, not a production release or a claim that all 24 lessons are finished.
+
+
+### Source-color display correction — 2026-09-08
+
+Rechecked all 45 newly cropped image files: decoded pixels are identical to their source rectangles. Found that runtime `mix-blend-mode: multiply` was tinting those exact files against cream paper. Faithful image paths now render with normal blending. The owner's colored-apple requirement remains open: the available grayscale crop is not accepted as the final deliverable; the red archived derivative has not been proven against a colored source. Do not claim the apple fixed or all illustrations color-complete.

@@ -12,3 +12,9 @@ img[data-art-opaque="true"] {
     mix-blend-mode: normal;
   }
 }
+
+/* Faithful lesson crops preserve the source palette. Multiplying them by the
+ * cream page changes every nonwhite color, even when the image file is exact. */
+img[src^="/cartilla/art/faithful/"] {
+  mix-blend-mode: normal;
+}
