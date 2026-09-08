@@ -41,3 +41,8 @@ The Lesson 1 `traje` slot reuses the existing mapped authentic `uniforme` asset.
 - Corrected the final cell of physical workbook page 7 from an extra hoop to the original bear, including its non-A answer classification.
 - The existing build checks now share the verified workbook-crop evidence instead of recognizing only the five older, date-specific records. No color threshold was relaxed.
 - Changes are being saved on the existing Lessons 1–5 release branch. Preview build and browser review are pending at this checkpoint; production is not claimed updated.
+
+
+### Verified preview — 2026-09-08
+
+Commit `7a417c2` deployed successfully (READY). Full build, content/art validation and the 53-image source audit passed. Browser inspection confirmed restored illustrations on lessons 1–5, including page 1's single eye and page 7's bear. Lesson navigation was exercised in a guest preview; no real student records were used. Preview: https://cartilla-de-gretel-go9vzi20r-ejns-projects-1b938dd2.vercel.app/cartilla/leccion/1 . This is a verified preview, not a production release or a claim that all 24 lessons are finished.
