@@ -96,7 +96,7 @@
             },
             {
               "caption": "ojos",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-1/ojos.webp",
+              "illustrationSrc": "/cartilla/art/faithful/leccion-1/ojos-pagina-1.webp",
               "correct": true
             },
             {
@@ -591,9 +591,9 @@
               "illustrationSrc": "/cartilla/art/faithful/vocal-a/aguja.webp"
             },
             {
-              "caption": "aro",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/aro.webp",
-              "correct": true
+              "caption": "oso",
+              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oso.webp",
+              "correct": false
             }
           ]
         }
@@ -8254,3 +8254,4 @@
     }
   }
 }
+

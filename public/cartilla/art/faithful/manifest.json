@@ -102,13 +102,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-o/oso.webp",
-    "sourceFlipchartPage": "o-page-3.jpg",
+    "sourceFlipchartPage": 4,
     "cropBox": [
-      41,
-      2275,
-      750,
-      554
-    ]
+      161,
+      2496,
+      560,
+      661
+    ],
+    "source": "public/cartilla/art/hd/flipchart/page-004.jpg",
+    "sourceSha256": "21b92fff39c6e3cbdfd3ee85cb5596f227249a588df611a4d7cf966871f8cae4",
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "note": "Lossless crop of the existing authentic teacher page; complete drawing, no answer label, recoloring or generative edits."
   },
   {
     "slug": "estrella",
@@ -116,13 +120,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-e/estrella.webp",
-    "sourceFlipchartPage": "e-page-11.jpg",
+    "sourceFlipchartPage": 6,
     "cropBox": [
-      1115,
-      1618,
-      17,
-      12
-    ]
+      128,
+      2500,
+      607,
+      714
+    ],
+    "source": "public/cartilla/art/hd/flipchart/page-006.jpg",
+    "sourceSha256": "2b84f3f0c1ad28f1f1f58ccd57f8a8ed9da60311aa561ff019bf1f05a025ac3e",
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "note": "Lossless crop of the existing authentic teacher page; complete drawing, no answer label, recoloring or generative edits."
   },
   {
     "slug": "abanico",
@@ -130,16 +138,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-a/abanico.webp",
-    "sourceFlipchartPage": null,
+    "sourceFlipchartPage": 5,
     "cropBox": [
-      190,
-      1470,
-      550,
-      515
+      178,
+      1644,
+      577,
+      581
     ],
-    "source": "public/cartilla/images/source/a/a-page-4.jpg",
-    "provenanceStatus": "FIXED-2026-WRONG-CROP",
-    "note": "Was showing the ala (wings) crop by mistake. Re-cropped from the real source page a-page-4.jpg, top-left cell (the fan next to anillo/araña, matching the printed abanico/anillo/araña/ala/aro/Ana grid)."
+    "source": "public/cartilla/art/hd/flipchart/page-005.jpg",
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "note": "Lossless crop of the existing authentic teacher page; complete drawing, no answer label, recoloring or generative edits.",
+    "sourceSha256": "9908e3fe7403574e5f3f21c838eba81fd61b948278dde9b233cf41bce3fd6e9a"
   },
   {
     "slug": "alas",
@@ -147,13 +156,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-a/alas.webp",
-    "sourceFlipchartPage": "a-page-5.jpg",
+    "sourceFlipchartPage": 5,
     "cropBox": [
-      1045,
-      917,
-      29,
-      38
-    ]
+      101,
+      2617,
+      721,
+      571
+    ],
+    "source": "public/cartilla/art/hd/flipchart/page-005.jpg",
+    "sourceSha256": "9908e3fe7403574e5f3f21c838eba81fd61b948278dde9b233cf41bce3fd6e9a",
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "note": "Lossless crop of the existing authentic teacher page; complete drawing, no answer label, recoloring or generative edits."
   },
   {
     "slug": "arana",
@@ -161,13 +174,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-a/arana.webp",
-    "sourceFlipchartPage": "a-page-4.jpg",
+    "sourceFlipchartPage": 5,
     "cropBox": [
-      1330,
-      2785,
-      105,
-      9
-    ]
+      1839,
+      1631,
+      476,
+      587
+    ],
+    "source": "public/cartilla/art/hd/flipchart/page-005.jpg",
+    "sourceSha256": "9908e3fe7403574e5f3f21c838eba81fd61b948278dde9b233cf41bce3fd6e9a",
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "note": "Lossless crop of the existing authentic teacher page; complete drawing, no answer label, recoloring or generative edits."
   },
   {
     "slug": "elefante",
@@ -175,13 +192,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-e/elefante.webp",
-    "sourceFlipchartPage": "e-page-5.jpg",
+    "sourceFlipchartPage": 6,
     "cropBox": [
-      274,
-      1387,
-      1228,
-      811
-    ]
+      141,
+      1611,
+      604,
+      610
+    ],
+    "source": "public/cartilla/art/hd/flipchart/page-006.jpg",
+    "sourceSha256": "2b84f3f0c1ad28f1f1f58ccd57f8a8ed9da60311aa561ff019bf1f05a025ac3e",
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "note": "Lossless crop of the existing authentic teacher page; complete drawing, no answer label, recoloring or generative edits."
   },
   {
     "slug": "erizo",
@@ -189,13 +210,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-e/erizo.webp",
-    "sourceFlipchartPage": "e-page-11.jpg",
+    "sourceFlipchartPage": 6,
     "cropBox": [
-      210,
-      598,
-      195,
-      131
-    ]
+      923,
+      2483,
+      654,
+      738
+    ],
+    "source": "public/cartilla/art/hd/flipchart/page-006.jpg",
+    "sourceSha256": "2b84f3f0c1ad28f1f1f58ccd57f8a8ed9da60311aa561ff019bf1f05a025ac3e",
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "note": "Lossless crop of the existing authentic teacher page; complete drawing, no answer label, recoloring or generative edits."
   },
   {
     "slug": "escalera",
@@ -203,13 +228,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-e/escalera.webp",
-    "sourceFlipchartPage": "e-page-10.jpg",
+    "sourceFlipchartPage": 6,
     "cropBox": [
-      230,
-      640,
-      60,
-      115
-    ]
+      1798,
+      2496,
+      567,
+      732
+    ],
+    "source": "public/cartilla/art/hd/flipchart/page-006.jpg",
+    "sourceSha256": "2b84f3f0c1ad28f1f1f58ccd57f8a8ed9da60311aa561ff019bf1f05a025ac3e",
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "note": "Lossless crop of the existing authentic teacher page; complete drawing, no answer label, recoloring or generative edits."
   },
   {
     "slug": "indio",
@@ -217,13 +246,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-i/indio.webp",
-    "sourceFlipchartPage": "i-page-6.jpg",
+    "sourceFlipchartPage": 7,
     "cropBox": [
-      1570,
-      1526,
-      773,
-      472
-    ]
+      1812,
+      1483,
+      527,
+      742
+    ],
+    "source": "public/cartilla/art/hd/flipchart/page-007.jpg",
+    "sourceSha256": "4d065f7f401188fab04060b250baa3494d62abc66e24b082db6afcc2c5bcd10e",
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "note": "Lossless crop of the existing authentic teacher page; complete drawing, no answer label, recoloring or generative edits."
   },
   {
     "slug": "insecto",
@@ -231,13 +264,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-i/insecto.webp",
-    "sourceFlipchartPage": "i-page-15.jpg",
+    "sourceFlipchartPage": 7,
     "cropBox": [
-      111,
-      346,
-      3,
-      3
-    ]
+      144,
+      2537,
+      631,
+      593
+    ],
+    "source": "public/cartilla/art/hd/flipchart/page-007.jpg",
+    "sourceSha256": "4d065f7f401188fab04060b250baa3494d62abc66e24b082db6afcc2c5bcd10e",
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "note": "Lossless crop of the existing authentic teacher page; complete drawing, no answer label, recoloring or generative edits."
   },
   {
     "slug": "isla",
@@ -245,13 +282,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-i/isla.webp",
-    "sourceFlipchartPage": "i-page-13.jpg",
+    "sourceFlipchartPage": 7,
     "cropBox": [
-      687,
-      887,
-      2,
-      6
-    ]
+      906,
+      2523,
+      705,
+      661
+    ],
+    "source": "public/cartilla/art/hd/flipchart/page-007.jpg",
+    "sourceSha256": "4d065f7f401188fab04060b250baa3494d62abc66e24b082db6afcc2c5bcd10e",
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "note": "Lossless crop of the existing authentic teacher page; complete drawing, no answer label, recoloring or generative edits."
   },
   {
     "slug": "ocho",
@@ -259,13 +300,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-o/ocho.webp",
-    "sourceFlipchartPage": "o-page-5.jpg",
+    "sourceFlipchartPage": 4,
     "cropBox": [
-      116,
-      1524,
-      4,
-      8
-    ]
+      1839,
+      2483,
+      560,
+      664
+    ],
+    "source": "public/cartilla/art/hd/flipchart/page-004.jpg",
+    "sourceSha256": "21b92fff39c6e3cbdfd3ee85cb5596f227249a588df611a4d7cf966871f8cae4",
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "note": "Lossless crop of the existing authentic teacher page; complete drawing, no answer label, recoloring or generative edits."
   },
   {
     "slug": "oreja",
@@ -273,13 +318,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-o/oreja.webp",
-    "sourceFlipchartPage": "o-page-3.jpg",
+    "sourceFlipchartPage": 4,
     "cropBox": [
-      1188,
-      2438,
-      11,
-      12
-    ]
+      1050,
+      2493,
+      433,
+      661
+    ],
+    "source": "public/cartilla/art/hd/flipchart/page-004.jpg",
+    "sourceSha256": "21b92fff39c6e3cbdfd3ee85cb5596f227249a588df611a4d7cf966871f8cae4",
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "note": "Lossless crop of the existing authentic teacher page; complete drawing, no answer label, recoloring or generative edits."
   },
   {
     "slug": "unicornio",
@@ -287,13 +336,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-u/unicornio.webp",
-    "sourceFlipchartPage": "u-page-17.jpg",
+    "sourceFlipchartPage": 8,
     "cropBox": [
-      794,
-      739,
-      320,
-      229
-    ]
+      134,
+      2282,
+      678,
+      694
+    ],
+    "source": "public/cartilla/art/hd/flipchart/page-008.jpg",
+    "sourceSha256": "94b0f8555752ef64161658f5e9114cd99d0462e596ddaa722a28d60bfab8460e",
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "note": "Lossless crop of the existing authentic teacher page; complete drawing, no answer label, recoloring or generative edits."
   },
   {
     "slug": "espejo",
@@ -301,13 +354,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-e/espejo.webp",
-    "sourceFlipchartPage": "e-page-5.jpg",
+    "sourceFlipchartPage": 6,
     "cropBox": [
-      827,
-      2527,
-      256,
-      106
-    ]
+      939,
+      1594,
+      635,
+      620
+    ],
+    "source": "public/cartilla/art/hd/flipchart/page-006.jpg",
+    "sourceSha256": "2b84f3f0c1ad28f1f1f58ccd57f8a8ed9da60311aa561ff019bf1f05a025ac3e",
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "note": "Lossless crop of the existing authentic teacher page; complete drawing, no answer label, recoloring or generative edits."
   },
   {
     "slug": "uno",
@@ -315,13 +372,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-u/uno.webp",
-    "sourceFlipchartPage": "u-page-18.jpg",
+    "sourceFlipchartPage": 8,
     "cropBox": [
-      68,
-      1556,
-      18,
-      27
-    ]
+      181,
+      1439,
+      591,
+      614
+    ],
+    "source": "public/cartilla/art/hd/flipchart/page-008.jpg",
+    "sourceSha256": "94b0f8555752ef64161658f5e9114cd99d0462e596ddaa722a28d60bfab8460e",
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "note": "Lossless crop of the existing authentic teacher page; complete drawing, no answer label, recoloring or generative edits."
   },
   {
     "slug": "oveja",
@@ -329,13 +390,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-o/oveja.webp",
-    "sourceFlipchartPage": "o-page-3.jpg",
+    "sourceFlipchartPage": 4,
     "cropBox": [
-      1529,
-      1553,
-      807,
-      511
-    ]
+      1819,
+      1611,
+      563,
+      523
+    ],
+    "source": "public/cartilla/art/hd/flipchart/page-004.jpg",
+    "sourceSha256": "21b92fff39c6e3cbdfd3ee85cb5596f227249a588df611a4d7cf966871f8cae4",
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "note": "Lossless crop of the existing authentic teacher page; complete drawing, no answer label, recoloring or generative edits."
   },
   {
     "slug": "avion",
@@ -343,13 +408,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-a/avion.webp",
-    "sourceFlipchartPage": "a-page-6.jpg",
     "cropBox": [
-      1168,
-      1572,
-      3,
-      5
-    ]
+      718,
+      1384,
+      618,
+      467
+    ],
+    "source": "public/cartilla/art/restored/workbook/page-003.png",
+    "sourceSha256": "69021c91951ea4147e96ea0ff563a6260a0e8d35212c48c75300f4c8a5a161d6",
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "teacherCounterpart": "absent-after-62-page-review",
+    "note": "Exact student drawing. All 62 teacher pages visually reviewed; differently drawn counterparts rejected. Source pixels retained unchanged."
   },
   {
     "slug": "aro",
@@ -374,13 +443,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-i/iman.webp",
-    "sourceFlipchartPage": "i-page-6.jpg",
+    "sourceFlipchartPage": 7,
     "cropBox": [
-      32,
-      1311,
-      781,
-      557
-    ]
+      168,
+      1631,
+      590,
+      553
+    ],
+    "source": "public/cartilla/art/hd/flipchart/page-007.jpg",
+    "sourceSha256": "4d065f7f401188fab04060b250baa3494d62abc66e24b082db6afcc2c5bcd10e",
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "note": "Lossless crop of the existing authentic teacher page; complete drawing, no answer label, recoloring or generative edits."
   },
   {
     "slug": "olla",
@@ -388,13 +461,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-o/olla.webp",
-    "sourceFlipchartPage": "o-page-3.jpg",
+    "sourceFlipchartPage": 4,
     "cropBox": [
-      50,
-      1338,
-      798,
-      517
-    ]
+      168,
+      1644,
+      560,
+      470
+    ],
+    "source": "public/cartilla/art/hd/flipchart/page-004.jpg",
+    "sourceSha256": "21b92fff39c6e3cbdfd3ee85cb5596f227249a588df611a4d7cf966871f8cae4",
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "note": "Lossless crop of the existing authentic teacher page; complete drawing, no answer label, recoloring or generative edits."
   },
   {
     "slug": "uvas",
@@ -402,13 +479,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-u/uvas.webp",
-    "sourceFlipchartPage": "u-page-7.jpg",
+    "sourceFlipchartPage": 8,
     "cropBox": [
-      838,
-      1320,
-      738,
-      495
-    ]
+      993,
+      1436,
+      597,
+      611
+    ],
+    "source": "public/cartilla/art/hd/flipchart/page-008.jpg",
+    "sourceSha256": "94b0f8555752ef64161658f5e9114cd99d0462e596ddaa722a28d60bfab8460e",
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "note": "Lossless crop of the existing authentic teacher page; complete drawing, no answer label, recoloring or generative edits."
   },
   {
     "slug": "iglesia",
@@ -416,9 +497,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-i/iglesia.webp",
-    "sourceFlipchartPage": null,
-    "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "cropBox": [
+      134,
+      941,
+      669,
+      686
+    ],
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "source": "public/cartilla/art/restored/workbook/page-005.png",
+    "sourceSha256": "e2fbb339b391222c93f50d4880416c12d19ea4bf751eb93a884e5d74cada1633",
+    "teacherCounterpart": "absent-after-62-page-review",
+    "note": "Exact student drawing. All 62 teacher pages visually reviewed; differently drawn counterparts rejected. Source pixels retained unchanged."
   },
   {
     "slug": "ojos",
@@ -426,9 +515,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-1/ojos.webp",
-    "sourceFlipchartPage": null,
-    "cropBox": null,
-    "provenanceStatus": "RECOVERED-2026-FROM-GIT-HISTORY-BLOB-cf0d6c7d"
+    "cropBox": [
+      110,
+      2870,
+      590,
+      251
+    ],
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "source": "public/cartilla/art/restored/workbook/page-009.png",
+    "sourceSha256": "ccd32548a5279edc88c14d6bd7b126a35074b7a559044ab8c8885756fa3d58c4",
+    "teacherCounterpart": "absent-after-62-page-review",
+    "note": "Exact student drawing. All 62 teacher pages visually reviewed; differently drawn counterparts rejected. Source pixels retained unchanged."
   },
   {
     "slug": "escoba",
@@ -453,14 +550,18 @@
     "lessonNumber": 22,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-19-c/casa.webp",
-    "sourceFlipchartPage": "c-page-52.jpg",
     "cropBox": [
-      1540,
-      1300,
-      660,
-      540
+      1123,
+      1288,
+      570,
+      539
     ],
-    "sourceNote": "house with trees (verify existing)"
+    "sourceNote": "house with trees (verify existing)",
+    "source": "public/cartilla/art/restored/workbook/page-004.png",
+    "sourceSha256": "07a1f9542f699eb9f79ea8d44d314be25a41839bc4484e90efec8e24a514eae6",
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "teacherCounterpart": "absent-after-62-page-review",
+    "note": "Exact student drawing. All 62 teacher pages visually reviewed; differently drawn counterparts rejected. Source pixels retained unchanged."
   },
   {
     "slug": "ola",
@@ -478,14 +579,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-1/pajaro.webp",
-    "sourceFlipchartPage": "page-003.jpg",
     "cropBox": [
-      530,
-      1380,
-      360,
-      360
+      1133,
+      2414,
+      560,
+      532
     ],
-    "provenanceStatus": "BACKFILLED-2026-FROM-FLIPCHART-PAGE-003"
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "source": "public/cartilla/art/restored/workbook/page-004.png",
+    "sourceSha256": "07a1f9542f699eb9f79ea8d44d314be25a41839bc4484e90efec8e24a514eae6",
+    "teacherCounterpart": "absent-after-62-page-review",
+    "note": "Exact student drawing. All 62 teacher pages visually reviewed; differently drawn counterparts rejected. Source pixels retained unchanged."
   },
   {
     "slug": "carro",
@@ -507,14 +611,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-1/dulce.webp",
-    "sourceFlipchartPage": "page-003.jpg",
     "cropBox": [
-      190,
-      200,
-      620,
-      540
+      2393,
+      2990,
+      597,
+      526
     ],
-    "provenanceStatus": "BACKFILLED-2026-FROM-FLIPCHART-PAGE-003"
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "source": "public/cartilla/art/restored/workbook/page-004.png",
+    "sourceSha256": "07a1f9542f699eb9f79ea8d44d314be25a41839bc4484e90efec8e24a514eae6",
+    "teacherCounterpart": "absent-after-62-page-review",
+    "note": "Exact student drawing. All 62 teacher pages visually reviewed; differently drawn counterparts rejected. Source pixels retained unchanged."
   },
   {
     "slug": "libro",
@@ -522,14 +629,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-1/libro.webp",
-    "sourceFlipchartPage": "page-003.jpg",
     "cropBox": [
-      180,
-      50,
-      620,
-      540
+      2424,
+      841,
+      563,
+      357
     ],
-    "provenanceStatus": "BACKFILLED-2026-FROM-FLIPCHART-PAGE-003"
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "source": "public/cartilla/art/restored/workbook/page-004.png",
+    "sourceSha256": "07a1f9542f699eb9f79ea8d44d314be25a41839bc4484e90efec8e24a514eae6",
+    "teacherCounterpart": "absent-after-62-page-review",
+    "note": "Exact student drawing. All 62 teacher pages visually reviewed; differently drawn counterparts rejected. Source pixels retained unchanged."
   },
   {
     "slug": "maiz",
@@ -537,13 +647,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-1/maiz.webp",
-    "sourceFlipchartPage": "a-page-4.jpg",
     "cropBox": [
-      850,
-      2549,
-      448,
-      319
-    ]
+      762,
+      3056,
+      563,
+      535
+    ],
+    "source": "public/cartilla/art/restored/workbook/page-003.png",
+    "sourceSha256": "69021c91951ea4147e96ea0ff563a6260a0e8d35212c48c75300f4c8a5a161d6",
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "teacherCounterpart": "absent-after-62-page-review",
+    "note": "Exact student drawing. All 62 teacher pages visually reviewed; differently drawn counterparts rejected. Source pixels retained unchanged."
   },
   {
     "slug": "arbol",
@@ -551,13 +665,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-a/arbol.webp",
-    "sourceFlipchartPage": "a-page-5.jpg",
     "cropBox": [
-      403,
-      751,
-      222,
-      160
-    ]
+      1813,
+      1288,
+      484,
+      539
+    ],
+    "source": "public/cartilla/art/restored/workbook/page-004.png",
+    "sourceSha256": "07a1f9542f699eb9f79ea8d44d314be25a41839bc4484e90efec8e24a514eae6",
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "teacherCounterpart": "absent-after-62-page-review",
+    "note": "Exact student drawing. All 62 teacher pages visually reviewed; differently drawn counterparts rejected. Source pixels retained unchanged."
   },
   {
     "slug": "ardilla",
@@ -565,9 +683,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-a/ardilla.webp",
-    "sourceFlipchartPage": null,
-    "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "cropBox": [
+      1974,
+      2070,
+      618,
+      553
+    ],
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "source": "public/cartilla/art/restored/workbook/page-009.png",
+    "sourceSha256": "ccd32548a5279edc88c14d6bd7b126a35074b7a559044ab8c8885756fa3d58c4",
+    "teacherCounterpart": "absent-after-62-page-review",
+    "note": "Exact student drawing. All 62 teacher pages visually reviewed; differently drawn counterparts rejected. Source pixels retained unchanged."
   },
   {
     "slug": "escuela",
@@ -575,9 +701,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-e/escuela.webp",
-    "sourceFlipchartPage": null,
-    "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "cropBox": [
+      1366,
+      1926,
+      584,
+      525
+    ],
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "source": "public/cartilla/art/restored/workbook/page-003.png",
+    "sourceSha256": "69021c91951ea4147e96ea0ff563a6260a0e8d35212c48c75300f4c8a5a161d6",
+    "teacherCounterpart": "absent-after-62-page-review",
+    "note": "Exact student drawing. All 62 teacher pages visually reviewed; differently drawn counterparts rejected. Source pixels retained unchanged."
   },
   {
     "slug": "igual",
@@ -585,9 +719,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-i/igual.webp",
-    "sourceFlipchartPage": null,
-    "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "cropBox": [
+      831,
+      2829,
+      340,
+      258
+    ],
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "source": "public/cartilla/art/restored/workbook/page-015.png",
+    "sourceSha256": "5127dc7e2cbdfa950126197c1eb8a19e064d57592b3782d8dcec284e29767020",
+    "teacherCounterpart": "absent-after-62-page-review",
+    "note": "Exact student drawing. All 62 teacher pages visually reviewed; differently drawn counterparts rejected. Source pixels retained unchanged."
   },
   {
     "slug": "iguana",
@@ -595,9 +737,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-i/iguana.webp",
-    "sourceFlipchartPage": null,
-    "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "cropBox": [
+      1353,
+      917,
+      590,
+      432
+    ],
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "source": "public/cartilla/art/restored/workbook/page-015.png",
+    "sourceSha256": "5127dc7e2cbdfa950126197c1eb8a19e064d57592b3782d8dcec284e29767020",
+    "teacherCounterpart": "absent-after-62-page-review",
+    "note": "Exact student drawing. All 62 teacher pages visually reviewed; differently drawn counterparts rejected. Source pixels retained unchanged."
   },
   {
     "slug": "invierno",
@@ -605,13 +755,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-i/invierno.webp",
-    "sourceFlipchartPage": "i-page-13.jpg",
     "cropBox": [
-      941,
-      581,
-      140,
-      237
-    ]
+      1995,
+      1452,
+      587,
+      577
+    ],
+    "source": "public/cartilla/art/restored/workbook/page-015.png",
+    "sourceSha256": "5127dc7e2cbdfa950126197c1eb8a19e064d57592b3782d8dcec284e29767020",
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "teacherCounterpart": "absent-after-62-page-review",
+    "note": "Exact student drawing. All 62 teacher pages visually reviewed; differently drawn counterparts rejected. Source pixels retained unchanged."
   },
   {
     "slug": "uña",
@@ -633,9 +787,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-a/anillo.webp",
-    "sourceFlipchartPage": null,
-    "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "sourceFlipchartPage": 5,
+    "cropBox": [
+      1007,
+      1651,
+      553,
+      510
+    ],
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "source": "public/cartilla/art/hd/flipchart/page-005.jpg",
+    "sourceSha256": "9908e3fe7403574e5f3f21c838eba81fd61b948278dde9b233cf41bce3fd6e9a",
+    "note": "Lossless crop of the existing authentic teacher page; complete drawing, no answer label, recoloring or generative edits."
   },
   {
     "slug": "manzana",
@@ -643,9 +805,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-1/manzana.webp",
-    "sourceFlipchartPage": null,
-    "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "cropBox": [
+      1823,
+      724,
+      495,
+      539
+    ],
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "source": "public/cartilla/art/restored/workbook/page-004.png",
+    "sourceSha256": "07a1f9542f699eb9f79ea8d44d314be25a41839bc4484e90efec8e24a514eae6",
+    "teacherCounterpart": "absent-after-62-page-review",
+    "note": "Exact student drawing. All 62 teacher pages visually reviewed; differently drawn counterparts rejected. Source pixels retained unchanged."
   },
   {
     "slug": "pera",
@@ -653,9 +823,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-1/pera.webp",
-    "sourceFlipchartPage": null,
-    "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "cropBox": [
+      2414,
+      1851,
+      583,
+      542
+    ],
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "source": "public/cartilla/art/restored/workbook/page-004.png",
+    "sourceSha256": "07a1f9542f699eb9f79ea8d44d314be25a41839bc4484e90efec8e24a514eae6",
+    "teacherCounterpart": "absent-after-62-page-review",
+    "note": "Exact student drawing. All 62 teacher pages visually reviewed; differently drawn counterparts rejected. Source pixels retained unchanged."
   },
   {
     "slug": "taza",
@@ -663,9 +841,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-1/taza.webp",
-    "sourceFlipchartPage": null,
-    "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "cropBox": [
+      1181,
+      1991,
+      361,
+      299
+    ],
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "source": "public/cartilla/art/restored/workbook/page-004.png",
+    "sourceSha256": "07a1f9542f699eb9f79ea8d44d314be25a41839bc4484e90efec8e24a514eae6",
+    "teacherCounterpart": "absent-after-62-page-review",
+    "note": "Exact student drawing. All 62 teacher pages visually reviewed; differently drawn counterparts rejected. Source pixels retained unchanged."
   },
   {
     "slug": "uniforme",
@@ -673,13 +859,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-u/uniforme.webp",
-    "sourceFlipchartPage": "u-page-17.jpg",
+    "sourceFlipchartPage": 8,
     "cropBox": [
-      79,
-      471,
-      247,
-      222
-    ]
+      1090,
+      2292,
+      423,
+      657
+    ],
+    "source": "public/cartilla/art/hd/flipchart/page-008.jpg",
+    "sourceSha256": "94b0f8555752ef64161658f5e9114cd99d0462e596ddaa722a28d60bfab8460e",
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "note": "Lossless crop of the existing authentic teacher page; complete drawing, no answer label, recoloring or generative edits."
   },
   {
     "slug": "mama",
@@ -757,13 +947,17 @@
     "lessonNumber": 1,
     "pageNumber": 16,
     "src": "/cartilla/art/faithful/leccion-1/pez.webp",
-    "sourceFlipchartPage": "u-page-16.jpg",
     "cropBox": [
       718,
-      350,
-      254,
-      235
-    ]
+      841,
+      597,
+      556
+    ],
+    "source": "public/cartilla/art/restored/workbook/page-015.png",
+    "sourceSha256": "5127dc7e2cbdfa950126197c1eb8a19e064d57592b3782d8dcec284e29767020",
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "teacherCounterpart": "absent-after-62-page-review",
+    "note": "Exact student drawing. All 62 teacher pages visually reviewed; differently drawn counterparts rejected. Source pixels retained unchanged."
   },
   {
     "slug": "pino",
@@ -1488,13 +1682,17 @@
     "lessonNumber": 1,
     "pageNumber": 16,
     "src": "/cartilla/art/faithful/leccion-1/arco.webp",
-    "sourceFlipchartPage": "u-page-16.jpg",
+    "sourceFlipchartPage": 3,
     "cropBox": [
-      980,
-      350,
-      252,
-      235
-    ]
+      1449,
+      2889,
+      420,
+      453
+    ],
+    "source": "public/cartilla/art/hd/flipchart/page-003.jpg",
+    "sourceSha256": "dd72404724ae88de70a3cbaf585c48d6e6492c8ce24a963f92174a8cbdfaf70b",
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "note": "Lossless crop of the existing authentic teacher page; complete drawing, no answer label, recoloring or generative edits."
   },
   {
     "slug": "aguila",
@@ -1502,13 +1700,17 @@
     "lessonNumber": 1,
     "pageNumber": 16,
     "src": "/cartilla/art/faithful/leccion-1/aguila.webp",
-    "sourceFlipchartPage": "u-page-16.jpg",
+    "sourceFlipchartPage": 8,
     "cropBox": [
-      980,
-      842,
-      252,
-      236
-    ]
+      1839,
+      1416,
+      570,
+      584
+    ],
+    "source": "public/cartilla/art/hd/flipchart/page-008.jpg",
+    "sourceSha256": "94b0f8555752ef64161658f5e9114cd99d0462e596ddaa722a28d60bfab8460e",
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "note": "Lossless crop of the existing authentic teacher page; complete drawing, no answer label, recoloring or generative edits."
   },
   {
     "slug": "gaveta",
@@ -1876,9 +2078,50 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-1/carro.webp",
-    "source": null,
-    "cropBox": null,
-    "provenanceStatus": "PASS-VERIFIED-2026-QA",
-    "note": "No recorded crop provenance (predates manifest tracking); a 2026-07-15 commit message claimed it was transplanted from leccion-18-rr/carro.webp, but that file is a mismatched donkey/camel leg crop (confirmed FAIL in qa-results.json) — the two files are NOT identical despite the commit message. This file was independently visually re-verified 2026-07-20: a genuine, clean, colorful vintage-car illustration, PASS-graded. Wired onto the page-layouts.json carro cell (previously unwired/pendiente despite this real crop sitting unused on disk)."
+    "source": "public/cartilla/art/restored/workbook/page-004.png",
+    "cropBox": [
+      2400,
+      2475,
+      594,
+      450
+    ],
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "note": "Exact student drawing. All 62 teacher pages visually reviewed; differently drawn counterparts rejected. Source pixels retained unchanged.",
+    "sourceSha256": "07a1f9542f699eb9f79ea8d44d314be25a41839bc4484e90efec8e24a514eae6",
+    "teacherCounterpart": "absent-after-62-page-review"
+  },
+  {
+    "slug": "ola",
+    "word": "ola",
+    "src": "/cartilla/art/faithful/vocal-o/ola.webp",
+    "source": "public/cartilla/art/restored/workbook/page-015.png",
+    "cropBox": [
+      144,
+      2070,
+      539,
+      587
+    ],
+    "sourceSha256": "5127dc7e2cbdfa950126197c1eb8a19e064d57592b3782d8dcec284e29767020",
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "teacherCounterpart": "absent-after-62-page-review",
+    "note": "Exact student drawing. All 62 teacher pages visually reviewed; differently drawn counterparts rejected. Source pixels retained unchanged."
+  },
+  {
+    "slug": "ojos-pagina-1",
+    "word": "ojos",
+    "lessonNumber": 1,
+    "pageNumber": 1,
+    "src": "/cartilla/art/faithful/leccion-1/ojos-pagina-1.webp",
+    "source": "public/cartilla/art/restored/workbook/page-003.png",
+    "sourceSha256": "69021c91951ea4147e96ea0ff563a6260a0e8d35212c48c75300f4c8a5a161d6",
+    "cropBox": [
+      134,
+      3159,
+      536,
+      291
+    ],
+    "provenanceStatus": "VERIFIED-EXACT-SOURCE-CROP-2026-09-08",
+    "teacherCounterpart": "absent-after-62-page-review",
+    "note": "Physical student page 1 shows one eye, while later pages show a pair. Preserve this exact page-specific original."
   }
 ]

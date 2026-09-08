@@ -104,9 +104,24 @@ export const DUOTONE_ALLOWLIST = new Set(["uña"]);
  * separate 62-page flip chart. This set is derived from the audited manifest,
  * so a filename alone can never bypass the color gate.
  */
+// The strict Python source audit later in the same build independently verifies
+// every source hash, all 62 teacher hashes and exact decoded crop pixels.
+const sourceReview = readJson("docs/source-art-repair-2026-09-08.json");
+const reviewedWorkbook = new Map(
+  sourceReview.results
+    .filter((row) => row.visualReview === "no-identical-teacher-drawing")
+    .map((row) => [row.src, row]),
+);
 export const VERIFIED_WORKBOOK_CROPS = new Set(
   readJson("public/cartilla/art/faithful/manifest.json")
-    .filter((entry) => entry.provenanceStatus === "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08")
+    .filter((entry) => {
+      if (entry.provenanceStatus === "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08") return true;
+      const review = reviewedWorkbook.get(entry.src);
+      return entry.teacherCounterpart === "absent-after-62-page-review" &&
+        review?.sourceSha256 === entry.sourceSha256 &&
+        typeof entry.sourceSha256 === "string" &&
+        JSON.stringify(review.cropBox) === JSON.stringify(entry.cropBox);
+    })
     .map((entry) => entry.src),
 );
 

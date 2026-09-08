@@ -1,0 +1,754 @@
+{
+  "teacherPages": [
+    {
+      "page": 1,
+      "sha256": "0536aeda81807f4c05fe4a50275a8c7773c02fd4d387ff02d6502add604d4275"
+    },
+    {
+      "page": 2,
+      "sha256": "ea335749a971e9ccb2fdba708cada1a16aceff082e3ac951ee0b10f718575310"
+    },
+    {
+      "page": 3,
+      "sha256": "dd72404724ae88de70a3cbaf585c48d6e6492c8ce24a963f92174a8cbdfaf70b"
+    },
+    {
+      "page": 4,
+      "sha256": "21b92fff39c6e3cbdfd3ee85cb5596f227249a588df611a4d7cf966871f8cae4"
+    },
+    {
+      "page": 5,
+      "sha256": "9908e3fe7403574e5f3f21c838eba81fd61b948278dde9b233cf41bce3fd6e9a"
+    },
+    {
+      "page": 6,
+      "sha256": "2b84f3f0c1ad28f1f1f58ccd57f8a8ed9da60311aa561ff019bf1f05a025ac3e"
+    },
+    {
+      "page": 7,
+      "sha256": "4d065f7f401188fab04060b250baa3494d62abc66e24b082db6afcc2c5bcd10e"
+    },
+    {
+      "page": 8,
+      "sha256": "94b0f8555752ef64161658f5e9114cd99d0462e596ddaa722a28d60bfab8460e"
+    },
+    {
+      "page": 9,
+      "sha256": "c86ace499614e7d36beacebb1a8a888a1f1d9b4290d194d13d9af0df0087093c"
+    },
+    {
+      "page": 10,
+      "sha256": "961ae35056fc5124c579d1586c68e5ad940c8056bb1bcb9eaedc9fd8e8215747"
+    },
+    {
+      "page": 11,
+      "sha256": "e58fe24fd1b76295765f3e01f81ad15b6ff7f30db41201ad5532242d8976896c"
+    },
+    {
+      "page": 12,
+      "sha256": "60a45ee248d2b346f53314d88f78018c70f4165cb2fceec74c1e78499db0c58f"
+    },
+    {
+      "page": 13,
+      "sha256": "fa935756197d3eaf16b5778fdd7c0ede790bad2fe4f958e7c1241872e2c7e3d3"
+    },
+    {
+      "page": 14,
+      "sha256": "3b98015c5209c632d437e5d28a91f243007e3c8d919846380f6d22e802ddd208"
+    },
+    {
+      "page": 15,
+      "sha256": "3e52aee504a9479eb9d5d5f381435ad2bdb415048cc2455b942d981b2c0299e9"
+    },
+    {
+      "page": 16,
+      "sha256": "73662e132de2d5209628c8d720f28ddc1da2417b3f95a78103d9c85f46b92ac8"
+    },
+    {
+      "page": 17,
+      "sha256": "23b59dff086d2c6e0e0b07e7d42810f3a8436592a9d0e554c689c4becec5a519"
+    },
+    {
+      "page": 18,
+      "sha256": "6550a33e99298e2cc3a2f6f6ae5499879b435943ccf0e3d31603ad21bf3448a9"
+    },
+    {
+      "page": 19,
+      "sha256": "c4b69ab0d2480c44dd1a2e79e8970d04ab19ef54eaa28da0ba43930162701518"
+    },
+    {
+      "page": 20,
+      "sha256": "e2d528b8e3ab34ec65153c99955db486fa08b170312912005b50f7a8f5fe324e"
+    },
+    {
+      "page": 21,
+      "sha256": "fcc8a39f9c76de3a7623b456c53e6a2d9818c18dbe497030c16b95ad903305e1"
+    },
+    {
+      "page": 22,
+      "sha256": "bbd4d2cd17c05ef2ec48e1b40330ea18696563125248828a8d82a8da742e6b11"
+    },
+    {
+      "page": 23,
+      "sha256": "7bebe10fc38f1ac7c05b3d60eda8392b7c2f25150828c1b68d1facdf0e0246d9"
+    },
+    {
+      "page": 24,
+      "sha256": "acca859434516e2e69819562c4cf8107bd21b1f3296aef74aba1f9f81eaf9400"
+    },
+    {
+      "page": 25,
+      "sha256": "3f53624e0ad621160d1f3593948d72077cd62f7909363edcdd9e878ac13bbe3a"
+    },
+    {
+      "page": 26,
+      "sha256": "365cdf8aa1e1f05177b033cbc9f6c51c287341a6880fd66ffa38817cf744f196"
+    },
+    {
+      "page": 27,
+      "sha256": "facba78840af202d1e8ba87d6cbcafbb114f9b4763e52aae4176c0d22c84cf5c"
+    },
+    {
+      "page": 28,
+      "sha256": "fe61d85b65e3948f92f5898d86b6f7dbd071182a2c8a5885fc8910f06ea3d6d1"
+    },
+    {
+      "page": 29,
+      "sha256": "cfa91af48932596bd08830b76008bad0d3e06082bc41525601a39cb836c830c0"
+    },
+    {
+      "page": 30,
+      "sha256": "7742e3203be434b75e5550f32bdf6452e656be2d44a46763e5cb76cd81fe9366"
+    },
+    {
+      "page": 31,
+      "sha256": "d2e0c72d7a1bb0e26dad4152d303078b4c45bfce2abf82c64faff0d52b9e9f63"
+    },
+    {
+      "page": 32,
+      "sha256": "93ac4f6ac200235c81b8066b5b10f1ee41cab613531a631079211c8a402637c1"
+    },
+    {
+      "page": 33,
+      "sha256": "1417622d85b7c104afa1ded1665f0632b33c7fbb9f7b8a0d036db86b7770dbf0"
+    },
+    {
+      "page": 34,
+      "sha256": "442204d1a69c4a934f5e19f06be8a82b258ed1bfe04941b8018178cd3628d629"
+    },
+    {
+      "page": 35,
+      "sha256": "1e7c977e6841cbb5fcb8fc7b466cf112a9c4516034ecd23178278049e67de90e"
+    },
+    {
+      "page": 36,
+      "sha256": "af6691df5a099665e9692f29f869832cb54b8af7251d811e7f3156ea28aa2647"
+    },
+    {
+      "page": 37,
+      "sha256": "0a925a8b8ca1a9b91cb0e7d3e75195d83a2db86a85fdd66061db67e49cc49321"
+    },
+    {
+      "page": 38,
+      "sha256": "22dac285e0a79ce0b8d623dbe9245e06fe54071d801642629eb2aebff04cd8b2"
+    },
+    {
+      "page": 39,
+      "sha256": "27c3abad588af2f595cfca7122756296716d4a02df06f6ddb49c03c86e45e83d"
+    },
+    {
+      "page": 40,
+      "sha256": "2463586686791be39c7454bc7a301234819f2b91b15a7f0d9dc114cdea1fb1ee"
+    },
+    {
+      "page": 41,
+      "sha256": "b11eb269a76568427894379e14ea188192aeed41e16e0862407d446b30facc15"
+    },
+    {
+      "page": 42,
+      "sha256": "ed7df4f00773e2fa30945742eea3110ae4f6d562a412a16e3372f92e937fcd2d"
+    },
+    {
+      "page": 43,
+      "sha256": "4b1321791c9ce11986a72bc6b0f695f3cc2258e2dcba79506fc2214c82a50650"
+    },
+    {
+      "page": 44,
+      "sha256": "f2fd622e81bf2605fd084f33f3056b8d2858cc8d118a99fcce35d3033c8b74ee"
+    },
+    {
+      "page": 45,
+      "sha256": "23ce03df43585aa5ea67dc8438054e8f681b1d5a2de426c6a6e2a2463dded93d"
+    },
+    {
+      "page": 46,
+      "sha256": "f5c05c3aab5c44aa6b169d7ca9143eeea44bab5b8c81cc92219cf6a43719e69a"
+    },
+    {
+      "page": 47,
+      "sha256": "57f0f5afe386aa311871e483f2e7fd34b6e1ca20f7d288b1353538d817089f3a"
+    },
+    {
+      "page": 48,
+      "sha256": "a0e09e3f20669b3dae8fd3374c27f7f43347351aef6fa40beae8c1573a5f7b27"
+    },
+    {
+      "page": 49,
+      "sha256": "90608900a043ce1884964b9ca54cfd2f76474deeb97dfeefc1ae2eaa1471a9e6"
+    },
+    {
+      "page": 50,
+      "sha256": "ba434846ebc003c81e9e99d079019b6cb4c70c46c46cf1b7950c28575d3d8544"
+    },
+    {
+      "page": 51,
+      "sha256": "9b741a044d9da7fd65fcc94ca4514e0903d363596e84863dc15ef0b241a253ca"
+    },
+    {
+      "page": 52,
+      "sha256": "e7e46dfd7e5e8327f96ec75329d686ce76ecb02446b112ae11920a172aaaab5b"
+    },
+    {
+      "page": 53,
+      "sha256": "3110f750a6a87c753ccb224d00f13aadc5e765829be307511d9a1532a4386adf"
+    },
+    {
+      "page": 54,
+      "sha256": "781d3ad0198b10eb70f2ec47596e89fbf03b3f13b86543d3c646919bd5e4a68d"
+    },
+    {
+      "page": 55,
+      "sha256": "2a346680759ea5b0a3a9c1b904e2b6a00438869ef420a228edaadefd9272fccd"
+    },
+    {
+      "page": 56,
+      "sha256": "c72ce3fc3fd838cf8e6eb1e8835a826c2980d5991f151e60fc14f87fcac65c67"
+    },
+    {
+      "page": 57,
+      "sha256": "42d08854fc1af524419b9411850be8b082092e2ee7f870d428fa4a890d19e680"
+    },
+    {
+      "page": 58,
+      "sha256": "555c7bde54445a8f43aa5636a39a3eccbe9b6b32ebde24fa9f9173a5521605ad"
+    },
+    {
+      "page": 59,
+      "sha256": "07b6b8c2eb582d3a6d10a7482bd894b19cd5f50951a0a8594c071ea62859f1a5"
+    },
+    {
+      "page": 60,
+      "sha256": "39f0f6f79916ebe2238857760ce5741658cbb56874498370c66ceee03b2203c6"
+    },
+    {
+      "page": 61,
+      "sha256": "b61b5753ec17b7eae2ee9554b7dfb020a363fceed48875814c165766081f8bba"
+    },
+    {
+      "page": 62,
+      "sha256": "7ebe5504a1b227c8c0bd7d5443e948ba3ace051a07db72db4713a880d3393a5d"
+    }
+  ],
+  "results": [
+    {
+      "src": "/cartilla/art/faithful/leccion-1/manzana.webp",
+      "machineCandidates": [
+        {
+          "page": 59,
+          "reflected": false,
+          "inliers": 8,
+          "ratio": 0.8,
+          "score": 6.4
+        },
+        {
+          "page": 30,
+          "reflected": false,
+          "inliers": 8,
+          "ratio": 0.7272727272727273,
+          "score": 5.818181818181818
+        }
+      ],
+      "sourceSha256": "07a1f9542f699eb9f79ea8d44d314be25a41839bc4484e90efec8e24a514eae6",
+      "cropBox": [
+        1823,
+        724,
+        495,
+        539
+      ],
+      "searchedCropBox": [
+        1823,
+        724,
+        495,
+        539
+      ],
+      "visualReview": "no-identical-teacher-drawing",
+      "reviewNote": "Candidate pages 59 and 30 contain a boat scene and ñ vocabulary, not this apple."
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/libro.webp",
+      "machineCandidates": [],
+      "sourceSha256": "07a1f9542f699eb9f79ea8d44d314be25a41839bc4484e90efec8e24a514eae6",
+      "cropBox": [
+        2424,
+        841,
+        563,
+        357
+      ],
+      "searchedCropBox": [
+        2424,
+        841,
+        563,
+        357
+      ],
+      "visualReview": "no-identical-teacher-drawing",
+      "reviewNote": "No identical drawing found in the complete 62-page visual review or full-book feature search, including reflected comparisons."
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-19-c/casa.webp",
+      "machineCandidates": [
+        {
+          "page": 24,
+          "reflected": false,
+          "inliers": 10,
+          "ratio": 0.5263157894736842,
+          "score": 5.263157894736842
+        }
+      ],
+      "sourceSha256": "07a1f9542f699eb9f79ea8d44d314be25a41839bc4484e90efec8e24a514eae6",
+      "cropBox": [
+        1123,
+        1288,
+        570,
+        539
+      ],
+      "searchedCropBox": [
+        1123,
+        1288,
+        570,
+        539
+      ],
+      "visualReview": "no-identical-teacher-drawing",
+      "reviewNote": "Page 24 has a suitcase, tin, girl, hill and lizard; no identical house. The house on page 54 is a different drawing."
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-a/arbol.webp",
+      "machineCandidates": [
+        {
+          "page": 34,
+          "reflected": false,
+          "inliers": 7,
+          "ratio": 0.875,
+          "score": 6.125
+        },
+        {
+          "page": 34,
+          "reflected": true,
+          "inliers": 8,
+          "ratio": 0.7272727272727273,
+          "score": 5.818181818181818
+        },
+        {
+          "page": 62,
+          "reflected": true,
+          "inliers": 7,
+          "ratio": 0.6363636363636364,
+          "score": 4.454545454545454
+        }
+      ],
+      "sourceSha256": "07a1f9542f699eb9f79ea8d44d314be25a41839bc4484e90efec8e24a514eae6",
+      "cropBox": [
+        1813,
+        1288,
+        484,
+        539
+      ],
+      "searchedCropBox": [
+        1813,
+        1288,
+        484,
+        539
+      ],
+      "visualReview": "no-identical-teacher-drawing",
+      "reviewNote": "Page 34 is text. Page 62 has a pumpkin carriage. The small tree on page 51 is painted differently."
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/taza.webp",
+      "machineCandidates": [],
+      "sourceSha256": "07a1f9542f699eb9f79ea8d44d314be25a41839bc4484e90efec8e24a514eae6",
+      "cropBox": [
+        1181,
+        1991,
+        361,
+        299
+      ],
+      "searchedCropBox": [
+        1181,
+        1991,
+        361,
+        299
+      ],
+      "visualReview": "no-identical-teacher-drawing",
+      "reviewNote": "No identical drawing found in the complete 62-page visual review or full-book feature search, including reflected comparisons."
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/pera.webp",
+      "machineCandidates": [],
+      "sourceSha256": "07a1f9542f699eb9f79ea8d44d314be25a41839bc4484e90efec8e24a514eae6",
+      "cropBox": [
+        2414,
+        1851,
+        583,
+        542
+      ],
+      "searchedCropBox": [
+        2414,
+        1851,
+        583,
+        542
+      ],
+      "visualReview": "no-identical-teacher-drawing",
+      "reviewNote": "No identical drawing found in the complete 62-page visual review or full-book feature search, including reflected comparisons."
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/pajaro.webp",
+      "machineCandidates": [
+        {
+          "page": 42,
+          "reflected": true,
+          "inliers": 17,
+          "ratio": 0.5151515151515151,
+          "score": 8.757575757575758
+        },
+        {
+          "page": 17,
+          "reflected": false,
+          "inliers": 9,
+          "ratio": 0.5,
+          "score": 4.5
+        },
+        {
+          "page": 17,
+          "reflected": true,
+          "inliers": 9,
+          "ratio": 0.5,
+          "score": 4.5
+        }
+      ],
+      "sourceSha256": "07a1f9542f699eb9f79ea8d44d314be25a41839bc4484e90efec8e24a514eae6",
+      "cropBox": [
+        1133,
+        2414,
+        560,
+        532
+      ],
+      "searchedCropBox": [
+        1133,
+        2414,
+        560,
+        532
+      ],
+      "visualReview": "no-identical-teacher-drawing",
+      "reviewNote": "Page 42 has a car, donkey, carousel, tower, barrel and globe; page 17 has a frog. Neither contains this perched bird."
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/carro.webp",
+      "machineCandidates": [],
+      "sourceSha256": "07a1f9542f699eb9f79ea8d44d314be25a41839bc4484e90efec8e24a514eae6",
+      "cropBox": [
+        2400,
+        2475,
+        594,
+        450
+      ],
+      "searchedCropBox": [
+        2400,
+        2475,
+        594,
+        450
+      ],
+      "visualReview": "no-identical-teacher-drawing",
+      "reviewNote": "No identical drawing found in the complete 62-page visual review or full-book feature search, including reflected comparisons."
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/dulce.webp",
+      "machineCandidates": [],
+      "sourceSha256": "07a1f9542f699eb9f79ea8d44d314be25a41839bc4484e90efec8e24a514eae6",
+      "cropBox": [
+        2393,
+        2990,
+        597,
+        526
+      ],
+      "searchedCropBox": [
+        2393,
+        3004,
+        597,
+        512
+      ],
+      "visualReview": "no-identical-teacher-drawing",
+      "reviewNote": "No identical drawing found in the complete 62-page visual review or full-book feature search, including reflected comparisons."
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/maiz.webp",
+      "machineCandidates": [
+        {
+          "page": 59,
+          "reflected": false,
+          "inliers": 9,
+          "ratio": 0.6428571428571429,
+          "score": 5.7857142857142865
+        }
+      ],
+      "sourceSha256": "69021c91951ea4147e96ea0ff563a6260a0e8d35212c48c75300f4c8a5a161d6",
+      "cropBox": [
+        762,
+        3056,
+        563,
+        535
+      ],
+      "searchedCropBox": [
+        762,
+        3056,
+        563,
+        535
+      ],
+      "visualReview": "no-identical-teacher-drawing",
+      "reviewNote": "Page 59 is a boat scene; no identical corn drawing."
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-e/escuela.webp",
+      "machineCandidates": [],
+      "sourceSha256": "69021c91951ea4147e96ea0ff563a6260a0e8d35212c48c75300f4c8a5a161d6",
+      "cropBox": [
+        1366,
+        1926,
+        584,
+        525
+      ],
+      "searchedCropBox": [
+        1366,
+        1926,
+        584,
+        525
+      ],
+      "visualReview": "no-identical-teacher-drawing",
+      "reviewNote": "No identical drawing found in the complete 62-page visual review or full-book feature search, including reflected comparisons."
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-a/avion.webp",
+      "machineCandidates": [
+        {
+          "page": 29,
+          "reflected": true,
+          "inliers": 8,
+          "ratio": 0.6153846153846154,
+          "score": 4.923076923076923
+        },
+        {
+          "page": 50,
+          "reflected": true,
+          "inliers": 7,
+          "ratio": 0.7,
+          "score": 4.8999999999999995
+        }
+      ],
+      "sourceSha256": "69021c91951ea4147e96ea0ff563a6260a0e8d35212c48c75300f4c8a5a161d6",
+      "cropBox": [
+        718,
+        1384,
+        618,
+        467
+      ],
+      "searchedCropBox": [
+        718,
+        1384,
+        618,
+        467
+      ],
+      "visualReview": "no-identical-teacher-drawing",
+      "reviewNote": "Pages 29 and 50 show a washing scene and birthday party. The airplane on page 3 is a different drawing."
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-i/iglesia.webp",
+      "machineCandidates": [],
+      "sourceSha256": "e2fbb339b391222c93f50d4880416c12d19ea4bf751eb93a884e5d74cada1633",
+      "cropBox": [
+        134,
+        941,
+        669,
+        686
+      ],
+      "searchedCropBox": [
+        134,
+        941,
+        669,
+        686
+      ],
+      "visualReview": "no-identical-teacher-drawing",
+      "reviewNote": "No identical drawing found in the complete 62-page visual review or full-book feature search, including reflected comparisons."
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-a/ardilla.webp",
+      "machineCandidates": [],
+      "sourceSha256": "ccd32548a5279edc88c14d6bd7b126a35074b7a559044ab8c8885756fa3d58c4",
+      "cropBox": [
+        1974,
+        2070,
+        618,
+        553
+      ],
+      "searchedCropBox": [
+        1974,
+        2070,
+        618,
+        553
+      ],
+      "visualReview": "no-identical-teacher-drawing",
+      "reviewNote": "No identical drawing found in the complete 62-page visual review or full-book feature search, including reflected comparisons."
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/ojos.webp",
+      "machineCandidates": [],
+      "sourceSha256": "ccd32548a5279edc88c14d6bd7b126a35074b7a559044ab8c8885756fa3d58c4",
+      "cropBox": [
+        110,
+        2870,
+        590,
+        251
+      ],
+      "searchedCropBox": [
+        110,
+        2870,
+        590,
+        251
+      ],
+      "visualReview": "no-identical-teacher-drawing",
+      "reviewNote": "No identical drawing found in the complete 62-page visual review or full-book feature search, including reflected comparisons."
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-i/iguana.webp",
+      "machineCandidates": [],
+      "sourceSha256": "5127dc7e2cbdfa950126197c1eb8a19e064d57592b3782d8dcec284e29767020",
+      "cropBox": [
+        1353,
+        917,
+        590,
+        432
+      ],
+      "searchedCropBox": [
+        1353,
+        917,
+        590,
+        432
+      ],
+      "visualReview": "no-identical-teacher-drawing",
+      "reviewNote": "No identical drawing found in the complete 62-page visual review or full-book feature search, including reflected comparisons."
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-i/invierno.webp",
+      "machineCandidates": [],
+      "sourceSha256": "5127dc7e2cbdfa950126197c1eb8a19e064d57592b3782d8dcec284e29767020",
+      "cropBox": [
+        1995,
+        1452,
+        587,
+        577
+      ],
+      "searchedCropBox": [
+        1995,
+        1452,
+        587,
+        577
+      ],
+      "visualReview": "no-identical-teacher-drawing",
+      "reviewNote": "No identical drawing found in the complete 62-page visual review or full-book feature search, including reflected comparisons."
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/pez.webp",
+      "machineCandidates": [],
+      "sourceSha256": "5127dc7e2cbdfa950126197c1eb8a19e064d57592b3782d8dcec284e29767020",
+      "cropBox": [
+        718,
+        841,
+        597,
+        556
+      ],
+      "searchedCropBox": [
+        718,
+        841,
+        597,
+        556
+      ],
+      "visualReview": "no-identical-teacher-drawing",
+      "reviewNote": "No identical drawing found in the complete 62-page visual review or full-book feature search, including reflected comparisons."
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-i/igual.webp",
+      "machineCandidates": [
+        {
+          "page": 56,
+          "reflected": false,
+          "inliers": 8,
+          "ratio": 0.8888888888888888,
+          "score": 7.111111111111111
+        },
+        {
+          "page": 54,
+          "reflected": true,
+          "inliers": 7,
+          "ratio": 0.7,
+          "score": 4.8999999999999995
+        }
+      ],
+      "sourceSha256": "5127dc7e2cbdfa950126197c1eb8a19e064d57592b3782d8dcec284e29767020",
+      "cropBox": [
+        831,
+        2829,
+        340,
+        258
+      ],
+      "searchedCropBox": [
+        831,
+        2829,
+        340,
+        258
+      ],
+      "visualReview": "no-identical-teacher-drawing",
+      "reviewNote": "Pages 56 and 54 contain a candy scene and c vocabulary; no isolated equals-sign artwork."
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-o/ola.webp",
+      "machineCandidates": [],
+      "sourceSha256": "5127dc7e2cbdfa950126197c1eb8a19e064d57592b3782d8dcec284e29767020",
+      "cropBox": [
+        144,
+        2070,
+        539,
+        587
+      ],
+      "searchedCropBox": [
+        144,
+        2070,
+        539,
+        587
+      ],
+      "visualReview": "no-identical-teacher-drawing",
+      "reviewNote": "No identical drawing found in the complete 62-page visual review or full-book feature search, including reflected comparisons."
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/ojos-pagina-1.webp",
+      "machineCandidates": [],
+      "sourceSha256": "69021c91951ea4147e96ea0ff563a6260a0e8d35212c48c75300f4c8a5a161d6",
+      "cropBox": [
+        134,
+        3159,
+        536,
+        291
+      ],
+      "visualReview": "no-identical-teacher-drawing",
+      "reviewNote": "Physical student page 1 has one eye. No identical single-eye drawing was found in all 62 teacher pages or full-book feature comparisons, including reflection."
+    }
+  ],
+  "date": "2026-09-08",
+  "scope": "Exact existing student drawings used only where the complete teacher set has no identical counterpart. Original page files are retained unchanged."
+}

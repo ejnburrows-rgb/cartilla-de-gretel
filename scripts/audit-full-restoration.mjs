@@ -18,7 +18,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { findGrayscaleArt } from "./validate-art-color.mjs";
+import { findGrayscaleArt, VERIFIED_WORKBOOK_CROPS } from "./validate-art-color.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
@@ -59,11 +59,7 @@ const qaBySrc = new Map(
 );
 const manifestBySrc = new Map((manifest ?? []).filter((e) => e?.src).map((e) => [e.src, e]));
 
-const exactWorkbook = new Set(
-  (manifest ?? [])
-    .filter((e) => e?.provenanceStatus === "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08")
-    .map((e) => e.src),
-);
+const exactWorkbook = VERIFIED_WORKBOOK_CROPS;
 const documentedSourceProven = new Set([
   "/cartilla/art/faithful/leccion-1/ojos.webp",
   "/cartilla/art/faithful/vocal-i/iglesia.webp",

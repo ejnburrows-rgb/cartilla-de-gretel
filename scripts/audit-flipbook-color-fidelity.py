@@ -16,6 +16,7 @@ Generated/remastered art, weak source matches, and material palette drift fail.
 from __future__ import annotations
 
 import json
+import hashlib
 import re
 import sys
 from pathlib import Path
@@ -298,6 +299,11 @@ def direct_crop_proof(asset, entry):
     if direct is None:
         return None
     source_name, source_crop = direct
+    # Exact lossless pixels are stronger evidence than feature matching, which
+    # can reject simple drawings with too few corners (for example numerals).
+    if asset.shape == source_crop.shape and np.array_equal(asset, source_crop):
+        return {"status": "PASS_EXACT_FLIPBOOK_COLOR", "teacher_page": source_name,
+                "source_mode": "lossless-source-pixel-equality", "pixel_exact": True}
     a = shrink(asset, MAX_TEMPLATE_DIM)
     s = shrink(source_crop, max(MAX_TEMPLATE_DIM, max(a.shape[:2])))
     akp, ades = sift(gray_for_sift(a))
@@ -323,6 +329,44 @@ def family_expected_page(src):
         return SPECIAL_EXPECTED_PAGE[src]
     m = re.search(r"/faithful/(vocal-[oaeiu])/", src)
     return EXPECTED_HD_PAGE_BY_FAMILY.get(m.group(1)) if m else None
+
+
+def verified_workbook_crop(asset, entry):
+    """Accept a new workbook-only crop only with source pixels and search evidence."""
+    if entry.get("teacherCounterpart") != "absent-after-62-page-review":
+        return False
+    source = entry.get("source", "")
+    if not source.startswith("public/cartilla/art/restored/workbook/"):
+        return False
+    source_path = ROOT / source
+    proof_path = ROOT / "docs/source-art-repair-2026-09-08.json"
+    if not source_path.is_file() or not proof_path.is_file():
+        return False
+    digest = hashlib.sha256(source_path.read_bytes()).hexdigest()
+    if digest != entry.get("sourceSha256"):
+        return False
+    proof = load_json(proof_path)
+    pages = proof.get("teacherPages", [])
+    if sorted(p.get("page") for p in pages) != list(range(1, 63)):
+        return False
+    for page in pages:
+        path = HD_TEACHER_DIR / f"page-{page['page']:03}.jpg"
+        if hashlib.sha256(path.read_bytes()).hexdigest() != page.get("sha256"):
+            return False
+    record = next((r for r in proof.get("results", []) if r.get("src") == entry.get("src")), None)
+    if not record or record.get("visualReview") != "no-identical-teacher-drawing":
+        return False
+    if record.get("sourceSha256") != digest or record.get("cropBox") != entry.get("cropBox"):
+        return False
+    box = entry.get("cropBox")
+    if not isinstance(box, list) or len(box) != 4 or not all(isinstance(v, int) for v in box):
+        return False
+    x, y, w, h = box
+    page = read_bgr_path(source_path)
+    if page is None or x < 0 or y < 0 or w < 20 or h < 20 or x+w > page.shape[1] or y+h > page.shape[0]:
+        return False
+    crop = page[y:y+h, x:x+w]
+    return asset.shape == crop.shape and np.array_equal(asset, crop)
 
 
 def main():
@@ -395,7 +439,7 @@ def main():
 
         # Workbook-only proof is stronger than a fuzzy search result: these five
         # exact drawings were exhaustively checked against all 62 pages already.
-        if entry.get("provenanceStatus") == WORKBOOK_ONLY_PROVENANCE:
+        if entry.get("provenanceStatus") == WORKBOOK_ONLY_PROVENANCE or verified_workbook_crop(asset, entry):
             row["status"] = "PASS_EXACT_WORKBOOK_ONLY_NO_FLIPBOOK_COUNTERPART"
             row["source"] = entry.get("source")
             exact_workbook += 1

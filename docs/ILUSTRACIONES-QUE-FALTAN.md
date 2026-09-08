@@ -30,3 +30,14 @@ The next work begins only after the owner visually approves this batch.
 ## 2026-08-09 display correction
 
 The Lesson 1 `traje` slot reuses the existing mapped authentic `uniforme` asset. This was a source-wiring and presentation fix only: no new artwork was made, and unverified answer-key metadata no longer applies grayscale or opacity to any original illustration.
+
+
+## 2026-09-08 — Existing-source illustration repair
+
+- Repaired 44 existing runtime crops and added a page-specific single-eye crop: 24 teacher-color crops and 21 exact student-workbook crops.
+- Reviewed all 62 teacher pages. The 21 workbook-only drawings have no identical teacher counterpart; differently drawn cars, airplanes and houses were rejected. Search records and source hashes are in `docs/source-art-repair-2026-09-08.json`.
+- The complete Lessons 1–5 art check passes: 53 images, 27 authentic teacher-color matches, 26 verified workbook-only crops, zero unresolved failures. The first 44 new crops also passed exact source-pixel comparisons; 20 deliberately altered workbook copies were rejected by the strengthened source check.
+- Physical page 1 now uses its exact single-eye drawing, while later pages retain their pair of eyes.
+- Corrected the final cell of physical workbook page 7 from an extra hoop to the original bear, including its non-A answer classification.
+- The existing build checks now share the verified workbook-crop evidence instead of recognizing only the five older, date-specific records. No color threshold was relaxed.
+- Changes are being saved on the existing Lessons 1–5 release branch. Preview build and browser review are pending at this checkpoint; production is not claimed updated.

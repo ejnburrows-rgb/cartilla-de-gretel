@@ -323,3 +323,14 @@ The rest is owner-decision work, listed in `docs/DECISIONS.md`.
   the GitHub CLI. Full list, plus the 2 unmerged branches and 3 open pull
   requests that need an owner decision, in
   `docs/BRANCH-INVENTORY-REPORT.md` → "Re-inventory — 2026-07-29".
+
+
+## 2026-09-08 — Existing-source illustration repair
+
+- Repaired 44 existing runtime crops and added a page-specific single-eye crop: 24 teacher-color crops and 21 exact student-workbook crops.
+- Reviewed all 62 teacher pages. The 21 workbook-only drawings have no identical teacher counterpart; differently drawn cars, airplanes and houses were rejected. Search records and source hashes are in `docs/source-art-repair-2026-09-08.json`.
+- The complete Lessons 1–5 art check passes: 53 images, 27 authentic teacher-color matches, 26 verified workbook-only crops, zero unresolved failures. The first 44 new crops also passed exact source-pixel comparisons; 20 deliberately altered workbook copies were rejected by the strengthened source check.
+- Physical page 1 now uses its exact single-eye drawing, while later pages retain their pair of eyes.
+- Corrected the final cell of physical workbook page 7 from an extra hoop to the original bear, including its non-A answer classification.
+- The existing build checks now share the verified workbook-crop evidence instead of recognizing only the five older, date-specific records. No color threshold was relaxed.
+- Changes are being saved on the existing Lessons 1–5 release branch. Preview build and browser review are pending at this checkpoint; production is not claimed updated.
