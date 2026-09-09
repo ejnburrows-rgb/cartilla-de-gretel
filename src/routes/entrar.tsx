@@ -45,14 +45,25 @@ function Landing() {
           <BookHeroGretel size="lg" objectPosition="center 20%" autoIntro />
         </div>
 
-        <section className="home-landing__panel home-splash__panel" aria-labelledby="home-greeting">
-          <p id="home-greeting" className="home-landing__greeting" data-testid="home-greeting">
+        <section
+          className="home-landing__panel home-splash__panel"
+          aria-labelledby="home-greeting"
+        >
+          <p
+            id="home-greeting"
+            className="home-landing__greeting"
+            data-testid="home-greeting"
+          >
             {HOME_GREETING}
           </p>
 
-          <div className="home-landing__actions--stack" role="navigation" aria-label="Entrar">
+          <div
+            className="home-landing__actions--stack"
+            role="navigation"
+            aria-label="Entrar"
+          >
             <Link
-              to="/cartilla/unirse"
+              to="/cartilla/lecciones"
               className="home-landing__cta home-landing__cta--student"
               data-testid="home-cta-student"
             >
@@ -60,7 +71,7 @@ function Landing() {
             </Link>
 
             <Link
-              to="/login"
+              to="/cartilla/teacher/crm"
               className="home-landing__cta home-landing__cta--teacher"
               data-testid="home-cta-teacher"
             >

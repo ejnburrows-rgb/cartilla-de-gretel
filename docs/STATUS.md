@@ -3,6 +3,12 @@
 Honest current state. Updated 2026-09-09. Read this before starting work.
 
 
+> **2026-09-09 — public student and teacher entry, owner requested.**
+> - Production now opens student lessons, the local teacher CRM, and classroom presentation without a login or class code. The entry screen offers both roles directly; old login and join links redirect into the app.
+> - All 24 student lessons are accessible. Teacher access uses the explicitly labeled browser-local example classroom, including the local Dirección overview. Real cloud records retain their existing database protections.
+> - Focused access, routing, admin and local CRM checks pass (23 tests). Production build and hosted verification are release gates; this entry does not certify cross-device cloud progress.
+> - The workbook and CRM work branches #402/#403 and the separate restoration branch #401 were confirmed present on GitHub. #401 remains unmerged and is not described as live work.
+
 > **2026-09-09 — workbook improvements and isolated CRM review in PR #402.**
 > - Original workbook exercises allow correction; listening practice requires earned answers; matching supports drag, touch and keyboard buttons. Signed-in progress queues retain failed work and prevent concurrent requests or cross-student attribution.
 > - The owner's requested password-free entry is available in Vercel previews, backed by local sample data and clearly labeled. Production account checks and database policies remain enforced.

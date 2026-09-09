@@ -1,4 +1,10 @@
-import { createFileRoute, Outlet, Link, useLocation, redirect } from "@tanstack/react-router";
+import {
+  createFileRoute,
+  Outlet,
+  Link,
+  useLocation,
+  redirect,
+} from "@tanstack/react-router";
 import { useState } from "react";
 import {
   Users,
@@ -16,29 +22,22 @@ import {
 import { getStudentSession } from "@/lib/student-session";
 import { supabase } from "@/integrations/supabase/client";
 import { hasTeacherOrAdminRole } from "@/lib/auth-role";
-import { isSeedSessionActive, signOutSeedTeacher } from "@/lib/seed-data";
+import {
+  isSeedSessionActive,
+  signOutSeedTeacher,
+  startTeacherReview,
+} from "@/lib/seed-data";
 import { useIsAdmin } from "@/lib/admin-overview.functions";
 import "@/styles/teacher-chrome.css";
 
-// Every /cartilla/teacher/* page nests under this route via <Outlet/>, so
-// this is the single real gate for the whole teacher lane. Previously this
-// only kicked out logged-in students — it never actually checked for a real
-// teacher session, so the nav shell (and public curriculum content like the
-// Guía folders) rendered for anyone, logged in or not. Real student/class
-// data was still protected separately (every teacher.functions.ts call
-// requires a session), but the lane itself wasn't gated. Now it is — and it
-// also requires the signed-in user to actually hold the teacher or admin
-// role (has_role RPC), not just any authenticated Supabase session. Every
-// self-signup already gets 'teacher' automatically (see the
-// handle_new_user trigger), so this only ever blocks an account with no
-// role at all, which should never legitimately reach this lane.
+// Public access opens an isolated local classroom. Cloud reads still require
+// their own authenticated teacher session in the service layer.
 export const Route = createFileRoute("/cartilla/teacher")({
   beforeLoad: async () => {
-    // The local demo/seed lane is its own self-contained auth (see
-    // seed-data.ts) and is env-gated to never activate in a production
-    // build (VITE_ALLOW_DEMO_MODE) — when active, skip the real Supabase
-    // session/role check entirely rather than bouncing a demo teacher to
-    // /login for a session that was never meant to exist.
+    if (import.meta.env.VITE_CRM_REVIEW === "true") {
+      startTeacherReview();
+      return;
+    }
     if (isSeedSessionActive()) return;
     const studentSession = getStudentSession();
     if (studentSession) {
@@ -66,7 +65,7 @@ export const Route = createFileRoute("/cartilla/teacher")({
 async function signOut() {
   if (isSeedSessionActive()) signOutSeedTeacher();
   else await supabase.auth.signOut();
-  window.location.assign("/login");
+  window.location.assign("/entrar");
 }
 
 // The teacher lane's real "task menu" — every nav item here maps to an
@@ -74,7 +73,12 @@ async function signOut() {
 // mobile drawer below always stay in sync (previously "Present" pointed at
 // the student lesson list and "Progress" at a disconnected legacy page —
 // both silent dead-ends a teacher had no way to know were wrong).
-const NAV_ITEMS: Array<{ to: string; icon: React.ReactNode; label: string; match: string }> = [
+const NAV_ITEMS: Array<{
+  to: string;
+  icon: React.ReactNode;
+  label: string;
+  match: string;
+}> = [
   {
     to: "/cartilla/teacher/crm",
     icon: <GraduationCap className="w-4 h-4" />,
@@ -150,7 +154,15 @@ function TeacherLayout() {
 
   return (
     <div className="teacher-chrome min-h-screen flex flex-col relative overflow-hidden">
-      {isSeedSessionActive() && <div role="status" className="bg-amber-100 px-4 py-2 text-center text-sm font-bold text-amber-950">Modo de prueba · Los cambios se guardan solo en este navegador.</div>}
+      {isSeedSessionActive() && (
+        <div
+          role="status"
+          className="bg-amber-100 px-4 py-2 text-center text-sm font-bold text-amber-950"
+        >
+          Acceso abierto · Clase de ejemplo. Los cambios se guardan solo en este
+          navegador.
+        </div>
+      )}
       <header className="teacher-chrome__header sticky top-0 z-30 no-print transition-all duration-300">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3 min-w-0">
@@ -194,7 +206,11 @@ function TeacherLayout() {
             aria-expanded={mobileMenuOpen}
             onClick={() => setMobileMenuOpen((open) => !open)}
           >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {mobileMenuOpen ? (
+              <X className="w-5 h-5" />
+            ) : (
+              <Menu className="w-5 h-5" />
+            )}
           </button>
         </div>
 
@@ -261,4 +277,3 @@ function NavLink({
     </Link>
   );
 }
-

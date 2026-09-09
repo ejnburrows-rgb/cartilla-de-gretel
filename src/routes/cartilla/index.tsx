@@ -1,17 +1,10 @@
-import { createFileRoute, Link, redirect } from "@tanstack/react-router";
-import { getStudentSession } from "@/lib/student-session";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { BookHeroGretel } from "@/components/intro/BookHeroGretel";
 import { HOME_GREETING } from "@/lib/gretel-voice";
 import "@/styles/home-hero.css";
 import "@/styles/gretel-presence.css";
 
 export const Route = createFileRoute("/cartilla/")({
-  beforeLoad: () => {
-    const session = getStudentSession();
-    if (session) {
-      throw redirect({ to: "/cartilla/lecciones" });
-    }
-  },
   component: CartillaSplash,
   head: () => ({
     meta: [{ title: "Entrar — La Cartilla de Gretel" }],
@@ -38,8 +31,15 @@ function CartillaSplash() {
             {HOME_GREETING}
           </p>
 
-          <div className="home-landing__hero-col" style={{ marginTop: "1.15rem" }}>
-            <BookHeroGretel size="md" objectPosition="center 18%" autoIntro={false} />
+          <div
+            className="home-landing__hero-col"
+            style={{ marginTop: "1.15rem" }}
+          >
+            <BookHeroGretel
+              size="md"
+              objectPosition="center 18%"
+              autoIntro={false}
+            />
           </div>
 
           <div
@@ -47,14 +47,14 @@ function CartillaSplash() {
             style={{ maxWidth: 400, marginInline: "auto" }}
           >
             <Link
-              to="/cartilla/unirse"
+              to="/cartilla/lecciones"
               className="home-landing__cta home-landing__cta--student"
               data-testid="cartilla-splash-enter"
             >
               Entrar como estudiante
             </Link>
             <Link
-              to="/login"
+              to="/cartilla/teacher/crm"
               className="home-landing__cta home-landing__cta--teacher"
               data-testid="cartilla-splash-teacher"
             >
@@ -68,7 +68,11 @@ function CartillaSplash() {
         <Link to="/cartilla/ayuda" aria-label="Ayuda">
           Ayuda
         </Link>
-        <Link to="/login" aria-label="Acceso maestros" title="Acceso maestros">
+        <Link
+          to="/cartilla/teacher/crm"
+          aria-label="Acceso maestros"
+          title="Acceso maestros"
+        >
           Maestro
         </Link>
       </div>

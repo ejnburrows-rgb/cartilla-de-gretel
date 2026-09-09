@@ -26,13 +26,15 @@ export const Route = createFileRoute("/cartilla/presentar/$n")({
     ],
   }),
   beforeLoad: async ({ params }) => {
-    if (getStudentSession()) {
-      throw redirect({ to: "/cartilla/lecciones" });
-    }
-
     const n = Number(params.n);
     if (!Number.isFinite(n) || !CATALOG.find((e) => e.n === n)) {
       throw redirect({ to: "/cartilla/teacher" });
+    }
+
+    if (import.meta.env.VITE_CRM_REVIEW === "true") return;
+
+    if (getStudentSession()) {
+      throw redirect({ to: "/cartilla/lecciones" });
     }
 
     if (isSeedSessionActive()) return;

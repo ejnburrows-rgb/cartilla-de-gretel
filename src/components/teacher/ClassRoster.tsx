@@ -29,6 +29,7 @@ import {
   createSeedClass,
   addSeedStudents,
   deleteSeedStudent,
+  updateSeedStudent,
   isSeedSessionActive,
 } from "@/lib/seed-data";
 
@@ -224,13 +225,13 @@ export function ClassRoster() {
     const name = editingName.trim();
     if (!name) return;
     setEditingId(null);
-    if (isSeed) {
-      showMessage("Renombrar no está disponible en modo local todavía.", "error");
-      return;
-    }
     try {
-      await updateStudent({ data: { id: studentId, displayName: name } });
-      await refetchRealStudents();
+      if (isSeed) {
+        updateSeedStudent(studentId, { display_name: name });
+      } else {
+        await updateStudent({ data: { id: studentId, displayName: name } });
+        await refetchRealStudents();
+      }
       showMessage("Nombre actualizado.", "success");
     } catch (err) {
       showMessage(err instanceof Error ? err.message : "Error renombrando alumno", "error");
@@ -550,9 +551,9 @@ export function ClassRoster() {
                             <button
                               type="button"
                               onClick={() => startEditing(s)}
-                              disabled={isSeed}
+                              disabled={busy}
                               className="font-extrabold text-stone-800 text-sm text-left hover:underline decoration-dotted underline-offset-2 disabled:no-underline disabled:cursor-default cursor-pointer"
-                              title={isSeed ? undefined : "Editar nombre"}
+                              title="Editar nombre"
                             >
                               {s.display_name}
                               {s.archived_at && (
@@ -583,7 +584,7 @@ export function ClassRoster() {
                         <div className="flex items-center justify-end gap-1">
                           <button
                             onClick={() => startEditing(s)}
-                            disabled={busy || isSeed}
+                            disabled={busy}
                             className="p-2 text-stone-400 hover:text-vowel-a hover:bg-[hsl(48,100%,97%)] rounded-xl transition duration-200 cursor-pointer disabled:opacity-50"
                             title="Renombrar Alumno"
                           >

@@ -1,8 +1,16 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import {
+  createFileRoute,
+  Link,
+  useNavigate,
+  redirect,
+} from "@tanstack/react-router";
 import { useState } from "react";
 import { useServerFn } from "@/lib/useServerFn";
 import { ArrowLeft, Loader2, LogOut, KeyRound } from "lucide-react";
-import { listClassStudents, enterClassAsStudent } from "@/lib/student.functions";
+import {
+  listClassStudents,
+  enterClassAsStudent,
+} from "@/lib/student.functions";
 import { setStudentSession, useStudentSession } from "@/lib/student-session";
 import { supabase } from "@/integrations/supabase/client";
 import { useLanguage } from "@/context/LanguageContext";
@@ -11,8 +19,15 @@ import { sCopy } from "@/content/student-copy";
 import "@/styles/interactive-exercises.css";
 
 export const Route = createFileRoute("/cartilla/unirse")({
+  beforeLoad: () => {
+    if (import.meta.env.VITE_CRM_REVIEW === "true") {
+      throw redirect({ to: "/cartilla/lecciones" });
+    }
+  },
   component: JoinPage,
-  head: () => ({ meta: [{ title: "Únete a una clase — La Cartilla de Gretel" }] }),
+  head: () => ({
+    meta: [{ title: "Únete a una clase — La Cartilla de Gretel" }],
+  }),
 });
 
 type Step = "code" | "pick";
@@ -26,7 +41,9 @@ function JoinPage() {
   const session = useStudentSession();
   const [step, setStep] = useState<Step>("code");
   const [joinCode, setJoinCode] = useState("");
-  const [roster, setRoster] = useState<Array<{ studentId: string; displayName: string }>>([]);
+  const [roster, setRoster] = useState<
+    Array<{ studentId: string; displayName: string }>
+  >([]);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -88,7 +105,9 @@ function JoinPage() {
             <h1 className="text-3xl font-black font-fredoka text-[#3b2a12]">
               {t.soyEstudiante[lang]}
             </h1>
-            <p className="text-sm font-bold text-[#7a6040] mt-2">{t.pideleMaestra[lang]}</p>
+            <p className="text-sm font-bold text-[#7a6040] mt-2">
+              {t.pideleMaestra[lang]}
+            </p>
           </header>
 
           {session ? (
@@ -97,8 +116,8 @@ function JoinPage() {
                 {t.holaName[lang].replace("{name}", session.studentName)}!
               </p>
               <p className="text-sm font-bold text-stone-500 mb-6">
-                {t.estasEnClase[lang]} <strong className="text-primary">{session.className}</strong>
-                .
+                {t.estasEnClase[lang]}{" "}
+                <strong className="text-primary">{session.className}</strong>.
               </p>
               <div className="flex flex-col gap-3">
                 <Link
@@ -147,7 +166,11 @@ function JoinPage() {
                 disabled={busy || !joinCode}
                 className="w-full mt-4 py-4 rounded-full bg-primary text-primary-foreground font-black text-xl disabled:opacity-50 inline-flex items-center justify-center gap-2 shadow-lg hover:bg-primary/90 hover:-translate-y-1 transition-all active:translate-y-0"
               >
-                {busy ? <Loader2 className="w-6 h-6 animate-spin" /> : t.entrar[lang]}
+                {busy ? (
+                  <Loader2 className="w-6 h-6 animate-spin" />
+                ) : (
+                  t.entrar[lang]
+                )}
               </button>
             </form>
           ) : (
@@ -170,7 +193,11 @@ function JoinPage() {
                     disabled={busy}
                     className="min-h-[4.5rem] px-4 py-3 rounded-3xl border-4 border-white bg-white/70 hover:bg-white shadow-md hover:-translate-y-1 active:translate-y-0 transition-all font-black text-lg text-stone-800 disabled:opacity-50 flex items-center justify-center text-center"
                   >
-                    {busy ? <Loader2 className="w-5 h-5 animate-spin" /> : s.displayName}
+                    {busy ? (
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                    ) : (
+                      s.displayName
+                    )}
                   </button>
                 ))}
               </div>

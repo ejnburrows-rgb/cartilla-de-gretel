@@ -2,7 +2,7 @@
  * @vitest-environment jsdom
  */
 import type React from "react";
-import { describe, it, expect, vi, beforeEach } from "vitest";
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { render, screen, waitFor, fireEvent } from "@testing-library/react";
 
 import { routeTree } from "@/routeTree.gen";
@@ -26,7 +26,9 @@ vi.mock("@/integrations/supabase/client", () => ({
     auth: {
       signOut: (...args: unknown[]) => signOutMock(...args),
       getSession: () => getSessionMock(),
-      onAuthStateChange: () => ({ data: { subscription: { unsubscribe: vi.fn() } } }),
+      onAuthStateChange: () => ({
+        data: { subscription: { unsubscribe: vi.fn() } },
+      }),
     },
     rpc: async () => ({ data: false, error: null }),
   },
@@ -45,16 +47,21 @@ vi.mock("@/lib/auth-role", () => ({
 }));
 
 vi.mock("@/lib/useServerFn", () => ({
-  useServerFn: () => vi.fn().mockResolvedValue([{ studentId: "s1", displayName: "Student 1" }]),
+  useServerFn: () =>
+    vi.fn().mockResolvedValue([{ studentId: "s1", displayName: "Student 1" }]),
 }));
 
 vi.mock("@/context/LanguageContext", () => ({
   useLanguage: () => ({ t: (k: string) => k, language: "es" }),
-  LanguageProvider: ({ children }: { children?: React.ReactNode }) => <>{children}</>,
+  LanguageProvider: ({ children }: { children?: React.ReactNode }) => (
+    <>{children}</>
+  ),
 }));
 
 vi.mock("@tanstack/react-query", () => ({
-  QueryClientProvider: ({ children }: { children?: React.ReactNode }) => <>{children}</>,
+  QueryClientProvider: ({ children }: { children?: React.ReactNode }) => (
+    <>{children}</>
+  ),
   QueryClient: vi.fn().mockImplementation(() => ({
     mount: vi.fn(),
     unmount: vi.fn(),
@@ -79,7 +86,9 @@ import { Route as PresentarRoute } from "../cartilla/presentar.$n";
 function renderWithRouter(initialEntries: string[]) {
   const history = createMemoryHistory({ initialEntries });
 
-  const rootRoute = createRootRouteWithContext<{ queryClient: unknown }>()({ component: Outlet });
+  const rootRoute = createRootRouteWithContext<{ queryClient: unknown }>()({
+    component: Outlet,
+  });
   const loginRoute = createRoute({
     getParentRoute: () => rootRoute,
     path: "/login",
@@ -92,7 +101,11 @@ function renderWithRouter(initialEntries: string[]) {
   });
 
   const routeTree = rootRoute.addChildren([loginRoute, unirseRoute]);
-  const router = createRouter({ routeTree, history, context: { queryClient: {} } });
+  const router = createRouter({
+    routeTree,
+    history,
+    context: { queryClient: {} },
+  });
   render(<RouterProvider router={router} />);
   return { router, history };
 }
@@ -100,13 +113,18 @@ function renderWithRouter(initialEntries: string[]) {
 describe("Student-Teacher Routing Isolation", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    vi.stubEnv("VITE_CRM_REVIEW", "false");
     getStudentSessionMock.mockReturnValue(null);
     getSessionMock.mockResolvedValue({ data: { session: null } });
   });
 
+  afterEach(() => vi.unstubAllEnvs());
+
   it("(a) student login lands on /cartilla/lecciones", async () => {
     const { history } = renderWithRouter(["/cartilla/unirse"]);
-    await waitFor(() => expect(history.location.pathname).toBe("/cartilla/unirse"));
+    await waitFor(() =>
+      expect(history.location.pathname).toBe("/cartilla/unirse"),
+    );
     // Join form can lag under full-suite parallel load — wait for real markup.
     const codeInput = (await screen.findByRole(
       "textbox",
@@ -130,6 +148,26 @@ describe("Student-Teacher Routing Isolation", () => {
   });
 
   describe("presentar.$n.tsx route guard", () => {
+    it("opens a valid presentation without a student or teacher login in open mode", async () => {
+      vi.stubEnv("VITE_CRM_REVIEW", "true");
+      getStudentSessionMock.mockReturnValue({ studentId: "s1" });
+      await PresentarRoute.options.beforeLoad!({ params: { n: "1" } } as never);
+      expect(getSessionMock).not.toHaveBeenCalled();
+    });
+
+    it("still rejects an invalid presentation number in open mode", async () => {
+      vi.stubEnv("VITE_CRM_REVIEW", "true");
+      let caught: unknown;
+      try {
+        await PresentarRoute.options.beforeLoad!({
+          params: { n: "999" },
+        } as never);
+      } catch (error) {
+        caught = error;
+      }
+      expect(caught).toBeDefined();
+    });
+
     it("(b) blocks student session from teacher presentation route", async () => {
       getStudentSessionMock.mockReturnValue({ studentId: "s1" });
       const mod = await import("../cartilla/presentar.$n");
@@ -137,7 +175,10 @@ describe("Student-Teacher Routing Isolation", () => {
 
       let caught: { options?: { to?: string }; to?: string } | undefined;
       try {
-        await Route.options.beforeLoad!({ params: { n: "1" }, location: { href: "" } } as never);
+        await Route.options.beforeLoad!({
+          params: { n: "1" },
+          location: { href: "" },
+        } as never);
       } catch (e) {
         caught = e as typeof caught;
       }
@@ -156,7 +197,10 @@ describe("Student-Teacher Routing Isolation", () => {
 
       let caught: { options?: { to?: string }; to?: string } | undefined;
       try {
-        await Route.options.beforeLoad!({ params: { n: "1" }, location: { href: "" } } as never);
+        await Route.options.beforeLoad!({
+          params: { n: "1" },
+          location: { href: "" },
+        } as never);
       } catch (e) {
         caught = e as typeof caught;
       }
@@ -164,6 +208,23 @@ describe("Student-Teacher Routing Isolation", () => {
       expect(caught).toBeDefined();
       expect(caught?.options?.to ?? caught?.to).toBe("/login");
     });
+  });
+
+  it("skips both credential pages in open mode", () => {
+    vi.stubEnv("VITE_CRM_REVIEW", "true");
+    for (const [route, target] of [
+      [LoginRoute, "/cartilla/teacher/crm"],
+      [UnirseRoute, "/cartilla/lecciones"],
+    ] as const) {
+      let caught: { options?: { to?: string } } | undefined;
+      try {
+        route.options.beforeLoad!({} as never);
+      } catch (error) {
+        caught = error as typeof caught;
+      }
+      expect(caught?.options?.to).toBe(target);
+    }
+    expect(getSessionMock).not.toHaveBeenCalled();
   });
 
   describe("Session reset on cross-login", () => {
@@ -182,10 +243,14 @@ describe("Student-Teacher Routing Isolation", () => {
 
     it("(c) student login clears teacher session", async () => {
       const { history } = renderWithRouter(["/cartilla/unirse"]);
-      await waitFor(() => expect(history.location.pathname).toBe("/cartilla/unirse"));
+      await waitFor(() =>
+        expect(history.location.pathname).toBe("/cartilla/unirse"),
+      );
 
       // Step 1: Submit join code form
-      const codeInput = (await screen.findByRole("textbox")) as HTMLInputElement;
+      const codeInput = (await screen.findByRole(
+        "textbox",
+      )) as HTMLInputElement;
       fireEvent.change(codeInput, { target: { value: "ABC123" } });
 
       const submitBtn = document.querySelector('button[type="submit"]');

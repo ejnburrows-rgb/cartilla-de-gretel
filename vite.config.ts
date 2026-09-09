@@ -17,14 +17,18 @@ function compressPlugin() {
         const asset = bundle[fileName];
         let code: string | Uint8Array;
         if (asset.type === "asset") {
-          code = typeof asset.source === "string" ? asset.source : new Uint8Array(asset.source);
+          code =
+            typeof asset.source === "string"
+              ? asset.source
+              : new Uint8Array(asset.source);
         } else if (asset.type === "chunk") {
           code = asset.code;
         } else {
           continue;
         }
 
-        const buffer = typeof code === "string" ? Buffer.from(code, "utf-8") : code;
+        const buffer =
+          typeof code === "string" ? Buffer.from(code, "utf-8") : code;
         if (buffer && buffer.length > 500) {
           try {
             const gzipped = gzipSync(buffer);
@@ -51,7 +55,7 @@ function compressPlugin() {
 
 export default defineConfig({
   define: {
-    "import.meta.env.VITE_CRM_REVIEW": JSON.stringify(process.env.VERCEL_ENV === "preview" ? "true" : "false"),
+    "import.meta.env.VITE_CRM_REVIEW": JSON.stringify("true"),
   },
   plugins: [
     TanStackRouterVite({
@@ -87,13 +91,19 @@ export default defineConfig({
         chunkFileNames: "assets/[name].[hash].js",
         assetFileNames: "assets/[name].[hash].[ext]",
         manualChunks(id) {
-          if (id.includes("node_modules/react") || id.includes("node_modules/react-dom")) {
+          if (
+            id.includes("node_modules/react") ||
+            id.includes("node_modules/react-dom")
+          ) {
             return "react-vendor";
           }
           if (id.includes("node_modules/lucide-react")) {
             return "lucide";
           }
-          if (id.includes("node_modules/pdfjs-dist") || id.includes("node_modules/react-pdf")) {
+          if (
+            id.includes("node_modules/pdfjs-dist") ||
+            id.includes("node_modules/react-pdf")
+          ) {
             return "pdf-vendor";
           }
           if (id.includes("node_modules/@supabase")) {
@@ -110,18 +120,30 @@ export default defineConfig({
           ) {
             return "tanstack-router";
           }
-          if (id.includes("routes/cartilla/maestro") || id.includes("components/maestro")) {
+          if (
+            id.includes("routes/cartilla/maestro") ||
+            id.includes("components/maestro")
+          ) {
             if (id.includes("analitica")) return "route-analitica";
             if (id.includes("autoria")) return "route-autoria";
             return "route-maestro";
           }
-          if (id.includes("routes/cartilla/alumno") || id.includes("components/alumno")) {
+          if (
+            id.includes("routes/cartilla/alumno") ||
+            id.includes("components/alumno")
+          ) {
             return "route-alumno";
           }
-          if (id.includes("routes/cartilla/familia") || id.includes("components/familia")) {
+          if (
+            id.includes("routes/cartilla/familia") ||
+            id.includes("components/familia")
+          ) {
             return "route-familia";
           }
-          if (id.includes("routes/cartilla/binder") || id.includes("components/print")) {
+          if (
+            id.includes("routes/cartilla/binder") ||
+            id.includes("components/print")
+          ) {
             return "route-binder";
           }
           // NOTE: lesson content is deliberately NOT forced into one chunk.
@@ -135,4 +157,3 @@ export default defineConfig({
     },
   },
 });
-

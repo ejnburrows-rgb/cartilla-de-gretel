@@ -1,15 +1,30 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import {
+  createFileRoute,
+  Link,
+  useNavigate,
+  redirect,
+} from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { GraduationCap, ArrowLeft, Loader2 } from "lucide-react";
 import { supabase, isSupabaseConfigured } from "@/integrations/supabase/client";
 import { setStudentSession } from "@/lib/student-session";
 import { signInSeedTeacher, startTeacherReview } from "@/lib/seed-data";
-import { checkNewPassword, MIN_NEW_PASSWORD_LENGTH } from "@/lib/password-strength";
+import {
+  checkNewPassword,
+  MIN_NEW_PASSWORD_LENGTH,
+} from "@/lib/password-strength";
 import "@/styles/teacher-chrome.css";
 
 export const Route = createFileRoute("/login")({
+  beforeLoad: () => {
+    if (import.meta.env.VITE_CRM_REVIEW === "true") {
+      throw redirect({ to: "/cartilla/teacher/crm" });
+    }
+  },
   component: LoginPage,
-  head: () => ({ meta: [{ title: "Acceso del maestro — La Cartilla de Gretel" }] }),
+  head: () => ({
+    meta: [{ title: "Acceso del maestro — La Cartilla de Gretel" }],
+  }),
 });
 
 function LoginPage() {
@@ -27,7 +42,10 @@ function LoginPage() {
     // signed-in session has no teacher/admin role at all — sign that
     // session out (a role-less session can't do anything anyway) instead
     // of bouncing back to /cartilla/teacher and looping forever.
-    if (typeof window !== "undefined" && sessionStorage.getItem("cartilla.auth.unauthorized")) {
+    if (
+      typeof window !== "undefined" &&
+      sessionStorage.getItem("cartilla.auth.unauthorized")
+    ) {
       sessionStorage.removeItem("cartilla.auth.unauthorized");
       setUnauthorized(true);
       supabase.auth.signOut();
@@ -80,7 +98,10 @@ function LoginPage() {
         });
         if (err) throw err;
       } else {
-        const { error: err } = await supabase.auth.signInWithPassword({ email, password });
+        const { error: err } = await supabase.auth.signInWithPassword({
+          email,
+          password,
+        });
         if (err) throw err;
       }
       navigate({ to: "/cartilla/teacher" });
@@ -105,7 +126,9 @@ function LoginPage() {
             <GraduationCap className="w-7 h-7" />
           </div>
           <h1 className="mt-4 text-3xl font-black text-[var(--tc-ink)]">
-            {mode === "login" ? "Acceso del maestro" : "Crear cuenta de maestro"}
+            {mode === "login"
+              ? "Acceso del maestro"
+              : "Crear cuenta de maestro"}
           </h1>
           <p className="text-sm font-bold text-[var(--tc-ink-soft)] mt-1">
             {mode === "login"
@@ -116,9 +139,18 @@ function LoginPage() {
 
         {import.meta.env.VITE_CRM_REVIEW === "true" && (
           <div className="mt-6 rounded-2xl border-2 border-amber-300 bg-amber-50 p-4">
-            <p className="mb-3 text-sm font-bold">Revisión del CRM con datos de prueba guardados en este navegador.</p>
-            <button type="button" className="w-full rounded-xl bg-amber-600 px-4 py-3 font-bold text-white"
-              onClick={() => { startTeacherReview(); setStudentSession(null); navigate({ to: "/cartilla/teacher/crm" }); }}>
+            <p className="mb-3 text-sm font-bold">
+              Revisión del CRM con datos de prueba guardados en este navegador.
+            </p>
+            <button
+              type="button"
+              className="w-full rounded-xl bg-amber-600 px-4 py-3 font-bold text-white"
+              onClick={() => {
+                startTeacherReview();
+                setStudentSession(null);
+                navigate({ to: "/cartilla/teacher/crm" });
+              }}
+            >
               Entrar sin contraseña
             </button>
           </div>
@@ -126,8 +158,8 @@ function LoginPage() {
 
         {unauthorized && (
           <div className="mt-6 text-sm text-destructive font-bold bg-destructive/10 border-2 border-destructive/20 rounded-2xl px-4 py-3">
-            Tu cuenta no tiene permiso de maestro o administrador. Contacta al administrador de la
-            escuela.
+            Tu cuenta no tiene permiso de maestro o administrador. Contacta al
+            administrador de la escuela.
           </div>
         )}
 
@@ -170,7 +202,9 @@ function LoginPage() {
             <input
               id="password"
               type="password"
-              autoComplete={mode === "login" ? "current-password" : "new-password"}
+              autoComplete={
+                mode === "login" ? "current-password" : "new-password"
+              }
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Contraseña"
@@ -183,12 +217,14 @@ function LoginPage() {
             />
             {mode === "signup" && (
               <p className="mt-2 ml-1 text-xs font-bold text-[var(--tc-ink-faint)]">
-                Al menos {MIN_NEW_PASSWORD_LENGTH} caracteres. Evita contraseñas comunes: tres
-                palabras que solo tú recuerdes funcionan muy bien.
+                Al menos {MIN_NEW_PASSWORD_LENGTH} caracteres. Evita contraseñas
+                comunes: tres palabras que solo tú recuerdes funcionan muy bien.
               </p>
             )}
           </div>
-          {error && <div className="text-sm text-destructive font-bold">{error}</div>}
+          {error && (
+            <div className="text-sm text-destructive font-bold">{error}</div>
+          )}
           <button
             type="submit"
             disabled={busy}
@@ -207,12 +243,17 @@ function LoginPage() {
           }}
           className="mt-4 w-full text-sm font-bold text-[var(--tc-ink-soft)] hover:text-[var(--tc-ink)] transition-colors"
         >
-          {mode === "login" ? "¿No tienes cuenta? Crear una" : "¿Ya tienes cuenta? Entrar"}
+          {mode === "login"
+            ? "¿No tienes cuenta? Crear una"
+            : "¿Ya tienes cuenta? Entrar"}
         </button>
 
         <p className="mt-8 text-center text-xs font-bold text-[var(--tc-ink-faint)]">
           ¿Eres estudiante?{" "}
-          <Link to="/cartilla/unirse" className="underline font-bold text-[var(--tc-ink-soft)]">
+          <Link
+            to="/cartilla/unirse"
+            className="underline font-bold text-[var(--tc-ink-soft)]"
+          >
             Únete a una clase
           </Link>
         </p>
@@ -220,4 +261,3 @@ function LoginPage() {
     </main>
   );
 }
-

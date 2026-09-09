@@ -1,9 +1,20 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { useServerFn } from "@/lib/useServerFn";
-import { ArrowLeft, BookOpen, Check, Lock, RotateCcw, Sparkles, Zap } from "lucide-react";
+import {
+  ArrowLeft,
+  BookOpen,
+  Check,
+  Lock,
+  RotateCcw,
+  Sparkles,
+  Zap,
+} from "lucide-react";
 import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
-import { hydrateLessonProgress, useLessonProgress } from "@/lib/lesson-progress";
+import {
+  hydrateLessonProgress,
+  useLessonProgress,
+} from "@/lib/lesson-progress";
 import { getMyProgress } from "@/lib/student.functions";
 import { useStudentSession } from "@/lib/student-session";
 import { useLanguage } from "@/context/LanguageContext";
@@ -26,31 +37,47 @@ function Lecciones() {
 
   useEffect(() => {
     if (!session) return;
-    fetchMyProgress({ data: { studentId: session.studentId, studentCode: session.studentCode } })
+    fetchMyProgress({
+      data: { studentId: session.studentId, studentCode: session.studentCode },
+    })
       .then((data) => {
         const fromRows = (
-          (data as { lessonProgress?: Array<{ lesson_id: string; status: string }> })
-            .lessonProgress ?? []
+          (
+            data as {
+              lessonProgress?: Array<{ lesson_id: string; status: string }>;
+            }
+          ).lessonProgress ?? []
         )
           .filter((row) => row.status === "completed")
           .map((row) => Number(row.lesson_id))
           .filter((n) => Number.isFinite(n));
         const fromEvents = (
-          (data as { events?: Array<{ lesson_id: string; event_kind: string }> }).events ?? []
+          (
+            data as {
+              events?: Array<{ lesson_id: string; event_kind: string }>;
+            }
+          ).events ?? []
         )
           .filter((event) => event.event_kind === "lesson_completed")
           .map((event) => Number(event.lesson_id))
           .filter((n) => Number.isFinite(n));
-        hydrateLessonProgress(Array.from(new Set([...fromRows, ...fromEvents])));
+        hydrateLessonProgress(
+          Array.from(new Set([...fromRows, ...fromEvents])),
+        );
       })
       .catch(() => undefined);
   }, [fetchMyProgress, session]);
-  const doneCount = [...completed].filter((n) => n >= 1 && n <= TOTAL_LESSONS).length;
+  const doneCount = [...completed].filter(
+    (n) => n >= 1 && n <= TOTAL_LESSONS,
+  ).length;
   const pct = Math.round((doneCount / TOTAL_LESSONS) * 100);
 
   return (
     <div className="min-h-screen bg-stone-50 overflow-hidden relative pb-32">
-      <GretelPresence variant="home" className="fixed bottom-0 right-0 z-50 pointer-events-none" />
+      <GretelPresence
+        variant="home"
+        className="fixed bottom-0 right-0 z-50 pointer-events-none"
+      />
       {/* Background decoration */}
       <GardenBackdrop variant="soft" />
 
@@ -95,7 +122,8 @@ function Lecciones() {
         <div className="flex flex-col items-center gap-10">
           {CATALOG.map((entry, i) => {
             const done = isCompleted(entry.n);
-            const unlocked = isUnlocked(entry.n);
+            const unlocked =
+              import.meta.env.VITE_CRM_REVIEW === "true" || isUnlocked(entry.n);
 
             // Calculate a zig-zag offset (Duolingo style)
             const offsetX = Math.sin(i * 1.5) * 80;
@@ -120,7 +148,11 @@ function Lecciones() {
                       animationDelay: `${i * 0.15}s`,
                     }}
                   >
-                    {done ? <Check className="w-10 h-10 drop-shadow-md" /> : <span>{entry.n}</span>}
+                    {done ? (
+                      <Check className="w-10 h-10 drop-shadow-md" />
+                    ) : (
+                      <span>{entry.n}</span>
+                    )}
 
                     {/* Floating Label */}
                     <div
