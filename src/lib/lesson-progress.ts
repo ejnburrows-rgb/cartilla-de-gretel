@@ -27,8 +27,14 @@ function write(set: Set<number>) {
 export function isLessonCompleted(n: number): boolean {
   return read().has(n);
 }
-/** Sequential unlock: L1 open; Ln requires L(n-1) completed. */
+/** Open access exposes every lesson; otherwise preserve the sequential rule. */
 export function isLessonUnlocked(n: number): boolean {
+  if (
+    import.meta.env.VITE_CRM_REVIEW === "true" &&
+    import.meta.env.MODE !== "test"
+  ) {
+    return true;
+  }
   if (n <= 1) return true;
   return read().has(n - 1);
 }
