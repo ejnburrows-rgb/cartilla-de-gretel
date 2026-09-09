@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { GraduationCap, ArrowLeft, Loader2 } from "lucide-react";
 import { supabase, isSupabaseConfigured } from "@/integrations/supabase/client";
 import { setStudentSession } from "@/lib/student-session";
-import { signInSeedTeacher } from "@/lib/seed-data";
+import { signInSeedTeacher, startTeacherReview } from "@/lib/seed-data";
 import { checkNewPassword, MIN_NEW_PASSWORD_LENGTH } from "@/lib/password-strength";
 import "@/styles/teacher-chrome.css";
 
@@ -114,6 +114,16 @@ function LoginPage() {
           </p>
         </header>
 
+        {import.meta.env.VITE_CRM_REVIEW === "true" && (
+          <div className="mt-6 rounded-2xl border-2 border-amber-300 bg-amber-50 p-4">
+            <p className="mb-3 text-sm font-bold">Revisión del CRM con datos de prueba guardados en este navegador.</p>
+            <button type="button" className="w-full rounded-xl bg-amber-600 px-4 py-3 font-bold text-white"
+              onClick={() => { startTeacherReview(); setStudentSession(null); navigate({ to: "/cartilla/teacher/crm" }); }}>
+              Entrar sin contraseña
+            </button>
+          </div>
+        )}
+
         {unauthorized && (
           <div className="mt-6 text-sm text-destructive font-bold bg-destructive/10 border-2 border-destructive/20 rounded-2xl px-4 py-3">
             Tu cuenta no tiene permiso de maestro o administrador. Contacta al administrador de la
@@ -210,3 +220,4 @@ function LoginPage() {
     </main>
   );
 }
+

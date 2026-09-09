@@ -1,13 +1,22 @@
 # STATUS — La Cartilla de Gretel
 
-Honest current state. Updated 2026-08-08. Read this before starting work.
+Honest current state. Updated 2026-09-09. Read this before starting work.
+
+
+> **2026-09-09 — workbook improvements and isolated CRM review in PR #402.**
+> - Original workbook exercises allow correction; listening practice requires earned answers; matching supports drag, touch and keyboard buttons. Signed-in progress queues retain failed work and prevent concurrent requests or cross-student attribution.
+> - The owner's requested password-free entry is available in Vercel previews, backed by local sample data and clearly labeled. Production account checks and database policies remain enforced.
+> - Browser review verified password-free CRM entry, class/student creation and persistence after reload, class overview, reports, workbook correction, and a correct listening round. The review found and fixed stale roster refresh and incorrect latest-activity ordering in the local sample data. Report CSV export now selects the same local/live data source as the displayed report.
+> - Validation: both preview and production builds pass; typecheck passes; 89 Vitest files pass (1,203 tests plus two pre-existing expected failures), with the two subsequent roster/activity regressions passing in a focused four-test run.
+> - Cloud teacher → student → report synchronization is not certified: no real teacher login was used and read-only Supabase checks timed out. Offline queues do not yet provide server-side idempotency or cross-tab locking.
+> - PR publication uses the same connected owner identity as the current main commit. No live database writes were made. Final deployment status is recorded by the PR and Vercel checks.
 
 > **2026-08-08 — focused workbook-art repair is implemented on `repair/authentic-flipchart-art`.**
 > - The first rule in `AGENTS.md` now records the verified two-source model: a complete 62-page flip chart and a separate 92-page student book.
 > - `aro` and `iglú` use identical authentic teacher-color crops from pages 5 and 7.
 > - `abeja`, `aguja`, `abrigo`, `oruga`, and `globo` do not occur as identical drawings in the complete flip chart; all 14 formerly blank cells now use lossless crops of the exact original student-book drawings.
 > - No generated, redrawn, recolored, or look-alike lesson art is active. Layouts, interactions, and hidden answers are unchanged.
-> - Current mapping and crop evidence live in `docs/AUTHENTIC-FLIPCHART-ART-AUDIT.md`. This repair is not merged to `main` or production.
+> - Current mapping and crop evidence live in `docs/AUTHENTIC-FLIPCHART-ART-AUDIT.md`. This repair was subsequently merged in #399; main and the production deployment both point to `2046a170d98e6d73ab44856ea594edfe2cf945a0` as checked on 2026-09-09.
 
 > **2026-07-26 — admin dashboard is live, and a public hole was closed.**
 > - **Cross-teacher admin reads work against the real database** (#355). This
@@ -318,3 +327,4 @@ The rest is owner-decision work, listed in `docs/DECISIONS.md`.
   the GitHub CLI. Full list, plus the 2 unmerged branches and 3 open pull
   requests that need an owner decision, in
   `docs/BRANCH-INVENTORY-REPORT.md` → "Re-inventory — 2026-07-29".
+

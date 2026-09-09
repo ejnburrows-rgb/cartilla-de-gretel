@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   DndContext,
@@ -47,8 +47,13 @@ export function DragMatchPairs({
   const [shuffledWords, setShuffledWords] = useState<string[]>([]);
   const [shuffledEmojis, setShuffledEmojis] = useState<Pair[]>([]);
   const [matches, setMatches] = useState<Record<string, string>>({}); // word -> emoji
-  const [wrongMatch, setWrongMatch] = useState<{ word: string; emoji: string } | null>(null);
+  const [wrongMatch, setWrongMatch] = useState<{
+    word: string;
+    emoji: string;
+  } | null>(null);
   const [attempts, setAttempts] = useState(0);
+  const [selectedWord, setSelectedWord] = useState<string | null>(null);
+  const reported = useRef(false);
 
   const sensors = useSensors(
     useSensor(MouseSensor, { activationConstraint: { distance: 5 } }),
@@ -62,6 +67,8 @@ export function DragMatchPairs({
     setMatches({});
     setWrongMatch(null);
     setAttempts(0);
+    setSelectedWord(null);
+    reported.current = false;
   }, [pairs]);
 
   useEffect(() => {
@@ -70,7 +77,12 @@ export function DragMatchPairs({
 
   // Handle successful match completion
   useEffect(() => {
-    if (pairs.length > 0 && Object.keys(matches).length === pairs.length) {
+    if (
+      !reported.current &&
+      pairs.length > 0 &&
+      Object.keys(matches).length === pairs.length
+    ) {
+      reported.current = true;
       playCorrectChord();
       window.dispatchEvent(
         new CustomEvent("gretel:celebrate", {
@@ -81,7 +93,7 @@ export function DragMatchPairs({
         recordEvent({
           lessonId,
           kind: "exercise",
-          score: 1,
+          score: pairs.length,
           total: attempts,
           meta: { exercise: "drag_match_pairs", completed: true },
         });
@@ -90,21 +102,16 @@ export function DragMatchPairs({
     }
   }, [matches, pairs, attempts, lessonId, onComplete]);
 
-  const handleDragEnd = (event: DragEndEvent) => {
-    const { active, over } = event;
-    if (!over) return;
-
-    const activeWord = active.data.current?.word as string;
-    const overEmoji = over.data.current?.emoji as string;
-
-    if (!activeWord || !overEmoji) return;
-
+  const attemptMatch = (activeWord: string, overEmoji: string) => {
+    if (matches[activeWord] || Object.values(matches).includes(overEmoji))
+      return;
     // Check if correct
     const targetPair = pairs.find((p) => p.word === activeWord);
     const isCorrect = targetPair?.emoji === overEmoji;
 
     if (isCorrect) {
       setMatches((prev) => ({ ...prev, [activeWord]: overEmoji }));
+      setSelectedWord(null);
       playNote(392.0, 0.4); // Play G note
       setAttempts((a) => a + 1);
     } else {
@@ -117,15 +124,25 @@ export function DragMatchPairs({
     }
   };
 
+  const handleDragEnd = (event: DragEndEvent) => {
+    const word = event.active.data.current?.word;
+    const picture = event.over?.data.current?.emoji;
+    if (typeof word === "string" && typeof picture === "string")
+      attemptMatch(word, picture);
+  };
+
   const isCompleted = Object.keys(matches).length === pairs.length;
 
   return (
     <div className="w-full max-w-2xl mx-auto p-4 bg-white/40 backdrop-blur-md border border-stone-200/50 rounded-2xl shadow-sm space-y-6">
       <div className="flex items-center justify-between pb-3 border-b border-stone-200/40">
         <div>
-          <h3 className="text-lg font-black text-stone-800">Emparejar Palabras</h3>
+          <h3 className="text-lg font-black text-stone-800">
+            Emparejar Palabras
+          </h3>
           <p className="text-xs font-bold text-stone-500">
-            Arrastra la palabra hasta su dibujo correspondiente.
+            Arrastra la palabra a su dibujo, o toca la palabra y después el
+            dibujo.
           </p>
         </div>
         <button
@@ -154,6 +171,8 @@ export function DragMatchPairs({
                     isMatched={isMatched}
                     color={color}
                     isWrong={wrongMatch?.word === word}
+                    selected={selectedWord === word}
+                    onSelect={() => setSelectedWord(word)}
                   />
                 );
               })}
@@ -168,7 +187,9 @@ export function DragMatchPairs({
             <div className="space-y-3">
               {shuffledEmojis.map((pair, i) => {
                 // Find if a word has matched this emoji
-                const matchedWord = Object.keys(matches).find((k) => matches[k] === pair.emoji);
+                const matchedWord = Object.keys(matches).find(
+                  (k) => matches[k] === pair.emoji,
+                );
                 return (
                   <DroppableEmojiCard
                     key={pair.emoji}
@@ -177,6 +198,9 @@ export function DragMatchPairs({
                     color={color}
                     isWrong={wrongMatch?.emoji === pair.emoji}
                     floatDelay={((i * 37) % 47) / 10}
+                    onSelect={() => {
+                      if (selectedWord) attemptMatch(selectedWord, pair.emoji);
+                    }}
                   />
                 );
               })}
@@ -191,7 +215,9 @@ export function DragMatchPairs({
           animate={{ opacity: 1, y: 0 }}
           className="p-3 bg-emerald-50 border border-emerald-200 rounded-xl text-center"
         >
-          <span className="text-sm font-black text-emerald-800">¡Completado con éxito! 🎉</span>
+          <span className="text-sm font-black text-emerald-800">
+            Completado
+          </span>
         </motion.div>
       )}
     </div>
@@ -204,17 +230,22 @@ function DraggableWordCard({
   isMatched,
   color,
   isWrong,
+  selected,
+  onSelect,
 }: {
+  selected: boolean;
+  onSelect: () => void;
   word: string;
   isMatched: boolean;
   color: string;
   isWrong: boolean;
 }) {
-  const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
-    id: `word-${word}`,
-    data: { word },
-    disabled: isMatched,
-  });
+  const { attributes, listeners, setNodeRef, transform, isDragging } =
+    useDraggable({
+      id: `word-${word}`,
+      data: { word },
+      disabled: isMatched,
+    });
 
   const style = {
     transform: transform
@@ -224,12 +255,16 @@ function DraggableWordCard({
   };
 
   return (
-    <div
+    <button
+      type="button"
+      disabled={isMatched}
+      onClick={onSelect}
       ref={setNodeRef}
       style={style}
       {...listeners}
       {...attributes}
-      className="relative select-none"
+      aria-pressed={selected}
+      className={`relative w-full select-none rounded-xl ${selected ? "ring-4 ring-amber-400" : ""}`}
     >
       <motion.div
         animate={isWrong ? { x: [-10, 10, -8, 8, -5, 5, 0] } : {}}
@@ -248,7 +283,7 @@ function DraggableWordCard({
       >
         {word}
       </motion.div>
-    </div>
+    </button>
   );
 }
 
@@ -259,7 +294,9 @@ function DroppableEmojiCard({
   color,
   isWrong,
   floatDelay = 0,
+  onSelect,
 }: {
+  onSelect: () => void;
   pair: Pair;
   matchedWord?: string;
   color: string;
@@ -267,14 +304,18 @@ function DroppableEmojiCard({
   floatDelay?: number;
 }) {
   const { isOver, setNodeRef } = useDroppable({
-    id: `target-${pair.emoji}`,
+    id: `target-$Ilustración no disponible`,
     data: { emoji: pair.emoji },
   });
 
   return (
-    <div
+    <button
+      type="button"
+      disabled={Boolean(matchedWord)}
+      aria-label={`Dibujo: ${pair.word}`}
+      onClick={onSelect}
       ref={setNodeRef}
-      className={`p-4 rounded-xl border-2 flex items-center justify-between gap-4 transition-all min-h-[72px] ${
+      className={`w-full p-4 rounded-xl border-2 flex items-center justify-between gap-4 transition-all min-h-[72px] ${
         matchedWord
           ? "bg-emerald-50/50 border-emerald-500 shadow-sm"
           : isOver
@@ -297,7 +338,7 @@ function DroppableEmojiCard({
         />
       ) : (
         <span className="text-3xl select-none" role="img" aria-label="dibujo">
-          {pair.emoji}
+          Ilustración no disponible
         </span>
       )}
 
@@ -330,6 +371,6 @@ function DroppableEmojiCard({
           )}
         </AnimatePresence>
       </div>
-    </div>
+    </button>
   );
 }

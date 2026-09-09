@@ -27,6 +27,7 @@ const STATE_KEY = "cartilla.seed.state.v1";
  * Even if VITE_ALLOW_DEMO_MODE is set on a host, PROD builds never activate it.
  * Preview/dev only when VITE_ALLOW_DEMO_MODE === "true". */
 function demoModeAllowed(): boolean {
+  if (import.meta.env.VITE_CRM_REVIEW === "true") return true;
   if (import.meta.env.PROD) return false;
   return import.meta.env.VITE_ALLOW_DEMO_MODE === "true";
 }
@@ -386,6 +387,14 @@ function writeState(state: SeedState) {
   window.dispatchEvent(new Event("cartilla:seed-data"));
 }
 
+/** Password-free review is compiled into hosted previews only; all data stays local. */
+export function startTeacherReview() {
+  if (import.meta.env.VITE_CRM_REVIEW !== "true") throw new Error("La prueba no está disponible aquí.");
+  localStorage.setItem(AUTH_KEY, SEED_TEACHERS[0].id);
+  readState();
+  window.dispatchEvent(new Event("cartilla:seed-auth"));
+}
+
 export function signInSeedTeacher(email: string, password: string) {
   const teacher = SEED_TEACHERS.find(
     (t) =>
@@ -471,7 +480,8 @@ export function getSeedClass(id: string) {
   const students = state.students
     .filter((s) => s.class_id === id)
     .map((s) => {
-      const events = state.events.filter((e) => e.student_id === s.id);
+      const events = state.events.filter((e) => e.student_id === s.id)
+        .sort((a, b) => b.created_at.localeCompare(a.created_at));
       return {
         ...s,
         events: events.length,
@@ -950,3 +960,4 @@ export function resetSeedStateRaw() {
   window.dispatchEvent(new Event("cartilla:seed-data"));
   window.dispatchEvent(new Event("cartilla:seed-data"));
 }
+

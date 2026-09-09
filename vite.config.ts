@@ -50,6 +50,9 @@ function compressPlugin() {
 }
 
 export default defineConfig({
+  define: {
+    "import.meta.env.VITE_CRM_REVIEW": JSON.stringify(process.env.VERCEL_ENV === "preview" ? "true" : "false"),
+  },
   plugins: [
     TanStackRouterVite({
       target: "react",
@@ -132,3 +135,4 @@ export default defineConfig({
     },
   },
 });
+

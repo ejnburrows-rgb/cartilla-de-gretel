@@ -54,11 +54,18 @@ type LogInput = {
   meta?: Record<string, unknown>;
 };
 
-/** Fire-and-forget: only logs if a student session exists. */
+/** Save immediately, then sync signed-in student events in order. */
 export function recordEvent(input: LogInput) {
   // Always mirror exercise results to local stats (works for anonymous users too).
-  if (input.kind === "exercise" && input.lessonId && typeof input.total === "number") {
-    const meta = (input.meta ?? {}) as { exercise?: string; completed?: boolean };
+  if (
+    input.kind === "exercise" &&
+    input.lessonId &&
+    typeof input.total === "number"
+  ) {
+    const meta = (input.meta ?? {}) as {
+      exercise?: string;
+      completed?: boolean;
+    };
     if (meta.exercise) {
       recordExerciseStat({
         lessonId: input.lessonId,
@@ -71,11 +78,107 @@ export function recordEvent(input: LogInput) {
   }
   const s = getStudentSession();
   if (!s) return;
-  logProgress({
-    data: {
-      studentId: s.studentId,
-      studentCode: s.studentCode,
-      ...input,
-    },
-  }).catch((err) => console.warn("recordEvent failed", err));
+  const event: PendingStudentEvent = {
+    id: crypto.randomUUID(),
+    studentId: s.studentId,
+    classId: s.classId,
+    input,
+    recordedAt: new Date().toISOString(),
+  };
+  writePending([...readPending(), event]);
+  void flushStudentEvents();
+}
+
+interface PendingStudentEvent {
+  id: string;
+  studentId: string;
+  classId: string;
+  input: LogInput;
+  recordedAt: string;
+}
+const PENDING_KEY = "cartilla.student-events.v1";
+let memoryPending: PendingStudentEvent[] = [];
+let sending: Promise<void> | null = null;
+let storageUnavailable = false;
+
+function readPending(): PendingStudentEvent[] {
+  if (storageUnavailable) return memoryPending;
+  try {
+    const stored = localStorage.getItem(PENDING_KEY);
+    if (stored) {
+      const parsed: unknown = JSON.parse(stored);
+      if (Array.isArray(parsed))
+        return parsed.filter(
+          (e) =>
+            e &&
+            typeof e.id === "string" &&
+            typeof e.studentId === "string" &&
+            e.input,
+        );
+    }
+    return memoryPending;
+  } catch {
+    return memoryPending;
+  }
+}
+
+function writePending(events: PendingStudentEvent[]) {
+  memoryPending = events;
+  try {
+    localStorage.setItem(PENDING_KEY, JSON.stringify(events));
+    storageUnavailable = false;
+  } catch {
+    storageUnavailable = true;
+  }
+}
+
+/** One sender per tab. Never attribute another child's pending work to this session. */
+export function flushStudentEvents(): Promise<void> {
+  if (sending) return sending;
+  sending = Promise.resolve()
+    .then(async () => {
+      while (typeof navigator === "undefined" || navigator.onLine !== false) {
+        const session = getStudentSession();
+        if (!session) return;
+        const event = readPending().find(
+          (e) =>
+            e.studentId === session.studentId && e.classId === session.classId,
+        );
+        if (!event) return;
+        try {
+          await logProgress({
+            data: {
+              studentId: session.studentId,
+              studentCode: session.studentCode,
+              ...event.input,
+              meta: {
+                ...event.input.meta,
+                clientEventId: event.id,
+                recordedAt: event.recordedAt,
+              },
+            },
+          });
+        } catch {
+          console.warn(
+            "No se pudo sincronizar el progreso; se conserva para reintentar.",
+          );
+          return;
+        }
+        // Re-read after the request so answers added during it are preserved.
+        writePending(readPending().filter((e) => e.id !== event.id));
+      }
+    })
+    .finally(() => {
+      sending = null;
+    });
+  return sending;
+}
+
+if (typeof window !== "undefined") {
+  window.addEventListener("online", () => {
+    void flushStudentEvents();
+  });
+  window.addEventListener("cartilla:student-session", () => {
+    void flushStudentEvents();
+  });
 }
