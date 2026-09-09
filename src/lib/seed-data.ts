@@ -480,7 +480,8 @@ export function getSeedClass(id: string) {
   const students = state.students
     .filter((s) => s.class_id === id)
     .map((s) => {
-      const events = state.events.filter((e) => e.student_id === s.id);
+      const events = state.events.filter((e) => e.student_id === s.id)
+        .sort((a, b) => b.created_at.localeCompare(a.created_at));
       return {
         ...s,
         events: events.length,

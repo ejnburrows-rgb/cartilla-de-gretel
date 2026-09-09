@@ -63,6 +63,14 @@ export function ClassRoster() {
   // Synchronously detect if we are using the local seed teacher session
   const isSeed = useMemo(() => isSeedSessionActive(), []);
 
+  const [seedVersion, setSeedVersion] = useState(0);
+  useEffect(() => {
+    if (!isSeed) return;
+    const refresh = () => setSeedVersion(v => v + 1);
+    window.addEventListener("cartilla:seed-data", refresh);
+    return () => window.removeEventListener("cartilla:seed-data", refresh);
+  }, [isSeed]);
+
   // 1. Fetch Classes
   const {
     data: realClasses,
@@ -75,15 +83,15 @@ export function ClassRoster() {
   });
 
   const seedClasses = useMemo(() => {
-    // busy is referenced so mutations bump this memo and reread seed storage.
-    void busy;
+    // Reread after local mutations even when React batches the busy state.
+    void seedVersion;
     if (!isSeed) return [];
     try {
       return listSeedClasses() as RosterClass[];
     } catch {
       return [];
     }
-  }, [isSeed, busy]);
+  }, [isSeed, seedVersion]);
 
   const classesList: RosterClass[] = useMemo(
     () => (isSeed ? seedClasses : (realClasses ?? [])),
@@ -110,14 +118,14 @@ export function ClassRoster() {
   });
 
   const seedClassData = useMemo(() => {
-    void busy;
+    void seedVersion;
     if (!isSeed || !selectedClassId) return null;
     try {
       return getSeedClass(selectedClassId);
     } catch {
       return null;
     }
-  }, [isSeed, selectedClassId, busy]);
+  }, [isSeed, selectedClassId, seedVersion]);
 
   const activeClass = classesList.find((c) => c.id === selectedClassId);
 
@@ -614,3 +622,4 @@ export function ClassRoster() {
     </div>
   );
 }
+

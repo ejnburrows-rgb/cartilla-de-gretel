@@ -3,14 +3,13 @@
 Honest current state. Updated 2026-09-09. Read this before starting work.
 
 
-> **2026-09-09 — interactive practice and progress reliability implemented locally; NOT released.**
-> - Picture grids, syllable matching, fill-in-the-blank, and vowel matching allow correction after an incorrect check. Completion is recorded only after a fully correct check; attempts and corrected completion are retained.
-> - Listening practice now has a finite round per supplied sound, requires listening before answering, supports retries, and earns completion through answers. The manual completion button is removed.
-> - Picture matching supports drag or word-then-picture taps and keyboard buttons, uses authentic supplied illustrations, counts attempts accurately, and reports completion once per run.
-> - Both progress queues serialize requests, preserve answers added during requests, retain failed sends, and avoid attributing anonymous/another student's work to the active child. Queue IDs are metadata; server-side idempotency and cross-tab locking are not implemented.
-> - Validation: `pnpm typecheck`, `pnpm build` (including content and art checks), and all 88 Vitest files passed: 1,199 passing tests plus two pre-existing expected failures. Two further queue regressions passed in a focused 7-test run. Targeted ESLint passed.
-> - Release blockers: browser cannot reach the local preview; a hosted preview has not been verified. Live teacher session is unavailable, and two read-only Supabase checks timed out despite project status ACTIVE_HEALTHY. The teacher → class → student answer → report flow is therefore unverified this session. No production database writes or deployment changes were made.
-> - Publication resumed under the same connected owner account as the current main commit, following the owner's instruction to execute directly. Password-free access is limited to hosted preview builds and the existing local seed data; production authentication and database policies remain enforced.
+> **2026-09-09 — workbook improvements and isolated CRM review in PR #402.**
+> - Original workbook exercises allow correction; listening practice requires earned answers; matching supports drag, touch and keyboard buttons. Signed-in progress queues retain failed work and prevent concurrent requests or cross-student attribution.
+> - The owner's requested password-free entry is available in Vercel previews, backed by local sample data and clearly labeled. Production account checks and database policies remain enforced.
+> - Browser review verified password-free CRM entry, class/student creation and persistence after reload, class overview, reports, workbook correction, and a correct listening round. The review found and fixed stale roster refresh and incorrect latest-activity ordering in the local sample data. Report CSV export now selects the same local/live data source as the displayed report.
+> - Validation: both preview and production builds pass; typecheck passes; 89 Vitest files pass (1,203 tests plus two pre-existing expected failures), with the two subsequent roster/activity regressions passing in a focused four-test run.
+> - Cloud teacher → student → report synchronization is not certified: no real teacher login was used and read-only Supabase checks timed out. Offline queues do not yet provide server-side idempotency or cross-tab locking.
+> - PR publication uses the same connected owner identity as the current main commit. No live database writes were made. Final deployment status is recorded by the PR and Vercel checks.
 
 > **2026-08-08 — focused workbook-art repair is implemented on `repair/authentic-flipchart-art`.**
 > - The first rule in `AGENTS.md` now records the verified two-source model: a complete 62-page flip chart and a separate 92-page student book.
