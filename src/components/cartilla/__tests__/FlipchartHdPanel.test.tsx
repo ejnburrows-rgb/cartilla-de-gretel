@@ -5,6 +5,8 @@ import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { render, fireEvent, cleanup, screen } from "@testing-library/react";
 import { FlipchartHdPanel } from "../FlipchartHdPanel";
 import { TeacherPresentationShell } from "../TeacherPresentationShell";
+import { FlipchartPlate } from "../FlipchartPlate";
+import { FLIPCHART_PAGES } from "@/lib/flipchart-hd";
 
 vi.mock("@/hooks/useReducedMotion", () => ({
   useReducedMotion: () => true,
@@ -26,6 +28,29 @@ beforeEach(() => {
 afterEach(() => cleanup());
 
 describe("FlipchartHdPanel — CRM-grade presenter board", () => {
+  it("renders native teaching text and clipped original art for every lesson plate", () => {
+    for (const page of FLIPCHART_PAGES.filter((page) => page.lesson > 0)) {
+      const { container, unmount } = render(<FlipchartPlate page={page} />);
+      const plate = container.querySelector('svg[data-digital-text="true"]');
+      expect(
+        plate,
+        `Digital text missing on plate ${page.flipchartPage}`,
+      ).toBeTruthy();
+      expect(plate?.querySelectorAll("text").length).toBeGreaterThan(0);
+      expect(plate?.querySelector("image")?.getAttribute("clip-path")).toMatch(
+        /^url\(#/,
+      );
+      expect(plate?.querySelector("image")?.getAttribute("href")).toContain(
+        page.path,
+      );
+      for (const text of plate?.querySelectorAll("text") ?? []) {
+        expect(Number(text.getAttribute("textLength"))).toBeGreaterThan(0);
+        expect(Number(text.getAttribute("font-size"))).toBeGreaterThan(0);
+      }
+      unmount();
+    }
+  });
+
   it("renders wide stage landmarks (no max-w postage stamp class on board)", () => {
     const { container } = render(<FlipchartHdPanel lessonNumber={2} />);
     const panel = container.querySelector('[data-testid="flipchart-hd-panel"]');
@@ -54,7 +79,9 @@ describe("FlipchartHdPanel — CRM-grade presenter board", () => {
   it("shows Spanish hoja counter and large nav when plates exist", () => {
     const { container } = render(<FlipchartHdPanel lessonNumber={2} />);
     if (container.querySelector('[data-testid="flipchart-empty"]')) return;
-    expect(screen.getByTestId("flipchart-counter").textContent).toMatch(/Hoja/i);
+    expect(screen.getByTestId("flipchart-counter").textContent).toMatch(
+      /Hoja/i,
+    );
     expect(screen.getByLabelText(/Lámina anterior/i)).toBeTruthy();
     expect(screen.getByLabelText(/Lámina siguiente/i)).toBeTruthy();
   });
@@ -79,7 +106,9 @@ describe("FlipchartHdPanel — CRM-grade presenter board", () => {
     expect(counter.textContent).toMatch(/Hoja 1 de/);
     fireEvent.click(screen.getByLabelText(/Lámina siguiente/i));
     // Synchronously on the next page — no waiting out the flip timer.
-    expect(screen.getByTestId("flipchart-counter").textContent).toMatch(/Hoja 2 de/);
+    expect(screen.getByTestId("flipchart-counter").textContent).toMatch(
+      /Hoja 2 de/,
+    );
     // The animated 3D flip layer must never have been mounted.
     expect(container.querySelector(".flipchart-flip-wrapper")).toBeNull();
   });
@@ -97,8 +126,12 @@ describe("TeacherPresentationShell — book-warm presenter chrome", () => {
         <div>board</div>
       </TeacherPresentationShell>,
     );
-    const shell = container.querySelector('[data-testid="teacher-presenter-shell"]');
-    const stage = container.querySelector('[data-testid="teacher-presenter-stage"]');
+    const shell = container.querySelector(
+      '[data-testid="teacher-presenter-shell"]',
+    );
+    const stage = container.querySelector(
+      '[data-testid="teacher-presenter-stage"]',
+    );
     expect(shell).toBeTruthy();
     expect(stage).toBeTruthy();
     expect(shell?.className).toContain("fc-presenter");

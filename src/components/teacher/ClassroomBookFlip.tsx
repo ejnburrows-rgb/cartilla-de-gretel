@@ -39,7 +39,10 @@ const pageVariants = {
  * Lane-lock note: this component does NOT modify Reader.tsx or anything
  * under src/routes/_authenticated/**.
  */
-export function ClassroomBookFlip({ pages, initialIndex = 0 }: ClassroomBookFlipProps) {
+export function ClassroomBookFlip({
+  pages,
+  initialIndex = 0,
+}: ClassroomBookFlipProps) {
   const [index, setIndex] = useState(initialIndex);
   const [direction, setDirection] = useState<1 | -1>(1);
 
@@ -60,19 +63,6 @@ export function ClassroomBookFlip({ pages, initialIndex = 0 }: ClassroomBookFlip
 
   return (
     <div className="relative mx-auto w-full max-w-4xl">
-      {/* Spiral binding at the top */}
-      <div
-        aria-hidden
-        className="mx-auto mb-2 flex h-6 w-3/5 items-center justify-around rounded-full"
-      >
-        {Array.from({ length: 14 }).map((_, i) => (
-          <span
-            key={i}
-            className="block h-6 w-1.5 rounded-full bg-[hsl(31,56%,48%)]/55 shadow-inner"
-          />
-        ))}
-      </div>
-
       <div className="relative" style={stageStyle}>
         <div className="relative aspect-[4/3] w-full">
           <AnimatePresence initial={false} custom={direction} mode="popLayout">

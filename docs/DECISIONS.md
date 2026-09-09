@@ -499,3 +499,5 @@ DOCUMENTATION DUTY section of `AGENTS.md`).
 - **2026-09-09 — Use the dashboard's computed attention flag for its student columns as well as its KPI, so a recently active beginner is not labeled as needing attention merely for having low completion.**
 
 - 2026-09-09: Owner requested immediate password-free access in production. Open all student lessons and the existing isolated local teacher/admin classroom automatically, bypass login/join screens, and keep private cloud data behind its existing service/database controls.
+
+- 2026-09-09: Owner rejected scan-looking flipbook and visible top rails again. Render all 60 teacher lesson plates with manually checked native Spanish SVG text and flat digital panels over untouched authentic illustration sources; remove photographed bindings using per-page frames. Do not describe a framed scan or an unmerged branch as finished digitization.

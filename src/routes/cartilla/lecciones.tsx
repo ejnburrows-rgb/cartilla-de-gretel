@@ -94,7 +94,7 @@ function Lecciones() {
         <h1 className="text-3xl sm:text-4xl font-black leading-tight text-stone-800">
           Tu Camino de Aprendizaje
         </h1>
-        <p className="text-stone-500 font-medium mt-2">{t.aprendePaso[lang]}</p>
+        <p className="text-stone-500 font-medium mt-2">{import.meta.env.VITE_CRM_REVIEW === "true" ? "Elige cualquiera de las 24 lecciones y practica a tu ritmo." : t.aprendePaso[lang]}</p>
 
         {/* Progress Bar */}
         <div className="mt-8 max-w-sm mx-auto bg-white p-4 rounded-2xl shadow-sm border border-stone-200">

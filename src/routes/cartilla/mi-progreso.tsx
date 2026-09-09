@@ -2,6 +2,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowLeft, Award, BookOpen, Clock, Download, Sparkles, Target } from "lucide-react";
 import { getMyProgress } from "@/lib/student.functions";
+import { useLessonProgress } from "@/lib/lesson-progress";
 import { getStudentSession } from "@/lib/student-session";
 import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
 import { SimpleBarChart } from "@/components/cartilla/SimpleBarChart";
@@ -16,14 +17,57 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Shimmer } from "@/components/feel/Shimmer";
 
 export const Route = createFileRoute("/cartilla/mi-progreso")({
-  component: MyProgress,
+  component: ProgressPage,
   head: () => ({ meta: [{ title: "Mi progreso — La Cartilla de Gretel" }] }),
   beforeLoad: () => {
+    if (import.meta.env.VITE_CRM_REVIEW === "true") return;
     if (typeof window !== "undefined" && !getStudentSession()) {
       throw redirect({ to: "/cartilla/unirse" });
     }
   },
 });
+
+function ProgressPage() {
+  return import.meta.env.VITE_CRM_REVIEW === "true" && !getStudentSession()
+    ? <LocalProgress />
+    : <MyProgress />;
+}
+
+function LocalProgress() {
+  const { isCompleted } = useLessonProgress();
+  const completedCount = CATALOG.filter((entry) => isCompleted(entry.n)).length;
+  const exportLocal = () => {
+    downloadCSV("mi-progreso-local.csv", toCSV(CATALOG.map((entry) => ({
+      leccion: entry.n,
+      titulo: entry.title,
+      completada: isCompleted(entry.n) ? "sí" : "no",
+    }))));
+  };
+  return (
+    <main className="min-h-screen relative px-4 py-6 max-w-4xl mx-auto">
+      <GardenBackdrop variant="soft" />
+      <div className="relative z-10">
+        <Link to="/cartilla/lecciones" className="inline-flex items-center gap-2 font-bold">
+          <ArrowLeft className="w-4 h-4" /> Lecciones
+        </Link>
+        <h1 className="mt-6 text-3xl font-bold">Mi progreso</h1>
+        <p className="mt-2">Lecciones completadas: {completedCount}/{TOTAL_LESSONS}</p>
+        <p className="mt-2 text-sm text-foreground/70">Progreso guardado en este navegador.</p>
+        <KidButton onClick={exportLocal} variant="outline" className="mt-4">
+          <Download className="w-4 h-4" /> CSV
+        </KidButton>
+        <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {CATALOG.map((entry) => (
+            <Link key={entry.n} to="/cartilla/leccion/$n" params={{ n: String(entry.n) }} className="kid-card p-4">
+              <span className="font-bold">{entry.n}. {entry.title}</span>
+              <span className="block mt-1 text-sm">{isCompleted(entry.n) ? "Completada" : "Pendiente"}</span>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </main>
+  );
+}
 
 type Event = {
   id: string;
@@ -360,3 +404,4 @@ function Stat({
     </div>
   );
 }
+

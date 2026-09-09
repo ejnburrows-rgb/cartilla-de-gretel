@@ -19,8 +19,12 @@ import {
   isHdFlipchartPath,
   type FlipchartPage,
 } from "@/lib/flipchart-hd";
-import { FLIPCHART_FLIP_MS, flipchartFlipTransforms } from "@/lib/living-motion";
+import {
+  FLIPCHART_FLIP_MS,
+  flipchartFlipTransforms,
+} from "@/lib/living-motion";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { FlipchartPlate } from "./FlipchartPlate";
 import "@/styles/flipchart-presenter.css";
 
 interface FlipchartHdPanelProps {
@@ -38,23 +42,22 @@ function FlipchartFace({ page }: { page?: FlipchartPage }) {
       data-hd={isHdFlipchartPath(src) ? "true" : "false"}
       data-flipchart-src={src}
     >
-      <img
-        src={src}
-        alt={`Lámina ${page.flipchartPage} del flipchart`}
-        loading="eager"
-        decoding="async"
-        draggable={false}
-      />
+      <FlipchartPlate page={page} />
     </div>
   );
 }
 
-export function FlipchartHdPanel({ lessonNumber, accentColor }: FlipchartHdPanelProps) {
+export function FlipchartHdPanel({
+  lessonNumber,
+  accentColor,
+}: FlipchartHdPanelProps) {
   const pages: FlipchartPage[] = getFlipchartPagesForLesson(lessonNumber);
   const reducedMotion = useReducedMotion();
   const [selectedIdx, setSelectedIdx] = useState(0);
   const [isFlipping, setIsFlipping] = useState(false);
-  const [flipDirection, setFlipDirection] = useState<"next" | "prev" | null>(null);
+  const [flipDirection, setFlipDirection] = useState<"next" | "prev" | null>(
+    null,
+  );
   const [flipTransform, setFlipTransform] = useState("rotateX(0deg)");
 
   useEffect(() => {
@@ -70,7 +73,8 @@ export function FlipchartHdPanel({ lessonNumber, accentColor }: FlipchartHdPanel
     setFlipDirection(null);
   }, []);
 
-  const safeIdx = pages.length === 0 ? 0 : Math.min(selectedIdx, pages.length - 1);
+  const safeIdx =
+    pages.length === 0 ? 0 : Math.min(selectedIdx, pages.length - 1);
   const currentPage = pages[safeIdx];
 
   const goTo = useCallback(
@@ -126,7 +130,9 @@ export function FlipchartHdPanel({ lessonNumber, accentColor }: FlipchartHdPanel
 
   useEffect(() => {
     if (pages.length === 0) return;
-    const neighbors = [pages[safeIdx - 1], pages[safeIdx + 1]].filter(Boolean) as FlipchartPage[];
+    const neighbors = [pages[safeIdx - 1], pages[safeIdx + 1]].filter(
+      Boolean,
+    ) as FlipchartPage[];
     for (const p of neighbors) {
       const img = new Image();
       img.src = getFlipchartPageSrc(p);
@@ -144,9 +150,21 @@ export function FlipchartHdPanel({ lessonNumber, accentColor }: FlipchartHdPanel
     );
   }
 
-  const staticIdx = isFlipping ? (flipDirection === "prev" ? safeIdx - 1 : safeIdx + 1) : safeIdx;
-  const flipFrontIdx = isFlipping ? (flipDirection === "next" ? safeIdx : safeIdx - 1) : -1;
-  const flipBackIdx = isFlipping ? (flipDirection === "next" ? safeIdx + 1 : safeIdx) : -1;
+  const staticIdx = isFlipping
+    ? flipDirection === "prev"
+      ? safeIdx - 1
+      : safeIdx + 1
+    : safeIdx;
+  const flipFrontIdx = isFlipping
+    ? flipDirection === "next"
+      ? safeIdx
+      : safeIdx - 1
+    : -1;
+  const flipBackIdx = isFlipping
+    ? flipDirection === "next"
+      ? safeIdx + 1
+      : safeIdx
+    : -1;
 
   const accentStyle = accentColor
     ? ({ ["--fc-accent" as string]: accentColor } as CSSProperties)
@@ -171,7 +189,10 @@ export function FlipchartHdPanel({ lessonNumber, accentColor }: FlipchartHdPanel
                 className="absolute inset-0 z-30 pointer-events-none"
                 style={{ transformStyle: "preserve-3d", perspective: "1800px" }}
               >
-                <div className="flipchart-flip-wrapper" style={{ transform: flipTransform }}>
+                <div
+                  className="flipchart-flip-wrapper"
+                  style={{ transform: flipTransform }}
+                >
                   <div className="flipchart-page-front">
                     <FlipchartFace page={pages[flipFrontIdx]} />
                     <div
@@ -227,7 +248,11 @@ export function FlipchartHdPanel({ lessonNumber, accentColor }: FlipchartHdPanel
       </div>
 
       {pages.length > 1 && (
-        <div className="fc-board__strip" role="tablist" aria-label="Láminas del flipchart">
+        <div
+          className="fc-board__strip"
+          role="tablist"
+          aria-label="Láminas del flipchart"
+        >
           {pages.map((p, i) => (
             <button
               key={p.flipchartPage}
@@ -238,7 +263,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor }: FlipchartHdPanel
               onClick={() => goTo(i, i > safeIdx ? "next" : "prev")}
               aria-label={`Ir a hoja ${i + 1}`}
             >
-              <img src={getFlipchartPageSrc(p)} alt="" loading="lazy" draggable={false} />
+              <FlipchartPlate page={p} decorative />
             </button>
           ))}
         </div>

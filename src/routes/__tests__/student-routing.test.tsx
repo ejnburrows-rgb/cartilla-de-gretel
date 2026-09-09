@@ -227,6 +227,30 @@ describe("Student-Teacher Routing Isolation", () => {
     expect(getSessionMock).not.toHaveBeenCalled();
   });
 
+  it("opens both print views without authenticating and keeps lesson validation", async () => {
+    vi.stubEnv("VITE_CRM_REVIEW", "true");
+    const { Route: PrintLesson } = await import("../cartilla/imprimir.$n");
+    const { Route: PrintAll } = await import("../cartilla/imprimir.all");
+    await PrintLesson.options.beforeLoad!({ params: { n: "1" } } as never);
+    await PrintAll.options.beforeLoad!({} as never);
+    expect(getSessionMock).not.toHaveBeenCalled();
+    await expect(PrintLesson.options.beforeLoad!({ params: { n: "999" } } as never)).rejects.toBeDefined();
+  });
+
+  it("shows anonymous progress without a login or a permanent loading screen", async () => {
+    vi.stubEnv("VITE_CRM_REVIEW", "true");
+    const { Route: ProgressRoute } = await import("../cartilla/mi-progreso");
+    await ProgressRoute.options.beforeLoad!({} as never);
+    const root = createRootRouteWithContext<{ queryClient: unknown }>()({ component: Outlet });
+    const progress = createRoute({ getParentRoute: () => root, path: "/cartilla/mi-progreso", component: ProgressRoute.options.component });
+    const history = createMemoryHistory({ initialEntries: ["/cartilla/mi-progreso"] });
+    const router = createRouter({ routeTree: root.addChildren([progress]), history, context: { queryClient: {} } });
+    render(<RouterProvider router={router} />);
+    expect(await screen.findByRole("heading", { name: "Mi progreso" }, { timeout: 10_000 })).toBeTruthy();
+    expect(screen.getByText("Progreso guardado en este navegador.")).toBeTruthy();
+    expect(getSessionMock).not.toHaveBeenCalled();
+  });
+
   describe("Session reset on cross-login", () => {
     it("(c) teacher login clears student session", async () => {
       const { history } = renderWithRouter(["/login"]);

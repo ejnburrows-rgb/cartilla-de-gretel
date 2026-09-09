@@ -19,24 +19,18 @@ export type FlipchartPage = {
 };
 
 /** All 62 HD flipchart pages, sorted by flipchartPage ascending. */
-export const FLIPCHART_PAGES: FlipchartPage[] = (flipchartData.pages as FlipchartPage[]).sort(
-  (a, b) => a.flipchartPage - b.flipchartPage,
-);
+export const FLIPCHART_PAGES: FlipchartPage[] = (
+  flipchartData.pages as FlipchartPage[]
+).sort((a, b) => a.flipchartPage - b.flipchartPage);
 
 /**
  * Return the absolute URL path for a flipchart page (leading slash).
  *
- * All 62 HD plates have a pixel-cleaned, acceptance-tested restored mirror
- * committed under /cartilla/art/restored/flipchart/ (B7, same filenames,
- * strict 1:1 — cleanup only, never recolored or reinterpreted), so restored
- * is served first and the hd/ originals remain untouched on disk.
+ * Use the catalogued original HD color source. Cleanup belongs to display
+ * geometry, not a remastered derivative that could alter the source palette.
  */
 export function getFlipchartPageSrc(page: FlipchartPage): string {
-  const restored = page.path.replace(
-    /^cartilla\/art\/hd\/flipchart\//,
-    "cartilla/art/restored/flipchart/",
-  );
-  return `/${restored}`;
+  return `/${page.path.replace(/^\//, "")}`;
 }
 
 /**
@@ -56,7 +50,9 @@ export function isHdFlipchartPath(src: string): boolean {
 }
 
 /** Prefer HD path for a lesson's first plate; null if none authored. */
-export function getPreferredFlipchartSrcForLesson(lessonNumber: number): string | null {
+export function getPreferredFlipchartSrcForLesson(
+  lessonNumber: number,
+): string | null {
   const pages = getFlipchartPagesForLesson(lessonNumber);
   if (pages.length === 0) return null;
   const src = getFlipchartPageSrc(pages[0]!);
@@ -64,12 +60,16 @@ export function getPreferredFlipchartSrcForLesson(lessonNumber: number): string 
 }
 
 /** Return all flipchart pages that belong to the given lesson. */
-export function getFlipchartPagesForLesson(lessonNumber: number): FlipchartPage[] {
+export function getFlipchartPagesForLesson(
+  lessonNumber: number,
+): FlipchartPage[] {
   return FLIPCHART_PAGES.filter((p) => p.lesson === lessonNumber);
 }
 
 /** Return the first flipchartPage number for a given lesson (useful for linking). */
-export function getFirstFlipchartPageForLesson(lessonNumber: number): number | null {
+export function getFirstFlipchartPageForLesson(
+  lessonNumber: number,
+): number | null {
   const pages = getFlipchartPagesForLesson(lessonNumber);
   return pages.length > 0 ? (pages[0]?.flipchartPage ?? null) : null;
 }

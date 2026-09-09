@@ -1,0 +1,4429 @@
+{
+  "43": [
+    {
+      "x": 369.23,
+      "y": 243.08,
+      "width": 603.08,
+      "height": 87.69,
+      "text": "",
+      "fontSize": 1,
+      "color": "#000000",
+      "backgroundColor": "#e8f4f3"
+    },
+    {
+      "x": 369.23,
+      "y": 110.77,
+      "width": 603.08,
+      "height": 87.69,
+      "text": "",
+      "fontSize": 1,
+      "color": "#000000",
+      "backgroundColor": "#e8f4f3"
+    },
+    {
+      "x": 135.38,
+      "y": 178.46,
+      "width": 73.85,
+      "height": 66.15,
+      "text": "rr",
+      "fontSize": 74.75,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 396.92,
+      "y": 132.31,
+      "width": 38.46,
+      "height": 49.23,
+      "text": "rr",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#e8f4f3"
+    },
+    {
+      "x": 435.38,
+      "y": 132.31,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "a",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#e8f4f3"
+    },
+    {
+      "x": 509.23,
+      "y": 132.31,
+      "width": 38.46,
+      "height": 49.23,
+      "text": "rr",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#e8f4f3"
+    },
+    {
+      "x": 547.69,
+      "y": 132.31,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "e",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#e8f4f3"
+    },
+    {
+      "x": 621.54,
+      "y": 132.31,
+      "width": 38.46,
+      "height": 49.23,
+      "text": "rr",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#e8f4f3"
+    },
+    {
+      "x": 660.0,
+      "y": 132.31,
+      "width": 12.31,
+      "height": 49.23,
+      "text": "i",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#e8f4f3"
+    },
+    {
+      "x": 732.31,
+      "y": 132.31,
+      "width": 38.46,
+      "height": 49.23,
+      "text": "rr",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#e8f4f3"
+    },
+    {
+      "x": 770.77,
+      "y": 132.31,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "o",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#e8f4f3"
+    },
+    {
+      "x": 850.77,
+      "y": 132.31,
+      "width": 38.46,
+      "height": 49.23,
+      "text": "rr",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#e8f4f3"
+    },
+    {
+      "x": 889.23,
+      "y": 132.31,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "u",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#e8f4f3"
+    },
+    {
+      "x": 396.92,
+      "y": 261.54,
+      "width": 38.46,
+      "height": 49.23,
+      "text": "rr",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#e8f4f3"
+    },
+    {
+      "x": 435.38,
+      "y": 261.54,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "u",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#e8f4f3"
+    },
+    {
+      "x": 509.23,
+      "y": 261.54,
+      "width": 38.46,
+      "height": 49.23,
+      "text": "rr",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#e8f4f3"
+    },
+    {
+      "x": 547.69,
+      "y": 261.54,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "o",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#e8f4f3"
+    },
+    {
+      "x": 621.54,
+      "y": 261.54,
+      "width": 38.46,
+      "height": 49.23,
+      "text": "rr",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#e8f4f3"
+    },
+    {
+      "x": 660.0,
+      "y": 261.54,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "a",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#e8f4f3"
+    },
+    {
+      "x": 732.31,
+      "y": 261.54,
+      "width": 38.46,
+      "height": 49.23,
+      "text": "rr",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#e8f4f3"
+    },
+    {
+      "x": 770.77,
+      "y": 261.54,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "e",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#e8f4f3"
+    },
+    {
+      "x": 850.77,
+      "y": 261.54,
+      "width": 38.46,
+      "height": 49.23,
+      "text": "rr",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#e8f4f3"
+    },
+    {
+      "x": 889.23,
+      "y": 261.54,
+      "width": 12.31,
+      "height": 49.23,
+      "text": "i",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#e8f4f3"
+    },
+    {
+      "x": 84.62,
+      "y": 409.23,
+      "width": 101.54,
+      "height": 47.69,
+      "text": "tarro",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 84.62,
+      "y": 470.77,
+      "width": 118.46,
+      "height": 47.69,
+      "text": "perro",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 84.62,
+      "y": 532.31,
+      "width": 118.46,
+      "height": 47.69,
+      "text": "barro",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 84.62,
+      "y": 593.85,
+      "width": 150.77,
+      "height": 47.69,
+      "text": "arroba",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 84.62,
+      "y": 655.38,
+      "width": 129.23,
+      "height": 47.69,
+      "text": "arriba",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 381.54,
+      "y": 410.77,
+      "width": 115.38,
+      "height": 47.69,
+      "text": "burro",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 381.54,
+      "y": 472.31,
+      "width": 156.92,
+      "height": 47.69,
+      "text": "amarro",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 381.54,
+      "y": 533.85,
+      "width": 189.23,
+      "height": 47.69,
+      "text": "arrebato",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 381.54,
+      "y": 595.38,
+      "width": 123.08,
+      "height": 47.69,
+      "text": "parra",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 381.54,
+      "y": 656.92,
+      "width": 156.92,
+      "height": 47.69,
+      "text": "arruina",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 689.23,
+      "y": 410.77,
+      "width": 116.92,
+      "height": 47.69,
+      "text": "tierra",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 689.23,
+      "y": 472.31,
+      "width": 170.77,
+      "height": 47.69,
+      "text": "carrusel",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 689.23,
+      "y": 533.85,
+      "width": 106.15,
+      "height": 47.69,
+      "text": "torre",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 689.23,
+      "y": 595.38,
+      "width": 138.46,
+      "height": 47.69,
+      "text": "burrito",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 689.23,
+      "y": 656.92,
+      "width": 118.46,
+      "height": 47.69,
+      "text": "carro",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 73.85,
+      "y": 860.0,
+      "width": 858.46,
+      "height": 50.77,
+      "text": "Rode tiene un perro. Es un perro",
+      "fontSize": 57.37,
+      "color": "#111111"
+    },
+    {
+      "x": 73.85,
+      "y": 926.15,
+      "width": 858.46,
+      "height": 50.77,
+      "text": "alemán. El perro de Rode tiene una tina",
+      "fontSize": 57.37,
+      "color": "#111111"
+    },
+    {
+      "x": 73.85,
+      "y": 992.31,
+      "width": 858.46,
+      "height": 50.77,
+      "text": "de barro. La tina de barro está en el",
+      "fontSize": 57.37,
+      "color": "#111111"
+    },
+    {
+      "x": 73.85,
+      "y": 1058.46,
+      "width": 858.46,
+      "height": 50.77,
+      "text": "piso. Rosi amarra el perro en la mata.",
+      "fontSize": 57.37,
+      "color": "#111111"
+    },
+    {
+      "x": 73.85,
+      "y": 1124.62,
+      "width": 858.46,
+      "height": 50.77,
+      "text": "El perro no muerde. El perro Tito mueve",
+      "fontSize": 57.37,
+      "color": "#111111"
+    },
+    {
+      "x": 73.85,
+      "y": 1190.77,
+      "width": 803.08,
+      "height": 50.77,
+      "text": "el rabo. Tito arruinó el carro de rosas.",
+      "fontSize": 57.37,
+      "color": "#111111"
+    }
+  ],
+  "44": [
+    {
+      "x": 29.23,
+      "y": 580.0,
+      "width": 623.08,
+      "height": 741.54,
+      "text": "",
+      "fontSize": 1,
+      "color": "#000000",
+      "backgroundColor": "#eef6f5"
+    },
+    {
+      "x": 218.46,
+      "y": 241.54,
+      "width": 80.0,
+      "height": 69.23,
+      "text": "rr",
+      "fontSize": 78.23,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 72.31,
+      "y": 612.31,
+      "width": 447.69,
+      "height": 58.46,
+      "text": "¡Rápido arriba!",
+      "fontSize": 66.06,
+      "color": "#111111",
+      "fontWeight": 700,
+      "backgroundColor": "#eef6f5"
+    },
+    {
+      "x": 70.77,
+      "y": 706.15,
+      "width": 367.69,
+      "height": 60.0,
+      "text": "Barri el burrito",
+      "fontSize": 67.8,
+      "color": "#111111",
+      "backgroundColor": "#eef6f5"
+    },
+    {
+      "x": 70.77,
+      "y": 773.85,
+      "width": 409.23,
+      "height": 60.0,
+      "text": "sube a la loma.",
+      "fontSize": 67.8,
+      "color": "#111111",
+      "backgroundColor": "#eef6f5"
+    },
+    {
+      "x": 70.77,
+      "y": 841.54,
+      "width": 364.62,
+      "height": 60.0,
+      "text": "Perri el perrito",
+      "fontSize": 67.8,
+      "color": "#111111",
+      "backgroundColor": "#eef6f5"
+    },
+    {
+      "x": 70.77,
+      "y": 909.23,
+      "width": 350.77,
+      "height": 60.0,
+      "text": "roba mi bola.",
+      "fontSize": 67.8,
+      "color": "#111111",
+      "backgroundColor": "#eef6f5"
+    },
+    {
+      "x": 70.77,
+      "y": 1013.85,
+      "width": 363.08,
+      "height": 61.54,
+      "text": "Mi burro lindo",
+      "fontSize": 69.54,
+      "color": "#111111",
+      "backgroundColor": "#eef6f5"
+    },
+    {
+      "x": 70.77,
+      "y": 1081.54,
+      "width": 544.62,
+      "height": 61.54,
+      "text": "muy bien mandado.",
+      "fontSize": 69.54,
+      "color": "#111111",
+      "backgroundColor": "#eef6f5"
+    },
+    {
+      "x": 70.77,
+      "y": 1149.23,
+      "width": 347.69,
+      "height": 61.54,
+      "text": "Mi perro Perri",
+      "fontSize": 69.54,
+      "color": "#111111",
+      "backgroundColor": "#eef6f5"
+    },
+    {
+      "x": 70.77,
+      "y": 1216.92,
+      "width": 324.62,
+      "height": 61.54,
+      "text": "arrebatado.",
+      "fontSize": 69.54,
+      "color": "#111111",
+      "backgroundColor": "#eef6f5"
+    }
+  ],
+  "45": [
+    {
+      "x": 586.15,
+      "y": 206.15,
+      "width": 155.38,
+      "height": 93.85,
+      "text": "Gg",
+      "fontSize": 106.05,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 823.08,
+      "y": 81.54,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "g",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 853.85,
+      "y": 81.54,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "a",
+      "fontSize": 55.63,
+      "color": "#111111"
+    },
+    {
+      "x": 876.92,
+      "y": 227.69,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "g",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 907.69,
+      "y": 227.69,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "o",
+      "fontSize": 55.63,
+      "color": "#111111"
+    },
+    {
+      "x": 840.0,
+      "y": 367.69,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "g",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 870.77,
+      "y": 367.69,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "u",
+      "fontSize": 55.63,
+      "color": "#111111"
+    },
+    {
+      "x": 66.15,
+      "y": 796.92,
+      "width": 218.46,
+      "height": 58.46,
+      "text": "gaveta",
+      "fontSize": 66.06,
+      "color": "#111111"
+    },
+    {
+      "x": 386.15,
+      "y": 796.92,
+      "width": 218.46,
+      "height": 58.46,
+      "text": "gusano",
+      "fontSize": 66.06,
+      "color": "#111111"
+    },
+    {
+      "x": 716.92,
+      "y": 795.38,
+      "width": 204.62,
+      "height": 58.46,
+      "text": "Goloso",
+      "fontSize": 66.06,
+      "color": "#111111"
+    },
+    {
+      "x": 178.46,
+      "y": 1196.92,
+      "width": 156.92,
+      "height": 58.46,
+      "text": "gorra",
+      "fontSize": 66.06,
+      "color": "#111111"
+    },
+    {
+      "x": 589.23,
+      "y": 1192.31,
+      "width": 175.38,
+      "height": 58.46,
+      "text": "mago",
+      "fontSize": 66.06,
+      "color": "#111111"
+    }
+  ],
+  "46": [
+    {
+      "x": 369.23,
+      "y": 235.38,
+      "width": 603.08,
+      "height": 87.69,
+      "text": "",
+      "fontSize": 1,
+      "color": "#000000",
+      "backgroundColor": "#eaf4ef"
+    },
+    {
+      "x": 369.23,
+      "y": 90.77,
+      "width": 603.08,
+      "height": 87.69,
+      "text": "",
+      "fontSize": 1,
+      "color": "#000000",
+      "backgroundColor": "#eaf4ef"
+    },
+    {
+      "x": 95.38,
+      "y": 155.38,
+      "width": 153.85,
+      "height": 92.31,
+      "text": "Gg",
+      "fontSize": 104.31,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 403.08,
+      "y": 113.85,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "g",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#eaf4ef"
+    },
+    {
+      "x": 433.85,
+      "y": 113.85,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "a",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#eaf4ef"
+    },
+    {
+      "x": 630.77,
+      "y": 113.85,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "g",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#eaf4ef"
+    },
+    {
+      "x": 661.54,
+      "y": 113.85,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "o",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#eaf4ef"
+    },
+    {
+      "x": 849.23,
+      "y": 113.85,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "g",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#eaf4ef"
+    },
+    {
+      "x": 880.0,
+      "y": 113.85,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "u",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#eaf4ef"
+    },
+    {
+      "x": 403.08,
+      "y": 255.38,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "g",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#eaf4ef"
+    },
+    {
+      "x": 433.85,
+      "y": 255.38,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "u",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#eaf4ef"
+    },
+    {
+      "x": 630.77,
+      "y": 255.38,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "g",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#eaf4ef"
+    },
+    {
+      "x": 661.54,
+      "y": 255.38,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "o",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#eaf4ef"
+    },
+    {
+      "x": 849.23,
+      "y": 255.38,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "g",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#eaf4ef"
+    },
+    {
+      "x": 880.0,
+      "y": 255.38,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "a",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#eaf4ef"
+    },
+    {
+      "x": 83.08,
+      "y": 413.85,
+      "width": 103.08,
+      "height": 47.69,
+      "text": "gato",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 83.08,
+      "y": 478.46,
+      "width": 132.31,
+      "height": 47.69,
+      "text": "goma",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 83.08,
+      "y": 543.08,
+      "width": 150.77,
+      "height": 47.69,
+      "text": "Magali",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 83.08,
+      "y": 607.69,
+      "width": 136.92,
+      "height": 47.69,
+      "text": "ganas",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 83.08,
+      "y": 672.31,
+      "width": 121.54,
+      "height": 47.69,
+      "text": "gusta",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 372.31,
+      "y": 413.85,
+      "width": 187.69,
+      "height": 47.69,
+      "text": "Gustavo",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 372.31,
+      "y": 478.46,
+      "width": 135.38,
+      "height": 47.69,
+      "text": "mago",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 372.31,
+      "y": 543.08,
+      "width": 103.08,
+      "height": 47.69,
+      "text": "lago",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 372.31,
+      "y": 607.69,
+      "width": 123.08,
+      "height": 47.69,
+      "text": "agua",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 372.31,
+      "y": 672.31,
+      "width": 164.62,
+      "height": 47.69,
+      "text": "gusano",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 707.69,
+      "y": 416.92,
+      "width": 149.23,
+      "height": 47.69,
+      "text": "gotero",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 707.69,
+      "y": 481.54,
+      "width": 153.85,
+      "height": 47.69,
+      "text": "laguna",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 707.69,
+      "y": 546.15,
+      "width": 187.69,
+      "height": 47.69,
+      "text": "golosina",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 707.69,
+      "y": 610.77,
+      "width": 121.54,
+      "height": 47.69,
+      "text": "gorra",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 707.69,
+      "y": 675.38,
+      "width": 187.69,
+      "height": 47.69,
+      "text": "góndola",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 69.23,
+      "y": 818.46,
+      "width": 858.46,
+      "height": 52.31,
+      "text": "El gato de Magali bebe agua en el",
+      "fontSize": 59.11,
+      "color": "#111111"
+    },
+    {
+      "x": 69.23,
+      "y": 882.31,
+      "width": 858.46,
+      "height": 52.31,
+      "text": "lago. Magali le pone una gorra a su",
+      "fontSize": 59.11,
+      "color": "#111111"
+    },
+    {
+      "x": 69.23,
+      "y": 946.15,
+      "width": 858.46,
+      "height": 52.31,
+      "text": "gato Goloso. Goloso ve a Musulunga, la",
+      "fontSize": 59.11,
+      "color": "#111111"
+    },
+    {
+      "x": 69.23,
+      "y": 1010.0,
+      "width": 858.46,
+      "height": 52.31,
+      "text": "gata gordita. Magali y Gustavo van al",
+      "fontSize": 59.11,
+      "color": "#111111"
+    },
+    {
+      "x": 69.23,
+      "y": 1073.85,
+      "width": 858.46,
+      "height": 52.31,
+      "text": "lago. En el lago ven el agua. A Magali",
+      "fontSize": 59.11,
+      "color": "#111111"
+    },
+    {
+      "x": 69.23,
+      "y": 1137.69,
+      "width": 858.46,
+      "height": 52.31,
+      "text": "le gusta el agua. Goloso y Musulunga",
+      "fontSize": 59.11,
+      "color": "#111111"
+    },
+    {
+      "x": 69.23,
+      "y": 1201.54,
+      "width": 858.46,
+      "height": 52.31,
+      "text": "van a la laguna. Goloso le regala un",
+      "fontSize": 59.11,
+      "color": "#111111"
+    },
+    {
+      "x": 69.23,
+      "y": 1265.38,
+      "width": 683.08,
+      "height": 52.31,
+      "text": "gusanito rosadito a Musulunga.",
+      "fontSize": 59.11,
+      "color": "#111111"
+    }
+  ],
+  "47": [
+    {
+      "x": 184.62,
+      "y": 203.08,
+      "width": 152.31,
+      "height": 96.92,
+      "text": "Gg",
+      "fontSize": 109.52,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 55.38,
+      "y": 569.23,
+      "width": 520.0,
+      "height": 49.23,
+      "text": "El gato enamorado",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "fontWeight": 700
+    },
+    {
+      "x": 112.31,
+      "y": 656.92,
+      "width": 406.15,
+      "height": 60.0,
+      "text": "Mi gato Goloso",
+      "fontSize": 67.8,
+      "color": "#111111"
+    },
+    {
+      "x": 112.31,
+      "y": 723.08,
+      "width": 318.46,
+      "height": 60.0,
+      "text": "se enamoró",
+      "fontSize": 67.8,
+      "color": "#111111"
+    },
+    {
+      "x": 112.31,
+      "y": 789.23,
+      "width": 376.92,
+      "height": 60.0,
+      "text": "de Musulunga",
+      "fontSize": 67.8,
+      "color": "#111111"
+    },
+    {
+      "x": 112.31,
+      "y": 855.38,
+      "width": 370.77,
+      "height": 60.0,
+      "text": "y la engatusó.",
+      "fontSize": 67.8,
+      "color": "#111111"
+    },
+    {
+      "x": 112.31,
+      "y": 943.08,
+      "width": 412.31,
+      "height": 60.0,
+      "text": "–Gatita gordita",
+      "fontSize": 67.8,
+      "color": "#111111"
+    },
+    {
+      "x": 112.31,
+      "y": 1009.23,
+      "width": 407.69,
+      "height": 60.0,
+      "text": "gatita, mi amor",
+      "fontSize": 67.8,
+      "color": "#111111"
+    },
+    {
+      "x": 112.31,
+      "y": 1075.38,
+      "width": 361.54,
+      "height": 60.0,
+      "text": "este gusanito",
+      "fontSize": 67.8,
+      "color": "#111111"
+    },
+    {
+      "x": 112.31,
+      "y": 1141.54,
+      "width": 410.77,
+      "height": 60.0,
+      "text": "es para los dos.",
+      "fontSize": 67.8,
+      "color": "#111111"
+    }
+  ],
+  "48": [
+    {
+      "x": 613.85,
+      "y": 187.69,
+      "width": 78.46,
+      "height": 81.54,
+      "text": "Ff",
+      "fontSize": 92.14,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 815.38,
+      "y": 58.46,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "f",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 846.15,
+      "y": 58.46,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "a",
+      "fontSize": 55.63,
+      "color": "#111111"
+    },
+    {
+      "x": 866.15,
+      "y": 135.38,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "f",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 896.92,
+      "y": 135.38,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "e",
+      "fontSize": 55.63,
+      "color": "#111111"
+    },
+    {
+      "x": 904.62,
+      "y": 213.85,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "f",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 935.38,
+      "y": 213.85,
+      "width": 12.31,
+      "height": 49.23,
+      "text": "i",
+      "fontSize": 55.63,
+      "color": "#111111"
+    },
+    {
+      "x": 873.85,
+      "y": 287.69,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "f",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 904.62,
+      "y": 287.69,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "o",
+      "fontSize": 55.63,
+      "color": "#111111"
+    },
+    {
+      "x": 843.08,
+      "y": 363.08,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "f",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 873.85,
+      "y": 363.08,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "u",
+      "fontSize": 55.63,
+      "color": "#111111"
+    },
+    {
+      "x": 118.46,
+      "y": 846.15,
+      "width": 115.38,
+      "height": 61.54,
+      "text": "foto",
+      "fontSize": 69.54,
+      "color": "#111111"
+    },
+    {
+      "x": 427.69,
+      "y": 843.08,
+      "width": 178.46,
+      "height": 61.54,
+      "text": "fideos",
+      "fontSize": 69.54,
+      "color": "#111111"
+    },
+    {
+      "x": 718.46,
+      "y": 840.0,
+      "width": 184.62,
+      "height": 61.54,
+      "text": "familia",
+      "fontSize": 69.54,
+      "color": "#111111"
+    },
+    {
+      "x": 246.15,
+      "y": 1256.92,
+      "width": 120.0,
+      "height": 61.54,
+      "text": "Felo",
+      "fontSize": 69.54,
+      "color": "#111111"
+    },
+    {
+      "x": 633.85,
+      "y": 1249.23,
+      "width": 176.92,
+      "height": 61.54,
+      "text": "funda",
+      "fontSize": 69.54,
+      "color": "#111111"
+    }
+  ],
+  "49": [
+    {
+      "x": 369.23,
+      "y": 246.15,
+      "width": 603.08,
+      "height": 87.69,
+      "text": "",
+      "fontSize": 1,
+      "color": "#000000",
+      "backgroundColor": "#eef5e5"
+    },
+    {
+      "x": 369.23,
+      "y": 110.77,
+      "width": 603.08,
+      "height": 87.69,
+      "text": "",
+      "fontSize": 1,
+      "color": "#000000",
+      "backgroundColor": "#eef5e5"
+    },
+    {
+      "x": 138.46,
+      "y": 166.15,
+      "width": 83.08,
+      "height": 83.08,
+      "text": "Ff",
+      "fontSize": 93.88,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 407.69,
+      "y": 126.15,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "f",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#eef5e5"
+    },
+    {
+      "x": 438.46,
+      "y": 126.15,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "a",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#eef5e5"
+    },
+    {
+      "x": 513.85,
+      "y": 126.15,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "f",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#eef5e5"
+    },
+    {
+      "x": 544.62,
+      "y": 126.15,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "e",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#eef5e5"
+    },
+    {
+      "x": 632.31,
+      "y": 126.15,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "f",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#eef5e5"
+    },
+    {
+      "x": 663.08,
+      "y": 126.15,
+      "width": 12.31,
+      "height": 49.23,
+      "text": "i",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#eef5e5"
+    },
+    {
+      "x": 733.85,
+      "y": 126.15,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "f",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#eef5e5"
+    },
+    {
+      "x": 764.62,
+      "y": 126.15,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "o",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#eef5e5"
+    },
+    {
+      "x": 843.08,
+      "y": 126.15,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "f",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#eef5e5"
+    },
+    {
+      "x": 873.85,
+      "y": 126.15,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "u",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#eef5e5"
+    },
+    {
+      "x": 407.69,
+      "y": 256.92,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "f",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#eef5e5"
+    },
+    {
+      "x": 438.46,
+      "y": 256.92,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "u",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#eef5e5"
+    },
+    {
+      "x": 513.85,
+      "y": 256.92,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "f",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#eef5e5"
+    },
+    {
+      "x": 544.62,
+      "y": 256.92,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "o",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#eef5e5"
+    },
+    {
+      "x": 632.31,
+      "y": 256.92,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "f",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#eef5e5"
+    },
+    {
+      "x": 663.08,
+      "y": 256.92,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "a",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#eef5e5"
+    },
+    {
+      "x": 733.85,
+      "y": 256.92,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "f",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#eef5e5"
+    },
+    {
+      "x": 764.62,
+      "y": 256.92,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "e",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#eef5e5"
+    },
+    {
+      "x": 843.08,
+      "y": 256.92,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "f",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#eef5e5"
+    },
+    {
+      "x": 873.85,
+      "y": 256.92,
+      "width": 12.31,
+      "height": 49.23,
+      "text": "i",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#eef5e5"
+    },
+    {
+      "x": 87.69,
+      "y": 416.92,
+      "width": 152.31,
+      "height": 47.69,
+      "text": "familia",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 87.69,
+      "y": 478.46,
+      "width": 147.69,
+      "height": 47.69,
+      "text": "Fígaro",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 87.69,
+      "y": 540.0,
+      "width": 115.38,
+      "height": 47.69,
+      "text": "fama",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 87.69,
+      "y": 601.54,
+      "width": 166.15,
+      "height": 47.69,
+      "text": "famoso",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 87.69,
+      "y": 663.08,
+      "width": 86.15,
+      "height": 47.69,
+      "text": "foto",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 387.69,
+      "y": 416.92,
+      "width": 80.0,
+      "height": 47.69,
+      "text": "fino",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 387.69,
+      "y": 478.46,
+      "width": 110.77,
+      "height": 47.69,
+      "text": "fusta",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 387.69,
+      "y": 540.0,
+      "width": 152.31,
+      "height": 47.69,
+      "text": "fumiga",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 387.69,
+      "y": 601.54,
+      "width": 183.08,
+      "height": 47.69,
+      "text": "teléfono",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 387.69,
+      "y": 663.08,
+      "width": 73.85,
+      "height": 47.69,
+      "text": "feo",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 692.31,
+      "y": 416.92,
+      "width": 66.15,
+      "height": 47.69,
+      "text": "fila",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 692.31,
+      "y": 478.46,
+      "width": 100.0,
+      "height": 47.69,
+      "text": "falso",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 692.31,
+      "y": 540.0,
+      "width": 155.38,
+      "height": 47.69,
+      "text": "fortuna",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 692.31,
+      "y": 601.54,
+      "width": 130.77,
+      "height": 47.69,
+      "text": "Ofelia",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 692.31,
+      "y": 663.08,
+      "width": 96.92,
+      "height": 47.69,
+      "text": "foca",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 453.85,
+      "y": 758.46,
+      "width": 109.23,
+      "height": 55.38,
+      "text": "hay",
+      "fontSize": 62.58,
+      "color": "#111111",
+      "fontWeight": 700
+    },
+    {
+      "x": 118.46,
+      "y": 870.77,
+      "width": 829.23,
+      "height": 52.31,
+      "text": "La familia de Ofelia va a la finca de",
+      "fontSize": 59.11,
+      "color": "#111111"
+    },
+    {
+      "x": 118.46,
+      "y": 936.92,
+      "width": 829.23,
+      "height": 52.31,
+      "text": "Felo. En la finca de Felo hay aves y",
+      "fontSize": 59.11,
+      "color": "#111111"
+    },
+    {
+      "x": 118.46,
+      "y": 1003.08,
+      "width": 829.23,
+      "height": 52.31,
+      "text": "ganado. Felo arrea el ganado con",
+      "fontSize": 59.11,
+      "color": "#111111"
+    },
+    {
+      "x": 118.46,
+      "y": 1069.23,
+      "width": 829.23,
+      "height": 52.31,
+      "text": "una fusta. El ganado vale una fortuna.",
+      "fontSize": 59.11,
+      "color": "#111111"
+    },
+    {
+      "x": 118.46,
+      "y": 1135.38,
+      "width": 829.23,
+      "height": 52.31,
+      "text": "Es un ganado de fama. Felo pone",
+      "fontSize": 59.11,
+      "color": "#111111"
+    },
+    {
+      "x": 118.46,
+      "y": 1201.54,
+      "width": 506.15,
+      "height": 52.31,
+      "text": "todo el ganado en fila.",
+      "fontSize": 59.11,
+      "color": "#111111"
+    }
+  ],
+  "50": [
+    {
+      "x": 33.85,
+      "y": 575.38,
+      "width": 698.46,
+      "height": 732.31,
+      "text": "",
+      "fontSize": 1,
+      "color": "#000000",
+      "backgroundColor": "#f7faf6"
+    },
+    {
+      "x": 218.46,
+      "y": 224.62,
+      "width": 75.38,
+      "height": 84.62,
+      "text": "Ff",
+      "fontSize": 95.62,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 236.92,
+      "y": 601.54,
+      "width": 275.38,
+      "height": 52.31,
+      "text": "A la fiesta",
+      "fontSize": 59.11,
+      "color": "#111111",
+      "fontWeight": 700,
+      "backgroundColor": "#f7faf6"
+    },
+    {
+      "x": 47.69,
+      "y": 693.85,
+      "width": 541.54,
+      "height": 60.0,
+      "text": "A la fiesta de familia",
+      "fontSize": 67.8,
+      "color": "#111111",
+      "backgroundColor": "#f7faf6"
+    },
+    {
+      "x": 47.69,
+      "y": 761.54,
+      "width": 504.62,
+      "height": 60.0,
+      "text": "tía Fela va a invitar",
+      "fontSize": 67.8,
+      "color": "#111111",
+      "backgroundColor": "#f7faf6"
+    },
+    {
+      "x": 47.69,
+      "y": 829.23,
+      "width": 527.69,
+      "height": 60.0,
+      "text": "las velitas del pastel",
+      "fontSize": 67.8,
+      "color": "#111111",
+      "backgroundColor": "#f7faf6"
+    },
+    {
+      "x": 47.69,
+      "y": 896.92,
+      "width": 506.15,
+      "height": 60.0,
+      "text": "Fefita va a apagar.",
+      "fontSize": 67.8,
+      "color": "#111111",
+      "backgroundColor": "#f7faf6"
+    },
+    {
+      "x": 47.69,
+      "y": 1006.15,
+      "width": 589.23,
+      "height": 61.54,
+      "text": "Fu, fu… apaga la vela",
+      "fontSize": 69.54,
+      "color": "#111111",
+      "backgroundColor": "#f7faf6"
+    },
+    {
+      "x": 47.69,
+      "y": 1073.85,
+      "width": 653.85,
+      "height": 61.54,
+      "text": "fa, fa… la vela no es mía",
+      "fontSize": 69.54,
+      "color": "#111111",
+      "backgroundColor": "#f7faf6"
+    },
+    {
+      "x": 47.69,
+      "y": 1141.54,
+      "width": 581.54,
+      "height": 61.54,
+      "text": "fe, fe… apaga la vela",
+      "fontSize": 69.54,
+      "color": "#111111",
+      "backgroundColor": "#f7faf6"
+    },
+    {
+      "x": 47.69,
+      "y": 1209.23,
+      "width": 586.15,
+      "height": 61.54,
+      "text": "fi, fi… la vela es de tía.",
+      "fontSize": 69.54,
+      "color": "#111111",
+      "backgroundColor": "#f7faf6"
+    }
+  ],
+  "51": [
+    {
+      "x": 623.08,
+      "y": 212.31,
+      "width": 81.54,
+      "height": 92.31,
+      "text": "Jj",
+      "fontSize": 104.31,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 832.31,
+      "y": 78.46,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "j",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 863.08,
+      "y": 78.46,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "a",
+      "fontSize": 55.63,
+      "color": "#111111"
+    },
+    {
+      "x": 884.62,
+      "y": 152.31,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "j",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 915.38,
+      "y": 152.31,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "e",
+      "fontSize": 55.63,
+      "color": "#111111"
+    },
+    {
+      "x": 927.69,
+      "y": 226.15,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "j",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 958.46,
+      "y": 226.15,
+      "width": 12.31,
+      "height": 49.23,
+      "text": "i",
+      "fontSize": 55.63,
+      "color": "#111111"
+    },
+    {
+      "x": 895.38,
+      "y": 300.0,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "j",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 926.15,
+      "y": 300.0,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "o",
+      "fontSize": 55.63,
+      "color": "#111111"
+    },
+    {
+      "x": 864.62,
+      "y": 373.85,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "j",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 895.38,
+      "y": 373.85,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "u",
+      "fontSize": 55.63,
+      "color": "#111111"
+    },
+    {
+      "x": 69.23,
+      "y": 784.62,
+      "width": 210.77,
+      "height": 64.62,
+      "text": "jicotea",
+      "fontSize": 73.02,
+      "color": "#111111"
+    },
+    {
+      "x": 427.69,
+      "y": 786.15,
+      "width": 130.77,
+      "height": 64.62,
+      "text": "jugo",
+      "fontSize": 73.02,
+      "color": "#111111"
+    },
+    {
+      "x": 741.54,
+      "y": 787.69,
+      "width": 150.77,
+      "height": 64.62,
+      "text": "Jesús",
+      "fontSize": 73.02,
+      "color": "#111111"
+    },
+    {
+      "x": 210.77,
+      "y": 1209.23,
+      "width": 95.38,
+      "height": 64.62,
+      "text": "ajo",
+      "fontSize": 73.02,
+      "color": "#111111"
+    },
+    {
+      "x": 606.15,
+      "y": 1209.23,
+      "width": 133.85,
+      "height": 64.62,
+      "text": "jarra",
+      "fontSize": 73.02,
+      "color": "#111111"
+    }
+  ],
+  "52": [
+    {
+      "x": 369.23,
+      "y": 241.54,
+      "width": 603.08,
+      "height": 87.69,
+      "text": "",
+      "fontSize": 1,
+      "color": "#000000",
+      "backgroundColor": "#f0f6df"
+    },
+    {
+      "x": 369.23,
+      "y": 96.92,
+      "width": 603.08,
+      "height": 87.69,
+      "text": "",
+      "fontSize": 1,
+      "color": "#000000",
+      "backgroundColor": "#f0f6df"
+    },
+    {
+      "x": 138.46,
+      "y": 161.54,
+      "width": 76.92,
+      "height": 93.85,
+      "text": "Jj",
+      "fontSize": 106.05,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 406.15,
+      "y": 112.31,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "j",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#f0f6df"
+    },
+    {
+      "x": 436.92,
+      "y": 112.31,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "a",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#f0f6df"
+    },
+    {
+      "x": 515.38,
+      "y": 112.31,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "j",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#f0f6df"
+    },
+    {
+      "x": 546.15,
+      "y": 112.31,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "e",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#f0f6df"
+    },
+    {
+      "x": 633.85,
+      "y": 112.31,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "j",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#f0f6df"
+    },
+    {
+      "x": 664.62,
+      "y": 112.31,
+      "width": 12.31,
+      "height": 49.23,
+      "text": "i",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#f0f6df"
+    },
+    {
+      "x": 736.92,
+      "y": 112.31,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "j",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#f0f6df"
+    },
+    {
+      "x": 767.69,
+      "y": 112.31,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "o",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#f0f6df"
+    },
+    {
+      "x": 847.69,
+      "y": 112.31,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "j",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#f0f6df"
+    },
+    {
+      "x": 878.46,
+      "y": 112.31,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "u",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#f0f6df"
+    },
+    {
+      "x": 406.15,
+      "y": 250.77,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "j",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#f0f6df"
+    },
+    {
+      "x": 436.92,
+      "y": 250.77,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "u",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#f0f6df"
+    },
+    {
+      "x": 515.38,
+      "y": 250.77,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "j",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#f0f6df"
+    },
+    {
+      "x": 546.15,
+      "y": 250.77,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "o",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#f0f6df"
+    },
+    {
+      "x": 633.85,
+      "y": 250.77,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "j",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#f0f6df"
+    },
+    {
+      "x": 664.62,
+      "y": 250.77,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "a",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#f0f6df"
+    },
+    {
+      "x": 736.92,
+      "y": 250.77,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "j",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#f0f6df"
+    },
+    {
+      "x": 767.69,
+      "y": 250.77,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "e",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#f0f6df"
+    },
+    {
+      "x": 847.69,
+      "y": 250.77,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "j",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#f0f6df"
+    },
+    {
+      "x": 878.46,
+      "y": 250.77,
+      "width": 12.31,
+      "height": 49.23,
+      "text": "i",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#f0f6df"
+    },
+    {
+      "x": 84.62,
+      "y": 416.92,
+      "width": 106.15,
+      "height": 47.69,
+      "text": "jaba",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 84.62,
+      "y": 480.0,
+      "width": 103.08,
+      "height": 47.69,
+      "text": "baja",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 84.62,
+      "y": 543.08,
+      "width": 133.85,
+      "height": 47.69,
+      "text": "jabón",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 84.62,
+      "y": 606.15,
+      "width": 127.69,
+      "height": 47.69,
+      "text": "Jesús",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 84.62,
+      "y": 669.23,
+      "width": 100.0,
+      "height": 47.69,
+      "text": "Julia",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 398.46,
+      "y": 416.92,
+      "width": 156.92,
+      "height": 47.69,
+      "text": "jicotea",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 398.46,
+      "y": 480.0,
+      "width": 86.15,
+      "height": 47.69,
+      "text": "jura",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 398.46,
+      "y": 543.08,
+      "width": 110.77,
+      "height": 47.69,
+      "text": "vieja",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 398.46,
+      "y": 606.15,
+      "width": 140.0,
+      "height": 47.69,
+      "text": "jamón",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 398.46,
+      "y": 669.23,
+      "width": 100.0,
+      "height": 47.69,
+      "text": "jarro",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 738.46,
+      "y": 416.92,
+      "width": 61.54,
+      "height": 47.69,
+      "text": "ají",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 738.46,
+      "y": 480.0,
+      "width": 121.54,
+      "height": 47.69,
+      "text": "jinete",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 738.46,
+      "y": 543.08,
+      "width": 83.08,
+      "height": 47.69,
+      "text": "jefe",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 738.46,
+      "y": 606.15,
+      "width": 107.69,
+      "height": 47.69,
+      "text": "José",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 738.46,
+      "y": 669.23,
+      "width": 124.62,
+      "height": 47.69,
+      "text": "joven",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 70.77,
+      "y": 830.77,
+      "width": 858.46,
+      "height": 52.31,
+      "text": "José y Julia son amigos. A José le gusta",
+      "fontSize": 59.11,
+      "color": "#111111"
+    },
+    {
+      "x": 70.77,
+      "y": 898.46,
+      "width": 858.46,
+      "height": 52.31,
+      "text": "el jamón y a Julia le gusta el jugo de",
+      "fontSize": 59.11,
+      "color": "#111111"
+    },
+    {
+      "x": 70.77,
+      "y": 966.15,
+      "width": 858.46,
+      "height": 52.31,
+      "text": "tomate. Juan tiene una jutía y la baña",
+      "fontSize": 59.11,
+      "color": "#111111"
+    },
+    {
+      "x": 70.77,
+      "y": 1033.85,
+      "width": 858.46,
+      "height": 52.31,
+      "text": "con jabón. José y Josefa juegan en la",
+      "fontSize": 59.11,
+      "color": "#111111"
+    },
+    {
+      "x": 70.77,
+      "y": 1101.54,
+      "width": 858.46,
+      "height": 52.31,
+      "text": "laguna. Jabela es una jicotea. A Jabela",
+      "fontSize": 59.11,
+      "color": "#111111"
+    },
+    {
+      "x": 70.77,
+      "y": 1169.23,
+      "width": 858.46,
+      "height": 52.31,
+      "text": "le gusta la laguna. A Jabela no le gusta",
+      "fontSize": 59.11,
+      "color": "#111111"
+    },
+    {
+      "x": 70.77,
+      "y": 1236.92,
+      "width": 450.77,
+      "height": 52.31,
+      "text": "le espuma de jabón.",
+      "fontSize": 59.11,
+      "color": "#111111"
+    }
+  ],
+  "53": [
+    {
+      "x": 35.38,
+      "y": 660.0,
+      "width": 692.31,
+      "height": 613.85,
+      "text": "",
+      "fontSize": 1,
+      "color": "#000000",
+      "backgroundColor": "#f2f6ed"
+    },
+    {
+      "x": 218.46,
+      "y": 232.31,
+      "width": 90.77,
+      "height": 100.0,
+      "text": "Jj",
+      "fontSize": 113.0,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 130.77,
+      "y": 598.46,
+      "width": 507.69,
+      "height": 55.38,
+      "text": "La jicotea Jabela",
+      "fontSize": 62.58,
+      "color": "#111111",
+      "fontWeight": 700
+    },
+    {
+      "x": 56.92,
+      "y": 689.23,
+      "width": 461.54,
+      "height": 61.54,
+      "text": "Mi jicotea Jabela",
+      "fontSize": 69.54,
+      "color": "#111111",
+      "backgroundColor": "#f2f6ed"
+    },
+    {
+      "x": 56.92,
+      "y": 755.38,
+      "width": 615.38,
+      "height": 61.54,
+      "text": "juega y juega sin parar,",
+      "fontSize": 69.54,
+      "color": "#111111",
+      "backgroundColor": "#f2f6ed"
+    },
+    {
+      "x": 56.92,
+      "y": 821.54,
+      "width": 592.31,
+      "height": 61.54,
+      "text": "con espuma de jabón",
+      "fontSize": 69.54,
+      "color": "#111111",
+      "backgroundColor": "#f2f6ed"
+    },
+    {
+      "x": 56.92,
+      "y": 887.69,
+      "width": 601.54,
+      "height": 61.54,
+      "text": "jamás la puedo bañar.",
+      "fontSize": 69.54,
+      "color": "#111111",
+      "backgroundColor": "#f2f6ed"
+    },
+    {
+      "x": 55.38,
+      "y": 993.85,
+      "width": 541.54,
+      "height": 60.0,
+      "text": "Se mete en el jaulón",
+      "fontSize": 67.8,
+      "color": "#111111",
+      "backgroundColor": "#f2f6ed"
+    },
+    {
+      "x": 55.38,
+      "y": 1058.46,
+      "width": 653.85,
+      "height": 60.0,
+      "text": "no le gusta el agua pura",
+      "fontSize": 67.8,
+      "color": "#111111",
+      "backgroundColor": "#f2f6ed"
+    },
+    {
+      "x": 55.38,
+      "y": 1123.08,
+      "width": 598.46,
+      "height": 60.0,
+      "text": "ni la espuma de jabón",
+      "fontSize": 67.8,
+      "color": "#111111",
+      "backgroundColor": "#f2f6ed"
+    },
+    {
+      "x": 55.38,
+      "y": 1187.69,
+      "width": 464.62,
+      "height": 60.0,
+      "text": "a mi jicotea dura.",
+      "fontSize": 67.8,
+      "color": "#111111",
+      "backgroundColor": "#f2f6ed"
+    }
+  ],
+  "54": [
+    {
+      "x": 586.15,
+      "y": 176.92,
+      "width": 147.69,
+      "height": 84.62,
+      "text": "Cc",
+      "fontSize": 95.62,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 815.38,
+      "y": 58.46,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "c",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 846.15,
+      "y": 58.46,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "a",
+      "fontSize": 55.63,
+      "color": "#111111"
+    },
+    {
+      "x": 870.77,
+      "y": 201.54,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "c",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 901.54,
+      "y": 201.54,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "o",
+      "fontSize": 55.63,
+      "color": "#111111"
+    },
+    {
+      "x": 838.46,
+      "y": 343.08,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "c",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 869.23,
+      "y": 343.08,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "u",
+      "fontSize": 55.63,
+      "color": "#111111"
+    },
+    {
+      "x": 101.54,
+      "y": 764.62,
+      "width": 147.69,
+      "height": 60.0,
+      "text": "cuna",
+      "fontSize": 67.8,
+      "color": "#111111"
+    },
+    {
+      "x": 387.69,
+      "y": 761.54,
+      "width": 210.77,
+      "height": 60.0,
+      "text": "conejo",
+      "fontSize": 67.8,
+      "color": "#111111"
+    },
+    {
+      "x": 746.15,
+      "y": 766.15,
+      "width": 143.08,
+      "height": 60.0,
+      "text": "casa",
+      "fontSize": 67.8,
+      "color": "#111111"
+    },
+    {
+      "x": 173.85,
+      "y": 1198.46,
+      "width": 160.0,
+      "height": 60.0,
+      "text": "cubo",
+      "fontSize": 67.8,
+      "color": "#111111"
+    },
+    {
+      "x": 552.31,
+      "y": 1196.92,
+      "width": 255.38,
+      "height": 60.0,
+      "text": "Catalina",
+      "fontSize": 67.8,
+      "color": "#111111"
+    }
+  ],
+  "55": [
+    {
+      "x": 369.23,
+      "y": 255.38,
+      "width": 603.08,
+      "height": 87.69,
+      "text": "",
+      "fontSize": 1,
+      "color": "#000000",
+      "backgroundColor": "#f1f7db"
+    },
+    {
+      "x": 369.23,
+      "y": 116.92,
+      "width": 603.08,
+      "height": 87.69,
+      "text": "",
+      "fontSize": 1,
+      "color": "#000000",
+      "backgroundColor": "#f1f7db"
+    },
+    {
+      "x": 104.62,
+      "y": 167.69,
+      "width": 146.15,
+      "height": 87.69,
+      "text": "Cc",
+      "fontSize": 99.09,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 409.23,
+      "y": 138.46,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "c",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#f1f7db"
+    },
+    {
+      "x": 440.0,
+      "y": 138.46,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "a",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#f1f7db"
+    },
+    {
+      "x": 633.85,
+      "y": 138.46,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "c",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#f1f7db"
+    },
+    {
+      "x": 664.62,
+      "y": 138.46,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "o",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#f1f7db"
+    },
+    {
+      "x": 849.23,
+      "y": 138.46,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "c",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#f1f7db"
+    },
+    {
+      "x": 880.0,
+      "y": 138.46,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "u",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#f1f7db"
+    },
+    {
+      "x": 409.23,
+      "y": 272.31,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "c",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#f1f7db"
+    },
+    {
+      "x": 440.0,
+      "y": 272.31,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "u",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#f1f7db"
+    },
+    {
+      "x": 633.85,
+      "y": 272.31,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "c",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#f1f7db"
+    },
+    {
+      "x": 664.62,
+      "y": 272.31,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "o",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#f1f7db"
+    },
+    {
+      "x": 849.23,
+      "y": 272.31,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "c",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#f1f7db"
+    },
+    {
+      "x": 880.0,
+      "y": 272.31,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "a",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#f1f7db"
+    },
+    {
+      "x": 86.15,
+      "y": 420.0,
+      "width": 118.46,
+      "height": 47.69,
+      "text": "carro",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 86.15,
+      "y": 481.54,
+      "width": 115.38,
+      "height": 47.69,
+      "text": "coco",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 86.15,
+      "y": 543.08,
+      "width": 110.77,
+      "height": 47.69,
+      "text": "casa",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 86.15,
+      "y": 604.62,
+      "width": 120.0,
+      "height": 47.69,
+      "text": "Cuba",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 86.15,
+      "y": 666.15,
+      "width": 164.62,
+      "height": 47.69,
+      "text": "camisa",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 384.62,
+      "y": 424.62,
+      "width": 124.62,
+      "height": 47.69,
+      "text": "boca",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 384.62,
+      "y": 486.15,
+      "width": 216.92,
+      "height": 47.69,
+      "text": "Colombia",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 384.62,
+      "y": 547.69,
+      "width": 118.46,
+      "height": 47.69,
+      "text": "poco",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 384.62,
+      "y": 609.23,
+      "width": 95.38,
+      "height": 47.69,
+      "text": "pico",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 384.62,
+      "y": 670.77,
+      "width": 124.62,
+      "height": 47.69,
+      "text": "Cuco",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 726.15,
+      "y": 426.15,
+      "width": 115.38,
+      "height": 47.69,
+      "text": "cuna",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 726.15,
+      "y": 487.69,
+      "width": 110.77,
+      "height": 47.69,
+      "text": "saco",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 726.15,
+      "y": 549.23,
+      "width": 100.0,
+      "height": 47.69,
+      "text": "roca",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 726.15,
+      "y": 610.77,
+      "width": 170.77,
+      "height": 47.69,
+      "text": "cumbia",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 726.15,
+      "y": 672.31,
+      "width": 166.15,
+      "height": 47.69,
+      "text": "colonia",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 67.69,
+      "y": 836.92,
+      "width": 858.46,
+      "height": 52.31,
+      "text": "Cuco Casanova es un buen amigo del",
+      "fontSize": 59.11,
+      "color": "#111111"
+    },
+    {
+      "x": 67.69,
+      "y": 904.62,
+      "width": 858.46,
+      "height": 52.31,
+      "text": "papá y de la mamá de Paco. El señor",
+      "fontSize": 59.11,
+      "color": "#111111"
+    },
+    {
+      "x": 67.69,
+      "y": 972.31,
+      "width": 858.46,
+      "height": 52.31,
+      "text": "Casanova es cubano. El vive en el",
+      "fontSize": 59.11,
+      "color": "#111111"
+    },
+    {
+      "x": 67.69,
+      "y": 1040.0,
+      "width": 858.46,
+      "height": 52.31,
+      "text": "campo, vive con Doña María, su mamá.",
+      "fontSize": 59.11,
+      "color": "#111111"
+    },
+    {
+      "x": 67.69,
+      "y": 1107.69,
+      "width": 858.46,
+      "height": 52.31,
+      "text": "Cuco Casanova juega con los niños y",
+      "fontSize": 59.11,
+      "color": "#111111"
+    },
+    {
+      "x": 67.69,
+      "y": 1175.38,
+      "width": 858.46,
+      "height": 52.31,
+      "text": "los cuida también. Todos en la casa de",
+      "fontSize": 59.11,
+      "color": "#111111"
+    },
+    {
+      "x": 67.69,
+      "y": 1243.08,
+      "width": 452.31,
+      "height": 52.31,
+      "text": "Paco aman a Cuco.",
+      "fontSize": 59.11,
+      "color": "#111111"
+    }
+  ],
+  "56": [
+    {
+      "x": 183.08,
+      "y": 221.54,
+      "width": 133.85,
+      "height": 81.54,
+      "text": "Cc",
+      "fontSize": 92.14,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 293.85,
+      "y": 780.0,
+      "width": 400.0,
+      "height": 55.38,
+      "text": "Los caramelos",
+      "fontSize": 62.58,
+      "color": "#111111",
+      "fontWeight": 700
+    },
+    {
+      "x": 184.62,
+      "y": 875.38,
+      "width": 601.54,
+      "height": 61.54,
+      "text": "Cuco tiene caramelos",
+      "fontSize": 69.54,
+      "color": "#111111"
+    },
+    {
+      "x": 184.62,
+      "y": 944.62,
+      "width": 529.23,
+      "height": 61.54,
+      "text": "caramelitos de miel",
+      "fontSize": 69.54,
+      "color": "#111111"
+    },
+    {
+      "x": 184.62,
+      "y": 1013.85,
+      "width": 553.85,
+      "height": 61.54,
+      "text": "Cuco reparte cariño",
+      "fontSize": 69.54,
+      "color": "#111111"
+    },
+    {
+      "x": 184.62,
+      "y": 1083.08,
+      "width": 587.69,
+      "height": 61.54,
+      "text": "y caramelos también.",
+      "fontSize": 69.54,
+      "color": "#111111"
+    }
+  ],
+  "57": [
+    {
+      "x": 603.08,
+      "y": 201.54,
+      "width": 129.23,
+      "height": 98.46,
+      "text": "Yy",
+      "fontSize": 111.26,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 826.15,
+      "y": 72.31,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "y",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 856.92,
+      "y": 72.31,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "a",
+      "fontSize": 55.63,
+      "color": "#111111"
+    },
+    {
+      "x": 873.85,
+      "y": 146.15,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "y",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 904.62,
+      "y": 146.15,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "e",
+      "fontSize": 55.63,
+      "color": "#111111"
+    },
+    {
+      "x": 910.77,
+      "y": 220.0,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "y",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 941.54,
+      "y": 220.0,
+      "width": 12.31,
+      "height": 49.23,
+      "text": "i",
+      "fontSize": 55.63,
+      "color": "#111111"
+    },
+    {
+      "x": 880.0,
+      "y": 292.31,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "y",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 910.77,
+      "y": 292.31,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "o",
+      "fontSize": 55.63,
+      "color": "#111111"
+    },
+    {
+      "x": 847.69,
+      "y": 363.08,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "y",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 878.46,
+      "y": 363.08,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "u",
+      "fontSize": 55.63,
+      "color": "#111111"
+    },
+    {
+      "x": 107.69,
+      "y": 766.15,
+      "width": 135.38,
+      "height": 61.54,
+      "text": "yate",
+      "fontSize": 69.54,
+      "color": "#111111"
+    },
+    {
+      "x": 413.85,
+      "y": 769.23,
+      "width": 167.69,
+      "height": 61.54,
+      "text": "yema",
+      "fontSize": 69.54,
+      "color": "#111111"
+    },
+    {
+      "x": 730.77,
+      "y": 769.23,
+      "width": 181.54,
+      "height": 61.54,
+      "text": "Yayita",
+      "fontSize": 69.54,
+      "color": "#111111"
+    },
+    {
+      "x": 100.0,
+      "y": 1190.77,
+      "width": 320.0,
+      "height": 61.54,
+      "text": "mayúscula",
+      "fontSize": 69.54,
+      "color": "#111111"
+    },
+    {
+      "x": 606.15,
+      "y": 1193.85,
+      "width": 138.46,
+      "height": 61.54,
+      "text": "yoyo",
+      "fontSize": 69.54,
+      "color": "#111111"
+    }
+  ],
+  "58": [
+    {
+      "x": 369.23,
+      "y": 240.0,
+      "width": 603.08,
+      "height": 87.69,
+      "text": "",
+      "fontSize": 1,
+      "color": "#000000",
+      "backgroundColor": "#fcfbd0"
+    },
+    {
+      "x": 369.23,
+      "y": 98.46,
+      "width": 603.08,
+      "height": 87.69,
+      "text": "",
+      "fontSize": 1,
+      "color": "#000000",
+      "backgroundColor": "#fcfbd0"
+    },
+    {
+      "x": 112.31,
+      "y": 160.0,
+      "width": 124.62,
+      "height": 90.77,
+      "text": "Yy",
+      "fontSize": 102.57,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 401.54,
+      "y": 118.46,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "y",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#fcfbd0"
+    },
+    {
+      "x": 432.31,
+      "y": 118.46,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "a",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#fcfbd0"
+    },
+    {
+      "x": 516.92,
+      "y": 118.46,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "y",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#fcfbd0"
+    },
+    {
+      "x": 547.69,
+      "y": 118.46,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "e",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#fcfbd0"
+    },
+    {
+      "x": 643.08,
+      "y": 118.46,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "y",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#fcfbd0"
+    },
+    {
+      "x": 673.85,
+      "y": 118.46,
+      "width": 12.31,
+      "height": 49.23,
+      "text": "i",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#fcfbd0"
+    },
+    {
+      "x": 750.77,
+      "y": 118.46,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "y",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#fcfbd0"
+    },
+    {
+      "x": 781.54,
+      "y": 118.46,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "o",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#fcfbd0"
+    },
+    {
+      "x": 872.31,
+      "y": 118.46,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "y",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#fcfbd0"
+    },
+    {
+      "x": 903.08,
+      "y": 118.46,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "u",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#fcfbd0"
+    },
+    {
+      "x": 401.54,
+      "y": 256.92,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "y",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#fcfbd0"
+    },
+    {
+      "x": 432.31,
+      "y": 256.92,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "u",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#fcfbd0"
+    },
+    {
+      "x": 516.92,
+      "y": 256.92,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "y",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#fcfbd0"
+    },
+    {
+      "x": 547.69,
+      "y": 256.92,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "o",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#fcfbd0"
+    },
+    {
+      "x": 643.08,
+      "y": 256.92,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "y",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#fcfbd0"
+    },
+    {
+      "x": 673.85,
+      "y": 256.92,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "a",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#fcfbd0"
+    },
+    {
+      "x": 750.77,
+      "y": 256.92,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "y",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#fcfbd0"
+    },
+    {
+      "x": 781.54,
+      "y": 256.92,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "e",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#fcfbd0"
+    },
+    {
+      "x": 872.31,
+      "y": 256.92,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "y",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#fcfbd0"
+    },
+    {
+      "x": 903.08,
+      "y": 256.92,
+      "width": 12.31,
+      "height": 49.23,
+      "text": "i",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#fcfbd0"
+    },
+    {
+      "x": 86.15,
+      "y": 375.38,
+      "width": 113.85,
+      "height": 47.69,
+      "text": "yuca",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 86.15,
+      "y": 438.46,
+      "width": 132.31,
+      "height": 47.69,
+      "text": "yema",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 86.15,
+      "y": 501.54,
+      "width": 103.08,
+      "height": 47.69,
+      "text": "yate",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 86.15,
+      "y": 564.62,
+      "width": 141.54,
+      "height": 47.69,
+      "text": "yegua",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 86.15,
+      "y": 627.69,
+      "width": 143.08,
+      "height": 47.69,
+      "text": "yagua",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 383.08,
+      "y": 375.38,
+      "width": 109.23,
+      "height": 47.69,
+      "text": "ayer",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 383.08,
+      "y": 438.46,
+      "width": 167.69,
+      "height": 47.69,
+      "text": "payaso",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 383.08,
+      "y": 501.54,
+      "width": 103.08,
+      "height": 47.69,
+      "text": "yute",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 383.08,
+      "y": 564.62,
+      "width": 107.69,
+      "height": 47.69,
+      "text": "yoyo",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 383.08,
+      "y": 627.69,
+      "width": 196.92,
+      "height": 47.69,
+      "text": "Yucatán",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 675.38,
+      "y": 383.08,
+      "width": 115.38,
+      "height": 47.69,
+      "text": "cayo",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 675.38,
+      "y": 446.15,
+      "width": 152.31,
+      "height": 47.69,
+      "text": "Mayito",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 675.38,
+      "y": 509.23,
+      "width": 104.62,
+      "height": 47.69,
+      "text": "joya",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 675.38,
+      "y": 572.31,
+      "width": 216.92,
+      "height": 47.69,
+      "text": "yucateco",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 675.38,
+      "y": 635.38,
+      "width": 103.08,
+      "height": 47.69,
+      "text": "yeso",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 55.38,
+      "y": 787.69,
+      "width": 904.62,
+      "height": 52.31,
+      "text": "El yate de Yayo está en Yateras. Yayo fue",
+      "fontSize": 59.11,
+      "color": "#111111"
+    },
+    {
+      "x": 55.38,
+      "y": 853.85,
+      "width": 904.62,
+      "height": 52.31,
+      "text": "a los cayos a pescar con sus amigas",
+      "fontSize": 59.11,
+      "color": "#111111"
+    },
+    {
+      "x": 55.38,
+      "y": 920.0,
+      "width": 904.62,
+      "height": 52.31,
+      "text": "yucatecas. Yayo tiene una soga de yute",
+      "fontSize": 59.11,
+      "color": "#111111"
+    },
+    {
+      "x": 55.38,
+      "y": 986.15,
+      "width": 904.62,
+      "height": 52.31,
+      "text": "para amarrar su yate. Yayo comió yuca y",
+      "fontSize": 59.11,
+      "color": "#111111"
+    },
+    {
+      "x": 55.38,
+      "y": 1052.31,
+      "width": 904.62,
+      "height": 52.31,
+      "text": "guacamole. A Yayo le gusta el arroz con",
+      "fontSize": 59.11,
+      "color": "#111111"
+    },
+    {
+      "x": 55.38,
+      "y": 1118.46,
+      "width": 904.62,
+      "height": 52.31,
+      "text": "yemas de huevos también. Su mamá le",
+      "fontSize": 59.11,
+      "color": "#111111"
+    },
+    {
+      "x": 55.38,
+      "y": 1184.62,
+      "width": 904.62,
+      "height": 52.31,
+      "text": "dio el arroz con yemas de huevos ayer.",
+      "fontSize": 59.11,
+      "color": "#111111"
+    },
+    {
+      "x": 55.38,
+      "y": 1250.77,
+      "width": 501.54,
+      "height": 52.31,
+      "text": "Yayo se lo comió todo.",
+      "fontSize": 59.11,
+      "color": "#111111"
+    }
+  ],
+  "59": [
+    {
+      "x": 192.31,
+      "y": 221.54,
+      "width": 126.15,
+      "height": 96.92,
+      "text": "Yy",
+      "fontSize": 109.52,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 55.38,
+      "y": 601.54,
+      "width": 413.85,
+      "height": 52.31,
+      "text": "El yate de Yayo",
+      "fontSize": 59.11,
+      "color": "#111111",
+      "fontWeight": 700
+    },
+    {
+      "x": 56.92,
+      "y": 690.77,
+      "width": 660.0,
+      "height": 61.54,
+      "text": "De Yateras a Cayo Hueso",
+      "fontSize": 69.54,
+      "color": "#111111"
+    },
+    {
+      "x": 56.92,
+      "y": 756.92,
+      "width": 658.46,
+      "height": 61.54,
+      "text": "de Cayo Hueso a Yateras",
+      "fontSize": 69.54,
+      "color": "#111111"
+    },
+    {
+      "x": 56.92,
+      "y": 823.08,
+      "width": 616.92,
+      "height": 61.54,
+      "text": "Yayo va con sus amigas",
+      "fontSize": 69.54,
+      "color": "#111111"
+    },
+    {
+      "x": 56.92,
+      "y": 889.23,
+      "width": 583.08,
+      "height": 61.54,
+      "text": "sus amigas yucatecas.",
+      "fontSize": 69.54,
+      "color": "#111111"
+    },
+    {
+      "x": 60.0,
+      "y": 993.85,
+      "width": 620.0,
+      "height": 60.0,
+      "text": "En su yate “Cayo Largo”",
+      "fontSize": 67.8,
+      "color": "#111111"
+    },
+    {
+      "x": 60.0,
+      "y": 1058.46,
+      "width": 515.38,
+      "height": 60.0,
+      "text": "ayer vino a Yucatán",
+      "fontSize": 67.8,
+      "color": "#111111"
+    },
+    {
+      "x": 60.0,
+      "y": 1123.08,
+      "width": 570.77,
+      "height": 60.0,
+      "text": "con una soga de yute",
+      "fontSize": 67.8,
+      "color": "#111111"
+    },
+    {
+      "x": 60.0,
+      "y": 1187.69,
+      "width": 564.62,
+      "height": 60.0,
+      "text": "Yayo lo pudo amarrar.",
+      "fontSize": 67.8,
+      "color": "#111111"
+    }
+  ],
+  "60": [
+    {
+      "x": 604.62,
+      "y": 192.31,
+      "width": 100.0,
+      "height": 86.15,
+      "text": "Zz",
+      "fontSize": 97.35,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 816.92,
+      "y": 58.46,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "z",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 847.69,
+      "y": 58.46,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "a",
+      "fontSize": 55.63,
+      "color": "#111111"
+    },
+    {
+      "x": 866.15,
+      "y": 133.85,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "z",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 896.92,
+      "y": 133.85,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "e",
+      "fontSize": 55.63,
+      "color": "#111111"
+    },
+    {
+      "x": 909.23,
+      "y": 207.69,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "z",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 940.0,
+      "y": 207.69,
+      "width": 12.31,
+      "height": 49.23,
+      "text": "i",
+      "fontSize": 55.63,
+      "color": "#111111"
+    },
+    {
+      "x": 873.85,
+      "y": 281.54,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "z",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 904.62,
+      "y": 281.54,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "o",
+      "fontSize": 55.63,
+      "color": "#111111"
+    },
+    {
+      "x": 849.23,
+      "y": 356.92,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "z",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 880.0,
+      "y": 356.92,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "u",
+      "fontSize": 55.63,
+      "color": "#111111"
+    },
+    {
+      "x": 70.77,
+      "y": 784.62,
+      "width": 207.69,
+      "height": 63.08,
+      "text": "zapato",
+      "fontSize": 71.28,
+      "color": "#111111"
+    },
+    {
+      "x": 403.08,
+      "y": 784.62,
+      "width": 209.23,
+      "height": 63.08,
+      "text": "zig-zag",
+      "fontSize": 71.28,
+      "color": "#111111"
+    },
+    {
+      "x": 743.08,
+      "y": 786.15,
+      "width": 146.15,
+      "height": 63.08,
+      "text": "zorro",
+      "fontSize": 71.28,
+      "color": "#111111"
+    },
+    {
+      "x": 158.46,
+      "y": 1212.31,
+      "width": 203.08,
+      "height": 63.08,
+      "text": "zepelín",
+      "fontSize": 71.28,
+      "color": "#111111"
+    },
+    {
+      "x": 567.69,
+      "y": 1215.38,
+      "width": 215.38,
+      "height": 63.08,
+      "text": "Zulema",
+      "fontSize": 71.28,
+      "color": "#111111"
+    }
+  ],
+  "61": [
+    {
+      "x": 369.23,
+      "y": 223.08,
+      "width": 603.08,
+      "height": 87.69,
+      "text": "",
+      "fontSize": 1,
+      "color": "#000000",
+      "backgroundColor": "#fff2c4"
+    },
+    {
+      "x": 369.23,
+      "y": 93.85,
+      "width": 603.08,
+      "height": 87.69,
+      "text": "",
+      "fontSize": 1,
+      "color": "#000000",
+      "backgroundColor": "#fff2c4"
+    },
+    {
+      "x": 126.15,
+      "y": 149.23,
+      "width": 95.38,
+      "height": 81.54,
+      "text": "Zz",
+      "fontSize": 92.14,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 398.46,
+      "y": 110.77,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "z",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#fff2c4"
+    },
+    {
+      "x": 429.23,
+      "y": 110.77,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "a",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#fff2c4"
+    },
+    {
+      "x": 503.08,
+      "y": 110.77,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "z",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#fff2c4"
+    },
+    {
+      "x": 533.85,
+      "y": 110.77,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "e",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#fff2c4"
+    },
+    {
+      "x": 620.0,
+      "y": 110.77,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "z",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#fff2c4"
+    },
+    {
+      "x": 650.77,
+      "y": 110.77,
+      "width": 12.31,
+      "height": 49.23,
+      "text": "i",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#fff2c4"
+    },
+    {
+      "x": 723.08,
+      "y": 110.77,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "z",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#fff2c4"
+    },
+    {
+      "x": 753.85,
+      "y": 110.77,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "o",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#fff2c4"
+    },
+    {
+      "x": 830.77,
+      "y": 110.77,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "z",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#fff2c4"
+    },
+    {
+      "x": 861.54,
+      "y": 110.77,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "u",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#fff2c4"
+    },
+    {
+      "x": 398.46,
+      "y": 241.54,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "z",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#fff2c4"
+    },
+    {
+      "x": 429.23,
+      "y": 241.54,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "u",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#fff2c4"
+    },
+    {
+      "x": 503.08,
+      "y": 241.54,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "z",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#fff2c4"
+    },
+    {
+      "x": 533.85,
+      "y": 241.54,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "o",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#fff2c4"
+    },
+    {
+      "x": 620.0,
+      "y": 241.54,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "z",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#fff2c4"
+    },
+    {
+      "x": 650.77,
+      "y": 241.54,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "a",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#fff2c4"
+    },
+    {
+      "x": 723.08,
+      "y": 241.54,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "z",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#fff2c4"
+    },
+    {
+      "x": 753.85,
+      "y": 241.54,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "e",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#fff2c4"
+    },
+    {
+      "x": 830.77,
+      "y": 241.54,
+      "width": 30.77,
+      "height": 49.23,
+      "text": "z",
+      "fontSize": 55.63,
+      "color": "#be001e",
+      "fontWeight": 700,
+      "backgroundColor": "#fff2c4"
+    },
+    {
+      "x": 861.54,
+      "y": 241.54,
+      "width": 12.31,
+      "height": 49.23,
+      "text": "i",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "backgroundColor": "#fff2c4"
+    },
+    {
+      "x": 86.15,
+      "y": 392.31,
+      "width": 110.77,
+      "height": 47.69,
+      "text": "zorro",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 86.15,
+      "y": 453.85,
+      "width": 158.46,
+      "height": 47.69,
+      "text": "zapato",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 86.15,
+      "y": 515.38,
+      "width": 90.77,
+      "height": 47.69,
+      "text": "azul",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 86.15,
+      "y": 576.92,
+      "width": 160.0,
+      "height": 47.69,
+      "text": "zig-zag",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 86.15,
+      "y": 638.46,
+      "width": 73.85,
+      "height": 47.69,
+      "text": "Zila",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 376.92,
+      "y": 390.77,
+      "width": 101.54,
+      "height": 47.69,
+      "text": "zeta",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 376.92,
+      "y": 452.31,
+      "width": 100.0,
+      "height": 47.69,
+      "text": "taza",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 376.92,
+      "y": 513.85,
+      "width": 92.31,
+      "height": 47.69,
+      "text": "lazo",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 376.92,
+      "y": 575.38,
+      "width": 160.0,
+      "height": 47.69,
+      "text": "zapote",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 376.92,
+      "y": 636.92,
+      "width": 166.15,
+      "height": 47.69,
+      "text": "Zulema",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 661.54,
+      "y": 387.69,
+      "width": 212.31,
+      "height": 47.69,
+      "text": "calabaza",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 661.54,
+      "y": 449.23,
+      "width": 120.0,
+      "height": 47.69,
+      "text": "zumo",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 661.54,
+      "y": 510.77,
+      "width": 158.46,
+      "height": 47.69,
+      "text": "azúcar",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 661.54,
+      "y": 572.31,
+      "width": 160.0,
+      "height": 47.69,
+      "text": "zepelín",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 661.54,
+      "y": 633.85,
+      "width": 243.08,
+      "height": 47.69,
+      "text": "azucarado",
+      "fontSize": 53.89,
+      "color": "#111111"
+    },
+    {
+      "x": 69.23,
+      "y": 798.46,
+      "width": 646.15,
+      "height": 52.31,
+      "text": "Zulema toma zumo de melón.",
+      "fontSize": 59.11,
+      "color": "#111111"
+    },
+    {
+      "x": 69.23,
+      "y": 866.15,
+      "width": 850.77,
+      "height": 52.31,
+      "text": "A Zulema le gusta el zumo con azúcar.",
+      "fontSize": 59.11,
+      "color": "#111111"
+    },
+    {
+      "x": 69.23,
+      "y": 933.85,
+      "width": 855.38,
+      "height": 52.31,
+      "text": "Ella bebe el zumo y se pone sus zapatos",
+      "fontSize": 59.11,
+      "color": "#111111"
+    },
+    {
+      "x": 69.23,
+      "y": 1001.54,
+      "width": 147.69,
+      "height": 52.31,
+      "text": "azules.",
+      "fontSize": 59.11,
+      "color": "#111111"
+    },
+    {
+      "x": 69.23,
+      "y": 1069.23,
+      "width": 855.38,
+      "height": 52.31,
+      "text": "Zila va con Zulema, van en un carro con",
+      "fontSize": 59.11,
+      "color": "#111111"
+    },
+    {
+      "x": 69.23,
+      "y": 1136.92,
+      "width": 472.31,
+      "height": 52.31,
+      "text": "ruedas de calabazas.",
+      "fontSize": 59.11,
+      "color": "#111111"
+    }
+  ],
+  "62": [
+    {
+      "x": 200.0,
+      "y": 232.31,
+      "width": 96.92,
+      "height": 84.62,
+      "text": "Zz",
+      "fontSize": 95.62,
+      "color": "#be001e",
+      "fontWeight": 700
+    },
+    {
+      "x": 47.69,
+      "y": 604.62,
+      "width": 500.0,
+      "height": 49.23,
+      "text": "El carro-calabaza",
+      "fontSize": 55.63,
+      "color": "#111111",
+      "fontWeight": 700
+    },
+    {
+      "x": 47.69,
+      "y": 693.85,
+      "width": 556.92,
+      "height": 61.54,
+      "text": "En su carro-calabaza",
+      "fontSize": 69.54,
+      "color": "#111111"
+    },
+    {
+      "x": 47.69,
+      "y": 760.0,
+      "width": 570.77,
+      "height": 61.54,
+      "text": "con timón azucarado",
+      "fontSize": 69.54,
+      "color": "#111111"
+    },
+    {
+      "x": 47.69,
+      "y": 826.15,
+      "width": 620.0,
+      "height": 61.54,
+      "text": "Zulema se va a la plaza",
+      "fontSize": 69.54,
+      "color": "#111111"
+    },
+    {
+      "x": 47.69,
+      "y": 892.31,
+      "width": 630.77,
+      "height": 61.54,
+      "text": "a la plaza del mercado.",
+      "fontSize": 69.54,
+      "color": "#111111"
+    },
+    {
+      "x": 49.23,
+      "y": 989.23,
+      "width": 650.77,
+      "height": 61.54,
+      "text": "Compra ricas zarzamoras",
+      "fontSize": 69.54,
+      "color": "#111111"
+    },
+    {
+      "x": 49.23,
+      "y": 1055.38,
+      "width": 598.46,
+      "height": 61.54,
+      "text": "zumo de zapote y miel",
+      "fontSize": 69.54,
+      "color": "#111111"
+    },
+    {
+      "x": 49.23,
+      "y": 1121.54,
+      "width": 561.54,
+      "height": 61.54,
+      "text": "en su carro-calabaza",
+      "fontSize": 69.54,
+      "color": "#111111"
+    },
+    {
+      "x": 49.23,
+      "y": 1187.69,
+      "width": 638.46,
+      "height": 61.54,
+      "text": "Zulema rueda muy bien.",
+      "fontSize": 69.54,
+      "color": "#111111"
+    }
+  ]
+}

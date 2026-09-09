@@ -20,3 +20,7 @@ distractors. Do not restart generated-art, recoloring, or look-alike work.
 
 Older unresolved lists below this point were removed because they caused agents
 to repeat a completed audit.
+
+## 2026-09-09 — teacher flipbook digitization
+All 60 teaching pages now have native digital text and panels. The existing authentic color illustration sources are preserved without new artwork, recoloring or vocabulary substitutions. Page-specific display clipping removes scanned binding rails and outside edges. This change does not assert new color versions for workbook-only drawings.
+

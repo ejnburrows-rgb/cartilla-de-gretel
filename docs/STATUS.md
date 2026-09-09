@@ -3,6 +3,13 @@
 Honest current state. Updated 2026-09-09. Read this before starting work.
 
 
+> **2026-09-09 — digital teacher flipbook, owner correction.**
+> - All 60 lesson plates (source pages 3–62) now render manually checked Spanish teaching text as native SVG lettering at the original positions. Original color illustrations remain source-backed; native flat panels replace scanned teaching bands and poem panels.
+> - Page-specific clipping removes photographed top bindings and outside scan edges; the old scale/contrast/saturation display filters are removed. Thumbnails use the same digital renderer. The legacy classroom display no longer adds imitation spiral rails.
+> - The isolated artwork changes reuse the frame geometry already pushed on #401, while keeping the shipped workbook/CRM improvements intact. The rest of #401 remains separate and unmerged.
+> - Public entry also covers printing and browser-local student progress, including CSV export. The original cloud remains protected and cross-device synchronization is not claimed for local mode.
+> - Release acceptance requires typecheck, automated checks and hosted browser review. This is native text plus authentic raster illustrations, not a claim that the original drawings have been vectorized.
+
 > **2026-09-09 — public student and teacher entry, owner requested.**
 > - Production now opens student lessons, the local teacher CRM, and classroom presentation without a login or class code. The entry screen offers both roles directly; old login and join links redirect into the app.
 > - All 24 student lessons are accessible. Teacher access uses the explicitly labeled browser-local example classroom, including the local Dirección overview. Real cloud records retain their existing database protections.

@@ -27,7 +27,8 @@ export const Route = createFileRoute("/cartilla/imprimir/$n")({
       throw redirect({ to: "/cartilla/lecciones" });
     }
 
-    // Teacher-only: Imprimir/PDF is a teacher tool, same gate as /cartilla/presentar/$n.
+    // Printable book content is public while open access is enabled.
+    if (import.meta.env.VITE_CRM_REVIEW === "true") return;
     if (isSeedSessionActive()) return;
     const { data } = await supabase.auth.getSession();
     if (!data.session) {
@@ -261,3 +262,4 @@ function ImprimirPage() {
     </div>
   );
 }
+

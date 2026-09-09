@@ -28,8 +28,16 @@
   color: var(--fc-ink);
   font-family: var(--font-book-faithful, system-ui, sans-serif);
   background:
-    radial-gradient(120% 80% at 12% 0%, rgba(95, 167, 119, 0.16), transparent 55%),
-    radial-gradient(90% 70% at 88% 100%, rgba(201, 140, 79, 0.14), transparent 50%),
+    radial-gradient(
+      120% 80% at 12% 0%,
+      rgba(95, 167, 119, 0.16),
+      transparent 55%
+    ),
+    radial-gradient(
+      90% 70% at 88% 100%,
+      rgba(201, 140, 79, 0.14),
+      transparent 50%
+    ),
     linear-gradient(180deg, #f7f1e4 0%, var(--fc-wash) 55%, #e8f0d8 100%);
   user-select: none;
 }
@@ -51,7 +59,9 @@
   background: rgba(255, 248, 231, 0.88);
   border-bottom: 1px solid var(--fc-border);
   backdrop-filter: blur(14px);
-  transition: opacity 0.35s ease, transform 0.35s ease;
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
 }
 
 .fc-presenter.is-focus .fc-presenter__header {
@@ -78,7 +88,9 @@
   background: #fff;
   color: var(--fc-ink);
   cursor: pointer;
-  transition: background 0.15s ease, border-color 0.15s ease;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
 }
 .fc-presenter__exit:hover {
   background: rgba(232, 93, 76, 0.08);
@@ -138,7 +150,10 @@
   font-weight: 800;
   font-size: 0.82rem;
   cursor: pointer;
-  transition: background 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+  transition:
+    background 0.15s ease,
+    transform 0.15s ease,
+    border-color 0.15s ease;
 }
 .fc-presenter__btn:hover {
   background: color-mix(in srgb, var(--fc-accent) 10%, white);
@@ -195,7 +210,9 @@
   transform: translate(-50%, -50%);
   box-shadow: 0 0 18px 4px color-mix(in srgb, var(--fc-accent) 70%, transparent);
   background: var(--fc-accent);
-  transition: left 40ms linear, top 40ms linear;
+  transition:
+    left 40ms linear,
+    top 40ms linear;
 }
 
 /* ── Flipchart board panel ─────────────────────────────────────── */
@@ -262,15 +279,15 @@
   justify-content: center;
   background: #fffef9;
 }
-.fc-board__face img {
+.fc-board__face .fc-plate {
   width: 100%;
   height: 100%;
   object-fit: contain;
   object-position: center;
-  /* Prefer content; slight scale hides thin dirty outer scan edges when present */
-  transform: scale(1.02);
-  transform-origin: center;
-  filter: contrast(1.02) saturate(1.04);
+  display: block;
+  transform: none;
+  filter: none;
+  mix-blend-mode: normal;
 }
 
 /* Controls — large, classroom finger-friendly */
@@ -298,7 +315,10 @@
   font-size: 0.92rem;
   cursor: pointer;
   box-shadow: 0 4px 12px -8px rgba(23, 49, 59, 0.25);
-  transition: background 0.15s ease, transform 0.15s ease, opacity 0.15s ease;
+  transition:
+    background 0.15s ease,
+    transform 0.15s ease,
+    opacity 0.15s ease;
 }
 .fc-board__nav:hover:not(:disabled) {
   background: color-mix(in srgb, var(--fc-accent) 12%, white);
@@ -366,12 +386,18 @@
   cursor: pointer;
   padding: 0;
   opacity: 0.72;
-  transition: opacity 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+  transition:
+    opacity 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.15s ease;
 }
-.fc-board__thumb img {
+.fc-board__thumb .fc-plate {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  display: block;
+  filter: none;
+  mix-blend-mode: normal;
 }
 .fc-board__thumb:hover {
   opacity: 1;
@@ -380,7 +406,8 @@
   opacity: 1;
   border-color: var(--fc-accent);
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px -4px color-mix(in srgb, var(--fc-accent) 50%, transparent);
+  box-shadow: 0 4px 10px -4px
+    color-mix(in srgb, var(--fc-accent) 50%, transparent);
 }
 
 .fc-board__empty {
