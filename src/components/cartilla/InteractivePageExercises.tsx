@@ -23,15 +23,23 @@ function floatDelay(index: number): string {
 
 function ArtOrPending({ cell }: { cell: PageGridCell }) {
   if (cell.illustrationSrc) {
-    return <img src={cell.illustrationSrc} alt={cell.caption ?? ""} loading="lazy" />;
+    return (
+      <img src={cell.illustrationSrc} alt={cell.caption ?? ""} loading="lazy" />
+    );
   }
   return (
     <div
       className="fp-art-pending"
       role="img"
-      aria-label={cell.caption ? `Ilustración pendiente: ${cell.caption}` : "Ilustración pendiente"}
+      aria-label={
+        cell.caption
+          ? `Ilustración pendiente: ${cell.caption}`
+          : "Ilustración pendiente"
+      }
     >
-      {cell.caption ? <span className="fp-art-pending__word">{cell.caption}</span> : null}
+      {cell.caption ? (
+        <span className="fp-art-pending__word">{cell.caption}</span>
+      ) : null}
       <span>pendiente</span>
     </div>
   );
@@ -80,8 +88,13 @@ function Cell({
       disabled={flagged || disabled}
       style={{ ["--ix-float-delay" as string]: floatDelay(index) }}
       onClick={onToggle}
+      aria-pressed={picked}
     >
-      <svg className="fp-ix-cell__lasso" viewBox="0 0 100 100" aria-hidden="true">
+      <svg
+        className="fp-ix-cell__lasso"
+        viewBox="0 0 100 100"
+        aria-hidden="true"
+      >
         <ellipse cx="50" cy="48" rx="42" ry="38" />
       </svg>
       <ArtOrPending cell={cell} />
@@ -97,11 +110,17 @@ interface ExerciseProps {
 }
 
 /** "Presiona los dibujos..." — tap each guessed cell, grade on check. */
-export function InteractivePictureGrid({ region, accent, lessonId }: ExerciseProps) {
+export function InteractivePictureGrid({
+  region,
+  accent,
+  lessonId,
+}: ExerciseProps) {
   const cells = region.cells ?? [];
   const columns = region.columns ?? 4;
   const [picked, setPicked] = useState<Set<number>>(new Set());
   const [graded, setGraded] = useState(false);
+  const [solved, setSolved] = useState(false);
+  const [attempts, setAttempts] = useState(0);
 
   const toggle = (i: number) => {
     if (graded) return;
@@ -121,22 +140,34 @@ export function InteractivePictureGrid({ region, accent, lessonId }: ExercisePro
       const g = gradeOf(picked.has(i), cell.correct);
       if (g === "wrong" || g === "missed") allCorrect = false;
     });
+    setSolved(allCorrect);
+    setAttempts((n) => n + 1);
     gretelEvent(allCorrect ? "answer:correct" : "answer:wrong");
-    gretelEvent("activity:complete");
+    if (allCorrect) {
+      playCorrectChord();
+      gretelEvent("activity:complete");
+    } else playWrongBuzz();
     if (lessonId) {
       const gradable = cells.filter((c) => c.correct !== undefined).length;
       recordEvent({
         lessonId,
         kind: "exercise",
         score: allCorrect ? 1 : 0,
-        total: gradable,
-        meta: { exercise: `picture_grid_${region.id}`, completed: true },
+        total: 1,
+        meta: {
+          exercise: `picture_grid_${region.id}`,
+          completed: allCorrect,
+          itemCount: gradable,
+          attempt: attempts + 1,
+          corrected: attempts > 0,
+        },
       });
     }
   };
 
   const rows: PageGridCell[][] = [];
-  for (let i = 0; i < cells.length; i += columns) rows.push(cells.slice(i, i + columns));
+  for (let i = 0; i < cells.length; i += columns)
+    rows.push(cells.slice(i, i + columns));
 
   return (
     <div className="fp-ix-grid" style={{ ["--ix-accent" as string]: accent }}>
@@ -169,8 +200,17 @@ export function InteractivePictureGrid({ region, accent, lessonId }: ExercisePro
           onClick={check}
           disabled={graded || picked.size === 0}
         >
-          Comprobar
+          {solved ? "Completado" : "Comprobar"}
         </button>
+        {graded && !solved && (
+          <button
+            type="button"
+            className="fp-ix-check-btn"
+            onClick={() => setGraded(false)}
+          >
+            Corregir respuestas
+          </button>
+        )}
       </div>
     </div>
   );
@@ -193,11 +233,12 @@ function DraggableVowelLetter({
   selected: boolean;
   onSelect: () => void;
 }) {
-  const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
-    id: `vp-letter-${rowIdx}`,
-    data: { rowIdx },
-    disabled: locked,
-  });
+  const { attributes, listeners, setNodeRef, transform, isDragging } =
+    useDraggable({
+      id: `vp-letter-${rowIdx}`,
+      data: { rowIdx },
+      disabled: locked,
+    });
 
   const style: React.CSSProperties = {
     transform: transform
@@ -285,10 +326,17 @@ function DroppableVowelCell({
  * keyboard users get the identical graded interaction. Every drop grades
  * immediately: snap + chime + Gretel cheer on correct, bounce + soft buzz
  * on wrong (row stays open to retry). */
-export function InteractiveVowelPickOne({ region, accent, lessonId }: ExerciseProps) {
+export function InteractiveVowelPickOne({
+  region,
+  accent,
+  lessonId,
+}: ExerciseProps) {
   const rows = region.vowelRows ?? [];
   const [correctRows, setCorrectRows] = useState<Set<number>>(new Set());
-  const [wrongFlash, setWrongFlash] = useState<{ row: number; cell: number } | null>(null);
+  const [wrongFlash, setWrongFlash] = useState<{
+    row: number;
+    cell: number;
+  } | null>(null);
   const [selectedRow, setSelectedRow] = useState<number | null>(null);
   const [completed, setCompleted] = useState(false);
 
@@ -334,7 +382,12 @@ export function InteractiveVowelPickOne({ region, accent, lessonId }: ExercisePr
     const activeRow = e.active.data.current?.rowIdx as number | undefined;
     const overRow = e.over?.data.current?.rowIdx as number | undefined;
     const overCell = e.over?.data.current?.cellIdx as number | undefined;
-    if (activeRow === undefined || overRow === undefined || overCell === undefined) return;
+    if (
+      activeRow === undefined ||
+      overRow === undefined ||
+      overCell === undefined
+    )
+      return;
     if (activeRow !== overRow) {
       // Dropped on a different row's picture — not a valid target, bounce back.
       setWrongFlash({ row: activeRow, cell: -1 });
@@ -370,7 +423,7 @@ export function InteractiveVowelPickOne({ region, accent, lessonId }: ExercisePr
                   wrong={wrongFlash?.row === r && wrongFlash.cell === c}
                   disabled={correctRows.has(r)}
                   onTap={() => {
-                    if (selectedRow === r) attempt(r, c);
+                    attempt(r, c);
                   }}
                 />
               ))}
@@ -383,7 +436,11 @@ export function InteractiveVowelPickOne({ region, accent, lessonId }: ExercisePr
 }
 
 /** "Traza una línea de la vocal al dibujo..." — no distractors, tap to connect each pair. */
-export function InteractiveVowelMatchAll({ region, accent, lessonId }: ExerciseProps) {
+export function InteractiveVowelMatchAll({
+  region,
+  accent,
+  lessonId,
+}: ExerciseProps) {
   const pairs = region.vowelPairs ?? [];
   const [linked, setLinked] = useState<Set<number>>(new Set());
 
@@ -399,7 +456,7 @@ export function InteractiveVowelMatchAll({ region, accent, lessonId }: ExerciseP
         recordEvent({
           lessonId,
           kind: "exercise",
-          score: 1,
+          score: pairs.length,
           total: pairs.length,
           meta: { exercise: `vowel_match_all_${region.id}`, completed: true },
         });
@@ -408,10 +465,20 @@ export function InteractiveVowelMatchAll({ region, accent, lessonId }: ExerciseP
   };
 
   return (
-    <div className="fp-ix-match-all" style={{ ["--ix-accent" as string]: accent }}>
+    <div
+      className="fp-ix-match-all"
+      style={{ ["--ix-accent" as string]: accent }}
+    >
       {pairs.map((pair, i) => (
-        <div key={i} className={`fp-ix-match-row${linked.has(i) ? " linked" : ""}`}>
-          <button type="button" className="fp-ix-letter-btn" onClick={() => connect(i)}>
+        <div
+          key={i}
+          className={`fp-ix-match-row${linked.has(i) ? " linked" : ""}`}
+        >
+          <button
+            type="button"
+            className="fp-ix-letter-btn"
+            onClick={() => connect(i)}
+          >
             {pair.letter.toUpperCase()}
             {pair.letter}
           </button>
@@ -440,10 +507,16 @@ export function InteractiveVowelMatchAll({ region, accent, lessonId }: ExerciseP
 /** "Encierra en un círculo la sílaba correspondiente" — every word in a row
  * genuinely contains the target syllable (no distractors); tap each word to
  * mark it found, grade on check whether all got marked. */
-export function InteractiveSyllableMatch({ region, accent, lessonId }: ExerciseProps) {
+export function InteractiveSyllableMatch({
+  region,
+  accent,
+  lessonId,
+}: ExerciseProps) {
   const rows = region.matchRows ?? [];
   const [picked, setPicked] = useState<Set<string>>(new Set());
   const [graded, setGraded] = useState(false);
+  const [solved, setSolved] = useState(false);
+  const [attempts, setAttempts] = useState(0);
   const total = rows.reduce((n, row) => n + row.length, 0);
 
   const toggle = (key: string) => {
@@ -466,21 +539,35 @@ export function InteractiveSyllableMatch({ region, accent, lessonId }: ExerciseP
         if (g === "wrong" || g === "missed") allCorrect = false;
       });
     });
+    setSolved(allCorrect);
+    setAttempts((n) => n + 1);
     gretelEvent(allCorrect ? "answer:correct" : "answer:wrong");
-    gretelEvent("activity:complete");
+    if (allCorrect) {
+      playCorrectChord();
+      gretelEvent("activity:complete");
+    } else playWrongBuzz();
     if (lessonId) {
       recordEvent({
         lessonId,
         kind: "exercise",
         score: allCorrect ? 1 : 0,
-        total,
-        meta: { exercise: `syllable_match_${region.id}`, completed: true },
+        total: 1,
+        meta: {
+          exercise: `syllable_match_${region.id}`,
+          completed: allCorrect,
+          itemCount: total,
+          attempt: attempts + 1,
+          corrected: attempts > 0,
+        },
       });
     }
   };
 
   return (
-    <div className="fp-ix-syllable" style={{ ["--ix-accent" as string]: accent }}>
+    <div
+      className="fp-ix-syllable"
+      style={{ ["--ix-accent" as string]: accent }}
+    >
       <div className="fp-ix-syllable__top">
         <span className="fp-ix-syllable__label">{region.syllable}</span>
         <div className="fp-ix-syllable__rows">
@@ -530,18 +617,33 @@ export function InteractiveSyllableMatch({ region, accent, lessonId }: ExerciseP
           onClick={check}
           disabled={graded || picked.size === 0}
         >
-          Comprobar
+          {solved ? "Completado" : "Comprobar"}
         </button>
+        {graded && !solved && (
+          <button
+            type="button"
+            className="fp-ix-check-btn"
+            onClick={() => setGraded(false)}
+          >
+            Corregir respuestas
+          </button>
+        )}
       </div>
     </div>
   );
 }
 
 /** "Completa las palabras con la sílaba correcta" — tap one choice per item, grade on check. */
-export function InteractiveFillInBlank({ region, accent, lessonId }: ExerciseProps) {
+export function InteractiveFillInBlank({
+  region,
+  accent,
+  lessonId,
+}: ExerciseProps) {
   const items = region.fillItems ?? [];
   const [picked, setPicked] = useState<Record<number, number>>({});
   const [graded, setGraded] = useState(false);
+  const [solved, setSolved] = useState(false);
+  const [attempts, setAttempts] = useState(0);
 
   const pick = (itemIdx: number, choiceIdx: number) => {
     if (graded) return;
@@ -557,17 +659,29 @@ export function InteractiveFillInBlank({ region, accent, lessonId }: ExercisePro
       if (!hasCorrect) return;
       gradable += 1;
       const chosen = picked[i];
-      if (chosen === undefined || !item.choices[chosen]?.correct) allCorrect = false;
+      if (chosen === undefined || !item.choices[chosen]?.correct)
+        allCorrect = false;
     });
+    setSolved(allCorrect);
+    setAttempts((n) => n + 1);
     gretelEvent(allCorrect ? "answer:correct" : "answer:wrong");
-    gretelEvent("activity:complete");
+    if (allCorrect) {
+      playCorrectChord();
+      gretelEvent("activity:complete");
+    } else playWrongBuzz();
     if (lessonId) {
       recordEvent({
         lessonId,
         kind: "exercise",
         score: allCorrect ? 1 : 0,
-        total: gradable,
-        meta: { exercise: `fill_in_blank_${region.id}`, completed: true },
+        total: 1,
+        meta: {
+          exercise: `fill_in_blank_${region.id}`,
+          completed: allCorrect,
+          itemCount: gradable,
+          attempt: attempts + 1,
+          corrected: attempts > 0,
+        },
       });
     }
   };
@@ -577,7 +691,10 @@ export function InteractiveFillInBlank({ region, accent, lessonId }: ExercisePro
       {items.map((item, i) => {
         const flagged = !item.choices.some((c) => c.correct);
         return (
-          <div key={i} className={`fp-ix-fill__item${flagged ? " fp-ix-fill__item--flagged" : ""}`}>
+          <div
+            key={i}
+            className={`fp-ix-fill__item${flagged ? " fp-ix-fill__item--flagged" : ""}`}
+          >
             {item.illustrationSrc && (
               <img
                 src={item.illustrationSrc}
@@ -627,18 +744,33 @@ export function InteractiveFillInBlank({ region, accent, lessonId }: ExercisePro
               items.filter((it) => it.choices.some((c) => c.correct)).length
           }
         >
-          Comprobar
+          {solved ? "Completado" : "Comprobar"}
         </button>
+        {graded && !solved && (
+          <button
+            type="button"
+            className="fp-ix-check-btn"
+            onClick={() => setGraded(false)}
+          >
+            Corregir respuestas
+          </button>
+        )}
       </div>
     </div>
   );
 }
 
 /** "Traza una línea desde la vocal Xx hasta el dibujo..." — tap the cells that start with Xx, grade on check. */
-export function InteractiveVowelLineMatch({ region, accent, lessonId }: ExerciseProps) {
+export function InteractiveVowelLineMatch({
+  region,
+  accent,
+  lessonId,
+}: ExerciseProps) {
   const cells = region.cells ?? [];
   const [picked, setPicked] = useState<Set<number>>(new Set());
   const [graded, setGraded] = useState(false);
+  const [solved, setSolved] = useState(false);
+  const [attempts, setAttempts] = useState(0);
 
   const toggle = (i: number) => {
     if (graded) return;
@@ -657,22 +789,39 @@ export function InteractiveVowelLineMatch({ region, accent, lessonId }: Exercise
       const g = gradeOf(picked.has(i), cell.correct);
       if (g === "wrong" || g === "missed") allCorrect = false;
     });
+    setSolved(allCorrect);
+    setAttempts((n) => n + 1);
     gretelEvent(allCorrect ? "answer:correct" : "answer:wrong");
-    gretelEvent("activity:complete");
+    if (allCorrect) {
+      playCorrectChord();
+      gretelEvent("activity:complete");
+    } else playWrongBuzz();
     if (lessonId) {
       recordEvent({
         lessonId,
         kind: "exercise",
         score: allCorrect ? 1 : 0,
-        total: cells.length,
-        meta: { exercise: `vowel_line_match_${region.id}`, completed: true },
+        total: 1,
+        meta: {
+          exercise: `vowel_line_match_${region.id}`,
+          completed: allCorrect,
+          itemCount: cells.length,
+          attempt: attempts + 1,
+          corrected: attempts > 0,
+        },
       });
     }
   };
 
   return (
-    <div className="fp-ix-line-match" style={{ ["--ix-accent" as string]: accent }}>
-      <div className="fp-ix-row" style={{ gridTemplateColumns: "repeat(4, minmax(0, 1fr))" }}>
+    <div
+      className="fp-ix-line-match"
+      style={{ ["--ix-accent" as string]: accent }}
+    >
+      <div
+        className="fp-ix-row"
+        style={{ gridTemplateColumns: "repeat(4, minmax(0, 1fr))" }}
+      >
         {cells.map((cell, i) => (
           <Cell
             key={i}
@@ -692,8 +841,17 @@ export function InteractiveVowelLineMatch({ region, accent, lessonId }: Exercise
           onClick={check}
           disabled={graded || picked.size === 0}
         >
-          Comprobar
+          {solved ? "Completado" : "Comprobar"}
         </button>
+        {graded && !solved && (
+          <button
+            type="button"
+            className="fp-ix-check-btn"
+            onClick={() => setGraded(false)}
+          >
+            Corregir respuestas
+          </button>
+        )}
       </div>
     </div>
   );

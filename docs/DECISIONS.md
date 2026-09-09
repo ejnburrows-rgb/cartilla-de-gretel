@@ -490,3 +490,8 @@ DOCUMENTATION DUTY section of `AGENTS.md`).
   verdict of FAIL, and the QA run post-dates the file, so it is a live defect
   rather than a stale result.
 - **2026-08-08 — Workbook art repair uses only the original workbook drawing matched to the identical color drawing in all 62 teacher flip-chart pages; missing metadata never authorizes generated/recolored substitutes, and proven-dead substitutes are removed only after runtime-reference verification.**
+
+
+- **2026-09-09 — Earn practice completion through correct answers and allow correction within the original exercise; preserve every signed-in student's pending results in a serialized, student-scoped queue so retries and shared devices do not silently lose or misattribute work.**
+
+- **2026-09-09 — Provide password-free CRM review only in Vercel preview builds using the existing browser-local seed data, as requested by the owner; production teacher access continues to require the real account and role.**

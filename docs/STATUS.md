@@ -1,13 +1,23 @@
 # STATUS — La Cartilla de Gretel
 
-Honest current state. Updated 2026-08-08. Read this before starting work.
+Honest current state. Updated 2026-09-09. Read this before starting work.
+
+
+> **2026-09-09 — interactive practice and progress reliability implemented locally; NOT released.**
+> - Picture grids, syllable matching, fill-in-the-blank, and vowel matching allow correction after an incorrect check. Completion is recorded only after a fully correct check; attempts and corrected completion are retained.
+> - Listening practice now has a finite round per supplied sound, requires listening before answering, supports retries, and earns completion through answers. The manual completion button is removed.
+> - Picture matching supports drag or word-then-picture taps and keyboard buttons, uses authentic supplied illustrations, counts attempts accurately, and reports completion once per run.
+> - Both progress queues serialize requests, preserve answers added during requests, retain failed sends, and avoid attributing anonymous/another student's work to the active child. Queue IDs are metadata; server-side idempotency and cross-tab locking are not implemented.
+> - Validation: `pnpm typecheck`, `pnpm build` (including content and art checks), and all 88 Vitest files passed: 1,199 passing tests plus two pre-existing expected failures. Two further queue regressions passed in a focused 7-test run. Targeted ESLint passed.
+> - Release blockers: browser cannot reach the local preview; a hosted preview has not been verified. Live teacher session is unavailable, and two read-only Supabase checks timed out despite project status ACTIVE_HEALTHY. The teacher → class → student answer → report flow is therefore unverified this session. No production database writes or deployment changes were made.
+> - Publication resumed under the same connected owner account as the current main commit, following the owner's instruction to execute directly. Password-free access is limited to hosted preview builds and the existing local seed data; production authentication and database policies remain enforced.
 
 > **2026-08-08 — focused workbook-art repair is implemented on `repair/authentic-flipchart-art`.**
 > - The first rule in `AGENTS.md` now records the verified two-source model: a complete 62-page flip chart and a separate 92-page student book.
 > - `aro` and `iglú` use identical authentic teacher-color crops from pages 5 and 7.
 > - `abeja`, `aguja`, `abrigo`, `oruga`, and `globo` do not occur as identical drawings in the complete flip chart; all 14 formerly blank cells now use lossless crops of the exact original student-book drawings.
 > - No generated, redrawn, recolored, or look-alike lesson art is active. Layouts, interactions, and hidden answers are unchanged.
-> - Current mapping and crop evidence live in `docs/AUTHENTIC-FLIPCHART-ART-AUDIT.md`. This repair is not merged to `main` or production.
+> - Current mapping and crop evidence live in `docs/AUTHENTIC-FLIPCHART-ART-AUDIT.md`. This repair was subsequently merged in #399; main and the production deployment both point to `2046a170d98e6d73ab44856ea594edfe2cf945a0` as checked on 2026-09-09.
 
 > **2026-07-26 — admin dashboard is live, and a public hole was closed.**
 > - **Cross-teacher admin reads work against the real database** (#355). This
@@ -318,3 +328,4 @@ The rest is owner-decision work, listed in `docs/DECISIONS.md`.
   the GitHub CLI. Full list, plus the 2 unmerged branches and 3 open pull
   requests that need an owner decision, in
   `docs/BRANCH-INVENTORY-REPORT.md` → "Re-inventory — 2026-07-29".
+

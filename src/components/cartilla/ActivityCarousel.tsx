@@ -1,6 +1,14 @@
-import React, { useState, useEffect, type ReactElement } from "react";
+import React, { useState, useEffect, useMemo, type ReactElement } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Volume2, Grid, Puzzle, PenTool, Music, CheckCircle, Sparkles, Check } from "lucide-react";
+import {
+  Volume2,
+  Grid,
+  Puzzle,
+  PenTool,
+  Music,
+  Sparkles,
+  Check,
+} from "lucide-react";
 import { SyllableTap } from "@/components/cartilla/Ejercicios";
 import { DragMatchPairs } from "@/components/cartilla/DragMatchPairs";
 import { DragBuildWord } from "@/components/cartilla/DragBuildWord";
@@ -8,8 +16,6 @@ import { DragLetterTrace } from "@/components/cartilla/DragLetterTrace";
 import { PianoPronunciation } from "@/components/cartilla/PianoPronunciation";
 import { DEFAULT_ACTIVITIES, type ActivityId } from "@/lib/lesson-catalog";
 import "@/styles/cartilla-student.css";
-import { KidButton } from "@/components/ui/KidButton";
-import { SuccessPulse } from "@/components/feel/SuccessPulse";
 import { playUiTick } from "@/lib/piano-audio";
 
 interface ActivityCarouselProps {
@@ -36,17 +42,36 @@ export function ActivityCarousel({
   onCompleteAll,
   activities = DEFAULT_ACTIVITIES,
 }: ActivityCarouselProps) {
-  const [activeTab, setActiveTab] = useState<TabType>(activities[0] ?? "silabas");
+  const [activeTab, setActiveTab] = useState<TabType>(
+    activities[0] ?? "silabas",
+  );
   const [completedTabs, setCompletedTabs] = useState<Set<TabType>>(new Set());
 
   // Derive matching pairs from words
-  const pairs = words
-    .filter((w) => typeof w.emoji === "string" && w.emoji.trim() !== "")
-    .map((w) => ({ word: w.word, emoji: w.emoji as string, illustrationSrc: w.illustrationSrc }))
-    .slice(0, 4); // Keep to a max of 4 pairs for a balanced layout
+  const pairs = useMemo(
+    () =>
+      words
+        .filter((w) => Boolean(w.illustrationSrc))
+        .slice(0, 4)
+        .map((w) => ({
+          word: w.word,
+          emoji: w.word,
+          illustrationSrc: w.illustrationSrc,
+        })),
+    [words],
+  );
+
+  const firstActivity = activities[0] ?? "silabas";
+  useEffect(() => {
+    setCompletedTabs(new Set());
+    setActiveTab(firstActivity);
+  }, [lessonNumber, firstActivity]);
 
   // Map tabs to metadata, in the order this lesson's `activities` specifies
-  const tabMeta: Record<TabType, { label: string; icon: ReactElement; disabled?: boolean }> = {
+  const tabMeta: Record<
+    TabType,
+    { label: string; icon: ReactElement; disabled?: boolean }
+  > = {
     silabas: { label: "Sílabas", icon: <Volume2 className="w-4 h-4" /> },
     palabras: {
       label: "Emparejar",
@@ -57,19 +82,16 @@ export function ActivityCarousel({
     trazar: { label: "Trazar", icon: <PenTool className="w-4 h-4" /> },
     piano: { label: "Piano", icon: <Music className="w-4 h-4" /> },
   };
-  const tabs = activities.map((id) => ({ id, ...tabMeta[id] })).filter((t) => !t.disabled);
+  const tabs = activities
+    .map((id) => ({ id, ...tabMeta[id] }))
+    .filter((t) => !t.disabled);
 
   // Mark tab complete
   const handleCompleteTab = (tabId: TabType) => {
-    setCompletedTabs((prev) => {
-      const next = new Set(prev).add(tabId);
-      // Check if all active tabs are completed
-      const allActiveCompleted = tabs.every((t) => next.has(t.id));
-      if (allActiveCompleted && onCompleteAll) {
-        onCompleteAll();
-      }
-      return next;
-    });
+    if (completedTabs.has(tabId)) return;
+    const next = new Set(completedTabs).add(tabId);
+    setCompletedTabs(next);
+    if (tabs.length > 0 && tabs.every((t) => next.has(t.id))) onCompleteAll?.();
   };
 
   // Render current tab view
@@ -78,17 +100,13 @@ export function ActivityCarousel({
       case "silabas":
         return (
           <div className="py-2">
-            <SyllableTap syllables={syllables} color={color} lessonId={lessonId} />
-            {/* Simple complete button for SyllableTap since it's a practice game */}
-            <div className="mt-6 flex justify-center">
-              <button
-                onClick={() => handleCompleteTab("silabas")}
-                className="flex items-center gap-1.5 px-6 py-2 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl font-bold text-sm shadow transition-all active:scale-95"
-              >
-                <CheckCircle className="w-4 h-4" />
-                Marcar como completado
-              </button>
-            </div>
+            <SyllableTap
+              key={lessonNumber}
+              syllables={syllables}
+              color={color}
+              lessonId={lessonId}
+              onComplete={() => handleCompleteTab("silabas")}
+            />
           </div>
         );
       case "palabras":
@@ -189,10 +207,16 @@ export function ActivityCarousel({
                       color: "#fff",
                       boxShadow: `0 6px 16px -4px color-mix(in srgb, ${color} 40%, transparent)`,
                     }
-                  : { background: "#ffffff", color: "#78716c", border: "1px solid #e7e5e4" }
+                  : {
+                      background: "#ffffff",
+                      color: "#78716c",
+                      border: "1px solid #e7e5e4",
+                    }
               }
             >
-              <span className="flex shrink-0 items-center justify-center">{tab.icon}</span>
+              <span className="flex shrink-0 items-center justify-center">
+                {tab.icon}
+              </span>
               <span>{tab.label}</span>
 
               {isDone && (
@@ -232,7 +256,7 @@ export function ActivityCarousel({
 
       {/* Step track */}
       <div className="flex items-center justify-center gap-1.5 pt-1">
-        {tabs.map((tab, i) => {
+        {tabs.map((tab) => {
           const isDone = completedTabs.has(tab.id);
           const isActive = activeTab === tab.id;
           return (

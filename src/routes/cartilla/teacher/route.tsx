@@ -16,7 +16,7 @@ import {
 import { getStudentSession } from "@/lib/student-session";
 import { supabase } from "@/integrations/supabase/client";
 import { hasTeacherOrAdminRole } from "@/lib/auth-role";
-import { isSeedSessionActive } from "@/lib/seed-data";
+import { isSeedSessionActive, signOutSeedTeacher } from "@/lib/seed-data";
 import { useIsAdmin } from "@/lib/admin-overview.functions";
 import "@/styles/teacher-chrome.css";
 
@@ -64,7 +64,8 @@ export const Route = createFileRoute("/cartilla/teacher")({
 });
 
 async function signOut() {
-  await supabase.auth.signOut();
+  if (isSeedSessionActive()) signOutSeedTeacher();
+  else await supabase.auth.signOut();
   window.location.assign("/login");
 }
 
@@ -149,6 +150,7 @@ function TeacherLayout() {
 
   return (
     <div className="teacher-chrome min-h-screen flex flex-col relative overflow-hidden">
+      {isSeedSessionActive() && <div role="status" className="bg-amber-100 px-4 py-2 text-center text-sm font-bold text-amber-950">Modo de prueba · Los cambios se guardan solo en este navegador.</div>}
       <header className="teacher-chrome__header sticky top-0 z-30 no-print transition-all duration-300">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3 min-w-0">
@@ -259,3 +261,4 @@ function NavLink({
     </Link>
   );
 }
+
