@@ -12,8 +12,21 @@ export type StudentSession = {
 
 const KEY = "cartilla.student-session.v1";
 
+function openStudentAccessActive(): boolean {
+  return (
+    import.meta.env.VITE_CRM_REVIEW === "true" &&
+    import.meta.env.MODE !== "test"
+  );
+}
+
 export function getStudentSession(): StudentSession | null {
   if (typeof window === "undefined") return null;
+  if (openStudentAccessActive()) {
+    // Open mode is browser-local. Remove any identity left by an older real
+    // classroom session so anonymous practice can never write as that child.
+    localStorage.removeItem(KEY);
+    return null;
+  }
   try {
     const raw = localStorage.getItem(KEY);
     if (!raw) return null;
@@ -25,7 +38,9 @@ export function getStudentSession(): StudentSession | null {
 
 export function setStudentSession(s: StudentSession | null) {
   if (typeof window === "undefined") return;
-  if (s) localStorage.setItem(KEY, JSON.stringify(s));
+  if (openStudentAccessActive()) {
+    localStorage.removeItem(KEY);
+  } else if (s) localStorage.setItem(KEY, JSON.stringify(s));
   else localStorage.removeItem(KEY);
   window.dispatchEvent(new Event("cartilla:student-session"));
 }
