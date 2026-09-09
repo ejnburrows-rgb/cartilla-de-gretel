@@ -39,3 +39,16 @@ it("updates local class and student lists immediately after creation", async () 
   expect(view.getByRole("button", { name: "Alumna nueva" })).toBeTruthy();
   cleanup();
 });
+
+it("uses the same attention flag for board columns as for the dashboard KPI", async () => {
+  const React = await import("react");
+  const { render, cleanup } = await import("@testing-library/react");
+  const { PipelineBoard } = await import("@/features/teacher-crm/components/PipelineBoard");
+  const view = render(React.createElement(PipelineBoard, { students: [
+    { id: "new", name: "Principiante activo", progress: 5, lastActive: "hoy", alert: false },
+    { id: "help", name: "Necesita apoyo", progress: 85, lastActive: "hoy", alert: true },
+  ], selectedStudentId: null, onSelectStudent: () => {} }));
+  expect(view.getByText("Principiante activo").closest(".crm-pipeline-column")?.textContent).toContain("En progreso normal");
+  expect(view.getByText("Necesita apoyo").closest(".crm-pipeline-column")?.textContent).toContain("Requieren atención");
+  cleanup();
+});

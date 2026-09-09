@@ -29,18 +29,18 @@ export function PipelineBoard({
           <AlertCircle className="w-8 h-8" />
         </div>
         <div className="space-y-1">
-          <h4 className="font-extrabold text-lg text-[#3a322b]">No students yet.</h4>
+          <h4 className="font-extrabold text-lg text-[#3a322b]">Todavía no hay alumnos.</h4>
           <p className="text-sm font-medium text-[#7a7065] max-w-[280px] mx-auto leading-relaxed">
-            Create or connect a class to see roster data.
+            Crea una clase para ver sus alumnos.
           </p>
         </div>
       </div>
     );
   }
 
-  const atencion = students.filter((s) => s.progress < 40);
-  const progreso = students.filter((s) => s.progress >= 40 && s.progress < 80);
-  const excelente = students.filter((s) => s.progress >= 80);
+  const atencion = students.filter((s) => s.alert);
+  const progreso = students.filter((s) => !s.alert && s.progress < 80);
+  const excelente = students.filter((s) => !s.alert && s.progress >= 80);
 
   return (
     <div className="crm-card">
@@ -166,3 +166,4 @@ export function PipelineBoard({
     </div>
   );
 }
+

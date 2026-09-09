@@ -495,3 +495,5 @@ DOCUMENTATION DUTY section of `AGENTS.md`).
 - **2026-09-09 — Earn practice completion through correct answers and allow correction within the original exercise; preserve every signed-in student's pending results in a serialized, student-scoped queue so retries and shared devices do not silently lose or misattribute work.**
 
 - **2026-09-09 — Provide password-free CRM review only in Vercel preview builds using the existing browser-local seed data, as requested by the owner; production teacher access continues to require the real account and role.**
+
+- **2026-09-09 — Use the dashboard's computed attention flag for its student columns as well as its KPI, so a recently active beginner is not labeled as needing attention merely for having low completion.**
