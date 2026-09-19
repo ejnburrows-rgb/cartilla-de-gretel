@@ -1,0 +1,18 @@
+# La Cartilla de Gretel
+User-agent: *
+Allow: /
+
+# === Prebuild diagnostic ===
+# startedAt: 2026-05-26T04:03:09.995Z
+# finishedAt: 2026-05-26T04:03:10.765Z
+# commit: unknown
+# branch: unknown
+#
+# target: Workbook -> public/book/book.pdf
+#   filterBlockUuid: 933c702e-2d19-442b-9056-7665142fdbdf
+#   filterFileName: null
+#   htmlStatus: 200, htmlBytes: 1034572
+#   chunkStatus: 200, chunkBlocks: 4
+#   candidates: 0, filtered: 0
+#   WROTE: nothing
+

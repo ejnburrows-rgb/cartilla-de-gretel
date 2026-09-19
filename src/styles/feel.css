@@ -1,0 +1,223 @@
+/* Component structural styles for Feel Layer — La Cartilla de Gretel */
+
+/* 1. Ripple */
+.feel-ripple-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.feel-ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(201, 140, 79, 0.25);
+  transform: scale(0);
+  pointer-events: none;
+  animation: feel-ripple 0.6s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+}
+
+.dark .feel-ripple-effect {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* 2. PressableScale */
+.feel-pressable-scale {
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.feel-pressable-scale:active {
+  transform: scale(0.97);
+}
+
+/* 3. Magnetic */
+.feel-magnetic-wrapper {
+  display: inline-block;
+  transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* 4. Shimmer Block */
+.feel-shimmer-block {
+  border-radius: 0.75rem;
+  width: 100%;
+  height: 100%;
+  background: color-mix(in srgb, var(--book-teal, #5fa777) 8%, white);
+}
+
+.feel-anim-shimmer {
+  background-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--book-teal, #5fa777) 18%, white) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: feel-shimmer-sweep 1.6s ease-in-out infinite;
+}
+
+@keyframes feel-shimmer-sweep {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* 5. SuccessPulse & Sparkles */
+.feel-success-pulse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6);
+  animation: feel-success-glow 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes feel-success-glow {
+  0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+  100% { box-shadow: 0 0 0 15px rgba(34, 197, 94, 0); }
+}
+
+.feel-sparkle-particle {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: #f59e0b;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  animation: feel-sparkle 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* 6. Confetti Burst */
+.feel-confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999999;
+}
+
+.feel-confetti-particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  opacity: 0;
+  animation: feel-confetti-fall 1.5s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+}
+
+@keyframes feel-confetti-fall {
+  0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+  100% { transform: translate(var(--dx), var(--dy)) rotate(360deg); opacity: 0; }
+}
+
+/* 7. DragGhost */
+.drag-ghost-active {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  pointer-events: none !important;
+  transform: scale(1.08) !important;
+  transition: transform 0.15s ease-out;
+}
+
+/* 8. SwipeDismiss */
+.feel-swipe-dismiss-container {
+  touch-action: pan-y;
+  transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.2s ease-out;
+}
+
+/* 9. Toasts */
+.feel-toast-container {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 9999999;
+  pointer-events: none;
+  width: 100%;
+  max-width: 380px;
+}
+
+@media (min-width: 768px) {
+  .feel-toast-container {
+    left: auto;
+    right: 1.5rem;
+    transform: none;
+  }
+}
+
+.feel-toast-item {
+  pointer-events: auto;
+  background-color: #1c1917;
+  color: #f5f5f4;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.75rem 1.25rem;
+  border-radius: 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  animation: feel-slide-up 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.dark .feel-toast-item {
+  background-color: #1e293b;
+  color: #f8fafc;
+}
+
+.feel-toast-close {
+  background: none;
+  border: none;
+  color: inherit;
+  opacity: 0.6;
+  cursor: pointer;
+  padding: 0;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.feel-toast-close:hover {
+  opacity: 1;
+}
+
+/* 10. Sparkline */
+.feel-sparkline-svg {
+  display: inline-block;
+  vertical-align: middle;
+  overflow: visible;
+}
+
+/* 11. Page Transitions */
+.feel-page-transition-container {
+  width: 100%;
+  height: 100%;
+  animation: feel-page-enter 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes feel-page-enter {
+  0% { transform: translateX(15px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feel-page-transition-container {
+    animation: feel-fade-in 0.2s ease-out forwards !important;
+  }
+}

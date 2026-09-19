@@ -1,0 +1,65 @@
+/* Accessibility & WCAG Compliance Styles — La Cartilla de Gretel */
+
+/* 1. Skip Link Focus Animation */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--primary-color, #c98c4f);
+  color: var(--primary-fg, #ffffff);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0 0 1rem 1rem;
+  font-weight: bold;
+  z-index: 100000;
+  transition: top 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  font-size: 0.85rem;
+  border: 2px solid var(--primary-fg, #ffffff);
+  border-top: none;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: none;
+}
+
+/* 2. Global Keyboard Focus Rings */
+*:focus-visible {
+  outline: 3.5px solid var(--primary-color, #c98c4f) !important;
+  outline-offset: 3px !important;
+  box-shadow: 0 0 0 5px var(--accent-glow, rgba(201, 140, 79, 0.35)) !important;
+}
+
+/* 3. Horizontal Reading Ruler */
+.reading-ruler {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 26px;
+  background-color: rgba(201, 140, 79, 0.15);
+  border-top: 2px solid var(--primary-color, #c98c4f);
+  border-bottom: 2px solid var(--primary-color, #c98c4f);
+  pointer-events: none;
+  z-index: 99998;
+  transform: translateY(-50%);
+  transition: top 0.08s cubic-bezier(0.1, 0.8, 0.1, 1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.04), inset 0 0 10px rgba(255, 255, 255, 0.2);
+  mix-blend-mode: multiply;
+}
+
+/* Adjust mix blend mode for dark backgrounds */
+.theme-dark .reading-ruler {
+  mix-blend-mode: screen;
+  background-color: rgba(217, 119, 6, 0.2);
+  border-top-color: #d97706;
+  border-bottom-color: #d97706;
+}
+
+.theme-high-contrast .reading-ruler {
+  mix-blend-mode: difference;
+  background-color: rgba(255, 255, 0, 0.25);
+  border-top-color: #ffff00;
+  border-bottom-color: #ffff00;
+}

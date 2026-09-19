@@ -1,0 +1,16 @@
+{
+  "$comment": "Generated scene art registry. Lesson-content substitutes are prohibited; obsolete generated replacements were removed after usage verification.",
+  "scenes": [
+    {
+      "slug": "welcome-splash",
+      "purpose": "welcome-splash",
+      "src": "/cartilla/art/generated/welcome-splash.webp",
+      "srcSmall": "/cartilla/art/generated/welcome-splash-900.webp",
+      "width": 1536,
+      "height": 1024,
+      "tool": "owner-supplied generated image",
+      "createdAt": "2026-07-25",
+      "reviewedBy": "EJN"
+    }
+  ]
+}

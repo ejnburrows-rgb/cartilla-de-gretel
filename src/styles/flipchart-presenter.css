@@ -1,0 +1,531 @@
+/**
+ * Teacher flipchart presenter — CRM-grade classroom projection surface.
+ * Book palette, wide stage, HD board presence. Not a dark SaaS shell or
+ * a narrow photocopied strip.
+ */
+
+.fc-presenter {
+  --fc-paper: #fff8e7;
+  --fc-paper-soft: #fbf3e3;
+  --fc-ink: #17313b;
+  --fc-ink-soft: rgba(23, 49, 59, 0.62);
+  --fc-border: rgba(23, 49, 59, 0.14);
+  --fc-wash: #eef4de;
+  --fc-accent: #c98c4f;
+  --fc-stage-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.65) inset,
+    0 18px 48px -18px rgba(23, 49, 59, 0.28),
+    0 4px 14px -6px rgba(95, 167, 119, 0.18);
+
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  color: var(--fc-ink);
+  font-family: var(--font-book-faithful, system-ui, sans-serif);
+  background:
+    radial-gradient(
+      120% 80% at 12% 0%,
+      rgba(95, 167, 119, 0.16),
+      transparent 55%
+    ),
+    radial-gradient(
+      90% 70% at 88% 100%,
+      rgba(201, 140, 79, 0.14),
+      transparent 50%
+    ),
+    linear-gradient(180deg, #f7f1e4 0%, var(--fc-wash) 55%, #e8f0d8 100%);
+  user-select: none;
+}
+
+.fc-presenter[data-accent] {
+  --fc-accent: var(--fc-accent-live, #c98c4f);
+}
+
+/* ── Header chrome ─────────────────────────────────────────────── */
+.fc-presenter__header {
+  position: relative;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  padding: 0.65rem 1rem;
+  background: rgba(255, 248, 231, 0.88);
+  border-bottom: 1px solid var(--fc-border);
+  backdrop-filter: blur(14px);
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.fc-presenter.is-focus .fc-presenter__header {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px);
+}
+
+.fc-presenter__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.fc-presenter__exit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  min-height: 48px;
+  border-radius: 14px;
+  border: 1.5px solid var(--fc-border);
+  background: #fff;
+  color: var(--fc-ink);
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+.fc-presenter__exit:hover {
+  background: rgba(232, 93, 76, 0.08);
+  border-color: rgba(232, 93, 76, 0.35);
+  color: #b42318;
+}
+
+.fc-presenter__titles {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+.fc-presenter__eyebrow {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fc-accent);
+}
+.fc-presenter__title {
+  margin: 0;
+  font-size: clamp(0.95rem, 1.6vw, 1.25rem);
+  font-weight: 900;
+  color: var(--fc-ink);
+  line-height: 1.15;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: min(52vw, 28rem);
+}
+.fc-presenter__subtitle {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--fc-ink-soft);
+}
+
+.fc-presenter__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.fc-presenter__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 48px;
+  min-width: 48px;
+  padding: 0.55rem 0.95rem;
+  border-radius: 14px;
+  border: 1.5px solid var(--fc-border);
+  background: #fff;
+  color: var(--fc-ink);
+  font-weight: 800;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    transform 0.15s ease,
+    border-color 0.15s ease;
+}
+.fc-presenter__btn:hover {
+  background: color-mix(in srgb, var(--fc-accent) 10%, white);
+  border-color: color-mix(in srgb, var(--fc-accent) 35%, transparent);
+}
+.fc-presenter__btn.is-active {
+  background: color-mix(in srgb, var(--fc-accent) 16%, white);
+  border-color: var(--fc-accent);
+  color: color-mix(in srgb, var(--fc-accent) 70%, #17313b);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--fc-accent) 22%, transparent);
+}
+
+/* ── Main stage — hero of the viewport ─────────────────────────── */
+.fc-presenter__main {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* Desktop presenter: content is dominant; thin safe margins only */
+  padding: 0.5rem 0.75rem 0.65rem;
+}
+
+@media (min-width: 1280px) {
+  .fc-presenter__main {
+    padding: 0.55rem 1.25rem 0.75rem;
+  }
+}
+
+.fc-presenter.is-focus .fc-presenter__main {
+  padding: 0.35rem 0.5rem 0.5rem;
+}
+
+/* Stage occupies ≥ ~70% of content width on desktop */
+.fc-presenter__stage {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  max-width: none; /* kill postage-stamp columns */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Laser dot */
+.fc-presenter__laser {
+  position: fixed;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: 60;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 18px 4px color-mix(in srgb, var(--fc-accent) 70%, transparent);
+  background: var(--fc-accent);
+  transition:
+    left 40ms linear,
+    top 40ms linear;
+}
+
+/* ── Flipchart board panel ─────────────────────────────────────── */
+.fc-board {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  gap: 0.55rem;
+}
+
+.fc-board__easel {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.55), transparent 40%),
+    var(--fc-paper);
+  border: 1.5px solid var(--fc-border);
+  box-shadow: var(--fc-stage-shadow);
+  overflow: hidden;
+}
+
+.fc-board__page {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  background: var(--fc-paper-soft);
+  /* Inner matte so gray scan margins read less than the content */
+  padding: 0.35rem 0.45rem 0.55rem;
+}
+
+@media (min-width: 1280px) {
+  .fc-board__page {
+    padding: 0.45rem 0.75rem 0.65rem;
+  }
+}
+
+.fc-board__page-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 42vh;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fffef9;
+  box-shadow:
+    0 0 0 1px rgba(23, 49, 59, 0.06),
+    0 10px 28px -16px rgba(23, 49, 59, 0.22);
+}
+
+/* HD chart image fills the board — object-contain preserves art, stage is wide */
+.fc-board__face {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fffef9;
+}
+.fc-board__face .fc-plate {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  transform: none;
+  filter: none;
+  mix-blend-mode: normal;
+}
+
+/* Controls — large, classroom finger-friendly */
+.fc-board__controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  flex: 0 0 auto;
+  padding: 0 0.15rem;
+}
+
+.fc-board__nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 52px;
+  min-width: 52px;
+  padding: 0.65rem 1.15rem;
+  border-radius: 16px;
+  border: 1.5px solid var(--fc-border);
+  background: #fff;
+  color: var(--fc-ink);
+  font-weight: 900;
+  font-size: 0.92rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px -8px rgba(23, 49, 59, 0.25);
+  transition:
+    background 0.15s ease,
+    transform 0.15s ease,
+    opacity 0.15s ease;
+}
+.fc-board__nav:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--fc-accent) 12%, white);
+  transform: translateY(-1px);
+}
+.fc-board__nav:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.fc-board__nav--next {
+  background: var(--fc-accent);
+  border-color: transparent;
+  color: #fff;
+}
+.fc-board__nav--next:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--fc-accent) 88%, #17313b);
+  filter: brightness(1.02);
+}
+
+.fc-board__counter {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  min-width: 7.5rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1.5px solid var(--fc-border);
+  box-shadow: 0 2px 8px -4px rgba(23, 49, 59, 0.18);
+  font-weight: 900;
+  font-size: 0.88rem;
+  color: var(--fc-ink);
+  text-align: center;
+}
+.fc-board__counter-sub {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--fc-ink-soft);
+  letter-spacing: 0.02em;
+}
+
+/* Compact filmstrip — never crushes the stage */
+.fc-board__strip {
+  display: none;
+  gap: 0.4rem;
+  overflow-x: auto;
+  padding: 0.15rem 0.1rem 0.25rem;
+  flex: 0 0 auto;
+  scrollbar-width: thin;
+}
+@media (min-width: 900px) {
+  .fc-board__strip {
+    display: flex;
+  }
+}
+.fc-board__thumb {
+  flex: 0 0 auto;
+  width: 52px;
+  height: 68px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  overflow: hidden;
+  background: #fff;
+  cursor: pointer;
+  padding: 0;
+  opacity: 0.72;
+  transition:
+    opacity 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.15s ease;
+}
+.fc-board__thumb .fc-plate {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: none;
+  mix-blend-mode: normal;
+}
+.fc-board__thumb:hover {
+  opacity: 1;
+}
+.fc-board__thumb.is-active {
+  opacity: 1;
+  border-color: var(--fc-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px -4px
+    color-mix(in srgb, var(--fc-accent) 50%, transparent);
+}
+
+.fc-board__empty {
+  width: 100%;
+  max-width: 36rem;
+  margin: auto;
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1.5px solid var(--fc-border);
+  box-shadow: var(--fc-stage-shadow);
+}
+.fc-board__empty-kicker {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fc-ink-soft);
+}
+.fc-board__empty-title {
+  margin: 0.5rem 0 0;
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: var(--fc-ink);
+}
+
+/* Flip faces inherit presenter board, not living-breathe float */
+.fc-board .living-flipchart-face {
+  animation: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fc-presenter__header,
+  .fc-board__nav,
+  .fc-board__thumb {
+    transition: none !important;
+  }
+}
+
+
+/* Phone/tablet presenter: protect page area first, compact chrome second. */
+@media (max-width: 640px) {
+  .fc-presenter__header {
+    gap: 0.4rem;
+    padding: 0.45rem 0.55rem;
+    flex-wrap: nowrap;
+  }
+
+  .fc-presenter__brand {
+    flex: 1 1 auto;
+    min-width: 0;
+    gap: 0.45rem;
+  }
+
+  .fc-presenter__exit,
+  .fc-presenter__btn {
+    min-width: 44px;
+    min-height: 44px;
+    border-radius: 12px;
+  }
+
+  .fc-presenter__btn {
+    padding: 0.45rem 0.55rem;
+  }
+
+  .fc-presenter__subtitle {
+    display: none;
+  }
+
+  .fc-presenter__title {
+    max-width: 42vw;
+    font-size: 0.92rem;
+  }
+
+  .fc-presenter__actions {
+    flex-wrap: nowrap;
+    gap: 0.25rem;
+  }
+
+  .fc-presenter__main {
+    padding: 0.3rem 0.35rem 0.4rem;
+  }
+
+  .fc-board {
+    gap: 0.4rem;
+  }
+
+  .fc-board__page {
+    padding: 0.25rem;
+  }
+
+  .fc-board__page-inner {
+    min-height: 48vh;
+    border-radius: 10px;
+  }
+
+  .fc-board__controls {
+    gap: 0.35rem;
+  }
+
+  .fc-board__nav {
+    min-width: 48px;
+    min-height: 48px;
+    padding: 0.55rem 0.7rem;
+    border-radius: 14px;
+  }
+
+  .fc-board__counter {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 0.4rem 0.55rem;
+    font-size: 0.8rem;
+  }
+
+  .fc-board__counter-sub {
+    display: none;
+  }
+}

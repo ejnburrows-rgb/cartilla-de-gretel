@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>La Cartilla de Gretel</title>
+    <meta
+      name="description"
+      content="Edición digital interactiva de La Cartilla de Gretel para estudiantes y maestros."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#d4541a" />
+    <link rel="apple-touch-icon" href="/icons/app-192.png" />
+    <link rel="prefetch" href="/cartilla/art/manifest.json" as="fetch" crossorigin="anonymous" />
+    <script>
+      (function () {
+        try {
+          var t = JSON.parse(localStorage.getItem("reader.theme"));
+          if (!t) {
+            t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+          }
+          if (t === "dark") document.documentElement.classList.add("dark");
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

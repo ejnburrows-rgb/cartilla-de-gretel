@@ -1,0 +1,64 @@
+{
+  "buildCommand": "pnpm build",
+  "installCommand": "pnpm install --frozen-lockfile",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "rewrites": [
+    {
+      "source": "/book/:path*",
+      "destination": "https://cartilla-de-gretel-1sj1z1olu-ejn.vercel.app/book/:path*"
+    },
+    {
+      "source": "/cartilla/art/hd/workbook/:path*",
+      "destination": "https://cartilla-de-gretel-1sj1z1olu-ejn.vercel.app/cartilla/art/hd/workbook/:path*"
+    },
+    {
+      "source": "/cartilla/art/restored/workbook/:path*",
+      "destination": "https://cartilla-de-gretel-1sj1z1olu-ejn.vercel.app/cartilla/art/restored/workbook/:path*"
+    },
+    {
+      "source": "/cartilla/art/hd/lineart/:path*",
+      "destination": "https://cartilla-de-gretel-1sj1z1olu-ejn.vercel.app/cartilla/art/hd/lineart/:path*"
+    },
+    {
+      "source": "/cartilla/art/color/workbook/:path*",
+      "destination": "https://cartilla-de-gretel-1sj1z1olu-ejn.vercel.app/cartilla/art/color/workbook/:path*"
+    },
+    {
+      "source": "/cartilla/images/source/:path*",
+      "destination": "https://cartilla-de-gretel-1sj1z1olu-ejn.vercel.app/cartilla/images/source/:path*"
+    },
+    {
+      "source": "/cartilla/art/hd/flipchart/:path*",
+      "destination": "https://cartilla-de-gretel-1sj1z1olu-ejn.vercel.app/cartilla/art/hd/flipchart/:path*"
+    },
+    {
+      "source": "/cartilla/art/delivery/flipchart/:path*",
+      "destination": "https://cartilla-de-gretel-1sj1z1olu-ejn.vercel.app/cartilla/art/delivery/flipchart/:path*"
+    },
+    {
+      "source": "/cartilla/images/teacher-flipchart/:path*",
+      "destination": "https://cartilla-de-gretel-1sj1z1olu-ejn.vercel.app/cartilla/images/teacher-flipchart/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
+  "git": {
+    "deploymentEnabled": {
+      "main": true
+    }
+  }
+}

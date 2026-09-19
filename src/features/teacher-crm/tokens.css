@@ -1,0 +1,15 @@
+:root {
+  --crm-bg: #fdfbf7;
+  --crm-surface: #ffffff;
+  --crm-border: #e8e2d9;
+  --crm-primary: #8da47e;
+  --crm-primary-hover: #7a916b;
+  --crm-primary-text: #2c3e20;
+  --crm-secondary: #d4a373;
+  --crm-text-main: #3a322b;
+  --crm-text-muted: #7a7065;
+  --crm-pastel-blue: #d4e4ea;
+  --crm-pastel-pink: #f2d8d8;
+  --crm-pastel-yellow: #f6ecd7;
+  --crm-pastel-green: #dce7d5;
+}

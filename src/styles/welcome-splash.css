@@ -1,0 +1,148 @@
+/* welcome-splash.css — the "¡Bienvenidos!" first screen
+ * (src/components/intro/WelcomeSplash.tsx, mounted at src/routes/index.tsx).
+ *
+ * One generated garden scene fills the screen; the headline and the Entrar
+ * button sit on top as real HTML text (never baked into the picture). The only
+ * motion is a gentle lift on the button, which stops under
+ * prefers-reduced-motion. */
+
+.wc-splash {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100dvh;
+  overflow: hidden;
+  isolation: isolate;
+  /* Warm cream showing while the scene decodes — never a white flash. */
+  background: linear-gradient(180deg, #fbe7c0 0%, #cfe6b0 100%);
+}
+
+/* The scene itself. `cover` keeps it full-bleed at every aspect ratio; the
+ * focal point sits slightly above centre so Gretel stays in frame on tall
+ * phone screens rather than being cropped at the waist. */
+.wc-splash__scene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
+  z-index: 0;
+}
+
+/* Just enough warm shading top and bottom to hold text, without washing the
+ * illustration out — the picture is the point. */
+.wc-splash__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(46, 26, 6, 0.52) 0%, rgba(46, 26, 6, 0.12) 22%, rgba(46, 26, 6, 0) 40%),
+    linear-gradient(0deg, rgba(30, 40, 12, 0.6) 0%, rgba(30, 40, 12, 0.1) 20%, rgba(30, 40, 12, 0) 34%);
+}
+
+/* ── Headline ───────────────────────────────────────────────────── */
+.wc-splash__headline {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: clamp(1.5rem, 5vh, 3rem) 1rem 0;
+}
+
+.wc-splash__title {
+  margin: 0;
+  font-family: var(--font-book-title, "Fredoka", ui-rounded, system-ui, sans-serif);
+  font-weight: 800;
+  font-size: clamp(2.5rem, 9vw, 5rem);
+  line-height: 1.05;
+  color: #fff8e6;
+  letter-spacing: 0.01em;
+  /* Layered warm outline so the type reads over a busy, colourful scene. */
+  text-shadow:
+    0 2px 0 #b8430f,
+    0 4px 0 rgba(120, 55, 12, 0.55),
+    0 6px 22px rgba(30, 16, 4, 0.6);
+}
+
+.wc-splash__subtitle {
+  margin: 0.4rem 0 0;
+  font-family: var(--font-book-title, "Fredoka", ui-rounded, system-ui, sans-serif);
+  font-weight: 700;
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  color: #fff3d6;
+  text-shadow:
+    0 1px 0 rgba(120, 55, 12, 0.7),
+    0 3px 14px rgba(30, 16, 4, 0.7);
+}
+
+/* ── Entrar ─────────────────────────────────────────────────────── */
+.wc-splash__cta-wrap {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  padding: clamp(1rem, 4vh, 2rem) 1rem clamp(1.75rem, 6vh, 3rem);
+}
+
+.wc-splash__cta {
+  appearance: none;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: var(--font-book-title, "Fredoka", ui-rounded, system-ui, sans-serif);
+  font-weight: 800;
+  font-size: clamp(1.3rem, 4vw, 1.8rem);
+  color: #ffffff;
+  background: linear-gradient(180deg, #ff8a3d 0%, #e8792a 100%);
+  padding: 0.8em 3.4em;
+  border-radius: 999px;
+  border: 4px solid rgba(255, 255, 255, 0.94);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.5) inset,
+    0 14px 30px -8px rgba(60, 25, 2, 0.7);
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    background 0.12s ease;
+}
+
+.wc-splash__cta:hover,
+.wc-splash__cta:focus-visible {
+  transform: translateY(-2px) scale(1.03);
+  background: linear-gradient(180deg, #ff9950 0%, #f18434 100%);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.5) inset,
+    0 18px 34px -8px rgba(60, 25, 2, 0.75);
+}
+
+.wc-splash__cta:focus-visible {
+  outline: 3px solid #fff3d6;
+  outline-offset: 3px;
+}
+
+.wc-splash__cta:active {
+  transform: translateY(0) scale(0.99);
+}
+
+/* Tall, narrow phones: pull the focal point up a touch more so the crowd and
+ * Gretel both stay visible instead of the crop landing on empty sky. */
+@media (max-width: 640px) {
+  .wc-splash__scene {
+    object-position: center 38%;
+  }
+  .wc-splash__cta {
+    padding: 0.8em 2.8em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wc-splash__cta {
+    transition: none !important;
+  }
+  .wc-splash__cta:hover,
+  .wc-splash__cta:focus-visible,
+  .wc-splash__cta:active {
+    transform: none !important;
+  }
+}

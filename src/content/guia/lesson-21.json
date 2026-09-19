@@ -1,0 +1,20 @@
+{
+  "lessonId": 21,
+  "objectives": [
+    "AWAITING-SOURCE-SCAN — no Teacher's Guide book scan exists for this lesson. docs/Transcripción Integral_ La cartilla de Gretel - Guía del profesor.txt (the source used for Lecciones 1-15) stops mid-Lección 15 and does not cover Lección 21. Only student workbook pages (public/cartilla/images/source/j/j-page-49.jpg through j-page-51.jpg) were available this session — the fill-in-blank page for this lesson (physical page 78, per consonants.json's pages \"75-78\") was not among the provided scans."
+  ],
+  "motivation": "AWAITING-SOURCE-SCAN — same reason as objectives.",
+  "script": "AWAITING-SOURCE-SCAN — same reason as objectives.",
+  "evaluationRef": {
+    "page": 21,
+    "note": "AWAITING-SOURCE-SCAN — the page number follows the same lessonId pattern used in every other lesson, but the verbatim evaluation instruction line requires the Teacher's Guide book, which was not scanned/uploaded for this lesson."
+  },
+  "rhyme": {
+    "title": "La jicotea Jabela",
+    "text": "Mi jicotea Jabela\njuega y juega sin parar,\ncon espuma de jabón\njamás la puedo bañar.\n\nSe mete en el jaulón\nno le gusta el agua pura\nni la espuma de jabón\na mi jicotea dura."
+  },
+  "provenance": {
+    "source": "public/cartilla/images/source/j/j-page-51.jpg (real student workbook scan, rhyme page — transcribed word-for-word). Objectives/motivation/script/evaluation note NOT sourced: no Teacher's Guide scan exists for this lesson.",
+    "verified": false
+  }
+}

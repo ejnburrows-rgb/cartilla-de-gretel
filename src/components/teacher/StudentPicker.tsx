@@ -1,0 +1,125 @@
+import { useState, useEffect, useMemo } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { listClasses, getClass } from "@/lib/teacher.functions";
+import { isSeedSessionActive, listSeedClasses, getSeedClass } from "@/lib/seed-data";
+
+interface StudentPickerProps {
+  onSelectionChange: (classId: string, studentId: string | null) => void;
+}
+
+const dropdownClass =
+  "w-full sm:w-64 px-4 py-2.5 rounded-xl border border-stone-200 bg-white text-stone-800 font-bold shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition-shadow text-sm cursor-pointer";
+const labelClass =
+  "block text-[10px] font-bold text-stone-500 uppercase tracking-widest mb-1.5 ml-1";
+
+export function StudentPicker({ onSelectionChange }: StudentPickerProps) {
+  const [selectedClassId, setSelectedClassId] = useState<string>("");
+  const [selectedStudentId, setSelectedStudentId] = useState<string | null>(null);
+
+  // Synchronously detect if we are using the local seed teacher session — same
+  // pattern as ClassRoster.tsx, needed because listClasses/getClass are real
+  // Supabase-only calls with no demo-mode fallback of their own.
+  const isSeed = useMemo(() => isSeedSessionActive(), []);
+
+  // 1. Fetch Classes
+  const { data: realClasses, isLoading: loadingRealClasses } = useQuery({
+    queryKey: ["teacher-classes"],
+    queryFn: () => listClasses(),
+    enabled: !isSeed,
+  });
+
+  const seedClasses = useMemo(() => {
+    if (!isSeed) return [];
+    try {
+      return listSeedClasses();
+    } catch {
+      return [];
+    }
+  }, [isSeed]);
+
+  const classes = isSeed ? seedClasses : realClasses;
+  const loadingClasses = !isSeed && loadingRealClasses;
+
+  // 2. Fetch Students for Selected Class
+  const { data: realClassData, isLoading: loadingRealStudents } = useQuery({
+    queryKey: ["teacher-class-students", selectedClassId],
+    queryFn: () => getClass({ data: { id: selectedClassId } }),
+    enabled: !isSeed && !!selectedClassId,
+  });
+
+  const seedClassData = useMemo(() => {
+    if (!isSeed || !selectedClassId) return null;
+    try {
+      return getSeedClass(selectedClassId);
+    } catch {
+      return null;
+    }
+  }, [isSeed, selectedClassId]);
+
+  const classData = isSeed ? seedClassData : realClassData;
+  const loadingStudents = !isSeed && loadingRealStudents;
+
+  // Set default class on load
+  useEffect(() => {
+    if (classes && classes.length > 0 && !selectedClassId) {
+      setSelectedClassId(classes[0].id);
+    }
+  }, [classes, selectedClassId]);
+
+  // Bubble up selection changes
+  useEffect(() => {
+    if (selectedClassId) {
+      onSelectionChange(selectedClassId, selectedStudentId);
+    }
+  }, [selectedClassId, selectedStudentId, onSelectionChange]);
+
+  const handleClassChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedClassId(e.target.value);
+    setSelectedStudentId(null); // Reset student on class change
+  };
+
+  const handleStudentChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const val = e.target.value;
+    setSelectedStudentId(val === "all" ? null : val);
+  };
+
+  return (
+    <div className="flex flex-col sm:flex-row gap-4 p-5 bg-stone-50 border border-stone-200 rounded-3xl no-print shadow-sm">
+      <div className="flex-1">
+        <label className={labelClass}>Clase</label>
+        {loadingClasses ? (
+          <div className="text-sm font-bold text-stone-400 py-2">Cargando clases...</div>
+        ) : (
+          <select value={selectedClassId} onChange={handleClassChange} className={dropdownClass}>
+            {classes?.map((c) => (
+              <option key={c.id} value={c.id}>
+                {c.name} ({c.student_count} alumnos)
+              </option>
+            ))}
+          </select>
+        )}
+      </div>
+
+      <div className="flex-1">
+        <label className={labelClass}>Alumno</label>
+        {loadingStudents && selectedClassId ? (
+          <div className="text-sm font-bold text-stone-400 py-2">Cargando alumnos...</div>
+        ) : (
+          <select
+            value={selectedStudentId || "all"}
+            onChange={handleStudentChange}
+            disabled={!selectedClassId}
+            className={dropdownClass}
+          >
+            <option value="all">Toda la clase (Reporte general)</option>
+            {classData?.students?.map((s) => (
+              <option key={s.id} value={s.id}>
+                {s.display_name}
+              </option>
+            ))}
+          </select>
+        )}
+      </div>
+    </div>
+  );
+}

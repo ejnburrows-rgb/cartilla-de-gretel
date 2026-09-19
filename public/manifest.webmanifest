@@ -1,0 +1,41 @@
+{
+  "name": "La Cartilla de Gretel",
+  "short_name": "La Cartilla",
+  "description": "Lector del libro y cartilla digital interactiva para el aprendizaje de lectura.",
+  "start_url": "/cartilla/lecciones",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#fdfcfa",
+  "theme_color": "#c98c4f",
+  "icons": [
+    {
+      "src": "/icons/app-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/app-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Lecciones de Alumno",
+      "short_name": "Lecciones",
+      "description": "Entrar a las lecciones interactivas",
+      "url": "/cartilla/lecciones",
+      "icons": [{ "src": "/icons/app-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Consola del Maestro",
+      "short_name": "Maestro",
+      "description": "Panel de control y analíticas de clase",
+      "url": "/cartilla/maestro/analitica",
+      "icons": [{ "src": "/icons/app-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

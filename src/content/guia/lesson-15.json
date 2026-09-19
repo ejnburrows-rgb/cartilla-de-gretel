@@ -1,0 +1,23 @@
+{
+  "lessonId": 15,
+  "objectives": [
+    "Listens to nursery rhymes or poems read by the teacher and responds with appropriate sounds, words, and motions. Follows verbal directions. Describes illustrations using vocabulary appropriate for grade level. Recognizes onomatopoeic sounds / words. Asks and answers questions to demonstrate comprehension of reading materials that have been presented orally.",
+    "Rhymes word patterns in poems. Matches same initial word sounds with written word symbols. Recognizes and names upper and lower case letters of the alphabet. Identifies and decodes words with the syllable pattern  “cv” ba, be, bi, bo, bu  through illustrations. Asks and answers teacher-directed questions to demonstrate comprehension of literary selection.",
+    "Models and forms lower and upper case letter of the alphabet. Forms new words using single or syllables combinations  ba, be, bi, bo, bu . Writes simple sentences. Arranges and spaces words when forming sentences. Uses appropriate capitalization / lower case lettering conventions when writting simple sentences or proper nouns.",
+    "Uses simple vocabulary and short phrases in Spanish."
+  ],
+  "motivation": "",
+  "script": "",
+  "evaluationRef": {
+    "page": 15,
+    "note": "Teaching Materials (verbatim from Guía del profesor page 51): Flip Chart: pages 31-33 · Activity Book: pages 51-54 · BL. Masters: pages 8, 17 · Evaluation: page 15 · Reproducible Rhyme: page 15 · Other Materials: pencil, crayons and paper. Full evaluation instruction line not present — integral transcript ends mid-Lección 15 after Teaching Materials."
+  },
+  "rhyme": {
+    "title": "Sube la bola",
+    "text": "Bebo batea la bola,\nla bola a la nube dio.\nBebo le dio a la bola,\nla bola alto subió.\n\nLa bola sube y sube,\nla bola a la nube le dio.\nBebo batea y batea\nBebo alto la bateó."
+  },
+  "provenance": {
+    "source": "docs/Transcripción Integral_ La cartilla de Gretel - Guía del profesor.txt (page 51 only — objectives + teaching materials; Motivación / Lesson Development pages 52–54 NOT in integral). Rhyme transcribed word-for-word from public/cartilla/images/source/b/b-page-33.jpg (student book / rhyme page) and cross-checked with src/data/workbook-interactions.json id l15-flip-poem (book-derived, verified).",
+    "verified": true
+  }
+}

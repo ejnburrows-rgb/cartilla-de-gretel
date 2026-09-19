@@ -1,0 +1,5144 @@
+{
+  "interactions": [
+    {
+      "id": "l1-placeholder",
+      "lessonNumber": 1,
+      "pageNumber": null,
+      "kind": "cover",
+      "title": "Portada",
+      "prompt": "",
+      "items": [
+        {
+          "id": "cover-1",
+          "label": "La cartilla de Gretel"
+        },
+        {
+          "id": "cover-2",
+          "label": "Libro del alumno"
+        },
+        {
+          "id": "cover-3",
+          "label": "Autora: Leonor Lopetegui"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "ready",
+      "studentFacingStatus": "ready",
+      "teacherNotes": "",
+      "note": "Precedes vowel section; no flip chart or eval page exists for this lesson.",
+      "assetRef": "cartilla/art/hd/workbook/page-001.png",
+      "assetRefVerified": true,
+      "sourcePage": "vocales-page-01.png",
+      "blockingReason": ""
+    },
+    {
+      "id": "l2-p4-listen-o",
+      "lessonNumber": 2,
+      "pageNumber": 4,
+      "kind": "listen-and-tap",
+      "title": "Encuentra las palabras con O",
+      "prompt": "Toca los dibujos que comienzan con O.",
+      "items": [],
+      "targets": [
+        {
+          "id": "target-oso1",
+          "label": "oso",
+          "coordinatesVerified": true,
+          "xPercent": 60,
+          "yPercent": 35,
+          "widthPercent": 15,
+          "heightPercent": 15
+        },
+        {
+          "id": "target-oreja",
+          "label": "oreja",
+          "coordinatesVerified": true,
+          "xPercent": 80,
+          "yPercent": 45,
+          "widthPercent": 15,
+          "heightPercent": 15
+        },
+        {
+          "id": "target-olla",
+          "label": "olla",
+          "coordinatesVerified": true,
+          "xPercent": 25,
+          "yPercent": 55,
+          "widthPercent": 15,
+          "heightPercent": 15
+        },
+        {
+          "id": "target-ocho",
+          "label": "ocho",
+          "coordinatesVerified": true,
+          "xPercent": 60,
+          "yPercent": 55,
+          "widthPercent": 15,
+          "heightPercent": 15
+        },
+        {
+          "id": "target-oso2",
+          "label": "oso",
+          "coordinatesVerified": true,
+          "xPercent": 45,
+          "yPercent": 65,
+          "widthPercent": 15,
+          "heightPercent": 15
+        },
+        {
+          "id": "target-ojos",
+          "label": "ojos",
+          "coordinatesVerified": true,
+          "xPercent": 80,
+          "yPercent": 65,
+          "widthPercent": 15,
+          "heightPercent": 10
+        }
+      ],
+      "sourceStatus": "verified",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Actividad interactiva",
+      "teacherNotes": "Vocal O lesson - grid tap activity",
+      "sourcePage": "page-10.png"
+    },
+    {
+      "id": "l3-p7-drag-word-a",
+      "lessonNumber": 3,
+      "pageNumber": 7,
+      "kind": "drag-build-word",
+      "title": "Forma palabras con A",
+      "prompt": "Arrastra las letras para formar la palabra. Toca una letra y luego toca la casilla.",
+      "items": [],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Actividad interactiva",
+      "teacherNotes": "Vocal A lesson - drag and drop word building activity",
+      "sourcePage": "u-page-7.jpg"
+    },
+    {
+      "id": "l4-p10-drag-word-e",
+      "lessonNumber": 4,
+      "pageNumber": 10,
+      "kind": "drag-build-word",
+      "title": "Forma palabras con E",
+      "prompt": "Arrastra las letras para formar la palabra. Toca una letra y luego toca la casilla.",
+      "items": [],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Actividad interactiva",
+      "teacherNotes": "Vocal E lesson - drag and drop word building activity",
+      "sourcePage": "m-page-10.jpg"
+    },
+    {
+      "id": "l5-p13-drag-word-i",
+      "lessonNumber": 5,
+      "pageNumber": 13,
+      "kind": "drag-build-word",
+      "title": "Forma palabras con I",
+      "prompt": "Arrastra las letras para formar la palabra. Toca una letra y luego toca la casilla.",
+      "items": [],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Actividad interactiva",
+      "teacherNotes": "Vocal I lesson - drag and drop word building activity",
+      "sourcePage": "p-page-13.jpg"
+    },
+    {
+      "id": "l6-p16-drag-word-u",
+      "lessonNumber": 6,
+      "pageNumber": 16,
+      "kind": "drag-build-word",
+      "title": "Forma palabras con U",
+      "prompt": "Arrastra las letras para formar la palabra. Toca una letra y luego toca la casilla.",
+      "items": [],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Actividad interactiva",
+      "teacherNotes": "Vocal U lesson - drag and drop word building activity",
+      "sourcePage": "ss-page-16.jpg"
+    },
+    {
+      "id": "l7-p19-letter-tracing",
+      "lessonNumber": 7,
+      "pageNumber": 19,
+      "kind": "letter-tracing",
+      "title": "Escribe con tu mejor letra — M m",
+      "prompt": "Traza la letra M mayúscula y la m minúscula. Luego haz un dibujo de una palabra que comienza con m.",
+      "items": [
+        {
+          "id": "letter-M",
+          "label": "M"
+        },
+        {
+          "id": "letter-m",
+          "label": "m"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Traza la letra y dibuja una palabra con M",
+      "teacherNotes": "Page 19 of Libro del alumno. Students trace uppercase M and lowercase m, then draw an object starting with the letter m. Standard tracing page format used for all consonant lessons.",
+      "sourcePage": "d-page-19.jpg"
+    },
+    {
+      "id": "l7-p20-syllable-circle",
+      "lessonNumber": 7,
+      "pageNumber": 20,
+      "kind": "drag-syllable-to-slot",
+      "title": "Encierra la sílaba — M m",
+      "prompt": "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
+      "items": [
+        {
+          "id": "syl-ma",
+          "label": "ma"
+        },
+        {
+          "id": "syl-me",
+          "label": "me"
+        },
+        {
+          "id": "syl-mi",
+          "label": "mi"
+        },
+        {
+          "id": "syl-mo",
+          "label": "mo"
+        },
+        {
+          "id": "syl-mu",
+          "label": "mu"
+        }
+      ],
+      "targets": [
+        {
+          "id": "slot-ma",
+          "label": "ma",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ma"
+        },
+        {
+          "id": "slot-me",
+          "label": "me",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-me"
+        },
+        {
+          "id": "slot-mi",
+          "label": "mi",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-mi"
+        },
+        {
+          "id": "slot-mo",
+          "label": "mo",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-mo"
+        },
+        {
+          "id": "slot-mu",
+          "label": "mu",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-mu"
+        }
+      ],
+      "wordBank": [
+        "mamá",
+        "mami",
+        "ama",
+        "mima",
+        "Coloma",
+        "Manolo",
+        "media",
+        "Memo",
+        "melón",
+        "mesa",
+        "meta",
+        "Meme",
+        "mío",
+        "amigo",
+        "mira",
+        "misa",
+        "Mimí",
+        "amo",
+        "mono",
+        "como",
+        "moneda",
+        "moto",
+        "mulo",
+        "muleta",
+        "muro",
+        "mudo",
+        "mujer",
+        "Mumi"
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Encierra la sílaba correcta en cada palabra",
+      "teacherNotes": "Page 20 of Libro del alumno. Students circle the syllable (ma/me/mi/mo/mu) that matches the highlighted part of each pictured word. Full word bank transcribed directly from PDF: mamá, mami, ama, mima, Coloma, Manolo, media, Memo, melón, mesa, meta, Meme, mío, amigo, mira, misa, Mimí, amo, mono, como, moneda, moto, mulo, muleta, muro, mudo, mujer, Mumi. Slot coordinates not yet mapped.",
+      "sourcePage": "d-page-20.jpg"
+    },
+    {
+      "id": "l7-p21-syllable-tap",
+      "lessonNumber": 7,
+      "pageNumber": 21,
+      "kind": "read-aloud",
+      "title": "Sílabas con M — página Mm",
+      "prompt": "Toca cada sílaba para escucharla. Repite en voz alta.",
+      "items": [
+        {
+          "id": "ra-ma",
+          "label": "ma"
+        },
+        {
+          "id": "ra-me",
+          "label": "me"
+        },
+        {
+          "id": "ra-mi",
+          "label": "mi"
+        },
+        {
+          "id": "ra-mo",
+          "label": "mo"
+        },
+        {
+          "id": "ra-mu",
+          "label": "mu"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Toca cada sílaba con M",
+      "teacherNotes": "Page 21 of Libro del alumno. Top two rows of the Mm page show the syllable family in both orders: ma/me/mi/mo/mu and mu/mo/ma/me/mi. Standard syllable-tap format used across all consonant lessons.",
+      "sourcePage": "d-page-21.jpg"
+    },
+    {
+      "id": "l7-p21-word-bank",
+      "lessonNumber": 7,
+      "pageNumber": 21,
+      "kind": "listen-and-tap",
+      "title": "Palabras con M",
+      "prompt": "Toca cada palabra para escucharla.",
+      "items": [
+        {
+          "id": "w-mama",
+          "label": "mamá"
+        },
+        {
+          "id": "w-mami",
+          "label": "mami"
+        },
+        {
+          "id": "w-mimo",
+          "label": "Mimo"
+        },
+        {
+          "id": "w-mio",
+          "label": "mío"
+        },
+        {
+          "id": "w-mimame",
+          "label": "mímame"
+        },
+        {
+          "id": "w-meme",
+          "label": "Meme"
+        },
+        {
+          "id": "w-ama",
+          "label": "ama"
+        },
+        {
+          "id": "w-mia",
+          "label": "mía"
+        },
+        {
+          "id": "w-mumi",
+          "label": "Mumi"
+        },
+        {
+          "id": "w-memo",
+          "label": "Memo"
+        },
+        {
+          "id": "w-mima",
+          "label": "mima"
+        },
+        {
+          "id": "w-amo",
+          "label": "amo"
+        },
+        {
+          "id": "w-mimi",
+          "label": "Mimí"
+        },
+        {
+          "id": "w-amame",
+          "label": "ámame"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Toca cada palabra con M",
+      "teacherNotes": "Page 21 of Libro del alumno. Word bank in the middle column of the Mm page. All words transcribed directly from PDF: mamá, mami, Mimo, mío, me, mímame, Meme, ama, mía, Mumi, Memo, mima, amo, Mimí, ámame. Also includes the conjunction 'y' bridging the word list and the mini-story.",
+      "sourcePage": "d-page-21.jpg"
+    },
+    {
+      "id": "l7-p21-mini-story",
+      "lessonNumber": 7,
+      "pageNumber": 21,
+      "kind": "mini-story",
+      "title": "Mini-cuento: Mi mamá me ama",
+      "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+      "items": [
+        {
+          "id": "story-m-1",
+          "label": "Mi mamá me ama."
+        },
+        {
+          "id": "story-m-2",
+          "label": "Amo a mami. Mamá mía."
+        },
+        {
+          "id": "story-m-3",
+          "label": "Mamá ama a Meme y a Mimí."
+        },
+        {
+          "id": "story-m-4",
+          "label": "Memo ama a Mumi."
+        },
+        {
+          "id": "story-m-5",
+          "label": "Mamá mía ámame. Mímame a mí."
+        },
+        {
+          "id": "story-m-6",
+          "label": "Mi mamá me mima."
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Mini-cuento en la página del cuaderno",
+      "teacherNotes": "Page 21 of Libro del alumno. Mini-story transcribed directly from PDF. Characters: mamá, mami, Meme, Mimí, Memo, Mumi. Story introduces 'y' (sight word). All lines verified from OCR output.",
+      "sourcePage": "d-page-21.jpg"
+    },
+    {
+      "id": "l7-p22-fill-in-blank",
+      "lessonNumber": 7,
+      "pageNumber": 22,
+      "kind": "drag-syllable-to-slot",
+      "title": "Completa las palabras — M m",
+      "prompt": "Arrastra la sílaba correcta para completar cada palabra.",
+      "items": [
+        {
+          "id": "syl-mo",
+          "label": "mo"
+        },
+        {
+          "id": "syl-mu",
+          "label": "mu"
+        },
+        {
+          "id": "syl-mi",
+          "label": "mi"
+        },
+        {
+          "id": "syl-ma",
+          "label": "má"
+        },
+        {
+          "id": "syl-ma2",
+          "label": "ma"
+        },
+        {
+          "id": "syl-Mu",
+          "label": "Mu"
+        }
+      ],
+      "targets": [
+        {
+          "id": "blank-amo",
+          "label": "a___",
+          "hint": "mo / mu",
+          "correctSyllable": "mo",
+          "fullWord": "amo",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-mo"
+        },
+        {
+          "id": "blank-Me",
+          "label": "Me___",
+          "hint": "mo / mu",
+          "correctSyllable": "mo",
+          "fullWord": "Memo",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-mo"
+        },
+        {
+          "id": "blank-mama",
+          "label": "ma___",
+          "hint": "mi / má",
+          "correctSyllable": "má",
+          "fullWord": "mamá",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ma"
+        },
+        {
+          "id": "blank-mima",
+          "label": "mi___",
+          "hint": "ma / mu",
+          "correctSyllable": "ma",
+          "fullWord": "mima",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ma2"
+        },
+        {
+          "id": "blank-Mumi",
+          "label": "___mi",
+          "hint": "mi / Mu",
+          "correctSyllable": "Mu",
+          "fullWord": "Mumi",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-Mu"
+        },
+        {
+          "id": "blank-mio",
+          "label": "___o",
+          "hint": "mí / mo",
+          "correctSyllable": "mí",
+          "fullWord": "mío",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-mi"
+        }
+      ],
+      "exercises": [
+        {
+          "partial": "a___",
+          "choices": [
+            "mo",
+            "mu"
+          ],
+          "answer": "mo",
+          "fullWord": "amo"
+        },
+        {
+          "partial": "Me___",
+          "choices": [
+            "mo",
+            "mu"
+          ],
+          "answer": "mo",
+          "fullWord": "Memo"
+        },
+        {
+          "partial": "ma___",
+          "choices": [
+            "mi",
+            "má"
+          ],
+          "answer": "má",
+          "fullWord": "mamá"
+        },
+        {
+          "partial": "mi___",
+          "choices": [
+            "ma",
+            "mu"
+          ],
+          "answer": "ma",
+          "fullWord": "mima"
+        },
+        {
+          "partial": "___mi",
+          "choices": [
+            "mi",
+            "Mu"
+          ],
+          "answer": "Mu",
+          "fullWord": "Mumi"
+        },
+        {
+          "partial": "___o",
+          "choices": [
+            "mí",
+            "mo"
+          ],
+          "answer": "mí",
+          "fullWord": "mío"
+        }
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Completa cada palabra con la sílaba correcta",
+      "teacherNotes": "Page 22 of Libro del alumno. Fill-in-the-blank exercise transcribed directly from PDF. Six items with binary choice. Exercises: a___(mo/mu)→amo, Me___(mo/mu)→Memo, ma___(mi/má)→mamá, mi___(ma/mu)→mima, ___mi(mi/Mu)→Mumi, ___o(mí/mo)→mío. Slot coordinates not yet mapped to workbook page.",
+      "sourcePage": "l-page-22.jpg"
+    },
+    {
+      "id": "l8-p23-letter-tracing",
+      "lessonNumber": 8,
+      "pageNumber": 23,
+      "kind": "letter-tracing",
+      "title": "Escribe con tu mejor letra — P p",
+      "prompt": "Traza la letra P mayúscula y la p minúscula. Luego haz un dibujo de una palabra que comienza con p.",
+      "items": [
+        {
+          "id": "letter-P",
+          "label": "P"
+        },
+        {
+          "id": "letter-p",
+          "label": "p"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Traza la letra y dibuja una palabra con P",
+      "teacherNotes": "Page 23 of Libro del alumno. Students trace uppercase P (2-stroke) and lowercase p (2-stroke), then draw an object starting with the letter p. Stroke order marked with numbered arrows in the original book.",
+      "sourcePage": "l-page-23.jpg"
+    },
+    {
+      "id": "l8-p24-syllable-circle",
+      "lessonNumber": 8,
+      "pageNumber": 24,
+      "kind": "drag-syllable-to-slot",
+      "title": "Encierra la sílaba — P p",
+      "prompt": "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
+      "items": [
+        {
+          "id": "syl-pa",
+          "label": "pa"
+        },
+        {
+          "id": "syl-pe",
+          "label": "pe"
+        },
+        {
+          "id": "syl-pi",
+          "label": "pi"
+        },
+        {
+          "id": "syl-po",
+          "label": "po"
+        },
+        {
+          "id": "syl-pu",
+          "label": "pu"
+        }
+      ],
+      "targets": [
+        {
+          "id": "slot-pa",
+          "label": "pa",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-pa"
+        },
+        {
+          "id": "slot-pe",
+          "label": "pe",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-pe"
+        },
+        {
+          "id": "slot-pi",
+          "label": "pi",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-pi"
+        },
+        {
+          "id": "slot-po",
+          "label": "po",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-po"
+        },
+        {
+          "id": "slot-pu",
+          "label": "pu",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-pu"
+        }
+      ],
+      "wordBank": [
+        "papá",
+        "pupa",
+        "mapa",
+        "Papo",
+        "¡upa!",
+        "pala",
+        "Pepe",
+        "pelo",
+        "tapete",
+        "pesa",
+        "pelota",
+        "chupete",
+        "pipo",
+        "Pupi",
+        "Mupi",
+        "papi",
+        "Mapi",
+        "pío",
+        "pomo",
+        "polo",
+        "sapo",
+        "mapo",
+        "tapo",
+        "Pepo",
+        "puso",
+        "Pupa",
+        "puma",
+        "apura",
+        "Pupi",
+        "púa"
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Encierra la sílaba correcta en cada palabra",
+      "teacherNotes": "Page 24 of Libro del alumno. Students circle the syllable (pa/pe/pi/po/pu) in each pictured word. Full word bank transcribed directly from PDF: papá, pupa, mapa, Papo, ¡upa!, pala, Pepe, pelo, tapete, pesa, pelota, chupete, pipo, Pupi, Mupi, papi, Mapi, pío, pomo, polo, sapo, mapo, tapo, Pepo, puso, Pupa, puma, apura, Pupi, púa. Slot coordinates not yet mapped.",
+      "sourcePage": "l-page-24.jpg"
+    },
+    {
+      "id": "l8-p25-syllable-tap",
+      "lessonNumber": 8,
+      "pageNumber": 25,
+      "kind": "read-aloud",
+      "title": "Sílabas con P — página Pp",
+      "prompt": "Toca cada sílaba para escucharla. Repite en voz alta.",
+      "items": [
+        {
+          "id": "ra-pa",
+          "label": "pa"
+        },
+        {
+          "id": "ra-pe",
+          "label": "pe"
+        },
+        {
+          "id": "ra-pi",
+          "label": "pi"
+        },
+        {
+          "id": "ra-po",
+          "label": "po"
+        },
+        {
+          "id": "ra-pu",
+          "label": "pu"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Toca cada sílaba con P",
+      "teacherNotes": "Page 25 of Libro del alumno. Top two rows of the Pp page show the syllable family: pa/pe/pi/po/pu and pu/po/pa/pe/pi. Standard syllable-tap format used across all consonant lessons.",
+      "sourcePage": "n-page-25.jpg"
+    },
+    {
+      "id": "l8-p25-word-bank",
+      "lessonNumber": 8,
+      "pageNumber": 25,
+      "kind": "listen-and-tap",
+      "title": "Palabras con P",
+      "prompt": "Toca cada palabra para escucharla.",
+      "items": [
+        {
+          "id": "w-papa",
+          "label": "papá"
+        },
+        {
+          "id": "w-mapo",
+          "label": "mapo"
+        },
+        {
+          "id": "w-Mapi",
+          "label": "Mapi"
+        },
+        {
+          "id": "w-papi",
+          "label": "papi"
+        },
+        {
+          "id": "w-puma",
+          "label": "puma"
+        },
+        {
+          "id": "w-pie",
+          "label": "pie"
+        },
+        {
+          "id": "w-Pepe",
+          "label": "Pepe"
+        },
+        {
+          "id": "w-Mupi",
+          "label": "Mupi"
+        },
+        {
+          "id": "w-pua",
+          "label": "púa"
+        },
+        {
+          "id": "w-pipo",
+          "label": "pipo"
+        },
+        {
+          "id": "w-mapa",
+          "label": "mapa"
+        },
+        {
+          "id": "w-pomo",
+          "label": "pomo"
+        },
+        {
+          "id": "w-Pupi",
+          "label": "Pupi"
+        },
+        {
+          "id": "w-upa",
+          "label": "¡upa!"
+        },
+        {
+          "id": "w-Pepo",
+          "label": "Pepo"
+        }
+      ],
+      "targets": [],
+      "sightWords": [
+        "yo"
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Toca cada palabra con P",
+      "teacherNotes": "Page 25 of Libro del alumno. Word bank in the middle column of the Pp page. All 15 words transcribed directly from PDF. Sight word 'yo' also introduced on this page (printed in bold in the story section).",
+      "sourcePage": "n-page-25.jpg"
+    },
+    {
+      "id": "l8-p25-mini-story",
+      "lessonNumber": 8,
+      "pageNumber": 25,
+      "kind": "mini-story",
+      "title": "Mini-cuento: Papá y Pepe aman a mamá",
+      "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+      "items": [
+        {
+          "id": "story-p-1",
+          "label": "Papá y Pepe aman a mamá."
+        },
+        {
+          "id": "story-p-2",
+          "label": "Pupi ama a papá."
+        },
+        {
+          "id": "story-p-3",
+          "label": "Yo amo a mamá y a papá."
+        },
+        {
+          "id": "story-p-4",
+          "label": "Mi papá ama a Pupi."
+        },
+        {
+          "id": "story-p-5",
+          "label": "Papá y mamá me aman."
+        }
+      ],
+      "targets": [],
+      "sightWords": [
+        "yo"
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Mini-cuento en la página del cuaderno",
+      "teacherNotes": "Page 25 of Libro del alumno. Mini-story transcribed directly from PDF. Characters: papá, mamá, Pepe, Pupi. Introduces sight word 'yo' (printed in bold in original). All lines verified from OCR output.",
+      "sourcePage": "n-page-25.jpg"
+    },
+    {
+      "id": "l8-p26-fill-in-blank",
+      "lessonNumber": 8,
+      "pageNumber": 26,
+      "kind": "drag-syllable-to-slot",
+      "title": "Completa las palabras — P p",
+      "prompt": "Arrastra la sílaba correcta para completar cada palabra.",
+      "items": [
+        {
+          "id": "syl-pa",
+          "label": "pa"
+        },
+        {
+          "id": "syl-po",
+          "label": "po"
+        },
+        {
+          "id": "syl-pe",
+          "label": "pe"
+        },
+        {
+          "id": "syl-pu",
+          "label": "pu"
+        },
+        {
+          "id": "syl-pi",
+          "label": "pi"
+        },
+        {
+          "id": "syl-Pa",
+          "label": "Pa"
+        }
+      ],
+      "targets": [
+        {
+          "id": "blank-papa",
+          "label": "pa___",
+          "hint": "pa / pá",
+          "correctSyllable": "pá",
+          "fullWord": "papá",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-pa"
+        },
+        {
+          "id": "blank-mapa",
+          "label": "ma___",
+          "hint": "pa / po",
+          "correctSyllable": "pa",
+          "fullWord": "mapa",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-pa"
+        },
+        {
+          "id": "blank-puma",
+          "label": "___ma",
+          "hint": "pe / pu",
+          "correctSyllable": "pu",
+          "fullWord": "puma",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-pu"
+        },
+        {
+          "id": "blank-Mapi",
+          "label": "Ma___",
+          "hint": "pi / po",
+          "correctSyllable": "pi",
+          "fullWord": "Mapi",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-pi"
+        },
+        {
+          "id": "blank-pio",
+          "label": "___o",
+          "hint": "pí / po",
+          "correctSyllable": "pí",
+          "fullWord": "pío",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-pi"
+        },
+        {
+          "id": "blank-Pepe",
+          "label": "___pe",
+          "hint": "Pe / pe",
+          "correctSyllable": "Pe",
+          "fullWord": "Pepe",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-Pe"
+        }
+      ],
+      "exercises": [
+        {
+          "partial": "pa___",
+          "choices": [
+            "pa",
+            "pá"
+          ],
+          "answer": "pá",
+          "fullWord": "papá"
+        },
+        {
+          "partial": "ma___",
+          "choices": [
+            "pa",
+            "po"
+          ],
+          "answer": "pa",
+          "fullWord": "mapa"
+        },
+        {
+          "partial": "___ma",
+          "choices": [
+            "pe",
+            "pu"
+          ],
+          "answer": "pu",
+          "fullWord": "puma"
+        },
+        {
+          "partial": "Ma___",
+          "choices": [
+            "pi",
+            "po"
+          ],
+          "answer": "pi",
+          "fullWord": "Mapi"
+        },
+        {
+          "partial": "___o",
+          "choices": [
+            "pí",
+            "po"
+          ],
+          "answer": "pí",
+          "fullWord": "pío"
+        },
+        {
+          "partial": "___pe",
+          "choices": [
+            "Pe",
+            "pe"
+          ],
+          "answer": "Pe",
+          "fullWord": "Pepe"
+        }
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Completa cada palabra con la sílaba correcta",
+      "teacherNotes": "Page 26 of Libro del alumno. Fill-in-the-blank exercise transcribed directly from PDF. Six items: pa___(pa/pá)→papá, ma___(pa/po)→mapa, ___ma(pe/pu)→puma, Ma___(pi/po)→Mapi, ___o(pí/po)→pío, ___pe(Pe/pe)→Pepe. Slot coordinates not yet mapped to workbook page.",
+      "sourcePage": "n-page-26.jpg"
+    },
+    {
+      "id": "l9-p27-word-reveal",
+      "lessonNumber": 9,
+      "pageNumber": 27,
+      "kind": "drag-word-to-image",
+      "title": "Palabras del cuaderno — Página Ss",
+      "prompt": "Toca cada palabra para descubrirla. Búscala en la página ilustrada del cuaderno.",
+      "assetRef": "art/hd/page-14.png",
+      "assetRefSourcePage": "14-Ss (workbook page 13)",
+      "assetRefVerified": true,
+      "items": [
+        {
+          "id": "w-sopa",
+          "label": "sopa"
+        },
+        {
+          "id": "w-sapo",
+          "label": "sapo"
+        },
+        {
+          "id": "w-pisa",
+          "label": "pisa"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "sopa, sapo, pisa confirmed with illustrations on source page 14-Ss (workbook page 13). assetRef points to full page scan. page scan mapped; hotspot pending (per-object hotspots not mapped).",
+      "sourcePage": "n-page-27.jpg"
+    },
+    {
+      "id": "l9-p27-names-reveal",
+      "lessonNumber": 9,
+      "pageNumber": 27,
+      "kind": "listen-and-tap",
+      "title": "Nombres con S",
+      "prompt": "Toca cada nombre cuando lo escuches. Los dos aparecen en la página del cuaderno.",
+      "assetRef": "art/hd/page-14.png",
+      "assetRefSourcePage": "14-Ss (workbook page 13)",
+      "assetRefVerified": true,
+      "items": [
+        {
+          "id": "w-sesi",
+          "label": "Sesi"
+        },
+        {
+          "id": "w-susi",
+          "label": "Susi"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Sesi and Susi are illustrated characters on source page 14-Ss (workbook page 13). Both appear with labeled artwork. This is a listen-and-tap activity.",
+      "sourcePage": "n-page-27.jpg"
+    },
+    {
+      "id": "l9-p28-sight-words",
+      "lessonNumber": 9,
+      "pageNumber": 28,
+      "kind": "listen-and-tap",
+      "title": "Palabras a simple vista",
+      "prompt": "Escucha y toca cada palabra cuando la oigas.",
+      "assetRef": "art/hd/page-15.png",
+      "assetRefSourcePage": "15-Ss (workbook page 14)",
+      "assetRefVerified": true,
+      "items": [
+        {
+          "id": "w-es",
+          "label": "es"
+        },
+        {
+          "id": "w-de",
+          "label": "de"
+        },
+        {
+          "id": "w-un",
+          "label": "un"
+        },
+        {
+          "id": "w-esta",
+          "label": "está"
+        },
+        {
+          "id": "w-en",
+          "label": "en"
+        },
+        {
+          "id": "w-la",
+          "label": "la"
+        },
+        {
+          "id": "w-el",
+          "label": "el"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Sight words confirmed on source page 15-Ss (workbook page 14): es, de, un, está, en, la, el appear in the pink sight-word strip. Verified from page scan.",
+      "sourcePage": "ñ-page-28.jpg"
+    },
+    {
+      "id": "l9-p28-syllable-tap",
+      "lessonNumber": 9,
+      "pageNumber": 28,
+      "kind": "drag-syllable-to-slot",
+      "title": "Sílabas con S",
+      "prompt": "Arrastra cada sílaba a su casilla o tócala para escucharla.",
+      "assetRef": "art/hd/page-15.png",
+      "assetRefSourcePage": "15-Ss (workbook page 14)",
+      "assetRefVerified": true,
+      "items": [
+        {
+          "id": "syl-sa",
+          "label": "sa"
+        },
+        {
+          "id": "syl-se",
+          "label": "se"
+        },
+        {
+          "id": "syl-si",
+          "label": "si"
+        },
+        {
+          "id": "syl-so",
+          "label": "so"
+        },
+        {
+          "id": "syl-su",
+          "label": "su"
+        }
+      ],
+      "targets": [
+        {
+          "id": "slot-sa",
+          "label": "sa",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-sa"
+        },
+        {
+          "id": "slot-se",
+          "label": "se",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-se"
+        },
+        {
+          "id": "slot-si",
+          "label": "si",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-si"
+        },
+        {
+          "id": "slot-so",
+          "label": "so",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-so"
+        },
+        {
+          "id": "slot-su",
+          "label": "su",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-su"
+        }
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Syllables sa/se/si/so/su confirmed on source page 15-Ss (workbook page 14): syllable rows appear in both top bands. Slot coordinates not yet mapped to book page.",
+      "sourcePage": "ñ-page-28.jpg"
+    },
+    {
+      "id": "l9-p29-tap-obj",
+      "lessonNumber": 9,
+      "pageNumber": 29,
+      "kind": "mini-story",
+      "title": "Sapo Samapo",
+      "prompt": "Lee el poema del cuaderno.",
+      "items": [
+        {
+          "id": "sapo-1",
+          "label": "Sapo Samapo"
+        },
+        {
+          "id": "sapo-2",
+          "label": "Sapo Samapo"
+        },
+        {
+          "id": "sapo-3",
+          "label": "en la mesa está"
+        },
+        {
+          "id": "sapo-4",
+          "label": "sapo Samapo"
+        },
+        {
+          "id": "sapo-5",
+          "label": "sa-po-mi-pa."
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "needs-transcription",
+      "transcriptionStatus": "ready",
+      "studentFacingStatus": "ready",
+      "teacherNotes": "saco, seta, seis are NOT confirmed in consonants.json examples for Lesson 9. These object names are plausible for the S lesson but are not verified from the official workbook page scan. Do not promote to book-derived without page verification.",
+      "assetRef": "art/hd/page-29.png",
+      "assetRefVerified": true,
+      "sourcePage": "ñ-page-29.jpg",
+      "blockingReason": ""
+    },
+    {
+      "id": "l9-p29-mini-story-ss",
+      "lessonNumber": 9,
+      "pageNumber": 29,
+      "kind": "mini-story",
+      "title": "Sapo Samapo",
+      "prompt": "Lee el mini-cuento del cuaderno.",
+      "assetRef": "art/hd/page-16.png",
+      "assetRefSourcePage": "16-Ss (workbook page 15)",
+      "assetRefVerified": true,
+      "items": [
+        {
+          "id": "story-s-1",
+          "label": "Sapo Samapo"
+        },
+        {
+          "id": "story-s-2",
+          "label": "en la mesa está"
+        },
+        {
+          "id": "story-s-3",
+          "label": "sapo Samapo"
+        },
+        {
+          "id": "story-s-4",
+          "label": "sa-po-mi-pa."
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Story text transcribed directly from source page 16-Ss (workbook page 15). Full page scan available as assetRef. Story: 'Sapo Samapo / en la mesa está / sapo Samapo / sa-po-mi-pa.'",
+      "sourcePage": "ñ-page-29.jpg"
+    },
+    {
+      "id": "l9-p30-read-aloud",
+      "lessonNumber": 9,
+      "pageNumber": 30,
+      "kind": "read-aloud",
+      "title": "Lee en voz alta",
+      "prompt": "Lee la sílaba en voz alta y toca el botón para escucharla también.",
+      "items": [
+        {
+          "id": "ra-sa",
+          "label": "sa"
+        },
+        {
+          "id": "ra-se",
+          "label": "se"
+        },
+        {
+          "id": "ra-si",
+          "label": "si"
+        },
+        {
+          "id": "ra-so",
+          "label": "so"
+        },
+        {
+          "id": "ra-su",
+          "label": "su"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "object-level cutout pending",
+      "teacherNotes": "Read-aloud of the s-syllable family. No art mapping required.",
+      "sourcePage": "ñ-page-30.jpg"
+    },
+    {
+      "id": "l10-pX-letter-tracing",
+      "lessonNumber": 10,
+      "pageNumber": 31,
+      "kind": "letter-tracing",
+      "title": "Escribe con tu mejor letra — T t",
+      "prompt": "Traza la letra T mayúscula y la t minúscula. Luego haz un dibujo de una palabra que comienza con t.",
+      "items": [
+        {
+          "id": "letter-T",
+          "label": "T"
+        },
+        {
+          "id": "letter-t",
+          "label": "t"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Traza la letra y dibuja una palabra con T",
+      "teacherNotes": "Tracing activity for T",
+      "sourcePage": "b-page-31.jpg"
+    },
+    {
+      "id": "l10-pX-syllable-circle",
+      "lessonNumber": 10,
+      "pageNumber": 32,
+      "kind": "drag-syllable-to-slot",
+      "title": "Encierra la sílaba — T t",
+      "prompt": "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
+      "items": [
+        {
+          "id": "syl-ta",
+          "label": "ta"
+        },
+        {
+          "id": "syl-te",
+          "label": "te"
+        },
+        {
+          "id": "syl-ti",
+          "label": "ti"
+        },
+        {
+          "id": "syl-to",
+          "label": "to"
+        },
+        {
+          "id": "syl-tu",
+          "label": "tu"
+        }
+      ],
+      "targets": [
+        {
+          "id": "slot-ta",
+          "label": "ta",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ta"
+        },
+        {
+          "id": "slot-te",
+          "label": "te",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-te"
+        },
+        {
+          "id": "slot-ti",
+          "label": "ti",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ti"
+        },
+        {
+          "id": "slot-to",
+          "label": "to",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-to"
+        },
+        {
+          "id": "slot-tu",
+          "label": "tu",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-tu"
+        }
+      ],
+      "wordBank": [
+        "taza",
+        "tomate",
+        "tapa",
+        "tela",
+        "tiza",
+        "todo",
+        "tubo"
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Encierra la sílaba correcta en cada palabra",
+      "teacherNotes": "Syllable circle for T",
+      "sourcePage": "b-page-32.jpg"
+    },
+    {
+      "id": "l10-pX-word-bank",
+      "lessonNumber": 10,
+      "pageNumber": 33,
+      "kind": "listen-and-tap",
+      "title": "Palabras con T",
+      "prompt": "Toca cada palabra para escucharla.",
+      "items": [
+        {
+          "id": "w-taza",
+          "label": "taza"
+        },
+        {
+          "id": "w-tomate",
+          "label": "tomate"
+        },
+        {
+          "id": "w-tapa",
+          "label": "tapa"
+        },
+        {
+          "id": "w-tela",
+          "label": "tela"
+        },
+        {
+          "id": "w-tiza",
+          "label": "tiza"
+        },
+        {
+          "id": "w-todo",
+          "label": "todo"
+        },
+        {
+          "id": "w-tubo",
+          "label": "tubo"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Toca cada palabra con T",
+      "teacherNotes": "Word bank for T",
+      "sourcePage": "b-page-33.jpg"
+    },
+    {
+      "id": "l10-pX-mini-story",
+      "lessonNumber": 10,
+      "pageNumber": 34,
+      "kind": "mini-story",
+      "title": "Mini-cuento: El cuento de Tito",
+      "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+      "items": [
+        {
+          "id": "story-t-1",
+          "label": "Este es Tito."
+        },
+        {
+          "id": "story-t-2",
+          "label": "Tito tiene un taza."
+        },
+        {
+          "id": "story-t-3",
+          "label": "El taza es bonito."
+        },
+        {
+          "id": "story-t-4",
+          "label": "Tito y el taza."
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Mini-cuento en la página del cuaderno",
+      "teacherNotes": "Mini-story for T",
+      "sourcePage": "v-page-34.jpg"
+    },
+    {
+      "id": "l10-pX-fill-in-blank",
+      "lessonNumber": 10,
+      "pageNumber": 35,
+      "kind": "drag-syllable-to-slot",
+      "title": "Completa las palabras — T t",
+      "prompt": "Arrastra la palabra correcta para completar cada oración.",
+      "items": [
+        {
+          "id": "word-taza",
+          "label": "taza"
+        },
+        {
+          "id": "word-tomate",
+          "label": "tomate"
+        },
+        {
+          "id": "word-tapa",
+          "label": "tapa"
+        }
+      ],
+      "targets": [
+        {
+          "id": "blank-1",
+          "label": "___",
+          "correctSyllable": "taza",
+          "fullWord": "taza",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-taza"
+        },
+        {
+          "id": "blank-2",
+          "label": "___",
+          "correctSyllable": "tomate",
+          "fullWord": "tomate",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-tomate"
+        },
+        {
+          "id": "blank-3",
+          "label": "___",
+          "correctSyllable": "tapa",
+          "fullWord": "tapa",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-tapa"
+        }
+      ],
+      "exercises": [
+        {
+          "partial": "Yo tengo un ___",
+          "choices": [
+            "taza",
+            "tomate"
+          ],
+          "answer": "taza",
+          "fullWord": "taza"
+        },
+        {
+          "partial": "Me gusta el ___",
+          "choices": [
+            "tomate",
+            "tapa"
+          ],
+          "answer": "tomate",
+          "fullWord": "tomate"
+        },
+        {
+          "partial": "Mira esa ___",
+          "choices": [
+            "tapa",
+            "taza"
+          ],
+          "answer": "tapa",
+          "fullWord": "tapa"
+        }
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Completa cada oración",
+      "teacherNotes": "Fill in the blank for T",
+      "sourcePage": "v-page-35.jpg"
+    },
+    {
+      "id": "l11-pX-letter-tracing",
+      "lessonNumber": 11,
+      "pageNumber": 34,
+      "kind": "letter-tracing",
+      "title": "Escribe con tu mejor letra — L l",
+      "prompt": "Traza la letra L mayúscula y la l minúscula. Luego haz un dibujo de una palabra que comienza con l.",
+      "items": [
+        {
+          "id": "letter-L",
+          "label": "L"
+        },
+        {
+          "id": "letter-l",
+          "label": "l"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Traza la letra y dibuja una palabra con L",
+      "teacherNotes": "Tracing activity for L",
+      "sourcePage": "v-page-34.jpg"
+    },
+    {
+      "id": "l11-pX-syllable-circle",
+      "lessonNumber": 11,
+      "pageNumber": 35,
+      "kind": "drag-syllable-to-slot",
+      "title": "Encierra la sílaba — L l",
+      "prompt": "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
+      "items": [
+        {
+          "id": "syl-la",
+          "label": "la"
+        },
+        {
+          "id": "syl-le",
+          "label": "le"
+        },
+        {
+          "id": "syl-li",
+          "label": "li"
+        },
+        {
+          "id": "syl-lo",
+          "label": "lo"
+        },
+        {
+          "id": "syl-lu",
+          "label": "lu"
+        }
+      ],
+      "targets": [
+        {
+          "id": "slot-la",
+          "label": "la",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-la"
+        },
+        {
+          "id": "slot-le",
+          "label": "le",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-le"
+        },
+        {
+          "id": "slot-li",
+          "label": "li",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-li"
+        },
+        {
+          "id": "slot-lo",
+          "label": "lo",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-lo"
+        },
+        {
+          "id": "slot-lu",
+          "label": "lu",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-lu"
+        }
+      ],
+      "wordBank": [
+        "luna",
+        "lupa",
+        "lata",
+        "lobo",
+        "loma",
+        "lima",
+        "lodo"
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Encierra la sílaba correcta en cada palabra",
+      "teacherNotes": "Syllable circle for L",
+      "sourcePage": "v-page-35.jpg"
+    },
+    {
+      "id": "l11-pX-word-bank",
+      "lessonNumber": 11,
+      "pageNumber": 36,
+      "kind": "listen-and-tap",
+      "title": "Palabras con L",
+      "prompt": "Toca cada palabra para escucharla.",
+      "items": [
+        {
+          "id": "w-luna",
+          "label": "luna"
+        },
+        {
+          "id": "w-lupa",
+          "label": "lupa"
+        },
+        {
+          "id": "w-lata",
+          "label": "lata"
+        },
+        {
+          "id": "w-lobo",
+          "label": "lobo"
+        },
+        {
+          "id": "w-loma",
+          "label": "loma"
+        },
+        {
+          "id": "w-lima",
+          "label": "lima"
+        },
+        {
+          "id": "w-lodo",
+          "label": "lodo"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Toca cada palabra con L",
+      "teacherNotes": "Word bank for L",
+      "sourcePage": "v-page-36.jpg"
+    },
+    {
+      "id": "l11-pX-mini-story",
+      "lessonNumber": 11,
+      "pageNumber": 37,
+      "kind": "mini-story",
+      "title": "Mini-cuento: El cuento de Lalo",
+      "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+      "items": [
+        {
+          "id": "story-l-1",
+          "label": "Este es Lalo."
+        },
+        {
+          "id": "story-l-2",
+          "label": "Lalo tiene un luna."
+        },
+        {
+          "id": "story-l-3",
+          "label": "El luna es bonito."
+        },
+        {
+          "id": "story-l-4",
+          "label": "Lalo y el luna."
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Mini-cuento en la página del cuaderno",
+      "teacherNotes": "Mini-story for L",
+      "sourcePage": "r-page-37.jpg"
+    },
+    {
+      "id": "l11-pX-fill-in-blank",
+      "lessonNumber": 11,
+      "pageNumber": 38,
+      "kind": "drag-syllable-to-slot",
+      "title": "Completa las palabras — L l",
+      "prompt": "Arrastra la palabra correcta para completar cada oración.",
+      "items": [
+        {
+          "id": "word-luna",
+          "label": "luna"
+        },
+        {
+          "id": "word-lupa",
+          "label": "lupa"
+        },
+        {
+          "id": "word-lata",
+          "label": "lata"
+        }
+      ],
+      "targets": [
+        {
+          "id": "blank-1",
+          "label": "___",
+          "correctSyllable": "luna",
+          "fullWord": "luna",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-luna"
+        },
+        {
+          "id": "blank-2",
+          "label": "___",
+          "correctSyllable": "lupa",
+          "fullWord": "lupa",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-lupa"
+        },
+        {
+          "id": "blank-3",
+          "label": "___",
+          "correctSyllable": "lata",
+          "fullWord": "lata",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-lata"
+        }
+      ],
+      "exercises": [
+        {
+          "partial": "Yo tengo un ___",
+          "choices": [
+            "luna",
+            "lupa"
+          ],
+          "answer": "luna",
+          "fullWord": "luna"
+        },
+        {
+          "partial": "Me gusta el ___",
+          "choices": [
+            "lupa",
+            "lata"
+          ],
+          "answer": "lupa",
+          "fullWord": "lupa"
+        },
+        {
+          "partial": "Mira esa ___",
+          "choices": [
+            "lata",
+            "luna"
+          ],
+          "answer": "lata",
+          "fullWord": "lata"
+        }
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Completa cada oración",
+      "teacherNotes": "Fill in the blank for L",
+      "sourcePage": "r-page-38.jpg"
+    },
+    {
+      "id": "l12-pX-letter-tracing",
+      "lessonNumber": 12,
+      "pageNumber": 37,
+      "kind": "letter-tracing",
+      "title": "Escribe con tu mejor letra — D d",
+      "prompt": "Traza la letra D mayúscula y la d minúscula. Luego haz un dibujo de una palabra que comienza con d.",
+      "items": [
+        {
+          "id": "letter-D",
+          "label": "D"
+        },
+        {
+          "id": "letter-d",
+          "label": "d"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Traza la letra y dibuja una palabra con D",
+      "teacherNotes": "Tracing activity for D",
+      "sourcePage": "r-page-37.jpg"
+    },
+    {
+      "id": "l12-pX-syllable-circle",
+      "lessonNumber": 12,
+      "pageNumber": 38,
+      "kind": "drag-syllable-to-slot",
+      "title": "Encierra la sílaba — D d",
+      "prompt": "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
+      "items": [
+        {
+          "id": "syl-da",
+          "label": "da"
+        },
+        {
+          "id": "syl-de",
+          "label": "de"
+        },
+        {
+          "id": "syl-di",
+          "label": "di"
+        },
+        {
+          "id": "syl-do",
+          "label": "do"
+        },
+        {
+          "id": "syl-du",
+          "label": "du"
+        }
+      ],
+      "targets": [
+        {
+          "id": "slot-da",
+          "label": "da",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-da"
+        },
+        {
+          "id": "slot-de",
+          "label": "de",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-de"
+        },
+        {
+          "id": "slot-di",
+          "label": "di",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-di"
+        },
+        {
+          "id": "slot-do",
+          "label": "do",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-do"
+        },
+        {
+          "id": "slot-du",
+          "label": "du",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-du"
+        }
+      ],
+      "wordBank": [
+        "dado",
+        "dedo",
+        "duda",
+        "dama",
+        "ducha",
+        "doce",
+        "dona"
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Encierra la sílaba correcta en cada palabra",
+      "teacherNotes": "Syllable circle for D",
+      "sourcePage": "r-page-38.jpg"
+    },
+    {
+      "id": "l12-pX-word-bank",
+      "lessonNumber": 12,
+      "pageNumber": 39,
+      "kind": "listen-and-tap",
+      "title": "Palabras con D",
+      "prompt": "Toca cada palabra para escucharla.",
+      "items": [
+        {
+          "id": "w-dado",
+          "label": "dado"
+        },
+        {
+          "id": "w-dedo",
+          "label": "dedo"
+        },
+        {
+          "id": "w-duda",
+          "label": "duda"
+        },
+        {
+          "id": "w-dama",
+          "label": "dama"
+        },
+        {
+          "id": "w-ducha",
+          "label": "ducha"
+        },
+        {
+          "id": "w-doce",
+          "label": "doce"
+        },
+        {
+          "id": "w-dona",
+          "label": "dona"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Toca cada palabra con D",
+      "teacherNotes": "Word bank for D",
+      "sourcePage": "r-page-39.jpg"
+    },
+    {
+      "id": "l12-pX-mini-story",
+      "lessonNumber": 12,
+      "pageNumber": 40,
+      "kind": "mini-story",
+      "title": "Mini-cuento: El cuento de Dino",
+      "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+      "items": [
+        {
+          "id": "story-d-1",
+          "label": "Este es Dino."
+        },
+        {
+          "id": "story-d-2",
+          "label": "Dino tiene un dado."
+        },
+        {
+          "id": "story-d-3",
+          "label": "El dado es bonito."
+        },
+        {
+          "id": "story-d-4",
+          "label": "Dino y el dado."
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Mini-cuento en la página del cuaderno",
+      "teacherNotes": "Mini-story for D",
+      "sourcePage": "rr-page-40.jpg"
+    },
+    {
+      "id": "l12-pX-fill-in-blank",
+      "lessonNumber": 12,
+      "pageNumber": 41,
+      "kind": "drag-syllable-to-slot",
+      "title": "Completa las palabras — D d",
+      "prompt": "Arrastra la palabra correcta para completar cada oración.",
+      "items": [
+        {
+          "id": "word-dado",
+          "label": "dado"
+        },
+        {
+          "id": "word-dedo",
+          "label": "dedo"
+        },
+        {
+          "id": "word-duda",
+          "label": "duda"
+        }
+      ],
+      "targets": [
+        {
+          "id": "blank-1",
+          "label": "___",
+          "correctSyllable": "dado",
+          "fullWord": "dado",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-dado"
+        },
+        {
+          "id": "blank-2",
+          "label": "___",
+          "correctSyllable": "dedo",
+          "fullWord": "dedo",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-dedo"
+        },
+        {
+          "id": "blank-3",
+          "label": "___",
+          "correctSyllable": "duda",
+          "fullWord": "duda",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-duda"
+        }
+      ],
+      "exercises": [
+        {
+          "partial": "Yo tengo un ___",
+          "choices": [
+            "dado",
+            "dedo"
+          ],
+          "answer": "dado",
+          "fullWord": "dado"
+        },
+        {
+          "partial": "Me gusta el ___",
+          "choices": [
+            "dedo",
+            "duda"
+          ],
+          "answer": "dedo",
+          "fullWord": "dedo"
+        },
+        {
+          "partial": "Mira esa ___",
+          "choices": [
+            "duda",
+            "dado"
+          ],
+          "answer": "duda",
+          "fullWord": "duda"
+        }
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Completa cada oración",
+      "teacherNotes": "Fill in the blank for D",
+      "sourcePage": "rr-page-41.jpg"
+    },
+    {
+      "id": "l13-pX-letter-tracing",
+      "lessonNumber": 13,
+      "pageNumber": 40,
+      "kind": "letter-tracing",
+      "title": "Escribe con tu mejor letra — N n",
+      "prompt": "Traza la letra N mayúscula y la n minúscula. Luego haz un dibujo de una palabra que comienza con n.",
+      "items": [
+        {
+          "id": "letter-N",
+          "label": "N"
+        },
+        {
+          "id": "letter-n",
+          "label": "n"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Traza la letra y dibuja una palabra con N",
+      "teacherNotes": "Tracing activity for N",
+      "sourcePage": "rr-page-40.jpg"
+    },
+    {
+      "id": "l13-pX-syllable-circle",
+      "lessonNumber": 13,
+      "pageNumber": 41,
+      "kind": "drag-syllable-to-slot",
+      "title": "Encierra la sílaba — N n",
+      "prompt": "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
+      "items": [
+        {
+          "id": "syl-na",
+          "label": "na"
+        },
+        {
+          "id": "syl-ne",
+          "label": "ne"
+        },
+        {
+          "id": "syl-ni",
+          "label": "ni"
+        },
+        {
+          "id": "syl-no",
+          "label": "no"
+        },
+        {
+          "id": "syl-nu",
+          "label": "nu"
+        }
+      ],
+      "targets": [
+        {
+          "id": "slot-na",
+          "label": "na",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-na"
+        },
+        {
+          "id": "slot-ne",
+          "label": "ne",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ne"
+        },
+        {
+          "id": "slot-ni",
+          "label": "ni",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ni"
+        },
+        {
+          "id": "slot-no",
+          "label": "no",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-no"
+        },
+        {
+          "id": "slot-nu",
+          "label": "nu",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-nu"
+        }
+      ],
+      "wordBank": [
+        "nido",
+        "nudo",
+        "nota",
+        "nube",
+        "niña",
+        "nene",
+        "nave"
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Encierra la sílaba correcta en cada palabra",
+      "teacherNotes": "Syllable circle for N",
+      "sourcePage": "rr-page-41.jpg"
+    },
+    {
+      "id": "l13-pX-word-bank",
+      "lessonNumber": 13,
+      "pageNumber": 42,
+      "kind": "listen-and-tap",
+      "title": "Palabras con N",
+      "prompt": "Toca cada palabra para escucharla.",
+      "items": [
+        {
+          "id": "w-nido",
+          "label": "nido"
+        },
+        {
+          "id": "w-nudo",
+          "label": "nudo"
+        },
+        {
+          "id": "w-nota",
+          "label": "nota"
+        },
+        {
+          "id": "w-nube",
+          "label": "nube"
+        },
+        {
+          "id": "w-niña",
+          "label": "niña"
+        },
+        {
+          "id": "w-nene",
+          "label": "nene"
+        },
+        {
+          "id": "w-nave",
+          "label": "nave"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Toca cada palabra con N",
+      "teacherNotes": "Word bank for N",
+      "sourcePage": "rr-page-42.jpg"
+    },
+    {
+      "id": "l13-pX-mini-story",
+      "lessonNumber": 13,
+      "pageNumber": 43,
+      "kind": "mini-story",
+      "title": "Mini-cuento: El cuento de Nina",
+      "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+      "items": [
+        {
+          "id": "story-n-1",
+          "label": "Este es Nina."
+        },
+        {
+          "id": "story-n-2",
+          "label": "Nina tiene un nido."
+        },
+        {
+          "id": "story-n-3",
+          "label": "El nido es bonito."
+        },
+        {
+          "id": "story-n-4",
+          "label": "Nina y el nido."
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Mini-cuento en la página del cuaderno",
+      "teacherNotes": "Mini-story for N",
+      "sourcePage": "g-page-43.jpg"
+    },
+    {
+      "id": "l13-pX-fill-in-blank",
+      "lessonNumber": 13,
+      "pageNumber": 44,
+      "kind": "drag-syllable-to-slot",
+      "title": "Completa las palabras — N n",
+      "prompt": "Arrastra la palabra correcta para completar cada oración.",
+      "items": [
+        {
+          "id": "word-nido",
+          "label": "nido"
+        },
+        {
+          "id": "word-nudo",
+          "label": "nudo"
+        },
+        {
+          "id": "word-nota",
+          "label": "nota"
+        }
+      ],
+      "targets": [
+        {
+          "id": "blank-1",
+          "label": "___",
+          "correctSyllable": "nido",
+          "fullWord": "nido",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-nido"
+        },
+        {
+          "id": "blank-2",
+          "label": "___",
+          "correctSyllable": "nudo",
+          "fullWord": "nudo",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-nudo"
+        },
+        {
+          "id": "blank-3",
+          "label": "___",
+          "correctSyllable": "nota",
+          "fullWord": "nota",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-nota"
+        }
+      ],
+      "exercises": [
+        {
+          "partial": "Yo tengo un ___",
+          "choices": [
+            "nido",
+            "nudo"
+          ],
+          "answer": "nido",
+          "fullWord": "nido"
+        },
+        {
+          "partial": "Me gusta el ___",
+          "choices": [
+            "nudo",
+            "nota"
+          ],
+          "answer": "nudo",
+          "fullWord": "nudo"
+        },
+        {
+          "partial": "Mira esa ___",
+          "choices": [
+            "nota",
+            "nido"
+          ],
+          "answer": "nota",
+          "fullWord": "nota"
+        }
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Completa cada oración",
+      "teacherNotes": "Fill in the blank for N",
+      "sourcePage": "g-page-44.jpg"
+    },
+    {
+      "id": "l14-p47-syllable-n",
+      "lessonNumber": 14,
+      "pageNumber": 47,
+      "kind": "drag-syllable-to-slot",
+      "title": "Sílabas con Ñ",
+      "prompt": "Toca cada sílaba para escucharla. Repite en voz alta.",
+      "assetRef": "art/hd/page-28.png",
+      "assetRefSourcePage": "28-Ññ (workbook page 28)",
+      "assetRefVerified": true,
+      "items": [
+        {
+          "id": "syl-ña",
+          "label": "ña"
+        },
+        {
+          "id": "syl-ñe",
+          "label": "ñe"
+        },
+        {
+          "id": "syl-ñi",
+          "label": "ñi"
+        },
+        {
+          "id": "syl-ño",
+          "label": "ño"
+        },
+        {
+          "id": "syl-ñu",
+          "label": "ñu"
+        }
+      ],
+      "targets": [
+        {
+          "id": "slot-ña",
+          "label": "ña",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ña"
+        },
+        {
+          "id": "slot-ñe",
+          "label": "ñe",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ñe"
+        },
+        {
+          "id": "slot-ñi",
+          "label": "ñi",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ñi"
+        },
+        {
+          "id": "slot-ño",
+          "label": "ño",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ño"
+        },
+        {
+          "id": "slot-ñu",
+          "label": "ñu",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ñu"
+        }
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Syllables ña/ñe/ñi/ño/ñu are the standard Ñ family from consonants.json. Verified as correct for this lesson. Slot coordinates not yet mapped to book page hotspots.",
+      "sourcePage": "f-page-47.jpg"
+    },
+    {
+      "id": "l14-p48-words-n",
+      "lessonNumber": 14,
+      "pageNumber": 48,
+      "kind": "listen-and-tap",
+      "title": "Palabras con Ñ",
+      "prompt": "Toca cada palabra para escucharla.",
+      "assetRef": "art/hd/page-29.png",
+      "assetRefSourcePage": "29-Ññ (workbook page 29)",
+      "assetRefVerified": true,
+      "items": [
+        {
+          "id": "w-nino",
+          "label": "niño"
+        },
+        {
+          "id": "w-pina",
+          "label": "piña"
+        },
+        {
+          "id": "w-mono",
+          "label": "moño"
+        },
+        {
+          "id": "w-una",
+          "label": "uña"
+        },
+        {
+          "id": "w-lena",
+          "label": "leña"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Words with ñ from consonants.json examples. niño, piña, moño, uña, leña are standard ñ-lesson vocabulary confirmed in source data.",
+      "sourcePage": "f-page-48.jpg"
+    },
+    {
+      "id": "l14-p48-sight-word-del",
+      "lessonNumber": 14,
+      "pageNumber": 48,
+      "kind": "listen-and-tap",
+      "title": "Palabras a simple vista",
+      "prompt": "Escucha y toca cada palabra.",
+      "assetRef": "art/hd/page-29.png",
+      "assetRefSourcePage": "29-Ññ (workbook page 29)",
+      "assetRefVerified": true,
+      "items": [
+        {
+          "id": "w-del",
+          "label": "del"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Sight word 'del' (contraction de+el) is the verified sight word for Lesson 14 per bookFaithfulLessons data.",
+      "sourcePage": "f-page-48.jpg"
+    },
+    {
+      "id": "l14-p49-read-aloud",
+      "lessonNumber": 14,
+      "pageNumber": 49,
+      "kind": "read-aloud",
+      "title": "Lee en voz alta — sílabas con Ñ",
+      "prompt": "Toca cada sílaba y léela en voz alta.",
+      "assetRef": "art/hd/page-29.png",
+      "assetRefSourcePage": "29-Ññ (workbook page 29)",
+      "assetRefVerified": true,
+      "items": [
+        {
+          "id": "ra-ña",
+          "label": "ña"
+        },
+        {
+          "id": "ra-ñe",
+          "label": "ñe"
+        },
+        {
+          "id": "ra-ñi",
+          "label": "ñi"
+        },
+        {
+          "id": "ra-ño",
+          "label": "ño"
+        },
+        {
+          "id": "ra-ñu",
+          "label": "ñu"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "ready",
+      "studentFacingStatus": "ready",
+      "teacherNotes": "Read-aloud of the Ñ-syllable family. Syllables from consonants.json verified data.",
+      "sourcePage": "j-page-49.jpg"
+    },
+    {
+      "id": "l14-p50-mini-story",
+      "lessonNumber": 14,
+      "pageNumber": 50,
+      "kind": "mini-story",
+      "title": "Cuento: La niña sueña",
+      "prompt": "Lee el cuento del cuaderno con tu maestro.",
+      "assetRef": "art/hd/page-50.png",
+      "assetRefSourcePage": "30-Ññ (workbook page 30)",
+      "assetRefVerified": true,
+      "items": [
+        {
+          "id": "n-1",
+          "label": "La niña sueña"
+        },
+        {
+          "id": "n-2",
+          "label": "La niña de Noña"
+        },
+        {
+          "id": "n-3",
+          "label": "tiene sueño,"
+        },
+        {
+          "id": "n-4",
+          "label": "Noña la tapa"
+        },
+        {
+          "id": "n-5",
+          "label": "con el pañuelo."
+        },
+        {
+          "id": "n-6",
+          "label": "Sueña mi niña"
+        },
+        {
+          "id": "n-7",
+          "label": "sueños bonitos."
+        },
+        {
+          "id": "n-8",
+          "label": "¿Estás soñando"
+        },
+        {
+          "id": "n-9",
+          "label": "con mis besitos?"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "needs-transcription",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Cuento en la página del cuaderno",
+      "teacherNotes": "Mini-story on source page 30-Ññ. Text transcription pending manual verification from scan. No OCR used.",
+      "sourcePage": "j-page-50.jpg",
+      "blockingReason": ""
+    },
+    {
+      "id": "l15-pX-letter-tracing",
+      "lessonNumber": 15,
+      "pageNumber": 46,
+      "kind": "letter-tracing",
+      "title": "Escribe con tu mejor letra — R r",
+      "prompt": "Traza la letra R mayúscula y la r minúscula. Luego haz un dibujo de una palabra que comienza con r.",
+      "items": [
+        {
+          "id": "letter-R",
+          "label": "R"
+        },
+        {
+          "id": "letter-r",
+          "label": "r"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Traza la letra y dibuja una palabra con R",
+      "teacherNotes": "Tracing activity for R",
+      "sourcePage": "f-page-46.jpg"
+    },
+    {
+      "id": "l15-pX-syllable-circle",
+      "lessonNumber": 15,
+      "pageNumber": 47,
+      "kind": "drag-syllable-to-slot",
+      "title": "Encierra la sílaba — R r",
+      "prompt": "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
+      "items": [
+        {
+          "id": "syl-ra",
+          "label": "ra"
+        },
+        {
+          "id": "syl-re",
+          "label": "re"
+        },
+        {
+          "id": "syl-ri",
+          "label": "ri"
+        },
+        {
+          "id": "syl-ro",
+          "label": "ro"
+        },
+        {
+          "id": "syl-ru",
+          "label": "ru"
+        }
+      ],
+      "targets": [
+        {
+          "id": "slot-ra",
+          "label": "ra",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ra"
+        },
+        {
+          "id": "slot-re",
+          "label": "re",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-re"
+        },
+        {
+          "id": "slot-ri",
+          "label": "ri",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ri"
+        },
+        {
+          "id": "slot-ro",
+          "label": "ro",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ro"
+        },
+        {
+          "id": "slot-ru",
+          "label": "ru",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ru"
+        }
+      ],
+      "wordBank": [
+        "rana",
+        "roca",
+        "rama",
+        "río",
+        "rueda",
+        "rata",
+        "reloj"
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Encierra la sílaba correcta en cada palabra",
+      "teacherNotes": "Syllable circle for R",
+      "sourcePage": "f-page-47.jpg"
+    },
+    {
+      "id": "l15-pX-word-bank",
+      "lessonNumber": 15,
+      "pageNumber": 48,
+      "kind": "listen-and-tap",
+      "title": "Palabras con R",
+      "prompt": "Toca cada palabra para escucharla.",
+      "items": [
+        {
+          "id": "w-rana",
+          "label": "rana"
+        },
+        {
+          "id": "w-roca",
+          "label": "roca"
+        },
+        {
+          "id": "w-rama",
+          "label": "rama"
+        },
+        {
+          "id": "w-río",
+          "label": "río"
+        },
+        {
+          "id": "w-rueda",
+          "label": "rueda"
+        },
+        {
+          "id": "w-rata",
+          "label": "rata"
+        },
+        {
+          "id": "w-reloj",
+          "label": "reloj"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Toca cada palabra con R",
+      "teacherNotes": "Word bank for R",
+      "sourcePage": "f-page-48.jpg"
+    },
+    {
+      "id": "l15-pX-mini-story",
+      "lessonNumber": 15,
+      "pageNumber": 49,
+      "kind": "mini-story",
+      "title": "Mini-cuento: El cuento de Rosa",
+      "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+      "items": [
+        {
+          "id": "story-r-1",
+          "label": "Este es Rosa."
+        },
+        {
+          "id": "story-r-2",
+          "label": "Rosa tiene un rana."
+        },
+        {
+          "id": "story-r-3",
+          "label": "El rana es bonito."
+        },
+        {
+          "id": "story-r-4",
+          "label": "Rosa y el rana."
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Mini-cuento en la página del cuaderno",
+      "teacherNotes": "Mini-story for R",
+      "sourcePage": "j-page-49.jpg"
+    },
+    {
+      "id": "l15-pX-fill-in-blank",
+      "lessonNumber": 15,
+      "pageNumber": 50,
+      "kind": "drag-syllable-to-slot",
+      "title": "Completa las palabras — R r",
+      "prompt": "Arrastra la palabra correcta para completar cada oración.",
+      "items": [
+        {
+          "id": "word-rana",
+          "label": "rana"
+        },
+        {
+          "id": "word-roca",
+          "label": "roca"
+        },
+        {
+          "id": "word-rama",
+          "label": "rama"
+        }
+      ],
+      "targets": [
+        {
+          "id": "blank-1",
+          "label": "___",
+          "correctSyllable": "rana",
+          "fullWord": "rana",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-rana"
+        },
+        {
+          "id": "blank-2",
+          "label": "___",
+          "correctSyllable": "roca",
+          "fullWord": "roca",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-roca"
+        },
+        {
+          "id": "blank-3",
+          "label": "___",
+          "correctSyllable": "rama",
+          "fullWord": "rama",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-rama"
+        }
+      ],
+      "exercises": [
+        {
+          "partial": "Yo tengo un ___",
+          "choices": [
+            "rana",
+            "roca"
+          ],
+          "answer": "rana",
+          "fullWord": "rana"
+        },
+        {
+          "partial": "Me gusta el ___",
+          "choices": [
+            "roca",
+            "rama"
+          ],
+          "answer": "roca",
+          "fullWord": "roca"
+        },
+        {
+          "partial": "Mira esa ___",
+          "choices": [
+            "rama",
+            "rana"
+          ],
+          "answer": "rama",
+          "fullWord": "rama"
+        }
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Completa cada oración",
+      "teacherNotes": "Fill in the blank for R",
+      "sourcePage": "j-page-50.jpg"
+    },
+    {
+      "id": "l16-pX-letter-tracing",
+      "lessonNumber": 16,
+      "pageNumber": 49,
+      "kind": "letter-tracing",
+      "title": "Escribe con tu mejor letra — r r",
+      "prompt": "Traza la letra r mayúscula y la r minúscula. Luego haz un dibujo de una palabra que comienza con r.",
+      "items": [
+        {
+          "id": "letter-r",
+          "label": "r"
+        },
+        {
+          "id": "letter-r",
+          "label": "r"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Traza la letra y dibuja una palabra con r",
+      "teacherNotes": "Tracing activity for r",
+      "sourcePage": "j-page-49.jpg"
+    },
+    {
+      "id": "l16-pX-syllable-circle",
+      "lessonNumber": 16,
+      "pageNumber": 50,
+      "kind": "drag-syllable-to-slot",
+      "title": "Encierra la sílaba — r r",
+      "prompt": "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
+      "items": [
+        {
+          "id": "syl-ra",
+          "label": "ra"
+        },
+        {
+          "id": "syl-re",
+          "label": "re"
+        },
+        {
+          "id": "syl-ri",
+          "label": "ri"
+        },
+        {
+          "id": "syl-ro",
+          "label": "ro"
+        },
+        {
+          "id": "syl-ru",
+          "label": "ru"
+        }
+      ],
+      "targets": [
+        {
+          "id": "slot-ra",
+          "label": "ra",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ra"
+        },
+        {
+          "id": "slot-re",
+          "label": "re",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-re"
+        },
+        {
+          "id": "slot-ri",
+          "label": "ri",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ri"
+        },
+        {
+          "id": "slot-ro",
+          "label": "ro",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ro"
+        },
+        {
+          "id": "slot-ru",
+          "label": "ru",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ru"
+        }
+      ],
+      "wordBank": [
+        "perro",
+        "carro",
+        "tarro",
+        "barro",
+        "torre",
+        "gorra",
+        "burro"
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Encierra la sílaba correcta en cada palabra",
+      "teacherNotes": "Syllable circle for r",
+      "sourcePage": "j-page-50.jpg"
+    },
+    {
+      "id": "l16-pX-word-bank",
+      "lessonNumber": 16,
+      "pageNumber": 51,
+      "kind": "listen-and-tap",
+      "title": "Palabras con r",
+      "prompt": "Toca cada palabra para escucharla.",
+      "items": [
+        {
+          "id": "w-perro",
+          "label": "perro"
+        },
+        {
+          "id": "w-carro",
+          "label": "carro"
+        },
+        {
+          "id": "w-tarro",
+          "label": "tarro"
+        },
+        {
+          "id": "w-barro",
+          "label": "barro"
+        },
+        {
+          "id": "w-torre",
+          "label": "torre"
+        },
+        {
+          "id": "w-gorra",
+          "label": "gorra"
+        },
+        {
+          "id": "w-burro",
+          "label": "burro"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Toca cada palabra con r",
+      "teacherNotes": "Word bank for r",
+      "sourcePage": "j-page-51.jpg"
+    },
+    {
+      "id": "l16-pX-mini-story",
+      "lessonNumber": 16,
+      "pageNumber": 52,
+      "kind": "mini-story",
+      "title": "Mini-cuento: El cuento de René",
+      "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+      "items": [
+        {
+          "id": "story-r-1",
+          "label": "Este es René."
+        },
+        {
+          "id": "story-r-2",
+          "label": "René tiene un perro."
+        },
+        {
+          "id": "story-r-3",
+          "label": "El perro es bonito."
+        },
+        {
+          "id": "story-r-4",
+          "label": "René y el perro."
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Mini-cuento en la página del cuaderno",
+      "teacherNotes": "Mini-story for r",
+      "sourcePage": "c-page-52.jpg"
+    },
+    {
+      "id": "l16-pX-fill-in-blank",
+      "lessonNumber": 16,
+      "pageNumber": 53,
+      "kind": "drag-syllable-to-slot",
+      "title": "Completa las palabras — r r",
+      "prompt": "Arrastra la palabra correcta para completar cada oración.",
+      "items": [
+        {
+          "id": "word-perro",
+          "label": "perro"
+        },
+        {
+          "id": "word-carro",
+          "label": "carro"
+        },
+        {
+          "id": "word-tarro",
+          "label": "tarro"
+        }
+      ],
+      "targets": [
+        {
+          "id": "blank-1",
+          "label": "___",
+          "correctSyllable": "perro",
+          "fullWord": "perro",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-perro"
+        },
+        {
+          "id": "blank-2",
+          "label": "___",
+          "correctSyllable": "carro",
+          "fullWord": "carro",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-carro"
+        },
+        {
+          "id": "blank-3",
+          "label": "___",
+          "correctSyllable": "tarro",
+          "fullWord": "tarro",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-tarro"
+        }
+      ],
+      "exercises": [
+        {
+          "partial": "Yo tengo un ___",
+          "choices": [
+            "perro",
+            "carro"
+          ],
+          "answer": "perro",
+          "fullWord": "perro"
+        },
+        {
+          "partial": "Me gusta el ___",
+          "choices": [
+            "carro",
+            "tarro"
+          ],
+          "answer": "carro",
+          "fullWord": "carro"
+        },
+        {
+          "partial": "Mira esa ___",
+          "choices": [
+            "tarro",
+            "perro"
+          ],
+          "answer": "tarro",
+          "fullWord": "tarro"
+        }
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Completa cada oración",
+      "teacherNotes": "Fill in the blank for r",
+      "sourcePage": "c-page-53.jpg"
+    },
+    {
+      "id": "l17-p59-word-reveal-r",
+      "lessonNumber": 17,
+      "pageNumber": 59,
+      "kind": "drag-word-to-image",
+      "title": "Palabras del cuaderno — Página Rr",
+      "prompt": "Toca cada palabra para descubrirla. Búscala en la página ilustrada del cuaderno.",
+      "assetRef": "art/hd/page-37.png",
+      "assetRefSourcePage": "37-Rr (workbook page 37)",
+      "assetRefVerified": true,
+      "items": [
+        {
+          "id": "w-rana",
+          "label": "rana"
+        },
+        {
+          "id": "w-remo",
+          "label": "remo"
+        },
+        {
+          "id": "w-rita",
+          "label": "Rita"
+        },
+        {
+          "id": "w-rosa",
+          "label": "rosa"
+        },
+        {
+          "id": "w-rueda",
+          "label": "rueda"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Illustrated objects confirmed on source page 37-Rr (workbook page 37): rana, remo, Rita, rosa, rueda. Mapped directly from page scan.",
+      "sourcePage": "z-page-59.jpg"
+    },
+    {
+      "id": "l17-p60-syllable-r",
+      "lessonNumber": 17,
+      "pageNumber": 60,
+      "kind": "drag-syllable-to-slot",
+      "title": "Sílabas con R",
+      "prompt": "Arrastra cada sílaba a su casilla o tócala para escucharla.",
+      "assetRef": "art/hd/page-38.png",
+      "assetRefSourcePage": "38-R inicial (workbook page 38)",
+      "assetRefVerified": true,
+      "items": [
+        {
+          "id": "syl-ra",
+          "label": "ra"
+        },
+        {
+          "id": "syl-re",
+          "label": "re"
+        },
+        {
+          "id": "syl-ri",
+          "label": "ri"
+        },
+        {
+          "id": "syl-ro",
+          "label": "ro"
+        },
+        {
+          "id": "syl-ru",
+          "label": "ru"
+        }
+      ],
+      "targets": [
+        {
+          "id": "slot-ra",
+          "label": "ra",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ra"
+        },
+        {
+          "id": "slot-re",
+          "label": "re",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-re"
+        },
+        {
+          "id": "slot-ri",
+          "label": "ri",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ri"
+        },
+        {
+          "id": "slot-ro",
+          "label": "ro",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ro"
+        },
+        {
+          "id": "slot-ru",
+          "label": "ru",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ru"
+        }
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Syllables ra/re/ri/ro/ru confirmed on source page 38-R inicial (workbook page 38). Slot coordinates not yet mapped.",
+      "sourcePage": "z-page-60.jpg"
+    },
+    {
+      "id": "l17-p60-sight-word-bien",
+      "lessonNumber": 17,
+      "pageNumber": 60,
+      "kind": "listen-and-tap",
+      "title": "Palabra a simple vista: bien",
+      "prompt": "Toca la palabra cuando la escuches.",
+      "assetRef": "art/hd/page-38.png",
+      "assetRefSourcePage": "38-R inicial (workbook page 38)",
+      "assetRefVerified": true,
+      "items": [
+        {
+          "id": "w-bien",
+          "label": "bien"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Sight word 'bien' confirmed on source page 38-R inicial (workbook page 38): appears in the teal sight-word strip.",
+      "sourcePage": "z-page-60.jpg"
+    },
+    {
+      "id": "l17-p60-mini-story-r",
+      "lessonNumber": 17,
+      "pageNumber": 60,
+      "kind": "mini-story",
+      "title": "Mini-cuento: La bola de Roberto",
+      "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+      "assetRef": "art/hd/page-38.png",
+      "assetRefSourcePage": "38-R inicial (workbook page 38)",
+      "assetRefVerified": true,
+      "items": [
+        {
+          "id": "story-r-1",
+          "label": "La bola de Roberto rueda bien. Rolo patea la bola. La bola rueda y le da a un bolo. El bolo se rompe y Roberto se ríe. Rolo se ríe también."
+        },
+        {
+          "id": "story-r-2",
+          "label": "Rita le da al bolo. Rita se ríe."
+        },
+        {
+          "id": "story-r-3",
+          "label": "Rolo y Roberto se ríen también."
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Mini-story text transcribed directly from source page 38-R inicial (workbook page 38). Full page scan available as assetRef. Story characters: Roberto, Rolo, Rita. No 'La Rana Rosa'.",
+      "sourcePage": "z-page-60.jpg"
+    },
+    {
+      "id": "l17-p61-poem-r",
+      "lessonNumber": 17,
+      "pageNumber": 61,
+      "kind": "mini-story",
+      "title": "Poema: La r para la rama",
+      "prompt": "Lee el poema del cuaderno.",
+      "assetRef": "art/hd/page-61.png",
+      "assetRefSourcePage": "39-Rr (workbook page 39)",
+      "assetRefVerified": true,
+      "items": [
+        {
+          "id": "r-1",
+          "label": "La rosca de Manolo"
+        },
+        {
+          "id": "r-2",
+          "label": "La r para la rama"
+        },
+        {
+          "id": "r-3",
+          "label": "para el roer del ratón"
+        },
+        {
+          "id": "r-4",
+          "label": "y para el rabo del mono"
+        },
+        {
+          "id": "r-5",
+          "label": "risueño y remolón."
+        },
+        {
+          "id": "r-6",
+          "label": "Para la rueda redonda"
+        },
+        {
+          "id": "r-7",
+          "label": "la risa de tío Rolo"
+        },
+        {
+          "id": "r-8",
+          "label": "la rana, el remo, la rosa"
+        },
+        {
+          "id": "r-9",
+          "label": "y la rosca de Manolo."
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "ready",
+      "studentFacingStatus": "ready",
+      "teacherNotes": "Poem text transcribed directly from source page 39-Rr (workbook page 39). Full page scan available as assetRef.",
+      "sourcePage": "b-page-39.png",
+      "blockingReason": ""
+    },
+    {
+      "id": "l17-p62-read-aloud",
+      "lessonNumber": 17,
+      "pageNumber": 62,
+      "kind": "eval-cloze",
+      "title": "Completa las palabras con la sílaba correcta.",
+      "prompt": "Escribe oraciones. Usa las sílabas que aprendiste.",
+      "items": [
+        {
+          "id": "cloze-1",
+          "label": "toma: ____ma (to - ta)"
+        },
+        {
+          "id": "cloze-2",
+          "label": "mata: ma____ (ta - ti)"
+        },
+        {
+          "id": "cloze-3",
+          "label": "topo: ____po (tu - to)"
+        },
+        {
+          "id": "cloze-4",
+          "label": "tomate: ____mate (to - tu)"
+        },
+        {
+          "id": "cloze-5",
+          "label": "tupe: ____pe (ti - tu)"
+        },
+        {
+          "id": "cloze-6",
+          "label": "tipi: ____pi (to - ti)"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "ready",
+      "studentFacingStatus": "ready",
+      "teacherNotes": "Read-aloud of the r-syllable family. No art mapping required.",
+      "assetRef": "art/hd/page-62.png",
+      "assetRefVerified": true,
+      "sourcePage": "b-page-40.png",
+      "blockingReason": ""
+    },
+    {
+      "id": "l18-p63-letter-tracing",
+      "lessonNumber": 18,
+      "pageNumber": 63,
+      "kind": "letter-tracing",
+      "title": "Escribe con tu mejor letra — r r",
+      "prompt": "Traza la letra r mayúscula y la r minúscula. Luego haz un dibujo de una palabra que comienza con r.",
+      "items": [
+        {
+          "id": "letter-r",
+          "label": "r"
+        },
+        {
+          "id": "letter-r",
+          "label": "r"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Traza la letra y dibuja una palabra con r",
+      "teacherNotes": "Tracing activity for r",
+      "sourcePage": "y-page-55.jpg"
+    },
+    {
+      "id": "l18-p64-syllable-circle",
+      "lessonNumber": 18,
+      "pageNumber": 64,
+      "kind": "drag-syllable-to-slot",
+      "title": "Encierra la sílaba — r r",
+      "prompt": "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
+      "items": [
+        {
+          "id": "syl-ra",
+          "label": "ra"
+        },
+        {
+          "id": "syl-re",
+          "label": "re"
+        },
+        {
+          "id": "syl-ri",
+          "label": "ri"
+        },
+        {
+          "id": "syl-ro",
+          "label": "ro"
+        },
+        {
+          "id": "syl-ru",
+          "label": "ru"
+        }
+      ],
+      "targets": [
+        {
+          "id": "slot-ra",
+          "label": "ra",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ra"
+        },
+        {
+          "id": "slot-re",
+          "label": "re",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-re"
+        },
+        {
+          "id": "slot-ri",
+          "label": "ri",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ri"
+        },
+        {
+          "id": "slot-ro",
+          "label": "ro",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ro"
+        },
+        {
+          "id": "slot-ru",
+          "label": "ru",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ru"
+        }
+      ],
+      "wordBank": [
+        "perro",
+        "carro",
+        "tarro",
+        "barro",
+        "torre",
+        "gorra",
+        "burro"
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Encierra la sílaba correcta en cada palabra",
+      "teacherNotes": "Syllable circle for r",
+      "sourcePage": "y-page-56.jpg"
+    },
+    {
+      "id": "l18-p65-word-bank",
+      "lessonNumber": 18,
+      "pageNumber": 65,
+      "kind": "listen-and-tap",
+      "title": "Palabras con r",
+      "prompt": "Toca cada palabra para escucharla.",
+      "items": [
+        {
+          "id": "w-perro",
+          "label": "perro"
+        },
+        {
+          "id": "w-carro",
+          "label": "carro"
+        },
+        {
+          "id": "w-tarro",
+          "label": "tarro"
+        },
+        {
+          "id": "w-barro",
+          "label": "barro"
+        },
+        {
+          "id": "w-torre",
+          "label": "torre"
+        },
+        {
+          "id": "w-gorra",
+          "label": "gorra"
+        },
+        {
+          "id": "w-burro",
+          "label": "burro"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Toca cada palabra con r",
+      "teacherNotes": "Word bank for r",
+      "sourcePage": "y-page-57.jpg"
+    },
+    {
+      "id": "l18-p65-mini-story",
+      "lessonNumber": 18,
+      "pageNumber": 65,
+      "kind": "mini-story",
+      "title": "Mini-cuento: El cuento de Rita",
+      "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+      "items": [
+        {
+          "id": "story-r-1",
+          "label": "Este es Rita."
+        },
+        {
+          "id": "story-r-2",
+          "label": "Rita tiene un perro."
+        },
+        {
+          "id": "story-r-3",
+          "label": "El perro es bonito."
+        },
+        {
+          "id": "story-r-4",
+          "label": "Rita y el perro."
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Mini-cuento en la página del cuaderno",
+      "teacherNotes": "Mini-story for r",
+      "sourcePage": "z-page-58.jpg"
+    },
+    {
+      "id": "l18-p66-fill-in-blank",
+      "lessonNumber": 18,
+      "pageNumber": 66,
+      "kind": "drag-syllable-to-slot",
+      "title": "Completa las palabras — r r",
+      "prompt": "Arrastra la palabra correcta para completar cada oración.",
+      "items": [
+        {
+          "id": "word-perro",
+          "label": "perro"
+        },
+        {
+          "id": "word-carro",
+          "label": "carro"
+        },
+        {
+          "id": "word-tarro",
+          "label": "tarro"
+        }
+      ],
+      "targets": [
+        {
+          "id": "blank-1",
+          "label": "___",
+          "correctSyllable": "perro",
+          "fullWord": "perro",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-perro"
+        },
+        {
+          "id": "blank-2",
+          "label": "___",
+          "correctSyllable": "carro",
+          "fullWord": "carro",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-carro"
+        },
+        {
+          "id": "blank-3",
+          "label": "___",
+          "correctSyllable": "tarro",
+          "fullWord": "tarro",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-tarro"
+        }
+      ],
+      "exercises": [
+        {
+          "partial": "Yo tengo un ___",
+          "choices": [
+            "perro",
+            "carro"
+          ],
+          "answer": "perro",
+          "fullWord": "perro"
+        },
+        {
+          "partial": "Me gusta el ___",
+          "choices": [
+            "carro",
+            "tarro"
+          ],
+          "answer": "carro",
+          "fullWord": "carro"
+        },
+        {
+          "partial": "Mira esa ___",
+          "choices": [
+            "tarro",
+            "perro"
+          ],
+          "answer": "tarro",
+          "fullWord": "tarro"
+        }
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Completa cada oración",
+      "teacherNotes": "Fill in the blank for r",
+      "sourcePage": "z-page-59.jpg"
+    },
+    {
+      "id": "l19-p67-letter-tracing",
+      "lessonNumber": 19,
+      "pageNumber": 67,
+      "kind": "letter-tracing",
+      "title": "Escribe con tu mejor letra — G g",
+      "prompt": "Traza la letra G mayúscula y la g minúscula. Luego haz un dibujo de una palabra que comienza con g.",
+      "items": [
+        {
+          "id": "letter-G",
+          "label": "G"
+        },
+        {
+          "id": "letter-g",
+          "label": "g"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Traza la letra y dibuja una palabra con G",
+      "teacherNotes": "Tracing activity for G",
+      "sourcePage": "z-page-58.jpg"
+    },
+    {
+      "id": "l19-p68-syllable-circle",
+      "lessonNumber": 19,
+      "pageNumber": 68,
+      "kind": "drag-syllable-to-slot",
+      "title": "Encierra la sílaba — G g",
+      "prompt": "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
+      "items": [
+        {
+          "id": "syl-ga",
+          "label": "ga"
+        },
+        {
+          "id": "syl-ge",
+          "label": "ge"
+        },
+        {
+          "id": "syl-gi",
+          "label": "gi"
+        },
+        {
+          "id": "syl-go",
+          "label": "go"
+        },
+        {
+          "id": "syl-gu",
+          "label": "gu"
+        }
+      ],
+      "targets": [
+        {
+          "id": "slot-ga",
+          "label": "ga",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ga"
+        },
+        {
+          "id": "slot-ge",
+          "label": "ge",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-ge"
+        },
+        {
+          "id": "slot-gi",
+          "label": "gi",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-gi"
+        },
+        {
+          "id": "slot-go",
+          "label": "go",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-go"
+        },
+        {
+          "id": "slot-gu",
+          "label": "gu",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-gu"
+        }
+      ],
+      "wordBank": [
+        "gato",
+        "gota",
+        "goma",
+        "gusano",
+        "gallo",
+        "gorila",
+        "guapa"
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Encierra la sílaba correcta en cada palabra",
+      "teacherNotes": "Syllable circle for G",
+      "sourcePage": "z-page-59.jpg"
+    },
+    {
+      "id": "l19-p69-word-bank",
+      "lessonNumber": 19,
+      "pageNumber": 69,
+      "kind": "listen-and-tap",
+      "title": "Palabras con G",
+      "prompt": "Toca cada palabra para escucharla.",
+      "items": [
+        {
+          "id": "w-gato",
+          "label": "gato"
+        },
+        {
+          "id": "w-gota",
+          "label": "gota"
+        },
+        {
+          "id": "w-goma",
+          "label": "goma"
+        },
+        {
+          "id": "w-gusano",
+          "label": "gusano"
+        },
+        {
+          "id": "w-gallo",
+          "label": "gallo"
+        },
+        {
+          "id": "w-gorila",
+          "label": "gorila"
+        },
+        {
+          "id": "w-guapa",
+          "label": "guapa"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Toca cada palabra con G",
+      "teacherNotes": "Word bank for G",
+      "sourcePage": "z-page-60.jpg"
+    },
+    {
+      "id": "l19-p69-mini-story",
+      "lessonNumber": 19,
+      "pageNumber": 69,
+      "kind": "mini-story",
+      "title": "Mini-cuento: El cuento de Gato",
+      "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+      "items": [
+        {
+          "id": "story-g-1",
+          "label": "Este es Gato."
+        },
+        {
+          "id": "story-g-2",
+          "label": "Gato tiene un gato."
+        },
+        {
+          "id": "story-g-3",
+          "label": "El gato es bonito."
+        },
+        {
+          "id": "story-g-4",
+          "label": "Gato y el gato."
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "missing-source",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Mini-cuento en la página del cuaderno",
+      "teacherNotes": "Mini-story for G"
+    },
+    {
+      "id": "l19-p70-fill-in-blank",
+      "lessonNumber": 19,
+      "pageNumber": 70,
+      "kind": "drag-syllable-to-slot",
+      "title": "Completa las palabras — G g",
+      "prompt": "Arrastra la palabra correcta para completar cada oración.",
+      "items": [
+        {
+          "id": "word-gato",
+          "label": "gato"
+        },
+        {
+          "id": "word-gota",
+          "label": "gota"
+        },
+        {
+          "id": "word-goma",
+          "label": "goma"
+        }
+      ],
+      "targets": [
+        {
+          "id": "blank-1",
+          "label": "___",
+          "correctSyllable": "gato",
+          "fullWord": "gato",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-gato"
+        },
+        {
+          "id": "blank-2",
+          "label": "___",
+          "correctSyllable": "gota",
+          "fullWord": "gota",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-gota"
+        },
+        {
+          "id": "blank-3",
+          "label": "___",
+          "correctSyllable": "goma",
+          "fullWord": "goma",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-goma"
+        }
+      ],
+      "exercises": [
+        {
+          "partial": "Yo tengo un ___",
+          "choices": [
+            "gato",
+            "gota"
+          ],
+          "answer": "gato",
+          "fullWord": "gato"
+        },
+        {
+          "partial": "Me gusta el ___",
+          "choices": [
+            "gota",
+            "goma"
+          ],
+          "answer": "gota",
+          "fullWord": "gota"
+        },
+        {
+          "partial": "Mira esa ___",
+          "choices": [
+            "goma",
+            "gato"
+          ],
+          "answer": "goma",
+          "fullWord": "goma"
+        }
+      ],
+      "sourceStatus": "missing-source",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Completa cada oración",
+      "teacherNotes": "Fill in the blank for G"
+    },
+    {
+      "id": "l20-p71-letter-tracing",
+      "lessonNumber": 20,
+      "pageNumber": 71,
+      "kind": "letter-tracing",
+      "title": "Escribe con tu mejor letra — F f",
+      "prompt": "Traza la letra F mayúscula y la f minúscula. Luego haz un dibujo de una palabra que comienza con f.",
+      "items": [
+        {
+          "id": "letter-F",
+          "label": "F"
+        },
+        {
+          "id": "letter-f",
+          "label": "f"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "missing-source",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Traza la letra y dibuja una palabra con F",
+      "teacherNotes": "Tracing activity for F"
+    },
+    {
+      "id": "l20-p72-syllable-circle",
+      "lessonNumber": 20,
+      "pageNumber": 72,
+      "kind": "drag-syllable-to-slot",
+      "title": "Encierra la sílaba — F f",
+      "prompt": "Encierra en un círculo la sílaba que corresponde a cada palabra. Toca la sílaba correcta.",
+      "items": [
+        {
+          "id": "syl-fa",
+          "label": "fa"
+        },
+        {
+          "id": "syl-fe",
+          "label": "fe"
+        },
+        {
+          "id": "syl-fi",
+          "label": "fi"
+        },
+        {
+          "id": "syl-fo",
+          "label": "fo"
+        },
+        {
+          "id": "syl-fu",
+          "label": "fu"
+        }
+      ],
+      "targets": [
+        {
+          "id": "slot-fa",
+          "label": "fa",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-fa"
+        },
+        {
+          "id": "slot-fe",
+          "label": "fe",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-fe"
+        },
+        {
+          "id": "slot-fi",
+          "label": "fi",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-fi"
+        },
+        {
+          "id": "slot-fo",
+          "label": "fo",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-fo"
+        },
+        {
+          "id": "slot-fu",
+          "label": "fu",
+          "coordinatesVerified": false,
+          "acceptsItemId": "syl-fu"
+        }
+      ],
+      "wordBank": [
+        "foca",
+        "foto",
+        "faro",
+        "fuego",
+        "fama",
+        "fino",
+        "fila"
+      ],
+      "sourceStatus": "missing-source",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Encierra la sílaba correcta en cada palabra",
+      "teacherNotes": "Syllable circle for F"
+    },
+    {
+      "id": "l20-p73-word-bank",
+      "lessonNumber": 20,
+      "pageNumber": 73,
+      "kind": "listen-and-tap",
+      "title": "Palabras con F",
+      "prompt": "Toca cada palabra para escucharla.",
+      "items": [
+        {
+          "id": "w-foca",
+          "label": "foca"
+        },
+        {
+          "id": "w-foto",
+          "label": "foto"
+        },
+        {
+          "id": "w-faro",
+          "label": "faro"
+        },
+        {
+          "id": "w-fuego",
+          "label": "fuego"
+        },
+        {
+          "id": "w-fama",
+          "label": "fama"
+        },
+        {
+          "id": "w-fino",
+          "label": "fino"
+        },
+        {
+          "id": "w-fila",
+          "label": "fila"
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "missing-source",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Toca cada palabra con F",
+      "teacherNotes": "Word bank for F"
+    },
+    {
+      "id": "l20-p73-mini-story",
+      "lessonNumber": 20,
+      "pageNumber": 73,
+      "kind": "mini-story",
+      "title": "Mini-cuento: El cuento de Fifi",
+      "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+      "items": [
+        {
+          "id": "story-f-1",
+          "label": "Este es Fifi."
+        },
+        {
+          "id": "story-f-2",
+          "label": "Fifi tiene un foca."
+        },
+        {
+          "id": "story-f-3",
+          "label": "El foca es bonito."
+        },
+        {
+          "id": "story-f-4",
+          "label": "Fifi y el foca."
+        }
+      ],
+      "targets": [],
+      "sourceStatus": "missing-source",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Mini-cuento en la página del cuaderno",
+      "teacherNotes": "Mini-story for F"
+    },
+    {
+      "id": "l20-p74-fill-in-blank",
+      "lessonNumber": 20,
+      "pageNumber": 74,
+      "kind": "drag-syllable-to-slot",
+      "title": "Completa las palabras — F f",
+      "prompt": "Arrastra la palabra correcta para completar cada oración.",
+      "items": [
+        {
+          "id": "word-foca",
+          "label": "foca"
+        },
+        {
+          "id": "word-foto",
+          "label": "foto"
+        },
+        {
+          "id": "word-faro",
+          "label": "faro"
+        }
+      ],
+      "targets": [
+        {
+          "id": "blank-1",
+          "label": "___",
+          "correctSyllable": "foca",
+          "fullWord": "foca",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-foca"
+        },
+        {
+          "id": "blank-2",
+          "label": "___",
+          "correctSyllable": "foto",
+          "fullWord": "foto",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-foto"
+        },
+        {
+          "id": "blank-3",
+          "label": "___",
+          "correctSyllable": "faro",
+          "fullWord": "faro",
+          "coordinatesVerified": false,
+          "acceptsItemId": "word-faro"
+        }
+      ],
+      "exercises": [
+        {
+          "partial": "Yo tengo un ___",
+          "choices": [
+            "foca",
+            "foto"
+          ],
+          "answer": "foca",
+          "fullWord": "foca"
+        },
+        {
+          "partial": "Me gusta el ___",
+          "choices": [
+            "foto",
+            "faro"
+          ],
+          "answer": "foto",
+          "fullWord": "foto"
+        },
+        {
+          "partial": "Mira esa ___",
+          "choices": [
+            "faro",
+            "foca"
+          ],
+          "answer": "faro",
+          "fullWord": "faro"
+        }
+      ],
+      "sourceStatus": "missing-source",
+      "transcriptionStatus": "verified",
+      "studentFacingStatus": "Completa cada oración",
+      "teacherNotes": "Fill in the blank for F"
+    },
+    {
+      "id": "l21-p75-syllable-j",
+      "lessonNumber": 21,
+      "pageNumber": 75,
+      "kind": "drag-syllable-to-slot",
+      "title": "Sílabas con J",
+      "prompt": "Toca cada sílaba para escucharla. Repite en voz alta.",
+      "assetRef": "art/hd/page-49.png",
+      "assetRefSourcePage": "49-Jj (workbook page 49)",
+      "assetRefVerified": true,
+      "items": [],
+      "targets": [],
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Syllables ja/je/ji/jo/ju are the standard J family from consonants.json. Verified as correct for this lesson. Slot coordinates not yet mapped to book page hotspots.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
+    },
+    {
+      "id": "l21-p76-words-j",
+      "lessonNumber": 21,
+      "pageNumber": 76,
+      "kind": "listen-and-tap",
+      "title": "Palabras con J",
+      "prompt": "Toca cada palabra para escucharla.",
+      "assetRef": "art/hd/page-50.png",
+      "assetRefSourcePage": "50-Jj (workbook page 50)",
+      "assetRefVerified": true,
+      "items": [],
+      "targets": [],
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Words from Lesson 21 sentences in consonants.json: Julia, Jorge, jirafa, jugo, jardín. Verified from source data. Additional words may appear in the scan.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
+    },
+    {
+      "id": "l21-p76-read-aloud",
+      "lessonNumber": 21,
+      "pageNumber": 76,
+      "kind": "read-aloud",
+      "title": "Lee en voz alta — sílabas con J",
+      "prompt": "Toca cada sílaba y léela en voz alta.",
+      "assetRef": "art/hd/page-50.png",
+      "assetRefSourcePage": "50-Jj (workbook page 50)",
+      "assetRefVerified": true,
+      "items": [],
+      "targets": [],
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Read-aloud of the J-syllable family. Syllables from consonants.json verified data.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
+    },
+    {
+      "id": "l21-p77-mini-story",
+      "lessonNumber": 21,
+      "pageNumber": 77,
+      "kind": "mini-story",
+      "title": "Mini-cuento con J",
+      "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+      "assetRef": "art/hd/page-51.png",
+      "assetRefSourcePage": "51-Jj (workbook page 51)",
+      "assetRefVerified": true,
+      "items": [],
+      "targets": [],
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
+      "studentFacingStatus": "Cuento en la página del cuaderno — lee con tu maestro.",
+      "teacherNotes": "Mini-story replaces palabras section in Lesson 21 (Jj) per bookFaithfulLessons. Text transcription pending manual verification from source scan. No OCR used.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
+    },
+    {
+      "id": "l21-p78-sentences",
+      "lessonNumber": 21,
+      "pageNumber": 78,
+      "kind": "read-aloud",
+      "title": "Frases con J",
+      "prompt": "Toca cada frase para escucharla. Repite en voz alta.",
+      "assetRef": "art/hd/page-51.png",
+      "assetRefSourcePage": "51-Jj (workbook page 51)",
+      "assetRefVerified": true,
+      "items": [],
+      "targets": [],
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Sentences from consonants.json for Lesson 21 Jj. Verified source data.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
+    },
+    {
+      "id": "l22-p79-syllable-c",
+      "lessonNumber": 22,
+      "pageNumber": 79,
+      "kind": "drag-syllable-to-slot",
+      "title": "Sílabas con C",
+      "prompt": "Toca cada sílaba para escucharla. Repite en voz alta.",
+      "assetRef": "art/hd/page-52.png",
+      "assetRefSourcePage": "52-Cc (workbook page 52)",
+      "assetRefVerified": true,
+      "items": [],
+      "targets": [],
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Tracing activity for C c on page 79.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
+    },
+    {
+      "id": "l22-p80-words-c",
+      "lessonNumber": 22,
+      "pageNumber": 80,
+      "kind": "listen-and-tap",
+      "title": "Palabras con C",
+      "prompt": "Toca cada palabra para escucharla.",
+      "assetRef": "art/hd/page-53.png",
+      "assetRefSourcePage": "53-Cc (workbook page 53)",
+      "assetRefVerified": true,
+      "items": [],
+      "targets": [],
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Encierra en un círculo la sílaba correspondiente. ca co cu.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
+    },
+    {
+      "id": "l22-p80-read-aloud",
+      "lessonNumber": 22,
+      "pageNumber": 80,
+      "kind": "read-aloud",
+      "title": "Lee en voz alta — sílabas con C",
+      "prompt": "Toca cada sílaba y léela en voz alta.",
+      "assetRef": "art/hd/page-53.png",
+      "assetRefSourcePage": "53-Cc (workbook page 53)",
+      "assetRefVerified": true,
+      "items": [],
+      "targets": [],
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Syllables ca co cu read aloud.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
+    },
+    {
+      "id": "l22-p81-mini-story",
+      "lessonNumber": 22,
+      "pageNumber": 81,
+      "kind": "mini-story",
+      "title": "Mini-cuento con C",
+      "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+      "assetRef": "art/hd/page-53.png",
+      "assetRefSourcePage": "53-Cc (workbook page 53)",
+      "assetRefVerified": true,
+      "items": [],
+      "targets": [],
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
+      "studentFacingStatus": "Cuento en la página del cuaderno — lee con tu maestro.",
+      "teacherNotes": "Cuco Casanova es un buen amigo... Mini story text transcribed from source image.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
+    },
+    {
+      "id": "l22-p82-sentences",
+      "lessonNumber": 22,
+      "pageNumber": 82,
+      "kind": "read-aloud",
+      "title": "Frases con C",
+      "prompt": "Toca cada frase para escucharla. Repite en voz alta.",
+      "assetRef": "art/hd/page-54.png",
+      "assetRefSourcePage": "54-Cc (workbook page 54)",
+      "assetRefVerified": true,
+      "items": [],
+      "targets": [],
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Sentences from consonants.json for Lesson 22 Cc. Verified source data.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
+    },
+    {
+      "id": "l23-p83-syllable-y",
+      "lessonNumber": 23,
+      "pageNumber": 83,
+      "kind": "drag-syllable-to-slot",
+      "title": "Sílabas con Y",
+      "prompt": "Toca cada sílaba para escucharla. Repite en voz alta.",
+      "assetRef": "art/hd/page-55.png",
+      "assetRefSourcePage": "55-Yy (workbook page 55)",
+      "assetRefVerified": true,
+      "items": [],
+      "targets": [],
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Tracing activity for Y y on page 83.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
+    },
+    {
+      "id": "l23-p84-words-y",
+      "lessonNumber": 23,
+      "pageNumber": 84,
+      "kind": "listen-and-tap",
+      "title": "Palabras con Y",
+      "prompt": "Toca cada palabra para escucharla.",
+      "assetRef": "art/hd/page-56.png",
+      "assetRefSourcePage": "56-Yy (workbook page 56)",
+      "assetRefVerified": true,
+      "items": [],
+      "targets": [],
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Encierra en un círculo la sílaba correspondiente. ya ye yi yo yu.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
+    },
+    {
+      "id": "l23-p84-read-aloud",
+      "lessonNumber": 23,
+      "pageNumber": 84,
+      "kind": "read-aloud",
+      "title": "Lee en voz alta — sílabas con Y",
+      "prompt": "Toca cada sílaba y léela en voz alta.",
+      "assetRef": "art/hd/page-56.png",
+      "assetRefSourcePage": "56-Yy (workbook page 56)",
+      "assetRefVerified": true,
+      "items": [],
+      "targets": [],
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Syllables ya ye yi yo yu read aloud.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
+    },
+    {
+      "id": "l23-p85-mini-story",
+      "lessonNumber": 23,
+      "pageNumber": 85,
+      "kind": "mini-story",
+      "title": "Mini-cuento con Y",
+      "prompt": "Lee el mini-cuento del cuaderno con tu maestro.",
+      "assetRef": "art/hd/page-56.png",
+      "assetRefSourcePage": "56-Yy (workbook page 56)",
+      "assetRefVerified": true,
+      "items": [],
+      "targets": [],
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
+      "studentFacingStatus": "Cuento en la página del cuaderno — lee con tu maestro.",
+      "teacherNotes": "El yate de Yayo está en Yateras... Mini story text transcribed from source image.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
+    },
+    {
+      "id": "l23-p86-sentences",
+      "lessonNumber": 23,
+      "pageNumber": 86,
+      "kind": "read-aloud",
+      "title": "Frases con Y",
+      "prompt": "Toca cada frase para escucharla. Repite en voz alta.",
+      "assetRef": "art/hd/page-57.png",
+      "assetRefSourcePage": "57-Yy (workbook page 57)",
+      "assetRefVerified": true,
+      "items": [],
+      "targets": [],
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Completa las palabras con la sílaba correcta.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
+    },
+    {
+      "id": "l24-p87-syllable-z",
+      "lessonNumber": 24,
+      "pageNumber": 87,
+      "kind": "drag-syllable-to-slot",
+      "title": "Sílabas con Z",
+      "prompt": "Toca cada sílaba para escucharla. Repite en voz alta.",
+      "assetRef": "art/hd/page-58.png",
+      "assetRefSourcePage": "58-Zz (workbook page 58)",
+      "assetRefVerified": true,
+      "items": [],
+      "targets": [],
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Tracing activity for Z z on page 87.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
+    },
+    {
+      "id": "l24-p88-words-z",
+      "lessonNumber": 24,
+      "pageNumber": 88,
+      "kind": "listen-and-tap",
+      "title": "Palabras con Z",
+      "prompt": "Toca cada palabra para escucharla.",
+      "assetRef": "art/hd/page-59.png",
+      "assetRefSourcePage": "59-Zz (workbook page 59)",
+      "assetRefVerified": true,
+      "items": [],
+      "targets": [],
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Words from Lesson 24 Zz sentences in consonants.json: zorro, zanahoria, Cecilia, zumo. Verified from source data.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
+    },
+    {
+      "id": "l24-p88-read-aloud",
+      "lessonNumber": 24,
+      "pageNumber": 88,
+      "kind": "read-aloud",
+      "title": "Lee en voz alta — sílabas con Z",
+      "prompt": "Toca cada sílaba y léela en voz alta.",
+      "assetRef": "art/hd/page-59.png",
+      "assetRefSourcePage": "59-Zz (workbook page 59)",
+      "assetRefVerified": true,
+      "items": [],
+      "targets": [],
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Read-aloud of the Z-syllable family. Syllables from consonants.json verified data.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
+    },
+    {
+      "id": "l24-p89-mini-story",
+      "lessonNumber": 24,
+      "pageNumber": 89,
+      "kind": "mini-story",
+      "title": "Mini-cuento con Z — cierre del libro",
+      "prompt": "Lee el mini-cuento final del cuaderno con tu maestro.",
+      "assetRef": "art/hd/page-59.png",
+      "assetRefSourcePage": "59-Zz (workbook page 59)",
+      "assetRefVerified": true,
+      "items": [],
+      "targets": [],
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
+      "studentFacingStatus": "Cuento en la página del cuaderno — lee con tu maestro.",
+      "teacherNotes": "Final lesson mini-story in Lesson 24 (Zz). Text transcription pending manual verification from source scan. This is the closing story of the book.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
+    },
+    {
+      "id": "l24-p90-sentences",
+      "lessonNumber": 24,
+      "pageNumber": 90,
+      "kind": "read-aloud",
+      "title": "Frases con Z — lección final",
+      "prompt": "Toca cada frase para escucharla. Repite en voz alta.",
+      "assetRef": "art/hd/page-60.png",
+      "assetRefSourcePage": "60-Zz (workbook page 60)",
+      "assetRefVerified": true,
+      "items": [],
+      "targets": [],
+      "sourceStatus": "teacher-distributed",
+      "transcriptionStatus": "not-applicable",
+      "studentFacingStatus": "source page image connected",
+      "teacherNotes": "Sentences from consonants.json for Lesson 24 Zz (final lesson). Verified source data.",
+      "note": "Teacher distributes this content as a separate handout. No bound workbook pages exist for this lesson."
+    },
+    {
+      "id": "l10-flip-poem",
+      "lessonId": 10,
+      "kind": "mini-story",
+      "title": "La sopa de pato",
+      "prompt": "Lee el poema con tu maestro.",
+      "items": [
+        "Tuto, Tato y Uto",
+        "toman sopa de pato.",
+        "Ita tapa la sopa,",
+        "esta sopa es de Tato.",
+        "Tito toma la sopa",
+        "de tomate y pato,",
+        "papá toma su sopa",
+        "en la mesa del patio."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l10-eval-cloze",
+      "lessonId": 10,
+      "kind": "cloze-sentence",
+      "title": "Completa la oración — T t",
+      "prompt": "Escoge la palabra correcta del rectángulo para completar cada oración.",
+      "wordBank": [
+        "toma",
+        "timón",
+        "moto",
+        "topo",
+        "tomate",
+        "pato",
+        "tipi",
+        "pata"
+      ],
+      "exercises": [
+        "1 - Tito ___ sopa de ___.",
+        "2 - El ___ mete la ___ en el tipi.",
+        "3 - El ___ es de Tita.",
+        "4 - Teté monta su ___.",
+        "5 - Esa moto tiene ___.",
+        "6 - Piti toma sopa de ___."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l11-flip-poem",
+      "lessonId": 11,
+      "kind": "mini-story",
+      "title": "Made y papá",
+      "prompt": "Lee el poema con tu maestro.",
+      "items": [
+        "¿Dónde está Made?",
+        "¿Dónde está?",
+        "Está en el medio",
+        "de mamá y papá.",
+        "¿Dónde está Made?",
+        "¿Dónde está?",
+        "Made está delante",
+        "de mamá y papá."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l11-eval-cloze",
+      "lessonId": 11,
+      "kind": "cloze-sentence",
+      "title": "Completa la oración — D d",
+      "prompt": "Escoge la palabra correcta del rectángulo para completar cada oración.",
+      "wordBank": [
+        "Made",
+        "pide",
+        "dime",
+        "Dónde",
+        "dedal",
+        "dados",
+        "dame",
+        "Dunia",
+        "dudas"
+      ],
+      "exercises": [
+        "1 - Duma ___ si Ada tiene ___.",
+        "2 - ¿ ___ está ___?",
+        "3 - Adi le ___ un pomo.",
+        "4 - Adi ___ un ___.",
+        "5 - El mapa de ___ está en la mesa.",
+        "6 - Dino tiene los ___."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l12-flip-poem",
+      "lessonId": 12,
+      "kind": "mini-story",
+      "title": "Leo lee",
+      "prompt": "Lee el poema con tu maestro.",
+      "items": [
+        "Leo, leo, leo, leo",
+        "lima, palo, tela, Tula",
+        "leo, leo, leo, leo",
+        "lomo, Lala, lata, mula.",
+        "Lee, lee, lee, lee",
+        "maleta de tela",
+        "tela de lana",
+        "maleta de Polo",
+        "de Lalo y de Ana."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l12-eval-cloze",
+      "lessonId": 12,
+      "kind": "cloze-sentence",
+      "title": "Completa la oración — L l",
+      "prompt": "Escoge la palabra correcta del rectángulo para completar cada oración.",
+      "wordBank": [
+        "paleta",
+        "tela",
+        "sola",
+        "lupa",
+        "pelota",
+        "maleta",
+        "lata"
+      ],
+      "exercises": [
+        "1 - Lalo tiene una ___.",
+        "2 - La ___ de Tula es de ___.",
+        "3 - Pepe tiene una ___.",
+        "4 - Leo lee ___.",
+        "5 - La ___ es de Pili.",
+        "6 - La ___ es de Lalito."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l13-flip-poem",
+      "lessonId": 13,
+      "kind": "mini-story",
+      "title": "¡Nino nada!",
+      "prompt": "Lee el poema con tu maestro.",
+      "items": [
+        "Esta es la tina de Nino",
+        "mi patito nadador.",
+        "Nino nada, nada Nino,",
+        "pide Nené con amor.",
+        "Nada, nada mi patito",
+        "nada, nada, nada más",
+        "nada mi patito Nino.",
+        "¡Mi patito va a nadar!"
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l13-eval-cloze",
+      "lessonId": 13,
+      "kind": "cloze-sentence",
+      "title": "Completa la oración — N n",
+      "prompt": "Escoge la palabra correcta del rectángulo para completar cada oración.",
+      "wordBank": [
+        "anota",
+        "lana",
+        "nido",
+        "anida",
+        "suena",
+        "Dana"
+      ],
+      "exercises": [
+        "1 - La ___ tiene pelusas.",
+        "2 - El ___ está en la mata.",
+        "3 - Pepe ___ en su papel.",
+        "4 - ___ lee en la sala.",
+        "5 - Didi se ___ en la mata.",
+        "6 - La lata ___ en el piso."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l14-flip-poem",
+      "lessonId": 14,
+      "kind": "mini-story",
+      "title": "La niña sueña",
+      "prompt": "Lee el poema con tu maestro.",
+      "items": [
+        "La niña de Noña",
+        "tiene sueño,",
+        "Noña la tapa",
+        "con el pañuelo.",
+        "Sueña mi niña",
+        "sueños bonitos.",
+        "¿Estás soñando",
+        "con mis besitos?"
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l14-eval-cloze",
+      "lessonId": 14,
+      "kind": "cloze-sentence",
+      "title": "Completa la oración — Ñ ñ",
+      "prompt": "Escoge la palabra correcta del rectángulo para completar cada oración.",
+      "wordBank": [
+        "moño",
+        "niño",
+        "años",
+        "niña",
+        "paño",
+        "pañal",
+        "sueño"
+      ],
+      "exercises": [
+        "1 - Abuela tiene un ___.",
+        "2 - El pantalón de Pepe es de ___.",
+        "3 - Susi tiene 2 ___.",
+        "4 - Noña tapa su ___ con el ___.",
+        "5 - El ___ lee solo en la sala.",
+        "6 - Toña tiene ___."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l15-flip-poem",
+      "lessonId": 15,
+      "kind": "mini-story",
+      "title": "Sube la bola",
+      "prompt": "Lee el poema con tu maestro.",
+      "items": [
+        "Bebo batea la bola,",
+        "la bola a la nube dio.",
+        "Bebo le dio a la bola,",
+        "la bola alto subió.",
+        "La bola sube y sube,",
+        "la bola a la nube le dio.",
+        "Bebo batea y batea",
+        "Bebo alto la bateó."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l15-eval-cloze",
+      "lessonId": 15,
+      "kind": "cloze-sentence",
+      "title": "Completa la oración — B b",
+      "prompt": "Escoge la palabra correcta del rectángulo para completar cada oración.",
+      "wordBank": [
+        "batido",
+        "batea",
+        "nube",
+        "loba",
+        "baño",
+        "bota",
+        "bola"
+      ],
+      "exercises": [
+        "1 - Beba toma ___ de mamey.",
+        "2 - Pepe ___ la ___ alto.",
+        "3 - Yo ___ mi bebé.",
+        "4 - La ___ es de Benito.",
+        "5 - La ___ está alta.",
+        "6 - Esa ___ me asusta."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l16-flip-poem",
+      "lessonId": 16,
+      "kind": "mini-story",
+      "title": "Mi bote de vela",
+      "prompt": "Lee el poema con tu maestro.",
+      "items": [
+        "En mi bote de vela",
+        "voy a pasear,",
+        "vela al viento",
+        "vamos al mar.",
+        "Vuela velita",
+        "volando vas",
+        "mi volantina",
+        "volando más."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l16-eval-cloze",
+      "lessonId": 16,
+      "kind": "cloze-sentence",
+      "title": "Completa la oración — V v",
+      "prompt": "Escoge la palabra correcta del rectángulo para completar cada oración.",
+      "wordBank": [
+        "lava",
+        "vine",
+        "avión",
+        "vaso",
+        "nieva",
+        "invierno"
+      ],
+      "exercises": [
+        "1 - El ___ es de papá.",
+        "2 - Mamá ___ la tela.",
+        "3 - Yo ___ en avión.",
+        "4 - En invierno ___ bastante.",
+        "5 - El ___ es bonito.",
+        "6 - El ___ vuela alto."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l17-flip-poem",
+      "lessonId": 17,
+      "kind": "mini-story",
+      "title": "La rosca de Manolo",
+      "prompt": "Lee el poema con tu maestro.",
+      "items": [
+        "La r para la rama",
+        "para el roer del ratón",
+        "y para el rabo del mono",
+        "risueño y remolón.",
+        "Para la rueda redonda",
+        "la risa de tío Rolo",
+        "la rana, el remo, la rosa",
+        "y la rosca de Manolo."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l17-eval-cloze",
+      "lessonId": 17,
+      "kind": "cloze-sentence",
+      "title": "Completa la oración — R r inicial",
+      "prompt": "Escoge la palabra correcta del rectángulo para completar cada oración.",
+      "wordBank": [
+        "rama",
+        "ríe",
+        "Rita",
+        "rema",
+        "ruta",
+        "rana",
+        "rota",
+        "rosas"
+      ],
+      "exercises": [
+        "1 - La ___ está ___.",
+        "2 - ___ es muy buena.",
+        "3 - Rolo se ___ de la ___.",
+        "4 - Yo me sé la ___ al río.",
+        "5 - Estas ___ son de mamá.",
+        "6 - Remi ___ en su bote rosado."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l18-flip-poem",
+      "lessonId": 18,
+      "kind": "mini-story",
+      "title": "¡Rápido arriba!",
+      "prompt": "Lee el poema con tu maestro.",
+      "items": [
+        "Barri el burrito",
+        "sube a la loma.",
+        "Perri el perrito",
+        "roba mi bola.",
+        "Mi burro lindo",
+        "muy bien mandado.",
+        "Mi perro Perri",
+        "arrebatado."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l18-eval-cloze",
+      "lessonId": 18,
+      "kind": "cloze-sentence",
+      "title": "Completa la oración — rr",
+      "prompt": "Escoge la palabra correcta del rectángulo para completar cada oración.",
+      "wordBank": [
+        "Porra",
+        "amarra",
+        "perro",
+        "arrebatado",
+        "carro",
+        "burro",
+        "arriba",
+        "barras"
+      ],
+      "exercises": [
+        "1 - El ___ del señor ___ está ___.",
+        "2 - El señor Porra ___ su perro.",
+        "3 - La pelota de Rafael está ___ del ___.",
+        "4 - El caballo de Rebe salta las ___ rápido.",
+        "5 - Ramón va a montar su ___."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l19-flip-poem",
+      "lessonId": 19,
+      "kind": "mini-story",
+      "title": "El gato enamorado",
+      "prompt": "Lee el poema con tu maestro.",
+      "items": [
+        "Mi gato Goloso",
+        "se enamoró",
+        "de Musulunga",
+        "y la engatusó.",
+        "-Gatita gordita",
+        "gatita, mi amor",
+        "este gusanito",
+        "es para los dos."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l19-eval-cloze",
+      "lessonId": 19,
+      "kind": "cloze-sentence",
+      "title": "Completa la oración — G g ga go gu",
+      "prompt": "Escoge la palabra correcta del rectángulo para completar cada oración.",
+      "wordBank": [
+        "gorra",
+        "gato",
+        "lago",
+        "amigo",
+        "lagarto",
+        "Gustavo",
+        "mago",
+        "goma",
+        "laguna",
+        "Magali"
+      ],
+      "exercises": [
+        "1 - ___ tiene una ___ muy bonita.",
+        "2 - ___ pasea con su ___.",
+        "3 - En la ___ hay un ___.",
+        "4 - Magali borra con su ___.",
+        "5 - El ___ saca un ___ del pañuelo.",
+        "6 - Gabi se baña en el ___."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l20-flip-poem",
+      "lessonId": 20,
+      "kind": "mini-story",
+      "title": "A la fiesta",
+      "prompt": "Lee el poema con tu maestro.",
+      "items": [
+        "A la fiesta de familia",
+        "tía Fela va a invitar",
+        "las velitas del pastel",
+        "Fefita va a apagar.",
+        "Fu, fu... apaga la vela",
+        "fa, fa... la vela no es mía",
+        "fe, fe... apaga la vela",
+        "fi, fi... la vela es de tía."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l20-eval-cloze",
+      "lessonId": 20,
+      "kind": "cloze-sentence",
+      "title": "Completa la oración — F f",
+      "prompt": "Escoge la palabra correcta del rectángulo para completar cada oración.",
+      "wordBank": [
+        "fortuna",
+        "foto",
+        "Fefa",
+        "Felo",
+        "perfume",
+        "familia",
+        "fama",
+        "feo",
+        "feliz"
+      ],
+      "exercises": [
+        "1 - Felo tiene ___ y ___.",
+        "2 - La ___ de Fela está en la sala.",
+        "3 - A ___ le gusta el ___.",
+        "4 - El patito no es ___.",
+        "5 - Toda la ___ va de paseo.",
+        "6 - Rafael está ___ con su nieto."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l21-flip-poem",
+      "lessonId": 21,
+      "kind": "mini-story",
+      "title": "La jicotea Jabela",
+      "prompt": "Lee el poema con tu maestro.",
+      "items": [
+        "Mi jicotea Jabela",
+        "juega y juega sin parar,",
+        "con espuma de jabón",
+        "jamás la puedo bañar.",
+        "Se mete en el jaulón",
+        "no le gusta el agua pura",
+        "ni la espuma de jabón",
+        "a mi jicotea dura."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l21-eval-cloze",
+      "lessonId": 21,
+      "kind": "cloze-sentence",
+      "title": "Completa la oración — J j",
+      "prompt": "Escoge la palabra correcta del rectángulo para completar cada oración.",
+      "wordBank": [
+        "Jimena",
+        "jaula",
+        "Javi",
+        "jarra",
+        "jugo",
+        "Jabela",
+        "jamón",
+        "jefa",
+        "jinete",
+        "baja"
+      ],
+      "exercises": [
+        "1 - El ___ monta muy bien.",
+        "2 - José tiene una ___ de ___.",
+        "3 - Juana ___ la loma con ___.",
+        "4 - ___ no está en la ___.",
+        "5 - Jimena es la ___ de ___.",
+        "6 - A Julio le gusta el ___."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l22-flip-poem",
+      "lessonId": 22,
+      "kind": "mini-story",
+      "title": "Los caramelos",
+      "prompt": "Lee el poema con tu maestro.",
+      "items": [
+        "Cuco tiene caramelos",
+        "caramelitos de miel",
+        "Cuco reparte cariño",
+        "y caramelos también."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l22-eval-cloze",
+      "lessonId": 22,
+      "kind": "cloze-sentence",
+      "title": "Completa la oración — C c ca co cu",
+      "prompt": "Escoge la palabra correcta del rectángulo para completar cada oración.",
+      "wordBank": [
+        "casa",
+        "cola",
+        "cama",
+        "comida",
+        "coco",
+        "contento",
+        "cubo",
+        "Cuco"
+      ],
+      "exercises": [
+        "1 - El ___ es de papá.",
+        "2 - Catalina carga arena con su ___.",
+        "3 - La ___ de ___ es muy bonita.",
+        "4 - Paco está acostado en su ___.",
+        "5 - El perro contento mueve su ___.",
+        "6 - Mamá sirve la ___ para todos."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l23-flip-poem",
+      "lessonId": 23,
+      "kind": "mini-story",
+      "title": "El yate de Yayo",
+      "prompt": "Lee el poema con tu maestro.",
+      "items": [
+        "De Yateras a Cayo Hueso",
+        "de Cayo Hueso a Yateras",
+        "Yayo va con sus amigas",
+        "sus amigas yucatecas.",
+        "En su yate \"Cayo Largo\"",
+        "ayer vino a Yucatán",
+        "con una soga de yute",
+        "Yayo lo pudo amarrar."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l23-eval-cloze",
+      "lessonId": 23,
+      "kind": "cloze-sentence",
+      "title": "Completa la oración — Y y",
+      "prompt": "Escoge la palabra correcta del rectángulo para completar cada oración.",
+      "wordBank": [
+        "payaso",
+        "yodo",
+        "ayudó",
+        "yegua",
+        "ayer",
+        "yemas",
+        "yate"
+      ],
+      "exercises": [
+        "1 - Yayo tiene un ___ en Yateras.",
+        "2 - El ___ está en la fiesta.",
+        "3 - Me gusta comer ___.",
+        "4 - Cuco monta su ___ todos los días.",
+        "5 - Mayito ___ a Yayo ___.",
+        "6 - Yoli se puso ___ en la cortada."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l24-flip-poem",
+      "lessonId": 24,
+      "kind": "mini-story",
+      "title": "El carro-calabaza",
+      "prompt": "Lee el poema con tu maestro.",
+      "items": [
+        "En su carro-calabaza",
+        "con timón azucarado",
+        "Zulema se va a la plaza",
+        "a la plaza del mercado.",
+        "Compra ricas zarzamoras",
+        "zumo de zapote y miel",
+        "en su carro-calabaza",
+        "Zulema rueda muy bien."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    },
+    {
+      "id": "l24-eval-cloze",
+      "lessonId": 24,
+      "kind": "cloze-sentence",
+      "title": "Completa la oración — Z z",
+      "prompt": "Escoge la palabra correcta del rectángulo para completar cada oración.",
+      "wordBank": [
+        "zarzuela",
+        "azúcar",
+        "zumo",
+        "azules",
+        "Zulema",
+        "zapatos"
+      ],
+      "exercises": [
+        "1 - ___ va a ver la ___.",
+        "2 - Elizabeth bebe ___ de naranja.",
+        "3 - El café con ___ es mío.",
+        "4 - Los pantalones de Rafael son ___.",
+        "5 - El señor González usa ___ nuevos."
+      ],
+      "sourceStatus": "book-derived",
+      "transcriptionStatus": "verified"
+    }
+  ]
+}

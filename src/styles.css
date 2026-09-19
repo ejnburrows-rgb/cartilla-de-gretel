@@ -1,0 +1,872 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Hybrid design system:
+ * - Tokens stored as HSL triplets ("H S% L%") so legacy code that uses
+ *   `hsl(var(--primary))` keeps working (the Cartilla port relies on this).
+ * - @theme inline wraps each token with hsl() so Tailwind v4 utilities
+ *   (`bg-primary`, `text-foreground`, etc.) resolve correctly.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-success: hsl(var(--success));
+  --color-success-foreground: hsl(var(--success-foreground));
+  --color-warning: hsl(var(--warning));
+  --color-warning-foreground: hsl(var(--warning-foreground));
+  --color-vowel-a: hsl(var(--vowel-a));
+  --color-vowel-e: hsl(var(--vowel-e));
+  --color-vowel-i: hsl(var(--vowel-i));
+  --color-vowel-o: hsl(var(--vowel-o));
+  --color-vowel-u: hsl(var(--vowel-u));
+  --color-sidebar: hsl(var(--sidebar-background));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+}
+
+:root {
+  --radius: 0.625rem;
+
+  /* Cartilla — kid-first, Spanish literacy K-3 (HSL triplets).
+     Palette single source of truth: warm cream paper, warm brown ink, a
+     saturated orange primary (#d4541a), forest-green success (#2a7d4f) and a
+     gold highlight (#e8a820). The old indigo primary + cool-gray chrome were
+     the "washed out / dull" culprits, so every neutral below is warmed toward
+     the paper instead of the old blue-grey stone. */
+  --background: 40 56% 96%; /* warm cream page */
+  --foreground: 30 52% 13%; /* warm brown-black ink (#2c1f0e) */
+  --card: 42 60% 99%; /* near-white warm paper */
+  --card-foreground: 30 52% 13%;
+  --popover: 42 60% 99%;
+  --popover-foreground: 30 52% 13%;
+  --primary: 18 79% 47%; /* warm orange-red #d4541a — energetic, child-safe */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 44 84% 88%; /* warm pale gold */
+  --secondary-foreground: 30 52% 13%;
+  --muted: 40 34% 92%; /* warm light stone (was cool blue-grey) */
+  --muted-foreground: 32 20% 38%; /* warm muted brown */
+  --accent: 40 44% 90%; /* warm subtle surface (hover/rails) */
+  --accent-foreground: 30 52% 16%;
+  --destructive: 0 74% 52%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 36 30% 84%; /* warm border (was cool stone-300) */
+  --input: 36 30% 84%;
+  --ring: 18 79% 47%; /* orange focus ring (was near-black navy) */
+
+  --success: 151 49% 33%; /* forest green #2a7d4f — Spanish-literacy accent */
+  --success-foreground: 0 0% 100%;
+  --warning: 38 82% 52%; /* gold #e8a820 — reward/highlight */
+  --warning-foreground: 30 52% 13%;
+
+  /* Named brand aliases (for surfaces that want the accent green or gold
+     directly rather than via the semantic success/warning roles). */
+  --brand-green: 151 49% 33%;
+  --brand-gold: 38 82% 52%;
+
+  --vowel-a: 354 78% 56%;
+  --vowel-e: 28 87% 60%;
+  --vowel-i: 198 78% 50%;
+  --vowel-o: 145 60% 45%;
+  --vowel-u: 280 65% 58%;
+
+  --sidebar-background: 0 0% 98%;
+  --sidebar-foreground: 240 5.3% 26.1%;
+  --sidebar-primary: 240 5.9% 10%;
+  --sidebar-primary-foreground: 0 0% 98%;
+  --sidebar-accent: 240 4.8% 95.9%;
+  --sidebar-accent-foreground: 240 5.9% 10%;
+  --sidebar-border: 220 13% 91%;
+  --sidebar-ring: 217.2 91.2% 59.8%;
+}
+
+.dark {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  /* Cards sit a few shades lighter than the page so they read as raised
+     panels instead of blending into the generic navy background (fixes the
+     low-contrast "card == background" dark-mode issue). */
+  --card: 217.2 32.6% 12%;
+  --card-foreground: 210 40% 98%;
+  --popover: 217.2 32.6% 12%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 210 40% 98%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 212.7 26.8% 83.9%;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: ui-sans-serif, system-ui, sans-serif;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .tap-target {
+    min-height: 56px;
+    min-width: 56px;
+  }
+  .kid-card {
+    border-radius: 1.5rem;
+    border-width: 2px;
+    background-color: var(--color-card);
+    box-shadow: 0 6px 0 hsl(var(--foreground) / 0.08);
+  }
+}
+
+/* ─── Accessibility modes ─────────────────────────────────────────── */
+html.a11y-large {
+  font-size: 18px;
+}
+html.a11y-xlarge {
+  font-size: 21px;
+}
+
+html.a11y-dyslexia,
+html.a11y-dyslexia body,
+html.a11y-dyslexia button,
+html.a11y-dyslexia input,
+html.a11y-dyslexia textarea,
+html.a11y-dyslexia h1,
+html.a11y-dyslexia h2,
+html.a11y-dyslexia h3 {
+  font-family:
+    "OpenDyslexic", "Atkinson Hyperlegible", "Comic Sans MS", "Verdana", sans-serif !important;
+  letter-spacing: 0.02em;
+  word-spacing: 0.08em;
+}
+
+html.a11y-contrast {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 0%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 0%;
+  --primary: 230 100% 35%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 60 100% 80%;
+  --secondary-foreground: 0 0% 0%;
+  --muted: 0 0% 92%;
+  --muted-foreground: 0 0% 12%;
+  --border: 0 0% 0%;
+  --ring: 0 0% 0%;
+}
+html.a11y-contrast .kid-card {
+  border-color: hsl(0 0% 0%);
+  box-shadow: 0 4px 0 hsl(0 0% 0%);
+}
+
+/* ─── Classic pencil cursor — student screens only (issue #346) ─────
+ * Toggled by src/components/StudentCursor.tsx via src/lib/student-cursor.ts,
+ * so teacher/admin screens keep the normal arrow. The pencil is a hand-built
+ * inline SVG (app iconography, not book art) in the book's own palette: gold
+ * barrel, warm wood, red eraser, with a white outer edge so it stays visible
+ * on both the cream pages and the darker garden scenes. The hotspot sits on
+ * the graphite tip at the pencil's lower-left. */
+html.student-pencil,
+html.student-pencil body {
+  cursor:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cg transform='rotate(45 14 14)' stroke='%232b2b2b' stroke-width='1.1' stroke-linejoin='round'%3E%3Cpath d='M10.5 5.2a3.5 3.5 0 0 1 7 0V8h-7z' fill='%23e35d4a'/%3E%3Crect x='10.5' y='8' width='7' height='2.2' fill='%23cbd5e1'/%3E%3Crect x='10.5' y='10.2' width='7' height='9.8' fill='%23e8a820'/%3E%3Cpath d='M10.5 20h7L14 25.6z' fill='%23f5d6a0'/%3E%3Cpath d='M12.4 23h3.2L14 25.6z' fill='%233a3a3a' stroke='none'/%3E%3C/g%3E%3C/svg%3E")
+      6 22,
+    auto;
+}
+
+/* Anything clickable still says "you can click me". */
+html.student-pencil a,
+html.student-pencil button,
+html.student-pencil summary,
+html.student-pencil [role="button"],
+html.student-pencil [role="link"],
+html.student-pencil label,
+html.student-pencil select {
+  cursor: pointer;
+}
+
+html.student-pencil input,
+html.student-pencil textarea {
+  cursor: text;
+}
+
+html.student-pencil :disabled,
+html.student-pencil [aria-disabled="true"] {
+  cursor: not-allowed;
+}
+
+/* Accessibility modes always keep the predictable system cursor. */
+html.student-pencil.a11y-contrast,
+html.student-pencil.a11y-contrast body,
+html.student-pencil.a11y-dyslexia,
+html.student-pencil.a11y-dyslexia body,
+html.student-pencil.a11y-large,
+html.student-pencil.a11y-large body,
+html.student-pencil.a11y-xlarge,
+html.student-pencil.a11y-xlarge body {
+  cursor: auto;
+}
+
+/* Forced-colors users get the system cursor too. */
+@media (forced-colors: active) {
+  html.student-pencil,
+  html.student-pencil body {
+    cursor: auto;
+  }
+}
+
+/* ─── Premium classroom polish ───────────────────────────────────── */
+@layer base {
+  body {
+    min-height: 100vh;
+    background:
+      radial-gradient(circle at 15% 10%, hsl(var(--warning) / 0.16), transparent 28rem),
+      radial-gradient(circle at 85% 5%, hsl(var(--primary) / 0.12), transparent 26rem),
+      linear-gradient(180deg, hsl(var(--background)), hsl(var(--secondary) / 0.22));
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 3px solid hsl(var(--primary) / 0.45);
+    outline-offset: 3px;
+  }
+}
+
+@layer utilities {
+  .kid-card {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg, hsl(var(--card) / 0.98), hsl(var(--card) / 0.92));
+    border-color: hsl(var(--foreground) / 0.08);
+    box-shadow:
+      0 8px 0 hsl(var(--foreground) / 0.06),
+      0 18px 40px hsl(var(--primary) / 0.08);
+    backdrop-filter: blur(10px);
+    transition:
+      transform 220ms ease,
+      box-shadow 220ms ease,
+      border-color 220ms ease,
+      background-color 220ms ease;
+  }
+
+  .kid-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(120deg, transparent 0%, hsl(0 0% 100% / 0.22) 45%, transparent 72%);
+    transform: translateX(-120%);
+    transition: transform 650ms ease;
+  }
+
+  .kid-card:hover {
+    transform: translateY(-3px);
+    border-color: hsl(var(--primary) / 0.25);
+    box-shadow:
+      0 10px 0 hsl(var(--foreground) / 0.07),
+      0 24px 50px hsl(var(--primary) / 0.14);
+  }
+
+  .kid-card:hover::before {
+    transform: translateX(120%);
+  }
+
+  .premium-glass {
+    border: 1px solid hsl(var(--primary) / 0.16);
+    background: hsl(var(--card) / 0.82);
+    box-shadow: 0 24px 80px hsl(var(--primary) / 0.12);
+    backdrop-filter: blur(18px);
+  }
+
+  .float-soft {
+    animation: cartilla-float 5s ease-in-out infinite;
+  }
+
+  .pulse-soft {
+    animation: cartilla-pulse 2.8s ease-in-out infinite;
+  }
+}
+
+@keyframes cartilla-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes cartilla-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 hsl(var(--primary) / 0.18);
+  }
+  50% {
+    box-shadow: 0 0 0 12px hsl(var(--primary) / 0);
+  }
+}
+
+/* ─── Desk Scene — Warm oak wood environment ───────────────────────────── */
+@layer utilities {
+  .desk-scene {
+    position: relative;
+    min-height: 100vh;
+    background:
+      /* Wood grain texture overlay */
+      repeating-linear-gradient(
+        90deg,
+        hsl(28 45% 35%) 0px,
+        hsl(28 45% 38%) 2px,
+        hsl(28 45% 35%) 4px,
+        hsl(28 45% 32%) 8px,
+        hsl(28 45% 35%) 12px
+      ),
+      /* Warm oak base */
+        linear-gradient(180deg, hsl(28 50% 40%) 0%, hsl(25 48% 45%) 50%, hsl(22 45% 50%) 100%);
+  }
+
+  .desk-scene::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      /* Ambient lighting from top-left */
+      radial-gradient(ellipse at 20% 20%, hsl(35 60% 70% / 0.15) 0%, transparent 50%),
+      /* Subtle vignette */
+        radial-gradient(ellipse at 50% 50%, transparent 60%, hsl(20 40% 20% / 0.3) 100%);
+    pointer-events: none;
+  }
+
+  .desk-scene::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: linear-gradient(180deg, hsl(20 40% 25%) 0%, hsl(18 38% 20%) 100%);
+    box-shadow: 0 -4px 12px hsl(20 40% 20% / 0.4);
+    pointer-events: none;
+  }
+
+  /* ─── Gretel Stage — Compositing for physical grounding ───────────────── */
+  .gretel-stage {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gretel-shadow-contact {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 55%;
+    height: 12px;
+    background: radial-gradient(ellipse, rgba(0, 0, 0, 0.35) 0%, transparent 70%);
+    filter: blur(3px);
+    z-index: 0;
+  }
+
+  .gretel-shadow-ambient {
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 32px;
+    background: radial-gradient(ellipse, rgba(0, 0, 0, 0.13) 0%, transparent 70%);
+    filter: blur(8px);
+    z-index: 0;
+  }
+
+  .gretel-figure {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+/* ── Vertical Spiral Workbook Flip Styles ── */
+.workbook-container {
+  perspective: 1300px;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  /* Classic-book body voice: page prose reads in the warm Lora serif, while
+     letter-formation content keeps its explicit Andika and tiles/buttons keep
+     Fredoka (both set their own font, so they win over this inherited default). */
+  font-family: var(--font-book-serif);
+  background: var(--book-paper, #fdfdfd);
+  border-radius: 0 0 16px 16px;
+  box-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.05),
+    0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-top: none;
+}
+
+.spiral-binding {
+  position: absolute;
+  left: -12px;
+  top: 5%;
+  height: 90%;
+  width: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 50;
+  pointer-events: none;
+}
+
+.spiral-ring {
+  height: 10px;
+  width: 24px;
+  background: linear-gradient(to bottom, #9ca3af, #d1d5db, #6b7280);
+  border-radius: 6px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.22);
+}
+
+.workbook-flip-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform-origin: left center;
+  /* Elegant R→L free-edge turn — 780ms; living-art.css may refine */
+  transition: transform 780ms cubic-bezier(0.22, 1, 0.36, 1);
+  /* Hint the compositor so the 3D turn stays on the GPU (no layout thrash). */
+  will-change: transform;
+}
+
+.workbook-page-front,
+.workbook-page-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 0 0 12px 12px;
+  overflow: hidden;
+  background: var(--color-card, #fff);
+}
+
+.workbook-page-back {
+  /* Y-axis, matching .workbook-flip-wrapper's rotateY parent — the back
+     face must pre-rotate on the same axis the parent turns on, or it reads
+     upside-down instead of correctly mirrored. */
+  transform: rotateY(180deg);
+  background: color-mix(in srgb, var(--color-card, #fff) 96%, #000);
+  /* subtle paper back shadows */
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 0%, transparent 8%);
+}
+
+.workbook-shadow-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.04);
+  z-index: 10;
+  transition: opacity 0.6s ease;
+}
+
+/* ── Classic-book paper realism ──────────────────────────────────────────
+   Real-paper surface for the student reader: a warm cream base, a faint fibre
+   speckle (inline SVG feTurbulence — free and lightweight, ~1 tile), and a
+   tone gradient that is brighter at the outer (right) edge and deepens warmly
+   into the gutter (left binding). Letter content and art sit on top of this. */
+.book-paper-surface {
+  background-color: var(--book-paper, #fbf3e0);
+  background-image:
+    url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='140'%20height='140'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.85'%20numOctaves='2'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='saturate'%20values='0'/%3E%3C/filter%3E%3Crect%20width='140'%20height='140'%20filter='url(%23n)'%20opacity='0.05'/%3E%3C/svg%3E"),
+    linear-gradient(
+      to right,
+      rgba(60, 40, 10, 0.14) 0%,
+      rgba(60, 40, 10, 0) 9%,
+      rgba(255, 252, 242, 0) 74%,
+      rgba(255, 253, 245, 0.6) 100%
+    );
+  background-repeat: repeat, no-repeat;
+  background-size:
+    140px 140px,
+    100% 100%;
+}
+
+/* Hardback shell — a warm board + spine wrapping the turning pages, plus the
+   page-edge stack that gives the book real thickness. The inner
+   .workbook-container (which react-pageflip measures) is untouched; the shell
+   only adds a cover border and the edge slivers that peek past the page. */
+.book-shell {
+  position: relative;
+  width: 100%;
+  padding: 7px 13px 15px 13px;
+  border-radius: 10px 13px 13px 10px;
+  background:
+    linear-gradient(180deg, hsl(28 42% 34%), hsl(26 40% 28%));
+  box-shadow:
+    0 2px 0 hsl(26 40% 22%),
+    0 18px 40px rgba(60, 40, 10, 0.32);
+}
+
+/* the spine, a slightly darker band along the binding edge */
+.book-shell::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  bottom: 8px;
+  left: 4px;
+  width: 6px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, hsl(26 44% 22%), hsl(28 40% 32%));
+  pointer-events: none;
+}
+
+.book-edge-stack {
+  position: absolute;
+  top: 12px;
+  bottom: 18px;
+  width: 12px;
+  pointer-events: none;
+  z-index: 0;
+}
+.book-edge-stack--right {
+  right: 1px;
+}
+.book-edge-stack--left {
+  left: 1px;
+}
+.book-edge-sliver {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  border-radius: 1px;
+  /* warm paper edge, top-lit */
+  background: linear-gradient(to bottom, #f3e9cf, #dccca6 60%, #cbb98f);
+  box-shadow: 0 0 0 0.5px rgba(60, 40, 10, 0.08);
+}
+
+/* ── Teacher Flip Chart — vertical (top-hinged) page flip ──
+   Same technique as .workbook-flip-wrapper, rotated to the X axis so pages
+   flip up and over the top like a real easel flip chart, not left-right
+   like the student book. */
+.flipchart-flip-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform-origin: center top;
+  /* Vertical easel flip — elegant 820ms */
+  transition: transform 820ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.flipchart-page-front,
+.flipchart-page-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 0.75rem;
+}
+
+.flipchart-page-back {
+  /* X-axis, matching .flipchart-flip-wrapper's rotateX parent. */
+  transform: rotateX(180deg);
+  background: #fafafa;
+}
+
+.flipchart-shadow-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.05);
+  z-index: 10;
+  transition: opacity 0.6s ease;
+}
+
+.workbook-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.15), transparent);
+  z-index: 20;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ─── Faithful page system (workbook · flipbook · student CRM view) ──────
+ * One design token set + one letter-formation font so every faithful page
+ * matches the printed book. Andika is self-hosted (SIL OFL) and chosen
+ * because its single-story a/g match how children are taught to write —
+ * essential for a cartilla. Latin + Latin-Ext cover Spanish (ñ á é í ó ú ü).
+ */
+@font-face {
+  font-family: "Andika";
+  src: url("/fonts/andika-400-latin.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+    U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Andika";
+  src: url("/fonts/andika-400-latin-ext.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range:
+    U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+@font-face {
+  font-family: "Andika";
+  src: url("/fonts/andika-700-latin.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+    U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Andika";
+  src: url("/fonts/andika-700-latin-ext.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range:
+    U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+
+/* Fredoka — rounded display face for titles, letters and lesson tiles.
+   Self-hosted (SIL OFL) so it renders offline; Google Fonts is blocked in
+   the classroom network. It is a variable font, so one file covers the
+   300–700 weights the UI asks for. Latin + Latin-Ext cover Spanish. */
+@font-face {
+  font-family: "Fredoka";
+  src: url("/fonts/fredoka-latin.woff2") format("woff2");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+    U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Fredoka";
+  src: url("/fonts/fredoka-latin-ext.woff2") format("woff2");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range:
+    U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+
+/* Lora — warm open-licensed serif (SIL OFL) for book body copy. It gives the
+   pages the "classic book" ink-on-paper feel the rounded display font can't.
+   Self-hosted for the same offline reason; variable file covers 400–700. */
+@font-face {
+  font-family: "Lora";
+  src: url("/fonts/lora-400-latin.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+    U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Lora";
+  src: url("/fonts/lora-400-latin-ext.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range:
+    U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+@font-face {
+  font-family: "Lora";
+  src: url("/fonts/lora-italic-latin.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: italic;
+  font-display: swap;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+    U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Lora";
+  src: url("/fonts/lora-italic-latin-ext.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: italic;
+  font-display: swap;
+  unicode-range:
+    U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+
+/* Caveat — the handwriting face used for tracing lines. Self-hosted (SIL OFL)
+   so the tracing guides render in class, where Google Fonts is blocked. */
+@font-face {
+  font-family: "Caveat";
+  src: url("/fonts/caveat-latin.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+    U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Caveat";
+  src: url("/fonts/caveat-latin-ext.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range:
+    U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+
+/* OpenDyslexic — the accessibility face behind `html.a11y-dyslexia`. It is
+   declared here, in the live stylesheet, because the only previous @font-face
+   sat in a file nothing imports, so the dyslexia mode silently fell back to
+   Comic Sans/Verdana. The Latin subset covers Spanish (ñ á é í ó ú ü ¿ ¡). */
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("/fonts/opendyslexic-400-latin.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("/fonts/opendyslexic-700-latin.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("/fonts/opendyslexic-400-italic-latin.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  /* Fonts — all self-hosted (Andika, Fredoka, Lora, Caveat, OpenDyslexic), so
+     nothing depends on the blocked Google Fonts network. Century Gothic is
+     gone: it does not exist on student Chromebooks/tablets and only fell back. */
+  --font-book-faithful: "Andika", "Segoe UI", ui-rounded, system-ui, sans-serif;
+  --font-book-title: "Fredoka", ui-rounded, system-ui, sans-serif;
+  --font-book-serif: "Lora", Georgia, "Times New Roman", serif;
+  --font-book-hand: "Caveat", "Segoe Script", cursive;
+
+  /* Interior worksheet palette — green & cream kid-friendly aesthetic
+     (owner-directed repaint, superseding the earlier teal/white book-exact
+     palette; variable names kept as-is to avoid touching every consumer). */
+  --book-teal: #5fa777; /* signature garden green: sidebar, borders, guides */
+  --book-teal-deep: #3d7a5c; /* darker green for text-on-cream accents */
+  --book-paper: #fbf3e0; /* warm cream page */
+  --book-ink: #2b2a22; /* warm near-black body + headings */
+  --book-ink-soft: #8a8272; /* warm secondary/footer gray */
+  --book-guide: #a8d9b5; /* dashed handwriting midline */
+
+  /* Gretel brand (app shell / character moments — NOT the worksheet interior) */
+  --gretel-blue: #1f5fa8;
+  --gretel-orange: #e8792a;
+  --gretel-red: #e0331f;
+
+  /* ── Interaction-state semantics ──────────────────────────────────
+   * Single source of truth for correct/incorrect feedback used across
+   * the interaction layer (interactive-exercises.css, activity-mechanics.css).
+   * Tokenizing avoids the 8+ scattered hardcoded hex duplicates that were
+   * the root cause of inconsistent feedback colors (colorization pass #70).
+   * Values deliberately match WCAG AA contrast on white backgrounds.
+   */
+  --color-correct: #10b981; /* emerald — correct answer / caught / linked */
+  --color-correct-fg: #ffffff; /* text/icon on --color-correct */
+  --color-incorrect: #f43f5e; /* rose — wrong answer / missed */
+  --color-incorrect-fg: #ffffff; /* text/icon on --color-incorrect */
+}

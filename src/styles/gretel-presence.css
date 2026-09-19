@@ -1,0 +1,122 @@
+/* Gretel lesson host: small authentic character + unobtrusive voice controls. */
+.gretel-presence {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: min(100%, 15rem);
+  margin: 0.35rem auto 0;
+  padding: 0.4rem 0.6rem 0.2rem;
+  opacity: 0;
+  transform: translateY(26px) scale(0.94);
+  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1), transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gretel-presence--in {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.gretel-presence--home {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.gretel-presence--home.gretel-presence--in {
+  opacity: 1;
+  transform: none;
+}
+
+.gretel-presence__chrome {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  margin-top: -0.15rem;
+}
+
+.gretel-presence__name {
+  margin: 0;
+  padding: 0.22rem 0.58rem;
+  border: 1px solid rgba(58, 40, 30, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 8px rgba(58, 40, 30, 0.06);
+  font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 0.75rem;
+  color: #3a281e;
+}
+
+.gretel-presence__mute {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  min-height: 2.25rem;
+  padding: 0.28rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid rgba(58, 40, 30, 0.14);
+  background: rgba(255, 255, 255, 0.92);
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #3a281e;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.gretel-presence__mute:hover {
+  background: #fff;
+  border-color: rgba(58, 40, 30, 0.28);
+}
+
+.gretel-presence-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.55rem;
+  width: 100%;
+  align-items: end;
+}
+
+@media (min-width: 900px) {
+  .gretel-presence:not(.gretel-presence--home) {
+    justify-self: end;
+    margin-right: clamp(0.5rem, 4vw, 3rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gretel-presence {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Living-book placement: Gretel belongs to the paper reveal, not a side panel.
+   The anchor sits immediately outside the printable sheet so she can never cover
+   instructions, tracing, answer choices, artwork, drawing space, or tap targets. */
+.gretel-presence--book {
+  width: auto;
+  min-width: 6rem;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+}
+
+.gretel-presence--book .gretel-presence__chrome {
+  display: none;
+}
+
+.gretel-presence--book[data-page-ready="false"] {
+  opacity: 0;
+  transform: translateY(18px) scale(0.96);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gretel-presence--book[data-page-ready="false"] {
+    opacity: 0;
+  }
+}

@@ -1,0 +1,304 @@
+/* Premium physical-reading surfaces.
+ * The student experience reads as a bound workbook; the teacher presenter reads
+ * as a top-bound flipchart. These rules style only chrome/paper mechanics and
+ * never alter the authored page artwork.
+ */
+
+.physical-book-reader {
+  --book-turn-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --book-cover: #8f5c38;
+  --book-cover-deep: #684028;
+  --book-paper: #fffaf0;
+  --book-paper-edge: #eadfc8;
+  position: relative;
+  isolation: isolate;
+}
+
+.premium-book-shell {
+  position: relative;
+  width: 100%;
+  padding: clamp(7px, 1.1vw, 14px);
+  border-radius: clamp(16px, 2vw, 28px);
+  background:
+    linear-gradient(90deg, rgba(255,255,255,.12), transparent 8%, transparent 92%, rgba(0,0,0,.08)),
+    linear-gradient(180deg, #9d6a44 0%, var(--book-cover) 48%, var(--book-cover-deep) 100%);
+  box-shadow:
+    0 34px 70px -34px rgba(45, 29, 18, .55),
+    0 14px 28px -18px rgba(45, 29, 18, .42),
+    inset 0 1px 0 rgba(255,255,255,.28),
+    inset 0 -2px 0 rgba(54,31,17,.24);
+}
+
+.premium-book-shell::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: inherit;
+  border: 1px solid rgba(255,255,255,.16);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.premium-book-shell::after {
+  content: "";
+  position: absolute;
+  left: 4%;
+  right: 4%;
+  bottom: -13px;
+  height: 18px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(40,25,14,.28), transparent 70%);
+  filter: blur(5px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.premium-book-stage {
+  position: relative;
+  overflow: visible !important;
+  border-radius: clamp(10px, 1.2vw, 18px);
+  box-shadow:
+    0 0 0 1px rgba(77, 55, 31, .14),
+    0 8px 18px -10px rgba(41, 28, 17, .38);
+}
+
+.premium-book-stage::before,
+.premium-book-stage::after {
+  content: "";
+  position: absolute;
+  left: 1.2%;
+  right: 1.2%;
+  height: 5px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, transparent, var(--book-paper-edge) 8%, #f6eedf 50%, var(--book-paper-edge) 92%, transparent);
+  pointer-events: none;
+  z-index: 4;
+  opacity: .85;
+}
+
+.premium-book-stage::before { top: -3px; }
+.premium-book-stage::after { bottom: -3px; }
+
+.premium-book-page.book-paper-surface {
+  position: relative;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(151,119,79,.035) 0 1px, transparent 1.4px) 0 0 / 13px 13px,
+    radial-gradient(circle at 83% 72%, rgba(151,119,79,.025) 0 1px, transparent 1.5px) 0 0 / 17px 17px,
+    linear-gradient(90deg, rgba(88,62,36,.055), transparent 8%, transparent 92%, rgba(88,62,36,.035)),
+    var(--book-paper);
+  box-shadow: inset 0 0 0 1px rgba(73,52,31,.045);
+}
+
+.premium-book-page[data-leaf-side="left"]::after,
+.premium-book-page[data-leaf-side="right"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.premium-book-page[data-leaf-side="left"]::after {
+  background: linear-gradient(90deg, transparent 78%, rgba(43,30,18,.035) 91%, rgba(43,30,18,.12) 100%);
+}
+
+.premium-book-page[data-leaf-side="right"]::after {
+  background: linear-gradient(90deg, rgba(43,30,18,.12) 0%, rgba(43,30,18,.035) 9%, transparent 22%);
+}
+
+.premium-book-spine {
+  display: none;
+  position: absolute;
+  top: clamp(8px, 1.2vw, 15px);
+  bottom: clamp(8px, 1.2vw, 15px);
+  left: 50%;
+  width: clamp(16px, 2.1vw, 28px);
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 12;
+  background:
+    linear-gradient(90deg,
+      rgba(36,24,14,.16) 0%,
+      rgba(36,24,14,.06) 28%,
+      rgba(255,255,255,.14) 49%,
+      rgba(36,24,14,.06) 72%,
+      rgba(36,24,14,.16) 100%);
+  mix-blend-mode: multiply;
+  opacity: .78;
+}
+
+.premium-book-shell[data-spread="true"] .premium-book-spine {
+  display: block;
+}
+
+.premium-book-shell[data-spread="true"] .premium-book-spine::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: rgba(78,54,31,.24);
+}
+
+.premium-pageflip {
+  filter: drop-shadow(0 10px 9px rgba(52, 36, 21, .08));
+}
+
+/* Teacher flipchart: visible top binding and a gentler, slower vertical leaf. */
+.fc-board[data-physical-flipchart="true"] {
+  --book-turn-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --fc-turn-ms: 1120ms;
+}
+
+.fc-board[data-physical-flipchart="true"] .fc-board__easel {
+  overflow: visible;
+  padding-top: 1.05rem;
+  background:
+    linear-gradient(180deg, rgba(105,74,43,.16) 0 1.05rem, rgba(255,255,255,.5) 1.05rem, transparent 45%),
+    var(--fc-paper);
+}
+
+.fc-board__binding {
+  position: absolute;
+  z-index: 60;
+  top: -0.45rem;
+  left: 5%;
+  right: 5%;
+  height: 2rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  pointer-events: none;
+  filter: drop-shadow(0 3px 3px rgba(36, 24, 14, .16));
+}
+
+.fc-board__ring {
+  position: relative;
+  width: clamp(16px, 1.6vw, 24px);
+  height: clamp(23px, 2.4vw, 34px);
+  border: clamp(2px, .18vw, 3px) solid #6e6458;
+  border-bottom-color: #93877a;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #766c61, #c1b6a8 46%, #70665d 100%);
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,.22);
+}
+
+.fc-board__ring::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: inherit;
+  background: var(--fc-paper);
+}
+
+.fc-board[data-physical-flipchart="true"] .fc-board__page {
+  padding-top: .35rem;
+}
+
+.fc-board[data-physical-flipchart="true"] .fc-board__page-inner {
+  overflow: hidden;
+  perspective: 2400px;
+  border-radius: 10px 10px 14px 14px;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.8) inset,
+    0 12px 30px -16px rgba(48,34,20,.34),
+    0 0 0 1px rgba(78,54,31,.08);
+}
+
+.fc-board[data-physical-flipchart="true"] .fc-board__page-inner::before {
+  content: "";
+  position: absolute;
+  z-index: 45;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 22px;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(44,29,16,.14), rgba(44,29,16,.035) 45%, transparent);
+}
+
+.fc-board[data-physical-flipchart="true"] .flipchart-flip-wrapper {
+  transform-origin: top center !important;
+  transition: transform var(--fc-turn-ms) var(--book-turn-ease) !important;
+  will-change: transform;
+}
+
+.fc-board[data-physical-flipchart="true"] .flipchart-page-front,
+.fc-board[data-physical-flipchart="true"] .flipchart-page-back {
+  background: #fffdf6;
+  box-shadow: 0 8px 26px rgba(45,29,17,.13);
+}
+
+.fc-board[data-physical-flipchart="true"] .flipchart-shadow-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(31,20,11,.26) 0%,
+    rgba(31,20,11,.11) 24%,
+    rgba(31,20,11,.025) 56%,
+    transparent 78%
+  ) !important;
+  transition: opacity var(--fc-turn-ms) var(--book-turn-ease) !important;
+}
+
+@media (max-width: 759px) {
+  .premium-book-shell {
+    padding: 7px;
+    border-radius: 16px;
+  }
+  .premium-book-spine { display: none !important; }
+  .fc-board__binding { left: 3%; right: 3%; }
+  .fc-board__ring:nth-child(even) { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fc-board[data-physical-flipchart="true"] .flipchart-flip-wrapper,
+  .fc-board[data-physical-flipchart="true"] .flipchart-shadow-overlay {
+    transition: none !important;
+  }
+}
+
+/* Gretel's living-book anchor is attached to the outer paper edge but fully
+   outside printable content. The reserved control gap keeps her out of every
+   exercise and interaction target. */
+.book-companion-anchor {
+  position: absolute;
+  right: clamp(0.5rem, 2.4vw, 2rem);
+  bottom: clamp(-7rem, -9vw, -6rem);
+  z-index: 18;
+  width: clamp(6rem, 10vw, 7rem);
+  pointer-events: none;
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transform-origin: top right;
+  transition:
+    opacity 240ms ease,
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.book-companion-anchor--turning {
+  opacity: 0;
+  transform: translateY(12px) scale(0.96);
+}
+
+.physical-book-reader[data-book-companion="true"] .book-reader-controls {
+  margin-top: clamp(6.6rem, 10vw, 7.5rem);
+}
+
+@media (max-width: 640px) {
+  .book-companion-anchor {
+    right: 0.35rem;
+    bottom: -6rem;
+    width: 6rem;
+  }
+
+  .physical-book-reader[data-book-companion="true"] .book-reader-controls {
+    margin-top: 6.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .book-companion-anchor {
+    transition: none;
+  }
+}

@@ -1,0 +1,10 @@
+/* Lesson-content generation is prohibited.
+ *
+ * Former replacement SVGs remain on disk only for dependency audit. They are
+ * deliberately not referenced here. An unresolved art slot stays neutral and
+ * does not display its vocabulary word, so a picture-selection activity does
+ * not reveal an answer.
+ */
+.fp-art-pending__word {
+  display: none;
+}

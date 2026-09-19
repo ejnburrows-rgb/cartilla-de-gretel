@@ -1,0 +1,141 @@
+import { lessons as vowelLessons, type VowelLesson } from "@/lib/cartilla-content";
+import consonantsData from "@/content/consonants.json";
+import { getLessonAccent } from "@/lib/lesson-accents";
+
+export type ConsonantLessonData = {
+  letter: string;
+  lesson: number;
+  pages: string;
+  color: string;
+  syllables: string[];
+  vocab: { word: string; emoji: string; illustrationSrc?: string }[];
+  examples: Record<string, string[]>;
+  sentences: string[];
+};
+
+/** Matches ActivityCarousel's tab ids — kept here since the catalog is the source of truth. */
+export type ActivityId =
+  | "silabas"
+  | "palabras"
+  | "armar"
+  | "trazar"
+  | "piano"
+  | "sonido"
+  | "espejo";
+
+/** Existing five activities plus the two canonical-content activities added in September 2026. */
+export const DEFAULT_ACTIVITIES: ActivityId[] = [
+  "silabas",
+  "palabras",
+  "armar",
+  "trazar",
+  "piano",
+  "sonido",
+  "espejo",
+];
+
+export type CatalogEntry =
+  | {
+      n: number;
+      kind: "intro";
+      title: string;
+      subtitle: string;
+      pages: string;
+      color: string;
+      activities?: ActivityId[];
+    }
+  | {
+      n: number;
+      kind: "vowel";
+      title: string;
+      subtitle: string;
+      pages: string;
+      color: string;
+      vowel: string;
+      lesson: VowelLesson;
+      activities?: ActivityId[];
+    }
+  | {
+      n: number;
+      kind: "consonant";
+      title: string;
+      subtitle: string;
+      pages: string;
+      color: string;
+      letter: string;
+      data: ConsonantLessonData;
+      activities?: ActivityId[];
+    };
+
+const consonants = consonantsData as unknown as ConsonantLessonData[];
+
+const VOWEL_LESSON_NUMBER: Record<string, number> = { o: 2, a: 3, e: 4, i: 5, u: 6 };
+const VOWEL_PAGES: Record<string, string> = {
+  o: "4-6",
+  a: "7-9",
+  e: "10-12",
+  i: "13-15",
+  u: "16-18",
+};
+
+function vowelEntry(v: VowelLesson): CatalogEntry {
+  const n = VOWEL_LESSON_NUMBER[v.vowel] ?? 99;
+  return {
+    n,
+    kind: "vowel",
+    title: `Vocal ${v.vowel.toUpperCase()} ${v.vowel}`,
+    subtitle: v.characterName,
+    pages: VOWEL_PAGES[v.vowel] ?? "",
+    color: getLessonAccent(n),
+    vowel: v.vowel,
+    lesson: v,
+  };
+}
+
+// Lección 1 remains a lighter introduction, but now exposes the two new
+// mechanics using only the same canonical vowels/illustrations already on it.
+const LECCION_1_ACTIVITIES: ActivityId[] = ["silabas", "palabras", "sonido", "espejo"];
+
+export const CATALOG: CatalogEntry[] = [
+  {
+    n: 1,
+    kind: "intro" as const,
+    title: "Introducción de las vocales",
+    subtitle: "Las cinco vocales: a, e, i, o, u",
+    pages: "1-3",
+    color: getLessonAccent(1),
+    activities: LECCION_1_ACTIVITIES,
+  },
+  ...vowelLessons.map(vowelEntry),
+  ...consonants.map<CatalogEntry>((c) => ({
+    n: c.lesson,
+    kind: "consonant",
+    title: `Letra ${c.letter.toUpperCase()} ${c.letter}`,
+    subtitle: `Sílabas: ${c.syllables.join(" · ")}`,
+    pages: c.pages,
+    color: getLessonAccent(c.lesson),
+    letter: c.letter,
+    data: c,
+  })),
+].sort((a, b) => a.n - b.n);
+
+export const TOTAL_LESSONS = CATALOG.length;
+
+/**
+ * Canonical vocabulary that already has authentic artwork, limited to the
+ * current lesson and every lesson taught before it. Never includes a later
+ * lesson's words, so an activity can never preview material the child has
+ * not been taught yet.
+ */
+export function getCanonicalArtPool(
+  lessonNumber: number,
+): { word: string; illustrationSrc?: string }[] {
+  return CATALOG.filter((entry) => entry.n <= lessonNumber)
+    .flatMap((entry) => {
+      if (entry.kind === "vowel") return entry.lesson.vocab;
+      if (entry.kind === "consonant") return entry.data.vocab;
+      return [];
+    })
+    .filter((word) => Boolean(word.illustrationSrc))
+    .map((word) => ({ word: word.word, illustrationSrc: word.illustrationSrc }));
+}

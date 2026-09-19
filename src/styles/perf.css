@@ -1,0 +1,135 @@
+/* Performance & Diagnostics Styles — La Cartilla de Gretel */
+
+/* 1. Error Boundary recovery layouts */
+.perf-error-boundary-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: var(--bg-color, #fdfcfa);
+  color: var(--text-color, #1c1917);
+  font-family: var(--font-family, sans-serif);
+  text-align: center;
+}
+
+.perf-error-boundary-card {
+  max-width: 480px;
+  background-color: #ffffff;
+  border: 3px double #ef4444; /* Alert border */
+  border-radius: 1.5rem;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+}
+
+.theme-dark .perf-error-boundary-card {
+  background-color: #1e293b;
+  border-color: #f87171;
+}
+
+.perf-error-boundary-icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 1.25rem;
+  color: #ef4444;
+}
+
+.perf-error-boundary-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0 0 0.5rem 0;
+  color: #991b1b;
+}
+
+.theme-dark .perf-error-boundary-title {
+  color: #f87171;
+}
+
+.perf-error-boundary-description {
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: #4b5563;
+  margin: 0 0 1.5rem 0;
+}
+
+.theme-dark .perf-error-boundary-description {
+  color: #cbd5e1;
+}
+
+.perf-error-boundary-btn-row {
+  display: flex;
+  justify-content: center;
+  gap: 0.85rem;
+}
+
+/* 2. Diagnostics Overlay Panel */
+.perf-diag-overlay {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  border-radius: 1.25rem;
+  color: #f8fafc;
+  font-family: monospace;
+  font-size: 0.72rem;
+  padding: 0.75rem 1rem;
+  z-index: 999999;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  max-width: 320px;
+  pointer-events: auto;
+}
+
+.perf-diag-title {
+  font-weight: bold;
+  color: #fbbf24;
+  margin-bottom: 0.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.perf-diag-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+}
+
+.perf-diag-metric-pass {
+  color: #34d399;
+  font-weight: bold;
+}
+
+.perf-diag-metric-fail {
+  color: #f87171;
+  font-weight: bold;
+}
+
+/* 3. Image blur-up transition layouts */
+.image-optimized-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-optimized-blur {
+  filter: blur(10px);
+  transform: scale(1.05);
+  transition: opacity 0.4s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-optimized-loaded {
+  opacity: 1;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.image-optimized-loading {
+  opacity: 0;
+}

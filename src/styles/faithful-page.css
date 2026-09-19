@@ -1,0 +1,686 @@
+/* Faithful page — the book's signature "trim", identical on every page.
+ * White paper, wavy teal left sidebar, teal diamond page number, "Lección N"
+ * footer. Used by the student CRM view, student workbook, and teacher flipbook
+ * so all three match exactly. Tokens live in styles.css (:root).
+ */
+
+.faithful-page {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 612 / 792; /* US-Letter, matches the printed book trim */
+  background:
+    radial-gradient(140% 100% at 15% 0%, rgba(95, 167, 119, 0.05), transparent 55%),
+    var(--book-paper);
+  color: var(--book-ink);
+  font-family: var(--font-book-faithful);
+  border: 1px solid rgba(95, 167, 119, 0.22);
+  border-radius: 12px;
+  overflow: hidden;
+  container-type: inline-size;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.6) inset,
+    0 1px 2px rgba(31, 41, 55, 0.04),
+    0 8px 24px -12px rgba(31, 41, 55, 0.18),
+    0 2px 8px -4px rgba(95, 167, 119, 0.12);
+}
+
+/* Student workbook only (garden={true}, tied to FaithfulPageRenderer's
+ * `interactive` flag) — the page paper gets real painted garden art from
+ * the book's source painting as a soft background layer; two small real-art
+ * corner flourishes anchor the bottom. Teacher preview surfaces never pass
+ * `garden`, so they stay pure white, unchanged.
+ *
+ * --garden-page-bg: CSS custom property for the painting URL, set here to
+ * the interim gretel-authentic.jpg (full garden scene). Override per-lesson
+ * via inline style on PageFrame once dedicated lesson backgrounds arrive. */
+.faithful-page--garden {
+  --garden-page-bg: url("/art/hd/gretel-authentic.jpg");
+  background:
+    url("/cartilla/images/garden/grass-left.webp") left bottom / 18% auto no-repeat,
+    url("/cartilla/images/garden/grass-right.webp") right bottom / 18% auto no-repeat,
+    linear-gradient(180deg, var(--book-paper) 60%, #eef4de 100%);
+  /* Kid's pencil cursor on the student page only (--garden is never passed
+   * on teacher preview surfaces — see the comment above this rule). Hotspot
+   * (2, 34) lands on the pencil's graphite tip. */
+  cursor: url("/cartilla/images/ui/pencil-cursor.svg") 2 34, pointer;
+}
+/* The painted garden layer — sits above the gradient but below all content.
+ * Positioned to show the lower garden/foliage area of the painting rather
+ * than Gretel's figure. Blurred + low-opacity so exercises stay readable. */
+.faithful-page--garden::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--garden-page-bg);
+  background-size: cover;
+  background-position: center 68%;
+  /* Richer but subtle (owner-approved 7/2026): more colour presence than the
+   * old washed-out 0.22/blur-2px/desat-0.8, while a white content panel keeps
+   * the exercises fully readable on top (see .faithful-page__body below). */
+  opacity: 0.4;
+  filter: blur(0.5px) saturate(1.05) brightness(1.04);
+  pointer-events: none;
+  z-index: 0;
+}
+.faithful-page--garden .faithful-page__body {
+  position: relative;
+  z-index: 1;
+}
+
+/* Wavy teal sidebar down the left edge */
+.faithful-page__sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 7%;
+  min-width: 34px;
+  pointer-events: none;
+  color: var(--book-teal); /* SVG fill=currentColor */
+  filter: drop-shadow(1px 0 2px rgba(31, 41, 55, 0.08));
+}
+.faithful-page__sidebar svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Content area — clears the sidebar */
+.faithful-page__body {
+  position: absolute;
+  inset: 0;
+  padding: 6% 7% 9% 12%;
+  display: flex;
+  flex-direction: column;
+  gap: 3cqw;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--book-teal) transparent;
+}
+.faithful-page__body::-webkit-scrollbar {
+  width: 6px;
+}
+.faithful-page__body::-webkit-scrollbar-track {
+  background: transparent;
+}
+.faithful-page__body::-webkit-scrollbar-thumb {
+  background-color: var(--book-teal);
+  border-radius: 999px;
+}
+
+/* Teal diamond page number, bottom-left */
+.faithful-page__pagenum {
+  position: absolute;
+  left: 2.2%;
+  bottom: 2.5%;
+  width: 6.5cqw;
+  height: 6.5cqw;
+  min-width: 22px;
+  min-height: 22px;
+  transform: rotate(45deg);
+  background: linear-gradient(160deg, var(--book-teal), var(--book-teal-deep));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px -2px rgba(61, 122, 92, 0.55);
+}
+.faithful-page__pagenum span {
+  transform: rotate(-45deg);
+  color: #fff;
+  font-weight: 700;
+  font-size: 3.2cqw;
+  line-height: 1;
+}
+
+/* "Lección N" footer, bottom-right */
+.faithful-page__lesson {
+  position: absolute;
+  right: 5%;
+  bottom: 3.2%;
+  color: var(--book-ink-soft);
+  font-size: 3cqw;
+  font-family: var(--font-book-faithful);
+}
+
+/* ── Region typography ───────────────────────────────────────────── */
+.fp-region--title {
+  font-family: var(--font-book-title);
+  font-weight: 700;
+  font-size: 6.5cqw;
+  color: var(--book-ink);
+  line-height: 1.1;
+}
+.fp-region--instruction {
+  font-size: 4.2cqw;
+  color: var(--book-ink);
+}
+.fp-region--instruction .fp-label {
+  font-weight: 700;
+}
+.fp-instruction__escuchar {
+  margin-left: 0.5em;
+  vertical-align: middle;
+}
+.fp-region--vocab-grid,
+.fp-region--sentence-line,
+.fp-region--footer {
+  font-size: 4cqw;
+  color: var(--book-ink);
+}
+.fp-region--reading-sentences {
+  font-size: 4.2cqw;
+  color: var(--book-ink);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+}
+.fp-region--footer {
+  color: var(--book-ink-soft);
+  margin-top: auto;
+}
+.fp-region--tracing-line {
+  font-family: var(--font-book-hand);
+  font-size: 8cqw;
+  letter-spacing: 0.25em;
+  color: var(--book-ink-soft);
+  border-bottom: 2px solid var(--book-ink);
+  padding-bottom: 2cqw;
+}
+.fp-region--syllable-bubble {
+  font-weight: 700;
+  font-size: 5cqw;
+  color: var(--book-teal-deep);
+}
+
+/* ── Illustration slot ───────────────────────────────────────────── */
+.fp-illustration {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5cqw;
+}
+.fp-illustration img {
+  max-width: 32cqw;
+  max-height: 32cqw;
+  object-fit: contain;
+  border-radius: 8px;
+  /* Born-digital depth: a soft warm shadow so the illustration reads as a
+   * physical element lifting off the cream page rather than printed flat.
+   * drop-shadow (not box-shadow) hugs the artwork's own edges. */
+  filter: drop-shadow(0 6px 10px rgba(61, 45, 30, 0.2));
+}
+.fp-illustration__caption {
+  font-size: 3.4cqw;
+  color: var(--book-ink);
+  text-transform: capitalize;
+}
+
+/* Explicit "art pending" marker — shown ONLY when a faithful crop is not yet
+ * available. Never an invented drawing. Makes any missing art obvious. */
+.fp-art-pending {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1cqw;
+  width: 30cqw;
+  height: 30cqw;
+  border: 2px dashed var(--book-teal);
+  border-radius: 10px;
+  background: rgba(95, 167, 119, 0.06);
+  color: var(--book-teal-deep);
+  font-size: 2.8cqw;
+  text-align: center;
+  padding: 2cqw;
+}
+.fp-art-pending__word {
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+/* Ruled handwriting line: solid baseline + dashed teal midline, optional model */
+.fp-writing-line {
+  display: flex;
+  align-items: flex-end;
+  gap: 2cqw;
+  margin: 1.5cqw 0;
+}
+.fp-writing-line__model {
+  font-family: var(--font-book-faithful);
+  font-size: 8cqw;
+  line-height: 1;
+  color: var(--book-teal);
+  font-weight: 700;
+}
+.fp-writing-line__rule {
+  flex: 1;
+  height: 9cqw;
+  border-bottom: 2px solid var(--book-ink);
+  background-image: linear-gradient(var(--book-guide), var(--book-guide));
+  background-repeat: repeat-x;
+  background-size: 12px 2px;
+  background-position: left 55%;
+}
+
+/* Interactive letter tracing (student workbook only) — replaces the static
+ * ruled line for model letters that have a faithful stroke template. */
+.fp-writing-line--trace {
+  display: block;
+  margin: 2cqw 0;
+}
+.fp-trace {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5cqw;
+  width: 100%;
+}
+.fp-trace__svg {
+  width: 26cqw;
+  max-width: 130px;
+  aspect-ratio: 100 / 120;
+  touch-action: none;
+  cursor: crosshair;
+  background: rgba(95, 167, 119, 0.05);
+  border: 1.5px solid rgba(95, 167, 119, 0.28);
+  border-radius: 10px;
+}
+.fp-trace[data-status="done"] .fp-trace__svg {
+  background: rgba(52, 211, 153, 0.12);
+  border-color: rgba(52, 211, 153, 0.5);
+}
+.fp-trace__footer {
+  display: flex;
+  align-items: center;
+  gap: 2cqw;
+  width: 26cqw;
+  max-width: 130px;
+}
+.fp-trace__progress {
+  flex: 1;
+  height: 6px;
+  background: rgba(31, 41, 55, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.fp-trace__progress-fill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.15s ease-out;
+}
+.fp-trace__hint {
+  font-family: var(--font-book-faithful);
+  font-size: 3cqw;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.fp-trace__hint--off { color: #e11d48; }
+.fp-trace__hint--ok { color: #059669; }
+.fp-trace__reset {
+  border: none;
+  background: rgba(31, 41, 55, 0.06);
+  color: var(--book-ink-soft);
+  border-radius: 8px;
+  width: 22px;
+  height: 22px;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+}
+.fp-trace__reset:hover { background: rgba(31, 41, 55, 0.12); }
+@media (prefers-reduced-motion: reduce) {
+  .fp-trace__progress-fill { transition: none; }
+}
+
+/* Empty draw box for "haz un dibujo" */
+.fp-draw-box {
+  border: 2px solid var(--book-teal);
+  border-radius: 6px;
+  min-height: 30cqw;
+  display: flex;
+  align-items: flex-start;
+  padding: 2cqw;
+}
+.fp-draw-box__hint {
+  font-size: 2.6cqw;
+  color: var(--book-ink-soft);
+}
+
+/* Interactive draw box — real freehand crayon drawing, student workbook only */
+.fp-draw-box--interactive {
+  flex-direction: column;
+  gap: 1.5cqw;
+  padding: 1.5cqw;
+}
+.fp-draw-box__canvas {
+  width: 100%;
+  flex: 1;
+  min-height: 24cqw;
+  background: #fff;
+  border-radius: 4px;
+  touch-action: none;
+  cursor: crosshair;
+}
+.fp-draw-box__toolbar {
+  display: flex;
+  align-items: center;
+  gap: 1.5cqw;
+  flex-wrap: wrap;
+}
+.fp-draw-box__colors {
+  display: flex;
+  gap: 0.8cqw;
+}
+.fp-draw-box__color-swatch {
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.fp-draw-box__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5cqw;
+  border: none;
+  background: rgba(31, 41, 55, 0.06);
+  color: var(--book-ink-soft);
+  border-radius: 8px;
+  padding: 0.6cqw 1cqw;
+  font-size: 2.2cqw;
+  cursor: pointer;
+}
+.fp-draw-box__btn:hover { background: rgba(31, 41, 55, 0.12); }
+.fp-draw-box__btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.fp-draw-box__btn--done {
+  background: var(--book-teal);
+  color: #fff;
+  margin-left: auto;
+}
+.fp-draw-box__btn--done:hover { background: var(--book-teal); filter: brightness(1.1); }
+.fp-draw-box__done {
+  margin-left: auto;
+  font-weight: 700;
+  color: #059669;
+  font-size: 2.4cqw;
+}
+
+/* Picture grid ("marca con una x", matching, etc.) */
+.fp-picture-grid {
+  display: grid;
+  gap: 2cqw;
+}
+.fp-picture-grid__cell {
+  aspect-ratio: 1 / 1;
+  border: 1.5px solid rgba(95, 167, 119, 0.5);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.86);
+  /* Warm two-layer card lift (born-digital depth) — a tight contact shadow
+   * plus a soft ambient one, tinted warm to sit naturally on the cream. */
+  box-shadow:
+    0 2px 4px -2px rgba(61, 45, 30, 0.12),
+    0 10px 20px -8px rgba(61, 45, 30, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 7%;
+}
+.fp-picture-grid__cell img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.fp-picture-grid__cell .fp-art-pending {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  font-size: 2.2cqw;
+}
+
+/* Syllable-match ("Encierra en un círculo la sílaba correspondiente") */
+.fp-syllable-match {
+  display: flex;
+  gap: 3cqw;
+  align-items: flex-start;
+}
+.fp-syllable-match__syllable {
+  font-weight: 700;
+  font-size: 5.5cqw;
+  color: var(--book-teal-deep);
+  min-width: 10cqw;
+}
+.fp-syllable-match__rows {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2cqw;
+  flex: 1;
+}
+.fp-syllable-match__row {
+  display: flex;
+  gap: 3cqw;
+}
+.fp-syllable-match__word {
+  font-size: 3.6cqw;
+  color: var(--book-ink);
+}
+
+/* Fill-in-blank ("Completa las palabras con la sílaba correcta") */
+.fp-fill-in-blank {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3cqw;
+}
+.fp-fill-in-blank__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8cqw;
+  min-width: 22cqw;
+}
+.fp-fill-in-blank__wordbox {
+  border: 1.5px solid var(--book-teal);
+  border-radius: 4px;
+  padding: 0.8cqw 1.5cqw;
+  font-size: 3.6cqw;
+  font-weight: 700;
+  color: var(--book-ink);
+  text-align: center;
+  align-self: flex-start;
+}
+.fp-fill-in-blank__blank {
+  font-size: 3.6cqw;
+  color: var(--book-ink);
+}
+.fp-fill-in-blank__choices {
+  font-size: 3cqw;
+  color: var(--book-ink-soft);
+  border-top: 1px solid var(--book-ink-soft);
+  padding-top: 0.6cqw;
+}
+
+/* Vowel line-match ("Traza una línea desde la vocal Xx hasta el dibujo...") —
+ * 3x3 grid: 8 illustration cells around a center cell showing the vowel pair. */
+.fp-vowel-match {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2cqw;
+  flex: 1;
+}
+.fp-vowel-match__cell {
+  aspect-ratio: 1 / 1;
+  border: 1.5px solid rgba(95, 167, 119, 0.55);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow:
+    0 1px 3px -1px rgba(61, 45, 30, 0.12),
+    0 6px 14px -6px rgba(61, 45, 30, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 1cqw;
+}
+.fp-vowel-match__cell img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.fp-vowel-match__cell .fp-art-pending {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  font-size: 2.2cqw;
+}
+.fp-vowel-match__cell--example {
+  border-style: dashed;
+  border-width: 2px;
+}
+.fp-vowel-match__letters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 8cqw;
+  color: var(--book-teal);
+}
+
+/* Vowel pick-one ("Presiona el dibujo que comienza con la vocal del recuadro")
+ * — one row per vowel: big letter + 3 candidate picture cells. */
+.fp-vowel-pick {
+  display: flex;
+  flex-direction: column;
+  gap: 2cqw;
+  flex: 1;
+}
+.fp-vowel-pick__row {
+  display: grid;
+  grid-template-columns: 1fr repeat(3, 1fr);
+  gap: 1.5cqw;
+  align-items: stretch;
+}
+.fp-vowel-pick__letter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 6cqw;
+  color: var(--book-teal);
+}
+.fp-vowel-pick__cell {
+  aspect-ratio: 1 / 1;
+  border: 1.5px solid rgba(95, 167, 119, 0.55);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow:
+    0 1px 3px -1px rgba(61, 45, 30, 0.12),
+    0 6px 14px -6px rgba(61, 45, 30, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 1cqw;
+}
+.fp-vowel-pick__cell img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.fp-vowel-pick__cell .fp-art-pending {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  font-size: 2.2cqw;
+}
+
+/* Vowel match-all ("Traza una línea de la vocal al dibujo que le
+ * corresponde") — all 5 vowels, each 1:1 paired with its picture. */
+.fp-vowel-match-all {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5cqw;
+  flex: 1;
+}
+.fp-vowel-match-all__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2cqw;
+  align-items: center;
+}
+.fp-vowel-match-all__letter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 6cqw;
+  color: var(--book-teal);
+}
+.fp-vowel-match-all__cell {
+  aspect-ratio: 2 / 1;
+  border: 1.5px solid rgba(95, 167, 119, 0.55);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow:
+    0 1px 3px -1px rgba(61, 45, 30, 0.12),
+    0 6px 14px -6px rgba(61, 45, 30, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 1cqw;
+}
+.fp-vowel-match-all__cell img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Ambient float for every static illustration cell (teacher flipbook/paginas
+ * preview and any student page not covered by an interactive component) —
+ * same keyframe/timing as the interactive cells' fpIxFloat
+ * (interactive-exercises.css), duplicated here rather than imported so this
+ * teacher-reachable stylesheet never depends on a file scoped "student
+ * workbook only". Per-cell delay comes from --float-delay (see
+ * FaithfulPageRenderer.tsx's floatDelay helper) so a grid never moves in
+ * lockstep. */
+@keyframes fpFaithfulFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-2.5px) rotate(1deg); }
+}
+.fp-picture-grid__cell img,
+.fp-vowel-match__cell img,
+.fp-vowel-pick__cell img,
+.fp-vowel-match-all__cell img {
+  animation: fpFaithfulFloat 5.5s ease-in-out infinite;
+  animation-delay: var(--float-delay, 0s);
+}
+@media (prefers-reduced-motion: reduce) {
+  .fp-picture-grid__cell img,
+  .fp-vowel-match__cell img,
+  .fp-vowel-pick__cell img,
+  .fp-vowel-match-all__cell img {
+    animation: none !important;
+  }
+}
+
+.fp-vowel-match-all__cell .fp-art-pending {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  font-size: 2.2cqw;
+}
+
+/* Neutral placeholder when a whole page has no verified layout yet and no
+ * fallback was supplied. */
+.faithful-page--pending .faithful-page__body {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--book-ink-soft);
+}

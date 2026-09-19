@@ -1,0 +1,1884 @@
+[
+  {
+    "slug": "abrigo",
+    "word": "abrigo",
+    "lessonNumber": 1,
+    "pageNumber": 1,
+    "src": "/cartilla/art/faithful/leccion-1/abrigo.webp",
+    "source": "public/cartilla/art/restored/workbook/page-003.png",
+    "cropBox": [
+      230,
+      800,
+      440,
+      520
+    ],
+    "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
+    "note": "Exact lossless student-workbook drawing. Exhaustive 62-page teacher search confirmed no identical flip-chart counterpart."
+  },
+  {
+    "slug": "globo",
+    "word": "globo",
+    "lessonNumber": 1,
+    "pageNumber": 2,
+    "src": "/cartilla/art/faithful/leccion-1/globo.webp",
+    "source": "public/cartilla/art/restored/workbook/page-004.png",
+    "cropBox": [
+      1740,
+      2985,
+      580,
+      515
+    ],
+    "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
+    "note": "Exact lossless student-workbook drawing. Exhaustive 62-page teacher search confirmed no identical flip-chart counterpart."
+  },
+  {
+    "slug": "abeja",
+    "word": "abeja",
+    "lessonNumber": null,
+    "pageNumber": 7,
+    "src": "/cartilla/art/faithful/vocal-a/abeja.webp",
+    "source": "public/cartilla/art/restored/workbook/page-009.png",
+    "cropBox": [
+      720,
+      1420,
+      580,
+      560
+    ],
+    "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
+    "note": "Exact lossless student-workbook drawing. Exhaustive 62-page teacher search confirmed no identical flip-chart counterpart."
+  },
+  {
+    "slug": "oruga",
+    "word": "oruga",
+    "lessonNumber": null,
+    "pageNumber": 7,
+    "src": "/cartilla/art/faithful/vocal-o/oruga.webp",
+    "source": "public/cartilla/art/restored/workbook/page-009.png",
+    "cropBox": [
+      720,
+      800,
+      580,
+      570
+    ],
+    "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
+    "note": "Exact lossless student-workbook drawing. Exhaustive 62-page teacher search confirmed no identical flip-chart counterpart."
+  },
+  {
+    "slug": "aguja",
+    "word": "aguja",
+    "lessonNumber": null,
+    "pageNumber": 7,
+    "src": "/cartilla/art/faithful/vocal-a/aguja.webp",
+    "source": "public/cartilla/art/restored/workbook/page-009.png",
+    "cropBox": [
+      1350,
+      2650,
+      575,
+      590
+    ],
+    "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
+    "note": "Exact lossless student-workbook drawing. Exhaustive 62-page teacher search confirmed no identical flip-chart counterpart."
+  },
+  {
+    "slug": "iglu",
+    "word": "iglú",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-i/iglu.webp",
+    "source": "public/cartilla/art/hd/flipchart/page-007.jpg",
+    "cropBox": [
+      960,
+      1530,
+      600,
+      570
+    ],
+    "provenanceStatus": "VERIFIED-AUTHENTIC-FLIPCHART-2026-08-08",
+    "note": "Exact authentic colored iglú crop from teacher flip-chart page 7. No generated replacement or recoloring.",
+    "sourceFlipchartPage": 7
+  },
+  {
+    "slug": "oso",
+    "word": "oso",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-o/oso.webp",
+    "sourceFlipchartPage": "o-page-3.jpg",
+    "cropBox": [
+      41,
+      2275,
+      750,
+      554
+    ]
+  },
+  {
+    "slug": "estrella",
+    "word": "estrella",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-e/estrella.webp",
+    "sourceFlipchartPage": "e-page-11.jpg",
+    "cropBox": [
+      1115,
+      1618,
+      17,
+      12
+    ]
+  },
+  {
+    "slug": "abanico",
+    "word": "abanico",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-a/abanico.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": [
+      190,
+      1470,
+      550,
+      515
+    ],
+    "source": "public/cartilla/images/source/a/a-page-4.jpg",
+    "provenanceStatus": "FIXED-2026-WRONG-CROP",
+    "note": "Was showing the ala (wings) crop by mistake. Re-cropped from the real source page a-page-4.jpg, top-left cell (the fan next to anillo/araña, matching the printed abanico/anillo/araña/ala/aro/Ana grid)."
+  },
+  {
+    "slug": "alas",
+    "word": "alas",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-a/alas.webp",
+    "sourceFlipchartPage": "a-page-5.jpg",
+    "cropBox": [
+      1045,
+      917,
+      29,
+      38
+    ]
+  },
+  {
+    "slug": "arana",
+    "word": "araña",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-a/arana.webp",
+    "sourceFlipchartPage": "a-page-4.jpg",
+    "cropBox": [
+      1330,
+      2785,
+      105,
+      9
+    ]
+  },
+  {
+    "slug": "elefante",
+    "word": "elefante",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-e/elefante.webp",
+    "sourceFlipchartPage": "e-page-5.jpg",
+    "cropBox": [
+      274,
+      1387,
+      1228,
+      811
+    ]
+  },
+  {
+    "slug": "erizo",
+    "word": "erizo",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-e/erizo.webp",
+    "sourceFlipchartPage": "e-page-11.jpg",
+    "cropBox": [
+      210,
+      598,
+      195,
+      131
+    ]
+  },
+  {
+    "slug": "escalera",
+    "word": "escalera",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-e/escalera.webp",
+    "sourceFlipchartPage": "e-page-10.jpg",
+    "cropBox": [
+      230,
+      640,
+      60,
+      115
+    ]
+  },
+  {
+    "slug": "indio",
+    "word": "indio",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-i/indio.webp",
+    "sourceFlipchartPage": "i-page-6.jpg",
+    "cropBox": [
+      1570,
+      1526,
+      773,
+      472
+    ]
+  },
+  {
+    "slug": "insecto",
+    "word": "insecto",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-i/insecto.webp",
+    "sourceFlipchartPage": "i-page-15.jpg",
+    "cropBox": [
+      111,
+      346,
+      3,
+      3
+    ]
+  },
+  {
+    "slug": "isla",
+    "word": "isla",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-i/isla.webp",
+    "sourceFlipchartPage": "i-page-13.jpg",
+    "cropBox": [
+      687,
+      887,
+      2,
+      6
+    ]
+  },
+  {
+    "slug": "ocho",
+    "word": "ocho",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-o/ocho.webp",
+    "sourceFlipchartPage": "o-page-5.jpg",
+    "cropBox": [
+      116,
+      1524,
+      4,
+      8
+    ]
+  },
+  {
+    "slug": "oreja",
+    "word": "oreja",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-o/oreja.webp",
+    "sourceFlipchartPage": "o-page-3.jpg",
+    "cropBox": [
+      1188,
+      2438,
+      11,
+      12
+    ]
+  },
+  {
+    "slug": "unicornio",
+    "word": "unicornio",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-u/unicornio.webp",
+    "sourceFlipchartPage": "u-page-17.jpg",
+    "cropBox": [
+      794,
+      739,
+      320,
+      229
+    ]
+  },
+  {
+    "slug": "espejo",
+    "word": "espejo",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-e/espejo.webp",
+    "sourceFlipchartPage": "e-page-5.jpg",
+    "cropBox": [
+      827,
+      2527,
+      256,
+      106
+    ]
+  },
+  {
+    "slug": "uno",
+    "word": "uno",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-u/uno.webp",
+    "sourceFlipchartPage": "u-page-18.jpg",
+    "cropBox": [
+      68,
+      1556,
+      18,
+      27
+    ]
+  },
+  {
+    "slug": "oveja",
+    "word": "oveja",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-o/oveja.webp",
+    "sourceFlipchartPage": "o-page-3.jpg",
+    "cropBox": [
+      1529,
+      1553,
+      807,
+      511
+    ]
+  },
+  {
+    "slug": "avion",
+    "word": "avión",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-a/avion.webp",
+    "sourceFlipchartPage": "a-page-6.jpg",
+    "cropBox": [
+      1168,
+      1572,
+      3,
+      5
+    ]
+  },
+  {
+    "slug": "aro",
+    "word": "aro",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-a/aro.webp",
+    "sourceFlipchartPage": 5,
+    "cropBox": [
+      870,
+      2580,
+      780,
+      660
+    ],
+    "source": "public/cartilla/art/hd/flipchart/page-005.jpg",
+    "provenanceStatus": "VERIFIED-AUTHENTIC-FLIPCHART-2026-08-08",
+    "note": "Exact authentic colored aro crop from teacher flip-chart page 5. The legacy student cells captioned remolino were verified as the same aro drawing and now reference this asset."
+  },
+  {
+    "slug": "iman",
+    "word": "imán",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-i/iman.webp",
+    "sourceFlipchartPage": "i-page-6.jpg",
+    "cropBox": [
+      32,
+      1311,
+      781,
+      557
+    ]
+  },
+  {
+    "slug": "olla",
+    "word": "olla",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-o/olla.webp",
+    "sourceFlipchartPage": "o-page-3.jpg",
+    "cropBox": [
+      50,
+      1338,
+      798,
+      517
+    ]
+  },
+  {
+    "slug": "uvas",
+    "word": "uvas",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-u/uvas.webp",
+    "sourceFlipchartPage": "u-page-7.jpg",
+    "cropBox": [
+      838,
+      1320,
+      738,
+      495
+    ]
+  },
+  {
+    "slug": "iglesia",
+    "word": "iglesia",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-i/iglesia.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null,
+    "provenanceStatus": "PROVENANCE-UNKNOWN"
+  },
+  {
+    "slug": "ojos",
+    "word": "ojos",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-1/ojos.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null,
+    "provenanceStatus": "RECOVERED-2026-FROM-GIT-HISTORY-BLOB-cf0d6c7d"
+  },
+  {
+    "slug": "escoba",
+    "word": "escoba",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-e/escoba.webp",
+    "source": "public/cartilla/images/teacher-flipchart/teacher-page-03.jpg",
+    "sourceFlipchartPage": "teacher-page-03.jpg",
+    "cropBox": [
+      478,
+      744,
+      172,
+      220
+    ],
+    "provenanceStatus": "FIXED-2026-WRONG-PAGE",
+    "note": "Old sourceFlipchartPage (e-page-10.jpg) was a grayscale workbook exercise page, not a colored vocab source — that's why the old crop QA-failed for background contamination. Re-cropped from the real colored teacher flipchart page 3 ('Las hermanitas vocales'), the labeled 'escoba' cell under the e. The lime-green panel is part of the printed illustration, not contamination."
+  },
+  {
+    "slug": "casa",
+    "word": "casa",
+    "lessonNumber": 22,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-19-c/casa.webp",
+    "sourceFlipchartPage": "c-page-52.jpg",
+    "cropBox": [
+      1540,
+      1300,
+      660,
+      540
+    ],
+    "sourceNote": "house with trees (verify existing)"
+  },
+  {
+    "slug": "ola",
+    "word": "ola",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-1/ola.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null,
+    "provenanceStatus": "PROVENANCE-UNKNOWN"
+  },
+  {
+    "slug": "pajaro",
+    "word": "pájaro",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-1/pajaro.webp",
+    "sourceFlipchartPage": "page-003.jpg",
+    "cropBox": [
+      530,
+      1380,
+      360,
+      360
+    ],
+    "provenanceStatus": "BACKFILLED-2026-FROM-FLIPCHART-PAGE-003"
+  },
+  {
+    "slug": "carro",
+    "word": "carro",
+    "lessonNumber": 18,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-18-rr/carro.webp",
+    "sourceFlipchartPage": "rr-page-40.jpg",
+    "cropBox": [
+      230,
+      1492,
+      574,
+      398
+    ]
+  },
+  {
+    "slug": "dulce",
+    "word": "dulce",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-1/dulce.webp",
+    "sourceFlipchartPage": "page-003.jpg",
+    "cropBox": [
+      190,
+      200,
+      620,
+      540
+    ],
+    "provenanceStatus": "BACKFILLED-2026-FROM-FLIPCHART-PAGE-003"
+  },
+  {
+    "slug": "libro",
+    "word": "libro",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-1/libro.webp",
+    "sourceFlipchartPage": "page-003.jpg",
+    "cropBox": [
+      180,
+      50,
+      620,
+      540
+    ],
+    "provenanceStatus": "BACKFILLED-2026-FROM-FLIPCHART-PAGE-003"
+  },
+  {
+    "slug": "maiz",
+    "word": "maíz",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-1/maiz.webp",
+    "sourceFlipchartPage": "a-page-4.jpg",
+    "cropBox": [
+      850,
+      2549,
+      448,
+      319
+    ]
+  },
+  {
+    "slug": "arbol",
+    "word": "árbol",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-a/arbol.webp",
+    "sourceFlipchartPage": "a-page-5.jpg",
+    "cropBox": [
+      403,
+      751,
+      222,
+      160
+    ]
+  },
+  {
+    "slug": "ardilla",
+    "word": "ardilla",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-a/ardilla.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null,
+    "provenanceStatus": "PROVENANCE-UNKNOWN"
+  },
+  {
+    "slug": "escuela",
+    "word": "escuela",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-e/escuela.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null,
+    "provenanceStatus": "PROVENANCE-UNKNOWN"
+  },
+  {
+    "slug": "igual",
+    "word": "igual",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-i/igual.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null,
+    "provenanceStatus": "PROVENANCE-UNKNOWN"
+  },
+  {
+    "slug": "iguana",
+    "word": "iguana",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-i/iguana.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null,
+    "provenanceStatus": "PROVENANCE-UNKNOWN"
+  },
+  {
+    "slug": "invierno",
+    "word": "invierno",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-i/invierno.webp",
+    "sourceFlipchartPage": "i-page-13.jpg",
+    "cropBox": [
+      941,
+      581,
+      140,
+      237
+    ]
+  },
+  {
+    "slug": "uña",
+    "word": "uña",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-u/uña.webp",
+    "sourceFlipchartPage": "u-page-17.jpg",
+    "cropBox": [
+      128,
+      1121,
+      240,
+      216
+    ]
+  },
+  {
+    "slug": "anillo",
+    "word": "anillo",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-a/anillo.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null,
+    "provenanceStatus": "PROVENANCE-UNKNOWN"
+  },
+  {
+    "slug": "manzana",
+    "word": "manzana",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-1/manzana.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null,
+    "provenanceStatus": "PROVENANCE-UNKNOWN"
+  },
+  {
+    "slug": "pera",
+    "word": "pera",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-1/pera.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null,
+    "provenanceStatus": "PROVENANCE-UNKNOWN"
+  },
+  {
+    "slug": "taza",
+    "word": "taza",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-1/taza.webp",
+    "sourceFlipchartPage": null,
+    "cropBox": null,
+    "provenanceStatus": "PROVENANCE-UNKNOWN"
+  },
+  {
+    "slug": "uniforme",
+    "word": "uniforme",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-u/uniforme.webp",
+    "sourceFlipchartPage": "u-page-17.jpg",
+    "cropBox": [
+      79,
+      471,
+      247,
+      222
+    ]
+  },
+  {
+    "slug": "mama",
+    "word": "mamá",
+    "lessonNumber": 7,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-7-m/mama.webp",
+    "sourceFlipchartPage": "m-page-10.jpg",
+    "cropBox": [
+      231,
+      1095,
+      575,
+      398
+    ]
+  },
+  {
+    "slug": "mono",
+    "word": "mono",
+    "lessonNumber": 7,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-7-m/mono.webp",
+    "sourceFlipchartPage": "n-page-25.jpg",
+    "cropBox": [
+      1783,
+      1212,
+      406,
+      743
+    ]
+  },
+  {
+    "slug": "moto",
+    "word": "moto",
+    "lessonNumber": 7,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-7-m/moto.webp",
+    "sourceFlipchartPage": "m-page-10.jpg",
+    "cropBox": [
+      1381,
+      1095,
+      575,
+      398
+    ]
+  },
+  {
+    "slug": "mapa",
+    "word": "mapa",
+    "lessonNumber": 7,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-7-m/mapa.webp",
+    "sourceFlipchartPage": "m-page-10.jpg",
+    "cropBox": [
+      231,
+      1493,
+      575,
+      398
+    ]
+  },
+  {
+    "slug": "papa",
+    "word": "papá",
+    "lessonNumber": 8,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-8-p/papa.webp",
+    "sourceFlipchartPage": "p-page-11.jpg",
+    "cropBox": [
+      231,
+      1094,
+      575,
+      398
+    ]
+  },
+  {
+    "slug": "pez",
+    "word": "pez",
+    "lessonNumber": 1,
+    "pageNumber": 16,
+    "src": "/cartilla/art/faithful/leccion-1/pez.webp",
+    "sourceFlipchartPage": "u-page-16.jpg",
+    "cropBox": [
+      718,
+      350,
+      254,
+      235
+    ]
+  },
+  {
+    "slug": "pino",
+    "word": "pino",
+    "lessonNumber": 8,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-8-p/pino.webp",
+    "sourceFlipchartPage": "p-page-11.jpg",
+    "cropBox": [
+      1381,
+      1094,
+      575,
+      398
+    ]
+  },
+  {
+    "slug": "pulpo",
+    "word": "pulpo",
+    "lessonNumber": 8,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-8-p/pulpo.webp",
+    "sourceFlipchartPage": "p-page-11.jpg",
+    "cropBox": [
+      231,
+      1492,
+      575,
+      398
+    ]
+  },
+  {
+    "slug": "sapo",
+    "word": "sapo",
+    "lessonNumber": 9,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-9-s/sapo.webp",
+    "sourceFlipchartPage": "ss-page-14.jpg",
+    "cropBox": [
+      1689,
+      1454,
+      594,
+      501
+    ]
+  },
+  {
+    "slug": "sol",
+    "word": "sol",
+    "lessonNumber": 9,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-9-s/sol.webp",
+    "sourceFlipchartPage": "ss-page-14.jpg",
+    "cropBox": [
+      804,
+      1095,
+      574,
+      398
+    ]
+  },
+  {
+    "slug": "sopa",
+    "word": "sopa",
+    "lessonNumber": 9,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-9-s/sopa.webp",
+    "sourceFlipchartPage": "ss-page-14.jpg",
+    "cropBox": [
+      938,
+      1470,
+      516,
+      453
+    ]
+  },
+  {
+    "slug": "silla",
+    "word": "silla",
+    "lessonNumber": 9,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-9-s/silla.webp",
+    "sourceFlipchartPage": "ss-page-14.jpg",
+    "cropBox": [
+      230,
+      1493,
+      574,
+      398
+    ]
+  },
+  {
+    "slug": "tapa",
+    "word": "tapa",
+    "lessonNumber": 10,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-10-t/tapa.webp",
+    "sourceFlipchartPage": "t-page-17.jpg",
+    "cropBox": [
+      230,
+      1095,
+      574,
+      398
+    ]
+  },
+  {
+    "slug": "tomate",
+    "word": "tomate",
+    "lessonNumber": 10,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-10-t/tomate.webp",
+    "sourceFlipchartPage": "t-page-17.jpg",
+    "cropBox": [
+      804,
+      1095,
+      574,
+      398
+    ]
+  },
+  {
+    "slug": "tina",
+    "word": "tina",
+    "lessonNumber": 10,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-10-t/tina.webp",
+    "sourceFlipchartPage": "t-page-17.jpg",
+    "cropBox": [
+      1378,
+      1095,
+      574,
+      398
+    ]
+  },
+  {
+    "slug": "tulipan",
+    "word": "tulipán",
+    "lessonNumber": 10,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-10-t/tulipan.webp",
+    "sourceFlipchartPage": "t-page-17.jpg",
+    "cropBox": [
+      230,
+      1493,
+      574,
+      398
+    ]
+  },
+  {
+    "slug": "dado",
+    "word": "dado",
+    "lessonNumber": 11,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-11-d/dado.webp",
+    "sourceFlipchartPage": "d-page-19.jpg",
+    "cropBox": [
+      880,
+      1240,
+      630,
+      630
+    ]
+  },
+  {
+    "slug": "delfin",
+    "word": "delfín",
+    "lessonNumber": 11,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-11-d/delfin.webp",
+    "sourceFlipchartPage": "d-page-19.jpg",
+    "cropBox": [
+      803,
+      1095,
+      573,
+      398
+    ]
+  },
+  {
+    "slug": "dona",
+    "word": "dona",
+    "lessonNumber": 11,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-11-d/dona.webp",
+    "sourceFlipchartPage": "d-page-19.jpg",
+    "cropBox": [
+      1376,
+      1095,
+      573,
+      398
+    ]
+  },
+  {
+    "slug": "ducha",
+    "word": "ducha",
+    "lessonNumber": 11,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-11-d/ducha.webp",
+    "sourceFlipchartPage": "d-page-19.jpg",
+    "cropBox": [
+      230,
+      1493,
+      573,
+      398
+    ]
+  },
+  {
+    "slug": "luna",
+    "word": "luna",
+    "lessonNumber": 12,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-12-l/luna.webp",
+    "sourceFlipchartPage": "l-page-22.jpg",
+    "cropBox": [
+      230,
+      1094,
+      574,
+      398
+    ]
+  },
+  {
+    "slug": "lobo",
+    "word": "lobo",
+    "lessonNumber": 12,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-12-l/lobo.webp",
+    "sourceFlipchartPage": "l-page-22.jpg",
+    "cropBox": [
+      804,
+      1094,
+      574,
+      398
+    ]
+  },
+  {
+    "slug": "loro",
+    "word": "loro",
+    "lessonNumber": 12,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-12-l/loro.webp",
+    "sourceFlipchartPage": "l-page-22.jpg",
+    "cropBox": [
+      1378,
+      1094,
+      574,
+      398
+    ]
+  },
+  {
+    "slug": "lupa",
+    "word": "lupa",
+    "lessonNumber": 12,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-12-l/lupa.webp",
+    "sourceFlipchartPage": "l-page-22.jpg",
+    "cropBox": [
+      230,
+      1492,
+      574,
+      398
+    ]
+  },
+  {
+    "slug": "nariz",
+    "word": "nariz",
+    "lessonNumber": 13,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-13-n/nariz.webp",
+    "sourceFlipchartPage": "n-page-25.jpg",
+    "cropBox": [
+      230,
+      1095,
+      574,
+      398
+    ]
+  },
+  {
+    "slug": "nido",
+    "word": "nido",
+    "lessonNumber": 13,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-13-n/nido.webp",
+    "sourceFlipchartPage": "n-page-25.jpg",
+    "cropBox": [
+      179,
+      1470,
+      556,
+      399
+    ]
+  },
+  {
+    "slug": "nube",
+    "word": "nube",
+    "lessonNumber": 13,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-13-n/nube.webp",
+    "sourceFlipchartPage": "n-page-25.jpg",
+    "cropBox": [
+      1378,
+      1095,
+      574,
+      398
+    ]
+  },
+  {
+    "slug": "nata",
+    "word": "nata",
+    "lessonNumber": 13,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-13-n/nata.webp",
+    "sourceFlipchartPage": "n-page-25.jpg",
+    "cropBox": [
+      230,
+      1493,
+      574,
+      398
+    ]
+  },
+  {
+    "slug": "pina",
+    "word": "piña",
+    "lessonNumber": 14,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-14-n/pina.webp",
+    "sourceFlipchartPage": "ñ-page-28.jpg",
+    "cropBox": [
+      230,
+      1095,
+      574,
+      398
+    ]
+  },
+  {
+    "slug": "muneca",
+    "word": "muñeca",
+    "lessonNumber": 14,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-14-n/muneca.webp",
+    "sourceFlipchartPage": "ñ-page-28.jpg",
+    "cropBox": [
+      804,
+      1095,
+      574,
+      398
+    ]
+  },
+  {
+    "slug": "nino",
+    "word": "niño",
+    "lessonNumber": 14,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-14-n/nino.webp",
+    "sourceFlipchartPage": "ñ-page-28.jpg",
+    "cropBox": [
+      1378,
+      1095,
+      574,
+      398
+    ]
+  },
+  {
+    "slug": "barco",
+    "word": "barco",
+    "lessonNumber": 15,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-15-b/barco.webp",
+    "sourceFlipchartPage": "b-page-31.jpg",
+    "cropBox": [
+      230,
+      1095,
+      574,
+      398
+    ]
+  },
+  {
+    "slug": "bebe",
+    "word": "bebé",
+    "lessonNumber": 15,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-15-b/bebe.webp",
+    "sourceFlipchartPage": "b-page-31.jpg",
+    "cropBox": [
+      1329,
+      2158,
+      657,
+      438
+    ]
+  },
+  {
+    "slug": "bici",
+    "word": "bici",
+    "lessonNumber": 15,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-15-b/bici.webp",
+    "sourceFlipchartPage": "b-page-31.jpg",
+    "cropBox": [
+      1378,
+      1095,
+      574,
+      398
+    ]
+  },
+  {
+    "slug": "bota",
+    "word": "bota",
+    "lessonNumber": 15,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-15-b/bota.webp",
+    "sourceFlipchartPage": "b-page-31.jpg",
+    "cropBox": [
+      230,
+      1493,
+      574,
+      398
+    ]
+  },
+  {
+    "slug": "vaca",
+    "word": "vaca",
+    "lessonNumber": 16,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-16-v/vaca.webp",
+    "sourceFlipchartPage": "v-page-34.jpg",
+    "cropBox": [
+      230,
+      1095,
+      574,
+      398
+    ]
+  },
+  {
+    "slug": "vela",
+    "word": "vela",
+    "lessonNumber": 16,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-16-v/vela.webp",
+    "sourceFlipchartPage": "v-page-34.jpg",
+    "cropBox": [
+      804,
+      1095,
+      574,
+      398
+    ]
+  },
+  {
+    "slug": "vino",
+    "word": "vino",
+    "lessonNumber": 16,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-16-v/vino.webp",
+    "sourceFlipchartPage": "v-page-34.jpg",
+    "cropBox": [
+      1378,
+      1095,
+      574,
+      398
+    ]
+  },
+  {
+    "slug": "volcan",
+    "word": "volcán",
+    "lessonNumber": 16,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-16-v/volcan.webp",
+    "sourceFlipchartPage": "v-page-34.jpg",
+    "cropBox": [
+      230,
+      1493,
+      574,
+      398
+    ]
+  },
+  {
+    "slug": "rana",
+    "word": "rana",
+    "lessonNumber": 17,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-17-r/rana.webp",
+    "sourceFlipchartPage": "r-page-37.jpg",
+    "cropBox": [
+      60,
+      1325,
+      630,
+      500
+    ]
+  },
+  {
+    "slug": "rosa",
+    "word": "rosa",
+    "lessonNumber": 17,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-17-r/rosa.webp",
+    "sourceFlipchartPage": "r-page-37.jpg",
+    "cropBox": [
+      420,
+      2150,
+      450,
+      460
+    ]
+  },
+  {
+    "slug": "remo",
+    "word": "remo",
+    "lessonNumber": 17,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-17-r/remo.webp",
+    "sourceFlipchartPage": "r-page-37.jpg",
+    "cropBox": [
+      930,
+      1300,
+      590,
+      580
+    ]
+  },
+  {
+    "slug": "torre",
+    "word": "torre",
+    "lessonNumber": 18,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-18-rr/torre.webp",
+    "sourceFlipchartPage": "rr-page-40.jpg",
+    "cropBox": [
+      804,
+      1094,
+      574,
+      398
+    ]
+  },
+  {
+    "slug": "barril",
+    "word": "barril",
+    "lessonNumber": 18,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-18-rr/barril.webp",
+    "sourceFlipchartPage": "rr-page-40.jpg",
+    "cropBox": [
+      1378,
+      1094,
+      574,
+      398
+    ]
+  },
+  {
+    "slug": "cono",
+    "word": "cono",
+    "lessonNumber": 19,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-19-c/cono.webp",
+    "sourceFlipchartPage": "c-page-52.jpg",
+    "cropBox": [
+      804,
+      1094,
+      574,
+      398
+    ]
+  },
+  {
+    "slug": "cuna",
+    "word": "cuna",
+    "lessonNumber": 22,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-19-c/cuna.webp",
+    "sourceFlipchartPage": "c-page-52.jpg",
+    "cropBox": [
+      120,
+      1300,
+      660,
+      540
+    ],
+    "sourceNote": "baby crib (re-crop correct subject)"
+  },
+  {
+    "slug": "camisa",
+    "word": "camisa",
+    "lessonNumber": 19,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-19-c/camisa.webp",
+    "sourceFlipchartPage": "c-page-52.jpg",
+    "cropBox": [
+      230,
+      1492,
+      574,
+      398
+    ]
+  },
+  {
+    "slug": "yoyo",
+    "word": "yoyo",
+    "lessonNumber": 23,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-22-y/yoyo.webp",
+    "sourceFlipchartPage": "y-page-55.jpg",
+    "cropBox": [
+      1260,
+      2100,
+      700,
+      600
+    ],
+    "sourceNote": "yo-yo toy"
+  },
+  {
+    "slug": "yate",
+    "word": "yate",
+    "lessonNumber": 23,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-22-y/yate.webp",
+    "sourceFlipchartPage": "y-page-55.jpg",
+    "cropBox": [
+      120,
+      1320,
+      660,
+      520
+    ],
+    "sourceNote": "yacht (re-verify)"
+  },
+  {
+    "slug": "yegua",
+    "word": "yegua",
+    "lessonNumber": 22,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-22-y/yegua.webp",
+    "sourceFlipchartPage": "y-page-55.jpg",
+    "cropBox": [
+      1378,
+      1094,
+      574,
+      398
+    ]
+  },
+  {
+    "slug": "yema",
+    "word": "yema",
+    "lessonNumber": 23,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-22-y/yema.webp",
+    "sourceFlipchartPage": "y-page-55.jpg",
+    "cropBox": [
+      900,
+      1380,
+      560,
+      420
+    ],
+    "sourceNote": "fried egg yolk"
+  },
+  {
+    "slug": "zapato",
+    "word": "zapato",
+    "lessonNumber": 24,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-23-z/zapato.webp",
+    "sourceFlipchartPage": "z-page-58.jpg",
+    "cropBox": [
+      120,
+      1320,
+      660,
+      520
+    ],
+    "sourceNote": "purple shoe (re-verify)"
+  },
+  {
+    "slug": "zanahoria",
+    "word": "zanahoria",
+    "lessonNumber": 23,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-23-z/zanahoria.webp",
+    "sourceFlipchartPage": "z-page-58.jpg",
+    "cropBox": [
+      806,
+      1094,
+      575,
+      398
+    ]
+  },
+  {
+    "slug": "cisne",
+    "word": "cisne",
+    "lessonNumber": 23,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-23-z/cisne.webp",
+    "sourceFlipchartPage": "z-page-58.jpg",
+    "cropBox": [
+      1381,
+      1094,
+      575,
+      398
+    ]
+  },
+  {
+    "slug": "cepillo",
+    "word": "cepillo",
+    "lessonNumber": 23,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-23-z/cepillo.webp",
+    "sourceFlipchartPage": "z-page-58.jpg",
+    "cropBox": [
+      231,
+      1492,
+      575,
+      398
+    ]
+  },
+  {
+    "slug": "zorro",
+    "word": "zorro",
+    "lessonNumber": 24,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-23-z/zorro.webp",
+    "sourceFlipchartPage": "z-page-58.jpg",
+    "cropBox": [
+      1540,
+      1320,
+      680,
+      540
+    ],
+    "sourceNote": "fox (re-verify)"
+  },
+  {
+    "slug": "traje",
+    "word": "traje",
+    "lessonNumber": 1,
+    "pageNumber": 16,
+    "src": "/cartilla/art/faithful/leccion-1/traje.webp",
+    "sourceFlipchartPage": "page-008.jpg",
+    "cropBox": null,
+    "provenanceStatus": "RECOLORED-FROM-FLIPCHART-2026",
+    "note": "Student-book source (u-page-16.jpg) is a grayscale/duotone scan. Recropped in color from the real flipchart 'uniforme' cell (page-008.jpg, same illustration, upside-down orientation corrected), which is the identical illustration used for the same object."
+  },
+  {
+    "slug": "arco",
+    "word": "arco",
+    "lessonNumber": 1,
+    "pageNumber": 16,
+    "src": "/cartilla/art/faithful/leccion-1/arco.webp",
+    "sourceFlipchartPage": "u-page-16.jpg",
+    "cropBox": [
+      980,
+      350,
+      252,
+      235
+    ]
+  },
+  {
+    "slug": "aguila",
+    "word": "águila",
+    "lessonNumber": 1,
+    "pageNumber": 16,
+    "src": "/cartilla/art/faithful/leccion-1/aguila.webp",
+    "sourceFlipchartPage": "u-page-16.jpg",
+    "cropBox": [
+      980,
+      842,
+      252,
+      236
+    ]
+  },
+  {
+    "slug": "gaveta",
+    "word": "gaveta",
+    "lessonNumber": 19,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-19-g/gaveta.webp",
+    "sourceFlipchartPage": "g-page-43.jpg",
+    "cropBox": [
+      120,
+      1280,
+      700,
+      620
+    ],
+    "sourceNote": "open drawer with papers"
+  },
+  {
+    "slug": "gusano",
+    "word": "gusano",
+    "lessonNumber": 19,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-19-g/gusano.webp",
+    "sourceFlipchartPage": "g-page-43.jpg",
+    "cropBox": [
+      820,
+      1480,
+      640,
+      360
+    ],
+    "sourceNote": "green worm (re-crop tight, correct subject)"
+  },
+  {
+    "slug": "goloso",
+    "word": "Goloso",
+    "lessonNumber": 19,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-19-g/goloso.webp",
+    "sourceFlipchartPage": "g-page-43.jpg",
+    "cropBox": [
+      1560,
+      1300,
+      680,
+      560
+    ],
+    "sourceNote": "cat Goloso with necktie"
+  },
+  {
+    "slug": "gorra",
+    "word": "gorra",
+    "lessonNumber": 19,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-19-g/gorra.webp",
+    "sourceFlipchartPage": "g-page-43.jpg",
+    "cropBox": [
+      300,
+      2140,
+      680,
+      560
+    ],
+    "sourceNote": "striped baseball cap"
+  },
+  {
+    "slug": "mago",
+    "word": "mago",
+    "lessonNumber": 19,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-19-g/mago.webp",
+    "sourceFlipchartPage": "g-page-43.jpg",
+    "cropBox": [
+      1220,
+      2100,
+      900,
+      700
+    ],
+    "sourceNote": "magician with rabbit and hat"
+  },
+  {
+    "slug": "foto",
+    "word": "foto",
+    "lessonNumber": 20,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-20-f/foto.webp",
+    "sourceFlipchartPage": "f-page-46.jpg",
+    "cropBox": [
+      140,
+      1320,
+      640,
+      540
+    ],
+    "sourceNote": "framed portrait photo"
+  },
+  {
+    "slug": "fideos",
+    "word": "fideos",
+    "lessonNumber": 20,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-20-f/fideos.webp",
+    "sourceFlipchartPage": "f-page-46.jpg",
+    "cropBox": [
+      860,
+      1300,
+      620,
+      560
+    ],
+    "sourceNote": "man eating noodles/fideos"
+  },
+  {
+    "slug": "familia",
+    "word": "familia",
+    "lessonNumber": 20,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-20-f/familia.webp",
+    "sourceFlipchartPage": "f-page-46.jpg",
+    "cropBox": [
+      1580,
+      1300,
+      680,
+      560
+    ],
+    "sourceNote": "family of four"
+  },
+  {
+    "slug": "felo",
+    "word": "Felo",
+    "lessonNumber": 20,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-20-f/felo.webp",
+    "sourceFlipchartPage": "f-page-46.jpg",
+    "cropBox": [
+      220,
+      2200,
+      820,
+      640
+    ],
+    "sourceNote": "man on red tractor Felo"
+  },
+  {
+    "slug": "funda",
+    "word": "funda",
+    "lessonNumber": 20,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-20-f/funda.webp",
+    "sourceFlipchartPage": "f-page-46.jpg",
+    "cropBox": [
+      1280,
+      2180,
+      720,
+      560
+    ],
+    "sourceNote": "yellow pillowcase/funda"
+  },
+  {
+    "slug": "jirafa",
+    "word": "jirafa",
+    "lessonNumber": 21,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-21-j/jirafa.webp",
+    "sourceFlipchartPage": "j-page-49.jpg",
+    "cropBox": [
+      60,
+      100,
+      1050,
+      1100
+    ],
+    "sourceNote": "giraffe with glasses (top scene)"
+  },
+  {
+    "slug": "jicotea",
+    "word": "jicotea",
+    "lessonNumber": 21,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-21-j/jicotea.webp",
+    "sourceFlipchartPage": "j-page-49.jpg",
+    "cropBox": [
+      120,
+      1300,
+      640,
+      520
+    ],
+    "sourceNote": "turtle jicotea"
+  },
+  {
+    "slug": "jugo",
+    "word": "jugo",
+    "lessonNumber": 21,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-21-j/jugo.webp",
+    "sourceFlipchartPage": "j-page-49.jpg",
+    "cropBox": [
+      860,
+      1280,
+      620,
+      520
+    ],
+    "sourceNote": "glass of juice with orange"
+  },
+  {
+    "slug": "jesus",
+    "word": "Jesús",
+    "lessonNumber": 21,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-21-j/jesus.webp",
+    "sourceFlipchartPage": "j-page-49.jpg",
+    "cropBox": [
+      1520,
+      1240,
+      700,
+      580
+    ],
+    "sourceNote": "boy Jesús with oversized pencil"
+  },
+  {
+    "slug": "ajo",
+    "word": "ajo",
+    "lessonNumber": 21,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-21-j/ajo.webp",
+    "sourceFlipchartPage": "j-page-49.jpg",
+    "cropBox": [
+      280,
+      2180,
+      620,
+      520
+    ],
+    "sourceNote": "garlic bulb"
+  },
+  {
+    "slug": "jarra",
+    "word": "jarra",
+    "lessonNumber": 21,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-21-j/jarra.webp",
+    "sourceFlipchartPage": "j-page-49.jpg",
+    "cropBox": [
+      1180,
+      2100,
+      700,
+      620
+    ],
+    "sourceNote": "pink pitcher jarra"
+  },
+  {
+    "slug": "conejo",
+    "word": "conejo",
+    "lessonNumber": 22,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-19-c/conejo.webp",
+    "sourceFlipchartPage": "c-page-52.jpg",
+    "cropBox": [
+      900,
+      1280,
+      560,
+      540
+    ],
+    "sourceNote": "rabbit with bowtie"
+  },
+  {
+    "slug": "cubo",
+    "word": "cubo",
+    "lessonNumber": 22,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-19-c/cubo.webp",
+    "sourceFlipchartPage": "c-page-52.jpg",
+    "cropBox": [
+      320,
+      2120,
+      640,
+      600
+    ],
+    "sourceNote": "green bucket cubo"
+  },
+  {
+    "slug": "catalina",
+    "word": "Catalina",
+    "lessonNumber": 22,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-19-c/catalina.webp",
+    "sourceFlipchartPage": "c-page-52.jpg",
+    "cropBox": [
+      1280,
+      2080,
+      720,
+      660
+    ],
+    "sourceNote": "hen Catalina"
+  },
+  {
+    "slug": "yayita",
+    "word": "Yayita",
+    "lessonNumber": 23,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-22-y/yayita.webp",
+    "sourceFlipchartPage": "y-page-55.jpg",
+    "cropBox": [
+      1560,
+      1260,
+      660,
+      560
+    ],
+    "sourceNote": "blue octopus-like Yayita character"
+  },
+  {
+    "slug": "mayuscula",
+    "word": "mayúscula",
+    "lessonNumber": 23,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-22-y/mayuscula.webp",
+    "sourceFlipchartPage": "y-page-55.jpg",
+    "cropBox": [
+      220,
+      2100,
+      780,
+      640
+    ],
+    "sourceNote": "decorated capital Y with girl"
+  },
+  {
+    "slug": "zigzag",
+    "word": "zig-zag",
+    "lessonNumber": 24,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-23-z/zigzag.webp",
+    "sourceFlipchartPage": "z-page-58.jpg",
+    "cropBox": [
+      900,
+      1360,
+      560,
+      440
+    ],
+    "sourceNote": "zigzag chevron graphic"
+  },
+  {
+    "slug": "zepelin",
+    "word": "zepelín",
+    "lessonNumber": 24,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-23-z/zepelin.webp",
+    "sourceFlipchartPage": "z-page-58.jpg",
+    "cropBox": [
+      240,
+      2100,
+      760,
+      600
+    ],
+    "sourceNote": "zeppelin airship"
+  },
+  {
+    "slug": "zulema",
+    "word": "Zulema",
+    "lessonNumber": 24,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-23-z/zulema.webp",
+    "sourceFlipchartPage": "z-page-58.jpg",
+    "cropBox": [
+      1240,
+      2080,
+      780,
+      700
+    ],
+    "sourceNote": "girl Zulema with pinwheel"
+  },
+  {
+    "slug": "carro-leccion1",
+    "word": "carro",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-1/carro.webp",
+    "source": null,
+    "cropBox": null,
+    "provenanceStatus": "PASS-VERIFIED-2026-QA",
+    "note": "No recorded crop provenance (predates manifest tracking); a 2026-07-15 commit message claimed it was transplanted from leccion-18-rr/carro.webp, but that file is a mismatched donkey/camel leg crop (confirmed FAIL in qa-results.json) — the two files are NOT identical despite the commit message. This file was independently visually re-verified 2026-07-20: a genuine, clean, colorful vintage-car illustration, PASS-graded. Wired onto the page-layouts.json carro cell (previously unwired/pendiente despite this real crop sitting unused on disk)."
+  }
+]

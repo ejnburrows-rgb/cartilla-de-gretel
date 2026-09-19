@@ -1,0 +1,160 @@
+/* Infinite Looping Garden Scene */
+
+.student-login-scene {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(180deg, #87CEEB 0%, #E0F6FF 100%);
+}
+
+/* Sky and Clouds */
+.scene-sky {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 50% 120%, #FFFDE7 0%, transparent 60%);
+  z-index: 0;
+}
+
+.scene-clouds {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40vh;
+  background-image: url("data:image/svg+xml,%3Csvg width='200' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 50 A 20 20 0 0 1 60 50 A 30 30 0 0 1 120 50 A 20 20 0 0 1 160 50 Q 180 50 180 70 L 0 70 Q 0 50 20 50 Z' fill='%23ffffff' opacity='0.5'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 400px;
+  z-index: 1;
+}
+
+/* Garden Parallax Backgrounds */
+.scene-garden-back {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50vh;
+  background-color: #A3D977;
+  background-image: 
+    linear-gradient(to top, #7CB342 0%, transparent 100%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 60 L 30 20 Q 20 20 20 0 Q 40 0 40 20 Q 30 20 30 60 Z' fill='%238BC34A' opacity='0.3'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 150px;
+  z-index: 2;
+  mask-image: linear-gradient(to top, black 80%, transparent 100%);
+}
+
+.scene-garden-front {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30vh;
+  background-color: #7CB342;
+  background-image: 
+    linear-gradient(to top, #558B2F 0%, transparent 100%),
+    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 60 L 30 20 Q 20 20 20 0 Q 40 0 40 20 Q 30 20 30 60 Z' fill='%23689F38' opacity='0.4'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 80px;
+  z-index: 3;
+}
+
+/* Infinite Scroll Animations */
+.loop-slow {
+  animation: marquee-bg 120s linear infinite;
+}
+.loop-medium {
+  animation: marquee-bg 80s linear infinite;
+}
+.loop-fast {
+  animation: marquee-bg 40s linear infinite;
+}
+
+@keyframes marquee-bg {
+  from { background-position: 0 0; }
+  to { background-position: -2000px 0; }
+}
+
+/* Big Happy Family Container */
+.family-container {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.family-member {
+  position: absolute;
+  object-fit: contain;
+  /* Blend edges smoothly into the garden */
+  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 50%, transparent 100%);
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 50%, transparent 100%);
+}
+
+/* Positioning around the login box */
+.animal-1 {
+  bottom: 15vh;
+  left: 5vw;
+  width: 25vw;
+  max-width: 300px;
+  transform-origin: bottom center;
+}
+
+.animal-2 {
+  bottom: 5vh;
+  left: 20vw;
+  width: 20vw;
+  max-width: 250px;
+  transform-origin: bottom center;
+}
+
+.animal-3 {
+  bottom: 12vh;
+  right: 5vw;
+  width: 28vw;
+  max-width: 350px;
+  transform-origin: bottom center;
+}
+
+.animal-4 {
+  bottom: 2vh;
+  right: 25vw;
+  width: 18vw;
+  max-width: 200px;
+  transform-origin: bottom center;
+}
+
+.animal-5 {
+  top: 15vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 15vw;
+  max-width: 180px;
+  opacity: 0.8;
+  z-index: 5;
+}
+
+/* Breathing Animations */
+@keyframes breathe-slow {
+  0%, 100% { transform: scaleY(1) translateY(0); }
+  50% { transform: scaleY(1.02) translateY(-10px); }
+}
+
+@keyframes breathe-medium {
+  0%, 100% { transform: scaleY(1) translateY(0); }
+  50% { transform: scaleY(1.03) translateY(-15px); }
+}
+
+@keyframes breathe-fast {
+  0%, 100% { transform: scaleY(1) translateY(0); }
+  50% { transform: scaleY(1.04) translateY(-8px); }
+}
+
+.breath-slow { animation: breathe-slow 6s ease-in-out infinite; }
+.breath-medium { animation: breathe-medium 4s ease-in-out infinite; }
+.breath-fast { animation: breathe-fast 3s ease-in-out infinite; }
+.breath-medium-alt { animation: breathe-medium 5s ease-in-out infinite reverse; }
+.breath-slow-alt { animation: breathe-slow 7s ease-in-out infinite reverse; }

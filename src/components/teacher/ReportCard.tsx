@@ -1,0 +1,422 @@
+import { useMemo } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { getStudentProgress, getClassProgress } from "@/lib/teacher.functions";
+import {
+  isSeedSessionActive,
+  getSeedTeacherStudentProgress,
+  getSeedClassProgress,
+} from "@/lib/seed-data";
+import {
+  ClipboardList,
+  Award,
+  BookOpen,
+  Clock,
+  AlertTriangle,
+  FileSpreadsheet,
+  Check,
+} from "lucide-react";
+import { TOTAL_LESSONS } from "@/lib/lesson-catalog";
+interface ReportCardProps {
+  classId: string;
+  studentId: string | null;
+}
+
+const cardClass = "bg-white border border-stone-200 rounded-3xl p-6 shadow-sm";
+const metricBoxClass =
+  "flex items-center gap-4 p-4 rounded-2xl bg-stone-50 border border-stone-100 hover:bg-stone-100/50 transition-colors";
+const metricValClass = "text-2xl font-black text-stone-800";
+const metricLblClass = "text-[10px] font-bold text-stone-500 uppercase tracking-widest";
+const headerTitleClass = "text-2xl font-black text-stone-800 flex items-center gap-2";
+
+/** Structural shape of a student progress event row (seed or live query). */
+type ReportEvent = {
+  id?: string;
+  created_at?: string;
+  event_kind?: string;
+  lesson_id?: string | number;
+  score?: number | null;
+  total?: number | null;
+  time_seconds?: number | null;
+};
+
+/** Structural shape of a per-student aggregate row from class progress. */
+type PerStudentRow = {
+  id: string;
+  name: string;
+  lessonsCount: number;
+  accuracy: number | null;
+  timeSeconds: number;
+  completedLessonIds?: string[];
+};
+
+const EXERCISE_KIND_LABELS: Record<string, string> = {
+  picture_grid: "Marca la imagen",
+  vowel_pick_one: "Elige la vocal",
+  vowel_match_all: "Empareja vocales",
+  syllable_match: "Sílabas",
+  fill_in_blank: "Completa",
+  vowel_line_match: "Traza línea",
+  workbook_letter_trace: "Trazar letra",
+  drag_syllable_order: "Ordenar sílabas",
+};
+
+export function ReportCard({ classId, studentId }: ReportCardProps) {
+  // Synchronously detect local seed teacher session — getStudentProgress/
+  // getClassProgress are real Supabase-only calls with no demo-mode fallback
+  // of their own, so this component needs the same isSeed pattern used by
+  // ClassRoster.tsx / TeacherCrmShell.tsx elsewhere in the CRM.
+  const isSeed = useMemo(() => isSeedSessionActive(), []);
+
+  // 1. Fetch Student Progress if selected
+  const { data: realStudentData, isLoading: loadingRealStudent } = useQuery({
+    queryKey: ["teacher-student-progress", studentId],
+    queryFn: () => getStudentProgress({ data: { id: studentId! } }),
+    enabled: !isSeed && !!studentId,
+  });
+
+  const seedStudentData = useMemo(() => {
+    if (!isSeed || !studentId) return null;
+    try {
+      return getSeedTeacherStudentProgress(studentId);
+    } catch {
+      return null;
+    }
+  }, [isSeed, studentId]);
+
+  const studentData = isSeed ? seedStudentData : realStudentData;
+  const loadingStudent = !isSeed && loadingRealStudent;
+
+  // 2. Fetch Class Progress if no student selected
+  const { data: realClassProgressData, isLoading: loadingRealClass } = useQuery({
+    queryKey: ["teacher-class-progress", classId],
+    queryFn: () => getClassProgress({ data: { id: classId } }),
+    enabled: !isSeed && !studentId && !!classId,
+  });
+
+  const seedClassProgressData = useMemo(() => {
+    if (!isSeed || studentId || !classId) return null;
+    try {
+      return getSeedClassProgress(classId);
+    } catch {
+      return null;
+    }
+  }, [isSeed, studentId, classId]);
+
+  const classProgressData = isSeed ? seedClassProgressData : realClassProgressData;
+  const loadingClass = !isSeed && loadingRealClass;
+
+  const loading = studentId ? loadingStudent : loadingClass;
+
+  if (loading) {
+    return (
+      <div className="p-8 text-center text-stone-500 font-bold bg-white border border-stone-200 rounded-3xl animate-pulse">
+        Cargando métricas y analíticas de reportes...
+      </div>
+    );
+  }
+
+  // ── Render Individual Student Report ──
+  if (studentId && studentData) {
+    const { student, class: classObj, events } = studentData;
+
+    // Aggregations
+    const completedLessons = events.filter((e: ReportEvent) => e.event_kind === "lesson_completed");
+    const exerciseEvents = events.filter((e: ReportEvent) => e.event_kind === "exercise");
+    const totalScore = exerciseEvents.reduce(
+      (sum: number, e: ReportEvent) => sum + (e.score || 0),
+      0,
+    );
+    const totalPossible = exerciseEvents.reduce(
+      (sum: number, e: ReportEvent) => sum + (e.total || 0),
+      0,
+    );
+    const accuracy = totalPossible > 0 ? Math.round((totalScore / totalPossible) * 100) : null;
+    const totalTimeSecs = events
+      .filter((e: ReportEvent) => e.event_kind === "time")
+      .reduce((sum: number, e: ReportEvent) => sum + (e.time_seconds || 0), 0);
+    const totalTimeMins = Math.round(totalTimeSecs / 60);
+
+    return (
+      <div className={cardClass}>
+        <div className="flex flex-col sm:flex-row justify-between items-start gap-4 border-b border-stone-150 pb-6 mb-6">
+          <div>
+            <h2 className={headerTitleClass}>
+              <Award className="w-6 h-6 text-orange-400" />
+              Reporte de Logros: {student.display_name}
+            </h2>
+            <p className="text-xs font-bold text-stone-500 mt-1">
+              Código Alumno:{" "}
+              <span className="font-mono text-stone-700 bg-stone-100 px-1.5 py-0.5 rounded">
+                {student.student_code}
+              </span>{" "}
+              | Clase: {classObj?.name}
+            </p>
+          </div>
+          <div className="text-right">
+            <span className="text-[10px] font-black uppercase tracking-widest px-3 py-1.5 bg-orange-100 text-orange-800 rounded-full border border-orange-200/50">
+              IEP & Adaptaciones
+            </span>
+          </div>
+        </div>
+
+        {/* Metrics Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+          <div className={metricBoxClass}>
+            <div className="p-3 bg-stone-100 rounded-xl text-stone-600">
+              <BookOpen className="w-6 h-6" />
+            </div>
+            <div>
+              <div className={metricValClass}>{completedLessons.length}</div>
+              <div className={metricLblClass}>Lecciones Completas</div>
+            </div>
+          </div>
+
+          <div className={metricBoxClass}>
+            <div className="p-3 bg-emerald-50 rounded-xl text-emerald-600">
+              <Award className="w-6 h-6" />
+            </div>
+            <div>
+              <div className={metricValClass}>{accuracy !== null ? `${accuracy}%` : "—"}</div>
+              <div className={metricLblClass}>Precisión Promedio</div>
+            </div>
+          </div>
+
+          <div className={metricBoxClass}>
+            <div className="p-3 bg-sky-50 rounded-xl text-sky-600">
+              <Clock className="w-6 h-6" />
+            </div>
+            <div>
+              <div className={metricValClass}>{totalTimeMins} min</div>
+              <div className={metricLblClass}>Tiempo en Tarea</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Activity Logs / IEP details */}
+        <div>
+          <h3 className="text-sm font-black text-stone-700 uppercase tracking-wider mb-3">
+            Historial de Progreso Reciente
+          </h3>
+          <div className="overflow-x-auto border border-stone-200 rounded-2xl">
+            <table className="w-full text-sm text-left">
+              <thead className="bg-stone-50 text-stone-600 font-bold border-b border-stone-200">
+                <tr>
+                  <th className="p-3">Fecha</th>
+                  <th className="p-3">Evento</th>
+                  <th className="p-3">Lección</th>
+                  <th className="p-3">Puntuación / Info</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-stone-150">
+                {events.slice(0, 10).map((e: ReportEvent) => (
+                  <tr key={e.id}>
+                    <td className="p-3 font-mono text-xs">
+                      {new Date(e.created_at ?? 0).toLocaleDateString()}
+                    </td>
+                    <td className="p-3 capitalize font-bold text-stone-700">{e.event_kind}</td>
+                    <td className="p-3">Lección {e.lesson_id}</td>
+                    <td className="p-3">
+                      {e.event_kind === "exercise" && (e.total ?? 0) > 0
+                        ? `${e.score ?? 0}/${e.total} (${Math.round(((e.score ?? 0) / (e.total ?? 1)) * 100)}%)`
+                        : e.event_kind === "time"
+                          ? `${e.time_seconds} seg`
+                          : "Completada"}
+                    </td>
+                  </tr>
+                ))}
+                {events.length === 0 && (
+                  <tr>
+                    <td colSpan={4} className="p-8 text-center font-bold text-stone-400">
+                      Sin eventos registrados aún.
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // ── Render Class Report ──
+  if (classProgressData) {
+    const { perStudent, perLesson, perStudentExercise, assignments } = classProgressData;
+    const exerciseKinds = Array.from(
+      new Set(Object.values(perStudentExercise ?? {}).flatMap((row) => Object.keys(row ?? {}))),
+    ).sort();
+
+    return (
+      <div className={cardClass}>
+        <div className="flex flex-col sm:flex-row justify-between items-start gap-4 border-b border-stone-150 pb-6 mb-6">
+          <div>
+            <h2 className={headerTitleClass}>
+              <ClipboardList className="w-6 h-6 text-orange-400" />
+              Análisis y Progreso Grupal de la Clase
+            </h2>
+            <p className="text-xs font-bold text-stone-500 mt-1">
+              Consolidado de rendimiento académico para todas las lecciones.
+            </p>
+          </div>
+        </div>
+
+        {/* Student metrics table */}
+        <div className="space-y-6">
+          <div className="flex items-center justify-between">
+            <h3 className="text-sm font-black text-stone-700 uppercase tracking-wider">
+              Desempeño Individual por Alumno
+            </h3>
+          </div>
+          <div className="overflow-x-auto border border-stone-200 rounded-2xl">
+            <table className="w-full text-sm text-left">
+              <thead className="bg-stone-50 text-stone-600 font-bold border-b border-stone-200">
+                <tr>
+                  <th className="p-3">Nombre Alumno</th>
+                  <th className="p-3">Lecciones Completas</th>
+                  <th className="p-3">Precisión General</th>
+                  <th className="p-3">Tiempo Total</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-stone-150">
+                {perStudent.map((s: PerStudentRow) => (
+                  <tr key={s.id}>
+                    <td className="p-3 font-bold text-stone-800">{s.name}</td>
+                    <td className="p-3">{s.lessonsCount}</td>
+                    <td className="p-3 font-bold">
+                      {s.accuracy !== null ? `${Math.round(s.accuracy * 100)}%` : "—"}
+                    </td>
+                    <td className="p-3">{Math.round(s.timeSeconds / 60)} mins</td>
+                  </tr>
+                ))}
+                {perStudent.length === 0 && (
+                  <tr>
+                    <td colSpan={4} className="p-8 text-center font-bold text-stone-400">
+                      No hay alumnos registrados en esta clase.
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Per-exercise-type right/wrong breakdown */}
+        <div className="space-y-6 mt-12">
+          <div className="flex items-center justify-between">
+            <h3 className="text-sm font-black text-stone-700 uppercase tracking-wider">
+              Aciertos por Tipo de Ejercicio
+            </h3>
+          </div>
+          <div className="overflow-x-auto border border-stone-200 rounded-2xl">
+            <table className="w-full text-sm text-left">
+              <thead className="bg-stone-50 text-stone-600 font-bold border-b border-stone-200">
+                <tr>
+                  <th className="p-3 sticky left-0 z-10 bg-stone-50 shadow-[2px_0_4px_rgba(0,0,0,0.02)]">
+                    Alumno
+                  </th>
+                  {exerciseKinds.map((kind) => (
+                    <th key={kind} className="p-3 text-center min-w-[7rem]">
+                      {EXERCISE_KIND_LABELS[kind] ?? kind}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-stone-150">
+                {perStudent.map((s: PerStudentRow) => {
+                  const row = perStudentExercise?.[s.id] ?? {};
+                  return (
+                    <tr key={s.id}>
+                      <td className="p-3 font-bold text-stone-800 sticky left-0 z-10 bg-white shadow-[2px_0_4px_rgba(0,0,0,0.02)]">
+                        {s.name}
+                      </td>
+                      {exerciseKinds.map((kind) => {
+                        const cell = row[kind];
+                        return (
+                          <td key={kind} className="p-3 text-center font-mono text-xs">
+                            {cell ? `${cell.hits}/${cell.attempts}` : "—"}
+                          </td>
+                        );
+                      })}
+                    </tr>
+                  );
+                })}
+                {(perStudent.length === 0 || exerciseKinds.length === 0) && (
+                  <tr>
+                    <td
+                      colSpan={exerciseKinds.length + 1}
+                      className="p-8 text-center font-bold text-stone-400"
+                    >
+                      Todavía no hay intentos de ejercicios registrados en esta clase.
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* 24-Lesson Grid */}
+        <div className="space-y-6 mt-12">
+          <div className="flex items-center justify-between">
+            <h3 className="text-sm font-black text-stone-700 uppercase tracking-wider">
+              Matriz de Lecciones Completadas
+            </h3>
+          </div>
+          <div className="overflow-x-auto border border-stone-200 rounded-2xl">
+            <table className="w-full text-sm text-left">
+              <thead className="bg-stone-50 text-stone-600 font-bold border-b border-stone-200">
+                <tr>
+                  <th className="p-3 sticky left-0 z-10 bg-stone-50 shadow-[2px_0_4px_rgba(0,0,0,0.02)]">
+                    Alumno
+                  </th>
+                  {Array.from({ length: TOTAL_LESSONS }).map((_, i) => (
+                    <th key={i} className="p-3 text-center min-w-[2.5rem] font-mono text-xs">
+                      L{i + 1}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-stone-150">
+                {perStudent.map((s: PerStudentRow) => {
+                  const prog: string[] = s.completedLessonIds ?? [];
+                  return (
+                    <tr key={s.id} className="hover:bg-stone-50/50 transition-colors">
+                      <td className="p-3 font-bold text-stone-800 sticky left-0 z-10 bg-white shadow-[2px_0_4px_rgba(0,0,0,0.02)]">
+                        {s.name}
+                      </td>
+                      {Array.from({ length: TOTAL_LESSONS }).map((_, i) => {
+                        const l = i + 1;
+                        const isComplete = prog.includes(String(l));
+                        return (
+                          <td key={l} className="p-2 text-center border-l border-stone-100">
+                            {isComplete ? (
+                              <Check className="w-4 h-4 text-emerald-500 mx-auto" />
+                            ) : (
+                              <span className="text-stone-300">—</span>
+                            )}
+                          </td>
+                        );
+                      })}
+                    </tr>
+                  );
+                })}
+                {perStudent.length === 0 && (
+                  <tr>
+                    <td
+                      colSpan={TOTAL_LESSONS + 1}
+                      className="p-8 text-center font-bold text-stone-400"
+                    >
+                      No hay alumnos registrados.
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return null;
+}

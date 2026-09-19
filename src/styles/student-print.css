@@ -1,0 +1,87 @@
+/* Student Worksheets Print Stylesheet — La Cartilla de Gretel */
+
+@media print {
+  /* Hide interactive/screen-only chrome */
+  .no-print,
+  header.no-print,
+  footer.no-print,
+  nav,
+  button,
+  .student-toolbar,
+  .audio-player,
+  .drag-handle {
+    display: none !important;
+  }
+
+  /* Reset document for clean letter page printing */
+  html,
+  body {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 8.5in !important;
+    height: 11in !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Enforce clean page breaks after every lesson sheet */
+  .polished-page,
+  .worksheet-page {
+    page-break-after: always !important;
+    break-after: page !important;
+    box-sizing: border-box !important;
+    width: 8.5in !important;
+    height: 11in !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    overflow: hidden !important;
+    position: relative !important;
+    padding: 0.5in !important;
+  }
+
+  /* Crop marks at corners for physical book binding prep */
+  .polished-page::before,
+  .polished-page::after,
+  .worksheet-page::before,
+  .worksheet-page::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  /* Top crop marks */
+  .polished-page::before,
+  .worksheet-page::before {
+    top: 0;
+    left: 0;
+    background: 
+      linear-gradient(to right, black 4mm, transparent 4mm) 0 0 / 100% 0.25pt no-repeat,
+      linear-gradient(to bottom, black 4mm, transparent 4mm) 0 0 / 0.25pt 100% no-repeat,
+      linear-gradient(to left, black 4mm, transparent 4mm) 100% 0 / 100% 0.25pt no-repeat,
+      linear-gradient(to bottom, black 4mm, transparent 4mm) 100% 0 / 0.25pt 100% no-repeat;
+  }
+
+  /* Bottom crop marks */
+  .polished-page::after,
+  .worksheet-page::after {
+    bottom: 0;
+    left: 0;
+    background: 
+      linear-gradient(to right, black 4mm, transparent 4mm) 0 100% / 100% 0.25pt no-repeat,
+      linear-gradient(to top, black 4mm, transparent 4mm) 0 100% / 0.25pt 100% no-repeat,
+      linear-gradient(to left, black 4mm, transparent 4mm) 100% 100% / 100% 0.25pt no-repeat,
+      linear-gradient(to top, black 4mm, transparent 4mm) 100% 100% / 0.25pt 100% no-repeat;
+  }
+}
+
+@page {
+  size: 8.5in 11in;
+  margin: 0.5in;
+}

@@ -1,0 +1,96 @@
+@import "../features/teacher-crm/tokens.css";
+
+.crm-app {
+  background-color: var(--crm-bg);
+  color: var(--crm-text-main);
+  font-family: 'Inter', system-ui, sans-serif;
+  min-height: 100vh;
+  display: flex;
+}
+
+.crm-sidebar {
+  width: 260px;
+  background-color: var(--crm-surface);
+  border-right: 1px solid var(--crm-border);
+  display: flex;
+  flex-direction: column;
+}
+
+.crm-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.crm-topbar {
+  height: 64px;
+  background-color: var(--crm-surface);
+  border-bottom: 1px solid var(--crm-border);
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  justify-content: space-between;
+}
+
+.crm-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.crm-card {
+  background-color: var(--crm-surface);
+  border: 1px solid var(--crm-border);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(58, 50, 43, 0.04);
+  padding: 20px;
+}
+
+.crm-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 24px;
+  align-items: start;
+}
+
+.crm-kpi-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.crm-pipeline {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 16px;
+}
+
+.crm-pipeline-column {
+  flex: 1;
+  min-width: 250px;
+  background-color: var(--crm-bg);
+  border-radius: 8px;
+  padding: 12px;
+  border: 1px solid var(--crm-border);
+}
+
+.crm-pipeline-card {
+  background-color: var(--crm-surface);
+  border: 1px solid var(--crm-border);
+  border-radius: 6px;
+  padding: 12px;
+  margin-top: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.crm-pipeline-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
