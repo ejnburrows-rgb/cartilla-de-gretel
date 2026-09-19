@@ -92,7 +92,7 @@ describe("workbook-manifest.json — real content integrity", () => {
         );
         if (isExternalized) continue;
 
-        const fullPath = path.join(repoRoot, "public", normalized.replace(/^\\//, ""));
+        const fullPath = path.join(repoRoot, "public", normalized.slice(1));
         if (!fs.existsSync(fullPath)) {
           missing.push(`physicalPage ${page.physicalPage}: ${ref} (missing)`);
         } else if (fs.statSync(fullPath).size < MIN_BYTES) {
