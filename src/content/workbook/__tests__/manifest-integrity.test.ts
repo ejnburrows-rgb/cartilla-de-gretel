@@ -64,17 +64,35 @@ describe("workbook-manifest.json — real content integrity", () => {
     }
   });
 
-  it("every referenced background and asset path resolves to a real, non-empty file on disk", () => {
-    // Same MIN_BYTES floor as art-slots-integrity.test.ts — a 0-byte or
-    // near-empty stub is not a real asset, and must never be referenced.
+  it("every referenced background and asset is local or explicitly externalized", () => {
+    // Large archival scan families are intentionally served from the immutable
+    // Vercel snapshot configured in vercel.json so active Git stays <25 MB.
+    // Everything else must still exist locally and be a real, non-empty file.
     const MIN_BYTES = 1500;
+    const externalizedPrefixes = [
+      "/cartilla/images/source/",
+      "/cartilla/art/hd/workbook/",
+      "/cartilla/art/restored/workbook/",
+      "/cartilla/art/hd/lineart/",
+      "/cartilla/art/color/workbook/",
+      "/cartilla/art/hd/flipchart/",
+      "/cartilla/art/delivery/flipchart/",
+      "/cartilla/images/teacher-flipchart/",
+      "/book/",
+    ];
     const missing: string[] = [];
     for (const page of parsedManifest.pages) {
       const refs: string[] = [];
       if (page.background) refs.push(page.background);
       for (const object of page.objects) if (object.asset) refs.push(object.asset);
       for (const ref of refs) {
-        const fullPath = path.join(repoRoot, "public", ref);
+        const normalized = ref.startsWith("/") ? ref : `/${ref}`;
+        const isExternalized = externalizedPrefixes.some((prefix) =>
+          normalized.startsWith(prefix),
+        );
+        if (isExternalized) continue;
+
+        const fullPath = path.join(repoRoot, "public", normalized.replace(/^\\//, ""));
         if (!fs.existsSync(fullPath)) {
           missing.push(`physicalPage ${page.physicalPage}: ${ref} (missing)`);
         } else if (fs.statSync(fullPath).size < MIN_BYTES) {
