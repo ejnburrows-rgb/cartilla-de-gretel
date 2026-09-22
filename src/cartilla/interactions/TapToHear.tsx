@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { playObjectAudio, type InteractionProps } from "./shared";
+import { LivingIllustration } from "@/components/living/LivingIllustration";
 
 /**
  * "Presiona para escuchar" — tap any object to hear it. Not graded (there's
@@ -49,13 +50,11 @@ export function TapToHear({ objects, onComplete, onAudioPlayed, reducedMotion }:
           aria-label={object.audio?.label ?? object.alt ?? object.text ?? "escuchar"}
         >
           {object.src && (
-            <img
+            <LivingIllustration
               src={object.src}
               alt=""
               className="lwp-tap-to-hear__img"
-              draggable={false}
               loading="lazy"
-              decoding="async"
             />
           )}
           {object.text && <span className="lwp-tap-to-hear__text">{object.text}</span>}
