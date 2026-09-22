@@ -13,7 +13,7 @@ import {
 import { playNote, playCorrectChord, playWrongBuzz } from "@/lib/piano-audio";
 import { recordEvent } from "@/lib/student-session";
 import { gretelEvent } from "@/lib/gretel-bus";
-import { getFaithfulDeliverySrcSet } from "@/lib/art-delivery";
+import { LivingIllustration } from "@/components/living/LivingIllustration";
 import { RotateCcw } from "lucide-react";
 import "@/styles/interactive-exercises.css";
 
@@ -307,6 +307,7 @@ function DroppableEmojiCard({
   isWrong: boolean;
   floatDelay?: number;
 }) {
+  void floatDelay;
   const { isOver, setNodeRef } = useDroppable({
     id: `target-${pair.emoji}`,
     data: { emoji: pair.emoji },
@@ -333,14 +334,11 @@ function DroppableEmojiCard({
     >
       {/* Picture display */}
       {pair.illustrationSrc ? (
-        <img
+        <LivingIllustration
           src={pair.illustrationSrc}
           alt={pair.word}
-          className="w-10 h-10 object-contain select-none game-pic-float"
-          style={{ ["--float-delay" as string]: `${floatDelay}s` }}
+          className="w-10 h-10 select-none"
           loading="lazy"
-          decoding="async"
-          srcSet={getFaithfulDeliverySrcSet(pair.illustrationSrc)}
         />
       ) : (
         <span className="text-3xl select-none" role="img" aria-label="dibujo">
