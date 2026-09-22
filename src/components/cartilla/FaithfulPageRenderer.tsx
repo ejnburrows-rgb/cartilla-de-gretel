@@ -308,7 +308,7 @@ function VowelMatchAll({ region }: { region: PageRegion }) {
             style={{ ["--float-delay" as string]: floatDelay(i) }}
           >
             {pair.illustrationSrc ? (
-              <img src={pair.illustrationSrc} alt={pair.caption ?? ""} loading="lazy" />
+              <LivingIllustration src={pair.illustrationSrc} alt={pair.caption ?? ""} loading="lazy" />
             ) : (
               <div
                 className="fp-art-pending"
@@ -384,7 +384,7 @@ function RegionView({
       ) : (
         <div className="fp-draw-box" aria-label={region.text ?? "Colorea"}>
           {region.illustrationSrc ? (
-            <img src={region.illustrationSrc} alt={region.caption ?? ""} loading="lazy" />
+            <LivingIllustration src={region.illustrationSrc} alt={region.caption ?? ""} loading="lazy" />
           ) : null}
           {region.text ? <span className="fp-draw-box__hint">{region.text}</span> : null}
         </div>
