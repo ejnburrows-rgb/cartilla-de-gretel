@@ -1,60 +1,44 @@
-import { useEffect, type CSSProperties } from "react";
+import { useEffect } from "react";
 import type { GretelOutcome } from "@/hooks/useGretel";
-import { useGretelAnimation } from "./useGretelAnimation";
+import { GretelLiveAvatar } from "./GretelLiveAvatar";
+import { gretelEvent } from "@/lib/gretel-bus";
 
 interface GretelAvatarProps {
   outcome: GretelOutcome;
   isSpeaking?: boolean;
 }
 
-const avatarFrameStyle: CSSProperties = {
-  width: "100%",
-  height: "100%",
-  objectFit: "contain",
-  transition: "opacity 0.22s ease-in-out",
-};
-
 export function GretelAvatar({ outcome, isSpeaking }: GretelAvatarProps) {
-  const { currentPose, send } = useGretelAnimation();
-
   useEffect(() => {
     if (isSpeaking) {
-      send({ type: "SPEAK_START" });
-      return;
-    } else {
-      send({ type: "SPEAK_STOP" });
+      gretelEvent("listen:start");
+      return () => gretelEvent("listen:stop");
     }
 
     switch (outcome) {
       case "correct":
       case "streak":
       case "lesson-complete":
-        send({ type: "CHEER" });
+        gretelEvent("answer:correct");
         break;
       case "start":
       case "happy":
-        send({ type: "WAVE" });
+        gretelEvent("lesson:start");
         break;
       case "try-again":
       case "thinking":
-        send({ type: "POINT" });
+        gretelEvent("hint:show");
         break;
       case "idle":
       default:
-        send({ type: "IDLE" });
+        gretelEvent("page:revealed");
         break;
     }
-  }, [outcome, isSpeaking, send]);
+  }, [outcome, isSpeaking]);
 
   return (
-    <div style={avatarFrameStyle} className="gretel-avatar-svg-container">
-      <img
-        src={currentPose}
-        alt="Gretel"
-        className="h-full w-full object-contain"
-        draggable={false}
-        onError={() => send({ type: "ASSET_ERROR" })}
-      />
+    <div className="gretel-avatar-svg-container">
+      <GretelLiveAvatar size="sm" bubblePosition="right" />
     </div>
   );
 }
