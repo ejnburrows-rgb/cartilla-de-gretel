@@ -170,15 +170,20 @@ export function CurlPageViewer({
     gretelEvent("page-turn:start");
   }, []);
 
-  const scheduleReveal = useCallback((delayMs?: number) => {
+  const scheduleReveal = useCallback((delayMs?: number, revealIndex?: number) => {
     if (revealTimerRef.current) clearTimeout(revealTimerRef.current);
     const delay = delayMs ?? (reducedMotion ? 0 : 140);
+    const pageIndex = revealIndex ?? currentIndex;
     revealTimerRef.current = setTimeout(() => {
       initialRevealDoneRef.current = true;
       setTurning(false);
-      gretelEvent("page:revealed");
+      const page = pages[pageIndex];
+      gretelEvent("page:revealed", {
+        text: page?.gretelLine,
+        pageNumber: page?.pageNumber,
+      });
     }, delay);
-  }, [reducedMotion]);
+  }, [currentIndex, pages, reducedMotion]);
 
   const handlePrev = useCallback(() => {
     startTurn();
@@ -199,8 +204,9 @@ export function CurlPageViewer({
       setCurrentIndex(idx);
       onPageChange?.(idx);
       gretelEvent("page-flip");
+      scheduleReveal(undefined, idx);
     },
-    [onPageChange, pages.length],
+    [onPageChange, pages.length, scheduleReveal],
   );
 
   const onChangeState = useCallback((e: FlipEvent) => {
@@ -214,14 +220,14 @@ export function CurlPageViewer({
 
   useEffect(() => {
     if (!mounted || !size || initialRevealDoneRef.current) return;
-    scheduleReveal(reducedMotion ? 0 : 260);
+    scheduleReveal(reducedMotion ? 0 : 260, currentIndex);
     return () => {
       if (revealTimerRef.current) {
         clearTimeout(revealTimerRef.current);
         revealTimerRef.current = null;
       }
     };
-  }, [mounted, reducedMotion, scheduleReveal, size]);
+  }, [currentIndex, mounted, reducedMotion, scheduleReveal, size]);
 
   useEffect(() => () => {
     if (revealTimerRef.current) clearTimeout(revealTimerRef.current);
