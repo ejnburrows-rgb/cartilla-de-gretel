@@ -1,5 +1,6 @@
 import React from "react";
 import { CATALOG } from "@/lib/lesson-catalog";
+import { LivingIllustration } from "@/components/living/LivingIllustration";
 
 /**
  * Real, verified key-vocabulary chips for a lesson's teacher guide —
@@ -39,12 +40,11 @@ export function VocabularyList({ lessonNumber }: { lessonNumber: number }) {
             className="flex flex-col items-center gap-1.5 rounded-xl border border-blue-100 bg-white p-3 text-center"
           >
             {v.illustrationSrc ? (
-              <img
+              <LivingIllustration
                 src={v.illustrationSrc}
                 alt={v.word}
-                className="h-14 w-14 object-contain"
+                className="h-14 w-14"
                 loading="eager"
-                decoding="async"
               />
             ) : (
               <span className="text-3xl" aria-hidden>
