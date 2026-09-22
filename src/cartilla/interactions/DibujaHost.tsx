@@ -17,6 +17,7 @@ import { recordEvent } from "@/lib/student-session";
 import { gretelEvent } from "@/lib/gretel-bus";
 import { playCorrectChord, playWrongBuzz } from "@/lib/piano-audio";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { LivingIllustration } from "@/components/living/LivingIllustration";
 import "@/styles/activity-mechanics.css";
 
 export type DibujaPickOption = {
@@ -423,11 +424,10 @@ export function DibujaHost({
                   onClick={() => onPick(opt)}
                 >
                   {opt.illustrationSrc ? (
-                    <img
+                    <LivingIllustration
                       src={opt.illustrationSrc}
                       alt={opt.caption}
                       loading="lazy"
-                      draggable={false}
                     />
                   ) : (
                     <span className="am-dibuja__card-word">{opt.caption}</span>
