@@ -93,9 +93,14 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
     }, [reducedMotion]);
 
     const speakMessage = useCallback(async (text: string) => {
-      if (!text.trim()) return;
-      setBubbleText(text);
-      await speakAsGretel(text);
+      const clean = text.trim();
+      if (!clean) return;
+      setBubbleText(clean);
+      const minimumBubbleMs = Math.min(4200, Math.max(1400, clean.length * 42));
+      await Promise.all([
+        speakAsGretel(clean),
+        new Promise<void>((resolve) => window.setTimeout(resolve, minimumBubbleMs)),
+      ]);
       setBubbleText(null);
     }, []);
 
