@@ -3,7 +3,8 @@ import type { WorkbookPageEntry } from "@/components/StudentBook/SimplePageViewe
 import pageInventory from "@/data/page-inventory.json";
 import { CATALOG } from "@/lib/lesson-catalog";
 import { getLessonPageNumbers } from "@/lib/cartilla-crm-theme";
-import { hasPageLayout } from "@/lib/book-faithful";
+import { getPageLayout, hasPageLayout } from "@/lib/book-faithful";
+import { buildGretelPageLine } from "@/lib/gretel-page-guide";
 import { FaithfulPageRenderer } from "@/components/cartilla/FaithfulPageRenderer";
 import { PdfPage } from "@/components/cartilla/PdfPage";
 
@@ -40,11 +41,18 @@ export function buildPageArray(lessonId: number): WorkbookPageEntry[] {
     const pageNum = i + 1;
     const globalPage = globalPages[i];
     const isAnimated = Boolean(filename?.endsWith(".mp4"));
+    const pageNumberForGuide = typeof globalPage === "number" ? globalPage : pageNum;
+    const gretelLine = buildGretelPageLine(
+      typeof globalPage === "number" ? getPageLayout(globalPage) : null,
+      pageNumberForGuide,
+    );
 
     if (typeof globalPage === "number" && hasPageLayout(globalPage)) {
       return {
         id: `lesson-${lessonId}-page-${pageNum}`,
         src,
+        pageNumber: pageNumberForGuide,
+        gretelLine,
         content: <FaithfulPageRenderer pageNumber={globalPage} lessonNumber={lessonId} interactive />,
       };
     }
@@ -53,6 +61,8 @@ export function buildPageArray(lessonId: number): WorkbookPageEntry[] {
       return {
         id: `lesson-${lessonId}-page-${pageNum}`,
         src,
+        pageNumber: pageNumberForGuide,
+        gretelLine,
         content: <FaithfulPageRenderer pageNumber={globalPage} lessonNumber={lessonId} fallback={<PdfPage pageNumber={globalPage} />} />,
       };
     }
@@ -61,6 +71,8 @@ export function buildPageArray(lessonId: number): WorkbookPageEntry[] {
       return {
         id: `lesson-${lessonId}-page-${pageNum}`,
         src,
+        pageNumber: pageNumberForGuide,
+        gretelLine,
         content: isAnimated ? (
           <video src={src} autoPlay loop muted playsInline className="w-full h-full object-cover" />
         ) : (
@@ -78,6 +90,8 @@ export function buildPageArray(lessonId: number): WorkbookPageEntry[] {
 
     return {
       id: `lesson-${lessonId}-page-${pageNum}`,
+      pageNumber: pageNumberForGuide,
+      gretelLine,
       content: <PendingPageShell lessonId={lessonId} pageNum={pageNum} globalPage={globalPage} />,
     };
   });
