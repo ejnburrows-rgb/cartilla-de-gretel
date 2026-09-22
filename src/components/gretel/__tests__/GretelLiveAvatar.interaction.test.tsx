@@ -16,7 +16,7 @@ describe("GretelLiveAvatar direct interaction", () => {
       const speaking = ref.current?.speakMessage("Lee las palabras.");
       await Promise.resolve();
       expect(screen.getByRole("status").textContent).toBe("Lee las palabras.");
-      vi.runAllTimers();
+      vi.advanceTimersByTime(5000);
       await speaking;
     });
     expect(screen.queryByRole("status")).toBeNull();
