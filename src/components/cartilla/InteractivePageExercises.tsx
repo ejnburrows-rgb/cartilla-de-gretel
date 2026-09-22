@@ -15,6 +15,7 @@ import type { PageGridCell, PageRegion } from "@/lib/book-faithful";
 import { recordEvent } from "@/lib/student-session";
 import { gretelEvent } from "@/lib/gretel-bus";
 import { playCorrectChord, playWrongBuzz } from "@/lib/piano-audio";
+import { LivingIllustration } from "@/components/living/LivingIllustration";
 
 /** Pseudo-random per-cell animation offset so a grid never floats in lockstep. */
 function floatDelay(index: number): string {
@@ -24,7 +25,7 @@ function floatDelay(index: number): string {
 function ArtOrPending({ cell }: { cell: PageGridCell }) {
   if (cell.illustrationSrc) {
     return (
-      <img src={cell.illustrationSrc} alt={cell.caption ?? ""} loading="lazy" />
+      <LivingIllustration src={cell.illustrationSrc} alt={cell.caption ?? ""} loading="lazy" />
     );
   }
   return (
@@ -595,7 +596,7 @@ export function InteractiveSyllableMatch({
                     onClick={() => toggle(key)}
                   >
                     {entry.illustrationSrc && (
-                      <img
+                      <LivingIllustration
                         src={entry.illustrationSrc}
                         alt={entry.word}
                         className="fp-ix-syllable__img"
@@ -696,7 +697,7 @@ export function InteractiveFillInBlank({
             className={`fp-ix-fill__item${flagged ? " fp-ix-fill__item--flagged" : ""}`}
           >
             {item.illustrationSrc && (
-              <img
+              <LivingIllustration
                 src={item.illustrationSrc}
                 alt={item.wordBox}
                 className="fp-ix-fill__img"
