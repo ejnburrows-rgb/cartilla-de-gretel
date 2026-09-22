@@ -39,6 +39,8 @@ describe("LivingIllustration faithful recovered art", () => {
     const wrapper = screen.getByRole("img", { name: "oruga" }).parentElement;
     expect(wrapper?.getAttribute("data-blink-mode")).toBe("fallback");
     expect(wrapper?.getAttribute("data-interactive")).toBe("true");
+    expect(wrapper?.querySelectorAll(".living-illustration__eyelid")).toHaveLength(2);
+    expect(wrapper?.className).toContain("living-illustration--creature-life");
     if (!wrapper) throw new Error("missing living illustration wrapper");
     fireEvent.pointerDown(wrapper);
     expect(wrapper.className).toContain("living-illustration--reacting");
