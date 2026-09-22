@@ -1,7 +1,6 @@
 import { resolveTrueBlinkFrame } from "./living-blink-map";
 
 const FAITHFUL_ART_RE = /\/cartilla\/art\/faithful\//;
-const enhanced = new WeakSet<HTMLImageElement>();
 const blinkTimers = new WeakMap<HTMLImageElement, number>();
 const reactTimers = new WeakMap<HTMLImageElement, number>();
 
@@ -81,26 +80,48 @@ function addTouchReaction(img: HTMLImageElement): void {
 }
 
 export function enhanceLivingArtImage(img: HTMLImageElement): void {
-  if (enhanced.has(img)) return;
   if (img.closest(".living-illustration")) return;
   if (img.dataset.livingStatic === "true") return;
 
   const openSrc = pathOnly(img.currentSrc || img.src);
   if (!isLivingArtSource(openSrc)) return;
+  if (img.dataset.livingSource === openSrc) return;
 
-  enhanced.add(img);
+  const oldBlinkTimer = blinkTimers.get(img);
+  if (oldBlinkTimer) window.clearTimeout(oldBlinkTimer);
+  const oldReactTimer = reactTimers.get(img);
+  if (oldReactTimer) window.clearTimeout(oldReactTimer);
+
+  img.classList.remove(
+    "living-runtime-art--breathe",
+    "living-runtime-art--float",
+    "living-runtime-art--sway",
+    "living-runtime-art--blinking",
+    "living-runtime-art--reacting",
+  );
+
   const profile = profileFor(openSrc);
   img.dataset.livingRuntime = "true";
+  img.dataset.livingSource = openSrc;
   img.dataset.livingProfile = profile;
+  delete img.dataset.trueBlinkFrame;
   img.classList.add("living-runtime-art", `living-runtime-art--${profile}`);
   img.style.setProperty("--living-runtime-delay", `-${(hash(openSrc) % 2800) / 1000}s`);
   img.style.setProperty("--living-runtime-duration", `${4.8 + (hash(openSrc) % 1800) / 1000}s`);
 
-  addTouchReaction(img);
+  if (img.dataset.livingTouchBound !== "true") {
+    addTouchReaction(img);
+    img.dataset.livingTouchBound = "true";
+  }
 
   const blinkSrc = resolveTrueBlinkFrame(openSrc);
   if (blinkSrc) {
     img.dataset.trueBlinkFrame = blinkSrc;
+    if (typeof Image !== "undefined") {
+      const preload = new Image();
+      preload.decoding = "async";
+      preload.src = blinkSrc;
+    }
     scheduleTrueBlink(img, openSrc, blinkSrc);
   }
 }
