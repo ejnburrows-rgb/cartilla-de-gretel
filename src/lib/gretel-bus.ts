@@ -19,18 +19,29 @@ export type GretelBusEvent =
   | "task:point"
   | "nudge"; // deprecated compatibility only; must not be auto-dispatched
 
+export type GretelBusDetail = {
+  text?: string;
+  pageNumber?: number;
+};
+
 const CHANNEL = "gretel:bus";
 
-export function gretelEvent(type: GretelBusEvent): void {
+export function gretelEvent(type: GretelBusEvent, detail: GretelBusDetail = {}): void {
   if (typeof window === "undefined") return;
-  window.dispatchEvent(new CustomEvent(CHANNEL, { detail: { type } }));
+  window.dispatchEvent(new CustomEvent(CHANNEL, { detail: { type, ...detail } }));
 }
 
-export function onGretelEvent(handler: (type: GretelBusEvent) => void): () => void {
+export function onGretelEvent(
+  handler: (type: GretelBusEvent, detail: GretelBusDetail) => void,
+): () => void {
   if (typeof window === "undefined") return () => {};
   const listener = (event: Event) => {
-    const type = (event as CustomEvent<{ type: GretelBusEvent }>).detail?.type;
-    if (type) handler(type);
+    const payload = (event as CustomEvent<{ type: GretelBusEvent } & GretelBusDetail>).detail;
+    const type = payload?.type;
+    if (type) {
+      const { text, pageNumber } = payload;
+      handler(type, { text, pageNumber });
+    }
   };
   window.addEventListener(CHANNEL, listener);
   return () => window.removeEventListener(CHANNEL, listener);
