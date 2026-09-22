@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { ArrowLeft } from "lucide-react";
 import { ANIMAL_GALLERY } from "@/content/animal-gallery";
 import { GretelLiveAvatar, type GretelLiveAvatarRef } from "@/components/gretel/GretelLiveAvatar";
+import { LivingIllustration } from "@/components/living/LivingIllustration";
 import "@/styles/animal-gallery.css";
 
 export const Route = createFileRoute("/cartilla/animales")({
@@ -68,11 +69,11 @@ function AnimalGalleryPage() {
               aria-label={`Escuchar: ${animal.word}`}
             >
               <span className="animal-card__imgwrap">
-                <img
-                  className="animal-card__img"
+                <LivingIllustration
+                  className="animal-card__living"
                   src={animal.illustrationSrc}
                   alt={animal.word}
-                  decoding="async"
+                  loading="lazy"
                 />
               </span>
               <span className="animal-card__word">{animal.word}</span>
