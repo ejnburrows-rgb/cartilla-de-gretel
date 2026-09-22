@@ -23,29 +23,49 @@
   -webkit-user-drag: none;
 }
 
-/* Soft lids: cream paper-tone gradient so blink reads without inventing line art. */
+/* Fallback blink for living creatures without a separately authored closed-eye
+   frame. Two localized eyelids close over the eye line instead of washing a
+   large strip across the whole illustration. */
 .living-illustration__lids {
   position: absolute;
-  left: 12%;
-  right: 12%;
-  top: 8%;
-  height: 28%;
-  border-radius: 50% 50% 40% 40% / 60% 60% 40% 40%;
-  background: linear-gradient(
-    to bottom,
-    rgba(250, 245, 235, 0.92) 0%,
-    rgba(250, 245, 235, 0.55) 55%,
-    transparent 100%
-  );
-  opacity: 0;
-  transform: scaleY(0.15);
-  transform-origin: top center;
+  inset: 0;
   pointer-events: none;
-  transition: opacity 80ms ease, transform 80ms ease;
+  opacity: 0;
+  transition: opacity 60ms linear;
+}
+
+.living-illustration__eyelid {
+  position: absolute;
+  top: 24%;
+  width: 13%;
+  height: 7%;
+  border-radius: 50% 50% 48% 48% / 68% 68% 32% 32%;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(250, 245, 235, 0.98) 0%,
+      rgba(245, 236, 220, 0.92) 72%,
+      rgba(220, 202, 178, 0.55) 100%
+    );
+  box-shadow: 0 1px 0 rgba(72, 52, 35, 0.16);
+  transform: scaleY(0.08);
+  transform-origin: 50% 0%;
+  transition: transform 70ms ease-out;
+}
+
+.living-illustration__eyelid--left {
+  left: 29%;
+}
+
+.living-illustration__eyelid--right {
+  right: 29%;
 }
 
 .living-illustration--blink .living-illustration__lids {
   opacity: 1;
+}
+
+.living-illustration--blink .living-illustration__eyelid {
   transform: scaleY(1);
 }
 
@@ -70,6 +90,11 @@
   --living-delay: -3.4s;
 }
 
+.living-illustration--creature-life {
+  animation: living-creature-micro 7.8s ease-in-out var(--living-delay) infinite;
+  transform-origin: 50% 82%;
+}
+
 .living-illustration--breathe .living-illustration__art {
   animation: living-breathe var(--living-duration) ease-in-out var(--living-delay) infinite;
   transform-origin: 50% 86%;
@@ -82,6 +107,13 @@
 .living-illustration--sway .living-illustration__art {
   animation: living-sway var(--living-duration) ease-in-out var(--living-delay) infinite;
   transform-origin: 50% 92%;
+}
+
+@keyframes living-creature-micro {
+  0%, 72%, 100% { transform: translateY(0) rotate(0deg); }
+  78% { transform: translateY(-1px) rotate(-0.35deg); }
+  84% { transform: translateY(0) rotate(0.28deg); }
+  90% { transform: translateY(-0.5px) rotate(-0.12deg); }
 }
 
 @keyframes living-breathe {
@@ -263,6 +295,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .living-illustration--alive,
+  .living-illustration--creature-life,
   .living-illustration--ambient .living-illustration__art,
   .living-flipchart-face,
   .gretel-grounded__shadow,
