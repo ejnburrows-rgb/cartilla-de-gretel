@@ -9,7 +9,7 @@ import {
 import { gretelEvent } from "@/lib/gretel-bus";
 import { speakAsGretel } from "@/lib/gretel-voice";
 import { recordEvent } from "@/lib/student-session";
-import { getFaithfulDeliverySrcSet } from "@/lib/art-delivery";
+import { LivingIllustration } from "@/components/living/LivingIllustration";
 
 interface SoundSearchProps {
   targetSound: string;
@@ -151,13 +151,11 @@ export function SoundSearch({
               }}
               aria-pressed={isSelected}
             >
-              <img
+              <LivingIllustration
                 src={item.illustrationSrc}
                 alt={item.word}
                 loading="lazy"
-                decoding="async"
-                srcSet={item.illustrationSrc ? getFaithfulDeliverySrcSet(item.illustrationSrc) : undefined}
-                className="h-24 w-full object-contain"
+                className="h-24 w-full"
               />
               <span className="text-sm font-black text-stone-800">{item.word}</span>
               {isSelected && (
