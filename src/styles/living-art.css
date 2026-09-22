@@ -52,6 +52,12 @@
 .living-illustration--ambient {
   --living-duration: 5.6s;
   --living-delay: -0.8s;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.living-illustration--reacting .living-illustration__art {
+  animation: living-react 360ms cubic-bezier(0.22, 1, 0.36, 1) both !important;
 }
 
 .living-illustration--phase-1 {
@@ -91,6 +97,13 @@
 @keyframes living-sway {
   0%, 100% { transform: rotate(-0.25deg); }
   50% { transform: rotate(0.35deg); }
+}
+
+@keyframes living-react {
+  0% { transform: translateY(0) scale(1) rotate(0deg); }
+  40% { transform: translateY(-4px) scale(1.035) rotate(-0.8deg); }
+  72% { transform: translateY(1px) scale(0.992) rotate(0.45deg); }
+  100% { transform: translateY(0) scale(1) rotate(0deg); }
 }
 
 /* Picture-grid cells: keep layout, animate the living wrapper inside */
