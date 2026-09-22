@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import type { WorkbookObject } from "@/content/workbook/types";
 import { fireCorrectFeedback, fireWrongFeedback, type InteractionProps } from "./shared";
+import { LivingIllustration } from "@/components/living/LivingIllustration";
 
 type MarkCircleData = { correct?: boolean };
 
@@ -64,13 +65,11 @@ export function MarkCircle({ objects, onResult, onComplete }: InteractionProps) 
             aria-label={object.alt ?? object.text ?? "marcar"}
           >
             {object.src && (
-              <img
+              <LivingIllustration
                 src={object.src}
                 alt=""
                 className="lwp-mark-circle__img"
-                draggable={false}
                 loading="lazy"
-                decoding="async"
               />
             )}
             {object.text && <span className="lwp-mark-circle__text">{object.text}</span>}
