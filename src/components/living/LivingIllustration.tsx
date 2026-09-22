@@ -6,7 +6,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { BLINK_HOLD_MS, nextBlinkDelayMs, prefersReducedMotion } from "@/lib/living-motion";
 import { resolveTrueBlinkFrame } from "@/lib/living-blink-map";
-import { getFaithfulDeliverySrcSet } from "@/lib/art-delivery";
 
 export interface LivingIllustrationProps {
   src: string;
@@ -57,12 +56,14 @@ export function LivingIllustration({
   const [reduced, setReduced] = useState(false);
   const [blinkReady, setBlinkReady] = useState(false);
   const [blinking, setBlinking] = useState(false);
+  const [reacting, setReacting] = useState(false);
   const ambientProfile = useMemo(
     () => (forceStatic ? null : ambientProfileFor(src)),
     [forceStatic, src],
   );
   const phase = useMemo(() => phaseFor(src), [src]);
-  const canBlink = Boolean(trueBlink) && !forceStatic;
+  const canBlink = ambientProfile === "breathe" && !forceStatic;
+  const blinkMode = trueBlink ? "frame" : canBlink ? "fallback" : "none";
 
   useEffect(() => {
     if (typeof window === "undefined" || !window.matchMedia) return;
@@ -74,8 +75,19 @@ export function LivingIllustration({
   }, []);
 
   useEffect(() => {
+    if (!canBlink) {
+      setBlinkReady(false);
+      return;
+    }
+    if (!trueBlink) {
+      setBlinkReady(true);
+      return;
+    }
+    if (typeof Image === "undefined") {
+      setBlinkReady(false);
+      return;
+    }
     setBlinkReady(false);
-    if (!canBlink || !trueBlink || typeof Image === "undefined") return;
     let cancelled = false;
     const img = new Image();
     const ready = () => {
@@ -123,11 +135,19 @@ export function LivingIllustration({
   const ambientActive = Boolean(ambientProfile) && !reduced;
   const displaySrc = blinkActive && blinking && trueBlink ? trueBlink : src;
 
+  const reactToPointer = () => {
+    if (!ambientActive || reduced) return;
+    setReacting(true);
+    window.setTimeout(() => setReacting(false), 360);
+  };
+
   return (
     <span
       className={[
         "living-illustration",
         blinkActive ? "living-illustration--alive" : "",
+        blinkActive && blinking && !trueBlink ? "living-illustration--blink" : "",
+        reacting ? "living-illustration--reacting" : "",
         ambientActive ? "living-illustration--ambient" : "",
         ambientActive && ambientProfile ? `living-illustration--${ambientProfile}` : "",
         ambientActive ? `living-illustration--phase-${phase}` : "",
@@ -136,16 +156,21 @@ export function LivingIllustration({
         .filter(Boolean)
         .join(" ")}
       data-ambient-motion={ambientActive ? ambientProfile ?? "none" : "none"}
+      data-blink-mode={blinkMode}
+      data-interactive={ambientActive ? "true" : "false"}
+      onPointerDown={reactToPointer}
     >
       <img
         src={displaySrc}
         alt={alt}
         loading={loading}
         decoding="async"
-        srcSet={getFaithfulDeliverySrcSet(displaySrc)}
         draggable={false}
         className="living-illustration__art"
       />
+      {blinkActive && !trueBlink ? (
+        <span className="living-illustration__lids" aria-hidden="true" />
+      ) : null}
     </span>
   );
 }
