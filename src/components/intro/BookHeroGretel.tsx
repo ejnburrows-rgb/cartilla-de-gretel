@@ -6,6 +6,7 @@
  * Garden plate behind as book-world context only.
  */
 import type { CSSProperties } from "react";
+import { GretelPresence } from "@/components/gretel/GretelPresence";
 import "@/styles/home-hero.css";
 import "@/styles/gretel-presence.css";
 
@@ -58,6 +59,14 @@ export function BookHeroGretel({
           decoding="async"
           aria-hidden
         />
+        <div className="book-hero-gretel__presence-wrap">
+          <GretelPresence
+            variant="home"
+            autoIntro={autoIntro}
+            hideChrome
+            className="book-hero-gretel__presence"
+          />
+        </div>
         <div className="book-hero-gretel__ground" aria-hidden />
         <div className="book-hero-gretel__vignette" aria-hidden />
       </div>
