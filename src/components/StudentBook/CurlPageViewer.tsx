@@ -179,12 +179,18 @@ export function CurlPageViewer({
       initialRevealDoneRef.current = true;
       setTurning(false);
       const page = pages[pageIndex];
+      const companionLines = [
+        page?.gretelLine,
+        spread ? pages[pageIndex + 1]?.gretelLine : undefined,
+      ].filter((line, index, all): line is string =>
+        Boolean(line?.trim()) && all.findIndex((candidate) => candidate === line) === index,
+      );
       gretelEvent("page:revealed", {
-        text: page?.gretelLine,
+        text: companionLines.join(" ").trim() || undefined,
         pageNumber: page?.pageNumber,
       });
     }, delay);
-  }, [currentIndex, pages, reducedMotion]);
+  }, [currentIndex, pages, reducedMotion, spread]);
 
   const handlePrev = useCallback(() => {
     startTurn();
