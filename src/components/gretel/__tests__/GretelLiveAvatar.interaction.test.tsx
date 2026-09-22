@@ -9,18 +9,20 @@ vi.mock("@/lib/gretel-voice", () => ({
 
 describe("GretelLiveAvatar direct interaction", () => {
   it("keeps spoken guidance visible in a real speech bubble long enough to read", async () => {
-    vi.useFakeTimers();
     const ref = createRef<GretelLiveAvatarRef>();
     render(<GretelLiveAvatar ref={ref} size="sm" />);
+
+    let speaking: Promise<void> | undefined;
+    act(() => {
+      speaking = ref.current?.speakMessage("Lee las palabras.");
+    });
+
+    expect((await screen.findByRole("status")).textContent).toBe("Lee las palabras.");
+
     await act(async () => {
-      const speaking = ref.current?.speakMessage("Lee las palabras.");
-      await Promise.resolve();
-      expect(screen.getByRole("status").textContent).toBe("Lee las palabras.");
-      vi.advanceTimersByTime(5000);
       await speaking;
     });
     expect(screen.queryByRole("status")).toBeNull();
-    vi.useRealTimers();
   });
 
   it("is a real tappable and keyboard-focusable character", () => {
