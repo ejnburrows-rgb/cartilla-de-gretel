@@ -11,6 +11,7 @@ import {
   type DragEndEvent,
 } from "@dnd-kit/core";
 import { fireCorrectFeedback, fireWrongFeedback, type InteractionProps } from "./shared";
+import { LivingIllustration } from "@/components/living/LivingIllustration";
 
 type PairMatchData = { role: "left" | "right"; pairId: string };
 
@@ -54,13 +55,11 @@ function LeftItem({
       onClick={onSelect}
     >
       {object.src && (
-        <img
+        <LivingIllustration
           src={object.src}
           alt=""
           className="lwp-pair-match__img"
-          draggable={false}
           loading="lazy"
-          decoding="async"
         />
       )}
       {object.text && <span className="lwp-pair-match__text">{object.text}</span>}
@@ -99,13 +98,11 @@ function RightItem({
       aria-label={object.alt ?? object.text ?? "pareja"}
     >
       {object.src && (
-        <img
+        <LivingIllustration
           src={object.src}
           alt=""
           className="lwp-pair-match__img"
-          draggable={false}
           loading="lazy"
-          decoding="async"
         />
       )}
       {object.text && <span className="lwp-pair-match__text">{object.text}</span>}
