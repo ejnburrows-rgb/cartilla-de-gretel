@@ -51,6 +51,28 @@ describe("living art runtime", () => {
     expect(img.src).toContain("oso.webp");
   });
 
+
+  it("reconfigures a reused image node when its faithful source changes", () => {
+    vi.useFakeTimers();
+    const img = document.createElement("img");
+    img.src = "/cartilla/art/faithful/vocal-o/oso.webp";
+    document.body.appendChild(img);
+
+    enhanceLivingArtImage(img);
+    expect(img.dataset.trueBlinkFrame).toContain("oso-blink.webp");
+
+    img.src = "/cartilla/art/faithful/leccion-7-m/mono.webp";
+    enhanceLivingArtImage(img);
+
+    expect(img.dataset.livingSource).toBe(
+      "/cartilla/art/faithful/leccion-7-m/mono.webp",
+    );
+    expect(img.dataset.trueBlinkFrame).toContain("mono-blink.webp");
+
+    vi.advanceTimersToNextTimer();
+    expect(img.src).toContain("mono-blink.webp");
+  });
+
   it("does not double-animate images already owned by LivingIllustration", () => {
     const wrapper = document.createElement("span");
     wrapper.className = "living-illustration";
