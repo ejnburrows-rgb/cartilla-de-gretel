@@ -150,7 +150,7 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
     useEffect(() => {
       const off = onGretelEvent((type) => {
         if (type === "lesson:start") {
-          window.setTimeout(() => send({ type: "WAVE" }), 760);
+          send({ type: "WAVE" });
           return;
         }
         if (type === "answer:correct") {
