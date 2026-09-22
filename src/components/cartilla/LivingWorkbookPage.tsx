@@ -11,6 +11,7 @@ import { PaintCanvas } from "@/cartilla/interactions/PaintCanvas";
 import { DibujaHost } from "@/cartilla/interactions/DibujaHost";
 import { emitProgressEvent } from "@/lib/progress-events";
 import { getWorkbookPageFallbackChain } from "@/lib/bookImages";
+import { LivingIllustration } from "@/components/living/LivingIllustration";
 
 /** Known non-page placeholders that must NOT stand in for real page art. */
 const PLACEHOLDER_BACKGROUNDS = new Set([
@@ -71,13 +72,11 @@ function StaticObject({ object, motionOn }: { object: WorkbookObject; motionOn: 
       aria-hidden={!object.text && !object.alt ? true : undefined}
     >
       {object.src && (
-        <img
+        <LivingIllustration
           src={object.src}
           alt={object.alt ?? ""}
           className="lwp-object__img"
-          draggable={false}
           loading="lazy"
-          decoding="async"
         />
       )}
       {object.text && <div className="lwp-object__text">{object.text}</div>}
