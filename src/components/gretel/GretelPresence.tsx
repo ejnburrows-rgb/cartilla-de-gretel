@@ -48,7 +48,7 @@ export function GretelPresence({
     if (bookMode) return;
     const frame = requestAnimationFrame(() => setEntered(true));
     return () => cancelAnimationFrame(frame);
-  }, [bookMode]);
+  }, [autoIntro, bookMode]);
 
   useEffect(() => {
     if (!bookMode) return;
@@ -63,7 +63,7 @@ export function GretelPresence({
         setIntroReady(true);
         const line = detail.text?.trim();
         if (line) {
-          if (introDone.current) {
+          if (!autoIntro || introDone.current) {
             window.setTimeout(() => {
               void avatarRef.current?.speakMessage(line);
             }, 220);
