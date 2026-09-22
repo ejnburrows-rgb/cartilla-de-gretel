@@ -2,6 +2,7 @@ import { useState } from "react";
 import { speak } from "@/lib/speak";
 import { Volume2 } from "lucide-react";
 import { PAGE_HOTSPOTS } from "@/content/page-hotspots";
+import { LivingIllustration } from "@/components/living/LivingIllustration";
 
 interface InteractiveFlipchartOverlayProps {
   pageNumber: number;
@@ -44,11 +45,11 @@ export function InteractiveFlipchartOverlay({
           aria-label={`Escuchar ${w.word}`}
         >
           {w.illustrationSrc ? (
-            <img
+            <LivingIllustration
               src={w.illustrationSrc}
               alt=""
-              className="max-h-12 w-auto object-contain drop-shadow-md"
-              draggable={false}
+              className="max-h-12 w-auto drop-shadow-md"
+              loading="lazy"
             />
           ) : (
             <Volume2 className="w-8 h-8 text-white drop-shadow-md" aria-hidden />
