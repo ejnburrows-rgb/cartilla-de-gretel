@@ -70,6 +70,7 @@ export function LivingIllustration({
   );
   const phase = useMemo(() => phaseFor(src), [src]);
   const canBlink = ambientProfile === "breathe" && !forceStatic;
+  const isCreature = ambientProfile === "breathe" && !forceStatic;
   const blinkMode = trueBlink ? "frame" : canBlink ? "fallback" : "none";
 
   useEffect(() => {
@@ -155,6 +156,7 @@ export function LivingIllustration({
         blinkActive ? "living-illustration--alive" : "",
         blinkActive && blinking && !trueBlink ? "living-illustration--blink" : "",
         reacting ? "living-illustration--reacting" : "",
+        isCreature && ambientActive ? "living-illustration--creature-life" : "",
         ambientActive ? "living-illustration--ambient" : "",
         ambientActive && ambientProfile ? `living-illustration--${ambientProfile}` : "",
         ambientActive ? `living-illustration--phase-${phase}` : "",
@@ -176,7 +178,10 @@ export function LivingIllustration({
         className="living-illustration__art"
       />
       {blinkActive && !trueBlink ? (
-        <span className="living-illustration__lids" aria-hidden="true" />
+        <span className="living-illustration__lids" aria-hidden="true">
+          <span className="living-illustration__eyelid living-illustration__eyelid--left" />
+          <span className="living-illustration__eyelid living-illustration__eyelid--right" />
+        </span>
       ) : null}
     </span>
   );
