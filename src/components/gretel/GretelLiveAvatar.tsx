@@ -5,6 +5,7 @@ import {
   useRef,
   useState,
   forwardRef,
+  type KeyboardEvent,
 } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Heart, Sparkles, Star } from "lucide-react";
@@ -120,7 +121,7 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
       burst("star", 3);
     }, [burst, isSpeaking, send]);
 
-    const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
       if (event.key !== "Enter" && event.key !== " ") return;
       event.preventDefault();
       interact();
