@@ -13,6 +13,7 @@ describe("LivingIllustration faithful recovered art", () => {
       const image = screen.getByRole("img", { name: word });
       expect(image.getAttribute("src")).toBe(src);
       expect(image.getAttribute("srcset")).toBeNull();
+      expect(image.parentElement?.getAttribute("data-ambient-motion")).not.toBe("none");
       expect(screen.queryByText(/pendiente de color/i)).toBeNull();
     });
   }
