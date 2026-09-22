@@ -11,6 +11,7 @@ import {
   type DragEndEvent,
 } from "@dnd-kit/core";
 import { fireCorrectFeedback, fireWrongFeedback, type InteractionProps } from "./shared";
+import { LivingIllustration } from "@/components/living/LivingIllustration";
 
 type DragPlaceData = { role: "draggable" | "target"; targetId?: string };
 
@@ -54,13 +55,11 @@ function Draggable({
       onClick={onSelect}
     >
       {object.src && (
-        <img
+        <LivingIllustration
           src={object.src}
           alt=""
           className="lwp-drag-place__img"
-          draggable={false}
           loading="lazy"
-          decoding="async"
         />
       )}
       {object.text && <span className="lwp-drag-place__text">{object.text}</span>}
@@ -99,13 +98,11 @@ function Target({
       aria-label={object.alt ?? object.text ?? "destino"}
     >
       {object.src && (
-        <img
+        <LivingIllustration
           src={object.src}
           alt=""
           className="lwp-drag-place__img"
-          draggable={false}
           loading="lazy"
-          decoding="async"
         />
       )}
       {object.text && <span className="lwp-drag-place__text">{object.text}</span>}
