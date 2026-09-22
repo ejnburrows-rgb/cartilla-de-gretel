@@ -458,6 +458,7 @@ export function PaintCanvas({
           <img
             src={illustrationSrc}
             alt={illustrationAlt}
+            data-living-static="true"
             className="am-paint__base"
             draggable={false}
             loading="lazy"
