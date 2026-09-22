@@ -38,10 +38,14 @@ describe("release integration — workbook + lessons", () => {
     }
   });
 
-  it("every lesson resolves to a non-empty production page array", () => {
+  it("every lesson resolves to a non-empty production page array with Gretel guidance on every page", () => {
     for (const entry of CATALOG) {
       const pages = buildPageArray(entry.n);
       expect(pages.length, `lesson ${entry.n}`).toBeGreaterThan(0);
+      for (const page of pages) {
+        expect(page.pageNumber, `${page.id} pageNumber`).toBeTypeOf("number");
+        expect(page.gretelLine?.trim().length, `${page.id} Gretel guidance`).toBeGreaterThan(0);
+      }
     }
   });
 
