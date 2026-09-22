@@ -110,6 +110,22 @@
   display: none;
 }
 
+.gretel-avatar-interactive {
+  pointer-events: auto;
+  cursor: pointer;
+  touch-action: manipulation;
+  outline: none;
+}
+
+.gretel-avatar-interactive:focus-visible {
+  border-radius: 1rem;
+  box-shadow: 0 0 0 4px rgba(201, 140, 79, 0.28);
+}
+
+.gretel-presence--book .gretel-avatar-interactive {
+  pointer-events: auto;
+}
+
 .gretel-presence--book[data-page-ready="false"] {
   opacity: 0;
   transform: translateY(18px) scale(0.96);
