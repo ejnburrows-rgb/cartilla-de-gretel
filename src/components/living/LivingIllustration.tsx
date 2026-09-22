@@ -36,6 +36,13 @@ function ambientProfileFor(src: string): AmbientProfile {
   if (LIVING_WORDS.some((word) => slug.includes(word))) return "breathe";
   if (FLOAT_WORDS.some((word) => slug.includes(word))) return "float";
   if (SWAY_WORDS.some((word) => slug.includes(word))) return "sway";
+
+  // Owner direction: faithful workbook art must never silently fall back to
+  // static. Non-character objects get the gentlest deterministic motion so
+  // the page feels alive without changing or redrawing the original pixels.
+  if (src.includes("/cartilla/art/faithful/")) {
+    return phaseFor(src) % 2 === 0 ? "float" : "sway";
+  }
   return null;
 }
 
