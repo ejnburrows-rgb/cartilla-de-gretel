@@ -6,6 +6,7 @@ import { recordEvent, useStudentSession } from "@/lib/student-session";
 import { isSeedSessionActive } from "@/lib/seed-data";
 import { gretelEvent } from "@/lib/gretel-bus";
 import { EscucharInstruccionButton } from "./EscucharInstruccionButton";
+import { LivingIllustration } from "@/components/living/LivingIllustration";
 
 type Word = { word: string; emoji?: string; illustrationSrc?: string };
 
@@ -178,12 +179,11 @@ export function WordMatch({
               )}
             >
               {w.illustrationSrc ? (
-                <img
+                <LivingIllustration
                   src={w.illustrationSrc}
                   alt=""
-                  className="max-h-14 w-auto object-contain p-1"
+                  className="max-h-14 w-auto p-1"
                   loading="lazy"
-                  draggable={false}
                 />
               ) : (
                 <span className="text-[11px] font-bold text-stone-400 px-2 text-center">
