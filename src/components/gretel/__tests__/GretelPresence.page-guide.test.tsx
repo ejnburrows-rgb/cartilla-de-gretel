@@ -1,5 +1,5 @@
 import { act, render, screen } from "@testing-library/react";
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { GretelPresence } from "../GretelPresence";
 import { gretelEvent } from "@/lib/gretel-bus";
 
@@ -13,13 +13,8 @@ vi.mock("@/lib/gretel-voice", async (importOriginal) => {
   };
 });
 
-afterEach(() => {
-  vi.useRealTimers();
-});
-
 describe("GretelPresence page-by-page guidance", () => {
   it("shows and speaks the revealed page instruction through the live avatar", async () => {
-    vi.useFakeTimers();
     render(
       <GretelPresence
         lesson={{ n: 2, kind: "vowel", title: "La vocal O", vowel: "o" }}
@@ -34,11 +29,10 @@ describe("GretelPresence page-by-page guidance", () => {
         text: "Encierra en un círculo la vocal O.",
         pageNumber: 8,
       });
-      vi.advanceTimersByTime(250);
     });
 
-    expect(screen.getByRole("status").textContent).toBe(
-      "Encierra en un círculo la vocal O.",
-    );
+    expect(
+      (await screen.findByRole("status", {}, { timeout: 1200 })).textContent,
+    ).toBe("Encierra en un círculo la vocal O.");
   });
 });
