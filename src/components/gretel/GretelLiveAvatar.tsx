@@ -61,6 +61,7 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
     const [particles, setParticles] = useState<Particle[]>([]);
     const [frameIndex, setFrameIndex] = useState(0);
     const particleId = useRef(0);
+    const speechRequestId = useRef(0);
 
     const poseKey: GretelPoseKey =
       machineState === "pointing" && bubblePosition === "right" ? "pointingLeft" : machineState;
@@ -95,13 +96,16 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
     const speakMessage = useCallback(async (text: string) => {
       const clean = text.trim();
       if (!clean) return;
+      const requestId = ++speechRequestId.current;
       setBubbleText(clean);
       const minimumBubbleMs = Math.min(4200, Math.max(1400, clean.length * 42));
       await Promise.all([
         speakAsGretel(clean),
         new Promise<void>((resolve) => window.setTimeout(resolve, minimumBubbleMs)),
       ]);
-      setBubbleText(null);
+      if (speechRequestId.current === requestId) {
+        setBubbleText(null);
+      }
     }, []);
 
     const celebrate = useCallback(async (customText?: string) => {
