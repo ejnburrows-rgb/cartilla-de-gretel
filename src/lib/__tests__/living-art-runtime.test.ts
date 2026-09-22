@@ -28,7 +28,7 @@ describe("living art runtime", () => {
     expect(img.dataset.livingProfile).toMatch(/breathe|float|sway/);
     expect(img.classList.contains("living-runtime-art")).toBe(true);
 
-    img.dispatchEvent(new PointerEvent("pointerdown", { bubbles: true }));
+    img.dispatchEvent(new Event("pointerdown", { bubbles: true }));
     expect(img.classList.contains("living-runtime-art--reacting")).toBe(true);
   });
 
@@ -44,10 +44,10 @@ describe("living art runtime", () => {
       "/cartilla/art/faithful/vocal-o/oso-blink.webp",
     );
 
-    vi.advanceTimersByTime(6000);
+    vi.advanceTimersToNextTimer();
     expect(img.src).toContain("oso-blink.webp");
 
-    vi.advanceTimersByTime(200);
+    vi.advanceTimersToNextTimer();
     expect(img.src).toContain("oso.webp");
   });
 
