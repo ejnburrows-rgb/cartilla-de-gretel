@@ -151,12 +151,18 @@ export function SoundSearch({
               }}
               aria-pressed={isSelected}
             >
-              <LivingIllustration
-                src={item.illustrationSrc}
-                alt={item.word}
-                loading="lazy"
-                className="h-24 w-full"
-              />
+              {item.illustrationSrc ? (
+                <LivingIllustration
+                  src={item.illustrationSrc}
+                  alt={item.word}
+                  loading="lazy"
+                  className="h-24 w-full"
+                />
+              ) : (
+                <span className="text-sm font-bold text-stone-500">
+                  {item.word}
+                </span>
+              )}
               <span className="text-sm font-black text-stone-800">{item.word}</span>
               {isSelected && (
                 <span
