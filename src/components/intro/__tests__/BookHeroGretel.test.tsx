@@ -32,10 +32,11 @@ describe("BookHeroGretel — real GretelPresence (not static swap)", () => {
     const scene = frame.querySelector(".book-hero-gretel__scene");
     expect(scene?.getAttribute("src")).toBe(GRETEL_HERO_SCENE);
 
-    // Real presence host (not 3-frame only wave cycle component)
-    const host = screen.getByTestId("book-hero-gretel-frame");
+    // Real presence host (not a mislabeled garden-only frame)
+    const host = screen.getByTestId("book-hero-gretel");
     expect(host.getAttribute("data-gretel-system")).toBe("presence");
     expect(host.getAttribute("data-sticker")).toBe("false");
+    expect(screen.getByTestId("gretel-live-avatar")).toBeTruthy();
   });
 
   it("grounds the figure with frame matte + vignette", () => {
