@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { LivingIllustration } from "../LivingIllustration";
+import { ANIMAL_GALLERY } from "@/content/animal-gallery";
 
 describe("LivingIllustration faithful recovered art", () => {
   for (const [word, src] of [
@@ -17,6 +18,18 @@ describe("LivingIllustration faithful recovered art", () => {
       expect(screen.queryByText(/pendiente de color/i)).toBeNull();
     });
   }
+
+  it("makes every verified animal in the gallery visibly blink and move", () => {
+    for (const animal of ANIMAL_GALLERY) {
+      const { unmount } = render(
+        <LivingIllustration src={animal.illustrationSrc} alt={animal.word} />,
+      );
+      const wrapper = screen.getByRole("img", { name: animal.word }).parentElement;
+      expect(wrapper?.getAttribute("data-blink-mode"), animal.word).not.toBe("none");
+      expect(wrapper?.className, animal.word).toContain("living-illustration--creature-life");
+      unmount();
+    }
+  });
 
   it("uses a true closed-eye frame when one exists", () => {
     render(
