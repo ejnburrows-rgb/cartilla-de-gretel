@@ -19,6 +19,7 @@ import {
 import { CSS } from "@dnd-kit/utilities";
 import { playNote, playCorrectChord, playWrongBuzz } from "@/lib/piano-audio";
 import { recordEvent } from "@/lib/student-session";
+import { LivingIllustration } from "@/components/living/LivingIllustration";
 import { RotateCcw, ArrowRight, CheckCircle2 } from "lucide-react";
 
 export interface DragSyllableWord {
@@ -275,10 +276,10 @@ export function DragSyllableOrder({
             className="w-24 h-24 bg-white/80 rounded-2xl border border-stone-200/60 flex items-center justify-center text-5xl shadow-sm select-none overflow-hidden"
           >
             {currentWordData?.illustrationSrc ? (
-              <img
+              <LivingIllustration
                 src={currentWordData.illustrationSrc}
                 alt={currentWordData.word}
-                className="w-full h-full object-contain p-1.5"
+                className="w-full h-full p-1.5"
                 loading="lazy"
               />
             ) : (
