@@ -13,7 +13,7 @@ import {
   type IntroCatalogSlice,
 } from "@/lib/gretel-voice";
 import { gretelEvent, onGretelEvent } from "@/lib/gretel-bus";
-import { GretelLiveAvatar } from "./GretelLiveAvatar";
+import { GretelLiveAvatar, type GretelLiveAvatarRef } from "./GretelLiveAvatar";
 
 export type GretelPresenceProps = {
   lesson?: IntroCatalogSlice;
@@ -40,6 +40,8 @@ export function GretelPresence({
   const [muted, setMuted] = useState(false);
   const introDone = useRef(false);
   const lastReactionAt = useRef(0);
+  const avatarRef = useRef<GretelLiveAvatarRef>(null);
+  const pendingPageLine = useRef<string | null>(null);
 
   useEffect(() => {
     setMuted(isGretelVoiceMuted());
@@ -50,7 +52,7 @@ export function GretelPresence({
 
   useEffect(() => {
     if (!bookMode) return;
-    return onGretelEvent((type) => {
+    return onGretelEvent((type, detail) => {
       if (type === "page-turn:start") {
         setEntered(false);
         cancelGretelSpeech();
@@ -59,12 +61,26 @@ export function GretelPresence({
       if (type === "page:revealed") {
         setEntered(true);
         setIntroReady(true);
+        const line = detail.text?.trim();
+        if (line) {
+          if (introDone.current) {
+            window.setTimeout(() => {
+              void avatarRef.current?.speakMessage(line);
+            }, 220);
+          } else {
+            pendingPageLine.current = line;
+          }
+        }
       }
     });
   }, [bookMode]);
 
   const runSpeech = useCallback(async (text: string) => {
     if (!text.trim()) return;
+    if (avatarRef.current) {
+      await avatarRef.current.speakMessage(text);
+      return;
+    }
     await speakAsGretel(text);
   }, []);
 
@@ -86,8 +102,10 @@ export function GretelPresence({
         if (cancelled) return;
         await runSpeech(line);
       }
-      if (variant === "lesson" && instruction?.trim() && !cancelled) {
-        await runSpeech(instruction.trim());
+      const pageLine = pendingPageLine.current?.trim() || instruction?.trim();
+      pendingPageLine.current = null;
+      if (variant === "lesson" && pageLine && !cancelled) {
+        await runSpeech(pageLine);
       }
       if (variant === "lesson" && bookMode && !cancelled) {
         gretelEvent("task:point");
@@ -152,6 +170,7 @@ export function GretelPresence({
       data-page-ready={entered ? "true" : "false"}
     >
       <GretelLiveAvatar
+        ref={avatarRef}
         size={variant === "home" ? "md" : "sm"}
         bubblePosition={bookMode ? "right" : "top"}
       />
