@@ -23,6 +23,7 @@ const LIVING_WORDS = [
   "elefante","unicornio","pajaro","pájaro","pez","pulpo","delfin","delfín","lobo",
   "loro","vaca","foca","yegua","cisne","gato","conejo","burro","perro","abeja",
   "insecto","nino","niño","bebe","bebé","mama","mamá","indio","rana",
+  "arana","araña","aguila","águila","gusano","jirafa","jicotea","zorro",
 ];
 const FLOAT_WORDS = ["globo","nube","luna","sol","ola","avion","avión","cometa"];
 const SWAY_WORDS = ["flor","tulipan","tulipán","arbol","árbol","pino","pina","piña"];
