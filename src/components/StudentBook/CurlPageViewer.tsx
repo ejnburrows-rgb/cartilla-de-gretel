@@ -126,6 +126,7 @@ export function CurlPageViewer({
   const [turning, setTurning] = useState(false);
   const revealTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const initialRevealDoneRef = useRef(false);
+  const pendingRevealIndexRef = useRef(safeInitialPage);
 
   useEffect(() => {
     setMounted(true);
@@ -201,10 +202,10 @@ export function CurlPageViewer({
           ? clampPageIndex(e.data, pages.length)
           : null;
       if (idx === null) return;
+      pendingRevealIndexRef.current = idx;
       setCurrentIndex(idx);
       onPageChange?.(idx);
       gretelEvent("page-flip");
-      scheduleReveal(undefined, idx);
     },
     [onPageChange, pages.length, scheduleReveal],
   );
@@ -215,7 +216,7 @@ export function CurlPageViewer({
       if (!turning) startTurn();
       return;
     }
-    if (state === "read") scheduleReveal();
+    if (state === "read") scheduleReveal(undefined, pendingRevealIndexRef.current);
   }, [scheduleReveal, startTurn, turning]);
 
   useEffect(() => {
