@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { WorkbookObject } from "@/content/workbook/types";
 import { fireCorrectFeedback, fireWrongFeedback, type InteractionProps } from "./shared";
+import { LivingIllustration } from "@/components/living/LivingIllustration";
 
 /**
  * "Presiona el dibujo correcto" — a row of choices, exactly one correct.
@@ -55,13 +56,11 @@ export function TapSelect({ objects, onResult, onComplete }: InteractionProps) {
             aria-label={object.alt ?? object.text ?? "opción"}
           >
             {object.src && (
-              <img
+              <LivingIllustration
                 src={object.src}
                 alt=""
                 className="lwp-tap-select__img"
-                draggable={false}
                 loading="lazy"
-                decoding="async"
               />
             )}
             {object.text && <span className="lwp-tap-select__text">{object.text}</span>}
