@@ -114,6 +114,18 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
 
     useImperativeHandle(ref, () => ({ celebrate, speakMessage, encourage }), [celebrate, encourage, speakMessage]);
 
+    const interact = useCallback(() => {
+      if (isSpeaking) return;
+      send({ type: "WAVE" });
+      burst("star", 3);
+    }, [burst, isSpeaking, send]);
+
+    const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      interact();
+    };
+
     useEffect(() => {
       if (typeof Image === "undefined") return;
       const immediatePoses: GretelPoseKey[] = ["idle", "settling", "waving", "pointingLeft", "talking", "cheering"];
@@ -205,11 +217,17 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
 
     return (
       <div
-        className={`relative inline-flex items-end justify-center ${SIZES[size]} ${className}`}
+        className={`gretel-avatar-interactive relative inline-flex items-end justify-center ${SIZES[size]} ${className}`}
         data-testid="gretel-live-avatar"
         data-state={machineState}
         data-speaking={isSpeaking ? "true" : "false"}
         data-listening={listening ? "true" : "false"}
+        data-interactive="true"
+        role="button"
+        tabIndex={0}
+        aria-label="Interactuar con Gretel"
+        onClick={interact}
+        onKeyDown={handleKeyDown}
       >
         {listening && (
           <motion.span
