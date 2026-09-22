@@ -76,7 +76,11 @@ export function GretelPresence({
     (async () => {
       await new Promise((resolve) => setTimeout(resolve, bookMode ? 260 : 760));
       if (cancelled) return;
-      if (variant === "lesson" && bookMode) gretelEvent("lesson:start");
+      if (variant === "lesson" && bookMode) {
+        gretelEvent("lesson:start");
+        await new Promise((resolve) => setTimeout(resolve, 620));
+        if (cancelled) return;
+      }
       const lines = variant === "home" ? buildHomeIntroLines() : buildLessonIntroLines(lesson!);
       for (const line of lines) {
         if (cancelled) return;
