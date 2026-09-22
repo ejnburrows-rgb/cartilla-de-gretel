@@ -14,6 +14,7 @@ import { HOME_GREETING } from "@/lib/gretel-voice";
 
 vi.mock("@/lib/gretel-bus", () => ({
   gretelEvent: vi.fn(),
+  onGretelEvent: () => () => {},
 }));
 
 vi.mock("@/lib/student-session", () => ({
