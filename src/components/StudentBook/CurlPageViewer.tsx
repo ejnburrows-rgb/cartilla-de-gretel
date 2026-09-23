@@ -51,6 +51,19 @@ export function visiblePageLabel(
     : `Páginas ${first}–${last} de ${pageCount}`;
 }
 
+export function expectedTurnIndex(
+  currentIndex: number,
+  pageCount: number,
+  spread: boolean,
+  direction: "next" | "prev",
+): number {
+  const delta = spread ? 2 : 1;
+  return clampPageIndex(
+    direction === "next" ? currentIndex + delta : currentIndex - delta,
+    pageCount,
+  );
+}
+
 const Page = forwardRef<
   HTMLDivElement,
   { entry?: WorkbookPageEntry; index: number }
@@ -125,6 +138,7 @@ export function CurlPageViewer({
   const [currentIndex, setCurrentIndex] = useState(safeInitialPage);
   const [turning, setTurning] = useState(false);
   const revealTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const turnFallbackTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const initialRevealDoneRef = useRef(false);
   const pendingRevealIndexRef = useRef(safeInitialPage);
 
@@ -176,6 +190,10 @@ export function CurlPageViewer({
   }, []);
 
   const scheduleReveal = useCallback((delayMs?: number, revealIndex?: number) => {
+    if (turnFallbackTimerRef.current) {
+      clearTimeout(turnFallbackTimerRef.current);
+      turnFallbackTimerRef.current = null;
+    }
     if (revealTimerRef.current) clearTimeout(revealTimerRef.current);
     const delay = delayMs ?? (reducedMotion ? 0 : 140);
     const pageIndex = revealIndex ?? currentIndex;
@@ -196,15 +214,48 @@ export function CurlPageViewer({
     }, delay);
   }, [currentIndex, pages, reducedMotion, spread]);
 
+  const armTurnFallback = useCallback((expectedIndex: number) => {
+    if (turnFallbackTimerRef.current) {
+      clearTimeout(turnFallbackTimerRef.current);
+    }
+    const delay = reducedMotion ? 40 : STUDENT_PAGE_TURN_MS + 240;
+    turnFallbackTimerRef.current = setTimeout(() => {
+      turnFallbackTimerRef.current = null;
+      const apiIndex = getApi()?.getCurrentPageIndex?.();
+      const resolvedIndex =
+        typeof apiIndex === "number"
+          ? clampPageIndex(apiIndex, pages.length)
+          : expectedIndex;
+      pendingRevealIndexRef.current = resolvedIndex;
+      setCurrentIndex(resolvedIndex);
+      onPageChange?.(resolvedIndex);
+      scheduleReveal(0, resolvedIndex);
+    }, delay);
+  }, [getApi, onPageChange, pages.length, reducedMotion, scheduleReveal]);
+
   const handlePrev = useCallback(() => {
+    const expectedIndex = expectedTurnIndex(
+      currentIndex,
+      pages.length,
+      spread,
+      "prev",
+    );
     startTurn();
     getApi()?.flipPrev?.();
-  }, [getApi, startTurn]);
+    armTurnFallback(expectedIndex);
+  }, [armTurnFallback, currentIndex, getApi, pages.length, spread, startTurn]);
 
   const handleNext = useCallback(() => {
+    const expectedIndex = expectedTurnIndex(
+      currentIndex,
+      pages.length,
+      spread,
+      "next",
+    );
     startTurn();
     getApi()?.flipNext?.();
-  }, [getApi, startTurn]);
+    armTurnFallback(expectedIndex);
+  }, [armTurnFallback, currentIndex, getApi, pages.length, spread, startTurn]);
   const onFlip = useCallback(
     (e: FlipEvent) => {
       const idx =
@@ -246,6 +297,7 @@ export function CurlPageViewer({
 
   useEffect(() => () => {
     if (revealTimerRef.current) clearTimeout(revealTimerRef.current);
+    if (turnFallbackTimerRef.current) clearTimeout(turnFallbackTimerRef.current);
   }, []);
 
   const shellStyle = {
