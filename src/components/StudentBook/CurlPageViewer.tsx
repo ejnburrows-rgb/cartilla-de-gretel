@@ -167,6 +167,10 @@ export function CurlPageViewer({
     : currentIndex < pages.length - 1;
 
   const startTurn = useCallback(() => {
+    if (revealTimerRef.current) {
+      clearTimeout(revealTimerRef.current);
+      revealTimerRef.current = null;
+    }
     setTurning(true);
     gretelEvent("page-turn:start");
   }, []);
@@ -212,8 +216,12 @@ export function CurlPageViewer({
       setCurrentIndex(idx);
       onPageChange?.(idx);
       gretelEvent("page-flip");
+      // react-pageflip does not reliably emit a final "read" state in every
+      // browser/input path. onFlip is the authoritative completed-page signal,
+      // so always schedule the companion reveal from here as a fallback.
+      scheduleReveal(reducedMotion ? 0 : 140, idx);
     },
-    [onPageChange, pages.length, scheduleReveal],
+    [onPageChange, pages.length, reducedMotion, scheduleReveal],
   );
 
   const onChangeState = useCallback((e: FlipEvent) => {
