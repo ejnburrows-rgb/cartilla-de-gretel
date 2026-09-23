@@ -6,6 +6,7 @@ import {
   SPREAD_ASPECT_RATIO,
   SPREAD_BREAKPOINT_PX,
   clampPageIndex,
+  expectedTurnIndex,
   visiblePageLabel,
 } from "../CurlPageViewer";
 
@@ -26,6 +27,14 @@ describe("CurlPageViewer physical contracts", () => {
     expect(clampPageIndex(99, 4)).toBe(3);
     expect(clampPageIndex(2, 4)).toBe(2);
     expect(clampPageIndex(1, 0)).toBe(0);
+  });
+
+  it("calculates deterministic fallback targets for page turns", () => {
+    expect(expectedTurnIndex(0, 4, false, "next")).toBe(1);
+    expect(expectedTurnIndex(1, 4, false, "prev")).toBe(0);
+    expect(expectedTurnIndex(0, 4, true, "next")).toBe(2);
+    expect(expectedTurnIndex(2, 4, true, "prev")).toBe(0);
+    expect(expectedTurnIndex(3, 4, true, "next")).toBe(3);
   });
 
   it("describes one visible page on portrait screens", () => {
