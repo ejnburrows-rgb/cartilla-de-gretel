@@ -6,6 +6,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { BLINK_HOLD_MS, nextBlinkDelayMs, prefersReducedMotion } from "@/lib/living-motion";
 import { resolveTrueBlinkFrame } from "@/lib/living-blink-map";
+import { getFaithfulDeliverySrcSet } from "@/lib/art-delivery";
 
 export interface LivingIllustrationProps {
   src: string;
@@ -143,6 +144,7 @@ export function LivingIllustration({
   const blinkActive = canBlink && blinkReady && !reduced;
   const ambientActive = Boolean(ambientProfile) && !reduced;
   const displaySrc = blinkActive && blinking && trueBlink ? trueBlink : src;
+  const deliverySrcSet = displaySrc === src ? getFaithfulDeliverySrcSet(src) : undefined;
 
   const reactToPointer = () => {
     if (!ambientActive || reduced) return;
@@ -172,6 +174,7 @@ export function LivingIllustration({
     >
       <img
         src={displaySrc}
+        srcSet={deliverySrcSet}
         alt={alt}
         loading={loading}
         decoding="async"
