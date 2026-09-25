@@ -116,13 +116,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-e/estrella.webp",
-    "sourceFlipchartPage": "e-page-11.jpg",
+    "sourceFlipchartPage": 4,
     "cropBox": [
-      1115,
-      1618,
-      17,
-      12
-    ]
+      195,
+      3450,
+      780,
+      930
+    ],
+    "sourcePdfPage": 6,
+    "sourceRenderScale": 6,
+    "provenanceStatus": "VERIFIED-AUTHENTIC-FLIPCHART-2026-09-25",
+    "note": "Re-cropped 2026-09-25 from authoritative Flip Chart printed page 4 / PDF page 6; transparent delivery cutout preserves original artwork and proportions."
   },
   {
     "slug": "abanico",
@@ -231,13 +235,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-i/insecto.webp",
-    "sourceFlipchartPage": "i-page-15.jpg",
+    "sourceFlipchartPage": 5,
     "cropBox": [
-      111,
-      346,
-      3,
-      3
-    ]
+      210,
+      3480,
+      900,
+      900
+    ],
+    "sourcePdfPage": 7,
+    "sourceRenderScale": 6,
+    "provenanceStatus": "VERIFIED-AUTHENTIC-FLIPCHART-2026-09-25",
+    "note": "Re-cropped 2026-09-25 from authoritative Flip Chart printed page 5 / PDF page 7; transparent delivery cutout preserves original artwork and proportions."
   },
   {
     "slug": "isla",
@@ -245,13 +253,17 @@
     "lessonNumber": null,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/vocal-i/isla.webp",
-    "sourceFlipchartPage": "i-page-13.jpg",
+    "sourceFlipchartPage": 5,
     "cropBox": [
-      687,
-      887,
-      2,
-      6
-    ]
+      1230,
+      3450,
+      1020,
+      975
+    ],
+    "sourcePdfPage": 7,
+    "sourceRenderScale": 6,
+    "provenanceStatus": "VERIFIED-AUTHENTIC-FLIPCHART-2026-09-25",
+    "note": "Re-cropped 2026-09-25 from authoritative Flip Chart printed page 5 / PDF page 7; transparent delivery cutout preserves original artwork and proportions."
   },
   {
     "slug": "ocho",
