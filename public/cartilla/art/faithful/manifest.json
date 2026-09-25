@@ -467,10 +467,9 @@
     "word": "ola",
     "lessonNumber": null,
     "pageNumber": null,
-    "src": "/cartilla/art/faithful/leccion-1/ola.webp",
-    "sourceFlipchartPage": null,
-    "cropBox": null,
-    "provenanceStatus": "PROVENANCE-UNKNOWN"
+    "src": "/cartilla/art/faithful/vocal-o/ola.webp",
+    "provenanceStatus": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
+    "note": "Production canonical cutout. Existing faithful QA marks this crop PASS. Corrected from the deleted/failed leccion-1 ola mapping; source page/crop coordinates are not recorded in the retained repository."
   },
   {
     "slug": "pajaro",
@@ -1880,5 +1879,77 @@
     "cropBox": null,
     "provenanceStatus": "PASS-VERIFIED-2026-QA",
     "note": "No recorded crop provenance (predates manifest tracking); a 2026-07-15 commit message claimed it was transplanted from leccion-18-rr/carro.webp, but that file is a mismatched donkey/camel leg crop (confirmed FAIL in qa-results.json) — the two files are NOT identical despite the commit message. This file was independently visually re-verified 2026-07-20: a genuine, clean, colorful vintage-car illustration, PASS-graded. Wired onto the page-layouts.json carro cell (previously unwired/pendiente despite this real crop sitting unused on disk)."
+  },
+  {
+    "slug": "rita",
+    "word": "Rita",
+    "lessonNumber": 17,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-17-r/rita.webp",
+    "provenanceStatus": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
+    "note": "Production canonical cutout. Existing faithful QA marks this crop PASS for source fidelity, complete crop, clean edges, and no background chunks. Source page/crop coordinates are not recorded in the retained repository."
+  },
+  {
+    "slug": "rueda",
+    "word": "rueda",
+    "lessonNumber": 17,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-17-r/rueda.webp",
+    "provenanceStatus": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
+    "note": "Production canonical cutout. Existing faithful QA marks this crop PASS for source fidelity, complete crop, clean edges, and no background chunks. Source page/crop coordinates are not recorded in the retained repository."
+  },
+  {
+    "slug": "burro",
+    "word": "burro",
+    "lessonNumber": 18,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-18-rr/burro.webp",
+    "provenanceStatus": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
+    "note": "Production canonical cutout. Existing faithful QA marks this crop PASS for source fidelity, complete crop, clean edges, and no background chunks. Source page/crop coordinates are not recorded in the retained repository."
+  },
+  {
+    "slug": "carrusel",
+    "word": "carrusel",
+    "lessonNumber": 18,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-18-rr/carrusel.webp",
+    "provenanceStatus": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
+    "note": "Production canonical cutout. Existing faithful QA marks this crop PASS for source fidelity, complete crop, clean edges, and no background chunks. Source page/crop coordinates are not recorded in the retained repository."
+  },
+  {
+    "slug": "perro",
+    "word": "perro",
+    "lessonNumber": 18,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-18-rr/perro.webp",
+    "provenanceStatus": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
+    "note": "Production canonical cutout. Existing faithful QA marks this crop PASS for source fidelity, complete crop, clean edges, and no background chunks. Source page/crop coordinates are not recorded in the retained repository."
+  },
+  {
+    "slug": "tierra",
+    "word": "tierra",
+    "lessonNumber": 18,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-18-rr/tierra.webp",
+    "provenanceStatus": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
+    "note": "Production canonical cutout. Existing faithful QA marks this crop PASS for source fidelity, complete crop, clean edges, and no background chunks. Source page/crop coordinates are not recorded in the retained repository."
+  },
+  {
+    "slug": "gato",
+    "word": "gato",
+    "lessonNumber": 19,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-19-g/gato.webp",
+    "provenanceStatus": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
+    "note": "Production canonical cutout. Existing faithful QA marks this crop PASS for source fidelity, complete crop, clean edges, and no background chunks. Source page/crop coordinates are not recorded in the retained repository."
+  },
+  {
+    "slug": "fiesta",
+    "word": "fiesta",
+    "lessonNumber": 20,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/leccion-20-f/fiesta.webp",
+    "provenanceStatus": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
+    "note": "Production canonical cutout. Existing faithful QA marks this crop PASS for source fidelity, complete crop, clean edges, and no background chunks. Source page/crop coordinates are not recorded in the retained repository."
   }
 ]
