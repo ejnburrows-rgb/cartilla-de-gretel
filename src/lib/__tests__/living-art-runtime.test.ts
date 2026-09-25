@@ -67,10 +67,8 @@ describe("living art runtime", () => {
     expect(img.dataset.livingSource).toBe(
       "/cartilla/art/faithful/leccion-7-m/mono.webp",
     );
-    expect(img.dataset.trueBlinkFrame).toContain("mono-blink.webp");
-
-    vi.advanceTimersToNextTimer();
-    expect(img.src).toContain("mono-blink.webp");
+    expect(img.dataset.trueBlinkFrame).toBeUndefined();
+    expect(img.src).toContain("mono.webp");
   });
 
   it("does not double-animate images already owned by LivingIllustration", () => {
