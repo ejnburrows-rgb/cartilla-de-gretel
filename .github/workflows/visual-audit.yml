@@ -1,0 +1,52 @@
+name: Visual Audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "tests/e2e/visual-audit.spec.ts"
+      - ".github/workflows/visual-audit.yml"
+      - "src/**"
+      - "public/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: visual-audit-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.33.0
+          run_install: false
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm exec playwright install --with-deps chromium
+
+      - name: Capture full workbook visual audit
+        run: pnpm exec playwright test tests/e2e/visual-audit.spec.ts --project=chromium
+
+      - name: Upload visual audit screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cartilla-visual-audit
+          path: test-results/visual-audit
+          if-no-files-found: error
+          retention-days: 7
+          compression-level: 6
