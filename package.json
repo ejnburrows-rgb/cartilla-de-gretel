@@ -5,8 +5,8 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "dev": "vite dev",
-    "build": "pnpm typecheck && pnpm test && vite build",
+    "dev": "pnpm prepare:art && vite dev",
+    "build": "pnpm prepare:art && pnpm typecheck && pnpm test && vite build",
     "build:app": "pnpm build",
     "verify:release": "pnpm build && pnpm exec playwright install chromium && pnpm test:e2e",
     "preview": "vite preview --host 127.0.0.1",
@@ -16,7 +16,9 @@
     "format": "prettier --write .",
     "test": "vitest run",
     "test:e2e": "playwright test",
-    "test:games:e2e": "playwright test tests/e2e/all-games.spec.ts"
+    "test:games:e2e": "playwright test tests/e2e/all-games.spec.ts",
+    "prepare:art": "node scripts/prepare-art-assets.mjs",
+    "audit:art": "node scripts/prepare-art-assets.mjs --check"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
