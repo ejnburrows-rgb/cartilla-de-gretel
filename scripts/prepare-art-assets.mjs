@@ -440,6 +440,7 @@ async function processEntry(entry, checkOnly) {
 export async function prepareArtAssets({ checkOnly = false } = {}) {
   const manifest = readJson(sourceManifestPath);
   if (!Array.isArray(manifest)) throw new Error("faithful manifest must be an array");
+  if (!checkOnly) fs.rmSync(deliveryDir, { recursive: true, force: true });
 
   const records = [];
   for (const entry of manifest) records.push(await processEntry(entry, checkOnly));
@@ -453,10 +454,28 @@ export async function prepareArtAssets({ checkOnly = false } = {}) {
   }
 
   const wired = collectWiredFaithfulSrcs();
+  const wiredSet = new Set(wired);
   const missingManifestMappings = wired.filter((src) => !bySrc.has(src));
+  const missingCanonicalRecords = records.filter((record) => record.missingCanonical);
+  const missingWiredCanonical = missingCanonicalRecords
+    .map((record) => record.entry?.src)
+    .filter((src) => src && wiredSet.has(src));
+
+  const qaPath = path.join(faithfulDir, "qa-results.json");
+  const qa = fs.existsSync(qaPath) ? readJson(qaPath) : { results: [] };
+  const qaBySrc = new Map(
+    (qa.results ?? []).map((result) => [
+      "/" + String(result.file ?? "").replace(/^public\//, ""),
+      result,
+    ]),
+  );
+  const wiredQaFailures = wired
+    .map((src) => ({ src, qa: qaBySrc.get(src) }))
+    .filter(({ qa }) => !qa || qa.verdict !== "PASS");
+
   const hashGroups = new Map();
   for (const record of records) {
-    if (!record || !record.canonical || !record.canonical.sha256) continue;
+    if (!record?.canonical?.sha256) continue;
     const arr = hashGroups.get(record.canonical.sha256) ?? [];
     arr.push(record);
     hashGroups.set(record.canonical.sha256, arr);
@@ -471,16 +490,37 @@ export async function prepareArtAssets({ checkOnly = false } = {}) {
       })),
     );
 
+  const unresolvedSourceIssues = missingCanonicalRecords.map((record) => ({
+    src: record.entry?.src ?? null,
+    word: record.entry?.word ?? record.entry?.slug ?? null,
+    lessonNumber: record.entry?.lessonNumber ?? null,
+    sourceAsset: record.entry?.source ?? record.entry?.sourceFlipchartPage ?? null,
+    provenanceStatus: record.entry?.provenanceStatus ?? null,
+    reason: "Manifest record exists but no canonical production cutout is retained in the repository.",
+  }));
+
   const errors = [
     ...records.flatMap((record) => record.errors ?? []),
     ...duplicateSrcs.map((src) => "duplicate manifest src " + src),
     ...missingManifestMappings.map((src) => "wired faithful art missing from manifest " + src),
+    ...missingWiredCanonical.map((src) => "wired faithful art missing canonical file " + src),
+    ...wiredQaFailures.map(({ src, qa }) =>
+      qa
+        ? "wired faithful art failed prior visual QA " + src + ": " + (qa.reason ?? qa.verdict)
+        : "wired faithful art missing prior visual QA result " + src,
+    ),
   ];
   const warnings = [
     ...records.flatMap((record) =>
       (record.warnings ?? []).map(
         (warning) => (record.canonicalSrc ?? record.entry?.src ?? "unknown") + ": " + warning,
       ),
+    ),
+    ...unresolvedSourceIssues.map(
+      (issue) =>
+        "unavailable source cutout (not wired): " +
+        issue.src +
+        (issue.sourceAsset ? " — source reference " + issue.sourceAsset : ""),
     ),
     ...duplicateContent.map(
       (group) =>
@@ -498,6 +538,8 @@ export async function prepareArtAssets({ checkOnly = false } = {}) {
       manifestEntries: manifest.length,
       wiredProductionAssets: wired.length,
       processedCanonicalAssets: records.filter((record) => record.canonical).length,
+      unavailableManifestAssets: unresolvedSourceIssues.length,
+      wiredQaPass: wired.length - wiredQaFailures.length,
       backgroundCleaned: records.filter((record) => record.cleanup?.backgroundRemoved).length,
       paddingTrimmed: records.filter((record) => record.cleanup?.transparentPaddingTrimmed).length,
       edgeTouchWarnings: records.filter(
@@ -512,6 +554,7 @@ export async function prepareArtAssets({ checkOnly = false } = {}) {
     errors,
     warnings,
     duplicateContent,
+    unresolvedSourceIssues,
     assets: records.filter((record) => record.canonical),
   };
 
