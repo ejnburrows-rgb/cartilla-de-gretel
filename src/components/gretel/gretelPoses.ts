@@ -33,34 +33,28 @@ export const GRETEL_POSES: Record<GretelPoseKey, string | string[]> = {
   idle: [
     `${P}/gretel-idle.webp`,
     `${P}/gretel-talk-0.webp`,
-    `${P}/gretel-settle.webp`,
     `${P}/gretel-talk.webp`,
   ],
   /** True closed-eye matching idle canvas (666×1000). */
   blinking: `${P}/gretel-closed-idle.webp`,
   /** Enter-scene settle / land / think. */
-  settling: `${P}/gretel-settle.webp`,
+  settling: `${P}/gretel-idle.webp`,
   /** Gentle miss / try-again — settle is sympathetic, not angry. */
-  encouraging: `${P}/gretel-settle.webp`,
+  encouraging: `${P}/gretel-idle.webp`,
   /** Lesson exit / goodbye. */
-  exiting: `${P}/gretel-wave-exit.webp`,
+  exiting: `${P}/gretel-wave-1.webp`,
   /** Home + lesson welcome. */
-  welcome: [`${P}/gretel-wave.webp`, `${P}/gretel-wave-1.webp`, `${P}/gretel-wave-2.webp`],
-  waving: [`${P}/gretel-wave.webp`, `${P}/gretel-wave-1.webp`, `${P}/gretel-wave-2.webp`],
+  welcome: `${P}/gretel-wave-1.webp`,
+  waving: `${P}/gretel-wave-1.webp`,
   pointing: `${P}/gretel-point.webp`,
   /** Mirror point for right-side bubble / exercise on right. */
-  pointingLeft: [`${P}/gretel-point-left.webp`, `${P}/gretel-point-left-flip.webp`],
-  cheering: [`${P}/gretel-cheer.webp`, `${P}/gretel-cheer-1.webp`],
+  pointingLeft: `${P}/gretel-point-left.webp`,
+  cheering: `${P}/gretel-cheer.webp`,
   /**
    * Talk cycle: talk-0 is idle-identical base; talk-1/2 + talk.webp add mouth
    * openness. Cycle all for richer speech while TTS runs.
    */
-  talking: [
-    `${P}/gretel-talk-0.webp`,
-    `${P}/gretel-talk-1.webp`,
-    `${P}/gretel-talk-2.webp`,
-    `${P}/gretel-talk.webp`,
-  ],
+  talking: [`${P}/gretel-talk-0.webp`, `${P}/gretel-talk.webp`],
   error: `${P}/gretel-idle.webp`,
 };
 
@@ -98,16 +92,16 @@ export const GRETEL_ASSET_INVENTORY: GretelAssetRow[] = [
   {
     path: `${P}/gretel-settle.webp`,
     pose: "settle / think / miss (G-02)",
-    usable: true,
-    wired: true,
-    notes: "Enter settle + encouraging miss",
+    usable: false,
+    wired: false,
+    notes: "REJECTED — opaque white background; preserved as source but not wired.",
   },
   {
     path: `${P}/gretel-wave.webp`,
     pose: "wave-0",
-    usable: true,
-    wired: true,
-    notes: "Welcome / wave cycle",
+    usable: false,
+    wired: false,
+    notes: "REJECTED — checkerboard background baked into pixels; preserved but not wired.",
   },
   {
     path: `${P}/gretel-wave-1.webp`,
@@ -119,16 +113,16 @@ export const GRETEL_ASSET_INVENTORY: GretelAssetRow[] = [
   {
     path: `${P}/gretel-wave-2.webp`,
     pose: "wave-2",
-    usable: true,
-    wired: true,
-    notes: "Welcome / wave cycle",
+    usable: false,
+    wired: false,
+    notes: "REJECTED — checkerboard background baked into pixels; preserved but not wired.",
   },
   {
     path: `${P}/gretel-wave-exit.webp`,
     pose: "exit wave (G-03)",
-    usable: true,
-    wired: true,
-    notes: "Lesson leave goodbye",
+    usable: false,
+    wired: false,
+    notes: "REJECTED — duplicate of contaminated wave-2 asset; preserved but not wired.",
   },
   {
     path: `${P}/gretel-point.webp`,
@@ -147,9 +141,9 @@ export const GRETEL_ASSET_INVENTORY: GretelAssetRow[] = [
   {
     path: `${P}/gretel-point-left-flip.webp`,
     pose: "point left alt",
-    usable: true,
-    wired: true,
-    notes: "Second frame in pointingLeft cycle",
+    usable: false,
+    wired: false,
+    notes: "REJECTED — striped/corrupted background pixels; preserved but not wired.",
   },
   {
     path: `${P}/gretel-cheer.webp`,
@@ -161,9 +155,9 @@ export const GRETEL_ASSET_INVENTORY: GretelAssetRow[] = [
   {
     path: `${P}/gretel-cheer-1.webp`,
     pose: "cheer-1",
-    usable: true,
-    wired: true,
-    notes: "Success / celebrate",
+    usable: false,
+    wired: false,
+    notes: "REJECTED — checkerboard background baked into pixels; preserved but not wired.",
   },
   {
     path: `${P}/gretel-talk-0.webp`,
@@ -175,16 +169,16 @@ export const GRETEL_ASSET_INVENTORY: GretelAssetRow[] = [
   {
     path: `${P}/gretel-talk-1.webp`,
     pose: "talk-1",
-    usable: true,
-    wired: true,
-    notes: "Talk cycle open mouth",
+    usable: false,
+    wired: false,
+    notes: "REJECTED — checkerboard background baked into pixels; preserved but not wired.",
   },
   {
     path: `${P}/gretel-talk-2.webp`,
     pose: "talk-2",
-    usable: true,
-    wired: true,
-    notes: "Talk cycle mid mouth",
+    usable: false,
+    wired: false,
+    notes: "REJECTED — checkerboard background baked into pixels; preserved but not wired.",
   },
   {
     path: `${P}/gretel-talk.webp`,
