@@ -1106,13 +1106,15 @@
     "lessonNumber": 14,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-14-n/nino.webp",
-    "sourceFlipchartPage": "ñ-page-28.jpg",
+    "sourceFlipchartPage": 28,
     "cropBox": [
       1378,
       1095,
       574,
       398
-    ]
+    ],
+    "provenanceStatus": "VERIFIED-AUTHENTIC-FLIPCHART-2026-09-25",
+    "note": "Re-cropped 2026-09-25 from authoritative Flip Chart printed page 28 / PDF page 30; removed stray scan/crop-edge bars without redrawing the original art."
   },
   {
     "slug": "barco",
@@ -1461,14 +1463,16 @@
     "lessonNumber": 24,
     "pageNumber": null,
     "src": "/cartilla/art/faithful/leccion-23-z/zorro.webp",
-    "sourceFlipchartPage": "z-page-58.jpg",
+    "sourceFlipchartPage": 58,
     "cropBox": [
       1540,
       1320,
       680,
       540
     ],
-    "sourceNote": "fox (re-verify)"
+    "sourceNote": "fox (re-verify)",
+    "provenanceStatus": "VERIFIED-AUTHENTIC-FLIPCHART-2026-09-25",
+    "note": "Re-cropped 2026-09-25 from authoritative Flip Chart printed page 58 / PDF page 60; removed embedded vertical crop artifact while preserving the full fox and tail."
   },
   {
     "slug": "traje",
