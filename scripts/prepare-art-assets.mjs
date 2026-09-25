@@ -334,7 +334,8 @@ async function processEntry(entry, checkOnly) {
   if (!fs.existsSync(canonicalAbs)) {
     return {
       entry,
-      errors: ["missing canonical asset " + entry.src],
+      missingCanonical: true,
+      errors: [],
       warnings: [],
     };
   }
