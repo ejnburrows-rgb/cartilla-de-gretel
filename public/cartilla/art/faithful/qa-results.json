@@ -2,14 +2,14 @@
   "$schema": "color-quality QA pass/fail per published faithful crop + Gretel pose cutout",
   "generatedBy": "manual visual QA (contact sheets + full-res zoom + source comparison)",
   "population": 179,
-  "pass": 119,
-  "fail": 60,
+  "pass": 116,
+  "fail": 63,
   "criteria": [
     "colors match the book original (verified against public/art/hd/gretel-authentic.jpg for Gretel; book scan pages for crops)",
     "clean paint - no bleed, white gaps, or flat fills where the original has shading",
     "complete crop - no cut-off limbs, no background chunks, clean edges"
   ],
-  "note": "Task brief cited Gretel canon colors dress #E2574C / hair #B5793A which do not match the real book painting (public/art/hd/gretel-authentic.jpg: blonde hair, navy dress with orange floral trim). Judged poses against the actual source painting instead; all 17 pass. Flagging the hex mismatch for the operator to reconcile with Notion Hub canon. wasWiredInProduction=true means the FAIL crop was referenced by src/data/page-layouts.json, src/content/lessons.json, src/content/consonants.json, src/content/animal-gallery.ts, and/or src/content/workbook/workbook-manifest.json (the dev-only LivingWorkbookPage sandbox engine) — all references have been stripped back to pendiente/emoji/no-entry. On 2026-08-08, the focused seven-drawing repair retained authentic teacher crops for aro/iglú and restored five exact student-workbook crops after proving those drawings do not occur in the separate complete 62-page flip chart. Generated substitutes remain inactive. 2026-09-25 pose audit: visually contaminated Gretel pose files were reclassified FAIL and removed from production mappings; originals remain preserved and no replacement art was generated.",
+  "note": "Task brief cited Gretel canon colors dress #E2574C / hair #B5793A which do not match the real book painting (public/art/hd/gretel-authentic.jpg: blonde hair, navy dress with orange floral trim). Judged poses against the actual source painting instead; all 17 pass. Flagging the hex mismatch for the operator to reconcile with Notion Hub canon. wasWiredInProduction=true means the FAIL crop was referenced by src/data/page-layouts.json, src/content/lessons.json, src/content/consonants.json, src/content/animal-gallery.ts, and/or src/content/workbook/workbook-manifest.json (the dev-only LivingWorkbookPage sandbox engine) — all references have been stripped back to pendiente/emoji/no-entry. On 2026-08-08, the focused seven-drawing repair retained authentic teacher crops for aro/iglú and restored five exact student-workbook crops after proving those drawings do not occur in the separate complete 62-page flip chart. Generated substitutes remain inactive. 2026-09-25 pose audit: visually contaminated Gretel pose files were reclassified FAIL and removed from production mappings; originals remain preserved and no replacement art was generated. 2026-09-25 blink audit: mono/papa/sapo authored blink derivatives were reclassified FAIL and unwired; the clean CSS eyelid fallback is used instead. Oso authored blink remains PASS.",
   "results": [
     {
       "file": "public/cartilla/art/faithful/vocal-a/abanico.webp",
@@ -271,7 +271,10 @@
     },
     {
       "file": "public/cartilla/art/faithful/leccion-7-m/mono-blink.webp",
-      "verdict": "PASS"
+      "verdict": "FAIL",
+      "reason": "Blink overlay introduces large dark eye/forehead shapes that do not preserve the source illustration cleanly.",
+      "wasWiredInProduction": true,
+      "productionStatus": "REMOVED_FROM_PRODUCTION_2026-09-25_FALLBACK_BLINK_USED"
     },
     {
       "file": "public/cartilla/art/faithful/leccion-7-m/mono.webp",
@@ -285,7 +288,10 @@
     },
     {
       "file": "public/cartilla/art/faithful/leccion-8-p/papa-blink.webp",
-      "verdict": "PASS"
+      "verdict": "FAIL",
+      "reason": "Blink derivative adds inconsistent eye overlays to the cropped scene and is not production-clean.",
+      "wasWiredInProduction": true,
+      "productionStatus": "REMOVED_FROM_PRODUCTION_2026-09-25_FALLBACK_BLINK_USED"
     },
     {
       "file": "public/cartilla/art/faithful/leccion-8-p/papa.webp",
@@ -311,7 +317,10 @@
     },
     {
       "file": "public/cartilla/art/faithful/leccion-9-s/sapo-blink.webp",
-      "verdict": "PASS"
+      "verdict": "FAIL",
+      "reason": "Blink derivative retains distracting vertical white artifact bars and is not production-clean.",
+      "wasWiredInProduction": true,
+      "productionStatus": "REMOVED_FROM_PRODUCTION_2026-09-25_FALLBACK_BLINK_USED"
     },
     {
       "file": "public/cartilla/art/faithful/leccion-9-s/sapo.webp",
