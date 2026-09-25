@@ -13,7 +13,9 @@ describe("LivingIllustration faithful recovered art", () => {
       render(<LivingIllustration src={src} alt={word} />);
       const image = screen.getByRole("img", { name: word });
       expect(image.getAttribute("src")).toBe(src);
-      expect(image.getAttribute("srcset")).toBe(\n        `/cartilla/art/delivery/faithful/384/${src.split("/faithful/")[1]} 1x, /cartilla/art/delivery/faithful/768/${src.split("/faithful/")[1]} 2x`,\n      );
+      expect(image.getAttribute("srcset")).toBe(
+        `/cartilla/art/delivery/faithful/384/${src.split("/faithful/")[1]} 1x, /cartilla/art/delivery/faithful/768/${src.split("/faithful/")[1]} 2x`,
+      );
       expect(image.parentElement?.getAttribute("data-ambient-motion")).not.toBe("none");
       expect(screen.queryByText(/pendiente de color/i)).toBeNull();
     });
