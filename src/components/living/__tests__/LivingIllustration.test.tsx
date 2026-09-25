@@ -9,11 +9,11 @@ describe("LivingIllustration faithful recovered art", () => {
     ["globo", "/cartilla/art/faithful/leccion-1/globo.webp"],
     ["oruga", "/cartilla/art/faithful/vocal-o/oruga.webp"],
   ] as const) {
-    it(`renders canonical high-resolution ${word} art instead of a delivery thumbnail`, () => {
+    it(`keeps canonical ${word} art as fallback and wires clean responsive delivery derivatives`, () => {
       render(<LivingIllustration src={src} alt={word} />);
       const image = screen.getByRole("img", { name: word });
       expect(image.getAttribute("src")).toBe(src);
-      expect(image.getAttribute("srcset")).toBeNull();
+      expect(image.getAttribute("srcset")).toBe(\n        `/cartilla/art/delivery/faithful/384/${src.split("/faithful/")[1]} 1x, /cartilla/art/delivery/faithful/768/${src.split("/faithful/")[1]} 2x`,\n      );
       expect(image.parentElement?.getAttribute("data-ambient-motion")).not.toBe("none");
       expect(screen.queryByText(/pendiente de color/i)).toBeNull();
     });
