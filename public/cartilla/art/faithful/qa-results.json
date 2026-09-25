@@ -2,14 +2,14 @@
   "$schema": "color-quality QA pass/fail per published faithful crop + Gretel pose cutout",
   "generatedBy": "manual visual QA (contact sheets + full-res zoom + source comparison)",
   "population": 179,
-  "pass": 128,
-  "fail": 51,
+  "pass": 119,
+  "fail": 60,
   "criteria": [
     "colors match the book original (verified against public/art/hd/gretel-authentic.jpg for Gretel; book scan pages for crops)",
     "clean paint - no bleed, white gaps, or flat fills where the original has shading",
     "complete crop - no cut-off limbs, no background chunks, clean edges"
   ],
-  "note": "Task brief cited Gretel canon colors dress #E2574C / hair #B5793A which do not match the real book painting (public/art/hd/gretel-authentic.jpg: blonde hair, navy dress with orange floral trim). Judged poses against the actual source painting instead; all 17 pass. Flagging the hex mismatch for the operator to reconcile with Notion Hub canon. wasWiredInProduction=true means the FAIL crop was referenced by src/data/page-layouts.json, src/content/lessons.json, src/content/consonants.json, src/content/animal-gallery.ts, and/or src/content/workbook/workbook-manifest.json (the dev-only LivingWorkbookPage sandbox engine) — all references have been stripped back to pendiente/emoji/no-entry. On 2026-08-08, the focused seven-drawing repair retained authentic teacher crops for aro/iglú and restored five exact student-workbook crops after proving those drawings do not occur in the separate complete 62-page flip chart. Generated substitutes remain inactive.",
+  "note": "Task brief cited Gretel canon colors dress #E2574C / hair #B5793A which do not match the real book painting (public/art/hd/gretel-authentic.jpg: blonde hair, navy dress with orange floral trim). Judged poses against the actual source painting instead; all 17 pass. Flagging the hex mismatch for the operator to reconcile with Notion Hub canon. wasWiredInProduction=true means the FAIL crop was referenced by src/data/page-layouts.json, src/content/lessons.json, src/content/consonants.json, src/content/animal-gallery.ts, and/or src/content/workbook/workbook-manifest.json (the dev-only LivingWorkbookPage sandbox engine) — all references have been stripped back to pendiente/emoji/no-entry. On 2026-08-08, the focused seven-drawing repair retained authentic teacher crops for aro/iglú and restored five exact student-workbook crops after proving those drawings do not occur in the separate complete 62-page flip chart. Generated substitutes remain inactive. 2026-09-25 pose audit: visually contaminated Gretel pose files were reclassified FAIL and removed from production mappings; originals remain preserved and no replacement art was generated.",
   "results": [
     {
       "file": "public/cartilla/art/faithful/vocal-a/abanico.webp",
@@ -747,11 +747,17 @@
     },
     {
       "file": "public/cartilla/images/gretel/poses/gretel-blink.webp",
-      "verdict": "PASS"
+      "verdict": "FAIL",
+      "reason": "Wrong canvas 1024×1024 versus canonical 666×1000 pose family; intentionally unwired.",
+      "productionStatus": "UNWIRED",
+      "wasWiredInProduction": false
     },
     {
       "file": "public/cartilla/images/gretel/poses/gretel-cheer-1.webp",
-      "verdict": "PASS"
+      "verdict": "FAIL",
+      "reason": "Checkerboard transparency pattern is baked into image pixels.",
+      "productionStatus": "REMOVED_FROM_PRODUCTION_2026-09-25",
+      "wasWiredInProduction": true
     },
     {
       "file": "public/cartilla/images/gretel/poses/gretel-cheer.webp",
@@ -767,7 +773,10 @@
     },
     {
       "file": "public/cartilla/images/gretel/poses/gretel-point-left-flip.webp",
-      "verdict": "PASS"
+      "verdict": "FAIL",
+      "reason": "Horizontal striped/corrupted background pixels are baked into the image.",
+      "productionStatus": "REMOVED_FROM_PRODUCTION_2026-09-25",
+      "wasWiredInProduction": true
     },
     {
       "file": "public/cartilla/images/gretel/poses/gretel-point-left.webp",
@@ -779,7 +788,10 @@
     },
     {
       "file": "public/cartilla/images/gretel/poses/gretel-settle.webp",
-      "verdict": "PASS"
+      "verdict": "FAIL",
+      "reason": "Opaque white background is baked into the pose; not a clean transparent cutout.",
+      "productionStatus": "REMOVED_FROM_PRODUCTION_2026-09-25",
+      "wasWiredInProduction": true
     },
     {
       "file": "public/cartilla/images/gretel/poses/gretel-talk-0.webp",
@@ -787,11 +799,17 @@
     },
     {
       "file": "public/cartilla/images/gretel/poses/gretel-talk-1.webp",
-      "verdict": "PASS"
+      "verdict": "FAIL",
+      "reason": "Checkerboard transparency pattern is baked into image pixels.",
+      "productionStatus": "REMOVED_FROM_PRODUCTION_2026-09-25",
+      "wasWiredInProduction": true
     },
     {
       "file": "public/cartilla/images/gretel/poses/gretel-talk-2.webp",
-      "verdict": "PASS"
+      "verdict": "FAIL",
+      "reason": "Checkerboard transparency pattern is baked into image pixels.",
+      "productionStatus": "REMOVED_FROM_PRODUCTION_2026-09-25",
+      "wasWiredInProduction": true
     },
     {
       "file": "public/cartilla/images/gretel/poses/gretel-talk.webp",
@@ -803,15 +821,24 @@
     },
     {
       "file": "public/cartilla/images/gretel/poses/gretel-wave-2.webp",
-      "verdict": "PASS"
+      "verdict": "FAIL",
+      "reason": "Checkerboard transparency pattern is baked into image pixels.",
+      "productionStatus": "REMOVED_FROM_PRODUCTION_2026-09-25",
+      "wasWiredInProduction": true
     },
     {
       "file": "public/cartilla/images/gretel/poses/gretel-wave-exit.webp",
-      "verdict": "PASS"
+      "verdict": "FAIL",
+      "reason": "Duplicate of contaminated gretel-wave-2.webp; checkerboard is baked into pixels.",
+      "productionStatus": "REMOVED_FROM_PRODUCTION_2026-09-25",
+      "wasWiredInProduction": true
     },
     {
       "file": "public/cartilla/images/gretel/poses/gretel-wave.webp",
-      "verdict": "PASS"
+      "verdict": "FAIL",
+      "reason": "Checkerboard transparency pattern is baked into image pixels.",
+      "productionStatus": "REMOVED_FROM_PRODUCTION_2026-09-25",
+      "wasWiredInProduction": true
     },
     {
       "file": "public/cartilla/art/faithful/leccion-1/abrigo.webp",
