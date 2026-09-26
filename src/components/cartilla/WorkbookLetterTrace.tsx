@@ -337,6 +337,7 @@ export function WorkbookLetterTrace({
                 role="button"
                 tabIndex={0}
                 aria-label={`Punto ${tap.position.pointIdx + 1}, toca aquí`}
+                data-gretel-target="primary"
                 className="fp-trace__dot fp-trace__dot--active"
                 style={{ cursor: "pointer" }}
                 onClick={() => tap.tapCheckpoint(tap.position.strokeIdx, tap.position.pointIdx)}

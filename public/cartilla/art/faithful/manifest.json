@@ -1967,5 +1967,16 @@
     "src": "/cartilla/art/faithful/leccion-20-f/fiesta.webp",
     "provenanceStatus": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
     "note": "Production canonical cutout. Existing faithful QA marks this crop PASS for source fidelity, complete crop, clean edges, and no background chunks. Source page/crop coordinates are not recorded in the retained repository."
+  },
+  {
+    "slug": "oso-blink",
+    "word": "oso (parpadeo)",
+    "lessonNumber": null,
+    "pageNumber": null,
+    "src": "/cartilla/art/faithful/vocal-o/oso-blink.webp",
+    "source": "public/cartilla/art/faithful/vocal-o/oso.webp",
+    "cropBox": null,
+    "provenanceStatus": "QA-PASS-AUTHORED-BLINK-2026-09-25",
+    "note": "Explicitly allow-listed closed-eye derivative. Existing faithful QA marks this authored blink PASS; contaminated mono, papa and sapo blink frames remain unwired."
   }
 ]

@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom/vitest";
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { GretelActivity } from '../GretelActivity';
+import { GretelActivity, resolveGretelTarget } from '../GretelActivity';
 import { GretelPresence } from '../GretelPresence';
 import { gretelEvent } from '@/lib/gretel-bus';
 vi.mock('@/lib/gretel-voice', async importOriginal => ({
@@ -42,5 +42,26 @@ describe('page-aware exercise help', () => {
     await act(async () => { await vi.advanceTimersByTimeAsync(1000); });
     expect(screen.getByTestId('gretel-presence')).toHaveAttribute('data-page-ready', 'false');
     expect(screen.queryByText('Old page instruction')).toBeNull();
+  });
+
+  it('cancels delayed page speech when focused work starts', async () => {
+    vi.useFakeTimers();
+    render(<><GretelPresence bookMode autoIntro={false} /><GretelActivity id="draw" pageNumber={4} kind="draw-box"><canvas aria-label="Dibujo" /></GretelActivity></>);
+    act(() => gretelEvent('page:revealed', { pageNumber: 4, text: 'Delayed page speech' }));
+    fireEvent.pointerDown(screen.getByLabelText('Dibujo'));
+    await act(async () => { await vi.advanceTimersByTimeAsync(500); });
+    expect(screen.queryByRole('status')).toBeNull();
+  });
+
+  it('uses only stable, unambiguous targets and safely falls back otherwise', () => {
+    const root = document.createElement('div');
+    root.innerHTML = '<svg></svg><button data-gretel-correct="true">A</button><button data-gretel-correct="true">B</button>';
+    document.body.appendChild(root);
+    expect(resolveGretelTarget(root)).toBeNull();
+    const target = root.querySelector('button')!;
+    target.id = 'stable-target';
+    target.setAttribute('data-gretel-target', 'primary');
+    expect(resolveGretelTarget(root)).toBe(target);
+    root.remove();
   });
 });

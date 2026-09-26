@@ -7,6 +7,8 @@ import {
   SPREAD_BREAKPOINT_PX,
   clampPageIndex,
   expectedTurnIndex,
+  logicalPageIndex,
+  resolveTurnIndex,
   visiblePageLabel,
 } from "../CurlPageViewer";
 
@@ -34,7 +36,24 @@ describe("CurlPageViewer physical contracts", () => {
     expect(expectedTurnIndex(1, 4, false, "prev")).toBe(0);
     expect(expectedTurnIndex(0, 4, true, "next")).toBe(2);
     expect(expectedTurnIndex(2, 4, true, "prev")).toBe(0);
-    expect(expectedTurnIndex(3, 4, true, "next")).toBe(3);
+    expect(expectedTurnIndex(3, 4, true, "next")).toBe(2);
+    expect(expectedTurnIndex(1, 6, true, "next")).toBe(2);
+    expect(expectedTurnIndex(3, 6, true, "prev")).toBe(0);
+    expect(expectedTurnIndex(4, 5, true, "next")).toBe(4);
+  });
+
+  it("normalizes odd event indices to logical spread boundaries", () => {
+    expect(logicalPageIndex(1, 6, true)).toBe(0);
+    expect(logicalPageIndex(3, 6, true)).toBe(2);
+    expect(logicalPageIndex(5, 6, true)).toBe(4);
+    expect(logicalPageIndex(3, 4, false)).toBe(3);
+  });
+
+  it("keeps an explicit navigation destination authoritative over stale flip events", () => {
+    expect(resolveTurnIndex(0, 2, 6, true)).toBe(2);
+    expect(resolveTurnIndex(1, 0, 6, true)).toBe(0);
+    expect(resolveTurnIndex(3, null, 6, true)).toBe(2);
+    expect(resolveTurnIndex(99, null, 5, false)).toBe(4);
   });
 
   it("describes one visible page on portrait screens", () => {
@@ -45,5 +64,6 @@ describe("CurlPageViewer physical contracts", () => {
     expect(visiblePageLabel(0, 4, true)).toBe("Páginas 1–2 de 4");
     expect(visiblePageLabel(2, 4, true)).toBe("Páginas 3–4 de 4");
     expect(visiblePageLabel(4, 5, true)).toBe("Página 5 de 5");
+    expect(visiblePageLabel(3, 6, true)).toBe("Páginas 3–4 de 6");
   });
 });

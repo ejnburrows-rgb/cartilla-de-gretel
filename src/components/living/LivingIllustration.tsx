@@ -19,33 +19,13 @@ export interface LivingIllustrationProps {
 
 type AmbientProfile = "breathe" | "float" | "sway" | null;
 
-const LIVING_WORDS = [
-  "oso","mono","papa","papá","sapo","ardilla","erizo","iguana","oveja","oruga",
-  "elefante","unicornio","pajaro","pájaro","pez","pulpo","delfin","delfín","lobo",
-  "loro","vaca","foca","yegua","cisne","gato","conejo","burro","perro","abeja",
-  "insecto","nino","niño","bebe","bebé","mama","mamá","indio","rana",
-  "arana","araña","aguila","águila","gusano","jirafa","jicotea","zorro",
-];
-const FLOAT_WORDS = ["globo","nube","luna","sol","ola","avion","avión","cometa"];
-const SWAY_WORDS = ["flor","tulipan","tulipán","arbol","árbol","pino","pina","piña"];
-
-function slugFromSrc(src: string): string {
-  return decodeURIComponent(src.split("/").pop() ?? "").replace(/\.[^.]+$/, "").toLowerCase();
-}
+const APPROVED_AMBIENT_PROFILES: Readonly<Record<string, Exclude<AmbientProfile, null>>> = {
+  "/cartilla/art/faithful/vocal-o/oso.webp": "breathe",
+  "/cartilla/art/faithful/vocal-o/oruga.webp": "sway",
+};
 
 function ambientProfileFor(src: string): AmbientProfile {
-  const slug = slugFromSrc(src);
-  if (LIVING_WORDS.some((word) => slug.includes(word))) return "breathe";
-  if (FLOAT_WORDS.some((word) => slug.includes(word))) return "float";
-  if (SWAY_WORDS.some((word) => slug.includes(word))) return "sway";
-
-  // Owner direction: faithful workbook art must never silently fall back to
-  // static. Non-character objects get the gentlest deterministic motion so
-  // the page feels alive without changing or redrawing the original pixels.
-  if (src.includes("/cartilla/art/faithful/")) {
-    return phaseFor(src) % 2 === 0 ? "float" : "sway";
-  }
-  return null;
+  return APPROVED_AMBIENT_PROFILES[src] ?? null;
 }
 
 function phaseFor(src: string): number {

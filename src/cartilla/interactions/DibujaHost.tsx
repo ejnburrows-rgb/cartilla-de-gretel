@@ -330,6 +330,7 @@ export function DibujaHost({
         <div className="am-dibuja__draw">
           <div className="am-dibuja__paper">
             <canvas
+              data-gretel-target="primary"
               ref={canvasRef}
               className="am-dibuja__canvas"
               style={{ touchAction: "none" }}

@@ -26,13 +26,15 @@ export function GretelPresence({ lesson, instruction, className = '', autoIntro 
   const lastSpeech = useRef({ text: '', at: 0 });
   const lastActivity = useRef(Date.now());
   const nudged = useRef(false);
+  const contextToken = useRef(0);
 
   const say = useCallback((text: string, delay = 0) => {
     if (!text.trim() || !ready.current) return;
     if (text === lastSpeech.current.text && Date.now() - lastSpeech.current.at < 7000) return;
+    const token = contextToken.current;
     clearTimeout(speechTimer.current);
     speechTimer.current = setTimeout(() => {
-      if (!ready.current) return;
+      if (!ready.current || token !== contextToken.current) return;
       lastSpeech.current = { text, at: Date.now() };
       void avatarRef.current?.speakMessage(text);
     }, delay);
@@ -43,11 +45,13 @@ export function GretelPresence({ lesson, instruction, className = '', autoIntro 
     if (!bookMode && autoIntro) say(variant === 'home' ? '¡Hola! Soy Gretel. Vamos a aprender juntos.' : instruction || 'Estoy aquí para ayudarte.', 400);
     const off = onGretelEvent((type, detail) => {
       if (type === 'page-turn:start') {
+        contextToken.current += 1;
         ready.current = false; setEntered(false); setFocused(true); setReaction('hidden');
         clearTimeout(speechTimer.current); cancelGretelSpeech(); avatarRef.current?.cancel();
         return;
       }
       if (type === 'page:revealed') {
+        contextToken.current += 1;
         ready.current = true; setEntered(true); setFocused(false); setReaction('idle');
         active.current = { pageNumber: detail.pageNumber }; setContext(active.current);
         lastActivity.current = Date.now(); nudged.current = false;
@@ -57,6 +61,8 @@ export function GretelPresence({ lesson, instruction, className = '', autoIntro 
       }
       if (type === 'task:point' && detail.targetId) { active.current = { ...active.current, targetId: detail.targetId }; setContext(active.current); return; }
       if (type === 'activity:focus') {
+        contextToken.current += 1;
+        clearTimeout(speechTimer.current); avatarRef.current?.cancel();
         active.current = detail; setContext(detail); setFocused(true);
         lastActivity.current = Date.now();
         clearTimeout(focusTimer.current);

@@ -38,14 +38,24 @@ export function clampPageIndex(index: number, pageCount: number): number {
   return Math.min(Math.max(0, index), Math.max(0, pageCount - 1));
 }
 
+export function logicalPageIndex(
+  index: number,
+  pageCount: number,
+  spread: boolean,
+): number {
+  const clamped = clampPageIndex(index, pageCount);
+  return spread ? clamped - (clamped % 2) : clamped;
+}
+
 export function visiblePageLabel(
   currentIndex: number,
   pageCount: number,
   spread: boolean,
 ): string {
-  if (!spread) return `Página ${currentIndex + 1} de ${pageCount}`;
-  const first = currentIndex + 1;
-  const last = Math.min(currentIndex + 2, pageCount);
+  const logicalIndex = logicalPageIndex(currentIndex, pageCount, spread);
+  if (!spread) return `Página ${logicalIndex + 1} de ${pageCount}`;
+  const first = logicalIndex + 1;
+  const last = Math.min(logicalIndex + 2, pageCount);
   return first === last
     ? `Página ${first} de ${pageCount}`
     : `Páginas ${first}–${last} de ${pageCount}`;
@@ -58,9 +68,24 @@ export function expectedTurnIndex(
   direction: "next" | "prev",
 ): number {
   const delta = spread ? 2 : 1;
-  return clampPageIndex(
-    direction === "next" ? currentIndex + delta : currentIndex - delta,
+  const logicalIndex = logicalPageIndex(currentIndex, pageCount, spread);
+  return logicalPageIndex(
+    direction === "next" ? logicalIndex + delta : logicalIndex - delta,
     pageCount,
+    spread,
+  );
+}
+
+export function resolveTurnIndex(
+  reportedIndex: number,
+  pendingDestination: number | null,
+  pageCount: number,
+  spread: boolean,
+): number {
+  return logicalPageIndex(
+    pendingDestination ?? reportedIndex,
+    pageCount,
+    spread,
   );
 }
 
@@ -142,6 +167,10 @@ export function CurlPageViewer({
   const initialRevealDoneRef = useRef(false);
   const turnStartedAtRef = useRef(0);
   const pendingRevealIndexRef = useRef(safeInitialPage);
+  const pendingDestinationRef = useRef<number | null>(null);
+  const turningRef = useRef(false);
+  const transitionTokenRef = useRef(0);
+  const lastReportedIndexRef = useRef(safeInitialPage);
 
   useEffect(() => {
     setMounted(true);
@@ -176,12 +205,16 @@ export function CurlPageViewer({
   }, []);
 
   const spread = size?.spread ?? false;
-  const hasPrev = currentIndex > 0;
+  const logicalIndex = logicalPageIndex(currentIndex, pages.length, spread);
+  const hasPrev = logicalIndex > 0;
   const hasNext = spread
-    ? currentIndex + 2 < pages.length
-    : currentIndex < pages.length - 1;
+    ? logicalIndex + 2 < pages.length
+    : logicalIndex < pages.length - 1;
 
   const startTurn = useCallback(() => {
+    if (turningRef.current) return false;
+    turningRef.current = true;
+    transitionTokenRef.current += 1;
     if (revealTimerRef.current) {
       clearTimeout(revealTimerRef.current);
       revealTimerRef.current = null;
@@ -189,9 +222,11 @@ export function CurlPageViewer({
     turnStartedAtRef.current = Date.now();
     setTurning(true);
     gretelEvent("page-turn:start");
+    return true;
   }, []);
 
   const scheduleReveal = useCallback((delayMs?: number, revealIndex?: number) => {
+    const transitionToken = transitionTokenRef.current;
     if (turnFallbackTimerRef.current) {
       clearTimeout(turnFallbackTimerRef.current);
       turnFallbackTimerRef.current = null;
@@ -204,7 +239,11 @@ export function CurlPageViewer({
     const delay = Math.max(requestedDelay, turnStartedAtRef.current ? remainingTurn : 0);
     const pageIndex = revealIndex ?? currentIndex;
     revealTimerRef.current = setTimeout(() => {
+      if (transitionToken !== transitionTokenRef.current) return;
       initialRevealDoneRef.current = true;
+      turningRef.current = false;
+      pendingDestinationRef.current = null;
+      turnStartedAtRef.current = 0;
       setTurning(false);
       const page = pages[pageIndex];
       const companionLines = [
@@ -221,11 +260,13 @@ export function CurlPageViewer({
   }, [currentIndex, pages, reducedMotion, spread]);
 
   const armTurnFallback = useCallback((expectedIndex: number) => {
+    const transitionToken = transitionTokenRef.current;
     if (turnFallbackTimerRef.current) {
       clearTimeout(turnFallbackTimerRef.current);
     }
     const delay = reducedMotion ? 40 : STUDENT_PAGE_TURN_MS + 240;
     turnFallbackTimerRef.current = setTimeout(() => {
+      if (transitionToken !== transitionTokenRef.current) return;
       turnFallbackTimerRef.current = null;
       const api = getApi();
       const apiIndex = api?.getCurrentPageIndex?.();
@@ -235,10 +276,13 @@ export function CurlPageViewer({
       if (apiIndex !== expectedIndex) api?.turnToPage?.(expectedIndex);
       pendingRevealIndexRef.current = expectedIndex;
       setCurrentIndex(expectedIndex);
-      onPageChange?.(expectedIndex);
+      if (lastReportedIndexRef.current !== expectedIndex) {
+        lastReportedIndexRef.current = expectedIndex;
+        onPageChange?.(expectedIndex);
+      }
       scheduleReveal(0, expectedIndex);
     }, delay);
-  }, [getApi, onPageChange, pages.length, reducedMotion, scheduleReveal]);
+  }, [getApi, onPageChange, reducedMotion, scheduleReveal]);
 
   const handlePrev = useCallback(() => {
     const expectedIndex = expectedTurnIndex(
@@ -247,12 +291,12 @@ export function CurlPageViewer({
       spread,
       "prev",
     );
-    if (turning) return;
-    startTurn();
+    if (!startTurn()) return;
+    pendingDestinationRef.current = expectedIndex;
     const api = getApi();
     if (api?.flip) api.flip(expectedIndex); else api?.flipPrev?.();
     armTurnFallback(expectedIndex);
-  }, [armTurnFallback, currentIndex, getApi, pages.length, spread, startTurn, turning]);
+  }, [armTurnFallback, currentIndex, getApi, pages.length, spread, startTurn]);
 
   const handleNext = useCallback(() => {
     const expectedIndex = expectedTurnIndex(
@@ -261,39 +305,60 @@ export function CurlPageViewer({
       spread,
       "next",
     );
-    if (turning) return;
-    startTurn();
+    if (!startTurn()) return;
+    pendingDestinationRef.current = expectedIndex;
     const api = getApi();
     if (api?.flip) api.flip(expectedIndex); else api?.flipNext?.();
     armTurnFallback(expectedIndex);
-  }, [armTurnFallback, currentIndex, getApi, pages.length, spread, startTurn, turning]);
+  }, [armTurnFallback, currentIndex, getApi, pages.length, spread, startTurn]);
   const onFlip = useCallback(
     (e: FlipEvent) => {
-      const idx =
+      const reportedIndex =
         typeof e?.data === "number"
           ? clampPageIndex(e.data, pages.length)
           : null;
-      if (idx === null) return;
+      if (reportedIndex === null) return;
+      const idx = resolveTurnIndex(
+        reportedIndex,
+        pendingDestinationRef.current,
+        pages.length,
+        spread,
+      );
+      if (reportedIndex !== idx) getApi()?.turnToPage?.(idx);
       pendingRevealIndexRef.current = idx;
       setCurrentIndex(idx);
-      onPageChange?.(idx);
+      if (lastReportedIndexRef.current !== idx) {
+        lastReportedIndexRef.current = idx;
+        onPageChange?.(idx);
+      }
       gretelEvent("page-flip");
       // react-pageflip does not reliably emit a final "read" state in every
       // browser/input path. onFlip is the authoritative completed-page signal,
       // so always schedule the companion reveal from here as a fallback.
       scheduleReveal(reducedMotion ? 0 : 140, idx);
     },
-    [onPageChange, pages.length, reducedMotion, scheduleReveal],
+    [getApi, onPageChange, pages.length, reducedMotion, scheduleReveal, spread],
   );
 
   const onChangeState = useCallback((e: FlipEvent) => {
     const state = typeof e?.data === "string" ? e.data : "";
     if (state === "flipping" || state === "user_fold") {
-      if (!turning) startTurn();
+      startTurn();
       return;
     }
     if (state === "read") scheduleReveal(undefined, pendingRevealIndexRef.current);
-  }, [scheduleReveal, startTurn, turning]);
+  }, [scheduleReveal, startTurn]);
+
+  useEffect(() => {
+    if (!size) return;
+    const normalized = logicalPageIndex(currentIndex, pages.length, size.spread);
+    if (normalized !== currentIndex) {
+      pendingRevealIndexRef.current = normalized;
+      lastReportedIndexRef.current = normalized;
+      setCurrentIndex(normalized);
+      getApi()?.turnToPage?.(normalized);
+    }
+  }, [currentIndex, getApi, pages.length, size]);
 
   useEffect(() => {
     if (!mounted || !size || initialRevealDoneRef.current) return;
@@ -303,6 +368,8 @@ export function CurlPageViewer({
   }, [currentIndex, mounted, reducedMotion, scheduleReveal, size]);
 
   useEffect(() => () => {
+    transitionTokenRef.current += 1;
+    turningRef.current = false;
     if (revealTimerRef.current) clearTimeout(revealTimerRef.current);
     if (turnFallbackTimerRef.current) clearTimeout(turnFallbackTimerRef.current);
   }, []);
@@ -329,7 +396,7 @@ export function CurlPageViewer({
       >
         {(() => {
           const frac =
-            pages.length > 1 ? currentIndex / (pages.length - 1) : 0;
+            pages.length > 1 ? logicalIndex / (pages.length - 1) : 0;
           const left = Math.round(frac * 6);
           return (
             <>
@@ -362,7 +429,7 @@ export function CurlPageViewer({
               maxWidth={size.pageW}
               minHeight={size.pageH}
               maxHeight={size.pageH}
-              startPage={clampPageIndex(currentIndex, pages.length)}
+              startPage={logicalIndex}
               showCover={false}
               usePortrait={!size.spread}
               drawShadow={true}
@@ -419,7 +486,7 @@ export function CurlPageViewer({
             borderColor: `color-mix(in srgb, ${accent} 35%, transparent)`,
           }}
         >
-          {visiblePageLabel(currentIndex, pages.length, spread)}
+          {visiblePageLabel(logicalIndex, pages.length, spread)}
         </div>
         <KidButton
           variant="outline"

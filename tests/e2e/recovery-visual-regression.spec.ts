@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import sharp from 'sharp';
 
 const LESSONS = [1, 2, 7, 8, 9, 13, 17, 18, 19, 20, 21, 22, 23, 24] as const;
 const SIZES = [
@@ -6,6 +7,48 @@ const SIZES = [
   { name: 'tablet', width: 820, height: 1180 },
   { name: 'mobile', width: 390, height: 844 },
 ] as const;
+
+async function expectNonBlank(shot: Buffer, label: string) {
+  const stats = await sharp(shot).stats();
+  expect(
+    stats.channels.slice(0, 3).some(channel => channel.stdev >= 4),
+    `${label} unexpectedly has near-uniform pixels`,
+  ).toBe(true);
+}
+
+async function expectReaderGeometry(page: import('@playwright/test').Page, viewport: typeof SIZES[number], lesson: number) {
+  const geometry = await page.evaluate(() => {
+    const rect = (selector: string) => {
+      const node = document.querySelector<HTMLElement>(selector);
+      if (!node) return null;
+      const box = node.getBoundingClientRect();
+      return { x: box.x, y: box.y, width: box.width, height: box.height, right: box.right, bottom: box.bottom };
+    };
+    return {
+      reader: rect('[data-testid="physical-book-reader"]'),
+      shell: rect('.premium-book-shell'),
+      stage: rect('[data-testid="physical-book-stage"]'),
+      pageflip: rect('.premium-pageflip'),
+      controls: rect('.book-reader-controls'),
+    };
+  });
+  expect(geometry.reader, `reader missing lesson ${lesson}`).not.toBeNull();
+  expect(geometry.shell, `book shell missing lesson ${lesson}`).not.toBeNull();
+  expect(geometry.stage, `book stage missing lesson ${lesson}`).not.toBeNull();
+  expect(geometry.pageflip, `page-flip surface missing lesson ${lesson}`).not.toBeNull();
+  expect(geometry.controls, `reader controls missing lesson ${lesson}`).not.toBeNull();
+  const stage = geometry.stage!;
+  const shell = geometry.shell!;
+  const pageflip = geometry.pageflip!;
+  const controls = geometry.controls!;
+  expect(stage.width, `stage too narrow lesson ${lesson}`).toBeGreaterThanOrEqual(Math.min(300, viewport.width - 40));
+  expect(stage.height, `stage too short lesson ${lesson}`).toBeGreaterThan(300);
+  expect(stage.x, `stage clipped left lesson ${lesson}`).toBeGreaterThanOrEqual(shell.x - 2);
+  expect(stage.right, `stage clipped right lesson ${lesson}`).toBeLessThanOrEqual(shell.right + 2);
+  expect(pageflip.width, `page-flip width mismatch lesson ${lesson}`).toBeGreaterThanOrEqual(stage.width - 2);
+  expect(pageflip.height, `page-flip height mismatch lesson ${lesson}`).toBeGreaterThanOrEqual(stage.height - 2);
+  expect(controls.y, `reader controls overlap lesson ${lesson}`).toBeGreaterThanOrEqual(stage.bottom);
+}
 
 for (const viewport of SIZES) {
   test(`authored lesson reference layouts ${viewport.name}`, async ({ page }) => {
@@ -21,6 +64,7 @@ for (const viewport of SIZES) {
       await expect(stage).toBeVisible();
       await expect(page.getByTestId('gretel-presence')).toHaveAttribute('data-page-ready', 'true');
       await page.evaluate(() => document.fonts.ready);
+      await expectReaderGeometry(page, viewport, n);
       const layout = await page.evaluate(() => ({
         width: document.documentElement.scrollWidth,
         viewport: innerWidth,
@@ -41,6 +85,7 @@ for (const viewport of SIZES) {
       // replacement of original artwork cannot masquerade as a layout change.
       const shot = await stage.screenshot({ type: 'jpeg', quality: 65, animations: 'disabled',
         mask: [stage.locator('img')], maskColor: '#d3d3d3' });
+      await expectNonBlank(shot, `lesson ${n} ${viewport.name}`);
       expect(shot).toMatchSnapshot(`lesson-${n}-${viewport.name}.jpg`, { maxDiffPixelRatio: 0.025 });
     }
   });
@@ -57,6 +102,7 @@ for (const viewport of SIZES) {
       }));
       expect(images.filter(image => !image.loaded), `presenter missing image ${n}`).toEqual([]);
       const shot = await panel.screenshot({ type: 'jpeg', quality: 65, animations: 'disabled', mask: [panel.locator('img')], maskColor: '#d3d3d3' });
+      await expectNonBlank(shot, `presenter ${n} ${viewport.name}`);
       expect(shot).toMatchSnapshot(`presenter-${n}-${viewport.name}.jpg`, { maxDiffPixelRatio: 0.025 });
     }
   });

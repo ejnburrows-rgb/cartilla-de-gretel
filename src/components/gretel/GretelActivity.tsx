@@ -1,6 +1,17 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { focusGretelActivity, releaseGretelActivity, gretelEvent, onGretelEvent } from '@/lib/gretel-bus';
 
+export function resolveGretelTarget(root: HTMLElement, requestedId?: string): HTMLElement | null {
+  if (requestedId) {
+    const requested = document.getElementById(requestedId);
+    if (requested instanceof HTMLElement && root.contains(requested)) return requested;
+  }
+  const explicit = [...root.querySelectorAll<HTMLElement>('[data-gretel-target="primary"]:not(:disabled)')];
+  if (explicit.length === 1) return explicit[0]!;
+  const correct = [...root.querySelectorAll<HTMLElement>('[data-gretel-correct="true"]:not(:disabled)')];
+  return correct.length === 1 ? correct[0]! : null;
+}
+
 /** Adds context to existing exercises without replacing their mechanics. */
 export function GretelActivity({ id, pageNumber, kind, children }: {
   id: string; pageNumber: number; kind: string; children: ReactNode;
@@ -19,7 +30,7 @@ export function GretelActivity({ id, pageNumber, kind, children }: {
       if (type === 'guide:reaction') {
         clear();
         if (detail.reaction === 'hint' || detail.reaction === 'demonstration') {
-          const target = ref.current?.querySelector<HTMLElement>('[data-gretel-correct="true"]:not(:disabled), .fp-trace__dot--active, canvas, svg');
+          const target = ref.current ? resolveGretelTarget(ref.current, detail.targetId) : null;
           if (target) {
             target.id ||= `${id}-target`;
             target.setAttribute('data-gretel-highlight', detail.reaction);

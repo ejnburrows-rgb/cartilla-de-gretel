@@ -5,6 +5,13 @@ on:
     branches: [main]
     paths:
       - "tests/e2e/visual-audit.spec.ts"
+      - "tests/e2e/recovery-*.spec.ts"
+      - "tests/e2e/recovery-visual-regression.spec.ts-snapshots/**"
+      - "tests/e2e/recovery-visual-coverage.json"
+      - "scripts/verify-recovery-art-metadata.mjs"
+      - "scripts/run-visual-gate-3x.mjs"
+      - "docs/production-art-inventory.json"
+      - "package.json"
       - ".github/workflows/visual-audit.yml"
       - "src/**"
       - "public/**"
@@ -36,7 +43,16 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
+      - name: Build and run required non-browser quality gates
+        run: pnpm build
+
+      - name: Verify production art inventory and source identity
+        run: pnpm visual:metadata:check
+
       - run: pnpm exec playwright install --with-deps chromium
+
+      - name: Compare recovery layouts with approved references
+        run: pnpm test:visual
 
       - name: Capture full workbook visual audit
         run: pnpm exec playwright test tests/e2e/visual-audit.spec.ts --project=chromium

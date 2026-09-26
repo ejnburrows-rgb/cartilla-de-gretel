@@ -468,6 +468,7 @@ export function PaintCanvas({
           <div className="am-paint__paper" aria-hidden="true" />
         )}
         <canvas
+          data-gretel-target="primary"
           ref={paintRef}
           className="am-paint__layer"
           style={{ touchAction: "none" }}

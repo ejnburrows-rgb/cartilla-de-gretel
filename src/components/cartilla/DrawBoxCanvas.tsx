@@ -112,6 +112,7 @@ export function DrawBoxCanvas({ regionId, hint, lessonId }: DrawBoxCanvasProps) 
     <div className="fp-draw-box fp-draw-box--interactive">
       {hint ? <span className="fp-draw-box__hint">{hint}</span> : null}
       <canvas
+        data-gretel-target="primary"
         ref={canvasRef}
         className="fp-draw-box__canvas"
         onPointerDown={handlePointerDown}

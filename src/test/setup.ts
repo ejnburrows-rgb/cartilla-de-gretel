@@ -2,6 +2,33 @@
 import { vi, beforeAll, afterAll, afterEach } from "vitest";
 import { fireEvent, act } from "@testing-library/react";
 
+// Node 25+ exposes an optional process-level localStorage getter that returns
+// undefined unless --localstorage-file is supplied. Install an isolated web
+// Storage implementation without reading that getter.
+function createMemoryStorage(): Storage {
+  const values = new Map<string, string>();
+  return {
+    get length() { return values.size; },
+    clear: () => values.clear(),
+    getItem: (key) => values.get(String(key)) ?? null,
+    key: (index) => [...values.keys()][index] ?? null,
+    removeItem: (key) => { values.delete(String(key)); },
+    setItem: (key, value) => { values.set(String(key), String(value)); },
+  };
+}
+
+if (typeof window !== "undefined") {
+  const testLocalStorage = createMemoryStorage();
+  Object.defineProperty(globalThis, "localStorage", {
+    configurable: true,
+    value: testLocalStorage,
+  });
+  Object.defineProperty(window, "localStorage", {
+    configurable: true,
+    value: testLocalStorage,
+  });
+}
+
 // --- SpeechRecognition Mock ---
 export class MockSpeechRecognition {
   static instances: MockSpeechRecognition[] = [];

@@ -1,0 +1,3033 @@
+{
+  "schemaVersion": 1,
+  "sourceManifest": "public/cartilla/art/faithful/manifest.json",
+  "sourceManifestSha256": "8e251afc168fe26c8d213fe82025f681dea2c069d79b85dc01523114ece0d3f2",
+  "visualCoverageManifest": "tests/e2e/recovery-visual-coverage.json",
+  "visualCoverageSha256": "e797c31924ac122290e60445a459b316ebe88b9e8c8214cc732fff6b2284ff02",
+  "assetSetSha256": "2703a3a2f06c072f1a79cf5a358417bddc6c78b28d2c72ea7809ae60deff97ec",
+  "counts": {
+    "referencedProductionAssets": 108,
+    "manifestEntries": 143,
+    "unreferencedManifestEntries": 35,
+    "errors": 0
+  },
+  "errors": [],
+  "unreferencedManifestEntries": [
+    "/cartilla/art/faithful/leccion-10-t/tapa.webp",
+    "/cartilla/art/faithful/leccion-10-t/tina.webp",
+    "/cartilla/art/faithful/leccion-10-t/tomate.webp",
+    "/cartilla/art/faithful/leccion-10-t/tulipan.webp",
+    "/cartilla/art/faithful/leccion-11-d/delfin.webp",
+    "/cartilla/art/faithful/leccion-11-d/dona.webp",
+    "/cartilla/art/faithful/leccion-11-d/ducha.webp",
+    "/cartilla/art/faithful/leccion-12-l/lobo.webp",
+    "/cartilla/art/faithful/leccion-12-l/loro.webp",
+    "/cartilla/art/faithful/leccion-12-l/luna.webp",
+    "/cartilla/art/faithful/leccion-12-l/lupa.webp",
+    "/cartilla/art/faithful/leccion-13-n/nariz.webp",
+    "/cartilla/art/faithful/leccion-13-n/nata.webp",
+    "/cartilla/art/faithful/leccion-13-n/nube.webp",
+    "/cartilla/art/faithful/leccion-14-n/muneca.webp",
+    "/cartilla/art/faithful/leccion-14-n/pina.webp",
+    "/cartilla/art/faithful/leccion-15-b/barco.webp",
+    "/cartilla/art/faithful/leccion-15-b/bici.webp",
+    "/cartilla/art/faithful/leccion-16-v/vaca.webp",
+    "/cartilla/art/faithful/leccion-16-v/vino.webp",
+    "/cartilla/art/faithful/leccion-16-v/volcan.webp",
+    "/cartilla/art/faithful/leccion-18-rr/carro.webp",
+    "/cartilla/art/faithful/leccion-19-c/camisa.webp",
+    "/cartilla/art/faithful/leccion-19-c/cono.webp",
+    "/cartilla/art/faithful/leccion-21-j/ajo.webp",
+    "/cartilla/art/faithful/leccion-22-y/yegua.webp",
+    "/cartilla/art/faithful/leccion-23-z/cepillo.webp",
+    "/cartilla/art/faithful/leccion-23-z/cisne.webp",
+    "/cartilla/art/faithful/leccion-23-z/zanahoria.webp",
+    "/cartilla/art/faithful/leccion-7-m/mapa.webp",
+    "/cartilla/art/faithful/leccion-7-m/moto.webp",
+    "/cartilla/art/faithful/leccion-8-p/pino.webp",
+    "/cartilla/art/faithful/leccion-8-p/pulpo.webp",
+    "/cartilla/art/faithful/leccion-9-s/silla.webp",
+    "/cartilla/art/faithful/leccion-9-s/sol.webp"
+  ],
+  "assets": [
+    {
+      "src": "/cartilla/art/faithful/leccion-1/abrigo.webp",
+      "source": "public/cartilla/art/restored/workbook/page-003.png",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-1/abrigo.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-1/abrigo.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-1/abrigo.webp"
+      },
+      "lessonNumber": 1,
+      "pageNumber": 1,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 440,
+        "height": 520
+      },
+      "hasAlpha": false,
+      "aspectRatio": 0.846154,
+      "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
+      "sha256": "03cafdb0b52172796d7cfd99a19ec0650d157db95f11fe70e5d1599b4f0a41e2",
+      "referenceCount": 2,
+      "referenceLocations": [
+        "src/data/page-layouts.json:24",
+        "src/data/page-layouts.json:869"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/aguila.webp",
+      "source": "u-page-16.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-1/aguila.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-1/aguila.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-1/aguila.webp"
+      },
+      "lessonNumber": 1,
+      "pageNumber": 16,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 683,
+        "height": 629
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.085851,
+      "provenanceStatus": null,
+      "sha256": "1b105d7d45ba624dc8cf1991bdd6229ffff370797e43196f36fb51707cef200b",
+      "referenceCount": 7,
+      "referenceLocations": [
+        "src/content/animal-gallery.ts:59",
+        "src/content/workbook/workbook-manifest.json:1310",
+        "src/content/workbook/workbook-manifest.json:1926",
+        "src/data/page-layouts.json:1208",
+        "src/data/page-layouts.json:6042",
+        "src/data/page-layouts.json:6121",
+        "src/data/page-layouts.json:788"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/arco.webp",
+      "source": "u-page-16.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-1/arco.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-1/arco.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-1/arco.webp"
+      },
+      "lessonNumber": 1,
+      "pageNumber": 16,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 530,
+        "height": 578
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.916955,
+      "provenanceStatus": null,
+      "sha256": "9a185cb57412c5d000dc763c84dcb75a840343bfa61da0c6895b3cf219aa032a",
+      "referenceCount": 12,
+      "referenceLocations": [
+        "src/content/workbook/workbook-manifest.json:1630",
+        "src/content/workbook/workbook-manifest.json:168",
+        "src/content/workbook/workbook-manifest.json:1746",
+        "src/content/workbook/workbook-manifest.json:1838",
+        "src/content/workbook/workbook-manifest.json:2053",
+        "src/content/workbook/workbook-manifest.json:619",
+        "src/data/page-layouts.json:1005",
+        "src/data/page-layouts.json:1071",
+        "src/data/page-layouts.json:1168",
+        "src/data/page-layouts.json:1275",
+        "src/data/page-layouts.json:329",
+        "src/data/page-layouts.json:87"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/carro.webp",
+      "source": null,
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-1/carro.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-1/carro.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-1/carro.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 597
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.457286,
+      "provenanceStatus": "PASS-VERIFIED-2026-QA",
+      "sha256": "9a6c158c497843da73d981cd017761434029df313524404d7bd59683ae10e140",
+      "referenceCount": 2,
+      "referenceLocations": [
+        "src/content/workbook/workbook-manifest.json:386",
+        "src/data/page-layouts.json:211"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/dulce.webp",
+      "source": "page-003.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-1/dulce.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-1/dulce.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-1/dulce.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 718
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.211699,
+      "provenanceStatus": "BACKFILLED-2026-FROM-FLIPCHART-PAGE-003",
+      "sha256": "c671b23de9d6efecb736655441dbadf22de9d19780d832dd422c60e33dc2a052",
+      "referenceCount": 2,
+      "referenceLocations": [
+        "src/content/workbook/workbook-manifest.json:412",
+        "src/data/page-layouts.json:231"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/globo.webp",
+      "source": "public/cartilla/art/restored/workbook/page-004.png",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-1/globo.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-1/globo.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-1/globo.webp"
+      },
+      "lessonNumber": 1,
+      "pageNumber": 2,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 580,
+        "height": 515
+      },
+      "hasAlpha": false,
+      "aspectRatio": 1.126214,
+      "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
+      "sha256": "d2105fc2c8dfe42fcd3c5637371f355ccf821e104d396a2b62f8649b6d61d109",
+      "referenceCount": 1,
+      "referenceLocations": [
+        "src/data/page-layouts.json:227"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/libro.webp",
+      "source": "page-003.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-1/libro.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-1/libro.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-1/libro.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 579
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.502591,
+      "provenanceStatus": "BACKFILLED-2026-FROM-FLIPCHART-PAGE-003",
+      "sha256": "f0d52522950c4cfaef94adb57c6b076ebb34c48cba5438d9312063499a9c0208",
+      "referenceCount": 2,
+      "referenceLocations": [
+        "src/content/workbook/workbook-manifest.json:281",
+        "src/data/page-layouts.json:151"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/maiz.webp",
+      "source": "a-page-4.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-1/maiz.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-1/maiz.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-1/maiz.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 799,
+        "height": 870
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.918391,
+      "provenanceStatus": null,
+      "sha256": "3ba3071ba13ad179b7e72c5d01631efe5600e2311f8b052675a8443c17e33d72",
+      "referenceCount": 10,
+      "referenceLocations": [
+        "src/content/workbook/workbook-manifest.json:1130",
+        "src/content/workbook/workbook-manifest.json:1215",
+        "src/content/workbook/workbook-manifest.json:1426",
+        "src/content/workbook/workbook-manifest.json:211",
+        "src/content/workbook/workbook-manifest.json:608",
+        "src/data/page-layouts.json:104",
+        "src/data/page-layouts.json:323",
+        "src/data/page-layouts.json:646",
+        "src/data/page-layouts.json:742",
+        "src/data/page-layouts.json:853"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/manzana.webp",
+      "source": null,
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-1/manzana.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-1/manzana.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-1/manzana.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 852
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.021127,
+      "provenanceStatus": "PROVENANCE-UNKNOWN",
+      "sha256": "1021c8c3842f5f9078faf756663113c12da061934a199e15317b5a6e9a119972",
+      "referenceCount": 2,
+      "referenceLocations": [
+        "src/content/workbook/workbook-manifest.json:270",
+        "src/data/page-layouts.json:146"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/ojos.webp",
+      "source": null,
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-1/ojos.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-1/ojos.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-1/ojos.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 677,
+        "height": 377
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.795756,
+      "provenanceStatus": "RECOVERED-2026-FROM-GIT-HISTORY-BLOB-cf0d6c7d",
+      "sha256": "cd45239f16e938c055a773e8690f0cb3f744721d09e37d7e6437883e0e835ee9",
+      "referenceCount": 5,
+      "referenceLocations": [
+        "src/content/lessons.json:227",
+        "src/data/page-layouts.json:383",
+        "src/data/page-layouts.json:419",
+        "src/data/page-layouts.json:580",
+        "src/data/page-layouts.json:99"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/pajaro.webp",
+      "source": "page-003.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-1/pajaro.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-1/pajaro.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-1/pajaro.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 557
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.561939,
+      "provenanceStatus": "BACKFILLED-2026-FROM-FLIPCHART-PAGE-003",
+      "sha256": "fcfc800fc3bfbcb675ede388cdbc88eca15253d9e1d0775020e8ebdf9883ed7c",
+      "referenceCount": 2,
+      "referenceLocations": [
+        "src/content/workbook/workbook-manifest.json:358",
+        "src/data/page-layouts.json:201"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/pera.webp",
+      "source": null,
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-1/pera.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-1/pera.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-1/pera.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 669
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.300448,
+      "provenanceStatus": "PROVENANCE-UNKNOWN",
+      "sha256": "ffd961282135cbd91dae1bb1759402840423360aca0fc2831364b92ca1a615a5",
+      "referenceCount": 7,
+      "referenceLocations": [
+        "src/content/workbook/workbook-manifest.json:2628",
+        "src/content/workbook/workbook-manifest.json:2769",
+        "src/content/workbook/workbook-manifest.json:347",
+        "src/content/workbook/workbook-manifest.json:6206",
+        "src/content/workbook/workbook-manifest.json:6277",
+        "src/content/workbook/workbook-manifest.json:6378",
+        "src/data/page-layouts.json:191"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/pez.webp",
+      "source": "u-page-16.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-1/pez.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-1/pez.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-1/pez.webp"
+      },
+      "lessonNumber": 1,
+      "pageNumber": 16,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 764,
+        "height": 650
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.175385,
+      "provenanceStatus": null,
+      "sha256": "9f5abb0b60661e476ed9351d678e9a2fa876d4584e5cf0602da8b2da25e57243",
+      "referenceCount": 9,
+      "referenceLocations": [
+        "src/content/animal-gallery.ts:103",
+        "src/content/consonants.json:96",
+        "src/content/workbook/workbook-manifest.json:1141",
+        "src/content/workbook/workbook-manifest.json:1511",
+        "src/content/workbook/workbook-manifest.json:1827",
+        "src/data/page-layouts.json:1164",
+        "src/data/page-layouts.json:1863",
+        "src/data/page-layouts.json:652",
+        "src/data/page-layouts.json:950"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/taza.webp",
+      "source": null,
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-1/taza.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-1/taza.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-1/taza.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 761,
+        "height": 527
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.444023,
+      "provenanceStatus": "PROVENANCE-UNKNOWN",
+      "sha256": "de928351ad7291c3ac5757d21e93dc66db0c7a661c6bfab6269cdc181462d74e",
+      "referenceCount": 2,
+      "referenceLocations": [
+        "src/content/workbook/workbook-manifest.json:325",
+        "src/data/page-layouts.json:181"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-1/traje.webp",
+      "source": "page-008.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-1/traje.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-1/traje.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-1/traje.webp"
+      },
+      "lessonNumber": 1,
+      "pageNumber": 16,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 735,
+        "height": 870
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.844828,
+      "provenanceStatus": "RECOLORED-FROM-FLIPCHART-2026",
+      "sha256": "a869ce67afc82e23eeceb8b16f89c6f4b497c1a1b56790027415d3f8d2dbb406",
+      "referenceCount": 12,
+      "referenceLocations": [
+        "src/content/workbook/workbook-manifest.json:1332",
+        "src/content/workbook/workbook-manifest.json:157",
+        "src/content/workbook/workbook-manifest.json:1871",
+        "src/content/workbook/workbook-manifest.json:1947",
+        "src/content/workbook/workbook-manifest.json:1998",
+        "src/content/workbook/workbook-manifest.json:729",
+        "src/data/page-layouts.json:1183",
+        "src/data/page-layouts.json:1216",
+        "src/data/page-layouts.json:1250",
+        "src/data/page-layouts.json:379",
+        "src/data/page-layouts.json:798",
+        "src/data/page-layouts.json:83"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-11-d/dado.webp",
+      "source": "d-page-19.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-11-d/dado.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-11-d/dado.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-11-d/dado.webp"
+      },
+      "lessonNumber": 11,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 781,
+        "height": 870
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.897701,
+      "provenanceStatus": null,
+      "sha256": "12b2027fdd18da8fc9bd980fdf3f3b730c8930e1dbb8d5fb9a72c61d6b376d55",
+      "referenceCount": 5,
+      "referenceLocations": [
+        "src/content/consonants.json:310",
+        "src/content/workbook/workbook-manifest.json:4091",
+        "src/data/page-layouts.json:2971",
+        "src/data/page-layouts.json:3001",
+        "src/data/page-layouts.json:3080"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-13-n/nido.webp",
+      "source": "n-page-25.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-13-n/nido.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-13-n/nido.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-13-n/nido.webp"
+      },
+      "lessonNumber": 13,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 556
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.564748,
+      "provenanceStatus": null,
+      "sha256": "8631178289926420c103ccfecdf49fda31e3ec017f3ab81bf9742842a7502ec1",
+      "referenceCount": 4,
+      "referenceLocations": [
+        "src/content/consonants.json:458",
+        "src/content/workbook/workbook-manifest.json:4896",
+        "src/data/page-layouts.json:3803",
+        "src/data/page-layouts.json:3895"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-14-n/nino.webp",
+      "source": 28,
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-14-n/nino.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-14-n/nino.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-14-n/nino.webp"
+      },
+      "lessonNumber": 14,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 436,
+        "height": 564
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.77305,
+      "provenanceStatus": "VERIFIED-AUTHENTIC-FLIPCHART-2026-09-25",
+      "sha256": "1a585f692dd1c19a38be43593b78bb91acd3b7731b9c12edfe61f0d5353c3217",
+      "referenceCount": 5,
+      "referenceLocations": [
+        "src/content/consonants.json:535",
+        "src/data/page-layouts.json:3724",
+        "src/data/page-layouts.json:3808",
+        "src/data/page-layouts.json:3890",
+        "src/data/page-layouts.json:4222"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-15-b/bebe.webp",
+      "source": "b-page-31.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-15-b/bebe.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-15-b/bebe.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-15-b/bebe.webp"
+      },
+      "lessonNumber": 15,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 596
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.459732,
+      "provenanceStatus": null,
+      "sha256": "f1c0d7a88f2533e2e7b44831671113c2c2595dcf62797c2356c1a65ba0a8450d",
+      "referenceCount": 4,
+      "referenceLocations": [
+        "src/content/consonants.json:605",
+        "src/content/workbook/workbook-manifest.json:5713",
+        "src/data/page-layouts.json:4530",
+        "src/data/page-layouts.json:4586"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-15-b/bota.webp",
+      "source": "b-page-31.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-15-b/bota.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-15-b/bota.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-15-b/bota.webp"
+      },
+      "lessonNumber": 15,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 826,
+        "height": 870
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.949425,
+      "provenanceStatus": null,
+      "sha256": "efe241c7a667d809ad867b0335091e7403b01b9da94e0f6cf522bc4568987cb8",
+      "referenceCount": 5,
+      "referenceLocations": [
+        "src/content/consonants.json:614",
+        "src/content/workbook/workbook-manifest.json:5565",
+        "src/content/workbook/workbook-manifest.json:5725",
+        "src/data/page-layouts.json:4606",
+        "src/data/page-layouts.json:4738"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-16-v/vela.webp",
+      "source": "v-page-34.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-16-v/vela.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-16-v/vela.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-16-v/vela.webp"
+      },
+      "lessonNumber": 16,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 789,
+        "height": 870
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.906897,
+      "provenanceStatus": null,
+      "sha256": "2258b95ee36a10bcea41ca14abefb8d2a8a5699f41e2abc1ec5b7af9ff2d6927",
+      "referenceCount": 9,
+      "referenceLocations": [
+        "src/content/consonants.json:679",
+        "src/content/workbook/workbook-manifest.json:5816",
+        "src/content/workbook/workbook-manifest.json:5857",
+        "src/content/workbook/workbook-manifest.json:5938",
+        "src/content/workbook/workbook-manifest.json:6125",
+        "src/data/page-layouts.json:4885",
+        "src/data/page-layouts.json:4915",
+        "src/data/page-layouts.json:4961",
+        "src/data/page-layouts.json:5089"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-17-r/rana.webp",
+      "source": "r-page-37.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-17-r/rana.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-17-r/rana.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-17-r/rana.webp"
+      },
+      "lessonNumber": 17,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 827
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.051995,
+      "provenanceStatus": null,
+      "sha256": "a805c84f82f033bfce1895db819b067e0ad82df307eab540a5d0925b8681e4b3",
+      "referenceCount": 8,
+      "referenceLocations": [
+        "src/content/animal-gallery.ts:115",
+        "src/content/consonants.json:748",
+        "src/content/workbook/workbook-manifest.json:6389",
+        "src/content/workbook/workbook-manifest.json:6450",
+        "src/content/workbook/workbook-manifest.json:6540",
+        "src/data/page-layouts.json:5373",
+        "src/data/page-layouts.json:5412",
+        "src/data/page-layouts.json:5458"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-17-r/remo.webp",
+      "source": "r-page-37.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-17-r/remo.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-17-r/remo.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-17-r/remo.webp"
+      },
+      "lessonNumber": 17,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 815
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.067485,
+      "provenanceStatus": null,
+      "sha256": "c4af2cdfaf439e49e4a49aae9e7464212a56ca6e7c7e4d77f279c4ad0dbb1fb3",
+      "referenceCount": 3,
+      "referenceLocations": [
+        "src/content/consonants.json:753",
+        "src/content/workbook/workbook-manifest.json:6564",
+        "src/data/page-layouts.json:5343"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-17-r/rita.webp",
+      "source": null,
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-17-r/rita.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-17-r/rita.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-17-r/rita.webp"
+      },
+      "lessonNumber": 17,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 680
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.279412,
+      "provenanceStatus": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
+      "sha256": "c0fff9c01e6e52cf05b1f2dcca74ab99b935014f7c753d5f06a95dc24c3ea198",
+      "referenceCount": 1,
+      "referenceLocations": [
+        "src/content/consonants.json:758"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-17-r/rosa.webp",
+      "source": "r-page-37.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-17-r/rosa.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-17-r/rosa.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-17-r/rosa.webp"
+      },
+      "lessonNumber": 17,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 735
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.183673,
+      "provenanceStatus": null,
+      "sha256": "31b0821613ceb896c63c5ba013c638db31bae69a5340d577682723b7a81da445",
+      "referenceCount": 3,
+      "referenceLocations": [
+        "src/content/consonants.json:763",
+        "src/content/workbook/workbook-manifest.json:6552",
+        "src/data/page-layouts.json:5382"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-17-r/rueda.webp",
+      "source": null,
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-17-r/rueda.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-17-r/rueda.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-17-r/rueda.webp"
+      },
+      "lessonNumber": 17,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 804
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.08209,
+      "provenanceStatus": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
+      "sha256": "0e848e73d6c48752718b5dde4bdb4584fa8a4a4f0b94b40b65f0cd04fa28e72f",
+      "referenceCount": 3,
+      "referenceLocations": [
+        "src/content/consonants.json:768",
+        "src/content/workbook/workbook-manifest.json:6576",
+        "src/data/page-layouts.json:5274"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-18-rr/barril.webp",
+      "source": "rr-page-40.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-18-rr/barril.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-18-rr/barril.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-18-rr/barril.webp"
+      },
+      "lessonNumber": 18,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 595,
+        "height": 870
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.683908,
+      "provenanceStatus": null,
+      "sha256": "c7c1b438a276e8b52b044bd02ffce44bd5bd57e291c33d27c5122285ce8a36db",
+      "referenceCount": 1,
+      "referenceLocations": [
+        "src/content/consonants.json:824"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-18-rr/burro.webp",
+      "source": null,
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-18-rr/burro.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-18-rr/burro.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-18-rr/burro.webp"
+      },
+      "lessonNumber": 18,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 738
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.178862,
+      "provenanceStatus": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
+      "sha256": "96391879b3291f02a639ffd869fcdad8fe3b532be12fe54b2a3ee9ecf66448b0",
+      "referenceCount": 4,
+      "referenceLocations": [
+        "src/content/consonants.json:809",
+        "src/content/workbook/workbook-manifest.json:6979",
+        "src/data/page-layouts.json:4611",
+        "src/data/page-layouts.json:5757"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-18-rr/carrusel.webp",
+      "source": null,
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-18-rr/carrusel.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-18-rr/carrusel.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-18-rr/carrusel.webp"
+      },
+      "lessonNumber": 18,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 865
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.00578,
+      "provenanceStatus": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
+      "sha256": "9930f24f920eecfb6782e6ea7c9475bffb3c122d3e896bcd07508f002f31e604",
+      "referenceCount": 1,
+      "referenceLocations": [
+        "src/content/consonants.json:814"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-18-rr/perro.webp",
+      "source": null,
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-18-rr/perro.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-18-rr/perro.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-18-rr/perro.webp"
+      },
+      "lessonNumber": 18,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 792
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.098485,
+      "provenanceStatus": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
+      "sha256": "7f616ed25384f70c9409799d30c4842cbac8f532d672a34c325a1120713e8bb9",
+      "referenceCount": 1,
+      "referenceLocations": [
+        "src/content/animal-gallery.ts:121"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-18-rr/tierra.webp",
+      "source": null,
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-18-rr/tierra.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-18-rr/tierra.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-18-rr/tierra.webp"
+      },
+      "lessonNumber": 18,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 869,
+        "height": 870
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.998851,
+      "provenanceStatus": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
+      "sha256": "8c9be585ca8ae6241c3a45e89a684a8efb7f846e0545a268e4383105d91f3d0b",
+      "referenceCount": 1,
+      "referenceLocations": [
+        "src/content/consonants.json:829"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-18-rr/torre.webp",
+      "source": "rr-page-40.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-18-rr/torre.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-18-rr/torre.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-18-rr/torre.webp"
+      },
+      "lessonNumber": 18,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 356,
+        "height": 870
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.409195,
+      "provenanceStatus": null,
+      "sha256": "4a12495a0531d7066f3732deb75142db39a5aed021666570a3dfc75281d53e83",
+      "referenceCount": 3,
+      "referenceLocations": [
+        "src/content/consonants.json:819",
+        "src/content/workbook/workbook-manifest.json:6707",
+        "src/data/page-layouts.json:5690"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-19-c/casa.webp",
+      "source": "c-page-52.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-19-c/casa.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-19-c/casa.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-19-c/casa.webp"
+      },
+      "lessonNumber": 22,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 855
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.017544,
+      "provenanceStatus": null,
+      "sha256": "991fa2ac978bec8a3e839438e1f5f38bce572f3d9222df6bb70aff7e1a0704f0",
+      "referenceCount": 6,
+      "referenceLocations": [
+        "src/content/consonants.json:1060",
+        "src/content/workbook/workbook-manifest.json:292",
+        "src/content/workbook/workbook-manifest.json:8591",
+        "src/data/page-layouts.json:161",
+        "src/data/page-layouts.json:7180",
+        "src/data/page-layouts.json:7265"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-19-c/catalina.webp",
+      "source": "c-page-52.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-19-c/catalina.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-19-c/catalina.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-19-c/catalina.webp"
+      },
+      "lessonNumber": 22,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 498,
+        "height": 870
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.572414,
+      "provenanceStatus": null,
+      "sha256": "fbbbdbc4a74c75b0226f6fd9f9608979617a0a64b15776464feb23eaf3ab06e5",
+      "referenceCount": 1,
+      "referenceLocations": [
+        "src/content/consonants.json:1070"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-19-c/conejo.webp",
+      "source": "c-page-52.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-19-c/conejo.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-19-c/conejo.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-19-c/conejo.webp"
+      },
+      "lessonNumber": 22,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 635,
+        "height": 870
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.729885,
+      "provenanceStatus": null,
+      "sha256": "bc4956390f4405514fc03d7b0d97d5de6b7e25927add0087b2bc2520314fa390",
+      "referenceCount": 2,
+      "referenceLocations": [
+        "src/content/animal-gallery.ts:145",
+        "src/content/consonants.json:1055"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-19-c/cubo.webp",
+      "source": "c-page-52.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-19-c/cubo.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-19-c/cubo.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-19-c/cubo.webp"
+      },
+      "lessonNumber": 22,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 791
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.099874,
+      "provenanceStatus": null,
+      "sha256": "0cf2ea9a57e27dc415322e29d782b62b17c07f2f888a07dd6d70aa9eb21f8994",
+      "referenceCount": 1,
+      "referenceLocations": [
+        "src/content/consonants.json:1065"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-19-c/cuna.webp",
+      "source": "c-page-52.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-19-c/cuna.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-19-c/cuna.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-19-c/cuna.webp"
+      },
+      "lessonNumber": 22,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 646
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.346749,
+      "provenanceStatus": null,
+      "sha256": "f1bcbf8edbaa0d3c07ff67aeef8fc745a391d6ed283b7a28aba77dafe31fa52e",
+      "referenceCount": 3,
+      "referenceLocations": [
+        "src/content/consonants.json:1050",
+        "src/content/workbook/workbook-manifest.json:8524",
+        "src/data/page-layouts.json:7334"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-19-g/gato.webp",
+      "source": null,
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-19-g/gato.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-19-g/gato.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-19-g/gato.webp"
+      },
+      "lessonNumber": 19,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 902,
+        "height": 802
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.124688,
+      "provenanceStatus": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
+      "sha256": "258b5ce1b6e994fc509881240836642357711ef4d1ad70f4f307bc699059ceb6",
+      "referenceCount": 2,
+      "referenceLocations": [
+        "src/content/workbook/workbook-manifest.json:7370",
+        "src/data/page-layouts.json:6030"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-19-g/gaveta.webp",
+      "source": "g-page-43.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-19-g/gaveta.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-19-g/gaveta.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-19-g/gaveta.webp"
+      },
+      "lessonNumber": 19,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 757
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.149273,
+      "provenanceStatus": null,
+      "sha256": "b0ac80649a65046a80c20b53487a089fb7707f2db16020ab0969c35410bb6a1b",
+      "referenceCount": 1,
+      "referenceLocations": [
+        "src/content/consonants.json:870"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-19-g/goloso.webp",
+      "source": "g-page-43.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-19-g/goloso.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-19-g/goloso.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-19-g/goloso.webp"
+      },
+      "lessonNumber": 19,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 801,
+        "height": 870
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.92069,
+      "provenanceStatus": null,
+      "sha256": "64344a3245c4fef64eb19116ccb39ab59019f704adc3852f2ca1537917209e04",
+      "referenceCount": 1,
+      "referenceLocations": [
+        "src/content/consonants.json:880"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-19-g/gorra.webp",
+      "source": "g-page-43.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-19-g/gorra.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-19-g/gorra.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-19-g/gorra.webp"
+      },
+      "lessonNumber": 19,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 566
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.537102,
+      "provenanceStatus": null,
+      "sha256": "a892afd68c68a3dc8bd719b45b37355148036c97d30121c7303b9c494b22ce69",
+      "referenceCount": 1,
+      "referenceLocations": [
+        "src/content/consonants.json:885"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-19-g/gusano.webp",
+      "source": "g-page-43.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-19-g/gusano.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-19-g/gusano.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-19-g/gusano.webp"
+      },
+      "lessonNumber": 19,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 472
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.84322,
+      "provenanceStatus": null,
+      "sha256": "0f2e4e3b15b8fa1a5028c54ccd0354f74e29b96b28f9193dbd61b0abcf7a6b88",
+      "referenceCount": 4,
+      "referenceLocations": [
+        "src/content/animal-gallery.ts:127",
+        "src/content/consonants.json:875",
+        "src/content/workbook/workbook-manifest.json:7404",
+        "src/data/page-layouts.json:6035"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-19-g/mago.webp",
+      "source": "g-page-43.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-19-g/mago.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-19-g/mago.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-19-g/mago.webp"
+      },
+      "lessonNumber": 19,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 824,
+        "height": 870
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.947126,
+      "provenanceStatus": null,
+      "sha256": "672e07209e62d405a699d604c4ff0b1bb4834c480468a9b36706874244334c58",
+      "referenceCount": 1,
+      "referenceLocations": [
+        "src/content/consonants.json:890"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-20-f/familia.webp",
+      "source": "f-page-46.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-20-f/familia.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-20-f/familia.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-20-f/familia.webp"
+      },
+      "lessonNumber": 20,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 694,
+        "height": 870
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.797701,
+      "provenanceStatus": null,
+      "sha256": "55da2994a06a472d7b39e5fbdddb3fb7fbbb9f0d50dcb697eed55a32249ebcdd",
+      "referenceCount": 1,
+      "referenceLocations": [
+        "src/content/consonants.json:939"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-20-f/felo.webp",
+      "source": "f-page-46.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-20-f/felo.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-20-f/felo.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-20-f/felo.webp"
+      },
+      "lessonNumber": 20,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 781
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.113956,
+      "provenanceStatus": null,
+      "sha256": "7cb1a1fc8d37c14bcc49bb2f379471281af4b241b3f74274cde301820439c123",
+      "referenceCount": 1,
+      "referenceLocations": [
+        "src/content/consonants.json:944"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-20-f/fideos.webp",
+      "source": "f-page-46.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-20-f/fideos.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-20-f/fideos.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-20-f/fideos.webp"
+      },
+      "lessonNumber": 20,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 732,
+        "height": 870
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.841379,
+      "provenanceStatus": null,
+      "sha256": "dd01b137ac8ec6d42d8a9be58dc1e9e926240536423f765457c8e44d682bec46",
+      "referenceCount": 1,
+      "referenceLocations": [
+        "src/content/consonants.json:934"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-20-f/fiesta.webp",
+      "source": null,
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-20-f/fiesta.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-20-f/fiesta.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-20-f/fiesta.webp"
+      },
+      "lessonNumber": 20,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 1114,
+        "height": 1114
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1,
+      "provenanceStatus": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
+      "sha256": "cc20a6bb6fb513afb3c9c1f516d3eb2b12e83f56499213e93dafc7af25260277",
+      "referenceCount": 2,
+      "referenceLocations": [
+        "src/content/workbook/workbook-manifest.json:7794",
+        "src/data/page-layouts.json:6538"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-20-f/foto.webp",
+      "source": "f-page-46.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-20-f/foto.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-20-f/foto.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-20-f/foto.webp"
+      },
+      "lessonNumber": 20,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 836,
+        "height": 870
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.96092,
+      "provenanceStatus": null,
+      "sha256": "437faa452b2c80eba40d2db579645ba9bf9720406cbc38b15d1fc7a2977269e7",
+      "referenceCount": 5,
+      "referenceLocations": [
+        "src/content/consonants.json:929",
+        "src/data/page-layouts.json:6413",
+        "src/data/page-layouts.json:6461",
+        "src/data/page-layouts.json:6503",
+        "src/data/page-layouts.json:6523"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-20-f/funda.webp",
+      "source": "f-page-46.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-20-f/funda.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-20-f/funda.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-20-f/funda.webp"
+      },
+      "lessonNumber": 20,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 631
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.378764,
+      "provenanceStatus": null,
+      "sha256": "8a2f2efd5294ec2803df918fc0f2cb2be7ba17f23f2ad6b5e8de49fff0db4cf8",
+      "referenceCount": 1,
+      "referenceLocations": [
+        "src/content/consonants.json:949"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-21-j/jarra.webp",
+      "source": "j-page-49.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-21-j/jarra.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-21-j/jarra.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-21-j/jarra.webp"
+      },
+      "lessonNumber": 21,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 788,
+        "height": 870
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.905747,
+      "provenanceStatus": null,
+      "sha256": "59d34b9aa8c580a29d4ffc56203944ccae1ea0278baa0b240af8fb0cb3b95c12",
+      "referenceCount": 2,
+      "referenceLocations": [
+        "src/content/consonants.json:1009",
+        "src/data/page-layouts.json:6872"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-21-j/jesus.webp",
+      "source": "j-page-49.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-21-j/jesus.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-21-j/jesus.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-21-j/jesus.webp"
+      },
+      "lessonNumber": 21,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 647,
+        "height": 870
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.743678,
+      "provenanceStatus": null,
+      "sha256": "0ff8a168101454ac04864d832dece7996a44dd47c3cf9afcf131f0409b5425b5",
+      "referenceCount": 1,
+      "referenceLocations": [
+        "src/content/consonants.json:1000"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-21-j/jicotea.webp",
+      "source": "j-page-49.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-21-j/jicotea.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-21-j/jicotea.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-21-j/jicotea.webp"
+      },
+      "lessonNumber": 21,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 701
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.241084,
+      "provenanceStatus": null,
+      "sha256": "603a01fb9e5d20322b491e34253464dcf0d5a38c85632d3d5a4fca0202b503fa",
+      "referenceCount": 2,
+      "referenceLocations": [
+        "src/content/animal-gallery.ts:139",
+        "src/content/consonants.json:990"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-21-j/jirafa.webp",
+      "source": "j-page-49.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-21-j/jirafa.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-21-j/jirafa.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-21-j/jirafa.webp"
+      },
+      "lessonNumber": 21,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 991,
+        "height": 1166
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.849914,
+      "provenanceStatus": null,
+      "sha256": "abe39f0ccdb47c912cb296836528abddc9996188981c78937e8938cadfed7996",
+      "referenceCount": 3,
+      "referenceLocations": [
+        "src/content/animal-gallery.ts:133",
+        "src/data/page-layouts.json:6867",
+        "src/data/page-layouts.json:6910"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-21-j/jugo.webp",
+      "source": "j-page-49.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-21-j/jugo.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-21-j/jugo.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-21-j/jugo.webp"
+      },
+      "lessonNumber": 21,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 824,
+        "height": 870
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.947126,
+      "provenanceStatus": null,
+      "sha256": "1dbce8215fadeed5d88c338e4a01950aaa29fb3f4e23d2888c30f5c8f4b5cc91",
+      "referenceCount": 2,
+      "referenceLocations": [
+        "src/content/consonants.json:995",
+        "src/data/page-layouts.json:6952"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-22-y/mayuscula.webp",
+      "source": "y-page-55.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-22-y/mayuscula.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-22-y/mayuscula.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-22-y/mayuscula.webp"
+      },
+      "lessonNumber": 23,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 796
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.092965,
+      "provenanceStatus": null,
+      "sha256": "011ceb3f669c5a549d2b95fd340d3515330feacdf8ed097bfd016a1234a33d5b",
+      "referenceCount": 1,
+      "referenceLocations": [
+        "src/content/consonants.json:1124"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-22-y/yate.webp",
+      "source": "y-page-55.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-22-y/yate.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-22-y/yate.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-22-y/yate.webp"
+      },
+      "lessonNumber": 23,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 609
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.428571,
+      "provenanceStatus": null,
+      "sha256": "645a4c92cd850c2edb9faf5a74390ad610ca0d59ba028744fcf5560ad282842c",
+      "referenceCount": 3,
+      "referenceLocations": [
+        "src/content/consonants.json:1109",
+        "src/content/workbook/workbook-manifest.json:8999",
+        "src/data/page-layouts.json:7562"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-22-y/yayita.webp",
+      "source": "y-page-55.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-22-y/yayita.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-22-y/yayita.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-22-y/yayita.webp"
+      },
+      "lessonNumber": 23,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 860,
+        "height": 870
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.988506,
+      "provenanceStatus": null,
+      "sha256": "6954f8b87ce8ff463a02352bd5a66ce36816d321245eabc1572d544f1312e275",
+      "referenceCount": 1,
+      "referenceLocations": [
+        "src/content/consonants.json:1119"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-22-y/yema.webp",
+      "source": "y-page-55.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-22-y/yema.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-22-y/yema.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-22-y/yema.webp"
+      },
+      "lessonNumber": 23,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 349
+      },
+      "hasAlpha": true,
+      "aspectRatio": 2.492837,
+      "provenanceStatus": null,
+      "sha256": "ee82c9d4b24fbee461794c14a0f6c0bcae12a263267833e96ed1f002962e2851",
+      "referenceCount": 1,
+      "referenceLocations": [
+        "src/content/consonants.json:1114"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-22-y/yoyo.webp",
+      "source": "y-page-55.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-22-y/yoyo.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-22-y/yoyo.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-22-y/yoyo.webp"
+      },
+      "lessonNumber": 23,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 803
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.083437,
+      "provenanceStatus": null,
+      "sha256": "930e29b2c71222fbb040d897d457b205700bb85bba8cc340a261dc1714e3044a",
+      "referenceCount": 5,
+      "referenceLocations": [
+        "src/content/consonants.json:1129",
+        "src/content/workbook/workbook-manifest.json:9011",
+        "src/data/page-layouts.json:7633",
+        "src/data/page-layouts.json:7675",
+        "src/data/page-layouts.json:7731"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-23-z/zapato.webp",
+      "source": "z-page-58.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-23-z/zapato.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-23-z/zapato.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-23-z/zapato.webp"
+      },
+      "lessonNumber": 24,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 790
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.101266,
+      "provenanceStatus": null,
+      "sha256": "7d79d5acb1e9b92eda31f0e8bdd4ba144539a6ba7f9607f5bdd33a8e14ebd292",
+      "referenceCount": 4,
+      "referenceLocations": [
+        "src/content/consonants.json:1169",
+        "src/content/workbook/workbook-manifest.json:9409",
+        "src/data/page-layouts.json:7945",
+        "src/data/page-layouts.json:8024"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-23-z/zepelin.webp",
+      "source": "z-page-58.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-23-z/zepelin.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-23-z/zepelin.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-23-z/zepelin.webp"
+      },
+      "lessonNumber": 24,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 494
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.761134,
+      "provenanceStatus": null,
+      "sha256": "af236a913ba290ed3d587f8ffd8aaf8ce5d8e0000aef93d6a61dbfdc7e7802c9",
+      "referenceCount": 1,
+      "referenceLocations": [
+        "src/content/consonants.json:1184"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-23-z/zigzag.webp",
+      "source": "z-page-58.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-23-z/zigzag.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-23-z/zigzag.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-23-z/zigzag.webp"
+      },
+      "lessonNumber": 24,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 868
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.002304,
+      "provenanceStatus": null,
+      "sha256": "ee275d942bf32209df9816cf89c553fe6488e806a90faf8679552f142698261e",
+      "referenceCount": 1,
+      "referenceLocations": [
+        "src/content/consonants.json:1174"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-23-z/zorro.webp",
+      "source": 58,
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-23-z/zorro.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-23-z/zorro.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-23-z/zorro.webp"
+      },
+      "lessonNumber": 24,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 487,
+        "height": 540
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.901852,
+      "provenanceStatus": "VERIFIED-AUTHENTIC-FLIPCHART-2026-09-25",
+      "sha256": "7de81da009983718716f894e630bb386bfdaa6874eceba668d3d23c7a1371960",
+      "referenceCount": 5,
+      "referenceLocations": [
+        "src/content/animal-gallery.ts:151",
+        "src/content/consonants.json:1179",
+        "src/content/workbook/workbook-manifest.json:9421",
+        "src/data/page-layouts.json:8054",
+        "src/data/page-layouts.json:8106"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-23-z/zulema.webp",
+      "source": "z-page-58.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-23-z/zulema.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-23-z/zulema.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-23-z/zulema.webp"
+      },
+      "lessonNumber": 24,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 657,
+        "height": 870
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.755172,
+      "provenanceStatus": null,
+      "sha256": "6c0f07ea2d6384daa37c83bb6d838fb443918118d5dde62019c3929a53cbbaf0",
+      "referenceCount": 2,
+      "referenceLocations": [
+        "src/content/consonants.json:1189",
+        "src/data/page-layouts.json:8111"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-7-m/mama.webp",
+      "source": "m-page-10.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-7-m/mama.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-7-m/mama.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-7-m/mama.webp"
+      },
+      "lessonNumber": 7,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 680,
+        "height": 870
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.781609,
+      "provenanceStatus": null,
+      "sha256": "eb1bb2f8641653b474cf3c119fbd027ed6a4bbbf02d497c60faa865f4df21f9b",
+      "referenceCount": 7,
+      "referenceLocations": [
+        "src/content/consonants.json:18",
+        "src/content/workbook/workbook-manifest.json:2134",
+        "src/content/workbook/workbook-manifest.json:2265",
+        "src/content/workbook/workbook-manifest.json:2476",
+        "src/data/page-layouts.json:1411",
+        "src/data/page-layouts.json:1490",
+        "src/data/page-layouts.json:1607"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-7-m/mono.webp",
+      "source": "n-page-25.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-7-m/mono.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-7-m/mono.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-7-m/mono.webp"
+      },
+      "lessonNumber": 7,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 472,
+        "height": 870
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.542529,
+      "provenanceStatus": null,
+      "sha256": "d3b31554dae5f3ecb3ba241a646ea924899029a954be2e614fe070cd5e390845",
+      "referenceCount": 7,
+      "referenceLocations": [
+        "src/content/animal-gallery.ts:97",
+        "src/content/consonants.json:23",
+        "src/content/workbook/workbook-manifest.json:2497",
+        "src/data/page-layouts.json:1524",
+        "src/data/page-layouts.json:3838",
+        "src/data/page-layouts.json:4206",
+        "src/data/page-layouts.json:4231"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-8-p/papa.webp",
+      "source": "p-page-11.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-8-p/papa.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-8-p/papa.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-8-p/papa.webp"
+      },
+      "lessonNumber": 8,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 618
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.407767,
+      "provenanceStatus": null,
+      "sha256": "4709a397083966dc19d254a1782bfb040c17e9ce064b1cb3d537c5ba7b17f82c",
+      "referenceCount": 5,
+      "referenceLocations": [
+        "src/content/consonants.json:91",
+        "src/content/workbook/workbook-manifest.json:2557",
+        "src/content/workbook/workbook-manifest.json:2876",
+        "src/data/page-layouts.json:1811",
+        "src/data/page-layouts.json:2002"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-9-s/sapo.webp",
+      "source": "ss-page-14.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-9-s/sapo.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-9-s/sapo.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-9-s/sapo.webp"
+      },
+      "lessonNumber": 9,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 742
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.172507,
+      "provenanceStatus": null,
+      "sha256": "ebc7f527d10fa92ed9a3a1d61e67d49ae43e89e6bd3d74e6b458232edd20842a",
+      "referenceCount": 5,
+      "referenceLocations": [
+        "src/content/animal-gallery.ts:109",
+        "src/content/consonants.json:165",
+        "src/content/workbook/workbook-manifest.json:3284",
+        "src/data/page-layouts.json:2210",
+        "src/data/page-layouts.json:2291"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-9-s/sopa.webp",
+      "source": "ss-page-14.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/leccion-9-s/sopa.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/leccion-9-s/sopa.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/leccion-9-s/sopa.webp"
+      },
+      "lessonNumber": 9,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 676
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.286982,
+      "provenanceStatus": null,
+      "sha256": "94e5563da676bc38116693b26365340f33bc380150fac8d5322d859b4f574c28",
+      "referenceCount": 3,
+      "referenceLocations": [
+        "src/content/consonants.json:174",
+        "src/content/workbook/workbook-manifest.json:3296",
+        "src/data/page-layouts.json:2319"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-a/abanico.webp",
+      "source": "public/cartilla/images/source/a/a-page-4.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-a/abanico.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-a/abanico.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-a/abanico.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 842
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.033254,
+      "provenanceStatus": "FIXED-2026-WRONG-CROP",
+      "sha256": "6d3b360695225f2127ed98bc93af554a4b3c947f97d88c9b9ff846c436f89888",
+      "referenceCount": 8,
+      "referenceLocations": [
+        "src/content/workbook/workbook-manifest.json:1532",
+        "src/content/workbook/workbook-manifest.json:48",
+        "src/content/workbook/workbook-manifest.json:889",
+        "src/data/page-layouts.json:33",
+        "src/data/page-layouts.json:520",
+        "src/data/page-layouts.json:959",
+        "src/routes/cartilla/-leccion-view.tsx:32",
+        "src/routes/cartilla/practica.tsx:32"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-a/abeja.webp",
+      "source": "public/cartilla/art/restored/workbook/page-009.png",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-a/abeja.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-a/abeja.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-a/abeja.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": 7,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 462,
+        "height": 495
+      },
+      "hasAlpha": false,
+      "aspectRatio": 0.933333,
+      "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
+      "sha256": "1f03f92afdf3005ffffccae6aff6cfdd37314ebe016012e8634a102078bca5ef",
+      "referenceCount": 7,
+      "referenceLocations": [
+        "src/data/page-layouts.json:1081",
+        "src/data/page-layouts.json:110",
+        "src/data/page-layouts.json:1212",
+        "src/data/page-layouts.json:546",
+        "src/data/page-layouts.json:637",
+        "src/data/page-layouts.json:763",
+        "src/data/page-layouts.json:844"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-a/aguja.webp",
+      "source": "public/cartilla/art/restored/workbook/page-009.png",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-a/aguja.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-a/aguja.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-a/aguja.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": 7,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 413,
+        "height": 495
+      },
+      "hasAlpha": false,
+      "aspectRatio": 0.834343,
+      "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
+      "sha256": "c2058129634833972b306a23ac423bbd42bb925ea181f2d6c5cdbe67c2bac0ac",
+      "referenceCount": 3,
+      "referenceLocations": [
+        "src/data/page-layouts.json:591",
+        "src/data/page-layouts.json:642",
+        "src/data/page-layouts.json:768"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-a/alas.webp",
+      "source": "a-page-5.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-a/alas.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-a/alas.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-a/alas.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 636
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.367925,
+      "provenanceStatus": null,
+      "sha256": "6a923fda703e0812a908b7ee2e0606d2d67fd5acf3ad3ba579f99922910fe671",
+      "referenceCount": 11,
+      "referenceLocations": [
+        "src/content/lessons.json:28",
+        "src/content/workbook/workbook-manifest.json:1099",
+        "src/content/workbook/workbook-manifest.json:1565",
+        "src/content/workbook/workbook-manifest.json:641",
+        "src/content/workbook/workbook-manifest.json:845",
+        "src/content/workbook/workbook-manifest.json:986",
+        "src/data/page-layouts.json:338",
+        "src/data/page-layouts.json:444",
+        "src/data/page-layouts.json:565",
+        "src/data/page-layouts.json:631",
+        "src/data/page-layouts.json:974"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-a/anillo.webp",
+      "source": null,
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-a/anillo.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-a/anillo.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-a/anillo.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 718
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.211699,
+      "provenanceStatus": "PROVENANCE-UNKNOWN",
+      "sha256": "e2d3bbf6c1a7a406f6597162f036bb8bd945bc7f78a335b7a1a26d39c24ba5ce",
+      "referenceCount": 4,
+      "referenceLocations": [
+        "src/content/workbook/workbook-manifest.json:259",
+        "src/data/page-layouts.json:141",
+        "src/routes/cartilla/-leccion-view.tsx:33",
+        "src/routes/cartilla/practica.tsx:33"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-a/arana.webp",
+      "source": "a-page-4.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-a/arana.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-a/arana.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-a/arana.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 810,
+        "height": 870
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.931034,
+      "provenanceStatus": null,
+      "sha256": "9d90c866b946b8859ff92886eee2c2c6ca9ffe78527d8f50e89218f79b59c918",
+      "referenceCount": 12,
+      "referenceLocations": [
+        "src/content/animal-gallery.ts:47",
+        "src/content/consonants.json:540",
+        "src/content/workbook/workbook-manifest.json:481",
+        "src/content/workbook/workbook-manifest.json:4987",
+        "src/content/workbook/workbook-manifest.json:5304",
+        "src/content/workbook/workbook-manifest.json:707",
+        "src/data/page-layouts.json:264",
+        "src/data/page-layouts.json:368",
+        "src/data/page-layouts.json:4113",
+        "src/data/page-layouts.json:4354",
+        "src/routes/cartilla/-leccion-view.tsx:34",
+        "src/routes/cartilla/practica.tsx:34"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-a/arbol.webp",
+      "source": "a-page-5.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-a/arbol.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-a/arbol.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-a/arbol.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 744
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.169355,
+      "provenanceStatus": null,
+      "sha256": "e313f0ec62619e0f8498a7f84baf3f74b27e24cd46435a214b23301e6e040ff3",
+      "referenceCount": 7,
+      "referenceLocations": [
+        "src/content/lessons.json:14",
+        "src/content/workbook/workbook-manifest.json:1893",
+        "src/content/workbook/workbook-manifest.json:303",
+        "src/content/workbook/workbook-manifest.json:953",
+        "src/data/page-layouts.json:1192",
+        "src/data/page-layouts.json:166",
+        "src/data/page-layouts.json:550"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-a/ardilla.webp",
+      "source": null,
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-a/ardilla.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-a/ardilla.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-a/ardilla.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 751
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.158455,
+      "provenanceStatus": "PROVENANCE-UNKNOWN",
+      "sha256": "ddf3333971afba4e709073e4ba7c0b3c12ad9e08a5cae10c5763a453dc7b5f52",
+      "referenceCount": 2,
+      "referenceLocations": [
+        "src/content/animal-gallery.ts:53",
+        "src/data/page-layouts.json:575"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-a/aro.webp",
+      "source": "public/cartilla/art/hd/flipchart/page-005.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-a/aro.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-a/aro.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-a/aro.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 780,
+        "height": 660
+      },
+      "hasAlpha": false,
+      "aspectRatio": 1.181818,
+      "provenanceStatus": "VERIFIED-AUTHENTIC-FLIPCHART-2026-08-08",
+      "sha256": "c0ce78535ac9b93efcc4a5fafa77f427f975fe592685f751c38287c9ac5a2c4b",
+      "referenceCount": 6,
+      "referenceLocations": [
+        "src/content/workbook/workbook-manifest.json:1049",
+        "src/content/workbook/workbook-manifest.json:910",
+        "src/data/page-layouts.json:530",
+        "src/data/page-layouts.json:59",
+        "src/data/page-layouts.json:595",
+        "src/data/page-layouts.json:657"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-a/avion.webp",
+      "source": "a-page-6.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-a/avion.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-a/avion.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-a/avion.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 834,
+        "height": 870
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.958621,
+      "provenanceStatus": null,
+      "sha256": "db993f2a86aa40a3d9ac8d0d6819e4b98460ca5362de8bb2ba9337a647e82003",
+      "referenceCount": 7,
+      "referenceLocations": [
+        "src/content/lessons.json:19",
+        "src/content/workbook/workbook-manifest.json:1028",
+        "src/content/workbook/workbook-manifest.json:81",
+        "src/data/page-layouts.json:48",
+        "src/data/page-layouts.json:585",
+        "src/routes/cartilla/-leccion-view.tsx:35",
+        "src/routes/cartilla/practica.tsx:35"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-e/elefante.webp",
+      "source": "e-page-5.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-e/elefante.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-e/elefante.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-e/elefante.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 809
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.075402,
+      "provenanceStatus": null,
+      "sha256": "f54e533c6a33b901fcfc79da83b2f7a38977defc47662f6cf29ca948d1cfd28a",
+      "referenceCount": 12,
+      "referenceLocations": [
+        "src/content/animal-gallery.ts:65",
+        "src/content/lessons.json:83",
+        "src/content/workbook/workbook-manifest.json:1194",
+        "src/content/workbook/workbook-manifest.json:1395",
+        "src/content/workbook/workbook-manifest.json:1882",
+        "src/content/workbook/workbook-manifest.json:190",
+        "src/content/workbook/workbook-manifest.json:964",
+        "src/data/page-layouts.json:1187",
+        "src/data/page-layouts.json:555",
+        "src/data/page-layouts.json:732",
+        "src/data/page-layouts.json:838",
+        "src/data/page-layouts.json:95"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-e/erizo.webp",
+      "source": "e-page-11.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-e/erizo.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-e/erizo.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-e/erizo.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 861
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.010453,
+      "provenanceStatus": null,
+      "sha256": "5f3a27b85db1ba6178ca9bc22c3aad28146d1d45f95aabc80caeaa71cd7b892d",
+      "referenceCount": 3,
+      "referenceLocations": [
+        "src/content/animal-gallery.ts:71",
+        "src/data/page-layouts.json:757",
+        "src/data/page-layouts.json:848"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-e/escalera.webp",
+      "source": "e-page-10.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-e/escalera.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-e/escalera.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-e/escalera.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 829
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.049457,
+      "provenanceStatus": null,
+      "sha256": "2d5b6a8d9728a46748041231ed82f40b5f9e955669ca88c43b9e93e7e84d32f4",
+      "referenceCount": 6,
+      "referenceLocations": [
+        "src/content/workbook/workbook-manifest.json:113",
+        "src/content/workbook/workbook-manifest.json:1237",
+        "src/content/workbook/workbook-manifest.json:1437",
+        "src/data/page-layouts.json:63",
+        "src/data/page-layouts.json:752",
+        "src/data/page-layouts.json:858"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-e/escoba.webp",
+      "source": "public/cartilla/images/teacher-flipchart/teacher-page-03.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-e/escoba.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-e/escoba.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-e/escoba.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 556,
+        "height": 700
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.794286,
+      "provenanceStatus": "FIXED-2026-WRONG-PAGE",
+      "sha256": "6f4a542ddde9d03b03f0987d9813bafded1d946632cb0f2c1c12acf4e9732091",
+      "referenceCount": 2,
+      "referenceLocations": [
+        "src/data/page-layouts.json:277",
+        "src/data/page-layouts.json:773"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-e/escuela.webp",
+      "source": null,
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-e/escuela.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-e/escuela.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-e/escuela.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 870
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1,
+      "provenanceStatus": "PROVENANCE-UNKNOWN",
+      "sha256": "37858d5e3e071c4f18d7f369cf4796ee30b878d0c05eb3a8da037e6afb5e6134",
+      "referenceCount": 4,
+      "referenceLocations": [
+        "src/content/workbook/workbook-manifest.json:1321",
+        "src/content/workbook/workbook-manifest.json:135",
+        "src/data/page-layouts.json:73",
+        "src/data/page-layouts.json:792"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-e/espejo.webp",
+      "source": "e-page-5.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-e/espejo.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-e/espejo.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-e/espejo.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 823
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.057108,
+      "provenanceStatus": null,
+      "sha256": "7db9f69595efd252bce1e11cec378cb05d0cbf0f9be017b84226affd519508b2",
+      "referenceCount": 3,
+      "referenceLocations": [
+        "src/content/lessons.json:92",
+        "src/content/workbook/workbook-manifest.json:1343",
+        "src/data/page-layouts.json:802"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-e/estrella.webp",
+      "source": 4,
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-e/estrella.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-e/estrella.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-e/estrella.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 757,
+        "height": 864
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.876157,
+      "provenanceStatus": "VERIFIED-AUTHENTIC-FLIPCHART-2026-09-25",
+      "sha256": "f8b613f63a923668ec36a558bf35585aaca15f4d2f9d80c247432ed15c3e13ab",
+      "referenceCount": 13,
+      "referenceLocations": [
+        "src/content/lessons.json:97",
+        "src/content/workbook/workbook-manifest.json:1299",
+        "src/content/workbook/workbook-manifest.json:1448",
+        "src/content/workbook/workbook-manifest.json:1860",
+        "src/content/workbook/workbook-manifest.json:2064",
+        "src/content/workbook/workbook-manifest.json:314",
+        "src/content/workbook/workbook-manifest.json:997",
+        "src/data/page-layouts.json:1177",
+        "src/data/page-layouts.json:1279",
+        "src/data/page-layouts.json:171",
+        "src/data/page-layouts.json:570",
+        "src/data/page-layouts.json:782",
+        "src/data/page-layouts.json:863"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-i/iglesia.webp",
+      "source": null,
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-i/iglesia.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-i/iglesia.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-i/iglesia.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 473,
+        "height": 407
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.162162,
+      "provenanceStatus": "PROVENANCE-UNKNOWN",
+      "sha256": "3747101ccd2e49b823f43da39ccb3171eeb213dbbc99ef0d7d0b4d1d39c5392b",
+      "referenceCount": 2,
+      "referenceLocations": [
+        "src/content/workbook/workbook-manifest.json:502",
+        "src/data/page-layouts.json:270"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-i/iglu.webp",
+      "source": "public/cartilla/art/hd/flipchart/page-007.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-i/iglu.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-i/iglu.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-i/iglu.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 600,
+        "height": 570
+      },
+      "hasAlpha": false,
+      "aspectRatio": 1.052632,
+      "provenanceStatus": "VERIFIED-AUTHENTIC-FLIPCHART-2026-08-08",
+      "sha256": "bfc0ab830718b9d1dd37163800ce64aadc5b9df1d487d89e071cdbb1afa3ee6f",
+      "referenceCount": 7,
+      "referenceLocations": [
+        "src/content/lessons.json:152",
+        "src/data/page-layouts.json:1056",
+        "src/data/page-layouts.json:314",
+        "src/data/page-layouts.json:410",
+        "src/data/page-layouts.json:627",
+        "src/data/page-layouts.json:738",
+        "src/data/page-layouts.json:945"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-i/igual.webp",
+      "source": null,
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-i/igual.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-i/igual.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-i/igual.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 687
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.266376,
+      "provenanceStatus": "PROVENANCE-UNKNOWN",
+      "sha256": "22dd1c51277b2ae1a236677758a836567626f4b84660c45dee5deb6c19f3fb4a",
+      "referenceCount": 2,
+      "referenceLocations": [
+        "src/data/page-layouts.json:1009",
+        "src/data/page-layouts.json:1060"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-i/iguana.webp",
+      "source": null,
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-i/iguana.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-i/iguana.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-i/iguana.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 751
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.158455,
+      "provenanceStatus": "PROVENANCE-UNKNOWN",
+      "sha256": "2d54a211628f6d479dc15e55cb705170e5e295fa724d10f08334b7c7f9b9e491",
+      "referenceCount": 4,
+      "referenceLocations": [
+        "src/content/animal-gallery.ts:77",
+        "src/content/lessons.json:162",
+        "src/data/page-layouts.json:1075",
+        "src/data/page-layouts.json:954"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-i/iman.webp",
+      "source": "i-page-6.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-i/iman.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-i/iman.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-i/iman.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 716
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.215084,
+      "provenanceStatus": null,
+      "sha256": "881055e3411d1b78e68c751ff24472d465f33028aa3c173fb5b3ee830a4fe804",
+      "referenceCount": 14,
+      "referenceLocations": [
+        "src/content/lessons.json:167",
+        "src/content/workbook/workbook-manifest.json:1597",
+        "src/content/workbook/workbook-manifest.json:1693",
+        "src/content/workbook/workbook-manifest.json:2075",
+        "src/content/workbook/workbook-manifest.json:37",
+        "src/content/workbook/workbook-manifest.json:92",
+        "src/content/workbook/workbook-manifest.json:921",
+        "src/data/page-layouts.json:1045",
+        "src/data/page-layouts.json:1284",
+        "src/data/page-layouts.json:28",
+        "src/data/page-layouts.json:53",
+        "src/data/page-layouts.json:535",
+        "src/data/page-layouts.json:989",
+        "src/routes/cartilla/-leccion-view.tsx:36"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-i/indio.webp",
+      "source": "i-page-6.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-i/indio.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-i/indio.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-i/indio.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 831,
+        "height": 870
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.955172,
+      "provenanceStatus": null,
+      "sha256": "5a51e6c5d9fe0c04c9be33c4d171774970063e1873eb66f4ecc557d7620bd542",
+      "referenceCount": 8,
+      "referenceLocations": [
+        "src/content/workbook/workbook-manifest.json:1226",
+        "src/content/workbook/workbook-manifest.json:1554",
+        "src/content/workbook/workbook-manifest.json:1735",
+        "src/content/workbook/workbook-manifest.json:336",
+        "src/data/page-layouts.json:1065",
+        "src/data/page-layouts.json:186",
+        "src/data/page-layouts.json:747",
+        "src/data/page-layouts.json:969"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-i/insecto.webp",
+      "source": 5,
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-i/insecto.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-i/insecto.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-i/insecto.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 868,
+        "height": 756
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.148148,
+      "provenanceStatus": "VERIFIED-AUTHENTIC-FLIPCHART-2026-09-25",
+      "sha256": "95396f7f1f45ed81dc1b0bbc2ea68eae391c817cff76732158f8d49c54d8499d",
+      "referenceCount": 4,
+      "referenceLocations": [
+        "src/content/workbook/workbook-manifest.json:1651",
+        "src/content/workbook/workbook-manifest.json:1958",
+        "src/data/page-layouts.json:1014",
+        "src/data/page-layouts.json:1220"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-i/invierno.webp",
+      "source": "i-page-13.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-i/invierno.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-i/invierno.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-i/invierno.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 270,
+        "height": 414
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.652174,
+      "provenanceStatus": null,
+      "sha256": "35e515beb0bda63c986e7741b9460b5f96ac226286926e9af8cc95c03aad50ee",
+      "referenceCount": 2,
+      "referenceLocations": [
+        "src/content/workbook/workbook-manifest.json:1576",
+        "src/data/page-layouts.json:979"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-i/isla.webp",
+      "source": 5,
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-i/isla.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-i/isla.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-i/isla.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 950,
+        "height": 857
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.108518,
+      "provenanceStatus": "VERIFIED-AUTHENTIC-FLIPCHART-2026-09-25",
+      "sha256": "927a08c561bbe5b963fb3d3a78ecb0f697044fe8f369c2455e3dcd1ef03583bf",
+      "referenceCount": 6,
+      "referenceLocations": [
+        "src/content/lessons.json:157",
+        "src/content/workbook/workbook-manifest.json:1619",
+        "src/content/workbook/workbook-manifest.json:70",
+        "src/data/page-layouts.json:43",
+        "src/data/page-layouts.json:999",
+        "src/routes/cartilla/-leccion-view.tsx:37"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-o/ocho.webp",
+      "source": "o-page-5.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-o/ocho.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-o/ocho.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-o/ocho.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 727,
+        "height": 870
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.835632,
+      "provenanceStatus": null,
+      "sha256": "57e774105813678e5df5ab957530f67d0b5948936ef884054c9f4b23b6725bfb",
+      "referenceCount": 4,
+      "referenceLocations": [
+        "src/content/workbook/workbook-manifest.json:460",
+        "src/content/workbook/workbook-manifest.json:685",
+        "src/data/page-layouts.json:258",
+        "src/data/page-layouts.json:358"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-o/ola.webp",
+      "source": null,
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-o/ola.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-o/ola.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-o/ola.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 853,
+        "height": 870
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.98046,
+      "provenanceStatus": "QA-PASS-SOURCE-PAGE-NOT-RECORDED",
+      "sha256": "61dd81317cbbf7fa5e43b09c09ad1d9b21a68db790c39c0a4857aa088876d313",
+      "referenceCount": 4,
+      "referenceLocations": [
+        "src/content/lessons.json:232",
+        "src/data/page-layouts.json:308",
+        "src/data/page-layouts.json:434",
+        "src/data/page-layouts.json:984"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-o/olla.webp",
+      "source": "o-page-3.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-o/olla.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-o/olla.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-o/olla.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 618
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.407767,
+      "provenanceStatus": null,
+      "sha256": "7f38ec806dc9da0d44910c5084c96c35c4c920f5ae3f8750040b801b7518b79d",
+      "referenceCount": 9,
+      "referenceLocations": [
+        "src/content/lessons.json:237",
+        "src/content/workbook/workbook-manifest.json:1662",
+        "src/content/workbook/workbook-manifest.json:232",
+        "src/content/workbook/workbook-manifest.json:663",
+        "src/content/workbook/workbook-manifest.json:813",
+        "src/data/page-layouts.json:1019",
+        "src/data/page-layouts.json:114",
+        "src/data/page-layouts.json:348",
+        "src/data/page-layouts.json:429"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-o/oreja.webp",
+      "source": "o-page-3.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-o/oreja.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-o/oreja.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-o/oreja.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 589,
+        "height": 870
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.677011,
+      "provenanceStatus": null,
+      "sha256": "7f602fbf9fad421d05f0d6af2158ce0d8351499b6ec338b771409e810a7d798d",
+      "referenceCount": 6,
+      "referenceLocations": [
+        "src/content/workbook/workbook-manifest.json:146",
+        "src/content/workbook/workbook-manifest.json:652",
+        "src/content/workbook/workbook-manifest.json:802",
+        "src/data/page-layouts.json:343",
+        "src/data/page-layouts.json:424",
+        "src/data/page-layouts.json:78"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-o/oruga.webp",
+      "source": "public/cartilla/art/restored/workbook/page-009.png",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-o/oruga.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-o/oruga.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-o/oruga.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": 7,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 580,
+        "height": 570
+      },
+      "hasAlpha": false,
+      "aspectRatio": 1.017544,
+      "provenanceStatus": "VERIFIED-EXACT-WORKBOOK-CROP-2026-08-08",
+      "sha256": "69977ee19c874c68a1e82d0f7747b4fae8e79640cd961e23c3d4ea9ec3046ead",
+      "referenceCount": 3,
+      "referenceLocations": [
+        "src/components/living/LivingIllustration.tsx:24",
+        "src/data/page-layouts.json:526",
+        "src/lib/living-art-runtime.ts:27"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-o/oso-blink.webp",
+      "source": "public/cartilla/art/faithful/vocal-o/oso.webp",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-o/oso-blink.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-o/oso-blink.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-o/oso-blink.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 823,
+        "height": 870
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.945977,
+      "provenanceStatus": "QA-PASS-AUTHORED-BLINK-2026-09-25",
+      "sha256": "f77a0331cefb6dd7840977b2565f0a7d7986e598c158fef36bc42e58e81c5212",
+      "referenceCount": 1,
+      "referenceLocations": [
+        "src/lib/living-blink-map.ts:7"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-o/oso.webp",
+      "source": "o-page-3.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-o/oso.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-o/oso.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-o/oso.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 823,
+        "height": 870
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.945977,
+      "provenanceStatus": null,
+      "sha256": "cd49151f12332d1201e535eb18f0e0191867bd035af46f3d836492ab7680fbdf",
+      "referenceCount": 29,
+      "referenceLocations": [
+        "src/components/living/LivingIllustration.tsx:23",
+        "src/content/animal-gallery.ts:83",
+        "src/content/lessons.json:222",
+        "src/content/workbook/workbook-manifest.json:1078",
+        "src/content/workbook/workbook-manifest.json:1384",
+        "src/content/workbook/workbook-manifest.json:1543",
+        "src/content/workbook/workbook-manifest.json:1704",
+        "src/content/workbook/workbook-manifest.json:1915",
+        "src/content/workbook/workbook-manifest.json:2020",
+        "src/content/workbook/workbook-manifest.json:369",
+        "src/content/workbook/workbook-manifest.json:59",
+        "src/content/workbook/workbook-manifest.json:597",
+        "src/content/workbook/workbook-manifest.json:718",
+        "src/content/workbook/workbook-manifest.json:834",
+        "src/data/page-layouts.json:1050",
+        "src/data/page-layouts.json:1202",
+        "src/data/page-layouts.json:1259",
+        "src/data/page-layouts.json:206",
+        "src/data/page-layouts.json:318",
+        "src/data/page-layouts.json:373",
+        "src/data/page-layouts.json:38",
+        "src/data/page-layouts.json:439",
+        "src/data/page-layouts.json:621",
+        "src/data/page-layouts.json:833",
+        "src/data/page-layouts.json:964",
+        "src/lib/book-faithful.ts:131",
+        "src/lib/living-art-runtime.ts:26",
+        "src/lib/living-blink-map.ts:7",
+        "src/routes/cartilla/-leccion-view.tsx:38"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-o/oveja.webp",
+      "source": "o-page-3.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-o/oveja.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-o/oveja.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-o/oveja.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 824
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.055825,
+      "provenanceStatus": null,
+      "sha256": "6835094e54b0ea0e5082792e1ae8cdde452ab4bd8be265d170f99d74e7f22d59",
+      "referenceCount": 11,
+      "referenceLocations": [
+        "src/content/animal-gallery.ts:89",
+        "src/content/workbook/workbook-manifest.json:179",
+        "src/content/workbook/workbook-manifest.json:1816",
+        "src/content/workbook/workbook-manifest.json:630",
+        "src/content/workbook/workbook-manifest.json:781",
+        "src/content/workbook/workbook-manifest.json:932",
+        "src/data/page-layouts.json:1160",
+        "src/data/page-layouts.json:333",
+        "src/data/page-layouts.json:414",
+        "src/data/page-layouts.json:540",
+        "src/data/page-layouts.json:91"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-u/uña.webp",
+      "source": "u-page-17.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-u/uña.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-u/uña.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-u/uña.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 799,
+        "height": 870
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.918391,
+      "provenanceStatus": null,
+      "sha256": "14b2ffeb6bb6c4d70421e4adeed9a59b438bb859484c3123990b2806647c1e70",
+      "referenceCount": 2,
+      "referenceLocations": [
+        "src/content/lessons.json:297",
+        "src/content/lessons.json:336"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-u/unicornio.webp",
+      "source": "u-page-17.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-u/unicornio.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-u/unicornio.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-u/unicornio.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 741
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.174089,
+      "provenanceStatus": null,
+      "sha256": "b8b317eed9123b61371bdd7f175f19eddc0a3c48eea58b569c648227f74d714d",
+      "referenceCount": 6,
+      "referenceLocations": [
+        "src/content/workbook/workbook-manifest.json:1288",
+        "src/content/workbook/workbook-manifest.json:1805",
+        "src/content/workbook/workbook-manifest.json:2042",
+        "src/data/page-layouts.json:1156",
+        "src/data/page-layouts.json:1269",
+        "src/data/page-layouts.json:777"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-u/uniforme.webp",
+      "source": "u-page-17.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-u/uniforme.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-u/uniforme.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-u/uniforme.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 685,
+        "height": 870
+      },
+      "hasAlpha": true,
+      "aspectRatio": 0.787356,
+      "provenanceStatus": null,
+      "sha256": "8c0156ea857c533d85e701e51ff923e0ab6cc1e85f2368528ad2f6f896fee0c4",
+      "referenceCount": 2,
+      "referenceLocations": [
+        "src/content/workbook/workbook-manifest.json:391",
+        "src/data/page-layouts.json:221"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-u/uno.webp",
+      "source": "u-page-18.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-u/uno.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-u/uno.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-u/uno.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 757
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.149273,
+      "provenanceStatus": null,
+      "sha256": "dd202b07eeae643f96adc290d32cb0a10fe167e049ae7f7d6304291dea7d22ed",
+      "referenceCount": 19,
+      "referenceLocations": [
+        "src/content/lessons.json:302",
+        "src/content/workbook/workbook-manifest.json:124",
+        "src/content/workbook/workbook-manifest.json:1354",
+        "src/content/workbook/workbook-manifest.json:1608",
+        "src/content/workbook/workbook-manifest.json:1904",
+        "src/content/workbook/workbook-manifest.json:1969",
+        "src/content/workbook/workbook-manifest.json:2009",
+        "src/content/workbook/workbook-manifest.json:543",
+        "src/content/workbook/workbook-manifest.json:696",
+        "src/content/workbook/workbook-manifest.json:975",
+        "src/data/page-layouts.json:1197",
+        "src/data/page-layouts.json:1224",
+        "src/data/page-layouts.json:1254",
+        "src/data/page-layouts.json:282",
+        "src/data/page-layouts.json:363",
+        "src/data/page-layouts.json:560",
+        "src/data/page-layouts.json:68",
+        "src/data/page-layouts.json:807",
+        "src/data/page-layouts.json:994"
+      ]
+    },
+    {
+      "src": "/cartilla/art/faithful/vocal-u/uvas.webp",
+      "source": "u-page-7.jpg",
+      "derivative": {
+        "canonical": "/cartilla/art/faithful/vocal-u/uvas.webp",
+        "width384": "/cartilla/art/delivery/faithful/384/vocal-u/uvas.webp",
+        "width768": "/cartilla/art/delivery/faithful/768/vocal-u/uvas.webp"
+      },
+      "lessonNumber": null,
+      "pageNumber": null,
+      "assetClass": "cutout",
+      "dimensions": {
+        "width": 870,
+        "height": 605
+      },
+      "hasAlpha": true,
+      "aspectRatio": 1.438017,
+      "provenanceStatus": null,
+      "sha256": "2413df1fb07b25b5f40edf0bb96d0a636020eb65ff5c8637f2bf9695735a3c41",
+      "referenceCount": 7,
+      "referenceLocations": [
+        "src/content/lessons.json:292",
+        "src/content/workbook/workbook-manifest.json:1849",
+        "src/content/workbook/workbook-manifest.json:2031",
+        "src/content/workbook/workbook-manifest.json:674",
+        "src/data/page-layouts.json:1172",
+        "src/data/page-layouts.json:1264",
+        "src/data/page-layouts.json:353"
+      ]
+    }
+  ]
+}

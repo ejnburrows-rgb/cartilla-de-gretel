@@ -4,6 +4,7 @@ export type LearningInput = 'wrong' | 'hint' | 'correct' | 'complete' | 'retry';
 export type LearningReaction = 'cue' | 'hint' | 'demonstration' | 'independent-retry' | 'success' | 'mastery' | null;
 export const freshLearningState = (): LearningState => ({ errors: 0, assisted: false, retryPending: false, mastered: false });
 export function advanceLearning(state: LearningState, input: LearningInput): { state: LearningState; reaction: LearningReaction } {
+  if (state.mastered) return { state, reaction: null };
   if (input === 'retry') return { state: { ...state, errors: 0, assisted: false, retryPending: false }, reaction: null };
   if (state.retryPending) return { state, reaction: null };
   if (input === 'wrong' || input === 'hint') {

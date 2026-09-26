@@ -60,16 +60,30 @@ export function FlipchartHdPanel({ lessonNumber, accentColor }: FlipchartHdPanel
   const [flipDirection, setFlipDirection] = useState<"next" | "prev" | null>(null);
   const [flipTransform, setFlipTransform] = useState("rotateX(0deg)");
   const pointerStartRef = useRef<{ x: number; y: number } | null>(null);
+  const flipLockedRef = useRef(false);
+  const flipTokenRef = useRef(0);
+  const flipTimerRef = useRef<number | null>(null);
 
   useEffect(() => {
+    flipTokenRef.current += 1;
+    flipLockedRef.current = false;
+    if (flipTimerRef.current) clearTimeout(flipTimerRef.current);
     setSelectedIdx(0);
     setIsFlipping(false);
     setPageReady(false);
     setFlipDirection(null);
     setFlipTransform("rotateX(0deg)");
+    return () => {
+      flipTokenRef.current += 1;
+      flipLockedRef.current = false;
+      if (flipTimerRef.current) clearTimeout(flipTimerRef.current);
+    };
   }, [lessonNumber]);
 
-  const afterFlip = useCallback((newIndex: number) => {
+  const afterFlip = useCallback((newIndex: number, token: number) => {
+    if (token !== flipTokenRef.current) return;
+    flipLockedRef.current = false;
+    flipTimerRef.current = null;
     setSelectedIdx(newIndex);
     setIsFlipping(false);
     setFlipDirection(null);
@@ -80,7 +94,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor }: FlipchartHdPanel
 
   const goTo = useCallback(
     (index: number, direction: "next" | "prev") => {
-      if (isFlipping || pages.length === 0) return;
+      if (flipLockedRef.current || isFlipping || pages.length === 0) return;
       if (index < 0 || index >= pages.length || index === safeIdx) return;
       setPageReady(false);
 
@@ -89,16 +103,23 @@ export function FlipchartHdPanel({ lessonNumber, accentColor }: FlipchartHdPanel
         return;
       }
 
+      flipLockedRef.current = true;
+      const token = ++flipTokenRef.current;
       const { start, end } = flipchartFlipTransforms(direction);
       setFlipDirection(direction);
       setIsFlipping(true);
       setFlipTransform(start);
 
       requestAnimationFrame(() => {
-        requestAnimationFrame(() => setFlipTransform(end));
+        requestAnimationFrame(() => {
+          if (token === flipTokenRef.current) setFlipTransform(end);
+        });
       });
 
-      window.setTimeout(() => afterFlip(index), FLIPCHART_FLIP_MS);
+      flipTimerRef.current = window.setTimeout(
+        () => afterFlip(index, token),
+        FLIPCHART_FLIP_MS,
+      );
     },
     [afterFlip, isFlipping, pages.length, reducedMotion, safeIdx],
   );

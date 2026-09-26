@@ -28,5 +28,7 @@ describe('Gretel progressive teaching policy', () => {
     const completed = advanceLearning(freshLearningState(), 'complete');
     expect(completed.reaction).toBe('mastery');
     expect(advanceLearning(completed.state, 'complete').reaction).toBeNull();
+    expect(advanceLearning(completed.state, 'hint')).toEqual({ state: completed.state, reaction: null });
+    expect(advanceLearning(completed.state, 'wrong')).toEqual({ state: completed.state, reaction: null });
   });
 });

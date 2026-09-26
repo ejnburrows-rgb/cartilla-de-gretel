@@ -1,5 +1,5 @@
-import { fireEvent, render, screen } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { describe, expect, it, vi } from "vitest";
 import { LivingIllustration } from "../LivingIllustration";
 import { ANIMAL_GALLERY } from "@/content/animal-gallery";
 
@@ -16,19 +16,24 @@ describe("LivingIllustration faithful recovered art", () => {
       expect(image.getAttribute("srcset")).toBe(
         `/cartilla/art/delivery/faithful/384/${src.split("/faithful/")[1]} 1x, /cartilla/art/delivery/faithful/768/${src.split("/faithful/")[1]} 2x`,
       );
-      expect(image.parentElement?.getAttribute("data-ambient-motion")).not.toBe("none");
+      expect(image.parentElement?.getAttribute("data-ambient-motion")).toBe(
+        src.endsWith("oruga.webp") ? "sway" : "none",
+      );
       expect(screen.queryByText(/pendiente de color/i)).toBeNull();
     });
   }
 
-  it("makes every verified animal in the gallery visibly blink and move", () => {
+  it("keeps gallery art static unless its exact source is allow-listed", () => {
     for (const animal of ANIMAL_GALLERY) {
       const { unmount } = render(
         <LivingIllustration src={animal.illustrationSrc} alt={animal.word} />,
       );
       const wrapper = screen.getByRole("img", { name: animal.word }).parentElement;
-      expect(wrapper?.getAttribute("data-blink-mode"), animal.word).not.toBe("none");
-      expect(wrapper?.className, animal.word).toContain("living-illustration--creature-life");
+      const approved = animal.illustrationSrc === "/cartilla/art/faithful/vocal-o/oso.webp";
+      expect(wrapper?.getAttribute("data-ambient-motion"), animal.word).toBe(
+        approved ? "breathe" : "none",
+      );
+      expect(wrapper?.className.includes("living-illustration--creature-life"), animal.word).toBe(approved);
       unmount();
     }
   });
@@ -44,7 +49,7 @@ describe("LivingIllustration faithful recovered art", () => {
     expect(wrapper?.getAttribute("data-blink-mode")).toBe("frame");
   });
 
-  it("keeps unmapped living creatures animated and tap-reactive", () => {
+  it("keeps an explicitly approved source animated and tap-reactive", () => {
     render(
       <LivingIllustration
         src="/cartilla/art/faithful/vocal-o/oruga.webp"
@@ -52,12 +57,30 @@ describe("LivingIllustration faithful recovered art", () => {
       />,
     );
     const wrapper = screen.getByRole("img", { name: "oruga" }).parentElement;
-    expect(wrapper?.getAttribute("data-blink-mode")).toBe("fallback");
+    expect(wrapper?.getAttribute("data-blink-mode")).toBe("none");
     expect(wrapper?.getAttribute("data-interactive")).toBe("true");
-    expect(wrapper?.querySelectorAll(".living-illustration__eyelid")).toHaveLength(2);
-    expect(wrapper?.className).toContain("living-illustration--creature-life");
+    expect(wrapper?.querySelectorAll(".living-illustration__eyelid")).toHaveLength(0);
+    expect(wrapper?.className).toContain("living-illustration--sway");
     if (!wrapper) throw new Error("missing living illustration wrapper");
     fireEvent.pointerDown(wrapper);
     expect(wrapper.className).toContain("living-illustration--reacting");
+  });
+
+  it("preserves the approved source but suppresses motion when reduced motion is requested", async () => {
+    const original = window.matchMedia;
+    window.matchMedia = vi.fn().mockImplementation((query: string) => ({
+      matches: query.includes("prefers-reduced-motion"),
+      media: query,
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
+    })) as unknown as typeof window.matchMedia;
+    try {
+      render(<LivingIllustration src="/cartilla/art/faithful/vocal-o/oso.webp" alt="oso quieto" />);
+      const wrapper = screen.getByRole("img", { name: "oso quieto" }).parentElement;
+      await waitFor(() => expect(wrapper?.getAttribute("data-ambient-motion")).toBe("none"));
+      expect(screen.getByRole("img", { name: "oso quieto" }).getAttribute("src")).toContain("oso.webp");
+    } finally {
+      window.matchMedia = original;
+    }
   });
 });
