@@ -72,3 +72,43 @@ This requirement was added after two failed text-only generations changed the wo
 - Before requesting user action, exhaust the existing project state, connected tools, current files, prior mappings, repo, browser/desktop state, and automation paths.
 - Only a genuinely external action that cannot be performed through any connected capability may be requested from the user.
 - Continue execution until the current prompt is verified complete or a true external blocker requiring user action is proven.
+
+## Cartilla hard execution gate — added after repeated source-preservation failures
+
+This rule overrides any convenience, image-generation shortcut, or ambiguous request to "generate", "redo", "optimize", or "show" Cartilla artwork.
+
+### Tool-routing rule
+- DO NOT use ChatGPT image generation for Cartilla workbook assets.
+- DO NOT use any text-to-image path for Cartilla workbook assets.
+- DO NOT treat a source image that was merely displayed in chat as proof that an image-generation tool is actually editing that source.
+- For Cartilla assets, use only:
+  1. deterministic source-preserving image processing on the real Libro crop; or
+  2. an external image-edit workflow where the exact Libro crop is visibly attached as the edit target and verified before generation.
+
+### Source lock
+Before any Cartilla output is accepted:
+- the exact Libro crop must be the pixel/geometry authority;
+- pose, proportions, silhouette, face, expression, anatomy, linework, props, composition, and subject count must remain unchanged;
+- mapped Flip Chart references may change only their classified property (for these pilots: color);
+- style references may affect only finish/material/texture/depth/lighting.
+
+### Mandatory pre-output verification
+Before showing or importing an optimized Cartilla asset:
+1. compare the result side-by-side against the actual Libro crop;
+2. verify the same character geometry and line structure;
+3. verify Flip Chart colors come from the mapped reference, not guessed values;
+4. reject any output that changes subject design even if it looks attractive;
+5. do not call the result APPROVED without explicit user approval.
+
+### User-approval gate
+- CAF-0002 and CAF-0003 remain REVIEW until the user explicitly approves the displayed comparison.
+- The assistant must never self-approve Cartilla pilot artwork.
+- "Looks correct to me" is not an approval event.
+
+### Failure-stop rule
+If a tool produces a redesigned subject even once:
+- stop using that tool/path for Cartilla;
+- do not retry the same path with another prompt;
+- switch to the source-preserving pipeline;
+- do not claim confidence until the source-vs-output comparison is visibly shown.
+
