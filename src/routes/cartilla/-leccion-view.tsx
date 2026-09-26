@@ -203,7 +203,7 @@ export function Leccion() {
           </div>
         )}
       </header>
-      <main className="flex-1 px-4 pt-6 pb-28 max-w-7xl w-full mx-auto flex flex-col items-center">
+      <main className="flex-1 px-4 pt-6 pb-6 max-w-7xl w-full mx-auto flex flex-col items-center">
         <div className="w-full max-w-3xl text-left mb-4">
           <div className="text-xs font-bold uppercase tracking-wide text-foreground/50">
             {t.leccion[lang]} {n} · {t.paginas[lang].toLowerCase()} {entry.pages}
@@ -268,14 +268,8 @@ export function Leccion() {
           )}
         </div>
       </main>
-      {/* z-50 keeps this bar above the page body. The garden page body is
-          `position: relative; z-index: 1` (faithful-page.css), so without an
-          explicit z-index this fixed bar painted *underneath* the lesson
-          content: an "ilustración pendiente" placeholder sitting at the foot
-          of a page swallowed the taps on "Marcar y siguiente", leaving the
-          child unable to finish the lesson. The fade-out below still hides the
-          bar whenever it would cover Gretel. */}
-      <nav className="fixed bottom-0 inset-x-0 z-50 p-3 bg-background/95 backdrop-blur border-t-2 border-foreground/10">
+      {/* Completion controls follow the reader so they cannot cover a page. */}
+      <nav className="relative z-10 w-full p-3 bg-background/95 border-t-2 border-foreground/10">
         <div className="max-w-3xl mx-auto flex items-center justify-between gap-3">
           <KidButton
             variant="outline"

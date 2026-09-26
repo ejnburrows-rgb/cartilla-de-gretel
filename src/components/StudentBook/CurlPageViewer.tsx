@@ -140,6 +140,7 @@ export function CurlPageViewer({
   const revealTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const turnFallbackTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const initialRevealDoneRef = useRef(false);
+  const turnStartedAtRef = useRef(0);
   const pendingRevealIndexRef = useRef(safeInitialPage);
 
   useEffect(() => {
@@ -185,6 +186,7 @@ export function CurlPageViewer({
       clearTimeout(revealTimerRef.current);
       revealTimerRef.current = null;
     }
+    turnStartedAtRef.current = Date.now();
     setTurning(true);
     gretelEvent("page-turn:start");
   }, []);
@@ -195,7 +197,11 @@ export function CurlPageViewer({
       turnFallbackTimerRef.current = null;
     }
     if (revealTimerRef.current) clearTimeout(revealTimerRef.current);
-    const delay = delayMs ?? (reducedMotion ? 0 : 140);
+    const requestedDelay = delayMs ?? (reducedMotion ? 0 : 140);
+    // onFlip can fire before the paper has finished curling. Keep navigation
+    // locked and Gretel hidden until the physical turn has settled.
+    const remainingTurn = reducedMotion ? 0 : Math.max(0, STUDENT_PAGE_TURN_MS - (Date.now() - turnStartedAtRef.current));
+    const delay = Math.max(requestedDelay, turnStartedAtRef.current ? remainingTurn : 0);
     const pageIndex = revealIndex ?? currentIndex;
     revealTimerRef.current = setTimeout(() => {
       initialRevealDoneRef.current = true;
@@ -221,15 +227,16 @@ export function CurlPageViewer({
     const delay = reducedMotion ? 40 : STUDENT_PAGE_TURN_MS + 240;
     turnFallbackTimerRef.current = setTimeout(() => {
       turnFallbackTimerRef.current = null;
-      const apiIndex = getApi()?.getCurrentPageIndex?.();
-      const resolvedIndex =
-        typeof apiIndex === "number"
-          ? clampPageIndex(apiIndex, pages.length)
-          : expectedIndex;
-      pendingRevealIndexRef.current = resolvedIndex;
-      setCurrentIndex(resolvedIndex);
-      onPageChange?.(resolvedIndex);
-      scheduleReveal(0, resolvedIndex);
+      const api = getApi();
+      const apiIndex = api?.getCurrentPageIndex?.();
+      // A reverse turn in portrait mode can report the old page even after
+      // accepting the command. Control navigation has an explicit destination;
+      // bring the paper and the counter back into sync at the settle fallback.
+      if (apiIndex !== expectedIndex) api?.turnToPage?.(expectedIndex);
+      pendingRevealIndexRef.current = expectedIndex;
+      setCurrentIndex(expectedIndex);
+      onPageChange?.(expectedIndex);
+      scheduleReveal(0, expectedIndex);
     }, delay);
   }, [getApi, onPageChange, pages.length, reducedMotion, scheduleReveal]);
 
@@ -240,10 +247,12 @@ export function CurlPageViewer({
       spread,
       "prev",
     );
+    if (turning) return;
     startTurn();
-    getApi()?.flipPrev?.();
+    const api = getApi();
+    if (api?.flip) api.flip(expectedIndex); else api?.flipPrev?.();
     armTurnFallback(expectedIndex);
-  }, [armTurnFallback, currentIndex, getApi, pages.length, spread, startTurn]);
+  }, [armTurnFallback, currentIndex, getApi, pages.length, spread, startTurn, turning]);
 
   const handleNext = useCallback(() => {
     const expectedIndex = expectedTurnIndex(
@@ -252,10 +261,12 @@ export function CurlPageViewer({
       spread,
       "next",
     );
+    if (turning) return;
     startTurn();
-    getApi()?.flipNext?.();
+    const api = getApi();
+    if (api?.flip) api.flip(expectedIndex); else api?.flipNext?.();
     armTurnFallback(expectedIndex);
-  }, [armTurnFallback, currentIndex, getApi, pages.length, spread, startTurn]);
+  }, [armTurnFallback, currentIndex, getApi, pages.length, spread, startTurn, turning]);
   const onFlip = useCallback(
     (e: FlipEvent) => {
       const idx =
@@ -393,7 +404,7 @@ export function CurlPageViewer({
           accent={accent}
           sound={false}
           onClick={() => hasPrev && handlePrev()}
-          disabled={!hasPrev}
+          disabled={turning || !hasPrev}
           className="!px-3 !py-2 sm:!px-5 sm:!py-2.5 gap-1.5 sm:gap-2 shrink-0"
         >
           <ChevronLeft className="h-4 w-4 shrink-0" />
@@ -415,7 +426,7 @@ export function CurlPageViewer({
           accent={accent}
           sound={false}
           onClick={() => hasNext && handleNext()}
-          disabled={!hasNext}
+          disabled={turning || !hasNext}
           className="!px-3 !py-2 sm:!px-5 sm:!py-2.5 gap-1.5 sm:gap-2 shrink-0"
         >
           <span className="hidden sm:inline">Siguiente</span>

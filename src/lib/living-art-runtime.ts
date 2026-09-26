@@ -22,9 +22,13 @@ function hash(input: string): number {
   return h >>> 0;
 }
 
-function profileFor(src: string): "breathe" | "float" | "sway" {
-  const profiles = ["breathe", "float", "sway"] as const;
-  return profiles[hash(src) % profiles.length]!;
+const APPROVED_PROFILES: Readonly<Record<string, "breathe" | "float" | "sway">> = {
+  "/cartilla/art/faithful/vocal-o/oso.webp": "breathe",
+  "/cartilla/art/faithful/vocal-o/oruga.webp": "sway",
+};
+
+function profileFor(src: string): "breathe" | "float" | "sway" | undefined {
+  return APPROVED_PROFILES[src];
 }
 
 function nextBlinkDelay(src: string): number {
@@ -64,7 +68,7 @@ function scheduleTrueBlink(img: HTMLImageElement, openSrc: string, blinkSrc: str
 
 function addTouchReaction(img: HTMLImageElement): void {
   img.addEventListener("pointerdown", () => {
-    if (!canAnimate()) return;
+    if (!canAnimate() || !profileFor(pathOnly(img.src))) return;
     const oldTimer = reactTimers.get(img);
     if (oldTimer) window.clearTimeout(oldTimer);
     img.classList.remove("living-runtime-art--reacting");
@@ -103,15 +107,19 @@ export function enhanceLivingArtImage(img: HTMLImageElement): void {
   const profile = profileFor(openSrc);
   img.dataset.livingRuntime = "true";
   img.dataset.livingSource = openSrc;
-  img.dataset.livingProfile = profile;
   delete img.dataset.trueBlinkFrame;
-  img.classList.add("living-runtime-art", `living-runtime-art--${profile}`);
-  img.style.setProperty("--living-runtime-delay", `-${(hash(openSrc) % 2800) / 1000}s`);
-  img.style.setProperty("--living-runtime-duration", `${4.8 + (hash(openSrc) % 1800) / 1000}s`);
-
-  if (img.dataset.livingTouchBound !== "true") {
-    addTouchReaction(img);
-    img.dataset.livingTouchBound = "true";
+  if (profile) {
+    img.dataset.livingProfile = profile;
+    img.classList.add("living-runtime-art", `living-runtime-art--${profile}`);
+    img.style.setProperty("--living-runtime-delay", `-${(hash(openSrc) % 2800) / 1000}s`);
+    img.style.setProperty("--living-runtime-duration", `${4.8 + (hash(openSrc) % 1800) / 1000}s`);
+    if (img.dataset.livingTouchBound !== "true") {
+      addTouchReaction(img);
+      img.dataset.livingTouchBound = "true";
+    }
+  } else {
+    delete img.dataset.livingProfile;
+    img.classList.remove("living-runtime-art");
   }
 
   const blinkSrc = resolveTrueBlinkFrame(openSrc);
