@@ -64,3 +64,11 @@ An optimized asset passes only when side-by-side comparison with the source conf
 - Flip Chart inputs remain secondary, purpose-scoped references; approved style references remain finish-only.
 
 This requirement was added after two failed text-only generations changed the workbook bear/elephant designs. Those outputs are permanently invalid for Cartilla production.
+
+## Non-negotiable execution rule — no avoidable user handoff
+
+- If a required action can be performed with connected tools, Remote Desktop Commander, Lovable, existing files, PDFs, mappings, browser state, repo state, Linear, or available automation, the assistant must perform it directly.
+- The assistant must not ask the user to upload, copy, paste, re-enter, map, verify, click, navigate, move files, or perform any step that the assistant can execute itself with the connected capabilities.
+- Before requesting user action, exhaust the existing project state, connected tools, current files, prior mappings, repo, browser/desktop state, and automation paths.
+- Only a genuinely external action that cannot be performed through any connected capability may be requested from the user.
+- Continue execution until the current prompt is verified complete or a true external blocker requiring user action is proven.
