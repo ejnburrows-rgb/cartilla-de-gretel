@@ -9,7 +9,8 @@ import { render, screen, cleanup } from "@testing-library/react";
 import { FaithfulPageRenderer } from "../FaithfulPageRenderer";
 import type { PageRegion } from "@/lib/book-faithful";
 
-vi.mock("@/lib/gretel-bus", () => ({
+vi.mock("@/lib/gretel-bus", async (importOriginal) => ({
+  ...await importOriginal<typeof import("@/lib/gretel-bus")>(),
   gretelEvent: vi.fn(),
 }));
 

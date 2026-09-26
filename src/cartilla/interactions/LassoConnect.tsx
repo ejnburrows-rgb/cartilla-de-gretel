@@ -659,6 +659,7 @@ export function LassoConnect({
             return (
               <button
                 key={t.id}
+                data-gretel-correct={String(t.correct !== false)}
                 type="button"
                 ref={(el) => {
                   if (el) targetEls.current.set(t.id, el);

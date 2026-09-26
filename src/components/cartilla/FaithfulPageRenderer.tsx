@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { GretelActivity } from "@/components/gretel/GretelActivity";
 import { getPageLayout, type PageGridCell, type PageRegion } from "@/lib/book-faithful";
 // PageGridCell used by RegionView siblingCells for Dibuja pick options
 import { PageFrame } from "./PageFrame";
@@ -615,8 +616,8 @@ export function FaithfulPageRenderer({
           lastWritingLineModelText = region.modelText || lastWritingLineModelText;
         }
         return (
+          <GretelActivity key={region.id} id={`page-${pageNumber}-${region.id}`} pageNumber={pageNumber} kind={region.regionType}>
           <RegionView
-            key={region.id}
             region={region}
             interactive={interactive}
             accent={accent}
@@ -626,6 +627,7 @@ export function FaithfulPageRenderer({
             precedingInstruction={lastInstructionText}
             siblingCells={siblingCells}
           />
+          </GretelActivity>
         );
       })}
     </PageFrame>

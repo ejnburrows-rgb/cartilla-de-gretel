@@ -25,6 +25,7 @@ export type GretelEvent =
   | { type: "RESET" };
 
 export function canTransition(from: GretelState, event: GretelEvent): boolean {
+  if (from !== "boot" && from !== "error" && ["EXIT", "SETTLE", "SPEAK_START"].includes(event.type)) return true;
   switch (from) {
     case "boot":
       return event.type === "INIT";
@@ -59,6 +60,11 @@ export function gretelReducer(state: GretelState, event: GretelEvent): GretelSta
     return state === "error" ? "error" : "idle";
   }
 
+  if (state !== "boot" && state !== "error") {
+    if (event.type === "EXIT") return "exiting";
+    if (event.type === "SETTLE") return "settling";
+    if (event.type === "SPEAK_START") return "talking";
+  }
   let nextState = state;
   switch (state) {
     case "boot":

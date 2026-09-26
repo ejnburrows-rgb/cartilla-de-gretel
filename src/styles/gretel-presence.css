@@ -136,3 +136,18 @@
     opacity: 0;
   }
 }
+
+/* Context wrappers preserve the authored region flow. */
+.gretel-activity, .gretel-activity__content { display: contents; }
+[data-gretel-highlight] { outline: 3px solid #cf922d; outline-offset: 4px; }
+[data-gretel-highlight="demonstration"] { outline-width: 5px; box-shadow: 0 0 0 8px #f6cc7040; }
+.gretel-presence__help { pointer-events: auto; border: 1px solid #c98c4f; border-radius: 1rem; background: #fffaf0; color: #3a281e; padding: .35rem .8rem; font-weight: 700; min-height: 32px; }
+.gretel-presence--book .gretel-speech-bubble { top: 0; left: auto; right: 100%; transform: none; width: min(14rem, 48vw); max-width: none; }
+.gretel-presence[data-page-ready="false"] { pointer-events: none; }
+.gretel-presence[data-focused="true"] .gretel-avatar-interactive { animation: none; }
+
+[data-gretel-narrowed] { opacity: .3; }
+.book-companion-anchor { top: calc(100% + .5rem); bottom: auto; }
+.physical-book-reader[data-book-companion="true"] .book-reader-controls { margin-top: 10rem; }
+
+.physical-book-reader:has([data-focused="true"]) .living-illustration__art { animation-play-state: paused; }

@@ -72,7 +72,7 @@ export function WorkbookLetterTrace({
       const score = Math.max(0, 1 - slipCount * 0.25);
       const passed = score >= 0.75;
       gretelEvent(passed ? "answer:correct" : "answer:wrong");
-      gretelEvent("activity:complete");
+      if (passed) gretelEvent("activity:complete");
       if (!reportedRef.current) {
         reportedRef.current = true;
         recordEvent({

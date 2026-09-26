@@ -14,7 +14,7 @@ export interface GretelAnimationHook {
   isSpeaking: boolean;
 }
 
-export function useGretelAnimation(): GretelAnimationHook {
+export function useGretelAnimation(paused = false): GretelAnimationHook {
   const [machineState, dispatch] = useReducer(gretelReducer, "boot");
   const [isRecovering, setIsRecovering] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
@@ -107,7 +107,7 @@ export function useGretelAnimation(): GretelAnimationHook {
       timerRef.current = setTimeout(() => {
         if (!isCancelled) dispatch({ type: "IDLE" });
       }, 150);
-    } else if (machineState === "idle") {
+    } else if (machineState === "idle" && !paused) {
       // Random blink cycle when idle
       const nextBlink = Math.random() * 4000 + 2000; // 2-6 seconds
       timerRef.current = setTimeout(() => {
@@ -119,7 +119,7 @@ export function useGretelAnimation(): GretelAnimationHook {
       isCancelled = true;
       clearTimer();
     };
-  }, [machineState, clearTimer]);
+  }, [machineState, clearTimer, paused]);
 
   let currentSrc = getGretelPose(machineState);
   if (typeof currentSrc === "string" && failedUrls.has(currentSrc)) {

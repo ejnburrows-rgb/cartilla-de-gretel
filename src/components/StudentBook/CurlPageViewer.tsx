@@ -287,12 +287,8 @@ export function CurlPageViewer({
   useEffect(() => {
     if (!mounted || !size || initialRevealDoneRef.current) return;
     scheduleReveal(reducedMotion ? 0 : 260, currentIndex);
-    return () => {
-      if (revealTimerRef.current) {
-        clearTimeout(revealTimerRef.current);
-        revealTimerRef.current = null;
-      }
-    };
+    // The unmount cleanup below owns this timer. Cleaning it up whenever
+    // currentIndex changes cancels the reveal scheduled by onFlip.
   }, [currentIndex, mounted, reducedMotion, scheduleReveal, size]);
 
   useEffect(() => () => {
@@ -346,7 +342,7 @@ export function CurlPageViewer({
         >
           {mounted && size ? (
             <FlipBook
-              key={`${pages.map((p) => p.id).join("|")}-${size.spread ? "spread" : "single"}`}
+              key={`${pages.map((p) => p.id).join("|")}-${size.spread ? "spread" : "single"}-${size.pageW}x${size.pageH}`}
               ref={bookRef}
               width={size.pageW}
               height={size.pageH}

@@ -15,12 +15,15 @@ import { useGretelAnimation } from "./useGretelAnimation";
 import { getGretelPoseFrames, type GretelPoseKey } from "./gretelPoses";
 
 export interface GretelLiveAvatarRef {
+  cancel: () => void;
   celebrate: (customText?: string) => Promise<void>;
   speakMessage: (text: string) => Promise<void>;
   encourage: () => Promise<void>;
 }
 
 interface GretelLiveAvatarProps {
+  paused?: boolean;
+  managed?: boolean;
   className?: string;
   size?: "sm" | "md" | "lg";
   bubblePosition?: "left" | "right" | "top";
@@ -53,9 +56,9 @@ function bodyTransition(state: string) {
 }
 
 export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatarProps>(
-  ({ className = "", size = "md", bubblePosition = "top" }, ref) => {
-    const { machineState, send, isSpeaking } = useGretelAnimation();
+  ({ className = "", size = "md", bubblePosition = "top", paused = false, managed = false }, ref) => {
     const reducedMotion = useReducedMotion();
+    const { machineState, send, isSpeaking } = useGretelAnimation(paused || !!reducedMotion);
     const [bubbleText, setBubbleText] = useState<string | null>(null);
     const [listening, setListening] = useState(false);
     const [particles, setParticles] = useState<Particle[]>([]);
@@ -65,18 +68,19 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
 
     const poseKey: GretelPoseKey =
       machineState === "pointing" && bubblePosition === "right" ? "pointingLeft" : machineState;
-    const frames = getGretelPoseFrames(poseKey);
+    const poseFrames = getGretelPoseFrames(poseKey);
+    const frames = machineState === "idle" && Array.isArray(poseFrames) ? poseFrames[0]! : poseFrames;
     const activeSrc = Array.isArray(frames) ? frames[frameIndex % frames.length] : frames;
 
     useEffect(() => {
-      if (reducedMotion || !Array.isArray(frames)) {
+      if (paused || reducedMotion || !Array.isArray(frames)) {
         setFrameIndex(0);
         return;
       }
       const speed = machineState === "talking" ? 120 : machineState === "waving" ? 210 : machineState === "cheering" ? 160 : 1200;
       const timer = window.setInterval(() => setFrameIndex((index) => (index + 1) % frames.length), speed);
       return () => window.clearInterval(timer);
-    }, [frames, machineState, reducedMotion]);
+    }, [frames, machineState, reducedMotion, paused]);
 
     const burst = useCallback((kind: Particle["kind"], count: number) => {
       if (reducedMotion) return;
@@ -122,7 +126,8 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
       await speakMessage(text);
     }, [burst, send, speakMessage]);
 
-    useImperativeHandle(ref, () => ({ celebrate, speakMessage, encourage }), [celebrate, encourage, speakMessage]);
+    const cancel = useCallback(() => { speechRequestId.current++; setBubbleText(null); setParticles([]); send({ type: "EXIT" }); }, [send]);
+    useImperativeHandle(ref, () => ({ celebrate, speakMessage, encourage, cancel }), [celebrate, encourage, speakMessage, cancel]);
 
     const interact = useCallback(() => {
       if (isSpeaking) return;
@@ -157,7 +162,14 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
     }, [burst]);
 
     useEffect(() => {
-      const off = onGretelEvent((type) => {
+      const off = onGretelEvent((type, detail) => {
+        if (type === "guide:reaction") {
+          const celebrate = detail.reaction === "mastery" || detail.reaction === "success";
+          if (!isSpeaking) send({ type: celebrate ? "CHEER" : "POINT" });
+          if (detail.reaction === "mastery") burst("star", 5);
+          return;
+        }
+        if (managed && ["answer:correct", "answer:wrong", "activity:complete", "lesson:complete", "hint:show"].includes(type)) return;
         if (type === "lesson:start") {
           send({ type: "WAVE" });
           return;
@@ -223,7 +235,7 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
         window.removeEventListener("gretel:celebrate", handleLegacyCelebrate);
         window.removeEventListener("gretel:exit", handleExit);
       };
-    }, [burst, celebrate, send]);
+    }, [burst, celebrate, send, managed, isSpeaking]);
 
     return (
       <div
@@ -233,6 +245,8 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
         data-speaking={isSpeaking ? "true" : "false"}
         data-listening={listening ? "true" : "false"}
         data-interactive="true"
+        data-paused={String(paused)}
+        data-reduced-motion={String(!!reducedMotion)}
         role="button"
         tabIndex={0}
         aria-label="Interactuar con Gretel"
@@ -265,10 +279,10 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
         </AnimatePresence>
 
         <motion.div
-          className="relative z-10 h-full w-full origin-bottom"
+          className="absolute inset-0 z-10 h-full w-full origin-bottom"
           initial={reducedMotion ? false : { opacity: 0, y: 28, scale: 0.72 }}
-          animate={reducedMotion ? { opacity: 1, y: 0, rotate: 0, scale: 1 } : { opacity: 1, ...bodyAnimation(machineState) }}
-          transition={reducedMotion ? { duration: 0 } : { opacity: { duration: 0.35 }, ...bodyTransition(machineState) }}
+          animate={paused || reducedMotion ? { opacity: 1, y: 0, rotate: 0, scale: 1 } : { opacity: 1, ...bodyAnimation(machineState) }}
+          transition={paused || reducedMotion ? { duration: 0 } : { opacity: { duration: 0.35 }, ...bodyTransition(machineState) }}
         >
           <img
             key={activeSrc}
@@ -284,7 +298,7 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
           <motion.div
             initial={{ opacity: 0, y: 4, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            className="absolute -top-10 left-1/2 z-30 max-w-44 -translate-x-1/2 rounded-2xl border border-amber-200 bg-white/95 px-3 py-2 text-center text-xs font-extrabold text-stone-700 shadow-lg"
+            className="gretel-speech-bubble absolute -top-10 left-1/2 z-30 max-w-44 -translate-x-1/2 rounded-2xl border border-amber-200 bg-white/95 px-3 py-2 text-center text-xs font-extrabold text-stone-700 shadow-lg"
             role="status"
           >
             {bubbleText}

@@ -85,6 +85,7 @@ function Cell({
     <button
       type="button"
       className={classes}
+      data-gretel-correct={cell.correct === undefined ? undefined : String(cell.correct)}
       data-flagged={flagged ? "true" : undefined}
       disabled={flagged || disabled}
       style={{ ["--ix-float-delay" as string]: floatDelay(index) }}
@@ -309,6 +310,7 @@ function DroppableVowelCell({
       ref={setNodeRef}
       type="button"
       className={classes}
+      data-gretel-correct={cell.correct === undefined ? undefined : String(cell.correct)}
       data-flagged={flagged ? "true" : undefined}
       disabled={flagged || disabled}
       style={{ ["--ix-float-delay" as string]: floatDelay(index) }}
@@ -592,6 +594,7 @@ export function InteractiveSyllableMatch({
                     key={key}
                     type="button"
                     className={classes}
+                    data-gretel-correct={entry.correct === undefined ? undefined : String(entry.correct)}
                     disabled={flagged || graded}
                     onClick={() => toggle(key)}
                   >
@@ -723,6 +726,7 @@ export function InteractiveFillInBlank({
                     key={c}
                     type="button"
                     className={classes}
+                    data-gretel-correct={choice.correct === undefined ? undefined : String(choice.correct)}
                     disabled={flagged || graded}
                     onClick={() => pick(i, c)}
                   >

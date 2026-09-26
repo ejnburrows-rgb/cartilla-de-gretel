@@ -71,7 +71,7 @@ export default defineConfig({
         "VITE_ALLOW_DEMO_MODE=true " +
         "VITE_SUPABASE_URL=http://127.0.0.1:54321 " +
         "VITE_SUPABASE_PUBLISHABLE_KEY=sb_publishable_e2e_not_a_real_key " +
-        "pnpm dev --port 5173 --host 127.0.0.1",
+        (process.env.CARTILLA_E2E_PREPARED_ART ? "pnpm exec vite dev" : "pnpm dev") + " --port 5173 --host 127.0.0.1",
       url: "http://127.0.0.1:5173",
       reuseExistingServer: false,
       // `pnpm dev` runs the delivery-asset build before Vite starts, which
