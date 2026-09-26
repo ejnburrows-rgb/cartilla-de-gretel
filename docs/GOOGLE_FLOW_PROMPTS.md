@@ -1,55 +1,360 @@
 # GOOGLE FLOW PROMPTS — Cartilla de Gretel
 
-Use Google Flow **Video → Frames**, upload the named source image as the **start frame**, and where the prompt calls for a loop upload the same image as the **end frame**. Select a supported 4-, 6-, or 8-second length as specified. Review the output against the source before using it. These are production briefs, not approved assets; reject any clip that changes the character or the printed artwork. Flow supports first/last frames and reference images, but video export does not by itself make a clean transparent cutout.
+## STATUS: HOLD UNTIL THE NEW 3D ART IS APPROVED
 
-## 1. Gretel calm idle — six-second loop
+The previous Flow briefs that animated the original flat/paper illustrations are superseded by the approved new Cartilla art direction.
 
-Source: `public/cartilla/images/gretel/poses/gretel-idle.webp`; use this exact image for both start and end frames. Intended integration: a small, muted, pre-rendered character clip only while the visible page is settled and the child is not reading/tracing; the current original pose is the poster and reduced-motion fallback.
+**Do not spend Flow credits animating the old 2D Gretel, cat, elephant, or other faithful-art cutouts.**
+
+The new production order is:
+
+1. Preserve the original Cartilla asset as the historical/design reference.
+2. Re-render the subject as an approved **premium 3D children's storybook asset**.
+3. Approve that still image for identity, composition, color, and educational fidelity.
+4. Only then use the approved 3D still as the source frame for Flow animation.
+5. Keep the approved still as the poster/reduced-motion/failure fallback.
+
+The original source artwork must never be overwritten.
+
+---
+
+## LOCKED 3D STYLE
+
+Every new animated source must already match this visual system before it enters Flow:
+
+- premium whimsical 3D children's storybook illustration;
+- handcrafted polymer-clay / premium molded-toy aesthetic;
+- rounded sculpted forms;
+- smooth painted surfaces;
+- subtle glossy highlights;
+- vivid saturated primary and secondary colors;
+- warm soft cinematic/studio lighting;
+- gentle dimensional contact shadows;
+- clean readable silhouettes;
+- friendly child-appropriate proportions;
+- polished educational picture-book finish;
+- dimensional and tactile, never photorealistic;
+- no flat-vector, watercolor, paper-scan, or simple recolor look.
+
+Flow must preserve the approved 3D still. Flow is for **motion**, not redesign.
+
+---
+
+# REQUIRED 3D SOURCE ASSETS BEFORE ANIMATION
+
+Create and approve these stills first:
+
+- Gretel — idle
+- Gretel — wave/entrance
+- Gretel — point-left
+- Gretel — cheer/mastery
+- Cat scene — approved 3D replacement for the current cat asset
+- Elephant — approved 3D replacement for the current elephant asset
+
+Do not treat the current 2D pose files as final animation sources.
+
+When the approved files are added to production, use stable names and paths and update this document with their exact locations before integrating video.
+
+---
+
+# FLOW PROMPT 1 — GRETEL CALM IDLE
+
+**SOURCE**
+
+Use the approved **3D Gretel idle still** as both first and last frame.
+
+**COPY/PASTE PROMPT**
 
 ```text
-Animate ONLY the supplied original illustration of Gretel. Six seconds, seamless return to the identical source pose. She is the same blonde girl with red bow, blue jumper, orange-striped shirt, same face, proportions, outline, colors and paper illustration texture. Her chest and shoulders move imperceptibly with one slow breath; she blinks once naturally near the middle and makes one tiny head adjustment. Feet stay planted. Static camera, fixed framing and scale, no pan, zoom, crop, lighting change or background motion. Start and end are pixel-composition matches to the supplied frame. No speaking or lip movement. No new flowers, sparkles, props, shadows, scenery, people, writing, border, or replacement character. No dancing, bobbing, swaying or exaggerated movement. Keep an uncluttered uniform background suitable for manual masking; do not invent transparency or checkerboard. The clip will be masked offline and placed in Gretel's safe book-edge area, never over lesson text.
+Animate ONLY the supplied approved 3D Gretel character.
+
+Six-second seamless idle loop.
+
+Preserve her exact approved face, blonde hair, red bow, clothing, colors, proportions, sculpted polymer-clay material, glossy painted surface, lighting, scale and silhouette.
+
+Motion must be extremely restrained:
+- one slow natural breath through the chest and shoulders;
+- one soft natural blink near the middle;
+- one tiny head or posture adjustment;
+- feet remain planted;
+- no walking;
+- no bobbing;
+- no dancing;
+- no speaking or lip movement.
+
+The camera is completely locked.
+No zoom.
+No pan.
+No crop.
+No reframing.
+No lighting change.
+No material change.
+No style change.
+No new props.
+No flowers.
+No sparkles.
+No text.
+No additional characters.
+No background animation.
+
+The first and last composition must match the supplied approved 3D still closely enough for a seamless loop.
+
+The character must continue to look like the exact same approved 3D Gretel, not a regenerated variation.
 ```
 
-## 2. Gretel entrance and exit — two four-second clips
+**OUTPUT**
 
-Sources: `public/cartilla/images/gretel/poses/gretel-wave-1.webp` and `public/cartilla/images/gretel/poses/gretel-idle.webp`. Make the entrance with `gretel-wave-1.webp` as the start frame and `gretel-idle.webp` as the end frame; make the exit with those exact frames reversed. Intended integration: play each four-second clip once—entrance after a page turn settles and exit at turn start—outside the printable page. Do not loop either clip. Retain the same static poses as fallbacks.
+6 seconds, seamless loop, fixed framing.
+
+**CARTILLA USE**
+
+Idle presence only while the page is settled and the child is not in focused reading/tracing/drawing. Use the approved 3D still for reduced motion and failed video load.
+
+---
+
+# FLOW PROMPT 2 — GRETEL ENTRANCE / EXIT
+
+**SOURCE**
+
+Use approved 3D Gretel wave and approved 3D Gretel idle stills.
+
+Entrance:
+- first frame = approved 3D wave pose;
+- last frame = approved 3D idle pose.
+
+Exit:
+- exact frames reversed.
+
+**COPY/PASTE PROMPT**
 
 ```text
-Create a restrained four-second transition between the two supplied ORIGINAL Gretel pose images, preserving her exact identity, blonde hair, red bow, blue jumper, orange-striped shirt, face, proportions, colors and illustration texture. Entrance: she moves into her exact book-edge standing position with a small single wave, then settles completely into the provided idle end frame. For the exit variant reverse that action: start exactly at idle, make one small goodbye gesture, then leave the visible safe area without crossing page content. Feet and body remain coherent, no morphing between different children. Locked camera and scale; static plain maskable background. No new clothing, dialogue text, magic effects, extra characters, generic chatbot bubble, flowers or invented book art. No camera move or background movement. The edit must begin/end on the supplied frames so the existing page-turn state machine can switch to and from original poses without a visual jump.
+Create a restrained four-second transition between the two supplied approved 3D Gretel frames.
+
+Preserve Gretel's exact approved face, hair, bow, clothing, colors, body proportions, sculpted polymer-clay material, glossy finish, lighting and scale.
+
+ENTRANCE:
+Gretel enters with one small friendly wave and settles naturally into the exact supplied idle end pose.
+
+EXIT:
+Start exactly from the supplied idle pose, make one restrained goodbye gesture, and leave the safe character area without crossing instructional content.
+
+No morphing.
+No character redesign.
+No extra limbs.
+No clothing changes.
+No new objects.
+No text.
+No flowers.
+No magic effects.
+No camera movement.
+No zoom.
+No scale change.
+No background movement.
+
+Keep the approved 3D character identity completely stable between frames.
 ```
 
-## 3. Gretel points to the exercise — four seconds
+**OUTPUT**
 
-Source: `public/cartilla/images/gretel/poses/gretel-point-left.webp` (for a target to her left); use the same source as start and end. Intended integration: short once-only reaction after the exact DOM exercise target has been selected; the app draws the target highlight and positions Gretel safely, while the clip supplies only her gesture.
+Two separate 4-second non-looping clips.
+
+**CARTILLA USE**
+
+Entrance after page-settle. Exit at page-turn start.
+
+---
+
+# FLOW PROMPT 3 — GRETEL POINTS TO THE EXERCISE
+
+**SOURCE**
+
+Use the approved 3D Gretel point-left still as first and last frame.
+
+**COPY/PASTE PROMPT**
 
 ```text
-Using ONLY the supplied original Gretel point-left illustration, make a four-second restrained pointing gesture. Her gaze and hand settle toward the LEFT without stepping, stretching, changing shape, or crossing the page. After the gesture she returns exactly to the supplied pose for a clean stop. Preserve the original face, blonde hair, red bow, blue jumper, orange-striped shirt, colors, linework and proportions. Fixed camera, unchanged size and framing, static plain maskable background. No floating arrows, letters, highlighted answer, extra hands, props, flowers, captions, camera movement or invented scenery. The workbook app, not the video, will anchor the highlight to the real exercise object. Do not loop this reaction.
+Animate only the supplied approved 3D Gretel point-left character for four seconds.
+
+Preserve her exact approved identity, face, proportions, clothing, colors, sculpted material, glossy finish, lighting and scale.
+
+Create one restrained pointing reaction:
+- her gaze settles toward the left;
+- the pointing hand makes a small clear teaching gesture;
+- her body remains planted;
+- no stepping;
+- no stretching;
+- no exaggerated motion;
+- return cleanly to the supplied source pose.
+
+Do not generate arrows, letters, answers, highlights, captions or lesson content.
+The application will position Gretel and highlight the real activity target.
+
+Fixed camera.
+No pan.
+No zoom.
+No crop.
+No material or style change.
+No new props.
+No flowers.
+No additional characters.
 ```
 
-## 4. Gretel brief mastery celebration — four seconds
+**OUTPUT**
 
-Source: `public/cartilla/images/gretel/poses/gretel-cheer.webp`; use the same source as start and end. Intended integration: play once only on independent completion; keep reduced-motion poster frame.
+4 seconds, play once, no loop.
+
+**CARTILLA USE**
+
+Play only after the application has resolved an explicit stable exercise target.
+
+---
+
+# FLOW PROMPT 4 — GRETEL MASTERY CELEBRATION
+
+**SOURCE**
+
+Use the approved 3D Gretel cheer still as first and last frame.
+
+**COPY/PASTE PROMPT**
 
 ```text
-Four-second modest celebration using the supplied ORIGINAL Gretel cheer illustration as the only character reference. A small joyful arm and facial reaction, one light bounce at most, then stillness and an exact return to the source composition. Preserve her exact face, red bow, blonde hair, blue jumper, orange-striped shirt, body proportions and painterly outline. Lock the camera, framing, lighting and uniform maskable background. No confetti, stars, words, sound, new character, dancing loop, spinning, color shift or background changes. Do not cover instructional content; the app will place the clip beside the book and play it once at mastery.
+Create a four-second restrained mastery celebration using only the supplied approved 3D Gretel character.
+
+Preserve her exact face, blonde hair, red bow, clothing, body proportions, sculpted polymer-clay material, glossy painted finish, colors, lighting and scale.
+
+Motion:
+- one small joyful facial reaction;
+- one modest arm reaction;
+- at most one light bounce;
+- settle back exactly into the supplied composition.
+
+Do not create confetti.
+Do not create stars.
+Do not add words.
+Do not add sound cues.
+Do not spin.
+Do not dance continuously.
+Do not add characters.
+Do not change clothing.
+Do not change lighting.
+Do not change style.
+
+Lock camera and framing.
 ```
 
-## 5. Original cat micro-motion — six-second loop
+**OUTPUT**
 
-Source: `public/cartilla/art/faithful/leccion-19-g/gato.webp`; same first and last frame. Intended integration: replace generic whole-image sway for that particular illustration only, in its existing page slot. The source still is the fallback.
+4 seconds, play once only.
+
+**CARTILLA USE**
+
+Independent mastery/completion only. Use the approved still in reduced-motion mode.
+
+---
+
+# FLOW PROMPT 5 — 3D CAT MICRO-MOTION
+
+**SOURCE**
+
+Use the approved new **3D Cartilla cat scene**, not the current flat faithful-art source.
+
+**COPY/PASTE PROMPT**
 
 ```text
-Animate the exact supplied original cat illustration for a six-second seamless loop. Keep its identity, silhouette, position, colors, linework, body proportions, edges and composition unchanged. The cat makes one small natural blink, a subtle breath, and a slight ear response, then returns to the exact original still. No walking, jumping, talking, anthropomorphic expression, extra tail, new animal or scene. Static camera and scale; freeze every background and surrounding illustration pixel. No motion of workbook text, borders or neighboring pictures. No zoom, crop, lighting shift, hallucinated texture or added flowers. This clip will occupy only the cat's existing illustration box and pause during focused reading and reduced motion.
+Animate the supplied approved 3D Cartilla cat scene for a six-second seamless loop.
+
+Preserve the exact approved characters, poses, colors, sculpted polymer-clay materials, glossy painted surfaces, lighting, camera, composition and educational identity.
+
+Add only subtle natural micro-motion:
+- one soft cat blink;
+- subtle breathing;
+- one tiny ear response where anatomically appropriate;
+- return exactly to the approved starting composition.
+
+Do not make either cat walk, jump, speak, dance or change expression dramatically.
+Do not add animals.
+Do not add props.
+Do not add flowers.
+Do not alter the stool or scene composition.
+Do not move workbook text.
+Do not change framing.
+No pan.
+No zoom.
+No lighting shift.
+No character redesign.
+
+Keep the loop quiet and secondary to the lesson.
 ```
 
-## 6. Original elephant micro-motion — six-second loop
+**OUTPUT**
 
-Source: `public/cartilla/art/faithful/vocal-e/elefante.webp`; same first and last frame. Intended integration: existing elephant illustration slot, with the still fallback.
+6 seconds, seamless loop.
+
+**CARTILLA USE**
+
+Only inside the approved illustration slot. Pause during focused work and under reduced motion.
+
+---
+
+# FLOW PROMPT 6 — 3D ELEPHANT MICRO-MOTION
+
+**SOURCE**
+
+Use the approved new **3D Cartilla elephant still**, not the current flat faithful-art elephant.
+
+**COPY/PASTE PROMPT**
 
 ```text
-Six-second seamless micro-motion of ONLY the exact supplied original elephant. Preserve the recognizable original drawing, all contours, color, paper texture, proportions and placement. One gentle blink and one very small ear or trunk movement; return precisely to the source frame. No walking, spraying water, second elephant, altered tusks, invented background, extra flowers or anthropomorphic behavior. Static camera and framing. Freeze the paper, words, border and all other page elements. No zoom or crop. Use the clip only inside the original elephant illustration box; pause during focused exercises and use the static original image for reduced motion.
+Animate only the supplied approved 3D Cartilla elephant for a six-second seamless micro-motion loop.
+
+Preserve the elephant's exact approved identity, purple color language, defining clothing/pattern details, bows where present, body proportions, sculpted polymer-clay material, glossy painted finish, lighting, scale and silhouette.
+
+Motion must remain very small:
+- one gentle natural blink;
+- one subtle breath;
+- one tiny ear or trunk movement;
+- return precisely to the supplied starting composition.
+
+No walking.
+No spraying water.
+No second elephant.
+No clothing changes.
+No altered anatomy.
+No extra props.
+No flowers.
+No text.
+No camera movement.
+No zoom.
+No crop.
+No lighting shift.
+No style change.
+
+The result must remain the exact approved 3D elephant, merely brought subtly to life.
 ```
 
-## Acceptance and integration
+**OUTPUT**
 
-Reject a result if any source detail changes, the first/last frame jumps, the background cannot be cleanly isolated, or motion carries outside the source object's slot. Export the accepted muted clip; manually mask/crop offline; derive a matching poster frame; optimize for web; wire only that named asset into the existing lesson mapping. Play on visible settled pages, stop during turns and focused work, avoid simultaneous loops, and keep the original still for reduced motion and failed video load. The current CSS/page-turn/pose system stays in place until an approved clip actually exists.
+6 seconds, seamless loop.
+
+**CARTILLA USE**
+
+Use inside the elephant's illustration slot only. Use the approved still for reduced motion and failed video load.
+
+---
+
+# ACCEPTANCE GATE
+
+Reject any Flow result if:
+
+- the character/object no longer matches the approved 3D still;
+- face, clothing, proportions, colors or defining features drift;
+- the polymer-clay/molded-toy material changes;
+- camera or framing shifts unexpectedly;
+- first/last frames jump;
+- extra objects or decorations appear;
+- the generator recreates the old flat-paper aesthetic;
+- motion becomes distracting;
+- a clip changes educational meaning;
+- motion leaves the intended illustration/safe area.
+
+**Do not integrate a Flow clip until its approved 3D source still exists and the clip has been visually approved against that still.**
