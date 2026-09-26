@@ -53,3 +53,14 @@ Every production prompt must explicitly state:
 ## Validation Gate
 An optimized asset passes only when side-by-side comparison with the source confirms that no subject feature, object, pose, proportion, composition, or educational meaning changed.
 
+
+## Source-image requirement for every model edit
+
+- Never generate a Cartilla workbook asset from text alone.
+- The actual Libro del alumno crop must be attached as the PRIMARY image input for every optimization/generation.
+- If the source crop is not physically attached to the image-edit operation, stop; do not generate.
+- Text-only reconstructions automatically fail, even if visually attractive or conceptually similar.
+- The image model may transform only finish/rendering; it may not reconstruct or reinterpret the subject from prose.
+- Flip Chart inputs remain secondary, purpose-scoped references; approved style references remain finish-only.
+
+This requirement was added after two failed text-only generations changed the workbook bear/elephant designs. Those outputs are permanently invalid for Cartilla production.
