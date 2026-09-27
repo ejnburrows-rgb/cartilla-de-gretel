@@ -62,7 +62,12 @@ function validPlacement(value: unknown): value is ReconstructionPlacement {
   if (typeof p.id !== "string" || !p.id) return false;
   if (!validBox(p.workbook_box_norm)) return false;
   if (p.mapping_verified !== true) return false;
-  if (!Number.isInteger(p.flipchart_pdf_page) || Number(p.flipchart_pdf_page) < 1 || Number(p.flipchart_pdf_page) > 62) {
+  if (
+    typeof p.flipchart_pdf_page !== "number" ||
+    !Number.isInteger(p.flipchart_pdf_page) ||
+    p.flipchart_pdf_page < 1 ||
+    p.flipchart_pdf_page > 62
+  ) {
     return false;
   }
   if (typeof p.flipchart_source_file !== "string" || !p.flipchart_source_file) return false;
@@ -91,12 +96,14 @@ export function hasFullReconstructionProvenance(value: unknown): value is Recons
   if (!value || typeof value !== "object") return false;
   const asset = value as Record<string, unknown>;
   return (
+    typeof asset.printed_page === "number" &&
     Number.isInteger(asset.printed_page) &&
-    Number(asset.printed_page) >= 1 &&
-    Number(asset.printed_page) <= 90 &&
+    asset.printed_page >= 1 &&
+    asset.printed_page <= 90 &&
+    typeof asset.workbook_pdf_sheet === "number" &&
     Number.isInteger(asset.workbook_pdf_sheet) &&
-    Number(asset.workbook_pdf_sheet) >= 1 &&
-    Number(asset.workbook_pdf_sheet) <= 98 &&
+    asset.workbook_pdf_sheet >= 1 &&
+    asset.workbook_pdf_sheet <= 98 &&
     typeof asset.workbook_source_file === "string" &&
     Boolean(asset.workbook_source_file) &&
     typeof asset.workbook_source_sha256 === "string" &&
