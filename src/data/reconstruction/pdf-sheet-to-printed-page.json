@@ -1,0 +1,1117 @@
+{
+  "version": "2026-09-27",
+  "source_student": "Libro del alumno - Rescan and Optimize (2).pdf",
+  "pdf_sheet_count": 98,
+  "printed_page_count": 90,
+  "rule_summary": [
+    "PDF sheets 1-6 are front matter and have no printed instructional page number.",
+    "PDF sheets 7-91 map sequentially to printed pages 1-85 (printed = pdf_sheet - 6).",
+    "Printed pages 86-87 are missing from this 98-sheet source scan.",
+    "PDF sheets 92, 93, 94 map to printed pages 88, 89, 90.",
+    "PDF sheets 95-97 are blank/end matter; PDF sheet 98 is the back cover."
+  ],
+  "verification_evidence": [
+    {
+      "pdf_sheet": 7,
+      "printed_page": 1,
+      "note": "Visually verified from source PDF."
+    },
+    {
+      "pdf_sheet": 10,
+      "printed_page": 4,
+      "note": "Visually verified from source PDF; this is the page previously mislabeled as Workbook Page 10."
+    },
+    {
+      "pdf_sheet": 89,
+      "printed_page": 83,
+      "note": "Visually verified from source PDF."
+    },
+    {
+      "pdf_sheet": 90,
+      "printed_page": 84,
+      "note": "Visually verified from source PDF."
+    },
+    {
+      "pdf_sheet": 91,
+      "printed_page": 85,
+      "note": "Visually verified from source PDF."
+    },
+    {
+      "pdf_sheet": 92,
+      "printed_page": 88,
+      "note": "Visually verified; confirms printed pages 86-87 are absent from this source scan."
+    },
+    {
+      "pdf_sheet": 93,
+      "printed_page": 89,
+      "note": "Visually verified from source PDF."
+    },
+    {
+      "pdf_sheet": 94,
+      "printed_page": 90,
+      "note": "Visually verified from source PDF."
+    },
+    {
+      "pdf_sheet": 95,
+      "printed_page": null,
+      "note": "Blank/end matter."
+    },
+    {
+      "pdf_sheet": 96,
+      "printed_page": null,
+      "note": "Blank/end matter."
+    },
+    {
+      "pdf_sheet": 97,
+      "printed_page": null,
+      "note": "Blank/end matter."
+    },
+    {
+      "pdf_sheet": 98,
+      "printed_page": null,
+      "note": "Back cover."
+    }
+  ],
+  "pdf_sheets": [
+    {
+      "pdf_sheet": 1,
+      "printed_page": null,
+      "role": "cover",
+      "status": "NON_PRINTED_FRONT_MATTER"
+    },
+    {
+      "pdf_sheet": 2,
+      "printed_page": null,
+      "role": "blank",
+      "status": "NON_PRINTED_FRONT_MATTER"
+    },
+    {
+      "pdf_sheet": 3,
+      "printed_page": null,
+      "role": "title",
+      "status": "NON_PRINTED_FRONT_MATTER"
+    },
+    {
+      "pdf_sheet": 4,
+      "printed_page": null,
+      "role": "credits",
+      "status": "NON_PRINTED_FRONT_MATTER"
+    },
+    {
+      "pdf_sheet": 5,
+      "printed_page": null,
+      "role": "contents",
+      "status": "NON_PRINTED_FRONT_MATTER"
+    },
+    {
+      "pdf_sheet": 6,
+      "printed_page": null,
+      "role": "ownership",
+      "status": "NON_PRINTED_FRONT_MATTER"
+    },
+    {
+      "pdf_sheet": 7,
+      "printed_page": 1,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 8,
+      "printed_page": 2,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 9,
+      "printed_page": 3,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 10,
+      "printed_page": 4,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 11,
+      "printed_page": 5,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 12,
+      "printed_page": 6,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 13,
+      "printed_page": 7,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 14,
+      "printed_page": 8,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 15,
+      "printed_page": 9,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 16,
+      "printed_page": 10,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 17,
+      "printed_page": 11,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 18,
+      "printed_page": 12,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 19,
+      "printed_page": 13,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 20,
+      "printed_page": 14,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 21,
+      "printed_page": 15,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 22,
+      "printed_page": 16,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 23,
+      "printed_page": 17,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 24,
+      "printed_page": 18,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 25,
+      "printed_page": 19,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 26,
+      "printed_page": 20,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 27,
+      "printed_page": 21,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 28,
+      "printed_page": 22,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 29,
+      "printed_page": 23,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 30,
+      "printed_page": 24,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 31,
+      "printed_page": 25,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 32,
+      "printed_page": 26,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 33,
+      "printed_page": 27,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 34,
+      "printed_page": 28,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 35,
+      "printed_page": 29,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 36,
+      "printed_page": 30,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 37,
+      "printed_page": 31,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 38,
+      "printed_page": 32,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 39,
+      "printed_page": 33,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 40,
+      "printed_page": 34,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 41,
+      "printed_page": 35,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 42,
+      "printed_page": 36,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 43,
+      "printed_page": 37,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 44,
+      "printed_page": 38,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 45,
+      "printed_page": 39,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 46,
+      "printed_page": 40,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 47,
+      "printed_page": 41,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 48,
+      "printed_page": 42,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 49,
+      "printed_page": 43,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 50,
+      "printed_page": 44,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 51,
+      "printed_page": 45,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 52,
+      "printed_page": 46,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 53,
+      "printed_page": 47,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 54,
+      "printed_page": 48,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 55,
+      "printed_page": 49,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 56,
+      "printed_page": 50,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 57,
+      "printed_page": 51,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 58,
+      "printed_page": 52,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 59,
+      "printed_page": 53,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 60,
+      "printed_page": 54,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 61,
+      "printed_page": 55,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 62,
+      "printed_page": 56,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 63,
+      "printed_page": 57,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 64,
+      "printed_page": 58,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 65,
+      "printed_page": 59,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 66,
+      "printed_page": 60,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 67,
+      "printed_page": 61,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 68,
+      "printed_page": 62,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 69,
+      "printed_page": 63,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 70,
+      "printed_page": 64,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 71,
+      "printed_page": 65,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 72,
+      "printed_page": 66,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 73,
+      "printed_page": 67,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 74,
+      "printed_page": 68,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 75,
+      "printed_page": 69,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 76,
+      "printed_page": 70,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 77,
+      "printed_page": 71,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 78,
+      "printed_page": 72,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 79,
+      "printed_page": 73,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 80,
+      "printed_page": 74,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 81,
+      "printed_page": 75,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 82,
+      "printed_page": 76,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 83,
+      "printed_page": 77,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 84,
+      "printed_page": 78,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 85,
+      "printed_page": 79,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 86,
+      "printed_page": 80,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 87,
+      "printed_page": 81,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 88,
+      "printed_page": 82,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 89,
+      "printed_page": 83,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 90,
+      "printed_page": 84,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 91,
+      "printed_page": 85,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 92,
+      "printed_page": 88,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 93,
+      "printed_page": 89,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 94,
+      "printed_page": 90,
+      "role": "instructional",
+      "status": "AVAILABLE"
+    },
+    {
+      "pdf_sheet": 95,
+      "printed_page": null,
+      "role": "blank_end_matter",
+      "status": "NON_PRINTED_END_MATTER"
+    },
+    {
+      "pdf_sheet": 96,
+      "printed_page": null,
+      "role": "blank_end_matter",
+      "status": "NON_PRINTED_END_MATTER"
+    },
+    {
+      "pdf_sheet": 97,
+      "printed_page": null,
+      "role": "blank_end_matter",
+      "status": "NON_PRINTED_END_MATTER"
+    },
+    {
+      "pdf_sheet": 98,
+      "printed_page": null,
+      "role": "back_cover",
+      "status": "NON_PRINTED_END_MATTER"
+    }
+  ],
+  "printed_pages": [
+    {
+      "printed_page": 1,
+      "pdf_sheet": 7,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 2,
+      "pdf_sheet": 8,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 3,
+      "pdf_sheet": 9,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 4,
+      "pdf_sheet": 10,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 5,
+      "pdf_sheet": 11,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 6,
+      "pdf_sheet": 12,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 7,
+      "pdf_sheet": 13,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 8,
+      "pdf_sheet": 14,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 9,
+      "pdf_sheet": 15,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 10,
+      "pdf_sheet": 16,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 11,
+      "pdf_sheet": 17,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 12,
+      "pdf_sheet": 18,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 13,
+      "pdf_sheet": 19,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 14,
+      "pdf_sheet": 20,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 15,
+      "pdf_sheet": 21,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 16,
+      "pdf_sheet": 22,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 17,
+      "pdf_sheet": 23,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 18,
+      "pdf_sheet": 24,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 19,
+      "pdf_sheet": 25,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 20,
+      "pdf_sheet": 26,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 21,
+      "pdf_sheet": 27,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 22,
+      "pdf_sheet": 28,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 23,
+      "pdf_sheet": 29,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 24,
+      "pdf_sheet": 30,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 25,
+      "pdf_sheet": 31,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 26,
+      "pdf_sheet": 32,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 27,
+      "pdf_sheet": 33,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 28,
+      "pdf_sheet": 34,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 29,
+      "pdf_sheet": 35,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 30,
+      "pdf_sheet": 36,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 31,
+      "pdf_sheet": 37,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 32,
+      "pdf_sheet": 38,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 33,
+      "pdf_sheet": 39,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 34,
+      "pdf_sheet": 40,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 35,
+      "pdf_sheet": 41,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 36,
+      "pdf_sheet": 42,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 37,
+      "pdf_sheet": 43,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 38,
+      "pdf_sheet": 44,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 39,
+      "pdf_sheet": 45,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 40,
+      "pdf_sheet": 46,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 41,
+      "pdf_sheet": 47,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 42,
+      "pdf_sheet": 48,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 43,
+      "pdf_sheet": 49,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 44,
+      "pdf_sheet": 50,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 45,
+      "pdf_sheet": 51,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 46,
+      "pdf_sheet": 52,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 47,
+      "pdf_sheet": 53,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 48,
+      "pdf_sheet": 54,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 49,
+      "pdf_sheet": 55,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 50,
+      "pdf_sheet": 56,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 51,
+      "pdf_sheet": 57,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 52,
+      "pdf_sheet": 58,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 53,
+      "pdf_sheet": 59,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 54,
+      "pdf_sheet": 60,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 55,
+      "pdf_sheet": 61,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 56,
+      "pdf_sheet": 62,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 57,
+      "pdf_sheet": 63,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 58,
+      "pdf_sheet": 64,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 59,
+      "pdf_sheet": 65,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 60,
+      "pdf_sheet": 66,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 61,
+      "pdf_sheet": 67,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 62,
+      "pdf_sheet": 68,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 63,
+      "pdf_sheet": 69,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 64,
+      "pdf_sheet": 70,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 65,
+      "pdf_sheet": 71,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 66,
+      "pdf_sheet": 72,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 67,
+      "pdf_sheet": 73,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 68,
+      "pdf_sheet": 74,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 69,
+      "pdf_sheet": 75,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 70,
+      "pdf_sheet": 76,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 71,
+      "pdf_sheet": 77,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 72,
+      "pdf_sheet": 78,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 73,
+      "pdf_sheet": 79,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 74,
+      "pdf_sheet": 80,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 75,
+      "pdf_sheet": 81,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 76,
+      "pdf_sheet": 82,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 77,
+      "pdf_sheet": 83,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 78,
+      "pdf_sheet": 84,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 79,
+      "pdf_sheet": 85,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 80,
+      "pdf_sheet": 86,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 81,
+      "pdf_sheet": 87,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 82,
+      "pdf_sheet": 88,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 83,
+      "pdf_sheet": 89,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 84,
+      "pdf_sheet": 90,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 85,
+      "pdf_sheet": 91,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 86,
+      "pdf_sheet": null,
+      "status": "MISSING_FROM_98_PAGE_SOURCE"
+    },
+    {
+      "printed_page": 87,
+      "pdf_sheet": null,
+      "status": "MISSING_FROM_98_PAGE_SOURCE"
+    },
+    {
+      "printed_page": 88,
+      "pdf_sheet": 92,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 89,
+      "pdf_sheet": 93,
+      "status": "AVAILABLE"
+    },
+    {
+      "printed_page": 90,
+      "pdf_sheet": 94,
+      "status": "AVAILABLE"
+    }
+  ]
+}
