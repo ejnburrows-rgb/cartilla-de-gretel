@@ -3,14 +3,11 @@ import { createFileRoute, redirect } from "@tanstack/react-router";
 /**
  * Canonical book entry.
  *
- * The product has one student reading experience: the interactive Cartilla
- * lesson reader with its physical horizontal page turn. The former flat PDF
- * viewer is intentionally retired so `/book` can never drop students into a
- * second, less tactile reading lane.
+ * Canonical entry for the locked reconstructed workbook master.
  */
 export const Route = createFileRoute("/book")({
   beforeLoad: () => {
-    throw redirect({ to: "/cartilla/leccion/$n", params: { n: "1" } });
+    throw redirect({ to: "/cartilla/cuaderno" });
   },
   component: () => null,
   head: () => ({

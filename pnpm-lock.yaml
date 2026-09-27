@@ -186,6 +186,9 @@ importers:
       '@eslint/js':
         specifier: ^9.32.0
         version: 9.39.4
+      '@napi-rs/canvas':
+        specifier: 0.1.100
+        version: 0.1.100
       '@playwright/test':
         specifier: 1.52.0
         version: 1.52.0
@@ -4151,7 +4154,6 @@ snapshots:
       '@napi-rs/canvas-linux-x64-musl': 0.1.100
       '@napi-rs/canvas-win32-arm64-msvc': 0.1.100
       '@napi-rs/canvas-win32-x64-msvc': 0.1.100
-    optional: true
 
   '@pkgr/core@0.2.9': {}
 

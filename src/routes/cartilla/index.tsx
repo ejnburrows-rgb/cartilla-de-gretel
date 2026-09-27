@@ -61,6 +61,13 @@ function CartillaSplash() {
               Juegos interactivos
             </Link>
             <Link
+              to="/cartilla/cuaderno"
+              className="home-landing__cta home-landing__cta--student"
+              data-testid="cartilla-splash-workbook"
+            >
+              Ver cuaderno completo
+            </Link>
+            <Link
               to="/cartilla/teacher/crm"
               className="home-landing__cta home-landing__cta--teacher"
               data-testid="cartilla-splash-teacher"

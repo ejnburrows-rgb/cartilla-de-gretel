@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -113,6 +114,85 @@ assert(sheetToPrinted.get(91) === 85 && sheetToPrinted.get(92) === 88 &&
        sheetToPrinted.get(93) === 89 && sheetToPrinted.get(94) === 90,
   "verified tail page mapping is not preserved");
 
+const plan = readJson("src/data/reconstruction/reconstruction-plan.json");
+assert(Array.isArray(plan.items), "reconstruction plan must contain items[]");
+const planIds = new Set();
+const planStrategies = new Set([
+  "EXACT_COLORED_COUNTERPART",
+  "COLOR_TRANSFER_REQUIRED",
+  "NO_VALID_COUNTERPART",
+]);
+const validNormBox = (box) =>
+  box &&
+  ["x", "y", "width", "height"].every(
+    (key) => Number.isFinite(box[key]) && box[key] >= 0 && box[key] <= 1,
+  ) &&
+  box.width > 0 &&
+  box.height > 0 &&
+  box.x + box.width <= 1.000001 &&
+  box.y + box.height <= 1.000001;
+const geometryKeys = [
+  "subject_identity",
+  "subject_count",
+  "pose_action",
+  "anatomy",
+  "silhouette",
+  "proportions",
+  "face_expression",
+  "linework",
+  "props",
+  "orientation",
+  "composition",
+  "educational_meaning",
+];
+for (const item of plan.items) {
+  assert(typeof item.id === "string" && item.id.length > 0, "plan item missing id");
+  assert(!planIds.has(item.id), `duplicate reconstruction plan id ${item.id}`);
+  planIds.add(item.id);
+  assert(planStrategies.has(item.strategy), `${item.id}: invalid strategy`);
+  assert(Number.isInteger(item.workbook_pdf_sheet), `${item.id}: invalid workbook sheet`);
+  assert(printedToSheet.get(item.printed_page) === item.workbook_pdf_sheet,
+    `${item.id}: workbook sheet/printed page mismatch`);
+  assert(validNormBox(item.workbook_box_norm), `${item.id}: invalid workbook box`);
+  if (item.strategy === "NO_VALID_COUNTERPART") {
+    assert(item.flipchart_pdf_page == null, `${item.id}: no-counterpart item must not claim a source page`);
+    assert(Array.isArray(item.reviewed_flipchart_pages), `${item.id}: missing reviewed source pages`);
+    continue;
+  }
+  assert(Number.isInteger(item.flipchart_pdf_page), `${item.id}: invalid Flip Chart page`);
+  const mappingRow = mappingBySheet.get(item.workbook_pdf_sheet);
+  const allowedSourcePages = new Set([
+    ...refs(mappingRow?.primary_flip_pages),
+    ...refs(mappingRow?.supplemental_flip_pages),
+  ]);
+  assert(allowedSourcePages.has(item.flipchart_pdf_page),
+    `${item.id}: source page is outside authoritative mapping`);
+  assert(validNormBox(item.flipchart_box_norm), `${item.id}: invalid Flip Chart box`);
+  if (item.strategy === "EXACT_COLORED_COUNTERPART") {
+    assert(geometryKeys.every((key) => item.geometry_checks?.[key] === true),
+      `${item.id}: exact counterpart lacks complete geometry PASS checks`);
+  } else if (item.color_transfer_verification === "PASS") {
+    assert(typeof item.verified_colorized_asset === "string" && item.verified_colorized_asset.length > 0,
+      `${item.id}: verified color transfer lacks an asset`);
+  } else {
+    assert(item.color_transfer_verification === "PENDING",
+      `${item.id}: color transfer must be PENDING or PASS`);
+  }
+}
+
+function sha256File(file) {
+  return crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex");
+}
+const strategyCounts = Object.fromEntries(
+  [...planStrategies].map((strategy) => [strategy, plan.items.filter((item) => item.strategy === strategy).length]),
+);
+assert(plan.summary?.total_object_records === plan.items.length,
+  "reconstruction plan summary total does not match items");
+for (const [strategy, count] of Object.entries(strategyCounts)) {
+  assert(plan.summary?.[strategy] === count,
+    `reconstruction plan summary mismatch for ${strategy}`);
+}
+
 const faithful = readJson("public/cartilla/art/faithful/manifest.json");
 const quarantine = readJson("public/cartilla/art/faithful/quarantine.json");
 const qa = readJson("public/cartilla/art/faithful/qa-results.json");
@@ -152,6 +232,13 @@ for (const asset of production.assets ?? []) {
     `production page ${asset.printed_page} has invalid reconstructed output_path`);
   assert(isSha(asset.output_sha256),
     `production page ${asset.printed_page} missing valid output SHA-256`);
+  const outputFile = path.join(root, "public", asset.output_path.replace(/^\/+/, ""));
+  assert(fs.existsSync(outputFile),
+    `production page ${asset.printed_page} output file is missing`);
+  if (fs.existsSync(outputFile)) {
+    assert(sha256File(outputFile) === asset.output_sha256,
+      `production page ${asset.printed_page} output hash does not match the locked master`);
+  }
   assert(asset.verification_status === "PASS",
     `production page ${asset.printed_page} is not visually verified PASS`);
   assert(Array.isArray(asset.placements) && asset.placements.length > 0,

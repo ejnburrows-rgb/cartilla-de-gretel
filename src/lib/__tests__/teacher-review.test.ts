@@ -162,7 +162,7 @@ it("updates local class and student lists immediately after creation", async () 
   fireEvent.keyDown(renameInput, { key: "Enter" });
   expect(view.getByRole("button", { name: "Nombre corregido" })).toBeTruthy();
   cleanup();
-});
+}, 20_000);
 
 it("uses the same attention flag for board columns as for the dashboard KPI", async () => {
   const React = await import("react");

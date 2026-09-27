@@ -89,6 +89,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.32.0",
+    "@napi-rs/canvas": "0.1.100",
     "@playwright/test": "1.52.0",
     "@tanstack/router-plugin": "^1.167.28",
     "@testing-library/jest-dom": "^6.9.1",

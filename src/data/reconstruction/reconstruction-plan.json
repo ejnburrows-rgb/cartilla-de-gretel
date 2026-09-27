@@ -3,6 +3,5563 @@
   "coordinate_system": "normalized top-left fractions (x,y,width,height in 0..1)",
   "source_mapping": "src/data/reconstruction/student-to-flipchart-284.json",
   "page_index": "src/data/reconstruction/pdf-sheet-to-printed-page.json",
-  "note": "This plan is intentionally empty until object-level target boxes and geometry checks are verified from the actual source PDFs. Do not populate from the failed Lovable overlay coordinates.",
-  "items": []
+  "source_workbook": "Libro del alumno - Rescan and Optimize (2).pdf",
+  "source_flipchart": "La Cartilla de Gretel Flip Chart.pdf",
+  "processed_workbook_sheets": [
+    7,
+    8,
+    9,
+    10,
+    11,
+    13,
+    14,
+    16,
+    17,
+    19,
+    20,
+    22,
+    23
+  ],
+  "illustration_free_or_noninstructional_sheets": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    12,
+    15,
+    18,
+    21,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98
+  ],
+  "summary": {
+    "total_object_records": 160,
+    "EXACT_COLORED_COUNTERPART": 102,
+    "COLOR_TRANSFER_REQUIRED": 8,
+    "NO_VALID_COUNTERPART": 50
+  },
+  "note": "Object regions were derived from the real PDF pixels. Failed Lovable placement coordinates were not used.",
+  "items": [
+    {
+      "id": "wb-s007-obj01-uniforme-1",
+      "workbook_pdf_sheet": 7,
+      "printed_page": 1,
+      "object_name": "uniforme",
+      "workbook_box_norm": {
+        "x": 0.063725,
+        "y": 0.210227,
+        "width": 0.154412,
+        "height": 0.127525
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 8,
+      "flipchart_box_norm": {
+        "x": 0.427288,
+        "y": 0.732984,
+        "width": 0.156863,
+        "height": 0.196335
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s007-obj02-iman-1",
+      "workbook_pdf_sheet": 7,
+      "printed_page": 1,
+      "object_name": "iman",
+      "workbook_box_norm": {
+        "x": 0.253268,
+        "y": 0.229167,
+        "width": 0.173203,
+        "height": 0.102904
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "COLOR_TRANSFER_REQUIRED",
+      "flipchart_pdf_page": 3,
+      "flipchart_box_norm": {
+        "x": 0.713028,
+        "y": 0.434343,
+        "width": 0.224472,
+        "height": 0.184343
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": false,
+        "educational_meaning": true
+      },
+      "color_transfer_verification": "PASS",
+      "verified_colorized_asset": "public/cartilla/art/reconstructed/color-transfer/wb-s007-obj02-iman-1.png",
+      "color_transfer_evidence": "Workbook target pixels and linework preserved; only color values verified from the mapped Flip Chart reference were transferred. Source-only backgrounds and action marks were excluded.",
+      "reason": "The magnet drawing corresponds, but the Flip Chart adds a colored disk and action marks absent from the Workbook. Preserve Workbook geometry and use the mapped source only as a color reference."
+    },
+    {
+      "id": "wb-s007-obj03-abanico",
+      "workbook_pdf_sheet": 7,
+      "printed_page": 1,
+      "object_name": "abanico",
+      "workbook_box_norm": {
+        "x": 0.462418,
+        "y": 0.218434,
+        "width": 0.158497,
+        "height": 0.120581
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 5,
+      "flipchart_box_norm": {
+        "x": 0.071918,
+        "y": 0.479798,
+        "width": 0.223459,
+        "height": 0.167929
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s007-obj04-oso-1",
+      "workbook_pdf_sheet": 7,
+      "printed_page": 1,
+      "object_name": "oso",
+      "workbook_box_norm": {
+        "x": 0.668301,
+        "y": 0.221591,
+        "width": 0.147876,
+        "height": 0.117424
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 4,
+      "flipchart_box_norm": {
+        "x": 0.062925,
+        "y": 0.732323,
+        "width": 0.214286,
+        "height": 0.189394
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s007-obj05-isla",
+      "workbook_pdf_sheet": 7,
+      "printed_page": 1,
+      "object_name": "isla",
+      "workbook_box_norm": {
+        "x": 0.053922,
+        "y": 0.354167,
+        "width": 0.172386,
+        "height": 0.11553
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 7,
+      "flipchart_box_norm": {
+        "x": 0.357877,
+        "y": 0.732323,
+        "width": 0.277397,
+        "height": 0.194444
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s007-obj06-pez",
+      "workbook_pdf_sheet": 7,
+      "printed_page": 1,
+      "object_name": "pez",
+      "workbook_box_norm": {
+        "x": 0.245098,
+        "y": 0.375,
+        "width": 0.186275,
+        "height": 0.087753
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s007-obj07-iman-2",
+      "workbook_pdf_sheet": 7,
+      "printed_page": 1,
+      "object_name": "iman",
+      "workbook_box_norm": {
+        "x": 0.461601,
+        "y": 0.368687,
+        "width": 0.173203,
+        "height": 0.103535
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "COLOR_TRANSFER_REQUIRED",
+      "flipchart_pdf_page": 3,
+      "flipchart_box_norm": {
+        "x": 0.713028,
+        "y": 0.434343,
+        "width": 0.224472,
+        "height": 0.184343
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": false,
+        "educational_meaning": true
+      },
+      "color_transfer_verification": "PASS",
+      "verified_colorized_asset": "public/cartilla/art/reconstructed/color-transfer/wb-s007-obj07-iman-2.png",
+      "color_transfer_evidence": "Workbook target pixels and linework preserved; only color values verified from the mapped Flip Chart reference were transferred. Source-only backgrounds and action marks were excluded.",
+      "reason": "The magnet drawing corresponds, but the Flip Chart adds a colored disk and action marks absent from the Workbook. Preserve Workbook geometry and use the mapped source only as a color reference."
+    },
+    {
+      "id": "wb-s007-obj08-aro",
+      "workbook_pdf_sheet": 7,
+      "printed_page": 1,
+      "object_name": "aro",
+      "workbook_box_norm": {
+        "x": 0.68219,
+        "y": 0.351641,
+        "width": 0.125,
+        "height": 0.128788
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 5,
+      "flipchart_box_norm": {
+        "x": 0.396404,
+        "y": 0.732323,
+        "width": 0.211473,
+        "height": 0.20202
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s007-obj09-escalera",
+      "workbook_pdf_sheet": 7,
+      "printed_page": 1,
+      "object_name": "escalera",
+      "workbook_box_norm": {
+        "x": 0.064542,
+        "y": 0.493056,
+        "width": 0.151144,
+        "height": 0.128157
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 6,
+      "flipchart_box_norm": {
+        "x": 0.718103,
+        "y": 0.724747,
+        "width": 0.223276,
+        "height": 0.200126
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s007-obj10-uno",
+      "workbook_pdf_sheet": 7,
+      "printed_page": 1,
+      "object_name": "uno",
+      "workbook_box_norm": {
+        "x": 0.247549,
+        "y": 0.493056,
+        "width": 0.168301,
+        "height": 0.128157
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 8,
+      "flipchart_box_norm": {
+        "x": 0.076797,
+        "y": 0.458115,
+        "width": 0.227124,
+        "height": 0.189791
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s007-obj11-escuela",
+      "workbook_pdf_sheet": 7,
+      "printed_page": 1,
+      "object_name": "escuela",
+      "workbook_box_norm": {
+        "x": 0.454248,
+        "y": 0.498106,
+        "width": 0.175654,
+        "height": 0.123106
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s007-obj12-oreja",
+      "workbook_pdf_sheet": 7,
+      "printed_page": 1,
+      "object_name": "oreja",
+      "workbook_box_norm": {
+        "x": 0.695261,
+        "y": 0.495581,
+        "width": 0.10866,
+        "height": 0.125631
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 4,
+      "flipchart_box_norm": {
+        "x": 0.431122,
+        "y": 0.729167,
+        "width": 0.142007,
+        "height": 0.1875
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s007-obj13-uniforme-2",
+      "workbook_pdf_sheet": 7,
+      "printed_page": 1,
+      "object_name": "uniforme",
+      "workbook_box_norm": {
+        "x": 0.080065,
+        "y": 0.633838,
+        "width": 0.106209,
+        "height": 0.128157
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 8,
+      "flipchart_box_norm": {
+        "x": 0.427288,
+        "y": 0.732984,
+        "width": 0.156863,
+        "height": 0.196335
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s007-obj14-una",
+      "workbook_pdf_sheet": 7,
+      "printed_page": 1,
+      "object_name": "una",
+      "workbook_box_norm": {
+        "x": 0.262255,
+        "y": 0.636364,
+        "width": 0.139706,
+        "height": 0.117424
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 3,
+      "flipchart_box_norm": {
+        "x": 0.576585,
+        "y": 0.820707,
+        "width": 0.158451,
+        "height": 0.114899
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s007-obj15-oveja",
+      "workbook_pdf_sheet": 7,
+      "printed_page": 1,
+      "object_name": "oveja",
+      "workbook_box_norm": {
+        "x": 0.454248,
+        "y": 0.635101,
+        "width": 0.174837,
+        "height": 0.126894
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 4,
+      "flipchart_box_norm": {
+        "x": 0.714286,
+        "y": 0.472222,
+        "width": 0.219388,
+        "height": 0.155934
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s007-obj16-elefante",
+      "workbook_pdf_sheet": 7,
+      "printed_page": 1,
+      "object_name": "elefante",
+      "workbook_box_norm": {
+        "x": 0.656046,
+        "y": 0.633838,
+        "width": 0.175654,
+        "height": 0.128157
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 6,
+      "flipchart_box_norm": {
+        "x": 0.051724,
+        "y": 0.479798,
+        "width": 0.230172,
+        "height": 0.157828
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s007-obj17-ojos",
+      "workbook_pdf_sheet": 7,
+      "printed_page": 1,
+      "object_name": "ojos",
+      "workbook_box_norm": {
+        "x": 0.04085,
+        "y": 0.80303,
+        "width": 0.166667,
+        "height": 0.049874
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s007-obj18-maiz",
+      "workbook_pdf_sheet": 7,
+      "printed_page": 1,
+      "object_name": "maiz",
+      "workbook_box_norm": {
+        "x": 0.25,
+        "y": 0.774621,
+        "width": 0.173203,
+        "height": 0.128788
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s007-obj19-abeja",
+      "workbook_pdf_sheet": 7,
+      "printed_page": 1,
+      "object_name": "abeja",
+      "workbook_box_norm": {
+        "x": 0.454248,
+        "y": 0.774621,
+        "width": 0.16585,
+        "height": 0.128788
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s007-obj20-olla",
+      "workbook_pdf_sheet": 7,
+      "printed_page": 1,
+      "object_name": "olla",
+      "workbook_box_norm": {
+        "x": 0.656046,
+        "y": 0.785985,
+        "width": 0.166667,
+        "height": 0.102273
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 4,
+      "flipchart_box_norm": {
+        "x": 0.048469,
+        "y": 0.486111,
+        "width": 0.237245,
+        "height": 0.130051
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s008-obj01-aro",
+      "workbook_pdf_sheet": 8,
+      "printed_page": 2,
+      "object_name": "aro",
+      "workbook_box_norm": {
+        "x": 0.370915,
+        "y": 0.193813,
+        "width": 0.160948,
+        "height": 0.108586
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 5,
+      "flipchart_box_norm": {
+        "x": 0.396404,
+        "y": 0.732323,
+        "width": 0.211473,
+        "height": 0.20202
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s008-obj02-manzana",
+      "workbook_pdf_sheet": 8,
+      "printed_page": 2,
+      "object_name": "manzana",
+      "workbook_box_norm": {
+        "x": 0.589052,
+        "y": 0.190657,
+        "width": 0.147876,
+        "height": 0.128157
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s008-obj03-libro",
+      "workbook_pdf_sheet": 8,
+      "printed_page": 2,
+      "object_name": "libro",
+      "workbook_box_norm": {
+        "x": 0.781863,
+        "y": 0.215278,
+        "width": 0.173203,
+        "height": 0.082071
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s008-obj04-escuela",
+      "workbook_pdf_sheet": 8,
+      "printed_page": 2,
+      "object_name": "escuela",
+      "workbook_box_norm": {
+        "x": 0.354575,
+        "y": 0.331439,
+        "width": 0.179739,
+        "height": 0.126894
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s008-obj05-arbol",
+      "workbook_pdf_sheet": 8,
+      "printed_page": 2,
+      "object_name": "arbol",
+      "workbook_box_norm": {
+        "x": 0.580882,
+        "y": 0.331439,
+        "width": 0.147059,
+        "height": 0.126894
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s008-obj06-estrella",
+      "workbook_pdf_sheet": 8,
+      "printed_page": 2,
+      "object_name": "estrella",
+      "workbook_box_norm": {
+        "x": 0.788399,
+        "y": 0.334596,
+        "width": 0.15768,
+        "height": 0.117424
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 6,
+      "flipchart_box_norm": {
+        "x": 0.055172,
+        "y": 0.73548,
+        "width": 0.224138,
+        "height": 0.189394
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s008-obj07-taza",
+      "workbook_pdf_sheet": 8,
+      "printed_page": 2,
+      "object_name": "taza",
+      "workbook_box_norm": {
+        "x": 0.384804,
+        "y": 0.510732,
+        "width": 0.101307,
+        "height": 0.059975
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s008-obj08-indio",
+      "workbook_pdf_sheet": 8,
+      "printed_page": 2,
+      "object_name": "indio",
+      "workbook_box_norm": {
+        "x": 0.594771,
+        "y": 0.47096,
+        "width": 0.128268,
+        "height": 0.127525
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 7,
+      "flipchart_box_norm": {
+        "x": 0.717466,
+        "y": 0.438763,
+        "width": 0.200342,
+        "height": 0.198864
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s008-obj09-pera",
+      "workbook_pdf_sheet": 8,
+      "printed_page": 2,
+      "object_name": "pera",
+      "workbook_box_norm": {
+        "x": 0.788399,
+        "y": 0.47096,
+        "width": 0.170752,
+        "height": 0.127525
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s008-obj10-pajaro",
+      "workbook_pdf_sheet": 8,
+      "printed_page": 2,
+      "object_name": "pajaro",
+      "workbook_box_norm": {
+        "x": 0.372549,
+        "y": 0.611742,
+        "width": 0.155229,
+        "height": 0.126263
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s008-obj11-oso",
+      "workbook_pdf_sheet": 8,
+      "printed_page": 2,
+      "object_name": "oso",
+      "workbook_box_norm": {
+        "x": 0.577614,
+        "y": 0.611111,
+        "width": 0.159314,
+        "height": 0.126894
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 4,
+      "flipchart_box_norm": {
+        "x": 0.062925,
+        "y": 0.732323,
+        "width": 0.214286,
+        "height": 0.189394
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s008-obj12-carro",
+      "workbook_pdf_sheet": 8,
+      "printed_page": 2,
+      "object_name": "carro",
+      "workbook_box_norm": {
+        "x": 0.780229,
+        "y": 0.630051,
+        "width": 0.178922,
+        "height": 0.089646
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s008-obj13-uniforme",
+      "workbook_pdf_sheet": 8,
+      "printed_page": 2,
+      "object_name": "uniforme",
+      "workbook_box_norm": {
+        "x": 0.403595,
+        "y": 0.750631,
+        "width": 0.101307,
+        "height": 0.128788
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 8,
+      "flipchart_box_norm": {
+        "x": 0.427288,
+        "y": 0.732984,
+        "width": 0.156863,
+        "height": 0.196335
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s008-obj14-globo",
+      "workbook_pdf_sheet": 8,
+      "printed_page": 2,
+      "object_name": "globo",
+      "workbook_box_norm": {
+        "x": 0.578431,
+        "y": 0.750631,
+        "width": 0.169935,
+        "height": 0.123106
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s008-obj15-dulce",
+      "workbook_pdf_sheet": 8,
+      "printed_page": 2,
+      "object_name": "dulce",
+      "workbook_box_norm": {
+        "x": 0.76634,
+        "y": 0.750631,
+        "width": 0.19281,
+        "height": 0.128788
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s009-obj01-iglesia",
+      "workbook_pdf_sheet": 9,
+      "printed_page": 3,
+      "object_name": "iglesia",
+      "workbook_box_norm": {
+        "x": 0.049837,
+        "y": 0.242424,
+        "width": 0.214052,
+        "height": 0.161616
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s009-obj02-ocho",
+      "workbook_pdf_sheet": 9,
+      "printed_page": 3,
+      "object_name": "ocho",
+      "workbook_box_norm": {
+        "x": 0.616013,
+        "y": 0.22096,
+        "width": 0.13317,
+        "height": 0.124369
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 4,
+      "flipchart_box_norm": {
+        "x": 0.721088,
+        "y": 0.732323,
+        "width": 0.19898,
+        "height": 0.186237
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s009-obj03-arana",
+      "workbook_pdf_sheet": 9,
+      "printed_page": 3,
+      "object_name": "arana",
+      "workbook_box_norm": {
+        "x": 0.586601,
+        "y": 0.40404,
+        "width": 0.223856,
+        "height": 0.200126
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 5,
+      "flipchart_box_norm": {
+        "x": 0.697774,
+        "y": 0.479798,
+        "width": 0.206336,
+        "height": 0.159091
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s009-obj04-uno",
+      "workbook_pdf_sheet": 9,
+      "printed_page": 3,
+      "object_name": "uno",
+      "workbook_box_norm": {
+        "x": 0.098856,
+        "y": 0.61048,
+        "width": 0.188725,
+        "height": 0.152778
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 8,
+      "flipchart_box_norm": {
+        "x": 0.076797,
+        "y": 0.458115,
+        "width": 0.227124,
+        "height": 0.189791
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s009-obj05-escoba",
+      "workbook_pdf_sheet": 9,
+      "printed_page": 3,
+      "object_name": "escoba",
+      "workbook_box_norm": {
+        "x": 0.594771,
+        "y": 0.652146,
+        "width": 0.143791,
+        "height": 0.179924
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "COLOR_TRANSFER_REQUIRED",
+      "flipchart_pdf_page": 3,
+      "flipchart_box_norm": {
+        "x": 0.418134,
+        "y": 0.473485,
+        "width": 0.158451,
+        "height": 0.142045
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": false,
+        "educational_meaning": true
+      },
+      "color_transfer_verification": "PASS",
+      "verified_colorized_asset": "public/cartilla/art/reconstructed/color-transfer/wb-s009-obj05-escoba.png",
+      "color_transfer_evidence": "Workbook target pixels and linework preserved; only color values verified from the mapped Flip Chart reference were transferred. Source-only backgrounds and action marks were excluded.",
+      "reason": "The broom drawing corresponds, but the Flip Chart embeds it in a green panel and adds source-only marks. Preserve Workbook geometry and use the mapped source only as a color reference."
+    },
+    {
+      "id": "wb-s010-obj01-ola",
+      "workbook_pdf_sheet": 10,
+      "printed_page": 4,
+      "object_name": "ola",
+      "workbook_box_norm": {
+        "x": 0.160948,
+        "y": 0.214646,
+        "width": 0.169935,
+        "height": 0.140152
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        4,
+        3,
+        5,
+        6,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s010-obj02-iglu",
+      "workbook_pdf_sheet": 10,
+      "printed_page": 4,
+      "object_name": "iglu",
+      "workbook_box_norm": {
+        "x": 0.357843,
+        "y": 0.213384,
+        "width": 0.185458,
+        "height": 0.141414
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 7,
+      "flipchart_box_norm": {
+        "x": 0.382705,
+        "y": 0.479798,
+        "width": 0.225171,
+        "height": 0.160985
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s010-obj03-oso-1",
+      "workbook_pdf_sheet": 10,
+      "printed_page": 4,
+      "object_name": "oso",
+      "workbook_box_norm": {
+        "x": 0.571895,
+        "y": 0.212753,
+        "width": 0.163399,
+        "height": 0.138889
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 4,
+      "flipchart_box_norm": {
+        "x": 0.062925,
+        "y": 0.732323,
+        "width": 0.214286,
+        "height": 0.189394
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s010-obj04-maiz",
+      "workbook_pdf_sheet": 10,
+      "printed_page": 4,
+      "object_name": "maiz",
+      "workbook_box_norm": {
+        "x": 0.777778,
+        "y": 0.21654,
+        "width": 0.171569,
+        "height": 0.135732
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        4,
+        3,
+        5,
+        6,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s010-obj05-una",
+      "workbook_pdf_sheet": 10,
+      "printed_page": 4,
+      "object_name": "una",
+      "workbook_box_norm": {
+        "x": 0.196078,
+        "y": 0.388258,
+        "width": 0.121732,
+        "height": 0.103535
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 3,
+      "flipchart_box_norm": {
+        "x": 0.576585,
+        "y": 0.820707,
+        "width": 0.158451,
+        "height": 0.114899
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s010-obj06-oveja",
+      "workbook_pdf_sheet": 10,
+      "printed_page": 4,
+      "object_name": "oveja",
+      "workbook_box_norm": {
+        "x": 0.357843,
+        "y": 0.374369,
+        "width": 0.184641,
+        "height": 0.133838
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 4,
+      "flipchart_box_norm": {
+        "x": 0.714286,
+        "y": 0.472222,
+        "width": 0.219388,
+        "height": 0.155934
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s010-obj07-ala",
+      "workbook_pdf_sheet": 10,
+      "printed_page": 4,
+      "object_name": "ala",
+      "workbook_box_norm": {
+        "x": 0.562908,
+        "y": 0.370581,
+        "width": 0.187092,
+        "height": 0.133838
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 5,
+      "flipchart_box_norm": {
+        "x": 0.045377,
+        "y": 0.763889,
+        "width": 0.268836,
+        "height": 0.155934
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s010-obj08-oreja",
+      "workbook_pdf_sheet": 10,
+      "printed_page": 4,
+      "object_name": "oreja",
+      "workbook_box_norm": {
+        "x": 0.81781,
+        "y": 0.367424,
+        "width": 0.107026,
+        "height": 0.131313
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 4,
+      "flipchart_box_norm": {
+        "x": 0.431122,
+        "y": 0.729167,
+        "width": 0.142007,
+        "height": 0.1875
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s010-obj09-olla",
+      "workbook_pdf_sheet": 10,
+      "printed_page": 4,
+      "object_name": "olla",
+      "workbook_box_norm": {
+        "x": 0.154412,
+        "y": 0.546086,
+        "width": 0.178922,
+        "height": 0.116793
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 4,
+      "flipchart_box_norm": {
+        "x": 0.048469,
+        "y": 0.486111,
+        "width": 0.237245,
+        "height": 0.130051
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s010-obj10-uva",
+      "workbook_pdf_sheet": 10,
+      "printed_page": 4,
+      "object_name": "uva",
+      "workbook_box_norm": {
+        "x": 0.36683,
+        "y": 0.525884,
+        "width": 0.178922,
+        "height": 0.136364
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 8,
+      "flipchart_box_norm": {
+        "x": 0.398693,
+        "y": 0.458115,
+        "width": 0.230392,
+        "height": 0.189791
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s010-obj11-ocho",
+      "workbook_pdf_sheet": 10,
+      "printed_page": 4,
+      "object_name": "ocho",
+      "workbook_box_norm": {
+        "x": 0.58415,
+        "y": 0.521465,
+        "width": 0.152778,
+        "height": 0.138258
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 4,
+      "flipchart_box_norm": {
+        "x": 0.721088,
+        "y": 0.732323,
+        "width": 0.19898,
+        "height": 0.186237
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s010-obj12-uno",
+      "workbook_pdf_sheet": 10,
+      "printed_page": 4,
+      "object_name": "uno",
+      "workbook_box_norm": {
+        "x": 0.780229,
+        "y": 0.521465,
+        "width": 0.16585,
+        "height": 0.135732
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 8,
+      "flipchart_box_norm": {
+        "x": 0.076797,
+        "y": 0.458115,
+        "width": 0.227124,
+        "height": 0.189791
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s010-obj13-arana",
+      "workbook_pdf_sheet": 10,
+      "printed_page": 4,
+      "object_name": "arana",
+      "workbook_box_norm": {
+        "x": 0.154412,
+        "y": 0.675505,
+        "width": 0.185458,
+        "height": 0.141414
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 5,
+      "flipchart_box_norm": {
+        "x": 0.697774,
+        "y": 0.479798,
+        "width": 0.206336,
+        "height": 0.159091
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s010-obj14-oso-2",
+      "workbook_pdf_sheet": 10,
+      "printed_page": 4,
+      "object_name": "oso",
+      "workbook_box_norm": {
+        "x": 0.374183,
+        "y": 0.681187,
+        "width": 0.165033,
+        "height": 0.135732
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 4,
+      "flipchart_box_norm": {
+        "x": 0.062925,
+        "y": 0.732323,
+        "width": 0.214286,
+        "height": 0.189394
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s010-obj15-uniforme",
+      "workbook_pdf_sheet": 10,
+      "printed_page": 4,
+      "object_name": "uniforme",
+      "workbook_box_norm": {
+        "x": 0.602124,
+        "y": 0.675505,
+        "width": 0.10866,
+        "height": 0.141414
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 8,
+      "flipchart_box_norm": {
+        "x": 0.427288,
+        "y": 0.732984,
+        "width": 0.156863,
+        "height": 0.196335
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s010-obj16-ojos",
+      "workbook_pdf_sheet": 10,
+      "printed_page": 4,
+      "object_name": "ojos",
+      "workbook_box_norm": {
+        "x": 0.76634,
+        "y": 0.708965,
+        "width": 0.19281,
+        "height": 0.107955
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        4,
+        3,
+        5,
+        6,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s011-obj01-iglu",
+      "workbook_pdf_sheet": 11,
+      "printed_page": 5,
+      "object_name": "iglu",
+      "workbook_box_norm": {
+        "x": 0.05719,
+        "y": 0.248106,
+        "width": 0.175654,
+        "height": 0.135101
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 7,
+      "flipchart_box_norm": {
+        "x": 0.382705,
+        "y": 0.479798,
+        "width": 0.225171,
+        "height": 0.160985
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s011-obj02-oveja",
+      "workbook_pdf_sheet": 11,
+      "printed_page": 5,
+      "object_name": "oveja",
+      "workbook_box_norm": {
+        "x": 0.340686,
+        "y": 0.205177,
+        "width": 0.174837,
+        "height": 0.145202
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 4,
+      "flipchart_box_norm": {
+        "x": 0.714286,
+        "y": 0.472222,
+        "width": 0.219388,
+        "height": 0.155934
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s011-obj03-ojos",
+      "workbook_pdf_sheet": 11,
+      "printed_page": 5,
+      "object_name": "ojos",
+      "workbook_box_norm": {
+        "x": 0.60049,
+        "y": 0.250631,
+        "width": 0.18219,
+        "height": 0.135101
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        4,
+        3,
+        5,
+        6,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s011-obj04-oreja",
+      "workbook_pdf_sheet": 11,
+      "printed_page": 5,
+      "object_name": "oreja",
+      "workbook_box_norm": {
+        "x": 0.062092,
+        "y": 0.462753,
+        "width": 0.107026,
+        "height": 0.132576
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 4,
+      "flipchart_box_norm": {
+        "x": 0.431122,
+        "y": 0.729167,
+        "width": 0.142007,
+        "height": 0.1875
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s011-obj05-olla",
+      "workbook_pdf_sheet": 11,
+      "printed_page": 5,
+      "object_name": "olla",
+      "workbook_box_norm": {
+        "x": 0.611928,
+        "y": 0.456439,
+        "width": 0.175654,
+        "height": 0.125
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 4,
+      "flipchart_box_norm": {
+        "x": 0.048469,
+        "y": 0.486111,
+        "width": 0.237245,
+        "height": 0.130051
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s011-obj06-ola",
+      "workbook_pdf_sheet": 11,
+      "printed_page": 5,
+      "object_name": "ola",
+      "workbook_box_norm": {
+        "x": 0.044935,
+        "y": 0.679924,
+        "width": 0.166667,
+        "height": 0.130682
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        4,
+        3,
+        5,
+        6,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s011-obj07-oso",
+      "workbook_pdf_sheet": 11,
+      "printed_page": 5,
+      "object_name": "oso",
+      "workbook_box_norm": {
+        "x": 0.340686,
+        "y": 0.731692,
+        "width": 0.164216,
+        "height": 0.133838
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 4,
+      "flipchart_box_norm": {
+        "x": 0.062925,
+        "y": 0.732323,
+        "width": 0.214286,
+        "height": 0.189394
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s011-obj08-ala",
+      "workbook_pdf_sheet": 11,
+      "printed_page": 5,
+      "object_name": "ala",
+      "workbook_box_norm": {
+        "x": 0.617647,
+        "y": 0.700758,
+        "width": 0.169935,
+        "height": 0.096591
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 5,
+      "flipchart_box_norm": {
+        "x": 0.045377,
+        "y": 0.763889,
+        "width": 0.268836,
+        "height": 0.155934
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s013-obj01-abanico",
+      "workbook_pdf_sheet": 13,
+      "printed_page": 7,
+      "object_name": "abanico",
+      "workbook_box_norm": {
+        "x": 0.050654,
+        "y": 0.210859,
+        "width": 0.159314,
+        "height": 0.121212
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 5,
+      "flipchart_box_norm": {
+        "x": 0.071918,
+        "y": 0.479798,
+        "width": 0.223459,
+        "height": 0.167929
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s013-obj02-oruga",
+      "workbook_pdf_sheet": 13,
+      "printed_page": 7,
+      "object_name": "oruga",
+      "workbook_box_norm": {
+        "x": 0.239379,
+        "y": 0.208965,
+        "width": 0.190359,
+        "height": 0.133838
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        5,
+        3,
+        4,
+        6,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s013-obj03-aro",
+      "workbook_pdf_sheet": 13,
+      "printed_page": 7,
+      "object_name": "aro",
+      "workbook_box_norm": {
+        "x": 0.481209,
+        "y": 0.210227,
+        "width": 0.105392,
+        "height": 0.125631
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 5,
+      "flipchart_box_norm": {
+        "x": 0.396404,
+        "y": 0.732323,
+        "width": 0.211473,
+        "height": 0.20202
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s013-obj04-iman",
+      "workbook_pdf_sheet": 13,
+      "printed_page": 7,
+      "object_name": "iman",
+      "workbook_box_norm": {
+        "x": 0.648693,
+        "y": 0.203914,
+        "width": 0.194444,
+        "height": 0.137626
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "COLOR_TRANSFER_REQUIRED",
+      "flipchart_pdf_page": 3,
+      "flipchart_box_norm": {
+        "x": 0.713028,
+        "y": 0.434343,
+        "width": 0.224472,
+        "height": 0.184343
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": false,
+        "educational_meaning": true
+      },
+      "color_transfer_verification": "PASS",
+      "verified_colorized_asset": "public/cartilla/art/reconstructed/color-transfer/wb-s013-obj04-iman.png",
+      "color_transfer_evidence": "Workbook target pixels and linework preserved; only color values verified from the mapped Flip Chart reference were transferred. Source-only backgrounds and action marks were excluded.",
+      "reason": "The magnet drawing corresponds, but the Flip Chart adds a colored disk and action marks absent from the Workbook. Preserve Workbook geometry and use the mapped source only as a color reference."
+    },
+    {
+      "id": "wb-s013-obj05-oveja",
+      "workbook_pdf_sheet": 13,
+      "printed_page": 7,
+      "object_name": "oveja",
+      "workbook_box_norm": {
+        "x": 0.036765,
+        "y": 0.362374,
+        "width": 0.186275,
+        "height": 0.13447
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 4,
+      "flipchart_box_norm": {
+        "x": 0.714286,
+        "y": 0.472222,
+        "width": 0.219388,
+        "height": 0.155934
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s013-obj06-abeja",
+      "workbook_pdf_sheet": 13,
+      "printed_page": 7,
+      "object_name": "abeja",
+      "workbook_box_norm": {
+        "x": 0.239379,
+        "y": 0.359217,
+        "width": 0.177288,
+        "height": 0.142677
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        5,
+        3,
+        4,
+        6,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s013-obj07-arbol",
+      "workbook_pdf_sheet": 13,
+      "printed_page": 7,
+      "object_name": "arbol",
+      "workbook_box_norm": {
+        "x": 0.45915,
+        "y": 0.366162,
+        "width": 0.147876,
+        "height": 0.13447
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        5,
+        3,
+        4,
+        6,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s013-obj08-elefante",
+      "workbook_pdf_sheet": 13,
+      "printed_page": 7,
+      "object_name": "elefante",
+      "workbook_box_norm": {
+        "x": 0.648693,
+        "y": 0.359217,
+        "width": 0.194444,
+        "height": 0.142677
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 6,
+      "flipchart_box_norm": {
+        "x": 0.051724,
+        "y": 0.479798,
+        "width": 0.230172,
+        "height": 0.157828
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s013-obj09-uno",
+      "workbook_pdf_sheet": 13,
+      "printed_page": 7,
+      "object_name": "uno",
+      "workbook_box_norm": {
+        "x": 0.044118,
+        "y": 0.521465,
+        "width": 0.168301,
+        "height": 0.133838
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 8,
+      "flipchart_box_norm": {
+        "x": 0.076797,
+        "y": 0.458115,
+        "width": 0.227124,
+        "height": 0.189791
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s013-obj10-ala",
+      "workbook_pdf_sheet": 13,
+      "printed_page": 7,
+      "object_name": "ala",
+      "workbook_box_norm": {
+        "x": 0.239379,
+        "y": 0.51452,
+        "width": 0.187092,
+        "height": 0.141414
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 5,
+      "flipchart_box_norm": {
+        "x": 0.045377,
+        "y": 0.763889,
+        "width": 0.268836,
+        "height": 0.155934
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s013-obj11-estrella",
+      "workbook_pdf_sheet": 13,
+      "printed_page": 7,
+      "object_name": "estrella",
+      "workbook_box_norm": {
+        "x": 0.45915,
+        "y": 0.532828,
+        "width": 0.15768,
+        "height": 0.117424
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 6,
+      "flipchart_box_norm": {
+        "x": 0.055172,
+        "y": 0.73548,
+        "width": 0.224138,
+        "height": 0.189394
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s013-obj12-ardilla",
+      "workbook_pdf_sheet": 13,
+      "printed_page": 7,
+      "object_name": "ardilla",
+      "workbook_box_norm": {
+        "x": 0.648693,
+        "y": 0.521465,
+        "width": 0.194444,
+        "height": 0.132576
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        5,
+        3,
+        4,
+        6,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s013-obj13-ojos",
+      "workbook_pdf_sheet": 13,
+      "printed_page": 7,
+      "object_name": "ojos",
+      "workbook_box_norm": {
+        "x": 0.036765,
+        "y": 0.724747,
+        "width": 0.183824,
+        "height": 0.035985
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        5,
+        3,
+        4,
+        6,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s013-obj14-pez",
+      "workbook_pdf_sheet": 13,
+      "printed_page": 7,
+      "object_name": "pez",
+      "workbook_box_norm": {
+        "x": 0.239379,
+        "y": 0.700126,
+        "width": 0.177288,
+        "height": 0.078914
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        5,
+        3,
+        4,
+        6,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s013-obj15-aguja",
+      "workbook_pdf_sheet": 13,
+      "printed_page": 7,
+      "object_name": "aguja",
+      "workbook_box_norm": {
+        "x": 0.446078,
+        "y": 0.679293,
+        "width": 0.176471,
+        "height": 0.130051
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        5,
+        3,
+        4,
+        6,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s013-obj16-oso",
+      "workbook_pdf_sheet": 13,
+      "printed_page": 7,
+      "object_name": "oso",
+      "workbook_box_norm": {
+        "x": 0.672386,
+        "y": 0.668561,
+        "width": 0.170752,
+        "height": 0.148359
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 4,
+      "flipchart_box_norm": {
+        "x": 0.062925,
+        "y": 0.732323,
+        "width": 0.214286,
+        "height": 0.189394
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s014-obj01-oso",
+      "workbook_pdf_sheet": 14,
+      "printed_page": 8,
+      "object_name": "oso",
+      "workbook_box_norm": {
+        "x": 0.214052,
+        "y": 0.260101,
+        "width": 0.158497,
+        "height": 0.131313
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 4,
+      "flipchart_box_norm": {
+        "x": 0.062925,
+        "y": 0.732323,
+        "width": 0.214286,
+        "height": 0.189394
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s014-obj02-iglu",
+      "workbook_pdf_sheet": 14,
+      "printed_page": 8,
+      "object_name": "iglu",
+      "workbook_box_norm": {
+        "x": 0.486928,
+        "y": 0.219697,
+        "width": 0.17402,
+        "height": 0.13447
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 7,
+      "flipchart_box_norm": {
+        "x": 0.382705,
+        "y": 0.479798,
+        "width": 0.225171,
+        "height": 0.160985
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s014-obj03-ala",
+      "workbook_pdf_sheet": 14,
+      "printed_page": 8,
+      "object_name": "ala",
+      "workbook_box_norm": {
+        "x": 0.754085,
+        "y": 0.261364,
+        "width": 0.187908,
+        "height": 0.119949
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 5,
+      "flipchart_box_norm": {
+        "x": 0.045377,
+        "y": 0.763889,
+        "width": 0.268836,
+        "height": 0.155934
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s014-obj04-abeja",
+      "workbook_pdf_sheet": 14,
+      "printed_page": 8,
+      "object_name": "abeja",
+      "workbook_box_norm": {
+        "x": 0.190359,
+        "y": 0.471591,
+        "width": 0.167484,
+        "height": 0.13447
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        5,
+        3,
+        4,
+        6,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s014-obj05-aguja",
+      "workbook_pdf_sheet": 14,
+      "printed_page": 8,
+      "object_name": "aguja",
+      "workbook_box_norm": {
+        "x": 0.800654,
+        "y": 0.465909,
+        "width": 0.169935,
+        "height": 0.133838
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        5,
+        3,
+        4,
+        6,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s014-obj06-maiz",
+      "workbook_pdf_sheet": 14,
+      "printed_page": 8,
+      "object_name": "maiz",
+      "workbook_box_norm": {
+        "x": 0.21732,
+        "y": 0.697601,
+        "width": 0.170752,
+        "height": 0.136364
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        5,
+        3,
+        4,
+        6,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s014-obj07-pez",
+      "workbook_pdf_sheet": 14,
+      "printed_page": 8,
+      "object_name": "pez",
+      "workbook_box_norm": {
+        "x": 0.48366,
+        "y": 0.754419,
+        "width": 0.178922,
+        "height": 0.119318
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        5,
+        3,
+        4,
+        6,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s014-obj08-aro",
+      "workbook_pdf_sheet": 14,
+      "printed_page": 8,
+      "object_name": "aro",
+      "workbook_box_norm": {
+        "x": 0.797386,
+        "y": 0.698864,
+        "width": 0.111928,
+        "height": 0.126894
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 5,
+      "flipchart_box_norm": {
+        "x": 0.396404,
+        "y": 0.732323,
+        "width": 0.211473,
+        "height": 0.20202
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s016-obj01-elefante",
+      "workbook_pdf_sheet": 16,
+      "printed_page": 10,
+      "object_name": "elefante",
+      "workbook_box_norm": {
+        "x": 0.160948,
+        "y": 0.225379,
+        "width": 0.185458,
+        "height": 0.13447
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 6,
+      "flipchart_box_norm": {
+        "x": 0.051724,
+        "y": 0.479798,
+        "width": 0.230172,
+        "height": 0.157828
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s016-obj02-iglu",
+      "workbook_pdf_sheet": 16,
+      "printed_page": 10,
+      "object_name": "iglu",
+      "workbook_box_norm": {
+        "x": 0.363562,
+        "y": 0.225379,
+        "width": 0.18219,
+        "height": 0.141414
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 7,
+      "flipchart_box_norm": {
+        "x": 0.382705,
+        "y": 0.479798,
+        "width": 0.225171,
+        "height": 0.160985
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s016-obj03-maiz",
+      "workbook_pdf_sheet": 16,
+      "printed_page": 10,
+      "object_name": "maiz",
+      "workbook_box_norm": {
+        "x": 0.57598,
+        "y": 0.227273,
+        "width": 0.169935,
+        "height": 0.13447
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        6,
+        3,
+        4,
+        5,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s016-obj04-indio",
+      "workbook_pdf_sheet": 16,
+      "printed_page": 10,
+      "object_name": "indio",
+      "workbook_box_norm": {
+        "x": 0.786765,
+        "y": 0.224747,
+        "width": 0.152778,
+        "height": 0.140783
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 7,
+      "flipchart_box_norm": {
+        "x": 0.717466,
+        "y": 0.438763,
+        "width": 0.200342,
+        "height": 0.198864
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s016-obj05-escalera",
+      "workbook_pdf_sheet": 16,
+      "printed_page": 10,
+      "object_name": "escalera",
+      "workbook_box_norm": {
+        "x": 0.175654,
+        "y": 0.379419,
+        "width": 0.151961,
+        "height": 0.142677
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 6,
+      "flipchart_box_norm": {
+        "x": 0.718103,
+        "y": 0.724747,
+        "width": 0.223276,
+        "height": 0.200126
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s016-obj06-erizo",
+      "workbook_pdf_sheet": 16,
+      "printed_page": 10,
+      "object_name": "erizo",
+      "workbook_box_norm": {
+        "x": 0.363562,
+        "y": 0.379419,
+        "width": 0.190359,
+        "height": 0.128157
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 6,
+      "flipchart_box_norm": {
+        "x": 0.37069,
+        "y": 0.71654,
+        "width": 0.262931,
+        "height": 0.208333
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s016-obj07-abeja",
+      "workbook_pdf_sheet": 16,
+      "printed_page": 10,
+      "object_name": "abeja",
+      "workbook_box_norm": {
+        "x": 0.574346,
+        "y": 0.379419,
+        "width": 0.18219,
+        "height": 0.142677
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        6,
+        3,
+        4,
+        5,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s016-obj08-aguja",
+      "workbook_pdf_sheet": 16,
+      "printed_page": 10,
+      "object_name": "aguja",
+      "workbook_box_norm": {
+        "x": 0.776144,
+        "y": 0.379419,
+        "width": 0.185458,
+        "height": 0.135732
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        6,
+        3,
+        4,
+        5,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s016-obj09-escoba",
+      "workbook_pdf_sheet": 16,
+      "printed_page": 10,
+      "object_name": "escoba",
+      "workbook_box_norm": {
+        "x": 0.160948,
+        "y": 0.534722,
+        "width": 0.14951,
+        "height": 0.142677
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "COLOR_TRANSFER_REQUIRED",
+      "flipchart_pdf_page": 3,
+      "flipchart_box_norm": {
+        "x": 0.418134,
+        "y": 0.473485,
+        "width": 0.158451,
+        "height": 0.142045
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": false,
+        "educational_meaning": true
+      },
+      "color_transfer_verification": "PASS",
+      "verified_colorized_asset": "public/cartilla/art/reconstructed/color-transfer/wb-s016-obj09-escoba.png",
+      "color_transfer_evidence": "Workbook target pixels and linework preserved; only color values verified from the mapped Flip Chart reference were transferred. Source-only backgrounds and action marks were excluded.",
+      "reason": "The broom drawing corresponds, but the Flip Chart embeds it in a green panel and adds source-only marks. Preserve Workbook geometry and use the mapped source only as a color reference."
+    },
+    {
+      "id": "wb-s016-obj10-unicornio",
+      "workbook_pdf_sheet": 16,
+      "printed_page": 10,
+      "object_name": "unicornio",
+      "workbook_box_norm": {
+        "x": 0.363562,
+        "y": 0.534722,
+        "width": 0.190359,
+        "height": 0.142677
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 8,
+      "flipchart_box_norm": {
+        "x": 0.036765,
+        "y": 0.732984,
+        "width": 0.277778,
+        "height": 0.208115
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s016-obj11-estrella",
+      "workbook_pdf_sheet": 16,
+      "printed_page": 10,
+      "object_name": "estrella",
+      "workbook_box_norm": {
+        "x": 0.59232,
+        "y": 0.545455,
+        "width": 0.156863,
+        "height": 0.116793
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 6,
+      "flipchart_box_norm": {
+        "x": 0.055172,
+        "y": 0.73548,
+        "width": 0.224138,
+        "height": 0.189394
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s016-obj12-urraca",
+      "workbook_pdf_sheet": 16,
+      "printed_page": 10,
+      "object_name": "urraca",
+      "workbook_box_norm": {
+        "x": 0.778595,
+        "y": 0.534722,
+        "width": 0.188725,
+        "height": 0.142677
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 8,
+      "flipchart_box_norm": {
+        "x": 0.714869,
+        "y": 0.448298,
+        "width": 0.236928,
+        "height": 0.177356
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s016-obj13-escuela",
+      "workbook_pdf_sheet": 16,
+      "printed_page": 10,
+      "object_name": "escuela",
+      "workbook_box_norm": {
+        "x": 0.160948,
+        "y": 0.690025,
+        "width": 0.186275,
+        "height": 0.143308
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        6,
+        3,
+        4,
+        5,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s016-obj14-uniforme",
+      "workbook_pdf_sheet": 16,
+      "printed_page": 10,
+      "object_name": "uniforme",
+      "workbook_box_norm": {
+        "x": 0.363562,
+        "y": 0.690025,
+        "width": 0.138889,
+        "height": 0.143308
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 8,
+      "flipchart_box_norm": {
+        "x": 0.427288,
+        "y": 0.732984,
+        "width": 0.156863,
+        "height": 0.196335
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s016-obj15-espejo",
+      "workbook_pdf_sheet": 16,
+      "printed_page": 10,
+      "object_name": "espejo",
+      "workbook_box_norm": {
+        "x": 0.570261,
+        "y": 0.690025,
+        "width": 0.183007,
+        "height": 0.143308
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 6,
+      "flipchart_box_norm": {
+        "x": 0.37069,
+        "y": 0.476641,
+        "width": 0.25431,
+        "height": 0.154672
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s016-obj16-uno",
+      "workbook_pdf_sheet": 16,
+      "printed_page": 10,
+      "object_name": "uno",
+      "workbook_box_norm": {
+        "x": 0.772876,
+        "y": 0.690025,
+        "width": 0.194444,
+        "height": 0.143308
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 8,
+      "flipchart_box_norm": {
+        "x": 0.076797,
+        "y": 0.458115,
+        "width": 0.227124,
+        "height": 0.189791
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s017-obj01-oso",
+      "workbook_pdf_sheet": 17,
+      "printed_page": 11,
+      "object_name": "oso",
+      "workbook_box_norm": {
+        "x": 0.061275,
+        "y": 0.257576,
+        "width": 0.164216,
+        "height": 0.13447
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 4,
+      "flipchart_box_norm": {
+        "x": 0.062925,
+        "y": 0.732323,
+        "width": 0.214286,
+        "height": 0.189394
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s017-obj02-elefante",
+      "workbook_pdf_sheet": 17,
+      "printed_page": 11,
+      "object_name": "elefante",
+      "workbook_box_norm": {
+        "x": 0.336601,
+        "y": 0.22601,
+        "width": 0.176471,
+        "height": 0.129419
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 6,
+      "flipchart_box_norm": {
+        "x": 0.051724,
+        "y": 0.479798,
+        "width": 0.230172,
+        "height": 0.157828
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s017-obj03-abeja",
+      "workbook_pdf_sheet": 17,
+      "printed_page": 11,
+      "object_name": "abeja",
+      "workbook_box_norm": {
+        "x": 0.618464,
+        "y": 0.253157,
+        "width": 0.178922,
+        "height": 0.135732
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        6,
+        3,
+        4,
+        5,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s017-obj04-erizo",
+      "workbook_pdf_sheet": 17,
+      "printed_page": 11,
+      "object_name": "erizo",
+      "workbook_box_norm": {
+        "x": 0.022059,
+        "y": 0.473485,
+        "width": 0.200163,
+        "height": 0.133838
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 6,
+      "flipchart_box_norm": {
+        "x": 0.37069,
+        "y": 0.71654,
+        "width": 0.262931,
+        "height": 0.208333
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s017-obj05-maiz",
+      "workbook_pdf_sheet": 17,
+      "printed_page": 11,
+      "object_name": "maiz",
+      "workbook_box_norm": {
+        "x": 0.63317,
+        "y": 0.479798,
+        "width": 0.17402,
+        "height": 0.13447
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        6,
+        3,
+        4,
+        5,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s017-obj06-escalera",
+      "workbook_pdf_sheet": 17,
+      "printed_page": 11,
+      "object_name": "escalera",
+      "workbook_box_norm": {
+        "x": 0.064542,
+        "y": 0.705808,
+        "width": 0.151961,
+        "height": 0.133207
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 6,
+      "flipchart_box_norm": {
+        "x": 0.718103,
+        "y": 0.724747,
+        "width": 0.223276,
+        "height": 0.200126
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s017-obj07-estrella",
+      "workbook_pdf_sheet": 17,
+      "printed_page": 11,
+      "object_name": "estrella",
+      "workbook_box_norm": {
+        "x": 0.338235,
+        "y": 0.758838,
+        "width": 0.15768,
+        "height": 0.118687
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 6,
+      "flipchart_box_norm": {
+        "x": 0.055172,
+        "y": 0.73548,
+        "width": 0.224138,
+        "height": 0.189394
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s017-obj08-chaqueta",
+      "workbook_pdf_sheet": 17,
+      "printed_page": 11,
+      "object_name": "chaqueta",
+      "workbook_box_norm": {
+        "x": 0.619281,
+        "y": 0.715909,
+        "width": 0.153595,
+        "height": 0.128157
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        6,
+        3,
+        4,
+        5,
+        7,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s019-obj01-iglu",
+      "workbook_pdf_sheet": 19,
+      "printed_page": 13,
+      "object_name": "iglu",
+      "workbook_box_norm": {
+        "x": 0.036765,
+        "y": 0.208965,
+        "width": 0.184641,
+        "height": 0.142045
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 7,
+      "flipchart_box_norm": {
+        "x": 0.382705,
+        "y": 0.479798,
+        "width": 0.225171,
+        "height": 0.160985
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s019-obj02-pez",
+      "workbook_pdf_sheet": 19,
+      "printed_page": 13,
+      "object_name": "pez",
+      "workbook_box_norm": {
+        "x": 0.239379,
+        "y": 0.218434,
+        "width": 0.190359,
+        "height": 0.131313
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        7,
+        3,
+        4,
+        5,
+        6,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s019-obj03-iguana",
+      "workbook_pdf_sheet": 19,
+      "printed_page": 13,
+      "object_name": "iguana",
+      "workbook_box_norm": {
+        "x": 0.446078,
+        "y": 0.241162,
+        "width": 0.186275,
+        "height": 0.097854
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        7,
+        3,
+        4,
+        5,
+        6,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s019-obj04-abanico",
+      "workbook_pdf_sheet": 19,
+      "printed_page": 13,
+      "object_name": "abanico",
+      "workbook_box_norm": {
+        "x": 0.664216,
+        "y": 0.208333,
+        "width": 0.178922,
+        "height": 0.142045
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 5,
+      "flipchart_box_norm": {
+        "x": 0.071918,
+        "y": 0.479798,
+        "width": 0.223459,
+        "height": 0.167929
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s019-obj05-oso",
+      "workbook_pdf_sheet": 19,
+      "printed_page": 13,
+      "object_name": "oso",
+      "workbook_box_norm": {
+        "x": 0.051471,
+        "y": 0.369318,
+        "width": 0.163399,
+        "height": 0.136995
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 4,
+      "flipchart_box_norm": {
+        "x": 0.062925,
+        "y": 0.732323,
+        "width": 0.214286,
+        "height": 0.189394
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s019-obj06-indio",
+      "workbook_pdf_sheet": 19,
+      "printed_page": 13,
+      "object_name": "indio",
+      "workbook_box_norm": {
+        "x": 0.267974,
+        "y": 0.363636,
+        "width": 0.145425,
+        "height": 0.142677
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 7,
+      "flipchart_box_norm": {
+        "x": 0.717466,
+        "y": 0.438763,
+        "width": 0.200342,
+        "height": 0.198864
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s019-obj07-ala",
+      "workbook_pdf_sheet": 19,
+      "printed_page": 13,
+      "object_name": "ala",
+      "workbook_box_norm": {
+        "x": 0.455882,
+        "y": 0.392677,
+        "width": 0.170752,
+        "height": 0.097854
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 5,
+      "flipchart_box_norm": {
+        "x": 0.045377,
+        "y": 0.763889,
+        "width": 0.268836,
+        "height": 0.155934
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s019-obj08-invierno",
+      "workbook_pdf_sheet": 19,
+      "printed_page": 13,
+      "object_name": "invierno",
+      "workbook_box_norm": {
+        "x": 0.648693,
+        "y": 0.363636,
+        "width": 0.194444,
+        "height": 0.142677
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        7,
+        3,
+        4,
+        5,
+        6,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s019-obj09-ola",
+      "workbook_pdf_sheet": 19,
+      "printed_page": 13,
+      "object_name": "ola",
+      "workbook_box_norm": {
+        "x": 0.040033,
+        "y": 0.519571,
+        "width": 0.17402,
+        "height": 0.140783
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        7,
+        3,
+        4,
+        5,
+        6,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s019-obj10-iman",
+      "workbook_pdf_sheet": 19,
+      "printed_page": 13,
+      "object_name": "iman",
+      "workbook_box_norm": {
+        "x": 0.243464,
+        "y": 0.53851,
+        "width": 0.186275,
+        "height": 0.113636
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "COLOR_TRANSFER_REQUIRED",
+      "flipchart_pdf_page": 3,
+      "flipchart_box_norm": {
+        "x": 0.713028,
+        "y": 0.434343,
+        "width": 0.224472,
+        "height": 0.184343
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": false,
+        "educational_meaning": true
+      },
+      "color_transfer_verification": "PASS",
+      "verified_colorized_asset": "public/cartilla/art/reconstructed/color-transfer/wb-s019-obj10-iman.png",
+      "color_transfer_evidence": "Workbook target pixels and linework preserved; only color values verified from the mapped Flip Chart reference were transferred. Source-only backgrounds and action marks were excluded.",
+      "reason": "The magnet drawing corresponds, but the Flip Chart adds a colored disk and action marks absent from the Workbook. Preserve Workbook geometry and use the mapped source only as a color reference."
+    },
+    {
+      "id": "wb-s019-obj11-uno",
+      "workbook_pdf_sheet": 19,
+      "printed_page": 13,
+      "object_name": "uno",
+      "workbook_box_norm": {
+        "x": 0.447712,
+        "y": 0.520833,
+        "width": 0.184641,
+        "height": 0.140783
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 8,
+      "flipchart_box_norm": {
+        "x": 0.076797,
+        "y": 0.458115,
+        "width": 0.227124,
+        "height": 0.189791
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s019-obj12-isla",
+      "workbook_pdf_sheet": 19,
+      "printed_page": 13,
+      "object_name": "isla",
+      "workbook_box_norm": {
+        "x": 0.648693,
+        "y": 0.518939,
+        "width": 0.194444,
+        "height": 0.142677
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 7,
+      "flipchart_box_norm": {
+        "x": 0.357877,
+        "y": 0.732323,
+        "width": 0.277397,
+        "height": 0.194444
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s019-obj13-una",
+      "workbook_pdf_sheet": 19,
+      "printed_page": 13,
+      "object_name": "una",
+      "workbook_box_norm": {
+        "x": 0.062092,
+        "y": 0.690657,
+        "width": 0.139706,
+        "height": 0.118056
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 3,
+      "flipchart_box_norm": {
+        "x": 0.576585,
+        "y": 0.820707,
+        "width": 0.158451,
+        "height": 0.114899
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s019-obj14-igual",
+      "workbook_pdf_sheet": 19,
+      "printed_page": 13,
+      "object_name": "igual",
+      "workbook_box_norm": {
+        "x": 0.281046,
+        "y": 0.727904,
+        "width": 0.086601,
+        "height": 0.03851
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        7,
+        3,
+        4,
+        5,
+        6,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s019-obj15-insecto",
+      "workbook_pdf_sheet": 19,
+      "printed_page": 13,
+      "object_name": "insecto",
+      "workbook_box_norm": {
+        "x": 0.446078,
+        "y": 0.682449,
+        "width": 0.186275,
+        "height": 0.130682
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 7,
+      "flipchart_box_norm": {
+        "x": 0.042808,
+        "y": 0.72601,
+        "width": 0.273973,
+        "height": 0.194444
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s019-obj16-olla",
+      "workbook_pdf_sheet": 19,
+      "printed_page": 13,
+      "object_name": "olla",
+      "workbook_box_norm": {
+        "x": 0.660131,
+        "y": 0.674242,
+        "width": 0.183007,
+        "height": 0.118687
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 4,
+      "flipchart_box_norm": {
+        "x": 0.048469,
+        "y": 0.486111,
+        "width": 0.237245,
+        "height": 0.130051
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s020-obj01-iman",
+      "workbook_pdf_sheet": 20,
+      "printed_page": 14,
+      "object_name": "iman",
+      "workbook_box_norm": {
+        "x": 0.184641,
+        "y": 0.272727,
+        "width": 0.17402,
+        "height": 0.107955
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "COLOR_TRANSFER_REQUIRED",
+      "flipchart_pdf_page": 3,
+      "flipchart_box_norm": {
+        "x": 0.713028,
+        "y": 0.434343,
+        "width": 0.224472,
+        "height": 0.184343
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": false,
+        "educational_meaning": true
+      },
+      "color_transfer_verification": "PASS",
+      "verified_colorized_asset": "public/cartilla/art/reconstructed/color-transfer/wb-s020-obj01-iman.png",
+      "color_transfer_evidence": "Workbook target pixels and linework preserved; only color values verified from the mapped Flip Chart reference were transferred. Source-only backgrounds and action marks were excluded.",
+      "reason": "The magnet drawing corresponds, but the Flip Chart adds a colored disk and action marks absent from the Workbook. Preserve Workbook geometry and use the mapped source only as a color reference."
+    },
+    {
+      "id": "wb-s020-obj02-oso",
+      "workbook_pdf_sheet": 20,
+      "printed_page": 14,
+      "object_name": "oso",
+      "workbook_box_norm": {
+        "x": 0.466503,
+        "y": 0.223485,
+        "width": 0.163399,
+        "height": 0.133207
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 4,
+      "flipchart_box_norm": {
+        "x": 0.062925,
+        "y": 0.732323,
+        "width": 0.214286,
+        "height": 0.189394
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s020-obj03-iglu",
+      "workbook_pdf_sheet": 20,
+      "printed_page": 14,
+      "object_name": "iglu",
+      "workbook_box_norm": {
+        "x": 0.745098,
+        "y": 0.253788,
+        "width": 0.17402,
+        "height": 0.135101
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 7,
+      "flipchart_box_norm": {
+        "x": 0.382705,
+        "y": 0.479798,
+        "width": 0.225171,
+        "height": 0.160985
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s020-obj04-igual",
+      "workbook_pdf_sheet": 20,
+      "printed_page": 14,
+      "object_name": "igual",
+      "workbook_box_norm": {
+        "x": 0.196078,
+        "y": 0.520833,
+        "width": 0.085784,
+        "height": 0.03851
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        7,
+        3,
+        4,
+        5,
+        6,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s020-obj05-indio",
+      "workbook_pdf_sheet": 20,
+      "printed_page": 14,
+      "object_name": "indio",
+      "workbook_box_norm": {
+        "x": 0.794935,
+        "y": 0.460859,
+        "width": 0.144608,
+        "height": 0.142045
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 7,
+      "flipchart_box_norm": {
+        "x": 0.717466,
+        "y": 0.438763,
+        "width": 0.200342,
+        "height": 0.198864
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s020-obj06-una",
+      "workbook_pdf_sheet": 20,
+      "printed_page": 14,
+      "object_name": "una",
+      "workbook_box_norm": {
+        "x": 0.213235,
+        "y": 0.719697,
+        "width": 0.138072,
+        "height": 0.116793
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 3,
+      "flipchart_box_norm": {
+        "x": 0.576585,
+        "y": 0.820707,
+        "width": 0.158451,
+        "height": 0.114899
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s020-obj07-iguana",
+      "workbook_pdf_sheet": 20,
+      "printed_page": 14,
+      "object_name": "iguana",
+      "workbook_box_norm": {
+        "x": 0.456699,
+        "y": 0.770833,
+        "width": 0.19281,
+        "height": 0.095328
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        7,
+        3,
+        4,
+        5,
+        6,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s020-obj08-abeja",
+      "workbook_pdf_sheet": 20,
+      "printed_page": 14,
+      "object_name": "abeja",
+      "workbook_box_norm": {
+        "x": 0.759804,
+        "y": 0.70202,
+        "width": 0.166667,
+        "height": 0.135732
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        7,
+        3,
+        4,
+        5,
+        6,
+        8
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s022-obj01-unicornio",
+      "workbook_pdf_sheet": 22,
+      "printed_page": 16,
+      "object_name": "unicornio",
+      "workbook_box_norm": {
+        "x": 0.160948,
+        "y": 0.221591,
+        "width": 0.186275,
+        "height": 0.142677
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 8,
+      "flipchart_box_norm": {
+        "x": 0.036765,
+        "y": 0.732984,
+        "width": 0.277778,
+        "height": 0.208115
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s022-obj02-oveja",
+      "workbook_pdf_sheet": 22,
+      "printed_page": 16,
+      "object_name": "oveja",
+      "workbook_box_norm": {
+        "x": 0.363562,
+        "y": 0.222222,
+        "width": 0.181373,
+        "height": 0.133838
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 4,
+      "flipchart_box_norm": {
+        "x": 0.714286,
+        "y": 0.472222,
+        "width": 0.219388,
+        "height": 0.155934
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s022-obj03-pez",
+      "workbook_pdf_sheet": 22,
+      "printed_page": 16,
+      "object_name": "pez",
+      "workbook_box_norm": {
+        "x": 0.570261,
+        "y": 0.229798,
+        "width": 0.186275,
+        "height": 0.131313
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        8,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s022-obj04-una",
+      "workbook_pdf_sheet": 22,
+      "printed_page": 16,
+      "object_name": "una",
+      "workbook_box_norm": {
+        "x": 0.772876,
+        "y": 0.229798,
+        "width": 0.195261,
+        "height": 0.13447
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 3,
+      "flipchart_box_norm": {
+        "x": 0.576585,
+        "y": 0.820707,
+        "width": 0.158451,
+        "height": 0.114899
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s022-obj05-uva",
+      "workbook_pdf_sheet": 22,
+      "printed_page": 16,
+      "object_name": "uva",
+      "workbook_box_norm": {
+        "x": 0.17402,
+        "y": 0.378788,
+        "width": 0.173203,
+        "height": 0.136995
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 8,
+      "flipchart_box_norm": {
+        "x": 0.398693,
+        "y": 0.458115,
+        "width": 0.230392,
+        "height": 0.189791
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s022-obj06-estrella",
+      "workbook_pdf_sheet": 22,
+      "printed_page": 16,
+      "object_name": "estrella",
+      "workbook_box_norm": {
+        "x": 0.371732,
+        "y": 0.38447,
+        "width": 0.158497,
+        "height": 0.118687
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 6,
+      "flipchart_box_norm": {
+        "x": 0.055172,
+        "y": 0.73548,
+        "width": 0.224138,
+        "height": 0.189394
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s022-obj07-uniforme-1",
+      "workbook_pdf_sheet": 22,
+      "printed_page": 16,
+      "object_name": "uniforme",
+      "workbook_box_norm": {
+        "x": 0.607026,
+        "y": 0.376894,
+        "width": 0.14951,
+        "height": 0.142677
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 8,
+      "flipchart_box_norm": {
+        "x": 0.427288,
+        "y": 0.732984,
+        "width": 0.156863,
+        "height": 0.196335
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s022-obj08-elefante",
+      "workbook_pdf_sheet": 22,
+      "printed_page": 16,
+      "object_name": "elefante",
+      "workbook_box_norm": {
+        "x": 0.772876,
+        "y": 0.376894,
+        "width": 0.195261,
+        "height": 0.142677
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 6,
+      "flipchart_box_norm": {
+        "x": 0.051724,
+        "y": 0.479798,
+        "width": 0.230172,
+        "height": 0.157828
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s022-obj09-arbol",
+      "workbook_pdf_sheet": 22,
+      "printed_page": 16,
+      "object_name": "arbol",
+      "workbook_box_norm": {
+        "x": 0.160948,
+        "y": 0.532197,
+        "width": 0.180556,
+        "height": 0.142677
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        8,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s022-obj10-uno-1",
+      "workbook_pdf_sheet": 22,
+      "printed_page": 16,
+      "object_name": "uno",
+      "workbook_box_norm": {
+        "x": 0.363562,
+        "y": 0.532197,
+        "width": 0.183007,
+        "height": 0.142677
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 8,
+      "flipchart_box_norm": {
+        "x": 0.076797,
+        "y": 0.458115,
+        "width": 0.227124,
+        "height": 0.189791
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s022-obj11-oso",
+      "workbook_pdf_sheet": 22,
+      "printed_page": 16,
+      "object_name": "oso",
+      "workbook_box_norm": {
+        "x": 0.58415,
+        "y": 0.532197,
+        "width": 0.172386,
+        "height": 0.142677
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 4,
+      "flipchart_box_norm": {
+        "x": 0.062925,
+        "y": 0.732323,
+        "width": 0.214286,
+        "height": 0.189394
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s022-obj12-urraca",
+      "workbook_pdf_sheet": 22,
+      "printed_page": 16,
+      "object_name": "urraca",
+      "workbook_box_norm": {
+        "x": 0.772876,
+        "y": 0.532197,
+        "width": 0.195261,
+        "height": 0.142677
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 8,
+      "flipchart_box_norm": {
+        "x": 0.714869,
+        "y": 0.448298,
+        "width": 0.236928,
+        "height": 0.177356
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s022-obj13-abeja",
+      "workbook_pdf_sheet": 22,
+      "printed_page": 16,
+      "object_name": "abeja",
+      "workbook_box_norm": {
+        "x": 0.160948,
+        "y": 0.6875,
+        "width": 0.185458,
+        "height": 0.143308
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "NO_VALID_COUNTERPART",
+      "flipchart_pdf_page": null,
+      "reviewed_flipchart_pages": [
+        8,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "reason": "No exact colored drawing appears on any Flip Chart page permitted by the authoritative mapping; a merely similar drawing is not accepted."
+    },
+    {
+      "id": "wb-s022-obj14-uniforme-2",
+      "workbook_pdf_sheet": 22,
+      "printed_page": 16,
+      "object_name": "uniforme",
+      "workbook_box_norm": {
+        "x": 0.363562,
+        "y": 0.6875,
+        "width": 0.150327,
+        "height": 0.143308
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 8,
+      "flipchart_box_norm": {
+        "x": 0.427288,
+        "y": 0.732984,
+        "width": 0.156863,
+        "height": 0.196335
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s022-obj15-insecto",
+      "workbook_pdf_sheet": 22,
+      "printed_page": 16,
+      "object_name": "insecto",
+      "workbook_box_norm": {
+        "x": 0.570261,
+        "y": 0.6875,
+        "width": 0.186275,
+        "height": 0.143308
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 7,
+      "flipchart_box_norm": {
+        "x": 0.042808,
+        "y": 0.72601,
+        "width": 0.273973,
+        "height": 0.194444
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s022-obj16-uno-2",
+      "workbook_pdf_sheet": 22,
+      "printed_page": 16,
+      "object_name": "uno",
+      "workbook_box_norm": {
+        "x": 0.772876,
+        "y": 0.6875,
+        "width": 0.195261,
+        "height": 0.143308
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 8,
+      "flipchart_box_norm": {
+        "x": 0.076797,
+        "y": 0.458115,
+        "width": 0.227124,
+        "height": 0.189791
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s023-obj01-uniforme",
+      "workbook_pdf_sheet": 23,
+      "printed_page": 17,
+      "object_name": "uniforme",
+      "workbook_box_norm": {
+        "x": 0.086601,
+        "y": 0.255051,
+        "width": 0.110294,
+        "height": 0.138889
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 8,
+      "flipchart_box_norm": {
+        "x": 0.427288,
+        "y": 0.732984,
+        "width": 0.156863,
+        "height": 0.196335
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s023-obj02-uno",
+      "workbook_pdf_sheet": 23,
+      "printed_page": 17,
+      "object_name": "uno",
+      "workbook_box_norm": {
+        "x": 0.343954,
+        "y": 0.210859,
+        "width": 0.173203,
+        "height": 0.143939
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 8,
+      "flipchart_box_norm": {
+        "x": 0.076797,
+        "y": 0.458115,
+        "width": 0.227124,
+        "height": 0.189791
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s023-obj03-oso",
+      "workbook_pdf_sheet": 23,
+      "printed_page": 17,
+      "object_name": "oso",
+      "workbook_box_norm": {
+        "x": 0.627451,
+        "y": 0.257576,
+        "width": 0.165033,
+        "height": 0.135732
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 4,
+      "flipchart_box_norm": {
+        "x": 0.062925,
+        "y": 0.732323,
+        "width": 0.214286,
+        "height": 0.189394
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s023-obj04-uva",
+      "workbook_pdf_sheet": 23,
+      "printed_page": 17,
+      "object_name": "uva",
+      "workbook_box_norm": {
+        "x": 0.030229,
+        "y": 0.469066,
+        "width": 0.174837,
+        "height": 0.13447
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 8,
+      "flipchart_box_norm": {
+        "x": 0.398693,
+        "y": 0.458115,
+        "width": 0.230392,
+        "height": 0.189791
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s023-obj05-unicornio",
+      "workbook_pdf_sheet": 23,
+      "printed_page": 17,
+      "object_name": "unicornio",
+      "workbook_box_norm": {
+        "x": 0.635621,
+        "y": 0.460227,
+        "width": 0.194444,
+        "height": 0.146465
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 8,
+      "flipchart_box_norm": {
+        "x": 0.036765,
+        "y": 0.732984,
+        "width": 0.277778,
+        "height": 0.208115
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s023-obj06-una",
+      "workbook_pdf_sheet": 23,
+      "printed_page": 17,
+      "object_name": "una",
+      "workbook_box_norm": {
+        "x": 0.072712,
+        "y": 0.713384,
+        "width": 0.139706,
+        "height": 0.116162
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 3,
+      "flipchart_box_norm": {
+        "x": 0.576585,
+        "y": 0.820707,
+        "width": 0.158451,
+        "height": 0.114899
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s023-obj07-estrella",
+      "workbook_pdf_sheet": 23,
+      "printed_page": 17,
+      "object_name": "estrella",
+      "workbook_box_norm": {
+        "x": 0.341503,
+        "y": 0.750631,
+        "width": 0.15768,
+        "height": 0.118687
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "EXACT_COLORED_COUNTERPART",
+      "flipchart_pdf_page": 6,
+      "flipchart_box_norm": {
+        "x": 0.055172,
+        "y": 0.73548,
+        "width": 0.224138,
+        "height": 0.189394
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": true,
+        "educational_meaning": true
+      },
+      "source_region_verification": "PASS",
+      "source_region_evidence": "Exact drawing correspondence verified visually and by local feature correspondence where sufficient scan detail was available."
+    },
+    {
+      "id": "wb-s023-obj08-iman",
+      "workbook_pdf_sheet": 23,
+      "printed_page": 17,
+      "object_name": "iman",
+      "workbook_box_norm": {
+        "x": 0.619281,
+        "y": 0.722854,
+        "width": 0.175654,
+        "height": 0.108586
+      },
+      "target_region_verification": "PASS",
+      "target_region_evidence": "Derived directly from the real Workbook PDF pixels at 144 DPI and visually reviewed against the full page.",
+      "strategy": "COLOR_TRANSFER_REQUIRED",
+      "flipchart_pdf_page": 3,
+      "flipchart_box_norm": {
+        "x": 0.713028,
+        "y": 0.434343,
+        "width": 0.224472,
+        "height": 0.184343
+      },
+      "geometry_checks": {
+        "subject_identity": true,
+        "subject_count": true,
+        "pose_action": true,
+        "anatomy": true,
+        "silhouette": true,
+        "proportions": true,
+        "face_expression": true,
+        "linework": true,
+        "props": true,
+        "orientation": true,
+        "composition": false,
+        "educational_meaning": true
+      },
+      "color_transfer_verification": "PASS",
+      "verified_colorized_asset": "public/cartilla/art/reconstructed/color-transfer/wb-s023-obj08-iman.png",
+      "color_transfer_evidence": "Workbook target pixels and linework preserved; only color values verified from the mapped Flip Chart reference were transferred. Source-only backgrounds and action marks were excluded.",
+      "reason": "The magnet drawing corresponds, but the Flip Chart adds a colored disk and action marks absent from the Workbook. Preserve Workbook geometry and use the mapped source only as a color reference."
+    }
+  ]
 }
