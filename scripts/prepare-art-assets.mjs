@@ -11,6 +11,7 @@ const faithfulDir = path.join(publicDir, "cartilla", "art", "faithful");
 const deliveryDir = path.join(publicDir, "cartilla", "art", "delivery", "faithful");
 const deliveryManifestPath = path.join(publicDir, "cartilla", "art", "delivery", "manifest.json");
 const sourceManifestPath = path.join(faithfulDir, "manifest.json");
+const quarantinePath = path.join(faithfulDir, "quarantine.json");
 
 export const DELIVERY_WIDTHS = [384, 768];
 export const SAFE_PADDING = 10;
@@ -441,6 +442,10 @@ async function processEntry(entry, checkOnly) {
 export async function prepareArtAssets({ checkOnly = false } = {}) {
   const manifest = readJson(sourceManifestPath);
   if (!Array.isArray(manifest)) throw new Error("faithful manifest must be an array");
+  const quarantine = fs.existsSync(quarantinePath) ? readJson(quarantinePath) : { assets: [] };
+  const quarantinedSrcs = new Set(
+    (quarantine.assets ?? []).map((entry) => entry?.src).filter(Boolean),
+  );
   if (!checkOnly) fs.rmSync(deliveryDir, { recursive: true, force: true });
 
   const records = [];
@@ -456,6 +461,10 @@ export async function prepareArtAssets({ checkOnly = false } = {}) {
 
   const wired = collectWiredFaithfulSrcs();
   const wiredSet = new Set(wired);
+  const activeQuarantineViolations = manifest
+    .map((entry) => entry?.src)
+    .filter((src) => src && quarantinedSrcs.has(src));
+  const wiredQuarantineViolations = wired.filter((src) => quarantinedSrcs.has(src));
   const missingManifestMappings = wired.filter((src) => !bySrc.has(src));
   const missingCanonicalRecords = records.filter((record) => record.missingCanonical);
   const missingWiredCanonical = missingCanonicalRecords
@@ -503,6 +512,12 @@ export async function prepareArtAssets({ checkOnly = false } = {}) {
   const errors = [
     ...records.flatMap((record) => record.errors ?? []),
     ...duplicateSrcs.map((src) => "duplicate manifest src " + src),
+    ...activeQuarantineViolations.map(
+      (src) => "quarantined faithful art must not appear in active manifest " + src,
+    ),
+    ...wiredQuarantineViolations.map(
+      (src) => "quarantined faithful art must not be wired in production " + src,
+    ),
     ...missingManifestMappings.map((src) => "wired faithful art missing from manifest " + src),
     ...missingWiredCanonical.map((src) => "wired faithful art missing canonical file " + src),
     ...wiredQaFailures.map(({ src, qa }) =>
@@ -537,6 +552,7 @@ export async function prepareArtAssets({ checkOnly = false } = {}) {
       "Canonical faithful WebP files remain untouched. Delivery derivatives are disposable build output.",
     counts: {
       manifestEntries: manifest.length,
+      quarantinedAssets: quarantinedSrcs.size,
       wiredProductionAssets: wired.length,
       processedCanonicalAssets: records.filter((record) => record.canonical).length,
       unavailableManifestAssets: unresolvedSourceIssues.length,
