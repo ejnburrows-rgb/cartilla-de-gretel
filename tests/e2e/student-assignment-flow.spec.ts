@@ -111,7 +111,7 @@ test("student joins a class, opens the assigned lesson, finishes it, and the pro
   });
 
   await page.goto("/cartilla/mi-progreso");
-  const lessonTwo = page.locator("a").filter({ hasText: "2. Vocal O o" }).first();
+  const lessonTwo = page.locator("a").filter({ hasText: /Vocal O o/ }).first();
   await expect(lessonTwo).toContainText("En progreso", { timeout: 20_000 });
 
   // ---- 7. Survives a reload — and specifically from the backend, not from

@@ -57,6 +57,14 @@ describe("buildStudentLearningInsight", () => {
     expect(skill?.recentAccuracy).toBeCloseTo(0.85);
   });
 
+  it("uses singular report copy for one error in one scored round", () => {
+    const insight = buildStudentLearningInsight([exercise("7", 9, 10, 12)], new Set());
+    const skill = insight.skills.find((item) => item.lessonId === "7");
+
+    expect(skill?.reason).toBe("1 error en 10 respuestas de la última ronda; sigue en práctica.");
+    expect(insight.recommendation?.reason).toContain("hubo 1 error en 10 respuestas");
+  });
+
   it("detects a material decline across the newest three vs prior three rounds", () => {
     const events = [
       exercise("7", 4, 10, 14),
@@ -82,6 +90,7 @@ describe("buildStudentLearningInsight", () => {
 
     const flag = insight.attention.find((item) => item.key === "assignment-8");
     expect(flag?.reason).toContain("iniciada");
+    expect(flag?.supportingData).toContain("1 registro de actividad");
     expect(flag?.lessonNumber).toBe(8);
   });
 

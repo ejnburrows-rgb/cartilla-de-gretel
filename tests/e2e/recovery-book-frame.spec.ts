@@ -12,6 +12,11 @@ for (const viewport of [
     const surround = page.locator('.garden-scene');
     await expect(reader).toBeVisible();
     await expect(reader.getByTestId('gretel-presence')).toHaveAttribute('data-page-ready', 'true');
+    const documentGeometry = await page.evaluate(() => ({
+      clientWidth: document.documentElement.clientWidth,
+      scrollWidth: document.documentElement.scrollWidth,
+    }));
+    expect(documentGeometry.scrollWidth).toBeLessThanOrEqual(documentGeometry.clientWidth);
     expect(await surround.evaluate(el => getComputedStyle(el).borderWidth)).toBe('0px');
     expect(await surround.evaluate(el => getComputedStyle(el).backgroundImage)).toBe('none');
     await expect(surround.locator('.garden-butterfly, .garden-dragonfly')).toHaveCount(0);

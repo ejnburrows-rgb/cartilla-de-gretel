@@ -240,6 +240,7 @@
   .digital-reader__stage { flex-direction: column; align-items: center; gap: 2px; }
   .digital-reader__page-slot { width: min(100%, 612px, calc((100dvh - 275px) * .772727)); }
   .digital-reader__companion { align-self: flex-end; width: 76px; min-width: 76px; height: 78px; }
+  .digital-reader__companion .gretel-presence--book { width: 76px; min-width: 76px; }
   .digital-reader__companion .gretel-avatar-interactive { width: 76px; height: 76px; }
   .digital-reader__companion .gretel-presence--book .gretel-speech-bubble { left: auto; right: 100%; width: 160px; }
 }

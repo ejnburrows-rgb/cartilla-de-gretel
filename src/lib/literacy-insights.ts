@@ -107,6 +107,10 @@ function aggregateAccuracy(events: LearningEvent[]): {
   };
 }
 
+function counted(count: number, singular: string, plural: string): string {
+  return `${count} ${count === 1 ? singular : plural}`;
+}
+
 function statusForLesson(
   entry: CatalogEntry,
   lessonEvents: LearningEvent[],
@@ -124,7 +128,7 @@ function statusForLesson(
   let reason: string;
   if (enoughEvidenceForReview) {
     status = "needs_review";
-    reason = `${recentStats.incorrect} errores en ${recentStats.total} respuestas de las últimas ${recent.length} rondas puntuadas.`;
+    reason = `${counted(recentStats.incorrect, "error", "errores")} en ${counted(recentStats.total, "respuesta", "respuestas")} de ${recent.length === 1 ? "la última ronda puntuada" : `las últimas ${recent.length} rondas puntuadas`}.`;
   } else if (
     completed &&
     (rounds.length === 0 || (rounds.length >= 2 && (recentStats.accuracy ?? 0) >= 0.8))
@@ -133,12 +137,12 @@ function statusForLesson(
     reason =
       rounds.length === 0
         ? "Lección completada; este registro anterior no conserva rondas puntuadas para calcular exactitud."
-        : `Lección completada con ${Math.round((recentStats.accuracy ?? 0) * 100)}% de aciertos en ${recent.length} rondas recientes.`;
+        : `Lección completada con ${Math.round((recentStats.accuracy ?? 0) * 100)}% de aciertos en ${counted(recent.length, "ronda reciente", "rondas recientes")}.`;
   } else if (lessonEvents.length > 0 || completed) {
     status = "practicing";
     reason =
       recentStats.total > 0
-        ? `${recentStats.incorrect} errores en ${recentStats.total} respuestas de las últimas ${recent.length} rondas; sigue en práctica.`
+        ? `${counted(recentStats.incorrect, "error", "errores")} en ${counted(recentStats.total, "respuesta", "respuestas")} de ${recent.length === 1 ? "la última ronda" : `las últimas ${recent.length} rondas`}; sigue en práctica.`
         : completed
           ? "Lección completada, pero no hay suficientes rondas puntuadas recientes para confirmar dominio."
           : "Hay actividad registrada en esta lección, todavía sin suficientes respuestas puntuadas.";
@@ -282,7 +286,7 @@ export function buildStudentLearningInsight(
       lessonNumber: skill.lessonNumber,
       exactSkill: skillDisplay(skill),
       reason: "Intentos de corrección repetidos",
-      supportingData: `${group.length} intentos recientes del mismo ejercicio; ${stats.incorrect} errores en ${stats.total} respuestas consideradas.`,
+      supportingData: `${counted(group.length, "intento reciente", "intentos recientes")} del mismo ejercicio; ${counted(stats.incorrect, "error", "errores")} en ${counted(stats.total, "respuesta considerada", "respuestas consideradas")}.`,
       activity: activityForLesson(group),
     });
     break;
@@ -305,7 +309,7 @@ export function buildStudentLearningInsight(
       reason: overdue ? "Lección asignada vencida y sin terminar" : "Lección asignada iniciada y sin terminar",
       supportingData: overdue
         ? `Fecha límite: ${new Date(dueAt as string).toLocaleDateString("es")}. La lección no figura como completada.`
-        : `${lessonEvents.length} registros de actividad; la lección no figura como completada.`,
+        : `${counted(lessonEvents.length, "registro", "registros")} de actividad; la lección no figura como completada.`,
       activity: activityForLesson(lessonEvents),
     });
   }
@@ -353,7 +357,7 @@ export function buildStudentLearningInsight(
       activity: activityForLesson(lessonEvents),
       reason:
         recommendationSkill.recentTotal > 0
-          ? `Repasar ${recommendationSkill.detail || recommendationSkill.title} porque hubo ${recommendationSkill.recentIncorrect} errores en ${recommendationSkill.recentTotal} respuestas de las últimas rondas registradas.`
+          ? `Repasar ${recommendationSkill.detail || recommendationSkill.title} porque hubo ${counted(recommendationSkill.recentIncorrect, "error", "errores")} en ${counted(recommendationSkill.recentTotal, "respuesta", "respuestas")} de las últimas rondas registradas.`
           : `Practicar ${recommendationSkill.detail || recommendationSkill.title} porque es la siguiente habilidad del orden curricular sin práctica suficiente registrada.`,
     };
   }

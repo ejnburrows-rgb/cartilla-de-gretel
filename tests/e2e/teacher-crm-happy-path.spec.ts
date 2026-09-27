@@ -31,6 +31,21 @@ test("open faculty demo shows the normalized six-student local roster", async ({
   });
 });
 
+test("faculty demo remains usable without the nested desktop sidebar on mobile", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/cartilla/teacher/crm");
+
+  await expect(page.getByRole("heading", { name: "Centro de Control" })).toBeVisible({
+    timeout: 20_000,
+  });
+  await expect(page.locator(".crm-sidebar")).toBeHidden();
+  const geometry = await page.evaluate(() => ({
+    clientWidth: document.documentElement.clientWidth,
+    scrollWidth: document.documentElement.scrollWidth,
+  }));
+  expect(geometry.scrollWidth).toBeLessThanOrEqual(geometry.clientWidth);
+});
+
 test("teacher presenter uses clean digital flipchart chrome", async ({ page }) => {
   await page.goto("/cartilla/presentar/7");
 
