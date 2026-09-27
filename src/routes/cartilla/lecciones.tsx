@@ -3,12 +3,8 @@ import { useEffect } from "react";
 import { useServerFn } from "@/lib/useServerFn";
 import {
   ArrowLeft,
-  BookOpen,
   Check,
   Lock,
-  RotateCcw,
-  Sparkles,
-  Zap,
 } from "lucide-react";
 import { CATALOG, TOTAL_LESSONS } from "@/lib/lesson-catalog";
 import {
@@ -33,7 +29,7 @@ function Lecciones() {
   const t = sCopy;
   const session = useStudentSession();
   const fetchMyProgress = useServerFn(getMyProgress);
-  const { isCompleted, isUnlocked, completed, reset } = useLessonProgress();
+  const { isCompleted, isUnlocked, completed } = useLessonProgress();
 
   useEffect(() => {
     if (!session) return;
@@ -115,62 +111,62 @@ function Lecciones() {
         </div>
       </header>
 
-      <main className="px-4 max-w-2xl mx-auto relative mt-12">
-        {/* The Path Line */}
-        <div className="absolute top-0 bottom-0 left-1/2 w-4 bg-[var(--book-teal)] rounded-full -translate-x-1/2 opacity-50 shadow-inner"></div>
-
-        <div className="flex flex-col items-center gap-10">
-          {CATALOG.map((entry, i) => {
+      <main className="px-4 max-w-2xl mx-auto relative z-10 mt-8">
+        <div className="relative space-y-4 pb-8">
+          <div
+            className="absolute top-8 bottom-8 left-7 w-1 rounded-full bg-[var(--book-teal)]/30"
+            aria-hidden="true"
+          />
+          {CATALOG.map((entry) => {
             const done = isCompleted(entry.n);
             const unlocked =
               import.meta.env.VITE_CRM_REVIEW === "true" || isUnlocked(entry.n);
-
-            // Calculate a zig-zag offset (Duolingo style)
-            const offsetX = Math.sin(i * 1.5) * 80;
-
-            const nodeColor = entry.color || "#f97316";
-
-            return (
+            const accent = entry.color || "#f97316";
+            const chapter = (
               <div
-                key={entry.n}
-                className="relative flex flex-col items-center group z-10"
-                style={{ transform: `translateX(${offsetX}px)` }}
+                className={`relative flex min-h-24 items-center gap-4 rounded-2xl border-2 bg-[var(--book-paper)] p-4 pl-5 shadow-[0_5px_0_rgba(89,74,61,0.12)] transition-transform ${unlocked ? "hover:-translate-y-1" : "opacity-75"}`}
+                style={{ borderColor: unlocked ? accent : "#d6d3d1" }}
               >
-                {unlocked ? (
-                  <Link
-                    to="/cartilla/leccion/$n"
-                    params={{ n: String(entry.n) }}
-                    onClick={() => playUiTick()}
-                    className={`relative w-24 h-24 rounded-[var(--student-radius,999px)] flex flex-col items-center justify-center text-white font-black text-2xl transition-all duration-300 shadow-xl border-b-8 active:border-b-0 active:translate-y-2 hover:scale-105 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 ${done ? "opacity-100" : "pulse-soft"}`}
-                    style={{
-                      backgroundColor: nodeColor,
-                      borderColor: `color-mix(in srgb, ${nodeColor} 20%, black)`,
-                      animationDelay: `${i * 0.15}s`,
-                    }}
-                  >
-                    {done ? (
-                      <Check className="w-10 h-10 drop-shadow-md" />
-                    ) : (
-                      <span>{entry.n}</span>
-                    )}
-
-                    {/* Floating Label */}
-                    <div
-                      className={`absolute top-full mt-3 px-4 py-1.5 bg-white rounded-xl shadow-md border border-stone-200 text-xs font-black uppercase tracking-wider text-stone-700 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity`}
-                    >
-                      {entry.title}
-                    </div>
-                  </Link>
-                ) : (
-                  <div className="relative w-20 h-20 rounded-full bg-[var(--book-paper)] flex items-center justify-center shadow-sm border-4 border-[var(--book-teal)] cursor-not-allowed opacity-80">
-                    <Lock className="w-8 h-8 text-stone-400" />
-
-                    {/* Floating Label */}
-                    <div className="absolute top-full mt-3 px-3 py-1 bg-stone-100 rounded-lg text-[10px] font-bold text-stone-400 whitespace-nowrap">
-                      Bloqueado
-                    </div>
-                  </div>
-                )}
+                <div
+                  className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border-2 bg-white text-lg font-black shadow-sm"
+                  style={{ borderColor: unlocked ? accent : "#a8a29e", color: unlocked ? accent : "#78716c" }}
+                >
+                  {done ? <Check className="h-7 w-7" aria-hidden="true" /> : unlocked ? entry.n : <Lock className="h-6 w-6" aria-hidden="true" />}
+                </div>
+                <div className="min-w-0 flex-1">
+                  <span className="text-[11px] font-black uppercase tracking-wider" style={{ color: unlocked ? accent : "#78716c" }}>
+                    Lección {entry.n}
+                  </span>
+                  <h2 className="text-base font-black leading-tight text-stone-800">{entry.title}</h2>
+                  <p className="mt-1 text-xs text-stone-600">{entry.subtitle}</p>
+                </div>
+                <span
+                  className="shrink-0 rounded-full border px-2 py-1 text-[10px] font-black uppercase tracking-wide"
+                  style={{
+                    borderColor: unlocked ? accent : "#a8a29e",
+                    color: unlocked ? accent : "#78716c",
+                    backgroundColor: unlocked ? `color-mix(in srgb, ${accent} 10%, white)` : "#f5f5f4",
+                  }}
+                >
+                  {done ? "Completada" : unlocked ? "Disponible" : "Bloqueada"}
+                </span>
+              </div>
+            );
+            return unlocked ? (
+              <Link
+                key={entry.n}
+                to="/cartilla/leccion/$n"
+                params={{ n: String(entry.n) }}
+                onClick={() => playUiTick()}
+                className="block rounded-2xl focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2"
+                style={{ outlineColor: accent }}
+                aria-label={`Lección ${entry.n}: ${entry.title}. ${done ? "Completada" : "Disponible"}`}
+              >
+                {chapter}
+              </Link>
+            ) : (
+              <div key={entry.n} aria-label={`Lección ${entry.n}: ${entry.title}. Bloqueada`}>
+                {chapter}
               </div>
             );
           })}
