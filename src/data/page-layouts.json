@@ -9,7 +9,12 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Presiona los dibujos de las palabras en cada línea horizontal que comienzan con el mismo sonido."
+          "text": "Circula los dibujos de las palabras en cada línea horizontal que comienzan con el mismo sonido.",
+          "x": 0.032703,
+          "y": 0.076404,
+          "width": 0.824855,
+          "height": 0.083708,
+          "label": "Instrucciones:"
         },
         {
           "id": "p1-grid",
@@ -21,102 +26,224 @@
             {
               "caption": "abrigo",
               "correct": true,
-              "illustrationSrc": "/cartilla/art/faithful/leccion-1/abrigo.webp"
+              "illustrationSrc": "/cartilla/art/digital/page-001/r1-c1.png",
+              "x": 0.036337,
+              "y": 0.205056,
+              "width": 0.196221,
+              "height": 0.136517
             },
             {
               "caption": "imán",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iman.webp",
-              "correct": false
+              "illustrationSrc": "/cartilla/art/digital/page-001/r1-c2.png",
+              "correct": false,
+              "x": 0.239826,
+              "y": 0.205056,
+              "width": 0.201308,
+              "height": 0.136517
             },
             {
               "caption": "abanico",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/abanico.webp",
-              "correct": true
+              "illustrationSrc": "/cartilla/art/digital/page-001/r1-c3.png",
+              "correct": true,
+              "x": 0.448401,
+              "y": 0.205056,
+              "width": 0.196948,
+              "height": 0.136517
             },
             {
               "caption": "oso",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oso.webp",
-              "correct": false
+              "illustrationSrc": "/cartilla/art/digital/page-001/r1-c4.png",
+              "correct": false,
+              "x": 0.652616,
+              "y": 0.205056,
+              "width": 0.200581,
+              "height": 0.136517
             },
             {
               "caption": "isla",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-i/isla.webp",
-              "correct": true
+              "illustrationSrc": "/cartilla/art/digital/page-001/r2-c1.png",
+              "correct": true,
+              "x": 0.036337,
+              "y": 0.347191,
+              "width": 0.196221,
+              "height": 0.136517
             },
             {
               "caption": "avión",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/avion.webp",
-              "correct": false
+              "illustrationSrc": "/cartilla/art/digital/page-001/r2-c2.png",
+              "correct": false,
+              "x": 0.239826,
+              "y": 0.347191,
+              "width": 0.201308,
+              "height": 0.136517
             },
             {
               "caption": "imán",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-i/iman.webp",
-              "correct": true
+              "illustrationSrc": "/cartilla/art/digital/page-001/r2-c3.png",
+              "correct": true,
+              "x": 0.448401,
+              "y": 0.347191,
+              "width": 0.196948,
+              "height": 0.136517
             },
             {
               "caption": "aro",
               "correct": false,
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/aro.webp"
+              "illustrationSrc": "/cartilla/art/digital/page-001/r2-c4.png",
+              "x": 0.652616,
+              "y": 0.347191,
+              "width": 0.200581,
+              "height": 0.136517
             },
             {
               "caption": "escalera",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-e/escalera.webp",
-              "correct": true
+              "illustrationSrc": "/cartilla/art/digital/page-001/r3-c1.png",
+              "correct": true,
+              "x": 0.036337,
+              "y": 0.489326,
+              "width": 0.196221,
+              "height": 0.135393
             },
             {
               "caption": "uno",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-u/uno.webp",
-              "correct": false
+              "illustrationSrc": "/cartilla/art/digital/page-001/r3-c2.png",
+              "correct": false,
+              "x": 0.239826,
+              "y": 0.489326,
+              "width": 0.201308,
+              "height": 0.135393
             },
             {
               "caption": "escuela",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-e/escuela.webp",
-              "correct": true
+              "illustrationSrc": "/cartilla/art/digital/page-001/r3-c3.png",
+              "correct": true,
+              "x": 0.448401,
+              "y": 0.489326,
+              "width": 0.196948,
+              "height": 0.135393
             },
             {
               "caption": "oreja",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oreja.webp",
-              "correct": false
+              "illustrationSrc": "/cartilla/art/digital/page-001/r3-c4.png",
+              "correct": false,
+              "x": 0.652616,
+              "y": 0.489326,
+              "width": 0.200581,
+              "height": 0.135393
             },
             {
               "caption": "traje",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-1/traje.webp"
+              "illustrationSrc": "/cartilla/art/digital/page-001/r4-c1.png",
+              "x": 0.036337,
+              "y": 0.630337,
+              "width": 0.196221,
+              "height": 0.135393
             },
             {
               "caption": "arco",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-1/arco.webp"
+              "illustrationSrc": "/cartilla/art/digital/page-001/r4-c2.png",
+              "x": 0.239826,
+              "y": 0.630337,
+              "width": 0.201308,
+              "height": 0.135393
             },
             {
               "caption": "oveja",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-o/oveja.webp"
+              "illustrationSrc": "/cartilla/art/digital/page-001/r4-c3.png",
+              "x": 0.448401,
+              "y": 0.630337,
+              "width": 0.196948,
+              "height": 0.135393
             },
             {
               "caption": "elefante",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-e/elefante.webp"
+              "illustrationSrc": "/cartilla/art/digital/page-001/r4-c4.png",
+              "x": 0.652616,
+              "y": 0.630337,
+              "width": 0.200581,
+              "height": 0.135393
             },
             {
               "caption": "ojos",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-1/ojos.webp",
-              "correct": true
+              "illustrationSrc": "/cartilla/art/digital/page-001/r5-c1.png",
+              "correct": true,
+              "x": 0.036337,
+              "y": 0.771348,
+              "width": 0.196221,
+              "height": 0.135955
             },
             {
               "caption": "maíz",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-1/maiz.webp",
-              "correct": false
+              "illustrationSrc": "/cartilla/art/digital/page-001/r5-c2.png",
+              "correct": false,
+              "x": 0.239826,
+              "y": 0.771348,
+              "width": 0.201308,
+              "height": 0.135955
             },
             {
               "caption": "abeja",
               "correct": false,
-              "illustrationSrc": "/cartilla/art/faithful/vocal-a/abeja.webp"
+              "illustrationSrc": "/cartilla/art/digital/page-001/r5-c3.png",
+              "x": 0.448401,
+              "y": 0.771348,
+              "width": 0.196948,
+              "height": 0.135955
             },
             {
               "caption": "olla",
-              "illustrationSrc": "/cartilla/art/faithful/vocal-o/olla.webp",
-              "correct": true
+              "illustrationSrc": "/cartilla/art/digital/page-001/r5-c4.png",
+              "correct": true,
+              "x": 0.652616,
+              "y": 0.771348,
+              "width": 0.200581,
+              "height": 0.135955
             }
+          ],
+          "x": 0.032703,
+          "y": 0.202247,
+          "width": 0.824128,
+          "height": 0.707865,
+          "gridColumnFracs": [
+            0.246914,
+            0.253086,
+            0.247795,
+            0.252205
+          ],
+          "gridRowFracs": [
+            0.200794,
+            0.200794,
+            0.199206,
+            0.199206,
+            0.2
           ]
+        },
+        {
+          "id": "p1-lesson-label",
+          "regionType": "footer",
+          "order": 2,
+          "fontRole": "body",
+          "text": "Lección 1",
+          "textAlign": "start",
+          "x": 0.021802,
+          "y": 0.93427,
+          "width": 0.116279,
+          "height": 0.038202
+        },
+        {
+          "id": "p1-printed-number",
+          "regionType": "page-number",
+          "order": 3,
+          "fontRole": "body",
+          "text": "1",
+          "x": 0.874273,
+          "y": 0.93427,
+          "width": 0.044331,
+          "height": 0.038764
         }
-      ]
+      ],
+      "digitalStatus": "batch-pending-visual-qa",
+      "referenceImage": "/cartilla/art/reconstructed/workbook/page-001.png"
     },
     "2": {
       "regions": [
@@ -125,7 +252,12 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Presiona el dibujo que comienza con la vocal del recuadro."
+          "text": "Circula el dibujo que comienza con la vocal del recuadro.",
+          "x": 0.146076,
+          "y": 0.080337,
+          "width": 0.805959,
+          "height": 0.053933,
+          "label": "Instrucciones:"
         },
         {
           "id": "p2-rows",
@@ -138,104 +270,225 @@
               "cells": [
                 {
                   "caption": "anillo",
-                  "illustrationSrc": "/cartilla/art/faithful/vocal-a/anillo.webp",
-                  "correct": true
+                  "illustrationSrc": "/cartilla/art/digital/page-002/r1-c2.png",
+                  "correct": true,
+                  "x": 0.350291,
+                  "y": 0.184831,
+                  "width": 0.198401,
+                  "height": 0.135955
                 },
                 {
                   "caption": "manzana",
-                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/manzana.webp",
-                  "correct": false
+                  "illustrationSrc": "/cartilla/art/digital/page-002/r1-c3.png",
+                  "correct": false,
+                  "x": 0.555959,
+                  "y": 0.184831,
+                  "width": 0.198401,
+                  "height": 0.135955
                 },
                 {
                   "caption": "libro",
-                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/libro.webp",
-                  "correct": false
+                  "illustrationSrc": "/cartilla/art/digital/page-002/r1-c4.png",
+                  "correct": false,
+                  "x": 0.761628,
+                  "y": 0.184831,
+                  "width": 0.202035,
+                  "height": 0.135955
                 }
-              ]
+              ],
+              "x": 0.143895,
+              "y": 0.182022,
+              "width": 0.823401,
+              "height": 0.141573
             },
             {
               "letter": "e",
               "cells": [
                 {
                   "caption": "casa",
-                  "illustrationSrc": "/cartilla/art/faithful/leccion-19-c/casa.webp",
-                  "correct": false
+                  "illustrationSrc": "/cartilla/art/digital/page-002/r2-c2.png",
+                  "correct": false,
+                  "x": 0.350291,
+                  "y": 0.326404,
+                  "width": 0.198401,
+                  "height": 0.135955
                 },
                 {
                   "caption": "árbol",
-                  "illustrationSrc": "/cartilla/art/faithful/vocal-a/arbol.webp",
-                  "correct": false
+                  "illustrationSrc": "/cartilla/art/digital/page-002/r2-c3.png",
+                  "correct": false,
+                  "x": 0.555959,
+                  "y": 0.326404,
+                  "width": 0.198401,
+                  "height": 0.135955
                 },
                 {
                   "caption": "estrella",
-                  "illustrationSrc": "/cartilla/art/faithful/vocal-e/estrella.webp",
-                  "correct": true
+                  "illustrationSrc": "/cartilla/art/digital/page-002/r2-c4.png",
+                  "correct": true,
+                  "x": 0.761628,
+                  "y": 0.326404,
+                  "width": 0.202035,
+                  "height": 0.135955
                 }
-              ]
+              ],
+              "x": 0.143895,
+              "y": 0.323596,
+              "width": 0.823401,
+              "height": 0.141573
             },
             {
               "letter": "i",
               "cells": [
                 {
                   "caption": "taza",
-                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/taza.webp",
-                  "correct": false
+                  "illustrationSrc": "/cartilla/art/digital/page-002/r3-c2.png",
+                  "correct": false,
+                  "x": 0.350291,
+                  "y": 0.467978,
+                  "width": 0.198401,
+                  "height": 0.135393
                 },
                 {
                   "caption": "indio",
-                  "illustrationSrc": "/cartilla/art/faithful/vocal-i/indio.webp",
-                  "correct": true
+                  "illustrationSrc": "/cartilla/art/digital/page-002/r3-c3.png",
+                  "correct": true,
+                  "x": 0.555959,
+                  "y": 0.467978,
+                  "width": 0.198401,
+                  "height": 0.135393
                 },
                 {
                   "caption": "pera",
-                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/pera.webp",
-                  "correct": false
+                  "illustrationSrc": "/cartilla/art/digital/page-002/r3-c4.png",
+                  "correct": false,
+                  "x": 0.761628,
+                  "y": 0.467978,
+                  "width": 0.202035,
+                  "height": 0.135393
                 }
-              ]
+              ],
+              "x": 0.143895,
+              "y": 0.465169,
+              "width": 0.823401,
+              "height": 0.141011
             },
             {
               "letter": "o",
               "cells": [
                 {
                   "caption": "pájaro",
-                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/pajaro.webp",
-                  "correct": false
+                  "illustrationSrc": "/cartilla/art/digital/page-002/r4-c2.png",
+                  "correct": false,
+                  "x": 0.350291,
+                  "y": 0.608989,
+                  "width": 0.198401,
+                  "height": 0.135393
                 },
                 {
                   "caption": "oso",
-                  "illustrationSrc": "/cartilla/art/faithful/vocal-o/oso.webp",
-                  "correct": true
+                  "illustrationSrc": "/cartilla/art/digital/page-002/r4-c3.png",
+                  "correct": true,
+                  "x": 0.555959,
+                  "y": 0.608989,
+                  "width": 0.198401,
+                  "height": 0.135393
                 },
                 {
                   "caption": "carro",
-                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/carro.webp",
-                  "correct": false
+                  "illustrationSrc": "/cartilla/art/digital/page-002/r4-c4.png",
+                  "correct": false,
+                  "x": 0.761628,
+                  "y": 0.608989,
+                  "width": 0.202035,
+                  "height": 0.135393
                 }
-              ]
+              ],
+              "x": 0.143895,
+              "y": 0.60618,
+              "width": 0.823401,
+              "height": 0.141011
             },
             {
               "letter": "u",
               "cells": [
                 {
                   "caption": "uniforme",
-                  "illustrationSrc": "/cartilla/art/faithful/vocal-u/uniforme.webp",
-                  "correct": true
+                  "illustrationSrc": "/cartilla/art/digital/page-002/r5-c2.png",
+                  "correct": true,
+                  "x": 0.350291,
+                  "y": 0.75,
+                  "width": 0.198401,
+                  "height": 0.135955
                 },
                 {
                   "caption": "globo",
                   "correct": false,
-                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/globo.webp"
+                  "illustrationSrc": "/cartilla/art/digital/page-002/r5-c3.png",
+                  "x": 0.555959,
+                  "y": 0.75,
+                  "width": 0.198401,
+                  "height": 0.135955
                 },
                 {
                   "caption": "dulce",
-                  "illustrationSrc": "/cartilla/art/faithful/leccion-1/dulce.webp",
-                  "correct": false
+                  "illustrationSrc": "/cartilla/art/digital/page-002/r5-c4.png",
+                  "correct": false,
+                  "x": 0.761628,
+                  "y": 0.75,
+                  "width": 0.202035,
+                  "height": 0.135955
                 }
-              ]
+              ],
+              "x": 0.143895,
+              "y": 0.747191,
+              "width": 0.823401,
+              "height": 0.141573
             }
+          ],
+          "x": 0.143895,
+          "y": 0.182022,
+          "width": 0.823401,
+          "height": 0.706742,
+          "gridColumnFracs": [
+            0.246249,
+            0.249779,
+            0.249779,
+            0.254192
+          ],
+          "gridRowFracs": [
+            0.200318,
+            0.200318,
+            0.199523,
+            0.199523,
+            0.200318
           ]
+        },
+        {
+          "id": "p2-printed-number",
+          "regionType": "page-number",
+          "order": 2,
+          "fontRole": "body",
+          "text": "2",
+          "x": 0.074128,
+          "y": 0.930337,
+          "width": 0.042878,
+          "height": 0.044382
+        },
+        {
+          "id": "p2-lesson-label",
+          "regionType": "footer",
+          "order": 3,
+          "fontRole": "body",
+          "text": "Lección 1",
+          "x": 0.867006,
+          "y": 0.932022,
+          "width": 0.112645,
+          "height": 0.035393
         }
-      ]
+      ],
+      "digitalStatus": "verified",
+      "referenceImage": "/cartilla/art/reconstructed/workbook/page-002.png"
     },
     "3": {
       "regions": [

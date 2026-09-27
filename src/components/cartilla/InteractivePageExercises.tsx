@@ -116,7 +116,8 @@ export function InteractivePictureGrid({
   region,
   accent,
   lessonId,
-}: ExerciseProps) {
+  precise = false,
+}: ExerciseProps & { precise?: boolean }) {
   const cells = region.cells ?? [];
   const columns = region.columns ?? 4;
   const [picked, setPicked] = useState<Set<number>>(new Set());
@@ -171,13 +172,20 @@ export function InteractivePictureGrid({
   for (let i = 0; i < cells.length; i += columns)
     rows.push(cells.slice(i, i + columns));
 
+  const exactColumns = precise && region.gridColumnFracs?.length === columns
+    ? region.gridColumnFracs.map((fraction) => `${fraction * 100}%`).join(" ")
+    : undefined;
+  const exactRows = precise && region.gridRowFracs?.length === rows.length
+    ? region.gridRowFracs.map((fraction) => `${fraction * 100}%`).join(" ")
+    : undefined;
+
   return (
-    <div className="fp-ix-grid" style={{ ["--ix-accent" as string]: accent }}>
+    <div className={`fp-ix-grid${precise ? " fp-ix-grid--precise" : ""}`} style={{ ["--ix-accent" as string]: accent, gridTemplateRows: exactRows }}>
       {rows.map((row, r) => (
         <div
           key={r}
           className="fp-ix-row"
-          style={{ gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))` }}
+          style={{ gridTemplateColumns: exactColumns ?? `repeat(${columns}, minmax(0, 1fr))` }}
         >
           {row.map((cell, c) => {
             const i = r * columns + c;
@@ -228,12 +236,14 @@ function DraggableVowelLetter({
   locked,
   selected,
   onSelect,
+  precise = false,
 }: {
   rowIdx: number;
   letter: string;
   locked: boolean;
   selected: boolean;
   onSelect: () => void;
+  precise?: boolean;
 }) {
   const { attributes, listeners, setNodeRef, transform, isDragging } =
     useDraggable({
@@ -263,8 +273,7 @@ function DraggableVowelLetter({
       aria-label={`Vocal ${letter}, arrástrala o presiónala y luego presiona el dibujo correcto`}
       onClick={onSelect}
     >
-      {letter.toUpperCase()}
-      {letter}
+      {precise ? letter : `${letter.toUpperCase()}${letter}`}
     </button>
   );
 }
@@ -333,8 +342,15 @@ export function InteractiveVowelPickOne({
   region,
   accent,
   lessonId,
-}: ExerciseProps) {
+  precise = false,
+}: ExerciseProps & { precise?: boolean }) {
   const rows = region.vowelRows ?? [];
+  const exactRows = precise && region.gridRowFracs?.length === rows.length
+    ? region.gridRowFracs.map((fraction) => `${fraction * 100}%`).join(" ")
+    : undefined;
+  const exactColumns = precise && region.gridColumnFracs?.length === 4
+    ? region.gridColumnFracs
+    : undefined;
   const [correctRows, setCorrectRows] = useState<Set<number>>(new Set());
   const [wrongFlash, setWrongFlash] = useState<{
     row: number;
@@ -404,17 +420,18 @@ export function InteractiveVowelPickOne({
 
   return (
     <DndContext sensors={sensors} onDragEnd={onDragEnd}>
-      <div className="fp-ix-pick" style={{ ["--ix-accent" as string]: accent }}>
+      <div className={`fp-ix-pick${precise ? " fp-ix-pick--precise" : ""}`} style={{ ["--ix-accent" as string]: accent, gridTemplateRows: exactRows }}>
         {rows.map((row, r) => (
-          <div key={r} className="fp-ix-pick__row">
+          <div key={r} className="fp-ix-pick__row" style={exactColumns ? { gridTemplateColumns: `${exactColumns[0] * 100}% 1fr` } : undefined}>
             <DraggableVowelLetter
               rowIdx={r}
               letter={row.letter}
               locked={correctRows.has(r)}
               selected={selectedRow === r}
               onSelect={() => setSelectedRow((prev) => (prev === r ? null : r))}
+              precise={precise}
             />
-            <div className="fp-ix-pick__cells">
+            <div className="fp-ix-pick__cells" style={exactColumns ? { gridTemplateColumns: exactColumns.slice(1).map((fraction) => `${fraction / (1 - exactColumns[0]) * 100}%`).join(" ") } : undefined}>
               {row.cells.map((cell, c) => (
                 <DroppableVowelCell
                   key={c}
