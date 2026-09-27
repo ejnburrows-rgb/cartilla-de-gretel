@@ -4,7 +4,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 import * as pdfjsLib from "pdfjs-dist/legacy/build/pdf.mjs";
-import { createCanvas } from "canvas";
+import { createCanvas } from "@napi-rs/canvas";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
@@ -245,7 +245,60 @@ async function cropNormalized(image, box) {
 
 async function estimatePaperColor(crop) {
   const decoded = await sharp(crop).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+  const rs = [];
+  const gs = [];
+  const bs = [];
+  for (let i = 0; i < decoded.data.length; i += 4) {
+    const r = decoded.data[i];
+    const g = decoded.data[i + 1];
+    const b = decoded.data[i + 2];
+    const lum = (r + g + b) / 3;
+    if (lum < 220 || Math.max(r, g, b) - Math.min(r, g, b) > 24) continue;
+    rs.push(r);
+    gs.push(g);
+    bs.push(b);
+  }
+  if (rs.length) return { r: median(rs), g: median(gs), b: median(bs) };
   return estimateBorderColor(decoded.data, decoded.info.width, decoded.info.height);
+}
+
+async function restoreEdgeGridLines(patch, targetCrop, width, height) {
+  const [patchRaw, targetRaw] = await Promise.all([
+    sharp(patch).ensureAlpha().raw().toBuffer(),
+    sharp(targetCrop).ensureAlpha().raw().toBuffer(),
+  ]);
+  const restored = Buffer.from(patchRaw);
+  const margin = Math.max(8, Math.round(Math.min(width, height) * 0.035));
+  const teal = new Uint8Array(width * height);
+  const rowCounts = new Uint32Array(height);
+  const colCounts = new Uint32Array(width);
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      const i = (y * width + x) * 4;
+      const r = targetRaw[i];
+      const g = targetRaw[i + 1];
+      const b = targetRaw[i + 2];
+      if (g >= r + 12 && b >= r + 8 && Math.max(g, b) - r >= 22) {
+        teal[y * width + x] = 1;
+        rowCounts[y]++;
+        colCounts[x]++;
+      }
+    }
+  }
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      if (x >= margin && x < width - margin && y >= margin && y < height - margin) continue;
+      const i = (y * width + x) * 4;
+      if (!teal[y * width + x]) continue;
+      const straightGridLine = rowCounts[y] >= width * 0.55 || colCounts[x] >= height * 0.55;
+      if (!straightGridLine) continue;
+      restored[i] = targetRaw[i];
+      restored[i + 1] = targetRaw[i + 1];
+      restored[i + 2] = targetRaw[i + 2];
+      restored[i + 3] = targetRaw[i + 3];
+    }
+  }
+  return sharp(restored, { raw: { width, height, channels: 4 } }).png().toBuffer();
 }
 
 async function buildReplacementPatch(targetCrop, source, targetWidth, targetHeight) {
@@ -261,7 +314,7 @@ async function buildReplacementPatch(targetCrop, source, targetWidth, targetHeig
     .png()
     .toBuffer();
 
-  return sharp({
+  const patch = await sharp({
     create: {
       width: targetWidth,
       height: targetHeight,
@@ -272,6 +325,7 @@ async function buildReplacementPatch(targetCrop, source, targetWidth, targetHeig
     .composite([{ input: fitted, left: 0, top: 0 }])
     .png()
     .toBuffer();
+  return restoreEdgeGridLines(patch, targetCrop, targetWidth, targetHeight);
 }
 
 async function createProof(originalCrop, sourceCrop, finalCrop, output) {
@@ -400,6 +454,7 @@ async function main() {
   if (flipchartDoc.numPages !== 62) throw new Error(`Flip Chart source must have 62 pages; found ${flipchartDoc.numPages}`);
 
   const grouped = new Map();
+  const skippedItems = [];
   for (const item of plan.items) {
     if (!item.id) throw new Error("Every reconstruction item needs an id");
     if (!Number.isInteger(item.printed_page) || item.printed_page < 1 || item.printed_page > 90) {
@@ -416,8 +471,18 @@ async function main() {
     if (!validNormBox(item.workbook_box_norm)) {
       throw new Error(`${item.id}: invalid workbook_box_norm`);
     }
-    if (!["EXACT_COLORED_COUNTERPART", "COLOR_TRANSFER_REQUIRED"].includes(item.strategy)) {
+    if (
+      ![
+        "EXACT_COLORED_COUNTERPART",
+        "COLOR_TRANSFER_REQUIRED",
+        "NO_VALID_COUNTERPART",
+      ].includes(item.strategy)
+    ) {
       throw new Error(`${item.id}: invalid strategy`);
+    }
+    if (item.strategy === "NO_VALID_COUNTERPART") {
+      skippedItems.push({ id: item.id, strategy: item.strategy, reason: item.reason });
+      continue;
     }
     if (!Number.isInteger(item.flipchart_pdf_page)) {
       throw new Error(`${item.id}: flipchart_pdf_page is required`);
@@ -436,15 +501,14 @@ async function main() {
         throw new Error(`${item.id}: exact counterpart is missing one or more geometry PASS checks`);
       }
     } else {
-      if (!item.verified_colorized_asset) {
-        throw new Error(
-          `${item.id}: COLOR_TRANSFER_REQUIRED is fail-closed until verified_colorized_asset is supplied`,
-        );
-      }
-      if (item.color_transfer_verification !== "PASS") {
-        throw new Error(
-          `${item.id}: COLOR_TRANSFER_REQUIRED asset must have color_transfer_verification=PASS`,
-        );
+      if (!item.verified_colorized_asset || item.color_transfer_verification !== "PASS") {
+        skippedItems.push({
+          id: item.id,
+          strategy: item.strategy,
+          reason: item.reason,
+          status: "PENDING_VERIFIED_COLOR_TRANSFER",
+        });
+        continue;
       }
     }
     const list = grouped.get(item.printed_page) ?? [];
@@ -584,6 +648,7 @@ async function main() {
     page_index: "src/data/reconstruction/pdf-sheet-to-printed-page.json",
     note:
       "Structural PASS verifies deterministic placement and zero changes outside declared target boxes. verification_status remains UNVERIFIED until rendered visual proof is reviewed.",
+    skipped_items: skippedItems,
     pages: pageRecords,
   };
   fs.writeFileSync(

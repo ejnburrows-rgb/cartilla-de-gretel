@@ -1,0 +1,72 @@
+{
+  "version": "2026-09-27",
+  "status": "LOCKED",
+  "source_run": "reconstruction-locked-candidate/run-manifest.json",
+  "pages": [
+    {
+      "printed_page": 1,
+      "deterministic_path": "/cartilla/art/reconstructed/workbook-deterministic/page-001.png",
+      "sha256": "451c99c0cd06d501d934d6cf9564ea40d42559ab91b17a0c96af965356f1055a"
+    },
+    {
+      "printed_page": 2,
+      "deterministic_path": "/cartilla/art/reconstructed/workbook-deterministic/page-002.png",
+      "sha256": "95b542965b27c22e790e40693afb62ac3c5aef98b79406ed2356ad58aa81ee8c"
+    },
+    {
+      "printed_page": 3,
+      "deterministic_path": "/cartilla/art/reconstructed/workbook-deterministic/page-003.png",
+      "sha256": "460bc5d52b4fea4c9f57fde0d935b0fe002f26740edab8581277647358b7c423"
+    },
+    {
+      "printed_page": 4,
+      "deterministic_path": "/cartilla/art/reconstructed/workbook-deterministic/page-004.png",
+      "sha256": "342272ffa466c4467f04bb558c9d13a80ed1fc6df3106e3fcd0248b2ab5b0f72"
+    },
+    {
+      "printed_page": 5,
+      "deterministic_path": "/cartilla/art/reconstructed/workbook-deterministic/page-005.png",
+      "sha256": "f53c58eb1ef7c9f8da453dac534dbf23c29de2066f17a57ffb26d80c12d20d99"
+    },
+    {
+      "printed_page": 7,
+      "deterministic_path": "/cartilla/art/reconstructed/workbook-deterministic/page-007.png",
+      "sha256": "7e653b8495195f69357c11d589bfb134babc8846795f99d2caac0a7d56b7a2f5"
+    },
+    {
+      "printed_page": 8,
+      "deterministic_path": "/cartilla/art/reconstructed/workbook-deterministic/page-008.png",
+      "sha256": "8c8029755fa991f9449dca1b3e4e3e1d6142de32769eb4a2f3a143e2ba415544"
+    },
+    {
+      "printed_page": 10,
+      "deterministic_path": "/cartilla/art/reconstructed/workbook-deterministic/page-010.png",
+      "sha256": "b5cb3097156283bcf73b1f8d0a76dad9d15a90144c6a3f8efcb34fec7ba1fc90"
+    },
+    {
+      "printed_page": 11,
+      "deterministic_path": "/cartilla/art/reconstructed/workbook-deterministic/page-011.png",
+      "sha256": "0ffb76c859b848ed4d2a09bc87090172feac7fc241d9910bb41a8b96a826d011"
+    },
+    {
+      "printed_page": 13,
+      "deterministic_path": "/cartilla/art/reconstructed/workbook-deterministic/page-013.png",
+      "sha256": "4eb0ee958073aeb5e3961a77435061c97293cee5433723b16f598f7887e85a25"
+    },
+    {
+      "printed_page": 14,
+      "deterministic_path": "/cartilla/art/reconstructed/workbook-deterministic/page-014.png",
+      "sha256": "fa04a3b794dc127431572dfe219d5977157dfe9c45e7e70da6d50a7a827995a4"
+    },
+    {
+      "printed_page": 16,
+      "deterministic_path": "/cartilla/art/reconstructed/workbook-deterministic/page-016.png",
+      "sha256": "de270821a9a162e254a7bd2b756c52737eb13b95a3f5d6ec211899494b633827"
+    },
+    {
+      "printed_page": 17,
+      "deterministic_path": "/cartilla/art/reconstructed/workbook-deterministic/page-017.png",
+      "sha256": "b06068d8dfb657420b02092ea7325f9e413710bd01c9bd6f8736a183e4314318"
+    }
+  ]
+}
