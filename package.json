@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "pnpm prepare:art && vite dev",
-    "build": "pnpm prepare:art && pnpm typecheck && pnpm test && vite build",
+    "build": "pnpm verify:reconstruction && pnpm prepare:art && pnpm typecheck && pnpm test && vite build",
     "build:app": "pnpm build",
     "verify:release": "pnpm build && pnpm exec playwright install chromium && pnpm test:e2e",
     "preview": "vite preview --host 127.0.0.1",
@@ -23,7 +23,9 @@
     "visual:metadata:check": "node scripts/verify-recovery-art-metadata.mjs",
     "visual:metadata:update": "node scripts/verify-recovery-art-metadata.mjs --write",
     "prepare:art": "node scripts/prepare-art-assets.mjs",
-    "audit:art": "node scripts/prepare-art-assets.mjs --check"
+    "audit:art": "node scripts/prepare-art-assets.mjs --check",
+    "verify:reconstruction": "node --check scripts/reconstruct-workbook.mjs && node scripts/validate-reconstruction-data.mjs",
+    "reconstruct:workbook": "node scripts/reconstruct-workbook.mjs"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
