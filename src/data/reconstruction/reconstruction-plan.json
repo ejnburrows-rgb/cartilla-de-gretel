@@ -1,0 +1,8 @@
+{
+  "version": "2026-09-27",
+  "coordinate_system": "normalized top-left fractions (x,y,width,height in 0..1)",
+  "source_mapping": "src/data/reconstruction/student-to-flipchart-284.json",
+  "page_index": "src/data/reconstruction/pdf-sheet-to-printed-page.json",
+  "note": "This plan is intentionally empty until object-level target boxes and geometry checks are verified from the actual source PDFs. Do not populate from the failed Lovable overlay coordinates.",
+  "items": []
+}
