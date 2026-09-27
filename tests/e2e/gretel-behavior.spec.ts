@@ -71,3 +71,36 @@ test('real tracing activates context; idle help is restrained', async ({ page })
   await expect(guide).toHaveAttribute('data-reaction', 'hint');
   await expect(trace.locator('[data-gretel-highlight]')).toHaveCount(1);
 });
+
+
+for (const viewport of [{ width: 1280, height: 900 }, { width: 820, height: 1180 }, { width: 390, height: 844 }]) {
+  test(`lesson-journey Gretel never covers lesson cards ${viewport.width}`, async ({ page }) => {
+    await page.setViewportSize(viewport);
+    await page.goto('/cartilla/lecciones', { waitUntil: 'domcontentloaded' });
+
+    const guide = page.getByTestId('book-hero-gretel');
+    await expect(guide).toBeVisible();
+    const guideBox = await guide.boundingBox();
+    expect(guideBox).not.toBeNull();
+
+    const cards = page.locator('main a[aria-label^="Lección"]');
+    const count = await cards.count();
+    expect(count).toBeGreaterThan(0);
+
+    for (let index = 0; index < count; index += 1) {
+      const cardBox = await cards.nth(index).boundingBox();
+      if (!cardBox || !guideBox) continue;
+      const overlaps =
+        guideBox.x < cardBox.x + cardBox.width &&
+        guideBox.x + guideBox.width > cardBox.x &&
+        guideBox.y < cardBox.y + cardBox.height &&
+        guideBox.y + guideBox.height > cardBox.y;
+      expect(overlaps, `Gretel overlaps lesson card ${index + 1} at ${viewport.width}px`).toBe(false);
+    }
+
+    await page.screenshot({
+      path: `test-results/journey-gretel-${viewport.width}.png`,
+      fullPage: true,
+    });
+  });
+}

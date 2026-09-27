@@ -29,6 +29,15 @@
   transform: none;
 }
 
+/* Lesson-journey placement: keep the existing home Gretel in normal document
+   flow so she can greet the child without covering lesson cards at any width.
+   The top margin reserves the speech-bubble area above the avatar. */
+.cartilla-journey-gretel.gretel-presence--home {
+  width: 10rem;
+  max-width: 10rem;
+  margin: 3.25rem auto 0;
+}
+
 .gretel-presence__chrome {
   display: flex;
   align-items: center;

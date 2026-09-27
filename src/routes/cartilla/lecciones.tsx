@@ -70,10 +70,6 @@ function Lecciones() {
 
   return (
     <div className="min-h-screen bg-stone-50 overflow-hidden relative pb-32">
-      <GretelPresence
-        variant="home"
-        className="fixed bottom-0 right-0 z-50 pointer-events-none"
-      />
       {/* Background decoration */}
       <GardenBackdrop variant="soft" />
 
@@ -91,6 +87,11 @@ function Lecciones() {
           Tu Camino de Aprendizaje
         </h1>
         <p className="text-stone-500 font-medium mt-2">{import.meta.env.VITE_CRM_REVIEW === "true" ? "Elige cualquiera de las 24 lecciones y practica a tu ritmo." : t.aprendePaso[lang]}</p>
+
+        <GretelPresence
+          variant="home"
+          className="cartilla-journey-gretel"
+        />
 
         {/* Progress Bar */}
         <div className="mt-8 max-w-sm mx-auto bg-white p-4 rounded-2xl shadow-sm border border-stone-200">
