@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useServerFn } from "@/lib/useServerFn";
 import {
   ArrowLeft,
@@ -18,6 +18,7 @@ import { sCopy } from "@/content/student-copy";
 import { GardenBackdrop } from "@/components/cartilla/GardenBackdrop";
 import { GretelPresence } from "@/components/gretel/GretelPresence";
 import { playUiTick } from "@/lib/piano-audio";
+import { computeLessonStatus } from "@/lib/progress-calculation";
 
 export const Route = createFileRoute("/cartilla/lecciones")({
   component: Lecciones,
@@ -30,23 +31,36 @@ function Lecciones() {
   const session = useStudentSession();
   const fetchMyProgress = useServerFn(getMyProgress);
   const { isCompleted, isUnlocked, completed } = useLessonProgress();
+  const [startedLessons, setStartedLessons] = useState<Set<number>>(() => new Set());
 
   useEffect(() => {
-    if (!session) return;
+    if (!session) {
+      setStartedLessons(new Set());
+      return;
+    }
+    setStartedLessons(new Set());
     fetchMyProgress({
       data: { studentId: session.studentId, studentCode: session.studentCode },
     })
       .then((data) => {
-        const fromRows = (
+        const lessonRows =
           (
             data as {
               lessonProgress?: Array<{ lesson_id: string; status: string }>;
             }
-          ).lessonProgress ?? []
-        )
-          .filter((row) => row.status === "completed")
+          ).lessonProgress ?? [];
+        const fromRows = lessonRows
+          .filter((row) => computeLessonStatus(row) === "completed")
           .map((row) => Number(row.lesson_id))
           .filter((n) => Number.isFinite(n));
+        setStartedLessons(
+          new Set(
+            lessonRows
+              .filter((row) => computeLessonStatus(row) === "in_progress")
+              .map((row) => Number(row.lesson_id))
+              .filter((n) => Number.isFinite(n)),
+          ),
+        );
         const fromEvents = (
           (
             data as {
@@ -120,8 +134,12 @@ function Lecciones() {
           />
           {CATALOG.map((entry) => {
             const done = isCompleted(entry.n);
+            const inProgress = !done && startedLessons.has(entry.n);
             const unlocked =
-              import.meta.env.VITE_CRM_REVIEW === "true" || isUnlocked(entry.n);
+              import.meta.env.VITE_CRM_REVIEW === "true" ||
+              done ||
+              inProgress ||
+              isUnlocked(entry.n);
             const accent = entry.color || "#f97316";
             const chapter = (
               <div
@@ -144,12 +162,16 @@ function Lecciones() {
                 <span
                   className="shrink-0 rounded-full border px-2 py-1 text-[10px] font-black uppercase tracking-wide"
                   style={{
-                    borderColor: unlocked ? accent : "#a8a29e",
-                    color: unlocked ? accent : "#78716c",
-                    backgroundColor: unlocked ? `color-mix(in srgb, ${accent} 10%, white)` : "#f5f5f4",
+                    borderColor: inProgress ? "#d4a94a" : unlocked ? accent : "#a8a29e",
+                    color: inProgress ? "#5c4a1a" : unlocked ? accent : "#78716c",
+                    backgroundColor: inProgress
+                      ? "#fff4c7"
+                      : unlocked
+                        ? `color-mix(in srgb, ${accent} 10%, white)`
+                        : "#f5f5f4",
                   }}
                 >
-                  {done ? "Completada" : unlocked ? "Disponible" : "Bloqueada"}
+                  {done ? "Completada" : inProgress ? "En progreso" : unlocked ? "Disponible" : "Bloqueada"}
                 </span>
               </div>
             );
@@ -161,7 +183,7 @@ function Lecciones() {
                 onClick={() => playUiTick()}
                 className="block rounded-2xl focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2"
                 style={{ outlineColor: accent }}
-                aria-label={`Lección ${entry.n}: ${entry.title}. ${done ? "Completada" : "Disponible"}`}
+                aria-label={`Lección ${entry.n}: ${entry.title}. ${done ? "Completada" : inProgress ? "En progreso" : "Disponible"}`}
               >
                 {chapter}
               </Link>

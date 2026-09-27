@@ -90,15 +90,43 @@ test("student joins a class, opens the assigned lesson, finishes it, and the pro
     p_event_kind: "lesson_completed",
   });
 
-  // ---- 6. Survives a reload — and specifically from the backend, not from
+  // ---- 6. A real started lesson stays distinct from both completed and
+  //         pending. Spend enough time in lesson 2 to create the backend's
+  //         authoritative "started" row, then return through the real index.
+  await page.waitForTimeout(5_200);
+  await page.getByRole("link", { name: /Índice/i }).click();
+  await expect
+    .poll(
+      () =>
+        backend
+          .callsTo("log_student_progress")
+          .some((c) => c.p_lesson_id === "2" && c.p_event_kind === "time"),
+      { timeout: 10_000 },
+    )
+    .toBe(true);
+
+  await page.reload();
+  await expect(page.getByLabel(/Lección 2:.*En progreso/i)).toBeVisible({
+    timeout: 20_000,
+  });
+
+  await page.goto("/cartilla/mi-progreso");
+  const lessonTwo = page.locator("a").filter({ hasText: "2. Vocal O o" }).first();
+  await expect(lessonTwo).toContainText("En progreso", { timeout: 20_000 });
+
+  // ---- 7. Survives a reload — and specifically from the backend, not from
   //         the browser. Wiping the local progress key first means the only
   //         way lesson 1 can still read as done is the rehydrate that
-  //         /cartilla/lecciones does from get_student_progress.
+  //         /cartilla/lecciones does from get_student_progress. The real
+  //         lesson-2 "started" state must survive too.
   await page.evaluate((key) => localStorage.removeItem(key), LESSON_PROGRESS_KEY);
   await page.goto("/cartilla/lecciones");
   await page.reload();
 
   await expect(page.getByText("1 / 24")).toBeVisible({ timeout: 20_000 });
+  await expect(page.getByLabel(/Lección 2:.*En progreso/i)).toBeVisible({
+    timeout: 20_000,
+  });
   expect(backend.callsTo("get_student_progress").length).toBeGreaterThan(0);
 
   await page.screenshot({

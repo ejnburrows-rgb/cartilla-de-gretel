@@ -15,6 +15,7 @@ import { GardenBackdrop } from "@/components/cartilla/GardenBackdrop";
 import { KidButton } from "@/components/ui/KidButton";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Shimmer } from "@/components/feel/Shimmer";
+import { computeLessonStatus, type LessonProgressRow } from "@/lib/progress-calculation";
 
 export const Route = createFileRoute("/cartilla/mi-progreso")({
   component: ProgressPage,
@@ -113,6 +114,7 @@ function MyProgress() {
     student: { display_name: string; student_code: string };
     class: { name: string } | null;
     events: Event[];
+    lessonProgress?: LessonProgressRow[];
   } | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -156,17 +158,16 @@ function MyProgress() {
       if (e.event_kind === "badge") badges.push(String((e.meta ?? {}).name ?? "Insignia"));
       if (e.event_kind === "level" && !level) level = String((e.meta ?? {}).level ?? "—");
     }
-    const dbCompleted = (
-      (data as { lessonProgress?: Array<{ lesson_id: string; status: string }> }).lessonProgress ??
-      []
-    )
-      .filter((row) => row.status === "completed")
-      .map((row) => row.lesson_id);
-    dbCompleted.forEach((lessonId) => completed.add(lessonId));
+    const statusByLesson = new Map<string, ReturnType<typeof computeLessonStatus>>();
+    for (const row of data.lessonProgress ?? []) {
+      const status = computeLessonStatus(row);
+      statusByLesson.set(row.lesson_id, status);
+      if (status === "completed") completed.add(row.lesson_id);
+    }
     const weak = Object.entries(exByLesson)
       .filter(([, s]) => s.total >= 3 && s.score / s.total < 0.7)
       .map(([lesson]) => lesson);
-    return { completed, exByLesson, timeTotal, badges, level, weak };
+    return { completed, statusByLesson, exByLesson, timeTotal, badges, level, weak };
   }, [data]);
 
   const rewards = useRewards(
@@ -178,10 +179,14 @@ function MyProgress() {
     if (!data || !summary) return;
     const rows = CATALOG.map((entry) => {
       const ex = summary.exByLesson[String(entry.n)];
+      const lessonId = String(entry.n);
+      const isDone = summary.completed.has(lessonId);
+      const status = summary.statusByLesson.get(lessonId);
       return {
         leccion: entry.n,
         titulo: entry.title,
-        completada: summary.completed.has(String(entry.n)) ? "sí" : "no",
+        estado: isDone ? "completada" : status === "in_progress" ? "en progreso" : "pendiente",
+        completada: isDone ? "sí" : "no",
         ejercicios: ex?.runs ?? 0,
         aciertos: ex?.score ?? 0,
         intentos: ex?.total ?? 0,
@@ -372,8 +377,11 @@ function MyProgress() {
           <h2 className="font-bold mb-3 text-lg">{t.tus24Lecciones[lang]}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {CATALOG.map((entry) => {
-              const isDone = summary.completed.has(String(entry.n));
-              const ex = summary.exByLesson[String(entry.n)];
+              const lessonId = String(entry.n);
+              const isDone = summary.completed.has(lessonId);
+              const isInProgress =
+                !isDone && summary.statusByLesson.get(lessonId) === "in_progress";
+              const ex = summary.exByLesson[lessonId];
               const pct = ex && ex.total > 0 ? Math.round((ex.score / ex.total) * 100) : null;
               return (
                 <Link
@@ -389,6 +397,8 @@ function MyProgress() {
                     <div className="text-xs text-foreground/60 mt-0.5">
                       {isDone ? (
                         <span className="text-success font-bold">✔ {t.completada[lang]}</span>
+                      ) : isInProgress ? (
+                        <span className="font-bold text-[#8a681d]">{t.enProgreso[lang]}</span>
                       ) : (
                         <span>{t.pendiente[lang]}</span>
                       )}

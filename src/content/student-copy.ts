@@ -19,6 +19,7 @@ export const sCopy = {
   completada: { es: "Completada", en: "Completada" },
   bloqueada: { es: "Bloqueada", en: "Bloqueada" },
   disponible: { es: "Disponible", en: "Disponible" },
+  enProgreso: { es: "En progreso", en: "En progreso" },
   paginas: { es: "Páginas", en: "Páginas" },
   indice: { es: "Índice", en: "Índice" },
   tareaAsignada: { es: "Tarea asignada", en: "Tarea asignada" },
