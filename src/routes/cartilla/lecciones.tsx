@@ -124,7 +124,7 @@ function Lecciones() {
             const accent = entry.color || "#f97316";
             const chapter = (
               <div
-                className={`relative flex min-h-24 items-center gap-4 rounded-2xl border-2 bg-[var(--book-paper)] p-4 pl-5 shadow-[0_5px_0_rgba(89,74,61,0.12)] transition-transform ${unlocked ? "hover:-translate-y-1" : "opacity-75"}`}
+                className={`relative flex min-h-24 items-center gap-4 rounded-2xl border-2 bg-[#fffaf0] p-4 pl-5 shadow-[0_5px_0_rgba(89,74,61,0.12)] transition-transform ${unlocked ? "hover:-translate-y-1" : "opacity-75"}`}
                 style={{ borderColor: unlocked ? accent : "#d6d3d1" }}
               >
                 <div
