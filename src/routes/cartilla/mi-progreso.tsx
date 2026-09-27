@@ -51,7 +51,7 @@ function LocalProgress() {
           <ArrowLeft className="w-4 h-4" /> Lecciones
         </Link>
         <h1 className="mt-6 text-3xl font-bold">Mi progreso</h1>
-        <div className="mt-5 rounded-2xl border-2 border-[var(--book-teal)]/30 bg-[var(--book-paper)] p-4 shadow-sm">
+        <div className="mt-5 rounded-2xl border-2 border-[var(--book-teal)]/30 bg-[#fffaf0] p-4 shadow-sm">
           <div className="flex items-center justify-between gap-3 text-sm font-bold">
             <span>Lecciones completadas</span>
             <span>{completedCount}/{TOTAL_LESSONS}</span>
