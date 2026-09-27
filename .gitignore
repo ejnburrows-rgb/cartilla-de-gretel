@@ -64,3 +64,7 @@ bin/
 .kilo/
 temp_slots.json
 public/cartilla/art/test-overlays/
+
+# Local deterministic workbook reconstruction runs; only visually approved
+# masters are promoted into public/cartilla/art/reconstructed/workbook/.
+/reconstruction-output/
