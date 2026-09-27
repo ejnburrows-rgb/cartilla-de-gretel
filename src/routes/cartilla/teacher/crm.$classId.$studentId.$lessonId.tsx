@@ -23,9 +23,9 @@ function LeccionDetail() {
 
   const isSeed = useMemo(() => isSeedSessionActive(), []);
 
-  const { data: progress, isLoading } = useQuery({
-    queryKey: ["crm-estudiante", studentId, isSeed],
-    queryFn: () => fetchCrmStudentProgress(studentId, isSeed),
+  const { data: progress, isLoading, isError } = useQuery({
+    queryKey: ["crm-estudiante", classId, studentId, isSeed],
+    queryFn: () => fetchCrmStudentProgress(studentId, isSeed, classId),
   });
 
   const entry = CATALOG.find((c) => String(c.n) === lessonId);
@@ -69,7 +69,9 @@ function LeccionDetail() {
         ]}
       />
 
-      {isLoading || !progress ? (
+      {isError ? (
+        <div role="alert" className="rounded-2xl border border-red-200 bg-red-50 p-8 text-center font-bold text-red-800">No se pudo abrir este alumno en esta clase.</div>
+      ) : isLoading || !progress ? (
         <div className="p-12 text-center font-bold text-stone-400 animate-pulse bg-white border border-stone-200 rounded-[2rem]">
           Cargando lección...
         </div>

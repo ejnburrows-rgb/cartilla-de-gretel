@@ -240,6 +240,18 @@ describe("teacher.functions tests", () => {
   });
 
   describe("getStudentProgress", () => {
+    it("filters by class before reading student data from a direct URL", async () => {
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
+      const notInClass = makeQueryBuilder(ok(null));
+      vi.mocked(supabase.from).mockReturnValueOnce(notInClass as never);
+
+      await expect(
+        getStudentProgress({ data: { id: STUDENT_ID, classId: CLASS_ID } }),
+      ).rejects.toThrow("Alumno no encontrado o sin permiso.");
+      expect(notInClass.eq).toHaveBeenCalledWith("class_id", CLASS_ID);
+      expect(supabase.from).toHaveBeenCalledTimes(1);
+    });
+
     it("throws when the student isn't owned by this teacher", async () => {
       vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
       const notFound = makeQueryBuilder(ok(null));
@@ -283,6 +295,27 @@ describe("teacher.functions tests", () => {
   });
 
   describe("getClassProgress", () => {
+    it("uses normalized lesson rows for completion even without a recent event", async () => {
+      vi.mocked(supabase.auth.getUser).mockResolvedValue(authedUser() as never);
+      vi.mocked(supabase.from)
+        .mockReturnValueOnce(makeQueryBuilder(ok({ id: CLASS_ID })) as never)
+        .mockReturnValueOnce(makeQueryBuilder(ok([{ id: STUDENT_ID, display_name: "Ana" }])) as never)
+        .mockReturnValueOnce(makeQueryBuilder(ok([])) as never)
+        .mockReturnValueOnce(makeQueryBuilder(ok([])) as never)
+        .mockReturnValueOnce(makeQueryBuilder(ok([])) as never)
+        .mockReturnValueOnce(makeQueryBuilder(ok([
+          { student_id: STUDENT_ID, lesson_id: "2", status: "completed" },
+        ])) as never);
+
+      const result = await getClassProgress({ data: { id: CLASS_ID } });
+      expect(result.perStudent[0]).toMatchObject({
+        id: STUDENT_ID,
+        lessonsCount: 1,
+        completedLessonIds: ["2"],
+      });
+      expect(result.perLesson["2"]).toMatchObject({ completedBy: 1, accuracy: null });
+    });
+
     it("rejects an id that is not a UUID before touching the database", async () => {
       await expect(getClassProgress({ data: { id: "not-a-uuid" } })).rejects.toThrow();
       expect(supabase.from).not.toHaveBeenCalled();

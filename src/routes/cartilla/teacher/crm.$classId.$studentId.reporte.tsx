@@ -19,9 +19,9 @@ function ReporteFamilias() {
   const [copyMessage, setCopyMessage] = useState("");
   const isSeed = useMemo(() => isSeedSessionActive(), []);
 
-  const { data: progress, isLoading } = useQuery({
-    queryKey: ["crm-estudiante", studentId, isSeed],
-    queryFn: () => fetchCrmStudentProgress(studentId, isSeed),
+  const { data: progress, isLoading, isError } = useQuery({
+    queryKey: ["crm-estudiante", classId, studentId, isSeed],
+    queryFn: () => fetchCrmStudentProgress(studentId, isSeed, classId),
   });
 
   const summary = useMemo(() => {
@@ -54,6 +54,10 @@ function ReporteFamilias() {
       .filter((skill) => skill?.status === "mastered")
       .slice(0, 4);
   }, [progress, insight]);
+
+  if (isError) {
+    return <div role="alert" className="rounded-2xl border border-red-200 bg-red-50 p-8 text-center font-bold text-red-800">No se pudo abrir el reporte de este alumno en esta clase.</div>;
+  }
 
   if (isLoading || !progress || !summary || !insight) {
     return (

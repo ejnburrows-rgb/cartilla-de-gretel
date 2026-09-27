@@ -4,7 +4,7 @@ import { StudentPicker } from "@/components/teacher/StudentPicker";
 import { ReportCard } from "@/components/teacher/ReportCard";
 import { ArrowLeft, Printer, FileSpreadsheet } from "lucide-react";
 import { getStudentProgress, getClassProgress } from "@/lib/teacher.functions";
-import { isSeedSessionActive, getSeedStudentProgress, getSeedClassProgress } from "@/lib/seed-data";
+import { isSeedSessionActive, getSeedTeacherStudentProgress, getSeedClassProgress } from "@/lib/seed-data";
 import { exportClassProgressCsv, exportStudentProgressCsv } from "@/lib/csv-export";
 import "@/styles/teacher-print.css";
 
@@ -35,7 +35,8 @@ function TeacherReportsPage() {
     if (!classId) return;
 
     if (studentId) {
-      const data = isSeedSessionActive() ? getSeedStudentProgress(studentId) : await getStudentProgress({ data: { id: studentId } });
+      const data = isSeedSessionActive() ? getSeedTeacherStudentProgress(studentId) : await getStudentProgress({ data: { id: studentId, classId } });
+      if (data.student.class_id !== classId) return;
       exportStudentProgressCsv(data.student.display_name, data.events);
     } else {
       const data = isSeedSessionActive() ? getSeedClassProgress(classId) : await getClassProgress({ data: { id: classId } });

@@ -23,6 +23,7 @@ import {
 } from "@/lib/seed-data";
 import { fetchCrmStudentProgress } from "@/lib/crm-student-progress";
 import { buildStudentLearningInsight } from "@/lib/literacy-insights";
+import { summarizeStudentProgress } from "@/lib/progress-calculation";
 import { CATALOG } from "@/lib/lesson-catalog";
 import { Sidebar } from "./components/Sidebar";
 import { Topbar } from "./components/Topbar";
@@ -107,6 +108,11 @@ export function TeacherDailyHome() {
     enabled: Boolean(selectedClassId),
   });
   const assignments = assignmentsQuery.data ?? [];
+  const latestAssignment = assignments[0];
+  const presentationLesson = latestAssignment &&
+    CATALOG.some((entry) => String(entry.n) === latestAssignment.lesson_id)
+    ? latestAssignment.lesson_id
+    : null;
 
   const progressQueries = useQueries({
     queries: students.map((student) => ({
@@ -130,6 +136,14 @@ export function TeacherDailyHome() {
       insight: buildStudentLearningInsight(progress.events, completed, assignments),
     };
   });
+  const averageProgress = students.length > 0 && progressQueries.every((query) => query.data)
+    ? Math.round(
+        progressQueries.reduce(
+          (sum, query) => sum + summarizeStudentProgress(query.data!.lessonProgress).completionPercent,
+          0,
+        ) / students.length,
+      )
+    : null;
 
   const attentionRows = studentLearning
     .filter((row) => row.insight?.attention.length)
@@ -165,6 +179,10 @@ export function TeacherDailyHome() {
     (!isSeed && realClasses.isLoading) ||
     (!isSeed && Boolean(selectedClassId) && realClass.isLoading) ||
     progressQueries.some((query) => query.isLoading);
+  const loadError =
+    (!isSeed && (realClasses.isError || realClass.isError)) ||
+    assignmentsQuery.isError ||
+    progressQueries.some((query) => query.isError);
 
   const createNewClass = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -236,23 +254,27 @@ export function TeacherDailyHome() {
                     </select>
                   )}
                   <Link
-                    to="/cartilla/presentar/$n"
-                    params={{ n: "1" }}
+                    to={presentationLesson ? "/cartilla/presentar/$n" : "/cartilla/teacher/flipchart"}
+                    params={presentationLesson ? { n: presentationLesson } : undefined}
                     className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#176b87] px-4 py-2 text-sm font-black text-white"
                   >
-                    <MonitorPlay className="h-4 w-4" /> Presentar
+                    <MonitorPlay className="h-4 w-4" /> {presentationLesson ? `Presentar L${presentationLesson}` : "Elegir lección"}
                   </Link>
                 </div>
               </div>
               {message && <p className="mt-4 text-sm font-bold text-stone-600">{message}</p>}
             </header>
 
-            {classes.length === 0 ? (
+            {loadError ? (
+              <div role="alert" className="rounded-[2rem] border border-red-200 bg-red-50 p-8 text-center font-bold text-red-800">
+                No se pudieron cargar los datos de la clase. Recarga la página para intentarlo de nuevo.
+              </div>
+            ) : classes.length === 0 ? (
               <section className="rounded-[2rem] border border-[#eadfc8] bg-white p-8 text-center shadow-sm">
                 <Users className="mx-auto h-10 w-10 text-[#a45d22]" />
                 <h2 className="mt-3 text-2xl font-black text-stone-800">Crea tu primera clase</h2>
                 <form onSubmit={createNewClass} className="mx-auto mt-5 flex max-w-md gap-2">
-                  <input value={className} onChange={(event) => setClassName(event.target.value)} placeholder="Nombre de la clase" maxLength={80} className="min-h-12 flex-1 rounded-xl border border-stone-300 px-4 font-semibold" />
+                  <input aria-label="Nombre de la clase" value={className} onChange={(event) => setClassName(event.target.value)} placeholder="Nombre de la clase" maxLength={80} className="min-h-12 flex-1 rounded-xl border border-stone-300 px-4 font-semibold" />
                   <button disabled={busy || !className.trim()} className="min-h-12 rounded-xl bg-[#a45d22] px-5 font-black text-white disabled:opacity-50">Crear</button>
                 </form>
               </section>
@@ -263,9 +285,14 @@ export function TeacherDailyHome() {
                     <div>
                       <h2 className="text-lg font-black text-stone-800">{activeClass?.name}</h2>
                       <p className="mt-1 text-sm font-semibold text-stone-500">{students.length} estudiantes · Código {activeClass?.join_code}</p>
+                      <p className="mt-1 text-sm font-semibold text-stone-600">
+                        {averageProgress == null ? "Avance de clase: sin datos cargados" : `Avance promedio: ${averageProgress}%`}
+                        {" · "}
+                        {latestAssignment ? `Asignación más reciente: ${lessonTitle(latestAssignment.lesson_id)}` : "Sin lección asignada"}
+                      </p>
                     </div>
                     <form onSubmit={addNewStudent} className="flex w-full gap-2 md:max-w-md">
-                      <input value={studentName} onChange={(event) => setStudentName(event.target.value)} placeholder="Añadir estudiante" maxLength={60} className="min-h-11 flex-1 rounded-xl border border-stone-300 px-3 text-sm font-semibold" />
+                      <input aria-label="Nombre del estudiante" value={studentName} onChange={(event) => setStudentName(event.target.value)} placeholder="Añadir estudiante" maxLength={60} className="min-h-11 flex-1 rounded-xl border border-stone-300 px-3 text-sm font-semibold" />
                       <button aria-label="Añadir estudiante" disabled={busy || !studentName.trim()} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#356b43] px-4 text-sm font-black text-white disabled:opacity-50"><Plus className="h-4 w-4" /> Añadir</button>
                     </form>
                   </div>

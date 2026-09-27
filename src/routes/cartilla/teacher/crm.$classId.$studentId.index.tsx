@@ -50,9 +50,9 @@ function EstudianteDetail() {
   const [copied, setCopied] = useState(false);
   const isSeed = useMemo(() => isSeedSessionActive(), []);
 
-  const { data: progress, isLoading: loadingProgress, refetch } = useQuery({
-    queryKey: ["crm-estudiante", studentId, isSeed],
-    queryFn: () => fetchCrmStudentProgress(studentId, isSeed),
+  const { data: progress, isLoading: loadingProgress, isError: progressError, refetch } = useQuery({
+    queryKey: ["crm-estudiante", classId, studentId, isSeed],
+    queryFn: () => fetchCrmStudentProgress(studentId, isSeed, classId),
   });
 
   const { data: assignments } = useQuery({
@@ -133,7 +133,7 @@ function EstudianteDetail() {
     } else {
       await updateStudent({ data: { id, teacherNotes: updates.teacher_notes ?? null } });
     }
-    qc.invalidateQueries({ queryKey: ["crm-estudiante", studentId] });
+    qc.invalidateQueries({ queryKey: ["crm-estudiante", classId, studentId] });
     refetch();
   };
 
@@ -152,7 +152,9 @@ function EstudianteDetail() {
         ]}
       />
 
-      {loadingProgress || !progress || !summary || !insight ? (
+      {progressError ? (
+        <div role="alert" className="rounded-2xl border border-red-200 bg-red-50 p-8 text-center font-bold text-red-800">No se pudo abrir este alumno en esta clase.</div>
+      ) : loadingProgress || !progress || !summary || !insight ? (
         <div className="animate-pulse rounded-[2rem] border border-stone-200 bg-white p-12 text-center font-bold text-stone-400">Cargando alumno...</div>
       ) : (
         <div className="grid items-start gap-6 lg:grid-cols-[1fr_320px]">

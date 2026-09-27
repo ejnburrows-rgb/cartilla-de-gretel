@@ -20,7 +20,7 @@ export function TaskList({ classId }: TaskListProps) {
   const [timeLimit, setTimeLimit] = useState("");
   const [dueDate, setDueDate] = useState("");
 
-  const { data: assignments, isLoading } = useQuery({
+  const { data: assignments, isLoading, isError } = useQuery({
     queryKey: ["assignments", classId],
     queryFn: () => listAssignments({ data: { classId } }),
     enabled: !!classId,
@@ -61,6 +61,8 @@ export function TaskList({ classId }: TaskListProps) {
           <Rocket className="w-6 h-6 text-[#4f46e5]" /> Asignaciones
         </h3>
         <button
+          type="button"
+          aria-label={isCreating ? "Cerrar formulario de asignación" : "Crear asignación"}
           onClick={() => setIsCreating(!isCreating)}
           className="bg-[#4f46e5] text-white p-2 rounded-xl hover:bg-[#4338ca] hover:scale-105 active:scale-95 transition-all shadow-md"
         >
@@ -134,7 +136,11 @@ export function TaskList({ classId }: TaskListProps) {
           </form>
         )}
 
-        {isLoading ? (
+        {isError ? (
+          <div role="alert" className="rounded-xl border border-red-200 bg-red-50 p-4 text-sm font-bold text-red-800">
+            No se pudieron cargar las asignaciones.
+          </div>
+        ) : isLoading ? (
           <div className="text-center py-8 text-sm font-bold text-stone-400 animate-pulse">
             Cargando asignaciones…
           </div>
@@ -175,9 +181,15 @@ export function TaskList({ classId }: TaskListProps) {
                     </div>
                   </div>
                   <button
-                    onClick={() => deleteMut.mutate(task.id)}
+                    type="button"
+                    aria-label={`Eliminar asignación ${task.title || entry?.title || task.lesson_id}`}
+                    onClick={() => {
+                      if (window.confirm("¿Eliminar esta asignación y su historial de entregas?")) {
+                        deleteMut.mutate(task.id);
+                      }
+                    }}
                     disabled={deleteMut.isPending}
-                    className="text-stone-300 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity"
+                    className="min-h-11 min-w-11 inline-flex items-center justify-center text-stone-500 hover:text-red-700 focus-visible:text-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-700 transition-colors"
                   >
                     <Trash2 className="w-4 h-4" />
                   </button>

@@ -68,16 +68,17 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
   const isSeed = useMemo(() => isSeedSessionActive(), []);
 
   // 1. Fetch Student Progress if selected
-  const { data: realStudentData, isLoading: loadingRealStudent } = useQuery({
-    queryKey: ["teacher-student-progress", studentId],
-    queryFn: () => getStudentProgress({ data: { id: studentId! } }),
+  const { data: realStudentData, isLoading: loadingRealStudent, isError: studentError } = useQuery({
+    queryKey: ["teacher-student-progress", classId, studentId],
+    queryFn: () => getStudentProgress({ data: { id: studentId!, classId } }),
     enabled: !isSeed && !!studentId,
   });
 
   const seedStudentData = useMemo(() => {
     if (!isSeed || !studentId) return null;
     try {
-      return getSeedTeacherStudentProgress(studentId);
+      const progress = getSeedTeacherStudentProgress(studentId);
+      return progress.student.class_id === classId ? progress : null;
     } catch {
       return null;
     }
@@ -87,7 +88,7 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
   const loadingStudent = !isSeed && loadingRealStudent;
 
   // 2. Fetch Class Progress if no student selected
-  const { data: realClassProgressData, isLoading: loadingRealClass } = useQuery({
+  const { data: realClassProgressData, isLoading: loadingRealClass, isError: classError } = useQuery({
     queryKey: ["teacher-class-progress", classId],
     queryFn: () => getClassProgress({ data: { id: classId } }),
     enabled: !isSeed && !studentId && !!classId,
@@ -115,12 +116,20 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
     );
   }
 
+  if (studentError || classError) {
+    return <div role="alert" className="rounded-3xl border border-red-200 bg-red-50 p-8 text-center font-bold text-red-800">No se pudo cargar este reporte.</div>;
+  }
+
   // ── Render Individual Student Report ──
   if (studentId && studentData) {
-    const { student, class: classObj, events } = studentData;
+    const { student, class: classObj, events, lessonProgress } = studentData;
 
     // Aggregations
-    const completedLessons = events.filter((e: ReportEvent) => e.event_kind === "lesson_completed");
+    const completedLessons = new Set(
+      lessonProgress
+        .filter((row) => row.status === "completed")
+        .map((row) => row.lesson_id),
+    );
     const exerciseEvents = events.filter((e: ReportEvent) => e.event_kind === "exercise");
     const totalScore = exerciseEvents.reduce(
       (sum: number, e: ReportEvent) => sum + (e.score || 0),
@@ -166,7 +175,7 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
               <BookOpen className="w-6 h-6" />
             </div>
             <div>
-              <div className={metricValClass}>{completedLessons.length}</div>
+              <div className={metricValClass}>{completedLessons.size}</div>
               <div className={metricLblClass}>Lecciones Completas</div>
             </div>
           </div>
@@ -418,5 +427,9 @@ export function ReportCard({ classId, studentId }: ReportCardProps) {
     );
   }
 
-  return null;
+  return (
+    <div role="alert" className="rounded-3xl border border-stone-200 bg-white p-8 text-center font-bold text-stone-600">
+      {studentId ? "Alumno no encontrado en esta clase." : "No hay datos de reporte disponibles para esta clase."}
+    </div>
+  );
 }

@@ -25,7 +25,7 @@ function TeacherProgressPage() {
   const isSeed = useMemo(() => isSeedSessionActive(), []);
 
   // 1. Fetch Classes
-  const { data: realClasses, isLoading: loadingRealClasses } = useQuery({
+  const { data: realClasses, isLoading: loadingRealClasses, isError: classesError } = useQuery({
     queryKey: ["teacher-classes"],
     queryFn: () => listClasses(),
     enabled: !isSeed,
@@ -47,7 +47,7 @@ function TeacherProgressPage() {
   // old local-only crmService toggle: the grid is now a read-only reflection of
   // the lessons each student has actually completed (logged to Supabase / seed
   // store as they work), same data source the Reportes page uses.
-  const { data: realClassProgress, isLoading: loadingRealProgress } = useQuery({
+  const { data: realClassProgress, isLoading: loadingRealProgress, isError: progressError } = useQuery({
     queryKey: ["teacher-class-progress", selectedClassId],
     queryFn: () => getClassProgress({ data: { id: selectedClassId } }),
     enabled: !isSeed && !!selectedClassId,
@@ -107,7 +107,11 @@ function TeacherProgressPage() {
         </div>
       </div>
 
-      {loadingProgress ? (
+      {classesError || progressError ? (
+        <div role="alert" className="rounded-[2rem] border border-red-200 bg-red-50 p-8 text-center font-bold text-red-800">
+          No se pudo cargar el progreso. Recarga la página para intentarlo de nuevo.
+        </div>
+      ) : loadingProgress ? (
         <div className="p-12 text-center font-bold text-stone-400 animate-pulse bg-white border border-stone-200 rounded-[2rem]">
           Cargando progreso de la clase...
         </div>

@@ -34,9 +34,13 @@ export interface CrmStudentProgress {
 export async function fetchCrmStudentProgress(
   studentId: string,
   isSeed: boolean,
+  classId?: string,
 ): Promise<CrmStudentProgress> {
   if (isSeed) {
     const raw = getSeedTeacherStudentProgress(studentId);
+    if (classId && raw.student.class_id !== classId) {
+      throw new Error("Alumno no encontrado en esta clase.");
+    }
     return {
       student: {
         id: raw.student.id,
@@ -48,7 +52,10 @@ export async function fetchCrmStudentProgress(
       lessonProgress: raw.lessonProgress,
     };
   }
-  const raw = await getStudentProgress({ data: { id: studentId } });
+  const raw = await getStudentProgress({ data: { id: studentId, classId } });
+  if (classId && raw.student.class_id !== classId) {
+    throw new Error("Alumno no encontrado en esta clase.");
+  }
   return {
     student: {
       id: raw.student.id,
