@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { getReconstructedMasterAsset } from "@/lib/reconstruction-master";
-import { PdfPage } from "./PdfPage";
 
 interface ReconstructedWorkbookPageProps {
   pageNumber: number;
@@ -27,7 +26,22 @@ export function ReconstructedWorkbookPage({
   }, [pageNumber, master?.output_path]);
 
   if (!master || masterFailed) {
-    return <PdfPage pageNumber={pageNumber} className={className} />;
+    const sourcePath = `/cartilla/art/source/workbook/page-${String(pageNumber).padStart(3, "0")}.jpg`;
+    return (
+      <div
+        className={`relative flex h-full w-full items-center justify-center overflow-hidden bg-white ${className}`}
+        data-workbook-source="true"
+        data-printed-page={pageNumber}
+      >
+        <img
+          src={sourcePath}
+          alt={`Página ${pageNumber} del cuaderno`}
+          className="h-full w-full object-contain"
+          draggable={false}
+          loading="lazy"
+        />
+      </div>
+    );
   }
 
   return (
