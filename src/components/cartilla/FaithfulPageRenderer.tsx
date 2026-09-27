@@ -13,6 +13,7 @@ import { WorkbookLetterTrace } from "./WorkbookLetterTrace";
 import { getLetterTemplate } from "./letter-stroke-templates";
 import { LivingIllustration } from "@/components/living/LivingIllustration";
 import { EscucharInstruccionButton } from "./EscucharInstruccionButton";
+import { FixedLayoutPage } from "./FixedLayoutPage";
 import {
   DibujaFromRegion,
   LassoPictureGrid,
@@ -89,6 +90,8 @@ interface FaithfulPageRendererProps {
    * previews and must never pass this.
    */
   interactive?: boolean;
+  /** Use measured 612 x 792 positions when a page has verified geometry. */
+  fixedLayout?: boolean;
 }
 
 function IllustrationSlot({ region }: { region: PageRegion }) {
@@ -550,6 +553,7 @@ export function FaithfulPageRenderer({
   regions,
   fallback,
   interactive,
+  fixedLayout = false,
 }: FaithfulPageRendererProps) {
   const layout = regions ?? getPageLayout(pageNumber);
 
@@ -564,6 +568,19 @@ export function FaithfulPageRenderer({
         <p>Página en preparación</p>
       </PageFrame>
     );
+  }
+
+  if (fixedLayout) {
+    if (layout.length > 0 && layout.every((region) => {
+      const { x, y, width, height } = region;
+      return [x, y, width, height].every((value) =>
+        typeof value === "number" && Number.isFinite(value))
+        && x! >= 0 && y! >= 0 && width! > 0 && height! > 0
+        && x! + width! <= 1.000001 && y! + height! <= 1.000001;
+    })) {
+      return <FixedLayoutPage pageNumber={pageNumber} regions={layout} interactive={interactive} />;
+    }
+    if (fallback !== undefined) return <>{fallback}</>;
   }
 
   const ordered = [...layout].sort((a, b) => a.order - b.order);

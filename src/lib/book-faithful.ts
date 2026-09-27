@@ -70,10 +70,16 @@ export type PageRegionType =
   | "vowel-pick-one" // "Presiona el dibujo que comienza con la vocal del recuadro" — one row per vowel, 3 picture options
   | "vowel-match-all" // "Traza una línea de la vocal al dibujo que le corresponde" — all 5 vowels, each paired 1:1 with its picture
   | "reading-sentences" // one or more real practice sentences to read aloud, e.g. "Mi mamá me mima."
+  | "page-number"
   | "footer";
 
 /** A single illustration cell inside a picture-grid region. */
 export type PageGridCell = {
+  /** Optional normalized position on the original 612 x 792 page. */
+  x?: number;
+  y?: number;
+  width?: number;
+  height?: number;
   /** Faithful color crop path; absent → "art pending" (never invented). */
   illustrationSrc?: string;
   /** Real Spanish word the picture depicts (used as caption + art-pipeline slug). */
@@ -119,6 +125,12 @@ export type PageRegionFontRole = "heading" | "body" | "tracing";
 export type PageRegion = {
   id: string;
   regionType: PageRegionType;
+  /** Additive measured geometry for the fixed digital page. */
+  x?: number;
+  y?: number;
+  width?: number;
+  height?: number;
+  textAlign?: "start" | "end";
   /** Render order within the page, ascending. */
   order: number;
   fontRole: PageRegionFontRole;
@@ -140,6 +152,9 @@ export type PageRegion = {
   modelText?: string;
   /** For "picture-grid": number of columns (defaults to a sensible value). */
   columns?: number;
+  /** Measured table track proportions for fixed layouts; sum to 1. */
+  gridColumnFracs?: number[];
+  gridRowFracs?: number[];
   /** For "picture-grid": the illustration cells, in reading order. */
   cells?: PageGridCell[];
   /** For "syllable-match": the target syllable, e.g. "ma". */
@@ -153,7 +168,7 @@ export type PageRegion = {
   /** For "vowel-line-match": the word/example the printed page shows already connected to the vowel with a line. */
   exampleCaption?: string;
   /** For "vowel-pick-one": one row per vowel — the letter + its candidate picture cells (one is correct). */
-  vowelRows?: Array<{ letter: string; cells: PageGridCell[] }>;
+  vowelRows?: Array<{ letter: string; cells: PageGridCell[]; x?: number; y?: number; width?: number; height?: number }>;
   /** For "vowel-match-all": all 5 vowels, each 1:1 paired with its picture. */
   vowelPairs?: Array<{ letter: string } & PageGridCell>;
   /** For "reading-sentences": the real practice sentences, in reading order. */
