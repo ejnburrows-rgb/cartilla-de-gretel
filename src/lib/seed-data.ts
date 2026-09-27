@@ -412,9 +412,29 @@ export function signInSeedTeacher(email: string, password: string) {
 }
 
 export function getSeedTeacher() {
-  if (typeof window === "undefined") return null;
+  if (typeof window === "undefined" || !demoModeAllowed()) return null;
   const id = localStorage.getItem(AUTH_KEY);
   return SEED_TEACHERS.find((t) => t.id === id) ?? null;
+}
+
+function requireSeedTeacher() {
+  const teacher = isSeedSessionActive() ? getSeedTeacher() : null;
+  if (!teacher) throw new Error("Debes iniciar sesion como maestro.");
+  return teacher;
+}
+
+function requireOwnedSeedClass(state: SeedState, classId: string) {
+  const teacher = requireSeedTeacher();
+  const cls = state.classes.find((c) => c.id === classId && c.teacher_id === teacher.id);
+  if (!cls) throw new Error("Clase no encontrada.");
+  return cls;
+}
+
+function requireOwnedSeedStudent(state: SeedState, studentId: string) {
+  const student = state.students.find((s) => s.id === studentId);
+  if (!student) throw new Error("Alumno no encontrado.");
+  requireOwnedSeedClass(state, student.class_id);
+  return student;
 }
 
 export function signOutSeedTeacher() {
@@ -507,6 +527,7 @@ export function getSeedClass(id: string) {
 
 export function addSeedStudents(classId: string, names: string[]) {
   const state = readState();
+  requireOwnedSeedClass(state, classId);
   const rows = names.map((name) => ({
     id: `seed-student-${crypto.randomUUID()}`,
     class_id: classId,
@@ -521,6 +542,7 @@ export function addSeedStudents(classId: string, names: string[]) {
 
 export function deleteSeedStudent(id: string) {
   const state = readState();
+  requireOwnedSeedStudent(state, id);
   state.students = state.students.filter((s) => s.id !== id);
   state.events = state.events.filter((e) => e.student_id !== id);
   writeState(state);
@@ -529,9 +551,13 @@ export function deleteSeedStudent(id: string) {
 
 export function updateSeedStudent(id: string, updates: Partial<SeedStudent>) {
   const state = readState();
+  requireOwnedSeedStudent(state, id);
   const index = state.students.findIndex((s) => s.id === id);
-  if (index === -1) throw new Error("Alumno no encontrado.");
-  state.students[index] = { ...state.students[index], ...updates };
+  const allowed: Pick<SeedStudent, "display_name" | "teacher_notes"> = {
+    display_name: updates.display_name ?? state.students[index].display_name,
+    teacher_notes: updates.teacher_notes ?? state.students[index].teacher_notes,
+  };
+  state.students[index] = { ...state.students[index], ...allowed };
   writeState(state);
   return state.students[index];
 }
@@ -682,8 +708,7 @@ export function getSeedStudentProgress(studentId: string) {
 
 export function getSeedTeacherStudentProgress(id: string) {
   const state = readState();
-  const student = state.students.find((s) => s.id === id);
-  if (!student) throw new Error("Alumno no encontrado.");
+  const student = requireOwnedSeedStudent(state, id);
   const cls = state.classes.find((c) => c.id === student.class_id) ?? null;
   const events = state.events.filter((e) => e.student_id === id);
 
@@ -723,6 +748,11 @@ export function getSeedTeacherStudentProgress(id: string) {
 
 export function getSeedClassProgress(classId: string) {
   const state = readState();
+  requireOwnedSeedClass(state, classId);
+  return buildSeedClassProgress(classId, state);
+}
+
+function buildSeedClassProgress(classId: string, state: SeedState) {
   const studentIds = state.students
     .filter((s) => s.class_id === classId)
     .map((s) => s.id);
@@ -940,6 +970,7 @@ export type AdminOverview = {
  * Reuses getSeedClassProgress so every number matches what each teacher
  * sees on their own CRM — the admin view is a roll-up, never a fork. */
 export function getSeedAdminOverview(): AdminOverview {
+  if (!isSeedAdmin()) throw new Error("Sin permiso para ver la dirección.");
   const state = readState();
   let globalScore = 0;
   let globalTotal = 0;
@@ -948,7 +979,7 @@ export function getSeedAdminOverview(): AdminOverview {
     const classes = state.classes
       .filter((c) => c.teacher_id === t.id)
       .map((c): AdminClassSummary => {
-        const progress = getSeedClassProgress(c.id);
+        const progress = buildSeedClassProgress(c.id, state);
         const classEvents = state.events.filter((e) =>
           state.students.some(
             (s) => s.class_id === c.id && s.id === e.student_id,

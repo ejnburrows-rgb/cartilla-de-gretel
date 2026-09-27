@@ -20,6 +20,7 @@ const STATE_KEY = "cartilla.seed.state.v1";
 describe("admin cross-teacher overview (demo lane, D7)", () => {
   beforeEach(() => {
     localStorage.clear();
+    localStorage.setItem(AUTH_KEY, "seed-teacher-leonor");
   });
 
   it("covers every seed teacher and only their own classes", () => {
@@ -39,6 +40,7 @@ describe("admin cross-teacher overview (demo lane, D7)", () => {
     const overview = getSeedAdminOverview();
     for (const t of overview.teachers) {
       for (const c of t.classes) {
+        localStorage.setItem(AUTH_KEY, t.teacherId);
         const progress = getSeedClassProgress(c.classId);
         expect(c.studentCount).toBe(progress.perStudent.length);
         expect(c.lessonsCompleted).toBe(
@@ -91,6 +93,7 @@ describe("admin cross-teacher overview (demo lane, D7)", () => {
   });
 
   it("isSeedAdmin is true only for the admin seed account", () => {
+    localStorage.removeItem(AUTH_KEY);
     expect(isSeedAdmin()).toBe(false); // signed out
     localStorage.setItem(AUTH_KEY, "seed-teacher-emilio");
     expect(isSeedAdmin()).toBe(false); // regular teacher
