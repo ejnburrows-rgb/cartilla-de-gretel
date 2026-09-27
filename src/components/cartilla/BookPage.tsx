@@ -1,6 +1,4 @@
-import { PdfPage } from "./PdfPage";
-import { FaithfulPageRenderer } from "./FaithfulPageRenderer";
-import { hasPageLayout } from "@/lib/book-faithful";
+import { ReconstructedWorkbookPage } from "./ReconstructedWorkbookPage";
 
 interface BookPageProps {
   pageNumber: number;
@@ -12,11 +10,7 @@ export function BookPage({ pageNumber, active = false }: BookPageProps) {
 
   return (
     <div className={`book-page ${activeClass} w-full h-full`}>
-      {hasPageLayout(pageNumber) ? (
-        <FaithfulPageRenderer pageNumber={pageNumber} interactive={false} />
-      ) : (
-        <PdfPage pageNumber={pageNumber} className="w-full h-full" />
-      )}
+      <ReconstructedWorkbookPage pageNumber={pageNumber} className="w-full h-full" />
     </div>
   );
 }
