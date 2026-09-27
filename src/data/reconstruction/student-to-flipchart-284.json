@@ -1,0 +1,891 @@
+{
+  "source_student": "Libro del alumno - Rescan and Optimize (2).pdf",
+  "source_flipchart": "La Cartilla de Gretel Flip Chart.pdf",
+  "student_pages": 98,
+  "flipchart_pages": 62,
+  "mapping_method": "Direct visual/content matching by lesson and page function; primary pages are closest matches, supplemental pages are same-lesson or reused-vowel references.",
+  "mappings": [
+    {
+      "student_pdf_page": 1,
+      "lesson": "front",
+      "topic": "cover",
+      "primary_flip_pages": "1",
+      "supplemental_flip_pages": "",
+      "mapping_basis": "visual/content match",
+      "notes": "Cover/title art corresponds directly."
+    },
+    {
+      "student_pdf_page": 2,
+      "lesson": "front",
+      "topic": "blank",
+      "primary_flip_pages": "",
+      "supplemental_flip_pages": "",
+      "mapping_basis": "visual/content match",
+      "notes": "Blank page."
+    },
+    {
+      "student_pdf_page": 3,
+      "lesson": "front",
+      "topic": "title",
+      "primary_flip_pages": "1",
+      "supplemental_flip_pages": "",
+      "mapping_basis": "visual/content match",
+      "notes": "Student title page reuses cover/title artwork in grayscale."
+    },
+    {
+      "student_pdf_page": 4,
+      "lesson": "front",
+      "topic": "credits",
+      "primary_flip_pages": "2",
+      "supplemental_flip_pages": "",
+      "mapping_basis": "visual/content match",
+      "notes": "Publication/credits matter."
+    },
+    {
+      "student_pdf_page": 5,
+      "lesson": "front",
+      "topic": "contents",
+      "primary_flip_pages": "",
+      "supplemental_flip_pages": "",
+      "mapping_basis": "visual/content match",
+      "notes": "No direct flip-chart counterpart."
+    },
+    {
+      "student_pdf_page": 6,
+      "lesson": "front",
+      "topic": "ownership",
+      "primary_flip_pages": "",
+      "supplemental_flip_pages": "",
+      "mapping_basis": "visual/content match",
+      "notes": "No direct flip-chart counterpart."
+    },
+    {
+      "student_pdf_page": 7,
+      "lesson": 1,
+      "topic": "vowels",
+      "primary_flip_pages": "3",
+      "supplemental_flip_pages": "4,5,6,7,8",
+      "mapping_basis": "visual/content match",
+      "notes": "Exercises mix examples from all vowels; Flip pages 3–8 are the useful reference pool."
+    },
+    {
+      "student_pdf_page": 8,
+      "lesson": 1,
+      "topic": "vowels",
+      "primary_flip_pages": "3",
+      "supplemental_flip_pages": "4,5,6,7,8",
+      "mapping_basis": "visual/content match",
+      "notes": "Exercises mix examples from all vowels; Flip pages 3–8 are the useful reference pool."
+    },
+    {
+      "student_pdf_page": 9,
+      "lesson": 1,
+      "topic": "vowels",
+      "primary_flip_pages": "3",
+      "supplemental_flip_pages": "4,5,6,7,8",
+      "mapping_basis": "visual/content match",
+      "notes": "Exercises mix examples from all vowels; Flip pages 3–8 are the useful reference pool."
+    },
+    {
+      "student_pdf_page": 10,
+      "lesson": 2,
+      "topic": "O",
+      "primary_flip_pages": "4",
+      "supplemental_flip_pages": "3,5,6,7,8",
+      "mapping_basis": "visual/content match",
+      "notes": "Primary reference is the O flip page; exercise distractors reuse imagery from other vowel pages."
+    },
+    {
+      "student_pdf_page": 11,
+      "lesson": 2,
+      "topic": "O",
+      "primary_flip_pages": "4",
+      "supplemental_flip_pages": "3,5,6,7,8",
+      "mapping_basis": "visual/content match",
+      "notes": "Primary reference is the O flip page; exercise distractors reuse imagery from other vowel pages."
+    },
+    {
+      "student_pdf_page": 12,
+      "lesson": 2,
+      "topic": "O",
+      "primary_flip_pages": "4",
+      "supplemental_flip_pages": "3",
+      "mapping_basis": "visual/content match",
+      "notes": "Writing/drawing page; use the O flip page as lesson/color context."
+    },
+    {
+      "student_pdf_page": 13,
+      "lesson": 3,
+      "topic": "A",
+      "primary_flip_pages": "5",
+      "supplemental_flip_pages": "3,4,6,7,8",
+      "mapping_basis": "visual/content match",
+      "notes": "Primary reference is the A flip page; exercise distractors reuse imagery from other vowel pages."
+    },
+    {
+      "student_pdf_page": 14,
+      "lesson": 3,
+      "topic": "A",
+      "primary_flip_pages": "5",
+      "supplemental_flip_pages": "3,4,6,7,8",
+      "mapping_basis": "visual/content match",
+      "notes": "Primary reference is the A flip page; exercise distractors reuse imagery from other vowel pages."
+    },
+    {
+      "student_pdf_page": 15,
+      "lesson": 3,
+      "topic": "A",
+      "primary_flip_pages": "5",
+      "supplemental_flip_pages": "3",
+      "mapping_basis": "visual/content match",
+      "notes": "Writing/drawing page; use the A flip page as lesson/color context."
+    },
+    {
+      "student_pdf_page": 16,
+      "lesson": 4,
+      "topic": "E",
+      "primary_flip_pages": "6",
+      "supplemental_flip_pages": "3,4,5,7,8",
+      "mapping_basis": "visual/content match",
+      "notes": "Primary reference is the E flip page; exercise distractors reuse imagery from other vowel pages."
+    },
+    {
+      "student_pdf_page": 17,
+      "lesson": 4,
+      "topic": "E",
+      "primary_flip_pages": "6",
+      "supplemental_flip_pages": "3,4,5,7,8",
+      "mapping_basis": "visual/content match",
+      "notes": "Primary reference is the E flip page; exercise distractors reuse imagery from other vowel pages."
+    },
+    {
+      "student_pdf_page": 18,
+      "lesson": 4,
+      "topic": "E",
+      "primary_flip_pages": "6",
+      "supplemental_flip_pages": "3",
+      "mapping_basis": "visual/content match",
+      "notes": "Writing/drawing page; use the E flip page as lesson/color context."
+    },
+    {
+      "student_pdf_page": 19,
+      "lesson": 5,
+      "topic": "I",
+      "primary_flip_pages": "7",
+      "supplemental_flip_pages": "3,4,5,6,8",
+      "mapping_basis": "visual/content match",
+      "notes": "Primary reference is the I flip page; exercise distractors reuse imagery from other vowel pages."
+    },
+    {
+      "student_pdf_page": 20,
+      "lesson": 5,
+      "topic": "I",
+      "primary_flip_pages": "7",
+      "supplemental_flip_pages": "3,4,5,6,8",
+      "mapping_basis": "visual/content match",
+      "notes": "Primary reference is the I flip page; exercise distractors reuse imagery from other vowel pages."
+    },
+    {
+      "student_pdf_page": 21,
+      "lesson": 5,
+      "topic": "I",
+      "primary_flip_pages": "7",
+      "supplemental_flip_pages": "3",
+      "mapping_basis": "visual/content match",
+      "notes": "Writing/drawing page; use the I flip page as lesson/color context."
+    },
+    {
+      "student_pdf_page": 22,
+      "lesson": 6,
+      "topic": "U",
+      "primary_flip_pages": "8",
+      "supplemental_flip_pages": "3,4,5,6,7",
+      "mapping_basis": "visual/content match",
+      "notes": "Primary reference is the U flip page; exercise distractors reuse imagery from other vowel pages."
+    },
+    {
+      "student_pdf_page": 23,
+      "lesson": 6,
+      "topic": "U",
+      "primary_flip_pages": "8",
+      "supplemental_flip_pages": "3,4,5,6,7",
+      "mapping_basis": "visual/content match",
+      "notes": "Primary reference is the U flip page; exercise distractors reuse imagery from other vowel pages."
+    },
+    {
+      "student_pdf_page": 24,
+      "lesson": 6,
+      "topic": "U",
+      "primary_flip_pages": "8",
+      "supplemental_flip_pages": "3",
+      "mapping_basis": "visual/content match",
+      "notes": "Writing/drawing page; use the U flip page as lesson/color context."
+    },
+    {
+      "student_pdf_page": 25,
+      "lesson": 7,
+      "topic": "M",
+      "primary_flip_pages": "9",
+      "supplemental_flip_pages": "10,11",
+      "mapping_basis": "visual/content match",
+      "notes": "Handwriting/drawing page; illustrated flip intro is the strongest visual reference."
+    },
+    {
+      "student_pdf_page": 26,
+      "lesson": 7,
+      "topic": "M",
+      "primary_flip_pages": "9,10",
+      "supplemental_flip_pages": "11",
+      "mapping_basis": "visual/content match",
+      "notes": "Syllable/word exercise matches the lesson intro and word-list flip pages."
+    },
+    {
+      "student_pdf_page": 27,
+      "lesson": 7,
+      "topic": "M",
+      "primary_flip_pages": "10",
+      "supplemental_flip_pages": "11",
+      "mapping_basis": "visual/content match",
+      "notes": "Reading/word-list page most closely matches the middle flip page; story page is supplemental."
+    },
+    {
+      "student_pdf_page": 28,
+      "lesson": 7,
+      "topic": "M",
+      "primary_flip_pages": "10",
+      "supplemental_flip_pages": "9,11",
+      "mapping_basis": "visual/content match",
+      "notes": "Completion/writing page draws from the same lesson vocabulary; other lesson flip pages are supplemental."
+    },
+    {
+      "student_pdf_page": 29,
+      "lesson": 8,
+      "topic": "P",
+      "primary_flip_pages": "12",
+      "supplemental_flip_pages": "13,14",
+      "mapping_basis": "visual/content match",
+      "notes": "Handwriting/drawing page; illustrated flip intro is the strongest visual reference."
+    },
+    {
+      "student_pdf_page": 30,
+      "lesson": 8,
+      "topic": "P",
+      "primary_flip_pages": "12,13",
+      "supplemental_flip_pages": "14",
+      "mapping_basis": "visual/content match",
+      "notes": "Syllable/word exercise matches the lesson intro and word-list flip pages."
+    },
+    {
+      "student_pdf_page": 31,
+      "lesson": 8,
+      "topic": "P",
+      "primary_flip_pages": "13",
+      "supplemental_flip_pages": "14",
+      "mapping_basis": "visual/content match",
+      "notes": "Reading/word-list page most closely matches the middle flip page; story page is supplemental."
+    },
+    {
+      "student_pdf_page": 32,
+      "lesson": 8,
+      "topic": "P",
+      "primary_flip_pages": "13",
+      "supplemental_flip_pages": "12,14",
+      "mapping_basis": "visual/content match",
+      "notes": "Completion/writing page draws from the same lesson vocabulary; other lesson flip pages are supplemental."
+    },
+    {
+      "student_pdf_page": 33,
+      "lesson": 9,
+      "topic": "S",
+      "primary_flip_pages": "15",
+      "supplemental_flip_pages": "16,17",
+      "mapping_basis": "visual/content match",
+      "notes": "Handwriting/drawing page; illustrated flip intro is the strongest visual reference."
+    },
+    {
+      "student_pdf_page": 34,
+      "lesson": 9,
+      "topic": "S",
+      "primary_flip_pages": "15,16",
+      "supplemental_flip_pages": "17",
+      "mapping_basis": "visual/content match",
+      "notes": "Syllable/word exercise matches the lesson intro and word-list flip pages."
+    },
+    {
+      "student_pdf_page": 35,
+      "lesson": 9,
+      "topic": "S",
+      "primary_flip_pages": "16",
+      "supplemental_flip_pages": "17",
+      "mapping_basis": "visual/content match",
+      "notes": "Reading/word-list page most closely matches the middle flip page; story page is supplemental."
+    },
+    {
+      "student_pdf_page": 36,
+      "lesson": 9,
+      "topic": "S",
+      "primary_flip_pages": "16",
+      "supplemental_flip_pages": "15,17",
+      "mapping_basis": "visual/content match",
+      "notes": "Completion/writing page draws from the same lesson vocabulary; other lesson flip pages are supplemental."
+    },
+    {
+      "student_pdf_page": 37,
+      "lesson": 10,
+      "topic": "T",
+      "primary_flip_pages": "18",
+      "supplemental_flip_pages": "19,20",
+      "mapping_basis": "visual/content match",
+      "notes": "Handwriting/drawing page; illustrated flip intro is the strongest visual reference."
+    },
+    {
+      "student_pdf_page": 38,
+      "lesson": 10,
+      "topic": "T",
+      "primary_flip_pages": "18,19",
+      "supplemental_flip_pages": "20",
+      "mapping_basis": "visual/content match",
+      "notes": "Syllable/word exercise matches the lesson intro and word-list flip pages."
+    },
+    {
+      "student_pdf_page": 39,
+      "lesson": 10,
+      "topic": "T",
+      "primary_flip_pages": "19",
+      "supplemental_flip_pages": "20",
+      "mapping_basis": "visual/content match",
+      "notes": "Reading/word-list page most closely matches the middle flip page; story page is supplemental."
+    },
+    {
+      "student_pdf_page": 40,
+      "lesson": 10,
+      "topic": "T",
+      "primary_flip_pages": "19",
+      "supplemental_flip_pages": "18,20",
+      "mapping_basis": "visual/content match",
+      "notes": "Completion/writing page draws from the same lesson vocabulary; other lesson flip pages are supplemental."
+    },
+    {
+      "student_pdf_page": 41,
+      "lesson": 11,
+      "topic": "D",
+      "primary_flip_pages": "21",
+      "supplemental_flip_pages": "22,23",
+      "mapping_basis": "visual/content match",
+      "notes": "Handwriting/drawing page; illustrated flip intro is the strongest visual reference."
+    },
+    {
+      "student_pdf_page": 42,
+      "lesson": 11,
+      "topic": "D",
+      "primary_flip_pages": "21,22",
+      "supplemental_flip_pages": "23",
+      "mapping_basis": "visual/content match",
+      "notes": "Syllable/word exercise matches the lesson intro and word-list flip pages."
+    },
+    {
+      "student_pdf_page": 43,
+      "lesson": 11,
+      "topic": "D",
+      "primary_flip_pages": "22",
+      "supplemental_flip_pages": "23",
+      "mapping_basis": "visual/content match",
+      "notes": "Reading/word-list page most closely matches the middle flip page; story page is supplemental."
+    },
+    {
+      "student_pdf_page": 44,
+      "lesson": 11,
+      "topic": "D",
+      "primary_flip_pages": "22",
+      "supplemental_flip_pages": "21,23",
+      "mapping_basis": "visual/content match",
+      "notes": "Completion/writing page draws from the same lesson vocabulary; other lesson flip pages are supplemental."
+    },
+    {
+      "student_pdf_page": 45,
+      "lesson": 12,
+      "topic": "L",
+      "primary_flip_pages": "24",
+      "supplemental_flip_pages": "25,26",
+      "mapping_basis": "visual/content match",
+      "notes": "Handwriting/drawing page; illustrated flip intro is the strongest visual reference."
+    },
+    {
+      "student_pdf_page": 46,
+      "lesson": 12,
+      "topic": "L",
+      "primary_flip_pages": "24,25",
+      "supplemental_flip_pages": "26",
+      "mapping_basis": "visual/content match",
+      "notes": "Syllable/word exercise matches the lesson intro and word-list flip pages."
+    },
+    {
+      "student_pdf_page": 47,
+      "lesson": 12,
+      "topic": "L",
+      "primary_flip_pages": "25",
+      "supplemental_flip_pages": "26",
+      "mapping_basis": "visual/content match",
+      "notes": "Reading/word-list page most closely matches the middle flip page; story page is supplemental."
+    },
+    {
+      "student_pdf_page": 48,
+      "lesson": 12,
+      "topic": "L",
+      "primary_flip_pages": "25",
+      "supplemental_flip_pages": "24,26",
+      "mapping_basis": "visual/content match",
+      "notes": "Completion/writing page draws from the same lesson vocabulary; other lesson flip pages are supplemental."
+    },
+    {
+      "student_pdf_page": 49,
+      "lesson": 13,
+      "topic": "N",
+      "primary_flip_pages": "27",
+      "supplemental_flip_pages": "28,29",
+      "mapping_basis": "visual/content match",
+      "notes": "Handwriting/drawing page; illustrated flip intro is the strongest visual reference."
+    },
+    {
+      "student_pdf_page": 50,
+      "lesson": 13,
+      "topic": "N",
+      "primary_flip_pages": "27,28",
+      "supplemental_flip_pages": "29",
+      "mapping_basis": "visual/content match",
+      "notes": "Syllable/word exercise matches the lesson intro and word-list flip pages."
+    },
+    {
+      "student_pdf_page": 51,
+      "lesson": 13,
+      "topic": "N",
+      "primary_flip_pages": "28",
+      "supplemental_flip_pages": "29",
+      "mapping_basis": "visual/content match",
+      "notes": "Reading/word-list page most closely matches the middle flip page; story page is supplemental."
+    },
+    {
+      "student_pdf_page": 52,
+      "lesson": 13,
+      "topic": "N",
+      "primary_flip_pages": "28",
+      "supplemental_flip_pages": "27,29",
+      "mapping_basis": "visual/content match",
+      "notes": "Completion/writing page draws from the same lesson vocabulary; other lesson flip pages are supplemental."
+    },
+    {
+      "student_pdf_page": 53,
+      "lesson": 14,
+      "topic": "Ñ",
+      "primary_flip_pages": "30",
+      "supplemental_flip_pages": "31,32",
+      "mapping_basis": "visual/content match",
+      "notes": "Handwriting/drawing page; illustrated flip intro is the strongest visual reference."
+    },
+    {
+      "student_pdf_page": 54,
+      "lesson": 14,
+      "topic": "Ñ",
+      "primary_flip_pages": "30,31",
+      "supplemental_flip_pages": "32",
+      "mapping_basis": "visual/content match",
+      "notes": "Syllable/word exercise matches the lesson intro and word-list flip pages."
+    },
+    {
+      "student_pdf_page": 55,
+      "lesson": 14,
+      "topic": "Ñ",
+      "primary_flip_pages": "31",
+      "supplemental_flip_pages": "32",
+      "mapping_basis": "visual/content match",
+      "notes": "Reading/word-list page most closely matches the middle flip page; story page is supplemental."
+    },
+    {
+      "student_pdf_page": 56,
+      "lesson": 14,
+      "topic": "Ñ",
+      "primary_flip_pages": "31",
+      "supplemental_flip_pages": "30,32",
+      "mapping_basis": "visual/content match",
+      "notes": "Completion/writing page draws from the same lesson vocabulary; other lesson flip pages are supplemental."
+    },
+    {
+      "student_pdf_page": 57,
+      "lesson": 15,
+      "topic": "B",
+      "primary_flip_pages": "33",
+      "supplemental_flip_pages": "34,35",
+      "mapping_basis": "visual/content match",
+      "notes": "Handwriting/drawing page; illustrated flip intro is the strongest visual reference."
+    },
+    {
+      "student_pdf_page": 58,
+      "lesson": 15,
+      "topic": "B",
+      "primary_flip_pages": "33,34",
+      "supplemental_flip_pages": "35",
+      "mapping_basis": "visual/content match",
+      "notes": "Syllable/word exercise matches the lesson intro and word-list flip pages."
+    },
+    {
+      "student_pdf_page": 59,
+      "lesson": 15,
+      "topic": "B",
+      "primary_flip_pages": "34",
+      "supplemental_flip_pages": "35",
+      "mapping_basis": "visual/content match",
+      "notes": "Reading/word-list page most closely matches the middle flip page; story page is supplemental."
+    },
+    {
+      "student_pdf_page": 60,
+      "lesson": 15,
+      "topic": "B",
+      "primary_flip_pages": "34",
+      "supplemental_flip_pages": "33,35",
+      "mapping_basis": "visual/content match",
+      "notes": "Completion/writing page draws from the same lesson vocabulary; other lesson flip pages are supplemental."
+    },
+    {
+      "student_pdf_page": 61,
+      "lesson": 16,
+      "topic": "V",
+      "primary_flip_pages": "36",
+      "supplemental_flip_pages": "37,38",
+      "mapping_basis": "visual/content match",
+      "notes": "Handwriting/drawing page; illustrated flip intro is the strongest visual reference."
+    },
+    {
+      "student_pdf_page": 62,
+      "lesson": 16,
+      "topic": "V",
+      "primary_flip_pages": "36,37",
+      "supplemental_flip_pages": "38",
+      "mapping_basis": "visual/content match",
+      "notes": "Syllable/word exercise matches the lesson intro and word-list flip pages."
+    },
+    {
+      "student_pdf_page": 63,
+      "lesson": 16,
+      "topic": "V",
+      "primary_flip_pages": "37",
+      "supplemental_flip_pages": "38",
+      "mapping_basis": "visual/content match",
+      "notes": "Reading/word-list page most closely matches the middle flip page; story page is supplemental."
+    },
+    {
+      "student_pdf_page": 64,
+      "lesson": 16,
+      "topic": "V",
+      "primary_flip_pages": "37",
+      "supplemental_flip_pages": "36,38",
+      "mapping_basis": "visual/content match",
+      "notes": "Completion/writing page draws from the same lesson vocabulary; other lesson flip pages are supplemental."
+    },
+    {
+      "student_pdf_page": 65,
+      "lesson": 17,
+      "topic": "R",
+      "primary_flip_pages": "39",
+      "supplemental_flip_pages": "40,41",
+      "mapping_basis": "visual/content match",
+      "notes": "Handwriting/drawing page; illustrated flip intro is the strongest visual reference."
+    },
+    {
+      "student_pdf_page": 66,
+      "lesson": 17,
+      "topic": "R",
+      "primary_flip_pages": "39,40",
+      "supplemental_flip_pages": "41",
+      "mapping_basis": "visual/content match",
+      "notes": "Syllable/word exercise matches the lesson intro and word-list flip pages."
+    },
+    {
+      "student_pdf_page": 67,
+      "lesson": 17,
+      "topic": "R",
+      "primary_flip_pages": "40",
+      "supplemental_flip_pages": "41",
+      "mapping_basis": "visual/content match",
+      "notes": "Reading/word-list page most closely matches the middle flip page; story page is supplemental."
+    },
+    {
+      "student_pdf_page": 68,
+      "lesson": 17,
+      "topic": "R",
+      "primary_flip_pages": "40",
+      "supplemental_flip_pages": "39,41",
+      "mapping_basis": "visual/content match",
+      "notes": "Completion/writing page draws from the same lesson vocabulary; other lesson flip pages are supplemental."
+    },
+    {
+      "student_pdf_page": 69,
+      "lesson": 18,
+      "topic": "rr",
+      "primary_flip_pages": "42",
+      "supplemental_flip_pages": "43,44",
+      "mapping_basis": "visual/content match",
+      "notes": "Handwriting/drawing page; illustrated flip intro is the strongest visual reference."
+    },
+    {
+      "student_pdf_page": 70,
+      "lesson": 18,
+      "topic": "rr",
+      "primary_flip_pages": "42,43",
+      "supplemental_flip_pages": "44",
+      "mapping_basis": "visual/content match",
+      "notes": "Syllable/word exercise matches the lesson intro and word-list flip pages."
+    },
+    {
+      "student_pdf_page": 71,
+      "lesson": 18,
+      "topic": "rr",
+      "primary_flip_pages": "43",
+      "supplemental_flip_pages": "44",
+      "mapping_basis": "visual/content match",
+      "notes": "Reading/word-list page most closely matches the middle flip page; story page is supplemental."
+    },
+    {
+      "student_pdf_page": 72,
+      "lesson": 18,
+      "topic": "rr",
+      "primary_flip_pages": "43",
+      "supplemental_flip_pages": "42,44",
+      "mapping_basis": "visual/content match",
+      "notes": "Completion/writing page draws from the same lesson vocabulary; other lesson flip pages are supplemental."
+    },
+    {
+      "student_pdf_page": 73,
+      "lesson": 19,
+      "topic": "G",
+      "primary_flip_pages": "45",
+      "supplemental_flip_pages": "46,47",
+      "mapping_basis": "visual/content match",
+      "notes": "Handwriting/drawing page; illustrated flip intro is the strongest visual reference."
+    },
+    {
+      "student_pdf_page": 74,
+      "lesson": 19,
+      "topic": "G",
+      "primary_flip_pages": "45,46",
+      "supplemental_flip_pages": "47",
+      "mapping_basis": "visual/content match",
+      "notes": "Syllable/word exercise matches the lesson intro and word-list flip pages."
+    },
+    {
+      "student_pdf_page": 75,
+      "lesson": 19,
+      "topic": "G",
+      "primary_flip_pages": "46",
+      "supplemental_flip_pages": "47",
+      "mapping_basis": "visual/content match",
+      "notes": "Reading/word-list page most closely matches the middle flip page; story page is supplemental."
+    },
+    {
+      "student_pdf_page": 76,
+      "lesson": 19,
+      "topic": "G",
+      "primary_flip_pages": "46",
+      "supplemental_flip_pages": "45,47",
+      "mapping_basis": "visual/content match",
+      "notes": "Completion/writing page draws from the same lesson vocabulary; other lesson flip pages are supplemental."
+    },
+    {
+      "student_pdf_page": 77,
+      "lesson": 20,
+      "topic": "F",
+      "primary_flip_pages": "48",
+      "supplemental_flip_pages": "49,50",
+      "mapping_basis": "visual/content match",
+      "notes": "Handwriting/drawing page; illustrated flip intro is the strongest visual reference."
+    },
+    {
+      "student_pdf_page": 78,
+      "lesson": 20,
+      "topic": "F",
+      "primary_flip_pages": "48,49",
+      "supplemental_flip_pages": "50",
+      "mapping_basis": "visual/content match",
+      "notes": "Syllable/word exercise matches the lesson intro and word-list flip pages."
+    },
+    {
+      "student_pdf_page": 79,
+      "lesson": 20,
+      "topic": "F",
+      "primary_flip_pages": "49",
+      "supplemental_flip_pages": "50",
+      "mapping_basis": "visual/content match",
+      "notes": "Reading/word-list page most closely matches the middle flip page; story page is supplemental."
+    },
+    {
+      "student_pdf_page": 80,
+      "lesson": 20,
+      "topic": "F",
+      "primary_flip_pages": "49",
+      "supplemental_flip_pages": "48,50",
+      "mapping_basis": "visual/content match",
+      "notes": "Completion/writing page draws from the same lesson vocabulary; other lesson flip pages are supplemental."
+    },
+    {
+      "student_pdf_page": 81,
+      "lesson": 21,
+      "topic": "J",
+      "primary_flip_pages": "51",
+      "supplemental_flip_pages": "52,53",
+      "mapping_basis": "visual/content match",
+      "notes": "Handwriting/drawing page; illustrated flip intro is the strongest visual reference."
+    },
+    {
+      "student_pdf_page": 82,
+      "lesson": 21,
+      "topic": "J",
+      "primary_flip_pages": "51,52",
+      "supplemental_flip_pages": "53",
+      "mapping_basis": "visual/content match",
+      "notes": "Syllable/word exercise matches the lesson intro and word-list flip pages."
+    },
+    {
+      "student_pdf_page": 83,
+      "lesson": 21,
+      "topic": "J",
+      "primary_flip_pages": "52",
+      "supplemental_flip_pages": "53",
+      "mapping_basis": "visual/content match",
+      "notes": "Reading/word-list page most closely matches the middle flip page; story page is supplemental."
+    },
+    {
+      "student_pdf_page": 84,
+      "lesson": 21,
+      "topic": "J",
+      "primary_flip_pages": "52",
+      "supplemental_flip_pages": "51,53",
+      "mapping_basis": "visual/content match",
+      "notes": "Completion/writing page draws from the same lesson vocabulary; other lesson flip pages are supplemental."
+    },
+    {
+      "student_pdf_page": 85,
+      "lesson": 22,
+      "topic": "C",
+      "primary_flip_pages": "54",
+      "supplemental_flip_pages": "55,56",
+      "mapping_basis": "visual/content match",
+      "notes": "Handwriting/drawing page; illustrated flip intro is the strongest visual reference."
+    },
+    {
+      "student_pdf_page": 86,
+      "lesson": 22,
+      "topic": "C",
+      "primary_flip_pages": "54,55",
+      "supplemental_flip_pages": "56",
+      "mapping_basis": "visual/content match",
+      "notes": "Syllable/word exercise matches the lesson intro and word-list flip pages."
+    },
+    {
+      "student_pdf_page": 87,
+      "lesson": 22,
+      "topic": "C",
+      "primary_flip_pages": "55",
+      "supplemental_flip_pages": "56",
+      "mapping_basis": "visual/content match",
+      "notes": "Reading/word-list page most closely matches the middle flip page; story page is supplemental."
+    },
+    {
+      "student_pdf_page": 88,
+      "lesson": 22,
+      "topic": "C",
+      "primary_flip_pages": "55",
+      "supplemental_flip_pages": "54,56",
+      "mapping_basis": "visual/content match",
+      "notes": "Completion/writing page draws from the same lesson vocabulary; other lesson flip pages are supplemental."
+    },
+    {
+      "student_pdf_page": 89,
+      "lesson": 23,
+      "topic": "Y",
+      "primary_flip_pages": "57",
+      "supplemental_flip_pages": "58,59",
+      "mapping_basis": "visual/content match",
+      "notes": "Handwriting/drawing page; illustrated Y intro is the visual reference."
+    },
+    {
+      "student_pdf_page": 90,
+      "lesson": 23,
+      "topic": "Y",
+      "primary_flip_pages": "57,58",
+      "supplemental_flip_pages": "59",
+      "mapping_basis": "visual/content match",
+      "notes": "Syllable/word exercise matches Y intro and word-list pages."
+    },
+    {
+      "student_pdf_page": 91,
+      "lesson": 23,
+      "topic": "Y",
+      "primary_flip_pages": "58",
+      "supplemental_flip_pages": "59",
+      "mapping_basis": "visual/content match",
+      "notes": "Reading page most closely matches the Y word-list/reading flip page; story page supplemental."
+    },
+    {
+      "student_pdf_page": 92,
+      "lesson": 24,
+      "topic": "Z",
+      "primary_flip_pages": "60,61",
+      "supplemental_flip_pages": "62",
+      "mapping_basis": "visual/content match",
+      "notes": "Syllable exercise uses the Z lesson vocabulary; intro and word-list flip pages are primary."
+    },
+    {
+      "student_pdf_page": 93,
+      "lesson": 24,
+      "topic": "Z",
+      "primary_flip_pages": "61",
+      "supplemental_flip_pages": "60,62",
+      "mapping_basis": "visual/content match",
+      "notes": "Reading page most closely matches the Z word-list/reading flip page; intro/story supplemental."
+    },
+    {
+      "student_pdf_page": 94,
+      "lesson": 24,
+      "topic": "Z",
+      "primary_flip_pages": "61",
+      "supplemental_flip_pages": "60,62",
+      "mapping_basis": "visual/content match",
+      "notes": "Completion/writing page draws from the Z word-list vocabulary."
+    },
+    {
+      "student_pdf_page": 95,
+      "lesson": "back",
+      "topic": "blank",
+      "primary_flip_pages": "",
+      "supplemental_flip_pages": "",
+      "mapping_basis": "visual/content match",
+      "notes": "Blank/end matter; no flip-chart counterpart."
+    },
+    {
+      "student_pdf_page": 96,
+      "lesson": "back",
+      "topic": "blank",
+      "primary_flip_pages": "",
+      "supplemental_flip_pages": "",
+      "mapping_basis": "visual/content match",
+      "notes": "Blank/end matter; no flip-chart counterpart."
+    },
+    {
+      "student_pdf_page": 97,
+      "lesson": "back",
+      "topic": "blank",
+      "primary_flip_pages": "",
+      "supplemental_flip_pages": "",
+      "mapping_basis": "visual/content match",
+      "notes": "Blank/end matter; no flip-chart counterpart."
+    },
+    {
+      "student_pdf_page": 98,
+      "lesson": "back",
+      "topic": "back cover",
+      "primary_flip_pages": "",
+      "supplemental_flip_pages": "",
+      "mapping_basis": "visual/content match",
+      "notes": "Back cover; no flip-chart counterpart."
+    }
+  ]
+}
