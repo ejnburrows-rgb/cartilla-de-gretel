@@ -1,0 +1,745 @@
+{
+  "version": "2026-09-27",
+  "status": "QUARANTINED_NOT_PRODUCTION",
+  "source_qa": "public/cartilla/art/faithful/qa-results.json",
+  "count": 35,
+  "rule": "These assets remain preserved for audit/history but are excluded from the active faithful manifest and must never be wired or promoted without a new source-backed repair and PASS visual QA.",
+  "assets": [
+    {
+      "src": "/cartilla/art/faithful/leccion-18-rr/carro.webp",
+      "word": "carro",
+      "lessonNumber": 18,
+      "reason": "Wrong content: a donkey/camel leg and body, not a car",
+      "prior_qa_verdict": "FAIL",
+      "original_manifest_entry": {
+        "slug": "carro",
+        "word": "carro",
+        "lessonNumber": 18,
+        "pageNumber": null,
+        "src": "/cartilla/art/faithful/leccion-18-rr/carro.webp",
+        "sourceFlipchartPage": "rr-page-40.jpg",
+        "cropBox": [
+          230,
+          1492,
+          574,
+          398
+        ]
+      }
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-7-m/moto.webp",
+      "word": "moto",
+      "lessonNumber": 7,
+      "reason": "Wrong content: decorative floral border, not a motorcycle",
+      "prior_qa_verdict": "FAIL",
+      "original_manifest_entry": {
+        "slug": "moto",
+        "word": "moto",
+        "lessonNumber": 7,
+        "pageNumber": null,
+        "src": "/cartilla/art/faithful/leccion-7-m/moto.webp",
+        "sourceFlipchartPage": "m-page-10.jpg",
+        "cropBox": [
+          1381,
+          1095,
+          575,
+          398
+        ]
+      }
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-7-m/mapa.webp",
+      "word": "mapa",
+      "lessonNumber": 7,
+      "reason": "Blank pale pink smear, no map content",
+      "prior_qa_verdict": "FAIL",
+      "original_manifest_entry": {
+        "slug": "mapa",
+        "word": "mapa",
+        "lessonNumber": 7,
+        "pageNumber": null,
+        "src": "/cartilla/art/faithful/leccion-7-m/mapa.webp",
+        "sourceFlipchartPage": "m-page-10.jpg",
+        "cropBox": [
+          231,
+          1493,
+          575,
+          398
+        ]
+      }
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-8-p/pino.webp",
+      "word": "pino",
+      "lessonNumber": 8,
+      "reason": "Wrong content: black silhouette blob, not a pine tree",
+      "prior_qa_verdict": "FAIL",
+      "original_manifest_entry": {
+        "slug": "pino",
+        "word": "pino",
+        "lessonNumber": 8,
+        "pageNumber": null,
+        "src": "/cartilla/art/faithful/leccion-8-p/pino.webp",
+        "sourceFlipchartPage": "p-page-11.jpg",
+        "cropBox": [
+          1381,
+          1094,
+          575,
+          398
+        ]
+      }
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-8-p/pulpo.webp",
+      "word": "pulpo",
+      "lessonNumber": 8,
+      "reason": "Wrong content: shows a person's arm/torso, not an octopus",
+      "prior_qa_verdict": "FAIL",
+      "original_manifest_entry": {
+        "slug": "pulpo",
+        "word": "pulpo",
+        "lessonNumber": 8,
+        "pageNumber": null,
+        "src": "/cartilla/art/faithful/leccion-8-p/pulpo.webp",
+        "sourceFlipchartPage": "p-page-11.jpg",
+        "cropBox": [
+          231,
+          1492,
+          575,
+          398
+        ]
+      }
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-9-s/sol.webp",
+      "word": "sol",
+      "lessonNumber": 9,
+      "reason": "Wrong/fragment content, not a recognizable sun",
+      "prior_qa_verdict": "FAIL",
+      "original_manifest_entry": {
+        "slug": "sol",
+        "word": "sol",
+        "lessonNumber": 9,
+        "pageNumber": null,
+        "src": "/cartilla/art/faithful/leccion-9-s/sol.webp",
+        "sourceFlipchartPage": "ss-page-14.jpg",
+        "cropBox": [
+          804,
+          1095,
+          574,
+          398
+        ]
+      }
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-9-s/silla.webp",
+      "word": "silla",
+      "lessonNumber": 9,
+      "reason": "Wrong content: a girl character, not a chair",
+      "prior_qa_verdict": "FAIL",
+      "original_manifest_entry": {
+        "slug": "silla",
+        "word": "silla",
+        "lessonNumber": 9,
+        "pageNumber": null,
+        "src": "/cartilla/art/faithful/leccion-9-s/silla.webp",
+        "sourceFlipchartPage": "ss-page-14.jpg",
+        "cropBox": [
+          230,
+          1493,
+          574,
+          398
+        ]
+      }
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-10-t/tapa.webp",
+      "word": "tapa",
+      "lessonNumber": 10,
+      "reason": "Not an illustration: crop of a printed word-list column",
+      "prior_qa_verdict": "FAIL",
+      "original_manifest_entry": {
+        "slug": "tapa",
+        "word": "tapa",
+        "lessonNumber": 10,
+        "pageNumber": null,
+        "src": "/cartilla/art/faithful/leccion-10-t/tapa.webp",
+        "sourceFlipchartPage": "t-page-17.jpg",
+        "cropBox": [
+          230,
+          1095,
+          574,
+          398
+        ]
+      }
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-10-t/tomate.webp",
+      "word": "tomate",
+      "lessonNumber": 10,
+      "reason": "Not an illustration: crop of a printed word-list column",
+      "prior_qa_verdict": "FAIL",
+      "original_manifest_entry": {
+        "slug": "tomate",
+        "word": "tomate",
+        "lessonNumber": 10,
+        "pageNumber": null,
+        "src": "/cartilla/art/faithful/leccion-10-t/tomate.webp",
+        "sourceFlipchartPage": "t-page-17.jpg",
+        "cropBox": [
+          804,
+          1095,
+          574,
+          398
+        ]
+      }
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-10-t/tina.webp",
+      "word": "tina",
+      "lessonNumber": 10,
+      "reason": "Not an illustration: crop of a printed word-list column",
+      "prior_qa_verdict": "FAIL",
+      "original_manifest_entry": {
+        "slug": "tina",
+        "word": "tina",
+        "lessonNumber": 10,
+        "pageNumber": null,
+        "src": "/cartilla/art/faithful/leccion-10-t/tina.webp",
+        "sourceFlipchartPage": "t-page-17.jpg",
+        "cropBox": [
+          1378,
+          1095,
+          574,
+          398
+        ]
+      }
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-10-t/tulipan.webp",
+      "word": "tulipán",
+      "lessonNumber": 10,
+      "reason": "Not an illustration: crop of a printed word-list column",
+      "prior_qa_verdict": "FAIL",
+      "original_manifest_entry": {
+        "slug": "tulipan",
+        "word": "tulipán",
+        "lessonNumber": 10,
+        "pageNumber": null,
+        "src": "/cartilla/art/faithful/leccion-10-t/tulipan.webp",
+        "sourceFlipchartPage": "t-page-17.jpg",
+        "cropBox": [
+          230,
+          1493,
+          574,
+          398
+        ]
+      }
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-11-d/delfin.webp",
+      "word": "delfín",
+      "lessonNumber": 11,
+      "reason": "Wrong content: partial dice shape (bleed from dado crop), not a dolphin",
+      "prior_qa_verdict": "FAIL",
+      "original_manifest_entry": {
+        "slug": "delfin",
+        "word": "delfín",
+        "lessonNumber": 11,
+        "pageNumber": null,
+        "src": "/cartilla/art/faithful/leccion-11-d/delfin.webp",
+        "sourceFlipchartPage": "d-page-19.jpg",
+        "cropBox": [
+          803,
+          1095,
+          573,
+          398
+        ]
+      }
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-11-d/dona.webp",
+      "word": "dona",
+      "lessonNumber": 11,
+      "reason": "Blank; only a tiny stray mark",
+      "prior_qa_verdict": "FAIL",
+      "original_manifest_entry": {
+        "slug": "dona",
+        "word": "dona",
+        "lessonNumber": 11,
+        "pageNumber": null,
+        "src": "/cartilla/art/faithful/leccion-11-d/dona.webp",
+        "sourceFlipchartPage": "d-page-19.jpg",
+        "cropBox": [
+          1376,
+          1095,
+          573,
+          398
+        ]
+      }
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-11-d/ducha.webp",
+      "word": "ducha",
+      "lessonNumber": 11,
+      "reason": "Wrong content: colorful bird/parrot shape, not a shower",
+      "prior_qa_verdict": "FAIL",
+      "original_manifest_entry": {
+        "slug": "ducha",
+        "word": "ducha",
+        "lessonNumber": 11,
+        "pageNumber": null,
+        "src": "/cartilla/art/faithful/leccion-11-d/ducha.webp",
+        "sourceFlipchartPage": "d-page-19.jpg",
+        "cropBox": [
+          230,
+          1493,
+          573,
+          398
+        ]
+      }
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-12-l/luna.webp",
+      "word": "luna",
+      "lessonNumber": 12,
+      "reason": "Wrong content: shoes and a suitcase, not the moon",
+      "prior_qa_verdict": "FAIL",
+      "original_manifest_entry": {
+        "slug": "luna",
+        "word": "luna",
+        "lessonNumber": 12,
+        "pageNumber": null,
+        "src": "/cartilla/art/faithful/leccion-12-l/luna.webp",
+        "sourceFlipchartPage": "l-page-22.jpg",
+        "cropBox": [
+          230,
+          1094,
+          574,
+          398
+        ]
+      }
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-12-l/lobo.webp",
+      "word": "lobo",
+      "lessonNumber": 12,
+      "reason": "Wrong/abstract content: black zigzag over a blue blob, not a wolf",
+      "prior_qa_verdict": "FAIL",
+      "original_manifest_entry": {
+        "slug": "lobo",
+        "word": "lobo",
+        "lessonNumber": 12,
+        "pageNumber": null,
+        "src": "/cartilla/art/faithful/leccion-12-l/lobo.webp",
+        "sourceFlipchartPage": "l-page-22.jpg",
+        "cropBox": [
+          804,
+          1094,
+          574,
+          398
+        ]
+      }
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-12-l/loro.webp",
+      "word": "loro",
+      "lessonNumber": 12,
+      "reason": "Blank; only a stray line fragment",
+      "prior_qa_verdict": "FAIL",
+      "original_manifest_entry": {
+        "slug": "loro",
+        "word": "loro",
+        "lessonNumber": 12,
+        "pageNumber": null,
+        "src": "/cartilla/art/faithful/leccion-12-l/loro.webp",
+        "sourceFlipchartPage": "l-page-22.jpg",
+        "cropBox": [
+          1378,
+          1094,
+          574,
+          398
+        ]
+      }
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-12-l/lupa.webp",
+      "word": "lupa",
+      "lessonNumber": 12,
+      "reason": "Wrong content: an orange box/suitcase, not a magnifying glass",
+      "prior_qa_verdict": "FAIL",
+      "original_manifest_entry": {
+        "slug": "lupa",
+        "word": "lupa",
+        "lessonNumber": 12,
+        "pageNumber": null,
+        "src": "/cartilla/art/faithful/leccion-12-l/lupa.webp",
+        "sourceFlipchartPage": "l-page-22.jpg",
+        "cropBox": [
+          230,
+          1492,
+          574,
+          398
+        ]
+      }
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-13-n/nariz.webp",
+      "word": "nariz",
+      "lessonNumber": 13,
+      "reason": "Wrong content: fruit (orange/banana), not a nose",
+      "prior_qa_verdict": "FAIL",
+      "original_manifest_entry": {
+        "slug": "nariz",
+        "word": "nariz",
+        "lessonNumber": 13,
+        "pageNumber": null,
+        "src": "/cartilla/art/faithful/leccion-13-n/nariz.webp",
+        "sourceFlipchartPage": "n-page-25.jpg",
+        "cropBox": [
+          230,
+          1095,
+          574,
+          398
+        ]
+      }
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-13-n/nube.webp",
+      "word": "nube",
+      "lessonNumber": 13,
+      "reason": "Wrong content: a gem and a hand fragment, not a cloud",
+      "prior_qa_verdict": "FAIL",
+      "original_manifest_entry": {
+        "slug": "nube",
+        "word": "nube",
+        "lessonNumber": 13,
+        "pageNumber": null,
+        "src": "/cartilla/art/faithful/leccion-13-n/nube.webp",
+        "sourceFlipchartPage": "n-page-25.jpg",
+        "cropBox": [
+          1378,
+          1095,
+          574,
+          398
+        ]
+      }
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-13-n/nata.webp",
+      "word": "nata",
+      "lessonNumber": 13,
+      "reason": "Wrong content: a bird's nest (duplicate of nido), not cream",
+      "prior_qa_verdict": "FAIL",
+      "original_manifest_entry": {
+        "slug": "nata",
+        "word": "nata",
+        "lessonNumber": 13,
+        "pageNumber": null,
+        "src": "/cartilla/art/faithful/leccion-13-n/nata.webp",
+        "sourceFlipchartPage": "n-page-25.jpg",
+        "cropBox": [
+          230,
+          1493,
+          574,
+          398
+        ]
+      }
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-14-n/pina.webp",
+      "word": "piña",
+      "lessonNumber": 14,
+      "reason": "Wrong/fragment content: scattered color specks, not a pineapple",
+      "prior_qa_verdict": "FAIL",
+      "original_manifest_entry": {
+        "slug": "pina",
+        "word": "piña",
+        "lessonNumber": 14,
+        "pageNumber": null,
+        "src": "/cartilla/art/faithful/leccion-14-n/pina.webp",
+        "sourceFlipchartPage": "ñ-page-28.jpg",
+        "cropBox": [
+          230,
+          1095,
+          574,
+          398
+        ]
+      }
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-14-n/muneca.webp",
+      "word": "muñeca",
+      "lessonNumber": 14,
+      "reason": "Wrong content: an ostrich, not a doll",
+      "prior_qa_verdict": "FAIL",
+      "original_manifest_entry": {
+        "slug": "muneca",
+        "word": "muñeca",
+        "lessonNumber": 14,
+        "pageNumber": null,
+        "src": "/cartilla/art/faithful/leccion-14-n/muneca.webp",
+        "sourceFlipchartPage": "ñ-page-28.jpg",
+        "cropBox": [
+          804,
+          1095,
+          574,
+          398
+        ]
+      }
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-15-b/barco.webp",
+      "word": "barco",
+      "lessonNumber": 15,
+      "reason": "Wrong/fragment content: a hat fragment, not a boat",
+      "prior_qa_verdict": "FAIL",
+      "original_manifest_entry": {
+        "slug": "barco",
+        "word": "barco",
+        "lessonNumber": 15,
+        "pageNumber": null,
+        "src": "/cartilla/art/faithful/leccion-15-b/barco.webp",
+        "sourceFlipchartPage": "b-page-31.jpg",
+        "cropBox": [
+          230,
+          1095,
+          574,
+          398
+        ]
+      }
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-15-b/bici.webp",
+      "word": "bici",
+      "lessonNumber": 15,
+      "reason": "Mostly blank; tiny fragment only",
+      "prior_qa_verdict": "FAIL",
+      "original_manifest_entry": {
+        "slug": "bici",
+        "word": "bici",
+        "lessonNumber": 15,
+        "pageNumber": null,
+        "src": "/cartilla/art/faithful/leccion-15-b/bici.webp",
+        "sourceFlipchartPage": "b-page-31.jpg",
+        "cropBox": [
+          1378,
+          1095,
+          574,
+          398
+        ]
+      }
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-16-v/vaca.webp",
+      "word": "vaca",
+      "lessonNumber": 16,
+      "reason": "Wrong/fragment content: black blob outline, not a cow",
+      "prior_qa_verdict": "FAIL",
+      "original_manifest_entry": {
+        "slug": "vaca",
+        "word": "vaca",
+        "lessonNumber": 16,
+        "pageNumber": null,
+        "src": "/cartilla/art/faithful/leccion-16-v/vaca.webp",
+        "sourceFlipchartPage": "v-page-34.jpg",
+        "cropBox": [
+          230,
+          1095,
+          574,
+          398
+        ]
+      }
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-16-v/vino.webp",
+      "word": "vino",
+      "lessonNumber": 16,
+      "reason": "Wrong/fragment content, not recognizable as wine",
+      "prior_qa_verdict": "FAIL",
+      "original_manifest_entry": {
+        "slug": "vino",
+        "word": "vino",
+        "lessonNumber": 16,
+        "pageNumber": null,
+        "src": "/cartilla/art/faithful/leccion-16-v/vino.webp",
+        "sourceFlipchartPage": "v-page-34.jpg",
+        "cropBox": [
+          1378,
+          1095,
+          574,
+          398
+        ]
+      }
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-16-v/volcan.webp",
+      "word": "volcán",
+      "lessonNumber": 16,
+      "reason": "Wrong content: a drinking glass, not a volcano",
+      "prior_qa_verdict": "FAIL",
+      "original_manifest_entry": {
+        "slug": "volcan",
+        "word": "volcán",
+        "lessonNumber": 16,
+        "pageNumber": null,
+        "src": "/cartilla/art/faithful/leccion-16-v/volcan.webp",
+        "sourceFlipchartPage": "v-page-34.jpg",
+        "cropBox": [
+          230,
+          1493,
+          574,
+          398
+        ]
+      }
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-19-c/cono.webp",
+      "word": "cono",
+      "lessonNumber": 19,
+      "reason": "Wrong content: duplicate rabbit-ears fragment from conejo, not a cone",
+      "prior_qa_verdict": "FAIL",
+      "original_manifest_entry": {
+        "slug": "cono",
+        "word": "cono",
+        "lessonNumber": 19,
+        "pageNumber": null,
+        "src": "/cartilla/art/faithful/leccion-19-c/cono.webp",
+        "sourceFlipchartPage": "c-page-52.jpg",
+        "cropBox": [
+          804,
+          1094,
+          574,
+          398
+        ]
+      }
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-19-c/camisa.webp",
+      "word": "camisa",
+      "lessonNumber": 19,
+      "reason": "Wrong content: duplicate of the crib (cuna) image, not a shirt",
+      "prior_qa_verdict": "FAIL",
+      "original_manifest_entry": {
+        "slug": "camisa",
+        "word": "camisa",
+        "lessonNumber": 19,
+        "pageNumber": null,
+        "src": "/cartilla/art/faithful/leccion-19-c/camisa.webp",
+        "sourceFlipchartPage": "c-page-52.jpg",
+        "cropBox": [
+          230,
+          1492,
+          574,
+          398
+        ]
+      }
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-22-y/yegua.webp",
+      "word": "yegua",
+      "lessonNumber": 22,
+      "reason": "Wrong content: cut-off fragment of the yayita octopus image, not a mare",
+      "prior_qa_verdict": "FAIL",
+      "original_manifest_entry": {
+        "slug": "yegua",
+        "word": "yegua",
+        "lessonNumber": 22,
+        "pageNumber": null,
+        "src": "/cartilla/art/faithful/leccion-22-y/yegua.webp",
+        "sourceFlipchartPage": "y-page-55.jpg",
+        "cropBox": [
+          1378,
+          1094,
+          574,
+          398
+        ]
+      }
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-23-z/zanahoria.webp",
+      "word": "zanahoria",
+      "lessonNumber": 23,
+      "reason": "Wrong content: duplicate zigzag fragment, not a carrot",
+      "prior_qa_verdict": "FAIL",
+      "original_manifest_entry": {
+        "slug": "zanahoria",
+        "word": "zanahoria",
+        "lessonNumber": 23,
+        "pageNumber": null,
+        "src": "/cartilla/art/faithful/leccion-23-z/zanahoria.webp",
+        "sourceFlipchartPage": "z-page-58.jpg",
+        "cropBox": [
+          806,
+          1094,
+          575,
+          398
+        ]
+      }
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-23-z/cisne.webp",
+      "word": "cisne",
+      "lessonNumber": 23,
+      "reason": "Wrong content: fragment of the zorro fox image, not a swan",
+      "prior_qa_verdict": "FAIL",
+      "original_manifest_entry": {
+        "slug": "cisne",
+        "word": "cisne",
+        "lessonNumber": 23,
+        "pageNumber": null,
+        "src": "/cartilla/art/faithful/leccion-23-z/cisne.webp",
+        "sourceFlipchartPage": "z-page-58.jpg",
+        "cropBox": [
+          1381,
+          1094,
+          575,
+          398
+        ]
+      }
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-23-z/cepillo.webp",
+      "word": "cepillo",
+      "lessonNumber": 23,
+      "reason": "Wrong content: duplicate of the zapato shoe image, not a brush",
+      "prior_qa_verdict": "FAIL",
+      "original_manifest_entry": {
+        "slug": "cepillo",
+        "word": "cepillo",
+        "lessonNumber": 23,
+        "pageNumber": null,
+        "src": "/cartilla/art/faithful/leccion-23-z/cepillo.webp",
+        "sourceFlipchartPage": "z-page-58.jpg",
+        "cropBox": [
+          231,
+          1492,
+          575,
+          398
+        ]
+      }
+    },
+    {
+      "src": "/cartilla/art/faithful/leccion-21-j/ajo.webp",
+      "word": "ajo",
+      "lessonNumber": 21,
+      "reason": "Content does not read as garlic: an abstract plant/hair-like burst shape",
+      "prior_qa_verdict": "FAIL",
+      "original_manifest_entry": {
+        "slug": "ajo",
+        "word": "ajo",
+        "lessonNumber": 21,
+        "pageNumber": null,
+        "src": "/cartilla/art/faithful/leccion-21-j/ajo.webp",
+        "sourceFlipchartPage": "j-page-49.jpg",
+        "cropBox": [
+          280,
+          2180,
+          620,
+          520
+        ],
+        "sourceNote": "garlic bulb"
+      }
+    }
+  ]
+}
