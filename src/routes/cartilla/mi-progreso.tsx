@@ -51,16 +51,42 @@ function LocalProgress() {
           <ArrowLeft className="w-4 h-4" /> Lecciones
         </Link>
         <h1 className="mt-6 text-3xl font-bold">Mi progreso</h1>
-        <p className="mt-2">Lecciones completadas: {completedCount}/{TOTAL_LESSONS}</p>
-        <p className="mt-2 text-sm text-foreground/70">Progreso guardado en este navegador.</p>
+        <div className="mt-5 rounded-2xl border-2 border-[var(--book-teal)]/30 bg-[var(--book-paper)] p-4 shadow-sm">
+          <div className="flex items-center justify-between gap-3 text-sm font-bold">
+            <span>Lecciones completadas</span>
+            <span>{completedCount}/{TOTAL_LESSONS}</span>
+          </div>
+          <div
+            className="mt-3 h-3 overflow-hidden rounded-full bg-stone-200"
+            role="progressbar"
+            aria-label="Lecciones completadas"
+            aria-valuenow={completedCount}
+            aria-valuemin={0}
+            aria-valuemax={TOTAL_LESSONS}
+          >
+            <div
+              className="h-full rounded-full bg-[var(--book-teal)] transition-[width]"
+              style={{ width: `${Math.round((completedCount / TOTAL_LESSONS) * 100)}%` }}
+            />
+          </div>
+          <p className="mt-3 text-sm text-foreground/70">Progreso guardado en este navegador.</p>
+        </div>
         <KidButton onClick={exportLocal} variant="outline" className="mt-4">
           <Download className="w-4 h-4" /> CSV
         </KidButton>
         <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
           {CATALOG.map((entry) => (
-            <Link key={entry.n} to="/cartilla/leccion/$n" params={{ n: String(entry.n) }} className="kid-card p-4">
+            <Link
+              key={entry.n}
+              to="/cartilla/leccion/$n"
+              params={{ n: String(entry.n) }}
+              className="kid-card p-4 border-l-4"
+              style={{ borderLeftColor: entry.color }}
+            >
               <span className="font-bold">{entry.n}. {entry.title}</span>
-              <span className="block mt-1 text-sm">{isCompleted(entry.n) ? "Completada" : "Pendiente"}</span>
+              <span className="block mt-1 text-sm font-semibold" style={{ color: isCompleted(entry.n) ? entry.color : undefined }}>
+                {isCompleted(entry.n) ? "✓ Completada" : "Pendiente"}
+              </span>
             </Link>
           ))}
         </div>
