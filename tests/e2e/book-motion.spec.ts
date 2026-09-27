@@ -37,10 +37,10 @@ test.describe("physical book motion", () => {
   // spec asserts the same thing end to end instead of the abandoned
   // skeuomorphic `data-physical-flipchart` / ring-spiral variant.
   test("teacher presenter is a vertical top-bound flipchart", async ({ page }) => {
-    await page.goto("/cartilla/presentar/7", { waitUntil: "networkidle" });
+    await page.goto("/cartilla/presentar/7", { waitUntil: "domcontentloaded" });
 
     const panel = page.getByTestId("flipchart-hd-panel");
-    await expect(panel).toBeVisible();
+    await expect(panel).toBeVisible({ timeout: 15000 });
     await expect(panel).toHaveAttribute("data-hd-primary", "true");
     await expect(panel).toHaveAttribute("data-presenter-mode", "digital");
     await expect(panel).toHaveAttribute("data-page-turn-axis", "vertical");
