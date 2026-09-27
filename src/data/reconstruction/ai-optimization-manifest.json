@@ -2,116 +2,116 @@
   "version": "2026-09-27",
   "status": "COMPLETE",
   "policy": "AI output is accepted only when structure is unchanged and visual finish improves.",
-  "result": "DETERMINISTIC_MASTER_RETAINED",
-  "reason": "Full-page generative finishing could not demonstrate zero structural change to text, borders, linework, or curriculum. The locked PASS source is therefore the final optimized master.",
+  "result": "CONSTRAINED_COLOR_TRANSFER_ACCEPTED",
+  "reason": "Generated pages served only as color references. Final pixels come from the locked Workbook master except within 50 recorded grayscale object regions; original dark linework and all unrelated pixels are preserved.",
   "pages": [
     {
       "printed_page": 1,
       "source_path": "/cartilla/art/reconstructed/workbook-deterministic/page-001.png",
       "final_path": "/cartilla/art/reconstructed/workbook/page-001.png",
       "source_sha256": "451c99c0cd06d501d934d6cf9564ea40d42559ab91b17a0c96af965356f1055a",
-      "final_sha256": "451c99c0cd06d501d934d6cf9564ea40d42559ab91b17a0c96af965356f1055a",
-      "decision": "DETERMINISTIC_RETAINED",
-      "structural_comparison": "BYTE_IDENTICAL"
+      "final_sha256": "7281d4a857611fb73b6e96ff657451048f7099e0b69244637f08d0033f4702a9",
+      "decision": "CONSTRAINED_COLOR_TRANSFER_ACCEPTED",
+      "structural_comparison": "ZERO_PIXELS_CHANGED_OUTSIDE_RECORDED_OBJECT_REGIONS; ORIGINAL_DARK_LINEWORK_PRESERVED"
     },
     {
       "printed_page": 2,
       "source_path": "/cartilla/art/reconstructed/workbook-deterministic/page-002.png",
       "final_path": "/cartilla/art/reconstructed/workbook/page-002.png",
       "source_sha256": "95b542965b27c22e790e40693afb62ac3c5aef98b79406ed2356ad58aa81ee8c",
-      "final_sha256": "95b542965b27c22e790e40693afb62ac3c5aef98b79406ed2356ad58aa81ee8c",
-      "decision": "DETERMINISTIC_RETAINED",
-      "structural_comparison": "BYTE_IDENTICAL"
+      "final_sha256": "f91ca5395e17b841aa8e955a0f0c6541aea3aa88303a8dcf6d24d7cd8fe0af14",
+      "decision": "CONSTRAINED_COLOR_TRANSFER_ACCEPTED",
+      "structural_comparison": "ZERO_PIXELS_CHANGED_OUTSIDE_RECORDED_OBJECT_REGIONS; ORIGINAL_DARK_LINEWORK_PRESERVED"
     },
     {
       "printed_page": 3,
       "source_path": "/cartilla/art/reconstructed/workbook-deterministic/page-003.png",
       "final_path": "/cartilla/art/reconstructed/workbook/page-003.png",
       "source_sha256": "460bc5d52b4fea4c9f57fde0d935b0fe002f26740edab8581277647358b7c423",
-      "final_sha256": "460bc5d52b4fea4c9f57fde0d935b0fe002f26740edab8581277647358b7c423",
-      "decision": "DETERMINISTIC_RETAINED",
-      "structural_comparison": "BYTE_IDENTICAL"
+      "final_sha256": "907cef3ee133c37564e71112776040b38ace7d8e93adcfff6e961b0fa07678c4",
+      "decision": "CONSTRAINED_COLOR_TRANSFER_ACCEPTED",
+      "structural_comparison": "ZERO_PIXELS_CHANGED_OUTSIDE_RECORDED_OBJECT_REGIONS; ORIGINAL_DARK_LINEWORK_PRESERVED"
     },
     {
       "printed_page": 4,
       "source_path": "/cartilla/art/reconstructed/workbook-deterministic/page-004.png",
       "final_path": "/cartilla/art/reconstructed/workbook/page-004.png",
       "source_sha256": "342272ffa466c4467f04bb558c9d13a80ed1fc6df3106e3fcd0248b2ab5b0f72",
-      "final_sha256": "342272ffa466c4467f04bb558c9d13a80ed1fc6df3106e3fcd0248b2ab5b0f72",
-      "decision": "DETERMINISTIC_RETAINED",
-      "structural_comparison": "BYTE_IDENTICAL"
+      "final_sha256": "9786d6f50d493a63bdd7e8731d380628b760ad269310b03802f0ff02a878e296",
+      "decision": "CONSTRAINED_COLOR_TRANSFER_ACCEPTED",
+      "structural_comparison": "ZERO_PIXELS_CHANGED_OUTSIDE_RECORDED_OBJECT_REGIONS; ORIGINAL_DARK_LINEWORK_PRESERVED"
     },
     {
       "printed_page": 5,
       "source_path": "/cartilla/art/reconstructed/workbook-deterministic/page-005.png",
       "final_path": "/cartilla/art/reconstructed/workbook/page-005.png",
       "source_sha256": "f53c58eb1ef7c9f8da453dac534dbf23c29de2066f17a57ffb26d80c12d20d99",
-      "final_sha256": "f53c58eb1ef7c9f8da453dac534dbf23c29de2066f17a57ffb26d80c12d20d99",
-      "decision": "DETERMINISTIC_RETAINED",
-      "structural_comparison": "BYTE_IDENTICAL"
+      "final_sha256": "1ae7ff1c18604692dc3180ce46bd4f29cfda08b44ef619fbff179da3a2d564e1",
+      "decision": "CONSTRAINED_COLOR_TRANSFER_ACCEPTED",
+      "structural_comparison": "ZERO_PIXELS_CHANGED_OUTSIDE_RECORDED_OBJECT_REGIONS; ORIGINAL_DARK_LINEWORK_PRESERVED"
     },
     {
       "printed_page": 7,
       "source_path": "/cartilla/art/reconstructed/workbook-deterministic/page-007.png",
       "final_path": "/cartilla/art/reconstructed/workbook/page-007.png",
       "source_sha256": "7e653b8495195f69357c11d589bfb134babc8846795f99d2caac0a7d56b7a2f5",
-      "final_sha256": "7e653b8495195f69357c11d589bfb134babc8846795f99d2caac0a7d56b7a2f5",
-      "decision": "DETERMINISTIC_RETAINED",
-      "structural_comparison": "BYTE_IDENTICAL"
+      "final_sha256": "d6ebe2fd36924125a16a70515f09b8911e60c64064f606511fcf8d930d849233",
+      "decision": "CONSTRAINED_COLOR_TRANSFER_ACCEPTED",
+      "structural_comparison": "ZERO_PIXELS_CHANGED_OUTSIDE_RECORDED_OBJECT_REGIONS; ORIGINAL_DARK_LINEWORK_PRESERVED"
     },
     {
       "printed_page": 8,
       "source_path": "/cartilla/art/reconstructed/workbook-deterministic/page-008.png",
       "final_path": "/cartilla/art/reconstructed/workbook/page-008.png",
       "source_sha256": "8c8029755fa991f9449dca1b3e4e3e1d6142de32769eb4a2f3a143e2ba415544",
-      "final_sha256": "8c8029755fa991f9449dca1b3e4e3e1d6142de32769eb4a2f3a143e2ba415544",
-      "decision": "DETERMINISTIC_RETAINED",
-      "structural_comparison": "BYTE_IDENTICAL"
+      "final_sha256": "bd58dab7588c446fd840aedf43b5566ec4a9eb0e3d314efceb6b631178c09be5",
+      "decision": "CONSTRAINED_COLOR_TRANSFER_ACCEPTED",
+      "structural_comparison": "ZERO_PIXELS_CHANGED_OUTSIDE_RECORDED_OBJECT_REGIONS; ORIGINAL_DARK_LINEWORK_PRESERVED"
     },
     {
       "printed_page": 10,
       "source_path": "/cartilla/art/reconstructed/workbook-deterministic/page-010.png",
       "final_path": "/cartilla/art/reconstructed/workbook/page-010.png",
       "source_sha256": "b5cb3097156283bcf73b1f8d0a76dad9d15a90144c6a3f8efcb34fec7ba1fc90",
-      "final_sha256": "b5cb3097156283bcf73b1f8d0a76dad9d15a90144c6a3f8efcb34fec7ba1fc90",
-      "decision": "DETERMINISTIC_RETAINED",
-      "structural_comparison": "BYTE_IDENTICAL"
+      "final_sha256": "28de6c909d40743a1f6d58ee21945e8df767aff233df7fe3c005da60493a9d37",
+      "decision": "CONSTRAINED_COLOR_TRANSFER_ACCEPTED",
+      "structural_comparison": "ZERO_PIXELS_CHANGED_OUTSIDE_RECORDED_OBJECT_REGIONS; ORIGINAL_DARK_LINEWORK_PRESERVED"
     },
     {
       "printed_page": 11,
       "source_path": "/cartilla/art/reconstructed/workbook-deterministic/page-011.png",
       "final_path": "/cartilla/art/reconstructed/workbook/page-011.png",
       "source_sha256": "0ffb76c859b848ed4d2a09bc87090172feac7fc241d9910bb41a8b96a826d011",
-      "final_sha256": "0ffb76c859b848ed4d2a09bc87090172feac7fc241d9910bb41a8b96a826d011",
-      "decision": "DETERMINISTIC_RETAINED",
-      "structural_comparison": "BYTE_IDENTICAL"
+      "final_sha256": "f248b9f8b4341dc5ea51a95d5f5a4eac9f58b4c4339ae17e938302097f727609",
+      "decision": "CONSTRAINED_COLOR_TRANSFER_ACCEPTED",
+      "structural_comparison": "ZERO_PIXELS_CHANGED_OUTSIDE_RECORDED_OBJECT_REGIONS; ORIGINAL_DARK_LINEWORK_PRESERVED"
     },
     {
       "printed_page": 13,
       "source_path": "/cartilla/art/reconstructed/workbook-deterministic/page-013.png",
       "final_path": "/cartilla/art/reconstructed/workbook/page-013.png",
       "source_sha256": "4eb0ee958073aeb5e3961a77435061c97293cee5433723b16f598f7887e85a25",
-      "final_sha256": "4eb0ee958073aeb5e3961a77435061c97293cee5433723b16f598f7887e85a25",
-      "decision": "DETERMINISTIC_RETAINED",
-      "structural_comparison": "BYTE_IDENTICAL"
+      "final_sha256": "830fd660cf3c662ab3600d825a7721b7296f8085d350660fb329456e77953ffa",
+      "decision": "CONSTRAINED_COLOR_TRANSFER_ACCEPTED",
+      "structural_comparison": "ZERO_PIXELS_CHANGED_OUTSIDE_RECORDED_OBJECT_REGIONS; ORIGINAL_DARK_LINEWORK_PRESERVED"
     },
     {
       "printed_page": 14,
       "source_path": "/cartilla/art/reconstructed/workbook-deterministic/page-014.png",
       "final_path": "/cartilla/art/reconstructed/workbook/page-014.png",
       "source_sha256": "fa04a3b794dc127431572dfe219d5977157dfe9c45e7e70da6d50a7a827995a4",
-      "final_sha256": "fa04a3b794dc127431572dfe219d5977157dfe9c45e7e70da6d50a7a827995a4",
-      "decision": "DETERMINISTIC_RETAINED",
-      "structural_comparison": "BYTE_IDENTICAL"
+      "final_sha256": "da1f35ce1fc90337eaa234beb36a135c91ee2bd85c6f100af6f43f4f95096165",
+      "decision": "CONSTRAINED_COLOR_TRANSFER_ACCEPTED",
+      "structural_comparison": "ZERO_PIXELS_CHANGED_OUTSIDE_RECORDED_OBJECT_REGIONS; ORIGINAL_DARK_LINEWORK_PRESERVED"
     },
     {
       "printed_page": 16,
       "source_path": "/cartilla/art/reconstructed/workbook-deterministic/page-016.png",
       "final_path": "/cartilla/art/reconstructed/workbook/page-016.png",
       "source_sha256": "de270821a9a162e254a7bd2b756c52737eb13b95a3f5d6ec211899494b633827",
-      "final_sha256": "de270821a9a162e254a7bd2b756c52737eb13b95a3f5d6ec211899494b633827",
-      "decision": "DETERMINISTIC_RETAINED",
-      "structural_comparison": "BYTE_IDENTICAL"
+      "final_sha256": "edb2f55c8765eb97a9f360d4607fb000b8217a11b82b53f308f35c7e946cb28f",
+      "decision": "CONSTRAINED_COLOR_TRANSFER_ACCEPTED",
+      "structural_comparison": "ZERO_PIXELS_CHANGED_OUTSIDE_RECORDED_OBJECT_REGIONS; ORIGINAL_DARK_LINEWORK_PRESERVED"
     },
     {
       "printed_page": 17,

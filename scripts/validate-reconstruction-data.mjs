@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
+import sharp from "sharp";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
@@ -308,6 +309,87 @@ for (const asset of production.assets ?? []) {
   }
 }
 
+const colorFinish = readJson("src/data/reconstruction/color-finishing-manifest.json");
+const noCounterpartItems = plan.items.filter((item) => item.strategy === "NO_VALID_COUNTERPART");
+const noCounterpartById = new Map(noCounterpartItems.map((item) => [item.id, item]));
+const productionByPage = new Map((production.assets ?? []).map((asset) => [asset.printed_page, asset]));
+const reviewedIds = new Set();
+assert(colorFinish.status === "LOCKED_PASS", "Workbook color finish is not locked PASS");
+for (const finished of colorFinish.pages ?? []) {
+  const productionAsset = productionByPage.get(finished.printed_page);
+  assert(productionAsset, `color-finished page ${finished.printed_page} is not in production`);
+  const sourceFile = path.join(root, "public", finished.source_path.replace(/^\/+/, ""));
+  const outputFile = path.join(root, "public", finished.output_path.replace(/^\/+/, ""));
+  const referenceFile = path.join(root, finished.reference_path);
+  assert(fs.existsSync(sourceFile) && fs.existsSync(outputFile) && fs.existsSync(referenceFile),
+    `color-finished page ${finished.printed_page} is missing a source, reference, or output`);
+  if (![sourceFile, outputFile, referenceFile].every((file) => fs.existsSync(file))) continue;
+  assert(sha256File(sourceFile) === finished.source_sha256,
+    `color-finished page ${finished.printed_page} deterministic source hash changed`);
+  assert(sha256File(referenceFile) === finished.reference_sha256,
+    `color-finished page ${finished.printed_page} reference hash changed`);
+  assert(sha256File(outputFile) === finished.output_sha256,
+    `color-finished page ${finished.printed_page} output hash changed`);
+  assert(productionAsset?.output_sha256 === finished.output_sha256,
+    `color-finished page ${finished.printed_page} production hash is stale`);
+  assert(productionAsset?.color_finishing?.verification_status === "PASS",
+    `color-finished page ${finished.printed_page} lacks production PASS`);
+  assert(finished.verification_status === "PASS",
+    `color-finished page ${finished.printed_page} lacks final QA PASS`);
+
+  const source = await sharp(sourceFile).removeAlpha().raw().toBuffer({ resolveWithObject: true });
+  const output = await sharp(outputFile).removeAlpha().raw().toBuffer({ resolveWithObject: true });
+  const width = source.info.width;
+  const height = source.info.height;
+  assert(output.info.width === width && output.info.height === height,
+    `color-finished page ${finished.printed_page} changed dimensions`);
+  if (output.info.width !== width || output.info.height !== height) continue;
+  const editable = new Uint8Array(width * height);
+  const symbolInk = new Uint8Array(width * height);
+  for (const object of finished.objects ?? []) {
+    const planned = noCounterpartById.get(object.id);
+    assert(planned && planned.printed_page === finished.printed_page,
+      `color-finished object ${object.id} lacks a matching plan record`);
+    assert(JSON.stringify(planned?.workbook_box_norm) === JSON.stringify(object.workbook_box_norm),
+      `color-finished object ${object.id} changed its verified region`);
+    assert(object.verification_status === "PASS" && object.colored_pixels > 0,
+      `color-finished object ${object.id} lacks color or QA PASS`);
+    assert(!reviewedIds.has(object.id), `duplicate color-finished object ${object.id}`);
+    reviewedIds.add(object.id);
+    const box = object.workbook_box_norm;
+    const left = Math.round(box.x * width);
+    const top = Math.round(box.y * height);
+    const right = Math.round((box.x + box.width) * width);
+    const bottom = Math.round((box.y + box.height) * height);
+    for (let y = top; y < bottom; y++) {
+      for (let x = left; x < right; x++) {
+        const index = y * width + x;
+        editable[index] = 1;
+        if (object.object_name === "igual" || object.object_name === "aguja") symbolInk[index] = 1;
+      }
+    }
+  }
+  let outsideChanged = 0;
+  let darkLineChanged = 0;
+  for (let index = 0; index < editable.length; index++) {
+    const offset = index * 3;
+    const changed = source.data[offset] !== output.data[offset] ||
+      source.data[offset + 1] !== output.data[offset + 1] ||
+      source.data[offset + 2] !== output.data[offset + 2];
+    if (!changed) continue;
+    if (!editable[index]) outsideChanged++;
+    const luminance = 0.114 * source.data[offset] + 0.587 * source.data[offset + 1] +
+      0.299 * source.data[offset + 2];
+    if (luminance < 65 && !symbolInk[index]) darkLineChanged++;
+  }
+  assert(outsideChanged === 0,
+    `color-finished page ${finished.printed_page} changed ${outsideChanged} pixels outside target regions`);
+  assert(darkLineChanged === 0,
+    `color-finished page ${finished.printed_page} changed ${darkLineChanged} original dark line pixels`);
+}
+assert(reviewedIds.size === noCounterpartItems.length,
+  `color finish covers ${reviewedIds.size}/${noCounterpartItems.length} formerly grayscale objects`);
+
 if (errors.length) {
   for (const error of errors) console.error("RECONSTRUCTION_DATA_ERROR " + error);
   throw new Error(`Reconstruction data validation failed with ${errors.length} error(s)`);
@@ -325,5 +407,6 @@ console.log(
       activeFaithfulAssets: faithful.length,
       quarantinedFaithfulAssets: quarantineSrcs.size,
       verifiedProductionMasters: production.assets.length,
+      colorFinishedObjects: reviewedIds.size,
     }),
 );

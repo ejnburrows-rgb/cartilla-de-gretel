@@ -1,0 +1,776 @@
+{
+  "version": "2026-09-27",
+  "status": "LOCKED_PASS",
+  "method": "AI color reference aligned to locked deterministic master; color transferred only inside original object shapes",
+  "pages": [
+    {
+      "printed_page": 1,
+      "source_path": "/cartilla/art/reconstructed/workbook-deterministic/page-001.png",
+      "source_sha256": "451c99c0cd06d501d934d6cf9564ea40d42559ab91b17a0c96af965356f1055a",
+      "reference_path": "src/data/reconstruction/color-references/page-001.png",
+      "reference_sha256": "6ed85b397012119c1f6330ecd8c1239e9be01c763a4287343e6c35610cf09a64",
+      "output_path": "/cartilla/art/reconstructed/workbook/page-001.png",
+      "output_sha256": "7281d4a857611fb73b6e96ff657451048f7099e0b69244637f08d0033f4702a9",
+      "reference_alignment_inliers": 1443,
+      "changed_pixels_outside_targets": 0,
+      "objects": [
+        {
+          "id": "wb-s007-obj06-pez",
+          "object_name": "pez",
+          "workbook_box_norm": {
+            "x": 0.245098,
+            "y": 0.375,
+            "width": 0.186275,
+            "height": 0.087753
+          },
+          "colored_pixels": 29202,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s007-obj11-escuela",
+          "object_name": "escuela",
+          "workbook_box_norm": {
+            "x": 0.454248,
+            "y": 0.498106,
+            "width": 0.175654,
+            "height": 0.123106
+          },
+          "colored_pixels": 39938,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s007-obj17-ojos",
+          "object_name": "ojos",
+          "workbook_box_norm": {
+            "x": 0.04085,
+            "y": 0.80303,
+            "width": 0.166667,
+            "height": 0.049874
+          },
+          "colored_pixels": 1579,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s007-obj18-maiz",
+          "object_name": "maiz",
+          "workbook_box_norm": {
+            "x": 0.25,
+            "y": 0.774621,
+            "width": 0.173203,
+            "height": 0.128788
+          },
+          "colored_pixels": 36395,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s007-obj19-abeja",
+          "object_name": "abeja",
+          "workbook_box_norm": {
+            "x": 0.454248,
+            "y": 0.774621,
+            "width": 0.16585,
+            "height": 0.128788
+          },
+          "colored_pixels": 31289,
+          "verification_status": "PASS"
+        }
+      ],
+      "verification_status": "PASS"
+    },
+    {
+      "printed_page": 2,
+      "source_path": "/cartilla/art/reconstructed/workbook-deterministic/page-002.png",
+      "source_sha256": "95b542965b27c22e790e40693afb62ac3c5aef98b79406ed2356ad58aa81ee8c",
+      "reference_path": "src/data/reconstruction/color-references/page-002.png",
+      "reference_sha256": "f3a1adcca6b4af20726c42309338f73112b64e9498e7d70a5e271af028a896c4",
+      "output_path": "/cartilla/art/reconstructed/workbook/page-002.png",
+      "output_sha256": "f91ca5395e17b841aa8e955a0f0c6541aea3aa88303a8dcf6d24d7cd8fe0af14",
+      "reference_alignment_inliers": 835,
+      "changed_pixels_outside_targets": 0,
+      "objects": [
+        {
+          "id": "wb-s008-obj02-manzana",
+          "object_name": "manzana",
+          "workbook_box_norm": {
+            "x": 0.589052,
+            "y": 0.190657,
+            "width": 0.147876,
+            "height": 0.128157
+          },
+          "colored_pixels": 52523,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s008-obj03-libro",
+          "object_name": "libro",
+          "workbook_box_norm": {
+            "x": 0.781863,
+            "y": 0.215278,
+            "width": 0.173203,
+            "height": 0.082071
+          },
+          "colored_pixels": 29285,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s008-obj04-escuela",
+          "object_name": "escuela",
+          "workbook_box_norm": {
+            "x": 0.354575,
+            "y": 0.331439,
+            "width": 0.179739,
+            "height": 0.126894
+          },
+          "colored_pixels": 33401,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s008-obj05-arbol",
+          "object_name": "arbol",
+          "workbook_box_norm": {
+            "x": 0.580882,
+            "y": 0.331439,
+            "width": 0.147059,
+            "height": 0.126894
+          },
+          "colored_pixels": 3720,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s008-obj07-taza",
+          "object_name": "taza",
+          "workbook_box_norm": {
+            "x": 0.384804,
+            "y": 0.510732,
+            "width": 0.101307,
+            "height": 0.059975
+          },
+          "colored_pixels": 15204,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s008-obj09-pera",
+          "object_name": "pera",
+          "workbook_box_norm": {
+            "x": 0.788399,
+            "y": 0.47096,
+            "width": 0.170752,
+            "height": 0.127525
+          },
+          "colored_pixels": 47068,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s008-obj10-pajaro",
+          "object_name": "pajaro",
+          "workbook_box_norm": {
+            "x": 0.372549,
+            "y": 0.611742,
+            "width": 0.155229,
+            "height": 0.126263
+          },
+          "colored_pixels": 26229,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s008-obj12-carro",
+          "object_name": "carro",
+          "workbook_box_norm": {
+            "x": 0.780229,
+            "y": 0.630051,
+            "width": 0.178922,
+            "height": 0.089646
+          },
+          "colored_pixels": 31962,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s008-obj14-globo",
+          "object_name": "globo",
+          "workbook_box_norm": {
+            "x": 0.578431,
+            "y": 0.750631,
+            "width": 0.169935,
+            "height": 0.123106
+          },
+          "colored_pixels": 57227,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s008-obj15-dulce",
+          "object_name": "dulce",
+          "workbook_box_norm": {
+            "x": 0.76634,
+            "y": 0.750631,
+            "width": 0.19281,
+            "height": 0.128788
+          },
+          "colored_pixels": 29972,
+          "verification_status": "PASS"
+        }
+      ],
+      "verification_status": "PASS"
+    },
+    {
+      "printed_page": 3,
+      "source_path": "/cartilla/art/reconstructed/workbook-deterministic/page-003.png",
+      "source_sha256": "460bc5d52b4fea4c9f57fde0d935b0fe002f26740edab8581277647358b7c423",
+      "reference_path": "src/data/reconstruction/color-references/page-003.png",
+      "reference_sha256": "70cb5e3edcf377f2bb474c08e32e5ff3281f7696f4aee43820512006af217ba8",
+      "output_path": "/cartilla/art/reconstructed/workbook/page-003.png",
+      "output_sha256": "907cef3ee133c37564e71112776040b38ace7d8e93adcfff6e961b0fa07678c4",
+      "reference_alignment_inliers": 684,
+      "changed_pixels_outside_targets": 0,
+      "objects": [
+        {
+          "id": "wb-s009-obj01-iglesia",
+          "object_name": "iglesia",
+          "workbook_box_norm": {
+            "x": 0.049837,
+            "y": 0.242424,
+            "width": 0.214052,
+            "height": 0.161616
+          },
+          "colored_pixels": 66858,
+          "verification_status": "PASS"
+        }
+      ],
+      "verification_status": "PASS"
+    },
+    {
+      "printed_page": 4,
+      "source_path": "/cartilla/art/reconstructed/workbook-deterministic/page-004.png",
+      "source_sha256": "342272ffa466c4467f04bb558c9d13a80ed1fc6df3106e3fcd0248b2ab5b0f72",
+      "reference_path": "src/data/reconstruction/color-references/page-004.png",
+      "reference_sha256": "6416cace86e1dfadd9aee80e131bdf32b477f3c92f773ecb8d3101c792e4f288",
+      "output_path": "/cartilla/art/reconstructed/workbook/page-004.png",
+      "output_sha256": "9786d6f50d493a63bdd7e8731d380628b760ad269310b03802f0ff02a878e296",
+      "reference_alignment_inliers": 966,
+      "changed_pixels_outside_targets": 0,
+      "objects": [
+        {
+          "id": "wb-s010-obj01-ola",
+          "object_name": "ola",
+          "workbook_box_norm": {
+            "x": 0.160948,
+            "y": 0.214646,
+            "width": 0.169935,
+            "height": 0.140152
+          },
+          "colored_pixels": 58062,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s010-obj04-maiz",
+          "object_name": "maiz",
+          "workbook_box_norm": {
+            "x": 0.777778,
+            "y": 0.21654,
+            "width": 0.171569,
+            "height": 0.135732
+          },
+          "colored_pixels": 32771,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s010-obj16-ojos",
+          "object_name": "ojos",
+          "workbook_box_norm": {
+            "x": 0.76634,
+            "y": 0.708965,
+            "width": 0.19281,
+            "height": 0.107955
+          },
+          "colored_pixels": 2017,
+          "verification_status": "PASS"
+        }
+      ],
+      "verification_status": "PASS"
+    },
+    {
+      "printed_page": 5,
+      "source_path": "/cartilla/art/reconstructed/workbook-deterministic/page-005.png",
+      "source_sha256": "f53c58eb1ef7c9f8da453dac534dbf23c29de2066f17a57ffb26d80c12d20d99",
+      "reference_path": "src/data/reconstruction/color-references/page-005.png",
+      "reference_sha256": "6795c23cee65e72185ef95dcb74b68c14e51b2f252c69d7c065211bac7cca6aa",
+      "output_path": "/cartilla/art/reconstructed/workbook/page-005.png",
+      "output_sha256": "1ae7ff1c18604692dc3180ce46bd4f29cfda08b44ef619fbff179da3a2d564e1",
+      "reference_alignment_inliers": 865,
+      "changed_pixels_outside_targets": 0,
+      "objects": [
+        {
+          "id": "wb-s011-obj03-ojos",
+          "object_name": "ojos",
+          "workbook_box_norm": {
+            "x": 0.60049,
+            "y": 0.250631,
+            "width": 0.18219,
+            "height": 0.135101
+          },
+          "colored_pixels": 1310,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s011-obj06-ola",
+          "object_name": "ola",
+          "workbook_box_norm": {
+            "x": 0.044935,
+            "y": 0.679924,
+            "width": 0.166667,
+            "height": 0.130682
+          },
+          "colored_pixels": 40941,
+          "verification_status": "PASS"
+        }
+      ],
+      "verification_status": "PASS"
+    },
+    {
+      "printed_page": 7,
+      "source_path": "/cartilla/art/reconstructed/workbook-deterministic/page-007.png",
+      "source_sha256": "7e653b8495195f69357c11d589bfb134babc8846795f99d2caac0a7d56b7a2f5",
+      "reference_path": "src/data/reconstruction/color-references/page-007.png",
+      "reference_sha256": "799808295f293f1b37b1cb83b52084c1198f691a22a8534090ab45b8cc5fb347",
+      "output_path": "/cartilla/art/reconstructed/workbook/page-007.png",
+      "output_sha256": "d6ebe2fd36924125a16a70515f09b8911e60c64064f606511fcf8d930d849233",
+      "reference_alignment_inliers": 1428,
+      "changed_pixels_outside_targets": 0,
+      "objects": [
+        {
+          "id": "wb-s013-obj02-oruga",
+          "object_name": "oruga",
+          "workbook_box_norm": {
+            "x": 0.239379,
+            "y": 0.208965,
+            "width": 0.190359,
+            "height": 0.133838
+          },
+          "colored_pixels": 32936,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s013-obj06-abeja",
+          "object_name": "abeja",
+          "workbook_box_norm": {
+            "x": 0.239379,
+            "y": 0.359217,
+            "width": 0.177288,
+            "height": 0.142677
+          },
+          "colored_pixels": 24446,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s013-obj07-arbol",
+          "object_name": "arbol",
+          "workbook_box_norm": {
+            "x": 0.45915,
+            "y": 0.366162,
+            "width": 0.147876,
+            "height": 0.13447
+          },
+          "colored_pixels": 8669,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s013-obj12-ardilla",
+          "object_name": "ardilla",
+          "workbook_box_norm": {
+            "x": 0.648693,
+            "y": 0.521465,
+            "width": 0.194444,
+            "height": 0.132576
+          },
+          "colored_pixels": 43145,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s013-obj13-ojos",
+          "object_name": "ojos",
+          "workbook_box_norm": {
+            "x": 0.036765,
+            "y": 0.724747,
+            "width": 0.183824,
+            "height": 0.035985
+          },
+          "colored_pixels": 1776,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s013-obj14-pez",
+          "object_name": "pez",
+          "workbook_box_norm": {
+            "x": 0.239379,
+            "y": 0.700126,
+            "width": 0.177288,
+            "height": 0.078914
+          },
+          "colored_pixels": 24080,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s013-obj15-aguja",
+          "object_name": "aguja",
+          "workbook_box_norm": {
+            "x": 0.446078,
+            "y": 0.679293,
+            "width": 0.176471,
+            "height": 0.130051
+          },
+          "colored_pixels": 5564,
+          "verification_status": "PASS"
+        }
+      ],
+      "verification_status": "PASS"
+    },
+    {
+      "printed_page": 8,
+      "source_path": "/cartilla/art/reconstructed/workbook-deterministic/page-008.png",
+      "source_sha256": "8c8029755fa991f9449dca1b3e4e3e1d6142de32769eb4a2f3a143e2ba415544",
+      "reference_path": "src/data/reconstruction/color-references/page-008.png",
+      "reference_sha256": "a303e0d44fc27f383ebf4c46adf7f1c3ff775f092206b5c52f87725719f8d785",
+      "output_path": "/cartilla/art/reconstructed/workbook/page-008.png",
+      "output_sha256": "bd58dab7588c446fd840aedf43b5566ec4a9eb0e3d314efceb6b631178c09be5",
+      "reference_alignment_inliers": 899,
+      "changed_pixels_outside_targets": 0,
+      "objects": [
+        {
+          "id": "wb-s014-obj04-abeja",
+          "object_name": "abeja",
+          "workbook_box_norm": {
+            "x": 0.190359,
+            "y": 0.471591,
+            "width": 0.167484,
+            "height": 0.13447
+          },
+          "colored_pixels": 23950,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s014-obj05-aguja",
+          "object_name": "aguja",
+          "workbook_box_norm": {
+            "x": 0.800654,
+            "y": 0.465909,
+            "width": 0.169935,
+            "height": 0.133838
+          },
+          "colored_pixels": 4802,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s014-obj06-maiz",
+          "object_name": "maiz",
+          "workbook_box_norm": {
+            "x": 0.21732,
+            "y": 0.697601,
+            "width": 0.170752,
+            "height": 0.136364
+          },
+          "colored_pixels": 32908,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s014-obj07-pez",
+          "object_name": "pez",
+          "workbook_box_norm": {
+            "x": 0.48366,
+            "y": 0.754419,
+            "width": 0.178922,
+            "height": 0.119318
+          },
+          "colored_pixels": 12891,
+          "verification_status": "PASS"
+        }
+      ],
+      "verification_status": "PASS"
+    },
+    {
+      "printed_page": 10,
+      "source_path": "/cartilla/art/reconstructed/workbook-deterministic/page-010.png",
+      "source_sha256": "b5cb3097156283bcf73b1f8d0a76dad9d15a90144c6a3f8efcb34fec7ba1fc90",
+      "reference_path": "src/data/reconstruction/color-references/page-010.png",
+      "reference_sha256": "a0a344f9188d70be89459ea648a15d5c7b7909c87bf7466913b137373ad7e5f8",
+      "output_path": "/cartilla/art/reconstructed/workbook/page-010.png",
+      "output_sha256": "28de6c909d40743a1f6d58ee21945e8df767aff233df7fe3c005da60493a9d37",
+      "reference_alignment_inliers": 1502,
+      "changed_pixels_outside_targets": 0,
+      "objects": [
+        {
+          "id": "wb-s016-obj03-maiz",
+          "object_name": "maiz",
+          "workbook_box_norm": {
+            "x": 0.57598,
+            "y": 0.227273,
+            "width": 0.169935,
+            "height": 0.13447
+          },
+          "colored_pixels": 39707,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s016-obj07-abeja",
+          "object_name": "abeja",
+          "workbook_box_norm": {
+            "x": 0.574346,
+            "y": 0.379419,
+            "width": 0.18219,
+            "height": 0.142677
+          },
+          "colored_pixels": 22971,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s016-obj08-aguja",
+          "object_name": "aguja",
+          "workbook_box_norm": {
+            "x": 0.776144,
+            "y": 0.379419,
+            "width": 0.185458,
+            "height": 0.135732
+          },
+          "colored_pixels": 2585,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s016-obj13-escuela",
+          "object_name": "escuela",
+          "workbook_box_norm": {
+            "x": 0.160948,
+            "y": 0.690025,
+            "width": 0.186275,
+            "height": 0.143308
+          },
+          "colored_pixels": 36885,
+          "verification_status": "PASS"
+        }
+      ],
+      "verification_status": "PASS"
+    },
+    {
+      "printed_page": 11,
+      "source_path": "/cartilla/art/reconstructed/workbook-deterministic/page-011.png",
+      "source_sha256": "0ffb76c859b848ed4d2a09bc87090172feac7fc241d9910bb41a8b96a826d011",
+      "reference_path": "src/data/reconstruction/color-references/page-011.png",
+      "reference_sha256": "e53c4c51a72ea160a05e8ecdc4fc4696884128e8f8ac5c870564be69069426b6",
+      "output_path": "/cartilla/art/reconstructed/workbook/page-011.png",
+      "output_sha256": "f248b9f8b4341dc5ea51a95d5f5a4eac9f58b4c4339ae17e938302097f727609",
+      "reference_alignment_inliers": 952,
+      "changed_pixels_outside_targets": 0,
+      "objects": [
+        {
+          "id": "wb-s017-obj03-abeja",
+          "object_name": "abeja",
+          "workbook_box_norm": {
+            "x": 0.618464,
+            "y": 0.253157,
+            "width": 0.178922,
+            "height": 0.135732
+          },
+          "colored_pixels": 40791,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s017-obj05-maiz",
+          "object_name": "maiz",
+          "workbook_box_norm": {
+            "x": 0.63317,
+            "y": 0.479798,
+            "width": 0.17402,
+            "height": 0.13447
+          },
+          "colored_pixels": 32737,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s017-obj08-chaqueta",
+          "object_name": "chaqueta",
+          "workbook_box_norm": {
+            "x": 0.619281,
+            "y": 0.715909,
+            "width": 0.153595,
+            "height": 0.128157
+          },
+          "colored_pixels": 49596,
+          "verification_status": "PASS"
+        }
+      ],
+      "verification_status": "PASS"
+    },
+    {
+      "printed_page": 13,
+      "source_path": "/cartilla/art/reconstructed/workbook-deterministic/page-013.png",
+      "source_sha256": "4eb0ee958073aeb5e3961a77435061c97293cee5433723b16f598f7887e85a25",
+      "reference_path": "src/data/reconstruction/color-references/page-013.png",
+      "reference_sha256": "96e4e147750f397bb3a19275cbe5063da67ab6813c96af39792253ba06ede9eb",
+      "output_path": "/cartilla/art/reconstructed/workbook/page-013.png",
+      "output_sha256": "830fd660cf3c662ab3600d825a7721b7296f8085d350660fb329456e77953ffa",
+      "reference_alignment_inliers": 1518,
+      "changed_pixels_outside_targets": 0,
+      "objects": [
+        {
+          "id": "wb-s019-obj02-pez",
+          "object_name": "pez",
+          "workbook_box_norm": {
+            "x": 0.239379,
+            "y": 0.218434,
+            "width": 0.190359,
+            "height": 0.131313
+          },
+          "colored_pixels": 21975,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s019-obj03-iguana",
+          "object_name": "iguana",
+          "workbook_box_norm": {
+            "x": 0.446078,
+            "y": 0.241162,
+            "width": 0.186275,
+            "height": 0.097854
+          },
+          "colored_pixels": 24116,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s019-obj08-invierno",
+          "object_name": "invierno",
+          "workbook_box_norm": {
+            "x": 0.648693,
+            "y": 0.363636,
+            "width": 0.194444,
+            "height": 0.142677
+          },
+          "colored_pixels": 61286,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s019-obj09-ola",
+          "object_name": "ola",
+          "workbook_box_norm": {
+            "x": 0.040033,
+            "y": 0.519571,
+            "width": 0.17402,
+            "height": 0.140783
+          },
+          "colored_pixels": 45644,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s019-obj14-igual",
+          "object_name": "igual",
+          "workbook_box_norm": {
+            "x": 0.281046,
+            "y": 0.727904,
+            "width": 0.086601,
+            "height": 0.03851
+          },
+          "colored_pixels": 1385,
+          "verification_status": "PASS"
+        }
+      ],
+      "verification_status": "PASS"
+    },
+    {
+      "printed_page": 14,
+      "source_path": "/cartilla/art/reconstructed/workbook-deterministic/page-014.png",
+      "source_sha256": "fa04a3b794dc127431572dfe219d5977157dfe9c45e7e70da6d50a7a827995a4",
+      "reference_path": "src/data/reconstruction/color-references/page-014.png",
+      "reference_sha256": "cfa6b7d6603b1b4ad70da04536c6accee55d03158d290b88ef88a6f49847034d",
+      "output_path": "/cartilla/art/reconstructed/workbook/page-014.png",
+      "output_sha256": "da1f35ce1fc90337eaa234beb36a135c91ee2bd85c6f100af6f43f4f95096165",
+      "reference_alignment_inliers": 871,
+      "changed_pixels_outside_targets": 0,
+      "objects": [
+        {
+          "id": "wb-s020-obj04-igual",
+          "object_name": "igual",
+          "workbook_box_norm": {
+            "x": 0.196078,
+            "y": 0.520833,
+            "width": 0.085784,
+            "height": 0.03851
+          },
+          "colored_pixels": 1359,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s020-obj07-iguana",
+          "object_name": "iguana",
+          "workbook_box_norm": {
+            "x": 0.456699,
+            "y": 0.770833,
+            "width": 0.19281,
+            "height": 0.095328
+          },
+          "colored_pixels": 21978,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s020-obj08-abeja",
+          "object_name": "abeja",
+          "workbook_box_norm": {
+            "x": 0.759804,
+            "y": 0.70202,
+            "width": 0.166667,
+            "height": 0.135732
+          },
+          "colored_pixels": 21037,
+          "verification_status": "PASS"
+        }
+      ],
+      "verification_status": "PASS"
+    },
+    {
+      "printed_page": 16,
+      "source_path": "/cartilla/art/reconstructed/workbook-deterministic/page-016.png",
+      "source_sha256": "de270821a9a162e254a7bd2b756c52737eb13b95a3f5d6ec211899494b633827",
+      "reference_path": "src/data/reconstruction/color-references/page-016.png",
+      "reference_sha256": "19497a6181cca0ea3d28d069587f47caf59622507df46e52853c93ea78c8495b",
+      "output_path": "/cartilla/art/reconstructed/workbook/page-016.png",
+      "output_sha256": "edb2f55c8765eb97a9f360d4607fb000b8217a11b82b53f308f35c7e946cb28f",
+      "reference_alignment_inliers": 1433,
+      "changed_pixels_outside_targets": 0,
+      "objects": [
+        {
+          "id": "wb-s022-obj03-pez",
+          "object_name": "pez",
+          "workbook_box_norm": {
+            "x": 0.570261,
+            "y": 0.229798,
+            "width": 0.186275,
+            "height": 0.131313
+          },
+          "colored_pixels": 33930,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s022-obj09-arbol",
+          "object_name": "arbol",
+          "workbook_box_norm": {
+            "x": 0.160948,
+            "y": 0.532197,
+            "width": 0.180556,
+            "height": 0.142677
+          },
+          "colored_pixels": 31182,
+          "verification_status": "PASS"
+        },
+        {
+          "id": "wb-s022-obj13-abeja",
+          "object_name": "abeja",
+          "workbook_box_norm": {
+            "x": 0.160948,
+            "y": 0.6875,
+            "width": 0.185458,
+            "height": 0.143308
+          },
+          "colored_pixels": 28244,
+          "verification_status": "PASS"
+        }
+      ],
+      "verification_status": "PASS"
+    }
+  ],
+  "visual_qa": "PASS: 12 affected pages and 50 object crops reviewed after constrained color transfer"
+}

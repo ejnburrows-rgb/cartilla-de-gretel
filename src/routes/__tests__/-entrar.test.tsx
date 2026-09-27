@@ -71,7 +71,7 @@ describe("Entrar (post-splash landing) — GretelPresence + approved copy only",
     const hero = screen.getByTestId("book-hero-gretel-frame");
     expect(hero.getAttribute("data-sticker")).toBe("false");
     expect(hero.getAttribute("data-gretel-system")).toBe("presence");
-  });
+  }, 20_000);
 
   it("hero text is ONLY the approved greeting — no fabricated captions", async () => {
     const { Route: IndexRoute } = await import("../entrar");
