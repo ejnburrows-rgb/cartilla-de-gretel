@@ -52,7 +52,7 @@ export function ReconstructedWorkbookPage({
       data-workbook-pdf-sheet={master.workbook_pdf_sheet}
     >
       <img
-        src={master.output_path}
+        src={`${master.output_path}?v=${master.output_sha256.slice(0, 16)}`}
         alt={`Página ${pageNumber} reconstruida y verificada`}
         className="h-full w-full object-contain"
         draggable={false}
