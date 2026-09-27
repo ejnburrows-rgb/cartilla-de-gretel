@@ -114,6 +114,25 @@ assert(sheetToPrinted.get(91) === 85 && sheetToPrinted.get(92) === 88 &&
        sheetToPrinted.get(93) === 89 && sheetToPrinted.get(94) === 90,
   "verified tail page mapping is not preserved");
 
+const availablePrintedPages = (pageIndex.printed_pages ?? [])
+  .filter((page) => page.status === "AVAILABLE")
+  .map((page) => page.printed_page);
+for (const printed of availablePrintedPages) {
+  const sourceFile = path.join(
+    root,
+    "public",
+    "cartilla",
+    "art",
+    "source",
+    "workbook",
+    `page-${String(printed).padStart(3, "0")}.jpg`,
+  );
+  assert(fs.existsSync(sourceFile), `available Workbook source page ${printed} is missing`);
+  if (fs.existsSync(sourceFile)) {
+    assert(fs.statSync(sourceFile).size > 0, `available Workbook source page ${printed} is empty`);
+  }
+}
+
 const plan = readJson("src/data/reconstruction/reconstruction-plan.json");
 assert(Array.isArray(plan.items), "reconstruction plan must contain items[]");
 const planIds = new Set();
@@ -299,6 +318,7 @@ console.log(
     JSON.stringify({
       workbookPdfSheets: 98,
       printedPages: 90,
+      availableSourcePages: availablePrintedPages.length,
       missingPrintedPages: [86, 87],
       mappingRecords: mapping.mappings.length,
       mappingLinks: totalLinks,
