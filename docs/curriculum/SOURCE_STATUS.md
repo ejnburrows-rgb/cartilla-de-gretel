@@ -29,6 +29,7 @@ Do not invent, reconstruct, or silently substitute content and label it as origi
 - Evaluation 13 is present.
 - Flip Chart pages 3 and 6 are present in the authoritative uploaded Flip Chart.
 - Do not create an original-curriculum “pages 91–92 review/fluency/certificate” section. The 92-page remaster ends with printed workbook page 90 followed by the back cover; the 98-page source includes non-instructional/blank pages before the back cover.
+- The 98-sheet source rescan has a verified scan gap: printed workbook pages 86–87 are absent. PDF sheet 91 is printed page 85; PDF sheets 92–94 resume at printed pages 88–90. Use `src/data/reconstruction/pdf-sheet-to-printed-page.json`; never infer printed page identity from a fixed offset.
 
 ## Canonical instructional chain
 lesson → skill → workbook page → flipchart page → item/attempt → evaluation → teacher evidence → intervention
