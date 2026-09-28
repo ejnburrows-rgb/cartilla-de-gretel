@@ -46,7 +46,7 @@
 .native-lesson-viewer__content .fp-ix-fill__wordbox, .native-lesson-viewer__content .fp-ix-fill__blank { font-size: 18px; }
 .native-lesson-viewer__content .fp-ix-fill__choice { min-height: 46px; min-width: 46px; font-size: 17px; padding: 6px 10px; }
 .native-lesson-viewer__content .fp-ix-check-btn { min-height: 48px; padding: 10px 22px; font-size: 16px; }
-.native-lesson-viewer__content .living-illustration, .native-lesson-viewer__content .living-illustration__art, .native-lesson-viewer__content .living-runtime-art { animation: none !important; transform: none !important; }
+/* Living actors remain active in native lessons; reduced-motion is handled by the actor runtime. */
 .native-lesson-viewer__navigation { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 28px; border-top: 1px solid #e8dcca; padding-top: 22px; font: 700 15px system-ui, sans-serif; }
 .native-lesson-viewer__navigation button { min-height: 48px; display: inline-flex; align-items: center; gap: 6px; border: 1px solid #a5cec6; border-radius: 14px; padding: 9px 16px; color: #126b62; background: #fff; cursor: pointer; }
 .native-lesson-viewer__navigation button:hover:not(:disabled) { background: #e8f8f3; }
