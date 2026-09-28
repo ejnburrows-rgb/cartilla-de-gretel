@@ -14,7 +14,7 @@ export type LivingActorAction =
   | "float";
 
 export type LivingActorPart = {
-  name: "wings" | "head" | "tail";
+  name: "wings" | "head" | "tail" | "ears" | "trunk";
   clipPath: string;
   transformOrigin: string;
 };
@@ -40,7 +40,7 @@ export const LIVING_ACTORS: Readonly<Record<string, LivingActor>> = Object.freez
   [`${A}/vocal-a/ardilla.webp`]: { src: `${A}/vocal-a/ardilla.webp`, action: "hop", creature: true, reducedMotion: "static", meaning: "salto corto de ardilla" },
   [`${A}/vocal-a/avion.webp`]: { src: `${A}/vocal-a/avion.webp`, action: "glide", creature: false, reducedMotion: "static", meaning: "desplazamiento de avión" },
   [`${A}/vocal-a/abanico.webp`]: { src: `${A}/vocal-a/abanico.webp`, action: "sway", creature: false, reducedMotion: "static", meaning: "abanico que se mece" },
-  [`${A}/vocal-e/elefante.webp`]: { src: `${A}/vocal-e/elefante.webp`, action: "nod", creature: true, reducedMotion: "static", meaning: "movimiento pesado y suave" },
+  [`${A}/vocal-e/elefante.webp`]: { src: `${A}/vocal-e/elefante.webp`, action: "nod", creature: true, parts: [{ name: "trunk", clipPath: "inset(20% 55% 18% 2%)", transformOrigin: "38% 45%" }], reducedMotion: "static", meaning: "trompa que se balancea con suavidad" },
   [`${A}/vocal-e/erizo.webp`]: { src: `${A}/vocal-e/erizo.webp`, action: "breathe", creature: true, reducedMotion: "static", meaning: "respiración discreta" },
   [`${A}/vocal-i/iguana.webp`]: { src: `${A}/vocal-i/iguana.webp`, action: "crawl", creature: true, reducedMotion: "static", meaning: "avance lento de iguana" },
   [`${A}/vocal-i/insecto.webp`]: { src: `${A}/vocal-i/insecto.webp`, action: "crawl", creature: true, reducedMotion: "static", meaning: "movimiento breve de insecto" },
@@ -48,7 +48,7 @@ export const LIVING_ACTORS: Readonly<Record<string, LivingActor>> = Object.freez
 
   [`${A}/leccion-1/aguila.webp`]: { src: `${A}/leccion-1/aguila.webp`, action: "flutter", creature: true, parts: [{ name: "wings", clipPath: "inset(8% 4% 42% 4%)", transformOrigin: "50% 62%" }], reducedMotion: "static", meaning: "aleteo breve de águila" },
   [`${A}/leccion-1/pajaro.webp`]: { src: `${A}/leccion-1/pajaro.webp`, action: "flutter", creature: true, parts: [{ name: "wings", clipPath: "inset(10% 6% 44% 6%)", transformOrigin: "50% 60%" }], reducedMotion: "static", meaning: "aleteo breve de pájaro" },
-  [`${A}/leccion-1/pez.webp`]: { src: `${A}/leccion-1/pez.webp`, action: "swim", creature: true, reducedMotion: "static", meaning: "nado lateral" },
+  [`${A}/leccion-1/pez.webp`]: { src: `${A}/leccion-1/pez.webp`, action: "swim", creature: true, parts: [{ name: "tail", clipPath: "inset(32% 66% 18% 0)", transformOrigin: "34% 58%" }], reducedMotion: "static", meaning: "cola que impulsa el nado" },
   [`${A}/leccion-1/carro.webp`]: { src: `${A}/leccion-1/carro.webp`, action: "roll", creature: false, reducedMotion: "static", meaning: "rodar corto" },
   [`${A}/leccion-1/globo.webp`]: { src: `${A}/leccion-1/globo.webp`, action: "float", creature: false, reducedMotion: "static", meaning: "flotación de globo" },
 
@@ -57,7 +57,7 @@ export const LIVING_ACTORS: Readonly<Record<string, LivingActor>> = Object.freez
   [`${A}/leccion-18-rr/burro.webp`]: { src: `${A}/leccion-18-rr/burro.webp`, action: "nod", creature: true, reducedMotion: "static", meaning: "movimiento atento del burro" },
   [`${A}/leccion-18-rr/carrusel.webp`]: { src: `${A}/leccion-18-rr/carrusel.webp`, action: "spin", creature: false, reducedMotion: "static", meaning: "giro del carrusel" },
   [`${A}/leccion-18-rr/perro.webp`]: { src: `${A}/leccion-18-rr/perro.webp`, action: "wag", creature: true, parts: [{ name: "tail", clipPath: "inset(28% 0 18% 62%)", transformOrigin: "66% 65%" }], reducedMotion: "static", meaning: "reacción juguetona con cola" },
-  [`${A}/leccion-19-c/conejo.webp`]: { src: `${A}/leccion-19-c/conejo.webp`, action: "hop", creature: true, reducedMotion: "static", meaning: "salto corto del conejo" },
+  [`${A}/leccion-19-c/conejo.webp`]: { src: `${A}/leccion-19-c/conejo.webp`, action: "hop", creature: true, parts: [{ name: "ears", clipPath: "inset(0 18% 55% 12%)", transformOrigin: "48% 45%" }], reducedMotion: "static", meaning: "orejas que reaccionan antes del salto" },
   [`${A}/leccion-19-g/gato.webp`]: { src: `${A}/leccion-19-g/gato.webp`, action: "nod", creature: true, reducedMotion: "static", meaning: "movimiento atento de cabeza/cuerpo" },
   [`${A}/leccion-19-g/gusano.webp`]: { src: `${A}/leccion-19-g/gusano.webp`, action: "crawl", creature: true, reducedMotion: "static", meaning: "avance de gusano" },
   [`${A}/leccion-21-j/jicotea.webp`]: { src: `${A}/leccion-21-j/jicotea.webp`, action: "crawl", creature: true, reducedMotion: "static", meaning: "avance lento de jicotea" },
