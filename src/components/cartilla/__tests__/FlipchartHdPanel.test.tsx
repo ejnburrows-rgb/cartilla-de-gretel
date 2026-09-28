@@ -5,7 +5,7 @@ import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { render, fireEvent, cleanup, screen } from "@testing-library/react";
 import { FlipchartHdPanel } from "../FlipchartHdPanel";
 import { TeacherPresentationShell } from "../TeacherPresentationShell";
-import { FlipchartPlate } from "../FlipchartPlate";
+import { FlipchartNativeBoard } from "../FlipchartNativeBoard";
 import { FLIPCHART_PAGES } from "@/lib/flipchart-hd";
 import { FLIPCHART_FLIP_MS } from "@/lib/living-motion";
 
@@ -29,26 +29,16 @@ beforeEach(() => {
 afterEach(() => cleanup());
 
 describe("FlipchartHdPanel — CRM-grade presenter board", () => {
-  it("renders native teaching text over generated illustration layers for every lesson plate", () => {
+  it("renders every lesson plate as a native HTML board with standalone artwork", () => {
     for (const page of FLIPCHART_PAGES.filter((page) => page.lesson > 0)) {
-      const { container, unmount } = render(<FlipchartPlate page={page} />);
-      const plate = container.querySelector('svg[data-digital-text="true"]');
-      expect(
-        plate,
-        `Digital text missing on plate ${page.flipchartPage}`,
-      ).toBeTruthy();
-      expect(plate?.querySelectorAll("text").length).toBeGreaterThan(0);
-      expect(plate?.querySelector("image")?.getAttribute("clip-path")).toMatch(
-        /^url\(#/,
+      const { container, unmount } = render(<FlipchartNativeBoard page={page} />);
+      const board = container.querySelector('[data-native-flipchart="true"]');
+      expect(board, `Native board missing on plate ${page.flipchartPage}`).toBeTruthy();
+      expect(container.querySelector('[data-testid="flipchart-hero-asset"]')?.getAttribute("src")).toBe(
+        `/cartilla/art/faithful/flipchart/flipchart-p${String(page.flipchartPage).padStart(3, "0")}-hero.webp`,
       );
-      expect(plate?.querySelector("image")?.getAttribute("href")).toBe(
-        `/cartilla/art/delivery/flipchart/screen/page-${String(page.flipchartPage).padStart(3, "0")}.webp`,
-      );
-      expect(plate?.getAttribute("data-native-flipchart")).toBe("true");
-      for (const text of plate?.querySelectorAll("text") ?? []) {
-        expect(Number(text.getAttribute("textLength"))).toBeGreaterThan(0);
-        expect(Number(text.getAttribute("font-size"))).toBeGreaterThan(0);
-      }
+      expect(container.querySelector("img")?.getAttribute("src") ?? "").not.toContain("/hd/flipchart/");
+      expect(container.textContent?.trim().length).toBeGreaterThan(0);
       unmount();
     }
   });
@@ -56,7 +46,7 @@ describe("FlipchartHdPanel — CRM-grade presenter board", () => {
   it("rebuilds Flip Chart frontmatter without rendering source JPG pages", () => {
     for (const pageNumber of [1, 2] as const) {
       const page = FLIPCHART_PAGES.find((entry) => entry.flipchartPage === pageNumber)!;
-      const { container, unmount } = render(<FlipchartPlate page={page} />);
+      const { container, unmount } = render(<FlipchartNativeBoard page={page} />);
       expect(container.querySelector('[data-native-flipchart="true"]')).toBeTruthy();
       expect(container.querySelector("img")?.getAttribute("src") ?? "").not.toContain("hd/flipchart/page-00");
       unmount();
@@ -83,14 +73,14 @@ describe("FlipchartHdPanel — CRM-grade presenter board", () => {
     expect(stage?.className).not.toMatch(/max-w-5xl|max-w-4xl/);
   });
 
-  it("uses HD flipchart asset paths on faces", () => {
+  it("keeps HD canonical provenance while the visible surface is native", () => {
     const { container } = render(<FlipchartHdPanel lessonNumber={2} />);
-    const face = container.querySelector("[data-flipchart-src]");
-    // Lesson 2 may or may not have plates depending on catalog — if present, HD.
+    const face = container.querySelector('[data-native-surface="true"]');
     if (face) {
-      const src = face.getAttribute("data-flipchart-src") ?? "";
-      expect(src).toMatch(/\/cartilla\/art\/(?:delivery\/flipchart|restored\/flipchart|hd\/flipchart)\//);
+      expect(face.getAttribute("data-canonical-src")).toMatch(/\/cartilla\/art\/hd\/flipchart\//);
       expect(face.getAttribute("data-hd")).toBe("true");
+      expect(face.querySelector('[data-native-flipchart="true"]')).toBeTruthy();
+      expect(face.querySelector("img")?.getAttribute("src") ?? "").not.toContain("/hd/flipchart/");
     } else {
       expect(screen.getByTestId("flipchart-empty")).toBeTruthy();
     }
