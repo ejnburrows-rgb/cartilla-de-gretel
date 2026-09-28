@@ -431,6 +431,14 @@
   animation: living-part-head 4.2s ease-in-out var(--living-delay) infinite;
 }
 
+.living-illustration__part--ears {
+  animation: living-part-ears 3.6s ease-in-out var(--living-delay) infinite;
+}
+
+.living-illustration__part--trunk {
+  animation: living-part-trunk 4.4s ease-in-out var(--living-delay) infinite;
+}
+
 @keyframes living-part-wings {
   0%, 100% { transform: rotate(-1.8deg) scaleY(.98); }
   50% { transform: rotate(1.8deg) scaleY(1.025); }
@@ -445,6 +453,18 @@
   0%, 76%, 100% { transform: rotate(0deg) translateY(0); }
   84% { transform: rotate(1.5deg) translateY(1%); }
   92% { transform: rotate(-.7deg) translateY(0); }
+}
+
+@keyframes living-part-ears {
+  0%, 72%, 100% { transform: rotate(0deg) scaleY(1); }
+  82% { transform: rotate(-2.2deg) scaleY(.97); }
+  91% { transform: rotate(1.4deg) scaleY(1.015); }
+}
+
+@keyframes living-part-trunk {
+  0%, 72%, 100% { transform: rotate(0deg); }
+  82% { transform: rotate(-2.4deg); }
+  91% { transform: rotate(1.6deg); }
 }
 
 @media (prefers-reduced-motion: reduce) {
