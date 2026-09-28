@@ -13,11 +13,9 @@ const deliveryManifestPath = path.join(publicDir, "cartilla", "art", "delivery",
 const sourceManifestPath = path.join(faithfulDir, "manifest.json");
 const quarantinePath = path.join(faithfulDir, "quarantine.json");
 const flipchartCanonicalDir = path.join(publicDir, "cartilla", "art", "hd", "flipchart");
-const flipchartDeliveryDir = path.join(publicDir, "cartilla", "art", "delivery", "flipchart");
 const flipchartRegistryPath = path.join(rootDir, "src", "data", "teacher-flipchart.json");
 
 export const DELIVERY_WIDTHS = [384, 768];
-export const FLIPCHART_DELIVERY_WIDTHS = { screen: 1920, thumb: 360 };
 export const SAFE_PADDING = 10;
 const ALPHA_EMPTY = 8;
 
