@@ -51,7 +51,7 @@ test("teacher presenter uses clean digital flipchart chrome", async ({ page }) =
 
   const panel = page.getByTestId("flipchart-hd-panel");
   await expect(panel).toBeVisible({ timeout: 20_000 });
-  await expect(panel).toHaveAttribute("data-presenter-mode", "digital");
+  await expect(panel).toHaveAttribute("data-presenter-mode", "native");
   await expect(panel).not.toHaveAttribute("data-physical-flipchart", "true");
   await expect(page.locator(".fc-board__binding")).toHaveCount(0);
   await expect(page.locator(".fc-board__ring")).toHaveCount(0);
