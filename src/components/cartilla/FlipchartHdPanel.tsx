@@ -1,13 +1,12 @@
 /**
  * FlipchartHdPanel — native teacher presentation board for classroom projection.
  *
- * Canonical assets remain public/cartilla/art/hd/flipchart/page-NNN.jpg.
- * The presenter serves generated tier-3 WebP derivatives sized for the actual
- * projector surface and thumbnail strip; canonical masters are never mutated.
+ * Canonical full-page masters remain provenance/reference only under
+ * public/cartilla/art/hd/flipchart/. The visible presenter composes separate
+ * faithful learning-object assets with selectable digital text.
  *
- * ORIENTATION: all source JPGs are already corrected in the asset pipeline.
- * The presenter uses a clean digital surface with a vertical page transition,
- * never simulated rings, binding hardware, or scan chrome.
+ * The presenter uses a clean native surface with a vertical page transition,
+ * never simulated rings, binding hardware, scan chrome, or a photographed page.
  */
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
@@ -147,10 +146,6 @@ export function FlipchartHdPanel({ lessonNumber, accentColor }: FlipchartHdPanel
     return () => window.removeEventListener("keydown", onKey);
   }, [handleNext, handlePrev]);
 
-  useEffect(() => {
-    setPageReady(false);
-  }, [currentPage]);
-
   const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
     pointerStartRef.current = { x: event.clientX, y: event.clientY };
   };
@@ -194,7 +189,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor }: FlipchartHdPanel
       data-testid="flipchart-hd-panel"
       data-hd-primary="true"
       data-presenter-mode="native"
-      data-delivery-tier="native-illustration-webp"
+      data-delivery-tier="independent-faithful-assets"
       data-page-turn-axis="vertical"
       data-page-turn-ms={FLIPCHART_FLIP_MS}
       data-reduced-motion={reducedMotion ? "true" : "false"}
