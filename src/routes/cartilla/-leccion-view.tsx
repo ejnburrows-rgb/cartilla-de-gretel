@@ -17,7 +17,7 @@ import { NativeLessonViewer } from "@/components/StudentBook/NativeLessonViewer"
 import { buildPageArray } from "@/utils/buildPageArray";
 import { GretelPresence } from "@/components/gretel/GretelPresence";
 import { GretelCinematic } from "@/components/gretel/GretelCinematic";
-import { getLessonCinematic } from "@/content/gretel-cinematics";
+import { getCompletionCinematic, getLessonCinematic, type GretelCinematic as GretelCinematicSpec } from "@/content/gretel-cinematics";
 import { GardenScene } from "@/components/cartilla/GardenScene";
 import "@/styles/interactive-exercises.css";
 import "@/styles/gretel.css";
@@ -29,6 +29,7 @@ export function Leccion() {
   const navigate = useNavigate();
   const n = Number(nParam);
   const [showIntro, setShowIntro] = useState(true);
+  const [completionCinematic, setCompletionCinematic] = useState<GretelCinematicSpec | null>(null);
   useLessonProgress();
   const session = useStudentSession();
   const entry = useMemo<CatalogEntry | undefined>(() => CATALOG.find((e) => e.n === n), [n]);
@@ -136,12 +137,22 @@ export function Leccion() {
   const isLast = n >= TOTAL_LESSONS;
   const pct = Math.round((n / TOTAL_LESSONS) * 100);
 
+  const advanceAfterCompletion = () => {
+    setCompletionCinematic(null);
+    if (isLast) navigate({ to: "/cartilla/lecciones" });
+    else navigate({ to: "/cartilla/leccion/$n", params: { n: String(n + 1) } });
+  };
+
   const goNext = () => {
     markLessonCompleted(n);
     recordEvent({ lessonId: String(n), kind: "lesson_completed" });
     gretelEvent("lesson:complete");
-    if (isLast) navigate({ to: "/cartilla/lecciones" });
-    else navigate({ to: "/cartilla/leccion/$n", params: { n: String(n + 1) } });
+    const cinematic = getCompletionCinematic(n);
+    if (cinematic) {
+      setCompletionCinematic(cinematic);
+      return;
+    }
+    advanceAfterCompletion();
   };
 
   const bookCompanion = (
@@ -216,6 +227,12 @@ export function Leccion() {
             <GretelCinematic
               cinematic={getLessonCinematic(n)}
               onComplete={() => setShowIntro(false)}
+            />
+          )}
+          {progressReady && completionCinematic && (
+            <GretelCinematic
+              cinematic={completionCinematic}
+              onComplete={advanceAfterCompletion}
             />
           )}
           <GardenScene ref={gardenRef}>
