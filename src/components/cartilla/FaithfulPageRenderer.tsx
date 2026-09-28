@@ -545,6 +545,41 @@ function RegionView({
           ))}
         </div>
       );
+    case "title":
+      return native ? (
+        <h2 className="fp-native-title">{region.text}</h2>
+      ) : (
+        <p className="fp-region--title">{region.text}</p>
+      );
+    case "syllable-bubble":
+      return native ? (
+        <div className="fp-native-syllables" aria-label={region.text ?? undefined}>
+          {(region.text ?? "").split(/\s+/).filter(Boolean).map((syllable) => (
+            <span key={syllable}>{syllable}</span>
+          ))}
+        </div>
+      ) : (
+        <p className="fp-region--syllable-bubble">{region.text}</p>
+      );
+    case "vocab-grid":
+      return native ? (
+        <div className="fp-native-vocab">
+          {(region.text ?? "").split("·").map((word) => word.trim()).filter(Boolean).map((word) => (
+            <span key={word}>{word}</span>
+          ))}
+        </div>
+      ) : (
+        <p className="fp-region--vocab-grid">{region.text}</p>
+      );
+    case "sentence-line":
+      return native ? (
+        <div className="fp-native-sight-word" aria-label="Palabra de enlace">{region.text}</div>
+      ) : (
+        <p className="fp-region--sentence-line">{region.text}</p>
+      );
+    case "footer":
+    case "page-number":
+      return native ? null : <p className={`fp-region--${region.regionType}`}>{region.text}</p>;
     default:
       return <p className={`fp-region--${region.regionType}`}>{region.text}</p>;
   }
