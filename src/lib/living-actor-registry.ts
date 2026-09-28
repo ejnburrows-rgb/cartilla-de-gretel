@@ -9,7 +9,9 @@ export type LivingActorAction =
   | "spin"
   | "hop"
   | "wag"
-  | "nod";
+  | "nod"
+  | "sway"
+  | "float";
 
 export type LivingActor = {
   src: string;
@@ -25,17 +27,41 @@ const A = "/cartilla/art/faithful";
 export const LIVING_ACTORS: Readonly<Record<string, LivingActor>> = Object.freeze({
   [`${A}/vocal-o/oso.webp`]: { src: `${A}/vocal-o/oso.webp`, action: "breathe", creature: true, blinkFrame: `${A}/vocal-o/oso-blink.webp`, reducedMotion: "static", meaning: "respiración y mirada natural" },
   [`${A}/vocal-o/oruga.webp`]: { src: `${A}/vocal-o/oruga.webp`, action: "crawl", creature: true, reducedMotion: "static", meaning: "avance corto de oruga" },
+  [`${A}/vocal-o/oveja.webp`]: { src: `${A}/vocal-o/oveja.webp`, action: "nod", creature: true, reducedMotion: "static", meaning: "gesto suave de oveja" },
   [`${A}/vocal-a/abeja.webp`]: { src: `${A}/vocal-a/abeja.webp`, action: "hover", creature: true, reducedMotion: "static", meaning: "vuelo suspendido" },
+  [`${A}/vocal-a/arana.webp`]: { src: `${A}/vocal-a/arana.webp`, action: "crawl", creature: true, reducedMotion: "static", meaning: "paso corto de araña" },
+  [`${A}/vocal-a/ardilla.webp`]: { src: `${A}/vocal-a/ardilla.webp`, action: "hop", creature: true, reducedMotion: "static", meaning: "salto corto de ardilla" },
   [`${A}/vocal-a/avion.webp`]: { src: `${A}/vocal-a/avion.webp`, action: "glide", creature: false, reducedMotion: "static", meaning: "desplazamiento de avión" },
+  [`${A}/vocal-a/abanico.webp`]: { src: `${A}/vocal-a/abanico.webp`, action: "sway", creature: false, reducedMotion: "static", meaning: "abanico que se mece" },
+  [`${A}/vocal-e/elefante.webp`]: { src: `${A}/vocal-e/elefante.webp`, action: "nod", creature: true, reducedMotion: "static", meaning: "movimiento pesado y suave" },
+  [`${A}/vocal-e/erizo.webp`]: { src: `${A}/vocal-e/erizo.webp`, action: "breathe", creature: true, reducedMotion: "static", meaning: "respiración discreta" },
+  [`${A}/vocal-i/iguana.webp`]: { src: `${A}/vocal-i/iguana.webp`, action: "crawl", creature: true, reducedMotion: "static", meaning: "avance lento de iguana" },
+  [`${A}/vocal-i/insecto.webp`]: { src: `${A}/vocal-i/insecto.webp`, action: "crawl", creature: true, reducedMotion: "static", meaning: "movimiento breve de insecto" },
+  [`${A}/vocal-u/unicornio.webp`]: { src: `${A}/vocal-u/unicornio.webp`, action: "nod", creature: true, reducedMotion: "static", meaning: "gesto amable de unicornio" },
+
+  [`${A}/leccion-1/aguila.webp`]: { src: `${A}/leccion-1/aguila.webp`, action: "flutter", creature: true, reducedMotion: "static", meaning: "aleteo breve" },
   [`${A}/leccion-1/pajaro.webp`]: { src: `${A}/leccion-1/pajaro.webp`, action: "flutter", creature: true, reducedMotion: "static", meaning: "aleteo breve" },
   [`${A}/leccion-1/pez.webp`]: { src: `${A}/leccion-1/pez.webp`, action: "swim", creature: true, reducedMotion: "static", meaning: "nado lateral" },
   [`${A}/leccion-1/carro.webp`]: { src: `${A}/leccion-1/carro.webp`, action: "roll", creature: false, reducedMotion: "static", meaning: "rodar corto" },
+  [`${A}/leccion-1/globo.webp`]: { src: `${A}/leccion-1/globo.webp`, action: "float", creature: false, reducedMotion: "static", meaning: "flotación de globo" },
+
   [`${A}/leccion-17-r/rueda.webp`]: { src: `${A}/leccion-17-r/rueda.webp`, action: "spin", creature: false, reducedMotion: "static", meaning: "giro de rueda" },
   [`${A}/leccion-17-r/rana.webp`]: { src: `${A}/leccion-17-r/rana.webp`, action: "hop", creature: true, reducedMotion: "static", meaning: "salto de rana" },
+  [`${A}/leccion-18-rr/burro.webp`]: { src: `${A}/leccion-18-rr/burro.webp`, action: "nod", creature: true, reducedMotion: "static", meaning: "movimiento atento del burro" },
+  [`${A}/leccion-18-rr/carrusel.webp`]: { src: `${A}/leccion-18-rr/carrusel.webp`, action: "spin", creature: false, reducedMotion: "static", meaning: "giro del carrusel" },
   [`${A}/leccion-18-rr/perro.webp`]: { src: `${A}/leccion-18-rr/perro.webp`, action: "wag", creature: true, reducedMotion: "static", meaning: "reacción juguetona" },
+  [`${A}/leccion-19-c/conejo.webp`]: { src: `${A}/leccion-19-c/conejo.webp`, action: "hop", creature: true, reducedMotion: "static", meaning: "salto corto del conejo" },
   [`${A}/leccion-19-g/gato.webp`]: { src: `${A}/leccion-19-g/gato.webp`, action: "nod", creature: true, reducedMotion: "static", meaning: "movimiento atento de cabeza/cuerpo" },
-  [`${A}/leccion-7-m/mono.webp`]: { src: `${A}/leccion-7-m/mono.webp`, action: "nod", creature: true, reducedMotion: "static", meaning: "gesto atento" },
-  [`${A}/leccion-9-s/sapo.webp`]: { src: `${A}/leccion-9-s/sapo.webp`, action: "hop", creature: true, reducedMotion: "static", meaning: "salto de sapo" },
+  [`${A}/leccion-19-g/gusano.webp`]: { src: `${A}/leccion-19-g/gusano.webp`, action: "crawl", creature: true, reducedMotion: "static", meaning: "avance de gusano" },
+  [`${A}/leccion-21-j/jicotea.webp`]: { src: `${A}/leccion-21-j/jicotea.webp`, action: "crawl", creature: true, reducedMotion: "static", meaning: "avance lento de jicotea" },
+  [`${A}/leccion-21-j/jirafa.webp`]: { src: `${A}/leccion-21-j/jirafa.webp`, action: "nod", creature: true, reducedMotion: "static", meaning: "movimiento suave de jirafa" },
+  [`${A}/leccion-22-y/yate.webp`]: { src: `${A}/leccion-22-y/yate.webp`, action: "glide", creature: false, reducedMotion: "static", meaning: "desplazamiento de yate" },
+  [`${A}/leccion-22-y/yoyo.webp`]: { src: `${A}/leccion-22-y/yoyo.webp`, action: "spin", creature: false, reducedMotion: "static", meaning: "giro del yoyó" },
+  [`${A}/leccion-23-z/zepelin.webp`]: { src: `${A}/leccion-23-z/zepelin.webp`, action: "glide", creature: false, reducedMotion: "static", meaning: "desplazamiento de zepelín" },
+  [`${A}/leccion-23-z/zorro.webp`]: { src: `${A}/leccion-23-z/zorro.webp`, action: "wag", creature: true, reducedMotion: "static", meaning: "reacción atenta del zorro" },
+
+  [`${A}/leccion-7-m/mono.webp`]: { src: `${A}/leccion-7-m/mono.webp`, action: "nod", creature: true, blinkFrame: `${A}/leccion-7-m/mono-blink.webp`, reducedMotion: "static", meaning: "gesto atento" },
+  [`${A}/leccion-9-s/sapo.webp`]: { src: `${A}/leccion-9-s/sapo.webp`, action: "hop", creature: true, blinkFrame: `${A}/leccion-9-s/sapo-blink.webp`, reducedMotion: "static", meaning: "salto de sapo" },
 });
 
 export function getLivingActor(src: string): LivingActor | null {
