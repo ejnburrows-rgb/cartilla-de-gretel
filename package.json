@@ -25,7 +25,8 @@
     "prepare:art": "node scripts/prepare-art-assets.mjs",
     "audit:art": "node scripts/prepare-art-assets.mjs --check",
     "verify:reconstruction": "node --check scripts/reconstruct-workbook.mjs && node scripts/validate-reconstruction-data.mjs",
-    "reconstruct:workbook": "node scripts/reconstruct-workbook.mjs"
+    "reconstruct:workbook": "node scripts/reconstruct-workbook.mjs",
+    "import:canonical-art": "node scripts/import-canonical-artwork.mjs"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
