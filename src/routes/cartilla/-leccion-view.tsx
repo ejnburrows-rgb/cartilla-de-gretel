@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useNavigate, useParams } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@/lib/useServerFn";
@@ -16,6 +16,8 @@ import { gretelEvent } from "@/lib/gretel-bus";
 import { NativeLessonViewer } from "@/components/StudentBook/NativeLessonViewer";
 import { buildPageArray } from "@/utils/buildPageArray";
 import { GretelPresence } from "@/components/gretel/GretelPresence";
+import { GretelCinematic } from "@/components/gretel/GretelCinematic";
+import { getLessonCinematic } from "@/content/gretel-cinematics";
 import { GardenScene } from "@/components/cartilla/GardenScene";
 import "@/styles/interactive-exercises.css";
 import "@/styles/gretel.css";
@@ -27,6 +29,7 @@ export function Leccion() {
   const navigate = useNavigate();
   const n = Number(nParam);
   const isNativeLesson = true;
+  const [showIntro, setShowIntro] = useState(true);
   const { isCompleted } = useLessonProgress();
   const session = useStudentSession();
   const entry = useMemo<CatalogEntry | undefined>(() => CATALOG.find((e) => e.n === n), [n]);
@@ -118,6 +121,10 @@ export function Leccion() {
   }, [entry, navigate, unlocked]);
 
   useEffect(() => {
+    setShowIntro(true);
+  }, [n]);
+
+  useEffect(() => {
     startedAt.current = Date.now();
     return () => {
       const secs = Math.round((Date.now() - startedAt.current) / 1000);
@@ -207,6 +214,12 @@ export function Leccion() {
         {/* The lesson IS the book's own pages, one at a time, in order — no
             invented sections/tabs/screens around them (locked canon 7/9). */}
         <div className="w-full">
+          {progressReady && showIntro && (
+            <GretelCinematic
+              cinematic={getLessonCinematic(n)}
+              onComplete={() => setShowIntro(false)}
+            />
+          )}
           <GardenScene ref={gardenRef}>
             {!session && !isNativeLesson && (
               <div className="fixed top-4 left-4 z-[200]">
