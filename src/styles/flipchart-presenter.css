@@ -746,3 +746,86 @@
     scroll-behavior: auto !important;
   }
 }
+
+
+/* Native Flip Chart cover ornamentation — no platform emoji or scan chrome. */
+.fc-frontmatter__butterfly {
+  position: absolute;
+  left: 9%;
+  top: 34%;
+  width: clamp(2.4rem, 6vw, 5.2rem);
+  height: clamp(1.7rem, 4.2vw, 3.7rem);
+  transform: rotate(-12deg);
+}
+
+.fc-frontmatter__butterfly::before {
+  content: "";
+  position: absolute;
+  left: 47%;
+  top: 24%;
+  width: 6%;
+  height: 55%;
+  border-radius: 999px;
+  background: #6d4a2d;
+}
+
+.fc-frontmatter__butterfly span {
+  position: absolute;
+  top: 5%;
+  width: 48%;
+  height: 76%;
+  border: 2px solid #8c5e31;
+  background: radial-gradient(circle at 55% 42%, #ffe79f 0 22%, #e68b4d 24% 58%, #b85f36 60% 100%);
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,.28);
+}
+
+.fc-frontmatter__butterfly span:first-child {
+  left: 0;
+  border-radius: 72% 38% 66% 42%;
+  transform: rotate(-12deg);
+}
+
+.fc-frontmatter__butterfly span:last-child {
+  right: 0;
+  border-radius: 38% 72% 42% 66%;
+  transform: rotate(12deg);
+}
+
+.fc-frontmatter__flower {
+  position: absolute;
+  left: 8%;
+  bottom: 12%;
+  width: clamp(2.5rem, 5.8vw, 4.8rem);
+  height: clamp(2.5rem, 5.8vw, 4.8rem);
+}
+
+.fc-frontmatter__flower i,
+.fc-frontmatter__flower b {
+  position: absolute;
+  display: block;
+}
+
+.fc-frontmatter__flower i {
+  left: 35%;
+  top: 4%;
+  width: 30%;
+  height: 46%;
+  border-radius: 70% 70% 52% 52%;
+  background: linear-gradient(#f59a86, #db6f69);
+  border: 1px solid #a75447;
+  transform-origin: 50% 100%;
+}
+
+.fc-frontmatter__flower i:nth-child(2) { transform: rotate(90deg); }
+.fc-frontmatter__flower i:nth-child(3) { transform: rotate(180deg); }
+.fc-frontmatter__flower i:nth-child(4) { transform: rotate(270deg); }
+
+.fc-frontmatter__flower b {
+  left: 37%;
+  top: 37%;
+  width: 26%;
+  height: 26%;
+  border-radius: 50%;
+  background: #e8b248;
+  border: 1px solid #a77627;
+}
