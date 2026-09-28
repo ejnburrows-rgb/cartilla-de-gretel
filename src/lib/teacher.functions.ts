@@ -2,6 +2,7 @@ import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
 import {
   summarizeStudentProgress,
+  completedLessonIds,
   checkNeedsAttention,
   buildRecentAccuracies,
   type LessonProgressRow,
@@ -57,11 +58,11 @@ type TeacherStudentWithClass = {
 async function fetchProgressStats(
   studentIds: string[],
 ): Promise<
-  Record<string, { lessons: number; lastSeen: string | null; completionPercent: number }>
+  Record<string, { lessons: number; completedLessonIds: string[]; lastSeen: string | null; completionPercent: number }>
 > {
   const stats: Record<
     string,
-    { lessons: number; lastSeen: string | null; completionPercent: number }
+    { lessons: number; completedLessonIds: string[]; lastSeen: string | null; completionPercent: number }
   > = {};
   if (studentIds.length === 0) return stats;
 
@@ -79,6 +80,7 @@ async function fetchProgressStats(
     const summary = summarizeStudentProgress(byStudent[id] ?? []);
     stats[id] = {
       lessons: summary.completedLessons,
+      completedLessonIds: Array.from(completedLessonIds(byStudent[id] ?? [])),
       lastSeen: summary.lastActiveAt,
       completionPercent: summary.completionPercent,
     };
@@ -392,7 +394,7 @@ export async function getClassProgress(input: Call<{ id: string }>) {
 
   const perStudent: Record<
     string,
-    { id: string; name: string; lessons: Set<string>; score: number; total: number; time: number }
+    { id: string; name: string; score: number; total: number; time: number }
   > = {};
   const perLesson: Record<string, { score: number; total: number; completedBy: Set<string> }> = {};
   const latestExercise = new Set<string>();
@@ -400,7 +402,6 @@ export async function getClassProgress(input: Call<{ id: string }>) {
     perStudent[s.id] = {
       id: s.id,
       name: s.display_name,
-      lessons: new Set(),
       score: 0,
       total: 0,
       time: 0,
@@ -440,10 +441,6 @@ export async function getClassProgress(input: Call<{ id: string }>) {
         });
       }
       const pl = (perLesson[e.lesson_id] ??= { score: 0, total: 0, completedBy: new Set() });
-      if (e.event_kind === "lesson_completed") {
-        ps.lessons.add(e.lesson_id);
-        pl.completedBy.add(e.student_id);
-      }
       if (e.event_kind === "exercise") {
         const key = `${e.student_id}:${e.lesson_id}:${exerciseName(e)}`;
         if (latestExercise.has(key)) return;
@@ -479,10 +476,11 @@ export async function getClassProgress(input: Call<{ id: string }>) {
     },
   );
 
-  const { data: assignments } = await supabase
+  const { data: assignments, error: assignmentError } = await supabase
     .from("assignments")
     .select("id, lesson_id, title, due_at")
     .eq("class_id", data.id);
+  if (assignmentError) throw new Error(assignmentError.message);
   const assignmentIds = (assignments ?? []).map((a: { id: string }) => a.id);
   let assignmentRows: Array<{
     assignment_id: string;
@@ -492,14 +490,27 @@ export async function getClassProgress(input: Call<{ id: string }>) {
     time_seconds: number | null;
   }> = [];
   if (assignmentIds.length) {
-    const { data: rows } = await supabase
+    const { data: rows, error: progressError } = await supabase
       .from("assignment_progress")
       .select("assignment_id, status, score, total, time_seconds")
       .in("assignment_id", assignmentIds);
+    if (progressError) throw new Error(progressError.message);
     assignmentRows = rows ?? [];
+  }
+  const assignmentRowsById = new Map<string, typeof assignmentRows>();
+  for (const row of assignmentRows) {
+    const rows = assignmentRowsById.get(row.assignment_id) ?? [];
+    rows.push(row);
+    assignmentRowsById.set(row.assignment_id, rows);
   }
 
   const progressStats = await fetchProgressStats(ids);
+  for (const id of ids) {
+    for (const lessonId of progressStats[id]?.completedLessonIds ?? []) {
+      (perLesson[lessonId] ??= { score: 0, total: 0, completedBy: new Set() })
+        .completedBy.add(id);
+    }
+  }
   // Shared with the cross-teacher admin roll-up so the two screens cannot
   // disagree about the same child (see buildRecentAccuracies).
   const recentAccuraciesByStudent = buildRecentAccuracies(events ?? [], ids);
@@ -517,8 +528,8 @@ export async function getClassProgress(input: Call<{ id: string }>) {
     perStudent: Object.values(perStudent).map((s) => ({
       id: s.id,
       name: s.name,
-      lessonsCount: s.lessons.size,
-      completedLessonIds: Array.from(s.lessons),
+      lessonsCount: progressStats[s.id]?.lessons ?? 0,
+      completedLessonIds: progressStats[s.id]?.completedLessonIds ?? [],
       accuracy: s.total > 0 ? s.score / s.total : null,
       timeSeconds: s.time,
     })),
@@ -534,7 +545,7 @@ export async function getClassProgress(input: Call<{ id: string }>) {
     perStudentExercise,
     assignments: (assignments ?? []).map(
       (a: { id: string; lesson_id: string; title: string | null; due_at: string | null }) => {
-        const rows = assignmentRows.filter((r) => r.assignment_id === a.id);
+        const rows = assignmentRowsById.get(a.id) ?? [];
         const completed = rows.filter(
           (r) => r.status === "completed" || r.status === "late",
         ).length;
