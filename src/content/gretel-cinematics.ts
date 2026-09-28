@@ -23,7 +23,7 @@ export type GretelCinematic = {
   durationSeconds: number;
   actions: GretelCinematicAction[];
   voice: { primary: string; fallback: string; locale: "es-MX" };
-  poster: string;
+  poster: string | null;
   output: string | null;
 };
 
@@ -41,7 +41,7 @@ function cinematicBase(partial: Omit<GretelCinematic, "voice" | "poster" | "outp
   return {
     ...partial,
     voice: { primary: GRETEL_PRIMARY_VOICE, fallback: GRETEL_FALLBACK_VOICE, locale: "es-MX" },
-    poster: "/cartilla/images/gretel/poses/gretel-idle.webp",
+    poster: null,
     output: null,
   };
 }
