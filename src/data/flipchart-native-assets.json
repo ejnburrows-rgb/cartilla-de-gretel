@@ -56,6 +56,74 @@
       ]
     }
   ],
+  "21": [
+    {
+      "word": "campana y niño",
+      "src": "/cartilla/art/faithful/flipchart-native/p021-campana-nino.webp",
+      "sourcePage": 21,
+      "crop": [
+        145,
+        35,
+        340,
+        500
+      ]
+    },
+    {
+      "word": "Didi",
+      "src": "/cartilla/art/faithful/flipchart-native/p021-didi.webp",
+      "sourcePage": 21,
+      "crop": [
+        40,
+        500,
+        280,
+        300
+      ]
+    },
+    {
+      "word": "dados",
+      "src": "/cartilla/art/faithful/flipchart-native/p021-dados.webp",
+      "sourcePage": 21,
+      "crop": [
+        350,
+        505,
+        320,
+        300
+      ]
+    },
+    {
+      "word": "dedo",
+      "src": "/cartilla/art/faithful/flipchart-native/p021-dedo.webp",
+      "sourcePage": 21,
+      "crop": [
+        710,
+        500,
+        250,
+        300
+      ]
+    },
+    {
+      "word": "doce",
+      "src": "/cartilla/art/faithful/flipchart-native/p021-doce.webp",
+      "sourcePage": 21,
+      "crop": [
+        120,
+        860,
+        300,
+        340
+      ]
+    },
+    {
+      "word": "Dunia",
+      "src": "/cartilla/art/faithful/flipchart-native/p021-dunia.webp",
+      "sourcePage": 21,
+      "crop": [
+        510,
+        860,
+        400,
+        345
+      ]
+    }
+  ],
   "24": [
     {
       "word": "maleta",
@@ -123,6 +191,45 @@
         220,
         405,
         510
+      ]
+    }
+  ],
+  "32": [
+    {
+      "word": "La niña sueña",
+      "src": "/cartilla/art/faithful/flipchart-native/p032-nina-suena.webp",
+      "sourcePage": 32,
+      "crop": [
+        500,
+        0,
+        485,
+        705
+      ]
+    }
+  ],
+  "35": [
+    {
+      "word": "Bebo batea la bola",
+      "src": "/cartilla/art/faithful/flipchart-native/p035-bebo-batea.webp",
+      "sourcePage": 35,
+      "crop": [
+        470,
+        0,
+        510,
+        635
+      ]
+    }
+  ],
+  "56": [
+    {
+      "word": "Los caramelos",
+      "src": "/cartilla/art/faithful/flipchart-native/p056-caramelos.webp",
+      "sourcePage": 56,
+      "crop": [
+        500,
+        0,
+        485,
+        720
       ]
     }
   ]
