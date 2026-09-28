@@ -41,6 +41,7 @@ export type NativeFlipchartPage = {
   artRegion: { top: number; bottom: number; left: number; right: number };
   slots: string[];
   art: Array<{ src: string; word: string }>;
+  compositionKind: "art" | "typography-only" | "frontmatter";
   hasDigitalText: boolean;
 };
 
@@ -291,6 +292,12 @@ export function getNativeFlipchartPage(pageNumber: number): NativeFlipchartPage 
     artRegion: deriveArtRegion(pageNumber, body, words, hasDigitalText),
     slots: flipchartArtSlots(pageNumber, meta.lesson, words.length),
     art: pageArt(pageNumber, meta.lesson, words, body),
+    compositionKind:
+      pageNumber <= 2
+        ? "frontmatter"
+        : pageArt(pageNumber, meta.lesson, words, body).length > 0
+          ? "art"
+          : "typography-only",
     hasDigitalText,
   };
 }
