@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Volume2, VolumeX, RotateCcw, SkipForward } from "lucide-react";
-import { GretelLiveAvatar, type GretelLiveAvatarRef } from "@/components/gretel/GretelLiveAvatar";
+import { GretelLiveAvatar, type GretelLiveAvatarRef, type GretelPerformanceAction } from "@/components/gretel/GretelLiveAvatar";
 import { isGretelVoiceMuted, setGretelVoiceMuted } from "@/lib/gretel-voice";
 import type { GretelCinematic as GretelCinematicSpec } from "@/content/gretel-cinematics";
 
@@ -22,16 +22,47 @@ export function GretelCinematic({
 
   useEffect(() => {
     let cancelled = false;
+    const timers = new Set<number>();
+    const wait = (ms: number) =>
+      new Promise<void>((resolve) => {
+        const timer = window.setTimeout(() => {
+          timers.delete(timer);
+          resolve();
+        }, ms);
+        timers.add(timer);
+      });
+
+    const perform = async (action: GretelPerformanceAction) => {
+      avatarRef.current?.perform(action);
+      const dwell =
+        action === "enter" ? 320 :
+        action === "wave" ? 650 :
+        action.startsWith("point") ? 620 :
+        action === "listen" ? 520 :
+        action === "celebrate" ? 760 :
+        action === "exit" ? 360 : 220;
+      await wait(dwell);
+    };
+
     const timer = window.setTimeout(async () => {
-      await avatarRef.current?.speakMessage(cinematic.script);
+      for (const action of cinematic.actions) {
+        if (cancelled) return;
+        if (action === "talk") {
+          await avatarRef.current?.speakMessage(cinematic.script);
+        } else {
+          await perform(action as GretelPerformanceAction);
+        }
+      }
       if (!cancelled) onCompleteRef.current();
-    }, 250);
+    }, 220);
+
     return () => {
       cancelled = true;
       window.clearTimeout(timer);
+      timers.forEach((item) => window.clearTimeout(item));
       avatarRef.current?.cancel();
     };
-  }, [cinematic.id, cinematic.script, run]);
+  }, [cinematic.actions, cinematic.id, cinematic.script, run]);
 
   const toggleMute = () => {
     const next = !muted;
