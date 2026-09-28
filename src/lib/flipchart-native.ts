@@ -3,7 +3,7 @@ import firstPages from "@/data/flipchart-text-3-22.json";
 import middlePages from "@/data/flipchart-text-23-42.json";
 import lastPages from "@/data/flipchart-text-43-62.json";
 import frames from "@/data/flipchart-frames.json";
-import faithfulManifest from "../../public/cartilla/art/faithful/manifest.json";
+import faithfulManifest from "@/data/faithful-art-manifest.json";
 
 export type FlipchartTextItem = {
   x: number;
