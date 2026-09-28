@@ -282,6 +282,7 @@ export function getNativeFlipchartPage(pageNumber: number): NativeFlipchartPage 
   const items = digitalPages[String(pageNumber)] ?? [];
   const { title, body, words, syllables } = classify(items);
   const hasDigitalText = items.some((item) => item.text.trim().length > 0);
+  const art = pageArt(pageNumber, meta.lesson, words, body);
   return {
     flipchartPage: pageNumber,
     lesson: meta.lesson,
@@ -291,13 +292,9 @@ export function getNativeFlipchartPage(pageNumber: number): NativeFlipchartPage 
     syllables,
     artRegion: deriveArtRegion(pageNumber, body, words, hasDigitalText),
     slots: flipchartArtSlots(pageNumber, meta.lesson, words.length),
-    art: pageArt(pageNumber, meta.lesson, words, body),
+    art,
     compositionKind:
-      pageNumber <= 2
-        ? "frontmatter"
-        : pageArt(pageNumber, meta.lesson, words, body).length > 0
-          ? "art"
-          : "typography-only",
+      pageNumber <= 2 ? "frontmatter" : art.length > 0 ? "art" : "typography-only",
     hasDigitalText,
   };
 }
