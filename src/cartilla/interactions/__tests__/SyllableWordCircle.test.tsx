@@ -40,7 +40,7 @@ describe("SyllableWordCircle", () => {
 
     const wrong = screen.getByRole("button", { name: "semana" });
     fireEvent.click(wrong);
-    expect(wrong).toHaveAttribute("aria-pressed", "false");
+    expect(wrong.getAttribute("aria-pressed")).toBe("false");
     expect(gretelEvent).toHaveBeenCalledWith("answer:wrong");
     expect(screen.getByRole("status").textContent).toContain("0 de 3");
   });
