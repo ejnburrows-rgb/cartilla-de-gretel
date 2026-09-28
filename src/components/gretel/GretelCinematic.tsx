@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Volume2, VolumeX, RotateCcw, SkipForward } from "lucide-react";
 import { GretelLiveAvatar, type GretelLiveAvatarRef, type GretelPerformanceAction } from "@/components/gretel/GretelLiveAvatar";
 import { isGretelVoiceMuted, setGretelVoiceMuted } from "@/lib/gretel-voice";
@@ -15,12 +15,19 @@ export function GretelCinematic({
   const onCompleteRef = useRef(onComplete);
   const [muted, setMuted] = useState(isGretelVoiceMuted());
   const [run, setRun] = useState(0);
+  const [elapsedMs, setElapsedMs] = useState(0);
 
   useEffect(() => {
     onCompleteRef.current = onComplete;
   }, [onComplete]);
 
   useEffect(() => {
+    setElapsedMs(0);
+    const started = performance.now();
+    const progressTimer = window.setInterval(() => {
+      setElapsedMs(performance.now() - started);
+    }, 120);
+
     let cancelled = false;
     const timers = new Set<number>();
     const wait = (ms: number) =>
@@ -60,9 +67,17 @@ export function GretelCinematic({
       cancelled = true;
       window.clearTimeout(timer);
       timers.forEach((item) => window.clearTimeout(item));
+      window.clearInterval(progressTimer);
       avatarRef.current?.cancel();
     };
   }, [cinematic.actions, cinematic.id, cinematic.script, run]);
+
+  const progress = Math.min(1, elapsedMs / Math.max(1000, cinematic.durationSeconds * 1000));
+  const captionIndex = useMemo(
+    () => Math.min(cinematic.captions.length - 1, Math.floor(progress * cinematic.captions.length)),
+    [cinematic.captions.length, progress],
+  );
+  const activeCaption = cinematic.captions[Math.max(0, captionIndex)] ?? cinematic.script;
 
   const toggleMute = () => {
     const next = !muted;
@@ -81,10 +96,17 @@ export function GretelCinematic({
       data-gretel-cinematic={cinematic.id}
     >
       <div className="relative w-full max-w-3xl overflow-hidden rounded-[2rem] border-4 border-[#c98c4f]/30 bg-white px-6 py-8 shadow-2xl sm:px-10">
-        <div className="mx-auto flex max-w-2xl flex-col items-center gap-6 text-center">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_12%,rgba(255,206,120,.24),transparent_34%),radial-gradient(circle_at_88%_82%,rgba(79,165,121,.16),transparent_36%)]" aria-hidden />
+        <div className="absolute inset-x-0 bottom-0 h-1.5 bg-stone-100" aria-hidden>
+          <div className="h-full bg-[#c98c4f] transition-[width] duration-100" style={{ width: `${progress * 100}%` }} />
+        </div>
+        <div className="relative mx-auto flex max-w-2xl flex-col items-center gap-6 text-center">
+          <div className="rounded-full border border-[#c98c4f]/25 bg-[#fff8e8]/90 px-3 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-[#9a612b]">
+            {cinematic.kind === "lesson" ? `Lección ${cinematic.lesson}` : cinematic.kind === "welcome" ? "Bienvenida" : cinematic.kind === "how-to" ? "Cómo aprender con Gretel" : cinematic.kind === "final" ? "Celebración final" : "Momento especial"}
+          </div>
           <GretelLiveAvatar ref={avatarRef} size="lg" managed />
-          <div className="rounded-2xl bg-[#fff8e8] px-5 py-4 text-xl font-black leading-relaxed text-stone-800 sm:text-2xl" role="status">
-            {cinematic.script}
+          <div className="min-h-[5.6rem] rounded-2xl border border-amber-200/70 bg-[#fff8e8]/95 px-5 py-4 text-xl font-black leading-relaxed text-stone-800 shadow-sm sm:text-2xl" role="status" aria-live="polite">
+            {activeCaption}
           </div>
           <div className="flex flex-wrap justify-center gap-2">
             <button type="button" onClick={toggleMute} className="rounded-xl border border-stone-300 bg-white px-4 py-2 text-sm font-black text-stone-700">
@@ -99,7 +121,7 @@ export function GretelCinematic({
             </button>
           </div>
           <p className="text-xs font-bold text-stone-500">
-            Voz: {cinematic.voice.primary} · alternativa {cinematic.voice.fallback} · {cinematic.voice.locale}
+            Voz canónica: {cinematic.voice.primary} · {cinematic.voice.locale}
           </p>
         </div>
       </div>
