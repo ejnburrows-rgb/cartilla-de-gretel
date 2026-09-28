@@ -9,38 +9,71 @@ function syllableRange(word: string, syllable: string): [string, string, string]
   return position < 0 ? [word, "", ""] : [word.slice(0, position), word.slice(position, position + syllable.length), word.slice(position + syllable.length)];
 }
 
-/** The printed exercise asks the child to circle the syllable within each
- * word. Every word on the verified page contains its row's syllable. */
+/** Native syllable discrimination. Words explicitly marked correct=false are
+ * distractors; legacy regions without correctness metadata keep the historical
+ * all-target behavior. */
 export function SyllableWordCircle({ region, lessonId }: { region: PageRegion; lessonId?: string }) {
   const words = (region.matchRows ?? []).flat();
+  const isTarget = (i: number) => words[i]?.correct !== false;
+  const correctCount = words.filter((entry) => entry.correct !== false).length;
   const key = `cartilla-circle-${region.id}`;
   const [marked, setMarked] = useState<Set<number>>(() => {
-    try { return new Set<number>(JSON.parse(localStorage.getItem(key) ?? "[]")); } catch { return new Set(); }
+    try {
+      const stored = JSON.parse(localStorage.getItem(key) ?? "[]") as number[];
+      return new Set(stored.filter((i) => isTarget(i)));
+    } catch {
+      return new Set();
+    }
   });
   const syllable = region.syllable ?? "";
+
   const toggle = (i: number) => {
+    if (!isTarget(i)) {
+      gretelEvent("answer:wrong");
+      return;
+    }
+
     const next = new Set(marked);
-    if (next.has(i)) next.delete(i); else next.add(i);
+    const adding = !next.has(i);
+    if (adding) next.add(i);
+    else next.delete(i);
     setMarked(next);
     try { localStorage.setItem(key, JSON.stringify([...next])); } catch { /* storage can be disabled */ }
-    if (next.size === words.length) {
-      gretelEvent("answer:correct");
+
+    if (adding) gretelEvent("answer:correct");
+    if (adding && correctCount > 0 && next.size === correctCount) {
       gretelEvent("activity:complete");
-      if (lessonId) recordEvent({ lessonId, kind: "exercise", score: 1, total: 1, meta: { exercise: `syllable_circle_${region.id}`, completed: true } });
+      if (lessonId) {
+        recordEvent({
+          lessonId,
+          kind: "exercise",
+          score: 1,
+          total: 1,
+          meta: { exercise: `syllable_circle_${region.id}`, completed: true },
+        });
+      }
     }
   };
+
   return (
     <section className="native-syllable" aria-label={`Busca ${syllable} en cada palabra`}>
       <h2>{syllable}</h2>
       <div className="native-syllable__words">
         {words.map((entry, i) => {
           const [before, match, after] = syllableRange(entry.word, syllable);
-          return <button key={`${i}-${entry.word}`} type="button" aria-pressed={marked.has(i)} onClick={() => toggle(i)}>
-            {before}<span className={marked.has(i) ? "is-circled" : ""}>{match}</span>{after}
-          </button>;
+          return (
+            <button
+              key={`${i}-${entry.word}`}
+              type="button"
+              aria-pressed={marked.has(i)}
+              onClick={() => toggle(i)}
+            >
+              {before}<span className={marked.has(i) ? "is-circled" : ""}>{match}</span>{after}
+            </button>
+          );
         })}
       </div>
-      <p role="status">{marked.size} de {words.length} sílabas marcadas</p>
+      <p role="status">{marked.size} de {correctCount} respuestas correctas</p>
     </section>
   );
 }
