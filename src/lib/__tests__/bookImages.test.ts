@@ -6,59 +6,31 @@ import {
   getWorkbookPageFallbackChain,
 } from "@/lib/bookImages";
 
-describe("bookImages Art Fallback Chain", () => {
-  it("resolves primary HD colorized art for valid pages", () => {
-    expect(getBookPageImage(4)).toBe("/cartilla/art/hd/workbook/page-004.png");
-    expect(getBookPageImage(1)).toBe("/cartilla/art/hd/workbook/page-001.png");
+describe("bookImages repository-controlled fallback chain", () => {
+  it("resolves stable repository source pages", () => {
+    expect(getBookPageImage(4)).toBe("/cartilla/art/source/workbook/page-004.jpg");
+    expect(getBookPageImage(90)).toBe("/cartilla/art/source/workbook/page-090.jpg");
     expect(getBookPageImage(999)).toBeNull();
   });
 
-  it("derives clean transparent lineart path from raw source scan path", () => {
-    expect(getLineartPathFromSource("cartilla/images/source/a/a-page-4.jpg")).toBe(
-      "/cartilla/art/hd/lineart/a-page-4.png",
-    );
-    expect(getLineartPathFromSource("/cartilla/images/source/rima/rima-page-2.jpg")).toBe(
-      "/cartilla/art/hd/lineart/rima-page-2.png",
-    );
+  it("does not advertise retired restored or inferred lineart assets", () => {
+    expect(getRestoredPageImage(1)).toBeNull();
+    expect(getLineartPathFromSource("cartilla/images/source/a/a-page-4.jpg")).toBeNull();
     expect(getLineartPathFromSource("/cartilla/art/hd/lineart/a-page-4.png")).toBe(
       "/cartilla/art/hd/lineart/a-page-4.png",
     );
-    expect(getLineartPathFromSource(null)).toBeNull();
   });
 
-  it("resolves restored art only for pages with committed restored files", () => {
-    expect(getRestoredPageImage(1)).toBe("/cartilla/art/restored/workbook/page-001.png");
-    expect(getRestoredPageImage(44)).toBe("/cartilla/art/restored/workbook/page-044.png");
-    expect(getRestoredPageImage(45)).toBe("/cartilla/art/restored/workbook/page-045.jpg");
-    expect(getRestoredPageImage(90)).toBe("/cartilla/art/restored/workbook/page-090.jpg");
-    expect(getRestoredPageImage(91)).toBeNull();
-  });
-
-  it("prefers restored art at the head of the chain for restored pages", () => {
+  it("starts with the self-contained canonical source and keeps an explicit source reference as fallback", () => {
     const chain = getWorkbookPageFallbackChain(4, "cartilla/images/source/a/a-page-4.jpg");
-    expect(chain[0]).toBe("/cartilla/art/restored/workbook/page-004.png");
-    expect(chain[1]).toBe("/cartilla/art/hd/workbook/page-004.png");
+    expect(chain[0]).toBe("/cartilla/art/source/workbook/page-004.jpg");
+    expect(chain).toContain("/cartilla/images/source/a/a-page-4.jpg");
+    expect(chain.some((path) => path.includes("/restored/"))).toBe(false);
+    expect(chain.some((path) => path.includes("/hd/workbook/"))).toBe(false);
   });
 
-  it("builds the ordered sequence: HD colorized art -> Clean transparent lineart -> Raw source scan", () => {
-    const chain = getWorkbookPageFallbackChain(4, "cartilla/images/source/a/a-page-4.jpg");
-    expect(chain[0]).toBe("/cartilla/art/restored/workbook/page-004.png");
-    expect(chain[1]).toBe("/cartilla/art/hd/workbook/page-004.png");
-    expect(chain[2]).toBe("/cartilla/art/hd/workbook/page-004.jpg");
-    expect(chain).toContain("/cartilla/art/hd/lineart/a-page-4.png");
-    expect(chain).toContain("/cartilla/images/source/a/a-page-4.jpg");
-    // Ensure order is HD -> lineart -> raw scan
-    const lineartIdx = chain.indexOf("/cartilla/art/hd/lineart/a-page-4.png");
-    const rawIdx = chain.indexOf("/cartilla/images/source/a/a-page-4.jpg");
-    expect(lineartIdx).toBeGreaterThan(0);
-    expect(rawIdx).toBeGreaterThan(lineartIdx);
-  });
-
-  it("resolves source scan from catalog when sourceScanPath is not passed", () => {
-    const chain = getWorkbookPageFallbackChain(7);
-    expect(chain[0]).toBe("/cartilla/art/restored/workbook/page-007.png");
-    expect(chain[1]).toBe("/cartilla/art/hd/workbook/page-007.png");
-    expect(chain).toContain("/cartilla/art/hd/lineart/a-page-4.png");
-    expect(chain).toContain("/cartilla/images/source/a/a-page-4.jpg");
+  it("uses repository source without requiring a legacy catalog image", () => {
+    const chain = getWorkbookPageFallbackChain(86);
+    expect(chain[0]).toBe("/cartilla/art/source/workbook/page-086.jpg");
   });
 });
