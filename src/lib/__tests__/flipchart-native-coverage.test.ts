@@ -11,18 +11,30 @@ describe("native Flip Chart coverage", () => {
     );
   });
 
-  it("keeps every instructional plate scan-free and populated", () => {
+  it("keeps every instructional plate scan-free and faithfully populated", () => {
     for (let pageNumber = 3; pageNumber <= 62; pageNumber += 1) {
       const page = getNativeFlipchartPage(pageNumber);
       expect(page, `missing native page ${pageNumber}`).toBeTruthy();
       expect(page?.hasDigitalText, `missing digital text on page ${pageNumber}`).toBe(true);
-      expect(page?.art.length, `missing standalone art on page ${pageNumber}`).toBeGreaterThan(0);
+      expect(page?.compositionKind).toMatch(/^(art|typography-only)$/);
+      expect(
+        (page?.body.length ?? 0) + (page?.words.length ?? 0) + (page?.syllables.length ?? 0),
+        `missing native instructional content on page ${pageNumber}`,
+      ).toBeGreaterThan(0);
       for (const asset of page?.art ?? []) {
         expect(asset.src).toMatch(/^\/cartilla\/art\/faithful\//);
         expect(asset.src).not.toContain("/hd/flipchart/");
         expect(asset.src).not.toContain("/delivery/flipchart/");
       }
     }
+  });
+
+  it("preserves typography-only source plates without inventing unrelated art", () => {
+    const page22 = getNativeFlipchartPage(22);
+    expect(page22?.compositionKind).toBe("typography-only");
+    expect(page22?.art).toHaveLength(0);
+    expect(page22?.words.length).toBeGreaterThan(0);
+    expect(page22?.body.length).toBeGreaterThan(0);
   });
 
   it("uses native frontmatter for pages 1 and 2", () => {
