@@ -3,7 +3,8 @@ import { GRETEL_CINEMATICS, getLessonCinematic } from "@/content/gretel-cinemati
 import { GRETEL_PRIMARY_VOICE, GRETEL_FALLBACK_VOICE } from "@/lib/gretel-voice";
 
 describe("Gretel cinematic catalog", () => {
-  it("covers welcome, how-to, 24 lesson intros, milestones and final completion", () => {
+  it("covers the complete 31-scene welcome, how-to, lesson, milestone and final program", () => {
+    expect(GRETEL_CINEMATICS).toHaveLength(31);
     expect(GRETEL_CINEMATICS.filter((item) => item.kind === "lesson")).toHaveLength(24);
     expect(GRETEL_CINEMATICS.some((item) => item.kind === "welcome")).toBe(true);
     expect(GRETEL_CINEMATICS.some((item) => item.kind === "how-to")).toBe(true);
@@ -14,6 +15,8 @@ describe("Gretel cinematic catalog", () => {
       expect(item.lesson).toBe(lesson);
       expect(item.script.length).toBeGreaterThan(20);
       expect(item.captions.length).toBeGreaterThan(0);
+      expect(item.actions).toContain("talk");
+      expect(item.actions).toContain("teach");
     }
   });
 
