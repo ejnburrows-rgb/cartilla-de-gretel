@@ -7,6 +7,7 @@ import {
   GraduationCap,
   FileSpreadsheet,
   CircleHelp,
+  Images,
 } from "lucide-react";
 
 export function Sidebar() {
@@ -62,6 +63,14 @@ export function Sidebar() {
           className="flex items-center gap-3 px-3 py-2 rounded-xl font-bold text-sm transition-colors"
         >
           <FileSpreadsheet className="w-5 h-5" /> Reportes
+        </Link>
+        <Link
+          to="/cartilla/teacher/crm/artwork"
+          activeProps={{ className: activeCls }}
+          inactiveProps={{ className: inactiveCls }}
+          className="flex items-center gap-3 px-3 py-2 rounded-xl font-bold text-sm transition-colors"
+        >
+          <Images className="w-5 h-5" /> Arte
         </Link>
         <Link
           to="/cartilla/ayuda"
