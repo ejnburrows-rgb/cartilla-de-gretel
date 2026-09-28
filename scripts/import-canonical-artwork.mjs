@@ -143,6 +143,8 @@ for (const entry of faithful) {
   matched += 1;
   report.push({
     src: entry.src,
+    productionSrc: entry.src,
+    canonicalSrc: `/cartilla/art/canonical-modernized/${String(selected.item.source)}/${path.basename(selected.item.abs)}`,
     slug,
     status: "matched",
     method: selected.method,
