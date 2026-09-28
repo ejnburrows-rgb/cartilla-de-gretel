@@ -8,6 +8,9 @@ export type GretelCinematicAction =
   | "point-left"
   | "point-right"
   | "listen"
+  | "teach"
+  | "help"
+  | "gentle-error"
   | "celebrate"
   | "exit";
 
@@ -60,7 +63,7 @@ export const GRETEL_CINEMATICS: GretelCinematic[] = [
     script: "En cada lección vamos a mirar, escuchar, trazar, leer y practicar. Puedes repetir una actividad cuando lo necesites.",
     captions: ["Mira y escucha.", "Traza, lee y practica.", "Puedes repetir cuando lo necesites."],
     durationSeconds: 10,
-    actions: ["enter", "talk", "point-left", "listen", "exit"],
+    actions: ["enter", "talk", "teach", "listen", "exit"],
   }),
   ...CATALOG.map((entry) =>
     cinematicBase({
@@ -70,7 +73,7 @@ export const GRETEL_CINEMATICS: GretelCinematic[] = [
       script: lessonScript(entry),
       captions: [lessonScript(entry)],
       durationSeconds: 8,
-      actions: ["enter", "wave", "talk", "point-right", "exit"],
+      actions: ["enter", "wave", "talk", "teach", "exit"],
     }),
   ),
   ...[6, 12, 18, 24].map((lesson) =>
