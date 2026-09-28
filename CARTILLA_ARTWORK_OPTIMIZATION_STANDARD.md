@@ -1,13 +1,41 @@
 # Cartilla Artwork Optimization Standard
 
 ## Governing Rule
-The Libro del alumno illustration is the authoritative source for **content and design**. Production may improve the rendering and physical-media finish, but it must not redesign the illustration.
+The Libro del alumno illustration is authoritative for **content, geometry, identity, and educational meaning**. Production may modernize only the rendering/finish. It must never redesign the illustration.
+
+## Canonical visual direction — Gretel 2.0 / La Cartilla
+The approved visual target for Gretel, Workbook, Flip Chart, characters, animals, objects, educational illustrations, and decorative elements is:
+
+**ORIGINAL IN ITS DNA + MODERN IN ITS FINISH + DIGITAL IN ITS EXECUTION + FAITHFUL TO LA CARTILLA IN ITS IDENTITY.**
+
+Preserve the original La Cartilla visual DNA:
+- pintura country / tole influence;
+- child-friendly folk-art language;
+- doll-like proportions where present in the source;
+- saturated cheerful color;
+- warm brown / sienna outlines;
+- floral and dotted decorative details already present in the source;
+- handcrafted warmth and recognizable original identity.
+
+Modernize only the finish:
+- cleaner edges and higher screen clarity;
+- subtle painted texture;
+- controlled soft shading;
+- small highlights;
+- light dimensionality;
+- improved color balance;
+- consistent digital polish;
+- animation readability when the source is later animated.
+
+Do not make the artwork look like an old scan. Do not flatten it into generic vector art. Do not turn it into photorealism, 3D/CGI, Pixar, anime, manga, chibi, generic modern cartoon, preschool mascot art, concept art, or contemporary nursery art.
 
 ## What Must Stay Identical
 Preserve the original workbook drawing's:
 - subject identity;
-- number of subjects;
+- number of subjects and objects;
+- species;
 - pose and action;
+- orientation;
 - proportions and silhouette;
 - facial expression and identifying features;
 - existing props and their relationships;
@@ -16,169 +44,110 @@ Preserve the original workbook drawing's:
 - recognizable line/drawing structure.
 
 ## What May Be Optimized
-The rendering may be transformed to a polished production finish:
-- authentic watercolor and pigment appearance;
-- intended colors supported by the Flip Chart where applicable;
-- tactile real-paper texture;
-- watercolor bleed/granulation where appropriate;
-- dimensional cut-paper or embossed relief;
-- subtle pop-out depth;
-- natural paper/contact shadows;
-- improved resolution, edge clarity, contrast, and scan cleanup.
+Only:
+- intended color supported by the mapped Flip Chart/reference source;
+- cleanup, resolution, edge clarity, and contrast;
+- warm brown/sienna line treatment consistent with the original;
+- subtle hand-painted texture;
+- controlled highlights and gentle dimensionality;
+- print/screen polish;
+- separability of real movable parts for later animation, without changing the drawing.
 
 ## Critical Distinction
 **Change the finish, not the drawing.**
 
-This is a style/material/rendering transformation only. It is not permission to redraw, reinterpret, redesign, or replace the original character.
+This is a style/material/rendering transformation only. It is not permission to redraw, reinterpret, redesign, replace, or modernize the subject itself.
 
 ## Prohibited Changes
 Do not:
-- alter anatomy, proportions, pose, face, expression, or silhouette;
-- add or remove characters, props, scenery, flowers, borders, or objects;
-- substitute a different mascot/cartoon interpretation;
-- turn the subject into a newly designed toy/3D character;
-- copy unrelated composition or content from the Flip Chart;
+- alter anatomy, proportions, pose, face, expression, silhouette, or line structure;
+- add or remove characters, animals, props, scenery, flowers, borders, or objects;
+- substitute a similar mascot/cartoon;
+- modernize the physical design of an object;
+- copy unrelated content from the Flip Chart;
 - change educational meaning;
-- invent missing visual information.
+- invent missing visual information;
+- use heavy black outlines, muted/pastel palettes, distressed vintage effects, muddy paint, or heavy cinematic shading.
 
 ## Reference Hierarchy
-1. **Authoritative Libro ↔ Flip Chart mapping** — `src/data/reconstruction/student-to-flipchart-284.json` is the allowed page-reference source of truth. Do not invent or remap references.
-2. **Libro del alumno** — authoritative for the destination page, illustration slot, identity, geometry, composition, subject count, pose, expression, props, and educational design.
-3. **Flip Chart** — when a mapped illustration is geometrically identical to the Libro drawing, the already-colored Flip Chart pixels may be reused directly after removing unrelated Flip Chart-only content. When geometry is not identical, the Flip Chart supplies only verified color/finish reference.
-4. **Approved style references** — control only watercolor/paper/material/relief/lighting/finish characteristics, never content.
+1. **Authoritative Workbook ↔ Flip Chart mapping** — `src/data/reconstruction/student-to-flipchart-284.json`.
+2. **Libro del alumno** — authoritative for destination slot, identity, geometry, composition, subject count, pose, expression, props, and educational design.
+3. **Flip Chart** — if the mapped illustration is geometrically identical, reuse the authentic colored counterpart after removing unrelated Flip Chart-only content. If not identical, use it only as verified color/finish reference.
+4. **Approved Gretel 2.0 / La Cartilla style references** — finish only, never content.
 
-PDF-sheet numbering and printed-page numbering are separate. Use `src/data/reconstruction/pdf-sheet-to-printed-page.json` to translate between them; never infer page identity from an offset.
+Use `src/data/reconstruction/pdf-sheet-to-printed-page.json` for page translation. Never infer page identity by offset.
 
 ## Prompt Requirement
-Every production prompt must explicitly state:
-> Preserve the original drawing exactly in content and geometry. Transform only rendering, color finish, watercolor texture, paper material, depth, relief, lighting, and presentation.
+Every production edit must explicitly preserve the original drawing exactly in content and geometry and transform only color/finish, cleanup, subtle painted texture, controlled highlights, light dimensionality, and presentation.
 
-## Validation Gate
-An optimized asset passes only when side-by-side comparison with the source confirms that no subject feature, object, pose, proportion, composition, or educational meaning changed.
-
-
-## Source-image requirement for every model edit
-
-- Never generate a Cartilla workbook asset from text alone.
-- The actual Libro del alumno crop must be attached as the PRIMARY image input for every optimization/generation.
-- If the source crop is not physically attached to the image-edit operation, stop; do not generate.
-- Text-only reconstructions automatically fail, even if visually attractive or conceptually similar.
-- The image model may transform only finish/rendering; it may not reconstruct or reinterpret the subject from prose.
-- Flip Chart inputs remain secondary, purpose-scoped references; approved style references remain finish-only.
-
-This requirement was added after two failed text-only generations changed the workbook bear/elephant designs. Those outputs are permanently invalid for Cartilla production.
+## Source-image requirement
+- Never create a Cartilla workbook asset from text alone.
+- The exact Libro crop must be the PRIMARY edit target.
+- If the source crop is not physically attached to the edit operation, stop.
+- The model/tool may transform only finish/rendering, not reconstruct the subject from prose.
+- Flip Chart inputs are secondary, purpose-scoped references.
+- Gretel 2.0 style references are finish-only.
 
 ## Non-negotiable execution rule — no avoidable user handoff
+- If a required action can be performed with connected tools, Remote Desktop Commander, existing files, repo state, browser state, mappings, or automation, perform it directly.
+- Do not ask the user to upload, copy, paste, map, move, or verify anything the connected workflow can do.
+- Exhaust current project state and connected capabilities before requesting an external action.
+- Continue until the task is verified complete or a true external blocker is proven.
 
-- If a required action can be performed with connected tools, Remote Desktop Commander, Lovable, existing files, PDFs, mappings, browser state, repo state, Linear, or available automation, the assistant must perform it directly.
-- The assistant must not ask the user to upload, copy, paste, re-enter, map, verify, click, navigate, move files, or perform any step that the assistant can execute itself with the connected capabilities.
-- Before requesting user action, exhaust the existing project state, connected tools, current files, prior mappings, repo, browser/desktop state, and automation paths.
-- Only a genuinely external action that cannot be performed through any connected capability may be requested from the user.
-- Continue execution until the current prompt is verified complete or a true external blocker requiring user action is proven.
+## Tool-routing rule
+For Cartilla assets use only:
+1. deterministic source-preserving processing on the real Libro/Flip Chart crop; or
+2. an image-edit workflow where the exact source crop is visibly attached and remains the geometry authority.
 
-## Cartilla hard execution gate — added after repeated source-preservation failures
+Text-only reconstruction is invalid.
 
-This rule overrides any convenience, image-generation shortcut, or ambiguous request to "generate", "redo", "optimize", or "show" Cartilla artwork.
+## Mandatory pre-output verification
+Before importing or promoting any optimized asset:
+1. compare it side-by-side with the exact source;
+2. verify subject identity, count, pose, silhouette, proportions, face/expression, line structure, props, composition, and educational meaning;
+3. verify mapped colors came from the approved reference rather than guesses;
+4. reject redesigns even if aesthetically attractive;
+5. promotion to production must follow the repository's visual QA/manifest gate.
 
-### Tool-routing rule
-- DO NOT use ChatGPT image generation for Cartilla workbook assets.
-- DO NOT use any text-to-image path for Cartilla workbook assets.
-- DO NOT treat a source image that was merely displayed in chat as proof that an image-generation tool is actually editing that source.
-- For Cartilla assets, use only:
-  1. deterministic source-preserving image processing on the real Libro crop; or
-  2. an external image-edit workflow where the exact Libro crop is visibly attached as the edit target and verified before generation.
-
-### Source lock
-Before any Cartilla output is accepted:
-- the exact Libro crop must be the pixel/geometry authority;
-- pose, proportions, silhouette, face, expression, anatomy, linework, props, composition, and subject count must remain unchanged;
-- mapped Flip Chart references may change only their classified property (for these pilots: color);
-- style references may affect only finish/material/texture/depth/lighting.
-
-### Mandatory pre-output verification
-Before showing or importing an optimized Cartilla asset:
-1. compare the result side-by-side against the actual Libro crop;
-2. verify the same character geometry and line structure;
-3. verify Flip Chart colors come from the mapped reference, not guessed values;
-4. reject any output that changes subject design even if it looks attractive;
-5. do not call the result APPROVED without explicit user approval.
-
-### User-approval gate
-- CAF-0002 and CAF-0003 remain REVIEW until the user explicitly approves the displayed comparison.
-- The assistant must never self-approve Cartilla pilot artwork.
-- "Looks correct to me" is not an approval event.
-
-### Failure-stop rule
-If a tool produces a redesigned subject even once:
-- stop using that tool/path for Cartilla;
-- do not retry the same path with another prompt;
+## Failure-stop rule
+If a path redesigns the subject:
+- stop using that path;
 - switch to the source-preserving pipeline;
-- do not claim confidence until the source-vs-output comparison is visibly shown.
-
-
+- do not retry the same failed generation method with another prompt.
 
 # PERMANENT CARTILLA RECONSTRUCTION RULE
 
-This is the governing rule for Cartilla workbook reconstruction and supersedes the older blanket color-transfer workflow.
-
 ## Canonical data
-- Workbook ↔ Flip Chart reference source: `src/data/reconstruction/student-to-flipchart-284.json` (98 workbook PDF-sheet records, 284 Flip Chart links).
-- PDF-sheet ↔ printed-page source: `src/data/reconstruction/pdf-sheet-to-printed-page.json`.
+- Workbook ↔ Flip Chart: `src/data/reconstruction/student-to-flipchart-284.json`.
+- PDF sheet ↔ printed page: `src/data/reconstruction/pdf-sheet-to-printed-page.json`.
 - Do not regenerate, reinterpret, or silently replace either mapping.
 
 ## Priority order
 
-For every mapped workbook illustration:
-
 ### 1. Exact colored counterpart first
-If the mapped Flip Chart contains the exact same illustration/drawing as the Workbook, verified by:
-- subject identity and subject count;
-- pose/action;
-- anatomy;
-- silhouette;
-- proportions;
-- face/expression;
-- linework/internal geometry;
-- props/accessories;
-- orientation;
-- composition;
-- educational meaning;
-
-then:
+When the mapped Flip Chart contains the exact same illustration/drawing as the Workbook, verified by identity, count, pose/action, anatomy, silhouette, proportions, face/expression, linework, props, orientation, composition, and educational meaning:
 - extract/crop that already-colored Flip Chart illustration;
-- remove or exclude Flip Chart-only text, backgrounds, scenery, borders, decorations, unrelated characters, and unrelated objects;
-- reuse the authentic colored illustration directly in the corresponding Workbook illustration slot;
-- preserve the Workbook slot's position, dimensions/aspect ratio, surrounding text/art, grid/borders, curriculum, and page geometry;
+- exclude Flip Chart-only text, background, scenery, borders, decorations, unrelated characters, and unrelated objects;
+- reuse the authentic colored illustration directly in the corresponding Workbook slot;
+- preserve the Workbook slot position, dimensions/aspect ratio, surrounding text/art, grid/borders, curriculum, and page geometry;
 - do not redraw or regenerate the illustration.
 
-### 2. Color-transfer fallback only
-If the mapped Flip Chart illustration is related but is not geometrically identical:
+### 2. Finish/color-transfer fallback only
+If the mapped Flip Chart illustration is related but not geometrically identical:
 - preserve the exact Workbook drawing;
-- transfer only the verified Flip Chart colors/finish onto that Workbook drawing;
+- transfer only verified colors and the canonical modernized finish;
 - do not alter line art, anatomy, pose, proportions, expression, props, composition, geometry, or educational content;
-- if a deterministic color transfer cannot be verified, leave the item `COLOR_TRANSFER_REQUIRED` rather than substituting a similar image.
+- if a source-preserving transfer cannot be verified, keep the item pending rather than substituting similar art.
 
 ### 3. Never use a merely similar substitute
-A similar bear, elephant, object, character, pose, or composition is not an acceptable replacement.
+A similar animal, object, character, pose, or composition is never an acceptable replacement.
 
 ## Reconstruction placement rule
-The real Workbook page pixels are the destination source of truth.
-- locate the exact Workbook illustration region;
-- replace only that region;
-- never add a floating colored overlay near the target;
+The real Workbook page pixels remain the destination authority:
+- replace only the exact illustration region;
 - never cross unrelated cell/grid boundaries;
 - never leave the old grayscale counterpart visible underneath or beside the replacement;
 - never alter unrelated text, labels, lines, boxes, or surrounding artwork.
 
-## Finish
-After reconstruction is correct, a separate optimization pass may improve only:
-- watercolor/pigment richness;
-- paper texture;
-- subtle relief/pop-out depth;
-- natural contact shadow;
-- cleanup/resolution/print polish.
-
-Optimization may not change content or geometry.
-
-## Approval rule
+## Final approval rule
 Rendered pixels are the evidence. Metadata, manifests, coordinates, or status labels alone cannot establish PASS.
