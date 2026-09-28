@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { createFileRoute, redirect, useNavigate } from "@tanstack/react-router";
 import { CATALOG, type CatalogEntry } from "@/lib/lesson-catalog";
 import { getStudentSession } from "@/lib/student-session";
@@ -8,6 +8,8 @@ import { isSeedSessionActive } from "@/lib/seed-data";
 import { TeacherPresentationShell } from "@/components/cartilla/TeacherPresentationShell";
 import { FlipchartHdPanel } from "@/components/cartilla/FlipchartHdPanel";
 import { getFlipchartPagesForLesson } from "@/lib/flipchart-hd";
+import { GretelCinematic } from "@/components/gretel/GretelCinematic";
+import { getLessonCinematic } from "@/content/gretel-cinematics";
 
 /**
  * Teacher-only classroom presentation route.
@@ -58,6 +60,7 @@ function PresentarLesson() {
   const { n: nParam } = Route.useParams();
   const navigate = useNavigate();
   const n = Number(nParam);
+  const [showIntro, setShowIntro] = useState(true);
 
   const entry = useMemo<CatalogEntry | undefined>(
     () => CATALOG.find((e) => e.n === n),
@@ -75,7 +78,14 @@ function PresentarLesson() {
   const accentColor = entry.color || "#c98c4f";
 
   return (
-    <TeacherPresentationShell
+    <>
+      {showIntro && (
+        <GretelCinematic
+          cinematic={getLessonCinematic(n)}
+          onComplete={() => setShowIntro(false)}
+        />
+      )}
+      <TeacherPresentationShell
       accentColor={accentColor}
       onExit={handleExit}
       eyebrow={`Lección ${n} · Flipchart`}
@@ -89,5 +99,5 @@ function PresentarLesson() {
       {/* Full-bleed board — no nested max-width chrome bars */}
       <FlipchartHdPanel key={n} lessonNumber={n} accentColor={accentColor} />
     </TeacherPresentationShell>
-  );
+    </>
 }
