@@ -61,11 +61,11 @@ const records = inventory.flatMap(({ lessonId, pages }) => {
 const output = {
   schemaVersion: 1,
   sourceOfPageNumbers: 'src/lib/lesson-catalog.ts + src/data/page-inventory.json',
-  statusDefinitions: ['SCAN_ONLY', 'STRUCTURED_PARTIAL', 'NATIVE_COMPLETE', 'RIVE_READY', 'CERTIFIED'],
+  statusDefinitions: ['SCAN_ONLY', 'STRUCTURED_PARTIAL', 'NATIVE_COMPLETE', 'ANIMATION_READY', 'CERTIFIED'],
   notes: [
     'The separate 90-page workbook manifest disagrees with lesson-exercises/lesson-07.ts about Lesson 7 numbering; the actual student route uses page-layouts.json pages 19–22.',
-    'Pages 1–90 use the native student route and FaithfulPageRenderer. Native promotion is complete; Rive/video certification remains separate.',
-    'Missing source scans in this checkout remain recorded as references; do not silently substitute unrelated artwork.',
+    'Pages 1–90 use the native student route and FaithfulPageRenderer. Native promotion is complete; animation/cinematic certification remains separate.',
+    'All 90 canonical instructional source pages are present in the repository; provenance references remain for comparison and must never be substituted with unrelated artwork.',
   ],
   pages: records,
 };
