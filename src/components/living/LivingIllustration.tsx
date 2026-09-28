@@ -112,6 +112,8 @@ export function LivingIllustration({
 
   const blinkActive = canBlink && blinkReady && !reduced;
   const ambientActive = Boolean(ambientProfile) && !reduced;
+  const partBased = Boolean(actor?.parts?.length);
+  const wholeActionActive = ambientActive && !partBased;
   const displaySrc = blinkActive && blinking && trueBlink ? trueBlink : src;
   const deliverySrcSet = displaySrc === src && failedDeliveryFor !== src ? getFaithfulDeliverySrcSet(src) : undefined;
 
@@ -129,13 +131,15 @@ export function LivingIllustration({
         reacting ? "living-illustration--reacting" : "",
         isCreature && ambientActive ? "living-illustration--creature-life" : "",
         ambientActive ? "living-illustration--ambient" : "",
-        ambientActive && ambientProfile ? `living-illustration--${ambientProfile}` : "",
+        wholeActionActive && ambientProfile ? `living-illustration--${ambientProfile}` : "",
+        partBased && ambientActive ? "living-illustration--part-rigged" : "",
         ambientActive ? `living-illustration--phase-${phase}` : "",
         className,
       ]
         .filter(Boolean)
         .join(" ")}
       data-ambient-motion={ambientActive ? ambientProfile ?? "none" : "none"}
+      data-part-based={partBased ? "true" : "false"}
       data-blink-mode={blinkMode}
       data-interactive={ambientActive ? "true" : "false"}
       onPointerDown={reactToPointer}
