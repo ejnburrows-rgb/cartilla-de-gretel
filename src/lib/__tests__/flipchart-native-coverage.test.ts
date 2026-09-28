@@ -1,0 +1,35 @@
+import { describe, expect, it } from "vitest";
+import { FLIPCHART_PAGES } from "@/lib/flipchart-hd";
+import { NATIVE_FLIPCHART_PAGES, getNativeFlipchartPage } from "@/lib/flipchart-native";
+
+describe("native Flip Chart coverage", () => {
+  it("covers all 62 teacher pages", () => {
+    expect(FLIPCHART_PAGES).toHaveLength(62);
+    expect(NATIVE_FLIPCHART_PAGES).toHaveLength(62);
+    expect(NATIVE_FLIPCHART_PAGES.map((page) => page.flipchartPage)).toEqual(
+      Array.from({ length: 62 }, (_, index) => index + 1),
+    );
+  });
+
+  it("keeps every instructional plate scan-free and populated", () => {
+    for (let pageNumber = 3; pageNumber <= 62; pageNumber += 1) {
+      const page = getNativeFlipchartPage(pageNumber);
+      expect(page, `missing native page ${pageNumber}`).toBeTruthy();
+      expect(page?.hasDigitalText, `missing digital text on page ${pageNumber}`).toBe(true);
+      expect(page?.art.length, `missing standalone art on page ${pageNumber}`).toBeGreaterThan(0);
+      for (const asset of page?.art ?? []) {
+        expect(asset.src).toMatch(/^\/cartilla\/art\/faithful\//);
+        expect(asset.src).not.toContain("/hd/flipchart/");
+        expect(asset.src).not.toContain("/delivery/flipchart/");
+      }
+    }
+  });
+
+  it("uses native frontmatter for pages 1 and 2", () => {
+    for (const pageNumber of [1, 2]) {
+      const page = getNativeFlipchartPage(pageNumber);
+      expect(page).toBeTruthy();
+      expect(page?.flipchartPage).toBe(pageNumber);
+    }
+  });
+});
