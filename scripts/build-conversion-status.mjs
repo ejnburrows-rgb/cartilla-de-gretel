@@ -16,7 +16,7 @@ const lessonRanges = new Map([
 const allInteractions = Array.isArray(interactions) ? interactions : Object.values(interactions).flat();
 // Promotion is explicit after source comparison and browser checks. A layout
 // record alone never promotes a student page to native.
-const nativePages = new Set([19, 20, 21, 22, 23, 24, 25, 26]);
+const nativePages = new Set([19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]);
 const records = inventory.flatMap(({ lessonId, pages }) => {
   const [start, end] = lessonRanges.get(lessonId).split('-').map(Number);
   return Array.from({ length: end - start + 1 }, (_, offset) => {
@@ -63,7 +63,7 @@ const output = {
   statusDefinitions: ['SCAN_ONLY', 'STRUCTURED_PARTIAL', 'NATIVE_COMPLETE', 'RIVE_READY', 'CERTIFIED'],
   notes: [
     'The separate 90-page workbook manifest disagrees with lesson-exercises/lesson-07.ts about Lesson 7 numbering; the actual student route uses page-layouts.json pages 19–22.',
-    'Pages 19–26 use the native student route. Lessons 7 and 8 have been rendered and interaction-checked in the native shell; no page is animation certified.',
+    'Pages 19–30 use the native student route. Lessons 7–9 have been rendered and interaction-checked in the native shell; no page is animation certified.',
     'Missing source scans in this checkout remain recorded as references; do not silently substitute unrelated artwork.',
   ],
   pages: records,
