@@ -6,6 +6,10 @@ export type GretelState =
   | "talking"
   | "waving"
   | "pointing"
+  | "listening"
+  | "teaching"
+  | "help"
+  | "gentle-error"
   | "exiting"
   | "cheering"
   | "error";
@@ -19,26 +23,49 @@ export type GretelEvent =
   | { type: "SPEAK_STOP" }
   | { type: "WAVE" }
   | { type: "POINT" }
+  | { type: "LISTEN" }
+  | { type: "TEACH" }
+  | { type: "HELP" }
+  | { type: "GENTLE_ERROR" }
   | { type: "CHEER" }
   | { type: "EXIT" }
   | { type: "ASSET_ERROR" }
   | { type: "RESET" };
 
+const GLOBAL_EVENTS = new Set<GretelEvent["type"]>(["EXIT", "SETTLE", "SPEAK_START"]);
+
 export function canTransition(from: GretelState, event: GretelEvent): boolean {
-  if (from !== "boot" && from !== "error" && ["EXIT", "SETTLE", "SPEAK_START"].includes(event.type)) return true;
+  if (from !== "boot" && from !== "error" && GLOBAL_EVENTS.has(event.type)) return true;
   switch (from) {
     case "boot":
       return event.type === "INIT";
     case "settling":
       return ["IDLE", "ASSET_ERROR"].includes(event.type);
     case "idle":
-      return ["BLINK", "SETTLE", "SPEAK_START", "WAVE", "POINT", "CHEER", "EXIT", "ASSET_ERROR"].includes(event.type);
+      return [
+        "BLINK",
+        "SETTLE",
+        "SPEAK_START",
+        "WAVE",
+        "POINT",
+        "LISTEN",
+        "TEACH",
+        "HELP",
+        "GENTLE_ERROR",
+        "CHEER",
+        "EXIT",
+        "ASSET_ERROR",
+      ].includes(event.type);
     case "blinking":
       return ["IDLE", "ASSET_ERROR"].includes(event.type);
     case "talking":
       return ["SPEAK_STOP", "ASSET_ERROR"].includes(event.type);
     case "waving":
     case "pointing":
+    case "listening":
+    case "teaching":
+    case "help":
+    case "gentle-error":
     case "cheering":
     case "exiting":
       return ["IDLE", "SETTLE", "ASSET_ERROR", "SPEAK_START", "SPEAK_STOP"].includes(event.type);
@@ -49,9 +76,6 @@ export function canTransition(from: GretelState, event: GretelEvent): boolean {
   }
 }
 
-/** Pure reducer for Gretel's pose state. Speech always wins over a transient
- * gesture so her mouth frames follow real audio instead of freezing in a
- * wave/point/cheer while the voice is playing. */
 export function gretelReducer(state: GretelState, event: GretelEvent): GretelState {
   if (!canTransition(state, event)) {
     console.warn(
@@ -65,6 +89,7 @@ export function gretelReducer(state: GretelState, event: GretelEvent): GretelSta
     if (event.type === "SETTLE") return "settling";
     if (event.type === "SPEAK_START") return "talking";
   }
+
   let nextState = state;
   switch (state) {
     case "boot":
@@ -76,12 +101,13 @@ export function gretelReducer(state: GretelState, event: GretelEvent): GretelSta
       break;
     case "idle":
       if (event.type === "BLINK") nextState = "blinking";
-      if (event.type === "SETTLE") nextState = "settling";
-      if (event.type === "SPEAK_START") nextState = "talking";
       if (event.type === "WAVE") nextState = "waving";
       if (event.type === "POINT") nextState = "pointing";
+      if (event.type === "LISTEN") nextState = "listening";
+      if (event.type === "TEACH") nextState = "teaching";
+      if (event.type === "HELP") nextState = "help";
+      if (event.type === "GENTLE_ERROR") nextState = "gentle-error";
       if (event.type === "CHEER") nextState = "cheering";
-      if (event.type === "EXIT") nextState = "exiting";
       if (event.type === "ASSET_ERROR") nextState = "error";
       break;
     case "blinking":
@@ -94,6 +120,10 @@ export function gretelReducer(state: GretelState, event: GretelEvent): GretelSta
       break;
     case "waving":
     case "pointing":
+    case "listening":
+    case "teaching":
+    case "help":
+    case "gentle-error":
     case "cheering":
     case "exiting":
       if (event.type === "SETTLE") nextState = "settling";
