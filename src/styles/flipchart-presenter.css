@@ -920,3 +920,27 @@
 .fc-board__thumb .fc-native-board__art-label {
   display: none;
 }
+
+
+.fc-native-board__syllables {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(.38rem, .8vw, .65rem);
+  padding: clamp(.5rem, .9vw, .75rem);
+  border-radius: 1.1rem;
+  border: 1px solid color-mix(in srgb, var(--fc-accent) 18%, #e7dcc8);
+  background: color-mix(in srgb, var(--fc-accent) 4%, #fffdf8);
+}
+
+.fc-native-board__syllables span {
+  min-width: clamp(2.8rem, 5vw, 4.3rem);
+  border-radius: 999px;
+  border: 2px solid color-mix(in srgb, var(--fc-accent) 55%, #d7c49f);
+  background: #fff;
+  padding: .38rem .66rem;
+  color: var(--fc-accent);
+  text-align: center;
+  font: 950 clamp(1.2rem, 2.3vw, 2rem)/1 var(--font-book-faithful, Georgia, serif);
+  box-shadow: 0 5px 14px -12px rgba(54,37,20,.45);
+}
