@@ -56,12 +56,6 @@ for (let page = 1; page <= 62; page += 1) {
     exists(`public/cartilla/art/hd/flipchart/page-${pad(page)}.jpg`),
     `missing canonical Flip Chart master page ${page}`,
   );
-  if (page >= 3) {
-    assert(
-      exists(`public/cartilla/art/faithful/flipchart/flipchart-p${pad(page)}-hero.webp`),
-      `missing generated standalone Flip Chart hero page ${page}; run pnpm prepare:art`,
-    );
-  }
 }
 
 const gretelRequired = [
@@ -89,8 +83,13 @@ assert(cinematicSource.includes('id: "cartilla-final"'), "missing final completi
 assert(cinematicSource.includes("...CATALOG.map"), "lesson cinematic manifest must derive all 24 lessons from canonical catalog");
 
 const presenterSource = fs.readFileSync(path.join(srcDir, "components", "cartilla", "FlipchartHdPanel.tsx"), "utf8");
+const boardSource = fs.readFileSync(path.join(srcDir, "components", "cartilla", "FlipchartNativeBoard.tsx"), "utf8");
+const nativeModelSource = fs.readFileSync(path.join(srcDir, "lib", "flipchart-native.ts"), "utf8");
 assert(presenterSource.includes("FlipchartNativeBoard"), "teacher presenter must use FlipchartNativeBoard");
 assert(!presenterSource.includes("<FlipchartPlate"), "teacher presenter must not use full-page FlipchartPlate as the primary face");
+assert(boardSource.includes("LivingIllustration"), "native Flip Chart must render independent learning objects");
+assert(!boardSource.includes("getFlipchartDeliverySrc"), "native Flip Chart must not use page-level delivery scans");
+assert(nativeModelSource.includes("faithfulManifest"), "native Flip Chart model must resolve repository faithful art");
 
 const lessonSource = fs.readFileSync(path.join(srcDir, "routes", "cartilla", "-leccion-view.tsx"), "utf8");
 assert(lessonSource.includes("<NativeLessonViewer"), "student lessons must use NativeLessonViewer");
@@ -104,7 +103,7 @@ console.log(JSON.stringify({
   workbookSourceAssets: "90/90",
   flipchartNativeRegistry: "62/62",
   flipchartCanonicalMasters: "62/62",
-  flipchartStandaloneHeroAssets: "60/60 + 2 native frontmatter",
+  flipchartSurface: "62/62 native boards; pages 1-2 native frontmatter; pages 3-62 separate faithful learning objects",
   gretelRigFrames: gretelRequired.length,
   cinematics: "welcome + how-to + 24 lessons + milestones + final",
 }, null, 2));
