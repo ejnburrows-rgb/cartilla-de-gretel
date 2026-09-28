@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useNavigate, useParams } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@/lib/useServerFn";
-import { ArrowLeft, ArrowRight, ClipboardList } from "lucide-react";
+import { ArrowLeft, ClipboardList } from "lucide-react";
 import { CATALOG, TOTAL_LESSONS, type CatalogEntry } from "@/lib/lesson-catalog";
 import { useLessonProgress, isLessonUnlocked, markLessonCompleted } from "@/lib/lesson-progress";
 import { recordEvent, useStudentSession } from "@/lib/student-session";
@@ -13,14 +13,12 @@ import { useLanguage } from "@/context/LanguageContext";
 import { sCopy } from "@/content/student-copy";
 import { gretelEvent } from "@/lib/gretel-bus";
 
-import { CurlPageViewer } from "@/components/StudentBook/CurlPageViewer";
 import { NativeLessonViewer } from "@/components/StudentBook/NativeLessonViewer";
 import { buildPageArray } from "@/utils/buildPageArray";
 import { GretelPresence } from "@/components/gretel/GretelPresence";
 import { GretelCinematic } from "@/components/gretel/GretelCinematic";
 import { getLessonCinematic } from "@/content/gretel-cinematics";
 import { GardenScene } from "@/components/cartilla/GardenScene";
-import { KidButton } from "@/components/ui/KidButton";
 import "@/styles/interactive-exercises.css";
 import "@/styles/gretel.css";
 
@@ -30,9 +28,8 @@ export function Leccion() {
   const { n: nParam } = useParams({ from: "/cartilla/leccion/$n" });
   const navigate = useNavigate();
   const n = Number(nParam);
-  const isNativeLesson = true;
   const [showIntro, setShowIntro] = useState(true);
-  const { isCompleted } = useLessonProgress();
+  useLessonProgress();
   const session = useStudentSession();
   const entry = useMemo<CatalogEntry | undefined>(() => CATALOG.find((e) => e.n === n), [n]);
 
@@ -136,7 +133,6 @@ export function Leccion() {
 
   if (!entry || !unlocked) return null;
 
-  const done = isCompleted(n);
   const isLast = n >= TOTAL_LESSONS;
   const pct = Math.round((n / TOTAL_LESSONS) * 100);
 
@@ -223,17 +219,7 @@ export function Leccion() {
             />
           )}
           <GardenScene ref={gardenRef}>
-            {!session && !isNativeLesson && (
-              <div className="fixed top-4 left-4 z-[200]">
-                <Link
-                  to="/cartilla/lecciones"
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-stone-800/90 hover:bg-stone-800 text-white font-bold rounded-xl shadow-lg backdrop-blur transition hover:-translate-y-0.5"
-                >
-                  <ArrowLeft className="w-4 h-4" /> Volver a mis lecciones
-                </Link>
-              </div>
-            )}
-            {progressReady && (isNativeLesson ? (
+            {progressReady && (
               <NativeLessonViewer
                 key={n}
                 pages={pages}
@@ -243,9 +229,7 @@ export function Leccion() {
                 onFinish={goNext}
                 bookCompanion={bookCompanion}
               />
-            ) : (
-              <CurlPageViewer key={n} pages={pages} initialPage={initialPage} onPageChange={handlePageChange} accent={entry.color} bookCompanion={bookCompanion} />
-            ))}
+            )}
           </GardenScene>
 
           {/* Placement preview — Lección 1 only, see comment near the top of
@@ -253,32 +237,6 @@ export function Leccion() {
         </div>
       </main>
       {/* Completion controls follow the reader so they cannot cover a page. */}
-      {!isNativeLesson && <nav className="relative z-10 w-full p-3 bg-background/95 border-t-2 border-foreground/10">
-        <div className="max-w-3xl mx-auto flex items-center justify-between gap-3">
-          <KidButton
-            variant="outline"
-            accent={entry.color}
-            onClick={() =>
-              n > 1
-                ? navigate({ to: "/cartilla/leccion/$n", params: { n: String(n - 1) } })
-                : navigate({ to: "/cartilla/lecciones" })
-            }
-          >
-            <ArrowLeft className="w-5 h-5 inline mr-1" />{" "}
-            {n > 1 ? t.anterior[lang] : t.indice[lang]}
-          </KidButton>
-          <KidButton accent={entry.color} onClick={goNext} disabled={isLast && done}>
-            {isLast
-              ? done
-                ? t.terminado[lang]
-                : t.marcarTerminar[lang]
-              : done
-                ? t.siguiente[lang]
-                : t.marcarSiguiente[lang]}{" "}
-            <ArrowRight className="w-5 h-5 inline ml-1" />
-          </KidButton>
-        </div>
-      </nav>}
     </div>
   );
 }
