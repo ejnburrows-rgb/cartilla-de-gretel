@@ -14,11 +14,22 @@ import { speakAsGretel } from "@/lib/gretel-voice";
 import { useGretelAnimation } from "./useGretelAnimation";
 import { GretelLayerRig } from "./GretelLayerRig";
 
+export type GretelPerformanceAction =
+  | "enter"
+  | "idle"
+  | "wave"
+  | "point-left"
+  | "point-right"
+  | "listen"
+  | "celebrate"
+  | "exit";
+
 export interface GretelLiveAvatarRef {
   cancel: () => void;
   celebrate: (customText?: string) => Promise<void>;
   speakMessage: (text: string) => Promise<void>;
   encourage: () => Promise<void>;
+  perform: (action: GretelPerformanceAction) => void;
 }
 
 interface GretelLiveAvatarProps {
@@ -61,6 +72,7 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
     const { machineState, send, isSpeaking } = useGretelAnimation(paused || !!reducedMotion);
     const [bubbleText, setBubbleText] = useState<string | null>(null);
     const [listening, setListening] = useState(false);
+    const [pointingLeft, setPointingLeft] = useState(bubblePosition === "right");
     const [particles, setParticles] = useState<Particle[]>([]);
     const particleId = useRef(0);
     const speechRequestId = useRef(0);
@@ -109,8 +121,52 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
       await speakMessage(text);
     }, [burst, send, speakMessage]);
 
-    const cancel = useCallback(() => { speechRequestId.current++; setBubbleText(null); setParticles([]); send({ type: "EXIT" }); }, [send]);
-    useImperativeHandle(ref, () => ({ celebrate, speakMessage, encourage, cancel }), [celebrate, encourage, speakMessage, cancel]);
+    const perform = useCallback((action: GretelPerformanceAction) => {
+      if (action !== "listen") setListening(false);
+      switch (action) {
+        case "enter":
+          send({ type: "SETTLE" });
+          break;
+        case "idle":
+          send({ type: "IDLE" });
+          break;
+        case "wave":
+          send({ type: "WAVE" });
+          break;
+        case "point-left":
+          setPointingLeft(true);
+          send({ type: "POINT" });
+          break;
+        case "point-right":
+          setPointingLeft(false);
+          send({ type: "POINT" });
+          break;
+        case "listen":
+          setListening(true);
+          send({ type: "IDLE" });
+          break;
+        case "celebrate":
+          send({ type: "CHEER" });
+          burst("star", 10);
+          break;
+        case "exit":
+          send({ type: "EXIT" });
+          break;
+      }
+    }, [burst, send]);
+
+    const cancel = useCallback(() => {
+      speechRequestId.current++;
+      setBubbleText(null);
+      setParticles([]);
+      setListening(false);
+      send({ type: "EXIT" });
+    }, [send]);
+    useImperativeHandle(
+      ref,
+      () => ({ celebrate, speakMessage, encourage, cancel, perform }),
+      [celebrate, encourage, speakMessage, cancel, perform],
+    );
 
     const interact = useCallback(() => {
       if (isSpeaking) return;
@@ -254,7 +310,7 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
         >
           <GretelLayerRig
             state={listening ? "listening" : machineState}
-            pointingLeft={machineState === "pointing" && bubblePosition === "right"}
+            pointingLeft={machineState === "pointing" ? pointingLeft : bubblePosition === "right"}
             speaking={isSpeaking || machineState === "talking"}
             paused={paused}
             onError={() => send({ type: "ASSET_ERROR" })}
