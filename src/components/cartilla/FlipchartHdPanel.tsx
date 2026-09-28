@@ -1,5 +1,5 @@
 /**
- * FlipchartHdPanel — HD-first teacher presentation board for classroom projection.
+ * FlipchartHdPanel — native teacher presentation board for classroom projection.
  *
  * Canonical assets remain public/cartilla/art/hd/flipchart/page-NNN.jpg.
  * The presenter serves generated tier-3 WebP derivatives sized for the actual
@@ -216,8 +216,8 @@ export function FlipchartHdPanel({ lessonNumber, accentColor }: FlipchartHdPanel
       style={boardStyle}
       data-testid="flipchart-hd-panel"
       data-hd-primary="true"
-      data-presenter-mode="digital"
-      data-delivery-tier="screen-webp"
+      data-presenter-mode="native"
+      data-delivery-tier="native-illustration-webp"
       data-page-turn-axis="vertical"
       data-page-turn-ms={FLIPCHART_FLIP_MS}
       data-reduced-motion={reducedMotion ? "true" : "false"}
