@@ -12,7 +12,7 @@ import { Heart, Sparkles, Star } from "lucide-react";
 import { onGretelEvent } from "@/lib/gretel-bus";
 import { speakAsGretel } from "@/lib/gretel-voice";
 import { useGretelAnimation } from "./useGretelAnimation";
-import { getGretelPoseFrames, type GretelPoseKey } from "./gretelPoses";
+import { GretelLayerRig } from "./GretelLayerRig";
 
 export interface GretelLiveAvatarRef {
   cancel: () => void;
@@ -62,25 +62,8 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
     const [bubbleText, setBubbleText] = useState<string | null>(null);
     const [listening, setListening] = useState(false);
     const [particles, setParticles] = useState<Particle[]>([]);
-    const [frameIndex, setFrameIndex] = useState(0);
     const particleId = useRef(0);
     const speechRequestId = useRef(0);
-
-    const poseKey: GretelPoseKey =
-      machineState === "pointing" && bubblePosition === "right" ? "pointingLeft" : machineState;
-    const poseFrames = getGretelPoseFrames(poseKey);
-    const frames = machineState === "idle" && Array.isArray(poseFrames) ? poseFrames[0]! : poseFrames;
-    const activeSrc = Array.isArray(frames) ? frames[frameIndex % frames.length] : frames;
-
-    useEffect(() => {
-      if (paused || reducedMotion || !Array.isArray(frames)) {
-        setFrameIndex(0);
-        return;
-      }
-      const speed = machineState === "talking" ? 120 : machineState === "waving" ? 210 : machineState === "cheering" ? 160 : 1200;
-      const timer = window.setInterval(() => setFrameIndex((index) => (index + 1) % frames.length), speed);
-      return () => window.clearInterval(timer);
-    }, [frames, machineState, reducedMotion, paused]);
 
     const burst = useCallback((kind: Particle["kind"], count: number) => {
       if (reducedMotion) return;
@@ -140,21 +123,6 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
       event.preventDefault();
       interact();
     };
-
-    useEffect(() => {
-      if (typeof Image === "undefined") return;
-      const immediatePoses: GretelPoseKey[] = ["idle", "settling", "waving", "pointingLeft", "talking", "cheering"];
-      const urls = new Set<string>();
-      immediatePoses.forEach((pose) => {
-        const poseFrames = getGretelPoseFrames(pose);
-        (Array.isArray(poseFrames) ? poseFrames : [poseFrames]).forEach((url) => urls.add(url));
-      });
-      urls.forEach((url) => {
-        const img = new Image();
-        img.decoding = "async";
-        img.src = url;
-      });
-    }, []);
 
     useEffect(() => {
       const entrance = window.setTimeout(() => burst("star", 7), 180);
@@ -284,12 +252,11 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
           animate={paused || reducedMotion ? { opacity: 1, y: 0, rotate: 0, scale: 1 } : { opacity: 1, ...bodyAnimation(machineState) }}
           transition={paused || reducedMotion ? { duration: 0 } : { opacity: { duration: 0.35 }, ...bodyTransition(machineState) }}
         >
-          <img
-            key={activeSrc}
-            src={activeSrc}
-            alt="Gretel"
-            draggable={false}
-            className="h-full w-full object-contain drop-shadow-[0_10px_8px_rgba(45,32,20,0.22)]"
+          <GretelLayerRig
+            state={listening ? "listening" : machineState}
+            pointingLeft={machineState === "pointing" && bubblePosition === "right"}
+            speaking={isSpeaking || machineState === "talking"}
+            paused={paused}
             onError={() => send({ type: "ASSET_ERROR" })}
           />
         </motion.div>
