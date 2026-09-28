@@ -1,0 +1,9 @@
+name: gretel-2
+main: Gretel
+debugLevel: 0
+optimizationLevel: 2
+artboard:
+  width: 420
+  height: 620
+output:
+  dir: build
