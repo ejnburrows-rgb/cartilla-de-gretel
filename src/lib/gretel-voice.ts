@@ -7,6 +7,8 @@ export type GretelVoiceHandlers = { onStart?: () => void; onEnd?: () => void };
 const MUTE_KEY = "cartilla.gretel.voice.muted";
 const FRIENDLY_HINTS = /child|niña|nina|girl|kids|junior|zira|samantha|karen|tessa|fiona|paulina|sabina|dalia|elvira|ximena|helena|monica|mónica|lucia|laura|sara|maria|soledad|esperanza|paloma|carmen/i;
 const LATAM = new Set(["es-mx", "es-us", "es-419", "es-la"]);
+export const GRETEL_PRIMARY_VOICE = "Leda";
+export const GRETEL_FALLBACK_VOICE = "Sulafat";
 let cached: SpeechSynthesisVoice | null = null;
 let voicesReady: Promise<void> | null = null;
 let lastSpokenVoiceName = "none";
@@ -16,6 +18,8 @@ function scoreVoice(voice: SpeechSynthesisVoice): number {
   const lang = (voice.lang || "").toLowerCase();
   if (!lang.startsWith("es")) return -1;
   let score = LATAM.has(lang) ? 100000 : 5000;
+  if (/leda/i.test(voice.name)) score += 1000000;
+  else if (/sulafat/i.test(voice.name)) score += 900000;
   if (FRIENDLY_HINTS.test(voice.name)) score += 2500;
   if (/natural|neural|online|premium|enhanced/i.test(voice.name)) score += 300;
   if (/google/i.test(voice.name)) score += 200;
