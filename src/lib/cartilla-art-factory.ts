@@ -481,7 +481,9 @@ export function buildGenerationPackage(project: ArtFactoryProject, assetIds?: st
     }
   }
 
-  const zipBytes = buildStoreZip(entries);\n  const zipBuffer = zipBytes.buffer.slice(zipBytes.byteOffset, zipBytes.byteOffset + zipBytes.byteLength) as ArrayBuffer;\n  return new Blob([zipBuffer], { type: "application/zip" });
+  const zipBytes = buildStoreZip(entries);
+  const zipBuffer = zipBytes.buffer.slice(zipBytes.byteOffset, zipBytes.byteOffset + zipBytes.byteLength) as ArrayBuffer;
+  return new Blob([zipBuffer], { type: "application/zip" });
 }
 
 export function serializeProject(project: ArtFactoryProject) {
