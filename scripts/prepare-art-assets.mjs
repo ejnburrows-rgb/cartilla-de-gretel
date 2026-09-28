@@ -344,6 +344,8 @@ async function prepareFlipchartDelivery(checkOnly) {
     ...readJson(path.join(rootDir, "src", "data", "flipchart-text-23-42.json")),
     ...readJson(path.join(rootDir, "src", "data", "flipchart-text-43-62.json")),
   };
+  const frames = readJson(path.join(rootDir, "src", "data", "flipchart-frames.json"));
+  const standaloneDir = path.join(faithfulDir, "flipchart");
   if (!checkOnly) fs.rmSync(flipchartDeliveryDir, { recursive: true, force: true });
 
   const assets = [];
@@ -401,6 +403,54 @@ async function prepareFlipchartDelivery(checkOnly) {
       : await sharp(source).png().toBuffer();
 
     const number = String(pageNumber).padStart(3, "0");
+
+    let standalone = null;
+    if (pageNumber >= 3) {
+      const frame = frames[String(pageNumber)] ?? { width: 1000, height: sourceHeight };
+      const realText = (digitalPages[String(pageNumber)] ?? []).filter((line) => String(line.text ?? "").trim());
+      const maxFs = realText.length ? Math.max(...realText.map((line) => Number(line.fontSize ?? 0))) : 0;
+      const title = realText.filter((line) => Number(line.fontSize ?? 0) >= maxFs * 0.9 && Number(line.y ?? 0) < 200);
+      const rest = realText.filter((line) => !title.includes(line));
+      const lower = rest.filter((line) => Number(line.y ?? 0) >= 420 && Number(line.fontSize ?? 0) >= 30);
+      const body = rest.filter((line) => !lower.includes(line));
+      const proseBottom = body.reduce((max, line) => Math.max(max, Number(line.y ?? 0) + Number(line.height ?? 0)), 0);
+      const wordsTop = lower.length ? Math.min(...lower.map((line) => Number(line.y ?? 0))) : frame.height * 0.9;
+      const topFrame = Math.max(frame.height * 0.16, Math.min(frame.height * 0.42, proseBottom || frame.height * 0.2));
+      const bottomFrame = Math.max(topFrame + frame.height * 0.24, Math.min(frame.height * 0.92, wordsTop - frame.height * 0.025));
+
+      const scaleX = sourceWidth / frame.width;
+      const scaleY = sourceHeight / frame.height;
+      const left = Math.max(0, Math.floor(frame.width * 0.05 * scaleX));
+      const top = Math.max(0, Math.floor(topFrame * scaleY));
+      const right = Math.min(sourceWidth, Math.ceil(frame.width * 0.95 * scaleX));
+      const bottom = Math.min(sourceHeight, Math.ceil(bottomFrame * scaleY));
+
+      const heroRel = path.join("cartilla", "art", "faithful", "flipchart", "flipchart-p" + number + "-hero.webp");
+      const heroAbs = path.join(publicDir, heroRel);
+      let heroBuffer;
+      if (fs.existsSync(heroAbs)) {
+        heroBuffer = fs.readFileSync(heroAbs);
+      } else {
+        heroBuffer = await sharp(illustrationLayer)
+          .extract({ left, top, width: Math.max(1, right - left), height: Math.max(1, bottom - top) })
+          .trim({ background: "#ffffff", threshold: 10 })
+          .webp({ quality: 94, smartSubsample: true })
+          .toBuffer();
+        if (!checkOnly) {
+          fs.mkdirSync(standaloneDir, { recursive: true });
+          fs.writeFileSync(heroAbs, heroBuffer);
+        }
+      }
+      const heroMeta = await sharp(heroBuffer).metadata();
+      standalone = {
+        slot: "flipchart-p" + number + "-hero",
+        path: "/" + heroRel.replaceAll(path.sep, "/"),
+        width: heroMeta.width,
+        height: heroMeta.height,
+        generatedFromCanonicalMaster: !fs.existsSync(heroAbs) || checkOnly,
+      };
+    }
+
     const derivatives = [];
     for (const [tier, width] of Object.entries(FLIPCHART_DELIVERY_WIDTHS)) {
       const outRel = path.join("cartilla", "art", "delivery", "flipchart", tier, "page-" + number + ".webp");
@@ -428,7 +478,8 @@ async function prepareFlipchartDelivery(checkOnly) {
       sourceWidth,
       sourceHeight,
       digitalTextRegionsRemoved: textRegions.length,
-      productionSurface: pageNumber >= 3 ? "native-illustration-layer+digital-text" : "frontmatter-native-component",
+      productionSurface: pageNumber >= 3 ? "standalone-hero+native-digital-text" : "frontmatter-native-component",
+      standalone,
       derivatives,
     });
   }
