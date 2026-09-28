@@ -125,7 +125,7 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
       if (action !== "listen") setListening(false);
       switch (action) {
         case "enter":
-          send({ type: "SETTLE" });
+          send({ type: machineState === "boot" ? "INIT" : "SETTLE" });
           break;
         case "idle":
           send({ type: "IDLE" });
@@ -153,7 +153,7 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
           send({ type: "EXIT" });
           break;
       }
-    }, [burst, send]);
+    }, [burst, machineState, send]);
 
     const cancel = useCallback(() => {
       speechRequestId.current++;
