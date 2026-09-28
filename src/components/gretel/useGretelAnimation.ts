@@ -1,10 +1,5 @@
-import { useEffect, useReducer, useRef, useState, useCallback } from "react";
-import { gretelReducer, GretelState, GretelEvent } from "./gretelMachine";
-import { getGretelPose, getGretelPoseFrames } from "./gretelPoses";
-
-const failedUrls = new Set<string>();
-const TRANSPARENT_SPACER =
-  "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+import { useCallback, useEffect, useReducer, useRef, useState } from "react";
+import { gretelReducer, type GretelEvent, type GretelState } from "./gretelMachine";
 
 export interface GretelAnimationHook {
   currentPose: string;
@@ -16,11 +11,8 @@ export interface GretelAnimationHook {
 
 export function useGretelAnimation(paused = false): GretelAnimationHook {
   const [machineState, dispatch] = useReducer(gretelReducer, "boot");
-  const [isRecovering, setIsRecovering] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const machineStateRef = useRef<GretelState>(machineState);
-  machineStateRef.current = machineState;
 
   const clearTimer = useCallback(() => {
     if (timerRef.current !== null) {
@@ -30,16 +22,9 @@ export function useGretelAnimation(paused = false): GretelAnimationHook {
   }, []);
 
   const send = useCallback((event: GretelEvent) => {
-    if (event.type === "RESET") {
-      failedUrls.clear();
-    } else if (event.type === "ASSET_ERROR") {
-      const pose = getGretelPoseFrames(machineStateRef.current);
-      if (typeof pose === "string") {
-        failedUrls.add(pose);
-      } else {
-        pose.forEach((p) => failedUrls.add(p));
-      }
-    }
+    // SVG Gretel has no external pose asset to fail. Keep ASSET_ERROR in the
+    // state-machine contract for compatibility with older callers, but do not
+    // synthesize failures from raster preload attempts.
     dispatch(event);
   }, []);
 
@@ -53,84 +38,64 @@ export function useGretelAnimation(paused = false): GretelAnimationHook {
       setIsSpeaking(false);
       send({ type: "SPEAK_STOP" });
     };
-
     window.addEventListener("gretel:speak_start", handleSpeakStart);
     window.addEventListener("gretel:speak_stop", handleSpeakStop);
-
     return () => {
       window.removeEventListener("gretel:speak_start", handleSpeakStart);
       window.removeEventListener("gretel:speak_stop", handleSpeakStop);
     };
   }, [send]);
 
-  const preloadImage = (src: string): Promise<void> => {
-    if (src === TRANSPARENT_SPACER) return Promise.resolve();
-    return new Promise((resolve, reject) => {
-      const img = new Image();
-      img.onload = () => resolve();
-      img.onerror = () => reject();
-      img.src = src;
-    });
-  };
-
   useEffect(() => {
     if (machineState === "boot") {
-      const idlePose = getGretelPose("idle") as string;
-      preloadImage(idlePose)
-        .catch(() => {
-          failedUrls.add(idlePose);
-        })
-        .finally(() => {
-          dispatch({ type: "INIT" });
-        });
+      dispatch({ type: "INIT" });
       return;
     }
 
     clearTimer();
-    let isCancelled = false;
+    let cancelled = false;
+    const transient = [
+      "pointing",
+      "waving",
+      "teaching",
+      "help",
+      "gentle-error",
+      "cheering",
+      "exiting",
+    ] as const;
 
-    // Reset back to idle automatically for transient states like pointing/waving/cheering
-    if (["pointing", "waving", "cheering", "exiting"].includes(machineState)) {
+    if (transient.includes(machineState as (typeof transient)[number])) {
       timerRef.current = setTimeout(
         () => {
-          if (!isCancelled) dispatch({ type: "IDLE" });
+          if (!cancelled) dispatch({ type: "IDLE" });
         },
-        machineState === "exiting" ? 900 : 2000,
+        machineState === "exiting" ? 800 : machineState === "cheering" ? 1800 : 1450,
       );
     } else if (machineState === "settling") {
-      // Enter settle hold (G-02) then idle
       timerRef.current = setTimeout(() => {
-        if (!isCancelled) dispatch({ type: "IDLE" });
-      }, 680);
+        if (!cancelled) dispatch({ type: "IDLE" });
+      }, 520);
     } else if (machineState === "blinking") {
-      // Blink is fast
       timerRef.current = setTimeout(() => {
-        if (!isCancelled) dispatch({ type: "IDLE" });
-      }, 150);
+        if (!cancelled) dispatch({ type: "IDLE" });
+      }, 130);
     } else if (machineState === "idle" && !paused) {
-      // Random blink cycle when idle
-      const nextBlink = Math.random() * 4000 + 2000; // 2-6 seconds
       timerRef.current = setTimeout(() => {
-        if (!isCancelled) dispatch({ type: "BLINK" });
-      }, nextBlink);
+        if (!cancelled) dispatch({ type: "BLINK" });
+      }, 2600 + Math.random() * 3200);
     }
 
     return () => {
-      isCancelled = true;
+      cancelled = true;
       clearTimer();
     };
   }, [machineState, clearTimer, paused]);
 
-  let currentSrc = getGretelPose(machineState);
-  if (typeof currentSrc === "string" && failedUrls.has(currentSrc)) {
-    currentSrc = TRANSPARENT_SPACER;
-  }
-
   return {
-    currentPose: currentSrc,
+    currentPose: `svg:${machineState}`,
     machineState,
     send,
-    isRecovering,
+    isRecovering: false,
     isSpeaking,
   };
 }
