@@ -401,6 +401,39 @@ function buildStoreZip(entries: ZipEntry[]) {
   return concatBytes([...localParts, central, end]);
 }
 
+export function buildIntegrationManifest(project: ArtFactoryProject) {
+  const eligible = new Set<ArtFactoryStatus>([
+    "READY FOR INTEGRATION",
+    "INTEGRATED",
+    "EXPORTED",
+  ]);
+  return {
+    schemaVersion: 1,
+    generatedAt: new Date().toISOString(),
+    policy: {
+      aspectRatio: "preserve",
+      transparentPadding: "trim-safe-only",
+      meaningfulContentCrop: "forbidden",
+      stretching: "forbidden",
+      ownerApprovalGate: false,
+    },
+    replacements: project.assets
+      .filter((asset) => eligible.has(asset.status) && asset.generatedResult)
+      .map((asset) => ({
+        assetId: asset.id,
+        studentPage: asset.studentPage,
+        referencePages: asset.referencePages,
+        subject: asset.subject,
+        sourceIdentity: asset.id,
+        generatedFilename: asset.generatedResult!.name,
+        expectedFilename: asset.expectedFilename,
+        productionDestination:
+          "public/cartilla/art/generated/" + asset.expectedFilename,
+        qualityNotes: asset.qualityNotes ?? null,
+      })),
+  };
+}
+
 function jsonBytes(value: unknown) {
   return new TextEncoder().encode(JSON.stringify(value, null, 2) + "\n");
 }
@@ -420,6 +453,7 @@ export function buildGenerationPackage(project: ArtFactoryProject, assetIds?: st
   const entries: ZipEntry[] = [
     { name: "manifest.json", bytes: jsonBytes(exportedProject) },
     { name: "summary.csv", bytes: textBytes(buildArtFactoryCsv(exportedProject)) },
+    { name: "integration-manifest.json", bytes: jsonBytes(buildIntegrationManifest(exportedProject)) },
   ];
 
   for (const style of project.styleReferences) {
