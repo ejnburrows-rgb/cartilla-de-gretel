@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <g transform="rotate(-45 18 18)">
+    <!-- eraser -->
+    <rect x="14" y="2" width="8" height="6" rx="1.5" fill="#e8879c" stroke="#2b2a22" stroke-width="1.2"/>
+    <rect x="14" y="6.5" width="8" height="2.5" fill="#c9c9c9" stroke="#2b2a22" stroke-width="1.2"/>
+    <!-- body -->
+    <rect x="14" y="9" width="8" height="17" fill="#f5c518" stroke="#2b2a22" stroke-width="1.2"/>
+    <line x1="14" y1="13" x2="22" y2="13" stroke="#d99e00" stroke-width="1"/>
+    <line x1="14" y1="21" x2="22" y2="21" stroke="#d99e00" stroke-width="1"/>
+    <!-- wood taper -->
+    <polygon points="14,26 22,26 18,33" fill="#f0c68a" stroke="#2b2a22" stroke-width="1.2"/>
+    <!-- graphite tip (cursor hotspot lands here) -->
+    <polygon points="16.6,30.4 19.4,30.4 18,34.5" fill="#3d2b1f" stroke="#2b2a22" stroke-width="0.8"/>
+  </g>
+</svg>

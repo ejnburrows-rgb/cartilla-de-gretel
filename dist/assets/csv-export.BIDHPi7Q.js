@@ -1,0 +1,5 @@
+function a(c,s){const o=new Blob([c],{type:"text/csv;charset=utf-8;"}),t=URL.createObjectURL(o),e=document.createElement("a");e.setAttribute("href",t),e.setAttribute("download",s),e.style.visibility="hidden",document.body.appendChild(e),e.click(),document.body.removeChild(e),URL.revokeObjectURL(t)}function i(c,s,o){let t=`Nombre Alumno,Lecciones Completas,Precision Promedio,Tiempo Total (m)
+`;o.perStudent.forEach(n=>{const r=n.accuracy!==null?`${Math.round(n.accuracy*100)}%`:"N/A",l=Math.round(n.timeSeconds/60);t+=`"${n.name}",${n.lessonsCount},${r},${l}
+`});const e=c.toLowerCase().replace(/\s+/g,"_").replace(/[^a-z0-9_]/g,"");a(t,`reporte_clase_${e||"sin_nombre"}.csv`)}function d(c,s){let o=`Fecha,Evento,Leccion,Puntuacion,Total,Tiempo (s)
+`;s.forEach(e=>{o+=`${new Date(e.created_at).toLocaleDateString()},${e.event_kind},${e.lesson_id},${e.score||0},${e.total||0},${e.time_seconds||0}
+`});const t=c.toLowerCase().replace(/\s+/g,"_").replace(/[^a-z0-9_]/g,"");a(o,`reporte_${t||"alumno"}.csv`)}export{d as a,i as e};

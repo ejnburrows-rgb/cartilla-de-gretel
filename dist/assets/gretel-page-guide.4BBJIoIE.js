@@ -1,0 +1,1 @@
+function r(n,e){const i=Array.from(new Set((n??[]).filter(t=>t.regionType==="instruction"&&t.text?.trim()).map(t=>t.text.trim())));return i.length>0?i.join(" "):`Página ${e}. Mira con atención y sigue las indicaciones.`}export{r as b};
