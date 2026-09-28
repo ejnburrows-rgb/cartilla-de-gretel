@@ -338,6 +338,12 @@ async function prepareFlipchartDelivery(checkOnly) {
   if (!Array.isArray(pages) || pages.length !== 62) {
     throw new Error("teacher-flipchart.json must contain exactly 62 pages");
   }
+
+  const digitalPages = {
+    ...readJson(path.join(rootDir, "src", "data", "flipchart-text-3-22.json")),
+    ...readJson(path.join(rootDir, "src", "data", "flipchart-text-23-42.json")),
+    ...readJson(path.join(rootDir, "src", "data", "flipchart-text-43-62.json")),
+  };
   if (!checkOnly) fs.rmSync(flipchartDeliveryDir, { recursive: true, force: true });
 
   const assets = [];
@@ -356,14 +362,52 @@ async function prepareFlipchartDelivery(checkOnly) {
     }
 
     const sourceMeta = await sharp(source).metadata();
+    const sourceWidth = sourceMeta.width ?? 0;
+    const sourceHeight = sourceMeta.height ?? 0;
+    if (!sourceWidth || !sourceHeight) {
+      errors.push("invalid Flip Chart master dimensions " + rel);
+      continue;
+    }
+
+    // The canonical JPG is source/provenance only. Production derivatives
+    // remove its printed lettering first, then React draws selectable digital
+    // text above the cleaned illustration layer. This prevents the source page
+    // scan itself from being the finished classroom surface.
+    const textRegions = digitalPages[String(pageNumber)] ?? [];
+    const overlays = textRegions
+      .map((line) => {
+        const left = Math.max(0, Math.floor(Number(line.x ?? 0) - 3));
+        const top = Math.max(0, Math.floor(Number(line.y ?? 0) - 3));
+        const width = Math.max(1, Math.min(sourceWidth - left, Math.ceil(Number(line.width ?? 0) + 6)));
+        const height = Math.max(1, Math.min(sourceHeight - top, Math.ceil(Number(line.height ?? 0) + 6)));
+        if (left >= sourceWidth || top >= sourceHeight || width <= 0 || height <= 0) return null;
+        return {
+          input: {
+            create: {
+              width,
+              height,
+              channels: 4,
+              background: line.backgroundColor ?? "#ffffff",
+            },
+          },
+          left,
+          top,
+        };
+      })
+      .filter(Boolean);
+
+    const illustrationLayer = overlays.length
+      ? await sharp(source).composite(overlays).png().toBuffer()
+      : await sharp(source).png().toBuffer();
+
     const number = String(pageNumber).padStart(3, "0");
     const derivatives = [];
     for (const [tier, width] of Object.entries(FLIPCHART_DELIVERY_WIDTHS)) {
       const outRel = path.join("cartilla", "art", "delivery", "flipchart", tier, "page-" + number + ".webp");
       const outAbs = path.join(publicDir, outRel);
-      const buffer = await sharp(source)
-        .resize({ width, fit: "inside", withoutEnlargement: true, kernel: sharp.kernel.lanczos3 })
-        .webp({ quality: tier === "screen" ? 90 : 82, smartSubsample: true })
+      const buffer = await sharp(illustrationLayer)
+        .resize({ width, fit: "inside", kernel: sharp.kernel.lanczos3 })
+        .webp({ quality: tier === "screen" ? 92 : 84, smartSubsample: true })
         .toBuffer();
       const meta = await sharp(buffer).metadata();
       if (!checkOnly) {
@@ -381,8 +425,10 @@ async function prepareFlipchartDelivery(checkOnly) {
     assets.push({
       flipchartPage: pageNumber,
       canonical: "/" + rel,
-      sourceWidth: sourceMeta.width,
-      sourceHeight: sourceMeta.height,
+      sourceWidth,
+      sourceHeight,
+      digitalTextRegionsRemoved: textRegions.length,
+      productionSurface: pageNumber >= 3 ? "native-illustration-layer+digital-text" : "frontmatter-native-component",
       derivatives,
     });
   }
