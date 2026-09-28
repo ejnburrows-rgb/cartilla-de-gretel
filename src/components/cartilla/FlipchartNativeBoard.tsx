@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, type CSSProperties } from "react";
 import { FlipchartFrontmatter } from "@/components/cartilla/FlipchartFrontmatter";
 import { getNativeFlipchartPage } from "@/lib/flipchart-native";
 import { LivingIllustration } from "@/components/living/LivingIllustration";
@@ -47,7 +47,7 @@ export function FlipchartNativeBoard({
       data-lesson={page.lesson}
       data-surface="native"
       data-native-flipchart="true"
-      style={{ ["--fc-accent" as string]: accentColor }}
+      style={{ "--fc-accent": accentColor } as CSSProperties}
       aria-hidden={decorative || undefined}
     >
       <header className="fc-native-board__head">
@@ -78,7 +78,7 @@ export function FlipchartNativeBoard({
                 <figure
                   key={asset.src}
                   className="fc-native-board__art-card"
-                  style={{ ["--fc-art-index" as string]: index }}
+                  data-art-index={index}
                 >
                   <LivingIllustration
                     src={asset.src}
