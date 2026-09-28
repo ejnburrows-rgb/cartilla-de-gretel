@@ -9,7 +9,7 @@
  * The presenter uses a clean digital surface with a vertical page transition,
  * never simulated rings, binding hardware, or scan chrome.
  */
-import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import {
   getFlipchartDeliverySrc,
@@ -52,7 +52,10 @@ function FlipchartFace({
 }
 
 export function FlipchartHdPanel({ lessonNumber, accentColor }: FlipchartHdPanelProps) {
-  const pages: FlipchartPage[] = getFlipchartPagesForLesson(lessonNumber);
+  const pages: FlipchartPage[] = useMemo(
+    () => getFlipchartPagesForLesson(lessonNumber),
+    [lessonNumber],
+  );
   const reducedMotion = useReducedMotion();
   const [selectedIdx, setSelectedIdx] = useState(0);
   const [isFlipping, setIsFlipping] = useState(false);

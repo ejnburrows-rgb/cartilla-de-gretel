@@ -87,7 +87,7 @@ function PresentarLesson() {
       }
     >
       {/* Full-bleed board — no nested max-width chrome bars */}
-      <FlipchartHdPanel lessonNumber={n} accentColor={accentColor} />
+      <FlipchartHdPanel key={n} lessonNumber={n} accentColor={accentColor} />
     </TeacherPresentationShell>
   );
 }
