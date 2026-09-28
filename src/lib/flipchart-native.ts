@@ -3,6 +3,7 @@ import firstPages from "@/data/flipchart-text-3-22.json";
 import middlePages from "@/data/flipchart-text-23-42.json";
 import lastPages from "@/data/flipchart-text-43-62.json";
 import frames from "@/data/flipchart-frames.json";
+import faithfulManifest from "../../public/cartilla/art/faithful/manifest.json";
 
 export type FlipchartTextItem = {
   x: number;
@@ -37,6 +38,7 @@ export type NativeFlipchartPage = {
   words: FlipchartWordGroup[];
   artRegion: { top: number; bottom: number; left: number; right: number };
   slots: string[];
+  art: Array<{ src: string; word: string }>;
   hasDigitalText: boolean;
 };
 
@@ -45,6 +47,79 @@ const frameMap = frames as Record<string, { width: number; height: number; left:
 const PAGE_META = (flipchartData.pages as { flipchartPage: number; lesson: number }[])
   .slice()
   .sort((a, b) => a.flipchartPage - b.flipchartPage);
+
+type FaithfulManifestEntry = {
+  src: string;
+  word?: string | null;
+  slug?: string | null;
+  lessonNumber?: number | null;
+  sourceFlipchartPage?: number | string | null;
+};
+
+const FAITHFUL = faithfulManifest as FaithfulManifestEntry[];
+
+function normalizeWord(value: string) {
+  return value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-zñü0-9]+/g, "");
+}
+
+function lessonArtFallback(lesson: number) {
+  if (lesson === 1) {
+    const starter = new Set(["avion", "escoba", "iman", "olla", "una"]);
+    return FAITHFUL.filter((entry) => starter.has(normalizeWord(entry.word ?? entry.slug ?? "")));
+  }
+  const vowelDir: Record<number, string> = {
+    2: "/vocal-o/",
+    3: "/vocal-a/",
+    4: "/vocal-e/",
+    5: "/vocal-i/",
+    6: "/vocal-u/",
+  };
+  const dir = vowelDir[lesson];
+  if (dir) return FAITHFUL.filter((entry) => entry.src.includes(dir));
+  return FAITHFUL.filter((entry) => entry.lessonNumber === lesson);
+}
+
+function pageArt(
+  flipchartPage: number,
+  lesson: number,
+  words: FlipchartWordGroup[],
+  body: FlipchartTextItem[],
+) {
+  const tokens = new Set<string>();
+  for (const word of words) {
+    const joined = word.parts.join("");
+    if (joined.trim()) tokens.add(normalizeWord(joined));
+  }
+  for (const line of body) {
+    for (const token of line.text.split(/\s+/)) {
+      const normalized = normalizeWord(token);
+      if (normalized.length >= 3) tokens.add(normalized);
+    }
+  }
+
+  const exactPage = FAITHFUL.filter(
+    (entry) => typeof entry.sourceFlipchartPage === "number" && entry.sourceFlipchartPage === flipchartPage,
+  );
+  const textMatches = FAITHFUL.filter((entry) => {
+    const word = normalizeWord(entry.word ?? entry.slug ?? "");
+    return word && tokens.has(word);
+  });
+
+  const unique = new Map<string, FaithfulManifestEntry>();
+  for (const entry of [...exactPage, ...textMatches, ...lessonArtFallback(lesson)]) {
+    if (!entry.src || unique.has(entry.src)) continue;
+    unique.set(entry.src, entry);
+    if (unique.size >= 8) break;
+  }
+  return [...unique.values()].map((entry) => ({
+    src: entry.src,
+    word: entry.word ?? entry.slug ?? "Ilustración",
+  }));
+}
 
 function classify(items: FlipchartTextItem[]) {
   const real = items.filter((item) => item.text.trim().length > 0);
@@ -135,6 +210,7 @@ export function getNativeFlipchartPage(pageNumber: number): NativeFlipchartPage 
     words,
     artRegion: deriveArtRegion(pageNumber, body, words, hasDigitalText),
     slots: flipchartArtSlots(pageNumber, meta.lesson, words.length),
+    art: pageArt(pageNumber, meta.lesson, words, body),
     hasDigitalText,
   };
 }
