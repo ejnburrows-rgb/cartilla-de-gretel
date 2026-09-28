@@ -1,4 +1,5 @@
 import { useId } from "react";
+import { FlipchartFrontmatter } from "./FlipchartFrontmatter";
 import frames from "@/data/flipchart-frames.json";
 import {
   getFlipchartDeliverySrc,
@@ -36,14 +37,14 @@ type Frame = {
 };
 
 /**
- * Digital lettering over the original illustration layer, in the book's layout.
- * Page-specific clipping removes photographed bindings and outside scan edges.
- * Original source files and the shapes and colors of the illustrations stay intact.
+ * Native classroom surface. Pages 3–62 render selectable digital lettering
+ * above build-generated illustration-only WebP layers; the canonical JPG stays
+ * source/provenance only. Pages 1–2 are rebuilt as native frontmatter.
  */
 export function FlipchartPlate({
   page,
   decorative = false,
-  deliveryTier = "canonical",
+  deliveryTier = "screen",
   onLoad,
 }: {
   page: FlipchartPage;
@@ -56,6 +57,16 @@ export function FlipchartPlate({
   const src = getFlipchartDeliverySrc(page, deliveryTier);
   const label = `Lámina ${page.flipchartPage} del flipchart`;
   const lettering = digitalPages[String(page.flipchartPage)] ?? [];
+
+  if (page.flipchartPage === 1 || page.flipchartPage === 2) {
+    return (
+      <FlipchartFrontmatter
+        pageNumber={page.flipchartPage}
+        decorative={decorative}
+        onReady={onLoad}
+      />
+    );
+  }
 
   if (!frame)
     return (
@@ -88,6 +99,7 @@ export function FlipchartPlate({
       aria-label={decorative ? undefined : label}
       aria-hidden={decorative || undefined}
       data-source-page={page.flipchartPage}
+      data-native-flipchart="true"
       data-digital-text={lettering.length > 0 ? "true" : "false"}
       data-delivery-tier={deliveryTier}
     >
