@@ -10,6 +10,10 @@ describe("GretelMachine", () => {
     expect(canTransition("idle", { type: "SPEAK_START" })).toBe(true);
     expect(canTransition("talking", { type: "SPEAK_STOP" })).toBe(true);
     expect(canTransition("waving", { type: "IDLE" })).toBe(true);
+    expect(canTransition("idle", { type: "LISTEN" })).toBe(true);
+    expect(canTransition("idle", { type: "TEACH" })).toBe(true);
+    expect(canTransition("idle", { type: "HELP" })).toBe(true);
+    expect(canTransition("idle", { type: "GENTLE_ERROR" })).toBe(true);
   });
 
   it("canTransition rejects conflicting gestures while talking", () => {
@@ -25,6 +29,10 @@ describe("GretelMachine", () => {
     expect(gretelReducer("talking", { type: "SPEAK_STOP" })).toBe("idle");
     expect(gretelReducer("idle", { type: "WAVE" })).toBe("waving");
     expect(gretelReducer("idle", { type: "SETTLE" })).toBe("settling");
+    expect(gretelReducer("idle", { type: "LISTEN" })).toBe("listening");
+    expect(gretelReducer("idle", { type: "TEACH" })).toBe("teaching");
+    expect(gretelReducer("idle", { type: "HELP" })).toBe("help");
+    expect(gretelReducer("idle", { type: "GENTLE_ERROR" })).toBe("gentle-error");
     expect(gretelReducer("waving", { type: "SETTLE" })).toBe("settling");
     expect(gretelReducer("idle", { type: "EXIT" })).toBe("exiting");
   });
@@ -50,8 +58,8 @@ describe("GretelMachine", () => {
     expect(state).toBe("idle");
   });
 
-  it("lets real speech replace active gestures so mouth frames follow audio", () => {
-    for (const state of ["waving", "pointing", "cheering", "exiting"] as const) {
+  it("lets real speech replace active gestures so the rig mouth follows audio", () => {
+    for (const state of ["waving", "pointing", "listening", "teaching", "help", "gentle-error", "cheering", "exiting"] as const) {
       expect(canTransition(state, { type: "SPEAK_START" })).toBe(true);
       expect(gretelReducer(state, { type: "SPEAK_START" })).toBe("talking");
     }
