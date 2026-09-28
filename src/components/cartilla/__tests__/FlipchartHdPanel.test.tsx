@@ -29,7 +29,7 @@ beforeEach(() => {
 afterEach(() => cleanup());
 
 describe("FlipchartHdPanel — CRM-grade presenter board", () => {
-  it("renders native teaching text and clipped original art for every lesson plate", () => {
+  it("renders native teaching text over generated illustration layers for every lesson plate", () => {
     for (const page of FLIPCHART_PAGES.filter((page) => page.lesson > 0)) {
       const { container, unmount } = render(<FlipchartPlate page={page} />);
       const plate = container.querySelector('svg[data-digital-text="true"]');
@@ -41,13 +41,24 @@ describe("FlipchartHdPanel — CRM-grade presenter board", () => {
       expect(plate?.querySelector("image")?.getAttribute("clip-path")).toMatch(
         /^url\(#/,
       );
-      expect(plate?.querySelector("image")?.getAttribute("href")).toContain(
-        page.path,
+      expect(plate?.querySelector("image")?.getAttribute("href")).toBe(
+        `/cartilla/art/delivery/flipchart/screen/page-${String(page.flipchartPage).padStart(3, "0")}.webp`,
       );
+      expect(plate?.getAttribute("data-native-flipchart")).toBe("true");
       for (const text of plate?.querySelectorAll("text") ?? []) {
         expect(Number(text.getAttribute("textLength"))).toBeGreaterThan(0);
         expect(Number(text.getAttribute("font-size"))).toBeGreaterThan(0);
       }
+      unmount();
+    }
+  });
+
+  it("rebuilds Flip Chart frontmatter without rendering source JPG pages", () => {
+    for (const pageNumber of [1, 2] as const) {
+      const page = FLIPCHART_PAGES.find((entry) => entry.flipchartPage === pageNumber)!;
+      const { container, unmount } = render(<FlipchartPlate page={page} />);
+      expect(container.querySelector('[data-native-flipchart="true"]')).toBeTruthy();
+      expect(container.querySelector("img")?.getAttribute("src") ?? "").not.toContain("hd/flipchart/page-00");
       unmount();
     }
   });
@@ -59,7 +70,7 @@ describe("FlipchartHdPanel — CRM-grade presenter board", () => {
     expect(panel).toBeTruthy();
     expect(stage).toBeTruthy();
     expect(panel?.getAttribute("data-hd-primary")).toBe("true");
-    expect(panel?.getAttribute("data-presenter-mode")).toBe("digital");
+    expect(panel?.getAttribute("data-presenter-mode")).toBe("native");
     expect(panel?.hasAttribute("data-physical-flipchart")).toBe(false);
     expect(panel?.getAttribute("data-page-turn-axis")).toBe("vertical");
     expect(panel?.getAttribute("data-page-turn-ms")).toBe(
