@@ -12,21 +12,26 @@ export function GretelCinematic({
   onComplete: () => void;
 }) {
   const avatarRef = useRef<GretelLiveAvatarRef>(null);
+  const onCompleteRef = useRef(onComplete);
   const [muted, setMuted] = useState(isGretelVoiceMuted());
   const [run, setRun] = useState(0);
+
+  useEffect(() => {
+    onCompleteRef.current = onComplete;
+  }, [onComplete]);
 
   useEffect(() => {
     let cancelled = false;
     const timer = window.setTimeout(async () => {
       await avatarRef.current?.speakMessage(cinematic.script);
-      if (!cancelled) onComplete();
+      if (!cancelled) onCompleteRef.current();
     }, 250);
     return () => {
       cancelled = true;
       window.clearTimeout(timer);
       avatarRef.current?.cancel();
     };
-  }, [cinematic.id, cinematic.script, onComplete, run]);
+  }, [cinematic.id, cinematic.script, run]);
 
   const toggleMute = () => {
     const next = !muted;
