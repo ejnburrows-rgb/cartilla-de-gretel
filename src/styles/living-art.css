@@ -131,6 +131,31 @@
   50% { transform: rotate(0.35deg); }
 }
 
+
+/* Semantic actor actions: only assets explicitly listed in living-actor-registry
+   receive these motions. Static educational art remains static. */
+.living-illustration--crawl .living-illustration__art { animation: living-crawl 4.8s ease-in-out var(--living-delay) infinite; }
+.living-illustration--flutter .living-illustration__art { animation: living-flutter 2.4s ease-in-out var(--living-delay) infinite; transform-origin: 50% 55%; }
+.living-illustration--swim .living-illustration__art { animation: living-swim 4.2s ease-in-out var(--living-delay) infinite; }
+.living-illustration--hover .living-illustration__art { animation: living-hover 2.1s ease-in-out var(--living-delay) infinite; }
+.living-illustration--glide .living-illustration__art { animation: living-glide 5.4s ease-in-out var(--living-delay) infinite; }
+.living-illustration--roll .living-illustration__art { animation: living-roll 4.6s ease-in-out var(--living-delay) infinite; }
+.living-illustration--spin .living-illustration__art { animation: living-spin 6s linear var(--living-delay) infinite; }
+.living-illustration--hop .living-illustration__art { animation: living-hop 3.8s cubic-bezier(.4,0,.2,1) var(--living-delay) infinite; }
+.living-illustration--wag .living-illustration__art { animation: living-wag 3.2s ease-in-out var(--living-delay) infinite; transform-origin: 50% 80%; }
+.living-illustration--nod .living-illustration__art { animation: living-nod 4.4s ease-in-out var(--living-delay) infinite; transform-origin: 50% 78%; }
+
+@keyframes living-crawl { 0%,100% { transform: translateX(-1%) scaleY(1); } 50% { transform: translateX(2%) scaleY(.97); } }
+@keyframes living-flutter { 0%,100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-3%) rotate(1deg); } }
+@keyframes living-swim { 0%,100% { transform: translateX(-2%) rotate(-.5deg); } 50% { transform: translateX(2%) rotate(.5deg); } }
+@keyframes living-hover { 0%,100% { transform: translate(0,0) rotate(-1deg); } 50% { transform: translate(1.5%,-4%) rotate(1deg); } }
+@keyframes living-glide { 0%,100% { transform: translateX(-2%) translateY(1%); } 50% { transform: translateX(2%) translateY(-2%); } }
+@keyframes living-roll { 0%,100% { transform: translateX(-1.5%); } 50% { transform: translateX(2.5%); } }
+@keyframes living-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes living-hop { 0%,78%,100% { transform: translateY(0) scaleY(1); } 86% { transform: translateY(-7%) scaleY(.97); } 93% { transform: translateY(1%) scaleY(1.02); } }
+@keyframes living-wag { 0%,72%,100% { transform: rotate(0deg); } 80% { transform: rotate(-1.5deg); } 88% { transform: rotate(1.5deg); } }
+@keyframes living-nod { 0%,75%,100% { transform: rotate(0deg); } 83% { transform: rotate(1.2deg); } 91% { transform: rotate(-.6deg); } }
+
 @keyframes living-react {
   0% { transform: translateY(0) scale(1) rotate(0deg); }
   40% { transform: translateY(-4px) scale(1.035) rotate(-0.8deg); }
