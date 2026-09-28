@@ -1,14 +1,9 @@
 {
-  "buildCommand": "pnpm prepare:art && (pnpm typecheck > public/typecheck.log 2>&1 || true) && (pnpm test > public/test.log 2>&1 || true) && vite build",
-  "installCommand": "pnpm install --frozen-lockfile",
+  "buildCommand": "curl -fsSL https://releases.rive.app/cli/install.sh | bash && export PATH=\"$HOME/.rive/bin:$PATH\" && rive tools/rive/gretel --verify && rive tools/rive/gretel --once && mkdir -p dist && rive inspect tools/rive/gretel --json > dist/inspect.json && rive tools/rive/gretel --screenshot=dist/gretel.png --advance=1s && base64 -w0 tools/rive/gretel/build/gretel-2.riv > dist/gretel.riv.b64 && base64 -w0 dist/gretel.png > dist/gretel.png.b64 && printf '<!doctype html><title>Gretel Rive Build</title><pre>ready</pre>' > dist/index.html",
+  "installCommand": "echo rive-cli-build",
   "outputDirectory": "dist",
   "framework": "vite",
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ],
+  "rewrites": [],
   "headers": [
     {
       "source": "/assets/(.*)",
@@ -22,7 +17,8 @@
   ],
   "git": {
     "deploymentEnabled": {
-      "main": true
+      "main": true,
+      "chatgpt/gretel-rive": true
     }
   }
 }
