@@ -46,6 +46,9 @@ export function GretelCinematic({
         action === "wave" ? 650 :
         action.startsWith("point") ? 620 :
         action === "listen" ? 520 :
+        action === "teach" ? 620 :
+        action === "help" ? 620 :
+        action === "gentle-error" ? 560 :
         action === "celebrate" ? 760 :
         action === "exit" ? 360 : 220;
       await wait(dwell);
