@@ -41,9 +41,9 @@ test.describe("full workbook visual audit capture", () => {
           timeout: 60_000,
         });
 
-        const reader = page.getByTestId("physical-book-reader");
-        const stage = page.getByTestId("physical-book-stage");
-        const counter = page.getByTestId("physical-book-counter");
+        const reader = lesson === 7 ? page.locator(".native-lesson-viewer") : page.getByTestId("physical-book-reader");
+        const stage = lesson === 7 ? reader.locator(".native-lesson-viewer__content") : page.getByTestId("physical-book-stage");
+        const counter = lesson === 7 ? reader.locator(".native-lesson-viewer__page") : page.getByTestId("physical-book-counter");
 
         await expect(reader).toBeVisible({ timeout: 30_000 });
         await expect(stage).toBeVisible({ timeout: 30_000 });
@@ -86,8 +86,8 @@ test.describe("full workbook visual audit capture", () => {
             ).toBeTruthy();
           }
 
-          const next = page.locator(".book-reader-controls button").last();
-          if (await next.isDisabled()) break;
+          const next = lesson === 7 ? reader.getByRole("button", { name: "Siguiente" }) : page.locator(".book-reader-controls button").last();
+          if (lesson === 7 ? (await next.count()) === 0 : await next.isDisabled()) break;
 
           await next.click();
           await page.waitForTimeout(1000);

@@ -28,7 +28,7 @@ for (const viewport of [{ width: 1280, height: 900 }, { width: 820, height: 1180
     await emit(page, 'answer:correct', { activityId: id });
     await emit(page, 'activity:complete', { activityId: id });
     await expect(guide).toHaveAttribute('data-reaction', 'mastery');
-    const paper = await page.getByTestId('physical-book-stage').boundingBox();
+    const paper = await page.locator('.native-lesson-viewer__content').boundingBox();
     const mascot = await guide.boundingBox();
     expect(mascot!.y).toBeGreaterThanOrEqual(paper!.y + paper!.height);
     const avatarImage = guide.locator('img[alt="Gretel"]');
@@ -37,9 +37,9 @@ for (const viewport of [{ width: 1280, height: 900 }, { width: 820, height: 1180
     await expect.poll(() => avatarImage.evaluate(el => el.getBoundingClientRect().width)).toBeGreaterThan(50);
     await page.waitForTimeout(500);
     await page.screenshot({ path: `test-results/gretel-${viewport.width}.png`, fullPage: true });
-    const counter = page.getByTestId('physical-book-counter');
+    const counter = page.locator('.native-lesson-viewer__page');
     const before = await counter.textContent();
-    await page.locator('.book-reader-controls button').last().click();
+    await page.locator('.native-lesson-viewer__navigation').getByRole('button', { name: 'Siguiente' }).click();
     await expect(guide).toHaveAttribute('data-page-ready', 'false');
     await expect(counter).not.toHaveText(before!);
     await expect(guide).toHaveAttribute('data-page-ready', 'true');
@@ -61,7 +61,7 @@ test('real tracing activates context; idle help is restrained', async ({ page })
   await page.goto('/cartilla/leccion/7', { waitUntil: 'domcontentloaded' });
   const guide = page.getByTestId('gretel-presence');
   await expect(guide).toHaveAttribute('data-page-ready', 'true');
-  const trace = page.locator('.premium-book-page').first().locator('.fp-trace').first();
+  const trace = page.locator('.native-lesson-viewer .fp-trace').first();
   await trace.locator('.fp-trace__dot--active').click();
   await expect(guide).toHaveAttribute('data-activity-id', /page-19-/);
   await expect(guide).toHaveAttribute('data-focused', 'true');

@@ -1598,7 +1598,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Traza con tu mejor letra."
+          "text": "Escribe con tu mejor letra."
         },
         {
           "id": "p19-write-U",
@@ -1648,7 +1648,7 @@
           "regionType": "instruction",
           "order": 0,
           "fontRole": "body",
-          "text": "Presiona la sílaba correspondiente."
+          "text": "Encierra en un círculo la sílaba correspondiente."
         },
         {
           "id": "p20-ma",
@@ -1659,31 +1659,30 @@
           "matchRows": [
             [
               {
+                "word": "mami",
+                "correct": true
+              },
+              {
+                "word": "ama",
+                "correct": true
+              },
+              {
                 "word": "mamá",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/mama.webp"
-              },
-              {
-                "word": "moda",
-                "correct": false
-              },
-              {
-                "word": "mapa",
                 "correct": true
               }
             ],
             [
               {
-                "word": "Memo",
-                "correct": false
-              },
-              {
-                "word": "maleta",
+                "word": "mima",
                 "correct": true
               },
               {
-                "word": "Mimi",
-                "correct": false
+                "word": "Coloma",
+                "correct": true
+              },
+              {
+                "word": "Manolo",
+                "correct": true
               }
             ]
           ]
@@ -1697,30 +1696,30 @@
           "matchRows": [
             [
               {
-                "word": "momia",
-                "correct": false
-              },
-              {
-                "word": "mesa",
+                "word": "media",
                 "correct": true
               },
               {
-                "word": "miel",
+                "word": "Memo",
+                "correct": true
+              },
+              {
+                "word": "melón",
                 "correct": true
               }
             ],
             [
               {
-                "word": "muleta",
-                "correct": false
-              },
-              {
-                "word": "mecha",
+                "word": "mesa",
                 "correct": true
               },
               {
-                "word": "maleta",
-                "correct": false
+                "word": "meta",
+                "correct": true
+              },
+              {
+                "word": "Meme",
+                "correct": true
               }
             ]
           ]
@@ -1734,31 +1733,30 @@
           "matchRows": [
             [
               {
-                "word": "mimo",
+                "word": "mío",
                 "correct": true
               },
               {
-                "word": "mamá",
-                "correct": false,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/mama.webp"
+                "word": "amigo",
+                "correct": true
               },
               {
-                "word": "mira",
+                "word": "mima",
                 "correct": true
               }
             ],
             [
               {
-                "word": "mina",
+                "word": "mira",
                 "correct": true
               },
               {
-                "word": "moda",
-                "correct": false
+                "word": "misa",
+                "correct": true
               },
               {
-                "word": "marisco",
-                "correct": false
+                "word": "Mimí",
+                "correct": true
               }
             ]
           ]
@@ -1772,31 +1770,30 @@
           "matchRows": [
             [
               {
-                "word": "mono",
-                "correct": true,
-                "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/mono.webp"
-              },
-              {
-                "word": "moto",
+                "word": "amo",
                 "correct": true
               },
               {
-                "word": "mapa",
-                "correct": false
+                "word": "Memo",
+                "correct": true
+              },
+              {
+                "word": "mono",
+                "correct": true
               }
             ],
             [
               {
-                "word": "moda",
+                "word": "como",
                 "correct": true
               },
               {
-                "word": "mesa",
-                "correct": false
+                "word": "moneda",
+                "correct": true
               },
               {
-                "word": "marisco",
-                "correct": false
+                "word": "moto",
+                "correct": true
               }
             ]
           ]
@@ -1818,22 +1815,22 @@
                 "correct": true
               },
               {
-                "word": "miel",
-                "correct": false
+                "word": "muro",
+                "correct": true
               }
             ],
             [
               {
-                "word": "muro",
+                "word": "mudo",
                 "correct": true
               },
               {
-                "word": "marisco",
-                "correct": false
+                "word": "mujer",
+                "correct": true
               },
               {
-                "word": "modo",
-                "correct": false
+                "word": "Mumi",
+                "correct": true
               }
             ]
           ]
@@ -1843,147 +1840,163 @@
     "21": {
       "regions": [
         {
-          "id": "p21-instr",
-          "regionType": "instruction",
-          "order": 0,
-          "fontRole": "body",
-          "text": "Completa las palabras con la sílaba correcta."
-        },
-        {
-          "id": "p21-fill",
-          "regionType": "fill-in-blank",
-          "order": 1,
-          "fontRole": "body",
-          "fillItems": [
-            {
-              "wordBox": "mamá",
-              "illustrationSrc": "/cartilla/art/faithful/leccion-7-m/mama.webp",
-              "blank": "ma",
-              "choices": [
-                {
-                  "text": "ma",
-                  "correct": true
-                },
-                {
-                  "text": "me"
-                },
-                {
-                  "text": "mo"
-                }
-              ]
-            },
-            {
-              "wordBox": "mono",
-              "blank": "mo",
-              "choices": [
-                {
-                  "text": "me"
-                },
-                {
-                  "text": "mu"
-                },
-                {
-                  "text": "mo",
-                  "correct": true
-                }
-              ]
-            },
-            {
-              "wordBox": "moto",
-              "blank": "mo",
-              "choices": [
-                {
-                  "text": "mo",
-                  "correct": true
-                },
-                {
-                  "text": "ma"
-                },
-                {
-                  "text": "me"
-                }
-              ]
-            },
-            {
-              "wordBox": "mapa",
-              "blank": "ma",
-              "choices": [
-                {
-                  "text": "ma",
-                  "correct": true
-                },
-                {
-                  "text": "mo"
-                },
-                {
-                  "text": "mu"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "p21-instr2",
-          "regionType": "instruction",
-          "order": 2,
-          "fontRole": "body",
-          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
-        },
-        {
-          "id": "p21-draw",
-          "regionType": "draw-box",
-          "order": 3,
-          "fontRole": "body"
-        }
-      ]
-    },
-    "22": {
-      "regions": [
-        {
-          "id": "p22-title",
+          "id": "p21-title",
           "regionType": "title",
           "order": 0,
           "fontRole": "heading",
           "text": "Mm"
         },
         {
-          "id": "p22-syl1",
+          "id": "p21-syl1",
           "regionType": "syllable-bubble",
           "order": 1,
           "fontRole": "body",
           "text": "ma  me  mi  mo  mu"
         },
         {
-          "id": "p22-syl2",
+          "id": "p21-syl2",
           "regionType": "syllable-bubble",
           "order": 2,
           "fontRole": "body",
-          "text": "mu  mo  mi  me  ma"
+          "text": "mu  mo  ma  me  mi"
         },
         {
-          "id": "p22-words",
+          "id": "p21-words",
           "regionType": "vocab-grid",
           "order": 3,
           "fontRole": "body",
-          "text": "mamá · mono · moto · mapa"
+          "text": "mamá · mami · Mimo · mío · me · mímame · Meme · ama · mía · Mumi · Memo · mima · amo · Mimí · ámame"
         },
         {
-          "id": "p22-sentence1",
-          "regionType": "reading-sentences",
+          "id": "p21-sight",
+          "regionType": "sentence-line",
           "order": 4,
           "fontRole": "body",
-          "sentences": [
-            "Mi mamá me mima."
-          ]
+          "text": "y"
         },
         {
-          "id": "p22-sentence2",
+          "id": "p21-story",
           "regionType": "reading-sentences",
           "order": 5,
           "fontRole": "body",
           "sentences": [
-            "Mamá ama a Memo."
+            "Mi mamá me ama.",
+            "Amo a mami. Mamá mía.",
+            "Mamá ama a Meme y a Mimí.",
+            "Memo ama a Mumi.",
+            "Mamá mía ámame. Mímame a mí.",
+            "Mi mamá me mima."
           ]
+        }
+      ]
+    },
+    "22": {
+      "regions": [
+        {
+          "id": "p22-instr",
+          "regionType": "instruction",
+          "order": 0,
+          "fontRole": "body",
+          "text": "Completa las palabras con la sílaba correcta."
+        },
+        {
+          "id": "p22-fill",
+          "regionType": "fill-in-blank",
+          "order": 1,
+          "fontRole": "body",
+          "fillItems": [
+            {
+              "wordBox": "amo",
+              "blank": "a ___",
+              "choices": [
+                {
+                  "text": "mo",
+                  "correct": true
+                },
+                {
+                  "text": "mu"
+                }
+              ]
+            },
+            {
+              "wordBox": "M",
+              "blank": "Me ___",
+              "choices": [
+                {
+                  "text": "mo",
+                  "correct": true
+                },
+                {
+                  "text": "mu"
+                }
+              ]
+            },
+            {
+              "wordBox": "mamá",
+              "blank": "ma ___",
+              "choices": [
+                {
+                  "text": "mi"
+                },
+                {
+                  "text": "má",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "wordBox": "mima",
+              "blank": "mi ___",
+              "choices": [
+                {
+                  "text": "ma",
+                  "correct": true
+                },
+                {
+                  "text": "mu"
+                }
+              ]
+            },
+            {
+              "wordBox": "Mumi",
+              "blank": "___ mi",
+              "choices": [
+                {
+                  "text": "mi"
+                },
+                {
+                  "text": "Mu",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "wordBox": "mío",
+              "blank": "___ o",
+              "choices": [
+                {
+                  "text": "mí",
+                  "correct": true
+                },
+                {
+                  "text": "mo"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p22-instr2",
+          "regionType": "instruction",
+          "order": 2,
+          "fontRole": "body",
+          "text": "Escribe oraciones. Usa las sílabas que aprendiste."
+        },
+        {
+          "id": "p22-write",
+          "regionType": "writing-response",
+          "order": 3,
+          "fontRole": "body"
         }
       ]
     },

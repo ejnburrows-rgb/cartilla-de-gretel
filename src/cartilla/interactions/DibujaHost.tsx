@@ -303,7 +303,7 @@ export function DibujaHost({
         {hint ? <span className="am-dibuja__hint">{hint}</span> : null}
       </div>
 
-      <div className="am-dibuja__toggle" role="group" aria-label="Modo de dibujo">
+      {usablePicks.length >= 2 && <div className="am-dibuja__toggle" role="group" aria-label="Modo de dibujo">
         <button
           type="button"
           className={mode === "draw" ? "is-active" : ""}
@@ -324,7 +324,7 @@ export function DibujaHost({
         >
           <Images className="w-4 h-4" /> Elegir el dibujo
         </button>
-      </div>
+      </div>}
 
       {mode === "draw" ? (
         <div className="am-dibuja__draw">

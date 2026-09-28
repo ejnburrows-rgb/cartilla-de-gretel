@@ -7,7 +7,7 @@ for (const viewport of [
 ]) {
   test(`reader frame and page turn ${viewport.name}`, async ({ page }) => {
     await page.setViewportSize(viewport);
-    await page.goto('/cartilla/leccion/7', { waitUntil: 'domcontentloaded' });
+    await page.goto('/cartilla/leccion/8', { waitUntil: 'domcontentloaded' });
     const reader = page.getByTestId('physical-book-reader');
     const surround = page.locator('.garden-scene');
     await expect(reader).toBeVisible();

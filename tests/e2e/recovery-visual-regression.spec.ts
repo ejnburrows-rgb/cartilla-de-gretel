@@ -1,7 +1,8 @@
 import { test, expect } from '@playwright/test';
 import sharp from 'sharp';
 
-const LESSONS = [1, 2, 7, 8, 9, 13, 17, 18, 19, 20, 21, 22, 23, 24] as const;
+// Lesson 7 uses the native page test and no longer has a physical stage.
+const LESSONS = [1, 2, 8, 9, 13, 17, 18, 19, 20, 21, 22, 23, 24] as const;
 const SIZES = [
   { name: 'desktop', width: 1280, height: 900 },
   { name: 'tablet', width: 820, height: 1180 },

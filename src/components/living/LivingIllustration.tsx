@@ -46,6 +46,7 @@ export function LivingIllustration({
   const [blinkReady, setBlinkReady] = useState(false);
   const [blinking, setBlinking] = useState(false);
   const [reacting, setReacting] = useState(false);
+  const [failedDeliveryFor, setFailedDeliveryFor] = useState<string | null>(null);
   const ambientProfile = useMemo(
     () => (forceStatic ? null : ambientProfileFor(src)),
     [forceStatic, src],
@@ -124,7 +125,7 @@ export function LivingIllustration({
   const blinkActive = canBlink && blinkReady && !reduced;
   const ambientActive = Boolean(ambientProfile) && !reduced;
   const displaySrc = blinkActive && blinking && trueBlink ? trueBlink : src;
-  const deliverySrcSet = displaySrc === src ? getFaithfulDeliverySrcSet(src) : undefined;
+  const deliverySrcSet = displaySrc === src && failedDeliveryFor !== src ? getFaithfulDeliverySrcSet(src) : undefined;
 
   const reactToPointer = () => {
     if (!ambientActive || reduced) return;
@@ -155,6 +156,11 @@ export function LivingIllustration({
       <img
         src={displaySrc}
         srcSet={deliverySrcSet}
+        onError={() => {
+          // Delivery derivatives are generated for production. If absent in a
+          // local checkout, retry the immutable canonical faithful asset.
+          if (deliverySrcSet) setFailedDeliveryFor(src);
+        }}
         alt={alt}
         loading={loading}
         decoding="async"

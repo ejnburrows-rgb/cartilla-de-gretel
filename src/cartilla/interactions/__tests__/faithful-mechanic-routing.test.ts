@@ -40,10 +40,9 @@ function census() {
         lastInstr = r.text;
         if (instructionSuggestsColorea(r.text)) coloreaPages.push(Number(pn));
         if (instructionSuggestsDibuja(r.text)) dibujaPages.push(Number(pn));
-        // "Encierra en un círculo" was reworded to "Presiona" (tap-appropriate
-        // verb, July 2026 owner decision) — track the syllable-match pages by
-        // the new wording rather than the retired verb.
-        if (/presiona la s[ií]laba/i.test(r.text)) {
+        // Source scans retain "Encierra" on page 20; other pages may use
+        // the digital "Presiona" wording. Count both for the host census.
+        if (/presiona la s[ií]laba|encierra en un c[ií]rculo la s[ií]laba/i.test(r.text)) {
           encierraPages.push(Number(pn));
         }
         if (
@@ -101,7 +100,7 @@ describe("faithful mechanic routing (Colorea / Dibuja / Lasso)", () => {
     expect(resolveFaithfulHost("illustration-slot", undefined)).toBe("static");
   });
 
-  it("draw-box always resolves to DibujaHost (≥25 printed draw boxes)", () => {
+  it("draw-box always resolves to DibujaHost (24 printed draw boxes)", () => {
     expect(resolveFaithfulHost("draw-box")).toBe("dibuja");
     expect(
       resolveFaithfulHost(
@@ -110,7 +109,7 @@ describe("faithful mechanic routing (Colorea / Dibuja / Lasso)", () => {
       ),
     ).toBe("dibuja");
     const { drawBoxIds } = census();
-    expect(drawBoxIds.length).toBeGreaterThanOrEqual(25);
+    expect(drawBoxIds.length).toBeGreaterThanOrEqual(24);
   });
 
   it("Encierra / Une / Traza una línea → lasso hosts", () => {
@@ -140,9 +139,9 @@ describe("faithful mechanic routing (Colorea / Dibuja / Lasso)", () => {
     expect(instructionSuggestsColorea("Pinta el dibujo de la rosa.")).toBe(true);
   });
 
-  it("page-layouts census: draw-box ≥25; paint-box only when present; no invented Colorea text", () => {
+  it("page-layouts census: draw-box ≥24; paint-box only when present; no invented Colorea text", () => {
     const c = census();
-    expect(c.counts["draw-box"] ?? 0).toBeGreaterThanOrEqual(25);
+    expect(c.counts["draw-box"] ?? 0).toBeGreaterThanOrEqual(24);
     expect(c.counts["syllable-match"] ?? 0).toBeGreaterThanOrEqual(18);
     // Honest: verified transcriptions currently have zero "Colorea" labels
     // (SPEC paper-action sweep). paint-box may be 0 until owner-verified.

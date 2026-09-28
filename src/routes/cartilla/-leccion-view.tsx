@@ -14,6 +14,7 @@ import { sCopy } from "@/content/student-copy";
 import { gretelEvent } from "@/lib/gretel-bus";
 
 import { CurlPageViewer } from "@/components/StudentBook/CurlPageViewer";
+import { NativeLessonViewer } from "@/components/StudentBook/NativeLessonViewer";
 import { buildPageArray } from "@/utils/buildPageArray";
 import { GretelPresence } from "@/components/gretel/GretelPresence";
 import { GardenScene } from "@/components/cartilla/GardenScene";
@@ -157,6 +158,18 @@ export function Leccion() {
     else navigate({ to: "/cartilla/leccion/$n", params: { n: String(n + 1) } });
   };
 
+  const bookCompanion = (
+    <GretelPresence
+      key={`gretel-${n}`}
+      lesson={{
+        n: entry.n, kind: entry.kind, title: entry.title, subtitle: entry.subtitle,
+        letter: entry.kind === "consonant" ? entry.letter : undefined,
+        vowel: entry.kind === "vowel" ? entry.vowel : undefined,
+      }}
+      autoIntro bookMode hideChrome
+    />
+  );
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <header className={`px-4 max-w-3xl w-full mx-auto ${session ? "pt-4" : "pt-20"}`}>
@@ -214,7 +227,7 @@ export function Leccion() {
             invented sections/tabs/screens around them (locked canon 7/9). */}
         <div className="w-full">
           <GardenScene ref={gardenRef}>
-            {!session && (
+            {!session && n !== 7 && (
               <div className="fixed top-4 left-4 z-[200]">
                 <Link
                   to="/cartilla/lecciones"
@@ -224,31 +237,11 @@ export function Leccion() {
                 </Link>
               </div>
             )}
-            {progressReady && (
-              <CurlPageViewer
-                key={n}
-                pages={pages}
-                initialPage={initialPage}
-                onPageChange={handlePageChange}
-                accent={entry.color}
-                bookCompanion={
-                  <GretelPresence
-                    key={`gretel-${n}`}
-                    lesson={{
-                      n: entry.n,
-                      kind: entry.kind,
-                      title: entry.title,
-                      subtitle: entry.subtitle,
-                      letter: entry.kind === "consonant" ? entry.letter : undefined,
-                      vowel: entry.kind === "vowel" ? entry.vowel : undefined,
-                    }}
-                    autoIntro
-                    bookMode
-                    hideChrome
-                  />
-                }
-              />
-            )}
+            {progressReady && (n === 7 ? (
+              <NativeLessonViewer key={n} pages={pages} initialPage={initialPage} onPageChange={handlePageChange} onFinish={goNext} bookCompanion={bookCompanion} />
+            ) : (
+              <CurlPageViewer key={n} pages={pages} initialPage={initialPage} onPageChange={handlePageChange} accent={entry.color} bookCompanion={bookCompanion} />
+            ))}
           </GardenScene>
 
           {/* Placement preview — Lección 1 only, see comment near the top of
@@ -269,7 +262,7 @@ export function Leccion() {
         </div>
       </main>
       {/* Completion controls follow the reader so they cannot cover a page. */}
-      <nav className="relative z-10 w-full p-3 bg-background/95 border-t-2 border-foreground/10">
+      {n !== 7 && <nav className="relative z-10 w-full p-3 bg-background/95 border-t-2 border-foreground/10">
         <div className="max-w-3xl mx-auto flex items-center justify-between gap-3">
           <KidButton
             variant="outline"
@@ -294,7 +287,7 @@ export function Leccion() {
             <ArrowRight className="w-5 h-5 inline ml-1" />
           </KidButton>
         </div>
-      </nav>
+      </nav>}
     </div>
   );
 }

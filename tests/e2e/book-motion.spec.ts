@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 
 test.describe("physical book motion", () => {
   test("student lesson is a horizontal bound-book turn", async ({ page }) => {
-    await page.goto("/cartilla/leccion/7", { waitUntil: "networkidle" });
+    await page.goto("/cartilla/leccion/8", { waitUntil: "networkidle" });
 
     const reader = page.getByTestId("physical-book-reader");
     await expect(reader).toBeVisible();

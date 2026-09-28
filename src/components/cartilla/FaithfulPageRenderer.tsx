@@ -10,6 +10,8 @@ import {
   InteractiveFillInBlank,
 } from "./InteractivePageExercises";
 import { WorkbookLetterTrace } from "./WorkbookLetterTrace";
+import { WorkbookWritingResponse } from "./WorkbookWritingResponse";
+import { SyllableWordCircle } from "@/cartilla/interactions/SyllableWordCircle";
 import { getLetterTemplate } from "./letter-stroke-templates";
 import { LivingIllustration } from "@/components/living/LivingIllustration";
 import { EscucharInstruccionButton } from "./EscucharInstruccionButton";
@@ -92,6 +94,7 @@ interface FaithfulPageRendererProps {
   interactive?: boolean;
   /** Use measured 612 x 792 positions when a page has verified geometry. */
   fixedLayout?: boolean;
+  native?: boolean;
 }
 
 function IllustrationSlot({ region }: { region: PageRegion }) {
@@ -341,6 +344,7 @@ function RegionView({
   resolvedModelText,
   precedingInstruction,
   siblingCells,
+  native,
 }: {
   region: PageRegion;
   interactive?: boolean;
@@ -354,6 +358,7 @@ function RegionView({
   precedingInstruction?: string;
   /** Picture-grid cells from the same page (for Dibuja pick-mode options). */
   siblingCells?: PageGridCell[];
+  native?: boolean;
 }) {
   // Host chosen once so Colorea never silently becomes tap-select, and
   // Encierra / Une always stay on LassoConnect when interactive.
@@ -456,6 +461,7 @@ function RegionView({
         <VowelMatchAll region={region} />
       );
     case "syllable-match":
+      if (interactive && native) return <SyllableWordCircle region={region} lessonId={lessonId} />;
       return interactive ? (
         <LassoSyllableMatch
           region={region}
@@ -493,14 +499,8 @@ function RegionView({
       // repetitions are traceable, not just the first.
       const traceLetter = resolvedModelText ?? region.modelText;
       const hasTemplate = !!traceLetter && getLetterTemplate(traceLetter) !== null;
-      if (interactive && !hasTemplate) {
-        // No real template for this letter (e.g. Ñ, rr, most lowercase) —
-        // hide the tracing step entirely rather than show a fake/blank
-        // stand-in. Teacher preview (non-interactive) keeps the static line
-        // below, since that's a faithful page preview, not a student
-        // tracing exercise.
-        return null;
-      }
+      // If no verified stroke template exists, preserve the real writing
+      // line and printed model. The learner can still use the workbook page.
       if (interactive && hasTemplate) {
         return (
           <div className="fp-writing-line fp-writing-line--trace">
@@ -521,6 +521,8 @@ function RegionView({
         </div>
       );
     }
+    case "writing-response":
+      return <WorkbookWritingResponse pageNumber={Number(region.id.match(/^p(\d+)/)?.[1] ?? 0)} interactive={Boolean(interactive)} />;
     case "draw-box":
       return interactive ? (
         <DibujaFromRegion
@@ -528,6 +530,7 @@ function RegionView({
           lessonId={lessonId}
           lessonNumber={lessonNumber}
           siblingCells={siblingCells}
+          drawOnly={native}
         />
       ) : (
         <div className="fp-draw-box" aria-label={region.text ?? "Espacio para dibujar"}>
@@ -554,6 +557,7 @@ export function FaithfulPageRenderer({
   fallback,
   interactive,
   fixedLayout = false,
+  native = false,
 }: FaithfulPageRendererProps) {
   const layout = regions ?? getPageLayout(pageNumber);
 
@@ -595,13 +599,6 @@ export function FaithfulPageRenderer({
   let lastWritingLineModelText: string | undefined;
   let lastInstructionText: string | undefined;
 
-  // If every writing-line on this page hides (no real template), the
-  // "Traza con tu mejor letra." instruction that precedes them would be
-  // left dangling with nothing to write on — hide it too in that case.
-  const pageHasTraceableWritingLine = ordered.some(
-    (r) => r.regionType === "writing-line" && getLetterTemplate(r.modelText) !== null,
-  );
-
   // Sibling picture-grid cells on this page — used by DibujaHost pick mode
   // so options stay lesson-faithful (never random clipart).
   const siblingCells: PageGridCell[] = ordered.flatMap((r) =>
@@ -616,14 +613,6 @@ export function FaithfulPageRenderer({
       gardenBg={gardenBg}
     >
       {ordered.map((region) => {
-        if (
-          interactive &&
-          !pageHasTraceableWritingLine &&
-          region.regionType === "instruction" &&
-          region.text === "Traza con tu mejor letra."
-        ) {
-          return null;
-        }
         if (region.regionType === "instruction" && region.text) {
           lastInstructionText = region.text;
         }
@@ -643,6 +632,7 @@ export function FaithfulPageRenderer({
             resolvedModelText={resolvedModelText}
             precedingInstruction={lastInstructionText}
             siblingCells={siblingCells}
+            native={native}
           />
           </GretelActivity>
         );

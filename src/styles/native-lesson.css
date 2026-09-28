@@ -1,0 +1,68 @@
+.native-lesson-viewer {
+  position: relative;
+  width: min(100%, 850px);
+  overflow-x: clip;
+  margin: 0 auto;
+  padding: clamp(16px, 3vw, 36px);
+  border: 1px solid #deccaa;
+  border-radius: 28px;
+  background: #fffaf0;
+  box-shadow: 0 20px 60px #513c201c;
+  color: #302a20;
+}
+.native-lesson-viewer__topline { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; align-items: center; font: 700 15px/1.4 system-ui, sans-serif; }
+.native-lesson-viewer__chapter { color: #146d67; font-size: 20px; font-weight: 850; }
+.native-lesson-viewer__page { color: #746856; }
+.native-lesson-viewer__progress { display: flex; gap: 6px; margin: 18px 0 24px; }
+.native-lesson-viewer__progress span { height: 6px; flex: 1; background: #e9ddc7; border-radius: 9px; }
+.native-lesson-viewer__progress .is-done { background: #179286; }
+.native-lesson-viewer__content .faithful-page { width: 100%; aspect-ratio: auto; min-height: 0; overflow: visible; background: transparent; border: 0; box-shadow: none; border-radius: 0; }
+.native-lesson-viewer__content .faithful-page__sidebar, .native-lesson-viewer__content .faithful-page__pagenum, .native-lesson-viewer__content .faithful-page__lesson { display: none; }
+.native-lesson-viewer__content .faithful-page__body { position: static; padding: 0; overflow: visible; display: flex; flex-direction: column; align-items: stretch; gap: 18px; }
+.native-lesson-viewer__content .fp-region--instruction { font: 750 clamp(19px, 2.5vw, 26px)/1.35 system-ui, sans-serif; color: #302a20; margin: 12px 0 0; }
+.native-lesson-viewer__content .fp-region--title { font-size: clamp(42px, 8vw, 76px); color: #136e65; }
+.native-lesson-viewer__content .fp-region--syllable-bubble { font: 800 clamp(22px, 4vw, 36px)/1.5 system-ui, sans-serif; letter-spacing: .08em; color: #156f69; }
+.native-lesson-viewer__content .fp-region--vocab-grid, .native-lesson-viewer__content .fp-region--reading-sentences { font: 650 clamp(19px, 2.8vw, 28px)/1.5 system-ui, sans-serif; }
+.native-lesson-viewer__content .fp-region--reading-sentences { background: white; border: 1px solid #eadcc6; border-radius: 18px; padding: 18px; }
+.native-syllable { border: 1px solid #deccaa; border-radius: 20px; background: #fff; padding: clamp(12px, 2vw, 20px); }
+.native-syllable h2 { margin: 0 0 12px; color: #126d65; font: 850 32px/1.2 system-ui, sans-serif; }
+.native-syllable__words { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.native-syllable__words button { min-height: 56px; border: 2px solid #d6e3df; border-radius: 13px; background: #f9fcfa; color: #302a20; font: 700 clamp(16px, 2.5vw, 22px)/1.3 system-ui, sans-serif; cursor: pointer; overflow-wrap: anywhere; }
+.native-syllable__words button[aria-pressed="true"] { border-color: #188477; background: #edf9f4; }
+.native-syllable__words button:focus-visible { outline: 3px solid #136e65; outline-offset: 2px; }
+.native-syllable__words .is-circled { border: 2px solid #15796f; border-radius: 50%; padding: 3px 1px; }
+.native-syllable p { margin: 12px 0 0; color: #68776e; font: 600 13px system-ui, sans-serif; }
+.native-lesson-viewer__content .fp-writing-line, .native-lesson-viewer__content .fp-ix-grid, .native-lesson-viewer__content .fp-region--fill-in-blank { max-width: 100%; }
+.native-lesson-viewer__content .fp-trace { gap: 10px; }
+.native-lesson-viewer__content .fp-trace__svg { width: clamp(180px, 35vw, 240px); max-width: 100%; }
+.native-lesson-viewer__content .fp-trace__footer { width: clamp(180px, 35vw, 240px); max-width: 100%; gap: 8px; }
+.native-lesson-viewer__content .fp-trace__hint { font-size: 16px; }
+.native-lesson-viewer__content .fp-writing-line--trace { margin: 8px 0; }
+.native-lesson-viewer__content .fp-writing-response { display: flex; flex-direction: column; gap: 10px; font: 700 16px system-ui, sans-serif; color: #136e65; }
+.native-lesson-viewer__content .fp-writing-response textarea { display: block; width: 100%; min-height: 170px; resize: vertical; border: 1px solid #a5cec6; border-radius: 16px; padding: 14px 16px; color: #302a20; background: repeating-linear-gradient(#fff, #fff 36px, #d1ded9 37px); font: 500 21px/37px system-ui, sans-serif; }
+.native-lesson-viewer__content .fp-writing-response textarea:focus-visible { outline: 3px solid #167d72; outline-offset: 2px; }
+.native-lesson-viewer__content .fp-ix-fill { gap: 12px; }
+.native-lesson-viewer__content .fp-ix-fill__item { display: grid; grid-template-columns: minmax(70px, 1fr) minmax(80px, 1fr) auto; gap: 10px; align-items: center; padding: 10px; border: 1px solid #eadcc6; border-radius: 13px; background: white; }
+.native-lesson-viewer__content .fp-ix-fill__wordbox, .native-lesson-viewer__content .fp-ix-fill__blank { font-size: 18px; }
+.native-lesson-viewer__content .fp-ix-fill__choice { min-height: 46px; min-width: 46px; font-size: 17px; padding: 6px 10px; }
+.native-lesson-viewer__content .fp-ix-check-btn { min-height: 48px; padding: 10px 22px; font-size: 16px; }
+.native-lesson-viewer__content .living-illustration, .native-lesson-viewer__content .living-illustration__art, .native-lesson-viewer__content .living-runtime-art { animation: none !important; transform: none !important; }
+.native-lesson-viewer__navigation { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 28px; border-top: 1px solid #e8dcca; padding-top: 22px; font: 700 15px system-ui, sans-serif; }
+.native-lesson-viewer__navigation button { min-height: 48px; display: inline-flex; align-items: center; gap: 6px; border: 1px solid #a5cec6; border-radius: 14px; padding: 9px 16px; color: #126b62; background: #fff; cursor: pointer; }
+.native-lesson-viewer__navigation button:hover:not(:disabled) { background: #e8f8f3; }
+.native-lesson-viewer__navigation button:focus-visible { outline: 3px solid #126b62; outline-offset: 3px; }
+.native-lesson-viewer__navigation button:disabled { opacity: .42; cursor: default; }
+.native-lesson-viewer__companion { position: relative; display: flex; justify-content: flex-end; min-height: 96px; margin-top: 16px; }
+.native-lesson-viewer__companion .gretel-presence--book { position: relative; inset: auto; right: auto; bottom: auto; width: 96px; min-width: 96px; }
+.native-lesson-viewer__companion .gretel-presence--book .gretel-speech-bubble { right: calc(100% + 8px); width: min(220px, 53vw); max-height: none; overflow: visible; }
+.native-lesson-viewer__companion .gretel-presence--book .gretel-speech-bubble { left: calc(-1 * min(220px, 53vw) - 8px) !important; right: auto !important; transform: none !important; translate: none !important; }
+@media (max-width: 600px) {
+  .native-lesson-viewer { border-radius: 18px; padding: 16px; }
+  .native-lesson-viewer__chapter { font-size: 18px; }
+  .native-lesson-viewer__content .faithful-page__body { gap: 16px; }
+  .native-lesson-viewer__navigation button { padding: 8px 10px; }
+  .native-lesson-viewer__content .fp-trace__svg, .native-lesson-viewer__content .fp-trace__footer { width: min(220px, 64vw); }
+  .native-syllable__words { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .native-lesson-viewer__content .fp-ix-fill__item { grid-template-columns: 1fr 1fr; }
+  .native-lesson-viewer__content .fp-ix-fill__choices { grid-column: 1 / -1; justify-content: flex-end; }
+}
