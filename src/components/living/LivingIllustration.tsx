@@ -154,6 +154,19 @@ export function LivingIllustration({
         draggable={false}
         className="living-illustration__art"
       />
+      {ambientActive && actor?.parts?.map((part) => (
+        <img
+          key={part.name + part.clipPath}
+          src={displaySrc}
+          alt=""
+          aria-hidden
+          loading={loading}
+          decoding="async"
+          draggable={false}
+          className={`living-illustration__part living-illustration__part--${part.name}`}
+          style={{ clipPath: part.clipPath, transformOrigin: part.transformOrigin }}
+        />
+      ))}
     </span>
   );
 }
