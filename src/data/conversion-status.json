@@ -10,7 +10,7 @@
   ],
   "notes": [
     "The separate 90-page workbook manifest disagrees with lesson-exercises/lesson-07.ts about Lesson 7 numbering; the actual student route uses page-layouts.json pages 19–22.",
-    "Pages 19–30 use the native student route. Lessons 7–9 have been rendered and interaction-checked in the native shell; no page is animation certified.",
+    "Pages 1–90 use the native student route and FaithfulPageRenderer. Native promotion is complete; Rive/video certification remains separate.",
     "Missing source scans in this checkout remain recorded as references; do not silently substitute unrelated artwork."
   ],
   "pages": [
@@ -53,7 +53,7 @@
       "gretelGuidance": [
         "Circula los dibujos de las palabras en cada línea horizontal que comienzan con el mismo sonido."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -90,7 +90,7 @@
       "gretelGuidance": [
         "Circula el dibujo que comienza con la vocal del recuadro."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -117,7 +117,7 @@
       "gretelGuidance": [
         "Traza una línea de la vocal al dibujo que le corresponde."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -158,7 +158,7 @@
       "gretelGuidance": [
         "Presiona los dibujos que comienzan con O o."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -190,7 +190,7 @@
       "gretelGuidance": [
         "Traza una línea desde la vocal Oo hasta el dibujo de la palabra que comienza con Oo."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -213,7 +213,7 @@
         "Traza con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con o."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -255,7 +255,7 @@
       "gretelGuidance": [
         "Presiona los dibujos de las palabras que comienzan con A a."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -289,7 +289,7 @@
       "gretelGuidance": [
         "Traza una línea desde la vocal Aa hasta el dibujo de la palabra que comienza con Aa."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -312,7 +312,7 @@
         "Traza con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con a."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -354,7 +354,7 @@
       "gretelGuidance": [
         "Presiona los dibujos de las palabras que comienzan con E e."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -387,7 +387,7 @@
       "gretelGuidance": [
         "Traza una línea desde la vocal Ee hasta el dibujo de la palabra que comienza con Ee."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -410,7 +410,7 @@
         "Traza con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con e."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -453,7 +453,7 @@
       "gretelGuidance": [
         "Presiona los dibujos de las palabras que comienzan con I i."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -486,7 +486,7 @@
       "gretelGuidance": [
         "Traza una línea desde la vocal Ii hasta el dibujo de la palabra que comienza con Ii."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -509,7 +509,7 @@
         "Traza con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con i."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -551,7 +551,7 @@
       "gretelGuidance": [
         "Presiona los dibujos de las palabras que comienzan con U u."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -583,7 +583,7 @@
       "gretelGuidance": [
         "Traza una línea desde la vocal Uu hasta el dibujo de la palabra que comienza con Uu."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -606,7 +606,7 @@
         "Traza con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con u."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -927,7 +927,7 @@
         "Traza con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con t."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -950,7 +950,7 @@
       "gretelGuidance": [
         "Presiona la sílaba correspondiente."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -973,7 +973,7 @@
       "gretelGuidance": [
         "Completa las palabras con la sílaba correcta."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -994,7 +994,7 @@
       "gretelGuidance": [
         "Tt"
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1019,7 +1019,7 @@
         "Traza con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con d."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1044,7 +1044,7 @@
       "gretelGuidance": [
         "Presiona la sílaba correspondiente."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1067,7 +1067,7 @@
       "gretelGuidance": [
         "Completa las palabras con la sílaba correcta."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1088,7 +1088,7 @@
       "gretelGuidance": [
         "Dd"
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1113,7 +1113,7 @@
         "Traza con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con l."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1136,7 +1136,7 @@
       "gretelGuidance": [
         "Presiona la sílaba correspondiente."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1159,7 +1159,7 @@
       "gretelGuidance": [
         "Completa las palabras con la sílaba correcta."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1178,7 +1178,7 @@
       "gretelGuidance": [
         "Ll"
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1203,7 +1203,7 @@
         "Traza con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con n."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1232,7 +1232,7 @@
       "gretelGuidance": [
         "Presiona la sílaba correspondiente."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1253,7 +1253,7 @@
       "gretelGuidance": [
         "Completa las palabras con la sílaba correcta."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1272,7 +1272,7 @@
       "gretelGuidance": [
         "Nn"
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1297,7 +1297,7 @@
         "Traza con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con ñ."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1327,7 +1327,7 @@
       "gretelGuidance": [
         "Presiona la sílaba correspondiente."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1352,7 +1352,7 @@
       "gretelGuidance": [
         "Completa las palabras con la sílaba correcta."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1373,7 +1373,7 @@
       "gretelGuidance": [
         "Ññ"
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1396,7 +1396,7 @@
         "Traza con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con b."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1421,7 +1421,7 @@
       "gretelGuidance": [
         "Presiona la sílaba correspondiente."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1444,7 +1444,7 @@
       "gretelGuidance": [
         "Completa las palabras con la sílaba correcta."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1463,7 +1463,7 @@
       "gretelGuidance": [
         "Bb"
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1486,7 +1486,7 @@
         "Traza con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con v."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1509,7 +1509,7 @@
       "gretelGuidance": [
         "Presiona la sílaba correspondiente."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1532,7 +1532,7 @@
       "gretelGuidance": [
         "Completa las palabras con la sílaba correcta."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1551,7 +1551,7 @@
       "gretelGuidance": [
         "Vv"
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1576,7 +1576,7 @@
         "Traza con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con r."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1606,7 +1606,7 @@
       "gretelGuidance": [
         "Presiona la sílaba correspondiente."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1631,7 +1631,7 @@
       "gretelGuidance": [
         "Completa las palabras con la sílaba correcta."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1652,7 +1652,7 @@
       "gretelGuidance": [
         "Rr"
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1677,7 +1677,7 @@
         "Traza con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con rr."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1703,7 +1703,7 @@
       "gretelGuidance": [
         "Presiona la sílaba correspondiente."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1727,7 +1727,7 @@
       "gretelGuidance": [
         "Completa las palabras con la sílaba correcta."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1748,7 +1748,7 @@
       "gretelGuidance": [
         "RRrr"
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1773,7 +1773,7 @@
         "Traza con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con g."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1800,7 +1800,7 @@
       "gretelGuidance": [
         "Presiona la sílaba correspondiente."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1824,7 +1824,7 @@
       "gretelGuidance": [
         "Completa las palabras con la sílaba correcta."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1845,7 +1845,7 @@
       "gretelGuidance": [
         "Gg"
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1870,7 +1870,7 @@
         "Traza con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con f."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1896,7 +1896,7 @@
       "gretelGuidance": [
         "Presiona la sílaba correspondiente."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1920,7 +1920,7 @@
       "gretelGuidance": [
         "Completa las palabras con la sílaba correcta."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1941,7 +1941,7 @@
       "gretelGuidance": [
         "Ff"
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1966,7 +1966,7 @@
         "Traza con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con j."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -1994,7 +1994,7 @@
       "gretelGuidance": [
         "Presiona la sílaba correspondiente."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -2017,7 +2017,7 @@
       "gretelGuidance": [
         "Completa las palabras con la sílaba correcta."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -2038,7 +2038,7 @@
       "gretelGuidance": [
         "Jj"
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -2063,7 +2063,7 @@
         "Traza con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con c."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -2090,7 +2090,7 @@
       "gretelGuidance": [
         "Presiona la sílaba correspondiente."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -2113,7 +2113,7 @@
       "gretelGuidance": [
         "Completa las palabras con la sílaba correcta."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -2134,7 +2134,7 @@
       "gretelGuidance": [
         "Cc"
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -2159,7 +2159,7 @@
         "Traza con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con y."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -2186,7 +2186,7 @@
       "gretelGuidance": [
         "Presiona la sílaba correspondiente."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -2209,7 +2209,7 @@
       "gretelGuidance": [
         "Completa las palabras con la sílaba correcta."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -2230,7 +2230,7 @@
       "gretelGuidance": [
         "Yy"
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -2255,7 +2255,7 @@
         "Traza con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con z."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -2283,7 +2283,7 @@
       "gretelGuidance": [
         "Presiona la sílaba correspondiente."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -2306,7 +2306,7 @@
       "gretelGuidance": [
         "Completa las palabras con la sílaba correcta."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -2327,7 +2327,7 @@
       "gretelGuidance": [
         "Zz"
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     }
   ]
