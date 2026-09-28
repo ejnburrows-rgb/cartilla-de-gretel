@@ -37,6 +37,19 @@ type PdfDocument = {
 
 type Drag = { startX: number; startY: number; endX: number; endY: number };
 
+const QUALITY_REASONS = [
+  "wrong subject",
+  "lost original identity",
+  "wrong pose",
+  "incorrect colors",
+  "style drift",
+  "malformed anatomy",
+  "extra objects",
+  "crop",
+  "material mismatch",
+  "other",
+] as const;
+
 export const Route = createFileRoute("/cartilla/teacher/crm/artwork")({
   component: CartillaArtFactoryPage,
 });
@@ -74,6 +87,25 @@ async function renderPdfPage(pdf: PdfDocument | null, pageNumber: number, canvas
   canvas.width = Math.round(viewport.width);
   canvas.height = Math.round(viewport.height);
   await page.render({ canvasContext: context, viewport }).promise;
+}
+
+async function renderPdfThumbnails(pdf: PdfDocument) {
+  const thumbs: string[] = [];
+  for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber += 1) {
+    const page = await pdf.getPage(pageNumber);
+    const viewport = page.getViewport({ scale: 0.14 });
+    const canvas = document.createElement("canvas");
+    canvas.width = Math.max(1, Math.round(viewport.width));
+    canvas.height = Math.max(1, Math.round(viewport.height));
+    const context = canvas.getContext("2d");
+    if (!context) {
+      thumbs.push("");
+      continue;
+    }
+    await page.render({ canvasContext: context, viewport }).promise;
+    thumbs.push(canvas.toDataURL("image/jpeg", 0.72));
+  }
+  return thumbs;
 }
 
 function cropFromCanvas(canvas: HTMLCanvasElement, drag: Drag, page: number): NormalizedCrop | null {
@@ -123,6 +155,8 @@ function CartillaArtFactoryPage() {
   const [project, setProject] = useState<ArtFactoryProject>(loadInitialProject);
   const [workbookPdf, setWorkbookPdf] = useState<PdfDocument | null>(null);
   const [flipchartPdf, setFlipchartPdf] = useState<PdfDocument | null>(null);
+  const [workbookThumbs, setWorkbookThumbs] = useState<string[]>([]);
+  const [flipchartThumbs, setFlipchartThumbs] = useState<string[]>([]);
   const [studentPage, setStudentPage] = useState(1);
   const [flipchartPage, setFlipchartPage] = useState(1);
   const [mappingText, setMappingText] = useState("");
@@ -174,9 +208,13 @@ function CartillaArtFactoryPage() {
     if (kind === "workbook") {
       setWorkbookPdf(pdf);
       setStudentPage(1);
+      setWorkbookThumbs([]);
+      void renderPdfThumbnails(pdf).then(setWorkbookThumbs);
     } else {
       setFlipchartPdf(pdf);
       setFlipchartPage(1);
+      setFlipchartThumbs([]);
+      void renderPdfThumbnails(pdf).then(setFlipchartThumbs);
     }
     updateProject((current) => ({
       ...current,
@@ -371,6 +409,7 @@ function CartillaArtFactoryPage() {
                 canvasRef={workbookCanvas}
                 drag={sourceDrag}
                 crop={sourceCrop}
+                thumbnails={workbookThumbs}
                 onFile={(file) => void handlePdf("workbook", file)}
                 onPage={setStudentPage}
                 onPointerDown={(event) => beginDrag(event, setSourceDrag)}
@@ -385,6 +424,7 @@ function CartillaArtFactoryPage() {
                 canvasRef={flipchartCanvas}
                 drag={referenceDrag}
                 crop={referenceCrop}
+                thumbnails={flipchartThumbs}
                 onFile={(file) => void handlePdf("flipchart", file)}
                 onPage={setFlipchartPage}
                 onPointerDown={(event) => beginDrag(event, setReferenceDrag)}
@@ -458,6 +498,7 @@ function CartillaArtFactoryPage() {
                   <select value={bulkStatus} onChange={(event) => setBulkStatus(event.target.value as ArtFactoryStatus)} className="rounded-xl border border-stone-300 px-3 py-2 text-sm font-bold">
                     {ART_FACTORY_STATUSES.map((status) => <option key={status}>{status}</option>)}
                   </select>
+                  <button type="button" onClick={() => setSelectedIds(filteredAssets.map((asset) => asset.id))} className="rounded-xl border border-stone-300 px-3 py-2 text-sm font-black text-stone-600">Seleccionar visibles</button>
                   <button type="button" onClick={applyBulkStatus} className="rounded-xl border border-[#356b43] px-3 py-2 text-sm font-black text-[#356b43]">Aplicar estado</button>
                   <button type="button" onClick={exportPackage} className="rounded-xl bg-[#356b43] px-4 py-2 text-sm font-black text-white">
                     <PackageOpen className="mr-2 inline h-4 w-4" /> Export ZIP
@@ -499,6 +540,23 @@ function CartillaArtFactoryPage() {
                           <p className="mt-1 text-sm font-black text-stone-700">{asset.subject} · Libro {asset.studentPage}</p>
                           <p className="mt-1 text-xs font-semibold text-stone-500">Flip Chart: {asset.referencePages.join(", ") || "sin mapping"}</p>
                           <p className="mt-1 break-all text-[11px] font-semibold text-stone-500">{asset.expectedFilename}</p>
+                          <select
+                            value={asset.qualityNotes ?? ""}
+                            onChange={(event) =>
+                              updateProject((current) => ({
+                                ...current,
+                                assets: current.assets.map((item) =>
+                                  item.id === asset.id
+                                    ? { ...item, qualityNotes: event.target.value, updatedAt: new Date().toISOString() }
+                                    : item,
+                                ),
+                              }))
+                            }
+                            className="mt-3 w-full rounded-lg border border-stone-300 px-2 py-1.5 text-xs font-bold text-stone-600"
+                          >
+                            <option value="">Quality check: no issue selected</option>
+                            {QUALITY_REASONS.map((reason) => <option key={reason} value={reason}>{reason}</option>)}
+                          </select>
                           <div className="mt-3 flex flex-wrap gap-2">
                             <button type="button" onClick={() => updateProject((current) => ({ ...current, assets: current.assets.map((item) => item.id === asset.id ? setAssetStatus(item, "READY FOR INTEGRATION") : item) }))} className="rounded-lg bg-[#356b43] px-3 py-1.5 text-xs font-black text-white">
                               Ready for integration
@@ -529,6 +587,7 @@ function PdfPane(props: {
   canvasRef: React.RefObject<HTMLCanvasElement | null>;
   drag: Drag | null;
   crop: NormalizedCrop | null;
+  thumbnails: string[];
   onFile(file?: File): void;
   onPage(page: number): void;
   onPointerDown(event: React.PointerEvent<HTMLCanvasElement>): void;
@@ -569,6 +628,22 @@ function PdfPane(props: {
           onPointerMove={props.onPointerMove}
           onPointerUp={props.onPointerUp}
         />
+      </div>
+      <div className="mt-3 flex gap-2 overflow-x-auto pb-2">
+        {props.thumbnails.length === 0 && props.pageCount > 0 ? (
+          <span className="px-2 py-3 text-xs font-bold text-stone-400">Generando miniaturas…</span>
+        ) : props.thumbnails.map((src, index) => (
+          <button
+            type="button"
+            key={index}
+            onClick={() => props.onPage(index + 1)}
+            className={"shrink-0 rounded-lg border-2 p-1 " + (props.page === index + 1 ? "border-[#a45d22]" : "border-transparent")}
+            aria-label={"Página " + (index + 1)}
+          >
+            {src ? <img src={src} alt="" className="h-20 w-auto rounded bg-white object-contain" /> : null}
+            <span className="block text-[10px] font-black text-stone-500">{index + 1}</span>
+          </button>
+        ))}
       </div>
     </section>
   );
