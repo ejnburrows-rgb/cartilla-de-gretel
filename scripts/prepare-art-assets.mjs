@@ -332,21 +332,12 @@ function cropBoxWarnings(entry, srcDim, canonicalDim) {
   return warnings;
 }
 
-async function prepareFlipchartDelivery(checkOnly) {
+async function prepareFlipchartDelivery(_checkOnly) {
   const registry = readJson(flipchartRegistryPath);
   const pages = Array.isArray(registry) ? registry : registry.pages;
   if (!Array.isArray(pages) || pages.length !== 62) {
     throw new Error("teacher-flipchart.json must contain exactly 62 pages");
   }
-
-  const digitalPages = {
-    ...readJson(path.join(rootDir, "src", "data", "flipchart-text-3-22.json")),
-    ...readJson(path.join(rootDir, "src", "data", "flipchart-text-23-42.json")),
-    ...readJson(path.join(rootDir, "src", "data", "flipchart-text-43-62.json")),
-  };
-  const frames = readJson(path.join(rootDir, "src", "data", "flipchart-frames.json"));
-  const standaloneDir = path.join(faithfulDir, "flipchart");
-  if (!checkOnly) fs.rmSync(flipchartDeliveryDir, { recursive: true, force: true });
 
   const assets = [];
   const errors = [];
@@ -354,6 +345,7 @@ async function prepareFlipchartDelivery(checkOnly) {
     const pageNumber = Number(page.flipchartPage);
     const rel = String(page.path ?? "").replace(/^\//, "");
     const source = path.join(publicDir, rel.replace(/^public\//, ""));
+
     if (!Number.isInteger(pageNumber) || pageNumber < 1 || pageNumber > 62) {
       errors.push("invalid Flip Chart page number " + String(page.flipchartPage));
       continue;
@@ -363,126 +355,24 @@ async function prepareFlipchartDelivery(checkOnly) {
       continue;
     }
 
-    const sourceMeta = await sharp(source).metadata();
-    const sourceWidth = sourceMeta.width ?? 0;
-    const sourceHeight = sourceMeta.height ?? 0;
-    if (!sourceWidth || !sourceHeight) {
+    const meta = await sharp(source).metadata();
+    if (!meta.width || !meta.height) {
       errors.push("invalid Flip Chart master dimensions " + rel);
       continue;
     }
 
-    // The canonical JPG is source/provenance only. Production derivatives
-    // remove its printed lettering first, then React draws selectable digital
-    // text above the cleaned illustration layer. This prevents the source page
-    // scan itself from being the finished classroom surface.
-    const textRegions = digitalPages[String(pageNumber)] ?? [];
-    const overlays = textRegions
-      .map((line) => {
-        const left = Math.max(0, Math.floor(Number(line.x ?? 0) - 3));
-        const top = Math.max(0, Math.floor(Number(line.y ?? 0) - 3));
-        const width = Math.max(1, Math.min(sourceWidth - left, Math.ceil(Number(line.width ?? 0) + 6)));
-        const height = Math.max(1, Math.min(sourceHeight - top, Math.ceil(Number(line.height ?? 0) + 6)));
-        if (left >= sourceWidth || top >= sourceHeight || width <= 0 || height <= 0) return null;
-        return {
-          input: {
-            create: {
-              width,
-              height,
-              channels: 4,
-              background: line.backgroundColor ?? "#ffffff",
-            },
-          },
-          left,
-          top,
-        };
-      })
-      .filter(Boolean);
-
-    const illustrationLayer = overlays.length
-      ? await sharp(source).composite(overlays).png().toBuffer()
-      : await sharp(source).png().toBuffer();
-
-    const number = String(pageNumber).padStart(3, "0");
-
-    let standalone = null;
-    if (pageNumber >= 3) {
-      const frame = frames[String(pageNumber)] ?? { width: 1000, height: sourceHeight };
-      const realText = (digitalPages[String(pageNumber)] ?? []).filter((line) => String(line.text ?? "").trim());
-      const maxFs = realText.length ? Math.max(...realText.map((line) => Number(line.fontSize ?? 0))) : 0;
-      const title = realText.filter((line) => Number(line.fontSize ?? 0) >= maxFs * 0.9 && Number(line.y ?? 0) < 200);
-      const rest = realText.filter((line) => !title.includes(line));
-      const lower = rest.filter((line) => Number(line.y ?? 0) >= 420 && Number(line.fontSize ?? 0) >= 30);
-      const body = rest.filter((line) => !lower.includes(line));
-      const proseBottom = body.reduce((max, line) => Math.max(max, Number(line.y ?? 0) + Number(line.height ?? 0)), 0);
-      const wordsTop = lower.length ? Math.min(...lower.map((line) => Number(line.y ?? 0))) : frame.height * 0.9;
-      const topFrame = Math.max(frame.height * 0.16, Math.min(frame.height * 0.42, proseBottom || frame.height * 0.2));
-      const bottomFrame = Math.max(topFrame + frame.height * 0.24, Math.min(frame.height * 0.92, wordsTop - frame.height * 0.025));
-
-      const scaleX = sourceWidth / frame.width;
-      const scaleY = sourceHeight / frame.height;
-      const left = Math.max(0, Math.floor(frame.width * 0.05 * scaleX));
-      const top = Math.max(0, Math.floor(topFrame * scaleY));
-      const right = Math.min(sourceWidth, Math.ceil(frame.width * 0.95 * scaleX));
-      const bottom = Math.min(sourceHeight, Math.ceil(bottomFrame * scaleY));
-
-      const heroRel = path.join("cartilla", "art", "faithful", "flipchart", "flipchart-p" + number + "-hero.webp");
-      const heroAbs = path.join(publicDir, heroRel);
-      let heroBuffer;
-      if (fs.existsSync(heroAbs)) {
-        heroBuffer = fs.readFileSync(heroAbs);
-      } else {
-        heroBuffer = await sharp(illustrationLayer)
-          .extract({ left, top, width: Math.max(1, right - left), height: Math.max(1, bottom - top) })
-          .trim({ background: "#ffffff", threshold: 10 })
-          .webp({ quality: 94, smartSubsample: true })
-          .toBuffer();
-        if (!checkOnly) {
-          fs.mkdirSync(standaloneDir, { recursive: true });
-          fs.writeFileSync(heroAbs, heroBuffer);
-        }
-      }
-      const heroMeta = await sharp(heroBuffer).metadata();
-      standalone = {
-        slot: "flipchart-p" + number + "-hero",
-        path: "/" + heroRel.replaceAll(path.sep, "/"),
-        width: heroMeta.width,
-        height: heroMeta.height,
-        generatedFromCanonicalMaster: !fs.existsSync(heroAbs) || checkOnly,
-      };
-    }
-
-    const derivatives = [];
-    for (const [tier, width] of Object.entries(FLIPCHART_DELIVERY_WIDTHS)) {
-      const outRel = path.join("cartilla", "art", "delivery", "flipchart", tier, "page-" + number + ".webp");
-      const outAbs = path.join(publicDir, outRel);
-      const buffer = await sharp(illustrationLayer)
-        .resize({ width, fit: "inside", kernel: sharp.kernel.lanczos3 })
-        .webp({ quality: tier === "screen" ? 92 : 84, smartSubsample: true })
-        .toBuffer();
-      const meta = await sharp(buffer).metadata();
-      if (!checkOnly) {
-        fs.mkdirSync(path.dirname(outAbs), { recursive: true });
-        fs.writeFileSync(outAbs, buffer);
-      }
-      derivatives.push({
-        tier,
-        path: "/" + outRel.replaceAll(path.sep, "/"),
-        width: meta.width,
-        height: meta.height,
-        bytes: buffer.length,
-      });
-    }
     assets.push({
       flipchartPage: pageNumber,
       canonical: "/" + rel,
-      sourceWidth,
-      sourceHeight,
-      digitalTextRegionsRemoved: textRegions.length,
-      productionSurface: pageNumber >= 3 ? "standalone-hero+native-digital-text" : "frontmatter-native-component",
-      standalone,
-      derivatives,
+      sourceWidth: meta.width,
+      sourceHeight: meta.height,
+      productionSurface:
+        pageNumber <= 2
+          ? "native-frontmatter-component"
+          : "native-object-composition+digital-text",
     });
   }
+
   return { pages: assets.length, errors, assets };
 }
 
@@ -727,9 +617,8 @@ export async function prepareArtAssets({ checkOnly = false } = {}) {
       duplicateContentGroups: duplicateContent.length,
       errors: errors.length,
       warnings: warnings.length,
-      flipchartMasters: flipchart.pages,
-      flipchartScreenDerivatives: flipchart.assets.length,
-      flipchartThumbDerivatives: flipchart.assets.length,
+      flipchartCanonicalMasters: flipchart.pages,
+      flipchartNativeBoards: flipchart.assets.length,
     },
     errors,
     warnings,
@@ -737,7 +626,7 @@ export async function prepareArtAssets({ checkOnly = false } = {}) {
     unresolvedSourceIssues,
     assets: records.filter((record) => record.canonical),
     flipchart: {
-      canonicalPolicy: "62 repository-controlled HD masters; screen/thumb WebP derivatives are disposable build output.",
+      canonicalPolicy: "62 repository-controlled HD masters are provenance only; the active teacher surface is native object composition plus digital text.",
       assets: flipchart.assets,
     },
   };
