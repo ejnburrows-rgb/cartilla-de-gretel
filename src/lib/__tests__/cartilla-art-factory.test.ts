@@ -3,6 +3,7 @@ import {
   attachGeneratedResult,
   buildArtFactoryCsv,
   buildGenerationPackage,
+  buildIntegrationManifest,
   buildLockedCartillaPrompt,
   createAsset,
   createEmptyArtFactoryProject,
@@ -108,6 +109,31 @@ describe("Cartilla Art Factory", () => {
     expect(zip.size).toBeGreaterThan(100);
     const header = new Uint8Array(await zip.slice(0, 4).arrayBuffer());
     expect(Array.from(header)).toEqual([0x50, 0x4b, 0x03, 0x04]);
+  });
+
+  it("exports only integration-ready generated assets in the replacement manifest", () => {
+    let project = createEmptyArtFactoryProject();
+    let asset = createAsset(project, {
+      studentPage: 5,
+      sourceCrop: { page: 5, x: 0, y: 0, width: 1, height: 1, dataUrl: pixel },
+      category: "object",
+      subject: "ala",
+      preservationNotes: "Preserve silhouette.",
+    });
+    asset = attachGeneratedResult(asset, {
+      name: asset.expectedFilename,
+      dataUrl: pixel,
+      importedAt: "2026-09-28T00:00:00.000Z",
+    });
+    asset = { ...asset, status: "READY FOR INTEGRATION" };
+    project = { ...project, assets: [asset] };
+
+    const manifest = buildIntegrationManifest(project);
+    expect(manifest.policy.ownerApprovalGate).toBe(false);
+    expect(manifest.replacements).toHaveLength(1);
+    expect(manifest.replacements[0]?.productionDestination).toContain(
+      "public/cartilla/art/generated/",
+    );
   });
 
   it("locks the preservation and no-approval instructions in every prompt", () => {
