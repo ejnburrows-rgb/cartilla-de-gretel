@@ -12,9 +12,9 @@ import { GretelCinematic } from "@/components/gretel/GretelCinematic";
 import { getLessonCinematic } from "@/content/gretel-cinematics";
 
 /**
- * Teacher-only classroom presentation route.
- * HD flipchart plates only (FlipchartHdPanel) — never the student workbook shell.
- * Gate mirrors /cartilla/teacher: seed demo session OR signed-in teacher/admin role.
+ * Teacher classroom presentation route.
+ * Uses the native Flip Chart e-learning surface — never the student workbook shell.
+ * Existing access behavior is preserved; this route does not add new auth requirements.
  */
 export const Route = createFileRoute("/cartilla/presentar/$n")({
   component: PresentarLesson,
@@ -86,18 +86,18 @@ function PresentarLesson() {
         />
       )}
       <TeacherPresentationShell
-      accentColor={accentColor}
-      onExit={handleExit}
-      eyebrow={`Lección ${n} · Flipchart`}
-      title={entry.title}
-      subtitle={
+        accentColor={accentColor}
+        onExit={handleExit}
+        eyebrow={`Lección ${n} · Flipchart`}
+        title={entry.title}
+        subtitle={
         sheetCount > 0
-          ? `${sheetCount} láminas HD · Proyector del maestro`
+          ? `${sheetCount} láminas digitales · Proyector del maestro`
           : "Proyector del maestro"
-      }
-    >
-      {/* Full-bleed board — no nested max-width chrome bars */}
-      <FlipchartHdPanel key={n} lessonNumber={n} accentColor={accentColor} />
-    </TeacherPresentationShell>
+        }
+      >
+        {/* Full-bleed native board — no page-scan surface. */}
+        <FlipchartHdPanel key={n} lessonNumber={n} accentColor={accentColor} />
+      </TeacherPresentationShell>
     </>
 }
