@@ -69,23 +69,6 @@ function normalizeWord(value: string) {
     .replace(/[^a-zñü0-9]+/g, "");
 }
 
-function lessonArtFallback(lesson: number) {
-  if (lesson === 1) {
-    const starter = new Set(["avion", "escoba", "iman", "olla", "una"]);
-    return FAITHFUL.filter((entry) => starter.has(normalizeWord(entry.word ?? entry.slug ?? "")));
-  }
-  const vowelDir: Record<number, string> = {
-    2: "/vocal-o/",
-    3: "/vocal-a/",
-    4: "/vocal-e/",
-    5: "/vocal-i/",
-    6: "/vocal-u/",
-  };
-  const dir = vowelDir[lesson];
-  if (dir) return FAITHFUL.filter((entry) => entry.src.includes(dir));
-  return FAITHFUL.filter((entry) => entry.lessonNumber === lesson);
-}
-
 function pageArt(
   flipchartPage: number,
   lesson: number,
@@ -104,9 +87,6 @@ function pageArt(
     }
   }
 
-  const exactPage = FAITHFUL.filter(
-    (entry) => typeof entry.sourceFlipchartPage === "number" && entry.sourceFlipchartPage === flipchartPage,
-  );
   const textMatches = FAITHFUL.filter((entry) => {
     const word = normalizeWord(entry.word ?? entry.slug ?? "");
     return word && tokens.has(word);
@@ -117,7 +97,7 @@ function pageArt(
     if (!entry.src || unique.has(entry.src)) continue;
     unique.set(entry.src, { src: entry.src, word: entry.word });
   }
-  for (const entry of [...exactPage, ...textMatches, ...lessonArtFallback(lesson)]) {
+  for (const entry of textMatches) {
     if (!entry.src || unique.has(entry.src)) continue;
     unique.set(entry.src, {
       src: entry.src,
