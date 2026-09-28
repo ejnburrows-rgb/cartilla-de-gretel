@@ -37,6 +37,7 @@ export type NativeFlipchartPage = {
   title: FlipchartTextItem[];
   body: FlipchartTextItem[];
   words: FlipchartWordGroup[];
+  syllables: string[];
   artRegion: { top: number; bottom: number; left: number; right: number };
   slots: string[];
   art: Array<{ src: string; word: string }>;
@@ -127,14 +128,83 @@ function pageArt(
   return [...unique.values()].slice(0, 8);
 }
 
+function normalizedLetterPair(text: string) {
+  const value = text.trim();
+  if (value.toLowerCase() === "rr") return true;
+  const chars = Array.from(value);
+  if (chars.length !== 2) return false;
+  const first = chars[0]!.toLocaleLowerCase("es");
+  const second = chars[1]!.toLocaleLowerCase("es");
+  return first === second && chars[0] !== chars[1];
+}
+
 function classify(items: FlipchartTextItem[]) {
   const real = items.filter((item) => item.text.trim().length > 0);
-  if (!real.length) return { title: [] as FlipchartTextItem[], body: [] as FlipchartTextItem[], words: [] as FlipchartWordGroup[] };
+  if (!real.length) {
+    return {
+      title: [] as FlipchartTextItem[],
+      body: [] as FlipchartTextItem[],
+      words: [] as FlipchartWordGroup[],
+      syllables: [] as string[],
+    };
+  }
 
-  const maxFs = Math.max(...real.map((item) => item.fontSize));
-  const title = real.filter((item) => item.fontSize >= maxFs * 0.9 && item.y < 200);
-  const rest = real.filter((item) => !title.includes(item));
-  const lower = rest.filter((item) => item.y >= 420 && item.fontSize >= 30);
+  const storyTitle = real
+    .filter((item) => item.fontStyle === "italic" && item.y < 165)
+    .sort((a, b) => a.y - b.y || a.x - b.x);
+
+  let title: FlipchartTextItem[] = [];
+  if (storyTitle.length) {
+    title = storyTitle;
+  } else {
+    const pairCandidates = real
+      .filter((item) => normalizedLetterPair(item.text) && item.y < 380)
+      .sort((a, b) => b.fontSize - a.fontSize || a.y - b.y || a.x - b.x);
+    if (pairCandidates[0]) title = [pairCandidates[0]];
+  }
+
+  const titleSet = new Set(title);
+  const remainder = real.filter((item) => !titleSet.has(item));
+
+  const syllableParts = new Set<FlipchartTextItem>();
+  const syllables: Array<{ y: number; x: number; text: string }> = [];
+  const accentStarts = remainder
+    .filter(
+      (item) =>
+        item.y < 430 &&
+        item.text.trim().length <= 2 &&
+        Number(item.fontWeight ?? 400) >= 600,
+    )
+    .sort((a, b) => a.y - b.y || a.x - b.x);
+
+  for (const start of accentStarts) {
+    if (syllableParts.has(start)) continue;
+    const right = remainder
+      .filter((candidate) => {
+        if (candidate === start || syllableParts.has(candidate)) return false;
+        if (Math.abs(candidate.y - start.y) > 9) return false;
+        if (candidate.x < start.x) return false;
+        const gap = candidate.x - (start.x + start.width);
+        return gap >= -8 && gap <= 18 && candidate.text.trim().length <= 2;
+      })
+      .sort((a, b) => a.x - b.x)[0];
+    if (!right) continue;
+    syllableParts.add(start);
+    syllableParts.add(right);
+    syllables.push({
+      y: Math.min(start.y, right.y),
+      x: Math.min(start.x, right.x),
+      text: (start.text + right.text).replace(/\s+/g, ""),
+    });
+  }
+
+  const rest = remainder.filter((item) => !syllableParts.has(item));
+  const lower = rest.filter(
+    (item) =>
+      item.y >= 420 &&
+      item.fontSize >= 30 &&
+      !/\s/.test(item.text.trim()),
+  );
   const body = rest.filter((item) => !lower.includes(item));
 
   const words: FlipchartWordGroup[] = [];
@@ -148,7 +218,7 @@ function classify(items: FlipchartTextItem[]) {
     for (const other of sorted) {
       if (used.has(other)) continue;
       const sameRow =
-        Math.abs(other.y - item.y) < 55 &&
+        Math.abs(other.y - item.y) < 18 &&
         other.x >= item.x - 20 &&
         other.x <= item.x + 320;
       if (sameRow) {
@@ -174,7 +244,14 @@ function classify(items: FlipchartTextItem[]) {
     });
   }
 
-  return { title, body, words };
+  return {
+    title,
+    body,
+    words,
+    syllables: syllables
+      .sort((a, b) => a.y - b.y || a.x - b.x)
+      .map((item) => item.text),
+  };
 }
 
 function deriveArtRegion(pageNumber: number, body: FlipchartTextItem[], words: FlipchartWordGroup[], hasDigitalText: boolean) {
@@ -206,7 +283,7 @@ export function getNativeFlipchartPage(pageNumber: number): NativeFlipchartPage 
   const meta = PAGE_META.find((page) => page.flipchartPage === pageNumber);
   if (!meta) return null;
   const items = digitalPages[String(pageNumber)] ?? [];
-  const { title, body, words } = classify(items);
+  const { title, body, words, syllables } = classify(items);
   const hasDigitalText = items.some((item) => item.text.trim().length > 0);
   return {
     flipchartPage: pageNumber,
@@ -214,6 +291,7 @@ export function getNativeFlipchartPage(pageNumber: number): NativeFlipchartPage 
     title,
     body,
     words,
+    syllables,
     artRegion: deriveArtRegion(pageNumber, body, words, hasDigitalText),
     slots: flipchartArtSlots(pageNumber, meta.lesson, words.length),
     art: pageArt(pageNumber, meta.lesson, words, body),
