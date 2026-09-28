@@ -100,8 +100,15 @@ export function FlipchartNativeBoard({
           )}
         </section>
 
-        {(bodyLines.length > 0 || native.words.length > 0) && (
+        {(bodyLines.length > 0 || native.syllables.length > 0 || native.words.length > 0) && (
           <section className="fc-native-board__content">
+            {native.syllables.length > 0 && (
+              <div className="fc-native-board__syllables" aria-label="Sílabas">
+                {native.syllables.map((syllable, index) => (
+                  <span key={`${syllable}-${index}`}>{syllable}</span>
+                ))}
+              </div>
+            )}
             {bodyLines.length > 0 && (
               <div className="fc-native-board__rhyme">
                 {bodyLines.map((line, index) => (
