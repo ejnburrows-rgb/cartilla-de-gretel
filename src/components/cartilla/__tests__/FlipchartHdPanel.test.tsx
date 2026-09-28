@@ -34,11 +34,13 @@ describe("FlipchartHdPanel — CRM-grade presenter board", () => {
       const { container, unmount } = render(<FlipchartNativeBoard page={page} />);
       const board = container.querySelector('[data-native-flipchart="true"]');
       expect(board, `Native board missing on plate ${page.flipchartPage}`).toBeTruthy();
-      expect(container.querySelector('[data-testid="flipchart-hero-asset"]')?.getAttribute("src")).toBe(
-        `/cartilla/art/faithful/flipchart/flipchart-p${String(page.flipchartPage).padStart(3, "0")}-hero.webp`,
-      );
-      expect(container.querySelector("img")?.getAttribute("src") ?? "").not.toContain("/hd/flipchart/");
+      const images = [...container.querySelectorAll("img")];
+      expect(images.every((img) => !(img.getAttribute("src") ?? "").includes("/hd/flipchart/"))).toBe(true);
+      expect(images.every((img) => !(img.getAttribute("src") ?? "").includes("/delivery/flipchart/"))).toBe(true);
       expect(container.textContent?.trim().length).toBeGreaterThan(0);
+      if (page.flipchartPage > 2) {
+        expect(container.querySelector('[data-testid="flipchart-art-grid"]') || container.querySelector(".fc-native-board__letter-stage")).toBeTruthy();
+      }
       unmount();
     }
   });
@@ -80,7 +82,8 @@ describe("FlipchartHdPanel — CRM-grade presenter board", () => {
       expect(face.getAttribute("data-canonical-src")).toMatch(/\/cartilla\/art\/hd\/flipchart\//);
       expect(face.getAttribute("data-hd")).toBe("true");
       expect(face.querySelector('[data-native-flipchart="true"]')).toBeTruthy();
-      expect(face.querySelector("img")?.getAttribute("src") ?? "").not.toContain("/hd/flipchart/");
+      const images = [...face.querySelectorAll("img")];
+      expect(images.every((img) => !(img.getAttribute("src") ?? "").includes("/hd/flipchart/"))).toBe(true);
     } else {
       expect(screen.getByTestId("flipchart-empty")).toBeTruthy();
     }
