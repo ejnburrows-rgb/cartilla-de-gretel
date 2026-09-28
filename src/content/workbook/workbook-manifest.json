@@ -858,7 +858,7 @@
       "physicalPage": 6,
       "lesson": 2,
       "instruction": "Traza con tu mejor letra.",
-      "background": "/cartilla/images/source/o/o-page-5.jpg",
+      "background": "/cartilla/art/source/workbook/page-006.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/o/o-page-5.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 6"
@@ -1164,7 +1164,7 @@
       "physicalPage": 9,
       "lesson": 3,
       "instruction": "Traza con tu mejor letra.",
-      "background": "/cartilla/images/source/a/a-page-6.jpg",
+      "background": "/cartilla/art/source/workbook/page-009.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/a/a-page-6.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 9"
@@ -1471,7 +1471,7 @@
       "physicalPage": 12,
       "lesson": 4,
       "instruction": "Traza con tu mejor letra.",
-      "background": "/cartilla/images/source/e/e-page-12.jpg",
+      "background": "/cartilla/art/source/workbook/page-012.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/e/e-page-12.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 12"
@@ -1779,7 +1779,7 @@
       "physicalPage": 15,
       "lesson": 5,
       "instruction": "Traza con tu mejor letra.",
-      "background": "/cartilla/images/source/i/i-page-15.jpg",
+      "background": "/cartilla/art/source/workbook/page-015.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/i/i-page-15.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 15"
@@ -2088,7 +2088,7 @@
       "physicalPage": 18,
       "lesson": 6,
       "instruction": "Traza con tu mejor letra.",
-      "background": "/cartilla/images/source/u/u-page-18.jpg",
+      "background": "/cartilla/art/source/workbook/page-018.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/u/u-page-18.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 18"
@@ -2097,7 +2097,7 @@
       "physicalPage": 19,
       "lesson": 7,
       "instruction": "Traza con tu mejor letra.",
-      "background": "/cartilla/images/source/m/m-page-8.jpg",
+      "background": "/cartilla/art/source/workbook/page-019.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/m/m-page-8.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 19"
@@ -2438,7 +2438,7 @@
       "physicalPage": 21,
       "lesson": 7,
       "instruction": "Completa las palabras con la sílaba correcta.",
-      "background": "/cartilla/images/source/m/m-page-10.jpg",
+      "background": "/cartilla/art/source/workbook/page-021.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/m/m-page-10.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 21"
@@ -2447,7 +2447,7 @@
       "physicalPage": 22,
       "lesson": 7,
       "instruction": "",
-      "background": "/cartilla/images/source/m/m-page-11.jpg",
+      "background": "/cartilla/art/source/workbook/page-022.jpg",
       "interaction": {
         "mechanic": "drag",
         "answers": [
@@ -2510,7 +2510,7 @@
       "physicalPage": 23,
       "lesson": 8,
       "instruction": "Traza con tu mejor letra.",
-      "background": "/cartilla/images/source/p/p-page-11.jpg",
+      "background": "/cartilla/art/source/workbook/page-023.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/p/p-page-11.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 23"
@@ -2852,7 +2852,7 @@
       "physicalPage": 25,
       "lesson": 8,
       "instruction": "Completa las palabras con la sílaba correcta.",
-      "background": "/cartilla/images/source/p/p-page-13.jpg",
+      "background": "/cartilla/art/source/workbook/page-025.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/p/p-page-13.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 25"
@@ -2861,7 +2861,7 @@
       "physicalPage": 26,
       "lesson": 8,
       "instruction": "",
-      "background": "/cartilla/images/source/p/p-page-14.jpg",
+      "background": "/cartilla/art/source/workbook/page-026.jpg",
       "interaction": {
         "mechanic": "read",
         "answers": []
@@ -2920,7 +2920,7 @@
       "physicalPage": 27,
       "lesson": 9,
       "instruction": "Traza con tu mejor letra.",
-      "background": "/cartilla/images/source/ss/ss-page-14.jpg",
+      "background": "/cartilla/art/source/workbook/page-027.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/ss/ss-page-14.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 27"
@@ -3259,7 +3259,7 @@
       "physicalPage": 29,
       "lesson": 9,
       "instruction": "Completa las palabras con la sílaba correcta.",
-      "background": "/cartilla/images/source/ss/ss-page-16.jpg",
+      "background": "/cartilla/art/source/workbook/page-029.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/ss/ss-page-16.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 29"
@@ -3268,7 +3268,7 @@
       "physicalPage": 30,
       "lesson": 9,
       "instruction": "",
-      "background": "/cartilla/images/source/ss/ss-page-17.jpg",
+      "background": "/cartilla/art/source/workbook/page-030.jpg",
       "interaction": {
         "mechanic": "read",
         "answers": []
@@ -3330,7 +3330,7 @@
       "physicalPage": 31,
       "lesson": 10,
       "instruction": "Traza con tu mejor letra.",
-      "background": "/cartilla/images/source/t/t-page-17.jpg",
+      "background": "/cartilla/art/source/workbook/page-031.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/t/t-page-17.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 31"
@@ -3669,7 +3669,7 @@
       "physicalPage": 33,
       "lesson": 10,
       "instruction": "Completa las palabras con la sílaba correcta.",
-      "background": "/cartilla/images/source/t/t-page-19.jpg",
+      "background": "/cartilla/art/source/workbook/page-033.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/t/t-page-19.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 33"
@@ -3678,7 +3678,7 @@
       "physicalPage": 34,
       "lesson": 10,
       "instruction": "",
-      "background": "/cartilla/images/source/t/t-page-20.jpg",
+      "background": "/cartilla/art/source/workbook/page-034.jpg",
       "objects": [
         {
           "id": "p34-plain-0",
@@ -3728,7 +3728,7 @@
       "physicalPage": 35,
       "lesson": 11,
       "instruction": "Traza con tu mejor letra.",
-      "background": "/cartilla/images/source/d/d-page-19.jpg",
+      "background": "/cartilla/art/source/workbook/page-035.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/d/d-page-19.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 35"
@@ -4067,7 +4067,7 @@
       "physicalPage": 37,
       "lesson": 11,
       "instruction": "Completa las palabras con la sílaba correcta.",
-      "background": "/cartilla/images/source/d/d-page-21.jpg",
+      "background": "/cartilla/art/source/workbook/page-037.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/d/d-page-21.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 37"
@@ -4076,7 +4076,7 @@
       "physicalPage": 38,
       "lesson": 11,
       "instruction": "",
-      "background": "/cartilla/images/source/d/d-page-22.jpg",
+      "background": "/cartilla/art/source/workbook/page-038.jpg",
       "interaction": {
         "mechanic": "read",
         "answers": []
@@ -4135,7 +4135,7 @@
       "physicalPage": 39,
       "lesson": 12,
       "instruction": "Traza con tu mejor letra.",
-      "background": "/cartilla/images/source/l/l-page-22.jpg",
+      "background": "/cartilla/art/source/workbook/page-039.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/l/l-page-22.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 39"
@@ -4474,7 +4474,7 @@
       "physicalPage": 41,
       "lesson": 12,
       "instruction": "Completa las palabras con la sílaba correcta.",
-      "background": "/cartilla/images/source/l/l-page-24.jpg",
+      "background": "/cartilla/art/source/workbook/page-041.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/l/l-page-24.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 41"
@@ -4483,7 +4483,7 @@
       "physicalPage": 42,
       "lesson": 12,
       "instruction": "",
-      "background": "/cartilla/images/source/l/l-page-25.jpg",
+      "background": "/cartilla/art/source/workbook/page-042.jpg",
       "objects": [
         {
           "id": "p42-plain-0",
@@ -4533,7 +4533,7 @@
       "physicalPage": 43,
       "lesson": 13,
       "instruction": "Traza con tu mejor letra.",
-      "background": "/cartilla/images/source/n/n-page-25.jpg",
+      "background": "/cartilla/art/source/workbook/page-043.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/n/n-page-25.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 43"
@@ -4872,7 +4872,7 @@
       "physicalPage": 45,
       "lesson": 13,
       "instruction": "Completa las palabras con la sílaba correcta.",
-      "background": "/cartilla/images/source/n/n-page-27.jpg",
+      "background": "/cartilla/art/source/workbook/page-045.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/n/n-page-27.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 45"
@@ -4881,7 +4881,7 @@
       "physicalPage": 46,
       "lesson": 13,
       "instruction": "",
-      "background": "/cartilla/images/source/n/n-page-28.jpg",
+      "background": "/cartilla/art/source/workbook/page-046.jpg",
       "interaction": {
         "mechanic": "read",
         "answers": []
@@ -4940,7 +4940,7 @@
       "physicalPage": 47,
       "lesson": 14,
       "instruction": "Traza con tu mejor letra.",
-      "background": "/cartilla/images/source/ñ/ñ-page-28.jpg",
+      "background": "/cartilla/art/source/workbook/page-047.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/ñ/ñ-page-28.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 47"
@@ -5280,7 +5280,7 @@
       "physicalPage": 49,
       "lesson": 14,
       "instruction": "Completa las palabras con la sílaba correcta.",
-      "background": "/cartilla/images/source/ñ/ñ-page-30.jpg",
+      "background": "/cartilla/art/source/workbook/page-049.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/ñ/ñ-page-30.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 49"
@@ -5289,7 +5289,7 @@
       "physicalPage": 50,
       "lesson": 14,
       "instruction": "",
-      "background": "/cartilla/images/source/ñ/ñ-page-31.jpg",
+      "background": "/cartilla/art/source/workbook/page-050.jpg",
       "interaction": {
         "mechanic": "read",
         "answers": []
@@ -5348,7 +5348,7 @@
       "physicalPage": 51,
       "lesson": 15,
       "instruction": "Traza con tu mejor letra.",
-      "background": "/cartilla/images/source/b/b-page-31.jpg",
+      "background": "/cartilla/art/source/workbook/page-051.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/b/b-page-31.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 51"
@@ -5688,7 +5688,7 @@
       "physicalPage": 53,
       "lesson": 15,
       "instruction": "Completa las palabras con la sílaba correcta.",
-      "background": "/cartilla/images/source/b/b-page-33.jpg",
+      "background": "/cartilla/art/source/workbook/page-053.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/b/b-page-33.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 53"
@@ -5697,7 +5697,7 @@
       "physicalPage": 54,
       "lesson": 15,
       "instruction": "",
-      "background": "/cartilla/images/source/b/b-page-39.png",
+      "background": "/cartilla/art/source/workbook/page-054.jpg",
       "interaction": {
         "mechanic": "read",
         "answers": []
@@ -5759,7 +5759,7 @@
       "physicalPage": 55,
       "lesson": 16,
       "instruction": "Traza con tu mejor letra.",
-      "background": "/cartilla/images/source/v/v-page-34.jpg",
+      "background": "/cartilla/art/source/workbook/page-055.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/v/v-page-34.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 55"
@@ -6101,7 +6101,7 @@
       "physicalPage": 57,
       "lesson": 16,
       "instruction": "Completa las palabras con la sílaba correcta.",
-      "background": "/cartilla/images/source/v/v-page-36.jpg",
+      "background": "/cartilla/art/source/workbook/page-057.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/v/v-page-36.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 57"
@@ -6110,7 +6110,7 @@
       "physicalPage": 58,
       "lesson": 16,
       "instruction": "",
-      "background": "/cartilla/images/source/v/v-page-37.jpg",
+      "background": "/cartilla/art/source/workbook/page-058.jpg",
       "interaction": {
         "mechanic": "read",
         "answers": []
@@ -6169,7 +6169,7 @@
       "physicalPage": 59,
       "lesson": 17,
       "instruction": "Traza con tu mejor letra.",
-      "background": "/cartilla/images/source/r/r-page-37.jpg",
+      "background": "/cartilla/art/source/workbook/page-059.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/r/r-page-37.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 59"
@@ -6513,7 +6513,7 @@
       "physicalPage": 61,
       "lesson": 17,
       "instruction": "Completa las palabras con la sílaba correcta.",
-      "background": "/cartilla/images/source/r/r-page-39.jpg",
+      "background": "/cartilla/art/source/workbook/page-061.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/r/r-page-39.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 61"
@@ -6522,7 +6522,7 @@
       "physicalPage": 62,
       "lesson": 17,
       "instruction": "",
-      "background": "/cartilla/images/source/r/r-page-40.jpg",
+      "background": "/cartilla/art/source/workbook/page-062.jpg",
       "interaction": {
         "mechanic": "read",
         "answers": []
@@ -6590,7 +6590,7 @@
       "physicalPage": 63,
       "lesson": 18,
       "instruction": "Traza con tu mejor letra.",
-      "background": "/cartilla/images/source/rr/rr-page-40.jpg",
+      "background": "/cartilla/art/source/workbook/page-063.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/rr/rr-page-40.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 63"
@@ -6930,7 +6930,7 @@
       "physicalPage": 65,
       "lesson": 18,
       "instruction": "Completa las palabras con la sílaba correcta.",
-      "background": "/cartilla/images/source/rr/rr-page-42.jpg",
+      "background": "/cartilla/art/source/workbook/page-065.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/rr/rr-page-42.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 65"
@@ -6939,7 +6939,7 @@
       "physicalPage": 66,
       "lesson": 18,
       "instruction": "",
-      "background": "/cartilla/images/source/rr/rr-page-43.jpg",
+      "background": "/cartilla/art/source/workbook/page-066.jpg",
       "interaction": {
         "mechanic": "read",
         "answers": []
@@ -7004,7 +7004,7 @@
       "physicalPage": 67,
       "lesson": 19,
       "instruction": "Traza con tu mejor letra.",
-      "background": "/cartilla/images/source/g/g-page-43.jpg",
+      "background": "/cartilla/art/source/workbook/page-067.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/g/g-page-43.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 67"
@@ -7343,7 +7343,7 @@
       "physicalPage": 69,
       "lesson": 19,
       "instruction": "Completa las palabras con la sílaba correcta.",
-      "background": "/cartilla/images/source/g/g-page-45.jpg",
+      "background": "/cartilla/art/source/workbook/page-069.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/g/g-page-45.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 69"
@@ -7352,7 +7352,7 @@
       "physicalPage": 70,
       "lesson": 19,
       "instruction": "",
-      "background": "/cartilla/images/source/g/g-page-46.jpg",
+      "background": "/cartilla/art/source/workbook/page-070.jpg",
       "interaction": {
         "mechanic": "read",
         "answers": []
@@ -7418,7 +7418,7 @@
       "physicalPage": 71,
       "lesson": 20,
       "instruction": "Traza con tu mejor letra.",
-      "background": "/cartilla/images/source/f/f-page-46.jpg",
+      "background": "/cartilla/art/source/workbook/page-071.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/f/f-page-46.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 71"
@@ -7757,7 +7757,7 @@
       "physicalPage": 73,
       "lesson": 20,
       "instruction": "Completa las palabras con la sílaba correcta.",
-      "background": "/cartilla/images/source/f/f-page-48.jpg",
+      "background": "/cartilla/art/source/workbook/page-073.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/f/f-page-48.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 73"
@@ -7766,7 +7766,7 @@
       "physicalPage": 74,
       "lesson": 20,
       "instruction": "",
-      "background": "/cartilla/images/source/f/f-page-49.jpg",
+      "background": "/cartilla/art/source/workbook/page-074.jpg",
       "interaction": {
         "mechanic": "read",
         "answers": []
@@ -7829,7 +7829,7 @@
       "physicalPage": 75,
       "lesson": 21,
       "instruction": "Traza con tu mejor letra.",
-      "background": "/cartilla/images/source/j/j-page-49.jpg",
+      "background": "/cartilla/art/source/workbook/page-075.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/j/j-page-49.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 75"
@@ -8168,7 +8168,7 @@
       "physicalPage": 77,
       "lesson": 21,
       "instruction": "Completa las palabras con la sílaba correcta.",
-      "background": "/cartilla/images/source/j/j-page-51.jpg",
+      "background": "/cartilla/art/source/workbook/page-077.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/j/j-page-51.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 77"
@@ -8227,7 +8227,7 @@
       "physicalPage": 79,
       "lesson": 22,
       "instruction": "Traza con tu mejor letra.",
-      "background": "/cartilla/images/source/c/c-page-52.jpg",
+      "background": "/cartilla/art/source/workbook/page-079.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/c/c-page-52.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 79"
@@ -8567,7 +8567,7 @@
       "physicalPage": 81,
       "lesson": 22,
       "instruction": "Completa las palabras con la sílaba correcta.",
-      "background": "/cartilla/images/source/c/c-page-54.jpg",
+      "background": "/cartilla/art/source/workbook/page-081.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/c/c-page-54.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 81"
@@ -8635,7 +8635,7 @@
       "physicalPage": 83,
       "lesson": 23,
       "instruction": "Traza con tu mejor letra.",
-      "background": "/cartilla/images/source/y/y-page-55.jpg",
+      "background": "/cartilla/art/source/workbook/page-083.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/y/y-page-55.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 83"
@@ -8974,7 +8974,7 @@
       "physicalPage": 85,
       "lesson": 23,
       "instruction": "Completa las palabras con la sílaba correcta.",
-      "background": "/cartilla/images/source/y/y-page-57.jpg",
+      "background": "/cartilla/art/source/workbook/page-085.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/y/y-page-57.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 85"
@@ -9045,7 +9045,7 @@
       "physicalPage": 87,
       "lesson": 24,
       "instruction": "Traza con tu mejor letra.",
-      "background": "/cartilla/images/source/z/z-page-58.jpg",
+      "background": "/cartilla/art/source/workbook/page-087.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/z/z-page-58.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 87"
@@ -9384,7 +9384,7 @@
       "physicalPage": 89,
       "lesson": 24,
       "instruction": "Completa las palabras con la sílaba correcta.",
-      "background": "/cartilla/images/source/z/z-page-60.jpg",
+      "background": "/cartilla/art/source/workbook/page-089.jpg",
       "objects": [],
       "status": "mapped",
       "source": "real full-page scan (/cartilla/images/source/z/z-page-60.jpg) used as a temporary fallback — no per-object crops exist yet for tracing/fill-in-blank content on page 89"
