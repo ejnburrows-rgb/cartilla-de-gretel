@@ -20,7 +20,7 @@ Make the new watercolor/paper preservation standard the canonical job-building r
 REQUIRED:
 - locate the actual global prompt/job-builder template used by CAF;
 - replace only the obsolete redesign/3D-reinterpretation instructions;
-- preserve all existing mapping, source, reference, queue, candidate, review, approval, and manifest functionality;
+- preserve all existing mapping, source, reference, queue, candidate, automated validation, and manifest functionality;
 - make Libro geometry/content authoritative;
 - make mapped Flip Chart references purpose-scoped;
 - make style references finish-only;
@@ -71,7 +71,7 @@ Generate only after the cost is known and the correct four inputs are visually c
 After generation:
 - download/save the result;
 - import it into CAF as a candidate for CAF-0002 only;
-- do NOT approve it yet.
+- do not pause for owner approval; proceed directly to source-faithfulness validation and the next executable step.
 
 PASS:
 one real candidate exists and is traceably tied to CAF-0002; no other asset state is changed.
@@ -85,7 +85,7 @@ OUTPUT FILE
 CAF CANDIDATE PROOF
 TRUE PROBLEM
 
-## Prompt 6 — Validate and approve/reject the bear pilot
+## Prompt 6 — Validate and accept/retry the bear pilot automatically
 
 Use the original Libro p.7 bear crop and the generated CAF-0002 candidate side by side.
 PASS ONLY IF:
@@ -103,25 +103,25 @@ Watercolor/paper/relief differences are allowed. Geometry/content changes are no
 
 If FAIL:
 - identify the exact deviation;
-- reject the candidate in CAF;
+- mark the candidate failed in CAF;
 - tighten only the instruction needed to prevent that deviation;
 - regenerate ONE replacement through Nano Banana Pro;
 - repeat comparison until PASS or a proven external limitation exists.
 
 If PASS:
-- approve CAF-0002 in CAF;
-- verify Approved/manifest state is internally consistent;
+- mark CAF-0002 validated in CAF without waiting for owner approval;
+- verify validated/current manifest state is internally consistent;
 - preserve the accepted file as the production master.
 
 RETURN ONLY:
 STATUS
 SIDE-BY-SIDE FINDINGS
 FIXES / REGENERATION IF ANY
-APPROVAL PROOF
+VALIDATION PROOF
 FINAL PRODUCTION FILE
 TRUE BLOCKER
 
-## Prompt 7 — Generate, validate, and approve the elephant pilot
+## Prompt 7 — Generate, validate, and accept the elephant pilot automatically
 
 Proceed only after CAF-0002 is PASS.
 
@@ -144,13 +144,13 @@ The elephant must remain the exact original drawing:
 Only watercolor/paper/color/depth/clarity finish may change.
 
 Reject/regenerate until PASS if necessary.
-Then approve CAF-0003 and verify manifest consistency.
+Then mark CAF-0003 validated/current and verify manifest consistency. Do not wait for owner approval.
 
 RETURN ONLY:
 STATUS
 GENERATION PROOF
 SIDE-BY-SIDE VALIDATION
-APPROVAL PROOF
+VALIDATION PROOF
 FINAL PRODUCTION FILE
 TRUE BLOCKER
 
@@ -206,24 +206,24 @@ No candidate advances because it merely looks attractive. It advances only when 
 For each asset:
 GENERATE ONE → IMPORT CANDIDATE → SIDE-BY-SIDE VALIDATE → REJECT/RETRY OR APPROVE → VERIFY MANIFEST → NEXT.
 Do not mass-generate unverified candidates.
-Do not approve automatically.
+Do not bypass source-faithfulness validation, but do not wait for owner approval.
 Track actual Flow credits consumed.
 
 PASS:
-all eligible inventory assets have an approved production master, or the exact external blocker for a specific asset is proven.
+all eligible inventory assets have a validated production master, or the exact external blocker for a specific asset is proven.
 
 RETURN ONLY:
 STATUS
 BATCH COMPLETED
-APPROVED COUNT / TOTAL
+VALIDATED COUNT / TOTAL
 REJECTED-REGENERATED COUNT
 CREDITS USED
 TRUE REMAINING BLOCKERS
 
 ## Prompt 10 — Final CAF reconciliation and production manifest
 
-After all artwork is approved:
-- verify every approved asset has one current production master;
+After all artwork is validated:
+- verify every validated asset has one current production master;
 - verify no rejected/test candidate remains falsely APPROVED or EXPORTED;
 - verify every manifest entry maps to the correct CAF ID and Libro page;
 - verify source/ref/job/candidate/approved lineage;
@@ -232,7 +232,7 @@ After all artwork is approved:
 - export the final production manifest/package only after reconciliation.
 
 PASS:
-CAF is internally truth-consistent and the exported package contains only current approved assets.
+CAF is internally truth-consistent and the exported package contains only current validated assets.
 
 RETURN ONLY:
 STATUS
@@ -242,7 +242,7 @@ EXCLUDED/STALE ARTIFACT PROOF
 FINAL PACKAGE
 TRUE BLOCKERS
 
-## Prompt 11 — Integrate approved optimized assets into Cartilla without changing the workbook design
+## Prompt 11 — Integrate validated optimized assets into Cartilla without changing the workbook design
 Use the actual Cartilla repo and existing artwork wiring.
 
 GOAL:
@@ -262,7 +262,7 @@ Work in small verified batches.
 After each batch, visually compare rendered pages to the source workbook and verify that only illustration finish improved.
 
 PASS:
-all approved assets are wired to the intended pages/slots with no layout regressions or missing art.
+all validated assets are wired to the intended pages/slots with no layout regressions or missing art.
 
 RETURN ONLY:
 STATUS
@@ -277,7 +277,7 @@ Run final end-to-end QA only after integration is complete.
 
 VERIFY:
 - all relevant workbook pages load;
-- approved optimized art appears in the correct locations;
+- validated optimized art appears in the correct locations;
 - no old/generated-invalid substitute art remains;
 - no cropped limbs/props/faces;
 - no page-layout shifts;
@@ -296,4 +296,58 @@ STATUS
 WHAT CHANGED
 RAW/VISIBLE PROOF
 PRODUCTION VERIFICATION
+TRUE REMAINING BLOCKERS
+
+
+## Prompt 13 — Rebuild the Flip Chart as native e-learning classroom presentation
+
+Proceed directly. There is **no owner-approval gate**.
+
+GOAL:
+Replace the visible teacher Flip Chart experience with a native, polished e-learning/classroom presentation. The original 62-page PDF/JPG scans remain source/reference/fallback evidence only; they are not the finished visual surface.
+
+USE:
+- the authoritative 62-page Flip Chart;
+- `src/data/teacher-flipchart.json`;
+- `src/data/flipchart-text-3-22.json`, `flipchart-text-23-42.json`, and `flipchart-text-43-62.json`;
+- the existing Workbook ↔ Flip Chart mapping;
+- every high-quality Flip Chart-only asset already generated in ChatGPT/Library;
+- the canonical Gretel 2.0 / modernized Cartilla visual standard.
+
+REQUIRED:
+- import every already-generated Flip Chart-only image asset into the repository with stable descriptive filenames;
+- map each asset to its exact Flip Chart page and slot;
+- finish the remaining Flip Chart-only assets under the same visual standard;
+- recreate page structure with native HTML/React/SVG/CSS: real editable text, clean lesson typography, responsive placement, and high-resolution standalone artwork;
+- preserve original curriculum, wording, educational meaning, object count, characters, composition relationships, and page/lesson sequence;
+- use the old full-page scan only when a specific page/region has not yet been faithfully reconstructed;
+- do not ship a completed page as a photographed/scanned full-page image;
+- do not ask Emilio to approve images or pages before continuing;
+- do not treat legacy `approvalStatus` metadata as a blocker;
+- run automated/source-faithfulness checks, visual checks, build/tests, deployment, and live production verification continuously.
+
+E-LEARNING PRESENTATION:
+- projection-ready 16:9/large-screen stage where practical;
+- clear hierarchy for lesson letter/syllables, vocabulary, rhyme/story text, and illustration;
+- subtle motion/interactivity only where it improves teaching and does not alter the source artwork;
+- responsive tablet/desktop behavior;
+- no PDF-reader chrome, photographed bindings, scan shadows, page-edge artifacts, or low-resolution text baked into images.
+
+PASS:
+- all 62 pages are accounted for;
+- completed pages render natively rather than as full-page source scans;
+- high-quality standalone artwork is used in the correct slots;
+- text is digital/selectable where source text exists;
+- no lesson content is invented or omitted;
+- production build/tests pass;
+- the deployed teacher Flip Chart is visually verified page-by-page or by complete automated coverage plus targeted visual sampling;
+- NBO-5 is closed only after live production proof.
+
+RETURN ONLY:
+STATUS
+PAGES RECREATED / 62
+ASSETS IMPORTED / TOTAL
+SOURCE-FIDELITY CHECK
+BUILD / TEST PROOF
+LIVE PRODUCTION PROOF
 TRUE REMAINING BLOCKERS
