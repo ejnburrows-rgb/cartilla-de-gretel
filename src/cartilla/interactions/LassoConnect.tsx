@@ -7,7 +7,7 @@
  * dashed line, single <line>, or rubber-band string.
  */
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { getGretelPose } from "@/components/gretel/gretelPoses";
+import { GretelLayerRig } from "@/components/gretel/GretelLayerRig";
 import { speakGretelPhrase } from "@/lib/gretel-tts";
 import { gretelEvent } from "@/lib/gretel-bus";
 import { playCorrectChord, playWrongBuzz } from "@/lib/piano-audio";
@@ -506,13 +506,6 @@ export function LassoConnect({
     });
   };
 
-  const poseSrc =
-    pose === "cheer"
-      ? getGretelPose("cheering")
-      : pose === "talk"
-        ? getGretelPose("talking")
-        : getGretelPose("idle");
-
   const isLinked = (id: string) => links.some((l) => l.a === id || l.b === id);
 
   return (
@@ -529,7 +522,13 @@ export function LassoConnect({
           className={`am-lasso__gretel${winding ? " is-winding" : ""}${pose === "cheer" ? " is-cheer" : ""}`}
         >
           <div className="am-lasso__shadow" aria-hidden />
-          <img src={poseSrc} alt="Gretel" className="am-lasso__gretel-img" draggable={false} />
+          <div className="am-lasso__gretel-img relative" role="img" aria-label="Gretel">
+            <GretelLayerRig
+              state={pose === "cheer" ? "cheering" : pose === "talk" ? "teaching" : "idle"}
+              speaking={pose === "talk"}
+              paused={Boolean(reducedMotion)}
+            />
+          </div>
           {/* Rope coil prop in hand */}
           <svg className="am-lasso__coil" viewBox="0 0 40 40" aria-hidden>
             <defs>
