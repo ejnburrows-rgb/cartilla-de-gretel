@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { GretelLayerRig } from "@/components/gretel/GretelLayerRig";
 
 const ACKNOWLEDGEMENT = [
   "A mi hija Nora Bethsy, a mis sobrinas Sofía M. Destefano y Alexa G. Flores, a todos los niños que estudian español.",
@@ -35,13 +36,8 @@ export function FlipchartFrontmatter({
             La Cartilla<br />de Gretel
           </div>
         </div>
-        <div className="absolute bottom-[13%] left-[23%] w-[52%]">
-          <img
-            src="/cartilla/images/gretel/poses/gretel-idle.webp"
-            alt=""
-            draggable={false}
-            className="mx-auto max-h-[64vh] w-auto object-contain drop-shadow-xl"
-          />
+        <div className="absolute bottom-[10%] left-[26%] h-[62%] w-[46%]" aria-hidden>
+          <GretelLayerRig state="idle" paused />
         </div>
         <div className="absolute bottom-[4%] left-0 right-0 text-center font-bold text-stone-700" style={{ fontSize: "clamp(1rem, 2.5vw, 2.2rem)" }}>
           Autora: Leonor Lopetegui
