@@ -100,4 +100,5 @@ function PresentarLesson() {
         <FlipchartHdPanel key={n} lessonNumber={n} accentColor={accentColor} />
       </TeacherPresentationShell>
     </>
+  );
 }
