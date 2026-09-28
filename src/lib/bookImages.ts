@@ -1,113 +1,61 @@
 /**
- * Central image resolver and fallback chain for workbook pages.
+ * Central resolver for the repository-controlled workbook source pages.
  *
- * Fallback sequence:
- *   1. HD colorized art (/cartilla/art/hd/workbook/page-NNN.{png,jpg})
- *   2. Clean transparent lineart (/cartilla/art/hd/lineart/<page>.png)
- *   3. Raw source scan (/cartilla/images/source/<page>.jpg)
- *
- * HARD RULE: Never replace or alter source images. Always degrade gracefully.
+ * The public release no longer points at deleted external HD/restored hosts.
+ * Native lesson pages are the primary product surface; these images are
+ * source/provenance and a graceful fallback for legacy/dev readers.
  */
 import { getFullWorkbookPages } from "./book-faithful";
 
-const COLOR_SCAN_COUNT = 92;
-
-/**
- * Pages whose restored (pixel-cleaned, acceptance-tested) art is committed
- * under /cartilla/art/restored/workbook/. Extended batch by batch
- * (art/restore-<batch> PRs). Restoration CLEANS, never INVENTS — every file
- * here passed the overlay/edge-drift acceptance test (see AGENTS.md).
- */
-const RESTORED_PAGE_EXT: ReadonlyMap<number, "png" | "jpg"> = new Map(
-  Array.from({ length: 90 }, (_, i) => {
-    const page = i + 1;
-    // Restored output mirrors each source slot's format: pages 1-44 have png
-    // sources, 45+ exist only as jpg.
-    return [page, page <= 44 ? "png" : "jpg"] as const;
-  }),
-);
-
-/**
- * Returns the restored art path for a page, or null if the page has no
- * committed restored file yet.
- */
-export function getRestoredPageImage(pageNumber: number): string | null {
-  const ext = RESTORED_PAGE_EXT.get(pageNumber);
-  if (ext) {
-    return `/cartilla/art/restored/workbook/page-${zeroPad(pageNumber)}.${ext}`;
-  }
-  return null;
-}
+const WORKBOOK_PAGE_COUNT = 90;
 
 function zeroPad(n: number): string {
   return String(n).padStart(3, "0");
 }
 
-/**
- * Returns the primary HD workbook page image path.
- */
+/** Legacy API retained for callers; restored external-host paths are retired. */
+export function getRestoredPageImage(_pageNumber: number): string | null {
+  return null;
+}
+
+/** Stable repository-controlled source page path. */
 export function getBookPageImage(pageNumber: number): string | null {
-  if (pageNumber >= 1 && pageNumber <= COLOR_SCAN_COUNT) {
-    return `/cartilla/art/hd/workbook/page-${zeroPad(pageNumber)}.png`;
+  if (pageNumber >= 1 && pageNumber <= WORKBOOK_PAGE_COUNT) {
+    return `/cartilla/art/source/workbook/page-${zeroPad(pageNumber)}.jpg`;
   }
   return null;
 }
 
-/**
- * Derives the clean transparent lineart path from a source scan reference.
- */
 export function getLineartPathFromSource(sourcePath?: string | null): string | null {
   if (!sourcePath) return null;
   const clean = sourcePath.replace(/^\//, "");
-  if (clean.startsWith("cartilla/art/hd/lineart/")) {
-    return `/${clean}`;
-  }
-  const parts = clean.split("/");
-  const filename = parts[parts.length - 1];
-  if (!filename) return null;
-  const base = filename.replace(/\.[^/.]+$/, "");
-  return `/cartilla/art/hd/lineart/${base}.png`;
+  if (clean.startsWith("cartilla/art/hd/lineart/")) return `/${clean}`;
+  return null;
 }
 
 /**
- * Returns an ordered fallback chain of asset paths for a student workbook page:
- *   1. HD colorized art
- *   2. Clean transparent lineart
- *   3. Raw source scan
+ * Ordered fallback chain for a workbook source page.
+ * Native structured content renders before this path is needed.
  */
 export function getWorkbookPageFallbackChain(
   pageNumber: number,
   sourceScanPath?: string | null,
 ): string[] {
+  const safePage = Math.max(1, Math.min(pageNumber, WORKBOOK_PAGE_COUNT));
   const chain: string[] = [];
-  const safePage = Math.max(1, Math.min(pageNumber, 95));
-  const padded = zeroPad(safePage);
 
-  // 0. Restored art (pixel-cleaned, acceptance-tested) when committed
-  const restored = getRestoredPageImage(safePage);
-  if (restored) {
-    chain.push(restored);
-  }
+  const repositorySource = getBookPageImage(safePage);
+  if (repositorySource) chain.push(repositorySource);
 
-  // 1. HD colorized art
-  chain.push(`/cartilla/art/hd/workbook/page-${padded}.png`);
-  chain.push(`/cartilla/art/hd/workbook/page-${padded}.jpg`);
-  chain.push(`/cartilla/art/color/workbook/page-${padded}.png`);
-
-  // Resolve source scan reference if not explicitly passed
   let resolvedSource = sourceScanPath;
   if (!resolvedSource) {
-    const found = getFullWorkbookPages().find((p) => p.page === safePage);
+    const found = getFullWorkbookPages().find((page) => page.page === safePage);
     resolvedSource = found?.imageScanReference ?? null;
   }
 
-  // 2. Clean transparent lineart
   const lineartPath = getLineartPathFromSource(resolvedSource);
-  if (lineartPath) {
-    chain.push(lineartPath);
-  }
+  if (lineartPath) chain.push(lineartPath);
 
-  // 3. Raw source scan
   if (resolvedSource) {
     const rawPath = resolvedSource.startsWith("/") ? resolvedSource : `/${resolvedSource}`;
     chain.push(rawPath);
