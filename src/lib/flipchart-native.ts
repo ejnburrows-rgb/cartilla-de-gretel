@@ -180,12 +180,15 @@ function classify(items: FlipchartTextItem[]) {
   }
 
   const rest = remainder.filter((item) => !syllableParts.has(item));
-  const lower = rest.filter(
-    (item) =>
-      item.y >= 420 &&
-      item.fontSize >= 30 &&
-      !/\s/.test(item.text.trim()),
-  );
+  const isStoryPage = storyTitle.length > 0;
+  const lower = isStoryPage
+    ? []
+    : rest.filter(
+        (item) =>
+          item.y >= 340 &&
+          item.fontSize >= 30 &&
+          !/\s/.test(item.text.trim()),
+      );
   const body = rest.filter((item) => !lower.includes(item));
   const narrativeLines: FlipchartTextItem[] = [];
 
