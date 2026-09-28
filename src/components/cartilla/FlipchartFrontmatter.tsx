@@ -46,8 +46,13 @@ export function FlipchartFrontmatter({
         <div className="absolute bottom-[4%] left-0 right-0 text-center font-bold text-stone-700" style={{ fontSize: "clamp(1rem, 2.5vw, 2.2rem)" }}>
           Autora: Leonor Lopetegui
         </div>
-        <div className="absolute left-[8%] top-[35%] text-[clamp(2rem,5vw,4.8rem)]" aria-hidden>🦋</div>
-        <div className="absolute bottom-[12%] left-[6%] text-[clamp(2rem,5vw,4.4rem)]" aria-hidden>🌺</div>
+        <div className="fc-frontmatter__butterfly" aria-hidden>
+          <span />
+          <span />
+        </div>
+        <div className="fc-frontmatter__flower" aria-hidden>
+          <i /><i /><i /><i /><b />
+        </div>
       </div>
     );
   }
