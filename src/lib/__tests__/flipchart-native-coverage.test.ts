@@ -29,6 +29,18 @@ describe("native Flip Chart coverage", () => {
     }
   });
 
+  it("keeps split reading sentences as prose instead of vocabulary chips", () => {
+    for (const pageNumber of [25, 28, 31, 34]) {
+      const page = getNativeFlipchartPage(pageNumber);
+      expect(page).toBeTruthy();
+      expect(
+        page?.words.some((word) => word.parts.join("").replace(/\s+/g, "").length > 18),
+        `long reading sentence leaked into vocabulary on page ${pageNumber}`,
+      ).toBe(false);
+      expect(page?.body.some((line) => line.text.includes(" "))).toBe(true);
+    }
+  });
+
   it("preserves typography-only source plates without inventing unrelated art", () => {
     const page22 = getNativeFlipchartPage(22);
     expect(page22?.compositionKind).toBe("typography-only");
