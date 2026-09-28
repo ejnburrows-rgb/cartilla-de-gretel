@@ -74,21 +74,34 @@ for (const [page, assets] of Object.entries(nativeFlipchartAssets)) {
   }
 }
 
-const gretelRequired = [
-  "gretel-idle.webp",
-  "gretel-closed-idle.webp",
-  "gretel-talk-0.webp",
-  "gretel-talk.webp",
-  "gretel-wave-1.webp",
-  "gretel-point.webp",
-  "gretel-point-left.webp",
-  "gretel-cheer.webp",
-];
-
-for (const file of gretelRequired) {
+const gretelRigSource = fs.readFileSync(
+  path.join(srcDir, "components", "gretel", "GretelLayerRig.tsx"),
+  "utf8",
+);
+const gretelMachineSource = fs.readFileSync(
+  path.join(srcDir, "components", "gretel", "gretelMachine.ts"),
+  "utf8",
+);
+for (const part of ["head", "eyes", "pupils", "eyelids", "mouth", "torso", "left-arm", "right-arm"]) {
   assert(
-    exists(`public/cartilla/images/gretel/poses/${file}`),
-    `missing canonical Gretel rig frame ${file}`,
+    gretelRigSource.includes(`data-rig-part="${part}"`),
+    `Gretel SVG rig is missing independent part ${part}`,
+  );
+}
+assert(gretelRigSource.includes('data-gretel-rig="svg"'), "Gretel must use the vector rig");
+assert(!gretelRigSource.includes("<img"), "Gretel rig must not fall back to raster pose swapping");
+for (const state of ["listening", "teaching", "help", "gentle-error", "cheering"]) {
+  assert(gretelMachineSource.includes(`"${state}"`), `Gretel state machine is missing ${state}`);
+}
+
+const livingRegistrySource = fs.readFileSync(
+  path.join(srcDir, "lib", "living-actor-registry.ts"),
+  "utf8",
+);
+for (const part of ["wings", "tail", "ears", "trunk"]) {
+  assert(
+    livingRegistrySource.includes(`name: "${part}"`),
+    `living-art registry is missing independent ${part} motion`,
   );
 }
 
@@ -120,6 +133,7 @@ console.log(JSON.stringify({
   flipchartNativeRegistry: "62/62",
   flipchartCanonicalMasters: "62/62",
   flipchartSurface: "62/62 native boards; pages 1-2 native frontmatter; pages 3-62 separate faithful learning objects",
-  gretelRigFrames: gretelRequired.length,
-  cinematics: "welcome + how-to + 24 lessons + milestones + final",
+  gretelRig: "vector-part rig with head/eyes/eyelids/pupils/mouth/torso/independent arms",
+  livingArt: "semantic registry with independent wings/tails/ears/trunk and reduced-motion policy",
+  cinematics: "31 scenes: welcome + how-to + 24 lessons + 4 milestones + final",
 }, null, 2));
