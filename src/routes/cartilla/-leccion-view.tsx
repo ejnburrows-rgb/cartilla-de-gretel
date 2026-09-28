@@ -34,10 +34,8 @@ export function Leccion() {
   const session = useStudentSession();
   const entry = useMemo<CatalogEntry | undefined>(() => CATALOG.find((e) => e.n === n), [n]);
 
-  // Build page array from page-inventory.json for this specific lesson —
-  // real book pages, rendered via FaithfulPageRenderer (book-faithful text +
-  // art + tracing/exercises), unchanged. Only the flip-book presentation
-  // shell around them changed (see SimplePageViewer).
+  // Build this lesson from the canonical structured workbook page data.
+  // All instructional pages render through the native learning surface.
   const pages = useMemo(() => buildPageArray(n), [n]);
 
   const fetchAssignments = useServerFn(listMyAssignments);
@@ -220,8 +218,7 @@ export function Leccion() {
           </div>
         </div>
 
-        {/* The lesson IS the book's own pages, one at a time, in order — no
-            invented sections/tabs/screens around them (locked canon 7/9). */}
+        {/* Native workbook pages remain in the canonical lesson order. */}
         <div className="w-full">
           {progressReady && showIntro && (
             <GretelCinematic
@@ -249,11 +246,9 @@ export function Leccion() {
             )}
           </GardenScene>
 
-          {/* Placement preview — Lección 1 only, see comment near the top of
-              this file. Owner reviews this before any wider rollout. */}
         </div>
       </main>
-      {/* Completion controls follow the reader so they cannot cover a page. */}
+      {/* Completion controls never cover the learning page. */}
     </div>
   );
 }
