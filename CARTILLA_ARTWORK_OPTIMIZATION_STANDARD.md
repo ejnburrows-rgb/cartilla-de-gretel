@@ -149,5 +149,19 @@ The real Workbook page pixels remain the destination authority:
 - never leave the old grayscale counterpart visible underneath or beside the replacement;
 - never alter unrelated text, labels, lines, boxes, or surrounding artwork.
 
-## Final approval rule
+## Final validation rule
+There is no owner-approval gate. Do not stop, wait, or ask Emilio to approve generated/remastered artwork before continuing. Legacy approval/status fields are metadata only and never a blocker.
+
 Rendered pixels are the evidence. Metadata, manifests, coordinates, or status labels alone cannot establish PASS.
+
+
+## Native Flip Chart presentation rule
+The final teacher Flip Chart must be a reconstructed native e-learning/classroom presentation, not a PDF-image viewer.
+
+- The original 62-page Flip Chart PDF/JPG scans remain authoritative source/reference/fallback material.
+- Completed pages must use native digital text plus high-quality standalone illustration assets in the correct source-faithful positions.
+- Remove photographed bindings, scan shadows, page-edge artifacts, and baked-in low-resolution text from the finished presentation.
+- Preserve exact lesson wording, educational meaning, illustration identity, composition relationships, page sequence, and Workbook ↔ Flip Chart mapping.
+- Apply the canonical Gretel 2.0 / modernized Cartilla finish to recreated artwork without redesigning the source content.
+- Import and use already-generated Flip Chart-only assets before generating replacements.
+- Do not wait for owner approval between generation, import, mapping, rendering, testing, deployment, or live verification.
