@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { FlipchartFrontmatter } from "@/components/cartilla/FlipchartFrontmatter";
-import { flipchartSlotAssetSrc, getNativeFlipchartPage } from "@/lib/flipchart-native";
+import { getNativeFlipchartPage } from "@/lib/flipchart-native";
+import { LivingIllustration } from "@/components/living/LivingIllustration";
 import type { FlipchartPage } from "@/lib/flipchart-hd";
 
 const WORD_ACCENTS = ["#bb0733", "#1d6f42", "#1a4fa0", "#b06a00", "#6b3fa0", "#0e7d7d"];
@@ -17,11 +18,10 @@ export function FlipchartNativeBoard({
   onReady?: () => void;
 }) {
   const native = getNativeFlipchartPage(page.flipchartPage);
-  const [heroFailed, setHeroFailed] = useState(false);
 
   useEffect(() => {
-    setHeroFailed(false);
-  }, [page.flipchartPage]);
+    if (page.flipchartPage > 2) onReady?.();
+  }, [onReady, page.flipchartPage]);
 
   if (page.flipchartPage === 1 || page.flipchartPage === 2) {
     return (
@@ -35,8 +35,6 @@ export function FlipchartNativeBoard({
 
   if (!native) return null;
 
-  const heroSlot = native.slots[0]!;
-  const heroSrc = flipchartSlotAssetSrc(heroSlot);
   const titleText = native.title.map((item) => item.text.trim()).filter(Boolean).join(" ");
   const bodyLines = native.body.filter((item) => item.text.trim().length > 0);
   const maxBody = bodyLines.reduce((max, item) => Math.max(max, item.fontSize), 1);
@@ -68,28 +66,36 @@ export function FlipchartNativeBoard({
       <div className="fc-native-board__grid">
         <section
           className="fc-native-board__art"
-          data-slot={heroSlot}
-          aria-label={decorative ? undefined : `Ilustración de la lámina ${page.flipchartPage}`}
+          aria-label={decorative ? undefined : `Ilustraciones de la lámina ${page.flipchartPage}`}
         >
-          {!heroFailed ? (
-            <img
-              className="fc-native-board__hero"
-              src={heroSrc}
-              alt={decorative ? "" : `Ilustración — ${titleText || `lámina ${page.flipchartPage}`}`}
-              loading={decorative ? "lazy" : "eager"}
-              decoding="async"
-              draggable={false}
-              onLoad={onReady}
-              onError={() => {
-                setHeroFailed(true);
-                onReady?.();
-              }}
-              data-testid="flipchart-hero-asset"
-            />
+          {native.art.length > 0 ? (
+            <div
+              className="fc-native-board__art-grid"
+              data-testid="flipchart-art-grid"
+              data-art-count={native.art.length}
+            >
+              {native.art.map((asset, index) => (
+                <figure
+                  key={asset.src}
+                  className="fc-native-board__art-card"
+                  style={{ ["--fc-art-index" as string]: index }}
+                >
+                  <LivingIllustration
+                    src={asset.src}
+                    alt={decorative ? "" : asset.word}
+                    static={decorative}
+                    loading={decorative ? "lazy" : "eager"}
+                    className="fc-native-board__living-art"
+                  />
+                  {!decorative && (
+                    <figcaption className="fc-native-board__art-label">{asset.word}</figcaption>
+                  )}
+                </figure>
+              ))}
+            </div>
           ) : (
-            <div className="fc-native-board__missing-art" role={decorative ? undefined : "status"}>
-              <span aria-hidden>✦</span>
-              <strong>Ilustración en preparación</strong>
+            <div className="fc-native-board__letter-stage" aria-hidden={decorative || undefined}>
+              <span>{titleText.slice(0, 2) || "Aa"}</span>
             </div>
           )}
         </section>
