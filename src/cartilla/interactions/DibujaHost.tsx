@@ -89,8 +89,11 @@ export function DibujaHost({
     const prev = canvas.toDataURL("image/png");
     canvas.width = Math.max(1, Math.floor(rect.width * dpr));
     canvas.height = Math.max(1, Math.floor(rect.height * dpr));
-    canvas.style.width = `${rect.width}px`;
-    canvas.style.height = `${rect.height}px`;
+    // Keep the bitmap sharp at the current rendered size, but leave CSS sizing
+    // responsive so a desktop measurement never freezes the canvas wider than
+    // its container on mobile.
+    canvas.style.width = "100%";
+    canvas.style.height = "100%";
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);

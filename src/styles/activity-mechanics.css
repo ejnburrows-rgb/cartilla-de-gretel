@@ -228,6 +228,8 @@
   display: flex;
   flex-direction: column;
   gap: 0.55rem;
+  min-width: 0;
+  max-width: 100%;
 }
 .am-dibuja__header {
   display: flex;
@@ -284,9 +286,13 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  min-width: 0;
+  max-width: 100%;
 }
 .am-dibuja__paper {
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
   min-height: 160px;
   aspect-ratio: 5 / 3;
   border-radius: 16px;
@@ -299,6 +305,7 @@
 }
 .am-dibuja__canvas {
   width: 100%;
+  max-width: 100%;
   height: 100%;
   display: block;
   touch-action: none;

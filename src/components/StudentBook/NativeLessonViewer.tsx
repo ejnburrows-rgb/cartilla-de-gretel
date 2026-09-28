@@ -7,9 +7,10 @@ import "@/styles/native-lesson.css";
 /** One readable, scrollable learning page at a time, retaining the book's
  * page events and the caller's existing student progress persistence. */
 export function NativeLessonViewer({
-  pages, initialPage = 0, onPageChange, bookCompanion, onFinish,
+  pages, chapterLabel, initialPage = 0, onPageChange, bookCompanion, onFinish,
 }: {
   pages: WorkbookPageEntry[];
+  chapterLabel: string;
   initialPage?: number;
   onPageChange?: (index: number) => void;
   bookCompanion?: React.ReactNode;
@@ -45,7 +46,7 @@ export function NativeLessonViewer({
   return (
     <section className="native-lesson-viewer" aria-label="Página de aprendizaje" data-native-page={page.pageNumber}>
       <div className="native-lesson-viewer__topline">
-        <span className="native-lesson-viewer__chapter">Lección 7 · Mm</span>
+        <span className="native-lesson-viewer__chapter">{chapterLabel}</span>
         <span className="native-lesson-viewer__page">Página {page.pageNumber} · {index + 1} de {pages.length}</span>
       </div>
       <div className="native-lesson-viewer__progress" role="progressbar" aria-valuenow={index + 1} aria-valuemin={1} aria-valuemax={pages.length} aria-label="Progreso de páginas">

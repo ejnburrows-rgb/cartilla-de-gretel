@@ -46,6 +46,7 @@ export function Leccion() {
   const { n: nParam } = useParams({ from: "/cartilla/leccion/$n" });
   const navigate = useNavigate();
   const n = Number(nParam);
+  const isNativeLesson = n === 7 || n === 8;
   const { isCompleted } = useLessonProgress();
   const session = useStudentSession();
   const entry = useMemo<CatalogEntry | undefined>(() => CATALOG.find((e) => e.n === n), [n]);
@@ -227,7 +228,7 @@ export function Leccion() {
             invented sections/tabs/screens around them (locked canon 7/9). */}
         <div className="w-full">
           <GardenScene ref={gardenRef}>
-            {!session && n !== 7 && (
+            {!session && !isNativeLesson && (
               <div className="fixed top-4 left-4 z-[200]">
                 <Link
                   to="/cartilla/lecciones"
@@ -237,8 +238,16 @@ export function Leccion() {
                 </Link>
               </div>
             )}
-            {progressReady && (n === 7 ? (
-              <NativeLessonViewer key={n} pages={pages} initialPage={initialPage} onPageChange={handlePageChange} onFinish={goNext} bookCompanion={bookCompanion} />
+            {progressReady && (isNativeLesson ? (
+              <NativeLessonViewer
+                key={n}
+                pages={pages}
+                chapterLabel={`${t.leccion[lang]} ${n} · ${entry.kind === "consonant" ? `${entry.letter.toUpperCase()}${entry.letter}` : entry.title}`}
+                initialPage={initialPage}
+                onPageChange={handlePageChange}
+                onFinish={goNext}
+                bookCompanion={bookCompanion}
+              />
             ) : (
               <CurlPageViewer key={n} pages={pages} initialPage={initialPage} onPageChange={handlePageChange} accent={entry.color} bookCompanion={bookCompanion} />
             ))}
@@ -262,7 +271,7 @@ export function Leccion() {
         </div>
       </main>
       {/* Completion controls follow the reader so they cannot cover a page. */}
-      {n !== 7 && <nav className="relative z-10 w-full p-3 bg-background/95 border-t-2 border-foreground/10">
+      {!isNativeLesson && <nav className="relative z-10 w-full p-3 bg-background/95 border-t-2 border-foreground/10">
         <div className="max-w-3xl mx-auto flex items-center justify-between gap-3">
           <KidButton
             variant="outline"

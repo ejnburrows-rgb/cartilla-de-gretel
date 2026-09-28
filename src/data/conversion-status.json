@@ -10,7 +10,7 @@
   ],
   "notes": [
     "The separate 90-page workbook manifest disagrees with lesson-exercises/lesson-07.ts about Lesson 7 numbering; the actual student route uses page-layouts.json pages 19–22.",
-    "Pages 19–22 use the native student route and were compared with the original scans at 1280, 820, and 390 pixels; no page is animation certified.",
+    "Pages 19–26 use the native student route. Lessons 7 and 8 have been rendered and interaction-checked in the native shell; no page is animation certified.",
     "Missing source scans in this checkout remain recorded as references; do not silently substitute unrelated artwork."
   ],
   "pages": [
@@ -726,7 +726,7 @@
         "Traza con tu mejor letra.",
         "Haz un dibujo que represente una palabra que comienza con p."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -754,7 +754,7 @@
       "gretelGuidance": [
         "Presiona la sílaba correspondiente."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -783,7 +783,7 @@
         "Completa las palabras con la sílaba correcta.",
         "Escribe oraciones. Usa las sílabas que aprendiste."
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {
@@ -804,7 +804,7 @@
       "gretelGuidance": [
         "Pp"
       ],
-      "status": "STRUCTURED_PARTIAL",
+      "status": "NATIVE_COMPLETE",
       "certification": null
     },
     {

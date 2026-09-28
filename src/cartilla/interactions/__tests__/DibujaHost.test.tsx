@@ -106,6 +106,13 @@ describe("DibujaHost — dual mode", () => {
     expect(screen.getByLabelText(/Área para dibujar/i)).toBeTruthy();
   });
 
+  it("draw canvas keeps responsive CSS sizing instead of freezing a desktop pixel width", () => {
+    render(<DibujaHost pageKey="responsive" pickOptions={picks} initialMode="draw" lessonId="8" />);
+    const canvas = screen.getByLabelText(/Área para dibujar/i) as HTMLCanvasElement;
+    expect(canvas.style.width).toBe("100%");
+    expect(canvas.style.height).toBe("100%");
+  });
+
   it("toggle switches both ways", () => {
     render(<DibujaHost pageKey="d3" pickOptions={picks} initialMode="draw" lessonId="2" />);
     fireEvent.click(screen.getByRole("button", { name: /Elegir el dibujo/i }));
