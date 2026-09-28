@@ -21,6 +21,9 @@ export type GretelPerformanceAction =
   | "point-left"
   | "point-right"
   | "listen"
+  | "teach"
+  | "help"
+  | "gentle-error"
   | "celebrate"
   | "exit";
 
@@ -116,7 +119,7 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
 
     const encourage = useCallback(async () => {
       const text = ENCOURAGEMENTS[Math.floor(Math.random() * ENCOURAGEMENTS.length)]!;
-      send({ type: "POINT" });
+      send({ type: "HELP" });
       burst("heart", 4);
       await speakMessage(text);
     }, [burst, send, speakMessage]);
@@ -143,7 +146,16 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
           break;
         case "listen":
           setListening(true);
-          send({ type: "IDLE" });
+          send({ type: "LISTEN" });
+          break;
+        case "teach":
+          send({ type: "TEACH" });
+          break;
+        case "help":
+          send({ type: "HELP" });
+          break;
+        case "gentle-error":
+          send({ type: "GENTLE_ERROR" });
           break;
         case "celebrate":
           send({ type: "CHEER" });
@@ -189,7 +201,7 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
       const off = onGretelEvent((type, detail) => {
         if (type === "guide:reaction") {
           const celebrate = detail.reaction === "mastery" || detail.reaction === "success";
-          if (!isSpeaking) send({ type: celebrate ? "CHEER" : "POINT" });
+          if (!isSpeaking) send({ type: celebrate ? "CHEER" : "TEACH" });
           if (detail.reaction === "mastery") burst("star", 5);
           return;
         }
@@ -204,12 +216,12 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
           return;
         }
         if (type === "answer:wrong") {
-          send({ type: "POINT" });
+          send({ type: "GENTLE_ERROR" });
           burst("heart", 2);
           return;
         }
         if (type === "hint:show") {
-          send({ type: "POINT" });
+          send({ type: "HELP" });
           return;
         }
         if (type === "hint:hide") {
@@ -225,7 +237,7 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
           return;
         }
         if (type === "task:point") {
-          send({ type: "POINT" });
+          send({ type: "TEACH" });
           return;
         }
         if (type === "activity:complete") {
@@ -240,10 +252,12 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
         }
         if (type === "listen:start") {
           setListening(true);
+          send({ type: "LISTEN" });
           return;
         }
         if (type === "listen:stop") {
           setListening(false);
+          send({ type: "IDLE" });
         }
       });
 
@@ -309,11 +323,10 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
           transition={paused || reducedMotion ? { duration: 0 } : { opacity: { duration: 0.35 }, ...bodyTransition(machineState) }}
         >
           <GretelLayerRig
-            state={listening ? "listening" : machineState}
+            state={machineState}
             pointingLeft={machineState === "pointing" ? pointingLeft : bubblePosition === "right"}
             speaking={isSpeaking || machineState === "talking"}
             paused={paused}
-            onError={() => send({ type: "ASSET_ERROR" })}
           />
         </motion.div>
 
