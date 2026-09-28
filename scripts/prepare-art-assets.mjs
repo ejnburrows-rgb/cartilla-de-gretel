@@ -14,6 +14,8 @@ const sourceManifestPath = path.join(faithfulDir, "manifest.json");
 const quarantinePath = path.join(faithfulDir, "quarantine.json");
 const flipchartCanonicalDir = path.join(publicDir, "cartilla", "art", "hd", "flipchart");
 const flipchartRegistryPath = path.join(rootDir, "src", "data", "teacher-flipchart.json");
+const flipchartNativeAssetsPath = path.join(rootDir, "src", "data", "flipchart-native-assets.json");
+const flipchartFramesPath = path.join(rootDir, "src", "data", "flipchart-frames.json");
 
 export const DELIVERY_WIDTHS = [384, 768];
 export const SAFE_PADDING = 10;
@@ -374,6 +376,95 @@ async function prepareFlipchartDelivery(_checkOnly) {
   return { pages: assets.length, errors, assets };
 }
 
+async function prepareFlipchartNativeCrops(checkOnly) {
+  const mapping = readJson(flipchartNativeAssetsPath);
+  const frames = readJson(flipchartFramesPath);
+  const generated = [];
+  const errors = [];
+
+  for (const [pageKey, assets] of Object.entries(mapping)) {
+    const pageNumber = Number(pageKey);
+    const source = path.join(
+      flipchartCanonicalDir,
+      "page-" + String(pageNumber).padStart(3, "0") + ".jpg",
+    );
+    const frame = frames[String(pageNumber)];
+    if (!frame || !fs.existsSync(source)) {
+      errors.push("missing native crop source/frame for Flip Chart page " + pageNumber);
+      continue;
+    }
+
+    const sourceMeta = await sharp(source).metadata();
+    const sourceWidth = sourceMeta.width ?? 0;
+    const sourceHeight = sourceMeta.height ?? 0;
+    if (!sourceWidth || !sourceHeight) {
+      errors.push("invalid native crop source dimensions for Flip Chart page " + pageNumber);
+      continue;
+    }
+    const sx = sourceWidth / Number(frame.width);
+    const sy = sourceHeight / Number(frame.height);
+
+    for (const asset of assets) {
+      const [x, y, w, h] = asset.crop.map(Number);
+      const left = Math.max(0, Math.min(sourceWidth - 1, Math.round(x * sx)));
+      const top = Math.max(0, Math.min(sourceHeight - 1, Math.round(y * sy)));
+      const width = Math.max(1, Math.min(sourceWidth - left, Math.round(w * sx)));
+      const height = Math.max(1, Math.min(sourceHeight - top, Math.round(h * sy)));
+      const extracted = await sharp(source)
+        .extract({ left, top, width, height })
+        .ensureAlpha()
+        .raw()
+        .toBuffer({ resolveWithObject: true });
+
+      const cleaned = removeBorderBackground(
+        new Uint8Array(extracted.data),
+        extracted.info.width,
+        extracted.info.height,
+      );
+      const bounds = alphaBounds(
+        cleaned.data,
+        extracted.info.width,
+        extracted.info.height,
+      );
+      const crop = cropForBounds(bounds, extracted.info.width, extracted.info.height);
+      const buffer = await sharp(Buffer.from(cleaned.data), {
+        raw: {
+          width: extracted.info.width,
+          height: extracted.info.height,
+          channels: 4,
+        },
+      })
+        .extract({
+          left: crop.left,
+          top: crop.top,
+          width: crop.width,
+          height: crop.height,
+        })
+        .webp({ quality: 94, alphaQuality: 100, smartSubsample: true })
+        .toBuffer();
+
+      const rel = String(asset.src).replace(/^\//, "");
+      const out = path.join(publicDir, rel);
+      if (!checkOnly) {
+        fs.mkdirSync(path.dirname(out), { recursive: true });
+        fs.writeFileSync(out, buffer);
+      }
+      const outMeta = await sharp(buffer).metadata();
+      generated.push({
+        page: pageNumber,
+        word: asset.word,
+        src: asset.src,
+        width: outMeta.width,
+        height: outMeta.height,
+        bytes: buffer.length,
+        backgroundRemoved: cleaned.backgroundRemoved,
+      });
+    }
+  }
+
+  return { generated, errors };
+}
+
 async function processEntry(entry, checkOnly) {
   const relative = canonicalRelativeFromSrc(entry.src);
   if (!relative) return { skipped: true, entry };
@@ -497,6 +588,7 @@ export async function prepareArtAssets({ checkOnly = false } = {}) {
   const records = [];
   for (const entry of manifest) records.push(await processEntry(entry, checkOnly));
   const flipchart = await prepareFlipchartDelivery(checkOnly);
+  const flipchartNative = await prepareFlipchartNativeCrops(checkOnly);
 
   const bySrc = new Map();
   const duplicateSrcs = [];
@@ -558,6 +650,7 @@ export async function prepareArtAssets({ checkOnly = false } = {}) {
 
   const errors = [
     ...flipchart.errors,
+    ...flipchartNative.errors,
     ...records.flatMap((record) => record.errors ?? []),
     ...duplicateSrcs.map((src) => "duplicate manifest src " + src),
     ...activeQuarantineViolations.map(
@@ -617,6 +710,7 @@ export async function prepareArtAssets({ checkOnly = false } = {}) {
       warnings: warnings.length,
       flipchartCanonicalMasters: flipchart.pages,
       flipchartNativeBoards: flipchart.assets.length,
+      flipchartNativeCrops: flipchartNative.generated.length,
     },
     errors,
     warnings,
@@ -626,6 +720,7 @@ export async function prepareArtAssets({ checkOnly = false } = {}) {
     flipchart: {
       canonicalPolicy: "62 repository-controlled HD masters are provenance only; the active teacher surface is native object composition plus digital text.",
       assets: flipchart.assets,
+      nativeCrops: flipchartNative.generated,
     },
   };
 
