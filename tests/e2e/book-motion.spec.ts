@@ -42,7 +42,7 @@ test.describe("physical book motion", () => {
     const panel = page.getByTestId("flipchart-hd-panel");
     await expect(panel).toBeVisible({ timeout: 15000 });
     await expect(panel).toHaveAttribute("data-hd-primary", "true");
-    await expect(panel).toHaveAttribute("data-presenter-mode", "digital");
+    await expect(panel).toHaveAttribute("data-presenter-mode", "native");
     await expect(panel).toHaveAttribute("data-page-turn-axis", "vertical");
     await expect(panel).toHaveAttribute("data-page-turn-ms", "1120");
     await expect(panel).not.toHaveAttribute("data-physical-flipchart", /.*/);
