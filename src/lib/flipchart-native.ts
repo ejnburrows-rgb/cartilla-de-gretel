@@ -206,6 +206,31 @@ function classify(items: FlipchartTextItem[]) {
 
   for (const row of rowGroups) {
     row.sort((a, b) => a.x - b.x);
+
+    // Reading passages occupy the lower narrative zone on consonant pages.
+    // PDF extraction often emits one item per word with wider spacing than a
+    // color-split vocabulary label. Treat the whole row as prose before
+    // vocabulary clustering so sentences never collapse into fake word chips.
+    if (row.length >= 3 && row[0]!.y >= 780) {
+      const x = Math.min(...row.map((member) => member.x));
+      const y = Math.min(...row.map((member) => member.y));
+      narrativeLines.push({
+        x,
+        y,
+        width:
+          Math.max(...row.map((member) => member.x + member.width)) - x,
+        height:
+          Math.max(...row.map((member) => member.y + member.height)) - y,
+        text: row.map((member) => member.text.trim()).filter(Boolean).join(" "),
+        fontSize: Math.max(...row.map((member) => member.fontSize)),
+        color: row[0]!.color,
+        fontWeight: row.some((member) => Number(member.fontWeight ?? 400) >= 600)
+          ? 700
+          : 400,
+      });
+      continue;
+    }
+
     const clusters: FlipchartTextItem[][] = [];
     for (const item of row) {
       const current = clusters.at(-1);
