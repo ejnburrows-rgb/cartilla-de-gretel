@@ -53,7 +53,7 @@ export function buildPageArray(lessonId: number): WorkbookPageEntry[] {
         src,
         pageNumber: pageNumberForGuide,
         gretelLine,
-        content: <FaithfulPageRenderer pageNumber={globalPage} lessonNumber={lessonId} interactive native={lessonId === 7 || lessonId === 8 || lessonId === 9} />,
+        content: <FaithfulPageRenderer pageNumber={globalPage} lessonNumber={lessonId} interactive native />,
       };
     }
 
