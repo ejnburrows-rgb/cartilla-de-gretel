@@ -12,7 +12,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import {
-  getFlipchartDeliverySrc,
   getFlipchartPagesForLesson,
   getFlipchartPageSrc,
   isHdFlipchartPath,
@@ -20,7 +19,7 @@ import {
 } from "@/lib/flipchart-hd";
 import { FLIPCHART_FLIP_MS, flipchartFlipTransforms } from "@/lib/living-motion";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
-import { FlipchartPlate } from "./FlipchartPlate";
+import { FlipchartNativeBoard } from "./FlipchartNativeBoard";
 import "@/styles/flipchart-presenter.css";
 
 interface FlipchartHdPanelProps {
@@ -38,15 +37,14 @@ function FlipchartFace({
 }) {
   if (!page) return <div className="fc-board__face" aria-hidden />;
   const canonicalSrc = getFlipchartPageSrc(page);
-  const deliverySrc = getFlipchartDeliverySrc(page, "screen");
   return (
     <div
       className="fc-board__face"
       data-hd={isHdFlipchartPath(canonicalSrc) ? "true" : "false"}
-      data-flipchart-src={deliverySrc}
       data-canonical-src={canonicalSrc}
+      data-native-surface="true"
     >
-      <FlipchartPlate page={page} deliveryTier="screen" onLoad={onReady} />
+      <FlipchartNativeBoard page={page} onReady={onReady} />
     </div>
   );
 }
@@ -150,29 +148,8 @@ export function FlipchartHdPanel({ lessonNumber, accentColor }: FlipchartHdPanel
   }, [handleNext, handlePrev]);
 
   useEffect(() => {
-    if (!currentPage) return;
-    let cancelled = false;
     setPageReady(false);
-    const current = new Image();
-    current.decoding = "async";
-    current.onload = () => {
-      if (!cancelled) setPageReady(true);
-    };
-    current.onerror = () => {
-      if (!cancelled) setPageReady(true);
-    };
-    current.src = getFlipchartDeliverySrc(currentPage, "screen");
-
-    const neighbors = [pages[safeIdx - 1], pages[safeIdx + 1]].filter(Boolean) as FlipchartPage[];
-    for (const page of neighbors) {
-      const img = new Image();
-      img.decoding = "async";
-      img.src = getFlipchartDeliverySrc(page, "screen");
-    }
-    return () => {
-      cancelled = true;
-    };
-  }, [currentPage, pages, safeIdx]);
+  }, [currentPage]);
 
   const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
     pointerStartRef.current = { x: event.clientX, y: event.clientY };
@@ -315,7 +292,7 @@ export function FlipchartHdPanel({ lessonNumber, accentColor }: FlipchartHdPanel
               onClick={() => goTo(index, index > safeIdx ? "next" : "prev")}
               aria-label={`Ir a hoja ${index + 1}`}
             >
-              <FlipchartPlate page={page} decorative deliveryTier="thumb" />
+              <FlipchartNativeBoard page={page} decorative />
             </button>
           ))}
         </div>
