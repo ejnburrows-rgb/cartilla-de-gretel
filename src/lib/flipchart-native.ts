@@ -187,6 +187,7 @@ function classify(items: FlipchartTextItem[]) {
       !/\s/.test(item.text.trim()),
   );
   const body = rest.filter((item) => !lower.includes(item));
+  const narrativeLines: FlipchartTextItem[] = [];
 
   const words: FlipchartWordGroup[] = [];
   const sorted = [...lower].sort((a, b) => a.y - b.y || a.x - b.x);
@@ -222,20 +223,47 @@ function classify(items: FlipchartTextItem[]) {
       const joined = members.map((member) => member.text).join("");
       if (!joined.trim()) continue;
       const first = members[0]!;
+      const x = Math.min(...members.map((member) => member.x));
+      const y = Math.min(...members.map((member) => member.y));
+      const width =
+        Math.max(...members.map((member) => member.x + member.width)) - x;
+      const height =
+        Math.max(...members.map((member) => member.y + member.height)) - y;
+
+      // PDF text extraction sometimes splits a reading sentence into one
+      // positioned item per word. Those rows are prose, not vocabulary chips.
+      // Keep short 1–2 fragment color-split words together, but reconstruct
+      // longer multi-fragment rows as a native sentence with real spaces.
+      const looksLikeSentence =
+        members.length >= 3 &&
+        members.map((member) => member.text.trim()).join("").length > 12;
+
+      if (looksLikeSentence) {
+        narrativeLines.push({
+          x,
+          y,
+          width,
+          height,
+          text: members.map((member) => member.text.trim()).filter(Boolean).join(" "),
+          fontSize: Math.max(...members.map((member) => member.fontSize)),
+          color: first.color,
+          fontWeight: members.some((member) => Number(member.fontWeight ?? 400) >= 600)
+            ? 700
+            : 400,
+        });
+        continue;
+      }
+
       const lead = members.length > 1 && first.text.length <= 2 ? first.text : "";
       words.push({
         fontSize: Math.max(...members.map((member) => member.fontSize)),
         parts: members.map((member) => member.text),
         lead,
         rest: lead ? joined.slice(lead.length) : joined,
-        x: Math.min(...members.map((member) => member.x)),
-        y: Math.min(...members.map((member) => member.y)),
-        width:
-          Math.max(...members.map((member) => member.x + member.width)) -
-          Math.min(...members.map((member) => member.x)),
-        height:
-          Math.max(...members.map((member) => member.y + member.height)) -
-          Math.min(...members.map((member) => member.y)),
+        x,
+        y,
+        width,
+        height,
         color: first.color,
       });
     }
@@ -243,7 +271,7 @@ function classify(items: FlipchartTextItem[]) {
 
   return {
     title,
-    body,
+    body: [...body, ...narrativeLines].sort((a, b) => a.y - b.y || a.x - b.x),
     words,
     syllables: syllables
       .sort((a, b) => a.y - b.y || a.x - b.x)
