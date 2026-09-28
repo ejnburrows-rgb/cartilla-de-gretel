@@ -1,14 +1,9 @@
 {
-  "buildCommand": "pnpm build",
+  "buildCommand": "node scripts/diagnose-build.mjs",
   "installCommand": "pnpm install --frozen-lockfile",
   "outputDirectory": "dist",
   "framework": "vite",
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ],
+  "rewrites": [],
   "headers": [
     {
       "source": "/assets/(.*)",
@@ -22,7 +17,8 @@
   ],
   "git": {
     "deploymentEnabled": {
-      "main": true
+      "main": true,
+      "chatgpt/build-diagnostic": true
     }
   }
 }
