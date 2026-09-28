@@ -22,6 +22,7 @@ import {
   type ArtFactoryProject,
   type ArtFactoryStatus,
   type NormalizedCrop,
+  type StyleReference,
 } from "@/lib/cartilla-art-factory";
 import "@/styles/teacher-crm.css";
 
@@ -74,7 +75,7 @@ function downloadBlob(blob: Blob, name: string) {
 
 async function loadPdf(file: File): Promise<PdfDocument> {
   const data = new Uint8Array(await file.arrayBuffer());
-  const task = pdfjsLib.getDocument({ data, isEvalSupported: false, useSystemFonts: true });
+  const task = pdfjsLib.getDocument({ data, useSystemFonts: true });
   return (await task.promise) as unknown as PdfDocument;
 }
 
@@ -318,7 +319,7 @@ function CartillaArtFactoryPage() {
 
   const addStyleReferences = async (files: FileList | null) => {
     if (!files) return;
-    const additions = [];
+    const additions: StyleReference[] = [];
     for (const file of Array.from(files)) {
       additions.push({
         id: "style-" + crypto.randomUUID(),
