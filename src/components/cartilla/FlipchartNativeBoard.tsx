@@ -46,6 +46,7 @@ export function FlipchartNativeBoard({
       data-flipchart-page={page.flipchartPage}
       data-lesson={page.lesson}
       data-surface="native"
+      data-composition={native.compositionKind}
       data-native-flipchart="true"
       style={{ "--fc-accent": accentColor } as CSSProperties}
       aria-hidden={decorative || undefined}
@@ -94,8 +95,11 @@ export function FlipchartNativeBoard({
               ))}
             </div>
           ) : (
-            <div className="fc-native-board__letter-stage" aria-hidden={decorative || undefined}>
-              <span>{titleText.slice(0, 2) || "Aa"}</span>
+            <div
+              className="fc-native-board__letter-stage"
+              aria-label={decorative ? undefined : `Lámina tipográfica ${page.flipchartPage}`}
+            >
+              <span>{titleText.slice(0, 2) || native.syllables[0] || "Aa"}</span>
             </div>
           )}
         </section>
