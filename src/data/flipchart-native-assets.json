@@ -1,0 +1,129 @@
+{
+  "18": [
+    {
+      "word": "tomate",
+      "src": "/cartilla/art/faithful/flipchart-native/p018-tomate.webp",
+      "sourcePage": 18,
+      "crop": [
+        35,
+        575,
+        270,
+        245
+      ]
+    },
+    {
+      "word": "tapa",
+      "src": "/cartilla/art/faithful/flipchart-native/p018-tapa.webp",
+      "sourcePage": 18,
+      "crop": [
+        350,
+        570,
+        285,
+        230
+      ]
+    },
+    {
+      "word": "topo",
+      "src": "/cartilla/art/faithful/flipchart-native/p018-topo.webp",
+      "sourcePage": 18,
+      "crop": [
+        690,
+        545,
+        260,
+        270
+      ]
+    },
+    {
+      "word": "tipi",
+      "src": "/cartilla/art/faithful/flipchart-native/p018-tipi.webp",
+      "sourcePage": 18,
+      "crop": [
+        95,
+        890,
+        320,
+        305
+      ]
+    },
+    {
+      "word": "Tuto",
+      "src": "/cartilla/art/faithful/flipchart-native/p018-tuto.webp",
+      "sourcePage": 18,
+      "crop": [
+        540,
+        860,
+        315,
+        355
+      ]
+    }
+  ],
+  "24": [
+    {
+      "word": "maleta",
+      "src": "/cartilla/art/faithful/flipchart-native/p024-maleta.webp",
+      "sourcePage": 24,
+      "crop": [
+        45,
+        555,
+        245,
+        275
+      ]
+    },
+    {
+      "word": "lata",
+      "src": "/cartilla/art/faithful/flipchart-native/p024-lata.webp",
+      "sourcePage": 24,
+      "crop": [
+        385,
+        555,
+        245,
+        270
+      ]
+    },
+    {
+      "word": "Luli",
+      "src": "/cartilla/art/faithful/flipchart-native/p024-luli.webp",
+      "sourcePage": 24,
+      "crop": [
+        720,
+        500,
+        220,
+        320
+      ]
+    },
+    {
+      "word": "loma",
+      "src": "/cartilla/art/faithful/flipchart-native/p024-loma.webp",
+      "sourcePage": 24,
+      "crop": [
+        90,
+        950,
+        360,
+        290
+      ]
+    },
+    {
+      "word": "Lala",
+      "src": "/cartilla/art/faithful/flipchart-native/p024-lala.webp",
+      "sourcePage": 24,
+      "crop": [
+        565,
+        970,
+        280,
+        245
+      ]
+    }
+  ],
+  "26": [
+    {
+      "word": "Leo lee",
+      "src": "/cartilla/art/faithful/flipchart-native/p026-gretel-reading.webp",
+      "sourcePage": 26,
+      "crop": [
+        565,
+        220,
+        405,
+        510
+      ]
+    }
+  ]
+}
