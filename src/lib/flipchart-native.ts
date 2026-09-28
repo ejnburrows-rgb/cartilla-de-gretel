@@ -209,39 +209,55 @@ function classify(items: FlipchartTextItem[]) {
 
   const words: FlipchartWordGroup[] = [];
   const sorted = [...lower].sort((a, b) => a.y - b.y || a.x - b.x);
-  const used = new Set<FlipchartTextItem>();
+  const rowGroups: FlipchartTextItem[][] = [];
 
   for (const item of sorted) {
-    if (used.has(item)) continue;
-    const members = [item];
-    used.add(item);
-    for (const other of sorted) {
-      if (used.has(other)) continue;
-      const sameRow =
-        Math.abs(other.y - item.y) < 18 &&
-        other.x >= item.x - 20 &&
-        other.x <= item.x + 320;
-      if (sameRow) {
-        members.push(other);
-        used.add(other);
-      }
+    let row = rowGroups.find(
+      (candidate) => candidate.length > 0 && Math.abs(candidate[0]!.y - item.y) < 18,
+    );
+    if (!row) {
+      row = [];
+      rowGroups.push(row);
     }
-    members.sort((a, b) => a.x - b.x);
-    const joined = members.map((member) => member.text).join("");
-    if (!joined.trim()) continue;
-    const first = members[0]!;
-    const lead = members.length > 1 && first.text.length <= 2 ? first.text : "";
-    words.push({
-      fontSize: Math.max(...members.map((member) => member.fontSize)),
-      parts: members.map((member) => member.text),
-      lead,
-      rest: lead ? joined.slice(lead.length) : joined,
-      x: Math.min(...members.map((member) => member.x)),
-      y: Math.min(...members.map((member) => member.y)),
-      width: Math.max(...members.map((member) => member.x + member.width)) - Math.min(...members.map((member) => member.x)),
-      height: Math.max(...members.map((member) => member.y + member.height)) - Math.min(...members.map((member) => member.y)),
-      color: first.color,
-    });
+    row.push(item);
+  }
+
+  for (const row of rowGroups) {
+    row.sort((a, b) => a.x - b.x);
+    const clusters: FlipchartTextItem[][] = [];
+    for (const item of row) {
+      const current = clusters.at(-1);
+      if (!current) {
+        clusters.push([item]);
+        continue;
+      }
+      const previous = current.at(-1)!;
+      const gap = item.x - (previous.x + previous.width);
+      if (gap >= -10 && gap <= 18) current.push(item);
+      else clusters.push([item]);
+    }
+
+    for (const members of clusters) {
+      const joined = members.map((member) => member.text).join("");
+      if (!joined.trim()) continue;
+      const first = members[0]!;
+      const lead = members.length > 1 && first.text.length <= 2 ? first.text : "";
+      words.push({
+        fontSize: Math.max(...members.map((member) => member.fontSize)),
+        parts: members.map((member) => member.text),
+        lead,
+        rest: lead ? joined.slice(lead.length) : joined,
+        x: Math.min(...members.map((member) => member.x)),
+        y: Math.min(...members.map((member) => member.y)),
+        width:
+          Math.max(...members.map((member) => member.x + member.width)) -
+          Math.min(...members.map((member) => member.x)),
+        height:
+          Math.max(...members.map((member) => member.y + member.height)) -
+          Math.min(...members.map((member) => member.y)),
+        color: first.color,
+      });
+    }
   }
 
   return {
