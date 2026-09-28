@@ -12,8 +12,12 @@ const deliveryDir = path.join(publicDir, "cartilla", "art", "delivery", "faithfu
 const deliveryManifestPath = path.join(publicDir, "cartilla", "art", "delivery", "manifest.json");
 const sourceManifestPath = path.join(faithfulDir, "manifest.json");
 const quarantinePath = path.join(faithfulDir, "quarantine.json");
+const flipchartCanonicalDir = path.join(publicDir, "cartilla", "art", "hd", "flipchart");
+const flipchartDeliveryDir = path.join(publicDir, "cartilla", "art", "delivery", "flipchart");
+const flipchartRegistryPath = path.join(rootDir, "src", "data", "teacher-flipchart.json");
 
 export const DELIVERY_WIDTHS = [384, 768];
+export const FLIPCHART_DELIVERY_WIDTHS = { screen: 1920, thumb: 360 };
 export const SAFE_PADDING = 10;
 const ALPHA_EMPTY = 8;
 
@@ -328,6 +332,63 @@ function cropBoxWarnings(entry, srcDim, canonicalDim) {
   return warnings;
 }
 
+async function prepareFlipchartDelivery(checkOnly) {
+  const registry = readJson(flipchartRegistryPath);
+  const pages = Array.isArray(registry) ? registry : registry.pages;
+  if (!Array.isArray(pages) || pages.length !== 62) {
+    throw new Error("teacher-flipchart.json must contain exactly 62 pages");
+  }
+  if (!checkOnly) fs.rmSync(flipchartDeliveryDir, { recursive: true, force: true });
+
+  const assets = [];
+  const errors = [];
+  for (const page of pages) {
+    const pageNumber = Number(page.flipchartPage);
+    const rel = String(page.path ?? "").replace(/^\//, "");
+    const source = path.join(publicDir, rel.replace(/^public\//, ""));
+    if (!Number.isInteger(pageNumber) || pageNumber < 1 || pageNumber > 62) {
+      errors.push("invalid Flip Chart page number " + String(page.flipchartPage));
+      continue;
+    }
+    if (!rel.startsWith("cartilla/art/hd/flipchart/") || !fs.existsSync(source)) {
+      errors.push("missing canonical Flip Chart master " + rel);
+      continue;
+    }
+
+    const sourceMeta = await sharp(source).metadata();
+    const number = String(pageNumber).padStart(3, "0");
+    const derivatives = [];
+    for (const [tier, width] of Object.entries(FLIPCHART_DELIVERY_WIDTHS)) {
+      const outRel = path.join("cartilla", "art", "delivery", "flipchart", tier, "page-" + number + ".webp");
+      const outAbs = path.join(publicDir, outRel);
+      const buffer = await sharp(source)
+        .resize({ width, fit: "inside", withoutEnlargement: true, kernel: sharp.kernel.lanczos3 })
+        .webp({ quality: tier === "screen" ? 90 : 82, smartSubsample: true })
+        .toBuffer();
+      const meta = await sharp(buffer).metadata();
+      if (!checkOnly) {
+        fs.mkdirSync(path.dirname(outAbs), { recursive: true });
+        fs.writeFileSync(outAbs, buffer);
+      }
+      derivatives.push({
+        tier,
+        path: "/" + outRel.replaceAll(path.sep, "/"),
+        width: meta.width,
+        height: meta.height,
+        bytes: buffer.length,
+      });
+    }
+    assets.push({
+      flipchartPage: pageNumber,
+      canonical: "/" + rel,
+      sourceWidth: sourceMeta.width,
+      sourceHeight: sourceMeta.height,
+      derivatives,
+    });
+  }
+  return { pages: assets.length, errors, assets };
+}
+
 async function processEntry(entry, checkOnly) {
   const relative = canonicalRelativeFromSrc(entry.src);
   if (!relative) return { skipped: true, entry };
@@ -450,6 +511,7 @@ export async function prepareArtAssets({ checkOnly = false } = {}) {
 
   const records = [];
   for (const entry of manifest) records.push(await processEntry(entry, checkOnly));
+  const flipchart = await prepareFlipchartDelivery(checkOnly);
 
   const bySrc = new Map();
   const duplicateSrcs = [];
@@ -510,6 +572,7 @@ export async function prepareArtAssets({ checkOnly = false } = {}) {
   }));
 
   const errors = [
+    ...flipchart.errors,
     ...records.flatMap((record) => record.errors ?? []),
     ...duplicateSrcs.map((src) => "duplicate manifest src " + src),
     ...activeQuarantineViolations.map(
@@ -567,12 +630,19 @@ export async function prepareArtAssets({ checkOnly = false } = {}) {
       duplicateContentGroups: duplicateContent.length,
       errors: errors.length,
       warnings: warnings.length,
+      flipchartMasters: flipchart.pages,
+      flipchartScreenDerivatives: flipchart.assets.length,
+      flipchartThumbDerivatives: flipchart.assets.length,
     },
     errors,
     warnings,
     duplicateContent,
     unresolvedSourceIssues,
     assets: records.filter((record) => record.canonical),
+    flipchart: {
+      canonicalPolicy: "62 repository-controlled HD masters; screen/thumb WebP derivatives are disposable build output.",
+      assets: flipchart.assets,
+    },
   };
 
   if (!checkOnly) writeJson(deliveryManifestPath, report);
