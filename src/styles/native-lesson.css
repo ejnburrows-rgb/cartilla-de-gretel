@@ -66,3 +66,93 @@
   .native-lesson-viewer__content .fp-ix-fill__item { grid-template-columns: 1fr 1fr; }
   .native-lesson-viewer__content .fp-ix-fill__choices { grid-column: 1 / -1; justify-content: flex-end; }
 }
+
+
+/* Native literacy typography — converts the printed vocabulary blocks into
+   intentional classroom UI while preserving the exact source words. */
+.fp-native-title {
+  margin: 0;
+  text-align: center;
+  color: #136e65;
+  font: 950 clamp(2.7rem, 8vw, 5.4rem)/.95 var(--font-book-title, Georgia, serif);
+  letter-spacing: .01em;
+  text-shadow: 0 2px 0 rgba(255,255,255,.8);
+}
+
+.fp-native-syllables {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(.5rem, 2vw, .9rem);
+  padding: clamp(.75rem, 2vw, 1.1rem);
+  border-radius: 1.5rem;
+  border: 1px solid #c9dfd9;
+  background: linear-gradient(180deg, #f7fffc 0%, #ecf7f3 100%);
+}
+
+.fp-native-syllables span {
+  min-width: clamp(3.3rem, 9vw, 5rem);
+  border-radius: 999px;
+  border: 2px solid #79b8aa;
+  background: #fff;
+  padding: .48rem .75rem;
+  text-align: center;
+  color: #126d65;
+  font: 900 clamp(1.35rem, 4vw, 2.25rem)/1 var(--font-book-faithful, Georgia, serif);
+  box-shadow: 0 4px 12px -10px rgba(20,92,82,.45);
+}
+
+.fp-native-vocab {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(6.8rem, 1fr));
+  gap: .55rem;
+  padding: .2rem 0;
+}
+
+.fp-native-vocab span {
+  display: grid;
+  place-items: center;
+  min-height: 3rem;
+  border: 1px solid #e5d6bc;
+  border-radius: .9rem;
+  background: #fffdf8;
+  padding: .55rem .65rem;
+  color: #403425;
+  font: 800 clamp(1rem, 2.4vw, 1.35rem)/1.15 system-ui, sans-serif;
+  box-shadow: 0 4px 10px -9px rgba(75,54,29,.28);
+}
+
+.fp-native-sight-word {
+  width: fit-content;
+  min-width: 3.2rem;
+  margin-inline: auto;
+  border-radius: 999px;
+  border: 2px solid #e4b45a;
+  background: #fff6d7;
+  padding: .45rem .9rem;
+  color: #7d5214;
+  text-align: center;
+  font: 950 clamp(1.35rem, 3vw, 1.9rem)/1 var(--font-book-faithful, Georgia, serif);
+}
+
+.native-lesson-viewer__content .fp-region--reading-sentences {
+  display: grid;
+  gap: .35rem;
+  margin: 0;
+}
+
+.native-lesson-viewer__content .fp-region--reading-sentences p {
+  margin: 0;
+  padding: .35rem .2rem;
+  border-bottom: 1px dashed #e8dcc7;
+}
+
+.native-lesson-viewer__content .fp-region--reading-sentences p:last-child {
+  border-bottom: 0;
+}
+
+@media (max-width: 600px) {
+  .fp-native-vocab {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
