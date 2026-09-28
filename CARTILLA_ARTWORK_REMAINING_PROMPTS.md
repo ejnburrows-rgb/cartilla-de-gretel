@@ -57,7 +57,7 @@ This is an IMAGE EDIT / STYLE-FINISH TRANSFORMATION of the original Libro crop, 
 REFERENCE PRIORITY:
 1. Libro crop = authoritative identity, geometry, pose, proportions, expression, silhouette, basket/prop, composition, line structure.
 2. Flip Chart p.4 = intended COLOR reference only.
-3. Approved style references = watercolor/paper/material/depth/lighting finish only.
+3. Canonical style references = watercolor/paper/material/depth/lighting finish only.
 TARGET:
 The exact same bear drawing, professionally optimized into authentic watercolor pigment on tactile real paper with subtle cut-paper/embossed dimensional relief, gentle pop-out depth, richer faithful color, natural paper/contact shadows, and premium print clarity.
 
@@ -71,7 +71,7 @@ Generate only after the cost is known and the correct four inputs are visually c
 After generation:
 - download/save the result;
 - import it into CAF as a candidate for CAF-0002 only;
-- do not pause for owner approval; proceed directly to source-faithfulness validation and the next executable step.
+- do not pause for owner input; proceed directly to source-faithfulness validation and the next executable step.
 
 PASS:
 one real candidate exists and is traceably tied to CAF-0002; no other asset state is changed.
@@ -109,7 +109,7 @@ If FAIL:
 - repeat comparison until PASS or a proven external limitation exists.
 
 If PASS:
-- mark CAF-0002 validated in CAF without waiting for owner approval;
+- mark CAF-0002 validated in CAF without waiting for owner input;
 - verify validated/current manifest state is internally consistent;
 - preserve the accepted file as the production master.
 
@@ -131,7 +131,7 @@ Libro p.7 controls geometry/content.
 Flip Chart p.6 is Color reference only.
 Style references control finish only.
 Generate one Nano Banana Pro candidate at a time.
-Do not accept historical CAF-0003 exportCount as proof of current generation or approval.
+Do not accept historical CAF-0003 exportCount as proof of current generation or validation.
 
 The elephant must remain the exact original drawing:
 - same elephant;
@@ -198,13 +198,13 @@ COUNT RECONCILIATION
 Proceed only after Prompt 8 PASS.
 
 Use Nano Banana Pro and the canonical CAF job for each READY asset.
-Process in small batches, but validate each candidate against its Libro source before approval.
+Process in small batches, but validate each candidate against its Libro source before acceptance.
 
 RULE:
 No candidate advances because it merely looks attractive. It advances only when the original drawing remains unchanged in content and geometry.
 
 For each asset:
-GENERATE ONE → IMPORT CANDIDATE → SIDE-BY-SIDE VALIDATE → REJECT/RETRY OR APPROVE → VERIFY MANIFEST → NEXT.
+GENERATE ONE → IMPORT CANDIDATE → SIDE-BY-SIDE VALIDATE → REJECT/RETRY OR ACCEPT → VERIFY MANIFEST → NEXT.
 Do not mass-generate unverified candidates.
 Do not bypass source-faithfulness validation, but do not wait for owner approval.
 Track actual Flow credits consumed.
@@ -224,9 +224,9 @@ TRUE REMAINING BLOCKERS
 
 After all artwork is validated:
 - verify every validated asset has one current production master;
-- verify no rejected/test candidate remains falsely APPROVED or EXPORTED;
+- verify no rejected/test candidate remains falsely CURRENT or EXPORTED;
 - verify every manifest entry maps to the correct CAF ID and Libro page;
-- verify source/ref/job/candidate/approved lineage;
+- verify source/ref/job/candidate/validated lineage;
 - verify no demo fixtures;
 - verify no stale replacement 3D bear/elephant outputs are referenced anywhere;
 - export the final production manifest/package only after reconciliation.
@@ -236,7 +236,7 @@ CAF is internally truth-consistent and the exported package contains only curren
 
 RETURN ONLY:
 STATUS
-APPROVED ASSET COUNT
+VALIDATED ASSET COUNT
 MANIFEST PROOF
 EXCLUDED/STALE ARTIFACT PROOF
 FINAL PACKAGE
@@ -246,7 +246,7 @@ TRUE BLOCKERS
 Use the actual Cartilla repo and existing artwork wiring.
 
 GOAL:
-Replace only the intended workbook illustration assets with their approved optimized masters while preserving:
+Replace only the intended workbook illustration assets with their validated optimized masters while preserving:
 - page layout;
 - crop/position;
 - aspect/proportions;
@@ -301,7 +301,7 @@ TRUE REMAINING BLOCKERS
 
 ## Prompt 13 — Rebuild the Flip Chart as native e-learning classroom presentation
 
-Proceed directly. There is **no owner-approval gate**.
+Proceed directly. There is **no owner checkpoint**.
 
 GOAL:
 Replace the visible teacher Flip Chart experience with a native, polished e-learning/classroom presentation. The original 62-page PDF/JPG scans remain source/reference/fallback evidence only; they are not the finished visual surface.
@@ -322,8 +322,8 @@ REQUIRED:
 - preserve original curriculum, wording, educational meaning, object count, characters, composition relationships, and page/lesson sequence;
 - use the old full-page scan only when a specific page/region has not yet been faithfully reconstructed;
 - do not ship a completed page as a photographed/scanned full-page image;
-- do not ask Emilio to approve images or pages before continuing;
-- do not treat legacy `approvalStatus` metadata as a blocker;
+- do not stop to ask Emilio for image/page sign-off before continuing;
+- do not treat legacy review/status metadata as a blocker;
 - run automated/source-faithfulness checks, visual checks, build/tests, deployment, and live production verification continuously.
 
 E-LEARNING PRESENTATION:
