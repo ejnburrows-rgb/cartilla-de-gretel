@@ -54,6 +54,7 @@ import { Route as CartillaTeacherCrmIndexRouteImport } from './routes/cartilla/t
 import { Route as CartillaTeacherRecursosRecursoIdRouteImport } from './routes/cartilla/teacher/recursos/$recursoId'
 import { Route as CartillaTeacherPaginasNRouteImport } from './routes/cartilla/teacher/paginas.$n'
 import { Route as CartillaTeacherGuiaNRouteImport } from './routes/cartilla/teacher/guia.$n'
+import { Route as CartillaTeacherCrmArtworkRouteImport } from './routes/cartilla/teacher/crm.artwork'
 import { Route as CartillaTeacherCrmClassIdRouteImport } from './routes/cartilla/teacher/crm.$classId'
 import { Route as CartillaTeacherCrmClassIdIndexRouteImport } from './routes/cartilla/teacher/crm.$classId.index'
 import { Route as CartillaTeacherCrmClassIdStudentIdRouteImport } from './routes/cartilla/teacher/crm.$classId.$studentId'
@@ -292,6 +293,12 @@ const CartillaTeacherGuiaNRoute = CartillaTeacherGuiaNRouteImport.update({
   path: '/guia/$n',
   getParentRoute: () => CartillaTeacherRouteRoute,
 } as any)
+const CartillaTeacherCrmArtworkRoute =
+  CartillaTeacherCrmArtworkRouteImport.update({
+    id: '/artwork',
+    path: '/artwork',
+    getParentRoute: () => CartillaTeacherCrmRoute,
+  } as any)
 const CartillaTeacherCrmClassIdRoute =
   CartillaTeacherCrmClassIdRouteImport.update({
     id: '/$classId',
@@ -371,6 +378,7 @@ export interface FileRoutesByFullPath {
   '/cartilla/teacher/roster': typeof CartillaTeacherRosterRoute
   '/cartilla/teacher/': typeof CartillaTeacherIndexRoute
   '/cartilla/teacher/crm/$classId': typeof CartillaTeacherCrmClassIdRouteWithChildren
+  '/cartilla/teacher/crm/artwork': typeof CartillaTeacherCrmArtworkRoute
   '/cartilla/teacher/guia/$n': typeof CartillaTeacherGuiaNRoute
   '/cartilla/teacher/paginas/$n': typeof CartillaTeacherPaginasNRoute
   '/cartilla/teacher/recursos/$recursoId': typeof CartillaTeacherRecursosRecursoIdRoute
@@ -421,6 +429,7 @@ export interface FileRoutesByTo {
   '/cartilla/teacher/reportes': typeof CartillaTeacherReportesRoute
   '/cartilla/teacher/roster': typeof CartillaTeacherRosterRoute
   '/cartilla/teacher': typeof CartillaTeacherIndexRoute
+  '/cartilla/teacher/crm/artwork': typeof CartillaTeacherCrmArtworkRoute
   '/cartilla/teacher/guia/$n': typeof CartillaTeacherGuiaNRoute
   '/cartilla/teacher/paginas/$n': typeof CartillaTeacherPaginasNRoute
   '/cartilla/teacher/recursos/$recursoId': typeof CartillaTeacherRecursosRecursoIdRoute
@@ -474,6 +483,7 @@ export interface FileRoutesById {
   '/cartilla/teacher/roster': typeof CartillaTeacherRosterRoute
   '/cartilla/teacher/': typeof CartillaTeacherIndexRoute
   '/cartilla/teacher/crm/$classId': typeof CartillaTeacherCrmClassIdRouteWithChildren
+  '/cartilla/teacher/crm/artwork': typeof CartillaTeacherCrmArtworkRoute
   '/cartilla/teacher/guia/$n': typeof CartillaTeacherGuiaNRoute
   '/cartilla/teacher/paginas/$n': typeof CartillaTeacherPaginasNRoute
   '/cartilla/teacher/recursos/$recursoId': typeof CartillaTeacherRecursosRecursoIdRoute
@@ -529,6 +539,7 @@ export interface FileRouteTypes {
     | '/cartilla/teacher/roster'
     | '/cartilla/teacher/'
     | '/cartilla/teacher/crm/$classId'
+    | '/cartilla/teacher/crm/artwork'
     | '/cartilla/teacher/guia/$n'
     | '/cartilla/teacher/paginas/$n'
     | '/cartilla/teacher/recursos/$recursoId'
@@ -579,6 +590,7 @@ export interface FileRouteTypes {
     | '/cartilla/teacher/reportes'
     | '/cartilla/teacher/roster'
     | '/cartilla/teacher'
+    | '/cartilla/teacher/crm/artwork'
     | '/cartilla/teacher/guia/$n'
     | '/cartilla/teacher/paginas/$n'
     | '/cartilla/teacher/recursos/$recursoId'
@@ -631,6 +643,7 @@ export interface FileRouteTypes {
     | '/cartilla/teacher/roster'
     | '/cartilla/teacher/'
     | '/cartilla/teacher/crm/$classId'
+    | '/cartilla/teacher/crm/artwork'
     | '/cartilla/teacher/guia/$n'
     | '/cartilla/teacher/paginas/$n'
     | '/cartilla/teacher/recursos/$recursoId'
@@ -993,6 +1006,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CartillaTeacherGuiaNRouteImport
       parentRoute: typeof CartillaTeacherRouteRoute
     }
+    '/cartilla/teacher/crm/artwork': {
+      id: '/cartilla/teacher/crm/artwork'
+      path: '/artwork'
+      fullPath: '/cartilla/teacher/crm/artwork'
+      preLoaderRoute: typeof CartillaTeacherCrmArtworkRouteImport
+      parentRoute: typeof CartillaTeacherCrmRoute
+    }
     '/cartilla/teacher/crm/$classId': {
       id: '/cartilla/teacher/crm/$classId'
       path: '/$classId'
@@ -1078,11 +1098,13 @@ const CartillaTeacherCrmClassIdRouteWithChildren =
 
 interface CartillaTeacherCrmRouteChildren {
   CartillaTeacherCrmClassIdRoute: typeof CartillaTeacherCrmClassIdRouteWithChildren
+  CartillaTeacherCrmArtworkRoute: typeof CartillaTeacherCrmArtworkRoute
   CartillaTeacherCrmIndexRoute: typeof CartillaTeacherCrmIndexRoute
 }
 
 const CartillaTeacherCrmRouteChildren: CartillaTeacherCrmRouteChildren = {
   CartillaTeacherCrmClassIdRoute: CartillaTeacherCrmClassIdRouteWithChildren,
+  CartillaTeacherCrmArtworkRoute: CartillaTeacherCrmArtworkRoute,
   CartillaTeacherCrmIndexRoute: CartillaTeacherCrmIndexRoute,
 }
 
