@@ -25,6 +25,13 @@ describe("GretelLiveAvatar direct interaction", () => {
     expect(screen.queryByRole("status")).toBeNull();
   });
 
+  it("uses the layered Gretel runtime instead of full-pose frame swapping", () => {
+    const { container } = render(<GretelLiveAvatar size="sm" />);
+    const rig = container.querySelector('[data-gretel-rig="layered"]');
+    expect(rig).toBeTruthy();
+    expect(rig?.getAttribute("data-gretel-rig-state")).toBeTruthy();
+  });
+
   it("is a real tappable and keyboard-focusable character", () => {
     render(<GretelLiveAvatar size="sm" />);
     const avatar = screen.getByRole("button", { name: "Interactuar con Gretel" });
