@@ -101,3 +101,15 @@ export function getLessonCinematic(lesson: number): GretelCinematic {
   return GRETEL_CINEMATICS.find((item) => item.kind === "lesson" && item.lesson === lesson)
     ?? GRETEL_CINEMATICS[0]!;
 }
+
+
+export function getCinematicById(id: string): GretelCinematic | null {
+  return GRETEL_CINEMATICS.find((item) => item.id === id) ?? null;
+}
+
+export function getCompletionCinematic(lesson: number): GretelCinematic | null {
+  if (lesson === 24) {
+    return GRETEL_CINEMATICS.find((item) => item.id === "cartilla-final") ?? null;
+  }
+  return GRETEL_CINEMATICS.find((item) => item.kind === "milestone" && item.lesson === lesson) ?? null;
+}
