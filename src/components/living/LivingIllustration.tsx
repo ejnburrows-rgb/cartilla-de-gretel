@@ -6,6 +6,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { BLINK_HOLD_MS, nextBlinkDelayMs, prefersReducedMotion } from "@/lib/living-motion";
 import { resolveTrueBlinkFrame } from "@/lib/living-blink-map";
+import { getLivingActor } from "@/lib/living-actor-registry";
 import { getFaithfulDeliverySrcSet } from "@/lib/art-delivery";
 
 export interface LivingIllustrationProps {
@@ -15,17 +16,6 @@ export interface LivingIllustrationProps {
   /** Optional: disable ambient motion for a specific asset. */
   static?: boolean;
   loading?: "lazy" | "eager";
-}
-
-type AmbientProfile = "breathe" | "float" | "sway" | null;
-
-const APPROVED_AMBIENT_PROFILES: Readonly<Record<string, Exclude<AmbientProfile, null>>> = {
-  "/cartilla/art/faithful/vocal-o/oso.webp": "breathe",
-  "/cartilla/art/faithful/vocal-o/oruga.webp": "sway",
-};
-
-function ambientProfileFor(src: string): AmbientProfile {
-  return APPROVED_AMBIENT_PROFILES[src] ?? null;
 }
 
 function phaseFor(src: string): number {
@@ -41,20 +31,18 @@ export function LivingIllustration({
   static: forceStatic = false,
   loading = "lazy",
 }: LivingIllustrationProps) {
-  const trueBlink = resolveTrueBlinkFrame(src);
+  const actor = useMemo(() => (forceStatic ? null : getLivingActor(src)), [forceStatic, src]);
+  const trueBlink = actor?.blinkFrame ?? resolveTrueBlinkFrame(src);
   const [reduced, setReduced] = useState(false);
   const [blinkReady, setBlinkReady] = useState(false);
   const [blinking, setBlinking] = useState(false);
   const [reacting, setReacting] = useState(false);
   const [failedDeliveryFor, setFailedDeliveryFor] = useState<string | null>(null);
-  const ambientProfile = useMemo(
-    () => (forceStatic ? null : ambientProfileFor(src)),
-    [forceStatic, src],
-  );
+  const ambientProfile = actor?.action ?? null;
   const phase = useMemo(() => phaseFor(src), [src]);
-  const canBlink = ambientProfile === "breathe" && !forceStatic;
-  const isCreature = ambientProfile === "breathe" && !forceStatic;
-  const blinkMode = trueBlink ? "frame" : canBlink ? "fallback" : "none";
+  const canBlink = Boolean(actor?.blinkFrame) && !forceStatic;
+  const isCreature = Boolean(actor?.creature) && !forceStatic;
+  const blinkMode = trueBlink && canBlink ? "frame" : "none";
 
   useEffect(() => {
     if (typeof window === "undefined" || !window.matchMedia) return;
@@ -138,7 +126,6 @@ export function LivingIllustration({
       className={[
         "living-illustration",
         blinkActive ? "living-illustration--alive" : "",
-        blinkActive && blinking && !trueBlink ? "living-illustration--blink" : "",
         reacting ? "living-illustration--reacting" : "",
         isCreature && ambientActive ? "living-illustration--creature-life" : "",
         ambientActive ? "living-illustration--ambient" : "",
@@ -167,12 +154,6 @@ export function LivingIllustration({
         draggable={false}
         className="living-illustration__art"
       />
-      {blinkActive && !trueBlink ? (
-        <span className="living-illustration__lids" aria-hidden="true">
-          <span className="living-illustration__eyelid living-illustration__eyelid--left" />
-          <span className="living-illustration__eyelid living-illustration__eyelid--right" />
-        </span>
-      ) : null}
     </span>
   );
 }
