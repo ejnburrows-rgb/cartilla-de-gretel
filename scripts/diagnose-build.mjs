@@ -1,6 +1,8 @@
 import { spawnSync } from "node:child_process";
 import fs from "node:fs";
 
+const diagnosticVersion = "2026-09-28T21:58Z";
+
 const steps = [
   ["verify:reconstruction", ["pnpm", "verify:reconstruction"]],
   ["prepare:art", ["pnpm", "prepare:art"]],
@@ -35,4 +37,4 @@ fs.rmSync("dist", { recursive: true, force: true });
 fs.mkdirSync("dist", { recursive: true });
 fs.writeFileSync("dist/diagnostic.json", JSON.stringify(results, null, 2));
 fs.writeFileSync("dist/index.html", "<!doctype html><meta charset=utf-8><title>Cartilla diagnostic</title><pre>diagnostic ready</pre>");
-console.log(JSON.stringify(results.map(({ name, code, signal }) => ({ name, code, signal }))));
+console.log(diagnosticVersion, JSON.stringify(results.map(({ name, code, signal }) => ({ name, code, signal }))));
