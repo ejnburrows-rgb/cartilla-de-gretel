@@ -16,5 +16,8 @@ export function getFaithfulDeliverySrc(src: string, width: 384 | 768): string {
  */
 export function getFaithfulDeliverySrcSet(src: string): string | undefined {
   if (!isFaithfulCanonicalArt(src)) return undefined;
+  // Flip Chart-native cutouts are generated during prepare:art and are already
+  // presentation-sized. They intentionally have no delivery derivative layer.
+  if (src.startsWith(`${FAITHFUL_PREFIX}flipchart-native/`)) return undefined;
   return `${getFaithfulDeliverySrc(src, 384)} 1x, ${getFaithfulDeliverySrc(src, 768)} 2x`;
 }
