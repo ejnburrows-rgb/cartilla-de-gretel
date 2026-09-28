@@ -31,6 +31,7 @@ const conversion = readJson("src/data/conversion-status.json");
 const layouts = readJson("src/data/page-layouts.json");
 const flipchart = readJson("src/data/teacher-flipchart.json");
 const frames = readJson("src/data/flipchart-frames.json");
+const nativeFlipchartAssets = readJson("src/data/flipchart-native-assets.json");
 
 const workbookPages = conversion.pages ?? [];
 assert(workbookPages.length === 90, `expected 90 workbook pages, found ${workbookPages.length}`);
@@ -56,6 +57,21 @@ for (let page = 1; page <= 62; page += 1) {
     exists(`public/cartilla/art/hd/flipchart/page-${pad(page)}.jpg`),
     `missing canonical Flip Chart master page ${page}`,
   );
+}
+
+for (const [page, assets] of Object.entries(nativeFlipchartAssets)) {
+  assert(Number(page) >= 3 && Number(page) <= 62, `invalid native Flip Chart crop page ${page}`);
+  assert(Array.isArray(assets) && assets.length > 0, `native Flip Chart crop page ${page} is empty`);
+  for (const asset of assets) {
+    assert(
+      typeof asset.src === "string" && asset.src.startsWith("/cartilla/art/faithful/flipchart-native/"),
+      `invalid native Flip Chart crop destination on page ${page}`,
+    );
+    assert(
+      exists("public/" + asset.src.replace(/^\//, "")),
+      `missing generated native Flip Chart crop ${asset.src}; run pnpm prepare:art`,
+    );
+  }
 }
 
 const gretelRequired = [
