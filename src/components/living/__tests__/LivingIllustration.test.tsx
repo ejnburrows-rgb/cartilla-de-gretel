@@ -2,6 +2,7 @@ import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import { LivingIllustration } from "../LivingIllustration";
 import { ANIMAL_GALLERY } from "@/content/animal-gallery";
+import { getLivingActor } from "@/lib/living-actor-registry";
 
 describe("LivingIllustration faithful recovered art", () => {
   for (const [word, src] of [
@@ -17,7 +18,7 @@ describe("LivingIllustration faithful recovered art", () => {
         `/cartilla/art/delivery/faithful/384/${src.split("/faithful/")[1]} 1x, /cartilla/art/delivery/faithful/768/${src.split("/faithful/")[1]} 2x`,
       );
       expect(image.parentElement?.getAttribute("data-ambient-motion")).toBe(
-        src.endsWith("oruga.webp") ? "sway" : "none",
+        getLivingActor(src)?.action ?? "none",
       );
       expect(screen.queryByText(/pendiente de color/i)).toBeNull();
     });
@@ -29,11 +30,11 @@ describe("LivingIllustration faithful recovered art", () => {
         <LivingIllustration src={animal.illustrationSrc} alt={animal.word} />,
       );
       const wrapper = screen.getByRole("img", { name: animal.word }).parentElement;
-      const approved = animal.illustrationSrc === "/cartilla/art/faithful/vocal-o/oso.webp";
+      const actor = getLivingActor(animal.illustrationSrc);
       expect(wrapper?.getAttribute("data-ambient-motion"), animal.word).toBe(
-        approved ? "breathe" : "none",
+        actor?.action ?? "none",
       );
-      expect(wrapper?.className.includes("living-illustration--creature-life"), animal.word).toBe(approved);
+      expect(wrapper?.className.includes("living-illustration--creature-life"), animal.word).toBe(Boolean(actor?.creature));
       unmount();
     }
   });
@@ -60,10 +61,29 @@ describe("LivingIllustration faithful recovered art", () => {
     expect(wrapper?.getAttribute("data-blink-mode")).toBe("none");
     expect(wrapper?.getAttribute("data-interactive")).toBe("true");
     expect(wrapper?.querySelectorAll(".living-illustration__eyelid")).toHaveLength(0);
-    expect(wrapper?.className).toContain("living-illustration--sway");
+    expect(wrapper?.className).toContain("living-illustration--crawl");
     if (!wrapper) throw new Error("missing living illustration wrapper");
     fireEvent.pointerDown(wrapper);
     expect(wrapper.className).toContain("living-illustration--reacting");
+  });
+
+  it("moves independent anatomy without applying the actor action to the whole source image", () => {
+    for (const src of [
+      "/cartilla/art/faithful/vocal-a/abeja.webp",
+      "/cartilla/art/faithful/leccion-1/pez.webp",
+      "/cartilla/art/faithful/vocal-e/elefante.webp",
+      "/cartilla/art/faithful/leccion-19-c/conejo.webp",
+      "/cartilla/art/faithful/leccion-18-rr/perro.webp",
+    ]) {
+      const actor = getLivingActor(src);
+      expect(actor?.parts?.length, src).toBeGreaterThan(0);
+      const { container, unmount } = render(<LivingIllustration src={src} alt={src} />);
+      const wrapper = container.querySelector(".living-illustration");
+      expect(wrapper?.getAttribute("data-part-based")).toBe("true");
+      expect(wrapper?.querySelectorAll(".living-illustration__part").length).toBe(actor?.parts?.length);
+      expect(wrapper?.className).not.toContain(`living-illustration--${actor?.action}`);
+      unmount();
+    }
   });
 
   it("preserves the approved source but suppresses motion when reduced motion is requested", async () => {
