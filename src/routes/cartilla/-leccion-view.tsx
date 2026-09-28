@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useNavigate, useParams } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@/lib/useServerFn";
-import { ArrowLeft, ClipboardList } from "lucide-react";
+import { ArrowLeft, ArrowRight, ClipboardList } from "lucide-react";
 import { CATALOG, TOTAL_LESSONS, type CatalogEntry } from "@/lib/lesson-catalog";
 import { useLessonProgress, isLessonUnlocked, markLessonCompleted } from "@/lib/lesson-progress";
 import { recordEvent, useStudentSession } from "@/lib/student-session";
@@ -13,12 +13,14 @@ import { useLanguage } from "@/context/LanguageContext";
 import { sCopy } from "@/content/student-copy";
 import { gretelEvent } from "@/lib/gretel-bus";
 
+import { CurlPageViewer } from "@/components/StudentBook/CurlPageViewer";
 import { NativeLessonViewer } from "@/components/StudentBook/NativeLessonViewer";
 import { buildPageArray } from "@/utils/buildPageArray";
 import { GretelPresence } from "@/components/gretel/GretelPresence";
 import { GretelCinematic } from "@/components/gretel/GretelCinematic";
 import { getLessonCinematic } from "@/content/gretel-cinematics";
 import { GardenScene } from "@/components/cartilla/GardenScene";
+import { KidButton } from "@/components/ui/KidButton";
 import "@/styles/interactive-exercises.css";
 import "@/styles/gretel.css";
 
