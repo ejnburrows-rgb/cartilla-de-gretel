@@ -401,3 +401,55 @@
     transform: none !important;
   }
 }
+
+
+/* Independently animated semantic parts. The source illustration remains the
+   canonical art; these overlays reuse its pixels and move only the intended
+   anatomical/object region. */
+.living-illustration__part {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.living-illustration__part--wings {
+  animation: living-part-wings 720ms ease-in-out var(--living-delay) infinite;
+}
+
+.living-illustration__part--tail {
+  animation: living-part-tail 920ms ease-in-out var(--living-delay) infinite;
+}
+
+.living-illustration__part--head {
+  animation: living-part-head 4.2s ease-in-out var(--living-delay) infinite;
+}
+
+@keyframes living-part-wings {
+  0%, 100% { transform: rotate(-1.8deg) scaleY(.98); }
+  50% { transform: rotate(1.8deg) scaleY(1.025); }
+}
+
+@keyframes living-part-tail {
+  0%, 100% { transform: rotate(-2.5deg); }
+  50% { transform: rotate(3.5deg); }
+}
+
+@keyframes living-part-head {
+  0%, 76%, 100% { transform: rotate(0deg) translateY(0); }
+  84% { transform: rotate(1.5deg) translateY(1%); }
+  92% { transform: rotate(-.7deg) translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .living-illustration__part {
+    animation: none !important;
+    transform: none !important;
+  }
+}
