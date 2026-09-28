@@ -29,6 +29,17 @@ describe("native Flip Chart coverage", () => {
     }
   });
 
+  it("keeps drill-page vocabulary in word chips while story pages stay prose", () => {
+    const lPage = getNativeFlipchartPage(25);
+    expect(lPage?.words.map((word) => word.parts.join(""))).toEqual(
+      expect.arrayContaining(["lima", "lata", "aleta", "maleta"]),
+    );
+
+    const storyPage = getNativeFlipchartPage(26);
+    expect(storyPage?.words).toHaveLength(0);
+    expect(storyPage?.body.some((line) => line.text.includes("Leo"))).toBe(true);
+  });
+
   it("keeps split reading sentences as prose instead of vocabulary chips", () => {
     for (const pageNumber of [25, 28, 31, 34]) {
       const page = getNativeFlipchartPage(pageNumber);
