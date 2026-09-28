@@ -1,0 +1,338 @@
+<Rive version="1" kind="fragment">
+  <Artboard defaultStateMachineId="0:100" width="420" height="620" name="Gretel" id="0:1">
+    <Group name="Character" id="0:5">
+      <Group x="210" y="378" name="Body" id="0:10">
+        <Shape x="0" y="-10" name="Skirt">
+          <Triangle originX="0.5" originY="0.38" width="188" height="220" name="Path"/>
+          <Fill name="Fill"><SolidColor colorValue="FF2D70B7" name="Color"/></Fill>
+        </Shape>
+        <Shape x="0" y="-118" name="Blouse">
+          <Rectangle originX="0.5" originY="0.5" width="118" height="90" name="Path"/>
+          <Fill name="Fill"><SolidColor colorValue="FFFFF8EE" name="Color"/></Fill>
+        </Shape>
+        <Shape x="0" y="-144" name="Stripe1">
+          <Rectangle originX="0.5" originY="0.5" width="118" height="12" name="Path"/>
+          <Fill name="Fill"><SolidColor colorValue="FFE95A5A" name="Color"/></Fill>
+        </Shape>
+        <Shape x="0" y="-116" name="Stripe2">
+          <Rectangle originX="0.5" originY="0.5" width="118" height="12" name="Path"/>
+          <Fill name="Fill"><SolidColor colorValue="FFE95A5A" name="Color"/></Fill>
+        </Shape>
+        <Shape x="0" y="-86" name="Bib">
+          <Rectangle originX="0.5" originY="0.5" width="84" height="78" name="Path"/>
+          <Fill name="Fill"><SolidColor colorValue="FF2D70B7" name="Color"/></Fill>
+        </Shape>
+        <Shape x="-28" y="-55" name="FlowerLeft">
+          <Ellipse originX="0.5" originY="0.5" width="20" height="20" name="Path"/>
+          <Fill name="Fill"><SolidColor colorValue="FFFFD85E" name="Color"/></Fill>
+        </Shape>
+        <Shape x="30" y="-48" name="FlowerRight">
+          <Ellipse originX="0.5" originY="0.5" width="18" height="18" name="Path"/>
+          <Fill name="Fill"><SolidColor colorValue="FFF28C9C" name="Color"/></Fill>
+        </Shape>
+      </Group>
+
+      <Group x="210" y="168" name="Head" id="0:20">
+        <Shape x="0" y="0" name="HairBack">
+          <Ellipse originX="0.5" originY="0.5" width="178" height="194" name="Path"/>
+          <Fill name="Fill"><SolidColor colorValue="FFF2CB55" name="Color"/></Fill>
+        </Shape>
+        <Shape x="0" y="12" name="Face">
+          <Ellipse originX="0.5" originY="0.5" width="142" height="156" name="Path"/>
+          <Fill name="Fill"><SolidColor colorValue="FFF7D4BC" name="Color"/></Fill>
+        </Shape>
+        <Shape x="-48" y="6" rotation="-0.25" name="HairLeft">
+          <Ellipse originX="0.5" originY="0.5" width="48" height="126" name="Path"/>
+          <Fill name="Fill"><SolidColor colorValue="FFF2CB55" name="Color"/></Fill>
+        </Shape>
+        <Shape x="48" y="6" rotation="0.25" name="HairRight">
+          <Ellipse originX="0.5" originY="0.5" width="48" height="126" name="Path"/>
+          <Fill name="Fill"><SolidColor colorValue="FFF2CB55" name="Color"/></Fill>
+        </Shape>
+
+        <Shape x="-27" y="1" name="EyeWhiteLeft">
+          <Ellipse originX="0.5" originY="0.5" width="34" height="26" name="Path"/>
+          <Fill name="Fill"><SolidColor colorValue="FFFFFFFF" name="Color"/></Fill>
+        </Shape>
+        <Shape x="27" y="1" name="EyeWhiteRight">
+          <Ellipse originX="0.5" originY="0.5" width="34" height="26" name="Path"/>
+          <Fill name="Fill"><SolidColor colorValue="FFFFFFFF" name="Color"/></Fill>
+        </Shape>
+        <Group name="Gaze" id="0:55">
+          <Shape x="-27" y="2" name="IrisLeft">
+            <Ellipse originX="0.5" originY="0.5" width="18" height="18" name="Path"/>
+            <Fill name="Fill"><SolidColor colorValue="FF4A9ED8" name="Color"/></Fill>
+          </Shape>
+          <Shape x="27" y="2" name="IrisRight">
+            <Ellipse originX="0.5" originY="0.5" width="18" height="18" name="Path"/>
+            <Fill name="Fill"><SolidColor colorValue="FF4A9ED8" name="Color"/></Fill>
+          </Shape>
+          <Shape x="-27" y="2" name="PupilLeft">
+            <Ellipse originX="0.5" originY="0.5" width="8" height="10" name="Path"/>
+            <Fill name="Fill"><SolidColor colorValue="FF243248" name="Color"/></Fill>
+          </Shape>
+          <Shape x="27" y="2" name="PupilRight">
+            <Ellipse originX="0.5" originY="0.5" width="8" height="10" name="Path"/>
+            <Fill name="Fill"><SolidColor colorValue="FF243248" name="Color"/></Fill>
+          </Shape>
+        </Group>
+
+        <Group name="Eyelids" id="0:50" scaleY="0.01">
+          <Shape x="-27" y="0" name="LidLeft">
+            <Ellipse originX="0.5" originY="0.5" width="38" height="28" name="Path"/>
+            <Fill name="Fill"><SolidColor colorValue="FFF7D4BC" name="Color"/></Fill>
+          </Shape>
+          <Shape x="27" y="0" name="LidRight">
+            <Ellipse originX="0.5" originY="0.5" width="38" height="28" name="Path"/>
+            <Fill name="Fill"><SolidColor colorValue="FFF7D4BC" name="Color"/></Fill>
+          </Shape>
+        </Group>
+
+        <Shape x="0" y="31" name="Nose">
+          <Ellipse originX="0.5" originY="0.5" width="11" height="8" name="Path"/>
+          <Fill name="Fill"><SolidColor colorValue="FFE8AB95" name="Color"/></Fill>
+        </Shape>
+        <Group x="0" y="58" name="Mouth" id="0:60" scaleY="0.5">
+          <Shape x="0" y="0" name="MouthShape">
+            <Ellipse originX="0.5" originY="0.5" width="31" height="14" name="Path"/>
+            <Fill name="Fill"><SolidColor colorValue="FFB94B54" name="Color"/></Fill>
+          </Shape>
+        </Group>
+
+        <Group x="0" y="-78" name="Bow" id="0:70">
+          <Shape x="-28" y="0" rotation="-0.28" name="BowLeft">
+            <Triangle originX="0.5" originY="0.5" width="62" height="48" name="Path"/>
+            <Fill name="Fill"><SolidColor colorValue="FFD93D45" name="Color"/></Fill>
+          </Shape>
+          <Shape x="28" y="0" rotation="0.28" name="BowRight">
+            <Triangle originX="0.5" originY="0.5" width="62" height="48" name="Path"/>
+            <Fill name="Fill"><SolidColor colorValue="FFD93D45" name="Color"/></Fill>
+          </Shape>
+          <Shape x="0" y="1" name="BowCenter">
+            <Ellipse originX="0.5" originY="0.5" width="30" height="28" name="Path"/>
+            <Fill name="Fill"><SolidColor colorValue="FFC62F38" name="Color"/></Fill>
+          </Shape>
+        </Group>
+      </Group>
+
+      <Group x="154" y="313" rotation="0.34" name="LeftArm" id="0:40">
+        <Shape x="-5" y="48" name="LeftSleeve">
+          <Rectangle originX="0.5" originY="0.15" width="34" height="72" name="Path"/>
+          <Fill name="Fill"><SolidColor colorValue="FFFFF8EE" name="Color"/></Fill>
+        </Shape>
+        <Shape x="-5" y="101" name="LeftForearm">
+          <Rectangle originX="0.5" originY="0.15" width="24" height="76" name="Path"/>
+          <Fill name="Fill"><SolidColor colorValue="FFF7D4BC" name="Color"/></Fill>
+        </Shape>
+        <Shape x="-5" y="164" name="LeftHand">
+          <Ellipse originX="0.5" originY="0.5" width="34" height="38" name="Path"/>
+          <Fill name="Fill"><SolidColor colorValue="FFF7D4BC" name="Color"/></Fill>
+        </Shape>
+      </Group>
+
+      <Group x="266" y="313" rotation="-0.34" name="RightArm" id="0:30">
+        <Shape x="5" y="48" name="RightSleeve">
+          <Rectangle originX="0.5" originY="0.15" width="34" height="72" name="Path"/>
+          <Fill name="Fill"><SolidColor colorValue="FFFFF8EE" name="Color"/></Fill>
+        </Shape>
+        <Shape x="5" y="101" name="RightForearm">
+          <Rectangle originX="0.5" originY="0.15" width="24" height="76" name="Path"/>
+          <Fill name="Fill"><SolidColor colorValue="FFF7D4BC" name="Color"/></Fill>
+        </Shape>
+        <Shape x="5" y="164" name="RightHand">
+          <Ellipse originX="0.5" originY="0.5" width="34" height="38" name="Path"/>
+          <Fill name="Fill"><SolidColor colorValue="FFF7D4BC" name="Color"/></Fill>
+        </Shape>
+      </Group>
+
+      <Shape x="180" y="563" name="LeftShoe">
+        <Ellipse originX="0.5" originY="0.5" width="68" height="28" name="Path"/>
+        <Fill name="Fill"><SolidColor colorValue="FF5A352A" name="Color"/></Fill>
+      </Shape>
+      <Shape x="240" y="563" name="RightShoe">
+        <Ellipse originX="0.5" originY="0.5" width="68" height="28" name="Path"/>
+        <Fill name="Fill"><SolidColor colorValue="FF5A352A" name="Color"/></Fill>
+      </Shape>
+    </Group>
+
+    <StateMachine name="Gretel" id="0:100">
+      <StateMachineLayer name="Idle Layer" id="0:101">
+        <AnyState x="80" y="-110"/>
+        <ExitState x="360" y="-110"/>
+        <EntryState><StateTransition stateToId="0:102"/></EntryState>
+        <AnimationState x="190" animationId="0:201" id="0:102"/>
+      </StateMachineLayer>
+      <StateMachineLayer name="Blink Layer" id="0:103">
+        <AnyState x="80" y="50"/>
+        <ExitState x="360" y="50"/>
+        <EntryState><StateTransition stateToId="0:104"/></EntryState>
+        <AnimationState x="190" animationId="0:202" id="0:104"/>
+      </StateMachineLayer>
+    </StateMachine>
+
+    <LinearAnimation loopValue="loop" duration="240" fps="60" name="idle" id="0:201">
+      <KeyedObject objectId="0:10">
+        <KeyedProperty propertyKey="14">
+          <KeyFrameDouble value="378" interpolationType="cubic"/>
+          <KeyFrameDouble value="381" interpolationType="cubic" frame="120"/>
+          <KeyFrameDouble value="378" interpolationType="cubic" frame="240"/>
+        </KeyedProperty>
+      </KeyedObject>
+      <KeyedObject objectId="0:20">
+        <KeyedProperty propertyKey="15">
+          <KeyFrameDouble value="-0.015" interpolationType="cubic"/>
+          <KeyFrameDouble value="0.015" interpolationType="cubic" frame="120"/>
+          <KeyFrameDouble value="-0.015" interpolationType="cubic" frame="240"/>
+        </KeyedProperty>
+      </KeyedObject>
+    </LinearAnimation>
+
+    <LinearAnimation loopValue="loop" duration="240" fps="60" name="blink" id="0:202">
+      <KeyedObject objectId="0:50">
+        <KeyedProperty propertyKey="17">
+          <KeyFrameDouble value="0.01" interpolationType="linear"/>
+          <KeyFrameDouble value="0.01" interpolationType="linear" frame="150"/>
+          <KeyFrameDouble value="1" interpolationType="linear" frame="154"/>
+          <KeyFrameDouble value="1" interpolationType="linear" frame="160"/>
+          <KeyFrameDouble value="0.01" interpolationType="linear" frame="164"/>
+          <KeyFrameDouble value="0.01" interpolationType="linear" frame="240"/>
+        </KeyedProperty>
+      </KeyedObject>
+    </LinearAnimation>
+
+    <LinearAnimation loopValue="loop" duration="18" fps="60" name="talk" id="0:203">
+      <KeyedObject objectId="0:60">
+        <KeyedProperty propertyKey="17">
+          <KeyFrameDouble value="0.42" interpolationType="linear"/>
+          <KeyFrameDouble value="1.15" interpolationType="linear" frame="5"/>
+          <KeyFrameDouble value="0.55" interpolationType="linear" frame="10"/>
+          <KeyFrameDouble value="1" interpolationType="linear" frame="14"/>
+          <KeyFrameDouble value="0.42" interpolationType="linear" frame="18"/>
+        </KeyedProperty>
+      </KeyedObject>
+    </LinearAnimation>
+
+    <LinearAnimation loopValue="oneShot" duration="32" fps="60" name="point-right" id="0:204">
+      <KeyedObject objectId="0:30">
+        <KeyedProperty propertyKey="15">
+          <KeyFrameDouble value="-0.34" interpolationType="cubic"/>
+          <KeyFrameDouble value="-1.28" interpolationType="cubic" frame="20"/>
+          <KeyFrameDouble value="-1.18" interpolationType="cubic" frame="32"/>
+        </KeyedProperty>
+      </KeyedObject>
+    </LinearAnimation>
+
+    <LinearAnimation loopValue="oneShot" duration="32" fps="60" name="point-left" id="0:205">
+      <KeyedObject objectId="0:40">
+        <KeyedProperty propertyKey="15">
+          <KeyFrameDouble value="0.34" interpolationType="cubic"/>
+          <KeyFrameDouble value="1.28" interpolationType="cubic" frame="20"/>
+          <KeyFrameDouble value="1.18" interpolationType="cubic" frame="32"/>
+        </KeyedProperty>
+      </KeyedObject>
+    </LinearAnimation>
+
+    <LinearAnimation loopValue="oneShot" duration="60" fps="60" name="wave" id="0:206">
+      <KeyedObject objectId="0:30">
+        <KeyedProperty propertyKey="15">
+          <KeyFrameDouble value="-0.34" interpolationType="cubic"/>
+          <KeyFrameDouble value="-1.1" interpolationType="cubic" frame="12"/>
+          <KeyFrameDouble value="-0.78" interpolationType="cubic" frame="24"/>
+          <KeyFrameDouble value="-1.18" interpolationType="cubic" frame="36"/>
+          <KeyFrameDouble value="-0.78" interpolationType="cubic" frame="48"/>
+          <KeyFrameDouble value="-0.34" interpolationType="cubic" frame="60"/>
+        </KeyedProperty>
+      </KeyedObject>
+    </LinearAnimation>
+
+    <LinearAnimation loopValue="oneShot" duration="58" fps="60" name="help" id="0:207">
+      <KeyedObject objectId="0:30">
+        <KeyedProperty propertyKey="15">
+          <KeyFrameDouble value="-0.34" interpolationType="cubic"/>
+          <KeyFrameDouble value="-0.98" interpolationType="cubic" frame="28"/>
+          <KeyFrameDouble value="-0.72" interpolationType="cubic" frame="58"/>
+        </KeyedProperty>
+      </KeyedObject>
+      <KeyedObject objectId="0:40">
+        <KeyedProperty propertyKey="15">
+          <KeyFrameDouble value="0.34" interpolationType="cubic"/>
+          <KeyFrameDouble value="0.98" interpolationType="cubic" frame="28"/>
+          <KeyFrameDouble value="0.72" interpolationType="cubic" frame="58"/>
+        </KeyedProperty>
+      </KeyedObject>
+    </LinearAnimation>
+
+    <LinearAnimation loopValue="oneShot" duration="70" fps="60" name="celebrate" id="0:208">
+      <KeyedObject objectId="0:30">
+        <KeyedProperty propertyKey="15">
+          <KeyFrameDouble value="-0.34" interpolationType="cubic"/>
+          <KeyFrameDouble value="-2.05" interpolationType="cubic" frame="24"/>
+          <KeyFrameDouble value="-1.75" interpolationType="cubic" frame="70"/>
+        </KeyedProperty>
+      </KeyedObject>
+      <KeyedObject objectId="0:40">
+        <KeyedProperty propertyKey="15">
+          <KeyFrameDouble value="0.34" interpolationType="cubic"/>
+          <KeyFrameDouble value="2.05" interpolationType="cubic" frame="24"/>
+          <KeyFrameDouble value="1.75" interpolationType="cubic" frame="70"/>
+        </KeyedProperty>
+      </KeyedObject>
+      <KeyedObject objectId="0:5">
+        <KeyedProperty propertyKey="14">
+          <KeyFrameDouble value="0" interpolationType="cubic"/>
+          <KeyFrameDouble value="-22" interpolationType="cubic" frame="24"/>
+          <KeyFrameDouble value="0" interpolationType="cubic" frame="48"/>
+          <KeyFrameDouble value="-10" interpolationType="cubic" frame="60"/>
+          <KeyFrameDouble value="0" interpolationType="cubic" frame="70"/>
+        </KeyedProperty>
+      </KeyedObject>
+    </LinearAnimation>
+
+    <LinearAnimation loopValue="oneShot" duration="50" fps="60" name="gentle-error" id="0:209">
+      <KeyedObject objectId="0:20">
+        <KeyedProperty propertyKey="15">
+          <KeyFrameDouble value="0" interpolationType="cubic"/>
+          <KeyFrameDouble value="-0.07" interpolationType="cubic" frame="14"/>
+          <KeyFrameDouble value="0.07" interpolationType="cubic" frame="28"/>
+          <KeyFrameDouble value="0" interpolationType="cubic" frame="50"/>
+        </KeyedProperty>
+      </KeyedObject>
+    </LinearAnimation>
+
+    <LinearAnimation loopValue="oneShot" duration="48" fps="60" name="listen" id="0:210">
+      <KeyedObject objectId="0:20">
+        <KeyedProperty propertyKey="15">
+          <KeyFrameDouble value="0" interpolationType="cubic"/>
+          <KeyFrameDouble value="0.06" interpolationType="cubic" frame="24"/>
+          <KeyFrameDouble value="0.02" interpolationType="cubic" frame="48"/>
+        </KeyedProperty>
+      </KeyedObject>
+      <KeyedObject objectId="0:55">
+        <KeyedProperty propertyKey="13">
+          <KeyFrameDouble value="0" interpolationType="cubic"/>
+          <KeyFrameDouble value="3" interpolationType="cubic" frame="24"/>
+          <KeyFrameDouble value="0" interpolationType="cubic" frame="48"/>
+        </KeyedProperty>
+      </KeyedObject>
+    </LinearAnimation>
+
+    <LinearAnimation loopValue="oneShot" duration="44" fps="60" name="enter" id="0:211">
+      <KeyedObject objectId="0:5">
+        <KeyedProperty propertyKey="14">
+          <KeyFrameDouble value="650" interpolationType="cubic"/>
+          <KeyFrameDouble value="-12" interpolationType="cubic" frame="34"/>
+          <KeyFrameDouble value="0" interpolationType="cubic" frame="44"/>
+        </KeyedProperty>
+      </KeyedObject>
+    </LinearAnimation>
+
+    <LinearAnimation loopValue="oneShot" duration="38" fps="60" name="exit" id="0:212">
+      <KeyedObject objectId="0:5">
+        <KeyedProperty propertyKey="14">
+          <KeyFrameDouble value="0" interpolationType="cubic"/>
+          <KeyFrameDouble value="650" interpolationType="cubic" frame="38"/>
+        </KeyedProperty>
+      </KeyedObject>
+    </LinearAnimation>
+  </Artboard>
+</Rive>
