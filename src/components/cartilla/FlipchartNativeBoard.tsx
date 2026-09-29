@@ -68,9 +68,14 @@ function VocabGrid({ native, isVowelPage, decorative }: Pick<BoardProps, "native
 /** Shared: art grid (images float on white, labels below) */
 function ArtGrid({ native, isVowelPage, decorative }: Pick<BoardProps, "native" | "isVowelPage" | "decorative">) {
   if (native.art.length === 0) return null;
+  // Baked-label guard: these image files have the word printed inside the image itself.
+  // Never render a figcaption for them (would duplicate the baked text as ghost).
+  const BAKED_LABEL_SLUGS = ["p021-dados", "p021-dedo", "p021-didi", "p021-dunia"];
   return (
     <div className="fc-native-board__art-grid" data-testid="flipchart-art-grid" data-art-count={native.art.length}>
-      {native.art.map((asset, index) => (
+      {native.art.map((asset, index) => {
+        const hasBakedLabel = asset.labelInImage || BAKED_LABEL_SLUGS.some((s) => asset.src.includes(s));
+        return (
         <figure key={asset.src} className="fc-native-board__art-card" data-art-index={index}>
           <LivingIllustration
             src={asset.src}
@@ -79,7 +84,7 @@ function ArtGrid({ native, isVowelPage, decorative }: Pick<BoardProps, "native" 
             loading={decorative ? "lazy" : "eager"}
             className="fc-native-board__living-art"
           />
-          {!decorative && !asset.labelInImage && (
+          {!decorative && !hasBakedLabel && (
             <figcaption className="fc-native-board__art-label">
               {isVowelPage && /^[aeiouáéíóú]/i.test(asset.word) ? (
                 <>
@@ -92,7 +97,8 @@ function ArtGrid({ native, isVowelPage, decorative }: Pick<BoardProps, "native" 
             </figcaption>
           )}
         </figure>
-      ))}
+        );
+      })}
     </div>
   );
 }
