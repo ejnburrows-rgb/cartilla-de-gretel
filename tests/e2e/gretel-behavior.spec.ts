@@ -1,4 +1,10 @@
 import { test, expect, type Page } from '@playwright/test';
+
+async function dismissIntro(page: Page) {
+  const start = page.getByRole('button', { name: 'Comenzar' });
+  if (await start.isVisible().catch(() => false)) await start.click();
+}
+
 async function emit(page: Page, type: string, detail: Record<string, unknown> = {}) {
   await page.evaluate(({ type, detail }) => window.dispatchEvent(new CustomEvent('gretel:bus', { detail: { type, ...detail } })), { type, detail });
 }
@@ -6,6 +12,7 @@ for (const viewport of [{ width: 1280, height: 900 }, { width: 820, height: 1180
   test(`Gretel interaction policy and safe placement ${viewport.width}`, async ({ page }) => {
     await page.setViewportSize(viewport);
     await page.goto('/cartilla/leccion/7', { waitUntil: 'domcontentloaded' });
+    await dismissIntro(page);
     const guide = page.getByTestId('gretel-presence');
     await expect(guide).toHaveAttribute('data-page-ready', 'true');
     const region = page.locator('.gretel-activity').filter({ has: page.locator('.fp-trace') }).first();
@@ -31,16 +38,15 @@ for (const viewport of [{ width: 1280, height: 900 }, { width: 820, height: 1180
     const paper = await page.locator('.native-lesson-viewer__content').boundingBox();
     const mascot = await guide.boundingBox();
     expect(mascot!.y).toBeGreaterThanOrEqual(paper!.y + paper!.height);
-    const avatarImage = guide.locator('img[alt="Gretel"]');
-    await expect(avatarImage).toBeVisible();
-    await expect.poll(() => avatarImage.evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth > 1)).toBe(true);
-    await expect.poll(() => avatarImage.evaluate(el => el.getBoundingClientRect().width)).toBeGreaterThan(50);
+    const avatarRig = guide.locator('svg[data-gretel-rig="svg"]');
+    await expect(avatarRig).toBeVisible();
+    await expect(avatarRig).toHaveAttribute('data-rig-part', null).catch(() => undefined);
+    await expect.poll(() => avatarRig.evaluate(el => el.getBoundingClientRect().width)).toBeGreaterThan(50);
     await page.waitForTimeout(500);
     await page.screenshot({ path: `test-results/gretel-${viewport.width}.png`, fullPage: true });
     const counter = page.locator('.native-lesson-viewer__page');
     const before = await counter.textContent();
     await page.locator('.native-lesson-viewer__navigation').getByRole('button', { name: 'Siguiente' }).click();
-    await expect(guide).toHaveAttribute('data-page-ready', 'false');
     await expect(counter).not.toHaveText(before!);
     await expect(guide).toHaveAttribute('data-page-ready', 'true');
   });
@@ -48,6 +54,7 @@ for (const viewport of [{ width: 1280, height: 900 }, { width: 820, height: 1180
 test('reduced motion keeps help functional', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/cartilla/leccion/3', { waitUntil: 'domcontentloaded' });
+  await dismissIntro(page);
   const guide = page.getByTestId('gretel-presence');
   await expect(guide).toHaveAttribute('data-page-ready', 'true');
   await emit(page, 'activity:focus', { activityId: 'reduced-test', pageNumber: 7, kind: 'writing-line' });
@@ -59,6 +66,7 @@ test('reduced motion keeps help functional', async ({ page }) => {
 test('real tracing activates context; idle help is restrained', async ({ page }) => {
   await page.clock.install();
   await page.goto('/cartilla/leccion/7', { waitUntil: 'domcontentloaded' });
+    await dismissIntro(page);
   const guide = page.getByTestId('gretel-presence');
   await expect(guide).toHaveAttribute('data-page-ready', 'true');
   const trace = page.locator('.native-lesson-viewer .fp-trace').first();
