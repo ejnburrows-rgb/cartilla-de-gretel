@@ -74,6 +74,10 @@ const OPTIMIZED_EXCLUSIVE = optimizedExclusive as OptimizedExclusiveEntry[];
 function normalizeWord(value: string) {
   return value
     .normalize("NFD")
+    // Preserve ñ as distinct from n (fixes "raña" fragment matching "rana"/frog).
+    // NFD decomposes ñ into n + combining tilde (U+0303); recompose it before
+    // stripping other diacritics so "araña" ≠ "arana" and "raña" ≠ "rana".
+    .replace(/n\u0303/gi, "ñ")
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
     .replace(/[^a-zñü0-9]+/g, "");
