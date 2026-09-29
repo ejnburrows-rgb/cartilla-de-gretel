@@ -1,0 +1,322 @@
+[
+  {
+    "flipchartPage": 3,
+    "word": "Las hermanitas vocales",
+    "subject": "hermanitas-vocales",
+    "src": "/cartilla/art/optimized/flipchart-exclusive/p003-hermanitas-vocales.webp",
+    "sha256": "213c458c9de7f051f953fad8615330c50b1f10b207a980799ce2abdaff972b96",
+    "bytes": 312514,
+    "status": "FINAL_OPTIMIZED",
+    "sourceSet": "ChatGPT Sep 28 2026 individual high-resolution generation"
+  },
+  {
+    "flipchartPage": 4,
+    "word": "Arre caballito",
+    "subject": "arre-caballito",
+    "src": "/cartilla/art/optimized/flipchart-exclusive/p004-arre-caballito.webp",
+    "sha256": "128419e2842e45170a74294968b82b3f48ea36699974552586b72029f5c49fb8",
+    "bytes": 219322,
+    "status": "FINAL_OPTIMIZED",
+    "sourceSet": "ChatGPT Sep 28 2026 individual high-resolution generation"
+  },
+  {
+    "flipchartPage": 5,
+    "word": "La niña enfermita",
+    "subject": "nina-enfermita",
+    "src": "/cartilla/art/optimized/flipchart-exclusive/p005-nina-enfermita.webp",
+    "sha256": "799f56222a8a16617d468783653f72538b0e1ef046a9e4110dbeca608bae1b86",
+    "bytes": 235872,
+    "status": "FINAL_OPTIMIZED",
+    "sourceSet": "ChatGPT Sep 28 2026 individual high-resolution generation"
+  },
+  {
+    "flipchartPage": 6,
+    "word": "La niña sordita",
+    "subject": "nina-sordita",
+    "src": "/cartilla/art/optimized/flipchart-exclusive/p006-nina-sordita.webp",
+    "sha256": "f3b907e43787c494244bca70acf47e92bcacd16fcf815e1e1d3bd436e248925c",
+    "bytes": 327210,
+    "status": "FINAL_OPTIMIZED",
+    "sourceSet": "ChatGPT Sep 28 2026 individual high-resolution generation"
+  },
+  {
+    "flipchartPage": 7,
+    "word": "La niña llorona",
+    "subject": "nina-llorona",
+    "src": "/cartilla/art/optimized/flipchart-exclusive/p007-nina-llorona.webp",
+    "sha256": "411c4e5dba888f6360772090636f13e3b8237c240a98086b1d54b02a93e7422e",
+    "bytes": 155800,
+    "status": "FINAL_OPTIMIZED",
+    "sourceSet": "ChatGPT Sep 28 2026 individual high-resolution generation"
+  },
+  {
+    "flipchartPage": 8,
+    "word": "La brujita",
+    "subject": "brujita",
+    "src": "/cartilla/art/optimized/flipchart-exclusive/p008-brujita.webp",
+    "sha256": "590f3656cfb1d39349579e474998de91e49b6ebf66eff50030ce457e54afeabb",
+    "bytes": 238952,
+    "status": "FINAL_OPTIMIZED",
+    "sourceSet": "ChatGPT Sep 28 2026 individual high-resolution generation"
+  },
+  {
+    "flipchartPage": 9,
+    "word": "Toro M",
+    "subject": "toro-m",
+    "src": "/cartilla/art/optimized/flipchart-exclusive/p009-toro-m.webp",
+    "sha256": "5c50261a0899dfd0e58d3ce58aeb7d550aadbf587a1effc31cba0c6b57ae4315",
+    "bytes": 349774,
+    "status": "FINAL_OPTIMIZED",
+    "sourceSet": "ChatGPT Sep 28 2026 individual high-resolution generation"
+  },
+  {
+    "flipchartPage": 11,
+    "word": "Mi mamá",
+    "subject": "mi-mama",
+    "src": "/cartilla/art/optimized/flipchart-exclusive/p011-mi-mama.webp",
+    "sha256": "960b0ec652184b6635a0575fc5c259d2281500ac7e7e79b93f52141548b96b1a",
+    "bytes": 289530,
+    "status": "FINAL_OPTIMIZED",
+    "sourceSet": "ChatGPT Sep 28 2026 individual high-resolution generation"
+  },
+  {
+    "flipchartPage": 12,
+    "word": "Pollito P",
+    "subject": "pollito-p",
+    "src": "/cartilla/art/optimized/flipchart-exclusive/p012-pollito-p.webp",
+    "sha256": "06f0ae980e77bfdd5ddb9204dceaab6dc959fe3a55714d78a2d930bc06fb0f9a",
+    "bytes": 320732,
+    "status": "FINAL_OPTIMIZED",
+    "sourceSet": "ChatGPT Sep 28 2026 individual high-resolution generation"
+  },
+  {
+    "flipchartPage": 14,
+    "word": "Mi papá",
+    "subject": "mi-papa",
+    "src": "/cartilla/art/optimized/flipchart-exclusive/p014-mi-papa.webp",
+    "sha256": "99b528375bd759d2867c8d3dcb8475b2cb876372d8536aceefb62283a347fce6",
+    "bytes": 290000,
+    "status": "FINAL_OPTIMIZED",
+    "sourceSet": "ChatGPT Sep 28 2026 individual high-resolution generation"
+  },
+  {
+    "flipchartPage": 15,
+    "word": "Serpiente S",
+    "subject": "serpiente-s",
+    "src": "/cartilla/art/optimized/flipchart-exclusive/p015-serpiente-s.webp",
+    "sha256": "3463ca3622c2aa821048df9e52eff837451eee000a0cfb8c78efaad185d184d6",
+    "bytes": 430704,
+    "status": "FINAL_OPTIMIZED",
+    "sourceSet": "ChatGPT Sep 28 2026 individual high-resolution generation"
+  },
+  {
+    "flipchartPage": 17,
+    "word": "Sapo Samapo",
+    "subject": "sapo-samapo",
+    "src": "/cartilla/art/optimized/flipchart-exclusive/p017-sapo-samapo.webp",
+    "sha256": "e251bd5beecbbfce1ebcdd88931a763e348c82a2ae887bac8f7e9504e19c14c1",
+    "bytes": 203714,
+    "status": "FINAL_OPTIMIZED",
+    "sourceSet": "ChatGPT Sep 28 2026 individual high-resolution generation"
+  },
+  {
+    "flipchartPage": 18,
+    "word": "Niño con tambor",
+    "subject": "nino-tambor-t",
+    "src": "/cartilla/art/optimized/flipchart-exclusive/p018-nino-tambor-t.webp",
+    "sha256": "08a680238e71dfe2c83285b7f8156fb01008ccfecefa4d88849074e85291278b",
+    "bytes": 321790,
+    "status": "FINAL_OPTIMIZED",
+    "sourceSet": "ChatGPT Sep 28 2026 individual high-resolution generation"
+  },
+  {
+    "flipchartPage": 20,
+    "word": "La sopa de pato",
+    "subject": "sopa-de-pato",
+    "src": "/cartilla/art/optimized/flipchart-exclusive/p020-sopa-de-pato.webp",
+    "sha256": "e8f5d2851cf4cc491cc9a6c622d48317c4fc1111a7a862ac0da7fc665d3d1db2",
+    "bytes": 321380,
+    "status": "FINAL_OPTIMIZED",
+    "sourceSet": "ChatGPT Sep 28 2026 individual high-resolution generation"
+  },
+  {
+    "flipchartPage": 21,
+    "word": "Campana D",
+    "subject": "campana-d",
+    "src": "/cartilla/art/optimized/flipchart-exclusive/p021-campana-d.webp",
+    "sha256": "297a5e2db087d20ea8665b8442dba869671797b86c74814045d7db5f69f00a69",
+    "bytes": 126904,
+    "status": "FINAL_OPTIMIZED",
+    "sourceSet": "ChatGPT Sep 28 2026 individual high-resolution generation"
+  },
+  {
+    "flipchartPage": 23,
+    "word": "Made y papá",
+    "subject": "made-y-papa",
+    "src": "/cartilla/art/optimized/flipchart-exclusive/p023-made-y-papa.webp",
+    "sha256": "8c7833dab4b2b5e1c2842315b4698d387b8ed5844ef16974da559948b4b167e9",
+    "bytes": 450478,
+    "status": "FINAL_OPTIMIZED",
+    "sourceSet": "ChatGPT Sep 28 2026 individual high-resolution generation"
+  },
+  {
+    "flipchartPage": 24,
+    "word": "Niña L",
+    "subject": "nina-l",
+    "src": "/cartilla/art/optimized/flipchart-exclusive/p024-nina-l.webp",
+    "sha256": "2f719f20a4f57afe4006769e6d67b6c3910d32b6a2954ac74b2a152f30fde51c",
+    "bytes": 242704,
+    "status": "FINAL_OPTIMIZED",
+    "sourceSet": "ChatGPT Sep 28 2026 individual high-resolution generation"
+  },
+  {
+    "flipchartPage": 26,
+    "word": "Leo lee",
+    "subject": "leo-lee",
+    "src": "/cartilla/art/optimized/flipchart-exclusive/p026-leo-lee.webp",
+    "sha256": "7cdd817e5edce43f02a07c3360a898fef61169800b0e2f9c248dc4fbb580db3a",
+    "bytes": 295750,
+    "status": "FINAL_OPTIMIZED",
+    "sourceSet": "ChatGPT Sep 28 2026 individual high-resolution generation"
+  },
+  {
+    "flipchartPage": 27,
+    "word": "Ternero N",
+    "subject": "ternero-n",
+    "src": "/cartilla/art/optimized/flipchart-exclusive/p027-ternero-n.webp",
+    "sha256": "767ec4b716bbf09a9aa5c88ef0b5688e3583eceb840da6420115293414c4accb",
+    "bytes": 376808,
+    "status": "FINAL_OPTIMIZED",
+    "sourceSet": "ChatGPT Sep 28 2026 individual high-resolution generation"
+  },
+  {
+    "flipchartPage": 29,
+    "word": "Niño nada",
+    "subject": "nino-nada",
+    "src": "/cartilla/art/optimized/flipchart-exclusive/p029-nino-nada.webp",
+    "sha256": "afac1b96ba21465b0226bc49d3196e79378e6ceb0513ea75a47c3e9c9cacbed8",
+    "bytes": 334016,
+    "status": "FINAL_OPTIMIZED",
+    "sourceSet": "ChatGPT Sep 28 2026 individual high-resolution generation"
+  },
+  {
+    "flipchartPage": 30,
+    "word": "Niña enmarcada Ñ",
+    "subject": "nina-enmarcada-ny",
+    "src": "/cartilla/art/optimized/flipchart-exclusive/p030-nina-enmarcada-ny.webp",
+    "sha256": "1756bc4b9a713d2e25878c83ce2bfb0773d142872d1340f09603f6e75b9cc8a9",
+    "bytes": 409340,
+    "status": "FINAL_OPTIMIZED",
+    "sourceSet": "ChatGPT Sep 28 2026 individual high-resolution generation"
+  },
+  {
+    "flipchartPage": 32,
+    "word": "La niña sueña",
+    "subject": "nina-suena",
+    "src": "/cartilla/art/optimized/flipchart-exclusive/p032-nina-suena.webp",
+    "sha256": "daaf7f931b96b29d408ce99086b591b64242d52d1030ce5c31d7b0d98116451f",
+    "bytes": 459174,
+    "status": "FINAL_OPTIMIZED",
+    "sourceSet": "ChatGPT Sep 28 2026 individual high-resolution generation"
+  },
+  {
+    "flipchartPage": 33,
+    "word": "Burro B",
+    "subject": "burro-b",
+    "src": "/cartilla/art/optimized/flipchart-exclusive/p033-burro-b.webp",
+    "sha256": "c24f1a0c3752c7bff1a663af1fa7ea7418bc309d6129104a74ee667220b8a2ef",
+    "bytes": 414024,
+    "status": "FINAL_OPTIMIZED",
+    "sourceSet": "ChatGPT Sep 28 2026 individual high-resolution generation"
+  },
+  {
+    "flipchartPage": 35,
+    "word": "Sube la bola",
+    "subject": "sube-la-bola",
+    "src": "/cartilla/art/optimized/flipchart-exclusive/p035-sube-la-bola.webp",
+    "sha256": "36f1b4f93310cd8895a759020f3b1fec64677a68acf124327b34de65adcac423",
+    "bytes": 227308,
+    "status": "FINAL_OPTIMIZED",
+    "sourceSet": "ChatGPT Sep 28 2026 individual high-resolution generation"
+  },
+  {
+    "flipchartPage": 36,
+    "word": "Viento V",
+    "subject": "viento-v",
+    "src": "/cartilla/art/optimized/flipchart-exclusive/p036-viento-v.webp",
+    "sha256": "b2aef181a84785afc8ebe518c5e79acf3a6bc915e317396d94709bc766de3103",
+    "bytes": 317086,
+    "status": "FINAL_OPTIMIZED",
+    "sourceSet": "ChatGPT Sep 28 2026 individual high-resolution generation"
+  },
+  {
+    "flipchartPage": 38,
+    "word": "Mi bote de vela",
+    "subject": "mi-bote-de-vela",
+    "src": "/cartilla/art/optimized/flipchart-exclusive/p038-mi-bote-de-vela.webp",
+    "sha256": "ee466faf64db2d5a4793a7e130835be3c6aa2fb5058b892cbf5bff3c8b2467a6",
+    "bytes": 412228,
+    "status": "FINAL_OPTIMIZED",
+    "sourceSet": "ChatGPT Sep 28 2026 individual high-resolution generation"
+  },
+  {
+    "flipchartPage": 39,
+    "word": "Ratón R",
+    "subject": "raton-r",
+    "src": "/cartilla/art/optimized/flipchart-exclusive/p039-raton-r.webp",
+    "sha256": "d1f7cfda0491a11a8ad5de789d8994c4e6b143a305351c54535775d69d72e7ac",
+    "bytes": 330858,
+    "status": "FINAL_OPTIMIZED",
+    "sourceSet": "ChatGPT Sep 28 2026 individual high-resolution generation"
+  },
+  {
+    "flipchartPage": 47,
+    "word": "Gato enamorado",
+    "subject": "gato-enamorado",
+    "src": "/cartilla/art/optimized/flipchart-exclusive/p047-gato-enamorado.webp",
+    "sha256": "f3e7393741407848a1508bd2a4ae96ee8468c5a7ec2ee15f19aec017c3d34fd4",
+    "bytes": 329180,
+    "status": "FINAL_OPTIMIZED",
+    "sourceSet": "ChatGPT Sep 28 2026 individual high-resolution generation"
+  },
+  {
+    "flipchartPage": 51,
+    "word": "Jirafa J",
+    "subject": "jirafa-j",
+    "src": "/cartilla/art/optimized/flipchart-exclusive/p051-jirafa-j.webp",
+    "sha256": "9b7709c170878b1c3c1f134f1082f1c6223fd069e4f7d53a98eaa32cd83c2156",
+    "bytes": 348920,
+    "status": "FINAL_OPTIMIZED",
+    "sourceSet": "ChatGPT Sep 28 2026 individual high-resolution generation"
+  },
+  {
+    "flipchartPage": 53,
+    "word": "Jicotea Jabela",
+    "subject": "jicotea-jabela",
+    "src": "/cartilla/art/optimized/flipchart-exclusive/p053-jicotea-jabela.webp",
+    "sha256": "59f482a76aa5da7e810cd380e2be35821388d99d696cbc1c9b4a8503bf4fd14d",
+    "bytes": 300578,
+    "status": "FINAL_OPTIMIZED",
+    "sourceSet": "ChatGPT Sep 28 2026 individual high-resolution generation"
+  },
+  {
+    "flipchartPage": 60,
+    "word": "Abejas Z",
+    "subject": "abejas-z",
+    "src": "/cartilla/art/optimized/flipchart-exclusive/p060-abejas-z.webp",
+    "sha256": "78bbb7b9ce4a702db2bf94e45c06fe55a30b0ba2095057b5bb1aa345bfc117e4",
+    "bytes": 326010,
+    "status": "FINAL_OPTIMIZED",
+    "sourceSet": "ChatGPT Sep 28 2026 individual high-resolution generation"
+  },
+  {
+    "flipchartPage": 62,
+    "word": "Carro calabaza",
+    "subject": "carro-calabaza",
+    "src": "/cartilla/art/optimized/flipchart-exclusive/p062-carro-calabaza.webp",
+    "sha256": "6a01c0faba0032cdba3b6eed2eddb1bb262316ac85fe4532813093f85c908576",
+    "bytes": 337134,
+    "status": "FINAL_OPTIMIZED",
+    "sourceSet": "ChatGPT Sep 28 2026 individual high-resolution generation"
+  }
+]

@@ -5,6 +5,7 @@ import lastPages from "@/data/flipchart-text-43-62.json";
 import frames from "@/data/flipchart-frames.json";
 import faithfulManifest from "@/data/faithful-art-manifest.json";
 import nativeExtras from "@/data/flipchart-native-assets.json";
+import optimizedExclusive from "@/data/optimized-flipchart-exclusive.json";
 
 export type FlipchartTextItem = {
   x: number;
@@ -61,6 +62,14 @@ type FaithfulManifestEntry = {
 
 const FAITHFUL = faithfulManifest as FaithfulManifestEntry[];
 const NATIVE_EXTRAS = nativeExtras as Record<string, Array<{ word: string; src: string }>>;
+type OptimizedExclusiveEntry = {
+  flipchartPage: number;
+  word: string;
+  src: string;
+  status: "FINAL_OPTIMIZED";
+};
+
+const OPTIMIZED_EXCLUSIVE = optimizedExclusive as OptimizedExclusiveEntry[];
 
 function normalizeWord(value: string) {
   return value
@@ -94,6 +103,10 @@ function pageArt(
   });
 
   const unique = new Map<string, { src: string; word: string }>();
+  for (const entry of OPTIMIZED_EXCLUSIVE) {
+    if (entry.flipchartPage !== flipchartPage || !entry.src || unique.has(entry.src)) continue;
+    unique.set(entry.src, { src: entry.src, word: entry.word });
+  }
   for (const entry of NATIVE_EXTRAS[String(flipchartPage)] ?? []) {
     if (!entry.src || unique.has(entry.src)) continue;
     unique.set(entry.src, { src: entry.src, word: entry.word });

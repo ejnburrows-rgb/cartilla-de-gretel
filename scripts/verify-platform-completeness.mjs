@@ -32,6 +32,7 @@ const layouts = readJson("src/data/page-layouts.json");
 const flipchart = readJson("src/data/teacher-flipchart.json");
 const frames = readJson("src/data/flipchart-frames.json");
 const nativeFlipchartAssets = readJson("src/data/flipchart-native-assets.json");
+const optimizedFlipchartAssets = readJson("src/data/optimized-flipchart-exclusive.json");
 
 const workbookPages = conversion.pages ?? [];
 assert(workbookPages.length === 90, `expected 90 workbook pages, found ${workbookPages.length}`);
@@ -75,6 +76,36 @@ for (const [page, assets] of Object.entries(nativeFlipchartAssets)) {
       `missing generated native Flip Chart crop ${asset.src}; run pnpm prepare:art`,
     );
   }
+}
+
+const expectedOptimizedFlipchartPages = [
+  3, 4, 5, 6, 7, 8, 9, 11, 12, 14, 15, 17, 18, 20, 21, 23,
+  24, 26, 27, 29, 30, 32, 33, 35, 36, 38, 39, 47, 51, 53, 60, 62,
+];
+assert(
+  Array.isArray(optimizedFlipchartAssets) &&
+    optimizedFlipchartAssets.length === expectedOptimizedFlipchartPages.length,
+  "optimized Flip Chart exclusive manifest must contain exactly 32 final assets",
+);
+assert(
+  optimizedFlipchartAssets.map((asset) => Number(asset.flipchartPage)).join(",") ===
+    expectedOptimizedFlipchartPages.join(","),
+  "optimized Flip Chart exclusive page set mismatch",
+);
+for (const asset of optimizedFlipchartAssets) {
+  assert(
+    asset.status === "FINAL_OPTIMIZED",
+    `optimized Flip Chart page ${asset.flipchartPage} is not FINAL_OPTIMIZED`,
+  );
+  assert(
+    typeof asset.src === "string" &&
+      asset.src.startsWith("/cartilla/art/optimized/flipchart-exclusive/"),
+    `invalid optimized Flip Chart path on page ${asset.flipchartPage}`,
+  );
+  assert(
+    exists("public/" + asset.src.replace(/^\//, "")),
+    `missing optimized Flip Chart asset ${asset.src}`,
+  );
 }
 
 const gretelRigSource = fs.readFileSync(
@@ -122,6 +153,7 @@ assert(!presenterSource.includes("<FlipchartPlate"), "teacher presenter must not
 assert(boardSource.includes("LivingIllustration"), "native Flip Chart must render independent learning objects");
 assert(!boardSource.includes("getFlipchartDeliverySrc"), "native Flip Chart must not use page-level delivery scans");
 assert(nativeModelSource.includes("faithfulManifest"), "native Flip Chart model must resolve repository faithful art");
+assert(nativeModelSource.includes("optimized-flipchart-exclusive"), "native Flip Chart model must load final optimized exclusive art");
 
 const lessonSource = fs.readFileSync(path.join(srcDir, "routes", "cartilla", "-leccion-view.tsx"), "utf8");
 assert(lessonSource.includes("<NativeLessonViewer"), "student lessons must use NativeLessonViewer");
@@ -136,6 +168,7 @@ console.log(JSON.stringify({
   flipchartNativeRegistry: "62/62",
   flipchartCanonicalMasters: "62/62",
   flipchartSurface: "62/62 native boards; pages 1-2 native frontmatter; pages 3-62 separate faithful learning objects",
+  flipchartOptimizedExclusive: "32 final optimized Flip Chart-only assets wired; Workbook mappings remain separate",
   gretelRig: "vector-part rig with head/eyes/eyelids/pupils/mouth/torso/independent arms",
   livingArt: "semantic registry with independent wings/tails/ears/trunk and reduced-motion policy",
   cinematics: "31 scenes: welcome + how-to + 24 lessons + 4 milestones + final",

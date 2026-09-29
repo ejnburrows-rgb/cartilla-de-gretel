@@ -22,11 +22,32 @@ describe("native Flip Chart coverage", () => {
         `missing native instructional content on page ${pageNumber}`,
       ).toBeGreaterThan(0);
       for (const asset of page?.art ?? []) {
-        expect(asset.src).toMatch(/^\/cartilla\/art\/faithful\//);
+        expect(asset.src).toMatch(/^\/cartilla\/art\/(faithful|optimized)\//);
         expect(asset.src).not.toContain("/hd/flipchart/");
         expect(asset.src).not.toContain("/delivery/flipchart/");
       }
     }
+  });
+
+  it("prefers final optimized exclusive art over superseded source crops", () => {
+    const page21 = getNativeFlipchartPage(21);
+    const page26 = getNativeFlipchartPage(26);
+    const page32 = getNativeFlipchartPage(32);
+    const page35 = getNativeFlipchartPage(35);
+
+    expect(page21?.art[0]?.src).toBe("/cartilla/art/optimized/flipchart-exclusive/p021-campana-d.webp");
+    expect(page26?.art[0]?.src).toBe("/cartilla/art/optimized/flipchart-exclusive/p026-leo-lee.webp");
+    expect(page32?.art[0]?.src).toBe("/cartilla/art/optimized/flipchart-exclusive/p032-nina-suena.webp");
+    expect(page35?.art[0]?.src).toBe("/cartilla/art/optimized/flipchart-exclusive/p035-sube-la-bola.webp");
+
+    const all = [page21, page26, page32, page35].flatMap((page) => page?.art ?? []);
+    expect(
+      all.some(
+        (asset) =>
+          /p021-campana-nino|p026-gretel-reading|p032-nina-suena|p035-bebo-batea/.test(asset.src) &&
+          asset.src.includes("/faithful/flipchart-native/"),
+      ),
+    ).toBe(false);
   });
 
   it("keeps drill-page vocabulary in word chips while story pages stay prose", () => {

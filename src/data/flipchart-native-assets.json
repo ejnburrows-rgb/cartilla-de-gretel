@@ -58,17 +58,6 @@
   ],
   "21": [
     {
-      "word": "campana y niño",
-      "src": "/cartilla/art/faithful/flipchart-native/p021-campana-nino.webp",
-      "sourcePage": 21,
-      "crop": [
-        145,
-        35,
-        340,
-        500
-      ]
-    },
-    {
       "word": "Didi",
       "src": "/cartilla/art/faithful/flipchart-native/p021-didi.webp",
       "sourcePage": 21,
@@ -178,45 +167,6 @@
         970,
         280,
         245
-      ]
-    }
-  ],
-  "26": [
-    {
-      "word": "Leo lee",
-      "src": "/cartilla/art/faithful/flipchart-native/p026-gretel-reading.webp",
-      "sourcePage": 26,
-      "crop": [
-        565,
-        220,
-        405,
-        510
-      ]
-    }
-  ],
-  "32": [
-    {
-      "word": "La niña sueña",
-      "src": "/cartilla/art/faithful/flipchart-native/p032-nina-suena.webp",
-      "sourcePage": 32,
-      "crop": [
-        500,
-        0,
-        485,
-        705
-      ]
-    }
-  ],
-  "35": [
-    {
-      "word": "Bebo batea la bola",
-      "src": "/cartilla/art/faithful/flipchart-native/p035-bebo-batea.webp",
-      "sourcePage": 35,
-      "crop": [
-        470,
-        0,
-        510,
-        635
       ]
     }
   ],
