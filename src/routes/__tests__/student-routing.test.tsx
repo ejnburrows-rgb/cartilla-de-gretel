@@ -132,7 +132,7 @@ describe("Student-Teacher Routing Isolation", () => {
       expect(history.location.pathname).toBe("/cartilla/unirse"),
     );
     const joinCodeInput = (await screen.findByLabelText(
-      /código de clase/i,
+      /código de la clase/i,
       {},
       { timeout: 10_000 },
     )) as HTMLInputElement;
@@ -280,7 +280,7 @@ describe("Student-Teacher Routing Isolation", () => {
       );
 
       const joinCodeInput = (await screen.findByLabelText(
-        /código de clase/i,
+        /código de la clase/i,
       )) as HTMLInputElement;
       const studentCodeInput = (await screen.findByLabelText(
         /código personal/i,
