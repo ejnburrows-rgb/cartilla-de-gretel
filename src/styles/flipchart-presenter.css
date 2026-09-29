@@ -890,6 +890,9 @@
   min-width: 0;
   min-height: 0;
   width: 100%;
+  /* Definite height via aspect-ratio: breaks the percentage-height circularity.
+     3/2 ratio gives a proper image area; img fills it with object-fit:contain. */
+  aspect-ratio: 3 / 2;
   max-height: calc(100% - 2rem);
   display: flex;
   align-items: center;
@@ -898,18 +901,19 @@
   flex: 1 1 auto;
 }
 
-.fc-native-board__living-art .living-illustration__art,
-.fc-native-board__living-art .living-illustration__part {
+.fc-native-board__living-art .living-illustration__art {
+  /* Definite container height above makes height:100% resolve.
+     object-fit:contain = full image visible, never clipped, never distorted. */
   display: block;
-  min-width: 0;
-  min-height: 0;
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: 100%;
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  flex: 0 1 auto;
+  flex: 0 0 auto;
 }
+/* Parts keep their absolute positioning from living-art.css — do not
+   override with in-flow flex sizing. */
 
 /* Hard containment: art must never bleed out of its tile card. */
 .fc-native-board__art-card {
