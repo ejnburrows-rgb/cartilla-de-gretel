@@ -41,6 +41,12 @@ interface GretelLiveAvatarProps {
   className?: string;
   size?: "sm" | "md" | "lg";
   bubblePosition?: "left" | "right" | "top";
+  /**
+   * Set false when the host already shows the spoken line elsewhere (e.g.
+   * GretelCinematic's caption card) — the floating bubble would cover
+   * Gretel's face and duplicate the text.
+   */
+  showBubble?: boolean;
 }
 
 const CONGRATULATIONS = ["¡Muy bien!", "¡Excelente!", "¡Lo lograste!", "¡Qué bien!"];
@@ -73,7 +79,7 @@ function bodyTransition(state: string) {
 }
 
 export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatarProps>(
-  ({ className = "", size = "md", bubblePosition = "top", paused = false, managed = false }, ref) => {
+  ({ className = "", size = "md", bubblePosition = "top", paused = false, managed = false, showBubble = true }, ref) => {
     const reducedMotion = useReducedMotion();
     const { machineState, send, isSpeaking } = useGretelAnimation(paused || !!reducedMotion);
     const [bubbleText, setBubbleText] = useState<string | null>(null);
@@ -333,7 +339,7 @@ export const GretelLiveAvatar = forwardRef<GretelLiveAvatarRef, GretelLiveAvatar
           />
         </motion.div>
 
-        {bubbleText && (
+        {showBubble && bubbleText && (
           <motion.div
             initial={{ opacity: 0, y: 4, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
