@@ -1,0 +1,272 @@
+name: Import final optimized Cartilla art
+
+on:
+  workflow_dispatch:
+    inputs:
+      asset_url:
+        description: Temporary signed URL for the verified optimized asset package
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cartilla-final-art-import
+  cancel-in-progress: false
+
+jobs:
+  import-final-art:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout current main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Download verified optimized package
+        env:
+          ASSET_URL: ${{ inputs.asset_url }}
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/cartilla-art
+          mkdir -p /tmp/cartilla-art
+          curl -L --fail --retry 3 --retry-delay 2 "$ASSET_URL" -o /tmp/cartilla-art.zip
+          unzip -q /tmp/cartilla-art.zip -d /tmp/cartilla-art
+          test -f /tmp/cartilla-art/manifest.json
+          test "$(find /tmp/cartilla-art -maxdepth 1 -name '*.webp' | wc -l)" -eq 32
+
+      - name: Install optimized assets and remove superseded mappings
+        run: |
+          set -euo pipefail
+          mkdir -p public/cartilla/art/optimized/flipchart-exclusive
+          rm -f public/cartilla/art/optimized/flipchart-exclusive/*
+          cp /tmp/cartilla-art/*.webp public/cartilla/art/optimized/flipchart-exclusive/
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path(".")
+          package = json.loads(Path("/tmp/cartilla-art/manifest.json").read_text())
+          labels = {
+              3: "Las hermanitas vocales",
+              4: "Arre caballito",
+              5: "La niña enfermita",
+              6: "La niña sordita",
+              7: "La niña llorona",
+              8: "La brujita",
+              9: "Toro M",
+              11: "Mi mamá",
+              12: "Pollito P",
+              14: "Mi papá",
+              15: "Serpiente S",
+              17: "Sapo Samapo",
+              18: "Niño con tambor",
+              20: "La sopa de pato",
+              21: "Campana D",
+              23: "Made y papá",
+              24: "Niña L",
+              26: "Leo lee",
+              27: "Ternero N",
+              29: "Niño nada",
+              30: "Niña enmarcada Ñ",
+              32: "La niña sueña",
+              33: "Burro B",
+              35: "Sube la bola",
+              36: "Viento V",
+              38: "Mi bote de vela",
+              39: "Ratón R",
+              47: "Gato enamorado",
+              51: "Jirafa J",
+              53: "Jicotea Jabela",
+              60: "Abejas Z",
+              62: "Carro calabaza",
+          }
+          expected_pages = list(labels)
+          assets = []
+          for item in package["assets"]:
+              page = int(item["flipchartPage"])
+              if page not in labels:
+                  raise SystemExit(f"unexpected optimized page {page}")
+              assets.append({
+                  "flipchartPage": page,
+                  "word": labels[page],
+                  "subject": item["subject"],
+                  "src": item["path"],
+                  "sha256": item["sha256"],
+                  "bytes": item["bytes"],
+                  "status": "FINAL_OPTIMIZED",
+                  "sourceSet": item["sourceSet"],
+              })
+          assets.sort(key=lambda x: x["flipchartPage"])
+          if [x["flipchartPage"] for x in assets] != sorted(expected_pages):
+              raise SystemExit("optimized page set mismatch")
+          (root / "src/data/optimized-flipchart-exclusive.json").write_text(
+              json.dumps(assets, ensure_ascii=False, indent=2) + "\n"
+          )
+
+          native_path = root / "src/data/flipchart-native-assets.json"
+          native = json.loads(native_path.read_text())
+          native["21"] = [
+              asset for asset in native.get("21", [])
+              if asset.get("src") != "/cartilla/art/faithful/flipchart-native/p021-campana-nino.webp"
+          ]
+          for key in ("26", "32", "35"):
+              native.pop(key, None)
+          native_path.write_text(json.dumps(native, ensure_ascii=False, indent=2) + "\n")
+
+          model_path = root / "src/lib/flipchart-native.ts"
+          model = model_path.read_text()
+          import_line = 'import optimizedExclusive from "@/data/optimized-flipchart-exclusive.json";'
+          if import_line not in model:
+              marker = 'import nativeExtras from "@/data/flipchart-native-assets.json";'
+              if marker not in model:
+                  raise SystemExit("flipchart model import marker missing")
+              model = model.replace(marker, marker + "\n" + import_line)
+
+          type_block = '''type OptimizedExclusiveEntry = {
+            flipchartPage: number;
+            word: string;
+            src: string;
+            status: "FINAL_OPTIMIZED";
+          };
+
+          const OPTIMIZED_EXCLUSIVE = optimizedExclusive as OptimizedExclusiveEntry[];
+          '''
+          if "const OPTIMIZED_EXCLUSIVE" not in model:
+              marker = 'const NATIVE_EXTRAS = nativeExtras as Record<string, Array<{ word: string; src: string }>>;\n'
+              if marker not in model:
+                  raise SystemExit("native extras marker missing")
+              model = model.replace(marker, marker + type_block)
+
+          optimized_loop = '''  for (const entry of OPTIMIZED_EXCLUSIVE) {
+            if (entry.flipchartPage !== flipchartPage || !entry.src || unique.has(entry.src)) continue;
+            unique.set(entry.src, { src: entry.src, word: entry.word });
+          }
+          '''
+          if "entry.flipchartPage !== flipchartPage" not in model:
+              marker = '  const unique = new Map<string, { src: string; word: string }>();\n'
+              if marker not in model:
+                  raise SystemExit("page art marker missing")
+              model = model.replace(marker, marker + optimized_loop)
+          model_path.write_text(model)
+
+          test_path = root / "src/lib/__tests__/flipchart-native-coverage.test.ts"
+          test = test_path.read_text()
+          test = test.replace(
+              'expect(asset.src).toMatch(/^\\/cartilla\\/art\\/faithful\\//);',
+              'expect(asset.src).toMatch(/^\\/cartilla\\/art\\/(faithful|optimized)\\//);',
+          )
+          optimized_test = '''\n  it("prefers final optimized exclusive art over superseded source crops", () => {
+            const page21 = getNativeFlipchartPage(21);
+            const page26 = getNativeFlipchartPage(26);
+            const page32 = getNativeFlipchartPage(32);
+            const page35 = getNativeFlipchartPage(35);
+
+            expect(page21?.art[0]?.src).toBe("/cartilla/art/optimized/flipchart-exclusive/p021-campana-d.webp");
+            expect(page26?.art[0]?.src).toBe("/cartilla/art/optimized/flipchart-exclusive/p026-leo-lee.webp");
+            expect(page32?.art[0]?.src).toBe("/cartilla/art/optimized/flipchart-exclusive/p032-nina-suena.webp");
+            expect(page35?.art[0]?.src).toBe("/cartilla/art/optimized/flipchart-exclusive/p035-sube-la-bola.webp");
+
+            const all = [page21, page26, page32, page35].flatMap((page) => page?.art ?? []);
+            expect(all.some((asset) => /p021-campana-nino|p026-gretel-reading|p032-nina-suena|p035-bebo-batea/.test(asset.src) && asset.src.includes("/faithful/flipchart-native/"))).toBe(false);
+          });
+          '''
+          if 'prefers final optimized exclusive art' not in test:
+              marker = '  it("keeps drill-page vocabulary in word chips while story pages stay prose", () => {'
+              if marker not in test:
+                  raise SystemExit("coverage test marker missing")
+              test = test.replace(marker, optimized_test + "\n" + marker)
+          test_path.write_text(test)
+
+          verify_path = root / "scripts/verify-platform-completeness.mjs"
+          verify = verify_path.read_text()
+          if 'optimized-flipchart-exclusive.json' not in verify:
+              marker = 'const nativeFlipchartAssets = readJson("src/data/flipchart-native-assets.json");'
+              verify = verify.replace(
+                  marker,
+                  marker + '\nconst optimizedFlipchartAssets = readJson("src/data/optimized-flipchart-exclusive.json");',
+              )
+
+              validation = '''\nconst expectedOptimizedFlipchartPages = [
+            3, 4, 5, 6, 7, 8, 9, 11, 12, 14, 15, 17, 18, 20, 21, 23,
+            24, 26, 27, 29, 30, 32, 33, 35, 36, 38, 39, 47, 51, 53, 60, 62,
+          ];
+          assert(
+            Array.isArray(optimizedFlipchartAssets) && optimizedFlipchartAssets.length === expectedOptimizedFlipchartPages.length,
+            "optimized Flip Chart exclusive manifest must contain exactly 32 final assets",
+          );
+          assert(
+            optimizedFlipchartAssets.map((asset) => Number(asset.flipchartPage)).join(",") === expectedOptimizedFlipchartPages.join(","),
+            "optimized Flip Chart exclusive page set mismatch",
+          );
+          for (const asset of optimizedFlipchartAssets) {
+            assert(asset.status === "FINAL_OPTIMIZED", `optimized Flip Chart page ${asset.flipchartPage} is not FINAL_OPTIMIZED`);
+            assert(
+              typeof asset.src === "string" && asset.src.startsWith("/cartilla/art/optimized/flipchart-exclusive/"),
+              `invalid optimized Flip Chart path on page ${asset.flipchartPage}`,
+            );
+            assert(
+              exists("public/" + asset.src.replace(/^\\//, "")),
+              `missing optimized Flip Chart asset ${asset.src}`,
+            );
+          }
+          '''
+              marker2 = '\nconst gretelRigSource = fs.readFileSync('
+              if marker2 not in verify:
+                  raise SystemExit("platform verification insertion marker missing")
+              verify = verify.replace(marker2, validation + marker2)
+              verify = verify.replace(
+                  'assert(nativeModelSource.includes("faithfulManifest"), "native Flip Chart model must resolve repository faithful art");',
+                  'assert(nativeModelSource.includes("faithfulManifest"), "native Flip Chart model must resolve repository faithful art");\nassert(nativeModelSource.includes("optimized-flipchart-exclusive"), "native Flip Chart model must load final optimized exclusive art");',
+              )
+              verify = verify.replace(
+                  'flipchartSurface: "62/62 native boards; pages 1-2 native frontmatter; pages 3-62 separate faithful learning objects",',
+                  'flipchartSurface: "62/62 native boards; pages 1-2 native frontmatter; pages 3-62 separate faithful learning objects",\n  flipchartOptimizedExclusive: "32 final optimized Flip Chart-only assets wired; Workbook mappings remain separate",',
+              )
+          verify_path.write_text(verify)
+
+          page_layouts = (root / "src/data/page-layouts.json").read_text()
+          if "/cartilla/art/optimized/flipchart-exclusive/" in page_layouts:
+              raise SystemExit("Flip Chart-exclusive optimized art leaked into Workbook page layouts")
+          PY
+
+      - name: Remove temporary workflow from final tree
+        run: rm -f .github/workflows/import-final-cartilla-art.yml
+
+      - name: Verify final asset set
+        run: |
+          set -euo pipefail
+          test "$(find public/cartilla/art/optimized/flipchart-exclusive -maxdepth 1 -type f -name '*.webp' | wc -l)" -eq 32
+          node -e 'const a=require("./src/data/optimized-flipchart-exclusive.json"); if(a.length!==32) process.exit(1);'
+          ! grep -q 'p021-campana-nino.webp' src/data/flipchart-native-assets.json
+          ! grep -q 'p026-gretel-reading.webp' src/data/flipchart-native-assets.json
+          ! grep -q 'p032-nina-suena.webp' src/data/flipchart-native-assets.json
+          ! grep -q 'p035-bebo-batea.webp' src/data/flipchart-native-assets.json
+          ! grep -q '/cartilla/art/optimized/flipchart-exclusive/' src/data/page-layouts.json
+
+      - name: Install dependencies
+        run: corepack enable && pnpm install --frozen-lockfile
+
+      - name: Run focused Flip Chart tests
+        run: pnpm vitest run src/lib/__tests__/flipchart-native-coverage.test.ts
+
+      - name: Run full strict build
+        run: pnpm build
+
+      - name: Commit verified final set
+        run: |
+          set -euo pipefail
+          git config user.name "ejnrcgplm"
+          git config user.email "ejnrcg@yahoo.com"
+          git add -A
+          git diff --cached --check
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "Import final optimized Flip Chart artwork"
+          git pull --rebase origin main
+          git push origin HEAD:main
