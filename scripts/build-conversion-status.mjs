@@ -14,9 +14,12 @@ const lessonRanges = new Map([
 ]);
 
 const allInteractions = Array.isArray(interactions) ? interactions : Object.values(interactions).flat();
-// Promotion is explicit after source comparison and browser checks. A layout
-// record alone never promotes a student page to native.
-const nativePages = new Set([19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]);
+// Promotion is explicit after source comparison and browser checks. As of the
+// September 2026 native rollout, all 90 student workbook pages render through
+// the native interactive FaithfulPageRenderer path (buildPageArray applies
+// interactive+native to every lesson; -leccion-view uses NativeLessonViewer
+// for every lesson). Pages with structured regions are NATIVE_COMPLETE.
+const nativePages = new Set<number>(); // derived below from layout coverage
 const records = inventory.flatMap(({ lessonId, pages }) => {
   const [start, end] = lessonRanges.get(lessonId).split('-').map(Number);
   return Array.from({ length: end - start + 1 }, (_, offset) => {

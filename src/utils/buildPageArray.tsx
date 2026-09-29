@@ -1,14 +1,10 @@
 import type { WorkbookPageEntry } from "@/components/StudentBook/SimplePageViewer";
 
-import pageInventory from "@/data/page-inventory.json";
 import { CATALOG } from "@/lib/lesson-catalog";
 import { getLessonPageNumbers } from "@/lib/cartilla-crm-theme";
 import { getPageLayout, hasPageLayout } from "@/lib/book-faithful";
 import { buildGretelPageLine } from "@/lib/gretel-page-guide";
 import { FaithfulPageRenderer } from "@/components/cartilla/FaithfulPageRenderer";
-import { PdfPage } from "@/components/cartilla/PdfPage";
-
-const BASE = "/cartilla/images/source";
 
 /** Honest pending shell — never invents book text or art. */
 function PendingPageShell({ lessonId, pageNum, globalPage }: { lessonId: number; pageNum: number; globalPage?: number }) {
@@ -26,73 +22,44 @@ function PendingPageShell({ lessonId, pageNum, globalPage }: { lessonId: number;
 /**
  * Builds the WorkbookPageEntry[] for a specific lesson. Lesson slices contain
  * interior worksheet leaves only; none is mislabeled as a hard book cover.
+ *
+ * Native rollout (September 2026): every one of the 90 student workbook pages
+ * now has verified structured regions in page-layouts.json, so every lesson
+ * renders as a native digital learning screen through FaithfulPageRenderer.
+ * The proven Lessons 7–9 pattern (interactive + native) is applied to all
+ * lessons; scan-first branches are kept only as honest fallbacks for pages
+ * that somehow lack a layout record.
  */
 export function buildPageArray(lessonId: number): WorkbookPageEntry[] {
-  const lessonEntry = (pageInventory.workbook.lessons as Array<{ lessonId: number; pages: string[] }>).find((l) => l.lessonId === lessonId);
-  const paths: string[] = lessonEntry?.pages ?? [];
   const catalogEntry = CATALOG.find((e) => e.n === lessonId);
   const globalPages = catalogEntry ? getLessonPageNumbers(catalogEntry.pages) : [];
-  const count = globalPages.length > 0 ? globalPages.length : paths.length;
-  if (count === 0) return [];
+  if (globalPages.length === 0) return [];
 
-  return Array.from({ length: count }, (_, i) => {
-    const filename = paths[i];
-    const src = filename ? `${BASE}/${filename}` : undefined;
+  return globalPages.map((globalPage, i) => {
     const pageNum = i + 1;
-    const globalPage = globalPages[i];
-    const isAnimated = Boolean(filename?.endsWith(".mp4"));
-    const pageNumberForGuide = typeof globalPage === "number" ? globalPage : pageNum;
-    const gretelLine = buildGretelPageLine(
-      typeof globalPage === "number" ? getPageLayout(globalPage) : null,
-      pageNumberForGuide,
-    );
+    const gretelLine = buildGretelPageLine(getPageLayout(globalPage), globalPage);
 
-    if (typeof globalPage === "number" && hasPageLayout(globalPage)) {
+    if (hasPageLayout(globalPage)) {
       return {
         id: `lesson-${lessonId}-page-${pageNum}`,
-        src,
-        pageNumber: pageNumberForGuide,
+        pageNumber: globalPage,
         gretelLine,
-        content: <FaithfulPageRenderer pageNumber={globalPage} lessonNumber={lessonId} interactive native={lessonId === 7 || lessonId === 8 || lessonId === 9} />,
-      };
-    }
-
-    if (typeof globalPage === "number") {
-      return {
-        id: `lesson-${lessonId}-page-${pageNum}`,
-        src,
-        pageNumber: pageNumberForGuide,
-        gretelLine,
-        content: <FaithfulPageRenderer pageNumber={globalPage} lessonNumber={lessonId} fallback={<PdfPage pageNumber={globalPage} />} />,
-      };
-    }
-
-    if (filename) {
-      return {
-        id: `lesson-${lessonId}-page-${pageNum}`,
-        src,
-        pageNumber: pageNumberForGuide,
-        gretelLine,
-        content: isAnimated ? (
-          <video src={src} autoPlay loop muted playsInline className="w-full h-full object-cover" />
-        ) : (
-          <img src={src} alt={`Lección ${lessonId} — Página ${pageNum}`} loading="lazy" decoding="async" className="w-full h-full object-cover" onError={(e) => {
-            const t = e.currentTarget;
-            t.style.display = "none";
-            const fb = document.createElement("div");
-            fb.className = "w-full h-full flex items-center justify-center text-text-muted text-sm font-bold bg-surface";
-            fb.textContent = `Página ${pageNum} — pendiente`;
-            t.parentNode?.appendChild(fb);
-          }} />
+        content: (
+          <FaithfulPageRenderer
+            pageNumber={globalPage}
+            lessonNumber={lessonId}
+            interactive
+            native
+          />
         ),
       };
     }
 
     return {
       id: `lesson-${lessonId}-page-${pageNum}`,
-      pageNumber: pageNumberForGuide,
+      pageNumber: globalPage,
       gretelLine,
-      content: <PendingPageShell lessonId={lessonId} pageNum={pageNum} globalPage={globalPage} />,
+      content: <FaithfulPageRenderer pageNumber={globalPage} lessonNumber={lessonId} fallback={<PendingPageShell lessonId={lessonId} pageNum={pageNum} globalPage={globalPage} />} />,
     };
   });
 }

@@ -9,102 +9,62 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as LoginRouteImport } from './routes/login'
-import { Route as IntroRouteImport } from './routes/intro'
-import { Route as EntrarRouteImport } from './routes/entrar'
-import { Route as DevWorkbookManifestRouteImport } from './routes/dev-workbook-manifest'
-import { Route as DevLivingWorkbookRouteImport } from './routes/dev-living-workbook'
-import { Route as DevGretelRouteImport } from './routes/dev-gretel'
-import { Route as CreditsRouteImport } from './routes/credits'
-import { Route as ClassroomRouteImport } from './routes/classroom'
-import { Route as BookRouteImport } from './routes/book'
-import { Route as ActivitiesRouteImport } from './routes/activities'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ActivitiesRouteImport } from './routes/activities'
+import { Route as BookRouteImport } from './routes/book'
+import { Route as ClassroomRouteImport } from './routes/classroom'
+import { Route as CreditsRouteImport } from './routes/credits'
+import { Route as DevGretelRouteImport } from './routes/dev-gretel'
+import { Route as DevLivingWorkbookRouteImport } from './routes/dev-living-workbook'
+import { Route as DevWorkbookManifestRouteImport } from './routes/dev-workbook-manifest'
+import { Route as EntrarRouteImport } from './routes/entrar'
+import { Route as IntroRouteImport } from './routes/intro'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as CartillaIndexRouteImport } from './routes/cartilla/index'
-import { Route as CartillaVocesRouteImport } from './routes/cartilla/voces'
-import { Route as CartillaUnirseRouteImport } from './routes/cartilla/unirse'
-import { Route as CartillaStudentLoginRouteImport } from './routes/cartilla/student-login'
-import { Route as CartillaRepasoRouteImport } from './routes/cartilla/repaso'
-import { Route as CartillaPracticaRouteImport } from './routes/cartilla/practica'
-import { Route as CartillaMiProgresoRouteImport } from './routes/cartilla/mi-progreso'
-import { Route as CartillaLeccionesRouteImport } from './routes/cartilla/lecciones'
-import { Route as CartillaCuadernoRouteImport } from './routes/cartilla/cuaderno'
-import { Route as CartillaAyudaRouteImport } from './routes/cartilla/ayuda'
-import { Route as CartillaAutoraRouteImport } from './routes/cartilla/autora'
 import { Route as CartillaAnimalesRouteImport } from './routes/cartilla/animales'
+import { Route as CartillaAutoraRouteImport } from './routes/cartilla/autora'
+import { Route as CartillaAyudaRouteImport } from './routes/cartilla/ayuda'
+import { Route as CartillaCuadernoRouteImport } from './routes/cartilla/cuaderno'
+import { Route as CartillaLeccionesRouteImport } from './routes/cartilla/lecciones'
+import { Route as CartillaMiProgresoRouteImport } from './routes/cartilla/mi-progreso'
+import { Route as CartillaPracticaRouteImport } from './routes/cartilla/practica'
+import { Route as CartillaRepasoRouteImport } from './routes/cartilla/repaso'
+import { Route as CartillaStudentLoginRouteImport } from './routes/cartilla/student-login'
 import { Route as CartillaTeacherRouteRouteImport } from './routes/cartilla/teacher/route'
-import { Route as CartillaTeacherIndexRouteImport } from './routes/cartilla/teacher/index'
-import { Route as CartillaTeacherRosterRouteImport } from './routes/cartilla/teacher/roster'
-import { Route as CartillaTeacherReportesRouteImport } from './routes/cartilla/teacher/reportes'
-import { Route as CartillaTeacherProgresoRouteImport } from './routes/cartilla/teacher/progreso'
-import { Route as CartillaTeacherLeccionesRouteImport } from './routes/cartilla/teacher/lecciones'
-import { Route as CartillaTeacherGuideRouteImport } from './routes/cartilla/teacher/guide'
-import { Route as CartillaTeacherFlipchartRouteImport } from './routes/cartilla/teacher/flipchart'
-import { Route as CartillaTeacherCrmRouteImport } from './routes/cartilla/teacher/crm'
-import { Route as CartillaTeacherAyudaRouteImport } from './routes/cartilla/teacher/ayuda'
-import { Route as CartillaTeacherAdminRouteImport } from './routes/cartilla/teacher/admin'
-import { Route as CartillaPresentarNRouteImport } from './routes/cartilla/presentar.$n'
-import { Route as CartillaPilotFaithfulNRouteImport } from './routes/cartilla/pilot-faithful.$n'
-import { Route as CartillaLeccionNRouteImport } from './routes/cartilla/leccion.$n'
-import { Route as CartillaJuegoGameIdRouteImport } from './routes/cartilla/juego.$gameId'
-import { Route as CartillaImprimirAllRouteImport } from './routes/cartilla/imprimir.all'
+import { Route as CartillaUnirseRouteImport } from './routes/cartilla/unirse'
+import { Route as CartillaVocesRouteImport } from './routes/cartilla/voces'
 import { Route as CartillaImprimirNRouteImport } from './routes/cartilla/imprimir.$n'
-import { Route as CartillaTeacherGuiaIndexRouteImport } from './routes/cartilla/teacher/guia.index'
+import { Route as CartillaImprimirAllRouteImport } from './routes/cartilla/imprimir.all'
+import { Route as CartillaJuegoGameIdRouteImport } from './routes/cartilla/juego.$gameId'
+import { Route as CartillaLeccionNRouteImport } from './routes/cartilla/leccion.$n'
+import { Route as CartillaPilotFaithfulNRouteImport } from './routes/cartilla/pilot-faithful.$n'
+import { Route as CartillaPresentarNRouteImport } from './routes/cartilla/presentar.$n'
+import { Route as CartillaTeacherIndexRouteImport } from './routes/cartilla/teacher/index'
+import { Route as CartillaTeacherAdminRouteImport } from './routes/cartilla/teacher/admin'
+import { Route as CartillaTeacherAyudaRouteImport } from './routes/cartilla/teacher/ayuda'
+import { Route as CartillaTeacherCrmRouteImport } from './routes/cartilla/teacher/crm'
+import { Route as CartillaTeacherFlipchartRouteImport } from './routes/cartilla/teacher/flipchart'
+import { Route as CartillaTeacherGuideRouteImport } from './routes/cartilla/teacher/guide'
+import { Route as CartillaTeacherLeccionesRouteImport } from './routes/cartilla/teacher/lecciones'
+import { Route as CartillaTeacherProgresoRouteImport } from './routes/cartilla/teacher/progreso'
+import { Route as CartillaTeacherReportesRouteImport } from './routes/cartilla/teacher/reportes'
+import { Route as CartillaTeacherRosterRouteImport } from './routes/cartilla/teacher/roster'
 import { Route as CartillaTeacherCrmIndexRouteImport } from './routes/cartilla/teacher/crm.index'
-import { Route as CartillaTeacherRecursosRecursoIdRouteImport } from './routes/cartilla/teacher/recursos/$recursoId'
-import { Route as CartillaTeacherPaginasNRouteImport } from './routes/cartilla/teacher/paginas.$n'
-import { Route as CartillaTeacherGuiaNRouteImport } from './routes/cartilla/teacher/guia.$n'
-import { Route as CartillaTeacherCrmArtworkRouteImport } from './routes/cartilla/teacher/crm.artwork'
 import { Route as CartillaTeacherCrmClassIdRouteImport } from './routes/cartilla/teacher/crm.$classId'
+import { Route as CartillaTeacherCrmArtworkRouteImport } from './routes/cartilla/teacher/crm.artwork'
+import { Route as CartillaTeacherGuiaIndexRouteImport } from './routes/cartilla/teacher/guia.index'
+import { Route as CartillaTeacherGuiaNRouteImport } from './routes/cartilla/teacher/guia.$n'
+import { Route as CartillaTeacherPaginasNRouteImport } from './routes/cartilla/teacher/paginas.$n'
+import { Route as CartillaTeacherRecursosRecursoIdRouteImport } from './routes/cartilla/teacher/recursos/$recursoId'
 import { Route as CartillaTeacherCrmClassIdIndexRouteImport } from './routes/cartilla/teacher/crm.$classId.index'
 import { Route as CartillaTeacherCrmClassIdStudentIdRouteImport } from './routes/cartilla/teacher/crm.$classId.$studentId'
 import { Route as CartillaTeacherCrmClassIdStudentIdIndexRouteImport } from './routes/cartilla/teacher/crm.$classId.$studentId.index'
-import { Route as CartillaTeacherCrmClassIdStudentIdReporteRouteImport } from './routes/cartilla/teacher/crm.$classId.$studentId.reporte'
 import { Route as CartillaTeacherCrmClassIdStudentIdLessonIdRouteImport } from './routes/cartilla/teacher/crm.$classId.$studentId.$lessonId'
+import { Route as CartillaTeacherCrmClassIdStudentIdReporteRouteImport } from './routes/cartilla/teacher/crm.$classId.$studentId.reporte'
 
-const LoginRoute = LoginRouteImport.update({
-  id: '/login',
-  path: '/login',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IntroRoute = IntroRouteImport.update({
-  id: '/intro',
-  path: '/intro',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EntrarRoute = EntrarRouteImport.update({
-  id: '/entrar',
-  path: '/entrar',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DevWorkbookManifestRoute = DevWorkbookManifestRouteImport.update({
-  id: '/dev-workbook-manifest',
-  path: '/dev-workbook-manifest',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DevLivingWorkbookRoute = DevLivingWorkbookRouteImport.update({
-  id: '/dev-living-workbook',
-  path: '/dev-living-workbook',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DevGretelRoute = DevGretelRouteImport.update({
-  id: '/dev-gretel',
-  path: '/dev-gretel',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CreditsRoute = CreditsRouteImport.update({
-  id: '/credits',
-  path: '/credits',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ClassroomRoute = ClassroomRouteImport.update({
-  id: '/classroom',
-  path: '/classroom',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BookRoute = BookRouteImport.update({
-  id: '/book',
-  path: '/book',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ActivitiesRoute = ActivitiesRouteImport.update({
@@ -112,9 +72,49 @@ const ActivitiesRoute = ActivitiesRouteImport.update({
   path: '/activities',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const BookRoute = BookRouteImport.update({
+  id: '/book',
+  path: '/book',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClassroomRoute = ClassroomRouteImport.update({
+  id: '/classroom',
+  path: '/classroom',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CreditsRoute = CreditsRouteImport.update({
+  id: '/credits',
+  path: '/credits',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DevGretelRoute = DevGretelRouteImport.update({
+  id: '/dev-gretel',
+  path: '/dev-gretel',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DevLivingWorkbookRoute = DevLivingWorkbookRouteImport.update({
+  id: '/dev-living-workbook',
+  path: '/dev-living-workbook',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DevWorkbookManifestRoute = DevWorkbookManifestRouteImport.update({
+  id: '/dev-workbook-manifest',
+  path: '/dev-workbook-manifest',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EntrarRoute = EntrarRouteImport.update({
+  id: '/entrar',
+  path: '/entrar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IntroRoute = IntroRouteImport.update({
+  id: '/intro',
+  path: '/intro',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CartillaIndexRoute = CartillaIndexRouteImport.update({
@@ -122,49 +122,9 @@ const CartillaIndexRoute = CartillaIndexRouteImport.update({
   path: '/cartilla/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CartillaVocesRoute = CartillaVocesRouteImport.update({
-  id: '/cartilla/voces',
-  path: '/cartilla/voces',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CartillaUnirseRoute = CartillaUnirseRouteImport.update({
-  id: '/cartilla/unirse',
-  path: '/cartilla/unirse',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CartillaStudentLoginRoute = CartillaStudentLoginRouteImport.update({
-  id: '/cartilla/student-login',
-  path: '/cartilla/student-login',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CartillaRepasoRoute = CartillaRepasoRouteImport.update({
-  id: '/cartilla/repaso',
-  path: '/cartilla/repaso',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CartillaPracticaRoute = CartillaPracticaRouteImport.update({
-  id: '/cartilla/practica',
-  path: '/cartilla/practica',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CartillaMiProgresoRoute = CartillaMiProgresoRouteImport.update({
-  id: '/cartilla/mi-progreso',
-  path: '/cartilla/mi-progreso',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CartillaLeccionesRoute = CartillaLeccionesRouteImport.update({
-  id: '/cartilla/lecciones',
-  path: '/cartilla/lecciones',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CartillaCuadernoRoute = CartillaCuadernoRouteImport.update({
-  id: '/cartilla/cuaderno',
-  path: '/cartilla/cuaderno',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CartillaAyudaRoute = CartillaAyudaRouteImport.update({
-  id: '/cartilla/ayuda',
-  path: '/cartilla/ayuda',
+const CartillaAnimalesRoute = CartillaAnimalesRouteImport.update({
+  id: '/cartilla/animales',
+  path: '/cartilla/animales',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CartillaAutoraRoute = CartillaAutoraRouteImport.update({
@@ -172,9 +132,39 @@ const CartillaAutoraRoute = CartillaAutoraRouteImport.update({
   path: '/cartilla/autora',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CartillaAnimalesRoute = CartillaAnimalesRouteImport.update({
-  id: '/cartilla/animales',
-  path: '/cartilla/animales',
+const CartillaAyudaRoute = CartillaAyudaRouteImport.update({
+  id: '/cartilla/ayuda',
+  path: '/cartilla/ayuda',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CartillaCuadernoRoute = CartillaCuadernoRouteImport.update({
+  id: '/cartilla/cuaderno',
+  path: '/cartilla/cuaderno',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CartillaLeccionesRoute = CartillaLeccionesRouteImport.update({
+  id: '/cartilla/lecciones',
+  path: '/cartilla/lecciones',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CartillaMiProgresoRoute = CartillaMiProgresoRouteImport.update({
+  id: '/cartilla/mi-progreso',
+  path: '/cartilla/mi-progreso',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CartillaPracticaRoute = CartillaPracticaRouteImport.update({
+  id: '/cartilla/practica',
+  path: '/cartilla/practica',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CartillaRepasoRoute = CartillaRepasoRouteImport.update({
+  id: '/cartilla/repaso',
+  path: '/cartilla/repaso',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CartillaStudentLoginRoute = CartillaStudentLoginRouteImport.update({
+  id: '/cartilla/student-login',
+  path: '/cartilla/student-login',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CartillaTeacherRouteRoute = CartillaTeacherRouteRouteImport.update({
@@ -182,66 +172,29 @@ const CartillaTeacherRouteRoute = CartillaTeacherRouteRouteImport.update({
   path: '/cartilla/teacher',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CartillaTeacherIndexRoute = CartillaTeacherIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => CartillaTeacherRouteRoute,
-} as any)
-const CartillaTeacherRosterRoute = CartillaTeacherRosterRouteImport.update({
-  id: '/roster',
-  path: '/roster',
-  getParentRoute: () => CartillaTeacherRouteRoute,
-} as any)
-const CartillaTeacherReportesRoute = CartillaTeacherReportesRouteImport.update({
-  id: '/reportes',
-  path: '/reportes',
-  getParentRoute: () => CartillaTeacherRouteRoute,
-} as any)
-const CartillaTeacherProgresoRoute = CartillaTeacherProgresoRouteImport.update({
-  id: '/progreso',
-  path: '/progreso',
-  getParentRoute: () => CartillaTeacherRouteRoute,
-} as any)
-const CartillaTeacherLeccionesRoute =
-  CartillaTeacherLeccionesRouteImport.update({
-    id: '/lecciones',
-    path: '/lecciones',
-    getParentRoute: () => CartillaTeacherRouteRoute,
-  } as any)
-const CartillaTeacherGuideRoute = CartillaTeacherGuideRouteImport.update({
-  id: '/guide',
-  path: '/guide',
-  getParentRoute: () => CartillaTeacherRouteRoute,
-} as any)
-const CartillaTeacherFlipchartRoute =
-  CartillaTeacherFlipchartRouteImport.update({
-    id: '/flipchart',
-    path: '/flipchart',
-    getParentRoute: () => CartillaTeacherRouteRoute,
-  } as any)
-const CartillaTeacherCrmRoute = CartillaTeacherCrmRouteImport.update({
-  id: '/crm',
-  path: '/crm',
-  getParentRoute: () => CartillaTeacherRouteRoute,
-} as any)
-const CartillaTeacherAyudaRoute = CartillaTeacherAyudaRouteImport.update({
-  id: '/ayuda',
-  path: '/ayuda',
-  getParentRoute: () => CartillaTeacherRouteRoute,
-} as any)
-const CartillaTeacherAdminRoute = CartillaTeacherAdminRouteImport.update({
-  id: '/admin',
-  path: '/admin',
-  getParentRoute: () => CartillaTeacherRouteRoute,
-} as any)
-const CartillaPresentarNRoute = CartillaPresentarNRouteImport.update({
-  id: '/cartilla/presentar/$n',
-  path: '/cartilla/presentar/$n',
+const CartillaUnirseRoute = CartillaUnirseRouteImport.update({
+  id: '/cartilla/unirse',
+  path: '/cartilla/unirse',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CartillaPilotFaithfulNRoute = CartillaPilotFaithfulNRouteImport.update({
-  id: '/cartilla/pilot-faithful/$n',
-  path: '/cartilla/pilot-faithful/$n',
+const CartillaVocesRoute = CartillaVocesRouteImport.update({
+  id: '/cartilla/voces',
+  path: '/cartilla/voces',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CartillaImprimirNRoute = CartillaImprimirNRouteImport.update({
+  id: '/cartilla/imprimir/$n',
+  path: '/cartilla/imprimir/$n',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CartillaImprimirAllRoute = CartillaImprimirAllRouteImport.update({
+  id: '/cartilla/imprimir/all',
+  path: '/cartilla/imprimir/all',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CartillaJuegoGameIdRoute = CartillaJuegoGameIdRouteImport.update({
+  id: '/cartilla/juego/$gameId',
+  path: '/cartilla/juego/$gameId',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CartillaLeccionNRoute = CartillaLeccionNRouteImport.update({
@@ -251,59 +204,106 @@ const CartillaLeccionNRoute = CartillaLeccionNRouteImport.update({
 } as any).lazy(() =>
   import('./routes/cartilla/leccion.$n.lazy').then((d) => d.Route),
 )
-const CartillaJuegoGameIdRoute = CartillaJuegoGameIdRouteImport.update({
-  id: '/cartilla/juego/$gameId',
-  path: '/cartilla/juego/$gameId',
+const CartillaPilotFaithfulNRoute = CartillaPilotFaithfulNRouteImport.update({
+  id: '/cartilla/pilot-faithful/$n',
+  path: '/cartilla/pilot-faithful/$n',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CartillaImprimirAllRoute = CartillaImprimirAllRouteImport.update({
-  id: '/cartilla/imprimir/all',
-  path: '/cartilla/imprimir/all',
+const CartillaPresentarNRoute = CartillaPresentarNRouteImport.update({
+  id: '/cartilla/presentar/$n',
+  path: '/cartilla/presentar/$n',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CartillaImprimirNRoute = CartillaImprimirNRouteImport.update({
-  id: '/cartilla/imprimir/$n',
-  path: '/cartilla/imprimir/$n',
-  getParentRoute: () => rootRouteImport,
+const CartillaTeacherIndexRoute = CartillaTeacherIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CartillaTeacherRouteRoute,
 } as any)
-const CartillaTeacherGuiaIndexRoute =
-  CartillaTeacherGuiaIndexRouteImport.update({
-    id: '/guia/',
-    path: '/guia/',
+const CartillaTeacherAdminRoute = CartillaTeacherAdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => CartillaTeacherRouteRoute,
+} as any)
+const CartillaTeacherAyudaRoute = CartillaTeacherAyudaRouteImport.update({
+  id: '/ayuda',
+  path: '/ayuda',
+  getParentRoute: () => CartillaTeacherRouteRoute,
+} as any)
+const CartillaTeacherCrmRoute = CartillaTeacherCrmRouteImport.update({
+  id: '/crm',
+  path: '/crm',
+  getParentRoute: () => CartillaTeacherRouteRoute,
+} as any)
+const CartillaTeacherFlipchartRoute =
+  CartillaTeacherFlipchartRouteImport.update({
+    id: '/flipchart',
+    path: '/flipchart',
     getParentRoute: () => CartillaTeacherRouteRoute,
   } as any)
+const CartillaTeacherGuideRoute = CartillaTeacherGuideRouteImport.update({
+  id: '/guide',
+  path: '/guide',
+  getParentRoute: () => CartillaTeacherRouteRoute,
+} as any)
+const CartillaTeacherLeccionesRoute =
+  CartillaTeacherLeccionesRouteImport.update({
+    id: '/lecciones',
+    path: '/lecciones',
+    getParentRoute: () => CartillaTeacherRouteRoute,
+  } as any)
+const CartillaTeacherProgresoRoute = CartillaTeacherProgresoRouteImport.update({
+  id: '/progreso',
+  path: '/progreso',
+  getParentRoute: () => CartillaTeacherRouteRoute,
+} as any)
+const CartillaTeacherReportesRoute = CartillaTeacherReportesRouteImport.update({
+  id: '/reportes',
+  path: '/reportes',
+  getParentRoute: () => CartillaTeacherRouteRoute,
+} as any)
+const CartillaTeacherRosterRoute = CartillaTeacherRosterRouteImport.update({
+  id: '/roster',
+  path: '/roster',
+  getParentRoute: () => CartillaTeacherRouteRoute,
+} as any)
 const CartillaTeacherCrmIndexRoute = CartillaTeacherCrmIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => CartillaTeacherCrmRoute,
 } as any)
-const CartillaTeacherRecursosRecursoIdRoute =
-  CartillaTeacherRecursosRecursoIdRouteImport.update({
-    id: '/recursos/$recursoId',
-    path: '/recursos/$recursoId',
-    getParentRoute: () => CartillaTeacherRouteRoute,
+const CartillaTeacherCrmClassIdRoute =
+  CartillaTeacherCrmClassIdRouteImport.update({
+    id: '/$classId',
+    path: '/$classId',
+    getParentRoute: () => CartillaTeacherCrmRoute,
   } as any)
-const CartillaTeacherPaginasNRoute = CartillaTeacherPaginasNRouteImport.update({
-  id: '/paginas/$n',
-  path: '/paginas/$n',
-  getParentRoute: () => CartillaTeacherRouteRoute,
-} as any)
-const CartillaTeacherGuiaNRoute = CartillaTeacherGuiaNRouteImport.update({
-  id: '/guia/$n',
-  path: '/guia/$n',
-  getParentRoute: () => CartillaTeacherRouteRoute,
-} as any)
 const CartillaTeacherCrmArtworkRoute =
   CartillaTeacherCrmArtworkRouteImport.update({
     id: '/artwork',
     path: '/artwork',
     getParentRoute: () => CartillaTeacherCrmRoute,
   } as any)
-const CartillaTeacherCrmClassIdRoute =
-  CartillaTeacherCrmClassIdRouteImport.update({
-    id: '/$classId',
-    path: '/$classId',
-    getParentRoute: () => CartillaTeacherCrmRoute,
+const CartillaTeacherGuiaIndexRoute =
+  CartillaTeacherGuiaIndexRouteImport.update({
+    id: '/guia/',
+    path: '/guia/',
+    getParentRoute: () => CartillaTeacherRouteRoute,
+  } as any)
+const CartillaTeacherGuiaNRoute = CartillaTeacherGuiaNRouteImport.update({
+  id: '/guia/$n',
+  path: '/guia/$n',
+  getParentRoute: () => CartillaTeacherRouteRoute,
+} as any)
+const CartillaTeacherPaginasNRoute = CartillaTeacherPaginasNRouteImport.update({
+  id: '/paginas/$n',
+  path: '/paginas/$n',
+  getParentRoute: () => CartillaTeacherRouteRoute,
+} as any)
+const CartillaTeacherRecursosRecursoIdRoute =
+  CartillaTeacherRecursosRecursoIdRouteImport.update({
+    id: '/recursos/$recursoId',
+    path: '/recursos/$recursoId',
+    getParentRoute: () => CartillaTeacherRouteRoute,
   } as any)
 const CartillaTeacherCrmClassIdIndexRoute =
   CartillaTeacherCrmClassIdIndexRouteImport.update({
@@ -323,16 +323,16 @@ const CartillaTeacherCrmClassIdStudentIdIndexRoute =
     path: '/',
     getParentRoute: () => CartillaTeacherCrmClassIdStudentIdRoute,
   } as any)
-const CartillaTeacherCrmClassIdStudentIdReporteRoute =
-  CartillaTeacherCrmClassIdStudentIdReporteRouteImport.update({
-    id: '/reporte',
-    path: '/reporte',
-    getParentRoute: () => CartillaTeacherCrmClassIdStudentIdRoute,
-  } as any)
 const CartillaTeacherCrmClassIdStudentIdLessonIdRoute =
   CartillaTeacherCrmClassIdStudentIdLessonIdRouteImport.update({
     id: '/$lessonId',
     path: '/$lessonId',
+    getParentRoute: () => CartillaTeacherCrmClassIdStudentIdRoute,
+  } as any)
+const CartillaTeacherCrmClassIdStudentIdReporteRoute =
+  CartillaTeacherCrmClassIdStudentIdReporteRouteImport.update({
+    id: '/reporte',
+    path: '/reporte',
     getParentRoute: () => CartillaTeacherCrmClassIdStudentIdRoute,
   } as any)
 
@@ -691,67 +691,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/login': {
-      id: '/login'
-      path: '/login'
-      fullPath: '/login'
-      preLoaderRoute: typeof LoginRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/intro': {
-      id: '/intro'
-      path: '/intro'
-      fullPath: '/intro'
-      preLoaderRoute: typeof IntroRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/entrar': {
-      id: '/entrar'
-      path: '/entrar'
-      fullPath: '/entrar'
-      preLoaderRoute: typeof EntrarRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/dev-workbook-manifest': {
-      id: '/dev-workbook-manifest'
-      path: '/dev-workbook-manifest'
-      fullPath: '/dev-workbook-manifest'
-      preLoaderRoute: typeof DevWorkbookManifestRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/dev-living-workbook': {
-      id: '/dev-living-workbook'
-      path: '/dev-living-workbook'
-      fullPath: '/dev-living-workbook'
-      preLoaderRoute: typeof DevLivingWorkbookRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/dev-gretel': {
-      id: '/dev-gretel'
-      path: '/dev-gretel'
-      fullPath: '/dev-gretel'
-      preLoaderRoute: typeof DevGretelRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/credits': {
-      id: '/credits'
-      path: '/credits'
-      fullPath: '/credits'
-      preLoaderRoute: typeof CreditsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/classroom': {
-      id: '/classroom'
-      path: '/classroom'
-      fullPath: '/classroom'
-      preLoaderRoute: typeof ClassroomRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/book': {
-      id: '/book'
-      path: '/book'
-      fullPath: '/book'
-      preLoaderRoute: typeof BookRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/activities': {
@@ -761,11 +705,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ActivitiesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/book': {
+      id: '/book'
+      path: '/book'
+      fullPath: '/book'
+      preLoaderRoute: typeof BookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/classroom': {
+      id: '/classroom'
+      path: '/classroom'
+      fullPath: '/classroom'
+      preLoaderRoute: typeof ClassroomRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/credits': {
+      id: '/credits'
+      path: '/credits'
+      fullPath: '/credits'
+      preLoaderRoute: typeof CreditsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dev-gretel': {
+      id: '/dev-gretel'
+      path: '/dev-gretel'
+      fullPath: '/dev-gretel'
+      preLoaderRoute: typeof DevGretelRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dev-living-workbook': {
+      id: '/dev-living-workbook'
+      path: '/dev-living-workbook'
+      fullPath: '/dev-living-workbook'
+      preLoaderRoute: typeof DevLivingWorkbookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dev-workbook-manifest': {
+      id: '/dev-workbook-manifest'
+      path: '/dev-workbook-manifest'
+      fullPath: '/dev-workbook-manifest'
+      preLoaderRoute: typeof DevWorkbookManifestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/entrar': {
+      id: '/entrar'
+      path: '/entrar'
+      fullPath: '/entrar'
+      preLoaderRoute: typeof EntrarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/intro': {
+      id: '/intro'
+      path: '/intro'
+      fullPath: '/intro'
+      preLoaderRoute: typeof IntroRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cartilla/': {
@@ -775,67 +775,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CartillaIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/cartilla/voces': {
-      id: '/cartilla/voces'
-      path: '/cartilla/voces'
-      fullPath: '/cartilla/voces'
-      preLoaderRoute: typeof CartillaVocesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/cartilla/unirse': {
-      id: '/cartilla/unirse'
-      path: '/cartilla/unirse'
-      fullPath: '/cartilla/unirse'
-      preLoaderRoute: typeof CartillaUnirseRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/cartilla/student-login': {
-      id: '/cartilla/student-login'
-      path: '/cartilla/student-login'
-      fullPath: '/cartilla/student-login'
-      preLoaderRoute: typeof CartillaStudentLoginRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/cartilla/repaso': {
-      id: '/cartilla/repaso'
-      path: '/cartilla/repaso'
-      fullPath: '/cartilla/repaso'
-      preLoaderRoute: typeof CartillaRepasoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/cartilla/practica': {
-      id: '/cartilla/practica'
-      path: '/cartilla/practica'
-      fullPath: '/cartilla/practica'
-      preLoaderRoute: typeof CartillaPracticaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/cartilla/mi-progreso': {
-      id: '/cartilla/mi-progreso'
-      path: '/cartilla/mi-progreso'
-      fullPath: '/cartilla/mi-progreso'
-      preLoaderRoute: typeof CartillaMiProgresoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/cartilla/lecciones': {
-      id: '/cartilla/lecciones'
-      path: '/cartilla/lecciones'
-      fullPath: '/cartilla/lecciones'
-      preLoaderRoute: typeof CartillaLeccionesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/cartilla/cuaderno': {
-      id: '/cartilla/cuaderno'
-      path: '/cartilla/cuaderno'
-      fullPath: '/cartilla/cuaderno'
-      preLoaderRoute: typeof CartillaCuadernoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/cartilla/ayuda': {
-      id: '/cartilla/ayuda'
-      path: '/cartilla/ayuda'
-      fullPath: '/cartilla/ayuda'
-      preLoaderRoute: typeof CartillaAyudaRouteImport
+    '/cartilla/animales': {
+      id: '/cartilla/animales'
+      path: '/cartilla/animales'
+      fullPath: '/cartilla/animales'
+      preLoaderRoute: typeof CartillaAnimalesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cartilla/autora': {
@@ -845,11 +789,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CartillaAutoraRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/cartilla/animales': {
-      id: '/cartilla/animales'
-      path: '/cartilla/animales'
-      fullPath: '/cartilla/animales'
-      preLoaderRoute: typeof CartillaAnimalesRouteImport
+    '/cartilla/ayuda': {
+      id: '/cartilla/ayuda'
+      path: '/cartilla/ayuda'
+      fullPath: '/cartilla/ayuda'
+      preLoaderRoute: typeof CartillaAyudaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cartilla/cuaderno': {
+      id: '/cartilla/cuaderno'
+      path: '/cartilla/cuaderno'
+      fullPath: '/cartilla/cuaderno'
+      preLoaderRoute: typeof CartillaCuadernoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cartilla/lecciones': {
+      id: '/cartilla/lecciones'
+      path: '/cartilla/lecciones'
+      fullPath: '/cartilla/lecciones'
+      preLoaderRoute: typeof CartillaLeccionesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cartilla/mi-progreso': {
+      id: '/cartilla/mi-progreso'
+      path: '/cartilla/mi-progreso'
+      fullPath: '/cartilla/mi-progreso'
+      preLoaderRoute: typeof CartillaMiProgresoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cartilla/practica': {
+      id: '/cartilla/practica'
+      path: '/cartilla/practica'
+      fullPath: '/cartilla/practica'
+      preLoaderRoute: typeof CartillaPracticaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cartilla/repaso': {
+      id: '/cartilla/repaso'
+      path: '/cartilla/repaso'
+      fullPath: '/cartilla/repaso'
+      preLoaderRoute: typeof CartillaRepasoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cartilla/student-login': {
+      id: '/cartilla/student-login'
+      path: '/cartilla/student-login'
+      fullPath: '/cartilla/student-login'
+      preLoaderRoute: typeof CartillaStudentLoginRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cartilla/teacher': {
@@ -859,109 +845,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CartillaTeacherRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/cartilla/teacher/': {
-      id: '/cartilla/teacher/'
-      path: '/'
-      fullPath: '/cartilla/teacher/'
-      preLoaderRoute: typeof CartillaTeacherIndexRouteImport
-      parentRoute: typeof CartillaTeacherRouteRoute
-    }
-    '/cartilla/teacher/roster': {
-      id: '/cartilla/teacher/roster'
-      path: '/roster'
-      fullPath: '/cartilla/teacher/roster'
-      preLoaderRoute: typeof CartillaTeacherRosterRouteImport
-      parentRoute: typeof CartillaTeacherRouteRoute
-    }
-    '/cartilla/teacher/reportes': {
-      id: '/cartilla/teacher/reportes'
-      path: '/reportes'
-      fullPath: '/cartilla/teacher/reportes'
-      preLoaderRoute: typeof CartillaTeacherReportesRouteImport
-      parentRoute: typeof CartillaTeacherRouteRoute
-    }
-    '/cartilla/teacher/progreso': {
-      id: '/cartilla/teacher/progreso'
-      path: '/progreso'
-      fullPath: '/cartilla/teacher/progreso'
-      preLoaderRoute: typeof CartillaTeacherProgresoRouteImport
-      parentRoute: typeof CartillaTeacherRouteRoute
-    }
-    '/cartilla/teacher/lecciones': {
-      id: '/cartilla/teacher/lecciones'
-      path: '/lecciones'
-      fullPath: '/cartilla/teacher/lecciones'
-      preLoaderRoute: typeof CartillaTeacherLeccionesRouteImport
-      parentRoute: typeof CartillaTeacherRouteRoute
-    }
-    '/cartilla/teacher/guide': {
-      id: '/cartilla/teacher/guide'
-      path: '/guide'
-      fullPath: '/cartilla/teacher/guide'
-      preLoaderRoute: typeof CartillaTeacherGuideRouteImport
-      parentRoute: typeof CartillaTeacherRouteRoute
-    }
-    '/cartilla/teacher/flipchart': {
-      id: '/cartilla/teacher/flipchart'
-      path: '/flipchart'
-      fullPath: '/cartilla/teacher/flipchart'
-      preLoaderRoute: typeof CartillaTeacherFlipchartRouteImport
-      parentRoute: typeof CartillaTeacherRouteRoute
-    }
-    '/cartilla/teacher/crm': {
-      id: '/cartilla/teacher/crm'
-      path: '/crm'
-      fullPath: '/cartilla/teacher/crm'
-      preLoaderRoute: typeof CartillaTeacherCrmRouteImport
-      parentRoute: typeof CartillaTeacherRouteRoute
-    }
-    '/cartilla/teacher/ayuda': {
-      id: '/cartilla/teacher/ayuda'
-      path: '/ayuda'
-      fullPath: '/cartilla/teacher/ayuda'
-      preLoaderRoute: typeof CartillaTeacherAyudaRouteImport
-      parentRoute: typeof CartillaTeacherRouteRoute
-    }
-    '/cartilla/teacher/admin': {
-      id: '/cartilla/teacher/admin'
-      path: '/admin'
-      fullPath: '/cartilla/teacher/admin'
-      preLoaderRoute: typeof CartillaTeacherAdminRouteImport
-      parentRoute: typeof CartillaTeacherRouteRoute
-    }
-    '/cartilla/presentar/$n': {
-      id: '/cartilla/presentar/$n'
-      path: '/cartilla/presentar/$n'
-      fullPath: '/cartilla/presentar/$n'
-      preLoaderRoute: typeof CartillaPresentarNRouteImport
+    '/cartilla/unirse': {
+      id: '/cartilla/unirse'
+      path: '/cartilla/unirse'
+      fullPath: '/cartilla/unirse'
+      preLoaderRoute: typeof CartillaUnirseRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/cartilla/pilot-faithful/$n': {
-      id: '/cartilla/pilot-faithful/$n'
-      path: '/cartilla/pilot-faithful/$n'
-      fullPath: '/cartilla/pilot-faithful/$n'
-      preLoaderRoute: typeof CartillaPilotFaithfulNRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/cartilla/leccion/$n': {
-      id: '/cartilla/leccion/$n'
-      path: '/cartilla/leccion/$n'
-      fullPath: '/cartilla/leccion/$n'
-      preLoaderRoute: typeof CartillaLeccionNRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/cartilla/juego/$gameId': {
-      id: '/cartilla/juego/$gameId'
-      path: '/cartilla/juego/$gameId'
-      fullPath: '/cartilla/juego/$gameId'
-      preLoaderRoute: typeof CartillaJuegoGameIdRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/cartilla/imprimir/all': {
-      id: '/cartilla/imprimir/all'
-      path: '/cartilla/imprimir/all'
-      fullPath: '/cartilla/imprimir/all'
-      preLoaderRoute: typeof CartillaImprimirAllRouteImport
+    '/cartilla/voces': {
+      id: '/cartilla/voces'
+      path: '/cartilla/voces'
+      fullPath: '/cartilla/voces'
+      preLoaderRoute: typeof CartillaVocesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cartilla/imprimir/$n': {
@@ -971,11 +866,109 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CartillaImprimirNRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/cartilla/teacher/guia/': {
-      id: '/cartilla/teacher/guia/'
-      path: '/guia'
-      fullPath: '/cartilla/teacher/guia/'
-      preLoaderRoute: typeof CartillaTeacherGuiaIndexRouteImport
+    '/cartilla/imprimir/all': {
+      id: '/cartilla/imprimir/all'
+      path: '/cartilla/imprimir/all'
+      fullPath: '/cartilla/imprimir/all'
+      preLoaderRoute: typeof CartillaImprimirAllRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cartilla/juego/$gameId': {
+      id: '/cartilla/juego/$gameId'
+      path: '/cartilla/juego/$gameId'
+      fullPath: '/cartilla/juego/$gameId'
+      preLoaderRoute: typeof CartillaJuegoGameIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cartilla/leccion/$n': {
+      id: '/cartilla/leccion/$n'
+      path: '/cartilla/leccion/$n'
+      fullPath: '/cartilla/leccion/$n'
+      preLoaderRoute: typeof CartillaLeccionNRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cartilla/pilot-faithful/$n': {
+      id: '/cartilla/pilot-faithful/$n'
+      path: '/cartilla/pilot-faithful/$n'
+      fullPath: '/cartilla/pilot-faithful/$n'
+      preLoaderRoute: typeof CartillaPilotFaithfulNRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cartilla/presentar/$n': {
+      id: '/cartilla/presentar/$n'
+      path: '/cartilla/presentar/$n'
+      fullPath: '/cartilla/presentar/$n'
+      preLoaderRoute: typeof CartillaPresentarNRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cartilla/teacher/': {
+      id: '/cartilla/teacher/'
+      path: '/'
+      fullPath: '/cartilla/teacher/'
+      preLoaderRoute: typeof CartillaTeacherIndexRouteImport
+      parentRoute: typeof CartillaTeacherRouteRoute
+    }
+    '/cartilla/teacher/admin': {
+      id: '/cartilla/teacher/admin'
+      path: '/admin'
+      fullPath: '/cartilla/teacher/admin'
+      preLoaderRoute: typeof CartillaTeacherAdminRouteImport
+      parentRoute: typeof CartillaTeacherRouteRoute
+    }
+    '/cartilla/teacher/ayuda': {
+      id: '/cartilla/teacher/ayuda'
+      path: '/ayuda'
+      fullPath: '/cartilla/teacher/ayuda'
+      preLoaderRoute: typeof CartillaTeacherAyudaRouteImport
+      parentRoute: typeof CartillaTeacherRouteRoute
+    }
+    '/cartilla/teacher/crm': {
+      id: '/cartilla/teacher/crm'
+      path: '/crm'
+      fullPath: '/cartilla/teacher/crm'
+      preLoaderRoute: typeof CartillaTeacherCrmRouteImport
+      parentRoute: typeof CartillaTeacherRouteRoute
+    }
+    '/cartilla/teacher/flipchart': {
+      id: '/cartilla/teacher/flipchart'
+      path: '/flipchart'
+      fullPath: '/cartilla/teacher/flipchart'
+      preLoaderRoute: typeof CartillaTeacherFlipchartRouteImport
+      parentRoute: typeof CartillaTeacherRouteRoute
+    }
+    '/cartilla/teacher/guide': {
+      id: '/cartilla/teacher/guide'
+      path: '/guide'
+      fullPath: '/cartilla/teacher/guide'
+      preLoaderRoute: typeof CartillaTeacherGuideRouteImport
+      parentRoute: typeof CartillaTeacherRouteRoute
+    }
+    '/cartilla/teacher/lecciones': {
+      id: '/cartilla/teacher/lecciones'
+      path: '/lecciones'
+      fullPath: '/cartilla/teacher/lecciones'
+      preLoaderRoute: typeof CartillaTeacherLeccionesRouteImport
+      parentRoute: typeof CartillaTeacherRouteRoute
+    }
+    '/cartilla/teacher/progreso': {
+      id: '/cartilla/teacher/progreso'
+      path: '/progreso'
+      fullPath: '/cartilla/teacher/progreso'
+      preLoaderRoute: typeof CartillaTeacherProgresoRouteImport
+      parentRoute: typeof CartillaTeacherRouteRoute
+    }
+    '/cartilla/teacher/reportes': {
+      id: '/cartilla/teacher/reportes'
+      path: '/reportes'
+      fullPath: '/cartilla/teacher/reportes'
+      preLoaderRoute: typeof CartillaTeacherReportesRouteImport
+      parentRoute: typeof CartillaTeacherRouteRoute
+    }
+    '/cartilla/teacher/roster': {
+      id: '/cartilla/teacher/roster'
+      path: '/roster'
+      fullPath: '/cartilla/teacher/roster'
+      preLoaderRoute: typeof CartillaTeacherRosterRouteImport
       parentRoute: typeof CartillaTeacherRouteRoute
     }
     '/cartilla/teacher/crm/': {
@@ -985,18 +978,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CartillaTeacherCrmIndexRouteImport
       parentRoute: typeof CartillaTeacherCrmRoute
     }
-    '/cartilla/teacher/recursos/$recursoId': {
-      id: '/cartilla/teacher/recursos/$recursoId'
-      path: '/recursos/$recursoId'
-      fullPath: '/cartilla/teacher/recursos/$recursoId'
-      preLoaderRoute: typeof CartillaTeacherRecursosRecursoIdRouteImport
-      parentRoute: typeof CartillaTeacherRouteRoute
+    '/cartilla/teacher/crm/$classId': {
+      id: '/cartilla/teacher/crm/$classId'
+      path: '/$classId'
+      fullPath: '/cartilla/teacher/crm/$classId'
+      preLoaderRoute: typeof CartillaTeacherCrmClassIdRouteImport
+      parentRoute: typeof CartillaTeacherCrmRoute
     }
-    '/cartilla/teacher/paginas/$n': {
-      id: '/cartilla/teacher/paginas/$n'
-      path: '/paginas/$n'
-      fullPath: '/cartilla/teacher/paginas/$n'
-      preLoaderRoute: typeof CartillaTeacherPaginasNRouteImport
+    '/cartilla/teacher/crm/artwork': {
+      id: '/cartilla/teacher/crm/artwork'
+      path: '/artwork'
+      fullPath: '/cartilla/teacher/crm/artwork'
+      preLoaderRoute: typeof CartillaTeacherCrmArtworkRouteImport
+      parentRoute: typeof CartillaTeacherCrmRoute
+    }
+    '/cartilla/teacher/guia/': {
+      id: '/cartilla/teacher/guia/'
+      path: '/guia'
+      fullPath: '/cartilla/teacher/guia/'
+      preLoaderRoute: typeof CartillaTeacherGuiaIndexRouteImport
       parentRoute: typeof CartillaTeacherRouteRoute
     }
     '/cartilla/teacher/guia/$n': {
@@ -1006,19 +1006,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CartillaTeacherGuiaNRouteImport
       parentRoute: typeof CartillaTeacherRouteRoute
     }
-    '/cartilla/teacher/crm/artwork': {
-      id: '/cartilla/teacher/crm/artwork'
-      path: '/artwork'
-      fullPath: '/cartilla/teacher/crm/artwork'
-      preLoaderRoute: typeof CartillaTeacherCrmArtworkRouteImport
-      parentRoute: typeof CartillaTeacherCrmRoute
+    '/cartilla/teacher/paginas/$n': {
+      id: '/cartilla/teacher/paginas/$n'
+      path: '/paginas/$n'
+      fullPath: '/cartilla/teacher/paginas/$n'
+      preLoaderRoute: typeof CartillaTeacherPaginasNRouteImport
+      parentRoute: typeof CartillaTeacherRouteRoute
     }
-    '/cartilla/teacher/crm/$classId': {
-      id: '/cartilla/teacher/crm/$classId'
-      path: '/$classId'
-      fullPath: '/cartilla/teacher/crm/$classId'
-      preLoaderRoute: typeof CartillaTeacherCrmClassIdRouteImport
-      parentRoute: typeof CartillaTeacherCrmRoute
+    '/cartilla/teacher/recursos/$recursoId': {
+      id: '/cartilla/teacher/recursos/$recursoId'
+      path: '/recursos/$recursoId'
+      fullPath: '/cartilla/teacher/recursos/$recursoId'
+      preLoaderRoute: typeof CartillaTeacherRecursosRecursoIdRouteImport
+      parentRoute: typeof CartillaTeacherRouteRoute
     }
     '/cartilla/teacher/crm/$classId/': {
       id: '/cartilla/teacher/crm/$classId/'
@@ -1041,18 +1041,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CartillaTeacherCrmClassIdStudentIdIndexRouteImport
       parentRoute: typeof CartillaTeacherCrmClassIdStudentIdRoute
     }
-    '/cartilla/teacher/crm/$classId/$studentId/reporte': {
-      id: '/cartilla/teacher/crm/$classId/$studentId/reporte'
-      path: '/reporte'
-      fullPath: '/cartilla/teacher/crm/$classId/$studentId/reporte'
-      preLoaderRoute: typeof CartillaTeacherCrmClassIdStudentIdReporteRouteImport
-      parentRoute: typeof CartillaTeacherCrmClassIdStudentIdRoute
-    }
     '/cartilla/teacher/crm/$classId/$studentId/$lessonId': {
       id: '/cartilla/teacher/crm/$classId/$studentId/$lessonId'
       path: '/$lessonId'
       fullPath: '/cartilla/teacher/crm/$classId/$studentId/$lessonId'
       preLoaderRoute: typeof CartillaTeacherCrmClassIdStudentIdLessonIdRouteImport
+      parentRoute: typeof CartillaTeacherCrmClassIdStudentIdRoute
+    }
+    '/cartilla/teacher/crm/$classId/$studentId/reporte': {
+      id: '/cartilla/teacher/crm/$classId/$studentId/reporte'
+      path: '/reporte'
+      fullPath: '/cartilla/teacher/crm/$classId/$studentId/reporte'
+      preLoaderRoute: typeof CartillaTeacherCrmClassIdStudentIdReporteRouteImport
       parentRoute: typeof CartillaTeacherCrmClassIdStudentIdRoute
     }
   }

@@ -46,7 +46,9 @@ export function Leccion() {
   const { n: nParam } = useParams({ from: "/cartilla/leccion/$n" });
   const navigate = useNavigate();
   const n = Number(nParam);
-  const isNativeLesson = n === 7 || n === 8 || n === 9;
+  // Native digital learning screen (one readable page at a time) is the
+  // standard student experience for every lesson in the workbook.
+  const isNativeLesson = true;
   const { isCompleted } = useLessonProgress();
   const session = useStudentSession();
   const entry = useMemo<CatalogEntry | undefined>(() => CATALOG.find((e) => e.n === n), [n]);
