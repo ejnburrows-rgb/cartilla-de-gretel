@@ -1,0 +1,118 @@
+/* Exact Workbook Replica
+ * The physical page is the design. These rules scale the locked canonical
+ * full-page image as one unit and add no decoration to the page itself.
+ */
+
+.exact-workbook-page {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 612 / 792;
+  overflow: hidden;
+  background: #fff;
+}
+
+.exact-workbook-page__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  background: #fff;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.workbook-exact-shell,
+.workbook-lesson-exact-shell {
+  min-height: 100dvh;
+  width: 100%;
+  background: #fff;
+}
+
+.workbook-exact-shell {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(0.25rem, 1vw, 0.75rem);
+}
+
+.workbook-lesson-exact-shell {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(0.25rem, 1vw, 0.75rem);
+}
+
+.digital-reader--exact {
+  width: 100%;
+}
+
+.digital-reader--exact .digital-reader__content,
+.digital-reader--exact .digital-reader__stage {
+  width: 100%;
+}
+
+.digital-reader--exact .digital-reader__stage {
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+}
+
+.digital-reader--exact .digital-reader__page-slot {
+  width: min(100%, 612px, calc((100dvh - 1rem) * 0.772727));
+  max-height: calc(100dvh - 1rem);
+  cursor: pointer;
+}
+
+.digital-reader--exact .digital-reader__page-motion {
+  background: #fff;
+}
+
+.native-lesson-viewer--exact {
+  width: min(100%, 612px, calc((100dvh - 1rem) * 0.772727));
+  margin: 0 auto;
+  padding: 0;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: inherit;
+  outline: none;
+}
+
+.native-lesson-viewer--exact:focus-visible {
+  outline: 2px solid rgba(0, 139, 130, 0.45);
+  outline-offset: 3px;
+}
+
+.native-lesson-viewer--exact .native-lesson-viewer__content {
+  width: 100%;
+  aspect-ratio: 612 / 792;
+  background: #fff;
+}
+
+@media (max-width: 640px) {
+  .workbook-exact-shell,
+  .workbook-lesson-exact-shell {
+    padding: 0;
+  }
+
+  .digital-reader--exact .digital-reader__page-slot,
+  .native-lesson-viewer--exact {
+    width: min(100%, calc(100dvh * 0.772727));
+  }
+}
+
+@media print {
+  .workbook-exact-shell,
+  .workbook-lesson-exact-shell {
+    min-height: auto;
+    padding: 0;
+  }
+
+  .exact-workbook-page {
+    break-after: page;
+  }
+}
