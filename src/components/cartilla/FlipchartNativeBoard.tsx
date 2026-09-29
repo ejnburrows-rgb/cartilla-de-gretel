@@ -38,6 +38,8 @@ export function FlipchartNativeBoard({
   const titleText = native.title.map((item) => item.text.trim()).filter(Boolean).join(" ");
   const bodyLines = native.body.filter((item) => item.text.trim().length > 0);
   const maxBody = bodyLines.reduce((max, item) => Math.max(max, item.fontSize), 1);
+  // Red-letter rule (book §1.5): red target vowel in word labels ONLY on vowel pages 3-6.
+  const isVowelPage = page.flipchartPage >= 3 && page.flipchartPage <= 6;
 
   return (
     <article
@@ -75,7 +77,16 @@ export function FlipchartNativeBoard({
                     className="fc-native-board__living-art"
                   />
                   {!decorative && (
-                    <figcaption className="fc-native-board__art-label">{asset.word}</figcaption>
+                    <figcaption className="fc-native-board__art-label">
+                      {isVowelPage && /^[aeiouáéíóú]/i.test(asset.word) ? (
+                        <>
+                          <span className="fc-native-board__art-label-red">{asset.word[0]}</span>
+                          {asset.word.slice(1)}
+                        </>
+                      ) : (
+                        asset.word
+                      )}
+                    </figcaption>
                   )}
                 </figure>
               ))}
