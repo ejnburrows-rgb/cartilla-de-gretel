@@ -74,3 +74,5 @@ public/cartilla/art/test-overlays/
 /reconstruction-output/
 .cartilla-art-import/
 .cartilla-art-backup/
+verification-screenshots/
+verification-screenshots-fresh/

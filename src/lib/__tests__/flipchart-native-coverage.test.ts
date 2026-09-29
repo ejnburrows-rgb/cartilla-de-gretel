@@ -29,25 +29,20 @@ describe("native Flip Chart coverage", () => {
     }
   });
 
-  it("prefers final optimized exclusive art over superseded source crops", () => {
+  it("uses faithful book art after fabricated exclusive images were removed", () => {
+    // 2026-09-29: All 32 ChatGPT-fabricated "exclusive" images were deleted per owner directive
+    // (IMAGE_GENERATION_BAN.md). Pages now fall back to faithful book crops. This test verifies
+    // no page references the deleted fabricated images.
+    for (let pageNumber = 3; pageNumber <= 62; pageNumber += 1) {
+      const page = getNativeFlipchartPage(pageNumber);
+      for (const asset of page?.art ?? []) {
+        expect(asset.src).not.toContain("/optimized/flipchart-exclusive/");
+      }
+    }
+    // Spot-check that pages still have art from legitimate sources
     const page21 = getNativeFlipchartPage(21);
-    const page26 = getNativeFlipchartPage(26);
-    const page32 = getNativeFlipchartPage(32);
-    const page35 = getNativeFlipchartPage(35);
-
-    expect(page21?.art[0]?.src).toBe("/cartilla/art/optimized/flipchart-exclusive/p021-campana-d.webp");
-    expect(page26?.art[0]?.src).toBe("/cartilla/art/optimized/flipchart-exclusive/p026-leo-lee.webp");
-    expect(page32?.art[0]?.src).toBe("/cartilla/art/optimized/flipchart-exclusive/p032-nina-suena.webp");
-    expect(page35?.art[0]?.src).toBe("/cartilla/art/optimized/flipchart-exclusive/p035-sube-la-bola.webp");
-
-    const all = [page21, page26, page32, page35].flatMap((page) => page?.art ?? []);
-    expect(
-      all.some(
-        (asset) =>
-          /p021-campana-nino|p026-gretel-reading|p032-nina-suena|p035-bebo-batea/.test(asset.src) &&
-          asset.src.includes("/faithful/flipchart-native/"),
-      ),
-    ).toBe(false);
+    expect(page21?.art.length).toBeGreaterThan(0);
+    expect(page21?.art[0]?.src).toMatch(/^\/cartilla\/art\/faithful\//);
   });
 
   it("keeps drill-page vocabulary in word chips while story pages stay prose", () => {
