@@ -90,9 +90,11 @@ test('touch tap can place a vowel without dragging', async ({ browser }) => {
   const page = await context.newPage();
   try {
     await page.goto('/cartilla/leccion/1', { waitUntil: 'domcontentloaded' });
-  await dismissIntro(page);
-    await page.getByTestId('physical-book-reader').locator('.book-reader-controls button').last().tap();
-    await expect(page.getByTestId('physical-book-counter')).toContainText('Página 2');
+    await dismissIntro(page);
+    const reader = page.locator('.native-lesson-viewer');
+    await expect(reader).toBeVisible();
+    await reader.getByRole('button', { name: 'Siguiente' }).tap();
+    await expect(reader.locator('.native-lesson-viewer__page')).toContainText('Página 2');
     const row = page.locator('.fp-ix-pick__row:visible').first();
     await row.locator('.fp-ix-pick__letter').tap();
     const correct = row.locator('.fp-ix-cell--droppable[data-gretel-correct="true"]').first();
